@@ -13,11 +13,18 @@ module Stratosphere.Template
 import Data.Aeson
 import Data.Aeson.TH
 import qualified Data.HashMap.Strict as HM
-import Data.Maybe (catMaybes)
 import qualified Data.Text as T
 import GHC.Exts (fromList)
 
-import Stratosphere.Helpers
+
+data Resource =
+  Resource
+  { resourceType :: T.Text
+  , resourceProperties :: Object
+  } deriving (Show)
+
+$(deriveJSON defaultOptions { fieldLabelModifier = drop 8 } ''Resource)
+
 
 data Template =
   Template
@@ -28,14 +35,8 @@ data Template =
   , templateResources :: HM.HashMap T.Text Resource
   } deriving (Show)
 
-instance ToJSON Template where
-  toJSON Template{..} = object $ catMaybes
-    [ maybeField "AWSTemplateFormatVersion" templateFormatVersion
-    , maybeField "Description" templateDescription
-    , maybeField "Metadata" templateMetadata
-    , maybeField "Mappings" templateMappings
-    , maybeField "Resources" $ Just templateResources
-    ]
+$(deriveJSON defaultOptions { fieldLabelModifier = drop 8
+                            , omitNothingFields = True } ''Template)
 
 templateDefault :: Template
 templateDefault =
@@ -46,11 +47,3 @@ templateDefault =
   , templateMappings = Nothing
   , templateResources = fromList []
   }
-
-data Resource =
-  Resource
-  { resourceType :: T.Text
-  , resourceProperties :: Object
-  } deriving (Show)
-
-$(deriveJSON defaultOptions { fieldLabelModifier = drop 8 } ''Resource)
