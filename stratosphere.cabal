@@ -30,9 +30,11 @@ library
     , aeson-pretty >= 0.7
     , bytestring
     , text >= 1.1
+    , unordered-containers >= 0.2
   exposed-modules:
       Stratosphere
     , Stratosphere.EC2
+    , Stratosphere.Helpers
     , Stratosphere.Template
   default-language: Haskell2010
 

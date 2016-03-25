@@ -1,5 +1,6 @@
 {-# LANGUAGE ExistentialQuantification #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE StandaloneDeriving #-}
 {-# LANGUAGE TemplateHaskell #-}
 
@@ -11,26 +12,39 @@ module Stratosphere.Template
 
 import Data.Aeson
 import Data.Aeson.TH
+import qualified Data.HashMap.Strict as HM
+import Data.Maybe (catMaybes)
 import qualified Data.Text as T
+import GHC.Exts (fromList)
 
+import Stratosphere.Helpers
 
 data Template =
   Template
   { templateFormatVersion :: Maybe T.Text
-  , templateResources :: [(T.Text, Resource)]
+  , templateDescription :: Maybe T.Text
+  , templateMetadata :: Maybe Object
+  , templateMappings :: Maybe (HM.HashMap T.Text (HM.HashMap T.Text Object))
+  , templateResources :: HM.HashMap T.Text Resource
   } deriving (Show)
 
 instance ToJSON Template where
-  toJSON (Template v rs) = object $
-    maybe [] (\v' -> ["AWSTemplateFormatVersion" .= v']) v ++
-    [ "Resources" .= object (map (\(lid, ps) -> lid .= toJSON ps) rs)
+  toJSON Template{..} = object $ catMaybes
+    [ maybeField "AWSTemplateFormatVersion" templateFormatVersion
+    , maybeField "Description" templateDescription
+    , maybeField "Metadata" templateMetadata
+    , maybeField "Mappings" templateMappings
+    , maybeField "Resources" $ Just templateResources
     ]
 
 templateDefault :: Template
 templateDefault =
   Template
   { templateFormatVersion = Nothing
-  , templateResources = []
+  , templateDescription = Nothing
+  , templateMetadata = Nothing
+  , templateMappings = Nothing
+  , templateResources = fromList []
   }
 
 data Resource =
