@@ -3,6 +3,7 @@
 module Stratosphere.Template
        ( Properties (..)
        , Template (..)
+       , templateDefault
        ) where
 
 import Data.Aeson
@@ -22,12 +23,19 @@ instance ToJSON Properties where
 
 data Template =
   Template
-  { templateAWSTemplateFormatVersion :: Maybe T.Text
+  { templateFormatVersion :: Maybe T.Text
   , templateResources :: [(T.Text, Properties)]
   } deriving (Show)
 
 instance ToJSON Template where
-  toJSON (Template v rs) = object
-    [ "AWSTemplateFormatVersion" .= v
-    , "Resources" .= object (map (\(lid, ps) -> lid .= toJSON ps) rs)
+  toJSON (Template v rs) = object $
+    maybe [] (\v' -> ["AWSTemplateFormatVersion" .= v']) v ++
+    [ "Resources" .= object (map (\(lid, ps) -> lid .= toJSON ps) rs)
     ]
+
+templateDefault :: Template
+templateDefault =
+  Template
+  { templateFormatVersion = Nothing
+  , templateResources = []
+  }
