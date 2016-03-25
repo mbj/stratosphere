@@ -1,30 +1,23 @@
+{-# LANGUAGE ExistentialQuantification #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE StandaloneDeriving #-}
+{-# LANGUAGE TemplateHaskell #-}
 
 module Stratosphere.Template
-       ( Properties (..)
-       , Template (..)
+       ( Template (..)
+       , Resource (..)
        , templateDefault
        ) where
 
 import Data.Aeson
+import Data.Aeson.TH
 import qualified Data.Text as T
 
-import Stratosphere.EC2
-
-data Properties
-  = EC2Instance EC2InstanceProperties
-  deriving (Show)
-
-instance ToJSON Properties where
-  toJSON (EC2Instance ps) = object [
-    "Type" .= ("AWS::EC2::Instance" :: String),
-    "Properties" .= toJSON ps
-    ]
 
 data Template =
   Template
   { templateFormatVersion :: Maybe T.Text
-  , templateResources :: [(T.Text, Properties)]
+  , templateResources :: [(T.Text, Resource)]
   } deriving (Show)
 
 instance ToJSON Template where
@@ -39,3 +32,11 @@ templateDefault =
   { templateFormatVersion = Nothing
   , templateResources = []
   }
+
+data Resource =
+  Resource
+  { resourceType :: T.Text
+  , resourceProperties :: Object
+  } deriving (Show)
+
+$(deriveJSON defaultOptions { fieldLabelModifier = drop 8 } ''Resource)
