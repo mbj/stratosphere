@@ -47,7 +47,7 @@ data EC2InstanceProperties =
   , ec2InstanceAdditionalInfo :: Maybe T.Text
 } deriving (Show)
 
-$(deriveJSON defaultOptions { fieldLabelModifier = drop 3
+$(deriveJSON defaultOptions { fieldLabelModifier = drop 11
                             , omitNothingFields = True } ''EC2InstanceProperties)
 
 ec2InstancePropertiesDefault :: EC2InstanceProperties
