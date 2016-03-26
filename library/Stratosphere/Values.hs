@@ -28,6 +28,7 @@ data Val a
  | And (Val Bool) (Val Bool)
  | Equals (Val Bool) (Val Bool)
  | Or (Val Bool) (Val Bool)
+ | GetAtt T.Text T.Text
 
 deriving instance (Show a) => Show (Val a)
 
@@ -41,6 +42,7 @@ instance (ToJSON a) => ToJSON (Val a) where
   toJSON (And x y) = mkFunc "Fn::And" [toJSON x, toJSON y]
   toJSON (Equals x y) = mkFunc "Fn::Equals" [toJSON x, toJSON y]
   toJSON (Or x y) = mkFunc "Fn::Or" [toJSON x, toJSON y]
+  toJSON (GetAtt x y) = mkFunc "Fn::GetAtt" [toJSON x, toJSON y]
 
 mkFunc :: T.Text -> [Value] -> Value
 mkFunc name args = object [(name, Array $ fromList args)]
@@ -60,5 +62,7 @@ instance (FromJSON a) => FromJSON (Val a) where
             uncurry Equals <$> parseJSON obj
           tryParseFunc "Fn::Or" obj =
             uncurry Or <$> parseJSON obj
+          tryParseFunc "Fn::GetAtt" obj =
+            uncurry GetAtt <$> parseJSON obj
           tryParseFunc n _ = fail $ "Unknown function name " ++ T.unpack n
   parseJSON v = Literal <$> parseJSON v

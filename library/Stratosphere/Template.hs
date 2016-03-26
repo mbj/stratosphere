@@ -88,10 +88,11 @@ class ToResource a where
 data Output =
   Output
   { outputDescription :: T.Text
-  , outputValue :: Object
+  , outputValue :: Value
   } deriving (Show)
 
 $(deriveJSON defaultOptions { fieldLabelModifier = drop 6 } ''Output)
+$(makeFields ''Output)
 
 data Template =
   Template
