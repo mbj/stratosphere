@@ -10,6 +10,8 @@
 module Stratosphere.Template
        ( Template (..)
        , Parameter (..)
+       , defaultParameter
+       , makeParameter
        , Resource (..)
        , ToResource (..)
        , Output (..)
@@ -68,6 +70,25 @@ $(deriveJSON defaultOptions
   , omitNothingFields = True }
   ''Parameter)
 $(makeFields ''Parameter)
+
+defaultParameter :: Parameter
+defaultParameter =
+  Parameter
+  { parameterType' = "String"
+  , parameterDefault' = Nothing
+  , parameterNoEcho = Nothing
+  , parameterAllowedValues = Nothing
+  , parameterAllowedPattern = Nothing
+  , parameterMaxLength = Nothing
+  , parameterMinLength = Nothing
+  , parameterMaxValue = Nothing
+  , parameterMinValue = Nothing
+  , parameterDescription = Nothing
+  , parameterConstraintDescription = Nothing
+  }
+
+makeParameter :: T.Text -> Parameter
+makeParameter ptype = defaultParameter & type' .~ ptype
 
 type Mapping = HM.HashMap T.Text Object
 
