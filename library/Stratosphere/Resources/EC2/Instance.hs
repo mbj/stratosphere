@@ -4,7 +4,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE TemplateHaskell #-}
 
-module Stratosphere.EC2
+module Stratosphere.Resources.EC2.Instance
        ( EC2Instance (..)
        , ec2InstanceDefault
        , makeEC2Instance

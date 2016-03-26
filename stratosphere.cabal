@@ -35,8 +35,9 @@ library
     , unordered-containers >= 0.2
   exposed-modules:
       Stratosphere
-    , Stratosphere.EC2
     , Stratosphere.Helpers
+    , Stratosphere.Resources
+    , Stratosphere.Resources.EC2.Instance
     , Stratosphere.Template
     , Stratosphere.Values
   default-language: Haskell2010
