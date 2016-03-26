@@ -29,6 +29,8 @@ library
     , aeson == 0.9.*
     , aeson-pretty >= 0.7
     , bytestring
+    , lens >= 4.5
+    , template-haskell >= 2.0
     , text >= 1.1
     , unordered-containers >= 0.2
   exposed-modules:

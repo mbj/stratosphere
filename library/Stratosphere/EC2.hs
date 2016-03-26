@@ -1,16 +1,49 @@
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE FunctionalDependencies #-}
+{-# LANGUAGE MultiParamTypeClasses #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE TemplateHaskell #-}
 
 module Stratosphere.EC2
-       ( EC2InstanceProperties (..)
-       , ec2InstancePropertiesDefault
+       ( EC2Instance (..)
+       , ec2InstanceDefault
+       , makeEC2Instance
        , ResourceTag (..)
+
+       -- Lenses
+       , availabilityZone
+       --, blockDeviceMappings
+       , disableApiTermination
+       , ebsOptimized
+       , iamInstanceProfile
+       , imageId
+       , instanceInitiatedShutdownBehavior
+       , instanceType
+       , kernelId
+       , keyName
+       , monitoring
+       --, networkInterfaces
+       , placementGroupName
+       , privateIpAddress
+       , ramdiskId
+       , securityGroupIds
+       , securityGroups
+       , sourceDestCheck
+       --, ssmAssociations
+       , subnetId
+       , tags
+       , tenancy
+       , userData
+       --, volumes
+       , additionalInfo
        ) where
 
+import Control.Lens.TH
 import Data.Aeson
 import Data.Aeson.TH
 import qualified Data.Text as T
 
+import Stratosphere.Helpers
 import Stratosphere.Template
 import Stratosphere.Values
 
@@ -22,8 +55,8 @@ data ResourceTag =
 
 $(deriveJSON defaultOptions { fieldLabelModifier = drop 3 } ''ResourceTag)
 
-data EC2InstanceProperties =
-  EC2InstanceProperties
+data EC2Instance =
+  EC2Instance
   { ec2InstanceAvailabilityZone :: Maybe (Val T.Text)
   --, ec2InstanceBlockDeviceMappings :: [ EC2 Block Device Mapping, ... ]
   , ec2InstanceDisableApiTermination :: Maybe (Val Bool)
@@ -49,14 +82,15 @@ data EC2InstanceProperties =
   , ec2InstanceUserData :: Maybe (Val T.Text)
   --, ec2InstanceVolumes :: [ EC2 MountPoint, ... ]
   , ec2InstanceAdditionalInfo :: Maybe (Val T.Text)
-} deriving (Show)
+  } deriving (Show)
 
 $(deriveJSON defaultOptions { fieldLabelModifier = drop 11
-                            , omitNothingFields = True } ''EC2InstanceProperties)
+                            , omitNothingFields = True } ''EC2Instance)
+$(makeLensesWith (prefixFieldRules "ec2Instance") ''EC2Instance)
 
-ec2InstancePropertiesDefault :: EC2InstanceProperties
-ec2InstancePropertiesDefault =
-  EC2InstanceProperties
+ec2InstanceDefault :: EC2Instance
+ec2InstanceDefault =
+  EC2Instance
   { ec2InstanceAvailabilityZone = Nothing
   --, ec2InstanceBlockDeviceMappings :: [ EC2 Block Device Mapping, ... ]
   , ec2InstanceDisableApiTermination = Nothing
@@ -84,11 +118,15 @@ ec2InstancePropertiesDefault =
   , ec2InstanceAdditionalInfo = Nothing
   }
 
+makeEC2Instance :: ImageId -> EC2Instance
+makeEC2Instance iid = ec2InstanceDefault { ec2InstanceImageId = Literal iid }
 
-instance ToResource EC2InstanceProperties where
+type ImageId = T.Text
+
+instance ToResource EC2Instance where
   toResource props =
     Resource
-    { resourceType = "AWS::EC2::Instance"
+    { resourceType' = "AWS::EC2::Instance"
     , resourceProperties = props'
     }
     where (Object props') = toJSON props

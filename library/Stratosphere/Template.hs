@@ -1,4 +1,7 @@
 {-# LANGUAGE ExistentialQuantification #-}
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE FunctionalDependencies #-}
+{-# LANGUAGE MultiParamTypeClasses #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE StandaloneDeriving #-}
@@ -11,8 +14,34 @@ module Stratosphere.Template
        , ToResource (..)
        , Output (..)
        , templateDefault
+
+       -- Template lenses
+       , formatVersion
+       , description
+       , metadata
+       , parameters
+       , mappings
+       , conditions
+       , resources
+       , outputs
+
+       -- Resource lenses
+       , type'
+       , properties
+
+       -- Parameter lenses
+       , default'
+       , noEcho
+       , allowedValues
+       , allowedPattern
+       , maxLength
+       , minLength
+       , maxValue
+       , minValue
+       , constraintDescription
        ) where
 
+import Control.Lens
 import Data.Aeson
 import Data.Aeson.TH
 import qualified Data.HashMap.Strict as HM
@@ -21,8 +50,8 @@ import GHC.Exts (fromList)
 
 data Parameter =
   Parameter
-  { parameterType :: T.Text
-  , parameterDefault :: Maybe Value
+  { parameterType' :: T.Text
+  , parameterDefault' :: Maybe Value
   , parameterNoEcho :: Maybe Bool
   , parameterAllowedValues :: Maybe Array
   , parameterAllowedPattern :: Maybe T.Text
@@ -34,18 +63,24 @@ data Parameter =
   , parameterConstraintDescription :: Maybe T.Text
   } deriving (Show)
 
-$(deriveJSON defaultOptions { fieldLabelModifier = drop 9
-                            , omitNothingFields = True } ''Parameter)
+$(deriveJSON defaultOptions
+  { fieldLabelModifier = drop 9 . filter (/= '\'')
+  , omitNothingFields = True }
+  ''Parameter)
+$(makeFields ''Parameter)
 
 type Mapping = HM.HashMap T.Text Object
 
 data Resource =
   Resource
-  { resourceType :: T.Text
+  { resourceType' :: T.Text
   , resourceProperties :: Object
   } deriving (Show)
 
-$(deriveJSON defaultOptions { fieldLabelModifier = drop 8 } ''Resource)
+$(deriveJSON defaultOptions
+  { fieldLabelModifier = drop 8 . filter (/= '\'') }
+  ''Resource)
+$(makeFields ''Resource)
 
 class ToResource a where
   toResource :: a -> Resource
@@ -72,6 +107,7 @@ data Template =
 
 $(deriveJSON defaultOptions { fieldLabelModifier = drop 8
                             , omitNothingFields = True } ''Template)
+$(makeFields ''Template)
 
 templateDefault :: Template
 templateDefault =
