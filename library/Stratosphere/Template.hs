@@ -16,6 +16,7 @@ module Stratosphere.Template
        , ToResource (..)
        , Output (..)
        , templateDefault
+       , encodeTemplate
 
        -- Template lenses
        , formatVersion
@@ -45,7 +46,9 @@ module Stratosphere.Template
 
 import Control.Lens
 import Data.Aeson
+import Data.Aeson.Encode.Pretty
 import Data.Aeson.TH
+import qualified Data.ByteString.Lazy as BS
 import qualified Data.HashMap.Strict as HM
 import qualified Data.Text as T
 import GHC.Exts (fromList)
@@ -143,3 +146,15 @@ templateDefault =
   , templateResources = fromList []
   , templateOutputs = Nothing
   }
+
+encodeTemplate :: Template -> BS.ByteString
+encodeTemplate = encodePretty' defConfig { confCompare = comp }
+  where comp = keyOrder [ "FormatVersion"
+                        , "Description"
+                        , "Metadata"
+                        , "Parameters"
+                        , "Mappings"
+                        , "Conditions"
+                        , "Resources"
+                        , "Outputs"
+                        ]
