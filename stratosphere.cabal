@@ -37,6 +37,8 @@ library
       Stratosphere
     , Stratosphere.Helpers
     , Stratosphere.Resources
+    , Stratosphere.Resources.EC2.EIP
+    , Stratosphere.Resources.EC2.EIPAssociation
     , Stratosphere.Resources.EC2.Instance
     , Stratosphere.Resources.EC2.VPC
     , Stratosphere.Template

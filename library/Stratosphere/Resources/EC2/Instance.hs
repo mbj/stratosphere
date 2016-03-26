@@ -10,6 +10,7 @@ module Stratosphere.Resources.EC2.Instance
        , makeEC2Instance
        , ResourceTag (..)
        , HasTags
+       , HasPrivateIpAddress
 
        -- Lenses
        , availabilityZone
