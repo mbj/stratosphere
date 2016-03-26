@@ -3,3 +3,4 @@ module Stratosphere.Resources
        ) where
 
 import Stratosphere.Resources.EC2.Instance as X
+import Stratosphere.Resources.EC2.VPC as X

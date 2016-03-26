@@ -38,6 +38,7 @@ library
     , Stratosphere.Helpers
     , Stratosphere.Resources
     , Stratosphere.Resources.EC2.Instance
+    , Stratosphere.Resources.EC2.VPC
     , Stratosphere.Template
     , Stratosphere.Values
   default-language: Haskell2010

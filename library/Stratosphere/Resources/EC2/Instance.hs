@@ -9,6 +9,7 @@ module Stratosphere.Resources.EC2.Instance
        , ec2InstanceDefault
        , makeEC2Instance
        , ResourceTag (..)
+       , HasTags
 
        -- Lenses
        , availabilityZone
@@ -119,9 +120,9 @@ ec2InstanceDefault =
   }
 
 makeEC2Instance :: ImageId -> EC2Instance
-makeEC2Instance iid = ec2InstanceDefault { ec2InstanceImageId = Literal iid }
+makeEC2Instance iid = ec2InstanceDefault { ec2InstanceImageId = iid }
 
-type ImageId = T.Text
+type ImageId = Val T.Text
 
 instance ToResource EC2Instance where
   toResource props =
