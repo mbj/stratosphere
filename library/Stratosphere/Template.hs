@@ -8,6 +8,7 @@ module Stratosphere.Template
        ( Template (..)
        , Parameter (..)
        , Resource (..)
+       , ToResource (..)
        , Output (..)
        , templateDefault
        ) where
@@ -45,6 +46,9 @@ data Resource =
   } deriving (Show)
 
 $(deriveJSON defaultOptions { fieldLabelModifier = drop 8 } ''Resource)
+
+class ToResource a where
+  toResource :: a -> Resource
 
 data Output =
   Output

@@ -7,8 +7,11 @@ module Stratosphere.EC2
        , ResourceTag (..)
        ) where
 
+import Data.Aeson
 import Data.Aeson.TH
 import qualified Data.Text as T
+
+import Stratosphere.Template
 
 data ResourceTag =
   ResourceTag
@@ -79,3 +82,12 @@ ec2InstancePropertiesDefault =
   --, ec2InstanceVolumes :: [ EC2 MountPoint, ... ]
   , ec2InstanceAdditionalInfo = Nothing
   }
+
+
+instance ToResource EC2InstanceProperties where
+  toResource props =
+    Resource
+    { resourceType = "AWS::EC2::Instance"
+    , resourceProperties = props'
+    }
+    where (Object props') = toJSON props
