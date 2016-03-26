@@ -12,42 +12,43 @@ import Data.Aeson.TH
 import qualified Data.Text as T
 
 import Stratosphere.Template
+import Stratosphere.Values
 
 data ResourceTag =
   ResourceTag
-  { tagKey :: T.Text
-  , tagValue :: T.Text
+  { tagKey :: Val T.Text
+  , tagValue :: Val T.Text
   } deriving (Show)
 
 $(deriveJSON defaultOptions { fieldLabelModifier = drop 3 } ''ResourceTag)
 
 data EC2InstanceProperties =
   EC2InstanceProperties
-  { ec2InstanceAvailabilityZone :: Maybe T.Text
+  { ec2InstanceAvailabilityZone :: Maybe (Val T.Text)
   --, ec2InstanceBlockDeviceMappings :: [ EC2 Block Device Mapping, ... ]
-  , ec2InstanceDisableApiTermination :: Maybe Bool
-  , ec2InstanceEbsOptimized :: Maybe Bool
-  , ec2InstanceIamInstanceProfile :: Maybe T.Text
-  , ec2InstanceImageId :: T.Text
-  , ec2InstanceInstanceInitiatedShutdownBehavior :: Maybe T.Text
-  , ec2InstanceInstanceType :: Maybe T.Text
-  , ec2InstanceKernelId :: Maybe T.Text
-  , ec2InstanceKeyName :: Maybe T.Text
-  , ec2InstanceMonitoring :: Maybe Bool
+  , ec2InstanceDisableApiTermination :: Maybe (Val Bool)
+  , ec2InstanceEbsOptimized :: Maybe (Val Bool)
+  , ec2InstanceIamInstanceProfile :: Maybe (Val T.Text)
+  , ec2InstanceImageId :: Val T.Text
+  , ec2InstanceInstanceInitiatedShutdownBehavior :: Maybe (Val T.Text)
+  , ec2InstanceInstanceType :: Maybe (Val T.Text)
+  , ec2InstanceKernelId :: Maybe (Val T.Text)
+  , ec2InstanceKeyName :: Maybe (Val T.Text)
+  , ec2InstanceMonitoring :: Maybe (Val Bool)
   --, ec2InstanceNetworkInterfaces :: [ EC2 Network Interface, ... ]
-  , ec2InstancePlacementGroupName :: Maybe T.Text
-  , ec2InstancePrivateIpAddress :: Maybe T.Text
-  , ec2InstanceRamdiskId :: Maybe T.Text
-  , ec2InstanceSecurityGroupIds :: Maybe [T.Text]
-  , ec2InstanceSecurityGroups :: Maybe [T.Text]
-  , ec2InstanceSourceDestCheck :: Maybe Bool
+  , ec2InstancePlacementGroupName :: Maybe (Val T.Text)
+  , ec2InstancePrivateIpAddress :: Maybe (Val T.Text)
+  , ec2InstanceRamdiskId :: Maybe (Val T.Text)
+  , ec2InstanceSecurityGroupIds :: Maybe [Val T.Text]
+  , ec2InstanceSecurityGroups :: Maybe [Val T.Text]
+  , ec2InstanceSourceDestCheck :: Maybe (Val Bool)
   --, ec2InstanceSsmAssociations :: [ SSMAssociation, ...
-  , ec2InstanceSubnetId :: Maybe T.Text
+  , ec2InstanceSubnetId :: Maybe (Val T.Text)
   , ec2InstanceTags :: Maybe [ResourceTag]
-  , ec2InstanceTenancy :: Maybe T.Text
-  , ec2InstanceUserData :: Maybe T.Text
+  , ec2InstanceTenancy :: Maybe (Val T.Text)
+  , ec2InstanceUserData :: Maybe (Val T.Text)
   --, ec2InstanceVolumes :: [ EC2 MountPoint, ... ]
-  , ec2InstanceAdditionalInfo :: Maybe T.Text
+  , ec2InstanceAdditionalInfo :: Maybe (Val T.Text)
 } deriving (Show)
 
 $(deriveJSON defaultOptions { fieldLabelModifier = drop 11
@@ -61,7 +62,7 @@ ec2InstancePropertiesDefault =
   , ec2InstanceDisableApiTermination = Nothing
   , ec2InstanceEbsOptimized = Nothing
   , ec2InstanceIamInstanceProfile = Nothing
-  , ec2InstanceImageId = ""
+  , ec2InstanceImageId = Literal ""
   , ec2InstanceInstanceInitiatedShutdownBehavior = Nothing
   , ec2InstanceInstanceType = Nothing
   , ec2InstanceKernelId = Nothing

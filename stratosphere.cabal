@@ -36,6 +36,7 @@ library
     , Stratosphere.EC2
     , Stratosphere.Helpers
     , Stratosphere.Template
+    , Stratosphere.Values
   default-language: Haskell2010
 
 test-suite stratosphere-test-suite
