@@ -53,15 +53,20 @@ resTypeText :: ResourceParameter -> T.Text
 resTypeText rp = tt
   where base = wrapTypeVal (rp ^. type')
         tt = if rp ^. required
-             then T.concat ["Maybe (", base, ")"]
-             else base
+             then base
+             else wrapTypeMaybe base
 
 -- | Wraps a type with "Val", accounting for whether or not it is a list.
 wrapTypeVal :: T.Text -> T.Text
 wrapTypeVal t =
   case listBaseType t of
     Nothing   -> T.concat ["Val ", t]
-    (Just t') -> T.concat ["Val [", t', "]"]
+    (Just t') -> T.concat ["[Val ", t', "]"]
+
+wrapTypeMaybe :: T.Text -> T.Text
+wrapTypeMaybe t = if isListType t
+                  then T.concat ["Maybe ", t]
+                  else T.concat ["Maybe (", t, ")"]
 
 listBaseType :: T.Text -> Maybe T.Text
 listBaseType t = if isListType t then Just t' else Nothing
