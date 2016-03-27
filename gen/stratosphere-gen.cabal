@@ -31,5 +31,6 @@ executable stratosphere-gen
     , system-fileio
     , system-filepath
     , text >= 1.1
-  --other-modules:
+  other-modules:
+      Gen.Resource
   default-language: Haskell2010
