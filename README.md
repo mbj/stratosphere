@@ -1,5 +1,7 @@
 # Stratosphere: AWS CloudFormation in Haskell
 
+[![Build Status](https://travis-ci.org/jdreaver/stratosphere.svg?branch=master)](https://travis-ci.org/jdreaver/stratosphere)
+
 Stratosphere is a Haskell library that facilitates creating and working with
 AWS CloudFormation templates. The goals of stratosphere are to:
 * Build a Haskell EDSL to specify CloudFormation templates. Since it is
