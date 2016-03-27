@@ -40,6 +40,7 @@ renderResource temp modBase fp =
               (Right res') -> return res' :: IO Resource
      let params = [ "name" .= (res ^. name)
                   , "moduleBase" .= modBase
+                  , "dependencies" .= renderDependencies (res ^. dependencies)
                   , "typeDecl" .= renderResourceTypeDecl res
                   ]
      modText <- case render temp (fromPairs params) of
@@ -53,3 +54,9 @@ renderResource temp modBase fp =
      FS.createDirectory True modDir
      putStrLn ("Writing: " ++ show modPath)
      FS.writeTextFile modPath modText
+
+
+renderDependencies :: Maybe [T.Text] -> T.Text
+renderDependencies Nothing = ""
+renderDependencies (Just deps) = T.intercalate "\n" deps'
+  where deps' = fmap (\d -> T.concat ["import Stratosphere.", d]) deps

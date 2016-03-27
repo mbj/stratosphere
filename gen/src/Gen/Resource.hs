@@ -18,17 +18,10 @@ import qualified Data.Text as T
 import qualified Filesystem as FS
 import qualified Filesystem.Path as FP
 
-data ResourceParameterType
-  = String
-  | Boolean
-  deriving (Show)
-
-$(deriveJSON defaultOptions ''ResourceParameterType)
-
 data ResourceParameter =
   ResourceParameter
   { _resourceParameterName :: T.Text
-  , _resourceParameterType' :: ResourceParameterType
+  , _resourceParameterType' :: T.Text
   , _resourceParameterDocumentation :: T.Text
   , _resourceParameterRequired :: Bool
   } deriving (Show)
@@ -41,6 +34,7 @@ $(makeFields ''ResourceParameter)
 data Resource =
   Resource
   { _resourceName :: T.Text
+  , _resourceDependencies :: Maybe [T.Text]
   , _resourceParameters :: [ResourceParameter]
   } deriving (Show)
 

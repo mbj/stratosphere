@@ -51,12 +51,21 @@ firstCharLower t = T.cons fc (T.tail t)
 -- | Get the full Haskell type text for a parameter
 resTypeText :: ResourceParameter -> T.Text
 resTypeText rp = tt
-  where base = T.concat ["Val ", resHaskType (rp ^. type')]
+  where base = wrapTypeVal (rp ^. type')
         tt = if rp ^. required
              then T.concat ["Maybe (", base, ")"]
              else base
 
--- | Make a string of the base Haskell type
-resHaskType :: ResourceParameterType -> T.Text
-resHaskType String = "Text"
-resHaskType Boolean = "Bool"
+-- | Wraps a type with "Val", accounting for whether or not it is a list.
+wrapTypeVal :: T.Text -> T.Text
+wrapTypeVal t =
+  case listBaseType t of
+    Nothing   -> T.concat ["Val ", t]
+    (Just t') -> T.concat ["Val [", t', "]"]
+
+listBaseType :: T.Text -> Maybe T.Text
+listBaseType t = if isListType t then Just t' else Nothing
+  where t' = T.tail $ T.init t  -- Remove the brackets
+
+isListType :: T.Text -> Bool
+isListType t = T.head t == '[' && T.last t == ']'
