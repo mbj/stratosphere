@@ -14,6 +14,7 @@ module Stratosphere.Template
        , makeParameter
        , Resource (..)
        , ToResource (..)
+       , OutputValue (..)
        , Output (..)
        , templateDefault
        , encodeTemplate
@@ -52,6 +53,8 @@ import qualified Data.ByteString.Lazy as BS
 import qualified Data.HashMap.Strict as HM
 import qualified Data.Text as T
 import GHC.Exts (fromList)
+
+import Stratosphere.Values
 
 data Parameter =
   Parameter
@@ -109,10 +112,23 @@ $(makeFields ''Resource)
 class ToResource a where
   toResource :: a -> Resource
 
+-- This is a kludge so we don't have to have heterogeneous collections to hold
+-- Outputs.
+data OutputValue = forall a. (Show a, FromJSON a, ToJSON a) => OutputValue (Val a)
+
+deriving instance Show OutputValue
+
+instance ToJSON OutputValue where
+  toJSON (OutputValue v) = toJSON v
+
+instance FromJSON OutputValue where
+  parseJSON v = mkOut <$> parseJSON v
+    where mkOut = OutputValue :: Val T.Text -> OutputValue
+
 data Output =
   Output
   { outputDescription :: T.Text
-  , outputValue :: Value
+  , outputValue :: OutputValue
   } deriving (Show)
 
 $(deriveJSON defaultOptions { fieldLabelModifier = drop 6 } ''Output)
