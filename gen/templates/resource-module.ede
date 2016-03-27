@@ -1,3 +1,9 @@
-module {{ moduleBase }}.{{ moduleName }}
-    (
-    ) where
+module {{ moduleBase }}.{{ name }} where
+
+import Control.Lens
+import Data.Aeson
+import Data.Text
+
+import Stratosphere.Values
+
+{{ typeDecl }}

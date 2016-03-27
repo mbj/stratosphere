@@ -33,4 +33,5 @@ executable stratosphere-gen
     , text >= 1.1
   other-modules:
       Gen.Resource
+    , Gen.Types
   default-language: Haskell2010
