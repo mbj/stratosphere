@@ -1,0 +1,3 @@
+module {{ moduleBase }}.{{ moduleName }}
+    (
+    ) where

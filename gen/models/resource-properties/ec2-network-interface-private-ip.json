@@ -1,0 +1,17 @@
+{
+  "Name": "PrivateIpAddressSpecification",
+  "Parameters": [
+    {
+      "Name": "PrivateIpAddress",
+      "Type": "String",
+      "Documentation": "The private IP address of the network interface.",
+      "Required": true
+    },
+    {
+      "Name": "Primary",
+      "Type": "Boolean",
+      "Documentation": "Sets the private IP address as the primary private address. You can set only one primary private IP address. If you don't specify a primary private IP address, Amazon EC2 automatically assigns a primary private IP address.",
+      "Required": true
+    }
+  ]
+}

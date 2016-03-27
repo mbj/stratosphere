@@ -29,7 +29,10 @@ library
     , aeson == 0.9.*
     , aeson-pretty >= 0.7
     , bytestring
+    , ede
     , lens >= 4.5
+    , system-fileio
+    , system-filepath
     , template-haskell >= 2.0
     , text >= 1.1
     , unordered-containers >= 0.2

@@ -1,0 +1,35 @@
+name:           stratosphere-gen
+version:        0.1.0
+synopsis:       stratosphere code generation
+homepage:       https://github.com/jdreaver/stratosphere
+maintainer:     David Reaver
+license:        MIT
+build-type:     Simple
+cabal-version:  >= 1.10
+
+extra-source-files:
+    ../LICENSE.md
+    README.md
+    stack.yaml
+
+source-repository head
+  type: git
+  location: https://github.com/jdreaver/stratosphere
+
+executable stratosphere-gen
+  hs-source-dirs:
+      src
+  main-is:
+      Main.hs
+  ghc-options: -Wall
+  build-depends:
+      base
+    , aeson == 0.9.*
+    , bytestring
+    , ede
+    , lens >= 4.5
+    , system-fileio
+    , system-filepath
+    , text >= 1.1
+  --other-modules:
+  default-language: Haskell2010

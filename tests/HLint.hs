@@ -7,6 +7,7 @@ arguments :: [String]
 arguments =
     [ "library"
     , "tests"
+    , "gen"
     ]
 
 main :: IO ()
