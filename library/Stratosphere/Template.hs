@@ -127,7 +127,7 @@ instance FromJSON OutputValue where
 
 data Output =
   Output
-  { outputDescription :: T.Text
+  { outputDescription :: Maybe T.Text
   , outputValue :: OutputValue
   } deriving (Show)
 
