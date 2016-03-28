@@ -34,6 +34,8 @@ $(makeFields ''ResourceParameter)
 data Resource =
   Resource
   { _resourceName :: T.Text
+  , _resourceDocumentation :: Maybe T.Text
+  , _resourceType' :: Maybe T.Text
   , _resourceDependencies :: Maybe [T.Text]
   , _resourceParameters :: [ResourceParameter]
   } deriving (Show)

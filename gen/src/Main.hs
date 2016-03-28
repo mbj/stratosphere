@@ -20,9 +20,11 @@ main :: IO ()
 main =
   do FS.createDirectory True (".." FP.</> "library-gen")
      FS.createDirectory True (".." FP.</> "library-gen" FP.</> "Stratosphere")
-     resPropPaths <- FS.listDirectory ("models" FP.</> "resource-properties")
      template <- readTemplate
+     resPropPaths <- FS.listDirectory ("models" FP.</> "resource-properties")
      mapM_ (renderResource template "Stratosphere.ResourceProperties") resPropPaths
+     resPaths <- FS.listDirectory ("models" FP.</> "resources")
+     mapM_ (renderResource template "Stratosphere.Resources") resPaths
 
 readTemplate :: IO Template
 readTemplate =
