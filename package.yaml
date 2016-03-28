@@ -1,0 +1,53 @@
+name: stratosphere
+version: "0.1.0"
+synopsis: EDSL for AWS CloudFormation
+description: EDSL for AWS CloudFormation
+category: AWS, Cloud
+maintainer: David Reaver
+license: MIT
+
+github: jdreaver/stratosphere
+
+extra-source-files:
+  - CHANGELOG.md
+  - LICENSE.md
+  - README.md
+  - stack.yaml
+
+dependencies:
+  - base
+  - aeson == 0.9.*
+  - aeson-pretty >= 0.7
+  - bytestring
+  - ede
+  - lens >= 4.5
+  - system-fileio
+  - system-filepath
+  - template-haskell >= 2.0
+  - text >= 1.1
+  - unordered-containers >= 0.2
+
+library:
+  source-dirs:
+    - library
+    - library-gen
+  ghc-options: -Wall
+
+
+tests:
+  tasty:
+    main: Main.hs
+    source-dirs:
+      - tests
+    dependencies:
+      - base
+      - stratosphere
+      - tasty
+      - tasty-hspec
+  style:
+    main: HLint.hs
+    source-dirs:
+      - tests
+    dependencies:
+      - base
+      - hlint
