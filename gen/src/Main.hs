@@ -7,6 +7,7 @@ module Main where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (isJust, fromMaybe)
 import qualified Data.Text as T
 import qualified Data.Text.Lazy as TL
 import qualified Filesystem as FS
@@ -50,6 +51,9 @@ renderResource temp modBase fp =
                   , "jsonInstances" .= renderToFromJSON res
                   , "constructor" .= renderConstructor res
                   , "lenses" .= renderLenses res
+                  , "type" .= fromPairs [ "hasType" .= isJust (res ^. type')
+                                        , "value" .= fromMaybe "" (res ^. type')
+                                        ]
                   ]
      modText <- case render temp (fromPairs params) of
                   (Text.EDE.Success r) -> return (TL.toStrict r)

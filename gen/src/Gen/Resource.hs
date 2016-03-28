@@ -40,7 +40,9 @@ data Resource =
   , _resourceParameters :: [ResourceParameter]
   } deriving (Show)
 
-$(deriveJSON defaultOptions { fieldLabelModifier = drop 9 } ''Resource)
+$(deriveJSON defaultOptions
+  { fieldLabelModifier = drop 9 . filter (/= '\'') }
+  ''Resource)
 $(makeFields ''Resource)
 
 -- | Read a resource JSON file and try to parse a Resource from it.
