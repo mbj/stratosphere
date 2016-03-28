@@ -1,15 +1,10 @@
-{-# LANGUAGE ExistentialQuantification #-}
-{-# LANGUAGE FlexibleInstances #-}
-{-# LANGUAGE FunctionalDependencies #-}
-{-# LANGUAGE MultiParamTypeClasses #-}
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE StandaloneDeriving #-}
-{-# LANGUAGE TemplateHaskell #-}
 
 -- | Generate Haskell types from resource parameters.
 
-module Gen.Types where
+module Gen.Types
+       ( renderResourceTypeDecl
+       ) where
 
 import Control.Lens
 import Data.Char (toLower)
@@ -18,39 +13,25 @@ import qualified Data.Text as T
 import Gen.Resource
 
 
-data HaskellType =
-  HaskellType
-  { _haskellTypeName :: T.Text
-  , _haskellTypeType' :: T.Text
-  } deriving (Show)
-
-$(makeFields ''HaskellType)
-
 renderResourceTypeDecl :: Resource -> T.Text
 renderResourceTypeDecl res = T.concat [header, sigs, footer]
   where header = T.concat ["data ", res ^. name, " =\n  ", res ^. name, "\n  { "]
-        types = fmap renderType (resourceTypes res)
+        types = fmap (renderType $ res ^. name) (res ^. parameters)
         sigs = T.intercalate "\n  , " types
         footer = "\n  } deriving (Show)"
 
-renderType :: HaskellType -> T.Text
-renderType t = T.concat [t ^. name, " :: ", t ^. type']
-
-resourceTypes :: Resource -> [HaskellType]
-resourceTypes res = fmap (makeType $ res ^. name) (res ^. parameters)
-
-makeType :: T.Text -> ResourceParameter -> HaskellType
-makeType resName rp = HaskellType nm tp
-  where nm = T.concat ["_", firstCharLower resName, rp ^. name]
-        tp = resTypeText rp
+renderType :: T.Text -> ResourceParameter -> T.Text
+renderType resName rp = T.concat [fieldName, " :: ", typeText]
+  where fieldName = T.concat ["_", firstCharLower resName, rp ^. name]
+        typeText = fieldTypeText rp
 
 firstCharLower :: T.Text -> T.Text
 firstCharLower t = T.cons fc (T.tail t)
   where fc = toLower (T.head t)
 
 -- | Get the full Haskell type text for a parameter
-resTypeText :: ResourceParameter -> T.Text
-resTypeText rp = tt
+fieldTypeText :: ResourceParameter -> T.Text
+fieldTypeText rp = tt
   where base = wrapTypeVal (rp ^. type')
         tt = if rp ^. required
              then base
