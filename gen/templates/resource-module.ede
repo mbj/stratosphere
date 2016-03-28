@@ -8,3 +8,5 @@ import Stratosphere.Values
 {{ dependencies }}
 
 {{ typeDecl }}
+
+{{ lenses }}

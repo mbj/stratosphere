@@ -13,6 +13,7 @@ import qualified Filesystem as FS
 import qualified Filesystem.Path.CurrentOS as FP
 import Text.EDE
 
+import Gen.Lens
 import Gen.Resource
 import Gen.Types
 
@@ -44,6 +45,7 @@ renderResource temp modBase fp =
                   , "moduleBase" .= modBase
                   , "dependencies" .= renderDependencies (res ^. dependencies)
                   , "typeDecl" .= renderResourceTypeDecl res
+                  , "lenses" .= renderLenses res
                   ]
      modText <- case render temp (fromPairs params) of
                   (Text.EDE.Success r) -> return (TL.toStrict r)

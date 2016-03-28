@@ -4,6 +4,9 @@
 
 module Gen.Types
        ( renderResourceTypeDecl
+       , firstCharLower
+       , renderFieldName
+       , renderFieldType
        ) where
 
 import Control.Lens
@@ -21,17 +24,18 @@ renderResourceTypeDecl res = T.concat [header, sigs, footer]
         footer = "\n  } deriving (Show)"
 
 renderType :: T.Text -> ResourceParameter -> T.Text
-renderType resName rp = T.concat [fieldName, " :: ", typeText]
-  where fieldName = T.concat ["_", firstCharLower resName, rp ^. name]
-        typeText = fieldTypeText rp
+renderType resName rp = T.concat [renderFieldName resName rp, " :: ", renderFieldType rp]
+
+renderFieldName :: T.Text -> ResourceParameter -> T.Text
+renderFieldName resName rp = T.concat ["_", firstCharLower resName, rp ^. name]
 
 firstCharLower :: T.Text -> T.Text
 firstCharLower t = T.cons fc (T.tail t)
   where fc = toLower (T.head t)
 
 -- | Get the full Haskell type text for a parameter
-fieldTypeText :: ResourceParameter -> T.Text
-fieldTypeText rp = tt
+renderFieldType :: ResourceParameter -> T.Text
+renderFieldType rp = tt
   where base = wrapTypeVal (rp ^. type')
         tt = if rp ^. required
              then base
