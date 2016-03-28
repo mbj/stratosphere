@@ -19,7 +19,7 @@
     },
     {
       "Name": "NoDevice",
-      "Type": "EmptyMap",
+      "Type": "()",
       "Documentation": "This property can be used to unmap a defined device.",
       "Required": false
     },
