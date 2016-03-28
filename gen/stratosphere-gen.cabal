@@ -31,8 +31,10 @@ executable stratosphere-gen
     , system-fileio
     , system-filepath
     , text >= 1.1
+    , text-manipulate
   other-modules:
-      Gen.Constructor
+      Gen.Aeson
+    , Gen.Constructor
     , Gen.Lens
     , Gen.Resource
     , Gen.Types

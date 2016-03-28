@@ -6,6 +6,7 @@ module Gen.Constructor where
 
 import Control.Lens
 import qualified Data.Text as T
+import Data.Text.Manipulate (lowerHead)
 
 import Gen.Resource
 import Gen.Types
@@ -46,8 +47,8 @@ requiredParams :: Resource -> [ResourceParameter]
 requiredParams = filter (^. required) . (^. parameters)
 
 constructorName :: Resource -> T.Text
-constructorName res = firstCharLower $ res ^.name
+constructorName res = lowerHead $ res ^.name
 
 -- | Name used for the parameter's argument in the constructor.
 argName :: ResourceParameter -> T.Text
-argName rp = T.concat [firstCharLower $ rp ^. name, "arg"]
+argName rp = T.concat [lowerHead $ rp ^. name, "arg"]

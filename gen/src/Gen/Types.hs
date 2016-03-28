@@ -4,15 +4,14 @@
 
 module Gen.Types
        ( renderResourceTypeDecl
-       , firstCharLower
        , renderFieldName
        , fieldPrefix
        , renderFieldType
        ) where
 
 import Control.Lens
-import Data.Char (toLower)
 import qualified Data.Text as T
+import Data.Text.Manipulate (lowerHead)
 
 import Gen.Resource
 
@@ -31,11 +30,7 @@ renderFieldName :: T.Text -> ResourceParameter -> T.Text
 renderFieldName resName rp = T.concat [fieldPrefix resName, rp ^. name]
 
 fieldPrefix :: T.Text -> T.Text
-fieldPrefix resName = T.concat ["_", firstCharLower resName]
-
-firstCharLower :: T.Text -> T.Text
-firstCharLower t = T.cons fc (T.tail t)
-  where fc = toLower (T.head t)
+fieldPrefix resName = T.concat ["_", lowerHead resName]
 
 -- | Get the full Haskell type text for a parameter
 renderFieldType :: ResourceParameter -> T.Text

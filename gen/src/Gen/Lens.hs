@@ -6,6 +6,7 @@ module Gen.Lens where
 
 import Control.Lens
 import qualified Data.Text as T
+import Data.Text.Manipulate (lowerHead)
 
 import Gen.Resource
 import Gen.Types
@@ -16,7 +17,7 @@ renderLenses res = T.intercalate "\n\n" lenses
 
 renderLens :: T.Text -> ResourceParameter -> T.Text
 renderLens resName rp = T.intercalate "\n" [typeDecl, funcDef]
-  where lensName = firstCharLower (rp ^. name)
+  where lensName = lowerHead (rp ^. name)
         typeText = renderFieldType rp
         wrapType = case T.head typeText of
                      '[' -> typeText
