@@ -9,4 +9,6 @@ import Stratosphere.Values
 
 {{ typeDecl }}
 
+{{ constructor }}
+
 {{ lenses }}
