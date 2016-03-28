@@ -23,6 +23,7 @@ source-repository head
 library
   hs-source-dirs:
       library
+    , library-gen
   ghc-options: -Wall
   build-depends:
       base

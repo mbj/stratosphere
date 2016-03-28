@@ -1,5 +1,5 @@
 {
-  "Name": "EC2SsmAssociationsParameters",
+  "Name": "EC2SsmAssociationParameters",
   "Documentation": "AssociationParameters is a property of the Amazon EC2 Instance SsmAssociations property that specifies input parameter values for an Amazon EC2 Simple Systems Manager (SSM) document.",
   "Parameters": [
     {

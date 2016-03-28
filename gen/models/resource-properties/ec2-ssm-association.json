@@ -1,10 +1,13 @@
 {
   "Name": "EC2SsmAssociations",
   "Documentation": "SsmAssociations is a property of the AWS::EC2::Instance resource that specifies the Amazon EC2 Simple Systems Manager (SSM) document and parameter values to associate with an instance.",
+  "Dependencies": [
+    "ResourceProperties.EC2SsmAssociationParameters"
+  ],
   "Parameters": [
     {
       "Name": "AssociationParameters",
-      "Type": "[SsmAssociationParameter]",
+      "Type": "[EC2SsmAssociationParameters]",
       "Documentation": "The input parameter values to use with the associated SSM document.",
       "Required": false
     },

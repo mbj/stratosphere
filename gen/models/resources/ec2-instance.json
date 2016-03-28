@@ -120,7 +120,7 @@
     },
     {
       "Name": "SsmAssociations",
-      "Type": "[EC2SsmAssociation]",
+      "Type": "[EC2SsmAssociations]",
       "Documentation": "The Amazon EC2 Simple Systems Manager (SSM) document and parameter values to associate with this instance. To use this property, you must specify an IAM role for the instance. For more information, see Prerequisites for Remotely Running Commands on EC2 Instances in the Amazon EC2 User Guide for Microsoft Windows Instances.\nNote\nYou can currently associate only one document with an instance.",
       "Required": false
     },

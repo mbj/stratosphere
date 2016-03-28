@@ -37,11 +37,11 @@ renderType :: HaskellType -> T.Text
 renderType t = T.concat [t ^. name, " :: ", t ^. type']
 
 resourceTypes :: Resource -> [HaskellType]
-resourceTypes res = fmap makeType (res ^. parameters)
+resourceTypes res = fmap (makeType $ res ^. name) (res ^. parameters)
 
-makeType :: ResourceParameter -> HaskellType
-makeType rp = HaskellType nm tp
-  where nm = firstCharLower (rp ^. name)
+makeType :: T.Text -> ResourceParameter -> HaskellType
+makeType resName rp = HaskellType nm tp
+  where nm = T.concat ["_", firstCharLower resName, rp ^. name]
         tp = resTypeText rp
 
 firstCharLower :: T.Text -> T.Text
