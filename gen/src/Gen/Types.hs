@@ -6,6 +6,7 @@ module Gen.Types
        ( renderResourceTypeDecl
        , firstCharLower
        , renderFieldName
+       , fieldPrefix
        , renderFieldType
        ) where
 
@@ -21,13 +22,16 @@ renderResourceTypeDecl res = T.concat [header, sigs, footer]
   where header = T.concat ["data ", res ^. name, " =\n  ", res ^. name, "\n  { "]
         types = fmap (renderType $ res ^. name) (res ^. parameters)
         sigs = T.intercalate "\n  , " types
-        footer = "\n  } deriving (Show)"
+        footer = "\n  } deriving (Show, Generic)"
 
 renderType :: T.Text -> ResourceParameter -> T.Text
 renderType resName rp = T.concat [renderFieldName resName rp, " :: ", renderFieldType rp]
 
 renderFieldName :: T.Text -> ResourceParameter -> T.Text
-renderFieldName resName rp = T.concat ["_", firstCharLower resName, rp ^. name]
+renderFieldName resName rp = T.concat [fieldPrefix resName, rp ^. name]
+
+fieldPrefix :: T.Text -> T.Text
+fieldPrefix resName = T.concat ["_", firstCharLower resName]
 
 firstCharLower :: T.Text -> T.Text
 firstCharLower t = T.cons fc (T.tail t)

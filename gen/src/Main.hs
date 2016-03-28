@@ -13,6 +13,7 @@ import qualified Filesystem as FS
 import qualified Filesystem.Path.CurrentOS as FP
 import Text.EDE
 
+import Gen.Aeson
 import Gen.Constructor
 import Gen.Lens
 import Gen.Resource
@@ -46,6 +47,7 @@ renderResource temp modBase fp =
                   , "moduleBase" .= modBase
                   , "dependencies" .= renderDependencies (res ^. dependencies)
                   , "typeDecl" .= renderResourceTypeDecl res
+                  , "jsonInstances" .= renderToFromJSON res
                   , "constructor" .= renderConstructor res
                   , "lenses" .= renderLenses res
                   ]
