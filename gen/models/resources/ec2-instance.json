@@ -5,7 +5,7 @@
   "Dependencies": [
     "ResourceProperties.EC2BlockDeviceMapping",
     "ResourceProperties.NetworkInterface",
-    "ResourceProperties.EC2SsmAssociation",
+    "ResourceProperties.EC2SsmAssociations",
     "ResourceProperties.ResourceTag",
     "ResourceProperties.EC2MountPoint"
   ],

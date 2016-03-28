@@ -47,7 +47,7 @@ def get_variables(soup):
 
 
 def variable_docs(contents_tag):
-    all_paras = [p.text for p in contents_tag.find_all("p")[:-3]]
+    all_paras = [p.text for p in contents_tag.find_all("p")]
     docs = []
     for para in all_paras:
         if para.strip().startswith("Required"):
