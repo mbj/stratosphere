@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 
 # This Python script uses BeautifulSoup to scrape AWS CloudFormation docs and
-# create JSON templates.
+# create JSON templates. You still have to manually edit the resulting template
+# because not all types are known, and dependencies need to be declared.
 
 from bs4 import BeautifulSoup
 from collections import OrderedDict
@@ -21,7 +22,7 @@ def main(url):
     json_out = json.dumps(OrderedDict([
         ("Name", name),
         ("Documentation", docstring),
-        ("Properties", variables),
+        ("Parameters", variables),
     ]), indent=2)
     print(json_out)
 
