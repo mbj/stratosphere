@@ -54,10 +54,12 @@ instance (FromJSON a) => FromJSON (Val a) where
   parseJSON (Object o) =
     case HM.toList o of
       [] -> fail "Empty object as Val"
-      [(n, obj')] -> tryParseFunc n obj'
+      [("Ref", obj')] -> Ref <$> parseJSON obj'
+      [(n, obj')] -> if T.isPrefixOf "Fn::" n
+                     then tryParseFunc n obj'
+                     else Literal <$> parseJSON (object [(n, obj')])
       os -> Literal <$> parseJSON (object os)
-    where tryParseFunc "Ref" obj = Ref <$> parseJSON obj
-          tryParseFunc "Fn::If" obj =
+    where tryParseFunc "Fn::If" obj =
             (\(i, x, y) -> If i x y) <$> parseJSON obj
           tryParseFunc "Fn::And" obj =
             uncurry And <$> parseJSON obj
@@ -67,7 +69,7 @@ instance (FromJSON a) => FromJSON (Val a) where
             uncurry Or <$> parseJSON obj
           tryParseFunc "Fn::GetAtt" obj =
             uncurry GetAtt <$> parseJSON obj
-          tryParseFunc k v = Literal <$> parseJSON (object [(k, v)])
+          tryParseFunc n _ = fail $ "Unknown function " ++ T.unpack n
   parseJSON v = Literal <$> parseJSON v
 
 
