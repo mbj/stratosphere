@@ -11,9 +11,9 @@ import Data.Text as T
 import Gen.Resource
 
 -- | Makes all the import lines.
-renderImports :: [Resource] -> T.Text
-renderImports resources = T.unlines $ fmap (mkImport . (^. name)) resources
-  where mkImport n = T.concat ["import Stratosphere.Resources.", n, " as X"]
+renderImports :: T.Text -> [Resource] -> T.Text
+renderImports modName resources = T.unlines $ fmap (mkImport . (^. name)) resources
+  where mkImport n = T.concat ["import ", modName, n, " as X"]
 
 -- | Makes the lines for the big ADT
 renderADT :: [Resource] -> T.Text

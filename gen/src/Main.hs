@@ -40,7 +40,7 @@ main =
      mapM_ (renderResource template "Stratosphere.Resources") resources'
 
      template' <- readTemplate "templates/Resources.hs.ede"
-     renderTopLevelModule template' resources'
+     renderTopLevelModule template' resources' resProps'
 
 
 readTemplate :: FP.FilePath -> IO Template
@@ -82,9 +82,12 @@ renderDependencies (Just deps) = T.intercalate "\n" deps'
   where deps' = fmap (\d -> T.concat ["import Stratosphere.", d]) deps
 
 
-renderTopLevelModule :: Template -> [Resource] -> IO ()
-renderTopLevelModule temp resources =
-  do let params = [ "resourceImports" .= renderImports resources
+renderTopLevelModule :: Template -> [Resource] -> [Resource] -> IO ()
+renderTopLevelModule temp resources resourceProps =
+  do let params = [ "resourceImports" .=
+                    renderImports "Stratosphere.Resources." resources
+                  , "resourcePropImports" .=
+                    renderImports "Stratosphere.ResourceProperties." resourceProps
                   , "resourceADT" .= renderADT resources
                   , "toJSONFuncs" .= renderToJSONFuncs resources
                   , "fromJSONCases" .= renderFromJSONCases resources
