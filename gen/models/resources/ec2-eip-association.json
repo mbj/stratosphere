@@ -1,0 +1,37 @@
+{
+  "Name": "EIPAssociation",
+  "Type": "AWS::EC2::EIPAssociation",
+  "Documentation": "The AWS::EC2::EIPAssociation resource type associates an Elastic IP address with an Amazon EC2 instance. The Elastic IP address can be an existing Elastic IP address or an Elastic IP address allocated through an AWS::EC2::EIP resource.\nThis type supports updates. For more information about updating stacks, see AWS CloudFormation Stacks Updates.",
+  "Parameters": [
+    {
+      "Name": "AllocationId",
+      "Type": "Text",
+      "Documentation": "Allocation ID for the VPC Elastic IP address you want to associate with an Amazon EC2 instance in your VPC.",
+      "Required": false
+    },
+    {
+      "Name": "EIP",
+      "Type": "Text",
+      "Documentation": "Elastic IP address that you want to associate with the Amazon EC2 instance specified by the InstanceId property. You can specify an existing Elastic IP address or a reference to an Elastic IP address allocated with a AWS::EC2::EIP resource.",
+      "Required": false
+    },
+    {
+      "Name": "InstanceId",
+      "Type": "Text",
+      "Documentation": "Instance ID of the Amazon EC2 instance that you want to associate with the Elastic IP address specified by the EIP property.",
+      "Required": false
+    },
+    {
+      "Name": "NetworkInterfaceId",
+      "Type": "Text",
+      "Documentation": "The ID of the network interface to associate with the Elastic IP address (VPC only).",
+      "Required": false
+    },
+    {
+      "Name": "PrivateIpAddress",
+      "Type": "Text",
+      "Documentation": "The private IP address that you want to associate with the Elastic IP address. The private IP address is restricted to the primary and secondary private IP addresses that are associated with the network interface. By default, the private IP address that is associated with the EIP is the primary private IP address of the network interface.",
+      "Required": false
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "Name": "EIP",
+  "Type": "AWS::EC2::EIP",
+  "Documentation": "The AWS::EC2::EIP resource allocates an Elastic IP (EIP) address and can, optionally, associate it with an Amazon EC2 instance.",
+  "Parameters": [
+    {
+      "Name": "InstanceId",
+      "Type": "Text",
+      "Documentation": "The Instance ID of the Amazon EC2 instance that you want to associate with this Elastic IP address.",
+      "Required": false
+    },
+    {
+      "Name": "Domain",
+      "Type": "Text",
+      "Documentation": "Set to vpc to allocate the address to your Virtual Private Cloud (VPC). No other values are supported.\nNote\nIf you define an Elastic IP address and associate it with a VPC that is defined in the same template, you must declare a dependency on the VPC-gateway attachment by using the DependsOn attribute on this resource. For more information, see DependsOn Attribute.\nFor more information, see AllocateAddress in the Amazon EC2 API Reference. For more information about Elastic IP Addresses in VPC, go to IP Addressing in Your VPC in the Amazon VPC User Guide.",
+      "Required": false
+    }
+  ]
+}

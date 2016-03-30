@@ -39,6 +39,6 @@ renderFromJSONCases :: [Resource] -> T.Text
 renderFromJSONCases = T.unlines . fmap renderFromJSON
 
 renderFromJSON :: Resource -> T.Text
-renderFromJSON r = T.concat ["\"", resType, "\" -> ", adtName r,
+renderFromJSON r = T.concat ["         \"", resType, "\" -> ", adtName r,
                              " <$> (o .: \"Properties\")"]
   where resType = fromMaybe "NOTYPE" (r ^. type')

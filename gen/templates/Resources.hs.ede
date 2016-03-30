@@ -22,6 +22,6 @@ instance FromJSON Resource where
   parseJSON (Object o) =
     do type' <- o .: "Type" :: Parser String
        case type' of
-         {{ fromJSONCases }}
+{{ fromJSONCases }}
          _ -> fail $ "Unknown resource type: " ++ type'
   parseJSON _ = fail "Expected JSON Object for a resource"
