@@ -11,7 +11,7 @@ module Stratosphere.Template
        ( Template (..)
        , Parameter (..)
        , defaultParameter
-       , makeParameter
+       , parameter
        , Resource (..)
        , OutputValue (..)
        , Output (..)
@@ -88,8 +88,8 @@ defaultParameter =
   , parameterConstraintDescription = Nothing
   }
 
-makeParameter :: T.Text -> Parameter
-makeParameter ptype = defaultParameter & type' .~ ptype
+parameter :: T.Text -> Parameter
+parameter ptype = defaultParameter & type' .~ ptype
 
 type Mapping = HM.HashMap T.Text Object
 
