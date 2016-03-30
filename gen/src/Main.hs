@@ -14,6 +14,7 @@ import qualified Filesystem as FS
 import qualified Filesystem.Path.CurrentOS as FP
 import Text.EDE
 
+import Gen.ADT
 import Gen.Aeson
 import Gen.Constructor
 import Gen.Lens
@@ -24,27 +25,34 @@ main :: IO ()
 main =
   do FS.createDirectory True (".." FP.</> "library-gen")
      FS.createDirectory True (".." FP.</> "library-gen" FP.</> "Stratosphere")
-     template <- readTemplate
      resPropPaths <- FS.listDirectory ("models" FP.</> "resource-properties")
-     mapM_ (renderResource template "Stratosphere.ResourceProperties") resPropPaths
+     resProps <- mapM parseResource resPropPaths
+     resProps' <- case sequence resProps of
+                    (Left err) -> fail $ "Failure parsing: " ++ err
+                    (Right rps) -> return rps
      resPaths <- FS.listDirectory ("models" FP.</> "resources")
-     mapM_ (renderResource template "Stratosphere.Resources") resPaths
+     resources <- mapM parseResource resPaths
+     resources' <- case sequence resources of
+                     (Left err) -> fail $ "Failure parsing: " ++ err
+                     (Right ps) -> return ps
+     template <- readTemplate "templates/resource-module.ede"
+     mapM_ (renderResource template "Stratosphere.ResourceProperties") resProps'
+     mapM_ (renderResource template "Stratosphere.Resources") resources'
 
-readTemplate :: IO Template
-readTemplate =
-  do tempResult <- eitherParseFile "templates/resource-module.ede"
+     template' <- readTemplate "templates/Resources.hs.ede"
+     renderTopLevelModule template' resources'
+
+
+readTemplate :: FP.FilePath -> IO Template
+readTemplate fp =
+  do tempResult <- eitherParseFile (FP.encodeString fp)
      either fail return tempResult
 
 type Module = T.Text
 
-renderResource :: Template -> Module -> FP.FilePath -> IO ()
-renderResource temp modBase fp =
-  do putStrLn $ "Parsing " ++ show fp
-     eitherRes <- parseResource fp
-     res <- case eitherRes of
-              (Left err) -> fail $ "Failure parsing: " ++ err
-              (Right res') -> return res' :: IO Resource
-     let params = [ "name" .= (res ^. name)
+renderResource :: Template -> Module -> Resource -> IO ()
+renderResource temp modBase res =
+  do let params = [ "name" .= (res ^. name)
                   , "moduleBase" .= modBase
                   , "dependencies" .= renderDependencies (res ^. dependencies)
                   , "typeDecl" .= renderResourceTypeDecl res
@@ -72,3 +80,20 @@ renderDependencies :: Maybe [T.Text] -> T.Text
 renderDependencies Nothing = ""
 renderDependencies (Just deps) = T.intercalate "\n" deps'
   where deps' = fmap (\d -> T.concat ["import Stratosphere.", d]) deps
+
+
+renderTopLevelModule :: Template -> [Resource] -> IO ()
+renderTopLevelModule temp resources =
+  do let params = [ "resourceImports" .= renderImports resources
+                  , "resourceADT" .= renderADT resources
+                  , "toJSONFuncs" .= renderToJSONFuncs resources
+                  , "fromJSONCases" .= renderFromJSONCases resources
+                  ]
+
+     modText <- case render temp (fromPairs params) of
+                  (Text.EDE.Success r) -> return (TL.toStrict r)
+                  (Failure f) -> fail $ "Failure rendering: " ++ show f
+
+     let modPath = ".." FP.</> "library-gen" FP.</> "Stratosphere" FP.</> "Resources.hs"
+     putStrLn ("Writing: " ++ show modPath)
+     FS.writeTextFile modPath modText

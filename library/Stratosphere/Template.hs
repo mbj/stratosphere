@@ -13,10 +13,9 @@ module Stratosphere.Template
        , defaultParameter
        , makeParameter
        , Resource (..)
-       , ToResource (..)
        , OutputValue (..)
        , Output (..)
-       , templateDefault
+       , template
        , encodeTemplate
 
        -- Template lenses
@@ -28,10 +27,6 @@ module Stratosphere.Template
        , conditions
        , resources
        , outputs
-
-       -- Resource lenses
-       , type'
-       , properties
 
        -- Parameter lenses
        , default'
@@ -52,8 +47,8 @@ import Data.Aeson.TH
 import qualified Data.ByteString.Lazy as BS
 import qualified Data.HashMap.Strict as HM
 import qualified Data.Text as T
-import GHC.Exts (fromList)
 
+import Stratosphere.Resources
 import Stratosphere.Values
 
 data Parameter =
@@ -98,20 +93,6 @@ makeParameter ptype = defaultParameter & type' .~ ptype
 
 type Mapping = HM.HashMap T.Text Object
 
-data Resource =
-  Resource
-  { resourceType' :: T.Text
-  , resourceProperties :: Object
-  } deriving (Show)
-
-$(deriveJSON defaultOptions
-  { fieldLabelModifier = drop 8 . filter (/= '\'') }
-  ''Resource)
-$(makeFields ''Resource)
-
-class ToResource a where
-  toResource :: a -> Resource
-
 -- This is a kludge so we don't have to have heterogeneous collections to hold
 -- Outputs.
 data OutputValue = forall a. (Show a, FromJSON a, ToJSON a) => OutputValue (Val a)
@@ -150,8 +131,8 @@ $(deriveJSON defaultOptions { fieldLabelModifier = drop 8
                             , omitNothingFields = True } ''Template)
 $(makeFields ''Template)
 
-templateDefault :: Template
-templateDefault =
+template :: HM.HashMap T.Text Resource -> Template
+template res =
   Template
   { templateFormatVersion = Nothing
   , templateDescription = Nothing
@@ -159,7 +140,7 @@ templateDefault =
   , templateParameters = Nothing
   , templateMappings = Nothing
   , templateConditions = Nothing
-  , templateResources = fromList []
+  , templateResources = res
   , templateOutputs = Nothing
   }
 

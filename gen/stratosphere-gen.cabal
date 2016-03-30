@@ -33,7 +33,8 @@ executable stratosphere-gen
     , text >= 1.1
     , text-manipulate
   other-modules:
-      Gen.Aeson
+      Gen.ADT
+    , Gen.Aeson
     , Gen.Constructor
     , Gen.Lens
     , Gen.Resource

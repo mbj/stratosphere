@@ -1,0 +1,26 @@
+{-# LANGUAGE OverloadedStrings #-}
+
+module Stratosphere.Resources
+     ( module X
+     , Resource (..)
+     ) where
+
+import Data.Aeson
+import Data.Aeson.Types
+
+{{ resourceImports }}
+
+data Resource
+{{ resourceADT }}
+  deriving (Show)
+
+instance ToJSON Resource where
+{{ toJSONFuncs }}
+
+instance FromJSON Resource where
+  parseJSON (Object o) =
+    do type' <- o .: "Type" :: Parser String
+       case type' of
+         {{ fromJSONCases }}
+         _ -> fail $ "Unknown resource type: " ++ type'
+  parseJSON _ = fail "Expected JSON Object for a resource"

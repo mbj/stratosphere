@@ -10,22 +10,9 @@ import Data.Text
 import GHC.Generics
 
 import Stratosphere.Values
-{% if type.hasType %}
-import Stratosphere.Template (ToResource(..), Resource(..))
-{% endif %}
 {{ dependencies }}
 
 {{ typeDecl }}
-
-{% if type.hasType %}
-instance ToResource {{ name }} where
-  toResource props =
-    Resource
-    { resourceType' = "{{ type.value }}"
-    , resourceProperties = props'
-    }
-    where (Object props') = toJSON props
-{% endif %}
 
 {{ jsonInstances }}
 
