@@ -32,6 +32,8 @@ data Val a
  | Equals (Val Bool) (Val Bool)
  | Or (Val Bool) (Val Bool)
  | GetAtt T.Text T.Text
+ | Base64 (Val a)
+ | Join T.Text [Val a]
 
 deriving instance (Show a) => Show (Val a)
 
@@ -46,6 +48,8 @@ instance (ToJSON a) => ToJSON (Val a) where
   toJSON (Equals x y) = mkFunc "Fn::Equals" [toJSON x, toJSON y]
   toJSON (Or x y) = mkFunc "Fn::Or" [toJSON x, toJSON y]
   toJSON (GetAtt x y) = mkFunc "Fn::GetAtt" [toJSON x, toJSON y]
+  toJSON (Base64 v) = mkFunc "Fn::Base64" [toJSON v]
+  toJSON (Join d vs) = mkFunc "Fn::Base64" [toJSON d, toJSON vs]
 
 mkFunc :: T.Text -> [Value] -> Value
 mkFunc name args = object [(name, Array $ fromList args)]
@@ -69,6 +73,10 @@ instance (FromJSON a) => FromJSON (Val a) where
             uncurry Or <$> parseJSON obj
           tryParseFunc "Fn::GetAtt" obj =
             uncurry GetAtt <$> parseJSON obj
+          tryParseFunc "Fn::Base64" obj =
+            Base64 <$> parseJSON obj
+          tryParseFunc "Fn::Join" obj =
+            uncurry Join <$> parseJSON obj
           tryParseFunc n _ = fail $ "Unknown function " ++ T.unpack n
   parseJSON v = Literal <$> parseJSON v
 
