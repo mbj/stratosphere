@@ -1,0 +1,36 @@
+{
+  "Name": "SecurityGroupEgressRule",
+  "Documentation": "The EC2 Security Group Rule is an embedded property of the AWS::EC2::SecurityGroup type.",
+  "Parameters": [
+    {
+      "Name": "CidrIp",
+      "Type": "Text",
+      "Documentation": "Specifies a CIDR range.",
+      "Required": false
+    },
+    {
+      "Name": "DestinationSecurityGroupId",
+      "Type": "Text",
+      "Documentation": "Specifies the GroupId of the destination Amazon VPC security group.\nType: String",
+      "Required": false
+    },
+    {
+      "Name": "FromPort",
+      "Type": "Integer",
+      "Documentation": "The start of port range for the TCP and UDP protocols, or an ICMP type number. An ICMP type number of -1 indicates a wildcard (i.e., any ICMP type number).",
+      "Required": false
+    },
+    {
+      "Name": "IpProtocol",
+      "Type": "Text",
+      "Documentation": "An IP protocol name or number. For valid values, go to the IpProtocol parameter in AuthorizeSecurityGroupIngress",
+      "Required": true
+    },
+    {
+      "Name": "ToPort",
+      "Type": "Integer",
+      "Documentation": "The end of port range for the TCP and UDP protocols, or an ICMP code. An ICMP code of -1 indicates a wildcard (i.e., any ICMP code).",
+      "Required": false
+    }
+  ]
+}

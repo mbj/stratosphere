@@ -1,0 +1,42 @@
+{
+  "Name": "SecurityGroup",
+  "Type": "AWS::EC2::SecurityGroup",
+  "Documentation": "Creates an Amazon EC2 security group. To create a VPC security group, use the VpcId property.\nThis type supports updates. For more information about updating stacks, see AWS CloudFormation Stacks Updates.",
+  "Dependencies": [
+    "ResourceProperties.SecurityGroupEgressRule",
+    "ResourceProperties.SecurityGroupIngressRule",
+    "ResourceProperties.ResourceTag"
+  ],
+  "Parameters": [
+    {
+      "Name": "GroupDescription",
+      "Type": "Text",
+      "Documentation": "Description of the security group.",
+      "Required": true
+    },
+    {
+      "Name": "SecurityGroupEgress",
+      "Type": "[SecurityGroupEgressRule]",
+      "Documentation": "A list of Amazon EC2 security group egress rules.",
+      "Required": false
+    },
+    {
+      "Name": "SecurityGroupIngress",
+      "Type": "[SecurityGroupIngressRule]",
+      "Documentation": "A list of Amazon EC2 security group ingress rules.",
+      "Required": false
+    },
+    {
+      "Name": "Tags",
+      "Type": "[ResourceTag]",
+      "Documentation": "The tags that you want to attach to the resource.",
+      "Required": false
+    },
+    {
+      "Name": "VpcId",
+      "Type": "Text",
+      "Documentation": "The physical ID of the VPC. Can be obtained by using a reference to an AWS::EC2::VPC, such as: { \"Ref\" : \"myVPC\" }.\nFor more information about using the Ref function, see Ref.",
+      "Required": false
+    }
+  ]
+}
