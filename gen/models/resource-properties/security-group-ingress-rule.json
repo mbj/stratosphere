@@ -10,7 +10,7 @@
     },
     {
       "Name": "FromPort",
-      "Type": "Integer",
+      "Type": "Integer'",
       "Documentation": "The start of port range for the TCP and UDP protocols, or an ICMP type number. An ICMP type number of -1 indicates a wildcard (i.e., any ICMP type number).\nType: Integer",
       "Required": false
     },
@@ -40,7 +40,7 @@
     },
     {
       "Name": "ToPort",
-      "Type": "Integer",
+      "Type": "Integer'",
       "Documentation": "The end of port range for the TCP and UDP protocols, or an ICMP code. An ICMP code of -1 indicates a wildcard (i.e., any ICMP code).",
       "Required": false
     }

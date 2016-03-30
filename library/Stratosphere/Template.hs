@@ -58,10 +58,10 @@ data Parameter =
   , parameterNoEcho :: Maybe Bool
   , parameterAllowedValues :: Maybe Array
   , parameterAllowedPattern :: Maybe T.Text
-  , parameterMaxLength :: Maybe T.Text -- Integer
-  , parameterMinLength :: Maybe T.Text -- Integer
-  , parameterMaxValue :: Maybe T.Text -- Integer
-  , parameterMinValue :: Maybe T.Text -- Integer
+  , parameterMaxLength :: Maybe Integer'
+  , parameterMinLength :: Maybe Integer'
+  , parameterMaxValue :: Maybe Integer'
+  , parameterMinValue :: Maybe Integer'
   , parameterDescription :: Maybe T.Text
   , parameterConstraintDescription :: Maybe T.Text
   } deriving (Show)

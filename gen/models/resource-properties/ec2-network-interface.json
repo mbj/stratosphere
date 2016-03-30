@@ -56,7 +56,7 @@ For information about the maximum number of private IP addresses, see Private IP
     },
     {
       "Name": "SecondaryPrivateIpAddressCount",
-      "Type": "Integer",
+      "Type": "Integer'",
       "Documentation": "The number of secondary private IP addresses that Amazon EC2 auto assigns to the network interface. Amazon EC2 uses the value of the PrivateIpAddress property as the primary private IP address. If you don't specify that property, Amazon EC2 auto assigns both the primary and secondary private IP addresses.
 
 If you want to specify your own list of private IP addresses, use the PrivateIpAddresses property and do not specify this property.

@@ -1,15 +1,18 @@
 {-# LANGUAGE GADTs #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StandaloneDeriving #-}
 
 module Stratosphere.Values
        ( Val (..)
+       , Integer' (..)
        ) where
 
 import Data.Aeson
 import qualified Data.HashMap.Strict as HM
 import Data.String (IsString (..))
 import qualified Data.Text as T
+import Text.Read (readMaybe)
 import GHC.Exts (fromList)
 
 -- GADTs are cool, but I couldn't get this to work with FromJSON
@@ -66,3 +69,20 @@ instance (FromJSON a) => FromJSON (Val a) where
             uncurry GetAtt <$> parseJSON obj
           tryParseFunc k v = Literal <$> parseJSON (object [(k, v)])
   parseJSON v = Literal <$> parseJSON v
+
+
+-- | We need to wrap integers so we can override the Aeson type-classes. This
+-- is necessary because CloudFront made the silly decision to represent numbers
+-- as JSON strings.
+newtype Integer' = Integer' { unInteger' :: Integer }
+                 deriving (Show, Eq, Num)
+
+instance ToJSON Integer' where
+  toJSON (Integer' i) = toJSON $ show i
+
+instance FromJSON Integer' where
+  parseJSON v = Integer' <$> do
+    numString <- parseJSON v
+    case readMaybe (numString :: String) of
+      Nothing -> fail "Can't read number from string"
+      (Just n) -> return n
