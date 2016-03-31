@@ -1,0 +1,25 @@
+name: stratosphere-gen
+version: "0.1.0"
+synopsis: stratosphere code generation
+maintainer: David Reaver
+
+github: jdreaver/stratosphere
+
+extra-source-files:
+  - stack.yaml
+
+executables:
+  stratosphere-gen:
+    source-dirs: src
+    main: Main.hs
+    ghc-options: -Wall
+    dependencies:
+      - base
+      - aeson == 0.9.*
+      - bytestring
+      - ede
+      - lens >= 4.5
+      - system-fileio
+      - system-filepath
+      - text >= 1.1
+      - text-manipulate

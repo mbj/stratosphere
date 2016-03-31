@@ -21,7 +21,4 @@ auto-generator code and the JSON model files. To build the library, you first
 need to auto-generate these models (in the future, we may add the output
 directly in this repo).
 
-To build the library:
-
-1. `cd gen/ && stack build && stack exec stratosphere-gen`
-2. `cd .. && stack build`
+To build the library, just run the very short `build.sh` script.
