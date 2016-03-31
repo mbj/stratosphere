@@ -33,6 +33,11 @@ library:
     - library-gen
   ghc-options: -Wall
 
+executables:
+  ec2-with-eip:
+    main: ec2-with-eip.hs
+    source-dirs: examples
+    dependencies: stratosphere
 
 tests:
   tasty:

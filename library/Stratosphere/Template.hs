@@ -9,13 +9,13 @@
 
 module Stratosphere.Template
        ( Template (..)
+       , template
        , Parameter (..)
-       , defaultParameter
        , parameter
        , Resource (..)
        , OutputValue (..)
        , Output (..)
-       , template
+       , output
        , encodeTemplate
 
        -- Template lenses
@@ -72,10 +72,12 @@ $(deriveJSON defaultOptions
   ''Parameter)
 $(makeFields ''Parameter)
 
-defaultParameter :: Parameter
-defaultParameter =
+parameter
+  :: T.Text  -- Type
+  -> Parameter
+parameter ptype =
   Parameter
-  { parameterType' = "String"
+  { parameterType' = ptype
   , parameterDefault' = Nothing
   , parameterNoEcho = Nothing
   , parameterAllowedValues = Nothing
@@ -87,9 +89,6 @@ defaultParameter =
   , parameterDescription = Nothing
   , parameterConstraintDescription = Nothing
   }
-
-parameter :: T.Text -> Parameter
-parameter ptype = defaultParameter & type' .~ ptype
 
 type Mapping = HM.HashMap T.Text Object
 
@@ -114,6 +113,15 @@ data Output =
 
 $(deriveJSON defaultOptions { fieldLabelModifier = drop 6 } ''Output)
 $(makeFields ''Output)
+
+output
+  :: OutputValue
+  -> Output
+output oval =
+  Output
+  { outputDescription = Nothing
+  , outputValue = oval
+  }
 
 data Template =
   Template
