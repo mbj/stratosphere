@@ -5,10 +5,9 @@
 module Gen.Lens where
 
 import Control.Lens
-import Data.Char (toLower)
+import Data.Char (toLower, isUpper)
 import Data.Maybe (fromMaybe)
 import qualified Data.Text as T
-import Data.Text.Manipulate (toAcronym)
 
 import Gen.Docstring
 import Gen.Resource
@@ -37,3 +36,7 @@ lensName :: T.Text -> ResourceParameter -> T.Text
 lensName resName rp = T.append prefix' (rp ^. name)
   where prefix = fromMaybe "" (toAcronym resName)
         prefix' = T.pack $ toLower <$> T.unpack prefix
+
+toAcronym :: T.Text -> Maybe T.Text
+toAcronym t = if T.length uppers >= 1 then Just uppers else Nothing
+  where uppers = T.filter isUpper t
