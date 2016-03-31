@@ -10,6 +10,7 @@ import Data.Maybe (fromMaybe)
 import qualified Data.Text as T
 import Data.Text.Manipulate (toAcronym)
 
+import Gen.Docstring
 import Gen.Resource
 import Gen.Types
 
@@ -18,8 +19,9 @@ renderLenses res = T.intercalate "\n\n" lenses
   where lenses = fmap (renderLens $ res ^. name) (res ^. parameters)
 
 renderLens :: T.Text -> ResourceParameter -> T.Text
-renderLens resName rp = T.intercalate "\n" [typeDecl, funcDef]
-  where lensName' = lensName resName rp
+renderLens resName rp = T.intercalate "\n" [docs, typeDecl, funcDef]
+  where docs = renderDocstring (rp ^. documentation)
+        lensName' = lensName resName rp
         typeText = renderFieldType rp
         wrapType = case T.head typeText of
                      '[' -> typeText

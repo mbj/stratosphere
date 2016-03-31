@@ -36,6 +36,7 @@ executable stratosphere-gen
       Gen.ADT
     , Gen.Aeson
     , Gen.Constructor
+    , Gen.Docstring
     , Gen.Lens
     , Gen.Resource
     , Gen.Types

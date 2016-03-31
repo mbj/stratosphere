@@ -17,6 +17,7 @@ import Text.EDE
 import Gen.ADT
 import Gen.Aeson
 import Gen.Constructor
+import Gen.Docstring
 import Gen.Lens
 import Gen.Resource
 import Gen.Types
@@ -53,6 +54,7 @@ type Module = T.Text
 renderResource :: Template -> Module -> Resource -> IO ()
 renderResource temp modBase res =
   do let params = [ "name" .= (res ^. name)
+                  , "docstring" .= maybe "" renderDocstring (res ^. documentation)
                   , "moduleBase" .= modBase
                   , "dependencies" .= renderDependencies (res ^. dependencies)
                   , "typeDecl" .= renderResourceTypeDecl res

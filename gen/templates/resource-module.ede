@@ -1,6 +1,8 @@
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
 
+{{ docstring }}
+
 module {{ moduleBase }}.{{ name }} where
 
 import Control.Lens
