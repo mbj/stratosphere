@@ -5,6 +5,7 @@
 module Gen.Constructor where
 
 import Control.Lens
+import Data.Char (isUpper, toLower, isNumber)
 import qualified Data.Text as T
 import Data.Text.Manipulate (lowerHead)
 
@@ -47,7 +48,20 @@ requiredParams :: Resource -> [ResourceParameter]
 requiredParams = filter (^. required) . (^. parameters)
 
 constructorName :: Resource -> T.Text
-constructorName res = lowerHead $ res ^.name
+constructorName res = T.pack $ headLower $ T.unpack $ res ^. name
+
+-- | Makes consecutive upper case characters lowercase
+headLower :: String -> String
+headLower [] = []
+headLower (x:xs) = toLower x : consecutiveHeadLower xs
+
+consecutiveHeadLower :: String -> String
+consecutiveHeadLower [] = []
+consecutiveHeadLower [x] = [toLower x]
+consecutiveHeadLower (x:nx:xs) = if isUpper x && (isUpper nx || isNumber nx)
+                                 then toLower x : consecutiveHeadLower (nx:xs)
+                                 else x:nx:xs
+
 
 -- | Name used for the parameter's argument in the constructor.
 argName :: ResourceParameter -> T.Text

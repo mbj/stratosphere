@@ -19,7 +19,7 @@ myTemplate =
   template
     [ ("EC2Instance",
        EC2InstanceResource $
-       eC2Instance
+       ec2Instance
        "ami-22111148"
        & eciInstanceType ?~ Ref "InstanceType"
        & eciKeyName ?~ Ref "KeyName"
@@ -39,10 +39,10 @@ myTemplate =
           & sgirCidrIp ?~ Ref "SSHLocation"
           ]
       )
-    , ("IPAddress", EIPResource eIP)
+    , ("IPAddress", EIPResource eip)
     , ("IPAssoc",
        EIPAssociationResource $
-       eIPAssociation
+       eipAssociation
        & eipaInstanceId ?~ Ref "EC2Instance"
        & eipaEIP ?~ Ref "IPAddress"
       )
