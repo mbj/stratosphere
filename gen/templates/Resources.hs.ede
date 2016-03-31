@@ -1,27 +1,73 @@
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DeriveAnyClass #-}
+{-# LANGUAGE ExistentialQuantification #-}
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE FunctionalDependencies #-}
+{-# LANGUAGE MultiParamTypeClasses #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE TemplateHaskell #-}
 
 module Stratosphere.Resources
      ( module X
      , Resource (..)
+     , resource
+     , properties
+     , deletionPolicy
+     , ResourceProperties (..)
+     , DeletionPolicy (..)
      ) where
 
+import Control.Lens hiding ((.=))
 import Data.Aeson
 import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import GHC.Generics (Generic)
 
 {{ resourceImports }}
 {{ resourcePropImports }}
+import Stratosphere.Helpers (maybeField)
 
-data Resource
+data ResourceProperties
 {{ resourceADT }}
   deriving (Show)
 
+data DeletionPolicy
+  = Delete
+  | Retain
+  | Snapshot
+  deriving (Show, Generic, ToJSON, FromJSON)
+
+data Resource =
+  Resource
+  { resourceProperties :: ResourceProperties
+  , resourceDeletionPolicy :: Maybe DeletionPolicy
+  } deriving (Show)
+
+resource
+  :: ResourceProperties
+  -> Resource
+resource rp =
+  Resource
+  { resourceProperties = rp
+  , resourceDeletionPolicy = Nothing
+  }
+
+$(makeFields ''Resource)
+
 instance ToJSON Resource where
+  toJSON (Resource props dp) =
+    object $ resourcePropertiesJSON props ++ catMaybes
+    [ maybeField "DeletionPolicy" dp ]
+
+resourcePropertiesJSON :: ResourceProperties -> [Pair]
 {{ toJSONFuncs }}
 
 instance FromJSON Resource where
   parseJSON (Object o) =
     do type' <- o .: "Type" :: Parser String
-       case type' of
+       props <- case type' of
 {{ fromJSONCases }}
          _ -> fail $ "Unknown resource type: " ++ type'
+       dp <- o .:? "DeletionPolicy"
+       return $ Resource props dp
   parseJSON _ = fail "Expected JSON Object for a resource"

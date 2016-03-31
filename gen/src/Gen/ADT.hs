@@ -23,16 +23,16 @@ renderADT resources = T.unlines adtLines
         adtLines = fmap (uncurry T.append) (Prelude.zip prefixes names)
 
 adtName :: Resource -> T.Text
-adtName res = T.append (res ^. name) "Resource"
+adtName res = T.append (res ^. name) "Properties"
 
 renderToJSONFuncs :: [Resource] -> T.Text
 renderToJSONFuncs = T.unlines . fmap renderToJSON
 
 renderToJSON :: Resource -> T.Text
 renderToJSON r = T.append line1 line2
-  where line1 = T.concat ["  toJSON (", adtName r, " x) =\n"]
+  where line1 = T.concat ["resourcePropertiesJSON (", adtName r, " x) =\n"]
         resType = fromMaybe "NOTYPE" (r ^. type')
-        line2 = T.concat ["    object [ \"Type\" .= (\"", resType,
+        line2 = T.concat ["  [ \"Type\" .= (\"", resType,
                           "\" :: String), \"Properties\" .= toJSON x]"]
 
 renderFromJSONCases :: [Resource] -> T.Text

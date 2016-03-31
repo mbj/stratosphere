@@ -18,16 +18,20 @@ myTemplate :: Template
 myTemplate =
   template
     [ ("EC2Instance",
-       EC2InstanceResource $
-       ec2Instance
-       "ami-22111148"
-       & eciInstanceType ?~ Ref "InstanceType"
-       & eciKeyName ?~ Ref "KeyName"
-       & eciUserData ?~ Base64 (Join "" ["IPAddress=", Ref "IPAddress"])
-       & eciSecurityGroups ?~ [Ref "InstanceSecuritygroup"]
+       resource (
+          EC2InstanceProperties $
+          ec2Instance
+          "ami-22111148"
+          & eciInstanceType ?~ Ref "InstanceType"
+          & eciKeyName ?~ Ref "KeyName"
+          & eciUserData ?~ Base64 (Join "" ["IPAddress=", Ref "IPAddress"])
+          & eciSecurityGroups ?~ [Ref "InstanceSecuritygroup"]
+          )
+       & deletionPolicy ?~ Retain
       )
     , ("InstanceSecurityGroup",
-       SecurityGroupResource $
+       resource $
+       SecurityGroupProperties $
        securityGroup
        "Enable SSH Access"
        & sgSecurityGroupIngress ?~ [
@@ -39,9 +43,10 @@ myTemplate =
           & sgirCidrIp ?~ Ref "SSHLocation"
           ]
       )
-    , ("IPAddress", EIPResource eip)
+    , ("IPAddress", resource $ EIPProperties eip)
     , ("IPAssoc",
-       EIPAssociationResource $
+       resource $
+       EIPAssociationProperties $
        eipAssociation
        & eipaInstanceId ?~ Ref "EC2Instance"
        & eipaEIP ?~ Ref "IPAddress"
