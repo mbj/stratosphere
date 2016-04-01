@@ -1,0 +1,34 @@
+{
+  "Name": "IAMRole",
+  "Type": "AWS::IAM::Role",
+  "Documentation": "Creates an AWS Identity and Access Management (IAM) role. An IAM role can be used to enable applications running on an Amazon EC2 instance to securely access your AWS resources.\nFor more information about IAM roles, see Working with Roles in the AWS Identity and Access Management User Guide.",
+  "Dependencies": [
+    "ResourceProperties.IAMPolicies"
+  ],
+  "Parameters": [
+    {
+      "Name": "AssumeRolePolicyDocument",
+      "Type": "Object",
+      "Documentation": "The IAM assume role policy that is associated with this role.",
+      "Required": true
+    },
+    {
+      "Name": "ManagedPolicyArns",
+      "Type": "[Text]",
+      "Documentation": "One or more managed policy ARNs to attach to this role.",
+      "Required": false
+    },
+    {
+      "Name": "Path",
+      "Type": "Text",
+      "Documentation": "The path associated with this role. For information about IAM paths, see Friendly Names and Paths in IAM User Guide.",
+      "Required": false
+    },
+    {
+      "Name": "Policies",
+      "Type": "[IAMPolicies]",
+      "Documentation": "The policies to associate with this role. Policies can also be specified externally. For sample templates that demonstrates both embedded and external policies, see Template Examples.\nIf you specify multiple polices, specify unique values for the policy name. If you don't, updates to the IAM role will fail.\nNote\nIf an external policy (such as AWS::IAM::Policy or AWS::IAM::ManagedPolicy) has a Ref to a role and if a resource (such as AWS::ECS::Service) also has a Ref to the same role, add a DependsOn attribute to the resource so that the resource depends on the external policy. This dependency ensures that the role's policy is available throughout the resource's lifecycle. For example, when you delete a stack with an AWS::ECS::Service resource, the DependsOn attribute ensures that the AWS::ECS::Service resource can complete its deletion before its role's policy is deleted.",
+      "Required": false
+    }
+  ]
+}

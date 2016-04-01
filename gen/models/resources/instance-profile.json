@@ -1,0 +1,19 @@
+{
+  "Name": "InstanceProfile",
+  "Type": "AWS::IAM::InstanceProfile",
+  "Documentation": "Creates an AWS Identity and Access Management (IAM) Instance Profile that can be used with IAM Roles for EC2 Instances.\nFor more information about IAM roles, see Working with Roles in the AWS Identity and Access Management User Guide.",
+  "Parameters": [
+    {
+      "Name": "Path",
+      "Type": "Text",
+      "Documentation": "The path associated with this IAM instance profile. For information about IAM paths, see Friendly Names and Paths in the AWS Identity and Access Management User Guide.",
+      "Required": true
+    },
+    {
+      "Name": "Roles",
+      "Type": "[Text]",
+      "Documentation": "The roles associated with this IAM instance profile.",
+      "Required": true
+    }
+  ]
+}

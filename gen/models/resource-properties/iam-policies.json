@@ -1,0 +1,18 @@
+{
+  "Name": "IAMPolicies",
+  "Documentation": "Policies is a property of the AWS::IAM::Role, AWS::IAM::Group, and AWS::IAM::User resources. The Policies property describes what actions are allowed on what resources. For more information about IAM policies, see Overview of Policies in IAM User Guide.",
+  "Parameters": [
+    {
+      "Name": "PolicyDocument",
+      "Type": "Object",
+      "Documentation": "A policy document that describes what actions are allowed on which resources.",
+      "Required": true
+    },
+    {
+      "Name": "PolicyName",
+      "Type": "Text",
+      "Documentation": "The name of the policy.",
+      "Required": true
+    }
+  ]
+}
