@@ -1,0 +1,25 @@
+{
+  "Name": "VPCGatewayAttachment",
+  "Type": "AWS::EC2::VPCGatewayAttachment",
+  "Documentation": "Attaches a gateway to a VPC.",
+  "Parameters": [
+    {
+      "Name": "InternetGatewayId",
+      "Type": "Text",
+      "Documentation": "The ID of the Internet gateway.",
+      "Required": false
+    },
+    {
+      "Name": "VpcId",
+      "Type": "Text",
+      "Documentation": "The ID of the VPC to associate with this gateway.",
+      "Required": true
+    },
+    {
+      "Name": "VpnGatewayId",
+      "Type": "Text",
+      "Documentation": "The ID of the virtual private network (VPN) gateway to attach to the VPC.",
+      "Required": false
+    }
+  ]
+}
