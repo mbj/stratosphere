@@ -48,6 +48,7 @@ import qualified Data.ByteString.Lazy as BS
 import qualified Data.HashMap.Strict as HM
 import qualified Data.Text as T
 
+import Stratosphere.Helpers (modTemplateJSONField)
 import Stratosphere.Resources
 import Stratosphere.Values
 
@@ -135,7 +136,8 @@ data Template =
   , templateOutputs :: Maybe (HM.HashMap T.Text Output)
   } deriving (Show)
 
-$(deriveJSON defaultOptions { fieldLabelModifier = drop 8
+
+$(deriveJSON defaultOptions { fieldLabelModifier = modTemplateJSONField
                             , omitNothingFields = True } ''Template)
 $(makeFields ''Template)
 
@@ -154,7 +156,7 @@ template res =
 
 encodeTemplate :: Template -> BS.ByteString
 encodeTemplate = encodePretty' defConfig { confCompare = comp }
-  where comp = keyOrder [ "FormatVersion"
+  where comp = keyOrder [ "AWSTemplateFormatVersion"
                         , "Description"
                         , "Metadata"
                         , "Parameters"

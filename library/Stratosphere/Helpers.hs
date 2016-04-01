@@ -2,6 +2,7 @@ module Stratosphere.Helpers
        ( maybeField
        , prefixNamer
        , prefixFieldRules
+       , modTemplateJSONField
        ) where
 
 import Control.Lens (set)
@@ -35,3 +36,9 @@ prefixNamer prefix _ _ field = maybeToList $
 -- | See `prefixNamer`
 prefixFieldRules :: String -> LensRules
 prefixFieldRules prefix = set lensField (prefixNamer prefix) defaultFieldRules
+
+-- | Used for the JSON instances in Template. It is put here because it must be
+-- in a separate module.
+modTemplateJSONField :: String -> String
+modTemplateJSONField "templateFormatVersion" = "AWSTemplateFormatVersion"
+modTemplateJSONField s = drop 8 s
