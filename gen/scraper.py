@@ -39,11 +39,17 @@ def get_variables(soup):
         var_type = variable_property(contents_tag, "Type")
         variables.append(OrderedDict([
             ("Name", var_name),
-            ("Type", var_type),
+            ("Type", _type_alternatives.get(var_type, var_type)),
             ("Documentation", "\n".join(docs)),
             ("Required", var_required == "Yes"),
         ]))
     return variables
+
+
+_type_alternatives = {
+    "String": "Text",
+    "Boolean": "Bool",
+}
 
 
 def variable_docs(contents_tag):
