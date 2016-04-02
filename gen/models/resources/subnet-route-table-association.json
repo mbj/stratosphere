@@ -1,0 +1,19 @@
+{
+  "Name": "SubnetRouteTableAssociation",
+  "Type": "AWS::EC2::SubnetRouteTableAssociation",
+  "Documentation": "Associates a subnet with a route table.",
+  "Parameters": [
+    {
+      "Name": "RouteTableId",
+      "Type": "Text",
+      "Documentation": "The ID of the route table. This is commonly written as a reference to a route table declared elsewhere in the template. For example:",
+      "Required": true
+    },
+    {
+      "Name": "SubnetId",
+      "Type": "Text",
+      "Documentation": "The ID of the subnet. This is commonly written as a reference to a subnet declared elsewhere in the template. For example:",
+      "Required": true
+    }
+  ]
+}
