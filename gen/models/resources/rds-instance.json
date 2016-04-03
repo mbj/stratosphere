@@ -1,0 +1,202 @@
+{
+  "Name": "DBInstance",
+  "Type": "AWS::RDS::DBInstance",
+  "Documentation": "The AWS::RDS::DBInstance type creates an Amazon RDS database instance. For detailed information about configuring RDS DB instances, see CreateDBInstance.\n\n",
+  "Dependencies": [
+    "ResourceProperties.ResourceTag"
+  ],
+  "Parameters": [
+    {
+      "Name": "AllocatedStorage",
+      "Type": "Text",
+      "Documentation": "The allocated storage size specified in gigabytes (GB).\nIf any value is used in the Iops parameter, AllocatedStorage must be at least 100 GB, which corresponds to the minimum Iops value of 1000. If Iops is increased (in 1000 IOPS increments), then AllocatedStorage must also be increased (in 100 GB increments) correspondingly.",
+      "Required": false
+    },
+    {
+      "Name": "AllowMajorVersionUpgrade",
+      "Type": "Bool",
+      "Documentation": "Indicates whether major version upgrades are allowed. Changing this parameter does not result in an outage, and the change is applied asynchronously as soon as possible.\nConstraints: This parameter must be set to true when you specify an EngineVersion that differs from the DB instance's current major version.",
+      "Required": false
+    },
+    {
+      "Name": "AutoMinorVersionUpgrade",
+      "Type": "Bool",
+      "Documentation": "Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. The default value is true.",
+      "Required": false
+    },
+    {
+      "Name": "AvailabilityZone",
+      "Type": "Text",
+      "Documentation": "The name of the Availability Zone where the DB instance is located. You cannot set the AvailabilityZone parameter if the MultiAZ parameter is set to true.",
+      "Required": false
+    },
+    {
+      "Name": "BackupRetentionPeriod",
+      "Type": "Text",
+      "Documentation": "The number of days for which automatic DB snapshots are retained.\nImportant\nIf this DB instance is deleted or replaced during an update, all automated snapshots are deleted. However, manual DB snapshot are retained.",
+      "Required": false
+    },
+    {
+      "Name": "CharacterSetName",
+      "Type": "Text",
+      "Documentation": "For supported engines, specifies the character set to associate with the database instance. For more information, see Appendix: Oracle Character Sets Supported in Amazon RDS in the Amazon Relational Database Service User Guide.\nIf you specify the DBSnapshotIdentifier or SourceDBInstanceIdentifier property, do not specify this property. The value is inherited from the snapshot or source database instance.",
+      "Required": false
+    },
+    {
+      "Name": "DBClusterIdentifier",
+      "Type": "Text",
+      "Documentation": "The identifier of an existing DB cluster that this instance will be associated with. If you specify this property, specify aurora for the Engine property and do not specify any of the following properties: AllocatedStorage, CharacterSetName, DBSecurityGroups, SourceDBInstanceIdentifier, and StorageType.\nAmazon RDS assigns the first DB instance in the cluster as the primary and additional DB instances as replicas.",
+      "Required": false
+    },
+    {
+      "Name": "DBInstanceClass",
+      "Type": "Text",
+      "Documentation": "The name of the compute and memory capacity class of the DB instance.",
+      "Required": true
+    },
+    {
+      "Name": "DBInstanceIdentifier",
+      "Type": "Text",
+      "Documentation": "A name for the DB instance. If you specify a name, AWS CloudFormation converts it to lower case. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the DB instance. For more information, see Name Type.\nImportant\nIf you specify a name, you cannot do updates that require this resource to be replaced. You can still do updates that require no or some interruption. If you must replace the resource, specify a new name.",
+      "Required": false
+    },
+    {
+      "Name": "DBName",
+      "Type": "Text",
+      "Documentation": "The name of the initial database of this instance that was provided at create time, if one was specified. This same name is returned for the life of the DB instance.\nNote\nIf you restore from a snapshot, do specify this property for the MySQL or MariaDB engines.",
+      "Required": false
+    },
+    {
+      "Name": "DBParameterGroupName",
+      "Type": "Text",
+      "Documentation": "The name of an existing DB parameter group or a reference to an AWS::RDS::DBParameterGroup resource created in the template.",
+      "Required": false
+    },
+    {
+      "Name": "DBSecurityGroups",
+      "Type": "[Text]",
+      "Documentation": "A list of the DB security groups to assign to the Amazon RDS instance. The list can include both the name of existing DB security groups or references to AWS::RDS::DBSecurityGroup resources created in the template.\nIf you set DBSecurityGroups, you must not set VPCSecurityGroups, and vice-versa.",
+      "Required": false
+    },
+    {
+      "Name": "DBSnapshotIdentifier",
+      "Type": "Text",
+      "Documentation": "The identifier for the DB snapshot to restore from.\nBy specifying this property, you can create a DB instance from the specified DB snapshot. If the DBSnapshotIdentifier property is an empty string or the AWS::RDS::DBInstance declaration has no DBSnapshotIdentifier property, the database is created as a new database. If the property contains a value (other than empty string), AWS CloudFormation creates a database from the specified snapshot. If a snapshot with the specified name does not exist, the database creation fails and the stack rolls back.\nSome DB instance properties are not valid when you restore from a snapshot, such as the MasterUsername and MasterUserPassword properties. For information about the properties that you can specify, see the RestoreDBInstanceFromDBSnapshot action in the Amazon Relational Database Service API Reference.",
+      "Required": false
+    },
+    {
+      "Name": "DBSubnetGroupName",
+      "Type": "Text",
+      "Documentation": "A DB subnet group to associate with the DB instance.\nIf there is no DB subnet group, then it is a non-VPC DB instance.\nFor more information about using Amazon RDS in a VPC, go to Using Amazon RDS with Amazon Virtual Private Cloud (VPC) in the Amazon Relational Database Service Developer Guide.",
+      "Required": false
+    },
+    {
+      "Name": "Engine",
+      "Type": "Text",
+      "Documentation": "The name of the database engine that the DB instance uses. This property is optional when you specify the DBSnapshotIdentifier property to create DB instances.\nFor valid values, see the Engine parameter of the CreateDBInstance action in the Amazon Relational Database Service API Reference.",
+      "Required": false
+    },
+    {
+      "Name": "EngineVersion",
+      "Type": "Text",
+      "Documentation": "The version number of the database engine to use.",
+      "Required": false
+    },
+    {
+      "Name": "Iops",
+      "Type": "Integer",
+      "Documentation": "The number of I/O operations per second (IOPS) that the database provisions. The value must be equal to or greater than 1000.\nIf you specify this property, you must follow the range of allowed ratios of your requested IOPS rate to the amount of storage that you allocate (IOPS to allocated storage). For example, you can provision an Oracle database instance with 1000 IOPS and 200 GB of storage (a ratio of 5:1) or specify 2000 IOPS with 200 GB of storage (a ratio of 10:1). For more information, see Amazon RDS Provisioned IOPS Storage to Improve Performance in the Amazon Relational Database Service User Guide.",
+      "Required": false
+    },
+    {
+      "Name": "KmsKeyId",
+      "Type": "Text",
+      "Documentation": "The Amazon Resource Name (ARN) of the AWS Key Management Service master key that is used to encrypt the database instance, such as arn:aws:kms:us-east-1:012345678910:key/abcd1234-a123-456a-a12b-a123b4cd56ef. If you enable the StorageEncrypted property but don't specify this property, the default master key is used. If you specify this property, you must set the StorageEncrypted property to true.\nIf you specify the DBSnapshotIdentifier or SourceDBInstanceIdentifier property, do not specify this property. The value is inherited from the snapshot or source database instance.\nNote\nCurrently, if you specify DBSecurityGroups, this property is ignored. If you want to specify a security group and this property, you must use a VPC security group. For more information about Amazon RDS and VPC, see Using Amazon RDS with Amazon VPC in the Amazon Relational Database Service User Guide.",
+      "Required": false
+    },
+    {
+      "Name": "LicenseModel",
+      "Type": "Text",
+      "Documentation": "The license model information for the DB instance.",
+      "Required": false
+    },
+    {
+      "Name": "MasterUsername",
+      "Type": "Text",
+      "Documentation": "The master user name for the database instance. This property is optional when you specify the DBSnapshotIdentifier or the DBClusterIdentifier property to create DB instances.\nNote\nIf you specify the SourceDBInstanceIdentifier or DBSnapshotIdentifier property, do not specify this property. The value is inherited from the source database instance or snapshot.",
+      "Required": false
+    },
+    {
+      "Name": "MasterUserPassword",
+      "Type": "Text",
+      "Documentation": "The master password for the database instance. This property is optional when you specify the DBSnapshotIdentifier or the DBClusterIdentifier property to create DB instances.\nNote\nIf you specify the SourceDBInstanceIdentifier property, do not specify this property. The value is inherited from the source database instance.",
+      "Required": false
+    },
+    {
+      "Name": "MultiAZ",
+      "Type": "Bool",
+      "Documentation": "Specifies if the database instance is a multiple Availability Zone deployment. You cannot set the AvailabilityZone parameter if the MultiAZ parameter is set to true.\nNote\nDo not specify this property if you want a Multi-AZ deployment for a SQL Server database instance. Use the mirroring option in an option group to set Multi-AZ for a SQL Server database instance.",
+      "Required": false
+    },
+    {
+      "Name": "OptionGroupName",
+      "Type": "Text",
+      "Documentation": "An option group that this database instance is associated with.",
+      "Required": false
+    },
+    {
+      "Name": "Port",
+      "Type": "Text",
+      "Documentation": "The port for the instance.",
+      "Required": false
+    },
+    {
+      "Name": "PreferredBackupWindow",
+      "Type": "Text",
+      "Documentation": "The daily time range during which automated backups are created if automated backups are enabled, as determined by the BackupRetentionPeriod.",
+      "Required": false
+    },
+    {
+      "Name": "PreferredMaintenanceWindow",
+      "Type": "Text",
+      "Documentation": "The weekly time range (in UTC) during which system maintenance can occur.",
+      "Required": false
+    },
+    {
+      "Name": "PubliclyAccessible",
+      "Type": "Bool",
+      "Documentation": "Indicates whether the database instance is an Internet-facing instance. If you specify true, an instance is created with a publicly resolvable DNS name, which resolves to a public IP address. If you specify false, an internal instance is created with a DNS name that resolves to a private IP address.\nThe default behavior value depends on your VPC setup and the database subnet group. For more information, see the PubliclyAccessible parameter in CreateDBInstance in the Amazon Relational Database Service API Reference.\nIf this resource has a public IP address and is also in a VPC that is defined in the same template, you must use the DependsOn attribute to declare a dependency on the VPC-gateway attachment. For more information, see DependsOn Attribute.\nNote\nCurrently, if you specify DBSecurityGroups, this property is ignored. If you want to specify a security group and this property, you must use a VPC security group. For more information about Amazon RDS and VPC, see Using Amazon RDS with Amazon VPC in the Amazon Relational Database Service User Guide.",
+      "Required": false
+    },
+    {
+      "Name": "SourceDBInstanceIdentifier",
+      "Type": "Text",
+      "Documentation": "If you want to create a read replica DB instance, specify the ID of the source database instance. Each database instance can have a certain number of read replicas. For more information, see Working with Read Replicas in the Amazon Relational Database Service Developer Guide.\nThe SourceDBInstanceIdentifier property determines whether a database instance is a read replica. If you remove the SourceDBInstanceIdentifier property from your current template and then update your stack, the read replica is deleted and a new database instance (not a read replica) is created.\nImportant\nRead replicas do not support deletion policies. Any deletion policy that's associated with a read replica is ignored.\nIf you specify SourceDBInstanceIdentifier, do not set the MultiAZ property to true and do not specify the DBSnapshotIdentifier property. You cannot deploy read replicas in multiple Availability Zones, and you cannot create a read replica from a snapshot.\nDo not set the BackupRetentionPeriod, DBName, MasterUsername, MasterUserPassword, and PreferredBackupWindow properties. The database attributes are inherited from the source database instance, and backups are disabled for read replicas.\nIf the source DB instance is in a different region than the read replica, specify a valid DB instance ARN. For more information, see Constructing a Amazon RDS Amazon Resource Name (ARN) in the Amazon Relational Database Service User Guide.\nFor DB instances in an Amazon Aurora clusters, do not specify this property. Amazon RDS assigns automatically assigns a writer and reader DB instances.",
+      "Required": false
+    },
+    {
+      "Name": "StorageEncrypted",
+      "Type": "Bool",
+      "Documentation": "Indicates whether the database instance is encrypted.\nIf you specify the DBClusterIdentifier, DBSnapshotIdentifier, or SourceDBInstanceIdentifier property, do not specify this property. The value is inherited from the cluster, snapshot, or source database instance.\nNote\nCurrently, if you specify DBSecurityGroups, this property is ignored. If you want to specify a security group and this property, you must use a VPC security group. For more information about Amazon RDS and VPC, see Using Amazon RDS with Amazon VPC in the Amazon Relational Database Service User Guide.",
+      "Required": false
+    },
+    {
+      "Name": "StorageType",
+      "Type": "Text",
+      "Documentation": "The storage type associated with this database instance.\nFor the default and valid values, see the StorageType parameter of the CreateDBInstance action in the Amazon Relational Database Service API Reference.\nNote\nCurrently, if you specify DBSecurityGroups, this property is ignored. If you want to specify a security group and this property, you must use a VPC security group. For more information about Amazon RDS and VPC, see Using Amazon RDS with Amazon VPC in the Amazon Relational Database Service User Guide.",
+      "Required": false
+    },
+    {
+      "Name": "Tags",
+      "Type": "[ResourceTag]",
+      "Documentation": "An arbitrary set of tags (key\u2013value pairs) for this database instance.",
+      "Required": false
+    },
+    {
+      "Name": "VPCSecurityGroups",
+      "Type": "[Text]",
+      "Documentation": "A list of the VPC security groups to assign to the Amazon RDS instance. The list can include both the physical IDs of existing VPC security groups or references to AWS::EC2::SecurityGroup resources created in the template.\nIf you set VPCSecurityGroups, you must not set DBSecurityGroups, and vice-versa.\nImportant\nYou can migrate a database instance in your stack from an RDS DB security group to a VPC security group, but you should keep the following points in mind:\nYou cannot revert to using an RDS security group once you have established a VPC security group membership.\nWhen you migrate your DB instance to VPC security groups, if your stack update rolls back because of another failure in the database instance update, or because of an update failure in another AWS CloudFormation resource, the rollback will fail because it cannot revert to an RDS security group.\nTo avoid this situation, only migrate your DB instance to using VPC security groups when that is the only change in your stack template.",
+      "Required": false
+    }
+  ]
+}

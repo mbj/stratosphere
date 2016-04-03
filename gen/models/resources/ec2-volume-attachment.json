@@ -1,0 +1,25 @@
+{
+  "Name": "VolumeAttachment",
+  "Type": "AWS::EC2::VolumeAttachment",
+  "Documentation": "Attaches an Amazon EBS volume to a running instance and exposes it to the instance with the specified device name.",
+  "Parameters": [
+    {
+      "Name": "Device",
+      "Type": "Text",
+      "Documentation": "How the device is exposed to the instance (e.g., /dev/sdh, or xvdh).",
+      "Required": true
+    },
+    {
+      "Name": "InstanceId",
+      "Type": "Text",
+      "Documentation": "The ID of the instance to which the volume attaches. This value can be a reference to an AWS::EC2::Instance resource, or it can be the physical ID of an existing EC2 instance.",
+      "Required": true
+    },
+    {
+      "Name": "VolumeId",
+      "Type": "Text",
+      "Documentation": "The ID of the Amazon EBS volume. The volume and instance must be within the same Availability Zone. This value can be a reference to an AWS::EC2::Volume resource, or it can be the volume ID of an existing Amazon EBS volume.",
+      "Required": true
+    }
+  ]
+}

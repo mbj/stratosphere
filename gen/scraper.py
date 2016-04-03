@@ -16,14 +16,24 @@ def main(url):
     soup = BeautifulSoup(page_text, "html.parser")
     title_tag = soup.find("div", attrs={"class": "titlepage"})
     name = title_tag.text
+    if "::" in name:
+        type_ = name
+        name = name.split("::")[-1]
+    else:
+        type_ = None
+
     docs = title_tag.find_next_siblings("p")
     docstring = "\n".join([remove_extra_space(d.text) for d in docs])
     variables = get_variables(soup)
-    json_out = json.dumps(OrderedDict([
-        ("Name", name),
-        ("Documentation", docstring),
-        ("Parameters", variables),
-    ]), indent=2)
+
+    out_dict = OrderedDict()
+    out_dict["Name"] = name
+    if type_:
+        out_dict["Type"] = type_
+    out_dict["Documentation"] = docstring
+    out_dict["Parameters"] = variables
+
+    json_out = json.dumps(out_dict, indent=2)
     print(json_out)
 
 
@@ -64,6 +74,8 @@ def variable_docs(contents_tag):
 
 def variable_property(contents_tag, prop_name):
     prop_tag = contents_tag.find(["p", "span", "em"], text=prop_name)
+    if prop_tag is None:
+        return None
     prop = prop_tag.find_parent("p").text.strip()
     if prop.startswith(prop_name + ": "):
         prop = prop[len(prop_name + ": "):]
