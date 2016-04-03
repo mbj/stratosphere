@@ -20,7 +20,6 @@ before_install:
 # executables, and test suites, and runs the test suites. --no-terminal works
 # around some quirks in Travis's terminal implementation.
 script:
-  - (cd gen/ && stack build && stack exec stratosphere-gen)
   - stack $ARGS --no-terminal --install-ghc test --haddock --no-haddock-deps
 
 # Caching so the next build will be fast too.

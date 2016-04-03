@@ -17,8 +17,14 @@ AWS CloudFormation templates. The goals of stratosphere are to:
 
 All of the resources and resource properties are auto-generated from JSON files
 and are placed in `library-gen/`. The `gen/` directory contains the
-auto-generator code and the JSON model files. To build the library, you first
-need to auto-generate these models (in the future, we may add the output
-directly in this repo).
+auto-generator code and the JSON model files. We include the `library-gen/`
+directory in git so the build process is simplified. To build `library-gen`
+from scratch and then build all of `stratosphere`, just run the very short
+`build.sh` script.
 
-To build the library, just run the very short `build.sh` script.
+In the future, it would be great to not have to include the auto-generated code
+in git.
+
+Also, there is a file called `scraper.py` that scrapes a given CloudFormation
+resource documentation page to produce the JSON model. It isn't perfect, but it
+helps a lot.
