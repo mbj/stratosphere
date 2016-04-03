@@ -50,46 +50,8 @@ import qualified Data.Text as T
 
 import Stratosphere.Helpers (modTemplateJSONField)
 import Stratosphere.Resources
+import Stratosphere.Parameters
 import Stratosphere.Values
-
-data Parameter =
-  Parameter
-  { parameterType' :: T.Text
-  , parameterDefault' :: Maybe Value
-  , parameterNoEcho :: Maybe Bool
-  , parameterAllowedValues :: Maybe Array
-  , parameterAllowedPattern :: Maybe T.Text
-  , parameterMaxLength :: Maybe Integer'
-  , parameterMinLength :: Maybe Integer'
-  , parameterMaxValue :: Maybe Integer'
-  , parameterMinValue :: Maybe Integer'
-  , parameterDescription :: Maybe T.Text
-  , parameterConstraintDescription :: Maybe T.Text
-  } deriving (Show)
-
-$(deriveJSON defaultOptions
-  { fieldLabelModifier = drop 9 . filter (/= '\'')
-  , omitNothingFields = True }
-  ''Parameter)
-$(makeFields ''Parameter)
-
-parameter
-  :: T.Text  -- Type
-  -> Parameter
-parameter ptype =
-  Parameter
-  { parameterType' = ptype
-  , parameterDefault' = Nothing
-  , parameterNoEcho = Nothing
-  , parameterAllowedValues = Nothing
-  , parameterAllowedPattern = Nothing
-  , parameterMaxLength = Nothing
-  , parameterMinLength = Nothing
-  , parameterMaxValue = Nothing
-  , parameterMinValue = Nothing
-  , parameterDescription = Nothing
-  , parameterConstraintDescription = Nothing
-  }
 
 type Mapping = HM.HashMap T.Text Object
 
@@ -129,7 +91,7 @@ data Template =
   { templateFormatVersion :: Maybe T.Text
   , templateDescription :: Maybe T.Text
   , templateMetadata :: Maybe Object
-  , templateParameters :: Maybe (HM.HashMap T.Text Parameter)
+  , templateParameters :: Maybe ParameterMap
   , templateMappings :: Maybe (HM.HashMap T.Text Mapping)
   , templateConditions :: Maybe Object
   , templateResources :: HM.HashMap T.Text Resource

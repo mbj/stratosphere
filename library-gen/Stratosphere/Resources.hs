@@ -38,6 +38,7 @@ import Stratosphere.Resources.VPCGatewayAttachment as X
 import Stratosphere.Resources.EIP as X
 import Stratosphere.Resources.DBSecurityGroup as X
 import Stratosphere.Resources.SubnetRouteTableAssociation as X
+import Stratosphere.Resources.Stack as X
 import Stratosphere.Resources.VPC as X
 import Stratosphere.Resources.LoadBalancer as X
 import Stratosphere.Resources.Volume as X
@@ -84,6 +85,7 @@ data ResourceProperties
   | EIPProperties EIP
   | DBSecurityGroupProperties DBSecurityGroup
   | SubnetRouteTableAssociationProperties SubnetRouteTableAssociation
+  | StackProperties Stack
   | VPCProperties VPC
   | LoadBalancerProperties LoadBalancer
   | VolumeProperties Volume
@@ -152,6 +154,8 @@ resourcePropertiesJSON (DBSecurityGroupProperties x) =
   [ "Type" .= ("AWS::RDS::DBSecurityGroup" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (SubnetRouteTableAssociationProperties x) =
   [ "Type" .= ("AWS::EC2::SubnetRouteTableAssociation" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (StackProperties x) =
+  [ "Type" .= ("AWS::CloudFormation::Stack" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (VPCProperties x) =
   [ "Type" .= ("AWS::EC2::VPC" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (LoadBalancerProperties x) =
@@ -185,6 +189,7 @@ instance FromJSON Resource where
          "AWS::EC2::EIP" -> EIPProperties <$> (o .: "Properties")
          "AWS::RDS::DBSecurityGroup" -> DBSecurityGroupProperties <$> (o .: "Properties")
          "AWS::EC2::SubnetRouteTableAssociation" -> SubnetRouteTableAssociationProperties <$> (o .: "Properties")
+         "AWS::CloudFormation::Stack" -> StackProperties <$> (o .: "Properties")
          "AWS::EC2::VPC" -> VPCProperties <$> (o .: "Properties")
          "AWS::ElasticLoadBalancing::LoadBalancer" -> LoadBalancerProperties <$> (o .: "Properties")
          "AWS::EC2::Volume" -> VolumeProperties <$> (o .: "Properties")
