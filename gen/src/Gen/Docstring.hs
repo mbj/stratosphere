@@ -10,7 +10,7 @@ renderDocstring :: T.Text -> T.Text
 renderDocstring = wrapDocstring 79
 
 wrapDocstring :: Int -> T.Text -> T.Text
-wrapDocstring width text = T.unlines $ T.pack <$> commented
+wrapDocstring width text = T.init $ T.unlines $ T.pack <$> commented
   where text' = T.append "| " text
         lines' = wrapLine' (width - 3) (T.unpack text')
         commented = fmap (\l -> "-- " ++ l) lines'
