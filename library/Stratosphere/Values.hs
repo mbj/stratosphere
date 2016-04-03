@@ -50,7 +50,7 @@ instance (ToJSON a) => ToJSON (Val a) where
   toJSON (Or x y) = mkFunc "Fn::Or" [toJSON x, toJSON y]
   toJSON (GetAtt x y) = mkFunc "Fn::GetAtt" [toJSON x, toJSON y]
   toJSON (Base64 v) = mkFunc "Fn::Base64" [toJSON v]
-  toJSON (Join d vs) = mkFunc "Fn::Base64" [toJSON d, toJSON vs]
+  toJSON (Join d vs) = mkFunc "Fn::Join" [toJSON d, toJSON vs]
   toJSON (Select i vs) = mkFunc "Fn::Select" [toJSON i, toJSON vs]
 
 mkFunc :: T.Text -> [Value] -> Value
