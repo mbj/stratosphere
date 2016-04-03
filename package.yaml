@@ -4,6 +4,7 @@ synopsis: EDSL for AWS CloudFormation
 description: EDSL for AWS CloudFormation
 category: AWS, Cloud
 maintainer: David Reaver
+stability: experimental
 license: MIT
 
 github: jdreaver/stratosphere
