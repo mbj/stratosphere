@@ -39,23 +39,32 @@ import Stratosphere.Resources.EIP as X
 import Stratosphere.Resources.DBSecurityGroup as X
 import Stratosphere.Resources.SubnetRouteTableAssociation as X
 import Stratosphere.Resources.VPC as X
+import Stratosphere.Resources.LoadBalancer as X
 import Stratosphere.Resources.Volume as X
 import Stratosphere.Resources.VPCEndpoint as X
 import Stratosphere.Resources.Route as X
 import Stratosphere.Resources.VolumeAttachment as X
 
 import Stratosphere.ResourceProperties.DBSecurityGroupIngress as X
+import Stratosphere.ResourceProperties.ConnectionDrainingPolicy as X
+import Stratosphere.ResourceProperties.HealthCheck as X
 import Stratosphere.ResourceProperties.EC2SsmAssociationParameters as X
+import Stratosphere.ResourceProperties.ELBPolicy as X
+import Stratosphere.ResourceProperties.LBCookieStickinessPolicy as X
 import Stratosphere.ResourceProperties.NetworkInterface as X
 import Stratosphere.ResourceProperties.SecurityGroupEgressRule as X
 import Stratosphere.ResourceProperties.EC2BlockDeviceMapping as X
 import Stratosphere.ResourceProperties.PrivateIpAddressSpecification as X
 import Stratosphere.ResourceProperties.IAMPolicies as X
+import Stratosphere.ResourceProperties.ListenerProperty as X
 import Stratosphere.ResourceProperties.EC2SsmAssociations as X
 import Stratosphere.ResourceProperties.ResourceTag as X
 import Stratosphere.ResourceProperties.EC2MountPoint as X
 import Stratosphere.ResourceProperties.SecurityGroupIngressRule as X
 import Stratosphere.ResourceProperties.EBSBlockDevice as X
+import Stratosphere.ResourceProperties.AccessLoggingPolicy as X
+import Stratosphere.ResourceProperties.AppCookieStickinessPolicy as X
+import Stratosphere.ResourceProperties.ConnectionSettings as X
 
 import Stratosphere.Helpers (maybeField)
 
@@ -76,6 +85,7 @@ data ResourceProperties
   | DBSecurityGroupProperties DBSecurityGroup
   | SubnetRouteTableAssociationProperties SubnetRouteTableAssociation
   | VPCProperties VPC
+  | LoadBalancerProperties LoadBalancer
   | VolumeProperties Volume
   | VPCEndpointProperties VPCEndpoint
   | RouteProperties Route
@@ -144,6 +154,8 @@ resourcePropertiesJSON (SubnetRouteTableAssociationProperties x) =
   [ "Type" .= ("AWS::EC2::SubnetRouteTableAssociation" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (VPCProperties x) =
   [ "Type" .= ("AWS::EC2::VPC" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (LoadBalancerProperties x) =
+  [ "Type" .= ("AWS::ElasticLoadBalancing::LoadBalancer" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (VolumeProperties x) =
   [ "Type" .= ("AWS::EC2::Volume" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (VPCEndpointProperties x) =
@@ -174,6 +186,7 @@ instance FromJSON Resource where
          "AWS::RDS::DBSecurityGroup" -> DBSecurityGroupProperties <$> (o .: "Properties")
          "AWS::EC2::SubnetRouteTableAssociation" -> SubnetRouteTableAssociationProperties <$> (o .: "Properties")
          "AWS::EC2::VPC" -> VPCProperties <$> (o .: "Properties")
+         "AWS::ElasticLoadBalancing::LoadBalancer" -> LoadBalancerProperties <$> (o .: "Properties")
          "AWS::EC2::Volume" -> VolumeProperties <$> (o .: "Properties")
          "AWS::EC2::VPCEndpoint" -> VPCEndpointProperties <$> (o .: "Properties")
          "AWS::EC2::Route" -> RouteProperties <$> (o .: "Properties")

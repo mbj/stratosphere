@@ -1,0 +1,12 @@
+{
+  "Name": "ConnectionSettings",
+  "Documentation": "ConnectionSettings is a property of the AWS::ElasticLoadBalancing::LoadBalancer resource that describes how long the front-end and back-end connections of your load balancer can remain idle. For more information, see Configure Idle Connection Timeout in the Elastic Load Balancing Developer Guide.",
+  "Parameters": [
+    {
+      "Name": "IdleTimeout",
+      "Type": "Integer'",
+      "Documentation": "The time (in seconds) that a connection to the load balancer can remain idle, which means no data is sent over the connection. After the specified time, the load balancer closes the connection.",
+      "Required": true
+    }
+  ]
+}
