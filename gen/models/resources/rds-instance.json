@@ -104,7 +104,7 @@
     },
     {
       "Name": "Iops",
-      "Type": "Integer",
+      "Type": "Integer'",
       "Documentation": "The number of I/O operations per second (IOPS) that the database provisions. The value must be equal to or greater than 1000.\nIf you specify this property, you must follow the range of allowed ratios of your requested IOPS rate to the amount of storage that you allocate (IOPS to allocated storage). For example, you can provision an Oracle database instance with 1000 IOPS and 200 GB of storage (a ratio of 5:1) or specify 2000 IOPS with 200 GB of storage (a ratio of 10:1). For more information, see Amazon RDS Provisioned IOPS Storage to Improve Performance in the Amazon Relational Database Service User Guide.",
       "Required": false
     },

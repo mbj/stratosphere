@@ -34,7 +34,7 @@ data DBInstance =
   , _dBInstanceDBSubnetGroupName :: Maybe (Val Text)
   , _dBInstanceEngine :: Maybe (Val Text)
   , _dBInstanceEngineVersion :: Maybe (Val Text)
-  , _dBInstanceIops :: Maybe (Val Integer)
+  , _dBInstanceIops :: Maybe (Val Integer')
   , _dBInstanceKmsKeyId :: Maybe (Val Text)
   , _dBInstanceLicenseModel :: Maybe (Val Text)
   , _dBInstanceMasterUsername :: Maybe (Val Text)
@@ -227,7 +227,7 @@ dbiEngineVersion = lens _dBInstanceEngineVersion (\s a -> s { _dBInstanceEngineV
 -- 2000 IOPS with 200 GB of storage (a ratio of 10:1). For more information,
 -- see Amazon RDS Provisioned IOPS Storage to Improve Performance in the
 -- Amazon Relational Database Service User Guide.
-dbiIops :: Lens' DBInstance (Maybe (Val Integer))
+dbiIops :: Lens' DBInstance (Maybe (Val Integer'))
 dbiIops = lens _dBInstanceIops (\s a -> s { _dBInstanceIops = a })
 
 -- | The Amazon Resource Name (ARN) of the AWS Key Management Service master
