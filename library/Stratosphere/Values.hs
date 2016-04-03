@@ -34,6 +34,7 @@ data Val a
  | GetAtt T.Text T.Text
  | Base64 (Val a)
  | Join T.Text [Val a]
+ | Select Integer' (Val a)
 
 deriving instance (Show a) => Show (Val a)
 
@@ -50,6 +51,7 @@ instance (ToJSON a) => ToJSON (Val a) where
   toJSON (GetAtt x y) = mkFunc "Fn::GetAtt" [toJSON x, toJSON y]
   toJSON (Base64 v) = mkFunc "Fn::Base64" [toJSON v]
   toJSON (Join d vs) = mkFunc "Fn::Base64" [toJSON d, toJSON vs]
+  toJSON (Select i vs) = mkFunc "Fn::Select" [toJSON i, toJSON vs]
 
 mkFunc :: T.Text -> [Value] -> Value
 mkFunc name args = object [(name, Array $ fromList args)]
@@ -77,6 +79,8 @@ instance (FromJSON a) => FromJSON (Val a) where
             Base64 <$> parseJSON obj
           tryParseFunc "Fn::Join" obj =
             uncurry Join <$> parseJSON obj
+          tryParseFunc "Fn::Select" obj =
+            uncurry Select <$> parseJSON obj
           tryParseFunc n _ = fail $ "Unknown function " ++ T.unpack n
   parseJSON v = Literal <$> parseJSON v
 
