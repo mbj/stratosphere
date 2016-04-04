@@ -6,13 +6,13 @@
   "Parameters": [
     {
       "Name": "AssociatePublicIpAddress",
-      "Type": "Bool",
+      "Type": "Bool'",
       "Documentation": "Indicates whether the network interface receives a public IP address. You can associate a public IP address with a network interface only if it has a device index of eth0 and if it is a new network interface (not an existing one). In other words, if you specify true, don't specify a network interface ID. For more information, see Amazon EC2 Instance IP Addressing.",
       "Required": false
     },
     {
       "Name": "DeleteOnTermination",
-      "Type": "Bool",
+      "Type": "Bool'",
       "Documentation": "Whether to delete the network interface when the instance terminates.",
       "Required": false
     },

@@ -29,7 +29,7 @@ data LoadBalancer =
   , _loadBalancerAvailabilityZones :: Maybe [Val Text]
   , _loadBalancerConnectionDrainingPolicy :: Maybe (Val ConnectionDrainingPolicy)
   , _loadBalancerConnectionSettings :: Maybe (Val ConnectionSettings)
-  , _loadBalancerCrossZone :: Maybe (Val Bool)
+  , _loadBalancerCrossZone :: Maybe (Val Bool')
   , _loadBalancerHealthCheck :: Maybe (Val HealthCheck)
   , _loadBalancerInstances :: Maybe [Val Text]
   , _loadBalancerLBCookieStickinessPolicy :: Maybe [Val LBCookieStickinessPolicy]
@@ -103,7 +103,7 @@ lbConnectionSettings = lens _loadBalancerConnectionSettings (\s a -> s { _loadBa
 -- cross-zone load balancing, your load balancer nodes route traffic to the
 -- back-end instances across all Availability Zones. By default the CrossZone
 -- property is false.
-lbCrossZone :: Lens' LoadBalancer (Maybe (Val Bool))
+lbCrossZone :: Lens' LoadBalancer (Maybe (Val Bool'))
 lbCrossZone = lens _loadBalancerCrossZone (\s a -> s { _loadBalancerCrossZone = a })
 
 -- | Application health check for the instances.

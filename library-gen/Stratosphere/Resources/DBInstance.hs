@@ -19,8 +19,8 @@ import Stratosphere.ResourceProperties.ResourceTag
 data DBInstance =
   DBInstance
   { _dBInstanceAllocatedStorage :: Maybe (Val Text)
-  , _dBInstanceAllowMajorVersionUpgrade :: Maybe (Val Bool)
-  , _dBInstanceAutoMinorVersionUpgrade :: Maybe (Val Bool)
+  , _dBInstanceAllowMajorVersionUpgrade :: Maybe (Val Bool')
+  , _dBInstanceAutoMinorVersionUpgrade :: Maybe (Val Bool')
   , _dBInstanceAvailabilityZone :: Maybe (Val Text)
   , _dBInstanceBackupRetentionPeriod :: Maybe (Val Text)
   , _dBInstanceCharacterSetName :: Maybe (Val Text)
@@ -39,14 +39,14 @@ data DBInstance =
   , _dBInstanceLicenseModel :: Maybe (Val Text)
   , _dBInstanceMasterUsername :: Maybe (Val Text)
   , _dBInstanceMasterUserPassword :: Maybe (Val Text)
-  , _dBInstanceMultiAZ :: Maybe (Val Bool)
+  , _dBInstanceMultiAZ :: Maybe (Val Bool')
   , _dBInstanceOptionGroupName :: Maybe (Val Text)
   , _dBInstancePort :: Maybe (Val Text)
   , _dBInstancePreferredBackupWindow :: Maybe (Val Text)
   , _dBInstancePreferredMaintenanceWindow :: Maybe (Val Text)
-  , _dBInstancePubliclyAccessible :: Maybe (Val Bool)
+  , _dBInstancePubliclyAccessible :: Maybe (Val Bool')
   , _dBInstanceSourceDBInstanceIdentifier :: Maybe (Val Text)
-  , _dBInstanceStorageEncrypted :: Maybe (Val Bool)
+  , _dBInstanceStorageEncrypted :: Maybe (Val Bool')
   , _dBInstanceStorageType :: Maybe (Val Text)
   , _dBInstanceTags :: Maybe [Val ResourceTag]
   , _dBInstanceVPCSecurityGroups :: Maybe [Val Text]
@@ -110,12 +110,12 @@ dbiAllocatedStorage = lens _dBInstanceAllocatedStorage (\s a -> s { _dBInstanceA
 -- asynchronously as soon as possible. Constraints: This parameter must be set
 -- to true when you specify an EngineVersion that differs from the DB
 -- instance's current major version.
-dbiAllowMajorVersionUpgrade :: Lens' DBInstance (Maybe (Val Bool))
+dbiAllowMajorVersionUpgrade :: Lens' DBInstance (Maybe (Val Bool'))
 dbiAllowMajorVersionUpgrade = lens _dBInstanceAllowMajorVersionUpgrade (\s a -> s { _dBInstanceAllowMajorVersionUpgrade = a })
 
 -- | Indicates that minor engine upgrades will be applied automatically to the
 -- DB instance during the maintenance window. The default value is true.
-dbiAutoMinorVersionUpgrade :: Lens' DBInstance (Maybe (Val Bool))
+dbiAutoMinorVersionUpgrade :: Lens' DBInstance (Maybe (Val Bool'))
 dbiAutoMinorVersionUpgrade = lens _dBInstanceAutoMinorVersionUpgrade (\s a -> s { _dBInstanceAutoMinorVersionUpgrade = a })
 
 -- | The name of the Availability Zone where the DB instance is located. You
@@ -273,7 +273,7 @@ dbiMasterUserPassword = lens _dBInstanceMasterUserPassword (\s a -> s { _dBInsta
 -- Multi-AZ deployment for a SQL Server database instance. Use the mirroring
 -- option in an option group to set Multi-AZ for a SQL Server database
 -- instance.
-dbiMultiAZ :: Lens' DBInstance (Maybe (Val Bool))
+dbiMultiAZ :: Lens' DBInstance (Maybe (Val Bool'))
 dbiMultiAZ = lens _dBInstanceMultiAZ (\s a -> s { _dBInstanceMultiAZ = a })
 
 -- | An option group that this database instance is associated with.
@@ -308,7 +308,7 @@ dbiPreferredMaintenanceWindow = lens _dBInstancePreferredMaintenanceWindow (\s a
 -- security group and this property, you must use a VPC security group. For
 -- more information about Amazon RDS and VPC, see Using Amazon RDS with Amazon
 -- VPC in the Amazon Relational Database Service User Guide.
-dbiPubliclyAccessible :: Lens' DBInstance (Maybe (Val Bool))
+dbiPubliclyAccessible :: Lens' DBInstance (Maybe (Val Bool'))
 dbiPubliclyAccessible = lens _dBInstancePubliclyAccessible (\s a -> s { _dBInstancePubliclyAccessible = a })
 
 -- | If you want to create a read replica DB instance, specify the ID of the
@@ -344,7 +344,7 @@ dbiSourceDBInstanceIdentifier = lens _dBInstanceSourceDBInstanceIdentifier (\s a
 -- a security group and this property, you must use a VPC security group. For
 -- more information about Amazon RDS and VPC, see Using Amazon RDS with Amazon
 -- VPC in the Amazon Relational Database Service User Guide.
-dbiStorageEncrypted :: Lens' DBInstance (Maybe (Val Bool))
+dbiStorageEncrypted :: Lens' DBInstance (Maybe (Val Bool'))
 dbiStorageEncrypted = lens _dBInstanceStorageEncrypted (\s a -> s { _dBInstanceStorageEncrypted = a })
 
 -- | The storage type associated with this database instance. For the default

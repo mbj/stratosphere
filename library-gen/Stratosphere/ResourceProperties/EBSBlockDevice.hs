@@ -17,8 +17,8 @@ import Stratosphere.Values
 
 data EBSBlockDevice =
   EBSBlockDevice
-  { _eBSBlockDeviceDeleteOnTermination :: Maybe (Val Bool)
-  , _eBSBlockDeviceEncrypted :: Maybe (Val Bool)
+  { _eBSBlockDeviceDeleteOnTermination :: Maybe (Val Bool')
+  , _eBSBlockDeviceEncrypted :: Maybe (Val Bool')
   , _eBSBlockDeviceIops :: Maybe (Val Int)
   , _eBSBlockDeviceSnapshotId :: Maybe (Val Text)
   , _eBSBlockDeviceVolumeSize :: Maybe (Val Text)
@@ -45,7 +45,7 @@ ebsBlockDevice  =
 
 -- | Determines whether to delete the volume on instance termination. The
 -- default value is true.
-ebsbdDeleteOnTermination :: Lens' EBSBlockDevice (Maybe (Val Bool))
+ebsbdDeleteOnTermination :: Lens' EBSBlockDevice (Maybe (Val Bool'))
 ebsbdDeleteOnTermination = lens _eBSBlockDeviceDeleteOnTermination (\s a -> s { _eBSBlockDeviceDeleteOnTermination = a })
 
 -- | Indicates whether the volume is encrypted. Encrypted Amazon EBS volumes
@@ -55,7 +55,7 @@ ebsbdDeleteOnTermination = lens _eBSBlockDeviceDeleteOnTermination (\s a -> s { 
 -- snapshot or vice versa. If your AMI uses encrypted volumes, you can only
 -- launch the AMI on supported instance types. For more information, see
 -- Amazon EBS encryption in the Amazon EC2 User Guide for Linux Instances.
-ebsbdEncrypted :: Lens' EBSBlockDevice (Maybe (Val Bool))
+ebsbdEncrypted :: Lens' EBSBlockDevice (Maybe (Val Bool'))
 ebsbdEncrypted = lens _eBSBlockDeviceEncrypted (\s a -> s { _eBSBlockDeviceEncrypted = a })
 
 -- | The number of I/O operations per second (IOPS) that the volume supports.

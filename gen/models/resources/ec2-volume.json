@@ -8,7 +8,7 @@
   "Parameters": [
     {
       "Name": "AutoEnableIO",
-      "Type": "Bool",
+      "Type": "Bool'",
       "Documentation": "Indicates whether the volume is auto-enabled for I/O operations. By default, Amazon EBS disables I/O to the volume from attached EC2 instances when it determines that a volume's data is potentially inconsistent. If the consistency of the volume is not a concern, and you prefer that the volume be made available immediately if it's impaired, you can configure the volume to automatically enable I/O. For more information, see Working with the AutoEnableIO Volume Attribute in the Amazon EC2 User Guide for Linux Instances.",
       "Required": false
     },
@@ -20,7 +20,7 @@
     },
     {
       "Name": "Encrypted",
-      "Type": "Bool",
+      "Type": "Bool'",
       "Documentation": "Indicates whether the volume is encrypted. Encrypted Amazon EBS volumes can only be attached to instance types that support Amazon EBS encryption. Volumes that are created from encrypted snapshots are automatically encrypted. You cannot create an encrypted volume from an unencrypted snapshot or vice versa. If your AMI uses encrypted volumes, you can only launch the AMI on supported instance types. For more information, see Amazon EBS encryption in the Amazon EC2 User Guide for Linux Instances.",
       "Required": false
     },

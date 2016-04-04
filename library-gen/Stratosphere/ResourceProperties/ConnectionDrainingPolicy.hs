@@ -25,7 +25,7 @@ import Stratosphere.Values
 
 data ConnectionDrainingPolicy =
   ConnectionDrainingPolicy
-  { _connectionDrainingPolicyEnabled :: Val Bool
+  { _connectionDrainingPolicyEnabled :: Val Bool'
   , _connectionDrainingPolicyTimeout :: Maybe (Val Integer')
   } deriving (Show, Generic)
 
@@ -36,7 +36,7 @@ instance FromJSON ConnectionDrainingPolicy where
   parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 25, omitNothingFields = True }
 
 connectionDrainingPolicy
-  :: Val Bool -- ^ Enabled
+  :: Val Bool' -- ^ Enabled
   -> ConnectionDrainingPolicy
 connectionDrainingPolicy enabledarg =
   ConnectionDrainingPolicy
@@ -45,7 +45,7 @@ connectionDrainingPolicy enabledarg =
   }
 
 -- | Whether or not connection draining is enabled for the load balancer.
-cdpEnabled :: Lens' ConnectionDrainingPolicy (Val Bool)
+cdpEnabled :: Lens' ConnectionDrainingPolicy (Val Bool')
 cdpEnabled = lens _connectionDrainingPolicyEnabled (\s a -> s { _connectionDrainingPolicyEnabled = a })
 
 -- | The time in seconds after the load balancer closes all connections to a

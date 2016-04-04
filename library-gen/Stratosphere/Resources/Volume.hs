@@ -21,9 +21,9 @@ import Stratosphere.ResourceProperties.ResourceTag
 
 data Volume =
   Volume
-  { _volumeAutoEnableIO :: Maybe (Val Bool)
+  { _volumeAutoEnableIO :: Maybe (Val Bool')
   , _volumeAvailabilityZone :: Val Text
-  , _volumeEncrypted :: Maybe (Val Bool)
+  , _volumeEncrypted :: Maybe (Val Bool')
   , _volumeIops :: Maybe (Val Integer')
   , _volumeKmsKeyId :: Maybe (Val Text)
   , _volumeSize :: Maybe (Val Text)
@@ -62,7 +62,7 @@ volume availabilityZonearg =
 -- volume to automatically enable I/O. For more information, see Working with
 -- the AutoEnableIO Volume Attribute in the Amazon EC2 User Guide for Linux
 -- Instances.
-vAutoEnableIO :: Lens' Volume (Maybe (Val Bool))
+vAutoEnableIO :: Lens' Volume (Maybe (Val Bool'))
 vAutoEnableIO = lens _volumeAutoEnableIO (\s a -> s { _volumeAutoEnableIO = a })
 
 -- | The Availability Zone in which to create the new volume.
@@ -76,7 +76,7 @@ vAvailabilityZone = lens _volumeAvailabilityZone (\s a -> s { _volumeAvailabilit
 -- snapshot or vice versa. If your AMI uses encrypted volumes, you can only
 -- launch the AMI on supported instance types. For more information, see
 -- Amazon EBS encryption in the Amazon EC2 User Guide for Linux Instances.
-vEncrypted :: Lens' Volume (Maybe (Val Bool))
+vEncrypted :: Lens' Volume (Maybe (Val Bool'))
 vEncrypted = lens _volumeEncrypted (\s a -> s { _volumeEncrypted = a })
 
 -- | The number of I/O operations per second (IOPS) that the volume supports.

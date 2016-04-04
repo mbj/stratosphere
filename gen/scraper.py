@@ -58,7 +58,7 @@ def get_variables(soup):
 
 _type_alternatives = {
     "String": "Text",
-    "Boolean": "Bool",
+    "Boolean": "Bool'",
 }
 
 

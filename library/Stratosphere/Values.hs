@@ -6,6 +6,7 @@
 module Stratosphere.Values
        ( Val (..)
        , Integer' (..)
+       , Bool' (..)
        ) where
 
 import Data.Aeson
@@ -100,3 +101,21 @@ instance FromJSON Integer' where
     case readMaybe (numString :: String) of
       Nothing -> fail "Can't read number from string"
       (Just n) -> return n
+
+-- | We need to wrap Bools for the same reason we need to wrap Ints.
+data Bool'
+  = False'
+  | True'
+  deriving (Show, Bounded, Enum, Eq, Ord)
+
+instance ToJSON Bool' where
+  toJSON True' = "true"
+  toJSON False' = "false"
+
+instance FromJSON Bool' where
+  parseJSON v = do
+    string <- parseJSON v
+    case string of
+      "true" -> return True'
+      "false" -> return False'
+      _ -> fail $ "Unknown bool string " ++ string

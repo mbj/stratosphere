@@ -24,13 +24,13 @@
     },
     {
       "Name": "DisableApiTermination",
-      "Type": "Bool",
+      "Type": "Bool'",
       "Documentation": "Specifies whether the instance can be terminated through the API.",
       "Required": false
     },
     {
       "Name": "EbsOptimized",
-      "Type": "Bool",
+      "Type": "Bool'",
       "Documentation": "Specifies whether the instance is optimized for Amazon Elastic Block Store I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance.\nFor more information about the instance types that can be launched as Amazon EBS optimized instances, see Amazon EBS-Optimized Instances in the Amazon Elastic Compute Cloud User Guide. Additional fees are incurred when using Amazon EBS-optimized instances.",
       "Required": false
     },
@@ -72,7 +72,7 @@
     },
     {
       "Name": "Monitoring",
-      "Type": "Bool",
+      "Type": "Bool'",
       "Documentation": "Specifies whether monitoring is enabled for the instance.",
       "Required": false
     },
@@ -114,7 +114,7 @@
     },
     {
       "Name": "SourceDestCheck",
-      "Type": "Bool",
+      "Type": "Bool'",
       "Documentation": "Controls whether source/destination checking is enabled on the instance. Also determines if an instance in a VPC will perform network address translation (NAT).\nA value of \"true\" means that source/destination checking is enabled, and a value of \"false\" means that checking is disabled. For the instance to perform NAT, the value must be \"false\". For more information, see NAT Instances in the Amazon Virtual Private Cloud User Guide.",
       "Required": false
     },

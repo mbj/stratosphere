@@ -18,8 +18,8 @@ import Stratosphere.ResourceProperties.ResourceTag
 data VPC =
   VPC
   { _vPCCidrBlock :: Val Text
-  , _vPCEnableDnsSupport :: Maybe (Val Bool)
-  , _vPCEnableDnsHostnames :: Maybe (Val Bool)
+  , _vPCEnableDnsSupport :: Maybe (Val Bool')
+  , _vPCEnableDnsHostnames :: Maybe (Val Bool')
   , _vPCInstanceTenancy :: Maybe (Val Text)
   , _vPCTags :: Maybe [Val ResourceTag]
   } deriving (Show, Generic)
@@ -50,7 +50,7 @@ vpcCidrBlock = lens _vPCCidrBlock (\s a -> s { _vPCCidrBlock = a })
 -- attribute is true, the Amazon DNS server resolves DNS hostnames for your
 -- instances to their corresponding IP addresses; otherwise, it does not. By
 -- default the value is set to true.
-vpcEnableDnsSupport :: Lens' VPC (Maybe (Val Bool))
+vpcEnableDnsSupport :: Lens' VPC (Maybe (Val Bool'))
 vpcEnableDnsSupport = lens _vPCEnableDnsSupport (\s a -> s { _vPCEnableDnsSupport = a })
 
 -- | Specifies whether the instances launched in the VPC get DNS hostnames. If
@@ -58,7 +58,7 @@ vpcEnableDnsSupport = lens _vPCEnableDnsSupport (\s a -> s { _vPCEnableDnsSuppor
 -- they do not. You can only set EnableDnsHostnames to true if you also set
 -- the EnableDnsSupport attribute to true. By default, the value is set to
 -- false.
-vpcEnableDnsHostnames :: Lens' VPC (Maybe (Val Bool))
+vpcEnableDnsHostnames :: Lens' VPC (Maybe (Val Bool'))
 vpcEnableDnsHostnames = lens _vPCEnableDnsHostnames (\s a -> s { _vPCEnableDnsHostnames = a })
 
 -- | The allowed tenancy of instances launched into the VPC. "default":

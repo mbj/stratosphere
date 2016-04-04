@@ -18,7 +18,7 @@ import Stratosphere.Values
 data AccessLoggingPolicy =
   AccessLoggingPolicy
   { _accessLoggingPolicyEmitInterval :: Maybe (Val Integer')
-  , _accessLoggingPolicyEnabled :: Val Bool
+  , _accessLoggingPolicyEnabled :: Val Bool'
   , _accessLoggingPolicyS3BucketName :: Val Text
   , _accessLoggingPolicyS3BucketPrefix :: Maybe (Val Text)
   } deriving (Show, Generic)
@@ -30,7 +30,7 @@ instance FromJSON AccessLoggingPolicy where
   parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 20, omitNothingFields = True }
 
 accessLoggingPolicy
-  :: Val Bool -- ^ Enabled
+  :: Val Bool' -- ^ Enabled
   -> Val Text -- ^ S3BucketName
   -> AccessLoggingPolicy
 accessLoggingPolicy enabledarg s3BucketNamearg =
@@ -47,7 +47,7 @@ alpEmitInterval :: Lens' AccessLoggingPolicy (Maybe (Val Integer'))
 alpEmitInterval = lens _accessLoggingPolicyEmitInterval (\s a -> s { _accessLoggingPolicyEmitInterval = a })
 
 -- | Whether logging is enabled for the load balancer.
-alpEnabled :: Lens' AccessLoggingPolicy (Val Bool)
+alpEnabled :: Lens' AccessLoggingPolicy (Val Bool')
 alpEnabled = lens _accessLoggingPolicyEnabled (\s a -> s { _accessLoggingPolicyEnabled = a })
 
 -- | The name of an Amazon S3 bucket where access log files are stored.

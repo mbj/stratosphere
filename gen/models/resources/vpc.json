@@ -14,13 +14,13 @@
     },
     {
       "Name": "EnableDnsSupport",
-      "Type": "Bool",
+      "Type": "Bool'",
       "Documentation": "Specifies whether DNS resolution is supported for the VPC. If this attribute is true, the Amazon DNS server resolves DNS hostnames for your instances to their corresponding IP addresses; otherwise, it does not. By default the value is set to true.",
       "Required": false
     },
     {
       "Name": "EnableDnsHostnames",
-      "Type": "Bool",
+      "Type": "Bool'",
       "Documentation": "Specifies whether the instances launched in the VPC get DNS hostnames. If this attribute is true, instances in the VPC get DNS hostnames; otherwise, they do not. You can only set EnableDnsHostnames to true if you also set the EnableDnsSupport attribute to true. By default, the value is set to false.",
       "Required": false
     },

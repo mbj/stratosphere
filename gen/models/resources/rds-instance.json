@@ -14,13 +14,13 @@
     },
     {
       "Name": "AllowMajorVersionUpgrade",
-      "Type": "Bool",
+      "Type": "Bool'",
       "Documentation": "Indicates whether major version upgrades are allowed. Changing this parameter does not result in an outage, and the change is applied asynchronously as soon as possible.\nConstraints: This parameter must be set to true when you specify an EngineVersion that differs from the DB instance's current major version.",
       "Required": false
     },
     {
       "Name": "AutoMinorVersionUpgrade",
-      "Type": "Bool",
+      "Type": "Bool'",
       "Documentation": "Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. The default value is true.",
       "Required": false
     },
@@ -134,7 +134,7 @@
     },
     {
       "Name": "MultiAZ",
-      "Type": "Bool",
+      "Type": "Bool'",
       "Documentation": "Specifies if the database instance is a multiple Availability Zone deployment. You cannot set the AvailabilityZone parameter if the MultiAZ parameter is set to true.\nNote\nDo not specify this property if you want a Multi-AZ deployment for a SQL Server database instance. Use the mirroring option in an option group to set Multi-AZ for a SQL Server database instance.",
       "Required": false
     },
@@ -164,7 +164,7 @@
     },
     {
       "Name": "PubliclyAccessible",
-      "Type": "Bool",
+      "Type": "Bool'",
       "Documentation": "Indicates whether the database instance is an Internet-facing instance. If you specify true, an instance is created with a publicly resolvable DNS name, which resolves to a public IP address. If you specify false, an internal instance is created with a DNS name that resolves to a private IP address.\nThe default behavior value depends on your VPC setup and the database subnet group. For more information, see the PubliclyAccessible parameter in CreateDBInstance in the Amazon Relational Database Service API Reference.\nIf this resource has a public IP address and is also in a VPC that is defined in the same template, you must use the DependsOn attribute to declare a dependency on the VPC-gateway attachment. For more information, see DependsOn Attribute.\nNote\nCurrently, if you specify DBSecurityGroups, this property is ignored. If you want to specify a security group and this property, you must use a VPC security group. For more information about Amazon RDS and VPC, see Using Amazon RDS with Amazon VPC in the Amazon Relational Database Service User Guide.",
       "Required": false
     },
@@ -176,7 +176,7 @@
     },
     {
       "Name": "StorageEncrypted",
-      "Type": "Bool",
+      "Type": "Bool'",
       "Documentation": "Indicates whether the database instance is encrypted.\nIf you specify the DBClusterIdentifier, DBSnapshotIdentifier, or SourceDBInstanceIdentifier property, do not specify this property. The value is inherited from the cluster, snapshot, or source database instance.\nNote\nCurrently, if you specify DBSecurityGroups, this property is ignored. If you want to specify a security group and this property, you must use a VPC security group. For more information about Amazon RDS and VPC, see Using Amazon RDS with Amazon VPC in the Amazon Relational Database Service User Guide.",
       "Required": false
     },

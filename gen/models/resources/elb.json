@@ -46,7 +46,7 @@
     },
     {
       "Name": "CrossZone",
-      "Type": "Bool",
+      "Type": "Bool'",
       "Documentation": "Whether cross-zone load balancing is enabled for the load balancer. With cross-zone load balancing, your load balancer nodes route traffic to the back-end instances across all Availability Zones. By default the CrossZone property is false.",
       "Required": false
     },

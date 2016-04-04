@@ -10,7 +10,7 @@
     },
     {
       "Name": "Enabled",
-      "Type": "Bool",
+      "Type": "Bool'",
       "Documentation": "Whether logging is enabled for the load balancer.",
       "Required": true
     },

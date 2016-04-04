@@ -25,22 +25,22 @@ data EC2Instance =
   EC2Instance
   { _eC2InstanceAvailabilityZone :: Maybe (Val Text)
   , _eC2InstanceBlockDeviceMappings :: Maybe [Val EC2BlockDeviceMapping]
-  , _eC2InstanceDisableApiTermination :: Maybe (Val Bool)
-  , _eC2InstanceEbsOptimized :: Maybe (Val Bool)
+  , _eC2InstanceDisableApiTermination :: Maybe (Val Bool')
+  , _eC2InstanceEbsOptimized :: Maybe (Val Bool')
   , _eC2InstanceIamInstanceProfile :: Maybe (Val Text)
   , _eC2InstanceImageId :: Val Text
   , _eC2InstanceInstanceInitiatedShutdownBehavior :: Maybe (Val Text)
   , _eC2InstanceInstanceType :: Maybe (Val Text)
   , _eC2InstanceKernelId :: Maybe (Val Text)
   , _eC2InstanceKeyName :: Maybe (Val Text)
-  , _eC2InstanceMonitoring :: Maybe (Val Bool)
+  , _eC2InstanceMonitoring :: Maybe (Val Bool')
   , _eC2InstanceNetworkInterfaces :: Maybe [Val NetworkInterface]
   , _eC2InstancePlacementGroupName :: Maybe (Val Text)
   , _eC2InstancePrivateIpAddress :: Maybe (Val Text)
   , _eC2InstanceRamdiskId :: Maybe (Val Text)
   , _eC2InstanceSecurityGroupIds :: Maybe [Val Text]
   , _eC2InstanceSecurityGroups :: Maybe [Val Text]
-  , _eC2InstanceSourceDestCheck :: Maybe (Val Bool)
+  , _eC2InstanceSourceDestCheck :: Maybe (Val Bool')
   , _eC2InstanceSsmAssociations :: Maybe [Val EC2SsmAssociations]
   , _eC2InstanceSubnetId :: Maybe (Val Text)
   , _eC2InstanceTags :: Maybe [Val ResourceTag]
@@ -102,7 +102,7 @@ eciBlockDeviceMappings :: Lens' EC2Instance (Maybe [Val EC2BlockDeviceMapping])
 eciBlockDeviceMappings = lens _eC2InstanceBlockDeviceMappings (\s a -> s { _eC2InstanceBlockDeviceMappings = a })
 
 -- | Specifies whether the instance can be terminated through the API.
-eciDisableApiTermination :: Lens' EC2Instance (Maybe (Val Bool))
+eciDisableApiTermination :: Lens' EC2Instance (Maybe (Val Bool'))
 eciDisableApiTermination = lens _eC2InstanceDisableApiTermination (\s a -> s { _eC2InstanceDisableApiTermination = a })
 
 -- | Specifies whether the instance is optimized for Amazon Elastic Block
@@ -112,7 +112,7 @@ eciDisableApiTermination = lens _eC2InstanceDisableApiTermination (\s a -> s { _
 -- launched as Amazon EBS optimized instances, see Amazon EBS-Optimized
 -- Instances in the Amazon Elastic Compute Cloud User Guide. Additional fees
 -- are incurred when using Amazon EBS-optimized instances.
-eciEbsOptimized :: Lens' EC2Instance (Maybe (Val Bool))
+eciEbsOptimized :: Lens' EC2Instance (Maybe (Val Bool'))
 eciEbsOptimized = lens _eC2InstanceEbsOptimized (\s a -> s { _eC2InstanceEbsOptimized = a })
 
 -- | The physical ID (resource name) of an instance profile or a reference to
@@ -148,7 +148,7 @@ eciKeyName :: Lens' EC2Instance (Maybe (Val Text))
 eciKeyName = lens _eC2InstanceKeyName (\s a -> s { _eC2InstanceKeyName = a })
 
 -- | Specifies whether monitoring is enabled for the instance.
-eciMonitoring :: Lens' EC2Instance (Maybe (Val Bool))
+eciMonitoring :: Lens' EC2Instance (Maybe (Val Bool'))
 eciMonitoring = lens _eC2InstanceMonitoring (\s a -> s { _eC2InstanceMonitoring = a })
 
 -- | A list of embedded objects that describe the network interfaces to
@@ -204,7 +204,7 @@ eciSecurityGroups = lens _eC2InstanceSecurityGroups (\s a -> s { _eC2InstanceSec
 -- is enabled, and a value of "false" means that checking is disabled. For the
 -- instance to perform NAT, the value must be "false". For more information,
 -- see NAT Instances in the Amazon Virtual Private Cloud User Guide.
-eciSourceDestCheck :: Lens' EC2Instance (Maybe (Val Bool))
+eciSourceDestCheck :: Lens' EC2Instance (Maybe (Val Bool'))
 eciSourceDestCheck = lens _eC2InstanceSourceDestCheck (\s a -> s { _eC2InstanceSourceDestCheck = a })
 
 -- | The Amazon EC2 Simple Systems Manager (SSM) document and parameter values

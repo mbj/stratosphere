@@ -17,7 +17,7 @@ import Stratosphere.Values
 data PrivateIpAddressSpecification =
   PrivateIpAddressSpecification
   { _privateIpAddressSpecificationPrivateIpAddress :: Val Text
-  , _privateIpAddressSpecificationPrimary :: Val Bool
+  , _privateIpAddressSpecificationPrimary :: Val Bool'
   } deriving (Show, Generic)
 
 instance ToJSON PrivateIpAddressSpecification where
@@ -28,7 +28,7 @@ instance FromJSON PrivateIpAddressSpecification where
 
 privateIpAddressSpecification
   :: Val Text -- ^ PrivateIpAddress
-  -> Val Bool -- ^ Primary
+  -> Val Bool' -- ^ Primary
   -> PrivateIpAddressSpecification
 privateIpAddressSpecification privateIpAddressarg primaryarg =
   PrivateIpAddressSpecification
@@ -43,5 +43,5 @@ piasPrivateIpAddress = lens _privateIpAddressSpecificationPrivateIpAddress (\s a
 -- | Sets the private IP address as the primary private address. You can set
 -- only one primary private IP address. If you don't specify a primary private
 -- IP address, Amazon EC2 automatically assigns a primary private IP address.
-piasPrimary :: Lens' PrivateIpAddressSpecification (Val Bool)
+piasPrimary :: Lens' PrivateIpAddressSpecification (Val Bool')
 piasPrimary = lens _privateIpAddressSpecificationPrimary (\s a -> s { _privateIpAddressSpecificationPrimary = a })

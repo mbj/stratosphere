@@ -16,8 +16,8 @@ import Stratosphere.ResourceProperties.PrivateIpAddressSpecification
 
 data NetworkInterface =
   NetworkInterface
-  { _networkInterfaceAssociatePublicIpAddress :: Maybe (Val Bool)
-  , _networkInterfaceDeleteOnTermination :: Maybe (Val Bool)
+  { _networkInterfaceAssociatePublicIpAddress :: Maybe (Val Bool')
+  , _networkInterfaceDeleteOnTermination :: Maybe (Val Bool')
   , _networkInterfaceDescription :: Maybe (Val Text)
   , _networkInterfaceDeviceIndex :: Val Text
   , _networkInterfaceGroupSet :: Maybe [Val Text]
@@ -56,11 +56,11 @@ networkInterface deviceIndexarg =
 -- device index of eth0 and if it is a new network interface (not an existing
 -- one). In other words, if you specify true, don't specify a network
 -- interface ID. For more information, see Amazon EC2 Instance IP Addressing.
-niAssociatePublicIpAddress :: Lens' NetworkInterface (Maybe (Val Bool))
+niAssociatePublicIpAddress :: Lens' NetworkInterface (Maybe (Val Bool'))
 niAssociatePublicIpAddress = lens _networkInterfaceAssociatePublicIpAddress (\s a -> s { _networkInterfaceAssociatePublicIpAddress = a })
 
 -- | Whether to delete the network interface when the instance terminates.
-niDeleteOnTermination :: Lens' NetworkInterface (Maybe (Val Bool))
+niDeleteOnTermination :: Lens' NetworkInterface (Maybe (Val Bool'))
 niDeleteOnTermination = lens _networkInterfaceDeleteOnTermination (\s a -> s { _networkInterfaceDeleteOnTermination = a })
 
 -- | The description of this network interface.

@@ -10,7 +10,7 @@
     },
     {
       "Name": "EvaluateTargetHealth",
-      "Type": "Bool",
+      "Type": "Bool'",
       "Documentation": "Whether Amazon Route 53 checks the health of the resource record sets in the alias target when responding to DNS queries. For more information about using this property, see EvaluateTargetHealth in the Amazon Route 53 API Reference.\nType: Boolean",
       "Required": false
     },

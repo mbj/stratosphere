@@ -4,7 +4,7 @@
   "Parameters": [
     {
       "Name": "Enabled",
-      "Type": "Bool",
+      "Type": "Bool'",
       "Documentation": "Whether or not connection draining is enabled for the load balancer.",
       "Required": true
     },

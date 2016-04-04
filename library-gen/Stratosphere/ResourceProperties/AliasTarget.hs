@@ -19,7 +19,7 @@ import Stratosphere.Values
 data AliasTarget =
   AliasTarget
   { _aliasTargetDNSName :: Val Text
-  , _aliasTargetEvaluateTargetHealth :: Maybe (Val Bool)
+  , _aliasTargetEvaluateTargetHealth :: Maybe (Val Bool')
   , _aliasTargetHostedZoneId :: Val Text
   } deriving (Show, Generic)
 
@@ -51,7 +51,7 @@ atDNSName = lens _aliasTargetDNSName (\s a -> s { _aliasTargetDNSName = a })
 -- the alias target when responding to DNS queries. For more information about
 -- using this property, see EvaluateTargetHealth in the Amazon Route 53 API
 -- Reference. Type: Boolean
-atEvaluateTargetHealth :: Lens' AliasTarget (Maybe (Val Bool))
+atEvaluateTargetHealth :: Lens' AliasTarget (Maybe (Val Bool'))
 atEvaluateTargetHealth = lens _aliasTargetEvaluateTargetHealth (\s a -> s { _aliasTargetEvaluateTargetHealth = a })
 
 -- | The hosted zone ID. For load balancers, use the canonical hosted zone ID

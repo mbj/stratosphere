@@ -18,7 +18,7 @@ data Subnet =
   Subnet
   { _subnetAvailabilityZone :: Maybe (Val Text)
   , _subnetCidrBlock :: Val Text
-  , _subnetMapPublicIpOnLaunch :: Maybe (Val Bool)
+  , _subnetMapPublicIpOnLaunch :: Maybe (Val Bool')
   , _subnetTags :: Maybe [Val ResourceTag]
   , _subnetVpcId :: Val Text
   } deriving (Show, Generic)
@@ -54,7 +54,7 @@ sCidrBlock = lens _subnetCidrBlock (\s a -> s { _subnetCidrBlock = a })
 
 -- | Indicates whether instances that are launched in this subnet receive a
 -- public IP address. By default, the value is false.
-sMapPublicIpOnLaunch :: Lens' Subnet (Maybe (Val Bool))
+sMapPublicIpOnLaunch :: Lens' Subnet (Maybe (Val Bool'))
 sMapPublicIpOnLaunch = lens _subnetMapPublicIpOnLaunch (\s a -> s { _subnetMapPublicIpOnLaunch = a })
 
 -- | An arbitrary set of tags (key–value pairs) for this subnet.
