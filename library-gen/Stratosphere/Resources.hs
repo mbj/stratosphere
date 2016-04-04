@@ -44,6 +44,7 @@ import Stratosphere.Resources.LoadBalancer as X
 import Stratosphere.Resources.Volume as X
 import Stratosphere.Resources.VPCEndpoint as X
 import Stratosphere.Resources.Route as X
+import Stratosphere.Resources.NatGateway as X
 import Stratosphere.Resources.VolumeAttachment as X
 
 import Stratosphere.ResourceProperties.DBSecurityGroupIngress as X
@@ -91,6 +92,7 @@ data ResourceProperties
   | VolumeProperties Volume
   | VPCEndpointProperties VPCEndpoint
   | RouteProperties Route
+  | NatGatewayProperties NatGateway
   | VolumeAttachmentProperties VolumeAttachment
 
   deriving (Show)
@@ -166,6 +168,8 @@ resourcePropertiesJSON (VPCEndpointProperties x) =
   [ "Type" .= ("AWS::EC2::VPCEndpoint" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (RouteProperties x) =
   [ "Type" .= ("AWS::EC2::Route" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (NatGatewayProperties x) =
+  [ "Type" .= ("AWS::EC2::NatGateway" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (VolumeAttachmentProperties x) =
   [ "Type" .= ("AWS::EC2::VolumeAttachment" :: String), "Properties" .= toJSON x]
 
@@ -195,6 +199,7 @@ instance FromJSON Resource where
          "AWS::EC2::Volume" -> VolumeProperties <$> (o .: "Properties")
          "AWS::EC2::VPCEndpoint" -> VPCEndpointProperties <$> (o .: "Properties")
          "AWS::EC2::Route" -> RouteProperties <$> (o .: "Properties")
+         "AWS::EC2::NatGateway" -> NatGatewayProperties <$> (o .: "Properties")
          "AWS::EC2::VolumeAttachment" -> VolumeAttachmentProperties <$> (o .: "Properties")
 
          _ -> fail $ "Unknown resource type: " ++ type'
