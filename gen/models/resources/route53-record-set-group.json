@@ -1,0 +1,34 @@
+{
+  "Name": "RecordSetGroup",
+  "Type": "AWS::Route53::RecordSetGroup",
+  "Documentation": "The AWS::Route53::RecordSetGroup resource creates record sets for a hosted zone. For more information about constraints and values for each property, see POST CreateHostedZone for hosted zones and POST ChangeResourceRecordSet for resource record sets.",
+  "Dependencies": [
+    "Resources.RecordSet"
+  ],
+  "Parameters": [
+    {
+      "Name": "Comment",
+      "Type": "Text",
+      "Documentation": "Any comments you want to include about the hosted zone.",
+      "Required": false
+    },
+    {
+      "Name": "HostedZoneId",
+      "Type": "Text",
+      "Documentation": "The ID of the hosted zone.",
+      "Required": false
+    },
+    {
+      "Name": "HostedZoneName",
+      "Type": "Text",
+      "Documentation": "The name of the domain for the hosted zone where you want to add the record set.\nWhen you create a stack using an AWS::Route53::RecordSet that specifies HostedZoneName, AWS CloudFormation attempts to find a hosted zone whose name matches the HostedZoneName. If AWS CloudFormation cannot find a hosted zone with a matching domain name, or if there is more than one hosted zone with the specified domain name, AWS CloudFormation will not create the stack.\nIf you have multiple hosted zones with the same domain name, you must explicitly specify the hosted zone using HostedZoneId.",
+      "Required": false
+    },
+    {
+      "Name": "RecordSets",
+      "Type": "[RecordSet]",
+      "Documentation": "List of resource record sets to add.",
+      "Required": true
+    }
+  ]
+}

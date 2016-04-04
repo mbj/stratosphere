@@ -38,11 +38,13 @@ import Stratosphere.Resources.VPCGatewayAttachment as X
 import Stratosphere.Resources.EIP as X
 import Stratosphere.Resources.DBSecurityGroup as X
 import Stratosphere.Resources.SubnetRouteTableAssociation as X
+import Stratosphere.Resources.RecordSetGroup as X
 import Stratosphere.Resources.Stack as X
 import Stratosphere.Resources.VPC as X
 import Stratosphere.Resources.LoadBalancer as X
 import Stratosphere.Resources.Volume as X
 import Stratosphere.Resources.VPCEndpoint as X
+import Stratosphere.Resources.RecordSet as X
 import Stratosphere.Resources.Route as X
 import Stratosphere.Resources.NatGateway as X
 import Stratosphere.Resources.VolumeAttachment as X
@@ -53,9 +55,11 @@ import Stratosphere.ResourceProperties.HealthCheck as X
 import Stratosphere.ResourceProperties.EC2SsmAssociationParameters as X
 import Stratosphere.ResourceProperties.ELBPolicy as X
 import Stratosphere.ResourceProperties.LBCookieStickinessPolicy as X
+import Stratosphere.ResourceProperties.AliasTarget as X
 import Stratosphere.ResourceProperties.NetworkInterface as X
 import Stratosphere.ResourceProperties.SecurityGroupEgressRule as X
 import Stratosphere.ResourceProperties.EC2BlockDeviceMapping as X
+import Stratosphere.ResourceProperties.RecordSetGeoLocation as X
 import Stratosphere.ResourceProperties.PrivateIpAddressSpecification as X
 import Stratosphere.ResourceProperties.IAMPolicies as X
 import Stratosphere.ResourceProperties.ListenerProperty as X
@@ -86,11 +90,13 @@ data ResourceProperties
   | EIPProperties EIP
   | DBSecurityGroupProperties DBSecurityGroup
   | SubnetRouteTableAssociationProperties SubnetRouteTableAssociation
+  | RecordSetGroupProperties RecordSetGroup
   | StackProperties Stack
   | VPCProperties VPC
   | LoadBalancerProperties LoadBalancer
   | VolumeProperties Volume
   | VPCEndpointProperties VPCEndpoint
+  | RecordSetProperties RecordSet
   | RouteProperties Route
   | NatGatewayProperties NatGateway
   | VolumeAttachmentProperties VolumeAttachment
@@ -156,6 +162,8 @@ resourcePropertiesJSON (DBSecurityGroupProperties x) =
   [ "Type" .= ("AWS::RDS::DBSecurityGroup" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (SubnetRouteTableAssociationProperties x) =
   [ "Type" .= ("AWS::EC2::SubnetRouteTableAssociation" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (RecordSetGroupProperties x) =
+  [ "Type" .= ("AWS::Route53::RecordSetGroup" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (StackProperties x) =
   [ "Type" .= ("AWS::CloudFormation::Stack" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (VPCProperties x) =
@@ -166,6 +174,8 @@ resourcePropertiesJSON (VolumeProperties x) =
   [ "Type" .= ("AWS::EC2::Volume" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (VPCEndpointProperties x) =
   [ "Type" .= ("AWS::EC2::VPCEndpoint" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (RecordSetProperties x) =
+  [ "Type" .= ("AWS::Route53::RecordSet" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (RouteProperties x) =
   [ "Type" .= ("AWS::EC2::Route" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (NatGatewayProperties x) =
@@ -193,11 +203,13 @@ instance FromJSON Resource where
          "AWS::EC2::EIP" -> EIPProperties <$> (o .: "Properties")
          "AWS::RDS::DBSecurityGroup" -> DBSecurityGroupProperties <$> (o .: "Properties")
          "AWS::EC2::SubnetRouteTableAssociation" -> SubnetRouteTableAssociationProperties <$> (o .: "Properties")
+         "AWS::Route53::RecordSetGroup" -> RecordSetGroupProperties <$> (o .: "Properties")
          "AWS::CloudFormation::Stack" -> StackProperties <$> (o .: "Properties")
          "AWS::EC2::VPC" -> VPCProperties <$> (o .: "Properties")
          "AWS::ElasticLoadBalancing::LoadBalancer" -> LoadBalancerProperties <$> (o .: "Properties")
          "AWS::EC2::Volume" -> VolumeProperties <$> (o .: "Properties")
          "AWS::EC2::VPCEndpoint" -> VPCEndpointProperties <$> (o .: "Properties")
+         "AWS::Route53::RecordSet" -> RecordSetProperties <$> (o .: "Properties")
          "AWS::EC2::Route" -> RouteProperties <$> (o .: "Properties")
          "AWS::EC2::NatGateway" -> NatGatewayProperties <$> (o .: "Properties")
          "AWS::EC2::VolumeAttachment" -> VolumeAttachmentProperties <$> (o .: "Properties")
