@@ -74,7 +74,9 @@ data Output =
   , outputValue :: OutputValue
   } deriving (Show)
 
-$(deriveJSON defaultOptions { fieldLabelModifier = drop 6 } ''Output)
+$(deriveJSON defaultOptions { fieldLabelModifier = drop 6
+                            , omitNothingFields = True}
+  ''Output)
 $(makeFields ''Output)
 
 output
