@@ -83,12 +83,12 @@ myTemplate =
       & outputs ?~
       [ ("InstanceId",
          output
-         (OutputValue (Ref "EC2Instance" :: Val T.Text))
+         (Ref "EC2Instance")
          & description ?~ "InstanceId of the newly created EC2 instance"
         )
       , ("InstanceIPAddress",
          output
-         (OutputValue (Ref "IPAddress" :: Val T.Text))
+         (Ref "IPAddress")
          & description ?~ "IP address of the newly created EC2 instance"
         )
       ]

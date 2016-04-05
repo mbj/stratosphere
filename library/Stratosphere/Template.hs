@@ -13,7 +13,6 @@ module Stratosphere.Template
        , Parameter (..)
        , parameter
        , Resource (..)
-       , OutputValue (..)
        , Output (..)
        , output
        , encodeTemplate
@@ -55,23 +54,10 @@ import Stratosphere.Values
 
 type Mapping = HM.HashMap T.Text Object
 
--- This is a kludge so we don't have to have heterogeneous collections to hold
--- Outputs.
-data OutputValue = forall a. (Show a, FromJSON a, ToJSON a) => OutputValue (Val a)
-
-deriving instance Show OutputValue
-
-instance ToJSON OutputValue where
-  toJSON (OutputValue v) = toJSON v
-
-instance FromJSON OutputValue where
-  parseJSON v = mkOut <$> parseJSON v
-    where mkOut = OutputValue :: Val T.Text -> OutputValue
-
 data Output =
   Output
   { outputDescription :: Maybe T.Text
-  , outputValue :: OutputValue
+  , outputValue :: Val T.Text
   } deriving (Show)
 
 $(deriveJSON defaultOptions { fieldLabelModifier = drop 6
@@ -80,7 +66,7 @@ $(deriveJSON defaultOptions { fieldLabelModifier = drop 6
 $(makeFields ''Output)
 
 output
-  :: OutputValue
+  :: Val T.Text
   -> Output
 output oval =
   Output
