@@ -19,7 +19,7 @@ data Subnet =
   { _subnetAvailabilityZone :: Maybe (Val Text)
   , _subnetCidrBlock :: Val Text
   , _subnetMapPublicIpOnLaunch :: Maybe (Val Bool')
-  , _subnetTags :: Maybe [Val ResourceTag]
+  , _subnetTags :: Maybe [ResourceTag]
   , _subnetVpcId :: Val Text
   } deriving (Show, Generic)
 
@@ -58,7 +58,7 @@ sMapPublicIpOnLaunch :: Lens' Subnet (Maybe (Val Bool'))
 sMapPublicIpOnLaunch = lens _subnetMapPublicIpOnLaunch (\s a -> s { _subnetMapPublicIpOnLaunch = a })
 
 -- | An arbitrary set of tags (key–value pairs) for this subnet.
-sTags :: Lens' Subnet (Maybe [Val ResourceTag])
+sTags :: Lens' Subnet (Maybe [ResourceTag])
 sTags = lens _subnetTags (\s a -> s { _subnetTags = a })
 
 -- | A Ref structure that contains the ID of the VPC on which you want to

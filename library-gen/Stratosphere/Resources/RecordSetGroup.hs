@@ -22,7 +22,7 @@ data RecordSetGroup =
   { _recordSetGroupComment :: Maybe (Val Text)
   , _recordSetGroupHostedZoneId :: Maybe (Val Text)
   , _recordSetGroupHostedZoneName :: Maybe (Val Text)
-  , _recordSetGroupRecordSets :: [Val RecordSet]
+  , _recordSetGroupRecordSets :: [RecordSet]
   } deriving (Show, Generic)
 
 instance ToJSON RecordSetGroup where
@@ -32,7 +32,7 @@ instance FromJSON RecordSetGroup where
   parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 15, omitNothingFields = True }
 
 recordSetGroup
-  :: [Val RecordSet] -- ^ RecordSets
+  :: [RecordSet] -- ^ RecordSets
   -> RecordSetGroup
 recordSetGroup recordSetsarg =
   RecordSetGroup
@@ -62,5 +62,5 @@ rsgHostedZoneName :: Lens' RecordSetGroup (Maybe (Val Text))
 rsgHostedZoneName = lens _recordSetGroupHostedZoneName (\s a -> s { _recordSetGroupHostedZoneName = a })
 
 -- | List of resource record sets to add.
-rsgRecordSets :: Lens' RecordSetGroup [Val RecordSet]
+rsgRecordSets :: Lens' RecordSetGroup [RecordSet]
 rsgRecordSets = lens _recordSetGroupRecordSets (\s a -> s { _recordSetGroupRecordSets = a })

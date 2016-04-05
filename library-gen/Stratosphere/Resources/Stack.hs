@@ -27,8 +27,8 @@ import Stratosphere.Parameters
 data Stack =
   Stack
   { _stackNotificationARNs :: Maybe [Val Text]
-  , _stackParameters :: Maybe (Val ParameterMap)
-  , _stackResourceTags :: Maybe [Val ResourceTag]
+  , _stackParameters :: Maybe ParameterMap
+  , _stackResourceTags :: Maybe [ResourceTag]
   , _stackTemplateURL :: Val Text
   , _stackTimeoutInMinutes :: Maybe (Val Text)
   } deriving (Show, Generic)
@@ -61,11 +61,11 @@ sNotificationARNs = lens _stackNotificationARNs (\s a -> s { _stackNotificationA
 -- nested stack, comma-delimited list parameters must be of type String. In
 -- other words, you cannot pass values that are of type CommaDelimitedList to
 -- nested stacks.
-sParameters :: Lens' Stack (Maybe (Val ParameterMap))
+sParameters :: Lens' Stack (Maybe ParameterMap)
 sParameters = lens _stackParameters (\s a -> s { _stackParameters = a })
 
 -- | An arbitrary set of tags (key–value pairs) to describe this stack.
-sResourceTags :: Lens' Stack (Maybe [Val ResourceTag])
+sResourceTags :: Lens' Stack (Maybe [ResourceTag])
 sResourceTags = lens _stackResourceTags (\s a -> s { _stackResourceTags = a })
 
 -- | The URL of a template that specifies the stack that you want to create as

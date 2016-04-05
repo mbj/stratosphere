@@ -17,7 +17,7 @@ import Stratosphere.ResourceProperties.ResourceTag
 
 data InternetGateway =
   InternetGateway
-  { _internetGatewayTags :: Maybe [Val ResourceTag]
+  { _internetGatewayTags :: Maybe [ResourceTag]
   } deriving (Show, Generic)
 
 instance ToJSON InternetGateway where
@@ -34,5 +34,5 @@ internetGateway  =
   }
 
 -- | An arbitrary set of tags (key–value pairs) for this resource.
-igTags :: Lens' InternetGateway (Maybe [Val ResourceTag])
+igTags :: Lens' InternetGateway (Maybe [ResourceTag])
 igTags = lens _internetGatewayTags (\s a -> s { _internetGatewayTags = a })

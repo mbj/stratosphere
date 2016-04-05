@@ -21,7 +21,7 @@ data VPC =
   , _vPCEnableDnsSupport :: Maybe (Val Bool')
   , _vPCEnableDnsHostnames :: Maybe (Val Bool')
   , _vPCInstanceTenancy :: Maybe (Val Text)
-  , _vPCTags :: Maybe [Val ResourceTag]
+  , _vPCTags :: Maybe [ResourceTag]
   } deriving (Show, Generic)
 
 instance ToJSON VPC where
@@ -69,5 +69,5 @@ vpcInstanceTenancy :: Lens' VPC (Maybe (Val Text))
 vpcInstanceTenancy = lens _vPCInstanceTenancy (\s a -> s { _vPCInstanceTenancy = a })
 
 -- | An arbitrary set of tags (key–value pairs) for this VPC.
-vpcTags :: Lens' VPC (Maybe [Val ResourceTag])
+vpcTags :: Lens' VPC (Maybe [ResourceTag])
 vpcTags = lens _vPCTags (\s a -> s { _vPCTags = a })

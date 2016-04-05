@@ -24,22 +24,22 @@ import Stratosphere.ResourceProperties.ResourceTag
 
 data LoadBalancer =
   LoadBalancer
-  { _loadBalancerAccessLoggingPolicy :: Maybe (Val AccessLoggingPolicy)
-  , _loadBalancerAppCookieStickinessPolicy :: Maybe [Val AppCookieStickinessPolicy]
+  { _loadBalancerAccessLoggingPolicy :: Maybe AccessLoggingPolicy
+  , _loadBalancerAppCookieStickinessPolicy :: Maybe [AppCookieStickinessPolicy]
   , _loadBalancerAvailabilityZones :: Maybe [Val Text]
-  , _loadBalancerConnectionDrainingPolicy :: Maybe (Val ConnectionDrainingPolicy)
-  , _loadBalancerConnectionSettings :: Maybe (Val ConnectionSettings)
+  , _loadBalancerConnectionDrainingPolicy :: Maybe ConnectionDrainingPolicy
+  , _loadBalancerConnectionSettings :: Maybe ConnectionSettings
   , _loadBalancerCrossZone :: Maybe (Val Bool')
-  , _loadBalancerHealthCheck :: Maybe (Val HealthCheck)
+  , _loadBalancerHealthCheck :: Maybe HealthCheck
   , _loadBalancerInstances :: Maybe [Val Text]
-  , _loadBalancerLBCookieStickinessPolicy :: Maybe [Val LBCookieStickinessPolicy]
+  , _loadBalancerLBCookieStickinessPolicy :: Maybe [LBCookieStickinessPolicy]
   , _loadBalancerLoadBalancerName :: Maybe (Val Text)
-  , _loadBalancerListeners :: [Val ListenerProperty]
-  , _loadBalancerPolicies :: Maybe [Val ELBPolicy]
+  , _loadBalancerListeners :: [ListenerProperty]
+  , _loadBalancerPolicies :: Maybe [ELBPolicy]
   , _loadBalancerScheme :: Maybe (Val Text)
   , _loadBalancerSecurityGroups :: Maybe [Val Text]
   , _loadBalancerSubnets :: Maybe [Val Text]
-  , _loadBalancerTags :: Maybe [Val ResourceTag]
+  , _loadBalancerTags :: Maybe [ResourceTag]
   } deriving (Show, Generic)
 
 instance ToJSON LoadBalancer where
@@ -49,7 +49,7 @@ instance FromJSON LoadBalancer where
   parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 13, omitNothingFields = True }
 
 loadBalancer
-  :: [Val ListenerProperty] -- ^ Listeners
+  :: [ListenerProperty] -- ^ Listeners
   -> LoadBalancer
 loadBalancer listenersarg =
   LoadBalancer
@@ -74,13 +74,13 @@ loadBalancer listenersarg =
 -- | Captures detailed information for all requests made to your load
 -- balancer, such as the time a request was received, client’s IP address,
 -- latencies, request path, and server responses.
-lbAccessLoggingPolicy :: Lens' LoadBalancer (Maybe (Val AccessLoggingPolicy))
+lbAccessLoggingPolicy :: Lens' LoadBalancer (Maybe AccessLoggingPolicy)
 lbAccessLoggingPolicy = lens _loadBalancerAccessLoggingPolicy (\s a -> s { _loadBalancerAccessLoggingPolicy = a })
 
 -- | Generates one or more stickiness policies with sticky session lifetimes
 -- that follow that of an application-generated cookie. These policies can be
 -- associated only with HTTP/HTTPS listeners.
-lbAppCookieStickinessPolicy :: Lens' LoadBalancer (Maybe [Val AppCookieStickinessPolicy])
+lbAppCookieStickinessPolicy :: Lens' LoadBalancer (Maybe [AppCookieStickinessPolicy])
 lbAppCookieStickinessPolicy = lens _loadBalancerAppCookieStickinessPolicy (\s a -> s { _loadBalancerAppCookieStickinessPolicy = a })
 
 -- | The Availability Zones in which to create the load balancer. You can
@@ -91,12 +91,12 @@ lbAvailabilityZones = lens _loadBalancerAvailabilityZones (\s a -> s { _loadBala
 
 -- | Whether deregistered or unhealthy instances can complete all in-flight
 -- requests.
-lbConnectionDrainingPolicy :: Lens' LoadBalancer (Maybe (Val ConnectionDrainingPolicy))
+lbConnectionDrainingPolicy :: Lens' LoadBalancer (Maybe ConnectionDrainingPolicy)
 lbConnectionDrainingPolicy = lens _loadBalancerConnectionDrainingPolicy (\s a -> s { _loadBalancerConnectionDrainingPolicy = a })
 
 -- | Specifies how long front-end and back-end connections of your load
 -- balancer can remain idle.
-lbConnectionSettings :: Lens' LoadBalancer (Maybe (Val ConnectionSettings))
+lbConnectionSettings :: Lens' LoadBalancer (Maybe ConnectionSettings)
 lbConnectionSettings = lens _loadBalancerConnectionSettings (\s a -> s { _loadBalancerConnectionSettings = a })
 
 -- | Whether cross-zone load balancing is enabled for the load balancer. With
@@ -107,7 +107,7 @@ lbCrossZone :: Lens' LoadBalancer (Maybe (Val Bool'))
 lbCrossZone = lens _loadBalancerCrossZone (\s a -> s { _loadBalancerCrossZone = a })
 
 -- | Application health check for the instances.
-lbHealthCheck :: Lens' LoadBalancer (Maybe (Val HealthCheck))
+lbHealthCheck :: Lens' LoadBalancer (Maybe HealthCheck)
 lbHealthCheck = lens _loadBalancerHealthCheck (\s a -> s { _loadBalancerHealthCheck = a })
 
 -- | A list of EC2 instance IDs for the load balancer.
@@ -117,7 +117,7 @@ lbInstances = lens _loadBalancerInstances (\s a -> s { _loadBalancerInstances = 
 -- | Generates a stickiness policy with sticky session lifetimes controlled by
 -- the lifetime of the browser (user-agent), or by a specified expiration
 -- period. This policy can be associated only with HTTP/HTTPS listeners.
-lbLBCookieStickinessPolicy :: Lens' LoadBalancer (Maybe [Val LBCookieStickinessPolicy])
+lbLBCookieStickinessPolicy :: Lens' LoadBalancer (Maybe [LBCookieStickinessPolicy])
 lbLBCookieStickinessPolicy = lens _loadBalancerLBCookieStickinessPolicy (\s a -> s { _loadBalancerLBCookieStickinessPolicy = a })
 
 -- | A name for the load balancer. If you don't specify a name, AWS
@@ -137,12 +137,12 @@ lbLoadBalancerName = lens _loadBalancerLoadBalancerName (\s a -> s { _loadBalanc
 -- delete the existing listener and create a new one with the updated
 -- properties. During the time that AWS CloudFormation is performing this
 -- action, clients will not be able to connect to the load balancer.
-lbListeners :: Lens' LoadBalancer [Val ListenerProperty]
+lbListeners :: Lens' LoadBalancer [ListenerProperty]
 lbListeners = lens _loadBalancerListeners (\s a -> s { _loadBalancerListeners = a })
 
 -- | A list of elastic load balancing policies to apply to this elastic load
 -- balancer.
-lbPolicies :: Lens' LoadBalancer (Maybe [Val ELBPolicy])
+lbPolicies :: Lens' LoadBalancer (Maybe [ELBPolicy])
 lbPolicies = lens _loadBalancerPolicies (\s a -> s { _loadBalancerPolicies = a })
 
 -- | For load balancers attached to an Amazon VPC, this parameter can be used
@@ -169,5 +169,5 @@ lbSubnets :: Lens' LoadBalancer (Maybe [Val Text])
 lbSubnets = lens _loadBalancerSubnets (\s a -> s { _loadBalancerSubnets = a })
 
 -- | An arbitrary set of tags (key-value pairs) for this load balancer.
-lbTags :: Lens' LoadBalancer (Maybe [Val ResourceTag])
+lbTags :: Lens' LoadBalancer (Maybe [ResourceTag])
 lbTags = lens _loadBalancerTags (\s a -> s { _loadBalancerTags = a })

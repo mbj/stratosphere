@@ -35,7 +35,6 @@ myTemplate =
        securityGroup
        "Enable SSH Access"
        & sgSecurityGroupIngress ?~ [
-          Literal $
           securityGroupIngressRule
           "tcp"
           & sgirFromPort ?~ Literal 22

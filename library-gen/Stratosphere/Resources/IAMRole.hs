@@ -20,10 +20,10 @@ import Stratosphere.ResourceProperties.IAMPolicies
 
 data IAMRole =
   IAMRole
-  { _iAMRoleAssumeRolePolicyDocument :: Val Object
+  { _iAMRoleAssumeRolePolicyDocument :: Object
   , _iAMRoleManagedPolicyArns :: Maybe [Val Text]
   , _iAMRolePath :: Maybe (Val Text)
-  , _iAMRolePolicies :: Maybe [Val IAMPolicies]
+  , _iAMRolePolicies :: Maybe [IAMPolicies]
   } deriving (Show, Generic)
 
 instance ToJSON IAMRole where
@@ -33,7 +33,7 @@ instance FromJSON IAMRole where
   parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 8, omitNothingFields = True }
 
 iamRole
-  :: Val Object -- ^ AssumeRolePolicyDocument
+  :: Object -- ^ AssumeRolePolicyDocument
   -> IAMRole
 iamRole assumeRolePolicyDocumentarg =
   IAMRole
@@ -44,7 +44,7 @@ iamRole assumeRolePolicyDocumentarg =
   }
 
 -- | The IAM assume role policy that is associated with this role.
-iamrAssumeRolePolicyDocument :: Lens' IAMRole (Val Object)
+iamrAssumeRolePolicyDocument :: Lens' IAMRole Object
 iamrAssumeRolePolicyDocument = lens _iAMRoleAssumeRolePolicyDocument (\s a -> s { _iAMRoleAssumeRolePolicyDocument = a })
 
 -- | One or more managed policy ARNs to attach to this role.
@@ -69,5 +69,5 @@ iamrPath = lens _iAMRolePath (\s a -> s { _iAMRolePath = a })
 -- with an AWS::ECS::Service resource, the DependsOn attribute ensures that
 -- the AWS::ECS::Service resource can complete its deletion before its role's
 -- policy is deleted.
-iamrPolicies :: Lens' IAMRole (Maybe [Val IAMPolicies])
+iamrPolicies :: Lens' IAMRole (Maybe [IAMPolicies])
 iamrPolicies = lens _iAMRolePolicies (\s a -> s { _iAMRolePolicies = a })

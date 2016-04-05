@@ -20,7 +20,7 @@ data DBSubnetGroup =
   DBSubnetGroup
   { _dBSubnetGroupDBSubnetGroupDescription :: Val Text
   , _dBSubnetGroupSubnetIds :: [Val Text]
-  , _dBSubnetGroupTags :: Maybe [Val ResourceTag]
+  , _dBSubnetGroupTags :: Maybe [ResourceTag]
   } deriving (Show, Generic)
 
 instance ToJSON DBSubnetGroup where
@@ -49,5 +49,5 @@ dbsgSubnetIds :: Lens' DBSubnetGroup [Val Text]
 dbsgSubnetIds = lens _dBSubnetGroupSubnetIds (\s a -> s { _dBSubnetGroupSubnetIds = a })
 
 -- | The tags that you want to attach to the RDS database subnet group.
-dbsgTags :: Lens' DBSubnetGroup (Maybe [Val ResourceTag])
+dbsgTags :: Lens' DBSubnetGroup (Maybe [ResourceTag])
 dbsgTags = lens _dBSubnetGroupTags (\s a -> s { _dBSubnetGroupTags = a })

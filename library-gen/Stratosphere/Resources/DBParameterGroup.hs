@@ -22,8 +22,8 @@ data DBParameterGroup =
   DBParameterGroup
   { _dBParameterGroupDescription :: Val Text
   , _dBParameterGroupFamily :: Val Text
-  , _dBParameterGroupParameters :: Maybe (Val Value)
-  , _dBParameterGroupTags :: Maybe [Val ResourceTag]
+  , _dBParameterGroupParameters :: Maybe Value
+  , _dBParameterGroupTags :: Maybe [ResourceTag]
   } deriving (Show, Generic)
 
 instance ToJSON DBParameterGroup where
@@ -57,9 +57,9 @@ dbpgFamily = lens _dBParameterGroupFamily (\s a -> s { _dBParameterGroupFamily =
 -- parameters are applied immediately. Changes to static parameters require a
 -- reboot without failover to the DB instance that is associated with the
 -- parameter group before the change can take effect.
-dbpgParameters :: Lens' DBParameterGroup (Maybe (Val Value))
+dbpgParameters :: Lens' DBParameterGroup (Maybe Value)
 dbpgParameters = lens _dBParameterGroupParameters (\s a -> s { _dBParameterGroupParameters = a })
 
 -- | The tags that you want to attach to the RDS parameter group.
-dbpgTags :: Lens' DBParameterGroup (Maybe [Val ResourceTag])
+dbpgTags :: Lens' DBParameterGroup (Maybe [ResourceTag])
 dbpgTags = lens _dBParameterGroupTags (\s a -> s { _dBParameterGroupTags = a })

@@ -23,7 +23,7 @@ data NetworkInterface =
   , _networkInterfaceGroupSet :: Maybe [Val Text]
   , _networkInterfaceNetworkInterfaceId :: Maybe (Val Text)
   , _networkInterfacePrivateIpAddress :: Maybe (Val Text)
-  , _networkInterfacePrivateIpAddresses :: Maybe [Val PrivateIpAddressSpecification]
+  , _networkInterfacePrivateIpAddresses :: Maybe [PrivateIpAddressSpecification]
   , _networkInterfaceSecondaryPrivateIpAddressCount :: Maybe (Val Integer')
   , _networkInterfaceSubnetId :: Maybe (Val Text)
   } deriving (Show, Generic)
@@ -93,7 +93,7 @@ niPrivateIpAddress = lens _networkInterfacePrivateIpAddress (\s a -> s { _networ
 -- information about the maximum number of private IP addresses, see Private
 -- IP Addresses Per ENI Per Instance Type in the Amazon EC2 User Guide for
 -- Linux Instances.
-niPrivateIpAddresses :: Lens' NetworkInterface (Maybe [Val PrivateIpAddressSpecification])
+niPrivateIpAddresses :: Lens' NetworkInterface (Maybe [PrivateIpAddressSpecification])
 niPrivateIpAddresses = lens _networkInterfacePrivateIpAddresses (\s a -> s { _networkInterfacePrivateIpAddresses = a })
 
 -- | The number of secondary private IP addresses that Amazon EC2 auto assigns

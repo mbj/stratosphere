@@ -19,7 +19,7 @@ data EBSBlockDevice =
   EBSBlockDevice
   { _eBSBlockDeviceDeleteOnTermination :: Maybe (Val Bool')
   , _eBSBlockDeviceEncrypted :: Maybe (Val Bool')
-  , _eBSBlockDeviceIops :: Maybe (Val Int)
+  , _eBSBlockDeviceIops :: Maybe (Val Integer')
   , _eBSBlockDeviceSnapshotId :: Maybe (Val Text)
   , _eBSBlockDeviceVolumeSize :: Maybe (Val Text)
   , _eBSBlockDeviceVolumeType :: Maybe (Val Text)
@@ -60,7 +60,7 @@ ebsbdEncrypted = lens _eBSBlockDeviceEncrypted (\s a -> s { _eBSBlockDeviceEncry
 
 -- | The number of I/O operations per second (IOPS) that the volume supports.
 -- This can be an integer from 100 - 2000.
-ebsbdIops :: Lens' EBSBlockDevice (Maybe (Val Int))
+ebsbdIops :: Lens' EBSBlockDevice (Maybe (Val Integer'))
 ebsbdIops = lens _eBSBlockDeviceIops (\s a -> s { _eBSBlockDeviceIops = a })
 
 -- | The snapshot ID of the volume to use to create a block device.

@@ -19,8 +19,8 @@ import Stratosphere.ResourceProperties.EBSBlockDevice
 data EC2BlockDeviceMapping =
   EC2BlockDeviceMapping
   { _eC2BlockDeviceMappingDeviceName :: Val Text
-  , _eC2BlockDeviceMappingEbs :: Maybe (Val EBSBlockDevice)
-  , _eC2BlockDeviceMappingNoDevice :: Maybe (Val ())
+  , _eC2BlockDeviceMappingEbs :: Maybe EBSBlockDevice
+  , _eC2BlockDeviceMappingNoDevice :: Maybe ()
   , _eC2BlockDeviceMappingVirtualName :: Maybe (Val Text)
   } deriving (Show, Generic)
 
@@ -46,11 +46,11 @@ ecbdmDeviceName :: Lens' EC2BlockDeviceMapping (Val Text)
 ecbdmDeviceName = lens _eC2BlockDeviceMappingDeviceName (\s a -> s { _eC2BlockDeviceMappingDeviceName = a })
 
 -- |
-ecbdmEbs :: Lens' EC2BlockDeviceMapping (Maybe (Val EBSBlockDevice))
+ecbdmEbs :: Lens' EC2BlockDeviceMapping (Maybe EBSBlockDevice)
 ecbdmEbs = lens _eC2BlockDeviceMappingEbs (\s a -> s { _eC2BlockDeviceMappingEbs = a })
 
 -- | This property can be used to unmap a defined device.
-ecbdmNoDevice :: Lens' EC2BlockDeviceMapping (Maybe (Val ()))
+ecbdmNoDevice :: Lens' EC2BlockDeviceMapping (Maybe ())
 ecbdmNoDevice = lens _eC2BlockDeviceMappingNoDevice (\s a -> s { _eC2BlockDeviceMappingNoDevice = a })
 
 -- | The name of the virtual device. The name must be in the form ephemeralX

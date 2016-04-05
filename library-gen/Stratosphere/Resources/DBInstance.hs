@@ -48,7 +48,7 @@ data DBInstance =
   , _dBInstanceSourceDBInstanceIdentifier :: Maybe (Val Text)
   , _dBInstanceStorageEncrypted :: Maybe (Val Bool')
   , _dBInstanceStorageType :: Maybe (Val Text)
-  , _dBInstanceTags :: Maybe [Val ResourceTag]
+  , _dBInstanceTags :: Maybe [ResourceTag]
   , _dBInstanceVPCSecurityGroups :: Maybe [Val Text]
   } deriving (Show, Generic)
 
@@ -359,7 +359,7 @@ dbiStorageType :: Lens' DBInstance (Maybe (Val Text))
 dbiStorageType = lens _dBInstanceStorageType (\s a -> s { _dBInstanceStorageType = a })
 
 -- | An arbitrary set of tags (key–value pairs) for this database instance.
-dbiTags :: Lens' DBInstance (Maybe [Val ResourceTag])
+dbiTags :: Lens' DBInstance (Maybe [ResourceTag])
 dbiTags = lens _dBInstanceTags (\s a -> s { _dBInstanceTags = a })
 
 -- | A list of the VPC security groups to assign to the Amazon RDS instance.

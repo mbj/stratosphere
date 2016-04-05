@@ -19,7 +19,7 @@ import Stratosphere.Values
 
 data VPCEndpoint =
   VPCEndpoint
-  { _vPCEndpointPolicyDocument :: Maybe (Val Object)
+  { _vPCEndpointPolicyDocument :: Maybe Object
   , _vPCEndpointRouteTableIds :: Maybe [Val Text]
   , _vPCEndpointServiceName :: Val Text
   , _vPCEndpointVpcId :: Val Text
@@ -47,7 +47,7 @@ vpcEndpoint serviceNamearg vpcIdarg =
 -- The policy must be valid JSON. The default policy allows full access to the
 -- AWS service. For more information, see Controlling Access to Services in
 -- the Amazon VPC User Guide.
-vpcePolicyDocument :: Lens' VPCEndpoint (Maybe (Val Object))
+vpcePolicyDocument :: Lens' VPCEndpoint (Maybe Object)
 vpcePolicyDocument = lens _vPCEndpointPolicyDocument (\s a -> s { _vPCEndpointPolicyDocument = a })
 
 -- | One or more route table IDs that are used by the VPC to reach the

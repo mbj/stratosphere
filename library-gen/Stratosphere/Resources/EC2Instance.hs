@@ -24,7 +24,7 @@ import Stratosphere.ResourceProperties.EC2MountPoint
 data EC2Instance =
   EC2Instance
   { _eC2InstanceAvailabilityZone :: Maybe (Val Text)
-  , _eC2InstanceBlockDeviceMappings :: Maybe [Val EC2BlockDeviceMapping]
+  , _eC2InstanceBlockDeviceMappings :: Maybe [EC2BlockDeviceMapping]
   , _eC2InstanceDisableApiTermination :: Maybe (Val Bool')
   , _eC2InstanceEbsOptimized :: Maybe (Val Bool')
   , _eC2InstanceIamInstanceProfile :: Maybe (Val Text)
@@ -34,19 +34,19 @@ data EC2Instance =
   , _eC2InstanceKernelId :: Maybe (Val Text)
   , _eC2InstanceKeyName :: Maybe (Val Text)
   , _eC2InstanceMonitoring :: Maybe (Val Bool')
-  , _eC2InstanceNetworkInterfaces :: Maybe [Val NetworkInterface]
+  , _eC2InstanceNetworkInterfaces :: Maybe [NetworkInterface]
   , _eC2InstancePlacementGroupName :: Maybe (Val Text)
   , _eC2InstancePrivateIpAddress :: Maybe (Val Text)
   , _eC2InstanceRamdiskId :: Maybe (Val Text)
   , _eC2InstanceSecurityGroupIds :: Maybe [Val Text]
   , _eC2InstanceSecurityGroups :: Maybe [Val Text]
   , _eC2InstanceSourceDestCheck :: Maybe (Val Bool')
-  , _eC2InstanceSsmAssociations :: Maybe [Val EC2SsmAssociations]
+  , _eC2InstanceSsmAssociations :: Maybe [EC2SsmAssociations]
   , _eC2InstanceSubnetId :: Maybe (Val Text)
-  , _eC2InstanceTags :: Maybe [Val ResourceTag]
+  , _eC2InstanceTags :: Maybe [ResourceTag]
   , _eC2InstanceTenancy :: Maybe (Val Text)
   , _eC2InstanceUserData :: Maybe (Val Text)
-  , _eC2InstanceVolumes :: Maybe [Val EC2MountPoint]
+  , _eC2InstanceVolumes :: Maybe [EC2MountPoint]
   , _eC2InstanceAdditionalInfo :: Maybe (Val Text)
   } deriving (Show, Generic)
 
@@ -98,7 +98,7 @@ eciAvailabilityZone = lens _eC2InstanceAvailabilityZone (\s a -> s { _eC2Instanc
 -- ephemeral instance store block device mappings, or both. For more
 -- information, see Amazon Elastic Block Store or Amazon EC2 Instance Store in
 -- the Amazon EC2 User Guide for Linux Instances.
-eciBlockDeviceMappings :: Lens' EC2Instance (Maybe [Val EC2BlockDeviceMapping])
+eciBlockDeviceMappings :: Lens' EC2Instance (Maybe [EC2BlockDeviceMapping])
 eciBlockDeviceMappings = lens _eC2InstanceBlockDeviceMappings (\s a -> s { _eC2InstanceBlockDeviceMappings = a })
 
 -- | Specifies whether the instance can be terminated through the API.
@@ -156,7 +156,7 @@ eciMonitoring = lens _eC2InstanceMonitoring (\s a -> s { _eC2InstanceMonitoring 
 -- and is also in a VPC that is defined in the same template, you must use the
 -- DependsOn attribute to declare a dependency on the VPC-gateway attachment.
 -- For more information, see DependsOn Attribute.
-eciNetworkInterfaces :: Lens' EC2Instance (Maybe [Val NetworkInterface])
+eciNetworkInterfaces :: Lens' EC2Instance (Maybe [NetworkInterface])
 eciNetworkInterfaces = lens _eC2InstanceNetworkInterfaces (\s a -> s { _eC2InstanceNetworkInterfaces = a })
 
 -- | The name of an existing placement group that you want to launch the
@@ -213,7 +213,7 @@ eciSourceDestCheck = lens _eC2InstanceSourceDestCheck (\s a -> s { _eC2InstanceS
 -- Remotely Running Commands on EC2 Instances in the Amazon EC2 User Guide for
 -- Microsoft Windows Instances. Note You can currently associate only one
 -- document with an instance.
-eciSsmAssociations :: Lens' EC2Instance (Maybe [Val EC2SsmAssociations])
+eciSsmAssociations :: Lens' EC2Instance (Maybe [EC2SsmAssociations])
 eciSsmAssociations = lens _eC2InstanceSsmAssociations (\s a -> s { _eC2InstanceSsmAssociations = a })
 
 -- | If you're using Amazon VPC, this property specifies the ID of the subnet
@@ -223,7 +223,7 @@ eciSubnetId :: Lens' EC2Instance (Maybe (Val Text))
 eciSubnetId = lens _eC2InstanceSubnetId (\s a -> s { _eC2InstanceSubnetId = a })
 
 -- | An arbitrary set of tags (key–value pairs) for this instance.
-eciTags :: Lens' EC2Instance (Maybe [Val ResourceTag])
+eciTags :: Lens' EC2Instance (Maybe [ResourceTag])
 eciTags = lens _eC2InstanceTags (\s a -> s { _eC2InstanceTags = a })
 
 -- | The tenancy of the instance that you want to launch. This value can be
@@ -242,7 +242,7 @@ eciUserData = lens _eC2InstanceUserData (\s a -> s { _eC2InstanceUserData = a })
 -- volume, unmount any file systems on the device within your operating
 -- system. If you don't unmount the file system, a volume might get stuck in a
 -- busy state while detaching.
-eciVolumes :: Lens' EC2Instance (Maybe [Val EC2MountPoint])
+eciVolumes :: Lens' EC2Instance (Maybe [EC2MountPoint])
 eciVolumes = lens _eC2InstanceVolumes (\s a -> s { _eC2InstanceVolumes = a })
 
 -- | Reserved.

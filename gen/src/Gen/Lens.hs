@@ -25,7 +25,9 @@ renderLens resName rp = T.intercalate "\n" [docs, typeDecl, funcDef]
         wrapType = case T.head typeText of
                      '[' -> typeText
                      '(' -> typeText
-                     _   -> T.concat ["(", typeText, ")"]
+                     _   -> if ' ' `elem` T.unpack typeText
+                            then T.concat ["(", typeText, ")"]
+                            else typeText
         typeDecl = T.concat [lensName', " :: Lens' ", resName, " ", wrapType]
         fieldName = renderFieldName resName rp
         funcDef = T.concat [lensName', " = lens ", fieldName,

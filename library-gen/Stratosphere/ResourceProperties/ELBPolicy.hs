@@ -19,7 +19,7 @@ import Stratosphere.Values
 
 data ELBPolicy =
   ELBPolicy
-  { _eLBPolicyAttributes :: Val Object
+  { _eLBPolicyAttributes :: Object
   , _eLBPolicyInstancePorts :: Maybe [Val Text]
   , _eLBPolicyLoadBalancerPorts :: Maybe [Val Text]
   , _eLBPolicyPolicyName :: Val Text
@@ -33,7 +33,7 @@ instance FromJSON ELBPolicy where
   parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 10, omitNothingFields = True }
 
 elbPolicy
-  :: Val Object -- ^ Attributes
+  :: Object -- ^ Attributes
   -> Val Text -- ^ PolicyName
   -> Val Text -- ^ PolicyType
   -> ELBPolicy
@@ -48,7 +48,7 @@ elbPolicy attributesarg policyNamearg policyTypearg =
 
 -- | A list of arbitrary attributes for this policy. If you don't need to
 -- specify any policy attributes, specify an empty list ([]).
-elbpAttributes :: Lens' ELBPolicy (Val Object)
+elbpAttributes :: Lens' ELBPolicy Object
 elbpAttributes = lens _eLBPolicyAttributes (\s a -> s { _eLBPolicyAttributes = a })
 
 -- | A list of instance ports for the policy. These are the ports associated

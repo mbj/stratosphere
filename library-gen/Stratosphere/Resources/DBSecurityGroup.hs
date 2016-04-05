@@ -24,9 +24,9 @@ import Stratosphere.ResourceProperties.DBSecurityGroupIngress
 data DBSecurityGroup =
   DBSecurityGroup
   { _dBSecurityGroupEC2VpcId :: Maybe (Val Text)
-  , _dBSecurityGroupDBSecurityGroupIngress :: [Val DBSecurityGroupIngress]
+  , _dBSecurityGroupDBSecurityGroupIngress :: [DBSecurityGroupIngress]
   , _dBSecurityGroupGroupDescription :: Val Text
-  , _dBSecurityGroupResourceTags :: Maybe [Val ResourceTag]
+  , _dBSecurityGroupResourceTags :: Maybe [ResourceTag]
   } deriving (Show, Generic)
 
 instance ToJSON DBSecurityGroup where
@@ -36,7 +36,7 @@ instance FromJSON DBSecurityGroup where
   parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 16, omitNothingFields = True }
 
 dbSecurityGroup
-  :: [Val DBSecurityGroupIngress] -- ^ DBSecurityGroupIngress
+  :: [DBSecurityGroupIngress] -- ^ DBSecurityGroupIngress
   -> Val Text -- ^ GroupDescription
   -> DBSecurityGroup
 dbSecurityGroup dBSecurityGroupIngressarg groupDescriptionarg =
@@ -54,7 +54,7 @@ dbsgEC2VpcId = lens _dBSecurityGroupEC2VpcId (\s a -> s { _dBSecurityGroupEC2Vpc
 
 -- | Network ingress authorization for an Amazon EC2 security group or an IP
 -- address range. Type: List of RDS Security Group Rules.
-dbsgDBSecurityGroupIngress :: Lens' DBSecurityGroup [Val DBSecurityGroupIngress]
+dbsgDBSecurityGroupIngress :: Lens' DBSecurityGroup [DBSecurityGroupIngress]
 dbsgDBSecurityGroupIngress = lens _dBSecurityGroupDBSecurityGroupIngress (\s a -> s { _dBSecurityGroupDBSecurityGroupIngress = a })
 
 -- | Description of the security group. Type: String
@@ -62,5 +62,5 @@ dbsgGroupDescription :: Lens' DBSecurityGroup (Val Text)
 dbsgGroupDescription = lens _dBSecurityGroupGroupDescription (\s a -> s { _dBSecurityGroupGroupDescription = a })
 
 -- | The tags that you want to attach to the Amazon RDS DB security group.
-dbsgResourceTags :: Lens' DBSecurityGroup (Maybe [Val ResourceTag])
+dbsgResourceTags :: Lens' DBSecurityGroup (Maybe [ResourceTag])
 dbsgResourceTags = lens _dBSecurityGroupResourceTags (\s a -> s { _dBSecurityGroupResourceTags = a })

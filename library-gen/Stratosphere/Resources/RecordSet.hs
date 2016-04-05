@@ -22,10 +22,10 @@ import Stratosphere.ResourceProperties.RecordSetGeoLocation
 
 data RecordSet =
   RecordSet
-  { _recordSetAliasTarget :: Maybe (Val AliasTarget)
+  { _recordSetAliasTarget :: Maybe AliasTarget
   , _recordSetComment :: Maybe (Val Text)
   , _recordSetFailover :: Maybe (Val Text)
-  , _recordSetGeoLocation :: Maybe [Val RecordSetGeoLocation]
+  , _recordSetGeoLocation :: Maybe [RecordSetGeoLocation]
   , _recordSetHealthCheckId :: Maybe (Val Text)
   , _recordSetHostedZoneId :: Maybe (Val Text)
   , _recordSetHostedZoneName :: Maybe (Val Text)
@@ -72,7 +72,7 @@ recordSet namearg typearg =
 -- For more information about alias resource record sets, see Creating Alias
 -- Resource Record Sets in the Amazon Route 53 Developer Guide and POST
 -- ChangeResourceRecordSets in the Amazon Route 53 API reference.
-rsAliasTarget :: Lens' RecordSet (Maybe (Val AliasTarget))
+rsAliasTarget :: Lens' RecordSet (Maybe AliasTarget)
 rsAliasTarget = lens _recordSetAliasTarget (\s a -> s { _recordSetAliasTarget = a })
 
 -- | Any comments that you want to include about the hosted zone. Important If
@@ -94,7 +94,7 @@ rsFailover = lens _recordSetFailover (\s a -> s { _recordSetFailover = a })
 
 -- | Describes how Amazon Route 53 responds to DNS queries based on the
 -- geographic origin of the query.
-rsGeoLocation :: Lens' RecordSet (Maybe [Val RecordSetGeoLocation])
+rsGeoLocation :: Lens' RecordSet (Maybe [RecordSetGeoLocation])
 rsGeoLocation = lens _recordSetGeoLocation (\s a -> s { _recordSetGeoLocation = a })
 
 -- | The health check ID that you want to apply to this record set. Amazon

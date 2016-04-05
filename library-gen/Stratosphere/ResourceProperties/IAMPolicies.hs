@@ -19,7 +19,7 @@ import Stratosphere.Values
 
 data IAMPolicies =
   IAMPolicies
-  { _iAMPoliciesPolicyDocument :: Val Object
+  { _iAMPoliciesPolicyDocument :: Object
   , _iAMPoliciesPolicyName :: Val Text
   } deriving (Show, Generic)
 
@@ -30,7 +30,7 @@ instance FromJSON IAMPolicies where
   parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 12, omitNothingFields = True }
 
 iamPolicies
-  :: Val Object -- ^ PolicyDocument
+  :: Object -- ^ PolicyDocument
   -> Val Text -- ^ PolicyName
   -> IAMPolicies
 iamPolicies policyDocumentarg policyNamearg =
@@ -41,7 +41,7 @@ iamPolicies policyDocumentarg policyNamearg =
 
 -- | A policy document that describes what actions are allowed on which
 -- resources.
-iampPolicyDocument :: Lens' IAMPolicies (Val Object)
+iampPolicyDocument :: Lens' IAMPolicies Object
 iampPolicyDocument = lens _iAMPoliciesPolicyDocument (\s a -> s { _iAMPoliciesPolicyDocument = a })
 
 -- | The name of the policy.

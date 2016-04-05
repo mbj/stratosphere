@@ -42,18 +42,28 @@ renderFieldType rp = tt
 
 -- | Wraps a type with "Val", accounting for whether or not it is a list.
 wrapTypeVal :: T.Text -> T.Text
-wrapTypeVal t =
-  case listBaseType t of
-    Nothing   -> T.concat ["Val ", t]
-    (Just t') -> T.concat ["[Val ", t', "]"]
+wrapTypeVal t = t'
+  where base = listBaseType t
+        valWrapper = if base `elem` atomicTypes then "Val " else ""
+        valBase = T.concat [valWrapper, base]
+        t' = if isListType t then T.concat ["[", valBase, "]"] else valBase
+
+atomicTypes :: [T.Text]
+atomicTypes =
+  [ "Text"
+  , "Bool"
+  , "Bool'"
+  , "Integer"
+  , "Integer'"
+  ]
 
 wrapTypeMaybe :: T.Text -> T.Text
-wrapTypeMaybe t = if isListType t
-                  then T.concat ["Maybe ", t]
-                  else T.concat ["Maybe (", t, ")"]
+wrapTypeMaybe t = if ' ' `elem` T.unpack t && T.head t /= '['
+                  then T.concat ["Maybe (", t, ")"]
+                  else T.concat ["Maybe ", t]
 
-listBaseType :: T.Text -> Maybe T.Text
-listBaseType t = if isListType t then Just t' else Nothing
+listBaseType :: T.Text -> T.Text
+listBaseType t = if isListType t then t' else t
   where t' = T.tail $ T.init t  -- Remove the brackets
 
 isListType :: T.Text -> Bool

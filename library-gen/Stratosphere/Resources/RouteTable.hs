@@ -18,7 +18,7 @@ import Stratosphere.ResourceProperties.ResourceTag
 data RouteTable =
   RouteTable
   { _routeTableVpcId :: Val Text
-  , _routeTableTags :: Maybe [Val ResourceTag]
+  , _routeTableTags :: Maybe [ResourceTag]
   } deriving (Show, Generic)
 
 instance ToJSON RouteTable where
@@ -42,5 +42,5 @@ rtVpcId :: Lens' RouteTable (Val Text)
 rtVpcId = lens _routeTableVpcId (\s a -> s { _routeTableVpcId = a })
 
 -- | An arbitrary set of tags (key–value pairs) for this route table.
-rtTags :: Lens' RouteTable (Maybe [Val ResourceTag])
+rtTags :: Lens' RouteTable (Maybe [ResourceTag])
 rtTags = lens _routeTableTags (\s a -> s { _routeTableTags = a })

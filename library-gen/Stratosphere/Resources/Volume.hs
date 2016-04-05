@@ -28,7 +28,7 @@ data Volume =
   , _volumeKmsKeyId :: Maybe (Val Text)
   , _volumeSize :: Maybe (Val Text)
   , _volumeSnapshotId :: Maybe (Val Text)
-  , _volumeTags :: Maybe [Val ResourceTag]
+  , _volumeTags :: Maybe [ResourceTag]
   , _volumeVolumeType :: Maybe (Val Text)
   } deriving (Show, Generic)
 
@@ -107,7 +107,7 @@ vSnapshotId :: Lens' Volume (Maybe (Val Text))
 vSnapshotId = lens _volumeSnapshotId (\s a -> s { _volumeSnapshotId = a })
 
 -- | An arbitrary set of tags (key–value pairs) for this volume.
-vTags :: Lens' Volume (Maybe [Val ResourceTag])
+vTags :: Lens' Volume (Maybe [ResourceTag])
 vTags = lens _volumeTags (\s a -> s { _volumeTags = a })
 
 -- | The volume type. You can specify standard, io1, or gp2. If you set the

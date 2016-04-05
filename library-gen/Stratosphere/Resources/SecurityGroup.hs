@@ -21,9 +21,9 @@ import Stratosphere.ResourceProperties.ResourceTag
 data SecurityGroup =
   SecurityGroup
   { _securityGroupGroupDescription :: Val Text
-  , _securityGroupSecurityGroupEgress :: Maybe [Val SecurityGroupEgressRule]
-  , _securityGroupSecurityGroupIngress :: Maybe [Val SecurityGroupIngressRule]
-  , _securityGroupTags :: Maybe [Val ResourceTag]
+  , _securityGroupSecurityGroupEgress :: Maybe [SecurityGroupEgressRule]
+  , _securityGroupSecurityGroupIngress :: Maybe [SecurityGroupIngressRule]
+  , _securityGroupTags :: Maybe [ResourceTag]
   , _securityGroupVpcId :: Maybe (Val Text)
   } deriving (Show, Generic)
 
@@ -50,15 +50,15 @@ sgGroupDescription :: Lens' SecurityGroup (Val Text)
 sgGroupDescription = lens _securityGroupGroupDescription (\s a -> s { _securityGroupGroupDescription = a })
 
 -- | A list of Amazon EC2 security group egress rules.
-sgSecurityGroupEgress :: Lens' SecurityGroup (Maybe [Val SecurityGroupEgressRule])
+sgSecurityGroupEgress :: Lens' SecurityGroup (Maybe [SecurityGroupEgressRule])
 sgSecurityGroupEgress = lens _securityGroupSecurityGroupEgress (\s a -> s { _securityGroupSecurityGroupEgress = a })
 
 -- | A list of Amazon EC2 security group ingress rules.
-sgSecurityGroupIngress :: Lens' SecurityGroup (Maybe [Val SecurityGroupIngressRule])
+sgSecurityGroupIngress :: Lens' SecurityGroup (Maybe [SecurityGroupIngressRule])
 sgSecurityGroupIngress = lens _securityGroupSecurityGroupIngress (\s a -> s { _securityGroupSecurityGroupIngress = a })
 
 -- | The tags that you want to attach to the resource.
-sgTags :: Lens' SecurityGroup (Maybe [Val ResourceTag])
+sgTags :: Lens' SecurityGroup (Maybe [ResourceTag])
 sgTags = lens _securityGroupTags (\s a -> s { _securityGroupTags = a })
 
 -- | The physical ID of the VPC. Can be obtained by using a reference to an

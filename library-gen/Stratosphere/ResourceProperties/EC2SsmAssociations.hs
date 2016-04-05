@@ -18,7 +18,7 @@ import Stratosphere.ResourceProperties.EC2SsmAssociationParameters
 
 data EC2SsmAssociations =
   EC2SsmAssociations
-  { _eC2SsmAssociationsAssociationParameters :: Maybe [Val EC2SsmAssociationParameters]
+  { _eC2SsmAssociationsAssociationParameters :: Maybe [EC2SsmAssociationParameters]
   , _eC2SsmAssociationsDocumentName :: Val Text
   } deriving (Show, Generic)
 
@@ -38,7 +38,7 @@ ec2SsmAssociations documentNamearg =
   }
 
 -- | The input parameter values to use with the associated SSM document.
-ecsaAssociationParameters :: Lens' EC2SsmAssociations (Maybe [Val EC2SsmAssociationParameters])
+ecsaAssociationParameters :: Lens' EC2SsmAssociations (Maybe [EC2SsmAssociationParameters])
 ecsaAssociationParameters = lens _eC2SsmAssociationsAssociationParameters (\s a -> s { _eC2SsmAssociationsAssociationParameters = a })
 
 -- | The name of an SSM document to associate with the instance.
