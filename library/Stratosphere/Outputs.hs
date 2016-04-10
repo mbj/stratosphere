@@ -52,8 +52,7 @@ output oname oval =
 outputToJSON :: Output -> Value
 outputToJSON Output {..} =
   object $ catMaybes
-  [ Just ("Name" .= outputName)
-  , Just ("Value" .= outputValue)
+  [ Just ("Value" .= outputValue)
   , maybeField "Description" outputDescription
   ]
 
