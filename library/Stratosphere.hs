@@ -1,7 +1,15 @@
 module Stratosphere
-       ( module X
+       ( module Stratosphere.Outputs
+       , module Stratosphere.Parameters
+       , module Stratosphere.Resources
+       , module Stratosphere.Template
+       , module Stratosphere.Values
        ) where
 
-import Stratosphere.Resources as X
-import Stratosphere.Template as X
-import Stratosphere.Values as X
+import Stratosphere.Outputs
+import Stratosphere.Parameters
+import Stratosphere.Resources
+import Stratosphere.Template
+import Stratosphere.Values
+
+{-# ANN module "HLint: ignore Use import/export shortcut" #-}

@@ -14,10 +14,9 @@ import Data.Maybe (maybeToList)
 import qualified Data.Text as T
 import Language.Haskell.TH
 
-
+-- | Might create an aeson pair from a Maybe value.
 maybeField :: ToJSON a => T.Text -> Maybe a -> Maybe (T.Text, Value)
 maybeField field = fmap ((field .=) . toJSON)
-
 
 -- | Similar to `camelCaseNamer`, except we specify the prefix exactly. We use
 -- this because camelCaseNamer is terrible with names that start in all caps,

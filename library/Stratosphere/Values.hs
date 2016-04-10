@@ -27,6 +27,9 @@ import GHC.Exts (fromList)
 --   Equals :: (Show a, ToJSON a) => Val a -> Val a -> Val Bool
 --   Or :: Val Bool -> Val Bool -> Val Bool
 
+-- | This type is a wrapper around any values in a template. A value can be a
+-- 'Literal', a 'Ref', or an intrinsic function. See:
+-- http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference.html
 data Val a
  = Literal a
  | Ref T.Text
@@ -122,6 +125,6 @@ instance FromJSON Bool' where
       "false" -> return False'
       _ -> fail $ "Unknown bool string " ++ string
 
-
+-- | Class used to create a 'Ref' from another type.
 class ToRef a b where
   toRef :: a -> Val b

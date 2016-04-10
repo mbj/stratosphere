@@ -8,6 +8,15 @@
 {-# LANGUAGE TemplateHaskell #-}
 {-# LANGUAGE TypeFamilies #-}
 
+-- | See:
+-- http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html
+--
+-- The required Resources section declare the AWS resources that you want as
+-- part of your stack, such as an Amazon EC2 instance or an Amazon S3 bucket.
+-- You must declare each resource separately; however, you can specify multiple
+-- resources of the same type. If you declare multiple resources, separate them
+-- with commas.
+
 module Stratosphere.Resources
      ( module X
      , Resource (..)
@@ -125,6 +134,7 @@ data Resource =
 instance ToRef Resource b where
   toRef r = Ref (resourceName r)
 
+-- | Convenient constructor for 'Resource' with required arguments.
 resource
   :: T.Text -- ^ Logical name
   -> ResourceProperties
@@ -230,7 +240,7 @@ resourceFromJSON n o =
        dp <- o .:? "DeletionPolicy"
        return $ Resource n props dp
 
-
+-- | Wrapper around a list of 'Resource's to we can modify the aeson instances.
 newtype Resources = Resources { unResources :: [Resource] }
                   deriving (Show)
 
