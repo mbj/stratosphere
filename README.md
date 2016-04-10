@@ -20,7 +20,9 @@ and are placed in `library-gen/`. The `gen/` directory contains the
 auto-generator code and the JSON model files. We include the `library-gen/`
 directory in git so the build process is simplified. To build `library-gen`
 from scratch and then build all of `stratosphere`, just run the very short
-`build.sh` script.
+`build.sh` script. You can pass stack args to the script too, so run
+`./build.sh --fast` to build the library without optimization. This is useful
+for development.
 
 In the future, it would be great to not have to include the auto-generated code
 in git.
