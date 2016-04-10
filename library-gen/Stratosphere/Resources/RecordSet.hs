@@ -20,6 +20,8 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.AliasTarget
 import Stratosphere.ResourceProperties.RecordSetGeoLocation
 
+-- | Full data type definition for RecordSet. See 'recordSet' for a more
+-- convenient constructor.
 data RecordSet =
   RecordSet
   { _recordSetAliasTarget :: Maybe AliasTarget
@@ -44,6 +46,7 @@ instance ToJSON RecordSet where
 instance FromJSON RecordSet where
   parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 10, omitNothingFields = True }
 
+-- | Constructor for 'RecordSet' containing required fields as arguments.
 recordSet
   :: Val Text -- ^ Name
   -> Val Text -- ^ Type

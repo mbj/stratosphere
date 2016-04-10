@@ -18,6 +18,8 @@ import Stratosphere.ResourceProperties.SecurityGroupEgressRule
 import Stratosphere.ResourceProperties.SecurityGroupIngressRule
 import Stratosphere.ResourceProperties.ResourceTag
 
+-- | Full data type definition for SecurityGroup. See 'securityGroup' for a
+-- more convenient constructor.
 data SecurityGroup =
   SecurityGroup
   { _securityGroupGroupDescription :: Val Text
@@ -33,6 +35,7 @@ instance ToJSON SecurityGroup where
 instance FromJSON SecurityGroup where
   parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 14, omitNothingFields = True }
 
+-- | Constructor for 'SecurityGroup' containing required fields as arguments.
 securityGroup
   :: Val Text -- ^ GroupDescription
   -> SecurityGroup

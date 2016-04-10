@@ -14,6 +14,8 @@ import GHC.Generics
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.PrivateIpAddressSpecification
 
+-- | Full data type definition for NetworkInterface. See 'networkInterface'
+-- for a more convenient constructor.
 data NetworkInterface =
   NetworkInterface
   { _networkInterfaceAssociatePublicIpAddress :: Maybe (Val Bool')
@@ -34,6 +36,8 @@ instance ToJSON NetworkInterface where
 instance FromJSON NetworkInterface where
   parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 17, omitNothingFields = True }
 
+-- | Constructor for 'NetworkInterface' containing required fields as
+-- arguments.
 networkInterface
   :: Val Text -- ^ DeviceIndex
   -> NetworkInterface

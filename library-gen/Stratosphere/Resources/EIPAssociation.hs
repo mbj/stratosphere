@@ -18,6 +18,8 @@ import GHC.Generics
 import Stratosphere.Values
 
 
+-- | Full data type definition for EIPAssociation. See 'eipAssociation' for a
+-- more convenient constructor.
 data EIPAssociation =
   EIPAssociation
   { _eIPAssociationAllocationId :: Maybe (Val Text)
@@ -33,6 +35,7 @@ instance ToJSON EIPAssociation where
 instance FromJSON EIPAssociation where
   parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 15, omitNothingFields = True }
 
+-- | Constructor for 'EIPAssociation' containing required fields as arguments.
 eipAssociation
   :: EIPAssociation
 eipAssociation  =

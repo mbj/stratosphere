@@ -19,6 +19,8 @@ import GHC.Generics
 import Stratosphere.Values
 
 
+-- | Full data type definition for NatGateway. See 'natGateway' for a more
+-- convenient constructor.
 data NatGateway =
   NatGateway
   { _natGatewayAllocationId :: Val Text
@@ -31,6 +33,7 @@ instance ToJSON NatGateway where
 instance FromJSON NatGateway where
   parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 11, omitNothingFields = True }
 
+-- | Constructor for 'NatGateway' containing required fields as arguments.
 natGateway
   :: Val Text -- ^ AllocationId
   -> Val Text -- ^ SubnetId

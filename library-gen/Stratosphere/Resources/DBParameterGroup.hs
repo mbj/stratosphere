@@ -18,6 +18,8 @@ import GHC.Generics
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.ResourceTag
 
+-- | Full data type definition for DBParameterGroup. See 'dbParameterGroup'
+-- for a more convenient constructor.
 data DBParameterGroup =
   DBParameterGroup
   { _dBParameterGroupDescription :: Val Text
@@ -32,6 +34,8 @@ instance ToJSON DBParameterGroup where
 instance FromJSON DBParameterGroup where
   parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 17, omitNothingFields = True }
 
+-- | Constructor for 'DBParameterGroup' containing required fields as
+-- arguments.
 dbParameterGroup
   :: Val Text -- ^ Description
   -> Val Text -- ^ Family

@@ -15,6 +15,8 @@ import GHC.Generics
 import Stratosphere.Values
 
 
+-- | Full data type definition for HealthCheck. See 'healthCheck' for a more
+-- convenient constructor.
 data HealthCheck =
   HealthCheck
   { _healthCheckHealthyThreshold :: Val Text
@@ -30,6 +32,7 @@ instance ToJSON HealthCheck where
 instance FromJSON HealthCheck where
   parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 12, omitNothingFields = True }
 
+-- | Constructor for 'HealthCheck' containing required fields as arguments.
 healthCheck
   :: Val Text -- ^ HealthyThreshold
   -> Val Text -- ^ Interval

@@ -15,6 +15,8 @@ import GHC.Generics
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.ResourceTag
 
+-- | Full data type definition for RouteTable. See 'routeTable' for a more
+-- convenient constructor.
 data RouteTable =
   RouteTable
   { _routeTableVpcId :: Val Text
@@ -27,6 +29,7 @@ instance ToJSON RouteTable where
 instance FromJSON RouteTable where
   parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 11, omitNothingFields = True }
 
+-- | Constructor for 'RouteTable' containing required fields as arguments.
 routeTable
   :: Val Text -- ^ VpcId
   -> RouteTable

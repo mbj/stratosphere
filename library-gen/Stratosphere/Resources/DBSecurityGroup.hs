@@ -21,6 +21,8 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.ResourceTag
 import Stratosphere.ResourceProperties.DBSecurityGroupIngress
 
+-- | Full data type definition for DBSecurityGroup. See 'dbSecurityGroup' for
+-- a more convenient constructor.
 data DBSecurityGroup =
   DBSecurityGroup
   { _dBSecurityGroupEC2VpcId :: Maybe (Val Text)
@@ -35,6 +37,8 @@ instance ToJSON DBSecurityGroup where
 instance FromJSON DBSecurityGroup where
   parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 16, omitNothingFields = True }
 
+-- | Constructor for 'DBSecurityGroup' containing required fields as
+-- arguments.
 dbSecurityGroup
   :: [DBSecurityGroupIngress] -- ^ DBSecurityGroupIngress
   -> Val Text -- ^ GroupDescription

@@ -15,6 +15,8 @@ import GHC.Generics
 import Stratosphere.Values
 
 
+-- | Full data type definition for LBCookieStickinessPolicy. See
+-- 'lbCookieStickinessPolicy' for a more convenient constructor.
 data LBCookieStickinessPolicy =
   LBCookieStickinessPolicy
   { _lBCookieStickinessPolicyCookieExpirationPeriod :: Maybe (Val Text)
@@ -27,6 +29,8 @@ instance ToJSON LBCookieStickinessPolicy where
 instance FromJSON LBCookieStickinessPolicy where
   parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 25, omitNothingFields = True }
 
+-- | Constructor for 'LBCookieStickinessPolicy' containing required fields as
+-- arguments.
 lbCookieStickinessPolicy
   :: Val Text -- ^ PolicyName
   -> LBCookieStickinessPolicy

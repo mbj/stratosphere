@@ -15,6 +15,8 @@ import GHC.Generics
 import Stratosphere.Values
 
 
+-- | Full data type definition for VolumeAttachment. See 'volumeAttachment'
+-- for a more convenient constructor.
 data VolumeAttachment =
   VolumeAttachment
   { _volumeAttachmentDevice :: Val Text
@@ -28,6 +30,8 @@ instance ToJSON VolumeAttachment where
 instance FromJSON VolumeAttachment where
   parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 17, omitNothingFields = True }
 
+-- | Constructor for 'VolumeAttachment' containing required fields as
+-- arguments.
 volumeAttachment
   :: Val Text -- ^ Device
   -> Val Text -- ^ InstanceId

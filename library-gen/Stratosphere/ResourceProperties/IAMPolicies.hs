@@ -17,6 +17,8 @@ import GHC.Generics
 import Stratosphere.Values
 
 
+-- | Full data type definition for IAMPolicies. See 'iamPolicies' for a more
+-- convenient constructor.
 data IAMPolicies =
   IAMPolicies
   { _iAMPoliciesPolicyDocument :: Object
@@ -29,6 +31,7 @@ instance ToJSON IAMPolicies where
 instance FromJSON IAMPolicies where
   parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 12, omitNothingFields = True }
 
+-- | Constructor for 'IAMPolicies' containing required fields as arguments.
 iamPolicies
   :: Object -- ^ PolicyDocument
   -> Val Text -- ^ PolicyName

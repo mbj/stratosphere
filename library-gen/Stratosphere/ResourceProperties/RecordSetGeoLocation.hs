@@ -16,6 +16,8 @@ import GHC.Generics
 import Stratosphere.Values
 
 
+-- | Full data type definition for RecordSetGeoLocation. See
+-- 'recordSetGeoLocation' for a more convenient constructor.
 data RecordSetGeoLocation =
   RecordSetGeoLocation
   { _recordSetGeoLocationContinentCode :: Maybe (Val Text)
@@ -29,6 +31,8 @@ instance ToJSON RecordSetGeoLocation where
 instance FromJSON RecordSetGeoLocation where
   parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 21, omitNothingFields = True }
 
+-- | Constructor for 'RecordSetGeoLocation' containing required fields as
+-- arguments.
 recordSetGeoLocation
   :: RecordSetGeoLocation
 recordSetGeoLocation  =

@@ -19,6 +19,8 @@ import GHC.Generics
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.ResourceTag
 
+-- | Full data type definition for Volume. See 'volume' for a more convenient
+-- constructor.
 data Volume =
   Volume
   { _volumeAutoEnableIO :: Maybe (Val Bool')
@@ -38,6 +40,7 @@ instance ToJSON Volume where
 instance FromJSON Volume where
   parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 7, omitNothingFields = True }
 
+-- | Constructor for 'Volume' containing required fields as arguments.
 volume
   :: Val Text -- ^ AvailabilityZone
   -> Volume

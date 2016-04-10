@@ -16,6 +16,8 @@ import GHC.Generics
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.ResourceTag
 
+-- | Full data type definition for DBInstance. See 'dbInstance' for a more
+-- convenient constructor.
 data DBInstance =
   DBInstance
   { _dBInstanceAllocatedStorage :: Maybe (Val Text)
@@ -58,6 +60,7 @@ instance ToJSON DBInstance where
 instance FromJSON DBInstance where
   parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 11, omitNothingFields = True }
 
+-- | Constructor for 'DBInstance' containing required fields as arguments.
 dbInstance
   :: Val Text -- ^ DBInstanceClass
   -> DBInstance

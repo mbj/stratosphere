@@ -15,6 +15,8 @@ import GHC.Generics
 import Stratosphere.Values
 
 
+-- | Full data type definition for EIP. See 'eip' for a more convenient
+-- constructor.
 data EIP =
   EIP
   { _eIPInstanceId :: Maybe (Val Text)
@@ -27,6 +29,7 @@ instance ToJSON EIP where
 instance FromJSON EIP where
   parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 4, omitNothingFields = True }
 
+-- | Constructor for 'EIP' containing required fields as arguments.
 eip
   :: EIP
 eip  =

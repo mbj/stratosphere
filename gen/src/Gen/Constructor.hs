@@ -6,16 +6,19 @@ module Gen.Constructor where
 
 import Control.Lens
 import Data.Char (isUpper, toLower, isNumber)
+import Data.Monoid ((<>))
 import qualified Data.Text as T
 import Data.Text.Manipulate (lowerHead)
 
+import Gen.Docstring
 import Gen.Resource
 import Gen.Types
 
 -- | Renders the default constructor function to Text.
 renderConstructor :: Resource -> T.Text
-renderConstructor res = T.concat [typeDecl, funcHead, fieldText, footer]
-  where cname = constructorName res
+renderConstructor res = T.concat [docstring, typeDecl, funcHead, fieldText, footer]
+  where docstring = constDocstring res
+        cname = constructorName res
         typeDecl = T.concat [cname, "\n", renderTypes res, "\n"]
         argNames = map argName (requiredParams res)
         args = T.intercalate " " argNames
@@ -25,6 +28,10 @@ renderConstructor res = T.concat [typeDecl, funcHead, fieldText, footer]
         fieldText = T.intercalate "\n  , " fieldLines
         footer = "\n  }"
 
+constDocstring :: Resource -> T.Text
+constDocstring res = renderDocstring doc  <> "\n"
+  where doc = "Constructor for '" <> res ^. name <>
+              "' containing required fields as arguments."
 
 renderTypes :: Resource -> T.Text
 renderTypes res = T.intercalate "\n" lines'
@@ -46,14 +53,6 @@ constructorField resName rp = (fieldName, valName)
 
 requiredParams :: Resource -> [ResourceParameter]
 requiredParams = filter (^. required) . (^. parameters)
-
-constructorName :: Resource -> T.Text
-constructorName res = T.pack $ headLower $ T.unpack $ res ^. name
-
--- | Makes consecutive upper case characters lowercase
-headLower :: String -> String
-headLower [] = []
-headLower (x:xs) = toLower x : consecutiveHeadLower xs
 
 consecutiveHeadLower :: String -> String
 consecutiveHeadLower [] = []

@@ -15,6 +15,8 @@ import GHC.Generics
 import Stratosphere.Values
 
 
+-- | Full data type definition for AppCookieStickinessPolicy. See
+-- 'appCookieStickinessPolicy' for a more convenient constructor.
 data AppCookieStickinessPolicy =
   AppCookieStickinessPolicy
   { _appCookieStickinessPolicyCookieName :: Val Text
@@ -27,6 +29,8 @@ instance ToJSON AppCookieStickinessPolicy where
 instance FromJSON AppCookieStickinessPolicy where
   parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 26, omitNothingFields = True }
 
+-- | Constructor for 'AppCookieStickinessPolicy' containing required fields as
+-- arguments.
 appCookieStickinessPolicy
   :: Val Text -- ^ CookieName
   -> Val Text -- ^ PolicyName

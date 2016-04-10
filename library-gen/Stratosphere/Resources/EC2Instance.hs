@@ -21,6 +21,8 @@ import Stratosphere.ResourceProperties.EC2SsmAssociations
 import Stratosphere.ResourceProperties.ResourceTag
 import Stratosphere.ResourceProperties.EC2MountPoint
 
+-- | Full data type definition for EC2Instance. See 'ec2Instance' for a more
+-- convenient constructor.
 data EC2Instance =
   EC2Instance
   { _eC2InstanceAvailabilityZone :: Maybe (Val Text)
@@ -56,6 +58,7 @@ instance ToJSON EC2Instance where
 instance FromJSON EC2Instance where
   parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 12, omitNothingFields = True }
 
+-- | Constructor for 'EC2Instance' containing required fields as arguments.
 ec2Instance
   :: Val Text -- ^ ImageId
   -> EC2Instance

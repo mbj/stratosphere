@@ -23,6 +23,8 @@ import GHC.Generics
 import Stratosphere.Values
 
 
+-- | Full data type definition for ConnectionDrainingPolicy. See
+-- 'connectionDrainingPolicy' for a more convenient constructor.
 data ConnectionDrainingPolicy =
   ConnectionDrainingPolicy
   { _connectionDrainingPolicyEnabled :: Val Bool'
@@ -35,6 +37,8 @@ instance ToJSON ConnectionDrainingPolicy where
 instance FromJSON ConnectionDrainingPolicy where
   parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 25, omitNothingFields = True }
 
+-- | Constructor for 'ConnectionDrainingPolicy' containing required fields as
+-- arguments.
 connectionDrainingPolicy
   :: Val Bool' -- ^ Enabled
   -> ConnectionDrainingPolicy

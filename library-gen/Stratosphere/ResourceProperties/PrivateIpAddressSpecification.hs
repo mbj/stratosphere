@@ -14,6 +14,8 @@ import GHC.Generics
 import Stratosphere.Values
 
 
+-- | Full data type definition for PrivateIpAddressSpecification. See
+-- 'privateIpAddressSpecification' for a more convenient constructor.
 data PrivateIpAddressSpecification =
   PrivateIpAddressSpecification
   { _privateIpAddressSpecificationPrivateIpAddress :: Val Text
@@ -26,6 +28,8 @@ instance ToJSON PrivateIpAddressSpecification where
 instance FromJSON PrivateIpAddressSpecification where
   parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 30, omitNothingFields = True }
 
+-- | Constructor for 'PrivateIpAddressSpecification' containing required
+-- fields as arguments.
 privateIpAddressSpecification
   :: Val Text -- ^ PrivateIpAddress
   -> Val Bool' -- ^ Primary

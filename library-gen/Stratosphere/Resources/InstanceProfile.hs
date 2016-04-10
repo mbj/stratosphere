@@ -17,6 +17,8 @@ import GHC.Generics
 import Stratosphere.Values
 
 
+-- | Full data type definition for InstanceProfile. See 'instanceProfile' for
+-- a more convenient constructor.
 data InstanceProfile =
   InstanceProfile
   { _instanceProfilePath :: Val Text
@@ -29,6 +31,8 @@ instance ToJSON InstanceProfile where
 instance FromJSON InstanceProfile where
   parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 16, omitNothingFields = True }
 
+-- | Constructor for 'InstanceProfile' containing required fields as
+-- arguments.
 instanceProfile
   :: Val Text -- ^ Path
   -> [Val Text] -- ^ Roles

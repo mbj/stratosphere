@@ -15,6 +15,8 @@ import GHC.Generics
 import Stratosphere.Values
 
 
+-- | Full data type definition for AccessLoggingPolicy. See
+-- 'accessLoggingPolicy' for a more convenient constructor.
 data AccessLoggingPolicy =
   AccessLoggingPolicy
   { _accessLoggingPolicyEmitInterval :: Maybe (Val Integer')
@@ -29,6 +31,8 @@ instance ToJSON AccessLoggingPolicy where
 instance FromJSON AccessLoggingPolicy where
   parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 20, omitNothingFields = True }
 
+-- | Constructor for 'AccessLoggingPolicy' containing required fields as
+-- arguments.
 accessLoggingPolicy
   :: Val Bool' -- ^ Enabled
   -> Val Text -- ^ S3BucketName

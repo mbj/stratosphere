@@ -17,6 +17,8 @@ import GHC.Generics
 import Stratosphere.Values
 
 
+-- | Full data type definition for ELBPolicy. See 'elbPolicy' for a more
+-- convenient constructor.
 data ELBPolicy =
   ELBPolicy
   { _eLBPolicyAttributes :: Object
@@ -32,6 +34,7 @@ instance ToJSON ELBPolicy where
 instance FromJSON ELBPolicy where
   parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 10, omitNothingFields = True }
 
+-- | Constructor for 'ELBPolicy' containing required fields as arguments.
 elbPolicy
   :: Object -- ^ Attributes
   -> Val Text -- ^ PolicyName

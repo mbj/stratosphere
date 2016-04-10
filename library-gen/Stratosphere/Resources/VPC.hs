@@ -15,6 +15,8 @@ import GHC.Generics
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.ResourceTag
 
+-- | Full data type definition for VPC. See 'vpc' for a more convenient
+-- constructor.
 data VPC =
   VPC
   { _vPCCidrBlock :: Val Text
@@ -30,6 +32,7 @@ instance ToJSON VPC where
 instance FromJSON VPC where
   parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 4, omitNothingFields = True }
 
+-- | Constructor for 'VPC' containing required fields as arguments.
 vpc
   :: Val Text -- ^ CidrBlock
   -> VPC

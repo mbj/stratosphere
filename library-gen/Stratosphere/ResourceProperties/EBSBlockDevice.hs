@@ -15,6 +15,8 @@ import GHC.Generics
 import Stratosphere.Values
 
 
+-- | Full data type definition for EBSBlockDevice. See 'ebsBlockDevice' for a
+-- more convenient constructor.
 data EBSBlockDevice =
   EBSBlockDevice
   { _eBSBlockDeviceDeleteOnTermination :: Maybe (Val Bool')
@@ -31,6 +33,7 @@ instance ToJSON EBSBlockDevice where
 instance FromJSON EBSBlockDevice where
   parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 15, omitNothingFields = True }
 
+-- | Constructor for 'EBSBlockDevice' containing required fields as arguments.
 ebsBlockDevice
   :: EBSBlockDevice
 ebsBlockDevice  =

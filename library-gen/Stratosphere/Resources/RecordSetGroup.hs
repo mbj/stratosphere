@@ -17,6 +17,8 @@ import GHC.Generics
 import Stratosphere.Values
 import Stratosphere.Resources.RecordSet
 
+-- | Full data type definition for RecordSetGroup. See 'recordSetGroup' for a
+-- more convenient constructor.
 data RecordSetGroup =
   RecordSetGroup
   { _recordSetGroupComment :: Maybe (Val Text)
@@ -31,6 +33,7 @@ instance ToJSON RecordSetGroup where
 instance FromJSON RecordSetGroup where
   parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 15, omitNothingFields = True }
 
+-- | Constructor for 'RecordSetGroup' containing required fields as arguments.
 recordSetGroup
   :: [RecordSet] -- ^ RecordSets
   -> RecordSetGroup

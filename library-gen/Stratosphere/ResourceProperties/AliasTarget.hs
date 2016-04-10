@@ -16,6 +16,8 @@ import GHC.Generics
 import Stratosphere.Values
 
 
+-- | Full data type definition for AliasTarget. See 'aliasTarget' for a more
+-- convenient constructor.
 data AliasTarget =
   AliasTarget
   { _aliasTargetDNSName :: Val Text
@@ -29,6 +31,7 @@ instance ToJSON AliasTarget where
 instance FromJSON AliasTarget where
   parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 12, omitNothingFields = True }
 
+-- | Constructor for 'AliasTarget' containing required fields as arguments.
 aliasTarget
   :: Val Text -- ^ DNSName
   -> Val Text -- ^ HostedZoneId

@@ -18,6 +18,8 @@ import GHC.Generics
 import Stratosphere.Values
 
 
+-- | Full data type definition for ConnectionSettings. See
+-- 'connectionSettings' for a more convenient constructor.
 data ConnectionSettings =
   ConnectionSettings
   { _connectionSettingsIdleTimeout :: Val Integer'
@@ -29,6 +31,8 @@ instance ToJSON ConnectionSettings where
 instance FromJSON ConnectionSettings where
   parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 19, omitNothingFields = True }
 
+-- | Constructor for 'ConnectionSettings' containing required fields as
+-- arguments.
 connectionSettings
   :: Val Integer' -- ^ IdleTimeout
   -> ConnectionSettings

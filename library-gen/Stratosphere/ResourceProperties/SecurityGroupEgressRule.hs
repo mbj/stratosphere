@@ -15,6 +15,8 @@ import GHC.Generics
 import Stratosphere.Values
 
 
+-- | Full data type definition for SecurityGroupEgressRule. See
+-- 'securityGroupEgressRule' for a more convenient constructor.
 data SecurityGroupEgressRule =
   SecurityGroupEgressRule
   { _securityGroupEgressRuleCidrIp :: Maybe (Val Text)
@@ -30,6 +32,8 @@ instance ToJSON SecurityGroupEgressRule where
 instance FromJSON SecurityGroupEgressRule where
   parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 24, omitNothingFields = True }
 
+-- | Constructor for 'SecurityGroupEgressRule' containing required fields as
+-- arguments.
 securityGroupEgressRule
   :: Val Text -- ^ IpProtocol
   -> SecurityGroupEgressRule

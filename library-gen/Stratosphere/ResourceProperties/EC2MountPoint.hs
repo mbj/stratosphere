@@ -15,6 +15,8 @@ import GHC.Generics
 import Stratosphere.Values
 
 
+-- | Full data type definition for EC2MountPoint. See 'ec2MountPoint' for a
+-- more convenient constructor.
 data EC2MountPoint =
   EC2MountPoint
   { _eC2MountPointDevice :: Val Text
@@ -27,6 +29,7 @@ instance ToJSON EC2MountPoint where
 instance FromJSON EC2MountPoint where
   parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 14, omitNothingFields = True }
 
+-- | Constructor for 'EC2MountPoint' containing required fields as arguments.
 ec2MountPoint
   :: Val Text -- ^ Device
   -> Val Text -- ^ VolumeId

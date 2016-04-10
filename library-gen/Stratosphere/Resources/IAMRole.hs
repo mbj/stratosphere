@@ -18,6 +18,8 @@ import GHC.Generics
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.IAMPolicies
 
+-- | Full data type definition for IAMRole. See 'iamRole' for a more
+-- convenient constructor.
 data IAMRole =
   IAMRole
   { _iAMRoleAssumeRolePolicyDocument :: Object
@@ -32,6 +34,7 @@ instance ToJSON IAMRole where
 instance FromJSON IAMRole where
   parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 8, omitNothingFields = True }
 
+-- | Constructor for 'IAMRole' containing required fields as arguments.
 iamRole
   :: Object -- ^ AssumeRolePolicyDocument
   -> IAMRole

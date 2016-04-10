@@ -16,6 +16,8 @@ import GHC.Generics
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.ResourceTag
 
+-- | Full data type definition for DBSubnetGroup. See 'dbSubnetGroup' for a
+-- more convenient constructor.
 data DBSubnetGroup =
   DBSubnetGroup
   { _dBSubnetGroupDBSubnetGroupDescription :: Val Text
@@ -29,6 +31,7 @@ instance ToJSON DBSubnetGroup where
 instance FromJSON DBSubnetGroup where
   parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 14, omitNothingFields = True }
 
+-- | Constructor for 'DBSubnetGroup' containing required fields as arguments.
 dbSubnetGroup
   :: Val Text -- ^ DBSubnetGroupDescription
   -> [Val Text] -- ^ SubnetIds

@@ -15,6 +15,8 @@ import GHC.Generics
 import Stratosphere.Values
 
 
+-- | Full data type definition for ListenerProperty. See 'listenerProperty'
+-- for a more convenient constructor.
 data ListenerProperty =
   ListenerProperty
   { _listenerPropertyInstancePort :: Val Text
@@ -31,6 +33,8 @@ instance ToJSON ListenerProperty where
 instance FromJSON ListenerProperty where
   parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 17, omitNothingFields = True }
 
+-- | Constructor for 'ListenerProperty' containing required fields as
+-- arguments.
 listenerProperty
   :: Val Text -- ^ InstancePort
   -> Val Text -- ^ LoadBalancerPort

@@ -14,6 +14,8 @@ import GHC.Generics
 import Stratosphere.Values
 
 
+-- | Full data type definition for SubnetRouteTableAssociation. See
+-- 'subnetRouteTableAssociation' for a more convenient constructor.
 data SubnetRouteTableAssociation =
   SubnetRouteTableAssociation
   { _subnetRouteTableAssociationRouteTableId :: Val Text
@@ -26,6 +28,8 @@ instance ToJSON SubnetRouteTableAssociation where
 instance FromJSON SubnetRouteTableAssociation where
   parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 28, omitNothingFields = True }
 
+-- | Constructor for 'SubnetRouteTableAssociation' containing required fields
+-- as arguments.
 subnetRouteTableAssociation
   :: Val Text -- ^ RouteTableId
   -> Val Text -- ^ SubnetId

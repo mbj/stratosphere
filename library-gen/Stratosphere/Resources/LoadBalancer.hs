@@ -22,6 +22,8 @@ import Stratosphere.ResourceProperties.ListenerProperty
 import Stratosphere.ResourceProperties.ELBPolicy
 import Stratosphere.ResourceProperties.ResourceTag
 
+-- | Full data type definition for LoadBalancer. See 'loadBalancer' for a more
+-- convenient constructor.
 data LoadBalancer =
   LoadBalancer
   { _loadBalancerAccessLoggingPolicy :: Maybe AccessLoggingPolicy
@@ -48,6 +50,7 @@ instance ToJSON LoadBalancer where
 instance FromJSON LoadBalancer where
   parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 13, omitNothingFields = True }
 
+-- | Constructor for 'LoadBalancer' containing required fields as arguments.
 loadBalancer
   :: [ListenerProperty] -- ^ Listeners
   -> LoadBalancer

@@ -16,6 +16,8 @@ import GHC.Generics
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.EBSBlockDevice
 
+-- | Full data type definition for EC2BlockDeviceMapping. See
+-- 'ec2BlockDeviceMapping' for a more convenient constructor.
 data EC2BlockDeviceMapping =
   EC2BlockDeviceMapping
   { _eC2BlockDeviceMappingDeviceName :: Val Text
@@ -30,6 +32,8 @@ instance ToJSON EC2BlockDeviceMapping where
 instance FromJSON EC2BlockDeviceMapping where
   parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 22, omitNothingFields = True }
 
+-- | Constructor for 'EC2BlockDeviceMapping' containing required fields as
+-- arguments.
 ec2BlockDeviceMapping
   :: Val Text -- ^ DeviceName
   -> EC2BlockDeviceMapping

@@ -24,6 +24,8 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.ResourceTag
 import Stratosphere.Parameters
 
+-- | Full data type definition for Stack. See 'stack' for a more convenient
+-- constructor.
 data Stack =
   Stack
   { _stackNotificationARNs :: Maybe [Val Text]
@@ -39,6 +41,7 @@ instance ToJSON Stack where
 instance FromJSON Stack where
   parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 6, omitNothingFields = True }
 
+-- | Constructor for 'Stack' containing required fields as arguments.
 stack
   :: Val Text -- ^ TemplateURL
   -> Stack

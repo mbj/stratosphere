@@ -14,6 +14,8 @@ import GHC.Generics
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.ResourceTag
 
+-- | Full data type definition for Subnet. See 'subnet' for a more convenient
+-- constructor.
 data Subnet =
   Subnet
   { _subnetAvailabilityZone :: Maybe (Val Text)
@@ -29,6 +31,7 @@ instance ToJSON Subnet where
 instance FromJSON Subnet where
   parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 7, omitNothingFields = True }
 
+-- | Constructor for 'Subnet' containing required fields as arguments.
 subnet
   :: Val Text -- ^ CidrBlock
   -> Val Text -- ^ VpcId

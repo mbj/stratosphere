@@ -23,6 +23,8 @@ import GHC.Generics
 import Stratosphere.Values
 
 
+-- | Full data type definition for ResourceTag. See 'resourceTag' for a more
+-- convenient constructor.
 data ResourceTag =
   ResourceTag
   { _resourceTagKey :: Val Text
@@ -35,6 +37,7 @@ instance ToJSON ResourceTag where
 instance FromJSON ResourceTag where
   parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 12, omitNothingFields = True }
 
+-- | Constructor for 'ResourceTag' containing required fields as arguments.
 resourceTag
   :: Val Text -- ^ Key
   -> Val Text -- ^ Value

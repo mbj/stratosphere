@@ -23,6 +23,8 @@ import GHC.Generics
 import Stratosphere.Values
 
 
+-- | Full data type definition for DBSecurityGroupIngress. See
+-- 'dbSecurityGroupIngress' for a more convenient constructor.
 data DBSecurityGroupIngress =
   DBSecurityGroupIngress
   { _dBSecurityGroupIngressCIDRIP :: Maybe (Val Text)
@@ -38,6 +40,8 @@ instance ToJSON DBSecurityGroupIngress where
 instance FromJSON DBSecurityGroupIngress where
   parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 23, omitNothingFields = True }
 
+-- | Constructor for 'DBSecurityGroupIngress' containing required fields as
+-- arguments.
 dbSecurityGroupIngress
   :: Val Text -- ^ DBSecurityGroupName
   -> DBSecurityGroupIngress

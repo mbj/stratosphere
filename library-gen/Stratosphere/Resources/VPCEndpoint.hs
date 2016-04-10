@@ -17,6 +17,8 @@ import GHC.Generics
 import Stratosphere.Values
 
 
+-- | Full data type definition for VPCEndpoint. See 'vpcEndpoint' for a more
+-- convenient constructor.
 data VPCEndpoint =
   VPCEndpoint
   { _vPCEndpointPolicyDocument :: Maybe Object
@@ -31,6 +33,7 @@ instance ToJSON VPCEndpoint where
 instance FromJSON VPCEndpoint where
   parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 12, omitNothingFields = True }
 
+-- | Constructor for 'VPCEndpoint' containing required fields as arguments.
 vpcEndpoint
   :: Val Text -- ^ ServiceName
   -> Val Text -- ^ VpcId

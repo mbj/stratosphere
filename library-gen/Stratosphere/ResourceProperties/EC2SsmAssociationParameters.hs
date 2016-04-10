@@ -16,6 +16,8 @@ import GHC.Generics
 import Stratosphere.Values
 
 
+-- | Full data type definition for EC2SsmAssociationParameters. See
+-- 'ec2SsmAssociationParameters' for a more convenient constructor.
 data EC2SsmAssociationParameters =
   EC2SsmAssociationParameters
   { _eC2SsmAssociationParametersKey :: Val Text
@@ -28,6 +30,8 @@ instance ToJSON EC2SsmAssociationParameters where
 instance FromJSON EC2SsmAssociationParameters where
   parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 28, omitNothingFields = True }
 
+-- | Constructor for 'EC2SsmAssociationParameters' containing required fields
+-- as arguments.
 ec2SsmAssociationParameters
   :: Val Text -- ^ Key
   -> [Val Text] -- ^ Value

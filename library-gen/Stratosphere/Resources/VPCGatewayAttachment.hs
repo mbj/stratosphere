@@ -14,6 +14,8 @@ import GHC.Generics
 import Stratosphere.Values
 
 
+-- | Full data type definition for VPCGatewayAttachment. See
+-- 'vpcGatewayAttachment' for a more convenient constructor.
 data VPCGatewayAttachment =
   VPCGatewayAttachment
   { _vPCGatewayAttachmentInternetGatewayId :: Maybe (Val Text)
@@ -27,6 +29,8 @@ instance ToJSON VPCGatewayAttachment where
 instance FromJSON VPCGatewayAttachment where
   parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 21, omitNothingFields = True }
 
+-- | Constructor for 'VPCGatewayAttachment' containing required fields as
+-- arguments.
 vpcGatewayAttachment
   :: Val Text -- ^ VpcId
   -> VPCGatewayAttachment

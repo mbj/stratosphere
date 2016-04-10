@@ -15,6 +15,8 @@ import GHC.Generics
 import Stratosphere.Values
 
 
+-- | Full data type definition for Route. See 'route' for a more convenient
+-- constructor.
 data Route =
   Route
   { _routeDestinationCidrBlock :: Val Text
@@ -31,6 +33,7 @@ instance ToJSON Route where
 instance FromJSON Route where
   parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 6, omitNothingFields = True }
 
+-- | Constructor for 'Route' containing required fields as arguments.
 route
   :: Val Text -- ^ DestinationCidrBlock
   -> Val Text -- ^ RouteTableId
