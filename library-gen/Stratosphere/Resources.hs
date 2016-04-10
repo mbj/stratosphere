@@ -78,6 +78,7 @@ import Stratosphere.ResourceProperties.AppCookieStickinessPolicy as X
 import Stratosphere.ResourceProperties.ConnectionSettings as X
 
 import Stratosphere.Helpers (maybeField)
+import Stratosphere.Values
 
 data ResourceProperties
   = SubnetProperties Subnet
@@ -116,10 +117,13 @@ data DeletionPolicy
 
 data Resource =
   Resource
-  { resourceLogicalName :: T.Text
+  { resourceName :: T.Text
   , resourceProperties :: ResourceProperties
   , resourceDeletionPolicy :: Maybe DeletionPolicy
   } deriving (Show)
+
+instance ToRef Resource b where
+  toRef r = Ref (resourceName r)
 
 resource
   :: T.Text -- ^ Logical name
@@ -127,7 +131,7 @@ resource
   -> Resource
 resource rn rp =
   Resource
-  { resourceLogicalName = rn
+  { resourceName = rn
   , resourceProperties = rp
   , resourceDeletionPolicy = Nothing
   }
@@ -237,7 +241,7 @@ instance IsList Resources where
 
 instance ToJSON Resources where
   toJSON (Resources rs) =
-    object $ fmap (\r -> resourceLogicalName r .= toJSON r) rs
+    object $ fmap (\r -> resourceName r .= toJSON r) rs
 
 instance FromJSON Resources where
   parseJSON v = do

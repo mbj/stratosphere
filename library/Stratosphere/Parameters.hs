@@ -39,6 +39,9 @@ data Parameter =
 
 $(makeFields ''Parameter)
 
+instance ToRef Parameter b where
+  toRef p = Ref (parameterName p)
+
 paramToJSON :: Parameter -> Value
 paramToJSON Parameter {..} =
   object $ catMaybes

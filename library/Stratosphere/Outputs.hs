@@ -33,8 +33,10 @@ data Output =
   , outputValue :: Val T.Text
   } deriving (Show)
 
-
 $(makeFields ''Output)
+
+instance ToRef Output b where
+  toRef o = Ref (outputName o)
 
 output
   :: T.Text -- ^ Name

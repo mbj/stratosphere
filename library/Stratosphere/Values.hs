@@ -1,5 +1,6 @@
 {-# LANGUAGE GADTs #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE MultiParamTypeClasses #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StandaloneDeriving #-}
 
@@ -7,6 +8,7 @@ module Stratosphere.Values
        ( Val (..)
        , Integer' (..)
        , Bool' (..)
+       , ToRef (..)
        ) where
 
 import Data.Aeson
@@ -119,3 +121,7 @@ instance FromJSON Bool' where
       "true" -> return True'
       "false" -> return False'
       _ -> fail $ "Unknown bool string " ++ string
+
+
+class ToRef a b where
+  toRef :: a -> Val b
