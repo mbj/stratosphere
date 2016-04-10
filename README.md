@@ -30,3 +30,23 @@ in git.
 Also, there is a file called `scraper.py` that scrapes a given CloudFormation
 resource documentation page to produce the JSON model. It isn't perfect, but it
 helps a lot.
+
+## TODO
+
+The library is usable in its current state, but there are a few improvements to
+make it easier to use:
+
+* Not all resources implemented. Adding resources is very easy though. Just
+  request them and I will implement them :)
+* Implement basic checker for things like undefined Refs and duplicate field
+  names. This stuff would be too unwieldy to do in types, and performing a
+  checking pass over a template should be pretty straightforward.
+* Use a custom JSON encoder so the templates look a little more idiomatic. We
+  also create a lot of empty whitespace and newlines using aeson-pretty. There
+  are limits on the size of CloudFormation templates, and we want readable
+  output without hitting the limits. Also, we have some newtypes that just
+  exist to override aeson instances, and we could get rid of those.
+* Use a custom JSON decoder with useful error messages. Although we don't use
+  them, we have implemented FromJSON instances for everything. Theoretically,
+  stratosphere could be used as a checker/linter for existing JSON
+  CloudFormation templates.
