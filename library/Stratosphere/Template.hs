@@ -48,42 +48,22 @@ import qualified Data.HashMap.Strict as HM
 import qualified Data.Text as T
 
 import Stratosphere.Helpers (modTemplateJSONField)
-import Stratosphere.Resources
+import Stratosphere.Outputs
 import Stratosphere.Parameters
-import Stratosphere.Values
+import Stratosphere.Resources
 
 type Mapping = HM.HashMap T.Text Object
-
-data Output =
-  Output
-  { outputDescription :: Maybe T.Text
-  , outputValue :: Val T.Text
-  } deriving (Show)
-
-$(deriveJSON defaultOptions { fieldLabelModifier = drop 6
-                            , omitNothingFields = True}
-  ''Output)
-$(makeFields ''Output)
-
-output
-  :: Val T.Text
-  -> Output
-output oval =
-  Output
-  { outputDescription = Nothing
-  , outputValue = oval
-  }
 
 data Template =
   Template
   { templateFormatVersion :: Maybe T.Text
   , templateDescription :: Maybe T.Text
   , templateMetadata :: Maybe Object
-  , templateParameters :: Maybe ParameterMap
+  , templateParameters :: Maybe Parameters
   , templateMappings :: Maybe (HM.HashMap T.Text Mapping)
   , templateConditions :: Maybe Object
-  , templateResources :: HM.HashMap T.Text Resource
-  , templateOutputs :: Maybe (HM.HashMap T.Text Output)
+  , templateResources :: Resources
+  , templateOutputs :: Maybe Outputs
   } deriving (Show)
 
 
@@ -91,7 +71,7 @@ $(deriveJSON defaultOptions { fieldLabelModifier = modTemplateJSONField
                             , omitNothingFields = True } ''Template)
 $(makeFields ''Template)
 
-template :: HM.HashMap T.Text Resource -> Template
+template :: Resources -> Template
 template res =
   Template
   { templateFormatVersion = Nothing

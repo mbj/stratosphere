@@ -15,7 +15,7 @@
     },
     {
       "Name": "Parameters",
-      "Type": "ParameterMap",
+      "Type": "Parameters",
       "Documentation": "The set of parameters passed to AWS CloudFormation when this nested stack is created.\nNote\nIf you use the ref function to pass a parameter value to a nested stack, comma-delimited list parameters must be of type String. In other words, you cannot pass values that are of type CommaDelimitedList to nested stacks.",
       "Required": false
     },

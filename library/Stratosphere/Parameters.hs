@@ -2,24 +2,29 @@
 {-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE FunctionalDependencies #-}
 {-# LANGUAGE MultiParamTypeClasses #-}
+{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StandaloneDeriving #-}
+{-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE TemplateHaskell #-}
+{-# LANGUAGE TypeFamilies #-}
 
 module Stratosphere.Parameters where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.TH
+import Data.Aeson.Types (Parser)
 import qualified Data.HashMap.Strict as HM
+import Data.Maybe (catMaybes)
 import qualified Data.Text as T
+import GHC.Exts (IsList(..))
 
+import Stratosphere.Helpers (maybeField)
 import Stratosphere.Values
-
-type ParameterMap = HM.HashMap T.Text Parameter
 
 data Parameter =
   Parameter
-  { parameterType' :: T.Text
+  { parameterName :: T.Text
+  , parameterType' :: T.Text
   , parameterDefault' :: Maybe Value
   , parameterNoEcho :: Maybe Bool
   , parameterAllowedValues :: Maybe Array
@@ -30,20 +35,49 @@ data Parameter =
   , parameterMinValue :: Maybe Integer'
   , parameterDescription :: Maybe T.Text
   , parameterConstraintDescription :: Maybe T.Text
-  } deriving (Show)
+  } deriving (Show, Eq)
 
-$(deriveJSON defaultOptions
-  { fieldLabelModifier = drop 9 . filter (/= '\'')
-  , omitNothingFields = True }
-  ''Parameter)
 $(makeFields ''Parameter)
 
+paramToJSON :: Parameter -> Value
+paramToJSON Parameter {..} =
+  object $ catMaybes
+  [ Just ("Type" .= parameterType')
+  , maybeField "Default" parameterDefault'
+  , maybeField "NoEcho" parameterNoEcho
+  , maybeField "AllowedValues" parameterAllowedValues
+  , maybeField "AllowedPattern" parameterAllowedPattern
+  , maybeField "MaxLength" parameterMaxLength
+  , maybeField "MinLength" parameterMinLength
+  , maybeField "MaxValue" parameterMaxValue
+  , maybeField "MinValue" parameterMinValue
+  , maybeField "Description" parameterDescription
+  , maybeField "ConstraintDescription" parameterConstraintDescription
+  ]
+
+paramFromJSON :: T.Text -> Object -> Parser Parameter
+paramFromJSON n o =
+  Parameter n
+  <$> o .:  "Type"
+  <*> o .:? "Default"
+  <*> o .:? "NoEcho"
+  <*> o .:? "AllowedValues"
+  <*> o .:? "AllowedPattern"
+  <*> o .:? "MaxLength"
+  <*> o .:? "MinLength"
+  <*> o .:? "MaxValue"
+  <*> o .:? "MinValue"
+  <*> o .:? "Description"
+  <*> o .:? "ConstraintDescription"
+
 parameter
-  :: T.Text  -- Type
+  :: T.Text -- ^ Name
+  -> T.Text -- ^ Type
   -> Parameter
-parameter ptype =
+parameter pname ptype =
   Parameter
-  { parameterType' = ptype
+  { parameterName = pname
+  , parameterType' = ptype
   , parameterDefault' = Nothing
   , parameterNoEcho = Nothing
   , parameterAllowedValues = Nothing
@@ -55,3 +89,23 @@ parameter ptype =
   , parameterDescription = Nothing
   , parameterConstraintDescription = Nothing
   }
+
+
+newtype Parameters = Parameters { unParameters :: [Parameter] }
+                   deriving (Show, Eq)
+
+instance IsList Parameters where
+  type Item Parameters = Parameter
+  fromList = Parameters
+  toList = unParameters
+
+instance ToJSON Parameters where
+  toJSON (Parameters ps) =
+    object $ fmap (\p -> parameterName p .= paramToJSON p) ps
+
+instance FromJSON Parameters where
+  parseJSON v = do
+    objs <- parseJSON v :: Parser (HM.HashMap T.Text Value)
+    ps <- sequence [withObject "parameter" (paramFromJSON n) obj |
+                    (n, obj) <- HM.toList objs]
+    return $ Parameters ps

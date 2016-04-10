@@ -6,6 +6,7 @@
 {-# LANGUAGE MultiParamTypeClasses #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE TemplateHaskell #-}
+{-# LANGUAGE TypeFamilies #-}
 
 module Stratosphere.Resources
      ( module X
@@ -15,12 +16,16 @@ module Stratosphere.Resources
      , deletionPolicy
      , ResourceProperties (..)
      , DeletionPolicy (..)
+     , Resources (..)
      ) where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
 import Data.Aeson.Types
+import qualified Data.HashMap.Strict as HM
 import Data.Maybe (catMaybes)
+import qualified Data.Text as T
+import GHC.Exts (IsList(..))
 import GHC.Generics (Generic)
 
 {{ resourceImports }}
@@ -39,35 +44,57 @@ data DeletionPolicy
 
 data Resource =
   Resource
-  { resourceProperties :: ResourceProperties
+  { resourceLogicalName :: T.Text
+  , resourceProperties :: ResourceProperties
   , resourceDeletionPolicy :: Maybe DeletionPolicy
   } deriving (Show)
 
 resource
-  :: ResourceProperties
+  :: T.Text -- ^ Logical name
+  -> ResourceProperties
   -> Resource
-resource rp =
+resource rn rp =
   Resource
-  { resourceProperties = rp
+  { resourceLogicalName = rn
+  , resourceProperties = rp
   , resourceDeletionPolicy = Nothing
   }
 
 $(makeFields ''Resource)
 
 instance ToJSON Resource where
-  toJSON (Resource props dp) =
+  toJSON (Resource _ props dp) =
     object $ resourcePropertiesJSON props ++ catMaybes
     [ maybeField "DeletionPolicy" dp ]
 
 resourcePropertiesJSON :: ResourceProperties -> [Pair]
 {{ toJSONFuncs }}
 
-instance FromJSON Resource where
-  parseJSON (Object o) =
+resourceFromJSON :: T.Text -> Object -> Parser Resource
+resourceFromJSON n o =
     do type' <- o .: "Type" :: Parser String
        props <- case type' of
 {{ fromJSONCases }}
          _ -> fail $ "Unknown resource type: " ++ type'
        dp <- o .:? "DeletionPolicy"
-       return $ Resource props dp
-  parseJSON _ = fail "Expected JSON Object for a resource"
+       return $ Resource n props dp
+
+
+newtype Resources = Resources { unResources :: [Resource] }
+                  deriving (Show)
+
+instance IsList Resources where
+  type Item Resources = Resource
+  fromList = Resources
+  toList = unResources
+
+instance ToJSON Resources where
+  toJSON (Resources rs) =
+    object $ fmap (\r -> resourceLogicalName r .= toJSON r) rs
+
+instance FromJSON Resources where
+  parseJSON v = do
+    objs <- parseJSON v :: Parser (HM.HashMap T.Text Value)
+    rs <- sequence [withObject "resource" (resourceFromJSON n) obj |
+                    (n, obj) <- HM.toList objs]
+    return $ Resources rs
