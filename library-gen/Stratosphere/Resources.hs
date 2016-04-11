@@ -6,7 +6,6 @@
 {-# LANGUAGE MultiParamTypeClasses #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE TemplateHaskell #-}
-{-# LANGUAGE TypeFamilies #-}
 
 -- | See:
 -- http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html
@@ -25,16 +24,14 @@ module Stratosphere.Resources
      , deletionPolicy
      , ResourceProperties (..)
      , DeletionPolicy (..)
-     , Resources (..)
+     , Resources
      ) where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
 import Data.Aeson.Types
-import qualified Data.HashMap.Strict as HM
 import Data.Maybe (catMaybes)
 import qualified Data.Text as T
-import GHC.Exts (IsList(..))
 import GHC.Generics (Generic)
 
 import Stratosphere.Resources.Subnet as X
@@ -86,7 +83,7 @@ import Stratosphere.ResourceProperties.AccessLoggingPolicy as X
 import Stratosphere.ResourceProperties.AppCookieStickinessPolicy as X
 import Stratosphere.ResourceProperties.ConnectionSettings as X
 
-import Stratosphere.Helpers (maybeField)
+import Stratosphere.Helpers
 import Stratosphere.Values
 
 data ResourceProperties
@@ -148,8 +145,8 @@ resource rn rp =
 
 $(makeFields ''Resource)
 
-instance ToJSON Resource where
-  toJSON (Resource _ props dp) =
+resourceToJSON :: Resource -> Value
+resourceToJSON (Resource _ props dp) =
     object $ resourcePropertiesJSON props ++ catMaybes
     [ maybeField "DeletionPolicy" dp ]
 
@@ -240,22 +237,11 @@ resourceFromJSON n o =
        dp <- o .:? "DeletionPolicy"
        return $ Resource n props dp
 
--- | Wrapper around a list of 'Resource's to we can modify the aeson instances.
-newtype Resources = Resources { unResources :: [Resource] }
-                  deriving (Show)
+-- | Wrapper around a list of 'Resources's to we can modify the aeson
+-- instances.
+type Resources = NameList Resource
 
-instance IsList Resources where
-  type Item Resources = Resource
-  fromList = Resources
-  toList = unResources
-
-instance ToJSON Resources where
-  toJSON (Resources rs) =
-    object $ fmap (\r -> resourceName r .= toJSON r) rs
-
-instance FromJSON Resources where
-  parseJSON v = do
-    objs <- parseJSON v :: Parser (HM.HashMap T.Text Value)
-    rs <- sequence [withObject "resource" (resourceFromJSON n) obj |
-                    (n, obj) <- HM.toList objs]
-    return $ Resources rs
+instance NameListItem Resource where
+  itemName = resourceName
+  nameToJSON = resourceToJSON
+  nameParseJSON = resourceFromJSON

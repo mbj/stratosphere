@@ -23,12 +23,10 @@ module Stratosphere.Parameters where
 import Control.Lens hiding ((.=))
 import Data.Aeson
 import Data.Aeson.Types (Parser)
-import qualified Data.HashMap.Strict as HM
 import Data.Maybe (catMaybes)
 import qualified Data.Text as T
-import GHC.Exts (IsList(..))
 
-import Stratosphere.Helpers (maybeField)
+import Stratosphere.Helpers
 import Stratosphere.Values
 
 data Parameter =
@@ -72,8 +70,8 @@ $(makeFields ''Parameter)
 instance ToRef Parameter b where
   toRef p = Ref (parameterName p)
 
-paramToJSON :: Parameter -> Value
-paramToJSON Parameter {..} =
+parameterToJSON :: Parameter -> Value
+parameterToJSON Parameter {..} =
   object $ catMaybes
   [ Just ("Type" .= parameterType')
   , maybeField "Default" parameterDefault'
@@ -88,8 +86,8 @@ paramToJSON Parameter {..} =
   , maybeField "ConstraintDescription" parameterConstraintDescription
   ]
 
-paramFromJSON :: T.Text -> Object -> Parser Parameter
-paramFromJSON n o =
+parameterFromJSON :: T.Text -> Object -> Parser Parameter
+parameterFromJSON n o =
   Parameter n
   <$> o .:  "Type"
   <*> o .:? "Default"
@@ -126,21 +124,9 @@ parameter pname ptype =
 
 -- | Wrapper around a list of 'Parameters's to we can modify the aeson
 -- instances.
-newtype Parameters = Parameters { unParameters :: [Parameter] }
-                   deriving (Show, Eq)
+type Parameters = NameList Parameter
 
-instance IsList Parameters where
-  type Item Parameters = Parameter
-  fromList = Parameters
-  toList = unParameters
-
-instance ToJSON Parameters where
-  toJSON (Parameters ps) =
-    object $ fmap (\p -> parameterName p .= paramToJSON p) ps
-
-instance FromJSON Parameters where
-  parseJSON v = do
-    objs <- parseJSON v :: Parser (HM.HashMap T.Text Value)
-    ps <- sequence [withObject "parameter" (paramFromJSON n) obj |
-                    (n, obj) <- HM.toList objs]
-    return $ Parameters ps
+instance NameListItem Parameter where
+  itemName = parameterName
+  nameToJSON = parameterToJSON
+  nameParseJSON = parameterFromJSON

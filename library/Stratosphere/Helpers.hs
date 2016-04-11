@@ -1,17 +1,25 @@
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE TypeFamilies #-}
+
 module Stratosphere.Helpers
        ( maybeField
        , prefixNamer
        , prefixFieldRules
        , modTemplateJSONField
+       , NameList (..)
+       , NameListItem (..)
        ) where
 
 import Control.Lens (set)
 import Control.Lens.TH
 import Data.Aeson
+import Data.Aeson.Types (Parser)
 import Data.Char (isUpper, toLower)
+import qualified Data.HashMap.Strict as HM
 import Data.List (stripPrefix)
 import Data.Maybe (maybeToList)
 import qualified Data.Text as T
+import GHC.Exts (IsList(..))
 import Language.Haskell.TH
 
 -- | Might create an aeson pair from a Maybe value.
@@ -41,3 +49,30 @@ prefixFieldRules prefix = set lensField (prefixNamer prefix) defaultFieldRules
 modTemplateJSONField :: String -> String
 modTemplateJSONField "templateFormatVersion" = "AWSTemplateFormatVersion"
 modTemplateJSONField s = drop 8 s
+
+-- | Wrapper around lists of items that have a name field. This type is used to
+-- create JSON instances where the name is extracted as a key.
+newtype NameList a = NameList { unNameList :: [a] }
+                   deriving (Show, Monoid)
+
+instance IsList (NameList a) where
+  type Item (NameList a) = a
+  fromList = NameList
+  toList = unNameList
+
+-- | This class is the real meat of the NameList definition.
+class NameListItem a where
+  itemName :: a -> T.Text
+  nameToJSON :: a -> Value
+  nameParseJSON :: T.Text -> Object -> Parser a
+
+instance (NameListItem a) => ToJSON (NameList a) where
+  toJSON (NameList xs) =
+    object $ fmap (\x -> itemName x .= nameToJSON x) xs
+
+instance (NameListItem a) => FromJSON (NameList a) where
+  parseJSON v = do
+    objs <- parseJSON v :: Parser (HM.HashMap T.Text Value)
+    os <- sequence [withObject "NameList" (nameParseJSON n) obj |
+                    (n, obj) <- HM.toList objs]
+    return $ NameList os

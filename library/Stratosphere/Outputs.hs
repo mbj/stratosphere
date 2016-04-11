@@ -1,12 +1,12 @@
 {-# LANGUAGE ExistentialQuantification #-}
 {-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE FunctionalDependencies #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE MultiParamTypeClasses #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE StandaloneDeriving #-}
 {-# LANGUAGE TemplateHaskell #-}
-{-# LANGUAGE TypeFamilies #-}
 
 -- | See:
 -- http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/outputs-section-structure.html
@@ -19,21 +19,19 @@
 module Stratosphere.Outputs
        ( Output (..)
        , output
-       , Outputs (..)
        , name
        , description
        , value
+       , Outputs
        ) where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
 import Data.Aeson.Types (Parser)
-import qualified Data.HashMap.Strict as HM
 import Data.Maybe (catMaybes)
 import qualified Data.Text as T
-import GHC.Exts (IsList(..))
 
-import Stratosphere.Helpers (maybeField)
+import Stratosphere.Helpers
 import Stratosphere.Parameters
 import Stratosphere.Values
 
@@ -83,21 +81,9 @@ outputFromJSON n o =
   <*> o .:  "Value"
 
 -- | Wrapper around a list of 'Output's to we can modify the aeson instances.
-newtype Outputs = Outputs { unOutputs :: [Output] }
-                   deriving (Show)
+type Outputs = NameList Output
 
-instance IsList Outputs where
-  type Item Outputs = Output
-  fromList = Outputs
-  toList = unOutputs
-
-instance ToJSON Outputs where
-  toJSON (Outputs os) =
-    object $ fmap (\o -> outputName o .= outputToJSON o) os
-
-instance FromJSON Outputs where
-  parseJSON v = do
-    objs <- parseJSON v :: Parser (HM.HashMap T.Text Value)
-    os <- sequence [withObject "output" (outputFromJSON n) obj |
-                    (n, obj) <- HM.toList objs]
-    return $ Outputs os
+instance NameListItem Output where
+  itemName = outputName
+  nameToJSON = outputToJSON
+  nameParseJSON = outputFromJSON
