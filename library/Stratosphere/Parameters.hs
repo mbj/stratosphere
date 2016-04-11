@@ -38,7 +38,7 @@ data Parameter =
     -- ^ A value of the appropriate type for the template to use if no value is
     -- specified when a stack is created. If you define constraints for the
     -- parameter, you must specify a value that adheres to those constraints.
-  , parameterNoEcho :: Maybe Bool
+  , parameterNoEcho :: Maybe Bool'
     -- ^ Whether to mask the parameter value whenever anyone makes a call that
     -- describes the stack. If you set the value to true, the parameter value
     -- is masked with asterisks (*****).
