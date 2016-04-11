@@ -1,8 +1,8 @@
 {-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE DeriveAnyClass #-}
 {-# LANGUAGE ExistentialQuantification #-}
 {-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE FunctionalDependencies #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE MultiParamTypeClasses #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE TemplateHaskell #-}
@@ -123,7 +123,10 @@ data DeletionPolicy
   = Delete
   | Retain
   | Snapshot
-  deriving (Show, Generic, ToJSON, FromJSON)
+  deriving (Show, Generic)
+
+instance ToJSON DeletionPolicy where
+instance FromJSON DeletionPolicy where
 
 data Resource =
   Resource
@@ -247,7 +250,7 @@ resourceFromJSON n o =
 -- | Wrapper around a list of 'Resources's to we can modify the aeson
 -- instances.
 newtype Resources = Resources { unResources :: [Resource] }
-                  deriving (Show)
+                  deriving (Show, Monoid)
 
 instance IsList Resources where
   type Item Resources = Resource

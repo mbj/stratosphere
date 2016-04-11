@@ -1,6 +1,7 @@
 {-# LANGUAGE ExistentialQuantification #-}
 {-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE FunctionalDependencies #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE MultiParamTypeClasses #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
@@ -83,7 +84,7 @@ outputFromJSON n o =
 
 -- | Wrapper around a list of 'Output's to we can modify the aeson instances.
 newtype Outputs = Outputs { unOutputs :: [Output] }
-                   deriving (Show)
+                deriving (Show, Monoid)
 
 instance IsList Outputs where
   type Item Outputs = Output

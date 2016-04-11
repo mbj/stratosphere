@@ -1,6 +1,7 @@
 {-# LANGUAGE ExistentialQuantification #-}
 {-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE FunctionalDependencies #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE MultiParamTypeClasses #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StandaloneDeriving #-}
@@ -126,7 +127,7 @@ parameter pname ptype =
 -- | Wrapper around a list of 'Parameters's to we can modify the aeson
 -- instances.
 newtype Parameters = Parameters { unParameters :: [Parameter] }
-                   deriving (Show, Eq)
+                   deriving (Show, Eq, Monoid)
 
 instance IsList Parameters where
   type Item Parameters = Parameter
