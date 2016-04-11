@@ -40,6 +40,11 @@ executables:
     source-dirs: examples
     dependencies: stratosphere
     ghc-options: -Wall
+  rds-master-replica:
+    main: rds-master-replica.hs
+    source-dirs: examples
+    dependencies: stratosphere
+    ghc-options: -Wall
 
 tests:
   tasty:
