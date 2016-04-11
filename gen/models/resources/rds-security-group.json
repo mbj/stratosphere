@@ -4,7 +4,7 @@
   "Documentation": "The AWS::RDS::DBSecurityGroup type is used to create or update an Amazon RDS DB Security Group. For more information about DB Security Groups, see Working with DB Security Groups in the Amazon Relational Database Service Developer Guide.\nFor details on the settings for DB security groups, see CreateDBSecurityGroup.\nWhen you specify an AWS::RDS::DBSecurityGroup as an argument to the Ref function, AWS CloudFormation returns the value of the DBSecurityGroupName.",
   "Dependencies": [
     "ResourceProperties.ResourceTag",
-    "ResourceProperties.DBSecurityGroupIngress"
+    "ResourceProperties.RDSSecurityGroupRule"
   ],
   "Parameters": [
     {
@@ -15,7 +15,7 @@
     },
     {
       "Name": "DBSecurityGroupIngress",
-      "Type": "[DBSecurityGroupIngress]",
+      "Type": "[RDSSecurityGroupRule]",
       "Documentation": "Network ingress authorization for an Amazon EC2 security group or an IP address range.\nType: List of RDS Security Group Rules.",
       "Required": true
     },

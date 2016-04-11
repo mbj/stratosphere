@@ -12,7 +12,7 @@
 -- the settings for DB security group ingress, see
 -- AuthorizeDBSecurityGroupIngress.
 
-module Stratosphere.ResourceProperties.DBSecurityGroupIngress where
+module Stratosphere.Resources.DBSecurityGroupIngress where
 
 import Control.Lens
 import Data.Aeson

@@ -19,14 +19,14 @@ import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.ResourceTag
-import Stratosphere.ResourceProperties.DBSecurityGroupIngress
+import Stratosphere.ResourceProperties.RDSSecurityGroupRule
 
 -- | Full data type definition for DBSecurityGroup. See 'dbSecurityGroup' for
 -- a more convenient constructor.
 data DBSecurityGroup =
   DBSecurityGroup
   { _dBSecurityGroupEC2VpcId :: Maybe (Val Text)
-  , _dBSecurityGroupDBSecurityGroupIngress :: [DBSecurityGroupIngress]
+  , _dBSecurityGroupDBSecurityGroupIngress :: [RDSSecurityGroupRule]
   , _dBSecurityGroupGroupDescription :: Val Text
   , _dBSecurityGroupResourceTags :: Maybe [ResourceTag]
   } deriving (Show, Generic)
@@ -40,7 +40,7 @@ instance FromJSON DBSecurityGroup where
 -- | Constructor for 'DBSecurityGroup' containing required fields as
 -- arguments.
 dbSecurityGroup
-  :: [DBSecurityGroupIngress] -- ^ DBSecurityGroupIngress
+  :: [RDSSecurityGroupRule] -- ^ DBSecurityGroupIngress
   -> Val Text -- ^ GroupDescription
   -> DBSecurityGroup
 dbSecurityGroup dBSecurityGroupIngressarg groupDescriptionarg =
@@ -58,7 +58,7 @@ dbsgEC2VpcId = lens _dBSecurityGroupEC2VpcId (\s a -> s { _dBSecurityGroupEC2Vpc
 
 -- | Network ingress authorization for an Amazon EC2 security group or an IP
 -- address range. Type: List of RDS Security Group Rules.
-dbsgDBSecurityGroupIngress :: Lens' DBSecurityGroup [DBSecurityGroupIngress]
+dbsgDBSecurityGroupIngress :: Lens' DBSecurityGroup [RDSSecurityGroupRule]
 dbsgDBSecurityGroupIngress = lens _dBSecurityGroupDBSecurityGroupIngress (\s a -> s { _dBSecurityGroupDBSecurityGroupIngress = a })
 
 -- | Description of the security group. Type: String

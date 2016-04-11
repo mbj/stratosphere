@@ -34,6 +34,7 @@ import Data.Maybe (catMaybes)
 import qualified Data.Text as T
 import GHC.Generics (Generic)
 
+import Stratosphere.Resources.DBSecurityGroupIngress as X
 import Stratosphere.Resources.Subnet as X
 import Stratosphere.Resources.DBInstance as X
 import Stratosphere.Resources.IAMRole as X
@@ -60,7 +61,6 @@ import Stratosphere.Resources.Route as X
 import Stratosphere.Resources.NatGateway as X
 import Stratosphere.Resources.VolumeAttachment as X
 
-import Stratosphere.ResourceProperties.DBSecurityGroupIngress as X
 import Stratosphere.ResourceProperties.ConnectionDrainingPolicy as X
 import Stratosphere.ResourceProperties.HealthCheck as X
 import Stratosphere.ResourceProperties.EC2SsmAssociationParameters as X
@@ -78,6 +78,7 @@ import Stratosphere.ResourceProperties.EC2SsmAssociations as X
 import Stratosphere.ResourceProperties.ResourceTag as X
 import Stratosphere.ResourceProperties.EC2MountPoint as X
 import Stratosphere.ResourceProperties.SecurityGroupIngressRule as X
+import Stratosphere.ResourceProperties.RDSSecurityGroupRule as X
 import Stratosphere.ResourceProperties.EBSBlockDevice as X
 import Stratosphere.ResourceProperties.AccessLoggingPolicy as X
 import Stratosphere.ResourceProperties.AppCookieStickinessPolicy as X
@@ -87,7 +88,8 @@ import Stratosphere.Helpers
 import Stratosphere.Values
 
 data ResourceProperties
-  = SubnetProperties Subnet
+  = DBSecurityGroupIngressProperties DBSecurityGroupIngress
+  | SubnetProperties Subnet
   | DBInstanceProperties DBInstance
   | IAMRoleProperties IAMRole
   | DBSubnetGroupProperties DBSubnetGroup
@@ -151,6 +153,8 @@ resourceToJSON (Resource _ props dp) =
     [ maybeField "DeletionPolicy" dp ]
 
 resourcePropertiesJSON :: ResourceProperties -> [Pair]
+resourcePropertiesJSON (DBSecurityGroupIngressProperties x) =
+  [ "Type" .= ("AWS::RDS::DBSecurityGroupIngress" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (SubnetProperties x) =
   [ "Type" .= ("AWS::EC2::Subnet" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (DBInstanceProperties x) =
@@ -207,6 +211,7 @@ resourceFromJSON :: T.Text -> Object -> Parser Resource
 resourceFromJSON n o =
     do type' <- o .: "Type" :: Parser String
        props <- case type' of
+         "AWS::RDS::DBSecurityGroupIngress" -> DBSecurityGroupIngressProperties <$> (o .: "Properties")
          "AWS::EC2::Subnet" -> SubnetProperties <$> (o .: "Properties")
          "AWS::RDS::DBInstance" -> DBInstanceProperties <$> (o .: "Properties")
          "AWS::IAM::Role" -> IAMRoleProperties <$> (o .: "Properties")
