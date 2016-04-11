@@ -6,6 +6,7 @@
 {-# LANGUAGE MultiParamTypeClasses #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE TemplateHaskell #-}
+{-# LANGUAGE TypeFamilies #-}
 
 -- | See:
 -- http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html
@@ -24,7 +25,7 @@ module Stratosphere.Resources
      , deletionPolicy
      , ResourceProperties (..)
      , DeletionPolicy (..)
-     , Resources
+     , Resources (..)
      ) where
 
 import Control.Lens hiding ((.=))
@@ -32,6 +33,7 @@ import Data.Aeson
 import Data.Aeson.Types
 import Data.Maybe (catMaybes)
 import qualified Data.Text as T
+import GHC.Exts (IsList(..))
 import GHC.Generics (Generic)
 
 import Stratosphere.Resources.DBSecurityGroupIngress as X
@@ -244,9 +246,21 @@ resourceFromJSON n o =
 
 -- | Wrapper around a list of 'Resources's to we can modify the aeson
 -- instances.
-type Resources = NameList Resource
+newtype Resources = Resources { unResources :: [Resource] }
+                  deriving (Show)
 
-instance NameListItem Resource where
+instance IsList Resources where
+  type Item Resources = Resource
+  fromList = Resources
+  toList = unResources
+
+instance NamedItem Resource where
   itemName = resourceName
   nameToJSON = resourceToJSON
   nameParseJSON = resourceFromJSON
+
+instance ToJSON Resources where
+  toJSON = namedItemToJSON . unResources
+
+instance FromJSON Resources where
+  parseJSON v = Resources <$> namedItemFromJSON v

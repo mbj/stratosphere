@@ -25,6 +25,7 @@ import Data.Aeson
 import Data.Aeson.Types (Parser)
 import Data.Maybe (catMaybes)
 import qualified Data.Text as T
+import GHC.Exts (IsList(..))
 
 import Stratosphere.Helpers
 import Stratosphere.Values
@@ -124,9 +125,21 @@ parameter pname ptype =
 
 -- | Wrapper around a list of 'Parameters's to we can modify the aeson
 -- instances.
-type Parameters = NameList Parameter
+newtype Parameters = Parameters { unParameters :: [Parameter] }
+                   deriving (Show, Eq)
 
-instance NameListItem Parameter where
+instance IsList Parameters where
+  type Item Parameters = Parameter
+  fromList = Parameters
+  toList = unParameters
+
+instance NamedItem Parameter where
   itemName = parameterName
   nameToJSON = parameterToJSON
   nameParseJSON = parameterFromJSON
+
+instance ToJSON Parameters where
+  toJSON = namedItemToJSON . unParameters
+
+instance FromJSON Parameters where
+  parseJSON v = Parameters <$> namedItemFromJSON v

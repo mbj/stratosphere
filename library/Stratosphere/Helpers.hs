@@ -1,13 +1,11 @@
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE TypeFamilies #-}
-
 module Stratosphere.Helpers
        ( maybeField
        , prefixNamer
        , prefixFieldRules
        , modTemplateJSONField
-       , NameList (..)
-       , NameListItem (..)
+       , NamedItem (..)
+       , namedItemToJSON
+       , namedItemFromJSON
        ) where
 
 import Control.Lens (set)
@@ -19,7 +17,6 @@ import qualified Data.HashMap.Strict as HM
 import Data.List (stripPrefix)
 import Data.Maybe (maybeToList)
 import qualified Data.Text as T
-import GHC.Exts (IsList(..))
 import Language.Haskell.TH
 
 -- | Might create an aeson pair from a Maybe value.
@@ -50,29 +47,21 @@ modTemplateJSONField :: String -> String
 modTemplateJSONField "templateFormatVersion" = "AWSTemplateFormatVersion"
 modTemplateJSONField s = drop 8 s
 
--- | Wrapper around lists of items that have a name field. This type is used to
--- create JSON instances where the name is extracted as a key.
-newtype NameList a = NameList { unNameList :: [a] }
-                   deriving (Show, Monoid)
 
-instance IsList (NameList a) where
-  type Item (NameList a) = a
-  fromList = NameList
-  toList = unNameList
-
--- | This class is the real meat of the NameList definition.
-class NameListItem a where
+-- | This class defines items with names in them. It is used to extract the
+-- name from JSON fields so we can get an Object with the names as keys instead
+-- of just an array.
+class NamedItem a where
   itemName :: a -> T.Text
   nameToJSON :: a -> Value
   nameParseJSON :: T.Text -> Object -> Parser a
 
-instance (NameListItem a) => ToJSON (NameList a) where
-  toJSON (NameList xs) =
+namedItemToJSON :: (NamedItem a) => [a] -> Value
+namedItemToJSON xs =
     object $ fmap (\x -> itemName x .= nameToJSON x) xs
 
-instance (NameListItem a) => FromJSON (NameList a) where
-  parseJSON v = do
+namedItemFromJSON :: (NamedItem a) => Value -> Parser [a]
+namedItemFromJSON v = do
     objs <- parseJSON v :: Parser (HM.HashMap T.Text Value)
-    os <- sequence [withObject "NameList" (nameParseJSON n) obj |
-                    (n, obj) <- HM.toList objs]
-    return $ NameList os
+    sequence [withObject "NamedItem" (nameParseJSON n) obj |
+              (n, obj) <- HM.toList objs]
