@@ -2,7 +2,8 @@
 {-# LANGUAGE OverloadedStrings #-}
 
 -- | This example creates a Postgres RDS master and slave with a parameter
--- group.
+-- group. Also note the DeletionPolicy of Retain, which will keep the resource
+-- alive if you delete the stack.
 
 module Main where
 
@@ -18,10 +19,9 @@ main = B.putStrLn $ encodeTemplate dbTemplate
 dbTemplate :: Template
 dbTemplate =
   template
-  -- Should probably retain db stuff: & deletionPolicy ?~ Retain
-  [ rdsParamGroup
-  , rdsMaster
-  , rdsReplica
+  [ rdsParamGroup & deletionPolicy ?~ Retain
+  , rdsMaster & deletionPolicy ?~ Retain
+  , rdsReplica & deletionPolicy ?~ Retain
   ]
   & description ?~ "Stack for and RDS master and replica"
   & parameters ?~
