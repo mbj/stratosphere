@@ -34,8 +34,8 @@ instance FromJSON InstanceProfile where
 -- | Constructor for 'InstanceProfile' containing required fields as
 -- arguments.
 instanceProfile
-  :: Val Text -- ^ Path
-  -> [Val Text] -- ^ Roles
+  :: Val Text -- ^ 'ipPath'
+  -> [Val Text] -- ^ 'ipRoles'
   -> InstanceProfile
 instanceProfile patharg rolesarg =
   InstanceProfile

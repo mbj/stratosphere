@@ -32,7 +32,7 @@ instance FromJSON LBCookieStickinessPolicy where
 -- | Constructor for 'LBCookieStickinessPolicy' containing required fields as
 -- arguments.
 lbCookieStickinessPolicy
-  :: Val Text -- ^ PolicyName
+  :: Val Text -- ^ 'lbcspPolicyName'
   -> LBCookieStickinessPolicy
 lbCookieStickinessPolicy policyNamearg =
   LBCookieStickinessPolicy

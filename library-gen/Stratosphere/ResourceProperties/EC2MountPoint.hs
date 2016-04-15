@@ -31,8 +31,8 @@ instance FromJSON EC2MountPoint where
 
 -- | Constructor for 'EC2MountPoint' containing required fields as arguments.
 ec2MountPoint
-  :: Val Text -- ^ Device
-  -> Val Text -- ^ VolumeId
+  :: Val Text -- ^ 'ecmpDevice'
+  -> Val Text -- ^ 'ecmpVolumeId'
   -> EC2MountPoint
 ec2MountPoint devicearg volumeIdarg =
   EC2MountPoint

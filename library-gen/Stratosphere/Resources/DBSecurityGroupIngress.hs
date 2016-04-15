@@ -43,7 +43,7 @@ instance FromJSON DBSecurityGroupIngress where
 -- | Constructor for 'DBSecurityGroupIngress' containing required fields as
 -- arguments.
 dbSecurityGroupIngress
-  :: Val Text -- ^ DBSecurityGroupName
+  :: Val Text -- ^ 'dbsgiDBSecurityGroupName'
   -> DBSecurityGroupIngress
 dbSecurityGroupIngress dBSecurityGroupNamearg =
   DBSecurityGroupIngress

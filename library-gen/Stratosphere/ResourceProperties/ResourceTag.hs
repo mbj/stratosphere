@@ -39,8 +39,8 @@ instance FromJSON ResourceTag where
 
 -- | Constructor for 'ResourceTag' containing required fields as arguments.
 resourceTag
-  :: Val Text -- ^ Key
-  -> Val Text -- ^ Value
+  :: Val Text -- ^ 'rtKey'
+  -> Val Text -- ^ 'rtValue'
   -> ResourceTag
 resourceTag keyarg valuearg =
   ResourceTag

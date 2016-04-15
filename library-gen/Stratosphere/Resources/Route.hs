@@ -35,8 +35,8 @@ instance FromJSON Route where
 
 -- | Constructor for 'Route' containing required fields as arguments.
 route
-  :: Val Text -- ^ DestinationCidrBlock
-  -> Val Text -- ^ RouteTableId
+  :: Val Text -- ^ 'rDestinationCidrBlock'
+  -> Val Text -- ^ 'rRouteTableId'
   -> Route
 route destinationCidrBlockarg routeTableIdarg =
   Route

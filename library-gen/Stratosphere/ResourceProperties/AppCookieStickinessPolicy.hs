@@ -32,8 +32,8 @@ instance FromJSON AppCookieStickinessPolicy where
 -- | Constructor for 'AppCookieStickinessPolicy' containing required fields as
 -- arguments.
 appCookieStickinessPolicy
-  :: Val Text -- ^ CookieName
-  -> Val Text -- ^ PolicyName
+  :: Val Text -- ^ 'acspCookieName'
+  -> Val Text -- ^ 'acspPolicyName'
   -> AppCookieStickinessPolicy
 appCookieStickinessPolicy cookieNamearg policyNamearg =
   AppCookieStickinessPolicy

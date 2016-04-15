@@ -33,9 +33,9 @@ instance FromJSON VolumeAttachment where
 -- | Constructor for 'VolumeAttachment' containing required fields as
 -- arguments.
 volumeAttachment
-  :: Val Text -- ^ Device
-  -> Val Text -- ^ InstanceId
-  -> Val Text -- ^ VolumeId
+  :: Val Text -- ^ 'vaDevice'
+  -> Val Text -- ^ 'vaInstanceId'
+  -> Val Text -- ^ 'vaVolumeId'
   -> VolumeAttachment
 volumeAttachment devicearg instanceIdarg volumeIdarg =
   VolumeAttachment

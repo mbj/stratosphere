@@ -36,9 +36,9 @@ instance FromJSON ELBPolicy where
 
 -- | Constructor for 'ELBPolicy' containing required fields as arguments.
 elbPolicy
-  :: Object -- ^ Attributes
-  -> Val Text -- ^ PolicyName
-  -> Val Text -- ^ PolicyType
+  :: Object -- ^ 'elbpAttributes'
+  -> Val Text -- ^ 'elbpPolicyName'
+  -> Val Text -- ^ 'elbpPolicyType'
   -> ELBPolicy
 elbPolicy attributesarg policyNamearg policyTypearg =
   ELBPolicy

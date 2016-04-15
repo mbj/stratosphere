@@ -36,7 +36,7 @@ instance FromJSON IAMRole where
 
 -- | Constructor for 'IAMRole' containing required fields as arguments.
 iamRole
-  :: Object -- ^ AssumeRolePolicyDocument
+  :: Object -- ^ 'iamrAssumeRolePolicyDocument'
   -> IAMRole
 iamRole assumeRolePolicyDocumentarg =
   IAMRole

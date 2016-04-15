@@ -31,8 +31,8 @@ instance FromJSON PrivateIpAddressSpecification where
 -- | Constructor for 'PrivateIpAddressSpecification' containing required
 -- fields as arguments.
 privateIpAddressSpecification
-  :: Val Text -- ^ PrivateIpAddress
-  -> Val Bool' -- ^ Primary
+  :: Val Text -- ^ 'piasPrivateIpAddress'
+  -> Val Bool' -- ^ 'piasPrimary'
   -> PrivateIpAddressSpecification
 privateIpAddressSpecification privateIpAddressarg primaryarg =
   PrivateIpAddressSpecification

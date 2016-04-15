@@ -34,11 +34,11 @@ instance FromJSON HealthCheck where
 
 -- | Constructor for 'HealthCheck' containing required fields as arguments.
 healthCheck
-  :: Val Text -- ^ HealthyThreshold
-  -> Val Text -- ^ Interval
-  -> Val Text -- ^ Target
-  -> Val Text -- ^ Timeout
-  -> Val Text -- ^ UnhealthyThreshold
+  :: Val Text -- ^ 'hcHealthyThreshold'
+  -> Val Text -- ^ 'hcInterval'
+  -> Val Text -- ^ 'hcTarget'
+  -> Val Text -- ^ 'hcTimeout'
+  -> Val Text -- ^ 'hcUnhealthyThreshold'
   -> HealthCheck
 healthCheck healthyThresholdarg intervalarg targetarg timeoutarg unhealthyThresholdarg =
   HealthCheck

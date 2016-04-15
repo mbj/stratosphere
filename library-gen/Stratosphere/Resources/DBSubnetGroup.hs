@@ -33,8 +33,8 @@ instance FromJSON DBSubnetGroup where
 
 -- | Constructor for 'DBSubnetGroup' containing required fields as arguments.
 dbSubnetGroup
-  :: Val Text -- ^ DBSubnetGroupDescription
-  -> [Val Text] -- ^ SubnetIds
+  :: Val Text -- ^ 'dbsgDBSubnetGroupDescription'
+  -> [Val Text] -- ^ 'dbsgSubnetIds'
   -> DBSubnetGroup
 dbSubnetGroup dBSubnetGroupDescriptionarg subnetIdsarg =
   DBSubnetGroup

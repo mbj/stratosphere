@@ -60,7 +60,7 @@ instance FromJSON EC2Instance where
 
 -- | Constructor for 'EC2Instance' containing required fields as arguments.
 ec2Instance
-  :: Val Text -- ^ ImageId
+  :: Val Text -- ^ 'eciImageId'
   -> EC2Instance
 ec2Instance imageIdarg =
   EC2Instance

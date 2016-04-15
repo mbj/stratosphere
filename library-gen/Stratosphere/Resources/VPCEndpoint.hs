@@ -35,8 +35,8 @@ instance FromJSON VPCEndpoint where
 
 -- | Constructor for 'VPCEndpoint' containing required fields as arguments.
 vpcEndpoint
-  :: Val Text -- ^ ServiceName
-  -> Val Text -- ^ VpcId
+  :: Val Text -- ^ 'vpceServiceName'
+  -> Val Text -- ^ 'vpceVpcId'
   -> VPCEndpoint
 vpcEndpoint serviceNamearg vpcIdarg =
   VPCEndpoint

@@ -11,6 +11,7 @@ import qualified Data.Text as T
 import Data.Text.Manipulate (lowerHead)
 
 import Gen.Docstring
+import Gen.Lens
 import Gen.Resource
 import Gen.Types
 
@@ -38,7 +39,7 @@ renderTypes res = T.intercalate "\n" lines'
   where typePrefixes = "  :: " : repeat "  -> "
         types = constructorTypes res
         req = requiredParams res
-        comments = fmap (\rp -> T.concat [" -- ^ ", rp ^. name]) req
+        comments = fmap (\r -> T.concat [" -- ^ ", "'", lensName res r, "'"]) req
         zipped = zip3 typePrefixes types (comments ++ [""])
         lines' = fmap (\(pre', t, c) -> T.concat [pre', t, c]) zipped
 

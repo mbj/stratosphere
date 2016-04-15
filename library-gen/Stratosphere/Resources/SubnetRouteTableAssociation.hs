@@ -31,8 +31,8 @@ instance FromJSON SubnetRouteTableAssociation where
 -- | Constructor for 'SubnetRouteTableAssociation' containing required fields
 -- as arguments.
 subnetRouteTableAssociation
-  :: Val Text -- ^ RouteTableId
-  -> Val Text -- ^ SubnetId
+  :: Val Text -- ^ 'srtaRouteTableId'
+  -> Val Text -- ^ 'srtaSubnetId'
   -> SubnetRouteTableAssociation
 subnetRouteTableAssociation routeTableIdarg subnetIdarg =
   SubnetRouteTableAssociation

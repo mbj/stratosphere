@@ -33,8 +33,8 @@ instance FromJSON IAMPolicies where
 
 -- | Constructor for 'IAMPolicies' containing required fields as arguments.
 iamPolicies
-  :: Object -- ^ PolicyDocument
-  -> Val Text -- ^ PolicyName
+  :: Object -- ^ 'iampPolicyDocument'
+  -> Val Text -- ^ 'iampPolicyName'
   -> IAMPolicies
 iamPolicies policyDocumentarg policyNamearg =
   IAMPolicies

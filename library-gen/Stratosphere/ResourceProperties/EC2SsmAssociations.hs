@@ -33,7 +33,7 @@ instance FromJSON EC2SsmAssociations where
 -- | Constructor for 'EC2SsmAssociations' containing required fields as
 -- arguments.
 ec2SsmAssociations
-  :: Val Text -- ^ DocumentName
+  :: Val Text -- ^ 'ecsaDocumentName'
   -> EC2SsmAssociations
 ec2SsmAssociations documentNamearg =
   EC2SsmAssociations

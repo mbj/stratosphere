@@ -43,7 +43,7 @@ instance FromJSON Stack where
 
 -- | Constructor for 'Stack' containing required fields as arguments.
 stack
-  :: Val Text -- ^ TemplateURL
+  :: Val Text -- ^ 'sTemplateURL'
   -> Stack
 stack templateURLarg =
   Stack

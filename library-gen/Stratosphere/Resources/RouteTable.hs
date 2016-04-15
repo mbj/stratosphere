@@ -31,7 +31,7 @@ instance FromJSON RouteTable where
 
 -- | Constructor for 'RouteTable' containing required fields as arguments.
 routeTable
-  :: Val Text -- ^ VpcId
+  :: Val Text -- ^ 'rtVpcId'
   -> RouteTable
 routeTable vpcIdarg =
   RouteTable

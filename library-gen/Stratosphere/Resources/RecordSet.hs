@@ -48,8 +48,8 @@ instance FromJSON RecordSet where
 
 -- | Constructor for 'RecordSet' containing required fields as arguments.
 recordSet
-  :: Val Text -- ^ Name
-  -> Val Text -- ^ Type
+  :: Val Text -- ^ 'rsName'
+  -> Val Text -- ^ 'rsType'
   -> RecordSet
 recordSet namearg typearg =
   RecordSet

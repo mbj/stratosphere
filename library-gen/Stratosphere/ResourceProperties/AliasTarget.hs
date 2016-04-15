@@ -33,8 +33,8 @@ instance FromJSON AliasTarget where
 
 -- | Constructor for 'AliasTarget' containing required fields as arguments.
 aliasTarget
-  :: Val Text -- ^ DNSName
-  -> Val Text -- ^ HostedZoneId
+  :: Val Text -- ^ 'atDNSName'
+  -> Val Text -- ^ 'atHostedZoneId'
   -> AliasTarget
 aliasTarget dNSNamearg hostedZoneIdarg =
   AliasTarget

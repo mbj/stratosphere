@@ -34,7 +34,7 @@ instance FromJSON VPC where
 
 -- | Constructor for 'VPC' containing required fields as arguments.
 vpc
-  :: Val Text -- ^ CidrBlock
+  :: Val Text -- ^ 'vpcCidrBlock'
   -> VPC
 vpc cidrBlockarg =
   VPC

@@ -37,7 +37,7 @@ instance FromJSON SecurityGroupIngressRule where
 -- | Constructor for 'SecurityGroupIngressRule' containing required fields as
 -- arguments.
 securityGroupIngressRule
-  :: Val Text -- ^ IpProtocol
+  :: Val Text -- ^ 'sgirIpProtocol'
   -> SecurityGroupIngressRule
 securityGroupIngressRule ipProtocolarg =
   SecurityGroupIngressRule

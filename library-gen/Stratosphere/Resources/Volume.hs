@@ -42,7 +42,7 @@ instance FromJSON Volume where
 
 -- | Constructor for 'Volume' containing required fields as arguments.
 volume
-  :: Val Text -- ^ AvailabilityZone
+  :: Val Text -- ^ 'vAvailabilityZone'
   -> Volume
 volume availabilityZonearg =
   Volume

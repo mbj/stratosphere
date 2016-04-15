@@ -33,8 +33,8 @@ instance FromJSON Subnet where
 
 -- | Constructor for 'Subnet' containing required fields as arguments.
 subnet
-  :: Val Text -- ^ CidrBlock
-  -> Val Text -- ^ VpcId
+  :: Val Text -- ^ 'sCidrBlock'
+  -> Val Text -- ^ 'sVpcId'
   -> Subnet
 subnet cidrBlockarg vpcIdarg =
   Subnet

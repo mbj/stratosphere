@@ -33,8 +33,8 @@ instance FromJSON EC2SsmAssociationParameters where
 -- | Constructor for 'EC2SsmAssociationParameters' containing required fields
 -- as arguments.
 ec2SsmAssociationParameters
-  :: Val Text -- ^ Key
-  -> [Val Text] -- ^ Value
+  :: Val Text -- ^ 'ecsapKey'
+  -> [Val Text] -- ^ 'ecsapValue'
   -> EC2SsmAssociationParameters
 ec2SsmAssociationParameters keyarg valuearg =
   EC2SsmAssociationParameters

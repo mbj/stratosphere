@@ -36,9 +36,9 @@ instance FromJSON ListenerProperty where
 -- | Constructor for 'ListenerProperty' containing required fields as
 -- arguments.
 listenerProperty
-  :: Val Text -- ^ InstancePort
-  -> Val Text -- ^ LoadBalancerPort
-  -> Val Text -- ^ Protocol
+  :: Val Text -- ^ 'lpInstancePort'
+  -> Val Text -- ^ 'lpLoadBalancerPort'
+  -> Val Text -- ^ 'lpProtocol'
   -> ListenerProperty
 listenerProperty instancePortarg loadBalancerPortarg protocolarg =
   ListenerProperty

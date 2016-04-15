@@ -40,8 +40,8 @@ instance FromJSON DBSecurityGroup where
 -- | Constructor for 'DBSecurityGroup' containing required fields as
 -- arguments.
 dbSecurityGroup
-  :: [RDSSecurityGroupRule] -- ^ DBSecurityGroupIngress
-  -> Val Text -- ^ GroupDescription
+  :: [RDSSecurityGroupRule] -- ^ 'dbsgDBSecurityGroupIngress'
+  -> Val Text -- ^ 'dbsgGroupDescription'
   -> DBSecurityGroup
 dbSecurityGroup dBSecurityGroupIngressarg groupDescriptionarg =
   DBSecurityGroup

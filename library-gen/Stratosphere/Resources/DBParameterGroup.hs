@@ -37,8 +37,8 @@ instance FromJSON DBParameterGroup where
 -- | Constructor for 'DBParameterGroup' containing required fields as
 -- arguments.
 dbParameterGroup
-  :: Val Text -- ^ Description
-  -> Val Text -- ^ Family
+  :: Val Text -- ^ 'dbpgDescription'
+  -> Val Text -- ^ 'dbpgFamily'
   -> DBParameterGroup
 dbParameterGroup descriptionarg familyarg =
   DBParameterGroup

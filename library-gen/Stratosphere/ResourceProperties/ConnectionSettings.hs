@@ -34,7 +34,7 @@ instance FromJSON ConnectionSettings where
 -- | Constructor for 'ConnectionSettings' containing required fields as
 -- arguments.
 connectionSettings
-  :: Val Integer' -- ^ IdleTimeout
+  :: Val Integer' -- ^ 'csIdleTimeout'
   -> ConnectionSettings
 connectionSettings idleTimeoutarg =
   ConnectionSettings

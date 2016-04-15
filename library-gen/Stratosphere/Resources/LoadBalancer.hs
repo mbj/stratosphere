@@ -52,7 +52,7 @@ instance FromJSON LoadBalancer where
 
 -- | Constructor for 'LoadBalancer' containing required fields as arguments.
 loadBalancer
-  :: [ListenerProperty] -- ^ Listeners
+  :: [ListenerProperty] -- ^ 'lbListeners'
   -> LoadBalancer
 loadBalancer listenersarg =
   LoadBalancer

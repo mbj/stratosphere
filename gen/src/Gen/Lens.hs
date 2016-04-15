@@ -15,12 +15,12 @@ import Gen.Types
 
 renderLenses :: Resource -> T.Text
 renderLenses res = T.intercalate "\n\n" lenses
-  where lenses = fmap (renderLens $ res ^. name) (res ^. parameters)
+  where lenses = fmap (renderLens res) (res ^. parameters)
 
-renderLens :: T.Text -> ResourceParameter -> T.Text
-renderLens resName rp = T.intercalate "\n" [docs, typeDecl, funcDef]
+renderLens :: Resource -> ResourceParameter -> T.Text
+renderLens res rp = T.intercalate "\n" [docs, typeDecl, funcDef]
   where docs = renderDocstring (rp ^. documentation)
-        lensName' = lensName resName rp
+        lensName' = lensName res rp
         typeText = renderFieldType rp
         wrapType = case T.head typeText of
                      '[' -> typeText
@@ -28,15 +28,15 @@ renderLens resName rp = T.intercalate "\n" [docs, typeDecl, funcDef]
                      _   -> if ' ' `elem` T.unpack typeText
                             then T.concat ["(", typeText, ")"]
                             else typeText
-        typeDecl = T.concat [lensName', " :: Lens' ", resName, " ", wrapType]
-        fieldName = renderFieldName resName rp
+        typeDecl = T.concat [lensName', " :: Lens' ", res ^. name, " ", wrapType]
+        fieldName = renderFieldName (res ^. name) rp
         funcDef = T.concat [lensName', " = lens ", fieldName,
                             " (\\s a -> s { ", fieldName, " = a })"]
 
 
-lensName :: T.Text -> ResourceParameter -> T.Text
-lensName resName rp = T.append prefix' (rp ^. name)
-  where prefix = fromMaybe "" (toAcronym resName)
+lensName :: Resource -> ResourceParameter -> T.Text
+lensName res rp = T.append prefix' (rp ^. name)
+  where prefix = fromMaybe "" (toAcronym (res ^. name))
         prefix' = T.pack $ toLower <$> T.unpack prefix
 
 toAcronym :: T.Text -> Maybe T.Text

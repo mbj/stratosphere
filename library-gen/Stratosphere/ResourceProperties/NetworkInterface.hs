@@ -39,7 +39,7 @@ instance FromJSON NetworkInterface where
 -- | Constructor for 'NetworkInterface' containing required fields as
 -- arguments.
 networkInterface
-  :: Val Text -- ^ DeviceIndex
+  :: Val Text -- ^ 'niDeviceIndex'
   -> NetworkInterface
 networkInterface deviceIndexarg =
   NetworkInterface

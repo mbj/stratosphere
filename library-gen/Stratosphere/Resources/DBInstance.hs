@@ -62,7 +62,7 @@ instance FromJSON DBInstance where
 
 -- | Constructor for 'DBInstance' containing required fields as arguments.
 dbInstance
-  :: Val Text -- ^ DBInstanceClass
+  :: Val Text -- ^ 'dbiDBInstanceClass'
   -> DBInstance
 dbInstance dBInstanceClassarg =
   DBInstance

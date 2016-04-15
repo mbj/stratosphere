@@ -32,7 +32,7 @@ instance FromJSON VPCGatewayAttachment where
 -- | Constructor for 'VPCGatewayAttachment' containing required fields as
 -- arguments.
 vpcGatewayAttachment
-  :: Val Text -- ^ VpcId
+  :: Val Text -- ^ 'vpcgaVpcId'
   -> VPCGatewayAttachment
 vpcGatewayAttachment vpcIdarg =
   VPCGatewayAttachment

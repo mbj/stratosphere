@@ -35,7 +35,7 @@ instance FromJSON EC2BlockDeviceMapping where
 -- | Constructor for 'EC2BlockDeviceMapping' containing required fields as
 -- arguments.
 ec2BlockDeviceMapping
-  :: Val Text -- ^ DeviceName
+  :: Val Text -- ^ 'ecbdmDeviceName'
   -> EC2BlockDeviceMapping
 ec2BlockDeviceMapping deviceNamearg =
   EC2BlockDeviceMapping

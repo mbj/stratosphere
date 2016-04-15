@@ -35,7 +35,7 @@ instance FromJSON RecordSetGroup where
 
 -- | Constructor for 'RecordSetGroup' containing required fields as arguments.
 recordSetGroup
-  :: [RecordSet] -- ^ RecordSets
+  :: [RecordSet] -- ^ 'rsgRecordSets'
   -> RecordSetGroup
 recordSetGroup recordSetsarg =
   RecordSetGroup

@@ -35,8 +35,8 @@ instance FromJSON NatGateway where
 
 -- | Constructor for 'NatGateway' containing required fields as arguments.
 natGateway
-  :: Val Text -- ^ AllocationId
-  -> Val Text -- ^ SubnetId
+  :: Val Text -- ^ 'ngAllocationId'
+  -> Val Text -- ^ 'ngSubnetId'
   -> NatGateway
 natGateway allocationIdarg subnetIdarg =
   NatGateway

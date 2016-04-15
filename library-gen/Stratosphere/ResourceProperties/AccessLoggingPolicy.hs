@@ -34,8 +34,8 @@ instance FromJSON AccessLoggingPolicy where
 -- | Constructor for 'AccessLoggingPolicy' containing required fields as
 -- arguments.
 accessLoggingPolicy
-  :: Val Bool' -- ^ Enabled
-  -> Val Text -- ^ S3BucketName
+  :: Val Bool' -- ^ 'alpEnabled'
+  -> Val Text -- ^ 'alpS3BucketName'
   -> AccessLoggingPolicy
 accessLoggingPolicy enabledarg s3BucketNamearg =
   AccessLoggingPolicy

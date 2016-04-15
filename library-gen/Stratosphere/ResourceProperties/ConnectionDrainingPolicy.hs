@@ -40,7 +40,7 @@ instance FromJSON ConnectionDrainingPolicy where
 -- | Constructor for 'ConnectionDrainingPolicy' containing required fields as
 -- arguments.
 connectionDrainingPolicy
-  :: Val Bool' -- ^ Enabled
+  :: Val Bool' -- ^ 'cdpEnabled'
   -> ConnectionDrainingPolicy
 connectionDrainingPolicy enabledarg =
   ConnectionDrainingPolicy

@@ -37,7 +37,7 @@ instance FromJSON SecurityGroup where
 
 -- | Constructor for 'SecurityGroup' containing required fields as arguments.
 securityGroup
-  :: Val Text -- ^ GroupDescription
+  :: Val Text -- ^ 'sgGroupDescription'
   -> SecurityGroup
 securityGroup groupDescriptionarg =
   SecurityGroup
