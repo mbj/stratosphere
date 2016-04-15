@@ -66,28 +66,17 @@ instance (FromJSON a) => FromJSON (Val a) where
   parseJSON (Object o) =
     case HM.toList o of
       [] -> fail "Empty object as Val"
-      [("Ref", obj')] -> Ref <$> parseJSON obj'
-      [(n, obj')] -> if T.isPrefixOf "Fn::" n
-                     then tryParseFunc n obj'
-                     else Literal <$> parseJSON (object [(n, obj')])
+      [("Ref", o')] -> Ref <$> parseJSON o'
+      [("Fn::If", o')] -> (\(i, x, y) -> If i x y) <$> parseJSON o'
+      [("Fn::And", o')] -> uncurry And <$> parseJSON o'
+      [("Fn::Equals", o')] -> uncurry Equals <$> parseJSON o'
+      [("Fn::Or", o')] -> uncurry Or <$> parseJSON o'
+      [("Fn::GetAtt", o')] -> uncurry GetAtt <$> parseJSON o'
+      [("Fn::Base64", o')] -> Base64 <$> parseJSON o'
+      [("Fn::Join", o')] -> uncurry Join <$> parseJSON o'
+      [("Fn::Select", o')] -> uncurry Select <$> parseJSON o'
+      [(n, o')] -> Literal <$> parseJSON (object [(n, o')])
       os -> Literal <$> parseJSON (object os)
-    where tryParseFunc "Fn::If" obj =
-            (\(i, x, y) -> If i x y) <$> parseJSON obj
-          tryParseFunc "Fn::And" obj =
-            uncurry And <$> parseJSON obj
-          tryParseFunc "Fn::Equals" obj =
-            uncurry Equals <$> parseJSON obj
-          tryParseFunc "Fn::Or" obj =
-            uncurry Or <$> parseJSON obj
-          tryParseFunc "Fn::GetAtt" obj =
-            uncurry GetAtt <$> parseJSON obj
-          tryParseFunc "Fn::Base64" obj =
-            Base64 <$> parseJSON obj
-          tryParseFunc "Fn::Join" obj =
-            uncurry Join <$> parseJSON obj
-          tryParseFunc "Fn::Select" obj =
-            uncurry Select <$> parseJSON obj
-          tryParseFunc n _ = fail $ "Unknown function " ++ T.unpack n
   parseJSON v = Literal <$> parseJSON v
 
 
