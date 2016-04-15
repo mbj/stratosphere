@@ -1,0 +1,25 @@
+{
+  "Name": "AccessKey",
+  "Type": "AWS::IAM::AccessKey",
+  "Documentation": "The AWS::IAM::AccessKey resource type generates a secret access key and assigns it to an IAM user or AWS account.\nThis type supports updates. For more information about updating stacks, see AWS CloudFormation Stacks Updates.",
+  "Parameters": [
+    {
+      "Name": "Serial",
+      "Type": "Integer'",
+      "Documentation": "This value is specific to AWS CloudFormation and can only be incremented. Incrementing this value notifies AWS CloudFormation that you want to rotate your access key. When you update your stack, AWS CloudFormation will replace the existing access key with a new key.",
+      "Required": false
+    },
+    {
+      "Name": "Status",
+      "Type": "Text",
+      "Documentation": "The status of the access key. By default, AWS CloudFormation sets this property value to Active.",
+      "Required": false
+    },
+    {
+      "Name": "UserName",
+      "Type": "Text",
+      "Documentation": "The name of the user that the new key will belong to.",
+      "Required": true
+    }
+  ]
+}

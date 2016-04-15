@@ -1,0 +1,19 @@
+{
+  "Name": "UserToGroupAddition",
+  "Type": "AWS::IAM::UserToGroupAddition",
+  "Documentation": "The AWS::IAM::UserToGroupAddition type adds AWS Identity and Access Management (IAM) users to a group.\nThis type supports updates. For more information about updating stacks, see AWS CloudFormation Stacks Updates.",
+  "Parameters": [
+    {
+      "Name": "GroupName",
+      "Type": "Text",
+      "Documentation": "The name of group to add users to.",
+      "Required": true
+    },
+    {
+      "Name": "Users",
+      "Type": "[Text]",
+      "Documentation": "",
+      "Required": true
+    }
+  ]
+}
