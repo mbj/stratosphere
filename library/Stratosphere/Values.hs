@@ -34,9 +34,9 @@ data Val a
  = Literal a
  | Ref T.Text
  | If T.Text (Val a) (Val a)
- | And (Val Bool) (Val Bool)
- | Equals (Val Bool) (Val Bool)
- | Or (Val Bool) (Val Bool)
+ | And (Val Bool') (Val Bool')
+ | Equals (Val Bool') (Val Bool')
+ | Or (Val Bool') (Val Bool')
  | GetAtt T.Text T.Text
  | Base64 (Val a)
  | Join T.Text [Val a]
