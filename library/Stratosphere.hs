@@ -74,3 +74,8 @@ import Stratosphere.Values
 -- For example, since a 'Template' requires a set of Resources, the 'template'
 -- constructor has 'Resources' as an argument. Then, you can fill in the
 -- 'Maybe' parameters using lenses like '&' and '?~'.
+--
+-- Once a 'Template' is created, you can either use Aeson's encode function, or
+-- use our 'encodeTemplate' function (based on aeson-pretty) to produce a JSON
+-- ByteString. From there, you can use your favorite tool to interact with
+-- CloudFormation using the template.
