@@ -101,7 +101,7 @@ template res =
 
 -- | Pretty print a template using aeson-pretty.
 encodeTemplate :: Template -> BS.ByteString
-encodeTemplate = encodePretty' defConfig { confCompare = comp }
+encodeTemplate = encodePretty' defConfig { confIndent = 2, confCompare = comp }
   where comp = keyOrder [ "AWSTemplateFormatVersion"
                         , "Description"
                         , "Metadata"
