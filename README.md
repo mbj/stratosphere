@@ -1,6 +1,6 @@
 # Stratosphere: AWS CloudFormation in Haskell
 
-[![Build Status](https://travis-ci.org/jdreaver/stratosphere.svg?branch=master)](https://travis-ci.org/jdreaver/stratosphere)
+[![Build Status](https://travis-ci.org/frontrowed/stratosphere.svg?branch=master)](https://travis-ci.org/frontrowed/stratosphere)
 
 AWS CloudFormation is a system that provisions and updates AWS resources based
 on declarative templates. Common criticisms of CloudFormation include the use

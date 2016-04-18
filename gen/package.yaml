@@ -3,8 +3,6 @@ version: "0.1.0"
 synopsis: stratosphere code generation
 maintainer: David Reaver
 
-github: jdreaver/stratosphere
-
 extra-source-files:
   - stack.yaml
 
