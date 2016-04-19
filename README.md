@@ -82,6 +82,39 @@ instanceTemplate =
 
 Please see the [examples](examples/) directory for more in-depth examples.
 
+## Value Types
+
+CloudFormation resource parameters can be literals (strings, integers, etc),
+references to another resource or a Parameter, or the result of some function
+call. We encapsulate all of these possibilities in the `Val a` type.
+
+We recommend using the `OverloadedStrings` extension to reduce the number of
+`Literal`s you have to use.
+
+Note that CloudFormation represents numbers and bools in JSON as strings, so we
+had to some types called `Integer'` and `Bool'` to override the `aeson`
+instances. In a future version we plan on using our own JSON encoder/decoder to
+get around this.
+
+## Lenses
+
+Almost every CloudFormation resource has a handful of required arguments, and
+many more optional arguments. Each resource is represented as a record type
+with optional arguments wrapped in `Maybe`. Each resource also comes with a
+constructor that accepts required resource parameters as arguments. This allows
+the user to succinctly specify the resource parameters they actually use
+without adding too much noise to their code.
+
+To specify optional arguments, we recommend using the lens operators `&` and
+`?~`. In the example above, the `ec2Instance` function takes the AMI as an
+argument, since it is required by the `EC2Instance` resource type. Then, the
+optional EC2 key name is specified using the `&` and `?~` lens operators.
+
+This approach is very similar to the approach taken by the `amazonka` library.
+See this
+[blog post](http://brendanhay.nz/amazonka-comprehensive-haskell-aws-client#smart-constructors)
+for an explanation.
+
 ## Auto-generation
 
 All of the resources and resource properties are auto-generated from JSON files
