@@ -6,17 +6,17 @@ category: AWS, Cloud
 maintainer: David Reaver
 stability: experimental
 license: MIT
+license-file: LICENSE.md
 
 github: frontrowed/stratosphere
 
 extra-source-files:
   - CHANGELOG.md
-  - LICENSE.md
   - README.md
   - stack.yaml
 
 dependencies:
-  - base
+  - base >= 4.8 && < 5
   - aeson >= 0.11
   - aeson-pretty >= 0.7
   - bytestring
