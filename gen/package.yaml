@@ -13,7 +13,7 @@ executables:
     ghc-options: -Wall
     dependencies:
       - base
-      - aeson == 0.9.*
+      - aeson >= 0.11
       - bytestring
       - ede
       - lens >= 4.5
