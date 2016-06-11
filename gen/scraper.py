@@ -60,6 +60,8 @@ _type_alternatives = {
     "String": "Text",
     "Boolean": "Bool'",
     "List of strings": "[Text]",
+    "Number": "Double'",
+    "Integer": "Integer'",
 }
 
 

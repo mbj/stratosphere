@@ -8,6 +8,7 @@ module Stratosphere.Values
        ( Val (..)
        , Integer' (..)
        , Bool' (..)
+       , Double' (..)
        , ToRef (..)
        ) where
 
@@ -120,3 +121,17 @@ instance FromJSON Bool' where
 -- | Class used to create a 'Ref' from another type.
 class ToRef a b where
   toRef :: a -> Val b
+
+-- | We need to wrap Doubles for the same reason we need to wrap Ints.
+newtype Double' = Double' { unDouble' :: Double }
+                deriving (Show, Eq, Num)
+
+instance ToJSON Double' where
+  toJSON (Double' i) = toJSON $ show i
+
+instance FromJSON Double' where
+  parseJSON v = Double' <$> do
+    numString <- parseJSON v
+    case readMaybe (numString :: String) of
+      Nothing -> fail "Can't read number from string"
+      (Just n) -> return n

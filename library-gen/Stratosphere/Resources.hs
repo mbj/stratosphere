@@ -40,6 +40,7 @@ import Stratosphere.Resources.DBSecurityGroupIngress as X
 import Stratosphere.Resources.Subnet as X
 import Stratosphere.Resources.DBInstance as X
 import Stratosphere.Resources.IAMRole as X
+import Stratosphere.Resources.LifecycleHook as X
 import Stratosphere.Resources.Group as X
 import Stratosphere.Resources.DBSubnetGroup as X
 import Stratosphere.Resources.SecurityGroup as X
@@ -54,6 +55,7 @@ import Stratosphere.Resources.VPCGatewayAttachment as X
 import Stratosphere.Resources.EIP as X
 import Stratosphere.Resources.User as X
 import Stratosphere.Resources.DBSecurityGroup as X
+import Stratosphere.Resources.LaunchConfiguration as X
 import Stratosphere.Resources.SubnetRouteTableAssociation as X
 import Stratosphere.Resources.RecordSetGroup as X
 import Stratosphere.Resources.Stack as X
@@ -61,6 +63,9 @@ import Stratosphere.Resources.ManagedPolicy as X
 import Stratosphere.Resources.VPC as X
 import Stratosphere.Resources.AccessKey as X
 import Stratosphere.Resources.LoadBalancer as X
+import Stratosphere.Resources.ScalingPolicy as X
+import Stratosphere.Resources.AutoScalingGroup as X
+import Stratosphere.Resources.ScheduledAction as X
 import Stratosphere.Resources.Volume as X
 import Stratosphere.Resources.UserToGroupAddition as X
 import Stratosphere.Resources.VPCEndpoint as X
@@ -73,12 +78,14 @@ import Stratosphere.ResourceProperties.ConnectionDrainingPolicy as X
 import Stratosphere.ResourceProperties.HealthCheck as X
 import Stratosphere.ResourceProperties.EC2SsmAssociationParameters as X
 import Stratosphere.ResourceProperties.ELBPolicy as X
+import Stratosphere.ResourceProperties.AutoScalingMetricsCollection as X
 import Stratosphere.ResourceProperties.LBCookieStickinessPolicy as X
 import Stratosphere.ResourceProperties.AliasTarget as X
 import Stratosphere.ResourceProperties.NetworkInterface as X
 import Stratosphere.ResourceProperties.SecurityGroupEgressRule as X
 import Stratosphere.ResourceProperties.EC2BlockDeviceMapping as X
 import Stratosphere.ResourceProperties.RecordSetGeoLocation as X
+import Stratosphere.ResourceProperties.AutoScalingBlockDeviceMapping as X
 import Stratosphere.ResourceProperties.PrivateIpAddressSpecification as X
 import Stratosphere.ResourceProperties.IAMPolicies as X
 import Stratosphere.ResourceProperties.ListenerProperty as X
@@ -88,7 +95,11 @@ import Stratosphere.ResourceProperties.EC2MountPoint as X
 import Stratosphere.ResourceProperties.SecurityGroupIngressRule as X
 import Stratosphere.ResourceProperties.RDSSecurityGroupRule as X
 import Stratosphere.ResourceProperties.EBSBlockDevice as X
+import Stratosphere.ResourceProperties.StepAdjustments as X
 import Stratosphere.ResourceProperties.AccessLoggingPolicy as X
+import Stratosphere.ResourceProperties.AutoScalingTags as X
+import Stratosphere.ResourceProperties.AutoScalingEBSBlockDevice as X
+import Stratosphere.ResourceProperties.AutoScalingNotificationConfigurations as X
 import Stratosphere.ResourceProperties.AppCookieStickinessPolicy as X
 import Stratosphere.ResourceProperties.ConnectionSettings as X
 import Stratosphere.ResourceProperties.UserLoginProfile as X
@@ -101,6 +112,7 @@ data ResourceProperties
   | SubnetProperties Subnet
   | DBInstanceProperties DBInstance
   | IAMRoleProperties IAMRole
+  | LifecycleHookProperties LifecycleHook
   | GroupProperties Group
   | DBSubnetGroupProperties DBSubnetGroup
   | SecurityGroupProperties SecurityGroup
@@ -115,6 +127,7 @@ data ResourceProperties
   | EIPProperties EIP
   | UserProperties User
   | DBSecurityGroupProperties DBSecurityGroup
+  | LaunchConfigurationProperties LaunchConfiguration
   | SubnetRouteTableAssociationProperties SubnetRouteTableAssociation
   | RecordSetGroupProperties RecordSetGroup
   | StackProperties Stack
@@ -122,6 +135,9 @@ data ResourceProperties
   | VPCProperties VPC
   | AccessKeyProperties AccessKey
   | LoadBalancerProperties LoadBalancer
+  | ScalingPolicyProperties ScalingPolicy
+  | AutoScalingGroupProperties AutoScalingGroup
+  | ScheduledActionProperties ScheduledAction
   | VolumeProperties Volume
   | UserToGroupAdditionProperties UserToGroupAddition
   | VPCEndpointProperties VPCEndpoint
@@ -179,6 +195,8 @@ resourcePropertiesJSON (DBInstanceProperties x) =
   [ "Type" .= ("AWS::RDS::DBInstance" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (IAMRoleProperties x) =
   [ "Type" .= ("AWS::IAM::Role" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (LifecycleHookProperties x) =
+  [ "Type" .= ("AWS::AutoScaling::LifecycleHook" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (GroupProperties x) =
   [ "Type" .= ("AWS::IAM::Group" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (DBSubnetGroupProperties x) =
@@ -207,6 +225,8 @@ resourcePropertiesJSON (UserProperties x) =
   [ "Type" .= ("AWS::IAM::User" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (DBSecurityGroupProperties x) =
   [ "Type" .= ("AWS::RDS::DBSecurityGroup" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (LaunchConfigurationProperties x) =
+  [ "Type" .= ("AWS::AutoScaling::LaunchConfiguration" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (SubnetRouteTableAssociationProperties x) =
   [ "Type" .= ("AWS::EC2::SubnetRouteTableAssociation" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (RecordSetGroupProperties x) =
@@ -221,6 +241,12 @@ resourcePropertiesJSON (AccessKeyProperties x) =
   [ "Type" .= ("AWS::IAM::AccessKey" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (LoadBalancerProperties x) =
   [ "Type" .= ("AWS::ElasticLoadBalancing::LoadBalancer" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (ScalingPolicyProperties x) =
+  [ "Type" .= ("AWS::AutoScaling::ScalingPolicy" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (AutoScalingGroupProperties x) =
+  [ "Type" .= ("AWS::AutoScaling::AutoScalingGroup" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (ScheduledActionProperties x) =
+  [ "Type" .= ("AWS::AutoScaling::ScheduledAction" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (VolumeProperties x) =
   [ "Type" .= ("AWS::EC2::Volume" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (UserToGroupAdditionProperties x) =
@@ -245,6 +271,7 @@ resourceFromJSON n o =
          "AWS::EC2::Subnet" -> SubnetProperties <$> (o .: "Properties")
          "AWS::RDS::DBInstance" -> DBInstanceProperties <$> (o .: "Properties")
          "AWS::IAM::Role" -> IAMRoleProperties <$> (o .: "Properties")
+         "AWS::AutoScaling::LifecycleHook" -> LifecycleHookProperties <$> (o .: "Properties")
          "AWS::IAM::Group" -> GroupProperties <$> (o .: "Properties")
          "AWS::RDS::DBSubnetGroup" -> DBSubnetGroupProperties <$> (o .: "Properties")
          "AWS::EC2::SecurityGroup" -> SecurityGroupProperties <$> (o .: "Properties")
@@ -259,6 +286,7 @@ resourceFromJSON n o =
          "AWS::EC2::EIP" -> EIPProperties <$> (o .: "Properties")
          "AWS::IAM::User" -> UserProperties <$> (o .: "Properties")
          "AWS::RDS::DBSecurityGroup" -> DBSecurityGroupProperties <$> (o .: "Properties")
+         "AWS::AutoScaling::LaunchConfiguration" -> LaunchConfigurationProperties <$> (o .: "Properties")
          "AWS::EC2::SubnetRouteTableAssociation" -> SubnetRouteTableAssociationProperties <$> (o .: "Properties")
          "AWS::Route53::RecordSetGroup" -> RecordSetGroupProperties <$> (o .: "Properties")
          "AWS::CloudFormation::Stack" -> StackProperties <$> (o .: "Properties")
@@ -266,6 +294,9 @@ resourceFromJSON n o =
          "AWS::EC2::VPC" -> VPCProperties <$> (o .: "Properties")
          "AWS::IAM::AccessKey" -> AccessKeyProperties <$> (o .: "Properties")
          "AWS::ElasticLoadBalancing::LoadBalancer" -> LoadBalancerProperties <$> (o .: "Properties")
+         "AWS::AutoScaling::ScalingPolicy" -> ScalingPolicyProperties <$> (o .: "Properties")
+         "AWS::AutoScaling::AutoScalingGroup" -> AutoScalingGroupProperties <$> (o .: "Properties")
+         "AWS::AutoScaling::ScheduledAction" -> ScheduledActionProperties <$> (o .: "Properties")
          "AWS::EC2::Volume" -> VolumeProperties <$> (o .: "Properties")
          "AWS::IAM::UserToGroupAddition" -> UserToGroupAdditionProperties <$> (o .: "Properties")
          "AWS::EC2::VPCEndpoint" -> VPCEndpointProperties <$> (o .: "Properties")
