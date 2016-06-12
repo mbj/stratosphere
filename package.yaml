@@ -35,6 +35,11 @@ library:
   ghc-options: -Wall
 
 executables:
+  auto-scaling-group:
+    main: auto-scaling-group.hs
+    source-dirs: examples
+    dependencies: stratosphere
+    ghc-options: -Wall
   ec2-with-eip:
     main: ec2-with-eip.hs
     source-dirs: examples

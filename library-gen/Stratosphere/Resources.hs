@@ -23,6 +23,9 @@ module Stratosphere.Resources
      , resource
      , properties
      , deletionPolicy
+     , resCreationPolicy
+     , resUpdatePolicy
+     , dependsOn
      , ResourceProperties (..)
      , DeletionPolicy (..)
      , Resources (..)
@@ -104,6 +107,13 @@ import Stratosphere.ResourceProperties.AppCookieStickinessPolicy as X
 import Stratosphere.ResourceProperties.ConnectionSettings as X
 import Stratosphere.ResourceProperties.UserLoginProfile as X
 
+import Stratosphere.ResourceAttributes.ResourceSignal as X
+import Stratosphere.ResourceAttributes.AutoScalingRollingUpdate as X
+import Stratosphere.ResourceAttributes.CreationPolicy as X
+import Stratosphere.ResourceAttributes.AutoScalingReplacingUpdate as X
+import Stratosphere.ResourceAttributes.UpdatePolicy as X
+import Stratosphere.ResourceAttributes.AutoScalingScheduledAction as X
+
 import Stratosphere.Helpers
 import Stratosphere.Values
 
@@ -162,6 +172,9 @@ data Resource =
   { resourceName :: T.Text
   , resourceProperties :: ResourceProperties
   , resourceDeletionPolicy :: Maybe DeletionPolicy
+  , resourceResCreationPolicy :: Maybe CreationPolicy
+  , resourceResUpdatePolicy :: Maybe UpdatePolicy
+  , resourceDependsOn :: Maybe [Val T.Text]
   } deriving (Show)
 
 instance ToRef Resource b where
@@ -177,14 +190,21 @@ resource rn rp =
   { resourceName = rn
   , resourceProperties = rp
   , resourceDeletionPolicy = Nothing
+  , resourceResCreationPolicy = Nothing
+  , resourceResUpdatePolicy = Nothing
+  , resourceDependsOn = Nothing
   }
 
 $(makeFields ''Resource)
 
 resourceToJSON :: Resource -> Value
-resourceToJSON (Resource _ props dp) =
+resourceToJSON (Resource _ props dp cp up deps) =
     object $ resourcePropertiesJSON props ++ catMaybes
-    [ maybeField "DeletionPolicy" dp ]
+    [ maybeField "DeletionPolicy" dp
+    , maybeField "CreationPolicy" cp
+    , maybeField "UpdatePolicy" up
+    , maybeField "DependsOn" deps
+    ]
 
 resourcePropertiesJSON :: ResourceProperties -> [Pair]
 resourcePropertiesJSON (DBSecurityGroupIngressProperties x) =
@@ -307,7 +327,10 @@ resourceFromJSON n o =
 
          _ -> fail $ "Unknown resource type: " ++ type'
        dp <- o .:? "DeletionPolicy"
-       return $ Resource n props dp
+       cp <- o .:? "CreationPolicy"
+       up <- o .:? "UpdatePolicy"
+       deps <- o .:? "DependsOn"
+       return $ Resource n props dp cp up deps
 
 -- | Wrapper around a list of 'Resources's to we can modify the aeson
 -- instances.
