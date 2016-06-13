@@ -1,0 +1,24 @@
+{
+  "Name": "AutoScalingTags",
+  "Documentation": "The Auto Scaling Tags property is an embedded property of the AWS::AutoScaling::AutoScalingGroup type. For more information about tags, go to Tagging Auto Scaling Groups and Amazon EC2 Instances in the Auto Scaling User Guide.\nAWS CloudFormation adds the following tags to all Auto Scaling groups and associated instances:",
+  "Parameters": [
+    {
+      "Name": "Key",
+      "Type": "Text",
+      "Documentation": "The key name of the tag.",
+      "Required": true
+    },
+    {
+      "Name": "Value",
+      "Type": "Text",
+      "Documentation": "The value for the tag.",
+      "Required": true
+    },
+    {
+      "Name": "PropagateAtLaunch",
+      "Type": "Bool'",
+      "Documentation": "Set to true if you want AWS CloudFormation to copy the tag to EC2 instances that are launched as part of the auto scaling group. Set to false if you want the tag attached only to the auto scaling group and not copied to any instances launched as part of the auto scaling group.",
+      "Required": true
+    }
+  ]
+}

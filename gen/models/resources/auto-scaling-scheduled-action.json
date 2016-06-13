@@ -1,0 +1,49 @@
+{
+  "Name": "ScheduledAction",
+  "Type": "AWS::AutoScaling::ScheduledAction",
+  "Documentation": "Creates a scheduled scaling action for an Auto Scaling group, changing the number of servers available for your application in response to predictable load changes.",
+  "Parameters": [
+    {
+      "Name": "AutoScalingGroupName",
+      "Type": "Text",
+      "Documentation": "The name or ARN of the Auto Scaling group.",
+      "Required": true
+    },
+    {
+      "Name": "DesiredCapacity",
+      "Type": "Integer'",
+      "Documentation": "The number of Amazon EC2 instances that should be running in the Auto Scaling group.",
+      "Required": false
+    },
+    {
+      "Name": "EndTime",
+      "Type": "Text",
+      "Documentation": "The time in UTC for this schedule to end. For example, 2010-06-01T00:00:00Z.",
+      "Required": false
+    },
+    {
+      "Name": "MaxSize",
+      "Type": "Integer'",
+      "Documentation": "The maximum number of Amazon EC2 instances in the Auto Scaling group.",
+      "Required": false
+    },
+    {
+      "Name": "MinSize",
+      "Type": "Integer'",
+      "Documentation": "The minimum number of Amazon EC2 instances in the Auto Scaling group.",
+      "Required": false
+    },
+    {
+      "Name": "Recurrence",
+      "Type": "Text",
+      "Documentation": "The time in UTC when recurring future actions will start. You specify the start time by following the Unix cron syntax format. For more information about cron syntax, go to http://en.wikipedia.org/wiki/Cron.\nSpecifying the StartTime and EndTime properties with Recurrence property forms the start and stop boundaries of the recurring action.",
+      "Required": false
+    },
+    {
+      "Name": "StartTime",
+      "Type": "Text",
+      "Documentation": "The time in UTC for this schedule to start. For example, 2010-06-01T00:00:00Z.",
+      "Required": false
+    }
+  ]
+}

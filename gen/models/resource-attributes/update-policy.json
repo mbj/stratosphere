@@ -1,0 +1,29 @@
+{
+  "Name": "UpdatePolicy",
+  "Documentation": "Use the UpdatePolicy attribute to specify how AWS CloudFormation handles updates to the AWS::AutoScaling::AutoScalingGroup resource. AWS CloudFormation invokes one of three update policies depending on the type of change you make or on whether a scheduled action is associated with the Auto Scaling group.",
+  "Dependencies": [
+    "ResourceAttributes.AutoScalingReplacingUpdate",
+    "ResourceAttributes.AutoScalingRollingUpdate",
+    "ResourceAttributes.AutoScalingScheduledAction"
+  ],
+  "Parameters": [
+    {
+      "Name": "AutoScalingReplacingUpdate",
+      "Type": "AutoScalingReplacingUpdate",
+      "Documentation": "",
+      "Required": false
+    },
+    {
+      "Name": "AutoScalingRollingUpdate",
+      "Type": "AutoScalingRollingUpdate",
+      "Documentation": "",
+      "Required": false
+    },
+    {
+      "Name": "AutoScalingScheduledAction",
+      "Type": "AutoScalingScheduledAction",
+      "Documentation": "",
+      "Required": false
+    }
+  ]
+}

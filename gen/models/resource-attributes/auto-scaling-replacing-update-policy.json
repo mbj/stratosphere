@@ -1,0 +1,12 @@
+{
+  "Name": "AutoScalingReplacingUpdate",
+  "Documentation": "To specify how AWS CloudFormation handles replacing updates for an Auto Scaling group, use the AutoScalingReplacingUpdate policy.",
+  "Parameters": [
+    {
+      "Name": "WillReplace",
+      "Type": "Bool'",
+      "Documentation": "Specifies whether an Auto Scaling group and the instances it contains are replaced during an update. During replacement, AWS CloudFormation retains the old group until it finishes creating the new one. This allows AWS CloudFormation to roll back to the old Auto Scaling group if the update doesn't succeed. While AWS CloudFormation creates the new group, it doesn't detach or attach any instances.\nAfter creating the new Auto Scaling group, AWS CloudFormation removes the old Auto Scaling group during the cleanup process. If the update doesn't succeed, AWS CloudFormation removes the new Auto Scaling group.",
+      "Required": false
+    }
+  ]
+}
