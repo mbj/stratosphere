@@ -1,6 +1,6 @@
 # Change Log
 
-## 0.2 (unreleased)
+## 0.1.2
 
 * Added all of the resources and resource properties for Auto Scaling Groups.
 * New AutoScalingGroup example
