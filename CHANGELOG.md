@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.1.2.1
+
+* Removed some dependencies that crept in so we can build against stackage
+  nightly and use GHC 8. These were actually dependencies of
+  `stratosphere-gen` and aren't needed for `stratosphere`.
+
 ## 0.1.2
 
 * Added all of the resources and resource properties for Auto Scaling Groups.

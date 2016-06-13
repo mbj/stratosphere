@@ -1,5 +1,5 @@
 name: stratosphere
-version: "0.1.2"
+version: "0.1.2.1"
 synopsis: EDSL for AWS CloudFormation
 description: EDSL for AWS CloudFormation
 category: AWS, Cloud
@@ -20,10 +20,7 @@ dependencies:
   - aeson >= 0.11
   - aeson-pretty >= 0.7
   - bytestring
-  - ede
   - lens >= 4.5
-  - system-fileio
-  - system-filepath
   - template-haskell >= 2.0
   - text >= 1.1
   - unordered-containers >= 0.2
