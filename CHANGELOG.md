@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.1.2.2
+
+* Update `aeson-pretty` to version 0.8 so we can stay in stackage nightly.
+
 ## 0.1.2.1
 
 * Removed some dependencies that crept in so we can build against stackage
