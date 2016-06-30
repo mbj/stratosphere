@@ -21,6 +21,7 @@ module Stratosphere.Resources
      ( module X
      , Resource (..)
      , resource
+     , resName
      , properties
      , deletionPolicy
      , resCreationPolicy
@@ -169,7 +170,7 @@ instance FromJSON DeletionPolicy where
 
 data Resource =
   Resource
-  { resourceName :: T.Text
+  { resourceResName :: T.Text
   , resourceProperties :: ResourceProperties
   , resourceDeletionPolicy :: Maybe DeletionPolicy
   , resourceResCreationPolicy :: Maybe CreationPolicy
@@ -178,7 +179,7 @@ data Resource =
   } deriving (Show)
 
 instance ToRef Resource b where
-  toRef r = Ref (resourceName r)
+  toRef r = Ref (resourceResName r)
 
 -- | Convenient constructor for 'Resource' with required arguments.
 resource
@@ -187,7 +188,7 @@ resource
   -> Resource
 resource rn rp =
   Resource
-  { resourceName = rn
+  { resourceResName = rn
   , resourceProperties = rp
   , resourceDeletionPolicy = Nothing
   , resourceResCreationPolicy = Nothing
@@ -343,7 +344,7 @@ instance IsList Resources where
   toList = unResources
 
 instance NamedItem Resource where
-  itemName = resourceName
+  itemName = resourceResName
   nameToJSON = resourceToJSON
   nameParseJSON = resourceFromJSON
 
