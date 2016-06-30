@@ -1,6 +1,6 @@
 # Change Log
 
-## 0.1.2.2
+## 0.1.3
 
 * Update `aeson-pretty` to version 0.8 so we can stay in stackage nightly.
 * Fix not exporting resource name lens.
