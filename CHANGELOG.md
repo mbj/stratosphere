@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.1.4
+
+* Added `UserName` property to the IAM User resource. (Thanks @timmytofu!)
+
 ## 0.1.3
 
 * Update `aeson-pretty` to version 0.8 so we can stay in stackage nightly.

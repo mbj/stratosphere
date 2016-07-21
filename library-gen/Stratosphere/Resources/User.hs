@@ -24,6 +24,7 @@ data User =
   , _userManagedPolicyArns :: Maybe [Val Text]
   , _userPath :: Maybe (Val Text)
   , _userPolicies :: Maybe [IAMPolicies]
+  , _userUserName :: Maybe (Val Text)
   } deriving (Show, Generic)
 
 instance ToJSON User where
@@ -42,6 +43,7 @@ user  =
   , _userManagedPolicyArns = Nothing
   , _userPath = Nothing
   , _userPolicies = Nothing
+  , _userUserName = Nothing
   }
 
 -- | A name of a group to which you want to add the user.
@@ -68,3 +70,10 @@ uPath = lens _userPath (\s a -> s { _userPath = a })
 -- to the IAM user will fail.
 uPolicies :: Lens' User (Maybe [IAMPolicies])
 uPolicies = lens _userPolicies (\s a -> s { _userPolicies = a })
+
+-- | A name for the IAM user. For valid values, see the UserName parameter for
+-- the CreateUser action in the IAM API Reference. If you don't specify a
+-- name, AWS CloudFormation generates a unique physical ID and uses that ID
+-- for the group name.
+uUserName :: Lens' User (Maybe (Val Text))
+uUserName = lens _userUserName (\s a -> s { _userUserName = a })

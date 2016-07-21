@@ -36,6 +36,12 @@
       "Type": "[IAMPolicies]",
       "Documentation": "The policies to associate with this user. For information about policies, see Overview of Policies in [Using IAM].\nNote\nIf you specify multiple polices, specify unique values for the policy name. If you don't, updates to the IAM user will fail.",
       "Required": false
+    },
+    {
+      "Name": "UserName",
+      "Type": "Text",
+      "Documentation": "A name for the IAM user. For valid values, see the UserName parameter for the CreateUser action in the IAM API Reference. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the group name.",
+      "Required": false
     }
   ]
 }
