@@ -24,6 +24,7 @@ data User =
   , _userManagedPolicyArns :: Maybe [Val Text]
   , _userPath :: Maybe (Val Text)
   , _userPolicies :: Maybe [IAMPolicies]
+  , _userUserName :: Maybe (Val Text)
   } deriving (Show, Generic)
 
 instance ToJSON User where
@@ -42,6 +43,7 @@ user  =
   , _userManagedPolicyArns = Nothing
   , _userPath = Nothing
   , _userPolicies = Nothing
+  , _userUserName = Nothing
   }
 
 -- | A name of a group to which you want to add the user.
@@ -68,3 +70,9 @@ uPath = lens _userPath (\s a -> s { _userPath = a })
 -- to the IAM user will fail.
 uPolicies :: Lens' User (Maybe [IAMPolicies])
 uPolicies = lens _userPolicies (\s a -> s { _userPolicies = a })
+
+-- | The username for this user, separate from the resource name.
+-- see caveats for using and updating resources with this attribute:
+-- http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html#cfn-iam-user-username
+uUserName :: Lens' User (Maybe (Val Text))
+uUserName = lens _userUserName (\s a -> s { _userUserName = a })
