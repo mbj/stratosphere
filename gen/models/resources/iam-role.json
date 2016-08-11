@@ -29,6 +29,12 @@
       "Type": "[IAMPolicies]",
       "Documentation": "The policies to associate with this role. Policies can also be specified externally. For sample templates that demonstrates both embedded and external policies, see Template Examples.\nIf you specify multiple polices, specify unique values for the policy name. If you don't, updates to the IAM role will fail.\nNote\nIf an external policy (such as AWS::IAM::Policy or AWS::IAM::ManagedPolicy) has a Ref to a role and if a resource (such as AWS::ECS::Service) also has a Ref to the same role, add a DependsOn attribute to the resource so that the resource depends on the external policy. This dependency ensures that the role's policy is available throughout the resource's lifecycle. For example, when you delete a stack with an AWS::ECS::Service resource, the DependsOn attribute ensures that the AWS::ECS::Service resource can complete its deletion before its role's policy is deleted.",
       "Required": false
+    },
+    {
+      "Name": "Name",
+      "Type": "Text",
+      "Documentation": "A name for the IAM role. For valid values, see the RoleName parameter for the CreateRole action in the IAM API Reference. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the role name.",
+      "Required": false
     }
   ]
 }

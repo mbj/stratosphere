@@ -23,6 +23,7 @@ data Group =
   { _groupManagedPolicyArns :: Maybe [Val Text]
   , _groupPath :: Maybe (Val Text)
   , _groupPolicies :: Maybe [IAMPolicies]
+  , _groupName :: Maybe (Val Text)
   } deriving (Show, Generic)
 
 instance ToJSON Group where
@@ -39,6 +40,7 @@ group  =
   { _groupManagedPolicyArns = Nothing
   , _groupPath = Nothing
   , _groupPolicies = Nothing
+  , _groupName = Nothing
   }
 
 -- | One or more managed policy ARNs to attach to this group.
@@ -54,3 +56,10 @@ gPath = lens _groupPath (\s a -> s { _groupPath = a })
 -- policies, see Overview of Policies in Using IAM.
 gPolicies :: Lens' Group (Maybe [IAMPolicies])
 gPolicies = lens _groupPolicies (\s a -> s { _groupPolicies = a })
+
+-- | A name for the IAM group. For valid values, see the GroupName parameter
+-- for the CreateGroup action in the IAM API Reference. If you don't specify a
+-- name, AWS CloudFormation generates a unique physical ID and uses that ID
+-- for the group name.
+gName :: Lens' Group (Maybe (Val Text))
+gName = lens _groupName (\s a -> s { _groupName = a })
