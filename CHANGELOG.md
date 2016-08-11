@@ -3,6 +3,7 @@
 ## 0.1.4
 
 * Added `UserName` property to the IAM User resource. (Thanks @timmytofu!)
+* Added IAM Group and Role name parameters. (Thanks again @timmytofu!)
 
 ## 0.1.3
 
