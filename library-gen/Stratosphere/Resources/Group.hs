@@ -20,10 +20,10 @@ import Stratosphere.ResourceProperties.IAMPolicies
 -- constructor.
 data Group =
   Group
-  { _groupManagedPolicyArns :: Maybe [Val Text]
+  { _groupGroupName :: Maybe (Val Text)
+  , _groupManagedPolicyArns :: Maybe [Val Text]
   , _groupPath :: Maybe (Val Text)
   , _groupPolicies :: Maybe [IAMPolicies]
-  , _groupGroupName :: Maybe (Val Text)
   } deriving (Show, Generic)
 
 instance ToJSON Group where
@@ -37,11 +37,18 @@ group
   :: Group
 group  =
   Group
-  { _groupManagedPolicyArns = Nothing
+  { _groupGroupName = Nothing
+  , _groupManagedPolicyArns = Nothing
   , _groupPath = Nothing
   , _groupPolicies = Nothing
-  , _groupGroupName = Nothing
   }
+
+-- | A name for the IAM group. For valid values, see the GroupName parameter
+-- for the CreateGroup action in the IAM API Reference. If you don't specify a
+-- name, AWS CloudFormation generates a unique physical ID and uses that ID
+-- for the group name.
+gGroupName :: Lens' Group (Maybe (Val Text))
+gGroupName = lens _groupGroupName (\s a -> s { _groupGroupName = a })
 
 -- | One or more managed policy ARNs to attach to this group.
 gManagedPolicyArns :: Lens' Group (Maybe [Val Text])
@@ -56,10 +63,3 @@ gPath = lens _groupPath (\s a -> s { _groupPath = a })
 -- policies, see Overview of Policies in Using IAM.
 gPolicies :: Lens' Group (Maybe [IAMPolicies])
 gPolicies = lens _groupPolicies (\s a -> s { _groupPolicies = a })
-
--- | A name for the IAM group. For valid values, see the GroupName parameter
--- for the CreateGroup action in the IAM API Reference. If you don't specify a
--- name, AWS CloudFormation generates a unique physical ID and uses that ID
--- for the group name.
-gGroupName :: Lens' Group (Maybe (Val Text))
-gGroupName = lens _groupGroupName (\s a -> s { _groupGroupName = a })
