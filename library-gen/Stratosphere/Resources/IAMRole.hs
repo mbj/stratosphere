@@ -26,6 +26,7 @@ data IAMRole =
   , _iAMRoleManagedPolicyArns :: Maybe [Val Text]
   , _iAMRolePath :: Maybe (Val Text)
   , _iAMRolePolicies :: Maybe [IAMPolicies]
+  , _iAMRoleRoleName :: Maybe (Val Text)
   } deriving (Show, Generic)
 
 instance ToJSON IAMRole where
@@ -44,6 +45,7 @@ iamRole assumeRolePolicyDocumentarg =
   , _iAMRoleManagedPolicyArns = Nothing
   , _iAMRolePath = Nothing
   , _iAMRolePolicies = Nothing
+  , _iAMRoleRoleName = Nothing
   }
 
 -- | The IAM assume role policy that is associated with this role.
@@ -74,3 +76,10 @@ iamrPath = lens _iAMRolePath (\s a -> s { _iAMRolePath = a })
 -- policy is deleted.
 iamrPolicies :: Lens' IAMRole (Maybe [IAMPolicies])
 iamrPolicies = lens _iAMRolePolicies (\s a -> s { _iAMRolePolicies = a })
+
+-- | A name for the IAM role. For valid values, see the RoleName parameter for
+-- the CreateRole action in the IAM API Reference. If you don't specify a
+-- name, AWS CloudFormation generates a unique physical ID and uses that ID
+-- for the role name.
+iamrRoleName :: Lens' IAMRole (Maybe (Val Text))
+iamrRoleName = lens _iAMRoleRoleName (\s a -> s { _iAMRoleRoleName = a })
