@@ -65,6 +65,7 @@ import Stratosphere.Resources.RecordSet as X
 import Stratosphere.Resources.RecordSetGroup as X
 import Stratosphere.Resources.Route as X
 import Stratosphere.Resources.RouteTable as X
+import Stratosphere.Resources.S3BucketPolicy as X
 import Stratosphere.Resources.ScalingPolicy as X
 import Stratosphere.Resources.ScheduledAction as X
 import Stratosphere.Resources.SecurityGroup as X
@@ -169,6 +170,7 @@ data ResourceProperties
   | RecordSetGroupProperties RecordSetGroup
   | RouteProperties Route
   | RouteTableProperties RouteTable
+  | S3BucketPolicyProperties S3BucketPolicy
   | ScalingPolicyProperties ScalingPolicy
   | ScheduledActionProperties ScheduledAction
   | SecurityGroupProperties SecurityGroup
@@ -285,6 +287,8 @@ resourcePropertiesJSON (RouteProperties x) =
   [ "Type" .= ("AWS::EC2::Route" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (RouteTableProperties x) =
   [ "Type" .= ("AWS::EC2::RouteTable" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (S3BucketPolicyProperties x) =
+  [ "Type" .= ("AWS::S3::BucketPolicy" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ScalingPolicyProperties x) =
   [ "Type" .= ("AWS::AutoScaling::ScalingPolicy" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ScheduledActionProperties x) =
@@ -344,6 +348,7 @@ resourceFromJSON n o =
          "AWS::Route53::RecordSetGroup" -> RecordSetGroupProperties <$> (o .: "Properties")
          "AWS::EC2::Route" -> RouteProperties <$> (o .: "Properties")
          "AWS::EC2::RouteTable" -> RouteTableProperties <$> (o .: "Properties")
+         "AWS::S3::BucketPolicy" -> S3BucketPolicyProperties <$> (o .: "Properties")
          "AWS::AutoScaling::ScalingPolicy" -> ScalingPolicyProperties <$> (o .: "Properties")
          "AWS::AutoScaling::ScheduledAction" -> ScheduledActionProperties <$> (o .: "Properties")
          "AWS::EC2::SecurityGroup" -> SecurityGroupProperties <$> (o .: "Properties")
