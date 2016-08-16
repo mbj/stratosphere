@@ -1,0 +1,76 @@
+{
+  "Name": "Trail",
+  "Type": "AWS::CloudTrail::Trail",
+  "Documentation": "The AWS::CloudTrail::Trail resource creates a trail and specifies where logs are published. An AWS CloudTrail (CloudTrail) trail can capture AWS API calls made by your AWS account and publishes the logs to an Amazon S3 bucket. For more information, see What is AWS CloudTrail? in the AWS CloudTrail User Guide.",
+  "Dependencies": [
+    "ResourceProperties.ResourceTag"
+  ],
+  "Parameters": [
+    {
+      "Name": "CloudWatchLogsLogGroupArn",
+      "Type": "Text",
+      "Documentation": "The Amazon Resource Name (ARN) of a log group to which CloudTrail logs will be delivered.",
+      "Required": false
+    },
+    {
+      "Name": "CloudWatchLogsRoleArn",
+      "Type": "Text",
+      "Documentation": "The role ARN that Amazon CloudWatch Logs (CloudWatch Logs) assumes to write logs to a log group. For more information, see Role Policy Document for CloudTrail to Use CloudWatch Logs for Monitoring in the AWS CloudTrail User Guide.",
+      "Required": false
+    },
+    {
+      "Name": "EnableLogFileValidation",
+      "Type": "Bool",
+      "Documentation": "Indicates whether CloudTrail validates the integrity of log files. By default, AWS CloudFormation sets this value to false. When you disable log file integrity validation, CloudTrail stops creating digest files. For more information, see CreateTrail in the AWS CloudTrail API Reference.",
+      "Required": false
+    },
+    {
+      "Name": "IncludeGlobalServiceEvents",
+      "Type": "Bool",
+      "Documentation": "Indicates whether the trail is publishing events from global services, such as IAM, to the log files. By default, AWS CloudFormation sets this value to false.",
+      "Required": false
+    },
+    {
+      "Name": "IsLogging",
+      "Type": "Bool",
+      "Documentation": "Indicates whether the CloudTrail trail is currently logging AWS API calls.",
+      "Required": true
+    },
+    {
+      "Name": "IsMultiRegionTrail",
+      "Type": "Bool",
+      "Documentation": "Indicates whether the CloudTrail trail is created in the region in which you create the stack (false) or in all regions (true). By default, AWS CloudFormation sets this value to false. For more information, see How Does CloudTrail Behave Regionally and Globally? in the AWS CloudTrail User Guide.",
+      "Required": false
+    },
+    {
+      "Name": "KMSKeyId",
+      "Type": "Text",
+      "Documentation": "The AWS Key Management Service (AWS KMS) key ID that you want to use to encrypt CloudTrail logs. You can specify an alias name (prefixed with alias/), an alias ARN, a key ARN, or a globally unique identifier.",
+      "Required": false
+    },
+    {
+      "Name": "S3BucketName",
+      "Type": "Text",
+      "Documentation": "The name of the Amazon S3 bucket where CloudTrail publishes log files.",
+      "Required": true
+    },
+    {
+      "Name": "S3KeyPrefix",
+      "Type": "Text",
+      "Documentation": "An Amazon S3 object key prefix that precedes the name of all log files.",
+      "Required": false
+    },
+    {
+      "Name": "SnsTopicName",
+      "Type": "Text",
+      "Documentation": "The name of an Amazon SNS topic that is notified when new log files are published.",
+      "Required": false
+    },
+    {
+      "Name": "Tags",
+      "Type": "[ResourceTag]",
+      "Documentation": "An arbitrary set of tags (key–value pairs) for this trail.",
+      "Required": false
+    }
+  ]
+}
