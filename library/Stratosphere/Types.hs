@@ -1,6 +1,5 @@
 {-# LANGUAGE DeriveAnyClass #-}
 {-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE StandaloneDeriving #-}
 
 -- | Module for hand-written types that are used in generated modules.
 
@@ -25,7 +24,4 @@ data CannedACL
   | Private
   | PublicRead
   | PublicReadWrite
-  deriving (Show, Read, Eq, Generic)
-
-deriving instance FromJSON CannedACL
-deriving instance ToJSON CannedACL
+  deriving (Show, Read, Eq, Generic, FromJSON, ToJSON)
