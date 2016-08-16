@@ -1,0 +1,15 @@
+{
+  "Name": "S3LifecycleConfiguration",
+  "Documentation": "Describes the lifecycle configuration for objects in an AWS::S3::Bucket resource.",
+  "Dependencies": [
+    "ResourceProperties.S3LifecycleRule"
+  ],
+  "Parameters": [
+    {
+      "Name": "Rules",
+      "Type": "[S3LifecycleRule]",
+      "Documentation": "A lifecycle rule for individual objects in an S3 bucket.",
+      "Required": true
+    }
+  ]
+}

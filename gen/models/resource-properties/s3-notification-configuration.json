@@ -1,0 +1,29 @@
+{
+  "Name": "S3NotificationConfiguration",
+  "Documentation": "Describes the notification configuration for an AWS::S3::Bucket resource.",
+  "Dependencies": [
+    "ResourceProperties.S3NotificationConfigurationLambdaConfiguration",
+    "ResourceProperties.S3NotificationConfigurationQueueConfiguration",
+    "ResourceProperties.S3NotificationConfigurationTopicConfiguration"
+  ],
+  "Parameters": [
+    {
+      "Name": "LambdaConfigurations",
+      "Type": "[S3NotificationConfigurationLambdaConfiguration]",
+      "Documentation": "The AWS Lambda functions to invoke and the events for which to invoke the functions.",
+      "Required": false
+    },
+    {
+      "Name": "QueueConfigurations",
+      "Type": "[S3NotificationConfigurationQueueConfiguration]",
+      "Documentation": "The Amazon Simple Queue Service queues to publish messages to and the events for which to publish messages.",
+      "Required": false
+    },
+    {
+      "Name": "TopicConfigurations",
+      "Type": "[S3NotificationConfigurationTopicConfiguration]",
+      "Documentation": "The topic to which notifications are sent and the events for which notification are generated.",
+      "Required": false
+    }
+  ]
+}

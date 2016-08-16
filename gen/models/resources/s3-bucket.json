@@ -1,0 +1,78 @@
+{
+  "Name": "Bucket",
+  "Type": "AWS::S3::Bucket",
+  "Documentation": "The AWS::S3::Bucket type creates an Amazon S3 bucket.\nYou can set a deletion policy for your bucket to control how AWS CloudFormation handles the bucket when the stack is deleted. For Amazon S3 buckets, you can choose to retain the bucket or to delete the bucket. For more information, see DeletionPolicy Attribute.",
+  "Dependencies": [
+    "ResourceProperties.ResourceTag",
+    "ResourceProperties.S3CorsConfiguration",
+    "ResourceProperties.S3LifecycleConfiguration",
+    "ResourceProperties.S3LoggingConfiguration",
+    "ResourceProperties.S3NotificationConfiguration",
+    "ResourceProperties.S3ReplicationConfiguration",
+    "ResourceProperties.S3VersioningConfiguration",
+    "ResourceProperties.S3WebsiteConfiguration",
+    "Types"
+  ],
+  "Parameters": [
+    {
+      "Name": "AccessControl",
+      "Type": "CannedACL",
+      "Documentation": "A canned access control list (ACL) that grants predefined permissions to the bucket. For more information about canned ACLs, see Canned ACLs in the Amazon S3 documentation.",
+      "Required": false
+    },
+    {
+      "Name": "BucketName",
+      "Type": "Text",
+      "Documentation": "A name for the bucket. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name. For more information, see Name Type. The bucket name must contain only lowercase letters, numbers, periods (.), and dashes (-).\nImportant\nIf you specify a name, you cannot do updates that require this resource to be replaced. You can still do updates that require no or some interruption. If you must replace the resource, specify a new name.",
+      "Required": false
+    },
+    {
+      "Name": "CorsConfiguration",
+      "Type": "S3CorsConfiguration",
+      "Documentation": "Rules that define cross-origin resource sharing of objects in this bucket. For more information, see Enabling Cross-Origin Resource Sharing in the Amazon Simple Storage Service Developer Guide.",
+      "Required": false
+    },
+    {
+      "Name": "LifecycleConfiguration",
+      "Type": "S3LifecycleConfiguration",
+      "Documentation": "Rules that define how Amazon S3 manages objects during their lifetime. For more information, see Object Lifecycle Management in the Amazon Simple Storage Service Developer Guide.",
+      "Required": false
+    },
+    {
+      "Name": "LoggingConfiguration",
+      "Type": "S3LoggingConfiguration",
+      "Documentation": "Settings that defines where logs are stored.",
+      "Required": false
+    },
+    {
+      "Name": "NotificationConfiguration",
+      "Type": "S3NotificationConfiguration",
+      "Documentation": "Configuration that defines how Amazon S3 handles bucket notifications.",
+      "Required": false
+    },
+    {
+      "Name": "ReplicationConfiguration",
+      "Type": "S3ReplicationConfiguration",
+      "Documentation": "Configuration for replicating objects in an S3 bucket. To enable replication, you must also enable versioning by using the VersioningConfiguration property.\nAmazon S3 can store replicated objects in only one destination (S3 bucket). You cannot send replicated objects to multiple S3 buckets.",
+      "Required": false
+    },
+    {
+      "Name": "Tags",
+      "Type": "[ResourceTag]",
+      "Documentation": "An arbitrary set of tags (key-value pairs) for this Amazon S3 bucket.",
+      "Required": false
+    },
+    {
+      "Name": "VersioningConfiguration",
+      "Type": "S3VersioningConfiguration",
+      "Documentation": "Enables multiple variants of all objects in this bucket. You might enable versioning to prevent objects from being deleted or overwritten by mistake or to archive objects so that you can retrieve previous versions of them.",
+      "Required": false
+    },
+    {
+      "Name": "WebsiteConfiguration",
+      "Type": "S3WebsiteConfiguration",
+      "Documentation": "Information used to configure the bucket as a static website. For more information, see Hosting Websites on Amazon S3.",
+      "Required": false
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "Name": "S3WebsiteConfiguration",
+  "Documentation": "WebsiteConfiguration is an embedded property of the AWS::S3::Bucket resource.",
+  "Dependencies": [
+    "ResourceProperties.S3WebsiteRedirectAllRequestsTo",
+    "ResourceProperties.S3WebsiteRoutingRules"
+  ],
+  "Parameters": [
+    {
+      "Name": "ErrorDocument",
+      "Type": "Text",
+      "Documentation": "The name of the error document for the website.",
+      "Required": false
+    },
+    {
+      "Name": "IndexDocument",
+      "Type": "Text",
+      "Documentation": "The name of the index document for the website.",
+      "Required": true
+    },
+    {
+      "Name": "RedirectAllRequestsTo",
+      "Type": "S3WebsiteRedirectAllRequestsTo",
+      "Documentation": "The redirect behavior for every request to this bucket's website endpoint.\nImportant\nIf you specify this property, you cannot specify any other property.",
+      "Required": false
+    },
+    {
+      "Name": "RoutingRules",
+      "Type": "S3WebsiteRoutingRules",
+      "Documentation": "Rules that define when a redirect is applied and the redirect behavior.",
+      "Required": false
+    }
+  ]
+}

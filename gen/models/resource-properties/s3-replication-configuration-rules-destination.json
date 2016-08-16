@@ -1,0 +1,18 @@
+{
+  "Name": "S3ReplicationConfigurationRulesDestination",
+  "Documentation": "Destination is a property of the Amazon S3 ReplicationConfiguration Rules property that specifies which Amazon Simple Storage Service (Amazon S3) bucket to store replicated objects and their storage class.",
+  "Parameters": [
+    {
+      "Name": "Bucket",
+      "Type": "Text",
+      "Documentation": "The Amazon resource name (ARN) of an S3 bucket where Amazon S3 stores replicated objects. This destination bucket must be in a different region than your source bucket.\nIf you have multiple rules in your replication configuration, specify the same destination bucket for all of the rules.",
+      "Required": true
+    },
+    {
+      "Name": "StorageClass",
+      "Type": "Text",
+      "Documentation": "The storage class to use when replicating objects, such as standard or reduced redundancy. By default, Amazon S3 uses the storage class of the source object to create object replica. For valid values, see the StorageClass element of the PUT Bucket replication action in the Amazon Simple Storage Service API Reference.",
+      "Required": false
+    }
+  ]
+}

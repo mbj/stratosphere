@@ -42,6 +42,7 @@ import GHC.Generics (Generic)
 
 import Stratosphere.Resources.AccessKey as X
 import Stratosphere.Resources.AutoScalingGroup as X
+import Stratosphere.Resources.Bucket as X
 import Stratosphere.Resources.DBInstance as X
 import Stratosphere.Resources.DBParameterGroup as X
 import Stratosphere.Resources.DBSecurityGroup as X
@@ -64,6 +65,7 @@ import Stratosphere.Resources.RecordSet as X
 import Stratosphere.Resources.RecordSetGroup as X
 import Stratosphere.Resources.Route as X
 import Stratosphere.Resources.RouteTable as X
+import Stratosphere.Resources.S3BucketPolicy as X
 import Stratosphere.Resources.ScalingPolicy as X
 import Stratosphere.Resources.ScheduledAction as X
 import Stratosphere.Resources.SecurityGroup as X
@@ -104,6 +106,29 @@ import Stratosphere.ResourceProperties.PrivateIpAddressSpecification as X
 import Stratosphere.ResourceProperties.RDSSecurityGroupRule as X
 import Stratosphere.ResourceProperties.RecordSetGeoLocation as X
 import Stratosphere.ResourceProperties.ResourceTag as X
+import Stratosphere.ResourceProperties.S3CorsConfiguration as X
+import Stratosphere.ResourceProperties.S3CorsConfigurationRule as X
+import Stratosphere.ResourceProperties.S3LifecycleConfiguration as X
+import Stratosphere.ResourceProperties.S3LifecycleRule as X
+import Stratosphere.ResourceProperties.S3LifecycleRuleNoncurrentVersionTransition as X
+import Stratosphere.ResourceProperties.S3LifecycleRuleTransition as X
+import Stratosphere.ResourceProperties.S3LoggingConfiguration as X
+import Stratosphere.ResourceProperties.S3NotificationConfiguration as X
+import Stratosphere.ResourceProperties.S3NotificationConfigurationConfigFilter as X
+import Stratosphere.ResourceProperties.S3NotificationConfigurationConfigFilterS3Key as X
+import Stratosphere.ResourceProperties.S3NotificationConfigurationConfigFilterS3KeyRules as X
+import Stratosphere.ResourceProperties.S3NotificationConfigurationLambdaConfiguration as X
+import Stratosphere.ResourceProperties.S3NotificationConfigurationQueueConfiguration as X
+import Stratosphere.ResourceProperties.S3NotificationConfigurationTopicConfiguration as X
+import Stratosphere.ResourceProperties.S3ReplicationConfiguration as X
+import Stratosphere.ResourceProperties.S3ReplicationConfigurationRule as X
+import Stratosphere.ResourceProperties.S3ReplicationConfigurationRulesDestination as X
+import Stratosphere.ResourceProperties.S3VersioningConfiguration as X
+import Stratosphere.ResourceProperties.S3WebsiteConfiguration as X
+import Stratosphere.ResourceProperties.S3WebsiteRedirectAllRequestsTo as X
+import Stratosphere.ResourceProperties.S3WebsiteRedirectRule as X
+import Stratosphere.ResourceProperties.S3WebsiteRoutingRuleCondition as X
+import Stratosphere.ResourceProperties.S3WebsiteRoutingRules as X
 import Stratosphere.ResourceProperties.SecurityGroupEgressRule as X
 import Stratosphere.ResourceProperties.SecurityGroupIngressRule as X
 import Stratosphere.ResourceProperties.StepAdjustments as X
@@ -122,6 +147,7 @@ import Stratosphere.Values
 data ResourceProperties
   = AccessKeyProperties AccessKey
   | AutoScalingGroupProperties AutoScalingGroup
+  | BucketProperties Bucket
   | DBInstanceProperties DBInstance
   | DBParameterGroupProperties DBParameterGroup
   | DBSecurityGroupProperties DBSecurityGroup
@@ -144,6 +170,7 @@ data ResourceProperties
   | RecordSetGroupProperties RecordSetGroup
   | RouteProperties Route
   | RouteTableProperties RouteTable
+  | S3BucketPolicyProperties S3BucketPolicy
   | ScalingPolicyProperties ScalingPolicy
   | ScheduledActionProperties ScheduledAction
   | SecurityGroupProperties SecurityGroup
@@ -214,6 +241,8 @@ resourcePropertiesJSON (AccessKeyProperties x) =
   [ "Type" .= ("AWS::IAM::AccessKey" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (AutoScalingGroupProperties x) =
   [ "Type" .= ("AWS::AutoScaling::AutoScalingGroup" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (BucketProperties x) =
+  [ "Type" .= ("AWS::S3::Bucket" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (DBInstanceProperties x) =
   [ "Type" .= ("AWS::RDS::DBInstance" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (DBParameterGroupProperties x) =
@@ -258,6 +287,8 @@ resourcePropertiesJSON (RouteProperties x) =
   [ "Type" .= ("AWS::EC2::Route" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (RouteTableProperties x) =
   [ "Type" .= ("AWS::EC2::RouteTable" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (S3BucketPolicyProperties x) =
+  [ "Type" .= ("AWS::S3::BucketPolicy" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ScalingPolicyProperties x) =
   [ "Type" .= ("AWS::AutoScaling::ScalingPolicy" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ScheduledActionProperties x) =
@@ -294,6 +325,7 @@ resourceFromJSON n o =
        props <- case type' of
          "AWS::IAM::AccessKey" -> AccessKeyProperties <$> (o .: "Properties")
          "AWS::AutoScaling::AutoScalingGroup" -> AutoScalingGroupProperties <$> (o .: "Properties")
+         "AWS::S3::Bucket" -> BucketProperties <$> (o .: "Properties")
          "AWS::RDS::DBInstance" -> DBInstanceProperties <$> (o .: "Properties")
          "AWS::RDS::DBParameterGroup" -> DBParameterGroupProperties <$> (o .: "Properties")
          "AWS::RDS::DBSecurityGroup" -> DBSecurityGroupProperties <$> (o .: "Properties")
@@ -316,6 +348,7 @@ resourceFromJSON n o =
          "AWS::Route53::RecordSetGroup" -> RecordSetGroupProperties <$> (o .: "Properties")
          "AWS::EC2::Route" -> RouteProperties <$> (o .: "Properties")
          "AWS::EC2::RouteTable" -> RouteTableProperties <$> (o .: "Properties")
+         "AWS::S3::BucketPolicy" -> S3BucketPolicyProperties <$> (o .: "Properties")
          "AWS::AutoScaling::ScalingPolicy" -> ScalingPolicyProperties <$> (o .: "Properties")
          "AWS::AutoScaling::ScheduledAction" -> ScheduledActionProperties <$> (o .: "Properties")
          "AWS::EC2::SecurityGroup" -> SecurityGroupProperties <$> (o .: "Properties")
