@@ -1,0 +1,24 @@
+{
+  "Name": "S3LifecycleRuleTransition",
+  "Documentation": "Describes when an object transitions to a specified storage class for the Amazon S3 Lifecycle Rule property.",
+  "Parameters": [
+    {
+      "Name": "StorageClass",
+      "Type": "Text",
+      "Documentation": "The storage class to which you want the object to transition, such as GLACIER. For valid values, see the StorageClass request element of the PUT Bucket lifecycle action in the Amazon Simple Storage Service API Reference.",
+      "Required": true
+    },
+    {
+      "Name": "TransitionDate",
+      "Type": "Text",
+      "Documentation": "Indicates when objects are transitioned to the specified storage class. The date value must be in ISO 8601 format. The time is always midnight UTC.",
+      "Required": false
+    },
+    {
+      "Name": "TransitionInDays",
+      "Type": "Integer'",
+      "Documentation": "Indicates the number of days after creation when objects are transitioned to the specified storage class.",
+      "Required": false
+    }
+  ]
+}
