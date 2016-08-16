@@ -8,6 +8,7 @@ module Main where
 import Control.Lens hiding ((.=))
 import Data.Aeson
 import Data.Maybe (isJust, fromMaybe)
+import Data.List (sortOn)
 import qualified Data.Text as T
 import qualified Data.Text.Lazy as TL
 import qualified Filesystem as FS
@@ -44,8 +45,9 @@ genModule srcDir destModule = do
                (Left err) -> fail $ "Failure parsing: " ++ err
                (Right ps) -> return ps
   template <- readTemplate "templates/resource-module.ede"
-  mapM_ (renderResource template destModule) parsed'
-  return parsed'
+  let sorted = sortOn (view name) parsed'
+  mapM_ (renderResource template destModule) sorted
+  return sorted
 
 readTemplate :: FP.FilePath -> IO Template
 readTemplate fp =
