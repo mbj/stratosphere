@@ -45,6 +45,7 @@ import Stratosphere.Resources.Subnet as X
 import Stratosphere.Resources.DBInstance as X
 import Stratosphere.Resources.IAMRole as X
 import Stratosphere.Resources.LifecycleHook as X
+import Stratosphere.Resources.Trail as X
 import Stratosphere.Resources.Group as X
 import Stratosphere.Resources.DBSubnetGroup as X
 import Stratosphere.Resources.SecurityGroup as X
@@ -124,6 +125,7 @@ data ResourceProperties
   | DBInstanceProperties DBInstance
   | IAMRoleProperties IAMRole
   | LifecycleHookProperties LifecycleHook
+  | TrailProperties Trail
   | GroupProperties Group
   | DBSubnetGroupProperties DBSubnetGroup
   | SecurityGroupProperties SecurityGroup
@@ -218,6 +220,8 @@ resourcePropertiesJSON (IAMRoleProperties x) =
   [ "Type" .= ("AWS::IAM::Role" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (LifecycleHookProperties x) =
   [ "Type" .= ("AWS::AutoScaling::LifecycleHook" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (TrailProperties x) =
+  [ "Type" .= ("AWS::CloudTrail::Trail" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (GroupProperties x) =
   [ "Type" .= ("AWS::IAM::Group" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (DBSubnetGroupProperties x) =
@@ -293,6 +297,7 @@ resourceFromJSON n o =
          "AWS::RDS::DBInstance" -> DBInstanceProperties <$> (o .: "Properties")
          "AWS::IAM::Role" -> IAMRoleProperties <$> (o .: "Properties")
          "AWS::AutoScaling::LifecycleHook" -> LifecycleHookProperties <$> (o .: "Properties")
+         "AWS::CloudTrail::Trail" -> TrailProperties <$> (o .: "Properties")
          "AWS::IAM::Group" -> GroupProperties <$> (o .: "Properties")
          "AWS::RDS::DBSubnetGroup" -> DBSubnetGroupProperties <$> (o .: "Properties")
          "AWS::EC2::SecurityGroup" -> SecurityGroupProperties <$> (o .: "Properties")
