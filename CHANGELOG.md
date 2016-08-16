@@ -1,5 +1,10 @@
 # Change Log
 
+## 0.1.5
+
+* Added S3 buckets and bucket policies
+* Added CloudTrail Trail (Thanks @timmytofu!)
+
 ## 0.1.4
 
 * Added `UserName` property to the IAM User resource. (Thanks @timmytofu!)
