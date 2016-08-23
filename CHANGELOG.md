@@ -4,6 +4,7 @@
 
 * Added S3 buckets and bucket policies
 * Added CloudTrail Trail (Thanks @timmytofu!)
+* Added the `FindInMap` intrinsic function. (Thanks @MichaelXavier!)
 
 ## 0.1.4
 
