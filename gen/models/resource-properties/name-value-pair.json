@@ -1,0 +1,18 @@
+{
+  "Name": "NameValuePair",
+  "Documentation": "A pair of name and value. Used in ELB Attributes",
+  "Parameters": [
+    {
+      "Name": "Name",
+      "Type": "Text",
+      "Documentation": "The name of an attribute",
+      "Required": true
+    },
+    {
+      "Name": "Value",
+      "Type": "Text",
+      "Documentation": "The value of an attribute",
+      "Required": true
+    }
+  ]
+}

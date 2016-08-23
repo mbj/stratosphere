@@ -15,13 +15,13 @@ import Data.Text
 import GHC.Generics
 
 import Stratosphere.Values
-
+import Stratosphere.ResourceProperties.NameValuePair
 
 -- | Full data type definition for ELBPolicy. See 'elbPolicy' for a more
 -- convenient constructor.
 data ELBPolicy =
   ELBPolicy
-  { _eLBPolicyAttributes :: Object
+  { _eLBPolicyAttributes :: [NameValuePair]
   , _eLBPolicyInstancePorts :: Maybe [Val Text]
   , _eLBPolicyLoadBalancerPorts :: Maybe [Val Text]
   , _eLBPolicyPolicyName :: Val Text
@@ -36,7 +36,7 @@ instance FromJSON ELBPolicy where
 
 -- | Constructor for 'ELBPolicy' containing required fields as arguments.
 elbPolicy
-  :: Object -- ^ 'elbpAttributes'
+  :: [NameValuePair] -- ^ 'elbpAttributes'
   -> Val Text -- ^ 'elbpPolicyName'
   -> Val Text -- ^ 'elbpPolicyType'
   -> ELBPolicy
@@ -51,7 +51,7 @@ elbPolicy attributesarg policyNamearg policyTypearg =
 
 -- | A list of arbitrary attributes for this policy. If you don't need to
 -- specify any policy attributes, specify an empty list ([]).
-elbpAttributes :: Lens' ELBPolicy Object
+elbpAttributes :: Lens' ELBPolicy [NameValuePair]
 elbpAttributes = lens _eLBPolicyAttributes (\s a -> s { _eLBPolicyAttributes = a })
 
 -- | A list of instance ports for the policy. These are the ports associated
