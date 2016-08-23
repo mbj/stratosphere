@@ -43,6 +43,12 @@ data Val a
  | Join T.Text [Val a]
  | Select Integer' (Val a)
  | GetAZs (Val a)
+ | FindInMap (Val a)
+             -- ^ Map name
+             (Val a)
+             -- ^ Top level key
+             (Val a)
+             -- ^ Second level key
 
 deriving instance (Show a) => Show (Val a)
 
@@ -61,6 +67,8 @@ instance (ToJSON a) => ToJSON (Val a) where
   toJSON (Join d vs) = mkFunc "Fn::Join" [toJSON d, toJSON vs]
   toJSON (Select i vs) = mkFunc "Fn::Select" [toJSON i, toJSON vs]
   toJSON (GetAZs r) = object [("Fn::GetAZs", toJSON r)]
+  toJSON (FindInMap mapName topKey secondKey) =
+    object [("Fn::FindInMap", toJSON [toJSON mapName, toJSON topKey, toJSON secondKey])]
 
 mkFunc :: T.Text -> [Value] -> Value
 mkFunc name args = object [(name, Array $ fromList args)]
@@ -79,6 +87,9 @@ instance (FromJSON a) => FromJSON (Val a) where
       [("Fn::Join", o')] -> uncurry Join <$> parseJSON o'
       [("Fn::Select", o')] -> uncurry Select <$> parseJSON o'
       [("Fn::GetAZs", o')] -> GetAZs <$> parseJSON o'
+      [("Fn::FindInMap", o')] -> do
+        (mapName, topKey, secondKey) <- parseJSON o'
+        return (FindInMap mapName topKey secondKey)
       [(n, o')] -> Literal <$> parseJSON (object [(n, o')])
       os -> Literal <$> parseJSON (object os)
   parseJSON v = Literal <$> parseJSON v

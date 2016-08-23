@@ -14,6 +14,7 @@ module Stratosphere.Template
        ( Template (..)
        , template
        , encodeTemplate
+       , Mapping
 
        -- Template lenses
        , formatVersion
