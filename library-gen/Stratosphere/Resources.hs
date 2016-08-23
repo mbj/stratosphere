@@ -69,6 +69,8 @@ import Stratosphere.Resources.S3BucketPolicy as X
 import Stratosphere.Resources.ScalingPolicy as X
 import Stratosphere.Resources.ScheduledAction as X
 import Stratosphere.Resources.SecurityGroup as X
+import Stratosphere.Resources.SecurityGroupEgress as X
+import Stratosphere.Resources.SecurityGroupIngress as X
 import Stratosphere.Resources.Stack as X
 import Stratosphere.Resources.Subnet as X
 import Stratosphere.Resources.SubnetRouteTableAssociation as X
@@ -174,6 +176,8 @@ data ResourceProperties
   | ScalingPolicyProperties ScalingPolicy
   | ScheduledActionProperties ScheduledAction
   | SecurityGroupProperties SecurityGroup
+  | SecurityGroupEgressProperties SecurityGroupEgress
+  | SecurityGroupIngressProperties SecurityGroupIngress
   | StackProperties Stack
   | SubnetProperties Subnet
   | SubnetRouteTableAssociationProperties SubnetRouteTableAssociation
@@ -295,6 +299,10 @@ resourcePropertiesJSON (ScheduledActionProperties x) =
   [ "Type" .= ("AWS::AutoScaling::ScheduledAction" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (SecurityGroupProperties x) =
   [ "Type" .= ("AWS::EC2::SecurityGroup" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (SecurityGroupEgressProperties x) =
+  [ "Type" .= ("AWS::EC2::SecurityGroupEgress" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (SecurityGroupIngressProperties x) =
+  [ "Type" .= ("AWS::EC2::SecurityGroupIngress" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (StackProperties x) =
   [ "Type" .= ("AWS::CloudFormation::Stack" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (SubnetProperties x) =
@@ -352,6 +360,8 @@ resourceFromJSON n o =
          "AWS::AutoScaling::ScalingPolicy" -> ScalingPolicyProperties <$> (o .: "Properties")
          "AWS::AutoScaling::ScheduledAction" -> ScheduledActionProperties <$> (o .: "Properties")
          "AWS::EC2::SecurityGroup" -> SecurityGroupProperties <$> (o .: "Properties")
+         "AWS::EC2::SecurityGroupEgress" -> SecurityGroupEgressProperties <$> (o .: "Properties")
+         "AWS::EC2::SecurityGroupIngress" -> SecurityGroupIngressProperties <$> (o .: "Properties")
          "AWS::CloudFormation::Stack" -> StackProperties <$> (o .: "Properties")
          "AWS::EC2::Subnet" -> SubnetProperties <$> (o .: "Properties")
          "AWS::EC2::SubnetRouteTableAssociation" -> SubnetRouteTableAssociationProperties <$> (o .: "Properties")
