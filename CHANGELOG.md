@@ -5,6 +5,10 @@
 * Added S3 buckets and bucket policies
 * Added CloudTrail Trail (Thanks @timmytofu!)
 * Added the `FindInMap` intrinsic function. (Thanks @MichaelXavier!)
+* Added `SecurityGroupEgress` and `SecurityGroupIngress` rules. (Thanks
+  @MichaelXavier!)
+* Fixed type of ELB policy using the more specific `NameAndValue` type. (Thanks
+  @MichaelXavier!)
 
 ## 0.1.4
 
