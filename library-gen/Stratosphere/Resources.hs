@@ -103,6 +103,7 @@ import Stratosphere.ResourceProperties.HealthCheck as X
 import Stratosphere.ResourceProperties.IAMPolicies as X
 import Stratosphere.ResourceProperties.LBCookieStickinessPolicy as X
 import Stratosphere.ResourceProperties.ListenerProperty as X
+import Stratosphere.ResourceProperties.NameValuePair as X
 import Stratosphere.ResourceProperties.NetworkInterface as X
 import Stratosphere.ResourceProperties.PrivateIpAddressSpecification as X
 import Stratosphere.ResourceProperties.RDSSecurityGroupRule as X

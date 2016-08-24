@@ -1,10 +1,13 @@
 {
   "Name": "ELBPolicy",
   "Documentation": "The ElasticLoadBalancing policy type is an embedded property of the AWS::ElasticLoadBalancing::LoadBalancer resource. You associate policies with a listener by referencing a policy's name in the listener's PolicyNames property.",
+  "Dependencies": [
+    "ResourceProperties.NameValuePair"
+  ],
   "Parameters": [
     {
       "Name": "Attributes",
-      "Type": "Object",
+      "Type": "[NameValuePair]",
       "Documentation": "A list of arbitrary attributes for this policy. If you don't need to specify any policy attributes, specify an empty list ([]).",
       "Required": true
     },
