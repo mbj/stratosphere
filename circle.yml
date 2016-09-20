@@ -16,3 +16,4 @@ dependencies:
 test:
   override:
     - stack build --test --jobs=1
+    - stack haddock --no-haddock-deps --jobs=1
