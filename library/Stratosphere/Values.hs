@@ -43,12 +43,7 @@ data Val a
  | Join T.Text [Val a]
  | Select Integer' (Val a)
  | GetAZs (Val a)
- | FindInMap (Val a)
-             -- ^ Map name
-             (Val a)
-             -- ^ Top level key
-             (Val a)
-             -- ^ Second level key
+ | FindInMap (Val a) (Val a) (Val a) -- ^ Map name, top level key, and second level key
 
 deriving instance (Show a) => Show (Val a)
 

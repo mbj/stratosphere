@@ -1,6 +1,9 @@
 # Change Log
 
-## 0.1.6 (unreleased)
+## 0.1.6
+
+* Fix Haddock parsing for `FindInMap`. We now run haddock in CircleCI so we
+  shouldn't see a regression like this in the future.
 
 ## 0.1.5
 
