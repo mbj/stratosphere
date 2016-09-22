@@ -1,0 +1,136 @@
+{
+  "Name": "CacheCluster",
+  "Type": "AWS::ElastiCache::CacheCluster",
+  "Documentation": "The AWS::ElastiCache::CacheCluster type creates an Amazon ElastiCache cache cluster.",
+  "Dependencies": [
+    "ResourceProperties.ResourceTag"
+  ],
+  "Parameters": [
+    {
+      "Name": "AutoMinorVersionUpgrade",
+      "Type": "Bool'",
+      "Documentation": "Indicates that minor engine upgrades will be applied automatically to the cache cluster during the maintenance window.",
+      "Required": false
+    },
+    {
+      "Name": "AZMode",
+      "Type": "Text",
+      "Documentation": "For Memcached cache clusters, indicates whether the nodes are created in a single Availability Zone or across multiple Availability Zones in the cluster's region. For valid values, see CreateCacheCluster in the Amazon ElastiCache API Reference.",
+      "Required": false
+    },
+    {
+      "Name": "CacheNodeType",
+      "Type": "Text",
+      "Documentation": "The compute and memory capacity of nodes in a cache cluster.",
+      "Required": true
+    },
+    {
+      "Name": "CacheParameterGroupName",
+      "Type": "Text",
+      "Documentation": "The name of the cache parameter group that is associated with this cache cluster.",
+      "Required": false
+    },
+    {
+      "Name": "CacheSecurityGroupNames",
+      "Type": "[Text]",
+      "Documentation": "A list of cache security group names that are associated with this cache cluster. If your cache cluster is in a VPC, specify the VpcSecurityGroupIds property instead.",
+      "Required": false
+    },
+    {
+      "Name": "CacheSubnetGroupName",
+      "Type": "Text",
+      "Documentation": "The cache subnet group that you associate with a cache cluster.",
+      "Required": false
+    },
+    {
+      "Name": "ClusterName",
+      "Type": "Text",
+      "Documentation": "A name for the cache cluster. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the cache cluster. For more information, see Name Type.\nImportant\nIf you specify a name, you cannot do updates that require this resource to be replaced. You can still do updates that require no or some interruption. If you must replace the resource, specify a new name.\nThe name must contain 1 to 20 alphanumeric characters or hyphens. The name must start with a letter and cannot end with a hyphen or contain two consecutive hyphens.",
+      "Required": false
+    },
+    {
+      "Name": "Engine",
+      "Type": "Text",
+      "Documentation": "The name of the cache engine to be used for this cache cluster, such as memcached or redis.",
+      "Required": true
+    },
+    {
+      "Name": "EngineVersion",
+      "Type": "Text",
+      "Documentation": "The version of the cache engine to be used for this cluster.",
+      "Required": false
+    },
+    {
+      "Name": "NotificationTopicArn",
+      "Type": "Text",
+      "Documentation": "The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) topic to which notifications will be sent.",
+      "Required": false
+    },
+    {
+      "Name": "NumCacheNodes",
+      "Type": "Integer'",
+      "Documentation": "The number of cache nodes that the cache cluster should have.",
+      "Required": true
+    },
+    {
+      "Name": "Port",
+      "Type": "Integer'",
+      "Documentation": "The port number on which each of the cache nodes will accept connections.",
+      "Required": false
+    },
+    {
+      "Name": "PreferredAvailabilityZone",
+      "Type": "Text",
+      "Documentation": "The Amazon EC2 Availability Zone in which the cache cluster is created.",
+      "Required": false
+    },
+    {
+      "Name": "PreferredAvailabilityZones",
+      "Type": "[Text]",
+      "Documentation": "For Memcached cache clusters, the list of Availability Zones in which cache nodes are created. The number of Availability Zones listed must equal the number of cache nodes. For example, if you want to create three nodes in two different Availability Zones, you can specify [\"us-east-1a\", \"us-east-1a\", \"us-east-1b\"], which would create two nodes in us-east-1a and one node in us-east-1b.\nIf you specify a subnet group and you're creating your cache cluster in a VPC, you must specify Availability Zones that are associated with the subnets in the subnet group that you've chosen.\nIf you want all the nodes in the same Availability Zone, use the PreferredAvailabilityZone property or repeat the Availability Zone multiple times in the list.",
+      "Required": false
+    },
+    {
+      "Name": "PreferredMaintenanceWindow",
+      "Type": "Text",
+      "Documentation": "The weekly time range (in UTC) during which system maintenance can occur.",
+      "Required": false
+    },
+    {
+      "Name": "SnapshotArns",
+      "Type": "[Text]",
+      "Documentation": "The ARN of the snapshot file that you want to use to seed a new Redis cache cluster. If you manage a Redis instance outside of Amazon ElastiCache, you can create a new cache cluster in ElastiCache by using a snapshot file that is stored in an Amazon S3 bucket.",
+      "Required": false
+    },
+    {
+      "Name": "SnapshotName",
+      "Type": "Text",
+      "Documentation": "The name of a snapshot from which to restore data into a new Redis cache cluster.",
+      "Required": false
+    },
+    {
+      "Name": "SnapshotRetentionLimit",
+      "Type": "Integer'",
+      "Documentation": "For Redis cache clusters, the number of days for which ElastiCache retains automatic snapshots before deleting them. For example, if you set the value to 5, a snapshot that was taken today will be retained for 5 days before being deleted.",
+      "Required": false
+    },
+    {
+      "Name": "SnapshotWindow",
+      "Type": "Text",
+      "Documentation": "For Redis cache clusters, the daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your node group. For example, you can specify 05:00-09:00.",
+      "Required": false
+    },
+    {
+      "Name": "Tags",
+      "Type": "[ResourceTag]",
+      "Documentation": "An arbitrary set of tags (key\u2013value pairs) for this cache cluster.",
+      "Required": false
+    },
+    {
+      "Name": "VpcSecurityGroupIds",
+      "Type": "[Text]",
+      "Documentation": "A list of VPC security group IDs. If your cache cluster isn't in a VPC, specify the CacheSecurityGroupNames property instead.\n\nNote\nYou must use the AWS::EC2::SecurityGroup resource instead of the AWS::ElastiCache::SecurityGroup resource in order to specify an ElastiCache security group that is in a VPC. In addition, if you use the default VPC for your AWS account, you must use the Fn::GetAtt function and the GroupId attribute to retrieve security group IDs (instead of the Ref function). To see a sample template, see the Template Snippet section.\n",
+      "Required": false
+    }
+  ]
+}

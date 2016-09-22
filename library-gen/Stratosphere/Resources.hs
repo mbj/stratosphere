@@ -43,6 +43,8 @@ import GHC.Generics (Generic)
 import Stratosphere.Resources.AccessKey as X
 import Stratosphere.Resources.AutoScalingGroup as X
 import Stratosphere.Resources.Bucket as X
+import Stratosphere.Resources.CacheCluster as X
+import Stratosphere.Resources.CacheSubnetGroup as X
 import Stratosphere.Resources.DBInstance as X
 import Stratosphere.Resources.DBParameterGroup as X
 import Stratosphere.Resources.DBSecurityGroup as X
@@ -151,6 +153,8 @@ data ResourceProperties
   = AccessKeyProperties AccessKey
   | AutoScalingGroupProperties AutoScalingGroup
   | BucketProperties Bucket
+  | CacheClusterProperties CacheCluster
+  | CacheSubnetGroupProperties CacheSubnetGroup
   | DBInstanceProperties DBInstance
   | DBParameterGroupProperties DBParameterGroup
   | DBSecurityGroupProperties DBSecurityGroup
@@ -248,6 +252,10 @@ resourcePropertiesJSON (AutoScalingGroupProperties x) =
   [ "Type" .= ("AWS::AutoScaling::AutoScalingGroup" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (BucketProperties x) =
   [ "Type" .= ("AWS::S3::Bucket" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (CacheClusterProperties x) =
+  [ "Type" .= ("AWS::ElastiCache::CacheCluster" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (CacheSubnetGroupProperties x) =
+  [ "Type" .= ("AWS::ElastiCache::SubnetGroup" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (DBInstanceProperties x) =
   [ "Type" .= ("AWS::RDS::DBInstance" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (DBParameterGroupProperties x) =
@@ -335,6 +343,8 @@ resourceFromJSON n o =
          "AWS::IAM::AccessKey" -> AccessKeyProperties <$> (o .: "Properties")
          "AWS::AutoScaling::AutoScalingGroup" -> AutoScalingGroupProperties <$> (o .: "Properties")
          "AWS::S3::Bucket" -> BucketProperties <$> (o .: "Properties")
+         "AWS::ElastiCache::CacheCluster" -> CacheClusterProperties <$> (o .: "Properties")
+         "AWS::ElastiCache::SubnetGroup" -> CacheSubnetGroupProperties <$> (o .: "Properties")
          "AWS::RDS::DBInstance" -> DBInstanceProperties <$> (o .: "Properties")
          "AWS::RDS::DBParameterGroup" -> DBParameterGroupProperties <$> (o .: "Properties")
          "AWS::RDS::DBSecurityGroup" -> DBSecurityGroupProperties <$> (o .: "Properties")
