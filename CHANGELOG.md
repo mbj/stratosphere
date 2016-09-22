@@ -1,5 +1,9 @@
 # Change Log
 
+## Unreleased
+
+* Added `AWS::ElastiCache::CacheCluster` resource (@MichaelXavier)
+
 ## 0.1.6
 
 * Fix Haddock parsing for `FindInMap`. We now run haddock in CircleCI so we
