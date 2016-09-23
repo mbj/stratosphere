@@ -55,6 +55,7 @@ import Stratosphere.Resources.Group as X
 import Stratosphere.Resources.IAMRole as X
 import Stratosphere.Resources.InstanceProfile as X
 import Stratosphere.Resources.InternetGateway as X
+import Stratosphere.Resources.LambdaFunction as X
 import Stratosphere.Resources.LaunchConfiguration as X
 import Stratosphere.Resources.LifecycleHook as X
 import Stratosphere.Resources.LoadBalancer as X
@@ -102,6 +103,8 @@ import Stratosphere.ResourceProperties.ELBPolicy as X
 import Stratosphere.ResourceProperties.HealthCheck as X
 import Stratosphere.ResourceProperties.IAMPolicies as X
 import Stratosphere.ResourceProperties.LBCookieStickinessPolicy as X
+import Stratosphere.ResourceProperties.LambdaFunctionCode as X
+import Stratosphere.ResourceProperties.LambdaFunctionVPCConfig as X
 import Stratosphere.ResourceProperties.ListenerProperty as X
 import Stratosphere.ResourceProperties.NameValuePair as X
 import Stratosphere.ResourceProperties.NetworkInterface as X
@@ -163,6 +166,7 @@ data ResourceProperties
   | IAMRoleProperties IAMRole
   | InstanceProfileProperties InstanceProfile
   | InternetGatewayProperties InternetGateway
+  | LambdaFunctionProperties LambdaFunction
   | LaunchConfigurationProperties LaunchConfiguration
   | LifecycleHookProperties LifecycleHook
   | LoadBalancerProperties LoadBalancer
@@ -272,6 +276,8 @@ resourcePropertiesJSON (InstanceProfileProperties x) =
   [ "Type" .= ("AWS::IAM::InstanceProfile" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (InternetGatewayProperties x) =
   [ "Type" .= ("AWS::EC2::InternetGateway" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (LambdaFunctionProperties x) =
+  [ "Type" .= ("AWS::Lambda::Function" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (LaunchConfigurationProperties x) =
   [ "Type" .= ("AWS::AutoScaling::LaunchConfiguration" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (LifecycleHookProperties x) =
@@ -347,6 +353,7 @@ resourceFromJSON n o =
          "AWS::IAM::Role" -> IAMRoleProperties <$> (o .: "Properties")
          "AWS::IAM::InstanceProfile" -> InstanceProfileProperties <$> (o .: "Properties")
          "AWS::EC2::InternetGateway" -> InternetGatewayProperties <$> (o .: "Properties")
+         "AWS::Lambda::Function" -> LambdaFunctionProperties <$> (o .: "Properties")
          "AWS::AutoScaling::LaunchConfiguration" -> LaunchConfigurationProperties <$> (o .: "Properties")
          "AWS::AutoScaling::LifecycleHook" -> LifecycleHookProperties <$> (o .: "Properties")
          "AWS::ElasticLoadBalancing::LoadBalancer" -> LoadBalancerProperties <$> (o .: "Properties")
