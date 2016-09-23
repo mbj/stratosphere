@@ -3,6 +3,7 @@
 ## Unreleased
 
 * Added `AWS::ElastiCache::CacheCluster` resource (@MichaelXavier)
+* Added `AWS::Lambda::Function` and associated resource properties (@ababkin)
 
 ## 0.1.6
 
