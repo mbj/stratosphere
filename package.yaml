@@ -47,7 +47,12 @@ executables:
     source-dirs: examples
     dependencies: stratosphere
     ghc-options: -Wall
-
+  simple-lambda:
+    main: simple-lambda.hs
+    source-dirs: examples
+    dependencies: stratosphere
+    ghc-options: -Wall
+    
 tests:
   tasty:
     main: Main.hs

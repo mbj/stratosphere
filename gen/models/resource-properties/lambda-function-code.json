@@ -1,0 +1,30 @@
+{
+  "Name": "LambdaFunctionCode",
+  "Documentation": "Code is a property of the AWS::Lambda::Function resource that enables you to specify the source code of an AWS Lambda (Lambda) function. Source code can be located in a file in an S3 bucket. For nodejs, nodejs4.3, and python2.7 runtime environments only, you can provide source code as inline text.",
+  "Parameters": [
+    {
+      "Name": "S3Bucket",
+      "Type": "Text",
+      "Documentation": "The name of the S3 bucket that contains the source code of your Lambda function. The S3 bucket must be in the same region as the stack.\nNote\nThe cfn-response module isn't available for source code stored in S3 buckets. You must write your own functions to send responses.",
+      "Required": false
+    },
+    {
+      "Name": "S3Key",
+      "Type": "Text",
+      "Documentation": "The location and name of the .zip file that contains your source code. If you specify this property, you must also specify the S3Bucket property.",
+      "Required": false
+    },
+    {
+      "Name": "S3ObjectVersion",
+      "Type": "Text",
+      "Documentation": "If you have S3 versioning enabled, the version ID of the.zip file that contains your source code. You can specify this property only if you specify the S3Bucket and S3Key properties.",
+      "Required": false
+    },
+    {
+      "Name": "ZipFile",
+      "Type": "Text",
+      "Documentation": "For nodejs, nodejs4.3, and python2.7 runtime environments, the source code of your Lambda function. You can't use this property with other runtime environments.\nYou can specify up to 4096 characters. You must precede certain special characters in your source code, such as quotation marks (\"), newlines (\\n), and tabs (\\t), with a backslash (\\). For a list of special characters, see http://json.org/.\nIf you specify a function that interacts with an AWS CloudFormation custom resource, you don't have to write your own functions to send responses to the custom resource that invoked the function. AWS CloudFormation provides a response module that simplifies sending responses. For more information, see cfn-response Module.",
+      "Required": false
+    }
+  ]
+}
