@@ -4,6 +4,7 @@
 
 * Added `AWS::ElastiCache::CacheCluster` resource (@MichaelXavier)
 * Added `AWS::Lambda::Function` and associated resource properties (@ababkin)
+* Added new `ImportValue` CloudFormation function (@timmytofu)
 
 ## 0.1.6
 
