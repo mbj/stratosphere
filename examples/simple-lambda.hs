@@ -23,16 +23,16 @@ lambda :: Resource
 lambda =
   (resource "LambdaFunction" $
   LambdaFunctionProperties $
-  lambdaFunction 
-    lambdaCode 
-    "index.handler" 
+  lambdaFunction
+    lambdaCode
+    "index.handler"
     (GetAtt "IAMRole" "Arn")
     "nodejs4.3"
   )
   & dependsOn ?~ [ role ^. resName ]
 
 lambdaCode :: LambdaFunctionCode
-lambdaCode = lambdaFunctionCode 
+lambdaCode = lambdaFunctionCode
   & lfcZipFile ?~ code
 
 code :: Val Text
@@ -46,7 +46,7 @@ code = "\
 
 
 role :: Resource
-role = 
+role =
   resource "IAMRole" $
   IAMRoleProperties $
   iamRole rolePolicyDocumentObject
@@ -55,13 +55,13 @@ role =
   & iamrPath ?~ "/"
 
   where
-    executePolicy = 
+    executePolicy =
       iamPolicies
       [ ("Version", "2012-10-17")
-      , ("Statement", statement) 
+      , ("Statement", statement)
       ] $
       "MyLambdaExecutionPolicy"
-      
+
       where
         statement = object
           [ ("Effect", "Allow")
@@ -74,11 +74,11 @@ role =
           , "logs:CreateLogStream"
           , "logs:PutLogEvents"
           ]
-      
+
 
     rolePolicyDocumentObject =
       [ ("Version", "2012-10-17")
-      , ("Statement", statement) 
+      , ("Statement", statement)
       ]
 
       where
@@ -90,5 +90,3 @@ role =
 
         principal = object
           [ ("Service", "lambda.amazonaws.com") ]
-
-

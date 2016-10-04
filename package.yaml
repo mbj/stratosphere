@@ -52,7 +52,7 @@ executables:
     source-dirs: examples
     dependencies: stratosphere
     ghc-options: -Wall
-    
+
 tests:
   tasty:
     main: Main.hs
