@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+* Breaking change: The `DependsOn` property previously allowed lists of `Val
+  Text`, when in fact CloudFormation only accepts literal `Text` values. The
+  new type of `DependsOn` is `Maybe [Text]`.
 * Added `AWS::ElastiCache::CacheCluster` resource (@MichaelXavier)
 * Added `AWS::Lambda::Function` and associated resource properties (@ababkin)
 * Added new `ImportValue` CloudFormation function (@timmytofu)

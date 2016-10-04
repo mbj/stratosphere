@@ -66,7 +66,7 @@ data Resource =
   , resourceDeletionPolicy :: Maybe DeletionPolicy
   , resourceResCreationPolicy :: Maybe CreationPolicy
   , resourceResUpdatePolicy :: Maybe UpdatePolicy
-  , resourceDependsOn :: Maybe [Val T.Text]
+  , resourceDependsOn :: Maybe [T.Text]
   } deriving (Show)
 
 instance ToRef Resource b where

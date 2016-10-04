@@ -29,7 +29,7 @@ lambda =
     (GetAtt "IAMRole" "Arn")
     "nodejs4.3"
   )
-  & dependsOn ?~ [ Literal $ role ^. resName ]
+  & dependsOn ?~ [ role ^. resName ]
 
 lambdaCode :: LambdaFunctionCode
 lambdaCode = lambdaFunctionCode 
