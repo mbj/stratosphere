@@ -52,6 +52,11 @@ executables:
     source-dirs: examples
     dependencies: stratosphere
     ghc-options: -Wall
+  s3-copy:
+    main: s3-copy.hs
+    source-dirs: examples
+    dependencies: stratosphere
+    ghc-options: -Wall
 
 tests:
   tasty:
