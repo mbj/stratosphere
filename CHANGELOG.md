@@ -8,6 +8,7 @@
 * Added `AWS::ElastiCache::CacheCluster` resource (@MichaelXavier)
 * Added many `AWS::Lambda` resources and associated resource properties (@ababkin)
 * Added new `ImportValue` CloudFormation function (@timmytofu)
+* Added `AWS::Kinesis::Stream` resource (@MichaelXavier)
 
 ## 0.1.6
 
