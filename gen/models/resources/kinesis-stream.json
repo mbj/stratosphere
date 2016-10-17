@@ -1,0 +1,28 @@
+{
+  "Name": "KinesisStream",
+  "Type": "AWS::Kinesis::Stream",
+  "Documentation": "Creates an Amazon Kinesis stream that captures and transports data records that are emitted from data sources. For information about creating streams, see CreateStream in the Amazon Kinesis API Reference.",
+  "Dependencies": [
+    "ResourceProperties.ResourceTag"
+  ],
+  "Parameters": [
+    {
+      "Name": "Name",
+      "Type": "Text",
+      "Documentation": "The name of the Amazon Kinesis stream. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the stream name. For more information, see Name Type.\nImportant\nIf you specify a name, you cannot do updates that require this resource to be replaced. You can still do updates that require no or some interruption. If you must replace the resource, specify a new name.\n",
+      "Required": false
+    },
+    {
+      "Name": "ShardCount",
+      "Type": "Integer'",
+      "Documentation": "The number of shards that the stream uses. For greater provisioned throughput, increase the number of shards.",
+      "Required": true
+    },
+    {
+      "Name": "Tags",
+      "Type": "[ResourceTag]",
+      "Documentation": "An arbitrary set of tags (key\u2013value pairs) to associate with the Amazon Kinesis stream.",
+      "Required": false
+    }
+  ]
+}

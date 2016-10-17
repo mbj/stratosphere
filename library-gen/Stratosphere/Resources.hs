@@ -57,6 +57,7 @@ import Stratosphere.Resources.Group as X
 import Stratosphere.Resources.IAMRole as X
 import Stratosphere.Resources.InstanceProfile as X
 import Stratosphere.Resources.InternetGateway as X
+import Stratosphere.Resources.KinesisStream as X
 import Stratosphere.Resources.LambdaFunction as X
 import Stratosphere.Resources.LambdaPermission as X
 import Stratosphere.Resources.LaunchConfiguration as X
@@ -171,6 +172,7 @@ data ResourceProperties
   | IAMRoleProperties IAMRole
   | InstanceProfileProperties InstanceProfile
   | InternetGatewayProperties InternetGateway
+  | KinesisStreamProperties KinesisStream
   | LambdaFunctionProperties LambdaFunction
   | LambdaPermissionProperties LambdaPermission
   | LaunchConfigurationProperties LaunchConfiguration
@@ -286,6 +288,8 @@ resourcePropertiesJSON (InstanceProfileProperties x) =
   [ "Type" .= ("AWS::IAM::InstanceProfile" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (InternetGatewayProperties x) =
   [ "Type" .= ("AWS::EC2::InternetGateway" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (KinesisStreamProperties x) =
+  [ "Type" .= ("AWS::Kinesis::Stream" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (LambdaFunctionProperties x) =
   [ "Type" .= ("AWS::Lambda::Function" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (LambdaPermissionProperties x) =
@@ -367,6 +371,7 @@ resourceFromJSON n o =
          "AWS::IAM::Role" -> IAMRoleProperties <$> (o .: "Properties")
          "AWS::IAM::InstanceProfile" -> InstanceProfileProperties <$> (o .: "Properties")
          "AWS::EC2::InternetGateway" -> InternetGatewayProperties <$> (o .: "Properties")
+         "AWS::Kinesis::Stream" -> KinesisStreamProperties <$> (o .: "Properties")
          "AWS::Lambda::Function" -> LambdaFunctionProperties <$> (o .: "Properties")
          "AWS::Lambda::Permission" -> LambdaPermissionProperties <$> (o .: "Properties")
          "AWS::AutoScaling::LaunchConfiguration" -> LaunchConfigurationProperties <$> (o .: "Properties")
