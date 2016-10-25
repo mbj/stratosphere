@@ -1,0 +1,18 @@
+{
+  "Name": "KinesisFirehoseBufferingHints",
+  "Documentation": "BufferingHints is a property of the Amazon Kinesis Firehose DeliveryStream that specifies how Amazon Kinesis Firehose (Firehose) buffers incoming data while delivering it to the destination. The first buffer condition that is satisfied triggers Firehose to deliver the data.",
+  "Parameters": [
+    {
+      "Name": "IntervalInSeconds",
+      "Type": "Integer'",
+      "Documentation": "The length of time, in seconds, that Firehose buffers incoming data before delivering it to the destination. The default value is 300. The minimum value is 60. The maximum value 900.",
+      "Required": true
+    },
+    {
+      "Name": "SizeInMBs",
+      "Type": "Integer'",
+      "Documentation": "The size of the buffer, in MBs, that Firehose uses for incoming data before delivering it to the destination. The default value is 5. The minimum value is 1. The maximum value is 128. We recommend setting SizeInMBs to a value greater than the amount of data you typically ingest into the delivery stream in 10 seconds. For example, if you typically ingest data at 1 MB/sec set SizeInMBs to be 10 MB or higher.",
+      "Required": true
+    }
+  ]
+}
