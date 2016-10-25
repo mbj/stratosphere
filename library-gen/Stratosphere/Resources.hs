@@ -64,6 +64,8 @@ import Stratosphere.Resources.LambdaPermission as X
 import Stratosphere.Resources.LaunchConfiguration as X
 import Stratosphere.Resources.LifecycleHook as X
 import Stratosphere.Resources.LoadBalancer as X
+import Stratosphere.Resources.LogGroup as X
+import Stratosphere.Resources.LogStream as X
 import Stratosphere.Resources.ManagedPolicy as X
 import Stratosphere.Resources.NatGateway as X
 import Stratosphere.Resources.Policy as X
@@ -189,6 +191,8 @@ data ResourceProperties
   | LaunchConfigurationProperties LaunchConfiguration
   | LifecycleHookProperties LifecycleHook
   | LoadBalancerProperties LoadBalancer
+  | LogGroupProperties LogGroup
+  | LogStreamProperties LogStream
   | ManagedPolicyProperties ManagedPolicy
   | NatGatewayProperties NatGateway
   | PolicyProperties Policy
@@ -313,6 +317,10 @@ resourcePropertiesJSON (LifecycleHookProperties x) =
   [ "Type" .= ("AWS::AutoScaling::LifecycleHook" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (LoadBalancerProperties x) =
   [ "Type" .= ("AWS::ElasticLoadBalancing::LoadBalancer" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (LogGroupProperties x) =
+  [ "Type" .= ("AWS::Logs::LogGroup" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (LogStreamProperties x) =
+  [ "Type" .= ("AWS::Logs::LogStream" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ManagedPolicyProperties x) =
   [ "Type" .= ("AWS::IAM::ManagedPolicy" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (NatGatewayProperties x) =
@@ -391,6 +399,8 @@ resourceFromJSON n o =
          "AWS::AutoScaling::LaunchConfiguration" -> LaunchConfigurationProperties <$> (o .: "Properties")
          "AWS::AutoScaling::LifecycleHook" -> LifecycleHookProperties <$> (o .: "Properties")
          "AWS::ElasticLoadBalancing::LoadBalancer" -> LoadBalancerProperties <$> (o .: "Properties")
+         "AWS::Logs::LogGroup" -> LogGroupProperties <$> (o .: "Properties")
+         "AWS::Logs::LogStream" -> LogStreamProperties <$> (o .: "Properties")
          "AWS::IAM::ManagedPolicy" -> ManagedPolicyProperties <$> (o .: "Properties")
          "AWS::EC2::NatGateway" -> NatGatewayProperties <$> (o .: "Properties")
          "AWS::IAM::Policy" -> PolicyProperties <$> (o .: "Properties")

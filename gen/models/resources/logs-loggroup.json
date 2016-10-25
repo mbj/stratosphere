@@ -1,0 +1,19 @@
+{
+  "Name": "LogGroup",
+  "Type": "AWS::Logs::LogGroup",
+  "Documentation": "The AWS::Logs::LogGroup resource creates an Amazon CloudWatch Logs log group that defines common properties for log streams, such as their retention and access control rules. Each log stream must belong to one log group.",
+  "Parameters": [
+    {
+      "Name": "LogGroupName",
+      "Type": "Text",
+      "Documentation": "A name for the log group. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the table name. For more information, see Name Type.\nImportant\nIf you specify a name, you cannot do updates that require this resource to be replaced. You can still do updates that require no or some interruption. If you must replace the resource, specify a new name.",
+      "Required": false
+    },
+    {
+      "Name": "RetentionInDays",
+      "Type": "Integer'",
+      "Documentation": "The number of days log events are kept in CloudWatch Logs. When a log event expires, CloudWatch Logs automatically deletes it. For valid values, see PutRetentionPolicy in the Amazon CloudWatch Logs API Reference.",
+      "Required": false
+    }
+  ]
+}
