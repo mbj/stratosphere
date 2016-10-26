@@ -1,0 +1,18 @@
+{
+  "Name": "ApiGatewayUsagePlanApiStage",
+  "Documentation": "ApiStage is a property of the AWS::ApiGateway::UsagePlan resource that specifies which Amazon API Gateway (API Gateway) stages and APIs to associate with a usage plan.",
+  "Parameters": [
+    {
+      "Name": "ApiId",
+      "Type": "Text",
+      "Documentation": "The ID of an API that is in the specified Stage property that you want to associate with the usage plan.",
+      "Required": false
+    },
+    {
+      "Name": "Stage",
+      "Type": "Text",
+      "Documentation": "The name of an API Gateway stage to associate with the usage plan.",
+      "Required": false
+    }
+  ]
+}

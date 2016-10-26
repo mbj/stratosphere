@@ -41,6 +41,14 @@ import GHC.Exts (IsList(..))
 import GHC.Generics (Generic)
 
 import Stratosphere.Resources.AccessKey as X
+import Stratosphere.Resources.ApiGatewayAccount as X
+import Stratosphere.Resources.ApiGatewayDeployment as X
+import Stratosphere.Resources.ApiGatewayModel as X
+import Stratosphere.Resources.ApiGatewayResource as X
+import Stratosphere.Resources.ApiGatewayRestApi as X
+import Stratosphere.Resources.ApiGatewayStage as X
+import Stratosphere.Resources.ApiGatewayUsagePlan as X
+import Stratosphere.Resources.ApiGatewayVerb as X
 import Stratosphere.Resources.AutoScalingGroup as X
 import Stratosphere.Resources.Bucket as X
 import Stratosphere.Resources.CacheCluster as X
@@ -88,8 +96,18 @@ import Stratosphere.Resources.VPCGatewayAttachment as X
 import Stratosphere.Resources.Volume as X
 import Stratosphere.Resources.VolumeAttachment as X
 
+import Stratosphere.ResourceProperties.APIGatewayDeploymentStageDescription as X
+import Stratosphere.ResourceProperties.APIGatewayDeploymentStageDescriptionMethodSetting as X
 import Stratosphere.ResourceProperties.AccessLoggingPolicy as X
 import Stratosphere.ResourceProperties.AliasTarget as X
+import Stratosphere.ResourceProperties.ApiGatewayIntegration as X
+import Stratosphere.ResourceProperties.ApiGatewayIntegrationResponse as X
+import Stratosphere.ResourceProperties.ApiGatewayMethodResponse as X
+import Stratosphere.ResourceProperties.ApiGatewayRestApiS3Location as X
+import Stratosphere.ResourceProperties.ApiGatewayStageMethodSetting as X
+import Stratosphere.ResourceProperties.ApiGatewayUsagePlanApiStage as X
+import Stratosphere.ResourceProperties.ApiGatewayUsagePlanQuotaSettings as X
+import Stratosphere.ResourceProperties.ApiGatewayUsagePlanThrottleSettings as X
 import Stratosphere.ResourceProperties.AppCookieStickinessPolicy as X
 import Stratosphere.ResourceProperties.AutoScalingBlockDeviceMapping as X
 import Stratosphere.ResourceProperties.AutoScalingEBSBlockDevice as X
@@ -156,6 +174,14 @@ import Stratosphere.Values
 
 data ResourceProperties
   = AccessKeyProperties AccessKey
+  | ApiGatewayAccountProperties ApiGatewayAccount
+  | ApiGatewayDeploymentProperties ApiGatewayDeployment
+  | ApiGatewayModelProperties ApiGatewayModel
+  | ApiGatewayResourceProperties ApiGatewayResource
+  | ApiGatewayRestApiProperties ApiGatewayRestApi
+  | ApiGatewayStageProperties ApiGatewayStage
+  | ApiGatewayUsagePlanProperties ApiGatewayUsagePlan
+  | ApiGatewayVerbProperties ApiGatewayVerb
   | AutoScalingGroupProperties AutoScalingGroup
   | BucketProperties Bucket
   | CacheClusterProperties CacheCluster
@@ -256,6 +282,22 @@ resourceToJSON (Resource _ props dp cp up deps) =
 resourcePropertiesJSON :: ResourceProperties -> [Pair]
 resourcePropertiesJSON (AccessKeyProperties x) =
   [ "Type" .= ("AWS::IAM::AccessKey" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (ApiGatewayAccountProperties x) =
+  [ "Type" .= ("Api::Gateway::Account" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (ApiGatewayDeploymentProperties x) =
+  [ "Type" .= ("AWS::ApiGateway::Deployment" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (ApiGatewayModelProperties x) =
+  [ "Type" .= ("AWS::ApiGateway::Model" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (ApiGatewayResourceProperties x) =
+  [ "Type" .= ("AWS::ApiGateway::Resource" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (ApiGatewayRestApiProperties x) =
+  [ "Type" .= ("AWS::ApiGateway::RestApi" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (ApiGatewayStageProperties x) =
+  [ "Type" .= ("AWS::ApiGateway::Stage" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (ApiGatewayUsagePlanProperties x) =
+  [ "Type" .= ("AWS::ApiGateway::UsagePlan" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (ApiGatewayVerbProperties x) =
+  [ "Type" .= ("AWS::ApiGateway::Method" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (AutoScalingGroupProperties x) =
   [ "Type" .= ("AWS::AutoScaling::AutoScalingGroup" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (BucketProperties x) =
@@ -355,6 +397,14 @@ resourceFromJSON n o =
     do type' <- o .: "Type" :: Parser String
        props <- case type' of
          "AWS::IAM::AccessKey" -> AccessKeyProperties <$> (o .: "Properties")
+         "Api::Gateway::Account" -> ApiGatewayAccountProperties <$> (o .: "Properties")
+         "AWS::ApiGateway::Deployment" -> ApiGatewayDeploymentProperties <$> (o .: "Properties")
+         "AWS::ApiGateway::Model" -> ApiGatewayModelProperties <$> (o .: "Properties")
+         "AWS::ApiGateway::Resource" -> ApiGatewayResourceProperties <$> (o .: "Properties")
+         "AWS::ApiGateway::RestApi" -> ApiGatewayRestApiProperties <$> (o .: "Properties")
+         "AWS::ApiGateway::Stage" -> ApiGatewayStageProperties <$> (o .: "Properties")
+         "AWS::ApiGateway::UsagePlan" -> ApiGatewayUsagePlanProperties <$> (o .: "Properties")
+         "AWS::ApiGateway::Method" -> ApiGatewayVerbProperties <$> (o .: "Properties")
          "AWS::AutoScaling::AutoScalingGroup" -> AutoScalingGroupProperties <$> (o .: "Properties")
          "AWS::S3::Bucket" -> BucketProperties <$> (o .: "Properties")
          "AWS::ElastiCache::CacheCluster" -> CacheClusterProperties <$> (o .: "Properties")

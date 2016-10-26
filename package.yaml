@@ -57,6 +57,11 @@ executables:
     source-dirs: examples
     dependencies: stratosphere
     ghc-options: -Wall
+  api-gateway-lambda:
+    main: api-gateway-lambda.hs
+    source-dirs: examples
+    dependencies: stratosphere
+    ghc-options: -Wall
 
 tests:
   tasty:

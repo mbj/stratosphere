@@ -1,0 +1,52 @@
+{
+  "Name": "ApiGatewayRestApi",
+  "Type": "AWS::ApiGateway::RestApi",
+  "Documentation": "The AWS::ApiGateway::RestApi resource contains a collection of Amazon API Gateway (API Gateway) resources and methods that can be invoked through HTTPS endpoints.",
+  "Dependencies": [
+    "ResourceProperties.ApiGatewayRestApiS3Location"
+  ],
+  "Parameters": [
+    {
+      "Name": "Body",
+      "Type": "Object",
+      "Documentation": "A Swagger specification that defines a set of RESTful APIs in the JSON format.",
+      "Required": false
+    },
+    {
+      "Name": "BodyS3Location",
+      "Type": "ApiGatewayRestApiS3Location",
+      "Documentation": "The Amazon Simple Storage Service (Amazon S3) location that points to a Swagger file, which defines a set of RESTful APIs in JSON or YAML format.",
+      "Required": false
+    },
+    {
+      "Name": "CloneFrom",
+      "Type": "Text",
+      "Documentation": "The ID of the API Gateway RestApi resource that you want to clone.",
+      "Required": false
+    },
+    {
+      "Name": "Description",
+      "Type": "Text",
+      "Documentation": "A description of the purpose of this API Gateway RestApi resource.",
+      "Required": false
+    },
+    {
+      "Name": "FailOnWarnings",
+      "Type": "Bool'",
+      "Documentation": "If a warning occurs while API Gateway is creating the RestApi resource, indicates whether to roll back the resource.",
+      "Required": false
+    },
+    {
+      "Name": "Name",
+      "Type": "Text",
+      "Documentation": "A name for the API Gateway RestApi resource.",
+      "Required": true
+    },
+    {
+      "Name": "Parameters",
+      "Type": "[Text]",
+      "Documentation": "Custom header parameters for the request.",
+      "Required": false
+    }
+  ]
+}
