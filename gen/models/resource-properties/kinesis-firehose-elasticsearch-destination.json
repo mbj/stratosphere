@@ -1,0 +1,73 @@
+{
+  "Name": "KinesisFirehoseElasticsearchDestinationConfiguration",
+  "Documentation": "ElasticsearchDestinationConfiguration is a property of the AWS::KinesisFirehose::DeliveryStream resource that specifies an Amazon Elasticsearch Service (Amazon ES) domain that Amazon Kinesis Firehose (Firehose) delivers data to.",
+  "Dependencies": [
+    "ResourceProperties.KinesisFirehoseBufferingHints",
+    "ResourceProperties.KinesisFirehoseCloudWatchLoggingOptions",
+    "ResourceProperties.KinesisFirehoseS3DestinationConfiguration",
+    "ResourceProperties.KinesisFirehoseElasticsearchRetryOptions",
+    "Types"
+  ],
+  "Parameters": [
+    {
+      "Name": "BufferingHints",
+      "Type": "KinesisFirehoseBufferingHints",
+      "Documentation": "Configures how Firehose buffers incoming data while delivering it to the Amazon ES domain.",
+      "Required": true
+    },
+    {
+      "Name": "CloudWatchLoggingOptions",
+      "Type": "KinesisFirehoseCloudWatchLoggingOptions",
+      "Documentation": "The Amazon CloudWatch Logs logging options for the delivery stream.",
+      "Required": false
+    },
+    {
+      "Name": "DomainARN",
+      "Type": "Text",
+      "Documentation": "The Amazon Resource Name (ARN) of the Amazon ES domain that Firehose delivers data to.",
+      "Required": true
+    },
+    {
+      "Name": "IndexName",
+      "Type": "Text",
+      "Documentation": "The name of the Elasticsearch index to which Firehose adds data for indexing.",
+      "Required": true
+    },
+    {
+      "Name": "IndexRotationPeriod",
+      "Type": "Text",
+      "Documentation": "The frequency of Elasticsearch index rotation. If you enable index rotation, Firehose appends a portion of the UTC arrival timestamp to the specified index name, and rotates the appended timestamp accordingly. For more information, see Index Rotation for the Amazon ES Destination in the Amazon Kinesis Firehose Developer Guide.",
+      "Required": true
+    },
+    {
+      "Name": "RetryOptions",
+      "Type": "KinesisFirehoseElasticsearchRetryOptions",
+      "Documentation": "The retry behavior when Firehose is unable to deliver data to Amazon ES.\nType: Amazon Kinesis Firehose DeliveryStream ElasticsearchDestinationConfiguration RetryOptions\nType: String",
+      "Required": false
+    },
+    {
+      "Name": "RoleARN",
+      "Type": "Text",
+      "Documentation": "The ARN of the AWS Identity and Access Management (IAM) role that grants Firehose access to your S3 bucket, AWS KMS (if you enable data encryption), and Amazon CloudWatch Logs (if you enable logging).\nFor more information, see Grant Firehose Access to an Amazon Elasticsearch Service Destination in the Amazon Kinesis Firehose Developer Guide.",
+      "Required": true
+    },
+    {
+      "Name": "S3BackupMode",
+      "Type": "KinesisFirehoseElasticsearchS3BackupMode",
+      "Documentation": "The condition under which Firehose delivers data to Amazon Simple Storage Service (Amazon S3). You can send Amazon S3 all documents (all data) or only the documents that Firehose could not deliver to the Amazon ES destination. For more information and valid values, see the S3BackupMode content for the ElasticsearchDestinationConfiguration data type in the Amazon Kinesis Firehose API Reference.",
+      "Required": true
+    },
+    {
+      "Name": "S3Configuration",
+      "Type": "KinesisFirehoseS3DestinationConfiguration",
+      "Documentation": "The S3 bucket where Firehose backs up incoming data.\nType: Amazon Kinesis Firehose DeliveryStream S3DestinationConfiguration\nType: String",
+      "Required": false
+    },
+    {
+      "Name": "TypeName",
+      "Type": "Text",
+      "Documentation": "The Elasticsearch type name that Amazon ES adds to documents when indexing data.",
+      "Required": true
+    }
+  ]
+}

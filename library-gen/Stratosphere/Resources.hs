@@ -50,6 +50,7 @@ import Stratosphere.Resources.DBParameterGroup as X
 import Stratosphere.Resources.DBSecurityGroup as X
 import Stratosphere.Resources.DBSecurityGroupIngress as X
 import Stratosphere.Resources.DBSubnetGroup as X
+import Stratosphere.Resources.DeliveryStream as X
 import Stratosphere.Resources.EC2Instance as X
 import Stratosphere.Resources.EIP as X
 import Stratosphere.Resources.EIPAssociation as X
@@ -63,6 +64,8 @@ import Stratosphere.Resources.LambdaPermission as X
 import Stratosphere.Resources.LaunchConfiguration as X
 import Stratosphere.Resources.LifecycleHook as X
 import Stratosphere.Resources.LoadBalancer as X
+import Stratosphere.Resources.LogGroup as X
+import Stratosphere.Resources.LogStream as X
 import Stratosphere.Resources.ManagedPolicy as X
 import Stratosphere.Resources.NatGateway as X
 import Stratosphere.Resources.Policy as X
@@ -106,6 +109,15 @@ import Stratosphere.ResourceProperties.EC2SsmAssociations as X
 import Stratosphere.ResourceProperties.ELBPolicy as X
 import Stratosphere.ResourceProperties.HealthCheck as X
 import Stratosphere.ResourceProperties.IAMPolicies as X
+import Stratosphere.ResourceProperties.KinesisFirehoseBufferingHints as X
+import Stratosphere.ResourceProperties.KinesisFirehoseCloudWatchLoggingOptions as X
+import Stratosphere.ResourceProperties.KinesisFirehoseElasticsearchDestinationConfiguration as X
+import Stratosphere.ResourceProperties.KinesisFirehoseElasticsearchRetryOptions as X
+import Stratosphere.ResourceProperties.KinesisFirehoseRedshiftCopyCommand as X
+import Stratosphere.ResourceProperties.KinesisFirehoseRedshiftDestinationConfiguration as X
+import Stratosphere.ResourceProperties.KinesisFirehoseS3DestinationConfiguration as X
+import Stratosphere.ResourceProperties.KinesisFirehoseS3EncryptionConfiguration as X
+import Stratosphere.ResourceProperties.KinesisFirehoseS3KMSEncryptionConfig as X
 import Stratosphere.ResourceProperties.LBCookieStickinessPolicy as X
 import Stratosphere.ResourceProperties.LambdaFunctionCode as X
 import Stratosphere.ResourceProperties.LambdaFunctionVPCConfig as X
@@ -165,6 +177,7 @@ data ResourceProperties
   | DBSecurityGroupProperties DBSecurityGroup
   | DBSecurityGroupIngressProperties DBSecurityGroupIngress
   | DBSubnetGroupProperties DBSubnetGroup
+  | DeliveryStreamProperties DeliveryStream
   | EC2InstanceProperties EC2Instance
   | EIPProperties EIP
   | EIPAssociationProperties EIPAssociation
@@ -178,6 +191,8 @@ data ResourceProperties
   | LaunchConfigurationProperties LaunchConfiguration
   | LifecycleHookProperties LifecycleHook
   | LoadBalancerProperties LoadBalancer
+  | LogGroupProperties LogGroup
+  | LogStreamProperties LogStream
   | ManagedPolicyProperties ManagedPolicy
   | NatGatewayProperties NatGateway
   | PolicyProperties Policy
@@ -274,6 +289,8 @@ resourcePropertiesJSON (DBSecurityGroupIngressProperties x) =
   [ "Type" .= ("AWS::RDS::DBSecurityGroupIngress" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (DBSubnetGroupProperties x) =
   [ "Type" .= ("AWS::RDS::DBSubnetGroup" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (DeliveryStreamProperties x) =
+  [ "Type" .= ("AWS::KinesisFirehose::DeliveryStream" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (EC2InstanceProperties x) =
   [ "Type" .= ("AWS::EC2::Instance" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (EIPProperties x) =
@@ -300,6 +317,10 @@ resourcePropertiesJSON (LifecycleHookProperties x) =
   [ "Type" .= ("AWS::AutoScaling::LifecycleHook" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (LoadBalancerProperties x) =
   [ "Type" .= ("AWS::ElasticLoadBalancing::LoadBalancer" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (LogGroupProperties x) =
+  [ "Type" .= ("AWS::Logs::LogGroup" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (LogStreamProperties x) =
+  [ "Type" .= ("AWS::Logs::LogStream" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ManagedPolicyProperties x) =
   [ "Type" .= ("AWS::IAM::ManagedPolicy" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (NatGatewayProperties x) =
@@ -364,6 +385,7 @@ resourceFromJSON n o =
          "AWS::RDS::DBSecurityGroup" -> DBSecurityGroupProperties <$> (o .: "Properties")
          "AWS::RDS::DBSecurityGroupIngress" -> DBSecurityGroupIngressProperties <$> (o .: "Properties")
          "AWS::RDS::DBSubnetGroup" -> DBSubnetGroupProperties <$> (o .: "Properties")
+         "AWS::KinesisFirehose::DeliveryStream" -> DeliveryStreamProperties <$> (o .: "Properties")
          "AWS::EC2::Instance" -> EC2InstanceProperties <$> (o .: "Properties")
          "AWS::EC2::EIP" -> EIPProperties <$> (o .: "Properties")
          "AWS::EC2::EIPAssociation" -> EIPAssociationProperties <$> (o .: "Properties")
@@ -377,6 +399,8 @@ resourceFromJSON n o =
          "AWS::AutoScaling::LaunchConfiguration" -> LaunchConfigurationProperties <$> (o .: "Properties")
          "AWS::AutoScaling::LifecycleHook" -> LifecycleHookProperties <$> (o .: "Properties")
          "AWS::ElasticLoadBalancing::LoadBalancer" -> LoadBalancerProperties <$> (o .: "Properties")
+         "AWS::Logs::LogGroup" -> LogGroupProperties <$> (o .: "Properties")
+         "AWS::Logs::LogStream" -> LogStreamProperties <$> (o .: "Properties")
          "AWS::IAM::ManagedPolicy" -> ManagedPolicyProperties <$> (o .: "Properties")
          "AWS::EC2::NatGateway" -> NatGatewayProperties <$> (o .: "Properties")
          "AWS::IAM::Policy" -> PolicyProperties <$> (o .: "Properties")
