@@ -35,27 +35,27 @@ data CannedACL
 -- | See:
 -- http://docs.aws.amazon.com/firehose/latest/APIReference/API_S3DestinationConfiguration.html
 data KinesisFirehoseS3CompressionFormat
-  = Uncompressed
-  | Gzip
-  | Zip
-  | Snappy
+  = KFS3Uncompressed
+  | KFS3Gzip
+  | KFS3Zip
+  | KFS3Snappy
   deriving (Show, Read, Eq, Generic)
 
 
 instance ToJSON KinesisFirehoseS3CompressionFormat where
-  toJSON Uncompressed = String "UNCOMPRESSED"
-  toJSON Gzip         = String "GZIP"
-  toJSON Zip          = String "ZIP"
-  toJSON Snappy       = String "SNAPPY"
+  toJSON KFS3Uncompressed = String "UNCOMPRESSED"
+  toJSON KFS3Gzip         = String "GZIP"
+  toJSON KFS3Zip          = String "ZIP"
+  toJSON KFS3Snappy       = String "SNAPPY"
 
 
 instance FromJSON KinesisFirehoseS3CompressionFormat where
   parseJSON = withText "KinesisFirehoseS3CompressionFormat" parse
     where
-      parse "UNCOMPRESSED" = pure Uncompressed
-      parse "GZIP"         = pure Gzip
-      parse "ZIP"          = pure Zip
-      parse "SNAPPY"       = pure Snappy
+      parse "UNCOMPRESSED" = pure KFS3Uncompressed
+      parse "GZIP"         = pure KFS3Gzip
+      parse "ZIP"          = pure KFS3Zip
+      parse "SNAPPY"       = pure KFS3Snappy
       parse fmt            = fail ("Unexpected compression format " ++ unpack fmt)
 
 
