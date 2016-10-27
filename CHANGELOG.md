@@ -9,6 +9,7 @@
 * Added many `AWS::Lambda` resources and associated resource properties (@ababkin)
 * Added new `ImportValue` CloudFormation function (@timmytofu)
 * Added tons of AWS Kineses resources (@MichaelXavier)
+* Added a lot of Api Gateway resources (@ababkin)
 
 ## 0.1.6
 
