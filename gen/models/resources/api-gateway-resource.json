@@ -1,0 +1,25 @@
+{
+  "Name": "ApiGatewayResource",
+  "Type": "AWS::ApiGateway::Resource",
+  "Documentation": "The AWS::ApiGateway::Resource resource creates a resource in an Amazon API Gateway (API Gateway) API.",
+  "Parameters": [
+    {
+      "Name": "ParentId",
+      "Type": "Text",
+      "Documentation": "If you want to create a child resource, the ID of the parent resource. For resources without a parent, specify the RestApi root resource ID, such as { \"Fn::GetAtt\": [\"MyRestApi\", \"RootResourceId\"] }.",
+      "Required": true
+    },
+    {
+      "Name": "PathPart",
+      "Type": "Text",
+      "Documentation": "A path name for the resource.",
+      "Required": true
+    },
+    {
+      "Name": "RestApiId",
+      "Type": "Text",
+      "Documentation": "The ID of the RestApi resource in which you want to create this resource.",
+      "Required": true
+    }
+  ]
+}
