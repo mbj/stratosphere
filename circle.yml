@@ -15,5 +15,5 @@ dependencies:
 
 test:
   override:
-    - stack build --test --jobs=1
+    - "stack build --test --jobs=1 --flag stratosphere:-library-only"
     - stack haddock --no-haddock-deps --jobs=1

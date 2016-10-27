@@ -25,6 +25,12 @@ dependencies:
   - text >= 1.1
   - unordered-containers >= 0.2
 
+flags:
+  library-only:
+    description: "Don't compile examples"
+    default: true
+    manual: true
+
 library:
   source-dirs:
     - library
@@ -37,31 +43,49 @@ executables:
     source-dirs: examples
     dependencies: stratosphere
     ghc-options: -Wall
+    when:
+      - condition: flag(library-only)
+        buildable: false
   ec2-with-eip:
     main: ec2-with-eip.hs
     source-dirs: examples
     dependencies: stratosphere
     ghc-options: -Wall
+    when:
+      - condition: flag(library-only)
+        buildable: false
   rds-master-replica:
     main: rds-master-replica.hs
     source-dirs: examples
     dependencies: stratosphere
     ghc-options: -Wall
+    when:
+      - condition: flag(library-only)
+        buildable: false
   simple-lambda:
     main: simple-lambda.hs
     source-dirs: examples
     dependencies: stratosphere
     ghc-options: -Wall
+    when:
+      - condition: flag(library-only)
+        buildable: false
   s3-copy:
     main: s3-copy.hs
     source-dirs: examples
     dependencies: stratosphere
     ghc-options: -Wall
+    when:
+      - condition: flag(library-only)
+        buildable: false
   api-gateway-lambda:
     main: api-gateway-lambda.hs
     source-dirs: examples
     dependencies: stratosphere
     ghc-options: -Wall
+    when:
+      - condition: flag(library-only)
+        buildable: false
 
 tests:
   tasty:
