@@ -1,5 +1,6 @@
 {
-  "Name": "ApiGatewayVerb",
+  "Name": "ApiGatewayMethod",
+  "LensPrefix": "agme",
   "Type": "AWS::ApiGateway::Method",
   "Documentation": "The AWS::ApiGateway::Method resource creates Amazon API Gateway (API Gateway) methods that define the parameters and body that clients must send in their requests.",
   "Dependencies": [

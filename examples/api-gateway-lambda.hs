@@ -49,14 +49,14 @@ apiGWResource = (resource "ApiGWResource" $
 
 apiGWMethod :: Resource
 apiGWMethod = (resource "ApiGWMethod" $
-  ApiGatewayVerbProperties $
-  apiGatewayVerb
+  ApiGatewayMethodProperties $
+  apiGatewayMethod
     "NONE"
     "POST"
     (toRef apiGWResource)
     (toRef apiGWRestApi)
-    & agvIntegration ?~ integration
-    & agvMethodResponses ?~ [ methodResponse ]
+    & agmeIntegration ?~ integration
+    & agmeMethodResponses ?~ [ methodResponse ]
   )
   & dependsOn ?~ deps [
       apiGWRestApi
