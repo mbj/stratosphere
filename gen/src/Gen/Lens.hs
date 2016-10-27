@@ -4,8 +4,9 @@
 
 module Gen.Lens where
 
+import Control.Applicative ((<|>))
 import Control.Lens
-import Data.Char (toLower, isUpper)
+import Data.Char (isUpper)
 import Data.Maybe (fromMaybe)
 import qualified Data.Text as T
 
@@ -32,12 +33,12 @@ renderLens res rp = T.intercalate "\n" [docs, typeDecl, funcDef]
         fieldName = renderFieldName (res ^. name) rp
         funcDef = T.concat [lensName', " = lens ", fieldName,
                             " (\\s a -> s { ", fieldName, " = a })"]
-
-
 lensName :: Resource -> ResourceParameter -> T.Text
-lensName res rp = T.append prefix' (rp ^. name)
-  where prefix = fromMaybe "" (toAcronym (res ^. name))
-        prefix' = T.pack $ toLower <$> T.unpack prefix
+lensName res rp = T.append (T.toLower prefix) (rp ^. name)
+  where
+    -- To make the prefix we first try getting the lensPrefix, then we try
+    -- toAcronym on the resource name, otherwise we use an empty string.
+    prefix = fromMaybe "" $ res ^. lensPrefix <|> toAcronym (res ^. name)
 
 toAcronym :: T.Text -> Maybe T.Text
 toAcronym t = if T.length uppers >= 1 then Just uppers else Nothing

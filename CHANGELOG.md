@@ -10,6 +10,8 @@
 * Added new `ImportValue` CloudFormation function (@timmytofu)
 * Added tons of AWS Kineses resources (@MichaelXavier)
 * Added a lot of Api Gateway resources (@ababkin)
+* Allow setting `LensPrefix` in JSON model files to avoid name collisions
+  (https://github.com/frontrowed/stratosphere/issues/27)
 
 ## 0.1.6
 
