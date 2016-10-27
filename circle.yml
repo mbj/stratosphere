@@ -1,11 +1,12 @@
 machine:
   environment:
     PATH: "$HOME/.local/bin:$PATH"
+    STACK_VERSION: 1.2.0
 
 dependencies:
   pre:
    - mkdir -p ~/.local/bin
-   - curl -L https://github.com/commercialhaskell/stack/releases/download/v1.0.4.3/stack-1.0.4.3-linux-x86_64.tar.gz | tar -xzv -C ~/.local/bin && ln -vsf ~/.local/bin/stack-*/stack ~/.local/bin/stack
+   - curl -L https://github.com/commercialhaskell/stack/releases/download/v$STACK_VERSION/stack-$STACK_VERSION-linux-x86_64.tar.gz | tar -xzv -C ~/.local/bin && ln -vsf ~/.local/bin/stack-*/stack ~/.local/bin/stack
   cache_directories:
     - "~/.stack"
     - "~/stratosphere/.stack-work"
