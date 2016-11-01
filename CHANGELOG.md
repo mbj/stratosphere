@@ -1,6 +1,6 @@
 # Change Log
 
-## Unreleased
+## 0.2.0
 
 * Breaking change: The `DependsOn` property previously allowed lists of `Val
   Text`, when in fact CloudFormation only accepts literal `Text` values. The
