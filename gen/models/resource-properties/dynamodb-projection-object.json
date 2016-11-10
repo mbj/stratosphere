@@ -1,0 +1,18 @@
+{
+  "Name": "DynamoDBProjectionObject",
+  "Documentation": "Attributes that are copied (projected) from the source table into the index. These attributes are additions to the primary key attributes and index key attributes, which are automatically projected.",
+  "Parameters": [
+    {
+      "Name": "NonKeyAttributes",
+      "Type": "[Text]",
+      "Documentation": "The non-key attribute names that are projected into the index.\nFor local secondary indexes, the total count of NonKeyAttributes summed across all of the local secondary indexes must not exceed 20. If you project the same attribute into two different indexes, this counts as two distinct attributes in determining the total.",
+      "Required": false
+    },
+    {
+      "Name": "ProjectionType",
+      "Type": "Text",
+      "Documentation": "The set of attributes that are projected into the index:\nOnly the index and primary keys are projected into the index.\nOnly the specified table attributes are projected into the index. The list of projected attributes are in NonKeyAttributes.\nAll of the table attributes are projected into the index.",
+      "Required": false
+    }
+  ]
+}
