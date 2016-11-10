@@ -59,6 +59,7 @@ import Stratosphere.Resources.DBSecurityGroup as X
 import Stratosphere.Resources.DBSecurityGroupIngress as X
 import Stratosphere.Resources.DBSubnetGroup as X
 import Stratosphere.Resources.DeliveryStream as X
+import Stratosphere.Resources.DynamoDBTable as X
 import Stratosphere.Resources.EC2Instance as X
 import Stratosphere.Resources.EIP as X
 import Stratosphere.Resources.EIPAssociation as X
@@ -119,6 +120,13 @@ import Stratosphere.ResourceProperties.AutoScalingNotificationConfigurations as 
 import Stratosphere.ResourceProperties.AutoScalingTags as X
 import Stratosphere.ResourceProperties.ConnectionDrainingPolicy as X
 import Stratosphere.ResourceProperties.ConnectionSettings as X
+import Stratosphere.ResourceProperties.DynamoDBAttributeDefinition as X
+import Stratosphere.ResourceProperties.DynamoDBGlobalSecondaryIndex as X
+import Stratosphere.ResourceProperties.DynamoDBKeySchema as X
+import Stratosphere.ResourceProperties.DynamoDBLocalSecondaryIndex as X
+import Stratosphere.ResourceProperties.DynamoDBProjectionObject as X
+import Stratosphere.ResourceProperties.DynamoDBProvisionedThroughput as X
+import Stratosphere.ResourceProperties.DynamoDBStreamSpecification as X
 import Stratosphere.ResourceProperties.EBSBlockDevice as X
 import Stratosphere.ResourceProperties.EC2BlockDeviceMapping as X
 import Stratosphere.ResourceProperties.EC2MountPoint as X
@@ -204,6 +212,7 @@ data ResourceProperties
   | DBSecurityGroupIngressProperties DBSecurityGroupIngress
   | DBSubnetGroupProperties DBSubnetGroup
   | DeliveryStreamProperties DeliveryStream
+  | DynamoDBTableProperties DynamoDBTable
   | EC2InstanceProperties EC2Instance
   | EIPProperties EIP
   | EIPAssociationProperties EIPAssociation
@@ -333,6 +342,8 @@ resourcePropertiesJSON (DBSubnetGroupProperties x) =
   [ "Type" .= ("AWS::RDS::DBSubnetGroup" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (DeliveryStreamProperties x) =
   [ "Type" .= ("AWS::KinesisFirehose::DeliveryStream" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (DynamoDBTableProperties x) =
+  [ "Type" .= ("AWS::DynamoDB::Table" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (EC2InstanceProperties x) =
   [ "Type" .= ("AWS::EC2::Instance" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (EIPProperties x) =
@@ -436,6 +447,7 @@ resourceFromJSON n o =
          "AWS::RDS::DBSecurityGroupIngress" -> DBSecurityGroupIngressProperties <$> (o .: "Properties")
          "AWS::RDS::DBSubnetGroup" -> DBSubnetGroupProperties <$> (o .: "Properties")
          "AWS::KinesisFirehose::DeliveryStream" -> DeliveryStreamProperties <$> (o .: "Properties")
+         "AWS::DynamoDB::Table" -> DynamoDBTableProperties <$> (o .: "Properties")
          "AWS::EC2::Instance" -> EC2InstanceProperties <$> (o .: "Properties")
          "AWS::EC2::EIP" -> EIPProperties <$> (o .: "Properties")
          "AWS::EC2::EIPAssociation" -> EIPAssociationProperties <$> (o .: "Properties")
