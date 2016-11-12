@@ -22,8 +22,8 @@ import Stratosphere.Values
 -- 'dynamoDBProvisionedThroughput' for a more convenient constructor.
 data DynamoDBProvisionedThroughput =
   DynamoDBProvisionedThroughput
-  { _dynamoDBProvisionedThroughputReadCapacityUnits :: Double'
-  , _dynamoDBProvisionedThroughputWriteCapacityUnits :: Double'
+  { _dynamoDBProvisionedThroughputReadCapacityUnits :: Val Integer'
+  , _dynamoDBProvisionedThroughputWriteCapacityUnits :: Val Integer'
   } deriving (Show, Generic)
 
 instance ToJSON DynamoDBProvisionedThroughput where
@@ -35,8 +35,8 @@ instance FromJSON DynamoDBProvisionedThroughput where
 -- | Constructor for 'DynamoDBProvisionedThroughput' containing required
 -- fields as arguments.
 dynamoDBProvisionedThroughput
-  :: Double' -- ^ 'ddbptReadCapacityUnits'
-  -> Double' -- ^ 'ddbptWriteCapacityUnits'
+  :: Val Integer' -- ^ 'ddbptReadCapacityUnits'
+  -> Val Integer' -- ^ 'ddbptWriteCapacityUnits'
   -> DynamoDBProvisionedThroughput
 dynamoDBProvisionedThroughput readCapacityUnitsarg writeCapacityUnitsarg =
   DynamoDBProvisionedThroughput
@@ -47,11 +47,11 @@ dynamoDBProvisionedThroughput readCapacityUnitsarg writeCapacityUnitsarg =
 -- | Sets the desired minimum number of consistent reads of items (up to 1KB
 -- in size) per second for the specified table before Amazon DynamoDB balances
 -- the load.
-ddbptReadCapacityUnits :: Lens' DynamoDBProvisionedThroughput Double'
+ddbptReadCapacityUnits :: Lens' DynamoDBProvisionedThroughput (Val Integer')
 ddbptReadCapacityUnits = lens _dynamoDBProvisionedThroughputReadCapacityUnits (\s a -> s { _dynamoDBProvisionedThroughputReadCapacityUnits = a })
 
 -- | Sets the desired minimum number of consistent writes of items (up to 1KB
 -- in size) per second for the specified table before Amazon DynamoDB balances
 -- the load.
-ddbptWriteCapacityUnits :: Lens' DynamoDBProvisionedThroughput Double'
+ddbptWriteCapacityUnits :: Lens' DynamoDBProvisionedThroughput (Val Integer')
 ddbptWriteCapacityUnits = lens _dynamoDBProvisionedThroughputWriteCapacityUnits (\s a -> s { _dynamoDBProvisionedThroughputWriteCapacityUnits = a })
