@@ -11,7 +11,7 @@ import           Stratosphere
 
 
 -- to curl the endpoint: (substitute your APIGW deployment URL)
--- curl -v -X POST -H "Content-Type: application/json" -d "{\"description\": \"test task\"}" "https://t04rmwbtgj.execute-api.us-east-1.amazonaws.com/v1/stack"
+-- curl -v -X POST -H "Content-Type: application/json" -d "{\"property\": 3}" "https://t04rmwbtgj.execute-api.us-east-1.amazonaws.com/v1/thing"
 
 main :: IO ()
 main = B.putStrLn $ encodeTemplate myTemplate
@@ -42,10 +42,9 @@ apiGWResource = (resource "ApiGWResource" $
   ApiGatewayResourceProperties $
   apiGatewayResource
     (GetAtt "ApiGWRestApi" "RootResourceId")
-    "stack"
+    "thing"
     (toRef apiGWRestApi)
   )
-  & dependsOn ?~ deps [ apiGWRestApi ]
 
 apiGWMethod :: Resource
 apiGWMethod = (resource "ApiGWMethod" $
@@ -59,9 +58,7 @@ apiGWMethod = (resource "ApiGWMethod" $
     & agmeMethodResponses ?~ [ methodResponse ]
   )
   & dependsOn ?~ deps [
-      apiGWRestApi
-    , apiGWResource
-    , lambda
+      permission
     ]
 
   where
@@ -74,7 +71,7 @@ apiGWMethod = (resource "ApiGWMethod" $
         , GetAtt "WriteS3ObjectLambda" "Arn"
         , "/invocations"])
       & agiIntegrationResponses ?~ [ integrationResponse ]
-      & agiPassthroughBehavior ?~ "NEVER"
+      & agiPassthroughBehavior ?~ "WHEN_NO_TEMPLATES"
       & agiRequestTemplates ?~ [ ("application/json", "{\"body\": $input.body}") ]
 
     integrationResponse = apiGatewayIntegrationResponse
@@ -91,7 +88,7 @@ apiGWDeployment = (resource "ApiGWDeployment" $
     & agdStageName ?~ "v1"
   )
   & dependsOn ?~ deps [
-      apiGWRestApi
+      apiGWResource
     , apiGWMethod
     ]
 
@@ -105,7 +102,6 @@ lambda = (resource "WriteS3ObjectLambda" $
     "nodejs4.3"
     & lfFunctionName ?~ "writeS3Object"
   )
-  & dependsOn ?~ deps [ role ]
 
   where
     lambdaCode :: LambdaFunctionCode

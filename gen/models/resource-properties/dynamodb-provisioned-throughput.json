@@ -4,13 +4,13 @@
   "Parameters": [
     {
       "Name": "ReadCapacityUnits",
-      "Type": "Double'",
+      "Type": "Integer'",
       "Documentation": "Sets the desired minimum number of consistent reads of items (up to 1KB in size) per second for the specified table before Amazon DynamoDB balances the load.",
       "Required": true
     },
     {
       "Name": "WriteCapacityUnits",
-      "Type": "Double'",
+      "Type": "Integer'",
       "Documentation": "Sets the desired minimum number of consistent writes of items (up to 1KB in size) per second for the specified table before Amazon DynamoDB balances the load.",
       "Required": true
     }
