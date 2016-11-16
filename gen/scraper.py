@@ -51,7 +51,7 @@ def get_variables(soup):
             ("Name", var_name),
             ("Type", _type_alternatives.get(var_type, var_type)),
             ("Documentation", "\n".join(docs)),
-            ("Required", var_required == "Yes"),
+            ("Required", var_required.startswith("Yes")),
         ]))
     return variables
 
