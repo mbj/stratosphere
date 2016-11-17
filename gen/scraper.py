@@ -38,21 +38,25 @@ def main(url):
 
 
 def get_variables(soup):
-    variable_list_tag = soup.find("div", attrs={"class": "variablelist"})
-    var_name_tags = variable_list_tag.find_all("dt")
     variables = []
-    for name_tag in var_name_tags:
-        var_name = name_tag.find("code").text
-        contents_tag = name_tag.find_next_sibling("dd")
-        docs = variable_docs(contents_tag)
-        var_required = variable_property(contents_tag, "Required")
-        var_type = variable_property(contents_tag, "Type")
-        variables.append(OrderedDict([
-            ("Name", var_name),
-            ("Type", _type_alternatives.get(var_type, var_type)),
-            ("Documentation", "\n".join(docs)),
-            ("Required", var_required.startswith("Yes")),
-        ]))
+    title_page_tag = soup.find("div", string="Properties",
+        attrs={"class":"titlepage"})
+    variable_list_tags = title_page_tag.find_next_siblings("div",
+        attrs={"class": "variablelist"})
+    for variable_list_tag in variable_list_tags:
+        var_name_tags = variable_list_tag.find_all("dt")
+        for name_tag in var_name_tags:
+            var_name = name_tag.find("code").text
+            contents_tag = name_tag.find_next_sibling("dd")
+            docs = variable_docs(contents_tag)
+            var_required = variable_property(contents_tag, "Required")
+            var_type = variable_property(contents_tag, "Type")
+            variables.append(OrderedDict([
+                ("Name", var_name),
+                ("Type", _type_alternatives.get(var_type, var_type)),
+                ("Documentation", "\n".join(docs)),
+                ("Required", var_required.startswith("Yes")),
+            ]))
     return variables
 
 
