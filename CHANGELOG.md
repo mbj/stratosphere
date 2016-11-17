@@ -3,7 +3,8 @@
 ## 0.2.1 (unreleased)
 
 * Added Dynamo DB table resources (@ababkin)
-* Fix the Python docs scraper mishandling the `required` value in some cases (@amar47shah)
+* Fix the Python docs scraper mishandling the `required` value in some cases,
+  and also missing some properties of resources (@amar47shah)
 
 ## 0.2.0
 
