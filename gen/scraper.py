@@ -14,14 +14,16 @@ import sys
 def main(url):
     page_text = requests.get(url).text
     soup = BeautifulSoup(page_text, "html.parser")
-    title_tag = soup.find("div", attrs={"class": "titlepage"})
-    name = title_tag.text
+
+    type_tag = soup.find("h1", attrs={"class": "topictitle"})
+    name = type_tag.text
     if "::" in name:
         type_ = name
         name = name.split("::")[-1]
     else:
         type_ = None
 
+    title_tag = soup.find("div", attrs={"class": "titlepage"})
     docs = title_tag.find_next_siblings("p")
     docstring = "\n".join([remove_extra_space(d.text) for d in docs])
     variables = get_variables(soup)
