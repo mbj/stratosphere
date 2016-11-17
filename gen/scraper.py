@@ -68,6 +68,7 @@ _type_alternatives = {
     "List of strings": "[Text]",
     "Number": "Double'",
     "Integer": "Integer'",
+    "JSON object": "Object",
 }
 
 
