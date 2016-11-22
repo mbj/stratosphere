@@ -86,6 +86,8 @@ import Stratosphere.Resources.S3BucketPolicy as X
 import Stratosphere.Resources.SNSSubscription as X
 import Stratosphere.Resources.SNSTopic as X
 import Stratosphere.Resources.SNSTopicPolicy as X
+import Stratosphere.Resources.SQSQueue as X
+import Stratosphere.Resources.SQSQueuePolicy as X
 import Stratosphere.Resources.ScalingPolicy as X
 import Stratosphere.Resources.ScheduledAction as X
 import Stratosphere.Resources.SecurityGroup as X
@@ -181,6 +183,7 @@ import Stratosphere.ResourceProperties.S3WebsiteRedirectRule as X
 import Stratosphere.ResourceProperties.S3WebsiteRoutingRuleCondition as X
 import Stratosphere.ResourceProperties.S3WebsiteRoutingRules as X
 import Stratosphere.ResourceProperties.SNSTopicSubscription as X
+import Stratosphere.ResourceProperties.SQSRedrivePolicy as X
 import Stratosphere.ResourceProperties.SecurityGroupEgressRule as X
 import Stratosphere.ResourceProperties.SecurityGroupIngressRule as X
 import Stratosphere.ResourceProperties.StepAdjustments as X
@@ -243,6 +246,8 @@ data ResourceProperties
   | SNSSubscriptionProperties SNSSubscription
   | SNSTopicProperties SNSTopic
   | SNSTopicPolicyProperties SNSTopicPolicy
+  | SQSQueueProperties SQSQueue
+  | SQSQueuePolicyProperties SQSQueuePolicy
   | ScalingPolicyProperties ScalingPolicy
   | ScheduledActionProperties ScheduledAction
   | SecurityGroupProperties SecurityGroup
@@ -403,6 +408,10 @@ resourcePropertiesJSON (SNSTopicProperties x) =
   [ "Type" .= ("AWS::SNS::Topic" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (SNSTopicPolicyProperties x) =
   [ "Type" .= ("AWS::SNS::TopicPolicy" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (SQSQueueProperties x) =
+  [ "Type" .= ("AWS::SQS::Queue" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (SQSQueuePolicyProperties x) =
+  [ "Type" .= ("AWS::SQS::QueuePolicy" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ScalingPolicyProperties x) =
   [ "Type" .= ("AWS::AutoScaling::ScalingPolicy" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ScheduledActionProperties x) =
@@ -487,6 +496,8 @@ resourceFromJSON n o =
          "AWS::SNS::Subscription" -> SNSSubscriptionProperties <$> (o .: "Properties")
          "AWS::SNS::Topic" -> SNSTopicProperties <$> (o .: "Properties")
          "AWS::SNS::TopicPolicy" -> SNSTopicPolicyProperties <$> (o .: "Properties")
+         "AWS::SQS::Queue" -> SQSQueueProperties <$> (o .: "Properties")
+         "AWS::SQS::QueuePolicy" -> SQSQueuePolicyProperties <$> (o .: "Properties")
          "AWS::AutoScaling::ScalingPolicy" -> ScalingPolicyProperties <$> (o .: "Properties")
          "AWS::AutoScaling::ScheduledAction" -> ScheduledActionProperties <$> (o .: "Properties")
          "AWS::EC2::SecurityGroup" -> SecurityGroupProperties <$> (o .: "Properties")
