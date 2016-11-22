@@ -1,0 +1,25 @@
+{
+  "Name": "LambdaVersion",
+  "Type": "AWS::Lambda::Version",
+  "Documentation": "The AWS::Lambda::Version resource publishes a specified version of an AWS Lambda (Lambda) function. When publishing a new version of your function, Lambda copies the latest version of your function. For more information, see Introduction to AWS Lambda Versioning in the AWS Lambda Developer Guide.",
+  "Parameters": [
+    {
+      "Name": "CodeSha256",
+      "Type": "Text",
+      "Documentation": "The SHA-256 hash of the deployment package that you want to publish. This value must match the SHA-256 hash of the $LATEST version of the function. Specify this property to validate that you are publishing the correct package.",
+      "Required": false
+    },
+    {
+      "Name": "Description",
+      "Type": "Text",
+      "Documentation": "A description of the version you are publishing. If you don't specify a value, Lambda copies the description from the $LATEST version of the function.",
+      "Required": false
+    },
+    {
+      "Name": "FunctionName",
+      "Type": "Text",
+      "Documentation": "The Lambda function for which you want to publish a version. You can specify the function's name or its Amazon Resource Name (ARN).",
+      "Required": true
+    }
+  ]
+}

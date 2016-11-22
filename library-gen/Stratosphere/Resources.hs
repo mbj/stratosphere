@@ -68,8 +68,10 @@ import Stratosphere.Resources.IAMRole as X
 import Stratosphere.Resources.InstanceProfile as X
 import Stratosphere.Resources.InternetGateway as X
 import Stratosphere.Resources.KinesisStream as X
+import Stratosphere.Resources.LambdaAlias as X
 import Stratosphere.Resources.LambdaFunction as X
 import Stratosphere.Resources.LambdaPermission as X
+import Stratosphere.Resources.LambdaVersion as X
 import Stratosphere.Resources.LaunchConfiguration as X
 import Stratosphere.Resources.LifecycleHook as X
 import Stratosphere.Resources.LoadBalancer as X
@@ -228,8 +230,10 @@ data ResourceProperties
   | InstanceProfileProperties InstanceProfile
   | InternetGatewayProperties InternetGateway
   | KinesisStreamProperties KinesisStream
+  | LambdaAliasProperties LambdaAlias
   | LambdaFunctionProperties LambdaFunction
   | LambdaPermissionProperties LambdaPermission
+  | LambdaVersionProperties LambdaVersion
   | LaunchConfigurationProperties LaunchConfiguration
   | LifecycleHookProperties LifecycleHook
   | LoadBalancerProperties LoadBalancer
@@ -372,10 +376,14 @@ resourcePropertiesJSON (InternetGatewayProperties x) =
   [ "Type" .= ("AWS::EC2::InternetGateway" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (KinesisStreamProperties x) =
   [ "Type" .= ("AWS::Kinesis::Stream" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (LambdaAliasProperties x) =
+  [ "Type" .= ("AWS::Lambda::Alias" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (LambdaFunctionProperties x) =
   [ "Type" .= ("AWS::Lambda::Function" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (LambdaPermissionProperties x) =
   [ "Type" .= ("AWS::Lambda::Permission" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (LambdaVersionProperties x) =
+  [ "Type" .= ("AWS::Lambda::Version" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (LaunchConfigurationProperties x) =
   [ "Type" .= ("AWS::AutoScaling::LaunchConfiguration" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (LifecycleHookProperties x) =
@@ -478,8 +486,10 @@ resourceFromJSON n o =
          "AWS::IAM::InstanceProfile" -> InstanceProfileProperties <$> (o .: "Properties")
          "AWS::EC2::InternetGateway" -> InternetGatewayProperties <$> (o .: "Properties")
          "AWS::Kinesis::Stream" -> KinesisStreamProperties <$> (o .: "Properties")
+         "AWS::Lambda::Alias" -> LambdaAliasProperties <$> (o .: "Properties")
          "AWS::Lambda::Function" -> LambdaFunctionProperties <$> (o .: "Properties")
          "AWS::Lambda::Permission" -> LambdaPermissionProperties <$> (o .: "Properties")
+         "AWS::Lambda::Version" -> LambdaVersionProperties <$> (o .: "Properties")
          "AWS::AutoScaling::LaunchConfiguration" -> LaunchConfigurationProperties <$> (o .: "Properties")
          "AWS::AutoScaling::LifecycleHook" -> LifecycleHookProperties <$> (o .: "Properties")
          "AWS::ElasticLoadBalancing::LoadBalancer" -> LoadBalancerProperties <$> (o .: "Properties")
