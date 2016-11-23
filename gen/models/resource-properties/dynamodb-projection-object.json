@@ -1,6 +1,9 @@
 {
   "Name": "DynamoDBProjectionObject",
   "Documentation": "Attributes that are copied (projected) from the source table into the index. These attributes are additions to the primary key attributes and index key attributes, which are automatically projected.",
+  "Dependencies": [
+    "Types"
+  ],
   "Parameters": [
     {
       "Name": "NonKeyAttributes",
@@ -10,7 +13,7 @@
     },
     {
       "Name": "ProjectionType",
-      "Type": "Text",
+      "Type": "ProjectionType",
       "Documentation": "The set of attributes that are projected into the index:\nOnly the index and primary keys are projected into the index.\nOnly the specified table attributes are projected into the index. The list of projected attributes are in NonKeyAttributes.\nAll of the table attributes are projected into the index.",
       "Required": false
     }

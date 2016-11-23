@@ -15,6 +15,7 @@ import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.ApiGatewayIntegrationResponse
+import Stratosphere.Types
 
 -- | Full data type definition for ApiGatewayIntegration. See
 -- 'apiGatewayIntegration' for a more convenient constructor.
@@ -23,12 +24,12 @@ data ApiGatewayIntegration =
   { _apiGatewayIntegrationCacheKeyParameters :: Maybe [Val Text]
   , _apiGatewayIntegrationCacheNamespace :: Maybe (Val Text)
   , _apiGatewayIntegrationCredentials :: Maybe (Val Text)
-  , _apiGatewayIntegrationIntegrationHttpMethod :: Maybe (Val Text)
+  , _apiGatewayIntegrationIntegrationHttpMethod :: Maybe HttpMethod
   , _apiGatewayIntegrationIntegrationResponses :: Maybe [ApiGatewayIntegrationResponse]
   , _apiGatewayIntegrationPassthroughBehavior :: Maybe (Val Text)
   , _apiGatewayIntegrationRequestParameters :: Maybe Object
   , _apiGatewayIntegrationRequestTemplates :: Maybe Object
-  , _apiGatewayIntegrationType :: Val Text
+  , _apiGatewayIntegrationType :: ApiBackendType
   , _apiGatewayIntegrationUri :: Maybe (Val Text)
   } deriving (Show, Generic)
 
@@ -41,7 +42,7 @@ instance FromJSON ApiGatewayIntegration where
 -- | Constructor for 'ApiGatewayIntegration' containing required fields as
 -- arguments.
 apiGatewayIntegration
-  :: Val Text -- ^ 'agiType'
+  :: ApiBackendType -- ^ 'agiType'
   -> ApiGatewayIntegration
 apiGatewayIntegration typearg =
   ApiGatewayIntegration
@@ -77,7 +78,7 @@ agiCredentials :: Lens' ApiGatewayIntegration (Maybe (Val Text))
 agiCredentials = lens _apiGatewayIntegrationCredentials (\s a -> s { _apiGatewayIntegrationCredentials = a })
 
 -- | The integration's HTTP method type.
-agiIntegrationHttpMethod :: Lens' ApiGatewayIntegration (Maybe (Val Text))
+agiIntegrationHttpMethod :: Lens' ApiGatewayIntegration (Maybe HttpMethod)
 agiIntegrationHttpMethod = lens _apiGatewayIntegrationIntegrationHttpMethod (\s a -> s { _apiGatewayIntegrationIntegrationHttpMethod = a })
 
 -- | The response that API Gateway provides after a method's back end
@@ -119,7 +120,7 @@ agiRequestTemplates = lens _apiGatewayIntegrationRequestTemplates (\s a -> s { _
 -- | The type of back end your method is running, such as HTTP, AWS, or MOCK.
 -- For valid values, see the type property in the Amazon API Gateway REST API
 -- Reference.
-agiType :: Lens' ApiGatewayIntegration (Val Text)
+agiType :: Lens' ApiGatewayIntegration ApiBackendType
 agiType = lens _apiGatewayIntegrationType (\s a -> s { _apiGatewayIntegrationType = a })
 
 -- | The integration's Uniform Resource Identifier (URI). If you specify HTTP

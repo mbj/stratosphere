@@ -2,7 +2,8 @@
   "Name": "ApiGatewayIntegration",
   "Documentation": "Integration is a property of the AWS::ApiGateway::Method resource that specifies information about the target back end that an Amazon API Gateway (API Gateway) method calls.",
   "Dependencies": [
-    "ResourceProperties.ApiGatewayIntegrationResponse"
+    "ResourceProperties.ApiGatewayIntegrationResponse",
+    "Types"
   ],
   "Parameters": [
     {
@@ -25,7 +26,7 @@
     },
     {
       "Name": "IntegrationHttpMethod",
-      "Type": "Text",
+      "Type": "HttpMethod",
       "Documentation": "The integration's HTTP method type.",
       "Required": false
     },
@@ -55,7 +56,7 @@
     },
     {
       "Name": "Type",
-      "Type": "Text",
+      "Type": "ApiBackendType",
       "Documentation": "The type of back end your method is running, such as HTTP, AWS, or MOCK. For valid values, see the type property in the Amazon API Gateway REST API Reference.",
       "Required": true
     },

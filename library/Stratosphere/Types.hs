@@ -6,6 +6,17 @@
 
 module Stratosphere.Types
   ( EnabledState (..)
+  , AuthorizationType (..)
+  , HttpMethod (..)
+  , LoggingLevel (..)
+  , ApiBackendType (..)
+  , Period (..)
+  , AttributeType (..)
+  , KeyType (..)
+  , ProjectionType (..)
+  , StreamViewType (..)
+  , SNSProtocol (..)
+  , Runtime (..)
   , CannedACL (..)
   , KinesisFirehoseS3CompressionFormat(..)
   , KinesisFirehoseElasticsearchS3BackupMode(..)
@@ -21,6 +32,139 @@ data EnabledState
   = ENABLED
   | DISABLED
   deriving (Show, Read, Eq, Generic, FromJSON, ToJSON)
+
+data AuthorizationType
+  = NONE
+  | AWS_IAM
+  | CUSTOM
+  deriving (Show, Read, Eq, Generic, FromJSON, ToJSON)
+
+data HttpMethod
+  = GET
+  | POST
+  | PUT
+  | HEAD
+  | DELETE
+  | OPTIONS
+  deriving (Show, Read, Eq, Generic, FromJSON, ToJSON)
+
+data LoggingLevel
+  = OFF
+  | ERROR
+  | INFO
+  deriving (Show, Read, Eq, Generic, FromJSON, ToJSON)
+
+data ApiBackendType
+  = HTTP
+  | AWS
+  | MOCK
+  | HTTP_PROXY
+  | AWS_PROXY
+  deriving (Show, Read, Eq, Generic, FromJSON, ToJSON)
+
+data Period
+  = DAY
+  | WEEK
+  | MONTH
+  deriving (Show, Read, Eq, Generic, FromJSON, ToJSON)
+
+data AttributeType
+  = S
+  | N
+  | B
+  deriving (Show, Read, Eq, Generic, FromJSON, ToJSON)
+
+data KeyType
+  = HASH
+  | RANGE
+  deriving (Show, Read, Eq, Generic, FromJSON, ToJSON)
+
+
+data ProjectionType
+  = ProjectKeysOnly
+  | ProjectIncluded
+  | ProjectAll
+  deriving (Show, Read, Eq, Generic)
+
+instance FromJSON ProjectionType where
+  parseJSON = withText "ProjectionType" parse
+    where
+      parse "KEYS_ONLY"     = pure ProjectKeysOnly
+      parse "INCLUDE"       = pure ProjectIncluded
+      parse "ALL"           = pure ProjectAll
+      parse projectionType  = fail ("Unexpected projection type " ++ unpack projectionType)
+
+instance ToJSON ProjectionType where
+  toJSON ProjectKeysOnly = String "KEYS_ONLY"
+  toJSON ProjectIncluded = String "INCLUDE"
+  toJSON ProjectAll      = String "ALL"
+
+
+data StreamViewType
+  = KEYS_ONLY
+  | NEW_IMAGE
+  | OLD_IMAGE
+  | NEW_AND_OLD_IMAGES
+  deriving (Show, Read, Eq, Generic, FromJSON, ToJSON)
+
+data SNSProtocol
+  = SnsHttp
+  | SnsHttps
+  | SnsEmail
+  | SnsEmailJson
+  | SnsSms
+  | SnsSqs
+  | SnsApplication
+  | SnsLambda
+  deriving (Show, Read, Eq, Generic)
+
+
+instance FromJSON SNSProtocol where
+  parseJSON = withText "SNSProtocol" parse
+    where
+      parse "http"        = pure SnsHttp
+      parse "https"       = pure SnsHttps
+      parse "email"       = pure SnsEmail
+      parse "email-json"  = pure SnsEmailJson
+      parse "sms"         = pure SnsSms
+      parse "sqs"         = pure SnsSqs
+      parse "application" = pure SnsApplication
+      parse "lambda"      = pure SnsLambda
+      parse protocol = fail ("Unexpected SNS protocol " ++ unpack protocol)
+
+instance ToJSON SNSProtocol where
+  toJSON SnsHttp        = String "http"
+  toJSON SnsHttps       = String "https"
+  toJSON SnsEmail       = String "email"
+  toJSON SnsEmailJson   = String "email-json"
+  toJSON SnsSms         = String "sms"
+  toJSON SnsSqs         = String "sqs"
+  toJSON SnsApplication = String "application"
+  toJSON SnsLambda      = String "lambda"
+
+
+data Runtime
+  = NodeJS
+  | NodeJS43
+  | Java8
+  | Python27
+  deriving (Show, Read, Eq, Generic)
+
+instance FromJSON Runtime where
+  parseJSON = withText "Runtime" parse
+    where
+      parse "nodejs"    = pure NodeJS
+      parse "nodejs4.3" = pure NodeJS43
+      parse "java8"     = pure Java8
+      parse "python2.7" = pure Python27
+      parse runtime     = fail ("Unexpected Runtime " ++ unpack runtime)
+
+instance ToJSON Runtime where
+  toJSON NodeJS   = String "nodejs"
+  toJSON NodeJS43 = String "nodejs4.3"
+  toJSON Java8    = String "java8"
+  toJSON Python27 = String "python2.7"
+
 
 -- | Amazon S3 supports a set of predefined grants, known as canned ACLs. Each
 -- canned ACL has a predefined a set of grantees and permissions. The following

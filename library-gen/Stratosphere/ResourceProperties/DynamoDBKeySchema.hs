@@ -19,14 +19,14 @@ import Data.Text
 import GHC.Generics
 
 import Stratosphere.Values
-
+import Stratosphere.Types
 
 -- | Full data type definition for DynamoDBKeySchema. See 'dynamoDBKeySchema'
 -- for a more convenient constructor.
 data DynamoDBKeySchema =
   DynamoDBKeySchema
   { _dynamoDBKeySchemaAttributeName :: Val Text
-  , _dynamoDBKeySchemaKeyType :: Val Text
+  , _dynamoDBKeySchemaKeyType :: KeyType
   } deriving (Show, Generic)
 
 instance ToJSON DynamoDBKeySchema where
@@ -39,7 +39,7 @@ instance FromJSON DynamoDBKeySchema where
 -- arguments.
 dynamoDBKeySchema
   :: Val Text -- ^ 'ddbksAttributeName'
-  -> Val Text -- ^ 'ddbksKeyType'
+  -> KeyType -- ^ 'ddbksKeyType'
   -> DynamoDBKeySchema
 dynamoDBKeySchema attributeNamearg keyTypearg =
   DynamoDBKeySchema
@@ -55,5 +55,5 @@ ddbksAttributeName = lens _dynamoDBKeySchemaAttributeName (\s a -> s { _dynamoDB
 
 -- | Represents the attribute data, consisting of the data type and the
 -- attribute value itself. You can specify HASH or RANGE.
-ddbksKeyType :: Lens' DynamoDBKeySchema (Val Text)
+ddbksKeyType :: Lens' DynamoDBKeySchema KeyType
 ddbksKeyType = lens _dynamoDBKeySchemaKeyType (\s a -> s { _dynamoDBKeySchemaKeyType = a })

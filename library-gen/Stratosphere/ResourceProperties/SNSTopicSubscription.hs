@@ -14,14 +14,14 @@ import Data.Text
 import GHC.Generics
 
 import Stratosphere.Values
-
+import Stratosphere.Types
 
 -- | Full data type definition for SNSTopicSubscription. See
 -- 'snsTopicSubscription' for a more convenient constructor.
 data SNSTopicSubscription =
   SNSTopicSubscription
   { _sNSTopicSubscriptionEndpoint :: Val Text
-  , _sNSTopicSubscriptionProtocol :: Val Text
+  , _sNSTopicSubscriptionProtocol :: SNSProtocol
   } deriving (Show, Generic)
 
 instance ToJSON SNSTopicSubscription where
@@ -34,7 +34,7 @@ instance FromJSON SNSTopicSubscription where
 -- arguments.
 snsTopicSubscription
   :: Val Text -- ^ 'snstsEndpoint'
-  -> Val Text -- ^ 'snstsProtocol'
+  -> SNSProtocol -- ^ 'snstsProtocol'
   -> SNSTopicSubscription
 snsTopicSubscription endpointarg protocolarg =
   SNSTopicSubscription
@@ -50,5 +50,5 @@ snstsEndpoint = lens _sNSTopicSubscriptionEndpoint (\s a -> s { _sNSTopicSubscri
 
 -- | The subscription's protocol. For more information, see the Subscribe
 -- Protocol parameter in the Amazon Simple Notification Service API Reference.
-snstsProtocol :: Lens' SNSTopicSubscription (Val Text)
+snstsProtocol :: Lens' SNSTopicSubscription SNSProtocol
 snstsProtocol = lens _sNSTopicSubscriptionProtocol (\s a -> s { _sNSTopicSubscriptionProtocol = a })

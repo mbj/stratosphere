@@ -16,6 +16,7 @@ import GHC.Generics
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.LambdaFunctionCode
 import Stratosphere.ResourceProperties.LambdaFunctionVPCConfig
+import Stratosphere.Types
 
 -- | Full data type definition for LambdaFunction. See 'lambdaFunction' for a
 -- more convenient constructor.
@@ -27,7 +28,7 @@ data LambdaFunction =
   , _lambdaFunctionHandler :: Val Text
   , _lambdaFunctionMemorySize :: Maybe (Val Integer')
   , _lambdaFunctionRole :: Val Text
-  , _lambdaFunctionRuntime :: Val Text
+  , _lambdaFunctionRuntime :: Runtime
   , _lambdaFunctionTimeout :: Maybe (Val Integer')
   , _lambdaFunctionVpcConfig :: Maybe LambdaFunctionVPCConfig
   } deriving (Show, Generic)
@@ -43,7 +44,7 @@ lambdaFunction
   :: LambdaFunctionCode -- ^ 'lfCode'
   -> Val Text -- ^ 'lfHandler'
   -> Val Text -- ^ 'lfRole'
-  -> Val Text -- ^ 'lfRuntime'
+  -> Runtime -- ^ 'lfRuntime'
   -> LambdaFunction
 lambdaFunction codearg handlerarg rolearg runtimearg =
   LambdaFunction
@@ -105,7 +106,7 @@ lfRole = lens _lambdaFunctionRole (\s a -> s { _lambdaFunctionRole = a })
 -- | The runtime environment for the Lambda function that you are uploading.
 -- For valid values, see the Runtime property in the AWS Lambda Developer
 -- Guide.
-lfRuntime :: Lens' LambdaFunction (Val Text)
+lfRuntime :: Lens' LambdaFunction Runtime
 lfRuntime = lens _lambdaFunctionRuntime (\s a -> s { _lambdaFunctionRuntime = a })
 
 -- | The function execution time (in seconds) after which Lambda terminates

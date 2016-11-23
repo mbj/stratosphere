@@ -1,6 +1,9 @@
 {
   "Name": "SNSTopicSubscription",
   "Documentation": "Subscription is an embedded property of the AWS::SNS::Topic resource that describes the subscription endpoints for an Amazon Simple Notification Service (Amazon SNS) topic.",
+  "Dependencies": [
+    "Types"
+  ],
   "Parameters": [
     {
       "Name": "Endpoint",
@@ -10,7 +13,7 @@
     },
     {
       "Name": "Protocol",
-      "Type": "Text",
+      "Type": "SNSProtocol",
       "Documentation": "The subscription's protocol. For more information, see the Subscribe Protocol parameter in the Amazon Simple Notification Service API Reference.",
       "Required": true
     }

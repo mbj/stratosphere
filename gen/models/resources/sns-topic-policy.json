@@ -11,7 +11,7 @@
     },
     {
       "Name": "Topics",
-      "Type": "[Object]",
+      "Type": "[String]",
       "Documentation": "The Amazon Resource Names (ARN) of the topics to which you want to add the policy. You can use the Ref function to specify an AWS::SNS::Topic resource.",
       "Required": true
     }

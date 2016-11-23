@@ -16,15 +16,16 @@ import GHC.Generics
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.ApiGatewayIntegration
 import Stratosphere.ResourceProperties.ApiGatewayMethodResponse
+import Stratosphere.Types
 
 -- | Full data type definition for ApiGatewayMethod. See 'apiGatewayMethod'
 -- for a more convenient constructor.
 data ApiGatewayMethod =
   ApiGatewayMethod
   { _apiGatewayMethodApiKeyRequired :: Maybe (Val Bool')
-  , _apiGatewayMethodAuthorizationType :: Val Text
+  , _apiGatewayMethodAuthorizationType :: AuthorizationType
   , _apiGatewayMethodAuthorizerId :: Maybe (Val Text)
-  , _apiGatewayMethodHttpMethod :: Val Text
+  , _apiGatewayMethodHttpMethod :: HttpMethod
   , _apiGatewayMethodIntegration :: Maybe ApiGatewayIntegration
   , _apiGatewayMethodMethodResponses :: Maybe [ApiGatewayMethodResponse]
   , _apiGatewayMethodRequestModels :: Maybe Object
@@ -42,8 +43,8 @@ instance FromJSON ApiGatewayMethod where
 -- | Constructor for 'ApiGatewayMethod' containing required fields as
 -- arguments.
 apiGatewayMethod
-  :: Val Text -- ^ 'agmeAuthorizationType'
-  -> Val Text -- ^ 'agmeHttpMethod'
+  :: AuthorizationType -- ^ 'agmeAuthorizationType'
+  -> HttpMethod -- ^ 'agmeHttpMethod'
   -> Val Text -- ^ 'agmeResourceId'
   -> Val Text -- ^ 'agmeRestApiId'
   -> ApiGatewayMethod
@@ -66,7 +67,7 @@ agmeApiKeyRequired :: Lens' ApiGatewayMethod (Maybe (Val Bool'))
 agmeApiKeyRequired = lens _apiGatewayMethodApiKeyRequired (\s a -> s { _apiGatewayMethodApiKeyRequired = a })
 
 -- | The method's authorization type.
-agmeAuthorizationType :: Lens' ApiGatewayMethod (Val Text)
+agmeAuthorizationType :: Lens' ApiGatewayMethod AuthorizationType
 agmeAuthorizationType = lens _apiGatewayMethodAuthorizationType (\s a -> s { _apiGatewayMethodAuthorizationType = a })
 
 -- | The identifier of the authorizer to use on this method. If you specify
@@ -75,7 +76,7 @@ agmeAuthorizerId :: Lens' ApiGatewayMethod (Maybe (Val Text))
 agmeAuthorizerId = lens _apiGatewayMethodAuthorizerId (\s a -> s { _apiGatewayMethodAuthorizerId = a })
 
 -- | The HTTP method that clients will use to call this method.
-agmeHttpMethod :: Lens' ApiGatewayMethod (Val Text)
+agmeHttpMethod :: Lens' ApiGatewayMethod HttpMethod
 agmeHttpMethod = lens _apiGatewayMethodHttpMethod (\s a -> s { _apiGatewayMethodHttpMethod = a })
 
 -- | The back-end system that the method calls when it receives a request.

@@ -14,14 +14,14 @@ import Data.Text
 import GHC.Generics
 
 import Stratosphere.Values
-
+import Stratosphere.Types
 
 -- | Full data type definition for SNSSubscription. See 'snsSubscription' for
 -- a more convenient constructor.
 data SNSSubscription =
   SNSSubscription
   { _sNSSubscriptionEndpoint :: Maybe (Val Text)
-  , _sNSSubscriptionProtocol :: Maybe (Val Text)
+  , _sNSSubscriptionProtocol :: Maybe SNSProtocol
   , _sNSSubscriptionTopicArn :: Maybe (Val Text)
   } deriving (Show, Generic)
 
@@ -51,7 +51,7 @@ snssEndpoint = lens _sNSSubscriptionEndpoint (\s a -> s { _sNSSubscriptionEndpoi
 
 -- | The subscription's protocol. For more information, see the Subscribe
 -- Protocol parameter in the Amazon Simple Notification Service API Reference.
-snssProtocol :: Lens' SNSSubscription (Maybe (Val Text))
+snssProtocol :: Lens' SNSSubscription (Maybe SNSProtocol)
 snssProtocol = lens _sNSSubscriptionProtocol (\s a -> s { _sNSSubscriptionProtocol = a })
 
 -- | The Amazon Resource Name (ARN) of the topic to subscribe to.

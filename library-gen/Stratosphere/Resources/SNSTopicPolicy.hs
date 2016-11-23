@@ -20,7 +20,7 @@ import Stratosphere.Values
 data SNSTopicPolicy =
   SNSTopicPolicy
   { _sNSTopicPolicyPolicyDocument :: Object
-  , _sNSTopicPolicyTopics :: [Object]
+  , _sNSTopicPolicyTopics :: [String]
   } deriving (Show, Generic)
 
 instance ToJSON SNSTopicPolicy where
@@ -32,7 +32,7 @@ instance FromJSON SNSTopicPolicy where
 -- | Constructor for 'SNSTopicPolicy' containing required fields as arguments.
 snsTopicPolicy
   :: Object -- ^ 'snstpPolicyDocument'
-  -> [Object] -- ^ 'snstpTopics'
+  -> [String] -- ^ 'snstpTopics'
   -> SNSTopicPolicy
 snsTopicPolicy policyDocumentarg topicsarg =
   SNSTopicPolicy
@@ -48,5 +48,5 @@ snstpPolicyDocument = lens _sNSTopicPolicyPolicyDocument (\s a -> s { _sNSTopicP
 -- | The Amazon Resource Names (ARN) of the topics to which you want to add
 -- the policy. You can use the Ref function to specify an AWS::SNS::Topic
 -- resource.
-snstpTopics :: Lens' SNSTopicPolicy [Object]
+snstpTopics :: Lens' SNSTopicPolicy [String]
 snstpTopics = lens _sNSTopicPolicyTopics (\s a -> s { _sNSTopicPolicyTopics = a })

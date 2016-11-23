@@ -1,6 +1,9 @@
 {
   "Name": "DynamoDBKeySchema",
   "Documentation": "Describes a primary key for the AWS::DynamoDB::Table resource or a key schema for an index. Each element is composed of an AttributeName and KeyType.\nFor the primary key of an Amazon DynamoDB table that consists of only a hash attribute, specify one element with a KeyType of HASH. For the primary key of an Amazon DynamoDB table that consists of a hash and range attributes, specify two elements: one with a KeyType of HASH and one with a KeyType of RANGE.\nFor a complete discussion of DynamoDB primary keys, see Primary Key in the Amazon DynamoDB Developer Guide.",
+  "Dependencies": [
+    "Types"
+  ],
   "Parameters": [
     {
       "Name": "AttributeName",
@@ -10,7 +13,7 @@
     },
     {
       "Name": "KeyType",
-      "Type": "Text",
+      "Type": "KeyType",
       "Documentation": "Represents the attribute data, consisting of the data type and the attribute value itself. You can specify HASH or RANGE.",
       "Required": true
     }

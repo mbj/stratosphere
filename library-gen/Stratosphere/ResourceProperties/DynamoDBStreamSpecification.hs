@@ -13,13 +13,13 @@ import Data.Text
 import GHC.Generics
 
 import Stratosphere.Values
-
+import Stratosphere.Types
 
 -- | Full data type definition for DynamoDBStreamSpecification. See
 -- 'dynamoDBStreamSpecification' for a more convenient constructor.
 data DynamoDBStreamSpecification =
   DynamoDBStreamSpecification
-  { _dynamoDBStreamSpecificationStreamViewType :: Val Text
+  { _dynamoDBStreamSpecificationStreamViewType :: StreamViewType
   } deriving (Show, Generic)
 
 instance ToJSON DynamoDBStreamSpecification where
@@ -31,7 +31,7 @@ instance FromJSON DynamoDBStreamSpecification where
 -- | Constructor for 'DynamoDBStreamSpecification' containing required fields
 -- as arguments.
 dynamoDBStreamSpecification
-  :: Val Text -- ^ 'ddbssStreamViewType'
+  :: StreamViewType -- ^ 'ddbssStreamViewType'
   -> DynamoDBStreamSpecification
 dynamoDBStreamSpecification streamViewTypearg =
   DynamoDBStreamSpecification
@@ -41,5 +41,5 @@ dynamoDBStreamSpecification streamViewTypearg =
 -- | Determines the information that the stream captures when an item in the
 -- table is modified. For valid values, see StreamSpecification in the Amazon
 -- DynamoDB API Reference.
-ddbssStreamViewType :: Lens' DynamoDBStreamSpecification (Val Text)
+ddbssStreamViewType :: Lens' DynamoDBStreamSpecification StreamViewType
 ddbssStreamViewType = lens _dynamoDBStreamSpecificationStreamViewType (\s a -> s { _dynamoDBStreamSpecificationStreamViewType = a })

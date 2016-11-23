@@ -2,6 +2,9 @@
   "Name": "SNSSubscription",
   "Type": "AWS::SNS::Subscription",
   "Documentation": "The AWS::SNS::Subscription resource subscribes an endpoint to an Amazon Simple Notification Service (Amazon SNS) topic. The owner of the endpoint must confirm the subscription before Amazon SNS creates the subscription.",
+  "Dependencies": [
+    "Types"
+  ],
   "Parameters": [
     {
       "Name": "Endpoint",
@@ -11,7 +14,7 @@
     },
     {
       "Name": "Protocol",
-      "Type": "Text",
+      "Type": "SNSProtocol",
       "Documentation": "The subscription's protocol. For more information, see the Subscribe Protocol parameter in the Amazon Simple Notification Service API Reference.",
       "Required": false
     },

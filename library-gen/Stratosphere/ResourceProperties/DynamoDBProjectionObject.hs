@@ -14,14 +14,14 @@ import Data.Text
 import GHC.Generics
 
 import Stratosphere.Values
-
+import Stratosphere.Types
 
 -- | Full data type definition for DynamoDBProjectionObject. See
 -- 'dynamoDBProjectionObject' for a more convenient constructor.
 data DynamoDBProjectionObject =
   DynamoDBProjectionObject
   { _dynamoDBProjectionObjectNonKeyAttributes :: Maybe [Val Text]
-  , _dynamoDBProjectionObjectProjectionType :: Maybe (Val Text)
+  , _dynamoDBProjectionObjectProjectionType :: Maybe ProjectionType
   } deriving (Show, Generic)
 
 instance ToJSON DynamoDBProjectionObject where
@@ -53,5 +53,5 @@ ddbpoNonKeyAttributes = lens _dynamoDBProjectionObjectNonKeyAttributes (\s a -> 
 -- attributes are projected into the index. The list of projected attributes
 -- are in NonKeyAttributes. All of the table attributes are projected into the
 -- index.
-ddbpoProjectionType :: Lens' DynamoDBProjectionObject (Maybe (Val Text))
+ddbpoProjectionType :: Lens' DynamoDBProjectionObject (Maybe ProjectionType)
 ddbpoProjectionType = lens _dynamoDBProjectionObjectProjectionType (\s a -> s { _dynamoDBProjectionObjectProjectionType = a })
