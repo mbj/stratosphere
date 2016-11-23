@@ -14,7 +14,7 @@ import Data.Text
 import GHC.Generics
 
 import Stratosphere.Values
-
+import Stratosphere.Types
 
 -- | Full data type definition for
 -- APIGatewayDeploymentStageDescriptionMethodSetting. See
@@ -26,8 +26,8 @@ data APIGatewayDeploymentStageDescriptionMethodSetting =
   , _aPIGatewayDeploymentStageDescriptionMethodSettingCacheTtlInSeconds :: Maybe (Val Integer')
   , _aPIGatewayDeploymentStageDescriptionMethodSettingCachingEnabled :: Maybe (Val Bool')
   , _aPIGatewayDeploymentStageDescriptionMethodSettingDataTraceEnabled :: Maybe (Val Bool')
-  , _aPIGatewayDeploymentStageDescriptionMethodSettingHttpMethod :: Maybe (Val Text)
-  , _aPIGatewayDeploymentStageDescriptionMethodSettingLoggingLevel :: Maybe (Val Text)
+  , _aPIGatewayDeploymentStageDescriptionMethodSettingHttpMethod :: Maybe HttpMethod
+  , _aPIGatewayDeploymentStageDescriptionMethodSettingLoggingLevel :: Maybe LoggingLevel
   , _aPIGatewayDeploymentStageDescriptionMethodSettingMetricsEnabled :: Maybe (Val Bool')
   , _aPIGatewayDeploymentStageDescriptionMethodSettingResourcePath :: Maybe (Val Text)
   , _aPIGatewayDeploymentStageDescriptionMethodSettingThrottlingBurstLimit :: Maybe (Val Integer')
@@ -80,12 +80,12 @@ apigdsdmsDataTraceEnabled :: Lens' APIGatewayDeploymentStageDescriptionMethodSet
 apigdsdmsDataTraceEnabled = lens _aPIGatewayDeploymentStageDescriptionMethodSettingDataTraceEnabled (\s a -> s { _aPIGatewayDeploymentStageDescriptionMethodSettingDataTraceEnabled = a })
 
 -- | The HTTP method.
-apigdsdmsHttpMethod :: Lens' APIGatewayDeploymentStageDescriptionMethodSetting (Maybe (Val Text))
+apigdsdmsHttpMethod :: Lens' APIGatewayDeploymentStageDescriptionMethodSetting (Maybe HttpMethod)
 apigdsdmsHttpMethod = lens _aPIGatewayDeploymentStageDescriptionMethodSettingHttpMethod (\s a -> s { _aPIGatewayDeploymentStageDescriptionMethodSettingHttpMethod = a })
 
 -- | The logging level for this method. For valid values, see the loggingLevel
 -- property of the Stage resource in the Amazon API Gateway API Reference.
-apigdsdmsLoggingLevel :: Lens' APIGatewayDeploymentStageDescriptionMethodSetting (Maybe (Val Text))
+apigdsdmsLoggingLevel :: Lens' APIGatewayDeploymentStageDescriptionMethodSetting (Maybe LoggingLevel)
 apigdsdmsLoggingLevel = lens _aPIGatewayDeploymentStageDescriptionMethodSettingLoggingLevel (\s a -> s { _aPIGatewayDeploymentStageDescriptionMethodSettingLoggingLevel = a })
 
 -- | Indicates whether Amazon CloudWatch metrics are enabled for methods in

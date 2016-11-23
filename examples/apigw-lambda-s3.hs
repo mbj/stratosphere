@@ -1,13 +1,13 @@
-{-# LANGUAGE OverloadedLists   #-}
+{-# LANGUAGE OverloadedLists #-}
 {-# LANGUAGE OverloadedStrings #-}
 
 module Main where
 
-import           Control.Lens
-import           Data.Aeson                 (Value (Array), object)
+import Control.Lens
+import Data.Aeson (Value (Array), object)
 import qualified Data.ByteString.Lazy.Char8 as B
-import           Data.Text                  (Text)
-import           Stratosphere
+import Data.Text (Text)
+import Stratosphere
 
 
 -- to curl the endpoint: (substitute your APIGW deployment URL)
@@ -50,8 +50,8 @@ apiGWMethod :: Resource
 apiGWMethod = (resource "ApiGWMethod" $
   ApiGatewayMethodProperties $
   apiGatewayMethod
-    "NONE"
-    "POST"
+    NONE
+    POST
     (toRef apiGWResource)
     (toRef apiGWRestApi)
     & agmeIntegration ?~ integration
@@ -62,8 +62,8 @@ apiGWMethod = (resource "ApiGWMethod" $
     ]
 
   where
-    integration = apiGatewayIntegration "AWS"
-      & agiIntegrationHttpMethod ?~ "POST"
+    integration = apiGatewayIntegration AWS
+      & agiIntegrationHttpMethod ?~ POST
       & agiUri ?~ (Join "" [
           "arn:aws:apigateway:"
         , Ref "AWS::Region"
@@ -71,7 +71,7 @@ apiGWMethod = (resource "ApiGWMethod" $
         , GetAtt "WriteS3ObjectLambda" "Arn"
         , "/invocations"])
       & agiIntegrationResponses ?~ [ integrationResponse ]
-      & agiPassthroughBehavior ?~ "WHEN_NO_TEMPLATES"
+      & agiPassthroughBehavior ?~ WHEN_NO_TEMPLATES
       & agiRequestTemplates ?~ [ ("application/json", "{\"body\": $input.body}") ]
 
     integrationResponse = apiGatewayIntegrationResponse
@@ -99,7 +99,7 @@ lambda = (resource "WriteS3ObjectLambda" $
     lambdaCode
     "index.handler"
     (GetAtt "IAMRole" "Arn")
-    "nodejs4.3"
+    NodeJS43
     & lfFunctionName ?~ "writeS3Object"
   )
 

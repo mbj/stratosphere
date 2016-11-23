@@ -1,6 +1,9 @@
 {
   "Name": "ApiGatewayUsagePlanQuotaSettings",
   "Documentation": "QuotaSettings is a property of the AWS::ApiGateway::UsagePlan resource that specifies the maximum number of requests users can make to your Amazon API Gateway (API Gateway) APIs.",
+  "Dependencies": [
+    "Types"
+  ], 
   "Parameters": [
     {
       "Name": "Limit",
@@ -16,7 +19,7 @@
     },
     {
       "Name": "Period",
-      "Type": "Text",
+      "Type": "Period",
       "Documentation": "The time period for which the maximum limit of requests applies, such as DAY or WEEK. For valid values, see the period property for the UsagePlan resource in the Amazon API Gateway REST API Reference.",
       "Required": false
     }

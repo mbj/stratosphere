@@ -14,7 +14,7 @@ import Data.Text
 import GHC.Generics
 
 import Stratosphere.Values
-
+import Stratosphere.Types
 
 -- | Full data type definition for ApiGatewayStageMethodSetting. See
 -- 'apiGatewayStageMethodSetting' for a more convenient constructor.
@@ -24,8 +24,8 @@ data ApiGatewayStageMethodSetting =
   , _apiGatewayStageMethodSettingCacheTtlInSeconds :: Maybe (Val Integer')
   , _apiGatewayStageMethodSettingCachingEnabled :: Maybe (Val Bool')
   , _apiGatewayStageMethodSettingDataTraceEnabled :: Maybe (Val Bool')
-  , _apiGatewayStageMethodSettingHttpMethod :: Val Text
-  , _apiGatewayStageMethodSettingLoggingLevel :: Maybe (Val Text)
+  , _apiGatewayStageMethodSettingHttpMethod :: HttpMethod
+  , _apiGatewayStageMethodSettingLoggingLevel :: Maybe LoggingLevel
   , _apiGatewayStageMethodSettingMetricsEnabled :: Maybe (Val Bool')
   , _apiGatewayStageMethodSettingResourcePath :: Val Text
   , _apiGatewayStageMethodSettingThrottlingBurstLimit :: Maybe (Val Integer')
@@ -41,7 +41,7 @@ instance FromJSON ApiGatewayStageMethodSetting where
 -- | Constructor for 'ApiGatewayStageMethodSetting' containing required fields
 -- as arguments.
 apiGatewayStageMethodSetting
-  :: Val Text -- ^ 'agsmsHttpMethod'
+  :: HttpMethod -- ^ 'agsmsHttpMethod'
   -> Val Text -- ^ 'agsmsResourcePath'
   -> ApiGatewayStageMethodSetting
 apiGatewayStageMethodSetting httpMethodarg resourcePatharg =
@@ -78,12 +78,12 @@ agsmsDataTraceEnabled :: Lens' ApiGatewayStageMethodSetting (Maybe (Val Bool'))
 agsmsDataTraceEnabled = lens _apiGatewayStageMethodSettingDataTraceEnabled (\s a -> s { _apiGatewayStageMethodSettingDataTraceEnabled = a })
 
 -- | The HTTP method.
-agsmsHttpMethod :: Lens' ApiGatewayStageMethodSetting (Val Text)
+agsmsHttpMethod :: Lens' ApiGatewayStageMethodSetting HttpMethod
 agsmsHttpMethod = lens _apiGatewayStageMethodSettingHttpMethod (\s a -> s { _apiGatewayStageMethodSettingHttpMethod = a })
 
 -- | The logging level for this method. For valid values, see the loggingLevel
 -- property of the Stage resource in the Amazon API Gateway API Reference.
-agsmsLoggingLevel :: Lens' ApiGatewayStageMethodSetting (Maybe (Val Text))
+agsmsLoggingLevel :: Lens' ApiGatewayStageMethodSetting (Maybe LoggingLevel)
 agsmsLoggingLevel = lens _apiGatewayStageMethodSettingLoggingLevel (\s a -> s { _apiGatewayStageMethodSettingLoggingLevel = a })
 
 -- | Indicates whether Amazon CloudWatch metrics are enabled for methods in

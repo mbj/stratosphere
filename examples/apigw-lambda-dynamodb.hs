@@ -1,13 +1,13 @@
-{-# LANGUAGE OverloadedLists   #-}
+{-# LANGUAGE OverloadedLists #-}
 {-# LANGUAGE OverloadedStrings #-}
 
 module Main where
 
-import           Control.Lens
-import           Data.Aeson                 (Value (Array), object)
+import Control.Lens
+import Data.Aeson (Value (Array), object)
 import qualified Data.ByteString.Lazy.Char8 as B
-import           Data.Text                  (Text)
-import           Stratosphere
+import Data.Text (Text)
+import Stratosphere
 
 
 -- to curl the endpoints: (substitute your APIGW deployment URL)
@@ -55,8 +55,8 @@ getMethod :: Resource
 getMethod = (resource "ApiGWGetMethod" $
   ApiGatewayMethodProperties $
   apiGatewayMethod
-    "NONE"
-    "GET"
+    NONE
+    GET
     (toRef apiGWResource)
     (toRef apiGWRestApi)
     & agmeIntegration ?~ integration
@@ -67,8 +67,8 @@ getMethod = (resource "ApiGWGetMethod" $
     ]
 
   where
-    integration = apiGatewayIntegration "AWS"
-      & agiIntegrationHttpMethod ?~ "POST"
+    integration = apiGatewayIntegration AWS
+      & agiIntegrationHttpMethod ?~ POST
       & agiUri ?~ (Join "" [
           "arn:aws:apigateway:"
         , Ref "AWS::Region"
@@ -76,7 +76,7 @@ getMethod = (resource "ApiGWGetMethod" $
         , GetAtt "ReadTableLambda" "Arn"
         , "/invocations"])
       & agiIntegrationResponses ?~ [ integrationResponse ]
-      & agiPassthroughBehavior ?~ "WHEN_NO_TEMPLATES"
+      & agiPassthroughBehavior ?~ WHEN_NO_TEMPLATES
       & agiRequestTemplates ?~ [ ]
 
     integrationResponse = apiGatewayIntegrationResponse
@@ -90,8 +90,8 @@ postMethod :: Resource
 postMethod = (resource "ApiGWPutMethod" $
   ApiGatewayMethodProperties $
   apiGatewayMethod
-    "NONE"
-    "POST"
+    NONE
+    POST
     (toRef apiGWResource)
     (toRef apiGWRestApi)
     & agmeIntegration ?~ integration
@@ -102,8 +102,8 @@ postMethod = (resource "ApiGWPutMethod" $
     ]
 
   where
-    integration = apiGatewayIntegration "AWS"
-      & agiIntegrationHttpMethod ?~ "POST"
+    integration = apiGatewayIntegration AWS
+      & agiIntegrationHttpMethod ?~ POST
       & agiUri ?~ (Join "" [
           "arn:aws:apigateway:"
         , Ref "AWS::Region"
@@ -111,7 +111,7 @@ postMethod = (resource "ApiGWPutMethod" $
         , GetAtt "WriteTableLambda" "Arn"
         , "/invocations"])
       & agiIntegrationResponses ?~ [ integrationResponse ]
-      & agiPassthroughBehavior ?~ "WHEN_NO_TEMPLATES"
+      & agiPassthroughBehavior ?~ WHEN_NO_TEMPLATES
       & agiRequestTemplates ?~ [ ("application/json", "{\"body\": $input.body}") ]
 
     integrationResponse = apiGatewayIntegrationResponse
@@ -140,7 +140,7 @@ readLambda = (resource "ReadTableLambda" $
     lambdaCode
     "index.handler"
     (GetAtt "ReadLambdaRole" "Arn")
-    "nodejs4.3"
+    NodeJS43
     & lfFunctionName ?~ "readTable"
   )
 
@@ -177,7 +177,7 @@ writeLambda = (resource "WriteTableLambda" $
     lambdaCode
     "index.handler"
     (GetAtt "WriteLambdaRole" "Arn")
-    "nodejs4.3"
+    NodeJS43
     & lfFunctionName ?~ "writeTable"
   )
 
@@ -325,10 +325,10 @@ dynamoDbTable = resource "Table" $
 
   where
     attributeDefinitions = [
-        dynamoDBAttributeDefinition "Id" "S"
+        dynamoDBAttributeDefinition "Id" S
       ]
     keySchema = [
-        dynamoDBKeySchema "Id" "HASH"
+        dynamoDBKeySchema "Id" HASH
       ]
     provisionedThroughput =
       dynamoDBProvisionedThroughput (Literal 1) (Literal 1)

@@ -13,14 +13,14 @@ import Data.Text
 import GHC.Generics
 
 import Stratosphere.Values
-
+import Stratosphere.Types
 
 -- | Full data type definition for DynamoDBAttributeDefinition. See
 -- 'dynamoDBAttributeDefinition' for a more convenient constructor.
 data DynamoDBAttributeDefinition =
   DynamoDBAttributeDefinition
   { _dynamoDBAttributeDefinitionAttributeName :: Val Text
-  , _dynamoDBAttributeDefinitionAttributeType :: Val Text
+  , _dynamoDBAttributeDefinitionAttributeType :: AttributeType
   } deriving (Show, Generic)
 
 instance ToJSON DynamoDBAttributeDefinition where
@@ -33,7 +33,7 @@ instance FromJSON DynamoDBAttributeDefinition where
 -- as arguments.
 dynamoDBAttributeDefinition
   :: Val Text -- ^ 'ddbadAttributeName'
-  -> Val Text -- ^ 'ddbadAttributeType'
+  -> AttributeType -- ^ 'ddbadAttributeType'
   -> DynamoDBAttributeDefinition
 dynamoDBAttributeDefinition attributeNamearg attributeTypearg =
   DynamoDBAttributeDefinition
@@ -48,5 +48,5 @@ ddbadAttributeName = lens _dynamoDBAttributeDefinitionAttributeName (\s a -> s {
 
 -- | The data type for the attribute. You can specify S for string data, N for
 -- numeric data, or B for binary data.
-ddbadAttributeType :: Lens' DynamoDBAttributeDefinition (Val Text)
+ddbadAttributeType :: Lens' DynamoDBAttributeDefinition AttributeType
 ddbadAttributeType = lens _dynamoDBAttributeDefinitionAttributeType (\s a -> s { _dynamoDBAttributeDefinitionAttributeType = a })

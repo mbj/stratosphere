@@ -1,6 +1,9 @@
 {
   "Name": "APIGatewayDeploymentStageDescriptionMethodSetting",
   "Documentation": "MethodSetting is a property of the Amazon API Gateway Deployment StageDescription property that configures settings for all methods in an Amazon API Gateway (API Gateway) stage.",
+  "Dependencies": [
+    "Types"
+  ],
   "Parameters": [
     {
       "Name": "CacheDataEncrypted",
@@ -28,13 +31,13 @@
     },
     {
       "Name": "HttpMethod",
-      "Type": "Text",
+      "Type": "HttpMethod",
       "Documentation": "The HTTP method.",
       "Required": false
     },
     {
       "Name": "LoggingLevel",
-      "Type": "Text",
+      "Type": "LoggingLevel",
       "Documentation": "The logging level for this method. For valid values, see the loggingLevel property of the Stage resource in the Amazon API Gateway API Reference.",
       "Required": false
     },

@@ -4,10 +4,11 @@
 module Main where
 
 import Control.Lens
+import Data.Aeson (Value (Array), object)
 import qualified Data.ByteString.Lazy.Char8 as B
 import Data.Text (Text)
 import Stratosphere
-import Data.Aeson (object, Value(Array))
+
 
 main :: IO ()
 main = B.putStrLn $ encodeTemplate myTemplate
@@ -25,7 +26,7 @@ lambda = (resource "CopyS3ObjectLambda" $
     lambdaCode
     "index.handler"
     (GetAtt "IAMRole" "Arn")
-    "nodejs4.3"
+    NodeJS43
     & lfFunctionName ?~ "copyS3Object"
   )
   & dependsOn ?~ [ role ^. resName ]

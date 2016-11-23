@@ -63,13 +63,16 @@ import Stratosphere.Resources.DynamoDBTable as X
 import Stratosphere.Resources.EC2Instance as X
 import Stratosphere.Resources.EIP as X
 import Stratosphere.Resources.EIPAssociation as X
+import Stratosphere.Resources.EventsRule as X
 import Stratosphere.Resources.Group as X
 import Stratosphere.Resources.IAMRole as X
 import Stratosphere.Resources.InstanceProfile as X
 import Stratosphere.Resources.InternetGateway as X
 import Stratosphere.Resources.KinesisStream as X
+import Stratosphere.Resources.LambdaAlias as X
 import Stratosphere.Resources.LambdaFunction as X
 import Stratosphere.Resources.LambdaPermission as X
+import Stratosphere.Resources.LambdaVersion as X
 import Stratosphere.Resources.LaunchConfiguration as X
 import Stratosphere.Resources.LifecycleHook as X
 import Stratosphere.Resources.LoadBalancer as X
@@ -83,6 +86,11 @@ import Stratosphere.Resources.RecordSetGroup as X
 import Stratosphere.Resources.Route as X
 import Stratosphere.Resources.RouteTable as X
 import Stratosphere.Resources.S3BucketPolicy as X
+import Stratosphere.Resources.SNSSubscription as X
+import Stratosphere.Resources.SNSTopic as X
+import Stratosphere.Resources.SNSTopicPolicy as X
+import Stratosphere.Resources.SQSQueue as X
+import Stratosphere.Resources.SQSQueuePolicy as X
 import Stratosphere.Resources.ScalingPolicy as X
 import Stratosphere.Resources.ScheduledAction as X
 import Stratosphere.Resources.SecurityGroup as X
@@ -177,6 +185,8 @@ import Stratosphere.ResourceProperties.S3WebsiteRedirectAllRequestsTo as X
 import Stratosphere.ResourceProperties.S3WebsiteRedirectRule as X
 import Stratosphere.ResourceProperties.S3WebsiteRoutingRuleCondition as X
 import Stratosphere.ResourceProperties.S3WebsiteRoutingRules as X
+import Stratosphere.ResourceProperties.SNSTopicSubscription as X
+import Stratosphere.ResourceProperties.SQSRedrivePolicy as X
 import Stratosphere.ResourceProperties.SecurityGroupEgressRule as X
 import Stratosphere.ResourceProperties.SecurityGroupIngressRule as X
 import Stratosphere.ResourceProperties.StepAdjustments as X
@@ -216,13 +226,16 @@ data ResourceProperties
   | EC2InstanceProperties EC2Instance
   | EIPProperties EIP
   | EIPAssociationProperties EIPAssociation
+  | EventsRuleProperties EventsRule
   | GroupProperties Group
   | IAMRoleProperties IAMRole
   | InstanceProfileProperties InstanceProfile
   | InternetGatewayProperties InternetGateway
   | KinesisStreamProperties KinesisStream
+  | LambdaAliasProperties LambdaAlias
   | LambdaFunctionProperties LambdaFunction
   | LambdaPermissionProperties LambdaPermission
+  | LambdaVersionProperties LambdaVersion
   | LaunchConfigurationProperties LaunchConfiguration
   | LifecycleHookProperties LifecycleHook
   | LoadBalancerProperties LoadBalancer
@@ -236,6 +249,11 @@ data ResourceProperties
   | RouteProperties Route
   | RouteTableProperties RouteTable
   | S3BucketPolicyProperties S3BucketPolicy
+  | SNSSubscriptionProperties SNSSubscription
+  | SNSTopicProperties SNSTopic
+  | SNSTopicPolicyProperties SNSTopicPolicy
+  | SQSQueueProperties SQSQueue
+  | SQSQueuePolicyProperties SQSQueuePolicy
   | ScalingPolicyProperties ScalingPolicy
   | ScheduledActionProperties ScheduledAction
   | SecurityGroupProperties SecurityGroup
@@ -350,6 +368,8 @@ resourcePropertiesJSON (EIPProperties x) =
   [ "Type" .= ("AWS::EC2::EIP" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (EIPAssociationProperties x) =
   [ "Type" .= ("AWS::EC2::EIPAssociation" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (EventsRuleProperties x) =
+  [ "Type" .= ("AWS::Events::Rule" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (GroupProperties x) =
   [ "Type" .= ("AWS::IAM::Group" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (IAMRoleProperties x) =
@@ -360,10 +380,14 @@ resourcePropertiesJSON (InternetGatewayProperties x) =
   [ "Type" .= ("AWS::EC2::InternetGateway" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (KinesisStreamProperties x) =
   [ "Type" .= ("AWS::Kinesis::Stream" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (LambdaAliasProperties x) =
+  [ "Type" .= ("AWS::Lambda::Alias" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (LambdaFunctionProperties x) =
   [ "Type" .= ("AWS::Lambda::Function" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (LambdaPermissionProperties x) =
   [ "Type" .= ("AWS::Lambda::Permission" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (LambdaVersionProperties x) =
+  [ "Type" .= ("AWS::Lambda::Version" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (LaunchConfigurationProperties x) =
   [ "Type" .= ("AWS::AutoScaling::LaunchConfiguration" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (LifecycleHookProperties x) =
@@ -390,6 +414,16 @@ resourcePropertiesJSON (RouteTableProperties x) =
   [ "Type" .= ("AWS::EC2::RouteTable" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (S3BucketPolicyProperties x) =
   [ "Type" .= ("AWS::S3::BucketPolicy" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (SNSSubscriptionProperties x) =
+  [ "Type" .= ("AWS::SNS::Subscription" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (SNSTopicProperties x) =
+  [ "Type" .= ("AWS::SNS::Topic" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (SNSTopicPolicyProperties x) =
+  [ "Type" .= ("AWS::SNS::TopicPolicy" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (SQSQueueProperties x) =
+  [ "Type" .= ("AWS::SQS::Queue" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (SQSQueuePolicyProperties x) =
+  [ "Type" .= ("AWS::SQS::QueuePolicy" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ScalingPolicyProperties x) =
   [ "Type" .= ("AWS::AutoScaling::ScalingPolicy" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ScheduledActionProperties x) =
@@ -451,13 +485,16 @@ resourceFromJSON n o =
          "AWS::EC2::Instance" -> EC2InstanceProperties <$> (o .: "Properties")
          "AWS::EC2::EIP" -> EIPProperties <$> (o .: "Properties")
          "AWS::EC2::EIPAssociation" -> EIPAssociationProperties <$> (o .: "Properties")
+         "AWS::Events::Rule" -> EventsRuleProperties <$> (o .: "Properties")
          "AWS::IAM::Group" -> GroupProperties <$> (o .: "Properties")
          "AWS::IAM::Role" -> IAMRoleProperties <$> (o .: "Properties")
          "AWS::IAM::InstanceProfile" -> InstanceProfileProperties <$> (o .: "Properties")
          "AWS::EC2::InternetGateway" -> InternetGatewayProperties <$> (o .: "Properties")
          "AWS::Kinesis::Stream" -> KinesisStreamProperties <$> (o .: "Properties")
+         "AWS::Lambda::Alias" -> LambdaAliasProperties <$> (o .: "Properties")
          "AWS::Lambda::Function" -> LambdaFunctionProperties <$> (o .: "Properties")
          "AWS::Lambda::Permission" -> LambdaPermissionProperties <$> (o .: "Properties")
+         "AWS::Lambda::Version" -> LambdaVersionProperties <$> (o .: "Properties")
          "AWS::AutoScaling::LaunchConfiguration" -> LaunchConfigurationProperties <$> (o .: "Properties")
          "AWS::AutoScaling::LifecycleHook" -> LifecycleHookProperties <$> (o .: "Properties")
          "AWS::ElasticLoadBalancing::LoadBalancer" -> LoadBalancerProperties <$> (o .: "Properties")
@@ -471,6 +508,11 @@ resourceFromJSON n o =
          "AWS::EC2::Route" -> RouteProperties <$> (o .: "Properties")
          "AWS::EC2::RouteTable" -> RouteTableProperties <$> (o .: "Properties")
          "AWS::S3::BucketPolicy" -> S3BucketPolicyProperties <$> (o .: "Properties")
+         "AWS::SNS::Subscription" -> SNSSubscriptionProperties <$> (o .: "Properties")
+         "AWS::SNS::Topic" -> SNSTopicProperties <$> (o .: "Properties")
+         "AWS::SNS::TopicPolicy" -> SNSTopicPolicyProperties <$> (o .: "Properties")
+         "AWS::SQS::Queue" -> SQSQueueProperties <$> (o .: "Properties")
+         "AWS::SQS::QueuePolicy" -> SQSQueuePolicyProperties <$> (o .: "Properties")
          "AWS::AutoScaling::ScalingPolicy" -> ScalingPolicyProperties <$> (o .: "Properties")
          "AWS::AutoScaling::ScheduledAction" -> ScheduledActionProperties <$> (o .: "Properties")
          "AWS::EC2::SecurityGroup" -> SecurityGroupProperties <$> (o .: "Properties")

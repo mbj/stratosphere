@@ -14,7 +14,7 @@ import Data.Text
 import GHC.Generics
 
 import Stratosphere.Values
-
+import Stratosphere.Types
 
 -- | Full data type definition for ApiGatewayUsagePlanQuotaSettings. See
 -- 'apiGatewayUsagePlanQuotaSettings' for a more convenient constructor.
@@ -22,7 +22,7 @@ data ApiGatewayUsagePlanQuotaSettings =
   ApiGatewayUsagePlanQuotaSettings
   { _apiGatewayUsagePlanQuotaSettingsLimit :: Maybe (Val Integer')
   , _apiGatewayUsagePlanQuotaSettingsOffset :: Maybe (Val Integer')
-  , _apiGatewayUsagePlanQuotaSettingsPeriod :: Maybe (Val Text)
+  , _apiGatewayUsagePlanQuotaSettingsPeriod :: Maybe Period
   } deriving (Show, Generic)
 
 instance ToJSON ApiGatewayUsagePlanQuotaSettings where
@@ -57,5 +57,5 @@ agupqsOffset = lens _apiGatewayUsagePlanQuotaSettingsOffset (\s a -> s { _apiGat
 -- | The time period for which the maximum limit of requests applies, such as
 -- DAY or WEEK. For valid values, see the period property for the UsagePlan
 -- resource in the Amazon API Gateway REST API Reference.
-agupqsPeriod :: Lens' ApiGatewayUsagePlanQuotaSettings (Maybe (Val Text))
+agupqsPeriod :: Lens' ApiGatewayUsagePlanQuotaSettings (Maybe Period)
 agupqsPeriod = lens _apiGatewayUsagePlanQuotaSettingsPeriod (\s a -> s { _apiGatewayUsagePlanQuotaSettingsPeriod = a })

@@ -5,7 +5,8 @@
   "Documentation": "The AWS::ApiGateway::Method resource creates Amazon API Gateway (API Gateway) methods that define the parameters and body that clients must send in their requests.",
   "Dependencies": [
     "ResourceProperties.ApiGatewayIntegration",
-    "ResourceProperties.ApiGatewayMethodResponse"
+    "ResourceProperties.ApiGatewayMethodResponse",
+    "Types"
   ],
   "Parameters": [
     {
@@ -16,7 +17,7 @@
     },
     {
       "Name": "AuthorizationType",
-      "Type": "Text",
+      "Type": "AuthorizationType",
       "Documentation": "The method's authorization type.",
       "Required": true
     },
@@ -28,7 +29,7 @@
     },
     {
       "Name": "HttpMethod",
-      "Type": "Text",
+      "Type": "HttpMethod",
       "Documentation": "The HTTP method that clients will use to call this method.",
       "Required": true
     },

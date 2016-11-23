@@ -4,7 +4,8 @@
   "Documentation": "The AWS::Lambda::Function resource creates an AWS Lambda (Lambda) function that can run code in response to events. For more information, see CreateFunction in the AWS Lambda Developer Guide.",
   "Dependencies": [
     "ResourceProperties.LambdaFunctionCode",
-    "ResourceProperties.LambdaFunctionVPCConfig"
+    "ResourceProperties.LambdaFunctionVPCConfig",
+    "Types"
   ],
   "Parameters": [
     {
@@ -45,7 +46,7 @@
     },
     {
       "Name": "Runtime",
-      "Type": "Text",
+      "Type": "Runtime",
       "Documentation": "The runtime environment for the Lambda function that you are uploading. For valid values, see the Runtime property in the AWS Lambda Developer Guide.",
       "Required": true
     },
