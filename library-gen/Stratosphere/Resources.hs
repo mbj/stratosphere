@@ -63,6 +63,7 @@ import Stratosphere.Resources.DynamoDBTable as X
 import Stratosphere.Resources.EC2Instance as X
 import Stratosphere.Resources.EIP as X
 import Stratosphere.Resources.EIPAssociation as X
+import Stratosphere.Resources.EventsRule as X
 import Stratosphere.Resources.Group as X
 import Stratosphere.Resources.IAMRole as X
 import Stratosphere.Resources.InstanceProfile as X
@@ -225,6 +226,7 @@ data ResourceProperties
   | EC2InstanceProperties EC2Instance
   | EIPProperties EIP
   | EIPAssociationProperties EIPAssociation
+  | EventsRuleProperties EventsRule
   | GroupProperties Group
   | IAMRoleProperties IAMRole
   | InstanceProfileProperties InstanceProfile
@@ -366,6 +368,8 @@ resourcePropertiesJSON (EIPProperties x) =
   [ "Type" .= ("AWS::EC2::EIP" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (EIPAssociationProperties x) =
   [ "Type" .= ("AWS::EC2::EIPAssociation" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (EventsRuleProperties x) =
+  [ "Type" .= ("AWS::Events::Rule" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (GroupProperties x) =
   [ "Type" .= ("AWS::IAM::Group" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (IAMRoleProperties x) =
@@ -481,6 +485,7 @@ resourceFromJSON n o =
          "AWS::EC2::Instance" -> EC2InstanceProperties <$> (o .: "Properties")
          "AWS::EC2::EIP" -> EIPProperties <$> (o .: "Properties")
          "AWS::EC2::EIPAssociation" -> EIPAssociationProperties <$> (o .: "Properties")
+         "AWS::Events::Rule" -> EventsRuleProperties <$> (o .: "Properties")
          "AWS::IAM::Group" -> GroupProperties <$> (o .: "Properties")
          "AWS::IAM::Role" -> IAMRoleProperties <$> (o .: "Properties")
          "AWS::IAM::InstanceProfile" -> InstanceProfileProperties <$> (o .: "Properties")

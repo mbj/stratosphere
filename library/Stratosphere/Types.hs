@@ -1,19 +1,26 @@
-{-# LANGUAGE DeriveAnyClass #-}
-{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DeriveAnyClass    #-}
+{-# LANGUAGE DeriveGeneric     #-}
 {-# LANGUAGE OverloadedStrings #-}
 
 -- | Module for hand-written types that are used in generated modules.
 
 module Stratosphere.Types
-  ( CannedACL (..)
+  ( EnabledState (..)
+  , CannedACL (..)
   , KinesisFirehoseS3CompressionFormat(..)
   , KinesisFirehoseElasticsearchS3BackupMode(..)
   , KinesisFirehoseNoEncryptionConfig(..)
   ) where
 
-import Data.Aeson
-import Data.Text (unpack)
-import GHC.Generics
+import           Data.Aeson
+import           Data.Text    (unpack)
+import           GHC.Generics
+
+
+data EnabledState
+  = ENABLED
+  | DISABLED
+  deriving (Show, Read, Eq, Generic, FromJSON, ToJSON)
 
 -- | Amazon S3 supports a set of predefined grants, known as canned ACLs. Each
 -- canned ACL has a predefined a set of grantees and permissions. The following
@@ -30,7 +37,6 @@ data CannedACL
   | PublicRead
   | PublicReadWrite
   deriving (Show, Read, Eq, Generic, FromJSON, ToJSON)
-
 
 -- | See:
 -- http://docs.aws.amazon.com/firehose/latest/APIReference/API_S3DestinationConfiguration.html
