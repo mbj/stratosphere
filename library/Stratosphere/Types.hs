@@ -17,6 +17,7 @@ module Stratosphere.Types
   , StreamViewType (..)
   , SNSProtocol (..)
   , Runtime (..)
+  , PassthroughBehavior (..)
   , CannedACL (..)
   , KinesisFirehoseS3CompressionFormat(..)
   , KinesisFirehoseElasticsearchS3BackupMode(..)
@@ -165,6 +166,14 @@ instance ToJSON Runtime where
   toJSON Java8    = String "java8"
   toJSON Python27 = String "python2.7"
 
+
+-- | See:
+-- https://docs.aws.amazon.com/apigateway/api-reference/link-relation/integration-put/#passthroughBehavior
+data PassthroughBehavior
+  = WHEN_NO_MATCH
+  | WHEN_NO_TEMPLATES
+  | NEVER
+  deriving (Show, Read, Eq, Generic, FromJSON, ToJSON)
 
 -- | Amazon S3 supports a set of predefined grants, known as canned ACLs. Each
 -- canned ACL has a predefined a set of grantees and permissions. The following

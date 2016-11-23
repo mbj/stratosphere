@@ -26,7 +26,7 @@ data ApiGatewayIntegration =
   , _apiGatewayIntegrationCredentials :: Maybe (Val Text)
   , _apiGatewayIntegrationIntegrationHttpMethod :: Maybe HttpMethod
   , _apiGatewayIntegrationIntegrationResponses :: Maybe [ApiGatewayIntegrationResponse]
-  , _apiGatewayIntegrationPassthroughBehavior :: Maybe (Val Text)
+  , _apiGatewayIntegrationPassthroughBehavior :: Maybe PassthroughBehavior
   , _apiGatewayIntegrationRequestParameters :: Maybe Object
   , _apiGatewayIntegrationRequestTemplates :: Maybe Object
   , _apiGatewayIntegrationType :: ApiBackendType
@@ -93,7 +93,7 @@ agiIntegrationResponses = lens _apiGatewayIntegrationIntegrationResponses (\s a 
 -- behavior depends on the request's Content-Type header and whether you
 -- defined a mapping template for it. For more information and valid values,
 -- see the passthroughBehavior field in the API Gateway API Reference.
-agiPassthroughBehavior :: Lens' ApiGatewayIntegration (Maybe (Val Text))
+agiPassthroughBehavior :: Lens' ApiGatewayIntegration (Maybe PassthroughBehavior)
 agiPassthroughBehavior = lens _apiGatewayIntegrationPassthroughBehavior (\s a -> s { _apiGatewayIntegrationPassthroughBehavior = a })
 
 -- | The request parameters that API Gateway sends with the back-end request.

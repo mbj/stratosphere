@@ -38,7 +38,7 @@
     },
     {
       "Name": "PassthroughBehavior",
-      "Type": "Text",
+      "Type": "PassthroughBehavior",
       "Documentation": "Indicates when API Gateway passes requests to the targeted back end. This behavior depends on the request's Content-Type header and whether you defined a mapping template for it.\nFor more information and valid values, see the passthroughBehavior field in the API Gateway API Reference.",
       "Required": false
     },

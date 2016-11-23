@@ -71,7 +71,7 @@ apiGWMethod = (resource "ApiGWMethod" $
         , GetAtt "WriteS3ObjectLambda" "Arn"
         , "/invocations"])
       & agiIntegrationResponses ?~ [ integrationResponse ]
-      & agiPassthroughBehavior ?~ "WHEN_NO_TEMPLATES"
+      & agiPassthroughBehavior ?~ WHEN_NO_TEMPLATES
       & agiRequestTemplates ?~ [ ("application/json", "{\"body\": $input.body}") ]
 
     integrationResponse = apiGatewayIntegrationResponse

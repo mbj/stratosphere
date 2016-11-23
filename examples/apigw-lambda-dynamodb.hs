@@ -76,7 +76,7 @@ getMethod = (resource "ApiGWGetMethod" $
         , GetAtt "ReadTableLambda" "Arn"
         , "/invocations"])
       & agiIntegrationResponses ?~ [ integrationResponse ]
-      & agiPassthroughBehavior ?~ "WHEN_NO_TEMPLATES"
+      & agiPassthroughBehavior ?~ WHEN_NO_TEMPLATES
       & agiRequestTemplates ?~ [ ]
 
     integrationResponse = apiGatewayIntegrationResponse
@@ -111,7 +111,7 @@ postMethod = (resource "ApiGWPutMethod" $
         , GetAtt "WriteTableLambda" "Arn"
         , "/invocations"])
       & agiIntegrationResponses ?~ [ integrationResponse ]
-      & agiPassthroughBehavior ?~ "WHEN_NO_TEMPLATES"
+      & agiPassthroughBehavior ?~ WHEN_NO_TEMPLATES
       & agiRequestTemplates ?~ [ ("application/json", "{\"body\": $input.body}") ]
 
     integrationResponse = apiGatewayIntegrationResponse
