@@ -5,6 +5,7 @@
 * Added Dynamo DB table resources (@ababkin)
 * Fix the Python docs scraper mishandling the `required` value in some cases,
   and also missing some properties of resources (@amar47shah)
+* Added a ton of SNS and SQS resources (@ababkin)
 
 ## 0.2.0
 
