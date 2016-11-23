@@ -1,5 +1,5 @@
-{-# LANGUAGE DeriveAnyClass    #-}
-{-# LANGUAGE DeriveGeneric     #-}
+{-# LANGUAGE DeriveAnyClass #-}
+{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
 
 -- | Module for hand-written types that are used in generated modules.
@@ -24,9 +24,9 @@ module Stratosphere.Types
   , KinesisFirehoseNoEncryptionConfig(..)
   ) where
 
-import           Data.Aeson
-import           Data.Text    (unpack)
-import           GHC.Generics
+import Data.Aeson
+import Data.Text (unpack)
+import GHC.Generics
 
 
 data EnabledState
