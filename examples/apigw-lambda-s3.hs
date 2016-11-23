@@ -50,8 +50,8 @@ apiGWMethod :: Resource
 apiGWMethod = (resource "ApiGWMethod" $
   ApiGatewayMethodProperties $
   apiGatewayMethod
-    "NONE"
-    "POST"
+    NONE
+    POST
     (toRef apiGWResource)
     (toRef apiGWRestApi)
     & agmeIntegration ?~ integration
@@ -62,8 +62,8 @@ apiGWMethod = (resource "ApiGWMethod" $
     ]
 
   where
-    integration = apiGatewayIntegration "AWS"
-      & agiIntegrationHttpMethod ?~ "POST"
+    integration = apiGatewayIntegration AWS
+      & agiIntegrationHttpMethod ?~ POST
       & agiUri ?~ (Join "" [
           "arn:aws:apigateway:"
         , Ref "AWS::Region"
@@ -99,7 +99,7 @@ lambda = (resource "WriteS3ObjectLambda" $
     lambdaCode
     "index.handler"
     (GetAtt "IAMRole" "Arn")
-    "nodejs4.3"
+    NodeJS43
     & lfFunctionName ?~ "writeS3Object"
   )
 
