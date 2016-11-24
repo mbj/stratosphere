@@ -7,12 +7,15 @@ module Gen.Specifications
   , PropertyType (..)
   , Property (..)
   , SpecType (..)
+  , nonPrimitivePropertyDependencies
   , AtomicType (..)
   , ResourceType (..)
   ) where
 
 import Data.List (sortOn)
+import Data.Maybe (catMaybes)
 import Data.Map (toList)
+import Data.Monoid ((<>))
 import Data.Text
 import GHC.Generics
 
@@ -35,7 +38,6 @@ specFromRaw (RawCloudFormationSpec rawProps version rawResources) = CloudFormati
 data PropertyType
   = PropertyType
   { propertyTypeName :: Text
-  , propertyTypeParentResourceType :: Text
   , propertyTypeDocumentation :: Text
   , propertyTypeProperties :: [Property]
   }
@@ -43,10 +45,16 @@ data PropertyType
 
 propertyTypeFromRaw :: Text -> RawPropertyType -> PropertyType
 propertyTypeFromRaw name (RawPropertyType doc props) =
-  PropertyType name'' parent doc (uncurry propertyFromRaw <$> sortOn fst (toList props))
+  PropertyType name' doc (uncurry propertyFromRaw <$> sortOn fst (toList props))
   where
-    (parent, name') = breakOn "." name
-    name'' = Data.Text.drop 1 name' -- Drop the '.'
+    name' = propertyOrResourceName name
+
+propertyOrResourceName :: Text -> Text
+propertyOrResourceName rawName
+  | "::" `isInfixOf` rawName =
+    let [_, parent, baseName] = splitOn "::" rawName
+    in Data.Text.filter (/= '.') (parent <> baseName)
+  | otherwise = rawName
 
 data Property
   = Property
@@ -108,9 +116,19 @@ textToPrimitiveType "Timestamp" = StringPrimitive
 textToPrimitiveType "Json" = StringPrimitive
 textToPrimitiveType t = error $ "Unknown primitive type: " ++ unpack t
 
+nonPrimitiveTypeName :: SpecType -> Maybe Text
+nonPrimitiveTypeName (AtomicType (SubPropertyType name)) = Just name
+nonPrimitiveTypeName (ListType (SubPropertyType name)) = Just name
+nonPrimitiveTypeName (MapType (SubPropertyType name)) = Just name
+nonPrimitiveTypeName _ = Nothing
+
+nonPrimitivePropertyDependencies :: [Property] -> [Text]
+nonPrimitivePropertyDependencies = catMaybes . fmap (nonPrimitiveTypeName . propertySpecType)
+
 data ResourceType
   = ResourceType
   { resourceTypeName :: Text
+  , resourceTypeType :: Text
   --, resourceTypeAttributes :: [ResourceAttribute] -- Don't care about this yet, could be useful
   , resourceTypeDocumentation :: Text
   , resourceTypeProperties :: [Property]
@@ -118,5 +136,7 @@ data ResourceType
   deriving (Show, Eq, Generic)
 
 resourceTypeFromRaw :: Text -> RawResourceType -> ResourceType
-resourceTypeFromRaw name (RawResourceType _ doc props) =
-  ResourceType name doc (uncurry propertyFromRaw <$> sortOn fst (toList props))
+resourceTypeFromRaw type' (RawResourceType _ doc props) =
+  ResourceType name type' doc (uncurry propertyFromRaw <$> sortOn fst (toList props))
+  where
+    name = propertyOrResourceName type'

@@ -2,7 +2,7 @@
 
 -- | Formats docstrings
 
-module Gen.Docstring where
+module Gen.Render.RenderDocstring where
 
 import qualified Data.Text as T
 

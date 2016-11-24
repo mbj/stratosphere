@@ -30,6 +30,7 @@ executables:
       - bytestring
       - containers
       - ede
+      - extra
       - lens >= 4.5
       - system-fileio
       - system-filepath
