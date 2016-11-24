@@ -19,16 +19,22 @@ import Gen.Docstring
 import Gen.Lens
 import Gen.ReadRawSpecFile
 import Gen.Resource
+import Gen.Specifications
 import Gen.Types
 
 main :: IO ()
 main = do
   specEither :: Either String RawCloudFormationSpec <- decodeFile $ "model" </> "CloudFormationResourceSpecification.json"
-  let spec = either error id specEither
-  print $ length $ rawCloudFormationSpecPropertyTypes spec
-  print $ length $ rawCloudFormationSpecResourceTypes spec
-  print $ rawCloudFormationSpecPropertyTypes spec ! "AWS::CodePipeline::Pipeline.StageDeclaration"
-  print $ rawCloudFormationSpecResourceTypes spec ! "AWS::EC2::Instance"
+  let rawSpec = either error id specEither
+  print $ length $ rawCloudFormationSpecPropertyTypes rawSpec
+  print $ length $ rawCloudFormationSpecResourceTypes rawSpec
+
+  let spec = specFromRaw rawSpec
+  print $ length $ cloudFormationSpecPropertyTypes spec
+  print $ length $ cloudFormationSpecResourceTypes spec
+  print $ cloudFormationSpecPropertyTypes spec !! 1
+  print $ cloudFormationSpecResourceTypes spec !! 1
+
   -- FS.createDirectory True (".." FP.</> "library-gen")
   -- FS.createDirectory True (".." FP.</> "library-gen" FP.</> "Stratosphere")
 
