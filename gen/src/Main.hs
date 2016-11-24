@@ -1,17 +1,14 @@
-{-# LANGUAGE ExistentialQuantification #-}
-{-# LANGUAGE FlexibleInstances #-}
-{-# LANGUAGE MultiParamTypeClasses #-}
-{-# LANGUAGE OverloadedStrings #-}
-
 module Main where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
 import Data.Maybe (isJust, fromMaybe)
+import Data.Map ((!))
 import Data.List (sortOn)
 import qualified Data.Text as T
 import qualified Data.Text.Lazy as TL
 import qualified Filesystem as FS
+import Filesystem.Path.CurrentOS ((</>))
 import qualified Filesystem.Path.CurrentOS as FP
 import Text.EDE
 
@@ -20,19 +17,26 @@ import Gen.Aeson
 import Gen.Constructor
 import Gen.Docstring
 import Gen.Lens
+import Gen.ReadRawSpecFile
 import Gen.Resource
 import Gen.Types
 
 main :: IO ()
-main =
-  do FS.createDirectory True (".." FP.</> "library-gen")
-     FS.createDirectory True (".." FP.</> "library-gen" FP.</> "Stratosphere")
+main = do
+  specEither :: Either String RawCloudFormationSpec <- decodeFile $ "model" </> "CloudFormationResourceSpecification.json"
+  let spec = either error id specEither
+  print $ length $ rawCloudFormationSpecPropertyTypes spec
+  print $ length $ rawCloudFormationSpecResourceTypes spec
+  print $ rawCloudFormationSpecPropertyTypes spec ! "AWS::CodePipeline::Pipeline.StageDeclaration"
+  print $ rawCloudFormationSpecResourceTypes spec ! "AWS::EC2::Instance"
+  -- FS.createDirectory True (".." FP.</> "library-gen")
+  -- FS.createDirectory True (".." FP.</> "library-gen" FP.</> "Stratosphere")
 
-     resources <- genModule ("models" FP.</> "resources") "Stratosphere.Resources"
-     resourceProperties <- genModule ("models" FP.</> "resource-properties") "Stratosphere.ResourceProperties"
-     resourceAttributes <- genModule ("models" FP.</> "resource-attributes") "Stratosphere.ResourceAttributes"
+  -- resources <- genModule ("models" FP.</> "resources") "Stratosphere.Resources"
+  -- resourceProperties <- genModule ("models" FP.</> "resource-properties") "Stratosphere.ResourceProperties"
+  -- resourceAttributes <- genModule ("models" FP.</> "resource-attributes") "Stratosphere.ResourceAttributes"
 
-     renderTopLevelModule resources resourceProperties resourceAttributes
+  -- renderTopLevelModule resources resourceProperties resourceAttributes
 
 genModule
   :: FP.FilePath
