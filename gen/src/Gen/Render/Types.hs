@@ -40,7 +40,7 @@ createModules properties resources =
     propertyModules = moduleFromPropertyType <$> properties
     resourceModules = moduleFromResourceType <$> resources
     allPropertyNames = Set.fromList $ propertyTypeName <$> properties
-  in fmap (normalizePropertyNames allPropertyNames) (propertyModules ++ resourceModules)
+  in fmap (normalizePropertyNames allPropertyNames) (resourceModules ++ propertyModules)
 
 moduleFromPropertyType :: PropertyType -> Module
 moduleFromPropertyType (PropertyType fullName doc props) =

@@ -41,6 +41,12 @@ import GHC.Exts (IsList(..))
 import GHC.Generics (Generic)
 
 {{ moduleImports }}
+import Stratosphere.ResourceAttributes.AutoScalingReplacingUpdatePolicy as X
+import Stratosphere.ResourceAttributes.AutoScalingRollingUpdatePolicy as X
+import Stratosphere.ResourceAttributes.AutoScalingScheduledActionPolicy as X
+import Stratosphere.ResourceAttributes.CreationPolicy as X
+import Stratosphere.ResourceAttributes.ResourceSignal as X
+import Stratosphere.ResourceAttributes.UpdatePolicy as X
 import Stratosphere.Helpers
 import Stratosphere.Values
 
