@@ -73,18 +73,21 @@ rawToSpecType
   -> Maybe Text -- PrimitiveItemType
   -> Maybe Text -- ItemType
   -> SpecType
+-- AWS::ElasticLoadBalancing::LoadBalancer.Policies.Attributes incorrectly has
+-- an ItemType of "json", not a PrimitiveItemType of "Json"
+rawToSpecType _ (Just "List") _ (Just "json") = ListType JsonPrimitive
 -- Just primitive type, nothing else
-rawToSpecType (Just prim) _ _ _ = AtomicType $ textToPrimitiveType prim
+rawToSpecType (Just prim) Nothing Nothing Nothing = AtomicType $ textToPrimitiveType prim
 -- A list of primitives
-rawToSpecType _ (Just "List") (Just prim) _ = ListType $ textToPrimitiveType prim
+rawToSpecType Nothing (Just "List") (Just prim) Nothing = ListType $ textToPrimitiveType prim
 -- A list of non-primitives
-rawToSpecType _ (Just "List") _ (Just item) = ListType $ SubPropertyType item
+rawToSpecType Nothing (Just "List") Nothing (Just item) = ListType $ SubPropertyType item
 -- A map of primitives
-rawToSpecType _ (Just "Map") (Just prim) _ = MapType $ textToPrimitiveType prim
+rawToSpecType Nothing (Just "Map") (Just prim) Nothing = MapType $ textToPrimitiveType prim
 -- A map of non-primitives
-rawToSpecType _ (Just "Map") _ (Just item) = MapType $ SubPropertyType item
+rawToSpecType Nothing (Just "Map") Nothing (Just item) = MapType $ SubPropertyType item
 -- A non-primitive type
-rawToSpecType _ (Just prop) _ _ = AtomicType $ SubPropertyType prop
+rawToSpecType Nothing (Just prop) Nothing Nothing = AtomicType $ SubPropertyType prop
 rawToSpecType prim type' primItem item = error $ "Unknown raw type: " ++ show (prim, type', primItem, item)
 
 data AtomicType
@@ -103,7 +106,7 @@ textToPrimitiveType "Integer" = IntegerPrimitive
 textToPrimitiveType "Double" = DoublePrimitive
 textToPrimitiveType "Boolean" = BoolPrimitive
 textToPrimitiveType "Timestamp" = StringPrimitive
-textToPrimitiveType "Json" = StringPrimitive
+textToPrimitiveType "Json" = JsonPrimitive
 textToPrimitiveType t = error $ "Unknown primitive type: " ++ unpack t
 
 nonPrimitiveTypeName :: SpecType -> Maybe Text

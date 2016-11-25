@@ -25,8 +25,10 @@ main = do
   FS.createDirectory True (".." FP.</> "library-gen")
   FS.createDirectory True (".." FP.</> "library-gen" FP.</> "Stratosphere")
 
-  renderModules $ moduleFromPropertyType <$> cloudFormationSpecPropertyTypes spec
-  renderModules $ moduleFromResourceType <$> cloudFormationSpecResourceTypes spec
+  renderModules $
+    createModules
+    (cloudFormationSpecPropertyTypes spec)
+    (cloudFormationSpecResourceTypes spec)
   -- resources <- genModule ("models" FP.</> "resources") "Stratosphere.Resources"
   -- resourceProperties <- genModule ("models" FP.</> "resource-properties") "Stratosphere.ResourceProperties"
   -- resourceAttributes <- genModule ("models" FP.</> "resource-attributes") "Stratosphere.ResourceAttributes"
@@ -39,7 +41,7 @@ renderModules modules = do
   mapM_ (renderModule template) modules
 
 renderModule :: Template -> Module -> IO ()
-renderModule template module'@(Module {..}) = do
+renderModule template module'@Module {..} = do
   let
     params =
       [ "name" .= moduleName

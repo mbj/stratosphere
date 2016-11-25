@@ -1,13 +1,14 @@
 module Gen.Render.Types
   ( Module (..)
-  , moduleFromPropertyType
-  , moduleFromResourceType
+  , createModules
   ) where
 
 import Data.Char (isUpper, isNumber)
 import qualified Data.Char as Char
 import Data.Maybe (fromMaybe)
 import Data.Monoid ((<>))
+import Data.Set (Set)
+import qualified Data.Set as Set
 import Data.Text
 import Data.Text.Manipulate (lowerHead, toAcronym)
 
@@ -32,6 +33,14 @@ data Module
   , moduleProperties :: [Property]
   }
   deriving (Show, Eq)
+
+createModules :: [PropertyType] -> [ResourceType] -> [Module]
+createModules properties resources =
+  let
+    propertyModules = moduleFromPropertyType <$> properties
+    resourceModules = moduleFromResourceType <$> resources
+    allPropertyNames = Set.fromList $ propertyTypeName <$> properties
+  in fmap (normalizePropertyNames allPropertyNames) (propertyModules ++ resourceModules)
 
 moduleFromPropertyType :: PropertyType -> Module
 moduleFromPropertyType (PropertyType fullName doc props) =
@@ -60,6 +69,48 @@ moduleFromResourceType (ResourceType fullName doc props) =
   "Stratosphere.Resources"
   doc
   props
+
+-- | We give slightly different names to properties than AWS does. AWS uses a
+-- fully qualified name for the property, including the parent resource type.
+-- We have to rename all the property types to use our names:
+normalizePropertyNames :: Set Text -> Module -> Module
+normalizePropertyNames allFullNames module'@Module{..} = module' { moduleProperties = props }
+  where
+    buggyFilter Property {..} = (moduleResourceType, propertyName) `Set.member` buggyPropertyNames
+    nonBuggyProps = Prelude.filter (not . buggyFilter) moduleProperties
+    props = fmap (normalizeProperty allFullNames moduleResourceType) nonBuggyProps
+
+-- | These properties don't exist int he spec so we remove them.
+buggyPropertyNames :: Set (Text, Text)
+buggyPropertyNames =
+  Set.fromList
+  [ ("AWS::EC2::SpotFleet", "LaunchSpecifications")
+  ]
+
+normalizeProperty :: Set Text -> Text -> Property -> Property
+normalizeProperty allFullNames resourceType property =
+  property { propertySpecType = normalizeSpecType allFullNames resourceType (propertySpecType property) }
+
+normalizeSpecType :: Set Text -> Text -> SpecType -> SpecType
+normalizeSpecType allFullNames resourceType (AtomicType (SubPropertyType name)) =
+  AtomicType (SubPropertyType $ normalizeTypeName allFullNames resourceType name)
+normalizeSpecType allFullNames resourceType (ListType (SubPropertyType name)) =
+  ListType (SubPropertyType $ normalizeTypeName allFullNames resourceType name)
+normalizeSpecType allFullNames resourceType (MapType (SubPropertyType name)) =
+  MapType (SubPropertyType $ normalizeTypeName allFullNames resourceType name)
+normalizeSpecType _ _ type' = type'
+
+normalizeTypeName :: Set Text -> Text -> Text -> Text
+-- Errors in the AWS spec
+normalizeTypeName _ _ "OriginCustomHeader" = computeModuleName "AWS::CloudFront::Distribution.CustomOriginConfig"
+normalizeTypeName _ _ "AttributeDefinition" = computeModuleName "AWS::DynamoDB::Table.AttributeDefinitions"
+-- Non-errors
+normalizeTypeName allFullNames resourceType name
+  -- As far as I know, the only property type that isn't fully qualified is
+  -- "Tag".
+  | Set.member name allFullNames = name
+  | Set.member (resourceType <> "." <> name) allFullNames = computeModuleName $ resourceType <> "." <> name
+  | otherwise = error $ "Can't normalize property type name: " ++ show (resourceType, unpack name)
 
 -- | We name modules by using everything after the first "::" and removing
 -- non-chars. For example, AWS::EC2::Instance is EC2Instance, and
