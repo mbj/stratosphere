@@ -153,6 +153,21 @@ consecutiveHeadLower (x:nx:xs) =
   else x:nx:xs
 
 computeLensPrefix :: Text -> Text
+-- Special cases with name collisions
+computeLensPrefix "AWS::DataPipeline::Pipeline.ParameterObject" = "dpppao"
+computeLensPrefix "AWS::DataPipeline::Pipeline.PipelineObject" = "dpppio"
+computeLensPrefix "AWS::IoT::TopicRule.S3Action" = "ittrs3a"
+computeLensPrefix "AWS::IoT::TopicRule.SqsAction" = "ittrsqa"
+computeLensPrefix "AWS::IoT::TopicRule.SnsAction" = "ittrsna"
+computeLensPrefix "AWS::ApiGateway::Method" = "agme"
+computeLensPrefix "AWS::ApiGateway::Model" = "agmo"
+computeLensPrefix "AWS::ElastiCache::SecurityGroup" = "ecseg"
+computeLensPrefix "AWS::ElastiCache::SubnetGroup" = "ecsug"
+computeLensPrefix "AWS::RDS::DBSecurityGroup" = "rdsdbseg"
+computeLensPrefix "AWS::RDS::DBSubnetGroup" = "rdsdbsug"
+computeLensPrefix "AWS::Redshift::ClusterSecurityGroup" = "rcseg"
+computeLensPrefix "AWS::Redshift::ClusterSubnetGroup" = "rcsug"
+-- Everything else
 computeLensPrefix rawName = toLower $ fromMaybe rawName $ toAcronym $ computeModuleName rawName
 
 computeFieldPrefix :: Text -> Text
