@@ -1,7 +1,6 @@
 module Main where
 
 import Data.Aeson
-import Data.Maybe (isJust, fromMaybe)
 import qualified Data.Text as T
 import qualified Data.Text.Lazy as TL
 import Extra (whenM)
@@ -51,8 +50,8 @@ renderModule template module'@(Module {..}) = do
       , "jsonInstances" .= renderToFromJSON module'
       , "constructor" .= renderConstructor module'
       , "lenses" .= renderLenses module'
-      , "type" .= fromPairs [ "hasType" .= isJust moduleAWSType
-                            , "value" .= fromMaybe "" moduleAWSType
+      , "type" .= fromPairs [ "hasType" .= moduleIsResource
+                            , "value" .= moduleResourceType
                             ]
       ]
     moduleText =

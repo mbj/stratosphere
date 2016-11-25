@@ -15,7 +15,6 @@ module Gen.Specifications
 import Data.List (sortOn)
 import Data.Maybe (catMaybes)
 import Data.Map (toList)
-import Data.Monoid ((<>))
 import Data.Text
 import GHC.Generics
 
@@ -44,17 +43,8 @@ data PropertyType
   deriving (Show, Eq)
 
 propertyTypeFromRaw :: Text -> RawPropertyType -> PropertyType
-propertyTypeFromRaw name (RawPropertyType doc props) =
-  PropertyType name' doc (uncurry propertyFromRaw <$> sortOn fst (toList props))
-  where
-    name' = propertyOrResourceName name
-
-propertyOrResourceName :: Text -> Text
-propertyOrResourceName rawName
-  | "::" `isInfixOf` rawName =
-    let [_, parent, baseName] = splitOn "::" rawName
-    in Data.Text.filter (/= '.') (parent <> baseName)
-  | otherwise = rawName
+propertyTypeFromRaw fullName (RawPropertyType doc props) =
+  PropertyType fullName doc (uncurry propertyFromRaw <$> sortOn fst (toList props))
 
 data Property
   = Property
@@ -127,8 +117,7 @@ nonPrimitivePropertyDependencies = catMaybes . fmap (nonPrimitiveTypeName . prop
 
 data ResourceType
   = ResourceType
-  { resourceTypeName :: Text
-  , resourceTypeType :: Text
+  { resourceTypeFullName :: Text
   --, resourceTypeAttributes :: [ResourceAttribute] -- Don't care about this yet, could be useful
   , resourceTypeDocumentation :: Text
   , resourceTypeProperties :: [Property]
@@ -136,7 +125,5 @@ data ResourceType
   deriving (Show, Eq, Generic)
 
 resourceTypeFromRaw :: Text -> RawResourceType -> ResourceType
-resourceTypeFromRaw type' (RawResourceType _ doc props) =
-  ResourceType name type' doc (uncurry propertyFromRaw <$> sortOn fst (toList props))
-  where
-    name = propertyOrResourceName type'
+resourceTypeFromRaw fullName (RawResourceType _ doc props) =
+  ResourceType fullName doc (uncurry propertyFromRaw <$> sortOn fst (toList props))
