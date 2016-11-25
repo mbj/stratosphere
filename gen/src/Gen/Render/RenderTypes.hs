@@ -52,3 +52,4 @@ renderAtomicType DoublePrimitive = "Val Double'"
 renderAtomicType BoolPrimitive = "Val Bool'"
 renderAtomicType JsonPrimitive = "Object"
 renderAtomicType (SubPropertyType text) = text
+renderAtomicType (CustomType text) = "Val " <> text

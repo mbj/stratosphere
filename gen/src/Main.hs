@@ -70,11 +70,14 @@ renderModule template module'@Module {..} = do
 renderDependencies :: Module -> [Property] -> T.Text
 renderDependencies Module {..} props = T.intercalate "\n" deps
   where
-    depTypes = nonPrimitivePropertyDependencies props
+    customDeps = customTypeNames props
+    propertyDeps = subPropertyTypeNames props
     -- The EMR Cluster configurations references itself, so we have to filter
     -- out the case where things reference themselves.
-    nonRecursiveDeps = filter (/= moduleName) depTypes
-    deps = fmap (\d -> T.concat ["import Stratosphere.ResourceProperties.", d]) nonRecursiveDeps
+    nonRecursivePropertyDeps = filter (/= moduleName) propertyDeps
+    deps =
+      (if null customDeps then [] else ["import Stratosphere.Types"]) ++
+      fmap (\d -> T.concat ["import Stratosphere.ResourceProperties.", d]) nonRecursivePropertyDeps
 
 
 readTemplate :: FP.FilePath -> IO Template
