@@ -7,6 +7,7 @@ module Stratosphere.Check
      ( duplicateProperties
      ) where
 
+import Data.Hashable (Hashable)
 import qualified Data.HashMap.Strict as HM
 import qualified Data.Text as T
 
@@ -18,9 +19,16 @@ data DuplicateProperty = DuplicateProperty T.Text deriving Show
 duplicateProperties :: Template -> [DuplicateProperty]
 duplicateProperties =
     map DuplicateProperty
-  . HM.keys
-  . HM.filter (> 1)
-  . foldr (\k -> HM.insertWith (+) k (1 :: Integer)) HM.empty
+  . duplicates
   . map resourceResName
   . unResources
   . templateResources
+
+duplicates :: (Foldable f, Eq a, Hashable a) => f a -> [a]
+duplicates =
+  HM.keys . HM.filter (> one) . foldr (insertByAdding one) HM.empty
+  where one :: Int
+        one = 1
+
+insertByAdding :: (Eq k, Hashable k, Num v) => v -> k -> HM.HashMap k v -> HM.HashMap k v
+insertByAdding = flip $ HM.insertWith (+)
