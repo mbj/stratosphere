@@ -103,7 +103,10 @@ normalizeSpecType _ _ type' = type'
 normalizeTypeName :: Set Text -> Text -> Text -> Text
 -- Errors in the AWS spec
 normalizeTypeName _ _ "OriginCustomHeader" = computeModuleName "AWS::CloudFront::Distribution.CustomOriginConfig"
-normalizeTypeName _ _ "AttributeDefinition" = computeModuleName "AWS::DynamoDB::Table.AttributeDefinitions"
+-- This is our only naming conflict. There is a resource named
+-- AWS::RDS::DBSecurityGroupIngress, and a property named
+-- AWS::RDS::DBSecurityGroup.Ingress.
+normalizeTypeName _ "AWS::RDS::DBSecurityGroup" "Ingress" = computeModuleName "AWS::RDS::DBSecurityGroup.IngressProperty"
 -- Non-errors
 normalizeTypeName allFullNames resourceType name
   -- As far as I know, the only property type that isn't fully qualified is
@@ -150,7 +153,7 @@ consecutiveHeadLower (x:nx:xs) =
   else x:nx:xs
 
 computeLensPrefix :: Text -> Text
-computeLensPrefix rawName = toLower $ fromMaybe "" $ toAcronym $ computeModuleName rawName
+computeLensPrefix rawName = toLower $ fromMaybe rawName $ toAcronym $ computeModuleName rawName
 
 computeFieldPrefix :: Text -> Text
 computeFieldPrefix rawName = "_" <> lowerHead (computeModuleName rawName)

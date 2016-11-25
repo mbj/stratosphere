@@ -1,6 +1,7 @@
 module Main where
 
 import Data.Aeson
+import Data.Monoid ((<>))
 import qualified Data.Text as T
 import qualified Data.Text.Lazy as TL
 import Extra (whenM)
@@ -25,15 +26,13 @@ main = do
   FS.createDirectory True (".." FP.</> "library-gen")
   FS.createDirectory True (".." FP.</> "library-gen" FP.</> "Stratosphere")
 
-  renderModules $
-    createModules
-    (cloudFormationSpecPropertyTypes spec)
-    (cloudFormationSpecResourceTypes spec)
-  -- resources <- genModule ("models" FP.</> "resources") "Stratosphere.Resources"
-  -- resourceProperties <- genModule ("models" FP.</> "resource-properties") "Stratosphere.ResourceProperties"
-  -- resourceAttributes <- genModule ("models" FP.</> "resource-attributes") "Stratosphere.ResourceAttributes"
-
-  -- renderTopLevelModule resources resourceProperties resourceAttributes
+  let
+    modules =
+      createModules
+      (cloudFormationSpecPropertyTypes spec)
+      (cloudFormationSpecResourceTypes spec)
+  renderModules modules
+  renderTopLevelModule modules
 
 renderModules :: [Module] -> IO ()
 renderModules modules = do
@@ -47,7 +46,7 @@ renderModule template module'@Module {..} = do
       [ "name" .= moduleName
       , "docstring" .= renderDocstring moduleDocumentation
       , "moduleBase" .= modulePath
-      , "dependencies" .= renderDependencies moduleProperties
+      , "dependencies" .= renderDependencies module' moduleProperties
       , "typeDecl" .= renderResourceTypeDecl module'
       , "jsonInstances" .= renderToFromJSON module'
       , "constructor" .= renderConstructor module'
@@ -68,35 +67,39 @@ renderModule template module'@Module {..} = do
   putStrLn ("Writing: " ++ show filePath)
   FS.writeTextFile filePath moduleText
 
-renderDependencies :: [Property] -> T.Text
-renderDependencies props = T.intercalate "\n" deps
+renderDependencies :: Module -> [Property] -> T.Text
+renderDependencies Module {..} props = T.intercalate "\n" deps
   where
     depTypes = nonPrimitivePropertyDependencies props
-    deps = fmap (\d -> T.concat ["import Stratosphere.ResourceProperties.", d]) depTypes
+    -- The EMR Cluster configurations references itself, so we have to filter
+    -- out the case where things reference themselves.
+    nonRecursiveDeps = filter (/= moduleName) depTypes
+    deps = fmap (\d -> T.concat ["import Stratosphere.ResourceProperties.", d]) nonRecursiveDeps
+
 
 readTemplate :: FP.FilePath -> IO Template
 readTemplate fp =
   do tempResult <- eitherParseFile (FP.encodeString fp)
      either fail return tempResult
 
--- renderTopLevelModule :: [Resource] -> [Resource] -> [Resource] -> IO ()
--- renderTopLevelModule resources resourceProps resourceAttributes =
---   do let params = [ "resourceImports" .=
---                     renderImports "Stratosphere.Resources." resources
---                   , "resourcePropImports" .=
---                     renderImports "Stratosphere.ResourceProperties." resourceProps
---                   , "resourceAttributeImports" .=
---                     renderImports "Stratosphere.ResourceAttributes." resourceAttributes
---                   , "resourceADT" .= renderADT resources
---                   , "toJSONFuncs" .= renderToJSONFuncs resources
---                   , "fromJSONCases" .= renderFromJSONCases resources
---                   ]
+renderTopLevelModule :: [Module] -> IO ()
+renderTopLevelModule modules = do
+  let
+    paths = fmap (\Module{..} -> modulePath <> "." <> moduleName) modules
+    resourceModules = filter moduleIsResource modules
+    params =
+      [ "moduleImports" .= renderImports paths
+      , "resourceADT" .= renderADT resourceModules
+      , "toJSONFuncs" .= renderToJSONFuncs resourceModules
+      , "fromJSONCases" .= renderFromJSONCases resourceModules
+      ]
 
---      template <- readTemplate "templates/Resources.hs.ede"
---      modText <- case render template (fromPairs params) of
---                   (Text.EDE.Success r) -> return (TL.toStrict r)
---                   (Failure f) -> fail $ "Failure rendering: " ++ show f
-
---      let modPath = ".." FP.</> "library-gen" FP.</> "Stratosphere" FP.</> "Resources.hs"
---      putStrLn ("Writing: " ++ show modPath)
---      FS.writeTextFile modPath modText
+  template <- readTemplate "templates/Resources.hs.ede"
+  let
+    modText =
+      case render template (fromPairs params) of
+        (Text.EDE.Success r) -> TL.toStrict r
+        (Failure f) -> error $ "Failure rendering: " ++ show f
+    modPath = ".." FP.</> "library-gen" FP.</> "Stratosphere" FP.</> "Resources.hs"
+  putStrLn ("Writing: " ++ show modPath)
+  FS.writeTextFile modPath modText

@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
-rm -rf library-gen
+set -ex;
+
 (cd gen/ && stack build && stack exec stratosphere-gen)
 stack build "$@"

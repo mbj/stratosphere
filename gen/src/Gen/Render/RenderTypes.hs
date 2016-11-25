@@ -39,8 +39,11 @@ renderType (AtomicType (SubPropertyType text)) False = "Maybe " <> text
 renderType (AtomicType type') False = "Maybe (" <> renderAtomicType type' <> ")"
 renderType (ListType type') True = "[" <> renderAtomicType type' <> "]"
 renderType (ListType type') False = "Maybe [" <> renderAtomicType type' <> "]"
-renderType (MapType type') True = "Map Text " <> renderAtomicType type'
-renderType (MapType type') False = "Maybe (Map Text (" <> renderAtomicType type' <> "))"
+-- TODO: Actually use a map type, not Object
+-- renderType (MapType type') True = "Map Text " <> renderAtomicType type'
+-- renderType (MapType type') False = "Maybe (Map Text (" <> renderAtomicType type' <> "))"
+renderType (MapType _) True = "Object"
+renderType (MapType _) False = "Maybe Object"
 
 renderAtomicType :: AtomicType -> Text
 renderAtomicType StringPrimitive = "Val Text"

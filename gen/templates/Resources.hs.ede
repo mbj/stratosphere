@@ -40,9 +40,7 @@ import qualified Data.Text as T
 import GHC.Exts (IsList(..))
 import GHC.Generics (Generic)
 
-{{ resourceImports }}
-{{ resourcePropImports }}
-{{ resourceAttributeImports }}
+{{ moduleImports }}
 import Stratosphere.Helpers
 import Stratosphere.Values
 

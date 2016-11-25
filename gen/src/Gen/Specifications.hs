@@ -43,6 +43,15 @@ data PropertyType
   deriving (Show, Eq)
 
 propertyTypeFromRaw :: Text -> RawPropertyType -> PropertyType
+-- This property is plural for some reason. It is used in a list, and the
+-- ItemType is "AttributeDefinition".
+propertyTypeFromRaw "AWS::DynamoDB::Table.AttributeDefinitions" rawProp =
+  propertyTypeFromRaw "AWS::DynamoDB::Table.AttributeDefinition" rawProp
+-- This is our only naming conflict. There is a resource named
+-- AWS::RDS::DBSecurityGroupIngress, and a property named
+-- AWS::RDS::DBSecurityGroup.Ingress.
+propertyTypeFromRaw "AWS::RDS::DBSecurityGroup.Ingress" rawProp =
+  propertyTypeFromRaw "AWS::RDS::DBSecurityGroup.IngressProperty" rawProp
 propertyTypeFromRaw fullName (RawPropertyType doc props) =
   PropertyType fullName doc (uncurry propertyFromRaw <$> sortOn fst (toList props))
 
