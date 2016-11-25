@@ -1,3 +1,4 @@
+{-# OPTIONS_GHC -fmax-pmcheck-iterations=10000000 #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE ExistentialQuantification #-}
 {-# LANGUAGE FlexibleInstances #-}
