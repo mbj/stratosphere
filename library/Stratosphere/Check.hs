@@ -4,8 +4,8 @@
 -- Stability: Experimental
 
 module Stratosphere.Check
-     ( duplicateProperties
-     ) where
+  ( duplicateProperties
+  ) where
 
 import Data.Hashable (Hashable)
 import qualified Data.HashMap.Strict as HM
@@ -14,7 +14,8 @@ import qualified Data.Text as T
 import Stratosphere.Resources (resourceResName, unResources)
 import Stratosphere.Template (Template, templateResources)
 
-data DuplicateProperty = DuplicateProperty T.Text deriving Show
+newtype DuplicateProperty = DuplicateProperty T.Text
+  deriving (Show, Eq)
 
 duplicateProperties :: Template -> [DuplicateProperty]
 duplicateProperties =
