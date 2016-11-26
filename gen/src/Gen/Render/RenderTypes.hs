@@ -27,7 +27,7 @@ data #{moduleName} =
     fields = fmap (renderField module') moduleProperties
 
 declDocstring :: Module -> T.Text
-declDocstring Module{..} = renderDocstring doc <> "\n"
+declDocstring Module{..} = renderDocstring doc
   where doc = "Full data type definition for " <> moduleName <>
               ". See '" <> moduleConstructorName <> "' for a more convenient constructor."
 
