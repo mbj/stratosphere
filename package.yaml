@@ -78,14 +78,6 @@ executables:
     when:
       - condition: flag(library-only)
         buildable: false
-  apigw-lambda-s3:
-    main: apigw-lambda-s3.hs
-    source-dirs: examples
-    dependencies: stratosphere
-    ghc-options: -Wall
-    when:
-      - condition: flag(library-only)
-        buildable: false
   apigw-lambda-dynamodb:
     main: apigw-lambda-dynamodb.hs
     source-dirs: examples

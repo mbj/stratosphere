@@ -1,3 +1,5 @@
+{-# LANGUAGE QuasiQuotes #-}
+
 -- | Renders the constructor that includes required values.
 
 module Gen.Render.RenderConstructor where
@@ -6,6 +8,7 @@ import Data.Monoid ((<>))
 import Data.Text (Text)
 import qualified Data.Text as T
 import Data.Text.Manipulate (lowerHead)
+import Text.Shakespeare.Text (st)
 
 import Gen.Render.RenderDocstring
 import Gen.Render.RenderTypes
@@ -14,20 +17,23 @@ import Gen.Specifications
 
 -- | Renders the default constructor function to Text.
 renderConstructor :: Module -> Text
-renderConstructor module'@Module{..} = T.concat [docstring, typeDecl, funcHead, fieldText, footer]
+renderConstructor module'@Module{..} =
+  [st|#{constructorDocstring module'}
+#{moduleConstructorName}
+#{renderTypes module'}
+#{moduleConstructorName} #{args} =
+  #{moduleName}
+  { #{fieldText}
+  }|]
   where
-    docstring = constructorDocstring module'
-    typeDecl = T.concat [moduleConstructorName, "\n", renderTypes module', "\n"]
     argNames = map argName (requiredProperties moduleProperties)
     args = T.intercalate " " argNames
-    funcHead = T.concat [moduleConstructorName, " ", args, " =\n  ", moduleName, "\n  { "]
     fields = fmap (constructorField module') moduleProperties
-    fieldLines = map (\(n, v) -> T.concat [n, " = ", v]) fields
+    fieldLines = map (\(n, v) -> [st|#{n} = #{v}|]) fields
     fieldText = T.intercalate "\n  , " fieldLines
-    footer = "\n  }"
 
 constructorDocstring :: Module -> Text
-constructorDocstring Module {..} = renderDocstring doc  <> "\n"
+constructorDocstring Module {..} = renderDocstring doc
   where doc = "Constructor for '" <> moduleName <>
               "' containing required fields as arguments."
 

@@ -83,6 +83,7 @@ rawToSpecType :: Text -> Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe
 rawToSpecType "AWS::ElasticLoadBalancing::LoadBalancer.Policies" "Attributes" _ _ _ _ = ListType JsonPrimitive
 -- Overrides
 rawToSpecType "AWS::ApiGateway::Method" "AuthorizationType" _ _ _ _ = AtomicType $ CustomType "AuthorizationType"
+rawToSpecType "AWS::ApiGateway::Method.Integration" "IntegrationHttpMethod" _ _ _ _ = AtomicType $ CustomType "HttpMethod"
 rawToSpecType "AWS::ApiGateway::Method.Integration" "PassthroughBehavior" _ _ _ _ = AtomicType $ CustomType "PassthroughBehavior"
 rawToSpecType "AWS::ApiGateway::Method.Integration" "Type" _ _ _ _ = AtomicType $ CustomType "ApiBackendType"
 rawToSpecType "AWS::ApiGateway::UsagePlan.QuotaSettings" "Period" _ _ _ _ = AtomicType $ CustomType "Period"

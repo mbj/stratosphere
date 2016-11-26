@@ -32,6 +32,7 @@ executables:
       - ede
       - extra
       - lens >= 4.5
+      - shakespeare
       - system-fileio
       - system-filepath
       - text >= 1.1

@@ -1,3 +1,5 @@
+{-# LANGUAGE QuasiQuotes #-}
+
 -- | Generate Haskell types from resource parameters.
 
 module Gen.Render.RenderTypes
@@ -8,17 +10,21 @@ module Gen.Render.RenderTypes
 import Data.Monoid ((<>))
 import Data.Text (Text)
 import qualified Data.Text as T
+import Text.Shakespeare.Text (st)
 
 import Gen.Render.RenderDocstring
 import Gen.Render.Types
 import Gen.Specifications
 
 renderResourceTypeDecl :: Module -> T.Text
-renderResourceTypeDecl module'@Module {..} = T.concat [declDocstring module', header, sigs, footer]
-  where header = T.concat ["data ", moduleName, " =\n  ", moduleName, "\n  { "]
-        fields = fmap (renderField module') moduleProperties
-        sigs = T.intercalate "\n  , " fields
-        footer = "\n  } deriving (Show, Generic)"
+renderResourceTypeDecl module'@Module {..} = --T.concat [declDocstring module', header, sigs, footer]
+  [st|#{declDocstring module'}
+data #{moduleName} =
+  #{moduleName}
+  { #{T.intercalate "\n  , " fields}
+  } deriving (Show, Generic)|]
+  where
+    fields = fmap (renderField module') moduleProperties
 
 declDocstring :: Module -> T.Text
 declDocstring Module{..} = renderDocstring doc <> "\n"
