@@ -1,9 +1,7 @@
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
 
--- | The AWS::ApiGateway::Account resource specifies the AWS Identity and
--- Access Management (IAM) role that Amazon API Gateway (API Gateway) uses to
--- write API logs to Amazon CloudWatch Logs (CloudWatch Logs).
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-account.html
 
 module Stratosphere.Resources.ApiGatewayAccount where
 
@@ -17,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for ApiGatewayAccount. See 'apiGatewayAccount'
--- for a more convenient constructor.
+-- | for a more convenient constructor.
 data ApiGatewayAccount =
   ApiGatewayAccount
   { _apiGatewayAccountCloudWatchRoleArn :: Maybe (Val Text)
@@ -30,7 +28,7 @@ instance FromJSON ApiGatewayAccount where
   parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 18, omitNothingFields = True }
 
 -- | Constructor for 'ApiGatewayAccount' containing required fields as
--- arguments.
+-- | arguments.
 apiGatewayAccount
   :: ApiGatewayAccount
 apiGatewayAccount  =
@@ -38,7 +36,6 @@ apiGatewayAccount  =
   { _apiGatewayAccountCloudWatchRoleArn = Nothing
   }
 
--- | The Amazon Resource Name (ARN) of an IAM role that has write access to
--- CloudWatch Logs in your account.
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-account.html#cfn-apigateway-account-cloudwatchrolearn
 agaCloudWatchRoleArn :: Lens' ApiGatewayAccount (Maybe (Val Text))
 agaCloudWatchRoleArn = lens _apiGatewayAccountCloudWatchRoleArn (\s a -> s { _apiGatewayAccountCloudWatchRoleArn = a })

@@ -1,9 +1,7 @@
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
 
--- | MethodSetting is a property of the AWS::ApiGateway::Stage resource that
--- configures settings for all methods in an Amazon API Gateway (API Gateway)
--- stage.
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html
 
 module Stratosphere.ResourceProperties.ApiGatewayStageMethodSetting where
 
@@ -17,19 +15,19 @@ import Stratosphere.Values
 import Stratosphere.Types
 
 -- | Full data type definition for ApiGatewayStageMethodSetting. See
--- 'apiGatewayStageMethodSetting' for a more convenient constructor.
+-- | 'apiGatewayStageMethodSetting' for a more convenient constructor.
 data ApiGatewayStageMethodSetting =
   ApiGatewayStageMethodSetting
   { _apiGatewayStageMethodSettingCacheDataEncrypted :: Maybe (Val Bool')
   , _apiGatewayStageMethodSettingCacheTtlInSeconds :: Maybe (Val Integer')
   , _apiGatewayStageMethodSettingCachingEnabled :: Maybe (Val Bool')
   , _apiGatewayStageMethodSettingDataTraceEnabled :: Maybe (Val Bool')
-  , _apiGatewayStageMethodSettingHttpMethod :: HttpMethod
-  , _apiGatewayStageMethodSettingLoggingLevel :: Maybe LoggingLevel
+  , _apiGatewayStageMethodSettingHttpMethod :: Maybe (Val HttpMethod)
+  , _apiGatewayStageMethodSettingLoggingLevel :: Maybe (Val LoggingLevel)
   , _apiGatewayStageMethodSettingMetricsEnabled :: Maybe (Val Bool')
-  , _apiGatewayStageMethodSettingResourcePath :: Val Text
+  , _apiGatewayStageMethodSettingResourcePath :: Maybe (Val Text)
   , _apiGatewayStageMethodSettingThrottlingBurstLimit :: Maybe (Val Integer')
-  , _apiGatewayStageMethodSettingThrottlingRateLimit :: Maybe Double'
+  , _apiGatewayStageMethodSettingThrottlingRateLimit :: Maybe (Val Double')
   } deriving (Show, Generic)
 
 instance ToJSON ApiGatewayStageMethodSetting where
@@ -39,74 +37,59 @@ instance FromJSON ApiGatewayStageMethodSetting where
   parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 29, omitNothingFields = True }
 
 -- | Constructor for 'ApiGatewayStageMethodSetting' containing required fields
--- as arguments.
+-- | as arguments.
 apiGatewayStageMethodSetting
-  :: HttpMethod -- ^ 'agsmsHttpMethod'
-  -> Val Text -- ^ 'agsmsResourcePath'
-  -> ApiGatewayStageMethodSetting
-apiGatewayStageMethodSetting httpMethodarg resourcePatharg =
+  :: ApiGatewayStageMethodSetting
+apiGatewayStageMethodSetting  =
   ApiGatewayStageMethodSetting
   { _apiGatewayStageMethodSettingCacheDataEncrypted = Nothing
   , _apiGatewayStageMethodSettingCacheTtlInSeconds = Nothing
   , _apiGatewayStageMethodSettingCachingEnabled = Nothing
   , _apiGatewayStageMethodSettingDataTraceEnabled = Nothing
-  , _apiGatewayStageMethodSettingHttpMethod = httpMethodarg
+  , _apiGatewayStageMethodSettingHttpMethod = Nothing
   , _apiGatewayStageMethodSettingLoggingLevel = Nothing
   , _apiGatewayStageMethodSettingMetricsEnabled = Nothing
-  , _apiGatewayStageMethodSettingResourcePath = resourcePatharg
+  , _apiGatewayStageMethodSettingResourcePath = Nothing
   , _apiGatewayStageMethodSettingThrottlingBurstLimit = Nothing
   , _apiGatewayStageMethodSettingThrottlingRateLimit = Nothing
   }
 
--- | Indicates whether the cached responses are encrypted.
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-cachedataencrypted
 agsmsCacheDataEncrypted :: Lens' ApiGatewayStageMethodSetting (Maybe (Val Bool'))
 agsmsCacheDataEncrypted = lens _apiGatewayStageMethodSettingCacheDataEncrypted (\s a -> s { _apiGatewayStageMethodSettingCacheDataEncrypted = a })
 
--- | The time-to-live (TTL) period, in seconds, that specifies how long API
--- Gateway caches responses.
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-cachettlinseconds
 agsmsCacheTtlInSeconds :: Lens' ApiGatewayStageMethodSetting (Maybe (Val Integer'))
 agsmsCacheTtlInSeconds = lens _apiGatewayStageMethodSettingCacheTtlInSeconds (\s a -> s { _apiGatewayStageMethodSettingCacheTtlInSeconds = a })
 
--- | Indicates whether responses are cached and returned for requests. You
--- must enable a cache cluster on the stage to cache responses.
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-cachingenabled
 agsmsCachingEnabled :: Lens' ApiGatewayStageMethodSetting (Maybe (Val Bool'))
 agsmsCachingEnabled = lens _apiGatewayStageMethodSettingCachingEnabled (\s a -> s { _apiGatewayStageMethodSettingCachingEnabled = a })
 
--- | Indicates whether data trace logging is enabled for methods in the stage.
--- API Gateway pushes these logs to Amazon CloudWatch Logs.
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-datatraceenabled
 agsmsDataTraceEnabled :: Lens' ApiGatewayStageMethodSetting (Maybe (Val Bool'))
 agsmsDataTraceEnabled = lens _apiGatewayStageMethodSettingDataTraceEnabled (\s a -> s { _apiGatewayStageMethodSettingDataTraceEnabled = a })
 
--- | The HTTP method.
-agsmsHttpMethod :: Lens' ApiGatewayStageMethodSetting HttpMethod
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-httpmethod
+agsmsHttpMethod :: Lens' ApiGatewayStageMethodSetting (Maybe (Val HttpMethod))
 agsmsHttpMethod = lens _apiGatewayStageMethodSettingHttpMethod (\s a -> s { _apiGatewayStageMethodSettingHttpMethod = a })
 
--- | The logging level for this method. For valid values, see the loggingLevel
--- property of the Stage resource in the Amazon API Gateway API Reference.
-agsmsLoggingLevel :: Lens' ApiGatewayStageMethodSetting (Maybe LoggingLevel)
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-logginglevel
+agsmsLoggingLevel :: Lens' ApiGatewayStageMethodSetting (Maybe (Val LoggingLevel))
 agsmsLoggingLevel = lens _apiGatewayStageMethodSettingLoggingLevel (\s a -> s { _apiGatewayStageMethodSettingLoggingLevel = a })
 
--- | Indicates whether Amazon CloudWatch metrics are enabled for methods in
--- the stage.
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-metricsenabled
 agsmsMetricsEnabled :: Lens' ApiGatewayStageMethodSetting (Maybe (Val Bool'))
 agsmsMetricsEnabled = lens _apiGatewayStageMethodSettingMetricsEnabled (\s a -> s { _apiGatewayStageMethodSettingMetricsEnabled = a })
 
--- | The resource path for this method. Forward slashes (/) are encoded as ~1
--- and the initial slash must include a forward slash. For example, the path
--- value /resource/subresource must be encoded as /~1resource~1subresource. To
--- specify the root path, use only a slash (/).
-agsmsResourcePath :: Lens' ApiGatewayStageMethodSetting (Val Text)
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-resourcepath
+agsmsResourcePath :: Lens' ApiGatewayStageMethodSetting (Maybe (Val Text))
 agsmsResourcePath = lens _apiGatewayStageMethodSettingResourcePath (\s a -> s { _apiGatewayStageMethodSettingResourcePath = a })
 
--- | The number of burst requests per second that API Gateway permits across
--- all APIs, stages, and methods in your AWS account. For more information,
--- see Manage API Request Throttling in the API Gateway Developer Guide.
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-throttlingburstlimit
 agsmsThrottlingBurstLimit :: Lens' ApiGatewayStageMethodSetting (Maybe (Val Integer'))
 agsmsThrottlingBurstLimit = lens _apiGatewayStageMethodSettingThrottlingBurstLimit (\s a -> s { _apiGatewayStageMethodSettingThrottlingBurstLimit = a })
 
--- | The number of steady-state requests per second that API Gateway permits
--- across all APIs, stages, and methods in your AWS account. For more
--- information, see Manage API Request Throttling in the API Gateway Developer
--- Guide.
-agsmsThrottlingRateLimit :: Lens' ApiGatewayStageMethodSetting (Maybe Double')
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-throttlingratelimit
+agsmsThrottlingRateLimit :: Lens' ApiGatewayStageMethodSetting (Maybe (Val Double'))
 agsmsThrottlingRateLimit = lens _apiGatewayStageMethodSettingThrottlingRateLimit (\s a -> s { _apiGatewayStageMethodSettingThrottlingRateLimit = a })

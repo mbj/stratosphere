@@ -1,9 +1,7 @@
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
 
--- | The AWS::ApiGateway::Deployment resource deploys an Amazon API Gateway
--- (API Gateway) RestApi resource to a stage so that clients can call the API
--- over the Internet. The stage acts as an environment.
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-deployment.html
 
 module Stratosphere.Resources.ApiGatewayDeployment where
 
@@ -14,15 +12,15 @@ import Data.Text
 import GHC.Generics
 
 import Stratosphere.Values
-import Stratosphere.ResourceProperties.APIGatewayDeploymentStageDescription
+import Stratosphere.ResourceProperties.ApiGatewayDeploymentStageDescription
 
 -- | Full data type definition for ApiGatewayDeployment. See
--- 'apiGatewayDeployment' for a more convenient constructor.
+-- | 'apiGatewayDeployment' for a more convenient constructor.
 data ApiGatewayDeployment =
   ApiGatewayDeployment
   { _apiGatewayDeploymentDescription :: Maybe (Val Text)
   , _apiGatewayDeploymentRestApiId :: Val Text
-  , _apiGatewayDeploymentStageDescription :: Maybe APIGatewayDeploymentStageDescription
+  , _apiGatewayDeploymentStageDescription :: Maybe ApiGatewayDeploymentStageDescription
   , _apiGatewayDeploymentStageName :: Maybe (Val Text)
   } deriving (Show, Generic)
 
@@ -33,7 +31,7 @@ instance FromJSON ApiGatewayDeployment where
   parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 21, omitNothingFields = True }
 
 -- | Constructor for 'ApiGatewayDeployment' containing required fields as
--- arguments.
+-- | arguments.
 apiGatewayDeployment
   :: Val Text -- ^ 'agdRestApiId'
   -> ApiGatewayDeployment
@@ -45,19 +43,18 @@ apiGatewayDeployment restApiIdarg =
   , _apiGatewayDeploymentStageName = Nothing
   }
 
--- | A description of the purpose of the API Gateway deployment.
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-deployment.html#cfn-apigateway-deployment-description
 agdDescription :: Lens' ApiGatewayDeployment (Maybe (Val Text))
 agdDescription = lens _apiGatewayDeploymentDescription (\s a -> s { _apiGatewayDeploymentDescription = a })
 
--- | The ID of the RestApi resource to deploy.
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-deployment.html#cfn-apigateway-deployment-restapiid
 agdRestApiId :: Lens' ApiGatewayDeployment (Val Text)
 agdRestApiId = lens _apiGatewayDeploymentRestApiId (\s a -> s { _apiGatewayDeploymentRestApiId = a })
 
--- | Configures the stage that API Gateway creates with this deployment.
-agdStageDescription :: Lens' ApiGatewayDeployment (Maybe APIGatewayDeploymentStageDescription)
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-deployment.html#cfn-apigateway-deployment-stagedescription
+agdStageDescription :: Lens' ApiGatewayDeployment (Maybe ApiGatewayDeploymentStageDescription)
 agdStageDescription = lens _apiGatewayDeploymentStageDescription (\s a -> s { _apiGatewayDeploymentStageDescription = a })
 
--- | A name for the stage that API Gateway creates with this deployment. Use
--- only alphanumeric characters.
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-deployment.html#cfn-apigateway-deployment-stagename
 agdStageName :: Lens' ApiGatewayDeployment (Maybe (Val Text))
 agdStageName = lens _apiGatewayDeploymentStageName (\s a -> s { _apiGatewayDeploymentStageName = a })

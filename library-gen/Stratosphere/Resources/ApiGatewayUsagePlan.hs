@@ -1,11 +1,7 @@
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
 
--- | The AWS::ApiGateway::UsagePlan resource specifies a usage plan for
--- deployed Amazon API Gateway (API Gateway) APIs. A usage plan enforces
--- throttling and quota limits on individual client API keys. For more
--- information, see Creating and Using API Usage Plans in Amazon API Gateway
--- in the API Gateway Developer Guide.
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html
 
 module Stratosphere.Resources.ApiGatewayUsagePlan where
 
@@ -21,7 +17,7 @@ import Stratosphere.ResourceProperties.ApiGatewayUsagePlanQuotaSettings
 import Stratosphere.ResourceProperties.ApiGatewayUsagePlanThrottleSettings
 
 -- | Full data type definition for ApiGatewayUsagePlan. See
--- 'apiGatewayUsagePlan' for a more convenient constructor.
+-- | 'apiGatewayUsagePlan' for a more convenient constructor.
 data ApiGatewayUsagePlan =
   ApiGatewayUsagePlan
   { _apiGatewayUsagePlanApiStages :: Maybe [ApiGatewayUsagePlanApiStage]
@@ -38,7 +34,7 @@ instance FromJSON ApiGatewayUsagePlan where
   parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 20, omitNothingFields = True }
 
 -- | Constructor for 'ApiGatewayUsagePlan' containing required fields as
--- arguments.
+-- | arguments.
 apiGatewayUsagePlan
   :: ApiGatewayUsagePlan
 apiGatewayUsagePlan  =
@@ -50,24 +46,22 @@ apiGatewayUsagePlan  =
   , _apiGatewayUsagePlanUsagePlanName = Nothing
   }
 
--- | The APIs and API stages to associate with this usage plan.
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-apistages
 agupApiStages :: Lens' ApiGatewayUsagePlan (Maybe [ApiGatewayUsagePlanApiStage])
 agupApiStages = lens _apiGatewayUsagePlanApiStages (\s a -> s { _apiGatewayUsagePlanApiStages = a })
 
--- | The purpose of this usage plan.
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-description
 agupDescription :: Lens' ApiGatewayUsagePlan (Maybe (Val Text))
 agupDescription = lens _apiGatewayUsagePlanDescription (\s a -> s { _apiGatewayUsagePlanDescription = a })
 
--- | Configures the number of requests that users can make within a given
--- interval.
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-quota
 agupQuota :: Lens' ApiGatewayUsagePlan (Maybe ApiGatewayUsagePlanQuotaSettings)
 agupQuota = lens _apiGatewayUsagePlanQuota (\s a -> s { _apiGatewayUsagePlanQuota = a })
 
--- | Configures the overall request rate (average requests per second) and
--- burst capacity.
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-throttle
 agupThrottle :: Lens' ApiGatewayUsagePlan (Maybe ApiGatewayUsagePlanThrottleSettings)
 agupThrottle = lens _apiGatewayUsagePlanThrottle (\s a -> s { _apiGatewayUsagePlanThrottle = a })
 
--- | A name for this usage plan.
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html#cfn-apigateway-usageplan-usageplanname
 agupUsagePlanName :: Lens' ApiGatewayUsagePlan (Maybe (Val Text))
 agupUsagePlanName = lens _apiGatewayUsagePlanUsagePlanName (\s a -> s { _apiGatewayUsagePlanUsagePlanName = a })

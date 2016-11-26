@@ -1,0 +1,85 @@
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE OverloadedStrings #-}
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html
+
+module Stratosphere.Resources.EC2NetworkInterface where
+
+import Control.Lens
+import Data.Aeson
+import Data.Aeson.Types
+import Data.Text
+import GHC.Generics
+
+import Stratosphere.Values
+import Stratosphere.ResourceProperties.EC2NetworkInterfacePrivateIpAddressSpecification
+import Stratosphere.ResourceProperties.Tag
+
+-- | Full data type definition for EC2NetworkInterface. See
+-- | 'ec2NetworkInterface' for a more convenient constructor.
+data EC2NetworkInterface =
+  EC2NetworkInterface
+  { _eC2NetworkInterfaceDescription :: Maybe (Val Text)
+  , _eC2NetworkInterfaceGroupSet :: Maybe [Val Text]
+  , _eC2NetworkInterfacePrivateIpAddress :: Maybe (Val Text)
+  , _eC2NetworkInterfacePrivateIpAddresses :: Maybe [EC2NetworkInterfacePrivateIpAddressSpecification]
+  , _eC2NetworkInterfaceSecondaryPrivateIpAddressCount :: Maybe (Val Integer')
+  , _eC2NetworkInterfaceSourceDestCheck :: Maybe (Val Bool')
+  , _eC2NetworkInterfaceSubnetId :: Val Text
+  , _eC2NetworkInterfaceTags :: Maybe [Tag]
+  } deriving (Show, Generic)
+
+instance ToJSON EC2NetworkInterface where
+  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 20, omitNothingFields = True }
+
+instance FromJSON EC2NetworkInterface where
+  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 20, omitNothingFields = True }
+
+-- | Constructor for 'EC2NetworkInterface' containing required fields as
+-- | arguments.
+ec2NetworkInterface
+  :: Val Text -- ^ 'ecniSubnetId'
+  -> EC2NetworkInterface
+ec2NetworkInterface subnetIdarg =
+  EC2NetworkInterface
+  { _eC2NetworkInterfaceDescription = Nothing
+  , _eC2NetworkInterfaceGroupSet = Nothing
+  , _eC2NetworkInterfacePrivateIpAddress = Nothing
+  , _eC2NetworkInterfacePrivateIpAddresses = Nothing
+  , _eC2NetworkInterfaceSecondaryPrivateIpAddressCount = Nothing
+  , _eC2NetworkInterfaceSourceDestCheck = Nothing
+  , _eC2NetworkInterfaceSubnetId = subnetIdarg
+  , _eC2NetworkInterfaceTags = Nothing
+  }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html#cfn-awsec2networkinterface-description
+ecniDescription :: Lens' EC2NetworkInterface (Maybe (Val Text))
+ecniDescription = lens _eC2NetworkInterfaceDescription (\s a -> s { _eC2NetworkInterfaceDescription = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html#cfn-awsec2networkinterface-groupset
+ecniGroupSet :: Lens' EC2NetworkInterface (Maybe [Val Text])
+ecniGroupSet = lens _eC2NetworkInterfaceGroupSet (\s a -> s { _eC2NetworkInterfaceGroupSet = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html#cfn-awsec2networkinterface-privateipaddress
+ecniPrivateIpAddress :: Lens' EC2NetworkInterface (Maybe (Val Text))
+ecniPrivateIpAddress = lens _eC2NetworkInterfacePrivateIpAddress (\s a -> s { _eC2NetworkInterfacePrivateIpAddress = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html#cfn-awsec2networkinterface-privateipaddresses
+ecniPrivateIpAddresses :: Lens' EC2NetworkInterface (Maybe [EC2NetworkInterfacePrivateIpAddressSpecification])
+ecniPrivateIpAddresses = lens _eC2NetworkInterfacePrivateIpAddresses (\s a -> s { _eC2NetworkInterfacePrivateIpAddresses = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html#cfn-awsec2networkinterface-secondaryprivateipcount
+ecniSecondaryPrivateIpAddressCount :: Lens' EC2NetworkInterface (Maybe (Val Integer'))
+ecniSecondaryPrivateIpAddressCount = lens _eC2NetworkInterfaceSecondaryPrivateIpAddressCount (\s a -> s { _eC2NetworkInterfaceSecondaryPrivateIpAddressCount = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html#cfn-awsec2networkinterface-sourcedestcheck
+ecniSourceDestCheck :: Lens' EC2NetworkInterface (Maybe (Val Bool'))
+ecniSourceDestCheck = lens _eC2NetworkInterfaceSourceDestCheck (\s a -> s { _eC2NetworkInterfaceSourceDestCheck = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html#cfn-awsec2networkinterface-subnetid
+ecniSubnetId :: Lens' EC2NetworkInterface (Val Text)
+ecniSubnetId = lens _eC2NetworkInterfaceSubnetId (\s a -> s { _eC2NetworkInterfaceSubnetId = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html#cfn-awsec2networkinterface-tags
+ecniTags :: Lens' EC2NetworkInterface (Maybe [Tag])
+ecniTags = lens _eC2NetworkInterfaceTags (\s a -> s { _eC2NetworkInterfaceTags = a })

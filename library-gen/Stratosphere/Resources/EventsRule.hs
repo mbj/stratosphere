@@ -1,10 +1,7 @@
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
 
--- | The AWS::Events::Rule resource creates a rule that matches incoming
--- Amazon CloudWatch Events (CloudWatch Events) events and routes them to one
--- or more targets for processing. For more information, see Using CloudWatch
--- Events in the Amazon CloudWatch User Guide.
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html
 
 module Stratosphere.Resources.EventsRule where
 
@@ -16,9 +13,10 @@ import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.Types
+import Stratosphere.ResourceProperties.EventsRuleTarget
 
 -- | Full data type definition for EventsRule. See 'eventsRule' for a more
--- convenient constructor.
+-- | convenient constructor.
 data EventsRule =
   EventsRule
   { _eventsRuleDescription :: Maybe (Val Text)
@@ -26,8 +24,8 @@ data EventsRule =
   , _eventsRuleName :: Maybe (Val Text)
   , _eventsRuleRoleArn :: Maybe (Val Text)
   , _eventsRuleScheduleExpression :: Maybe (Val Text)
-  , _eventsRuleState :: Maybe EnabledState
-  , _eventsRuleTargets :: Maybe [Object]
+  , _eventsRuleState :: Maybe (Val EnabledState)
+  , _eventsRuleTargets :: Maybe [EventsRuleTarget]
   } deriving (Show, Generic)
 
 instance ToJSON EventsRule where
@@ -50,46 +48,30 @@ eventsRule  =
   , _eventsRuleTargets = Nothing
   }
 
--- | A description of the rule's purpose.
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html#cfn-events-rule-description
 erDescription :: Lens' EventsRule (Maybe (Val Text))
 erDescription = lens _eventsRuleDescription (\s a -> s { _eventsRuleDescription = a })
 
--- | Describes which events CloudWatch Events routes to the specified target.
--- These routed events are matched events. For more information, see Events
--- and Event Patterns in the Amazon CloudWatch User Guide.
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html#cfn-events-rule-eventpattern
 erEventPattern :: Lens' EventsRule (Maybe Object)
 erEventPattern = lens _eventsRuleEventPattern (\s a -> s { _eventsRuleEventPattern = a })
 
--- | A name for the rule. If you don't specify a name, AWS CloudFormation
--- generates a unique physical ID and uses that ID for the rule name. For more
--- information, see Name Type. Important If you specify a name, you cannot do
--- updates that require this resource to be replaced. You can still do updates
--- that require no or some interruption. If you must replace the resource,
--- specify a new name.
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html#cfn-events-rule-name
 erName :: Lens' EventsRule (Maybe (Val Text))
 erName = lens _eventsRuleName (\s a -> s { _eventsRuleName = a })
 
--- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management
--- (IAM) role that grants CloudWatch Events permission to make calls to target
--- services, such as AWS Lambda (Lambda) or Amazon Kinesis streams.
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html#cfn-events-rule-rolearn
 erRoleArn :: Lens' EventsRule (Maybe (Val Text))
 erRoleArn = lens _eventsRuleRoleArn (\s a -> s { _eventsRuleRoleArn = a })
 
--- | The schedule or rate (frequency) that determines when CloudWatch Events
--- runs the rule. For more information, see Schedule Expression Syntax for
--- Rules in the Amazon CloudWatch User Guide.
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html#cfn-events-rule-scheduleexpression
 erScheduleExpression :: Lens' EventsRule (Maybe (Val Text))
 erScheduleExpression = lens _eventsRuleScheduleExpression (\s a -> s { _eventsRuleScheduleExpression = a })
 
--- | Indicates whether the rule is enabled. For valid values, see the State
--- parameter for the PutRule action in the Amazon CloudWatch Events API
--- Reference.
-erState :: Lens' EventsRule (Maybe EnabledState)
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html#cfn-events-rule-state
+erState :: Lens' EventsRule (Maybe (Val EnabledState))
 erState = lens _eventsRuleState (\s a -> s { _eventsRuleState = a })
 
--- | The resources, such as Lambda functions or Amazon Kinesis streams, that
--- CloudWatch Events routes events to and invokes when the rule is triggered.
--- For information about valid targets, see the PutTargets action in the
--- Amazon CloudWatch Events API Reference.
-erTargets :: Lens' EventsRule (Maybe [Object])
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html#cfn-events-rule-targets
+erTargets :: Lens' EventsRule (Maybe [EventsRuleTarget])
 erTargets = lens _eventsRuleTargets (\s a -> s { _eventsRuleTargets = a })

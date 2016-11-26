@@ -1,13 +1,7 @@
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
 
--- | The AWS::Lambda::Alias resource creates an alias that points to the
--- version of an AWS Lambda (Lambda) function that you specify. Use aliases
--- when you want to control which version of your function other services or
--- applications invoke. Those services or applications can use your function's
--- alias so that they don't need to be updated whenever you release a new
--- version of your function. For more information, see Introduction to AWS
--- Lambda Aliases in the AWS Lambda Developer Guide.
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-alias.html
 
 module Stratosphere.Resources.LambdaAlias where
 
@@ -21,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for LambdaAlias. See 'lambdaAlias' for a more
--- convenient constructor.
+-- | convenient constructor.
 data LambdaAlias =
   LambdaAlias
   { _lambdaAliasDescription :: Maybe (Val Text)
@@ -50,21 +44,18 @@ lambdaAlias functionNamearg functionVersionarg namearg =
   , _lambdaAliasName = namearg
   }
 
--- | Information about the alias, such as its purpose or the Lambda function
--- that is associated with it.
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-alias.html#cfn-lambda-alias-description
 laDescription :: Lens' LambdaAlias (Maybe (Val Text))
 laDescription = lens _lambdaAliasDescription (\s a -> s { _lambdaAliasDescription = a })
 
--- | The Lambda function that you want to associate with this alias. You can
--- specify the function's name or its Amazon Resource Name (ARN).
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-alias.html#cfn-lambda-alias-functionname
 laFunctionName :: Lens' LambdaAlias (Val Text)
 laFunctionName = lens _lambdaAliasFunctionName (\s a -> s { _lambdaAliasFunctionName = a })
 
--- | The version of the Lambda function that you want to associate with this
--- alias.
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-alias.html#cfn-lambda-alias-functionversion
 laFunctionVersion :: Lens' LambdaAlias (Val Text)
 laFunctionVersion = lens _lambdaAliasFunctionVersion (\s a -> s { _lambdaAliasFunctionVersion = a })
 
--- | A name for the alias.
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-alias.html#cfn-lambda-alias-name
 laName :: Lens' LambdaAlias (Val Text)
 laName = lens _lambdaAliasName (\s a -> s { _lambdaAliasName = a })

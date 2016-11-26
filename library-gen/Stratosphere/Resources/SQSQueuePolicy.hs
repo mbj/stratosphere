@@ -1,8 +1,7 @@
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
 
--- | The AWS::SQS::QueuePolicy type applies a policy to SQS queues.
--- AWS::SQS::QueuePolicy Snippet: Declaring an Amazon SQS Policy
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-policy.html
 
 module Stratosphere.Resources.SQSQueuePolicy where
 
@@ -16,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for SQSQueuePolicy. See 'sqsQueuePolicy' for a
--- more convenient constructor.
+-- | more convenient constructor.
 data SQSQueuePolicy =
   SQSQueuePolicy
   { _sQSQueuePolicyPolicyDocument :: Object
@@ -40,12 +39,10 @@ sqsQueuePolicy policyDocumentarg queuesarg =
   , _sQSQueuePolicyQueues = queuesarg
   }
 
--- | A policy document containing permissions to add to the specified SQS
--- queues.
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-policy.html#cfn-sqs-queuepolicy-policydoc
 sqsqpPolicyDocument :: Lens' SQSQueuePolicy Object
 sqsqpPolicyDocument = lens _sQSQueuePolicyPolicyDocument (\s a -> s { _sQSQueuePolicyPolicyDocument = a })
 
--- | The URLs of the queues to which you want to add the policy. You can use
--- the Ref function to specify an AWS::SQS::Queue resource.
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-policy.html#cfn-sqs-queuepolicy-queues
 sqsqpQueues :: Lens' SQSQueuePolicy [Val Text]
 sqsqpQueues = lens _sQSQueuePolicyQueues (\s a -> s { _sQSQueuePolicyQueues = a })

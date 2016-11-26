@@ -1,7 +1,7 @@
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
 
--- | Creates a DynamoDB table.
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html
 
 module Stratosphere.Resources.DynamoDBTable where
 
@@ -12,23 +12,23 @@ import Data.Text
 import GHC.Generics
 
 import Stratosphere.Values
-import Stratosphere.ResourceProperties.DynamoDBAttributeDefinition
-import Stratosphere.ResourceProperties.DynamoDBGlobalSecondaryIndex
-import Stratosphere.ResourceProperties.DynamoDBKeySchema
-import Stratosphere.ResourceProperties.DynamoDBLocalSecondaryIndex
-import Stratosphere.ResourceProperties.DynamoDBProvisionedThroughput
-import Stratosphere.ResourceProperties.DynamoDBStreamSpecification
+import Stratosphere.ResourceProperties.DynamoDBTableAttributeDefinition
+import Stratosphere.ResourceProperties.DynamoDBTableGlobalSecondaryIndex
+import Stratosphere.ResourceProperties.DynamoDBTableKeySchema
+import Stratosphere.ResourceProperties.DynamoDBTableLocalSecondaryIndex
+import Stratosphere.ResourceProperties.DynamoDBTableProvisionedThroughput
+import Stratosphere.ResourceProperties.DynamoDBTableStreamSpecification
 
 -- | Full data type definition for DynamoDBTable. See 'dynamoDBTable' for a
--- more convenient constructor.
+-- | more convenient constructor.
 data DynamoDBTable =
   DynamoDBTable
-  { _dynamoDBTableAttributeDefinitions :: [DynamoDBAttributeDefinition]
-  , _dynamoDBTableGlobalSecondaryIndexes :: Maybe [DynamoDBGlobalSecondaryIndex]
-  , _dynamoDBTableKeySchema :: [DynamoDBKeySchema]
-  , _dynamoDBTableLocalSecondaryIndexes :: Maybe [DynamoDBLocalSecondaryIndex]
-  , _dynamoDBTableProvisionedThroughput :: DynamoDBProvisionedThroughput
-  , _dynamoDBTableStreamSpecification :: Maybe DynamoDBStreamSpecification
+  { _dynamoDBTableAttributeDefinitions :: [DynamoDBTableAttributeDefinition]
+  , _dynamoDBTableGlobalSecondaryIndexes :: Maybe [DynamoDBTableGlobalSecondaryIndex]
+  , _dynamoDBTableKeySchema :: [DynamoDBTableKeySchema]
+  , _dynamoDBTableLocalSecondaryIndexes :: Maybe [DynamoDBTableLocalSecondaryIndex]
+  , _dynamoDBTableProvisionedThroughput :: DynamoDBTableProvisionedThroughput
+  , _dynamoDBTableStreamSpecification :: Maybe DynamoDBTableStreamSpecification
   , _dynamoDBTableTableName :: Maybe (Val Text)
   } deriving (Show, Generic)
 
@@ -40,9 +40,9 @@ instance FromJSON DynamoDBTable where
 
 -- | Constructor for 'DynamoDBTable' containing required fields as arguments.
 dynamoDBTable
-  :: [DynamoDBAttributeDefinition] -- ^ 'ddbtAttributeDefinitions'
-  -> [DynamoDBKeySchema] -- ^ 'ddbtKeySchema'
-  -> DynamoDBProvisionedThroughput -- ^ 'ddbtProvisionedThroughput'
+  :: [DynamoDBTableAttributeDefinition] -- ^ 'ddbtAttributeDefinitions'
+  -> [DynamoDBTableKeySchema] -- ^ 'ddbtKeySchema'
+  -> DynamoDBTableProvisionedThroughput -- ^ 'ddbtProvisionedThroughput'
   -> DynamoDBTable
 dynamoDBTable attributeDefinitionsarg keySchemaarg provisionedThroughputarg =
   DynamoDBTable
@@ -55,54 +55,30 @@ dynamoDBTable attributeDefinitionsarg keySchemaarg provisionedThroughputarg =
   , _dynamoDBTableTableName = Nothing
   }
 
--- | A list of AttributeName and AttributeType objects that describe the key
--- schema for the table and indexes.
-ddbtAttributeDefinitions :: Lens' DynamoDBTable [DynamoDBAttributeDefinition]
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-attributedef
+ddbtAttributeDefinitions :: Lens' DynamoDBTable [DynamoDBTableAttributeDefinition]
 ddbtAttributeDefinitions = lens _dynamoDBTableAttributeDefinitions (\s a -> s { _dynamoDBTableAttributeDefinitions = a })
 
--- | Global secondary indexes to be created on the table. You can create up to
--- 5 global secondary indexes. Important If you update a table to include a
--- new global secondary index, AWS CloudFormation initiates the index creation
--- and then proceeds with the stack update. AWS CloudFormation doesn't wait
--- for the index to complete creation because the backfilling phase can take a
--- long time, depending on the size of the table. You cannot use the index or
--- update the table until the index's status is ACTIVE. You can track its
--- status by using the DynamoDB DescribeTable command. If you add or delete an
--- index during an update, we recommend that you don't update any other
--- resources. If your stack fails to update and is rolled back while adding a
--- new index, you must manually delete the index.
-ddbtGlobalSecondaryIndexes :: Lens' DynamoDBTable (Maybe [DynamoDBGlobalSecondaryIndex])
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-gsi
+ddbtGlobalSecondaryIndexes :: Lens' DynamoDBTable (Maybe [DynamoDBTableGlobalSecondaryIndex])
 ddbtGlobalSecondaryIndexes = lens _dynamoDBTableGlobalSecondaryIndexes (\s a -> s { _dynamoDBTableGlobalSecondaryIndexes = a })
 
--- | Specifies the attributes that make up the primary key for the table. The
--- attributes in the KeySchema property must also be defined in the
--- AttributeDefinitions property.
-ddbtKeySchema :: Lens' DynamoDBTable [DynamoDBKeySchema]
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-keyschema
+ddbtKeySchema :: Lens' DynamoDBTable [DynamoDBTableKeySchema]
 ddbtKeySchema = lens _dynamoDBTableKeySchema (\s a -> s { _dynamoDBTableKeySchema = a })
 
--- | Local secondary indexes to be created on the table. You can create up to
--- 5 local secondary indexes. Each index is scoped to a given hash key value.
--- The size of each hash key can be up to 10 gigabytes.
-ddbtLocalSecondaryIndexes :: Lens' DynamoDBTable (Maybe [DynamoDBLocalSecondaryIndex])
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-lsi
+ddbtLocalSecondaryIndexes :: Lens' DynamoDBTable (Maybe [DynamoDBTableLocalSecondaryIndex])
 ddbtLocalSecondaryIndexes = lens _dynamoDBTableLocalSecondaryIndexes (\s a -> s { _dynamoDBTableLocalSecondaryIndexes = a })
 
--- | Throughput for the specified table, consisting of values for
--- ReadCapacityUnits and WriteCapacityUnits. For more information about the
--- contents of a provisioned throughput structure, see DynamoDB Provisioned
--- Throughput.
-ddbtProvisionedThroughput :: Lens' DynamoDBTable DynamoDBProvisionedThroughput
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-provisionedthroughput
+ddbtProvisionedThroughput :: Lens' DynamoDBTable DynamoDBTableProvisionedThroughput
 ddbtProvisionedThroughput = lens _dynamoDBTableProvisionedThroughput (\s a -> s { _dynamoDBTableProvisionedThroughput = a })
 
--- | The settings for the DynamoDB table stream, which capture changes to
--- items stored in the table.
-ddbtStreamSpecification :: Lens' DynamoDBTable (Maybe DynamoDBStreamSpecification)
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-streamspecification
+ddbtStreamSpecification :: Lens' DynamoDBTable (Maybe DynamoDBTableStreamSpecification)
 ddbtStreamSpecification = lens _dynamoDBTableStreamSpecification (\s a -> s { _dynamoDBTableStreamSpecification = a })
 
--- | A name for the table. If you don't specify a name, AWS CloudFormation
--- generates a unique physical ID and uses that ID for the table name. For
--- more information, see Name Type. Important If you specify a name, you
--- cannot do updates that require this resource to be replaced. You can still
--- do updates that require no or some interruption. If you must replace the
--- resource, specify a new name.
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-tablename
 ddbtTableName :: Lens' DynamoDBTable (Maybe (Val Text))
 ddbtTableName = lens _dynamoDBTableTableName (\s a -> s { _dynamoDBTableTableName = a })
