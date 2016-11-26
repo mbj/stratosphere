@@ -22,6 +22,7 @@ module Stratosphere
        , module Stratosphere.Template
        , module Stratosphere.Values
        , module Stratosphere.Types
+       , module Stratosphere.Check
        , module Control.Lens
        ) where
 
@@ -32,6 +33,7 @@ import Stratosphere.Resources
 import Stratosphere.Template
 import Stratosphere.Values
 import Stratosphere.Types
+import Stratosphere.Check
 
 {-# ANN module "HLint: ignore Use import/export shortcut" #-}
 
