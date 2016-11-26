@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.2.2
+
+* Fixed a test suite failure caused by bleeding edge HLint version.
+
 ## 0.2.1
 
 * Added Dynamo DB table resources (@ababkin)
