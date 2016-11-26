@@ -1,11 +1,12 @@
 # Change Log
 
-## 0.2.1 (unreleased)
+## 0.2.1
 
 * Added Dynamo DB table resources (@ababkin)
 * Fix the Python docs scraper mishandling the `required` value in some cases,
   and also missing some properties of resources (@amar47shah)
 * Added a ton of SNS and SQS resources (@ababkin)
+* Added a experimental checker for duplicate resource names (@amar47shah)
 
 ## 0.2.0
 
