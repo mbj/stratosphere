@@ -5,31 +5,39 @@ module Main where
 
 import Control.Lens
 import Data.Aeson (Value (Array), object)
+import Data.Aeson.Text
 import qualified Data.ByteString.Lazy.Char8 as B
 import Data.Text (Text)
+import qualified Data.Text.Lazy as TL
 import Stratosphere
-
 
 main :: IO ()
 main = B.putStrLn $ encodeTemplate myTemplate
 
 myTemplate :: Template
-myTemplate = template
-  [ role, lambda, permission, incomingS3Bucket, outgoingS3Bucket ]
+myTemplate =
+  template
+  [ role'
+  , lambda
+  , permission
+  , incomingS3Bucket
+  , outgoingS3Bucket
+  ]
   & description ?~ "Simple event triggered S3 bucket to bucket copy example"
   & formatVersion ?~ "2010-09-09"
 
 lambda :: Resource
-lambda = (resource "CopyS3ObjectLambda" $
+lambda = (
+  resource "CopyS3ObjectLambda" $
   LambdaFunctionProperties $
   lambdaFunction
     lambdaCode
     "index.handler"
     (GetAtt "IAMRole" "Arn")
-    NodeJS43
+    (Literal NodeJS43)
     & lfFunctionName ?~ "copyS3Object"
   )
-  & dependsOn ?~ [ role ^. resName ]
+  & dependsOn ?~ [ role' ^. resName ]
 
   where
     lambdaCode :: LambdaFunctionCode
@@ -51,22 +59,24 @@ lambda = (resource "CopyS3ObjectLambda" $
     \ } \
     \ "
 
-
-role :: Resource
-role = resource "IAMRole" $
+role' :: Resource
+role' =
+  resource "IAMRole" $
   IAMRoleProperties $
-  iamRole rolePolicyDocumentObject
+  iamRole
+  (Literal $ TL.toStrict $ encodeToLazyText rolePolicyDocumentObject)
   & iamrPolicies ?~ [ executePolicy ]
   & iamrRoleName ?~ "MyLambdaBasicExecutionRole"
   & iamrPath ?~ "/"
 
   where
     executePolicy =
-      iamPolicies
-      [ ("Version", "2012-10-17")
-      , ("Statement", statement)
-      ] $
-      "MyLambdaExecutionPolicy"
+      iamRolePolicy
+      & iamrpPolicyName ?~ "MyLambdaExecutionPolicy"
+      & iamrpPolicyDocument ?~
+        [ ("Version", "2012-10-17")
+        , ("Statement", statement)
+        ]
 
       where
         statement = object
@@ -86,6 +96,7 @@ role = resource "IAMRole" $
 
 
     rolePolicyDocumentObject =
+      object
       [ ("Version", "2012-10-17")
       , ("Statement", statement)
       ]
@@ -101,28 +112,30 @@ role = resource "IAMRole" $
           [ ("Service", "lambda.amazonaws.com") ]
 
 incomingS3Bucket :: Resource
-incomingS3Bucket = (resource "IncomingBucket" $
-  BucketProperties $
-  bucket
-    & bBucketName ?~ "stratosphere-s3-copy-incoming"
-    & bNotificationConfiguration ?~ config
+incomingS3Bucket = (
+  resource "IncomingBucket" $
+  S3BucketProperties $
+  s3Bucket
+  & sbBucketName ?~ "stratosphere-s3-copy-incoming"
+  & sbNotificationConfiguration ?~ config
   )
   & dependsOn ?~ [ lambda ^. resName ]
 
   where
-    config = s3NotificationConfiguration
-      & sncLambdaConfigurations ?~ [lambdaConfig]
+    config =
+      s3BucketNotificationConfiguration
+      & sbncLambdaConfigurations ?~ [lambdaConfig]
 
-    lambdaConfig = s3NotificationConfigurationLambdaConfiguration
+    lambdaConfig =
+      s3BucketLambdaConfiguration
       "s3:ObjectCreated:*"
       (GetAtt "CopyS3ObjectLambda" "Arn")
 
 outgoingS3Bucket :: Resource
 outgoingS3Bucket = resource "OutgoingBucket" $
-  BucketProperties $
-  bucket
-  & bBucketName ?~ "stratosphere-s3-copy-outgoing"
-
+  S3BucketProperties $
+  s3Bucket
+  & sbBucketName ?~ "stratosphere-s3-copy-outgoing"
 
 permission :: Resource
 permission = resource "LambdaPermission" $
