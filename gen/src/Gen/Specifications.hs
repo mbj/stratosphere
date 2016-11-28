@@ -13,11 +13,12 @@ module Gen.Specifications
   , ResourceType (..)
   ) where
 
+import Control.Lens
 import Data.List (sortOn)
 import Data.Maybe (catMaybes)
 import Data.Map (toList)
 import Data.Text
-import GHC.Generics
+import GHC.Generics hiding (to)
 
 import Gen.ReadRawSpecFile
 
@@ -30,10 +31,32 @@ data CloudFormationSpec
   deriving (Show, Eq)
 
 specFromRaw :: RawCloudFormationSpec -> CloudFormationSpec
-specFromRaw (RawCloudFormationSpec rawProps version rawResources) = CloudFormationSpec props version resources
+specFromRaw spec = CloudFormationSpec props version resources
   where
+    (RawCloudFormationSpec rawProps version rawResources) = addMissingPropsAndResources spec
     props = uncurry propertyTypeFromRaw <$> sortOn fst (toList rawProps)
     resources = uncurry resourceTypeFromRaw <$> sortOn fst (toList rawResources)
+
+-- | There are a few missing properties and resources in the official spec
+-- document. There is an open support ticket with AWS, but for now we are
+-- patching things up manually.
+addMissingPropsAndResources :: RawCloudFormationSpec -> RawCloudFormationSpec
+addMissingPropsAndResources spec =
+  spec
+  & lens rawCloudFormationSpecResourceTypes (\s a -> s { rawCloudFormationSpecResourceTypes = a })
+  . ix "AWS::RDS::DBInstance"
+  . lens rawResourceTypeProperties (\s a -> s { rawResourceTypeProperties = a })
+  . at "DBInstanceIdentifier"
+  ?~ RawProperty
+     { rawPropertyDocumentation = "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-dbinstanceidentifier"
+     , rawPropertyDuplicatesAllowed = Nothing
+     , rawPropertyItemType = Nothing
+     , rawPropertyPrimitiveItemType = Nothing
+     , rawPropertyPrimitiveType = Just "String"
+     , rawPropertyRequired = False
+     , rawPropertyType = Nothing
+     , rawPropertyUpdateType = Just "Immutable"
+     }
 
 data PropertyType
   = PropertyType

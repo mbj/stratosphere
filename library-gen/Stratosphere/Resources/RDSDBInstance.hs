@@ -26,6 +26,7 @@ data RDSDBInstance =
   , _rDSDBInstanceCharacterSetName :: Maybe (Val Text)
   , _rDSDBInstanceDBClusterIdentifier :: Maybe (Val Text)
   , _rDSDBInstanceDBInstanceClass :: Val Text
+  , _rDSDBInstanceDBInstanceIdentifier :: Maybe (Val Text)
   , _rDSDBInstanceDBName :: Maybe (Val Text)
   , _rDSDBInstanceDBParameterGroupName :: Maybe (Val Text)
   , _rDSDBInstanceDBSecurityGroups :: Maybe [Val Text]
@@ -75,6 +76,7 @@ rdsdbInstance dBInstanceClassarg =
   , _rDSDBInstanceCharacterSetName = Nothing
   , _rDSDBInstanceDBClusterIdentifier = Nothing
   , _rDSDBInstanceDBInstanceClass = dBInstanceClassarg
+  , _rDSDBInstanceDBInstanceIdentifier = Nothing
   , _rDSDBInstanceDBName = Nothing
   , _rDSDBInstanceDBParameterGroupName = Nothing
   , _rDSDBInstanceDBSecurityGroups = Nothing
@@ -135,6 +137,10 @@ rdsdbiDBClusterIdentifier = lens _rDSDBInstanceDBClusterIdentifier (\s a -> s { 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-dbinstanceclass
 rdsdbiDBInstanceClass :: Lens' RDSDBInstance (Val Text)
 rdsdbiDBInstanceClass = lens _rDSDBInstanceDBInstanceClass (\s a -> s { _rDSDBInstanceDBInstanceClass = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-dbinstanceidentifier
+rdsdbiDBInstanceIdentifier :: Lens' RDSDBInstance (Maybe (Val Text))
+rdsdbiDBInstanceIdentifier = lens _rDSDBInstanceDBInstanceIdentifier (\s a -> s { _rDSDBInstanceDBInstanceIdentifier = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-dbname
 rdsdbiDBName :: Lens' RDSDBInstance (Maybe (Val Text))
