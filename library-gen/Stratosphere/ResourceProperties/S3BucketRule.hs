@@ -13,8 +13,6 @@ import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.S3BucketNoncurrentVersionTransition
-import Stratosphere.ResourceProperties.S3BucketNoncurrentVersionTransition
-import Stratosphere.ResourceProperties.S3BucketTransition
 import Stratosphere.ResourceProperties.S3BucketTransition
 
 -- | Full data type definition for S3BucketRule. See 's3BucketRule' for a more

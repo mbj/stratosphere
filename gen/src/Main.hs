@@ -1,6 +1,7 @@
 module Main where
 
 import Data.Aeson
+import Data.List (nub)
 import Data.Monoid ((<>))
 import qualified Data.Text as T
 import qualified Data.Text.Lazy as TL
@@ -74,7 +75,7 @@ renderDependencies Module {..} props = T.intercalate "\n" deps
     propertyDeps = subPropertyTypeNames props
     -- The EMR Cluster configurations references itself, so we have to filter
     -- out the case where things reference themselves.
-    nonRecursivePropertyDeps = filter (/= moduleName) propertyDeps
+    nonRecursivePropertyDeps = nub $ filter (/= moduleName) propertyDeps
     deps =
       (if null customDeps then [] else ["import Stratosphere.Types"]) ++
       fmap (\d -> T.concat ["import Stratosphere.ResourceProperties.", d]) nonRecursivePropertyDeps

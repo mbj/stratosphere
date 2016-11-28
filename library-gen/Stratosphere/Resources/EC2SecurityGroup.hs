@@ -13,7 +13,6 @@ import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.EC2SecurityGroupRule
-import Stratosphere.ResourceProperties.EC2SecurityGroupRule
 import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for EC2SecurityGroup. See 'ec2SecurityGroup'

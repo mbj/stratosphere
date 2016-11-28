@@ -13,7 +13,6 @@ import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.EMRClusterInstanceGroupConfig
-import Stratosphere.ResourceProperties.EMRClusterInstanceGroupConfig
 import Stratosphere.ResourceProperties.EMRClusterPlacementType
 
 -- | Full data type definition for EMRClusterJobFlowInstancesConfig. See

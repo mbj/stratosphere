@@ -13,7 +13,6 @@ import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.OpsWorksLayerAutoScalingThresholds
-import Stratosphere.ResourceProperties.OpsWorksLayerAutoScalingThresholds
 
 -- | Full data type definition for OpsWorksLayerLoadBasedAutoScaling. See
 -- | 'opsWorksLayerLoadBasedAutoScaling' for a more convenient constructor.

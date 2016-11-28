@@ -14,7 +14,6 @@ import GHC.Generics
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.CodePipelineCustomActionTypeConfigurationProperties
 import Stratosphere.ResourceProperties.CodePipelineCustomActionTypeArtifactDetails
-import Stratosphere.ResourceProperties.CodePipelineCustomActionTypeArtifactDetails
 import Stratosphere.ResourceProperties.CodePipelineCustomActionTypeSettings
 
 -- | Full data type definition for CodePipelineCustomActionType. See
