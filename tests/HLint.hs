@@ -6,6 +6,7 @@ import System.Exit (exitFailure, exitSuccess)
 arguments :: [String]
 arguments =
   [ "library"
+  , "library-gen"
   , "tests"
   , "-i", "Use newtype instead of data"
   ]
