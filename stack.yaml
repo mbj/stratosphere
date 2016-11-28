@@ -1,6 +1,4 @@
-resolver: nightly-2016-11-23  # Make sure to remove hlint from extra-deps if this changes
+resolver: nightly-2016-11-26
 packages:
   - '.'
-extra-deps:
-  # TODO: Remove this once hlint-1.9.38 is in latest nightly
-  - hlint-1.9.38
+extra-deps: []
