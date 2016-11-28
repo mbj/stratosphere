@@ -16,7 +16,7 @@ module Gen.Specifications
 import Control.Lens
 import Data.List (sortOn)
 import Data.Maybe (catMaybes)
-import Data.Map (fromList, toList)
+import Data.Map (Map, fromList, toList)
 import Data.Text
 import GHC.Generics hiding (to)
 
@@ -38,7 +38,8 @@ specFromRaw spec = CloudFormationSpec props version resources
     resources = uncurry resourceTypeFromRaw <$> sortOn fst (toList rawResources)
 
 -- | There are a few missing properties and resources in the official spec
--- document. There is an open support ticket with AWS, but for now we are
+-- document, as well as inconsistent or incorrect naming. There is an open
+-- support ticket with AWS support to fix these things, but for now we are
 -- patching things up manually.
 fixSpecBugs :: RawCloudFormationSpec -> RawCloudFormationSpec
 fixSpecBugs spec =
@@ -92,9 +93,38 @@ fixSpecBugs spec =
          )
        ]
      }
+  -- The AWS::DynamoDB::Table.AttributeDefinitions PropertyType is plural, even
+  -- though AWS::DynamoDB::Table.AttributeDefinitions has a type of
+  -- AttributeDefinition (note the lack of an "s").
+  & propertyTypesLens
+  . at "AWS::DynamoDB::Table.AttributeDefinition"
+  .~ (spec ^. propertyTypesLens . at "AWS::DynamoDB::Table.AttributeDefinitions")
+  & propertyTypesLens
+  . at "AWS::DynamoDB::Table.AttributeDefinitions"
+  .~ Nothing
+  -- AWS::ElasticLoadBalancing::LoadBalancer.Policies.Attributes incorrectly
+  -- has an ItemType of "json", not a PrimitiveItemType of "Json"
+  & propertyTypesLens
+  . ix "AWS::ElasticLoadBalancing::LoadBalancer.Policies"
+  . propertyPropsLens
+  . at "Attributes"
+  %~ (\(Just rawProp) -> Just rawProp { rawPropertyItemType = Nothing, rawPropertyPrimitiveItemType = Just "Json" })
+  -- This is our only naming conflict. There is a resource named
+  -- AWS::RDS::DBSecurityGroupIngress, and a property named
+  -- AWS::RDS::DBSecurityGroup.Ingress. There is a corresponding fix in the
+  -- function to render the full type name for
+  -- AWS::RDS::DBSecurityGroup.Ingress.
+  & propertyTypesLens
+  . at "AWS::RDS::DBSecurityGroup.IngressProperty"
+  .~ (spec ^. propertyTypesLens . at "AWS::RDS::DBSecurityGroup.Ingress")
+  & propertyTypesLens
+  . at "AWS::RDS::DBSecurityGroup.Ingress"
+  .~ Nothing
   where
+    propertyTypesLens :: Lens' RawCloudFormationSpec (Map Text RawPropertyType)
     propertyTypesLens = lens rawCloudFormationSpecPropertyTypes (\s a -> s { rawCloudFormationSpecPropertyTypes = a })
-    --propertyPropsLens = lens rawPropertyTypeProperties (\s a -> s { rawPropertyTypeProperties = a })
+    propertyPropsLens :: Lens' RawPropertyType (Map Text RawProperty)
+    propertyPropsLens = lens rawPropertyTypeProperties (\s a -> s { rawPropertyTypeProperties = a })
     resourceTypesLens = lens rawCloudFormationSpecResourceTypes (\s a -> s { rawCloudFormationSpecResourceTypes = a })
     resourcePropsLens = lens rawResourceTypeProperties (\s a -> s { rawResourceTypeProperties = a })
 
@@ -107,15 +137,6 @@ data PropertyType
   deriving (Show, Eq)
 
 propertyTypeFromRaw :: Text -> RawPropertyType -> PropertyType
--- This property is plural for some reason. It is used in a list, and the
--- ItemType is "AttributeDefinition".
-propertyTypeFromRaw "AWS::DynamoDB::Table.AttributeDefinitions" rawProp =
-  propertyTypeFromRaw "AWS::DynamoDB::Table.AttributeDefinition" rawProp
--- This is our only naming conflict. There is a resource named
--- AWS::RDS::DBSecurityGroupIngress, and a property named
--- AWS::RDS::DBSecurityGroup.Ingress.
-propertyTypeFromRaw "AWS::RDS::DBSecurityGroup.Ingress" rawProp =
-  propertyTypeFromRaw "AWS::RDS::DBSecurityGroup.IngressProperty" rawProp
 propertyTypeFromRaw fullName (RawPropertyType doc props) =
   PropertyType fullName doc (uncurry (propertyFromRaw fullName) <$> sortOn fst (toList props))
 
@@ -141,10 +162,7 @@ data SpecType
   deriving (Show, Eq)
 
 rawToSpecType :: Text -> Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> SpecType
--- AWS::ElasticLoadBalancing::LoadBalancer.Policies.Attributes incorrectly has
--- an ItemType of "json", not a PrimitiveItemType of "Json"
-rawToSpecType "AWS::ElasticLoadBalancing::LoadBalancer.Policies" "Attributes" _ _ _ _ = ListType JsonPrimitive
--- Overrides
+-- Overrides for our custom types
 rawToSpecType "AWS::ApiGateway::Method" "AuthorizationType" _ _ _ _ = AtomicType $ CustomType "AuthorizationType"
 rawToSpecType "AWS::ApiGateway::Method.Integration" "IntegrationHttpMethod" _ _ _ _ = AtomicType $ CustomType "HttpMethod"
 rawToSpecType "AWS::ApiGateway::Method.Integration" "PassthroughBehavior" _ _ _ _ = AtomicType $ CustomType "PassthroughBehavior"
