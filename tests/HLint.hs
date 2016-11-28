@@ -1,13 +1,13 @@
 module Main (main) where
 
 import Language.Haskell.HLint (hlint)
-import System.Directory (doesDirectoryExist)
 import System.Exit (exitFailure, exitSuccess)
 
 arguments :: [String]
 arguments =
   [ "library"
   , "tests"
+  , "-i", "Use newtype instead of data"
   ]
 
 main :: IO ()
