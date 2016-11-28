@@ -13,7 +13,7 @@ import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.CloudFrontDistributionCustomOriginConfig
-import Stratosphere.ResourceProperties.CloudFrontDistributionCustomOriginConfig
+import Stratosphere.ResourceProperties.CloudFrontDistributionOriginCustomHeader
 import Stratosphere.ResourceProperties.CloudFrontDistributionS3OriginConfig
 
 -- | Full data type definition for CloudFrontDistributionOrigin. See
@@ -23,7 +23,7 @@ data CloudFrontDistributionOrigin =
   { _cloudFrontDistributionOriginCustomOriginConfig :: Maybe CloudFrontDistributionCustomOriginConfig
   , _cloudFrontDistributionOriginDomainName :: Val Text
   , _cloudFrontDistributionOriginId :: Val Text
-  , _cloudFrontDistributionOriginOriginCustomHeaders :: Maybe [CloudFrontDistributionCustomOriginConfig]
+  , _cloudFrontDistributionOriginOriginCustomHeaders :: Maybe [CloudFrontDistributionOriginCustomHeader]
   , _cloudFrontDistributionOriginOriginPath :: Maybe (Val Text)
   , _cloudFrontDistributionOriginS3OriginConfig :: Maybe CloudFrontDistributionS3OriginConfig
   } deriving (Show, Generic)
@@ -63,7 +63,7 @@ cfdoId :: Lens' CloudFrontDistributionOrigin (Val Text)
 cfdoId = lens _cloudFrontDistributionOriginId (\s a -> s { _cloudFrontDistributionOriginId = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-origin.html#cfn-cloudfront-origin-origincustomheaders
-cfdoOriginCustomHeaders :: Lens' CloudFrontDistributionOrigin (Maybe [CloudFrontDistributionCustomOriginConfig])
+cfdoOriginCustomHeaders :: Lens' CloudFrontDistributionOrigin (Maybe [CloudFrontDistributionOriginCustomHeader])
 cfdoOriginCustomHeaders = lens _cloudFrontDistributionOriginOriginCustomHeaders (\s a -> s { _cloudFrontDistributionOriginOriginCustomHeaders = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-origin.html#cfn-cloudfront-origin-originpath

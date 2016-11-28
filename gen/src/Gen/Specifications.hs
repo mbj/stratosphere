@@ -16,7 +16,7 @@ module Gen.Specifications
 import Control.Lens
 import Data.List (sortOn)
 import Data.Maybe (catMaybes)
-import Data.Map (toList)
+import Data.Map (fromList, toList)
 import Data.Text
 import GHC.Generics hiding (to)
 
@@ -33,19 +33,20 @@ data CloudFormationSpec
 specFromRaw :: RawCloudFormationSpec -> CloudFormationSpec
 specFromRaw spec = CloudFormationSpec props version resources
   where
-    (RawCloudFormationSpec rawProps version rawResources) = addMissingPropsAndResources spec
+    (RawCloudFormationSpec rawProps version rawResources) = fixSpecBugs spec
     props = uncurry propertyTypeFromRaw <$> sortOn fst (toList rawProps)
     resources = uncurry resourceTypeFromRaw <$> sortOn fst (toList rawResources)
 
 -- | There are a few missing properties and resources in the official spec
 -- document. There is an open support ticket with AWS, but for now we are
 -- patching things up manually.
-addMissingPropsAndResources :: RawCloudFormationSpec -> RawCloudFormationSpec
-addMissingPropsAndResources spec =
+fixSpecBugs :: RawCloudFormationSpec -> RawCloudFormationSpec
+fixSpecBugs spec =
   spec
-  & lens rawCloudFormationSpecResourceTypes (\s a -> s { rawCloudFormationSpecResourceTypes = a })
+  -- Missing AWS::RDS::DBInstance.DBInstanceIdentifier
+  & resourceTypesLens
   . ix "AWS::RDS::DBInstance"
-  . lens rawResourceTypeProperties (\s a -> s { rawResourceTypeProperties = a })
+  . resourcePropsLens
   . at "DBInstanceIdentifier"
   ?~ RawProperty
      { rawPropertyDocumentation = "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-dbinstanceidentifier"
@@ -57,6 +58,45 @@ addMissingPropsAndResources spec =
      , rawPropertyType = Nothing
      , rawPropertyUpdateType = Just "Immutable"
      }
+  -- Missing AWS::CloudFront::Distribution.OriginCustomHeader, which is used in
+  -- AWS::CloudFront::Distribution.Origin.OriginCustomHeaders.
+  & propertyTypesLens
+  . at "AWS::CloudFront::Distribution.OriginCustomHeader"
+  ?~ RawPropertyType
+     { rawPropertyTypeDocumentation = "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-origin-origincustomheader.html"
+     , rawPropertyTypeProperties =
+       fromList
+       [ ("HeaderName",
+          RawProperty
+           { rawPropertyDocumentation = "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-origin-origincustomheader.html#cfn-cloudfront-origin-origincustomheader-headername"
+           , rawPropertyDuplicatesAllowed = Nothing
+           , rawPropertyItemType = Nothing
+           , rawPropertyPrimitiveItemType = Nothing
+           , rawPropertyPrimitiveType = Just "String"
+           , rawPropertyRequired = True
+           , rawPropertyType = Nothing
+           , rawPropertyUpdateType = Just "Mutable"
+           }
+         )
+       , ("HeaderValue",
+          RawProperty
+           { rawPropertyDocumentation = "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-origin-origincustomheader.html#cfn-cloudfront-origin-origincustomheader-headervalue"
+           , rawPropertyDuplicatesAllowed = Nothing
+           , rawPropertyItemType = Nothing
+           , rawPropertyPrimitiveItemType = Nothing
+           , rawPropertyPrimitiveType = Just "String"
+           , rawPropertyRequired = True
+           , rawPropertyType = Nothing
+           , rawPropertyUpdateType = Just "Mutable"
+           }
+         )
+       ]
+     }
+  where
+    propertyTypesLens = lens rawCloudFormationSpecPropertyTypes (\s a -> s { rawCloudFormationSpecPropertyTypes = a })
+    --propertyPropsLens = lens rawPropertyTypeProperties (\s a -> s { rawPropertyTypeProperties = a })
+    resourceTypesLens = lens rawCloudFormationSpecResourceTypes (\s a -> s { rawCloudFormationSpecResourceTypes = a })
+    resourcePropsLens = lens rawResourceTypeProperties (\s a -> s { rawResourceTypeProperties = a })
 
 data PropertyType
   = PropertyType

@@ -244,6 +244,7 @@ import Stratosphere.ResourceProperties.CloudFrontDistributionForwardedValues as 
 import Stratosphere.ResourceProperties.CloudFrontDistributionGeoRestriction as X
 import Stratosphere.ResourceProperties.CloudFrontDistributionLogging as X
 import Stratosphere.ResourceProperties.CloudFrontDistributionOrigin as X
+import Stratosphere.ResourceProperties.CloudFrontDistributionOriginCustomHeader as X
 import Stratosphere.ResourceProperties.CloudFrontDistributionRestrictions as X
 import Stratosphere.ResourceProperties.CloudFrontDistributionS3OriginConfig as X
 import Stratosphere.ResourceProperties.CloudFrontDistributionViewerCertificate as X

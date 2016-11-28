@@ -101,8 +101,6 @@ normalizeSpecType allFullNames resourceType (MapType (SubPropertyType name)) =
 normalizeSpecType _ _ type' = type'
 
 normalizeTypeName :: Set Text -> Text -> Text -> Text
--- Errors in the AWS spec
-normalizeTypeName _ _ "OriginCustomHeader" = computeModuleName "AWS::CloudFront::Distribution.CustomOriginConfig"
 -- This is our only naming conflict. There is a resource named
 -- AWS::RDS::DBSecurityGroupIngress, and a property named
 -- AWS::RDS::DBSecurityGroup.Ingress.
