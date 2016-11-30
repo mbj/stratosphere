@@ -119,7 +119,7 @@ for an explanation.
 
 All of the resources and resource properties are auto-generated from
 a
-[http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-resource-specification.html](JSON schema file) and
+[JSON schema file](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-resource-specification.html) and
 are placed in `library-gen/`. The `gen/` directory contains the auto-generator
 code and the JSON model file. We include the `library-gen/` directory in git so
 the build process is simplified. To build `library-gen` from scratch and then
