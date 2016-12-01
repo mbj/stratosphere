@@ -15,6 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.EC2InstanceBlockDeviceMapping
 import Stratosphere.ResourceProperties.EC2InstanceNetworkInterface
 import Stratosphere.ResourceProperties.EC2InstanceSsmAssociation
+import Stratosphere.ResourceProperties.Tag
 import Stratosphere.ResourceProperties.EC2InstanceVolume
 
 -- | Full data type definition for EC2Instance. See 'ec2Instance' for a more
@@ -44,6 +45,7 @@ data EC2Instance =
   , _eC2InstanceSourceDestCheck :: Maybe (Val Bool')
   , _eC2InstanceSsmAssociations :: Maybe [EC2InstanceSsmAssociation]
   , _eC2InstanceSubnetId :: Maybe (Val Text)
+  , _eC2InstanceTags :: Maybe [Tag]
   , _eC2InstanceTenancy :: Maybe (Val Text)
   , _eC2InstanceUserData :: Maybe (Val Text)
   , _eC2InstanceVolumes :: Maybe [EC2InstanceVolume]
@@ -84,6 +86,7 @@ ec2Instance imageIdarg =
   , _eC2InstanceSourceDestCheck = Nothing
   , _eC2InstanceSsmAssociations = Nothing
   , _eC2InstanceSubnetId = Nothing
+  , _eC2InstanceTags = Nothing
   , _eC2InstanceTenancy = Nothing
   , _eC2InstanceUserData = Nothing
   , _eC2InstanceVolumes = Nothing
@@ -180,6 +183,10 @@ eciSsmAssociations = lens _eC2InstanceSsmAssociations (\s a -> s { _eC2InstanceS
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-subnetid
 eciSubnetId :: Lens' EC2Instance (Maybe (Val Text))
 eciSubnetId = lens _eC2InstanceSubnetId (\s a -> s { _eC2InstanceSubnetId = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-tags
+eciTags :: Lens' EC2Instance (Maybe [Tag])
+eciTags = lens _eC2InstanceTags (\s a -> s { _eC2InstanceTags = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-tenancy
 eciTenancy :: Lens' EC2Instance (Maybe (Val Text))
