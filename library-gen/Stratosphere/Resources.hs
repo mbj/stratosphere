@@ -1,4 +1,4 @@
-{-# OPTIONS_GHC -fmax-pmcheck-iterations=10000000 #-}
+{-# LANGUAGE CPP #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE ExistentialQuantification #-}
 {-# LANGUAGE FlexibleInstances #-}
@@ -8,6 +8,10 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE TemplateHaskell #-}
 {-# LANGUAGE TypeFamilies #-}
+
+#if MIN_VERSION_GLASGOW_HASKELL(8,0,1,0)
+{-# OPTIONS_GHC -fmax-pmcheck-iterations=10000000 #-}
+#endif
 
 -- | See:
 -- http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html
