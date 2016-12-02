@@ -19,7 +19,7 @@ import Stratosphere.Values
 data IAMPolicy =
   IAMPolicy
   { _iAMPolicyGroups :: Maybe [Val Text]
-  , _iAMPolicyPolicyDocument :: Val Text
+  , _iAMPolicyPolicyDocument :: Object
   , _iAMPolicyPolicyName :: Val Text
   , _iAMPolicyRoles :: Maybe [Val Text]
   , _iAMPolicyUsers :: Maybe [Val Text]
@@ -33,7 +33,7 @@ instance FromJSON IAMPolicy where
 
 -- | Constructor for 'IAMPolicy' containing required fields as arguments.
 iamPolicy
-  :: Val Text -- ^ 'iampPolicyDocument'
+  :: Object -- ^ 'iampPolicyDocument'
   -> Val Text -- ^ 'iampPolicyName'
   -> IAMPolicy
 iamPolicy policyDocumentarg policyNamearg =
@@ -50,7 +50,7 @@ iampGroups :: Lens' IAMPolicy (Maybe [Val Text])
 iampGroups = lens _iAMPolicyGroups (\s a -> s { _iAMPolicyGroups = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html#cfn-iam-policy-policydocument
-iampPolicyDocument :: Lens' IAMPolicy (Val Text)
+iampPolicyDocument :: Lens' IAMPolicy Object
 iampPolicyDocument = lens _iAMPolicyPolicyDocument (\s a -> s { _iAMPolicyPolicyDocument = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html#cfn-iam-policy-policyname

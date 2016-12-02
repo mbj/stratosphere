@@ -139,6 +139,40 @@ fixSpecBugs spec =
   . propertyPropsLens
   . at "Attributes"
   %~ (\(Just rawProp) -> Just rawProp { rawPropertyItemType = Nothing, rawPropertyPrimitiveItemType = Just "Json" })
+  -- AWS::IAM::Policy.PolicyDocument and AWS::IAM::Role.AssumeRolePolicyDocument
+  -- incorrectly have a PrimitiveItemType of "String", not a PrimitiveItemType
+  -- of "Json"
+  & resourceTypesLens
+  . ix "AWS::IAM::Policy"
+  . resourcePropsLens
+  . at "PolicyDocument"
+  %~ (\(Just rawProp) -> Just rawProp { rawPropertyPrimitiveType = Just "Json" })
+  & resourceTypesLens
+  . ix "AWS::IAM::Role"
+  . resourcePropsLens
+  . at "AssumeRolePolicyDocument"
+  %~ (\(Just rawProp) -> Just rawProp { rawPropertyPrimitiveType = Just "Json" })
+  -- Lots of not-required properties that are actually required
+  & propertyTypesLens
+  . ix "AWS::IAM::User.Policy"
+  . propertyPropsLens
+  . at "PolicyDocument"
+  %~ (\(Just rawProp) -> Just rawProp { rawPropertyRequired = True })
+  & propertyTypesLens
+  . ix "AWS::IAM::User.Policy"
+  . propertyPropsLens
+  . at "PolicyName"
+  %~ (\(Just rawProp) -> Just rawProp { rawPropertyRequired = True })
+  & propertyTypesLens
+  . ix "AWS::IAM::Role.Policy"
+  . propertyPropsLens
+  . at "PolicyDocument"
+  %~ (\(Just rawProp) -> Just rawProp { rawPropertyRequired = True })
+  & propertyTypesLens
+  . ix "AWS::IAM::Role.Policy"
+  . propertyPropsLens
+  . at "PolicyName"
+  %~ (\(Just rawProp) -> Just rawProp { rawPropertyRequired = True })
   -- This is our only naming conflict. There is a resource named
   -- AWS::RDS::DBSecurityGroupIngress, and a property named
   -- AWS::RDS::DBSecurityGroup.Ingress. There is a corresponding fix in the
@@ -155,6 +189,7 @@ fixSpecBugs spec =
     propertyTypesLens = lens rawCloudFormationSpecPropertyTypes (\s a -> s { rawCloudFormationSpecPropertyTypes = a })
     propertyPropsLens :: Lens' RawPropertyType (Map Text RawProperty)
     propertyPropsLens = lens rawPropertyTypeProperties (\s a -> s { rawPropertyTypeProperties = a })
+    resourceTypesLens :: Lens' RawCloudFormationSpec (Map Text RawResourceType)
     resourceTypesLens = lens rawCloudFormationSpecResourceTypes (\s a -> s { rawCloudFormationSpecResourceTypes = a })
     resourcePropsLens = lens rawResourceTypeProperties (\s a -> s { rawResourceTypeProperties = a })
 

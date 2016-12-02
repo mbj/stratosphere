@@ -18,7 +18,7 @@ import Stratosphere.ResourceProperties.IAMRolePolicy
 -- | convenient constructor.
 data IAMRole =
   IAMRole
-  { _iAMRoleAssumeRolePolicyDocument :: Val Text
+  { _iAMRoleAssumeRolePolicyDocument :: Object
   , _iAMRoleManagedPolicyArns :: Maybe [Val Text]
   , _iAMRolePath :: Maybe (Val Text)
   , _iAMRolePolicies :: Maybe [IAMRolePolicy]
@@ -33,7 +33,7 @@ instance FromJSON IAMRole where
 
 -- | Constructor for 'IAMRole' containing required fields as arguments.
 iamRole
-  :: Val Text -- ^ 'iamrAssumeRolePolicyDocument'
+  :: Object -- ^ 'iamrAssumeRolePolicyDocument'
   -> IAMRole
 iamRole assumeRolePolicyDocumentarg =
   IAMRole
@@ -45,7 +45,7 @@ iamRole assumeRolePolicyDocumentarg =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html#cfn-iam-role-assumerolepolicydocument
-iamrAssumeRolePolicyDocument :: Lens' IAMRole (Val Text)
+iamrAssumeRolePolicyDocument :: Lens' IAMRole Object
 iamrAssumeRolePolicyDocument = lens _iAMRoleAssumeRolePolicyDocument (\s a -> s { _iAMRoleAssumeRolePolicyDocument = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html#cfn-iam-role-managepolicyarns

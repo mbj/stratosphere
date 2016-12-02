@@ -18,8 +18,8 @@ import Stratosphere.Values
 -- | more convenient constructor.
 data IAMUserPolicy =
   IAMUserPolicy
-  { _iAMUserPolicyPolicyDocument :: Maybe Object
-  , _iAMUserPolicyPolicyName :: Maybe (Val Text)
+  { _iAMUserPolicyPolicyDocument :: Object
+  , _iAMUserPolicyPolicyName :: Val Text
   } deriving (Show, Generic)
 
 instance ToJSON IAMUserPolicy where
@@ -30,17 +30,19 @@ instance FromJSON IAMUserPolicy where
 
 -- | Constructor for 'IAMUserPolicy' containing required fields as arguments.
 iamUserPolicy
-  :: IAMUserPolicy
-iamUserPolicy  =
+  :: Object -- ^ 'iamupPolicyDocument'
+  -> Val Text -- ^ 'iamupPolicyName'
+  -> IAMUserPolicy
+iamUserPolicy policyDocumentarg policyNamearg =
   IAMUserPolicy
-  { _iAMUserPolicyPolicyDocument = Nothing
-  , _iAMUserPolicyPolicyName = Nothing
+  { _iAMUserPolicyPolicyDocument = policyDocumentarg
+  , _iAMUserPolicyPolicyName = policyNamearg
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html#cfn-iam-policies-policydocument
-iamupPolicyDocument :: Lens' IAMUserPolicy (Maybe Object)
+iamupPolicyDocument :: Lens' IAMUserPolicy Object
 iamupPolicyDocument = lens _iAMUserPolicyPolicyDocument (\s a -> s { _iAMUserPolicyPolicyDocument = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html#cfn-iam-policies-policyname
-iamupPolicyName :: Lens' IAMUserPolicy (Maybe (Val Text))
+iamupPolicyName :: Lens' IAMUserPolicy (Val Text)
 iamupPolicyName = lens _iAMUserPolicyPolicyName (\s a -> s { _iAMUserPolicyPolicyName = a })

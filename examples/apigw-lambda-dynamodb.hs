@@ -5,10 +5,8 @@ module Main where
 
 import Control.Lens
 import Data.Aeson (Value (Array), object)
-import Data.Aeson.Text
 import qualified Data.ByteString.Lazy.Char8 as B
 import Data.Text (Text)
-import qualified Data.Text.Lazy as TL
 import Stratosphere
 
 
@@ -221,7 +219,7 @@ readLambdaRole :: Resource
 readLambdaRole = resource "ReadLambdaRole" $
   IAMRoleProperties $
   iamRole
-  (Literal $ TL.toStrict $ encodeToLazyText rolePolicyDocumentObject)
+  rolePolicyDocumentObject
   & iamrPolicies ?~ [ executePolicy ]
   & iamrRoleName ?~ "ReadLambdaRole"
   & iamrPath ?~ "/"
@@ -229,11 +227,10 @@ readLambdaRole = resource "ReadLambdaRole" $
   where
     executePolicy =
       iamRolePolicy
-      & iamrpPolicyName ?~ "MyLambdaExecutionPolicy"
-      & iamrpPolicyDocument ?~
-        [ ("Version", "2012-10-17")
-        , ("Statement", statement)
-        ]
+      [ ("Version", "2012-10-17")
+      , ("Statement", statement)
+      ]
+      "MyLambdaExecutionPolicy"
 
       where
         statement = object
@@ -250,7 +247,6 @@ readLambdaRole = resource "ReadLambdaRole" $
           ]
 
     rolePolicyDocumentObject =
-      object
       [ ("Version", "2012-10-17")
       , ("Statement", statement)
       ]
@@ -269,7 +265,7 @@ writeLambdaRole :: Resource
 writeLambdaRole = resource "WriteLambdaRole" $
   IAMRoleProperties $
   iamRole
-  (Literal $ TL.toStrict $ encodeToLazyText rolePolicyDocumentObject)
+  rolePolicyDocumentObject
   & iamrPolicies ?~ [ executePolicy ]
   & iamrRoleName ?~ "WriteLambdaRole"
   & iamrPath ?~ "/"
@@ -277,11 +273,10 @@ writeLambdaRole = resource "WriteLambdaRole" $
   where
     executePolicy =
       iamRolePolicy
-      & iamrpPolicyName ?~ "MyLambdaExecutionPolicy"
-      & iamrpPolicyDocument ?~
-        [ ("Version", "2012-10-17")
-        , ("Statement", statement)
-        ]
+      [ ("Version", "2012-10-17")
+      , ("Statement", statement)
+      ]
+      "MyLambdaExecutionPolicy"
 
       where
         statement = object
@@ -299,7 +294,6 @@ writeLambdaRole = resource "WriteLambdaRole" $
 
 
     rolePolicyDocumentObject =
-      object
       [ ("Version", "2012-10-17")
       , ("Statement", statement)
       ]

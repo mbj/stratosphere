@@ -18,8 +18,8 @@ import Stratosphere.Values
 -- | more convenient constructor.
 data IAMRolePolicy =
   IAMRolePolicy
-  { _iAMRolePolicyPolicyDocument :: Maybe Object
-  , _iAMRolePolicyPolicyName :: Maybe (Val Text)
+  { _iAMRolePolicyPolicyDocument :: Object
+  , _iAMRolePolicyPolicyName :: Val Text
   } deriving (Show, Generic)
 
 instance ToJSON IAMRolePolicy where
@@ -30,17 +30,19 @@ instance FromJSON IAMRolePolicy where
 
 -- | Constructor for 'IAMRolePolicy' containing required fields as arguments.
 iamRolePolicy
-  :: IAMRolePolicy
-iamRolePolicy  =
+  :: Object -- ^ 'iamrpPolicyDocument'
+  -> Val Text -- ^ 'iamrpPolicyName'
+  -> IAMRolePolicy
+iamRolePolicy policyDocumentarg policyNamearg =
   IAMRolePolicy
-  { _iAMRolePolicyPolicyDocument = Nothing
-  , _iAMRolePolicyPolicyName = Nothing
+  { _iAMRolePolicyPolicyDocument = policyDocumentarg
+  , _iAMRolePolicyPolicyName = policyNamearg
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html#cfn-iam-policies-policydocument
-iamrpPolicyDocument :: Lens' IAMRolePolicy (Maybe Object)
+iamrpPolicyDocument :: Lens' IAMRolePolicy Object
 iamrpPolicyDocument = lens _iAMRolePolicyPolicyDocument (\s a -> s { _iAMRolePolicyPolicyDocument = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html#cfn-iam-policies-policyname
-iamrpPolicyName :: Lens' IAMRolePolicy (Maybe (Val Text))
+iamrpPolicyName :: Lens' IAMRolePolicy (Val Text)
 iamrpPolicyName = lens _iAMRolePolicyPolicyName (\s a -> s { _iAMRolePolicyPolicyName = a })
