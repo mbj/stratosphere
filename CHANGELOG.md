@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.3.0
+
+* **Backwards-incompatible**: We now use the official AWS JSON spec document to
+  auto-generate types. This means there is no more Python scraper and custom
+  JSON schemas. The behavior of the library is exactly the same, but a ton of
+  resource names changed to match official the official AWS names. On the plus
+  side, we now have 100% service coverage!
+
 ## 0.2.2
 
 * Fixed a test suite failure caused by bleeding edge HLint version.
