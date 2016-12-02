@@ -1,112 +1,109 @@
-{-# LANGUAGE ExistentialQuantification #-}
-{-# LANGUAGE FlexibleInstances #-}
-{-# LANGUAGE MultiParamTypeClasses #-}
-{-# LANGUAGE OverloadedStrings #-}
-
 module Main where
 
-import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Maybe (isJust, fromMaybe)
-import Data.List (sortOn)
+import Data.List (nub)
+import Data.Monoid ((<>))
 import qualified Data.Text as T
 import qualified Data.Text.Lazy as TL
+import Extra (whenM)
 import qualified Filesystem as FS
+import Filesystem.Path.CurrentOS ((</>))
 import qualified Filesystem.Path.CurrentOS as FP
 import Text.EDE
 
-import Gen.ADT
-import Gen.Aeson
-import Gen.Constructor
-import Gen.Docstring
-import Gen.Lens
-import Gen.Resource
-import Gen.Types
+import Gen.ReadRawSpecFile
+import Gen.Render
+import Gen.Specifications
 
 main :: IO ()
-main =
-  do FS.createDirectory True (".." FP.</> "library-gen")
-     FS.createDirectory True (".." FP.</> "library-gen" FP.</> "Stratosphere")
+main = do
+  specEither :: Either String RawCloudFormationSpec <- decodeFile $ "model" </> "CloudFormationResourceSpecification.json"
+  let
+    rawSpec = either error id specEither
+    spec = specFromRaw rawSpec
 
-     resources <- genModule ("models" FP.</> "resources") "Stratosphere.Resources"
-     resourceProperties <- genModule ("models" FP.</> "resource-properties") "Stratosphere.ResourceProperties"
-     resourceAttributes <- genModule ("models" FP.</> "resource-attributes") "Stratosphere.ResourceAttributes"
+  whenM (FS.isDirectory (".." FP.</> "library-gen")) $
+    FS.removeTree (".." FP.</> "library-gen")
+  FS.createDirectory True (".." FP.</> "library-gen")
+  FS.createDirectory True (".." FP.</> "library-gen" FP.</> "Stratosphere")
 
-     renderTopLevelModule resources resourceProperties resourceAttributes
+  let
+    modules =
+      createModules
+      (cloudFormationSpecPropertyTypes spec)
+      (cloudFormationSpecResourceTypes spec)
+  renderModules modules
+  renderTopLevelModule modules
 
-genModule
-  :: FP.FilePath
-  -> T.Text
-  -> IO [Resource]
-genModule srcDir destModule = do
-  paths <- FS.listDirectory srcDir
-  parsed <- mapM parseResource paths
-  parsed' <- case sequence parsed of
-               (Left err) -> fail $ "Failure parsing: " ++ err
-               (Right ps) -> return ps
+renderModules :: [Module] -> IO ()
+renderModules modules = do
   template <- readTemplate "templates/resource-module.ede"
-  let sorted = sortOn (view name) parsed'
-  mapM_ (renderResource template destModule) sorted
-  return sorted
+  mapM_ (renderModule template) modules
+
+renderModule :: Template -> Module -> IO ()
+renderModule template module'@Module {..} = do
+  let
+    params =
+      [ "name" .= moduleName
+      , "docstring" .= renderDocstring moduleDocumentation
+      , "moduleBase" .= modulePath
+      , "dependencies" .= renderDependencies module' moduleProperties
+      , "typeDecl" .= renderResourceTypeDecl module'
+      , "jsonInstances" .= renderToFromJSON module'
+      , "constructor" .= renderConstructor module'
+      , "lenses" .= renderLenses module'
+      , "type" .= fromPairs [ "hasType" .= moduleIsResource
+                            , "value" .= moduleResourceType
+                            ]
+      ]
+    moduleText =
+      case render template (fromPairs params) of
+        (Text.EDE.Success r) -> TL.toStrict r
+        (Failure f) -> error $ "Failure rendering: " ++ show f
+    modDir = ".." FP.</> "library-gen" FP.</>
+             FP.concat (FP.fromText <$> T.splitOn "." modulePath)
+    fileName = FP.fromText moduleName FP.<.> "hs"
+    filePath = modDir FP.</> fileName
+  FS.createDirectory True modDir
+  putStrLn ("Writing: " ++ show filePath)
+  FS.writeTextFile filePath moduleText
+
+renderDependencies :: Module -> [Property] -> T.Text
+renderDependencies Module {..} props = T.intercalate "\n" deps
+  where
+    customDeps = customTypeNames props
+    propertyDeps = subPropertyTypeNames props
+    -- The EMR Cluster configurations references itself, so we have to filter
+    -- out the case where things reference themselves.
+    nonRecursivePropertyDeps = nub $ filter (/= moduleName) propertyDeps
+    deps =
+      (if null customDeps then [] else ["import Stratosphere.Types"]) ++
+      fmap (\d -> T.concat ["import Stratosphere.ResourceProperties.", d]) nonRecursivePropertyDeps
+
 
 readTemplate :: FP.FilePath -> IO Template
 readTemplate fp =
   do tempResult <- eitherParseFile (FP.encodeString fp)
      either fail return tempResult
 
-type Module = T.Text
+renderTopLevelModule :: [Module] -> IO ()
+renderTopLevelModule modules = do
+  let
+    paths = fmap (\Module{..} -> modulePath <> "." <> moduleName) modules
+    resourceModules = filter moduleIsResource modules
+    params =
+      [ "moduleImports" .= renderImports paths
+      , "resourceADT" .= renderADT resourceModules
+      , "toJSONFuncs" .= renderToJSONFuncs resourceModules
+      , "fromJSONCases" .= renderFromJSONCases resourceModules
+      ]
 
-renderResource :: Template -> Module -> Resource -> IO ()
-renderResource temp modBase res =
-  do let params = [ "name" .= (res ^. name)
-                  , "docstring" .= maybe "" renderDocstring (res ^. documentation)
-                  , "moduleBase" .= modBase
-                  , "dependencies" .= renderDependencies (res ^. dependencies)
-                  , "typeDecl" .= renderResourceTypeDecl res
-                  , "jsonInstances" .= renderToFromJSON res
-                  , "constructor" .= renderConstructor res
-                  , "lenses" .= renderLenses res
-                  , "type" .= fromPairs [ "hasType" .= isJust (res ^. type')
-                                        , "value" .= fromMaybe "" (res ^. type')
-                                        ]
-                  ]
-     modText <- case render temp (fromPairs params) of
-                  (Text.EDE.Success r) -> return (TL.toStrict r)
-                  (Failure f) -> fail $ "Failure rendering: " ++ show f
-
-     let modDir = ".." FP.</> "library-gen" FP.</>
-                  FP.concat (FP.fromText <$> T.splitOn "." modBase)
-         fileName = FP.fromText (res ^. name) FP.<.> "hs"
-         modPath = modDir FP.</> fileName
-     FS.createDirectory True modDir
-     putStrLn ("Writing: " ++ show modPath)
-     FS.writeTextFile modPath modText
-
-
-renderDependencies :: Maybe [T.Text] -> T.Text
-renderDependencies Nothing = ""
-renderDependencies (Just deps) = T.intercalate "\n" deps'
-  where deps' = fmap (\d -> T.concat ["import Stratosphere.", d]) deps
-
-
-renderTopLevelModule :: [Resource] -> [Resource] -> [Resource] -> IO ()
-renderTopLevelModule resources resourceProps resourceAttributes =
-  do let params = [ "resourceImports" .=
-                    renderImports "Stratosphere.Resources." resources
-                  , "resourcePropImports" .=
-                    renderImports "Stratosphere.ResourceProperties." resourceProps
-                  , "resourceAttributeImports" .=
-                    renderImports "Stratosphere.ResourceAttributes." resourceAttributes
-                  , "resourceADT" .= renderADT resources
-                  , "toJSONFuncs" .= renderToJSONFuncs resources
-                  , "fromJSONCases" .= renderFromJSONCases resources
-                  ]
-
-     template <- readTemplate "templates/Resources.hs.ede"
-     modText <- case render template (fromPairs params) of
-                  (Text.EDE.Success r) -> return (TL.toStrict r)
-                  (Failure f) -> fail $ "Failure rendering: " ++ show f
-
-     let modPath = ".." FP.</> "library-gen" FP.</> "Stratosphere" FP.</> "Resources.hs"
-     putStrLn ("Writing: " ++ show modPath)
-     FS.writeTextFile modPath modText
+  template <- readTemplate "templates/Resources.hs.ede"
+  let
+    modText =
+      case render template (fromPairs params) of
+        (Text.EDE.Success r) -> TL.toStrict r
+        (Failure f) -> error $ "Failure rendering: " ++ show f
+    modPath = ".." FP.</> "library-gen" FP.</> "Stratosphere" FP.</> "Resources.hs"
+  putStrLn ("Writing: " ++ show modPath)
+  FS.writeTextFile modPath modText

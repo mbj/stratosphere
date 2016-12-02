@@ -30,22 +30,22 @@ myTemplate =
       )
     & deletionPolicy ?~ Retain
   , resource "InstanceSecurityGroup" $
-    SecurityGroupProperties $
-    securityGroup
+    EC2SecurityGroupProperties $
+    ec2SecurityGroup
     "Enable SSH Access"
-    & sgSecurityGroupIngress ?~ [
-      securityGroupIngressRule
+    & ecsgSecurityGroupIngress ?~ [
+      ec2SecurityGroupRule
       "tcp"
-      & sgirFromPort ?~ Literal 22
-      & sgirToPort ?~ Literal 22
-      & sgirCidrIp ?~ Ref "SSHLocation"
+      & ecsgrFromPort ?~ Literal 22
+      & ecsgrToPort ?~ Literal 22
+      & ecsgrCidrIp ?~ Ref "SSHLocation"
       ]
-  , resource "IPAddress" (EIPProperties eip)
+  , resource "IPAddress" (EC2EIPProperties ec2EIP)
   , resource "IPAssoc" $
-    EIPAssociationProperties $
-    eipAssociation
-    & eipaInstanceId ?~ Ref "EC2Instance"
-    & eipaEIP ?~ Ref "IPAddress"
+    EC2EIPAssociationProperties $
+    ec2EIPAssociation
+    & eceipaInstanceId ?~ Ref "EC2Instance"
+    & eceipaEip ?~ Ref "IPAddress"
   ]
   & description ?~ "See https://s3.amazonaws.com/cloudformation-templates-us-east-1/EIP_With_Association.template"
   & formatVersion ?~ "2010-09-09"

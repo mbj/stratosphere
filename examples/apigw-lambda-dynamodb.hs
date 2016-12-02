@@ -36,89 +36,98 @@ myTemplate = template
   & formatVersion ?~ "2010-09-09"
 
 apiGWRestApi :: Resource
-apiGWRestApi = (resource "ApiGWRestApi" $
+apiGWRestApi =
+  resource "ApiGWRestApi" $
   ApiGatewayRestApiProperties $
   apiGatewayRestApi
-    "myApi"
-  )
+  & agraName ?~ "myApi"
 
 apiGWResource :: Resource
-apiGWResource = (resource "ApiGWResource" $
+apiGWResource =
+  resource "ApiGWResource" $
   ApiGatewayResourceProperties $
   apiGatewayResource
     (GetAtt "ApiGWRestApi" "RootResourceId")
     "thing"
     (toRef apiGWRestApi)
-  )
+
 
 getMethod :: Resource
-getMethod = (resource "ApiGWGetMethod" $
+getMethod = (
+  resource "ApiGWGetMethod" $
   ApiGatewayMethodProperties $
   apiGatewayMethod
-    NONE
-    GET
-    (toRef apiGWResource)
-    (toRef apiGWRestApi)
+    (Literal GET)
+    & agmeAuthorizationType ?~ Literal NONE
+    & agmeResourceId ?~ toRef apiGWResource
+    & agmeAuthorizerId ?~ toRef apiGWRestApi
     & agmeIntegration ?~ integration
     & agmeMethodResponses ?~ [ methodResponse ]
   )
-  & dependsOn ?~ deps [
-      readLambdaPermission
-    ]
+  & dependsOn ?~ deps [readLambdaPermission]
 
   where
-    integration = apiGatewayIntegration AWS
-      & agiIntegrationHttpMethod ?~ POST
-      & agiUri ?~ (Join "" [
+    integration =
+      apiGatewayMethodIntegration
+      & agmiType ?~ Literal AWS
+      & agmiIntegrationHttpMethod ?~ Literal POST
+      & agmiUri ?~ Join "" [
           "arn:aws:apigateway:"
         , Ref "AWS::Region"
         , ":lambda:path/2015-03-31/functions/"
         , GetAtt "ReadTableLambda" "Arn"
-        , "/invocations"])
-      & agiIntegrationResponses ?~ [ integrationResponse ]
-      & agiPassthroughBehavior ?~ WHEN_NO_TEMPLATES
-      & agiRequestTemplates ?~ [ ]
+        , "/invocations"]
+      & agmiIntegrationResponses ?~ [ integrationResponse ]
+      & agmiPassthroughBehavior ?~ Literal WHEN_NO_TEMPLATES
+      & agmiRequestTemplates ?~ [ ]
 
-    integrationResponse = apiGatewayIntegrationResponse
-      & agirResponseTemplates ?~ [ ("application/json", "$input.json('$.body')") ]
-      & agirStatusCode ?~ "200"
+    integrationResponse =
+      apiGatewayMethodIntegrationResponse
+      & agmirResponseTemplates ?~ [ ("application/json", "$input.json('$.body')") ]
+      & agmirStatusCode ?~ "200"
 
-    methodResponse = apiGatewayMethodResponse "200"
+    methodResponse =
+      apiGatewayMethodMethodResponse
+      & agmmrStatusCode ?~ "200"
 
 
 postMethod :: Resource
-postMethod = (resource "ApiGWPutMethod" $
+postMethod = (
+  resource "ApiGWPutMethod" $
   ApiGatewayMethodProperties $
   apiGatewayMethod
-    NONE
-    POST
-    (toRef apiGWResource)
-    (toRef apiGWRestApi)
+    (Literal POST)
+    & agmeAuthorizationType ?~ Literal NONE
+    & agmeResourceId ?~ toRef apiGWResource
+    & agmeAuthorizerId ?~ toRef apiGWRestApi
     & agmeIntegration ?~ integration
     & agmeMethodResponses ?~ [ methodResponse ]
   )
-  & dependsOn ?~ deps [
-      writeLambdaPermission
-    ]
+  & dependsOn ?~ deps [writeLambdaPermission]
 
   where
-    integration = apiGatewayIntegration AWS
-      & agiIntegrationHttpMethod ?~ POST
-      & agiUri ?~ (Join "" [
+    integration =
+      apiGatewayMethodIntegration
+      & agmiType ?~ Literal AWS
+      & agmiIntegrationHttpMethod ?~ Literal POST
+      & agmiUri ?~ Join "" [
           "arn:aws:apigateway:"
         , Ref "AWS::Region"
         , ":lambda:path/2015-03-31/functions/"
         , GetAtt "WriteTableLambda" "Arn"
-        , "/invocations"])
-      & agiIntegrationResponses ?~ [ integrationResponse ]
-      & agiPassthroughBehavior ?~ WHEN_NO_TEMPLATES
-      & agiRequestTemplates ?~ [ ("application/json", "{\"body\": $input.body}") ]
+        , "/invocations"]
+      & agmiIntegrationResponses ?~ [integrationResponse]
+      & agmiPassthroughBehavior ?~ Literal WHEN_NO_TEMPLATES
+      & agmiRequestTemplates ?~ [ ("application/json", "{\"body\": $input.body}") ]
 
-    integrationResponse = apiGatewayIntegrationResponse
-      & agirResponseTemplates ?~ [ ("application/json", "$input.json('$.body')") ]
-      & agirStatusCode ?~ "200"
+    integrationResponse =
+      apiGatewayMethodIntegrationResponse
+      & agmirResponseTemplates ?~ [ ("application/json", "$input.json('$.body')") ]
+      & agmirStatusCode ?~ "200"
 
-    methodResponse = apiGatewayMethodResponse "200"
+    methodResponse =
+      apiGatewayMethodMethodResponse
+      & agmmrStatusCode ?~ "200"
 
 apiGWDeployment :: Resource
 apiGWDeployment = (resource "ApiGWDeployment" $
@@ -140,7 +149,7 @@ readLambda = (resource "ReadTableLambda" $
     lambdaCode
     "index.handler"
     (GetAtt "ReadLambdaRole" "Arn")
-    NodeJS43
+    (Literal NodeJS43)
     & lfFunctionName ?~ "readTable"
   )
 
@@ -171,15 +180,15 @@ readLambda = (resource "ReadTableLambda" $
 
 
 writeLambda :: Resource
-writeLambda = (resource "WriteTableLambda" $
+writeLambda =
+  resource "WriteTableLambda" $
   LambdaFunctionProperties $
   lambdaFunction
     lambdaCode
     "index.handler"
     (GetAtt "WriteLambdaRole" "Arn")
-    NodeJS43
+    (Literal NodeJS43)
     & lfFunctionName ?~ "writeTable"
-  )
 
   where
     lambdaCode :: LambdaFunctionCode
@@ -209,14 +218,15 @@ writeLambda = (resource "WriteTableLambda" $
 readLambdaRole :: Resource
 readLambdaRole = resource "ReadLambdaRole" $
   IAMRoleProperties $
-  iamRole rolePolicyDocumentObject
+  iamRole
+  rolePolicyDocumentObject
   & iamrPolicies ?~ [ executePolicy ]
   & iamrRoleName ?~ "ReadLambdaRole"
   & iamrPath ?~ "/"
 
   where
     executePolicy =
-      iamPolicies
+      iamRolePolicy
       [ ("Version", "2012-10-17")
       , ("Statement", statement)
       ]
@@ -236,7 +246,6 @@ readLambdaRole = resource "ReadLambdaRole" $
           , "dynamodb:GetItem"
           ]
 
-
     rolePolicyDocumentObject =
       [ ("Version", "2012-10-17")
       , ("Statement", statement)
@@ -255,14 +264,15 @@ readLambdaRole = resource "ReadLambdaRole" $
 writeLambdaRole :: Resource
 writeLambdaRole = resource "WriteLambdaRole" $
   IAMRoleProperties $
-  iamRole rolePolicyDocumentObject
+  iamRole
+  rolePolicyDocumentObject
   & iamrPolicies ?~ [ executePolicy ]
   & iamrRoleName ?~ "WriteLambdaRole"
   & iamrPath ?~ "/"
 
   where
     executePolicy =
-      iamPolicies
+      iamRolePolicy
       [ ("Version", "2012-10-17")
       , ("Statement", statement)
       ]
@@ -325,14 +335,19 @@ dynamoDbTable = resource "Table" $
 
   where
     attributeDefinitions = [
-        dynamoDBAttributeDefinition "Id" S
+        dynamoDBTableAttributeDefinition
+        (Literal "Id")
+        (Literal S)
       ]
     keySchema = [
-        dynamoDBKeySchema "Id" HASH
+        dynamoDBTableKeySchema
+        (Literal "Id")
+        (Literal HASH)
       ]
     provisionedThroughput =
-      dynamoDBProvisionedThroughput (Literal 1) (Literal 1)
+      dynamoDBTableProvisionedThroughput
+      (Literal 1)
+      (Literal 1)
 
 deps :: [Resource] -> [Text]
-deps = map (\d -> d ^. resName)
-
+deps = map (^. resName)

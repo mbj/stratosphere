@@ -28,12 +28,12 @@ myTemplate =
 asgResource :: Resource
 asgResource =
   resource "AutoScalingGroup" $
-  AutoScalingGroupProperties $
-  autoScalingGroup
+  AutoScalingAutoScalingGroupProperties $
+  autoScalingAutoScalingGroup
   "1"
   "4"
-  & asgDesiredCapacity ?~ "3"
-  & asgLaunchConfigurationName ?~ Ref "LaunchConfig"
+  & asasgDesiredCapacity ?~ "3"
+  & asasgLaunchConfigurationName ?~ Ref "LaunchConfig"
 
 asgCreationPolicy :: CreationPolicy
 asgCreationPolicy =
@@ -46,21 +46,21 @@ asgUpdatePolicy :: UpdatePolicy
 asgUpdatePolicy =
   updatePolicy
   & upAutoScalingScheduledAction ?~ (
-    autoScalingScheduledAction
-    & assaIgnoreUnmodifiedGroupSizeProperties ?~ Literal True'
+    autoScalingScheduledActionPolicy
+    & assapIgnoreUnmodifiedGroupSizeProperties ?~ Literal True'
     )
   & upAutoScalingRollingUpdate ?~ (
-    autoScalingRollingUpdate
-    & asruMinInstancesInService ?~ Literal 1
-    & asruMaxBatchSize ?~ Literal 2
-    & asruPauseTime ?~ "PT15M"
-    & asruWaitOnResourceSignals ?~ Literal True'
+    autoScalingRollingUpdatePolicy
+    & asrupMinInstancesInService ?~ Literal 1
+    & asrupMaxBatchSize ?~ Literal 2
+    & asrupPauseTime ?~ "PT15M"
+    & asrupWaitOnResourceSignals ?~ Literal True'
     )
 
 launchConfigResource :: Resource
 launchConfigResource =
   resource "LaunchConfig" $
-  LaunchConfigurationProperties $
-  launchConfiguration
+  AutoScalingLaunchConfigurationProperties $
+  autoScalingLaunchConfiguration
   "ami-16d18a7e"
   "t2.micro"

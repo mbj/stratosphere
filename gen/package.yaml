@@ -6,6 +6,19 @@ maintainer: David Reaver
 extra-source-files:
   - stack.yaml
 
+default-extensions:
+  - DeriveGeneric
+  - ExistentialQuantification
+  - FlexibleInstances
+  - FunctionalDependencies
+  - GeneralizedNewtypeDeriving
+  - MultiParamTypeClasses
+  - OverloadedStrings
+  - RecordWildCards
+  - ScopedTypeVariables
+  - StandaloneDeriving
+  - TemplateHaskell
+
 executables:
   stratosphere-gen:
     source-dirs: src
@@ -15,8 +28,11 @@ executables:
       - base
       - aeson >= 0.11
       - bytestring
+      - containers
       - ede
+      - extra
       - lens >= 4.5
+      - shakespeare
       - system-fileio
       - system-filepath
       - text >= 1.1

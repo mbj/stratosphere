@@ -1,8 +1,7 @@
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
 
--- | The AWS::SNS::Topic type creates an Amazon Simple Notification Service
--- (Amazon SNS) topic.
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic.html
 
 module Stratosphere.Resources.SNSTopic where
 
@@ -16,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.SNSTopicSubscription
 
 -- | Full data type definition for SNSTopic. See 'snsTopic' for a more
--- convenient constructor.
+-- | convenient constructor.
 data SNSTopic =
   SNSTopic
   { _sNSTopicDisplayName :: Maybe (Val Text)
@@ -40,19 +39,14 @@ snsTopic  =
   , _sNSTopicTopicName = Nothing
   }
 
--- | A developer-defined string that can be used to identify this SNS topic.
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic.html#cfn-sns-topic-displayname
 snstDisplayName :: Lens' SNSTopic (Maybe (Val Text))
 snstDisplayName = lens _sNSTopicDisplayName (\s a -> s { _sNSTopicDisplayName = a })
 
--- | The SNS subscriptions (endpoints) for this topic.
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic.html#cfn-sns-topic-subscription
 snstSubscription :: Lens' SNSTopic (Maybe [SNSTopicSubscription])
 snstSubscription = lens _sNSTopicSubscription (\s a -> s { _sNSTopicSubscription = a })
 
--- | A name for the topic. If you don't specify a name, AWS CloudFormation
--- generates a unique physical ID and uses that ID for the topic name. For
--- more information, see Name Type. Important If you specify a name, you
--- cannot do updates that require this resource to be replaced. You can still
--- do updates that require no or some interruption. If you must replace the
--- resource, specify a new name.
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic.html#cfn-sns-topic-topicname
 snstTopicName :: Lens' SNSTopic (Maybe (Val Text))
 snstTopicName = lens _sNSTopicTopicName (\s a -> s { _sNSTopicTopicName = a })

@@ -1,8 +1,7 @@
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
 
--- | The AWS::ApiGateway::Resource resource creates a resource in an Amazon
--- API Gateway (API Gateway) API.
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html
 
 module Stratosphere.Resources.ApiGatewayResource where
 
@@ -16,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for ApiGatewayResource. See
--- 'apiGatewayResource' for a more convenient constructor.
+-- | 'apiGatewayResource' for a more convenient constructor.
 data ApiGatewayResource =
   ApiGatewayResource
   { _apiGatewayResourceParentId :: Val Text
@@ -31,7 +30,7 @@ instance FromJSON ApiGatewayResource where
   parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 19, omitNothingFields = True }
 
 -- | Constructor for 'ApiGatewayResource' containing required fields as
--- arguments.
+-- | arguments.
 apiGatewayResource
   :: Val Text -- ^ 'agrParentId'
   -> Val Text -- ^ 'agrPathPart'
@@ -44,16 +43,14 @@ apiGatewayResource parentIdarg pathPartarg restApiIdarg =
   , _apiGatewayResourceRestApiId = restApiIdarg
   }
 
--- | If you want to create a child resource, the ID of the parent resource.
--- For resources without a parent, specify the RestApi root resource ID, such
--- as { "Fn::GetAtt": ["MyRestApi", "RootResourceId"] }.
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html#cfn-apigateway-resource-parentid
 agrParentId :: Lens' ApiGatewayResource (Val Text)
 agrParentId = lens _apiGatewayResourceParentId (\s a -> s { _apiGatewayResourceParentId = a })
 
--- | A path name for the resource.
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html#cfn-apigateway-resource-pathpart
 agrPathPart :: Lens' ApiGatewayResource (Val Text)
 agrPathPart = lens _apiGatewayResourcePathPart (\s a -> s { _apiGatewayResourcePathPart = a })
 
--- | The ID of the RestApi resource in which you want to create this resource.
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html#cfn-apigateway-resource-restapiid
 agrRestApiId :: Lens' ApiGatewayResource (Val Text)
 agrRestApiId = lens _apiGatewayResourceRestApiId (\s a -> s { _apiGatewayResourceRestApiId = a })

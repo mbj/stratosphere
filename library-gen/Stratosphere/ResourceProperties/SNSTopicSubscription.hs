@@ -1,9 +1,7 @@
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
 
--- | Subscription is an embedded property of the AWS::SNS::Topic resource that
--- describes the subscription endpoints for an Amazon Simple Notification
--- Service (Amazon SNS) topic.
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-subscription.html
 
 module Stratosphere.ResourceProperties.SNSTopicSubscription where
 
@@ -17,11 +15,11 @@ import Stratosphere.Values
 import Stratosphere.Types
 
 -- | Full data type definition for SNSTopicSubscription. See
--- 'snsTopicSubscription' for a more convenient constructor.
+-- | 'snsTopicSubscription' for a more convenient constructor.
 data SNSTopicSubscription =
   SNSTopicSubscription
   { _sNSTopicSubscriptionEndpoint :: Val Text
-  , _sNSTopicSubscriptionProtocol :: SNSProtocol
+  , _sNSTopicSubscriptionProtocol :: Val SNSProtocol
   } deriving (Show, Generic)
 
 instance ToJSON SNSTopicSubscription where
@@ -31,10 +29,10 @@ instance FromJSON SNSTopicSubscription where
   parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 21, omitNothingFields = True }
 
 -- | Constructor for 'SNSTopicSubscription' containing required fields as
--- arguments.
+-- | arguments.
 snsTopicSubscription
   :: Val Text -- ^ 'snstsEndpoint'
-  -> SNSProtocol -- ^ 'snstsProtocol'
+  -> Val SNSProtocol -- ^ 'snstsProtocol'
   -> SNSTopicSubscription
 snsTopicSubscription endpointarg protocolarg =
   SNSTopicSubscription
@@ -42,13 +40,10 @@ snsTopicSubscription endpointarg protocolarg =
   , _sNSTopicSubscriptionProtocol = protocolarg
   }
 
--- | The subscription's endpoint (format depends on the protocol). For more
--- information, see the Subscribe Endpoint parameter in the Amazon Simple
--- Notification Service API Reference.
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-subscription.html#cfn-sns-topic-subscription-endpoint
 snstsEndpoint :: Lens' SNSTopicSubscription (Val Text)
 snstsEndpoint = lens _sNSTopicSubscriptionEndpoint (\s a -> s { _sNSTopicSubscriptionEndpoint = a })
 
--- | The subscription's protocol. For more information, see the Subscribe
--- Protocol parameter in the Amazon Simple Notification Service API Reference.
-snstsProtocol :: Lens' SNSTopicSubscription SNSProtocol
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-subscription.html#cfn-sns-topic-subscription-protocol
+snstsProtocol :: Lens' SNSTopicSubscription (Val SNSProtocol)
 snstsProtocol = lens _sNSTopicSubscriptionProtocol (\s a -> s { _sNSTopicSubscriptionProtocol = a })

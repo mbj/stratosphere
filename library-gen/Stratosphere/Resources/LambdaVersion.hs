@@ -1,11 +1,7 @@
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
 
--- | The AWS::Lambda::Version resource publishes a specified version of an AWS
--- Lambda (Lambda) function. When publishing a new version of your function,
--- Lambda copies the latest version of your function. For more information,
--- see Introduction to AWS Lambda Versioning in the AWS Lambda Developer
--- Guide.
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-version.html
 
 module Stratosphere.Resources.LambdaVersion where
 
@@ -19,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for LambdaVersion. See 'lambdaVersion' for a
--- more convenient constructor.
+-- | more convenient constructor.
 data LambdaVersion =
   LambdaVersion
   { _lambdaVersionCodeSha256 :: Maybe (Val Text)
@@ -44,20 +40,14 @@ lambdaVersion functionNamearg =
   , _lambdaVersionFunctionName = functionNamearg
   }
 
--- | The SHA-256 hash of the deployment package that you want to publish. This
--- value must match the SHA-256 hash of the $LATEST version of the function.
--- Specify this property to validate that you are publishing the correct
--- package.
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-version.html#cfn-lambda-version-codesha256
 lvCodeSha256 :: Lens' LambdaVersion (Maybe (Val Text))
 lvCodeSha256 = lens _lambdaVersionCodeSha256 (\s a -> s { _lambdaVersionCodeSha256 = a })
 
--- | A description of the version you are publishing. If you don't specify a
--- value, Lambda copies the description from the $LATEST version of the
--- function.
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-version.html#cfn-lambda-version-description
 lvDescription :: Lens' LambdaVersion (Maybe (Val Text))
 lvDescription = lens _lambdaVersionDescription (\s a -> s { _lambdaVersionDescription = a })
 
--- | The Lambda function for which you want to publish a version. You can
--- specify the function's name or its Amazon Resource Name (ARN).
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-version.html#cfn-lambda-version-functionname
 lvFunctionName :: Lens' LambdaVersion (Val Text)
 lvFunctionName = lens _lambdaVersionFunctionName (\s a -> s { _lambdaVersionFunctionName = a })

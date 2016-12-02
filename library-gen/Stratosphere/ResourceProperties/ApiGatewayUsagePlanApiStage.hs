@@ -1,9 +1,7 @@
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
 
--- | ApiStage is a property of the AWS::ApiGateway::UsagePlan resource that
--- specifies which Amazon API Gateway (API Gateway) stages and APIs to
--- associate with a usage plan.
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html
 
 module Stratosphere.ResourceProperties.ApiGatewayUsagePlanApiStage where
 
@@ -17,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for ApiGatewayUsagePlanApiStage. See
--- 'apiGatewayUsagePlanApiStage' for a more convenient constructor.
+-- | 'apiGatewayUsagePlanApiStage' for a more convenient constructor.
 data ApiGatewayUsagePlanApiStage =
   ApiGatewayUsagePlanApiStage
   { _apiGatewayUsagePlanApiStageApiId :: Maybe (Val Text)
@@ -31,7 +29,7 @@ instance FromJSON ApiGatewayUsagePlanApiStage where
   parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 28, omitNothingFields = True }
 
 -- | Constructor for 'ApiGatewayUsagePlanApiStage' containing required fields
--- as arguments.
+-- | as arguments.
 apiGatewayUsagePlanApiStage
   :: ApiGatewayUsagePlanApiStage
 apiGatewayUsagePlanApiStage  =
@@ -40,11 +38,10 @@ apiGatewayUsagePlanApiStage  =
   , _apiGatewayUsagePlanApiStageStage = Nothing
   }
 
--- | The ID of an API that is in the specified Stage property that you want to
--- associate with the usage plan.
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html#cfn-apigateway-usageplan-apistage-apiid
 agupasApiId :: Lens' ApiGatewayUsagePlanApiStage (Maybe (Val Text))
 agupasApiId = lens _apiGatewayUsagePlanApiStageApiId (\s a -> s { _apiGatewayUsagePlanApiStageApiId = a })
 
--- | The name of an API Gateway stage to associate with the usage plan.
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html#cfn-apigateway-usageplan-apistage-stage
 agupasStage :: Lens' ApiGatewayUsagePlanApiStage (Maybe (Val Text))
 agupasStage = lens _apiGatewayUsagePlanApiStageStage (\s a -> s { _apiGatewayUsagePlanApiStageStage = a })

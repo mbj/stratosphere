@@ -1,8 +1,7 @@
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
 
--- | The AWS::SNS::TopicPolicy resource associates Amazon SNS topics with a
--- policy.
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-policy.html
 
 module Stratosphere.Resources.SNSTopicPolicy where
 
@@ -16,11 +15,11 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for SNSTopicPolicy. See 'snsTopicPolicy' for a
--- more convenient constructor.
+-- | more convenient constructor.
 data SNSTopicPolicy =
   SNSTopicPolicy
   { _sNSTopicPolicyPolicyDocument :: Object
-  , _sNSTopicPolicyTopics :: [String]
+  , _sNSTopicPolicyTopics :: [Val Text]
   } deriving (Show, Generic)
 
 instance ToJSON SNSTopicPolicy where
@@ -32,7 +31,7 @@ instance FromJSON SNSTopicPolicy where
 -- | Constructor for 'SNSTopicPolicy' containing required fields as arguments.
 snsTopicPolicy
   :: Object -- ^ 'snstpPolicyDocument'
-  -> [String] -- ^ 'snstpTopics'
+  -> [Val Text] -- ^ 'snstpTopics'
   -> SNSTopicPolicy
 snsTopicPolicy policyDocumentarg topicsarg =
   SNSTopicPolicy
@@ -40,13 +39,10 @@ snsTopicPolicy policyDocumentarg topicsarg =
   , _sNSTopicPolicyTopics = topicsarg
   }
 
--- | A policy document that contains permissions to add to the specified SNS
--- topics.
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-policy.html#cfn-sns-topicpolicy-policydocument
 snstpPolicyDocument :: Lens' SNSTopicPolicy Object
 snstpPolicyDocument = lens _sNSTopicPolicyPolicyDocument (\s a -> s { _sNSTopicPolicyPolicyDocument = a })
 
--- | The Amazon Resource Names (ARN) of the topics to which you want to add
--- the policy. You can use the Ref function to specify an AWS::SNS::Topic
--- resource.
-snstpTopics :: Lens' SNSTopicPolicy [String]
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-policy.html#cfn-sns-topicpolicy-topics
+snstpTopics :: Lens' SNSTopicPolicy [Val Text]
 snstpTopics = lens _sNSTopicPolicyTopics (\s a -> s { _sNSTopicPolicyTopics = a })

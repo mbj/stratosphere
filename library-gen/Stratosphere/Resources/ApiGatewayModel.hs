@@ -1,8 +1,7 @@
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
 
--- | The AWS::ApiGateway::Model resource defines the structure of a request or
--- response payload for an Amazon API Gateway (API Gateway) method.
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-model.html
 
 module Stratosphere.Resources.ApiGatewayModel where
 
@@ -16,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for ApiGatewayModel. See 'apiGatewayModel' for
--- a more convenient constructor.
+-- | a more convenient constructor.
 data ApiGatewayModel =
   ApiGatewayModel
   { _apiGatewayModelContentType :: Maybe (Val Text)
@@ -33,9 +32,9 @@ instance FromJSON ApiGatewayModel where
   parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 16, omitNothingFields = True }
 
 -- | Constructor for 'ApiGatewayModel' containing required fields as
--- arguments.
+-- | arguments.
 apiGatewayModel
-  :: Val Text -- ^ 'agmRestApiId'
+  :: Val Text -- ^ 'agmoRestApiId'
   -> ApiGatewayModel
 apiGatewayModel restApiIdarg =
   ApiGatewayModel
@@ -46,27 +45,22 @@ apiGatewayModel restApiIdarg =
   , _apiGatewayModelSchema = Nothing
   }
 
--- | The content type for the model.
-agmContentType :: Lens' ApiGatewayModel (Maybe (Val Text))
-agmContentType = lens _apiGatewayModelContentType (\s a -> s { _apiGatewayModelContentType = a })
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-model.html#cfn-apigateway-model-contenttype
+agmoContentType :: Lens' ApiGatewayModel (Maybe (Val Text))
+agmoContentType = lens _apiGatewayModelContentType (\s a -> s { _apiGatewayModelContentType = a })
 
--- | A description that identifies this model.
-agmDescription :: Lens' ApiGatewayModel (Maybe (Val Text))
-agmDescription = lens _apiGatewayModelDescription (\s a -> s { _apiGatewayModelDescription = a })
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-model.html#cfn-apigateway-model-description
+agmoDescription :: Lens' ApiGatewayModel (Maybe (Val Text))
+agmoDescription = lens _apiGatewayModelDescription (\s a -> s { _apiGatewayModelDescription = a })
 
--- | A name for the mode. If you don't specify a name, AWS CloudFormation
--- generates a unique physical ID and uses that ID for the model name. For
--- more information, see Name Type. Important If you specify a name, you
--- cannot do updates that require this resource to be replaced. You can still
--- do updates that require no or some interruption. If you must replace the
--- resource, specify a new name.
-agmName :: Lens' ApiGatewayModel (Maybe (Val Text))
-agmName = lens _apiGatewayModelName (\s a -> s { _apiGatewayModelName = a })
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-model.html#cfn-apigateway-model-name
+agmoName :: Lens' ApiGatewayModel (Maybe (Val Text))
+agmoName = lens _apiGatewayModelName (\s a -> s { _apiGatewayModelName = a })
 
--- | The ID of a REST API with which to associate this model.
-agmRestApiId :: Lens' ApiGatewayModel (Val Text)
-agmRestApiId = lens _apiGatewayModelRestApiId (\s a -> s { _apiGatewayModelRestApiId = a })
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-model.html#cfn-apigateway-model-restapiid
+agmoRestApiId :: Lens' ApiGatewayModel (Val Text)
+agmoRestApiId = lens _apiGatewayModelRestApiId (\s a -> s { _apiGatewayModelRestApiId = a })
 
--- | The schema to use to transform data to one or more output formats.
-agmSchema :: Lens' ApiGatewayModel (Maybe Object)
-agmSchema = lens _apiGatewayModelSchema (\s a -> s { _apiGatewayModelSchema = a })
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-model.html#cfn-apigateway-model-schema
+agmoSchema :: Lens' ApiGatewayModel (Maybe Object)
+agmoSchema = lens _apiGatewayModelSchema (\s a -> s { _apiGatewayModelSchema = a })

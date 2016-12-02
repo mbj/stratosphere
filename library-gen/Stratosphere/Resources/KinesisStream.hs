@@ -1,9 +1,7 @@
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
 
--- | Creates an Amazon Kinesis stream that captures and transports data
--- records that are emitted from data sources. For information about creating
--- streams, see CreateStream in the Amazon Kinesis API Reference.
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html
 
 module Stratosphere.Resources.KinesisStream where
 
@@ -14,15 +12,15 @@ import Data.Text
 import GHC.Generics
 
 import Stratosphere.Values
-import Stratosphere.ResourceProperties.ResourceTag
+import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for KinesisStream. See 'kinesisStream' for a
--- more convenient constructor.
+-- | more convenient constructor.
 data KinesisStream =
   KinesisStream
   { _kinesisStreamName :: Maybe (Val Text)
   , _kinesisStreamShardCount :: Val Integer'
-  , _kinesisStreamTags :: Maybe [ResourceTag]
+  , _kinesisStreamTags :: Maybe [Tag]
   } deriving (Show, Generic)
 
 instance ToJSON KinesisStream where
@@ -42,21 +40,14 @@ kinesisStream shardCountarg =
   , _kinesisStreamTags = Nothing
   }
 
--- | The name of the Amazon Kinesis stream. If you don't specify a name, AWS
--- CloudFormation generates a unique physical ID and uses that ID for the
--- stream name. For more information, see Name Type. Important If you specify
--- a name, you cannot do updates that require this resource to be replaced.
--- You can still do updates that require no or some interruption. If you must
--- replace the resource, specify a new name.
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-name
 ksName :: Lens' KinesisStream (Maybe (Val Text))
 ksName = lens _kinesisStreamName (\s a -> s { _kinesisStreamName = a })
 
--- | The number of shards that the stream uses. For greater provisioned
--- throughput, increase the number of shards.
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-shardcount
 ksShardCount :: Lens' KinesisStream (Val Integer')
 ksShardCount = lens _kinesisStreamShardCount (\s a -> s { _kinesisStreamShardCount = a })
 
--- | An arbitrary set of tags (key–value pairs) to associate with the Amazon
--- Kinesis stream.
-ksTags :: Lens' KinesisStream (Maybe [ResourceTag])
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-tags
+ksTags :: Lens' KinesisStream (Maybe [Tag])
 ksTags = lens _kinesisStreamTags (\s a -> s { _kinesisStreamTags = a })

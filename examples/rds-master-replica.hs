@@ -8,7 +8,6 @@
 module Main where
 
 import Control.Lens
-import Data.Aeson (object)
 import qualified Data.ByteString.Lazy.Char8 as B
 
 import Stratosphere
@@ -33,49 +32,50 @@ dbTemplate =
 rdsMaster :: Resource
 rdsMaster =
   resource "RDSMaster" $
-  DBInstanceProperties $
-  dbInstance
+  RDSDBInstanceProperties $
+  rdsdbInstance
   "db.t2.micro"
-  & dbiDBInstanceIdentifier ?~ Literal "db-master"
-  & dbiStorageType ?~ "gp2"
-  & dbiAllocatedStorage ?~ "20"
-  & dbiDBParameterGroupName ?~ toRef rdsParamGroup
-  & dbiEngine ?~ "postgres"
-  & dbiEngineVersion ?~ "9.3.10"
-  & dbiMasterUsername ?~ "postgres"
-  & dbiMasterUserPassword ?~ Ref "RdsMasterPassword"
-  & dbiDBName ?~ "the_database"
-  & dbiPreferredMaintenanceWindow ?~ "Sun:01:00-Sun:02:00"
-  & dbiBackupRetentionPeriod ?~ "30"
-  & dbiPreferredBackupWindow ?~ "08:00-09:00"
-  & dbiPort ?~ "5432"
-  & dbiBackupRetentionPeriod ?~ "2"
-  & dbiTags ?~
-  [ resourceTag "Role" "rds-master"
+  -- DBInstanceIdentifier is not present in the new schema for some reason
+  -- & rdsdbiDBInstanceIdentifier ?~ Literal "db-master"
+  & rdsdbiStorageType ?~ "gp2"
+  & rdsdbiAllocatedStorage ?~ "20"
+  & rdsdbiDBParameterGroupName ?~ toRef rdsParamGroup
+  & rdsdbiEngine ?~ "postgres"
+  & rdsdbiEngineVersion ?~ "9.3.10"
+  & rdsdbiMasterUsername ?~ "postgres"
+  & rdsdbiMasterUserPassword ?~ Ref "RdsMasterPassword"
+  & rdsdbiDBName ?~ "the_database"
+  & rdsdbiPreferredMaintenanceWindow ?~ "Sun:01:00-Sun:02:00"
+  & rdsdbiBackupRetentionPeriod ?~ "30"
+  & rdsdbiPreferredBackupWindow ?~ "08:00-09:00"
+  & rdsdbiPort ?~ "5432"
+  & rdsdbiBackupRetentionPeriod ?~ "2"
+  & rdsdbiTags ?~
+  [ tag "Role" "rds-master"
   ]
 
 rdsReplica :: Resource
 rdsReplica =
   resource "RDSReplica" $
-  DBInstanceProperties $
-  dbInstance
+  RDSDBInstanceProperties $
+  rdsdbInstance
   "db.t2.micro"
-  & dbiDBInstanceIdentifier ?~ Literal "db-standby"
-  & dbiSourceDBInstanceIdentifier ?~ toRef rdsMaster
-  & dbiStorageType ?~ "gp2"
-  & dbiTags ?~
-  [ resourceTag "Role" "rds-standby"
+  -- DBInstanceIdentifier is not present in the new schema for some reason
+  -- & dbiDBInstanceIdentifier ?~ Literal "db-standby"
+  & rdsdbiSourceDBInstanceIdentifier ?~ toRef rdsMaster
+  & rdsdbiStorageType ?~ "gp2"
+  & rdsdbiTags ?~
+  [ tag "Role" "rds-standby"
   ]
 
 rdsParamGroup :: Resource
 rdsParamGroup =
   resource "RDSParamGroup" $
-  DBParameterGroupProperties $
-  dbParameterGroup
+  RDSDBParameterGroupProperties $
+  rdsdbParameterGroup
   "Parameter group for RDS instances"
   "postgres9.3"
-  & dbpgParameters ?~
-    object
+  & rdsdbpgParameters ?~
     [ ("checkpoint_segments", "32")
     , ("effective_cache_size", "5584716")
     , ("hot_standby_feedback", "1")
