@@ -44,13 +44,28 @@ specFromRaw spec = CloudFormationSpec props version resources
 fixSpecBugs :: RawCloudFormationSpec -> RawCloudFormationSpec
 fixSpecBugs spec =
   spec
-  -- Missing AWS::RDS::EC2Instance.Tags
+  -- Missing AWS::EC2::Instance.Tags
   & resourceTypesLens
   . ix "AWS::EC2::Instance"
   . resourcePropsLens
   . at "Tags"
   ?~ RawProperty
      { rawPropertyDocumentation = "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-tags"
+     , rawPropertyDuplicatesAllowed = Nothing
+     , rawPropertyItemType = Just "Tag"
+     , rawPropertyPrimitiveItemType = Nothing
+     , rawPropertyPrimitiveType = Nothing
+     , rawPropertyRequired = False
+     , rawPropertyType = Just "List"
+     , rawPropertyUpdateType = Just "Mutable"
+     }
+  -- Missing AWS::EC2::VPC.Tags
+  & resourceTypesLens
+  . ix "AWS::EC2::VPC"
+  . resourcePropsLens
+  . at "Tags"
+  ?~ RawProperty
+     { rawPropertyDocumentation = "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc.html#cfn-aws-ec2-vpc-tags"
      , rawPropertyDuplicatesAllowed = Nothing
      , rawPropertyItemType = Just "Tag"
      , rawPropertyPrimitiveItemType = Nothing

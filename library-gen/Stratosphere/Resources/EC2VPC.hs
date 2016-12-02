@@ -12,7 +12,7 @@ import Data.Text
 import GHC.Generics
 
 import Stratosphere.Values
-
+import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for EC2VPC. See 'ec2VPC' for a more convenient
 -- | constructor.
@@ -22,6 +22,7 @@ data EC2VPC =
   , _eC2VPCEnableDnsHostnames :: Maybe (Val Bool')
   , _eC2VPCEnableDnsSupport :: Maybe (Val Bool')
   , _eC2VPCInstanceTenancy :: Maybe (Val Text)
+  , _eC2VPCTags :: Maybe [Tag]
   } deriving (Show, Generic)
 
 instance ToJSON EC2VPC where
@@ -40,6 +41,7 @@ ec2VPC cidrBlockarg =
   , _eC2VPCEnableDnsHostnames = Nothing
   , _eC2VPCEnableDnsSupport = Nothing
   , _eC2VPCInstanceTenancy = Nothing
+  , _eC2VPCTags = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc.html#cfn-aws-ec2-vpc-cidrblock
@@ -57,3 +59,7 @@ ecvpcEnableDnsSupport = lens _eC2VPCEnableDnsSupport (\s a -> s { _eC2VPCEnableD
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc.html#cfn-aws-ec2-vpc-instancetenancy
 ecvpcInstanceTenancy :: Lens' EC2VPC (Maybe (Val Text))
 ecvpcInstanceTenancy = lens _eC2VPCInstanceTenancy (\s a -> s { _eC2VPCInstanceTenancy = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc.html#cfn-aws-ec2-vpc-tags
+ecvpcTags :: Lens' EC2VPC (Maybe [Tag])
+ecvpcTags = lens _eC2VPCTags (\s a -> s { _eC2VPCTags = a })
