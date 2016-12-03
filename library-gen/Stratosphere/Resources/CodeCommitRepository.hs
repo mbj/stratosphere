@@ -12,7 +12,7 @@ import Data.Text
 import GHC.Generics
 
 import Stratosphere.Values
-import Stratosphere.ResourceProperties.RepositoryTrigger
+import Stratosphere.ResourceProperties.CodeCommitRepositoryRepositoryTrigger
 
 -- | Full data type definition for CodeCommitRepository. See
 -- | 'codeCommitRepository' for a more convenient constructor.
@@ -20,7 +20,7 @@ data CodeCommitRepository =
   CodeCommitRepository
   { _codeCommitRepositoryRepositoryDescription :: Maybe (Val Text)
   , _codeCommitRepositoryRepositoryName :: Val Text
-  , _codeCommitRepositoryTriggers :: Maybe [RepositoryTrigger]
+  , _codeCommitRepositoryTriggers :: Maybe [CodeCommitRepositoryRepositoryTrigger]
   } deriving (Show, Generic)
 
 instance ToJSON CodeCommitRepository where
@@ -50,5 +50,5 @@ ccrRepositoryName :: Lens' CodeCommitRepository (Val Text)
 ccrRepositoryName = lens _codeCommitRepositoryRepositoryName (\s a -> s { _codeCommitRepositoryRepositoryName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codecommit-repository.html#cfn-codecommit-repository-triggers
-ccrTriggers :: Lens' CodeCommitRepository (Maybe [RepositoryTrigger])
+ccrTriggers :: Lens' CodeCommitRepository (Maybe [CodeCommitRepositoryRepositoryTrigger])
 ccrTriggers = lens _codeCommitRepositoryTriggers (\s a -> s { _codeCommitRepositoryTriggers = a })

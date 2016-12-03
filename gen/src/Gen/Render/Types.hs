@@ -76,16 +76,7 @@ moduleFromResourceType (ResourceType fullName doc props) =
 normalizePropertyNames :: Set Text -> Module -> Module
 normalizePropertyNames allFullNames module'@Module{..} = module' { moduleProperties = props }
   where
-    buggyFilter Property {..} = (moduleResourceType, propertyName) `Set.member` buggyPropertyNames
-    nonBuggyProps = Prelude.filter (not . buggyFilter) moduleProperties
-    props = fmap (normalizeProperty allFullNames moduleResourceType) nonBuggyProps
-
--- | These properties don't exist int he spec so we remove them.
-buggyPropertyNames :: Set (Text, Text)
-buggyPropertyNames =
-  Set.fromList
-  [ ("AWS::EC2::SpotFleet", "LaunchSpecifications")
-  ]
+    props = fmap (normalizeProperty allFullNames moduleResourceType) moduleProperties
 
 normalizeProperty :: Set Text -> Text -> Property -> Property
 normalizeProperty allFullNames resourceType property =

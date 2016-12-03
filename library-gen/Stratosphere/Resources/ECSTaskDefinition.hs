@@ -21,6 +21,7 @@ data ECSTaskDefinition =
   ECSTaskDefinition
   { _eCSTaskDefinitionContainerDefinitions :: Maybe [ECSTaskDefinitionContainerDefinition]
   , _eCSTaskDefinitionFamily :: Maybe (Val Text)
+  , _eCSTaskDefinitionNetworkMode :: Maybe (Val Text)
   , _eCSTaskDefinitionTaskRoleArn :: Maybe (Val Text)
   , _eCSTaskDefinitionVolumes :: Maybe [ECSTaskDefinitionVolume]
   } deriving (Show, Generic)
@@ -39,6 +40,7 @@ ecsTaskDefinition  =
   ECSTaskDefinition
   { _eCSTaskDefinitionContainerDefinitions = Nothing
   , _eCSTaskDefinitionFamily = Nothing
+  , _eCSTaskDefinitionNetworkMode = Nothing
   , _eCSTaskDefinitionTaskRoleArn = Nothing
   , _eCSTaskDefinitionVolumes = Nothing
   }
@@ -50,6 +52,10 @@ ecstdContainerDefinitions = lens _eCSTaskDefinitionContainerDefinitions (\s a ->
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-family
 ecstdFamily :: Lens' ECSTaskDefinition (Maybe (Val Text))
 ecstdFamily = lens _eCSTaskDefinitionFamily (\s a -> s { _eCSTaskDefinitionFamily = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-networkmode
+ecstdNetworkMode :: Lens' ECSTaskDefinition (Maybe (Val Text))
+ecstdNetworkMode = lens _eCSTaskDefinitionNetworkMode (\s a -> s { _eCSTaskDefinitionNetworkMode = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-taskrolearn
 ecstdTaskRoleArn :: Lens' ECSTaskDefinition (Maybe (Val Text))

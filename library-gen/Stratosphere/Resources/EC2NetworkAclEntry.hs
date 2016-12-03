@@ -22,6 +22,7 @@ data EC2NetworkAclEntry =
   { _eC2NetworkAclEntryCidrBlock :: Val Text
   , _eC2NetworkAclEntryEgress :: Maybe (Val Bool')
   , _eC2NetworkAclEntryIcmp :: Maybe EC2NetworkAclEntryIcmp
+  , _eC2NetworkAclEntryIpv6CidrBlock :: Maybe (Val Text)
   , _eC2NetworkAclEntryNetworkAclId :: Val Text
   , _eC2NetworkAclEntryPortRange :: Maybe EC2NetworkAclEntryPortRange
   , _eC2NetworkAclEntryProtocol :: Val Integer'
@@ -49,6 +50,7 @@ ec2NetworkAclEntry cidrBlockarg networkAclIdarg protocolarg ruleActionarg ruleNu
   { _eC2NetworkAclEntryCidrBlock = cidrBlockarg
   , _eC2NetworkAclEntryEgress = Nothing
   , _eC2NetworkAclEntryIcmp = Nothing
+  , _eC2NetworkAclEntryIpv6CidrBlock = Nothing
   , _eC2NetworkAclEntryNetworkAclId = networkAclIdarg
   , _eC2NetworkAclEntryPortRange = Nothing
   , _eC2NetworkAclEntryProtocol = protocolarg
@@ -67,6 +69,10 @@ ecnaeEgress = lens _eC2NetworkAclEntryEgress (\s a -> s { _eC2NetworkAclEntryEgr
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-acl-entry.html#cfn-ec2-networkaclentry-icmp
 ecnaeIcmp :: Lens' EC2NetworkAclEntry (Maybe EC2NetworkAclEntryIcmp)
 ecnaeIcmp = lens _eC2NetworkAclEntryIcmp (\s a -> s { _eC2NetworkAclEntryIcmp = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-acl-entry.html#cfn-ec2-networkaclentry-ipv6cidrblock
+ecnaeIpv6CidrBlock :: Lens' EC2NetworkAclEntry (Maybe (Val Text))
+ecnaeIpv6CidrBlock = lens _eC2NetworkAclEntryIpv6CidrBlock (\s a -> s { _eC2NetworkAclEntryIpv6CidrBlock = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-acl-entry.html#cfn-ec2-networkaclentry-networkaclid
 ecnaeNetworkAclId :: Lens' EC2NetworkAclEntry (Val Text)

@@ -13,6 +13,7 @@ import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.EC2InstanceBlockDeviceMapping
+import Stratosphere.ResourceProperties.EC2InstanceInstanceIpv6Address
 import Stratosphere.ResourceProperties.EC2InstanceNetworkInterface
 import Stratosphere.ResourceProperties.EC2InstanceSsmAssociation
 import Stratosphere.ResourceProperties.Tag
@@ -33,6 +34,8 @@ data EC2Instance =
   , _eC2InstanceImageId :: Val Text
   , _eC2InstanceInstanceInitiatedShutdownBehavior :: Maybe (Val Text)
   , _eC2InstanceInstanceType :: Maybe (Val Text)
+  , _eC2InstanceIpv6AddressCount :: Maybe (Val Integer')
+  , _eC2InstanceIpv6Addresses :: Maybe [EC2InstanceInstanceIpv6Address]
   , _eC2InstanceKernelId :: Maybe (Val Text)
   , _eC2InstanceKeyName :: Maybe (Val Text)
   , _eC2InstanceMonitoring :: Maybe (Val Bool')
@@ -74,6 +77,8 @@ ec2Instance imageIdarg =
   , _eC2InstanceImageId = imageIdarg
   , _eC2InstanceInstanceInitiatedShutdownBehavior = Nothing
   , _eC2InstanceInstanceType = Nothing
+  , _eC2InstanceIpv6AddressCount = Nothing
+  , _eC2InstanceIpv6Addresses = Nothing
   , _eC2InstanceKernelId = Nothing
   , _eC2InstanceKeyName = Nothing
   , _eC2InstanceMonitoring = Nothing
@@ -135,6 +140,14 @@ eciInstanceInitiatedShutdownBehavior = lens _eC2InstanceInstanceInitiatedShutdow
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-instancetype
 eciInstanceType :: Lens' EC2Instance (Maybe (Val Text))
 eciInstanceType = lens _eC2InstanceInstanceType (\s a -> s { _eC2InstanceInstanceType = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-ipv6addresscount
+eciIpv6AddressCount :: Lens' EC2Instance (Maybe (Val Integer'))
+eciIpv6AddressCount = lens _eC2InstanceIpv6AddressCount (\s a -> s { _eC2InstanceIpv6AddressCount = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-ipv6addresses
+eciIpv6Addresses :: Lens' EC2Instance (Maybe [EC2InstanceInstanceIpv6Address])
+eciIpv6Addresses = lens _eC2InstanceIpv6Addresses (\s a -> s { _eC2InstanceIpv6Addresses = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-kernelid
 eciKernelId :: Lens' EC2Instance (Maybe (Val Text))

@@ -20,6 +20,7 @@ data IoTTopicRuleFirehoseAction =
   IoTTopicRuleFirehoseAction
   { _ioTTopicRuleFirehoseActionDeliveryStreamName :: Val Text
   , _ioTTopicRuleFirehoseActionRoleArn :: Val Text
+  , _ioTTopicRuleFirehoseActionSeparator :: Maybe (Val Text)
   } deriving (Show, Generic)
 
 instance ToJSON IoTTopicRuleFirehoseAction where
@@ -38,6 +39,7 @@ ioTTopicRuleFirehoseAction deliveryStreamNamearg roleArnarg =
   IoTTopicRuleFirehoseAction
   { _ioTTopicRuleFirehoseActionDeliveryStreamName = deliveryStreamNamearg
   , _ioTTopicRuleFirehoseActionRoleArn = roleArnarg
+  , _ioTTopicRuleFirehoseActionSeparator = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-firehose.html#cfn-iot-firehose-deliverystreamname
@@ -47,3 +49,7 @@ ittrfaDeliveryStreamName = lens _ioTTopicRuleFirehoseActionDeliveryStreamName (\
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-firehose.html#cfn-iot-firehose-rolearn
 ittrfaRoleArn :: Lens' IoTTopicRuleFirehoseAction (Val Text)
 ittrfaRoleArn = lens _ioTTopicRuleFirehoseActionRoleArn (\s a -> s { _ioTTopicRuleFirehoseActionRoleArn = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-firehose.html#cfn-iot-firehose-separator
+ittrfaSeparator :: Lens' IoTTopicRuleFirehoseAction (Maybe (Val Text))
+ittrfaSeparator = lens _ioTTopicRuleFirehoseActionSeparator (\s a -> s { _ioTTopicRuleFirehoseActionSeparator = a })

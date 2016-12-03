@@ -12,7 +12,7 @@ import Data.Text
 import GHC.Generics
 
 import Stratosphere.Values
-
+import Stratosphere.ResourceProperties.EC2SpotFleetLaunchSpecifications
 
 -- | Full data type definition for EC2SpotFleetSpotFleetRequestConfigData. See
 -- | 'ec2SpotFleetSpotFleetRequestConfigData' for a more convenient
@@ -22,6 +22,7 @@ data EC2SpotFleetSpotFleetRequestConfigData =
   { _eC2SpotFleetSpotFleetRequestConfigDataAllocationStrategy :: Maybe (Val Text)
   , _eC2SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy :: Maybe (Val Text)
   , _eC2SpotFleetSpotFleetRequestConfigDataIamFleetRole :: Val Text
+  , _eC2SpotFleetSpotFleetRequestConfigDataLaunchSpecifications :: [EC2SpotFleetLaunchSpecifications]
   , _eC2SpotFleetSpotFleetRequestConfigDataSpotPrice :: Val Text
   , _eC2SpotFleetSpotFleetRequestConfigDataTargetCapacity :: Val Integer'
   , _eC2SpotFleetSpotFleetRequestConfigDataTerminateInstancesWithExpiration :: Maybe (Val Bool')
@@ -39,14 +40,16 @@ instance FromJSON EC2SpotFleetSpotFleetRequestConfigData where
 -- | required fields as arguments.
 ec2SpotFleetSpotFleetRequestConfigData
   :: Val Text -- ^ 'ecsfsfrcdIamFleetRole'
+  -> [EC2SpotFleetLaunchSpecifications] -- ^ 'ecsfsfrcdLaunchSpecifications'
   -> Val Text -- ^ 'ecsfsfrcdSpotPrice'
   -> Val Integer' -- ^ 'ecsfsfrcdTargetCapacity'
   -> EC2SpotFleetSpotFleetRequestConfigData
-ec2SpotFleetSpotFleetRequestConfigData iamFleetRolearg spotPricearg targetCapacityarg =
+ec2SpotFleetSpotFleetRequestConfigData iamFleetRolearg launchSpecificationsarg spotPricearg targetCapacityarg =
   EC2SpotFleetSpotFleetRequestConfigData
   { _eC2SpotFleetSpotFleetRequestConfigDataAllocationStrategy = Nothing
   , _eC2SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy = Nothing
   , _eC2SpotFleetSpotFleetRequestConfigDataIamFleetRole = iamFleetRolearg
+  , _eC2SpotFleetSpotFleetRequestConfigDataLaunchSpecifications = launchSpecificationsarg
   , _eC2SpotFleetSpotFleetRequestConfigDataSpotPrice = spotPricearg
   , _eC2SpotFleetSpotFleetRequestConfigDataTargetCapacity = targetCapacityarg
   , _eC2SpotFleetSpotFleetRequestConfigDataTerminateInstancesWithExpiration = Nothing
@@ -65,6 +68,10 @@ ecsfsfrcdExcessCapacityTerminationPolicy = lens _eC2SpotFleetSpotFleetRequestCon
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-iamfleetrole
 ecsfsfrcdIamFleetRole :: Lens' EC2SpotFleetSpotFleetRequestConfigData (Val Text)
 ecsfsfrcdIamFleetRole = lens _eC2SpotFleetSpotFleetRequestConfigDataIamFleetRole (\s a -> s { _eC2SpotFleetSpotFleetRequestConfigDataIamFleetRole = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications
+ecsfsfrcdLaunchSpecifications :: Lens' EC2SpotFleetSpotFleetRequestConfigData [EC2SpotFleetLaunchSpecifications]
+ecsfsfrcdLaunchSpecifications = lens _eC2SpotFleetSpotFleetRequestConfigDataLaunchSpecifications (\s a -> s { _eC2SpotFleetSpotFleetRequestConfigDataLaunchSpecifications = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-spotprice
 ecsfsfrcdSpotPrice :: Lens' EC2SpotFleetSpotFleetRequestConfigData (Val Text)

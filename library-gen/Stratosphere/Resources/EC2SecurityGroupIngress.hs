@@ -19,6 +19,7 @@ import Stratosphere.Values
 data EC2SecurityGroupIngress =
   EC2SecurityGroupIngress
   { _eC2SecurityGroupIngressCidrIp :: Maybe (Val Text)
+  , _eC2SecurityGroupIngressCidrIpv6 :: Maybe (Val Text)
   , _eC2SecurityGroupIngressFromPort :: Maybe (Val Integer')
   , _eC2SecurityGroupIngressGroupId :: Maybe (Val Text)
   , _eC2SecurityGroupIngressGroupName :: Maybe (Val Text)
@@ -43,6 +44,7 @@ ec2SecurityGroupIngress
 ec2SecurityGroupIngress ipProtocolarg =
   EC2SecurityGroupIngress
   { _eC2SecurityGroupIngressCidrIp = Nothing
+  , _eC2SecurityGroupIngressCidrIpv6 = Nothing
   , _eC2SecurityGroupIngressFromPort = Nothing
   , _eC2SecurityGroupIngressGroupId = Nothing
   , _eC2SecurityGroupIngressGroupName = Nothing
@@ -56,6 +58,10 @@ ec2SecurityGroupIngress ipProtocolarg =
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-ingress.html#cfn-ec2-security-group-ingress-cidrip
 ecsgiCidrIp :: Lens' EC2SecurityGroupIngress (Maybe (Val Text))
 ecsgiCidrIp = lens _eC2SecurityGroupIngressCidrIp (\s a -> s { _eC2SecurityGroupIngressCidrIp = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-ingress.html#cfn-ec2-security-group-ingress-cidripv6
+ecsgiCidrIpv6 :: Lens' EC2SecurityGroupIngress (Maybe (Val Text))
+ecsgiCidrIpv6 = lens _eC2SecurityGroupIngressCidrIpv6 (\s a -> s { _eC2SecurityGroupIngressCidrIpv6 = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-ingress.html#cfn-ec2-security-group-ingress-fromport
 ecsgiFromPort :: Lens' EC2SecurityGroupIngress (Maybe (Val Integer'))

@@ -19,6 +19,7 @@ import Stratosphere.Values
 data EC2SecurityGroupEgress =
   EC2SecurityGroupEgress
   { _eC2SecurityGroupEgressCidrIp :: Maybe (Val Text)
+  , _eC2SecurityGroupEgressCidrIpv6 :: Maybe (Val Text)
   , _eC2SecurityGroupEgressDestinationPrefixListId :: Maybe (Val Text)
   , _eC2SecurityGroupEgressDestinationSecurityGroupId :: Maybe (Val Text)
   , _eC2SecurityGroupEgressFromPort :: Maybe (Val Integer')
@@ -42,6 +43,7 @@ ec2SecurityGroupEgress
 ec2SecurityGroupEgress groupIdarg ipProtocolarg =
   EC2SecurityGroupEgress
   { _eC2SecurityGroupEgressCidrIp = Nothing
+  , _eC2SecurityGroupEgressCidrIpv6 = Nothing
   , _eC2SecurityGroupEgressDestinationPrefixListId = Nothing
   , _eC2SecurityGroupEgressDestinationSecurityGroupId = Nothing
   , _eC2SecurityGroupEgressFromPort = Nothing
@@ -53,6 +55,10 @@ ec2SecurityGroupEgress groupIdarg ipProtocolarg =
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-security-group-egress.html#cfn-ec2-securitygroupegress-cidrip
 ecsgeCidrIp :: Lens' EC2SecurityGroupEgress (Maybe (Val Text))
 ecsgeCidrIp = lens _eC2SecurityGroupEgressCidrIp (\s a -> s { _eC2SecurityGroupEgressCidrIp = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-security-group-egress.html#cfn-ec2-securitygroupegress-cidripv6
+ecsgeCidrIpv6 :: Lens' EC2SecurityGroupEgress (Maybe (Val Text))
+ecsgeCidrIpv6 = lens _eC2SecurityGroupEgressCidrIpv6 (\s a -> s { _eC2SecurityGroupEgressCidrIpv6 = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-security-group-egress.html#cfn-ec2-securitygroupegress-destinationprefixlistid
 ecsgeDestinationPrefixListId :: Lens' EC2SecurityGroupEgress (Maybe (Val Text))

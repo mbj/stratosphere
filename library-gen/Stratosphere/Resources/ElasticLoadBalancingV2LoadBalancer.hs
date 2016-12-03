@@ -19,7 +19,8 @@ import Stratosphere.ResourceProperties.Tag
 -- | 'elasticLoadBalancingV2LoadBalancer' for a more convenient constructor.
 data ElasticLoadBalancingV2LoadBalancer =
   ElasticLoadBalancingV2LoadBalancer
-  { _elasticLoadBalancingV2LoadBalancerLoadBalancerAttributes :: Maybe [ElasticLoadBalancingV2LoadBalancerLoadBalancerAttribute]
+  { _elasticLoadBalancingV2LoadBalancerIpAddressType :: Maybe (Val Text)
+  , _elasticLoadBalancingV2LoadBalancerLoadBalancerAttributes :: Maybe [ElasticLoadBalancingV2LoadBalancerLoadBalancerAttribute]
   , _elasticLoadBalancingV2LoadBalancerName :: Maybe (Val Text)
   , _elasticLoadBalancingV2LoadBalancerScheme :: Maybe (Val Text)
   , _elasticLoadBalancingV2LoadBalancerSecurityGroups :: Maybe [Val Text]
@@ -39,13 +40,18 @@ elasticLoadBalancingV2LoadBalancer
   :: ElasticLoadBalancingV2LoadBalancer
 elasticLoadBalancingV2LoadBalancer  =
   ElasticLoadBalancingV2LoadBalancer
-  { _elasticLoadBalancingV2LoadBalancerLoadBalancerAttributes = Nothing
+  { _elasticLoadBalancingV2LoadBalancerIpAddressType = Nothing
+  , _elasticLoadBalancingV2LoadBalancerLoadBalancerAttributes = Nothing
   , _elasticLoadBalancingV2LoadBalancerName = Nothing
   , _elasticLoadBalancingV2LoadBalancerScheme = Nothing
   , _elasticLoadBalancingV2LoadBalancerSecurityGroups = Nothing
   , _elasticLoadBalancingV2LoadBalancerSubnets = Nothing
   , _elasticLoadBalancingV2LoadBalancerTags = Nothing
   }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-ipaddresstype
+elbvlbIpAddressType :: Lens' ElasticLoadBalancingV2LoadBalancer (Maybe (Val Text))
+elbvlbIpAddressType = lens _elasticLoadBalancingV2LoadBalancerIpAddressType (\s a -> s { _elasticLoadBalancingV2LoadBalancerIpAddressType = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-loadbalancerattributes
 elbvlbLoadBalancerAttributes :: Lens' ElasticLoadBalancingV2LoadBalancer (Maybe [ElasticLoadBalancingV2LoadBalancerLoadBalancerAttribute])

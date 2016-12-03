@@ -12,6 +12,7 @@ import Data.Text
 import GHC.Generics
 
 import Stratosphere.Values
+import Stratosphere.ResourceProperties.EC2NetworkInterfaceInstanceIpv6Address
 import Stratosphere.ResourceProperties.EC2NetworkInterfacePrivateIpAddressSpecification
 import Stratosphere.ResourceProperties.Tag
 
@@ -21,6 +22,8 @@ data EC2NetworkInterface =
   EC2NetworkInterface
   { _eC2NetworkInterfaceDescription :: Maybe (Val Text)
   , _eC2NetworkInterfaceGroupSet :: Maybe [Val Text]
+  , _eC2NetworkInterfaceIpv6AddressCount :: Maybe (Val Integer')
+  , _eC2NetworkInterfaceIpv6Addresses :: Maybe EC2NetworkInterfaceInstanceIpv6Address
   , _eC2NetworkInterfacePrivateIpAddress :: Maybe (Val Text)
   , _eC2NetworkInterfacePrivateIpAddresses :: Maybe [EC2NetworkInterfacePrivateIpAddressSpecification]
   , _eC2NetworkInterfaceSecondaryPrivateIpAddressCount :: Maybe (Val Integer')
@@ -44,6 +47,8 @@ ec2NetworkInterface subnetIdarg =
   EC2NetworkInterface
   { _eC2NetworkInterfaceDescription = Nothing
   , _eC2NetworkInterfaceGroupSet = Nothing
+  , _eC2NetworkInterfaceIpv6AddressCount = Nothing
+  , _eC2NetworkInterfaceIpv6Addresses = Nothing
   , _eC2NetworkInterfacePrivateIpAddress = Nothing
   , _eC2NetworkInterfacePrivateIpAddresses = Nothing
   , _eC2NetworkInterfaceSecondaryPrivateIpAddressCount = Nothing
@@ -59,6 +64,14 @@ ecniDescription = lens _eC2NetworkInterfaceDescription (\s a -> s { _eC2NetworkI
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html#cfn-awsec2networkinterface-groupset
 ecniGroupSet :: Lens' EC2NetworkInterface (Maybe [Val Text])
 ecniGroupSet = lens _eC2NetworkInterfaceGroupSet (\s a -> s { _eC2NetworkInterfaceGroupSet = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html#cfn-ec2-networkinterface-ipv6addresscount
+ecniIpv6AddressCount :: Lens' EC2NetworkInterface (Maybe (Val Integer'))
+ecniIpv6AddressCount = lens _eC2NetworkInterfaceIpv6AddressCount (\s a -> s { _eC2NetworkInterfaceIpv6AddressCount = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html#cfn-ec2-networkinterface-ipv6addresses
+ecniIpv6Addresses :: Lens' EC2NetworkInterface (Maybe EC2NetworkInterfaceInstanceIpv6Address)
+ecniIpv6Addresses = lens _eC2NetworkInterfaceIpv6Addresses (\s a -> s { _eC2NetworkInterfaceIpv6Addresses = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html#cfn-awsec2networkinterface-privateipaddress
 ecniPrivateIpAddress :: Lens' EC2NetworkInterface (Maybe (Val Text))

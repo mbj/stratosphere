@@ -139,19 +139,6 @@ fixSpecBugs spec =
   . propertyPropsLens
   . at "Attributes"
   %~ (\(Just rawProp) -> Just rawProp { rawPropertyItemType = Nothing, rawPropertyPrimitiveItemType = Just "Json" })
-  -- AWS::IAM::Policy.PolicyDocument and AWS::IAM::Role.AssumeRolePolicyDocument
-  -- incorrectly have a PrimitiveItemType of "String", not a PrimitiveItemType
-  -- of "Json"
-  & resourceTypesLens
-  . ix "AWS::IAM::Policy"
-  . resourcePropsLens
-  . at "PolicyDocument"
-  %~ (\(Just rawProp) -> Just rawProp { rawPropertyPrimitiveType = Just "Json" })
-  & resourceTypesLens
-  . ix "AWS::IAM::Role"
-  . resourcePropsLens
-  . at "AssumeRolePolicyDocument"
-  %~ (\(Just rawProp) -> Just rawProp { rawPropertyPrimitiveType = Just "Json" })
   -- Lots of not-required properties that are actually required
   & propertyTypesLens
   . ix "AWS::IAM::User.Policy"

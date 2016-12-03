@@ -40,6 +40,7 @@ data ECSTaskDefinitionContainerDefinition =
   , _eCSTaskDefinitionContainerDefinitionLinks :: Maybe [Val Text]
   , _eCSTaskDefinitionContainerDefinitionLogConfiguration :: Maybe ECSTaskDefinitionLogConfiguration
   , _eCSTaskDefinitionContainerDefinitionMemory :: Maybe (Val Integer')
+  , _eCSTaskDefinitionContainerDefinitionMemoryReservation :: Maybe (Val Integer')
   , _eCSTaskDefinitionContainerDefinitionMountPoints :: Maybe [ECSTaskDefinitionMountPoint]
   , _eCSTaskDefinitionContainerDefinitionName :: Maybe (Val Text)
   , _eCSTaskDefinitionContainerDefinitionPortMappings :: Maybe [ECSTaskDefinitionPortMapping]
@@ -79,6 +80,7 @@ ecsTaskDefinitionContainerDefinition  =
   , _eCSTaskDefinitionContainerDefinitionLinks = Nothing
   , _eCSTaskDefinitionContainerDefinitionLogConfiguration = Nothing
   , _eCSTaskDefinitionContainerDefinitionMemory = Nothing
+  , _eCSTaskDefinitionContainerDefinitionMemoryReservation = Nothing
   , _eCSTaskDefinitionContainerDefinitionMountPoints = Nothing
   , _eCSTaskDefinitionContainerDefinitionName = Nothing
   , _eCSTaskDefinitionContainerDefinitionPortMappings = Nothing
@@ -153,6 +155,10 @@ ecstdcdLogConfiguration = lens _eCSTaskDefinitionContainerDefinitionLogConfigura
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-memory
 ecstdcdMemory :: Lens' ECSTaskDefinitionContainerDefinition (Maybe (Val Integer'))
 ecstdcdMemory = lens _eCSTaskDefinitionContainerDefinitionMemory (\s a -> s { _eCSTaskDefinitionContainerDefinitionMemory = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-memoryreservation
+ecstdcdMemoryReservation :: Lens' ECSTaskDefinitionContainerDefinition (Maybe (Val Integer'))
+ecstdcdMemoryReservation = lens _eCSTaskDefinitionContainerDefinitionMemoryReservation (\s a -> s { _eCSTaskDefinitionContainerDefinitionMemoryReservation = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-mountpoints
 ecstdcdMountPoints :: Lens' ECSTaskDefinitionContainerDefinition (Maybe [ECSTaskDefinitionMountPoint])

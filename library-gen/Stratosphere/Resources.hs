@@ -72,6 +72,7 @@ import Stratosphere.Resources.CloudFormationWaitConditionHandle as X
 import Stratosphere.Resources.CloudFrontDistribution as X
 import Stratosphere.Resources.CloudTrailTrail as X
 import Stratosphere.Resources.CloudWatchAlarm as X
+import Stratosphere.Resources.CodeBuildProject as X
 import Stratosphere.Resources.CodeCommitRepository as X
 import Stratosphere.Resources.CodeDeployApplication as X
 import Stratosphere.Resources.CodeDeployDeploymentConfig as X
@@ -106,9 +107,11 @@ import Stratosphere.Resources.EC2SecurityGroupEgress as X
 import Stratosphere.Resources.EC2SecurityGroupIngress as X
 import Stratosphere.Resources.EC2SpotFleet as X
 import Stratosphere.Resources.EC2Subnet as X
+import Stratosphere.Resources.EC2SubnetCidrBlock as X
 import Stratosphere.Resources.EC2SubnetNetworkAclAssociation as X
 import Stratosphere.Resources.EC2SubnetRouteTableAssociation as X
 import Stratosphere.Resources.EC2VPC as X
+import Stratosphere.Resources.EC2VPCCidrBlock as X
 import Stratosphere.Resources.EC2VPCDHCPOptionsAssociation as X
 import Stratosphere.Resources.EC2VPCEndpoint as X
 import Stratosphere.Resources.EC2VPCGatewayAttachment as X
@@ -209,6 +212,7 @@ import Stratosphere.Resources.SNSTopic as X
 import Stratosphere.Resources.SNSTopicPolicy as X
 import Stratosphere.Resources.SQSQueue as X
 import Stratosphere.Resources.SQSQueuePolicy as X
+import Stratosphere.Resources.SSMAssociation as X
 import Stratosphere.Resources.SSMDocument as X
 import Stratosphere.Resources.WAFByteMatchSet as X
 import Stratosphere.Resources.WAFIPSet as X
@@ -253,6 +257,12 @@ import Stratosphere.ResourceProperties.CloudFrontDistributionRestrictions as X
 import Stratosphere.ResourceProperties.CloudFrontDistributionS3OriginConfig as X
 import Stratosphere.ResourceProperties.CloudFrontDistributionViewerCertificate as X
 import Stratosphere.ResourceProperties.CloudWatchAlarmDimension as X
+import Stratosphere.ResourceProperties.CodeBuildProjectArtifacts as X
+import Stratosphere.ResourceProperties.CodeBuildProjectEnvironment as X
+import Stratosphere.ResourceProperties.CodeBuildProjectEnvironmentVariable as X
+import Stratosphere.ResourceProperties.CodeBuildProjectSource as X
+import Stratosphere.ResourceProperties.CodeBuildProjectSourceAuth as X
+import Stratosphere.ResourceProperties.CodeCommitRepositoryRepositoryTrigger as X
 import Stratosphere.ResourceProperties.CodeDeployDeploymentConfigMinimumHealthyHosts as X
 import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupDeployment as X
 import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupEc2TagFilter as X
@@ -296,6 +306,7 @@ import Stratosphere.ResourceProperties.EC2DHCPOptionsTag as X
 import Stratosphere.ResourceProperties.EC2InstanceAssociationParameter as X
 import Stratosphere.ResourceProperties.EC2InstanceBlockDeviceMapping as X
 import Stratosphere.ResourceProperties.EC2InstanceEbs as X
+import Stratosphere.ResourceProperties.EC2InstanceInstanceIpv6Address as X
 import Stratosphere.ResourceProperties.EC2InstanceNetworkInterface as X
 import Stratosphere.ResourceProperties.EC2InstanceNoDevice as X
 import Stratosphere.ResourceProperties.EC2InstancePrivateIpAddressSpecification as X
@@ -303,8 +314,19 @@ import Stratosphere.ResourceProperties.EC2InstanceSsmAssociation as X
 import Stratosphere.ResourceProperties.EC2InstanceVolume as X
 import Stratosphere.ResourceProperties.EC2NetworkAclEntryIcmp as X
 import Stratosphere.ResourceProperties.EC2NetworkAclEntryPortRange as X
+import Stratosphere.ResourceProperties.EC2NetworkInterfaceInstanceIpv6Address as X
 import Stratosphere.ResourceProperties.EC2NetworkInterfacePrivateIpAddressSpecification as X
 import Stratosphere.ResourceProperties.EC2SecurityGroupRule as X
+import Stratosphere.ResourceProperties.EC2SpotFleetBlockDeviceMappings as X
+import Stratosphere.ResourceProperties.EC2SpotFleetEbs as X
+import Stratosphere.ResourceProperties.EC2SpotFleetIamInstanceProfile as X
+import Stratosphere.ResourceProperties.EC2SpotFleetInstanceIpv6Address as X
+import Stratosphere.ResourceProperties.EC2SpotFleetLaunchSpecifications as X
+import Stratosphere.ResourceProperties.EC2SpotFleetMonitoring as X
+import Stratosphere.ResourceProperties.EC2SpotFleetNetworkInterfaces as X
+import Stratosphere.ResourceProperties.EC2SpotFleetPlacement as X
+import Stratosphere.ResourceProperties.EC2SpotFleetPrivateIpAddresses as X
+import Stratosphere.ResourceProperties.EC2SpotFleetSecurityGroups as X
 import Stratosphere.ResourceProperties.EC2SpotFleetSpotFleetRequestConfigData as X
 import Stratosphere.ResourceProperties.ECSServiceDeploymentConfiguration as X
 import Stratosphere.ResourceProperties.ECSServiceLoadBalancer as X
@@ -452,6 +474,8 @@ import Stratosphere.ResourceProperties.S3BucketTransition as X
 import Stratosphere.ResourceProperties.S3BucketVersioningConfiguration as X
 import Stratosphere.ResourceProperties.S3BucketWebsiteConfiguration as X
 import Stratosphere.ResourceProperties.SNSTopicSubscription as X
+import Stratosphere.ResourceProperties.SSMAssociationParameterValues as X
+import Stratosphere.ResourceProperties.SSMAssociationTarget as X
 import Stratosphere.ResourceProperties.WAFByteMatchSetByteMatchTuple as X
 import Stratosphere.ResourceProperties.WAFByteMatchSetFieldToMatch as X
 import Stratosphere.ResourceProperties.WAFIPSetIPSetDescriptor as X
@@ -464,7 +488,6 @@ import Stratosphere.ResourceProperties.WAFWebACLActivatedRule as X
 import Stratosphere.ResourceProperties.WAFWebACLWafAction as X
 import Stratosphere.ResourceProperties.WAFXssMatchSetFieldToMatch as X
 import Stratosphere.ResourceProperties.WAFXssMatchSetXssMatchTuple as X
-import Stratosphere.ResourceProperties.RepositoryTrigger as X
 import Stratosphere.ResourceProperties.Tag as X
 
 import Stratosphere.ResourceAttributes.AutoScalingReplacingUpdatePolicy as X
@@ -504,6 +527,7 @@ data ResourceProperties
   | CloudFrontDistributionProperties CloudFrontDistribution
   | CloudTrailTrailProperties CloudTrailTrail
   | CloudWatchAlarmProperties CloudWatchAlarm
+  | CodeBuildProjectProperties CodeBuildProject
   | CodeCommitRepositoryProperties CodeCommitRepository
   | CodeDeployApplicationProperties CodeDeployApplication
   | CodeDeployDeploymentConfigProperties CodeDeployDeploymentConfig
@@ -538,9 +562,11 @@ data ResourceProperties
   | EC2SecurityGroupIngressProperties EC2SecurityGroupIngress
   | EC2SpotFleetProperties EC2SpotFleet
   | EC2SubnetProperties EC2Subnet
+  | EC2SubnetCidrBlockProperties EC2SubnetCidrBlock
   | EC2SubnetNetworkAclAssociationProperties EC2SubnetNetworkAclAssociation
   | EC2SubnetRouteTableAssociationProperties EC2SubnetRouteTableAssociation
   | EC2VPCProperties EC2VPC
+  | EC2VPCCidrBlockProperties EC2VPCCidrBlock
   | EC2VPCDHCPOptionsAssociationProperties EC2VPCDHCPOptionsAssociation
   | EC2VPCEndpointProperties EC2VPCEndpoint
   | EC2VPCGatewayAttachmentProperties EC2VPCGatewayAttachment
@@ -641,6 +667,7 @@ data ResourceProperties
   | SNSTopicPolicyProperties SNSTopicPolicy
   | SQSQueueProperties SQSQueue
   | SQSQueuePolicyProperties SQSQueuePolicy
+  | SSMAssociationProperties SSMAssociation
   | SSMDocumentProperties SSMDocument
   | WAFByteMatchSetProperties WAFByteMatchSet
   | WAFIPSetProperties WAFIPSet
@@ -756,6 +783,8 @@ resourcePropertiesJSON (CloudTrailTrailProperties x) =
   [ "Type" .= ("AWS::CloudTrail::Trail" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (CloudWatchAlarmProperties x) =
   [ "Type" .= ("AWS::CloudWatch::Alarm" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (CodeBuildProjectProperties x) =
+  [ "Type" .= ("AWS::CodeBuild::Project" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (CodeCommitRepositoryProperties x) =
   [ "Type" .= ("AWS::CodeCommit::Repository" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (CodeDeployApplicationProperties x) =
@@ -824,12 +853,16 @@ resourcePropertiesJSON (EC2SpotFleetProperties x) =
   [ "Type" .= ("AWS::EC2::SpotFleet" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (EC2SubnetProperties x) =
   [ "Type" .= ("AWS::EC2::Subnet" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (EC2SubnetCidrBlockProperties x) =
+  [ "Type" .= ("AWS::EC2::SubnetCidrBlock" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (EC2SubnetNetworkAclAssociationProperties x) =
   [ "Type" .= ("AWS::EC2::SubnetNetworkAclAssociation" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (EC2SubnetRouteTableAssociationProperties x) =
   [ "Type" .= ("AWS::EC2::SubnetRouteTableAssociation" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (EC2VPCProperties x) =
   [ "Type" .= ("AWS::EC2::VPC" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (EC2VPCCidrBlockProperties x) =
+  [ "Type" .= ("AWS::EC2::VPCCidrBlock" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (EC2VPCDHCPOptionsAssociationProperties x) =
   [ "Type" .= ("AWS::EC2::VPCDHCPOptionsAssociation" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (EC2VPCEndpointProperties x) =
@@ -1030,6 +1063,8 @@ resourcePropertiesJSON (SQSQueueProperties x) =
   [ "Type" .= ("AWS::SQS::Queue" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (SQSQueuePolicyProperties x) =
   [ "Type" .= ("AWS::SQS::QueuePolicy" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (SSMAssociationProperties x) =
+  [ "Type" .= ("AWS::SSM::Association" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (SSMDocumentProperties x) =
   [ "Type" .= ("AWS::SSM::Document" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (WAFByteMatchSetProperties x) =
@@ -1081,6 +1116,7 @@ resourceFromJSON n o =
          "AWS::CloudFront::Distribution" -> CloudFrontDistributionProperties <$> (o .: "Properties")
          "AWS::CloudTrail::Trail" -> CloudTrailTrailProperties <$> (o .: "Properties")
          "AWS::CloudWatch::Alarm" -> CloudWatchAlarmProperties <$> (o .: "Properties")
+         "AWS::CodeBuild::Project" -> CodeBuildProjectProperties <$> (o .: "Properties")
          "AWS::CodeCommit::Repository" -> CodeCommitRepositoryProperties <$> (o .: "Properties")
          "AWS::CodeDeploy::Application" -> CodeDeployApplicationProperties <$> (o .: "Properties")
          "AWS::CodeDeploy::DeploymentConfig" -> CodeDeployDeploymentConfigProperties <$> (o .: "Properties")
@@ -1115,9 +1151,11 @@ resourceFromJSON n o =
          "AWS::EC2::SecurityGroupIngress" -> EC2SecurityGroupIngressProperties <$> (o .: "Properties")
          "AWS::EC2::SpotFleet" -> EC2SpotFleetProperties <$> (o .: "Properties")
          "AWS::EC2::Subnet" -> EC2SubnetProperties <$> (o .: "Properties")
+         "AWS::EC2::SubnetCidrBlock" -> EC2SubnetCidrBlockProperties <$> (o .: "Properties")
          "AWS::EC2::SubnetNetworkAclAssociation" -> EC2SubnetNetworkAclAssociationProperties <$> (o .: "Properties")
          "AWS::EC2::SubnetRouteTableAssociation" -> EC2SubnetRouteTableAssociationProperties <$> (o .: "Properties")
          "AWS::EC2::VPC" -> EC2VPCProperties <$> (o .: "Properties")
+         "AWS::EC2::VPCCidrBlock" -> EC2VPCCidrBlockProperties <$> (o .: "Properties")
          "AWS::EC2::VPCDHCPOptionsAssociation" -> EC2VPCDHCPOptionsAssociationProperties <$> (o .: "Properties")
          "AWS::EC2::VPCEndpoint" -> EC2VPCEndpointProperties <$> (o .: "Properties")
          "AWS::EC2::VPCGatewayAttachment" -> EC2VPCGatewayAttachmentProperties <$> (o .: "Properties")
@@ -1218,6 +1256,7 @@ resourceFromJSON n o =
          "AWS::SNS::TopicPolicy" -> SNSTopicPolicyProperties <$> (o .: "Properties")
          "AWS::SQS::Queue" -> SQSQueueProperties <$> (o .: "Properties")
          "AWS::SQS::QueuePolicy" -> SQSQueuePolicyProperties <$> (o .: "Properties")
+         "AWS::SSM::Association" -> SSMAssociationProperties <$> (o .: "Properties")
          "AWS::SSM::Document" -> SSMDocumentProperties <$> (o .: "Properties")
          "AWS::WAF::ByteMatchSet" -> WAFByteMatchSetProperties <$> (o .: "Properties")
          "AWS::WAF::IPSet" -> WAFIPSetProperties <$> (o .: "Properties")

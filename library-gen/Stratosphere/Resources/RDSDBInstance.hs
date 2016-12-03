@@ -53,6 +53,7 @@ data RDSDBInstance =
   , _rDSDBInstanceStorageEncrypted :: Maybe (Val Bool')
   , _rDSDBInstanceStorageType :: Maybe (Val Text)
   , _rDSDBInstanceTags :: Maybe [Tag]
+  , _rDSDBInstanceTimezone :: Maybe (Val Text)
   , _rDSDBInstanceVPCSecurityGroups :: Maybe [Val Text]
   } deriving (Show, Generic)
 
@@ -103,6 +104,7 @@ rdsdbInstance dBInstanceClassarg =
   , _rDSDBInstanceStorageEncrypted = Nothing
   , _rDSDBInstanceStorageType = Nothing
   , _rDSDBInstanceTags = Nothing
+  , _rDSDBInstanceTimezone = Nothing
   , _rDSDBInstanceVPCSecurityGroups = Nothing
   }
 
@@ -245,6 +247,10 @@ rdsdbiStorageType = lens _rDSDBInstanceStorageType (\s a -> s { _rDSDBInstanceSt
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-tags
 rdsdbiTags :: Lens' RDSDBInstance (Maybe [Tag])
 rdsdbiTags = lens _rDSDBInstanceTags (\s a -> s { _rDSDBInstanceTags = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-timezone
+rdsdbiTimezone :: Lens' RDSDBInstance (Maybe (Val Text))
+rdsdbiTimezone = lens _rDSDBInstanceTimezone (\s a -> s { _rDSDBInstanceTimezone = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-vpcsecuritygroups
 rdsdbiVPCSecurityGroups :: Lens' RDSDBInstance (Maybe [Val Text])

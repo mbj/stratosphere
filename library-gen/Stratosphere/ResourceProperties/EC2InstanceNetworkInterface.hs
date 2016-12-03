@@ -12,6 +12,7 @@ import Data.Text
 import GHC.Generics
 
 import Stratosphere.Values
+import Stratosphere.ResourceProperties.EC2InstanceInstanceIpv6Address
 import Stratosphere.ResourceProperties.EC2InstancePrivateIpAddressSpecification
 
 -- | Full data type definition for EC2InstanceNetworkInterface. See
@@ -23,6 +24,8 @@ data EC2InstanceNetworkInterface =
   , _eC2InstanceNetworkInterfaceDescription :: Maybe (Val Text)
   , _eC2InstanceNetworkInterfaceDeviceIndex :: Val Text
   , _eC2InstanceNetworkInterfaceGroupSet :: Maybe [Val Text]
+  , _eC2InstanceNetworkInterfaceIpv6AddressCount :: Maybe (Val Integer')
+  , _eC2InstanceNetworkInterfaceIpv6Addresses :: Maybe [EC2InstanceInstanceIpv6Address]
   , _eC2InstanceNetworkInterfaceNetworkInterfaceId :: Maybe (Val Text)
   , _eC2InstanceNetworkInterfacePrivateIpAddress :: Maybe (Val Text)
   , _eC2InstanceNetworkInterfacePrivateIpAddresses :: Maybe [EC2InstancePrivateIpAddressSpecification]
@@ -48,6 +51,8 @@ ec2InstanceNetworkInterface deviceIndexarg =
   , _eC2InstanceNetworkInterfaceDescription = Nothing
   , _eC2InstanceNetworkInterfaceDeviceIndex = deviceIndexarg
   , _eC2InstanceNetworkInterfaceGroupSet = Nothing
+  , _eC2InstanceNetworkInterfaceIpv6AddressCount = Nothing
+  , _eC2InstanceNetworkInterfaceIpv6Addresses = Nothing
   , _eC2InstanceNetworkInterfaceNetworkInterfaceId = Nothing
   , _eC2InstanceNetworkInterfacePrivateIpAddress = Nothing
   , _eC2InstanceNetworkInterfacePrivateIpAddresses = Nothing
@@ -74,6 +79,14 @@ eciniDeviceIndex = lens _eC2InstanceNetworkInterfaceDeviceIndex (\s a -> s { _eC
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-iface-embedded.html#aws-properties-ec2-network-iface-embedded-groupset
 eciniGroupSet :: Lens' EC2InstanceNetworkInterface (Maybe [Val Text])
 eciniGroupSet = lens _eC2InstanceNetworkInterfaceGroupSet (\s a -> s { _eC2InstanceNetworkInterfaceGroupSet = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-iface-embedded.html#cfn-ec2-instance-networkinterface-ipv6addresscount
+eciniIpv6AddressCount :: Lens' EC2InstanceNetworkInterface (Maybe (Val Integer'))
+eciniIpv6AddressCount = lens _eC2InstanceNetworkInterfaceIpv6AddressCount (\s a -> s { _eC2InstanceNetworkInterfaceIpv6AddressCount = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-iface-embedded.html#cfn-ec2-instance-networkinterface-ipv6addresses
+eciniIpv6Addresses :: Lens' EC2InstanceNetworkInterface (Maybe [EC2InstanceInstanceIpv6Address])
+eciniIpv6Addresses = lens _eC2InstanceNetworkInterfaceIpv6Addresses (\s a -> s { _eC2InstanceNetworkInterfaceIpv6Addresses = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-iface-embedded.html#aws-properties-ec2-network-iface-embedded-network-iface
 eciniNetworkInterfaceId :: Lens' EC2InstanceNetworkInterface (Maybe (Val Text))

@@ -19,6 +19,7 @@ import Stratosphere.Values
 data EC2Route =
   EC2Route
   { _eC2RouteDestinationCidrBlock :: Val Text
+  , _eC2RouteDestinationIpv6CidrBlock :: Maybe (Val Text)
   , _eC2RouteGatewayId :: Maybe (Val Text)
   , _eC2RouteInstanceId :: Maybe (Val Text)
   , _eC2RouteNatGatewayId :: Maybe (Val Text)
@@ -41,6 +42,7 @@ ec2Route
 ec2Route destinationCidrBlockarg routeTableIdarg =
   EC2Route
   { _eC2RouteDestinationCidrBlock = destinationCidrBlockarg
+  , _eC2RouteDestinationIpv6CidrBlock = Nothing
   , _eC2RouteGatewayId = Nothing
   , _eC2RouteInstanceId = Nothing
   , _eC2RouteNatGatewayId = Nothing
@@ -52,6 +54,10 @@ ec2Route destinationCidrBlockarg routeTableIdarg =
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-destinationcidrblock
 ecrDestinationCidrBlock :: Lens' EC2Route (Val Text)
 ecrDestinationCidrBlock = lens _eC2RouteDestinationCidrBlock (\s a -> s { _eC2RouteDestinationCidrBlock = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-destinationipv6cidrblock
+ecrDestinationIpv6CidrBlock :: Lens' EC2Route (Maybe (Val Text))
+ecrDestinationIpv6CidrBlock = lens _eC2RouteDestinationIpv6CidrBlock (\s a -> s { _eC2RouteDestinationIpv6CidrBlock = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-gatewayid
 ecrGatewayId :: Lens' EC2Route (Maybe (Val Text))
