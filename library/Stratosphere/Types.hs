@@ -38,6 +38,7 @@ data AuthorizationType
   = NONE
   | AWS_IAM
   | CUSTOM
+  | COGNITO_USER_POOLS
   deriving (Show, Read, Eq, Generic, FromJSON, ToJSON)
 
 data HttpMethod
