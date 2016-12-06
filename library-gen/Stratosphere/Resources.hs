@@ -302,7 +302,6 @@ import Stratosphere.ResourceProperties.DynamoDBTableLocalSecondaryIndex as X
 import Stratosphere.ResourceProperties.DynamoDBTableProjection as X
 import Stratosphere.ResourceProperties.DynamoDBTableProvisionedThroughput as X
 import Stratosphere.ResourceProperties.DynamoDBTableStreamSpecification as X
-import Stratosphere.ResourceProperties.EC2DHCPOptionsTag as X
 import Stratosphere.ResourceProperties.EC2InstanceAssociationParameter as X
 import Stratosphere.ResourceProperties.EC2InstanceBlockDeviceMapping as X
 import Stratosphere.ResourceProperties.EC2InstanceEbs as X

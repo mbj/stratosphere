@@ -44,122 +44,6 @@ specFromRaw spec = CloudFormationSpec props version resources
 fixSpecBugs :: RawCloudFormationSpec -> RawCloudFormationSpec
 fixSpecBugs spec =
   spec
-  -- Missing AWS::EC2::Instance.Tags
-  & resourceTypesLens
-  . ix "AWS::EC2::Instance"
-  . resourcePropsLens
-  . at "Tags"
-  ?~ RawProperty
-     { rawPropertyDocumentation = "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-tags"
-     , rawPropertyDuplicatesAllowed = Nothing
-     , rawPropertyItemType = Just "Tag"
-     , rawPropertyPrimitiveItemType = Nothing
-     , rawPropertyPrimitiveType = Nothing
-     , rawPropertyRequired = False
-     , rawPropertyType = Just "List"
-     , rawPropertyUpdateType = Just "Mutable"
-     }
-  -- Missing AWS::EC2::VPC.Tags
-  & resourceTypesLens
-  . ix "AWS::EC2::VPC"
-  . resourcePropsLens
-  . at "Tags"
-  ?~ RawProperty
-     { rawPropertyDocumentation = "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc.html#cfn-aws-ec2-vpc-tags"
-     , rawPropertyDuplicatesAllowed = Nothing
-     , rawPropertyItemType = Just "Tag"
-     , rawPropertyPrimitiveItemType = Nothing
-     , rawPropertyPrimitiveType = Nothing
-     , rawPropertyRequired = False
-     , rawPropertyType = Just "List"
-     , rawPropertyUpdateType = Just "Mutable"
-     }
-  -- Missing AWS::RDS::DBInstance.DBInstanceIdentifier
-  & resourceTypesLens
-  . ix "AWS::RDS::DBInstance"
-  . resourcePropsLens
-  . at "DBInstanceIdentifier"
-  ?~ RawProperty
-     { rawPropertyDocumentation = "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-dbinstanceidentifier"
-     , rawPropertyDuplicatesAllowed = Nothing
-     , rawPropertyItemType = Nothing
-     , rawPropertyPrimitiveItemType = Nothing
-     , rawPropertyPrimitiveType = Just "String"
-     , rawPropertyRequired = False
-     , rawPropertyType = Nothing
-     , rawPropertyUpdateType = Just "Immutable"
-     }
-  -- Missing AWS::CloudFront::Distribution.OriginCustomHeader, which is used in
-  -- AWS::CloudFront::Distribution.Origin.OriginCustomHeaders.
-  & propertyTypesLens
-  . at "AWS::CloudFront::Distribution.OriginCustomHeader"
-  ?~ RawPropertyType
-     { rawPropertyTypeDocumentation = "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-origin-origincustomheader.html"
-     , rawPropertyTypeProperties =
-       fromList
-       [ ("HeaderName",
-          RawProperty
-           { rawPropertyDocumentation = "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-origin-origincustomheader.html#cfn-cloudfront-origin-origincustomheader-headername"
-           , rawPropertyDuplicatesAllowed = Nothing
-           , rawPropertyItemType = Nothing
-           , rawPropertyPrimitiveItemType = Nothing
-           , rawPropertyPrimitiveType = Just "String"
-           , rawPropertyRequired = True
-           , rawPropertyType = Nothing
-           , rawPropertyUpdateType = Just "Mutable"
-           }
-         )
-       , ("HeaderValue",
-          RawProperty
-           { rawPropertyDocumentation = "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-origin-origincustomheader.html#cfn-cloudfront-origin-origincustomheader-headervalue"
-           , rawPropertyDuplicatesAllowed = Nothing
-           , rawPropertyItemType = Nothing
-           , rawPropertyPrimitiveItemType = Nothing
-           , rawPropertyPrimitiveType = Just "String"
-           , rawPropertyRequired = True
-           , rawPropertyType = Nothing
-           , rawPropertyUpdateType = Just "Mutable"
-           }
-         )
-       ]
-     }
-  -- The AWS::DynamoDB::Table.AttributeDefinitions PropertyType is plural, even
-  -- though AWS::DynamoDB::Table.AttributeDefinitions has a type of
-  -- AttributeDefinition (note the lack of an "s").
-  & propertyTypesLens
-  . at "AWS::DynamoDB::Table.AttributeDefinition"
-  .~ (spec ^. propertyTypesLens . at "AWS::DynamoDB::Table.AttributeDefinitions")
-  & propertyTypesLens
-  . at "AWS::DynamoDB::Table.AttributeDefinitions"
-  .~ Nothing
-  -- AWS::ElasticLoadBalancing::LoadBalancer.Policies.Attributes incorrectly
-  -- has an ItemType of "json", not a PrimitiveItemType of "Json"
-  & propertyTypesLens
-  . ix "AWS::ElasticLoadBalancing::LoadBalancer.Policies"
-  . propertyPropsLens
-  . at "Attributes"
-  %~ (\(Just rawProp) -> Just rawProp { rawPropertyItemType = Nothing, rawPropertyPrimitiveItemType = Just "Json" })
-  -- Lots of not-required properties that are actually required
-  & propertyTypesLens
-  . ix "AWS::IAM::User.Policy"
-  . propertyPropsLens
-  . at "PolicyDocument"
-  %~ (\(Just rawProp) -> Just rawProp { rawPropertyRequired = True })
-  & propertyTypesLens
-  . ix "AWS::IAM::User.Policy"
-  . propertyPropsLens
-  . at "PolicyName"
-  %~ (\(Just rawProp) -> Just rawProp { rawPropertyRequired = True })
-  & propertyTypesLens
-  . ix "AWS::IAM::Role.Policy"
-  . propertyPropsLens
-  . at "PolicyDocument"
-  %~ (\(Just rawProp) -> Just rawProp { rawPropertyRequired = True })
-  & propertyTypesLens
-  . ix "AWS::IAM::Role.Policy"
-  . propertyPropsLens
-  . at "PolicyName"
-  %~ (\(Just rawProp) -> Just rawProp { rawPropertyRequired = True })
   -- This is our only naming conflict. There is a resource named
   -- AWS::RDS::DBSecurityGroupIngress, and a property named
   -- AWS::RDS::DBSecurityGroup.Ingress. There is a corresponding fix in the
@@ -174,11 +58,12 @@ fixSpecBugs spec =
   where
     propertyTypesLens :: Lens' RawCloudFormationSpec (Map Text RawPropertyType)
     propertyTypesLens = lens rawCloudFormationSpecPropertyTypes (\s a -> s { rawCloudFormationSpecPropertyTypes = a })
-    propertyPropsLens :: Lens' RawPropertyType (Map Text RawProperty)
-    propertyPropsLens = lens rawPropertyTypeProperties (\s a -> s { rawPropertyTypeProperties = a })
-    resourceTypesLens :: Lens' RawCloudFormationSpec (Map Text RawResourceType)
-    resourceTypesLens = lens rawCloudFormationSpecResourceTypes (\s a -> s { rawCloudFormationSpecResourceTypes = a })
-    resourcePropsLens = lens rawResourceTypeProperties (\s a -> s { rawResourceTypeProperties = a })
+    -- propertyPropsLens :: Lens' RawPropertyType (Map Text RawProperty)
+    -- propertyPropsLens = lens rawPropertyTypeProperties (\s a -> s { rawPropertyTypeProperties = a })
+    -- resourceTypesLens :: Lens' RawCloudFormationSpec (Map Text RawResourceType)
+    -- resourceTypesLens = lens rawCloudFormationSpecResourceTypes (\s a -> s { rawCloudFormationSpecResourceTypes = a })
+    -- resourcePropsLens :: Lens' RawResourceType (Map Text RawProperty)
+    -- resourcePropsLens = lens rawResourceTypeProperties (\s a -> s { rawResourceTypeProperties = a })
 
 data PropertyType
   = PropertyType

@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.3.1
+
+* Updated resource specification document to version 1.1.1.
+
 ## 0.3.0
 
 * **Backwards-incompatible**: We now use the official AWS JSON spec document to

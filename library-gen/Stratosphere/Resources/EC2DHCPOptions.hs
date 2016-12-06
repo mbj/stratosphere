@@ -23,7 +23,7 @@ data EC2DHCPOptions =
   , _eC2DHCPOptionsNetbiosNameServers :: Maybe [Val Text]
   , _eC2DHCPOptionsNetbiosNodeType :: Maybe (Val Integer')
   , _eC2DHCPOptionsNtpServers :: Maybe (Val Text)
-  , _eC2DHCPOptionsTags :: Maybe Tag
+  , _eC2DHCPOptionsTags :: Maybe [Tag]
   } deriving (Show, Generic)
 
 instance ToJSON EC2DHCPOptions where
@@ -66,5 +66,5 @@ ecdhcpoNtpServers :: Lens' EC2DHCPOptions (Maybe (Val Text))
 ecdhcpoNtpServers = lens _eC2DHCPOptionsNtpServers (\s a -> s { _eC2DHCPOptionsNtpServers = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcp-options.html#cfn-ec2-dhcpoptions-tags
-ecdhcpoTags :: Lens' EC2DHCPOptions (Maybe Tag)
+ecdhcpoTags :: Lens' EC2DHCPOptions (Maybe [Tag])
 ecdhcpoTags = lens _eC2DHCPOptionsTags (\s a -> s { _eC2DHCPOptionsTags = a })
