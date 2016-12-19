@@ -12,7 +12,7 @@ import Data.Text
 import GHC.Generics
 
 import Stratosphere.Values
-
+import Stratosphere.Types
 
 -- | Full data type definition for ApiGatewayAuthorizer. See
 -- | 'apiGatewayAuthorizer' for a more convenient constructor.
@@ -26,7 +26,7 @@ data ApiGatewayAuthorizer =
   , _apiGatewayAuthorizerName :: Maybe (Val Text)
   , _apiGatewayAuthorizerProviderARNs :: Maybe [Val Text]
   , _apiGatewayAuthorizerRestApiId :: Maybe (Val Text)
-  , _apiGatewayAuthorizerType :: Maybe (Val Text)
+  , _apiGatewayAuthorizerType :: Maybe (Val AuthorizerType)
   } deriving (Show, Generic)
 
 instance ToJSON ApiGatewayAuthorizer where
@@ -85,5 +85,5 @@ agaRestApiId :: Lens' ApiGatewayAuthorizer (Maybe (Val Text))
 agaRestApiId = lens _apiGatewayAuthorizerRestApiId (\s a -> s { _apiGatewayAuthorizerRestApiId = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-authorizer.html#cfn-apigateway-authorizer-type
-agaType :: Lens' ApiGatewayAuthorizer (Maybe (Val Text))
+agaType :: Lens' ApiGatewayAuthorizer (Maybe (Val AuthorizerType))
 agaType = lens _apiGatewayAuthorizerType (\s a -> s { _apiGatewayAuthorizerType = a })
