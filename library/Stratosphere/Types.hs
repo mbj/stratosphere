@@ -6,6 +6,7 @@
 
 module Stratosphere.Types
   ( EnabledState (..)
+  , AuthorizerType (..)
   , AuthorizationType (..)
   , HttpMethod (..)
   , LoggingLevel (..)
@@ -33,6 +34,24 @@ data EnabledState
   = ENABLED
   | DISABLED
   deriving (Show, Read, Eq, Generic, FromJSON, ToJSON)
+
+-- https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-authorizer.html#cfn-apigateway-authorizer-type
+data AuthorizerType
+  = TOKEN_AUTH
+  | COGNITO_USER_POOLS_AUTH
+  deriving (Show, Read, Eq)
+
+instance FromJSON AuthorizerType where
+  parseJSON = withText "AuthorizerType" parse
+    where
+      parse "TOKEN"               = pure TOKEN_AUTH
+      parse "COGNITO_USER_POOLS"  = pure COGNITO_USER_POOLS_AUTH
+      parse authorizerType = fail ("Unexpected authorizer type " ++ unpack authorizerType)
+
+instance ToJSON AuthorizerType where
+  toJSON TOKEN_AUTH               = String "TOKEN"
+  toJSON COGNITO_USER_POOLS_AUTH  = String "COGNITO_USER_POOLS"
+
 
 data AuthorizationType
   = NONE
