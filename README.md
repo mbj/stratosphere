@@ -137,12 +137,6 @@ Github issue.
 
 ## Future Work
 
-The library is usable in its current state and it is already much more
-enjoyable to work with than writing JSON templates by hand, but there are of
-course a few possible future improvements:
-
-* Not all resources implemented. Adding resources is very easy though. Just
-  request them and I will implement them :)
 * Implement basic checker for things like undefined Refs and duplicate field
   names. This stuff would be too unwieldy to do in types, and performing a
   checking pass over a template should be pretty straightforward.
