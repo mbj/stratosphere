@@ -16,7 +16,7 @@ module Gen.Specifications
 import Control.Lens
 import Data.List (sortOn)
 import Data.Maybe (catMaybes)
-import Data.Map (Map, fromList, toList)
+import Data.Map (Map, toList)
 import Data.Text
 import GHC.Generics hiding (to)
 
