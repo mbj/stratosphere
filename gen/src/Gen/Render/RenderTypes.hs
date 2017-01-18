@@ -22,7 +22,7 @@ renderResourceTypeDecl module'@Module {..} = --T.concat [declDocstring module', 
 data #{moduleName} =
   #{moduleName}
   { #{T.intercalate "\n  , " fields}
-  } deriving (Show, Generic)|]
+  } deriving (Show, Eq, Generic)|]
   where
     fields = fmap (renderField module') moduleProperties
 

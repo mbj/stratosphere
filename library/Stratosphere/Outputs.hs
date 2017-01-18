@@ -50,7 +50,7 @@ data Output =
     -- describe-stacks command. The value of an output can be literals,
     -- parameter references, pseudo parameters, a mapping value, and intrinsic
     -- functions.
-  } deriving (Show)
+  } deriving (Show, Eq)
 
 $(makeFields ''Output)
 
@@ -84,7 +84,7 @@ outputFromJSON n o =
 
 -- | Wrapper around a list of 'Output's to we can modify the aeson instances.
 newtype Outputs = Outputs { unOutputs :: [Output] }
-                deriving (Show, Monoid)
+  deriving (Show, Eq, Monoid)
 
 instance IsList Outputs where
   type Item Outputs = Output

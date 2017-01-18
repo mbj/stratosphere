@@ -79,7 +79,7 @@ data Template =
     -- properties. For example, you can declare an output for an Amazon S3
     -- bucket name and then call the aws cloudformation describe-stacks AWS CLI
     -- command to view the name.
-  } deriving (Show)
+  } deriving (Show, Eq)
 
 
 $(deriveJSON defaultOptions { fieldLabelModifier = modTemplateJSONField

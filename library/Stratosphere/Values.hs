@@ -47,6 +47,7 @@ data Val a
  | ImportValue T.Text -- ^ The account-and-region-unique exported name of the value to import
 
 deriving instance (Show a) => Show (Val a)
+deriving instance (Eq a) => Eq (Val a)
 
 instance (IsString a) => IsString (Val a) where
   fromString s = Literal (fromString s)
@@ -97,7 +98,7 @@ instance (FromJSON a) => FromJSON (Val a) where
 -- is necessary because CloudFront made the silly decision to represent numbers
 -- as JSON strings.
 newtype Integer' = Integer' { unInteger' :: Integer }
-                 deriving (Show, Eq, Num)
+  deriving (Show, Eq, Num)
 
 instance ToJSON Integer' where
   toJSON (Integer' i) = toJSON $ show i
@@ -133,7 +134,7 @@ class ToRef a b where
 
 -- | We need to wrap Doubles for the same reason we need to wrap Ints.
 newtype Double' = Double' { unDouble' :: Double }
-                deriving (Show, Eq, Num)
+  deriving (Show, Eq, Num)
 
 instance ToJSON Double' where
   toJSON (Double' i) = toJSON $ show i

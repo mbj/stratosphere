@@ -2,6 +2,9 @@
 
 ## 0.3.2
 
+* Derive the `Eq` type class for everything. This is useful when comparing two
+  templates.
+
 ## 0.3.1
 
 * Updated resource specification document to version 1.1.1.
