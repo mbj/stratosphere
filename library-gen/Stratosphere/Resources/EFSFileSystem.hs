@@ -20,7 +20,7 @@ data EFSFileSystem =
   EFSFileSystem
   { _eFSFileSystemFileSystemTags :: Maybe [EFSFileSystemElasticFileSystemTag]
   , _eFSFileSystemPerformanceMode :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EFSFileSystem where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 14, omitNothingFields = True }

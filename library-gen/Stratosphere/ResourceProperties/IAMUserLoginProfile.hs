@@ -20,7 +20,7 @@ data IAMUserLoginProfile =
   IAMUserLoginProfile
   { _iAMUserLoginProfilePassword :: Val Text
   , _iAMUserLoginProfilePasswordResetRequired :: Maybe (Val Bool')
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON IAMUserLoginProfile where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 20, omitNothingFields = True }

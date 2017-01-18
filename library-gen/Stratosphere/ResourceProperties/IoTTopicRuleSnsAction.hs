@@ -21,7 +21,7 @@ data IoTTopicRuleSnsAction =
   { _ioTTopicRuleSnsActionMessageFormat :: Maybe (Val Text)
   , _ioTTopicRuleSnsActionRoleArn :: Val Text
   , _ioTTopicRuleSnsActionTargetArn :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON IoTTopicRuleSnsAction where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 22, omitNothingFields = True }

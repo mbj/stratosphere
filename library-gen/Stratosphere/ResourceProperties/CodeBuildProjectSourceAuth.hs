@@ -20,7 +20,7 @@ data CodeBuildProjectSourceAuth =
   CodeBuildProjectSourceAuth
   { _codeBuildProjectSourceAuthResource :: Maybe (Val Text)
   , _codeBuildProjectSourceAuthType :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON CodeBuildProjectSourceAuth where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 27, omitNothingFields = True }

@@ -21,7 +21,7 @@ data ECSTaskDefinitionPortMapping =
   { _eCSTaskDefinitionPortMappingContainerPort :: Maybe (Val Integer')
   , _eCSTaskDefinitionPortMappingHostPort :: Maybe (Val Integer')
   , _eCSTaskDefinitionPortMappingProtocol :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ECSTaskDefinitionPortMapping where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 29, omitNothingFields = True }

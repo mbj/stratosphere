@@ -25,7 +25,7 @@ data IAMUser =
   , _iAMUserPath :: Maybe (Val Text)
   , _iAMUserPolicies :: Maybe [IAMUserPolicy]
   , _iAMUserUserName :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON IAMUser where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 8, omitNothingFields = True }

@@ -30,7 +30,7 @@ data KinesisFirehoseDeliveryStreamS3DestinationConfiguration =
   , _kinesisFirehoseDeliveryStreamS3DestinationConfigurationEncryptionConfiguration :: Maybe KinesisFirehoseDeliveryStreamEncryptionConfiguration
   , _kinesisFirehoseDeliveryStreamS3DestinationConfigurationPrefix :: Val Text
   , _kinesisFirehoseDeliveryStreamS3DestinationConfigurationRoleARN :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON KinesisFirehoseDeliveryStreamS3DestinationConfiguration where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 56, omitNothingFields = True }

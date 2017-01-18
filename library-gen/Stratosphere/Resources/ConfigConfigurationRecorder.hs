@@ -21,7 +21,7 @@ data ConfigConfigurationRecorder =
   { _configConfigurationRecorderName :: Maybe (Val Text)
   , _configConfigurationRecorderRecordingGroup :: Maybe ConfigConfigurationRecorderRecordingGroup
   , _configConfigurationRecorderRoleArn :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ConfigConfigurationRecorder where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 28, omitNothingFields = True }

@@ -20,7 +20,7 @@ data EC2SubnetRouteTableAssociation =
   EC2SubnetRouteTableAssociation
   { _eC2SubnetRouteTableAssociationRouteTableId :: Val Text
   , _eC2SubnetRouteTableAssociationSubnetId :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EC2SubnetRouteTableAssociation where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 31, omitNothingFields = True }

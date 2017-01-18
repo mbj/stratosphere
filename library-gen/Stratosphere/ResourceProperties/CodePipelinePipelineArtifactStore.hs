@@ -21,7 +21,7 @@ data CodePipelinePipelineArtifactStore =
   { _codePipelinePipelineArtifactStoreEncryptionKey :: Maybe CodePipelinePipelineEncryptionKey
   , _codePipelinePipelineArtifactStoreLocation :: Val Text
   , _codePipelinePipelineArtifactStoreType :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON CodePipelinePipelineArtifactStore where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 34, omitNothingFields = True }

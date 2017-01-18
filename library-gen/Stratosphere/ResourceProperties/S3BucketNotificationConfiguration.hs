@@ -23,7 +23,7 @@ data S3BucketNotificationConfiguration =
   { _s3BucketNotificationConfigurationLambdaConfigurations :: Maybe [S3BucketLambdaConfiguration]
   , _s3BucketNotificationConfigurationQueueConfigurations :: Maybe [S3BucketQueueConfiguration]
   , _s3BucketNotificationConfigurationTopicConfigurations :: Maybe [S3BucketTopicConfiguration]
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON S3BucketNotificationConfiguration where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 34, omitNothingFields = True }

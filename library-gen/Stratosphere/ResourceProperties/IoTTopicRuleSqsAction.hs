@@ -21,7 +21,7 @@ data IoTTopicRuleSqsAction =
   { _ioTTopicRuleSqsActionQueueUrl :: Val Text
   , _ioTTopicRuleSqsActionRoleArn :: Val Text
   , _ioTTopicRuleSqsActionUseBase64 :: Maybe (Val Bool')
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON IoTTopicRuleSqsAction where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 22, omitNothingFields = True }

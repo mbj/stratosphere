@@ -25,7 +25,7 @@ data AutoScalingLifecycleHook =
   , _autoScalingLifecycleHookNotificationMetadata :: Maybe (Val Text)
   , _autoScalingLifecycleHookNotificationTargetARN :: Val Text
   , _autoScalingLifecycleHookRoleARN :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON AutoScalingLifecycleHook where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 25, omitNothingFields = True }

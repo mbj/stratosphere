@@ -19,7 +19,7 @@ import Stratosphere.ResourceProperties.S3BucketCorsRule
 data S3BucketCorsConfiguration =
   S3BucketCorsConfiguration
   { _s3BucketCorsConfigurationCorsRules :: [S3BucketCorsRule]
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON S3BucketCorsConfiguration where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 26, omitNothingFields = True }

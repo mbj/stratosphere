@@ -20,7 +20,7 @@ data IAMUserToGroupAddition =
   IAMUserToGroupAddition
   { _iAMUserToGroupAdditionGroupName :: Val Text
   , _iAMUserToGroupAdditionUsers :: [Val Text]
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON IAMUserToGroupAddition where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 23, omitNothingFields = True }

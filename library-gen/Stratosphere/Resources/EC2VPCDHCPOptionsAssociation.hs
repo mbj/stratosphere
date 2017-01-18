@@ -20,7 +20,7 @@ data EC2VPCDHCPOptionsAssociation =
   EC2VPCDHCPOptionsAssociation
   { _eC2VPCDHCPOptionsAssociationDhcpOptionsId :: Val Text
   , _eC2VPCDHCPOptionsAssociationVpcId :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EC2VPCDHCPOptionsAssociation where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 29, omitNothingFields = True }

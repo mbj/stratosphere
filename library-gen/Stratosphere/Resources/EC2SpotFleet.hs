@@ -19,7 +19,7 @@ import Stratosphere.ResourceProperties.EC2SpotFleetSpotFleetRequestConfigData
 data EC2SpotFleet =
   EC2SpotFleet
   { _eC2SpotFleetSpotFleetRequestConfigData :: EC2SpotFleetSpotFleetRequestConfigData
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EC2SpotFleet where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 13, omitNothingFields = True }

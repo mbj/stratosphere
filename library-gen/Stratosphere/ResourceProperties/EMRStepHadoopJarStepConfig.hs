@@ -22,7 +22,7 @@ data EMRStepHadoopJarStepConfig =
   , _eMRStepHadoopJarStepConfigJar :: Val Text
   , _eMRStepHadoopJarStepConfigMainClass :: Maybe (Val Text)
   , _eMRStepHadoopJarStepConfigStepProperties :: Maybe [EMRStepKeyValue]
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EMRStepHadoopJarStepConfig where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 27, omitNothingFields = True }

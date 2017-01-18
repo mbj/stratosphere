@@ -20,7 +20,7 @@ data WAFByteMatchSetFieldToMatch =
   WAFByteMatchSetFieldToMatch
   { _wAFByteMatchSetFieldToMatchData :: Maybe (Val Text)
   , _wAFByteMatchSetFieldToMatchType :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON WAFByteMatchSetFieldToMatch where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 28, omitNothingFields = True }

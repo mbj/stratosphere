@@ -21,7 +21,7 @@ data CodeDeployDeploymentGroupGitHubLocation =
   CodeDeployDeploymentGroupGitHubLocation
   { _codeDeployDeploymentGroupGitHubLocationCommitId :: Val Text
   , _codeDeployDeploymentGroupGitHubLocationRepository :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON CodeDeployDeploymentGroupGitHubLocation where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 40, omitNothingFields = True }

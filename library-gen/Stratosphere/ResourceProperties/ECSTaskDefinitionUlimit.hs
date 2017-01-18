@@ -21,7 +21,7 @@ data ECSTaskDefinitionUlimit =
   { _eCSTaskDefinitionUlimitHardLimit :: Val Integer'
   , _eCSTaskDefinitionUlimitName :: Val Text
   , _eCSTaskDefinitionUlimitSoftLimit :: Val Integer'
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ECSTaskDefinitionUlimit where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 24, omitNothingFields = True }

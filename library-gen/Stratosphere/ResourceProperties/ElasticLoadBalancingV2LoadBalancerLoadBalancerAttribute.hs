@@ -22,7 +22,7 @@ data ElasticLoadBalancingV2LoadBalancerLoadBalancerAttribute =
   ElasticLoadBalancingV2LoadBalancerLoadBalancerAttribute
   { _elasticLoadBalancingV2LoadBalancerLoadBalancerAttributeKey :: Maybe (Val Text)
   , _elasticLoadBalancingV2LoadBalancerLoadBalancerAttributeValue :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ElasticLoadBalancingV2LoadBalancerLoadBalancerAttribute where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 56, omitNothingFields = True }

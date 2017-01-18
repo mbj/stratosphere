@@ -23,7 +23,7 @@ data KinesisFirehoseDeliveryStreamEncryptionConfiguration =
   KinesisFirehoseDeliveryStreamEncryptionConfiguration
   { _kinesisFirehoseDeliveryStreamEncryptionConfigurationKMSEncryptionConfig :: Maybe KinesisFirehoseDeliveryStreamKMSEncryptionConfig
   , _kinesisFirehoseDeliveryStreamEncryptionConfigurationNoEncryptionConfig :: Maybe (Val KinesisFirehoseNoEncryptionConfig)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON KinesisFirehoseDeliveryStreamEncryptionConfiguration where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 53, omitNothingFields = True }

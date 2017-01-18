@@ -20,7 +20,7 @@ data S3BucketLoggingConfiguration =
   S3BucketLoggingConfiguration
   { _s3BucketLoggingConfigurationDestinationBucketName :: Maybe (Val Text)
   , _s3BucketLoggingConfigurationLogFilePrefix :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON S3BucketLoggingConfiguration where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 29, omitNothingFields = True }

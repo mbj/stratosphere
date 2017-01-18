@@ -21,7 +21,7 @@ data ElasticLoadBalancingV2ListenerRuleAction =
   ElasticLoadBalancingV2ListenerRuleAction
   { _elasticLoadBalancingV2ListenerRuleActionTargetGroupArn :: Val Text
   , _elasticLoadBalancingV2ListenerRuleActionType :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ElasticLoadBalancingV2ListenerRuleAction where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 41, omitNothingFields = True }

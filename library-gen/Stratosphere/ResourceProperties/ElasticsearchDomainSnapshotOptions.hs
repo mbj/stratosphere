@@ -19,7 +19,7 @@ import Stratosphere.Values
 data ElasticsearchDomainSnapshotOptions =
   ElasticsearchDomainSnapshotOptions
   { _elasticsearchDomainSnapshotOptionsAutomatedSnapshotStartHour :: Maybe (Val Integer')
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ElasticsearchDomainSnapshotOptions where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 35, omitNothingFields = True }

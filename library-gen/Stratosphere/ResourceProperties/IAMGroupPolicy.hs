@@ -20,7 +20,7 @@ data IAMGroupPolicy =
   IAMGroupPolicy
   { _iAMGroupPolicyPolicyDocument :: Object
   , _iAMGroupPolicyPolicyName :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON IAMGroupPolicy where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 15, omitNothingFields = True }

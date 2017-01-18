@@ -21,7 +21,7 @@ data CloudFrontDistributionLogging =
   { _cloudFrontDistributionLoggingBucket :: Val Text
   , _cloudFrontDistributionLoggingIncludeCookies :: Maybe (Val Bool')
   , _cloudFrontDistributionLoggingPrefix :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON CloudFrontDistributionLogging where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 30, omitNothingFields = True }

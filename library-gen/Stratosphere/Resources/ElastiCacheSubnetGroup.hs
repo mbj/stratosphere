@@ -21,7 +21,7 @@ data ElastiCacheSubnetGroup =
   { _elastiCacheSubnetGroupCacheSubnetGroupName :: Maybe (Val Text)
   , _elastiCacheSubnetGroupDescription :: Val Text
   , _elastiCacheSubnetGroupSubnetIds :: [Val Text]
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ElastiCacheSubnetGroup where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 23, omitNothingFields = True }

@@ -21,7 +21,7 @@ data ECSTaskDefinitionMountPoint =
   { _eCSTaskDefinitionMountPointContainerPath :: Maybe (Val Text)
   , _eCSTaskDefinitionMountPointReadOnly :: Maybe (Val Bool')
   , _eCSTaskDefinitionMountPointSourceVolume :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ECSTaskDefinitionMountPoint where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 28, omitNothingFields = True }

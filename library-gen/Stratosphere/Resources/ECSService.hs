@@ -25,7 +25,7 @@ data ECSService =
   , _eCSServiceLoadBalancers :: Maybe [ECSServiceLoadBalancer]
   , _eCSServiceRole :: Maybe (Val Text)
   , _eCSServiceTaskDefinition :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ECSService where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 11, omitNothingFields = True }

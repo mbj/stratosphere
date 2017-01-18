@@ -20,7 +20,7 @@ data IoTPolicyPrincipalAttachment =
   IoTPolicyPrincipalAttachment
   { _ioTPolicyPrincipalAttachmentPolicyName :: Val Text
   , _ioTPolicyPrincipalAttachmentPrincipal :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON IoTPolicyPrincipalAttachment where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 29, omitNothingFields = True }

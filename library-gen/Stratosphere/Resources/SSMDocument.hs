@@ -20,7 +20,7 @@ data SSMDocument =
   SSMDocument
   { _sSMDocumentContent :: Object
   , _sSMDocumentDocumentType :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON SSMDocument where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 12, omitNothingFields = True }

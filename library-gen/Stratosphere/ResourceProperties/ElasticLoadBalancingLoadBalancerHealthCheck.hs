@@ -25,7 +25,7 @@ data ElasticLoadBalancingLoadBalancerHealthCheck =
   , _elasticLoadBalancingLoadBalancerHealthCheckTarget :: Val Text
   , _elasticLoadBalancingLoadBalancerHealthCheckTimeout :: Val Text
   , _elasticLoadBalancingLoadBalancerHealthCheckUnhealthyThreshold :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ElasticLoadBalancingLoadBalancerHealthCheck where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 44, omitNothingFields = True }

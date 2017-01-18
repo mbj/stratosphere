@@ -19,7 +19,7 @@ import Stratosphere.ResourceProperties.Tag
 data EC2InternetGateway =
   EC2InternetGateway
   { _eC2InternetGatewayTags :: Maybe [Tag]
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EC2InternetGateway where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 19, omitNothingFields = True }

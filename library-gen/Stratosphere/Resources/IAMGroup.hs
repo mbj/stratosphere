@@ -22,7 +22,7 @@ data IAMGroup =
   , _iAMGroupManagedPolicyArns :: Maybe [Val Text]
   , _iAMGroupPath :: Maybe (Val Text)
   , _iAMGroupPolicies :: Maybe [IAMGroupPolicy]
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON IAMGroup where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 9, omitNothingFields = True }

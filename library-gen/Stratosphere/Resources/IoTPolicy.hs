@@ -20,7 +20,7 @@ data IoTPolicy =
   IoTPolicy
   { _ioTPolicyPolicyDocument :: Object
   , _ioTPolicyPolicyName :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON IoTPolicy where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 10, omitNothingFields = True }

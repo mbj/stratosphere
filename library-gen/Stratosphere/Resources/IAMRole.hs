@@ -23,7 +23,7 @@ data IAMRole =
   , _iAMRolePath :: Maybe (Val Text)
   , _iAMRolePolicies :: Maybe [IAMRolePolicy]
   , _iAMRoleRoleName :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON IAMRole where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 8, omitNothingFields = True }

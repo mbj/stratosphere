@@ -20,7 +20,7 @@ data S3BucketRedirectAllRequestsTo =
   S3BucketRedirectAllRequestsTo
   { _s3BucketRedirectAllRequestsToHostName :: Val Text
   , _s3BucketRedirectAllRequestsToProtocol :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON S3BucketRedirectAllRequestsTo where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 30, omitNothingFields = True }

@@ -25,7 +25,7 @@ data SSMAssociation =
   , _sSMAssociationParameters :: Maybe Object
   , _sSMAssociationScheduleExpression :: Maybe (Val Text)
   , _sSMAssociationTargets :: Maybe [SSMAssociationTarget]
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON SSMAssociation where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 15, omitNothingFields = True }

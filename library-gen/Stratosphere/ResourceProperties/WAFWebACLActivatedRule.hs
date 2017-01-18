@@ -21,7 +21,7 @@ data WAFWebACLActivatedRule =
   { _wAFWebACLActivatedRuleAction :: WAFWebACLWafAction
   , _wAFWebACLActivatedRulePriority :: Val Integer'
   , _wAFWebACLActivatedRuleRuleId :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON WAFWebACLActivatedRule where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 23, omitNothingFields = True }

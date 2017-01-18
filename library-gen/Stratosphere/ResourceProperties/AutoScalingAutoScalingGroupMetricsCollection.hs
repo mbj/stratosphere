@@ -22,7 +22,7 @@ data AutoScalingAutoScalingGroupMetricsCollection =
   AutoScalingAutoScalingGroupMetricsCollection
   { _autoScalingAutoScalingGroupMetricsCollectionGranularity :: Val Text
   , _autoScalingAutoScalingGroupMetricsCollectionMetrics :: Maybe [Val Text]
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON AutoScalingAutoScalingGroupMetricsCollection where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 45, omitNothingFields = True }

@@ -23,7 +23,7 @@ data CodeDeployDeploymentGroupS3Location =
   , _codeDeployDeploymentGroupS3LocationETag :: Maybe (Val Text)
   , _codeDeployDeploymentGroupS3LocationKey :: Val Text
   , _codeDeployDeploymentGroupS3LocationVersion :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON CodeDeployDeploymentGroupS3Location where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 36, omitNothingFields = True }

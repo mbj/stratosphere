@@ -21,7 +21,7 @@ data EMRInstanceGroupConfigConfiguration =
   { _eMRInstanceGroupConfigConfigurationClassification :: Maybe (Val Text)
   , _eMRInstanceGroupConfigConfigurationConfigurationProperties :: Maybe Object
   , _eMRInstanceGroupConfigConfigurationConfigurations :: Maybe [EMRInstanceGroupConfigConfiguration]
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EMRInstanceGroupConfigConfiguration where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 36, omitNothingFields = True }

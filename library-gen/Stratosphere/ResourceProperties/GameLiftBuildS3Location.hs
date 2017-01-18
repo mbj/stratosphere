@@ -21,7 +21,7 @@ data GameLiftBuildS3Location =
   { _gameLiftBuildS3LocationBucket :: Val Text
   , _gameLiftBuildS3LocationKey :: Val Text
   , _gameLiftBuildS3LocationRoleArn :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON GameLiftBuildS3Location where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 24, omitNothingFields = True }

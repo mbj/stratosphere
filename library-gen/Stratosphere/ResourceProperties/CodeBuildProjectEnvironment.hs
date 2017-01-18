@@ -22,7 +22,7 @@ data CodeBuildProjectEnvironment =
   , _codeBuildProjectEnvironmentEnvironmentVariables :: Maybe [CodeBuildProjectEnvironmentVariable]
   , _codeBuildProjectEnvironmentImage :: Maybe (Val Text)
   , _codeBuildProjectEnvironmentType :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON CodeBuildProjectEnvironment where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 28, omitNothingFields = True }

@@ -21,7 +21,7 @@ data ConfigConfigRuleSource =
   { _configConfigRuleSourceOwner :: Val Text
   , _configConfigRuleSourceSourceDetails :: Maybe [ConfigConfigRuleSourceDetail]
   , _configConfigRuleSourceSourceIdentifier :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ConfigConfigRuleSource where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 23, omitNothingFields = True }

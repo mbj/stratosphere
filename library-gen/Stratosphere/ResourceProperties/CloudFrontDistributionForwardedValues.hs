@@ -23,7 +23,7 @@ data CloudFrontDistributionForwardedValues =
   , _cloudFrontDistributionForwardedValuesHeaders :: Maybe [Val Text]
   , _cloudFrontDistributionForwardedValuesQueryString :: Val Bool'
   , _cloudFrontDistributionForwardedValuesQueryStringCacheKeys :: Maybe [Val Text]
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON CloudFrontDistributionForwardedValues where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 38, omitNothingFields = True }

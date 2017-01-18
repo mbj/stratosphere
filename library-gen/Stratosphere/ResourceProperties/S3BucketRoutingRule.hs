@@ -21,7 +21,7 @@ data S3BucketRoutingRule =
   S3BucketRoutingRule
   { _s3BucketRoutingRuleRedirectRule :: S3BucketRedirectRule
   , _s3BucketRoutingRuleRoutingRuleCondition :: Maybe S3BucketRoutingRuleCondition
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON S3BucketRoutingRule where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 20, omitNothingFields = True }

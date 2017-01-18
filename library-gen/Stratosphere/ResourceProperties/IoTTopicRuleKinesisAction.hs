@@ -21,7 +21,7 @@ data IoTTopicRuleKinesisAction =
   { _ioTTopicRuleKinesisActionPartitionKey :: Maybe (Val Text)
   , _ioTTopicRuleKinesisActionRoleArn :: Val Text
   , _ioTTopicRuleKinesisActionStreamName :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON IoTTopicRuleKinesisAction where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 26, omitNothingFields = True }

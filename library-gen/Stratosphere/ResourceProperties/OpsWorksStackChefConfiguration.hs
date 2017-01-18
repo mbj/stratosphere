@@ -20,7 +20,7 @@ data OpsWorksStackChefConfiguration =
   OpsWorksStackChefConfiguration
   { _opsWorksStackChefConfigurationBerkshelfVersion :: Maybe (Val Text)
   , _opsWorksStackChefConfigurationManageBerkshelf :: Maybe (Val Bool')
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON OpsWorksStackChefConfiguration where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 31, omitNothingFields = True }

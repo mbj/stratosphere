@@ -22,7 +22,7 @@ data ElasticsearchDomainEBSOptions =
   , _elasticsearchDomainEBSOptionsIops :: Maybe (Val Integer')
   , _elasticsearchDomainEBSOptionsVolumeSize :: Maybe (Val Integer')
   , _elasticsearchDomainEBSOptionsVolumeType :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ElasticsearchDomainEBSOptions where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 30, omitNothingFields = True }

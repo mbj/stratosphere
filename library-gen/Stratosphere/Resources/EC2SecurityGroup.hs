@@ -24,7 +24,7 @@ data EC2SecurityGroup =
   , _eC2SecurityGroupSecurityGroupIngress :: Maybe [EC2SecurityGroupRule]
   , _eC2SecurityGroupTags :: Maybe [Tag]
   , _eC2SecurityGroupVpcId :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EC2SecurityGroup where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 17, omitNothingFields = True }

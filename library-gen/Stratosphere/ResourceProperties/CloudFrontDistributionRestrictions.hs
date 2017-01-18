@@ -19,7 +19,7 @@ import Stratosphere.ResourceProperties.CloudFrontDistributionGeoRestriction
 data CloudFrontDistributionRestrictions =
   CloudFrontDistributionRestrictions
   { _cloudFrontDistributionRestrictionsGeoRestriction :: CloudFrontDistributionGeoRestriction
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON CloudFrontDistributionRestrictions where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 35, omitNothingFields = True }

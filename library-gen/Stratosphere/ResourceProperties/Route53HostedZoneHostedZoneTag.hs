@@ -20,7 +20,7 @@ data Route53HostedZoneHostedZoneTag =
   Route53HostedZoneHostedZoneTag
   { _route53HostedZoneHostedZoneTagKey :: Val Text
   , _route53HostedZoneHostedZoneTagValue :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON Route53HostedZoneHostedZoneTag where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 31, omitNothingFields = True }

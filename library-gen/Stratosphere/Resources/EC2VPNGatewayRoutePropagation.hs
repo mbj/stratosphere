@@ -20,7 +20,7 @@ data EC2VPNGatewayRoutePropagation =
   EC2VPNGatewayRoutePropagation
   { _eC2VPNGatewayRoutePropagationRouteTableIds :: [Val Text]
   , _eC2VPNGatewayRoutePropagationVpnGatewayId :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EC2VPNGatewayRoutePropagation where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 30, omitNothingFields = True }

@@ -28,7 +28,7 @@ data ElasticBeanstalkEnvironment =
   , _elasticBeanstalkEnvironmentTemplateName :: Maybe (Val Text)
   , _elasticBeanstalkEnvironmentTier :: Maybe ElasticBeanstalkEnvironmentTier
   , _elasticBeanstalkEnvironmentVersionLabel :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ElasticBeanstalkEnvironment where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 28, omitNothingFields = True }

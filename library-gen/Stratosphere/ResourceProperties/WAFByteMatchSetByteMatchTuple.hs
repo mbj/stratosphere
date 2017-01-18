@@ -23,7 +23,7 @@ data WAFByteMatchSetByteMatchTuple =
   , _wAFByteMatchSetByteMatchTupleTargetString :: Maybe (Val Text)
   , _wAFByteMatchSetByteMatchTupleTargetStringBase64 :: Maybe (Val Text)
   , _wAFByteMatchSetByteMatchTupleTextTransformation :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON WAFByteMatchSetByteMatchTuple where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 30, omitNothingFields = True }

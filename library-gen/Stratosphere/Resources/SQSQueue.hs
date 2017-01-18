@@ -25,7 +25,7 @@ data SQSQueue =
   , _sQSQueueReceiveMessageWaitTimeSeconds :: Maybe (Val Integer')
   , _sQSQueueRedrivePolicy :: Maybe Object
   , _sQSQueueVisibilityTimeout :: Maybe (Val Integer')
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON SQSQueue where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 9, omitNothingFields = True }

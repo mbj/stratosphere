@@ -20,7 +20,7 @@ data EFSFileSystemElasticFileSystemTag =
   EFSFileSystemElasticFileSystemTag
   { _eFSFileSystemElasticFileSystemTagKey :: Val Text
   , _eFSFileSystemElasticFileSystemTagValue :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EFSFileSystemElasticFileSystemTag where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 34, omitNothingFields = True }

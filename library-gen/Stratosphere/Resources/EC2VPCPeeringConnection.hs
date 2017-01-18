@@ -21,7 +21,7 @@ data EC2VPCPeeringConnection =
   { _eC2VPCPeeringConnectionPeerVpcId :: Val Text
   , _eC2VPCPeeringConnectionTags :: Maybe [Tag]
   , _eC2VPCPeeringConnectionVpcId :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EC2VPCPeeringConnection where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 24, omitNothingFields = True }

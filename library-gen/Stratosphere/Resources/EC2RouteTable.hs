@@ -20,7 +20,7 @@ data EC2RouteTable =
   EC2RouteTable
   { _eC2RouteTableTags :: Maybe [Tag]
   , _eC2RouteTableVpcId :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EC2RouteTable where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 14, omitNothingFields = True }

@@ -27,7 +27,7 @@ data EC2Volume =
   , _eC2VolumeSnapshotId :: Maybe (Val Text)
   , _eC2VolumeTags :: Maybe [Tag]
   , _eC2VolumeVolumeType :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EC2Volume where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 10, omitNothingFields = True }

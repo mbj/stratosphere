@@ -20,7 +20,7 @@ data EC2NetworkAclEntryIcmp =
   EC2NetworkAclEntryIcmp
   { _eC2NetworkAclEntryIcmpCode :: Maybe (Val Integer')
   , _eC2NetworkAclEntryIcmpType :: Maybe (Val Integer')
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EC2NetworkAclEntryIcmp where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 23, omitNothingFields = True }

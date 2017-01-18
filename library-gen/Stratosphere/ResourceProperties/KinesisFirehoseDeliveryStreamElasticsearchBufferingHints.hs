@@ -22,7 +22,7 @@ data KinesisFirehoseDeliveryStreamElasticsearchBufferingHints =
   KinesisFirehoseDeliveryStreamElasticsearchBufferingHints
   { _kinesisFirehoseDeliveryStreamElasticsearchBufferingHintsIntervalInSeconds :: Val Integer'
   , _kinesisFirehoseDeliveryStreamElasticsearchBufferingHintsSizeInMBs :: Val Integer'
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON KinesisFirehoseDeliveryStreamElasticsearchBufferingHints where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 57, omitNothingFields = True }

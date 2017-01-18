@@ -24,7 +24,7 @@ data EC2DHCPOptions =
   , _eC2DHCPOptionsNetbiosNodeType :: Maybe (Val Integer')
   , _eC2DHCPOptionsNtpServers :: Maybe (Val Text)
   , _eC2DHCPOptionsTags :: Maybe [Tag]
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EC2DHCPOptions where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 15, omitNothingFields = True }

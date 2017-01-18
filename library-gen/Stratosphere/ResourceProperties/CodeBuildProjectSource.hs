@@ -22,7 +22,7 @@ data CodeBuildProjectSource =
   , _codeBuildProjectSourceBuildSpec :: Maybe (Val Text)
   , _codeBuildProjectSourceLocation :: Maybe (Val Text)
   , _codeBuildProjectSourceType :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON CodeBuildProjectSource where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 23, omitNothingFields = True }

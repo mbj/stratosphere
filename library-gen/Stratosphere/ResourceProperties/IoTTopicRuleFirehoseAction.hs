@@ -21,7 +21,7 @@ data IoTTopicRuleFirehoseAction =
   { _ioTTopicRuleFirehoseActionDeliveryStreamName :: Val Text
   , _ioTTopicRuleFirehoseActionRoleArn :: Val Text
   , _ioTTopicRuleFirehoseActionSeparator :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON IoTTopicRuleFirehoseAction where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 27, omitNothingFields = True }

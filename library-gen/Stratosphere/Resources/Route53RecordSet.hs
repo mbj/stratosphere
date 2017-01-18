@@ -33,7 +33,7 @@ data Route53RecordSet =
   , _route53RecordSetTTL :: Maybe (Val Text)
   , _route53RecordSetType :: Val Text
   , _route53RecordSetWeight :: Maybe (Val Integer')
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON Route53RecordSet where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 17, omitNothingFields = True }

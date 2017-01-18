@@ -20,7 +20,7 @@ data EMRClusterEbsBlockDeviceConfig =
   EMRClusterEbsBlockDeviceConfig
   { _eMRClusterEbsBlockDeviceConfigVolumeSpecification :: EMRClusterVolumeSpecification
   , _eMRClusterEbsBlockDeviceConfigVolumesPerInstance :: Maybe (Val Integer')
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EMRClusterEbsBlockDeviceConfig where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 31, omitNothingFields = True }

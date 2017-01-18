@@ -26,7 +26,7 @@ data EC2Route =
   , _eC2RouteNetworkInterfaceId :: Maybe (Val Text)
   , _eC2RouteRouteTableId :: Val Text
   , _eC2RouteVpcPeeringConnectionId :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EC2Route where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 9, omitNothingFields = True }

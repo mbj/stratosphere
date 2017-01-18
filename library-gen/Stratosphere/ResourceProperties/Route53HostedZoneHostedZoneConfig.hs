@@ -19,7 +19,7 @@ import Stratosphere.Values
 data Route53HostedZoneHostedZoneConfig =
   Route53HostedZoneHostedZoneConfig
   { _route53HostedZoneHostedZoneConfigComment :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON Route53HostedZoneHostedZoneConfig where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 34, omitNothingFields = True }

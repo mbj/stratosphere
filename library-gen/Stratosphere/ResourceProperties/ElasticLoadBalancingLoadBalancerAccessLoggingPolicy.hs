@@ -24,7 +24,7 @@ data ElasticLoadBalancingLoadBalancerAccessLoggingPolicy =
   , _elasticLoadBalancingLoadBalancerAccessLoggingPolicyEnabled :: Val Bool'
   , _elasticLoadBalancingLoadBalancerAccessLoggingPolicyS3BucketName :: Val Text
   , _elasticLoadBalancingLoadBalancerAccessLoggingPolicyS3BucketPrefix :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ElasticLoadBalancingLoadBalancerAccessLoggingPolicy where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 52, omitNothingFields = True }

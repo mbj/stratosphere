@@ -30,7 +30,7 @@ data DynamoDBTable =
   , _dynamoDBTableProvisionedThroughput :: DynamoDBTableProvisionedThroughput
   , _dynamoDBTableStreamSpecification :: Maybe DynamoDBTableStreamSpecification
   , _dynamoDBTableTableName :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON DynamoDBTable where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 14, omitNothingFields = True }

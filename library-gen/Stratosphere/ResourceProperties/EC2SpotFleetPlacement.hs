@@ -20,7 +20,7 @@ data EC2SpotFleetPlacement =
   EC2SpotFleetPlacement
   { _eC2SpotFleetPlacementAvailabilityZone :: Maybe (Val Text)
   , _eC2SpotFleetPlacementGroupName :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EC2SpotFleetPlacement where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 22, omitNothingFields = True }

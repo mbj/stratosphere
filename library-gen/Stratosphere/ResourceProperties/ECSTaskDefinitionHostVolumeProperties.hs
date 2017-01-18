@@ -20,7 +20,7 @@ import Stratosphere.Values
 data ECSTaskDefinitionHostVolumeProperties =
   ECSTaskDefinitionHostVolumeProperties
   { _eCSTaskDefinitionHostVolumePropertiesSourcePath :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ECSTaskDefinitionHostVolumeProperties where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 38, omitNothingFields = True }

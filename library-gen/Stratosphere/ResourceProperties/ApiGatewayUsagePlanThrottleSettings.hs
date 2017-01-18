@@ -20,7 +20,7 @@ data ApiGatewayUsagePlanThrottleSettings =
   ApiGatewayUsagePlanThrottleSettings
   { _apiGatewayUsagePlanThrottleSettingsBurstLimit :: Maybe (Val Integer')
   , _apiGatewayUsagePlanThrottleSettingsRateLimit :: Maybe (Val Double')
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ApiGatewayUsagePlanThrottleSettings where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 36, omitNothingFields = True }

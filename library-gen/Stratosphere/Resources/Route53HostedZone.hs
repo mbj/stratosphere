@@ -24,7 +24,7 @@ data Route53HostedZone =
   , _route53HostedZoneHostedZoneTags :: Maybe [Route53HostedZoneHostedZoneTag]
   , _route53HostedZoneName :: Val Text
   , _route53HostedZoneVPCs :: Maybe [Route53HostedZoneVPC]
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON Route53HostedZone where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 18, omitNothingFields = True }

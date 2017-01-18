@@ -22,7 +22,7 @@ data AutoScalingAutoScalingGroupNotificationConfigurations =
   AutoScalingAutoScalingGroupNotificationConfigurations
   { _autoScalingAutoScalingGroupNotificationConfigurationsNotificationTypes :: Maybe [Val Text]
   , _autoScalingAutoScalingGroupNotificationConfigurationsTopicARN :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON AutoScalingAutoScalingGroupNotificationConfigurations where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 54, omitNothingFields = True }

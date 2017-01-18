@@ -19,7 +19,7 @@ import Stratosphere.Values
 data EC2PlacementGroup =
   EC2PlacementGroup
   { _eC2PlacementGroupStrategy :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EC2PlacementGroup where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 18, omitNothingFields = True }

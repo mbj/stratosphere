@@ -26,7 +26,7 @@ data ApiGatewayRestApi =
   , _apiGatewayRestApiMode :: Maybe (Val Text)
   , _apiGatewayRestApiName :: Maybe (Val Text)
   , _apiGatewayRestApiParameters :: Maybe Object
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ApiGatewayRestApi where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 18, omitNothingFields = True }

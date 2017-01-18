@@ -22,7 +22,7 @@ data DynamoDBTableLocalSecondaryIndex =
   { _dynamoDBTableLocalSecondaryIndexIndexName :: Val Text
   , _dynamoDBTableLocalSecondaryIndexKeySchema :: [DynamoDBTableKeySchema]
   , _dynamoDBTableLocalSecondaryIndexProjection :: DynamoDBTableProjection
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON DynamoDBTableLocalSecondaryIndex where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 33, omitNothingFields = True }

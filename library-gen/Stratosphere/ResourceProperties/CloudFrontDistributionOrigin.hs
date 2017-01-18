@@ -26,7 +26,7 @@ data CloudFrontDistributionOrigin =
   , _cloudFrontDistributionOriginOriginCustomHeaders :: Maybe [CloudFrontDistributionOriginCustomHeader]
   , _cloudFrontDistributionOriginOriginPath :: Maybe (Val Text)
   , _cloudFrontDistributionOriginS3OriginConfig :: Maybe CloudFrontDistributionS3OriginConfig
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON CloudFrontDistributionOrigin where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 29, omitNothingFields = True }

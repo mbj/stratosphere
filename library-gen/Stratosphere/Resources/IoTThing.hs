@@ -20,7 +20,7 @@ data IoTThing =
   IoTThing
   { _ioTThingAttributePayload :: Maybe IoTThingAttributePayload
   , _ioTThingThingName :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON IoTThing where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 9, omitNothingFields = True }

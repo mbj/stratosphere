@@ -24,7 +24,7 @@ data OpsWorksLayerAutoScalingThresholds =
   , _opsWorksLayerAutoScalingThresholdsLoadThreshold :: Maybe (Val Double')
   , _opsWorksLayerAutoScalingThresholdsMemoryThreshold :: Maybe (Val Double')
   , _opsWorksLayerAutoScalingThresholdsThresholdsWaitTime :: Maybe (Val Integer')
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON OpsWorksLayerAutoScalingThresholds where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 35, omitNothingFields = True }

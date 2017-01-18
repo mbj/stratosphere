@@ -23,7 +23,7 @@ data ConfigDeliveryChannel =
   , _configDeliveryChannelS3BucketName :: Val Text
   , _configDeliveryChannelS3KeyPrefix :: Maybe (Val Text)
   , _configDeliveryChannelSnsTopicARN :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ConfigDeliveryChannel where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 22, omitNothingFields = True }

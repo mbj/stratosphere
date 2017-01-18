@@ -20,7 +20,7 @@ data EC2VPCCidrBlock =
   EC2VPCCidrBlock
   { _eC2VPCCidrBlockAmazonProvidedIpv6CidrBlock :: Maybe (Val Bool')
   , _eC2VPCCidrBlockVpcId :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EC2VPCCidrBlock where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 16, omitNothingFields = True }

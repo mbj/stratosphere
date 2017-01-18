@@ -22,7 +22,7 @@ data ElasticLoadBalancingV2TargetGroupTargetGroupAttribute =
   ElasticLoadBalancingV2TargetGroupTargetGroupAttribute
   { _elasticLoadBalancingV2TargetGroupTargetGroupAttributeKey :: Maybe (Val Text)
   , _elasticLoadBalancingV2TargetGroupTargetGroupAttributeValue :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ElasticLoadBalancingV2TargetGroupTargetGroupAttribute where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 54, omitNothingFields = True }

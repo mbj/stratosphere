@@ -23,7 +23,7 @@ data LambdaPermission =
   , _lambdaPermissionPrincipal :: Val Text
   , _lambdaPermissionSourceAccount :: Maybe (Val Text)
   , _lambdaPermissionSourceArn :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON LambdaPermission where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 17, omitNothingFields = True }

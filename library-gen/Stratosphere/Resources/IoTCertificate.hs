@@ -20,7 +20,7 @@ data IoTCertificate =
   IoTCertificate
   { _ioTCertificateCertificateSigningRequest :: Val Text
   , _ioTCertificateStatus :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON IoTCertificate where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 15, omitNothingFields = True }

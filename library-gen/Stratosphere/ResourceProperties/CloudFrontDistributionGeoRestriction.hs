@@ -20,7 +20,7 @@ data CloudFrontDistributionGeoRestriction =
   CloudFrontDistributionGeoRestriction
   { _cloudFrontDistributionGeoRestrictionLocations :: Maybe [Val Text]
   , _cloudFrontDistributionGeoRestrictionRestrictionType :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON CloudFrontDistributionGeoRestriction where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 37, omitNothingFields = True }

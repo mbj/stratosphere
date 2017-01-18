@@ -22,7 +22,7 @@ data ElasticBeanstalkApplicationVersionSourceBundle =
   ElasticBeanstalkApplicationVersionSourceBundle
   { _elasticBeanstalkApplicationVersionSourceBundleS3Bucket :: Val Text
   , _elasticBeanstalkApplicationVersionSourceBundleS3Key :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ElasticBeanstalkApplicationVersionSourceBundle where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 47, omitNothingFields = True }

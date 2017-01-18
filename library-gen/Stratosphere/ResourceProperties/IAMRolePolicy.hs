@@ -20,7 +20,7 @@ data IAMRolePolicy =
   IAMRolePolicy
   { _iAMRolePolicyPolicyDocument :: Object
   , _iAMRolePolicyPolicyName :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON IAMRolePolicy where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 14, omitNothingFields = True }

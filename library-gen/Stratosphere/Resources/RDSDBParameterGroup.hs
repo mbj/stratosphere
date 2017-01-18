@@ -22,7 +22,7 @@ data RDSDBParameterGroup =
   , _rDSDBParameterGroupFamily :: Val Text
   , _rDSDBParameterGroupParameters :: Maybe Object
   , _rDSDBParameterGroupTags :: Maybe [Tag]
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON RDSDBParameterGroup where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 20, omitNothingFields = True }

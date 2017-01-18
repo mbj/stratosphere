@@ -20,7 +20,7 @@ data ECSServiceDeploymentConfiguration =
   ECSServiceDeploymentConfiguration
   { _eCSServiceDeploymentConfigurationMaximumPercent :: Maybe (Val Integer')
   , _eCSServiceDeploymentConfigurationMinimumHealthyPercent :: Maybe (Val Integer')
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ECSServiceDeploymentConfiguration where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 34, omitNothingFields = True }

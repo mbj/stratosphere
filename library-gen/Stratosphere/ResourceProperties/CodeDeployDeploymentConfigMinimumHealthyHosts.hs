@@ -22,7 +22,7 @@ data CodeDeployDeploymentConfigMinimumHealthyHosts =
   CodeDeployDeploymentConfigMinimumHealthyHosts
   { _codeDeployDeploymentConfigMinimumHealthyHostsType :: Maybe (Val Text)
   , _codeDeployDeploymentConfigMinimumHealthyHostsValue :: Maybe (Val Integer')
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON CodeDeployDeploymentConfigMinimumHealthyHosts where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 46, omitNothingFields = True }

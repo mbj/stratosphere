@@ -19,7 +19,7 @@ import Stratosphere.Values
 data EC2InstanceInstanceIpv6Address =
   EC2InstanceInstanceIpv6Address
   { _eC2InstanceInstanceIpv6AddressIpv6Address :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EC2InstanceInstanceIpv6Address where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 31, omitNothingFields = True }

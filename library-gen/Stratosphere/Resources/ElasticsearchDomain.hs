@@ -29,7 +29,7 @@ data ElasticsearchDomain =
   , _elasticsearchDomainElasticsearchVersion :: Maybe (Val Text)
   , _elasticsearchDomainSnapshotOptions :: Maybe ElasticsearchDomainSnapshotOptions
   , _elasticsearchDomainTags :: Maybe [Tag]
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ElasticsearchDomain where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 20, omitNothingFields = True }

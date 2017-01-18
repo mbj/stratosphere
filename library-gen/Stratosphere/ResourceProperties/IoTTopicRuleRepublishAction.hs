@@ -20,7 +20,7 @@ data IoTTopicRuleRepublishAction =
   IoTTopicRuleRepublishAction
   { _ioTTopicRuleRepublishActionRoleArn :: Val Text
   , _ioTTopicRuleRepublishActionTopic :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON IoTTopicRuleRepublishAction where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 28, omitNothingFields = True }

@@ -29,7 +29,7 @@ data ApiGatewayMethodIntegration =
   , _apiGatewayMethodIntegrationRequestTemplates :: Maybe Object
   , _apiGatewayMethodIntegrationType :: Maybe (Val ApiBackendType)
   , _apiGatewayMethodIntegrationUri :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ApiGatewayMethodIntegration where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 28, omitNothingFields = True }

@@ -22,7 +22,7 @@ data GameLiftFleetIpPermission =
   , _gameLiftFleetIpPermissionIpRange :: Val Text
   , _gameLiftFleetIpPermissionProtocol :: Val Text
   , _gameLiftFleetIpPermissionToPort :: Val Integer'
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON GameLiftFleetIpPermission where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 26, omitNothingFields = True }

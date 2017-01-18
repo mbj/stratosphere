@@ -25,7 +25,7 @@ data OpsWorksInstanceTimeBasedAutoScaling =
   , _opsWorksInstanceTimeBasedAutoScalingThursday :: Maybe Object
   , _opsWorksInstanceTimeBasedAutoScalingTuesday :: Maybe Object
   , _opsWorksInstanceTimeBasedAutoScalingWednesday :: Maybe Object
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON OpsWorksInstanceTimeBasedAutoScaling where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 37, omitNothingFields = True }

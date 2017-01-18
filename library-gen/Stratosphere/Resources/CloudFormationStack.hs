@@ -23,7 +23,7 @@ data CloudFormationStack =
   , _cloudFormationStackTags :: Maybe [Tag]
   , _cloudFormationStackTemplateURL :: Val Text
   , _cloudFormationStackTimeoutInMinutes :: Maybe (Val Integer')
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON CloudFormationStack where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 20, omitNothingFields = True }

@@ -29,7 +29,7 @@ data KinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration =
   , _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationRoleARN :: Val Text
   , _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationS3Configuration :: KinesisFirehoseDeliveryStreamS3DestinationConfiguration
   , _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationUsername :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON KinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 62, omitNothingFields = True }

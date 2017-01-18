@@ -19,7 +19,7 @@ import Stratosphere.Values
 data CloudFormationWaitConditionHandle =
   CloudFormationWaitConditionHandle
   { 
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON CloudFormationWaitConditionHandle where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 34, omitNothingFields = True }

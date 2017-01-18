@@ -20,7 +20,7 @@ data ECSTaskDefinitionLogConfiguration =
   ECSTaskDefinitionLogConfiguration
   { _eCSTaskDefinitionLogConfigurationLogDriver :: Val Text
   , _eCSTaskDefinitionLogConfigurationOptions :: Maybe Object
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ECSTaskDefinitionLogConfiguration where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 34, omitNothingFields = True }

@@ -26,7 +26,7 @@ data ElasticsearchDomainElasticsearchClusterConfig =
   , _elasticsearchDomainElasticsearchClusterConfigInstanceCount :: Maybe (Val Integer')
   , _elasticsearchDomainElasticsearchClusterConfigInstanceType :: Maybe (Val Text)
   , _elasticsearchDomainElasticsearchClusterConfigZoneAwarenessEnabled :: Maybe (Val Bool')
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ElasticsearchDomainElasticsearchClusterConfig where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 46, omitNothingFields = True }

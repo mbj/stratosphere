@@ -34,7 +34,7 @@ data ApiGatewayDeploymentStageDescription =
   , _apiGatewayDeploymentStageDescriptionThrottlingBurstLimit :: Maybe (Val Integer')
   , _apiGatewayDeploymentStageDescriptionThrottlingRateLimit :: Maybe (Val Double')
   , _apiGatewayDeploymentStageDescriptionVariables :: Maybe Object
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ApiGatewayDeploymentStageDescription where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 37, omitNothingFields = True }

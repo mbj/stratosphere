@@ -26,7 +26,7 @@ data CodePipelinePipeline =
   , _codePipelinePipelineRestartExecutionOnUpdate :: Maybe (Val Bool')
   , _codePipelinePipelineRoleArn :: Val Text
   , _codePipelinePipelineStages :: [CodePipelinePipelineStageDeclaration]
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON CodePipelinePipeline where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 21, omitNothingFields = True }

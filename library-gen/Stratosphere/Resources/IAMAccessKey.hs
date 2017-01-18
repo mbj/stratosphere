@@ -21,7 +21,7 @@ data IAMAccessKey =
   { _iAMAccessKeySerial :: Maybe (Val Integer')
   , _iAMAccessKeyStatus :: Maybe (Val Text)
   , _iAMAccessKeyUserName :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON IAMAccessKey where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 13, omitNothingFields = True }

@@ -22,7 +22,7 @@ data CodePipelinePipelineStageDeclaration =
   { _codePipelinePipelineStageDeclarationActions :: [CodePipelinePipelineActionDeclaration]
   , _codePipelinePipelineStageDeclarationBlockers :: Maybe [CodePipelinePipelineBlockerDeclaration]
   , _codePipelinePipelineStageDeclarationName :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON CodePipelinePipelineStageDeclaration where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 37, omitNothingFields = True }

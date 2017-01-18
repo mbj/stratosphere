@@ -20,7 +20,7 @@ data DynamoDBTableKeySchema =
   DynamoDBTableKeySchema
   { _dynamoDBTableKeySchemaAttributeName :: Val Text
   , _dynamoDBTableKeySchemaKeyType :: Val KeyType
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON DynamoDBTableKeySchema where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 23, omitNothingFields = True }

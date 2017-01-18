@@ -28,7 +28,7 @@ data EC2SpotFleetSpotFleetRequestConfigData =
   , _eC2SpotFleetSpotFleetRequestConfigDataTerminateInstancesWithExpiration :: Maybe (Val Bool')
   , _eC2SpotFleetSpotFleetRequestConfigDataValidFrom :: Maybe (Val Text)
   , _eC2SpotFleetSpotFleetRequestConfigDataValidUntil :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EC2SpotFleetSpotFleetRequestConfigData where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 39, omitNothingFields = True }

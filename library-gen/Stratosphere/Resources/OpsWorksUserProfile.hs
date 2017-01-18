@@ -21,7 +21,7 @@ data OpsWorksUserProfile =
   { _opsWorksUserProfileAllowSelfManagement :: Maybe (Val Bool')
   , _opsWorksUserProfileIamUserArn :: Val Text
   , _opsWorksUserProfileSshPublicKey :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON OpsWorksUserProfile where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 20, omitNothingFields = True }

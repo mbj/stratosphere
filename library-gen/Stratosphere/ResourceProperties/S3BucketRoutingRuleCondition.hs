@@ -20,7 +20,7 @@ data S3BucketRoutingRuleCondition =
   S3BucketRoutingRuleCondition
   { _s3BucketRoutingRuleConditionHttpErrorCodeReturnedEquals :: Maybe (Val Text)
   , _s3BucketRoutingRuleConditionKeyPrefixEquals :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON S3BucketRoutingRuleCondition where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 29, omitNothingFields = True }

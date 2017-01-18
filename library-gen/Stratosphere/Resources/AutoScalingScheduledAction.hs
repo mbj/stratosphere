@@ -25,7 +25,7 @@ data AutoScalingScheduledAction =
   , _autoScalingScheduledActionMinSize :: Maybe (Val Integer')
   , _autoScalingScheduledActionRecurrence :: Maybe (Val Text)
   , _autoScalingScheduledActionStartTime :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON AutoScalingScheduledAction where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 27, omitNothingFields = True }

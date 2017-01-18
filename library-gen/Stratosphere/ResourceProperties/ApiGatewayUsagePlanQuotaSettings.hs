@@ -21,7 +21,7 @@ data ApiGatewayUsagePlanQuotaSettings =
   { _apiGatewayUsagePlanQuotaSettingsLimit :: Maybe (Val Integer')
   , _apiGatewayUsagePlanQuotaSettingsOffset :: Maybe (Val Integer')
   , _apiGatewayUsagePlanQuotaSettingsPeriod :: Maybe (Val Period)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ApiGatewayUsagePlanQuotaSettings where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 33, omitNothingFields = True }

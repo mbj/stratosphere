@@ -20,7 +20,7 @@ data EC2SubnetCidrBlock =
   EC2SubnetCidrBlock
   { _eC2SubnetCidrBlockIpv6CidrBlock :: Val Text
   , _eC2SubnetCidrBlockSubnetId :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EC2SubnetCidrBlock where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 19, omitNothingFields = True }

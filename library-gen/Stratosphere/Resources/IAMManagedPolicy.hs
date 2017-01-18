@@ -24,7 +24,7 @@ data IAMManagedPolicy =
   , _iAMManagedPolicyPolicyDocument :: Maybe Object
   , _iAMManagedPolicyRoles :: Maybe [Val Text]
   , _iAMManagedPolicyUsers :: Maybe [Val Text]
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON IAMManagedPolicy where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 17, omitNothingFields = True }

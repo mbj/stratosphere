@@ -19,7 +19,7 @@ import Stratosphere.Values
 data IoTThingAttributePayload =
   IoTThingAttributePayload
   { _ioTThingAttributePayloadAttributes :: Maybe Object
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON IoTThingAttributePayload where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 25, omitNothingFields = True }

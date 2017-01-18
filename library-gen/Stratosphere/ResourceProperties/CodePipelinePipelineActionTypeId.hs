@@ -22,7 +22,7 @@ data CodePipelinePipelineActionTypeId =
   , _codePipelinePipelineActionTypeIdOwner :: Val Text
   , _codePipelinePipelineActionTypeIdProvider :: Val Text
   , _codePipelinePipelineActionTypeIdVersion :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON CodePipelinePipelineActionTypeId where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 33, omitNothingFields = True }

@@ -20,7 +20,7 @@ data WAFSqlInjectionMatchSet =
   WAFSqlInjectionMatchSet
   { _wAFSqlInjectionMatchSetName :: Val Text
   , _wAFSqlInjectionMatchSetSqlInjectionMatchTuples :: Maybe [WAFSqlInjectionMatchSetSqlInjectionMatchTuple]
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON WAFSqlInjectionMatchSet where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 24, omitNothingFields = True }

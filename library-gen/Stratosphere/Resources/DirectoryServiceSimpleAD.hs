@@ -26,7 +26,7 @@ data DirectoryServiceSimpleAD =
   , _directoryServiceSimpleADShortName :: Maybe (Val Text)
   , _directoryServiceSimpleADSize :: Val Text
   , _directoryServiceSimpleADVpcSettings :: DirectoryServiceSimpleADVpcSettings
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON DirectoryServiceSimpleAD where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 25, omitNothingFields = True }

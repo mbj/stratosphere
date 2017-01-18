@@ -21,7 +21,7 @@ data S3BucketLambdaConfiguration =
   { _s3BucketLambdaConfigurationEvent :: Val Text
   , _s3BucketLambdaConfigurationFilter :: Maybe S3BucketNotificationFilter
   , _s3BucketLambdaConfigurationFunction :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON S3BucketLambdaConfiguration where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 28, omitNothingFields = True }

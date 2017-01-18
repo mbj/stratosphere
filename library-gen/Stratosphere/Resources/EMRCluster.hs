@@ -34,7 +34,7 @@ data EMRCluster =
   , _eMRClusterServiceRole :: Val Text
   , _eMRClusterTags :: Maybe [Tag]
   , _eMRClusterVisibleToAllUsers :: Maybe (Val Bool')
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EMRCluster where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 11, omitNothingFields = True }

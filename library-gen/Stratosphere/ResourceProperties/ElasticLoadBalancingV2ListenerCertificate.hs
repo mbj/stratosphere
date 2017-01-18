@@ -20,7 +20,7 @@ import Stratosphere.Values
 data ElasticLoadBalancingV2ListenerCertificate =
   ElasticLoadBalancingV2ListenerCertificate
   { _elasticLoadBalancingV2ListenerCertificateCertificateArn :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ElasticLoadBalancingV2ListenerCertificate where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 42, omitNothingFields = True }

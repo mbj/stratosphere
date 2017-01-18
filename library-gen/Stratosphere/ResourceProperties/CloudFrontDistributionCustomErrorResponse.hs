@@ -23,7 +23,7 @@ data CloudFrontDistributionCustomErrorResponse =
   , _cloudFrontDistributionCustomErrorResponseErrorCode :: Val Integer'
   , _cloudFrontDistributionCustomErrorResponseResponseCode :: Maybe (Val Integer')
   , _cloudFrontDistributionCustomErrorResponseResponsePagePath :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON CloudFrontDistributionCustomErrorResponse where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 42, omitNothingFields = True }

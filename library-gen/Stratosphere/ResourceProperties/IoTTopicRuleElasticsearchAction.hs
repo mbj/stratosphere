@@ -23,7 +23,7 @@ data IoTTopicRuleElasticsearchAction =
   , _ioTTopicRuleElasticsearchActionIndex :: Val Text
   , _ioTTopicRuleElasticsearchActionRoleArn :: Val Text
   , _ioTTopicRuleElasticsearchActionType :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON IoTTopicRuleElasticsearchAction where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 32, omitNothingFields = True }

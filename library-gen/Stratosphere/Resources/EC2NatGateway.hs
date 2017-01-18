@@ -20,7 +20,7 @@ data EC2NatGateway =
   EC2NatGateway
   { _eC2NatGatewayAllocationId :: Val Text
   , _eC2NatGatewaySubnetId :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EC2NatGateway where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 14, omitNothingFields = True }

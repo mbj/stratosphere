@@ -24,7 +24,7 @@ data DynamoDBTableGlobalSecondaryIndex =
   , _dynamoDBTableGlobalSecondaryIndexKeySchema :: [DynamoDBTableKeySchema]
   , _dynamoDBTableGlobalSecondaryIndexProjection :: DynamoDBTableProjection
   , _dynamoDBTableGlobalSecondaryIndexProvisionedThroughput :: DynamoDBTableProvisionedThroughput
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON DynamoDBTableGlobalSecondaryIndex where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 34, omitNothingFields = True }

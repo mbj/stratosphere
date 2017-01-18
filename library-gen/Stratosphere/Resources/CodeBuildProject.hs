@@ -30,7 +30,7 @@ data CodeBuildProject =
   , _codeBuildProjectSource :: Maybe CodeBuildProjectSource
   , _codeBuildProjectTags :: Maybe [Tag]
   , _codeBuildProjectTimeoutInMinutes :: Maybe (Val Integer')
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON CodeBuildProject where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 17, omitNothingFields = True }

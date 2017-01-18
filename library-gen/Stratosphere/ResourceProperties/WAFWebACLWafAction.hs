@@ -19,7 +19,7 @@ import Stratosphere.Values
 data WAFWebACLWafAction =
   WAFWebACLWafAction
   { _wAFWebACLWafActionType :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON WAFWebACLWafAction where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 19, omitNothingFields = True }

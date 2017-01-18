@@ -20,7 +20,7 @@ data S3BucketNoncurrentVersionTransition =
   S3BucketNoncurrentVersionTransition
   { _s3BucketNoncurrentVersionTransitionStorageClass :: Val Text
   , _s3BucketNoncurrentVersionTransitionTransitionInDays :: Val Integer'
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON S3BucketNoncurrentVersionTransition where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 36, omitNothingFields = True }

@@ -20,7 +20,7 @@ data CloudWatchAlarmDimension =
   CloudWatchAlarmDimension
   { _cloudWatchAlarmDimensionName :: Val Text
   , _cloudWatchAlarmDimensionValue :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON CloudWatchAlarmDimension where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 25, omitNothingFields = True }

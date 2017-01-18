@@ -22,7 +22,7 @@ data ApiGatewayRestApiS3Location =
   , _apiGatewayRestApiS3LocationETag :: Maybe (Val Text)
   , _apiGatewayRestApiS3LocationKey :: Maybe (Val Text)
   , _apiGatewayRestApiS3LocationVersion :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ApiGatewayRestApiS3Location where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 28, omitNothingFields = True }

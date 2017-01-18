@@ -21,7 +21,7 @@ data CodePipelinePipelineBlockerDeclaration =
   CodePipelinePipelineBlockerDeclaration
   { _codePipelinePipelineBlockerDeclarationName :: Val Text
   , _codePipelinePipelineBlockerDeclarationType :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON CodePipelinePipelineBlockerDeclaration where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 39, omitNothingFields = True }

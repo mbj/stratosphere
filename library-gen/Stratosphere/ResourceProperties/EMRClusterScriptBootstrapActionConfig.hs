@@ -21,7 +21,7 @@ data EMRClusterScriptBootstrapActionConfig =
   EMRClusterScriptBootstrapActionConfig
   { _eMRClusterScriptBootstrapActionConfigArgs :: Maybe [Val Text]
   , _eMRClusterScriptBootstrapActionConfigPath :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EMRClusterScriptBootstrapActionConfig where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 38, omitNothingFields = True }

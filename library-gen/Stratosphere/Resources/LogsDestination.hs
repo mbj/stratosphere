@@ -22,7 +22,7 @@ data LogsDestination =
   , _logsDestinationDestinationPolicy :: Val Text
   , _logsDestinationRoleArn :: Val Text
   , _logsDestinationTargetArn :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON LogsDestination where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 16, omitNothingFields = True }

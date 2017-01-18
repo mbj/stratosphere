@@ -20,7 +20,7 @@ data S3BucketFilterRule =
   S3BucketFilterRule
   { _s3BucketFilterRuleName :: Val Text
   , _s3BucketFilterRuleValue :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON S3BucketFilterRule where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 19, omitNothingFields = True }

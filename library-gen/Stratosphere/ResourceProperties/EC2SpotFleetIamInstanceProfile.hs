@@ -19,7 +19,7 @@ import Stratosphere.Values
 data EC2SpotFleetIamInstanceProfile =
   EC2SpotFleetIamInstanceProfile
   { _eC2SpotFleetIamInstanceProfileArn :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EC2SpotFleetIamInstanceProfile where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 31, omitNothingFields = True }

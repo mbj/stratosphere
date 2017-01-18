@@ -22,7 +22,7 @@ data RDSDBSecurityGroupIngressProperty =
   , _rDSDBSecurityGroupIngressPropertyEC2SecurityGroupId :: Maybe (Val Text)
   , _rDSDBSecurityGroupIngressPropertyEC2SecurityGroupName :: Maybe (Val Text)
   , _rDSDBSecurityGroupIngressPropertyEC2SecurityGroupOwnerId :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON RDSDBSecurityGroupIngressProperty where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 34, omitNothingFields = True }

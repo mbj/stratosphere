@@ -20,7 +20,7 @@ data LogsLogStream =
   LogsLogStream
   { _logsLogStreamLogGroupName :: Val Text
   , _logsLogStreamLogStreamName :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON LogsLogStream where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 14, omitNothingFields = True }

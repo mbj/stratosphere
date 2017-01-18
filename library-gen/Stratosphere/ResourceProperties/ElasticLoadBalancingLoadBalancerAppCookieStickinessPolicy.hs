@@ -22,7 +22,7 @@ data ElasticLoadBalancingLoadBalancerAppCookieStickinessPolicy =
   ElasticLoadBalancingLoadBalancerAppCookieStickinessPolicy
   { _elasticLoadBalancingLoadBalancerAppCookieStickinessPolicyCookieName :: Val Text
   , _elasticLoadBalancingLoadBalancerAppCookieStickinessPolicyPolicyName :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ElasticLoadBalancingLoadBalancerAppCookieStickinessPolicy where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 58, omitNothingFields = True }

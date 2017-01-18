@@ -24,7 +24,7 @@ data AutoScalingLaunchConfigurationBlockDeviceMapping =
   , _autoScalingLaunchConfigurationBlockDeviceMappingEbs :: Maybe AutoScalingLaunchConfigurationBlockDevice
   , _autoScalingLaunchConfigurationBlockDeviceMappingNoDevice :: Maybe (Val Bool')
   , _autoScalingLaunchConfigurationBlockDeviceMappingVirtualName :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON AutoScalingLaunchConfigurationBlockDeviceMapping where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 49, omitNothingFields = True }

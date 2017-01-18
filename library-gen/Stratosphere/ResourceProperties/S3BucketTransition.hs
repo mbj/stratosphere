@@ -21,7 +21,7 @@ data S3BucketTransition =
   { _s3BucketTransitionStorageClass :: Val Text
   , _s3BucketTransitionTransitionDate :: Maybe (Val Text)
   , _s3BucketTransitionTransitionInDays :: Maybe (Val Integer')
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON S3BucketTransition where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 19, omitNothingFields = True }

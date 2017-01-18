@@ -52,7 +52,7 @@ data EC2Instance =
   , _eC2InstanceTenancy :: Maybe (Val Text)
   , _eC2InstanceUserData :: Maybe (Val Text)
   , _eC2InstanceVolumes :: Maybe [EC2InstanceVolume]
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EC2Instance where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 12, omitNothingFields = True }

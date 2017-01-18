@@ -24,7 +24,7 @@ data WorkSpacesWorkspace =
   , _workSpacesWorkspaceUserName :: Val Text
   , _workSpacesWorkspaceUserVolumeEncryptionEnabled :: Maybe (Val Bool')
   , _workSpacesWorkspaceVolumeEncryptionKey :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON WorkSpacesWorkspace where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 20, omitNothingFields = True }

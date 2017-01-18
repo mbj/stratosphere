@@ -19,7 +19,7 @@ import Stratosphere.Values
 data CodePipelinePipelineInputArtifact =
   CodePipelinePipelineInputArtifact
   { _codePipelinePipelineInputArtifactName :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON CodePipelinePipelineInputArtifact where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 34, omitNothingFields = True }

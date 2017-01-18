@@ -40,7 +40,7 @@ data OpsWorksInstance =
   , _opsWorksInstanceTimeBasedAutoScaling :: Maybe OpsWorksInstanceTimeBasedAutoScaling
   , _opsWorksInstanceVirtualizationType :: Maybe (Val Text)
   , _opsWorksInstanceVolumes :: Maybe [Val Text]
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON OpsWorksInstance where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 17, omitNothingFields = True }

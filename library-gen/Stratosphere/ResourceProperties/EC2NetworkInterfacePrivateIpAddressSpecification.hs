@@ -22,7 +22,7 @@ data EC2NetworkInterfacePrivateIpAddressSpecification =
   EC2NetworkInterfacePrivateIpAddressSpecification
   { _eC2NetworkInterfacePrivateIpAddressSpecificationPrimary :: Val Bool'
   , _eC2NetworkInterfacePrivateIpAddressSpecificationPrivateIpAddress :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EC2NetworkInterfacePrivateIpAddressSpecification where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 49, omitNothingFields = True }

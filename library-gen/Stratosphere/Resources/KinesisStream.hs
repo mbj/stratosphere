@@ -21,7 +21,7 @@ data KinesisStream =
   { _kinesisStreamName :: Maybe (Val Text)
   , _kinesisStreamShardCount :: Val Integer'
   , _kinesisStreamTags :: Maybe [Tag]
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON KinesisStream where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 14, omitNothingFields = True }

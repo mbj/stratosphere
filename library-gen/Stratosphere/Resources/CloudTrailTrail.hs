@@ -28,7 +28,7 @@ data CloudTrailTrail =
   , _cloudTrailTrailS3BucketName :: Val Text
   , _cloudTrailTrailS3KeyPrefix :: Maybe (Val Text)
   , _cloudTrailTrailSnsTopicName :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON CloudTrailTrail where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 16, omitNothingFields = True }

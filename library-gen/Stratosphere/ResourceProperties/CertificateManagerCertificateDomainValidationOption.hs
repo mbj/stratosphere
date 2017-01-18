@@ -22,7 +22,7 @@ data CertificateManagerCertificateDomainValidationOption =
   CertificateManagerCertificateDomainValidationOption
   { _certificateManagerCertificateDomainValidationOptionDomainName :: Val Text
   , _certificateManagerCertificateDomainValidationOptionValidationDomain :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON CertificateManagerCertificateDomainValidationOption where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 52, omitNothingFields = True }

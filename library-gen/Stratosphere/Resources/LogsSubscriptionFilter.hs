@@ -22,7 +22,7 @@ data LogsSubscriptionFilter =
   , _logsSubscriptionFilterFilterPattern :: Val Text
   , _logsSubscriptionFilterLogGroupName :: Val Text
   , _logsSubscriptionFilterRoleArn :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON LogsSubscriptionFilter where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 23, omitNothingFields = True }

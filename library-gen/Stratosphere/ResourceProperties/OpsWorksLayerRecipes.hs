@@ -23,7 +23,7 @@ data OpsWorksLayerRecipes =
   , _opsWorksLayerRecipesSetup :: Maybe [Val Text]
   , _opsWorksLayerRecipesShutdown :: Maybe [Val Text]
   , _opsWorksLayerRecipesUndeploy :: Maybe [Val Text]
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON OpsWorksLayerRecipes where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 21, omitNothingFields = True }

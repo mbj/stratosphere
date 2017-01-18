@@ -35,7 +35,7 @@ data AutoScalingLaunchConfiguration =
   , _autoScalingLaunchConfigurationSecurityGroups :: Maybe [Val Text]
   , _autoScalingLaunchConfigurationSpotPrice :: Maybe (Val Text)
   , _autoScalingLaunchConfigurationUserData :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON AutoScalingLaunchConfiguration where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 31, omitNothingFields = True }

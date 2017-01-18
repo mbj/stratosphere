@@ -39,7 +39,7 @@ data IoTTopicRuleAction =
   , _ioTTopicRuleActionS3 :: Maybe IoTTopicRuleS3Action
   , _ioTTopicRuleActionSns :: Maybe IoTTopicRuleSnsAction
   , _ioTTopicRuleActionSqs :: Maybe IoTTopicRuleSqsAction
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON IoTTopicRuleAction where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 19, omitNothingFields = True }

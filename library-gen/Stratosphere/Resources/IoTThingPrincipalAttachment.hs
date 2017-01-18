@@ -20,7 +20,7 @@ data IoTThingPrincipalAttachment =
   IoTThingPrincipalAttachment
   { _ioTThingPrincipalAttachmentPrincipal :: Val Text
   , _ioTThingPrincipalAttachmentThingName :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON IoTThingPrincipalAttachment where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 28, omitNothingFields = True }

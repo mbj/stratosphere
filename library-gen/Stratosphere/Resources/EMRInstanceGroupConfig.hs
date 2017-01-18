@@ -28,7 +28,7 @@ data EMRInstanceGroupConfig =
   , _eMRInstanceGroupConfigJobFlowId :: Val Text
   , _eMRInstanceGroupConfigMarket :: Maybe (Val Text)
   , _eMRInstanceGroupConfigName :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EMRInstanceGroupConfig where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 23, omitNothingFields = True }

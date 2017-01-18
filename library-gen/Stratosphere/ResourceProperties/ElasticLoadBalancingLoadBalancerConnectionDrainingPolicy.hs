@@ -22,7 +22,7 @@ data ElasticLoadBalancingLoadBalancerConnectionDrainingPolicy =
   ElasticLoadBalancingLoadBalancerConnectionDrainingPolicy
   { _elasticLoadBalancingLoadBalancerConnectionDrainingPolicyEnabled :: Val Bool'
   , _elasticLoadBalancingLoadBalancerConnectionDrainingPolicyTimeout :: Maybe (Val Integer')
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ElasticLoadBalancingLoadBalancerConnectionDrainingPolicy where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 57, omitNothingFields = True }

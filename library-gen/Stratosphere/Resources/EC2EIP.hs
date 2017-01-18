@@ -20,7 +20,7 @@ data EC2EIP =
   EC2EIP
   { _eC2EIPDomain :: Maybe (Val Text)
   , _eC2EIPInstanceId :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EC2EIP where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 7, omitNothingFields = True }

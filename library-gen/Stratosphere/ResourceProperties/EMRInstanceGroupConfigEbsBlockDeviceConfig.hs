@@ -21,7 +21,7 @@ data EMRInstanceGroupConfigEbsBlockDeviceConfig =
   EMRInstanceGroupConfigEbsBlockDeviceConfig
   { _eMRInstanceGroupConfigEbsBlockDeviceConfigVolumeSpecification :: EMRInstanceGroupConfigVolumeSpecification
   , _eMRInstanceGroupConfigEbsBlockDeviceConfigVolumesPerInstance :: Maybe (Val Integer')
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EMRInstanceGroupConfigEbsBlockDeviceConfig where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 43, omitNothingFields = True }

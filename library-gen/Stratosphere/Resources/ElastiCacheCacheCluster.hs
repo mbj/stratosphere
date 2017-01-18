@@ -39,7 +39,7 @@ data ElastiCacheCacheCluster =
   , _elastiCacheCacheClusterSnapshotWindow :: Maybe (Val Text)
   , _elastiCacheCacheClusterTags :: Maybe [Tag]
   , _elastiCacheCacheClusterVpcSecurityGroupIds :: Maybe [Val Text]
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ElastiCacheCacheCluster where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 24, omitNothingFields = True }

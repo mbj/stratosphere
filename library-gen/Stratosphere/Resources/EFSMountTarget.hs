@@ -22,7 +22,7 @@ data EFSMountTarget =
   , _eFSMountTargetIpAddress :: Maybe (Val Text)
   , _eFSMountTargetSecurityGroups :: [Val Text]
   , _eFSMountTargetSubnetId :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EFSMountTarget where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 15, omitNothingFields = True }

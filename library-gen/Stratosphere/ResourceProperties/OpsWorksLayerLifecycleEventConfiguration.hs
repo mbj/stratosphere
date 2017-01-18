@@ -20,7 +20,7 @@ import Stratosphere.ResourceProperties.OpsWorksLayerShutdownEventConfiguration
 data OpsWorksLayerLifecycleEventConfiguration =
   OpsWorksLayerLifecycleEventConfiguration
   { _opsWorksLayerLifecycleEventConfigurationShutdownEventConfiguration :: Maybe OpsWorksLayerShutdownEventConfiguration
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON OpsWorksLayerLifecycleEventConfiguration where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 41, omitNothingFields = True }

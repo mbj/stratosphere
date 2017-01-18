@@ -21,7 +21,7 @@ data Route53RecordSetGroupGeoLocation =
   { _route53RecordSetGroupGeoLocationContinentCode :: Maybe (Val Text)
   , _route53RecordSetGroupGeoLocationCountryCode :: Maybe (Val Text)
   , _route53RecordSetGroupGeoLocationSubdivisionCode :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON Route53RecordSetGroupGeoLocation where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 33, omitNothingFields = True }

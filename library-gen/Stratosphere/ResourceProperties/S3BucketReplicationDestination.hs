@@ -20,7 +20,7 @@ data S3BucketReplicationDestination =
   S3BucketReplicationDestination
   { _s3BucketReplicationDestinationBucket :: Val Text
   , _s3BucketReplicationDestinationStorageClass :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON S3BucketReplicationDestination where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 31, omitNothingFields = True }

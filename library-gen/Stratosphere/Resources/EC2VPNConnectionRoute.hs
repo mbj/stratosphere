@@ -20,7 +20,7 @@ data EC2VPNConnectionRoute =
   EC2VPNConnectionRoute
   { _eC2VPNConnectionRouteDestinationCidrBlock :: Val Text
   , _eC2VPNConnectionRouteVpnConnectionId :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EC2VPNConnectionRoute where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 22, omitNothingFields = True }

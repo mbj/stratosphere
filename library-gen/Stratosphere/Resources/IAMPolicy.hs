@@ -23,7 +23,7 @@ data IAMPolicy =
   , _iAMPolicyPolicyName :: Val Text
   , _iAMPolicyRoles :: Maybe [Val Text]
   , _iAMPolicyUsers :: Maybe [Val Text]
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON IAMPolicy where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 10, omitNothingFields = True }

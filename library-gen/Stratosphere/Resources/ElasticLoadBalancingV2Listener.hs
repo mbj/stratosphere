@@ -25,7 +25,7 @@ data ElasticLoadBalancingV2Listener =
   , _elasticLoadBalancingV2ListenerPort :: Val Integer'
   , _elasticLoadBalancingV2ListenerProtocol :: Val Text
   , _elasticLoadBalancingV2ListenerSslPolicy :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ElasticLoadBalancingV2Listener where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 31, omitNothingFields = True }

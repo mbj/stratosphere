@@ -26,7 +26,7 @@ data EventsRule =
   , _eventsRuleScheduleExpression :: Maybe (Val Text)
   , _eventsRuleState :: Maybe (Val EnabledState)
   , _eventsRuleTargets :: Maybe [EventsRuleTarget]
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EventsRule where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 11, omitNothingFields = True }

@@ -39,7 +39,7 @@ data OpsWorksLayer =
   , _opsWorksLayerType :: Val Text
   , _opsWorksLayerUseEbsOptimizedInstances :: Maybe (Val Bool')
   , _opsWorksLayerVolumeConfigurations :: Maybe [OpsWorksLayerVolumeConfiguration]
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON OpsWorksLayer where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 14, omitNothingFields = True }

@@ -20,7 +20,7 @@ data EC2InstanceVolume =
   EC2InstanceVolume
   { _eC2InstanceVolumeDevice :: Val Text
   , _eC2InstanceVolumeVolumeId :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EC2InstanceVolume where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 18, omitNothingFields = True }

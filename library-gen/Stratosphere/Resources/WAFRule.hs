@@ -21,7 +21,7 @@ data WAFRule =
   { _wAFRuleMetricName :: Val Text
   , _wAFRuleName :: Val Text
   , _wAFRulePredicates :: Maybe [WAFRulePredicate]
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON WAFRule where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 8, omitNothingFields = True }

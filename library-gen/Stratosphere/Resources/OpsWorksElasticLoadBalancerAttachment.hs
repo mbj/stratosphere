@@ -21,7 +21,7 @@ data OpsWorksElasticLoadBalancerAttachment =
   OpsWorksElasticLoadBalancerAttachment
   { _opsWorksElasticLoadBalancerAttachmentElasticLoadBalancerName :: Val Text
   , _opsWorksElasticLoadBalancerAttachmentLayerId :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON OpsWorksElasticLoadBalancerAttachment where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 38, omitNothingFields = True }

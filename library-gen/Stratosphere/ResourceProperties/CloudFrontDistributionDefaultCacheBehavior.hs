@@ -30,7 +30,7 @@ data CloudFrontDistributionDefaultCacheBehavior =
   , _cloudFrontDistributionDefaultCacheBehaviorTargetOriginId :: Val Text
   , _cloudFrontDistributionDefaultCacheBehaviorTrustedSigners :: Maybe [Val Text]
   , _cloudFrontDistributionDefaultCacheBehaviorViewerProtocolPolicy :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON CloudFrontDistributionDefaultCacheBehavior where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 43, omitNothingFields = True }

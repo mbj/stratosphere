@@ -20,7 +20,7 @@ data WAFXssMatchSetXssMatchTuple =
   WAFXssMatchSetXssMatchTuple
   { _wAFXssMatchSetXssMatchTupleFieldToMatch :: WAFXssMatchSetFieldToMatch
   , _wAFXssMatchSetXssMatchTupleTextTransformation :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON WAFXssMatchSetXssMatchTuple where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 28, omitNothingFields = True }

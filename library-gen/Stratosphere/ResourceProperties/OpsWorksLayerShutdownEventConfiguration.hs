@@ -21,7 +21,7 @@ data OpsWorksLayerShutdownEventConfiguration =
   OpsWorksLayerShutdownEventConfiguration
   { _opsWorksLayerShutdownEventConfigurationDelayUntilElbConnectionsDrained :: Maybe (Val Bool')
   , _opsWorksLayerShutdownEventConfigurationExecutionTimeout :: Maybe (Val Integer')
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON OpsWorksLayerShutdownEventConfiguration where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 40, omitNothingFields = True }

@@ -24,7 +24,7 @@ data OpsWorksLayerVolumeConfiguration =
   , _opsWorksLayerVolumeConfigurationRaidLevel :: Maybe (Val Integer')
   , _opsWorksLayerVolumeConfigurationSize :: Maybe (Val Integer')
   , _opsWorksLayerVolumeConfigurationVolumeType :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON OpsWorksLayerVolumeConfiguration where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 33, omitNothingFields = True }

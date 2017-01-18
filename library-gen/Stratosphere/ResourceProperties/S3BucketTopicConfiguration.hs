@@ -21,7 +21,7 @@ data S3BucketTopicConfiguration =
   { _s3BucketTopicConfigurationEvent :: Val Text
   , _s3BucketTopicConfigurationFilter :: Maybe S3BucketNotificationFilter
   , _s3BucketTopicConfigurationTopic :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON S3BucketTopicConfiguration where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 27, omitNothingFields = True }

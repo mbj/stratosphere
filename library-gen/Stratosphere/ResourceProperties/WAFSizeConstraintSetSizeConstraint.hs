@@ -22,7 +22,7 @@ data WAFSizeConstraintSetSizeConstraint =
   , _wAFSizeConstraintSetSizeConstraintFieldToMatch :: WAFSizeConstraintSetFieldToMatch
   , _wAFSizeConstraintSetSizeConstraintSize :: Val Integer'
   , _wAFSizeConstraintSetSizeConstraintTextTransformation :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON WAFSizeConstraintSetSizeConstraint where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 35, omitNothingFields = True }

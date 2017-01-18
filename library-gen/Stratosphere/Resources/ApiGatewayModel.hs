@@ -23,7 +23,7 @@ data ApiGatewayModel =
   , _apiGatewayModelName :: Maybe (Val Text)
   , _apiGatewayModelRestApiId :: Val Text
   , _apiGatewayModelSchema :: Maybe Object
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ApiGatewayModel where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 16, omitNothingFields = True }

@@ -22,7 +22,7 @@ data EventsRuleTarget =
   , _eventsRuleTargetId :: Val Text
   , _eventsRuleTargetInput :: Maybe (Val Text)
   , _eventsRuleTargetInputPath :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EventsRuleTarget where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 17, omitNothingFields = True }

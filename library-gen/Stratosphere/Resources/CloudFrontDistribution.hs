@@ -19,7 +19,7 @@ import Stratosphere.ResourceProperties.CloudFrontDistributionDistributionConfig
 data CloudFrontDistribution =
   CloudFrontDistribution
   { _cloudFrontDistributionDistributionConfig :: CloudFrontDistributionDistributionConfig
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON CloudFrontDistribution where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 23, omitNothingFields = True }

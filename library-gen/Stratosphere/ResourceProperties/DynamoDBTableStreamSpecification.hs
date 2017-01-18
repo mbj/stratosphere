@@ -19,7 +19,7 @@ import Stratosphere.Types
 data DynamoDBTableStreamSpecification =
   DynamoDBTableStreamSpecification
   { _dynamoDBTableStreamSpecificationStreamViewType :: Val StreamViewType
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON DynamoDBTableStreamSpecification where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 33, omitNothingFields = True }

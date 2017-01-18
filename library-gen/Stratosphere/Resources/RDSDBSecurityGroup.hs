@@ -23,7 +23,7 @@ data RDSDBSecurityGroup =
   , _rDSDBSecurityGroupEC2VpcId :: Maybe (Val Text)
   , _rDSDBSecurityGroupGroupDescription :: Val Text
   , _rDSDBSecurityGroupTags :: Maybe [Tag]
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON RDSDBSecurityGroup where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 19, omitNothingFields = True }

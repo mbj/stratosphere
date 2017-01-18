@@ -20,7 +20,7 @@ import Stratosphere.Values
 data ElasticLoadBalancingV2TargetGroupMatcher =
   ElasticLoadBalancingV2TargetGroupMatcher
   { _elasticLoadBalancingV2TargetGroupMatcherHttpCode :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ElasticLoadBalancingV2TargetGroupMatcher where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 41, omitNothingFields = True }

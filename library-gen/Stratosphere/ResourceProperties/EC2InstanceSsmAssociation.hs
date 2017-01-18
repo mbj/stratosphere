@@ -20,7 +20,7 @@ data EC2InstanceSsmAssociation =
   EC2InstanceSsmAssociation
   { _eC2InstanceSsmAssociationAssociationParameters :: Maybe [EC2InstanceAssociationParameter]
   , _eC2InstanceSsmAssociationDocumentName :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EC2InstanceSsmAssociation where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 26, omitNothingFields = True }

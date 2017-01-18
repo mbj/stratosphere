@@ -23,7 +23,7 @@ data ElasticLoadBalancingV2ListenerRule =
   , _elasticLoadBalancingV2ListenerRuleConditions :: [ElasticLoadBalancingV2ListenerRuleRuleCondition]
   , _elasticLoadBalancingV2ListenerRuleListenerArn :: Val Text
   , _elasticLoadBalancingV2ListenerRulePriority :: Val Integer'
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ElasticLoadBalancingV2ListenerRule where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 35, omitNothingFields = True }

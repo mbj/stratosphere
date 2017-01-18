@@ -21,7 +21,7 @@ data CodeDeployDeploymentGroupDeployment =
   { _codeDeployDeploymentGroupDeploymentDescription :: Maybe (Val Text)
   , _codeDeployDeploymentGroupDeploymentIgnoreApplicationStopFailures :: Maybe (Val Bool')
   , _codeDeployDeploymentGroupDeploymentRevision :: CodeDeployDeploymentGroupRevision
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON CodeDeployDeploymentGroupDeployment where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 36, omitNothingFields = True }

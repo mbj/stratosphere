@@ -22,7 +22,7 @@ data EC2SpotFleetBlockDeviceMappings =
   , _eC2SpotFleetBlockDeviceMappingsEbs :: Maybe EC2SpotFleetEbs
   , _eC2SpotFleetBlockDeviceMappingsNoDevice :: Maybe (Val Bool')
   , _eC2SpotFleetBlockDeviceMappingsVirtualName :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EC2SpotFleetBlockDeviceMappings where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 32, omitNothingFields = True }

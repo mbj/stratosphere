@@ -22,7 +22,7 @@ data KinesisFirehoseDeliveryStreamCopyCommand =
   { _kinesisFirehoseDeliveryStreamCopyCommandCopyOptions :: Maybe (Val Text)
   , _kinesisFirehoseDeliveryStreamCopyCommandDataTableColumns :: Maybe (Val Text)
   , _kinesisFirehoseDeliveryStreamCopyCommandDataTableName :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON KinesisFirehoseDeliveryStreamCopyCommand where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 41, omitNothingFields = True }

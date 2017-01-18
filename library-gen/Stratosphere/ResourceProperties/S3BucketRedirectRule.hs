@@ -23,7 +23,7 @@ data S3BucketRedirectRule =
   , _s3BucketRedirectRuleProtocol :: Maybe (Val Text)
   , _s3BucketRedirectRuleReplaceKeyPrefixWith :: Maybe (Val Text)
   , _s3BucketRedirectRuleReplaceKeyWith :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON S3BucketRedirectRule where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 21, omitNothingFields = True }

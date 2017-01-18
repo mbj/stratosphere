@@ -25,7 +25,7 @@ data ElasticLoadBalancingLoadBalancerListeners =
   , _elasticLoadBalancingLoadBalancerListenersPolicyNames :: Maybe [Val Text]
   , _elasticLoadBalancingLoadBalancerListenersProtocol :: Val Text
   , _elasticLoadBalancingLoadBalancerListenersSSLCertificateId :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ElasticLoadBalancingLoadBalancerListeners where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 42, omitNothingFields = True }

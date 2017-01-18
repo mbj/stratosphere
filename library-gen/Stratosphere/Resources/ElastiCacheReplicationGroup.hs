@@ -45,7 +45,7 @@ data ElastiCacheReplicationGroup =
   , _elastiCacheReplicationGroupSnapshotWindow :: Maybe (Val Text)
   , _elastiCacheReplicationGroupSnapshottingClusterId :: Maybe (Val Text)
   , _elastiCacheReplicationGroupTags :: Maybe [Tag]
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ElastiCacheReplicationGroup where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 28, omitNothingFields = True }

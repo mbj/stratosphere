@@ -20,7 +20,7 @@ data CodePipelinePipelineEncryptionKey =
   CodePipelinePipelineEncryptionKey
   { _codePipelinePipelineEncryptionKeyId :: Val Text
   , _codePipelinePipelineEncryptionKeyType :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON CodePipelinePipelineEncryptionKey where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 34, omitNothingFields = True }

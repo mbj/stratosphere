@@ -24,7 +24,7 @@ data IoTTopicRuleCloudwatchMetricAction =
   , _ioTTopicRuleCloudwatchMetricActionMetricUnit :: Val Text
   , _ioTTopicRuleCloudwatchMetricActionMetricValue :: Val Text
   , _ioTTopicRuleCloudwatchMetricActionRoleArn :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON IoTTopicRuleCloudwatchMetricAction where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 35, omitNothingFields = True }

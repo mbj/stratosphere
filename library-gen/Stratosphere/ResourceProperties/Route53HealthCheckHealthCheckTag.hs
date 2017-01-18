@@ -20,7 +20,7 @@ data Route53HealthCheckHealthCheckTag =
   Route53HealthCheckHealthCheckTag
   { _route53HealthCheckHealthCheckTagKey :: Val Text
   , _route53HealthCheckHealthCheckTagValue :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON Route53HealthCheckHealthCheckTag where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 33, omitNothingFields = True }

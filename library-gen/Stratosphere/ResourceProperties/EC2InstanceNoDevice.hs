@@ -19,7 +19,7 @@ import Stratosphere.Values
 data EC2InstanceNoDevice =
   EC2InstanceNoDevice
   { 
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EC2InstanceNoDevice where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 20, omitNothingFields = True }

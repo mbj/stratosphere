@@ -20,7 +20,7 @@ data ECSTaskDefinitionKeyValuePair =
   ECSTaskDefinitionKeyValuePair
   { _eCSTaskDefinitionKeyValuePairName :: Maybe (Val Text)
   , _eCSTaskDefinitionKeyValuePairValue :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ECSTaskDefinitionKeyValuePair where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 30, omitNothingFields = True }

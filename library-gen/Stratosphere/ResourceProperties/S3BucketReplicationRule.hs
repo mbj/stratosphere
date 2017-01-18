@@ -22,7 +22,7 @@ data S3BucketReplicationRule =
   , _s3BucketReplicationRuleId :: Maybe (Val Text)
   , _s3BucketReplicationRulePrefix :: Val Text
   , _s3BucketReplicationRuleStatus :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON S3BucketReplicationRule where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 24, omitNothingFields = True }

@@ -21,7 +21,7 @@ data OpsWorksAppEnvironmentVariable =
   { _opsWorksAppEnvironmentVariableKey :: Val Text
   , _opsWorksAppEnvironmentVariableSecure :: Maybe (Val Bool')
   , _opsWorksAppEnvironmentVariableValue :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON OpsWorksAppEnvironmentVariable where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 31, omitNothingFields = True }

@@ -26,7 +26,7 @@ data ElasticLoadBalancingV2LoadBalancer =
   , _elasticLoadBalancingV2LoadBalancerSecurityGroups :: Maybe [Val Text]
   , _elasticLoadBalancingV2LoadBalancerSubnets :: Maybe [Val Text]
   , _elasticLoadBalancingV2LoadBalancerTags :: Maybe [Tag]
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ElasticLoadBalancingV2LoadBalancer where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 35, omitNothingFields = True }

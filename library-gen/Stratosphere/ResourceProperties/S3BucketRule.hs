@@ -29,7 +29,7 @@ data S3BucketRule =
   , _s3BucketRuleStatus :: Val Text
   , _s3BucketRuleTransition :: Maybe S3BucketTransition
   , _s3BucketRuleTransitions :: Maybe S3BucketTransition
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON S3BucketRule where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 13, omitNothingFields = True }

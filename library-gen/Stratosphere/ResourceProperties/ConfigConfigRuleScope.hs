@@ -22,7 +22,7 @@ data ConfigConfigRuleScope =
   , _configConfigRuleScopeComplianceResourceTypes :: Maybe [Val Text]
   , _configConfigRuleScopeTagKey :: Maybe (Val Text)
   , _configConfigRuleScopeTagValue :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ConfigConfigRuleScope where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 22, omitNothingFields = True }

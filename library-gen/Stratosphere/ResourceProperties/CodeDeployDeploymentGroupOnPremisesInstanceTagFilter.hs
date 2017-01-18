@@ -23,7 +23,7 @@ data CodeDeployDeploymentGroupOnPremisesInstanceTagFilter =
   { _codeDeployDeploymentGroupOnPremisesInstanceTagFilterKey :: Maybe (Val Text)
   , _codeDeployDeploymentGroupOnPremisesInstanceTagFilterType :: Maybe (Val Text)
   , _codeDeployDeploymentGroupOnPremisesInstanceTagFilterValue :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON CodeDeployDeploymentGroupOnPremisesInstanceTagFilter where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 53, omitNothingFields = True }

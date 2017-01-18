@@ -20,7 +20,7 @@ data S3BucketPolicy =
   S3BucketPolicy
   { _s3BucketPolicyBucket :: Val Text
   , _s3BucketPolicyPolicyDocument :: Object
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON S3BucketPolicy where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 15, omitNothingFields = True }

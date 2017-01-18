@@ -20,7 +20,7 @@ import Stratosphere.Values
 data AutoScalingReplacingUpdatePolicy =
   AutoScalingReplacingUpdatePolicy
   { _autoScalingReplacingUpdatePolicyWillReplace :: Maybe (Val Bool')
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON AutoScalingReplacingUpdatePolicy where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 27, omitNothingFields = True }

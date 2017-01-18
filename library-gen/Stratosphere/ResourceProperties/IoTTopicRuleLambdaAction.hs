@@ -19,7 +19,7 @@ import Stratosphere.Values
 data IoTTopicRuleLambdaAction =
   IoTTopicRuleLambdaAction
   { _ioTTopicRuleLambdaActionFunctionArn :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON IoTTopicRuleLambdaAction where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 25, omitNothingFields = True }

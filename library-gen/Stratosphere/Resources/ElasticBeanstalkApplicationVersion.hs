@@ -21,7 +21,7 @@ data ElasticBeanstalkApplicationVersion =
   { _elasticBeanstalkApplicationVersionApplicationName :: Val Text
   , _elasticBeanstalkApplicationVersionDescription :: Maybe (Val Text)
   , _elasticBeanstalkApplicationVersionSourceBundle :: ElasticBeanstalkApplicationVersionSourceBundle
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ElasticBeanstalkApplicationVersion where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 35, omitNothingFields = True }

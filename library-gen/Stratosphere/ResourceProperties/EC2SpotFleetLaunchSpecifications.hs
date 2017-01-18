@@ -39,7 +39,7 @@ data EC2SpotFleetLaunchSpecifications =
   , _eC2SpotFleetLaunchSpecificationsSubnetId :: Maybe (Val Text)
   , _eC2SpotFleetLaunchSpecificationsUserData :: Maybe (Val Text)
   , _eC2SpotFleetLaunchSpecificationsWeightedCapacity :: Maybe (Val Double')
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EC2SpotFleetLaunchSpecifications where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 33, omitNothingFields = True }

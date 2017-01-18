@@ -20,7 +20,7 @@ data ElasticBeanstalkApplication =
   ElasticBeanstalkApplication
   { _elasticBeanstalkApplicationApplicationName :: Maybe (Val Text)
   , _elasticBeanstalkApplicationDescription :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ElasticBeanstalkApplication where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 28, omitNothingFields = True }

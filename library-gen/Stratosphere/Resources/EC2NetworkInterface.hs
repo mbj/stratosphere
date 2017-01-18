@@ -30,7 +30,7 @@ data EC2NetworkInterface =
   , _eC2NetworkInterfaceSourceDestCheck :: Maybe (Val Bool')
   , _eC2NetworkInterfaceSubnetId :: Val Text
   , _eC2NetworkInterfaceTags :: Maybe [Tag]
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EC2NetworkInterface where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 20, omitNothingFields = True }

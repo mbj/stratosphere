@@ -19,7 +19,7 @@ import Stratosphere.Values
 data S3BucketVersioningConfiguration =
   S3BucketVersioningConfiguration
   { _s3BucketVersioningConfigurationStatus :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON S3BucketVersioningConfiguration where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 32, omitNothingFields = True }

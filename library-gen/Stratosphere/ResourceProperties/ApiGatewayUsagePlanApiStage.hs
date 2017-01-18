@@ -20,7 +20,7 @@ data ApiGatewayUsagePlanApiStage =
   ApiGatewayUsagePlanApiStage
   { _apiGatewayUsagePlanApiStageApiId :: Maybe (Val Text)
   , _apiGatewayUsagePlanApiStageStage :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ApiGatewayUsagePlanApiStage where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 28, omitNothingFields = True }

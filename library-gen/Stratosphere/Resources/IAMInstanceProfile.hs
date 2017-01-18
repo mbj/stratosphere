@@ -20,7 +20,7 @@ data IAMInstanceProfile =
   IAMInstanceProfile
   { _iAMInstanceProfilePath :: Val Text
   , _iAMInstanceProfileRoles :: [Val Text]
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON IAMInstanceProfile where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 19, omitNothingFields = True }

@@ -23,7 +23,7 @@ data WAFWebACL =
   , _wAFWebACLMetricName :: Val Text
   , _wAFWebACLName :: Val Text
   , _wAFWebACLRules :: Maybe [WAFWebACLActivatedRule]
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON WAFWebACL where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 10, omitNothingFields = True }

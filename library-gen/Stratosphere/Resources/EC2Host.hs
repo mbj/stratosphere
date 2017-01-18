@@ -21,7 +21,7 @@ data EC2Host =
   { _eC2HostAutoPlacement :: Maybe (Val Text)
   , _eC2HostAvailabilityZone :: Val Text
   , _eC2HostInstanceType :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EC2Host where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 8, omitNothingFields = True }

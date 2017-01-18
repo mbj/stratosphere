@@ -21,7 +21,7 @@ data Route53RecordSetAliasTarget =
   { _route53RecordSetAliasTargetDNSName :: Val Text
   , _route53RecordSetAliasTargetEvaluateTargetHealth :: Maybe (Val Bool')
   , _route53RecordSetAliasTargetHostedZoneId :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON Route53RecordSetAliasTarget where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 28, omitNothingFields = True }

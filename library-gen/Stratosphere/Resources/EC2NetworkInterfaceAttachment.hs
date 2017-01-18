@@ -22,7 +22,7 @@ data EC2NetworkInterfaceAttachment =
   , _eC2NetworkInterfaceAttachmentDeviceIndex :: Val Text
   , _eC2NetworkInterfaceAttachmentInstanceId :: Val Text
   , _eC2NetworkInterfaceAttachmentNetworkInterfaceId :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EC2NetworkInterfaceAttachment where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 30, omitNothingFields = True }

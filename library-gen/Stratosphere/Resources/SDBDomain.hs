@@ -19,7 +19,7 @@ import Stratosphere.Values
 data SDBDomain =
   SDBDomain
   { _sDBDomainDescription :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON SDBDomain where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 10, omitNothingFields = True }

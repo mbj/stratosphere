@@ -27,7 +27,7 @@ data ApiGatewayAuthorizer =
   , _apiGatewayAuthorizerProviderARNs :: Maybe [Val Text]
   , _apiGatewayAuthorizerRestApiId :: Maybe (Val Text)
   , _apiGatewayAuthorizerType :: Maybe (Val AuthorizerType)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ApiGatewayAuthorizer where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 21, omitNothingFields = True }

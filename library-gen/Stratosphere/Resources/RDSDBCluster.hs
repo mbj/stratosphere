@@ -35,7 +35,7 @@ data RDSDBCluster =
   , _rDSDBClusterStorageEncrypted :: Maybe (Val Bool')
   , _rDSDBClusterTags :: Maybe [Tag]
   , _rDSDBClusterVpcSecurityGroupIds :: Maybe [Val Text]
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON RDSDBCluster where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 13, omitNothingFields = True }

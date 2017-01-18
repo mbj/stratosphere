@@ -30,7 +30,7 @@ data ApiGatewayMethod =
   , _apiGatewayMethodRequestParameters :: Maybe Object
   , _apiGatewayMethodResourceId :: Maybe (Val Text)
   , _apiGatewayMethodRestApiId :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ApiGatewayMethod where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 17, omitNothingFields = True }

@@ -21,7 +21,7 @@ data EMRClusterVolumeSpecification =
   { _eMRClusterVolumeSpecificationIops :: Maybe (Val Integer')
   , _eMRClusterVolumeSpecificationSizeInGB :: Val Integer'
   , _eMRClusterVolumeSpecificationVolumeType :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EMRClusterVolumeSpecification where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 30, omitNothingFields = True }

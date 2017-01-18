@@ -22,7 +22,7 @@ data ECSServiceLoadBalancer =
   , _eCSServiceLoadBalancerContainerPort :: Val Integer'
   , _eCSServiceLoadBalancerLoadBalancerName :: Maybe (Val Text)
   , _eCSServiceLoadBalancerTargetGroupArn :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ECSServiceLoadBalancer where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 23, omitNothingFields = True }

@@ -20,7 +20,7 @@ data EC2SubnetNetworkAclAssociation =
   EC2SubnetNetworkAclAssociation
   { _eC2SubnetNetworkAclAssociationNetworkAclId :: Val Text
   , _eC2SubnetNetworkAclAssociationSubnetId :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EC2SubnetNetworkAclAssociation where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 31, omitNothingFields = True }

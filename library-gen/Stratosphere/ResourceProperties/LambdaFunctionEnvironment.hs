@@ -19,7 +19,7 @@ import Stratosphere.Values
 data LambdaFunctionEnvironment =
   LambdaFunctionEnvironment
   { _lambdaFunctionEnvironmentVariables :: Maybe Object
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON LambdaFunctionEnvironment where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 26, omitNothingFields = True }

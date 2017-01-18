@@ -20,7 +20,7 @@ data S3BucketReplicationConfiguration =
   S3BucketReplicationConfiguration
   { _s3BucketReplicationConfigurationRole :: Val Text
   , _s3BucketReplicationConfigurationRules :: [S3BucketReplicationRule]
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON S3BucketReplicationConfiguration where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 33, omitNothingFields = True }

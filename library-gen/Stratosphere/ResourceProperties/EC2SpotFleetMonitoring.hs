@@ -19,7 +19,7 @@ import Stratosphere.Values
 data EC2SpotFleetMonitoring =
   EC2SpotFleetMonitoring
   { _eC2SpotFleetMonitoringEnabled :: Maybe (Val Bool')
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EC2SpotFleetMonitoring where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 23, omitNothingFields = True }

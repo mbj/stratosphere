@@ -20,7 +20,7 @@ data ECSTaskDefinitionVolume =
   ECSTaskDefinitionVolume
   { _eCSTaskDefinitionVolumeHost :: Maybe ECSTaskDefinitionHostVolumeProperties
   , _eCSTaskDefinitionVolumeName :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ECSTaskDefinitionVolume where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 24, omitNothingFields = True }

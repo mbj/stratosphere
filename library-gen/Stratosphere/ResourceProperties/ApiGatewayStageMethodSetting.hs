@@ -28,7 +28,7 @@ data ApiGatewayStageMethodSetting =
   , _apiGatewayStageMethodSettingResourcePath :: Maybe (Val Text)
   , _apiGatewayStageMethodSettingThrottlingBurstLimit :: Maybe (Val Integer')
   , _apiGatewayStageMethodSettingThrottlingRateLimit :: Maybe (Val Double')
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ApiGatewayStageMethodSetting where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 29, omitNothingFields = True }

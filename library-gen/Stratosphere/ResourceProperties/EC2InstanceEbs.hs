@@ -24,7 +24,7 @@ data EC2InstanceEbs =
   , _eC2InstanceEbsSnapshotId :: Maybe (Val Text)
   , _eC2InstanceEbsVolumeSize :: Maybe (Val Integer')
   , _eC2InstanceEbsVolumeType :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EC2InstanceEbs where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 15, omitNothingFields = True }

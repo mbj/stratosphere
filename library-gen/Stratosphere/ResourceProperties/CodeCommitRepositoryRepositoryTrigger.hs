@@ -24,7 +24,7 @@ data CodeCommitRepositoryRepositoryTrigger =
   , _codeCommitRepositoryRepositoryTriggerDestinationArn :: Maybe (Val Text)
   , _codeCommitRepositoryRepositoryTriggerEvents :: Maybe [Val Text]
   , _codeCommitRepositoryRepositoryTriggerName :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON CodeCommitRepositoryRepositoryTrigger where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 38, omitNothingFields = True }

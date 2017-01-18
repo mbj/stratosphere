@@ -21,7 +21,7 @@ data LogsMetricFilter =
   { _logsMetricFilterFilterPattern :: Val Text
   , _logsMetricFilterLogGroupName :: Val Text
   , _logsMetricFilterMetricTransformations :: [LogsMetricFilterMetricTransformation]
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON LogsMetricFilter where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 17, omitNothingFields = True }

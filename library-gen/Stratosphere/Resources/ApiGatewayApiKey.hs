@@ -22,7 +22,7 @@ data ApiGatewayApiKey =
   , _apiGatewayApiKeyEnabled :: Maybe (Val Bool')
   , _apiGatewayApiKeyName :: Maybe (Val Text)
   , _apiGatewayApiKeyStageKeys :: Maybe [ApiGatewayApiKeyStageKey]
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ApiGatewayApiKey where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 17, omitNothingFields = True }

@@ -20,7 +20,7 @@ data ECRRepository =
   ECRRepository
   { _eCRRepositoryRepositoryName :: Maybe (Val Text)
   , _eCRRepositoryRepositoryPolicyText :: Maybe Object
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ECRRepository where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 14, omitNothingFields = True }

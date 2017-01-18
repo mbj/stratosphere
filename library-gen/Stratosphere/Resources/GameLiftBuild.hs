@@ -21,7 +21,7 @@ data GameLiftBuild =
   { _gameLiftBuildName :: Maybe (Val Text)
   , _gameLiftBuildStorageLocation :: Maybe GameLiftBuildS3Location
   , _gameLiftBuildVersion :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON GameLiftBuild where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 14, omitNothingFields = True }

@@ -20,7 +20,7 @@ data EC2NetworkAclEntryPortRange =
   EC2NetworkAclEntryPortRange
   { _eC2NetworkAclEntryPortRangeFrom :: Maybe (Val Integer')
   , _eC2NetworkAclEntryPortRangeTo :: Maybe (Val Integer')
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EC2NetworkAclEntryPortRange where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 28, omitNothingFields = True }

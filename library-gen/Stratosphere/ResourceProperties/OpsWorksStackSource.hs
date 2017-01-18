@@ -24,7 +24,7 @@ data OpsWorksStackSource =
   , _opsWorksStackSourceType :: Maybe (Val Text)
   , _opsWorksStackSourceUrl :: Maybe (Val Text)
   , _opsWorksStackSourceUsername :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON OpsWorksStackSource where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 20, omitNothingFields = True }

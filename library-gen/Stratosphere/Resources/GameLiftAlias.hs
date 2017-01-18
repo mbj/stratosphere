@@ -21,7 +21,7 @@ data GameLiftAlias =
   { _gameLiftAliasDescription :: Maybe (Val Text)
   , _gameLiftAliasName :: Val Text
   , _gameLiftAliasRoutingStrategy :: GameLiftAliasRoutingStrategy
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON GameLiftAlias where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 14, omitNothingFields = True }

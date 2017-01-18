@@ -22,7 +22,7 @@ data LambdaFunctionCode =
   , _lambdaFunctionCodeS3Key :: Maybe (Val Text)
   , _lambdaFunctionCodeS3ObjectVersion :: Maybe (Val Text)
   , _lambdaFunctionCodeZipFile :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON LambdaFunctionCode where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 19, omitNothingFields = True }

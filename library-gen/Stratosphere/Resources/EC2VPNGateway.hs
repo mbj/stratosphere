@@ -20,7 +20,7 @@ data EC2VPNGateway =
   EC2VPNGateway
   { _eC2VPNGatewayTags :: Maybe [Tag]
   , _eC2VPNGatewayType :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EC2VPNGateway where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 14, omitNothingFields = True }

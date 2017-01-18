@@ -21,7 +21,7 @@ import Stratosphere.Values
 data ConfigDeliveryChannelConfigSnapshotDeliveryProperties =
   ConfigDeliveryChannelConfigSnapshotDeliveryProperties
   { _configDeliveryChannelConfigSnapshotDeliveryPropertiesDeliveryFrequency :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ConfigDeliveryChannelConfigSnapshotDeliveryProperties where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 54, omitNothingFields = True }

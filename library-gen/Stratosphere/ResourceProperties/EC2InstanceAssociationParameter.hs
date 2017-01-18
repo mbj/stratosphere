@@ -20,7 +20,7 @@ data EC2InstanceAssociationParameter =
   EC2InstanceAssociationParameter
   { _eC2InstanceAssociationParameterKey :: Val Text
   , _eC2InstanceAssociationParameterValue :: [Val Text]
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EC2InstanceAssociationParameter where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 32, omitNothingFields = True }

@@ -21,7 +21,7 @@ data GameLiftAliasRoutingStrategy =
   { _gameLiftAliasRoutingStrategyFleetId :: Maybe (Val Text)
   , _gameLiftAliasRoutingStrategyMessage :: Maybe (Val Text)
   , _gameLiftAliasRoutingStrategyType :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON GameLiftAliasRoutingStrategy where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 29, omitNothingFields = True }

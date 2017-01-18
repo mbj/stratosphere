@@ -22,7 +22,7 @@ data ApiGatewayDeployment =
   , _apiGatewayDeploymentRestApiId :: Val Text
   , _apiGatewayDeploymentStageDescription :: Maybe ApiGatewayDeploymentStageDescription
   , _apiGatewayDeploymentStageName :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ApiGatewayDeployment where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 21, omitNothingFields = True }

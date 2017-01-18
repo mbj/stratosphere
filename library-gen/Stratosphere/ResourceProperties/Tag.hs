@@ -20,7 +20,7 @@ data Tag =
   Tag
   { _tagKey :: Val Text
   , _tagValue :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON Tag where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 4, omitNothingFields = True }

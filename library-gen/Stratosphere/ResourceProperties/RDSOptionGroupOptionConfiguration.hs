@@ -23,7 +23,7 @@ data RDSOptionGroupOptionConfiguration =
   , _rDSOptionGroupOptionConfigurationOptionSettings :: Maybe RDSOptionGroupOptionSetting
   , _rDSOptionGroupOptionConfigurationPort :: Maybe (Val Integer')
   , _rDSOptionGroupOptionConfigurationVpcSecurityGroupMemberships :: Maybe [Val Text]
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON RDSOptionGroupOptionConfiguration where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 34, omitNothingFields = True }

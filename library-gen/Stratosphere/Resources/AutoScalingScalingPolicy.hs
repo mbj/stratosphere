@@ -27,7 +27,7 @@ data AutoScalingScalingPolicy =
   , _autoScalingScalingPolicyPolicyType :: Maybe (Val Text)
   , _autoScalingScalingPolicyScalingAdjustment :: Maybe (Val Integer')
   , _autoScalingScalingPolicyStepAdjustments :: Maybe [AutoScalingScalingPolicyStepAdjustment]
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON AutoScalingScalingPolicy where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 25, omitNothingFields = True }

@@ -21,7 +21,7 @@ data EMRClusterConfiguration =
   { _eMRClusterConfigurationClassification :: Maybe (Val Text)
   , _eMRClusterConfigurationConfigurationProperties :: Maybe Object
   , _eMRClusterConfigurationConfigurations :: Maybe [EMRClusterConfiguration]
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EMRClusterConfiguration where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 24, omitNothingFields = True }

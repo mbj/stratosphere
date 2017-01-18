@@ -28,7 +28,7 @@ data EC2SecurityGroupIngress =
   , _eC2SecurityGroupIngressSourceSecurityGroupName :: Maybe (Val Text)
   , _eC2SecurityGroupIngressSourceSecurityGroupOwnerId :: Maybe (Val Text)
   , _eC2SecurityGroupIngressToPort :: Maybe (Val Integer')
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EC2SecurityGroupIngress where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 24, omitNothingFields = True }

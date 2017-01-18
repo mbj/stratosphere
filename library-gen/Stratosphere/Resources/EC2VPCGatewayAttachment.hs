@@ -21,7 +21,7 @@ data EC2VPCGatewayAttachment =
   { _eC2VPCGatewayAttachmentInternetGatewayId :: Maybe (Val Text)
   , _eC2VPCGatewayAttachmentVpcId :: Val Text
   , _eC2VPCGatewayAttachmentVpnGatewayId :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EC2VPCGatewayAttachment where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 24, omitNothingFields = True }

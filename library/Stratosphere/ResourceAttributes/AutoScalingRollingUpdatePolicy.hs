@@ -25,7 +25,7 @@ data AutoScalingRollingUpdatePolicy =
   , _autoScalingRollingUpdatePolicyPauseTime :: Maybe (Val Text)
   , _autoScalingRollingUpdatePolicySuspendProcess :: Maybe [Val Text]
   , _autoScalingRollingUpdatePolicyWaitOnResourceSignals :: Maybe (Val Bool')
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON AutoScalingRollingUpdatePolicy where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 25, omitNothingFields = True }

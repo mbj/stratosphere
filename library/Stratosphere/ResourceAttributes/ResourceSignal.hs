@@ -20,7 +20,7 @@ data ResourceSignal =
   ResourceSignal
   { _resourceSignalCount :: Maybe (Val Integer')
   , _resourceSignalTimeout :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ResourceSignal where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 15, omitNothingFields = True }

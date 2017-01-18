@@ -55,7 +55,7 @@ data RDSDBInstance =
   , _rDSDBInstanceTags :: Maybe [Tag]
   , _rDSDBInstanceTimezone :: Maybe (Val Text)
   , _rDSDBInstanceVPCSecurityGroups :: Maybe [Val Text]
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON RDSDBInstance where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 14, omitNothingFields = True }

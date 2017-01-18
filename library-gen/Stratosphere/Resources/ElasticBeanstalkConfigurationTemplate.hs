@@ -26,7 +26,7 @@ data ElasticBeanstalkConfigurationTemplate =
   , _elasticBeanstalkConfigurationTemplateOptionSettings :: Maybe [ElasticBeanstalkConfigurationTemplateConfigurationOptionSetting]
   , _elasticBeanstalkConfigurationTemplateSolutionStackName :: Maybe (Val Text)
   , _elasticBeanstalkConfigurationTemplateSourceConfiguration :: Maybe ElasticBeanstalkConfigurationTemplateSourceConfiguration
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ElasticBeanstalkConfigurationTemplate where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 38, omitNothingFields = True }

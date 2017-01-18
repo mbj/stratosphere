@@ -22,7 +22,7 @@ data EMRInstanceGroupConfigVolumeSpecification =
   { _eMRInstanceGroupConfigVolumeSpecificationIops :: Maybe (Val Integer')
   , _eMRInstanceGroupConfigVolumeSpecificationSizeInGB :: Val Integer'
   , _eMRInstanceGroupConfigVolumeSpecificationVolumeType :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EMRInstanceGroupConfigVolumeSpecification where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 42, omitNothingFields = True }

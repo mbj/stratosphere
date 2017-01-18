@@ -20,7 +20,7 @@ data LambdaFunctionVpcConfig =
   LambdaFunctionVpcConfig
   { _lambdaFunctionVpcConfigSecurityGroupIds :: [Val Text]
   , _lambdaFunctionVpcConfigSubnetIds :: [Val Text]
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON LambdaFunctionVpcConfig where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 24, omitNothingFields = True }

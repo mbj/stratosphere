@@ -23,7 +23,7 @@ data RDSEventSubscription =
   , _rDSEventSubscriptionSnsTopicArn :: Val Text
   , _rDSEventSubscriptionSourceIds :: Maybe [Val Text]
   , _rDSEventSubscriptionSourceType :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON RDSEventSubscription where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 21, omitNothingFields = True }

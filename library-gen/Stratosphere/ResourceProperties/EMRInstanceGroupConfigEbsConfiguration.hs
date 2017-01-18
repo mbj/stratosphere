@@ -21,7 +21,7 @@ data EMRInstanceGroupConfigEbsConfiguration =
   EMRInstanceGroupConfigEbsConfiguration
   { _eMRInstanceGroupConfigEbsConfigurationEbsBlockDeviceConfigs :: Maybe [EMRInstanceGroupConfigEbsBlockDeviceConfig]
   , _eMRInstanceGroupConfigEbsConfigurationEbsOptimized :: Maybe (Val Bool')
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EMRInstanceGroupConfigEbsConfiguration where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 39, omitNothingFields = True }

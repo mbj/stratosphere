@@ -24,7 +24,7 @@ data ECSTaskDefinition =
   , _eCSTaskDefinitionNetworkMode :: Maybe (Val Text)
   , _eCSTaskDefinitionTaskRoleArn :: Maybe (Val Text)
   , _eCSTaskDefinitionVolumes :: Maybe [ECSTaskDefinitionVolume]
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ECSTaskDefinition where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 18, omitNothingFields = True }

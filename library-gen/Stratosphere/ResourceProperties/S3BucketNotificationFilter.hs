@@ -19,7 +19,7 @@ import Stratosphere.ResourceProperties.S3BucketS3KeyFilter
 data S3BucketNotificationFilter =
   S3BucketNotificationFilter
   { _s3BucketNotificationFilterS3Key :: S3BucketS3KeyFilter
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON S3BucketNotificationFilter where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 27, omitNothingFields = True }

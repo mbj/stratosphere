@@ -22,7 +22,7 @@ data EMRClusterApplication =
   , _eMRClusterApplicationArgs :: Maybe [Val Text]
   , _eMRClusterApplicationName :: Maybe (Val Text)
   , _eMRClusterApplicationVersion :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EMRClusterApplication where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 22, omitNothingFields = True }

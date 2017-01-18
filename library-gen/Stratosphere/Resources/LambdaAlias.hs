@@ -22,7 +22,7 @@ data LambdaAlias =
   , _lambdaAliasFunctionName :: Val Text
   , _lambdaAliasFunctionVersion :: Val Text
   , _lambdaAliasName :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON LambdaAlias where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 12, omitNothingFields = True }

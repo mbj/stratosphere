@@ -22,7 +22,7 @@ data EC2VPCEndpoint =
   , _eC2VPCEndpointRouteTableIds :: Maybe [Val Text]
   , _eC2VPCEndpointServiceName :: Val Text
   , _eC2VPCEndpointVpcId :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EC2VPCEndpoint where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 15, omitNothingFields = True }

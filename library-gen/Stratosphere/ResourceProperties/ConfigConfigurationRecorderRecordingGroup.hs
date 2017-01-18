@@ -22,7 +22,7 @@ data ConfigConfigurationRecorderRecordingGroup =
   { _configConfigurationRecorderRecordingGroupAllSupported :: Maybe (Val Bool')
   , _configConfigurationRecorderRecordingGroupIncludeGlobalResourceTypes :: Maybe (Val Bool')
   , _configConfigurationRecorderRecordingGroupResourceTypes :: Maybe [Val Text]
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ConfigConfigurationRecorderRecordingGroup where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 42, omitNothingFields = True }

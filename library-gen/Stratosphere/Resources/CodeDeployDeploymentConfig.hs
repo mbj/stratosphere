@@ -20,7 +20,7 @@ data CodeDeployDeploymentConfig =
   CodeDeployDeploymentConfig
   { _codeDeployDeploymentConfigDeploymentConfigName :: Maybe (Val Text)
   , _codeDeployDeploymentConfigMinimumHealthyHosts :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON CodeDeployDeploymentConfig where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 27, omitNothingFields = True }

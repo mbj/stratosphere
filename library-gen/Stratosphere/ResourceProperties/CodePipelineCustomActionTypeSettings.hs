@@ -22,7 +22,7 @@ data CodePipelineCustomActionTypeSettings =
   , _codePipelineCustomActionTypeSettingsExecutionUrlTemplate :: Maybe (Val Text)
   , _codePipelineCustomActionTypeSettingsRevisionUrlTemplate :: Maybe (Val Text)
   , _codePipelineCustomActionTypeSettingsThirdPartyConfigurationUrl :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON CodePipelineCustomActionTypeSettings where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 37, omitNothingFields = True }

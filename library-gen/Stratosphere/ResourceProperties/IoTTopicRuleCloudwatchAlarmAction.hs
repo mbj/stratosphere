@@ -22,7 +22,7 @@ data IoTTopicRuleCloudwatchAlarmAction =
   , _ioTTopicRuleCloudwatchAlarmActionRoleArn :: Val Text
   , _ioTTopicRuleCloudwatchAlarmActionStateReason :: Val Text
   , _ioTTopicRuleCloudwatchAlarmActionStateValue :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON IoTTopicRuleCloudwatchAlarmAction where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 34, omitNothingFields = True }

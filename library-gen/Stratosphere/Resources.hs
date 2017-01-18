@@ -677,13 +677,13 @@ data ResourceProperties
   | WAFXssMatchSetProperties WAFXssMatchSet
   | WorkSpacesWorkspaceProperties WorkSpacesWorkspace
 
-  deriving (Show)
+  deriving (Show, Eq)
 
 data DeletionPolicy
   = Delete
   | Retain
   | Snapshot
-  deriving (Show, Generic)
+  deriving (Show, Eq, Generic)
 
 instance ToJSON DeletionPolicy where
 instance FromJSON DeletionPolicy where
@@ -696,7 +696,7 @@ data Resource =
   , resourceResCreationPolicy :: Maybe CreationPolicy
   , resourceResUpdatePolicy :: Maybe UpdatePolicy
   , resourceDependsOn :: Maybe [T.Text]
-  } deriving (Show)
+  } deriving (Show, Eq)
 
 instance ToRef Resource b where
   toRef r = Ref (resourceResName r)
@@ -1276,7 +1276,7 @@ resourceFromJSON n o =
 -- | Wrapper around a list of 'Resources's to we can modify the aeson
 -- instances.
 newtype Resources = Resources { unResources :: [Resource] }
-                  deriving (Show, Monoid)
+  deriving (Show, Eq, Monoid)
 
 instance IsList Resources where
   type Item Resources = Resource

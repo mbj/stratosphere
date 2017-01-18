@@ -21,7 +21,7 @@ data RDSDBSubnetGroup =
   { _rDSDBSubnetGroupDBSubnetGroupDescription :: Val Text
   , _rDSDBSubnetGroupSubnetIds :: [Val Text]
   , _rDSDBSubnetGroupTags :: Maybe [Tag]
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON RDSDBSubnetGroup where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 17, omitNothingFields = True }

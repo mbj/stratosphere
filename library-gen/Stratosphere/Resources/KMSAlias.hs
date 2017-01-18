@@ -20,7 +20,7 @@ data KMSAlias =
   KMSAlias
   { _kMSAliasAliasName :: Val Text
   , _kMSAliasTargetKeyId :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON KMSAlias where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 9, omitNothingFields = True }

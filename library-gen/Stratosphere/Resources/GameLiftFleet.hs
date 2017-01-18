@@ -29,7 +29,7 @@ data GameLiftFleet =
   , _gameLiftFleetName :: Val Text
   , _gameLiftFleetServerLaunchParameters :: Maybe (Val Text)
   , _gameLiftFleetServerLaunchPath :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON GameLiftFleet where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 14, omitNothingFields = True }

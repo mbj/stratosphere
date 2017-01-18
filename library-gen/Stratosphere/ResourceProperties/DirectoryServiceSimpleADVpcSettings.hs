@@ -20,7 +20,7 @@ data DirectoryServiceSimpleADVpcSettings =
   DirectoryServiceSimpleADVpcSettings
   { _directoryServiceSimpleADVpcSettingsSubnetIds :: [Val Text]
   , _directoryServiceSimpleADVpcSettingsVpcId :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON DirectoryServiceSimpleADVpcSettings where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 36, omitNothingFields = True }

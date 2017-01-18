@@ -19,7 +19,7 @@ import Stratosphere.Values
 data EMRClusterPlacementType =
   EMRClusterPlacementType
   { _eMRClusterPlacementTypeAvailabilityZone :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EMRClusterPlacementType where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 24, omitNothingFields = True }

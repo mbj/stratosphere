@@ -21,7 +21,7 @@ import Stratosphere.Values
 data KinesisFirehoseDeliveryStreamElasticsearchRetryOptions =
   KinesisFirehoseDeliveryStreamElasticsearchRetryOptions
   { _kinesisFirehoseDeliveryStreamElasticsearchRetryOptionsDurationInSeconds :: Val Integer'
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON KinesisFirehoseDeliveryStreamElasticsearchRetryOptions where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 55, omitNothingFields = True }

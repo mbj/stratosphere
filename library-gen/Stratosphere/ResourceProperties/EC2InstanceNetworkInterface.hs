@@ -31,7 +31,7 @@ data EC2InstanceNetworkInterface =
   , _eC2InstanceNetworkInterfacePrivateIpAddresses :: Maybe [EC2InstancePrivateIpAddressSpecification]
   , _eC2InstanceNetworkInterfaceSecondaryPrivateIpAddressCount :: Maybe (Val Integer')
   , _eC2InstanceNetworkInterfaceSubnetId :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EC2InstanceNetworkInterface where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 28, omitNothingFields = True }

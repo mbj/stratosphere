@@ -22,7 +22,7 @@ data CodePipelineCustomActionTypeArtifactDetails =
   CodePipelineCustomActionTypeArtifactDetails
   { _codePipelineCustomActionTypeArtifactDetailsMaximumCount :: Val Integer'
   , _codePipelineCustomActionTypeArtifactDetailsMinimumCount :: Val Integer'
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON CodePipelineCustomActionTypeArtifactDetails where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 44, omitNothingFields = True }

@@ -19,7 +19,7 @@ import Stratosphere.Values
 data CloudFormationCustomResource =
   CloudFormationCustomResource
   { _cloudFormationCustomResourceServiceToken :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON CloudFormationCustomResource where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 29, omitNothingFields = True }

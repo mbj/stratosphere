@@ -24,7 +24,7 @@ data S3BucketCorsRule =
   , _s3BucketCorsRuleExposedHeaders :: Maybe [Val Text]
   , _s3BucketCorsRuleId :: Maybe (Val Text)
   , _s3BucketCorsRuleMaxAge :: Maybe (Val Integer')
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON S3BucketCorsRule where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 17, omitNothingFields = True }

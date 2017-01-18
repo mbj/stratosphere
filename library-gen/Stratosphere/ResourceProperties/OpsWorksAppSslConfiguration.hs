@@ -21,7 +21,7 @@ data OpsWorksAppSslConfiguration =
   { _opsWorksAppSslConfigurationCertificate :: Maybe (Val Text)
   , _opsWorksAppSslConfigurationChain :: Maybe (Val Text)
   , _opsWorksAppSslConfigurationPrivateKey :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON OpsWorksAppSslConfiguration where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 28, omitNothingFields = True }

@@ -25,7 +25,7 @@ data EC2SecurityGroupRule =
   , _eC2SecurityGroupRuleSourceSecurityGroupName :: Maybe (Val Text)
   , _eC2SecurityGroupRuleSourceSecurityGroupOwnerId :: Maybe (Val Text)
   , _eC2SecurityGroupRuleToPort :: Maybe (Val Integer')
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EC2SecurityGroupRule where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 21, omitNothingFields = True }

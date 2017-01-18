@@ -34,7 +34,7 @@ data KinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguration =
   , _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationS3BackupMode :: Val KinesisFirehoseElasticsearchS3BackupMode
   , _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationS3Configuration :: KinesisFirehoseDeliveryStreamS3DestinationConfiguration
   , _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationTypeName :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON KinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguration where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 67, omitNothingFields = True }

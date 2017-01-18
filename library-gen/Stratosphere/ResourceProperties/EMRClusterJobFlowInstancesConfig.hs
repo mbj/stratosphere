@@ -31,7 +31,7 @@ data EMRClusterJobFlowInstancesConfig =
   , _eMRClusterJobFlowInstancesConfigPlacement :: Maybe EMRClusterPlacementType
   , _eMRClusterJobFlowInstancesConfigServiceAccessSecurityGroup :: Maybe (Val Text)
   , _eMRClusterJobFlowInstancesConfigTerminationProtected :: Maybe (Val Bool')
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EMRClusterJobFlowInstancesConfig where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 33, omitNothingFields = True }

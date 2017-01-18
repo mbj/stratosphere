@@ -22,7 +22,7 @@ data OpsWorksInstanceBlockDeviceMapping =
   , _opsWorksInstanceBlockDeviceMappingEbs :: Maybe OpsWorksInstanceEbsBlockDevice
   , _opsWorksInstanceBlockDeviceMappingNoDevice :: Maybe (Val Text)
   , _opsWorksInstanceBlockDeviceMappingVirtualName :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON OpsWorksInstanceBlockDeviceMapping where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 35, omitNothingFields = True }

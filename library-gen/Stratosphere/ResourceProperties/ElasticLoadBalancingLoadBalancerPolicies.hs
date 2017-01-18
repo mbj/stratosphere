@@ -24,7 +24,7 @@ data ElasticLoadBalancingLoadBalancerPolicies =
   , _elasticLoadBalancingLoadBalancerPoliciesLoadBalancerPorts :: Maybe [Val Text]
   , _elasticLoadBalancingLoadBalancerPoliciesPolicyName :: Val Text
   , _elasticLoadBalancingLoadBalancerPoliciesPolicyType :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ElasticLoadBalancingLoadBalancerPolicies where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 41, omitNothingFields = True }

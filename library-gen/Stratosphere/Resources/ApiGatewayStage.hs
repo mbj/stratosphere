@@ -27,7 +27,7 @@ data ApiGatewayStage =
   , _apiGatewayStageRestApiId :: Maybe (Val Text)
   , _apiGatewayStageStageName :: Maybe (Val Text)
   , _apiGatewayStageVariables :: Maybe Object
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ApiGatewayStage where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 16, omitNothingFields = True }

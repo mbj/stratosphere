@@ -22,7 +22,7 @@ data CodeDeployDeploymentGroupRevision =
   { _codeDeployDeploymentGroupRevisionGitHubLocation :: Maybe CodeDeployDeploymentGroupGitHubLocation
   , _codeDeployDeploymentGroupRevisionRevisionType :: Maybe (Val Text)
   , _codeDeployDeploymentGroupRevisionS3Location :: Maybe CodeDeployDeploymentGroupS3Location
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON CodeDeployDeploymentGroupRevision where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 34, omitNothingFields = True }

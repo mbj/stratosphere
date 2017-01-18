@@ -21,7 +21,7 @@ data OpsWorksLayerLoadBasedAutoScaling =
   { _opsWorksLayerLoadBasedAutoScalingDownScaling :: Maybe OpsWorksLayerAutoScalingThresholds
   , _opsWorksLayerLoadBasedAutoScalingEnable :: Maybe (Val Bool')
   , _opsWorksLayerLoadBasedAutoScalingUpScaling :: Maybe OpsWorksLayerAutoScalingThresholds
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON OpsWorksLayerLoadBasedAutoScaling where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 34, omitNothingFields = True }

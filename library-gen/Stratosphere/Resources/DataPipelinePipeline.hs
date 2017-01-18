@@ -28,7 +28,7 @@ data DataPipelinePipeline =
   , _dataPipelinePipelineParameterValues :: Maybe [DataPipelinePipelineParameterValue]
   , _dataPipelinePipelinePipelineObjects :: Maybe [DataPipelinePipelinePipelineObject]
   , _dataPipelinePipelinePipelineTags :: Maybe [DataPipelinePipelinePipelineTag]
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON DataPipelinePipeline where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 21, omitNothingFields = True }

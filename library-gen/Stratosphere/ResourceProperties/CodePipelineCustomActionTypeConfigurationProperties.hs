@@ -27,7 +27,7 @@ data CodePipelineCustomActionTypeConfigurationProperties =
   , _codePipelineCustomActionTypeConfigurationPropertiesRequired :: Val Bool'
   , _codePipelineCustomActionTypeConfigurationPropertiesSecret :: Val Bool'
   , _codePipelineCustomActionTypeConfigurationPropertiesType :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON CodePipelineCustomActionTypeConfigurationProperties where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 52, omitNothingFields = True }

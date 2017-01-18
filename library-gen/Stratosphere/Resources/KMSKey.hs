@@ -23,7 +23,7 @@ data KMSKey =
   , _kMSKeyEnabled :: Maybe (Val Bool')
   , _kMSKeyKeyPolicy :: Object
   , _kMSKeyKeyUsage :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON KMSKey where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 7, omitNothingFields = True }

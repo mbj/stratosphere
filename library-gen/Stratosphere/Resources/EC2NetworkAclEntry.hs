@@ -28,7 +28,7 @@ data EC2NetworkAclEntry =
   , _eC2NetworkAclEntryProtocol :: Val Integer'
   , _eC2NetworkAclEntryRuleAction :: Val Text
   , _eC2NetworkAclEntryRuleNumber :: Val Integer'
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EC2NetworkAclEntry where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 19, omitNothingFields = True }

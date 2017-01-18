@@ -27,7 +27,7 @@ data UpdatePolicy =
   { _updatePolicyAutoScalingReplacingUpdate :: Maybe AutoScalingReplacingUpdatePolicy
   , _updatePolicyAutoScalingRollingUpdate :: Maybe AutoScalingRollingUpdatePolicy
   , _updatePolicyAutoScalingScheduledAction :: Maybe AutoScalingScheduledActionPolicy
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON UpdatePolicy where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 13, omitNothingFields = True }

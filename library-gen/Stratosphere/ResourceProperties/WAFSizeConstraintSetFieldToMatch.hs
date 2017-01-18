@@ -20,7 +20,7 @@ data WAFSizeConstraintSetFieldToMatch =
   WAFSizeConstraintSetFieldToMatch
   { _wAFSizeConstraintSetFieldToMatchData :: Maybe (Val Text)
   , _wAFSizeConstraintSetFieldToMatchType :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON WAFSizeConstraintSetFieldToMatch where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 33, omitNothingFields = True }

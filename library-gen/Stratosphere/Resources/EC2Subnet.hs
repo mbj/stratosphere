@@ -23,7 +23,7 @@ data EC2Subnet =
   , _eC2SubnetMapPublicIpOnLaunch :: Maybe (Val Bool')
   , _eC2SubnetTags :: Maybe [Tag]
   , _eC2SubnetVpcId :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EC2Subnet where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 10, omitNothingFields = True }

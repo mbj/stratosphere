@@ -23,7 +23,7 @@ data EC2VPNConnection =
   , _eC2VPNConnectionTags :: Maybe [Tag]
   , _eC2VPNConnectionType :: Val Text
   , _eC2VPNConnectionVpnGatewayId :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EC2VPNConnection where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 17, omitNothingFields = True }

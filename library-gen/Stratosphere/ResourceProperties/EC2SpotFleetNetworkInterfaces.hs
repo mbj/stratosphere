@@ -30,7 +30,7 @@ data EC2SpotFleetNetworkInterfaces =
   , _eC2SpotFleetNetworkInterfacesPrivateIpAddresses :: Maybe [EC2SpotFleetPrivateIpAddresses]
   , _eC2SpotFleetNetworkInterfacesSecondaryPrivateIpAddressCount :: Maybe (Val Integer')
   , _eC2SpotFleetNetworkInterfacesSubnetId :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EC2SpotFleetNetworkInterfaces where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 30, omitNothingFields = True }

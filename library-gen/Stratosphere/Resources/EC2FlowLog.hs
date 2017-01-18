@@ -23,7 +23,7 @@ data EC2FlowLog =
   , _eC2FlowLogResourceId :: Val Text
   , _eC2FlowLogResourceType :: Val Text
   , _eC2FlowLogTrafficType :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EC2FlowLog where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 11, omitNothingFields = True }

@@ -19,7 +19,7 @@ import Stratosphere.Values
 data ElastiCacheSecurityGroup =
   ElastiCacheSecurityGroup
   { _elastiCacheSecurityGroupDescription :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ElastiCacheSecurityGroup where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 25, omitNothingFields = True }

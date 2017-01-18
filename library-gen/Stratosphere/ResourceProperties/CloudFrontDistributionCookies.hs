@@ -20,7 +20,7 @@ data CloudFrontDistributionCookies =
   CloudFrontDistributionCookies
   { _cloudFrontDistributionCookiesForward :: Val Text
   , _cloudFrontDistributionCookiesWhitelistedNames :: Maybe [Val Text]
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON CloudFrontDistributionCookies where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 30, omitNothingFields = True }

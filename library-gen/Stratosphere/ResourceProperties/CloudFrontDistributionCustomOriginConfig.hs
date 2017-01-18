@@ -23,7 +23,7 @@ data CloudFrontDistributionCustomOriginConfig =
   , _cloudFrontDistributionCustomOriginConfigHTTPSPort :: Maybe (Val Integer')
   , _cloudFrontDistributionCustomOriginConfigOriginProtocolPolicy :: Val Text
   , _cloudFrontDistributionCustomOriginConfigOriginSSLProtocols :: Maybe [Val Text]
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON CloudFrontDistributionCustomOriginConfig where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 41, omitNothingFields = True }

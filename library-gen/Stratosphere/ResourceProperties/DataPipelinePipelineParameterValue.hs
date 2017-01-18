@@ -20,7 +20,7 @@ data DataPipelinePipelineParameterValue =
   DataPipelinePipelineParameterValue
   { _dataPipelinePipelineParameterValueId :: Val Text
   , _dataPipelinePipelineParameterValueStringValue :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON DataPipelinePipelineParameterValue where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 35, omitNothingFields = True }

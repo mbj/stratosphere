@@ -19,7 +19,7 @@ import Stratosphere.Values
 data CloudFrontDistributionS3OriginConfig =
   CloudFrontDistributionS3OriginConfig
   { _cloudFrontDistributionS3OriginConfigOriginAccessIdentity :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON CloudFrontDistributionS3OriginConfig where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 37, omitNothingFields = True }

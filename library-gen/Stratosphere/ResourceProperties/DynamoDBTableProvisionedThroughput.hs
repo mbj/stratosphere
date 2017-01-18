@@ -20,7 +20,7 @@ data DynamoDBTableProvisionedThroughput =
   DynamoDBTableProvisionedThroughput
   { _dynamoDBTableProvisionedThroughputReadCapacityUnits :: Val Integer'
   , _dynamoDBTableProvisionedThroughputWriteCapacityUnits :: Val Integer'
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON DynamoDBTableProvisionedThroughput where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 35, omitNothingFields = True }

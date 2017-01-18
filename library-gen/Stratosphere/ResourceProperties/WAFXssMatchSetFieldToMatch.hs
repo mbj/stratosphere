@@ -20,7 +20,7 @@ data WAFXssMatchSetFieldToMatch =
   WAFXssMatchSetFieldToMatch
   { _wAFXssMatchSetFieldToMatchData :: Maybe (Val Text)
   , _wAFXssMatchSetFieldToMatchType :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON WAFXssMatchSetFieldToMatch where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 27, omitNothingFields = True }

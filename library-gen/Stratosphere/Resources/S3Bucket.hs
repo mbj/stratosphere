@@ -36,7 +36,7 @@ data S3Bucket =
   , _s3BucketTags :: Maybe [Tag]
   , _s3BucketVersioningConfiguration :: Maybe S3BucketVersioningConfiguration
   , _s3BucketWebsiteConfiguration :: Maybe S3BucketWebsiteConfiguration
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON S3Bucket where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 9, omitNothingFields = True }

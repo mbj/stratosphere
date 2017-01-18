@@ -46,7 +46,7 @@ data OpsWorksStack =
   , _opsWorksStackUseCustomCookbooks :: Maybe (Val Bool')
   , _opsWorksStackUseOpsworksSecurityGroups :: Maybe (Val Bool')
   , _opsWorksStackVpcId :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON OpsWorksStack where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 14, omitNothingFields = True }

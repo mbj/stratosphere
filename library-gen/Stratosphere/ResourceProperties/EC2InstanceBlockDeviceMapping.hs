@@ -23,7 +23,7 @@ data EC2InstanceBlockDeviceMapping =
   , _eC2InstanceBlockDeviceMappingEbs :: Maybe EC2InstanceEbs
   , _eC2InstanceBlockDeviceMappingNoDevice :: Maybe EC2InstanceNoDevice
   , _eC2InstanceBlockDeviceMappingVirtualName :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EC2InstanceBlockDeviceMapping where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 30, omitNothingFields = True }

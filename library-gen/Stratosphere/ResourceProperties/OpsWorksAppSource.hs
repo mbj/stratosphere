@@ -24,7 +24,7 @@ data OpsWorksAppSource =
   , _opsWorksAppSourceType :: Maybe (Val Text)
   , _opsWorksAppSourceUrl :: Maybe (Val Text)
   , _opsWorksAppSourceUsername :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON OpsWorksAppSource where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 18, omitNothingFields = True }

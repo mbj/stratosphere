@@ -42,7 +42,7 @@ data RedshiftCluster =
   , _redshiftClusterSnapshotClusterIdentifier :: Maybe (Val Text)
   , _redshiftClusterSnapshotIdentifier :: Maybe (Val Text)
   , _redshiftClusterVpcSecurityGroupIds :: Maybe [Val Text]
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON RedshiftCluster where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 16, omitNothingFields = True }

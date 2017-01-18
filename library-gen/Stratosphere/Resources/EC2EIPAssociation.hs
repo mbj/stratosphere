@@ -23,7 +23,7 @@ data EC2EIPAssociation =
   , _eC2EIPAssociationInstanceId :: Maybe (Val Text)
   , _eC2EIPAssociationNetworkInterfaceId :: Maybe (Val Text)
   , _eC2EIPAssociationPrivateIpAddress :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EC2EIPAssociation where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 18, omitNothingFields = True }

@@ -20,7 +20,7 @@ data EC2NetworkAcl =
   EC2NetworkAcl
   { _eC2NetworkAclTags :: Maybe [Tag]
   , _eC2NetworkAclVpcId :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EC2NetworkAcl where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 14, omitNothingFields = True }

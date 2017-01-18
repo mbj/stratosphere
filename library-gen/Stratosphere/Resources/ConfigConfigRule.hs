@@ -25,7 +25,7 @@ data ConfigConfigRule =
   , _configConfigRuleMaximumExecutionFrequency :: Maybe (Val Text)
   , _configConfigRuleScope :: Maybe ConfigConfigRuleScope
   , _configConfigRuleSource :: ConfigConfigRuleSource
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ConfigConfigRule where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 17, omitNothingFields = True }

@@ -22,7 +22,7 @@ data ElasticLoadBalancingV2TargetGroupTargetDescription =
   ElasticLoadBalancingV2TargetGroupTargetDescription
   { _elasticLoadBalancingV2TargetGroupTargetDescriptionId :: Val Text
   , _elasticLoadBalancingV2TargetGroupTargetDescriptionPort :: Maybe (Val Integer')
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ElasticLoadBalancingV2TargetGroupTargetDescription where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 51, omitNothingFields = True }

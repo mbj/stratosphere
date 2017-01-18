@@ -21,7 +21,7 @@ import Stratosphere.Values
 data KinesisFirehoseDeliveryStreamKMSEncryptionConfig =
   KinesisFirehoseDeliveryStreamKMSEncryptionConfig
   { _kinesisFirehoseDeliveryStreamKMSEncryptionConfigAWSKMSKeyARN :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON KinesisFirehoseDeliveryStreamKMSEncryptionConfig where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 49, omitNothingFields = True }

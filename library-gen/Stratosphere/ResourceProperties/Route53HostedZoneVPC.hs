@@ -20,7 +20,7 @@ data Route53HostedZoneVPC =
   Route53HostedZoneVPC
   { _route53HostedZoneVPCVPCId :: Val Text
   , _route53HostedZoneVPCVPCRegion :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON Route53HostedZoneVPC where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 21, omitNothingFields = True }

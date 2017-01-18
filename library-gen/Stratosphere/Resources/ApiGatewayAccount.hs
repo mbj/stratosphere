@@ -19,7 +19,7 @@ import Stratosphere.Values
 data ApiGatewayAccount =
   ApiGatewayAccount
   { _apiGatewayAccountCloudWatchRoleArn :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ApiGatewayAccount where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 18, omitNothingFields = True }

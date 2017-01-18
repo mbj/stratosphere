@@ -23,7 +23,7 @@ data EC2VPC =
   , _eC2VPCEnableDnsSupport :: Maybe (Val Bool')
   , _eC2VPCInstanceTenancy :: Maybe (Val Text)
   , _eC2VPCTags :: Maybe [Tag]
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EC2VPC where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 7, omitNothingFields = True }

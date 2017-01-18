@@ -36,7 +36,7 @@ data ElasticLoadBalancingV2TargetGroup =
   , _elasticLoadBalancingV2TargetGroupTargets :: Maybe [ElasticLoadBalancingV2TargetGroupTargetDescription]
   , _elasticLoadBalancingV2TargetGroupUnhealthyThresholdCount :: Maybe (Val Integer')
   , _elasticLoadBalancingV2TargetGroupVpcId :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ElasticLoadBalancingV2TargetGroup where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 34, omitNothingFields = True }

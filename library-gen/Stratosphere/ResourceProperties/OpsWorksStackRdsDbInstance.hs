@@ -21,7 +21,7 @@ data OpsWorksStackRdsDbInstance =
   { _opsWorksStackRdsDbInstanceDbPassword :: Val Text
   , _opsWorksStackRdsDbInstanceDbUser :: Val Text
   , _opsWorksStackRdsDbInstanceRdsDbInstanceArn :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON OpsWorksStackRdsDbInstance where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 27, omitNothingFields = True }

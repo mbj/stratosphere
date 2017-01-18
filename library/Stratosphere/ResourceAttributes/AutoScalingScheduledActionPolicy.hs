@@ -33,7 +33,7 @@ import Stratosphere.Values
 data AutoScalingScheduledActionPolicy =
   AutoScalingScheduledActionPolicy
   { _autoScalingScheduledActionPolicyIgnoreUnmodifiedGroupSizeProperties :: Maybe (Val Bool')
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON AutoScalingScheduledActionPolicy where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 27, omitNothingFields = True }

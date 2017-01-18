@@ -22,7 +22,7 @@ data EMRStep =
   , _eMRStepHadoopJarStep :: EMRStepHadoopJarStepConfig
   , _eMRStepJobFlowId :: Val Text
   , _eMRStepName :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EMRStep where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 8, omitNothingFields = True }

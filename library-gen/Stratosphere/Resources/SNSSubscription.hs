@@ -21,7 +21,7 @@ data SNSSubscription =
   { _sNSSubscriptionEndpoint :: Maybe (Val Text)
   , _sNSSubscriptionProtocol :: Maybe (Val SNSProtocol)
   , _sNSSubscriptionTopicArn :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON SNSSubscription where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 16, omitNothingFields = True }

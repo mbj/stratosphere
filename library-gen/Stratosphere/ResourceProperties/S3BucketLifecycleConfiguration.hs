@@ -19,7 +19,7 @@ import Stratosphere.ResourceProperties.S3BucketRule
 data S3BucketLifecycleConfiguration =
   S3BucketLifecycleConfiguration
   { _s3BucketLifecycleConfigurationRules :: [S3BucketRule]
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON S3BucketLifecycleConfiguration where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 31, omitNothingFields = True }

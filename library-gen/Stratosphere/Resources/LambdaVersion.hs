@@ -21,7 +21,7 @@ data LambdaVersion =
   { _lambdaVersionCodeSha256 :: Maybe (Val Text)
   , _lambdaVersionDescription :: Maybe (Val Text)
   , _lambdaVersionFunctionName :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON LambdaVersion where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 14, omitNothingFields = True }

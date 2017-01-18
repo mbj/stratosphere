@@ -28,7 +28,7 @@ data CodePipelinePipelineActionDeclaration =
   , _codePipelinePipelineActionDeclarationOutputArtifacts :: Maybe [CodePipelinePipelineOutputArtifact]
   , _codePipelinePipelineActionDeclarationRoleArn :: Maybe (Val Text)
   , _codePipelinePipelineActionDeclarationRunOrder :: Maybe (Val Integer')
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON CodePipelinePipelineActionDeclaration where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 38, omitNothingFields = True }

@@ -24,7 +24,7 @@ data CodeBuildProjectArtifacts =
   , _codeBuildProjectArtifactsPackaging :: Maybe (Val Text)
   , _codeBuildProjectArtifactsPath :: Maybe (Val Text)
   , _codeBuildProjectArtifactsType :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON CodeBuildProjectArtifacts where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 26, omitNothingFields = True }

@@ -22,7 +22,7 @@ data OpsWorksVolume =
   , _opsWorksVolumeMountPoint :: Maybe (Val Text)
   , _opsWorksVolumeName :: Maybe (Val Text)
   , _opsWorksVolumeStackId :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON OpsWorksVolume where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 15, omitNothingFields = True }

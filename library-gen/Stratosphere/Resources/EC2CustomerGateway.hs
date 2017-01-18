@@ -22,7 +22,7 @@ data EC2CustomerGateway =
   , _eC2CustomerGatewayIpAddress :: Val Text
   , _eC2CustomerGatewayTags :: Maybe [Tag]
   , _eC2CustomerGatewayType :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EC2CustomerGateway where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 19, omitNothingFields = True }

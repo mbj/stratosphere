@@ -23,7 +23,7 @@ data LambdaEventSourceMapping =
   , _lambdaEventSourceMappingEventSourceArn :: Val Text
   , _lambdaEventSourceMappingFunctionName :: Val Text
   , _lambdaEventSourceMappingStartingPosition :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON LambdaEventSourceMapping where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 25, omitNothingFields = True }

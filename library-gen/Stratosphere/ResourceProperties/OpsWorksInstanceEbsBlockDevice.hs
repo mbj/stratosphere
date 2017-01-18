@@ -23,7 +23,7 @@ data OpsWorksInstanceEbsBlockDevice =
   , _opsWorksInstanceEbsBlockDeviceSnapshotId :: Maybe (Val Text)
   , _opsWorksInstanceEbsBlockDeviceVolumeSize :: Maybe (Val Integer')
   , _opsWorksInstanceEbsBlockDeviceVolumeType :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON OpsWorksInstanceEbsBlockDevice where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 31, omitNothingFields = True }

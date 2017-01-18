@@ -19,7 +19,7 @@ import Stratosphere.Values
 data EC2SpotFleetSecurityGroups =
   EC2SpotFleetSecurityGroups
   { _eC2SpotFleetSecurityGroupsGroupId :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EC2SpotFleetSecurityGroups where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 27, omitNothingFields = True }

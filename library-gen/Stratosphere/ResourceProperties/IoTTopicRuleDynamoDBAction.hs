@@ -25,7 +25,7 @@ data IoTTopicRuleDynamoDBAction =
   , _ioTTopicRuleDynamoDBActionRangeKeyValue :: Val Text
   , _ioTTopicRuleDynamoDBActionRoleArn :: Val Text
   , _ioTTopicRuleDynamoDBActionTableName :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON IoTTopicRuleDynamoDBAction where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 27, omitNothingFields = True }

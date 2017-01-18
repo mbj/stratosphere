@@ -21,7 +21,7 @@ data CloudFormationWaitCondition =
   { _cloudFormationWaitConditionCount :: Maybe (Val Integer')
   , _cloudFormationWaitConditionHandle :: Val Text
   , _cloudFormationWaitConditionTimeout :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON CloudFormationWaitCondition where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 28, omitNothingFields = True }

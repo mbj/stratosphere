@@ -21,7 +21,7 @@ data ElastiCacheSecurityGroupIngress =
   { _elastiCacheSecurityGroupIngressCacheSecurityGroupName :: Val Text
   , _elastiCacheSecurityGroupIngressEC2SecurityGroupName :: Val Text
   , _elastiCacheSecurityGroupIngressEC2SecurityGroupOwnerId :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ElastiCacheSecurityGroupIngress where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 32, omitNothingFields = True }

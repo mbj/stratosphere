@@ -20,7 +20,7 @@ data RDSOptionGroupOptionSetting =
   RDSOptionGroupOptionSetting
   { _rDSOptionGroupOptionSettingName :: Maybe (Val Text)
   , _rDSOptionGroupOptionSettingValue :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON RDSOptionGroupOptionSetting where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 28, omitNothingFields = True }

@@ -23,7 +23,7 @@ data S3BucketWebsiteConfiguration =
   , _s3BucketWebsiteConfigurationIndexDocument :: Maybe (Val Text)
   , _s3BucketWebsiteConfigurationRedirectAllRequestsTo :: Maybe S3BucketRedirectAllRequestsTo
   , _s3BucketWebsiteConfigurationRoutingRules :: Maybe [S3BucketRoutingRule]
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON S3BucketWebsiteConfiguration where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 29, omitNothingFields = True }

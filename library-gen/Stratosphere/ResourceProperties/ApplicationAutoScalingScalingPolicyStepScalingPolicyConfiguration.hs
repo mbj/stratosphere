@@ -25,7 +25,7 @@ data ApplicationAutoScalingScalingPolicyStepScalingPolicyConfiguration =
   , _applicationAutoScalingScalingPolicyStepScalingPolicyConfigurationMetricAggregationType :: Maybe (Val Text)
   , _applicationAutoScalingScalingPolicyStepScalingPolicyConfigurationMinAdjustmentMagnitude :: Maybe (Val Integer')
   , _applicationAutoScalingScalingPolicyStepScalingPolicyConfigurationStepAdjustments :: Maybe [ApplicationAutoScalingScalingPolicyStepAdjustment]
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ApplicationAutoScalingScalingPolicyStepScalingPolicyConfiguration where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 66, omitNothingFields = True }

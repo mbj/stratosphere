@@ -21,7 +21,7 @@ data ApiGatewayMethodMethodResponse =
   { _apiGatewayMethodMethodResponseResponseModels :: Maybe Object
   , _apiGatewayMethodMethodResponseResponseParameters :: Maybe Object
   , _apiGatewayMethodMethodResponseStatusCode :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ApiGatewayMethodMethodResponse where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 31, omitNothingFields = True }

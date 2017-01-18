@@ -20,7 +20,7 @@ data IoTTopicRule =
   IoTTopicRule
   { _ioTTopicRuleRuleName :: Maybe (Val Text)
   , _ioTTopicRuleTopicRulePayload :: IoTTopicRuleTopicRulePayload
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON IoTTopicRule where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 13, omitNothingFields = True }

@@ -20,7 +20,7 @@ data CodePipelinePipelineStageTransition =
   CodePipelinePipelineStageTransition
   { _codePipelinePipelineStageTransitionReason :: Val Text
   , _codePipelinePipelineStageTransitionStageName :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON CodePipelinePipelineStageTransition where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 36, omitNothingFields = True }

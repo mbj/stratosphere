@@ -20,7 +20,7 @@ data DataPipelinePipelinePipelineTag =
   DataPipelinePipelinePipelineTag
   { _dataPipelinePipelinePipelineTagKey :: Val Text
   , _dataPipelinePipelinePipelineTagValue :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON DataPipelinePipelinePipelineTag where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 32, omitNothingFields = True }

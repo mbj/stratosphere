@@ -20,7 +20,7 @@ data SQSQueuePolicy =
   SQSQueuePolicy
   { _sQSQueuePolicyPolicyDocument :: Object
   , _sQSQueuePolicyQueues :: [Val Text]
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON SQSQueuePolicy where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 15, omitNothingFields = True }

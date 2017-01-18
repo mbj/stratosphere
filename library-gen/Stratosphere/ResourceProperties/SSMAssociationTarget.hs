@@ -20,7 +20,7 @@ data SSMAssociationTarget =
   SSMAssociationTarget
   { _sSMAssociationTargetKey :: Val Text
   , _sSMAssociationTargetValues :: [Val Text]
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON SSMAssociationTarget where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 21, omitNothingFields = True }

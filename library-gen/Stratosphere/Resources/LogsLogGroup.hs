@@ -20,7 +20,7 @@ data LogsLogGroup =
   LogsLogGroup
   { _logsLogGroupLogGroupName :: Maybe (Val Text)
   , _logsLogGroupRetentionInDays :: Maybe (Val Integer')
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON LogsLogGroup where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 13, omitNothingFields = True }

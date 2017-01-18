@@ -19,7 +19,7 @@ import Stratosphere.Values
 data CodeDeployApplication =
   CodeDeployApplication
   { _codeDeployApplicationApplicationName :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON CodeDeployApplication where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 22, omitNothingFields = True }

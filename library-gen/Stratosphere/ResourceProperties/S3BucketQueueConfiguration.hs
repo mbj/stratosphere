@@ -21,7 +21,7 @@ data S3BucketQueueConfiguration =
   { _s3BucketQueueConfigurationEvent :: Val Text
   , _s3BucketQueueConfigurationFilter :: Maybe S3BucketNotificationFilter
   , _s3BucketQueueConfigurationQueue :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON S3BucketQueueConfiguration where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 27, omitNothingFields = True }

@@ -20,7 +20,7 @@ data EMRStepKeyValue =
   EMRStepKeyValue
   { _eMRStepKeyValueKey :: Maybe (Val Text)
   , _eMRStepKeyValueValue :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EMRStepKeyValue where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 16, omitNothingFields = True }

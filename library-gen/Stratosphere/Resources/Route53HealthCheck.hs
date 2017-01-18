@@ -21,7 +21,7 @@ data Route53HealthCheck =
   Route53HealthCheck
   { _route53HealthCheckHealthCheckConfig :: Route53HealthCheckHealthCheckConfig
   , _route53HealthCheckHealthCheckTags :: Maybe [Route53HealthCheckHealthCheckTag]
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON Route53HealthCheck where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 19, omitNothingFields = True }

@@ -24,7 +24,7 @@ data EC2SpotFleetEbs =
   , _eC2SpotFleetEbsSnapshotId :: Maybe (Val Text)
   , _eC2SpotFleetEbsVolumeSize :: Maybe (Val Integer')
   , _eC2SpotFleetEbsVolumeType :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EC2SpotFleetEbs where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 16, omitNothingFields = True }

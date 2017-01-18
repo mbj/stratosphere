@@ -20,7 +20,7 @@ data WAFIPSetIPSetDescriptor =
   WAFIPSetIPSetDescriptor
   { _wAFIPSetIPSetDescriptorType :: Val Text
   , _wAFIPSetIPSetDescriptorValue :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON WAFIPSetIPSetDescriptor where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 24, omitNothingFields = True }

@@ -21,7 +21,7 @@ data RedshiftClusterParameterGroupParameter =
   RedshiftClusterParameterGroupParameter
   { _redshiftClusterParameterGroupParameterParameterName :: Val Text
   , _redshiftClusterParameterGroupParameterParameterValue :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON RedshiftClusterParameterGroupParameter where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 39, omitNothingFields = True }

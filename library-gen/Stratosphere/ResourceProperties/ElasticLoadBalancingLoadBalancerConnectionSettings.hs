@@ -21,7 +21,7 @@ import Stratosphere.Values
 data ElasticLoadBalancingLoadBalancerConnectionSettings =
   ElasticLoadBalancingLoadBalancerConnectionSettings
   { _elasticLoadBalancingLoadBalancerConnectionSettingsIdleTimeout :: Val Integer'
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ElasticLoadBalancingLoadBalancerConnectionSettings where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 51, omitNothingFields = True }

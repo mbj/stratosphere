@@ -20,7 +20,7 @@ data IAMUserPolicy =
   IAMUserPolicy
   { _iAMUserPolicyPolicyDocument :: Object
   , _iAMUserPolicyPolicyName :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON IAMUserPolicy where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 14, omitNothingFields = True }

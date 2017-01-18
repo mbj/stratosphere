@@ -37,7 +37,7 @@ data AutoScalingAutoScalingGroup =
   , _autoScalingAutoScalingGroupTargetGroupARNs :: Maybe [Val Text]
   , _autoScalingAutoScalingGroupTerminationPolicies :: Maybe [Val Text]
   , _autoScalingAutoScalingGroupVPCZoneIdentifier :: Maybe [Val Text]
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON AutoScalingAutoScalingGroup where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 28, omitNothingFields = True }

@@ -19,7 +19,7 @@ import Stratosphere.Values
 data ECSCluster =
   ECSCluster
   { _eCSClusterClusterName :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ECSCluster where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 11, omitNothingFields = True }

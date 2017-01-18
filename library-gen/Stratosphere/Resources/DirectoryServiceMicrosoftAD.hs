@@ -24,7 +24,7 @@ data DirectoryServiceMicrosoftAD =
   , _directoryServiceMicrosoftADPassword :: Val Text
   , _directoryServiceMicrosoftADShortName :: Maybe (Val Text)
   , _directoryServiceMicrosoftADVpcSettings :: DirectoryServiceMicrosoftADVpcSettings
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON DirectoryServiceMicrosoftAD where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 28, omitNothingFields = True }

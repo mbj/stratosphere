@@ -33,7 +33,7 @@ data Route53RecordSetGroupRecordSet =
   , _route53RecordSetGroupRecordSetTTL :: Maybe (Val Text)
   , _route53RecordSetGroupRecordSetType :: Val Text
   , _route53RecordSetGroupRecordSetWeight :: Maybe (Val Integer')
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON Route53RecordSetGroupRecordSet where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 31, omitNothingFields = True }

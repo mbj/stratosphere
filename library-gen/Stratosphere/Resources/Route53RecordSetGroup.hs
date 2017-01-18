@@ -22,7 +22,7 @@ data Route53RecordSetGroup =
   , _route53RecordSetGroupHostedZoneId :: Maybe (Val Text)
   , _route53RecordSetGroupHostedZoneName :: Maybe (Val Text)
   , _route53RecordSetGroupRecordSets :: Maybe [Route53RecordSetGroupRecordSet]
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON Route53RecordSetGroup where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 22, omitNothingFields = True }

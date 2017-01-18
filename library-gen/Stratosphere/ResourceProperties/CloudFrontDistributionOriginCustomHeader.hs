@@ -21,7 +21,7 @@ data CloudFrontDistributionOriginCustomHeader =
   CloudFrontDistributionOriginCustomHeader
   { _cloudFrontDistributionOriginCustomHeaderHeaderName :: Val Text
   , _cloudFrontDistributionOriginCustomHeaderHeaderValue :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON CloudFrontDistributionOriginCustomHeader where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 41, omitNothingFields = True }

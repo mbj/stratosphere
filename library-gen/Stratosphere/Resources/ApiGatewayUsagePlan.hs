@@ -25,7 +25,7 @@ data ApiGatewayUsagePlan =
   , _apiGatewayUsagePlanQuota :: Maybe ApiGatewayUsagePlanQuotaSettings
   , _apiGatewayUsagePlanThrottle :: Maybe ApiGatewayUsagePlanThrottleSettings
   , _apiGatewayUsagePlanUsagePlanName :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ApiGatewayUsagePlan where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 20, omitNothingFields = True }

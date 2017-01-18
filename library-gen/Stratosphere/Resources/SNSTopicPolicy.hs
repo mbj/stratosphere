@@ -20,7 +20,7 @@ data SNSTopicPolicy =
   SNSTopicPolicy
   { _sNSTopicPolicyPolicyDocument :: Object
   , _sNSTopicPolicyTopics :: [Val Text]
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON SNSTopicPolicy where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 15, omitNothingFields = True }

@@ -21,7 +21,7 @@ data DataPipelinePipelineField =
   { _dataPipelinePipelineFieldKey :: Val Text
   , _dataPipelinePipelineFieldRefValue :: Maybe (Val Text)
   , _dataPipelinePipelineFieldStringValue :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON DataPipelinePipelineField where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 26, omitNothingFields = True }

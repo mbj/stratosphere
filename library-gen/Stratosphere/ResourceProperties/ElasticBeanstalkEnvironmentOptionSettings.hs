@@ -22,7 +22,7 @@ data ElasticBeanstalkEnvironmentOptionSettings =
   { _elasticBeanstalkEnvironmentOptionSettingsNamespace :: Val Text
   , _elasticBeanstalkEnvironmentOptionSettingsOptionName :: Val Text
   , _elasticBeanstalkEnvironmentOptionSettingsValue :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ElasticBeanstalkEnvironmentOptionSettings where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 42, omitNothingFields = True }

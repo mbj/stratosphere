@@ -33,7 +33,7 @@ data CloudWatchAlarm =
   , _cloudWatchAlarmStatistic :: Val Text
   , _cloudWatchAlarmThreshold :: Val Double'
   , _cloudWatchAlarmUnit :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON CloudWatchAlarm where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 16, omitNothingFields = True }

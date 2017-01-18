@@ -22,7 +22,7 @@ data AutoScalingScalingPolicyStepAdjustment =
   { _autoScalingScalingPolicyStepAdjustmentMetricIntervalLowerBound :: Maybe (Val Double')
   , _autoScalingScalingPolicyStepAdjustmentMetricIntervalUpperBound :: Maybe (Val Double')
   , _autoScalingScalingPolicyStepAdjustmentScalingAdjustment :: Val Integer'
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON AutoScalingScalingPolicyStepAdjustment where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 39, omitNothingFields = True }

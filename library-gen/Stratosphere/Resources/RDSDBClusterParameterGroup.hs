@@ -22,7 +22,7 @@ data RDSDBClusterParameterGroup =
   , _rDSDBClusterParameterGroupFamily :: Val Text
   , _rDSDBClusterParameterGroupParameters :: Object
   , _rDSDBClusterParameterGroupTags :: Maybe [Tag]
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON RDSDBClusterParameterGroup where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 27, omitNothingFields = True }

@@ -21,7 +21,7 @@ data EC2VolumeAttachment =
   { _eC2VolumeAttachmentDevice :: Val Text
   , _eC2VolumeAttachmentInstanceId :: Val Text
   , _eC2VolumeAttachmentVolumeId :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EC2VolumeAttachment where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 20, omitNothingFields = True }

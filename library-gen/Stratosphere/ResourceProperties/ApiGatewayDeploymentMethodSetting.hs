@@ -28,7 +28,7 @@ data ApiGatewayDeploymentMethodSetting =
   , _apiGatewayDeploymentMethodSettingResourcePath :: Maybe (Val Text)
   , _apiGatewayDeploymentMethodSettingThrottlingBurstLimit :: Maybe (Val Integer')
   , _apiGatewayDeploymentMethodSettingThrottlingRateLimit :: Maybe (Val Double')
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ApiGatewayDeploymentMethodSetting where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 34, omitNothingFields = True }

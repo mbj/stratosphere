@@ -24,7 +24,7 @@ data ElastiCacheReplicationGroupNodeGroupConfiguration =
   , _elastiCacheReplicationGroupNodeGroupConfigurationReplicaAvailabilityZones :: Maybe [Val Text]
   , _elastiCacheReplicationGroupNodeGroupConfigurationReplicaCount :: Maybe (Val Integer')
   , _elastiCacheReplicationGroupNodeGroupConfigurationSlots :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ElastiCacheReplicationGroupNodeGroupConfiguration where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 50, omitNothingFields = True }

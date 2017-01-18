@@ -32,7 +32,7 @@ data LambdaFunction =
   , _lambdaFunctionRuntime :: Val Runtime
   , _lambdaFunctionTimeout :: Maybe (Val Integer')
   , _lambdaFunctionVpcConfig :: Maybe LambdaFunctionVpcConfig
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON LambdaFunction where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 15, omitNothingFields = True }

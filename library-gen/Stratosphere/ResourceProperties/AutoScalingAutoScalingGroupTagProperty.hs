@@ -22,7 +22,7 @@ data AutoScalingAutoScalingGroupTagProperty =
   { _autoScalingAutoScalingGroupTagPropertyKey :: Val Text
   , _autoScalingAutoScalingGroupTagPropertyPropagateAtLaunch :: Val Bool'
   , _autoScalingAutoScalingGroupTagPropertyValue :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON AutoScalingAutoScalingGroupTagProperty where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 39, omitNothingFields = True }

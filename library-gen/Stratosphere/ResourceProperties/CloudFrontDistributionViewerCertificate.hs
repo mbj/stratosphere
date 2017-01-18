@@ -24,7 +24,7 @@ data CloudFrontDistributionViewerCertificate =
   , _cloudFrontDistributionViewerCertificateIamCertificateId :: Maybe (Val Text)
   , _cloudFrontDistributionViewerCertificateMinimumProtocolVersion :: Maybe (Val Text)
   , _cloudFrontDistributionViewerCertificateSslSupportMethod :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON CloudFrontDistributionViewerCertificate where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 40, omitNothingFields = True }

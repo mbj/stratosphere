@@ -24,7 +24,7 @@ data ApplicationAutoScalingScalableTarget =
   , _applicationAutoScalingScalableTargetRoleARN :: Val Text
   , _applicationAutoScalingScalableTargetScalableDimension :: Val Text
   , _applicationAutoScalingScalableTargetServiceNamespace :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ApplicationAutoScalingScalableTarget where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 37, omitNothingFields = True }

@@ -20,7 +20,7 @@ data EMRClusterEbsConfiguration =
   EMRClusterEbsConfiguration
   { _eMRClusterEbsConfigurationEbsBlockDeviceConfigs :: Maybe [EMRClusterEbsBlockDeviceConfig]
   , _eMRClusterEbsConfigurationEbsOptimized :: Maybe (Val Bool')
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EMRClusterEbsConfiguration where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 27, omitNothingFields = True }

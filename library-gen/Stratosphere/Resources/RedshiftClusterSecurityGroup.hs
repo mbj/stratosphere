@@ -19,7 +19,7 @@ import Stratosphere.Values
 data RedshiftClusterSecurityGroup =
   RedshiftClusterSecurityGroup
   { _redshiftClusterSecurityGroupDescription :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON RedshiftClusterSecurityGroup where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 29, omitNothingFields = True }

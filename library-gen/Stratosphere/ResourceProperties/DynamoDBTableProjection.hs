@@ -20,7 +20,7 @@ data DynamoDBTableProjection =
   DynamoDBTableProjection
   { _dynamoDBTableProjectionNonKeyAttributes :: Maybe [Val Text]
   , _dynamoDBTableProjectionProjectionType :: Maybe (Val ProjectionType)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON DynamoDBTableProjection where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 24, omitNothingFields = True }

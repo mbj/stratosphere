@@ -23,7 +23,7 @@ data CertificateManagerCertificate =
   , _certificateManagerCertificateDomainValidationOptions :: Maybe [CertificateManagerCertificateDomainValidationOption]
   , _certificateManagerCertificateSubjectAlternativeNames :: Maybe [Val Text]
   , _certificateManagerCertificateTags :: Maybe [Tag]
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON CertificateManagerCertificate where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 30, omitNothingFields = True }

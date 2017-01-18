@@ -20,7 +20,7 @@ data SNSTopicSubscription =
   SNSTopicSubscription
   { _sNSTopicSubscriptionEndpoint :: Val Text
   , _sNSTopicSubscriptionProtocol :: Val SNSProtocol
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON SNSTopicSubscription where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 21, omitNothingFields = True }

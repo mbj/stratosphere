@@ -20,7 +20,7 @@ data OpsWorksStackElasticIp =
   OpsWorksStackElasticIp
   { _opsWorksStackElasticIpIp :: Val Text
   , _opsWorksStackElasticIpName :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON OpsWorksStackElasticIp where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 23, omitNothingFields = True }

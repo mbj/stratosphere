@@ -20,7 +20,7 @@ data ConfigConfigRuleSourceDetail =
   ConfigConfigRuleSourceDetail
   { _configConfigRuleSourceDetailEventSource :: Val Text
   , _configConfigRuleSourceDetailMessageType :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ConfigConfigRuleSourceDetail where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 29, omitNothingFields = True }

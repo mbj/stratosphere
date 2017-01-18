@@ -22,7 +22,7 @@ data CodeDeployDeploymentGroupEc2TagFilter =
   { _codeDeployDeploymentGroupEc2TagFilterKey :: Maybe (Val Text)
   , _codeDeployDeploymentGroupEc2TagFilterType :: Val Text
   , _codeDeployDeploymentGroupEc2TagFilterValue :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON CodeDeployDeploymentGroupEc2TagFilter where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 38, omitNothingFields = True }

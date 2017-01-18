@@ -22,7 +22,7 @@ data ApiGatewayBasePathMapping =
   , _apiGatewayBasePathMappingDomainName :: Maybe (Val Text)
   , _apiGatewayBasePathMappingRestApiId :: Maybe (Val Text)
   , _apiGatewayBasePathMappingStage :: Maybe (Val Text)
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON ApiGatewayBasePathMapping where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 26, omitNothingFields = True }

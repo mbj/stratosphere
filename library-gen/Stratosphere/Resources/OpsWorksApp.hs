@@ -33,7 +33,7 @@ data OpsWorksApp =
   , _opsWorksAppSslConfiguration :: Maybe OpsWorksAppSslConfiguration
   , _opsWorksAppStackId :: Val Text
   , _opsWorksAppType :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON OpsWorksApp where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 12, omitNothingFields = True }

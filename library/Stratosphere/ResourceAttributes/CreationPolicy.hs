@@ -36,7 +36,7 @@ import Stratosphere.ResourceAttributes.ResourceSignal
 data CreationPolicy =
   CreationPolicy
   { _creationPolicyResourceSignal :: ResourceSignal
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON CreationPolicy where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 15, omitNothingFields = True }

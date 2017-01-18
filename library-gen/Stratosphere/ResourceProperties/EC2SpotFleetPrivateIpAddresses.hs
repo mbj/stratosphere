@@ -20,7 +20,7 @@ data EC2SpotFleetPrivateIpAddresses =
   EC2SpotFleetPrivateIpAddresses
   { _eC2SpotFleetPrivateIpAddressesPrimary :: Maybe (Val Bool')
   , _eC2SpotFleetPrivateIpAddressesPrivateIpAddress :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON EC2SpotFleetPrivateIpAddresses where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 31, omitNothingFields = True }

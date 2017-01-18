@@ -20,7 +20,7 @@ data RedshiftClusterSubnetGroup =
   RedshiftClusterSubnetGroup
   { _redshiftClusterSubnetGroupDescription :: Val Text
   , _redshiftClusterSubnetGroupSubnetIds :: [Val Text]
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON RedshiftClusterSubnetGroup where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 27, omitNothingFields = True }

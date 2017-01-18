@@ -21,7 +21,7 @@ data IoTTopicRuleS3Action =
   { _ioTTopicRuleS3ActionBucketName :: Val Text
   , _ioTTopicRuleS3ActionKey :: Val Text
   , _ioTTopicRuleS3ActionRoleArn :: Val Text
-  } deriving (Show, Generic)
+  } deriving (Show, Eq, Generic)
 
 instance ToJSON IoTTopicRuleS3Action where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 21, omitNothingFields = True }
