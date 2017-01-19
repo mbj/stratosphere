@@ -41,6 +41,7 @@ data Val a
  | GetAtt T.Text T.Text
  | Base64 (Val a)
  | Join T.Text [Val a]
+ | Split T.Text T.Text
  | Select Integer' (Val a)
  | GetAZs (Val a)
  | FindInMap (Val a) (Val a) (Val a) -- ^ Map name, top level key, and second level key
@@ -62,6 +63,7 @@ instance (ToJSON a) => ToJSON (Val a) where
   toJSON (GetAtt x y) = mkFunc "Fn::GetAtt" [toJSON x, toJSON y]
   toJSON (Base64 v) = object [("Fn::Base64", toJSON v)]
   toJSON (Join d vs) = mkFunc "Fn::Join" [toJSON d, toJSON vs]
+  toJSON (Split d s) = mkFunc "Fn::Split" [toJSON d, toJSON s]
   toJSON (Select i vs) = mkFunc "Fn::Select" [toJSON i, toJSON vs]
   toJSON (GetAZs r) = object [("Fn::GetAZs", toJSON r)]
   toJSON (FindInMap mapName topKey secondKey) =
@@ -83,6 +85,7 @@ instance (FromJSON a) => FromJSON (Val a) where
       [("Fn::GetAtt", o')] -> uncurry GetAtt <$> parseJSON o'
       [("Fn::Base64", o')] -> Base64 <$> parseJSON o'
       [("Fn::Join", o')] -> uncurry Join <$> parseJSON o'
+      [("Fn::Split", o')] -> uncurry Split <$> parseJSON o'
       [("Fn::Select", o')] -> uncurry Select <$> parseJSON o'
       [("Fn::GetAZs", o')] -> GetAZs <$> parseJSON o'
       [("Fn::FindInMap", o')] -> do

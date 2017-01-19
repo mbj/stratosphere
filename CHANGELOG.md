@@ -4,6 +4,7 @@
 
 * Derive the `Eq` type class for everything. This is useful when comparing two
   templates.
+* Added the new `Fn::Split` function.
 
 ## 0.3.1
 
