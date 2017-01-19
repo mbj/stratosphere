@@ -12,16 +12,15 @@ import Data.Text
 import GHC.Generics
 
 import Stratosphere.Values
-import Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupTagProperty
 import Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupMetricsCollection
 import Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupNotificationConfigurations
+import Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupTagProperty
 
 -- | Full data type definition for AutoScalingAutoScalingGroup. See
 -- | 'autoScalingAutoScalingGroup' for a more convenient constructor.
 data AutoScalingAutoScalingGroup =
   AutoScalingAutoScalingGroup
-  { _autoScalingAutoScalingGroupAsTags :: Maybe [AutoScalingAutoScalingGroupTagProperty]
-  , _autoScalingAutoScalingGroupAvailabilityZones :: Maybe [Val Text]
+  { _autoScalingAutoScalingGroupAvailabilityZones :: Maybe [Val Text]
   , _autoScalingAutoScalingGroupCooldown :: Maybe (Val Text)
   , _autoScalingAutoScalingGroupDesiredCapacity :: Maybe (Val Text)
   , _autoScalingAutoScalingGroupHealthCheckGracePeriod :: Maybe (Val Integer')
@@ -34,6 +33,7 @@ data AutoScalingAutoScalingGroup =
   , _autoScalingAutoScalingGroupMinSize :: Val Text
   , _autoScalingAutoScalingGroupNotificationConfigurations :: Maybe AutoScalingAutoScalingGroupNotificationConfigurations
   , _autoScalingAutoScalingGroupPlacementGroup :: Maybe (Val Text)
+  , _autoScalingAutoScalingGroupTags :: Maybe [AutoScalingAutoScalingGroupTagProperty]
   , _autoScalingAutoScalingGroupTargetGroupARNs :: Maybe [Val Text]
   , _autoScalingAutoScalingGroupTerminationPolicies :: Maybe [Val Text]
   , _autoScalingAutoScalingGroupVPCZoneIdentifier :: Maybe [Val Text]
@@ -53,8 +53,7 @@ autoScalingAutoScalingGroup
   -> AutoScalingAutoScalingGroup
 autoScalingAutoScalingGroup maxSizearg minSizearg =
   AutoScalingAutoScalingGroup
-  { _autoScalingAutoScalingGroupAsTags = Nothing
-  , _autoScalingAutoScalingGroupAvailabilityZones = Nothing
+  { _autoScalingAutoScalingGroupAvailabilityZones = Nothing
   , _autoScalingAutoScalingGroupCooldown = Nothing
   , _autoScalingAutoScalingGroupDesiredCapacity = Nothing
   , _autoScalingAutoScalingGroupHealthCheckGracePeriod = Nothing
@@ -67,14 +66,11 @@ autoScalingAutoScalingGroup maxSizearg minSizearg =
   , _autoScalingAutoScalingGroupMinSize = minSizearg
   , _autoScalingAutoScalingGroupNotificationConfigurations = Nothing
   , _autoScalingAutoScalingGroupPlacementGroup = Nothing
+  , _autoScalingAutoScalingGroupTags = Nothing
   , _autoScalingAutoScalingGroupTargetGroupARNs = Nothing
   , _autoScalingAutoScalingGroupTerminationPolicies = Nothing
   , _autoScalingAutoScalingGroupVPCZoneIdentifier = Nothing
   }
-
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-tags
-asasgAsTags :: Lens' AutoScalingAutoScalingGroup (Maybe [AutoScalingAutoScalingGroupTagProperty])
-asasgAsTags = lens _autoScalingAutoScalingGroupAsTags (\s a -> s { _autoScalingAutoScalingGroupAsTags = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-availabilityzones
 asasgAvailabilityZones :: Lens' AutoScalingAutoScalingGroup (Maybe [Val Text])
@@ -127,6 +123,10 @@ asasgNotificationConfigurations = lens _autoScalingAutoScalingGroupNotificationC
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-placementgroup
 asasgPlacementGroup :: Lens' AutoScalingAutoScalingGroup (Maybe (Val Text))
 asasgPlacementGroup = lens _autoScalingAutoScalingGroupPlacementGroup (\s a -> s { _autoScalingAutoScalingGroupPlacementGroup = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-tags
+asasgTags :: Lens' AutoScalingAutoScalingGroup (Maybe [AutoScalingAutoScalingGroupTagProperty])
+asasgTags = lens _autoScalingAutoScalingGroupTags (\s a -> s { _autoScalingAutoScalingGroupTags = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-targetgrouparns
 asasgTargetGroupARNs :: Lens' AutoScalingAutoScalingGroup (Maybe [Val Text])

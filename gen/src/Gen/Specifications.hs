@@ -55,15 +55,39 @@ fixSpecBugs spec =
   & propertyTypesLens
   . at "AWS::RDS::DBSecurityGroup.Ingress"
   .~ Nothing
+  -- AWS::AutoScaling::AutoScalingGroup has a property called AsTags, but it
+  -- should just be called Tags.
+  & resourceTypesLens
+  . ix "AWS::AutoScaling::AutoScalingGroup"
+  . resourcePropsLens
+  . at "Tags"
+  .~ (spec ^? resourceTypesLens . ix "AWS::AutoScaling::AutoScalingGroup" . resourcePropsLens . ix "AsTags")
+  & resourceTypesLens
+  . ix "AWS::AutoScaling::AutoScalingGroup"
+  . resourcePropsLens
+  . at "AsTags"
+  .~ Nothing
+  -- AWS::ECS::TaskDefinition.ContainerDefinition has two properties that are
+  -- required, but the doc says they aren't.
+  & propertyTypesLens
+  . ix "AWS::ECS::TaskDefinition.ContainerDefinition"
+  . propertyPropsLens
+  . at "Image"
+  %~ (\(Just rawProp) -> Just rawProp { rawPropertyRequired = True })
+  & propertyTypesLens
+  . ix "AWS::ECS::TaskDefinition.ContainerDefinition"
+  . propertyPropsLens
+  . at "Name"
+  %~ (\(Just rawProp) -> Just rawProp { rawPropertyRequired = True })
   where
     propertyTypesLens :: Lens' RawCloudFormationSpec (Map Text RawPropertyType)
     propertyTypesLens = lens rawCloudFormationSpecPropertyTypes (\s a -> s { rawCloudFormationSpecPropertyTypes = a })
-    -- propertyPropsLens :: Lens' RawPropertyType (Map Text RawProperty)
-    -- propertyPropsLens = lens rawPropertyTypeProperties (\s a -> s { rawPropertyTypeProperties = a })
-    -- resourceTypesLens :: Lens' RawCloudFormationSpec (Map Text RawResourceType)
-    -- resourceTypesLens = lens rawCloudFormationSpecResourceTypes (\s a -> s { rawCloudFormationSpecResourceTypes = a })
-    -- resourcePropsLens :: Lens' RawResourceType (Map Text RawProperty)
-    -- resourcePropsLens = lens rawResourceTypeProperties (\s a -> s { rawResourceTypeProperties = a })
+    propertyPropsLens :: Lens' RawPropertyType (Map Text RawProperty)
+    propertyPropsLens = lens rawPropertyTypeProperties (\s a -> s { rawPropertyTypeProperties = a })
+    resourceTypesLens :: Lens' RawCloudFormationSpec (Map Text RawResourceType)
+    resourceTypesLens = lens rawCloudFormationSpecResourceTypes (\s a -> s { rawCloudFormationSpecResourceTypes = a })
+    resourcePropsLens :: Lens' RawResourceType (Map Text RawProperty)
+    resourcePropsLens = lens rawResourceTypeProperties (\s a -> s { rawResourceTypeProperties = a })
 
 data PropertyType
   = PropertyType

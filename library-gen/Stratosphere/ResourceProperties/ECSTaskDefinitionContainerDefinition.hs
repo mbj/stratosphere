@@ -36,13 +36,13 @@ data ECSTaskDefinitionContainerDefinition =
   , _eCSTaskDefinitionContainerDefinitionEssential :: Maybe (Val Bool')
   , _eCSTaskDefinitionContainerDefinitionExtraHosts :: Maybe [ECSTaskDefinitionHostEntry]
   , _eCSTaskDefinitionContainerDefinitionHostname :: Maybe (Val Text)
-  , _eCSTaskDefinitionContainerDefinitionImage :: Maybe (Val Text)
+  , _eCSTaskDefinitionContainerDefinitionImage :: Val Text
   , _eCSTaskDefinitionContainerDefinitionLinks :: Maybe [Val Text]
   , _eCSTaskDefinitionContainerDefinitionLogConfiguration :: Maybe ECSTaskDefinitionLogConfiguration
   , _eCSTaskDefinitionContainerDefinitionMemory :: Maybe (Val Integer')
   , _eCSTaskDefinitionContainerDefinitionMemoryReservation :: Maybe (Val Integer')
   , _eCSTaskDefinitionContainerDefinitionMountPoints :: Maybe [ECSTaskDefinitionMountPoint]
-  , _eCSTaskDefinitionContainerDefinitionName :: Maybe (Val Text)
+  , _eCSTaskDefinitionContainerDefinitionName :: Val Text
   , _eCSTaskDefinitionContainerDefinitionPortMappings :: Maybe [ECSTaskDefinitionPortMapping]
   , _eCSTaskDefinitionContainerDefinitionPrivileged :: Maybe (Val Bool')
   , _eCSTaskDefinitionContainerDefinitionReadonlyRootFilesystem :: Maybe (Val Bool')
@@ -61,8 +61,10 @@ instance FromJSON ECSTaskDefinitionContainerDefinition where
 -- | Constructor for 'ECSTaskDefinitionContainerDefinition' containing
 -- | required fields as arguments.
 ecsTaskDefinitionContainerDefinition
-  :: ECSTaskDefinitionContainerDefinition
-ecsTaskDefinitionContainerDefinition  =
+  :: Val Text -- ^ 'ecstdcdImage'
+  -> Val Text -- ^ 'ecstdcdName'
+  -> ECSTaskDefinitionContainerDefinition
+ecsTaskDefinitionContainerDefinition imagearg namearg =
   ECSTaskDefinitionContainerDefinition
   { _eCSTaskDefinitionContainerDefinitionCommand = Nothing
   , _eCSTaskDefinitionContainerDefinitionCpu = Nothing
@@ -76,13 +78,13 @@ ecsTaskDefinitionContainerDefinition  =
   , _eCSTaskDefinitionContainerDefinitionEssential = Nothing
   , _eCSTaskDefinitionContainerDefinitionExtraHosts = Nothing
   , _eCSTaskDefinitionContainerDefinitionHostname = Nothing
-  , _eCSTaskDefinitionContainerDefinitionImage = Nothing
+  , _eCSTaskDefinitionContainerDefinitionImage = imagearg
   , _eCSTaskDefinitionContainerDefinitionLinks = Nothing
   , _eCSTaskDefinitionContainerDefinitionLogConfiguration = Nothing
   , _eCSTaskDefinitionContainerDefinitionMemory = Nothing
   , _eCSTaskDefinitionContainerDefinitionMemoryReservation = Nothing
   , _eCSTaskDefinitionContainerDefinitionMountPoints = Nothing
-  , _eCSTaskDefinitionContainerDefinitionName = Nothing
+  , _eCSTaskDefinitionContainerDefinitionName = namearg
   , _eCSTaskDefinitionContainerDefinitionPortMappings = Nothing
   , _eCSTaskDefinitionContainerDefinitionPrivileged = Nothing
   , _eCSTaskDefinitionContainerDefinitionReadonlyRootFilesystem = Nothing
@@ -141,7 +143,7 @@ ecstdcdHostname :: Lens' ECSTaskDefinitionContainerDefinition (Maybe (Val Text))
 ecstdcdHostname = lens _eCSTaskDefinitionContainerDefinitionHostname (\s a -> s { _eCSTaskDefinitionContainerDefinitionHostname = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-image
-ecstdcdImage :: Lens' ECSTaskDefinitionContainerDefinition (Maybe (Val Text))
+ecstdcdImage :: Lens' ECSTaskDefinitionContainerDefinition (Val Text)
 ecstdcdImage = lens _eCSTaskDefinitionContainerDefinitionImage (\s a -> s { _eCSTaskDefinitionContainerDefinitionImage = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-links
@@ -165,7 +167,7 @@ ecstdcdMountPoints :: Lens' ECSTaskDefinitionContainerDefinition (Maybe [ECSTask
 ecstdcdMountPoints = lens _eCSTaskDefinitionContainerDefinitionMountPoints (\s a -> s { _eCSTaskDefinitionContainerDefinitionMountPoints = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-name
-ecstdcdName :: Lens' ECSTaskDefinitionContainerDefinition (Maybe (Val Text))
+ecstdcdName :: Lens' ECSTaskDefinitionContainerDefinition (Val Text)
 ecstdcdName = lens _eCSTaskDefinitionContainerDefinitionName (\s a -> s { _eCSTaskDefinitionContainerDefinitionName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-portmappings

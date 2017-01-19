@@ -1,10 +1,15 @@
 # Change Log
 
-## 0.3.2
+## 0.4.0
 
 * Derive the `Eq` type class for everything. This is useful when comparing two
   templates.
 * Added the new `Fn::Split` function.
+* Fix error in resource specification document where
+  `AWS::AutoScaling::AutoScalingGroup.Tags` was mistakenly called `AsTags`.
+* Fix error in resource specification document where the two properties `Image`
+  and `Name` in `AWS::ECS::TaskDefinition.ContainerDefinition` were incorrectly
+  marked as *not* required, even though they are required.
 
 ## 0.3.1
 
