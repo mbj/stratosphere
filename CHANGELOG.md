@@ -10,6 +10,7 @@
 * Fix error in resource specification document where the two properties `Image`
   and `Name` in `AWS::ECS::TaskDefinition.ContainerDefinition` were incorrectly
   marked as *not* required, even though they are required.
+* Fix JSON instances for auto scaling group update policies
 
 ## 0.3.1
 

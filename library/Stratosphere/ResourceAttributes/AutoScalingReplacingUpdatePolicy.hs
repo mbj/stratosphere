@@ -23,10 +23,10 @@ data AutoScalingReplacingUpdatePolicy =
   } deriving (Show, Eq, Generic)
 
 instance ToJSON AutoScalingReplacingUpdatePolicy where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 27, omitNothingFields = True }
+  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 33, omitNothingFields = True }
 
 instance FromJSON AutoScalingReplacingUpdatePolicy where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 27, omitNothingFields = True }
+  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 33, omitNothingFields = True }
 
 -- | Constructor for 'AutoScalingReplacingUpdatePolicy' containing required fields
 -- as arguments.

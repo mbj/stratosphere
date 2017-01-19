@@ -36,10 +36,10 @@ data AutoScalingScheduledActionPolicy =
   } deriving (Show, Eq, Generic)
 
 instance ToJSON AutoScalingScheduledActionPolicy where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 27, omitNothingFields = True }
+  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 33, omitNothingFields = True }
 
 instance FromJSON AutoScalingScheduledActionPolicy where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 27, omitNothingFields = True }
+  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 33, omitNothingFields = True }
 
 -- | Constructor for 'AutoScalingScheduledActionPolicy' containing required fields
 -- as arguments.

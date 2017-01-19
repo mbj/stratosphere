@@ -28,10 +28,10 @@ data AutoScalingRollingUpdatePolicy =
   } deriving (Show, Eq, Generic)
 
 instance ToJSON AutoScalingRollingUpdatePolicy where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 25, omitNothingFields = True }
+  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 31, omitNothingFields = True }
 
 instance FromJSON AutoScalingRollingUpdatePolicy where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 25, omitNothingFields = True }
+  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 31, omitNothingFields = True }
 
 -- | Constructor for 'AutoScalingRollingUpdatePolicy' containing required fields as
 -- arguments.
