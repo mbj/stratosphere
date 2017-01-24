@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-certificatemanager-certificate-domainvalidationoption.html
 
 module Stratosphere.ResourceProperties.CertificateManagerCertificateDomainValidationOption where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -22,13 +21,21 @@ data CertificateManagerCertificateDomainValidationOption =
   CertificateManagerCertificateDomainValidationOption
   { _certificateManagerCertificateDomainValidationOptionDomainName :: Val Text
   , _certificateManagerCertificateDomainValidationOptionValidationDomain :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON CertificateManagerCertificateDomainValidationOption where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 52, omitNothingFields = True }
+  toJSON CertificateManagerCertificateDomainValidationOption{..} =
+    object
+    [ "DomainName" .= _certificateManagerCertificateDomainValidationOptionDomainName
+    , "ValidationDomain" .= _certificateManagerCertificateDomainValidationOptionValidationDomain
+    ]
 
 instance FromJSON CertificateManagerCertificateDomainValidationOption where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 52, omitNothingFields = True }
+  parseJSON (Object obj) =
+    CertificateManagerCertificateDomainValidationOption <$>
+      obj .: "DomainName" <*>
+      obj .: "ValidationDomain"
+  parseJSON _ = mempty
 
 -- | Constructor for 'CertificateManagerCertificateDomainValidationOption'
 -- | containing required fields as arguments.

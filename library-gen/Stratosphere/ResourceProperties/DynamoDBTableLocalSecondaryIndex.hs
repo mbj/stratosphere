@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-lsi.html
 
 module Stratosphere.ResourceProperties.DynamoDBTableLocalSecondaryIndex where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.DynamoDBTableKeySchema
@@ -22,13 +21,23 @@ data DynamoDBTableLocalSecondaryIndex =
   { _dynamoDBTableLocalSecondaryIndexIndexName :: Val Text
   , _dynamoDBTableLocalSecondaryIndexKeySchema :: [DynamoDBTableKeySchema]
   , _dynamoDBTableLocalSecondaryIndexProjection :: DynamoDBTableProjection
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON DynamoDBTableLocalSecondaryIndex where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 33, omitNothingFields = True }
+  toJSON DynamoDBTableLocalSecondaryIndex{..} =
+    object
+    [ "IndexName" .= _dynamoDBTableLocalSecondaryIndexIndexName
+    , "KeySchema" .= _dynamoDBTableLocalSecondaryIndexKeySchema
+    , "Projection" .= _dynamoDBTableLocalSecondaryIndexProjection
+    ]
 
 instance FromJSON DynamoDBTableLocalSecondaryIndex where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 33, omitNothingFields = True }
+  parseJSON (Object obj) =
+    DynamoDBTableLocalSecondaryIndex <$>
+      obj .: "IndexName" <*>
+      obj .: "KeySchema" <*>
+      obj .: "Projection"
+  parseJSON _ = mempty
 
 -- | Constructor for 'DynamoDBTableLocalSecondaryIndex' containing required
 -- | fields as arguments.

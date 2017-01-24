@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-aliastarget.html
 
 module Stratosphere.ResourceProperties.Route53RecordSetGroupAliasTarget where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -21,13 +20,23 @@ data Route53RecordSetGroupAliasTarget =
   { _route53RecordSetGroupAliasTargetDNSName :: Val Text
   , _route53RecordSetGroupAliasTargetEvaluateTargetHealth :: Maybe (Val Bool')
   , _route53RecordSetGroupAliasTargetHostedZoneId :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON Route53RecordSetGroupAliasTarget where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 33, omitNothingFields = True }
+  toJSON Route53RecordSetGroupAliasTarget{..} =
+    object
+    [ "DNSName" .= _route53RecordSetGroupAliasTargetDNSName
+    , "EvaluateTargetHealth" .= _route53RecordSetGroupAliasTargetEvaluateTargetHealth
+    , "HostedZoneId" .= _route53RecordSetGroupAliasTargetHostedZoneId
+    ]
 
 instance FromJSON Route53RecordSetGroupAliasTarget where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 33, omitNothingFields = True }
+  parseJSON (Object obj) =
+    Route53RecordSetGroupAliasTarget <$>
+      obj .: "DNSName" <*>
+      obj .: "EvaluateTargetHealth" <*>
+      obj .: "HostedZoneId"
+  parseJSON _ = mempty
 
 -- | Constructor for 'Route53RecordSetGroupAliasTarget' containing required
 -- | fields as arguments.

@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-property-redshift-clusterparametergroup-parameter.html
 
 module Stratosphere.ResourceProperties.RedshiftClusterParameterGroupParameter where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -21,13 +20,21 @@ data RedshiftClusterParameterGroupParameter =
   RedshiftClusterParameterGroupParameter
   { _redshiftClusterParameterGroupParameterParameterName :: Val Text
   , _redshiftClusterParameterGroupParameterParameterValue :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON RedshiftClusterParameterGroupParameter where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 39, omitNothingFields = True }
+  toJSON RedshiftClusterParameterGroupParameter{..} =
+    object
+    [ "ParameterName" .= _redshiftClusterParameterGroupParameterParameterName
+    , "ParameterValue" .= _redshiftClusterParameterGroupParameterParameterValue
+    ]
 
 instance FromJSON RedshiftClusterParameterGroupParameter where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 39, omitNothingFields = True }
+  parseJSON (Object obj) =
+    RedshiftClusterParameterGroupParameter <$>
+      obj .: "ParameterName" <*>
+      obj .: "ParameterValue"
+  parseJSON _ = mempty
 
 -- | Constructor for 'RedshiftClusterParameterGroupParameter' containing
 -- | required fields as arguments.

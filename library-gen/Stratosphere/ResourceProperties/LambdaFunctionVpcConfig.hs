@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-vpcconfig.html
 
 module Stratosphere.ResourceProperties.LambdaFunctionVpcConfig where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -20,13 +19,21 @@ data LambdaFunctionVpcConfig =
   LambdaFunctionVpcConfig
   { _lambdaFunctionVpcConfigSecurityGroupIds :: [Val Text]
   , _lambdaFunctionVpcConfigSubnetIds :: [Val Text]
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON LambdaFunctionVpcConfig where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 24, omitNothingFields = True }
+  toJSON LambdaFunctionVpcConfig{..} =
+    object
+    [ "SecurityGroupIds" .= _lambdaFunctionVpcConfigSecurityGroupIds
+    , "SubnetIds" .= _lambdaFunctionVpcConfigSubnetIds
+    ]
 
 instance FromJSON LambdaFunctionVpcConfig where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 24, omitNothingFields = True }
+  parseJSON (Object obj) =
+    LambdaFunctionVpcConfig <$>
+      obj .: "SecurityGroupIds" <*>
+      obj .: "SubnetIds"
+  parseJSON _ = mempty
 
 -- | Constructor for 'LambdaFunctionVpcConfig' containing required fields as
 -- | arguments.

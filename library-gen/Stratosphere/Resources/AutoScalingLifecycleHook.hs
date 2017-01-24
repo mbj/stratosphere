@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-lifecyclehook.html
 
 module Stratosphere.Resources.AutoScalingLifecycleHook where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -25,13 +24,31 @@ data AutoScalingLifecycleHook =
   , _autoScalingLifecycleHookNotificationMetadata :: Maybe (Val Text)
   , _autoScalingLifecycleHookNotificationTargetARN :: Val Text
   , _autoScalingLifecycleHookRoleARN :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON AutoScalingLifecycleHook where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 25, omitNothingFields = True }
+  toJSON AutoScalingLifecycleHook{..} =
+    object
+    [ "AutoScalingGroupName" .= _autoScalingLifecycleHookAutoScalingGroupName
+    , "DefaultResult" .= _autoScalingLifecycleHookDefaultResult
+    , "HeartbeatTimeout" .= _autoScalingLifecycleHookHeartbeatTimeout
+    , "LifecycleTransition" .= _autoScalingLifecycleHookLifecycleTransition
+    , "NotificationMetadata" .= _autoScalingLifecycleHookNotificationMetadata
+    , "NotificationTargetARN" .= _autoScalingLifecycleHookNotificationTargetARN
+    , "RoleARN" .= _autoScalingLifecycleHookRoleARN
+    ]
 
 instance FromJSON AutoScalingLifecycleHook where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 25, omitNothingFields = True }
+  parseJSON (Object obj) =
+    AutoScalingLifecycleHook <$>
+      obj .: "AutoScalingGroupName" <*>
+      obj .: "DefaultResult" <*>
+      obj .: "HeartbeatTimeout" <*>
+      obj .: "LifecycleTransition" <*>
+      obj .: "NotificationMetadata" <*>
+      obj .: "NotificationTargetARN" <*>
+      obj .: "RoleARN"
+  parseJSON _ = mempty
 
 -- | Constructor for 'AutoScalingLifecycleHook' containing required fields as
 -- | arguments.

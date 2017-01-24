@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html
 
 module Stratosphere.ResourceProperties.ApiGatewayUsagePlanQuotaSettings where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.Types
@@ -21,13 +20,23 @@ data ApiGatewayUsagePlanQuotaSettings =
   { _apiGatewayUsagePlanQuotaSettingsLimit :: Maybe (Val Integer')
   , _apiGatewayUsagePlanQuotaSettingsOffset :: Maybe (Val Integer')
   , _apiGatewayUsagePlanQuotaSettingsPeriod :: Maybe (Val Period)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON ApiGatewayUsagePlanQuotaSettings where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 33, omitNothingFields = True }
+  toJSON ApiGatewayUsagePlanQuotaSettings{..} =
+    object
+    [ "Limit" .= _apiGatewayUsagePlanQuotaSettingsLimit
+    , "Offset" .= _apiGatewayUsagePlanQuotaSettingsOffset
+    , "Period" .= _apiGatewayUsagePlanQuotaSettingsPeriod
+    ]
 
 instance FromJSON ApiGatewayUsagePlanQuotaSettings where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 33, omitNothingFields = True }
+  parseJSON (Object obj) =
+    ApiGatewayUsagePlanQuotaSettings <$>
+      obj .: "Limit" <*>
+      obj .: "Offset" <*>
+      obj .: "Period"
+  parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayUsagePlanQuotaSettings' containing required
 -- | fields as arguments.

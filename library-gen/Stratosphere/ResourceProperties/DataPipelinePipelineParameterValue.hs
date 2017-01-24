@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datapipeline-pipeline-parametervalues.html
 
 module Stratosphere.ResourceProperties.DataPipelinePipelineParameterValue where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -20,13 +19,21 @@ data DataPipelinePipelineParameterValue =
   DataPipelinePipelineParameterValue
   { _dataPipelinePipelineParameterValueId :: Val Text
   , _dataPipelinePipelineParameterValueStringValue :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON DataPipelinePipelineParameterValue where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 35, omitNothingFields = True }
+  toJSON DataPipelinePipelineParameterValue{..} =
+    object
+    [ "Id" .= _dataPipelinePipelineParameterValueId
+    , "StringValue" .= _dataPipelinePipelineParameterValueStringValue
+    ]
 
 instance FromJSON DataPipelinePipelineParameterValue where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 35, omitNothingFields = True }
+  parseJSON (Object obj) =
+    DataPipelinePipelineParameterValue <$>
+      obj .: "Id" <*>
+      obj .: "StringValue"
+  parseJSON _ = mempty
 
 -- | Constructor for 'DataPipelinePipelineParameterValue' containing required
 -- | fields as arguments.

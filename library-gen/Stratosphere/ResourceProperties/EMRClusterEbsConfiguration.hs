@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-ebsconfiguration.html
 
 module Stratosphere.ResourceProperties.EMRClusterEbsConfiguration where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.EMRClusterEbsBlockDeviceConfig
@@ -20,13 +19,21 @@ data EMRClusterEbsConfiguration =
   EMRClusterEbsConfiguration
   { _eMRClusterEbsConfigurationEbsBlockDeviceConfigs :: Maybe [EMRClusterEbsBlockDeviceConfig]
   , _eMRClusterEbsConfigurationEbsOptimized :: Maybe (Val Bool')
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON EMRClusterEbsConfiguration where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 27, omitNothingFields = True }
+  toJSON EMRClusterEbsConfiguration{..} =
+    object
+    [ "EbsBlockDeviceConfigs" .= _eMRClusterEbsConfigurationEbsBlockDeviceConfigs
+    , "EbsOptimized" .= _eMRClusterEbsConfigurationEbsOptimized
+    ]
 
 instance FromJSON EMRClusterEbsConfiguration where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 27, omitNothingFields = True }
+  parseJSON (Object obj) =
+    EMRClusterEbsConfiguration <$>
+      obj .: "EbsBlockDeviceConfigs" <*>
+      obj .: "EbsOptimized"
+  parseJSON _ = mempty
 
 -- | Constructor for 'EMRClusterEbsConfiguration' containing required fields
 -- | as arguments.

@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-iaminstanceprofile.html
 
 module Stratosphere.ResourceProperties.EC2SpotFleetIamInstanceProfile where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -19,13 +18,19 @@ import Stratosphere.Values
 data EC2SpotFleetIamInstanceProfile =
   EC2SpotFleetIamInstanceProfile
   { _eC2SpotFleetIamInstanceProfileArn :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON EC2SpotFleetIamInstanceProfile where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 31, omitNothingFields = True }
+  toJSON EC2SpotFleetIamInstanceProfile{..} =
+    object
+    [ "Arn" .= _eC2SpotFleetIamInstanceProfileArn
+    ]
 
 instance FromJSON EC2SpotFleetIamInstanceProfile where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 31, omitNothingFields = True }
+  parseJSON (Object obj) =
+    EC2SpotFleetIamInstanceProfile <$>
+      obj .: "Arn"
+  parseJSON _ = mempty
 
 -- | Constructor for 'EC2SpotFleetIamInstanceProfile' containing required
 -- | fields as arguments.

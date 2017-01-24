@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ec2inboundpermission.html
 
 module Stratosphere.ResourceProperties.GameLiftFleetIpPermission where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -22,13 +21,25 @@ data GameLiftFleetIpPermission =
   , _gameLiftFleetIpPermissionIpRange :: Val Text
   , _gameLiftFleetIpPermissionProtocol :: Val Text
   , _gameLiftFleetIpPermissionToPort :: Val Integer'
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON GameLiftFleetIpPermission where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 26, omitNothingFields = True }
+  toJSON GameLiftFleetIpPermission{..} =
+    object
+    [ "FromPort" .= _gameLiftFleetIpPermissionFromPort
+    , "IpRange" .= _gameLiftFleetIpPermissionIpRange
+    , "Protocol" .= _gameLiftFleetIpPermissionProtocol
+    , "ToPort" .= _gameLiftFleetIpPermissionToPort
+    ]
 
 instance FromJSON GameLiftFleetIpPermission where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 26, omitNothingFields = True }
+  parseJSON (Object obj) =
+    GameLiftFleetIpPermission <$>
+      obj .: "FromPort" <*>
+      obj .: "IpRange" <*>
+      obj .: "Protocol" <*>
+      obj .: "ToPort"
+  parseJSON _ = mempty
 
 -- | Constructor for 'GameLiftFleetIpPermission' containing required fields as
 -- | arguments.

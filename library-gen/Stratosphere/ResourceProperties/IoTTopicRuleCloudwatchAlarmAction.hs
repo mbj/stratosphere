@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-cloudwatchalarm.html
 
 module Stratosphere.ResourceProperties.IoTTopicRuleCloudwatchAlarmAction where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -22,13 +21,25 @@ data IoTTopicRuleCloudwatchAlarmAction =
   , _ioTTopicRuleCloudwatchAlarmActionRoleArn :: Val Text
   , _ioTTopicRuleCloudwatchAlarmActionStateReason :: Val Text
   , _ioTTopicRuleCloudwatchAlarmActionStateValue :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON IoTTopicRuleCloudwatchAlarmAction where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 34, omitNothingFields = True }
+  toJSON IoTTopicRuleCloudwatchAlarmAction{..} =
+    object
+    [ "AlarmName" .= _ioTTopicRuleCloudwatchAlarmActionAlarmName
+    , "RoleArn" .= _ioTTopicRuleCloudwatchAlarmActionRoleArn
+    , "StateReason" .= _ioTTopicRuleCloudwatchAlarmActionStateReason
+    , "StateValue" .= _ioTTopicRuleCloudwatchAlarmActionStateValue
+    ]
 
 instance FromJSON IoTTopicRuleCloudwatchAlarmAction where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 34, omitNothingFields = True }
+  parseJSON (Object obj) =
+    IoTTopicRuleCloudwatchAlarmAction <$>
+      obj .: "AlarmName" <*>
+      obj .: "RoleArn" <*>
+      obj .: "StateReason" <*>
+      obj .: "StateValue"
+  parseJSON _ = mempty
 
 -- | Constructor for 'IoTTopicRuleCloudwatchAlarmAction' containing required
 -- | fields as arguments.

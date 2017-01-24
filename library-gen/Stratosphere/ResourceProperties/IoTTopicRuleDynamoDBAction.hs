@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-dynamodb.html
 
 module Stratosphere.ResourceProperties.IoTTopicRuleDynamoDBAction where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -25,13 +24,31 @@ data IoTTopicRuleDynamoDBAction =
   , _ioTTopicRuleDynamoDBActionRangeKeyValue :: Val Text
   , _ioTTopicRuleDynamoDBActionRoleArn :: Val Text
   , _ioTTopicRuleDynamoDBActionTableName :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON IoTTopicRuleDynamoDBAction where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 27, omitNothingFields = True }
+  toJSON IoTTopicRuleDynamoDBAction{..} =
+    object
+    [ "HashKeyField" .= _ioTTopicRuleDynamoDBActionHashKeyField
+    , "HashKeyValue" .= _ioTTopicRuleDynamoDBActionHashKeyValue
+    , "PayloadField" .= _ioTTopicRuleDynamoDBActionPayloadField
+    , "RangeKeyField" .= _ioTTopicRuleDynamoDBActionRangeKeyField
+    , "RangeKeyValue" .= _ioTTopicRuleDynamoDBActionRangeKeyValue
+    , "RoleArn" .= _ioTTopicRuleDynamoDBActionRoleArn
+    , "TableName" .= _ioTTopicRuleDynamoDBActionTableName
+    ]
 
 instance FromJSON IoTTopicRuleDynamoDBAction where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 27, omitNothingFields = True }
+  parseJSON (Object obj) =
+    IoTTopicRuleDynamoDBAction <$>
+      obj .: "HashKeyField" <*>
+      obj .: "HashKeyValue" <*>
+      obj .: "PayloadField" <*>
+      obj .: "RangeKeyField" <*>
+      obj .: "RangeKeyValue" <*>
+      obj .: "RoleArn" <*>
+      obj .: "TableName"
+  parseJSON _ = mempty
 
 -- | Constructor for 'IoTTopicRuleDynamoDBAction' containing required fields
 -- | as arguments.

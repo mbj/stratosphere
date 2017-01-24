@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-deployment-revision-githublocation.html
 
 module Stratosphere.ResourceProperties.CodeDeployDeploymentGroupGitHubLocation where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -21,13 +20,21 @@ data CodeDeployDeploymentGroupGitHubLocation =
   CodeDeployDeploymentGroupGitHubLocation
   { _codeDeployDeploymentGroupGitHubLocationCommitId :: Val Text
   , _codeDeployDeploymentGroupGitHubLocationRepository :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON CodeDeployDeploymentGroupGitHubLocation where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 40, omitNothingFields = True }
+  toJSON CodeDeployDeploymentGroupGitHubLocation{..} =
+    object
+    [ "CommitId" .= _codeDeployDeploymentGroupGitHubLocationCommitId
+    , "Repository" .= _codeDeployDeploymentGroupGitHubLocationRepository
+    ]
 
 instance FromJSON CodeDeployDeploymentGroupGitHubLocation where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 40, omitNothingFields = True }
+  parseJSON (Object obj) =
+    CodeDeployDeploymentGroupGitHubLocation <$>
+      obj .: "CommitId" <*>
+      obj .: "Repository"
+  parseJSON _ = mempty
 
 -- | Constructor for 'CodeDeployDeploymentGroupGitHubLocation' containing
 -- | required fields as arguments.

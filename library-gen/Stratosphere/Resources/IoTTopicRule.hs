@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html
 
 module Stratosphere.Resources.IoTTopicRule where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.IoTTopicRuleTopicRulePayload
@@ -20,13 +19,21 @@ data IoTTopicRule =
   IoTTopicRule
   { _ioTTopicRuleRuleName :: Maybe (Val Text)
   , _ioTTopicRuleTopicRulePayload :: IoTTopicRuleTopicRulePayload
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON IoTTopicRule where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 13, omitNothingFields = True }
+  toJSON IoTTopicRule{..} =
+    object
+    [ "RuleName" .= _ioTTopicRuleRuleName
+    , "TopicRulePayload" .= _ioTTopicRuleTopicRulePayload
+    ]
 
 instance FromJSON IoTTopicRule where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 13, omitNothingFields = True }
+  parseJSON (Object obj) =
+    IoTTopicRule <$>
+      obj .: "RuleName" <*>
+      obj .: "TopicRulePayload"
+  parseJSON _ = mempty
 
 -- | Constructor for 'IoTTopicRule' containing required fields as arguments.
 ioTTopicRule

@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-volume.html
 
 module Stratosphere.Resources.OpsWorksVolume where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -22,13 +21,25 @@ data OpsWorksVolume =
   , _opsWorksVolumeMountPoint :: Maybe (Val Text)
   , _opsWorksVolumeName :: Maybe (Val Text)
   , _opsWorksVolumeStackId :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON OpsWorksVolume where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 15, omitNothingFields = True }
+  toJSON OpsWorksVolume{..} =
+    object
+    [ "Ec2VolumeId" .= _opsWorksVolumeEc2VolumeId
+    , "MountPoint" .= _opsWorksVolumeMountPoint
+    , "Name" .= _opsWorksVolumeName
+    , "StackId" .= _opsWorksVolumeStackId
+    ]
 
 instance FromJSON OpsWorksVolume where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 15, omitNothingFields = True }
+  parseJSON (Object obj) =
+    OpsWorksVolume <$>
+      obj .: "Ec2VolumeId" <*>
+      obj .: "MountPoint" <*>
+      obj .: "Name" <*>
+      obj .: "StackId"
+  parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksVolume' containing required fields as arguments.
 opsWorksVolume

@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-blockdev-mapping.html
 
 module Stratosphere.ResourceProperties.EC2InstanceBlockDeviceMapping where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.EC2InstanceEbs
@@ -23,13 +22,25 @@ data EC2InstanceBlockDeviceMapping =
   , _eC2InstanceBlockDeviceMappingEbs :: Maybe EC2InstanceEbs
   , _eC2InstanceBlockDeviceMappingNoDevice :: Maybe EC2InstanceNoDevice
   , _eC2InstanceBlockDeviceMappingVirtualName :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON EC2InstanceBlockDeviceMapping where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 30, omitNothingFields = True }
+  toJSON EC2InstanceBlockDeviceMapping{..} =
+    object
+    [ "DeviceName" .= _eC2InstanceBlockDeviceMappingDeviceName
+    , "Ebs" .= _eC2InstanceBlockDeviceMappingEbs
+    , "NoDevice" .= _eC2InstanceBlockDeviceMappingNoDevice
+    , "VirtualName" .= _eC2InstanceBlockDeviceMappingVirtualName
+    ]
 
 instance FromJSON EC2InstanceBlockDeviceMapping where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 30, omitNothingFields = True }
+  parseJSON (Object obj) =
+    EC2InstanceBlockDeviceMapping <$>
+      obj .: "DeviceName" <*>
+      obj .: "Ebs" <*>
+      obj .: "NoDevice" <*>
+      obj .: "VirtualName"
+  parseJSON _ = mempty
 
 -- | Constructor for 'EC2InstanceBlockDeviceMapping' containing required
 -- | fields as arguments.

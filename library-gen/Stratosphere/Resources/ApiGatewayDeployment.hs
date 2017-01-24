@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-deployment.html
 
 module Stratosphere.Resources.ApiGatewayDeployment where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.ApiGatewayDeploymentStageDescription
@@ -22,13 +21,25 @@ data ApiGatewayDeployment =
   , _apiGatewayDeploymentRestApiId :: Val Text
   , _apiGatewayDeploymentStageDescription :: Maybe ApiGatewayDeploymentStageDescription
   , _apiGatewayDeploymentStageName :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON ApiGatewayDeployment where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 21, omitNothingFields = True }
+  toJSON ApiGatewayDeployment{..} =
+    object
+    [ "Description" .= _apiGatewayDeploymentDescription
+    , "RestApiId" .= _apiGatewayDeploymentRestApiId
+    , "StageDescription" .= _apiGatewayDeploymentStageDescription
+    , "StageName" .= _apiGatewayDeploymentStageName
+    ]
 
 instance FromJSON ApiGatewayDeployment where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 21, omitNothingFields = True }
+  parseJSON (Object obj) =
+    ApiGatewayDeployment <$>
+      obj .: "Description" <*>
+      obj .: "RestApiId" <*>
+      obj .: "StageDescription" <*>
+      obj .: "StageName"
+  parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayDeployment' containing required fields as
 -- | arguments.

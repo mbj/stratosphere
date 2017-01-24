@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzoneconfig.html
 
 module Stratosphere.ResourceProperties.Route53HostedZoneHostedZoneConfig where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -19,13 +18,19 @@ import Stratosphere.Values
 data Route53HostedZoneHostedZoneConfig =
   Route53HostedZoneHostedZoneConfig
   { _route53HostedZoneHostedZoneConfigComment :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON Route53HostedZoneHostedZoneConfig where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 34, omitNothingFields = True }
+  toJSON Route53HostedZoneHostedZoneConfig{..} =
+    object
+    [ "Comment" .= _route53HostedZoneHostedZoneConfigComment
+    ]
 
 instance FromJSON Route53HostedZoneHostedZoneConfig where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 34, omitNothingFields = True }
+  parseJSON (Object obj) =
+    Route53HostedZoneHostedZoneConfig <$>
+      obj .: "Comment"
+  parseJSON _ = mempty
 
 -- | Constructor for 'Route53HostedZoneHostedZoneConfig' containing required
 -- | fields as arguments.

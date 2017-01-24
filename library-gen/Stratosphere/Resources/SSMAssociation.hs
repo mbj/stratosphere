@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html
 
 module Stratosphere.Resources.SSMAssociation where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.SSMAssociationParameterValues
@@ -25,13 +24,29 @@ data SSMAssociation =
   , _sSMAssociationParameters :: Maybe Object
   , _sSMAssociationScheduleExpression :: Maybe (Val Text)
   , _sSMAssociationTargets :: Maybe [SSMAssociationTarget]
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON SSMAssociation where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 15, omitNothingFields = True }
+  toJSON SSMAssociation{..} =
+    object
+    [ "DocumentVersion" .= _sSMAssociationDocumentVersion
+    , "InstanceId" .= _sSMAssociationInstanceId
+    , "Name" .= _sSMAssociationName
+    , "Parameters" .= _sSMAssociationParameters
+    , "ScheduleExpression" .= _sSMAssociationScheduleExpression
+    , "Targets" .= _sSMAssociationTargets
+    ]
 
 instance FromJSON SSMAssociation where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 15, omitNothingFields = True }
+  parseJSON (Object obj) =
+    SSMAssociation <$>
+      obj .: "DocumentVersion" <*>
+      obj .: "InstanceId" <*>
+      obj .: "Name" <*>
+      obj .: "Parameters" <*>
+      obj .: "ScheduleExpression" <*>
+      obj .: "Targets"
+  parseJSON _ = mempty
 
 -- | Constructor for 'SSMAssociation' containing required fields as arguments.
 ssmAssociation

@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkaclentry-portrange.html
 
 module Stratosphere.ResourceProperties.EC2NetworkAclEntryPortRange where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -20,13 +19,21 @@ data EC2NetworkAclEntryPortRange =
   EC2NetworkAclEntryPortRange
   { _eC2NetworkAclEntryPortRangeFrom :: Maybe (Val Integer')
   , _eC2NetworkAclEntryPortRangeTo :: Maybe (Val Integer')
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON EC2NetworkAclEntryPortRange where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 28, omitNothingFields = True }
+  toJSON EC2NetworkAclEntryPortRange{..} =
+    object
+    [ "From" .= _eC2NetworkAclEntryPortRangeFrom
+    , "To" .= _eC2NetworkAclEntryPortRangeTo
+    ]
 
 instance FromJSON EC2NetworkAclEntryPortRange where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 28, omitNothingFields = True }
+  parseJSON (Object obj) =
+    EC2NetworkAclEntryPortRange <$>
+      obj .: "From" <*>
+      obj .: "To"
+  parseJSON _ = mempty
 
 -- | Constructor for 'EC2NetworkAclEntryPortRange' containing required fields
 -- | as arguments.

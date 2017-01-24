@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-throttlesettings.html
 
 module Stratosphere.ResourceProperties.ApiGatewayUsagePlanThrottleSettings where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -20,13 +19,21 @@ data ApiGatewayUsagePlanThrottleSettings =
   ApiGatewayUsagePlanThrottleSettings
   { _apiGatewayUsagePlanThrottleSettingsBurstLimit :: Maybe (Val Integer')
   , _apiGatewayUsagePlanThrottleSettingsRateLimit :: Maybe (Val Double')
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON ApiGatewayUsagePlanThrottleSettings where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 36, omitNothingFields = True }
+  toJSON ApiGatewayUsagePlanThrottleSettings{..} =
+    object
+    [ "BurstLimit" .= _apiGatewayUsagePlanThrottleSettingsBurstLimit
+    , "RateLimit" .= _apiGatewayUsagePlanThrottleSettingsRateLimit
+    ]
 
 instance FromJSON ApiGatewayUsagePlanThrottleSettings where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 36, omitNothingFields = True }
+  parseJSON (Object obj) =
+    ApiGatewayUsagePlanThrottleSettings <$>
+      obj .: "BurstLimit" <*>
+      obj .: "RateLimit"
+  parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayUsagePlanThrottleSettings' containing required
 -- | fields as arguments.

@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule-noncurrentversiontransition.html
 
 module Stratosphere.ResourceProperties.S3BucketNoncurrentVersionTransition where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -20,13 +19,21 @@ data S3BucketNoncurrentVersionTransition =
   S3BucketNoncurrentVersionTransition
   { _s3BucketNoncurrentVersionTransitionStorageClass :: Val Text
   , _s3BucketNoncurrentVersionTransitionTransitionInDays :: Val Integer'
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON S3BucketNoncurrentVersionTransition where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 36, omitNothingFields = True }
+  toJSON S3BucketNoncurrentVersionTransition{..} =
+    object
+    [ "StorageClass" .= _s3BucketNoncurrentVersionTransitionStorageClass
+    , "TransitionInDays" .= _s3BucketNoncurrentVersionTransitionTransitionInDays
+    ]
 
 instance FromJSON S3BucketNoncurrentVersionTransition where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 36, omitNothingFields = True }
+  parseJSON (Object obj) =
+    S3BucketNoncurrentVersionTransition <$>
+      obj .: "StorageClass" <*>
+      obj .: "TransitionInDays"
+  parseJSON _ = mempty
 
 -- | Constructor for 'S3BucketNoncurrentVersionTransition' containing required
 -- | fields as arguments.

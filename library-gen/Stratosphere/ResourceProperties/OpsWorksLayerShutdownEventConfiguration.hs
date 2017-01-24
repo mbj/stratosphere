@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-lifecycleeventconfiguration-shutdowneventconfiguration.html
 
 module Stratosphere.ResourceProperties.OpsWorksLayerShutdownEventConfiguration where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -21,13 +20,21 @@ data OpsWorksLayerShutdownEventConfiguration =
   OpsWorksLayerShutdownEventConfiguration
   { _opsWorksLayerShutdownEventConfigurationDelayUntilElbConnectionsDrained :: Maybe (Val Bool')
   , _opsWorksLayerShutdownEventConfigurationExecutionTimeout :: Maybe (Val Integer')
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON OpsWorksLayerShutdownEventConfiguration where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 40, omitNothingFields = True }
+  toJSON OpsWorksLayerShutdownEventConfiguration{..} =
+    object
+    [ "DelayUntilElbConnectionsDrained" .= _opsWorksLayerShutdownEventConfigurationDelayUntilElbConnectionsDrained
+    , "ExecutionTimeout" .= _opsWorksLayerShutdownEventConfigurationExecutionTimeout
+    ]
 
 instance FromJSON OpsWorksLayerShutdownEventConfiguration where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 40, omitNothingFields = True }
+  parseJSON (Object obj) =
+    OpsWorksLayerShutdownEventConfiguration <$>
+      obj .: "DelayUntilElbConnectionsDrained" <*>
+      obj .: "ExecutionTimeout"
+  parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksLayerShutdownEventConfiguration' containing
 -- | required fields as arguments.

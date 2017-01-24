@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-recordsetgroup.html
 
 module Stratosphere.Resources.Route53RecordSetGroup where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.Route53RecordSetGroupRecordSet
@@ -22,13 +21,25 @@ data Route53RecordSetGroup =
   , _route53RecordSetGroupHostedZoneId :: Maybe (Val Text)
   , _route53RecordSetGroupHostedZoneName :: Maybe (Val Text)
   , _route53RecordSetGroupRecordSets :: Maybe [Route53RecordSetGroupRecordSet]
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON Route53RecordSetGroup where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 22, omitNothingFields = True }
+  toJSON Route53RecordSetGroup{..} =
+    object
+    [ "Comment" .= _route53RecordSetGroupComment
+    , "HostedZoneId" .= _route53RecordSetGroupHostedZoneId
+    , "HostedZoneName" .= _route53RecordSetGroupHostedZoneName
+    , "RecordSets" .= _route53RecordSetGroupRecordSets
+    ]
 
 instance FromJSON Route53RecordSetGroup where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 22, omitNothingFields = True }
+  parseJSON (Object obj) =
+    Route53RecordSetGroup <$>
+      obj .: "Comment" <*>
+      obj .: "HostedZoneId" <*>
+      obj .: "HostedZoneName" <*>
+      obj .: "RecordSets"
+  parseJSON _ = mempty
 
 -- | Constructor for 'Route53RecordSetGroup' containing required fields as
 -- | arguments.

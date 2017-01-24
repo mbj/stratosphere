@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-version.html
 
 module Stratosphere.Resources.ElasticBeanstalkApplicationVersion where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.ElasticBeanstalkApplicationVersionSourceBundle
@@ -21,13 +20,23 @@ data ElasticBeanstalkApplicationVersion =
   { _elasticBeanstalkApplicationVersionApplicationName :: Val Text
   , _elasticBeanstalkApplicationVersionDescription :: Maybe (Val Text)
   , _elasticBeanstalkApplicationVersionSourceBundle :: ElasticBeanstalkApplicationVersionSourceBundle
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON ElasticBeanstalkApplicationVersion where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 35, omitNothingFields = True }
+  toJSON ElasticBeanstalkApplicationVersion{..} =
+    object
+    [ "ApplicationName" .= _elasticBeanstalkApplicationVersionApplicationName
+    , "Description" .= _elasticBeanstalkApplicationVersionDescription
+    , "SourceBundle" .= _elasticBeanstalkApplicationVersionSourceBundle
+    ]
 
 instance FromJSON ElasticBeanstalkApplicationVersion where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 35, omitNothingFields = True }
+  parseJSON (Object obj) =
+    ElasticBeanstalkApplicationVersion <$>
+      obj .: "ApplicationName" <*>
+      obj .: "Description" <*>
+      obj .: "SourceBundle"
+  parseJSON _ = mempty
 
 -- | Constructor for 'ElasticBeanstalkApplicationVersion' containing required
 -- | fields as arguments.

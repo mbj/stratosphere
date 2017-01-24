@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-logconfiguration.html
 
 module Stratosphere.ResourceProperties.ECSTaskDefinitionLogConfiguration where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -20,13 +19,21 @@ data ECSTaskDefinitionLogConfiguration =
   ECSTaskDefinitionLogConfiguration
   { _eCSTaskDefinitionLogConfigurationLogDriver :: Val Text
   , _eCSTaskDefinitionLogConfigurationOptions :: Maybe Object
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON ECSTaskDefinitionLogConfiguration where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 34, omitNothingFields = True }
+  toJSON ECSTaskDefinitionLogConfiguration{..} =
+    object
+    [ "LogDriver" .= _eCSTaskDefinitionLogConfigurationLogDriver
+    , "Options" .= _eCSTaskDefinitionLogConfigurationOptions
+    ]
 
 instance FromJSON ECSTaskDefinitionLogConfiguration where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 34, omitNothingFields = True }
+  parseJSON (Object obj) =
+    ECSTaskDefinitionLogConfiguration <$>
+      obj .: "LogDriver" <*>
+      obj .: "Options"
+  parseJSON _ = mempty
 
 -- | Constructor for 'ECSTaskDefinitionLogConfiguration' containing required
 -- | fields as arguments.

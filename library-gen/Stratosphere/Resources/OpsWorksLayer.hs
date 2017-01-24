@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-layer.html
 
 module Stratosphere.Resources.OpsWorksLayer where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.OpsWorksLayerRecipes
@@ -39,13 +38,53 @@ data OpsWorksLayer =
   , _opsWorksLayerType :: Val Text
   , _opsWorksLayerUseEbsOptimizedInstances :: Maybe (Val Bool')
   , _opsWorksLayerVolumeConfigurations :: Maybe [OpsWorksLayerVolumeConfiguration]
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON OpsWorksLayer where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 14, omitNothingFields = True }
+  toJSON OpsWorksLayer{..} =
+    object
+    [ "Attributes" .= _opsWorksLayerAttributes
+    , "AutoAssignElasticIps" .= _opsWorksLayerAutoAssignElasticIps
+    , "AutoAssignPublicIps" .= _opsWorksLayerAutoAssignPublicIps
+    , "CustomInstanceProfileArn" .= _opsWorksLayerCustomInstanceProfileArn
+    , "CustomJson" .= _opsWorksLayerCustomJson
+    , "CustomRecipes" .= _opsWorksLayerCustomRecipes
+    , "CustomSecurityGroupIds" .= _opsWorksLayerCustomSecurityGroupIds
+    , "EnableAutoHealing" .= _opsWorksLayerEnableAutoHealing
+    , "InstallUpdatesOnBoot" .= _opsWorksLayerInstallUpdatesOnBoot
+    , "LifecycleEventConfiguration" .= _opsWorksLayerLifecycleEventConfiguration
+    , "LoadBasedAutoScaling" .= _opsWorksLayerLoadBasedAutoScaling
+    , "Name" .= _opsWorksLayerName
+    , "Packages" .= _opsWorksLayerPackages
+    , "Shortname" .= _opsWorksLayerShortname
+    , "StackId" .= _opsWorksLayerStackId
+    , "Type" .= _opsWorksLayerType
+    , "UseEbsOptimizedInstances" .= _opsWorksLayerUseEbsOptimizedInstances
+    , "VolumeConfigurations" .= _opsWorksLayerVolumeConfigurations
+    ]
 
 instance FromJSON OpsWorksLayer where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 14, omitNothingFields = True }
+  parseJSON (Object obj) =
+    OpsWorksLayer <$>
+      obj .: "Attributes" <*>
+      obj .: "AutoAssignElasticIps" <*>
+      obj .: "AutoAssignPublicIps" <*>
+      obj .: "CustomInstanceProfileArn" <*>
+      obj .: "CustomJson" <*>
+      obj .: "CustomRecipes" <*>
+      obj .: "CustomSecurityGroupIds" <*>
+      obj .: "EnableAutoHealing" <*>
+      obj .: "InstallUpdatesOnBoot" <*>
+      obj .: "LifecycleEventConfiguration" <*>
+      obj .: "LoadBasedAutoScaling" <*>
+      obj .: "Name" <*>
+      obj .: "Packages" <*>
+      obj .: "Shortname" <*>
+      obj .: "StackId" <*>
+      obj .: "Type" <*>
+      obj .: "UseEbsOptimizedInstances" <*>
+      obj .: "VolumeConfigurations"
+  parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksLayer' containing required fields as arguments.
 opsWorksLayer

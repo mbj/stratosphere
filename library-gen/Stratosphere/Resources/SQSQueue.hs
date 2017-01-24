@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html
 
 module Stratosphere.Resources.SQSQueue where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -25,13 +24,31 @@ data SQSQueue =
   , _sQSQueueReceiveMessageWaitTimeSeconds :: Maybe (Val Integer')
   , _sQSQueueRedrivePolicy :: Maybe Object
   , _sQSQueueVisibilityTimeout :: Maybe (Val Integer')
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON SQSQueue where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 9, omitNothingFields = True }
+  toJSON SQSQueue{..} =
+    object
+    [ "DelaySeconds" .= _sQSQueueDelaySeconds
+    , "MaximumMessageSize" .= _sQSQueueMaximumMessageSize
+    , "MessageRetentionPeriod" .= _sQSQueueMessageRetentionPeriod
+    , "QueueName" .= _sQSQueueQueueName
+    , "ReceiveMessageWaitTimeSeconds" .= _sQSQueueReceiveMessageWaitTimeSeconds
+    , "RedrivePolicy" .= _sQSQueueRedrivePolicy
+    , "VisibilityTimeout" .= _sQSQueueVisibilityTimeout
+    ]
 
 instance FromJSON SQSQueue where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 9, omitNothingFields = True }
+  parseJSON (Object obj) =
+    SQSQueue <$>
+      obj .: "DelaySeconds" <*>
+      obj .: "MaximumMessageSize" <*>
+      obj .: "MessageRetentionPeriod" <*>
+      obj .: "QueueName" <*>
+      obj .: "ReceiveMessageWaitTimeSeconds" <*>
+      obj .: "RedrivePolicy" <*>
+      obj .: "VisibilityTimeout"
+  parseJSON _ = mempty
 
 -- | Constructor for 'SQSQueue' containing required fields as arguments.
 sqsQueue

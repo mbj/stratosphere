@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-provisionedthroughput.html
 
 module Stratosphere.ResourceProperties.DynamoDBTableProvisionedThroughput where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -20,13 +19,21 @@ data DynamoDBTableProvisionedThroughput =
   DynamoDBTableProvisionedThroughput
   { _dynamoDBTableProvisionedThroughputReadCapacityUnits :: Val Integer'
   , _dynamoDBTableProvisionedThroughputWriteCapacityUnits :: Val Integer'
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON DynamoDBTableProvisionedThroughput where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 35, omitNothingFields = True }
+  toJSON DynamoDBTableProvisionedThroughput{..} =
+    object
+    [ "ReadCapacityUnits" .= _dynamoDBTableProvisionedThroughputReadCapacityUnits
+    , "WriteCapacityUnits" .= _dynamoDBTableProvisionedThroughputWriteCapacityUnits
+    ]
 
 instance FromJSON DynamoDBTableProvisionedThroughput where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 35, omitNothingFields = True }
+  parseJSON (Object obj) =
+    DynamoDBTableProvisionedThroughput <$>
+      obj .: "ReadCapacityUnits" <*>
+      obj .: "WriteCapacityUnits"
+  parseJSON _ = mempty
 
 -- | Constructor for 'DynamoDBTableProvisionedThroughput' containing required
 -- | fields as arguments.

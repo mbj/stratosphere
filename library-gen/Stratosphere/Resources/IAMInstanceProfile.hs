@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html
 
 module Stratosphere.Resources.IAMInstanceProfile where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -20,13 +19,21 @@ data IAMInstanceProfile =
   IAMInstanceProfile
   { _iAMInstanceProfilePath :: Val Text
   , _iAMInstanceProfileRoles :: [Val Text]
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON IAMInstanceProfile where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 19, omitNothingFields = True }
+  toJSON IAMInstanceProfile{..} =
+    object
+    [ "Path" .= _iAMInstanceProfilePath
+    , "Roles" .= _iAMInstanceProfileRoles
+    ]
 
 instance FromJSON IAMInstanceProfile where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 19, omitNothingFields = True }
+  parseJSON (Object obj) =
+    IAMInstanceProfile <$>
+      obj .: "Path" <*>
+      obj .: "Roles"
+  parseJSON _ = mempty
 
 -- | Constructor for 'IAMInstanceProfile' containing required fields as
 -- | arguments.

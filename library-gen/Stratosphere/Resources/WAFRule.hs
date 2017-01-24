@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-rule.html
 
 module Stratosphere.Resources.WAFRule where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.WAFRulePredicate
@@ -21,13 +20,23 @@ data WAFRule =
   { _wAFRuleMetricName :: Val Text
   , _wAFRuleName :: Val Text
   , _wAFRulePredicates :: Maybe [WAFRulePredicate]
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON WAFRule where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 8, omitNothingFields = True }
+  toJSON WAFRule{..} =
+    object
+    [ "MetricName" .= _wAFRuleMetricName
+    , "Name" .= _wAFRuleName
+    , "Predicates" .= _wAFRulePredicates
+    ]
 
 instance FromJSON WAFRule where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 8, omitNothingFields = True }
+  parseJSON (Object obj) =
+    WAFRule <$>
+      obj .: "MetricName" <*>
+      obj .: "Name" <*>
+      obj .: "Predicates"
+  parseJSON _ = mempty
 
 -- | Constructor for 'WAFRule' containing required fields as arguments.
 wafRule

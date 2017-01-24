@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration-integrationresponse.html
 
 module Stratosphere.ResourceProperties.ApiGatewayMethodIntegrationResponse where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -22,13 +21,25 @@ data ApiGatewayMethodIntegrationResponse =
   , _apiGatewayMethodIntegrationResponseResponseTemplates :: Maybe Object
   , _apiGatewayMethodIntegrationResponseSelectionPattern :: Maybe (Val Text)
   , _apiGatewayMethodIntegrationResponseStatusCode :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON ApiGatewayMethodIntegrationResponse where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 36, omitNothingFields = True }
+  toJSON ApiGatewayMethodIntegrationResponse{..} =
+    object
+    [ "ResponseParameters" .= _apiGatewayMethodIntegrationResponseResponseParameters
+    , "ResponseTemplates" .= _apiGatewayMethodIntegrationResponseResponseTemplates
+    , "SelectionPattern" .= _apiGatewayMethodIntegrationResponseSelectionPattern
+    , "StatusCode" .= _apiGatewayMethodIntegrationResponseStatusCode
+    ]
 
 instance FromJSON ApiGatewayMethodIntegrationResponse where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 36, omitNothingFields = True }
+  parseJSON (Object obj) =
+    ApiGatewayMethodIntegrationResponse <$>
+      obj .: "ResponseParameters" <*>
+      obj .: "ResponseTemplates" <*>
+      obj .: "SelectionPattern" <*>
+      obj .: "StatusCode"
+  parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayMethodIntegrationResponse' containing required
 -- | fields as arguments.

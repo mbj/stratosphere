@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-eip-association.html
 
 module Stratosphere.Resources.EC2EIPAssociation where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -23,13 +22,27 @@ data EC2EIPAssociation =
   , _eC2EIPAssociationInstanceId :: Maybe (Val Text)
   , _eC2EIPAssociationNetworkInterfaceId :: Maybe (Val Text)
   , _eC2EIPAssociationPrivateIpAddress :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON EC2EIPAssociation where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 18, omitNothingFields = True }
+  toJSON EC2EIPAssociation{..} =
+    object
+    [ "AllocationId" .= _eC2EIPAssociationAllocationId
+    , "Eip" .= _eC2EIPAssociationEip
+    , "InstanceId" .= _eC2EIPAssociationInstanceId
+    , "NetworkInterfaceId" .= _eC2EIPAssociationNetworkInterfaceId
+    , "PrivateIpAddress" .= _eC2EIPAssociationPrivateIpAddress
+    ]
 
 instance FromJSON EC2EIPAssociation where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 18, omitNothingFields = True }
+  parseJSON (Object obj) =
+    EC2EIPAssociation <$>
+      obj .: "AllocationId" <*>
+      obj .: "Eip" <*>
+      obj .: "InstanceId" <*>
+      obj .: "NetworkInterfaceId" <*>
+      obj .: "PrivateIpAddress"
+  parseJSON _ = mempty
 
 -- | Constructor for 'EC2EIPAssociation' containing required fields as
 -- | arguments.

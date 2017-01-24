@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-stepscalingpolicyconfiguration.html
 
 module Stratosphere.ResourceProperties.ApplicationAutoScalingScalingPolicyStepScalingPolicyConfiguration where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.ApplicationAutoScalingScalingPolicyStepAdjustment
@@ -25,13 +24,27 @@ data ApplicationAutoScalingScalingPolicyStepScalingPolicyConfiguration =
   , _applicationAutoScalingScalingPolicyStepScalingPolicyConfigurationMetricAggregationType :: Maybe (Val Text)
   , _applicationAutoScalingScalingPolicyStepScalingPolicyConfigurationMinAdjustmentMagnitude :: Maybe (Val Integer')
   , _applicationAutoScalingScalingPolicyStepScalingPolicyConfigurationStepAdjustments :: Maybe [ApplicationAutoScalingScalingPolicyStepAdjustment]
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON ApplicationAutoScalingScalingPolicyStepScalingPolicyConfiguration where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 66, omitNothingFields = True }
+  toJSON ApplicationAutoScalingScalingPolicyStepScalingPolicyConfiguration{..} =
+    object
+    [ "AdjustmentType" .= _applicationAutoScalingScalingPolicyStepScalingPolicyConfigurationAdjustmentType
+    , "Cooldown" .= _applicationAutoScalingScalingPolicyStepScalingPolicyConfigurationCooldown
+    , "MetricAggregationType" .= _applicationAutoScalingScalingPolicyStepScalingPolicyConfigurationMetricAggregationType
+    , "MinAdjustmentMagnitude" .= _applicationAutoScalingScalingPolicyStepScalingPolicyConfigurationMinAdjustmentMagnitude
+    , "StepAdjustments" .= _applicationAutoScalingScalingPolicyStepScalingPolicyConfigurationStepAdjustments
+    ]
 
 instance FromJSON ApplicationAutoScalingScalingPolicyStepScalingPolicyConfiguration where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 66, omitNothingFields = True }
+  parseJSON (Object obj) =
+    ApplicationAutoScalingScalingPolicyStepScalingPolicyConfiguration <$>
+      obj .: "AdjustmentType" <*>
+      obj .: "Cooldown" <*>
+      obj .: "MetricAggregationType" <*>
+      obj .: "MinAdjustmentMagnitude" <*>
+      obj .: "StepAdjustments"
+  parseJSON _ = mempty
 
 -- | Constructor for
 -- | 'ApplicationAutoScalingScalingPolicyStepScalingPolicyConfiguration'

@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-bytematchset-bytematchtuples-fieldtomatch.html
 
 module Stratosphere.ResourceProperties.WAFSqlInjectionMatchSetFieldToMatch where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -20,13 +19,21 @@ data WAFSqlInjectionMatchSetFieldToMatch =
   WAFSqlInjectionMatchSetFieldToMatch
   { _wAFSqlInjectionMatchSetFieldToMatchData :: Maybe (Val Text)
   , _wAFSqlInjectionMatchSetFieldToMatchType :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON WAFSqlInjectionMatchSetFieldToMatch where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 36, omitNothingFields = True }
+  toJSON WAFSqlInjectionMatchSetFieldToMatch{..} =
+    object
+    [ "Data" .= _wAFSqlInjectionMatchSetFieldToMatchData
+    , "Type" .= _wAFSqlInjectionMatchSetFieldToMatchType
+    ]
 
 instance FromJSON WAFSqlInjectionMatchSetFieldToMatch where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 36, omitNothingFields = True }
+  parseJSON (Object obj) =
+    WAFSqlInjectionMatchSetFieldToMatch <$>
+      obj .: "Data" <*>
+      obj .: "Type"
+  parseJSON _ = mempty
 
 -- | Constructor for 'WAFSqlInjectionMatchSetFieldToMatch' containing required
 -- | fields as arguments.

@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-stack-chefconfiguration.html
 
 module Stratosphere.ResourceProperties.OpsWorksStackChefConfiguration where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -20,13 +19,21 @@ data OpsWorksStackChefConfiguration =
   OpsWorksStackChefConfiguration
   { _opsWorksStackChefConfigurationBerkshelfVersion :: Maybe (Val Text)
   , _opsWorksStackChefConfigurationManageBerkshelf :: Maybe (Val Bool')
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON OpsWorksStackChefConfiguration where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 31, omitNothingFields = True }
+  toJSON OpsWorksStackChefConfiguration{..} =
+    object
+    [ "BerkshelfVersion" .= _opsWorksStackChefConfigurationBerkshelfVersion
+    , "ManageBerkshelf" .= _opsWorksStackChefConfigurationManageBerkshelf
+    ]
 
 instance FromJSON OpsWorksStackChefConfiguration where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 31, omitNothingFields = True }
+  parseJSON (Object obj) =
+    OpsWorksStackChefConfiguration <$>
+      obj .: "BerkshelfVersion" <*>
+      obj .: "ManageBerkshelf"
+  parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksStackChefConfiguration' containing required
 -- | fields as arguments.

@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html
 
 module Stratosphere.ResourceProperties.ApiGatewayStageMethodSetting where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.Types
@@ -28,13 +27,37 @@ data ApiGatewayStageMethodSetting =
   , _apiGatewayStageMethodSettingResourcePath :: Maybe (Val Text)
   , _apiGatewayStageMethodSettingThrottlingBurstLimit :: Maybe (Val Integer')
   , _apiGatewayStageMethodSettingThrottlingRateLimit :: Maybe (Val Double')
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON ApiGatewayStageMethodSetting where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 29, omitNothingFields = True }
+  toJSON ApiGatewayStageMethodSetting{..} =
+    object
+    [ "CacheDataEncrypted" .= _apiGatewayStageMethodSettingCacheDataEncrypted
+    , "CacheTtlInSeconds" .= _apiGatewayStageMethodSettingCacheTtlInSeconds
+    , "CachingEnabled" .= _apiGatewayStageMethodSettingCachingEnabled
+    , "DataTraceEnabled" .= _apiGatewayStageMethodSettingDataTraceEnabled
+    , "HttpMethod" .= _apiGatewayStageMethodSettingHttpMethod
+    , "LoggingLevel" .= _apiGatewayStageMethodSettingLoggingLevel
+    , "MetricsEnabled" .= _apiGatewayStageMethodSettingMetricsEnabled
+    , "ResourcePath" .= _apiGatewayStageMethodSettingResourcePath
+    , "ThrottlingBurstLimit" .= _apiGatewayStageMethodSettingThrottlingBurstLimit
+    , "ThrottlingRateLimit" .= _apiGatewayStageMethodSettingThrottlingRateLimit
+    ]
 
 instance FromJSON ApiGatewayStageMethodSetting where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 29, omitNothingFields = True }
+  parseJSON (Object obj) =
+    ApiGatewayStageMethodSetting <$>
+      obj .: "CacheDataEncrypted" <*>
+      obj .: "CacheTtlInSeconds" <*>
+      obj .: "CachingEnabled" <*>
+      obj .: "DataTraceEnabled" <*>
+      obj .: "HttpMethod" <*>
+      obj .: "LoggingLevel" <*>
+      obj .: "MetricsEnabled" <*>
+      obj .: "ResourcePath" <*>
+      obj .: "ThrottlingBurstLimit" <*>
+      obj .: "ThrottlingRateLimit"
+  parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayStageMethodSetting' containing required fields
 -- | as arguments.

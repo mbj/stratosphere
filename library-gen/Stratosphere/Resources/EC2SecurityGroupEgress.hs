@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-security-group-egress.html
 
 module Stratosphere.Resources.EC2SecurityGroupEgress where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -26,13 +25,33 @@ data EC2SecurityGroupEgress =
   , _eC2SecurityGroupEgressGroupId :: Val Text
   , _eC2SecurityGroupEgressIpProtocol :: Val Text
   , _eC2SecurityGroupEgressToPort :: Maybe (Val Integer')
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON EC2SecurityGroupEgress where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 23, omitNothingFields = True }
+  toJSON EC2SecurityGroupEgress{..} =
+    object
+    [ "CidrIp" .= _eC2SecurityGroupEgressCidrIp
+    , "CidrIpv6" .= _eC2SecurityGroupEgressCidrIpv6
+    , "DestinationPrefixListId" .= _eC2SecurityGroupEgressDestinationPrefixListId
+    , "DestinationSecurityGroupId" .= _eC2SecurityGroupEgressDestinationSecurityGroupId
+    , "FromPort" .= _eC2SecurityGroupEgressFromPort
+    , "GroupId" .= _eC2SecurityGroupEgressGroupId
+    , "IpProtocol" .= _eC2SecurityGroupEgressIpProtocol
+    , "ToPort" .= _eC2SecurityGroupEgressToPort
+    ]
 
 instance FromJSON EC2SecurityGroupEgress where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 23, omitNothingFields = True }
+  parseJSON (Object obj) =
+    EC2SecurityGroupEgress <$>
+      obj .: "CidrIp" <*>
+      obj .: "CidrIpv6" <*>
+      obj .: "DestinationPrefixListId" <*>
+      obj .: "DestinationSecurityGroupId" <*>
+      obj .: "FromPort" <*>
+      obj .: "GroupId" <*>
+      obj .: "IpProtocol" <*>
+      obj .: "ToPort"
+  parseJSON _ = mempty
 
 -- | Constructor for 'EC2SecurityGroupEgress' containing required fields as
 -- | arguments.

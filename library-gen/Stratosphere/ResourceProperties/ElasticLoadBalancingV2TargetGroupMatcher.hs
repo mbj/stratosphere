@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-targetgroup-matcher.html
 
 module Stratosphere.ResourceProperties.ElasticLoadBalancingV2TargetGroupMatcher where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -20,13 +19,19 @@ import Stratosphere.Values
 data ElasticLoadBalancingV2TargetGroupMatcher =
   ElasticLoadBalancingV2TargetGroupMatcher
   { _elasticLoadBalancingV2TargetGroupMatcherHttpCode :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON ElasticLoadBalancingV2TargetGroupMatcher where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 41, omitNothingFields = True }
+  toJSON ElasticLoadBalancingV2TargetGroupMatcher{..} =
+    object
+    [ "HttpCode" .= _elasticLoadBalancingV2TargetGroupMatcherHttpCode
+    ]
 
 instance FromJSON ElasticLoadBalancingV2TargetGroupMatcher where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 41, omitNothingFields = True }
+  parseJSON (Object obj) =
+    ElasticLoadBalancingV2TargetGroupMatcher <$>
+      obj .: "HttpCode"
+  parseJSON _ = mempty
 
 -- | Constructor for 'ElasticLoadBalancingV2TargetGroupMatcher' containing
 -- | required fields as arguments.

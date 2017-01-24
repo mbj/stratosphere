@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html
 
 module Stratosphere.Resources.CloudWatchAlarm where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.CloudWatchAlarmDimension
@@ -33,13 +32,47 @@ data CloudWatchAlarm =
   , _cloudWatchAlarmStatistic :: Val Text
   , _cloudWatchAlarmThreshold :: Val Double'
   , _cloudWatchAlarmUnit :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON CloudWatchAlarm where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 16, omitNothingFields = True }
+  toJSON CloudWatchAlarm{..} =
+    object
+    [ "ActionsEnabled" .= _cloudWatchAlarmActionsEnabled
+    , "AlarmActions" .= _cloudWatchAlarmAlarmActions
+    , "AlarmDescription" .= _cloudWatchAlarmAlarmDescription
+    , "AlarmName" .= _cloudWatchAlarmAlarmName
+    , "ComparisonOperator" .= _cloudWatchAlarmComparisonOperator
+    , "Dimensions" .= _cloudWatchAlarmDimensions
+    , "EvaluationPeriods" .= _cloudWatchAlarmEvaluationPeriods
+    , "InsufficientDataActions" .= _cloudWatchAlarmInsufficientDataActions
+    , "MetricName" .= _cloudWatchAlarmMetricName
+    , "Namespace" .= _cloudWatchAlarmNamespace
+    , "OKActions" .= _cloudWatchAlarmOKActions
+    , "Period" .= _cloudWatchAlarmPeriod
+    , "Statistic" .= _cloudWatchAlarmStatistic
+    , "Threshold" .= _cloudWatchAlarmThreshold
+    , "Unit" .= _cloudWatchAlarmUnit
+    ]
 
 instance FromJSON CloudWatchAlarm where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 16, omitNothingFields = True }
+  parseJSON (Object obj) =
+    CloudWatchAlarm <$>
+      obj .: "ActionsEnabled" <*>
+      obj .: "AlarmActions" <*>
+      obj .: "AlarmDescription" <*>
+      obj .: "AlarmName" <*>
+      obj .: "ComparisonOperator" <*>
+      obj .: "Dimensions" <*>
+      obj .: "EvaluationPeriods" <*>
+      obj .: "InsufficientDataActions" <*>
+      obj .: "MetricName" <*>
+      obj .: "Namespace" <*>
+      obj .: "OKActions" <*>
+      obj .: "Period" <*>
+      obj .: "Statistic" <*>
+      obj .: "Threshold" <*>
+      obj .: "Unit"
+  parseJSON _ = mempty
 
 -- | Constructor for 'CloudWatchAlarm' containing required fields as
 -- | arguments.

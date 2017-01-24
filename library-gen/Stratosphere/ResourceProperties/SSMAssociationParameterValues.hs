@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-parametervalues.html
 
 module Stratosphere.ResourceProperties.SSMAssociationParameterValues where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -19,13 +18,19 @@ import Stratosphere.Values
 data SSMAssociationParameterValues =
   SSMAssociationParameterValues
   { _sSMAssociationParameterValuesParameterValues :: [Val Text]
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON SSMAssociationParameterValues where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 30, omitNothingFields = True }
+  toJSON SSMAssociationParameterValues{..} =
+    object
+    [ "ParameterValues" .= _sSMAssociationParameterValuesParameterValues
+    ]
 
 instance FromJSON SSMAssociationParameterValues where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 30, omitNothingFields = True }
+  parseJSON (Object obj) =
+    SSMAssociationParameterValues <$>
+      obj .: "ParameterValues"
+  parseJSON _ = mempty
 
 -- | Constructor for 'SSMAssociationParameterValues' containing required
 -- | fields as arguments.

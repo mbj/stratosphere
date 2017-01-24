@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distributionconfig.html
 
 module Stratosphere.ResourceProperties.CloudFrontDistributionDistributionConfig where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.CloudFrontDistributionCacheBehavior
@@ -39,13 +38,45 @@ data CloudFrontDistributionDistributionConfig =
   , _cloudFrontDistributionDistributionConfigRestrictions :: Maybe CloudFrontDistributionRestrictions
   , _cloudFrontDistributionDistributionConfigViewerCertificate :: Maybe CloudFrontDistributionViewerCertificate
   , _cloudFrontDistributionDistributionConfigWebACLId :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON CloudFrontDistributionDistributionConfig where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 41, omitNothingFields = True }
+  toJSON CloudFrontDistributionDistributionConfig{..} =
+    object
+    [ "Aliases" .= _cloudFrontDistributionDistributionConfigAliases
+    , "CacheBehaviors" .= _cloudFrontDistributionDistributionConfigCacheBehaviors
+    , "Comment" .= _cloudFrontDistributionDistributionConfigComment
+    , "CustomErrorResponses" .= _cloudFrontDistributionDistributionConfigCustomErrorResponses
+    , "DefaultCacheBehavior" .= _cloudFrontDistributionDistributionConfigDefaultCacheBehavior
+    , "DefaultRootObject" .= _cloudFrontDistributionDistributionConfigDefaultRootObject
+    , "Enabled" .= _cloudFrontDistributionDistributionConfigEnabled
+    , "HttpVersion" .= _cloudFrontDistributionDistributionConfigHttpVersion
+    , "Logging" .= _cloudFrontDistributionDistributionConfigLogging
+    , "Origins" .= _cloudFrontDistributionDistributionConfigOrigins
+    , "PriceClass" .= _cloudFrontDistributionDistributionConfigPriceClass
+    , "Restrictions" .= _cloudFrontDistributionDistributionConfigRestrictions
+    , "ViewerCertificate" .= _cloudFrontDistributionDistributionConfigViewerCertificate
+    , "WebACLId" .= _cloudFrontDistributionDistributionConfigWebACLId
+    ]
 
 instance FromJSON CloudFrontDistributionDistributionConfig where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 41, omitNothingFields = True }
+  parseJSON (Object obj) =
+    CloudFrontDistributionDistributionConfig <$>
+      obj .: "Aliases" <*>
+      obj .: "CacheBehaviors" <*>
+      obj .: "Comment" <*>
+      obj .: "CustomErrorResponses" <*>
+      obj .: "DefaultCacheBehavior" <*>
+      obj .: "DefaultRootObject" <*>
+      obj .: "Enabled" <*>
+      obj .: "HttpVersion" <*>
+      obj .: "Logging" <*>
+      obj .: "Origins" <*>
+      obj .: "PriceClass" <*>
+      obj .: "Restrictions" <*>
+      obj .: "ViewerCertificate" <*>
+      obj .: "WebACLId"
+  parseJSON _ = mempty
 
 -- | Constructor for 'CloudFrontDistributionDistributionConfig' containing
 -- | required fields as arguments.

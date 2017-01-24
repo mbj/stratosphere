@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-defaultcachebehavior.html
 
 module Stratosphere.ResourceProperties.CloudFrontDistributionDefaultCacheBehavior where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.CloudFrontDistributionForwardedValues
@@ -30,13 +29,39 @@ data CloudFrontDistributionDefaultCacheBehavior =
   , _cloudFrontDistributionDefaultCacheBehaviorTargetOriginId :: Val Text
   , _cloudFrontDistributionDefaultCacheBehaviorTrustedSigners :: Maybe [Val Text]
   , _cloudFrontDistributionDefaultCacheBehaviorViewerProtocolPolicy :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON CloudFrontDistributionDefaultCacheBehavior where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 43, omitNothingFields = True }
+  toJSON CloudFrontDistributionDefaultCacheBehavior{..} =
+    object
+    [ "AllowedMethods" .= _cloudFrontDistributionDefaultCacheBehaviorAllowedMethods
+    , "CachedMethods" .= _cloudFrontDistributionDefaultCacheBehaviorCachedMethods
+    , "Compress" .= _cloudFrontDistributionDefaultCacheBehaviorCompress
+    , "DefaultTTL" .= _cloudFrontDistributionDefaultCacheBehaviorDefaultTTL
+    , "ForwardedValues" .= _cloudFrontDistributionDefaultCacheBehaviorForwardedValues
+    , "MaxTTL" .= _cloudFrontDistributionDefaultCacheBehaviorMaxTTL
+    , "MinTTL" .= _cloudFrontDistributionDefaultCacheBehaviorMinTTL
+    , "SmoothStreaming" .= _cloudFrontDistributionDefaultCacheBehaviorSmoothStreaming
+    , "TargetOriginId" .= _cloudFrontDistributionDefaultCacheBehaviorTargetOriginId
+    , "TrustedSigners" .= _cloudFrontDistributionDefaultCacheBehaviorTrustedSigners
+    , "ViewerProtocolPolicy" .= _cloudFrontDistributionDefaultCacheBehaviorViewerProtocolPolicy
+    ]
 
 instance FromJSON CloudFrontDistributionDefaultCacheBehavior where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 43, omitNothingFields = True }
+  parseJSON (Object obj) =
+    CloudFrontDistributionDefaultCacheBehavior <$>
+      obj .: "AllowedMethods" <*>
+      obj .: "CachedMethods" <*>
+      obj .: "Compress" <*>
+      obj .: "DefaultTTL" <*>
+      obj .: "ForwardedValues" <*>
+      obj .: "MaxTTL" <*>
+      obj .: "MinTTL" <*>
+      obj .: "SmoothStreaming" <*>
+      obj .: "TargetOriginId" <*>
+      obj .: "TrustedSigners" <*>
+      obj .: "ViewerProtocolPolicy"
+  parseJSON _ = mempty
 
 -- | Constructor for 'CloudFrontDistributionDefaultCacheBehavior' containing
 -- | required fields as arguments.

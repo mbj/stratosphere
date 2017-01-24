@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-connectiondrainingpolicy.html
 
 module Stratosphere.ResourceProperties.ElasticLoadBalancingLoadBalancerConnectionDrainingPolicy where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -22,13 +21,21 @@ data ElasticLoadBalancingLoadBalancerConnectionDrainingPolicy =
   ElasticLoadBalancingLoadBalancerConnectionDrainingPolicy
   { _elasticLoadBalancingLoadBalancerConnectionDrainingPolicyEnabled :: Val Bool'
   , _elasticLoadBalancingLoadBalancerConnectionDrainingPolicyTimeout :: Maybe (Val Integer')
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON ElasticLoadBalancingLoadBalancerConnectionDrainingPolicy where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 57, omitNothingFields = True }
+  toJSON ElasticLoadBalancingLoadBalancerConnectionDrainingPolicy{..} =
+    object
+    [ "Enabled" .= _elasticLoadBalancingLoadBalancerConnectionDrainingPolicyEnabled
+    , "Timeout" .= _elasticLoadBalancingLoadBalancerConnectionDrainingPolicyTimeout
+    ]
 
 instance FromJSON ElasticLoadBalancingLoadBalancerConnectionDrainingPolicy where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 57, omitNothingFields = True }
+  parseJSON (Object obj) =
+    ElasticLoadBalancingLoadBalancerConnectionDrainingPolicy <$>
+      obj .: "Enabled" <*>
+      obj .: "Timeout"
+  parseJSON _ = mempty
 
 -- | Constructor for
 -- | 'ElasticLoadBalancingLoadBalancerConnectionDrainingPolicy' containing

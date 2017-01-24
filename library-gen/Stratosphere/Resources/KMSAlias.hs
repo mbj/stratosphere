@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-alias.html
 
 module Stratosphere.Resources.KMSAlias where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -20,13 +19,21 @@ data KMSAlias =
   KMSAlias
   { _kMSAliasAliasName :: Val Text
   , _kMSAliasTargetKeyId :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON KMSAlias where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 9, omitNothingFields = True }
+  toJSON KMSAlias{..} =
+    object
+    [ "AliasName" .= _kMSAliasAliasName
+    , "TargetKeyId" .= _kMSAliasTargetKeyId
+    ]
 
 instance FromJSON KMSAlias where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 9, omitNothingFields = True }
+  parseJSON (Object obj) =
+    KMSAlias <$>
+      obj .: "AliasName" <*>
+      obj .: "TargetKeyId"
+  parseJSON _ = mempty
 
 -- | Constructor for 'KMSAlias' containing required fields as arguments.
 kmsAlias

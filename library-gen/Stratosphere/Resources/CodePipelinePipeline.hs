@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-pipeline.html
 
 module Stratosphere.Resources.CodePipelinePipeline where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.CodePipelinePipelineArtifactStore
@@ -26,13 +25,29 @@ data CodePipelinePipeline =
   , _codePipelinePipelineRestartExecutionOnUpdate :: Maybe (Val Bool')
   , _codePipelinePipelineRoleArn :: Val Text
   , _codePipelinePipelineStages :: [CodePipelinePipelineStageDeclaration]
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON CodePipelinePipeline where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 21, omitNothingFields = True }
+  toJSON CodePipelinePipeline{..} =
+    object
+    [ "ArtifactStore" .= _codePipelinePipelineArtifactStore
+    , "DisableInboundStageTransitions" .= _codePipelinePipelineDisableInboundStageTransitions
+    , "Name" .= _codePipelinePipelineName
+    , "RestartExecutionOnUpdate" .= _codePipelinePipelineRestartExecutionOnUpdate
+    , "RoleArn" .= _codePipelinePipelineRoleArn
+    , "Stages" .= _codePipelinePipelineStages
+    ]
 
 instance FromJSON CodePipelinePipeline where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 21, omitNothingFields = True }
+  parseJSON (Object obj) =
+    CodePipelinePipeline <$>
+      obj .: "ArtifactStore" <*>
+      obj .: "DisableInboundStageTransitions" <*>
+      obj .: "Name" <*>
+      obj .: "RestartExecutionOnUpdate" <*>
+      obj .: "RoleArn" <*>
+      obj .: "Stages"
+  parseJSON _ = mempty
 
 -- | Constructor for 'CodePipelinePipeline' containing required fields as
 -- | arguments.

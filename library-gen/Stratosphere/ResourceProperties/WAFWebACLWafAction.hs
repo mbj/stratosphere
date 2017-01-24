@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-webacl-action.html
 
 module Stratosphere.ResourceProperties.WAFWebACLWafAction where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -19,13 +18,19 @@ import Stratosphere.Values
 data WAFWebACLWafAction =
   WAFWebACLWafAction
   { _wAFWebACLWafActionType :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON WAFWebACLWafAction where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 19, omitNothingFields = True }
+  toJSON WAFWebACLWafAction{..} =
+    object
+    [ "Type" .= _wAFWebACLWafActionType
+    ]
 
 instance FromJSON WAFWebACLWafAction where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 19, omitNothingFields = True }
+  parseJSON (Object obj) =
+    WAFWebACLWafAction <$>
+      obj .: "Type"
+  parseJSON _ = mempty
 
 -- | Constructor for 'WAFWebACLWafAction' containing required fields as
 -- | arguments.

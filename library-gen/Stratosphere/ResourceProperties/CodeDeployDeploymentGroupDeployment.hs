@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-deployment.html
 
 module Stratosphere.ResourceProperties.CodeDeployDeploymentGroupDeployment where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupRevision
@@ -21,13 +20,23 @@ data CodeDeployDeploymentGroupDeployment =
   { _codeDeployDeploymentGroupDeploymentDescription :: Maybe (Val Text)
   , _codeDeployDeploymentGroupDeploymentIgnoreApplicationStopFailures :: Maybe (Val Bool')
   , _codeDeployDeploymentGroupDeploymentRevision :: CodeDeployDeploymentGroupRevision
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON CodeDeployDeploymentGroupDeployment where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 36, omitNothingFields = True }
+  toJSON CodeDeployDeploymentGroupDeployment{..} =
+    object
+    [ "Description" .= _codeDeployDeploymentGroupDeploymentDescription
+    , "IgnoreApplicationStopFailures" .= _codeDeployDeploymentGroupDeploymentIgnoreApplicationStopFailures
+    , "Revision" .= _codeDeployDeploymentGroupDeploymentRevision
+    ]
 
 instance FromJSON CodeDeployDeploymentGroupDeployment where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 36, omitNothingFields = True }
+  parseJSON (Object obj) =
+    CodeDeployDeploymentGroupDeployment <$>
+      obj .: "Description" <*>
+      obj .: "IgnoreApplicationStopFailures" <*>
+      obj .: "Revision"
+  parseJSON _ = mempty
 
 -- | Constructor for 'CodeDeployDeploymentGroupDeployment' containing required
 -- | fields as arguments.

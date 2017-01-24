@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-health-check.html
 
 module Stratosphere.ResourceProperties.ElasticLoadBalancingLoadBalancerHealthCheck where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -25,13 +24,27 @@ data ElasticLoadBalancingLoadBalancerHealthCheck =
   , _elasticLoadBalancingLoadBalancerHealthCheckTarget :: Val Text
   , _elasticLoadBalancingLoadBalancerHealthCheckTimeout :: Val Text
   , _elasticLoadBalancingLoadBalancerHealthCheckUnhealthyThreshold :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON ElasticLoadBalancingLoadBalancerHealthCheck where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 44, omitNothingFields = True }
+  toJSON ElasticLoadBalancingLoadBalancerHealthCheck{..} =
+    object
+    [ "HealthyThreshold" .= _elasticLoadBalancingLoadBalancerHealthCheckHealthyThreshold
+    , "Interval" .= _elasticLoadBalancingLoadBalancerHealthCheckInterval
+    , "Target" .= _elasticLoadBalancingLoadBalancerHealthCheckTarget
+    , "Timeout" .= _elasticLoadBalancingLoadBalancerHealthCheckTimeout
+    , "UnhealthyThreshold" .= _elasticLoadBalancingLoadBalancerHealthCheckUnhealthyThreshold
+    ]
 
 instance FromJSON ElasticLoadBalancingLoadBalancerHealthCheck where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 44, omitNothingFields = True }
+  parseJSON (Object obj) =
+    ElasticLoadBalancingLoadBalancerHealthCheck <$>
+      obj .: "HealthyThreshold" <*>
+      obj .: "Interval" <*>
+      obj .: "Target" <*>
+      obj .: "Timeout" <*>
+      obj .: "UnhealthyThreshold"
+  parseJSON _ = mempty
 
 -- | Constructor for 'ElasticLoadBalancingLoadBalancerHealthCheck' containing
 -- | required fields as arguments.

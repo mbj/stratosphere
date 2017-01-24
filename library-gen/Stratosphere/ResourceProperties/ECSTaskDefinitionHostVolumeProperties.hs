@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumes-host.html
 
 module Stratosphere.ResourceProperties.ECSTaskDefinitionHostVolumeProperties where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -20,13 +19,19 @@ import Stratosphere.Values
 data ECSTaskDefinitionHostVolumeProperties =
   ECSTaskDefinitionHostVolumeProperties
   { _eCSTaskDefinitionHostVolumePropertiesSourcePath :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON ECSTaskDefinitionHostVolumeProperties where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 38, omitNothingFields = True }
+  toJSON ECSTaskDefinitionHostVolumeProperties{..} =
+    object
+    [ "SourcePath" .= _eCSTaskDefinitionHostVolumePropertiesSourcePath
+    ]
 
 instance FromJSON ECSTaskDefinitionHostVolumeProperties where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 38, omitNothingFields = True }
+  parseJSON (Object obj) =
+    ECSTaskDefinitionHostVolumeProperties <$>
+      obj .: "SourcePath"
+  parseJSON _ = mempty
 
 -- | Constructor for 'ECSTaskDefinitionHostVolumeProperties' containing
 -- | required fields as arguments.

@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-subnetgroup.html
 
 module Stratosphere.Resources.ElastiCacheSubnetGroup where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -21,13 +20,23 @@ data ElastiCacheSubnetGroup =
   { _elastiCacheSubnetGroupCacheSubnetGroupName :: Maybe (Val Text)
   , _elastiCacheSubnetGroupDescription :: Val Text
   , _elastiCacheSubnetGroupSubnetIds :: [Val Text]
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON ElastiCacheSubnetGroup where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 23, omitNothingFields = True }
+  toJSON ElastiCacheSubnetGroup{..} =
+    object
+    [ "CacheSubnetGroupName" .= _elastiCacheSubnetGroupCacheSubnetGroupName
+    , "Description" .= _elastiCacheSubnetGroupDescription
+    , "SubnetIds" .= _elastiCacheSubnetGroupSubnetIds
+    ]
 
 instance FromJSON ElastiCacheSubnetGroup where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 23, omitNothingFields = True }
+  parseJSON (Object obj) =
+    ElastiCacheSubnetGroup <$>
+      obj .: "CacheSubnetGroupName" <*>
+      obj .: "Description" <*>
+      obj .: "SubnetIds"
+  parseJSON _ = mempty
 
 -- | Constructor for 'ElastiCacheSubnetGroup' containing required fields as
 -- | arguments.

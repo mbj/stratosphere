@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-cors.html
 
 module Stratosphere.ResourceProperties.S3BucketCorsConfiguration where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.S3BucketCorsRule
@@ -19,13 +18,19 @@ import Stratosphere.ResourceProperties.S3BucketCorsRule
 data S3BucketCorsConfiguration =
   S3BucketCorsConfiguration
   { _s3BucketCorsConfigurationCorsRules :: [S3BucketCorsRule]
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON S3BucketCorsConfiguration where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 26, omitNothingFields = True }
+  toJSON S3BucketCorsConfiguration{..} =
+    object
+    [ "CorsRules" .= _s3BucketCorsConfigurationCorsRules
+    ]
 
 instance FromJSON S3BucketCorsConfiguration where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 26, omitNothingFields = True }
+  parseJSON (Object obj) =
+    S3BucketCorsConfiguration <$>
+      obj .: "CorsRules"
+  parseJSON _ = mempty
 
 -- | Constructor for 'S3BucketCorsConfiguration' containing required fields as
 -- | arguments.

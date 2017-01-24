@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-accessloggingpolicy.html
 
 module Stratosphere.ResourceProperties.ElasticLoadBalancingLoadBalancerAccessLoggingPolicy where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -24,13 +23,25 @@ data ElasticLoadBalancingLoadBalancerAccessLoggingPolicy =
   , _elasticLoadBalancingLoadBalancerAccessLoggingPolicyEnabled :: Val Bool'
   , _elasticLoadBalancingLoadBalancerAccessLoggingPolicyS3BucketName :: Val Text
   , _elasticLoadBalancingLoadBalancerAccessLoggingPolicyS3BucketPrefix :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON ElasticLoadBalancingLoadBalancerAccessLoggingPolicy where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 52, omitNothingFields = True }
+  toJSON ElasticLoadBalancingLoadBalancerAccessLoggingPolicy{..} =
+    object
+    [ "EmitInterval" .= _elasticLoadBalancingLoadBalancerAccessLoggingPolicyEmitInterval
+    , "Enabled" .= _elasticLoadBalancingLoadBalancerAccessLoggingPolicyEnabled
+    , "S3BucketName" .= _elasticLoadBalancingLoadBalancerAccessLoggingPolicyS3BucketName
+    , "S3BucketPrefix" .= _elasticLoadBalancingLoadBalancerAccessLoggingPolicyS3BucketPrefix
+    ]
 
 instance FromJSON ElasticLoadBalancingLoadBalancerAccessLoggingPolicy where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 52, omitNothingFields = True }
+  parseJSON (Object obj) =
+    ElasticLoadBalancingLoadBalancerAccessLoggingPolicy <$>
+      obj .: "EmitInterval" <*>
+      obj .: "Enabled" <*>
+      obj .: "S3BucketName" <*>
+      obj .: "S3BucketPrefix"
+  parseJSON _ = mempty
 
 -- | Constructor for 'ElasticLoadBalancingLoadBalancerAccessLoggingPolicy'
 -- | containing required fields as arguments.

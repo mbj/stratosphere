@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-customorigin.html
 
 module Stratosphere.ResourceProperties.CloudFrontDistributionCustomOriginConfig where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -23,13 +22,25 @@ data CloudFrontDistributionCustomOriginConfig =
   , _cloudFrontDistributionCustomOriginConfigHTTPSPort :: Maybe (Val Integer')
   , _cloudFrontDistributionCustomOriginConfigOriginProtocolPolicy :: Val Text
   , _cloudFrontDistributionCustomOriginConfigOriginSSLProtocols :: Maybe [Val Text]
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON CloudFrontDistributionCustomOriginConfig where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 41, omitNothingFields = True }
+  toJSON CloudFrontDistributionCustomOriginConfig{..} =
+    object
+    [ "HTTPPort" .= _cloudFrontDistributionCustomOriginConfigHTTPPort
+    , "HTTPSPort" .= _cloudFrontDistributionCustomOriginConfigHTTPSPort
+    , "OriginProtocolPolicy" .= _cloudFrontDistributionCustomOriginConfigOriginProtocolPolicy
+    , "OriginSSLProtocols" .= _cloudFrontDistributionCustomOriginConfigOriginSSLProtocols
+    ]
 
 instance FromJSON CloudFrontDistributionCustomOriginConfig where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 41, omitNothingFields = True }
+  parseJSON (Object obj) =
+    CloudFrontDistributionCustomOriginConfig <$>
+      obj .: "HTTPPort" <*>
+      obj .: "HTTPSPort" <*>
+      obj .: "OriginProtocolPolicy" <*>
+      obj .: "OriginSSLProtocols"
+  parseJSON _ = mempty
 
 -- | Constructor for 'CloudFrontDistributionCustomOriginConfig' containing
 -- | required fields as arguments.

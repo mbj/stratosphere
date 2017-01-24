@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stack.html
 
 module Stratosphere.Resources.CloudFormationStack where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.Tag
@@ -23,13 +22,27 @@ data CloudFormationStack =
   , _cloudFormationStackTags :: Maybe [Tag]
   , _cloudFormationStackTemplateURL :: Val Text
   , _cloudFormationStackTimeoutInMinutes :: Maybe (Val Integer')
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON CloudFormationStack where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 20, omitNothingFields = True }
+  toJSON CloudFormationStack{..} =
+    object
+    [ "NotificationARNs" .= _cloudFormationStackNotificationARNs
+    , "Parameters" .= _cloudFormationStackParameters
+    , "Tags" .= _cloudFormationStackTags
+    , "TemplateURL" .= _cloudFormationStackTemplateURL
+    , "TimeoutInMinutes" .= _cloudFormationStackTimeoutInMinutes
+    ]
 
 instance FromJSON CloudFormationStack where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 20, omitNothingFields = True }
+  parseJSON (Object obj) =
+    CloudFormationStack <$>
+      obj .: "NotificationARNs" <*>
+      obj .: "Parameters" <*>
+      obj .: "Tags" <*>
+      obj .: "TemplateURL" <*>
+      obj .: "TimeoutInMinutes"
+  parseJSON _ = mempty
 
 -- | Constructor for 'CloudFormationStack' containing required fields as
 -- | arguments.

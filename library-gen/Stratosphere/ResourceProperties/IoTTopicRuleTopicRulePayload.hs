@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrulepayload.html
 
 module Stratosphere.ResourceProperties.IoTTopicRuleTopicRulePayload where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.IoTTopicRuleAction
@@ -23,13 +22,27 @@ data IoTTopicRuleTopicRulePayload =
   , _ioTTopicRuleTopicRulePayloadDescription :: Maybe (Val Text)
   , _ioTTopicRuleTopicRulePayloadRuleDisabled :: Val Bool'
   , _ioTTopicRuleTopicRulePayloadSql :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON IoTTopicRuleTopicRulePayload where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 29, omitNothingFields = True }
+  toJSON IoTTopicRuleTopicRulePayload{..} =
+    object
+    [ "Actions" .= _ioTTopicRuleTopicRulePayloadActions
+    , "AwsIotSqlVersion" .= _ioTTopicRuleTopicRulePayloadAwsIotSqlVersion
+    , "Description" .= _ioTTopicRuleTopicRulePayloadDescription
+    , "RuleDisabled" .= _ioTTopicRuleTopicRulePayloadRuleDisabled
+    , "Sql" .= _ioTTopicRuleTopicRulePayloadSql
+    ]
 
 instance FromJSON IoTTopicRuleTopicRulePayload where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 29, omitNothingFields = True }
+  parseJSON (Object obj) =
+    IoTTopicRuleTopicRulePayload <$>
+      obj .: "Actions" <*>
+      obj .: "AwsIotSqlVersion" <*>
+      obj .: "Description" <*>
+      obj .: "RuleDisabled" <*>
+      obj .: "Sql"
+  parseJSON _ = mempty
 
 -- | Constructor for 'IoTTopicRuleTopicRulePayload' containing required fields
 -- | as arguments.

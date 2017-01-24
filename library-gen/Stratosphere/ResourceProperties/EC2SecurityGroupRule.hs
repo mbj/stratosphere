@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html
 
 module Stratosphere.ResourceProperties.EC2SecurityGroupRule where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -25,13 +24,31 @@ data EC2SecurityGroupRule =
   , _eC2SecurityGroupRuleSourceSecurityGroupName :: Maybe (Val Text)
   , _eC2SecurityGroupRuleSourceSecurityGroupOwnerId :: Maybe (Val Text)
   , _eC2SecurityGroupRuleToPort :: Maybe (Val Integer')
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON EC2SecurityGroupRule where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 21, omitNothingFields = True }
+  toJSON EC2SecurityGroupRule{..} =
+    object
+    [ "CidrIp" .= _eC2SecurityGroupRuleCidrIp
+    , "FromPort" .= _eC2SecurityGroupRuleFromPort
+    , "IpProtocol" .= _eC2SecurityGroupRuleIpProtocol
+    , "SourceSecurityGroupId" .= _eC2SecurityGroupRuleSourceSecurityGroupId
+    , "SourceSecurityGroupName" .= _eC2SecurityGroupRuleSourceSecurityGroupName
+    , "SourceSecurityGroupOwnerId" .= _eC2SecurityGroupRuleSourceSecurityGroupOwnerId
+    , "ToPort" .= _eC2SecurityGroupRuleToPort
+    ]
 
 instance FromJSON EC2SecurityGroupRule where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 21, omitNothingFields = True }
+  parseJSON (Object obj) =
+    EC2SecurityGroupRule <$>
+      obj .: "CidrIp" <*>
+      obj .: "FromPort" <*>
+      obj .: "IpProtocol" <*>
+      obj .: "SourceSecurityGroupId" <*>
+      obj .: "SourceSecurityGroupName" <*>
+      obj .: "SourceSecurityGroupOwnerId" <*>
+      obj .: "ToPort"
+  parseJSON _ = mempty
 
 -- | Constructor for 'EC2SecurityGroupRule' containing required fields as
 -- | arguments.

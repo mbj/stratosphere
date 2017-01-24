@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentconfig-minimumhealthyhosts.html
 
 module Stratosphere.ResourceProperties.CodeDeployDeploymentConfigMinimumHealthyHosts where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -22,13 +21,21 @@ data CodeDeployDeploymentConfigMinimumHealthyHosts =
   CodeDeployDeploymentConfigMinimumHealthyHosts
   { _codeDeployDeploymentConfigMinimumHealthyHostsType :: Maybe (Val Text)
   , _codeDeployDeploymentConfigMinimumHealthyHostsValue :: Maybe (Val Integer')
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON CodeDeployDeploymentConfigMinimumHealthyHosts where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 46, omitNothingFields = True }
+  toJSON CodeDeployDeploymentConfigMinimumHealthyHosts{..} =
+    object
+    [ "Type" .= _codeDeployDeploymentConfigMinimumHealthyHostsType
+    , "Value" .= _codeDeployDeploymentConfigMinimumHealthyHostsValue
+    ]
 
 instance FromJSON CodeDeployDeploymentConfigMinimumHealthyHosts where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 46, omitNothingFields = True }
+  parseJSON (Object obj) =
+    CodeDeployDeploymentConfigMinimumHealthyHosts <$>
+      obj .: "Type" <*>
+      obj .: "Value"
+  parseJSON _ = mempty
 
 -- | Constructor for 'CodeDeployDeploymentConfigMinimumHealthyHosts'
 -- | containing required fields as arguments.

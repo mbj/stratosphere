@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-beanstalk-configurationtemplate.html
 
 module Stratosphere.Resources.ElasticBeanstalkConfigurationTemplate where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.ElasticBeanstalkConfigurationTemplateConfigurationOptionSetting
@@ -26,13 +25,29 @@ data ElasticBeanstalkConfigurationTemplate =
   , _elasticBeanstalkConfigurationTemplateOptionSettings :: Maybe [ElasticBeanstalkConfigurationTemplateConfigurationOptionSetting]
   , _elasticBeanstalkConfigurationTemplateSolutionStackName :: Maybe (Val Text)
   , _elasticBeanstalkConfigurationTemplateSourceConfiguration :: Maybe ElasticBeanstalkConfigurationTemplateSourceConfiguration
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON ElasticBeanstalkConfigurationTemplate where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 38, omitNothingFields = True }
+  toJSON ElasticBeanstalkConfigurationTemplate{..} =
+    object
+    [ "ApplicationName" .= _elasticBeanstalkConfigurationTemplateApplicationName
+    , "Description" .= _elasticBeanstalkConfigurationTemplateDescription
+    , "EnvironmentId" .= _elasticBeanstalkConfigurationTemplateEnvironmentId
+    , "OptionSettings" .= _elasticBeanstalkConfigurationTemplateOptionSettings
+    , "SolutionStackName" .= _elasticBeanstalkConfigurationTemplateSolutionStackName
+    , "SourceConfiguration" .= _elasticBeanstalkConfigurationTemplateSourceConfiguration
+    ]
 
 instance FromJSON ElasticBeanstalkConfigurationTemplate where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 38, omitNothingFields = True }
+  parseJSON (Object obj) =
+    ElasticBeanstalkConfigurationTemplate <$>
+      obj .: "ApplicationName" <*>
+      obj .: "Description" <*>
+      obj .: "EnvironmentId" <*>
+      obj .: "OptionSettings" <*>
+      obj .: "SolutionStackName" <*>
+      obj .: "SourceConfiguration"
+  parseJSON _ = mempty
 
 -- | Constructor for 'ElasticBeanstalkConfigurationTemplate' containing
 -- | required fields as arguments.

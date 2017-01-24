@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfigurations-optionsettings.html
 
 module Stratosphere.ResourceProperties.RDSOptionGroupOptionSetting where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -20,13 +19,21 @@ data RDSOptionGroupOptionSetting =
   RDSOptionGroupOptionSetting
   { _rDSOptionGroupOptionSettingName :: Maybe (Val Text)
   , _rDSOptionGroupOptionSettingValue :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON RDSOptionGroupOptionSetting where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 28, omitNothingFields = True }
+  toJSON RDSOptionGroupOptionSetting{..} =
+    object
+    [ "Name" .= _rDSOptionGroupOptionSettingName
+    , "Value" .= _rDSOptionGroupOptionSettingValue
+    ]
 
 instance FromJSON RDSOptionGroupOptionSetting where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 28, omitNothingFields = True }
+  parseJSON (Object obj) =
+    RDSOptionGroupOptionSetting <$>
+      obj .: "Name" <*>
+      obj .: "Value"
+  parseJSON _ = mempty
 
 -- | Constructor for 'RDSOptionGroupOptionSetting' containing required fields
 -- | as arguments.

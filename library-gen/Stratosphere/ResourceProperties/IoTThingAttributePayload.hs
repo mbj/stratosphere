@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-thing-attributepayload.html
 
 module Stratosphere.ResourceProperties.IoTThingAttributePayload where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -19,13 +18,19 @@ import Stratosphere.Values
 data IoTThingAttributePayload =
   IoTThingAttributePayload
   { _ioTThingAttributePayloadAttributes :: Maybe Object
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON IoTThingAttributePayload where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 25, omitNothingFields = True }
+  toJSON IoTThingAttributePayload{..} =
+    object
+    [ "Attributes" .= _ioTThingAttributePayloadAttributes
+    ]
 
 instance FromJSON IoTThingAttributePayload where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 25, omitNothingFields = True }
+  parseJSON (Object obj) =
+    IoTThingAttributePayload <$>
+      obj .: "Attributes"
+  parseJSON _ = mempty
 
 -- | Constructor for 'IoTThingAttributePayload' containing required fields as
 -- | arguments.

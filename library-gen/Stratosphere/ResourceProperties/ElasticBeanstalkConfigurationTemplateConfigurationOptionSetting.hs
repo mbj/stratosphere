@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-option-settings.html
 
 module Stratosphere.ResourceProperties.ElasticBeanstalkConfigurationTemplateConfigurationOptionSetting where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -23,13 +22,23 @@ data ElasticBeanstalkConfigurationTemplateConfigurationOptionSetting =
   { _elasticBeanstalkConfigurationTemplateConfigurationOptionSettingNamespace :: Val Text
   , _elasticBeanstalkConfigurationTemplateConfigurationOptionSettingOptionName :: Val Text
   , _elasticBeanstalkConfigurationTemplateConfigurationOptionSettingValue :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON ElasticBeanstalkConfigurationTemplateConfigurationOptionSetting where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 64, omitNothingFields = True }
+  toJSON ElasticBeanstalkConfigurationTemplateConfigurationOptionSetting{..} =
+    object
+    [ "Namespace" .= _elasticBeanstalkConfigurationTemplateConfigurationOptionSettingNamespace
+    , "OptionName" .= _elasticBeanstalkConfigurationTemplateConfigurationOptionSettingOptionName
+    , "Value" .= _elasticBeanstalkConfigurationTemplateConfigurationOptionSettingValue
+    ]
 
 instance FromJSON ElasticBeanstalkConfigurationTemplateConfigurationOptionSetting where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 64, omitNothingFields = True }
+  parseJSON (Object obj) =
+    ElasticBeanstalkConfigurationTemplateConfigurationOptionSetting <$>
+      obj .: "Namespace" <*>
+      obj .: "OptionName" <*>
+      obj .: "Value"
+  parseJSON _ = mempty
 
 -- | Constructor for
 -- | 'ElasticBeanstalkConfigurationTemplateConfigurationOptionSetting'

@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-blockdev-template.html
 
 module Stratosphere.ResourceProperties.EC2InstanceEbs where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -24,13 +23,29 @@ data EC2InstanceEbs =
   , _eC2InstanceEbsSnapshotId :: Maybe (Val Text)
   , _eC2InstanceEbsVolumeSize :: Maybe (Val Integer')
   , _eC2InstanceEbsVolumeType :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON EC2InstanceEbs where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 15, omitNothingFields = True }
+  toJSON EC2InstanceEbs{..} =
+    object
+    [ "DeleteOnTermination" .= _eC2InstanceEbsDeleteOnTermination
+    , "Encrypted" .= _eC2InstanceEbsEncrypted
+    , "Iops" .= _eC2InstanceEbsIops
+    , "SnapshotId" .= _eC2InstanceEbsSnapshotId
+    , "VolumeSize" .= _eC2InstanceEbsVolumeSize
+    , "VolumeType" .= _eC2InstanceEbsVolumeType
+    ]
 
 instance FromJSON EC2InstanceEbs where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 15, omitNothingFields = True }
+  parseJSON (Object obj) =
+    EC2InstanceEbs <$>
+      obj .: "DeleteOnTermination" <*>
+      obj .: "Encrypted" <*>
+      obj .: "Iops" <*>
+      obj .: "SnapshotId" <*>
+      obj .: "VolumeSize" <*>
+      obj .: "VolumeType"
+  parseJSON _ = mempty
 
 -- | Constructor for 'EC2InstanceEbs' containing required fields as arguments.
 ec2InstanceEbs

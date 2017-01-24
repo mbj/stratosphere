@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset.html
 
 module Stratosphere.ResourceProperties.Route53RecordSetGroupRecordSet where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.Route53RecordSetGroupAliasTarget
@@ -33,13 +32,45 @@ data Route53RecordSetGroupRecordSet =
   , _route53RecordSetGroupRecordSetTTL :: Maybe (Val Text)
   , _route53RecordSetGroupRecordSetType :: Val Text
   , _route53RecordSetGroupRecordSetWeight :: Maybe (Val Integer')
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON Route53RecordSetGroupRecordSet where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 31, omitNothingFields = True }
+  toJSON Route53RecordSetGroupRecordSet{..} =
+    object
+    [ "AliasTarget" .= _route53RecordSetGroupRecordSetAliasTarget
+    , "Comment" .= _route53RecordSetGroupRecordSetComment
+    , "Failover" .= _route53RecordSetGroupRecordSetFailover
+    , "GeoLocation" .= _route53RecordSetGroupRecordSetGeoLocation
+    , "HealthCheckId" .= _route53RecordSetGroupRecordSetHealthCheckId
+    , "HostedZoneId" .= _route53RecordSetGroupRecordSetHostedZoneId
+    , "HostedZoneName" .= _route53RecordSetGroupRecordSetHostedZoneName
+    , "Name" .= _route53RecordSetGroupRecordSetName
+    , "Region" .= _route53RecordSetGroupRecordSetRegion
+    , "ResourceRecords" .= _route53RecordSetGroupRecordSetResourceRecords
+    , "SetIdentifier" .= _route53RecordSetGroupRecordSetSetIdentifier
+    , "TTL" .= _route53RecordSetGroupRecordSetTTL
+    , "Type" .= _route53RecordSetGroupRecordSetType
+    , "Weight" .= _route53RecordSetGroupRecordSetWeight
+    ]
 
 instance FromJSON Route53RecordSetGroupRecordSet where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 31, omitNothingFields = True }
+  parseJSON (Object obj) =
+    Route53RecordSetGroupRecordSet <$>
+      obj .: "AliasTarget" <*>
+      obj .: "Comment" <*>
+      obj .: "Failover" <*>
+      obj .: "GeoLocation" <*>
+      obj .: "HealthCheckId" <*>
+      obj .: "HostedZoneId" <*>
+      obj .: "HostedZoneName" <*>
+      obj .: "Name" <*>
+      obj .: "Region" <*>
+      obj .: "ResourceRecords" <*>
+      obj .: "SetIdentifier" <*>
+      obj .: "TTL" <*>
+      obj .: "Type" <*>
+      obj .: "Weight"
+  parseJSON _ = mempty
 
 -- | Constructor for 'Route53RecordSetGroupRecordSet' containing required
 -- | fields as arguments.

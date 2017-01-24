@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thingprincipalattachment.html
 
 module Stratosphere.Resources.IoTThingPrincipalAttachment where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -20,13 +19,21 @@ data IoTThingPrincipalAttachment =
   IoTThingPrincipalAttachment
   { _ioTThingPrincipalAttachmentPrincipal :: Val Text
   , _ioTThingPrincipalAttachmentThingName :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON IoTThingPrincipalAttachment where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 28, omitNothingFields = True }
+  toJSON IoTThingPrincipalAttachment{..} =
+    object
+    [ "Principal" .= _ioTThingPrincipalAttachmentPrincipal
+    , "ThingName" .= _ioTThingPrincipalAttachmentThingName
+    ]
 
 instance FromJSON IoTThingPrincipalAttachment where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 28, omitNothingFields = True }
+  parseJSON (Object obj) =
+    IoTThingPrincipalAttachment <$>
+      obj .: "Principal" <*>
+      obj .: "ThingName"
+  parseJSON _ = mempty
 
 -- | Constructor for 'IoTThingPrincipalAttachment' containing required fields
 -- | as arguments.

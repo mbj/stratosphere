@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-step.html
 
 module Stratosphere.Resources.EMRStep where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.EMRStepHadoopJarStepConfig
@@ -22,13 +21,25 @@ data EMRStep =
   , _eMRStepHadoopJarStep :: EMRStepHadoopJarStepConfig
   , _eMRStepJobFlowId :: Val Text
   , _eMRStepName :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON EMRStep where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 8, omitNothingFields = True }
+  toJSON EMRStep{..} =
+    object
+    [ "ActionOnFailure" .= _eMRStepActionOnFailure
+    , "HadoopJarStep" .= _eMRStepHadoopJarStep
+    , "JobFlowId" .= _eMRStepJobFlowId
+    , "Name" .= _eMRStepName
+    ]
 
 instance FromJSON EMRStep where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 8, omitNothingFields = True }
+  parseJSON (Object obj) =
+    EMRStep <$>
+      obj .: "ActionOnFailure" <*>
+      obj .: "HadoopJarStep" <*>
+      obj .: "JobFlowId" <*>
+      obj .: "Name"
+  parseJSON _ = mempty
 
 -- | Constructor for 'EMRStep' containing required fields as arguments.
 emrStep

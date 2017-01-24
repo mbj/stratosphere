@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html
 
 module Stratosphere.Resources.S3Bucket where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.Types
@@ -36,13 +35,37 @@ data S3Bucket =
   , _s3BucketTags :: Maybe [Tag]
   , _s3BucketVersioningConfiguration :: Maybe S3BucketVersioningConfiguration
   , _s3BucketWebsiteConfiguration :: Maybe S3BucketWebsiteConfiguration
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON S3Bucket where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 9, omitNothingFields = True }
+  toJSON S3Bucket{..} =
+    object
+    [ "AccessControl" .= _s3BucketAccessControl
+    , "BucketName" .= _s3BucketBucketName
+    , "CorsConfiguration" .= _s3BucketCorsConfiguration
+    , "LifecycleConfiguration" .= _s3BucketLifecycleConfiguration
+    , "LoggingConfiguration" .= _s3BucketLoggingConfiguration
+    , "NotificationConfiguration" .= _s3BucketNotificationConfiguration
+    , "ReplicationConfiguration" .= _s3BucketReplicationConfiguration
+    , "Tags" .= _s3BucketTags
+    , "VersioningConfiguration" .= _s3BucketVersioningConfiguration
+    , "WebsiteConfiguration" .= _s3BucketWebsiteConfiguration
+    ]
 
 instance FromJSON S3Bucket where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 9, omitNothingFields = True }
+  parseJSON (Object obj) =
+    S3Bucket <$>
+      obj .: "AccessControl" <*>
+      obj .: "BucketName" <*>
+      obj .: "CorsConfiguration" <*>
+      obj .: "LifecycleConfiguration" <*>
+      obj .: "LoggingConfiguration" <*>
+      obj .: "NotificationConfiguration" <*>
+      obj .: "ReplicationConfiguration" <*>
+      obj .: "Tags" <*>
+      obj .: "VersioningConfiguration" <*>
+      obj .: "WebsiteConfiguration"
+  parseJSON _ = mempty
 
 -- | Constructor for 'S3Bucket' containing required fields as arguments.
 s3Bucket

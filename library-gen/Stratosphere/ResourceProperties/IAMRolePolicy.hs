@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html
 
 module Stratosphere.ResourceProperties.IAMRolePolicy where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -20,13 +19,21 @@ data IAMRolePolicy =
   IAMRolePolicy
   { _iAMRolePolicyPolicyDocument :: Object
   , _iAMRolePolicyPolicyName :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON IAMRolePolicy where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 14, omitNothingFields = True }
+  toJSON IAMRolePolicy{..} =
+    object
+    [ "PolicyDocument" .= _iAMRolePolicyPolicyDocument
+    , "PolicyName" .= _iAMRolePolicyPolicyName
+    ]
 
 instance FromJSON IAMRolePolicy where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 14, omitNothingFields = True }
+  parseJSON (Object obj) =
+    IAMRolePolicy <$>
+      obj .: "PolicyDocument" <*>
+      obj .: "PolicyName"
+  parseJSON _ = mempty
 
 -- | Constructor for 'IAMRolePolicy' containing required fields as arguments.
 iamRolePolicy

@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-s3origin.html
 
 module Stratosphere.ResourceProperties.CloudFrontDistributionS3OriginConfig where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -19,13 +18,19 @@ import Stratosphere.Values
 data CloudFrontDistributionS3OriginConfig =
   CloudFrontDistributionS3OriginConfig
   { _cloudFrontDistributionS3OriginConfigOriginAccessIdentity :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON CloudFrontDistributionS3OriginConfig where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 37, omitNothingFields = True }
+  toJSON CloudFrontDistributionS3OriginConfig{..} =
+    object
+    [ "OriginAccessIdentity" .= _cloudFrontDistributionS3OriginConfigOriginAccessIdentity
+    ]
 
 instance FromJSON CloudFrontDistributionS3OriginConfig where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 37, omitNothingFields = True }
+  parseJSON (Object obj) =
+    CloudFrontDistributionS3OriginConfig <$>
+      obj .: "OriginAccessIdentity"
+  parseJSON _ = mempty
 
 -- | Constructor for 'CloudFrontDistributionS3OriginConfig' containing
 -- | required fields as arguments.

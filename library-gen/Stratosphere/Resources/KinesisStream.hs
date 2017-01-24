@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html
 
 module Stratosphere.Resources.KinesisStream where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.Tag
@@ -21,13 +20,23 @@ data KinesisStream =
   { _kinesisStreamName :: Maybe (Val Text)
   , _kinesisStreamShardCount :: Val Integer'
   , _kinesisStreamTags :: Maybe [Tag]
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON KinesisStream where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 14, omitNothingFields = True }
+  toJSON KinesisStream{..} =
+    object
+    [ "Name" .= _kinesisStreamName
+    , "ShardCount" .= _kinesisStreamShardCount
+    , "Tags" .= _kinesisStreamTags
+    ]
 
 instance FromJSON KinesisStream where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 14, omitNothingFields = True }
+  parseJSON (Object obj) =
+    KinesisStream <$>
+      obj .: "Name" <*>
+      obj .: "ShardCount" <*>
+      obj .: "Tags"
+  parseJSON _ = mempty
 
 -- | Constructor for 'KinesisStream' containing required fields as arguments.
 kinesisStream

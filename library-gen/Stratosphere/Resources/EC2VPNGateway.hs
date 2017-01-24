@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpn-gateway.html
 
 module Stratosphere.Resources.EC2VPNGateway where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.Tag
@@ -20,13 +19,21 @@ data EC2VPNGateway =
   EC2VPNGateway
   { _eC2VPNGatewayTags :: Maybe [Tag]
   , _eC2VPNGatewayType :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON EC2VPNGateway where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 14, omitNothingFields = True }
+  toJSON EC2VPNGateway{..} =
+    object
+    [ "Tags" .= _eC2VPNGatewayTags
+    , "Type" .= _eC2VPNGatewayType
+    ]
 
 instance FromJSON EC2VPNGateway where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 14, omitNothingFields = True }
+  parseJSON (Object obj) =
+    EC2VPNGateway <$>
+      obj .: "Tags" <*>
+      obj .: "Type"
+  parseJSON _ = mempty
 
 -- | Constructor for 'EC2VPNGateway' containing required fields as arguments.
 ec2VPNGateway

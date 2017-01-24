@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configrule.html
 
 module Stratosphere.Resources.ConfigConfigRule where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.ConfigConfigRuleScope
@@ -25,13 +24,29 @@ data ConfigConfigRule =
   , _configConfigRuleMaximumExecutionFrequency :: Maybe (Val Text)
   , _configConfigRuleScope :: Maybe ConfigConfigRuleScope
   , _configConfigRuleSource :: ConfigConfigRuleSource
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON ConfigConfigRule where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 17, omitNothingFields = True }
+  toJSON ConfigConfigRule{..} =
+    object
+    [ "ConfigRuleName" .= _configConfigRuleConfigRuleName
+    , "Description" .= _configConfigRuleDescription
+    , "InputParameters" .= _configConfigRuleInputParameters
+    , "MaximumExecutionFrequency" .= _configConfigRuleMaximumExecutionFrequency
+    , "Scope" .= _configConfigRuleScope
+    , "Source" .= _configConfigRuleSource
+    ]
 
 instance FromJSON ConfigConfigRule where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 17, omitNothingFields = True }
+  parseJSON (Object obj) =
+    ConfigConfigRule <$>
+      obj .: "ConfigRuleName" <*>
+      obj .: "Description" <*>
+      obj .: "InputParameters" <*>
+      obj .: "MaximumExecutionFrequency" <*>
+      obj .: "Scope" <*>
+      obj .: "Source"
+  parseJSON _ = mempty
 
 -- | Constructor for 'ConfigConfigRule' containing required fields as
 -- | arguments.

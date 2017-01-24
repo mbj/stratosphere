@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-bytematchset-bytematchtuples.html
 
 module Stratosphere.ResourceProperties.WAFByteMatchSetByteMatchTuple where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.WAFByteMatchSetFieldToMatch
@@ -23,13 +22,27 @@ data WAFByteMatchSetByteMatchTuple =
   , _wAFByteMatchSetByteMatchTupleTargetString :: Maybe (Val Text)
   , _wAFByteMatchSetByteMatchTupleTargetStringBase64 :: Maybe (Val Text)
   , _wAFByteMatchSetByteMatchTupleTextTransformation :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON WAFByteMatchSetByteMatchTuple where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 30, omitNothingFields = True }
+  toJSON WAFByteMatchSetByteMatchTuple{..} =
+    object
+    [ "FieldToMatch" .= _wAFByteMatchSetByteMatchTupleFieldToMatch
+    , "PositionalConstraint" .= _wAFByteMatchSetByteMatchTuplePositionalConstraint
+    , "TargetString" .= _wAFByteMatchSetByteMatchTupleTargetString
+    , "TargetStringBase64" .= _wAFByteMatchSetByteMatchTupleTargetStringBase64
+    , "TextTransformation" .= _wAFByteMatchSetByteMatchTupleTextTransformation
+    ]
 
 instance FromJSON WAFByteMatchSetByteMatchTuple where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 30, omitNothingFields = True }
+  parseJSON (Object obj) =
+    WAFByteMatchSetByteMatchTuple <$>
+      obj .: "FieldToMatch" <*>
+      obj .: "PositionalConstraint" <*>
+      obj .: "TargetString" <*>
+      obj .: "TargetStringBase64" <*>
+      obj .: "TextTransformation"
+  parseJSON _ = mempty
 
 -- | Constructor for 'WAFByteMatchSetByteMatchTuple' containing required
 -- | fields as arguments.

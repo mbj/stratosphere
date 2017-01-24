@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages.html
 
 module Stratosphere.ResourceProperties.CodePipelinePipelineStageDeclaration where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.CodePipelinePipelineActionDeclaration
@@ -22,13 +21,23 @@ data CodePipelinePipelineStageDeclaration =
   { _codePipelinePipelineStageDeclarationActions :: [CodePipelinePipelineActionDeclaration]
   , _codePipelinePipelineStageDeclarationBlockers :: Maybe [CodePipelinePipelineBlockerDeclaration]
   , _codePipelinePipelineStageDeclarationName :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON CodePipelinePipelineStageDeclaration where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 37, omitNothingFields = True }
+  toJSON CodePipelinePipelineStageDeclaration{..} =
+    object
+    [ "Actions" .= _codePipelinePipelineStageDeclarationActions
+    , "Blockers" .= _codePipelinePipelineStageDeclarationBlockers
+    , "Name" .= _codePipelinePipelineStageDeclarationName
+    ]
 
 instance FromJSON CodePipelinePipelineStageDeclaration where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 37, omitNothingFields = True }
+  parseJSON (Object obj) =
+    CodePipelinePipelineStageDeclaration <$>
+      obj .: "Actions" <*>
+      obj .: "Blockers" <*>
+      obj .: "Name"
+  parseJSON _ = mempty
 
 -- | Constructor for 'CodePipelinePipelineStageDeclaration' containing
 -- | required fields as arguments.

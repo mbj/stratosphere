@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html
 
 module Stratosphere.Resources.AutoScalingAutoScalingGroup where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupMetricsCollection
@@ -37,13 +36,51 @@ data AutoScalingAutoScalingGroup =
   , _autoScalingAutoScalingGroupTargetGroupARNs :: Maybe [Val Text]
   , _autoScalingAutoScalingGroupTerminationPolicies :: Maybe [Val Text]
   , _autoScalingAutoScalingGroupVPCZoneIdentifier :: Maybe [Val Text]
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON AutoScalingAutoScalingGroup where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 28, omitNothingFields = True }
+  toJSON AutoScalingAutoScalingGroup{..} =
+    object
+    [ "AvailabilityZones" .= _autoScalingAutoScalingGroupAvailabilityZones
+    , "Cooldown" .= _autoScalingAutoScalingGroupCooldown
+    , "DesiredCapacity" .= _autoScalingAutoScalingGroupDesiredCapacity
+    , "HealthCheckGracePeriod" .= _autoScalingAutoScalingGroupHealthCheckGracePeriod
+    , "HealthCheckType" .= _autoScalingAutoScalingGroupHealthCheckType
+    , "InstanceId" .= _autoScalingAutoScalingGroupInstanceId
+    , "LaunchConfigurationName" .= _autoScalingAutoScalingGroupLaunchConfigurationName
+    , "LoadBalancerNames" .= _autoScalingAutoScalingGroupLoadBalancerNames
+    , "MaxSize" .= _autoScalingAutoScalingGroupMaxSize
+    , "MetricsCollection" .= _autoScalingAutoScalingGroupMetricsCollection
+    , "MinSize" .= _autoScalingAutoScalingGroupMinSize
+    , "NotificationConfigurations" .= _autoScalingAutoScalingGroupNotificationConfigurations
+    , "PlacementGroup" .= _autoScalingAutoScalingGroupPlacementGroup
+    , "Tags" .= _autoScalingAutoScalingGroupTags
+    , "TargetGroupARNs" .= _autoScalingAutoScalingGroupTargetGroupARNs
+    , "TerminationPolicies" .= _autoScalingAutoScalingGroupTerminationPolicies
+    , "VPCZoneIdentifier" .= _autoScalingAutoScalingGroupVPCZoneIdentifier
+    ]
 
 instance FromJSON AutoScalingAutoScalingGroup where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 28, omitNothingFields = True }
+  parseJSON (Object obj) =
+    AutoScalingAutoScalingGroup <$>
+      obj .: "AvailabilityZones" <*>
+      obj .: "Cooldown" <*>
+      obj .: "DesiredCapacity" <*>
+      obj .: "HealthCheckGracePeriod" <*>
+      obj .: "HealthCheckType" <*>
+      obj .: "InstanceId" <*>
+      obj .: "LaunchConfigurationName" <*>
+      obj .: "LoadBalancerNames" <*>
+      obj .: "MaxSize" <*>
+      obj .: "MetricsCollection" <*>
+      obj .: "MinSize" <*>
+      obj .: "NotificationConfigurations" <*>
+      obj .: "PlacementGroup" <*>
+      obj .: "Tags" <*>
+      obj .: "TargetGroupARNs" <*>
+      obj .: "TerminationPolicies" <*>
+      obj .: "VPCZoneIdentifier"
+  parseJSON _ = mempty
 
 -- | Constructor for 'AutoScalingAutoScalingGroup' containing required fields
 -- | as arguments.

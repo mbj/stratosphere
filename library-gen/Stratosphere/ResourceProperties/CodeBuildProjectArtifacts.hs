@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-artifacts.html
 
 module Stratosphere.ResourceProperties.CodeBuildProjectArtifacts where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -24,13 +23,29 @@ data CodeBuildProjectArtifacts =
   , _codeBuildProjectArtifactsPackaging :: Maybe (Val Text)
   , _codeBuildProjectArtifactsPath :: Maybe (Val Text)
   , _codeBuildProjectArtifactsType :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON CodeBuildProjectArtifacts where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 26, omitNothingFields = True }
+  toJSON CodeBuildProjectArtifacts{..} =
+    object
+    [ "Location" .= _codeBuildProjectArtifactsLocation
+    , "Name" .= _codeBuildProjectArtifactsName
+    , "NamespaceType" .= _codeBuildProjectArtifactsNamespaceType
+    , "Packaging" .= _codeBuildProjectArtifactsPackaging
+    , "Path" .= _codeBuildProjectArtifactsPath
+    , "Type" .= _codeBuildProjectArtifactsType
+    ]
 
 instance FromJSON CodeBuildProjectArtifacts where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 26, omitNothingFields = True }
+  parseJSON (Object obj) =
+    CodeBuildProjectArtifacts <$>
+      obj .: "Location" <*>
+      obj .: "Name" <*>
+      obj .: "NamespaceType" <*>
+      obj .: "Packaging" <*>
+      obj .: "Path" <*>
+      obj .: "Type"
+  parseJSON _ = mempty
 
 -- | Constructor for 'CodeBuildProjectArtifacts' containing required fields as
 -- | arguments.

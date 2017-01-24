@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html
 
 module Stratosphere.Resources.SSMDocument where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -20,13 +19,21 @@ data SSMDocument =
   SSMDocument
   { _sSMDocumentContent :: Object
   , _sSMDocumentDocumentType :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON SSMDocument where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 12, omitNothingFields = True }
+  toJSON SSMDocument{..} =
+    object
+    [ "Content" .= _sSMDocumentContent
+    , "DocumentType" .= _sSMDocumentDocumentType
+    ]
 
 instance FromJSON SSMDocument where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 12, omitNothingFields = True }
+  parseJSON (Object obj) =
+    SSMDocument <$>
+      obj .: "Content" <*>
+      obj .: "DocumentType"
+  parseJSON _ = mempty
 
 -- | Constructor for 'SSMDocument' containing required fields as arguments.
 ssmDocument

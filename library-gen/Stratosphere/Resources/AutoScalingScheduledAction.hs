@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-scheduledaction.html
 
 module Stratosphere.Resources.AutoScalingScheduledAction where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -25,13 +24,31 @@ data AutoScalingScheduledAction =
   , _autoScalingScheduledActionMinSize :: Maybe (Val Integer')
   , _autoScalingScheduledActionRecurrence :: Maybe (Val Text)
   , _autoScalingScheduledActionStartTime :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON AutoScalingScheduledAction where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 27, omitNothingFields = True }
+  toJSON AutoScalingScheduledAction{..} =
+    object
+    [ "AutoScalingGroupName" .= _autoScalingScheduledActionAutoScalingGroupName
+    , "DesiredCapacity" .= _autoScalingScheduledActionDesiredCapacity
+    , "EndTime" .= _autoScalingScheduledActionEndTime
+    , "MaxSize" .= _autoScalingScheduledActionMaxSize
+    , "MinSize" .= _autoScalingScheduledActionMinSize
+    , "Recurrence" .= _autoScalingScheduledActionRecurrence
+    , "StartTime" .= _autoScalingScheduledActionStartTime
+    ]
 
 instance FromJSON AutoScalingScheduledAction where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 27, omitNothingFields = True }
+  parseJSON (Object obj) =
+    AutoScalingScheduledAction <$>
+      obj .: "AutoScalingGroupName" <*>
+      obj .: "DesiredCapacity" <*>
+      obj .: "EndTime" <*>
+      obj .: "MaxSize" <*>
+      obj .: "MinSize" <*>
+      obj .: "Recurrence" <*>
+      obj .: "StartTime"
+  parseJSON _ = mempty
 
 -- | Constructor for 'AutoScalingScheduledAction' containing required fields
 -- | as arguments.

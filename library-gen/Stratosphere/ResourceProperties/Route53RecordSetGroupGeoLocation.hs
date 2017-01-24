@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset-geolocation.html
 
 module Stratosphere.ResourceProperties.Route53RecordSetGroupGeoLocation where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -21,13 +20,23 @@ data Route53RecordSetGroupGeoLocation =
   { _route53RecordSetGroupGeoLocationContinentCode :: Maybe (Val Text)
   , _route53RecordSetGroupGeoLocationCountryCode :: Maybe (Val Text)
   , _route53RecordSetGroupGeoLocationSubdivisionCode :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON Route53RecordSetGroupGeoLocation where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 33, omitNothingFields = True }
+  toJSON Route53RecordSetGroupGeoLocation{..} =
+    object
+    [ "ContinentCode" .= _route53RecordSetGroupGeoLocationContinentCode
+    , "CountryCode" .= _route53RecordSetGroupGeoLocationCountryCode
+    , "SubdivisionCode" .= _route53RecordSetGroupGeoLocationSubdivisionCode
+    ]
 
 instance FromJSON Route53RecordSetGroupGeoLocation where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 33, omitNothingFields = True }
+  parseJSON (Object obj) =
+    Route53RecordSetGroupGeoLocation <$>
+      obj .: "ContinentCode" <*>
+      obj .: "CountryCode" <*>
+      obj .: "SubdivisionCode"
+  parseJSON _ = mempty
 
 -- | Constructor for 'Route53RecordSetGroupGeoLocation' containing required
 -- | fields as arguments.

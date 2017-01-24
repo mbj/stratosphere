@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-authorizer.html
 
 module Stratosphere.Resources.ApiGatewayAuthorizer where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.Types
@@ -27,13 +26,35 @@ data ApiGatewayAuthorizer =
   , _apiGatewayAuthorizerProviderARNs :: Maybe [Val Text]
   , _apiGatewayAuthorizerRestApiId :: Maybe (Val Text)
   , _apiGatewayAuthorizerType :: Maybe (Val AuthorizerType)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON ApiGatewayAuthorizer where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 21, omitNothingFields = True }
+  toJSON ApiGatewayAuthorizer{..} =
+    object
+    [ "AuthorizerCredentials" .= _apiGatewayAuthorizerAuthorizerCredentials
+    , "AuthorizerResultTtlInSeconds" .= _apiGatewayAuthorizerAuthorizerResultTtlInSeconds
+    , "AuthorizerUri" .= _apiGatewayAuthorizerAuthorizerUri
+    , "IdentitySource" .= _apiGatewayAuthorizerIdentitySource
+    , "IdentityValidationExpression" .= _apiGatewayAuthorizerIdentityValidationExpression
+    , "Name" .= _apiGatewayAuthorizerName
+    , "ProviderARNs" .= _apiGatewayAuthorizerProviderARNs
+    , "RestApiId" .= _apiGatewayAuthorizerRestApiId
+    , "Type" .= _apiGatewayAuthorizerType
+    ]
 
 instance FromJSON ApiGatewayAuthorizer where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 21, omitNothingFields = True }
+  parseJSON (Object obj) =
+    ApiGatewayAuthorizer <$>
+      obj .: "AuthorizerCredentials" <*>
+      obj .: "AuthorizerResultTtlInSeconds" <*>
+      obj .: "AuthorizerUri" <*>
+      obj .: "IdentitySource" <*>
+      obj .: "IdentityValidationExpression" <*>
+      obj .: "Name" <*>
+      obj .: "ProviderARNs" <*>
+      obj .: "RestApiId" <*>
+      obj .: "Type"
+  parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayAuthorizer' containing required fields as
 -- | arguments.

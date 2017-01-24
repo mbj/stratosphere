@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codecommit-repository.html
 
 module Stratosphere.Resources.CodeCommitRepository where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.CodeCommitRepositoryRepositoryTrigger
@@ -21,13 +20,23 @@ data CodeCommitRepository =
   { _codeCommitRepositoryRepositoryDescription :: Maybe (Val Text)
   , _codeCommitRepositoryRepositoryName :: Val Text
   , _codeCommitRepositoryTriggers :: Maybe [CodeCommitRepositoryRepositoryTrigger]
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON CodeCommitRepository where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 21, omitNothingFields = True }
+  toJSON CodeCommitRepository{..} =
+    object
+    [ "RepositoryDescription" .= _codeCommitRepositoryRepositoryDescription
+    , "RepositoryName" .= _codeCommitRepositoryRepositoryName
+    , "Triggers" .= _codeCommitRepositoryTriggers
+    ]
 
 instance FromJSON CodeCommitRepository where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 21, omitNothingFields = True }
+  parseJSON (Object obj) =
+    CodeCommitRepository <$>
+      obj .: "RepositoryDescription" <*>
+      obj .: "RepositoryName" <*>
+      obj .: "Triggers"
+  parseJSON _ = mempty
 
 -- | Constructor for 'CodeCommitRepository' containing required fields as
 -- | arguments.

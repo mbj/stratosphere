@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-hostentry.html
 
 module Stratosphere.ResourceProperties.ECSTaskDefinitionHostEntry where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -20,13 +19,21 @@ data ECSTaskDefinitionHostEntry =
   ECSTaskDefinitionHostEntry
   { _eCSTaskDefinitionHostEntryHostname :: Val Text
   , _eCSTaskDefinitionHostEntryIpAddress :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON ECSTaskDefinitionHostEntry where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 27, omitNothingFields = True }
+  toJSON ECSTaskDefinitionHostEntry{..} =
+    object
+    [ "Hostname" .= _eCSTaskDefinitionHostEntryHostname
+    , "IpAddress" .= _eCSTaskDefinitionHostEntryIpAddress
+    ]
 
 instance FromJSON ECSTaskDefinitionHostEntry where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 27, omitNothingFields = True }
+  parseJSON (Object obj) =
+    ECSTaskDefinitionHostEntry <$>
+      obj .: "Hostname" <*>
+      obj .: "IpAddress"
+  parseJSON _ = mempty
 
 -- | Constructor for 'ECSTaskDefinitionHostEntry' containing required fields
 -- | as arguments.

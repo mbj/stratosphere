@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-kinesisdeliverystream-destination-cloudwatchloggingoptions.html
 
 module Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamCloudWatchLoggingOptions where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -23,13 +22,23 @@ data KinesisFirehoseDeliveryStreamCloudWatchLoggingOptions =
   { _kinesisFirehoseDeliveryStreamCloudWatchLoggingOptionsEnabled :: Maybe (Val Bool')
   , _kinesisFirehoseDeliveryStreamCloudWatchLoggingOptionsLogGroupName :: Maybe (Val Text)
   , _kinesisFirehoseDeliveryStreamCloudWatchLoggingOptionsLogStreamName :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON KinesisFirehoseDeliveryStreamCloudWatchLoggingOptions where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 54, omitNothingFields = True }
+  toJSON KinesisFirehoseDeliveryStreamCloudWatchLoggingOptions{..} =
+    object
+    [ "Enabled" .= _kinesisFirehoseDeliveryStreamCloudWatchLoggingOptionsEnabled
+    , "LogGroupName" .= _kinesisFirehoseDeliveryStreamCloudWatchLoggingOptionsLogGroupName
+    , "LogStreamName" .= _kinesisFirehoseDeliveryStreamCloudWatchLoggingOptionsLogStreamName
+    ]
 
 instance FromJSON KinesisFirehoseDeliveryStreamCloudWatchLoggingOptions where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 54, omitNothingFields = True }
+  parseJSON (Object obj) =
+    KinesisFirehoseDeliveryStreamCloudWatchLoggingOptions <$>
+      obj .: "Enabled" <*>
+      obj .: "LogGroupName" <*>
+      obj .: "LogStreamName"
+  parseJSON _ = mempty
 
 -- | Constructor for 'KinesisFirehoseDeliveryStreamCloudWatchLoggingOptions'
 -- | containing required fields as arguments.

@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-keyschema.html
 
 module Stratosphere.ResourceProperties.DynamoDBTableKeySchema where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.Types
@@ -20,13 +19,21 @@ data DynamoDBTableKeySchema =
   DynamoDBTableKeySchema
   { _dynamoDBTableKeySchemaAttributeName :: Val Text
   , _dynamoDBTableKeySchemaKeyType :: Val KeyType
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON DynamoDBTableKeySchema where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 23, omitNothingFields = True }
+  toJSON DynamoDBTableKeySchema{..} =
+    object
+    [ "AttributeName" .= _dynamoDBTableKeySchemaAttributeName
+    , "KeyType" .= _dynamoDBTableKeySchemaKeyType
+    ]
 
 instance FromJSON DynamoDBTableKeySchema where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 23, omitNothingFields = True }
+  parseJSON (Object obj) =
+    DynamoDBTableKeySchema <$>
+      obj .: "AttributeName" <*>
+      obj .: "KeyType"
+  parseJSON _ = mempty
 
 -- | Constructor for 'DynamoDBTableKeySchema' containing required fields as
 -- | arguments.

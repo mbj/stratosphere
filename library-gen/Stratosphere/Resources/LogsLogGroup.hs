@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html
 
 module Stratosphere.Resources.LogsLogGroup where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -20,13 +19,21 @@ data LogsLogGroup =
   LogsLogGroup
   { _logsLogGroupLogGroupName :: Maybe (Val Text)
   , _logsLogGroupRetentionInDays :: Maybe (Val Integer')
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON LogsLogGroup where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 13, omitNothingFields = True }
+  toJSON LogsLogGroup{..} =
+    object
+    [ "LogGroupName" .= _logsLogGroupLogGroupName
+    , "RetentionInDays" .= _logsLogGroupRetentionInDays
+    ]
 
 instance FromJSON LogsLogGroup where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 13, omitNothingFields = True }
+  parseJSON (Object obj) =
+    LogsLogGroup <$>
+      obj .: "LogGroupName" <*>
+      obj .: "RetentionInDays"
+  parseJSON _ = mempty
 
 -- | Constructor for 'LogsLogGroup' containing required fields as arguments.
 logsLogGroup

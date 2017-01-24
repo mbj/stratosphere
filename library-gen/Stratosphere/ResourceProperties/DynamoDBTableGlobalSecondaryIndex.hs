@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-gsi.html
 
 module Stratosphere.ResourceProperties.DynamoDBTableGlobalSecondaryIndex where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.DynamoDBTableKeySchema
@@ -24,13 +23,25 @@ data DynamoDBTableGlobalSecondaryIndex =
   , _dynamoDBTableGlobalSecondaryIndexKeySchema :: [DynamoDBTableKeySchema]
   , _dynamoDBTableGlobalSecondaryIndexProjection :: DynamoDBTableProjection
   , _dynamoDBTableGlobalSecondaryIndexProvisionedThroughput :: DynamoDBTableProvisionedThroughput
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON DynamoDBTableGlobalSecondaryIndex where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 34, omitNothingFields = True }
+  toJSON DynamoDBTableGlobalSecondaryIndex{..} =
+    object
+    [ "IndexName" .= _dynamoDBTableGlobalSecondaryIndexIndexName
+    , "KeySchema" .= _dynamoDBTableGlobalSecondaryIndexKeySchema
+    , "Projection" .= _dynamoDBTableGlobalSecondaryIndexProjection
+    , "ProvisionedThroughput" .= _dynamoDBTableGlobalSecondaryIndexProvisionedThroughput
+    ]
 
 instance FromJSON DynamoDBTableGlobalSecondaryIndex where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 34, omitNothingFields = True }
+  parseJSON (Object obj) =
+    DynamoDBTableGlobalSecondaryIndex <$>
+      obj .: "IndexName" <*>
+      obj .: "KeySchema" <*>
+      obj .: "Projection" <*>
+      obj .: "ProvisionedThroughput"
+  parseJSON _ = mempty
 
 -- | Constructor for 'DynamoDBTableGlobalSecondaryIndex' containing required
 -- | fields as arguments.

@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html
 
 module Stratosphere.Resources.ECRRepository where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -20,13 +19,21 @@ data ECRRepository =
   ECRRepository
   { _eCRRepositoryRepositoryName :: Maybe (Val Text)
   , _eCRRepositoryRepositoryPolicyText :: Maybe Object
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON ECRRepository where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 14, omitNothingFields = True }
+  toJSON ECRRepository{..} =
+    object
+    [ "RepositoryName" .= _eCRRepositoryRepositoryName
+    , "RepositoryPolicyText" .= _eCRRepositoryRepositoryPolicyText
+    ]
 
 instance FromJSON ECRRepository where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 14, omitNothingFields = True }
+  parseJSON (Object obj) =
+    ECRRepository <$>
+      obj .: "RepositoryName" <*>
+      obj .: "RepositoryPolicyText"
+  parseJSON _ = mempty
 
 -- | Constructor for 'ECRRepository' containing required fields as arguments.
 ecrRepository

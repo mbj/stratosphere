@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-option-settings.html
 
 module Stratosphere.ResourceProperties.ElasticBeanstalkEnvironmentOptionSettings where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -22,13 +21,23 @@ data ElasticBeanstalkEnvironmentOptionSettings =
   { _elasticBeanstalkEnvironmentOptionSettingsNamespace :: Val Text
   , _elasticBeanstalkEnvironmentOptionSettingsOptionName :: Val Text
   , _elasticBeanstalkEnvironmentOptionSettingsValue :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON ElasticBeanstalkEnvironmentOptionSettings where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 42, omitNothingFields = True }
+  toJSON ElasticBeanstalkEnvironmentOptionSettings{..} =
+    object
+    [ "Namespace" .= _elasticBeanstalkEnvironmentOptionSettingsNamespace
+    , "OptionName" .= _elasticBeanstalkEnvironmentOptionSettingsOptionName
+    , "Value" .= _elasticBeanstalkEnvironmentOptionSettingsValue
+    ]
 
 instance FromJSON ElasticBeanstalkEnvironmentOptionSettings where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 42, omitNothingFields = True }
+  parseJSON (Object obj) =
+    ElasticBeanstalkEnvironmentOptionSettings <$>
+      obj .: "Namespace" <*>
+      obj .: "OptionName" <*>
+      obj .: "Value"
+  parseJSON _ = mempty
 
 -- | Constructor for 'ElasticBeanstalkEnvironmentOptionSettings' containing
 -- | required fields as arguments.

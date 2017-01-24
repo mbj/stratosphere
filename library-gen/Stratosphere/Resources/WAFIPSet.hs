@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-ipset.html
 
 module Stratosphere.Resources.WAFIPSet where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.WAFIPSetIPSetDescriptor
@@ -20,13 +19,21 @@ data WAFIPSet =
   WAFIPSet
   { _wAFIPSetIPSetDescriptors :: Maybe [WAFIPSetIPSetDescriptor]
   , _wAFIPSetName :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON WAFIPSet where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 9, omitNothingFields = True }
+  toJSON WAFIPSet{..} =
+    object
+    [ "IPSetDescriptors" .= _wAFIPSetIPSetDescriptors
+    , "Name" .= _wAFIPSetName
+    ]
 
 instance FromJSON WAFIPSet where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 9, omitNothingFields = True }
+  parseJSON (Object obj) =
+    WAFIPSet <$>
+      obj .: "IPSetDescriptors" <*>
+      obj .: "Name"
+  parseJSON _ = mempty
 
 -- | Constructor for 'WAFIPSet' containing required fields as arguments.
 wafipSet

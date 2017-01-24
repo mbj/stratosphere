@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-iface-embedded.html
 
 module Stratosphere.ResourceProperties.EC2InstanceNetworkInterface where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.EC2InstanceInstanceIpv6Address
@@ -31,13 +30,41 @@ data EC2InstanceNetworkInterface =
   , _eC2InstanceNetworkInterfacePrivateIpAddresses :: Maybe [EC2InstancePrivateIpAddressSpecification]
   , _eC2InstanceNetworkInterfaceSecondaryPrivateIpAddressCount :: Maybe (Val Integer')
   , _eC2InstanceNetworkInterfaceSubnetId :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON EC2InstanceNetworkInterface where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 28, omitNothingFields = True }
+  toJSON EC2InstanceNetworkInterface{..} =
+    object
+    [ "AssociatePublicIpAddress" .= _eC2InstanceNetworkInterfaceAssociatePublicIpAddress
+    , "DeleteOnTermination" .= _eC2InstanceNetworkInterfaceDeleteOnTermination
+    , "Description" .= _eC2InstanceNetworkInterfaceDescription
+    , "DeviceIndex" .= _eC2InstanceNetworkInterfaceDeviceIndex
+    , "GroupSet" .= _eC2InstanceNetworkInterfaceGroupSet
+    , "Ipv6AddressCount" .= _eC2InstanceNetworkInterfaceIpv6AddressCount
+    , "Ipv6Addresses" .= _eC2InstanceNetworkInterfaceIpv6Addresses
+    , "NetworkInterfaceId" .= _eC2InstanceNetworkInterfaceNetworkInterfaceId
+    , "PrivateIpAddress" .= _eC2InstanceNetworkInterfacePrivateIpAddress
+    , "PrivateIpAddresses" .= _eC2InstanceNetworkInterfacePrivateIpAddresses
+    , "SecondaryPrivateIpAddressCount" .= _eC2InstanceNetworkInterfaceSecondaryPrivateIpAddressCount
+    , "SubnetId" .= _eC2InstanceNetworkInterfaceSubnetId
+    ]
 
 instance FromJSON EC2InstanceNetworkInterface where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 28, omitNothingFields = True }
+  parseJSON (Object obj) =
+    EC2InstanceNetworkInterface <$>
+      obj .: "AssociatePublicIpAddress" <*>
+      obj .: "DeleteOnTermination" <*>
+      obj .: "Description" <*>
+      obj .: "DeviceIndex" <*>
+      obj .: "GroupSet" <*>
+      obj .: "Ipv6AddressCount" <*>
+      obj .: "Ipv6Addresses" <*>
+      obj .: "NetworkInterfaceId" <*>
+      obj .: "PrivateIpAddress" <*>
+      obj .: "PrivateIpAddresses" <*>
+      obj .: "SecondaryPrivateIpAddressCount" <*>
+      obj .: "SubnetId"
+  parseJSON _ = mempty
 
 -- | Constructor for 'EC2InstanceNetworkInterface' containing required fields
 -- | as arguments.

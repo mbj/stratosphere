@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-listener.html
 
 module Stratosphere.ResourceProperties.ElasticLoadBalancingLoadBalancerListeners where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -25,13 +24,29 @@ data ElasticLoadBalancingLoadBalancerListeners =
   , _elasticLoadBalancingLoadBalancerListenersPolicyNames :: Maybe [Val Text]
   , _elasticLoadBalancingLoadBalancerListenersProtocol :: Val Text
   , _elasticLoadBalancingLoadBalancerListenersSSLCertificateId :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON ElasticLoadBalancingLoadBalancerListeners where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 42, omitNothingFields = True }
+  toJSON ElasticLoadBalancingLoadBalancerListeners{..} =
+    object
+    [ "InstancePort" .= _elasticLoadBalancingLoadBalancerListenersInstancePort
+    , "InstanceProtocol" .= _elasticLoadBalancingLoadBalancerListenersInstanceProtocol
+    , "LoadBalancerPort" .= _elasticLoadBalancingLoadBalancerListenersLoadBalancerPort
+    , "PolicyNames" .= _elasticLoadBalancingLoadBalancerListenersPolicyNames
+    , "Protocol" .= _elasticLoadBalancingLoadBalancerListenersProtocol
+    , "SSLCertificateId" .= _elasticLoadBalancingLoadBalancerListenersSSLCertificateId
+    ]
 
 instance FromJSON ElasticLoadBalancingLoadBalancerListeners where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 42, omitNothingFields = True }
+  parseJSON (Object obj) =
+    ElasticLoadBalancingLoadBalancerListeners <$>
+      obj .: "InstancePort" <*>
+      obj .: "InstanceProtocol" <*>
+      obj .: "LoadBalancerPort" <*>
+      obj .: "PolicyNames" <*>
+      obj .: "Protocol" <*>
+      obj .: "SSLCertificateId"
+  parseJSON _ = mempty
 
 -- | Constructor for 'ElasticLoadBalancingLoadBalancerListeners' containing
 -- | required fields as arguments.

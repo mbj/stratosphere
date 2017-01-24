@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-instance-ebsblockdevice.html
 
 module Stratosphere.ResourceProperties.OpsWorksInstanceEbsBlockDevice where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -23,13 +22,27 @@ data OpsWorksInstanceEbsBlockDevice =
   , _opsWorksInstanceEbsBlockDeviceSnapshotId :: Maybe (Val Text)
   , _opsWorksInstanceEbsBlockDeviceVolumeSize :: Maybe (Val Integer')
   , _opsWorksInstanceEbsBlockDeviceVolumeType :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON OpsWorksInstanceEbsBlockDevice where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 31, omitNothingFields = True }
+  toJSON OpsWorksInstanceEbsBlockDevice{..} =
+    object
+    [ "DeleteOnTermination" .= _opsWorksInstanceEbsBlockDeviceDeleteOnTermination
+    , "Iops" .= _opsWorksInstanceEbsBlockDeviceIops
+    , "SnapshotId" .= _opsWorksInstanceEbsBlockDeviceSnapshotId
+    , "VolumeSize" .= _opsWorksInstanceEbsBlockDeviceVolumeSize
+    , "VolumeType" .= _opsWorksInstanceEbsBlockDeviceVolumeType
+    ]
 
 instance FromJSON OpsWorksInstanceEbsBlockDevice where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 31, omitNothingFields = True }
+  parseJSON (Object obj) =
+    OpsWorksInstanceEbsBlockDevice <$>
+      obj .: "DeleteOnTermination" <*>
+      obj .: "Iops" <*>
+      obj .: "SnapshotId" <*>
+      obj .: "VolumeSize" <*>
+      obj .: "VolumeType"
+  parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksInstanceEbsBlockDevice' containing required
 -- | fields as arguments.

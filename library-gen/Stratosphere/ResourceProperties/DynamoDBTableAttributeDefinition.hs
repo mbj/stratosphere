@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-attributedef.html
 
 module Stratosphere.ResourceProperties.DynamoDBTableAttributeDefinition where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.Types
@@ -20,13 +19,21 @@ data DynamoDBTableAttributeDefinition =
   DynamoDBTableAttributeDefinition
   { _dynamoDBTableAttributeDefinitionAttributeName :: Val Text
   , _dynamoDBTableAttributeDefinitionAttributeType :: Val AttributeType
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON DynamoDBTableAttributeDefinition where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 33, omitNothingFields = True }
+  toJSON DynamoDBTableAttributeDefinition{..} =
+    object
+    [ "AttributeName" .= _dynamoDBTableAttributeDefinitionAttributeName
+    , "AttributeType" .= _dynamoDBTableAttributeDefinitionAttributeType
+    ]
 
 instance FromJSON DynamoDBTableAttributeDefinition where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 33, omitNothingFields = True }
+  parseJSON (Object obj) =
+    DynamoDBTableAttributeDefinition <$>
+      obj .: "AttributeName" <*>
+      obj .: "AttributeType"
+  parseJSON _ = mempty
 
 -- | Constructor for 'DynamoDBTableAttributeDefinition' containing required
 -- | fields as arguments.

@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clustersecuritygroupingress.html
 
 module Stratosphere.Resources.RedshiftClusterSecurityGroupIngress where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -22,13 +21,25 @@ data RedshiftClusterSecurityGroupIngress =
   , _redshiftClusterSecurityGroupIngressClusterSecurityGroupName :: Val Text
   , _redshiftClusterSecurityGroupIngressEC2SecurityGroupName :: Maybe (Val Text)
   , _redshiftClusterSecurityGroupIngressEC2SecurityGroupOwnerId :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON RedshiftClusterSecurityGroupIngress where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 36, omitNothingFields = True }
+  toJSON RedshiftClusterSecurityGroupIngress{..} =
+    object
+    [ "CIDRIP" .= _redshiftClusterSecurityGroupIngressCIDRIP
+    , "ClusterSecurityGroupName" .= _redshiftClusterSecurityGroupIngressClusterSecurityGroupName
+    , "EC2SecurityGroupName" .= _redshiftClusterSecurityGroupIngressEC2SecurityGroupName
+    , "EC2SecurityGroupOwnerId" .= _redshiftClusterSecurityGroupIngressEC2SecurityGroupOwnerId
+    ]
 
 instance FromJSON RedshiftClusterSecurityGroupIngress where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 36, omitNothingFields = True }
+  parseJSON (Object obj) =
+    RedshiftClusterSecurityGroupIngress <$>
+      obj .: "CIDRIP" <*>
+      obj .: "ClusterSecurityGroupName" <*>
+      obj .: "EC2SecurityGroupName" <*>
+      obj .: "EC2SecurityGroupOwnerId"
+  parseJSON _ = mempty
 
 -- | Constructor for 'RedshiftClusterSecurityGroupIngress' containing required
 -- | fields as arguments.

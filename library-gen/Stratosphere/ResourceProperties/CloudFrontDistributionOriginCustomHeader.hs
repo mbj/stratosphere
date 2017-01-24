@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-origin-origincustomheader.html
 
 module Stratosphere.ResourceProperties.CloudFrontDistributionOriginCustomHeader where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -21,13 +20,21 @@ data CloudFrontDistributionOriginCustomHeader =
   CloudFrontDistributionOriginCustomHeader
   { _cloudFrontDistributionOriginCustomHeaderHeaderName :: Val Text
   , _cloudFrontDistributionOriginCustomHeaderHeaderValue :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON CloudFrontDistributionOriginCustomHeader where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 41, omitNothingFields = True }
+  toJSON CloudFrontDistributionOriginCustomHeader{..} =
+    object
+    [ "HeaderName" .= _cloudFrontDistributionOriginCustomHeaderHeaderName
+    , "HeaderValue" .= _cloudFrontDistributionOriginCustomHeaderHeaderValue
+    ]
 
 instance FromJSON CloudFrontDistributionOriginCustomHeader where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 41, omitNothingFields = True }
+  parseJSON (Object obj) =
+    CloudFrontDistributionOriginCustomHeader <$>
+      obj .: "HeaderName" <*>
+      obj .: "HeaderValue"
+  parseJSON _ = mempty
 
 -- | Constructor for 'CloudFrontDistributionOriginCustomHeader' containing
 -- | required fields as arguments.

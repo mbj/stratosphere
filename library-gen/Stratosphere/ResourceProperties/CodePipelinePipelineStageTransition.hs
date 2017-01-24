@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-disableinboundstagetransitions.html
 
 module Stratosphere.ResourceProperties.CodePipelinePipelineStageTransition where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -20,13 +19,21 @@ data CodePipelinePipelineStageTransition =
   CodePipelinePipelineStageTransition
   { _codePipelinePipelineStageTransitionReason :: Val Text
   , _codePipelinePipelineStageTransitionStageName :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON CodePipelinePipelineStageTransition where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 36, omitNothingFields = True }
+  toJSON CodePipelinePipelineStageTransition{..} =
+    object
+    [ "Reason" .= _codePipelinePipelineStageTransitionReason
+    , "StageName" .= _codePipelinePipelineStageTransitionStageName
+    ]
 
 instance FromJSON CodePipelinePipelineStageTransition where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 36, omitNothingFields = True }
+  parseJSON (Object obj) =
+    CodePipelinePipelineStageTransition <$>
+      obj .: "Reason" <*>
+      obj .: "StageName"
+  parseJSON _ = mempty
 
 -- | Constructor for 'CodePipelinePipelineStageTransition' containing required
 -- | fields as arguments.

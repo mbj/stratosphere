@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-deployment-revision-s3location.html
 
 module Stratosphere.ResourceProperties.CodeDeployDeploymentGroupS3Location where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -23,13 +22,27 @@ data CodeDeployDeploymentGroupS3Location =
   , _codeDeployDeploymentGroupS3LocationETag :: Maybe (Val Text)
   , _codeDeployDeploymentGroupS3LocationKey :: Val Text
   , _codeDeployDeploymentGroupS3LocationVersion :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON CodeDeployDeploymentGroupS3Location where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 36, omitNothingFields = True }
+  toJSON CodeDeployDeploymentGroupS3Location{..} =
+    object
+    [ "Bucket" .= _codeDeployDeploymentGroupS3LocationBucket
+    , "BundleType" .= _codeDeployDeploymentGroupS3LocationBundleType
+    , "ETag" .= _codeDeployDeploymentGroupS3LocationETag
+    , "Key" .= _codeDeployDeploymentGroupS3LocationKey
+    , "Version" .= _codeDeployDeploymentGroupS3LocationVersion
+    ]
 
 instance FromJSON CodeDeployDeploymentGroupS3Location where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 36, omitNothingFields = True }
+  parseJSON (Object obj) =
+    CodeDeployDeploymentGroupS3Location <$>
+      obj .: "Bucket" <*>
+      obj .: "BundleType" <*>
+      obj .: "ETag" <*>
+      obj .: "Key" <*>
+      obj .: "Version"
+  parseJSON _ = mempty
 
 -- | Constructor for 'CodeDeployDeploymentGroupS3Location' containing required
 -- | fields as arguments.

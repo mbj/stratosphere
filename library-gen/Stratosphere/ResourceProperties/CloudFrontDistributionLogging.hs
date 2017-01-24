@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-logging.html
 
 module Stratosphere.ResourceProperties.CloudFrontDistributionLogging where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -21,13 +20,23 @@ data CloudFrontDistributionLogging =
   { _cloudFrontDistributionLoggingBucket :: Val Text
   , _cloudFrontDistributionLoggingIncludeCookies :: Maybe (Val Bool')
   , _cloudFrontDistributionLoggingPrefix :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON CloudFrontDistributionLogging where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 30, omitNothingFields = True }
+  toJSON CloudFrontDistributionLogging{..} =
+    object
+    [ "Bucket" .= _cloudFrontDistributionLoggingBucket
+    , "IncludeCookies" .= _cloudFrontDistributionLoggingIncludeCookies
+    , "Prefix" .= _cloudFrontDistributionLoggingPrefix
+    ]
 
 instance FromJSON CloudFrontDistributionLogging where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 30, omitNothingFields = True }
+  parseJSON (Object obj) =
+    CloudFrontDistributionLogging <$>
+      obj .: "Bucket" <*>
+      obj .: "IncludeCookies" <*>
+      obj .: "Prefix"
+  parseJSON _ = mempty
 
 -- | Constructor for 'CloudFrontDistributionLogging' containing required
 -- | fields as arguments.

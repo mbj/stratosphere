@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environmentvariable.html
 
 module Stratosphere.ResourceProperties.CodeBuildProjectEnvironmentVariable where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -20,13 +19,21 @@ data CodeBuildProjectEnvironmentVariable =
   CodeBuildProjectEnvironmentVariable
   { _codeBuildProjectEnvironmentVariableName :: Maybe (Val Text)
   , _codeBuildProjectEnvironmentVariableValue :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON CodeBuildProjectEnvironmentVariable where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 36, omitNothingFields = True }
+  toJSON CodeBuildProjectEnvironmentVariable{..} =
+    object
+    [ "Name" .= _codeBuildProjectEnvironmentVariableName
+    , "Value" .= _codeBuildProjectEnvironmentVariableValue
+    ]
 
 instance FromJSON CodeBuildProjectEnvironmentVariable where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 36, omitNothingFields = True }
+  parseJSON (Object obj) =
+    CodeBuildProjectEnvironmentVariable <$>
+      obj .: "Name" <*>
+      obj .: "Value"
+  parseJSON _ = mempty
 
 -- | Constructor for 'CodeBuildProjectEnvironmentVariable' containing required
 -- | fields as arguments.

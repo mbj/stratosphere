@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-origin.html
 
 module Stratosphere.ResourceProperties.CloudFrontDistributionOrigin where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.CloudFrontDistributionCustomOriginConfig
@@ -26,13 +25,29 @@ data CloudFrontDistributionOrigin =
   , _cloudFrontDistributionOriginOriginCustomHeaders :: Maybe [CloudFrontDistributionOriginCustomHeader]
   , _cloudFrontDistributionOriginOriginPath :: Maybe (Val Text)
   , _cloudFrontDistributionOriginS3OriginConfig :: Maybe CloudFrontDistributionS3OriginConfig
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON CloudFrontDistributionOrigin where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 29, omitNothingFields = True }
+  toJSON CloudFrontDistributionOrigin{..} =
+    object
+    [ "CustomOriginConfig" .= _cloudFrontDistributionOriginCustomOriginConfig
+    , "DomainName" .= _cloudFrontDistributionOriginDomainName
+    , "Id" .= _cloudFrontDistributionOriginId
+    , "OriginCustomHeaders" .= _cloudFrontDistributionOriginOriginCustomHeaders
+    , "OriginPath" .= _cloudFrontDistributionOriginOriginPath
+    , "S3OriginConfig" .= _cloudFrontDistributionOriginS3OriginConfig
+    ]
 
 instance FromJSON CloudFrontDistributionOrigin where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 29, omitNothingFields = True }
+  parseJSON (Object obj) =
+    CloudFrontDistributionOrigin <$>
+      obj .: "CustomOriginConfig" <*>
+      obj .: "DomainName" <*>
+      obj .: "Id" <*>
+      obj .: "OriginCustomHeaders" <*>
+      obj .: "OriginPath" <*>
+      obj .: "S3OriginConfig"
+  parseJSON _ = mempty
 
 -- | Constructor for 'CloudFrontDistributionOrigin' containing required fields
 -- | as arguments.

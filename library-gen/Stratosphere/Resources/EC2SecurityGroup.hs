@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group.html
 
 module Stratosphere.Resources.EC2SecurityGroup where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.EC2SecurityGroupRule
@@ -24,13 +23,27 @@ data EC2SecurityGroup =
   , _eC2SecurityGroupSecurityGroupIngress :: Maybe [EC2SecurityGroupRule]
   , _eC2SecurityGroupTags :: Maybe [Tag]
   , _eC2SecurityGroupVpcId :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON EC2SecurityGroup where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 17, omitNothingFields = True }
+  toJSON EC2SecurityGroup{..} =
+    object
+    [ "GroupDescription" .= _eC2SecurityGroupGroupDescription
+    , "SecurityGroupEgress" .= _eC2SecurityGroupSecurityGroupEgress
+    , "SecurityGroupIngress" .= _eC2SecurityGroupSecurityGroupIngress
+    , "Tags" .= _eC2SecurityGroupTags
+    , "VpcId" .= _eC2SecurityGroupVpcId
+    ]
 
 instance FromJSON EC2SecurityGroup where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 17, omitNothingFields = True }
+  parseJSON (Object obj) =
+    EC2SecurityGroup <$>
+      obj .: "GroupDescription" <*>
+      obj .: "SecurityGroupEgress" <*>
+      obj .: "SecurityGroupIngress" <*>
+      obj .: "Tags" <*>
+      obj .: "VpcId"
+  parseJSON _ = mempty
 
 -- | Constructor for 'EC2SecurityGroup' containing required fields as
 -- | arguments.

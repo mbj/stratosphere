@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-certificate.html
 
 module Stratosphere.Resources.CertificateManagerCertificate where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.CertificateManagerCertificateDomainValidationOption
@@ -23,13 +22,25 @@ data CertificateManagerCertificate =
   , _certificateManagerCertificateDomainValidationOptions :: Maybe [CertificateManagerCertificateDomainValidationOption]
   , _certificateManagerCertificateSubjectAlternativeNames :: Maybe [Val Text]
   , _certificateManagerCertificateTags :: Maybe [Tag]
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON CertificateManagerCertificate where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 30, omitNothingFields = True }
+  toJSON CertificateManagerCertificate{..} =
+    object
+    [ "DomainName" .= _certificateManagerCertificateDomainName
+    , "DomainValidationOptions" .= _certificateManagerCertificateDomainValidationOptions
+    , "SubjectAlternativeNames" .= _certificateManagerCertificateSubjectAlternativeNames
+    , "Tags" .= _certificateManagerCertificateTags
+    ]
 
 instance FromJSON CertificateManagerCertificate where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 30, omitNothingFields = True }
+  parseJSON (Object obj) =
+    CertificateManagerCertificate <$>
+      obj .: "DomainName" <*>
+      obj .: "DomainValidationOptions" <*>
+      obj .: "SubjectAlternativeNames" <*>
+      obj .: "Tags"
+  parseJSON _ = mempty
 
 -- | Constructor for 'CertificateManagerCertificate' containing required
 -- | fields as arguments.

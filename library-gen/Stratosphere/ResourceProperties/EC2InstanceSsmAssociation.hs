@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-ssmassociations.html
 
 module Stratosphere.ResourceProperties.EC2InstanceSsmAssociation where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.EC2InstanceAssociationParameter
@@ -20,13 +19,21 @@ data EC2InstanceSsmAssociation =
   EC2InstanceSsmAssociation
   { _eC2InstanceSsmAssociationAssociationParameters :: Maybe [EC2InstanceAssociationParameter]
   , _eC2InstanceSsmAssociationDocumentName :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON EC2InstanceSsmAssociation where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 26, omitNothingFields = True }
+  toJSON EC2InstanceSsmAssociation{..} =
+    object
+    [ "AssociationParameters" .= _eC2InstanceSsmAssociationAssociationParameters
+    , "DocumentName" .= _eC2InstanceSsmAssociationDocumentName
+    ]
 
 instance FromJSON EC2InstanceSsmAssociation where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 26, omitNothingFields = True }
+  parseJSON (Object obj) =
+    EC2InstanceSsmAssociation <$>
+      obj .: "AssociationParameters" <*>
+      obj .: "DocumentName"
+  parseJSON _ = mempty
 
 -- | Constructor for 'EC2InstanceSsmAssociation' containing required fields as
 -- | arguments.

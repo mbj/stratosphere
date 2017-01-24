@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-webacl.html
 
 module Stratosphere.Resources.WAFWebACL where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.WAFWebACLWafAction
@@ -23,13 +22,25 @@ data WAFWebACL =
   , _wAFWebACLMetricName :: Val Text
   , _wAFWebACLName :: Val Text
   , _wAFWebACLRules :: Maybe [WAFWebACLActivatedRule]
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON WAFWebACL where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 10, omitNothingFields = True }
+  toJSON WAFWebACL{..} =
+    object
+    [ "DefaultAction" .= _wAFWebACLDefaultAction
+    , "MetricName" .= _wAFWebACLMetricName
+    , "Name" .= _wAFWebACLName
+    , "Rules" .= _wAFWebACLRules
+    ]
 
 instance FromJSON WAFWebACL where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 10, omitNothingFields = True }
+  parseJSON (Object obj) =
+    WAFWebACL <$>
+      obj .: "DefaultAction" <*>
+      obj .: "MetricName" <*>
+      obj .: "Name" <*>
+      obj .: "Rules"
+  parseJSON _ = mempty
 
 -- | Constructor for 'WAFWebACL' containing required fields as arguments.
 wafWebACL

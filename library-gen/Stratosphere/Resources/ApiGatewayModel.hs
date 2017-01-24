@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-model.html
 
 module Stratosphere.Resources.ApiGatewayModel where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -23,13 +22,27 @@ data ApiGatewayModel =
   , _apiGatewayModelName :: Maybe (Val Text)
   , _apiGatewayModelRestApiId :: Val Text
   , _apiGatewayModelSchema :: Maybe Object
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON ApiGatewayModel where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 16, omitNothingFields = True }
+  toJSON ApiGatewayModel{..} =
+    object
+    [ "ContentType" .= _apiGatewayModelContentType
+    , "Description" .= _apiGatewayModelDescription
+    , "Name" .= _apiGatewayModelName
+    , "RestApiId" .= _apiGatewayModelRestApiId
+    , "Schema" .= _apiGatewayModelSchema
+    ]
 
 instance FromJSON ApiGatewayModel where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 16, omitNothingFields = True }
+  parseJSON (Object obj) =
+    ApiGatewayModel <$>
+      obj .: "ContentType" <*>
+      obj .: "Description" <*>
+      obj .: "Name" <*>
+      obj .: "RestApiId" <*>
+      obj .: "Schema"
+  parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayModel' containing required fields as
 -- | arguments.

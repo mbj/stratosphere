@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-target.html
 
 module Stratosphere.ResourceProperties.SSMAssociationTarget where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -20,13 +19,21 @@ data SSMAssociationTarget =
   SSMAssociationTarget
   { _sSMAssociationTargetKey :: Val Text
   , _sSMAssociationTargetValues :: [Val Text]
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON SSMAssociationTarget where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 21, omitNothingFields = True }
+  toJSON SSMAssociationTarget{..} =
+    object
+    [ "Key" .= _sSMAssociationTargetKey
+    , "Values" .= _sSMAssociationTargetValues
+    ]
 
 instance FromJSON SSMAssociationTarget where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 21, omitNothingFields = True }
+  parseJSON (Object obj) =
+    SSMAssociationTarget <$>
+      obj .: "Key" <*>
+      obj .: "Values"
+  parseJSON _ = mempty
 
 -- | Constructor for 'SSMAssociationTarget' containing required fields as
 -- | arguments.

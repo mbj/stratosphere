@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-stack.html
 
 module Stratosphere.Resources.OpsWorksStack where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.OpsWorksStackChefConfiguration
@@ -46,13 +45,65 @@ data OpsWorksStack =
   , _opsWorksStackUseCustomCookbooks :: Maybe (Val Bool')
   , _opsWorksStackUseOpsworksSecurityGroups :: Maybe (Val Bool')
   , _opsWorksStackVpcId :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON OpsWorksStack where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 14, omitNothingFields = True }
+  toJSON OpsWorksStack{..} =
+    object
+    [ "AgentVersion" .= _opsWorksStackAgentVersion
+    , "Attributes" .= _opsWorksStackAttributes
+    , "ChefConfiguration" .= _opsWorksStackChefConfiguration
+    , "CloneAppIds" .= _opsWorksStackCloneAppIds
+    , "ClonePermissions" .= _opsWorksStackClonePermissions
+    , "ConfigurationManager" .= _opsWorksStackConfigurationManager
+    , "CustomCookbooksSource" .= _opsWorksStackCustomCookbooksSource
+    , "CustomJson" .= _opsWorksStackCustomJson
+    , "DefaultAvailabilityZone" .= _opsWorksStackDefaultAvailabilityZone
+    , "DefaultInstanceProfileArn" .= _opsWorksStackDefaultInstanceProfileArn
+    , "DefaultOs" .= _opsWorksStackDefaultOs
+    , "DefaultRootDeviceType" .= _opsWorksStackDefaultRootDeviceType
+    , "DefaultSshKeyName" .= _opsWorksStackDefaultSshKeyName
+    , "DefaultSubnetId" .= _opsWorksStackDefaultSubnetId
+    , "EcsClusterArn" .= _opsWorksStackEcsClusterArn
+    , "ElasticIps" .= _opsWorksStackElasticIps
+    , "HostnameTheme" .= _opsWorksStackHostnameTheme
+    , "Name" .= _opsWorksStackName
+    , "RdsDbInstances" .= _opsWorksStackRdsDbInstances
+    , "ServiceRoleArn" .= _opsWorksStackServiceRoleArn
+    , "SourceStackId" .= _opsWorksStackSourceStackId
+    , "UseCustomCookbooks" .= _opsWorksStackUseCustomCookbooks
+    , "UseOpsworksSecurityGroups" .= _opsWorksStackUseOpsworksSecurityGroups
+    , "VpcId" .= _opsWorksStackVpcId
+    ]
 
 instance FromJSON OpsWorksStack where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 14, omitNothingFields = True }
+  parseJSON (Object obj) =
+    OpsWorksStack <$>
+      obj .: "AgentVersion" <*>
+      obj .: "Attributes" <*>
+      obj .: "ChefConfiguration" <*>
+      obj .: "CloneAppIds" <*>
+      obj .: "ClonePermissions" <*>
+      obj .: "ConfigurationManager" <*>
+      obj .: "CustomCookbooksSource" <*>
+      obj .: "CustomJson" <*>
+      obj .: "DefaultAvailabilityZone" <*>
+      obj .: "DefaultInstanceProfileArn" <*>
+      obj .: "DefaultOs" <*>
+      obj .: "DefaultRootDeviceType" <*>
+      obj .: "DefaultSshKeyName" <*>
+      obj .: "DefaultSubnetId" <*>
+      obj .: "EcsClusterArn" <*>
+      obj .: "ElasticIps" <*>
+      obj .: "HostnameTheme" <*>
+      obj .: "Name" <*>
+      obj .: "RdsDbInstances" <*>
+      obj .: "ServiceRoleArn" <*>
+      obj .: "SourceStackId" <*>
+      obj .: "UseCustomCookbooks" <*>
+      obj .: "UseOpsworksSecurityGroups" <*>
+      obj .: "VpcId"
+  parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksStack' containing required fields as arguments.
 opsWorksStack

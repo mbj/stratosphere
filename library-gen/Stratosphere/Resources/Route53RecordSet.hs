@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset.html
 
 module Stratosphere.Resources.Route53RecordSet where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.Route53RecordSetAliasTarget
@@ -33,13 +32,45 @@ data Route53RecordSet =
   , _route53RecordSetTTL :: Maybe (Val Text)
   , _route53RecordSetType :: Val Text
   , _route53RecordSetWeight :: Maybe (Val Integer')
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON Route53RecordSet where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 17, omitNothingFields = True }
+  toJSON Route53RecordSet{..} =
+    object
+    [ "AliasTarget" .= _route53RecordSetAliasTarget
+    , "Comment" .= _route53RecordSetComment
+    , "Failover" .= _route53RecordSetFailover
+    , "GeoLocation" .= _route53RecordSetGeoLocation
+    , "HealthCheckId" .= _route53RecordSetHealthCheckId
+    , "HostedZoneId" .= _route53RecordSetHostedZoneId
+    , "HostedZoneName" .= _route53RecordSetHostedZoneName
+    , "Name" .= _route53RecordSetName
+    , "Region" .= _route53RecordSetRegion
+    , "ResourceRecords" .= _route53RecordSetResourceRecords
+    , "SetIdentifier" .= _route53RecordSetSetIdentifier
+    , "TTL" .= _route53RecordSetTTL
+    , "Type" .= _route53RecordSetType
+    , "Weight" .= _route53RecordSetWeight
+    ]
 
 instance FromJSON Route53RecordSet where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 17, omitNothingFields = True }
+  parseJSON (Object obj) =
+    Route53RecordSet <$>
+      obj .: "AliasTarget" <*>
+      obj .: "Comment" <*>
+      obj .: "Failover" <*>
+      obj .: "GeoLocation" <*>
+      obj .: "HealthCheckId" <*>
+      obj .: "HostedZoneId" <*>
+      obj .: "HostedZoneName" <*>
+      obj .: "Name" <*>
+      obj .: "Region" <*>
+      obj .: "ResourceRecords" <*>
+      obj .: "SetIdentifier" <*>
+      obj .: "TTL" <*>
+      obj .: "Type" <*>
+      obj .: "Weight"
+  parseJSON _ = mempty
 
 -- | Constructor for 'Route53RecordSet' containing required fields as
 -- | arguments.

@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig-blockdev-template.html
 
 module Stratosphere.ResourceProperties.AutoScalingLaunchConfigurationBlockDevice where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -25,13 +24,29 @@ data AutoScalingLaunchConfigurationBlockDevice =
   , _autoScalingLaunchConfigurationBlockDeviceSnapshotId :: Maybe (Val Text)
   , _autoScalingLaunchConfigurationBlockDeviceVolumeSize :: Maybe (Val Text)
   , _autoScalingLaunchConfigurationBlockDeviceVolumeType :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON AutoScalingLaunchConfigurationBlockDevice where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 42, omitNothingFields = True }
+  toJSON AutoScalingLaunchConfigurationBlockDevice{..} =
+    object
+    [ "DeleteOnTermination" .= _autoScalingLaunchConfigurationBlockDeviceDeleteOnTermination
+    , "Encrypted" .= _autoScalingLaunchConfigurationBlockDeviceEncrypted
+    , "Iops" .= _autoScalingLaunchConfigurationBlockDeviceIops
+    , "SnapshotId" .= _autoScalingLaunchConfigurationBlockDeviceSnapshotId
+    , "VolumeSize" .= _autoScalingLaunchConfigurationBlockDeviceVolumeSize
+    , "VolumeType" .= _autoScalingLaunchConfigurationBlockDeviceVolumeType
+    ]
 
 instance FromJSON AutoScalingLaunchConfigurationBlockDevice where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 42, omitNothingFields = True }
+  parseJSON (Object obj) =
+    AutoScalingLaunchConfigurationBlockDevice <$>
+      obj .: "DeleteOnTermination" <*>
+      obj .: "Encrypted" <*>
+      obj .: "Iops" <*>
+      obj .: "SnapshotId" <*>
+      obj .: "VolumeSize" <*>
+      obj .: "VolumeType"
+  parseJSON _ = mempty
 
 -- | Constructor for 'AutoScalingLaunchConfigurationBlockDevice' containing
 -- | required fields as arguments.

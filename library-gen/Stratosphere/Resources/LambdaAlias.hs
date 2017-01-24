@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-alias.html
 
 module Stratosphere.Resources.LambdaAlias where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -22,13 +21,25 @@ data LambdaAlias =
   , _lambdaAliasFunctionName :: Val Text
   , _lambdaAliasFunctionVersion :: Val Text
   , _lambdaAliasName :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON LambdaAlias where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 12, omitNothingFields = True }
+  toJSON LambdaAlias{..} =
+    object
+    [ "Description" .= _lambdaAliasDescription
+    , "FunctionName" .= _lambdaAliasFunctionName
+    , "FunctionVersion" .= _lambdaAliasFunctionVersion
+    , "Name" .= _lambdaAliasName
+    ]
 
 instance FromJSON LambdaAlias where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 12, omitNothingFields = True }
+  parseJSON (Object obj) =
+    LambdaAlias <$>
+      obj .: "Description" <*>
+      obj .: "FunctionName" <*>
+      obj .: "FunctionVersion" <*>
+      obj .: "Name"
+  parseJSON _ = mempty
 
 -- | Constructor for 'LambdaAlias' containing required fields as arguments.
 lambdaAlias

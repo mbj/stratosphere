@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-stack-elasticip.html
 
 module Stratosphere.ResourceProperties.OpsWorksStackElasticIp where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -20,13 +19,21 @@ data OpsWorksStackElasticIp =
   OpsWorksStackElasticIp
   { _opsWorksStackElasticIpIp :: Val Text
   , _opsWorksStackElasticIpName :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON OpsWorksStackElasticIp where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 23, omitNothingFields = True }
+  toJSON OpsWorksStackElasticIp{..} =
+    object
+    [ "Ip" .= _opsWorksStackElasticIpIp
+    , "Name" .= _opsWorksStackElasticIpName
+    ]
 
 instance FromJSON OpsWorksStackElasticIp where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 23, omitNothingFields = True }
+  parseJSON (Object obj) =
+    OpsWorksStackElasticIp <$>
+      obj .: "Ip" <*>
+      obj .: "Name"
+  parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksStackElasticIp' containing required fields as
 -- | arguments.

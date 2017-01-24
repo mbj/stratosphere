@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-elasticsearch.html
 
 module Stratosphere.ResourceProperties.IoTTopicRuleElasticsearchAction where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -23,13 +22,27 @@ data IoTTopicRuleElasticsearchAction =
   , _ioTTopicRuleElasticsearchActionIndex :: Val Text
   , _ioTTopicRuleElasticsearchActionRoleArn :: Val Text
   , _ioTTopicRuleElasticsearchActionType :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON IoTTopicRuleElasticsearchAction where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 32, omitNothingFields = True }
+  toJSON IoTTopicRuleElasticsearchAction{..} =
+    object
+    [ "Endpoint" .= _ioTTopicRuleElasticsearchActionEndpoint
+    , "Id" .= _ioTTopicRuleElasticsearchActionId
+    , "Index" .= _ioTTopicRuleElasticsearchActionIndex
+    , "RoleArn" .= _ioTTopicRuleElasticsearchActionRoleArn
+    , "Type" .= _ioTTopicRuleElasticsearchActionType
+    ]
 
 instance FromJSON IoTTopicRuleElasticsearchAction where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 32, omitNothingFields = True }
+  parseJSON (Object obj) =
+    IoTTopicRuleElasticsearchAction <$>
+      obj .: "Endpoint" <*>
+      obj .: "Id" <*>
+      obj .: "Index" <*>
+      obj .: "RoleArn" <*>
+      obj .: "Type"
+  parseJSON _ = mempty
 
 -- | Constructor for 'IoTTopicRuleElasticsearchAction' containing required
 -- | fields as arguments.

@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-deliverychannel-configsnapshotdeliveryproperties.html
 
 module Stratosphere.ResourceProperties.ConfigDeliveryChannelConfigSnapshotDeliveryProperties where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -21,13 +20,19 @@ import Stratosphere.Values
 data ConfigDeliveryChannelConfigSnapshotDeliveryProperties =
   ConfigDeliveryChannelConfigSnapshotDeliveryProperties
   { _configDeliveryChannelConfigSnapshotDeliveryPropertiesDeliveryFrequency :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON ConfigDeliveryChannelConfigSnapshotDeliveryProperties where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 54, omitNothingFields = True }
+  toJSON ConfigDeliveryChannelConfigSnapshotDeliveryProperties{..} =
+    object
+    [ "DeliveryFrequency" .= _configDeliveryChannelConfigSnapshotDeliveryPropertiesDeliveryFrequency
+    ]
 
 instance FromJSON ConfigDeliveryChannelConfigSnapshotDeliveryProperties where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 54, omitNothingFields = True }
+  parseJSON (Object obj) =
+    ConfigDeliveryChannelConfigSnapshotDeliveryProperties <$>
+      obj .: "DeliveryFrequency"
+  parseJSON _ = mempty
 
 -- | Constructor for 'ConfigDeliveryChannelConfigSnapshotDeliveryProperties'
 -- | containing required fields as arguments.

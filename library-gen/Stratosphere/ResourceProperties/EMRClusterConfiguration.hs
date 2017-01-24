@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-configuration.html
 
 module Stratosphere.ResourceProperties.EMRClusterConfiguration where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -21,13 +20,23 @@ data EMRClusterConfiguration =
   { _eMRClusterConfigurationClassification :: Maybe (Val Text)
   , _eMRClusterConfigurationConfigurationProperties :: Maybe Object
   , _eMRClusterConfigurationConfigurations :: Maybe [EMRClusterConfiguration]
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON EMRClusterConfiguration where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 24, omitNothingFields = True }
+  toJSON EMRClusterConfiguration{..} =
+    object
+    [ "Classification" .= _eMRClusterConfigurationClassification
+    , "ConfigurationProperties" .= _eMRClusterConfigurationConfigurationProperties
+    , "Configurations" .= _eMRClusterConfigurationConfigurations
+    ]
 
 instance FromJSON EMRClusterConfiguration where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 24, omitNothingFields = True }
+  parseJSON (Object obj) =
+    EMRClusterConfiguration <$>
+      obj .: "Classification" <*>
+      obj .: "ConfigurationProperties" <*>
+      obj .: "Configurations"
+  parseJSON _ = mempty
 
 -- | Constructor for 'EMRClusterConfiguration' containing required fields as
 -- | arguments.

@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html
 
 module Stratosphere.Resources.EC2VPCEndpoint where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -22,13 +21,25 @@ data EC2VPCEndpoint =
   , _eC2VPCEndpointRouteTableIds :: Maybe [Val Text]
   , _eC2VPCEndpointServiceName :: Val Text
   , _eC2VPCEndpointVpcId :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON EC2VPCEndpoint where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 15, omitNothingFields = True }
+  toJSON EC2VPCEndpoint{..} =
+    object
+    [ "PolicyDocument" .= _eC2VPCEndpointPolicyDocument
+    , "RouteTableIds" .= _eC2VPCEndpointRouteTableIds
+    , "ServiceName" .= _eC2VPCEndpointServiceName
+    , "VpcId" .= _eC2VPCEndpointVpcId
+    ]
 
 instance FromJSON EC2VPCEndpoint where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 15, omitNothingFields = True }
+  parseJSON (Object obj) =
+    EC2VPCEndpoint <$>
+      obj .: "PolicyDocument" <*>
+      obj .: "RouteTableIds" <*>
+      obj .: "ServiceName" <*>
+      obj .: "VpcId"
+  parseJSON _ = mempty
 
 -- | Constructor for 'EC2VPCEndpoint' containing required fields as arguments.
 ec2VPCEndpoint

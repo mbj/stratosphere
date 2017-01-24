@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-instancegroupconfig.html
 
 module Stratosphere.Resources.EMRInstanceGroupConfig where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.EMRInstanceGroupConfigConfiguration
@@ -28,13 +27,35 @@ data EMRInstanceGroupConfig =
   , _eMRInstanceGroupConfigJobFlowId :: Val Text
   , _eMRInstanceGroupConfigMarket :: Maybe (Val Text)
   , _eMRInstanceGroupConfigName :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON EMRInstanceGroupConfig where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 23, omitNothingFields = True }
+  toJSON EMRInstanceGroupConfig{..} =
+    object
+    [ "BidPrice" .= _eMRInstanceGroupConfigBidPrice
+    , "Configurations" .= _eMRInstanceGroupConfigConfigurations
+    , "EbsConfiguration" .= _eMRInstanceGroupConfigEbsConfiguration
+    , "InstanceCount" .= _eMRInstanceGroupConfigInstanceCount
+    , "InstanceRole" .= _eMRInstanceGroupConfigInstanceRole
+    , "InstanceType" .= _eMRInstanceGroupConfigInstanceType
+    , "JobFlowId" .= _eMRInstanceGroupConfigJobFlowId
+    , "Market" .= _eMRInstanceGroupConfigMarket
+    , "Name" .= _eMRInstanceGroupConfigName
+    ]
 
 instance FromJSON EMRInstanceGroupConfig where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 23, omitNothingFields = True }
+  parseJSON (Object obj) =
+    EMRInstanceGroupConfig <$>
+      obj .: "BidPrice" <*>
+      obj .: "Configurations" <*>
+      obj .: "EbsConfiguration" <*>
+      obj .: "InstanceCount" <*>
+      obj .: "InstanceRole" <*>
+      obj .: "InstanceType" <*>
+      obj .: "JobFlowId" <*>
+      obj .: "Market" <*>
+      obj .: "Name"
+  parseJSON _ = mempty
 
 -- | Constructor for 'EMRInstanceGroupConfig' containing required fields as
 -- | arguments.

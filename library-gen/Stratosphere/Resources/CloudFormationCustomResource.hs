@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cfn-customresource.html
 
 module Stratosphere.Resources.CloudFormationCustomResource where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -19,13 +18,19 @@ import Stratosphere.Values
 data CloudFormationCustomResource =
   CloudFormationCustomResource
   { _cloudFormationCustomResourceServiceToken :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON CloudFormationCustomResource where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 29, omitNothingFields = True }
+  toJSON CloudFormationCustomResource{..} =
+    object
+    [ "ServiceToken" .= _cloudFormationCustomResourceServiceToken
+    ]
 
 instance FromJSON CloudFormationCustomResource where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 29, omitNothingFields = True }
+  parseJSON (Object obj) =
+    CloudFormationCustomResource <$>
+      obj .: "ServiceToken"
+  parseJSON _ = mempty
 
 -- | Constructor for 'CloudFormationCustomResource' containing required fields
 -- | as arguments.

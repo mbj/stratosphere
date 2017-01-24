@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-simpledb.html
 
 module Stratosphere.Resources.SDBDomain where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -19,13 +18,19 @@ import Stratosphere.Values
 data SDBDomain =
   SDBDomain
   { _sDBDomainDescription :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON SDBDomain where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 10, omitNothingFields = True }
+  toJSON SDBDomain{..} =
+    object
+    [ "Description" .= _sDBDomainDescription
+    ]
 
 instance FromJSON SDBDomain where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 10, omitNothingFields = True }
+  parseJSON (Object obj) =
+    SDBDomain <$>
+      obj .: "Description"
+  parseJSON _ = mempty
 
 -- | Constructor for 'SDBDomain' containing required fields as arguments.
 sdbDomain

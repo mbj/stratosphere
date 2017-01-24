@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules.html
 
 module Stratosphere.ResourceProperties.S3BucketReplicationRule where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.S3BucketReplicationDestination
@@ -22,13 +21,25 @@ data S3BucketReplicationRule =
   , _s3BucketReplicationRuleId :: Maybe (Val Text)
   , _s3BucketReplicationRulePrefix :: Val Text
   , _s3BucketReplicationRuleStatus :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON S3BucketReplicationRule where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 24, omitNothingFields = True }
+  toJSON S3BucketReplicationRule{..} =
+    object
+    [ "Destination" .= _s3BucketReplicationRuleDestination
+    , "Id" .= _s3BucketReplicationRuleId
+    , "Prefix" .= _s3BucketReplicationRulePrefix
+    , "Status" .= _s3BucketReplicationRuleStatus
+    ]
 
 instance FromJSON S3BucketReplicationRule where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 24, omitNothingFields = True }
+  parseJSON (Object obj) =
+    S3BucketReplicationRule <$>
+      obj .: "Destination" <*>
+      obj .: "Id" <*>
+      obj .: "Prefix" <*>
+      obj .: "Status"
+  parseJSON _ = mempty
 
 -- | Constructor for 'S3BucketReplicationRule' containing required fields as
 -- | arguments.

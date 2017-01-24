@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-cors-corsrule.html
 
 module Stratosphere.ResourceProperties.S3BucketCorsRule where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -24,13 +23,29 @@ data S3BucketCorsRule =
   , _s3BucketCorsRuleExposedHeaders :: Maybe [Val Text]
   , _s3BucketCorsRuleId :: Maybe (Val Text)
   , _s3BucketCorsRuleMaxAge :: Maybe (Val Integer')
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON S3BucketCorsRule where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 17, omitNothingFields = True }
+  toJSON S3BucketCorsRule{..} =
+    object
+    [ "AllowedHeaders" .= _s3BucketCorsRuleAllowedHeaders
+    , "AllowedMethods" .= _s3BucketCorsRuleAllowedMethods
+    , "AllowedOrigins" .= _s3BucketCorsRuleAllowedOrigins
+    , "ExposedHeaders" .= _s3BucketCorsRuleExposedHeaders
+    , "Id" .= _s3BucketCorsRuleId
+    , "MaxAge" .= _s3BucketCorsRuleMaxAge
+    ]
 
 instance FromJSON S3BucketCorsRule where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 17, omitNothingFields = True }
+  parseJSON (Object obj) =
+    S3BucketCorsRule <$>
+      obj .: "AllowedHeaders" <*>
+      obj .: "AllowedMethods" <*>
+      obj .: "AllowedOrigins" <*>
+      obj .: "ExposedHeaders" <*>
+      obj .: "Id" <*>
+      obj .: "MaxAge"
+  parseJSON _ = mempty
 
 -- | Constructor for 'S3BucketCorsRule' containing required fields as
 -- | arguments.

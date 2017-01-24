@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment-tier.html
 
 module Stratosphere.ResourceProperties.ElasticBeanstalkEnvironmentTier where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -21,13 +20,23 @@ data ElasticBeanstalkEnvironmentTier =
   { _elasticBeanstalkEnvironmentTierName :: Maybe (Val Text)
   , _elasticBeanstalkEnvironmentTierType :: Maybe (Val Text)
   , _elasticBeanstalkEnvironmentTierVersion :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON ElasticBeanstalkEnvironmentTier where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 32, omitNothingFields = True }
+  toJSON ElasticBeanstalkEnvironmentTier{..} =
+    object
+    [ "Name" .= _elasticBeanstalkEnvironmentTierName
+    , "Type" .= _elasticBeanstalkEnvironmentTierType
+    , "Version" .= _elasticBeanstalkEnvironmentTierVersion
+    ]
 
 instance FromJSON ElasticBeanstalkEnvironmentTier where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 32, omitNothingFields = True }
+  parseJSON (Object obj) =
+    ElasticBeanstalkEnvironmentTier <$>
+      obj .: "Name" <*>
+      obj .: "Type" <*>
+      obj .: "Version"
+  parseJSON _ = mempty
 
 -- | Constructor for 'ElasticBeanstalkEnvironmentTier' containing required
 -- | fields as arguments.

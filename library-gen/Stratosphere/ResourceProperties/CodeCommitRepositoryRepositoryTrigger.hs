@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codecommit-repository-repositorytrigger.html
 
 module Stratosphere.ResourceProperties.CodeCommitRepositoryRepositoryTrigger where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -24,13 +23,27 @@ data CodeCommitRepositoryRepositoryTrigger =
   , _codeCommitRepositoryRepositoryTriggerDestinationArn :: Maybe (Val Text)
   , _codeCommitRepositoryRepositoryTriggerEvents :: Maybe [Val Text]
   , _codeCommitRepositoryRepositoryTriggerName :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON CodeCommitRepositoryRepositoryTrigger where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 38, omitNothingFields = True }
+  toJSON CodeCommitRepositoryRepositoryTrigger{..} =
+    object
+    [ "Branches" .= _codeCommitRepositoryRepositoryTriggerBranches
+    , "CustomData" .= _codeCommitRepositoryRepositoryTriggerCustomData
+    , "DestinationArn" .= _codeCommitRepositoryRepositoryTriggerDestinationArn
+    , "Events" .= _codeCommitRepositoryRepositoryTriggerEvents
+    , "Name" .= _codeCommitRepositoryRepositoryTriggerName
+    ]
 
 instance FromJSON CodeCommitRepositoryRepositoryTrigger where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 38, omitNothingFields = True }
+  parseJSON (Object obj) =
+    CodeCommitRepositoryRepositoryTrigger <$>
+      obj .: "Branches" <*>
+      obj .: "CustomData" <*>
+      obj .: "DestinationArn" <*>
+      obj .: "Events" <*>
+      obj .: "Name"
+  parseJSON _ = mempty
 
 -- | Constructor for 'CodeCommitRepositoryRepositoryTrigger' containing
 -- | required fields as arguments.

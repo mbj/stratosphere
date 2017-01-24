@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfiguration-config-filter.html
 
 module Stratosphere.ResourceProperties.S3BucketNotificationFilter where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.S3BucketS3KeyFilter
@@ -19,13 +18,19 @@ import Stratosphere.ResourceProperties.S3BucketS3KeyFilter
 data S3BucketNotificationFilter =
   S3BucketNotificationFilter
   { _s3BucketNotificationFilterS3Key :: S3BucketS3KeyFilter
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON S3BucketNotificationFilter where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 27, omitNothingFields = True }
+  toJSON S3BucketNotificationFilter{..} =
+    object
+    [ "S3Key" .= _s3BucketNotificationFilterS3Key
+    ]
 
 instance FromJSON S3BucketNotificationFilter where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 27, omitNothingFields = True }
+  parseJSON (Object obj) =
+    S3BucketNotificationFilter <$>
+      obj .: "S3Key"
+  parseJSON _ = mempty
 
 -- | Constructor for 'S3BucketNotificationFilter' containing required fields
 -- | as arguments.

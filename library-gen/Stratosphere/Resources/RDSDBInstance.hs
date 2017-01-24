@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html
 
 module Stratosphere.Resources.RDSDBInstance where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.Tag
@@ -55,13 +54,91 @@ data RDSDBInstance =
   , _rDSDBInstanceTags :: Maybe [Tag]
   , _rDSDBInstanceTimezone :: Maybe (Val Text)
   , _rDSDBInstanceVPCSecurityGroups :: Maybe [Val Text]
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON RDSDBInstance where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 14, omitNothingFields = True }
+  toJSON RDSDBInstance{..} =
+    object
+    [ "AllocatedStorage" .= _rDSDBInstanceAllocatedStorage
+    , "AllowMajorVersionUpgrade" .= _rDSDBInstanceAllowMajorVersionUpgrade
+    , "AutoMinorVersionUpgrade" .= _rDSDBInstanceAutoMinorVersionUpgrade
+    , "AvailabilityZone" .= _rDSDBInstanceAvailabilityZone
+    , "BackupRetentionPeriod" .= _rDSDBInstanceBackupRetentionPeriod
+    , "CharacterSetName" .= _rDSDBInstanceCharacterSetName
+    , "DBClusterIdentifier" .= _rDSDBInstanceDBClusterIdentifier
+    , "DBInstanceClass" .= _rDSDBInstanceDBInstanceClass
+    , "DBInstanceIdentifier" .= _rDSDBInstanceDBInstanceIdentifier
+    , "DBName" .= _rDSDBInstanceDBName
+    , "DBParameterGroupName" .= _rDSDBInstanceDBParameterGroupName
+    , "DBSecurityGroups" .= _rDSDBInstanceDBSecurityGroups
+    , "DBSnapshotIdentifier" .= _rDSDBInstanceDBSnapshotIdentifier
+    , "DBSubnetGroupName" .= _rDSDBInstanceDBSubnetGroupName
+    , "Domain" .= _rDSDBInstanceDomain
+    , "DomainIAMRoleName" .= _rDSDBInstanceDomainIAMRoleName
+    , "Engine" .= _rDSDBInstanceEngine
+    , "EngineVersion" .= _rDSDBInstanceEngineVersion
+    , "Iops" .= _rDSDBInstanceIops
+    , "KmsKeyId" .= _rDSDBInstanceKmsKeyId
+    , "LicenseModel" .= _rDSDBInstanceLicenseModel
+    , "MasterUserPassword" .= _rDSDBInstanceMasterUserPassword
+    , "MasterUsername" .= _rDSDBInstanceMasterUsername
+    , "MonitoringInterval" .= _rDSDBInstanceMonitoringInterval
+    , "MonitoringRoleArn" .= _rDSDBInstanceMonitoringRoleArn
+    , "MultiAZ" .= _rDSDBInstanceMultiAZ
+    , "OptionGroupName" .= _rDSDBInstanceOptionGroupName
+    , "Port" .= _rDSDBInstancePort
+    , "PreferredBackupWindow" .= _rDSDBInstancePreferredBackupWindow
+    , "PreferredMaintenanceWindow" .= _rDSDBInstancePreferredMaintenanceWindow
+    , "PubliclyAccessible" .= _rDSDBInstancePubliclyAccessible
+    , "SourceDBInstanceIdentifier" .= _rDSDBInstanceSourceDBInstanceIdentifier
+    , "StorageEncrypted" .= _rDSDBInstanceStorageEncrypted
+    , "StorageType" .= _rDSDBInstanceStorageType
+    , "Tags" .= _rDSDBInstanceTags
+    , "Timezone" .= _rDSDBInstanceTimezone
+    , "VPCSecurityGroups" .= _rDSDBInstanceVPCSecurityGroups
+    ]
 
 instance FromJSON RDSDBInstance where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 14, omitNothingFields = True }
+  parseJSON (Object obj) =
+    RDSDBInstance <$>
+      obj .: "AllocatedStorage" <*>
+      obj .: "AllowMajorVersionUpgrade" <*>
+      obj .: "AutoMinorVersionUpgrade" <*>
+      obj .: "AvailabilityZone" <*>
+      obj .: "BackupRetentionPeriod" <*>
+      obj .: "CharacterSetName" <*>
+      obj .: "DBClusterIdentifier" <*>
+      obj .: "DBInstanceClass" <*>
+      obj .: "DBInstanceIdentifier" <*>
+      obj .: "DBName" <*>
+      obj .: "DBParameterGroupName" <*>
+      obj .: "DBSecurityGroups" <*>
+      obj .: "DBSnapshotIdentifier" <*>
+      obj .: "DBSubnetGroupName" <*>
+      obj .: "Domain" <*>
+      obj .: "DomainIAMRoleName" <*>
+      obj .: "Engine" <*>
+      obj .: "EngineVersion" <*>
+      obj .: "Iops" <*>
+      obj .: "KmsKeyId" <*>
+      obj .: "LicenseModel" <*>
+      obj .: "MasterUserPassword" <*>
+      obj .: "MasterUsername" <*>
+      obj .: "MonitoringInterval" <*>
+      obj .: "MonitoringRoleArn" <*>
+      obj .: "MultiAZ" <*>
+      obj .: "OptionGroupName" <*>
+      obj .: "Port" <*>
+      obj .: "PreferredBackupWindow" <*>
+      obj .: "PreferredMaintenanceWindow" <*>
+      obj .: "PubliclyAccessible" <*>
+      obj .: "SourceDBInstanceIdentifier" <*>
+      obj .: "StorageEncrypted" <*>
+      obj .: "StorageType" <*>
+      obj .: "Tags" <*>
+      obj .: "Timezone" <*>
+      obj .: "VPCSecurityGroups"
+  parseJSON _ = mempty
 
 -- | Constructor for 'RDSDBInstance' containing required fields as arguments.
 rdsdbInstance

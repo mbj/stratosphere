@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html
 
 module Stratosphere.Resources.CodeBuildProject where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.CodeBuildProjectArtifacts
@@ -30,13 +29,35 @@ data CodeBuildProject =
   , _codeBuildProjectSource :: Maybe CodeBuildProjectSource
   , _codeBuildProjectTags :: Maybe [Tag]
   , _codeBuildProjectTimeoutInMinutes :: Maybe (Val Integer')
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON CodeBuildProject where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 17, omitNothingFields = True }
+  toJSON CodeBuildProject{..} =
+    object
+    [ "Artifacts" .= _codeBuildProjectArtifacts
+    , "Description" .= _codeBuildProjectDescription
+    , "EncryptionKey" .= _codeBuildProjectEncryptionKey
+    , "Environment" .= _codeBuildProjectEnvironment
+    , "Name" .= _codeBuildProjectName
+    , "ServiceRole" .= _codeBuildProjectServiceRole
+    , "Source" .= _codeBuildProjectSource
+    , "Tags" .= _codeBuildProjectTags
+    , "TimeoutInMinutes" .= _codeBuildProjectTimeoutInMinutes
+    ]
 
 instance FromJSON CodeBuildProject where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 17, omitNothingFields = True }
+  parseJSON (Object obj) =
+    CodeBuildProject <$>
+      obj .: "Artifacts" <*>
+      obj .: "Description" <*>
+      obj .: "EncryptionKey" <*>
+      obj .: "Environment" <*>
+      obj .: "Name" <*>
+      obj .: "ServiceRole" <*>
+      obj .: "Source" <*>
+      obj .: "Tags" <*>
+      obj .: "TimeoutInMinutes"
+  parseJSON _ = mempty
 
 -- | Constructor for 'CodeBuildProject' containing required fields as
 -- | arguments.

@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-environment.html
 
 module Stratosphere.ResourceProperties.LambdaFunctionEnvironment where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -19,13 +18,19 @@ import Stratosphere.Values
 data LambdaFunctionEnvironment =
   LambdaFunctionEnvironment
   { _lambdaFunctionEnvironmentVariables :: Maybe Object
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON LambdaFunctionEnvironment where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 26, omitNothingFields = True }
+  toJSON LambdaFunctionEnvironment{..} =
+    object
+    [ "Variables" .= _lambdaFunctionEnvironmentVariables
+    ]
 
 instance FromJSON LambdaFunctionEnvironment where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 26, omitNothingFields = True }
+  parseJSON (Object obj) =
+    LambdaFunctionEnvironment <$>
+      obj .: "Variables"
+  parseJSON _ = mempty
 
 -- | Constructor for 'LambdaFunctionEnvironment' containing required fields as
 -- | arguments.

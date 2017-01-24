@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-step-keyvalue.html
 
 module Stratosphere.ResourceProperties.EMRStepKeyValue where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -20,13 +19,21 @@ data EMRStepKeyValue =
   EMRStepKeyValue
   { _eMRStepKeyValueKey :: Maybe (Val Text)
   , _eMRStepKeyValueValue :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON EMRStepKeyValue where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 16, omitNothingFields = True }
+  toJSON EMRStepKeyValue{..} =
+    object
+    [ "Key" .= _eMRStepKeyValueKey
+    , "Value" .= _eMRStepKeyValueValue
+    ]
 
 instance FromJSON EMRStepKeyValue where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 16, omitNothingFields = True }
+  parseJSON (Object obj) =
+    EMRStepKeyValue <$>
+      obj .: "Key" <*>
+      obj .: "Value"
+  parseJSON _ = mempty
 
 -- | Constructor for 'EMRStepKeyValue' containing required fields as
 -- | arguments.

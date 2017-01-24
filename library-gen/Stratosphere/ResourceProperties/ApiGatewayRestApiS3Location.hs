@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-restapi-bodys3location.html
 
 module Stratosphere.ResourceProperties.ApiGatewayRestApiS3Location where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -22,13 +21,25 @@ data ApiGatewayRestApiS3Location =
   , _apiGatewayRestApiS3LocationETag :: Maybe (Val Text)
   , _apiGatewayRestApiS3LocationKey :: Maybe (Val Text)
   , _apiGatewayRestApiS3LocationVersion :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON ApiGatewayRestApiS3Location where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 28, omitNothingFields = True }
+  toJSON ApiGatewayRestApiS3Location{..} =
+    object
+    [ "Bucket" .= _apiGatewayRestApiS3LocationBucket
+    , "ETag" .= _apiGatewayRestApiS3LocationETag
+    , "Key" .= _apiGatewayRestApiS3LocationKey
+    , "Version" .= _apiGatewayRestApiS3LocationVersion
+    ]
 
 instance FromJSON ApiGatewayRestApiS3Location where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 28, omitNothingFields = True }
+  parseJSON (Object obj) =
+    ApiGatewayRestApiS3Location <$>
+      obj .: "Bucket" <*>
+      obj .: "ETag" <*>
+      obj .: "Key" <*>
+      obj .: "Version"
+  parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayRestApiS3Location' containing required fields
 -- | as arguments.

@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-sqlinjectionmatchset.html
 
 module Stratosphere.Resources.WAFSqlInjectionMatchSet where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.WAFSqlInjectionMatchSetSqlInjectionMatchTuple
@@ -20,13 +19,21 @@ data WAFSqlInjectionMatchSet =
   WAFSqlInjectionMatchSet
   { _wAFSqlInjectionMatchSetName :: Val Text
   , _wAFSqlInjectionMatchSetSqlInjectionMatchTuples :: Maybe [WAFSqlInjectionMatchSetSqlInjectionMatchTuple]
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON WAFSqlInjectionMatchSet where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 24, omitNothingFields = True }
+  toJSON WAFSqlInjectionMatchSet{..} =
+    object
+    [ "Name" .= _wAFSqlInjectionMatchSetName
+    , "SqlInjectionMatchTuples" .= _wAFSqlInjectionMatchSetSqlInjectionMatchTuples
+    ]
 
 instance FromJSON WAFSqlInjectionMatchSet where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 24, omitNothingFields = True }
+  parseJSON (Object obj) =
+    WAFSqlInjectionMatchSet <$>
+      obj .: "Name" <*>
+      obj .: "SqlInjectionMatchTuples"
+  parseJSON _ = mempty
 
 -- | Constructor for 'WAFSqlInjectionMatchSet' containing required fields as
 -- | arguments.

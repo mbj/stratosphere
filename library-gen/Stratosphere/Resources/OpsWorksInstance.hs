@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-instance.html
 
 module Stratosphere.Resources.OpsWorksInstance where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.OpsWorksInstanceBlockDeviceMapping
@@ -40,13 +39,59 @@ data OpsWorksInstance =
   , _opsWorksInstanceTimeBasedAutoScaling :: Maybe OpsWorksInstanceTimeBasedAutoScaling
   , _opsWorksInstanceVirtualizationType :: Maybe (Val Text)
   , _opsWorksInstanceVolumes :: Maybe [Val Text]
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON OpsWorksInstance where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 17, omitNothingFields = True }
+  toJSON OpsWorksInstance{..} =
+    object
+    [ "AgentVersion" .= _opsWorksInstanceAgentVersion
+    , "AmiId" .= _opsWorksInstanceAmiId
+    , "Architecture" .= _opsWorksInstanceArchitecture
+    , "AutoScalingType" .= _opsWorksInstanceAutoScalingType
+    , "AvailabilityZone" .= _opsWorksInstanceAvailabilityZone
+    , "BlockDeviceMappings" .= _opsWorksInstanceBlockDeviceMappings
+    , "EbsOptimized" .= _opsWorksInstanceEbsOptimized
+    , "ElasticIps" .= _opsWorksInstanceElasticIps
+    , "Hostname" .= _opsWorksInstanceHostname
+    , "InstallUpdatesOnBoot" .= _opsWorksInstanceInstallUpdatesOnBoot
+    , "InstanceType" .= _opsWorksInstanceInstanceType
+    , "LayerIds" .= _opsWorksInstanceLayerIds
+    , "Os" .= _opsWorksInstanceOs
+    , "RootDeviceType" .= _opsWorksInstanceRootDeviceType
+    , "SshKeyName" .= _opsWorksInstanceSshKeyName
+    , "StackId" .= _opsWorksInstanceStackId
+    , "SubnetId" .= _opsWorksInstanceSubnetId
+    , "Tenancy" .= _opsWorksInstanceTenancy
+    , "TimeBasedAutoScaling" .= _opsWorksInstanceTimeBasedAutoScaling
+    , "VirtualizationType" .= _opsWorksInstanceVirtualizationType
+    , "Volumes" .= _opsWorksInstanceVolumes
+    ]
 
 instance FromJSON OpsWorksInstance where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 17, omitNothingFields = True }
+  parseJSON (Object obj) =
+    OpsWorksInstance <$>
+      obj .: "AgentVersion" <*>
+      obj .: "AmiId" <*>
+      obj .: "Architecture" <*>
+      obj .: "AutoScalingType" <*>
+      obj .: "AvailabilityZone" <*>
+      obj .: "BlockDeviceMappings" <*>
+      obj .: "EbsOptimized" <*>
+      obj .: "ElasticIps" <*>
+      obj .: "Hostname" <*>
+      obj .: "InstallUpdatesOnBoot" <*>
+      obj .: "InstanceType" <*>
+      obj .: "LayerIds" <*>
+      obj .: "Os" <*>
+      obj .: "RootDeviceType" <*>
+      obj .: "SshKeyName" <*>
+      obj .: "StackId" <*>
+      obj .: "SubnetId" <*>
+      obj .: "Tenancy" <*>
+      obj .: "TimeBasedAutoScaling" <*>
+      obj .: "VirtualizationType" <*>
+      obj .: "Volumes"
+  parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksInstance' containing required fields as
 -- | arguments.

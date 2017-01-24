@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directoryservice-microsoftad.html
 
 module Stratosphere.Resources.DirectoryServiceMicrosoftAD where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.DirectoryServiceMicrosoftADVpcSettings
@@ -24,13 +23,29 @@ data DirectoryServiceMicrosoftAD =
   , _directoryServiceMicrosoftADPassword :: Val Text
   , _directoryServiceMicrosoftADShortName :: Maybe (Val Text)
   , _directoryServiceMicrosoftADVpcSettings :: DirectoryServiceMicrosoftADVpcSettings
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON DirectoryServiceMicrosoftAD where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 28, omitNothingFields = True }
+  toJSON DirectoryServiceMicrosoftAD{..} =
+    object
+    [ "CreateAlias" .= _directoryServiceMicrosoftADCreateAlias
+    , "EnableSso" .= _directoryServiceMicrosoftADEnableSso
+    , "Name" .= _directoryServiceMicrosoftADName
+    , "Password" .= _directoryServiceMicrosoftADPassword
+    , "ShortName" .= _directoryServiceMicrosoftADShortName
+    , "VpcSettings" .= _directoryServiceMicrosoftADVpcSettings
+    ]
 
 instance FromJSON DirectoryServiceMicrosoftAD where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 28, omitNothingFields = True }
+  parseJSON (Object obj) =
+    DirectoryServiceMicrosoftAD <$>
+      obj .: "CreateAlias" <*>
+      obj .: "EnableSso" <*>
+      obj .: "Name" <*>
+      obj .: "Password" <*>
+      obj .: "ShortName" <*>
+      obj .: "VpcSettings"
+  parseJSON _ = mempty
 
 -- | Constructor for 'DirectoryServiceMicrosoftAD' containing required fields
 -- | as arguments.

@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html
 
 module Stratosphere.Resources.EFSFileSystem where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.EFSFileSystemElasticFileSystemTag
@@ -20,13 +19,21 @@ data EFSFileSystem =
   EFSFileSystem
   { _eFSFileSystemFileSystemTags :: Maybe [EFSFileSystemElasticFileSystemTag]
   , _eFSFileSystemPerformanceMode :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON EFSFileSystem where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 14, omitNothingFields = True }
+  toJSON EFSFileSystem{..} =
+    object
+    [ "FileSystemTags" .= _eFSFileSystemFileSystemTags
+    , "PerformanceMode" .= _eFSFileSystemPerformanceMode
+    ]
 
 instance FromJSON EFSFileSystem where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 14, omitNothingFields = True }
+  parseJSON (Object obj) =
+    EFSFileSystem <$>
+      obj .: "FileSystemTags" <*>
+      obj .: "PerformanceMode"
+  parseJSON _ = mempty
 
 -- | Constructor for 'EFSFileSystem' containing required fields as arguments.
 efsFileSystem

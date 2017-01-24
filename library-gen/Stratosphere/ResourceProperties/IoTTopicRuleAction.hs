@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-actions.html
 
 module Stratosphere.ResourceProperties.IoTTopicRuleAction where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.IoTTopicRuleCloudwatchAlarmAction
@@ -39,13 +38,39 @@ data IoTTopicRuleAction =
   , _ioTTopicRuleActionS3 :: Maybe IoTTopicRuleS3Action
   , _ioTTopicRuleActionSns :: Maybe IoTTopicRuleSnsAction
   , _ioTTopicRuleActionSqs :: Maybe IoTTopicRuleSqsAction
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON IoTTopicRuleAction where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 19, omitNothingFields = True }
+  toJSON IoTTopicRuleAction{..} =
+    object
+    [ "CloudwatchAlarm" .= _ioTTopicRuleActionCloudwatchAlarm
+    , "CloudwatchMetric" .= _ioTTopicRuleActionCloudwatchMetric
+    , "DynamoDB" .= _ioTTopicRuleActionDynamoDB
+    , "Elasticsearch" .= _ioTTopicRuleActionElasticsearch
+    , "Firehose" .= _ioTTopicRuleActionFirehose
+    , "Kinesis" .= _ioTTopicRuleActionKinesis
+    , "Lambda" .= _ioTTopicRuleActionLambda
+    , "Republish" .= _ioTTopicRuleActionRepublish
+    , "S3" .= _ioTTopicRuleActionS3
+    , "Sns" .= _ioTTopicRuleActionSns
+    , "Sqs" .= _ioTTopicRuleActionSqs
+    ]
 
 instance FromJSON IoTTopicRuleAction where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 19, omitNothingFields = True }
+  parseJSON (Object obj) =
+    IoTTopicRuleAction <$>
+      obj .: "CloudwatchAlarm" <*>
+      obj .: "CloudwatchMetric" <*>
+      obj .: "DynamoDB" <*>
+      obj .: "Elasticsearch" <*>
+      obj .: "Firehose" <*>
+      obj .: "Kinesis" <*>
+      obj .: "Lambda" <*>
+      obj .: "Republish" <*>
+      obj .: "S3" <*>
+      obj .: "Sns" <*>
+      obj .: "Sqs"
+  parseJSON _ = mempty
 
 -- | Constructor for 'IoTTopicRuleAction' containing required fields as
 -- | arguments.

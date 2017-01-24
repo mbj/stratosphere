@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-clientcertificate.html
 
 module Stratosphere.Resources.ApiGatewayClientCertificate where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -19,13 +18,19 @@ import Stratosphere.Values
 data ApiGatewayClientCertificate =
   ApiGatewayClientCertificate
   { _apiGatewayClientCertificateDescription :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON ApiGatewayClientCertificate where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 28, omitNothingFields = True }
+  toJSON ApiGatewayClientCertificate{..} =
+    object
+    [ "Description" .= _apiGatewayClientCertificateDescription
+    ]
 
 instance FromJSON ApiGatewayClientCertificate where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 28, omitNothingFields = True }
+  parseJSON (Object obj) =
+    ApiGatewayClientCertificate <$>
+      obj .: "Description"
+  parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayClientCertificate' containing required fields
 -- | as arguments.

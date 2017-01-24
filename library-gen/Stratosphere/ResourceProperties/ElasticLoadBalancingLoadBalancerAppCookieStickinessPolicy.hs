@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-AppCookieStickinessPolicy.html
 
 module Stratosphere.ResourceProperties.ElasticLoadBalancingLoadBalancerAppCookieStickinessPolicy where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -22,13 +21,21 @@ data ElasticLoadBalancingLoadBalancerAppCookieStickinessPolicy =
   ElasticLoadBalancingLoadBalancerAppCookieStickinessPolicy
   { _elasticLoadBalancingLoadBalancerAppCookieStickinessPolicyCookieName :: Val Text
   , _elasticLoadBalancingLoadBalancerAppCookieStickinessPolicyPolicyName :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON ElasticLoadBalancingLoadBalancerAppCookieStickinessPolicy where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 58, omitNothingFields = True }
+  toJSON ElasticLoadBalancingLoadBalancerAppCookieStickinessPolicy{..} =
+    object
+    [ "CookieName" .= _elasticLoadBalancingLoadBalancerAppCookieStickinessPolicyCookieName
+    , "PolicyName" .= _elasticLoadBalancingLoadBalancerAppCookieStickinessPolicyPolicyName
+    ]
 
 instance FromJSON ElasticLoadBalancingLoadBalancerAppCookieStickinessPolicy where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 58, omitNothingFields = True }
+  parseJSON (Object obj) =
+    ElasticLoadBalancingLoadBalancerAppCookieStickinessPolicy <$>
+      obj .: "CookieName" <*>
+      obj .: "PolicyName"
+  parseJSON _ = mempty
 
 -- | Constructor for
 -- | 'ElasticLoadBalancingLoadBalancerAppCookieStickinessPolicy' containing

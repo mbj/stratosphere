@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html
 
 module Stratosphere.Resources.ApiGatewayStage where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.ApiGatewayStageMethodSetting
@@ -27,13 +26,35 @@ data ApiGatewayStage =
   , _apiGatewayStageRestApiId :: Maybe (Val Text)
   , _apiGatewayStageStageName :: Maybe (Val Text)
   , _apiGatewayStageVariables :: Maybe Object
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON ApiGatewayStage where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 16, omitNothingFields = True }
+  toJSON ApiGatewayStage{..} =
+    object
+    [ "CacheClusterEnabled" .= _apiGatewayStageCacheClusterEnabled
+    , "CacheClusterSize" .= _apiGatewayStageCacheClusterSize
+    , "ClientCertificateId" .= _apiGatewayStageClientCertificateId
+    , "DeploymentId" .= _apiGatewayStageDeploymentId
+    , "Description" .= _apiGatewayStageDescription
+    , "MethodSettings" .= _apiGatewayStageMethodSettings
+    , "RestApiId" .= _apiGatewayStageRestApiId
+    , "StageName" .= _apiGatewayStageStageName
+    , "Variables" .= _apiGatewayStageVariables
+    ]
 
 instance FromJSON ApiGatewayStage where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 16, omitNothingFields = True }
+  parseJSON (Object obj) =
+    ApiGatewayStage <$>
+      obj .: "CacheClusterEnabled" <*>
+      obj .: "CacheClusterSize" <*>
+      obj .: "ClientCertificateId" <*>
+      obj .: "DeploymentId" <*>
+      obj .: "Description" <*>
+      obj .: "MethodSettings" <*>
+      obj .: "RestApiId" <*>
+      obj .: "StageName" <*>
+      obj .: "Variables"
+  parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayStage' containing required fields as
 -- | arguments.

@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-code.html
 
 module Stratosphere.ResourceProperties.LambdaFunctionCode where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -22,13 +21,25 @@ data LambdaFunctionCode =
   , _lambdaFunctionCodeS3Key :: Maybe (Val Text)
   , _lambdaFunctionCodeS3ObjectVersion :: Maybe (Val Text)
   , _lambdaFunctionCodeZipFile :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON LambdaFunctionCode where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 19, omitNothingFields = True }
+  toJSON LambdaFunctionCode{..} =
+    object
+    [ "S3Bucket" .= _lambdaFunctionCodeS3Bucket
+    , "S3Key" .= _lambdaFunctionCodeS3Key
+    , "S3ObjectVersion" .= _lambdaFunctionCodeS3ObjectVersion
+    , "ZipFile" .= _lambdaFunctionCodeZipFile
+    ]
 
 instance FromJSON LambdaFunctionCode where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 19, omitNothingFields = True }
+  parseJSON (Object obj) =
+    LambdaFunctionCode <$>
+      obj .: "S3Bucket" <*>
+      obj .: "S3Key" <*>
+      obj .: "S3ObjectVersion" <*>
+      obj .: "ZipFile"
+  parseJSON _ = mempty
 
 -- | Constructor for 'LambdaFunctionCode' containing required fields as
 -- | arguments.

@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-stack-stackconfigmanager.html
 
 module Stratosphere.ResourceProperties.OpsWorksStackStackConfigurationManager where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -21,13 +20,21 @@ data OpsWorksStackStackConfigurationManager =
   OpsWorksStackStackConfigurationManager
   { _opsWorksStackStackConfigurationManagerName :: Maybe (Val Text)
   , _opsWorksStackStackConfigurationManagerVersion :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON OpsWorksStackStackConfigurationManager where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 39, omitNothingFields = True }
+  toJSON OpsWorksStackStackConfigurationManager{..} =
+    object
+    [ "Name" .= _opsWorksStackStackConfigurationManagerName
+    , "Version" .= _opsWorksStackStackConfigurationManagerVersion
+    ]
 
 instance FromJSON OpsWorksStackStackConfigurationManager where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 39, omitNothingFields = True }
+  parseJSON (Object obj) =
+    OpsWorksStackStackConfigurationManager <$>
+      obj .: "Name" <*>
+      obj .: "Version"
+  parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksStackStackConfigurationManager' containing
 -- | required fields as arguments.

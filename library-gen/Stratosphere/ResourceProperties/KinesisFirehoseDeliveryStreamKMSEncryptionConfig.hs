@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-kinesisdeliverystream-s3destinationconfiguration-encryptionconfiguration-kmsencryptionconfig.html
 
 module Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamKMSEncryptionConfig where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -21,13 +20,19 @@ import Stratosphere.Values
 data KinesisFirehoseDeliveryStreamKMSEncryptionConfig =
   KinesisFirehoseDeliveryStreamKMSEncryptionConfig
   { _kinesisFirehoseDeliveryStreamKMSEncryptionConfigAWSKMSKeyARN :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON KinesisFirehoseDeliveryStreamKMSEncryptionConfig where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 49, omitNothingFields = True }
+  toJSON KinesisFirehoseDeliveryStreamKMSEncryptionConfig{..} =
+    object
+    [ "AWSKMSKeyARN" .= _kinesisFirehoseDeliveryStreamKMSEncryptionConfigAWSKMSKeyARN
+    ]
 
 instance FromJSON KinesisFirehoseDeliveryStreamKMSEncryptionConfig where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 49, omitNothingFields = True }
+  parseJSON (Object obj) =
+    KinesisFirehoseDeliveryStreamKMSEncryptionConfig <$>
+      obj .: "AWSKMSKeyARN"
+  parseJSON _ = mempty
 
 -- | Constructor for 'KinesisFirehoseDeliveryStreamKMSEncryptionConfig'
 -- | containing required fields as arguments.

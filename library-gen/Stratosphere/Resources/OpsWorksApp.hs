@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-app.html
 
 module Stratosphere.Resources.OpsWorksApp where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.OpsWorksAppSource
@@ -33,13 +32,41 @@ data OpsWorksApp =
   , _opsWorksAppSslConfiguration :: Maybe OpsWorksAppSslConfiguration
   , _opsWorksAppStackId :: Val Text
   , _opsWorksAppType :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON OpsWorksApp where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 12, omitNothingFields = True }
+  toJSON OpsWorksApp{..} =
+    object
+    [ "AppSource" .= _opsWorksAppAppSource
+    , "Attributes" .= _opsWorksAppAttributes
+    , "DataSources" .= _opsWorksAppDataSources
+    , "Description" .= _opsWorksAppDescription
+    , "Domains" .= _opsWorksAppDomains
+    , "EnableSsl" .= _opsWorksAppEnableSsl
+    , "Environment" .= _opsWorksAppEnvironment
+    , "Name" .= _opsWorksAppName
+    , "Shortname" .= _opsWorksAppShortname
+    , "SslConfiguration" .= _opsWorksAppSslConfiguration
+    , "StackId" .= _opsWorksAppStackId
+    , "Type" .= _opsWorksAppType
+    ]
 
 instance FromJSON OpsWorksApp where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 12, omitNothingFields = True }
+  parseJSON (Object obj) =
+    OpsWorksApp <$>
+      obj .: "AppSource" <*>
+      obj .: "Attributes" <*>
+      obj .: "DataSources" <*>
+      obj .: "Description" <*>
+      obj .: "Domains" <*>
+      obj .: "EnableSsl" <*>
+      obj .: "Environment" <*>
+      obj .: "Name" <*>
+      obj .: "Shortname" <*>
+      obj .: "SslConfiguration" <*>
+      obj .: "StackId" <*>
+      obj .: "Type"
+  parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksApp' containing required fields as arguments.
 opsWorksApp

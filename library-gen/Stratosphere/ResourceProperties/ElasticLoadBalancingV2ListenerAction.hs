@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-defaultactions.html
 
 module Stratosphere.ResourceProperties.ElasticLoadBalancingV2ListenerAction where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -20,13 +19,21 @@ data ElasticLoadBalancingV2ListenerAction =
   ElasticLoadBalancingV2ListenerAction
   { _elasticLoadBalancingV2ListenerActionTargetGroupArn :: Val Text
   , _elasticLoadBalancingV2ListenerActionType :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON ElasticLoadBalancingV2ListenerAction where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 37, omitNothingFields = True }
+  toJSON ElasticLoadBalancingV2ListenerAction{..} =
+    object
+    [ "TargetGroupArn" .= _elasticLoadBalancingV2ListenerActionTargetGroupArn
+    , "Type" .= _elasticLoadBalancingV2ListenerActionType
+    ]
 
 instance FromJSON ElasticLoadBalancingV2ListenerAction where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 37, omitNothingFields = True }
+  parseJSON (Object obj) =
+    ElasticLoadBalancingV2ListenerAction <$>
+      obj .: "TargetGroupArn" <*>
+      obj .: "Type"
+  parseJSON _ = mempty
 
 -- | Constructor for 'ElasticLoadBalancingV2ListenerAction' containing
 -- | required fields as arguments.

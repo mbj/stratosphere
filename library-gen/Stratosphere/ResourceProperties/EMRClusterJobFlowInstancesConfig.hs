@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-jobflowinstancesconfig.html
 
 module Stratosphere.ResourceProperties.EMRClusterJobFlowInstancesConfig where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.EMRClusterInstanceGroupConfig
@@ -31,13 +30,41 @@ data EMRClusterJobFlowInstancesConfig =
   , _eMRClusterJobFlowInstancesConfigPlacement :: Maybe EMRClusterPlacementType
   , _eMRClusterJobFlowInstancesConfigServiceAccessSecurityGroup :: Maybe (Val Text)
   , _eMRClusterJobFlowInstancesConfigTerminationProtected :: Maybe (Val Bool')
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON EMRClusterJobFlowInstancesConfig where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 33, omitNothingFields = True }
+  toJSON EMRClusterJobFlowInstancesConfig{..} =
+    object
+    [ "AdditionalMasterSecurityGroups" .= _eMRClusterJobFlowInstancesConfigAdditionalMasterSecurityGroups
+    , "AdditionalSlaveSecurityGroups" .= _eMRClusterJobFlowInstancesConfigAdditionalSlaveSecurityGroups
+    , "CoreInstanceGroup" .= _eMRClusterJobFlowInstancesConfigCoreInstanceGroup
+    , "Ec2KeyName" .= _eMRClusterJobFlowInstancesConfigEc2KeyName
+    , "Ec2SubnetId" .= _eMRClusterJobFlowInstancesConfigEc2SubnetId
+    , "EmrManagedMasterSecurityGroup" .= _eMRClusterJobFlowInstancesConfigEmrManagedMasterSecurityGroup
+    , "EmrManagedSlaveSecurityGroup" .= _eMRClusterJobFlowInstancesConfigEmrManagedSlaveSecurityGroup
+    , "HadoopVersion" .= _eMRClusterJobFlowInstancesConfigHadoopVersion
+    , "MasterInstanceGroup" .= _eMRClusterJobFlowInstancesConfigMasterInstanceGroup
+    , "Placement" .= _eMRClusterJobFlowInstancesConfigPlacement
+    , "ServiceAccessSecurityGroup" .= _eMRClusterJobFlowInstancesConfigServiceAccessSecurityGroup
+    , "TerminationProtected" .= _eMRClusterJobFlowInstancesConfigTerminationProtected
+    ]
 
 instance FromJSON EMRClusterJobFlowInstancesConfig where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 33, omitNothingFields = True }
+  parseJSON (Object obj) =
+    EMRClusterJobFlowInstancesConfig <$>
+      obj .: "AdditionalMasterSecurityGroups" <*>
+      obj .: "AdditionalSlaveSecurityGroups" <*>
+      obj .: "CoreInstanceGroup" <*>
+      obj .: "Ec2KeyName" <*>
+      obj .: "Ec2SubnetId" <*>
+      obj .: "EmrManagedMasterSecurityGroup" <*>
+      obj .: "EmrManagedSlaveSecurityGroup" <*>
+      obj .: "HadoopVersion" <*>
+      obj .: "MasterInstanceGroup" <*>
+      obj .: "Placement" <*>
+      obj .: "ServiceAccessSecurityGroup" <*>
+      obj .: "TerminationProtected"
+  parseJSON _ = mempty
 
 -- | Constructor for 'EMRClusterJobFlowInstancesConfig' containing required
 -- | fields as arguments.

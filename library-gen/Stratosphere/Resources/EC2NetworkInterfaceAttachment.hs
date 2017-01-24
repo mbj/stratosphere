@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface-attachment.html
 
 module Stratosphere.Resources.EC2NetworkInterfaceAttachment where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -22,13 +21,25 @@ data EC2NetworkInterfaceAttachment =
   , _eC2NetworkInterfaceAttachmentDeviceIndex :: Val Text
   , _eC2NetworkInterfaceAttachmentInstanceId :: Val Text
   , _eC2NetworkInterfaceAttachmentNetworkInterfaceId :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON EC2NetworkInterfaceAttachment where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 30, omitNothingFields = True }
+  toJSON EC2NetworkInterfaceAttachment{..} =
+    object
+    [ "DeleteOnTermination" .= _eC2NetworkInterfaceAttachmentDeleteOnTermination
+    , "DeviceIndex" .= _eC2NetworkInterfaceAttachmentDeviceIndex
+    , "InstanceId" .= _eC2NetworkInterfaceAttachmentInstanceId
+    , "NetworkInterfaceId" .= _eC2NetworkInterfaceAttachmentNetworkInterfaceId
+    ]
 
 instance FromJSON EC2NetworkInterfaceAttachment where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 30, omitNothingFields = True }
+  parseJSON (Object obj) =
+    EC2NetworkInterfaceAttachment <$>
+      obj .: "DeleteOnTermination" <*>
+      obj .: "DeviceIndex" <*>
+      obj .: "InstanceId" <*>
+      obj .: "NetworkInterfaceId"
+  parseJSON _ = mempty
 
 -- | Constructor for 'EC2NetworkInterfaceAttachment' containing required
 -- | fields as arguments.

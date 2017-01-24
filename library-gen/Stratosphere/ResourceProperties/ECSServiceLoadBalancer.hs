@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-loadbalancers.html
 
 module Stratosphere.ResourceProperties.ECSServiceLoadBalancer where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -22,13 +21,25 @@ data ECSServiceLoadBalancer =
   , _eCSServiceLoadBalancerContainerPort :: Val Integer'
   , _eCSServiceLoadBalancerLoadBalancerName :: Maybe (Val Text)
   , _eCSServiceLoadBalancerTargetGroupArn :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON ECSServiceLoadBalancer where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 23, omitNothingFields = True }
+  toJSON ECSServiceLoadBalancer{..} =
+    object
+    [ "ContainerName" .= _eCSServiceLoadBalancerContainerName
+    , "ContainerPort" .= _eCSServiceLoadBalancerContainerPort
+    , "LoadBalancerName" .= _eCSServiceLoadBalancerLoadBalancerName
+    , "TargetGroupArn" .= _eCSServiceLoadBalancerTargetGroupArn
+    ]
 
 instance FromJSON ECSServiceLoadBalancer where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 23, omitNothingFields = True }
+  parseJSON (Object obj) =
+    ECSServiceLoadBalancer <$>
+      obj .: "ContainerName" <*>
+      obj .: "ContainerPort" <*>
+      obj .: "LoadBalancerName" <*>
+      obj .: "TargetGroupArn"
+  parseJSON _ = mempty
 
 -- | Constructor for 'ECSServiceLoadBalancer' containing required fields as
 -- | arguments.

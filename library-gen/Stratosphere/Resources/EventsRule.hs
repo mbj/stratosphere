@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html
 
 module Stratosphere.Resources.EventsRule where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.Types
@@ -26,13 +25,31 @@ data EventsRule =
   , _eventsRuleScheduleExpression :: Maybe (Val Text)
   , _eventsRuleState :: Maybe (Val EnabledState)
   , _eventsRuleTargets :: Maybe [EventsRuleTarget]
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON EventsRule where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 11, omitNothingFields = True }
+  toJSON EventsRule{..} =
+    object
+    [ "Description" .= _eventsRuleDescription
+    , "EventPattern" .= _eventsRuleEventPattern
+    , "Name" .= _eventsRuleName
+    , "RoleArn" .= _eventsRuleRoleArn
+    , "ScheduleExpression" .= _eventsRuleScheduleExpression
+    , "State" .= _eventsRuleState
+    , "Targets" .= _eventsRuleTargets
+    ]
 
 instance FromJSON EventsRule where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 11, omitNothingFields = True }
+  parseJSON (Object obj) =
+    EventsRule <$>
+      obj .: "Description" <*>
+      obj .: "EventPattern" <*>
+      obj .: "Name" <*>
+      obj .: "RoleArn" <*>
+      obj .: "ScheduleExpression" <*>
+      obj .: "State" <*>
+      obj .: "Targets"
+  parseJSON _ = mempty
 
 -- | Constructor for 'EventsRule' containing required fields as arguments.
 eventsRule

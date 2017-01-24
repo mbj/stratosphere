@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html
 
 module Stratosphere.Resources.ApiGatewayUsagePlan where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.ApiGatewayUsagePlanApiStage
@@ -25,13 +24,27 @@ data ApiGatewayUsagePlan =
   , _apiGatewayUsagePlanQuota :: Maybe ApiGatewayUsagePlanQuotaSettings
   , _apiGatewayUsagePlanThrottle :: Maybe ApiGatewayUsagePlanThrottleSettings
   , _apiGatewayUsagePlanUsagePlanName :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON ApiGatewayUsagePlan where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 20, omitNothingFields = True }
+  toJSON ApiGatewayUsagePlan{..} =
+    object
+    [ "ApiStages" .= _apiGatewayUsagePlanApiStages
+    , "Description" .= _apiGatewayUsagePlanDescription
+    , "Quota" .= _apiGatewayUsagePlanQuota
+    , "Throttle" .= _apiGatewayUsagePlanThrottle
+    , "UsagePlanName" .= _apiGatewayUsagePlanUsagePlanName
+    ]
 
 instance FromJSON ApiGatewayUsagePlan where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 20, omitNothingFields = True }
+  parseJSON (Object obj) =
+    ApiGatewayUsagePlan <$>
+      obj .: "ApiStages" <*>
+      obj .: "Description" <*>
+      obj .: "Quota" <*>
+      obj .: "Throttle" <*>
+      obj .: "UsagePlanName"
+  parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayUsagePlan' containing required fields as
 -- | arguments.

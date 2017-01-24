@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-methodresponse.html
 
 module Stratosphere.ResourceProperties.ApiGatewayMethodMethodResponse where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -21,13 +20,23 @@ data ApiGatewayMethodMethodResponse =
   { _apiGatewayMethodMethodResponseResponseModels :: Maybe Object
   , _apiGatewayMethodMethodResponseResponseParameters :: Maybe Object
   , _apiGatewayMethodMethodResponseStatusCode :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON ApiGatewayMethodMethodResponse where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 31, omitNothingFields = True }
+  toJSON ApiGatewayMethodMethodResponse{..} =
+    object
+    [ "ResponseModels" .= _apiGatewayMethodMethodResponseResponseModels
+    , "ResponseParameters" .= _apiGatewayMethodMethodResponseResponseParameters
+    , "StatusCode" .= _apiGatewayMethodMethodResponseStatusCode
+    ]
 
 instance FromJSON ApiGatewayMethodMethodResponse where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 31, omitNothingFields = True }
+  parseJSON (Object obj) =
+    ApiGatewayMethodMethodResponse <$>
+      obj .: "ResponseModels" <*>
+      obj .: "ResponseParameters" <*>
+      obj .: "StatusCode"
+  parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayMethodMethodResponse' containing required
 -- | fields as arguments.

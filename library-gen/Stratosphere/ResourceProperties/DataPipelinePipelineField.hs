@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datapipeline-pipeline-pipelineobjects-fields.html
 
 module Stratosphere.ResourceProperties.DataPipelinePipelineField where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -21,13 +20,23 @@ data DataPipelinePipelineField =
   { _dataPipelinePipelineFieldKey :: Val Text
   , _dataPipelinePipelineFieldRefValue :: Maybe (Val Text)
   , _dataPipelinePipelineFieldStringValue :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON DataPipelinePipelineField where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 26, omitNothingFields = True }
+  toJSON DataPipelinePipelineField{..} =
+    object
+    [ "Key" .= _dataPipelinePipelineFieldKey
+    , "RefValue" .= _dataPipelinePipelineFieldRefValue
+    , "StringValue" .= _dataPipelinePipelineFieldStringValue
+    ]
 
 instance FromJSON DataPipelinePipelineField where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 26, omitNothingFields = True }
+  parseJSON (Object obj) =
+    DataPipelinePipelineField <$>
+      obj .: "Key" <*>
+      obj .: "RefValue" <*>
+      obj .: "StringValue"
+  parseJSON _ = mempty
 
 -- | Constructor for 'DataPipelinePipelineField' containing required fields as
 -- | arguments.

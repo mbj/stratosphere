@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-subscription.html
 
 module Stratosphere.ResourceProperties.SNSTopicSubscription where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.Types
@@ -20,13 +19,21 @@ data SNSTopicSubscription =
   SNSTopicSubscription
   { _sNSTopicSubscriptionEndpoint :: Val Text
   , _sNSTopicSubscriptionProtocol :: Val SNSProtocol
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON SNSTopicSubscription where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 21, omitNothingFields = True }
+  toJSON SNSTopicSubscription{..} =
+    object
+    [ "Endpoint" .= _sNSTopicSubscriptionEndpoint
+    , "Protocol" .= _sNSTopicSubscriptionProtocol
+    ]
 
 instance FromJSON SNSTopicSubscription where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 21, omitNothingFields = True }
+  parseJSON (Object obj) =
+    SNSTopicSubscription <$>
+      obj .: "Endpoint" <*>
+      obj .: "Protocol"
+  parseJSON _ = mempty
 
 -- | Constructor for 'SNSTopicSubscription' containing required fields as
 -- | arguments.

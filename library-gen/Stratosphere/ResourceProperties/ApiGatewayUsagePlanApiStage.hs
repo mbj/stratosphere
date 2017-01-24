@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html
 
 module Stratosphere.ResourceProperties.ApiGatewayUsagePlanApiStage where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -20,13 +19,21 @@ data ApiGatewayUsagePlanApiStage =
   ApiGatewayUsagePlanApiStage
   { _apiGatewayUsagePlanApiStageApiId :: Maybe (Val Text)
   , _apiGatewayUsagePlanApiStageStage :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON ApiGatewayUsagePlanApiStage where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 28, omitNothingFields = True }
+  toJSON ApiGatewayUsagePlanApiStage{..} =
+    object
+    [ "ApiId" .= _apiGatewayUsagePlanApiStageApiId
+    , "Stage" .= _apiGatewayUsagePlanApiStageStage
+    ]
 
 instance FromJSON ApiGatewayUsagePlanApiStage where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 28, omitNothingFields = True }
+  parseJSON (Object obj) =
+    ApiGatewayUsagePlanApiStage <$>
+      obj .: "ApiId" <*>
+      obj .: "Stage"
+  parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayUsagePlanApiStage' containing required fields
 -- | as arguments.

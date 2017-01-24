@@ -1,15 +1,14 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-kinesisdeliverystream-s3destinationconfiguration.html
 
 module Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamS3DestinationConfiguration where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.Types
@@ -30,13 +29,31 @@ data KinesisFirehoseDeliveryStreamS3DestinationConfiguration =
   , _kinesisFirehoseDeliveryStreamS3DestinationConfigurationEncryptionConfiguration :: Maybe KinesisFirehoseDeliveryStreamEncryptionConfiguration
   , _kinesisFirehoseDeliveryStreamS3DestinationConfigurationPrefix :: Val Text
   , _kinesisFirehoseDeliveryStreamS3DestinationConfigurationRoleARN :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON KinesisFirehoseDeliveryStreamS3DestinationConfiguration where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 56, omitNothingFields = True }
+  toJSON KinesisFirehoseDeliveryStreamS3DestinationConfiguration{..} =
+    object
+    [ "BucketARN" .= _kinesisFirehoseDeliveryStreamS3DestinationConfigurationBucketARN
+    , "BufferingHints" .= _kinesisFirehoseDeliveryStreamS3DestinationConfigurationBufferingHints
+    , "CloudWatchLoggingOptions" .= _kinesisFirehoseDeliveryStreamS3DestinationConfigurationCloudWatchLoggingOptions
+    , "CompressionFormat" .= _kinesisFirehoseDeliveryStreamS3DestinationConfigurationCompressionFormat
+    , "EncryptionConfiguration" .= _kinesisFirehoseDeliveryStreamS3DestinationConfigurationEncryptionConfiguration
+    , "Prefix" .= _kinesisFirehoseDeliveryStreamS3DestinationConfigurationPrefix
+    , "RoleARN" .= _kinesisFirehoseDeliveryStreamS3DestinationConfigurationRoleARN
+    ]
 
 instance FromJSON KinesisFirehoseDeliveryStreamS3DestinationConfiguration where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 56, omitNothingFields = True }
+  parseJSON (Object obj) =
+    KinesisFirehoseDeliveryStreamS3DestinationConfiguration <$>
+      obj .: "BucketARN" <*>
+      obj .: "BufferingHints" <*>
+      obj .: "CloudWatchLoggingOptions" <*>
+      obj .: "CompressionFormat" <*>
+      obj .: "EncryptionConfiguration" <*>
+      obj .: "Prefix" <*>
+      obj .: "RoleARN"
+  parseJSON _ = mempty
 
 -- | Constructor for 'KinesisFirehoseDeliveryStreamS3DestinationConfiguration'
 -- | containing required fields as arguments.
