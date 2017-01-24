@@ -9,15 +9,43 @@ import qualified Data.Text as T
 import Text.Shakespeare.Text (st)
 
 import Gen.Render.Types
+import Gen.Specifications
 
--- | Renders to ToJSON and FromJSON instances for a resource using Generic
--- deriving.
+-- | Renders to ToJSON and FromJSON instances for a resource.
 renderToFromJSON :: Module -> Text
-renderToFromJSON Module{..} =
+renderToFromJSON module'@Module{..} =
   [st|instance ToJSON #{moduleName} where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop #{nameLength}, omitNothingFields = True }
+  #{renderToJSON module'}
 
 instance FromJSON #{moduleName} where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop #{nameLength}, omitNothingFields = True }|]
+  #{renderFromJSON module'}
+  parseJSON _ = mempty|]
+
+renderToJSON :: Module -> Text
+renderToJSON module'@Module{..}
+  | null moduleProperties = "toJSON _ = toJSON ([] :: [String])"
+  | otherwise =
+      [st|toJSON #{moduleName}{..} =
+    object
+    [ #{renderToJSONFields module'}
+    ]|]
+
+renderToJSONFields :: Module -> Text
+renderToJSONFields Module{..} =
+  T.intercalate "\n    , " $ map renderField moduleProperties
   where
-    nameLength = T.pack (show $ T.length moduleFieldPrefix)
+    renderField Property{..} = [st|"#{propertyName}" .= #{moduleFieldPrefix}#{propertyName}|]
+
+renderFromJSON :: Module -> Text
+renderFromJSON module'@Module{..}
+  | null moduleProperties = [st|parseJSON (Array _) = return #{moduleName}|]
+  | otherwise =
+      [st|parseJSON (Object obj) =
+    #{moduleName} <$>
+      #{renderFromJSONFields module'}|]
+
+renderFromJSONFields :: Module -> Text
+renderFromJSONFields Module{..} =
+  T.intercalate " <*>\n      " $ map renderField moduleProperties
+  where
+    renderField Property{..} = [st|obj .: "#{propertyName}"|]
