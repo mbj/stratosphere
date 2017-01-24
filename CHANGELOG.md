@@ -1,5 +1,7 @@
 # Change Log
 
+## 0.4.1
+
 ## 0.4.0
 
 * Derive the `Eq` type class for everything. This is useful when comparing two
