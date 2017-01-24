@@ -9,6 +9,7 @@ arguments =
   , "library-gen"
   , "tests"
   , "-i", "Use newtype instead of data"
+  , "-i", "Unused LANGUAGE pragma"
   ]
 
 main :: IO ()
