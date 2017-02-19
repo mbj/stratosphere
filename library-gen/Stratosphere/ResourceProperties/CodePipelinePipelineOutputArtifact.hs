@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages-actions-outputartifacts.html
 
 module Stratosphere.ResourceProperties.CodePipelinePipelineOutputArtifact where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -19,13 +19,20 @@ import Stratosphere.Values
 data CodePipelinePipelineOutputArtifact =
   CodePipelinePipelineOutputArtifact
   { _codePipelinePipelineOutputArtifactName :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON CodePipelinePipelineOutputArtifact where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 35, omitNothingFields = True }
+  toJSON CodePipelinePipelineOutputArtifact{..} =
+    object $
+    catMaybes
+    [ Just ("Name" .= _codePipelinePipelineOutputArtifactName)
+    ]
 
 instance FromJSON CodePipelinePipelineOutputArtifact where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 35, omitNothingFields = True }
+  parseJSON (Object obj) =
+    CodePipelinePipelineOutputArtifact <$>
+      obj .: "Name"
+  parseJSON _ = mempty
 
 -- | Constructor for 'CodePipelinePipelineOutputArtifact' containing required
 -- | fields as arguments.

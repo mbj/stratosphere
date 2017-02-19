@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html
 
 module Stratosphere.Resources.IAMUser where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.IAMUserLoginProfile
@@ -25,13 +25,30 @@ data IAMUser =
   , _iAMUserPath :: Maybe (Val Text)
   , _iAMUserPolicies :: Maybe [IAMUserPolicy]
   , _iAMUserUserName :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON IAMUser where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 8, omitNothingFields = True }
+  toJSON IAMUser{..} =
+    object $
+    catMaybes
+    [ ("Groups" .=) <$> _iAMUserGroups
+    , ("LoginProfile" .=) <$> _iAMUserLoginProfile
+    , ("ManagedPolicyArns" .=) <$> _iAMUserManagedPolicyArns
+    , ("Path" .=) <$> _iAMUserPath
+    , ("Policies" .=) <$> _iAMUserPolicies
+    , ("UserName" .=) <$> _iAMUserUserName
+    ]
 
 instance FromJSON IAMUser where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 8, omitNothingFields = True }
+  parseJSON (Object obj) =
+    IAMUser <$>
+      obj .:? "Groups" <*>
+      obj .:? "LoginProfile" <*>
+      obj .:? "ManagedPolicyArns" <*>
+      obj .:? "Path" <*>
+      obj .:? "Policies" <*>
+      obj .:? "UserName"
+  parseJSON _ = mempty
 
 -- | Constructor for 'IAMUser' containing required fields as arguments.
 iamUser

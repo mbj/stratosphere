@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html
 
 module Stratosphere.ResourceProperties.ElasticLoadBalancingV2ListenerRuleRuleCondition where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -22,13 +22,22 @@ data ElasticLoadBalancingV2ListenerRuleRuleCondition =
   ElasticLoadBalancingV2ListenerRuleRuleCondition
   { _elasticLoadBalancingV2ListenerRuleRuleConditionField :: Maybe (Val Text)
   , _elasticLoadBalancingV2ListenerRuleRuleConditionValues :: Maybe [Val Text]
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON ElasticLoadBalancingV2ListenerRuleRuleCondition where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 48, omitNothingFields = True }
+  toJSON ElasticLoadBalancingV2ListenerRuleRuleCondition{..} =
+    object $
+    catMaybes
+    [ ("Field" .=) <$> _elasticLoadBalancingV2ListenerRuleRuleConditionField
+    , ("Values" .=) <$> _elasticLoadBalancingV2ListenerRuleRuleConditionValues
+    ]
 
 instance FromJSON ElasticLoadBalancingV2ListenerRuleRuleCondition where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 48, omitNothingFields = True }
+  parseJSON (Object obj) =
+    ElasticLoadBalancingV2ListenerRuleRuleCondition <$>
+      obj .:? "Field" <*>
+      obj .:? "Values"
+  parseJSON _ = mempty
 
 -- | Constructor for 'ElasticLoadBalancingV2ListenerRuleRuleCondition'
 -- | containing required fields as arguments.

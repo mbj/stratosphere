@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clustersubnetgroup.html
 
 module Stratosphere.Resources.RedshiftClusterSubnetGroup where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -20,13 +20,22 @@ data RedshiftClusterSubnetGroup =
   RedshiftClusterSubnetGroup
   { _redshiftClusterSubnetGroupDescription :: Val Text
   , _redshiftClusterSubnetGroupSubnetIds :: [Val Text]
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON RedshiftClusterSubnetGroup where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 27, omitNothingFields = True }
+  toJSON RedshiftClusterSubnetGroup{..} =
+    object $
+    catMaybes
+    [ Just ("Description" .= _redshiftClusterSubnetGroupDescription)
+    , Just ("SubnetIds" .= _redshiftClusterSubnetGroupSubnetIds)
+    ]
 
 instance FromJSON RedshiftClusterSubnetGroup where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 27, omitNothingFields = True }
+  parseJSON (Object obj) =
+    RedshiftClusterSubnetGroup <$>
+      obj .: "Description" <*>
+      obj .: "SubnetIds"
+  parseJSON _ = mempty
 
 -- | Constructor for 'RedshiftClusterSubnetGroup' containing required fields
 -- | as arguments.

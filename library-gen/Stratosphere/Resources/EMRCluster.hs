@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-cluster.html
 
 module Stratosphere.Resources.EMRCluster where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.EMRClusterApplication
@@ -34,13 +34,42 @@ data EMRCluster =
   , _eMRClusterServiceRole :: Val Text
   , _eMRClusterTags :: Maybe [Tag]
   , _eMRClusterVisibleToAllUsers :: Maybe (Val Bool')
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON EMRCluster where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 11, omitNothingFields = True }
+  toJSON EMRCluster{..} =
+    object $
+    catMaybes
+    [ ("AdditionalInfo" .=) <$> _eMRClusterAdditionalInfo
+    , ("Applications" .=) <$> _eMRClusterApplications
+    , ("BootstrapActions" .=) <$> _eMRClusterBootstrapActions
+    , ("Configurations" .=) <$> _eMRClusterConfigurations
+    , Just ("Instances" .= _eMRClusterInstances)
+    , Just ("JobFlowRole" .= _eMRClusterJobFlowRole)
+    , ("LogUri" .=) <$> _eMRClusterLogUri
+    , Just ("Name" .= _eMRClusterName)
+    , ("ReleaseLabel" .=) <$> _eMRClusterReleaseLabel
+    , Just ("ServiceRole" .= _eMRClusterServiceRole)
+    , ("Tags" .=) <$> _eMRClusterTags
+    , ("VisibleToAllUsers" .=) <$> _eMRClusterVisibleToAllUsers
+    ]
 
 instance FromJSON EMRCluster where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 11, omitNothingFields = True }
+  parseJSON (Object obj) =
+    EMRCluster <$>
+      obj .:? "AdditionalInfo" <*>
+      obj .:? "Applications" <*>
+      obj .:? "BootstrapActions" <*>
+      obj .:? "Configurations" <*>
+      obj .: "Instances" <*>
+      obj .: "JobFlowRole" <*>
+      obj .:? "LogUri" <*>
+      obj .: "Name" <*>
+      obj .:? "ReleaseLabel" <*>
+      obj .: "ServiceRole" <*>
+      obj .:? "Tags" <*>
+      obj .:? "VisibleToAllUsers"
+  parseJSON _ = mempty
 
 -- | Constructor for 'EMRCluster' containing required fields as arguments.
 emrCluster

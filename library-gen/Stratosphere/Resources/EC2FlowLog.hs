@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html
 
 module Stratosphere.Resources.EC2FlowLog where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -23,13 +23,28 @@ data EC2FlowLog =
   , _eC2FlowLogResourceId :: Val Text
   , _eC2FlowLogResourceType :: Val Text
   , _eC2FlowLogTrafficType :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON EC2FlowLog where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 11, omitNothingFields = True }
+  toJSON EC2FlowLog{..} =
+    object $
+    catMaybes
+    [ Just ("DeliverLogsPermissionArn" .= _eC2FlowLogDeliverLogsPermissionArn)
+    , Just ("LogGroupName" .= _eC2FlowLogLogGroupName)
+    , Just ("ResourceId" .= _eC2FlowLogResourceId)
+    , Just ("ResourceType" .= _eC2FlowLogResourceType)
+    , Just ("TrafficType" .= _eC2FlowLogTrafficType)
+    ]
 
 instance FromJSON EC2FlowLog where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 11, omitNothingFields = True }
+  parseJSON (Object obj) =
+    EC2FlowLog <$>
+      obj .: "DeliverLogsPermissionArn" <*>
+      obj .: "LogGroupName" <*>
+      obj .: "ResourceId" <*>
+      obj .: "ResourceType" <*>
+      obj .: "TrafficType"
+  parseJSON _ = mempty
 
 -- | Constructor for 'EC2FlowLog' containing required fields as arguments.
 ec2FlowLog

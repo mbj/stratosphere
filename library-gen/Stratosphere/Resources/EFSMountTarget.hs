@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html
 
 module Stratosphere.Resources.EFSMountTarget where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -22,13 +22,26 @@ data EFSMountTarget =
   , _eFSMountTargetIpAddress :: Maybe (Val Text)
   , _eFSMountTargetSecurityGroups :: [Val Text]
   , _eFSMountTargetSubnetId :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON EFSMountTarget where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 15, omitNothingFields = True }
+  toJSON EFSMountTarget{..} =
+    object $
+    catMaybes
+    [ Just ("FileSystemId" .= _eFSMountTargetFileSystemId)
+    , ("IpAddress" .=) <$> _eFSMountTargetIpAddress
+    , Just ("SecurityGroups" .= _eFSMountTargetSecurityGroups)
+    , Just ("SubnetId" .= _eFSMountTargetSubnetId)
+    ]
 
 instance FromJSON EFSMountTarget where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 15, omitNothingFields = True }
+  parseJSON (Object obj) =
+    EFSMountTarget <$>
+      obj .: "FileSystemId" <*>
+      obj .:? "IpAddress" <*>
+      obj .: "SecurityGroups" <*>
+      obj .: "SubnetId"
+  parseJSON _ = mempty
 
 -- | Constructor for 'EFSMountTarget' containing required fields as arguments.
 efsMountTarget

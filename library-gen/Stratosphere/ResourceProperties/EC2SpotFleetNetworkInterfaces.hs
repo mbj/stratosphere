@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-networkinterfaces.html
 
 module Stratosphere.ResourceProperties.EC2SpotFleetNetworkInterfaces where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.EC2SpotFleetInstanceIpv6Address
@@ -30,13 +30,40 @@ data EC2SpotFleetNetworkInterfaces =
   , _eC2SpotFleetNetworkInterfacesPrivateIpAddresses :: Maybe [EC2SpotFleetPrivateIpAddresses]
   , _eC2SpotFleetNetworkInterfacesSecondaryPrivateIpAddressCount :: Maybe (Val Integer')
   , _eC2SpotFleetNetworkInterfacesSubnetId :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON EC2SpotFleetNetworkInterfaces where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 30, omitNothingFields = True }
+  toJSON EC2SpotFleetNetworkInterfaces{..} =
+    object $
+    catMaybes
+    [ ("AssociatePublicIpAddress" .=) <$> _eC2SpotFleetNetworkInterfacesAssociatePublicIpAddress
+    , ("DeleteOnTermination" .=) <$> _eC2SpotFleetNetworkInterfacesDeleteOnTermination
+    , ("Description" .=) <$> _eC2SpotFleetNetworkInterfacesDescription
+    , Just ("DeviceIndex" .= _eC2SpotFleetNetworkInterfacesDeviceIndex)
+    , ("Groups" .=) <$> _eC2SpotFleetNetworkInterfacesGroups
+    , ("Ipv6AddressCount" .=) <$> _eC2SpotFleetNetworkInterfacesIpv6AddressCount
+    , ("Ipv6Addresses" .=) <$> _eC2SpotFleetNetworkInterfacesIpv6Addresses
+    , ("NetworkInterfaceId" .=) <$> _eC2SpotFleetNetworkInterfacesNetworkInterfaceId
+    , ("PrivateIpAddresses" .=) <$> _eC2SpotFleetNetworkInterfacesPrivateIpAddresses
+    , ("SecondaryPrivateIpAddressCount" .=) <$> _eC2SpotFleetNetworkInterfacesSecondaryPrivateIpAddressCount
+    , ("SubnetId" .=) <$> _eC2SpotFleetNetworkInterfacesSubnetId
+    ]
 
 instance FromJSON EC2SpotFleetNetworkInterfaces where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 30, omitNothingFields = True }
+  parseJSON (Object obj) =
+    EC2SpotFleetNetworkInterfaces <$>
+      obj .:? "AssociatePublicIpAddress" <*>
+      obj .:? "DeleteOnTermination" <*>
+      obj .:? "Description" <*>
+      obj .: "DeviceIndex" <*>
+      obj .:? "Groups" <*>
+      obj .:? "Ipv6AddressCount" <*>
+      obj .:? "Ipv6Addresses" <*>
+      obj .:? "NetworkInterfaceId" <*>
+      obj .:? "PrivateIpAddresses" <*>
+      obj .:? "SecondaryPrivateIpAddressCount" <*>
+      obj .:? "SubnetId"
+  parseJSON _ = mempty
 
 -- | Constructor for 'EC2SpotFleetNetworkInterfaces' containing required
 -- | fields as arguments.

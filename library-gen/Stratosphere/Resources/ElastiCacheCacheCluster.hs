@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html
 
 module Stratosphere.Resources.ElastiCacheCacheCluster where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.Tag
@@ -39,13 +39,60 @@ data ElastiCacheCacheCluster =
   , _elastiCacheCacheClusterSnapshotWindow :: Maybe (Val Text)
   , _elastiCacheCacheClusterTags :: Maybe [Tag]
   , _elastiCacheCacheClusterVpcSecurityGroupIds :: Maybe [Val Text]
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON ElastiCacheCacheCluster where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 24, omitNothingFields = True }
+  toJSON ElastiCacheCacheCluster{..} =
+    object $
+    catMaybes
+    [ ("AZMode" .=) <$> _elastiCacheCacheClusterAZMode
+    , ("AutoMinorVersionUpgrade" .=) <$> _elastiCacheCacheClusterAutoMinorVersionUpgrade
+    , Just ("CacheNodeType" .= _elastiCacheCacheClusterCacheNodeType)
+    , ("CacheParameterGroupName" .=) <$> _elastiCacheCacheClusterCacheParameterGroupName
+    , ("CacheSecurityGroupNames" .=) <$> _elastiCacheCacheClusterCacheSecurityGroupNames
+    , ("CacheSubnetGroupName" .=) <$> _elastiCacheCacheClusterCacheSubnetGroupName
+    , ("ClusterName" .=) <$> _elastiCacheCacheClusterClusterName
+    , Just ("Engine" .= _elastiCacheCacheClusterEngine)
+    , ("EngineVersion" .=) <$> _elastiCacheCacheClusterEngineVersion
+    , ("NotificationTopicArn" .=) <$> _elastiCacheCacheClusterNotificationTopicArn
+    , Just ("NumCacheNodes" .= _elastiCacheCacheClusterNumCacheNodes)
+    , ("Port" .=) <$> _elastiCacheCacheClusterPort
+    , ("PreferredAvailabilityZone" .=) <$> _elastiCacheCacheClusterPreferredAvailabilityZone
+    , ("PreferredAvailabilityZones" .=) <$> _elastiCacheCacheClusterPreferredAvailabilityZones
+    , ("PreferredMaintenanceWindow" .=) <$> _elastiCacheCacheClusterPreferredMaintenanceWindow
+    , ("SnapshotArns" .=) <$> _elastiCacheCacheClusterSnapshotArns
+    , ("SnapshotName" .=) <$> _elastiCacheCacheClusterSnapshotName
+    , ("SnapshotRetentionLimit" .=) <$> _elastiCacheCacheClusterSnapshotRetentionLimit
+    , ("SnapshotWindow" .=) <$> _elastiCacheCacheClusterSnapshotWindow
+    , ("Tags" .=) <$> _elastiCacheCacheClusterTags
+    , ("VpcSecurityGroupIds" .=) <$> _elastiCacheCacheClusterVpcSecurityGroupIds
+    ]
 
 instance FromJSON ElastiCacheCacheCluster where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 24, omitNothingFields = True }
+  parseJSON (Object obj) =
+    ElastiCacheCacheCluster <$>
+      obj .:? "AZMode" <*>
+      obj .:? "AutoMinorVersionUpgrade" <*>
+      obj .: "CacheNodeType" <*>
+      obj .:? "CacheParameterGroupName" <*>
+      obj .:? "CacheSecurityGroupNames" <*>
+      obj .:? "CacheSubnetGroupName" <*>
+      obj .:? "ClusterName" <*>
+      obj .: "Engine" <*>
+      obj .:? "EngineVersion" <*>
+      obj .:? "NotificationTopicArn" <*>
+      obj .: "NumCacheNodes" <*>
+      obj .:? "Port" <*>
+      obj .:? "PreferredAvailabilityZone" <*>
+      obj .:? "PreferredAvailabilityZones" <*>
+      obj .:? "PreferredMaintenanceWindow" <*>
+      obj .:? "SnapshotArns" <*>
+      obj .:? "SnapshotName" <*>
+      obj .:? "SnapshotRetentionLimit" <*>
+      obj .:? "SnapshotWindow" <*>
+      obj .:? "Tags" <*>
+      obj .:? "VpcSecurityGroupIds"
+  parseJSON _ = mempty
 
 -- | Constructor for 'ElastiCacheCacheCluster' containing required fields as
 -- | arguments.

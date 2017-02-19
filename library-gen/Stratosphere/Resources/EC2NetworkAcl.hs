@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-acl.html
 
 module Stratosphere.Resources.EC2NetworkAcl where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.Tag
@@ -20,13 +20,22 @@ data EC2NetworkAcl =
   EC2NetworkAcl
   { _eC2NetworkAclTags :: Maybe [Tag]
   , _eC2NetworkAclVpcId :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON EC2NetworkAcl where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 14, omitNothingFields = True }
+  toJSON EC2NetworkAcl{..} =
+    object $
+    catMaybes
+    [ ("Tags" .=) <$> _eC2NetworkAclTags
+    , Just ("VpcId" .= _eC2NetworkAclVpcId)
+    ]
 
 instance FromJSON EC2NetworkAcl where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 14, omitNothingFields = True }
+  parseJSON (Object obj) =
+    EC2NetworkAcl <$>
+      obj .:? "Tags" <*>
+      obj .: "VpcId"
+  parseJSON _ = mempty
 
 -- | Constructor for 'EC2NetworkAcl' containing required fields as arguments.
 ec2NetworkAcl

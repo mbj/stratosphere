@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-acl-entry.html
 
 module Stratosphere.Resources.EC2NetworkAclEntry where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.EC2NetworkAclEntryIcmp
@@ -28,13 +28,36 @@ data EC2NetworkAclEntry =
   , _eC2NetworkAclEntryProtocol :: Val Integer'
   , _eC2NetworkAclEntryRuleAction :: Val Text
   , _eC2NetworkAclEntryRuleNumber :: Val Integer'
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON EC2NetworkAclEntry where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 19, omitNothingFields = True }
+  toJSON EC2NetworkAclEntry{..} =
+    object $
+    catMaybes
+    [ Just ("CidrBlock" .= _eC2NetworkAclEntryCidrBlock)
+    , ("Egress" .=) <$> _eC2NetworkAclEntryEgress
+    , ("Icmp" .=) <$> _eC2NetworkAclEntryIcmp
+    , ("Ipv6CidrBlock" .=) <$> _eC2NetworkAclEntryIpv6CidrBlock
+    , Just ("NetworkAclId" .= _eC2NetworkAclEntryNetworkAclId)
+    , ("PortRange" .=) <$> _eC2NetworkAclEntryPortRange
+    , Just ("Protocol" .= _eC2NetworkAclEntryProtocol)
+    , Just ("RuleAction" .= _eC2NetworkAclEntryRuleAction)
+    , Just ("RuleNumber" .= _eC2NetworkAclEntryRuleNumber)
+    ]
 
 instance FromJSON EC2NetworkAclEntry where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 19, omitNothingFields = True }
+  parseJSON (Object obj) =
+    EC2NetworkAclEntry <$>
+      obj .: "CidrBlock" <*>
+      obj .:? "Egress" <*>
+      obj .:? "Icmp" <*>
+      obj .:? "Ipv6CidrBlock" <*>
+      obj .: "NetworkAclId" <*>
+      obj .:? "PortRange" <*>
+      obj .: "Protocol" <*>
+      obj .: "RuleAction" <*>
+      obj .: "RuleNumber"
+  parseJSON _ = mempty
 
 -- | Constructor for 'EC2NetworkAclEntry' containing required fields as
 -- | arguments.

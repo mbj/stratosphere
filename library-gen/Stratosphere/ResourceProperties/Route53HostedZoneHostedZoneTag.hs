@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzonetags.html
 
 module Stratosphere.ResourceProperties.Route53HostedZoneHostedZoneTag where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -20,13 +20,22 @@ data Route53HostedZoneHostedZoneTag =
   Route53HostedZoneHostedZoneTag
   { _route53HostedZoneHostedZoneTagKey :: Val Text
   , _route53HostedZoneHostedZoneTagValue :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON Route53HostedZoneHostedZoneTag where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 31, omitNothingFields = True }
+  toJSON Route53HostedZoneHostedZoneTag{..} =
+    object $
+    catMaybes
+    [ Just ("Key" .= _route53HostedZoneHostedZoneTagKey)
+    , Just ("Value" .= _route53HostedZoneHostedZoneTagValue)
+    ]
 
 instance FromJSON Route53HostedZoneHostedZoneTag where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 31, omitNothingFields = True }
+  parseJSON (Object obj) =
+    Route53HostedZoneHostedZoneTag <$>
+      obj .: "Key" <*>
+      obj .: "Value"
+  parseJSON _ = mempty
 
 -- | Constructor for 'Route53HostedZoneHostedZoneTag' containing required
 -- | fields as arguments.

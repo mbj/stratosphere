@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-blockdevicemappings-ebs.html
 
 module Stratosphere.ResourceProperties.EC2SpotFleetEbs where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -24,13 +24,30 @@ data EC2SpotFleetEbs =
   , _eC2SpotFleetEbsSnapshotId :: Maybe (Val Text)
   , _eC2SpotFleetEbsVolumeSize :: Maybe (Val Integer')
   , _eC2SpotFleetEbsVolumeType :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON EC2SpotFleetEbs where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 16, omitNothingFields = True }
+  toJSON EC2SpotFleetEbs{..} =
+    object $
+    catMaybes
+    [ ("DeleteOnTermination" .=) <$> _eC2SpotFleetEbsDeleteOnTermination
+    , ("Encrypted" .=) <$> _eC2SpotFleetEbsEncrypted
+    , ("Iops" .=) <$> _eC2SpotFleetEbsIops
+    , ("SnapshotId" .=) <$> _eC2SpotFleetEbsSnapshotId
+    , ("VolumeSize" .=) <$> _eC2SpotFleetEbsVolumeSize
+    , ("VolumeType" .=) <$> _eC2SpotFleetEbsVolumeType
+    ]
 
 instance FromJSON EC2SpotFleetEbs where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 16, omitNothingFields = True }
+  parseJSON (Object obj) =
+    EC2SpotFleetEbs <$>
+      obj .:? "DeleteOnTermination" <*>
+      obj .:? "Encrypted" <*>
+      obj .:? "Iops" <*>
+      obj .:? "SnapshotId" <*>
+      obj .:? "VolumeSize" <*>
+      obj .:? "VolumeType"
+  parseJSON _ = mempty
 
 -- | Constructor for 'EC2SpotFleetEbs' containing required fields as
 -- | arguments.

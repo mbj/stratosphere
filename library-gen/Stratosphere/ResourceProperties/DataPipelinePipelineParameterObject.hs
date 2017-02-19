@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datapipeline-pipeline-parameterobjects.html
 
 module Stratosphere.ResourceProperties.DataPipelinePipelineParameterObject where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.DataPipelinePipelineParameterAttribute
@@ -20,13 +20,22 @@ data DataPipelinePipelineParameterObject =
   DataPipelinePipelineParameterObject
   { _dataPipelinePipelineParameterObjectAttributes :: [DataPipelinePipelineParameterAttribute]
   , _dataPipelinePipelineParameterObjectId :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON DataPipelinePipelineParameterObject where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 36, omitNothingFields = True }
+  toJSON DataPipelinePipelineParameterObject{..} =
+    object $
+    catMaybes
+    [ Just ("Attributes" .= _dataPipelinePipelineParameterObjectAttributes)
+    , Just ("Id" .= _dataPipelinePipelineParameterObjectId)
+    ]
 
 instance FromJSON DataPipelinePipelineParameterObject where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 36, omitNothingFields = True }
+  parseJSON (Object obj) =
+    DataPipelinePipelineParameterObject <$>
+      obj .: "Attributes" <*>
+      obj .: "Id"
+  parseJSON _ = mempty
 
 -- | Constructor for 'DataPipelinePipelineParameterObject' containing required
 -- | fields as arguments.

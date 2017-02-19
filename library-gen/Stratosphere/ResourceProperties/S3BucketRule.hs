@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html
 
 module Stratosphere.ResourceProperties.S3BucketRule where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.S3BucketNoncurrentVersionTransition
@@ -29,13 +29,38 @@ data S3BucketRule =
   , _s3BucketRuleStatus :: Val Text
   , _s3BucketRuleTransition :: Maybe S3BucketTransition
   , _s3BucketRuleTransitions :: Maybe S3BucketTransition
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON S3BucketRule where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 13, omitNothingFields = True }
+  toJSON S3BucketRule{..} =
+    object $
+    catMaybes
+    [ ("ExpirationDate" .=) <$> _s3BucketRuleExpirationDate
+    , ("ExpirationInDays" .=) <$> _s3BucketRuleExpirationInDays
+    , ("Id" .=) <$> _s3BucketRuleId
+    , ("NoncurrentVersionExpirationInDays" .=) <$> _s3BucketRuleNoncurrentVersionExpirationInDays
+    , ("NoncurrentVersionTransition" .=) <$> _s3BucketRuleNoncurrentVersionTransition
+    , ("NoncurrentVersionTransitions" .=) <$> _s3BucketRuleNoncurrentVersionTransitions
+    , ("Prefix" .=) <$> _s3BucketRulePrefix
+    , Just ("Status" .= _s3BucketRuleStatus)
+    , ("Transition" .=) <$> _s3BucketRuleTransition
+    , ("Transitions" .=) <$> _s3BucketRuleTransitions
+    ]
 
 instance FromJSON S3BucketRule where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 13, omitNothingFields = True }
+  parseJSON (Object obj) =
+    S3BucketRule <$>
+      obj .:? "ExpirationDate" <*>
+      obj .:? "ExpirationInDays" <*>
+      obj .:? "Id" <*>
+      obj .:? "NoncurrentVersionExpirationInDays" <*>
+      obj .:? "NoncurrentVersionTransition" <*>
+      obj .:? "NoncurrentVersionTransitions" <*>
+      obj .:? "Prefix" <*>
+      obj .: "Status" <*>
+      obj .:? "Transition" <*>
+      obj .:? "Transitions"
+  parseJSON _ = mempty
 
 -- | Constructor for 'S3BucketRule' containing required fields as arguments.
 s3BucketRule

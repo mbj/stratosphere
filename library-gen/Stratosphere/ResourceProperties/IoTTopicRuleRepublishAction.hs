@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-republish.html
 
 module Stratosphere.ResourceProperties.IoTTopicRuleRepublishAction where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -20,13 +20,22 @@ data IoTTopicRuleRepublishAction =
   IoTTopicRuleRepublishAction
   { _ioTTopicRuleRepublishActionRoleArn :: Val Text
   , _ioTTopicRuleRepublishActionTopic :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON IoTTopicRuleRepublishAction where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 28, omitNothingFields = True }
+  toJSON IoTTopicRuleRepublishAction{..} =
+    object $
+    catMaybes
+    [ Just ("RoleArn" .= _ioTTopicRuleRepublishActionRoleArn)
+    , Just ("Topic" .= _ioTTopicRuleRepublishActionTopic)
+    ]
 
 instance FromJSON IoTTopicRuleRepublishAction where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 28, omitNothingFields = True }
+  parseJSON (Object obj) =
+    IoTTopicRuleRepublishAction <$>
+      obj .: "RoleArn" <*>
+      obj .: "Topic"
+  parseJSON _ = mempty
 
 -- | Constructor for 'IoTTopicRuleRepublishAction' containing required fields
 -- | as arguments.

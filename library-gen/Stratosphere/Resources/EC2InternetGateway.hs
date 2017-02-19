@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-internet-gateway.html
 
 module Stratosphere.Resources.EC2InternetGateway where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.Tag
@@ -19,13 +19,20 @@ import Stratosphere.ResourceProperties.Tag
 data EC2InternetGateway =
   EC2InternetGateway
   { _eC2InternetGatewayTags :: Maybe [Tag]
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON EC2InternetGateway where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 19, omitNothingFields = True }
+  toJSON EC2InternetGateway{..} =
+    object $
+    catMaybes
+    [ ("Tags" .=) <$> _eC2InternetGatewayTags
+    ]
 
 instance FromJSON EC2InternetGateway where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 19, omitNothingFields = True }
+  parseJSON (Object obj) =
+    EC2InternetGateway <$>
+      obj .:? "Tags"
+  parseJSON _ = mempty
 
 -- | Constructor for 'EC2InternetGateway' containing required fields as
 -- | arguments.

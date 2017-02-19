@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-ec2tagfilters.html
 
 module Stratosphere.ResourceProperties.CodeDeployDeploymentGroupEc2TagFilter where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -22,13 +22,24 @@ data CodeDeployDeploymentGroupEc2TagFilter =
   { _codeDeployDeploymentGroupEc2TagFilterKey :: Maybe (Val Text)
   , _codeDeployDeploymentGroupEc2TagFilterType :: Val Text
   , _codeDeployDeploymentGroupEc2TagFilterValue :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON CodeDeployDeploymentGroupEc2TagFilter where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 38, omitNothingFields = True }
+  toJSON CodeDeployDeploymentGroupEc2TagFilter{..} =
+    object $
+    catMaybes
+    [ ("Key" .=) <$> _codeDeployDeploymentGroupEc2TagFilterKey
+    , Just ("Type" .= _codeDeployDeploymentGroupEc2TagFilterType)
+    , ("Value" .=) <$> _codeDeployDeploymentGroupEc2TagFilterValue
+    ]
 
 instance FromJSON CodeDeployDeploymentGroupEc2TagFilter where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 38, omitNothingFields = True }
+  parseJSON (Object obj) =
+    CodeDeployDeploymentGroupEc2TagFilter <$>
+      obj .:? "Key" <*>
+      obj .: "Type" <*>
+      obj .:? "Value"
+  parseJSON _ = mempty
 
 -- | Constructor for 'CodeDeployDeploymentGroupEc2TagFilter' containing
 -- | required fields as arguments.

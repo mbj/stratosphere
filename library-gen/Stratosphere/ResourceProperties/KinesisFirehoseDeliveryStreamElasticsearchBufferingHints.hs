@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-kinesisdeliverystream-elasticsearchdestinationconfiguration.html
 
 module Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamElasticsearchBufferingHints where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -22,13 +22,22 @@ data KinesisFirehoseDeliveryStreamElasticsearchBufferingHints =
   KinesisFirehoseDeliveryStreamElasticsearchBufferingHints
   { _kinesisFirehoseDeliveryStreamElasticsearchBufferingHintsIntervalInSeconds :: Val Integer'
   , _kinesisFirehoseDeliveryStreamElasticsearchBufferingHintsSizeInMBs :: Val Integer'
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON KinesisFirehoseDeliveryStreamElasticsearchBufferingHints where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 57, omitNothingFields = True }
+  toJSON KinesisFirehoseDeliveryStreamElasticsearchBufferingHints{..} =
+    object $
+    catMaybes
+    [ Just ("IntervalInSeconds" .= _kinesisFirehoseDeliveryStreamElasticsearchBufferingHintsIntervalInSeconds)
+    , Just ("SizeInMBs" .= _kinesisFirehoseDeliveryStreamElasticsearchBufferingHintsSizeInMBs)
+    ]
 
 instance FromJSON KinesisFirehoseDeliveryStreamElasticsearchBufferingHints where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 57, omitNothingFields = True }
+  parseJSON (Object obj) =
+    KinesisFirehoseDeliveryStreamElasticsearchBufferingHints <$>
+      obj .: "IntervalInSeconds" <*>
+      obj .: "SizeInMBs"
+  parseJSON _ = mempty
 
 -- | Constructor for
 -- | 'KinesisFirehoseDeliveryStreamElasticsearchBufferingHints' containing

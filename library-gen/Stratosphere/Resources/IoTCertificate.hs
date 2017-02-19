@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html
 
 module Stratosphere.Resources.IoTCertificate where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -20,13 +20,22 @@ data IoTCertificate =
   IoTCertificate
   { _ioTCertificateCertificateSigningRequest :: Val Text
   , _ioTCertificateStatus :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON IoTCertificate where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 15, omitNothingFields = True }
+  toJSON IoTCertificate{..} =
+    object $
+    catMaybes
+    [ Just ("CertificateSigningRequest" .= _ioTCertificateCertificateSigningRequest)
+    , Just ("Status" .= _ioTCertificateStatus)
+    ]
 
 instance FromJSON IoTCertificate where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 15, omitNothingFields = True }
+  parseJSON (Object obj) =
+    IoTCertificate <$>
+      obj .: "CertificateSigningRequest" <*>
+      obj .: "Status"
+  parseJSON _ = mempty
 
 -- | Constructor for 'IoTCertificate' containing required fields as arguments.
 ioTCertificate

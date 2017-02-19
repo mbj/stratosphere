@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-step-hadoopjarstepconfig.html
 
 module Stratosphere.ResourceProperties.EMRStepHadoopJarStepConfig where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.EMRStepKeyValue
@@ -22,13 +22,26 @@ data EMRStepHadoopJarStepConfig =
   , _eMRStepHadoopJarStepConfigJar :: Val Text
   , _eMRStepHadoopJarStepConfigMainClass :: Maybe (Val Text)
   , _eMRStepHadoopJarStepConfigStepProperties :: Maybe [EMRStepKeyValue]
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON EMRStepHadoopJarStepConfig where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 27, omitNothingFields = True }
+  toJSON EMRStepHadoopJarStepConfig{..} =
+    object $
+    catMaybes
+    [ ("Args" .=) <$> _eMRStepHadoopJarStepConfigArgs
+    , Just ("Jar" .= _eMRStepHadoopJarStepConfigJar)
+    , ("MainClass" .=) <$> _eMRStepHadoopJarStepConfigMainClass
+    , ("StepProperties" .=) <$> _eMRStepHadoopJarStepConfigStepProperties
+    ]
 
 instance FromJSON EMRStepHadoopJarStepConfig where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 27, omitNothingFields = True }
+  parseJSON (Object obj) =
+    EMRStepHadoopJarStepConfig <$>
+      obj .:? "Args" <*>
+      obj .: "Jar" <*>
+      obj .:? "MainClass" <*>
+      obj .:? "StepProperties"
+  parseJSON _ = mempty
 
 -- | Constructor for 'EMRStepHadoopJarStepConfig' containing required fields
 -- | as arguments.

@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-sns.html
 
 module Stratosphere.ResourceProperties.IoTTopicRuleSnsAction where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -21,13 +21,24 @@ data IoTTopicRuleSnsAction =
   { _ioTTopicRuleSnsActionMessageFormat :: Maybe (Val Text)
   , _ioTTopicRuleSnsActionRoleArn :: Val Text
   , _ioTTopicRuleSnsActionTargetArn :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON IoTTopicRuleSnsAction where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 22, omitNothingFields = True }
+  toJSON IoTTopicRuleSnsAction{..} =
+    object $
+    catMaybes
+    [ ("MessageFormat" .=) <$> _ioTTopicRuleSnsActionMessageFormat
+    , Just ("RoleArn" .= _ioTTopicRuleSnsActionRoleArn)
+    , Just ("TargetArn" .= _ioTTopicRuleSnsActionTargetArn)
+    ]
 
 instance FromJSON IoTTopicRuleSnsAction where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 22, omitNothingFields = True }
+  parseJSON (Object obj) =
+    IoTTopicRuleSnsAction <$>
+      obj .:? "MessageFormat" <*>
+      obj .: "RoleArn" <*>
+      obj .: "TargetArn"
+  parseJSON _ = mempty
 
 -- | Constructor for 'IoTTopicRuleSnsAction' containing required fields as
 -- | arguments.

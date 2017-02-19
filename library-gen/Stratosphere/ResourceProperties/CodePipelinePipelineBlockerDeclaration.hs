@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages-blockers.html
 
 module Stratosphere.ResourceProperties.CodePipelinePipelineBlockerDeclaration where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -21,13 +21,22 @@ data CodePipelinePipelineBlockerDeclaration =
   CodePipelinePipelineBlockerDeclaration
   { _codePipelinePipelineBlockerDeclarationName :: Val Text
   , _codePipelinePipelineBlockerDeclarationType :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON CodePipelinePipelineBlockerDeclaration where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 39, omitNothingFields = True }
+  toJSON CodePipelinePipelineBlockerDeclaration{..} =
+    object $
+    catMaybes
+    [ Just ("Name" .= _codePipelinePipelineBlockerDeclarationName)
+    , Just ("Type" .= _codePipelinePipelineBlockerDeclarationType)
+    ]
 
 instance FromJSON CodePipelinePipelineBlockerDeclaration where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 39, omitNothingFields = True }
+  parseJSON (Object obj) =
+    CodePipelinePipelineBlockerDeclaration <$>
+      obj .: "Name" <*>
+      obj .: "Type"
+  parseJSON _ = mempty
 
 -- | Constructor for 'CodePipelinePipelineBlockerDeclaration' containing
 -- | required fields as arguments.

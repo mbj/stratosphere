@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html
 
 module Stratosphere.Resources.IAMAccessKey where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -21,13 +21,24 @@ data IAMAccessKey =
   { _iAMAccessKeySerial :: Maybe (Val Integer')
   , _iAMAccessKeyStatus :: Maybe (Val Text)
   , _iAMAccessKeyUserName :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON IAMAccessKey where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 13, omitNothingFields = True }
+  toJSON IAMAccessKey{..} =
+    object $
+    catMaybes
+    [ ("Serial" .=) <$> _iAMAccessKeySerial
+    , ("Status" .=) <$> _iAMAccessKeyStatus
+    , Just ("UserName" .= _iAMAccessKeyUserName)
+    ]
 
 instance FromJSON IAMAccessKey where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 13, omitNothingFields = True }
+  parseJSON (Object obj) =
+    IAMAccessKey <$>
+      obj .:? "Serial" <*>
+      obj .:? "Status" <*>
+      obj .: "UserName"
+  parseJSON _ = mempty
 
 -- | Constructor for 'IAMAccessKey' containing required fields as arguments.
 iamAccessKey

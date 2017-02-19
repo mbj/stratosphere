@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-optiongroup.html
 
 module Stratosphere.Resources.RDSOptionGroup where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.RDSOptionGroupOptionConfiguration
@@ -24,13 +24,28 @@ data RDSOptionGroup =
   , _rDSOptionGroupOptionConfigurations :: [RDSOptionGroupOptionConfiguration]
   , _rDSOptionGroupOptionGroupDescription :: Val Text
   , _rDSOptionGroupTags :: Maybe [Tag]
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON RDSOptionGroup where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 15, omitNothingFields = True }
+  toJSON RDSOptionGroup{..} =
+    object $
+    catMaybes
+    [ Just ("EngineName" .= _rDSOptionGroupEngineName)
+    , Just ("MajorEngineVersion" .= _rDSOptionGroupMajorEngineVersion)
+    , Just ("OptionConfigurations" .= _rDSOptionGroupOptionConfigurations)
+    , Just ("OptionGroupDescription" .= _rDSOptionGroupOptionGroupDescription)
+    , ("Tags" .=) <$> _rDSOptionGroupTags
+    ]
 
 instance FromJSON RDSOptionGroup where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 15, omitNothingFields = True }
+  parseJSON (Object obj) =
+    RDSOptionGroup <$>
+      obj .: "EngineName" <*>
+      obj .: "MajorEngineVersion" <*>
+      obj .: "OptionConfigurations" <*>
+      obj .: "OptionGroupDescription" <*>
+      obj .:? "Tags"
+  parseJSON _ = mempty
 
 -- | Constructor for 'RDSOptionGroup' containing required fields as arguments.
 rdsOptionGroup

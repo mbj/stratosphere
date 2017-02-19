@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-streamspecification.html
 
 module Stratosphere.ResourceProperties.DynamoDBTableStreamSpecification where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.Types
@@ -19,13 +19,20 @@ import Stratosphere.Types
 data DynamoDBTableStreamSpecification =
   DynamoDBTableStreamSpecification
   { _dynamoDBTableStreamSpecificationStreamViewType :: Val StreamViewType
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON DynamoDBTableStreamSpecification where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 33, omitNothingFields = True }
+  toJSON DynamoDBTableStreamSpecification{..} =
+    object $
+    catMaybes
+    [ Just ("StreamViewType" .= _dynamoDBTableStreamSpecificationStreamViewType)
+    ]
 
 instance FromJSON DynamoDBTableStreamSpecification where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 33, omitNothingFields = True }
+  parseJSON (Object obj) =
+    DynamoDBTableStreamSpecification <$>
+      obj .: "StreamViewType"
+  parseJSON _ = mempty
 
 -- | Constructor for 'DynamoDBTableStreamSpecification' containing required
 -- | fields as arguments.

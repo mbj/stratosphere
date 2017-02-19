@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages-actions.html
 
 module Stratosphere.ResourceProperties.CodePipelinePipelineActionDeclaration where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.CodePipelinePipelineActionTypeId
@@ -28,13 +28,32 @@ data CodePipelinePipelineActionDeclaration =
   , _codePipelinePipelineActionDeclarationOutputArtifacts :: Maybe [CodePipelinePipelineOutputArtifact]
   , _codePipelinePipelineActionDeclarationRoleArn :: Maybe (Val Text)
   , _codePipelinePipelineActionDeclarationRunOrder :: Maybe (Val Integer')
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON CodePipelinePipelineActionDeclaration where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 38, omitNothingFields = True }
+  toJSON CodePipelinePipelineActionDeclaration{..} =
+    object $
+    catMaybes
+    [ Just ("ActionTypeId" .= _codePipelinePipelineActionDeclarationActionTypeId)
+    , ("Configuration" .=) <$> _codePipelinePipelineActionDeclarationConfiguration
+    , ("InputArtifacts" .=) <$> _codePipelinePipelineActionDeclarationInputArtifacts
+    , Just ("Name" .= _codePipelinePipelineActionDeclarationName)
+    , ("OutputArtifacts" .=) <$> _codePipelinePipelineActionDeclarationOutputArtifacts
+    , ("RoleArn" .=) <$> _codePipelinePipelineActionDeclarationRoleArn
+    , ("RunOrder" .=) <$> _codePipelinePipelineActionDeclarationRunOrder
+    ]
 
 instance FromJSON CodePipelinePipelineActionDeclaration where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 38, omitNothingFields = True }
+  parseJSON (Object obj) =
+    CodePipelinePipelineActionDeclaration <$>
+      obj .: "ActionTypeId" <*>
+      obj .:? "Configuration" <*>
+      obj .:? "InputArtifacts" <*>
+      obj .: "Name" <*>
+      obj .:? "OutputArtifacts" <*>
+      obj .:? "RoleArn" <*>
+      obj .:? "RunOrder"
+  parseJSON _ = mempty
 
 -- | Constructor for 'CodePipelinePipelineActionDeclaration' containing
 -- | required fields as arguments.

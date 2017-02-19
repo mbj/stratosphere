@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-sourcebundle.html
 
 module Stratosphere.ResourceProperties.ElasticBeanstalkApplicationVersionSourceBundle where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -22,13 +22,22 @@ data ElasticBeanstalkApplicationVersionSourceBundle =
   ElasticBeanstalkApplicationVersionSourceBundle
   { _elasticBeanstalkApplicationVersionSourceBundleS3Bucket :: Val Text
   , _elasticBeanstalkApplicationVersionSourceBundleS3Key :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON ElasticBeanstalkApplicationVersionSourceBundle where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 47, omitNothingFields = True }
+  toJSON ElasticBeanstalkApplicationVersionSourceBundle{..} =
+    object $
+    catMaybes
+    [ Just ("S3Bucket" .= _elasticBeanstalkApplicationVersionSourceBundleS3Bucket)
+    , Just ("S3Key" .= _elasticBeanstalkApplicationVersionSourceBundleS3Key)
+    ]
 
 instance FromJSON ElasticBeanstalkApplicationVersionSourceBundle where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 47, omitNothingFields = True }
+  parseJSON (Object obj) =
+    ElasticBeanstalkApplicationVersionSourceBundle <$>
+      obj .: "S3Bucket" <*>
+      obj .: "S3Key"
+  parseJSON _ = mempty
 
 -- | Constructor for 'ElasticBeanstalkApplicationVersionSourceBundle'
 -- | containing required fields as arguments.

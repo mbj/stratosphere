@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig.html
 
 module Stratosphere.ResourceProperties.S3BucketNotificationConfiguration where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.S3BucketLambdaConfiguration
@@ -23,13 +23,24 @@ data S3BucketNotificationConfiguration =
   { _s3BucketNotificationConfigurationLambdaConfigurations :: Maybe [S3BucketLambdaConfiguration]
   , _s3BucketNotificationConfigurationQueueConfigurations :: Maybe [S3BucketQueueConfiguration]
   , _s3BucketNotificationConfigurationTopicConfigurations :: Maybe [S3BucketTopicConfiguration]
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON S3BucketNotificationConfiguration where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 34, omitNothingFields = True }
+  toJSON S3BucketNotificationConfiguration{..} =
+    object $
+    catMaybes
+    [ ("LambdaConfigurations" .=) <$> _s3BucketNotificationConfigurationLambdaConfigurations
+    , ("QueueConfigurations" .=) <$> _s3BucketNotificationConfigurationQueueConfigurations
+    , ("TopicConfigurations" .=) <$> _s3BucketNotificationConfigurationTopicConfigurations
+    ]
 
 instance FromJSON S3BucketNotificationConfiguration where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 34, omitNothingFields = True }
+  parseJSON (Object obj) =
+    S3BucketNotificationConfiguration <$>
+      obj .:? "LambdaConfigurations" <*>
+      obj .:? "QueueConfigurations" <*>
+      obj .:? "TopicConfigurations"
+  parseJSON _ = mempty
 
 -- | Constructor for 'S3BucketNotificationConfiguration' containing required
 -- | fields as arguments.

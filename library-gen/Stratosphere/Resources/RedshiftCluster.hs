@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html
 
 module Stratosphere.Resources.RedshiftCluster where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -42,13 +42,66 @@ data RedshiftCluster =
   , _redshiftClusterSnapshotClusterIdentifier :: Maybe (Val Text)
   , _redshiftClusterSnapshotIdentifier :: Maybe (Val Text)
   , _redshiftClusterVpcSecurityGroupIds :: Maybe [Val Text]
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON RedshiftCluster where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 16, omitNothingFields = True }
+  toJSON RedshiftCluster{..} =
+    object $
+    catMaybes
+    [ ("AllowVersionUpdate" .=) <$> _redshiftClusterAllowVersionUpdate
+    , ("AutomatedSnapshotRetentionPeriod" .=) <$> _redshiftClusterAutomatedSnapshotRetentionPeriod
+    , ("AvailabilityZone" .=) <$> _redshiftClusterAvailabilityZone
+    , ("ClusterParameterGroupName" .=) <$> _redshiftClusterClusterParameterGroupName
+    , ("ClusterSecurityGroups" .=) <$> _redshiftClusterClusterSecurityGroups
+    , ("ClusterSubnetGroupName" .=) <$> _redshiftClusterClusterSubnetGroupName
+    , Just ("ClusterType" .= _redshiftClusterClusterType)
+    , ("ClusterVersion" .=) <$> _redshiftClusterClusterVersion
+    , Just ("DBName" .= _redshiftClusterDBName)
+    , ("ElasticIp" .=) <$> _redshiftClusterElasticIp
+    , ("Encrypted" .=) <$> _redshiftClusterEncrypted
+    , ("HsmClientCertificateIdentifier" .=) <$> _redshiftClusterHsmClientCertificateIdentifier
+    , ("KmsKeyId" .=) <$> _redshiftClusterKmsKeyId
+    , Just ("MasterUserPassword" .= _redshiftClusterMasterUserPassword)
+    , Just ("MasterUsername" .= _redshiftClusterMasterUsername)
+    , Just ("NodeType" .= _redshiftClusterNodeType)
+    , ("NumberOfNodes" .=) <$> _redshiftClusterNumberOfNodes
+    , ("OwnerAccount" .=) <$> _redshiftClusterOwnerAccount
+    , ("Port" .=) <$> _redshiftClusterPort
+    , ("PreferredMaintenanceWindow" .=) <$> _redshiftClusterPreferredMaintenanceWindow
+    , ("PubliclyAccessible" .=) <$> _redshiftClusterPubliclyAccessible
+    , ("SnapshotClusterIdentifier" .=) <$> _redshiftClusterSnapshotClusterIdentifier
+    , ("SnapshotIdentifier" .=) <$> _redshiftClusterSnapshotIdentifier
+    , ("VpcSecurityGroupIds" .=) <$> _redshiftClusterVpcSecurityGroupIds
+    ]
 
 instance FromJSON RedshiftCluster where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 16, omitNothingFields = True }
+  parseJSON (Object obj) =
+    RedshiftCluster <$>
+      obj .:? "AllowVersionUpdate" <*>
+      obj .:? "AutomatedSnapshotRetentionPeriod" <*>
+      obj .:? "AvailabilityZone" <*>
+      obj .:? "ClusterParameterGroupName" <*>
+      obj .:? "ClusterSecurityGroups" <*>
+      obj .:? "ClusterSubnetGroupName" <*>
+      obj .: "ClusterType" <*>
+      obj .:? "ClusterVersion" <*>
+      obj .: "DBName" <*>
+      obj .:? "ElasticIp" <*>
+      obj .:? "Encrypted" <*>
+      obj .:? "HsmClientCertificateIdentifier" <*>
+      obj .:? "KmsKeyId" <*>
+      obj .: "MasterUserPassword" <*>
+      obj .: "MasterUsername" <*>
+      obj .: "NodeType" <*>
+      obj .:? "NumberOfNodes" <*>
+      obj .:? "OwnerAccount" <*>
+      obj .:? "Port" <*>
+      obj .:? "PreferredMaintenanceWindow" <*>
+      obj .:? "PubliclyAccessible" <*>
+      obj .:? "SnapshotClusterIdentifier" <*>
+      obj .:? "SnapshotIdentifier" <*>
+      obj .:? "VpcSecurityGroupIds"
+  parseJSON _ = mempty
 
 -- | Constructor for 'RedshiftCluster' containing required fields as
 -- | arguments.

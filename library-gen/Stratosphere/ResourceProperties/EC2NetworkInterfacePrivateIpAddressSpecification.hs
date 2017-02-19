@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-interface-privateipspec.html
 
 module Stratosphere.ResourceProperties.EC2NetworkInterfacePrivateIpAddressSpecification where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -22,13 +22,22 @@ data EC2NetworkInterfacePrivateIpAddressSpecification =
   EC2NetworkInterfacePrivateIpAddressSpecification
   { _eC2NetworkInterfacePrivateIpAddressSpecificationPrimary :: Val Bool'
   , _eC2NetworkInterfacePrivateIpAddressSpecificationPrivateIpAddress :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON EC2NetworkInterfacePrivateIpAddressSpecification where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 49, omitNothingFields = True }
+  toJSON EC2NetworkInterfacePrivateIpAddressSpecification{..} =
+    object $
+    catMaybes
+    [ Just ("Primary" .= _eC2NetworkInterfacePrivateIpAddressSpecificationPrimary)
+    , Just ("PrivateIpAddress" .= _eC2NetworkInterfacePrivateIpAddressSpecificationPrivateIpAddress)
+    ]
 
 instance FromJSON EC2NetworkInterfacePrivateIpAddressSpecification where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 49, omitNothingFields = True }
+  parseJSON (Object obj) =
+    EC2NetworkInterfacePrivateIpAddressSpecification <$>
+      obj .: "Primary" <*>
+      obj .: "PrivateIpAddress"
+  parseJSON _ = mempty
 
 -- | Constructor for 'EC2NetworkInterfacePrivateIpAddressSpecification'
 -- | containing required fields as arguments.

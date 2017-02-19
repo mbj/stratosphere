@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html
 
 module Stratosphere.Resources.RDSDBCluster where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.Tag
@@ -35,13 +35,52 @@ data RDSDBCluster =
   , _rDSDBClusterStorageEncrypted :: Maybe (Val Bool')
   , _rDSDBClusterTags :: Maybe [Tag]
   , _rDSDBClusterVpcSecurityGroupIds :: Maybe [Val Text]
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON RDSDBCluster where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 13, omitNothingFields = True }
+  toJSON RDSDBCluster{..} =
+    object $
+    catMaybes
+    [ ("AvailabilityZones" .=) <$> _rDSDBClusterAvailabilityZones
+    , ("BackupRetentionPeriod" .=) <$> _rDSDBClusterBackupRetentionPeriod
+    , ("DBClusterParameterGroupName" .=) <$> _rDSDBClusterDBClusterParameterGroupName
+    , ("DBSubnetGroupName" .=) <$> _rDSDBClusterDBSubnetGroupName
+    , ("DatabaseName" .=) <$> _rDSDBClusterDatabaseName
+    , Just ("Engine" .= _rDSDBClusterEngine)
+    , ("EngineVersion" .=) <$> _rDSDBClusterEngineVersion
+    , ("KmsKeyId" .=) <$> _rDSDBClusterKmsKeyId
+    , ("MasterUserPassword" .=) <$> _rDSDBClusterMasterUserPassword
+    , ("MasterUsername" .=) <$> _rDSDBClusterMasterUsername
+    , ("Port" .=) <$> _rDSDBClusterPort
+    , ("PreferredBackupWindow" .=) <$> _rDSDBClusterPreferredBackupWindow
+    , ("PreferredMaintenanceWindow" .=) <$> _rDSDBClusterPreferredMaintenanceWindow
+    , ("SnapshotIdentifier" .=) <$> _rDSDBClusterSnapshotIdentifier
+    , ("StorageEncrypted" .=) <$> _rDSDBClusterStorageEncrypted
+    , ("Tags" .=) <$> _rDSDBClusterTags
+    , ("VpcSecurityGroupIds" .=) <$> _rDSDBClusterVpcSecurityGroupIds
+    ]
 
 instance FromJSON RDSDBCluster where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 13, omitNothingFields = True }
+  parseJSON (Object obj) =
+    RDSDBCluster <$>
+      obj .:? "AvailabilityZones" <*>
+      obj .:? "BackupRetentionPeriod" <*>
+      obj .:? "DBClusterParameterGroupName" <*>
+      obj .:? "DBSubnetGroupName" <*>
+      obj .:? "DatabaseName" <*>
+      obj .: "Engine" <*>
+      obj .:? "EngineVersion" <*>
+      obj .:? "KmsKeyId" <*>
+      obj .:? "MasterUserPassword" <*>
+      obj .:? "MasterUsername" <*>
+      obj .:? "Port" <*>
+      obj .:? "PreferredBackupWindow" <*>
+      obj .:? "PreferredMaintenanceWindow" <*>
+      obj .:? "SnapshotIdentifier" <*>
+      obj .:? "StorageEncrypted" <*>
+      obj .:? "Tags" <*>
+      obj .:? "VpcSecurityGroupIds"
+  parseJSON _ = mempty
 
 -- | Constructor for 'RDSDBCluster' containing required fields as arguments.
 rdsdbCluster

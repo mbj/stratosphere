@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distributionconfig-viewercertificate.html
 
 module Stratosphere.ResourceProperties.CloudFrontDistributionViewerCertificate where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -24,13 +24,28 @@ data CloudFrontDistributionViewerCertificate =
   , _cloudFrontDistributionViewerCertificateIamCertificateId :: Maybe (Val Text)
   , _cloudFrontDistributionViewerCertificateMinimumProtocolVersion :: Maybe (Val Text)
   , _cloudFrontDistributionViewerCertificateSslSupportMethod :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON CloudFrontDistributionViewerCertificate where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 40, omitNothingFields = True }
+  toJSON CloudFrontDistributionViewerCertificate{..} =
+    object $
+    catMaybes
+    [ ("AcmCertificateArn" .=) <$> _cloudFrontDistributionViewerCertificateAcmCertificateArn
+    , ("CloudFrontDefaultCertificate" .=) <$> _cloudFrontDistributionViewerCertificateCloudFrontDefaultCertificate
+    , ("IamCertificateId" .=) <$> _cloudFrontDistributionViewerCertificateIamCertificateId
+    , ("MinimumProtocolVersion" .=) <$> _cloudFrontDistributionViewerCertificateMinimumProtocolVersion
+    , ("SslSupportMethod" .=) <$> _cloudFrontDistributionViewerCertificateSslSupportMethod
+    ]
 
 instance FromJSON CloudFrontDistributionViewerCertificate where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 40, omitNothingFields = True }
+  parseJSON (Object obj) =
+    CloudFrontDistributionViewerCertificate <$>
+      obj .:? "AcmCertificateArn" <*>
+      obj .:? "CloudFrontDefaultCertificate" <*>
+      obj .:? "IamCertificateId" <*>
+      obj .:? "MinimumProtocolVersion" <*>
+      obj .:? "SslSupportMethod"
+  parseJSON _ = mempty
 
 -- | Constructor for 'CloudFrontDistributionViewerCertificate' containing
 -- | required fields as arguments.

@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig.html
 
 module Stratosphere.ResourceProperties.S3BucketLifecycleConfiguration where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.S3BucketRule
@@ -19,13 +19,20 @@ import Stratosphere.ResourceProperties.S3BucketRule
 data S3BucketLifecycleConfiguration =
   S3BucketLifecycleConfiguration
   { _s3BucketLifecycleConfigurationRules :: [S3BucketRule]
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON S3BucketLifecycleConfiguration where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 31, omitNothingFields = True }
+  toJSON S3BucketLifecycleConfiguration{..} =
+    object $
+    catMaybes
+    [ Just ("Rules" .= _s3BucketLifecycleConfigurationRules)
+    ]
 
 instance FromJSON S3BucketLifecycleConfiguration where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 31, omitNothingFields = True }
+  parseJSON (Object obj) =
+    S3BucketLifecycleConfiguration <$>
+      obj .: "Rules"
+  parseJSON _ = mempty
 
 -- | Constructor for 'S3BucketLifecycleConfiguration' containing required
 -- | fields as arguments.

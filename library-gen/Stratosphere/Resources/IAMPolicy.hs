@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html
 
 module Stratosphere.Resources.IAMPolicy where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -23,13 +23,28 @@ data IAMPolicy =
   , _iAMPolicyPolicyName :: Val Text
   , _iAMPolicyRoles :: Maybe [Val Text]
   , _iAMPolicyUsers :: Maybe [Val Text]
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON IAMPolicy where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 10, omitNothingFields = True }
+  toJSON IAMPolicy{..} =
+    object $
+    catMaybes
+    [ ("Groups" .=) <$> _iAMPolicyGroups
+    , Just ("PolicyDocument" .= _iAMPolicyPolicyDocument)
+    , Just ("PolicyName" .= _iAMPolicyPolicyName)
+    , ("Roles" .=) <$> _iAMPolicyRoles
+    , ("Users" .=) <$> _iAMPolicyUsers
+    ]
 
 instance FromJSON IAMPolicy where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 10, omitNothingFields = True }
+  parseJSON (Object obj) =
+    IAMPolicy <$>
+      obj .:? "Groups" <*>
+      obj .: "PolicyDocument" <*>
+      obj .: "PolicyName" <*>
+      obj .:? "Roles" <*>
+      obj .:? "Users"
+  parseJSON _ = mempty
 
 -- | Constructor for 'IAMPolicy' containing required fields as arguments.
 iamPolicy

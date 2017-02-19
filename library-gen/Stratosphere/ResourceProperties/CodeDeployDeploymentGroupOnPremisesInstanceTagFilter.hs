@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-onpremisesinstancetagfilters.html
 
 module Stratosphere.ResourceProperties.CodeDeployDeploymentGroupOnPremisesInstanceTagFilter where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -23,13 +23,24 @@ data CodeDeployDeploymentGroupOnPremisesInstanceTagFilter =
   { _codeDeployDeploymentGroupOnPremisesInstanceTagFilterKey :: Maybe (Val Text)
   , _codeDeployDeploymentGroupOnPremisesInstanceTagFilterType :: Maybe (Val Text)
   , _codeDeployDeploymentGroupOnPremisesInstanceTagFilterValue :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON CodeDeployDeploymentGroupOnPremisesInstanceTagFilter where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 53, omitNothingFields = True }
+  toJSON CodeDeployDeploymentGroupOnPremisesInstanceTagFilter{..} =
+    object $
+    catMaybes
+    [ ("Key" .=) <$> _codeDeployDeploymentGroupOnPremisesInstanceTagFilterKey
+    , ("Type" .=) <$> _codeDeployDeploymentGroupOnPremisesInstanceTagFilterType
+    , ("Value" .=) <$> _codeDeployDeploymentGroupOnPremisesInstanceTagFilterValue
+    ]
 
 instance FromJSON CodeDeployDeploymentGroupOnPremisesInstanceTagFilter where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 53, omitNothingFields = True }
+  parseJSON (Object obj) =
+    CodeDeployDeploymentGroupOnPremisesInstanceTagFilter <$>
+      obj .:? "Key" <*>
+      obj .:? "Type" <*>
+      obj .:? "Value"
+  parseJSON _ = mempty
 
 -- | Constructor for 'CodeDeployDeploymentGroupOnPremisesInstanceTagFilter'
 -- | containing required fields as arguments.

@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-mountpoints.html
 
 module Stratosphere.ResourceProperties.ECSTaskDefinitionMountPoint where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -21,13 +21,24 @@ data ECSTaskDefinitionMountPoint =
   { _eCSTaskDefinitionMountPointContainerPath :: Maybe (Val Text)
   , _eCSTaskDefinitionMountPointReadOnly :: Maybe (Val Bool')
   , _eCSTaskDefinitionMountPointSourceVolume :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON ECSTaskDefinitionMountPoint where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 28, omitNothingFields = True }
+  toJSON ECSTaskDefinitionMountPoint{..} =
+    object $
+    catMaybes
+    [ ("ContainerPath" .=) <$> _eCSTaskDefinitionMountPointContainerPath
+    , ("ReadOnly" .=) <$> _eCSTaskDefinitionMountPointReadOnly
+    , ("SourceVolume" .=) <$> _eCSTaskDefinitionMountPointSourceVolume
+    ]
 
 instance FromJSON ECSTaskDefinitionMountPoint where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 28, omitNothingFields = True }
+  parseJSON (Object obj) =
+    ECSTaskDefinitionMountPoint <$>
+      obj .:? "ContainerPath" <*>
+      obj .:? "ReadOnly" <*>
+      obj .:? "SourceVolume"
+  parseJSON _ = mempty
 
 -- | Constructor for 'ECSTaskDefinitionMountPoint' containing required fields
 -- | as arguments.

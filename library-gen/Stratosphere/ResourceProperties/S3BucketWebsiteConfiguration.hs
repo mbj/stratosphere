@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration.html
 
 module Stratosphere.ResourceProperties.S3BucketWebsiteConfiguration where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.S3BucketRedirectAllRequestsTo
@@ -23,13 +23,26 @@ data S3BucketWebsiteConfiguration =
   , _s3BucketWebsiteConfigurationIndexDocument :: Maybe (Val Text)
   , _s3BucketWebsiteConfigurationRedirectAllRequestsTo :: Maybe S3BucketRedirectAllRequestsTo
   , _s3BucketWebsiteConfigurationRoutingRules :: Maybe [S3BucketRoutingRule]
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON S3BucketWebsiteConfiguration where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 29, omitNothingFields = True }
+  toJSON S3BucketWebsiteConfiguration{..} =
+    object $
+    catMaybes
+    [ ("ErrorDocument" .=) <$> _s3BucketWebsiteConfigurationErrorDocument
+    , ("IndexDocument" .=) <$> _s3BucketWebsiteConfigurationIndexDocument
+    , ("RedirectAllRequestsTo" .=) <$> _s3BucketWebsiteConfigurationRedirectAllRequestsTo
+    , ("RoutingRules" .=) <$> _s3BucketWebsiteConfigurationRoutingRules
+    ]
 
 instance FromJSON S3BucketWebsiteConfiguration where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 29, omitNothingFields = True }
+  parseJSON (Object obj) =
+    S3BucketWebsiteConfiguration <$>
+      obj .:? "ErrorDocument" <*>
+      obj .:? "IndexDocument" <*>
+      obj .:? "RedirectAllRequestsTo" <*>
+      obj .:? "RoutingRules"
+  parseJSON _ = mempty
 
 -- | Constructor for 'S3BucketWebsiteConfiguration' containing required fields
 -- | as arguments.

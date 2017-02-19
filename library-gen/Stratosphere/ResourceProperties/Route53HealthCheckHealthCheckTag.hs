@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthchecktags.html
 
 module Stratosphere.ResourceProperties.Route53HealthCheckHealthCheckTag where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -20,13 +20,22 @@ data Route53HealthCheckHealthCheckTag =
   Route53HealthCheckHealthCheckTag
   { _route53HealthCheckHealthCheckTagKey :: Val Text
   , _route53HealthCheckHealthCheckTagValue :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON Route53HealthCheckHealthCheckTag where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 33, omitNothingFields = True }
+  toJSON Route53HealthCheckHealthCheckTag{..} =
+    object $
+    catMaybes
+    [ Just ("Key" .= _route53HealthCheckHealthCheckTagKey)
+    , Just ("Value" .= _route53HealthCheckHealthCheckTagValue)
+    ]
 
 instance FromJSON Route53HealthCheckHealthCheckTag where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 33, omitNothingFields = True }
+  parseJSON (Object obj) =
+    Route53HealthCheckHealthCheckTag <$>
+      obj .: "Key" <*>
+      obj .: "Value"
+  parseJSON _ = mempty
 
 -- | Constructor for 'Route53HealthCheckHealthCheckTag' containing required
 -- | fields as arguments.

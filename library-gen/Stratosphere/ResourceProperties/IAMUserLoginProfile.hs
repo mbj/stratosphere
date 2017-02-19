@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user-loginprofile.html
 
 module Stratosphere.ResourceProperties.IAMUserLoginProfile where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -20,13 +20,22 @@ data IAMUserLoginProfile =
   IAMUserLoginProfile
   { _iAMUserLoginProfilePassword :: Val Text
   , _iAMUserLoginProfilePasswordResetRequired :: Maybe (Val Bool')
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON IAMUserLoginProfile where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 20, omitNothingFields = True }
+  toJSON IAMUserLoginProfile{..} =
+    object $
+    catMaybes
+    [ Just ("Password" .= _iAMUserLoginProfilePassword)
+    , ("PasswordResetRequired" .=) <$> _iAMUserLoginProfilePasswordResetRequired
+    ]
 
 instance FromJSON IAMUserLoginProfile where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 20, omitNothingFields = True }
+  parseJSON (Object obj) =
+    IAMUserLoginProfile <$>
+      obj .: "Password" <*>
+      obj .:? "PasswordResetRequired"
+  parseJSON _ = mempty
 
 -- | Constructor for 'IAMUserLoginProfile' containing required fields as
 -- | arguments.

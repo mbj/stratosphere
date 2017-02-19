@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html
 
 module Stratosphere.Resources.EC2Volume where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.Tag
@@ -27,13 +27,36 @@ data EC2Volume =
   , _eC2VolumeSnapshotId :: Maybe (Val Text)
   , _eC2VolumeTags :: Maybe [Tag]
   , _eC2VolumeVolumeType :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON EC2Volume where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 10, omitNothingFields = True }
+  toJSON EC2Volume{..} =
+    object $
+    catMaybes
+    [ ("AutoEnableIO" .=) <$> _eC2VolumeAutoEnableIO
+    , Just ("AvailabilityZone" .= _eC2VolumeAvailabilityZone)
+    , ("Encrypted" .=) <$> _eC2VolumeEncrypted
+    , ("Iops" .=) <$> _eC2VolumeIops
+    , ("KmsKeyId" .=) <$> _eC2VolumeKmsKeyId
+    , ("Size" .=) <$> _eC2VolumeSize
+    , ("SnapshotId" .=) <$> _eC2VolumeSnapshotId
+    , ("Tags" .=) <$> _eC2VolumeTags
+    , ("VolumeType" .=) <$> _eC2VolumeVolumeType
+    ]
 
 instance FromJSON EC2Volume where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 10, omitNothingFields = True }
+  parseJSON (Object obj) =
+    EC2Volume <$>
+      obj .:? "AutoEnableIO" <*>
+      obj .: "AvailabilityZone" <*>
+      obj .:? "Encrypted" <*>
+      obj .:? "Iops" <*>
+      obj .:? "KmsKeyId" <*>
+      obj .:? "Size" <*>
+      obj .:? "SnapshotId" <*>
+      obj .:? "Tags" <*>
+      obj .:? "VolumeType"
+  parseJSON _ = mempty
 
 -- | Constructor for 'EC2Volume' containing required fields as arguments.
 ec2Volume

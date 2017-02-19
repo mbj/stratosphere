@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-host.html
 
 module Stratosphere.Resources.EC2Host where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -21,13 +21,24 @@ data EC2Host =
   { _eC2HostAutoPlacement :: Maybe (Val Text)
   , _eC2HostAvailabilityZone :: Val Text
   , _eC2HostInstanceType :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON EC2Host where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 8, omitNothingFields = True }
+  toJSON EC2Host{..} =
+    object $
+    catMaybes
+    [ ("AutoPlacement" .=) <$> _eC2HostAutoPlacement
+    , Just ("AvailabilityZone" .= _eC2HostAvailabilityZone)
+    , Just ("InstanceType" .= _eC2HostInstanceType)
+    ]
 
 instance FromJSON EC2Host where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 8, omitNothingFields = True }
+  parseJSON (Object obj) =
+    EC2Host <$>
+      obj .:? "AutoPlacement" <*>
+      obj .: "AvailabilityZone" <*>
+      obj .: "InstanceType"
+  parseJSON _ = mempty
 
 -- | Constructor for 'EC2Host' containing required fields as arguments.
 ec2Host

@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route-table.html
 
 module Stratosphere.Resources.EC2RouteTable where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.Tag
@@ -20,13 +20,22 @@ data EC2RouteTable =
   EC2RouteTable
   { _eC2RouteTableTags :: Maybe [Tag]
   , _eC2RouteTableVpcId :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON EC2RouteTable where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 14, omitNothingFields = True }
+  toJSON EC2RouteTable{..} =
+    object $
+    catMaybes
+    [ ("Tags" .=) <$> _eC2RouteTableTags
+    , Just ("VpcId" .= _eC2RouteTableVpcId)
+    ]
 
 instance FromJSON EC2RouteTable where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 14, omitNothingFields = True }
+  parseJSON (Object obj) =
+    EC2RouteTable <$>
+      obj .:? "Tags" <*>
+      obj .: "VpcId"
+  parseJSON _ = mempty
 
 -- | Constructor for 'EC2RouteTable' containing required fields as arguments.
 ec2RouteTable

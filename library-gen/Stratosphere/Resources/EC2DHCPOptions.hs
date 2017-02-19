@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcp-options.html
 
 module Stratosphere.Resources.EC2DHCPOptions where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.Tag
@@ -24,13 +24,30 @@ data EC2DHCPOptions =
   , _eC2DHCPOptionsNetbiosNodeType :: Maybe (Val Integer')
   , _eC2DHCPOptionsNtpServers :: Maybe (Val Text)
   , _eC2DHCPOptionsTags :: Maybe [Tag]
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON EC2DHCPOptions where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 15, omitNothingFields = True }
+  toJSON EC2DHCPOptions{..} =
+    object $
+    catMaybes
+    [ ("DomainName" .=) <$> _eC2DHCPOptionsDomainName
+    , ("DomainNameServers" .=) <$> _eC2DHCPOptionsDomainNameServers
+    , ("NetbiosNameServers" .=) <$> _eC2DHCPOptionsNetbiosNameServers
+    , ("NetbiosNodeType" .=) <$> _eC2DHCPOptionsNetbiosNodeType
+    , ("NtpServers" .=) <$> _eC2DHCPOptionsNtpServers
+    , ("Tags" .=) <$> _eC2DHCPOptionsTags
+    ]
 
 instance FromJSON EC2DHCPOptions where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 15, omitNothingFields = True }
+  parseJSON (Object obj) =
+    EC2DHCPOptions <$>
+      obj .:? "DomainName" <*>
+      obj .:? "DomainNameServers" <*>
+      obj .:? "NetbiosNameServers" <*>
+      obj .:? "NetbiosNodeType" <*>
+      obj .:? "NtpServers" <*>
+      obj .:? "Tags"
+  parseJSON _ = mempty
 
 -- | Constructor for 'EC2DHCPOptions' containing required fields as arguments.
 ec2DHCPOptions

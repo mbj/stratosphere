@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-lifecycleeventconfiguration.html
 
 module Stratosphere.ResourceProperties.OpsWorksLayerLifecycleEventConfiguration where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.OpsWorksLayerShutdownEventConfiguration
@@ -20,13 +20,20 @@ import Stratosphere.ResourceProperties.OpsWorksLayerShutdownEventConfiguration
 data OpsWorksLayerLifecycleEventConfiguration =
   OpsWorksLayerLifecycleEventConfiguration
   { _opsWorksLayerLifecycleEventConfigurationShutdownEventConfiguration :: Maybe OpsWorksLayerShutdownEventConfiguration
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON OpsWorksLayerLifecycleEventConfiguration where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 41, omitNothingFields = True }
+  toJSON OpsWorksLayerLifecycleEventConfiguration{..} =
+    object $
+    catMaybes
+    [ ("ShutdownEventConfiguration" .=) <$> _opsWorksLayerLifecycleEventConfigurationShutdownEventConfiguration
+    ]
 
 instance FromJSON OpsWorksLayerLifecycleEventConfiguration where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 41, omitNothingFields = True }
+  parseJSON (Object obj) =
+    OpsWorksLayerLifecycleEventConfiguration <$>
+      obj .:? "ShutdownEventConfiguration"
+  parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksLayerLifecycleEventConfiguration' containing
 -- | required fields as arguments.

@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waitcondition.html
 
 module Stratosphere.Resources.CloudFormationWaitCondition where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -21,13 +21,24 @@ data CloudFormationWaitCondition =
   { _cloudFormationWaitConditionCount :: Maybe (Val Integer')
   , _cloudFormationWaitConditionHandle :: Val Text
   , _cloudFormationWaitConditionTimeout :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON CloudFormationWaitCondition where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 28, omitNothingFields = True }
+  toJSON CloudFormationWaitCondition{..} =
+    object $
+    catMaybes
+    [ ("Count" .=) <$> _cloudFormationWaitConditionCount
+    , Just ("Handle" .= _cloudFormationWaitConditionHandle)
+    , Just ("Timeout" .= _cloudFormationWaitConditionTimeout)
+    ]
 
 instance FromJSON CloudFormationWaitCondition where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 28, omitNothingFields = True }
+  parseJSON (Object obj) =
+    CloudFormationWaitCondition <$>
+      obj .:? "Count" <*>
+      obj .: "Handle" <*>
+      obj .: "Timeout"
+  parseJSON _ = mempty
 
 -- | Constructor for 'CloudFormationWaitCondition' containing required fields
 -- | as arguments.

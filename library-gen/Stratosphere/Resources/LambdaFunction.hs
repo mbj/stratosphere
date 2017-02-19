@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html
 
 module Stratosphere.Resources.LambdaFunction where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.Types
@@ -32,13 +32,40 @@ data LambdaFunction =
   , _lambdaFunctionRuntime :: Val Runtime
   , _lambdaFunctionTimeout :: Maybe (Val Integer')
   , _lambdaFunctionVpcConfig :: Maybe LambdaFunctionVpcConfig
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON LambdaFunction where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 15, omitNothingFields = True }
+  toJSON LambdaFunction{..} =
+    object $
+    catMaybes
+    [ Just ("Code" .= _lambdaFunctionCode)
+    , ("Description" .=) <$> _lambdaFunctionDescription
+    , ("Environment" .=) <$> _lambdaFunctionEnvironment
+    , ("FunctionName" .=) <$> _lambdaFunctionFunctionName
+    , Just ("Handler" .= _lambdaFunctionHandler)
+    , ("KmsKeyArn" .=) <$> _lambdaFunctionKmsKeyArn
+    , ("MemorySize" .=) <$> _lambdaFunctionMemorySize
+    , Just ("Role" .= _lambdaFunctionRole)
+    , Just ("Runtime" .= _lambdaFunctionRuntime)
+    , ("Timeout" .=) <$> _lambdaFunctionTimeout
+    , ("VpcConfig" .=) <$> _lambdaFunctionVpcConfig
+    ]
 
 instance FromJSON LambdaFunction where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 15, omitNothingFields = True }
+  parseJSON (Object obj) =
+    LambdaFunction <$>
+      obj .: "Code" <*>
+      obj .:? "Description" <*>
+      obj .:? "Environment" <*>
+      obj .:? "FunctionName" <*>
+      obj .: "Handler" <*>
+      obj .:? "KmsKeyArn" <*>
+      obj .:? "MemorySize" <*>
+      obj .: "Role" <*>
+      obj .: "Runtime" <*>
+      obj .:? "Timeout" <*>
+      obj .:? "VpcConfig"
+  parseJSON _ = mempty
 
 -- | Constructor for 'LambdaFunction' containing required fields as arguments.
 lambdaFunction

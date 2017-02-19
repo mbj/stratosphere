@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-managedpolicy.html
 
 module Stratosphere.Resources.IAMManagedPolicy where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -24,13 +24,30 @@ data IAMManagedPolicy =
   , _iAMManagedPolicyPolicyDocument :: Maybe Object
   , _iAMManagedPolicyRoles :: Maybe [Val Text]
   , _iAMManagedPolicyUsers :: Maybe [Val Text]
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON IAMManagedPolicy where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 17, omitNothingFields = True }
+  toJSON IAMManagedPolicy{..} =
+    object $
+    catMaybes
+    [ ("Description" .=) <$> _iAMManagedPolicyDescription
+    , ("Groups" .=) <$> _iAMManagedPolicyGroups
+    , ("Path" .=) <$> _iAMManagedPolicyPath
+    , ("PolicyDocument" .=) <$> _iAMManagedPolicyPolicyDocument
+    , ("Roles" .=) <$> _iAMManagedPolicyRoles
+    , ("Users" .=) <$> _iAMManagedPolicyUsers
+    ]
 
 instance FromJSON IAMManagedPolicy where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 17, omitNothingFields = True }
+  parseJSON (Object obj) =
+    IAMManagedPolicy <$>
+      obj .:? "Description" <*>
+      obj .:? "Groups" <*>
+      obj .:? "Path" <*>
+      obj .:? "PolicyDocument" <*>
+      obj .:? "Roles" <*>
+      obj .:? "Users"
+  parseJSON _ = mempty
 
 -- | Constructor for 'IAMManagedPolicy' containing required fields as
 -- | arguments.

@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-deliverychannel.html
 
 module Stratosphere.Resources.ConfigDeliveryChannel where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.ConfigDeliveryChannelConfigSnapshotDeliveryProperties
@@ -23,13 +23,28 @@ data ConfigDeliveryChannel =
   , _configDeliveryChannelS3BucketName :: Val Text
   , _configDeliveryChannelS3KeyPrefix :: Maybe (Val Text)
   , _configDeliveryChannelSnsTopicARN :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON ConfigDeliveryChannel where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 22, omitNothingFields = True }
+  toJSON ConfigDeliveryChannel{..} =
+    object $
+    catMaybes
+    [ ("ConfigSnapshotDeliveryProperties" .=) <$> _configDeliveryChannelConfigSnapshotDeliveryProperties
+    , ("Name" .=) <$> _configDeliveryChannelName
+    , Just ("S3BucketName" .= _configDeliveryChannelS3BucketName)
+    , ("S3KeyPrefix" .=) <$> _configDeliveryChannelS3KeyPrefix
+    , ("SnsTopicARN" .=) <$> _configDeliveryChannelSnsTopicARN
+    ]
 
 instance FromJSON ConfigDeliveryChannel where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 22, omitNothingFields = True }
+  parseJSON (Object obj) =
+    ConfigDeliveryChannel <$>
+      obj .:? "ConfigSnapshotDeliveryProperties" <*>
+      obj .:? "Name" <*>
+      obj .: "S3BucketName" <*>
+      obj .:? "S3KeyPrefix" <*>
+      obj .:? "SnsTopicARN"
+  parseJSON _ = mempty
 
 -- | Constructor for 'ConfigDeliveryChannel' containing required fields as
 -- | arguments.

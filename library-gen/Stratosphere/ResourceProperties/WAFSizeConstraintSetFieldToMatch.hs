@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-sizeconstraintset-sizeconstraint-fieldtomatch.html
 
 module Stratosphere.ResourceProperties.WAFSizeConstraintSetFieldToMatch where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -20,13 +20,22 @@ data WAFSizeConstraintSetFieldToMatch =
   WAFSizeConstraintSetFieldToMatch
   { _wAFSizeConstraintSetFieldToMatchData :: Maybe (Val Text)
   , _wAFSizeConstraintSetFieldToMatchType :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON WAFSizeConstraintSetFieldToMatch where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 33, omitNothingFields = True }
+  toJSON WAFSizeConstraintSetFieldToMatch{..} =
+    object $
+    catMaybes
+    [ ("Data" .=) <$> _wAFSizeConstraintSetFieldToMatchData
+    , Just ("Type" .= _wAFSizeConstraintSetFieldToMatchType)
+    ]
 
 instance FromJSON WAFSizeConstraintSetFieldToMatch where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 33, omitNothingFields = True }
+  parseJSON (Object obj) =
+    WAFSizeConstraintSetFieldToMatch <$>
+      obj .:? "Data" <*>
+      obj .: "Type"
+  parseJSON _ = mempty
 
 -- | Constructor for 'WAFSizeConstraintSetFieldToMatch' containing required
 -- | fields as arguments.

@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-filesystemtags.html
 
 module Stratosphere.ResourceProperties.EFSFileSystemElasticFileSystemTag where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -20,13 +20,22 @@ data EFSFileSystemElasticFileSystemTag =
   EFSFileSystemElasticFileSystemTag
   { _eFSFileSystemElasticFileSystemTagKey :: Val Text
   , _eFSFileSystemElasticFileSystemTagValue :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON EFSFileSystemElasticFileSystemTag where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 34, omitNothingFields = True }
+  toJSON EFSFileSystemElasticFileSystemTag{..} =
+    object $
+    catMaybes
+    [ Just ("Key" .= _eFSFileSystemElasticFileSystemTagKey)
+    , Just ("Value" .= _eFSFileSystemElasticFileSystemTagValue)
+    ]
 
 instance FromJSON EFSFileSystemElasticFileSystemTag where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 34, omitNothingFields = True }
+  parseJSON (Object obj) =
+    EFSFileSystemElasticFileSystemTag <$>
+      obj .: "Key" <*>
+      obj .: "Value"
+  parseJSON _ = mempty
 
 -- | Constructor for 'EFSFileSystemElasticFileSystemTag' containing required
 -- | fields as arguments.

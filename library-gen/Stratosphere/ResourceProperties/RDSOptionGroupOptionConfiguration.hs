@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfigurations.html
 
 module Stratosphere.ResourceProperties.RDSOptionGroupOptionConfiguration where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.RDSOptionGroupOptionSetting
@@ -23,13 +23,28 @@ data RDSOptionGroupOptionConfiguration =
   , _rDSOptionGroupOptionConfigurationOptionSettings :: Maybe RDSOptionGroupOptionSetting
   , _rDSOptionGroupOptionConfigurationPort :: Maybe (Val Integer')
   , _rDSOptionGroupOptionConfigurationVpcSecurityGroupMemberships :: Maybe [Val Text]
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON RDSOptionGroupOptionConfiguration where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 34, omitNothingFields = True }
+  toJSON RDSOptionGroupOptionConfiguration{..} =
+    object $
+    catMaybes
+    [ ("DBSecurityGroupMemberships" .=) <$> _rDSOptionGroupOptionConfigurationDBSecurityGroupMemberships
+    , Just ("OptionName" .= _rDSOptionGroupOptionConfigurationOptionName)
+    , ("OptionSettings" .=) <$> _rDSOptionGroupOptionConfigurationOptionSettings
+    , ("Port" .=) <$> _rDSOptionGroupOptionConfigurationPort
+    , ("VpcSecurityGroupMemberships" .=) <$> _rDSOptionGroupOptionConfigurationVpcSecurityGroupMemberships
+    ]
 
 instance FromJSON RDSOptionGroupOptionConfiguration where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 34, omitNothingFields = True }
+  parseJSON (Object obj) =
+    RDSOptionGroupOptionConfiguration <$>
+      obj .:? "DBSecurityGroupMemberships" <*>
+      obj .: "OptionName" <*>
+      obj .:? "OptionSettings" <*>
+      obj .:? "Port" <*>
+      obj .:? "VpcSecurityGroupMemberships"
+  parseJSON _ = mempty
 
 -- | Constructor for 'RDSOptionGroupOptionConfiguration' containing required
 -- | fields as arguments.

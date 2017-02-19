@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waitconditionhandle.html
 
 module Stratosphere.Resources.CloudFormationWaitConditionHandle where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -19,13 +19,14 @@ import Stratosphere.Values
 data CloudFormationWaitConditionHandle =
   CloudFormationWaitConditionHandle
   { 
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON CloudFormationWaitConditionHandle where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 34, omitNothingFields = True }
+  toJSON _ = toJSON ([] :: [String])
 
 instance FromJSON CloudFormationWaitConditionHandle where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 34, omitNothingFields = True }
+  parseJSON (Array _) = return CloudFormationWaitConditionHandle
+  parseJSON _ = mempty
 
 -- | Constructor for 'CloudFormationWaitConditionHandle' containing required
 -- | fields as arguments.

@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-forwardedvalues.html
 
 module Stratosphere.ResourceProperties.CloudFrontDistributionForwardedValues where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.CloudFrontDistributionCookies
@@ -23,13 +23,26 @@ data CloudFrontDistributionForwardedValues =
   , _cloudFrontDistributionForwardedValuesHeaders :: Maybe [Val Text]
   , _cloudFrontDistributionForwardedValuesQueryString :: Val Bool'
   , _cloudFrontDistributionForwardedValuesQueryStringCacheKeys :: Maybe [Val Text]
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON CloudFrontDistributionForwardedValues where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 38, omitNothingFields = True }
+  toJSON CloudFrontDistributionForwardedValues{..} =
+    object $
+    catMaybes
+    [ ("Cookies" .=) <$> _cloudFrontDistributionForwardedValuesCookies
+    , ("Headers" .=) <$> _cloudFrontDistributionForwardedValuesHeaders
+    , Just ("QueryString" .= _cloudFrontDistributionForwardedValuesQueryString)
+    , ("QueryStringCacheKeys" .=) <$> _cloudFrontDistributionForwardedValuesQueryStringCacheKeys
+    ]
 
 instance FromJSON CloudFrontDistributionForwardedValues where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 38, omitNothingFields = True }
+  parseJSON (Object obj) =
+    CloudFrontDistributionForwardedValues <$>
+      obj .:? "Cookies" <*>
+      obj .:? "Headers" <*>
+      obj .: "QueryString" <*>
+      obj .:? "QueryStringCacheKeys"
+  parseJSON _ = mempty
 
 -- | Constructor for 'CloudFrontDistributionForwardedValues' containing
 -- | required fields as arguments.

@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-alias-routingstrategy.html
 
 module Stratosphere.ResourceProperties.GameLiftAliasRoutingStrategy where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -21,13 +21,24 @@ data GameLiftAliasRoutingStrategy =
   { _gameLiftAliasRoutingStrategyFleetId :: Maybe (Val Text)
   , _gameLiftAliasRoutingStrategyMessage :: Maybe (Val Text)
   , _gameLiftAliasRoutingStrategyType :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON GameLiftAliasRoutingStrategy where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 29, omitNothingFields = True }
+  toJSON GameLiftAliasRoutingStrategy{..} =
+    object $
+    catMaybes
+    [ ("FleetId" .=) <$> _gameLiftAliasRoutingStrategyFleetId
+    , ("Message" .=) <$> _gameLiftAliasRoutingStrategyMessage
+    , Just ("Type" .= _gameLiftAliasRoutingStrategyType)
+    ]
 
 instance FromJSON GameLiftAliasRoutingStrategy where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 29, omitNothingFields = True }
+  parseJSON (Object obj) =
+    GameLiftAliasRoutingStrategy <$>
+      obj .:? "FleetId" <*>
+      obj .:? "Message" <*>
+      obj .: "Type"
+  parseJSON _ = mempty
 
 -- | Constructor for 'GameLiftAliasRoutingStrategy' containing required fields
 -- | as arguments.

@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html
 
 module Stratosphere.Resources.Route53HostedZone where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.Route53HostedZoneHostedZoneConfig
@@ -24,13 +24,26 @@ data Route53HostedZone =
   , _route53HostedZoneHostedZoneTags :: Maybe [Route53HostedZoneHostedZoneTag]
   , _route53HostedZoneName :: Val Text
   , _route53HostedZoneVPCs :: Maybe [Route53HostedZoneVPC]
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON Route53HostedZone where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 18, omitNothingFields = True }
+  toJSON Route53HostedZone{..} =
+    object $
+    catMaybes
+    [ ("HostedZoneConfig" .=) <$> _route53HostedZoneHostedZoneConfig
+    , ("HostedZoneTags" .=) <$> _route53HostedZoneHostedZoneTags
+    , Just ("Name" .= _route53HostedZoneName)
+    , ("VPCs" .=) <$> _route53HostedZoneVPCs
+    ]
 
 instance FromJSON Route53HostedZone where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 18, omitNothingFields = True }
+  parseJSON (Object obj) =
+    Route53HostedZone <$>
+      obj .:? "HostedZoneConfig" <*>
+      obj .:? "HostedZoneTags" <*>
+      obj .: "Name" <*>
+      obj .:? "VPCs"
+  parseJSON _ = mempty
 
 -- | Constructor for 'Route53HostedZone' containing required fields as
 -- | arguments.

@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-volumeconfiguration.html
 
 module Stratosphere.ResourceProperties.OpsWorksLayerVolumeConfiguration where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -24,13 +24,30 @@ data OpsWorksLayerVolumeConfiguration =
   , _opsWorksLayerVolumeConfigurationRaidLevel :: Maybe (Val Integer')
   , _opsWorksLayerVolumeConfigurationSize :: Maybe (Val Integer')
   , _opsWorksLayerVolumeConfigurationVolumeType :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON OpsWorksLayerVolumeConfiguration where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 33, omitNothingFields = True }
+  toJSON OpsWorksLayerVolumeConfiguration{..} =
+    object $
+    catMaybes
+    [ ("Iops" .=) <$> _opsWorksLayerVolumeConfigurationIops
+    , ("MountPoint" .=) <$> _opsWorksLayerVolumeConfigurationMountPoint
+    , ("NumberOfDisks" .=) <$> _opsWorksLayerVolumeConfigurationNumberOfDisks
+    , ("RaidLevel" .=) <$> _opsWorksLayerVolumeConfigurationRaidLevel
+    , ("Size" .=) <$> _opsWorksLayerVolumeConfigurationSize
+    , ("VolumeType" .=) <$> _opsWorksLayerVolumeConfigurationVolumeType
+    ]
 
 instance FromJSON OpsWorksLayerVolumeConfiguration where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 33, omitNothingFields = True }
+  parseJSON (Object obj) =
+    OpsWorksLayerVolumeConfiguration <$>
+      obj .:? "Iops" <*>
+      obj .:? "MountPoint" <*>
+      obj .:? "NumberOfDisks" <*>
+      obj .:? "RaidLevel" <*>
+      obj .:? "Size" <*>
+      obj .:? "VolumeType"
+  parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksLayerVolumeConfiguration' containing required
 -- | fields as arguments.

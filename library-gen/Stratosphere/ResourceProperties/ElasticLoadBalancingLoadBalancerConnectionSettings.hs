@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-connectionsettings.html
 
 module Stratosphere.ResourceProperties.ElasticLoadBalancingLoadBalancerConnectionSettings where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -21,13 +21,20 @@ import Stratosphere.Values
 data ElasticLoadBalancingLoadBalancerConnectionSettings =
   ElasticLoadBalancingLoadBalancerConnectionSettings
   { _elasticLoadBalancingLoadBalancerConnectionSettingsIdleTimeout :: Val Integer'
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON ElasticLoadBalancingLoadBalancerConnectionSettings where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 51, omitNothingFields = True }
+  toJSON ElasticLoadBalancingLoadBalancerConnectionSettings{..} =
+    object $
+    catMaybes
+    [ Just ("IdleTimeout" .= _elasticLoadBalancingLoadBalancerConnectionSettingsIdleTimeout)
+    ]
 
 instance FromJSON ElasticLoadBalancingLoadBalancerConnectionSettings where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 51, omitNothingFields = True }
+  parseJSON (Object obj) =
+    ElasticLoadBalancingLoadBalancerConnectionSettings <$>
+      obj .: "IdleTimeout"
+  parseJSON _ = mempty
 
 -- | Constructor for 'ElasticLoadBalancingLoadBalancerConnectionSettings'
 -- | containing required fields as arguments.

@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-build.html
 
 module Stratosphere.Resources.GameLiftBuild where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.GameLiftBuildS3Location
@@ -21,13 +21,24 @@ data GameLiftBuild =
   { _gameLiftBuildName :: Maybe (Val Text)
   , _gameLiftBuildStorageLocation :: Maybe GameLiftBuildS3Location
   , _gameLiftBuildVersion :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON GameLiftBuild where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 14, omitNothingFields = True }
+  toJSON GameLiftBuild{..} =
+    object $
+    catMaybes
+    [ ("Name" .=) <$> _gameLiftBuildName
+    , ("StorageLocation" .=) <$> _gameLiftBuildStorageLocation
+    , ("Version" .=) <$> _gameLiftBuildVersion
+    ]
 
 instance FromJSON GameLiftBuild where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 14, omitNothingFields = True }
+  parseJSON (Object obj) =
+    GameLiftBuild <$>
+      obj .:? "Name" <*>
+      obj .:? "StorageLocation" <*>
+      obj .:? "Version"
+  parseJSON _ = mempty
 
 -- | Constructor for 'GameLiftBuild' containing required fields as arguments.
 gameLiftBuild

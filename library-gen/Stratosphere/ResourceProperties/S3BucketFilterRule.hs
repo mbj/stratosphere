@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfiguration-config-filter-s3key-rules.html
 
 module Stratosphere.ResourceProperties.S3BucketFilterRule where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -20,13 +20,22 @@ data S3BucketFilterRule =
   S3BucketFilterRule
   { _s3BucketFilterRuleName :: Val Text
   , _s3BucketFilterRuleValue :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON S3BucketFilterRule where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 19, omitNothingFields = True }
+  toJSON S3BucketFilterRule{..} =
+    object $
+    catMaybes
+    [ Just ("Name" .= _s3BucketFilterRuleName)
+    , Just ("Value" .= _s3BucketFilterRuleValue)
+    ]
 
 instance FromJSON S3BucketFilterRule where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 19, omitNothingFields = True }
+  parseJSON (Object obj) =
+    S3BucketFilterRule <$>
+      obj .: "Name" <*>
+      obj .: "Value"
+  parseJSON _ = mempty
 
 -- | Constructor for 'S3BucketFilterRule' containing required fields as
 -- | arguments.

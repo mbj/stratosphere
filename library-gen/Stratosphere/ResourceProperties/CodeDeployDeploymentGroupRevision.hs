@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-deployment-revision.html
 
 module Stratosphere.ResourceProperties.CodeDeployDeploymentGroupRevision where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupGitHubLocation
@@ -22,13 +22,24 @@ data CodeDeployDeploymentGroupRevision =
   { _codeDeployDeploymentGroupRevisionGitHubLocation :: Maybe CodeDeployDeploymentGroupGitHubLocation
   , _codeDeployDeploymentGroupRevisionRevisionType :: Maybe (Val Text)
   , _codeDeployDeploymentGroupRevisionS3Location :: Maybe CodeDeployDeploymentGroupS3Location
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON CodeDeployDeploymentGroupRevision where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 34, omitNothingFields = True }
+  toJSON CodeDeployDeploymentGroupRevision{..} =
+    object $
+    catMaybes
+    [ ("GitHubLocation" .=) <$> _codeDeployDeploymentGroupRevisionGitHubLocation
+    , ("RevisionType" .=) <$> _codeDeployDeploymentGroupRevisionRevisionType
+    , ("S3Location" .=) <$> _codeDeployDeploymentGroupRevisionS3Location
+    ]
 
 instance FromJSON CodeDeployDeploymentGroupRevision where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 34, omitNothingFields = True }
+  parseJSON (Object obj) =
+    CodeDeployDeploymentGroupRevision <$>
+      obj .:? "GitHubLocation" <*>
+      obj .:? "RevisionType" <*>
+      obj .:? "S3Location"
+  parseJSON _ = mempty
 
 -- | Constructor for 'CodeDeployDeploymentGroupRevision' containing required
 -- | fields as arguments.

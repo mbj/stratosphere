@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html
 
 module Stratosphere.Resources.IAMUserToGroupAddition where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -20,13 +20,22 @@ data IAMUserToGroupAddition =
   IAMUserToGroupAddition
   { _iAMUserToGroupAdditionGroupName :: Val Text
   , _iAMUserToGroupAdditionUsers :: [Val Text]
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON IAMUserToGroupAddition where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 23, omitNothingFields = True }
+  toJSON IAMUserToGroupAddition{..} =
+    object $
+    catMaybes
+    [ Just ("GroupName" .= _iAMUserToGroupAdditionGroupName)
+    , Just ("Users" .= _iAMUserToGroupAdditionUsers)
+    ]
 
 instance FromJSON IAMUserToGroupAddition where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 23, omitNothingFields = True }
+  parseJSON (Object obj) =
+    IAMUserToGroupAddition <$>
+      obj .: "GroupName" <*>
+      obj .: "Users"
+  parseJSON _ = mempty
 
 -- | Constructor for 'IAMUserToGroupAddition' containing required fields as
 -- | arguments.

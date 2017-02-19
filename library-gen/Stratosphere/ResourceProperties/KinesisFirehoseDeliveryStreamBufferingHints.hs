@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-kinesisdeliverystream-s3destinationconfiguration-bufferinghints.html
 
 module Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamBufferingHints where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -22,13 +22,22 @@ data KinesisFirehoseDeliveryStreamBufferingHints =
   KinesisFirehoseDeliveryStreamBufferingHints
   { _kinesisFirehoseDeliveryStreamBufferingHintsIntervalInSeconds :: Val Integer'
   , _kinesisFirehoseDeliveryStreamBufferingHintsSizeInMBs :: Val Integer'
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON KinesisFirehoseDeliveryStreamBufferingHints where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 44, omitNothingFields = True }
+  toJSON KinesisFirehoseDeliveryStreamBufferingHints{..} =
+    object $
+    catMaybes
+    [ Just ("IntervalInSeconds" .= _kinesisFirehoseDeliveryStreamBufferingHintsIntervalInSeconds)
+    , Just ("SizeInMBs" .= _kinesisFirehoseDeliveryStreamBufferingHintsSizeInMBs)
+    ]
 
 instance FromJSON KinesisFirehoseDeliveryStreamBufferingHints where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 44, omitNothingFields = True }
+  parseJSON (Object obj) =
+    KinesisFirehoseDeliveryStreamBufferingHints <$>
+      obj .: "IntervalInSeconds" <*>
+      obj .: "SizeInMBs"
+  parseJSON _ = mempty
 
 -- | Constructor for 'KinesisFirehoseDeliveryStreamBufferingHints' containing
 -- | required fields as arguments.

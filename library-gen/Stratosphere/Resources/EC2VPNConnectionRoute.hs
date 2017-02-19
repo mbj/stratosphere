@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpn-connection-route.html
 
 module Stratosphere.Resources.EC2VPNConnectionRoute where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -20,13 +20,22 @@ data EC2VPNConnectionRoute =
   EC2VPNConnectionRoute
   { _eC2VPNConnectionRouteDestinationCidrBlock :: Val Text
   , _eC2VPNConnectionRouteVpnConnectionId :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON EC2VPNConnectionRoute where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 22, omitNothingFields = True }
+  toJSON EC2VPNConnectionRoute{..} =
+    object $
+    catMaybes
+    [ Just ("DestinationCidrBlock" .= _eC2VPNConnectionRouteDestinationCidrBlock)
+    , Just ("VpnConnectionId" .= _eC2VPNConnectionRouteVpnConnectionId)
+    ]
 
 instance FromJSON EC2VPNConnectionRoute where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 22, omitNothingFields = True }
+  parseJSON (Object obj) =
+    EC2VPNConnectionRoute <$>
+      obj .: "DestinationCidrBlock" <*>
+      obj .: "VpnConnectionId"
+  parseJSON _ = mempty
 
 -- | Constructor for 'EC2VPNConnectionRoute' containing required fields as
 -- | arguments.

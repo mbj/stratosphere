@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-targetgroup-targetdescription.html
 
 module Stratosphere.ResourceProperties.ElasticLoadBalancingV2TargetGroupTargetDescription where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -22,13 +22,22 @@ data ElasticLoadBalancingV2TargetGroupTargetDescription =
   ElasticLoadBalancingV2TargetGroupTargetDescription
   { _elasticLoadBalancingV2TargetGroupTargetDescriptionId :: Val Text
   , _elasticLoadBalancingV2TargetGroupTargetDescriptionPort :: Maybe (Val Integer')
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON ElasticLoadBalancingV2TargetGroupTargetDescription where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 51, omitNothingFields = True }
+  toJSON ElasticLoadBalancingV2TargetGroupTargetDescription{..} =
+    object $
+    catMaybes
+    [ Just ("Id" .= _elasticLoadBalancingV2TargetGroupTargetDescriptionId)
+    , ("Port" .=) <$> _elasticLoadBalancingV2TargetGroupTargetDescriptionPort
+    ]
 
 instance FromJSON ElasticLoadBalancingV2TargetGroupTargetDescription where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 51, omitNothingFields = True }
+  parseJSON (Object obj) =
+    ElasticLoadBalancingV2TargetGroupTargetDescription <$>
+      obj .: "Id" <*>
+      obj .:? "Port"
+  parseJSON _ = mempty
 
 -- | Constructor for 'ElasticLoadBalancingV2TargetGroupTargetDescription'
 -- | containing required fields as arguments.

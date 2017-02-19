@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-sizeconstraintset-sizeconstraint.html
 
 module Stratosphere.ResourceProperties.WAFSizeConstraintSetSizeConstraint where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.WAFSizeConstraintSetFieldToMatch
@@ -22,13 +22,26 @@ data WAFSizeConstraintSetSizeConstraint =
   , _wAFSizeConstraintSetSizeConstraintFieldToMatch :: WAFSizeConstraintSetFieldToMatch
   , _wAFSizeConstraintSetSizeConstraintSize :: Val Integer'
   , _wAFSizeConstraintSetSizeConstraintTextTransformation :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON WAFSizeConstraintSetSizeConstraint where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 35, omitNothingFields = True }
+  toJSON WAFSizeConstraintSetSizeConstraint{..} =
+    object $
+    catMaybes
+    [ Just ("ComparisonOperator" .= _wAFSizeConstraintSetSizeConstraintComparisonOperator)
+    , Just ("FieldToMatch" .= _wAFSizeConstraintSetSizeConstraintFieldToMatch)
+    , Just ("Size" .= _wAFSizeConstraintSetSizeConstraintSize)
+    , Just ("TextTransformation" .= _wAFSizeConstraintSetSizeConstraintTextTransformation)
+    ]
 
 instance FromJSON WAFSizeConstraintSetSizeConstraint where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 35, omitNothingFields = True }
+  parseJSON (Object obj) =
+    WAFSizeConstraintSetSizeConstraint <$>
+      obj .: "ComparisonOperator" <*>
+      obj .: "FieldToMatch" <*>
+      obj .: "Size" <*>
+      obj .: "TextTransformation"
+  parseJSON _ = mempty
 
 -- | Constructor for 'WAFSizeConstraintSetSizeConstraint' containing required
 -- | fields as arguments.

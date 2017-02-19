@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-logstream.html
 
 module Stratosphere.Resources.LogsLogStream where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -20,13 +20,22 @@ data LogsLogStream =
   LogsLogStream
   { _logsLogStreamLogGroupName :: Val Text
   , _logsLogStreamLogStreamName :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON LogsLogStream where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 14, omitNothingFields = True }
+  toJSON LogsLogStream{..} =
+    object $
+    catMaybes
+    [ Just ("LogGroupName" .= _logsLogStreamLogGroupName)
+    , ("LogStreamName" .=) <$> _logsLogStreamLogStreamName
+    ]
 
 instance FromJSON LogsLogStream where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 14, omitNothingFields = True }
+  parseJSON (Object obj) =
+    LogsLogStream <$>
+      obj .: "LogGroupName" <*>
+      obj .:? "LogStreamName"
+  parseJSON _ = mempty
 
 -- | Constructor for 'LogsLogStream' containing required fields as arguments.
 logsLogStream

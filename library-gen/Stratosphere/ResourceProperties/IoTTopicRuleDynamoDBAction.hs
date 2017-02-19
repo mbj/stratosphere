@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-dynamodb.html
 
 module Stratosphere.ResourceProperties.IoTTopicRuleDynamoDBAction where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -25,13 +25,32 @@ data IoTTopicRuleDynamoDBAction =
   , _ioTTopicRuleDynamoDBActionRangeKeyValue :: Val Text
   , _ioTTopicRuleDynamoDBActionRoleArn :: Val Text
   , _ioTTopicRuleDynamoDBActionTableName :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON IoTTopicRuleDynamoDBAction where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 27, omitNothingFields = True }
+  toJSON IoTTopicRuleDynamoDBAction{..} =
+    object $
+    catMaybes
+    [ Just ("HashKeyField" .= _ioTTopicRuleDynamoDBActionHashKeyField)
+    , Just ("HashKeyValue" .= _ioTTopicRuleDynamoDBActionHashKeyValue)
+    , ("PayloadField" .=) <$> _ioTTopicRuleDynamoDBActionPayloadField
+    , Just ("RangeKeyField" .= _ioTTopicRuleDynamoDBActionRangeKeyField)
+    , Just ("RangeKeyValue" .= _ioTTopicRuleDynamoDBActionRangeKeyValue)
+    , Just ("RoleArn" .= _ioTTopicRuleDynamoDBActionRoleArn)
+    , Just ("TableName" .= _ioTTopicRuleDynamoDBActionTableName)
+    ]
 
 instance FromJSON IoTTopicRuleDynamoDBAction where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 27, omitNothingFields = True }
+  parseJSON (Object obj) =
+    IoTTopicRuleDynamoDBAction <$>
+      obj .: "HashKeyField" <*>
+      obj .: "HashKeyValue" <*>
+      obj .:? "PayloadField" <*>
+      obj .: "RangeKeyField" <*>
+      obj .: "RangeKeyValue" <*>
+      obj .: "RoleArn" <*>
+      obj .: "TableName"
+  parseJSON _ = mempty
 
 -- | Constructor for 'IoTTopicRuleDynamoDBAction' containing required fields
 -- | as arguments.

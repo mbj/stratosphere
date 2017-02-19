@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html
 
 module Stratosphere.Resources.EC2Route where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -26,13 +26,34 @@ data EC2Route =
   , _eC2RouteNetworkInterfaceId :: Maybe (Val Text)
   , _eC2RouteRouteTableId :: Val Text
   , _eC2RouteVpcPeeringConnectionId :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON EC2Route where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 9, omitNothingFields = True }
+  toJSON EC2Route{..} =
+    object $
+    catMaybes
+    [ Just ("DestinationCidrBlock" .= _eC2RouteDestinationCidrBlock)
+    , ("DestinationIpv6CidrBlock" .=) <$> _eC2RouteDestinationIpv6CidrBlock
+    , ("GatewayId" .=) <$> _eC2RouteGatewayId
+    , ("InstanceId" .=) <$> _eC2RouteInstanceId
+    , ("NatGatewayId" .=) <$> _eC2RouteNatGatewayId
+    , ("NetworkInterfaceId" .=) <$> _eC2RouteNetworkInterfaceId
+    , Just ("RouteTableId" .= _eC2RouteRouteTableId)
+    , ("VpcPeeringConnectionId" .=) <$> _eC2RouteVpcPeeringConnectionId
+    ]
 
 instance FromJSON EC2Route where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 9, omitNothingFields = True }
+  parseJSON (Object obj) =
+    EC2Route <$>
+      obj .: "DestinationCidrBlock" <*>
+      obj .:? "DestinationIpv6CidrBlock" <*>
+      obj .:? "GatewayId" <*>
+      obj .:? "InstanceId" <*>
+      obj .:? "NatGatewayId" <*>
+      obj .:? "NetworkInterfaceId" <*>
+      obj .: "RouteTableId" <*>
+      obj .:? "VpcPeeringConnectionId"
+  parseJSON _ = mempty
 
 -- | Constructor for 'EC2Route' containing required fields as arguments.
 ec2Route

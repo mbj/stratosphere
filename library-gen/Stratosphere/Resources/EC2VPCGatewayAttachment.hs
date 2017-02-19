@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc-gateway-attachment.html
 
 module Stratosphere.Resources.EC2VPCGatewayAttachment where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -21,13 +21,24 @@ data EC2VPCGatewayAttachment =
   { _eC2VPCGatewayAttachmentInternetGatewayId :: Maybe (Val Text)
   , _eC2VPCGatewayAttachmentVpcId :: Val Text
   , _eC2VPCGatewayAttachmentVpnGatewayId :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON EC2VPCGatewayAttachment where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 24, omitNothingFields = True }
+  toJSON EC2VPCGatewayAttachment{..} =
+    object $
+    catMaybes
+    [ ("InternetGatewayId" .=) <$> _eC2VPCGatewayAttachmentInternetGatewayId
+    , Just ("VpcId" .= _eC2VPCGatewayAttachmentVpcId)
+    , ("VpnGatewayId" .=) <$> _eC2VPCGatewayAttachmentVpnGatewayId
+    ]
 
 instance FromJSON EC2VPCGatewayAttachment where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 24, omitNothingFields = True }
+  parseJSON (Object obj) =
+    EC2VPCGatewayAttachment <$>
+      obj .:? "InternetGatewayId" <*>
+      obj .: "VpcId" <*>
+      obj .:? "VpnGatewayId"
+  parseJSON _ = mempty
 
 -- | Constructor for 'EC2VPCGatewayAttachment' containing required fields as
 -- | arguments.

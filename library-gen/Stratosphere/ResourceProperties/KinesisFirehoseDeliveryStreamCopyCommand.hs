@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-kinesisdeliverystream-redshiftdestinationconfiguration-copycommand.html
 
 module Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamCopyCommand where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -22,13 +22,24 @@ data KinesisFirehoseDeliveryStreamCopyCommand =
   { _kinesisFirehoseDeliveryStreamCopyCommandCopyOptions :: Maybe (Val Text)
   , _kinesisFirehoseDeliveryStreamCopyCommandDataTableColumns :: Maybe (Val Text)
   , _kinesisFirehoseDeliveryStreamCopyCommandDataTableName :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON KinesisFirehoseDeliveryStreamCopyCommand where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 41, omitNothingFields = True }
+  toJSON KinesisFirehoseDeliveryStreamCopyCommand{..} =
+    object $
+    catMaybes
+    [ ("CopyOptions" .=) <$> _kinesisFirehoseDeliveryStreamCopyCommandCopyOptions
+    , ("DataTableColumns" .=) <$> _kinesisFirehoseDeliveryStreamCopyCommandDataTableColumns
+    , Just ("DataTableName" .= _kinesisFirehoseDeliveryStreamCopyCommandDataTableName)
+    ]
 
 instance FromJSON KinesisFirehoseDeliveryStreamCopyCommand where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 41, omitNothingFields = True }
+  parseJSON (Object obj) =
+    KinesisFirehoseDeliveryStreamCopyCommand <$>
+      obj .:? "CopyOptions" <*>
+      obj .:? "DataTableColumns" <*>
+      obj .: "DataTableName"
+  parseJSON _ = mempty
 
 -- | Constructor for 'KinesisFirehoseDeliveryStreamCopyCommand' containing
 -- | required fields as arguments.

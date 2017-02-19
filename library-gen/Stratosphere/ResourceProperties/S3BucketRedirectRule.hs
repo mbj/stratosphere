@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules-redirectrule.html
 
 module Stratosphere.ResourceProperties.S3BucketRedirectRule where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -23,13 +23,28 @@ data S3BucketRedirectRule =
   , _s3BucketRedirectRuleProtocol :: Maybe (Val Text)
   , _s3BucketRedirectRuleReplaceKeyPrefixWith :: Maybe (Val Text)
   , _s3BucketRedirectRuleReplaceKeyWith :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON S3BucketRedirectRule where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 21, omitNothingFields = True }
+  toJSON S3BucketRedirectRule{..} =
+    object $
+    catMaybes
+    [ ("HostName" .=) <$> _s3BucketRedirectRuleHostName
+    , ("HttpRedirectCode" .=) <$> _s3BucketRedirectRuleHttpRedirectCode
+    , ("Protocol" .=) <$> _s3BucketRedirectRuleProtocol
+    , ("ReplaceKeyPrefixWith" .=) <$> _s3BucketRedirectRuleReplaceKeyPrefixWith
+    , ("ReplaceKeyWith" .=) <$> _s3BucketRedirectRuleReplaceKeyWith
+    ]
 
 instance FromJSON S3BucketRedirectRule where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 21, omitNothingFields = True }
+  parseJSON (Object obj) =
+    S3BucketRedirectRule <$>
+      obj .:? "HostName" <*>
+      obj .:? "HttpRedirectCode" <*>
+      obj .:? "Protocol" <*>
+      obj .:? "ReplaceKeyPrefixWith" <*>
+      obj .:? "ReplaceKeyWith"
+  parseJSON _ = mempty
 
 -- | Constructor for 'S3BucketRedirectRule' containing required fields as
 -- | arguments.

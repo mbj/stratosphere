@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-kinesis.html
 
 module Stratosphere.ResourceProperties.IoTTopicRuleKinesisAction where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -21,13 +21,24 @@ data IoTTopicRuleKinesisAction =
   { _ioTTopicRuleKinesisActionPartitionKey :: Maybe (Val Text)
   , _ioTTopicRuleKinesisActionRoleArn :: Val Text
   , _ioTTopicRuleKinesisActionStreamName :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON IoTTopicRuleKinesisAction where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 26, omitNothingFields = True }
+  toJSON IoTTopicRuleKinesisAction{..} =
+    object $
+    catMaybes
+    [ ("PartitionKey" .=) <$> _ioTTopicRuleKinesisActionPartitionKey
+    , Just ("RoleArn" .= _ioTTopicRuleKinesisActionRoleArn)
+    , Just ("StreamName" .= _ioTTopicRuleKinesisActionStreamName)
+    ]
 
 instance FromJSON IoTTopicRuleKinesisAction where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 26, omitNothingFields = True }
+  parseJSON (Object obj) =
+    IoTTopicRuleKinesisAction <$>
+      obj .:? "PartitionKey" <*>
+      obj .: "RoleArn" <*>
+      obj .: "StreamName"
+  parseJSON _ = mempty
 
 -- | Constructor for 'IoTTopicRuleKinesisAction' containing required fields as
 -- | arguments.

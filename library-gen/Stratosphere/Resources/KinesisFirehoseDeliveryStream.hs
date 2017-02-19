@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html
 
 module Stratosphere.Resources.KinesisFirehoseDeliveryStream where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguration
@@ -24,13 +24,26 @@ data KinesisFirehoseDeliveryStream =
   , _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguration :: Maybe KinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguration
   , _kinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration :: Maybe KinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration
   , _kinesisFirehoseDeliveryStreamS3DestinationConfiguration :: Maybe KinesisFirehoseDeliveryStreamS3DestinationConfiguration
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON KinesisFirehoseDeliveryStream where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 30, omitNothingFields = True }
+  toJSON KinesisFirehoseDeliveryStream{..} =
+    object $
+    catMaybes
+    [ ("DeliveryStreamName" .=) <$> _kinesisFirehoseDeliveryStreamDeliveryStreamName
+    , ("ElasticsearchDestinationConfiguration" .=) <$> _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguration
+    , ("RedshiftDestinationConfiguration" .=) <$> _kinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration
+    , ("S3DestinationConfiguration" .=) <$> _kinesisFirehoseDeliveryStreamS3DestinationConfiguration
+    ]
 
 instance FromJSON KinesisFirehoseDeliveryStream where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 30, omitNothingFields = True }
+  parseJSON (Object obj) =
+    KinesisFirehoseDeliveryStream <$>
+      obj .:? "DeliveryStreamName" <*>
+      obj .:? "ElasticsearchDestinationConfiguration" <*>
+      obj .:? "RedshiftDestinationConfiguration" <*>
+      obj .:? "S3DestinationConfiguration"
+  parseJSON _ = mempty
 
 -- | Constructor for 'KinesisFirehoseDeliveryStream' containing required
 -- | fields as arguments.

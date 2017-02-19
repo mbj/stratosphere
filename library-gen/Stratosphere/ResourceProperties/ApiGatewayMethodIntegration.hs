@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html
 
 module Stratosphere.ResourceProperties.ApiGatewayMethodIntegration where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.Types
@@ -29,13 +29,38 @@ data ApiGatewayMethodIntegration =
   , _apiGatewayMethodIntegrationRequestTemplates :: Maybe Object
   , _apiGatewayMethodIntegrationType :: Maybe (Val ApiBackendType)
   , _apiGatewayMethodIntegrationUri :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON ApiGatewayMethodIntegration where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 28, omitNothingFields = True }
+  toJSON ApiGatewayMethodIntegration{..} =
+    object $
+    catMaybes
+    [ ("CacheKeyParameters" .=) <$> _apiGatewayMethodIntegrationCacheKeyParameters
+    , ("CacheNamespace" .=) <$> _apiGatewayMethodIntegrationCacheNamespace
+    , ("Credentials" .=) <$> _apiGatewayMethodIntegrationCredentials
+    , ("IntegrationHttpMethod" .=) <$> _apiGatewayMethodIntegrationIntegrationHttpMethod
+    , ("IntegrationResponses" .=) <$> _apiGatewayMethodIntegrationIntegrationResponses
+    , ("PassthroughBehavior" .=) <$> _apiGatewayMethodIntegrationPassthroughBehavior
+    , ("RequestParameters" .=) <$> _apiGatewayMethodIntegrationRequestParameters
+    , ("RequestTemplates" .=) <$> _apiGatewayMethodIntegrationRequestTemplates
+    , ("Type" .=) <$> _apiGatewayMethodIntegrationType
+    , ("Uri" .=) <$> _apiGatewayMethodIntegrationUri
+    ]
 
 instance FromJSON ApiGatewayMethodIntegration where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 28, omitNothingFields = True }
+  parseJSON (Object obj) =
+    ApiGatewayMethodIntegration <$>
+      obj .:? "CacheKeyParameters" <*>
+      obj .:? "CacheNamespace" <*>
+      obj .:? "Credentials" <*>
+      obj .:? "IntegrationHttpMethod" <*>
+      obj .:? "IntegrationResponses" <*>
+      obj .:? "PassthroughBehavior" <*>
+      obj .:? "RequestParameters" <*>
+      obj .:? "RequestTemplates" <*>
+      obj .:? "Type" <*>
+      obj .:? "Uri"
+  parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayMethodIntegration' containing required fields
 -- | as arguments.

@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-volumesfrom.html
 
 module Stratosphere.ResourceProperties.ECSTaskDefinitionVolumeFrom where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -20,13 +20,22 @@ data ECSTaskDefinitionVolumeFrom =
   ECSTaskDefinitionVolumeFrom
   { _eCSTaskDefinitionVolumeFromReadOnly :: Maybe (Val Bool')
   , _eCSTaskDefinitionVolumeFromSourceContainer :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON ECSTaskDefinitionVolumeFrom where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 28, omitNothingFields = True }
+  toJSON ECSTaskDefinitionVolumeFrom{..} =
+    object $
+    catMaybes
+    [ ("ReadOnly" .=) <$> _eCSTaskDefinitionVolumeFromReadOnly
+    , ("SourceContainer" .=) <$> _eCSTaskDefinitionVolumeFromSourceContainer
+    ]
 
 instance FromJSON ECSTaskDefinitionVolumeFrom where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 28, omitNothingFields = True }
+  parseJSON (Object obj) =
+    ECSTaskDefinitionVolumeFrom <$>
+      obj .:? "ReadOnly" <*>
+      obj .:? "SourceContainer"
+  parseJSON _ = mempty
 
 -- | Constructor for 'ECSTaskDefinitionVolumeFrom' containing required fields
 -- | as arguments.

@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environment.html
 
 module Stratosphere.ResourceProperties.CodeBuildProjectEnvironment where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.CodeBuildProjectEnvironmentVariable
@@ -22,13 +22,26 @@ data CodeBuildProjectEnvironment =
   , _codeBuildProjectEnvironmentEnvironmentVariables :: Maybe [CodeBuildProjectEnvironmentVariable]
   , _codeBuildProjectEnvironmentImage :: Maybe (Val Text)
   , _codeBuildProjectEnvironmentType :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON CodeBuildProjectEnvironment where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 28, omitNothingFields = True }
+  toJSON CodeBuildProjectEnvironment{..} =
+    object $
+    catMaybes
+    [ ("ComputeType" .=) <$> _codeBuildProjectEnvironmentComputeType
+    , ("EnvironmentVariables" .=) <$> _codeBuildProjectEnvironmentEnvironmentVariables
+    , ("Image" .=) <$> _codeBuildProjectEnvironmentImage
+    , ("Type" .=) <$> _codeBuildProjectEnvironmentType
+    ]
 
 instance FromJSON CodeBuildProjectEnvironment where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 28, omitNothingFields = True }
+  parseJSON (Object obj) =
+    CodeBuildProjectEnvironment <$>
+      obj .:? "ComputeType" <*>
+      obj .:? "EnvironmentVariables" <*>
+      obj .:? "Image" <*>
+      obj .:? "Type"
+  parseJSON _ = mempty
 
 -- | Constructor for 'CodeBuildProjectEnvironment' containing required fields
 -- | as arguments.

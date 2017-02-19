@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-tags.html
 
 module Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupTagProperty where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -22,13 +22,24 @@ data AutoScalingAutoScalingGroupTagProperty =
   { _autoScalingAutoScalingGroupTagPropertyKey :: Val Text
   , _autoScalingAutoScalingGroupTagPropertyPropagateAtLaunch :: Val Bool'
   , _autoScalingAutoScalingGroupTagPropertyValue :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON AutoScalingAutoScalingGroupTagProperty where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 39, omitNothingFields = True }
+  toJSON AutoScalingAutoScalingGroupTagProperty{..} =
+    object $
+    catMaybes
+    [ Just ("Key" .= _autoScalingAutoScalingGroupTagPropertyKey)
+    , Just ("PropagateAtLaunch" .= _autoScalingAutoScalingGroupTagPropertyPropagateAtLaunch)
+    , Just ("Value" .= _autoScalingAutoScalingGroupTagPropertyValue)
+    ]
 
 instance FromJSON AutoScalingAutoScalingGroupTagProperty where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 39, omitNothingFields = True }
+  parseJSON (Object obj) =
+    AutoScalingAutoScalingGroupTagProperty <$>
+      obj .: "Key" <*>
+      obj .: "PropagateAtLaunch" <*>
+      obj .: "Value"
+  parseJSON _ = mempty
 
 -- | Constructor for 'AutoScalingAutoScalingGroupTagProperty' containing
 -- | required fields as arguments.

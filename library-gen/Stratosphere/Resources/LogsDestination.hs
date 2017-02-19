@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-destination.html
 
 module Stratosphere.Resources.LogsDestination where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -22,13 +22,26 @@ data LogsDestination =
   , _logsDestinationDestinationPolicy :: Val Text
   , _logsDestinationRoleArn :: Val Text
   , _logsDestinationTargetArn :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON LogsDestination where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 16, omitNothingFields = True }
+  toJSON LogsDestination{..} =
+    object $
+    catMaybes
+    [ Just ("DestinationName" .= _logsDestinationDestinationName)
+    , Just ("DestinationPolicy" .= _logsDestinationDestinationPolicy)
+    , Just ("RoleArn" .= _logsDestinationRoleArn)
+    , Just ("TargetArn" .= _logsDestinationTargetArn)
+    ]
 
 instance FromJSON LogsDestination where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 16, omitNothingFields = True }
+  parseJSON (Object obj) =
+    LogsDestination <$>
+      obj .: "DestinationName" <*>
+      obj .: "DestinationPolicy" <*>
+      obj .: "RoleArn" <*>
+      obj .: "TargetArn"
+  parseJSON _ = mempty
 
 -- | Constructor for 'LogsDestination' containing required fields as
 -- | arguments.

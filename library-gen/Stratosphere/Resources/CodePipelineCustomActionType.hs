@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-customactiontype.html
 
 module Stratosphere.Resources.CodePipelineCustomActionType where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.CodePipelineCustomActionTypeConfigurationProperties
@@ -27,13 +27,32 @@ data CodePipelineCustomActionType =
   , _codePipelineCustomActionTypeProvider :: Val Text
   , _codePipelineCustomActionTypeSettings :: Maybe CodePipelineCustomActionTypeSettings
   , _codePipelineCustomActionTypeVersion :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON CodePipelineCustomActionType where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 29, omitNothingFields = True }
+  toJSON CodePipelineCustomActionType{..} =
+    object $
+    catMaybes
+    [ Just ("Category" .= _codePipelineCustomActionTypeCategory)
+    , ("ConfigurationProperties" .=) <$> _codePipelineCustomActionTypeConfigurationProperties
+    , Just ("InputArtifactDetails" .= _codePipelineCustomActionTypeInputArtifactDetails)
+    , Just ("OutputArtifactDetails" .= _codePipelineCustomActionTypeOutputArtifactDetails)
+    , Just ("Provider" .= _codePipelineCustomActionTypeProvider)
+    , ("Settings" .=) <$> _codePipelineCustomActionTypeSettings
+    , ("Version" .=) <$> _codePipelineCustomActionTypeVersion
+    ]
 
 instance FromJSON CodePipelineCustomActionType where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 29, omitNothingFields = True }
+  parseJSON (Object obj) =
+    CodePipelineCustomActionType <$>
+      obj .: "Category" <*>
+      obj .:? "ConfigurationProperties" <*>
+      obj .: "InputArtifactDetails" <*>
+      obj .: "OutputArtifactDetails" <*>
+      obj .: "Provider" <*>
+      obj .:? "Settings" <*>
+      obj .:? "Version"
+  parseJSON _ = mempty
 
 -- | Constructor for 'CodePipelineCustomActionType' containing required fields
 -- | as arguments.

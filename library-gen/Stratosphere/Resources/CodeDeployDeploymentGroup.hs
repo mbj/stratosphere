@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html
 
 module Stratosphere.Resources.CodeDeployDeploymentGroup where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupDeployment
@@ -28,13 +28,34 @@ data CodeDeployDeploymentGroup =
   , _codeDeployDeploymentGroupEc2TagFilters :: Maybe [CodeDeployDeploymentGroupEc2TagFilter]
   , _codeDeployDeploymentGroupOnPremisesInstanceTagFilters :: Maybe [CodeDeployDeploymentGroupOnPremisesInstanceTagFilter]
   , _codeDeployDeploymentGroupServiceRoleArn :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON CodeDeployDeploymentGroup where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 26, omitNothingFields = True }
+  toJSON CodeDeployDeploymentGroup{..} =
+    object $
+    catMaybes
+    [ Just ("ApplicationName" .= _codeDeployDeploymentGroupApplicationName)
+    , ("AutoScalingGroups" .=) <$> _codeDeployDeploymentGroupAutoScalingGroups
+    , ("Deployment" .=) <$> _codeDeployDeploymentGroupDeployment
+    , ("DeploymentConfigName" .=) <$> _codeDeployDeploymentGroupDeploymentConfigName
+    , ("DeploymentGroupName" .=) <$> _codeDeployDeploymentGroupDeploymentGroupName
+    , ("Ec2TagFilters" .=) <$> _codeDeployDeploymentGroupEc2TagFilters
+    , ("OnPremisesInstanceTagFilters" .=) <$> _codeDeployDeploymentGroupOnPremisesInstanceTagFilters
+    , Just ("ServiceRoleArn" .= _codeDeployDeploymentGroupServiceRoleArn)
+    ]
 
 instance FromJSON CodeDeployDeploymentGroup where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 26, omitNothingFields = True }
+  parseJSON (Object obj) =
+    CodeDeployDeploymentGroup <$>
+      obj .: "ApplicationName" <*>
+      obj .:? "AutoScalingGroups" <*>
+      obj .:? "Deployment" <*>
+      obj .:? "DeploymentConfigName" <*>
+      obj .:? "DeploymentGroupName" <*>
+      obj .:? "Ec2TagFilters" <*>
+      obj .:? "OnPremisesInstanceTagFilters" <*>
+      obj .: "ServiceRoleArn"
+  parseJSON _ = mempty
 
 -- | Constructor for 'CodeDeployDeploymentGroup' containing required fields as
 -- | arguments.

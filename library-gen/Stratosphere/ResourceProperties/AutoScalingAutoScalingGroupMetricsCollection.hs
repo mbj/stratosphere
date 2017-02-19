@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-metricscollection.html
 
 module Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupMetricsCollection where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -22,13 +22,22 @@ data AutoScalingAutoScalingGroupMetricsCollection =
   AutoScalingAutoScalingGroupMetricsCollection
   { _autoScalingAutoScalingGroupMetricsCollectionGranularity :: Val Text
   , _autoScalingAutoScalingGroupMetricsCollectionMetrics :: Maybe [Val Text]
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON AutoScalingAutoScalingGroupMetricsCollection where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 45, omitNothingFields = True }
+  toJSON AutoScalingAutoScalingGroupMetricsCollection{..} =
+    object $
+    catMaybes
+    [ Just ("Granularity" .= _autoScalingAutoScalingGroupMetricsCollectionGranularity)
+    , ("Metrics" .=) <$> _autoScalingAutoScalingGroupMetricsCollectionMetrics
+    ]
 
 instance FromJSON AutoScalingAutoScalingGroupMetricsCollection where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 45, omitNothingFields = True }
+  parseJSON (Object obj) =
+    AutoScalingAutoScalingGroupMetricsCollection <$>
+      obj .: "Granularity" <*>
+      obj .:? "Metrics"
+  parseJSON _ = mempty
 
 -- | Constructor for 'AutoScalingAutoScalingGroupMetricsCollection' containing
 -- | required fields as arguments.

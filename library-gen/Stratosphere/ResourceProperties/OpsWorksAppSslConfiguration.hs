@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-app-sslconfiguration.html
 
 module Stratosphere.ResourceProperties.OpsWorksAppSslConfiguration where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -21,13 +21,24 @@ data OpsWorksAppSslConfiguration =
   { _opsWorksAppSslConfigurationCertificate :: Maybe (Val Text)
   , _opsWorksAppSslConfigurationChain :: Maybe (Val Text)
   , _opsWorksAppSslConfigurationPrivateKey :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON OpsWorksAppSslConfiguration where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 28, omitNothingFields = True }
+  toJSON OpsWorksAppSslConfiguration{..} =
+    object $
+    catMaybes
+    [ ("Certificate" .=) <$> _opsWorksAppSslConfigurationCertificate
+    , ("Chain" .=) <$> _opsWorksAppSslConfigurationChain
+    , ("PrivateKey" .=) <$> _opsWorksAppSslConfigurationPrivateKey
+    ]
 
 instance FromJSON OpsWorksAppSslConfiguration where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 28, omitNothingFields = True }
+  parseJSON (Object obj) =
+    OpsWorksAppSslConfiguration <$>
+      obj .:? "Certificate" <*>
+      obj .:? "Chain" <*>
+      obj .:? "PrivateKey"
+  parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksAppSslConfiguration' containing required fields
 -- | as arguments.

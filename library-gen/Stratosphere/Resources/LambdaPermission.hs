@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html
 
 module Stratosphere.Resources.LambdaPermission where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -23,13 +23,28 @@ data LambdaPermission =
   , _lambdaPermissionPrincipal :: Val Text
   , _lambdaPermissionSourceAccount :: Maybe (Val Text)
   , _lambdaPermissionSourceArn :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON LambdaPermission where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 17, omitNothingFields = True }
+  toJSON LambdaPermission{..} =
+    object $
+    catMaybes
+    [ Just ("Action" .= _lambdaPermissionAction)
+    , Just ("FunctionName" .= _lambdaPermissionFunctionName)
+    , Just ("Principal" .= _lambdaPermissionPrincipal)
+    , ("SourceAccount" .=) <$> _lambdaPermissionSourceAccount
+    , ("SourceArn" .=) <$> _lambdaPermissionSourceArn
+    ]
 
 instance FromJSON LambdaPermission where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 17, omitNothingFields = True }
+  parseJSON (Object obj) =
+    LambdaPermission <$>
+      obj .: "Action" <*>
+      obj .: "FunctionName" <*>
+      obj .: "Principal" <*>
+      obj .:? "SourceAccount" <*>
+      obj .:? "SourceArn"
+  parseJSON _ = mempty
 
 -- | Constructor for 'LambdaPermission' containing required fields as
 -- | arguments.

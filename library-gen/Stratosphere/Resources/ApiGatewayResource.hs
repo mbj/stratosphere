@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html
 
 module Stratosphere.Resources.ApiGatewayResource where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -21,13 +21,24 @@ data ApiGatewayResource =
   { _apiGatewayResourceParentId :: Val Text
   , _apiGatewayResourcePathPart :: Val Text
   , _apiGatewayResourceRestApiId :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON ApiGatewayResource where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 19, omitNothingFields = True }
+  toJSON ApiGatewayResource{..} =
+    object $
+    catMaybes
+    [ Just ("ParentId" .= _apiGatewayResourceParentId)
+    , Just ("PathPart" .= _apiGatewayResourcePathPart)
+    , Just ("RestApiId" .= _apiGatewayResourceRestApiId)
+    ]
 
 instance FromJSON ApiGatewayResource where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 19, omitNothingFields = True }
+  parseJSON (Object obj) =
+    ApiGatewayResource <$>
+      obj .: "ParentId" <*>
+      obj .: "PathPart" <*>
+      obj .: "RestApiId"
+  parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayResource' containing required fields as
 -- | arguments.

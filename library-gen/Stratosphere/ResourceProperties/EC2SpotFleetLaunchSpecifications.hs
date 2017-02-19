@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html
 
 module Stratosphere.ResourceProperties.EC2SpotFleetLaunchSpecifications where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.EC2SpotFleetBlockDeviceMappings
@@ -39,13 +39,50 @@ data EC2SpotFleetLaunchSpecifications =
   , _eC2SpotFleetLaunchSpecificationsSubnetId :: Maybe (Val Text)
   , _eC2SpotFleetLaunchSpecificationsUserData :: Maybe (Val Text)
   , _eC2SpotFleetLaunchSpecificationsWeightedCapacity :: Maybe (Val Double')
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON EC2SpotFleetLaunchSpecifications where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 33, omitNothingFields = True }
+  toJSON EC2SpotFleetLaunchSpecifications{..} =
+    object $
+    catMaybes
+    [ ("BlockDeviceMappings" .=) <$> _eC2SpotFleetLaunchSpecificationsBlockDeviceMappings
+    , ("EbsOptimized" .=) <$> _eC2SpotFleetLaunchSpecificationsEbsOptimized
+    , ("IamInstanceProfile" .=) <$> _eC2SpotFleetLaunchSpecificationsIamInstanceProfile
+    , Just ("ImageId" .= _eC2SpotFleetLaunchSpecificationsImageId)
+    , Just ("InstanceType" .= _eC2SpotFleetLaunchSpecificationsInstanceType)
+    , ("KernelId" .=) <$> _eC2SpotFleetLaunchSpecificationsKernelId
+    , ("KeyName" .=) <$> _eC2SpotFleetLaunchSpecificationsKeyName
+    , ("Monitoring" .=) <$> _eC2SpotFleetLaunchSpecificationsMonitoring
+    , ("NetworkInterfaces" .=) <$> _eC2SpotFleetLaunchSpecificationsNetworkInterfaces
+    , ("Placement" .=) <$> _eC2SpotFleetLaunchSpecificationsPlacement
+    , ("RamdiskId" .=) <$> _eC2SpotFleetLaunchSpecificationsRamdiskId
+    , ("SecurityGroups" .=) <$> _eC2SpotFleetLaunchSpecificationsSecurityGroups
+    , ("SpotPrice" .=) <$> _eC2SpotFleetLaunchSpecificationsSpotPrice
+    , ("SubnetId" .=) <$> _eC2SpotFleetLaunchSpecificationsSubnetId
+    , ("UserData" .=) <$> _eC2SpotFleetLaunchSpecificationsUserData
+    , ("WeightedCapacity" .=) <$> _eC2SpotFleetLaunchSpecificationsWeightedCapacity
+    ]
 
 instance FromJSON EC2SpotFleetLaunchSpecifications where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 33, omitNothingFields = True }
+  parseJSON (Object obj) =
+    EC2SpotFleetLaunchSpecifications <$>
+      obj .:? "BlockDeviceMappings" <*>
+      obj .:? "EbsOptimized" <*>
+      obj .:? "IamInstanceProfile" <*>
+      obj .: "ImageId" <*>
+      obj .: "InstanceType" <*>
+      obj .:? "KernelId" <*>
+      obj .:? "KeyName" <*>
+      obj .:? "Monitoring" <*>
+      obj .:? "NetworkInterfaces" <*>
+      obj .:? "Placement" <*>
+      obj .:? "RamdiskId" <*>
+      obj .:? "SecurityGroups" <*>
+      obj .:? "SpotPrice" <*>
+      obj .:? "SubnetId" <*>
+      obj .:? "UserData" <*>
+      obj .:? "WeightedCapacity"
+  parseJSON _ = mempty
 
 -- | Constructor for 'EC2SpotFleetLaunchSpecifications' containing required
 -- | fields as arguments.

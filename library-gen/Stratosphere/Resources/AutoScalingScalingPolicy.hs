@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-policy.html
 
 module Stratosphere.Resources.AutoScalingScalingPolicy where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.AutoScalingScalingPolicyStepAdjustment
@@ -27,13 +27,36 @@ data AutoScalingScalingPolicy =
   , _autoScalingScalingPolicyPolicyType :: Maybe (Val Text)
   , _autoScalingScalingPolicyScalingAdjustment :: Maybe (Val Integer')
   , _autoScalingScalingPolicyStepAdjustments :: Maybe [AutoScalingScalingPolicyStepAdjustment]
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON AutoScalingScalingPolicy where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 25, omitNothingFields = True }
+  toJSON AutoScalingScalingPolicy{..} =
+    object $
+    catMaybes
+    [ Just ("AdjustmentType" .= _autoScalingScalingPolicyAdjustmentType)
+    , Just ("AutoScalingGroupName" .= _autoScalingScalingPolicyAutoScalingGroupName)
+    , ("Cooldown" .=) <$> _autoScalingScalingPolicyCooldown
+    , ("EstimatedInstanceWarmup" .=) <$> _autoScalingScalingPolicyEstimatedInstanceWarmup
+    , ("MetricAggregationType" .=) <$> _autoScalingScalingPolicyMetricAggregationType
+    , ("MinAdjustmentMagnitude" .=) <$> _autoScalingScalingPolicyMinAdjustmentMagnitude
+    , ("PolicyType" .=) <$> _autoScalingScalingPolicyPolicyType
+    , ("ScalingAdjustment" .=) <$> _autoScalingScalingPolicyScalingAdjustment
+    , ("StepAdjustments" .=) <$> _autoScalingScalingPolicyStepAdjustments
+    ]
 
 instance FromJSON AutoScalingScalingPolicy where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 25, omitNothingFields = True }
+  parseJSON (Object obj) =
+    AutoScalingScalingPolicy <$>
+      obj .: "AdjustmentType" <*>
+      obj .: "AutoScalingGroupName" <*>
+      obj .:? "Cooldown" <*>
+      obj .:? "EstimatedInstanceWarmup" <*>
+      obj .:? "MetricAggregationType" <*>
+      obj .:? "MinAdjustmentMagnitude" <*>
+      obj .:? "PolicyType" <*>
+      obj .:? "ScalingAdjustment" <*>
+      obj .:? "StepAdjustments"
+  parseJSON _ = mempty
 
 -- | Constructor for 'AutoScalingScalingPolicy' containing required fields as
 -- | arguments.

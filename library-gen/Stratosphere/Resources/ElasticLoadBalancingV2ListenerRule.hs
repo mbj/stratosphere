@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html
 
 module Stratosphere.Resources.ElasticLoadBalancingV2ListenerRule where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.ElasticLoadBalancingV2ListenerRuleAction
@@ -23,13 +23,26 @@ data ElasticLoadBalancingV2ListenerRule =
   , _elasticLoadBalancingV2ListenerRuleConditions :: [ElasticLoadBalancingV2ListenerRuleRuleCondition]
   , _elasticLoadBalancingV2ListenerRuleListenerArn :: Val Text
   , _elasticLoadBalancingV2ListenerRulePriority :: Val Integer'
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON ElasticLoadBalancingV2ListenerRule where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 35, omitNothingFields = True }
+  toJSON ElasticLoadBalancingV2ListenerRule{..} =
+    object $
+    catMaybes
+    [ Just ("Actions" .= _elasticLoadBalancingV2ListenerRuleActions)
+    , Just ("Conditions" .= _elasticLoadBalancingV2ListenerRuleConditions)
+    , Just ("ListenerArn" .= _elasticLoadBalancingV2ListenerRuleListenerArn)
+    , Just ("Priority" .= _elasticLoadBalancingV2ListenerRulePriority)
+    ]
 
 instance FromJSON ElasticLoadBalancingV2ListenerRule where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 35, omitNothingFields = True }
+  parseJSON (Object obj) =
+    ElasticLoadBalancingV2ListenerRule <$>
+      obj .: "Actions" <*>
+      obj .: "Conditions" <*>
+      obj .: "ListenerArn" <*>
+      obj .: "Priority"
+  parseJSON _ = mempty
 
 -- | Constructor for 'ElasticLoadBalancingV2ListenerRule' containing required
 -- | fields as arguments.

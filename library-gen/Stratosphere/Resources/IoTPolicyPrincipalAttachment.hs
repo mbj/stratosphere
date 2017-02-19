@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-policyprincipalattachment.html
 
 module Stratosphere.Resources.IoTPolicyPrincipalAttachment where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -20,13 +20,22 @@ data IoTPolicyPrincipalAttachment =
   IoTPolicyPrincipalAttachment
   { _ioTPolicyPrincipalAttachmentPolicyName :: Val Text
   , _ioTPolicyPrincipalAttachmentPrincipal :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON IoTPolicyPrincipalAttachment where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 29, omitNothingFields = True }
+  toJSON IoTPolicyPrincipalAttachment{..} =
+    object $
+    catMaybes
+    [ Just ("PolicyName" .= _ioTPolicyPrincipalAttachmentPolicyName)
+    , Just ("Principal" .= _ioTPolicyPrincipalAttachmentPrincipal)
+    ]
 
 instance FromJSON IoTPolicyPrincipalAttachment where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 29, omitNothingFields = True }
+  parseJSON (Object obj) =
+    IoTPolicyPrincipalAttachment <$>
+      obj .: "PolicyName" <*>
+      obj .: "Principal"
+  parseJSON _ = mempty
 
 -- | Constructor for 'IoTPolicyPrincipalAttachment' containing required fields
 -- | as arguments.

@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules-destination.html
 
 module Stratosphere.ResourceProperties.S3BucketReplicationDestination where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -20,13 +20,22 @@ data S3BucketReplicationDestination =
   S3BucketReplicationDestination
   { _s3BucketReplicationDestinationBucket :: Val Text
   , _s3BucketReplicationDestinationStorageClass :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON S3BucketReplicationDestination where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 31, omitNothingFields = True }
+  toJSON S3BucketReplicationDestination{..} =
+    object $
+    catMaybes
+    [ Just ("Bucket" .= _s3BucketReplicationDestinationBucket)
+    , ("StorageClass" .=) <$> _s3BucketReplicationDestinationStorageClass
+    ]
 
 instance FromJSON S3BucketReplicationDestination where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 31, omitNothingFields = True }
+  parseJSON (Object obj) =
+    S3BucketReplicationDestination <$>
+      obj .: "Bucket" <*>
+      obj .:? "StorageClass"
+  parseJSON _ = mempty
 
 -- | Constructor for 'S3BucketReplicationDestination' containing required
 -- | fields as arguments.

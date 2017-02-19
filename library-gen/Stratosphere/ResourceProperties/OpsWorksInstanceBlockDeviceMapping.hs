@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-instance-blockdevicemapping.html
 
 module Stratosphere.ResourceProperties.OpsWorksInstanceBlockDeviceMapping where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.OpsWorksInstanceEbsBlockDevice
@@ -22,13 +22,26 @@ data OpsWorksInstanceBlockDeviceMapping =
   , _opsWorksInstanceBlockDeviceMappingEbs :: Maybe OpsWorksInstanceEbsBlockDevice
   , _opsWorksInstanceBlockDeviceMappingNoDevice :: Maybe (Val Text)
   , _opsWorksInstanceBlockDeviceMappingVirtualName :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON OpsWorksInstanceBlockDeviceMapping where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 35, omitNothingFields = True }
+  toJSON OpsWorksInstanceBlockDeviceMapping{..} =
+    object $
+    catMaybes
+    [ ("DeviceName" .=) <$> _opsWorksInstanceBlockDeviceMappingDeviceName
+    , ("Ebs" .=) <$> _opsWorksInstanceBlockDeviceMappingEbs
+    , ("NoDevice" .=) <$> _opsWorksInstanceBlockDeviceMappingNoDevice
+    , ("VirtualName" .=) <$> _opsWorksInstanceBlockDeviceMappingVirtualName
+    ]
 
 instance FromJSON OpsWorksInstanceBlockDeviceMapping where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 35, omitNothingFields = True }
+  parseJSON (Object obj) =
+    OpsWorksInstanceBlockDeviceMapping <$>
+      obj .:? "DeviceName" <*>
+      obj .:? "Ebs" <*>
+      obj .:? "NoDevice" <*>
+      obj .:? "VirtualName"
+  parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksInstanceBlockDeviceMapping' containing required
 -- | fields as arguments.

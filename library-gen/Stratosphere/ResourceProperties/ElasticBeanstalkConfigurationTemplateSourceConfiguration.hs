@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-configurationtemplate-sourceconfiguration.html
 
 module Stratosphere.ResourceProperties.ElasticBeanstalkConfigurationTemplateSourceConfiguration where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -22,13 +22,22 @@ data ElasticBeanstalkConfigurationTemplateSourceConfiguration =
   ElasticBeanstalkConfigurationTemplateSourceConfiguration
   { _elasticBeanstalkConfigurationTemplateSourceConfigurationApplicationName :: Val Text
   , _elasticBeanstalkConfigurationTemplateSourceConfigurationTemplateName :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON ElasticBeanstalkConfigurationTemplateSourceConfiguration where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 57, omitNothingFields = True }
+  toJSON ElasticBeanstalkConfigurationTemplateSourceConfiguration{..} =
+    object $
+    catMaybes
+    [ Just ("ApplicationName" .= _elasticBeanstalkConfigurationTemplateSourceConfigurationApplicationName)
+    , Just ("TemplateName" .= _elasticBeanstalkConfigurationTemplateSourceConfigurationTemplateName)
+    ]
 
 instance FromJSON ElasticBeanstalkConfigurationTemplateSourceConfiguration where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 57, omitNothingFields = True }
+  parseJSON (Object obj) =
+    ElasticBeanstalkConfigurationTemplateSourceConfiguration <$>
+      obj .: "ApplicationName" <*>
+      obj .: "TemplateName"
+  parseJSON _ = mempty
 
 -- | Constructor for
 -- | 'ElasticBeanstalkConfigurationTemplateSourceConfiguration' containing

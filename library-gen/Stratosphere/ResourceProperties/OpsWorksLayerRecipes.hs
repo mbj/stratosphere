@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-recipes.html
 
 module Stratosphere.ResourceProperties.OpsWorksLayerRecipes where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -23,13 +23,28 @@ data OpsWorksLayerRecipes =
   , _opsWorksLayerRecipesSetup :: Maybe [Val Text]
   , _opsWorksLayerRecipesShutdown :: Maybe [Val Text]
   , _opsWorksLayerRecipesUndeploy :: Maybe [Val Text]
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON OpsWorksLayerRecipes where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 21, omitNothingFields = True }
+  toJSON OpsWorksLayerRecipes{..} =
+    object $
+    catMaybes
+    [ ("Configure" .=) <$> _opsWorksLayerRecipesConfigure
+    , ("Deploy" .=) <$> _opsWorksLayerRecipesDeploy
+    , ("Setup" .=) <$> _opsWorksLayerRecipesSetup
+    , ("Shutdown" .=) <$> _opsWorksLayerRecipesShutdown
+    , ("Undeploy" .=) <$> _opsWorksLayerRecipesUndeploy
+    ]
 
 instance FromJSON OpsWorksLayerRecipes where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 21, omitNothingFields = True }
+  parseJSON (Object obj) =
+    OpsWorksLayerRecipes <$>
+      obj .:? "Configure" <*>
+      obj .:? "Deploy" <*>
+      obj .:? "Setup" <*>
+      obj .:? "Shutdown" <*>
+      obj .:? "Undeploy"
+  parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksLayerRecipes' containing required fields as
 -- | arguments.

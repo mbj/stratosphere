@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-apikey-stagekey.html
 
 module Stratosphere.ResourceProperties.ApiGatewayApiKeyStageKey where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -20,13 +20,22 @@ data ApiGatewayApiKeyStageKey =
   ApiGatewayApiKeyStageKey
   { _apiGatewayApiKeyStageKeyRestApiId :: Maybe (Val Text)
   , _apiGatewayApiKeyStageKeyStageName :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON ApiGatewayApiKeyStageKey where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 25, omitNothingFields = True }
+  toJSON ApiGatewayApiKeyStageKey{..} =
+    object $
+    catMaybes
+    [ ("RestApiId" .=) <$> _apiGatewayApiKeyStageKeyRestApiId
+    , ("StageName" .=) <$> _apiGatewayApiKeyStageKeyStageName
+    ]
 
 instance FromJSON ApiGatewayApiKeyStageKey where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 25, omitNothingFields = True }
+  parseJSON (Object obj) =
+    ApiGatewayApiKeyStageKey <$>
+      obj .:? "RestApiId" <*>
+      obj .:? "StageName"
+  parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayApiKeyStageKey' containing required fields as
 -- | arguments.

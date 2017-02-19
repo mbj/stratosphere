@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-xssmatchset.html
 
 module Stratosphere.Resources.WAFXssMatchSet where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.WAFXssMatchSetXssMatchTuple
@@ -20,13 +20,22 @@ data WAFXssMatchSet =
   WAFXssMatchSet
   { _wAFXssMatchSetName :: Val Text
   , _wAFXssMatchSetXssMatchTuples :: [WAFXssMatchSetXssMatchTuple]
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON WAFXssMatchSet where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 15, omitNothingFields = True }
+  toJSON WAFXssMatchSet{..} =
+    object $
+    catMaybes
+    [ Just ("Name" .= _wAFXssMatchSetName)
+    , Just ("XssMatchTuples" .= _wAFXssMatchSetXssMatchTuples)
+    ]
 
 instance FromJSON WAFXssMatchSet where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 15, omitNothingFields = True }
+  parseJSON (Object obj) =
+    WAFXssMatchSet <$>
+      obj .: "Name" <*>
+      obj .: "XssMatchTuples"
+  parseJSON _ = mempty
 
 -- | Constructor for 'WAFXssMatchSet' containing required fields as arguments.
 wafXssMatchSet

@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-elbattachment.html
 
 module Stratosphere.Resources.OpsWorksElasticLoadBalancerAttachment where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -21,13 +21,22 @@ data OpsWorksElasticLoadBalancerAttachment =
   OpsWorksElasticLoadBalancerAttachment
   { _opsWorksElasticLoadBalancerAttachmentElasticLoadBalancerName :: Val Text
   , _opsWorksElasticLoadBalancerAttachmentLayerId :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON OpsWorksElasticLoadBalancerAttachment where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 38, omitNothingFields = True }
+  toJSON OpsWorksElasticLoadBalancerAttachment{..} =
+    object $
+    catMaybes
+    [ Just ("ElasticLoadBalancerName" .= _opsWorksElasticLoadBalancerAttachmentElasticLoadBalancerName)
+    , Just ("LayerId" .= _opsWorksElasticLoadBalancerAttachmentLayerId)
+    ]
 
 instance FromJSON OpsWorksElasticLoadBalancerAttachment where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 38, omitNothingFields = True }
+  parseJSON (Object obj) =
+    OpsWorksElasticLoadBalancerAttachment <$>
+      obj .: "ElasticLoadBalancerName" <*>
+      obj .: "LayerId"
+  parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksElasticLoadBalancerAttachment' containing
 -- | required fields as arguments.

@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volumeattachment.html
 
 module Stratosphere.Resources.EC2VolumeAttachment where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -21,13 +21,24 @@ data EC2VolumeAttachment =
   { _eC2VolumeAttachmentDevice :: Val Text
   , _eC2VolumeAttachmentInstanceId :: Val Text
   , _eC2VolumeAttachmentVolumeId :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON EC2VolumeAttachment where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 20, omitNothingFields = True }
+  toJSON EC2VolumeAttachment{..} =
+    object $
+    catMaybes
+    [ Just ("Device" .= _eC2VolumeAttachmentDevice)
+    , Just ("InstanceId" .= _eC2VolumeAttachmentInstanceId)
+    , Just ("VolumeId" .= _eC2VolumeAttachmentVolumeId)
+    ]
 
 instance FromJSON EC2VolumeAttachment where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 20, omitNothingFields = True }
+  parseJSON (Object obj) =
+    EC2VolumeAttachment <$>
+      obj .: "Device" <*>
+      obj .: "InstanceId" <*>
+      obj .: "VolumeId"
+  parseJSON _ = mempty
 
 -- | Constructor for 'EC2VolumeAttachment' containing required fields as
 -- | arguments.

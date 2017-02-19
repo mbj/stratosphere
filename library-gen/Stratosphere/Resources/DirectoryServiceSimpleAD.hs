@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directoryservice-simplead.html
 
 module Stratosphere.Resources.DirectoryServiceSimpleAD where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.DirectoryServiceSimpleADVpcSettings
@@ -26,13 +26,34 @@ data DirectoryServiceSimpleAD =
   , _directoryServiceSimpleADShortName :: Maybe (Val Text)
   , _directoryServiceSimpleADSize :: Val Text
   , _directoryServiceSimpleADVpcSettings :: DirectoryServiceSimpleADVpcSettings
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON DirectoryServiceSimpleAD where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 25, omitNothingFields = True }
+  toJSON DirectoryServiceSimpleAD{..} =
+    object $
+    catMaybes
+    [ ("CreateAlias" .=) <$> _directoryServiceSimpleADCreateAlias
+    , ("Description" .=) <$> _directoryServiceSimpleADDescription
+    , ("EnableSso" .=) <$> _directoryServiceSimpleADEnableSso
+    , Just ("Name" .= _directoryServiceSimpleADName)
+    , Just ("Password" .= _directoryServiceSimpleADPassword)
+    , ("ShortName" .=) <$> _directoryServiceSimpleADShortName
+    , Just ("Size" .= _directoryServiceSimpleADSize)
+    , Just ("VpcSettings" .= _directoryServiceSimpleADVpcSettings)
+    ]
 
 instance FromJSON DirectoryServiceSimpleAD where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 25, omitNothingFields = True }
+  parseJSON (Object obj) =
+    DirectoryServiceSimpleAD <$>
+      obj .:? "CreateAlias" <*>
+      obj .:? "Description" <*>
+      obj .:? "EnableSso" <*>
+      obj .: "Name" <*>
+      obj .: "Password" <*>
+      obj .:? "ShortName" <*>
+      obj .: "Size" <*>
+      obj .: "VpcSettings"
+  parseJSON _ = mempty
 
 -- | Constructor for 'DirectoryServiceSimpleAD' containing required fields as
 -- | arguments.

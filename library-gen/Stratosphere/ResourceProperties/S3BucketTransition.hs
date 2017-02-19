@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule-transition.html
 
 module Stratosphere.ResourceProperties.S3BucketTransition where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -21,13 +21,24 @@ data S3BucketTransition =
   { _s3BucketTransitionStorageClass :: Val Text
   , _s3BucketTransitionTransitionDate :: Maybe (Val Text)
   , _s3BucketTransitionTransitionInDays :: Maybe (Val Integer')
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON S3BucketTransition where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 19, omitNothingFields = True }
+  toJSON S3BucketTransition{..} =
+    object $
+    catMaybes
+    [ Just ("StorageClass" .= _s3BucketTransitionStorageClass)
+    , ("TransitionDate" .=) <$> _s3BucketTransitionTransitionDate
+    , ("TransitionInDays" .=) <$> _s3BucketTransitionTransitionInDays
+    ]
 
 instance FromJSON S3BucketTransition where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 19, omitNothingFields = True }
+  parseJSON (Object obj) =
+    S3BucketTransition <$>
+      obj .: "StorageClass" <*>
+      obj .:? "TransitionDate" <*>
+      obj .:? "TransitionInDays"
+  parseJSON _ = mempty
 
 -- | Constructor for 'S3BucketTransition' containing required fields as
 -- | arguments.

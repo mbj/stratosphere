@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distributionconfig-customerrorresponse.html
 
 module Stratosphere.ResourceProperties.CloudFrontDistributionCustomErrorResponse where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -23,13 +23,26 @@ data CloudFrontDistributionCustomErrorResponse =
   , _cloudFrontDistributionCustomErrorResponseErrorCode :: Val Integer'
   , _cloudFrontDistributionCustomErrorResponseResponseCode :: Maybe (Val Integer')
   , _cloudFrontDistributionCustomErrorResponseResponsePagePath :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON CloudFrontDistributionCustomErrorResponse where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 42, omitNothingFields = True }
+  toJSON CloudFrontDistributionCustomErrorResponse{..} =
+    object $
+    catMaybes
+    [ ("ErrorCachingMinTTL" .=) <$> _cloudFrontDistributionCustomErrorResponseErrorCachingMinTTL
+    , Just ("ErrorCode" .= _cloudFrontDistributionCustomErrorResponseErrorCode)
+    , ("ResponseCode" .=) <$> _cloudFrontDistributionCustomErrorResponseResponseCode
+    , ("ResponsePagePath" .=) <$> _cloudFrontDistributionCustomErrorResponseResponsePagePath
+    ]
 
 instance FromJSON CloudFrontDistributionCustomErrorResponse where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 42, omitNothingFields = True }
+  parseJSON (Object obj) =
+    CloudFrontDistributionCustomErrorResponse <$>
+      obj .:? "ErrorCachingMinTTL" <*>
+      obj .: "ErrorCode" <*>
+      obj .:? "ResponseCode" <*>
+      obj .:? "ResponsePagePath"
+  parseJSON _ = mempty
 
 -- | Constructor for 'CloudFrontDistributionCustomErrorResponse' containing
 -- | required fields as arguments.

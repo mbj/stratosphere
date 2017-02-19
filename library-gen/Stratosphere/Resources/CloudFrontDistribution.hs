@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution.html
 
 module Stratosphere.Resources.CloudFrontDistribution where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.CloudFrontDistributionDistributionConfig
@@ -19,13 +19,20 @@ import Stratosphere.ResourceProperties.CloudFrontDistributionDistributionConfig
 data CloudFrontDistribution =
   CloudFrontDistribution
   { _cloudFrontDistributionDistributionConfig :: CloudFrontDistributionDistributionConfig
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON CloudFrontDistribution where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 23, omitNothingFields = True }
+  toJSON CloudFrontDistribution{..} =
+    object $
+    catMaybes
+    [ Just ("DistributionConfig" .= _cloudFrontDistributionDistributionConfig)
+    ]
 
 instance FromJSON CloudFrontDistribution where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 23, omitNothingFields = True }
+  parseJSON (Object obj) =
+    CloudFrontDistribution <$>
+      obj .: "DistributionConfig"
+  parseJSON _ = mempty
 
 -- | Constructor for 'CloudFrontDistribution' containing required fields as
 -- | arguments.

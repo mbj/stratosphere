@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-customactiontype-artifactdetails.html
 
 module Stratosphere.ResourceProperties.CodePipelineCustomActionTypeArtifactDetails where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -22,13 +22,22 @@ data CodePipelineCustomActionTypeArtifactDetails =
   CodePipelineCustomActionTypeArtifactDetails
   { _codePipelineCustomActionTypeArtifactDetailsMaximumCount :: Val Integer'
   , _codePipelineCustomActionTypeArtifactDetailsMinimumCount :: Val Integer'
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON CodePipelineCustomActionTypeArtifactDetails where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 44, omitNothingFields = True }
+  toJSON CodePipelineCustomActionTypeArtifactDetails{..} =
+    object $
+    catMaybes
+    [ Just ("MaximumCount" .= _codePipelineCustomActionTypeArtifactDetailsMaximumCount)
+    , Just ("MinimumCount" .= _codePipelineCustomActionTypeArtifactDetailsMinimumCount)
+    ]
 
 instance FromJSON CodePipelineCustomActionTypeArtifactDetails where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 44, omitNothingFields = True }
+  parseJSON (Object obj) =
+    CodePipelineCustomActionTypeArtifactDetails <$>
+      obj .: "MaximumCount" <*>
+      obj .: "MinimumCount"
+  parseJSON _ = mempty
 
 -- | Constructor for 'CodePipelineCustomActionTypeArtifactDetails' containing
 -- | required fields as arguments.

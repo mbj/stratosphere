@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-ebsconfiguration-ebsblockdeviceconfig.html
 
 module Stratosphere.ResourceProperties.EMRClusterEbsBlockDeviceConfig where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.EMRClusterVolumeSpecification
@@ -20,13 +20,22 @@ data EMRClusterEbsBlockDeviceConfig =
   EMRClusterEbsBlockDeviceConfig
   { _eMRClusterEbsBlockDeviceConfigVolumeSpecification :: EMRClusterVolumeSpecification
   , _eMRClusterEbsBlockDeviceConfigVolumesPerInstance :: Maybe (Val Integer')
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON EMRClusterEbsBlockDeviceConfig where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 31, omitNothingFields = True }
+  toJSON EMRClusterEbsBlockDeviceConfig{..} =
+    object $
+    catMaybes
+    [ Just ("VolumeSpecification" .= _eMRClusterEbsBlockDeviceConfigVolumeSpecification)
+    , ("VolumesPerInstance" .=) <$> _eMRClusterEbsBlockDeviceConfigVolumesPerInstance
+    ]
 
 instance FromJSON EMRClusterEbsBlockDeviceConfig where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 31, omitNothingFields = True }
+  parseJSON (Object obj) =
+    EMRClusterEbsBlockDeviceConfig <$>
+      obj .: "VolumeSpecification" <*>
+      obj .:? "VolumesPerInstance"
+  parseJSON _ = mempty
 
 -- | Constructor for 'EMRClusterEbsBlockDeviceConfig' containing required
 -- | fields as arguments.

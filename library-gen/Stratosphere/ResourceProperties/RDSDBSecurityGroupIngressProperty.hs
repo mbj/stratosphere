@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-security-group-rule.html
 
 module Stratosphere.ResourceProperties.RDSDBSecurityGroupIngressProperty where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -22,13 +22,26 @@ data RDSDBSecurityGroupIngressProperty =
   , _rDSDBSecurityGroupIngressPropertyEC2SecurityGroupId :: Maybe (Val Text)
   , _rDSDBSecurityGroupIngressPropertyEC2SecurityGroupName :: Maybe (Val Text)
   , _rDSDBSecurityGroupIngressPropertyEC2SecurityGroupOwnerId :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON RDSDBSecurityGroupIngressProperty where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 34, omitNothingFields = True }
+  toJSON RDSDBSecurityGroupIngressProperty{..} =
+    object $
+    catMaybes
+    [ ("CDIRIP" .=) <$> _rDSDBSecurityGroupIngressPropertyCDIRIP
+    , ("EC2SecurityGroupId" .=) <$> _rDSDBSecurityGroupIngressPropertyEC2SecurityGroupId
+    , ("EC2SecurityGroupName" .=) <$> _rDSDBSecurityGroupIngressPropertyEC2SecurityGroupName
+    , ("EC2SecurityGroupOwnerId" .=) <$> _rDSDBSecurityGroupIngressPropertyEC2SecurityGroupOwnerId
+    ]
 
 instance FromJSON RDSDBSecurityGroupIngressProperty where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 34, omitNothingFields = True }
+  parseJSON (Object obj) =
+    RDSDBSecurityGroupIngressProperty <$>
+      obj .:? "CDIRIP" <*>
+      obj .:? "EC2SecurityGroupId" <*>
+      obj .:? "EC2SecurityGroupName" <*>
+      obj .:? "EC2SecurityGroupOwnerId"
+  parseJSON _ = mempty
 
 -- | Constructor for 'RDSDBSecurityGroupIngressProperty' containing required
 -- | fields as arguments.

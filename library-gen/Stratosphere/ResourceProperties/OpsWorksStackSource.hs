@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-stack-source.html
 
 module Stratosphere.ResourceProperties.OpsWorksStackSource where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -24,13 +24,30 @@ data OpsWorksStackSource =
   , _opsWorksStackSourceType :: Maybe (Val Text)
   , _opsWorksStackSourceUrl :: Maybe (Val Text)
   , _opsWorksStackSourceUsername :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON OpsWorksStackSource where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 20, omitNothingFields = True }
+  toJSON OpsWorksStackSource{..} =
+    object $
+    catMaybes
+    [ ("Password" .=) <$> _opsWorksStackSourcePassword
+    , ("Revision" .=) <$> _opsWorksStackSourceRevision
+    , ("SshKey" .=) <$> _opsWorksStackSourceSshKey
+    , ("Type" .=) <$> _opsWorksStackSourceType
+    , ("Url" .=) <$> _opsWorksStackSourceUrl
+    , ("Username" .=) <$> _opsWorksStackSourceUsername
+    ]
 
 instance FromJSON OpsWorksStackSource where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 20, omitNothingFields = True }
+  parseJSON (Object obj) =
+    OpsWorksStackSource <$>
+      obj .:? "Password" <*>
+      obj .:? "Revision" <*>
+      obj .:? "SshKey" <*>
+      obj .:? "Type" <*>
+      obj .:? "Url" <*>
+      obj .:? "Username"
+  parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksStackSource' containing required fields as
 -- | arguments.

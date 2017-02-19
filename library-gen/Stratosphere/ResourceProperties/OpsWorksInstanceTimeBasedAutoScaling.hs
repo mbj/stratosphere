@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-instance-timebasedautoscaling.html
 
 module Stratosphere.ResourceProperties.OpsWorksInstanceTimeBasedAutoScaling where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -25,13 +25,32 @@ data OpsWorksInstanceTimeBasedAutoScaling =
   , _opsWorksInstanceTimeBasedAutoScalingThursday :: Maybe Object
   , _opsWorksInstanceTimeBasedAutoScalingTuesday :: Maybe Object
   , _opsWorksInstanceTimeBasedAutoScalingWednesday :: Maybe Object
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON OpsWorksInstanceTimeBasedAutoScaling where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 37, omitNothingFields = True }
+  toJSON OpsWorksInstanceTimeBasedAutoScaling{..} =
+    object $
+    catMaybes
+    [ ("Friday" .=) <$> _opsWorksInstanceTimeBasedAutoScalingFriday
+    , ("Monday" .=) <$> _opsWorksInstanceTimeBasedAutoScalingMonday
+    , ("Saturday" .=) <$> _opsWorksInstanceTimeBasedAutoScalingSaturday
+    , ("Sunday" .=) <$> _opsWorksInstanceTimeBasedAutoScalingSunday
+    , ("Thursday" .=) <$> _opsWorksInstanceTimeBasedAutoScalingThursday
+    , ("Tuesday" .=) <$> _opsWorksInstanceTimeBasedAutoScalingTuesday
+    , ("Wednesday" .=) <$> _opsWorksInstanceTimeBasedAutoScalingWednesday
+    ]
 
 instance FromJSON OpsWorksInstanceTimeBasedAutoScaling where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 37, omitNothingFields = True }
+  parseJSON (Object obj) =
+    OpsWorksInstanceTimeBasedAutoScaling <$>
+      obj .:? "Friday" <*>
+      obj .:? "Monday" <*>
+      obj .:? "Saturday" <*>
+      obj .:? "Sunday" <*>
+      obj .:? "Thursday" <*>
+      obj .:? "Tuesday" <*>
+      obj .:? "Wednesday"
+  parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksInstanceTimeBasedAutoScaling' containing
 -- | required fields as arguments.

@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-bytematchset.html
 
 module Stratosphere.Resources.WAFByteMatchSet where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.WAFByteMatchSetByteMatchTuple
@@ -20,13 +20,22 @@ data WAFByteMatchSet =
   WAFByteMatchSet
   { _wAFByteMatchSetByteMatchTuples :: Maybe [WAFByteMatchSetByteMatchTuple]
   , _wAFByteMatchSetName :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON WAFByteMatchSet where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 16, omitNothingFields = True }
+  toJSON WAFByteMatchSet{..} =
+    object $
+    catMaybes
+    [ ("ByteMatchTuples" .=) <$> _wAFByteMatchSetByteMatchTuples
+    , Just ("Name" .= _wAFByteMatchSetName)
+    ]
 
 instance FromJSON WAFByteMatchSet where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 16, omitNothingFields = True }
+  parseJSON (Object obj) =
+    WAFByteMatchSet <$>
+      obj .:? "ByteMatchTuples" <*>
+      obj .: "Name"
+  parseJSON _ = mempty
 
 -- | Constructor for 'WAFByteMatchSet' containing required fields as
 -- | arguments.

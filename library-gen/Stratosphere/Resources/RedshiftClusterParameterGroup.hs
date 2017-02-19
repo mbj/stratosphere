@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clusterparametergroup.html
 
 module Stratosphere.Resources.RedshiftClusterParameterGroup where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.RedshiftClusterParameterGroupParameter
@@ -21,13 +21,24 @@ data RedshiftClusterParameterGroup =
   { _redshiftClusterParameterGroupDescription :: Val Text
   , _redshiftClusterParameterGroupParameterGroupFamily :: Val Text
   , _redshiftClusterParameterGroupParameters :: Maybe [RedshiftClusterParameterGroupParameter]
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON RedshiftClusterParameterGroup where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 30, omitNothingFields = True }
+  toJSON RedshiftClusterParameterGroup{..} =
+    object $
+    catMaybes
+    [ Just ("Description" .= _redshiftClusterParameterGroupDescription)
+    , Just ("ParameterGroupFamily" .= _redshiftClusterParameterGroupParameterGroupFamily)
+    , ("Parameters" .=) <$> _redshiftClusterParameterGroupParameters
+    ]
 
 instance FromJSON RedshiftClusterParameterGroup where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 30, omitNothingFields = True }
+  parseJSON (Object obj) =
+    RedshiftClusterParameterGroup <$>
+      obj .: "Description" <*>
+      obj .: "ParameterGroupFamily" <*>
+      obj .:? "Parameters"
+  parseJSON _ = mempty
 
 -- | Constructor for 'RedshiftClusterParameterGroup' containing required
 -- | fields as arguments.

@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-application.html
 
 module Stratosphere.Resources.CodeDeployApplication where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -19,13 +19,20 @@ import Stratosphere.Values
 data CodeDeployApplication =
   CodeDeployApplication
   { _codeDeployApplicationApplicationName :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON CodeDeployApplication where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 22, omitNothingFields = True }
+  toJSON CodeDeployApplication{..} =
+    object $
+    catMaybes
+    [ ("ApplicationName" .=) <$> _codeDeployApplicationApplicationName
+    ]
 
 instance FromJSON CodeDeployApplication where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 22, omitNothingFields = True }
+  parseJSON (Object obj) =
+    CodeDeployApplication <$>
+      obj .:? "ApplicationName"
+  parseJSON _ = mempty
 
 -- | Constructor for 'CodeDeployApplication' containing required fields as
 -- | arguments.

@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-application.html
 
 module Stratosphere.ResourceProperties.EMRClusterApplication where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -22,13 +22,26 @@ data EMRClusterApplication =
   , _eMRClusterApplicationArgs :: Maybe [Val Text]
   , _eMRClusterApplicationName :: Maybe (Val Text)
   , _eMRClusterApplicationVersion :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON EMRClusterApplication where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 22, omitNothingFields = True }
+  toJSON EMRClusterApplication{..} =
+    object $
+    catMaybes
+    [ ("AdditionalInfo" .=) <$> _eMRClusterApplicationAdditionalInfo
+    , ("Args" .=) <$> _eMRClusterApplicationArgs
+    , ("Name" .=) <$> _eMRClusterApplicationName
+    , ("Version" .=) <$> _eMRClusterApplicationVersion
+    ]
 
 instance FromJSON EMRClusterApplication where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 22, omitNothingFields = True }
+  parseJSON (Object obj) =
+    EMRClusterApplication <$>
+      obj .:? "AdditionalInfo" <*>
+      obj .:? "Args" <*>
+      obj .:? "Name" <*>
+      obj .:? "Version"
+  parseJSON _ = mempty
 
 -- | Constructor for 'EMRClusterApplication' containing required fields as
 -- | arguments.

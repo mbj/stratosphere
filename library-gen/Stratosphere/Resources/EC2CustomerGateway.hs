@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-customer-gateway.html
 
 module Stratosphere.Resources.EC2CustomerGateway where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.Tag
@@ -22,13 +22,26 @@ data EC2CustomerGateway =
   , _eC2CustomerGatewayIpAddress :: Val Text
   , _eC2CustomerGatewayTags :: Maybe [Tag]
   , _eC2CustomerGatewayType :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON EC2CustomerGateway where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 19, omitNothingFields = True }
+  toJSON EC2CustomerGateway{..} =
+    object $
+    catMaybes
+    [ Just ("BgpAsn" .= _eC2CustomerGatewayBgpAsn)
+    , Just ("IpAddress" .= _eC2CustomerGatewayIpAddress)
+    , ("Tags" .=) <$> _eC2CustomerGatewayTags
+    , Just ("Type" .= _eC2CustomerGatewayType)
+    ]
 
 instance FromJSON EC2CustomerGateway where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 19, omitNothingFields = True }
+  parseJSON (Object obj) =
+    EC2CustomerGateway <$>
+      obj .: "BgpAsn" <*>
+      obj .: "IpAddress" <*>
+      obj .:? "Tags" <*>
+      obj .: "Type"
+  parseJSON _ = mempty
 
 -- | Constructor for 'EC2CustomerGateway' containing required fields as
 -- | arguments.

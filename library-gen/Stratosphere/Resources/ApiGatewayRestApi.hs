@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html
 
 module Stratosphere.Resources.ApiGatewayRestApi where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.ApiGatewayRestApiS3Location
@@ -26,13 +26,34 @@ data ApiGatewayRestApi =
   , _apiGatewayRestApiMode :: Maybe (Val Text)
   , _apiGatewayRestApiName :: Maybe (Val Text)
   , _apiGatewayRestApiParameters :: Maybe Object
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON ApiGatewayRestApi where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 18, omitNothingFields = True }
+  toJSON ApiGatewayRestApi{..} =
+    object $
+    catMaybes
+    [ ("Body" .=) <$> _apiGatewayRestApiBody
+    , ("BodyS3Location" .=) <$> _apiGatewayRestApiBodyS3Location
+    , ("CloneFrom" .=) <$> _apiGatewayRestApiCloneFrom
+    , ("Description" .=) <$> _apiGatewayRestApiDescription
+    , ("FailOnWarnings" .=) <$> _apiGatewayRestApiFailOnWarnings
+    , ("Mode" .=) <$> _apiGatewayRestApiMode
+    , ("Name" .=) <$> _apiGatewayRestApiName
+    , ("Parameters" .=) <$> _apiGatewayRestApiParameters
+    ]
 
 instance FromJSON ApiGatewayRestApi where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 18, omitNothingFields = True }
+  parseJSON (Object obj) =
+    ApiGatewayRestApi <$>
+      obj .:? "Body" <*>
+      obj .:? "BodyS3Location" <*>
+      obj .:? "CloneFrom" <*>
+      obj .:? "Description" <*>
+      obj .:? "FailOnWarnings" <*>
+      obj .:? "Mode" <*>
+      obj .:? "Name" <*>
+      obj .:? "Parameters"
+  parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayRestApi' containing required fields as
 -- | arguments.

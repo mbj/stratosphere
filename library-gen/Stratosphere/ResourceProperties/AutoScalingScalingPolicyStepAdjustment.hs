@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-stepadjustments.html
 
 module Stratosphere.ResourceProperties.AutoScalingScalingPolicyStepAdjustment where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -22,13 +22,24 @@ data AutoScalingScalingPolicyStepAdjustment =
   { _autoScalingScalingPolicyStepAdjustmentMetricIntervalLowerBound :: Maybe (Val Double')
   , _autoScalingScalingPolicyStepAdjustmentMetricIntervalUpperBound :: Maybe (Val Double')
   , _autoScalingScalingPolicyStepAdjustmentScalingAdjustment :: Val Integer'
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON AutoScalingScalingPolicyStepAdjustment where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 39, omitNothingFields = True }
+  toJSON AutoScalingScalingPolicyStepAdjustment{..} =
+    object $
+    catMaybes
+    [ ("MetricIntervalLowerBound" .=) <$> _autoScalingScalingPolicyStepAdjustmentMetricIntervalLowerBound
+    , ("MetricIntervalUpperBound" .=) <$> _autoScalingScalingPolicyStepAdjustmentMetricIntervalUpperBound
+    , Just ("ScalingAdjustment" .= _autoScalingScalingPolicyStepAdjustmentScalingAdjustment)
+    ]
 
 instance FromJSON AutoScalingScalingPolicyStepAdjustment where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 39, omitNothingFields = True }
+  parseJSON (Object obj) =
+    AutoScalingScalingPolicyStepAdjustment <$>
+      obj .:? "MetricIntervalLowerBound" <*>
+      obj .:? "MetricIntervalUpperBound" <*>
+      obj .: "ScalingAdjustment"
+  parseJSON _ = mempty
 
 -- | Constructor for 'AutoScalingScalingPolicyStepAdjustment' containing
 -- | required fields as arguments.

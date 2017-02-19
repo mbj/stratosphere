@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpn-connection.html
 
 module Stratosphere.Resources.EC2VPNConnection where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.Tag
@@ -23,13 +23,28 @@ data EC2VPNConnection =
   , _eC2VPNConnectionTags :: Maybe [Tag]
   , _eC2VPNConnectionType :: Val Text
   , _eC2VPNConnectionVpnGatewayId :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON EC2VPNConnection where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 17, omitNothingFields = True }
+  toJSON EC2VPNConnection{..} =
+    object $
+    catMaybes
+    [ Just ("CustomerGatewayId" .= _eC2VPNConnectionCustomerGatewayId)
+    , ("StaticRoutesOnly" .=) <$> _eC2VPNConnectionStaticRoutesOnly
+    , ("Tags" .=) <$> _eC2VPNConnectionTags
+    , Just ("Type" .= _eC2VPNConnectionType)
+    , Just ("VpnGatewayId" .= _eC2VPNConnectionVpnGatewayId)
+    ]
 
 instance FromJSON EC2VPNConnection where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 17, omitNothingFields = True }
+  parseJSON (Object obj) =
+    EC2VPNConnection <$>
+      obj .: "CustomerGatewayId" <*>
+      obj .:? "StaticRoutesOnly" <*>
+      obj .:? "Tags" <*>
+      obj .: "Type" <*>
+      obj .: "VpnGatewayId"
+  parseJSON _ = mempty
 
 -- | Constructor for 'EC2VPNConnection' containing required fields as
 -- | arguments.

@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html
 
 module Stratosphere.Resources.ECSTaskDefinition where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.ECSTaskDefinitionContainerDefinition
@@ -24,13 +24,28 @@ data ECSTaskDefinition =
   , _eCSTaskDefinitionNetworkMode :: Maybe (Val Text)
   , _eCSTaskDefinitionTaskRoleArn :: Maybe (Val Text)
   , _eCSTaskDefinitionVolumes :: Maybe [ECSTaskDefinitionVolume]
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON ECSTaskDefinition where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 18, omitNothingFields = True }
+  toJSON ECSTaskDefinition{..} =
+    object $
+    catMaybes
+    [ ("ContainerDefinitions" .=) <$> _eCSTaskDefinitionContainerDefinitions
+    , ("Family" .=) <$> _eCSTaskDefinitionFamily
+    , ("NetworkMode" .=) <$> _eCSTaskDefinitionNetworkMode
+    , ("TaskRoleArn" .=) <$> _eCSTaskDefinitionTaskRoleArn
+    , ("Volumes" .=) <$> _eCSTaskDefinitionVolumes
+    ]
 
 instance FromJSON ECSTaskDefinition where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 18, omitNothingFields = True }
+  parseJSON (Object obj) =
+    ECSTaskDefinition <$>
+      obj .:? "ContainerDefinitions" <*>
+      obj .:? "Family" <*>
+      obj .:? "NetworkMode" <*>
+      obj .:? "TaskRoleArn" <*>
+      obj .:? "Volumes"
+  parseJSON _ = mempty
 
 -- | Constructor for 'ECSTaskDefinition' containing required fields as
 -- | arguments.

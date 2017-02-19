@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-versioningconfig.html
 
 module Stratosphere.ResourceProperties.S3BucketVersioningConfiguration where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -19,13 +19,20 @@ import Stratosphere.Values
 data S3BucketVersioningConfiguration =
   S3BucketVersioningConfiguration
   { _s3BucketVersioningConfigurationStatus :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON S3BucketVersioningConfiguration where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 32, omitNothingFields = True }
+  toJSON S3BucketVersioningConfiguration{..} =
+    object $
+    catMaybes
+    [ Just ("Status" .= _s3BucketVersioningConfigurationStatus)
+    ]
 
 instance FromJSON S3BucketVersioningConfiguration where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 32, omitNothingFields = True }
+  parseJSON (Object obj) =
+    S3BucketVersioningConfiguration <$>
+      obj .: "Status"
+  parseJSON _ = mempty
 
 -- | Constructor for 'S3BucketVersioningConfiguration' containing required
 -- | fields as arguments.

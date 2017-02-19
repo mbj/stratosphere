@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-sqs.html
 
 module Stratosphere.ResourceProperties.IoTTopicRuleSqsAction where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -21,13 +21,24 @@ data IoTTopicRuleSqsAction =
   { _ioTTopicRuleSqsActionQueueUrl :: Val Text
   , _ioTTopicRuleSqsActionRoleArn :: Val Text
   , _ioTTopicRuleSqsActionUseBase64 :: Maybe (Val Bool')
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON IoTTopicRuleSqsAction where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 22, omitNothingFields = True }
+  toJSON IoTTopicRuleSqsAction{..} =
+    object $
+    catMaybes
+    [ Just ("QueueUrl" .= _ioTTopicRuleSqsActionQueueUrl)
+    , Just ("RoleArn" .= _ioTTopicRuleSqsActionRoleArn)
+    , ("UseBase64" .=) <$> _ioTTopicRuleSqsActionUseBase64
+    ]
 
 instance FromJSON IoTTopicRuleSqsAction where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 22, omitNothingFields = True }
+  parseJSON (Object obj) =
+    IoTTopicRuleSqsAction <$>
+      obj .: "QueueUrl" <*>
+      obj .: "RoleArn" <*>
+      obj .:? "UseBase64"
+  parseJSON _ = mempty
 
 -- | Constructor for 'IoTTopicRuleSqsAction' containing required fields as
 -- | arguments.

@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules-routingrulecondition.html
 
 module Stratosphere.ResourceProperties.S3BucketRoutingRuleCondition where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -20,13 +20,22 @@ data S3BucketRoutingRuleCondition =
   S3BucketRoutingRuleCondition
   { _s3BucketRoutingRuleConditionHttpErrorCodeReturnedEquals :: Maybe (Val Text)
   , _s3BucketRoutingRuleConditionKeyPrefixEquals :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON S3BucketRoutingRuleCondition where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 29, omitNothingFields = True }
+  toJSON S3BucketRoutingRuleCondition{..} =
+    object $
+    catMaybes
+    [ ("HttpErrorCodeReturnedEquals" .=) <$> _s3BucketRoutingRuleConditionHttpErrorCodeReturnedEquals
+    , ("KeyPrefixEquals" .=) <$> _s3BucketRoutingRuleConditionKeyPrefixEquals
+    ]
 
 instance FromJSON S3BucketRoutingRuleCondition where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 29, omitNothingFields = True }
+  parseJSON (Object obj) =
+    S3BucketRoutingRuleCondition <$>
+      obj .:? "HttpErrorCodeReturnedEquals" <*>
+      obj .:? "KeyPrefixEquals"
+  parseJSON _ = mempty
 
 -- | Constructor for 'S3BucketRoutingRuleCondition' containing required fields
 -- | as arguments.

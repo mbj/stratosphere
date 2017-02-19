@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone-hostedzonevpcs.html
 
 module Stratosphere.ResourceProperties.Route53HostedZoneVPC where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -20,13 +20,22 @@ data Route53HostedZoneVPC =
   Route53HostedZoneVPC
   { _route53HostedZoneVPCVPCId :: Val Text
   , _route53HostedZoneVPCVPCRegion :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON Route53HostedZoneVPC where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 21, omitNothingFields = True }
+  toJSON Route53HostedZoneVPC{..} =
+    object $
+    catMaybes
+    [ Just ("VPCId" .= _route53HostedZoneVPCVPCId)
+    , Just ("VPCRegion" .= _route53HostedZoneVPCVPCRegion)
+    ]
 
 instance FromJSON Route53HostedZoneVPC where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 21, omitNothingFields = True }
+  parseJSON (Object obj) =
+    Route53HostedZoneVPC <$>
+      obj .: "VPCId" <*>
+      obj .: "VPCRegion"
+  parseJSON _ = mempty
 
 -- | Constructor for 'Route53HostedZoneVPC' containing required fields as
 -- | arguments.

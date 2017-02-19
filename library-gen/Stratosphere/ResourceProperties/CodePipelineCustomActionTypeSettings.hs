@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-customactiontype-settings.html
 
 module Stratosphere.ResourceProperties.CodePipelineCustomActionTypeSettings where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -22,13 +22,26 @@ data CodePipelineCustomActionTypeSettings =
   , _codePipelineCustomActionTypeSettingsExecutionUrlTemplate :: Maybe (Val Text)
   , _codePipelineCustomActionTypeSettingsRevisionUrlTemplate :: Maybe (Val Text)
   , _codePipelineCustomActionTypeSettingsThirdPartyConfigurationUrl :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON CodePipelineCustomActionTypeSettings where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 37, omitNothingFields = True }
+  toJSON CodePipelineCustomActionTypeSettings{..} =
+    object $
+    catMaybes
+    [ ("EntityUrlTemplate" .=) <$> _codePipelineCustomActionTypeSettingsEntityUrlTemplate
+    , ("ExecutionUrlTemplate" .=) <$> _codePipelineCustomActionTypeSettingsExecutionUrlTemplate
+    , ("RevisionUrlTemplate" .=) <$> _codePipelineCustomActionTypeSettingsRevisionUrlTemplate
+    , ("ThirdPartyConfigurationUrl" .=) <$> _codePipelineCustomActionTypeSettingsThirdPartyConfigurationUrl
+    ]
 
 instance FromJSON CodePipelineCustomActionTypeSettings where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 37, omitNothingFields = True }
+  parseJSON (Object obj) =
+    CodePipelineCustomActionTypeSettings <$>
+      obj .:? "EntityUrlTemplate" <*>
+      obj .:? "ExecutionUrlTemplate" <*>
+      obj .:? "RevisionUrlTemplate" <*>
+      obj .:? "ThirdPartyConfigurationUrl"
+  parseJSON _ = mempty
 
 -- | Constructor for 'CodePipelineCustomActionTypeSettings' containing
 -- | required fields as arguments.

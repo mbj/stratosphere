@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc.html
 
 module Stratosphere.Resources.EC2VPC where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.Tag
@@ -23,13 +23,28 @@ data EC2VPC =
   , _eC2VPCEnableDnsSupport :: Maybe (Val Bool')
   , _eC2VPCInstanceTenancy :: Maybe (Val Text)
   , _eC2VPCTags :: Maybe [Tag]
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON EC2VPC where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 7, omitNothingFields = True }
+  toJSON EC2VPC{..} =
+    object $
+    catMaybes
+    [ Just ("CidrBlock" .= _eC2VPCCidrBlock)
+    , ("EnableDnsHostnames" .=) <$> _eC2VPCEnableDnsHostnames
+    , ("EnableDnsSupport" .=) <$> _eC2VPCEnableDnsSupport
+    , ("InstanceTenancy" .=) <$> _eC2VPCInstanceTenancy
+    , ("Tags" .=) <$> _eC2VPCTags
+    ]
 
 instance FromJSON EC2VPC where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 7, omitNothingFields = True }
+  parseJSON (Object obj) =
+    EC2VPC <$>
+      obj .: "CidrBlock" <*>
+      obj .:? "EnableDnsHostnames" <*>
+      obj .:? "EnableDnsSupport" <*>
+      obj .:? "InstanceTenancy" <*>
+      obj .:? "Tags"
+  parseJSON _ = mempty
 
 -- | Constructor for 'EC2VPC' containing required fields as arguments.
 ec2VPC

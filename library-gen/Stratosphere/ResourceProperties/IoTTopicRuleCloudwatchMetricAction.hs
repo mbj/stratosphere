@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-cloudwatchmetric.html
 
 module Stratosphere.ResourceProperties.IoTTopicRuleCloudwatchMetricAction where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -24,13 +24,30 @@ data IoTTopicRuleCloudwatchMetricAction =
   , _ioTTopicRuleCloudwatchMetricActionMetricUnit :: Val Text
   , _ioTTopicRuleCloudwatchMetricActionMetricValue :: Val Text
   , _ioTTopicRuleCloudwatchMetricActionRoleArn :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON IoTTopicRuleCloudwatchMetricAction where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 35, omitNothingFields = True }
+  toJSON IoTTopicRuleCloudwatchMetricAction{..} =
+    object $
+    catMaybes
+    [ Just ("MetricName" .= _ioTTopicRuleCloudwatchMetricActionMetricName)
+    , Just ("MetricNamespace" .= _ioTTopicRuleCloudwatchMetricActionMetricNamespace)
+    , ("MetricTimestamp" .=) <$> _ioTTopicRuleCloudwatchMetricActionMetricTimestamp
+    , Just ("MetricUnit" .= _ioTTopicRuleCloudwatchMetricActionMetricUnit)
+    , Just ("MetricValue" .= _ioTTopicRuleCloudwatchMetricActionMetricValue)
+    , Just ("RoleArn" .= _ioTTopicRuleCloudwatchMetricActionRoleArn)
+    ]
 
 instance FromJSON IoTTopicRuleCloudwatchMetricAction where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 35, omitNothingFields = True }
+  parseJSON (Object obj) =
+    IoTTopicRuleCloudwatchMetricAction <$>
+      obj .: "MetricName" <*>
+      obj .: "MetricNamespace" <*>
+      obj .:? "MetricTimestamp" <*>
+      obj .: "MetricUnit" <*>
+      obj .: "MetricValue" <*>
+      obj .: "RoleArn"
+  parseJSON _ = mempty
 
 -- | Constructor for 'IoTTopicRuleCloudwatchMetricAction' containing required
 -- | fields as arguments.

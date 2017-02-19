@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html
 
 module Stratosphere.Resources.ApplicationAutoScalingScalingPolicy where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.ApplicationAutoScalingScalingPolicyStepScalingPolicyConfiguration
@@ -25,13 +25,32 @@ data ApplicationAutoScalingScalingPolicy =
   , _applicationAutoScalingScalingPolicyScalingTargetId :: Maybe (Val Text)
   , _applicationAutoScalingScalingPolicyServiceNamespace :: Maybe (Val Text)
   , _applicationAutoScalingScalingPolicyStepScalingPolicyConfiguration :: Maybe ApplicationAutoScalingScalingPolicyStepScalingPolicyConfiguration
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON ApplicationAutoScalingScalingPolicy where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 36, omitNothingFields = True }
+  toJSON ApplicationAutoScalingScalingPolicy{..} =
+    object $
+    catMaybes
+    [ Just ("PolicyName" .= _applicationAutoScalingScalingPolicyPolicyName)
+    , Just ("PolicyType" .= _applicationAutoScalingScalingPolicyPolicyType)
+    , ("ResourceId" .=) <$> _applicationAutoScalingScalingPolicyResourceId
+    , ("ScalableDimension" .=) <$> _applicationAutoScalingScalingPolicyScalableDimension
+    , ("ScalingTargetId" .=) <$> _applicationAutoScalingScalingPolicyScalingTargetId
+    , ("ServiceNamespace" .=) <$> _applicationAutoScalingScalingPolicyServiceNamespace
+    , ("StepScalingPolicyConfiguration" .=) <$> _applicationAutoScalingScalingPolicyStepScalingPolicyConfiguration
+    ]
 
 instance FromJSON ApplicationAutoScalingScalingPolicy where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 36, omitNothingFields = True }
+  parseJSON (Object obj) =
+    ApplicationAutoScalingScalingPolicy <$>
+      obj .: "PolicyName" <*>
+      obj .: "PolicyType" <*>
+      obj .:? "ResourceId" <*>
+      obj .:? "ScalableDimension" <*>
+      obj .:? "ScalingTargetId" <*>
+      obj .:? "ServiceNamespace" <*>
+      obj .:? "StepScalingPolicyConfiguration"
+  parseJSON _ = mempty
 
 -- | Constructor for 'ApplicationAutoScalingScalingPolicy' containing required
 -- | fields as arguments.

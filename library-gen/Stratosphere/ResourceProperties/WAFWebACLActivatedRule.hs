@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-webacl-rules.html
 
 module Stratosphere.ResourceProperties.WAFWebACLActivatedRule where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.WAFWebACLWafAction
@@ -21,13 +21,24 @@ data WAFWebACLActivatedRule =
   { _wAFWebACLActivatedRuleAction :: WAFWebACLWafAction
   , _wAFWebACLActivatedRulePriority :: Val Integer'
   , _wAFWebACLActivatedRuleRuleId :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON WAFWebACLActivatedRule where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 23, omitNothingFields = True }
+  toJSON WAFWebACLActivatedRule{..} =
+    object $
+    catMaybes
+    [ Just ("Action" .= _wAFWebACLActivatedRuleAction)
+    , Just ("Priority" .= _wAFWebACLActivatedRulePriority)
+    , Just ("RuleId" .= _wAFWebACLActivatedRuleRuleId)
+    ]
 
 instance FromJSON WAFWebACLActivatedRule where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 23, omitNothingFields = True }
+  parseJSON (Object obj) =
+    WAFWebACLActivatedRule <$>
+      obj .: "Action" <*>
+      obj .: "Priority" <*>
+      obj .: "RuleId"
+  parseJSON _ = mempty
 
 -- | Constructor for 'WAFWebACLActivatedRule' containing required fields as
 -- | arguments.

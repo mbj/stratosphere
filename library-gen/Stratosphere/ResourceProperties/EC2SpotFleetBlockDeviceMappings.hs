@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-blockdevicemappings.html
 
 module Stratosphere.ResourceProperties.EC2SpotFleetBlockDeviceMappings where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.EC2SpotFleetEbs
@@ -22,13 +22,26 @@ data EC2SpotFleetBlockDeviceMappings =
   , _eC2SpotFleetBlockDeviceMappingsEbs :: Maybe EC2SpotFleetEbs
   , _eC2SpotFleetBlockDeviceMappingsNoDevice :: Maybe (Val Bool')
   , _eC2SpotFleetBlockDeviceMappingsVirtualName :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON EC2SpotFleetBlockDeviceMappings where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 32, omitNothingFields = True }
+  toJSON EC2SpotFleetBlockDeviceMappings{..} =
+    object $
+    catMaybes
+    [ Just ("DeviceName" .= _eC2SpotFleetBlockDeviceMappingsDeviceName)
+    , ("Ebs" .=) <$> _eC2SpotFleetBlockDeviceMappingsEbs
+    , ("NoDevice" .=) <$> _eC2SpotFleetBlockDeviceMappingsNoDevice
+    , ("VirtualName" .=) <$> _eC2SpotFleetBlockDeviceMappingsVirtualName
+    ]
 
 instance FromJSON EC2SpotFleetBlockDeviceMappings where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 32, omitNothingFields = True }
+  parseJSON (Object obj) =
+    EC2SpotFleetBlockDeviceMappings <$>
+      obj .: "DeviceName" <*>
+      obj .:? "Ebs" <*>
+      obj .:? "NoDevice" <*>
+      obj .:? "VirtualName"
+  parseJSON _ = mempty
 
 -- | Constructor for 'EC2SpotFleetBlockDeviceMappings' containing required
 -- | fields as arguments.

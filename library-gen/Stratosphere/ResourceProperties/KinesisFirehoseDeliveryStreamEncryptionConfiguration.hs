@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-kinesisdeliverystream-s3destinationconfiguration-encryptionconfiguration.html
 
 module Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamEncryptionConfiguration where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.Types
@@ -23,13 +23,22 @@ data KinesisFirehoseDeliveryStreamEncryptionConfiguration =
   KinesisFirehoseDeliveryStreamEncryptionConfiguration
   { _kinesisFirehoseDeliveryStreamEncryptionConfigurationKMSEncryptionConfig :: Maybe KinesisFirehoseDeliveryStreamKMSEncryptionConfig
   , _kinesisFirehoseDeliveryStreamEncryptionConfigurationNoEncryptionConfig :: Maybe (Val KinesisFirehoseNoEncryptionConfig)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON KinesisFirehoseDeliveryStreamEncryptionConfiguration where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 53, omitNothingFields = True }
+  toJSON KinesisFirehoseDeliveryStreamEncryptionConfiguration{..} =
+    object $
+    catMaybes
+    [ ("KMSEncryptionConfig" .=) <$> _kinesisFirehoseDeliveryStreamEncryptionConfigurationKMSEncryptionConfig
+    , ("NoEncryptionConfig" .=) <$> _kinesisFirehoseDeliveryStreamEncryptionConfigurationNoEncryptionConfig
+    ]
 
 instance FromJSON KinesisFirehoseDeliveryStreamEncryptionConfiguration where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 53, omitNothingFields = True }
+  parseJSON (Object obj) =
+    KinesisFirehoseDeliveryStreamEncryptionConfiguration <$>
+      obj .:? "KMSEncryptionConfig" <*>
+      obj .:? "NoEncryptionConfig"
+  parseJSON _ = mempty
 
 -- | Constructor for 'KinesisFirehoseDeliveryStreamEncryptionConfiguration'
 -- | containing required fields as arguments.

@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-loadbasedautoscaling-autoscalingthresholds.html
 
 module Stratosphere.ResourceProperties.OpsWorksLayerAutoScalingThresholds where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -24,13 +24,30 @@ data OpsWorksLayerAutoScalingThresholds =
   , _opsWorksLayerAutoScalingThresholdsLoadThreshold :: Maybe (Val Double')
   , _opsWorksLayerAutoScalingThresholdsMemoryThreshold :: Maybe (Val Double')
   , _opsWorksLayerAutoScalingThresholdsThresholdsWaitTime :: Maybe (Val Integer')
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON OpsWorksLayerAutoScalingThresholds where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 35, omitNothingFields = True }
+  toJSON OpsWorksLayerAutoScalingThresholds{..} =
+    object $
+    catMaybes
+    [ ("CpuThreshold" .=) <$> _opsWorksLayerAutoScalingThresholdsCpuThreshold
+    , ("IgnoreMetricsTime" .=) <$> _opsWorksLayerAutoScalingThresholdsIgnoreMetricsTime
+    , ("InstanceCount" .=) <$> _opsWorksLayerAutoScalingThresholdsInstanceCount
+    , ("LoadThreshold" .=) <$> _opsWorksLayerAutoScalingThresholdsLoadThreshold
+    , ("MemoryThreshold" .=) <$> _opsWorksLayerAutoScalingThresholdsMemoryThreshold
+    , ("ThresholdsWaitTime" .=) <$> _opsWorksLayerAutoScalingThresholdsThresholdsWaitTime
+    ]
 
 instance FromJSON OpsWorksLayerAutoScalingThresholds where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 35, omitNothingFields = True }
+  parseJSON (Object obj) =
+    OpsWorksLayerAutoScalingThresholds <$>
+      obj .:? "CpuThreshold" <*>
+      obj .:? "IgnoreMetricsTime" <*>
+      obj .:? "InstanceCount" <*>
+      obj .:? "LoadThreshold" <*>
+      obj .:? "MemoryThreshold" <*>
+      obj .:? "ThresholdsWaitTime"
+  parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksLayerAutoScalingThresholds' containing required
 -- | fields as arguments.

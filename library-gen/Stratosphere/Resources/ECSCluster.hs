@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html
 
 module Stratosphere.Resources.ECSCluster where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -19,13 +19,20 @@ import Stratosphere.Values
 data ECSCluster =
   ECSCluster
   { _eCSClusterClusterName :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON ECSCluster where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 11, omitNothingFields = True }
+  toJSON ECSCluster{..} =
+    object $
+    catMaybes
+    [ ("ClusterName" .=) <$> _eCSClusterClusterName
+    ]
 
 instance FromJSON ECSCluster where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 11, omitNothingFields = True }
+  parseJSON (Object obj) =
+    ECSCluster <$>
+      obj .:? "ClusterName"
+  parseJSON _ = mempty
 
 -- | Constructor for 'ECSCluster' containing required fields as arguments.
 ecsCluster

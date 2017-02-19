@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-kinesisdeliverystream-elasticsearchdestinationconfiguration.html
 
 module Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguration where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.Types
@@ -34,13 +34,38 @@ data KinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguration =
   , _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationS3BackupMode :: Val KinesisFirehoseElasticsearchS3BackupMode
   , _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationS3Configuration :: KinesisFirehoseDeliveryStreamS3DestinationConfiguration
   , _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationTypeName :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON KinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguration where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 67, omitNothingFields = True }
+  toJSON KinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguration{..} =
+    object $
+    catMaybes
+    [ Just ("BufferingHints" .= _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationBufferingHints)
+    , ("CloudWatchLoggingOptions" .=) <$> _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationCloudWatchLoggingOptions
+    , Just ("DomainARN" .= _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationDomainARN)
+    , Just ("IndexName" .= _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationIndexName)
+    , Just ("IndexRotationPeriod" .= _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod)
+    , Just ("RetryOptions" .= _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationRetryOptions)
+    , Just ("RoleARN" .= _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationRoleARN)
+    , Just ("S3BackupMode" .= _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationS3BackupMode)
+    , Just ("S3Configuration" .= _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationS3Configuration)
+    , Just ("TypeName" .= _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationTypeName)
+    ]
 
 instance FromJSON KinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguration where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 67, omitNothingFields = True }
+  parseJSON (Object obj) =
+    KinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguration <$>
+      obj .: "BufferingHints" <*>
+      obj .:? "CloudWatchLoggingOptions" <*>
+      obj .: "DomainARN" <*>
+      obj .: "IndexName" <*>
+      obj .: "IndexRotationPeriod" <*>
+      obj .: "RetryOptions" <*>
+      obj .: "RoleARN" <*>
+      obj .: "S3BackupMode" <*>
+      obj .: "S3Configuration" <*>
+      obj .: "TypeName"
+  parseJSON _ = mempty
 
 -- | Constructor for
 -- | 'KinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguration'

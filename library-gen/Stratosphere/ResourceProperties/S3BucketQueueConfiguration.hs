@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig-queueconfig.html
 
 module Stratosphere.ResourceProperties.S3BucketQueueConfiguration where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.S3BucketNotificationFilter
@@ -21,13 +21,24 @@ data S3BucketQueueConfiguration =
   { _s3BucketQueueConfigurationEvent :: Val Text
   , _s3BucketQueueConfigurationFilter :: Maybe S3BucketNotificationFilter
   , _s3BucketQueueConfigurationQueue :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON S3BucketQueueConfiguration where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 27, omitNothingFields = True }
+  toJSON S3BucketQueueConfiguration{..} =
+    object $
+    catMaybes
+    [ Just ("Event" .= _s3BucketQueueConfigurationEvent)
+    , ("Filter" .=) <$> _s3BucketQueueConfigurationFilter
+    , Just ("Queue" .= _s3BucketQueueConfigurationQueue)
+    ]
 
 instance FromJSON S3BucketQueueConfiguration where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 27, omitNothingFields = True }
+  parseJSON (Object obj) =
+    S3BucketQueueConfiguration <$>
+      obj .: "Event" <*>
+      obj .:? "Filter" <*>
+      obj .: "Queue"
+  parseJSON _ = mempty
 
 -- | Constructor for 'S3BucketQueueConfiguration' containing required fields
 -- | as arguments.

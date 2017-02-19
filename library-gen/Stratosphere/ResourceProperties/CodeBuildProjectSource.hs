@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-source.html
 
 module Stratosphere.ResourceProperties.CodeBuildProjectSource where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.CodeBuildProjectSourceAuth
@@ -22,13 +22,26 @@ data CodeBuildProjectSource =
   , _codeBuildProjectSourceBuildSpec :: Maybe (Val Text)
   , _codeBuildProjectSourceLocation :: Maybe (Val Text)
   , _codeBuildProjectSourceType :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON CodeBuildProjectSource where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 23, omitNothingFields = True }
+  toJSON CodeBuildProjectSource{..} =
+    object $
+    catMaybes
+    [ ("Auth" .=) <$> _codeBuildProjectSourceAuth
+    , ("BuildSpec" .=) <$> _codeBuildProjectSourceBuildSpec
+    , ("Location" .=) <$> _codeBuildProjectSourceLocation
+    , ("Type" .=) <$> _codeBuildProjectSourceType
+    ]
 
 instance FromJSON CodeBuildProjectSource where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 23, omitNothingFields = True }
+  parseJSON (Object obj) =
+    CodeBuildProjectSource <$>
+      obj .:? "Auth" <*>
+      obj .:? "BuildSpec" <*>
+      obj .:? "Location" <*>
+      obj .:? "Type"
+  parseJSON _ = mempty
 
 -- | Constructor for 'CodeBuildProjectSource' containing required fields as
 -- | arguments.

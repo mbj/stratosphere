@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-ebsoptions.html
 
 module Stratosphere.ResourceProperties.ElasticsearchDomainEBSOptions where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -22,13 +22,26 @@ data ElasticsearchDomainEBSOptions =
   , _elasticsearchDomainEBSOptionsIops :: Maybe (Val Integer')
   , _elasticsearchDomainEBSOptionsVolumeSize :: Maybe (Val Integer')
   , _elasticsearchDomainEBSOptionsVolumeType :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON ElasticsearchDomainEBSOptions where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 30, omitNothingFields = True }
+  toJSON ElasticsearchDomainEBSOptions{..} =
+    object $
+    catMaybes
+    [ ("EBSEnabled" .=) <$> _elasticsearchDomainEBSOptionsEBSEnabled
+    , ("Iops" .=) <$> _elasticsearchDomainEBSOptionsIops
+    , ("VolumeSize" .=) <$> _elasticsearchDomainEBSOptionsVolumeSize
+    , ("VolumeType" .=) <$> _elasticsearchDomainEBSOptionsVolumeType
+    ]
 
 instance FromJSON ElasticsearchDomainEBSOptions where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 30, omitNothingFields = True }
+  parseJSON (Object obj) =
+    ElasticsearchDomainEBSOptions <$>
+      obj .:? "EBSEnabled" <*>
+      obj .:? "Iops" <*>
+      obj .:? "VolumeSize" <*>
+      obj .:? "VolumeType"
+  parseJSON _ = mempty
 
 -- | Constructor for 'ElasticsearchDomainEBSOptions' containing required
 -- | fields as arguments.

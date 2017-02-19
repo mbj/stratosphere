@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-firehose.html
 
 module Stratosphere.ResourceProperties.IoTTopicRuleFirehoseAction where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -21,13 +21,24 @@ data IoTTopicRuleFirehoseAction =
   { _ioTTopicRuleFirehoseActionDeliveryStreamName :: Val Text
   , _ioTTopicRuleFirehoseActionRoleArn :: Val Text
   , _ioTTopicRuleFirehoseActionSeparator :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON IoTTopicRuleFirehoseAction where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 27, omitNothingFields = True }
+  toJSON IoTTopicRuleFirehoseAction{..} =
+    object $
+    catMaybes
+    [ Just ("DeliveryStreamName" .= _ioTTopicRuleFirehoseActionDeliveryStreamName)
+    , Just ("RoleArn" .= _ioTTopicRuleFirehoseActionRoleArn)
+    , ("Separator" .=) <$> _ioTTopicRuleFirehoseActionSeparator
+    ]
 
 instance FromJSON IoTTopicRuleFirehoseAction where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 27, omitNothingFields = True }
+  parseJSON (Object obj) =
+    IoTTopicRuleFirehoseAction <$>
+      obj .: "DeliveryStreamName" <*>
+      obj .: "RoleArn" <*>
+      obj .:? "Separator"
+  parseJSON _ = mempty
 
 -- | Constructor for 'IoTTopicRuleFirehoseAction' containing required fields
 -- | as arguments.

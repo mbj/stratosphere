@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationrecorder-recordinggroup.html
 
 module Stratosphere.ResourceProperties.ConfigConfigurationRecorderRecordingGroup where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -22,13 +22,24 @@ data ConfigConfigurationRecorderRecordingGroup =
   { _configConfigurationRecorderRecordingGroupAllSupported :: Maybe (Val Bool')
   , _configConfigurationRecorderRecordingGroupIncludeGlobalResourceTypes :: Maybe (Val Bool')
   , _configConfigurationRecorderRecordingGroupResourceTypes :: Maybe [Val Text]
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON ConfigConfigurationRecorderRecordingGroup where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 42, omitNothingFields = True }
+  toJSON ConfigConfigurationRecorderRecordingGroup{..} =
+    object $
+    catMaybes
+    [ ("AllSupported" .=) <$> _configConfigurationRecorderRecordingGroupAllSupported
+    , ("IncludeGlobalResourceTypes" .=) <$> _configConfigurationRecorderRecordingGroupIncludeGlobalResourceTypes
+    , ("ResourceTypes" .=) <$> _configConfigurationRecorderRecordingGroupResourceTypes
+    ]
 
 instance FromJSON ConfigConfigurationRecorderRecordingGroup where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 42, omitNothingFields = True }
+  parseJSON (Object obj) =
+    ConfigConfigurationRecorderRecordingGroup <$>
+      obj .:? "AllSupported" <*>
+      obj .:? "IncludeGlobalResourceTypes" <*>
+      obj .:? "ResourceTypes"
+  parseJSON _ = mempty
 
 -- | Constructor for 'ConfigConfigurationRecorderRecordingGroup' containing
 -- | required fields as arguments.

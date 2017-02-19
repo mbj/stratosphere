@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-s3.html
 
 module Stratosphere.ResourceProperties.IoTTopicRuleS3Action where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -21,13 +21,24 @@ data IoTTopicRuleS3Action =
   { _ioTTopicRuleS3ActionBucketName :: Val Text
   , _ioTTopicRuleS3ActionKey :: Val Text
   , _ioTTopicRuleS3ActionRoleArn :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON IoTTopicRuleS3Action where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 21, omitNothingFields = True }
+  toJSON IoTTopicRuleS3Action{..} =
+    object $
+    catMaybes
+    [ Just ("BucketName" .= _ioTTopicRuleS3ActionBucketName)
+    , Just ("Key" .= _ioTTopicRuleS3ActionKey)
+    , Just ("RoleArn" .= _ioTTopicRuleS3ActionRoleArn)
+    ]
 
 instance FromJSON IoTTopicRuleS3Action where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 21, omitNothingFields = True }
+  parseJSON (Object obj) =
+    IoTTopicRuleS3Action <$>
+      obj .: "BucketName" <*>
+      obj .: "Key" <*>
+      obj .: "RoleArn"
+  parseJSON _ = mempty
 
 -- | Constructor for 'IoTTopicRuleS3Action' containing required fields as
 -- | arguments.

@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-forwardedvalues-cookies.html
 
 module Stratosphere.ResourceProperties.CloudFrontDistributionCookies where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -20,13 +20,22 @@ data CloudFrontDistributionCookies =
   CloudFrontDistributionCookies
   { _cloudFrontDistributionCookiesForward :: Val Text
   , _cloudFrontDistributionCookiesWhitelistedNames :: Maybe [Val Text]
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON CloudFrontDistributionCookies where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 30, omitNothingFields = True }
+  toJSON CloudFrontDistributionCookies{..} =
+    object $
+    catMaybes
+    [ Just ("Forward" .= _cloudFrontDistributionCookiesForward)
+    , ("WhitelistedNames" .=) <$> _cloudFrontDistributionCookiesWhitelistedNames
+    ]
 
 instance FromJSON CloudFrontDistributionCookies where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 30, omitNothingFields = True }
+  parseJSON (Object obj) =
+    CloudFrontDistributionCookies <$>
+      obj .: "Forward" <*>
+      obj .:? "WhitelistedNames"
+  parseJSON _ = mempty
 
 -- | Constructor for 'CloudFrontDistributionCookies' containing required
 -- | fields as arguments.

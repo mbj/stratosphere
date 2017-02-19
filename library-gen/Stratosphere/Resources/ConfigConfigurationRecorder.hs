@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationrecorder.html
 
 module Stratosphere.Resources.ConfigConfigurationRecorder where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.ConfigConfigurationRecorderRecordingGroup
@@ -21,13 +21,24 @@ data ConfigConfigurationRecorder =
   { _configConfigurationRecorderName :: Maybe (Val Text)
   , _configConfigurationRecorderRecordingGroup :: Maybe ConfigConfigurationRecorderRecordingGroup
   , _configConfigurationRecorderRoleArn :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON ConfigConfigurationRecorder where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 28, omitNothingFields = True }
+  toJSON ConfigConfigurationRecorder{..} =
+    object $
+    catMaybes
+    [ ("Name" .=) <$> _configConfigurationRecorderName
+    , ("RecordingGroup" .=) <$> _configConfigurationRecorderRecordingGroup
+    , Just ("RoleArn" .= _configConfigurationRecorderRoleArn)
+    ]
 
 instance FromJSON ConfigConfigurationRecorder where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 28, omitNothingFields = True }
+  parseJSON (Object obj) =
+    ConfigConfigurationRecorder <$>
+      obj .:? "Name" <*>
+      obj .:? "RecordingGroup" <*>
+      obj .: "RoleArn"
+  parseJSON _ = mempty
 
 -- | Constructor for 'ConfigConfigurationRecorder' containing required fields
 -- | as arguments.

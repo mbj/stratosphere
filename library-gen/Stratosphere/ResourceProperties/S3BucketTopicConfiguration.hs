@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig-topicconfig.html
 
 module Stratosphere.ResourceProperties.S3BucketTopicConfiguration where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.S3BucketNotificationFilter
@@ -21,13 +21,24 @@ data S3BucketTopicConfiguration =
   { _s3BucketTopicConfigurationEvent :: Val Text
   , _s3BucketTopicConfigurationFilter :: Maybe S3BucketNotificationFilter
   , _s3BucketTopicConfigurationTopic :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON S3BucketTopicConfiguration where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 27, omitNothingFields = True }
+  toJSON S3BucketTopicConfiguration{..} =
+    object $
+    catMaybes
+    [ Just ("Event" .= _s3BucketTopicConfigurationEvent)
+    , ("Filter" .=) <$> _s3BucketTopicConfigurationFilter
+    , Just ("Topic" .= _s3BucketTopicConfigurationTopic)
+    ]
 
 instance FromJSON S3BucketTopicConfiguration where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 27, omitNothingFields = True }
+  parseJSON (Object obj) =
+    S3BucketTopicConfiguration <$>
+      obj .: "Event" <*>
+      obj .:? "Filter" <*>
+      obj .: "Topic"
+  parseJSON _ = mempty
 
 -- | Constructor for 'S3BucketTopicConfiguration' containing required fields
 -- | as arguments.

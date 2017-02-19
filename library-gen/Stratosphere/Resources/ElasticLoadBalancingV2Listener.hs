@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html
 
 module Stratosphere.Resources.ElasticLoadBalancingV2Listener where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.ElasticLoadBalancingV2ListenerCertificate
@@ -25,13 +25,30 @@ data ElasticLoadBalancingV2Listener =
   , _elasticLoadBalancingV2ListenerPort :: Val Integer'
   , _elasticLoadBalancingV2ListenerProtocol :: Val Text
   , _elasticLoadBalancingV2ListenerSslPolicy :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON ElasticLoadBalancingV2Listener where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 31, omitNothingFields = True }
+  toJSON ElasticLoadBalancingV2Listener{..} =
+    object $
+    catMaybes
+    [ ("Certificates" .=) <$> _elasticLoadBalancingV2ListenerCertificates
+    , Just ("DefaultActions" .= _elasticLoadBalancingV2ListenerDefaultActions)
+    , Just ("LoadBalancerArn" .= _elasticLoadBalancingV2ListenerLoadBalancerArn)
+    , Just ("Port" .= _elasticLoadBalancingV2ListenerPort)
+    , Just ("Protocol" .= _elasticLoadBalancingV2ListenerProtocol)
+    , ("SslPolicy" .=) <$> _elasticLoadBalancingV2ListenerSslPolicy
+    ]
 
 instance FromJSON ElasticLoadBalancingV2Listener where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 31, omitNothingFields = True }
+  parseJSON (Object obj) =
+    ElasticLoadBalancingV2Listener <$>
+      obj .:? "Certificates" <*>
+      obj .: "DefaultActions" <*>
+      obj .: "LoadBalancerArn" <*>
+      obj .: "Port" <*>
+      obj .: "Protocol" <*>
+      obj .:? "SslPolicy"
+  parseJSON _ = mempty
 
 -- | Constructor for 'ElasticLoadBalancingV2Listener' containing required
 -- | fields as arguments.

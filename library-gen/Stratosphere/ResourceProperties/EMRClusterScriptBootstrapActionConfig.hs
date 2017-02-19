@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-bootstrapactionconfig-scriptbootstrapactionconfig.html
 
 module Stratosphere.ResourceProperties.EMRClusterScriptBootstrapActionConfig where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -21,13 +21,22 @@ data EMRClusterScriptBootstrapActionConfig =
   EMRClusterScriptBootstrapActionConfig
   { _eMRClusterScriptBootstrapActionConfigArgs :: Maybe [Val Text]
   , _eMRClusterScriptBootstrapActionConfigPath :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON EMRClusterScriptBootstrapActionConfig where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 38, omitNothingFields = True }
+  toJSON EMRClusterScriptBootstrapActionConfig{..} =
+    object $
+    catMaybes
+    [ ("Args" .=) <$> _eMRClusterScriptBootstrapActionConfigArgs
+    , Just ("Path" .= _eMRClusterScriptBootstrapActionConfigPath)
+    ]
 
 instance FromJSON EMRClusterScriptBootstrapActionConfig where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 38, omitNothingFields = True }
+  parseJSON (Object obj) =
+    EMRClusterScriptBootstrapActionConfig <$>
+      obj .:? "Args" <*>
+      obj .: "Path"
+  parseJSON _ = mempty
 
 -- | Constructor for 'EMRClusterScriptBootstrapActionConfig' containing
 -- | required fields as arguments.

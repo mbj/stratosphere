@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-metricfilter.html
 
 module Stratosphere.Resources.LogsMetricFilter where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.LogsMetricFilterMetricTransformation
@@ -21,13 +21,24 @@ data LogsMetricFilter =
   { _logsMetricFilterFilterPattern :: Val Text
   , _logsMetricFilterLogGroupName :: Val Text
   , _logsMetricFilterMetricTransformations :: [LogsMetricFilterMetricTransformation]
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON LogsMetricFilter where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 17, omitNothingFields = True }
+  toJSON LogsMetricFilter{..} =
+    object $
+    catMaybes
+    [ Just ("FilterPattern" .= _logsMetricFilterFilterPattern)
+    , Just ("LogGroupName" .= _logsMetricFilterLogGroupName)
+    , Just ("MetricTransformations" .= _logsMetricFilterMetricTransformations)
+    ]
 
 instance FromJSON LogsMetricFilter where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 17, omitNothingFields = True }
+  parseJSON (Object obj) =
+    LogsMetricFilter <$>
+      obj .: "FilterPattern" <*>
+      obj .: "LogGroupName" <*>
+      obj .: "MetricTransformations"
+  parseJSON _ = mempty
 
 -- | Constructor for 'LogsMetricFilter' containing required fields as
 -- | arguments.

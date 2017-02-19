@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-app-environment.html
 
 module Stratosphere.ResourceProperties.OpsWorksAppEnvironmentVariable where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -21,13 +21,24 @@ data OpsWorksAppEnvironmentVariable =
   { _opsWorksAppEnvironmentVariableKey :: Val Text
   , _opsWorksAppEnvironmentVariableSecure :: Maybe (Val Bool')
   , _opsWorksAppEnvironmentVariableValue :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON OpsWorksAppEnvironmentVariable where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 31, omitNothingFields = True }
+  toJSON OpsWorksAppEnvironmentVariable{..} =
+    object $
+    catMaybes
+    [ Just ("Key" .= _opsWorksAppEnvironmentVariableKey)
+    , ("Secure" .=) <$> _opsWorksAppEnvironmentVariableSecure
+    , Just ("Value" .= _opsWorksAppEnvironmentVariableValue)
+    ]
 
 instance FromJSON OpsWorksAppEnvironmentVariable where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 31, omitNothingFields = True }
+  parseJSON (Object obj) =
+    OpsWorksAppEnvironmentVariable <$>
+      obj .: "Key" <*>
+      obj .:? "Secure" <*>
+      obj .: "Value"
+  parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksAppEnvironmentVariable' containing required
 -- | fields as arguments.

@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datapipeline-pipeline-pipelinetags.html
 
 module Stratosphere.ResourceProperties.DataPipelinePipelinePipelineTag where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -20,13 +20,22 @@ data DataPipelinePipelinePipelineTag =
   DataPipelinePipelinePipelineTag
   { _dataPipelinePipelinePipelineTagKey :: Val Text
   , _dataPipelinePipelinePipelineTagValue :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON DataPipelinePipelinePipelineTag where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 32, omitNothingFields = True }
+  toJSON DataPipelinePipelinePipelineTag{..} =
+    object $
+    catMaybes
+    [ Just ("Key" .= _dataPipelinePipelinePipelineTagKey)
+    , Just ("Value" .= _dataPipelinePipelinePipelineTagValue)
+    ]
 
 instance FromJSON DataPipelinePipelinePipelineTag where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 32, omitNothingFields = True }
+  parseJSON (Object obj) =
+    DataPipelinePipelinePipelineTag <$>
+      obj .: "Key" <*>
+      obj .: "Value"
+  parseJSON _ = mempty
 
 -- | Constructor for 'DataPipelinePipelinePipelineTag' containing required
 -- | fields as arguments.

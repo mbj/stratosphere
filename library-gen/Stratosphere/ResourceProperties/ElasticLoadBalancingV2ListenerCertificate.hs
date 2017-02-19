@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-certificates.html
 
 module Stratosphere.ResourceProperties.ElasticLoadBalancingV2ListenerCertificate where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -20,13 +20,20 @@ import Stratosphere.Values
 data ElasticLoadBalancingV2ListenerCertificate =
   ElasticLoadBalancingV2ListenerCertificate
   { _elasticLoadBalancingV2ListenerCertificateCertificateArn :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON ElasticLoadBalancingV2ListenerCertificate where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 42, omitNothingFields = True }
+  toJSON ElasticLoadBalancingV2ListenerCertificate{..} =
+    object $
+    catMaybes
+    [ ("CertificateArn" .=) <$> _elasticLoadBalancingV2ListenerCertificateCertificateArn
+    ]
 
 instance FromJSON ElasticLoadBalancingV2ListenerCertificate where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 42, omitNothingFields = True }
+  parseJSON (Object obj) =
+    ElasticLoadBalancingV2ListenerCertificate <$>
+      obj .:? "CertificateArn"
+  parseJSON _ = mempty
 
 -- | Constructor for 'ElasticLoadBalancingV2ListenerCertificate' containing
 -- | required fields as arguments.

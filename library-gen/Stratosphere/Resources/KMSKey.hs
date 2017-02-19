@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html
 
 module Stratosphere.Resources.KMSKey where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -23,13 +23,28 @@ data KMSKey =
   , _kMSKeyEnabled :: Maybe (Val Bool')
   , _kMSKeyKeyPolicy :: Object
   , _kMSKeyKeyUsage :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON KMSKey where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 7, omitNothingFields = True }
+  toJSON KMSKey{..} =
+    object $
+    catMaybes
+    [ ("Description" .=) <$> _kMSKeyDescription
+    , ("EnableKeyRotation" .=) <$> _kMSKeyEnableKeyRotation
+    , ("Enabled" .=) <$> _kMSKeyEnabled
+    , Just ("KeyPolicy" .= _kMSKeyKeyPolicy)
+    , ("KeyUsage" .=) <$> _kMSKeyKeyUsage
+    ]
 
 instance FromJSON KMSKey where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 7, omitNothingFields = True }
+  parseJSON (Object obj) =
+    KMSKey <$>
+      obj .:? "Description" <*>
+      obj .:? "EnableKeyRotation" <*>
+      obj .:? "Enabled" <*>
+      obj .: "KeyPolicy" <*>
+      obj .:? "KeyUsage"
+  parseJSON _ = mempty
 
 -- | Constructor for 'KMSKey' containing required fields as arguments.
 kmsKey

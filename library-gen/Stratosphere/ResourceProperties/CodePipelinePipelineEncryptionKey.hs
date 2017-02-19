@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-artifactstore-encryptionkey.html
 
 module Stratosphere.ResourceProperties.CodePipelinePipelineEncryptionKey where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -20,13 +20,22 @@ data CodePipelinePipelineEncryptionKey =
   CodePipelinePipelineEncryptionKey
   { _codePipelinePipelineEncryptionKeyId :: Val Text
   , _codePipelinePipelineEncryptionKeyType :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON CodePipelinePipelineEncryptionKey where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 34, omitNothingFields = True }
+  toJSON CodePipelinePipelineEncryptionKey{..} =
+    object $
+    catMaybes
+    [ Just ("Id" .= _codePipelinePipelineEncryptionKeyId)
+    , Just ("Type" .= _codePipelinePipelineEncryptionKeyType)
+    ]
 
 instance FromJSON CodePipelinePipelineEncryptionKey where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 34, omitNothingFields = True }
+  parseJSON (Object obj) =
+    CodePipelinePipelineEncryptionKey <$>
+      obj .: "Id" <*>
+      obj .: "Type"
+  parseJSON _ = mempty
 
 -- | Constructor for 'CodePipelinePipelineEncryptionKey' containing required
 -- | fields as arguments.

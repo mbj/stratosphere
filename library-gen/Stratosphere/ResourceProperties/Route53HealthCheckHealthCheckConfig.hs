@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html
 
 module Stratosphere.ResourceProperties.Route53HealthCheckHealthCheckConfig where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -26,13 +26,34 @@ data Route53HealthCheckHealthCheckConfig =
   , _route53HealthCheckHealthCheckConfigResourcePath :: Maybe (Val Text)
   , _route53HealthCheckHealthCheckConfigSearchString :: Maybe (Val Text)
   , _route53HealthCheckHealthCheckConfigType :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON Route53HealthCheckHealthCheckConfig where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 36, omitNothingFields = True }
+  toJSON Route53HealthCheckHealthCheckConfig{..} =
+    object $
+    catMaybes
+    [ ("FailureThreshold" .=) <$> _route53HealthCheckHealthCheckConfigFailureThreshold
+    , ("FullyQualifiedDomainName" .=) <$> _route53HealthCheckHealthCheckConfigFullyQualifiedDomainName
+    , ("IPAddress" .=) <$> _route53HealthCheckHealthCheckConfigIPAddress
+    , ("Port" .=) <$> _route53HealthCheckHealthCheckConfigPort
+    , ("RequestInterval" .=) <$> _route53HealthCheckHealthCheckConfigRequestInterval
+    , ("ResourcePath" .=) <$> _route53HealthCheckHealthCheckConfigResourcePath
+    , ("SearchString" .=) <$> _route53HealthCheckHealthCheckConfigSearchString
+    , Just ("Type" .= _route53HealthCheckHealthCheckConfigType)
+    ]
 
 instance FromJSON Route53HealthCheckHealthCheckConfig where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 36, omitNothingFields = True }
+  parseJSON (Object obj) =
+    Route53HealthCheckHealthCheckConfig <$>
+      obj .:? "FailureThreshold" <*>
+      obj .:? "FullyQualifiedDomainName" <*>
+      obj .:? "IPAddress" <*>
+      obj .:? "Port" <*>
+      obj .:? "RequestInterval" <*>
+      obj .:? "ResourcePath" <*>
+      obj .:? "SearchString" <*>
+      obj .: "Type"
+  parseJSON _ = mempty
 
 -- | Constructor for 'Route53HealthCheckHealthCheckConfig' containing required
 -- | fields as arguments.

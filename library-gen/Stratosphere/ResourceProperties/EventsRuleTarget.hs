@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html
 
 module Stratosphere.ResourceProperties.EventsRuleTarget where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -22,13 +22,26 @@ data EventsRuleTarget =
   , _eventsRuleTargetId :: Val Text
   , _eventsRuleTargetInput :: Maybe (Val Text)
   , _eventsRuleTargetInputPath :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON EventsRuleTarget where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 17, omitNothingFields = True }
+  toJSON EventsRuleTarget{..} =
+    object $
+    catMaybes
+    [ Just ("Arn" .= _eventsRuleTargetArn)
+    , Just ("Id" .= _eventsRuleTargetId)
+    , ("Input" .=) <$> _eventsRuleTargetInput
+    , ("InputPath" .=) <$> _eventsRuleTargetInputPath
+    ]
 
 instance FromJSON EventsRuleTarget where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 17, omitNothingFields = True }
+  parseJSON (Object obj) =
+    EventsRuleTarget <$>
+      obj .: "Arn" <*>
+      obj .: "Id" <*>
+      obj .:? "Input" <*>
+      obj .:? "InputPath"
+  parseJSON _ = mempty
 
 -- | Constructor for 'EventsRuleTarget' containing required fields as
 -- | arguments.

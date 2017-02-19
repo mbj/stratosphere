@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-stack-rdsdbinstance.html
 
 module Stratosphere.ResourceProperties.OpsWorksStackRdsDbInstance where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -21,13 +21,24 @@ data OpsWorksStackRdsDbInstance =
   { _opsWorksStackRdsDbInstanceDbPassword :: Val Text
   , _opsWorksStackRdsDbInstanceDbUser :: Val Text
   , _opsWorksStackRdsDbInstanceRdsDbInstanceArn :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON OpsWorksStackRdsDbInstance where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 27, omitNothingFields = True }
+  toJSON OpsWorksStackRdsDbInstance{..} =
+    object $
+    catMaybes
+    [ Just ("DbPassword" .= _opsWorksStackRdsDbInstanceDbPassword)
+    , Just ("DbUser" .= _opsWorksStackRdsDbInstanceDbUser)
+    , Just ("RdsDbInstanceArn" .= _opsWorksStackRdsDbInstanceRdsDbInstanceArn)
+    ]
 
 instance FromJSON OpsWorksStackRdsDbInstance where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 27, omitNothingFields = True }
+  parseJSON (Object obj) =
+    OpsWorksStackRdsDbInstance <$>
+      obj .: "DbPassword" <*>
+      obj .: "DbUser" <*>
+      obj .: "RdsDbInstanceArn"
+  parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksStackRdsDbInstance' containing required fields
 -- | as arguments.

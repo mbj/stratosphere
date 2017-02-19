@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-notificationconfigurations.html
 
 module Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupNotificationConfigurations where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -22,13 +22,22 @@ data AutoScalingAutoScalingGroupNotificationConfigurations =
   AutoScalingAutoScalingGroupNotificationConfigurations
   { _autoScalingAutoScalingGroupNotificationConfigurationsNotificationTypes :: Maybe [Val Text]
   , _autoScalingAutoScalingGroupNotificationConfigurationsTopicARN :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON AutoScalingAutoScalingGroupNotificationConfigurations where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 54, omitNothingFields = True }
+  toJSON AutoScalingAutoScalingGroupNotificationConfigurations{..} =
+    object $
+    catMaybes
+    [ ("NotificationTypes" .=) <$> _autoScalingAutoScalingGroupNotificationConfigurationsNotificationTypes
+    , Just ("TopicARN" .= _autoScalingAutoScalingGroupNotificationConfigurationsTopicARN)
+    ]
 
 instance FromJSON AutoScalingAutoScalingGroupNotificationConfigurations where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 54, omitNothingFields = True }
+  parseJSON (Object obj) =
+    AutoScalingAutoScalingGroupNotificationConfigurations <$>
+      obj .:? "NotificationTypes" <*>
+      obj .: "TopicARN"
+  parseJSON _ = mempty
 
 -- | Constructor for 'AutoScalingAutoScalingGroupNotificationConfigurations'
 -- | containing required fields as arguments.

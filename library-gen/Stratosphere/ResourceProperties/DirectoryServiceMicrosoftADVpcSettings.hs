@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-directoryservice-microsoftad-vpcsettings.html
 
 module Stratosphere.ResourceProperties.DirectoryServiceMicrosoftADVpcSettings where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -21,13 +21,22 @@ data DirectoryServiceMicrosoftADVpcSettings =
   DirectoryServiceMicrosoftADVpcSettings
   { _directoryServiceMicrosoftADVpcSettingsSubnetIds :: [Val Text]
   , _directoryServiceMicrosoftADVpcSettingsVpcId :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON DirectoryServiceMicrosoftADVpcSettings where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 39, omitNothingFields = True }
+  toJSON DirectoryServiceMicrosoftADVpcSettings{..} =
+    object $
+    catMaybes
+    [ Just ("SubnetIds" .= _directoryServiceMicrosoftADVpcSettingsSubnetIds)
+    , Just ("VpcId" .= _directoryServiceMicrosoftADVpcSettingsVpcId)
+    ]
 
 instance FromJSON DirectoryServiceMicrosoftADVpcSettings where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 39, omitNothingFields = True }
+  parseJSON (Object obj) =
+    DirectoryServiceMicrosoftADVpcSettings <$>
+      obj .: "SubnetIds" <*>
+      obj .: "VpcId"
+  parseJSON _ = mempty
 
 -- | Constructor for 'DirectoryServiceMicrosoftADVpcSettings' containing
 -- | required fields as arguments.

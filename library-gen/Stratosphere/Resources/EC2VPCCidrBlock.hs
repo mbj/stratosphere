@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpccidrblock.html
 
 module Stratosphere.Resources.EC2VPCCidrBlock where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -20,13 +20,22 @@ data EC2VPCCidrBlock =
   EC2VPCCidrBlock
   { _eC2VPCCidrBlockAmazonProvidedIpv6CidrBlock :: Maybe (Val Bool')
   , _eC2VPCCidrBlockVpcId :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON EC2VPCCidrBlock where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 16, omitNothingFields = True }
+  toJSON EC2VPCCidrBlock{..} =
+    object $
+    catMaybes
+    [ ("AmazonProvidedIpv6CidrBlock" .=) <$> _eC2VPCCidrBlockAmazonProvidedIpv6CidrBlock
+    , Just ("VpcId" .= _eC2VPCCidrBlockVpcId)
+    ]
 
 instance FromJSON EC2VPCCidrBlock where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 16, omitNothingFields = True }
+  parseJSON (Object obj) =
+    EC2VPCCidrBlock <$>
+      obj .:? "AmazonProvidedIpv6CidrBlock" <*>
+      obj .: "VpcId"
+  parseJSON _ = mempty
 
 -- | Constructor for 'EC2VPCCidrBlock' containing required fields as
 -- | arguments.

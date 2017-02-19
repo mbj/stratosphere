@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html
 
 module Stratosphere.Resources.AutoScalingLaunchConfiguration where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.AutoScalingLaunchConfigurationBlockDeviceMapping
@@ -35,13 +35,52 @@ data AutoScalingLaunchConfiguration =
   , _autoScalingLaunchConfigurationSecurityGroups :: Maybe [Val Text]
   , _autoScalingLaunchConfigurationSpotPrice :: Maybe (Val Text)
   , _autoScalingLaunchConfigurationUserData :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON AutoScalingLaunchConfiguration where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 31, omitNothingFields = True }
+  toJSON AutoScalingLaunchConfiguration{..} =
+    object $
+    catMaybes
+    [ ("AssociatePublicIpAddress" .=) <$> _autoScalingLaunchConfigurationAssociatePublicIpAddress
+    , ("BlockDeviceMappings" .=) <$> _autoScalingLaunchConfigurationBlockDeviceMappings
+    , ("ClassicLinkVPCId" .=) <$> _autoScalingLaunchConfigurationClassicLinkVPCId
+    , ("ClassicLinkVPCSecurityGroups" .=) <$> _autoScalingLaunchConfigurationClassicLinkVPCSecurityGroups
+    , ("EbsOptimized" .=) <$> _autoScalingLaunchConfigurationEbsOptimized
+    , ("IamInstanceProfile" .=) <$> _autoScalingLaunchConfigurationIamInstanceProfile
+    , Just ("ImageId" .= _autoScalingLaunchConfigurationImageId)
+    , ("InstanceId" .=) <$> _autoScalingLaunchConfigurationInstanceId
+    , ("InstanceMonitoring" .=) <$> _autoScalingLaunchConfigurationInstanceMonitoring
+    , Just ("InstanceType" .= _autoScalingLaunchConfigurationInstanceType)
+    , ("KernelId" .=) <$> _autoScalingLaunchConfigurationKernelId
+    , ("KeyName" .=) <$> _autoScalingLaunchConfigurationKeyName
+    , ("PlacementTenancy" .=) <$> _autoScalingLaunchConfigurationPlacementTenancy
+    , ("RamDiskId" .=) <$> _autoScalingLaunchConfigurationRamDiskId
+    , ("SecurityGroups" .=) <$> _autoScalingLaunchConfigurationSecurityGroups
+    , ("SpotPrice" .=) <$> _autoScalingLaunchConfigurationSpotPrice
+    , ("UserData" .=) <$> _autoScalingLaunchConfigurationUserData
+    ]
 
 instance FromJSON AutoScalingLaunchConfiguration where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 31, omitNothingFields = True }
+  parseJSON (Object obj) =
+    AutoScalingLaunchConfiguration <$>
+      obj .:? "AssociatePublicIpAddress" <*>
+      obj .:? "BlockDeviceMappings" <*>
+      obj .:? "ClassicLinkVPCId" <*>
+      obj .:? "ClassicLinkVPCSecurityGroups" <*>
+      obj .:? "EbsOptimized" <*>
+      obj .:? "IamInstanceProfile" <*>
+      obj .: "ImageId" <*>
+      obj .:? "InstanceId" <*>
+      obj .:? "InstanceMonitoring" <*>
+      obj .: "InstanceType" <*>
+      obj .:? "KernelId" <*>
+      obj .:? "KeyName" <*>
+      obj .:? "PlacementTenancy" <*>
+      obj .:? "RamDiskId" <*>
+      obj .:? "SecurityGroups" <*>
+      obj .:? "SpotPrice" <*>
+      obj .:? "UserData"
+  parseJSON _ = mempty
 
 -- | Constructor for 'AutoScalingLaunchConfiguration' containing required
 -- | fields as arguments.

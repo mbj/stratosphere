@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages-actions-actiontypeid.html
 
 module Stratosphere.ResourceProperties.CodePipelinePipelineActionTypeId where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -22,13 +22,26 @@ data CodePipelinePipelineActionTypeId =
   , _codePipelinePipelineActionTypeIdOwner :: Val Text
   , _codePipelinePipelineActionTypeIdProvider :: Val Text
   , _codePipelinePipelineActionTypeIdVersion :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON CodePipelinePipelineActionTypeId where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 33, omitNothingFields = True }
+  toJSON CodePipelinePipelineActionTypeId{..} =
+    object $
+    catMaybes
+    [ Just ("Category" .= _codePipelinePipelineActionTypeIdCategory)
+    , Just ("Owner" .= _codePipelinePipelineActionTypeIdOwner)
+    , Just ("Provider" .= _codePipelinePipelineActionTypeIdProvider)
+    , Just ("Version" .= _codePipelinePipelineActionTypeIdVersion)
+    ]
 
 instance FromJSON CodePipelinePipelineActionTypeId where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 33, omitNothingFields = True }
+  parseJSON (Object obj) =
+    CodePipelinePipelineActionTypeId <$>
+      obj .: "Category" <*>
+      obj .: "Owner" <*>
+      obj .: "Provider" <*>
+      obj .: "Version"
+  parseJSON _ = mempty
 
 -- | Constructor for 'CodePipelinePipelineActionTypeId' containing required
 -- | fields as arguments.

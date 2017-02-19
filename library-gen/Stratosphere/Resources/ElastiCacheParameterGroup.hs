@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-parameter-group.html
 
 module Stratosphere.Resources.ElastiCacheParameterGroup where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -21,13 +21,24 @@ data ElastiCacheParameterGroup =
   { _elastiCacheParameterGroupCacheParameterGroupFamily :: Val Text
   , _elastiCacheParameterGroupDescription :: Val Text
   , _elastiCacheParameterGroupProperties :: Maybe Object
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON ElastiCacheParameterGroup where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 26, omitNothingFields = True }
+  toJSON ElastiCacheParameterGroup{..} =
+    object $
+    catMaybes
+    [ Just ("CacheParameterGroupFamily" .= _elastiCacheParameterGroupCacheParameterGroupFamily)
+    , Just ("Description" .= _elastiCacheParameterGroupDescription)
+    , ("Properties" .=) <$> _elastiCacheParameterGroupProperties
+    ]
 
 instance FromJSON ElastiCacheParameterGroup where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 26, omitNothingFields = True }
+  parseJSON (Object obj) =
+    ElastiCacheParameterGroup <$>
+      obj .: "CacheParameterGroupFamily" <*>
+      obj .: "Description" <*>
+      obj .:? "Properties"
+  parseJSON _ = mempty
 
 -- | Constructor for 'ElastiCacheParameterGroup' containing required fields as
 -- | arguments.

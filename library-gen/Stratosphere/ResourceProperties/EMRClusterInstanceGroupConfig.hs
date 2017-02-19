@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-jobflowinstancesconfig-instancegroupconfig.html
 
 module Stratosphere.ResourceProperties.EMRClusterInstanceGroupConfig where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.EMRClusterConfiguration
@@ -26,13 +26,32 @@ data EMRClusterInstanceGroupConfig =
   , _eMRClusterInstanceGroupConfigInstanceType :: Val Text
   , _eMRClusterInstanceGroupConfigMarket :: Maybe (Val Text)
   , _eMRClusterInstanceGroupConfigName :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON EMRClusterInstanceGroupConfig where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 30, omitNothingFields = True }
+  toJSON EMRClusterInstanceGroupConfig{..} =
+    object $
+    catMaybes
+    [ ("BidPrice" .=) <$> _eMRClusterInstanceGroupConfigBidPrice
+    , ("Configurations" .=) <$> _eMRClusterInstanceGroupConfigConfigurations
+    , ("EbsConfiguration" .=) <$> _eMRClusterInstanceGroupConfigEbsConfiguration
+    , Just ("InstanceCount" .= _eMRClusterInstanceGroupConfigInstanceCount)
+    , Just ("InstanceType" .= _eMRClusterInstanceGroupConfigInstanceType)
+    , ("Market" .=) <$> _eMRClusterInstanceGroupConfigMarket
+    , ("Name" .=) <$> _eMRClusterInstanceGroupConfigName
+    ]
 
 instance FromJSON EMRClusterInstanceGroupConfig where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 30, omitNothingFields = True }
+  parseJSON (Object obj) =
+    EMRClusterInstanceGroupConfig <$>
+      obj .:? "BidPrice" <*>
+      obj .:? "Configurations" <*>
+      obj .:? "EbsConfiguration" <*>
+      obj .: "InstanceCount" <*>
+      obj .: "InstanceType" <*>
+      obj .:? "Market" <*>
+      obj .:? "Name"
+  parseJSON _ = mempty
 
 -- | Constructor for 'EMRClusterInstanceGroupConfig' containing required
 -- | fields as arguments.

@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html
 
 module Stratosphere.Resources.ApiGatewayApiKey where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.ApiGatewayApiKeyStageKey
@@ -22,13 +22,26 @@ data ApiGatewayApiKey =
   , _apiGatewayApiKeyEnabled :: Maybe (Val Bool')
   , _apiGatewayApiKeyName :: Maybe (Val Text)
   , _apiGatewayApiKeyStageKeys :: Maybe [ApiGatewayApiKeyStageKey]
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON ApiGatewayApiKey where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 17, omitNothingFields = True }
+  toJSON ApiGatewayApiKey{..} =
+    object $
+    catMaybes
+    [ ("Description" .=) <$> _apiGatewayApiKeyDescription
+    , ("Enabled" .=) <$> _apiGatewayApiKeyEnabled
+    , ("Name" .=) <$> _apiGatewayApiKeyName
+    , ("StageKeys" .=) <$> _apiGatewayApiKeyStageKeys
+    ]
 
 instance FromJSON ApiGatewayApiKey where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 17, omitNothingFields = True }
+  parseJSON (Object obj) =
+    ApiGatewayApiKey <$>
+      obj .:? "Description" <*>
+      obj .:? "Enabled" <*>
+      obj .:? "Name" <*>
+      obj .:? "StageKeys"
+  parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayApiKey' containing required fields as
 -- | arguments.

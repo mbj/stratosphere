@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html
 
 module Stratosphere.Resources.DynamoDBTable where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.DynamoDBTableAttributeDefinition
@@ -30,13 +30,32 @@ data DynamoDBTable =
   , _dynamoDBTableProvisionedThroughput :: DynamoDBTableProvisionedThroughput
   , _dynamoDBTableStreamSpecification :: Maybe DynamoDBTableStreamSpecification
   , _dynamoDBTableTableName :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON DynamoDBTable where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 14, omitNothingFields = True }
+  toJSON DynamoDBTable{..} =
+    object $
+    catMaybes
+    [ Just ("AttributeDefinitions" .= _dynamoDBTableAttributeDefinitions)
+    , ("GlobalSecondaryIndexes" .=) <$> _dynamoDBTableGlobalSecondaryIndexes
+    , Just ("KeySchema" .= _dynamoDBTableKeySchema)
+    , ("LocalSecondaryIndexes" .=) <$> _dynamoDBTableLocalSecondaryIndexes
+    , Just ("ProvisionedThroughput" .= _dynamoDBTableProvisionedThroughput)
+    , ("StreamSpecification" .=) <$> _dynamoDBTableStreamSpecification
+    , ("TableName" .=) <$> _dynamoDBTableTableName
+    ]
 
 instance FromJSON DynamoDBTable where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 14, omitNothingFields = True }
+  parseJSON (Object obj) =
+    DynamoDBTable <$>
+      obj .: "AttributeDefinitions" <*>
+      obj .:? "GlobalSecondaryIndexes" <*>
+      obj .: "KeySchema" <*>
+      obj .:? "LocalSecondaryIndexes" <*>
+      obj .: "ProvisionedThroughput" <*>
+      obj .:? "StreamSpecification" <*>
+      obj .:? "TableName"
+  parseJSON _ = mempty
 
 -- | Constructor for 'DynamoDBTable' containing required fields as arguments.
 dynamoDBTable

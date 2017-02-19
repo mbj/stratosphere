@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-portmappings.html
 
 module Stratosphere.ResourceProperties.ECSTaskDefinitionPortMapping where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -21,13 +21,24 @@ data ECSTaskDefinitionPortMapping =
   { _eCSTaskDefinitionPortMappingContainerPort :: Maybe (Val Integer')
   , _eCSTaskDefinitionPortMappingHostPort :: Maybe (Val Integer')
   , _eCSTaskDefinitionPortMappingProtocol :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON ECSTaskDefinitionPortMapping where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 29, omitNothingFields = True }
+  toJSON ECSTaskDefinitionPortMapping{..} =
+    object $
+    catMaybes
+    [ ("ContainerPort" .=) <$> _eCSTaskDefinitionPortMappingContainerPort
+    , ("HostPort" .=) <$> _eCSTaskDefinitionPortMappingHostPort
+    , ("Protocol" .=) <$> _eCSTaskDefinitionPortMappingProtocol
+    ]
 
 instance FromJSON ECSTaskDefinitionPortMapping where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 29, omitNothingFields = True }
+  parseJSON (Object obj) =
+    ECSTaskDefinitionPortMapping <$>
+      obj .:? "ContainerPort" <*>
+      obj .:? "HostPort" <*>
+      obj .:? "Protocol"
+  parseJSON _ = mempty
 
 -- | Constructor for 'ECSTaskDefinitionPortMapping' containing required fields
 -- | as arguments.

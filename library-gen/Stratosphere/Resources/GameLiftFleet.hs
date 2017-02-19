@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html
 
 module Stratosphere.Resources.GameLiftFleet where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.GameLiftFleetIpPermission
@@ -29,13 +29,40 @@ data GameLiftFleet =
   , _gameLiftFleetName :: Val Text
   , _gameLiftFleetServerLaunchParameters :: Maybe (Val Text)
   , _gameLiftFleetServerLaunchPath :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON GameLiftFleet where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 14, omitNothingFields = True }
+  toJSON GameLiftFleet{..} =
+    object $
+    catMaybes
+    [ Just ("BuildId" .= _gameLiftFleetBuildId)
+    , ("Description" .=) <$> _gameLiftFleetDescription
+    , Just ("DesiredEC2Instances" .= _gameLiftFleetDesiredEC2Instances)
+    , ("EC2InboundPermissions" .=) <$> _gameLiftFleetEC2InboundPermissions
+    , Just ("EC2InstanceType" .= _gameLiftFleetEC2InstanceType)
+    , ("LogPaths" .=) <$> _gameLiftFleetLogPaths
+    , ("MaxSize" .=) <$> _gameLiftFleetMaxSize
+    , ("MinSize" .=) <$> _gameLiftFleetMinSize
+    , Just ("Name" .= _gameLiftFleetName)
+    , ("ServerLaunchParameters" .=) <$> _gameLiftFleetServerLaunchParameters
+    , Just ("ServerLaunchPath" .= _gameLiftFleetServerLaunchPath)
+    ]
 
 instance FromJSON GameLiftFleet where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 14, omitNothingFields = True }
+  parseJSON (Object obj) =
+    GameLiftFleet <$>
+      obj .: "BuildId" <*>
+      obj .:? "Description" <*>
+      obj .: "DesiredEC2Instances" <*>
+      obj .:? "EC2InboundPermissions" <*>
+      obj .: "EC2InstanceType" <*>
+      obj .:? "LogPaths" <*>
+      obj .:? "MaxSize" <*>
+      obj .:? "MinSize" <*>
+      obj .: "Name" <*>
+      obj .:? "ServerLaunchParameters" <*>
+      obj .: "ServerLaunchPath"
+  parseJSON _ = mempty
 
 -- | Constructor for 'GameLiftFleet' containing required fields as arguments.
 gameLiftFleet

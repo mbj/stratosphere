@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpn-gatewayrouteprop.html
 
 module Stratosphere.Resources.EC2VPNGatewayRoutePropagation where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -20,13 +20,22 @@ data EC2VPNGatewayRoutePropagation =
   EC2VPNGatewayRoutePropagation
   { _eC2VPNGatewayRoutePropagationRouteTableIds :: [Val Text]
   , _eC2VPNGatewayRoutePropagationVpnGatewayId :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON EC2VPNGatewayRoutePropagation where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 30, omitNothingFields = True }
+  toJSON EC2VPNGatewayRoutePropagation{..} =
+    object $
+    catMaybes
+    [ Just ("RouteTableIds" .= _eC2VPNGatewayRoutePropagationRouteTableIds)
+    , Just ("VpnGatewayId" .= _eC2VPNGatewayRoutePropagationVpnGatewayId)
+    ]
 
 instance FromJSON EC2VPNGatewayRoutePropagation where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 30, omitNothingFields = True }
+  parseJSON (Object obj) =
+    EC2VPNGatewayRoutePropagation <$>
+      obj .: "RouteTableIds" <*>
+      obj .: "VpnGatewayId"
+  parseJSON _ = mempty
 
 -- | Constructor for 'EC2VPNGatewayRoutePropagation' containing required
 -- | fields as arguments.

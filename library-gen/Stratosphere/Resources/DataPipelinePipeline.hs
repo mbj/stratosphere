@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datapipeline-pipeline.html
 
 module Stratosphere.Resources.DataPipelinePipeline where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.DataPipelinePipelineParameterObject
@@ -28,13 +28,32 @@ data DataPipelinePipeline =
   , _dataPipelinePipelineParameterValues :: Maybe [DataPipelinePipelineParameterValue]
   , _dataPipelinePipelinePipelineObjects :: Maybe [DataPipelinePipelinePipelineObject]
   , _dataPipelinePipelinePipelineTags :: Maybe [DataPipelinePipelinePipelineTag]
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON DataPipelinePipeline where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 21, omitNothingFields = True }
+  toJSON DataPipelinePipeline{..} =
+    object $
+    catMaybes
+    [ ("Activate" .=) <$> _dataPipelinePipelineActivate
+    , ("Description" .=) <$> _dataPipelinePipelineDescription
+    , Just ("Name" .= _dataPipelinePipelineName)
+    , Just ("ParameterObjects" .= _dataPipelinePipelineParameterObjects)
+    , ("ParameterValues" .=) <$> _dataPipelinePipelineParameterValues
+    , ("PipelineObjects" .=) <$> _dataPipelinePipelinePipelineObjects
+    , ("PipelineTags" .=) <$> _dataPipelinePipelinePipelineTags
+    ]
 
 instance FromJSON DataPipelinePipeline where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 21, omitNothingFields = True }
+  parseJSON (Object obj) =
+    DataPipelinePipeline <$>
+      obj .:? "Activate" <*>
+      obj .:? "Description" <*>
+      obj .: "Name" <*>
+      obj .: "ParameterObjects" <*>
+      obj .:? "ParameterValues" <*>
+      obj .:? "PipelineObjects" <*>
+      obj .:? "PipelineTags"
+  parseJSON _ = mempty
 
 -- | Constructor for 'DataPipelinePipeline' containing required fields as
 -- | arguments.

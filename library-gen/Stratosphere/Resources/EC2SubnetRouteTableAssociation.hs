@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet-route-table-assoc.html
 
 module Stratosphere.Resources.EC2SubnetRouteTableAssociation where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -20,13 +20,22 @@ data EC2SubnetRouteTableAssociation =
   EC2SubnetRouteTableAssociation
   { _eC2SubnetRouteTableAssociationRouteTableId :: Val Text
   , _eC2SubnetRouteTableAssociationSubnetId :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON EC2SubnetRouteTableAssociation where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 31, omitNothingFields = True }
+  toJSON EC2SubnetRouteTableAssociation{..} =
+    object $
+    catMaybes
+    [ Just ("RouteTableId" .= _eC2SubnetRouteTableAssociationRouteTableId)
+    , Just ("SubnetId" .= _eC2SubnetRouteTableAssociationSubnetId)
+    ]
 
 instance FromJSON EC2SubnetRouteTableAssociation where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 31, omitNothingFields = True }
+  parseJSON (Object obj) =
+    EC2SubnetRouteTableAssociation <$>
+      obj .: "RouteTableId" <*>
+      obj .: "SubnetId"
+  parseJSON _ = mempty
 
 -- | Constructor for 'EC2SubnetRouteTableAssociation' containing required
 -- | fields as arguments.

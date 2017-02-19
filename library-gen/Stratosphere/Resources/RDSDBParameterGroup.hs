@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbparametergroup.html
 
 module Stratosphere.Resources.RDSDBParameterGroup where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.Tag
@@ -22,13 +22,26 @@ data RDSDBParameterGroup =
   , _rDSDBParameterGroupFamily :: Val Text
   , _rDSDBParameterGroupParameters :: Maybe Object
   , _rDSDBParameterGroupTags :: Maybe [Tag]
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON RDSDBParameterGroup where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 20, omitNothingFields = True }
+  toJSON RDSDBParameterGroup{..} =
+    object $
+    catMaybes
+    [ Just ("Description" .= _rDSDBParameterGroupDescription)
+    , Just ("Family" .= _rDSDBParameterGroupFamily)
+    , ("Parameters" .=) <$> _rDSDBParameterGroupParameters
+    , ("Tags" .=) <$> _rDSDBParameterGroupTags
+    ]
 
 instance FromJSON RDSDBParameterGroup where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 20, omitNothingFields = True }
+  parseJSON (Object obj) =
+    RDSDBParameterGroup <$>
+      obj .: "Description" <*>
+      obj .: "Family" <*>
+      obj .:? "Parameters" <*>
+      obj .:? "Tags"
+  parseJSON _ = mempty
 
 -- | Constructor for 'RDSDBParameterGroup' containing required fields as
 -- | arguments.

@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html
 
 module Stratosphere.ResourceProperties.EC2SpotFleetSpotFleetRequestConfigData where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.EC2SpotFleetLaunchSpecifications
@@ -28,13 +28,36 @@ data EC2SpotFleetSpotFleetRequestConfigData =
   , _eC2SpotFleetSpotFleetRequestConfigDataTerminateInstancesWithExpiration :: Maybe (Val Bool')
   , _eC2SpotFleetSpotFleetRequestConfigDataValidFrom :: Maybe (Val Text)
   , _eC2SpotFleetSpotFleetRequestConfigDataValidUntil :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON EC2SpotFleetSpotFleetRequestConfigData where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 39, omitNothingFields = True }
+  toJSON EC2SpotFleetSpotFleetRequestConfigData{..} =
+    object $
+    catMaybes
+    [ ("AllocationStrategy" .=) <$> _eC2SpotFleetSpotFleetRequestConfigDataAllocationStrategy
+    , ("ExcessCapacityTerminationPolicy" .=) <$> _eC2SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy
+    , Just ("IamFleetRole" .= _eC2SpotFleetSpotFleetRequestConfigDataIamFleetRole)
+    , Just ("LaunchSpecifications" .= _eC2SpotFleetSpotFleetRequestConfigDataLaunchSpecifications)
+    , Just ("SpotPrice" .= _eC2SpotFleetSpotFleetRequestConfigDataSpotPrice)
+    , Just ("TargetCapacity" .= _eC2SpotFleetSpotFleetRequestConfigDataTargetCapacity)
+    , ("TerminateInstancesWithExpiration" .=) <$> _eC2SpotFleetSpotFleetRequestConfigDataTerminateInstancesWithExpiration
+    , ("ValidFrom" .=) <$> _eC2SpotFleetSpotFleetRequestConfigDataValidFrom
+    , ("ValidUntil" .=) <$> _eC2SpotFleetSpotFleetRequestConfigDataValidUntil
+    ]
 
 instance FromJSON EC2SpotFleetSpotFleetRequestConfigData where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 39, omitNothingFields = True }
+  parseJSON (Object obj) =
+    EC2SpotFleetSpotFleetRequestConfigData <$>
+      obj .:? "AllocationStrategy" <*>
+      obj .:? "ExcessCapacityTerminationPolicy" <*>
+      obj .: "IamFleetRole" <*>
+      obj .: "LaunchSpecifications" <*>
+      obj .: "SpotPrice" <*>
+      obj .: "TargetCapacity" <*>
+      obj .:? "TerminateInstancesWithExpiration" <*>
+      obj .:? "ValidFrom" <*>
+      obj .:? "ValidUntil"
+  parseJSON _ = mempty
 
 -- | Constructor for 'EC2SpotFleetSpotFleetRequestConfigData' containing
 -- | required fields as arguments.

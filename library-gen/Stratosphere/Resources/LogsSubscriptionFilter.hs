@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-subscriptionfilter.html
 
 module Stratosphere.Resources.LogsSubscriptionFilter where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -22,13 +22,26 @@ data LogsSubscriptionFilter =
   , _logsSubscriptionFilterFilterPattern :: Val Text
   , _logsSubscriptionFilterLogGroupName :: Val Text
   , _logsSubscriptionFilterRoleArn :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON LogsSubscriptionFilter where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 23, omitNothingFields = True }
+  toJSON LogsSubscriptionFilter{..} =
+    object $
+    catMaybes
+    [ Just ("DestinationArn" .= _logsSubscriptionFilterDestinationArn)
+    , Just ("FilterPattern" .= _logsSubscriptionFilterFilterPattern)
+    , Just ("LogGroupName" .= _logsSubscriptionFilterLogGroupName)
+    , ("RoleArn" .=) <$> _logsSubscriptionFilterRoleArn
+    ]
 
 instance FromJSON LogsSubscriptionFilter where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 23, omitNothingFields = True }
+  parseJSON (Object obj) =
+    LogsSubscriptionFilter <$>
+      obj .: "DestinationArn" <*>
+      obj .: "FilterPattern" <*>
+      obj .: "LogGroupName" <*>
+      obj .:? "RoleArn"
+  parseJSON _ = mempty
 
 -- | Constructor for 'LogsSubscriptionFilter' containing required fields as
 -- | arguments.

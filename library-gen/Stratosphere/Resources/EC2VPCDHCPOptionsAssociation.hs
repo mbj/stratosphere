@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc-dhcp-options-assoc.html
 
 module Stratosphere.Resources.EC2VPCDHCPOptionsAssociation where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -20,13 +20,22 @@ data EC2VPCDHCPOptionsAssociation =
   EC2VPCDHCPOptionsAssociation
   { _eC2VPCDHCPOptionsAssociationDhcpOptionsId :: Val Text
   , _eC2VPCDHCPOptionsAssociationVpcId :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON EC2VPCDHCPOptionsAssociation where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 29, omitNothingFields = True }
+  toJSON EC2VPCDHCPOptionsAssociation{..} =
+    object $
+    catMaybes
+    [ Just ("DhcpOptionsId" .= _eC2VPCDHCPOptionsAssociationDhcpOptionsId)
+    , Just ("VpcId" .= _eC2VPCDHCPOptionsAssociationVpcId)
+    ]
 
 instance FromJSON EC2VPCDHCPOptionsAssociation where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 29, omitNothingFields = True }
+  parseJSON (Object obj) =
+    EC2VPCDHCPOptionsAssociation <$>
+      obj .: "DhcpOptionsId" <*>
+      obj .: "VpcId"
+  parseJSON _ = mempty
 
 -- | Constructor for 'EC2VPCDHCPOptionsAssociation' containing required fields
 -- | as arguments.

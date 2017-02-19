@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-basepathmapping.html
 
 module Stratosphere.Resources.ApiGatewayBasePathMapping where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -22,13 +22,26 @@ data ApiGatewayBasePathMapping =
   , _apiGatewayBasePathMappingDomainName :: Maybe (Val Text)
   , _apiGatewayBasePathMappingRestApiId :: Maybe (Val Text)
   , _apiGatewayBasePathMappingStage :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON ApiGatewayBasePathMapping where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 26, omitNothingFields = True }
+  toJSON ApiGatewayBasePathMapping{..} =
+    object $
+    catMaybes
+    [ ("BasePath" .=) <$> _apiGatewayBasePathMappingBasePath
+    , ("DomainName" .=) <$> _apiGatewayBasePathMappingDomainName
+    , ("RestApiId" .=) <$> _apiGatewayBasePathMappingRestApiId
+    , ("Stage" .=) <$> _apiGatewayBasePathMappingStage
+    ]
 
 instance FromJSON ApiGatewayBasePathMapping where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 26, omitNothingFields = True }
+  parseJSON (Object obj) =
+    ApiGatewayBasePathMapping <$>
+      obj .:? "BasePath" <*>
+      obj .:? "DomainName" <*>
+      obj .:? "RestApiId" <*>
+      obj .:? "Stage"
+  parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayBasePathMapping' containing required fields as
 -- | arguments.

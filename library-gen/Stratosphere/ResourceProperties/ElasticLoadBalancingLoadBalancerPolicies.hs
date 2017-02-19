@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-policy.html
 
 module Stratosphere.ResourceProperties.ElasticLoadBalancingLoadBalancerPolicies where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -24,13 +24,28 @@ data ElasticLoadBalancingLoadBalancerPolicies =
   , _elasticLoadBalancingLoadBalancerPoliciesLoadBalancerPorts :: Maybe [Val Text]
   , _elasticLoadBalancingLoadBalancerPoliciesPolicyName :: Val Text
   , _elasticLoadBalancingLoadBalancerPoliciesPolicyType :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON ElasticLoadBalancingLoadBalancerPolicies where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 41, omitNothingFields = True }
+  toJSON ElasticLoadBalancingLoadBalancerPolicies{..} =
+    object $
+    catMaybes
+    [ Just ("Attributes" .= _elasticLoadBalancingLoadBalancerPoliciesAttributes)
+    , ("InstancePorts" .=) <$> _elasticLoadBalancingLoadBalancerPoliciesInstancePorts
+    , ("LoadBalancerPorts" .=) <$> _elasticLoadBalancingLoadBalancerPoliciesLoadBalancerPorts
+    , Just ("PolicyName" .= _elasticLoadBalancingLoadBalancerPoliciesPolicyName)
+    , Just ("PolicyType" .= _elasticLoadBalancingLoadBalancerPoliciesPolicyType)
+    ]
 
 instance FromJSON ElasticLoadBalancingLoadBalancerPolicies where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 41, omitNothingFields = True }
+  parseJSON (Object obj) =
+    ElasticLoadBalancingLoadBalancerPolicies <$>
+      obj .: "Attributes" <*>
+      obj .:? "InstancePorts" <*>
+      obj .:? "LoadBalancerPorts" <*>
+      obj .: "PolicyName" <*>
+      obj .: "PolicyType"
+  parseJSON _ = mempty
 
 -- | Constructor for 'ElasticLoadBalancingLoadBalancerPolicies' containing
 -- | required fields as arguments.

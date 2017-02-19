@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html
 
 module Stratosphere.Resources.ElasticLoadBalancingV2LoadBalancer where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.ElasticLoadBalancingV2LoadBalancerLoadBalancerAttribute
@@ -26,13 +26,32 @@ data ElasticLoadBalancingV2LoadBalancer =
   , _elasticLoadBalancingV2LoadBalancerSecurityGroups :: Maybe [Val Text]
   , _elasticLoadBalancingV2LoadBalancerSubnets :: Maybe [Val Text]
   , _elasticLoadBalancingV2LoadBalancerTags :: Maybe [Tag]
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON ElasticLoadBalancingV2LoadBalancer where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 35, omitNothingFields = True }
+  toJSON ElasticLoadBalancingV2LoadBalancer{..} =
+    object $
+    catMaybes
+    [ ("IpAddressType" .=) <$> _elasticLoadBalancingV2LoadBalancerIpAddressType
+    , ("LoadBalancerAttributes" .=) <$> _elasticLoadBalancingV2LoadBalancerLoadBalancerAttributes
+    , ("Name" .=) <$> _elasticLoadBalancingV2LoadBalancerName
+    , ("Scheme" .=) <$> _elasticLoadBalancingV2LoadBalancerScheme
+    , ("SecurityGroups" .=) <$> _elasticLoadBalancingV2LoadBalancerSecurityGroups
+    , ("Subnets" .=) <$> _elasticLoadBalancingV2LoadBalancerSubnets
+    , ("Tags" .=) <$> _elasticLoadBalancingV2LoadBalancerTags
+    ]
 
 instance FromJSON ElasticLoadBalancingV2LoadBalancer where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 35, omitNothingFields = True }
+  parseJSON (Object obj) =
+    ElasticLoadBalancingV2LoadBalancer <$>
+      obj .:? "IpAddressType" <*>
+      obj .:? "LoadBalancerAttributes" <*>
+      obj .:? "Name" <*>
+      obj .:? "Scheme" <*>
+      obj .:? "SecurityGroups" <*>
+      obj .:? "Subnets" <*>
+      obj .:? "Tags"
+  parseJSON _ = mempty
 
 -- | Constructor for 'ElasticLoadBalancingV2LoadBalancer' containing required
 -- | fields as arguments.

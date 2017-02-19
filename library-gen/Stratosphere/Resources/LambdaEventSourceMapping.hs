@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html
 
 module Stratosphere.Resources.LambdaEventSourceMapping where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -23,13 +23,28 @@ data LambdaEventSourceMapping =
   , _lambdaEventSourceMappingEventSourceArn :: Val Text
   , _lambdaEventSourceMappingFunctionName :: Val Text
   , _lambdaEventSourceMappingStartingPosition :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON LambdaEventSourceMapping where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 25, omitNothingFields = True }
+  toJSON LambdaEventSourceMapping{..} =
+    object $
+    catMaybes
+    [ ("BatchSize" .=) <$> _lambdaEventSourceMappingBatchSize
+    , ("Enabled" .=) <$> _lambdaEventSourceMappingEnabled
+    , Just ("EventSourceArn" .= _lambdaEventSourceMappingEventSourceArn)
+    , Just ("FunctionName" .= _lambdaEventSourceMappingFunctionName)
+    , Just ("StartingPosition" .= _lambdaEventSourceMappingStartingPosition)
+    ]
 
 instance FromJSON LambdaEventSourceMapping where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 25, omitNothingFields = True }
+  parseJSON (Object obj) =
+    LambdaEventSourceMapping <$>
+      obj .:? "BatchSize" <*>
+      obj .:? "Enabled" <*>
+      obj .: "EventSourceArn" <*>
+      obj .: "FunctionName" <*>
+      obj .: "StartingPosition"
+  parseJSON _ = mempty
 
 -- | Constructor for 'LambdaEventSourceMapping' containing required fields as
 -- | arguments.

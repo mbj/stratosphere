@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnetcidrblock.html
 
 module Stratosphere.Resources.EC2SubnetCidrBlock where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -20,13 +20,22 @@ data EC2SubnetCidrBlock =
   EC2SubnetCidrBlock
   { _eC2SubnetCidrBlockIpv6CidrBlock :: Val Text
   , _eC2SubnetCidrBlockSubnetId :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON EC2SubnetCidrBlock where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 19, omitNothingFields = True }
+  toJSON EC2SubnetCidrBlock{..} =
+    object $
+    catMaybes
+    [ Just ("Ipv6CidrBlock" .= _eC2SubnetCidrBlockIpv6CidrBlock)
+    , Just ("SubnetId" .= _eC2SubnetCidrBlockSubnetId)
+    ]
 
 instance FromJSON EC2SubnetCidrBlock where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 19, omitNothingFields = True }
+  parseJSON (Object obj) =
+    EC2SubnetCidrBlock <$>
+      obj .: "Ipv6CidrBlock" <*>
+      obj .: "SubnetId"
+  parseJSON _ = mempty
 
 -- | Constructor for 'EC2SubnetCidrBlock' containing required fields as
 -- | arguments.

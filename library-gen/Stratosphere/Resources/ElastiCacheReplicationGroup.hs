@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html
 
 module Stratosphere.Resources.ElastiCacheReplicationGroup where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.ElastiCacheReplicationGroupNodeGroupConfiguration
@@ -45,13 +45,70 @@ data ElastiCacheReplicationGroup =
   , _elastiCacheReplicationGroupSnapshotWindow :: Maybe (Val Text)
   , _elastiCacheReplicationGroupSnapshottingClusterId :: Maybe (Val Text)
   , _elastiCacheReplicationGroupTags :: Maybe [Tag]
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON ElastiCacheReplicationGroup where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 28, omitNothingFields = True }
+  toJSON ElastiCacheReplicationGroup{..} =
+    object $
+    catMaybes
+    [ ("AutoMinorVersionUpgrade" .=) <$> _elastiCacheReplicationGroupAutoMinorVersionUpgrade
+    , ("AutomaticFailoverEnabled" .=) <$> _elastiCacheReplicationGroupAutomaticFailoverEnabled
+    , ("CacheNodeType" .=) <$> _elastiCacheReplicationGroupCacheNodeType
+    , ("CacheParameterGroupName" .=) <$> _elastiCacheReplicationGroupCacheParameterGroupName
+    , ("CacheSecurityGroupNames" .=) <$> _elastiCacheReplicationGroupCacheSecurityGroupNames
+    , ("CacheSubnetGroupName" .=) <$> _elastiCacheReplicationGroupCacheSubnetGroupName
+    , ("Engine" .=) <$> _elastiCacheReplicationGroupEngine
+    , ("EngineVersion" .=) <$> _elastiCacheReplicationGroupEngineVersion
+    , ("NodeGroupConfiguration" .=) <$> _elastiCacheReplicationGroupNodeGroupConfiguration
+    , ("NotificationTopicArn" .=) <$> _elastiCacheReplicationGroupNotificationTopicArn
+    , ("NumCacheClusters" .=) <$> _elastiCacheReplicationGroupNumCacheClusters
+    , ("NumNodeGroups" .=) <$> _elastiCacheReplicationGroupNumNodeGroups
+    , ("Port" .=) <$> _elastiCacheReplicationGroupPort
+    , ("PreferredCacheClusterAZs" .=) <$> _elastiCacheReplicationGroupPreferredCacheClusterAZs
+    , ("PreferredMaintenanceWindow" .=) <$> _elastiCacheReplicationGroupPreferredMaintenanceWindow
+    , ("PrimaryClusterId" .=) <$> _elastiCacheReplicationGroupPrimaryClusterId
+    , ("ReplicasPerNodeGroup" .=) <$> _elastiCacheReplicationGroupReplicasPerNodeGroup
+    , Just ("ReplicationGroupDescription" .= _elastiCacheReplicationGroupReplicationGroupDescription)
+    , ("ReplicationGroupId" .=) <$> _elastiCacheReplicationGroupReplicationGroupId
+    , ("SecurityGroupIds" .=) <$> _elastiCacheReplicationGroupSecurityGroupIds
+    , ("SnapshotArns" .=) <$> _elastiCacheReplicationGroupSnapshotArns
+    , ("SnapshotName" .=) <$> _elastiCacheReplicationGroupSnapshotName
+    , ("SnapshotRetentionLimit" .=) <$> _elastiCacheReplicationGroupSnapshotRetentionLimit
+    , ("SnapshotWindow" .=) <$> _elastiCacheReplicationGroupSnapshotWindow
+    , ("SnapshottingClusterId" .=) <$> _elastiCacheReplicationGroupSnapshottingClusterId
+    , ("Tags" .=) <$> _elastiCacheReplicationGroupTags
+    ]
 
 instance FromJSON ElastiCacheReplicationGroup where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 28, omitNothingFields = True }
+  parseJSON (Object obj) =
+    ElastiCacheReplicationGroup <$>
+      obj .:? "AutoMinorVersionUpgrade" <*>
+      obj .:? "AutomaticFailoverEnabled" <*>
+      obj .:? "CacheNodeType" <*>
+      obj .:? "CacheParameterGroupName" <*>
+      obj .:? "CacheSecurityGroupNames" <*>
+      obj .:? "CacheSubnetGroupName" <*>
+      obj .:? "Engine" <*>
+      obj .:? "EngineVersion" <*>
+      obj .:? "NodeGroupConfiguration" <*>
+      obj .:? "NotificationTopicArn" <*>
+      obj .:? "NumCacheClusters" <*>
+      obj .:? "NumNodeGroups" <*>
+      obj .:? "Port" <*>
+      obj .:? "PreferredCacheClusterAZs" <*>
+      obj .:? "PreferredMaintenanceWindow" <*>
+      obj .:? "PrimaryClusterId" <*>
+      obj .:? "ReplicasPerNodeGroup" <*>
+      obj .: "ReplicationGroupDescription" <*>
+      obj .:? "ReplicationGroupId" <*>
+      obj .:? "SecurityGroupIds" <*>
+      obj .:? "SnapshotArns" <*>
+      obj .:? "SnapshotName" <*>
+      obj .:? "SnapshotRetentionLimit" <*>
+      obj .:? "SnapshotWindow" <*>
+      obj .:? "SnapshottingClusterId" <*>
+      obj .:? "Tags"
+  parseJSON _ = mempty
 
 -- | Constructor for 'ElastiCacheReplicationGroup' containing required fields
 -- | as arguments.

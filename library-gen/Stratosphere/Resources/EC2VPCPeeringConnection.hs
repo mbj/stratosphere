@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcpeeringconnection.html
 
 module Stratosphere.Resources.EC2VPCPeeringConnection where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.Tag
@@ -21,13 +21,24 @@ data EC2VPCPeeringConnection =
   { _eC2VPCPeeringConnectionPeerVpcId :: Val Text
   , _eC2VPCPeeringConnectionTags :: Maybe [Tag]
   , _eC2VPCPeeringConnectionVpcId :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON EC2VPCPeeringConnection where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 24, omitNothingFields = True }
+  toJSON EC2VPCPeeringConnection{..} =
+    object $
+    catMaybes
+    [ Just ("PeerVpcId" .= _eC2VPCPeeringConnectionPeerVpcId)
+    , ("Tags" .=) <$> _eC2VPCPeeringConnectionTags
+    , Just ("VpcId" .= _eC2VPCPeeringConnectionVpcId)
+    ]
 
 instance FromJSON EC2VPCPeeringConnection where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 24, omitNothingFields = True }
+  parseJSON (Object obj) =
+    EC2VPCPeeringConnection <$>
+      obj .: "PeerVpcId" <*>
+      obj .:? "Tags" <*>
+      obj .: "VpcId"
+  parseJSON _ = mempty
 
 -- | Constructor for 'EC2VPCPeeringConnection' containing required fields as
 -- | arguments.

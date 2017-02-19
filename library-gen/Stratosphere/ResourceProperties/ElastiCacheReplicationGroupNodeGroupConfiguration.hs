@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-nodegroupconfiguration.html
 
 module Stratosphere.ResourceProperties.ElastiCacheReplicationGroupNodeGroupConfiguration where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -24,13 +24,26 @@ data ElastiCacheReplicationGroupNodeGroupConfiguration =
   , _elastiCacheReplicationGroupNodeGroupConfigurationReplicaAvailabilityZones :: Maybe [Val Text]
   , _elastiCacheReplicationGroupNodeGroupConfigurationReplicaCount :: Maybe (Val Integer')
   , _elastiCacheReplicationGroupNodeGroupConfigurationSlots :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON ElastiCacheReplicationGroupNodeGroupConfiguration where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 50, omitNothingFields = True }
+  toJSON ElastiCacheReplicationGroupNodeGroupConfiguration{..} =
+    object $
+    catMaybes
+    [ ("PrimaryAvailabilityZone" .=) <$> _elastiCacheReplicationGroupNodeGroupConfigurationPrimaryAvailabilityZone
+    , ("ReplicaAvailabilityZones" .=) <$> _elastiCacheReplicationGroupNodeGroupConfigurationReplicaAvailabilityZones
+    , ("ReplicaCount" .=) <$> _elastiCacheReplicationGroupNodeGroupConfigurationReplicaCount
+    , ("Slots" .=) <$> _elastiCacheReplicationGroupNodeGroupConfigurationSlots
+    ]
 
 instance FromJSON ElastiCacheReplicationGroupNodeGroupConfiguration where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 50, omitNothingFields = True }
+  parseJSON (Object obj) =
+    ElastiCacheReplicationGroupNodeGroupConfiguration <$>
+      obj .:? "PrimaryAvailabilityZone" <*>
+      obj .:? "ReplicaAvailabilityZones" <*>
+      obj .:? "ReplicaCount" <*>
+      obj .:? "Slots"
+  parseJSON _ = mempty
 
 -- | Constructor for 'ElastiCacheReplicationGroupNodeGroupConfiguration'
 -- | containing required fields as arguments.

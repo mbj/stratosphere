@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-nodevice.html
 
 module Stratosphere.ResourceProperties.EC2InstanceNoDevice where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -19,13 +19,14 @@ import Stratosphere.Values
 data EC2InstanceNoDevice =
   EC2InstanceNoDevice
   { 
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON EC2InstanceNoDevice where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 20, omitNothingFields = True }
+  toJSON _ = toJSON ([] :: [String])
 
 instance FromJSON EC2InstanceNoDevice where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 20, omitNothingFields = True }
+  parseJSON (Array _) = return EC2InstanceNoDevice
+  parseJSON _ = mempty
 
 -- | Constructor for 'EC2InstanceNoDevice' containing required fields as
 -- | arguments.

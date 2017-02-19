@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-account.html
 
 module Stratosphere.Resources.ApiGatewayAccount where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -19,13 +19,20 @@ import Stratosphere.Values
 data ApiGatewayAccount =
   ApiGatewayAccount
   { _apiGatewayAccountCloudWatchRoleArn :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON ApiGatewayAccount where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 18, omitNothingFields = True }
+  toJSON ApiGatewayAccount{..} =
+    object $
+    catMaybes
+    [ ("CloudWatchRoleArn" .=) <$> _apiGatewayAccountCloudWatchRoleArn
+    ]
 
 instance FromJSON ApiGatewayAccount where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 18, omitNothingFields = True }
+  parseJSON (Object obj) =
+    ApiGatewayAccount <$>
+      obj .:? "CloudWatchRoleArn"
+  parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayAccount' containing required fields as
 -- | arguments.

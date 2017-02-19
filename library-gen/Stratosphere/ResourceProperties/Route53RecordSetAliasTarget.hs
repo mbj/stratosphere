@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-aliastarget.html
 
 module Stratosphere.ResourceProperties.Route53RecordSetAliasTarget where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -21,13 +21,24 @@ data Route53RecordSetAliasTarget =
   { _route53RecordSetAliasTargetDNSName :: Val Text
   , _route53RecordSetAliasTargetEvaluateTargetHealth :: Maybe (Val Bool')
   , _route53RecordSetAliasTargetHostedZoneId :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON Route53RecordSetAliasTarget where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 28, omitNothingFields = True }
+  toJSON Route53RecordSetAliasTarget{..} =
+    object $
+    catMaybes
+    [ Just ("DNSName" .= _route53RecordSetAliasTargetDNSName)
+    , ("EvaluateTargetHealth" .=) <$> _route53RecordSetAliasTargetEvaluateTargetHealth
+    , Just ("HostedZoneId" .= _route53RecordSetAliasTargetHostedZoneId)
+    ]
 
 instance FromJSON Route53RecordSetAliasTarget where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 28, omitNothingFields = True }
+  parseJSON (Object obj) =
+    Route53RecordSetAliasTarget <$>
+      obj .: "DNSName" <*>
+      obj .:? "EvaluateTargetHealth" <*>
+      obj .: "HostedZoneId"
+  parseJSON _ = mempty
 
 -- | Constructor for 'Route53RecordSetAliasTarget' containing required fields
 -- | as arguments.

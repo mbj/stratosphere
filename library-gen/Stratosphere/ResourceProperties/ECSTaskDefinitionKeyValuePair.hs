@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-environment.html
 
 module Stratosphere.ResourceProperties.ECSTaskDefinitionKeyValuePair where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -20,13 +20,22 @@ data ECSTaskDefinitionKeyValuePair =
   ECSTaskDefinitionKeyValuePair
   { _eCSTaskDefinitionKeyValuePairName :: Maybe (Val Text)
   , _eCSTaskDefinitionKeyValuePairValue :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON ECSTaskDefinitionKeyValuePair where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 30, omitNothingFields = True }
+  toJSON ECSTaskDefinitionKeyValuePair{..} =
+    object $
+    catMaybes
+    [ ("Name" .=) <$> _eCSTaskDefinitionKeyValuePairName
+    , ("Value" .=) <$> _eCSTaskDefinitionKeyValuePairValue
+    ]
 
 instance FromJSON ECSTaskDefinitionKeyValuePair where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 30, omitNothingFields = True }
+  parseJSON (Object obj) =
+    ECSTaskDefinitionKeyValuePair <$>
+      obj .:? "Name" <*>
+      obj .:? "Value"
+  parseJSON _ = mempty
 
 -- | Constructor for 'ECSTaskDefinitionKeyValuePair' containing required
 -- | fields as arguments.

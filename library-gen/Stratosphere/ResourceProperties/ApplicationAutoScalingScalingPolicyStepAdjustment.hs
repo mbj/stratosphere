@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-stepscalingpolicyconfiguration-stepadjustment.html
 
 module Stratosphere.ResourceProperties.ApplicationAutoScalingScalingPolicyStepAdjustment where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -23,13 +23,24 @@ data ApplicationAutoScalingScalingPolicyStepAdjustment =
   { _applicationAutoScalingScalingPolicyStepAdjustmentMetricIntervalLowerBound :: Maybe (Val Double')
   , _applicationAutoScalingScalingPolicyStepAdjustmentMetricIntervalUpperBound :: Maybe (Val Double')
   , _applicationAutoScalingScalingPolicyStepAdjustmentScalingAdjustment :: Val Integer'
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON ApplicationAutoScalingScalingPolicyStepAdjustment where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 50, omitNothingFields = True }
+  toJSON ApplicationAutoScalingScalingPolicyStepAdjustment{..} =
+    object $
+    catMaybes
+    [ ("MetricIntervalLowerBound" .=) <$> _applicationAutoScalingScalingPolicyStepAdjustmentMetricIntervalLowerBound
+    , ("MetricIntervalUpperBound" .=) <$> _applicationAutoScalingScalingPolicyStepAdjustmentMetricIntervalUpperBound
+    , Just ("ScalingAdjustment" .= _applicationAutoScalingScalingPolicyStepAdjustmentScalingAdjustment)
+    ]
 
 instance FromJSON ApplicationAutoScalingScalingPolicyStepAdjustment where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 50, omitNothingFields = True }
+  parseJSON (Object obj) =
+    ApplicationAutoScalingScalingPolicyStepAdjustment <$>
+      obj .:? "MetricIntervalLowerBound" <*>
+      obj .:? "MetricIntervalUpperBound" <*>
+      obj .: "ScalingAdjustment"
+  parseJSON _ = mempty
 
 -- | Constructor for 'ApplicationAutoScalingScalingPolicyStepAdjustment'
 -- | containing required fields as arguments.

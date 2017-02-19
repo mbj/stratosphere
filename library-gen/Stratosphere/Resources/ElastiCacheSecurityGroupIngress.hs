@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-security-group-ingress.html
 
 module Stratosphere.Resources.ElastiCacheSecurityGroupIngress where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -21,13 +21,24 @@ data ElastiCacheSecurityGroupIngress =
   { _elastiCacheSecurityGroupIngressCacheSecurityGroupName :: Val Text
   , _elastiCacheSecurityGroupIngressEC2SecurityGroupName :: Val Text
   , _elastiCacheSecurityGroupIngressEC2SecurityGroupOwnerId :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON ElastiCacheSecurityGroupIngress where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 32, omitNothingFields = True }
+  toJSON ElastiCacheSecurityGroupIngress{..} =
+    object $
+    catMaybes
+    [ Just ("CacheSecurityGroupName" .= _elastiCacheSecurityGroupIngressCacheSecurityGroupName)
+    , Just ("EC2SecurityGroupName" .= _elastiCacheSecurityGroupIngressEC2SecurityGroupName)
+    , ("EC2SecurityGroupOwnerId" .=) <$> _elastiCacheSecurityGroupIngressEC2SecurityGroupOwnerId
+    ]
 
 instance FromJSON ElastiCacheSecurityGroupIngress where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 32, omitNothingFields = True }
+  parseJSON (Object obj) =
+    ElastiCacheSecurityGroupIngress <$>
+      obj .: "CacheSecurityGroupName" <*>
+      obj .: "EC2SecurityGroupName" <*>
+      obj .:? "EC2SecurityGroupOwnerId"
+  parseJSON _ = mempty
 
 -- | Constructor for 'ElastiCacheSecurityGroupIngress' containing required
 -- | fields as arguments.

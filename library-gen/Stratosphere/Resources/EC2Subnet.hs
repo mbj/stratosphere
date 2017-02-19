@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html
 
 module Stratosphere.Resources.EC2Subnet where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.Tag
@@ -23,13 +23,28 @@ data EC2Subnet =
   , _eC2SubnetMapPublicIpOnLaunch :: Maybe (Val Bool')
   , _eC2SubnetTags :: Maybe [Tag]
   , _eC2SubnetVpcId :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON EC2Subnet where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 10, omitNothingFields = True }
+  toJSON EC2Subnet{..} =
+    object $
+    catMaybes
+    [ ("AvailabilityZone" .=) <$> _eC2SubnetAvailabilityZone
+    , Just ("CidrBlock" .= _eC2SubnetCidrBlock)
+    , ("MapPublicIpOnLaunch" .=) <$> _eC2SubnetMapPublicIpOnLaunch
+    , ("Tags" .=) <$> _eC2SubnetTags
+    , Just ("VpcId" .= _eC2SubnetVpcId)
+    ]
 
 instance FromJSON EC2Subnet where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 10, omitNothingFields = True }
+  parseJSON (Object obj) =
+    EC2Subnet <$>
+      obj .:? "AvailabilityZone" <*>
+      obj .: "CidrBlock" <*>
+      obj .:? "MapPublicIpOnLaunch" <*>
+      obj .:? "Tags" <*>
+      obj .: "VpcId"
+  parseJSON _ = mempty
 
 -- | Constructor for 'EC2Subnet' containing required fields as arguments.
 ec2Subnet

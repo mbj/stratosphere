@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-policy.html
 
 module Stratosphere.Resources.S3BucketPolicy where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -20,13 +20,22 @@ data S3BucketPolicy =
   S3BucketPolicy
   { _s3BucketPolicyBucket :: Val Text
   , _s3BucketPolicyPolicyDocument :: Object
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON S3BucketPolicy where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 15, omitNothingFields = True }
+  toJSON S3BucketPolicy{..} =
+    object $
+    catMaybes
+    [ Just ("Bucket" .= _s3BucketPolicyBucket)
+    , Just ("PolicyDocument" .= _s3BucketPolicyPolicyDocument)
+    ]
 
 instance FromJSON S3BucketPolicy where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 15, omitNothingFields = True }
+  parseJSON (Object obj) =
+    S3BucketPolicy <$>
+      obj .: "Bucket" <*>
+      obj .: "PolicyDocument"
+  parseJSON _ = mempty
 
 -- | Constructor for 'S3BucketPolicy' containing required fields as arguments.
 s3BucketPolicy

@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-version.html
 
 module Stratosphere.Resources.LambdaVersion where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -21,13 +21,24 @@ data LambdaVersion =
   { _lambdaVersionCodeSha256 :: Maybe (Val Text)
   , _lambdaVersionDescription :: Maybe (Val Text)
   , _lambdaVersionFunctionName :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON LambdaVersion where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 14, omitNothingFields = True }
+  toJSON LambdaVersion{..} =
+    object $
+    catMaybes
+    [ ("CodeSha256" .=) <$> _lambdaVersionCodeSha256
+    , ("Description" .=) <$> _lambdaVersionDescription
+    , Just ("FunctionName" .= _lambdaVersionFunctionName)
+    ]
 
 instance FromJSON LambdaVersion where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 14, omitNothingFields = True }
+  parseJSON (Object obj) =
+    LambdaVersion <$>
+      obj .:? "CodeSha256" <*>
+      obj .:? "Description" <*>
+      obj .: "FunctionName"
+  parseJSON _ = mempty
 
 -- | Constructor for 'LambdaVersion' containing required fields as arguments.
 lambdaVersion

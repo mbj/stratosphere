@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-kinesisdeliverystream-redshiftdestinationconfiguration.html
 
 module Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamCloudWatchLoggingOptions
@@ -29,13 +29,32 @@ data KinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration =
   , _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationRoleARN :: Val Text
   , _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationS3Configuration :: KinesisFirehoseDeliveryStreamS3DestinationConfiguration
   , _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationUsername :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON KinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 62, omitNothingFields = True }
+  toJSON KinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration{..} =
+    object $
+    catMaybes
+    [ ("CloudWatchLoggingOptions" .=) <$> _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationCloudWatchLoggingOptions
+    , Just ("ClusterJDBCURL" .= _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationClusterJDBCURL)
+    , Just ("CopyCommand" .= _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationCopyCommand)
+    , Just ("Password" .= _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationPassword)
+    , Just ("RoleARN" .= _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationRoleARN)
+    , Just ("S3Configuration" .= _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationS3Configuration)
+    , Just ("Username" .= _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationUsername)
+    ]
 
 instance FromJSON KinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 62, omitNothingFields = True }
+  parseJSON (Object obj) =
+    KinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration <$>
+      obj .:? "CloudWatchLoggingOptions" <*>
+      obj .: "ClusterJDBCURL" <*>
+      obj .: "CopyCommand" <*>
+      obj .: "Password" <*>
+      obj .: "RoleARN" <*>
+      obj .: "S3Configuration" <*>
+      obj .: "Username"
+  parseJSON _ = mempty
 
 -- | Constructor for
 -- | 'KinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration'

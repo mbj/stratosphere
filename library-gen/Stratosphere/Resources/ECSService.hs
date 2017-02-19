@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html
 
 module Stratosphere.Resources.ECSService where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.ECSServiceDeploymentConfiguration
@@ -25,13 +25,30 @@ data ECSService =
   , _eCSServiceLoadBalancers :: Maybe [ECSServiceLoadBalancer]
   , _eCSServiceRole :: Maybe (Val Text)
   , _eCSServiceTaskDefinition :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON ECSService where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 11, omitNothingFields = True }
+  toJSON ECSService{..} =
+    object $
+    catMaybes
+    [ ("Cluster" .=) <$> _eCSServiceCluster
+    , ("DeploymentConfiguration" .=) <$> _eCSServiceDeploymentConfiguration
+    , Just ("DesiredCount" .= _eCSServiceDesiredCount)
+    , ("LoadBalancers" .=) <$> _eCSServiceLoadBalancers
+    , ("Role" .=) <$> _eCSServiceRole
+    , Just ("TaskDefinition" .= _eCSServiceTaskDefinition)
+    ]
 
 instance FromJSON ECSService where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 11, omitNothingFields = True }
+  parseJSON (Object obj) =
+    ECSService <$>
+      obj .:? "Cluster" <*>
+      obj .:? "DeploymentConfiguration" <*>
+      obj .: "DesiredCount" <*>
+      obj .:? "LoadBalancers" <*>
+      obj .:? "Role" <*>
+      obj .: "TaskDefinition"
+  parseJSON _ = mempty
 
 -- | Constructor for 'ECSService' containing required fields as arguments.
 ecsService

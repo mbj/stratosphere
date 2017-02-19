@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html
 
 module Stratosphere.Resources.ElasticBeanstalkEnvironment where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.ElasticBeanstalkEnvironmentOptionSettings
@@ -28,13 +28,36 @@ data ElasticBeanstalkEnvironment =
   , _elasticBeanstalkEnvironmentTemplateName :: Maybe (Val Text)
   , _elasticBeanstalkEnvironmentTier :: Maybe ElasticBeanstalkEnvironmentTier
   , _elasticBeanstalkEnvironmentVersionLabel :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON ElasticBeanstalkEnvironment where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 28, omitNothingFields = True }
+  toJSON ElasticBeanstalkEnvironment{..} =
+    object $
+    catMaybes
+    [ Just ("ApplicationName" .= _elasticBeanstalkEnvironmentApplicationName)
+    , ("CNAMEPrefix" .=) <$> _elasticBeanstalkEnvironmentCNAMEPrefix
+    , ("Description" .=) <$> _elasticBeanstalkEnvironmentDescription
+    , ("EnvironmentName" .=) <$> _elasticBeanstalkEnvironmentEnvironmentName
+    , ("OptionSettings" .=) <$> _elasticBeanstalkEnvironmentOptionSettings
+    , ("SolutionStackName" .=) <$> _elasticBeanstalkEnvironmentSolutionStackName
+    , ("TemplateName" .=) <$> _elasticBeanstalkEnvironmentTemplateName
+    , ("Tier" .=) <$> _elasticBeanstalkEnvironmentTier
+    , ("VersionLabel" .=) <$> _elasticBeanstalkEnvironmentVersionLabel
+    ]
 
 instance FromJSON ElasticBeanstalkEnvironment where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 28, omitNothingFields = True }
+  parseJSON (Object obj) =
+    ElasticBeanstalkEnvironment <$>
+      obj .: "ApplicationName" <*>
+      obj .:? "CNAMEPrefix" <*>
+      obj .:? "Description" <*>
+      obj .:? "EnvironmentName" <*>
+      obj .:? "OptionSettings" <*>
+      obj .:? "SolutionStackName" <*>
+      obj .:? "TemplateName" <*>
+      obj .:? "Tier" <*>
+      obj .:? "VersionLabel"
+  parseJSON _ = mempty
 
 -- | Constructor for 'ElasticBeanstalkEnvironment' containing required fields
 -- | as arguments.

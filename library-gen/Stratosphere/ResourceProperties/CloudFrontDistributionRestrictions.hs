@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distributionconfig-restrictions.html
 
 module Stratosphere.ResourceProperties.CloudFrontDistributionRestrictions where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.CloudFrontDistributionGeoRestriction
@@ -19,13 +19,20 @@ import Stratosphere.ResourceProperties.CloudFrontDistributionGeoRestriction
 data CloudFrontDistributionRestrictions =
   CloudFrontDistributionRestrictions
   { _cloudFrontDistributionRestrictionsGeoRestriction :: CloudFrontDistributionGeoRestriction
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON CloudFrontDistributionRestrictions where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 35, omitNothingFields = True }
+  toJSON CloudFrontDistributionRestrictions{..} =
+    object $
+    catMaybes
+    [ Just ("GeoRestriction" .= _cloudFrontDistributionRestrictionsGeoRestriction)
+    ]
 
 instance FromJSON CloudFrontDistributionRestrictions where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 35, omitNothingFields = True }
+  parseJSON (Object obj) =
+    CloudFrontDistributionRestrictions <$>
+      obj .: "GeoRestriction"
+  parseJSON _ = mempty
 
 -- | Constructor for 'CloudFrontDistributionRestrictions' containing required
 -- | fields as arguments.

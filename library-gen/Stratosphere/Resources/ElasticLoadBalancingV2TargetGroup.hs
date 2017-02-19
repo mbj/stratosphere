@@ -1,15 +1,15 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-targetgroup.html
 
 module Stratosphere.Resources.ElasticLoadBalancingV2TargetGroup where
 
-import Control.Lens
+import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.ElasticLoadBalancingV2TargetGroupMatcher
@@ -36,13 +36,48 @@ data ElasticLoadBalancingV2TargetGroup =
   , _elasticLoadBalancingV2TargetGroupTargets :: Maybe [ElasticLoadBalancingV2TargetGroupTargetDescription]
   , _elasticLoadBalancingV2TargetGroupUnhealthyThresholdCount :: Maybe (Val Integer')
   , _elasticLoadBalancingV2TargetGroupVpcId :: Val Text
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON ElasticLoadBalancingV2TargetGroup where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 34, omitNothingFields = True }
+  toJSON ElasticLoadBalancingV2TargetGroup{..} =
+    object $
+    catMaybes
+    [ ("HealthCheckIntervalSeconds" .=) <$> _elasticLoadBalancingV2TargetGroupHealthCheckIntervalSeconds
+    , ("HealthCheckPath" .=) <$> _elasticLoadBalancingV2TargetGroupHealthCheckPath
+    , ("HealthCheckPort" .=) <$> _elasticLoadBalancingV2TargetGroupHealthCheckPort
+    , ("HealthCheckProtocol" .=) <$> _elasticLoadBalancingV2TargetGroupHealthCheckProtocol
+    , ("HealthCheckTimeoutSeconds" .=) <$> _elasticLoadBalancingV2TargetGroupHealthCheckTimeoutSeconds
+    , ("HealthyThresholdCount" .=) <$> _elasticLoadBalancingV2TargetGroupHealthyThresholdCount
+    , ("Matcher" .=) <$> _elasticLoadBalancingV2TargetGroupMatcher
+    , ("Name" .=) <$> _elasticLoadBalancingV2TargetGroupName
+    , Just ("Port" .= _elasticLoadBalancingV2TargetGroupPort)
+    , Just ("Protocol" .= _elasticLoadBalancingV2TargetGroupProtocol)
+    , ("Tags" .=) <$> _elasticLoadBalancingV2TargetGroupTags
+    , ("TargetGroupAttributes" .=) <$> _elasticLoadBalancingV2TargetGroupTargetGroupAttributes
+    , ("Targets" .=) <$> _elasticLoadBalancingV2TargetGroupTargets
+    , ("UnhealthyThresholdCount" .=) <$> _elasticLoadBalancingV2TargetGroupUnhealthyThresholdCount
+    , Just ("VpcId" .= _elasticLoadBalancingV2TargetGroupVpcId)
+    ]
 
 instance FromJSON ElasticLoadBalancingV2TargetGroup where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 34, omitNothingFields = True }
+  parseJSON (Object obj) =
+    ElasticLoadBalancingV2TargetGroup <$>
+      obj .:? "HealthCheckIntervalSeconds" <*>
+      obj .:? "HealthCheckPath" <*>
+      obj .:? "HealthCheckPort" <*>
+      obj .:? "HealthCheckProtocol" <*>
+      obj .:? "HealthCheckTimeoutSeconds" <*>
+      obj .:? "HealthyThresholdCount" <*>
+      obj .:? "Matcher" <*>
+      obj .:? "Name" <*>
+      obj .: "Port" <*>
+      obj .: "Protocol" <*>
+      obj .:? "Tags" <*>
+      obj .:? "TargetGroupAttributes" <*>
+      obj .:? "Targets" <*>
+      obj .:? "UnhealthyThresholdCount" <*>
+      obj .: "VpcId"
+  parseJSON _ = mempty
 
 -- | Constructor for 'ElasticLoadBalancingV2TargetGroup' containing required
 -- | fields as arguments.
