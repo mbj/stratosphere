@@ -7,6 +7,7 @@ module Stratosphere.Resources.ElasticLoadBalancingV2LoadBalancer where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -29,26 +30,27 @@ data ElasticLoadBalancingV2LoadBalancer =
 
 instance ToJSON ElasticLoadBalancingV2LoadBalancer where
   toJSON ElasticLoadBalancingV2LoadBalancer{..} =
-    object
-    [ "IpAddressType" .= _elasticLoadBalancingV2LoadBalancerIpAddressType
-    , "LoadBalancerAttributes" .= _elasticLoadBalancingV2LoadBalancerLoadBalancerAttributes
-    , "Name" .= _elasticLoadBalancingV2LoadBalancerName
-    , "Scheme" .= _elasticLoadBalancingV2LoadBalancerScheme
-    , "SecurityGroups" .= _elasticLoadBalancingV2LoadBalancerSecurityGroups
-    , "Subnets" .= _elasticLoadBalancingV2LoadBalancerSubnets
-    , "Tags" .= _elasticLoadBalancingV2LoadBalancerTags
+    object $
+    catMaybes
+    [ ("IpAddressType" .=) <$> _elasticLoadBalancingV2LoadBalancerIpAddressType
+    , ("LoadBalancerAttributes" .=) <$> _elasticLoadBalancingV2LoadBalancerLoadBalancerAttributes
+    , ("Name" .=) <$> _elasticLoadBalancingV2LoadBalancerName
+    , ("Scheme" .=) <$> _elasticLoadBalancingV2LoadBalancerScheme
+    , ("SecurityGroups" .=) <$> _elasticLoadBalancingV2LoadBalancerSecurityGroups
+    , ("Subnets" .=) <$> _elasticLoadBalancingV2LoadBalancerSubnets
+    , ("Tags" .=) <$> _elasticLoadBalancingV2LoadBalancerTags
     ]
 
 instance FromJSON ElasticLoadBalancingV2LoadBalancer where
   parseJSON (Object obj) =
     ElasticLoadBalancingV2LoadBalancer <$>
-      obj .: "IpAddressType" <*>
-      obj .: "LoadBalancerAttributes" <*>
-      obj .: "Name" <*>
-      obj .: "Scheme" <*>
-      obj .: "SecurityGroups" <*>
-      obj .: "Subnets" <*>
-      obj .: "Tags"
+      obj .:? "IpAddressType" <*>
+      obj .:? "LoadBalancerAttributes" <*>
+      obj .:? "Name" <*>
+      obj .:? "Scheme" <*>
+      obj .:? "SecurityGroups" <*>
+      obj .:? "Subnets" <*>
+      obj .:? "Tags"
   parseJSON _ = mempty
 
 -- | Constructor for 'ElasticLoadBalancingV2LoadBalancer' containing required

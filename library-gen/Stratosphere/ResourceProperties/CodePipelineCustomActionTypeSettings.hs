@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.CodePipelineCustomActionTypeSettings wher
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -25,20 +26,21 @@ data CodePipelineCustomActionTypeSettings =
 
 instance ToJSON CodePipelineCustomActionTypeSettings where
   toJSON CodePipelineCustomActionTypeSettings{..} =
-    object
-    [ "EntityUrlTemplate" .= _codePipelineCustomActionTypeSettingsEntityUrlTemplate
-    , "ExecutionUrlTemplate" .= _codePipelineCustomActionTypeSettingsExecutionUrlTemplate
-    , "RevisionUrlTemplate" .= _codePipelineCustomActionTypeSettingsRevisionUrlTemplate
-    , "ThirdPartyConfigurationUrl" .= _codePipelineCustomActionTypeSettingsThirdPartyConfigurationUrl
+    object $
+    catMaybes
+    [ ("EntityUrlTemplate" .=) <$> _codePipelineCustomActionTypeSettingsEntityUrlTemplate
+    , ("ExecutionUrlTemplate" .=) <$> _codePipelineCustomActionTypeSettingsExecutionUrlTemplate
+    , ("RevisionUrlTemplate" .=) <$> _codePipelineCustomActionTypeSettingsRevisionUrlTemplate
+    , ("ThirdPartyConfigurationUrl" .=) <$> _codePipelineCustomActionTypeSettingsThirdPartyConfigurationUrl
     ]
 
 instance FromJSON CodePipelineCustomActionTypeSettings where
   parseJSON (Object obj) =
     CodePipelineCustomActionTypeSettings <$>
-      obj .: "EntityUrlTemplate" <*>
-      obj .: "ExecutionUrlTemplate" <*>
-      obj .: "RevisionUrlTemplate" <*>
-      obj .: "ThirdPartyConfigurationUrl"
+      obj .:? "EntityUrlTemplate" <*>
+      obj .:? "ExecutionUrlTemplate" <*>
+      obj .:? "RevisionUrlTemplate" <*>
+      obj .:? "ThirdPartyConfigurationUrl"
   parseJSON _ = mempty
 
 -- | Constructor for 'CodePipelineCustomActionTypeSettings' containing

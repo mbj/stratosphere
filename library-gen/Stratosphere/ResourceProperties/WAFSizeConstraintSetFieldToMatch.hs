@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.WAFSizeConstraintSetFieldToMatch where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,15 +24,16 @@ data WAFSizeConstraintSetFieldToMatch =
 
 instance ToJSON WAFSizeConstraintSetFieldToMatch where
   toJSON WAFSizeConstraintSetFieldToMatch{..} =
-    object
-    [ "Data" .= _wAFSizeConstraintSetFieldToMatchData
-    , "Type" .= _wAFSizeConstraintSetFieldToMatchType
+    object $
+    catMaybes
+    [ ("Data" .=) <$> _wAFSizeConstraintSetFieldToMatchData
+    , Just ("Type" .= _wAFSizeConstraintSetFieldToMatchType)
     ]
 
 instance FromJSON WAFSizeConstraintSetFieldToMatch where
   parseJSON (Object obj) =
     WAFSizeConstraintSetFieldToMatch <$>
-      obj .: "Data" <*>
+      obj .:? "Data" <*>
       obj .: "Type"
   parseJSON _ = mempty
 

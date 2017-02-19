@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamElasticsearc
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -24,8 +25,9 @@ data KinesisFirehoseDeliveryStreamElasticsearchRetryOptions =
 
 instance ToJSON KinesisFirehoseDeliveryStreamElasticsearchRetryOptions where
   toJSON KinesisFirehoseDeliveryStreamElasticsearchRetryOptions{..} =
-    object
-    [ "DurationInSeconds" .= _kinesisFirehoseDeliveryStreamElasticsearchRetryOptionsDurationInSeconds
+    object $
+    catMaybes
+    [ Just ("DurationInSeconds" .= _kinesisFirehoseDeliveryStreamElasticsearchRetryOptionsDurationInSeconds)
     ]
 
 instance FromJSON KinesisFirehoseDeliveryStreamElasticsearchRetryOptions where

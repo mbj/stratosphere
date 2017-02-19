@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.S3BucketFilterRule where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,9 +24,10 @@ data S3BucketFilterRule =
 
 instance ToJSON S3BucketFilterRule where
   toJSON S3BucketFilterRule{..} =
-    object
-    [ "Name" .= _s3BucketFilterRuleName
-    , "Value" .= _s3BucketFilterRuleValue
+    object $
+    catMaybes
+    [ Just ("Name" .= _s3BucketFilterRuleName)
+    , Just ("Value" .= _s3BucketFilterRuleValue)
     ]
 
 instance FromJSON S3BucketFilterRule where

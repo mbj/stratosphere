@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.ElasticsearchDomainEBSOptions where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -25,20 +26,21 @@ data ElasticsearchDomainEBSOptions =
 
 instance ToJSON ElasticsearchDomainEBSOptions where
   toJSON ElasticsearchDomainEBSOptions{..} =
-    object
-    [ "EBSEnabled" .= _elasticsearchDomainEBSOptionsEBSEnabled
-    , "Iops" .= _elasticsearchDomainEBSOptionsIops
-    , "VolumeSize" .= _elasticsearchDomainEBSOptionsVolumeSize
-    , "VolumeType" .= _elasticsearchDomainEBSOptionsVolumeType
+    object $
+    catMaybes
+    [ ("EBSEnabled" .=) <$> _elasticsearchDomainEBSOptionsEBSEnabled
+    , ("Iops" .=) <$> _elasticsearchDomainEBSOptionsIops
+    , ("VolumeSize" .=) <$> _elasticsearchDomainEBSOptionsVolumeSize
+    , ("VolumeType" .=) <$> _elasticsearchDomainEBSOptionsVolumeType
     ]
 
 instance FromJSON ElasticsearchDomainEBSOptions where
   parseJSON (Object obj) =
     ElasticsearchDomainEBSOptions <$>
-      obj .: "EBSEnabled" <*>
-      obj .: "Iops" <*>
-      obj .: "VolumeSize" <*>
-      obj .: "VolumeType"
+      obj .:? "EBSEnabled" <*>
+      obj .:? "Iops" <*>
+      obj .:? "VolumeSize" <*>
+      obj .:? "VolumeType"
   parseJSON _ = mempty
 
 -- | Constructor for 'ElasticsearchDomainEBSOptions' containing required

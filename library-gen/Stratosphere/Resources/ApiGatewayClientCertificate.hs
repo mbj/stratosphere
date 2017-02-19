@@ -7,6 +7,7 @@ module Stratosphere.Resources.ApiGatewayClientCertificate where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -22,14 +23,15 @@ data ApiGatewayClientCertificate =
 
 instance ToJSON ApiGatewayClientCertificate where
   toJSON ApiGatewayClientCertificate{..} =
-    object
-    [ "Description" .= _apiGatewayClientCertificateDescription
+    object $
+    catMaybes
+    [ ("Description" .=) <$> _apiGatewayClientCertificateDescription
     ]
 
 instance FromJSON ApiGatewayClientCertificate where
   parseJSON (Object obj) =
     ApiGatewayClientCertificate <$>
-      obj .: "Description"
+      obj .:? "Description"
   parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayClientCertificate' containing required fields

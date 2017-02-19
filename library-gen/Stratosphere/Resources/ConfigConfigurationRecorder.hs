@@ -7,6 +7,7 @@ module Stratosphere.Resources.ConfigConfigurationRecorder where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -24,17 +25,18 @@ data ConfigConfigurationRecorder =
 
 instance ToJSON ConfigConfigurationRecorder where
   toJSON ConfigConfigurationRecorder{..} =
-    object
-    [ "Name" .= _configConfigurationRecorderName
-    , "RecordingGroup" .= _configConfigurationRecorderRecordingGroup
-    , "RoleArn" .= _configConfigurationRecorderRoleArn
+    object $
+    catMaybes
+    [ ("Name" .=) <$> _configConfigurationRecorderName
+    , ("RecordingGroup" .=) <$> _configConfigurationRecorderRecordingGroup
+    , Just ("RoleArn" .= _configConfigurationRecorderRoleArn)
     ]
 
 instance FromJSON ConfigConfigurationRecorder where
   parseJSON (Object obj) =
     ConfigConfigurationRecorder <$>
-      obj .: "Name" <*>
-      obj .: "RecordingGroup" <*>
+      obj .:? "Name" <*>
+      obj .:? "RecordingGroup" <*>
       obj .: "RoleArn"
   parseJSON _ = mempty
 

@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.GameLiftFleetIpPermission where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -25,11 +26,12 @@ data GameLiftFleetIpPermission =
 
 instance ToJSON GameLiftFleetIpPermission where
   toJSON GameLiftFleetIpPermission{..} =
-    object
-    [ "FromPort" .= _gameLiftFleetIpPermissionFromPort
-    , "IpRange" .= _gameLiftFleetIpPermissionIpRange
-    , "Protocol" .= _gameLiftFleetIpPermissionProtocol
-    , "ToPort" .= _gameLiftFleetIpPermissionToPort
+    object $
+    catMaybes
+    [ Just ("FromPort" .= _gameLiftFleetIpPermissionFromPort)
+    , Just ("IpRange" .= _gameLiftFleetIpPermissionIpRange)
+    , Just ("Protocol" .= _gameLiftFleetIpPermissionProtocol)
+    , Just ("ToPort" .= _gameLiftFleetIpPermissionToPort)
     ]
 
 instance FromJSON GameLiftFleetIpPermission where

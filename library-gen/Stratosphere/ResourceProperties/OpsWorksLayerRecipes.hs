@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.OpsWorksLayerRecipes where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -26,22 +27,23 @@ data OpsWorksLayerRecipes =
 
 instance ToJSON OpsWorksLayerRecipes where
   toJSON OpsWorksLayerRecipes{..} =
-    object
-    [ "Configure" .= _opsWorksLayerRecipesConfigure
-    , "Deploy" .= _opsWorksLayerRecipesDeploy
-    , "Setup" .= _opsWorksLayerRecipesSetup
-    , "Shutdown" .= _opsWorksLayerRecipesShutdown
-    , "Undeploy" .= _opsWorksLayerRecipesUndeploy
+    object $
+    catMaybes
+    [ ("Configure" .=) <$> _opsWorksLayerRecipesConfigure
+    , ("Deploy" .=) <$> _opsWorksLayerRecipesDeploy
+    , ("Setup" .=) <$> _opsWorksLayerRecipesSetup
+    , ("Shutdown" .=) <$> _opsWorksLayerRecipesShutdown
+    , ("Undeploy" .=) <$> _opsWorksLayerRecipesUndeploy
     ]
 
 instance FromJSON OpsWorksLayerRecipes where
   parseJSON (Object obj) =
     OpsWorksLayerRecipes <$>
-      obj .: "Configure" <*>
-      obj .: "Deploy" <*>
-      obj .: "Setup" <*>
-      obj .: "Shutdown" <*>
-      obj .: "Undeploy"
+      obj .:? "Configure" <*>
+      obj .:? "Deploy" <*>
+      obj .:? "Setup" <*>
+      obj .:? "Shutdown" <*>
+      obj .:? "Undeploy"
   parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksLayerRecipes' containing required fields as

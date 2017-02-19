@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.EMRClusterPlacementType where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -22,8 +23,9 @@ data EMRClusterPlacementType =
 
 instance ToJSON EMRClusterPlacementType where
   toJSON EMRClusterPlacementType{..} =
-    object
-    [ "AvailabilityZone" .= _eMRClusterPlacementTypeAvailabilityZone
+    object $
+    catMaybes
+    [ Just ("AvailabilityZone" .= _eMRClusterPlacementTypeAvailabilityZone)
     ]
 
 instance FromJSON EMRClusterPlacementType where

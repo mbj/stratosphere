@@ -7,6 +7,7 @@ module Stratosphere.Resources.EC2CustomerGateway where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -25,11 +26,12 @@ data EC2CustomerGateway =
 
 instance ToJSON EC2CustomerGateway where
   toJSON EC2CustomerGateway{..} =
-    object
-    [ "BgpAsn" .= _eC2CustomerGatewayBgpAsn
-    , "IpAddress" .= _eC2CustomerGatewayIpAddress
-    , "Tags" .= _eC2CustomerGatewayTags
-    , "Type" .= _eC2CustomerGatewayType
+    object $
+    catMaybes
+    [ Just ("BgpAsn" .= _eC2CustomerGatewayBgpAsn)
+    , Just ("IpAddress" .= _eC2CustomerGatewayIpAddress)
+    , ("Tags" .=) <$> _eC2CustomerGatewayTags
+    , Just ("Type" .= _eC2CustomerGatewayType)
     ]
 
 instance FromJSON EC2CustomerGateway where
@@ -37,7 +39,7 @@ instance FromJSON EC2CustomerGateway where
     EC2CustomerGateway <$>
       obj .: "BgpAsn" <*>
       obj .: "IpAddress" <*>
-      obj .: "Tags" <*>
+      obj .:? "Tags" <*>
       obj .: "Type"
   parseJSON _ = mempty
 

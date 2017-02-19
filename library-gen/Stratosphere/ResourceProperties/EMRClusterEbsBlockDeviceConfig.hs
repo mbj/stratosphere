@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.EMRClusterEbsBlockDeviceConfig where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,16 +24,17 @@ data EMRClusterEbsBlockDeviceConfig =
 
 instance ToJSON EMRClusterEbsBlockDeviceConfig where
   toJSON EMRClusterEbsBlockDeviceConfig{..} =
-    object
-    [ "VolumeSpecification" .= _eMRClusterEbsBlockDeviceConfigVolumeSpecification
-    , "VolumesPerInstance" .= _eMRClusterEbsBlockDeviceConfigVolumesPerInstance
+    object $
+    catMaybes
+    [ Just ("VolumeSpecification" .= _eMRClusterEbsBlockDeviceConfigVolumeSpecification)
+    , ("VolumesPerInstance" .=) <$> _eMRClusterEbsBlockDeviceConfigVolumesPerInstance
     ]
 
 instance FromJSON EMRClusterEbsBlockDeviceConfig where
   parseJSON (Object obj) =
     EMRClusterEbsBlockDeviceConfig <$>
       obj .: "VolumeSpecification" <*>
-      obj .: "VolumesPerInstance"
+      obj .:? "VolumesPerInstance"
   parseJSON _ = mempty
 
 -- | Constructor for 'EMRClusterEbsBlockDeviceConfig' containing required

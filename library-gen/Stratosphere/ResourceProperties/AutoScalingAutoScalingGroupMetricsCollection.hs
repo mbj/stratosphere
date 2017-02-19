@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupMetricsCollect
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -25,16 +26,17 @@ data AutoScalingAutoScalingGroupMetricsCollection =
 
 instance ToJSON AutoScalingAutoScalingGroupMetricsCollection where
   toJSON AutoScalingAutoScalingGroupMetricsCollection{..} =
-    object
-    [ "Granularity" .= _autoScalingAutoScalingGroupMetricsCollectionGranularity
-    , "Metrics" .= _autoScalingAutoScalingGroupMetricsCollectionMetrics
+    object $
+    catMaybes
+    [ Just ("Granularity" .= _autoScalingAutoScalingGroupMetricsCollectionGranularity)
+    , ("Metrics" .=) <$> _autoScalingAutoScalingGroupMetricsCollectionMetrics
     ]
 
 instance FromJSON AutoScalingAutoScalingGroupMetricsCollection where
   parseJSON (Object obj) =
     AutoScalingAutoScalingGroupMetricsCollection <$>
       obj .: "Granularity" <*>
-      obj .: "Metrics"
+      obj .:? "Metrics"
   parseJSON _ = mempty
 
 -- | Constructor for 'AutoScalingAutoScalingGroupMetricsCollection' containing

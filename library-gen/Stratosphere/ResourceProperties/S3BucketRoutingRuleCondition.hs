@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.S3BucketRoutingRuleCondition where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,16 +24,17 @@ data S3BucketRoutingRuleCondition =
 
 instance ToJSON S3BucketRoutingRuleCondition where
   toJSON S3BucketRoutingRuleCondition{..} =
-    object
-    [ "HttpErrorCodeReturnedEquals" .= _s3BucketRoutingRuleConditionHttpErrorCodeReturnedEquals
-    , "KeyPrefixEquals" .= _s3BucketRoutingRuleConditionKeyPrefixEquals
+    object $
+    catMaybes
+    [ ("HttpErrorCodeReturnedEquals" .=) <$> _s3BucketRoutingRuleConditionHttpErrorCodeReturnedEquals
+    , ("KeyPrefixEquals" .=) <$> _s3BucketRoutingRuleConditionKeyPrefixEquals
     ]
 
 instance FromJSON S3BucketRoutingRuleCondition where
   parseJSON (Object obj) =
     S3BucketRoutingRuleCondition <$>
-      obj .: "HttpErrorCodeReturnedEquals" <*>
-      obj .: "KeyPrefixEquals"
+      obj .:? "HttpErrorCodeReturnedEquals" <*>
+      obj .:? "KeyPrefixEquals"
   parseJSON _ = mempty
 
 -- | Constructor for 'S3BucketRoutingRuleCondition' containing required fields

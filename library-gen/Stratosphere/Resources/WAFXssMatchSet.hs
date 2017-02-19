@@ -7,6 +7,7 @@ module Stratosphere.Resources.WAFXssMatchSet where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,9 +24,10 @@ data WAFXssMatchSet =
 
 instance ToJSON WAFXssMatchSet where
   toJSON WAFXssMatchSet{..} =
-    object
-    [ "Name" .= _wAFXssMatchSetName
-    , "XssMatchTuples" .= _wAFXssMatchSetXssMatchTuples
+    object $
+    catMaybes
+    [ Just ("Name" .= _wAFXssMatchSetName)
+    , Just ("XssMatchTuples" .= _wAFXssMatchSetXssMatchTuples)
     ]
 
 instance FromJSON WAFXssMatchSet where

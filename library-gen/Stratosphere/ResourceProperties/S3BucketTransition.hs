@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.S3BucketTransition where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -24,18 +25,19 @@ data S3BucketTransition =
 
 instance ToJSON S3BucketTransition where
   toJSON S3BucketTransition{..} =
-    object
-    [ "StorageClass" .= _s3BucketTransitionStorageClass
-    , "TransitionDate" .= _s3BucketTransitionTransitionDate
-    , "TransitionInDays" .= _s3BucketTransitionTransitionInDays
+    object $
+    catMaybes
+    [ Just ("StorageClass" .= _s3BucketTransitionStorageClass)
+    , ("TransitionDate" .=) <$> _s3BucketTransitionTransitionDate
+    , ("TransitionInDays" .=) <$> _s3BucketTransitionTransitionInDays
     ]
 
 instance FromJSON S3BucketTransition where
   parseJSON (Object obj) =
     S3BucketTransition <$>
       obj .: "StorageClass" <*>
-      obj .: "TransitionDate" <*>
-      obj .: "TransitionInDays"
+      obj .:? "TransitionDate" <*>
+      obj .:? "TransitionInDays"
   parseJSON _ = mempty
 
 -- | Constructor for 'S3BucketTransition' containing required fields as

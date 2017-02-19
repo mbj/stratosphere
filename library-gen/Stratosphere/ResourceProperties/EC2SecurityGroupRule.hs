@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.EC2SecurityGroupRule where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -28,26 +29,27 @@ data EC2SecurityGroupRule =
 
 instance ToJSON EC2SecurityGroupRule where
   toJSON EC2SecurityGroupRule{..} =
-    object
-    [ "CidrIp" .= _eC2SecurityGroupRuleCidrIp
-    , "FromPort" .= _eC2SecurityGroupRuleFromPort
-    , "IpProtocol" .= _eC2SecurityGroupRuleIpProtocol
-    , "SourceSecurityGroupId" .= _eC2SecurityGroupRuleSourceSecurityGroupId
-    , "SourceSecurityGroupName" .= _eC2SecurityGroupRuleSourceSecurityGroupName
-    , "SourceSecurityGroupOwnerId" .= _eC2SecurityGroupRuleSourceSecurityGroupOwnerId
-    , "ToPort" .= _eC2SecurityGroupRuleToPort
+    object $
+    catMaybes
+    [ ("CidrIp" .=) <$> _eC2SecurityGroupRuleCidrIp
+    , ("FromPort" .=) <$> _eC2SecurityGroupRuleFromPort
+    , Just ("IpProtocol" .= _eC2SecurityGroupRuleIpProtocol)
+    , ("SourceSecurityGroupId" .=) <$> _eC2SecurityGroupRuleSourceSecurityGroupId
+    , ("SourceSecurityGroupName" .=) <$> _eC2SecurityGroupRuleSourceSecurityGroupName
+    , ("SourceSecurityGroupOwnerId" .=) <$> _eC2SecurityGroupRuleSourceSecurityGroupOwnerId
+    , ("ToPort" .=) <$> _eC2SecurityGroupRuleToPort
     ]
 
 instance FromJSON EC2SecurityGroupRule where
   parseJSON (Object obj) =
     EC2SecurityGroupRule <$>
-      obj .: "CidrIp" <*>
-      obj .: "FromPort" <*>
+      obj .:? "CidrIp" <*>
+      obj .:? "FromPort" <*>
       obj .: "IpProtocol" <*>
-      obj .: "SourceSecurityGroupId" <*>
-      obj .: "SourceSecurityGroupName" <*>
-      obj .: "SourceSecurityGroupOwnerId" <*>
-      obj .: "ToPort"
+      obj .:? "SourceSecurityGroupId" <*>
+      obj .:? "SourceSecurityGroupName" <*>
+      obj .:? "SourceSecurityGroupOwnerId" <*>
+      obj .:? "ToPort"
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2SecurityGroupRule' containing required fields as

@@ -7,6 +7,7 @@ module Stratosphere.Resources.EC2VPNConnection where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -26,20 +27,21 @@ data EC2VPNConnection =
 
 instance ToJSON EC2VPNConnection where
   toJSON EC2VPNConnection{..} =
-    object
-    [ "CustomerGatewayId" .= _eC2VPNConnectionCustomerGatewayId
-    , "StaticRoutesOnly" .= _eC2VPNConnectionStaticRoutesOnly
-    , "Tags" .= _eC2VPNConnectionTags
-    , "Type" .= _eC2VPNConnectionType
-    , "VpnGatewayId" .= _eC2VPNConnectionVpnGatewayId
+    object $
+    catMaybes
+    [ Just ("CustomerGatewayId" .= _eC2VPNConnectionCustomerGatewayId)
+    , ("StaticRoutesOnly" .=) <$> _eC2VPNConnectionStaticRoutesOnly
+    , ("Tags" .=) <$> _eC2VPNConnectionTags
+    , Just ("Type" .= _eC2VPNConnectionType)
+    , Just ("VpnGatewayId" .= _eC2VPNConnectionVpnGatewayId)
     ]
 
 instance FromJSON EC2VPNConnection where
   parseJSON (Object obj) =
     EC2VPNConnection <$>
       obj .: "CustomerGatewayId" <*>
-      obj .: "StaticRoutesOnly" <*>
-      obj .: "Tags" <*>
+      obj .:? "StaticRoutesOnly" <*>
+      obj .:? "Tags" <*>
       obj .: "Type" <*>
       obj .: "VpnGatewayId"
   parseJSON _ = mempty

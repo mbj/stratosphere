@@ -7,6 +7,7 @@ module Stratosphere.Resources.WorkSpacesWorkspace where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -27,13 +28,14 @@ data WorkSpacesWorkspace =
 
 instance ToJSON WorkSpacesWorkspace where
   toJSON WorkSpacesWorkspace{..} =
-    object
-    [ "BundleId" .= _workSpacesWorkspaceBundleId
-    , "DirectoryId" .= _workSpacesWorkspaceDirectoryId
-    , "RootVolumeEncryptionEnabled" .= _workSpacesWorkspaceRootVolumeEncryptionEnabled
-    , "UserName" .= _workSpacesWorkspaceUserName
-    , "UserVolumeEncryptionEnabled" .= _workSpacesWorkspaceUserVolumeEncryptionEnabled
-    , "VolumeEncryptionKey" .= _workSpacesWorkspaceVolumeEncryptionKey
+    object $
+    catMaybes
+    [ Just ("BundleId" .= _workSpacesWorkspaceBundleId)
+    , Just ("DirectoryId" .= _workSpacesWorkspaceDirectoryId)
+    , ("RootVolumeEncryptionEnabled" .=) <$> _workSpacesWorkspaceRootVolumeEncryptionEnabled
+    , Just ("UserName" .= _workSpacesWorkspaceUserName)
+    , ("UserVolumeEncryptionEnabled" .=) <$> _workSpacesWorkspaceUserVolumeEncryptionEnabled
+    , ("VolumeEncryptionKey" .=) <$> _workSpacesWorkspaceVolumeEncryptionKey
     ]
 
 instance FromJSON WorkSpacesWorkspace where
@@ -41,10 +43,10 @@ instance FromJSON WorkSpacesWorkspace where
     WorkSpacesWorkspace <$>
       obj .: "BundleId" <*>
       obj .: "DirectoryId" <*>
-      obj .: "RootVolumeEncryptionEnabled" <*>
+      obj .:? "RootVolumeEncryptionEnabled" <*>
       obj .: "UserName" <*>
-      obj .: "UserVolumeEncryptionEnabled" <*>
-      obj .: "VolumeEncryptionKey"
+      obj .:? "UserVolumeEncryptionEnabled" <*>
+      obj .:? "VolumeEncryptionKey"
   parseJSON _ = mempty
 
 -- | Constructor for 'WorkSpacesWorkspace' containing required fields as

@@ -7,6 +7,7 @@ module Stratosphere.Resources.CloudTrailTrail where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -31,32 +32,33 @@ data CloudTrailTrail =
 
 instance ToJSON CloudTrailTrail where
   toJSON CloudTrailTrail{..} =
-    object
-    [ "CloudWatchLogsLogGroupArn" .= _cloudTrailTrailCloudWatchLogsLogGroupArn
-    , "CloudWatchLogsRoleArn" .= _cloudTrailTrailCloudWatchLogsRoleArn
-    , "EnableLogFileValidation" .= _cloudTrailTrailEnableLogFileValidation
-    , "IncludeGlobalServiceEvents" .= _cloudTrailTrailIncludeGlobalServiceEvents
-    , "IsLogging" .= _cloudTrailTrailIsLogging
-    , "IsMultiRegionTrail" .= _cloudTrailTrailIsMultiRegionTrail
-    , "KMSKeyId" .= _cloudTrailTrailKMSKeyId
-    , "S3BucketName" .= _cloudTrailTrailS3BucketName
-    , "S3KeyPrefix" .= _cloudTrailTrailS3KeyPrefix
-    , "SnsTopicName" .= _cloudTrailTrailSnsTopicName
+    object $
+    catMaybes
+    [ ("CloudWatchLogsLogGroupArn" .=) <$> _cloudTrailTrailCloudWatchLogsLogGroupArn
+    , ("CloudWatchLogsRoleArn" .=) <$> _cloudTrailTrailCloudWatchLogsRoleArn
+    , ("EnableLogFileValidation" .=) <$> _cloudTrailTrailEnableLogFileValidation
+    , ("IncludeGlobalServiceEvents" .=) <$> _cloudTrailTrailIncludeGlobalServiceEvents
+    , Just ("IsLogging" .= _cloudTrailTrailIsLogging)
+    , ("IsMultiRegionTrail" .=) <$> _cloudTrailTrailIsMultiRegionTrail
+    , ("KMSKeyId" .=) <$> _cloudTrailTrailKMSKeyId
+    , Just ("S3BucketName" .= _cloudTrailTrailS3BucketName)
+    , ("S3KeyPrefix" .=) <$> _cloudTrailTrailS3KeyPrefix
+    , ("SnsTopicName" .=) <$> _cloudTrailTrailSnsTopicName
     ]
 
 instance FromJSON CloudTrailTrail where
   parseJSON (Object obj) =
     CloudTrailTrail <$>
-      obj .: "CloudWatchLogsLogGroupArn" <*>
-      obj .: "CloudWatchLogsRoleArn" <*>
-      obj .: "EnableLogFileValidation" <*>
-      obj .: "IncludeGlobalServiceEvents" <*>
+      obj .:? "CloudWatchLogsLogGroupArn" <*>
+      obj .:? "CloudWatchLogsRoleArn" <*>
+      obj .:? "EnableLogFileValidation" <*>
+      obj .:? "IncludeGlobalServiceEvents" <*>
       obj .: "IsLogging" <*>
-      obj .: "IsMultiRegionTrail" <*>
-      obj .: "KMSKeyId" <*>
+      obj .:? "IsMultiRegionTrail" <*>
+      obj .:? "KMSKeyId" <*>
       obj .: "S3BucketName" <*>
-      obj .: "S3KeyPrefix" <*>
-      obj .: "SnsTopicName"
+      obj .:? "S3KeyPrefix" <*>
+      obj .:? "SnsTopicName"
   parseJSON _ = mempty
 
 -- | Constructor for 'CloudTrailTrail' containing required fields as

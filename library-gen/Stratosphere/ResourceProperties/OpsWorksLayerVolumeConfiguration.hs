@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.OpsWorksLayerVolumeConfiguration where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -27,24 +28,25 @@ data OpsWorksLayerVolumeConfiguration =
 
 instance ToJSON OpsWorksLayerVolumeConfiguration where
   toJSON OpsWorksLayerVolumeConfiguration{..} =
-    object
-    [ "Iops" .= _opsWorksLayerVolumeConfigurationIops
-    , "MountPoint" .= _opsWorksLayerVolumeConfigurationMountPoint
-    , "NumberOfDisks" .= _opsWorksLayerVolumeConfigurationNumberOfDisks
-    , "RaidLevel" .= _opsWorksLayerVolumeConfigurationRaidLevel
-    , "Size" .= _opsWorksLayerVolumeConfigurationSize
-    , "VolumeType" .= _opsWorksLayerVolumeConfigurationVolumeType
+    object $
+    catMaybes
+    [ ("Iops" .=) <$> _opsWorksLayerVolumeConfigurationIops
+    , ("MountPoint" .=) <$> _opsWorksLayerVolumeConfigurationMountPoint
+    , ("NumberOfDisks" .=) <$> _opsWorksLayerVolumeConfigurationNumberOfDisks
+    , ("RaidLevel" .=) <$> _opsWorksLayerVolumeConfigurationRaidLevel
+    , ("Size" .=) <$> _opsWorksLayerVolumeConfigurationSize
+    , ("VolumeType" .=) <$> _opsWorksLayerVolumeConfigurationVolumeType
     ]
 
 instance FromJSON OpsWorksLayerVolumeConfiguration where
   parseJSON (Object obj) =
     OpsWorksLayerVolumeConfiguration <$>
-      obj .: "Iops" <*>
-      obj .: "MountPoint" <*>
-      obj .: "NumberOfDisks" <*>
-      obj .: "RaidLevel" <*>
-      obj .: "Size" <*>
-      obj .: "VolumeType"
+      obj .:? "Iops" <*>
+      obj .:? "MountPoint" <*>
+      obj .:? "NumberOfDisks" <*>
+      obj .:? "RaidLevel" <*>
+      obj .:? "Size" <*>
+      obj .:? "VolumeType"
   parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksLayerVolumeConfiguration' containing required

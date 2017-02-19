@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.ElasticLoadBalancingLoadBalancerAppCookie
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -25,9 +26,10 @@ data ElasticLoadBalancingLoadBalancerAppCookieStickinessPolicy =
 
 instance ToJSON ElasticLoadBalancingLoadBalancerAppCookieStickinessPolicy where
   toJSON ElasticLoadBalancingLoadBalancerAppCookieStickinessPolicy{..} =
-    object
-    [ "CookieName" .= _elasticLoadBalancingLoadBalancerAppCookieStickinessPolicyCookieName
-    , "PolicyName" .= _elasticLoadBalancingLoadBalancerAppCookieStickinessPolicyPolicyName
+    object $
+    catMaybes
+    [ Just ("CookieName" .= _elasticLoadBalancingLoadBalancerAppCookieStickinessPolicyCookieName)
+    , Just ("PolicyName" .= _elasticLoadBalancingLoadBalancerAppCookieStickinessPolicyPolicyName)
     ]
 
 instance FromJSON ElasticLoadBalancingLoadBalancerAppCookieStickinessPolicy where

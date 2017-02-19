@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.ApiGatewayMethodIntegrationResponse where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -25,20 +26,21 @@ data ApiGatewayMethodIntegrationResponse =
 
 instance ToJSON ApiGatewayMethodIntegrationResponse where
   toJSON ApiGatewayMethodIntegrationResponse{..} =
-    object
-    [ "ResponseParameters" .= _apiGatewayMethodIntegrationResponseResponseParameters
-    , "ResponseTemplates" .= _apiGatewayMethodIntegrationResponseResponseTemplates
-    , "SelectionPattern" .= _apiGatewayMethodIntegrationResponseSelectionPattern
-    , "StatusCode" .= _apiGatewayMethodIntegrationResponseStatusCode
+    object $
+    catMaybes
+    [ ("ResponseParameters" .=) <$> _apiGatewayMethodIntegrationResponseResponseParameters
+    , ("ResponseTemplates" .=) <$> _apiGatewayMethodIntegrationResponseResponseTemplates
+    , ("SelectionPattern" .=) <$> _apiGatewayMethodIntegrationResponseSelectionPattern
+    , ("StatusCode" .=) <$> _apiGatewayMethodIntegrationResponseStatusCode
     ]
 
 instance FromJSON ApiGatewayMethodIntegrationResponse where
   parseJSON (Object obj) =
     ApiGatewayMethodIntegrationResponse <$>
-      obj .: "ResponseParameters" <*>
-      obj .: "ResponseTemplates" <*>
-      obj .: "SelectionPattern" <*>
-      obj .: "StatusCode"
+      obj .:? "ResponseParameters" <*>
+      obj .:? "ResponseTemplates" <*>
+      obj .:? "SelectionPattern" <*>
+      obj .:? "StatusCode"
   parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayMethodIntegrationResponse' containing required

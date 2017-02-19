@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.WAFSizeConstraintSetSizeConstraint where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -25,11 +26,12 @@ data WAFSizeConstraintSetSizeConstraint =
 
 instance ToJSON WAFSizeConstraintSetSizeConstraint where
   toJSON WAFSizeConstraintSetSizeConstraint{..} =
-    object
-    [ "ComparisonOperator" .= _wAFSizeConstraintSetSizeConstraintComparisonOperator
-    , "FieldToMatch" .= _wAFSizeConstraintSetSizeConstraintFieldToMatch
-    , "Size" .= _wAFSizeConstraintSetSizeConstraintSize
-    , "TextTransformation" .= _wAFSizeConstraintSetSizeConstraintTextTransformation
+    object $
+    catMaybes
+    [ Just ("ComparisonOperator" .= _wAFSizeConstraintSetSizeConstraintComparisonOperator)
+    , Just ("FieldToMatch" .= _wAFSizeConstraintSetSizeConstraintFieldToMatch)
+    , Just ("Size" .= _wAFSizeConstraintSetSizeConstraintSize)
+    , Just ("TextTransformation" .= _wAFSizeConstraintSetSizeConstraintTextTransformation)
     ]
 
 instance FromJSON WAFSizeConstraintSetSizeConstraint where

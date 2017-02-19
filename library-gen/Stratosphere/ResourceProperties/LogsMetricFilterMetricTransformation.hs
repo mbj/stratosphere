@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.LogsMetricFilterMetricTransformation wher
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -24,10 +25,11 @@ data LogsMetricFilterMetricTransformation =
 
 instance ToJSON LogsMetricFilterMetricTransformation where
   toJSON LogsMetricFilterMetricTransformation{..} =
-    object
-    [ "MetricName" .= _logsMetricFilterMetricTransformationMetricName
-    , "MetricNamespace" .= _logsMetricFilterMetricTransformationMetricNamespace
-    , "MetricValue" .= _logsMetricFilterMetricTransformationMetricValue
+    object $
+    catMaybes
+    [ Just ("MetricName" .= _logsMetricFilterMetricTransformationMetricName)
+    , Just ("MetricNamespace" .= _logsMetricFilterMetricTransformationMetricNamespace)
+    , Just ("MetricValue" .= _logsMetricFilterMetricTransformationMetricValue)
     ]
 
 instance FromJSON LogsMetricFilterMetricTransformation where

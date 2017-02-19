@@ -7,6 +7,7 @@ module Stratosphere.Resources.EMRInstanceGroupConfig where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -31,30 +32,31 @@ data EMRInstanceGroupConfig =
 
 instance ToJSON EMRInstanceGroupConfig where
   toJSON EMRInstanceGroupConfig{..} =
-    object
-    [ "BidPrice" .= _eMRInstanceGroupConfigBidPrice
-    , "Configurations" .= _eMRInstanceGroupConfigConfigurations
-    , "EbsConfiguration" .= _eMRInstanceGroupConfigEbsConfiguration
-    , "InstanceCount" .= _eMRInstanceGroupConfigInstanceCount
-    , "InstanceRole" .= _eMRInstanceGroupConfigInstanceRole
-    , "InstanceType" .= _eMRInstanceGroupConfigInstanceType
-    , "JobFlowId" .= _eMRInstanceGroupConfigJobFlowId
-    , "Market" .= _eMRInstanceGroupConfigMarket
-    , "Name" .= _eMRInstanceGroupConfigName
+    object $
+    catMaybes
+    [ ("BidPrice" .=) <$> _eMRInstanceGroupConfigBidPrice
+    , ("Configurations" .=) <$> _eMRInstanceGroupConfigConfigurations
+    , ("EbsConfiguration" .=) <$> _eMRInstanceGroupConfigEbsConfiguration
+    , Just ("InstanceCount" .= _eMRInstanceGroupConfigInstanceCount)
+    , Just ("InstanceRole" .= _eMRInstanceGroupConfigInstanceRole)
+    , Just ("InstanceType" .= _eMRInstanceGroupConfigInstanceType)
+    , Just ("JobFlowId" .= _eMRInstanceGroupConfigJobFlowId)
+    , ("Market" .=) <$> _eMRInstanceGroupConfigMarket
+    , ("Name" .=) <$> _eMRInstanceGroupConfigName
     ]
 
 instance FromJSON EMRInstanceGroupConfig where
   parseJSON (Object obj) =
     EMRInstanceGroupConfig <$>
-      obj .: "BidPrice" <*>
-      obj .: "Configurations" <*>
-      obj .: "EbsConfiguration" <*>
+      obj .:? "BidPrice" <*>
+      obj .:? "Configurations" <*>
+      obj .:? "EbsConfiguration" <*>
       obj .: "InstanceCount" <*>
       obj .: "InstanceRole" <*>
       obj .: "InstanceType" <*>
       obj .: "JobFlowId" <*>
-      obj .: "Market" <*>
-      obj .: "Name"
+      obj .:? "Market" <*>
+      obj .:? "Name"
   parseJSON _ = mempty
 
 -- | Constructor for 'EMRInstanceGroupConfig' containing required fields as

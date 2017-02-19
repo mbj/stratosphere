@@ -7,6 +7,7 @@ module Stratosphere.Resources.CloudFormationWaitCondition where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -24,16 +25,17 @@ data CloudFormationWaitCondition =
 
 instance ToJSON CloudFormationWaitCondition where
   toJSON CloudFormationWaitCondition{..} =
-    object
-    [ "Count" .= _cloudFormationWaitConditionCount
-    , "Handle" .= _cloudFormationWaitConditionHandle
-    , "Timeout" .= _cloudFormationWaitConditionTimeout
+    object $
+    catMaybes
+    [ ("Count" .=) <$> _cloudFormationWaitConditionCount
+    , Just ("Handle" .= _cloudFormationWaitConditionHandle)
+    , Just ("Timeout" .= _cloudFormationWaitConditionTimeout)
     ]
 
 instance FromJSON CloudFormationWaitCondition where
   parseJSON (Object obj) =
     CloudFormationWaitCondition <$>
-      obj .: "Count" <*>
+      obj .:? "Count" <*>
       obj .: "Handle" <*>
       obj .: "Timeout"
   parseJSON _ = mempty

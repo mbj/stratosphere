@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.CodePipelineCustomActionTypeArtifactDetai
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -25,9 +26,10 @@ data CodePipelineCustomActionTypeArtifactDetails =
 
 instance ToJSON CodePipelineCustomActionTypeArtifactDetails where
   toJSON CodePipelineCustomActionTypeArtifactDetails{..} =
-    object
-    [ "MaximumCount" .= _codePipelineCustomActionTypeArtifactDetailsMaximumCount
-    , "MinimumCount" .= _codePipelineCustomActionTypeArtifactDetailsMinimumCount
+    object $
+    catMaybes
+    [ Just ("MaximumCount" .= _codePipelineCustomActionTypeArtifactDetailsMaximumCount)
+    , Just ("MinimumCount" .= _codePipelineCustomActionTypeArtifactDetailsMinimumCount)
     ]
 
 instance FromJSON CodePipelineCustomActionTypeArtifactDetails where

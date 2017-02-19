@@ -7,6 +7,7 @@ module Stratosphere.Resources.RedshiftCluster where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -45,60 +46,61 @@ data RedshiftCluster =
 
 instance ToJSON RedshiftCluster where
   toJSON RedshiftCluster{..} =
-    object
-    [ "AllowVersionUpdate" .= _redshiftClusterAllowVersionUpdate
-    , "AutomatedSnapshotRetentionPeriod" .= _redshiftClusterAutomatedSnapshotRetentionPeriod
-    , "AvailabilityZone" .= _redshiftClusterAvailabilityZone
-    , "ClusterParameterGroupName" .= _redshiftClusterClusterParameterGroupName
-    , "ClusterSecurityGroups" .= _redshiftClusterClusterSecurityGroups
-    , "ClusterSubnetGroupName" .= _redshiftClusterClusterSubnetGroupName
-    , "ClusterType" .= _redshiftClusterClusterType
-    , "ClusterVersion" .= _redshiftClusterClusterVersion
-    , "DBName" .= _redshiftClusterDBName
-    , "ElasticIp" .= _redshiftClusterElasticIp
-    , "Encrypted" .= _redshiftClusterEncrypted
-    , "HsmClientCertificateIdentifier" .= _redshiftClusterHsmClientCertificateIdentifier
-    , "KmsKeyId" .= _redshiftClusterKmsKeyId
-    , "MasterUserPassword" .= _redshiftClusterMasterUserPassword
-    , "MasterUsername" .= _redshiftClusterMasterUsername
-    , "NodeType" .= _redshiftClusterNodeType
-    , "NumberOfNodes" .= _redshiftClusterNumberOfNodes
-    , "OwnerAccount" .= _redshiftClusterOwnerAccount
-    , "Port" .= _redshiftClusterPort
-    , "PreferredMaintenanceWindow" .= _redshiftClusterPreferredMaintenanceWindow
-    , "PubliclyAccessible" .= _redshiftClusterPubliclyAccessible
-    , "SnapshotClusterIdentifier" .= _redshiftClusterSnapshotClusterIdentifier
-    , "SnapshotIdentifier" .= _redshiftClusterSnapshotIdentifier
-    , "VpcSecurityGroupIds" .= _redshiftClusterVpcSecurityGroupIds
+    object $
+    catMaybes
+    [ ("AllowVersionUpdate" .=) <$> _redshiftClusterAllowVersionUpdate
+    , ("AutomatedSnapshotRetentionPeriod" .=) <$> _redshiftClusterAutomatedSnapshotRetentionPeriod
+    , ("AvailabilityZone" .=) <$> _redshiftClusterAvailabilityZone
+    , ("ClusterParameterGroupName" .=) <$> _redshiftClusterClusterParameterGroupName
+    , ("ClusterSecurityGroups" .=) <$> _redshiftClusterClusterSecurityGroups
+    , ("ClusterSubnetGroupName" .=) <$> _redshiftClusterClusterSubnetGroupName
+    , Just ("ClusterType" .= _redshiftClusterClusterType)
+    , ("ClusterVersion" .=) <$> _redshiftClusterClusterVersion
+    , Just ("DBName" .= _redshiftClusterDBName)
+    , ("ElasticIp" .=) <$> _redshiftClusterElasticIp
+    , ("Encrypted" .=) <$> _redshiftClusterEncrypted
+    , ("HsmClientCertificateIdentifier" .=) <$> _redshiftClusterHsmClientCertificateIdentifier
+    , ("KmsKeyId" .=) <$> _redshiftClusterKmsKeyId
+    , Just ("MasterUserPassword" .= _redshiftClusterMasterUserPassword)
+    , Just ("MasterUsername" .= _redshiftClusterMasterUsername)
+    , Just ("NodeType" .= _redshiftClusterNodeType)
+    , ("NumberOfNodes" .=) <$> _redshiftClusterNumberOfNodes
+    , ("OwnerAccount" .=) <$> _redshiftClusterOwnerAccount
+    , ("Port" .=) <$> _redshiftClusterPort
+    , ("PreferredMaintenanceWindow" .=) <$> _redshiftClusterPreferredMaintenanceWindow
+    , ("PubliclyAccessible" .=) <$> _redshiftClusterPubliclyAccessible
+    , ("SnapshotClusterIdentifier" .=) <$> _redshiftClusterSnapshotClusterIdentifier
+    , ("SnapshotIdentifier" .=) <$> _redshiftClusterSnapshotIdentifier
+    , ("VpcSecurityGroupIds" .=) <$> _redshiftClusterVpcSecurityGroupIds
     ]
 
 instance FromJSON RedshiftCluster where
   parseJSON (Object obj) =
     RedshiftCluster <$>
-      obj .: "AllowVersionUpdate" <*>
-      obj .: "AutomatedSnapshotRetentionPeriod" <*>
-      obj .: "AvailabilityZone" <*>
-      obj .: "ClusterParameterGroupName" <*>
-      obj .: "ClusterSecurityGroups" <*>
-      obj .: "ClusterSubnetGroupName" <*>
+      obj .:? "AllowVersionUpdate" <*>
+      obj .:? "AutomatedSnapshotRetentionPeriod" <*>
+      obj .:? "AvailabilityZone" <*>
+      obj .:? "ClusterParameterGroupName" <*>
+      obj .:? "ClusterSecurityGroups" <*>
+      obj .:? "ClusterSubnetGroupName" <*>
       obj .: "ClusterType" <*>
-      obj .: "ClusterVersion" <*>
+      obj .:? "ClusterVersion" <*>
       obj .: "DBName" <*>
-      obj .: "ElasticIp" <*>
-      obj .: "Encrypted" <*>
-      obj .: "HsmClientCertificateIdentifier" <*>
-      obj .: "KmsKeyId" <*>
+      obj .:? "ElasticIp" <*>
+      obj .:? "Encrypted" <*>
+      obj .:? "HsmClientCertificateIdentifier" <*>
+      obj .:? "KmsKeyId" <*>
       obj .: "MasterUserPassword" <*>
       obj .: "MasterUsername" <*>
       obj .: "NodeType" <*>
-      obj .: "NumberOfNodes" <*>
-      obj .: "OwnerAccount" <*>
-      obj .: "Port" <*>
-      obj .: "PreferredMaintenanceWindow" <*>
-      obj .: "PubliclyAccessible" <*>
-      obj .: "SnapshotClusterIdentifier" <*>
-      obj .: "SnapshotIdentifier" <*>
-      obj .: "VpcSecurityGroupIds"
+      obj .:? "NumberOfNodes" <*>
+      obj .:? "OwnerAccount" <*>
+      obj .:? "Port" <*>
+      obj .:? "PreferredMaintenanceWindow" <*>
+      obj .:? "PubliclyAccessible" <*>
+      obj .:? "SnapshotClusterIdentifier" <*>
+      obj .:? "SnapshotIdentifier" <*>
+      obj .:? "VpcSecurityGroupIds"
   parseJSON _ = mempty
 
 -- | Constructor for 'RedshiftCluster' containing required fields as

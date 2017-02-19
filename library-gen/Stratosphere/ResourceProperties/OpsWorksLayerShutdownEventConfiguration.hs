@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.OpsWorksLayerShutdownEventConfiguration w
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -24,16 +25,17 @@ data OpsWorksLayerShutdownEventConfiguration =
 
 instance ToJSON OpsWorksLayerShutdownEventConfiguration where
   toJSON OpsWorksLayerShutdownEventConfiguration{..} =
-    object
-    [ "DelayUntilElbConnectionsDrained" .= _opsWorksLayerShutdownEventConfigurationDelayUntilElbConnectionsDrained
-    , "ExecutionTimeout" .= _opsWorksLayerShutdownEventConfigurationExecutionTimeout
+    object $
+    catMaybes
+    [ ("DelayUntilElbConnectionsDrained" .=) <$> _opsWorksLayerShutdownEventConfigurationDelayUntilElbConnectionsDrained
+    , ("ExecutionTimeout" .=) <$> _opsWorksLayerShutdownEventConfigurationExecutionTimeout
     ]
 
 instance FromJSON OpsWorksLayerShutdownEventConfiguration where
   parseJSON (Object obj) =
     OpsWorksLayerShutdownEventConfiguration <$>
-      obj .: "DelayUntilElbConnectionsDrained" <*>
-      obj .: "ExecutionTimeout"
+      obj .:? "DelayUntilElbConnectionsDrained" <*>
+      obj .:? "ExecutionTimeout"
   parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksLayerShutdownEventConfiguration' containing

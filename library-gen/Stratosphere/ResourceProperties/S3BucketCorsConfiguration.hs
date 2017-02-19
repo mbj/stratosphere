@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.S3BucketCorsConfiguration where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -22,8 +23,9 @@ data S3BucketCorsConfiguration =
 
 instance ToJSON S3BucketCorsConfiguration where
   toJSON S3BucketCorsConfiguration{..} =
-    object
-    [ "CorsRules" .= _s3BucketCorsConfigurationCorsRules
+    object $
+    catMaybes
+    [ Just ("CorsRules" .= _s3BucketCorsConfigurationCorsRules)
     ]
 
 instance FromJSON S3BucketCorsConfiguration where

@@ -7,6 +7,7 @@ module Stratosphere.Resources.IAMAccessKey where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -24,17 +25,18 @@ data IAMAccessKey =
 
 instance ToJSON IAMAccessKey where
   toJSON IAMAccessKey{..} =
-    object
-    [ "Serial" .= _iAMAccessKeySerial
-    , "Status" .= _iAMAccessKeyStatus
-    , "UserName" .= _iAMAccessKeyUserName
+    object $
+    catMaybes
+    [ ("Serial" .=) <$> _iAMAccessKeySerial
+    , ("Status" .=) <$> _iAMAccessKeyStatus
+    , Just ("UserName" .= _iAMAccessKeyUserName)
     ]
 
 instance FromJSON IAMAccessKey where
   parseJSON (Object obj) =
     IAMAccessKey <$>
-      obj .: "Serial" <*>
-      obj .: "Status" <*>
+      obj .:? "Serial" <*>
+      obj .:? "Status" <*>
       obj .: "UserName"
   parseJSON _ = mempty
 

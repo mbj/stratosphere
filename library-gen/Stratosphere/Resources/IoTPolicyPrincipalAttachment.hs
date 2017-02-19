@@ -7,6 +7,7 @@ module Stratosphere.Resources.IoTPolicyPrincipalAttachment where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,9 +24,10 @@ data IoTPolicyPrincipalAttachment =
 
 instance ToJSON IoTPolicyPrincipalAttachment where
   toJSON IoTPolicyPrincipalAttachment{..} =
-    object
-    [ "PolicyName" .= _ioTPolicyPrincipalAttachmentPolicyName
-    , "Principal" .= _ioTPolicyPrincipalAttachmentPrincipal
+    object $
+    catMaybes
+    [ Just ("PolicyName" .= _ioTPolicyPrincipalAttachmentPolicyName)
+    , Just ("Principal" .= _ioTPolicyPrincipalAttachmentPrincipal)
     ]
 
 instance FromJSON IoTPolicyPrincipalAttachment where

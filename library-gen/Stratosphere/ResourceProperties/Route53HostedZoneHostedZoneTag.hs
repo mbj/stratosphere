@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.Route53HostedZoneHostedZoneTag where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,9 +24,10 @@ data Route53HostedZoneHostedZoneTag =
 
 instance ToJSON Route53HostedZoneHostedZoneTag where
   toJSON Route53HostedZoneHostedZoneTag{..} =
-    object
-    [ "Key" .= _route53HostedZoneHostedZoneTagKey
-    , "Value" .= _route53HostedZoneHostedZoneTagValue
+    object $
+    catMaybes
+    [ Just ("Key" .= _route53HostedZoneHostedZoneTagKey)
+    , Just ("Value" .= _route53HostedZoneHostedZoneTagValue)
     ]
 
 instance FromJSON Route53HostedZoneHostedZoneTag where

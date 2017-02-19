@@ -7,6 +7,7 @@ module Stratosphere.Resources.CodeDeployApplication where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -22,14 +23,15 @@ data CodeDeployApplication =
 
 instance ToJSON CodeDeployApplication where
   toJSON CodeDeployApplication{..} =
-    object
-    [ "ApplicationName" .= _codeDeployApplicationApplicationName
+    object $
+    catMaybes
+    [ ("ApplicationName" .=) <$> _codeDeployApplicationApplicationName
     ]
 
 instance FromJSON CodeDeployApplication where
   parseJSON (Object obj) =
     CodeDeployApplication <$>
-      obj .: "ApplicationName"
+      obj .:? "ApplicationName"
   parseJSON _ = mempty
 
 -- | Constructor for 'CodeDeployApplication' containing required fields as

@@ -7,6 +7,7 @@ module Stratosphere.Resources.KMSKey where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -26,22 +27,23 @@ data KMSKey =
 
 instance ToJSON KMSKey where
   toJSON KMSKey{..} =
-    object
-    [ "Description" .= _kMSKeyDescription
-    , "EnableKeyRotation" .= _kMSKeyEnableKeyRotation
-    , "Enabled" .= _kMSKeyEnabled
-    , "KeyPolicy" .= _kMSKeyKeyPolicy
-    , "KeyUsage" .= _kMSKeyKeyUsage
+    object $
+    catMaybes
+    [ ("Description" .=) <$> _kMSKeyDescription
+    , ("EnableKeyRotation" .=) <$> _kMSKeyEnableKeyRotation
+    , ("Enabled" .=) <$> _kMSKeyEnabled
+    , Just ("KeyPolicy" .= _kMSKeyKeyPolicy)
+    , ("KeyUsage" .=) <$> _kMSKeyKeyUsage
     ]
 
 instance FromJSON KMSKey where
   parseJSON (Object obj) =
     KMSKey <$>
-      obj .: "Description" <*>
-      obj .: "EnableKeyRotation" <*>
-      obj .: "Enabled" <*>
+      obj .:? "Description" <*>
+      obj .:? "EnableKeyRotation" <*>
+      obj .:? "Enabled" <*>
       obj .: "KeyPolicy" <*>
-      obj .: "KeyUsage"
+      obj .:? "KeyUsage"
   parseJSON _ = mempty
 
 -- | Constructor for 'KMSKey' containing required fields as arguments.

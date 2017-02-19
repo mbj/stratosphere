@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.CloudFrontDistributionDistributionConfig 
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -42,40 +43,41 @@ data CloudFrontDistributionDistributionConfig =
 
 instance ToJSON CloudFrontDistributionDistributionConfig where
   toJSON CloudFrontDistributionDistributionConfig{..} =
-    object
-    [ "Aliases" .= _cloudFrontDistributionDistributionConfigAliases
-    , "CacheBehaviors" .= _cloudFrontDistributionDistributionConfigCacheBehaviors
-    , "Comment" .= _cloudFrontDistributionDistributionConfigComment
-    , "CustomErrorResponses" .= _cloudFrontDistributionDistributionConfigCustomErrorResponses
-    , "DefaultCacheBehavior" .= _cloudFrontDistributionDistributionConfigDefaultCacheBehavior
-    , "DefaultRootObject" .= _cloudFrontDistributionDistributionConfigDefaultRootObject
-    , "Enabled" .= _cloudFrontDistributionDistributionConfigEnabled
-    , "HttpVersion" .= _cloudFrontDistributionDistributionConfigHttpVersion
-    , "Logging" .= _cloudFrontDistributionDistributionConfigLogging
-    , "Origins" .= _cloudFrontDistributionDistributionConfigOrigins
-    , "PriceClass" .= _cloudFrontDistributionDistributionConfigPriceClass
-    , "Restrictions" .= _cloudFrontDistributionDistributionConfigRestrictions
-    , "ViewerCertificate" .= _cloudFrontDistributionDistributionConfigViewerCertificate
-    , "WebACLId" .= _cloudFrontDistributionDistributionConfigWebACLId
+    object $
+    catMaybes
+    [ ("Aliases" .=) <$> _cloudFrontDistributionDistributionConfigAliases
+    , ("CacheBehaviors" .=) <$> _cloudFrontDistributionDistributionConfigCacheBehaviors
+    , ("Comment" .=) <$> _cloudFrontDistributionDistributionConfigComment
+    , ("CustomErrorResponses" .=) <$> _cloudFrontDistributionDistributionConfigCustomErrorResponses
+    , Just ("DefaultCacheBehavior" .= _cloudFrontDistributionDistributionConfigDefaultCacheBehavior)
+    , ("DefaultRootObject" .=) <$> _cloudFrontDistributionDistributionConfigDefaultRootObject
+    , Just ("Enabled" .= _cloudFrontDistributionDistributionConfigEnabled)
+    , ("HttpVersion" .=) <$> _cloudFrontDistributionDistributionConfigHttpVersion
+    , ("Logging" .=) <$> _cloudFrontDistributionDistributionConfigLogging
+    , Just ("Origins" .= _cloudFrontDistributionDistributionConfigOrigins)
+    , ("PriceClass" .=) <$> _cloudFrontDistributionDistributionConfigPriceClass
+    , ("Restrictions" .=) <$> _cloudFrontDistributionDistributionConfigRestrictions
+    , ("ViewerCertificate" .=) <$> _cloudFrontDistributionDistributionConfigViewerCertificate
+    , ("WebACLId" .=) <$> _cloudFrontDistributionDistributionConfigWebACLId
     ]
 
 instance FromJSON CloudFrontDistributionDistributionConfig where
   parseJSON (Object obj) =
     CloudFrontDistributionDistributionConfig <$>
-      obj .: "Aliases" <*>
-      obj .: "CacheBehaviors" <*>
-      obj .: "Comment" <*>
-      obj .: "CustomErrorResponses" <*>
+      obj .:? "Aliases" <*>
+      obj .:? "CacheBehaviors" <*>
+      obj .:? "Comment" <*>
+      obj .:? "CustomErrorResponses" <*>
       obj .: "DefaultCacheBehavior" <*>
-      obj .: "DefaultRootObject" <*>
+      obj .:? "DefaultRootObject" <*>
       obj .: "Enabled" <*>
-      obj .: "HttpVersion" <*>
-      obj .: "Logging" <*>
+      obj .:? "HttpVersion" <*>
+      obj .:? "Logging" <*>
       obj .: "Origins" <*>
-      obj .: "PriceClass" <*>
-      obj .: "Restrictions" <*>
-      obj .: "ViewerCertificate" <*>
-      obj .: "WebACLId"
+      obj .:? "PriceClass" <*>
+      obj .:? "Restrictions" <*>
+      obj .:? "ViewerCertificate" <*>
+      obj .:? "WebACLId"
   parseJSON _ = mempty
 
 -- | Constructor for 'CloudFrontDistributionDistributionConfig' containing

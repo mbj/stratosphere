@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.S3BucketWebsiteConfiguration where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -26,20 +27,21 @@ data S3BucketWebsiteConfiguration =
 
 instance ToJSON S3BucketWebsiteConfiguration where
   toJSON S3BucketWebsiteConfiguration{..} =
-    object
-    [ "ErrorDocument" .= _s3BucketWebsiteConfigurationErrorDocument
-    , "IndexDocument" .= _s3BucketWebsiteConfigurationIndexDocument
-    , "RedirectAllRequestsTo" .= _s3BucketWebsiteConfigurationRedirectAllRequestsTo
-    , "RoutingRules" .= _s3BucketWebsiteConfigurationRoutingRules
+    object $
+    catMaybes
+    [ ("ErrorDocument" .=) <$> _s3BucketWebsiteConfigurationErrorDocument
+    , ("IndexDocument" .=) <$> _s3BucketWebsiteConfigurationIndexDocument
+    , ("RedirectAllRequestsTo" .=) <$> _s3BucketWebsiteConfigurationRedirectAllRequestsTo
+    , ("RoutingRules" .=) <$> _s3BucketWebsiteConfigurationRoutingRules
     ]
 
 instance FromJSON S3BucketWebsiteConfiguration where
   parseJSON (Object obj) =
     S3BucketWebsiteConfiguration <$>
-      obj .: "ErrorDocument" <*>
-      obj .: "IndexDocument" <*>
-      obj .: "RedirectAllRequestsTo" <*>
-      obj .: "RoutingRules"
+      obj .:? "ErrorDocument" <*>
+      obj .:? "IndexDocument" <*>
+      obj .:? "RedirectAllRequestsTo" <*>
+      obj .:? "RoutingRules"
   parseJSON _ = mempty
 
 -- | Constructor for 'S3BucketWebsiteConfiguration' containing required fields

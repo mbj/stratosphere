@@ -7,6 +7,7 @@ module Stratosphere.Resources.EC2VolumeAttachment where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -24,10 +25,11 @@ data EC2VolumeAttachment =
 
 instance ToJSON EC2VolumeAttachment where
   toJSON EC2VolumeAttachment{..} =
-    object
-    [ "Device" .= _eC2VolumeAttachmentDevice
-    , "InstanceId" .= _eC2VolumeAttachmentInstanceId
-    , "VolumeId" .= _eC2VolumeAttachmentVolumeId
+    object $
+    catMaybes
+    [ Just ("Device" .= _eC2VolumeAttachmentDevice)
+    , Just ("InstanceId" .= _eC2VolumeAttachmentInstanceId)
+    , Just ("VolumeId" .= _eC2VolumeAttachmentVolumeId)
     ]
 
 instance FromJSON EC2VolumeAttachment where

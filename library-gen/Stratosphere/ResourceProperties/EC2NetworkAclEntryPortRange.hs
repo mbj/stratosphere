@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.EC2NetworkAclEntryPortRange where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,16 +24,17 @@ data EC2NetworkAclEntryPortRange =
 
 instance ToJSON EC2NetworkAclEntryPortRange where
   toJSON EC2NetworkAclEntryPortRange{..} =
-    object
-    [ "From" .= _eC2NetworkAclEntryPortRangeFrom
-    , "To" .= _eC2NetworkAclEntryPortRangeTo
+    object $
+    catMaybes
+    [ ("From" .=) <$> _eC2NetworkAclEntryPortRangeFrom
+    , ("To" .=) <$> _eC2NetworkAclEntryPortRangeTo
     ]
 
 instance FromJSON EC2NetworkAclEntryPortRange where
   parseJSON (Object obj) =
     EC2NetworkAclEntryPortRange <$>
-      obj .: "From" <*>
-      obj .: "To"
+      obj .:? "From" <*>
+      obj .:? "To"
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2NetworkAclEntryPortRange' containing required fields

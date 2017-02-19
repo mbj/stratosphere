@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.CloudFrontDistributionS3OriginConfig wher
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -22,14 +23,15 @@ data CloudFrontDistributionS3OriginConfig =
 
 instance ToJSON CloudFrontDistributionS3OriginConfig where
   toJSON CloudFrontDistributionS3OriginConfig{..} =
-    object
-    [ "OriginAccessIdentity" .= _cloudFrontDistributionS3OriginConfigOriginAccessIdentity
+    object $
+    catMaybes
+    [ ("OriginAccessIdentity" .=) <$> _cloudFrontDistributionS3OriginConfigOriginAccessIdentity
     ]
 
 instance FromJSON CloudFrontDistributionS3OriginConfig where
   parseJSON (Object obj) =
     CloudFrontDistributionS3OriginConfig <$>
-      obj .: "OriginAccessIdentity"
+      obj .:? "OriginAccessIdentity"
   parseJSON _ = mempty
 
 -- | Constructor for 'CloudFrontDistributionS3OriginConfig' containing

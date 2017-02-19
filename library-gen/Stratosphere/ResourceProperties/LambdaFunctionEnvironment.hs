@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.LambdaFunctionEnvironment where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -22,14 +23,15 @@ data LambdaFunctionEnvironment =
 
 instance ToJSON LambdaFunctionEnvironment where
   toJSON LambdaFunctionEnvironment{..} =
-    object
-    [ "Variables" .= _lambdaFunctionEnvironmentVariables
+    object $
+    catMaybes
+    [ ("Variables" .=) <$> _lambdaFunctionEnvironmentVariables
     ]
 
 instance FromJSON LambdaFunctionEnvironment where
   parseJSON (Object obj) =
     LambdaFunctionEnvironment <$>
-      obj .: "Variables"
+      obj .:? "Variables"
   parseJSON _ = mempty
 
 -- | Constructor for 'LambdaFunctionEnvironment' containing required fields as

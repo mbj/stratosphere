@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.OpsWorksLayerAutoScalingThresholds where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -27,24 +28,25 @@ data OpsWorksLayerAutoScalingThresholds =
 
 instance ToJSON OpsWorksLayerAutoScalingThresholds where
   toJSON OpsWorksLayerAutoScalingThresholds{..} =
-    object
-    [ "CpuThreshold" .= _opsWorksLayerAutoScalingThresholdsCpuThreshold
-    , "IgnoreMetricsTime" .= _opsWorksLayerAutoScalingThresholdsIgnoreMetricsTime
-    , "InstanceCount" .= _opsWorksLayerAutoScalingThresholdsInstanceCount
-    , "LoadThreshold" .= _opsWorksLayerAutoScalingThresholdsLoadThreshold
-    , "MemoryThreshold" .= _opsWorksLayerAutoScalingThresholdsMemoryThreshold
-    , "ThresholdsWaitTime" .= _opsWorksLayerAutoScalingThresholdsThresholdsWaitTime
+    object $
+    catMaybes
+    [ ("CpuThreshold" .=) <$> _opsWorksLayerAutoScalingThresholdsCpuThreshold
+    , ("IgnoreMetricsTime" .=) <$> _opsWorksLayerAutoScalingThresholdsIgnoreMetricsTime
+    , ("InstanceCount" .=) <$> _opsWorksLayerAutoScalingThresholdsInstanceCount
+    , ("LoadThreshold" .=) <$> _opsWorksLayerAutoScalingThresholdsLoadThreshold
+    , ("MemoryThreshold" .=) <$> _opsWorksLayerAutoScalingThresholdsMemoryThreshold
+    , ("ThresholdsWaitTime" .=) <$> _opsWorksLayerAutoScalingThresholdsThresholdsWaitTime
     ]
 
 instance FromJSON OpsWorksLayerAutoScalingThresholds where
   parseJSON (Object obj) =
     OpsWorksLayerAutoScalingThresholds <$>
-      obj .: "CpuThreshold" <*>
-      obj .: "IgnoreMetricsTime" <*>
-      obj .: "InstanceCount" <*>
-      obj .: "LoadThreshold" <*>
-      obj .: "MemoryThreshold" <*>
-      obj .: "ThresholdsWaitTime"
+      obj .:? "CpuThreshold" <*>
+      obj .:? "IgnoreMetricsTime" <*>
+      obj .:? "InstanceCount" <*>
+      obj .:? "LoadThreshold" <*>
+      obj .:? "MemoryThreshold" <*>
+      obj .:? "ThresholdsWaitTime"
   parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksLayerAutoScalingThresholds' containing required

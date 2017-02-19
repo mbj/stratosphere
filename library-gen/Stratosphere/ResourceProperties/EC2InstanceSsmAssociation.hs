@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.EC2InstanceSsmAssociation where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,15 +24,16 @@ data EC2InstanceSsmAssociation =
 
 instance ToJSON EC2InstanceSsmAssociation where
   toJSON EC2InstanceSsmAssociation{..} =
-    object
-    [ "AssociationParameters" .= _eC2InstanceSsmAssociationAssociationParameters
-    , "DocumentName" .= _eC2InstanceSsmAssociationDocumentName
+    object $
+    catMaybes
+    [ ("AssociationParameters" .=) <$> _eC2InstanceSsmAssociationAssociationParameters
+    , Just ("DocumentName" .= _eC2InstanceSsmAssociationDocumentName)
     ]
 
 instance FromJSON EC2InstanceSsmAssociation where
   parseJSON (Object obj) =
     EC2InstanceSsmAssociation <$>
-      obj .: "AssociationParameters" <*>
+      obj .:? "AssociationParameters" <*>
       obj .: "DocumentName"
   parseJSON _ = mempty
 

@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.CloudFrontDistributionCookies where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,16 +24,17 @@ data CloudFrontDistributionCookies =
 
 instance ToJSON CloudFrontDistributionCookies where
   toJSON CloudFrontDistributionCookies{..} =
-    object
-    [ "Forward" .= _cloudFrontDistributionCookiesForward
-    , "WhitelistedNames" .= _cloudFrontDistributionCookiesWhitelistedNames
+    object $
+    catMaybes
+    [ Just ("Forward" .= _cloudFrontDistributionCookiesForward)
+    , ("WhitelistedNames" .=) <$> _cloudFrontDistributionCookiesWhitelistedNames
     ]
 
 instance FromJSON CloudFrontDistributionCookies where
   parseJSON (Object obj) =
     CloudFrontDistributionCookies <$>
       obj .: "Forward" <*>
-      obj .: "WhitelistedNames"
+      obj .:? "WhitelistedNames"
   parseJSON _ = mempty
 
 -- | Constructor for 'CloudFrontDistributionCookies' containing required

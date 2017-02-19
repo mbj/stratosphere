@@ -7,6 +7,7 @@ module Stratosphere.Resources.LogsSubscriptionFilter where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -25,11 +26,12 @@ data LogsSubscriptionFilter =
 
 instance ToJSON LogsSubscriptionFilter where
   toJSON LogsSubscriptionFilter{..} =
-    object
-    [ "DestinationArn" .= _logsSubscriptionFilterDestinationArn
-    , "FilterPattern" .= _logsSubscriptionFilterFilterPattern
-    , "LogGroupName" .= _logsSubscriptionFilterLogGroupName
-    , "RoleArn" .= _logsSubscriptionFilterRoleArn
+    object $
+    catMaybes
+    [ Just ("DestinationArn" .= _logsSubscriptionFilterDestinationArn)
+    , Just ("FilterPattern" .= _logsSubscriptionFilterFilterPattern)
+    , Just ("LogGroupName" .= _logsSubscriptionFilterLogGroupName)
+    , ("RoleArn" .=) <$> _logsSubscriptionFilterRoleArn
     ]
 
 instance FromJSON LogsSubscriptionFilter where
@@ -38,7 +40,7 @@ instance FromJSON LogsSubscriptionFilter where
       obj .: "DestinationArn" <*>
       obj .: "FilterPattern" <*>
       obj .: "LogGroupName" <*>
-      obj .: "RoleArn"
+      obj .:? "RoleArn"
   parseJSON _ = mempty
 
 -- | Constructor for 'LogsSubscriptionFilter' containing required fields as

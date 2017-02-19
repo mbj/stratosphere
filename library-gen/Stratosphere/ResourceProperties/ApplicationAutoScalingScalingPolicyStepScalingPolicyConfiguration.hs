@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.ApplicationAutoScalingScalingPolicyStepSc
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -28,22 +29,23 @@ data ApplicationAutoScalingScalingPolicyStepScalingPolicyConfiguration =
 
 instance ToJSON ApplicationAutoScalingScalingPolicyStepScalingPolicyConfiguration where
   toJSON ApplicationAutoScalingScalingPolicyStepScalingPolicyConfiguration{..} =
-    object
-    [ "AdjustmentType" .= _applicationAutoScalingScalingPolicyStepScalingPolicyConfigurationAdjustmentType
-    , "Cooldown" .= _applicationAutoScalingScalingPolicyStepScalingPolicyConfigurationCooldown
-    , "MetricAggregationType" .= _applicationAutoScalingScalingPolicyStepScalingPolicyConfigurationMetricAggregationType
-    , "MinAdjustmentMagnitude" .= _applicationAutoScalingScalingPolicyStepScalingPolicyConfigurationMinAdjustmentMagnitude
-    , "StepAdjustments" .= _applicationAutoScalingScalingPolicyStepScalingPolicyConfigurationStepAdjustments
+    object $
+    catMaybes
+    [ ("AdjustmentType" .=) <$> _applicationAutoScalingScalingPolicyStepScalingPolicyConfigurationAdjustmentType
+    , ("Cooldown" .=) <$> _applicationAutoScalingScalingPolicyStepScalingPolicyConfigurationCooldown
+    , ("MetricAggregationType" .=) <$> _applicationAutoScalingScalingPolicyStepScalingPolicyConfigurationMetricAggregationType
+    , ("MinAdjustmentMagnitude" .=) <$> _applicationAutoScalingScalingPolicyStepScalingPolicyConfigurationMinAdjustmentMagnitude
+    , ("StepAdjustments" .=) <$> _applicationAutoScalingScalingPolicyStepScalingPolicyConfigurationStepAdjustments
     ]
 
 instance FromJSON ApplicationAutoScalingScalingPolicyStepScalingPolicyConfiguration where
   parseJSON (Object obj) =
     ApplicationAutoScalingScalingPolicyStepScalingPolicyConfiguration <$>
-      obj .: "AdjustmentType" <*>
-      obj .: "Cooldown" <*>
-      obj .: "MetricAggregationType" <*>
-      obj .: "MinAdjustmentMagnitude" <*>
-      obj .: "StepAdjustments"
+      obj .:? "AdjustmentType" <*>
+      obj .:? "Cooldown" <*>
+      obj .:? "MetricAggregationType" <*>
+      obj .:? "MinAdjustmentMagnitude" <*>
+      obj .:? "StepAdjustments"
   parseJSON _ = mempty
 
 -- | Constructor for

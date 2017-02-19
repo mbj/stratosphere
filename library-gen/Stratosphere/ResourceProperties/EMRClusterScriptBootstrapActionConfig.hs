@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.EMRClusterScriptBootstrapActionConfig whe
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -24,15 +25,16 @@ data EMRClusterScriptBootstrapActionConfig =
 
 instance ToJSON EMRClusterScriptBootstrapActionConfig where
   toJSON EMRClusterScriptBootstrapActionConfig{..} =
-    object
-    [ "Args" .= _eMRClusterScriptBootstrapActionConfigArgs
-    , "Path" .= _eMRClusterScriptBootstrapActionConfigPath
+    object $
+    catMaybes
+    [ ("Args" .=) <$> _eMRClusterScriptBootstrapActionConfigArgs
+    , Just ("Path" .= _eMRClusterScriptBootstrapActionConfigPath)
     ]
 
 instance FromJSON EMRClusterScriptBootstrapActionConfig where
   parseJSON (Object obj) =
     EMRClusterScriptBootstrapActionConfig <$>
-      obj .: "Args" <*>
+      obj .:? "Args" <*>
       obj .: "Path"
   parseJSON _ = mempty
 

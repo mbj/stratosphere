@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.OpsWorksStackElasticIp where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,16 +24,17 @@ data OpsWorksStackElasticIp =
 
 instance ToJSON OpsWorksStackElasticIp where
   toJSON OpsWorksStackElasticIp{..} =
-    object
-    [ "Ip" .= _opsWorksStackElasticIpIp
-    , "Name" .= _opsWorksStackElasticIpName
+    object $
+    catMaybes
+    [ Just ("Ip" .= _opsWorksStackElasticIpIp)
+    , ("Name" .=) <$> _opsWorksStackElasticIpName
     ]
 
 instance FromJSON OpsWorksStackElasticIp where
   parseJSON (Object obj) =
     OpsWorksStackElasticIp <$>
       obj .: "Ip" <*>
-      obj .: "Name"
+      obj .:? "Name"
   parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksStackElasticIp' containing required fields as

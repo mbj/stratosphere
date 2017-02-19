@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.CodeCommitRepositoryRepositoryTrigger whe
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -27,22 +28,23 @@ data CodeCommitRepositoryRepositoryTrigger =
 
 instance ToJSON CodeCommitRepositoryRepositoryTrigger where
   toJSON CodeCommitRepositoryRepositoryTrigger{..} =
-    object
-    [ "Branches" .= _codeCommitRepositoryRepositoryTriggerBranches
-    , "CustomData" .= _codeCommitRepositoryRepositoryTriggerCustomData
-    , "DestinationArn" .= _codeCommitRepositoryRepositoryTriggerDestinationArn
-    , "Events" .= _codeCommitRepositoryRepositoryTriggerEvents
-    , "Name" .= _codeCommitRepositoryRepositoryTriggerName
+    object $
+    catMaybes
+    [ ("Branches" .=) <$> _codeCommitRepositoryRepositoryTriggerBranches
+    , ("CustomData" .=) <$> _codeCommitRepositoryRepositoryTriggerCustomData
+    , ("DestinationArn" .=) <$> _codeCommitRepositoryRepositoryTriggerDestinationArn
+    , ("Events" .=) <$> _codeCommitRepositoryRepositoryTriggerEvents
+    , ("Name" .=) <$> _codeCommitRepositoryRepositoryTriggerName
     ]
 
 instance FromJSON CodeCommitRepositoryRepositoryTrigger where
   parseJSON (Object obj) =
     CodeCommitRepositoryRepositoryTrigger <$>
-      obj .: "Branches" <*>
-      obj .: "CustomData" <*>
-      obj .: "DestinationArn" <*>
-      obj .: "Events" <*>
-      obj .: "Name"
+      obj .:? "Branches" <*>
+      obj .:? "CustomData" <*>
+      obj .:? "DestinationArn" <*>
+      obj .:? "Events" <*>
+      obj .:? "Name"
   parseJSON _ = mempty
 
 -- | Constructor for 'CodeCommitRepositoryRepositoryTrigger' containing

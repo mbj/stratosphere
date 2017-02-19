@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.S3BucketReplicationRule where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -25,18 +26,19 @@ data S3BucketReplicationRule =
 
 instance ToJSON S3BucketReplicationRule where
   toJSON S3BucketReplicationRule{..} =
-    object
-    [ "Destination" .= _s3BucketReplicationRuleDestination
-    , "Id" .= _s3BucketReplicationRuleId
-    , "Prefix" .= _s3BucketReplicationRulePrefix
-    , "Status" .= _s3BucketReplicationRuleStatus
+    object $
+    catMaybes
+    [ Just ("Destination" .= _s3BucketReplicationRuleDestination)
+    , ("Id" .=) <$> _s3BucketReplicationRuleId
+    , Just ("Prefix" .= _s3BucketReplicationRulePrefix)
+    , Just ("Status" .= _s3BucketReplicationRuleStatus)
     ]
 
 instance FromJSON S3BucketReplicationRule where
   parseJSON (Object obj) =
     S3BucketReplicationRule <$>
       obj .: "Destination" <*>
-      obj .: "Id" <*>
+      obj .:? "Id" <*>
       obj .: "Prefix" <*>
       obj .: "Status"
   parseJSON _ = mempty

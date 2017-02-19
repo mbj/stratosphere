@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.ECSTaskDefinitionMountPoint where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -24,18 +25,19 @@ data ECSTaskDefinitionMountPoint =
 
 instance ToJSON ECSTaskDefinitionMountPoint where
   toJSON ECSTaskDefinitionMountPoint{..} =
-    object
-    [ "ContainerPath" .= _eCSTaskDefinitionMountPointContainerPath
-    , "ReadOnly" .= _eCSTaskDefinitionMountPointReadOnly
-    , "SourceVolume" .= _eCSTaskDefinitionMountPointSourceVolume
+    object $
+    catMaybes
+    [ ("ContainerPath" .=) <$> _eCSTaskDefinitionMountPointContainerPath
+    , ("ReadOnly" .=) <$> _eCSTaskDefinitionMountPointReadOnly
+    , ("SourceVolume" .=) <$> _eCSTaskDefinitionMountPointSourceVolume
     ]
 
 instance FromJSON ECSTaskDefinitionMountPoint where
   parseJSON (Object obj) =
     ECSTaskDefinitionMountPoint <$>
-      obj .: "ContainerPath" <*>
-      obj .: "ReadOnly" <*>
-      obj .: "SourceVolume"
+      obj .:? "ContainerPath" <*>
+      obj .:? "ReadOnly" <*>
+      obj .:? "SourceVolume"
   parseJSON _ = mempty
 
 -- | Constructor for 'ECSTaskDefinitionMountPoint' containing required fields

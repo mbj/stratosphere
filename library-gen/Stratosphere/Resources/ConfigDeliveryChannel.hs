@@ -7,6 +7,7 @@ module Stratosphere.Resources.ConfigDeliveryChannel where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -26,22 +27,23 @@ data ConfigDeliveryChannel =
 
 instance ToJSON ConfigDeliveryChannel where
   toJSON ConfigDeliveryChannel{..} =
-    object
-    [ "ConfigSnapshotDeliveryProperties" .= _configDeliveryChannelConfigSnapshotDeliveryProperties
-    , "Name" .= _configDeliveryChannelName
-    , "S3BucketName" .= _configDeliveryChannelS3BucketName
-    , "S3KeyPrefix" .= _configDeliveryChannelS3KeyPrefix
-    , "SnsTopicARN" .= _configDeliveryChannelSnsTopicARN
+    object $
+    catMaybes
+    [ ("ConfigSnapshotDeliveryProperties" .=) <$> _configDeliveryChannelConfigSnapshotDeliveryProperties
+    , ("Name" .=) <$> _configDeliveryChannelName
+    , Just ("S3BucketName" .= _configDeliveryChannelS3BucketName)
+    , ("S3KeyPrefix" .=) <$> _configDeliveryChannelS3KeyPrefix
+    , ("SnsTopicARN" .=) <$> _configDeliveryChannelSnsTopicARN
     ]
 
 instance FromJSON ConfigDeliveryChannel where
   parseJSON (Object obj) =
     ConfigDeliveryChannel <$>
-      obj .: "ConfigSnapshotDeliveryProperties" <*>
-      obj .: "Name" <*>
+      obj .:? "ConfigSnapshotDeliveryProperties" <*>
+      obj .:? "Name" <*>
       obj .: "S3BucketName" <*>
-      obj .: "S3KeyPrefix" <*>
-      obj .: "SnsTopicARN"
+      obj .:? "S3KeyPrefix" <*>
+      obj .:? "SnsTopicARN"
   parseJSON _ = mempty
 
 -- | Constructor for 'ConfigDeliveryChannel' containing required fields as

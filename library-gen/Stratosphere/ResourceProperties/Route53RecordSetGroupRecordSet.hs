@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.Route53RecordSetGroupRecordSet where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -36,40 +37,41 @@ data Route53RecordSetGroupRecordSet =
 
 instance ToJSON Route53RecordSetGroupRecordSet where
   toJSON Route53RecordSetGroupRecordSet{..} =
-    object
-    [ "AliasTarget" .= _route53RecordSetGroupRecordSetAliasTarget
-    , "Comment" .= _route53RecordSetGroupRecordSetComment
-    , "Failover" .= _route53RecordSetGroupRecordSetFailover
-    , "GeoLocation" .= _route53RecordSetGroupRecordSetGeoLocation
-    , "HealthCheckId" .= _route53RecordSetGroupRecordSetHealthCheckId
-    , "HostedZoneId" .= _route53RecordSetGroupRecordSetHostedZoneId
-    , "HostedZoneName" .= _route53RecordSetGroupRecordSetHostedZoneName
-    , "Name" .= _route53RecordSetGroupRecordSetName
-    , "Region" .= _route53RecordSetGroupRecordSetRegion
-    , "ResourceRecords" .= _route53RecordSetGroupRecordSetResourceRecords
-    , "SetIdentifier" .= _route53RecordSetGroupRecordSetSetIdentifier
-    , "TTL" .= _route53RecordSetGroupRecordSetTTL
-    , "Type" .= _route53RecordSetGroupRecordSetType
-    , "Weight" .= _route53RecordSetGroupRecordSetWeight
+    object $
+    catMaybes
+    [ ("AliasTarget" .=) <$> _route53RecordSetGroupRecordSetAliasTarget
+    , ("Comment" .=) <$> _route53RecordSetGroupRecordSetComment
+    , ("Failover" .=) <$> _route53RecordSetGroupRecordSetFailover
+    , ("GeoLocation" .=) <$> _route53RecordSetGroupRecordSetGeoLocation
+    , ("HealthCheckId" .=) <$> _route53RecordSetGroupRecordSetHealthCheckId
+    , ("HostedZoneId" .=) <$> _route53RecordSetGroupRecordSetHostedZoneId
+    , ("HostedZoneName" .=) <$> _route53RecordSetGroupRecordSetHostedZoneName
+    , Just ("Name" .= _route53RecordSetGroupRecordSetName)
+    , ("Region" .=) <$> _route53RecordSetGroupRecordSetRegion
+    , ("ResourceRecords" .=) <$> _route53RecordSetGroupRecordSetResourceRecords
+    , ("SetIdentifier" .=) <$> _route53RecordSetGroupRecordSetSetIdentifier
+    , ("TTL" .=) <$> _route53RecordSetGroupRecordSetTTL
+    , Just ("Type" .= _route53RecordSetGroupRecordSetType)
+    , ("Weight" .=) <$> _route53RecordSetGroupRecordSetWeight
     ]
 
 instance FromJSON Route53RecordSetGroupRecordSet where
   parseJSON (Object obj) =
     Route53RecordSetGroupRecordSet <$>
-      obj .: "AliasTarget" <*>
-      obj .: "Comment" <*>
-      obj .: "Failover" <*>
-      obj .: "GeoLocation" <*>
-      obj .: "HealthCheckId" <*>
-      obj .: "HostedZoneId" <*>
-      obj .: "HostedZoneName" <*>
+      obj .:? "AliasTarget" <*>
+      obj .:? "Comment" <*>
+      obj .:? "Failover" <*>
+      obj .:? "GeoLocation" <*>
+      obj .:? "HealthCheckId" <*>
+      obj .:? "HostedZoneId" <*>
+      obj .:? "HostedZoneName" <*>
       obj .: "Name" <*>
-      obj .: "Region" <*>
-      obj .: "ResourceRecords" <*>
-      obj .: "SetIdentifier" <*>
-      obj .: "TTL" <*>
+      obj .:? "Region" <*>
+      obj .:? "ResourceRecords" <*>
+      obj .:? "SetIdentifier" <*>
+      obj .:? "TTL" <*>
       obj .: "Type" <*>
-      obj .: "Weight"
+      obj .:? "Weight"
   parseJSON _ = mempty
 
 -- | Constructor for 'Route53RecordSetGroupRecordSet' containing required

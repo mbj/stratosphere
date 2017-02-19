@@ -7,6 +7,7 @@ module Stratosphere.Resources.ElasticBeanstalkEnvironment where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -31,30 +32,31 @@ data ElasticBeanstalkEnvironment =
 
 instance ToJSON ElasticBeanstalkEnvironment where
   toJSON ElasticBeanstalkEnvironment{..} =
-    object
-    [ "ApplicationName" .= _elasticBeanstalkEnvironmentApplicationName
-    , "CNAMEPrefix" .= _elasticBeanstalkEnvironmentCNAMEPrefix
-    , "Description" .= _elasticBeanstalkEnvironmentDescription
-    , "EnvironmentName" .= _elasticBeanstalkEnvironmentEnvironmentName
-    , "OptionSettings" .= _elasticBeanstalkEnvironmentOptionSettings
-    , "SolutionStackName" .= _elasticBeanstalkEnvironmentSolutionStackName
-    , "TemplateName" .= _elasticBeanstalkEnvironmentTemplateName
-    , "Tier" .= _elasticBeanstalkEnvironmentTier
-    , "VersionLabel" .= _elasticBeanstalkEnvironmentVersionLabel
+    object $
+    catMaybes
+    [ Just ("ApplicationName" .= _elasticBeanstalkEnvironmentApplicationName)
+    , ("CNAMEPrefix" .=) <$> _elasticBeanstalkEnvironmentCNAMEPrefix
+    , ("Description" .=) <$> _elasticBeanstalkEnvironmentDescription
+    , ("EnvironmentName" .=) <$> _elasticBeanstalkEnvironmentEnvironmentName
+    , ("OptionSettings" .=) <$> _elasticBeanstalkEnvironmentOptionSettings
+    , ("SolutionStackName" .=) <$> _elasticBeanstalkEnvironmentSolutionStackName
+    , ("TemplateName" .=) <$> _elasticBeanstalkEnvironmentTemplateName
+    , ("Tier" .=) <$> _elasticBeanstalkEnvironmentTier
+    , ("VersionLabel" .=) <$> _elasticBeanstalkEnvironmentVersionLabel
     ]
 
 instance FromJSON ElasticBeanstalkEnvironment where
   parseJSON (Object obj) =
     ElasticBeanstalkEnvironment <$>
       obj .: "ApplicationName" <*>
-      obj .: "CNAMEPrefix" <*>
-      obj .: "Description" <*>
-      obj .: "EnvironmentName" <*>
-      obj .: "OptionSettings" <*>
-      obj .: "SolutionStackName" <*>
-      obj .: "TemplateName" <*>
-      obj .: "Tier" <*>
-      obj .: "VersionLabel"
+      obj .:? "CNAMEPrefix" <*>
+      obj .:? "Description" <*>
+      obj .:? "EnvironmentName" <*>
+      obj .:? "OptionSettings" <*>
+      obj .:? "SolutionStackName" <*>
+      obj .:? "TemplateName" <*>
+      obj .:? "Tier" <*>
+      obj .:? "VersionLabel"
   parseJSON _ = mempty
 
 -- | Constructor for 'ElasticBeanstalkEnvironment' containing required fields

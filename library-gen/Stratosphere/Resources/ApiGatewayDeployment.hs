@@ -7,6 +7,7 @@ module Stratosphere.Resources.ApiGatewayDeployment where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -25,20 +26,21 @@ data ApiGatewayDeployment =
 
 instance ToJSON ApiGatewayDeployment where
   toJSON ApiGatewayDeployment{..} =
-    object
-    [ "Description" .= _apiGatewayDeploymentDescription
-    , "RestApiId" .= _apiGatewayDeploymentRestApiId
-    , "StageDescription" .= _apiGatewayDeploymentStageDescription
-    , "StageName" .= _apiGatewayDeploymentStageName
+    object $
+    catMaybes
+    [ ("Description" .=) <$> _apiGatewayDeploymentDescription
+    , Just ("RestApiId" .= _apiGatewayDeploymentRestApiId)
+    , ("StageDescription" .=) <$> _apiGatewayDeploymentStageDescription
+    , ("StageName" .=) <$> _apiGatewayDeploymentStageName
     ]
 
 instance FromJSON ApiGatewayDeployment where
   parseJSON (Object obj) =
     ApiGatewayDeployment <$>
-      obj .: "Description" <*>
+      obj .:? "Description" <*>
       obj .: "RestApiId" <*>
-      obj .: "StageDescription" <*>
-      obj .: "StageName"
+      obj .:? "StageDescription" <*>
+      obj .:? "StageName"
   parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayDeployment' containing required fields as

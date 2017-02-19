@@ -7,6 +7,7 @@ module Stratosphere.Resources.CodeDeployDeploymentGroup where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -31,27 +32,28 @@ data CodeDeployDeploymentGroup =
 
 instance ToJSON CodeDeployDeploymentGroup where
   toJSON CodeDeployDeploymentGroup{..} =
-    object
-    [ "ApplicationName" .= _codeDeployDeploymentGroupApplicationName
-    , "AutoScalingGroups" .= _codeDeployDeploymentGroupAutoScalingGroups
-    , "Deployment" .= _codeDeployDeploymentGroupDeployment
-    , "DeploymentConfigName" .= _codeDeployDeploymentGroupDeploymentConfigName
-    , "DeploymentGroupName" .= _codeDeployDeploymentGroupDeploymentGroupName
-    , "Ec2TagFilters" .= _codeDeployDeploymentGroupEc2TagFilters
-    , "OnPremisesInstanceTagFilters" .= _codeDeployDeploymentGroupOnPremisesInstanceTagFilters
-    , "ServiceRoleArn" .= _codeDeployDeploymentGroupServiceRoleArn
+    object $
+    catMaybes
+    [ Just ("ApplicationName" .= _codeDeployDeploymentGroupApplicationName)
+    , ("AutoScalingGroups" .=) <$> _codeDeployDeploymentGroupAutoScalingGroups
+    , ("Deployment" .=) <$> _codeDeployDeploymentGroupDeployment
+    , ("DeploymentConfigName" .=) <$> _codeDeployDeploymentGroupDeploymentConfigName
+    , ("DeploymentGroupName" .=) <$> _codeDeployDeploymentGroupDeploymentGroupName
+    , ("Ec2TagFilters" .=) <$> _codeDeployDeploymentGroupEc2TagFilters
+    , ("OnPremisesInstanceTagFilters" .=) <$> _codeDeployDeploymentGroupOnPremisesInstanceTagFilters
+    , Just ("ServiceRoleArn" .= _codeDeployDeploymentGroupServiceRoleArn)
     ]
 
 instance FromJSON CodeDeployDeploymentGroup where
   parseJSON (Object obj) =
     CodeDeployDeploymentGroup <$>
       obj .: "ApplicationName" <*>
-      obj .: "AutoScalingGroups" <*>
-      obj .: "Deployment" <*>
-      obj .: "DeploymentConfigName" <*>
-      obj .: "DeploymentGroupName" <*>
-      obj .: "Ec2TagFilters" <*>
-      obj .: "OnPremisesInstanceTagFilters" <*>
+      obj .:? "AutoScalingGroups" <*>
+      obj .:? "Deployment" <*>
+      obj .:? "DeploymentConfigName" <*>
+      obj .:? "DeploymentGroupName" <*>
+      obj .:? "Ec2TagFilters" <*>
+      obj .:? "OnPremisesInstanceTagFilters" <*>
       obj .: "ServiceRoleArn"
   parseJSON _ = mempty
 

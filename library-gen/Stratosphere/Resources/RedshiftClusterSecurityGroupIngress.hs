@@ -7,6 +7,7 @@ module Stratosphere.Resources.RedshiftClusterSecurityGroupIngress where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -25,20 +26,21 @@ data RedshiftClusterSecurityGroupIngress =
 
 instance ToJSON RedshiftClusterSecurityGroupIngress where
   toJSON RedshiftClusterSecurityGroupIngress{..} =
-    object
-    [ "CIDRIP" .= _redshiftClusterSecurityGroupIngressCIDRIP
-    , "ClusterSecurityGroupName" .= _redshiftClusterSecurityGroupIngressClusterSecurityGroupName
-    , "EC2SecurityGroupName" .= _redshiftClusterSecurityGroupIngressEC2SecurityGroupName
-    , "EC2SecurityGroupOwnerId" .= _redshiftClusterSecurityGroupIngressEC2SecurityGroupOwnerId
+    object $
+    catMaybes
+    [ ("CIDRIP" .=) <$> _redshiftClusterSecurityGroupIngressCIDRIP
+    , Just ("ClusterSecurityGroupName" .= _redshiftClusterSecurityGroupIngressClusterSecurityGroupName)
+    , ("EC2SecurityGroupName" .=) <$> _redshiftClusterSecurityGroupIngressEC2SecurityGroupName
+    , ("EC2SecurityGroupOwnerId" .=) <$> _redshiftClusterSecurityGroupIngressEC2SecurityGroupOwnerId
     ]
 
 instance FromJSON RedshiftClusterSecurityGroupIngress where
   parseJSON (Object obj) =
     RedshiftClusterSecurityGroupIngress <$>
-      obj .: "CIDRIP" <*>
+      obj .:? "CIDRIP" <*>
       obj .: "ClusterSecurityGroupName" <*>
-      obj .: "EC2SecurityGroupName" <*>
-      obj .: "EC2SecurityGroupOwnerId"
+      obj .:? "EC2SecurityGroupName" <*>
+      obj .:? "EC2SecurityGroupOwnerId"
   parseJSON _ = mempty
 
 -- | Constructor for 'RedshiftClusterSecurityGroupIngress' containing required

@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.IoTTopicRuleFirehoseAction where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -24,10 +25,11 @@ data IoTTopicRuleFirehoseAction =
 
 instance ToJSON IoTTopicRuleFirehoseAction where
   toJSON IoTTopicRuleFirehoseAction{..} =
-    object
-    [ "DeliveryStreamName" .= _ioTTopicRuleFirehoseActionDeliveryStreamName
-    , "RoleArn" .= _ioTTopicRuleFirehoseActionRoleArn
-    , "Separator" .= _ioTTopicRuleFirehoseActionSeparator
+    object $
+    catMaybes
+    [ Just ("DeliveryStreamName" .= _ioTTopicRuleFirehoseActionDeliveryStreamName)
+    , Just ("RoleArn" .= _ioTTopicRuleFirehoseActionRoleArn)
+    , ("Separator" .=) <$> _ioTTopicRuleFirehoseActionSeparator
     ]
 
 instance FromJSON IoTTopicRuleFirehoseAction where
@@ -35,7 +37,7 @@ instance FromJSON IoTTopicRuleFirehoseAction where
     IoTTopicRuleFirehoseAction <$>
       obj .: "DeliveryStreamName" <*>
       obj .: "RoleArn" <*>
-      obj .: "Separator"
+      obj .:? "Separator"
   parseJSON _ = mempty
 
 -- | Constructor for 'IoTTopicRuleFirehoseAction' containing required fields

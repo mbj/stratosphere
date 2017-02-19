@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.ConfigConfigRuleSourceDetail where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,9 +24,10 @@ data ConfigConfigRuleSourceDetail =
 
 instance ToJSON ConfigConfigRuleSourceDetail where
   toJSON ConfigConfigRuleSourceDetail{..} =
-    object
-    [ "EventSource" .= _configConfigRuleSourceDetailEventSource
-    , "MessageType" .= _configConfigRuleSourceDetailMessageType
+    object $
+    catMaybes
+    [ Just ("EventSource" .= _configConfigRuleSourceDetailEventSource)
+    , Just ("MessageType" .= _configConfigRuleSourceDetailMessageType)
     ]
 
 instance FromJSON ConfigConfigRuleSourceDetail where

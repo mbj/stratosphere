@@ -7,6 +7,7 @@ module Stratosphere.Resources.EC2VPCPeeringConnection where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -24,17 +25,18 @@ data EC2VPCPeeringConnection =
 
 instance ToJSON EC2VPCPeeringConnection where
   toJSON EC2VPCPeeringConnection{..} =
-    object
-    [ "PeerVpcId" .= _eC2VPCPeeringConnectionPeerVpcId
-    , "Tags" .= _eC2VPCPeeringConnectionTags
-    , "VpcId" .= _eC2VPCPeeringConnectionVpcId
+    object $
+    catMaybes
+    [ Just ("PeerVpcId" .= _eC2VPCPeeringConnectionPeerVpcId)
+    , ("Tags" .=) <$> _eC2VPCPeeringConnectionTags
+    , Just ("VpcId" .= _eC2VPCPeeringConnectionVpcId)
     ]
 
 instance FromJSON EC2VPCPeeringConnection where
   parseJSON (Object obj) =
     EC2VPCPeeringConnection <$>
       obj .: "PeerVpcId" <*>
-      obj .: "Tags" <*>
+      obj .:? "Tags" <*>
       obj .: "VpcId"
   parseJSON _ = mempty
 

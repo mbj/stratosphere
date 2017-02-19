@@ -7,6 +7,7 @@ module Stratosphere.Resources.EFSMountTarget where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -25,18 +26,19 @@ data EFSMountTarget =
 
 instance ToJSON EFSMountTarget where
   toJSON EFSMountTarget{..} =
-    object
-    [ "FileSystemId" .= _eFSMountTargetFileSystemId
-    , "IpAddress" .= _eFSMountTargetIpAddress
-    , "SecurityGroups" .= _eFSMountTargetSecurityGroups
-    , "SubnetId" .= _eFSMountTargetSubnetId
+    object $
+    catMaybes
+    [ Just ("FileSystemId" .= _eFSMountTargetFileSystemId)
+    , ("IpAddress" .=) <$> _eFSMountTargetIpAddress
+    , Just ("SecurityGroups" .= _eFSMountTargetSecurityGroups)
+    , Just ("SubnetId" .= _eFSMountTargetSubnetId)
     ]
 
 instance FromJSON EFSMountTarget where
   parseJSON (Object obj) =
     EFSMountTarget <$>
       obj .: "FileSystemId" <*>
-      obj .: "IpAddress" <*>
+      obj .:? "IpAddress" <*>
       obj .: "SecurityGroups" <*>
       obj .: "SubnetId"
   parseJSON _ = mempty

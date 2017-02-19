@@ -7,6 +7,7 @@ module Stratosphere.Resources.IAMPolicy where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -26,22 +27,23 @@ data IAMPolicy =
 
 instance ToJSON IAMPolicy where
   toJSON IAMPolicy{..} =
-    object
-    [ "Groups" .= _iAMPolicyGroups
-    , "PolicyDocument" .= _iAMPolicyPolicyDocument
-    , "PolicyName" .= _iAMPolicyPolicyName
-    , "Roles" .= _iAMPolicyRoles
-    , "Users" .= _iAMPolicyUsers
+    object $
+    catMaybes
+    [ ("Groups" .=) <$> _iAMPolicyGroups
+    , Just ("PolicyDocument" .= _iAMPolicyPolicyDocument)
+    , Just ("PolicyName" .= _iAMPolicyPolicyName)
+    , ("Roles" .=) <$> _iAMPolicyRoles
+    , ("Users" .=) <$> _iAMPolicyUsers
     ]
 
 instance FromJSON IAMPolicy where
   parseJSON (Object obj) =
     IAMPolicy <$>
-      obj .: "Groups" <*>
+      obj .:? "Groups" <*>
       obj .: "PolicyDocument" <*>
       obj .: "PolicyName" <*>
-      obj .: "Roles" <*>
-      obj .: "Users"
+      obj .:? "Roles" <*>
+      obj .:? "Users"
   parseJSON _ = mempty
 
 -- | Constructor for 'IAMPolicy' containing required fields as arguments.

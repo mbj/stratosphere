@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.DataPipelinePipelineParameterAttribute wh
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -24,9 +25,10 @@ data DataPipelinePipelineParameterAttribute =
 
 instance ToJSON DataPipelinePipelineParameterAttribute where
   toJSON DataPipelinePipelineParameterAttribute{..} =
-    object
-    [ "Key" .= _dataPipelinePipelineParameterAttributeKey
-    , "StringValue" .= _dataPipelinePipelineParameterAttributeStringValue
+    object $
+    catMaybes
+    [ Just ("Key" .= _dataPipelinePipelineParameterAttributeKey)
+    , Just ("StringValue" .= _dataPipelinePipelineParameterAttributeStringValue)
     ]
 
 instance FromJSON DataPipelinePipelineParameterAttribute where

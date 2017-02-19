@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.EMRStepKeyValue where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,16 +24,17 @@ data EMRStepKeyValue =
 
 instance ToJSON EMRStepKeyValue where
   toJSON EMRStepKeyValue{..} =
-    object
-    [ "Key" .= _eMRStepKeyValueKey
-    , "Value" .= _eMRStepKeyValueValue
+    object $
+    catMaybes
+    [ ("Key" .=) <$> _eMRStepKeyValueKey
+    , ("Value" .=) <$> _eMRStepKeyValueValue
     ]
 
 instance FromJSON EMRStepKeyValue where
   parseJSON (Object obj) =
     EMRStepKeyValue <$>
-      obj .: "Key" <*>
-      obj .: "Value"
+      obj .:? "Key" <*>
+      obj .:? "Value"
   parseJSON _ = mempty
 
 -- | Constructor for 'EMRStepKeyValue' containing required fields as

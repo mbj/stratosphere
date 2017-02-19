@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.WAFWebACLWafAction where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -22,8 +23,9 @@ data WAFWebACLWafAction =
 
 instance ToJSON WAFWebACLWafAction where
   toJSON WAFWebACLWafAction{..} =
-    object
-    [ "Type" .= _wAFWebACLWafActionType
+    object $
+    catMaybes
+    [ Just ("Type" .= _wAFWebACLWafActionType)
     ]
 
 instance FromJSON WAFWebACLWafAction where

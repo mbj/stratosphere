@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.EC2InstanceAssociationParameter where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,9 +24,10 @@ data EC2InstanceAssociationParameter =
 
 instance ToJSON EC2InstanceAssociationParameter where
   toJSON EC2InstanceAssociationParameter{..} =
-    object
-    [ "Key" .= _eC2InstanceAssociationParameterKey
-    , "Value" .= _eC2InstanceAssociationParameterValue
+    object $
+    catMaybes
+    [ Just ("Key" .= _eC2InstanceAssociationParameterKey)
+    , Just ("Value" .= _eC2InstanceAssociationParameterValue)
     ]
 
 instance FromJSON EC2InstanceAssociationParameter where

@@ -7,6 +7,7 @@ module Stratosphere.Resources.ElasticBeanstalkConfigurationTemplate where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -29,24 +30,25 @@ data ElasticBeanstalkConfigurationTemplate =
 
 instance ToJSON ElasticBeanstalkConfigurationTemplate where
   toJSON ElasticBeanstalkConfigurationTemplate{..} =
-    object
-    [ "ApplicationName" .= _elasticBeanstalkConfigurationTemplateApplicationName
-    , "Description" .= _elasticBeanstalkConfigurationTemplateDescription
-    , "EnvironmentId" .= _elasticBeanstalkConfigurationTemplateEnvironmentId
-    , "OptionSettings" .= _elasticBeanstalkConfigurationTemplateOptionSettings
-    , "SolutionStackName" .= _elasticBeanstalkConfigurationTemplateSolutionStackName
-    , "SourceConfiguration" .= _elasticBeanstalkConfigurationTemplateSourceConfiguration
+    object $
+    catMaybes
+    [ Just ("ApplicationName" .= _elasticBeanstalkConfigurationTemplateApplicationName)
+    , ("Description" .=) <$> _elasticBeanstalkConfigurationTemplateDescription
+    , ("EnvironmentId" .=) <$> _elasticBeanstalkConfigurationTemplateEnvironmentId
+    , ("OptionSettings" .=) <$> _elasticBeanstalkConfigurationTemplateOptionSettings
+    , ("SolutionStackName" .=) <$> _elasticBeanstalkConfigurationTemplateSolutionStackName
+    , ("SourceConfiguration" .=) <$> _elasticBeanstalkConfigurationTemplateSourceConfiguration
     ]
 
 instance FromJSON ElasticBeanstalkConfigurationTemplate where
   parseJSON (Object obj) =
     ElasticBeanstalkConfigurationTemplate <$>
       obj .: "ApplicationName" <*>
-      obj .: "Description" <*>
-      obj .: "EnvironmentId" <*>
-      obj .: "OptionSettings" <*>
-      obj .: "SolutionStackName" <*>
-      obj .: "SourceConfiguration"
+      obj .:? "Description" <*>
+      obj .:? "EnvironmentId" <*>
+      obj .:? "OptionSettings" <*>
+      obj .:? "SolutionStackName" <*>
+      obj .:? "SourceConfiguration"
   parseJSON _ = mempty
 
 -- | Constructor for 'ElasticBeanstalkConfigurationTemplate' containing

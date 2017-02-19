@@ -7,6 +7,7 @@ module Stratosphere.Resources.ECSTaskDefinition where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -27,22 +28,23 @@ data ECSTaskDefinition =
 
 instance ToJSON ECSTaskDefinition where
   toJSON ECSTaskDefinition{..} =
-    object
-    [ "ContainerDefinitions" .= _eCSTaskDefinitionContainerDefinitions
-    , "Family" .= _eCSTaskDefinitionFamily
-    , "NetworkMode" .= _eCSTaskDefinitionNetworkMode
-    , "TaskRoleArn" .= _eCSTaskDefinitionTaskRoleArn
-    , "Volumes" .= _eCSTaskDefinitionVolumes
+    object $
+    catMaybes
+    [ ("ContainerDefinitions" .=) <$> _eCSTaskDefinitionContainerDefinitions
+    , ("Family" .=) <$> _eCSTaskDefinitionFamily
+    , ("NetworkMode" .=) <$> _eCSTaskDefinitionNetworkMode
+    , ("TaskRoleArn" .=) <$> _eCSTaskDefinitionTaskRoleArn
+    , ("Volumes" .=) <$> _eCSTaskDefinitionVolumes
     ]
 
 instance FromJSON ECSTaskDefinition where
   parseJSON (Object obj) =
     ECSTaskDefinition <$>
-      obj .: "ContainerDefinitions" <*>
-      obj .: "Family" <*>
-      obj .: "NetworkMode" <*>
-      obj .: "TaskRoleArn" <*>
-      obj .: "Volumes"
+      obj .:? "ContainerDefinitions" <*>
+      obj .:? "Family" <*>
+      obj .:? "NetworkMode" <*>
+      obj .:? "TaskRoleArn" <*>
+      obj .:? "Volumes"
   parseJSON _ = mempty
 
 -- | Constructor for 'ECSTaskDefinition' containing required fields as

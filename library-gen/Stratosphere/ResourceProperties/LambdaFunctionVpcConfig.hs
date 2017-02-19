@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.LambdaFunctionVpcConfig where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,9 +24,10 @@ data LambdaFunctionVpcConfig =
 
 instance ToJSON LambdaFunctionVpcConfig where
   toJSON LambdaFunctionVpcConfig{..} =
-    object
-    [ "SecurityGroupIds" .= _lambdaFunctionVpcConfigSecurityGroupIds
-    , "SubnetIds" .= _lambdaFunctionVpcConfigSubnetIds
+    object $
+    catMaybes
+    [ Just ("SecurityGroupIds" .= _lambdaFunctionVpcConfigSecurityGroupIds)
+    , Just ("SubnetIds" .= _lambdaFunctionVpcConfigSubnetIds)
     ]
 
 instance FromJSON LambdaFunctionVpcConfig where

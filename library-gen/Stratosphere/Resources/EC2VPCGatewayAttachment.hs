@@ -7,6 +7,7 @@ module Stratosphere.Resources.EC2VPCGatewayAttachment where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -24,18 +25,19 @@ data EC2VPCGatewayAttachment =
 
 instance ToJSON EC2VPCGatewayAttachment where
   toJSON EC2VPCGatewayAttachment{..} =
-    object
-    [ "InternetGatewayId" .= _eC2VPCGatewayAttachmentInternetGatewayId
-    , "VpcId" .= _eC2VPCGatewayAttachmentVpcId
-    , "VpnGatewayId" .= _eC2VPCGatewayAttachmentVpnGatewayId
+    object $
+    catMaybes
+    [ ("InternetGatewayId" .=) <$> _eC2VPCGatewayAttachmentInternetGatewayId
+    , Just ("VpcId" .= _eC2VPCGatewayAttachmentVpcId)
+    , ("VpnGatewayId" .=) <$> _eC2VPCGatewayAttachmentVpnGatewayId
     ]
 
 instance FromJSON EC2VPCGatewayAttachment where
   parseJSON (Object obj) =
     EC2VPCGatewayAttachment <$>
-      obj .: "InternetGatewayId" <*>
+      obj .:? "InternetGatewayId" <*>
       obj .: "VpcId" <*>
-      obj .: "VpnGatewayId"
+      obj .:? "VpnGatewayId"
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2VPCGatewayAttachment' containing required fields as

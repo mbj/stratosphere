@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.S3BucketReplicationDestination where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,16 +24,17 @@ data S3BucketReplicationDestination =
 
 instance ToJSON S3BucketReplicationDestination where
   toJSON S3BucketReplicationDestination{..} =
-    object
-    [ "Bucket" .= _s3BucketReplicationDestinationBucket
-    , "StorageClass" .= _s3BucketReplicationDestinationStorageClass
+    object $
+    catMaybes
+    [ Just ("Bucket" .= _s3BucketReplicationDestinationBucket)
+    , ("StorageClass" .=) <$> _s3BucketReplicationDestinationStorageClass
     ]
 
 instance FromJSON S3BucketReplicationDestination where
   parseJSON (Object obj) =
     S3BucketReplicationDestination <$>
       obj .: "Bucket" <*>
-      obj .: "StorageClass"
+      obj .:? "StorageClass"
   parseJSON _ = mempty
 
 -- | Constructor for 'S3BucketReplicationDestination' containing required

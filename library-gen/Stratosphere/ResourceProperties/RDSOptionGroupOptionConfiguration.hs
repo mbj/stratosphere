@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.RDSOptionGroupOptionConfiguration where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -26,22 +27,23 @@ data RDSOptionGroupOptionConfiguration =
 
 instance ToJSON RDSOptionGroupOptionConfiguration where
   toJSON RDSOptionGroupOptionConfiguration{..} =
-    object
-    [ "DBSecurityGroupMemberships" .= _rDSOptionGroupOptionConfigurationDBSecurityGroupMemberships
-    , "OptionName" .= _rDSOptionGroupOptionConfigurationOptionName
-    , "OptionSettings" .= _rDSOptionGroupOptionConfigurationOptionSettings
-    , "Port" .= _rDSOptionGroupOptionConfigurationPort
-    , "VpcSecurityGroupMemberships" .= _rDSOptionGroupOptionConfigurationVpcSecurityGroupMemberships
+    object $
+    catMaybes
+    [ ("DBSecurityGroupMemberships" .=) <$> _rDSOptionGroupOptionConfigurationDBSecurityGroupMemberships
+    , Just ("OptionName" .= _rDSOptionGroupOptionConfigurationOptionName)
+    , ("OptionSettings" .=) <$> _rDSOptionGroupOptionConfigurationOptionSettings
+    , ("Port" .=) <$> _rDSOptionGroupOptionConfigurationPort
+    , ("VpcSecurityGroupMemberships" .=) <$> _rDSOptionGroupOptionConfigurationVpcSecurityGroupMemberships
     ]
 
 instance FromJSON RDSOptionGroupOptionConfiguration where
   parseJSON (Object obj) =
     RDSOptionGroupOptionConfiguration <$>
-      obj .: "DBSecurityGroupMemberships" <*>
+      obj .:? "DBSecurityGroupMemberships" <*>
       obj .: "OptionName" <*>
-      obj .: "OptionSettings" <*>
-      obj .: "Port" <*>
-      obj .: "VpcSecurityGroupMemberships"
+      obj .:? "OptionSettings" <*>
+      obj .:? "Port" <*>
+      obj .:? "VpcSecurityGroupMemberships"
   parseJSON _ = mempty
 
 -- | Constructor for 'RDSOptionGroupOptionConfiguration' containing required

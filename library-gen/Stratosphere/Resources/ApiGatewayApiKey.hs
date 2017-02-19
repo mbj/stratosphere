@@ -7,6 +7,7 @@ module Stratosphere.Resources.ApiGatewayApiKey where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -25,20 +26,21 @@ data ApiGatewayApiKey =
 
 instance ToJSON ApiGatewayApiKey where
   toJSON ApiGatewayApiKey{..} =
-    object
-    [ "Description" .= _apiGatewayApiKeyDescription
-    , "Enabled" .= _apiGatewayApiKeyEnabled
-    , "Name" .= _apiGatewayApiKeyName
-    , "StageKeys" .= _apiGatewayApiKeyStageKeys
+    object $
+    catMaybes
+    [ ("Description" .=) <$> _apiGatewayApiKeyDescription
+    , ("Enabled" .=) <$> _apiGatewayApiKeyEnabled
+    , ("Name" .=) <$> _apiGatewayApiKeyName
+    , ("StageKeys" .=) <$> _apiGatewayApiKeyStageKeys
     ]
 
 instance FromJSON ApiGatewayApiKey where
   parseJSON (Object obj) =
     ApiGatewayApiKey <$>
-      obj .: "Description" <*>
-      obj .: "Enabled" <*>
-      obj .: "Name" <*>
-      obj .: "StageKeys"
+      obj .:? "Description" <*>
+      obj .:? "Enabled" <*>
+      obj .:? "Name" <*>
+      obj .:? "StageKeys"
   parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayApiKey' containing required fields as

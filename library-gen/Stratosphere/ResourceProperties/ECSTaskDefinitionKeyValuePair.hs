@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.ECSTaskDefinitionKeyValuePair where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,16 +24,17 @@ data ECSTaskDefinitionKeyValuePair =
 
 instance ToJSON ECSTaskDefinitionKeyValuePair where
   toJSON ECSTaskDefinitionKeyValuePair{..} =
-    object
-    [ "Name" .= _eCSTaskDefinitionKeyValuePairName
-    , "Value" .= _eCSTaskDefinitionKeyValuePairValue
+    object $
+    catMaybes
+    [ ("Name" .=) <$> _eCSTaskDefinitionKeyValuePairName
+    , ("Value" .=) <$> _eCSTaskDefinitionKeyValuePairValue
     ]
 
 instance FromJSON ECSTaskDefinitionKeyValuePair where
   parseJSON (Object obj) =
     ECSTaskDefinitionKeyValuePair <$>
-      obj .: "Name" <*>
-      obj .: "Value"
+      obj .:? "Name" <*>
+      obj .:? "Value"
   parseJSON _ = mempty
 
 -- | Constructor for 'ECSTaskDefinitionKeyValuePair' containing required

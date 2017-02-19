@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.OpsWorksAppEnvironmentVariable where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -24,17 +25,18 @@ data OpsWorksAppEnvironmentVariable =
 
 instance ToJSON OpsWorksAppEnvironmentVariable where
   toJSON OpsWorksAppEnvironmentVariable{..} =
-    object
-    [ "Key" .= _opsWorksAppEnvironmentVariableKey
-    , "Secure" .= _opsWorksAppEnvironmentVariableSecure
-    , "Value" .= _opsWorksAppEnvironmentVariableValue
+    object $
+    catMaybes
+    [ Just ("Key" .= _opsWorksAppEnvironmentVariableKey)
+    , ("Secure" .=) <$> _opsWorksAppEnvironmentVariableSecure
+    , Just ("Value" .= _opsWorksAppEnvironmentVariableValue)
     ]
 
 instance FromJSON OpsWorksAppEnvironmentVariable where
   parseJSON (Object obj) =
     OpsWorksAppEnvironmentVariable <$>
       obj .: "Key" <*>
-      obj .: "Secure" <*>
+      obj .:? "Secure" <*>
       obj .: "Value"
   parseJSON _ = mempty
 

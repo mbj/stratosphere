@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.EMRClusterApplication where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -25,20 +26,21 @@ data EMRClusterApplication =
 
 instance ToJSON EMRClusterApplication where
   toJSON EMRClusterApplication{..} =
-    object
-    [ "AdditionalInfo" .= _eMRClusterApplicationAdditionalInfo
-    , "Args" .= _eMRClusterApplicationArgs
-    , "Name" .= _eMRClusterApplicationName
-    , "Version" .= _eMRClusterApplicationVersion
+    object $
+    catMaybes
+    [ ("AdditionalInfo" .=) <$> _eMRClusterApplicationAdditionalInfo
+    , ("Args" .=) <$> _eMRClusterApplicationArgs
+    , ("Name" .=) <$> _eMRClusterApplicationName
+    , ("Version" .=) <$> _eMRClusterApplicationVersion
     ]
 
 instance FromJSON EMRClusterApplication where
   parseJSON (Object obj) =
     EMRClusterApplication <$>
-      obj .: "AdditionalInfo" <*>
-      obj .: "Args" <*>
-      obj .: "Name" <*>
-      obj .: "Version"
+      obj .:? "AdditionalInfo" <*>
+      obj .:? "Args" <*>
+      obj .:? "Name" <*>
+      obj .:? "Version"
   parseJSON _ = mempty
 
 -- | Constructor for 'EMRClusterApplication' containing required fields as

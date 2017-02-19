@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.EC2SpotFleetInstanceIpv6Address where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -22,8 +23,9 @@ data EC2SpotFleetInstanceIpv6Address =
 
 instance ToJSON EC2SpotFleetInstanceIpv6Address where
   toJSON EC2SpotFleetInstanceIpv6Address{..} =
-    object
-    [ "Ipv6Address" .= _eC2SpotFleetInstanceIpv6AddressIpv6Address
+    object $
+    catMaybes
+    [ Just ("Ipv6Address" .= _eC2SpotFleetInstanceIpv6AddressIpv6Address)
     ]
 
 instance FromJSON EC2SpotFleetInstanceIpv6Address where

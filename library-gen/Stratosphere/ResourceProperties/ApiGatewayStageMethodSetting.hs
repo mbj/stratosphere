@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.ApiGatewayStageMethodSetting where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -31,32 +32,33 @@ data ApiGatewayStageMethodSetting =
 
 instance ToJSON ApiGatewayStageMethodSetting where
   toJSON ApiGatewayStageMethodSetting{..} =
-    object
-    [ "CacheDataEncrypted" .= _apiGatewayStageMethodSettingCacheDataEncrypted
-    , "CacheTtlInSeconds" .= _apiGatewayStageMethodSettingCacheTtlInSeconds
-    , "CachingEnabled" .= _apiGatewayStageMethodSettingCachingEnabled
-    , "DataTraceEnabled" .= _apiGatewayStageMethodSettingDataTraceEnabled
-    , "HttpMethod" .= _apiGatewayStageMethodSettingHttpMethod
-    , "LoggingLevel" .= _apiGatewayStageMethodSettingLoggingLevel
-    , "MetricsEnabled" .= _apiGatewayStageMethodSettingMetricsEnabled
-    , "ResourcePath" .= _apiGatewayStageMethodSettingResourcePath
-    , "ThrottlingBurstLimit" .= _apiGatewayStageMethodSettingThrottlingBurstLimit
-    , "ThrottlingRateLimit" .= _apiGatewayStageMethodSettingThrottlingRateLimit
+    object $
+    catMaybes
+    [ ("CacheDataEncrypted" .=) <$> _apiGatewayStageMethodSettingCacheDataEncrypted
+    , ("CacheTtlInSeconds" .=) <$> _apiGatewayStageMethodSettingCacheTtlInSeconds
+    , ("CachingEnabled" .=) <$> _apiGatewayStageMethodSettingCachingEnabled
+    , ("DataTraceEnabled" .=) <$> _apiGatewayStageMethodSettingDataTraceEnabled
+    , ("HttpMethod" .=) <$> _apiGatewayStageMethodSettingHttpMethod
+    , ("LoggingLevel" .=) <$> _apiGatewayStageMethodSettingLoggingLevel
+    , ("MetricsEnabled" .=) <$> _apiGatewayStageMethodSettingMetricsEnabled
+    , ("ResourcePath" .=) <$> _apiGatewayStageMethodSettingResourcePath
+    , ("ThrottlingBurstLimit" .=) <$> _apiGatewayStageMethodSettingThrottlingBurstLimit
+    , ("ThrottlingRateLimit" .=) <$> _apiGatewayStageMethodSettingThrottlingRateLimit
     ]
 
 instance FromJSON ApiGatewayStageMethodSetting where
   parseJSON (Object obj) =
     ApiGatewayStageMethodSetting <$>
-      obj .: "CacheDataEncrypted" <*>
-      obj .: "CacheTtlInSeconds" <*>
-      obj .: "CachingEnabled" <*>
-      obj .: "DataTraceEnabled" <*>
-      obj .: "HttpMethod" <*>
-      obj .: "LoggingLevel" <*>
-      obj .: "MetricsEnabled" <*>
-      obj .: "ResourcePath" <*>
-      obj .: "ThrottlingBurstLimit" <*>
-      obj .: "ThrottlingRateLimit"
+      obj .:? "CacheDataEncrypted" <*>
+      obj .:? "CacheTtlInSeconds" <*>
+      obj .:? "CachingEnabled" <*>
+      obj .:? "DataTraceEnabled" <*>
+      obj .:? "HttpMethod" <*>
+      obj .:? "LoggingLevel" <*>
+      obj .:? "MetricsEnabled" <*>
+      obj .:? "ResourcePath" <*>
+      obj .:? "ThrottlingBurstLimit" <*>
+      obj .:? "ThrottlingRateLimit"
   parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayStageMethodSetting' containing required fields

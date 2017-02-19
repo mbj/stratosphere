@@ -7,6 +7,7 @@ module Stratosphere.Resources.LambdaPermission where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -26,12 +27,13 @@ data LambdaPermission =
 
 instance ToJSON LambdaPermission where
   toJSON LambdaPermission{..} =
-    object
-    [ "Action" .= _lambdaPermissionAction
-    , "FunctionName" .= _lambdaPermissionFunctionName
-    , "Principal" .= _lambdaPermissionPrincipal
-    , "SourceAccount" .= _lambdaPermissionSourceAccount
-    , "SourceArn" .= _lambdaPermissionSourceArn
+    object $
+    catMaybes
+    [ Just ("Action" .= _lambdaPermissionAction)
+    , Just ("FunctionName" .= _lambdaPermissionFunctionName)
+    , Just ("Principal" .= _lambdaPermissionPrincipal)
+    , ("SourceAccount" .=) <$> _lambdaPermissionSourceAccount
+    , ("SourceArn" .=) <$> _lambdaPermissionSourceArn
     ]
 
 instance FromJSON LambdaPermission where
@@ -40,8 +42,8 @@ instance FromJSON LambdaPermission where
       obj .: "Action" <*>
       obj .: "FunctionName" <*>
       obj .: "Principal" <*>
-      obj .: "SourceAccount" <*>
-      obj .: "SourceArn"
+      obj .:? "SourceAccount" <*>
+      obj .:? "SourceArn"
   parseJSON _ = mempty
 
 -- | Constructor for 'LambdaPermission' containing required fields as

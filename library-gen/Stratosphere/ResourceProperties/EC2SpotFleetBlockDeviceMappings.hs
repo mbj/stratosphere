@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.EC2SpotFleetBlockDeviceMappings where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -25,20 +26,21 @@ data EC2SpotFleetBlockDeviceMappings =
 
 instance ToJSON EC2SpotFleetBlockDeviceMappings where
   toJSON EC2SpotFleetBlockDeviceMappings{..} =
-    object
-    [ "DeviceName" .= _eC2SpotFleetBlockDeviceMappingsDeviceName
-    , "Ebs" .= _eC2SpotFleetBlockDeviceMappingsEbs
-    , "NoDevice" .= _eC2SpotFleetBlockDeviceMappingsNoDevice
-    , "VirtualName" .= _eC2SpotFleetBlockDeviceMappingsVirtualName
+    object $
+    catMaybes
+    [ Just ("DeviceName" .= _eC2SpotFleetBlockDeviceMappingsDeviceName)
+    , ("Ebs" .=) <$> _eC2SpotFleetBlockDeviceMappingsEbs
+    , ("NoDevice" .=) <$> _eC2SpotFleetBlockDeviceMappingsNoDevice
+    , ("VirtualName" .=) <$> _eC2SpotFleetBlockDeviceMappingsVirtualName
     ]
 
 instance FromJSON EC2SpotFleetBlockDeviceMappings where
   parseJSON (Object obj) =
     EC2SpotFleetBlockDeviceMappings <$>
       obj .: "DeviceName" <*>
-      obj .: "Ebs" <*>
-      obj .: "NoDevice" <*>
-      obj .: "VirtualName"
+      obj .:? "Ebs" <*>
+      obj .:? "NoDevice" <*>
+      obj .:? "VirtualName"
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2SpotFleetBlockDeviceMappings' containing required

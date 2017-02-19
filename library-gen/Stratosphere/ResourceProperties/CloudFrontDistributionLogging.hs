@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.CloudFrontDistributionLogging where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -24,18 +25,19 @@ data CloudFrontDistributionLogging =
 
 instance ToJSON CloudFrontDistributionLogging where
   toJSON CloudFrontDistributionLogging{..} =
-    object
-    [ "Bucket" .= _cloudFrontDistributionLoggingBucket
-    , "IncludeCookies" .= _cloudFrontDistributionLoggingIncludeCookies
-    , "Prefix" .= _cloudFrontDistributionLoggingPrefix
+    object $
+    catMaybes
+    [ Just ("Bucket" .= _cloudFrontDistributionLoggingBucket)
+    , ("IncludeCookies" .=) <$> _cloudFrontDistributionLoggingIncludeCookies
+    , ("Prefix" .=) <$> _cloudFrontDistributionLoggingPrefix
     ]
 
 instance FromJSON CloudFrontDistributionLogging where
   parseJSON (Object obj) =
     CloudFrontDistributionLogging <$>
       obj .: "Bucket" <*>
-      obj .: "IncludeCookies" <*>
-      obj .: "Prefix"
+      obj .:? "IncludeCookies" <*>
+      obj .:? "Prefix"
   parseJSON _ = mempty
 
 -- | Constructor for 'CloudFrontDistributionLogging' containing required

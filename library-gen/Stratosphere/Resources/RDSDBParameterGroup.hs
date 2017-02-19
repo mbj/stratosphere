@@ -7,6 +7,7 @@ module Stratosphere.Resources.RDSDBParameterGroup where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -25,11 +26,12 @@ data RDSDBParameterGroup =
 
 instance ToJSON RDSDBParameterGroup where
   toJSON RDSDBParameterGroup{..} =
-    object
-    [ "Description" .= _rDSDBParameterGroupDescription
-    , "Family" .= _rDSDBParameterGroupFamily
-    , "Parameters" .= _rDSDBParameterGroupParameters
-    , "Tags" .= _rDSDBParameterGroupTags
+    object $
+    catMaybes
+    [ Just ("Description" .= _rDSDBParameterGroupDescription)
+    , Just ("Family" .= _rDSDBParameterGroupFamily)
+    , ("Parameters" .=) <$> _rDSDBParameterGroupParameters
+    , ("Tags" .=) <$> _rDSDBParameterGroupTags
     ]
 
 instance FromJSON RDSDBParameterGroup where
@@ -37,8 +39,8 @@ instance FromJSON RDSDBParameterGroup where
     RDSDBParameterGroup <$>
       obj .: "Description" <*>
       obj .: "Family" <*>
-      obj .: "Parameters" <*>
-      obj .: "Tags"
+      obj .:? "Parameters" <*>
+      obj .:? "Tags"
   parseJSON _ = mempty
 
 -- | Constructor for 'RDSDBParameterGroup' containing required fields as

@@ -7,6 +7,7 @@ module Stratosphere.Resources.LambdaVersion where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -24,17 +25,18 @@ data LambdaVersion =
 
 instance ToJSON LambdaVersion where
   toJSON LambdaVersion{..} =
-    object
-    [ "CodeSha256" .= _lambdaVersionCodeSha256
-    , "Description" .= _lambdaVersionDescription
-    , "FunctionName" .= _lambdaVersionFunctionName
+    object $
+    catMaybes
+    [ ("CodeSha256" .=) <$> _lambdaVersionCodeSha256
+    , ("Description" .=) <$> _lambdaVersionDescription
+    , Just ("FunctionName" .= _lambdaVersionFunctionName)
     ]
 
 instance FromJSON LambdaVersion where
   parseJSON (Object obj) =
     LambdaVersion <$>
-      obj .: "CodeSha256" <*>
-      obj .: "Description" <*>
+      obj .:? "CodeSha256" <*>
+      obj .:? "Description" <*>
       obj .: "FunctionName"
   parseJSON _ = mempty
 

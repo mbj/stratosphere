@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.EC2SpotFleetSpotFleetRequestConfigData wh
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -31,30 +32,31 @@ data EC2SpotFleetSpotFleetRequestConfigData =
 
 instance ToJSON EC2SpotFleetSpotFleetRequestConfigData where
   toJSON EC2SpotFleetSpotFleetRequestConfigData{..} =
-    object
-    [ "AllocationStrategy" .= _eC2SpotFleetSpotFleetRequestConfigDataAllocationStrategy
-    , "ExcessCapacityTerminationPolicy" .= _eC2SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy
-    , "IamFleetRole" .= _eC2SpotFleetSpotFleetRequestConfigDataIamFleetRole
-    , "LaunchSpecifications" .= _eC2SpotFleetSpotFleetRequestConfigDataLaunchSpecifications
-    , "SpotPrice" .= _eC2SpotFleetSpotFleetRequestConfigDataSpotPrice
-    , "TargetCapacity" .= _eC2SpotFleetSpotFleetRequestConfigDataTargetCapacity
-    , "TerminateInstancesWithExpiration" .= _eC2SpotFleetSpotFleetRequestConfigDataTerminateInstancesWithExpiration
-    , "ValidFrom" .= _eC2SpotFleetSpotFleetRequestConfigDataValidFrom
-    , "ValidUntil" .= _eC2SpotFleetSpotFleetRequestConfigDataValidUntil
+    object $
+    catMaybes
+    [ ("AllocationStrategy" .=) <$> _eC2SpotFleetSpotFleetRequestConfigDataAllocationStrategy
+    , ("ExcessCapacityTerminationPolicy" .=) <$> _eC2SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy
+    , Just ("IamFleetRole" .= _eC2SpotFleetSpotFleetRequestConfigDataIamFleetRole)
+    , Just ("LaunchSpecifications" .= _eC2SpotFleetSpotFleetRequestConfigDataLaunchSpecifications)
+    , Just ("SpotPrice" .= _eC2SpotFleetSpotFleetRequestConfigDataSpotPrice)
+    , Just ("TargetCapacity" .= _eC2SpotFleetSpotFleetRequestConfigDataTargetCapacity)
+    , ("TerminateInstancesWithExpiration" .=) <$> _eC2SpotFleetSpotFleetRequestConfigDataTerminateInstancesWithExpiration
+    , ("ValidFrom" .=) <$> _eC2SpotFleetSpotFleetRequestConfigDataValidFrom
+    , ("ValidUntil" .=) <$> _eC2SpotFleetSpotFleetRequestConfigDataValidUntil
     ]
 
 instance FromJSON EC2SpotFleetSpotFleetRequestConfigData where
   parseJSON (Object obj) =
     EC2SpotFleetSpotFleetRequestConfigData <$>
-      obj .: "AllocationStrategy" <*>
-      obj .: "ExcessCapacityTerminationPolicy" <*>
+      obj .:? "AllocationStrategy" <*>
+      obj .:? "ExcessCapacityTerminationPolicy" <*>
       obj .: "IamFleetRole" <*>
       obj .: "LaunchSpecifications" <*>
       obj .: "SpotPrice" <*>
       obj .: "TargetCapacity" <*>
-      obj .: "TerminateInstancesWithExpiration" <*>
-      obj .: "ValidFrom" <*>
-      obj .: "ValidUntil"
+      obj .:? "TerminateInstancesWithExpiration" <*>
+      obj .:? "ValidFrom" <*>
+      obj .:? "ValidUntil"
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2SpotFleetSpotFleetRequestConfigData' containing

@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.WAFRulePredicate where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -24,10 +25,11 @@ data WAFRulePredicate =
 
 instance ToJSON WAFRulePredicate where
   toJSON WAFRulePredicate{..} =
-    object
-    [ "DataId" .= _wAFRulePredicateDataId
-    , "Negated" .= _wAFRulePredicateNegated
-    , "Type" .= _wAFRulePredicateType
+    object $
+    catMaybes
+    [ Just ("DataId" .= _wAFRulePredicateDataId)
+    , Just ("Negated" .= _wAFRulePredicateNegated)
+    , Just ("Type" .= _wAFRulePredicateType)
     ]
 
 instance FromJSON WAFRulePredicate where

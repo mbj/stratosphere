@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.Route53HostedZoneHostedZoneConfig where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -22,14 +23,15 @@ data Route53HostedZoneHostedZoneConfig =
 
 instance ToJSON Route53HostedZoneHostedZoneConfig where
   toJSON Route53HostedZoneHostedZoneConfig{..} =
-    object
-    [ "Comment" .= _route53HostedZoneHostedZoneConfigComment
+    object $
+    catMaybes
+    [ ("Comment" .=) <$> _route53HostedZoneHostedZoneConfigComment
     ]
 
 instance FromJSON Route53HostedZoneHostedZoneConfig where
   parseJSON (Object obj) =
     Route53HostedZoneHostedZoneConfig <$>
-      obj .: "Comment"
+      obj .:? "Comment"
   parseJSON _ = mempty
 
 -- | Constructor for 'Route53HostedZoneHostedZoneConfig' containing required

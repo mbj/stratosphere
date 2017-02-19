@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.AutoScalingLaunchConfigurationBlockDevice
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -28,24 +29,25 @@ data AutoScalingLaunchConfigurationBlockDevice =
 
 instance ToJSON AutoScalingLaunchConfigurationBlockDevice where
   toJSON AutoScalingLaunchConfigurationBlockDevice{..} =
-    object
-    [ "DeleteOnTermination" .= _autoScalingLaunchConfigurationBlockDeviceDeleteOnTermination
-    , "Encrypted" .= _autoScalingLaunchConfigurationBlockDeviceEncrypted
-    , "Iops" .= _autoScalingLaunchConfigurationBlockDeviceIops
-    , "SnapshotId" .= _autoScalingLaunchConfigurationBlockDeviceSnapshotId
-    , "VolumeSize" .= _autoScalingLaunchConfigurationBlockDeviceVolumeSize
-    , "VolumeType" .= _autoScalingLaunchConfigurationBlockDeviceVolumeType
+    object $
+    catMaybes
+    [ ("DeleteOnTermination" .=) <$> _autoScalingLaunchConfigurationBlockDeviceDeleteOnTermination
+    , ("Encrypted" .=) <$> _autoScalingLaunchConfigurationBlockDeviceEncrypted
+    , ("Iops" .=) <$> _autoScalingLaunchConfigurationBlockDeviceIops
+    , ("SnapshotId" .=) <$> _autoScalingLaunchConfigurationBlockDeviceSnapshotId
+    , ("VolumeSize" .=) <$> _autoScalingLaunchConfigurationBlockDeviceVolumeSize
+    , ("VolumeType" .=) <$> _autoScalingLaunchConfigurationBlockDeviceVolumeType
     ]
 
 instance FromJSON AutoScalingLaunchConfigurationBlockDevice where
   parseJSON (Object obj) =
     AutoScalingLaunchConfigurationBlockDevice <$>
-      obj .: "DeleteOnTermination" <*>
-      obj .: "Encrypted" <*>
-      obj .: "Iops" <*>
-      obj .: "SnapshotId" <*>
-      obj .: "VolumeSize" <*>
-      obj .: "VolumeType"
+      obj .:? "DeleteOnTermination" <*>
+      obj .:? "Encrypted" <*>
+      obj .:? "Iops" <*>
+      obj .:? "SnapshotId" <*>
+      obj .:? "VolumeSize" <*>
+      obj .:? "VolumeType"
   parseJSON _ = mempty
 
 -- | Constructor for 'AutoScalingLaunchConfigurationBlockDevice' containing

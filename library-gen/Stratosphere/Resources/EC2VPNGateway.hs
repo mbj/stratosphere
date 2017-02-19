@@ -7,6 +7,7 @@ module Stratosphere.Resources.EC2VPNGateway where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,15 +24,16 @@ data EC2VPNGateway =
 
 instance ToJSON EC2VPNGateway where
   toJSON EC2VPNGateway{..} =
-    object
-    [ "Tags" .= _eC2VPNGatewayTags
-    , "Type" .= _eC2VPNGatewayType
+    object $
+    catMaybes
+    [ ("Tags" .=) <$> _eC2VPNGatewayTags
+    , Just ("Type" .= _eC2VPNGatewayType)
     ]
 
 instance FromJSON EC2VPNGateway where
   parseJSON (Object obj) =
     EC2VPNGateway <$>
-      obj .: "Tags" <*>
+      obj .:? "Tags" <*>
       obj .: "Type"
   parseJSON _ = mempty
 

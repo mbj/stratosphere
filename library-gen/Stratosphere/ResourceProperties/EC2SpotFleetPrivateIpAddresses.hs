@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.EC2SpotFleetPrivateIpAddresses where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,15 +24,16 @@ data EC2SpotFleetPrivateIpAddresses =
 
 instance ToJSON EC2SpotFleetPrivateIpAddresses where
   toJSON EC2SpotFleetPrivateIpAddresses{..} =
-    object
-    [ "Primary" .= _eC2SpotFleetPrivateIpAddressesPrimary
-    , "PrivateIpAddress" .= _eC2SpotFleetPrivateIpAddressesPrivateIpAddress
+    object $
+    catMaybes
+    [ ("Primary" .=) <$> _eC2SpotFleetPrivateIpAddressesPrimary
+    , Just ("PrivateIpAddress" .= _eC2SpotFleetPrivateIpAddressesPrivateIpAddress)
     ]
 
 instance FromJSON EC2SpotFleetPrivateIpAddresses where
   parseJSON (Object obj) =
     EC2SpotFleetPrivateIpAddresses <$>
-      obj .: "Primary" <*>
+      obj .:? "Primary" <*>
       obj .: "PrivateIpAddress"
   parseJSON _ = mempty
 

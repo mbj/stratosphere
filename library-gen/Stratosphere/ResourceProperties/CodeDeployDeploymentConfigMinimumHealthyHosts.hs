@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.CodeDeployDeploymentConfigMinimumHealthyH
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -25,16 +26,17 @@ data CodeDeployDeploymentConfigMinimumHealthyHosts =
 
 instance ToJSON CodeDeployDeploymentConfigMinimumHealthyHosts where
   toJSON CodeDeployDeploymentConfigMinimumHealthyHosts{..} =
-    object
-    [ "Type" .= _codeDeployDeploymentConfigMinimumHealthyHostsType
-    , "Value" .= _codeDeployDeploymentConfigMinimumHealthyHostsValue
+    object $
+    catMaybes
+    [ ("Type" .=) <$> _codeDeployDeploymentConfigMinimumHealthyHostsType
+    , ("Value" .=) <$> _codeDeployDeploymentConfigMinimumHealthyHostsValue
     ]
 
 instance FromJSON CodeDeployDeploymentConfigMinimumHealthyHosts where
   parseJSON (Object obj) =
     CodeDeployDeploymentConfigMinimumHealthyHosts <$>
-      obj .: "Type" <*>
-      obj .: "Value"
+      obj .:? "Type" <*>
+      obj .:? "Value"
   parseJSON _ = mempty
 
 -- | Constructor for 'CodeDeployDeploymentConfigMinimumHealthyHosts'

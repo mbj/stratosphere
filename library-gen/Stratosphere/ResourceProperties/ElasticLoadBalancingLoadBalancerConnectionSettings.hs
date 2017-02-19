@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.ElasticLoadBalancingLoadBalancerConnectio
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -24,8 +25,9 @@ data ElasticLoadBalancingLoadBalancerConnectionSettings =
 
 instance ToJSON ElasticLoadBalancingLoadBalancerConnectionSettings where
   toJSON ElasticLoadBalancingLoadBalancerConnectionSettings{..} =
-    object
-    [ "IdleTimeout" .= _elasticLoadBalancingLoadBalancerConnectionSettingsIdleTimeout
+    object $
+    catMaybes
+    [ Just ("IdleTimeout" .= _elasticLoadBalancingLoadBalancerConnectionSettingsIdleTimeout)
     ]
 
 instance FromJSON ElasticLoadBalancingLoadBalancerConnectionSettings where

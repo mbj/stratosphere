@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.CodePipelinePipelineActionTypeId where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -25,11 +26,12 @@ data CodePipelinePipelineActionTypeId =
 
 instance ToJSON CodePipelinePipelineActionTypeId where
   toJSON CodePipelinePipelineActionTypeId{..} =
-    object
-    [ "Category" .= _codePipelinePipelineActionTypeIdCategory
-    , "Owner" .= _codePipelinePipelineActionTypeIdOwner
-    , "Provider" .= _codePipelinePipelineActionTypeIdProvider
-    , "Version" .= _codePipelinePipelineActionTypeIdVersion
+    object $
+    catMaybes
+    [ Just ("Category" .= _codePipelinePipelineActionTypeIdCategory)
+    , Just ("Owner" .= _codePipelinePipelineActionTypeIdOwner)
+    , Just ("Provider" .= _codePipelinePipelineActionTypeIdProvider)
+    , Just ("Version" .= _codePipelinePipelineActionTypeIdVersion)
     ]
 
 instance FromJSON CodePipelinePipelineActionTypeId where

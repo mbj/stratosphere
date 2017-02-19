@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.DirectoryServiceSimpleADVpcSettings where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,9 +24,10 @@ data DirectoryServiceSimpleADVpcSettings =
 
 instance ToJSON DirectoryServiceSimpleADVpcSettings where
   toJSON DirectoryServiceSimpleADVpcSettings{..} =
-    object
-    [ "SubnetIds" .= _directoryServiceSimpleADVpcSettingsSubnetIds
-    , "VpcId" .= _directoryServiceSimpleADVpcSettingsVpcId
+    object $
+    catMaybes
+    [ Just ("SubnetIds" .= _directoryServiceSimpleADVpcSettingsSubnetIds)
+    , Just ("VpcId" .= _directoryServiceSimpleADVpcSettingsVpcId)
     ]
 
 instance FromJSON DirectoryServiceSimpleADVpcSettings where

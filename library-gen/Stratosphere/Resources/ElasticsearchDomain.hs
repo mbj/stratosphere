@@ -7,6 +7,7 @@ module Stratosphere.Resources.ElasticsearchDomain where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -32,28 +33,29 @@ data ElasticsearchDomain =
 
 instance ToJSON ElasticsearchDomain where
   toJSON ElasticsearchDomain{..} =
-    object
-    [ "AccessPolicies" .= _elasticsearchDomainAccessPolicies
-    , "AdvancedOptions" .= _elasticsearchDomainAdvancedOptions
-    , "DomainName" .= _elasticsearchDomainDomainName
-    , "EBSOptions" .= _elasticsearchDomainEBSOptions
-    , "ElasticsearchClusterConfig" .= _elasticsearchDomainElasticsearchClusterConfig
-    , "ElasticsearchVersion" .= _elasticsearchDomainElasticsearchVersion
-    , "SnapshotOptions" .= _elasticsearchDomainSnapshotOptions
-    , "Tags" .= _elasticsearchDomainTags
+    object $
+    catMaybes
+    [ ("AccessPolicies" .=) <$> _elasticsearchDomainAccessPolicies
+    , ("AdvancedOptions" .=) <$> _elasticsearchDomainAdvancedOptions
+    , ("DomainName" .=) <$> _elasticsearchDomainDomainName
+    , ("EBSOptions" .=) <$> _elasticsearchDomainEBSOptions
+    , ("ElasticsearchClusterConfig" .=) <$> _elasticsearchDomainElasticsearchClusterConfig
+    , ("ElasticsearchVersion" .=) <$> _elasticsearchDomainElasticsearchVersion
+    , ("SnapshotOptions" .=) <$> _elasticsearchDomainSnapshotOptions
+    , ("Tags" .=) <$> _elasticsearchDomainTags
     ]
 
 instance FromJSON ElasticsearchDomain where
   parseJSON (Object obj) =
     ElasticsearchDomain <$>
-      obj .: "AccessPolicies" <*>
-      obj .: "AdvancedOptions" <*>
-      obj .: "DomainName" <*>
-      obj .: "EBSOptions" <*>
-      obj .: "ElasticsearchClusterConfig" <*>
-      obj .: "ElasticsearchVersion" <*>
-      obj .: "SnapshotOptions" <*>
-      obj .: "Tags"
+      obj .:? "AccessPolicies" <*>
+      obj .:? "AdvancedOptions" <*>
+      obj .:? "DomainName" <*>
+      obj .:? "EBSOptions" <*>
+      obj .:? "ElasticsearchClusterConfig" <*>
+      obj .:? "ElasticsearchVersion" <*>
+      obj .:? "SnapshotOptions" <*>
+      obj .:? "Tags"
   parseJSON _ = mempty
 
 -- | Constructor for 'ElasticsearchDomain' containing required fields as

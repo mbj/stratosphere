@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.EC2NetworkInterfacePrivateIpAddressSpecif
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -25,9 +26,10 @@ data EC2NetworkInterfacePrivateIpAddressSpecification =
 
 instance ToJSON EC2NetworkInterfacePrivateIpAddressSpecification where
   toJSON EC2NetworkInterfacePrivateIpAddressSpecification{..} =
-    object
-    [ "Primary" .= _eC2NetworkInterfacePrivateIpAddressSpecificationPrimary
-    , "PrivateIpAddress" .= _eC2NetworkInterfacePrivateIpAddressSpecificationPrivateIpAddress
+    object $
+    catMaybes
+    [ Just ("Primary" .= _eC2NetworkInterfacePrivateIpAddressSpecificationPrimary)
+    , Just ("PrivateIpAddress" .= _eC2NetworkInterfacePrivateIpAddressSpecificationPrivateIpAddress)
     ]
 
 instance FromJSON EC2NetworkInterfacePrivateIpAddressSpecification where

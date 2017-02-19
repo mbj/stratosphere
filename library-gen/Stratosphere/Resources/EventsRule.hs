@@ -7,6 +7,7 @@ module Stratosphere.Resources.EventsRule where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -29,26 +30,27 @@ data EventsRule =
 
 instance ToJSON EventsRule where
   toJSON EventsRule{..} =
-    object
-    [ "Description" .= _eventsRuleDescription
-    , "EventPattern" .= _eventsRuleEventPattern
-    , "Name" .= _eventsRuleName
-    , "RoleArn" .= _eventsRuleRoleArn
-    , "ScheduleExpression" .= _eventsRuleScheduleExpression
-    , "State" .= _eventsRuleState
-    , "Targets" .= _eventsRuleTargets
+    object $
+    catMaybes
+    [ ("Description" .=) <$> _eventsRuleDescription
+    , ("EventPattern" .=) <$> _eventsRuleEventPattern
+    , ("Name" .=) <$> _eventsRuleName
+    , ("RoleArn" .=) <$> _eventsRuleRoleArn
+    , ("ScheduleExpression" .=) <$> _eventsRuleScheduleExpression
+    , ("State" .=) <$> _eventsRuleState
+    , ("Targets" .=) <$> _eventsRuleTargets
     ]
 
 instance FromJSON EventsRule where
   parseJSON (Object obj) =
     EventsRule <$>
-      obj .: "Description" <*>
-      obj .: "EventPattern" <*>
-      obj .: "Name" <*>
-      obj .: "RoleArn" <*>
-      obj .: "ScheduleExpression" <*>
-      obj .: "State" <*>
-      obj .: "Targets"
+      obj .:? "Description" <*>
+      obj .:? "EventPattern" <*>
+      obj .:? "Name" <*>
+      obj .:? "RoleArn" <*>
+      obj .:? "ScheduleExpression" <*>
+      obj .:? "State" <*>
+      obj .:? "Targets"
   parseJSON _ = mempty
 
 -- | Constructor for 'EventsRule' containing required fields as arguments.

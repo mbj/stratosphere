@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.CodePipelinePipelineActionDeclaration whe
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -31,26 +32,27 @@ data CodePipelinePipelineActionDeclaration =
 
 instance ToJSON CodePipelinePipelineActionDeclaration where
   toJSON CodePipelinePipelineActionDeclaration{..} =
-    object
-    [ "ActionTypeId" .= _codePipelinePipelineActionDeclarationActionTypeId
-    , "Configuration" .= _codePipelinePipelineActionDeclarationConfiguration
-    , "InputArtifacts" .= _codePipelinePipelineActionDeclarationInputArtifacts
-    , "Name" .= _codePipelinePipelineActionDeclarationName
-    , "OutputArtifacts" .= _codePipelinePipelineActionDeclarationOutputArtifacts
-    , "RoleArn" .= _codePipelinePipelineActionDeclarationRoleArn
-    , "RunOrder" .= _codePipelinePipelineActionDeclarationRunOrder
+    object $
+    catMaybes
+    [ Just ("ActionTypeId" .= _codePipelinePipelineActionDeclarationActionTypeId)
+    , ("Configuration" .=) <$> _codePipelinePipelineActionDeclarationConfiguration
+    , ("InputArtifacts" .=) <$> _codePipelinePipelineActionDeclarationInputArtifacts
+    , Just ("Name" .= _codePipelinePipelineActionDeclarationName)
+    , ("OutputArtifacts" .=) <$> _codePipelinePipelineActionDeclarationOutputArtifacts
+    , ("RoleArn" .=) <$> _codePipelinePipelineActionDeclarationRoleArn
+    , ("RunOrder" .=) <$> _codePipelinePipelineActionDeclarationRunOrder
     ]
 
 instance FromJSON CodePipelinePipelineActionDeclaration where
   parseJSON (Object obj) =
     CodePipelinePipelineActionDeclaration <$>
       obj .: "ActionTypeId" <*>
-      obj .: "Configuration" <*>
-      obj .: "InputArtifacts" <*>
+      obj .:? "Configuration" <*>
+      obj .:? "InputArtifacts" <*>
       obj .: "Name" <*>
-      obj .: "OutputArtifacts" <*>
-      obj .: "RoleArn" <*>
-      obj .: "RunOrder"
+      obj .:? "OutputArtifacts" <*>
+      obj .:? "RoleArn" <*>
+      obj .:? "RunOrder"
   parseJSON _ = mempty
 
 -- | Constructor for 'CodePipelinePipelineActionDeclaration' containing

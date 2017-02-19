@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.ConfigConfigurationRecorderRecordingGroup
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -25,18 +26,19 @@ data ConfigConfigurationRecorderRecordingGroup =
 
 instance ToJSON ConfigConfigurationRecorderRecordingGroup where
   toJSON ConfigConfigurationRecorderRecordingGroup{..} =
-    object
-    [ "AllSupported" .= _configConfigurationRecorderRecordingGroupAllSupported
-    , "IncludeGlobalResourceTypes" .= _configConfigurationRecorderRecordingGroupIncludeGlobalResourceTypes
-    , "ResourceTypes" .= _configConfigurationRecorderRecordingGroupResourceTypes
+    object $
+    catMaybes
+    [ ("AllSupported" .=) <$> _configConfigurationRecorderRecordingGroupAllSupported
+    , ("IncludeGlobalResourceTypes" .=) <$> _configConfigurationRecorderRecordingGroupIncludeGlobalResourceTypes
+    , ("ResourceTypes" .=) <$> _configConfigurationRecorderRecordingGroupResourceTypes
     ]
 
 instance FromJSON ConfigConfigurationRecorderRecordingGroup where
   parseJSON (Object obj) =
     ConfigConfigurationRecorderRecordingGroup <$>
-      obj .: "AllSupported" <*>
-      obj .: "IncludeGlobalResourceTypes" <*>
-      obj .: "ResourceTypes"
+      obj .:? "AllSupported" <*>
+      obj .:? "IncludeGlobalResourceTypes" <*>
+      obj .:? "ResourceTypes"
   parseJSON _ = mempty
 
 -- | Constructor for 'ConfigConfigurationRecorderRecordingGroup' containing

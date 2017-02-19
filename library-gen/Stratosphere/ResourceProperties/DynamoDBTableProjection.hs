@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.DynamoDBTableProjection where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,16 +24,17 @@ data DynamoDBTableProjection =
 
 instance ToJSON DynamoDBTableProjection where
   toJSON DynamoDBTableProjection{..} =
-    object
-    [ "NonKeyAttributes" .= _dynamoDBTableProjectionNonKeyAttributes
-    , "ProjectionType" .= _dynamoDBTableProjectionProjectionType
+    object $
+    catMaybes
+    [ ("NonKeyAttributes" .=) <$> _dynamoDBTableProjectionNonKeyAttributes
+    , ("ProjectionType" .=) <$> _dynamoDBTableProjectionProjectionType
     ]
 
 instance FromJSON DynamoDBTableProjection where
   parseJSON (Object obj) =
     DynamoDBTableProjection <$>
-      obj .: "NonKeyAttributes" <*>
-      obj .: "ProjectionType"
+      obj .:? "NonKeyAttributes" <*>
+      obj .:? "ProjectionType"
   parseJSON _ = mempty
 
 -- | Constructor for 'DynamoDBTableProjection' containing required fields as

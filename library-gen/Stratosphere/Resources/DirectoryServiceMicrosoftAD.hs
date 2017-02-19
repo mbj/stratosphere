@@ -7,6 +7,7 @@ module Stratosphere.Resources.DirectoryServiceMicrosoftAD where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -27,23 +28,24 @@ data DirectoryServiceMicrosoftAD =
 
 instance ToJSON DirectoryServiceMicrosoftAD where
   toJSON DirectoryServiceMicrosoftAD{..} =
-    object
-    [ "CreateAlias" .= _directoryServiceMicrosoftADCreateAlias
-    , "EnableSso" .= _directoryServiceMicrosoftADEnableSso
-    , "Name" .= _directoryServiceMicrosoftADName
-    , "Password" .= _directoryServiceMicrosoftADPassword
-    , "ShortName" .= _directoryServiceMicrosoftADShortName
-    , "VpcSettings" .= _directoryServiceMicrosoftADVpcSettings
+    object $
+    catMaybes
+    [ ("CreateAlias" .=) <$> _directoryServiceMicrosoftADCreateAlias
+    , ("EnableSso" .=) <$> _directoryServiceMicrosoftADEnableSso
+    , Just ("Name" .= _directoryServiceMicrosoftADName)
+    , Just ("Password" .= _directoryServiceMicrosoftADPassword)
+    , ("ShortName" .=) <$> _directoryServiceMicrosoftADShortName
+    , Just ("VpcSettings" .= _directoryServiceMicrosoftADVpcSettings)
     ]
 
 instance FromJSON DirectoryServiceMicrosoftAD where
   parseJSON (Object obj) =
     DirectoryServiceMicrosoftAD <$>
-      obj .: "CreateAlias" <*>
-      obj .: "EnableSso" <*>
+      obj .:? "CreateAlias" <*>
+      obj .:? "EnableSso" <*>
       obj .: "Name" <*>
       obj .: "Password" <*>
-      obj .: "ShortName" <*>
+      obj .:? "ShortName" <*>
       obj .: "VpcSettings"
   parseJSON _ = mempty
 

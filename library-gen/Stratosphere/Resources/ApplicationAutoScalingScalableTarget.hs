@@ -7,6 +7,7 @@ module Stratosphere.Resources.ApplicationAutoScalingScalableTarget where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -27,13 +28,14 @@ data ApplicationAutoScalingScalableTarget =
 
 instance ToJSON ApplicationAutoScalingScalableTarget where
   toJSON ApplicationAutoScalingScalableTarget{..} =
-    object
-    [ "MaxCapacity" .= _applicationAutoScalingScalableTargetMaxCapacity
-    , "MinCapacity" .= _applicationAutoScalingScalableTargetMinCapacity
-    , "ResourceId" .= _applicationAutoScalingScalableTargetResourceId
-    , "RoleARN" .= _applicationAutoScalingScalableTargetRoleARN
-    , "ScalableDimension" .= _applicationAutoScalingScalableTargetScalableDimension
-    , "ServiceNamespace" .= _applicationAutoScalingScalableTargetServiceNamespace
+    object $
+    catMaybes
+    [ Just ("MaxCapacity" .= _applicationAutoScalingScalableTargetMaxCapacity)
+    , Just ("MinCapacity" .= _applicationAutoScalingScalableTargetMinCapacity)
+    , Just ("ResourceId" .= _applicationAutoScalingScalableTargetResourceId)
+    , Just ("RoleARN" .= _applicationAutoScalingScalableTargetRoleARN)
+    , Just ("ScalableDimension" .= _applicationAutoScalingScalableTargetScalableDimension)
+    , Just ("ServiceNamespace" .= _applicationAutoScalingScalableTargetServiceNamespace)
     ]
 
 instance FromJSON ApplicationAutoScalingScalableTarget where

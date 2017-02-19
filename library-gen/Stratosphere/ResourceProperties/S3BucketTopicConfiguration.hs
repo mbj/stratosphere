@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.S3BucketTopicConfiguration where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -24,17 +25,18 @@ data S3BucketTopicConfiguration =
 
 instance ToJSON S3BucketTopicConfiguration where
   toJSON S3BucketTopicConfiguration{..} =
-    object
-    [ "Event" .= _s3BucketTopicConfigurationEvent
-    , "Filter" .= _s3BucketTopicConfigurationFilter
-    , "Topic" .= _s3BucketTopicConfigurationTopic
+    object $
+    catMaybes
+    [ Just ("Event" .= _s3BucketTopicConfigurationEvent)
+    , ("Filter" .=) <$> _s3BucketTopicConfigurationFilter
+    , Just ("Topic" .= _s3BucketTopicConfigurationTopic)
     ]
 
 instance FromJSON S3BucketTopicConfiguration where
   parseJSON (Object obj) =
     S3BucketTopicConfiguration <$>
       obj .: "Event" <*>
-      obj .: "Filter" <*>
+      obj .:? "Filter" <*>
       obj .: "Topic"
   parseJSON _ = mempty
 

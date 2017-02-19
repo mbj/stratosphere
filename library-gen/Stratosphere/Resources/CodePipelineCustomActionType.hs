@@ -7,6 +7,7 @@ module Stratosphere.Resources.CodePipelineCustomActionType where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -30,26 +31,27 @@ data CodePipelineCustomActionType =
 
 instance ToJSON CodePipelineCustomActionType where
   toJSON CodePipelineCustomActionType{..} =
-    object
-    [ "Category" .= _codePipelineCustomActionTypeCategory
-    , "ConfigurationProperties" .= _codePipelineCustomActionTypeConfigurationProperties
-    , "InputArtifactDetails" .= _codePipelineCustomActionTypeInputArtifactDetails
-    , "OutputArtifactDetails" .= _codePipelineCustomActionTypeOutputArtifactDetails
-    , "Provider" .= _codePipelineCustomActionTypeProvider
-    , "Settings" .= _codePipelineCustomActionTypeSettings
-    , "Version" .= _codePipelineCustomActionTypeVersion
+    object $
+    catMaybes
+    [ Just ("Category" .= _codePipelineCustomActionTypeCategory)
+    , ("ConfigurationProperties" .=) <$> _codePipelineCustomActionTypeConfigurationProperties
+    , Just ("InputArtifactDetails" .= _codePipelineCustomActionTypeInputArtifactDetails)
+    , Just ("OutputArtifactDetails" .= _codePipelineCustomActionTypeOutputArtifactDetails)
+    , Just ("Provider" .= _codePipelineCustomActionTypeProvider)
+    , ("Settings" .=) <$> _codePipelineCustomActionTypeSettings
+    , ("Version" .=) <$> _codePipelineCustomActionTypeVersion
     ]
 
 instance FromJSON CodePipelineCustomActionType where
   parseJSON (Object obj) =
     CodePipelineCustomActionType <$>
       obj .: "Category" <*>
-      obj .: "ConfigurationProperties" <*>
+      obj .:? "ConfigurationProperties" <*>
       obj .: "InputArtifactDetails" <*>
       obj .: "OutputArtifactDetails" <*>
       obj .: "Provider" <*>
-      obj .: "Settings" <*>
-      obj .: "Version"
+      obj .:? "Settings" <*>
+      obj .:? "Version"
   parseJSON _ = mempty
 
 -- | Constructor for 'CodePipelineCustomActionType' containing required fields

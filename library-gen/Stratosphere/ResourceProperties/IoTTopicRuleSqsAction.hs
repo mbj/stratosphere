@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.IoTTopicRuleSqsAction where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -24,10 +25,11 @@ data IoTTopicRuleSqsAction =
 
 instance ToJSON IoTTopicRuleSqsAction where
   toJSON IoTTopicRuleSqsAction{..} =
-    object
-    [ "QueueUrl" .= _ioTTopicRuleSqsActionQueueUrl
-    , "RoleArn" .= _ioTTopicRuleSqsActionRoleArn
-    , "UseBase64" .= _ioTTopicRuleSqsActionUseBase64
+    object $
+    catMaybes
+    [ Just ("QueueUrl" .= _ioTTopicRuleSqsActionQueueUrl)
+    , Just ("RoleArn" .= _ioTTopicRuleSqsActionRoleArn)
+    , ("UseBase64" .=) <$> _ioTTopicRuleSqsActionUseBase64
     ]
 
 instance FromJSON IoTTopicRuleSqsAction where
@@ -35,7 +37,7 @@ instance FromJSON IoTTopicRuleSqsAction where
     IoTTopicRuleSqsAction <$>
       obj .: "QueueUrl" <*>
       obj .: "RoleArn" <*>
-      obj .: "UseBase64"
+      obj .:? "UseBase64"
   parseJSON _ = mempty
 
 -- | Constructor for 'IoTTopicRuleSqsAction' containing required fields as

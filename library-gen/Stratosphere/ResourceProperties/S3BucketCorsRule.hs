@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.S3BucketCorsRule where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -27,24 +28,25 @@ data S3BucketCorsRule =
 
 instance ToJSON S3BucketCorsRule where
   toJSON S3BucketCorsRule{..} =
-    object
-    [ "AllowedHeaders" .= _s3BucketCorsRuleAllowedHeaders
-    , "AllowedMethods" .= _s3BucketCorsRuleAllowedMethods
-    , "AllowedOrigins" .= _s3BucketCorsRuleAllowedOrigins
-    , "ExposedHeaders" .= _s3BucketCorsRuleExposedHeaders
-    , "Id" .= _s3BucketCorsRuleId
-    , "MaxAge" .= _s3BucketCorsRuleMaxAge
+    object $
+    catMaybes
+    [ ("AllowedHeaders" .=) <$> _s3BucketCorsRuleAllowedHeaders
+    , Just ("AllowedMethods" .= _s3BucketCorsRuleAllowedMethods)
+    , Just ("AllowedOrigins" .= _s3BucketCorsRuleAllowedOrigins)
+    , ("ExposedHeaders" .=) <$> _s3BucketCorsRuleExposedHeaders
+    , ("Id" .=) <$> _s3BucketCorsRuleId
+    , ("MaxAge" .=) <$> _s3BucketCorsRuleMaxAge
     ]
 
 instance FromJSON S3BucketCorsRule where
   parseJSON (Object obj) =
     S3BucketCorsRule <$>
-      obj .: "AllowedHeaders" <*>
+      obj .:? "AllowedHeaders" <*>
       obj .: "AllowedMethods" <*>
       obj .: "AllowedOrigins" <*>
-      obj .: "ExposedHeaders" <*>
-      obj .: "Id" <*>
-      obj .: "MaxAge"
+      obj .:? "ExposedHeaders" <*>
+      obj .:? "Id" <*>
+      obj .:? "MaxAge"
   parseJSON _ = mempty
 
 -- | Constructor for 'S3BucketCorsRule' containing required fields as

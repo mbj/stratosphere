@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.ECSServiceDeploymentConfiguration where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,16 +24,17 @@ data ECSServiceDeploymentConfiguration =
 
 instance ToJSON ECSServiceDeploymentConfiguration where
   toJSON ECSServiceDeploymentConfiguration{..} =
-    object
-    [ "MaximumPercent" .= _eCSServiceDeploymentConfigurationMaximumPercent
-    , "MinimumHealthyPercent" .= _eCSServiceDeploymentConfigurationMinimumHealthyPercent
+    object $
+    catMaybes
+    [ ("MaximumPercent" .=) <$> _eCSServiceDeploymentConfigurationMaximumPercent
+    , ("MinimumHealthyPercent" .=) <$> _eCSServiceDeploymentConfigurationMinimumHealthyPercent
     ]
 
 instance FromJSON ECSServiceDeploymentConfiguration where
   parseJSON (Object obj) =
     ECSServiceDeploymentConfiguration <$>
-      obj .: "MaximumPercent" <*>
-      obj .: "MinimumHealthyPercent"
+      obj .:? "MaximumPercent" <*>
+      obj .:? "MinimumHealthyPercent"
   parseJSON _ = mempty
 
 -- | Constructor for 'ECSServiceDeploymentConfiguration' containing required

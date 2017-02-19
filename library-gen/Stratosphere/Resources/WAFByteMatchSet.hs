@@ -7,6 +7,7 @@ module Stratosphere.Resources.WAFByteMatchSet where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,15 +24,16 @@ data WAFByteMatchSet =
 
 instance ToJSON WAFByteMatchSet where
   toJSON WAFByteMatchSet{..} =
-    object
-    [ "ByteMatchTuples" .= _wAFByteMatchSetByteMatchTuples
-    , "Name" .= _wAFByteMatchSetName
+    object $
+    catMaybes
+    [ ("ByteMatchTuples" .=) <$> _wAFByteMatchSetByteMatchTuples
+    , Just ("Name" .= _wAFByteMatchSetName)
     ]
 
 instance FromJSON WAFByteMatchSet where
   parseJSON (Object obj) =
     WAFByteMatchSet <$>
-      obj .: "ByteMatchTuples" <*>
+      obj .:? "ByteMatchTuples" <*>
       obj .: "Name"
   parseJSON _ = mempty
 

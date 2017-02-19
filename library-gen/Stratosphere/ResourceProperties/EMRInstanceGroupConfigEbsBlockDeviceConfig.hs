@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.EMRInstanceGroupConfigEbsBlockDeviceConfi
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -24,16 +25,17 @@ data EMRInstanceGroupConfigEbsBlockDeviceConfig =
 
 instance ToJSON EMRInstanceGroupConfigEbsBlockDeviceConfig where
   toJSON EMRInstanceGroupConfigEbsBlockDeviceConfig{..} =
-    object
-    [ "VolumeSpecification" .= _eMRInstanceGroupConfigEbsBlockDeviceConfigVolumeSpecification
-    , "VolumesPerInstance" .= _eMRInstanceGroupConfigEbsBlockDeviceConfigVolumesPerInstance
+    object $
+    catMaybes
+    [ Just ("VolumeSpecification" .= _eMRInstanceGroupConfigEbsBlockDeviceConfigVolumeSpecification)
+    , ("VolumesPerInstance" .=) <$> _eMRInstanceGroupConfigEbsBlockDeviceConfigVolumesPerInstance
     ]
 
 instance FromJSON EMRInstanceGroupConfigEbsBlockDeviceConfig where
   parseJSON (Object obj) =
     EMRInstanceGroupConfigEbsBlockDeviceConfig <$>
       obj .: "VolumeSpecification" <*>
-      obj .: "VolumesPerInstance"
+      obj .:? "VolumesPerInstance"
   parseJSON _ = mempty
 
 -- | Constructor for 'EMRInstanceGroupConfigEbsBlockDeviceConfig' containing

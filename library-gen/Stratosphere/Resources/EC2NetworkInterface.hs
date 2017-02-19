@@ -7,6 +7,7 @@ module Stratosphere.Resources.EC2NetworkInterface where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -33,32 +34,33 @@ data EC2NetworkInterface =
 
 instance ToJSON EC2NetworkInterface where
   toJSON EC2NetworkInterface{..} =
-    object
-    [ "Description" .= _eC2NetworkInterfaceDescription
-    , "GroupSet" .= _eC2NetworkInterfaceGroupSet
-    , "Ipv6AddressCount" .= _eC2NetworkInterfaceIpv6AddressCount
-    , "Ipv6Addresses" .= _eC2NetworkInterfaceIpv6Addresses
-    , "PrivateIpAddress" .= _eC2NetworkInterfacePrivateIpAddress
-    , "PrivateIpAddresses" .= _eC2NetworkInterfacePrivateIpAddresses
-    , "SecondaryPrivateIpAddressCount" .= _eC2NetworkInterfaceSecondaryPrivateIpAddressCount
-    , "SourceDestCheck" .= _eC2NetworkInterfaceSourceDestCheck
-    , "SubnetId" .= _eC2NetworkInterfaceSubnetId
-    , "Tags" .= _eC2NetworkInterfaceTags
+    object $
+    catMaybes
+    [ ("Description" .=) <$> _eC2NetworkInterfaceDescription
+    , ("GroupSet" .=) <$> _eC2NetworkInterfaceGroupSet
+    , ("Ipv6AddressCount" .=) <$> _eC2NetworkInterfaceIpv6AddressCount
+    , ("Ipv6Addresses" .=) <$> _eC2NetworkInterfaceIpv6Addresses
+    , ("PrivateIpAddress" .=) <$> _eC2NetworkInterfacePrivateIpAddress
+    , ("PrivateIpAddresses" .=) <$> _eC2NetworkInterfacePrivateIpAddresses
+    , ("SecondaryPrivateIpAddressCount" .=) <$> _eC2NetworkInterfaceSecondaryPrivateIpAddressCount
+    , ("SourceDestCheck" .=) <$> _eC2NetworkInterfaceSourceDestCheck
+    , Just ("SubnetId" .= _eC2NetworkInterfaceSubnetId)
+    , ("Tags" .=) <$> _eC2NetworkInterfaceTags
     ]
 
 instance FromJSON EC2NetworkInterface where
   parseJSON (Object obj) =
     EC2NetworkInterface <$>
-      obj .: "Description" <*>
-      obj .: "GroupSet" <*>
-      obj .: "Ipv6AddressCount" <*>
-      obj .: "Ipv6Addresses" <*>
-      obj .: "PrivateIpAddress" <*>
-      obj .: "PrivateIpAddresses" <*>
-      obj .: "SecondaryPrivateIpAddressCount" <*>
-      obj .: "SourceDestCheck" <*>
+      obj .:? "Description" <*>
+      obj .:? "GroupSet" <*>
+      obj .:? "Ipv6AddressCount" <*>
+      obj .:? "Ipv6Addresses" <*>
+      obj .:? "PrivateIpAddress" <*>
+      obj .:? "PrivateIpAddresses" <*>
+      obj .:? "SecondaryPrivateIpAddressCount" <*>
+      obj .:? "SourceDestCheck" <*>
       obj .: "SubnetId" <*>
-      obj .: "Tags"
+      obj .:? "Tags"
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2NetworkInterface' containing required fields as

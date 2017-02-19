@@ -7,6 +7,7 @@ module Stratosphere.Resources.EC2SubnetNetworkAclAssociation where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,9 +24,10 @@ data EC2SubnetNetworkAclAssociation =
 
 instance ToJSON EC2SubnetNetworkAclAssociation where
   toJSON EC2SubnetNetworkAclAssociation{..} =
-    object
-    [ "NetworkAclId" .= _eC2SubnetNetworkAclAssociationNetworkAclId
-    , "SubnetId" .= _eC2SubnetNetworkAclAssociationSubnetId
+    object $
+    catMaybes
+    [ Just ("NetworkAclId" .= _eC2SubnetNetworkAclAssociationNetworkAclId)
+    , Just ("SubnetId" .= _eC2SubnetNetworkAclAssociationSubnetId)
     ]
 
 instance FromJSON EC2SubnetNetworkAclAssociation where

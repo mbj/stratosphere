@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.CodeDeployDeploymentGroupOnPremisesInstan
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -26,18 +27,19 @@ data CodeDeployDeploymentGroupOnPremisesInstanceTagFilter =
 
 instance ToJSON CodeDeployDeploymentGroupOnPremisesInstanceTagFilter where
   toJSON CodeDeployDeploymentGroupOnPremisesInstanceTagFilter{..} =
-    object
-    [ "Key" .= _codeDeployDeploymentGroupOnPremisesInstanceTagFilterKey
-    , "Type" .= _codeDeployDeploymentGroupOnPremisesInstanceTagFilterType
-    , "Value" .= _codeDeployDeploymentGroupOnPremisesInstanceTagFilterValue
+    object $
+    catMaybes
+    [ ("Key" .=) <$> _codeDeployDeploymentGroupOnPremisesInstanceTagFilterKey
+    , ("Type" .=) <$> _codeDeployDeploymentGroupOnPremisesInstanceTagFilterType
+    , ("Value" .=) <$> _codeDeployDeploymentGroupOnPremisesInstanceTagFilterValue
     ]
 
 instance FromJSON CodeDeployDeploymentGroupOnPremisesInstanceTagFilter where
   parseJSON (Object obj) =
     CodeDeployDeploymentGroupOnPremisesInstanceTagFilter <$>
-      obj .: "Key" <*>
-      obj .: "Type" <*>
-      obj .: "Value"
+      obj .:? "Key" <*>
+      obj .:? "Type" <*>
+      obj .:? "Value"
   parseJSON _ = mempty
 
 -- | Constructor for 'CodeDeployDeploymentGroupOnPremisesInstanceTagFilter'

@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.RDSDBSecurityGroupIngressProperty where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -25,20 +26,21 @@ data RDSDBSecurityGroupIngressProperty =
 
 instance ToJSON RDSDBSecurityGroupIngressProperty where
   toJSON RDSDBSecurityGroupIngressProperty{..} =
-    object
-    [ "CDIRIP" .= _rDSDBSecurityGroupIngressPropertyCDIRIP
-    , "EC2SecurityGroupId" .= _rDSDBSecurityGroupIngressPropertyEC2SecurityGroupId
-    , "EC2SecurityGroupName" .= _rDSDBSecurityGroupIngressPropertyEC2SecurityGroupName
-    , "EC2SecurityGroupOwnerId" .= _rDSDBSecurityGroupIngressPropertyEC2SecurityGroupOwnerId
+    object $
+    catMaybes
+    [ ("CDIRIP" .=) <$> _rDSDBSecurityGroupIngressPropertyCDIRIP
+    , ("EC2SecurityGroupId" .=) <$> _rDSDBSecurityGroupIngressPropertyEC2SecurityGroupId
+    , ("EC2SecurityGroupName" .=) <$> _rDSDBSecurityGroupIngressPropertyEC2SecurityGroupName
+    , ("EC2SecurityGroupOwnerId" .=) <$> _rDSDBSecurityGroupIngressPropertyEC2SecurityGroupOwnerId
     ]
 
 instance FromJSON RDSDBSecurityGroupIngressProperty where
   parseJSON (Object obj) =
     RDSDBSecurityGroupIngressProperty <$>
-      obj .: "CDIRIP" <*>
-      obj .: "EC2SecurityGroupId" <*>
-      obj .: "EC2SecurityGroupName" <*>
-      obj .: "EC2SecurityGroupOwnerId"
+      obj .:? "CDIRIP" <*>
+      obj .:? "EC2SecurityGroupId" <*>
+      obj .:? "EC2SecurityGroupName" <*>
+      obj .:? "EC2SecurityGroupOwnerId"
   parseJSON _ = mempty
 
 -- | Constructor for 'RDSDBSecurityGroupIngressProperty' containing required

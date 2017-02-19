@@ -7,6 +7,7 @@ module Stratosphere.Resources.AutoScalingAutoScalingGroup where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -40,46 +41,47 @@ data AutoScalingAutoScalingGroup =
 
 instance ToJSON AutoScalingAutoScalingGroup where
   toJSON AutoScalingAutoScalingGroup{..} =
-    object
-    [ "AvailabilityZones" .= _autoScalingAutoScalingGroupAvailabilityZones
-    , "Cooldown" .= _autoScalingAutoScalingGroupCooldown
-    , "DesiredCapacity" .= _autoScalingAutoScalingGroupDesiredCapacity
-    , "HealthCheckGracePeriod" .= _autoScalingAutoScalingGroupHealthCheckGracePeriod
-    , "HealthCheckType" .= _autoScalingAutoScalingGroupHealthCheckType
-    , "InstanceId" .= _autoScalingAutoScalingGroupInstanceId
-    , "LaunchConfigurationName" .= _autoScalingAutoScalingGroupLaunchConfigurationName
-    , "LoadBalancerNames" .= _autoScalingAutoScalingGroupLoadBalancerNames
-    , "MaxSize" .= _autoScalingAutoScalingGroupMaxSize
-    , "MetricsCollection" .= _autoScalingAutoScalingGroupMetricsCollection
-    , "MinSize" .= _autoScalingAutoScalingGroupMinSize
-    , "NotificationConfigurations" .= _autoScalingAutoScalingGroupNotificationConfigurations
-    , "PlacementGroup" .= _autoScalingAutoScalingGroupPlacementGroup
-    , "Tags" .= _autoScalingAutoScalingGroupTags
-    , "TargetGroupARNs" .= _autoScalingAutoScalingGroupTargetGroupARNs
-    , "TerminationPolicies" .= _autoScalingAutoScalingGroupTerminationPolicies
-    , "VPCZoneIdentifier" .= _autoScalingAutoScalingGroupVPCZoneIdentifier
+    object $
+    catMaybes
+    [ ("AvailabilityZones" .=) <$> _autoScalingAutoScalingGroupAvailabilityZones
+    , ("Cooldown" .=) <$> _autoScalingAutoScalingGroupCooldown
+    , ("DesiredCapacity" .=) <$> _autoScalingAutoScalingGroupDesiredCapacity
+    , ("HealthCheckGracePeriod" .=) <$> _autoScalingAutoScalingGroupHealthCheckGracePeriod
+    , ("HealthCheckType" .=) <$> _autoScalingAutoScalingGroupHealthCheckType
+    , ("InstanceId" .=) <$> _autoScalingAutoScalingGroupInstanceId
+    , ("LaunchConfigurationName" .=) <$> _autoScalingAutoScalingGroupLaunchConfigurationName
+    , ("LoadBalancerNames" .=) <$> _autoScalingAutoScalingGroupLoadBalancerNames
+    , Just ("MaxSize" .= _autoScalingAutoScalingGroupMaxSize)
+    , ("MetricsCollection" .=) <$> _autoScalingAutoScalingGroupMetricsCollection
+    , Just ("MinSize" .= _autoScalingAutoScalingGroupMinSize)
+    , ("NotificationConfigurations" .=) <$> _autoScalingAutoScalingGroupNotificationConfigurations
+    , ("PlacementGroup" .=) <$> _autoScalingAutoScalingGroupPlacementGroup
+    , ("Tags" .=) <$> _autoScalingAutoScalingGroupTags
+    , ("TargetGroupARNs" .=) <$> _autoScalingAutoScalingGroupTargetGroupARNs
+    , ("TerminationPolicies" .=) <$> _autoScalingAutoScalingGroupTerminationPolicies
+    , ("VPCZoneIdentifier" .=) <$> _autoScalingAutoScalingGroupVPCZoneIdentifier
     ]
 
 instance FromJSON AutoScalingAutoScalingGroup where
   parseJSON (Object obj) =
     AutoScalingAutoScalingGroup <$>
-      obj .: "AvailabilityZones" <*>
-      obj .: "Cooldown" <*>
-      obj .: "DesiredCapacity" <*>
-      obj .: "HealthCheckGracePeriod" <*>
-      obj .: "HealthCheckType" <*>
-      obj .: "InstanceId" <*>
-      obj .: "LaunchConfigurationName" <*>
-      obj .: "LoadBalancerNames" <*>
+      obj .:? "AvailabilityZones" <*>
+      obj .:? "Cooldown" <*>
+      obj .:? "DesiredCapacity" <*>
+      obj .:? "HealthCheckGracePeriod" <*>
+      obj .:? "HealthCheckType" <*>
+      obj .:? "InstanceId" <*>
+      obj .:? "LaunchConfigurationName" <*>
+      obj .:? "LoadBalancerNames" <*>
       obj .: "MaxSize" <*>
-      obj .: "MetricsCollection" <*>
+      obj .:? "MetricsCollection" <*>
       obj .: "MinSize" <*>
-      obj .: "NotificationConfigurations" <*>
-      obj .: "PlacementGroup" <*>
-      obj .: "Tags" <*>
-      obj .: "TargetGroupARNs" <*>
-      obj .: "TerminationPolicies" <*>
-      obj .: "VPCZoneIdentifier"
+      obj .:? "NotificationConfigurations" <*>
+      obj .:? "PlacementGroup" <*>
+      obj .:? "Tags" <*>
+      obj .:? "TargetGroupARNs" <*>
+      obj .:? "TerminationPolicies" <*>
+      obj .:? "VPCZoneIdentifier"
   parseJSON _ = mempty
 
 -- | Constructor for 'AutoScalingAutoScalingGroup' containing required fields

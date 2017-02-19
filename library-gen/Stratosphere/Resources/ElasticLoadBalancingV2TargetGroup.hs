@@ -7,6 +7,7 @@ module Stratosphere.Resources.ElasticLoadBalancingV2TargetGroup where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -39,41 +40,42 @@ data ElasticLoadBalancingV2TargetGroup =
 
 instance ToJSON ElasticLoadBalancingV2TargetGroup where
   toJSON ElasticLoadBalancingV2TargetGroup{..} =
-    object
-    [ "HealthCheckIntervalSeconds" .= _elasticLoadBalancingV2TargetGroupHealthCheckIntervalSeconds
-    , "HealthCheckPath" .= _elasticLoadBalancingV2TargetGroupHealthCheckPath
-    , "HealthCheckPort" .= _elasticLoadBalancingV2TargetGroupHealthCheckPort
-    , "HealthCheckProtocol" .= _elasticLoadBalancingV2TargetGroupHealthCheckProtocol
-    , "HealthCheckTimeoutSeconds" .= _elasticLoadBalancingV2TargetGroupHealthCheckTimeoutSeconds
-    , "HealthyThresholdCount" .= _elasticLoadBalancingV2TargetGroupHealthyThresholdCount
-    , "Matcher" .= _elasticLoadBalancingV2TargetGroupMatcher
-    , "Name" .= _elasticLoadBalancingV2TargetGroupName
-    , "Port" .= _elasticLoadBalancingV2TargetGroupPort
-    , "Protocol" .= _elasticLoadBalancingV2TargetGroupProtocol
-    , "Tags" .= _elasticLoadBalancingV2TargetGroupTags
-    , "TargetGroupAttributes" .= _elasticLoadBalancingV2TargetGroupTargetGroupAttributes
-    , "Targets" .= _elasticLoadBalancingV2TargetGroupTargets
-    , "UnhealthyThresholdCount" .= _elasticLoadBalancingV2TargetGroupUnhealthyThresholdCount
-    , "VpcId" .= _elasticLoadBalancingV2TargetGroupVpcId
+    object $
+    catMaybes
+    [ ("HealthCheckIntervalSeconds" .=) <$> _elasticLoadBalancingV2TargetGroupHealthCheckIntervalSeconds
+    , ("HealthCheckPath" .=) <$> _elasticLoadBalancingV2TargetGroupHealthCheckPath
+    , ("HealthCheckPort" .=) <$> _elasticLoadBalancingV2TargetGroupHealthCheckPort
+    , ("HealthCheckProtocol" .=) <$> _elasticLoadBalancingV2TargetGroupHealthCheckProtocol
+    , ("HealthCheckTimeoutSeconds" .=) <$> _elasticLoadBalancingV2TargetGroupHealthCheckTimeoutSeconds
+    , ("HealthyThresholdCount" .=) <$> _elasticLoadBalancingV2TargetGroupHealthyThresholdCount
+    , ("Matcher" .=) <$> _elasticLoadBalancingV2TargetGroupMatcher
+    , ("Name" .=) <$> _elasticLoadBalancingV2TargetGroupName
+    , Just ("Port" .= _elasticLoadBalancingV2TargetGroupPort)
+    , Just ("Protocol" .= _elasticLoadBalancingV2TargetGroupProtocol)
+    , ("Tags" .=) <$> _elasticLoadBalancingV2TargetGroupTags
+    , ("TargetGroupAttributes" .=) <$> _elasticLoadBalancingV2TargetGroupTargetGroupAttributes
+    , ("Targets" .=) <$> _elasticLoadBalancingV2TargetGroupTargets
+    , ("UnhealthyThresholdCount" .=) <$> _elasticLoadBalancingV2TargetGroupUnhealthyThresholdCount
+    , Just ("VpcId" .= _elasticLoadBalancingV2TargetGroupVpcId)
     ]
 
 instance FromJSON ElasticLoadBalancingV2TargetGroup where
   parseJSON (Object obj) =
     ElasticLoadBalancingV2TargetGroup <$>
-      obj .: "HealthCheckIntervalSeconds" <*>
-      obj .: "HealthCheckPath" <*>
-      obj .: "HealthCheckPort" <*>
-      obj .: "HealthCheckProtocol" <*>
-      obj .: "HealthCheckTimeoutSeconds" <*>
-      obj .: "HealthyThresholdCount" <*>
-      obj .: "Matcher" <*>
-      obj .: "Name" <*>
+      obj .:? "HealthCheckIntervalSeconds" <*>
+      obj .:? "HealthCheckPath" <*>
+      obj .:? "HealthCheckPort" <*>
+      obj .:? "HealthCheckProtocol" <*>
+      obj .:? "HealthCheckTimeoutSeconds" <*>
+      obj .:? "HealthyThresholdCount" <*>
+      obj .:? "Matcher" <*>
+      obj .:? "Name" <*>
       obj .: "Port" <*>
       obj .: "Protocol" <*>
-      obj .: "Tags" <*>
-      obj .: "TargetGroupAttributes" <*>
-      obj .: "Targets" <*>
-      obj .: "UnhealthyThresholdCount" <*>
+      obj .:? "Tags" <*>
+      obj .:? "TargetGroupAttributes" <*>
+      obj .:? "Targets" <*>
+      obj .:? "UnhealthyThresholdCount" <*>
       obj .: "VpcId"
   parseJSON _ = mempty
 

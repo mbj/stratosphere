@@ -7,6 +7,7 @@ module Stratosphere.Resources.WAFIPSet where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,15 +24,16 @@ data WAFIPSet =
 
 instance ToJSON WAFIPSet where
   toJSON WAFIPSet{..} =
-    object
-    [ "IPSetDescriptors" .= _wAFIPSetIPSetDescriptors
-    , "Name" .= _wAFIPSetName
+    object $
+    catMaybes
+    [ ("IPSetDescriptors" .=) <$> _wAFIPSetIPSetDescriptors
+    , Just ("Name" .= _wAFIPSetName)
     ]
 
 instance FromJSON WAFIPSet where
   parseJSON (Object obj) =
     WAFIPSet <$>
-      obj .: "IPSetDescriptors" <*>
+      obj .:? "IPSetDescriptors" <*>
       obj .: "Name"
   parseJSON _ = mempty
 

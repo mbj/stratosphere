@@ -7,6 +7,7 @@ module Stratosphere.Resources.Route53RecordSetGroup where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -25,20 +26,21 @@ data Route53RecordSetGroup =
 
 instance ToJSON Route53RecordSetGroup where
   toJSON Route53RecordSetGroup{..} =
-    object
-    [ "Comment" .= _route53RecordSetGroupComment
-    , "HostedZoneId" .= _route53RecordSetGroupHostedZoneId
-    , "HostedZoneName" .= _route53RecordSetGroupHostedZoneName
-    , "RecordSets" .= _route53RecordSetGroupRecordSets
+    object $
+    catMaybes
+    [ ("Comment" .=) <$> _route53RecordSetGroupComment
+    , ("HostedZoneId" .=) <$> _route53RecordSetGroupHostedZoneId
+    , ("HostedZoneName" .=) <$> _route53RecordSetGroupHostedZoneName
+    , ("RecordSets" .=) <$> _route53RecordSetGroupRecordSets
     ]
 
 instance FromJSON Route53RecordSetGroup where
   parseJSON (Object obj) =
     Route53RecordSetGroup <$>
-      obj .: "Comment" <*>
-      obj .: "HostedZoneId" <*>
-      obj .: "HostedZoneName" <*>
-      obj .: "RecordSets"
+      obj .:? "Comment" <*>
+      obj .:? "HostedZoneId" <*>
+      obj .:? "HostedZoneName" <*>
+      obj .:? "RecordSets"
   parseJSON _ = mempty
 
 -- | Constructor for 'Route53RecordSetGroup' containing required fields as

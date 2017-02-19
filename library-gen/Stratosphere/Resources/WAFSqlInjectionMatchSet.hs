@@ -7,6 +7,7 @@ module Stratosphere.Resources.WAFSqlInjectionMatchSet where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,16 +24,17 @@ data WAFSqlInjectionMatchSet =
 
 instance ToJSON WAFSqlInjectionMatchSet where
   toJSON WAFSqlInjectionMatchSet{..} =
-    object
-    [ "Name" .= _wAFSqlInjectionMatchSetName
-    , "SqlInjectionMatchTuples" .= _wAFSqlInjectionMatchSetSqlInjectionMatchTuples
+    object $
+    catMaybes
+    [ Just ("Name" .= _wAFSqlInjectionMatchSetName)
+    , ("SqlInjectionMatchTuples" .=) <$> _wAFSqlInjectionMatchSetSqlInjectionMatchTuples
     ]
 
 instance FromJSON WAFSqlInjectionMatchSet where
   parseJSON (Object obj) =
     WAFSqlInjectionMatchSet <$>
       obj .: "Name" <*>
-      obj .: "SqlInjectionMatchTuples"
+      obj .:? "SqlInjectionMatchTuples"
   parseJSON _ = mempty
 
 -- | Constructor for 'WAFSqlInjectionMatchSet' containing required fields as

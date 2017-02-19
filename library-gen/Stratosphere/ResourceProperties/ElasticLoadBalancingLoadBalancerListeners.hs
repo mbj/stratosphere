@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.ElasticLoadBalancingLoadBalancerListeners
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -28,24 +29,25 @@ data ElasticLoadBalancingLoadBalancerListeners =
 
 instance ToJSON ElasticLoadBalancingLoadBalancerListeners where
   toJSON ElasticLoadBalancingLoadBalancerListeners{..} =
-    object
-    [ "InstancePort" .= _elasticLoadBalancingLoadBalancerListenersInstancePort
-    , "InstanceProtocol" .= _elasticLoadBalancingLoadBalancerListenersInstanceProtocol
-    , "LoadBalancerPort" .= _elasticLoadBalancingLoadBalancerListenersLoadBalancerPort
-    , "PolicyNames" .= _elasticLoadBalancingLoadBalancerListenersPolicyNames
-    , "Protocol" .= _elasticLoadBalancingLoadBalancerListenersProtocol
-    , "SSLCertificateId" .= _elasticLoadBalancingLoadBalancerListenersSSLCertificateId
+    object $
+    catMaybes
+    [ Just ("InstancePort" .= _elasticLoadBalancingLoadBalancerListenersInstancePort)
+    , ("InstanceProtocol" .=) <$> _elasticLoadBalancingLoadBalancerListenersInstanceProtocol
+    , Just ("LoadBalancerPort" .= _elasticLoadBalancingLoadBalancerListenersLoadBalancerPort)
+    , ("PolicyNames" .=) <$> _elasticLoadBalancingLoadBalancerListenersPolicyNames
+    , Just ("Protocol" .= _elasticLoadBalancingLoadBalancerListenersProtocol)
+    , ("SSLCertificateId" .=) <$> _elasticLoadBalancingLoadBalancerListenersSSLCertificateId
     ]
 
 instance FromJSON ElasticLoadBalancingLoadBalancerListeners where
   parseJSON (Object obj) =
     ElasticLoadBalancingLoadBalancerListeners <$>
       obj .: "InstancePort" <*>
-      obj .: "InstanceProtocol" <*>
+      obj .:? "InstanceProtocol" <*>
       obj .: "LoadBalancerPort" <*>
-      obj .: "PolicyNames" <*>
+      obj .:? "PolicyNames" <*>
       obj .: "Protocol" <*>
-      obj .: "SSLCertificateId"
+      obj .:? "SSLCertificateId"
   parseJSON _ = mempty
 
 -- | Constructor for 'ElasticLoadBalancingLoadBalancerListeners' containing

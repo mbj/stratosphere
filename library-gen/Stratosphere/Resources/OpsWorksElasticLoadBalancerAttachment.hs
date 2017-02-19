@@ -7,6 +7,7 @@ module Stratosphere.Resources.OpsWorksElasticLoadBalancerAttachment where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -24,9 +25,10 @@ data OpsWorksElasticLoadBalancerAttachment =
 
 instance ToJSON OpsWorksElasticLoadBalancerAttachment where
   toJSON OpsWorksElasticLoadBalancerAttachment{..} =
-    object
-    [ "ElasticLoadBalancerName" .= _opsWorksElasticLoadBalancerAttachmentElasticLoadBalancerName
-    , "LayerId" .= _opsWorksElasticLoadBalancerAttachmentLayerId
+    object $
+    catMaybes
+    [ Just ("ElasticLoadBalancerName" .= _opsWorksElasticLoadBalancerAttachmentElasticLoadBalancerName)
+    , Just ("LayerId" .= _opsWorksElasticLoadBalancerAttachmentLayerId)
     ]
 
 instance FromJSON OpsWorksElasticLoadBalancerAttachment where

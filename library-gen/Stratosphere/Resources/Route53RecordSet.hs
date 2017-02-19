@@ -7,6 +7,7 @@ module Stratosphere.Resources.Route53RecordSet where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -36,40 +37,41 @@ data Route53RecordSet =
 
 instance ToJSON Route53RecordSet where
   toJSON Route53RecordSet{..} =
-    object
-    [ "AliasTarget" .= _route53RecordSetAliasTarget
-    , "Comment" .= _route53RecordSetComment
-    , "Failover" .= _route53RecordSetFailover
-    , "GeoLocation" .= _route53RecordSetGeoLocation
-    , "HealthCheckId" .= _route53RecordSetHealthCheckId
-    , "HostedZoneId" .= _route53RecordSetHostedZoneId
-    , "HostedZoneName" .= _route53RecordSetHostedZoneName
-    , "Name" .= _route53RecordSetName
-    , "Region" .= _route53RecordSetRegion
-    , "ResourceRecords" .= _route53RecordSetResourceRecords
-    , "SetIdentifier" .= _route53RecordSetSetIdentifier
-    , "TTL" .= _route53RecordSetTTL
-    , "Type" .= _route53RecordSetType
-    , "Weight" .= _route53RecordSetWeight
+    object $
+    catMaybes
+    [ ("AliasTarget" .=) <$> _route53RecordSetAliasTarget
+    , ("Comment" .=) <$> _route53RecordSetComment
+    , ("Failover" .=) <$> _route53RecordSetFailover
+    , ("GeoLocation" .=) <$> _route53RecordSetGeoLocation
+    , ("HealthCheckId" .=) <$> _route53RecordSetHealthCheckId
+    , ("HostedZoneId" .=) <$> _route53RecordSetHostedZoneId
+    , ("HostedZoneName" .=) <$> _route53RecordSetHostedZoneName
+    , Just ("Name" .= _route53RecordSetName)
+    , ("Region" .=) <$> _route53RecordSetRegion
+    , ("ResourceRecords" .=) <$> _route53RecordSetResourceRecords
+    , ("SetIdentifier" .=) <$> _route53RecordSetSetIdentifier
+    , ("TTL" .=) <$> _route53RecordSetTTL
+    , Just ("Type" .= _route53RecordSetType)
+    , ("Weight" .=) <$> _route53RecordSetWeight
     ]
 
 instance FromJSON Route53RecordSet where
   parseJSON (Object obj) =
     Route53RecordSet <$>
-      obj .: "AliasTarget" <*>
-      obj .: "Comment" <*>
-      obj .: "Failover" <*>
-      obj .: "GeoLocation" <*>
-      obj .: "HealthCheckId" <*>
-      obj .: "HostedZoneId" <*>
-      obj .: "HostedZoneName" <*>
+      obj .:? "AliasTarget" <*>
+      obj .:? "Comment" <*>
+      obj .:? "Failover" <*>
+      obj .:? "GeoLocation" <*>
+      obj .:? "HealthCheckId" <*>
+      obj .:? "HostedZoneId" <*>
+      obj .:? "HostedZoneName" <*>
       obj .: "Name" <*>
-      obj .: "Region" <*>
-      obj .: "ResourceRecords" <*>
-      obj .: "SetIdentifier" <*>
-      obj .: "TTL" <*>
+      obj .:? "Region" <*>
+      obj .:? "ResourceRecords" <*>
+      obj .:? "SetIdentifier" <*>
+      obj .:? "TTL" <*>
       obj .: "Type" <*>
-      obj .: "Weight"
+      obj .:? "Weight"
   parseJSON _ = mempty
 
 -- | Constructor for 'Route53RecordSet' containing required fields as

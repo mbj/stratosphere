@@ -7,6 +7,7 @@ module Stratosphere.Resources.WAFSizeConstraintSet where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,9 +24,10 @@ data WAFSizeConstraintSet =
 
 instance ToJSON WAFSizeConstraintSet where
   toJSON WAFSizeConstraintSet{..} =
-    object
-    [ "Name" .= _wAFSizeConstraintSetName
-    , "SizeConstraints" .= _wAFSizeConstraintSetSizeConstraints
+    object $
+    catMaybes
+    [ Just ("Name" .= _wAFSizeConstraintSetName)
+    , Just ("SizeConstraints" .= _wAFSizeConstraintSetSizeConstraints)
     ]
 
 instance FromJSON WAFSizeConstraintSet where

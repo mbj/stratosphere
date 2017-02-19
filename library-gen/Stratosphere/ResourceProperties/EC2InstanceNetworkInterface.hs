@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.EC2InstanceNetworkInterface where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -34,36 +35,37 @@ data EC2InstanceNetworkInterface =
 
 instance ToJSON EC2InstanceNetworkInterface where
   toJSON EC2InstanceNetworkInterface{..} =
-    object
-    [ "AssociatePublicIpAddress" .= _eC2InstanceNetworkInterfaceAssociatePublicIpAddress
-    , "DeleteOnTermination" .= _eC2InstanceNetworkInterfaceDeleteOnTermination
-    , "Description" .= _eC2InstanceNetworkInterfaceDescription
-    , "DeviceIndex" .= _eC2InstanceNetworkInterfaceDeviceIndex
-    , "GroupSet" .= _eC2InstanceNetworkInterfaceGroupSet
-    , "Ipv6AddressCount" .= _eC2InstanceNetworkInterfaceIpv6AddressCount
-    , "Ipv6Addresses" .= _eC2InstanceNetworkInterfaceIpv6Addresses
-    , "NetworkInterfaceId" .= _eC2InstanceNetworkInterfaceNetworkInterfaceId
-    , "PrivateIpAddress" .= _eC2InstanceNetworkInterfacePrivateIpAddress
-    , "PrivateIpAddresses" .= _eC2InstanceNetworkInterfacePrivateIpAddresses
-    , "SecondaryPrivateIpAddressCount" .= _eC2InstanceNetworkInterfaceSecondaryPrivateIpAddressCount
-    , "SubnetId" .= _eC2InstanceNetworkInterfaceSubnetId
+    object $
+    catMaybes
+    [ ("AssociatePublicIpAddress" .=) <$> _eC2InstanceNetworkInterfaceAssociatePublicIpAddress
+    , ("DeleteOnTermination" .=) <$> _eC2InstanceNetworkInterfaceDeleteOnTermination
+    , ("Description" .=) <$> _eC2InstanceNetworkInterfaceDescription
+    , Just ("DeviceIndex" .= _eC2InstanceNetworkInterfaceDeviceIndex)
+    , ("GroupSet" .=) <$> _eC2InstanceNetworkInterfaceGroupSet
+    , ("Ipv6AddressCount" .=) <$> _eC2InstanceNetworkInterfaceIpv6AddressCount
+    , ("Ipv6Addresses" .=) <$> _eC2InstanceNetworkInterfaceIpv6Addresses
+    , ("NetworkInterfaceId" .=) <$> _eC2InstanceNetworkInterfaceNetworkInterfaceId
+    , ("PrivateIpAddress" .=) <$> _eC2InstanceNetworkInterfacePrivateIpAddress
+    , ("PrivateIpAddresses" .=) <$> _eC2InstanceNetworkInterfacePrivateIpAddresses
+    , ("SecondaryPrivateIpAddressCount" .=) <$> _eC2InstanceNetworkInterfaceSecondaryPrivateIpAddressCount
+    , ("SubnetId" .=) <$> _eC2InstanceNetworkInterfaceSubnetId
     ]
 
 instance FromJSON EC2InstanceNetworkInterface where
   parseJSON (Object obj) =
     EC2InstanceNetworkInterface <$>
-      obj .: "AssociatePublicIpAddress" <*>
-      obj .: "DeleteOnTermination" <*>
-      obj .: "Description" <*>
+      obj .:? "AssociatePublicIpAddress" <*>
+      obj .:? "DeleteOnTermination" <*>
+      obj .:? "Description" <*>
       obj .: "DeviceIndex" <*>
-      obj .: "GroupSet" <*>
-      obj .: "Ipv6AddressCount" <*>
-      obj .: "Ipv6Addresses" <*>
-      obj .: "NetworkInterfaceId" <*>
-      obj .: "PrivateIpAddress" <*>
-      obj .: "PrivateIpAddresses" <*>
-      obj .: "SecondaryPrivateIpAddressCount" <*>
-      obj .: "SubnetId"
+      obj .:? "GroupSet" <*>
+      obj .:? "Ipv6AddressCount" <*>
+      obj .:? "Ipv6Addresses" <*>
+      obj .:? "NetworkInterfaceId" <*>
+      obj .:? "PrivateIpAddress" <*>
+      obj .:? "PrivateIpAddresses" <*>
+      obj .:? "SecondaryPrivateIpAddressCount" <*>
+      obj .:? "SubnetId"
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2InstanceNetworkInterface' containing required fields

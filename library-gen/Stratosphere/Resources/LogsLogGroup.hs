@@ -7,6 +7,7 @@ module Stratosphere.Resources.LogsLogGroup where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,16 +24,17 @@ data LogsLogGroup =
 
 instance ToJSON LogsLogGroup where
   toJSON LogsLogGroup{..} =
-    object
-    [ "LogGroupName" .= _logsLogGroupLogGroupName
-    , "RetentionInDays" .= _logsLogGroupRetentionInDays
+    object $
+    catMaybes
+    [ ("LogGroupName" .=) <$> _logsLogGroupLogGroupName
+    , ("RetentionInDays" .=) <$> _logsLogGroupRetentionInDays
     ]
 
 instance FromJSON LogsLogGroup where
   parseJSON (Object obj) =
     LogsLogGroup <$>
-      obj .: "LogGroupName" <*>
-      obj .: "RetentionInDays"
+      obj .:? "LogGroupName" <*>
+      obj .:? "RetentionInDays"
   parseJSON _ = mempty
 
 -- | Constructor for 'LogsLogGroup' containing required fields as arguments.

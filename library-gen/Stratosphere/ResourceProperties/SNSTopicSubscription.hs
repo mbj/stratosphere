@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.SNSTopicSubscription where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,9 +24,10 @@ data SNSTopicSubscription =
 
 instance ToJSON SNSTopicSubscription where
   toJSON SNSTopicSubscription{..} =
-    object
-    [ "Endpoint" .= _sNSTopicSubscriptionEndpoint
-    , "Protocol" .= _sNSTopicSubscriptionProtocol
+    object $
+    catMaybes
+    [ Just ("Endpoint" .= _sNSTopicSubscriptionEndpoint)
+    , Just ("Protocol" .= _sNSTopicSubscriptionProtocol)
     ]
 
 instance FromJSON SNSTopicSubscription where

@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.CodePipelinePipelineStageTransition where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,9 +24,10 @@ data CodePipelinePipelineStageTransition =
 
 instance ToJSON CodePipelinePipelineStageTransition where
   toJSON CodePipelinePipelineStageTransition{..} =
-    object
-    [ "Reason" .= _codePipelinePipelineStageTransitionReason
-    , "StageName" .= _codePipelinePipelineStageTransitionStageName
+    object $
+    catMaybes
+    [ Just ("Reason" .= _codePipelinePipelineStageTransitionReason)
+    , Just ("StageName" .= _codePipelinePipelineStageTransitionStageName)
     ]
 
 instance FromJSON CodePipelinePipelineStageTransition where

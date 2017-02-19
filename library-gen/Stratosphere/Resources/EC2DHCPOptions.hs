@@ -7,6 +7,7 @@ module Stratosphere.Resources.EC2DHCPOptions where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -27,24 +28,25 @@ data EC2DHCPOptions =
 
 instance ToJSON EC2DHCPOptions where
   toJSON EC2DHCPOptions{..} =
-    object
-    [ "DomainName" .= _eC2DHCPOptionsDomainName
-    , "DomainNameServers" .= _eC2DHCPOptionsDomainNameServers
-    , "NetbiosNameServers" .= _eC2DHCPOptionsNetbiosNameServers
-    , "NetbiosNodeType" .= _eC2DHCPOptionsNetbiosNodeType
-    , "NtpServers" .= _eC2DHCPOptionsNtpServers
-    , "Tags" .= _eC2DHCPOptionsTags
+    object $
+    catMaybes
+    [ ("DomainName" .=) <$> _eC2DHCPOptionsDomainName
+    , ("DomainNameServers" .=) <$> _eC2DHCPOptionsDomainNameServers
+    , ("NetbiosNameServers" .=) <$> _eC2DHCPOptionsNetbiosNameServers
+    , ("NetbiosNodeType" .=) <$> _eC2DHCPOptionsNetbiosNodeType
+    , ("NtpServers" .=) <$> _eC2DHCPOptionsNtpServers
+    , ("Tags" .=) <$> _eC2DHCPOptionsTags
     ]
 
 instance FromJSON EC2DHCPOptions where
   parseJSON (Object obj) =
     EC2DHCPOptions <$>
-      obj .: "DomainName" <*>
-      obj .: "DomainNameServers" <*>
-      obj .: "NetbiosNameServers" <*>
-      obj .: "NetbiosNodeType" <*>
-      obj .: "NtpServers" <*>
-      obj .: "Tags"
+      obj .:? "DomainName" <*>
+      obj .:? "DomainNameServers" <*>
+      obj .:? "NetbiosNameServers" <*>
+      obj .:? "NetbiosNodeType" <*>
+      obj .:? "NtpServers" <*>
+      obj .:? "Tags"
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2DHCPOptions' containing required fields as arguments.

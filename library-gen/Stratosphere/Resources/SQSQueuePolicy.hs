@@ -7,6 +7,7 @@ module Stratosphere.Resources.SQSQueuePolicy where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,9 +24,10 @@ data SQSQueuePolicy =
 
 instance ToJSON SQSQueuePolicy where
   toJSON SQSQueuePolicy{..} =
-    object
-    [ "PolicyDocument" .= _sQSQueuePolicyPolicyDocument
-    , "Queues" .= _sQSQueuePolicyQueues
+    object $
+    catMaybes
+    [ Just ("PolicyDocument" .= _sQSQueuePolicyPolicyDocument)
+    , Just ("Queues" .= _sQSQueuePolicyQueues)
     ]
 
 instance FromJSON SQSQueuePolicy where

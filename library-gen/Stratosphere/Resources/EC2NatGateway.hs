@@ -7,6 +7,7 @@ module Stratosphere.Resources.EC2NatGateway where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,9 +24,10 @@ data EC2NatGateway =
 
 instance ToJSON EC2NatGateway where
   toJSON EC2NatGateway{..} =
-    object
-    [ "AllocationId" .= _eC2NatGatewayAllocationId
-    , "SubnetId" .= _eC2NatGatewaySubnetId
+    object $
+    catMaybes
+    [ Just ("AllocationId" .= _eC2NatGatewayAllocationId)
+    , Just ("SubnetId" .= _eC2NatGatewaySubnetId)
     ]
 
 instance FromJSON EC2NatGateway where

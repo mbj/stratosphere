@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.CloudFrontDistributionCacheBehavior where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -33,35 +34,36 @@ data CloudFrontDistributionCacheBehavior =
 
 instance ToJSON CloudFrontDistributionCacheBehavior where
   toJSON CloudFrontDistributionCacheBehavior{..} =
-    object
-    [ "AllowedMethods" .= _cloudFrontDistributionCacheBehaviorAllowedMethods
-    , "CachedMethods" .= _cloudFrontDistributionCacheBehaviorCachedMethods
-    , "Compress" .= _cloudFrontDistributionCacheBehaviorCompress
-    , "DefaultTTL" .= _cloudFrontDistributionCacheBehaviorDefaultTTL
-    , "ForwardedValues" .= _cloudFrontDistributionCacheBehaviorForwardedValues
-    , "MaxTTL" .= _cloudFrontDistributionCacheBehaviorMaxTTL
-    , "MinTTL" .= _cloudFrontDistributionCacheBehaviorMinTTL
-    , "PathPattern" .= _cloudFrontDistributionCacheBehaviorPathPattern
-    , "SmoothStreaming" .= _cloudFrontDistributionCacheBehaviorSmoothStreaming
-    , "TargetOriginId" .= _cloudFrontDistributionCacheBehaviorTargetOriginId
-    , "TrustedSigners" .= _cloudFrontDistributionCacheBehaviorTrustedSigners
-    , "ViewerProtocolPolicy" .= _cloudFrontDistributionCacheBehaviorViewerProtocolPolicy
+    object $
+    catMaybes
+    [ ("AllowedMethods" .=) <$> _cloudFrontDistributionCacheBehaviorAllowedMethods
+    , ("CachedMethods" .=) <$> _cloudFrontDistributionCacheBehaviorCachedMethods
+    , ("Compress" .=) <$> _cloudFrontDistributionCacheBehaviorCompress
+    , ("DefaultTTL" .=) <$> _cloudFrontDistributionCacheBehaviorDefaultTTL
+    , Just ("ForwardedValues" .= _cloudFrontDistributionCacheBehaviorForwardedValues)
+    , ("MaxTTL" .=) <$> _cloudFrontDistributionCacheBehaviorMaxTTL
+    , ("MinTTL" .=) <$> _cloudFrontDistributionCacheBehaviorMinTTL
+    , Just ("PathPattern" .= _cloudFrontDistributionCacheBehaviorPathPattern)
+    , ("SmoothStreaming" .=) <$> _cloudFrontDistributionCacheBehaviorSmoothStreaming
+    , Just ("TargetOriginId" .= _cloudFrontDistributionCacheBehaviorTargetOriginId)
+    , ("TrustedSigners" .=) <$> _cloudFrontDistributionCacheBehaviorTrustedSigners
+    , Just ("ViewerProtocolPolicy" .= _cloudFrontDistributionCacheBehaviorViewerProtocolPolicy)
     ]
 
 instance FromJSON CloudFrontDistributionCacheBehavior where
   parseJSON (Object obj) =
     CloudFrontDistributionCacheBehavior <$>
-      obj .: "AllowedMethods" <*>
-      obj .: "CachedMethods" <*>
-      obj .: "Compress" <*>
-      obj .: "DefaultTTL" <*>
+      obj .:? "AllowedMethods" <*>
+      obj .:? "CachedMethods" <*>
+      obj .:? "Compress" <*>
+      obj .:? "DefaultTTL" <*>
       obj .: "ForwardedValues" <*>
-      obj .: "MaxTTL" <*>
-      obj .: "MinTTL" <*>
+      obj .:? "MaxTTL" <*>
+      obj .:? "MinTTL" <*>
       obj .: "PathPattern" <*>
-      obj .: "SmoothStreaming" <*>
+      obj .:? "SmoothStreaming" <*>
       obj .: "TargetOriginId" <*>
-      obj .: "TrustedSigners" <*>
+      obj .:? "TrustedSigners" <*>
       obj .: "ViewerProtocolPolicy"
   parseJSON _ = mempty
 

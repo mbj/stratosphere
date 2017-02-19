@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.SSMAssociationTarget where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,9 +24,10 @@ data SSMAssociationTarget =
 
 instance ToJSON SSMAssociationTarget where
   toJSON SSMAssociationTarget{..} =
-    object
-    [ "Key" .= _sSMAssociationTargetKey
-    , "Values" .= _sSMAssociationTargetValues
+    object $
+    catMaybes
+    [ Just ("Key" .= _sSMAssociationTargetKey)
+    , Just ("Values" .= _sSMAssociationTargetValues)
     ]
 
 instance FromJSON SSMAssociationTarget where

@@ -7,6 +7,7 @@ module Stratosphere.Resources.OpsWorksUserProfile where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -24,18 +25,19 @@ data OpsWorksUserProfile =
 
 instance ToJSON OpsWorksUserProfile where
   toJSON OpsWorksUserProfile{..} =
-    object
-    [ "AllowSelfManagement" .= _opsWorksUserProfileAllowSelfManagement
-    , "IamUserArn" .= _opsWorksUserProfileIamUserArn
-    , "SshPublicKey" .= _opsWorksUserProfileSshPublicKey
+    object $
+    catMaybes
+    [ ("AllowSelfManagement" .=) <$> _opsWorksUserProfileAllowSelfManagement
+    , Just ("IamUserArn" .= _opsWorksUserProfileIamUserArn)
+    , ("SshPublicKey" .=) <$> _opsWorksUserProfileSshPublicKey
     ]
 
 instance FromJSON OpsWorksUserProfile where
   parseJSON (Object obj) =
     OpsWorksUserProfile <$>
-      obj .: "AllowSelfManagement" <*>
+      obj .:? "AllowSelfManagement" <*>
       obj .: "IamUserArn" <*>
-      obj .: "SshPublicKey"
+      obj .:? "SshPublicKey"
   parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksUserProfile' containing required fields as

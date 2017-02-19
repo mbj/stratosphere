@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.ECSTaskDefinitionVolume where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,16 +24,17 @@ data ECSTaskDefinitionVolume =
 
 instance ToJSON ECSTaskDefinitionVolume where
   toJSON ECSTaskDefinitionVolume{..} =
-    object
-    [ "Host" .= _eCSTaskDefinitionVolumeHost
-    , "Name" .= _eCSTaskDefinitionVolumeName
+    object $
+    catMaybes
+    [ ("Host" .=) <$> _eCSTaskDefinitionVolumeHost
+    , ("Name" .=) <$> _eCSTaskDefinitionVolumeName
     ]
 
 instance FromJSON ECSTaskDefinitionVolume where
   parseJSON (Object obj) =
     ECSTaskDefinitionVolume <$>
-      obj .: "Host" <*>
-      obj .: "Name"
+      obj .:? "Host" <*>
+      obj .:? "Name"
   parseJSON _ = mempty
 
 -- | Constructor for 'ECSTaskDefinitionVolume' containing required fields as

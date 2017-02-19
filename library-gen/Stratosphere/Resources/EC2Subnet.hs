@@ -7,6 +7,7 @@ module Stratosphere.Resources.EC2Subnet where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -26,21 +27,22 @@ data EC2Subnet =
 
 instance ToJSON EC2Subnet where
   toJSON EC2Subnet{..} =
-    object
-    [ "AvailabilityZone" .= _eC2SubnetAvailabilityZone
-    , "CidrBlock" .= _eC2SubnetCidrBlock
-    , "MapPublicIpOnLaunch" .= _eC2SubnetMapPublicIpOnLaunch
-    , "Tags" .= _eC2SubnetTags
-    , "VpcId" .= _eC2SubnetVpcId
+    object $
+    catMaybes
+    [ ("AvailabilityZone" .=) <$> _eC2SubnetAvailabilityZone
+    , Just ("CidrBlock" .= _eC2SubnetCidrBlock)
+    , ("MapPublicIpOnLaunch" .=) <$> _eC2SubnetMapPublicIpOnLaunch
+    , ("Tags" .=) <$> _eC2SubnetTags
+    , Just ("VpcId" .= _eC2SubnetVpcId)
     ]
 
 instance FromJSON EC2Subnet where
   parseJSON (Object obj) =
     EC2Subnet <$>
-      obj .: "AvailabilityZone" <*>
+      obj .:? "AvailabilityZone" <*>
       obj .: "CidrBlock" <*>
-      obj .: "MapPublicIpOnLaunch" <*>
-      obj .: "Tags" <*>
+      obj .:? "MapPublicIpOnLaunch" <*>
+      obj .:? "Tags" <*>
       obj .: "VpcId"
   parseJSON _ = mempty
 

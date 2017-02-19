@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.CodeDeployDeploymentGroupDeployment where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -24,17 +25,18 @@ data CodeDeployDeploymentGroupDeployment =
 
 instance ToJSON CodeDeployDeploymentGroupDeployment where
   toJSON CodeDeployDeploymentGroupDeployment{..} =
-    object
-    [ "Description" .= _codeDeployDeploymentGroupDeploymentDescription
-    , "IgnoreApplicationStopFailures" .= _codeDeployDeploymentGroupDeploymentIgnoreApplicationStopFailures
-    , "Revision" .= _codeDeployDeploymentGroupDeploymentRevision
+    object $
+    catMaybes
+    [ ("Description" .=) <$> _codeDeployDeploymentGroupDeploymentDescription
+    , ("IgnoreApplicationStopFailures" .=) <$> _codeDeployDeploymentGroupDeploymentIgnoreApplicationStopFailures
+    , Just ("Revision" .= _codeDeployDeploymentGroupDeploymentRevision)
     ]
 
 instance FromJSON CodeDeployDeploymentGroupDeployment where
   parseJSON (Object obj) =
     CodeDeployDeploymentGroupDeployment <$>
-      obj .: "Description" <*>
-      obj .: "IgnoreApplicationStopFailures" <*>
+      obj .:? "Description" <*>
+      obj .:? "IgnoreApplicationStopFailures" <*>
       obj .: "Revision"
   parseJSON _ = mempty
 

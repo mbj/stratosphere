@@ -7,6 +7,7 @@ module Stratosphere.Resources.IAMUserToGroupAddition where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,9 +24,10 @@ data IAMUserToGroupAddition =
 
 instance ToJSON IAMUserToGroupAddition where
   toJSON IAMUserToGroupAddition{..} =
-    object
-    [ "GroupName" .= _iAMUserToGroupAdditionGroupName
-    , "Users" .= _iAMUserToGroupAdditionUsers
+    object $
+    catMaybes
+    [ Just ("GroupName" .= _iAMUserToGroupAdditionGroupName)
+    , Just ("Users" .= _iAMUserToGroupAdditionUsers)
     ]
 
 instance FromJSON IAMUserToGroupAddition where

@@ -7,6 +7,7 @@ module Stratosphere.Resources.LambdaAlias where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -25,17 +26,18 @@ data LambdaAlias =
 
 instance ToJSON LambdaAlias where
   toJSON LambdaAlias{..} =
-    object
-    [ "Description" .= _lambdaAliasDescription
-    , "FunctionName" .= _lambdaAliasFunctionName
-    , "FunctionVersion" .= _lambdaAliasFunctionVersion
-    , "Name" .= _lambdaAliasName
+    object $
+    catMaybes
+    [ ("Description" .=) <$> _lambdaAliasDescription
+    , Just ("FunctionName" .= _lambdaAliasFunctionName)
+    , Just ("FunctionVersion" .= _lambdaAliasFunctionVersion)
+    , Just ("Name" .= _lambdaAliasName)
     ]
 
 instance FromJSON LambdaAlias where
   parseJSON (Object obj) =
     LambdaAlias <$>
-      obj .: "Description" <*>
+      obj .:? "Description" <*>
       obj .: "FunctionName" <*>
       obj .: "FunctionVersion" <*>
       obj .: "Name"

@@ -7,6 +7,7 @@ module Stratosphere.Resources.EC2EIP where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,16 +24,17 @@ data EC2EIP =
 
 instance ToJSON EC2EIP where
   toJSON EC2EIP{..} =
-    object
-    [ "Domain" .= _eC2EIPDomain
-    , "InstanceId" .= _eC2EIPInstanceId
+    object $
+    catMaybes
+    [ ("Domain" .=) <$> _eC2EIPDomain
+    , ("InstanceId" .=) <$> _eC2EIPInstanceId
     ]
 
 instance FromJSON EC2EIP where
   parseJSON (Object obj) =
     EC2EIP <$>
-      obj .: "Domain" <*>
-      obj .: "InstanceId"
+      obj .:? "Domain" <*>
+      obj .:? "InstanceId"
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2EIP' containing required fields as arguments.

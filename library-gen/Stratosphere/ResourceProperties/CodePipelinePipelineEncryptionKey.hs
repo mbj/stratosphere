@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.CodePipelinePipelineEncryptionKey where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,9 +24,10 @@ data CodePipelinePipelineEncryptionKey =
 
 instance ToJSON CodePipelinePipelineEncryptionKey where
   toJSON CodePipelinePipelineEncryptionKey{..} =
-    object
-    [ "Id" .= _codePipelinePipelineEncryptionKeyId
-    , "Type" .= _codePipelinePipelineEncryptionKeyType
+    object $
+    catMaybes
+    [ Just ("Id" .= _codePipelinePipelineEncryptionKeyId)
+    , Just ("Type" .= _codePipelinePipelineEncryptionKeyType)
     ]
 
 instance FromJSON CodePipelinePipelineEncryptionKey where

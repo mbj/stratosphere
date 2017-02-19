@@ -7,6 +7,7 @@ module Stratosphere.Resources.EC2VPNConnectionRoute where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,9 +24,10 @@ data EC2VPNConnectionRoute =
 
 instance ToJSON EC2VPNConnectionRoute where
   toJSON EC2VPNConnectionRoute{..} =
-    object
-    [ "DestinationCidrBlock" .= _eC2VPNConnectionRouteDestinationCidrBlock
-    , "VpnConnectionId" .= _eC2VPNConnectionRouteVpnConnectionId
+    object $
+    catMaybes
+    [ Just ("DestinationCidrBlock" .= _eC2VPNConnectionRouteDestinationCidrBlock)
+    , Just ("VpnConnectionId" .= _eC2VPNConnectionRouteVpnConnectionId)
     ]
 
 instance FromJSON EC2VPNConnectionRoute where

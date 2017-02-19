@@ -7,6 +7,7 @@ module Stratosphere.Resources.ApiGatewayStage where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -30,30 +31,31 @@ data ApiGatewayStage =
 
 instance ToJSON ApiGatewayStage where
   toJSON ApiGatewayStage{..} =
-    object
-    [ "CacheClusterEnabled" .= _apiGatewayStageCacheClusterEnabled
-    , "CacheClusterSize" .= _apiGatewayStageCacheClusterSize
-    , "ClientCertificateId" .= _apiGatewayStageClientCertificateId
-    , "DeploymentId" .= _apiGatewayStageDeploymentId
-    , "Description" .= _apiGatewayStageDescription
-    , "MethodSettings" .= _apiGatewayStageMethodSettings
-    , "RestApiId" .= _apiGatewayStageRestApiId
-    , "StageName" .= _apiGatewayStageStageName
-    , "Variables" .= _apiGatewayStageVariables
+    object $
+    catMaybes
+    [ ("CacheClusterEnabled" .=) <$> _apiGatewayStageCacheClusterEnabled
+    , ("CacheClusterSize" .=) <$> _apiGatewayStageCacheClusterSize
+    , ("ClientCertificateId" .=) <$> _apiGatewayStageClientCertificateId
+    , ("DeploymentId" .=) <$> _apiGatewayStageDeploymentId
+    , ("Description" .=) <$> _apiGatewayStageDescription
+    , ("MethodSettings" .=) <$> _apiGatewayStageMethodSettings
+    , ("RestApiId" .=) <$> _apiGatewayStageRestApiId
+    , ("StageName" .=) <$> _apiGatewayStageStageName
+    , ("Variables" .=) <$> _apiGatewayStageVariables
     ]
 
 instance FromJSON ApiGatewayStage where
   parseJSON (Object obj) =
     ApiGatewayStage <$>
-      obj .: "CacheClusterEnabled" <*>
-      obj .: "CacheClusterSize" <*>
-      obj .: "ClientCertificateId" <*>
-      obj .: "DeploymentId" <*>
-      obj .: "Description" <*>
-      obj .: "MethodSettings" <*>
-      obj .: "RestApiId" <*>
-      obj .: "StageName" <*>
-      obj .: "Variables"
+      obj .:? "CacheClusterEnabled" <*>
+      obj .:? "CacheClusterSize" <*>
+      obj .:? "ClientCertificateId" <*>
+      obj .:? "DeploymentId" <*>
+      obj .:? "Description" <*>
+      obj .:? "MethodSettings" <*>
+      obj .:? "RestApiId" <*>
+      obj .:? "StageName" <*>
+      obj .:? "Variables"
   parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayStage' containing required fields as

@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.ApiGatewayUsagePlanThrottleSettings where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,16 +24,17 @@ data ApiGatewayUsagePlanThrottleSettings =
 
 instance ToJSON ApiGatewayUsagePlanThrottleSettings where
   toJSON ApiGatewayUsagePlanThrottleSettings{..} =
-    object
-    [ "BurstLimit" .= _apiGatewayUsagePlanThrottleSettingsBurstLimit
-    , "RateLimit" .= _apiGatewayUsagePlanThrottleSettingsRateLimit
+    object $
+    catMaybes
+    [ ("BurstLimit" .=) <$> _apiGatewayUsagePlanThrottleSettingsBurstLimit
+    , ("RateLimit" .=) <$> _apiGatewayUsagePlanThrottleSettingsRateLimit
     ]
 
 instance FromJSON ApiGatewayUsagePlanThrottleSettings where
   parseJSON (Object obj) =
     ApiGatewayUsagePlanThrottleSettings <$>
-      obj .: "BurstLimit" <*>
-      obj .: "RateLimit"
+      obj .:? "BurstLimit" <*>
+      obj .:? "RateLimit"
   parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayUsagePlanThrottleSettings' containing required

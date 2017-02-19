@@ -7,6 +7,7 @@ module Stratosphere.Resources.ECRRepository where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,16 +24,17 @@ data ECRRepository =
 
 instance ToJSON ECRRepository where
   toJSON ECRRepository{..} =
-    object
-    [ "RepositoryName" .= _eCRRepositoryRepositoryName
-    , "RepositoryPolicyText" .= _eCRRepositoryRepositoryPolicyText
+    object $
+    catMaybes
+    [ ("RepositoryName" .=) <$> _eCRRepositoryRepositoryName
+    , ("RepositoryPolicyText" .=) <$> _eCRRepositoryRepositoryPolicyText
     ]
 
 instance FromJSON ECRRepository where
   parseJSON (Object obj) =
     ECRRepository <$>
-      obj .: "RepositoryName" <*>
-      obj .: "RepositoryPolicyText"
+      obj .:? "RepositoryName" <*>
+      obj .:? "RepositoryPolicyText"
   parseJSON _ = mempty
 
 -- | Constructor for 'ECRRepository' containing required fields as arguments.

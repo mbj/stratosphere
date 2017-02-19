@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.IoTTopicRuleS3Action where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -24,10 +25,11 @@ data IoTTopicRuleS3Action =
 
 instance ToJSON IoTTopicRuleS3Action where
   toJSON IoTTopicRuleS3Action{..} =
-    object
-    [ "BucketName" .= _ioTTopicRuleS3ActionBucketName
-    , "Key" .= _ioTTopicRuleS3ActionKey
-    , "RoleArn" .= _ioTTopicRuleS3ActionRoleArn
+    object $
+    catMaybes
+    [ Just ("BucketName" .= _ioTTopicRuleS3ActionBucketName)
+    , Just ("Key" .= _ioTTopicRuleS3ActionKey)
+    , Just ("RoleArn" .= _ioTTopicRuleS3ActionRoleArn)
     ]
 
 instance FromJSON IoTTopicRuleS3Action where

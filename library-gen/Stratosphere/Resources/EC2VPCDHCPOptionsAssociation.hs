@@ -7,6 +7,7 @@ module Stratosphere.Resources.EC2VPCDHCPOptionsAssociation where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,9 +24,10 @@ data EC2VPCDHCPOptionsAssociation =
 
 instance ToJSON EC2VPCDHCPOptionsAssociation where
   toJSON EC2VPCDHCPOptionsAssociation{..} =
-    object
-    [ "DhcpOptionsId" .= _eC2VPCDHCPOptionsAssociationDhcpOptionsId
-    , "VpcId" .= _eC2VPCDHCPOptionsAssociationVpcId
+    object $
+    catMaybes
+    [ Just ("DhcpOptionsId" .= _eC2VPCDHCPOptionsAssociationDhcpOptionsId)
+    , Just ("VpcId" .= _eC2VPCDHCPOptionsAssociationVpcId)
     ]
 
 instance FromJSON EC2VPCDHCPOptionsAssociation where

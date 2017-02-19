@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.ElasticLoadBalancingV2TargetGroupTargetDe
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -25,16 +26,17 @@ data ElasticLoadBalancingV2TargetGroupTargetDescription =
 
 instance ToJSON ElasticLoadBalancingV2TargetGroupTargetDescription where
   toJSON ElasticLoadBalancingV2TargetGroupTargetDescription{..} =
-    object
-    [ "Id" .= _elasticLoadBalancingV2TargetGroupTargetDescriptionId
-    , "Port" .= _elasticLoadBalancingV2TargetGroupTargetDescriptionPort
+    object $
+    catMaybes
+    [ Just ("Id" .= _elasticLoadBalancingV2TargetGroupTargetDescriptionId)
+    , ("Port" .=) <$> _elasticLoadBalancingV2TargetGroupTargetDescriptionPort
     ]
 
 instance FromJSON ElasticLoadBalancingV2TargetGroupTargetDescription where
   parseJSON (Object obj) =
     ElasticLoadBalancingV2TargetGroupTargetDescription <$>
       obj .: "Id" <*>
-      obj .: "Port"
+      obj .:? "Port"
   parseJSON _ = mempty
 
 -- | Constructor for 'ElasticLoadBalancingV2TargetGroupTargetDescription'

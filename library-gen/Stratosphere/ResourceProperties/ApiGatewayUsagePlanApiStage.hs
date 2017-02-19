@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.ApiGatewayUsagePlanApiStage where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,16 +24,17 @@ data ApiGatewayUsagePlanApiStage =
 
 instance ToJSON ApiGatewayUsagePlanApiStage where
   toJSON ApiGatewayUsagePlanApiStage{..} =
-    object
-    [ "ApiId" .= _apiGatewayUsagePlanApiStageApiId
-    , "Stage" .= _apiGatewayUsagePlanApiStageStage
+    object $
+    catMaybes
+    [ ("ApiId" .=) <$> _apiGatewayUsagePlanApiStageApiId
+    , ("Stage" .=) <$> _apiGatewayUsagePlanApiStageStage
     ]
 
 instance FromJSON ApiGatewayUsagePlanApiStage where
   parseJSON (Object obj) =
     ApiGatewayUsagePlanApiStage <$>
-      obj .: "ApiId" <*>
-      obj .: "Stage"
+      obj .:? "ApiId" <*>
+      obj .:? "Stage"
   parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayUsagePlanApiStage' containing required fields

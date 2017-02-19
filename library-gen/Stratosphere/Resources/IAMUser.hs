@@ -7,6 +7,7 @@ module Stratosphere.Resources.IAMUser where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -28,24 +29,25 @@ data IAMUser =
 
 instance ToJSON IAMUser where
   toJSON IAMUser{..} =
-    object
-    [ "Groups" .= _iAMUserGroups
-    , "LoginProfile" .= _iAMUserLoginProfile
-    , "ManagedPolicyArns" .= _iAMUserManagedPolicyArns
-    , "Path" .= _iAMUserPath
-    , "Policies" .= _iAMUserPolicies
-    , "UserName" .= _iAMUserUserName
+    object $
+    catMaybes
+    [ ("Groups" .=) <$> _iAMUserGroups
+    , ("LoginProfile" .=) <$> _iAMUserLoginProfile
+    , ("ManagedPolicyArns" .=) <$> _iAMUserManagedPolicyArns
+    , ("Path" .=) <$> _iAMUserPath
+    , ("Policies" .=) <$> _iAMUserPolicies
+    , ("UserName" .=) <$> _iAMUserUserName
     ]
 
 instance FromJSON IAMUser where
   parseJSON (Object obj) =
     IAMUser <$>
-      obj .: "Groups" <*>
-      obj .: "LoginProfile" <*>
-      obj .: "ManagedPolicyArns" <*>
-      obj .: "Path" <*>
-      obj .: "Policies" <*>
-      obj .: "UserName"
+      obj .:? "Groups" <*>
+      obj .:? "LoginProfile" <*>
+      obj .:? "ManagedPolicyArns" <*>
+      obj .:? "Path" <*>
+      obj .:? "Policies" <*>
+      obj .:? "UserName"
   parseJSON _ = mempty
 
 -- | Constructor for 'IAMUser' containing required fields as arguments.

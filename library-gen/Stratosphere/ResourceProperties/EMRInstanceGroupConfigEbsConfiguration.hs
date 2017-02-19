@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.EMRInstanceGroupConfigEbsConfiguration wh
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -24,16 +25,17 @@ data EMRInstanceGroupConfigEbsConfiguration =
 
 instance ToJSON EMRInstanceGroupConfigEbsConfiguration where
   toJSON EMRInstanceGroupConfigEbsConfiguration{..} =
-    object
-    [ "EbsBlockDeviceConfigs" .= _eMRInstanceGroupConfigEbsConfigurationEbsBlockDeviceConfigs
-    , "EbsOptimized" .= _eMRInstanceGroupConfigEbsConfigurationEbsOptimized
+    object $
+    catMaybes
+    [ ("EbsBlockDeviceConfigs" .=) <$> _eMRInstanceGroupConfigEbsConfigurationEbsBlockDeviceConfigs
+    , ("EbsOptimized" .=) <$> _eMRInstanceGroupConfigEbsConfigurationEbsOptimized
     ]
 
 instance FromJSON EMRInstanceGroupConfigEbsConfiguration where
   parseJSON (Object obj) =
     EMRInstanceGroupConfigEbsConfiguration <$>
-      obj .: "EbsBlockDeviceConfigs" <*>
-      obj .: "EbsOptimized"
+      obj .:? "EbsBlockDeviceConfigs" <*>
+      obj .:? "EbsOptimized"
   parseJSON _ = mempty
 
 -- | Constructor for 'EMRInstanceGroupConfigEbsConfiguration' containing

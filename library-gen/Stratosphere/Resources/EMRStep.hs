@@ -7,6 +7,7 @@ module Stratosphere.Resources.EMRStep where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -25,11 +26,12 @@ data EMRStep =
 
 instance ToJSON EMRStep where
   toJSON EMRStep{..} =
-    object
-    [ "ActionOnFailure" .= _eMRStepActionOnFailure
-    , "HadoopJarStep" .= _eMRStepHadoopJarStep
-    , "JobFlowId" .= _eMRStepJobFlowId
-    , "Name" .= _eMRStepName
+    object $
+    catMaybes
+    [ Just ("ActionOnFailure" .= _eMRStepActionOnFailure)
+    , Just ("HadoopJarStep" .= _eMRStepHadoopJarStep)
+    , Just ("JobFlowId" .= _eMRStepJobFlowId)
+    , Just ("Name" .= _eMRStepName)
     ]
 
 instance FromJSON EMRStep where

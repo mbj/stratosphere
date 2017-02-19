@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.EMRClusterConfiguration where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -24,18 +25,19 @@ data EMRClusterConfiguration =
 
 instance ToJSON EMRClusterConfiguration where
   toJSON EMRClusterConfiguration{..} =
-    object
-    [ "Classification" .= _eMRClusterConfigurationClassification
-    , "ConfigurationProperties" .= _eMRClusterConfigurationConfigurationProperties
-    , "Configurations" .= _eMRClusterConfigurationConfigurations
+    object $
+    catMaybes
+    [ ("Classification" .=) <$> _eMRClusterConfigurationClassification
+    , ("ConfigurationProperties" .=) <$> _eMRClusterConfigurationConfigurationProperties
+    , ("Configurations" .=) <$> _eMRClusterConfigurationConfigurations
     ]
 
 instance FromJSON EMRClusterConfiguration where
   parseJSON (Object obj) =
     EMRClusterConfiguration <$>
-      obj .: "Classification" <*>
-      obj .: "ConfigurationProperties" <*>
-      obj .: "Configurations"
+      obj .:? "Classification" <*>
+      obj .:? "ConfigurationProperties" <*>
+      obj .:? "Configurations"
   parseJSON _ = mempty
 
 -- | Constructor for 'EMRClusterConfiguration' containing required fields as

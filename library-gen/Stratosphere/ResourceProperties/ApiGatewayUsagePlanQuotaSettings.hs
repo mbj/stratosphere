@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.ApiGatewayUsagePlanQuotaSettings where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -24,18 +25,19 @@ data ApiGatewayUsagePlanQuotaSettings =
 
 instance ToJSON ApiGatewayUsagePlanQuotaSettings where
   toJSON ApiGatewayUsagePlanQuotaSettings{..} =
-    object
-    [ "Limit" .= _apiGatewayUsagePlanQuotaSettingsLimit
-    , "Offset" .= _apiGatewayUsagePlanQuotaSettingsOffset
-    , "Period" .= _apiGatewayUsagePlanQuotaSettingsPeriod
+    object $
+    catMaybes
+    [ ("Limit" .=) <$> _apiGatewayUsagePlanQuotaSettingsLimit
+    , ("Offset" .=) <$> _apiGatewayUsagePlanQuotaSettingsOffset
+    , ("Period" .=) <$> _apiGatewayUsagePlanQuotaSettingsPeriod
     ]
 
 instance FromJSON ApiGatewayUsagePlanQuotaSettings where
   parseJSON (Object obj) =
     ApiGatewayUsagePlanQuotaSettings <$>
-      obj .: "Limit" <*>
-      obj .: "Offset" <*>
-      obj .: "Period"
+      obj .:? "Limit" <*>
+      obj .:? "Offset" <*>
+      obj .:? "Period"
   parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayUsagePlanQuotaSettings' containing required

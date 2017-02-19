@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.OpsWorksStackRdsDbInstance where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -24,10 +25,11 @@ data OpsWorksStackRdsDbInstance =
 
 instance ToJSON OpsWorksStackRdsDbInstance where
   toJSON OpsWorksStackRdsDbInstance{..} =
-    object
-    [ "DbPassword" .= _opsWorksStackRdsDbInstanceDbPassword
-    , "DbUser" .= _opsWorksStackRdsDbInstanceDbUser
-    , "RdsDbInstanceArn" .= _opsWorksStackRdsDbInstanceRdsDbInstanceArn
+    object $
+    catMaybes
+    [ Just ("DbPassword" .= _opsWorksStackRdsDbInstanceDbPassword)
+    , Just ("DbUser" .= _opsWorksStackRdsDbInstanceDbUser)
+    , Just ("RdsDbInstanceArn" .= _opsWorksStackRdsDbInstanceRdsDbInstanceArn)
     ]
 
 instance FromJSON OpsWorksStackRdsDbInstance where

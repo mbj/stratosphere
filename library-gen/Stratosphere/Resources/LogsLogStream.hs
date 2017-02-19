@@ -7,6 +7,7 @@ module Stratosphere.Resources.LogsLogStream where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,16 +24,17 @@ data LogsLogStream =
 
 instance ToJSON LogsLogStream where
   toJSON LogsLogStream{..} =
-    object
-    [ "LogGroupName" .= _logsLogStreamLogGroupName
-    , "LogStreamName" .= _logsLogStreamLogStreamName
+    object $
+    catMaybes
+    [ Just ("LogGroupName" .= _logsLogStreamLogGroupName)
+    , ("LogStreamName" .=) <$> _logsLogStreamLogStreamName
     ]
 
 instance FromJSON LogsLogStream where
   parseJSON (Object obj) =
     LogsLogStream <$>
       obj .: "LogGroupName" <*>
-      obj .: "LogStreamName"
+      obj .:? "LogStreamName"
   parseJSON _ = mempty
 
 -- | Constructor for 'LogsLogStream' containing required fields as arguments.

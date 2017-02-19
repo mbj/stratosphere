@@ -7,6 +7,7 @@ module Stratosphere.Resources.ElasticBeanstalkApplication where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,16 +24,17 @@ data ElasticBeanstalkApplication =
 
 instance ToJSON ElasticBeanstalkApplication where
   toJSON ElasticBeanstalkApplication{..} =
-    object
-    [ "ApplicationName" .= _elasticBeanstalkApplicationApplicationName
-    , "Description" .= _elasticBeanstalkApplicationDescription
+    object $
+    catMaybes
+    [ ("ApplicationName" .=) <$> _elasticBeanstalkApplicationApplicationName
+    , ("Description" .=) <$> _elasticBeanstalkApplicationDescription
     ]
 
 instance FromJSON ElasticBeanstalkApplication where
   parseJSON (Object obj) =
     ElasticBeanstalkApplication <$>
-      obj .: "ApplicationName" <*>
-      obj .: "Description"
+      obj .:? "ApplicationName" <*>
+      obj .:? "Description"
   parseJSON _ = mempty
 
 -- | Constructor for 'ElasticBeanstalkApplication' containing required fields

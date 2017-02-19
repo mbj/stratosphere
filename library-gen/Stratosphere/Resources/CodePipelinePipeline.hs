@@ -7,6 +7,7 @@ module Stratosphere.Resources.CodePipelinePipeline where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -29,22 +30,23 @@ data CodePipelinePipeline =
 
 instance ToJSON CodePipelinePipeline where
   toJSON CodePipelinePipeline{..} =
-    object
-    [ "ArtifactStore" .= _codePipelinePipelineArtifactStore
-    , "DisableInboundStageTransitions" .= _codePipelinePipelineDisableInboundStageTransitions
-    , "Name" .= _codePipelinePipelineName
-    , "RestartExecutionOnUpdate" .= _codePipelinePipelineRestartExecutionOnUpdate
-    , "RoleArn" .= _codePipelinePipelineRoleArn
-    , "Stages" .= _codePipelinePipelineStages
+    object $
+    catMaybes
+    [ Just ("ArtifactStore" .= _codePipelinePipelineArtifactStore)
+    , ("DisableInboundStageTransitions" .=) <$> _codePipelinePipelineDisableInboundStageTransitions
+    , ("Name" .=) <$> _codePipelinePipelineName
+    , ("RestartExecutionOnUpdate" .=) <$> _codePipelinePipelineRestartExecutionOnUpdate
+    , Just ("RoleArn" .= _codePipelinePipelineRoleArn)
+    , Just ("Stages" .= _codePipelinePipelineStages)
     ]
 
 instance FromJSON CodePipelinePipeline where
   parseJSON (Object obj) =
     CodePipelinePipeline <$>
       obj .: "ArtifactStore" <*>
-      obj .: "DisableInboundStageTransitions" <*>
-      obj .: "Name" <*>
-      obj .: "RestartExecutionOnUpdate" <*>
+      obj .:? "DisableInboundStageTransitions" <*>
+      obj .:? "Name" <*>
+      obj .:? "RestartExecutionOnUpdate" <*>
       obj .: "RoleArn" <*>
       obj .: "Stages"
   parseJSON _ = mempty

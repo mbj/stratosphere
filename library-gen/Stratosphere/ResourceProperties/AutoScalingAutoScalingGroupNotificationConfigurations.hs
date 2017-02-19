@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupNotificationCo
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -25,15 +26,16 @@ data AutoScalingAutoScalingGroupNotificationConfigurations =
 
 instance ToJSON AutoScalingAutoScalingGroupNotificationConfigurations where
   toJSON AutoScalingAutoScalingGroupNotificationConfigurations{..} =
-    object
-    [ "NotificationTypes" .= _autoScalingAutoScalingGroupNotificationConfigurationsNotificationTypes
-    , "TopicARN" .= _autoScalingAutoScalingGroupNotificationConfigurationsTopicARN
+    object $
+    catMaybes
+    [ ("NotificationTypes" .=) <$> _autoScalingAutoScalingGroupNotificationConfigurationsNotificationTypes
+    , Just ("TopicARN" .= _autoScalingAutoScalingGroupNotificationConfigurationsTopicARN)
     ]
 
 instance FromJSON AutoScalingAutoScalingGroupNotificationConfigurations where
   parseJSON (Object obj) =
     AutoScalingAutoScalingGroupNotificationConfigurations <$>
-      obj .: "NotificationTypes" <*>
+      obj .:? "NotificationTypes" <*>
       obj .: "TopicARN"
   parseJSON _ = mempty
 

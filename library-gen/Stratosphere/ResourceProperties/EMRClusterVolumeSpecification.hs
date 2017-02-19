@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.EMRClusterVolumeSpecification where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -24,16 +25,17 @@ data EMRClusterVolumeSpecification =
 
 instance ToJSON EMRClusterVolumeSpecification where
   toJSON EMRClusterVolumeSpecification{..} =
-    object
-    [ "Iops" .= _eMRClusterVolumeSpecificationIops
-    , "SizeInGB" .= _eMRClusterVolumeSpecificationSizeInGB
-    , "VolumeType" .= _eMRClusterVolumeSpecificationVolumeType
+    object $
+    catMaybes
+    [ ("Iops" .=) <$> _eMRClusterVolumeSpecificationIops
+    , Just ("SizeInGB" .= _eMRClusterVolumeSpecificationSizeInGB)
+    , Just ("VolumeType" .= _eMRClusterVolumeSpecificationVolumeType)
     ]
 
 instance FromJSON EMRClusterVolumeSpecification where
   parseJSON (Object obj) =
     EMRClusterVolumeSpecification <$>
-      obj .: "Iops" <*>
+      obj .:? "Iops" <*>
       obj .: "SizeInGB" <*>
       obj .: "VolumeType"
   parseJSON _ = mempty

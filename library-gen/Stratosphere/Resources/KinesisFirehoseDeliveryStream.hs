@@ -7,6 +7,7 @@ module Stratosphere.Resources.KinesisFirehoseDeliveryStream where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -27,20 +28,21 @@ data KinesisFirehoseDeliveryStream =
 
 instance ToJSON KinesisFirehoseDeliveryStream where
   toJSON KinesisFirehoseDeliveryStream{..} =
-    object
-    [ "DeliveryStreamName" .= _kinesisFirehoseDeliveryStreamDeliveryStreamName
-    , "ElasticsearchDestinationConfiguration" .= _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguration
-    , "RedshiftDestinationConfiguration" .= _kinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration
-    , "S3DestinationConfiguration" .= _kinesisFirehoseDeliveryStreamS3DestinationConfiguration
+    object $
+    catMaybes
+    [ ("DeliveryStreamName" .=) <$> _kinesisFirehoseDeliveryStreamDeliveryStreamName
+    , ("ElasticsearchDestinationConfiguration" .=) <$> _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguration
+    , ("RedshiftDestinationConfiguration" .=) <$> _kinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration
+    , ("S3DestinationConfiguration" .=) <$> _kinesisFirehoseDeliveryStreamS3DestinationConfiguration
     ]
 
 instance FromJSON KinesisFirehoseDeliveryStream where
   parseJSON (Object obj) =
     KinesisFirehoseDeliveryStream <$>
-      obj .: "DeliveryStreamName" <*>
-      obj .: "ElasticsearchDestinationConfiguration" <*>
-      obj .: "RedshiftDestinationConfiguration" <*>
-      obj .: "S3DestinationConfiguration"
+      obj .:? "DeliveryStreamName" <*>
+      obj .:? "ElasticsearchDestinationConfiguration" <*>
+      obj .:? "RedshiftDestinationConfiguration" <*>
+      obj .:? "S3DestinationConfiguration"
   parseJSON _ = mempty
 
 -- | Constructor for 'KinesisFirehoseDeliveryStream' containing required

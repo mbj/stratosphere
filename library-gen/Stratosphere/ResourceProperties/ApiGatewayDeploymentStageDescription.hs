@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.ApiGatewayDeploymentStageDescription wher
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -37,42 +38,43 @@ data ApiGatewayDeploymentStageDescription =
 
 instance ToJSON ApiGatewayDeploymentStageDescription where
   toJSON ApiGatewayDeploymentStageDescription{..} =
-    object
-    [ "CacheClusterEnabled" .= _apiGatewayDeploymentStageDescriptionCacheClusterEnabled
-    , "CacheClusterSize" .= _apiGatewayDeploymentStageDescriptionCacheClusterSize
-    , "CacheDataEncrypted" .= _apiGatewayDeploymentStageDescriptionCacheDataEncrypted
-    , "CacheTtlInSeconds" .= _apiGatewayDeploymentStageDescriptionCacheTtlInSeconds
-    , "CachingEnabled" .= _apiGatewayDeploymentStageDescriptionCachingEnabled
-    , "ClientCertificateId" .= _apiGatewayDeploymentStageDescriptionClientCertificateId
-    , "DataTraceEnabled" .= _apiGatewayDeploymentStageDescriptionDataTraceEnabled
-    , "Description" .= _apiGatewayDeploymentStageDescriptionDescription
-    , "LoggingLevel" .= _apiGatewayDeploymentStageDescriptionLoggingLevel
-    , "MethodSettings" .= _apiGatewayDeploymentStageDescriptionMethodSettings
-    , "MetricsEnabled" .= _apiGatewayDeploymentStageDescriptionMetricsEnabled
-    , "StageName" .= _apiGatewayDeploymentStageDescriptionStageName
-    , "ThrottlingBurstLimit" .= _apiGatewayDeploymentStageDescriptionThrottlingBurstLimit
-    , "ThrottlingRateLimit" .= _apiGatewayDeploymentStageDescriptionThrottlingRateLimit
-    , "Variables" .= _apiGatewayDeploymentStageDescriptionVariables
+    object $
+    catMaybes
+    [ ("CacheClusterEnabled" .=) <$> _apiGatewayDeploymentStageDescriptionCacheClusterEnabled
+    , ("CacheClusterSize" .=) <$> _apiGatewayDeploymentStageDescriptionCacheClusterSize
+    , ("CacheDataEncrypted" .=) <$> _apiGatewayDeploymentStageDescriptionCacheDataEncrypted
+    , ("CacheTtlInSeconds" .=) <$> _apiGatewayDeploymentStageDescriptionCacheTtlInSeconds
+    , ("CachingEnabled" .=) <$> _apiGatewayDeploymentStageDescriptionCachingEnabled
+    , ("ClientCertificateId" .=) <$> _apiGatewayDeploymentStageDescriptionClientCertificateId
+    , ("DataTraceEnabled" .=) <$> _apiGatewayDeploymentStageDescriptionDataTraceEnabled
+    , ("Description" .=) <$> _apiGatewayDeploymentStageDescriptionDescription
+    , ("LoggingLevel" .=) <$> _apiGatewayDeploymentStageDescriptionLoggingLevel
+    , ("MethodSettings" .=) <$> _apiGatewayDeploymentStageDescriptionMethodSettings
+    , ("MetricsEnabled" .=) <$> _apiGatewayDeploymentStageDescriptionMetricsEnabled
+    , ("StageName" .=) <$> _apiGatewayDeploymentStageDescriptionStageName
+    , ("ThrottlingBurstLimit" .=) <$> _apiGatewayDeploymentStageDescriptionThrottlingBurstLimit
+    , ("ThrottlingRateLimit" .=) <$> _apiGatewayDeploymentStageDescriptionThrottlingRateLimit
+    , ("Variables" .=) <$> _apiGatewayDeploymentStageDescriptionVariables
     ]
 
 instance FromJSON ApiGatewayDeploymentStageDescription where
   parseJSON (Object obj) =
     ApiGatewayDeploymentStageDescription <$>
-      obj .: "CacheClusterEnabled" <*>
-      obj .: "CacheClusterSize" <*>
-      obj .: "CacheDataEncrypted" <*>
-      obj .: "CacheTtlInSeconds" <*>
-      obj .: "CachingEnabled" <*>
-      obj .: "ClientCertificateId" <*>
-      obj .: "DataTraceEnabled" <*>
-      obj .: "Description" <*>
-      obj .: "LoggingLevel" <*>
-      obj .: "MethodSettings" <*>
-      obj .: "MetricsEnabled" <*>
-      obj .: "StageName" <*>
-      obj .: "ThrottlingBurstLimit" <*>
-      obj .: "ThrottlingRateLimit" <*>
-      obj .: "Variables"
+      obj .:? "CacheClusterEnabled" <*>
+      obj .:? "CacheClusterSize" <*>
+      obj .:? "CacheDataEncrypted" <*>
+      obj .:? "CacheTtlInSeconds" <*>
+      obj .:? "CachingEnabled" <*>
+      obj .:? "ClientCertificateId" <*>
+      obj .:? "DataTraceEnabled" <*>
+      obj .:? "Description" <*>
+      obj .:? "LoggingLevel" <*>
+      obj .:? "MethodSettings" <*>
+      obj .:? "MetricsEnabled" <*>
+      obj .:? "StageName" <*>
+      obj .:? "ThrottlingBurstLimit" <*>
+      obj .:? "ThrottlingRateLimit" <*>
+      obj .:? "Variables"
   parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayDeploymentStageDescription' containing

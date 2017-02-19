@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.EC2SpotFleetPlacement where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,16 +24,17 @@ data EC2SpotFleetPlacement =
 
 instance ToJSON EC2SpotFleetPlacement where
   toJSON EC2SpotFleetPlacement{..} =
-    object
-    [ "AvailabilityZone" .= _eC2SpotFleetPlacementAvailabilityZone
-    , "GroupName" .= _eC2SpotFleetPlacementGroupName
+    object $
+    catMaybes
+    [ ("AvailabilityZone" .=) <$> _eC2SpotFleetPlacementAvailabilityZone
+    , ("GroupName" .=) <$> _eC2SpotFleetPlacementGroupName
     ]
 
 instance FromJSON EC2SpotFleetPlacement where
   parseJSON (Object obj) =
     EC2SpotFleetPlacement <$>
-      obj .: "AvailabilityZone" <*>
-      obj .: "GroupName"
+      obj .:? "AvailabilityZone" <*>
+      obj .:? "GroupName"
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2SpotFleetPlacement' containing required fields as

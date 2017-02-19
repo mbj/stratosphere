@@ -7,6 +7,7 @@ module Stratosphere.Resources.EC2RouteTable where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,15 +24,16 @@ data EC2RouteTable =
 
 instance ToJSON EC2RouteTable where
   toJSON EC2RouteTable{..} =
-    object
-    [ "Tags" .= _eC2RouteTableTags
-    , "VpcId" .= _eC2RouteTableVpcId
+    object $
+    catMaybes
+    [ ("Tags" .=) <$> _eC2RouteTableTags
+    , Just ("VpcId" .= _eC2RouteTableVpcId)
     ]
 
 instance FromJSON EC2RouteTable where
   parseJSON (Object obj) =
     EC2RouteTable <$>
-      obj .: "Tags" <*>
+      obj .:? "Tags" <*>
       obj .: "VpcId"
   parseJSON _ = mempty
 

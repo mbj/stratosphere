@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.OpsWorksInstanceBlockDeviceMapping where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -25,20 +26,21 @@ data OpsWorksInstanceBlockDeviceMapping =
 
 instance ToJSON OpsWorksInstanceBlockDeviceMapping where
   toJSON OpsWorksInstanceBlockDeviceMapping{..} =
-    object
-    [ "DeviceName" .= _opsWorksInstanceBlockDeviceMappingDeviceName
-    , "Ebs" .= _opsWorksInstanceBlockDeviceMappingEbs
-    , "NoDevice" .= _opsWorksInstanceBlockDeviceMappingNoDevice
-    , "VirtualName" .= _opsWorksInstanceBlockDeviceMappingVirtualName
+    object $
+    catMaybes
+    [ ("DeviceName" .=) <$> _opsWorksInstanceBlockDeviceMappingDeviceName
+    , ("Ebs" .=) <$> _opsWorksInstanceBlockDeviceMappingEbs
+    , ("NoDevice" .=) <$> _opsWorksInstanceBlockDeviceMappingNoDevice
+    , ("VirtualName" .=) <$> _opsWorksInstanceBlockDeviceMappingVirtualName
     ]
 
 instance FromJSON OpsWorksInstanceBlockDeviceMapping where
   parseJSON (Object obj) =
     OpsWorksInstanceBlockDeviceMapping <$>
-      obj .: "DeviceName" <*>
-      obj .: "Ebs" <*>
-      obj .: "NoDevice" <*>
-      obj .: "VirtualName"
+      obj .:? "DeviceName" <*>
+      obj .:? "Ebs" <*>
+      obj .:? "NoDevice" <*>
+      obj .:? "VirtualName"
   parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksInstanceBlockDeviceMapping' containing required

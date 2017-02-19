@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.ElasticLoadBalancingV2LoadBalancerLoadBal
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -25,16 +26,17 @@ data ElasticLoadBalancingV2LoadBalancerLoadBalancerAttribute =
 
 instance ToJSON ElasticLoadBalancingV2LoadBalancerLoadBalancerAttribute where
   toJSON ElasticLoadBalancingV2LoadBalancerLoadBalancerAttribute{..} =
-    object
-    [ "Key" .= _elasticLoadBalancingV2LoadBalancerLoadBalancerAttributeKey
-    , "Value" .= _elasticLoadBalancingV2LoadBalancerLoadBalancerAttributeValue
+    object $
+    catMaybes
+    [ ("Key" .=) <$> _elasticLoadBalancingV2LoadBalancerLoadBalancerAttributeKey
+    , ("Value" .=) <$> _elasticLoadBalancingV2LoadBalancerLoadBalancerAttributeValue
     ]
 
 instance FromJSON ElasticLoadBalancingV2LoadBalancerLoadBalancerAttribute where
   parseJSON (Object obj) =
     ElasticLoadBalancingV2LoadBalancerLoadBalancerAttribute <$>
-      obj .: "Key" <*>
-      obj .: "Value"
+      obj .:? "Key" <*>
+      obj .:? "Value"
   parseJSON _ = mempty
 
 -- | Constructor for 'ElasticLoadBalancingV2LoadBalancerLoadBalancerAttribute'

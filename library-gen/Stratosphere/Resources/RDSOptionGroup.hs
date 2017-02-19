@@ -7,6 +7,7 @@ module Stratosphere.Resources.RDSOptionGroup where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -27,12 +28,13 @@ data RDSOptionGroup =
 
 instance ToJSON RDSOptionGroup where
   toJSON RDSOptionGroup{..} =
-    object
-    [ "EngineName" .= _rDSOptionGroupEngineName
-    , "MajorEngineVersion" .= _rDSOptionGroupMajorEngineVersion
-    , "OptionConfigurations" .= _rDSOptionGroupOptionConfigurations
-    , "OptionGroupDescription" .= _rDSOptionGroupOptionGroupDescription
-    , "Tags" .= _rDSOptionGroupTags
+    object $
+    catMaybes
+    [ Just ("EngineName" .= _rDSOptionGroupEngineName)
+    , Just ("MajorEngineVersion" .= _rDSOptionGroupMajorEngineVersion)
+    , Just ("OptionConfigurations" .= _rDSOptionGroupOptionConfigurations)
+    , Just ("OptionGroupDescription" .= _rDSOptionGroupOptionGroupDescription)
+    , ("Tags" .=) <$> _rDSOptionGroupTags
     ]
 
 instance FromJSON RDSOptionGroup where
@@ -42,7 +44,7 @@ instance FromJSON RDSOptionGroup where
       obj .: "MajorEngineVersion" <*>
       obj .: "OptionConfigurations" <*>
       obj .: "OptionGroupDescription" <*>
-      obj .: "Tags"
+      obj .:? "Tags"
   parseJSON _ = mempty
 
 -- | Constructor for 'RDSOptionGroup' containing required fields as arguments.

@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.OpsWorksLayerLoadBasedAutoScaling where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -24,18 +25,19 @@ data OpsWorksLayerLoadBasedAutoScaling =
 
 instance ToJSON OpsWorksLayerLoadBasedAutoScaling where
   toJSON OpsWorksLayerLoadBasedAutoScaling{..} =
-    object
-    [ "DownScaling" .= _opsWorksLayerLoadBasedAutoScalingDownScaling
-    , "Enable" .= _opsWorksLayerLoadBasedAutoScalingEnable
-    , "UpScaling" .= _opsWorksLayerLoadBasedAutoScalingUpScaling
+    object $
+    catMaybes
+    [ ("DownScaling" .=) <$> _opsWorksLayerLoadBasedAutoScalingDownScaling
+    , ("Enable" .=) <$> _opsWorksLayerLoadBasedAutoScalingEnable
+    , ("UpScaling" .=) <$> _opsWorksLayerLoadBasedAutoScalingUpScaling
     ]
 
 instance FromJSON OpsWorksLayerLoadBasedAutoScaling where
   parseJSON (Object obj) =
     OpsWorksLayerLoadBasedAutoScaling <$>
-      obj .: "DownScaling" <*>
-      obj .: "Enable" <*>
-      obj .: "UpScaling"
+      obj .:? "DownScaling" <*>
+      obj .:? "Enable" <*>
+      obj .:? "UpScaling"
   parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksLayerLoadBasedAutoScaling' containing required

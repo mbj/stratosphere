@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.CodeBuildProjectEnvironmentVariable where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,16 +24,17 @@ data CodeBuildProjectEnvironmentVariable =
 
 instance ToJSON CodeBuildProjectEnvironmentVariable where
   toJSON CodeBuildProjectEnvironmentVariable{..} =
-    object
-    [ "Name" .= _codeBuildProjectEnvironmentVariableName
-    , "Value" .= _codeBuildProjectEnvironmentVariableValue
+    object $
+    catMaybes
+    [ ("Name" .=) <$> _codeBuildProjectEnvironmentVariableName
+    , ("Value" .=) <$> _codeBuildProjectEnvironmentVariableValue
     ]
 
 instance FromJSON CodeBuildProjectEnvironmentVariable where
   parseJSON (Object obj) =
     CodeBuildProjectEnvironmentVariable <$>
-      obj .: "Name" <*>
-      obj .: "Value"
+      obj .:? "Name" <*>
+      obj .:? "Value"
   parseJSON _ = mempty
 
 -- | Constructor for 'CodeBuildProjectEnvironmentVariable' containing required

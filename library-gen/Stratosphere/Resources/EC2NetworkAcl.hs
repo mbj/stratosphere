@@ -7,6 +7,7 @@ module Stratosphere.Resources.EC2NetworkAcl where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,15 +24,16 @@ data EC2NetworkAcl =
 
 instance ToJSON EC2NetworkAcl where
   toJSON EC2NetworkAcl{..} =
-    object
-    [ "Tags" .= _eC2NetworkAclTags
-    , "VpcId" .= _eC2NetworkAclVpcId
+    object $
+    catMaybes
+    [ ("Tags" .=) <$> _eC2NetworkAclTags
+    , Just ("VpcId" .= _eC2NetworkAclVpcId)
     ]
 
 instance FromJSON EC2NetworkAcl where
   parseJSON (Object obj) =
     EC2NetworkAcl <$>
-      obj .: "Tags" <*>
+      obj .:? "Tags" <*>
       obj .: "VpcId"
   parseJSON _ = mempty
 

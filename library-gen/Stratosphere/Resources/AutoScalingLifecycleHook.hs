@@ -7,6 +7,7 @@ module Stratosphere.Resources.AutoScalingLifecycleHook where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -28,24 +29,25 @@ data AutoScalingLifecycleHook =
 
 instance ToJSON AutoScalingLifecycleHook where
   toJSON AutoScalingLifecycleHook{..} =
-    object
-    [ "AutoScalingGroupName" .= _autoScalingLifecycleHookAutoScalingGroupName
-    , "DefaultResult" .= _autoScalingLifecycleHookDefaultResult
-    , "HeartbeatTimeout" .= _autoScalingLifecycleHookHeartbeatTimeout
-    , "LifecycleTransition" .= _autoScalingLifecycleHookLifecycleTransition
-    , "NotificationMetadata" .= _autoScalingLifecycleHookNotificationMetadata
-    , "NotificationTargetARN" .= _autoScalingLifecycleHookNotificationTargetARN
-    , "RoleARN" .= _autoScalingLifecycleHookRoleARN
+    object $
+    catMaybes
+    [ Just ("AutoScalingGroupName" .= _autoScalingLifecycleHookAutoScalingGroupName)
+    , ("DefaultResult" .=) <$> _autoScalingLifecycleHookDefaultResult
+    , ("HeartbeatTimeout" .=) <$> _autoScalingLifecycleHookHeartbeatTimeout
+    , Just ("LifecycleTransition" .= _autoScalingLifecycleHookLifecycleTransition)
+    , ("NotificationMetadata" .=) <$> _autoScalingLifecycleHookNotificationMetadata
+    , Just ("NotificationTargetARN" .= _autoScalingLifecycleHookNotificationTargetARN)
+    , Just ("RoleARN" .= _autoScalingLifecycleHookRoleARN)
     ]
 
 instance FromJSON AutoScalingLifecycleHook where
   parseJSON (Object obj) =
     AutoScalingLifecycleHook <$>
       obj .: "AutoScalingGroupName" <*>
-      obj .: "DefaultResult" <*>
-      obj .: "HeartbeatTimeout" <*>
+      obj .:? "DefaultResult" <*>
+      obj .:? "HeartbeatTimeout" <*>
       obj .: "LifecycleTransition" <*>
-      obj .: "NotificationMetadata" <*>
+      obj .:? "NotificationMetadata" <*>
       obj .: "NotificationTargetARN" <*>
       obj .: "RoleARN"
   parseJSON _ = mempty

@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.ECSTaskDefinitionHostEntry where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,9 +24,10 @@ data ECSTaskDefinitionHostEntry =
 
 instance ToJSON ECSTaskDefinitionHostEntry where
   toJSON ECSTaskDefinitionHostEntry{..} =
-    object
-    [ "Hostname" .= _eCSTaskDefinitionHostEntryHostname
-    , "IpAddress" .= _eCSTaskDefinitionHostEntryIpAddress
+    object $
+    catMaybes
+    [ Just ("Hostname" .= _eCSTaskDefinitionHostEntryHostname)
+    , Just ("IpAddress" .= _eCSTaskDefinitionHostEntryIpAddress)
     ]
 
 instance FromJSON ECSTaskDefinitionHostEntry where

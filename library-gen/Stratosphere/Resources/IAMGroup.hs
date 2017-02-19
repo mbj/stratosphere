@@ -7,6 +7,7 @@ module Stratosphere.Resources.IAMGroup where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -25,20 +26,21 @@ data IAMGroup =
 
 instance ToJSON IAMGroup where
   toJSON IAMGroup{..} =
-    object
-    [ "GroupName" .= _iAMGroupGroupName
-    , "ManagedPolicyArns" .= _iAMGroupManagedPolicyArns
-    , "Path" .= _iAMGroupPath
-    , "Policies" .= _iAMGroupPolicies
+    object $
+    catMaybes
+    [ ("GroupName" .=) <$> _iAMGroupGroupName
+    , ("ManagedPolicyArns" .=) <$> _iAMGroupManagedPolicyArns
+    , ("Path" .=) <$> _iAMGroupPath
+    , ("Policies" .=) <$> _iAMGroupPolicies
     ]
 
 instance FromJSON IAMGroup where
   parseJSON (Object obj) =
     IAMGroup <$>
-      obj .: "GroupName" <*>
-      obj .: "ManagedPolicyArns" <*>
-      obj .: "Path" <*>
-      obj .: "Policies"
+      obj .:? "GroupName" <*>
+      obj .:? "ManagedPolicyArns" <*>
+      obj .:? "Path" <*>
+      obj .:? "Policies"
   parseJSON _ = mempty
 
 -- | Constructor for 'IAMGroup' containing required fields as arguments.

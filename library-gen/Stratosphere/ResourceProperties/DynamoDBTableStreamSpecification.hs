@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.DynamoDBTableStreamSpecification where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -22,8 +23,9 @@ data DynamoDBTableStreamSpecification =
 
 instance ToJSON DynamoDBTableStreamSpecification where
   toJSON DynamoDBTableStreamSpecification{..} =
-    object
-    [ "StreamViewType" .= _dynamoDBTableStreamSpecificationStreamViewType
+    object $
+    catMaybes
+    [ Just ("StreamViewType" .= _dynamoDBTableStreamSpecificationStreamViewType)
     ]
 
 instance FromJSON DynamoDBTableStreamSpecification where

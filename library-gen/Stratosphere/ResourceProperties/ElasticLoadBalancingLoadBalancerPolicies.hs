@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.ElasticLoadBalancingLoadBalancerPolicies 
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -27,20 +28,21 @@ data ElasticLoadBalancingLoadBalancerPolicies =
 
 instance ToJSON ElasticLoadBalancingLoadBalancerPolicies where
   toJSON ElasticLoadBalancingLoadBalancerPolicies{..} =
-    object
-    [ "Attributes" .= _elasticLoadBalancingLoadBalancerPoliciesAttributes
-    , "InstancePorts" .= _elasticLoadBalancingLoadBalancerPoliciesInstancePorts
-    , "LoadBalancerPorts" .= _elasticLoadBalancingLoadBalancerPoliciesLoadBalancerPorts
-    , "PolicyName" .= _elasticLoadBalancingLoadBalancerPoliciesPolicyName
-    , "PolicyType" .= _elasticLoadBalancingLoadBalancerPoliciesPolicyType
+    object $
+    catMaybes
+    [ Just ("Attributes" .= _elasticLoadBalancingLoadBalancerPoliciesAttributes)
+    , ("InstancePorts" .=) <$> _elasticLoadBalancingLoadBalancerPoliciesInstancePorts
+    , ("LoadBalancerPorts" .=) <$> _elasticLoadBalancingLoadBalancerPoliciesLoadBalancerPorts
+    , Just ("PolicyName" .= _elasticLoadBalancingLoadBalancerPoliciesPolicyName)
+    , Just ("PolicyType" .= _elasticLoadBalancingLoadBalancerPoliciesPolicyType)
     ]
 
 instance FromJSON ElasticLoadBalancingLoadBalancerPolicies where
   parseJSON (Object obj) =
     ElasticLoadBalancingLoadBalancerPolicies <$>
       obj .: "Attributes" <*>
-      obj .: "InstancePorts" <*>
-      obj .: "LoadBalancerPorts" <*>
+      obj .:? "InstancePorts" <*>
+      obj .:? "LoadBalancerPorts" <*>
       obj .: "PolicyName" <*>
       obj .: "PolicyType"
   parseJSON _ = mempty

@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.CodeBuildProjectEnvironment where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -25,20 +26,21 @@ data CodeBuildProjectEnvironment =
 
 instance ToJSON CodeBuildProjectEnvironment where
   toJSON CodeBuildProjectEnvironment{..} =
-    object
-    [ "ComputeType" .= _codeBuildProjectEnvironmentComputeType
-    , "EnvironmentVariables" .= _codeBuildProjectEnvironmentEnvironmentVariables
-    , "Image" .= _codeBuildProjectEnvironmentImage
-    , "Type" .= _codeBuildProjectEnvironmentType
+    object $
+    catMaybes
+    [ ("ComputeType" .=) <$> _codeBuildProjectEnvironmentComputeType
+    , ("EnvironmentVariables" .=) <$> _codeBuildProjectEnvironmentEnvironmentVariables
+    , ("Image" .=) <$> _codeBuildProjectEnvironmentImage
+    , ("Type" .=) <$> _codeBuildProjectEnvironmentType
     ]
 
 instance FromJSON CodeBuildProjectEnvironment where
   parseJSON (Object obj) =
     CodeBuildProjectEnvironment <$>
-      obj .: "ComputeType" <*>
-      obj .: "EnvironmentVariables" <*>
-      obj .: "Image" <*>
-      obj .: "Type"
+      obj .:? "ComputeType" <*>
+      obj .:? "EnvironmentVariables" <*>
+      obj .:? "Image" <*>
+      obj .:? "Type"
   parseJSON _ = mempty
 
 -- | Constructor for 'CodeBuildProjectEnvironment' containing required fields

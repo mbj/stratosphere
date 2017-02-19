@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.S3BucketNoncurrentVersionTransition where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,9 +24,10 @@ data S3BucketNoncurrentVersionTransition =
 
 instance ToJSON S3BucketNoncurrentVersionTransition where
   toJSON S3BucketNoncurrentVersionTransition{..} =
-    object
-    [ "StorageClass" .= _s3BucketNoncurrentVersionTransitionStorageClass
-    , "TransitionInDays" .= _s3BucketNoncurrentVersionTransitionTransitionInDays
+    object $
+    catMaybes
+    [ Just ("StorageClass" .= _s3BucketNoncurrentVersionTransitionStorageClass)
+    , Just ("TransitionInDays" .= _s3BucketNoncurrentVersionTransitionTransitionInDays)
     ]
 
 instance FromJSON S3BucketNoncurrentVersionTransition where

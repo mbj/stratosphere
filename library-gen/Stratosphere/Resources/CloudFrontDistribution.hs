@@ -7,6 +7,7 @@ module Stratosphere.Resources.CloudFrontDistribution where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -22,8 +23,9 @@ data CloudFrontDistribution =
 
 instance ToJSON CloudFrontDistribution where
   toJSON CloudFrontDistribution{..} =
-    object
-    [ "DistributionConfig" .= _cloudFrontDistributionDistributionConfig
+    object $
+    catMaybes
+    [ Just ("DistributionConfig" .= _cloudFrontDistributionDistributionConfig)
     ]
 
 instance FromJSON CloudFrontDistribution where

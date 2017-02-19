@@ -7,6 +7,7 @@ module Stratosphere.Resources.EC2VPCCidrBlock where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,15 +24,16 @@ data EC2VPCCidrBlock =
 
 instance ToJSON EC2VPCCidrBlock where
   toJSON EC2VPCCidrBlock{..} =
-    object
-    [ "AmazonProvidedIpv6CidrBlock" .= _eC2VPCCidrBlockAmazonProvidedIpv6CidrBlock
-    , "VpcId" .= _eC2VPCCidrBlockVpcId
+    object $
+    catMaybes
+    [ ("AmazonProvidedIpv6CidrBlock" .=) <$> _eC2VPCCidrBlockAmazonProvidedIpv6CidrBlock
+    , Just ("VpcId" .= _eC2VPCCidrBlockVpcId)
     ]
 
 instance FromJSON EC2VPCCidrBlock where
   parseJSON (Object obj) =
     EC2VPCCidrBlock <$>
-      obj .: "AmazonProvidedIpv6CidrBlock" <*>
+      obj .:? "AmazonProvidedIpv6CidrBlock" <*>
       obj .: "VpcId"
   parseJSON _ = mempty
 

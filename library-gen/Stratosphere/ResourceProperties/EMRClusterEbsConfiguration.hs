@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.EMRClusterEbsConfiguration where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,16 +24,17 @@ data EMRClusterEbsConfiguration =
 
 instance ToJSON EMRClusterEbsConfiguration where
   toJSON EMRClusterEbsConfiguration{..} =
-    object
-    [ "EbsBlockDeviceConfigs" .= _eMRClusterEbsConfigurationEbsBlockDeviceConfigs
-    , "EbsOptimized" .= _eMRClusterEbsConfigurationEbsOptimized
+    object $
+    catMaybes
+    [ ("EbsBlockDeviceConfigs" .=) <$> _eMRClusterEbsConfigurationEbsBlockDeviceConfigs
+    , ("EbsOptimized" .=) <$> _eMRClusterEbsConfigurationEbsOptimized
     ]
 
 instance FromJSON EMRClusterEbsConfiguration where
   parseJSON (Object obj) =
     EMRClusterEbsConfiguration <$>
-      obj .: "EbsBlockDeviceConfigs" <*>
-      obj .: "EbsOptimized"
+      obj .:? "EbsBlockDeviceConfigs" <*>
+      obj .:? "EbsOptimized"
   parseJSON _ = mempty
 
 -- | Constructor for 'EMRClusterEbsConfiguration' containing required fields

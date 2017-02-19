@@ -7,6 +7,7 @@ module Stratosphere.Resources.WAFRule where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -24,10 +25,11 @@ data WAFRule =
 
 instance ToJSON WAFRule where
   toJSON WAFRule{..} =
-    object
-    [ "MetricName" .= _wAFRuleMetricName
-    , "Name" .= _wAFRuleName
-    , "Predicates" .= _wAFRulePredicates
+    object $
+    catMaybes
+    [ Just ("MetricName" .= _wAFRuleMetricName)
+    , Just ("Name" .= _wAFRuleName)
+    , ("Predicates" .=) <$> _wAFRulePredicates
     ]
 
 instance FromJSON WAFRule where
@@ -35,7 +37,7 @@ instance FromJSON WAFRule where
     WAFRule <$>
       obj .: "MetricName" <*>
       obj .: "Name" <*>
-      obj .: "Predicates"
+      obj .:? "Predicates"
   parseJSON _ = mempty
 
 -- | Constructor for 'WAFRule' containing required fields as arguments.

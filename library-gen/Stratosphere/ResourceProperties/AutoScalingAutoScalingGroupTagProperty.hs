@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupTagProperty wh
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -25,10 +26,11 @@ data AutoScalingAutoScalingGroupTagProperty =
 
 instance ToJSON AutoScalingAutoScalingGroupTagProperty where
   toJSON AutoScalingAutoScalingGroupTagProperty{..} =
-    object
-    [ "Key" .= _autoScalingAutoScalingGroupTagPropertyKey
-    , "PropagateAtLaunch" .= _autoScalingAutoScalingGroupTagPropertyPropagateAtLaunch
-    , "Value" .= _autoScalingAutoScalingGroupTagPropertyValue
+    object $
+    catMaybes
+    [ Just ("Key" .= _autoScalingAutoScalingGroupTagPropertyKey)
+    , Just ("PropagateAtLaunch" .= _autoScalingAutoScalingGroupTagPropertyPropagateAtLaunch)
+    , Just ("Value" .= _autoScalingAutoScalingGroupTagPropertyValue)
     ]
 
 instance FromJSON AutoScalingAutoScalingGroupTagProperty where

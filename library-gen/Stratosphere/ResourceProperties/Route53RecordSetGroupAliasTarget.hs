@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.Route53RecordSetGroupAliasTarget where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -24,17 +25,18 @@ data Route53RecordSetGroupAliasTarget =
 
 instance ToJSON Route53RecordSetGroupAliasTarget where
   toJSON Route53RecordSetGroupAliasTarget{..} =
-    object
-    [ "DNSName" .= _route53RecordSetGroupAliasTargetDNSName
-    , "EvaluateTargetHealth" .= _route53RecordSetGroupAliasTargetEvaluateTargetHealth
-    , "HostedZoneId" .= _route53RecordSetGroupAliasTargetHostedZoneId
+    object $
+    catMaybes
+    [ Just ("DNSName" .= _route53RecordSetGroupAliasTargetDNSName)
+    , ("EvaluateTargetHealth" .=) <$> _route53RecordSetGroupAliasTargetEvaluateTargetHealth
+    , Just ("HostedZoneId" .= _route53RecordSetGroupAliasTargetHostedZoneId)
     ]
 
 instance FromJSON Route53RecordSetGroupAliasTarget where
   parseJSON (Object obj) =
     Route53RecordSetGroupAliasTarget <$>
       obj .: "DNSName" <*>
-      obj .: "EvaluateTargetHealth" <*>
+      obj .:? "EvaluateTargetHealth" <*>
       obj .: "HostedZoneId"
   parseJSON _ = mempty
 

@@ -7,6 +7,7 @@ module Stratosphere.Resources.AutoScalingLaunchConfiguration where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -38,46 +39,47 @@ data AutoScalingLaunchConfiguration =
 
 instance ToJSON AutoScalingLaunchConfiguration where
   toJSON AutoScalingLaunchConfiguration{..} =
-    object
-    [ "AssociatePublicIpAddress" .= _autoScalingLaunchConfigurationAssociatePublicIpAddress
-    , "BlockDeviceMappings" .= _autoScalingLaunchConfigurationBlockDeviceMappings
-    , "ClassicLinkVPCId" .= _autoScalingLaunchConfigurationClassicLinkVPCId
-    , "ClassicLinkVPCSecurityGroups" .= _autoScalingLaunchConfigurationClassicLinkVPCSecurityGroups
-    , "EbsOptimized" .= _autoScalingLaunchConfigurationEbsOptimized
-    , "IamInstanceProfile" .= _autoScalingLaunchConfigurationIamInstanceProfile
-    , "ImageId" .= _autoScalingLaunchConfigurationImageId
-    , "InstanceId" .= _autoScalingLaunchConfigurationInstanceId
-    , "InstanceMonitoring" .= _autoScalingLaunchConfigurationInstanceMonitoring
-    , "InstanceType" .= _autoScalingLaunchConfigurationInstanceType
-    , "KernelId" .= _autoScalingLaunchConfigurationKernelId
-    , "KeyName" .= _autoScalingLaunchConfigurationKeyName
-    , "PlacementTenancy" .= _autoScalingLaunchConfigurationPlacementTenancy
-    , "RamDiskId" .= _autoScalingLaunchConfigurationRamDiskId
-    , "SecurityGroups" .= _autoScalingLaunchConfigurationSecurityGroups
-    , "SpotPrice" .= _autoScalingLaunchConfigurationSpotPrice
-    , "UserData" .= _autoScalingLaunchConfigurationUserData
+    object $
+    catMaybes
+    [ ("AssociatePublicIpAddress" .=) <$> _autoScalingLaunchConfigurationAssociatePublicIpAddress
+    , ("BlockDeviceMappings" .=) <$> _autoScalingLaunchConfigurationBlockDeviceMappings
+    , ("ClassicLinkVPCId" .=) <$> _autoScalingLaunchConfigurationClassicLinkVPCId
+    , ("ClassicLinkVPCSecurityGroups" .=) <$> _autoScalingLaunchConfigurationClassicLinkVPCSecurityGroups
+    , ("EbsOptimized" .=) <$> _autoScalingLaunchConfigurationEbsOptimized
+    , ("IamInstanceProfile" .=) <$> _autoScalingLaunchConfigurationIamInstanceProfile
+    , Just ("ImageId" .= _autoScalingLaunchConfigurationImageId)
+    , ("InstanceId" .=) <$> _autoScalingLaunchConfigurationInstanceId
+    , ("InstanceMonitoring" .=) <$> _autoScalingLaunchConfigurationInstanceMonitoring
+    , Just ("InstanceType" .= _autoScalingLaunchConfigurationInstanceType)
+    , ("KernelId" .=) <$> _autoScalingLaunchConfigurationKernelId
+    , ("KeyName" .=) <$> _autoScalingLaunchConfigurationKeyName
+    , ("PlacementTenancy" .=) <$> _autoScalingLaunchConfigurationPlacementTenancy
+    , ("RamDiskId" .=) <$> _autoScalingLaunchConfigurationRamDiskId
+    , ("SecurityGroups" .=) <$> _autoScalingLaunchConfigurationSecurityGroups
+    , ("SpotPrice" .=) <$> _autoScalingLaunchConfigurationSpotPrice
+    , ("UserData" .=) <$> _autoScalingLaunchConfigurationUserData
     ]
 
 instance FromJSON AutoScalingLaunchConfiguration where
   parseJSON (Object obj) =
     AutoScalingLaunchConfiguration <$>
-      obj .: "AssociatePublicIpAddress" <*>
-      obj .: "BlockDeviceMappings" <*>
-      obj .: "ClassicLinkVPCId" <*>
-      obj .: "ClassicLinkVPCSecurityGroups" <*>
-      obj .: "EbsOptimized" <*>
-      obj .: "IamInstanceProfile" <*>
+      obj .:? "AssociatePublicIpAddress" <*>
+      obj .:? "BlockDeviceMappings" <*>
+      obj .:? "ClassicLinkVPCId" <*>
+      obj .:? "ClassicLinkVPCSecurityGroups" <*>
+      obj .:? "EbsOptimized" <*>
+      obj .:? "IamInstanceProfile" <*>
       obj .: "ImageId" <*>
-      obj .: "InstanceId" <*>
-      obj .: "InstanceMonitoring" <*>
+      obj .:? "InstanceId" <*>
+      obj .:? "InstanceMonitoring" <*>
       obj .: "InstanceType" <*>
-      obj .: "KernelId" <*>
-      obj .: "KeyName" <*>
-      obj .: "PlacementTenancy" <*>
-      obj .: "RamDiskId" <*>
-      obj .: "SecurityGroups" <*>
-      obj .: "SpotPrice" <*>
-      obj .: "UserData"
+      obj .:? "KernelId" <*>
+      obj .:? "KeyName" <*>
+      obj .:? "PlacementTenancy" <*>
+      obj .:? "RamDiskId" <*>
+      obj .:? "SecurityGroups" <*>
+      obj .:? "SpotPrice" <*>
+      obj .:? "UserData"
   parseJSON _ = mempty
 
 -- | Constructor for 'AutoScalingLaunchConfiguration' containing required

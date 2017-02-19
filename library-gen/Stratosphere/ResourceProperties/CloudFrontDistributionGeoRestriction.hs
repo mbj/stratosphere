@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.CloudFrontDistributionGeoRestriction wher
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,15 +24,16 @@ data CloudFrontDistributionGeoRestriction =
 
 instance ToJSON CloudFrontDistributionGeoRestriction where
   toJSON CloudFrontDistributionGeoRestriction{..} =
-    object
-    [ "Locations" .= _cloudFrontDistributionGeoRestrictionLocations
-    , "RestrictionType" .= _cloudFrontDistributionGeoRestrictionRestrictionType
+    object $
+    catMaybes
+    [ ("Locations" .=) <$> _cloudFrontDistributionGeoRestrictionLocations
+    , Just ("RestrictionType" .= _cloudFrontDistributionGeoRestrictionRestrictionType)
     ]
 
 instance FromJSON CloudFrontDistributionGeoRestriction where
   parseJSON (Object obj) =
     CloudFrontDistributionGeoRestriction <$>
-      obj .: "Locations" <*>
+      obj .:? "Locations" <*>
       obj .: "RestrictionType"
   parseJSON _ = mempty
 

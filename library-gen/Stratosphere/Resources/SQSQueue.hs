@@ -7,6 +7,7 @@ module Stratosphere.Resources.SQSQueue where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -28,26 +29,27 @@ data SQSQueue =
 
 instance ToJSON SQSQueue where
   toJSON SQSQueue{..} =
-    object
-    [ "DelaySeconds" .= _sQSQueueDelaySeconds
-    , "MaximumMessageSize" .= _sQSQueueMaximumMessageSize
-    , "MessageRetentionPeriod" .= _sQSQueueMessageRetentionPeriod
-    , "QueueName" .= _sQSQueueQueueName
-    , "ReceiveMessageWaitTimeSeconds" .= _sQSQueueReceiveMessageWaitTimeSeconds
-    , "RedrivePolicy" .= _sQSQueueRedrivePolicy
-    , "VisibilityTimeout" .= _sQSQueueVisibilityTimeout
+    object $
+    catMaybes
+    [ ("DelaySeconds" .=) <$> _sQSQueueDelaySeconds
+    , ("MaximumMessageSize" .=) <$> _sQSQueueMaximumMessageSize
+    , ("MessageRetentionPeriod" .=) <$> _sQSQueueMessageRetentionPeriod
+    , ("QueueName" .=) <$> _sQSQueueQueueName
+    , ("ReceiveMessageWaitTimeSeconds" .=) <$> _sQSQueueReceiveMessageWaitTimeSeconds
+    , ("RedrivePolicy" .=) <$> _sQSQueueRedrivePolicy
+    , ("VisibilityTimeout" .=) <$> _sQSQueueVisibilityTimeout
     ]
 
 instance FromJSON SQSQueue where
   parseJSON (Object obj) =
     SQSQueue <$>
-      obj .: "DelaySeconds" <*>
-      obj .: "MaximumMessageSize" <*>
-      obj .: "MessageRetentionPeriod" <*>
-      obj .: "QueueName" <*>
-      obj .: "ReceiveMessageWaitTimeSeconds" <*>
-      obj .: "RedrivePolicy" <*>
-      obj .: "VisibilityTimeout"
+      obj .:? "DelaySeconds" <*>
+      obj .:? "MaximumMessageSize" <*>
+      obj .:? "MessageRetentionPeriod" <*>
+      obj .:? "QueueName" <*>
+      obj .:? "ReceiveMessageWaitTimeSeconds" <*>
+      obj .:? "RedrivePolicy" <*>
+      obj .:? "VisibilityTimeout"
   parseJSON _ = mempty
 
 -- | Constructor for 'SQSQueue' containing required fields as arguments.

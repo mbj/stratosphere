@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.IoTTopicRuleElasticsearchAction where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -26,12 +27,13 @@ data IoTTopicRuleElasticsearchAction =
 
 instance ToJSON IoTTopicRuleElasticsearchAction where
   toJSON IoTTopicRuleElasticsearchAction{..} =
-    object
-    [ "Endpoint" .= _ioTTopicRuleElasticsearchActionEndpoint
-    , "Id" .= _ioTTopicRuleElasticsearchActionId
-    , "Index" .= _ioTTopicRuleElasticsearchActionIndex
-    , "RoleArn" .= _ioTTopicRuleElasticsearchActionRoleArn
-    , "Type" .= _ioTTopicRuleElasticsearchActionType
+    object $
+    catMaybes
+    [ Just ("Endpoint" .= _ioTTopicRuleElasticsearchActionEndpoint)
+    , Just ("Id" .= _ioTTopicRuleElasticsearchActionId)
+    , Just ("Index" .= _ioTTopicRuleElasticsearchActionIndex)
+    , Just ("RoleArn" .= _ioTTopicRuleElasticsearchActionRoleArn)
+    , Just ("Type" .= _ioTTopicRuleElasticsearchActionType)
     ]
 
 instance FromJSON IoTTopicRuleElasticsearchAction where

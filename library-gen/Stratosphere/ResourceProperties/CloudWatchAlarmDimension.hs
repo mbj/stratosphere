@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.CloudWatchAlarmDimension where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,9 +24,10 @@ data CloudWatchAlarmDimension =
 
 instance ToJSON CloudWatchAlarmDimension where
   toJSON CloudWatchAlarmDimension{..} =
-    object
-    [ "Name" .= _cloudWatchAlarmDimensionName
-    , "Value" .= _cloudWatchAlarmDimensionValue
+    object $
+    catMaybes
+    [ Just ("Name" .= _cloudWatchAlarmDimensionName)
+    , Just ("Value" .= _cloudWatchAlarmDimensionValue)
     ]
 
 instance FromJSON CloudWatchAlarmDimension where

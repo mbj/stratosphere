@@ -7,6 +7,7 @@ module Stratosphere.Resources.CloudFormationWaitConditionHandle where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 

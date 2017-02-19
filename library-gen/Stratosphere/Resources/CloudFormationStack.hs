@@ -7,6 +7,7 @@ module Stratosphere.Resources.CloudFormationStack where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -26,22 +27,23 @@ data CloudFormationStack =
 
 instance ToJSON CloudFormationStack where
   toJSON CloudFormationStack{..} =
-    object
-    [ "NotificationARNs" .= _cloudFormationStackNotificationARNs
-    , "Parameters" .= _cloudFormationStackParameters
-    , "Tags" .= _cloudFormationStackTags
-    , "TemplateURL" .= _cloudFormationStackTemplateURL
-    , "TimeoutInMinutes" .= _cloudFormationStackTimeoutInMinutes
+    object $
+    catMaybes
+    [ ("NotificationARNs" .=) <$> _cloudFormationStackNotificationARNs
+    , ("Parameters" .=) <$> _cloudFormationStackParameters
+    , ("Tags" .=) <$> _cloudFormationStackTags
+    , Just ("TemplateURL" .= _cloudFormationStackTemplateURL)
+    , ("TimeoutInMinutes" .=) <$> _cloudFormationStackTimeoutInMinutes
     ]
 
 instance FromJSON CloudFormationStack where
   parseJSON (Object obj) =
     CloudFormationStack <$>
-      obj .: "NotificationARNs" <*>
-      obj .: "Parameters" <*>
-      obj .: "Tags" <*>
+      obj .:? "NotificationARNs" <*>
+      obj .:? "Parameters" <*>
+      obj .:? "Tags" <*>
       obj .: "TemplateURL" <*>
-      obj .: "TimeoutInMinutes"
+      obj .:? "TimeoutInMinutes"
   parseJSON _ = mempty
 
 -- | Constructor for 'CloudFormationStack' containing required fields as

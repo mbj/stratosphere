@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.EC2SpotFleetSecurityGroups where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -22,14 +23,15 @@ data EC2SpotFleetSecurityGroups =
 
 instance ToJSON EC2SpotFleetSecurityGroups where
   toJSON EC2SpotFleetSecurityGroups{..} =
-    object
-    [ "GroupId" .= _eC2SpotFleetSecurityGroupsGroupId
+    object $
+    catMaybes
+    [ ("GroupId" .=) <$> _eC2SpotFleetSecurityGroupsGroupId
     ]
 
 instance FromJSON EC2SpotFleetSecurityGroups where
   parseJSON (Object obj) =
     EC2SpotFleetSecurityGroups <$>
-      obj .: "GroupId"
+      obj .:? "GroupId"
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2SpotFleetSecurityGroups' containing required fields

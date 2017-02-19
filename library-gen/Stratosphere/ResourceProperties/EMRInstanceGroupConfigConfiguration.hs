@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.EMRInstanceGroupConfigConfiguration where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -24,18 +25,19 @@ data EMRInstanceGroupConfigConfiguration =
 
 instance ToJSON EMRInstanceGroupConfigConfiguration where
   toJSON EMRInstanceGroupConfigConfiguration{..} =
-    object
-    [ "Classification" .= _eMRInstanceGroupConfigConfigurationClassification
-    , "ConfigurationProperties" .= _eMRInstanceGroupConfigConfigurationConfigurationProperties
-    , "Configurations" .= _eMRInstanceGroupConfigConfigurationConfigurations
+    object $
+    catMaybes
+    [ ("Classification" .=) <$> _eMRInstanceGroupConfigConfigurationClassification
+    , ("ConfigurationProperties" .=) <$> _eMRInstanceGroupConfigConfigurationConfigurationProperties
+    , ("Configurations" .=) <$> _eMRInstanceGroupConfigConfigurationConfigurations
     ]
 
 instance FromJSON EMRInstanceGroupConfigConfiguration where
   parseJSON (Object obj) =
     EMRInstanceGroupConfigConfiguration <$>
-      obj .: "Classification" <*>
-      obj .: "ConfigurationProperties" <*>
-      obj .: "Configurations"
+      obj .:? "Classification" <*>
+      obj .:? "ConfigurationProperties" <*>
+      obj .:? "Configurations"
   parseJSON _ = mempty
 
 -- | Constructor for 'EMRInstanceGroupConfigConfiguration' containing required

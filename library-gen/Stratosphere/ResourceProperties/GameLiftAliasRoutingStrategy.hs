@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.GameLiftAliasRoutingStrategy where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -24,17 +25,18 @@ data GameLiftAliasRoutingStrategy =
 
 instance ToJSON GameLiftAliasRoutingStrategy where
   toJSON GameLiftAliasRoutingStrategy{..} =
-    object
-    [ "FleetId" .= _gameLiftAliasRoutingStrategyFleetId
-    , "Message" .= _gameLiftAliasRoutingStrategyMessage
-    , "Type" .= _gameLiftAliasRoutingStrategyType
+    object $
+    catMaybes
+    [ ("FleetId" .=) <$> _gameLiftAliasRoutingStrategyFleetId
+    , ("Message" .=) <$> _gameLiftAliasRoutingStrategyMessage
+    , Just ("Type" .= _gameLiftAliasRoutingStrategyType)
     ]
 
 instance FromJSON GameLiftAliasRoutingStrategy where
   parseJSON (Object obj) =
     GameLiftAliasRoutingStrategy <$>
-      obj .: "FleetId" <*>
-      obj .: "Message" <*>
+      obj .:? "FleetId" <*>
+      obj .:? "Message" <*>
       obj .: "Type"
   parseJSON _ = mempty
 

@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.IoTTopicRuleLambdaAction where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -22,8 +23,9 @@ data IoTTopicRuleLambdaAction =
 
 instance ToJSON IoTTopicRuleLambdaAction where
   toJSON IoTTopicRuleLambdaAction{..} =
-    object
-    [ "FunctionArn" .= _ioTTopicRuleLambdaActionFunctionArn
+    object $
+    catMaybes
+    [ Just ("FunctionArn" .= _ioTTopicRuleLambdaActionFunctionArn)
     ]
 
 instance FromJSON IoTTopicRuleLambdaAction where

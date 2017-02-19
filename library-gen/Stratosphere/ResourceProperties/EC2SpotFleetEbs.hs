@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.EC2SpotFleetEbs where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -27,24 +28,25 @@ data EC2SpotFleetEbs =
 
 instance ToJSON EC2SpotFleetEbs where
   toJSON EC2SpotFleetEbs{..} =
-    object
-    [ "DeleteOnTermination" .= _eC2SpotFleetEbsDeleteOnTermination
-    , "Encrypted" .= _eC2SpotFleetEbsEncrypted
-    , "Iops" .= _eC2SpotFleetEbsIops
-    , "SnapshotId" .= _eC2SpotFleetEbsSnapshotId
-    , "VolumeSize" .= _eC2SpotFleetEbsVolumeSize
-    , "VolumeType" .= _eC2SpotFleetEbsVolumeType
+    object $
+    catMaybes
+    [ ("DeleteOnTermination" .=) <$> _eC2SpotFleetEbsDeleteOnTermination
+    , ("Encrypted" .=) <$> _eC2SpotFleetEbsEncrypted
+    , ("Iops" .=) <$> _eC2SpotFleetEbsIops
+    , ("SnapshotId" .=) <$> _eC2SpotFleetEbsSnapshotId
+    , ("VolumeSize" .=) <$> _eC2SpotFleetEbsVolumeSize
+    , ("VolumeType" .=) <$> _eC2SpotFleetEbsVolumeType
     ]
 
 instance FromJSON EC2SpotFleetEbs where
   parseJSON (Object obj) =
     EC2SpotFleetEbs <$>
-      obj .: "DeleteOnTermination" <*>
-      obj .: "Encrypted" <*>
-      obj .: "Iops" <*>
-      obj .: "SnapshotId" <*>
-      obj .: "VolumeSize" <*>
-      obj .: "VolumeType"
+      obj .:? "DeleteOnTermination" <*>
+      obj .:? "Encrypted" <*>
+      obj .:? "Iops" <*>
+      obj .:? "SnapshotId" <*>
+      obj .:? "VolumeSize" <*>
+      obj .:? "VolumeType"
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2SpotFleetEbs' containing required fields as

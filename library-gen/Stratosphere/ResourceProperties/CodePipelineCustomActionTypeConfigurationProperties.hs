@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.CodePipelineCustomActionTypeConfiguration
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -30,26 +31,27 @@ data CodePipelineCustomActionTypeConfigurationProperties =
 
 instance ToJSON CodePipelineCustomActionTypeConfigurationProperties where
   toJSON CodePipelineCustomActionTypeConfigurationProperties{..} =
-    object
-    [ "Description" .= _codePipelineCustomActionTypeConfigurationPropertiesDescription
-    , "Key" .= _codePipelineCustomActionTypeConfigurationPropertiesKey
-    , "Name" .= _codePipelineCustomActionTypeConfigurationPropertiesName
-    , "Queryable" .= _codePipelineCustomActionTypeConfigurationPropertiesQueryable
-    , "Required" .= _codePipelineCustomActionTypeConfigurationPropertiesRequired
-    , "Secret" .= _codePipelineCustomActionTypeConfigurationPropertiesSecret
-    , "Type" .= _codePipelineCustomActionTypeConfigurationPropertiesType
+    object $
+    catMaybes
+    [ ("Description" .=) <$> _codePipelineCustomActionTypeConfigurationPropertiesDescription
+    , Just ("Key" .= _codePipelineCustomActionTypeConfigurationPropertiesKey)
+    , Just ("Name" .= _codePipelineCustomActionTypeConfigurationPropertiesName)
+    , ("Queryable" .=) <$> _codePipelineCustomActionTypeConfigurationPropertiesQueryable
+    , Just ("Required" .= _codePipelineCustomActionTypeConfigurationPropertiesRequired)
+    , Just ("Secret" .= _codePipelineCustomActionTypeConfigurationPropertiesSecret)
+    , ("Type" .=) <$> _codePipelineCustomActionTypeConfigurationPropertiesType
     ]
 
 instance FromJSON CodePipelineCustomActionTypeConfigurationProperties where
   parseJSON (Object obj) =
     CodePipelineCustomActionTypeConfigurationProperties <$>
-      obj .: "Description" <*>
+      obj .:? "Description" <*>
       obj .: "Key" <*>
       obj .: "Name" <*>
-      obj .: "Queryable" <*>
+      obj .:? "Queryable" <*>
       obj .: "Required" <*>
       obj .: "Secret" <*>
-      obj .: "Type"
+      obj .:? "Type"
   parseJSON _ = mempty
 
 -- | Constructor for 'CodePipelineCustomActionTypeConfigurationProperties'

@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.CodeDeployDeploymentGroupEc2TagFilter whe
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -25,18 +26,19 @@ data CodeDeployDeploymentGroupEc2TagFilter =
 
 instance ToJSON CodeDeployDeploymentGroupEc2TagFilter where
   toJSON CodeDeployDeploymentGroupEc2TagFilter{..} =
-    object
-    [ "Key" .= _codeDeployDeploymentGroupEc2TagFilterKey
-    , "Type" .= _codeDeployDeploymentGroupEc2TagFilterType
-    , "Value" .= _codeDeployDeploymentGroupEc2TagFilterValue
+    object $
+    catMaybes
+    [ ("Key" .=) <$> _codeDeployDeploymentGroupEc2TagFilterKey
+    , Just ("Type" .= _codeDeployDeploymentGroupEc2TagFilterType)
+    , ("Value" .=) <$> _codeDeployDeploymentGroupEc2TagFilterValue
     ]
 
 instance FromJSON CodeDeployDeploymentGroupEc2TagFilter where
   parseJSON (Object obj) =
     CodeDeployDeploymentGroupEc2TagFilter <$>
-      obj .: "Key" <*>
+      obj .:? "Key" <*>
       obj .: "Type" <*>
-      obj .: "Value"
+      obj .:? "Value"
   parseJSON _ = mempty
 
 -- | Constructor for 'CodeDeployDeploymentGroupEc2TagFilter' containing

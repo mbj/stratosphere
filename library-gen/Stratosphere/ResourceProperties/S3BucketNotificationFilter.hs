@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.S3BucketNotificationFilter where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -22,8 +23,9 @@ data S3BucketNotificationFilter =
 
 instance ToJSON S3BucketNotificationFilter where
   toJSON S3BucketNotificationFilter{..} =
-    object
-    [ "S3Key" .= _s3BucketNotificationFilterS3Key
+    object $
+    catMaybes
+    [ Just ("S3Key" .= _s3BucketNotificationFilterS3Key)
     ]
 
 instance FromJSON S3BucketNotificationFilter where

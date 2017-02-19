@@ -7,6 +7,7 @@ module Stratosphere.Resources.EC2SubnetRouteTableAssociation where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,9 +24,10 @@ data EC2SubnetRouteTableAssociation =
 
 instance ToJSON EC2SubnetRouteTableAssociation where
   toJSON EC2SubnetRouteTableAssociation{..} =
-    object
-    [ "RouteTableId" .= _eC2SubnetRouteTableAssociationRouteTableId
-    , "SubnetId" .= _eC2SubnetRouteTableAssociationSubnetId
+    object $
+    catMaybes
+    [ Just ("RouteTableId" .= _eC2SubnetRouteTableAssociationRouteTableId)
+    , Just ("SubnetId" .= _eC2SubnetRouteTableAssociationSubnetId)
     ]
 
 instance FromJSON EC2SubnetRouteTableAssociation where

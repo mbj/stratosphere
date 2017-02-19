@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.DynamoDBTableKeySchema where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,9 +24,10 @@ data DynamoDBTableKeySchema =
 
 instance ToJSON DynamoDBTableKeySchema where
   toJSON DynamoDBTableKeySchema{..} =
-    object
-    [ "AttributeName" .= _dynamoDBTableKeySchemaAttributeName
-    , "KeyType" .= _dynamoDBTableKeySchemaKeyType
+    object $
+    catMaybes
+    [ Just ("AttributeName" .= _dynamoDBTableKeySchemaAttributeName)
+    , Just ("KeyType" .= _dynamoDBTableKeySchemaKeyType)
     ]
 
 instance FromJSON DynamoDBTableKeySchema where

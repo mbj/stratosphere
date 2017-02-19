@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.CloudFrontDistributionOrigin where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -29,24 +30,25 @@ data CloudFrontDistributionOrigin =
 
 instance ToJSON CloudFrontDistributionOrigin where
   toJSON CloudFrontDistributionOrigin{..} =
-    object
-    [ "CustomOriginConfig" .= _cloudFrontDistributionOriginCustomOriginConfig
-    , "DomainName" .= _cloudFrontDistributionOriginDomainName
-    , "Id" .= _cloudFrontDistributionOriginId
-    , "OriginCustomHeaders" .= _cloudFrontDistributionOriginOriginCustomHeaders
-    , "OriginPath" .= _cloudFrontDistributionOriginOriginPath
-    , "S3OriginConfig" .= _cloudFrontDistributionOriginS3OriginConfig
+    object $
+    catMaybes
+    [ ("CustomOriginConfig" .=) <$> _cloudFrontDistributionOriginCustomOriginConfig
+    , Just ("DomainName" .= _cloudFrontDistributionOriginDomainName)
+    , Just ("Id" .= _cloudFrontDistributionOriginId)
+    , ("OriginCustomHeaders" .=) <$> _cloudFrontDistributionOriginOriginCustomHeaders
+    , ("OriginPath" .=) <$> _cloudFrontDistributionOriginOriginPath
+    , ("S3OriginConfig" .=) <$> _cloudFrontDistributionOriginS3OriginConfig
     ]
 
 instance FromJSON CloudFrontDistributionOrigin where
   parseJSON (Object obj) =
     CloudFrontDistributionOrigin <$>
-      obj .: "CustomOriginConfig" <*>
+      obj .:? "CustomOriginConfig" <*>
       obj .: "DomainName" <*>
       obj .: "Id" <*>
-      obj .: "OriginCustomHeaders" <*>
-      obj .: "OriginPath" <*>
-      obj .: "S3OriginConfig"
+      obj .:? "OriginCustomHeaders" <*>
+      obj .:? "OriginPath" <*>
+      obj .:? "S3OriginConfig"
   parseJSON _ = mempty
 
 -- | Constructor for 'CloudFrontDistributionOrigin' containing required fields

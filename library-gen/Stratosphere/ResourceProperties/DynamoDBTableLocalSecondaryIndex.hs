@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.DynamoDBTableLocalSecondaryIndex where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -25,10 +26,11 @@ data DynamoDBTableLocalSecondaryIndex =
 
 instance ToJSON DynamoDBTableLocalSecondaryIndex where
   toJSON DynamoDBTableLocalSecondaryIndex{..} =
-    object
-    [ "IndexName" .= _dynamoDBTableLocalSecondaryIndexIndexName
-    , "KeySchema" .= _dynamoDBTableLocalSecondaryIndexKeySchema
-    , "Projection" .= _dynamoDBTableLocalSecondaryIndexProjection
+    object $
+    catMaybes
+    [ Just ("IndexName" .= _dynamoDBTableLocalSecondaryIndexIndexName)
+    , Just ("KeySchema" .= _dynamoDBTableLocalSecondaryIndexKeySchema)
+    , Just ("Projection" .= _dynamoDBTableLocalSecondaryIndexProjection)
     ]
 
 instance FromJSON DynamoDBTableLocalSecondaryIndex where

@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.EC2InstanceVolume where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,9 +24,10 @@ data EC2InstanceVolume =
 
 instance ToJSON EC2InstanceVolume where
   toJSON EC2InstanceVolume{..} =
-    object
-    [ "Device" .= _eC2InstanceVolumeDevice
-    , "VolumeId" .= _eC2InstanceVolumeVolumeId
+    object $
+    catMaybes
+    [ Just ("Device" .= _eC2InstanceVolumeDevice)
+    , Just ("VolumeId" .= _eC2InstanceVolumeVolumeId)
     ]
 
 instance FromJSON EC2InstanceVolume where

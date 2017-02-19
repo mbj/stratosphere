@@ -7,6 +7,7 @@ module Stratosphere.Resources.OpsWorksApp where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -36,34 +37,35 @@ data OpsWorksApp =
 
 instance ToJSON OpsWorksApp where
   toJSON OpsWorksApp{..} =
-    object
-    [ "AppSource" .= _opsWorksAppAppSource
-    , "Attributes" .= _opsWorksAppAttributes
-    , "DataSources" .= _opsWorksAppDataSources
-    , "Description" .= _opsWorksAppDescription
-    , "Domains" .= _opsWorksAppDomains
-    , "EnableSsl" .= _opsWorksAppEnableSsl
-    , "Environment" .= _opsWorksAppEnvironment
-    , "Name" .= _opsWorksAppName
-    , "Shortname" .= _opsWorksAppShortname
-    , "SslConfiguration" .= _opsWorksAppSslConfiguration
-    , "StackId" .= _opsWorksAppStackId
-    , "Type" .= _opsWorksAppType
+    object $
+    catMaybes
+    [ ("AppSource" .=) <$> _opsWorksAppAppSource
+    , ("Attributes" .=) <$> _opsWorksAppAttributes
+    , ("DataSources" .=) <$> _opsWorksAppDataSources
+    , ("Description" .=) <$> _opsWorksAppDescription
+    , ("Domains" .=) <$> _opsWorksAppDomains
+    , ("EnableSsl" .=) <$> _opsWorksAppEnableSsl
+    , ("Environment" .=) <$> _opsWorksAppEnvironment
+    , Just ("Name" .= _opsWorksAppName)
+    , ("Shortname" .=) <$> _opsWorksAppShortname
+    , ("SslConfiguration" .=) <$> _opsWorksAppSslConfiguration
+    , Just ("StackId" .= _opsWorksAppStackId)
+    , Just ("Type" .= _opsWorksAppType)
     ]
 
 instance FromJSON OpsWorksApp where
   parseJSON (Object obj) =
     OpsWorksApp <$>
-      obj .: "AppSource" <*>
-      obj .: "Attributes" <*>
-      obj .: "DataSources" <*>
-      obj .: "Description" <*>
-      obj .: "Domains" <*>
-      obj .: "EnableSsl" <*>
-      obj .: "Environment" <*>
+      obj .:? "AppSource" <*>
+      obj .:? "Attributes" <*>
+      obj .:? "DataSources" <*>
+      obj .:? "Description" <*>
+      obj .:? "Domains" <*>
+      obj .:? "EnableSsl" <*>
+      obj .:? "Environment" <*>
       obj .: "Name" <*>
-      obj .: "Shortname" <*>
-      obj .: "SslConfiguration" <*>
+      obj .:? "Shortname" <*>
+      obj .:? "SslConfiguration" <*>
       obj .: "StackId" <*>
       obj .: "Type"
   parseJSON _ = mempty

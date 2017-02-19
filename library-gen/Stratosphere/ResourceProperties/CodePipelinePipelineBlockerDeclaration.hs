@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.CodePipelinePipelineBlockerDeclaration wh
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -24,9 +25,10 @@ data CodePipelinePipelineBlockerDeclaration =
 
 instance ToJSON CodePipelinePipelineBlockerDeclaration where
   toJSON CodePipelinePipelineBlockerDeclaration{..} =
-    object
-    [ "Name" .= _codePipelinePipelineBlockerDeclarationName
-    , "Type" .= _codePipelinePipelineBlockerDeclarationType
+    object $
+    catMaybes
+    [ Just ("Name" .= _codePipelinePipelineBlockerDeclarationName)
+    , Just ("Type" .= _codePipelinePipelineBlockerDeclarationType)
     ]
 
 instance FromJSON CodePipelinePipelineBlockerDeclaration where

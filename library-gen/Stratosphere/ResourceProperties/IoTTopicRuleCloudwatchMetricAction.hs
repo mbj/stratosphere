@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.IoTTopicRuleCloudwatchMetricAction where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -27,13 +28,14 @@ data IoTTopicRuleCloudwatchMetricAction =
 
 instance ToJSON IoTTopicRuleCloudwatchMetricAction where
   toJSON IoTTopicRuleCloudwatchMetricAction{..} =
-    object
-    [ "MetricName" .= _ioTTopicRuleCloudwatchMetricActionMetricName
-    , "MetricNamespace" .= _ioTTopicRuleCloudwatchMetricActionMetricNamespace
-    , "MetricTimestamp" .= _ioTTopicRuleCloudwatchMetricActionMetricTimestamp
-    , "MetricUnit" .= _ioTTopicRuleCloudwatchMetricActionMetricUnit
-    , "MetricValue" .= _ioTTopicRuleCloudwatchMetricActionMetricValue
-    , "RoleArn" .= _ioTTopicRuleCloudwatchMetricActionRoleArn
+    object $
+    catMaybes
+    [ Just ("MetricName" .= _ioTTopicRuleCloudwatchMetricActionMetricName)
+    , Just ("MetricNamespace" .= _ioTTopicRuleCloudwatchMetricActionMetricNamespace)
+    , ("MetricTimestamp" .=) <$> _ioTTopicRuleCloudwatchMetricActionMetricTimestamp
+    , Just ("MetricUnit" .= _ioTTopicRuleCloudwatchMetricActionMetricUnit)
+    , Just ("MetricValue" .= _ioTTopicRuleCloudwatchMetricActionMetricValue)
+    , Just ("RoleArn" .= _ioTTopicRuleCloudwatchMetricActionRoleArn)
     ]
 
 instance FromJSON IoTTopicRuleCloudwatchMetricAction where
@@ -41,7 +43,7 @@ instance FromJSON IoTTopicRuleCloudwatchMetricAction where
     IoTTopicRuleCloudwatchMetricAction <$>
       obj .: "MetricName" <*>
       obj .: "MetricNamespace" <*>
-      obj .: "MetricTimestamp" <*>
+      obj .:? "MetricTimestamp" <*>
       obj .: "MetricUnit" <*>
       obj .: "MetricValue" <*>
       obj .: "RoleArn"

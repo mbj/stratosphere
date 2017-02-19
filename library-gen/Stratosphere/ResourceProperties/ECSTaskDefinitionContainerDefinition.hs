@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.ECSTaskDefinitionContainerDefinition wher
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -53,64 +54,65 @@ data ECSTaskDefinitionContainerDefinition =
 
 instance ToJSON ECSTaskDefinitionContainerDefinition where
   toJSON ECSTaskDefinitionContainerDefinition{..} =
-    object
-    [ "Command" .= _eCSTaskDefinitionContainerDefinitionCommand
-    , "Cpu" .= _eCSTaskDefinitionContainerDefinitionCpu
-    , "DisableNetworking" .= _eCSTaskDefinitionContainerDefinitionDisableNetworking
-    , "DnsSearchDomains" .= _eCSTaskDefinitionContainerDefinitionDnsSearchDomains
-    , "DnsServers" .= _eCSTaskDefinitionContainerDefinitionDnsServers
-    , "DockerLabels" .= _eCSTaskDefinitionContainerDefinitionDockerLabels
-    , "DockerSecurityOptions" .= _eCSTaskDefinitionContainerDefinitionDockerSecurityOptions
-    , "EntryPoint" .= _eCSTaskDefinitionContainerDefinitionEntryPoint
-    , "Environment" .= _eCSTaskDefinitionContainerDefinitionEnvironment
-    , "Essential" .= _eCSTaskDefinitionContainerDefinitionEssential
-    , "ExtraHosts" .= _eCSTaskDefinitionContainerDefinitionExtraHosts
-    , "Hostname" .= _eCSTaskDefinitionContainerDefinitionHostname
-    , "Image" .= _eCSTaskDefinitionContainerDefinitionImage
-    , "Links" .= _eCSTaskDefinitionContainerDefinitionLinks
-    , "LogConfiguration" .= _eCSTaskDefinitionContainerDefinitionLogConfiguration
-    , "Memory" .= _eCSTaskDefinitionContainerDefinitionMemory
-    , "MemoryReservation" .= _eCSTaskDefinitionContainerDefinitionMemoryReservation
-    , "MountPoints" .= _eCSTaskDefinitionContainerDefinitionMountPoints
-    , "Name" .= _eCSTaskDefinitionContainerDefinitionName
-    , "PortMappings" .= _eCSTaskDefinitionContainerDefinitionPortMappings
-    , "Privileged" .= _eCSTaskDefinitionContainerDefinitionPrivileged
-    , "ReadonlyRootFilesystem" .= _eCSTaskDefinitionContainerDefinitionReadonlyRootFilesystem
-    , "Ulimits" .= _eCSTaskDefinitionContainerDefinitionUlimits
-    , "User" .= _eCSTaskDefinitionContainerDefinitionUser
-    , "VolumesFrom" .= _eCSTaskDefinitionContainerDefinitionVolumesFrom
-    , "WorkingDirectory" .= _eCSTaskDefinitionContainerDefinitionWorkingDirectory
+    object $
+    catMaybes
+    [ ("Command" .=) <$> _eCSTaskDefinitionContainerDefinitionCommand
+    , ("Cpu" .=) <$> _eCSTaskDefinitionContainerDefinitionCpu
+    , ("DisableNetworking" .=) <$> _eCSTaskDefinitionContainerDefinitionDisableNetworking
+    , ("DnsSearchDomains" .=) <$> _eCSTaskDefinitionContainerDefinitionDnsSearchDomains
+    , ("DnsServers" .=) <$> _eCSTaskDefinitionContainerDefinitionDnsServers
+    , ("DockerLabels" .=) <$> _eCSTaskDefinitionContainerDefinitionDockerLabels
+    , ("DockerSecurityOptions" .=) <$> _eCSTaskDefinitionContainerDefinitionDockerSecurityOptions
+    , ("EntryPoint" .=) <$> _eCSTaskDefinitionContainerDefinitionEntryPoint
+    , ("Environment" .=) <$> _eCSTaskDefinitionContainerDefinitionEnvironment
+    , ("Essential" .=) <$> _eCSTaskDefinitionContainerDefinitionEssential
+    , ("ExtraHosts" .=) <$> _eCSTaskDefinitionContainerDefinitionExtraHosts
+    , ("Hostname" .=) <$> _eCSTaskDefinitionContainerDefinitionHostname
+    , Just ("Image" .= _eCSTaskDefinitionContainerDefinitionImage)
+    , ("Links" .=) <$> _eCSTaskDefinitionContainerDefinitionLinks
+    , ("LogConfiguration" .=) <$> _eCSTaskDefinitionContainerDefinitionLogConfiguration
+    , ("Memory" .=) <$> _eCSTaskDefinitionContainerDefinitionMemory
+    , ("MemoryReservation" .=) <$> _eCSTaskDefinitionContainerDefinitionMemoryReservation
+    , ("MountPoints" .=) <$> _eCSTaskDefinitionContainerDefinitionMountPoints
+    , Just ("Name" .= _eCSTaskDefinitionContainerDefinitionName)
+    , ("PortMappings" .=) <$> _eCSTaskDefinitionContainerDefinitionPortMappings
+    , ("Privileged" .=) <$> _eCSTaskDefinitionContainerDefinitionPrivileged
+    , ("ReadonlyRootFilesystem" .=) <$> _eCSTaskDefinitionContainerDefinitionReadonlyRootFilesystem
+    , ("Ulimits" .=) <$> _eCSTaskDefinitionContainerDefinitionUlimits
+    , ("User" .=) <$> _eCSTaskDefinitionContainerDefinitionUser
+    , ("VolumesFrom" .=) <$> _eCSTaskDefinitionContainerDefinitionVolumesFrom
+    , ("WorkingDirectory" .=) <$> _eCSTaskDefinitionContainerDefinitionWorkingDirectory
     ]
 
 instance FromJSON ECSTaskDefinitionContainerDefinition where
   parseJSON (Object obj) =
     ECSTaskDefinitionContainerDefinition <$>
-      obj .: "Command" <*>
-      obj .: "Cpu" <*>
-      obj .: "DisableNetworking" <*>
-      obj .: "DnsSearchDomains" <*>
-      obj .: "DnsServers" <*>
-      obj .: "DockerLabels" <*>
-      obj .: "DockerSecurityOptions" <*>
-      obj .: "EntryPoint" <*>
-      obj .: "Environment" <*>
-      obj .: "Essential" <*>
-      obj .: "ExtraHosts" <*>
-      obj .: "Hostname" <*>
+      obj .:? "Command" <*>
+      obj .:? "Cpu" <*>
+      obj .:? "DisableNetworking" <*>
+      obj .:? "DnsSearchDomains" <*>
+      obj .:? "DnsServers" <*>
+      obj .:? "DockerLabels" <*>
+      obj .:? "DockerSecurityOptions" <*>
+      obj .:? "EntryPoint" <*>
+      obj .:? "Environment" <*>
+      obj .:? "Essential" <*>
+      obj .:? "ExtraHosts" <*>
+      obj .:? "Hostname" <*>
       obj .: "Image" <*>
-      obj .: "Links" <*>
-      obj .: "LogConfiguration" <*>
-      obj .: "Memory" <*>
-      obj .: "MemoryReservation" <*>
-      obj .: "MountPoints" <*>
+      obj .:? "Links" <*>
+      obj .:? "LogConfiguration" <*>
+      obj .:? "Memory" <*>
+      obj .:? "MemoryReservation" <*>
+      obj .:? "MountPoints" <*>
       obj .: "Name" <*>
-      obj .: "PortMappings" <*>
-      obj .: "Privileged" <*>
-      obj .: "ReadonlyRootFilesystem" <*>
-      obj .: "Ulimits" <*>
-      obj .: "User" <*>
-      obj .: "VolumesFrom" <*>
-      obj .: "WorkingDirectory"
+      obj .:? "PortMappings" <*>
+      obj .:? "Privileged" <*>
+      obj .:? "ReadonlyRootFilesystem" <*>
+      obj .:? "Ulimits" <*>
+      obj .:? "User" <*>
+      obj .:? "VolumesFrom" <*>
+      obj .:? "WorkingDirectory"
   parseJSON _ = mempty
 
 -- | Constructor for 'ECSTaskDefinitionContainerDefinition' containing

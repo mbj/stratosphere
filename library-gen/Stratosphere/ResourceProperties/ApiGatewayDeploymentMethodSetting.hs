@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.ApiGatewayDeploymentMethodSetting where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -31,32 +32,33 @@ data ApiGatewayDeploymentMethodSetting =
 
 instance ToJSON ApiGatewayDeploymentMethodSetting where
   toJSON ApiGatewayDeploymentMethodSetting{..} =
-    object
-    [ "CacheDataEncrypted" .= _apiGatewayDeploymentMethodSettingCacheDataEncrypted
-    , "CacheTtlInSeconds" .= _apiGatewayDeploymentMethodSettingCacheTtlInSeconds
-    , "CachingEnabled" .= _apiGatewayDeploymentMethodSettingCachingEnabled
-    , "DataTraceEnabled" .= _apiGatewayDeploymentMethodSettingDataTraceEnabled
-    , "HttpMethod" .= _apiGatewayDeploymentMethodSettingHttpMethod
-    , "LoggingLevel" .= _apiGatewayDeploymentMethodSettingLoggingLevel
-    , "MetricsEnabled" .= _apiGatewayDeploymentMethodSettingMetricsEnabled
-    , "ResourcePath" .= _apiGatewayDeploymentMethodSettingResourcePath
-    , "ThrottlingBurstLimit" .= _apiGatewayDeploymentMethodSettingThrottlingBurstLimit
-    , "ThrottlingRateLimit" .= _apiGatewayDeploymentMethodSettingThrottlingRateLimit
+    object $
+    catMaybes
+    [ ("CacheDataEncrypted" .=) <$> _apiGatewayDeploymentMethodSettingCacheDataEncrypted
+    , ("CacheTtlInSeconds" .=) <$> _apiGatewayDeploymentMethodSettingCacheTtlInSeconds
+    , ("CachingEnabled" .=) <$> _apiGatewayDeploymentMethodSettingCachingEnabled
+    , ("DataTraceEnabled" .=) <$> _apiGatewayDeploymentMethodSettingDataTraceEnabled
+    , ("HttpMethod" .=) <$> _apiGatewayDeploymentMethodSettingHttpMethod
+    , ("LoggingLevel" .=) <$> _apiGatewayDeploymentMethodSettingLoggingLevel
+    , ("MetricsEnabled" .=) <$> _apiGatewayDeploymentMethodSettingMetricsEnabled
+    , ("ResourcePath" .=) <$> _apiGatewayDeploymentMethodSettingResourcePath
+    , ("ThrottlingBurstLimit" .=) <$> _apiGatewayDeploymentMethodSettingThrottlingBurstLimit
+    , ("ThrottlingRateLimit" .=) <$> _apiGatewayDeploymentMethodSettingThrottlingRateLimit
     ]
 
 instance FromJSON ApiGatewayDeploymentMethodSetting where
   parseJSON (Object obj) =
     ApiGatewayDeploymentMethodSetting <$>
-      obj .: "CacheDataEncrypted" <*>
-      obj .: "CacheTtlInSeconds" <*>
-      obj .: "CachingEnabled" <*>
-      obj .: "DataTraceEnabled" <*>
-      obj .: "HttpMethod" <*>
-      obj .: "LoggingLevel" <*>
-      obj .: "MetricsEnabled" <*>
-      obj .: "ResourcePath" <*>
-      obj .: "ThrottlingBurstLimit" <*>
-      obj .: "ThrottlingRateLimit"
+      obj .:? "CacheDataEncrypted" <*>
+      obj .:? "CacheTtlInSeconds" <*>
+      obj .:? "CachingEnabled" <*>
+      obj .:? "DataTraceEnabled" <*>
+      obj .:? "HttpMethod" <*>
+      obj .:? "LoggingLevel" <*>
+      obj .:? "MetricsEnabled" <*>
+      obj .:? "ResourcePath" <*>
+      obj .:? "ThrottlingBurstLimit" <*>
+      obj .:? "ThrottlingRateLimit"
   parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayDeploymentMethodSetting' containing required

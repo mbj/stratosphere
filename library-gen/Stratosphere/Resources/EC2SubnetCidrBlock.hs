@@ -7,6 +7,7 @@ module Stratosphere.Resources.EC2SubnetCidrBlock where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,9 +24,10 @@ data EC2SubnetCidrBlock =
 
 instance ToJSON EC2SubnetCidrBlock where
   toJSON EC2SubnetCidrBlock{..} =
-    object
-    [ "Ipv6CidrBlock" .= _eC2SubnetCidrBlockIpv6CidrBlock
-    , "SubnetId" .= _eC2SubnetCidrBlockSubnetId
+    object $
+    catMaybes
+    [ Just ("Ipv6CidrBlock" .= _eC2SubnetCidrBlockIpv6CidrBlock)
+    , Just ("SubnetId" .= _eC2SubnetCidrBlockSubnetId)
     ]
 
 instance FromJSON EC2SubnetCidrBlock where

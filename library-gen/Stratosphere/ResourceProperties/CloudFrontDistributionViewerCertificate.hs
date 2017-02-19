@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.CloudFrontDistributionViewerCertificate w
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -27,22 +28,23 @@ data CloudFrontDistributionViewerCertificate =
 
 instance ToJSON CloudFrontDistributionViewerCertificate where
   toJSON CloudFrontDistributionViewerCertificate{..} =
-    object
-    [ "AcmCertificateArn" .= _cloudFrontDistributionViewerCertificateAcmCertificateArn
-    , "CloudFrontDefaultCertificate" .= _cloudFrontDistributionViewerCertificateCloudFrontDefaultCertificate
-    , "IamCertificateId" .= _cloudFrontDistributionViewerCertificateIamCertificateId
-    , "MinimumProtocolVersion" .= _cloudFrontDistributionViewerCertificateMinimumProtocolVersion
-    , "SslSupportMethod" .= _cloudFrontDistributionViewerCertificateSslSupportMethod
+    object $
+    catMaybes
+    [ ("AcmCertificateArn" .=) <$> _cloudFrontDistributionViewerCertificateAcmCertificateArn
+    , ("CloudFrontDefaultCertificate" .=) <$> _cloudFrontDistributionViewerCertificateCloudFrontDefaultCertificate
+    , ("IamCertificateId" .=) <$> _cloudFrontDistributionViewerCertificateIamCertificateId
+    , ("MinimumProtocolVersion" .=) <$> _cloudFrontDistributionViewerCertificateMinimumProtocolVersion
+    , ("SslSupportMethod" .=) <$> _cloudFrontDistributionViewerCertificateSslSupportMethod
     ]
 
 instance FromJSON CloudFrontDistributionViewerCertificate where
   parseJSON (Object obj) =
     CloudFrontDistributionViewerCertificate <$>
-      obj .: "AcmCertificateArn" <*>
-      obj .: "CloudFrontDefaultCertificate" <*>
-      obj .: "IamCertificateId" <*>
-      obj .: "MinimumProtocolVersion" <*>
-      obj .: "SslSupportMethod"
+      obj .:? "AcmCertificateArn" <*>
+      obj .:? "CloudFrontDefaultCertificate" <*>
+      obj .:? "IamCertificateId" <*>
+      obj .:? "MinimumProtocolVersion" <*>
+      obj .:? "SslSupportMethod"
   parseJSON _ = mempty
 
 -- | Constructor for 'CloudFrontDistributionViewerCertificate' containing

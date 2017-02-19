@@ -7,6 +7,7 @@ module Stratosphere.Resources.EC2Host where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -24,16 +25,17 @@ data EC2Host =
 
 instance ToJSON EC2Host where
   toJSON EC2Host{..} =
-    object
-    [ "AutoPlacement" .= _eC2HostAutoPlacement
-    , "AvailabilityZone" .= _eC2HostAvailabilityZone
-    , "InstanceType" .= _eC2HostInstanceType
+    object $
+    catMaybes
+    [ ("AutoPlacement" .=) <$> _eC2HostAutoPlacement
+    , Just ("AvailabilityZone" .= _eC2HostAvailabilityZone)
+    , Just ("InstanceType" .= _eC2HostInstanceType)
     ]
 
 instance FromJSON EC2Host where
   parseJSON (Object obj) =
     EC2Host <$>
-      obj .: "AutoPlacement" <*>
+      obj .:? "AutoPlacement" <*>
       obj .: "AvailabilityZone" <*>
       obj .: "InstanceType"
   parseJSON _ = mempty

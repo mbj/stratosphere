@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.EC2SpotFleetMonitoring where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -22,14 +23,15 @@ data EC2SpotFleetMonitoring =
 
 instance ToJSON EC2SpotFleetMonitoring where
   toJSON EC2SpotFleetMonitoring{..} =
-    object
-    [ "Enabled" .= _eC2SpotFleetMonitoringEnabled
+    object $
+    catMaybes
+    [ ("Enabled" .=) <$> _eC2SpotFleetMonitoringEnabled
     ]
 
 instance FromJSON EC2SpotFleetMonitoring where
   parseJSON (Object obj) =
     EC2SpotFleetMonitoring <$>
-      obj .: "Enabled"
+      obj .:? "Enabled"
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2SpotFleetMonitoring' containing required fields as

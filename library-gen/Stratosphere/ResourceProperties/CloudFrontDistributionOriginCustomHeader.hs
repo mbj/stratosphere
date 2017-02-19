@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.CloudFrontDistributionOriginCustomHeader 
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -24,9 +25,10 @@ data CloudFrontDistributionOriginCustomHeader =
 
 instance ToJSON CloudFrontDistributionOriginCustomHeader where
   toJSON CloudFrontDistributionOriginCustomHeader{..} =
-    object
-    [ "HeaderName" .= _cloudFrontDistributionOriginCustomHeaderHeaderName
-    , "HeaderValue" .= _cloudFrontDistributionOriginCustomHeaderHeaderValue
+    object $
+    catMaybes
+    [ Just ("HeaderName" .= _cloudFrontDistributionOriginCustomHeaderHeaderName)
+    , Just ("HeaderValue" .= _cloudFrontDistributionOriginCustomHeaderHeaderValue)
     ]
 
 instance FromJSON CloudFrontDistributionOriginCustomHeader where

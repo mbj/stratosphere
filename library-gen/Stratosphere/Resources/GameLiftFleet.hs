@@ -7,6 +7,7 @@ module Stratosphere.Resources.GameLiftFleet where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -32,33 +33,34 @@ data GameLiftFleet =
 
 instance ToJSON GameLiftFleet where
   toJSON GameLiftFleet{..} =
-    object
-    [ "BuildId" .= _gameLiftFleetBuildId
-    , "Description" .= _gameLiftFleetDescription
-    , "DesiredEC2Instances" .= _gameLiftFleetDesiredEC2Instances
-    , "EC2InboundPermissions" .= _gameLiftFleetEC2InboundPermissions
-    , "EC2InstanceType" .= _gameLiftFleetEC2InstanceType
-    , "LogPaths" .= _gameLiftFleetLogPaths
-    , "MaxSize" .= _gameLiftFleetMaxSize
-    , "MinSize" .= _gameLiftFleetMinSize
-    , "Name" .= _gameLiftFleetName
-    , "ServerLaunchParameters" .= _gameLiftFleetServerLaunchParameters
-    , "ServerLaunchPath" .= _gameLiftFleetServerLaunchPath
+    object $
+    catMaybes
+    [ Just ("BuildId" .= _gameLiftFleetBuildId)
+    , ("Description" .=) <$> _gameLiftFleetDescription
+    , Just ("DesiredEC2Instances" .= _gameLiftFleetDesiredEC2Instances)
+    , ("EC2InboundPermissions" .=) <$> _gameLiftFleetEC2InboundPermissions
+    , Just ("EC2InstanceType" .= _gameLiftFleetEC2InstanceType)
+    , ("LogPaths" .=) <$> _gameLiftFleetLogPaths
+    , ("MaxSize" .=) <$> _gameLiftFleetMaxSize
+    , ("MinSize" .=) <$> _gameLiftFleetMinSize
+    , Just ("Name" .= _gameLiftFleetName)
+    , ("ServerLaunchParameters" .=) <$> _gameLiftFleetServerLaunchParameters
+    , Just ("ServerLaunchPath" .= _gameLiftFleetServerLaunchPath)
     ]
 
 instance FromJSON GameLiftFleet where
   parseJSON (Object obj) =
     GameLiftFleet <$>
       obj .: "BuildId" <*>
-      obj .: "Description" <*>
+      obj .:? "Description" <*>
       obj .: "DesiredEC2Instances" <*>
-      obj .: "EC2InboundPermissions" <*>
+      obj .:? "EC2InboundPermissions" <*>
       obj .: "EC2InstanceType" <*>
-      obj .: "LogPaths" <*>
-      obj .: "MaxSize" <*>
-      obj .: "MinSize" <*>
+      obj .:? "LogPaths" <*>
+      obj .:? "MaxSize" <*>
+      obj .:? "MinSize" <*>
       obj .: "Name" <*>
-      obj .: "ServerLaunchParameters" <*>
+      obj .:? "ServerLaunchParameters" <*>
       obj .: "ServerLaunchPath"
   parseJSON _ = mempty
 

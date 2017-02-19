@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.Route53RecordSetGroupGeoLocation where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -24,18 +25,19 @@ data Route53RecordSetGroupGeoLocation =
 
 instance ToJSON Route53RecordSetGroupGeoLocation where
   toJSON Route53RecordSetGroupGeoLocation{..} =
-    object
-    [ "ContinentCode" .= _route53RecordSetGroupGeoLocationContinentCode
-    , "CountryCode" .= _route53RecordSetGroupGeoLocationCountryCode
-    , "SubdivisionCode" .= _route53RecordSetGroupGeoLocationSubdivisionCode
+    object $
+    catMaybes
+    [ ("ContinentCode" .=) <$> _route53RecordSetGroupGeoLocationContinentCode
+    , ("CountryCode" .=) <$> _route53RecordSetGroupGeoLocationCountryCode
+    , ("SubdivisionCode" .=) <$> _route53RecordSetGroupGeoLocationSubdivisionCode
     ]
 
 instance FromJSON Route53RecordSetGroupGeoLocation where
   parseJSON (Object obj) =
     Route53RecordSetGroupGeoLocation <$>
-      obj .: "ContinentCode" <*>
-      obj .: "CountryCode" <*>
-      obj .: "SubdivisionCode"
+      obj .:? "ContinentCode" <*>
+      obj .:? "CountryCode" <*>
+      obj .:? "SubdivisionCode"
   parseJSON _ = mempty
 
 -- | Constructor for 'Route53RecordSetGroupGeoLocation' containing required

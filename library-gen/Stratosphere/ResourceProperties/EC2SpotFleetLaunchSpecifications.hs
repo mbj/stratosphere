@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.EC2SpotFleetLaunchSpecifications where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -42,44 +43,45 @@ data EC2SpotFleetLaunchSpecifications =
 
 instance ToJSON EC2SpotFleetLaunchSpecifications where
   toJSON EC2SpotFleetLaunchSpecifications{..} =
-    object
-    [ "BlockDeviceMappings" .= _eC2SpotFleetLaunchSpecificationsBlockDeviceMappings
-    , "EbsOptimized" .= _eC2SpotFleetLaunchSpecificationsEbsOptimized
-    , "IamInstanceProfile" .= _eC2SpotFleetLaunchSpecificationsIamInstanceProfile
-    , "ImageId" .= _eC2SpotFleetLaunchSpecificationsImageId
-    , "InstanceType" .= _eC2SpotFleetLaunchSpecificationsInstanceType
-    , "KernelId" .= _eC2SpotFleetLaunchSpecificationsKernelId
-    , "KeyName" .= _eC2SpotFleetLaunchSpecificationsKeyName
-    , "Monitoring" .= _eC2SpotFleetLaunchSpecificationsMonitoring
-    , "NetworkInterfaces" .= _eC2SpotFleetLaunchSpecificationsNetworkInterfaces
-    , "Placement" .= _eC2SpotFleetLaunchSpecificationsPlacement
-    , "RamdiskId" .= _eC2SpotFleetLaunchSpecificationsRamdiskId
-    , "SecurityGroups" .= _eC2SpotFleetLaunchSpecificationsSecurityGroups
-    , "SpotPrice" .= _eC2SpotFleetLaunchSpecificationsSpotPrice
-    , "SubnetId" .= _eC2SpotFleetLaunchSpecificationsSubnetId
-    , "UserData" .= _eC2SpotFleetLaunchSpecificationsUserData
-    , "WeightedCapacity" .= _eC2SpotFleetLaunchSpecificationsWeightedCapacity
+    object $
+    catMaybes
+    [ ("BlockDeviceMappings" .=) <$> _eC2SpotFleetLaunchSpecificationsBlockDeviceMappings
+    , ("EbsOptimized" .=) <$> _eC2SpotFleetLaunchSpecificationsEbsOptimized
+    , ("IamInstanceProfile" .=) <$> _eC2SpotFleetLaunchSpecificationsIamInstanceProfile
+    , Just ("ImageId" .= _eC2SpotFleetLaunchSpecificationsImageId)
+    , Just ("InstanceType" .= _eC2SpotFleetLaunchSpecificationsInstanceType)
+    , ("KernelId" .=) <$> _eC2SpotFleetLaunchSpecificationsKernelId
+    , ("KeyName" .=) <$> _eC2SpotFleetLaunchSpecificationsKeyName
+    , ("Monitoring" .=) <$> _eC2SpotFleetLaunchSpecificationsMonitoring
+    , ("NetworkInterfaces" .=) <$> _eC2SpotFleetLaunchSpecificationsNetworkInterfaces
+    , ("Placement" .=) <$> _eC2SpotFleetLaunchSpecificationsPlacement
+    , ("RamdiskId" .=) <$> _eC2SpotFleetLaunchSpecificationsRamdiskId
+    , ("SecurityGroups" .=) <$> _eC2SpotFleetLaunchSpecificationsSecurityGroups
+    , ("SpotPrice" .=) <$> _eC2SpotFleetLaunchSpecificationsSpotPrice
+    , ("SubnetId" .=) <$> _eC2SpotFleetLaunchSpecificationsSubnetId
+    , ("UserData" .=) <$> _eC2SpotFleetLaunchSpecificationsUserData
+    , ("WeightedCapacity" .=) <$> _eC2SpotFleetLaunchSpecificationsWeightedCapacity
     ]
 
 instance FromJSON EC2SpotFleetLaunchSpecifications where
   parseJSON (Object obj) =
     EC2SpotFleetLaunchSpecifications <$>
-      obj .: "BlockDeviceMappings" <*>
-      obj .: "EbsOptimized" <*>
-      obj .: "IamInstanceProfile" <*>
+      obj .:? "BlockDeviceMappings" <*>
+      obj .:? "EbsOptimized" <*>
+      obj .:? "IamInstanceProfile" <*>
       obj .: "ImageId" <*>
       obj .: "InstanceType" <*>
-      obj .: "KernelId" <*>
-      obj .: "KeyName" <*>
-      obj .: "Monitoring" <*>
-      obj .: "NetworkInterfaces" <*>
-      obj .: "Placement" <*>
-      obj .: "RamdiskId" <*>
-      obj .: "SecurityGroups" <*>
-      obj .: "SpotPrice" <*>
-      obj .: "SubnetId" <*>
-      obj .: "UserData" <*>
-      obj .: "WeightedCapacity"
+      obj .:? "KernelId" <*>
+      obj .:? "KeyName" <*>
+      obj .:? "Monitoring" <*>
+      obj .:? "NetworkInterfaces" <*>
+      obj .:? "Placement" <*>
+      obj .:? "RamdiskId" <*>
+      obj .:? "SecurityGroups" <*>
+      obj .:? "SpotPrice" <*>
+      obj .:? "SubnetId" <*>
+      obj .:? "UserData" <*>
+      obj .:? "WeightedCapacity"
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2SpotFleetLaunchSpecifications' containing required

@@ -7,6 +7,7 @@ module Stratosphere.Resources.KMSAlias where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,9 +24,10 @@ data KMSAlias =
 
 instance ToJSON KMSAlias where
   toJSON KMSAlias{..} =
-    object
-    [ "AliasName" .= _kMSAliasAliasName
-    , "TargetKeyId" .= _kMSAliasTargetKeyId
+    object $
+    catMaybes
+    [ Just ("AliasName" .= _kMSAliasAliasName)
+    , Just ("TargetKeyId" .= _kMSAliasTargetKeyId)
     ]
 
 instance FromJSON KMSAlias where

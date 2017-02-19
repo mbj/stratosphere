@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.S3BucketLoggingConfiguration where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,16 +24,17 @@ data S3BucketLoggingConfiguration =
 
 instance ToJSON S3BucketLoggingConfiguration where
   toJSON S3BucketLoggingConfiguration{..} =
-    object
-    [ "DestinationBucketName" .= _s3BucketLoggingConfigurationDestinationBucketName
-    , "LogFilePrefix" .= _s3BucketLoggingConfigurationLogFilePrefix
+    object $
+    catMaybes
+    [ ("DestinationBucketName" .=) <$> _s3BucketLoggingConfigurationDestinationBucketName
+    , ("LogFilePrefix" .=) <$> _s3BucketLoggingConfigurationLogFilePrefix
     ]
 
 instance FromJSON S3BucketLoggingConfiguration where
   parseJSON (Object obj) =
     S3BucketLoggingConfiguration <$>
-      obj .: "DestinationBucketName" <*>
-      obj .: "LogFilePrefix"
+      obj .:? "DestinationBucketName" <*>
+      obj .:? "LogFilePrefix"
   parseJSON _ = mempty
 
 -- | Constructor for 'S3BucketLoggingConfiguration' containing required fields

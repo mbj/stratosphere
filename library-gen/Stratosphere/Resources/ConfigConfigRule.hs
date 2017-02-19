@@ -7,6 +7,7 @@ module Stratosphere.Resources.ConfigConfigRule where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -28,23 +29,24 @@ data ConfigConfigRule =
 
 instance ToJSON ConfigConfigRule where
   toJSON ConfigConfigRule{..} =
-    object
-    [ "ConfigRuleName" .= _configConfigRuleConfigRuleName
-    , "Description" .= _configConfigRuleDescription
-    , "InputParameters" .= _configConfigRuleInputParameters
-    , "MaximumExecutionFrequency" .= _configConfigRuleMaximumExecutionFrequency
-    , "Scope" .= _configConfigRuleScope
-    , "Source" .= _configConfigRuleSource
+    object $
+    catMaybes
+    [ ("ConfigRuleName" .=) <$> _configConfigRuleConfigRuleName
+    , ("Description" .=) <$> _configConfigRuleDescription
+    , ("InputParameters" .=) <$> _configConfigRuleInputParameters
+    , ("MaximumExecutionFrequency" .=) <$> _configConfigRuleMaximumExecutionFrequency
+    , ("Scope" .=) <$> _configConfigRuleScope
+    , Just ("Source" .= _configConfigRuleSource)
     ]
 
 instance FromJSON ConfigConfigRule where
   parseJSON (Object obj) =
     ConfigConfigRule <$>
-      obj .: "ConfigRuleName" <*>
-      obj .: "Description" <*>
-      obj .: "InputParameters" <*>
-      obj .: "MaximumExecutionFrequency" <*>
-      obj .: "Scope" <*>
+      obj .:? "ConfigRuleName" <*>
+      obj .:? "Description" <*>
+      obj .:? "InputParameters" <*>
+      obj .:? "MaximumExecutionFrequency" <*>
+      obj .:? "Scope" <*>
       obj .: "Source"
   parseJSON _ = mempty
 

@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.ElasticLoadBalancingLoadBalancerHealthChe
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -28,12 +29,13 @@ data ElasticLoadBalancingLoadBalancerHealthCheck =
 
 instance ToJSON ElasticLoadBalancingLoadBalancerHealthCheck where
   toJSON ElasticLoadBalancingLoadBalancerHealthCheck{..} =
-    object
-    [ "HealthyThreshold" .= _elasticLoadBalancingLoadBalancerHealthCheckHealthyThreshold
-    , "Interval" .= _elasticLoadBalancingLoadBalancerHealthCheckInterval
-    , "Target" .= _elasticLoadBalancingLoadBalancerHealthCheckTarget
-    , "Timeout" .= _elasticLoadBalancingLoadBalancerHealthCheckTimeout
-    , "UnhealthyThreshold" .= _elasticLoadBalancingLoadBalancerHealthCheckUnhealthyThreshold
+    object $
+    catMaybes
+    [ Just ("HealthyThreshold" .= _elasticLoadBalancingLoadBalancerHealthCheckHealthyThreshold)
+    , Just ("Interval" .= _elasticLoadBalancingLoadBalancerHealthCheckInterval)
+    , Just ("Target" .= _elasticLoadBalancingLoadBalancerHealthCheckTarget)
+    , Just ("Timeout" .= _elasticLoadBalancingLoadBalancerHealthCheckTimeout)
+    , Just ("UnhealthyThreshold" .= _elasticLoadBalancingLoadBalancerHealthCheckUnhealthyThreshold)
     ]
 
 instance FromJSON ElasticLoadBalancingLoadBalancerHealthCheck where

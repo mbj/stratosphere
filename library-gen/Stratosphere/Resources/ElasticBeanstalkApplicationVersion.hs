@@ -7,6 +7,7 @@ module Stratosphere.Resources.ElasticBeanstalkApplicationVersion where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -24,17 +25,18 @@ data ElasticBeanstalkApplicationVersion =
 
 instance ToJSON ElasticBeanstalkApplicationVersion where
   toJSON ElasticBeanstalkApplicationVersion{..} =
-    object
-    [ "ApplicationName" .= _elasticBeanstalkApplicationVersionApplicationName
-    , "Description" .= _elasticBeanstalkApplicationVersionDescription
-    , "SourceBundle" .= _elasticBeanstalkApplicationVersionSourceBundle
+    object $
+    catMaybes
+    [ Just ("ApplicationName" .= _elasticBeanstalkApplicationVersionApplicationName)
+    , ("Description" .=) <$> _elasticBeanstalkApplicationVersionDescription
+    , Just ("SourceBundle" .= _elasticBeanstalkApplicationVersionSourceBundle)
     ]
 
 instance FromJSON ElasticBeanstalkApplicationVersion where
   parseJSON (Object obj) =
     ElasticBeanstalkApplicationVersion <$>
       obj .: "ApplicationName" <*>
-      obj .: "Description" <*>
+      obj .:? "Description" <*>
       obj .: "SourceBundle"
   parseJSON _ = mempty
 

@@ -7,6 +7,7 @@ module Stratosphere.Resources.GameLiftAlias where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -24,16 +25,17 @@ data GameLiftAlias =
 
 instance ToJSON GameLiftAlias where
   toJSON GameLiftAlias{..} =
-    object
-    [ "Description" .= _gameLiftAliasDescription
-    , "Name" .= _gameLiftAliasName
-    , "RoutingStrategy" .= _gameLiftAliasRoutingStrategy
+    object $
+    catMaybes
+    [ ("Description" .=) <$> _gameLiftAliasDescription
+    , Just ("Name" .= _gameLiftAliasName)
+    , Just ("RoutingStrategy" .= _gameLiftAliasRoutingStrategy)
     ]
 
 instance FromJSON GameLiftAlias where
   parseJSON (Object obj) =
     GameLiftAlias <$>
-      obj .: "Description" <*>
+      obj .:? "Description" <*>
       obj .: "Name" <*>
       obj .: "RoutingStrategy"
   parseJSON _ = mempty

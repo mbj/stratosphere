@@ -7,6 +7,7 @@ module Stratosphere.Resources.OpsWorksInstance where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -43,54 +44,55 @@ data OpsWorksInstance =
 
 instance ToJSON OpsWorksInstance where
   toJSON OpsWorksInstance{..} =
-    object
-    [ "AgentVersion" .= _opsWorksInstanceAgentVersion
-    , "AmiId" .= _opsWorksInstanceAmiId
-    , "Architecture" .= _opsWorksInstanceArchitecture
-    , "AutoScalingType" .= _opsWorksInstanceAutoScalingType
-    , "AvailabilityZone" .= _opsWorksInstanceAvailabilityZone
-    , "BlockDeviceMappings" .= _opsWorksInstanceBlockDeviceMappings
-    , "EbsOptimized" .= _opsWorksInstanceEbsOptimized
-    , "ElasticIps" .= _opsWorksInstanceElasticIps
-    , "Hostname" .= _opsWorksInstanceHostname
-    , "InstallUpdatesOnBoot" .= _opsWorksInstanceInstallUpdatesOnBoot
-    , "InstanceType" .= _opsWorksInstanceInstanceType
-    , "LayerIds" .= _opsWorksInstanceLayerIds
-    , "Os" .= _opsWorksInstanceOs
-    , "RootDeviceType" .= _opsWorksInstanceRootDeviceType
-    , "SshKeyName" .= _opsWorksInstanceSshKeyName
-    , "StackId" .= _opsWorksInstanceStackId
-    , "SubnetId" .= _opsWorksInstanceSubnetId
-    , "Tenancy" .= _opsWorksInstanceTenancy
-    , "TimeBasedAutoScaling" .= _opsWorksInstanceTimeBasedAutoScaling
-    , "VirtualizationType" .= _opsWorksInstanceVirtualizationType
-    , "Volumes" .= _opsWorksInstanceVolumes
+    object $
+    catMaybes
+    [ ("AgentVersion" .=) <$> _opsWorksInstanceAgentVersion
+    , ("AmiId" .=) <$> _opsWorksInstanceAmiId
+    , ("Architecture" .=) <$> _opsWorksInstanceArchitecture
+    , ("AutoScalingType" .=) <$> _opsWorksInstanceAutoScalingType
+    , ("AvailabilityZone" .=) <$> _opsWorksInstanceAvailabilityZone
+    , ("BlockDeviceMappings" .=) <$> _opsWorksInstanceBlockDeviceMappings
+    , ("EbsOptimized" .=) <$> _opsWorksInstanceEbsOptimized
+    , ("ElasticIps" .=) <$> _opsWorksInstanceElasticIps
+    , ("Hostname" .=) <$> _opsWorksInstanceHostname
+    , ("InstallUpdatesOnBoot" .=) <$> _opsWorksInstanceInstallUpdatesOnBoot
+    , Just ("InstanceType" .= _opsWorksInstanceInstanceType)
+    , Just ("LayerIds" .= _opsWorksInstanceLayerIds)
+    , ("Os" .=) <$> _opsWorksInstanceOs
+    , ("RootDeviceType" .=) <$> _opsWorksInstanceRootDeviceType
+    , ("SshKeyName" .=) <$> _opsWorksInstanceSshKeyName
+    , Just ("StackId" .= _opsWorksInstanceStackId)
+    , ("SubnetId" .=) <$> _opsWorksInstanceSubnetId
+    , ("Tenancy" .=) <$> _opsWorksInstanceTenancy
+    , ("TimeBasedAutoScaling" .=) <$> _opsWorksInstanceTimeBasedAutoScaling
+    , ("VirtualizationType" .=) <$> _opsWorksInstanceVirtualizationType
+    , ("Volumes" .=) <$> _opsWorksInstanceVolumes
     ]
 
 instance FromJSON OpsWorksInstance where
   parseJSON (Object obj) =
     OpsWorksInstance <$>
-      obj .: "AgentVersion" <*>
-      obj .: "AmiId" <*>
-      obj .: "Architecture" <*>
-      obj .: "AutoScalingType" <*>
-      obj .: "AvailabilityZone" <*>
-      obj .: "BlockDeviceMappings" <*>
-      obj .: "EbsOptimized" <*>
-      obj .: "ElasticIps" <*>
-      obj .: "Hostname" <*>
-      obj .: "InstallUpdatesOnBoot" <*>
+      obj .:? "AgentVersion" <*>
+      obj .:? "AmiId" <*>
+      obj .:? "Architecture" <*>
+      obj .:? "AutoScalingType" <*>
+      obj .:? "AvailabilityZone" <*>
+      obj .:? "BlockDeviceMappings" <*>
+      obj .:? "EbsOptimized" <*>
+      obj .:? "ElasticIps" <*>
+      obj .:? "Hostname" <*>
+      obj .:? "InstallUpdatesOnBoot" <*>
       obj .: "InstanceType" <*>
       obj .: "LayerIds" <*>
-      obj .: "Os" <*>
-      obj .: "RootDeviceType" <*>
-      obj .: "SshKeyName" <*>
+      obj .:? "Os" <*>
+      obj .:? "RootDeviceType" <*>
+      obj .:? "SshKeyName" <*>
       obj .: "StackId" <*>
-      obj .: "SubnetId" <*>
-      obj .: "Tenancy" <*>
-      obj .: "TimeBasedAutoScaling" <*>
-      obj .: "VirtualizationType" <*>
-      obj .: "Volumes"
+      obj .:? "SubnetId" <*>
+      obj .:? "Tenancy" <*>
+      obj .:? "TimeBasedAutoScaling" <*>
+      obj .:? "VirtualizationType" <*>
+      obj .:? "Volumes"
   parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksInstance' containing required fields as

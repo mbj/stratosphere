@@ -7,6 +7,7 @@ module Stratosphere.Resources.ElastiCacheSubnetGroup where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -24,16 +25,17 @@ data ElastiCacheSubnetGroup =
 
 instance ToJSON ElastiCacheSubnetGroup where
   toJSON ElastiCacheSubnetGroup{..} =
-    object
-    [ "CacheSubnetGroupName" .= _elastiCacheSubnetGroupCacheSubnetGroupName
-    , "Description" .= _elastiCacheSubnetGroupDescription
-    , "SubnetIds" .= _elastiCacheSubnetGroupSubnetIds
+    object $
+    catMaybes
+    [ ("CacheSubnetGroupName" .=) <$> _elastiCacheSubnetGroupCacheSubnetGroupName
+    , Just ("Description" .= _elastiCacheSubnetGroupDescription)
+    , Just ("SubnetIds" .= _elastiCacheSubnetGroupSubnetIds)
     ]
 
 instance FromJSON ElastiCacheSubnetGroup where
   parseJSON (Object obj) =
     ElastiCacheSubnetGroup <$>
-      obj .: "CacheSubnetGroupName" <*>
+      obj .:? "CacheSubnetGroupName" <*>
       obj .: "Description" <*>
       obj .: "SubnetIds"
   parseJSON _ = mempty

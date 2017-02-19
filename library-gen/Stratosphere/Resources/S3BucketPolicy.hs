@@ -7,6 +7,7 @@ module Stratosphere.Resources.S3BucketPolicy where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,9 +24,10 @@ data S3BucketPolicy =
 
 instance ToJSON S3BucketPolicy where
   toJSON S3BucketPolicy{..} =
-    object
-    [ "Bucket" .= _s3BucketPolicyBucket
-    , "PolicyDocument" .= _s3BucketPolicyPolicyDocument
+    object $
+    catMaybes
+    [ Just ("Bucket" .= _s3BucketPolicyBucket)
+    , Just ("PolicyDocument" .= _s3BucketPolicyPolicyDocument)
     ]
 
 instance FromJSON S3BucketPolicy where

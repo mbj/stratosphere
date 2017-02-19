@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.ConfigConfigRuleSource where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -24,17 +25,18 @@ data ConfigConfigRuleSource =
 
 instance ToJSON ConfigConfigRuleSource where
   toJSON ConfigConfigRuleSource{..} =
-    object
-    [ "Owner" .= _configConfigRuleSourceOwner
-    , "SourceDetails" .= _configConfigRuleSourceSourceDetails
-    , "SourceIdentifier" .= _configConfigRuleSourceSourceIdentifier
+    object $
+    catMaybes
+    [ Just ("Owner" .= _configConfigRuleSourceOwner)
+    , ("SourceDetails" .=) <$> _configConfigRuleSourceSourceDetails
+    , Just ("SourceIdentifier" .= _configConfigRuleSourceSourceIdentifier)
     ]
 
 instance FromJSON ConfigConfigRuleSource where
   parseJSON (Object obj) =
     ConfigConfigRuleSource <$>
       obj .: "Owner" <*>
-      obj .: "SourceDetails" <*>
+      obj .:? "SourceDetails" <*>
       obj .: "SourceIdentifier"
   parseJSON _ = mempty
 

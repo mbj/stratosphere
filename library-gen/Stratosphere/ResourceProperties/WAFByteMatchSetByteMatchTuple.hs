@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.WAFByteMatchSetByteMatchTuple where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -26,12 +27,13 @@ data WAFByteMatchSetByteMatchTuple =
 
 instance ToJSON WAFByteMatchSetByteMatchTuple where
   toJSON WAFByteMatchSetByteMatchTuple{..} =
-    object
-    [ "FieldToMatch" .= _wAFByteMatchSetByteMatchTupleFieldToMatch
-    , "PositionalConstraint" .= _wAFByteMatchSetByteMatchTuplePositionalConstraint
-    , "TargetString" .= _wAFByteMatchSetByteMatchTupleTargetString
-    , "TargetStringBase64" .= _wAFByteMatchSetByteMatchTupleTargetStringBase64
-    , "TextTransformation" .= _wAFByteMatchSetByteMatchTupleTextTransformation
+    object $
+    catMaybes
+    [ Just ("FieldToMatch" .= _wAFByteMatchSetByteMatchTupleFieldToMatch)
+    , Just ("PositionalConstraint" .= _wAFByteMatchSetByteMatchTuplePositionalConstraint)
+    , ("TargetString" .=) <$> _wAFByteMatchSetByteMatchTupleTargetString
+    , ("TargetStringBase64" .=) <$> _wAFByteMatchSetByteMatchTupleTargetStringBase64
+    , Just ("TextTransformation" .= _wAFByteMatchSetByteMatchTupleTextTransformation)
     ]
 
 instance FromJSON WAFByteMatchSetByteMatchTuple where
@@ -39,8 +41,8 @@ instance FromJSON WAFByteMatchSetByteMatchTuple where
     WAFByteMatchSetByteMatchTuple <$>
       obj .: "FieldToMatch" <*>
       obj .: "PositionalConstraint" <*>
-      obj .: "TargetString" <*>
-      obj .: "TargetStringBase64" <*>
+      obj .:? "TargetString" <*>
+      obj .:? "TargetStringBase64" <*>
       obj .: "TextTransformation"
   parseJSON _ = mempty
 

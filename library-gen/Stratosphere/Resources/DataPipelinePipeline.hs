@@ -7,6 +7,7 @@ module Stratosphere.Resources.DataPipelinePipeline where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -31,26 +32,27 @@ data DataPipelinePipeline =
 
 instance ToJSON DataPipelinePipeline where
   toJSON DataPipelinePipeline{..} =
-    object
-    [ "Activate" .= _dataPipelinePipelineActivate
-    , "Description" .= _dataPipelinePipelineDescription
-    , "Name" .= _dataPipelinePipelineName
-    , "ParameterObjects" .= _dataPipelinePipelineParameterObjects
-    , "ParameterValues" .= _dataPipelinePipelineParameterValues
-    , "PipelineObjects" .= _dataPipelinePipelinePipelineObjects
-    , "PipelineTags" .= _dataPipelinePipelinePipelineTags
+    object $
+    catMaybes
+    [ ("Activate" .=) <$> _dataPipelinePipelineActivate
+    , ("Description" .=) <$> _dataPipelinePipelineDescription
+    , Just ("Name" .= _dataPipelinePipelineName)
+    , Just ("ParameterObjects" .= _dataPipelinePipelineParameterObjects)
+    , ("ParameterValues" .=) <$> _dataPipelinePipelineParameterValues
+    , ("PipelineObjects" .=) <$> _dataPipelinePipelinePipelineObjects
+    , ("PipelineTags" .=) <$> _dataPipelinePipelinePipelineTags
     ]
 
 instance FromJSON DataPipelinePipeline where
   parseJSON (Object obj) =
     DataPipelinePipeline <$>
-      obj .: "Activate" <*>
-      obj .: "Description" <*>
+      obj .:? "Activate" <*>
+      obj .:? "Description" <*>
       obj .: "Name" <*>
       obj .: "ParameterObjects" <*>
-      obj .: "ParameterValues" <*>
-      obj .: "PipelineObjects" <*>
-      obj .: "PipelineTags"
+      obj .:? "ParameterValues" <*>
+      obj .:? "PipelineObjects" <*>
+      obj .:? "PipelineTags"
   parseJSON _ = mempty
 
 -- | Constructor for 'DataPipelinePipeline' containing required fields as

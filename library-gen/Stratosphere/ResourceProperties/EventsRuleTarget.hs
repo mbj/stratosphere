@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.EventsRuleTarget where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -25,11 +26,12 @@ data EventsRuleTarget =
 
 instance ToJSON EventsRuleTarget where
   toJSON EventsRuleTarget{..} =
-    object
-    [ "Arn" .= _eventsRuleTargetArn
-    , "Id" .= _eventsRuleTargetId
-    , "Input" .= _eventsRuleTargetInput
-    , "InputPath" .= _eventsRuleTargetInputPath
+    object $
+    catMaybes
+    [ Just ("Arn" .= _eventsRuleTargetArn)
+    , Just ("Id" .= _eventsRuleTargetId)
+    , ("Input" .=) <$> _eventsRuleTargetInput
+    , ("InputPath" .=) <$> _eventsRuleTargetInputPath
     ]
 
 instance FromJSON EventsRuleTarget where
@@ -37,8 +39,8 @@ instance FromJSON EventsRuleTarget where
     EventsRuleTarget <$>
       obj .: "Arn" <*>
       obj .: "Id" <*>
-      obj .: "Input" <*>
-      obj .: "InputPath"
+      obj .:? "Input" <*>
+      obj .:? "InputPath"
   parseJSON _ = mempty
 
 -- | Constructor for 'EventsRuleTarget' containing required fields as

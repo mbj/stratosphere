@@ -7,6 +7,7 @@ module Stratosphere.Resources.CodeCommitRepository where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -24,18 +25,19 @@ data CodeCommitRepository =
 
 instance ToJSON CodeCommitRepository where
   toJSON CodeCommitRepository{..} =
-    object
-    [ "RepositoryDescription" .= _codeCommitRepositoryRepositoryDescription
-    , "RepositoryName" .= _codeCommitRepositoryRepositoryName
-    , "Triggers" .= _codeCommitRepositoryTriggers
+    object $
+    catMaybes
+    [ ("RepositoryDescription" .=) <$> _codeCommitRepositoryRepositoryDescription
+    , Just ("RepositoryName" .= _codeCommitRepositoryRepositoryName)
+    , ("Triggers" .=) <$> _codeCommitRepositoryTriggers
     ]
 
 instance FromJSON CodeCommitRepository where
   parseJSON (Object obj) =
     CodeCommitRepository <$>
-      obj .: "RepositoryDescription" <*>
+      obj .:? "RepositoryDescription" <*>
       obj .: "RepositoryName" <*>
-      obj .: "Triggers"
+      obj .:? "Triggers"
   parseJSON _ = mempty
 
 -- | Constructor for 'CodeCommitRepository' containing required fields as

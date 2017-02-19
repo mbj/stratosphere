@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.ElasticBeanstalkEnvironmentTier where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -24,18 +25,19 @@ data ElasticBeanstalkEnvironmentTier =
 
 instance ToJSON ElasticBeanstalkEnvironmentTier where
   toJSON ElasticBeanstalkEnvironmentTier{..} =
-    object
-    [ "Name" .= _elasticBeanstalkEnvironmentTierName
-    , "Type" .= _elasticBeanstalkEnvironmentTierType
-    , "Version" .= _elasticBeanstalkEnvironmentTierVersion
+    object $
+    catMaybes
+    [ ("Name" .=) <$> _elasticBeanstalkEnvironmentTierName
+    , ("Type" .=) <$> _elasticBeanstalkEnvironmentTierType
+    , ("Version" .=) <$> _elasticBeanstalkEnvironmentTierVersion
     ]
 
 instance FromJSON ElasticBeanstalkEnvironmentTier where
   parseJSON (Object obj) =
     ElasticBeanstalkEnvironmentTier <$>
-      obj .: "Name" <*>
-      obj .: "Type" <*>
-      obj .: "Version"
+      obj .:? "Name" <*>
+      obj .:? "Type" <*>
+      obj .:? "Version"
   parseJSON _ = mempty
 
 -- | Constructor for 'ElasticBeanstalkEnvironmentTier' containing required

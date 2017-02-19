@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.OpsWorksAppSslConfiguration where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -24,18 +25,19 @@ data OpsWorksAppSslConfiguration =
 
 instance ToJSON OpsWorksAppSslConfiguration where
   toJSON OpsWorksAppSslConfiguration{..} =
-    object
-    [ "Certificate" .= _opsWorksAppSslConfigurationCertificate
-    , "Chain" .= _opsWorksAppSslConfigurationChain
-    , "PrivateKey" .= _opsWorksAppSslConfigurationPrivateKey
+    object $
+    catMaybes
+    [ ("Certificate" .=) <$> _opsWorksAppSslConfigurationCertificate
+    , ("Chain" .=) <$> _opsWorksAppSslConfigurationChain
+    , ("PrivateKey" .=) <$> _opsWorksAppSslConfigurationPrivateKey
     ]
 
 instance FromJSON OpsWorksAppSslConfiguration where
   parseJSON (Object obj) =
     OpsWorksAppSslConfiguration <$>
-      obj .: "Certificate" <*>
-      obj .: "Chain" <*>
-      obj .: "PrivateKey"
+      obj .:? "Certificate" <*>
+      obj .:? "Chain" <*>
+      obj .:? "PrivateKey"
   parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksAppSslConfiguration' containing required fields

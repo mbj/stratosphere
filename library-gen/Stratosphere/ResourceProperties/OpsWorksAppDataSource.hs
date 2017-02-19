@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.OpsWorksAppDataSource where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -24,18 +25,19 @@ data OpsWorksAppDataSource =
 
 instance ToJSON OpsWorksAppDataSource where
   toJSON OpsWorksAppDataSource{..} =
-    object
-    [ "Arn" .= _opsWorksAppDataSourceArn
-    , "DatabaseName" .= _opsWorksAppDataSourceDatabaseName
-    , "Type" .= _opsWorksAppDataSourceType
+    object $
+    catMaybes
+    [ ("Arn" .=) <$> _opsWorksAppDataSourceArn
+    , ("DatabaseName" .=) <$> _opsWorksAppDataSourceDatabaseName
+    , ("Type" .=) <$> _opsWorksAppDataSourceType
     ]
 
 instance FromJSON OpsWorksAppDataSource where
   parseJSON (Object obj) =
     OpsWorksAppDataSource <$>
-      obj .: "Arn" <*>
-      obj .: "DatabaseName" <*>
-      obj .: "Type"
+      obj .:? "Arn" <*>
+      obj .:? "DatabaseName" <*>
+      obj .:? "Type"
   parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksAppDataSource' containing required fields as

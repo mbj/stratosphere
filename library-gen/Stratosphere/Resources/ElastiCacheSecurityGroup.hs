@@ -7,6 +7,7 @@ module Stratosphere.Resources.ElastiCacheSecurityGroup where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -22,8 +23,9 @@ data ElastiCacheSecurityGroup =
 
 instance ToJSON ElastiCacheSecurityGroup where
   toJSON ElastiCacheSecurityGroup{..} =
-    object
-    [ "Description" .= _elastiCacheSecurityGroupDescription
+    object $
+    catMaybes
+    [ Just ("Description" .= _elastiCacheSecurityGroupDescription)
     ]
 
 instance FromJSON ElastiCacheSecurityGroup where

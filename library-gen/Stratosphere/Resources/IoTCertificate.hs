@@ -7,6 +7,7 @@ module Stratosphere.Resources.IoTCertificate where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,9 +24,10 @@ data IoTCertificate =
 
 instance ToJSON IoTCertificate where
   toJSON IoTCertificate{..} =
-    object
-    [ "CertificateSigningRequest" .= _ioTCertificateCertificateSigningRequest
-    , "Status" .= _ioTCertificateStatus
+    object $
+    catMaybes
+    [ Just ("CertificateSigningRequest" .= _ioTCertificateCertificateSigningRequest)
+    , Just ("Status" .= _ioTCertificateStatus)
     ]
 
 instance FromJSON IoTCertificate where

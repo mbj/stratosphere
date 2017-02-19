@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.IoTTopicRuleKinesisAction where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -24,16 +25,17 @@ data IoTTopicRuleKinesisAction =
 
 instance ToJSON IoTTopicRuleKinesisAction where
   toJSON IoTTopicRuleKinesisAction{..} =
-    object
-    [ "PartitionKey" .= _ioTTopicRuleKinesisActionPartitionKey
-    , "RoleArn" .= _ioTTopicRuleKinesisActionRoleArn
-    , "StreamName" .= _ioTTopicRuleKinesisActionStreamName
+    object $
+    catMaybes
+    [ ("PartitionKey" .=) <$> _ioTTopicRuleKinesisActionPartitionKey
+    , Just ("RoleArn" .= _ioTTopicRuleKinesisActionRoleArn)
+    , Just ("StreamName" .= _ioTTopicRuleKinesisActionStreamName)
     ]
 
 instance FromJSON IoTTopicRuleKinesisAction where
   parseJSON (Object obj) =
     IoTTopicRuleKinesisAction <$>
-      obj .: "PartitionKey" <*>
+      obj .:? "PartitionKey" <*>
       obj .: "RoleArn" <*>
       obj .: "StreamName"
   parseJSON _ = mempty

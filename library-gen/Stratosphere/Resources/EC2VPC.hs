@@ -7,6 +7,7 @@ module Stratosphere.Resources.EC2VPC where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -26,22 +27,23 @@ data EC2VPC =
 
 instance ToJSON EC2VPC where
   toJSON EC2VPC{..} =
-    object
-    [ "CidrBlock" .= _eC2VPCCidrBlock
-    , "EnableDnsHostnames" .= _eC2VPCEnableDnsHostnames
-    , "EnableDnsSupport" .= _eC2VPCEnableDnsSupport
-    , "InstanceTenancy" .= _eC2VPCInstanceTenancy
-    , "Tags" .= _eC2VPCTags
+    object $
+    catMaybes
+    [ Just ("CidrBlock" .= _eC2VPCCidrBlock)
+    , ("EnableDnsHostnames" .=) <$> _eC2VPCEnableDnsHostnames
+    , ("EnableDnsSupport" .=) <$> _eC2VPCEnableDnsSupport
+    , ("InstanceTenancy" .=) <$> _eC2VPCInstanceTenancy
+    , ("Tags" .=) <$> _eC2VPCTags
     ]
 
 instance FromJSON EC2VPC where
   parseJSON (Object obj) =
     EC2VPC <$>
       obj .: "CidrBlock" <*>
-      obj .: "EnableDnsHostnames" <*>
-      obj .: "EnableDnsSupport" <*>
-      obj .: "InstanceTenancy" <*>
-      obj .: "Tags"
+      obj .:? "EnableDnsHostnames" <*>
+      obj .:? "EnableDnsSupport" <*>
+      obj .:? "InstanceTenancy" <*>
+      obj .:? "Tags"
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2VPC' containing required fields as arguments.

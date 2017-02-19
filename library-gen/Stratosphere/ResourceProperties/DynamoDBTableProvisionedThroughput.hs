@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.DynamoDBTableProvisionedThroughput where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,9 +24,10 @@ data DynamoDBTableProvisionedThroughput =
 
 instance ToJSON DynamoDBTableProvisionedThroughput where
   toJSON DynamoDBTableProvisionedThroughput{..} =
-    object
-    [ "ReadCapacityUnits" .= _dynamoDBTableProvisionedThroughputReadCapacityUnits
-    , "WriteCapacityUnits" .= _dynamoDBTableProvisionedThroughputWriteCapacityUnits
+    object $
+    catMaybes
+    [ Just ("ReadCapacityUnits" .= _dynamoDBTableProvisionedThroughputReadCapacityUnits)
+    , Just ("WriteCapacityUnits" .= _dynamoDBTableProvisionedThroughputWriteCapacityUnits)
     ]
 
 instance FromJSON DynamoDBTableProvisionedThroughput where

@@ -7,6 +7,7 @@ module Stratosphere.Resources.LambdaFunction where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -35,34 +36,35 @@ data LambdaFunction =
 
 instance ToJSON LambdaFunction where
   toJSON LambdaFunction{..} =
-    object
-    [ "Code" .= _lambdaFunctionCode
-    , "Description" .= _lambdaFunctionDescription
-    , "Environment" .= _lambdaFunctionEnvironment
-    , "FunctionName" .= _lambdaFunctionFunctionName
-    , "Handler" .= _lambdaFunctionHandler
-    , "KmsKeyArn" .= _lambdaFunctionKmsKeyArn
-    , "MemorySize" .= _lambdaFunctionMemorySize
-    , "Role" .= _lambdaFunctionRole
-    , "Runtime" .= _lambdaFunctionRuntime
-    , "Timeout" .= _lambdaFunctionTimeout
-    , "VpcConfig" .= _lambdaFunctionVpcConfig
+    object $
+    catMaybes
+    [ Just ("Code" .= _lambdaFunctionCode)
+    , ("Description" .=) <$> _lambdaFunctionDescription
+    , ("Environment" .=) <$> _lambdaFunctionEnvironment
+    , ("FunctionName" .=) <$> _lambdaFunctionFunctionName
+    , Just ("Handler" .= _lambdaFunctionHandler)
+    , ("KmsKeyArn" .=) <$> _lambdaFunctionKmsKeyArn
+    , ("MemorySize" .=) <$> _lambdaFunctionMemorySize
+    , Just ("Role" .= _lambdaFunctionRole)
+    , Just ("Runtime" .= _lambdaFunctionRuntime)
+    , ("Timeout" .=) <$> _lambdaFunctionTimeout
+    , ("VpcConfig" .=) <$> _lambdaFunctionVpcConfig
     ]
 
 instance FromJSON LambdaFunction where
   parseJSON (Object obj) =
     LambdaFunction <$>
       obj .: "Code" <*>
-      obj .: "Description" <*>
-      obj .: "Environment" <*>
-      obj .: "FunctionName" <*>
+      obj .:? "Description" <*>
+      obj .:? "Environment" <*>
+      obj .:? "FunctionName" <*>
       obj .: "Handler" <*>
-      obj .: "KmsKeyArn" <*>
-      obj .: "MemorySize" <*>
+      obj .:? "KmsKeyArn" <*>
+      obj .:? "MemorySize" <*>
       obj .: "Role" <*>
       obj .: "Runtime" <*>
-      obj .: "Timeout" <*>
-      obj .: "VpcConfig"
+      obj .:? "Timeout" <*>
+      obj .:? "VpcConfig"
   parseJSON _ = mempty
 
 -- | Constructor for 'LambdaFunction' containing required fields as arguments.

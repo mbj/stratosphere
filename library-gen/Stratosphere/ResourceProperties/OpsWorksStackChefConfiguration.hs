@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.OpsWorksStackChefConfiguration where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,16 +24,17 @@ data OpsWorksStackChefConfiguration =
 
 instance ToJSON OpsWorksStackChefConfiguration where
   toJSON OpsWorksStackChefConfiguration{..} =
-    object
-    [ "BerkshelfVersion" .= _opsWorksStackChefConfigurationBerkshelfVersion
-    , "ManageBerkshelf" .= _opsWorksStackChefConfigurationManageBerkshelf
+    object $
+    catMaybes
+    [ ("BerkshelfVersion" .=) <$> _opsWorksStackChefConfigurationBerkshelfVersion
+    , ("ManageBerkshelf" .=) <$> _opsWorksStackChefConfigurationManageBerkshelf
     ]
 
 instance FromJSON OpsWorksStackChefConfiguration where
   parseJSON (Object obj) =
     OpsWorksStackChefConfiguration <$>
-      obj .: "BerkshelfVersion" <*>
-      obj .: "ManageBerkshelf"
+      obj .:? "BerkshelfVersion" <*>
+      obj .:? "ManageBerkshelf"
   parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksStackChefConfiguration' containing required

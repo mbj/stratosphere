@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.SSMAssociationParameterValues where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -22,8 +23,9 @@ data SSMAssociationParameterValues =
 
 instance ToJSON SSMAssociationParameterValues where
   toJSON SSMAssociationParameterValues{..} =
-    object
-    [ "ParameterValues" .= _sSMAssociationParameterValuesParameterValues
+    object $
+    catMaybes
+    [ Just ("ParameterValues" .= _sSMAssociationParameterValuesParameterValues)
     ]
 
 instance FromJSON SSMAssociationParameterValues where

@@ -7,6 +7,7 @@ module Stratosphere.Resources.LogsDestination where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -25,11 +26,12 @@ data LogsDestination =
 
 instance ToJSON LogsDestination where
   toJSON LogsDestination{..} =
-    object
-    [ "DestinationName" .= _logsDestinationDestinationName
-    , "DestinationPolicy" .= _logsDestinationDestinationPolicy
-    , "RoleArn" .= _logsDestinationRoleArn
-    , "TargetArn" .= _logsDestinationTargetArn
+    object $
+    catMaybes
+    [ Just ("DestinationName" .= _logsDestinationDestinationName)
+    , Just ("DestinationPolicy" .= _logsDestinationDestinationPolicy)
+    , Just ("RoleArn" .= _logsDestinationRoleArn)
+    , Just ("TargetArn" .= _logsDestinationTargetArn)
     ]
 
 instance FromJSON LogsDestination where

@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.EFSFileSystemElasticFileSystemTag where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,9 +24,10 @@ data EFSFileSystemElasticFileSystemTag =
 
 instance ToJSON EFSFileSystemElasticFileSystemTag where
   toJSON EFSFileSystemElasticFileSystemTag{..} =
-    object
-    [ "Key" .= _eFSFileSystemElasticFileSystemTagKey
-    , "Value" .= _eFSFileSystemElasticFileSystemTagValue
+    object $
+    catMaybes
+    [ Just ("Key" .= _eFSFileSystemElasticFileSystemTagKey)
+    , Just ("Value" .= _eFSFileSystemElasticFileSystemTagValue)
     ]
 
 instance FromJSON EFSFileSystemElasticFileSystemTag where

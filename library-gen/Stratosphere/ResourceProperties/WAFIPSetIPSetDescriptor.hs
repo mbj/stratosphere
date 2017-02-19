@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.WAFIPSetIPSetDescriptor where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,9 +24,10 @@ data WAFIPSetIPSetDescriptor =
 
 instance ToJSON WAFIPSetIPSetDescriptor where
   toJSON WAFIPSetIPSetDescriptor{..} =
-    object
-    [ "Type" .= _wAFIPSetIPSetDescriptorType
-    , "Value" .= _wAFIPSetIPSetDescriptorValue
+    object $
+    catMaybes
+    [ Just ("Type" .= _wAFIPSetIPSetDescriptorType)
+    , Just ("Value" .= _wAFIPSetIPSetDescriptorValue)
     ]
 
 instance FromJSON WAFIPSetIPSetDescriptor where

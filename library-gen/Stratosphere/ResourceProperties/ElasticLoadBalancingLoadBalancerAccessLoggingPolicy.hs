@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.ElasticLoadBalancingLoadBalancerAccessLog
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -27,20 +28,21 @@ data ElasticLoadBalancingLoadBalancerAccessLoggingPolicy =
 
 instance ToJSON ElasticLoadBalancingLoadBalancerAccessLoggingPolicy where
   toJSON ElasticLoadBalancingLoadBalancerAccessLoggingPolicy{..} =
-    object
-    [ "EmitInterval" .= _elasticLoadBalancingLoadBalancerAccessLoggingPolicyEmitInterval
-    , "Enabled" .= _elasticLoadBalancingLoadBalancerAccessLoggingPolicyEnabled
-    , "S3BucketName" .= _elasticLoadBalancingLoadBalancerAccessLoggingPolicyS3BucketName
-    , "S3BucketPrefix" .= _elasticLoadBalancingLoadBalancerAccessLoggingPolicyS3BucketPrefix
+    object $
+    catMaybes
+    [ ("EmitInterval" .=) <$> _elasticLoadBalancingLoadBalancerAccessLoggingPolicyEmitInterval
+    , Just ("Enabled" .= _elasticLoadBalancingLoadBalancerAccessLoggingPolicyEnabled)
+    , Just ("S3BucketName" .= _elasticLoadBalancingLoadBalancerAccessLoggingPolicyS3BucketName)
+    , ("S3BucketPrefix" .=) <$> _elasticLoadBalancingLoadBalancerAccessLoggingPolicyS3BucketPrefix
     ]
 
 instance FromJSON ElasticLoadBalancingLoadBalancerAccessLoggingPolicy where
   parseJSON (Object obj) =
     ElasticLoadBalancingLoadBalancerAccessLoggingPolicy <$>
-      obj .: "EmitInterval" <*>
+      obj .:? "EmitInterval" <*>
       obj .: "Enabled" <*>
       obj .: "S3BucketName" <*>
-      obj .: "S3BucketPrefix"
+      obj .:? "S3BucketPrefix"
   parseJSON _ = mempty
 
 -- | Constructor for 'ElasticLoadBalancingLoadBalancerAccessLoggingPolicy'

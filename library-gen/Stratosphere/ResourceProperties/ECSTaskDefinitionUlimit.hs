@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.ECSTaskDefinitionUlimit where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -24,10 +25,11 @@ data ECSTaskDefinitionUlimit =
 
 instance ToJSON ECSTaskDefinitionUlimit where
   toJSON ECSTaskDefinitionUlimit{..} =
-    object
-    [ "HardLimit" .= _eCSTaskDefinitionUlimitHardLimit
-    , "Name" .= _eCSTaskDefinitionUlimitName
-    , "SoftLimit" .= _eCSTaskDefinitionUlimitSoftLimit
+    object $
+    catMaybes
+    [ Just ("HardLimit" .= _eCSTaskDefinitionUlimitHardLimit)
+    , Just ("Name" .= _eCSTaskDefinitionUlimitName)
+    , Just ("SoftLimit" .= _eCSTaskDefinitionUlimitSoftLimit)
     ]
 
 instance FromJSON ECSTaskDefinitionUlimit where

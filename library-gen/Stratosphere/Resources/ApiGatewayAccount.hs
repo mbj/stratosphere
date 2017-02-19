@@ -7,6 +7,7 @@ module Stratosphere.Resources.ApiGatewayAccount where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -22,14 +23,15 @@ data ApiGatewayAccount =
 
 instance ToJSON ApiGatewayAccount where
   toJSON ApiGatewayAccount{..} =
-    object
-    [ "CloudWatchRoleArn" .= _apiGatewayAccountCloudWatchRoleArn
+    object $
+    catMaybes
+    [ ("CloudWatchRoleArn" .=) <$> _apiGatewayAccountCloudWatchRoleArn
     ]
 
 instance FromJSON ApiGatewayAccount where
   parseJSON (Object obj) =
     ApiGatewayAccount <$>
-      obj .: "CloudWatchRoleArn"
+      obj .:? "CloudWatchRoleArn"
   parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayAccount' containing required fields as

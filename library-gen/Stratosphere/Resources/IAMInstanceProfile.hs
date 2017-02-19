@@ -7,6 +7,7 @@ module Stratosphere.Resources.IAMInstanceProfile where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,9 +24,10 @@ data IAMInstanceProfile =
 
 instance ToJSON IAMInstanceProfile where
   toJSON IAMInstanceProfile{..} =
-    object
-    [ "Path" .= _iAMInstanceProfilePath
-    , "Roles" .= _iAMInstanceProfileRoles
+    object $
+    catMaybes
+    [ Just ("Path" .= _iAMInstanceProfilePath)
+    , Just ("Roles" .= _iAMInstanceProfileRoles)
     ]
 
 instance FromJSON IAMInstanceProfile where

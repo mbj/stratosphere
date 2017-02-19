@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.OpsWorksStackSource where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -27,24 +28,25 @@ data OpsWorksStackSource =
 
 instance ToJSON OpsWorksStackSource where
   toJSON OpsWorksStackSource{..} =
-    object
-    [ "Password" .= _opsWorksStackSourcePassword
-    , "Revision" .= _opsWorksStackSourceRevision
-    , "SshKey" .= _opsWorksStackSourceSshKey
-    , "Type" .= _opsWorksStackSourceType
-    , "Url" .= _opsWorksStackSourceUrl
-    , "Username" .= _opsWorksStackSourceUsername
+    object $
+    catMaybes
+    [ ("Password" .=) <$> _opsWorksStackSourcePassword
+    , ("Revision" .=) <$> _opsWorksStackSourceRevision
+    , ("SshKey" .=) <$> _opsWorksStackSourceSshKey
+    , ("Type" .=) <$> _opsWorksStackSourceType
+    , ("Url" .=) <$> _opsWorksStackSourceUrl
+    , ("Username" .=) <$> _opsWorksStackSourceUsername
     ]
 
 instance FromJSON OpsWorksStackSource where
   parseJSON (Object obj) =
     OpsWorksStackSource <$>
-      obj .: "Password" <*>
-      obj .: "Revision" <*>
-      obj .: "SshKey" <*>
-      obj .: "Type" <*>
-      obj .: "Url" <*>
-      obj .: "Username"
+      obj .:? "Password" <*>
+      obj .:? "Revision" <*>
+      obj .:? "SshKey" <*>
+      obj .:? "Type" <*>
+      obj .:? "Url" <*>
+      obj .:? "Username"
   parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksStackSource' containing required fields as

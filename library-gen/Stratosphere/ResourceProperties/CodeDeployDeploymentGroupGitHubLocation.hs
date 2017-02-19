@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.CodeDeployDeploymentGroupGitHubLocation w
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -24,9 +25,10 @@ data CodeDeployDeploymentGroupGitHubLocation =
 
 instance ToJSON CodeDeployDeploymentGroupGitHubLocation where
   toJSON CodeDeployDeploymentGroupGitHubLocation{..} =
-    object
-    [ "CommitId" .= _codeDeployDeploymentGroupGitHubLocationCommitId
-    , "Repository" .= _codeDeployDeploymentGroupGitHubLocationRepository
+    object $
+    catMaybes
+    [ Just ("CommitId" .= _codeDeployDeploymentGroupGitHubLocationCommitId)
+    , Just ("Repository" .= _codeDeployDeploymentGroupGitHubLocationRepository)
     ]
 
 instance FromJSON CodeDeployDeploymentGroupGitHubLocation where

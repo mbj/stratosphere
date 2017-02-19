@@ -7,6 +7,7 @@ module Stratosphere.Resources.SNSSubscription where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -24,18 +25,19 @@ data SNSSubscription =
 
 instance ToJSON SNSSubscription where
   toJSON SNSSubscription{..} =
-    object
-    [ "Endpoint" .= _sNSSubscriptionEndpoint
-    , "Protocol" .= _sNSSubscriptionProtocol
-    , "TopicArn" .= _sNSSubscriptionTopicArn
+    object $
+    catMaybes
+    [ ("Endpoint" .=) <$> _sNSSubscriptionEndpoint
+    , ("Protocol" .=) <$> _sNSSubscriptionProtocol
+    , ("TopicArn" .=) <$> _sNSSubscriptionTopicArn
     ]
 
 instance FromJSON SNSSubscription where
   parseJSON (Object obj) =
     SNSSubscription <$>
-      obj .: "Endpoint" <*>
-      obj .: "Protocol" <*>
-      obj .: "TopicArn"
+      obj .:? "Endpoint" <*>
+      obj .:? "Protocol" <*>
+      obj .:? "TopicArn"
   parseJSON _ = mempty
 
 -- | Constructor for 'SNSSubscription' containing required fields as

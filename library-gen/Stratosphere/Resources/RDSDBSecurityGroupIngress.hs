@@ -7,6 +7,7 @@ module Stratosphere.Resources.RDSDBSecurityGroupIngress where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -26,22 +27,23 @@ data RDSDBSecurityGroupIngress =
 
 instance ToJSON RDSDBSecurityGroupIngress where
   toJSON RDSDBSecurityGroupIngress{..} =
-    object
-    [ "CIDRIP" .= _rDSDBSecurityGroupIngressCIDRIP
-    , "DBSecurityGroupName" .= _rDSDBSecurityGroupIngressDBSecurityGroupName
-    , "EC2SecurityGroupId" .= _rDSDBSecurityGroupIngressEC2SecurityGroupId
-    , "EC2SecurityGroupName" .= _rDSDBSecurityGroupIngressEC2SecurityGroupName
-    , "EC2SecurityGroupOwnerId" .= _rDSDBSecurityGroupIngressEC2SecurityGroupOwnerId
+    object $
+    catMaybes
+    [ ("CIDRIP" .=) <$> _rDSDBSecurityGroupIngressCIDRIP
+    , Just ("DBSecurityGroupName" .= _rDSDBSecurityGroupIngressDBSecurityGroupName)
+    , ("EC2SecurityGroupId" .=) <$> _rDSDBSecurityGroupIngressEC2SecurityGroupId
+    , ("EC2SecurityGroupName" .=) <$> _rDSDBSecurityGroupIngressEC2SecurityGroupName
+    , ("EC2SecurityGroupOwnerId" .=) <$> _rDSDBSecurityGroupIngressEC2SecurityGroupOwnerId
     ]
 
 instance FromJSON RDSDBSecurityGroupIngress where
   parseJSON (Object obj) =
     RDSDBSecurityGroupIngress <$>
-      obj .: "CIDRIP" <*>
+      obj .:? "CIDRIP" <*>
       obj .: "DBSecurityGroupName" <*>
-      obj .: "EC2SecurityGroupId" <*>
-      obj .: "EC2SecurityGroupName" <*>
-      obj .: "EC2SecurityGroupOwnerId"
+      obj .:? "EC2SecurityGroupId" <*>
+      obj .:? "EC2SecurityGroupName" <*>
+      obj .:? "EC2SecurityGroupOwnerId"
   parseJSON _ = mempty
 
 -- | Constructor for 'RDSDBSecurityGroupIngress' containing required fields as

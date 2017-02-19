@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.RedshiftClusterParameterGroupParameter wh
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -24,9 +25,10 @@ data RedshiftClusterParameterGroupParameter =
 
 instance ToJSON RedshiftClusterParameterGroupParameter where
   toJSON RedshiftClusterParameterGroupParameter{..} =
-    object
-    [ "ParameterName" .= _redshiftClusterParameterGroupParameterParameterName
-    , "ParameterValue" .= _redshiftClusterParameterGroupParameterParameterValue
+    object $
+    catMaybes
+    [ Just ("ParameterName" .= _redshiftClusterParameterGroupParameterParameterName)
+    , Just ("ParameterValue" .= _redshiftClusterParameterGroupParameterParameterValue)
     ]
 
 instance FromJSON RedshiftClusterParameterGroupParameter where

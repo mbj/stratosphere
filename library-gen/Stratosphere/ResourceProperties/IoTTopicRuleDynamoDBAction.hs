@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.IoTTopicRuleDynamoDBAction where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -28,14 +29,15 @@ data IoTTopicRuleDynamoDBAction =
 
 instance ToJSON IoTTopicRuleDynamoDBAction where
   toJSON IoTTopicRuleDynamoDBAction{..} =
-    object
-    [ "HashKeyField" .= _ioTTopicRuleDynamoDBActionHashKeyField
-    , "HashKeyValue" .= _ioTTopicRuleDynamoDBActionHashKeyValue
-    , "PayloadField" .= _ioTTopicRuleDynamoDBActionPayloadField
-    , "RangeKeyField" .= _ioTTopicRuleDynamoDBActionRangeKeyField
-    , "RangeKeyValue" .= _ioTTopicRuleDynamoDBActionRangeKeyValue
-    , "RoleArn" .= _ioTTopicRuleDynamoDBActionRoleArn
-    , "TableName" .= _ioTTopicRuleDynamoDBActionTableName
+    object $
+    catMaybes
+    [ Just ("HashKeyField" .= _ioTTopicRuleDynamoDBActionHashKeyField)
+    , Just ("HashKeyValue" .= _ioTTopicRuleDynamoDBActionHashKeyValue)
+    , ("PayloadField" .=) <$> _ioTTopicRuleDynamoDBActionPayloadField
+    , Just ("RangeKeyField" .= _ioTTopicRuleDynamoDBActionRangeKeyField)
+    , Just ("RangeKeyValue" .= _ioTTopicRuleDynamoDBActionRangeKeyValue)
+    , Just ("RoleArn" .= _ioTTopicRuleDynamoDBActionRoleArn)
+    , Just ("TableName" .= _ioTTopicRuleDynamoDBActionTableName)
     ]
 
 instance FromJSON IoTTopicRuleDynamoDBAction where
@@ -43,7 +45,7 @@ instance FromJSON IoTTopicRuleDynamoDBAction where
     IoTTopicRuleDynamoDBAction <$>
       obj .: "HashKeyField" <*>
       obj .: "HashKeyValue" <*>
-      obj .: "PayloadField" <*>
+      obj .:? "PayloadField" <*>
       obj .: "RangeKeyField" <*>
       obj .: "RangeKeyValue" <*>
       obj .: "RoleArn" <*>

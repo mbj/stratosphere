@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.ApiGatewayMethodIntegration where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -32,32 +33,33 @@ data ApiGatewayMethodIntegration =
 
 instance ToJSON ApiGatewayMethodIntegration where
   toJSON ApiGatewayMethodIntegration{..} =
-    object
-    [ "CacheKeyParameters" .= _apiGatewayMethodIntegrationCacheKeyParameters
-    , "CacheNamespace" .= _apiGatewayMethodIntegrationCacheNamespace
-    , "Credentials" .= _apiGatewayMethodIntegrationCredentials
-    , "IntegrationHttpMethod" .= _apiGatewayMethodIntegrationIntegrationHttpMethod
-    , "IntegrationResponses" .= _apiGatewayMethodIntegrationIntegrationResponses
-    , "PassthroughBehavior" .= _apiGatewayMethodIntegrationPassthroughBehavior
-    , "RequestParameters" .= _apiGatewayMethodIntegrationRequestParameters
-    , "RequestTemplates" .= _apiGatewayMethodIntegrationRequestTemplates
-    , "Type" .= _apiGatewayMethodIntegrationType
-    , "Uri" .= _apiGatewayMethodIntegrationUri
+    object $
+    catMaybes
+    [ ("CacheKeyParameters" .=) <$> _apiGatewayMethodIntegrationCacheKeyParameters
+    , ("CacheNamespace" .=) <$> _apiGatewayMethodIntegrationCacheNamespace
+    , ("Credentials" .=) <$> _apiGatewayMethodIntegrationCredentials
+    , ("IntegrationHttpMethod" .=) <$> _apiGatewayMethodIntegrationIntegrationHttpMethod
+    , ("IntegrationResponses" .=) <$> _apiGatewayMethodIntegrationIntegrationResponses
+    , ("PassthroughBehavior" .=) <$> _apiGatewayMethodIntegrationPassthroughBehavior
+    , ("RequestParameters" .=) <$> _apiGatewayMethodIntegrationRequestParameters
+    , ("RequestTemplates" .=) <$> _apiGatewayMethodIntegrationRequestTemplates
+    , ("Type" .=) <$> _apiGatewayMethodIntegrationType
+    , ("Uri" .=) <$> _apiGatewayMethodIntegrationUri
     ]
 
 instance FromJSON ApiGatewayMethodIntegration where
   parseJSON (Object obj) =
     ApiGatewayMethodIntegration <$>
-      obj .: "CacheKeyParameters" <*>
-      obj .: "CacheNamespace" <*>
-      obj .: "Credentials" <*>
-      obj .: "IntegrationHttpMethod" <*>
-      obj .: "IntegrationResponses" <*>
-      obj .: "PassthroughBehavior" <*>
-      obj .: "RequestParameters" <*>
-      obj .: "RequestTemplates" <*>
-      obj .: "Type" <*>
-      obj .: "Uri"
+      obj .:? "CacheKeyParameters" <*>
+      obj .:? "CacheNamespace" <*>
+      obj .:? "Credentials" <*>
+      obj .:? "IntegrationHttpMethod" <*>
+      obj .:? "IntegrationResponses" <*>
+      obj .:? "PassthroughBehavior" <*>
+      obj .:? "RequestParameters" <*>
+      obj .:? "RequestTemplates" <*>
+      obj .:? "Type" <*>
+      obj .:? "Uri"
   parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayMethodIntegration' containing required fields

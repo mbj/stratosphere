@@ -7,6 +7,7 @@ module Stratosphere.Resources.SDBDomain where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -22,14 +23,15 @@ data SDBDomain =
 
 instance ToJSON SDBDomain where
   toJSON SDBDomain{..} =
-    object
-    [ "Description" .= _sDBDomainDescription
+    object $
+    catMaybes
+    [ ("Description" .=) <$> _sDBDomainDescription
     ]
 
 instance FromJSON SDBDomain where
   parseJSON (Object obj) =
     SDBDomain <$>
-      obj .: "Description"
+      obj .:? "Description"
   parseJSON _ = mempty
 
 -- | Constructor for 'SDBDomain' containing required fields as arguments.

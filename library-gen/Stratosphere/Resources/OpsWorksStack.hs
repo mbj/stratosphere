@@ -7,6 +7,7 @@ module Stratosphere.Resources.OpsWorksStack where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -49,60 +50,61 @@ data OpsWorksStack =
 
 instance ToJSON OpsWorksStack where
   toJSON OpsWorksStack{..} =
-    object
-    [ "AgentVersion" .= _opsWorksStackAgentVersion
-    , "Attributes" .= _opsWorksStackAttributes
-    , "ChefConfiguration" .= _opsWorksStackChefConfiguration
-    , "CloneAppIds" .= _opsWorksStackCloneAppIds
-    , "ClonePermissions" .= _opsWorksStackClonePermissions
-    , "ConfigurationManager" .= _opsWorksStackConfigurationManager
-    , "CustomCookbooksSource" .= _opsWorksStackCustomCookbooksSource
-    , "CustomJson" .= _opsWorksStackCustomJson
-    , "DefaultAvailabilityZone" .= _opsWorksStackDefaultAvailabilityZone
-    , "DefaultInstanceProfileArn" .= _opsWorksStackDefaultInstanceProfileArn
-    , "DefaultOs" .= _opsWorksStackDefaultOs
-    , "DefaultRootDeviceType" .= _opsWorksStackDefaultRootDeviceType
-    , "DefaultSshKeyName" .= _opsWorksStackDefaultSshKeyName
-    , "DefaultSubnetId" .= _opsWorksStackDefaultSubnetId
-    , "EcsClusterArn" .= _opsWorksStackEcsClusterArn
-    , "ElasticIps" .= _opsWorksStackElasticIps
-    , "HostnameTheme" .= _opsWorksStackHostnameTheme
-    , "Name" .= _opsWorksStackName
-    , "RdsDbInstances" .= _opsWorksStackRdsDbInstances
-    , "ServiceRoleArn" .= _opsWorksStackServiceRoleArn
-    , "SourceStackId" .= _opsWorksStackSourceStackId
-    , "UseCustomCookbooks" .= _opsWorksStackUseCustomCookbooks
-    , "UseOpsworksSecurityGroups" .= _opsWorksStackUseOpsworksSecurityGroups
-    , "VpcId" .= _opsWorksStackVpcId
+    object $
+    catMaybes
+    [ ("AgentVersion" .=) <$> _opsWorksStackAgentVersion
+    , ("Attributes" .=) <$> _opsWorksStackAttributes
+    , ("ChefConfiguration" .=) <$> _opsWorksStackChefConfiguration
+    , ("CloneAppIds" .=) <$> _opsWorksStackCloneAppIds
+    , ("ClonePermissions" .=) <$> _opsWorksStackClonePermissions
+    , ("ConfigurationManager" .=) <$> _opsWorksStackConfigurationManager
+    , ("CustomCookbooksSource" .=) <$> _opsWorksStackCustomCookbooksSource
+    , ("CustomJson" .=) <$> _opsWorksStackCustomJson
+    , ("DefaultAvailabilityZone" .=) <$> _opsWorksStackDefaultAvailabilityZone
+    , Just ("DefaultInstanceProfileArn" .= _opsWorksStackDefaultInstanceProfileArn)
+    , ("DefaultOs" .=) <$> _opsWorksStackDefaultOs
+    , ("DefaultRootDeviceType" .=) <$> _opsWorksStackDefaultRootDeviceType
+    , ("DefaultSshKeyName" .=) <$> _opsWorksStackDefaultSshKeyName
+    , ("DefaultSubnetId" .=) <$> _opsWorksStackDefaultSubnetId
+    , ("EcsClusterArn" .=) <$> _opsWorksStackEcsClusterArn
+    , ("ElasticIps" .=) <$> _opsWorksStackElasticIps
+    , ("HostnameTheme" .=) <$> _opsWorksStackHostnameTheme
+    , Just ("Name" .= _opsWorksStackName)
+    , ("RdsDbInstances" .=) <$> _opsWorksStackRdsDbInstances
+    , Just ("ServiceRoleArn" .= _opsWorksStackServiceRoleArn)
+    , ("SourceStackId" .=) <$> _opsWorksStackSourceStackId
+    , ("UseCustomCookbooks" .=) <$> _opsWorksStackUseCustomCookbooks
+    , ("UseOpsworksSecurityGroups" .=) <$> _opsWorksStackUseOpsworksSecurityGroups
+    , ("VpcId" .=) <$> _opsWorksStackVpcId
     ]
 
 instance FromJSON OpsWorksStack where
   parseJSON (Object obj) =
     OpsWorksStack <$>
-      obj .: "AgentVersion" <*>
-      obj .: "Attributes" <*>
-      obj .: "ChefConfiguration" <*>
-      obj .: "CloneAppIds" <*>
-      obj .: "ClonePermissions" <*>
-      obj .: "ConfigurationManager" <*>
-      obj .: "CustomCookbooksSource" <*>
-      obj .: "CustomJson" <*>
-      obj .: "DefaultAvailabilityZone" <*>
+      obj .:? "AgentVersion" <*>
+      obj .:? "Attributes" <*>
+      obj .:? "ChefConfiguration" <*>
+      obj .:? "CloneAppIds" <*>
+      obj .:? "ClonePermissions" <*>
+      obj .:? "ConfigurationManager" <*>
+      obj .:? "CustomCookbooksSource" <*>
+      obj .:? "CustomJson" <*>
+      obj .:? "DefaultAvailabilityZone" <*>
       obj .: "DefaultInstanceProfileArn" <*>
-      obj .: "DefaultOs" <*>
-      obj .: "DefaultRootDeviceType" <*>
-      obj .: "DefaultSshKeyName" <*>
-      obj .: "DefaultSubnetId" <*>
-      obj .: "EcsClusterArn" <*>
-      obj .: "ElasticIps" <*>
-      obj .: "HostnameTheme" <*>
+      obj .:? "DefaultOs" <*>
+      obj .:? "DefaultRootDeviceType" <*>
+      obj .:? "DefaultSshKeyName" <*>
+      obj .:? "DefaultSubnetId" <*>
+      obj .:? "EcsClusterArn" <*>
+      obj .:? "ElasticIps" <*>
+      obj .:? "HostnameTheme" <*>
       obj .: "Name" <*>
-      obj .: "RdsDbInstances" <*>
+      obj .:? "RdsDbInstances" <*>
       obj .: "ServiceRoleArn" <*>
-      obj .: "SourceStackId" <*>
-      obj .: "UseCustomCookbooks" <*>
-      obj .: "UseOpsworksSecurityGroups" <*>
-      obj .: "VpcId"
+      obj .:? "SourceStackId" <*>
+      obj .:? "UseCustomCookbooks" <*>
+      obj .:? "UseOpsworksSecurityGroups" <*>
+      obj .:? "VpcId"
   parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksStack' containing required fields as arguments.

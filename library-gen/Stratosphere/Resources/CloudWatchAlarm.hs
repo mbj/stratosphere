@@ -7,6 +7,7 @@ module Stratosphere.Resources.CloudWatchAlarm where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -36,42 +37,43 @@ data CloudWatchAlarm =
 
 instance ToJSON CloudWatchAlarm where
   toJSON CloudWatchAlarm{..} =
-    object
-    [ "ActionsEnabled" .= _cloudWatchAlarmActionsEnabled
-    , "AlarmActions" .= _cloudWatchAlarmAlarmActions
-    , "AlarmDescription" .= _cloudWatchAlarmAlarmDescription
-    , "AlarmName" .= _cloudWatchAlarmAlarmName
-    , "ComparisonOperator" .= _cloudWatchAlarmComparisonOperator
-    , "Dimensions" .= _cloudWatchAlarmDimensions
-    , "EvaluationPeriods" .= _cloudWatchAlarmEvaluationPeriods
-    , "InsufficientDataActions" .= _cloudWatchAlarmInsufficientDataActions
-    , "MetricName" .= _cloudWatchAlarmMetricName
-    , "Namespace" .= _cloudWatchAlarmNamespace
-    , "OKActions" .= _cloudWatchAlarmOKActions
-    , "Period" .= _cloudWatchAlarmPeriod
-    , "Statistic" .= _cloudWatchAlarmStatistic
-    , "Threshold" .= _cloudWatchAlarmThreshold
-    , "Unit" .= _cloudWatchAlarmUnit
+    object $
+    catMaybes
+    [ ("ActionsEnabled" .=) <$> _cloudWatchAlarmActionsEnabled
+    , ("AlarmActions" .=) <$> _cloudWatchAlarmAlarmActions
+    , ("AlarmDescription" .=) <$> _cloudWatchAlarmAlarmDescription
+    , ("AlarmName" .=) <$> _cloudWatchAlarmAlarmName
+    , Just ("ComparisonOperator" .= _cloudWatchAlarmComparisonOperator)
+    , ("Dimensions" .=) <$> _cloudWatchAlarmDimensions
+    , Just ("EvaluationPeriods" .= _cloudWatchAlarmEvaluationPeriods)
+    , ("InsufficientDataActions" .=) <$> _cloudWatchAlarmInsufficientDataActions
+    , Just ("MetricName" .= _cloudWatchAlarmMetricName)
+    , Just ("Namespace" .= _cloudWatchAlarmNamespace)
+    , ("OKActions" .=) <$> _cloudWatchAlarmOKActions
+    , Just ("Period" .= _cloudWatchAlarmPeriod)
+    , Just ("Statistic" .= _cloudWatchAlarmStatistic)
+    , Just ("Threshold" .= _cloudWatchAlarmThreshold)
+    , ("Unit" .=) <$> _cloudWatchAlarmUnit
     ]
 
 instance FromJSON CloudWatchAlarm where
   parseJSON (Object obj) =
     CloudWatchAlarm <$>
-      obj .: "ActionsEnabled" <*>
-      obj .: "AlarmActions" <*>
-      obj .: "AlarmDescription" <*>
-      obj .: "AlarmName" <*>
+      obj .:? "ActionsEnabled" <*>
+      obj .:? "AlarmActions" <*>
+      obj .:? "AlarmDescription" <*>
+      obj .:? "AlarmName" <*>
       obj .: "ComparisonOperator" <*>
-      obj .: "Dimensions" <*>
+      obj .:? "Dimensions" <*>
       obj .: "EvaluationPeriods" <*>
-      obj .: "InsufficientDataActions" <*>
+      obj .:? "InsufficientDataActions" <*>
       obj .: "MetricName" <*>
       obj .: "Namespace" <*>
-      obj .: "OKActions" <*>
+      obj .:? "OKActions" <*>
       obj .: "Period" <*>
       obj .: "Statistic" <*>
       obj .: "Threshold" <*>
-      obj .: "Unit"
+      obj .:? "Unit"
   parseJSON _ = mempty
 
 -- | Constructor for 'CloudWatchAlarm' containing required fields as

@@ -7,6 +7,7 @@ module Stratosphere.Resources.ECSService where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -28,23 +29,24 @@ data ECSService =
 
 instance ToJSON ECSService where
   toJSON ECSService{..} =
-    object
-    [ "Cluster" .= _eCSServiceCluster
-    , "DeploymentConfiguration" .= _eCSServiceDeploymentConfiguration
-    , "DesiredCount" .= _eCSServiceDesiredCount
-    , "LoadBalancers" .= _eCSServiceLoadBalancers
-    , "Role" .= _eCSServiceRole
-    , "TaskDefinition" .= _eCSServiceTaskDefinition
+    object $
+    catMaybes
+    [ ("Cluster" .=) <$> _eCSServiceCluster
+    , ("DeploymentConfiguration" .=) <$> _eCSServiceDeploymentConfiguration
+    , Just ("DesiredCount" .= _eCSServiceDesiredCount)
+    , ("LoadBalancers" .=) <$> _eCSServiceLoadBalancers
+    , ("Role" .=) <$> _eCSServiceRole
+    , Just ("TaskDefinition" .= _eCSServiceTaskDefinition)
     ]
 
 instance FromJSON ECSService where
   parseJSON (Object obj) =
     ECSService <$>
-      obj .: "Cluster" <*>
-      obj .: "DeploymentConfiguration" <*>
+      obj .:? "Cluster" <*>
+      obj .:? "DeploymentConfiguration" <*>
       obj .: "DesiredCount" <*>
-      obj .: "LoadBalancers" <*>
-      obj .: "Role" <*>
+      obj .:? "LoadBalancers" <*>
+      obj .:? "Role" <*>
       obj .: "TaskDefinition"
   parseJSON _ = mempty
 

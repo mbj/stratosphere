@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.ElasticsearchDomainSnapshotOptions where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -22,14 +23,15 @@ data ElasticsearchDomainSnapshotOptions =
 
 instance ToJSON ElasticsearchDomainSnapshotOptions where
   toJSON ElasticsearchDomainSnapshotOptions{..} =
-    object
-    [ "AutomatedSnapshotStartHour" .= _elasticsearchDomainSnapshotOptionsAutomatedSnapshotStartHour
+    object $
+    catMaybes
+    [ ("AutomatedSnapshotStartHour" .=) <$> _elasticsearchDomainSnapshotOptionsAutomatedSnapshotStartHour
     ]
 
 instance FromJSON ElasticsearchDomainSnapshotOptions where
   parseJSON (Object obj) =
     ElasticsearchDomainSnapshotOptions <$>
-      obj .: "AutomatedSnapshotStartHour"
+      obj .:? "AutomatedSnapshotStartHour"
   parseJSON _ = mempty
 
 -- | Constructor for 'ElasticsearchDomainSnapshotOptions' containing required

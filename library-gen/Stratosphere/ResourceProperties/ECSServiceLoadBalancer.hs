@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.ECSServiceLoadBalancer where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -25,20 +26,21 @@ data ECSServiceLoadBalancer =
 
 instance ToJSON ECSServiceLoadBalancer where
   toJSON ECSServiceLoadBalancer{..} =
-    object
-    [ "ContainerName" .= _eCSServiceLoadBalancerContainerName
-    , "ContainerPort" .= _eCSServiceLoadBalancerContainerPort
-    , "LoadBalancerName" .= _eCSServiceLoadBalancerLoadBalancerName
-    , "TargetGroupArn" .= _eCSServiceLoadBalancerTargetGroupArn
+    object $
+    catMaybes
+    [ ("ContainerName" .=) <$> _eCSServiceLoadBalancerContainerName
+    , Just ("ContainerPort" .= _eCSServiceLoadBalancerContainerPort)
+    , ("LoadBalancerName" .=) <$> _eCSServiceLoadBalancerLoadBalancerName
+    , ("TargetGroupArn" .=) <$> _eCSServiceLoadBalancerTargetGroupArn
     ]
 
 instance FromJSON ECSServiceLoadBalancer where
   parseJSON (Object obj) =
     ECSServiceLoadBalancer <$>
-      obj .: "ContainerName" <*>
+      obj .:? "ContainerName" <*>
       obj .: "ContainerPort" <*>
-      obj .: "LoadBalancerName" <*>
-      obj .: "TargetGroupArn"
+      obj .:? "LoadBalancerName" <*>
+      obj .:? "TargetGroupArn"
   parseJSON _ = mempty
 
 -- | Constructor for 'ECSServiceLoadBalancer' containing required fields as

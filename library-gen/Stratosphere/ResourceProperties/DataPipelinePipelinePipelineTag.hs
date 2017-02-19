@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.DataPipelinePipelinePipelineTag where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,9 +24,10 @@ data DataPipelinePipelinePipelineTag =
 
 instance ToJSON DataPipelinePipelinePipelineTag where
   toJSON DataPipelinePipelinePipelineTag{..} =
-    object
-    [ "Key" .= _dataPipelinePipelinePipelineTagKey
-    , "Value" .= _dataPipelinePipelinePipelineTagValue
+    object $
+    catMaybes
+    [ Just ("Key" .= _dataPipelinePipelinePipelineTagKey)
+    , Just ("Value" .= _dataPipelinePipelinePipelineTagValue)
     ]
 
 instance FromJSON DataPipelinePipelinePipelineTag where

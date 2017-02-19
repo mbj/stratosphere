@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.ElasticLoadBalancingV2TargetGroupMatcher 
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,8 +24,9 @@ data ElasticLoadBalancingV2TargetGroupMatcher =
 
 instance ToJSON ElasticLoadBalancingV2TargetGroupMatcher where
   toJSON ElasticLoadBalancingV2TargetGroupMatcher{..} =
-    object
-    [ "HttpCode" .= _elasticLoadBalancingV2TargetGroupMatcherHttpCode
+    object $
+    catMaybes
+    [ Just ("HttpCode" .= _elasticLoadBalancingV2TargetGroupMatcherHttpCode)
     ]
 
 instance FromJSON ElasticLoadBalancingV2TargetGroupMatcher where

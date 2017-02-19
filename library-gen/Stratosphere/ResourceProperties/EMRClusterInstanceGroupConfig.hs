@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.EMRClusterInstanceGroupConfig where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -29,26 +30,27 @@ data EMRClusterInstanceGroupConfig =
 
 instance ToJSON EMRClusterInstanceGroupConfig where
   toJSON EMRClusterInstanceGroupConfig{..} =
-    object
-    [ "BidPrice" .= _eMRClusterInstanceGroupConfigBidPrice
-    , "Configurations" .= _eMRClusterInstanceGroupConfigConfigurations
-    , "EbsConfiguration" .= _eMRClusterInstanceGroupConfigEbsConfiguration
-    , "InstanceCount" .= _eMRClusterInstanceGroupConfigInstanceCount
-    , "InstanceType" .= _eMRClusterInstanceGroupConfigInstanceType
-    , "Market" .= _eMRClusterInstanceGroupConfigMarket
-    , "Name" .= _eMRClusterInstanceGroupConfigName
+    object $
+    catMaybes
+    [ ("BidPrice" .=) <$> _eMRClusterInstanceGroupConfigBidPrice
+    , ("Configurations" .=) <$> _eMRClusterInstanceGroupConfigConfigurations
+    , ("EbsConfiguration" .=) <$> _eMRClusterInstanceGroupConfigEbsConfiguration
+    , Just ("InstanceCount" .= _eMRClusterInstanceGroupConfigInstanceCount)
+    , Just ("InstanceType" .= _eMRClusterInstanceGroupConfigInstanceType)
+    , ("Market" .=) <$> _eMRClusterInstanceGroupConfigMarket
+    , ("Name" .=) <$> _eMRClusterInstanceGroupConfigName
     ]
 
 instance FromJSON EMRClusterInstanceGroupConfig where
   parseJSON (Object obj) =
     EMRClusterInstanceGroupConfig <$>
-      obj .: "BidPrice" <*>
-      obj .: "Configurations" <*>
-      obj .: "EbsConfiguration" <*>
+      obj .:? "BidPrice" <*>
+      obj .:? "Configurations" <*>
+      obj .:? "EbsConfiguration" <*>
       obj .: "InstanceCount" <*>
       obj .: "InstanceType" <*>
-      obj .: "Market" <*>
-      obj .: "Name"
+      obj .:? "Market" <*>
+      obj .:? "Name"
   parseJSON _ = mempty
 
 -- | Constructor for 'EMRClusterInstanceGroupConfig' containing required

@@ -7,6 +7,7 @@ module Stratosphere.Resources.IAMRole where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -26,22 +27,23 @@ data IAMRole =
 
 instance ToJSON IAMRole where
   toJSON IAMRole{..} =
-    object
-    [ "AssumeRolePolicyDocument" .= _iAMRoleAssumeRolePolicyDocument
-    , "ManagedPolicyArns" .= _iAMRoleManagedPolicyArns
-    , "Path" .= _iAMRolePath
-    , "Policies" .= _iAMRolePolicies
-    , "RoleName" .= _iAMRoleRoleName
+    object $
+    catMaybes
+    [ Just ("AssumeRolePolicyDocument" .= _iAMRoleAssumeRolePolicyDocument)
+    , ("ManagedPolicyArns" .=) <$> _iAMRoleManagedPolicyArns
+    , ("Path" .=) <$> _iAMRolePath
+    , ("Policies" .=) <$> _iAMRolePolicies
+    , ("RoleName" .=) <$> _iAMRoleRoleName
     ]
 
 instance FromJSON IAMRole where
   parseJSON (Object obj) =
     IAMRole <$>
       obj .: "AssumeRolePolicyDocument" <*>
-      obj .: "ManagedPolicyArns" <*>
-      obj .: "Path" <*>
-      obj .: "Policies" <*>
-      obj .: "RoleName"
+      obj .:? "ManagedPolicyArns" <*>
+      obj .:? "Path" <*>
+      obj .:? "Policies" <*>
+      obj .:? "RoleName"
   parseJSON _ = mempty
 
 -- | Constructor for 'IAMRole' containing required fields as arguments.

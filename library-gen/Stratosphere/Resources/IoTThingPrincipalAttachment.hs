@@ -7,6 +7,7 @@ module Stratosphere.Resources.IoTThingPrincipalAttachment where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,9 +24,10 @@ data IoTThingPrincipalAttachment =
 
 instance ToJSON IoTThingPrincipalAttachment where
   toJSON IoTThingPrincipalAttachment{..} =
-    object
-    [ "Principal" .= _ioTThingPrincipalAttachmentPrincipal
-    , "ThingName" .= _ioTThingPrincipalAttachmentThingName
+    object $
+    catMaybes
+    [ Just ("Principal" .= _ioTThingPrincipalAttachmentPrincipal)
+    , Just ("ThingName" .= _ioTThingPrincipalAttachmentThingName)
     ]
 
 instance FromJSON IoTThingPrincipalAttachment where

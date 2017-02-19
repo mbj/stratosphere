@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.EMRStepHadoopJarStepConfig where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -25,20 +26,21 @@ data EMRStepHadoopJarStepConfig =
 
 instance ToJSON EMRStepHadoopJarStepConfig where
   toJSON EMRStepHadoopJarStepConfig{..} =
-    object
-    [ "Args" .= _eMRStepHadoopJarStepConfigArgs
-    , "Jar" .= _eMRStepHadoopJarStepConfigJar
-    , "MainClass" .= _eMRStepHadoopJarStepConfigMainClass
-    , "StepProperties" .= _eMRStepHadoopJarStepConfigStepProperties
+    object $
+    catMaybes
+    [ ("Args" .=) <$> _eMRStepHadoopJarStepConfigArgs
+    , Just ("Jar" .= _eMRStepHadoopJarStepConfigJar)
+    , ("MainClass" .=) <$> _eMRStepHadoopJarStepConfigMainClass
+    , ("StepProperties" .=) <$> _eMRStepHadoopJarStepConfigStepProperties
     ]
 
 instance FromJSON EMRStepHadoopJarStepConfig where
   parseJSON (Object obj) =
     EMRStepHadoopJarStepConfig <$>
-      obj .: "Args" <*>
+      obj .:? "Args" <*>
       obj .: "Jar" <*>
-      obj .: "MainClass" <*>
-      obj .: "StepProperties"
+      obj .:? "MainClass" <*>
+      obj .:? "StepProperties"
   parseJSON _ = mempty
 
 -- | Constructor for 'EMRStepHadoopJarStepConfig' containing required fields

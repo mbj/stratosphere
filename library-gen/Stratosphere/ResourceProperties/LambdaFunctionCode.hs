@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.LambdaFunctionCode where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -25,20 +26,21 @@ data LambdaFunctionCode =
 
 instance ToJSON LambdaFunctionCode where
   toJSON LambdaFunctionCode{..} =
-    object
-    [ "S3Bucket" .= _lambdaFunctionCodeS3Bucket
-    , "S3Key" .= _lambdaFunctionCodeS3Key
-    , "S3ObjectVersion" .= _lambdaFunctionCodeS3ObjectVersion
-    , "ZipFile" .= _lambdaFunctionCodeZipFile
+    object $
+    catMaybes
+    [ ("S3Bucket" .=) <$> _lambdaFunctionCodeS3Bucket
+    , ("S3Key" .=) <$> _lambdaFunctionCodeS3Key
+    , ("S3ObjectVersion" .=) <$> _lambdaFunctionCodeS3ObjectVersion
+    , ("ZipFile" .=) <$> _lambdaFunctionCodeZipFile
     ]
 
 instance FromJSON LambdaFunctionCode where
   parseJSON (Object obj) =
     LambdaFunctionCode <$>
-      obj .: "S3Bucket" <*>
-      obj .: "S3Key" <*>
-      obj .: "S3ObjectVersion" <*>
-      obj .: "ZipFile"
+      obj .:? "S3Bucket" <*>
+      obj .:? "S3Key" <*>
+      obj .:? "S3ObjectVersion" <*>
+      obj .:? "ZipFile"
   parseJSON _ = mempty
 
 -- | Constructor for 'LambdaFunctionCode' containing required fields as

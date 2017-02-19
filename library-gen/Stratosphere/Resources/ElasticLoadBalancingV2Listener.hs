@@ -7,6 +7,7 @@ module Stratosphere.Resources.ElasticLoadBalancingV2Listener where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -28,24 +29,25 @@ data ElasticLoadBalancingV2Listener =
 
 instance ToJSON ElasticLoadBalancingV2Listener where
   toJSON ElasticLoadBalancingV2Listener{..} =
-    object
-    [ "Certificates" .= _elasticLoadBalancingV2ListenerCertificates
-    , "DefaultActions" .= _elasticLoadBalancingV2ListenerDefaultActions
-    , "LoadBalancerArn" .= _elasticLoadBalancingV2ListenerLoadBalancerArn
-    , "Port" .= _elasticLoadBalancingV2ListenerPort
-    , "Protocol" .= _elasticLoadBalancingV2ListenerProtocol
-    , "SslPolicy" .= _elasticLoadBalancingV2ListenerSslPolicy
+    object $
+    catMaybes
+    [ ("Certificates" .=) <$> _elasticLoadBalancingV2ListenerCertificates
+    , Just ("DefaultActions" .= _elasticLoadBalancingV2ListenerDefaultActions)
+    , Just ("LoadBalancerArn" .= _elasticLoadBalancingV2ListenerLoadBalancerArn)
+    , Just ("Port" .= _elasticLoadBalancingV2ListenerPort)
+    , Just ("Protocol" .= _elasticLoadBalancingV2ListenerProtocol)
+    , ("SslPolicy" .=) <$> _elasticLoadBalancingV2ListenerSslPolicy
     ]
 
 instance FromJSON ElasticLoadBalancingV2Listener where
   parseJSON (Object obj) =
     ElasticLoadBalancingV2Listener <$>
-      obj .: "Certificates" <*>
+      obj .:? "Certificates" <*>
       obj .: "DefaultActions" <*>
       obj .: "LoadBalancerArn" <*>
       obj .: "Port" <*>
       obj .: "Protocol" <*>
-      obj .: "SslPolicy"
+      obj .:? "SslPolicy"
   parseJSON _ = mempty
 
 -- | Constructor for 'ElasticLoadBalancingV2Listener' containing required

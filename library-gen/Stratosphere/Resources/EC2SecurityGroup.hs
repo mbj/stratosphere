@@ -7,6 +7,7 @@ module Stratosphere.Resources.EC2SecurityGroup where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -27,22 +28,23 @@ data EC2SecurityGroup =
 
 instance ToJSON EC2SecurityGroup where
   toJSON EC2SecurityGroup{..} =
-    object
-    [ "GroupDescription" .= _eC2SecurityGroupGroupDescription
-    , "SecurityGroupEgress" .= _eC2SecurityGroupSecurityGroupEgress
-    , "SecurityGroupIngress" .= _eC2SecurityGroupSecurityGroupIngress
-    , "Tags" .= _eC2SecurityGroupTags
-    , "VpcId" .= _eC2SecurityGroupVpcId
+    object $
+    catMaybes
+    [ Just ("GroupDescription" .= _eC2SecurityGroupGroupDescription)
+    , ("SecurityGroupEgress" .=) <$> _eC2SecurityGroupSecurityGroupEgress
+    , ("SecurityGroupIngress" .=) <$> _eC2SecurityGroupSecurityGroupIngress
+    , ("Tags" .=) <$> _eC2SecurityGroupTags
+    , ("VpcId" .=) <$> _eC2SecurityGroupVpcId
     ]
 
 instance FromJSON EC2SecurityGroup where
   parseJSON (Object obj) =
     EC2SecurityGroup <$>
       obj .: "GroupDescription" <*>
-      obj .: "SecurityGroupEgress" <*>
-      obj .: "SecurityGroupIngress" <*>
-      obj .: "Tags" <*>
-      obj .: "VpcId"
+      obj .:? "SecurityGroupEgress" <*>
+      obj .:? "SecurityGroupIngress" <*>
+      obj .:? "Tags" <*>
+      obj .:? "VpcId"
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2SecurityGroup' containing required fields as

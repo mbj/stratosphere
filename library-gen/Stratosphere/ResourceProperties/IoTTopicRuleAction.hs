@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.IoTTopicRuleAction where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -42,34 +43,35 @@ data IoTTopicRuleAction =
 
 instance ToJSON IoTTopicRuleAction where
   toJSON IoTTopicRuleAction{..} =
-    object
-    [ "CloudwatchAlarm" .= _ioTTopicRuleActionCloudwatchAlarm
-    , "CloudwatchMetric" .= _ioTTopicRuleActionCloudwatchMetric
-    , "DynamoDB" .= _ioTTopicRuleActionDynamoDB
-    , "Elasticsearch" .= _ioTTopicRuleActionElasticsearch
-    , "Firehose" .= _ioTTopicRuleActionFirehose
-    , "Kinesis" .= _ioTTopicRuleActionKinesis
-    , "Lambda" .= _ioTTopicRuleActionLambda
-    , "Republish" .= _ioTTopicRuleActionRepublish
-    , "S3" .= _ioTTopicRuleActionS3
-    , "Sns" .= _ioTTopicRuleActionSns
-    , "Sqs" .= _ioTTopicRuleActionSqs
+    object $
+    catMaybes
+    [ ("CloudwatchAlarm" .=) <$> _ioTTopicRuleActionCloudwatchAlarm
+    , ("CloudwatchMetric" .=) <$> _ioTTopicRuleActionCloudwatchMetric
+    , ("DynamoDB" .=) <$> _ioTTopicRuleActionDynamoDB
+    , ("Elasticsearch" .=) <$> _ioTTopicRuleActionElasticsearch
+    , ("Firehose" .=) <$> _ioTTopicRuleActionFirehose
+    , ("Kinesis" .=) <$> _ioTTopicRuleActionKinesis
+    , ("Lambda" .=) <$> _ioTTopicRuleActionLambda
+    , ("Republish" .=) <$> _ioTTopicRuleActionRepublish
+    , ("S3" .=) <$> _ioTTopicRuleActionS3
+    , ("Sns" .=) <$> _ioTTopicRuleActionSns
+    , ("Sqs" .=) <$> _ioTTopicRuleActionSqs
     ]
 
 instance FromJSON IoTTopicRuleAction where
   parseJSON (Object obj) =
     IoTTopicRuleAction <$>
-      obj .: "CloudwatchAlarm" <*>
-      obj .: "CloudwatchMetric" <*>
-      obj .: "DynamoDB" <*>
-      obj .: "Elasticsearch" <*>
-      obj .: "Firehose" <*>
-      obj .: "Kinesis" <*>
-      obj .: "Lambda" <*>
-      obj .: "Republish" <*>
-      obj .: "S3" <*>
-      obj .: "Sns" <*>
-      obj .: "Sqs"
+      obj .:? "CloudwatchAlarm" <*>
+      obj .:? "CloudwatchMetric" <*>
+      obj .:? "DynamoDB" <*>
+      obj .:? "Elasticsearch" <*>
+      obj .:? "Firehose" <*>
+      obj .:? "Kinesis" <*>
+      obj .:? "Lambda" <*>
+      obj .:? "Republish" <*>
+      obj .:? "S3" <*>
+      obj .:? "Sns" <*>
+      obj .:? "Sqs"
   parseJSON _ = mempty
 
 -- | Constructor for 'IoTTopicRuleAction' containing required fields as

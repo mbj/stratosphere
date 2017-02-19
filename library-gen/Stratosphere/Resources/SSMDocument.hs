@@ -7,6 +7,7 @@ module Stratosphere.Resources.SSMDocument where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,16 +24,17 @@ data SSMDocument =
 
 instance ToJSON SSMDocument where
   toJSON SSMDocument{..} =
-    object
-    [ "Content" .= _sSMDocumentContent
-    , "DocumentType" .= _sSMDocumentDocumentType
+    object $
+    catMaybes
+    [ Just ("Content" .= _sSMDocumentContent)
+    , ("DocumentType" .=) <$> _sSMDocumentDocumentType
     ]
 
 instance FromJSON SSMDocument where
   parseJSON (Object obj) =
     SSMDocument <$>
       obj .: "Content" <*>
-      obj .: "DocumentType"
+      obj .:? "DocumentType"
   parseJSON _ = mempty
 
 -- | Constructor for 'SSMDocument' containing required fields as arguments.

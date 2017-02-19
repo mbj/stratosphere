@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.OpsWorksInstanceEbsBlockDevice where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -26,22 +27,23 @@ data OpsWorksInstanceEbsBlockDevice =
 
 instance ToJSON OpsWorksInstanceEbsBlockDevice where
   toJSON OpsWorksInstanceEbsBlockDevice{..} =
-    object
-    [ "DeleteOnTermination" .= _opsWorksInstanceEbsBlockDeviceDeleteOnTermination
-    , "Iops" .= _opsWorksInstanceEbsBlockDeviceIops
-    , "SnapshotId" .= _opsWorksInstanceEbsBlockDeviceSnapshotId
-    , "VolumeSize" .= _opsWorksInstanceEbsBlockDeviceVolumeSize
-    , "VolumeType" .= _opsWorksInstanceEbsBlockDeviceVolumeType
+    object $
+    catMaybes
+    [ ("DeleteOnTermination" .=) <$> _opsWorksInstanceEbsBlockDeviceDeleteOnTermination
+    , ("Iops" .=) <$> _opsWorksInstanceEbsBlockDeviceIops
+    , ("SnapshotId" .=) <$> _opsWorksInstanceEbsBlockDeviceSnapshotId
+    , ("VolumeSize" .=) <$> _opsWorksInstanceEbsBlockDeviceVolumeSize
+    , ("VolumeType" .=) <$> _opsWorksInstanceEbsBlockDeviceVolumeType
     ]
 
 instance FromJSON OpsWorksInstanceEbsBlockDevice where
   parseJSON (Object obj) =
     OpsWorksInstanceEbsBlockDevice <$>
-      obj .: "DeleteOnTermination" <*>
-      obj .: "Iops" <*>
-      obj .: "SnapshotId" <*>
-      obj .: "VolumeSize" <*>
-      obj .: "VolumeType"
+      obj .:? "DeleteOnTermination" <*>
+      obj .:? "Iops" <*>
+      obj .:? "SnapshotId" <*>
+      obj .:? "VolumeSize" <*>
+      obj .:? "VolumeType"
   parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksInstanceEbsBlockDevice' containing required

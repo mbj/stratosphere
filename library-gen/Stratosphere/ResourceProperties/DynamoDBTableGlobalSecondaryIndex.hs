@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.DynamoDBTableGlobalSecondaryIndex where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -27,11 +28,12 @@ data DynamoDBTableGlobalSecondaryIndex =
 
 instance ToJSON DynamoDBTableGlobalSecondaryIndex where
   toJSON DynamoDBTableGlobalSecondaryIndex{..} =
-    object
-    [ "IndexName" .= _dynamoDBTableGlobalSecondaryIndexIndexName
-    , "KeySchema" .= _dynamoDBTableGlobalSecondaryIndexKeySchema
-    , "Projection" .= _dynamoDBTableGlobalSecondaryIndexProjection
-    , "ProvisionedThroughput" .= _dynamoDBTableGlobalSecondaryIndexProvisionedThroughput
+    object $
+    catMaybes
+    [ Just ("IndexName" .= _dynamoDBTableGlobalSecondaryIndexIndexName)
+    , Just ("KeySchema" .= _dynamoDBTableGlobalSecondaryIndexKeySchema)
+    , Just ("Projection" .= _dynamoDBTableGlobalSecondaryIndexProjection)
+    , Just ("ProvisionedThroughput" .= _dynamoDBTableGlobalSecondaryIndexProvisionedThroughput)
     ]
 
 instance FromJSON DynamoDBTableGlobalSecondaryIndex where

@@ -7,6 +7,7 @@ module Stratosphere.Resources.RDSEventSubscription where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -26,22 +27,23 @@ data RDSEventSubscription =
 
 instance ToJSON RDSEventSubscription where
   toJSON RDSEventSubscription{..} =
-    object
-    [ "Enabled" .= _rDSEventSubscriptionEnabled
-    , "EventCategories" .= _rDSEventSubscriptionEventCategories
-    , "SnsTopicArn" .= _rDSEventSubscriptionSnsTopicArn
-    , "SourceIds" .= _rDSEventSubscriptionSourceIds
-    , "SourceType" .= _rDSEventSubscriptionSourceType
+    object $
+    catMaybes
+    [ ("Enabled" .=) <$> _rDSEventSubscriptionEnabled
+    , ("EventCategories" .=) <$> _rDSEventSubscriptionEventCategories
+    , Just ("SnsTopicArn" .= _rDSEventSubscriptionSnsTopicArn)
+    , ("SourceIds" .=) <$> _rDSEventSubscriptionSourceIds
+    , ("SourceType" .=) <$> _rDSEventSubscriptionSourceType
     ]
 
 instance FromJSON RDSEventSubscription where
   parseJSON (Object obj) =
     RDSEventSubscription <$>
-      obj .: "Enabled" <*>
-      obj .: "EventCategories" <*>
+      obj .:? "Enabled" <*>
+      obj .:? "EventCategories" <*>
       obj .: "SnsTopicArn" <*>
-      obj .: "SourceIds" <*>
-      obj .: "SourceType"
+      obj .:? "SourceIds" <*>
+      obj .:? "SourceType"
   parseJSON _ = mempty
 
 -- | Constructor for 'RDSEventSubscription' containing required fields as

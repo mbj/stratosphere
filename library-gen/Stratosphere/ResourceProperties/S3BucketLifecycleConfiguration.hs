@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.S3BucketLifecycleConfiguration where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -22,8 +23,9 @@ data S3BucketLifecycleConfiguration =
 
 instance ToJSON S3BucketLifecycleConfiguration where
   toJSON S3BucketLifecycleConfiguration{..} =
-    object
-    [ "Rules" .= _s3BucketLifecycleConfigurationRules
+    object $
+    catMaybes
+    [ Just ("Rules" .= _s3BucketLifecycleConfigurationRules)
     ]
 
 instance FromJSON S3BucketLifecycleConfiguration where

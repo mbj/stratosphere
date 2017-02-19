@@ -7,6 +7,7 @@ module Stratosphere.Resources.IAMManagedPolicy where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -27,24 +28,25 @@ data IAMManagedPolicy =
 
 instance ToJSON IAMManagedPolicy where
   toJSON IAMManagedPolicy{..} =
-    object
-    [ "Description" .= _iAMManagedPolicyDescription
-    , "Groups" .= _iAMManagedPolicyGroups
-    , "Path" .= _iAMManagedPolicyPath
-    , "PolicyDocument" .= _iAMManagedPolicyPolicyDocument
-    , "Roles" .= _iAMManagedPolicyRoles
-    , "Users" .= _iAMManagedPolicyUsers
+    object $
+    catMaybes
+    [ ("Description" .=) <$> _iAMManagedPolicyDescription
+    , ("Groups" .=) <$> _iAMManagedPolicyGroups
+    , ("Path" .=) <$> _iAMManagedPolicyPath
+    , ("PolicyDocument" .=) <$> _iAMManagedPolicyPolicyDocument
+    , ("Roles" .=) <$> _iAMManagedPolicyRoles
+    , ("Users" .=) <$> _iAMManagedPolicyUsers
     ]
 
 instance FromJSON IAMManagedPolicy where
   parseJSON (Object obj) =
     IAMManagedPolicy <$>
-      obj .: "Description" <*>
-      obj .: "Groups" <*>
-      obj .: "Path" <*>
-      obj .: "PolicyDocument" <*>
-      obj .: "Roles" <*>
-      obj .: "Users"
+      obj .:? "Description" <*>
+      obj .:? "Groups" <*>
+      obj .:? "Path" <*>
+      obj .:? "PolicyDocument" <*>
+      obj .:? "Roles" <*>
+      obj .:? "Users"
   parseJSON _ = mempty
 
 -- | Constructor for 'IAMManagedPolicy' containing required fields as

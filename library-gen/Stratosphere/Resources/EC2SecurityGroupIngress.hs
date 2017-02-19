@@ -7,6 +7,7 @@ module Stratosphere.Resources.EC2SecurityGroupIngress where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -31,32 +32,33 @@ data EC2SecurityGroupIngress =
 
 instance ToJSON EC2SecurityGroupIngress where
   toJSON EC2SecurityGroupIngress{..} =
-    object
-    [ "CidrIp" .= _eC2SecurityGroupIngressCidrIp
-    , "CidrIpv6" .= _eC2SecurityGroupIngressCidrIpv6
-    , "FromPort" .= _eC2SecurityGroupIngressFromPort
-    , "GroupId" .= _eC2SecurityGroupIngressGroupId
-    , "GroupName" .= _eC2SecurityGroupIngressGroupName
-    , "IpProtocol" .= _eC2SecurityGroupIngressIpProtocol
-    , "SourceSecurityGroupId" .= _eC2SecurityGroupIngressSourceSecurityGroupId
-    , "SourceSecurityGroupName" .= _eC2SecurityGroupIngressSourceSecurityGroupName
-    , "SourceSecurityGroupOwnerId" .= _eC2SecurityGroupIngressSourceSecurityGroupOwnerId
-    , "ToPort" .= _eC2SecurityGroupIngressToPort
+    object $
+    catMaybes
+    [ ("CidrIp" .=) <$> _eC2SecurityGroupIngressCidrIp
+    , ("CidrIpv6" .=) <$> _eC2SecurityGroupIngressCidrIpv6
+    , ("FromPort" .=) <$> _eC2SecurityGroupIngressFromPort
+    , ("GroupId" .=) <$> _eC2SecurityGroupIngressGroupId
+    , ("GroupName" .=) <$> _eC2SecurityGroupIngressGroupName
+    , Just ("IpProtocol" .= _eC2SecurityGroupIngressIpProtocol)
+    , ("SourceSecurityGroupId" .=) <$> _eC2SecurityGroupIngressSourceSecurityGroupId
+    , ("SourceSecurityGroupName" .=) <$> _eC2SecurityGroupIngressSourceSecurityGroupName
+    , ("SourceSecurityGroupOwnerId" .=) <$> _eC2SecurityGroupIngressSourceSecurityGroupOwnerId
+    , ("ToPort" .=) <$> _eC2SecurityGroupIngressToPort
     ]
 
 instance FromJSON EC2SecurityGroupIngress where
   parseJSON (Object obj) =
     EC2SecurityGroupIngress <$>
-      obj .: "CidrIp" <*>
-      obj .: "CidrIpv6" <*>
-      obj .: "FromPort" <*>
-      obj .: "GroupId" <*>
-      obj .: "GroupName" <*>
+      obj .:? "CidrIp" <*>
+      obj .:? "CidrIpv6" <*>
+      obj .:? "FromPort" <*>
+      obj .:? "GroupId" <*>
+      obj .:? "GroupName" <*>
       obj .: "IpProtocol" <*>
-      obj .: "SourceSecurityGroupId" <*>
-      obj .: "SourceSecurityGroupName" <*>
-      obj .: "SourceSecurityGroupOwnerId" <*>
-      obj .: "ToPort"
+      obj .:? "SourceSecurityGroupId" <*>
+      obj .:? "SourceSecurityGroupName" <*>
+      obj .:? "SourceSecurityGroupOwnerId" <*>
+      obj .:? "ToPort"
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2SecurityGroupIngress' containing required fields as

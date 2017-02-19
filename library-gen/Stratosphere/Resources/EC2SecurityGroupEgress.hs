@@ -7,6 +7,7 @@ module Stratosphere.Resources.EC2SecurityGroupEgress where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -29,28 +30,29 @@ data EC2SecurityGroupEgress =
 
 instance ToJSON EC2SecurityGroupEgress where
   toJSON EC2SecurityGroupEgress{..} =
-    object
-    [ "CidrIp" .= _eC2SecurityGroupEgressCidrIp
-    , "CidrIpv6" .= _eC2SecurityGroupEgressCidrIpv6
-    , "DestinationPrefixListId" .= _eC2SecurityGroupEgressDestinationPrefixListId
-    , "DestinationSecurityGroupId" .= _eC2SecurityGroupEgressDestinationSecurityGroupId
-    , "FromPort" .= _eC2SecurityGroupEgressFromPort
-    , "GroupId" .= _eC2SecurityGroupEgressGroupId
-    , "IpProtocol" .= _eC2SecurityGroupEgressIpProtocol
-    , "ToPort" .= _eC2SecurityGroupEgressToPort
+    object $
+    catMaybes
+    [ ("CidrIp" .=) <$> _eC2SecurityGroupEgressCidrIp
+    , ("CidrIpv6" .=) <$> _eC2SecurityGroupEgressCidrIpv6
+    , ("DestinationPrefixListId" .=) <$> _eC2SecurityGroupEgressDestinationPrefixListId
+    , ("DestinationSecurityGroupId" .=) <$> _eC2SecurityGroupEgressDestinationSecurityGroupId
+    , ("FromPort" .=) <$> _eC2SecurityGroupEgressFromPort
+    , Just ("GroupId" .= _eC2SecurityGroupEgressGroupId)
+    , Just ("IpProtocol" .= _eC2SecurityGroupEgressIpProtocol)
+    , ("ToPort" .=) <$> _eC2SecurityGroupEgressToPort
     ]
 
 instance FromJSON EC2SecurityGroupEgress where
   parseJSON (Object obj) =
     EC2SecurityGroupEgress <$>
-      obj .: "CidrIp" <*>
-      obj .: "CidrIpv6" <*>
-      obj .: "DestinationPrefixListId" <*>
-      obj .: "DestinationSecurityGroupId" <*>
-      obj .: "FromPort" <*>
+      obj .:? "CidrIp" <*>
+      obj .:? "CidrIpv6" <*>
+      obj .:? "DestinationPrefixListId" <*>
+      obj .:? "DestinationSecurityGroupId" <*>
+      obj .:? "FromPort" <*>
       obj .: "GroupId" <*>
       obj .: "IpProtocol" <*>
-      obj .: "ToPort"
+      obj .:? "ToPort"
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2SecurityGroupEgress' containing required fields as

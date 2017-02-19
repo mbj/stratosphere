@@ -7,6 +7,7 @@ module Stratosphere.Resources.SNSTopic where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -24,18 +25,19 @@ data SNSTopic =
 
 instance ToJSON SNSTopic where
   toJSON SNSTopic{..} =
-    object
-    [ "DisplayName" .= _sNSTopicDisplayName
-    , "Subscription" .= _sNSTopicSubscription
-    , "TopicName" .= _sNSTopicTopicName
+    object $
+    catMaybes
+    [ ("DisplayName" .=) <$> _sNSTopicDisplayName
+    , ("Subscription" .=) <$> _sNSTopicSubscription
+    , ("TopicName" .=) <$> _sNSTopicTopicName
     ]
 
 instance FromJSON SNSTopic where
   parseJSON (Object obj) =
     SNSTopic <$>
-      obj .: "DisplayName" <*>
-      obj .: "Subscription" <*>
-      obj .: "TopicName"
+      obj .:? "DisplayName" <*>
+      obj .:? "Subscription" <*>
+      obj .:? "TopicName"
   parseJSON _ = mempty
 
 -- | Constructor for 'SNSTopic' containing required fields as arguments.

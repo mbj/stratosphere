@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.ECSTaskDefinitionPortMapping where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -24,18 +25,19 @@ data ECSTaskDefinitionPortMapping =
 
 instance ToJSON ECSTaskDefinitionPortMapping where
   toJSON ECSTaskDefinitionPortMapping{..} =
-    object
-    [ "ContainerPort" .= _eCSTaskDefinitionPortMappingContainerPort
-    , "HostPort" .= _eCSTaskDefinitionPortMappingHostPort
-    , "Protocol" .= _eCSTaskDefinitionPortMappingProtocol
+    object $
+    catMaybes
+    [ ("ContainerPort" .=) <$> _eCSTaskDefinitionPortMappingContainerPort
+    , ("HostPort" .=) <$> _eCSTaskDefinitionPortMappingHostPort
+    , ("Protocol" .=) <$> _eCSTaskDefinitionPortMappingProtocol
     ]
 
 instance FromJSON ECSTaskDefinitionPortMapping where
   parseJSON (Object obj) =
     ECSTaskDefinitionPortMapping <$>
-      obj .: "ContainerPort" <*>
-      obj .: "HostPort" <*>
-      obj .: "Protocol"
+      obj .:? "ContainerPort" <*>
+      obj .:? "HostPort" <*>
+      obj .:? "Protocol"
   parseJSON _ = mempty
 
 -- | Constructor for 'ECSTaskDefinitionPortMapping' containing required fields

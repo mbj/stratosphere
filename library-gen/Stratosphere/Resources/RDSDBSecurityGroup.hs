@@ -7,6 +7,7 @@ module Stratosphere.Resources.RDSDBSecurityGroup where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -26,20 +27,21 @@ data RDSDBSecurityGroup =
 
 instance ToJSON RDSDBSecurityGroup where
   toJSON RDSDBSecurityGroup{..} =
-    object
-    [ "DBSecurityGroupIngress" .= _rDSDBSecurityGroupDBSecurityGroupIngress
-    , "EC2VpcId" .= _rDSDBSecurityGroupEC2VpcId
-    , "GroupDescription" .= _rDSDBSecurityGroupGroupDescription
-    , "Tags" .= _rDSDBSecurityGroupTags
+    object $
+    catMaybes
+    [ Just ("DBSecurityGroupIngress" .= _rDSDBSecurityGroupDBSecurityGroupIngress)
+    , ("EC2VpcId" .=) <$> _rDSDBSecurityGroupEC2VpcId
+    , Just ("GroupDescription" .= _rDSDBSecurityGroupGroupDescription)
+    , ("Tags" .=) <$> _rDSDBSecurityGroupTags
     ]
 
 instance FromJSON RDSDBSecurityGroup where
   parseJSON (Object obj) =
     RDSDBSecurityGroup <$>
       obj .: "DBSecurityGroupIngress" <*>
-      obj .: "EC2VpcId" <*>
+      obj .:? "EC2VpcId" <*>
       obj .: "GroupDescription" <*>
-      obj .: "Tags"
+      obj .:? "Tags"
   parseJSON _ = mempty
 
 -- | Constructor for 'RDSDBSecurityGroup' containing required fields as

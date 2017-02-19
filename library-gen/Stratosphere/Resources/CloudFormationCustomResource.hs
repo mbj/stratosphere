@@ -7,6 +7,7 @@ module Stratosphere.Resources.CloudFormationCustomResource where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -22,8 +23,9 @@ data CloudFormationCustomResource =
 
 instance ToJSON CloudFormationCustomResource where
   toJSON CloudFormationCustomResource{..} =
-    object
-    [ "ServiceToken" .= _cloudFormationCustomResourceServiceToken
+    object $
+    catMaybes
+    [ Just ("ServiceToken" .= _cloudFormationCustomResourceServiceToken)
     ]
 
 instance FromJSON CloudFormationCustomResource where

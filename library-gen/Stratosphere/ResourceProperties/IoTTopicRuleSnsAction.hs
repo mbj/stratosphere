@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.IoTTopicRuleSnsAction where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -24,16 +25,17 @@ data IoTTopicRuleSnsAction =
 
 instance ToJSON IoTTopicRuleSnsAction where
   toJSON IoTTopicRuleSnsAction{..} =
-    object
-    [ "MessageFormat" .= _ioTTopicRuleSnsActionMessageFormat
-    , "RoleArn" .= _ioTTopicRuleSnsActionRoleArn
-    , "TargetArn" .= _ioTTopicRuleSnsActionTargetArn
+    object $
+    catMaybes
+    [ ("MessageFormat" .=) <$> _ioTTopicRuleSnsActionMessageFormat
+    , Just ("RoleArn" .= _ioTTopicRuleSnsActionRoleArn)
+    , Just ("TargetArn" .= _ioTTopicRuleSnsActionTargetArn)
     ]
 
 instance FromJSON IoTTopicRuleSnsAction where
   parseJSON (Object obj) =
     IoTTopicRuleSnsAction <$>
-      obj .: "MessageFormat" <*>
+      obj .:? "MessageFormat" <*>
       obj .: "RoleArn" <*>
       obj .: "TargetArn"
   parseJSON _ = mempty

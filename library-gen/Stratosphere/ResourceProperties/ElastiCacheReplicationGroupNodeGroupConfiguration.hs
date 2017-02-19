@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.ElastiCacheReplicationGroupNodeGroupConfi
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -27,20 +28,21 @@ data ElastiCacheReplicationGroupNodeGroupConfiguration =
 
 instance ToJSON ElastiCacheReplicationGroupNodeGroupConfiguration where
   toJSON ElastiCacheReplicationGroupNodeGroupConfiguration{..} =
-    object
-    [ "PrimaryAvailabilityZone" .= _elastiCacheReplicationGroupNodeGroupConfigurationPrimaryAvailabilityZone
-    , "ReplicaAvailabilityZones" .= _elastiCacheReplicationGroupNodeGroupConfigurationReplicaAvailabilityZones
-    , "ReplicaCount" .= _elastiCacheReplicationGroupNodeGroupConfigurationReplicaCount
-    , "Slots" .= _elastiCacheReplicationGroupNodeGroupConfigurationSlots
+    object $
+    catMaybes
+    [ ("PrimaryAvailabilityZone" .=) <$> _elastiCacheReplicationGroupNodeGroupConfigurationPrimaryAvailabilityZone
+    , ("ReplicaAvailabilityZones" .=) <$> _elastiCacheReplicationGroupNodeGroupConfigurationReplicaAvailabilityZones
+    , ("ReplicaCount" .=) <$> _elastiCacheReplicationGroupNodeGroupConfigurationReplicaCount
+    , ("Slots" .=) <$> _elastiCacheReplicationGroupNodeGroupConfigurationSlots
     ]
 
 instance FromJSON ElastiCacheReplicationGroupNodeGroupConfiguration where
   parseJSON (Object obj) =
     ElastiCacheReplicationGroupNodeGroupConfiguration <$>
-      obj .: "PrimaryAvailabilityZone" <*>
-      obj .: "ReplicaAvailabilityZones" <*>
-      obj .: "ReplicaCount" <*>
-      obj .: "Slots"
+      obj .:? "PrimaryAvailabilityZone" <*>
+      obj .:? "ReplicaAvailabilityZones" <*>
+      obj .:? "ReplicaCount" <*>
+      obj .:? "Slots"
   parseJSON _ = mempty
 
 -- | Constructor for 'ElastiCacheReplicationGroupNodeGroupConfiguration'

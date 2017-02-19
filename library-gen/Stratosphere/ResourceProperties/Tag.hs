@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.Tag where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,9 +24,10 @@ data Tag =
 
 instance ToJSON Tag where
   toJSON Tag{..} =
-    object
-    [ "Key" .= _tagKey
-    , "Value" .= _tagValue
+    object $
+    catMaybes
+    [ Just ("Key" .= _tagKey)
+    , Just ("Value" .= _tagValue)
     ]
 
 instance FromJSON Tag where

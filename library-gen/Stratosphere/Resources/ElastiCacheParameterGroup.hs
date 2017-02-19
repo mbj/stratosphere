@@ -7,6 +7,7 @@ module Stratosphere.Resources.ElastiCacheParameterGroup where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -24,10 +25,11 @@ data ElastiCacheParameterGroup =
 
 instance ToJSON ElastiCacheParameterGroup where
   toJSON ElastiCacheParameterGroup{..} =
-    object
-    [ "CacheParameterGroupFamily" .= _elastiCacheParameterGroupCacheParameterGroupFamily
-    , "Description" .= _elastiCacheParameterGroupDescription
-    , "Properties" .= _elastiCacheParameterGroupProperties
+    object $
+    catMaybes
+    [ Just ("CacheParameterGroupFamily" .= _elastiCacheParameterGroupCacheParameterGroupFamily)
+    , Just ("Description" .= _elastiCacheParameterGroupDescription)
+    , ("Properties" .=) <$> _elastiCacheParameterGroupProperties
     ]
 
 instance FromJSON ElastiCacheParameterGroup where
@@ -35,7 +37,7 @@ instance FromJSON ElastiCacheParameterGroup where
     ElastiCacheParameterGroup <$>
       obj .: "CacheParameterGroupFamily" <*>
       obj .: "Description" <*>
-      obj .: "Properties"
+      obj .:? "Properties"
   parseJSON _ = mempty
 
 -- | Constructor for 'ElastiCacheParameterGroup' containing required fields as

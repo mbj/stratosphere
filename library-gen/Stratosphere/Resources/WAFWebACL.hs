@@ -7,6 +7,7 @@ module Stratosphere.Resources.WAFWebACL where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -26,11 +27,12 @@ data WAFWebACL =
 
 instance ToJSON WAFWebACL where
   toJSON WAFWebACL{..} =
-    object
-    [ "DefaultAction" .= _wAFWebACLDefaultAction
-    , "MetricName" .= _wAFWebACLMetricName
-    , "Name" .= _wAFWebACLName
-    , "Rules" .= _wAFWebACLRules
+    object $
+    catMaybes
+    [ Just ("DefaultAction" .= _wAFWebACLDefaultAction)
+    , Just ("MetricName" .= _wAFWebACLMetricName)
+    , Just ("Name" .= _wAFWebACLName)
+    , ("Rules" .=) <$> _wAFWebACLRules
     ]
 
 instance FromJSON WAFWebACL where
@@ -39,7 +41,7 @@ instance FromJSON WAFWebACL where
       obj .: "DefaultAction" <*>
       obj .: "MetricName" <*>
       obj .: "Name" <*>
-      obj .: "Rules"
+      obj .:? "Rules"
   parseJSON _ = mempty
 
 -- | Constructor for 'WAFWebACL' containing required fields as arguments.

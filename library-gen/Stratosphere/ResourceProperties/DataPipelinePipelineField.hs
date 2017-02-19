@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.DataPipelinePipelineField where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -24,18 +25,19 @@ data DataPipelinePipelineField =
 
 instance ToJSON DataPipelinePipelineField where
   toJSON DataPipelinePipelineField{..} =
-    object
-    [ "Key" .= _dataPipelinePipelineFieldKey
-    , "RefValue" .= _dataPipelinePipelineFieldRefValue
-    , "StringValue" .= _dataPipelinePipelineFieldStringValue
+    object $
+    catMaybes
+    [ Just ("Key" .= _dataPipelinePipelineFieldKey)
+    , ("RefValue" .=) <$> _dataPipelinePipelineFieldRefValue
+    , ("StringValue" .=) <$> _dataPipelinePipelineFieldStringValue
     ]
 
 instance FromJSON DataPipelinePipelineField where
   parseJSON (Object obj) =
     DataPipelinePipelineField <$>
       obj .: "Key" <*>
-      obj .: "RefValue" <*>
-      obj .: "StringValue"
+      obj .:? "RefValue" <*>
+      obj .:? "StringValue"
   parseJSON _ = mempty
 
 -- | Constructor for 'DataPipelinePipelineField' containing required fields as

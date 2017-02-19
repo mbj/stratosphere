@@ -7,6 +7,7 @@ module Stratosphere.Resources.IoTPolicy where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,16 +24,17 @@ data IoTPolicy =
 
 instance ToJSON IoTPolicy where
   toJSON IoTPolicy{..} =
-    object
-    [ "PolicyDocument" .= _ioTPolicyPolicyDocument
-    , "PolicyName" .= _ioTPolicyPolicyName
+    object $
+    catMaybes
+    [ Just ("PolicyDocument" .= _ioTPolicyPolicyDocument)
+    , ("PolicyName" .=) <$> _ioTPolicyPolicyName
     ]
 
 instance FromJSON IoTPolicy where
   parseJSON (Object obj) =
     IoTPolicy <$>
       obj .: "PolicyDocument" <*>
-      obj .: "PolicyName"
+      obj .:? "PolicyName"
   parseJSON _ = mempty
 
 -- | Constructor for 'IoTPolicy' containing required fields as arguments.

@@ -7,6 +7,7 @@ module Stratosphere.Resources.EC2SpotFleet where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -22,8 +23,9 @@ data EC2SpotFleet =
 
 instance ToJSON EC2SpotFleet where
   toJSON EC2SpotFleet{..} =
-    object
-    [ "SpotFleetRequestConfigData" .= _eC2SpotFleetSpotFleetRequestConfigData
+    object $
+    catMaybes
+    [ Just ("SpotFleetRequestConfigData" .= _eC2SpotFleetSpotFleetRequestConfigData)
     ]
 
 instance FromJSON EC2SpotFleet where

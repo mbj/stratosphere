@@ -7,6 +7,7 @@ module Stratosphere.Resources.ECSCluster where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -22,14 +23,15 @@ data ECSCluster =
 
 instance ToJSON ECSCluster where
   toJSON ECSCluster{..} =
-    object
-    [ "ClusterName" .= _eCSClusterClusterName
+    object $
+    catMaybes
+    [ ("ClusterName" .=) <$> _eCSClusterClusterName
     ]
 
 instance FromJSON ECSCluster where
   parseJSON (Object obj) =
     ECSCluster <$>
-      obj .: "ClusterName"
+      obj .:? "ClusterName"
   parseJSON _ = mempty
 
 -- | Constructor for 'ECSCluster' containing required fields as arguments.

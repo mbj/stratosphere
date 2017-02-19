@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.EC2NetworkInterfaceInstanceIpv6Address wh
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,8 +24,9 @@ data EC2NetworkInterfaceInstanceIpv6Address =
 
 instance ToJSON EC2NetworkInterfaceInstanceIpv6Address where
   toJSON EC2NetworkInterfaceInstanceIpv6Address{..} =
-    object
-    [ "Ipv6Address" .= _eC2NetworkInterfaceInstanceIpv6AddressIpv6Address
+    object $
+    catMaybes
+    [ Just ("Ipv6Address" .= _eC2NetworkInterfaceInstanceIpv6AddressIpv6Address)
     ]
 
 instance FromJSON EC2NetworkInterfaceInstanceIpv6Address where

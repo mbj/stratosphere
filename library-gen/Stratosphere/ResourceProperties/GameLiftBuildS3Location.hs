@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.GameLiftBuildS3Location where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -24,10 +25,11 @@ data GameLiftBuildS3Location =
 
 instance ToJSON GameLiftBuildS3Location where
   toJSON GameLiftBuildS3Location{..} =
-    object
-    [ "Bucket" .= _gameLiftBuildS3LocationBucket
-    , "Key" .= _gameLiftBuildS3LocationKey
-    , "RoleArn" .= _gameLiftBuildS3LocationRoleArn
+    object $
+    catMaybes
+    [ Just ("Bucket" .= _gameLiftBuildS3LocationBucket)
+    , Just ("Key" .= _gameLiftBuildS3LocationKey)
+    , Just ("RoleArn" .= _gameLiftBuildS3LocationRoleArn)
     ]
 
 instance FromJSON GameLiftBuildS3Location where

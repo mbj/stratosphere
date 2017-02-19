@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.CloudFrontDistributionCustomErrorResponse
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -26,20 +27,21 @@ data CloudFrontDistributionCustomErrorResponse =
 
 instance ToJSON CloudFrontDistributionCustomErrorResponse where
   toJSON CloudFrontDistributionCustomErrorResponse{..} =
-    object
-    [ "ErrorCachingMinTTL" .= _cloudFrontDistributionCustomErrorResponseErrorCachingMinTTL
-    , "ErrorCode" .= _cloudFrontDistributionCustomErrorResponseErrorCode
-    , "ResponseCode" .= _cloudFrontDistributionCustomErrorResponseResponseCode
-    , "ResponsePagePath" .= _cloudFrontDistributionCustomErrorResponseResponsePagePath
+    object $
+    catMaybes
+    [ ("ErrorCachingMinTTL" .=) <$> _cloudFrontDistributionCustomErrorResponseErrorCachingMinTTL
+    , Just ("ErrorCode" .= _cloudFrontDistributionCustomErrorResponseErrorCode)
+    , ("ResponseCode" .=) <$> _cloudFrontDistributionCustomErrorResponseResponseCode
+    , ("ResponsePagePath" .=) <$> _cloudFrontDistributionCustomErrorResponseResponsePagePath
     ]
 
 instance FromJSON CloudFrontDistributionCustomErrorResponse where
   parseJSON (Object obj) =
     CloudFrontDistributionCustomErrorResponse <$>
-      obj .: "ErrorCachingMinTTL" <*>
+      obj .:? "ErrorCachingMinTTL" <*>
       obj .: "ErrorCode" <*>
-      obj .: "ResponseCode" <*>
-      obj .: "ResponsePagePath"
+      obj .:? "ResponseCode" <*>
+      obj .:? "ResponsePagePath"
   parseJSON _ = mempty
 
 -- | Constructor for 'CloudFrontDistributionCustomErrorResponse' containing

@@ -7,6 +7,7 @@ module Stratosphere.Resources.ApiGatewayAuthorizer where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -30,30 +31,31 @@ data ApiGatewayAuthorizer =
 
 instance ToJSON ApiGatewayAuthorizer where
   toJSON ApiGatewayAuthorizer{..} =
-    object
-    [ "AuthorizerCredentials" .= _apiGatewayAuthorizerAuthorizerCredentials
-    , "AuthorizerResultTtlInSeconds" .= _apiGatewayAuthorizerAuthorizerResultTtlInSeconds
-    , "AuthorizerUri" .= _apiGatewayAuthorizerAuthorizerUri
-    , "IdentitySource" .= _apiGatewayAuthorizerIdentitySource
-    , "IdentityValidationExpression" .= _apiGatewayAuthorizerIdentityValidationExpression
-    , "Name" .= _apiGatewayAuthorizerName
-    , "ProviderARNs" .= _apiGatewayAuthorizerProviderARNs
-    , "RestApiId" .= _apiGatewayAuthorizerRestApiId
-    , "Type" .= _apiGatewayAuthorizerType
+    object $
+    catMaybes
+    [ ("AuthorizerCredentials" .=) <$> _apiGatewayAuthorizerAuthorizerCredentials
+    , ("AuthorizerResultTtlInSeconds" .=) <$> _apiGatewayAuthorizerAuthorizerResultTtlInSeconds
+    , ("AuthorizerUri" .=) <$> _apiGatewayAuthorizerAuthorizerUri
+    , ("IdentitySource" .=) <$> _apiGatewayAuthorizerIdentitySource
+    , ("IdentityValidationExpression" .=) <$> _apiGatewayAuthorizerIdentityValidationExpression
+    , ("Name" .=) <$> _apiGatewayAuthorizerName
+    , ("ProviderARNs" .=) <$> _apiGatewayAuthorizerProviderARNs
+    , ("RestApiId" .=) <$> _apiGatewayAuthorizerRestApiId
+    , ("Type" .=) <$> _apiGatewayAuthorizerType
     ]
 
 instance FromJSON ApiGatewayAuthorizer where
   parseJSON (Object obj) =
     ApiGatewayAuthorizer <$>
-      obj .: "AuthorizerCredentials" <*>
-      obj .: "AuthorizerResultTtlInSeconds" <*>
-      obj .: "AuthorizerUri" <*>
-      obj .: "IdentitySource" <*>
-      obj .: "IdentityValidationExpression" <*>
-      obj .: "Name" <*>
-      obj .: "ProviderARNs" <*>
-      obj .: "RestApiId" <*>
-      obj .: "Type"
+      obj .:? "AuthorizerCredentials" <*>
+      obj .:? "AuthorizerResultTtlInSeconds" <*>
+      obj .:? "AuthorizerUri" <*>
+      obj .:? "IdentitySource" <*>
+      obj .:? "IdentityValidationExpression" <*>
+      obj .:? "Name" <*>
+      obj .:? "ProviderARNs" <*>
+      obj .:? "RestApiId" <*>
+      obj .:? "Type"
   parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayAuthorizer' containing required fields as

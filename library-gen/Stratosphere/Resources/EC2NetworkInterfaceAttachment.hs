@@ -7,6 +7,7 @@ module Stratosphere.Resources.EC2NetworkInterfaceAttachment where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -25,17 +26,18 @@ data EC2NetworkInterfaceAttachment =
 
 instance ToJSON EC2NetworkInterfaceAttachment where
   toJSON EC2NetworkInterfaceAttachment{..} =
-    object
-    [ "DeleteOnTermination" .= _eC2NetworkInterfaceAttachmentDeleteOnTermination
-    , "DeviceIndex" .= _eC2NetworkInterfaceAttachmentDeviceIndex
-    , "InstanceId" .= _eC2NetworkInterfaceAttachmentInstanceId
-    , "NetworkInterfaceId" .= _eC2NetworkInterfaceAttachmentNetworkInterfaceId
+    object $
+    catMaybes
+    [ ("DeleteOnTermination" .=) <$> _eC2NetworkInterfaceAttachmentDeleteOnTermination
+    , Just ("DeviceIndex" .= _eC2NetworkInterfaceAttachmentDeviceIndex)
+    , Just ("InstanceId" .= _eC2NetworkInterfaceAttachmentInstanceId)
+    , Just ("NetworkInterfaceId" .= _eC2NetworkInterfaceAttachmentNetworkInterfaceId)
     ]
 
 instance FromJSON EC2NetworkInterfaceAttachment where
   parseJSON (Object obj) =
     EC2NetworkInterfaceAttachment <$>
-      obj .: "DeleteOnTermination" <*>
+      obj .:? "DeleteOnTermination" <*>
       obj .: "DeviceIndex" <*>
       obj .: "InstanceId" <*>
       obj .: "NetworkInterfaceId"

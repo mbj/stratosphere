@@ -7,6 +7,7 @@ module Stratosphere.Resources.RedshiftClusterSubnetGroup where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,9 +24,10 @@ data RedshiftClusterSubnetGroup =
 
 instance ToJSON RedshiftClusterSubnetGroup where
   toJSON RedshiftClusterSubnetGroup{..} =
-    object
-    [ "Description" .= _redshiftClusterSubnetGroupDescription
-    , "SubnetIds" .= _redshiftClusterSubnetGroupSubnetIds
+    object $
+    catMaybes
+    [ Just ("Description" .= _redshiftClusterSubnetGroupDescription)
+    , Just ("SubnetIds" .= _redshiftClusterSubnetGroupSubnetIds)
     ]
 
 instance FromJSON RedshiftClusterSubnetGroup where

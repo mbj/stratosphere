@@ -7,6 +7,7 @@ module Stratosphere.Resources.RedshiftClusterParameterGroup where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -24,10 +25,11 @@ data RedshiftClusterParameterGroup =
 
 instance ToJSON RedshiftClusterParameterGroup where
   toJSON RedshiftClusterParameterGroup{..} =
-    object
-    [ "Description" .= _redshiftClusterParameterGroupDescription
-    , "ParameterGroupFamily" .= _redshiftClusterParameterGroupParameterGroupFamily
-    , "Parameters" .= _redshiftClusterParameterGroupParameters
+    object $
+    catMaybes
+    [ Just ("Description" .= _redshiftClusterParameterGroupDescription)
+    , Just ("ParameterGroupFamily" .= _redshiftClusterParameterGroupParameterGroupFamily)
+    , ("Parameters" .=) <$> _redshiftClusterParameterGroupParameters
     ]
 
 instance FromJSON RedshiftClusterParameterGroup where
@@ -35,7 +37,7 @@ instance FromJSON RedshiftClusterParameterGroup where
     RedshiftClusterParameterGroup <$>
       obj .: "Description" <*>
       obj .: "ParameterGroupFamily" <*>
-      obj .: "Parameters"
+      obj .:? "Parameters"
   parseJSON _ = mempty
 
 -- | Constructor for 'RedshiftClusterParameterGroup' containing required

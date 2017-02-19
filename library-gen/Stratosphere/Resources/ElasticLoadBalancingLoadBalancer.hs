@@ -7,6 +7,7 @@ module Stratosphere.Resources.ElasticLoadBalancingLoadBalancer where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -45,44 +46,45 @@ data ElasticLoadBalancingLoadBalancer =
 
 instance ToJSON ElasticLoadBalancingLoadBalancer where
   toJSON ElasticLoadBalancingLoadBalancer{..} =
-    object
-    [ "AccessLoggingPolicy" .= _elasticLoadBalancingLoadBalancerAccessLoggingPolicy
-    , "AppCookieStickinessPolicy" .= _elasticLoadBalancingLoadBalancerAppCookieStickinessPolicy
-    , "AvailabilityZones" .= _elasticLoadBalancingLoadBalancerAvailabilityZones
-    , "ConnectionDrainingPolicy" .= _elasticLoadBalancingLoadBalancerConnectionDrainingPolicy
-    , "ConnectionSettings" .= _elasticLoadBalancingLoadBalancerConnectionSettings
-    , "CrossZone" .= _elasticLoadBalancingLoadBalancerCrossZone
-    , "HealthCheck" .= _elasticLoadBalancingLoadBalancerHealthCheck
-    , "Instances" .= _elasticLoadBalancingLoadBalancerInstances
-    , "LBCookieStickinessPolicy" .= _elasticLoadBalancingLoadBalancerLBCookieStickinessPolicy
-    , "Listeners" .= _elasticLoadBalancingLoadBalancerListeners
-    , "LoadBalancerName" .= _elasticLoadBalancingLoadBalancerLoadBalancerName
-    , "Policies" .= _elasticLoadBalancingLoadBalancerPolicies
-    , "Scheme" .= _elasticLoadBalancingLoadBalancerScheme
-    , "SecurityGroups" .= _elasticLoadBalancingLoadBalancerSecurityGroups
-    , "Subnets" .= _elasticLoadBalancingLoadBalancerSubnets
-    , "Tags" .= _elasticLoadBalancingLoadBalancerTags
+    object $
+    catMaybes
+    [ ("AccessLoggingPolicy" .=) <$> _elasticLoadBalancingLoadBalancerAccessLoggingPolicy
+    , ("AppCookieStickinessPolicy" .=) <$> _elasticLoadBalancingLoadBalancerAppCookieStickinessPolicy
+    , ("AvailabilityZones" .=) <$> _elasticLoadBalancingLoadBalancerAvailabilityZones
+    , ("ConnectionDrainingPolicy" .=) <$> _elasticLoadBalancingLoadBalancerConnectionDrainingPolicy
+    , ("ConnectionSettings" .=) <$> _elasticLoadBalancingLoadBalancerConnectionSettings
+    , ("CrossZone" .=) <$> _elasticLoadBalancingLoadBalancerCrossZone
+    , ("HealthCheck" .=) <$> _elasticLoadBalancingLoadBalancerHealthCheck
+    , ("Instances" .=) <$> _elasticLoadBalancingLoadBalancerInstances
+    , ("LBCookieStickinessPolicy" .=) <$> _elasticLoadBalancingLoadBalancerLBCookieStickinessPolicy
+    , Just ("Listeners" .= _elasticLoadBalancingLoadBalancerListeners)
+    , ("LoadBalancerName" .=) <$> _elasticLoadBalancingLoadBalancerLoadBalancerName
+    , ("Policies" .=) <$> _elasticLoadBalancingLoadBalancerPolicies
+    , ("Scheme" .=) <$> _elasticLoadBalancingLoadBalancerScheme
+    , ("SecurityGroups" .=) <$> _elasticLoadBalancingLoadBalancerSecurityGroups
+    , ("Subnets" .=) <$> _elasticLoadBalancingLoadBalancerSubnets
+    , ("Tags" .=) <$> _elasticLoadBalancingLoadBalancerTags
     ]
 
 instance FromJSON ElasticLoadBalancingLoadBalancer where
   parseJSON (Object obj) =
     ElasticLoadBalancingLoadBalancer <$>
-      obj .: "AccessLoggingPolicy" <*>
-      obj .: "AppCookieStickinessPolicy" <*>
-      obj .: "AvailabilityZones" <*>
-      obj .: "ConnectionDrainingPolicy" <*>
-      obj .: "ConnectionSettings" <*>
-      obj .: "CrossZone" <*>
-      obj .: "HealthCheck" <*>
-      obj .: "Instances" <*>
-      obj .: "LBCookieStickinessPolicy" <*>
+      obj .:? "AccessLoggingPolicy" <*>
+      obj .:? "AppCookieStickinessPolicy" <*>
+      obj .:? "AvailabilityZones" <*>
+      obj .:? "ConnectionDrainingPolicy" <*>
+      obj .:? "ConnectionSettings" <*>
+      obj .:? "CrossZone" <*>
+      obj .:? "HealthCheck" <*>
+      obj .:? "Instances" <*>
+      obj .:? "LBCookieStickinessPolicy" <*>
       obj .: "Listeners" <*>
-      obj .: "LoadBalancerName" <*>
-      obj .: "Policies" <*>
-      obj .: "Scheme" <*>
-      obj .: "SecurityGroups" <*>
-      obj .: "Subnets" <*>
-      obj .: "Tags"
+      obj .:? "LoadBalancerName" <*>
+      obj .:? "Policies" <*>
+      obj .:? "Scheme" <*>
+      obj .:? "SecurityGroups" <*>
+      obj .:? "Subnets" <*>
+      obj .:? "Tags"
   parseJSON _ = mempty
 
 -- | Constructor for 'ElasticLoadBalancingLoadBalancer' containing required

@@ -7,6 +7,7 @@ module Stratosphere.Resources.EC2VPNGatewayRoutePropagation where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,9 +24,10 @@ data EC2VPNGatewayRoutePropagation =
 
 instance ToJSON EC2VPNGatewayRoutePropagation where
   toJSON EC2VPNGatewayRoutePropagation{..} =
-    object
-    [ "RouteTableIds" .= _eC2VPNGatewayRoutePropagationRouteTableIds
-    , "VpnGatewayId" .= _eC2VPNGatewayRoutePropagationVpnGatewayId
+    object $
+    catMaybes
+    [ Just ("RouteTableIds" .= _eC2VPNGatewayRoutePropagationRouteTableIds)
+    , Just ("VpnGatewayId" .= _eC2VPNGatewayRoutePropagationVpnGatewayId)
     ]
 
 instance FromJSON EC2VPNGatewayRoutePropagation where

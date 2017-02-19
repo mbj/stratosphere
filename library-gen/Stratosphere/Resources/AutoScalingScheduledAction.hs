@@ -7,6 +7,7 @@ module Stratosphere.Resources.AutoScalingScheduledAction where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -28,26 +29,27 @@ data AutoScalingScheduledAction =
 
 instance ToJSON AutoScalingScheduledAction where
   toJSON AutoScalingScheduledAction{..} =
-    object
-    [ "AutoScalingGroupName" .= _autoScalingScheduledActionAutoScalingGroupName
-    , "DesiredCapacity" .= _autoScalingScheduledActionDesiredCapacity
-    , "EndTime" .= _autoScalingScheduledActionEndTime
-    , "MaxSize" .= _autoScalingScheduledActionMaxSize
-    , "MinSize" .= _autoScalingScheduledActionMinSize
-    , "Recurrence" .= _autoScalingScheduledActionRecurrence
-    , "StartTime" .= _autoScalingScheduledActionStartTime
+    object $
+    catMaybes
+    [ Just ("AutoScalingGroupName" .= _autoScalingScheduledActionAutoScalingGroupName)
+    , ("DesiredCapacity" .=) <$> _autoScalingScheduledActionDesiredCapacity
+    , ("EndTime" .=) <$> _autoScalingScheduledActionEndTime
+    , ("MaxSize" .=) <$> _autoScalingScheduledActionMaxSize
+    , ("MinSize" .=) <$> _autoScalingScheduledActionMinSize
+    , ("Recurrence" .=) <$> _autoScalingScheduledActionRecurrence
+    , ("StartTime" .=) <$> _autoScalingScheduledActionStartTime
     ]
 
 instance FromJSON AutoScalingScheduledAction where
   parseJSON (Object obj) =
     AutoScalingScheduledAction <$>
       obj .: "AutoScalingGroupName" <*>
-      obj .: "DesiredCapacity" <*>
-      obj .: "EndTime" <*>
-      obj .: "MaxSize" <*>
-      obj .: "MinSize" <*>
-      obj .: "Recurrence" <*>
-      obj .: "StartTime"
+      obj .:? "DesiredCapacity" <*>
+      obj .:? "EndTime" <*>
+      obj .:? "MaxSize" <*>
+      obj .:? "MinSize" <*>
+      obj .:? "Recurrence" <*>
+      obj .:? "StartTime"
   parseJSON _ = mempty
 
 -- | Constructor for 'AutoScalingScheduledAction' containing required fields

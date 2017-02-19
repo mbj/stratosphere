@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.IAMRolePolicy where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,9 +24,10 @@ data IAMRolePolicy =
 
 instance ToJSON IAMRolePolicy where
   toJSON IAMRolePolicy{..} =
-    object
-    [ "PolicyDocument" .= _iAMRolePolicyPolicyDocument
-    , "PolicyName" .= _iAMRolePolicyPolicyName
+    object $
+    catMaybes
+    [ Just ("PolicyDocument" .= _iAMRolePolicyPolicyDocument)
+    , Just ("PolicyName" .= _iAMRolePolicyPolicyName)
     ]
 
 instance FromJSON IAMRolePolicy where

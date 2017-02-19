@@ -7,6 +7,7 @@ module Stratosphere.Resources.RedshiftClusterSecurityGroup where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -22,8 +23,9 @@ data RedshiftClusterSecurityGroup =
 
 instance ToJSON RedshiftClusterSecurityGroup where
   toJSON RedshiftClusterSecurityGroup{..} =
-    object
-    [ "Description" .= _redshiftClusterSecurityGroupDescription
+    object $
+    catMaybes
+    [ Just ("Description" .= _redshiftClusterSecurityGroupDescription)
     ]
 
 instance FromJSON RedshiftClusterSecurityGroup where

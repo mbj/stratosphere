@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamElasticsearc
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -25,9 +26,10 @@ data KinesisFirehoseDeliveryStreamElasticsearchBufferingHints =
 
 instance ToJSON KinesisFirehoseDeliveryStreamElasticsearchBufferingHints where
   toJSON KinesisFirehoseDeliveryStreamElasticsearchBufferingHints{..} =
-    object
-    [ "IntervalInSeconds" .= _kinesisFirehoseDeliveryStreamElasticsearchBufferingHintsIntervalInSeconds
-    , "SizeInMBs" .= _kinesisFirehoseDeliveryStreamElasticsearchBufferingHintsSizeInMBs
+    object $
+    catMaybes
+    [ Just ("IntervalInSeconds" .= _kinesisFirehoseDeliveryStreamElasticsearchBufferingHintsIntervalInSeconds)
+    , Just ("SizeInMBs" .= _kinesisFirehoseDeliveryStreamElasticsearchBufferingHintsSizeInMBs)
     ]
 
 instance FromJSON KinesisFirehoseDeliveryStreamElasticsearchBufferingHints where

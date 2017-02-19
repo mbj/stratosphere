@@ -7,6 +7,7 @@ module Stratosphere.Resources.EC2InternetGateway where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -22,14 +23,15 @@ data EC2InternetGateway =
 
 instance ToJSON EC2InternetGateway where
   toJSON EC2InternetGateway{..} =
-    object
-    [ "Tags" .= _eC2InternetGatewayTags
+    object $
+    catMaybes
+    [ ("Tags" .=) <$> _eC2InternetGatewayTags
     ]
 
 instance FromJSON EC2InternetGateway where
   parseJSON (Object obj) =
     EC2InternetGateway <$>
-      obj .: "Tags"
+      obj .:? "Tags"
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2InternetGateway' containing required fields as

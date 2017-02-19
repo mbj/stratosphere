@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamEncryptionCo
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -26,16 +27,17 @@ data KinesisFirehoseDeliveryStreamEncryptionConfiguration =
 
 instance ToJSON KinesisFirehoseDeliveryStreamEncryptionConfiguration where
   toJSON KinesisFirehoseDeliveryStreamEncryptionConfiguration{..} =
-    object
-    [ "KMSEncryptionConfig" .= _kinesisFirehoseDeliveryStreamEncryptionConfigurationKMSEncryptionConfig
-    , "NoEncryptionConfig" .= _kinesisFirehoseDeliveryStreamEncryptionConfigurationNoEncryptionConfig
+    object $
+    catMaybes
+    [ ("KMSEncryptionConfig" .=) <$> _kinesisFirehoseDeliveryStreamEncryptionConfigurationKMSEncryptionConfig
+    , ("NoEncryptionConfig" .=) <$> _kinesisFirehoseDeliveryStreamEncryptionConfigurationNoEncryptionConfig
     ]
 
 instance FromJSON KinesisFirehoseDeliveryStreamEncryptionConfiguration where
   parseJSON (Object obj) =
     KinesisFirehoseDeliveryStreamEncryptionConfiguration <$>
-      obj .: "KMSEncryptionConfig" <*>
-      obj .: "NoEncryptionConfig"
+      obj .:? "KMSEncryptionConfig" <*>
+      obj .:? "NoEncryptionConfig"
   parseJSON _ = mempty
 
 -- | Constructor for 'KinesisFirehoseDeliveryStreamEncryptionConfiguration'

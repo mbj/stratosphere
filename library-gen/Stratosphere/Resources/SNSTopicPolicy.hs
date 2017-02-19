@@ -7,6 +7,7 @@ module Stratosphere.Resources.SNSTopicPolicy where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,9 +24,10 @@ data SNSTopicPolicy =
 
 instance ToJSON SNSTopicPolicy where
   toJSON SNSTopicPolicy{..} =
-    object
-    [ "PolicyDocument" .= _sNSTopicPolicyPolicyDocument
-    , "Topics" .= _sNSTopicPolicyTopics
+    object $
+    catMaybes
+    [ Just ("PolicyDocument" .= _sNSTopicPolicyPolicyDocument)
+    , Just ("Topics" .= _sNSTopicPolicyTopics)
     ]
 
 instance FromJSON SNSTopicPolicy where

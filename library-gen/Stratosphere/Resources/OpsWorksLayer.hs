@@ -7,6 +7,7 @@ module Stratosphere.Resources.OpsWorksLayer where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -42,48 +43,49 @@ data OpsWorksLayer =
 
 instance ToJSON OpsWorksLayer where
   toJSON OpsWorksLayer{..} =
-    object
-    [ "Attributes" .= _opsWorksLayerAttributes
-    , "AutoAssignElasticIps" .= _opsWorksLayerAutoAssignElasticIps
-    , "AutoAssignPublicIps" .= _opsWorksLayerAutoAssignPublicIps
-    , "CustomInstanceProfileArn" .= _opsWorksLayerCustomInstanceProfileArn
-    , "CustomJson" .= _opsWorksLayerCustomJson
-    , "CustomRecipes" .= _opsWorksLayerCustomRecipes
-    , "CustomSecurityGroupIds" .= _opsWorksLayerCustomSecurityGroupIds
-    , "EnableAutoHealing" .= _opsWorksLayerEnableAutoHealing
-    , "InstallUpdatesOnBoot" .= _opsWorksLayerInstallUpdatesOnBoot
-    , "LifecycleEventConfiguration" .= _opsWorksLayerLifecycleEventConfiguration
-    , "LoadBasedAutoScaling" .= _opsWorksLayerLoadBasedAutoScaling
-    , "Name" .= _opsWorksLayerName
-    , "Packages" .= _opsWorksLayerPackages
-    , "Shortname" .= _opsWorksLayerShortname
-    , "StackId" .= _opsWorksLayerStackId
-    , "Type" .= _opsWorksLayerType
-    , "UseEbsOptimizedInstances" .= _opsWorksLayerUseEbsOptimizedInstances
-    , "VolumeConfigurations" .= _opsWorksLayerVolumeConfigurations
+    object $
+    catMaybes
+    [ ("Attributes" .=) <$> _opsWorksLayerAttributes
+    , Just ("AutoAssignElasticIps" .= _opsWorksLayerAutoAssignElasticIps)
+    , Just ("AutoAssignPublicIps" .= _opsWorksLayerAutoAssignPublicIps)
+    , ("CustomInstanceProfileArn" .=) <$> _opsWorksLayerCustomInstanceProfileArn
+    , ("CustomJson" .=) <$> _opsWorksLayerCustomJson
+    , ("CustomRecipes" .=) <$> _opsWorksLayerCustomRecipes
+    , ("CustomSecurityGroupIds" .=) <$> _opsWorksLayerCustomSecurityGroupIds
+    , Just ("EnableAutoHealing" .= _opsWorksLayerEnableAutoHealing)
+    , ("InstallUpdatesOnBoot" .=) <$> _opsWorksLayerInstallUpdatesOnBoot
+    , ("LifecycleEventConfiguration" .=) <$> _opsWorksLayerLifecycleEventConfiguration
+    , ("LoadBasedAutoScaling" .=) <$> _opsWorksLayerLoadBasedAutoScaling
+    , Just ("Name" .= _opsWorksLayerName)
+    , ("Packages" .=) <$> _opsWorksLayerPackages
+    , Just ("Shortname" .= _opsWorksLayerShortname)
+    , Just ("StackId" .= _opsWorksLayerStackId)
+    , Just ("Type" .= _opsWorksLayerType)
+    , ("UseEbsOptimizedInstances" .=) <$> _opsWorksLayerUseEbsOptimizedInstances
+    , ("VolumeConfigurations" .=) <$> _opsWorksLayerVolumeConfigurations
     ]
 
 instance FromJSON OpsWorksLayer where
   parseJSON (Object obj) =
     OpsWorksLayer <$>
-      obj .: "Attributes" <*>
+      obj .:? "Attributes" <*>
       obj .: "AutoAssignElasticIps" <*>
       obj .: "AutoAssignPublicIps" <*>
-      obj .: "CustomInstanceProfileArn" <*>
-      obj .: "CustomJson" <*>
-      obj .: "CustomRecipes" <*>
-      obj .: "CustomSecurityGroupIds" <*>
+      obj .:? "CustomInstanceProfileArn" <*>
+      obj .:? "CustomJson" <*>
+      obj .:? "CustomRecipes" <*>
+      obj .:? "CustomSecurityGroupIds" <*>
       obj .: "EnableAutoHealing" <*>
-      obj .: "InstallUpdatesOnBoot" <*>
-      obj .: "LifecycleEventConfiguration" <*>
-      obj .: "LoadBasedAutoScaling" <*>
+      obj .:? "InstallUpdatesOnBoot" <*>
+      obj .:? "LifecycleEventConfiguration" <*>
+      obj .:? "LoadBasedAutoScaling" <*>
       obj .: "Name" <*>
-      obj .: "Packages" <*>
+      obj .:? "Packages" <*>
       obj .: "Shortname" <*>
       obj .: "StackId" <*>
       obj .: "Type" <*>
-      obj .: "UseEbsOptimizedInstances" <*>
-      obj .: "VolumeConfigurations"
+      obj .:? "UseEbsOptimizedInstances" <*>
+      obj .:? "VolumeConfigurations"
   parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksLayer' containing required fields as arguments.

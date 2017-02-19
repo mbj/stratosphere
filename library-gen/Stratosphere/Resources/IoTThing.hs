@@ -7,6 +7,7 @@ module Stratosphere.Resources.IoTThing where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,16 +24,17 @@ data IoTThing =
 
 instance ToJSON IoTThing where
   toJSON IoTThing{..} =
-    object
-    [ "AttributePayload" .= _ioTThingAttributePayload
-    , "ThingName" .= _ioTThingThingName
+    object $
+    catMaybes
+    [ ("AttributePayload" .=) <$> _ioTThingAttributePayload
+    , ("ThingName" .=) <$> _ioTThingThingName
     ]
 
 instance FromJSON IoTThing where
   parseJSON (Object obj) =
     IoTThing <$>
-      obj .: "AttributePayload" <*>
-      obj .: "ThingName"
+      obj .:? "AttributePayload" <*>
+      obj .:? "ThingName"
   parseJSON _ = mempty
 
 -- | Constructor for 'IoTThing' containing required fields as arguments.

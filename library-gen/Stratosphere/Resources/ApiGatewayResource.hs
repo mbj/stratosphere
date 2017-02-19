@@ -7,6 +7,7 @@ module Stratosphere.Resources.ApiGatewayResource where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -24,10 +25,11 @@ data ApiGatewayResource =
 
 instance ToJSON ApiGatewayResource where
   toJSON ApiGatewayResource{..} =
-    object
-    [ "ParentId" .= _apiGatewayResourceParentId
-    , "PathPart" .= _apiGatewayResourcePathPart
-    , "RestApiId" .= _apiGatewayResourceRestApiId
+    object $
+    catMaybes
+    [ Just ("ParentId" .= _apiGatewayResourceParentId)
+    , Just ("PathPart" .= _apiGatewayResourcePathPart)
+    , Just ("RestApiId" .= _apiGatewayResourceRestApiId)
     ]
 
 instance FromJSON ApiGatewayResource where

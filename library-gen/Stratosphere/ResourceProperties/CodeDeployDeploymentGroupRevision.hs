@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.CodeDeployDeploymentGroupRevision where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -25,18 +26,19 @@ data CodeDeployDeploymentGroupRevision =
 
 instance ToJSON CodeDeployDeploymentGroupRevision where
   toJSON CodeDeployDeploymentGroupRevision{..} =
-    object
-    [ "GitHubLocation" .= _codeDeployDeploymentGroupRevisionGitHubLocation
-    , "RevisionType" .= _codeDeployDeploymentGroupRevisionRevisionType
-    , "S3Location" .= _codeDeployDeploymentGroupRevisionS3Location
+    object $
+    catMaybes
+    [ ("GitHubLocation" .=) <$> _codeDeployDeploymentGroupRevisionGitHubLocation
+    , ("RevisionType" .=) <$> _codeDeployDeploymentGroupRevisionRevisionType
+    , ("S3Location" .=) <$> _codeDeployDeploymentGroupRevisionS3Location
     ]
 
 instance FromJSON CodeDeployDeploymentGroupRevision where
   parseJSON (Object obj) =
     CodeDeployDeploymentGroupRevision <$>
-      obj .: "GitHubLocation" <*>
-      obj .: "RevisionType" <*>
-      obj .: "S3Location"
+      obj .:? "GitHubLocation" <*>
+      obj .:? "RevisionType" <*>
+      obj .:? "S3Location"
   parseJSON _ = mempty
 
 -- | Constructor for 'CodeDeployDeploymentGroupRevision' containing required

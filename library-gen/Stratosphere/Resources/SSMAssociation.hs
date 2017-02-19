@@ -7,6 +7,7 @@ module Stratosphere.Resources.SSMAssociation where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -28,24 +29,25 @@ data SSMAssociation =
 
 instance ToJSON SSMAssociation where
   toJSON SSMAssociation{..} =
-    object
-    [ "DocumentVersion" .= _sSMAssociationDocumentVersion
-    , "InstanceId" .= _sSMAssociationInstanceId
-    , "Name" .= _sSMAssociationName
-    , "Parameters" .= _sSMAssociationParameters
-    , "ScheduleExpression" .= _sSMAssociationScheduleExpression
-    , "Targets" .= _sSMAssociationTargets
+    object $
+    catMaybes
+    [ ("DocumentVersion" .=) <$> _sSMAssociationDocumentVersion
+    , ("InstanceId" .=) <$> _sSMAssociationInstanceId
+    , Just ("Name" .= _sSMAssociationName)
+    , ("Parameters" .=) <$> _sSMAssociationParameters
+    , ("ScheduleExpression" .=) <$> _sSMAssociationScheduleExpression
+    , ("Targets" .=) <$> _sSMAssociationTargets
     ]
 
 instance FromJSON SSMAssociation where
   parseJSON (Object obj) =
     SSMAssociation <$>
-      obj .: "DocumentVersion" <*>
-      obj .: "InstanceId" <*>
+      obj .:? "DocumentVersion" <*>
+      obj .:? "InstanceId" <*>
       obj .: "Name" <*>
-      obj .: "Parameters" <*>
-      obj .: "ScheduleExpression" <*>
-      obj .: "Targets"
+      obj .:? "Parameters" <*>
+      obj .:? "ScheduleExpression" <*>
+      obj .:? "Targets"
   parseJSON _ = mempty
 
 -- | Constructor for 'SSMAssociation' containing required fields as arguments.

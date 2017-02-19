@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.ApiGatewayRestApiS3Location where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -25,20 +26,21 @@ data ApiGatewayRestApiS3Location =
 
 instance ToJSON ApiGatewayRestApiS3Location where
   toJSON ApiGatewayRestApiS3Location{..} =
-    object
-    [ "Bucket" .= _apiGatewayRestApiS3LocationBucket
-    , "ETag" .= _apiGatewayRestApiS3LocationETag
-    , "Key" .= _apiGatewayRestApiS3LocationKey
-    , "Version" .= _apiGatewayRestApiS3LocationVersion
+    object $
+    catMaybes
+    [ ("Bucket" .=) <$> _apiGatewayRestApiS3LocationBucket
+    , ("ETag" .=) <$> _apiGatewayRestApiS3LocationETag
+    , ("Key" .=) <$> _apiGatewayRestApiS3LocationKey
+    , ("Version" .=) <$> _apiGatewayRestApiS3LocationVersion
     ]
 
 instance FromJSON ApiGatewayRestApiS3Location where
   parseJSON (Object obj) =
     ApiGatewayRestApiS3Location <$>
-      obj .: "Bucket" <*>
-      obj .: "ETag" <*>
-      obj .: "Key" <*>
-      obj .: "Version"
+      obj .:? "Bucket" <*>
+      obj .:? "ETag" <*>
+      obj .:? "Key" <*>
+      obj .:? "Version"
   parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayRestApiS3Location' containing required fields

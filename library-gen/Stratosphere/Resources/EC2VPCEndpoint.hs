@@ -7,6 +7,7 @@ module Stratosphere.Resources.EC2VPCEndpoint where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -25,18 +26,19 @@ data EC2VPCEndpoint =
 
 instance ToJSON EC2VPCEndpoint where
   toJSON EC2VPCEndpoint{..} =
-    object
-    [ "PolicyDocument" .= _eC2VPCEndpointPolicyDocument
-    , "RouteTableIds" .= _eC2VPCEndpointRouteTableIds
-    , "ServiceName" .= _eC2VPCEndpointServiceName
-    , "VpcId" .= _eC2VPCEndpointVpcId
+    object $
+    catMaybes
+    [ ("PolicyDocument" .=) <$> _eC2VPCEndpointPolicyDocument
+    , ("RouteTableIds" .=) <$> _eC2VPCEndpointRouteTableIds
+    , Just ("ServiceName" .= _eC2VPCEndpointServiceName)
+    , Just ("VpcId" .= _eC2VPCEndpointVpcId)
     ]
 
 instance FromJSON EC2VPCEndpoint where
   parseJSON (Object obj) =
     EC2VPCEndpoint <$>
-      obj .: "PolicyDocument" <*>
-      obj .: "RouteTableIds" <*>
+      obj .:? "PolicyDocument" <*>
+      obj .:? "RouteTableIds" <*>
       obj .: "ServiceName" <*>
       obj .: "VpcId"
   parseJSON _ = mempty

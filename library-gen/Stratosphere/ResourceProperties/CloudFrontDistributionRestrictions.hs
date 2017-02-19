@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.CloudFrontDistributionRestrictions where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -22,8 +23,9 @@ data CloudFrontDistributionRestrictions =
 
 instance ToJSON CloudFrontDistributionRestrictions where
   toJSON CloudFrontDistributionRestrictions{..} =
-    object
-    [ "GeoRestriction" .= _cloudFrontDistributionRestrictionsGeoRestriction
+    object $
+    catMaybes
+    [ Just ("GeoRestriction" .= _cloudFrontDistributionRestrictionsGeoRestriction)
     ]
 
 instance FromJSON CloudFrontDistributionRestrictions where

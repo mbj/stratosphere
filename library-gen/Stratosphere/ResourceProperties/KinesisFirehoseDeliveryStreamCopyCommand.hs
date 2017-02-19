@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamCopyCommand 
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -25,17 +26,18 @@ data KinesisFirehoseDeliveryStreamCopyCommand =
 
 instance ToJSON KinesisFirehoseDeliveryStreamCopyCommand where
   toJSON KinesisFirehoseDeliveryStreamCopyCommand{..} =
-    object
-    [ "CopyOptions" .= _kinesisFirehoseDeliveryStreamCopyCommandCopyOptions
-    , "DataTableColumns" .= _kinesisFirehoseDeliveryStreamCopyCommandDataTableColumns
-    , "DataTableName" .= _kinesisFirehoseDeliveryStreamCopyCommandDataTableName
+    object $
+    catMaybes
+    [ ("CopyOptions" .=) <$> _kinesisFirehoseDeliveryStreamCopyCommandCopyOptions
+    , ("DataTableColumns" .=) <$> _kinesisFirehoseDeliveryStreamCopyCommandDataTableColumns
+    , Just ("DataTableName" .= _kinesisFirehoseDeliveryStreamCopyCommandDataTableName)
     ]
 
 instance FromJSON KinesisFirehoseDeliveryStreamCopyCommand where
   parseJSON (Object obj) =
     KinesisFirehoseDeliveryStreamCopyCommand <$>
-      obj .: "CopyOptions" <*>
-      obj .: "DataTableColumns" <*>
+      obj .:? "CopyOptions" <*>
+      obj .:? "DataTableColumns" <*>
       obj .: "DataTableName"
   parseJSON _ = mempty
 

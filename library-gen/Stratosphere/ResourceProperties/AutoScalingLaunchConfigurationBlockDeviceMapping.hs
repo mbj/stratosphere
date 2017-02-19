@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.AutoScalingLaunchConfigurationBlockDevice
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -27,20 +28,21 @@ data AutoScalingLaunchConfigurationBlockDeviceMapping =
 
 instance ToJSON AutoScalingLaunchConfigurationBlockDeviceMapping where
   toJSON AutoScalingLaunchConfigurationBlockDeviceMapping{..} =
-    object
-    [ "DeviceName" .= _autoScalingLaunchConfigurationBlockDeviceMappingDeviceName
-    , "Ebs" .= _autoScalingLaunchConfigurationBlockDeviceMappingEbs
-    , "NoDevice" .= _autoScalingLaunchConfigurationBlockDeviceMappingNoDevice
-    , "VirtualName" .= _autoScalingLaunchConfigurationBlockDeviceMappingVirtualName
+    object $
+    catMaybes
+    [ Just ("DeviceName" .= _autoScalingLaunchConfigurationBlockDeviceMappingDeviceName)
+    , ("Ebs" .=) <$> _autoScalingLaunchConfigurationBlockDeviceMappingEbs
+    , ("NoDevice" .=) <$> _autoScalingLaunchConfigurationBlockDeviceMappingNoDevice
+    , ("VirtualName" .=) <$> _autoScalingLaunchConfigurationBlockDeviceMappingVirtualName
     ]
 
 instance FromJSON AutoScalingLaunchConfigurationBlockDeviceMapping where
   parseJSON (Object obj) =
     AutoScalingLaunchConfigurationBlockDeviceMapping <$>
       obj .: "DeviceName" <*>
-      obj .: "Ebs" <*>
-      obj .: "NoDevice" <*>
-      obj .: "VirtualName"
+      obj .:? "Ebs" <*>
+      obj .:? "NoDevice" <*>
+      obj .:? "VirtualName"
   parseJSON _ = mempty
 
 -- | Constructor for 'AutoScalingLaunchConfigurationBlockDeviceMapping'

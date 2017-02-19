@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.ApplicationAutoScalingScalingPolicyStepAd
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -26,17 +27,18 @@ data ApplicationAutoScalingScalingPolicyStepAdjustment =
 
 instance ToJSON ApplicationAutoScalingScalingPolicyStepAdjustment where
   toJSON ApplicationAutoScalingScalingPolicyStepAdjustment{..} =
-    object
-    [ "MetricIntervalLowerBound" .= _applicationAutoScalingScalingPolicyStepAdjustmentMetricIntervalLowerBound
-    , "MetricIntervalUpperBound" .= _applicationAutoScalingScalingPolicyStepAdjustmentMetricIntervalUpperBound
-    , "ScalingAdjustment" .= _applicationAutoScalingScalingPolicyStepAdjustmentScalingAdjustment
+    object $
+    catMaybes
+    [ ("MetricIntervalLowerBound" .=) <$> _applicationAutoScalingScalingPolicyStepAdjustmentMetricIntervalLowerBound
+    , ("MetricIntervalUpperBound" .=) <$> _applicationAutoScalingScalingPolicyStepAdjustmentMetricIntervalUpperBound
+    , Just ("ScalingAdjustment" .= _applicationAutoScalingScalingPolicyStepAdjustmentScalingAdjustment)
     ]
 
 instance FromJSON ApplicationAutoScalingScalingPolicyStepAdjustment where
   parseJSON (Object obj) =
     ApplicationAutoScalingScalingPolicyStepAdjustment <$>
-      obj .: "MetricIntervalLowerBound" <*>
-      obj .: "MetricIntervalUpperBound" <*>
+      obj .:? "MetricIntervalLowerBound" <*>
+      obj .:? "MetricIntervalUpperBound" <*>
       obj .: "ScalingAdjustment"
   parseJSON _ = mempty
 

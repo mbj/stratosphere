@@ -7,6 +7,7 @@ module Stratosphere.Resources.AutoScalingScalingPolicy where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -30,16 +31,17 @@ data AutoScalingScalingPolicy =
 
 instance ToJSON AutoScalingScalingPolicy where
   toJSON AutoScalingScalingPolicy{..} =
-    object
-    [ "AdjustmentType" .= _autoScalingScalingPolicyAdjustmentType
-    , "AutoScalingGroupName" .= _autoScalingScalingPolicyAutoScalingGroupName
-    , "Cooldown" .= _autoScalingScalingPolicyCooldown
-    , "EstimatedInstanceWarmup" .= _autoScalingScalingPolicyEstimatedInstanceWarmup
-    , "MetricAggregationType" .= _autoScalingScalingPolicyMetricAggregationType
-    , "MinAdjustmentMagnitude" .= _autoScalingScalingPolicyMinAdjustmentMagnitude
-    , "PolicyType" .= _autoScalingScalingPolicyPolicyType
-    , "ScalingAdjustment" .= _autoScalingScalingPolicyScalingAdjustment
-    , "StepAdjustments" .= _autoScalingScalingPolicyStepAdjustments
+    object $
+    catMaybes
+    [ Just ("AdjustmentType" .= _autoScalingScalingPolicyAdjustmentType)
+    , Just ("AutoScalingGroupName" .= _autoScalingScalingPolicyAutoScalingGroupName)
+    , ("Cooldown" .=) <$> _autoScalingScalingPolicyCooldown
+    , ("EstimatedInstanceWarmup" .=) <$> _autoScalingScalingPolicyEstimatedInstanceWarmup
+    , ("MetricAggregationType" .=) <$> _autoScalingScalingPolicyMetricAggregationType
+    , ("MinAdjustmentMagnitude" .=) <$> _autoScalingScalingPolicyMinAdjustmentMagnitude
+    , ("PolicyType" .=) <$> _autoScalingScalingPolicyPolicyType
+    , ("ScalingAdjustment" .=) <$> _autoScalingScalingPolicyScalingAdjustment
+    , ("StepAdjustments" .=) <$> _autoScalingScalingPolicyStepAdjustments
     ]
 
 instance FromJSON AutoScalingScalingPolicy where
@@ -47,13 +49,13 @@ instance FromJSON AutoScalingScalingPolicy where
     AutoScalingScalingPolicy <$>
       obj .: "AdjustmentType" <*>
       obj .: "AutoScalingGroupName" <*>
-      obj .: "Cooldown" <*>
-      obj .: "EstimatedInstanceWarmup" <*>
-      obj .: "MetricAggregationType" <*>
-      obj .: "MinAdjustmentMagnitude" <*>
-      obj .: "PolicyType" <*>
-      obj .: "ScalingAdjustment" <*>
-      obj .: "StepAdjustments"
+      obj .:? "Cooldown" <*>
+      obj .:? "EstimatedInstanceWarmup" <*>
+      obj .:? "MetricAggregationType" <*>
+      obj .:? "MinAdjustmentMagnitude" <*>
+      obj .:? "PolicyType" <*>
+      obj .:? "ScalingAdjustment" <*>
+      obj .:? "StepAdjustments"
   parseJSON _ = mempty
 
 -- | Constructor for 'AutoScalingScalingPolicy' containing required fields as

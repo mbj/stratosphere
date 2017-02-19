@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.CodeBuildProjectSource where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -25,20 +26,21 @@ data CodeBuildProjectSource =
 
 instance ToJSON CodeBuildProjectSource where
   toJSON CodeBuildProjectSource{..} =
-    object
-    [ "Auth" .= _codeBuildProjectSourceAuth
-    , "BuildSpec" .= _codeBuildProjectSourceBuildSpec
-    , "Location" .= _codeBuildProjectSourceLocation
-    , "Type" .= _codeBuildProjectSourceType
+    object $
+    catMaybes
+    [ ("Auth" .=) <$> _codeBuildProjectSourceAuth
+    , ("BuildSpec" .=) <$> _codeBuildProjectSourceBuildSpec
+    , ("Location" .=) <$> _codeBuildProjectSourceLocation
+    , ("Type" .=) <$> _codeBuildProjectSourceType
     ]
 
 instance FromJSON CodeBuildProjectSource where
   parseJSON (Object obj) =
     CodeBuildProjectSource <$>
-      obj .: "Auth" <*>
-      obj .: "BuildSpec" <*>
-      obj .: "Location" <*>
-      obj .: "Type"
+      obj .:? "Auth" <*>
+      obj .:? "BuildSpec" <*>
+      obj .:? "Location" <*>
+      obj .:? "Type"
   parseJSON _ = mempty
 
 -- | Constructor for 'CodeBuildProjectSource' containing required fields as

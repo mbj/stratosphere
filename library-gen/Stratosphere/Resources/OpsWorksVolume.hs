@@ -7,6 +7,7 @@ module Stratosphere.Resources.OpsWorksVolume where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -25,19 +26,20 @@ data OpsWorksVolume =
 
 instance ToJSON OpsWorksVolume where
   toJSON OpsWorksVolume{..} =
-    object
-    [ "Ec2VolumeId" .= _opsWorksVolumeEc2VolumeId
-    , "MountPoint" .= _opsWorksVolumeMountPoint
-    , "Name" .= _opsWorksVolumeName
-    , "StackId" .= _opsWorksVolumeStackId
+    object $
+    catMaybes
+    [ Just ("Ec2VolumeId" .= _opsWorksVolumeEc2VolumeId)
+    , ("MountPoint" .=) <$> _opsWorksVolumeMountPoint
+    , ("Name" .=) <$> _opsWorksVolumeName
+    , Just ("StackId" .= _opsWorksVolumeStackId)
     ]
 
 instance FromJSON OpsWorksVolume where
   parseJSON (Object obj) =
     OpsWorksVolume <$>
       obj .: "Ec2VolumeId" <*>
-      obj .: "MountPoint" <*>
-      obj .: "Name" <*>
+      obj .:? "MountPoint" <*>
+      obj .:? "Name" <*>
       obj .: "StackId"
   parseJSON _ = mempty
 

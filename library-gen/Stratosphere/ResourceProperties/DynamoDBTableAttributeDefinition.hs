@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.DynamoDBTableAttributeDefinition where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,9 +24,10 @@ data DynamoDBTableAttributeDefinition =
 
 instance ToJSON DynamoDBTableAttributeDefinition where
   toJSON DynamoDBTableAttributeDefinition{..} =
-    object
-    [ "AttributeName" .= _dynamoDBTableAttributeDefinitionAttributeName
-    , "AttributeType" .= _dynamoDBTableAttributeDefinitionAttributeType
+    object $
+    catMaybes
+    [ Just ("AttributeName" .= _dynamoDBTableAttributeDefinitionAttributeName)
+    , Just ("AttributeType" .= _dynamoDBTableAttributeDefinitionAttributeType)
     ]
 
 instance FromJSON DynamoDBTableAttributeDefinition where

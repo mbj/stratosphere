@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.S3BucketVersioningConfiguration where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -22,8 +23,9 @@ data S3BucketVersioningConfiguration =
 
 instance ToJSON S3BucketVersioningConfiguration where
   toJSON S3BucketVersioningConfiguration{..} =
-    object
-    [ "Status" .= _s3BucketVersioningConfigurationStatus
+    object $
+    catMaybes
+    [ Just ("Status" .= _s3BucketVersioningConfigurationStatus)
     ]
 
 instance FromJSON S3BucketVersioningConfiguration where

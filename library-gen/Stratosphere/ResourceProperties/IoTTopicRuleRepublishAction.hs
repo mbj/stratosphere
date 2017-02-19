@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.IoTTopicRuleRepublishAction where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,9 +24,10 @@ data IoTTopicRuleRepublishAction =
 
 instance ToJSON IoTTopicRuleRepublishAction where
   toJSON IoTTopicRuleRepublishAction{..} =
-    object
-    [ "RoleArn" .= _ioTTopicRuleRepublishActionRoleArn
-    , "Topic" .= _ioTTopicRuleRepublishActionTopic
+    object $
+    catMaybes
+    [ Just ("RoleArn" .= _ioTTopicRuleRepublishActionRoleArn)
+    , Just ("Topic" .= _ioTTopicRuleRepublishActionTopic)
     ]
 
 instance FromJSON IoTTopicRuleRepublishAction where

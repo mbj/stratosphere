@@ -7,6 +7,7 @@ module Stratosphere.Resources.DynamoDBTable where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -33,26 +34,27 @@ data DynamoDBTable =
 
 instance ToJSON DynamoDBTable where
   toJSON DynamoDBTable{..} =
-    object
-    [ "AttributeDefinitions" .= _dynamoDBTableAttributeDefinitions
-    , "GlobalSecondaryIndexes" .= _dynamoDBTableGlobalSecondaryIndexes
-    , "KeySchema" .= _dynamoDBTableKeySchema
-    , "LocalSecondaryIndexes" .= _dynamoDBTableLocalSecondaryIndexes
-    , "ProvisionedThroughput" .= _dynamoDBTableProvisionedThroughput
-    , "StreamSpecification" .= _dynamoDBTableStreamSpecification
-    , "TableName" .= _dynamoDBTableTableName
+    object $
+    catMaybes
+    [ Just ("AttributeDefinitions" .= _dynamoDBTableAttributeDefinitions)
+    , ("GlobalSecondaryIndexes" .=) <$> _dynamoDBTableGlobalSecondaryIndexes
+    , Just ("KeySchema" .= _dynamoDBTableKeySchema)
+    , ("LocalSecondaryIndexes" .=) <$> _dynamoDBTableLocalSecondaryIndexes
+    , Just ("ProvisionedThroughput" .= _dynamoDBTableProvisionedThroughput)
+    , ("StreamSpecification" .=) <$> _dynamoDBTableStreamSpecification
+    , ("TableName" .=) <$> _dynamoDBTableTableName
     ]
 
 instance FromJSON DynamoDBTable where
   parseJSON (Object obj) =
     DynamoDBTable <$>
       obj .: "AttributeDefinitions" <*>
-      obj .: "GlobalSecondaryIndexes" <*>
+      obj .:? "GlobalSecondaryIndexes" <*>
       obj .: "KeySchema" <*>
-      obj .: "LocalSecondaryIndexes" <*>
+      obj .:? "LocalSecondaryIndexes" <*>
       obj .: "ProvisionedThroughput" <*>
-      obj .: "StreamSpecification" <*>
-      obj .: "TableName"
+      obj .:? "StreamSpecification" <*>
+      obj .:? "TableName"
   parseJSON _ = mempty
 
 -- | Constructor for 'DynamoDBTable' containing required fields as arguments.

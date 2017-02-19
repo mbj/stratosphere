@@ -7,6 +7,7 @@ module Stratosphere.Resources.RDSDBCluster where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -38,46 +39,47 @@ data RDSDBCluster =
 
 instance ToJSON RDSDBCluster where
   toJSON RDSDBCluster{..} =
-    object
-    [ "AvailabilityZones" .= _rDSDBClusterAvailabilityZones
-    , "BackupRetentionPeriod" .= _rDSDBClusterBackupRetentionPeriod
-    , "DBClusterParameterGroupName" .= _rDSDBClusterDBClusterParameterGroupName
-    , "DBSubnetGroupName" .= _rDSDBClusterDBSubnetGroupName
-    , "DatabaseName" .= _rDSDBClusterDatabaseName
-    , "Engine" .= _rDSDBClusterEngine
-    , "EngineVersion" .= _rDSDBClusterEngineVersion
-    , "KmsKeyId" .= _rDSDBClusterKmsKeyId
-    , "MasterUserPassword" .= _rDSDBClusterMasterUserPassword
-    , "MasterUsername" .= _rDSDBClusterMasterUsername
-    , "Port" .= _rDSDBClusterPort
-    , "PreferredBackupWindow" .= _rDSDBClusterPreferredBackupWindow
-    , "PreferredMaintenanceWindow" .= _rDSDBClusterPreferredMaintenanceWindow
-    , "SnapshotIdentifier" .= _rDSDBClusterSnapshotIdentifier
-    , "StorageEncrypted" .= _rDSDBClusterStorageEncrypted
-    , "Tags" .= _rDSDBClusterTags
-    , "VpcSecurityGroupIds" .= _rDSDBClusterVpcSecurityGroupIds
+    object $
+    catMaybes
+    [ ("AvailabilityZones" .=) <$> _rDSDBClusterAvailabilityZones
+    , ("BackupRetentionPeriod" .=) <$> _rDSDBClusterBackupRetentionPeriod
+    , ("DBClusterParameterGroupName" .=) <$> _rDSDBClusterDBClusterParameterGroupName
+    , ("DBSubnetGroupName" .=) <$> _rDSDBClusterDBSubnetGroupName
+    , ("DatabaseName" .=) <$> _rDSDBClusterDatabaseName
+    , Just ("Engine" .= _rDSDBClusterEngine)
+    , ("EngineVersion" .=) <$> _rDSDBClusterEngineVersion
+    , ("KmsKeyId" .=) <$> _rDSDBClusterKmsKeyId
+    , ("MasterUserPassword" .=) <$> _rDSDBClusterMasterUserPassword
+    , ("MasterUsername" .=) <$> _rDSDBClusterMasterUsername
+    , ("Port" .=) <$> _rDSDBClusterPort
+    , ("PreferredBackupWindow" .=) <$> _rDSDBClusterPreferredBackupWindow
+    , ("PreferredMaintenanceWindow" .=) <$> _rDSDBClusterPreferredMaintenanceWindow
+    , ("SnapshotIdentifier" .=) <$> _rDSDBClusterSnapshotIdentifier
+    , ("StorageEncrypted" .=) <$> _rDSDBClusterStorageEncrypted
+    , ("Tags" .=) <$> _rDSDBClusterTags
+    , ("VpcSecurityGroupIds" .=) <$> _rDSDBClusterVpcSecurityGroupIds
     ]
 
 instance FromJSON RDSDBCluster where
   parseJSON (Object obj) =
     RDSDBCluster <$>
-      obj .: "AvailabilityZones" <*>
-      obj .: "BackupRetentionPeriod" <*>
-      obj .: "DBClusterParameterGroupName" <*>
-      obj .: "DBSubnetGroupName" <*>
-      obj .: "DatabaseName" <*>
+      obj .:? "AvailabilityZones" <*>
+      obj .:? "BackupRetentionPeriod" <*>
+      obj .:? "DBClusterParameterGroupName" <*>
+      obj .:? "DBSubnetGroupName" <*>
+      obj .:? "DatabaseName" <*>
       obj .: "Engine" <*>
-      obj .: "EngineVersion" <*>
-      obj .: "KmsKeyId" <*>
-      obj .: "MasterUserPassword" <*>
-      obj .: "MasterUsername" <*>
-      obj .: "Port" <*>
-      obj .: "PreferredBackupWindow" <*>
-      obj .: "PreferredMaintenanceWindow" <*>
-      obj .: "SnapshotIdentifier" <*>
-      obj .: "StorageEncrypted" <*>
-      obj .: "Tags" <*>
-      obj .: "VpcSecurityGroupIds"
+      obj .:? "EngineVersion" <*>
+      obj .:? "KmsKeyId" <*>
+      obj .:? "MasterUserPassword" <*>
+      obj .:? "MasterUsername" <*>
+      obj .:? "Port" <*>
+      obj .:? "PreferredBackupWindow" <*>
+      obj .:? "PreferredMaintenanceWindow" <*>
+      obj .:? "SnapshotIdentifier" <*>
+      obj .:? "StorageEncrypted" <*>
+      obj .:? "Tags" <*>
+      obj .:? "VpcSecurityGroupIds"
   parseJSON _ = mempty
 
 -- | Constructor for 'RDSDBCluster' containing required fields as arguments.

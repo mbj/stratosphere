@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamElasticsearc
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -37,24 +38,25 @@ data KinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguration =
 
 instance ToJSON KinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguration where
   toJSON KinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguration{..} =
-    object
-    [ "BufferingHints" .= _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationBufferingHints
-    , "CloudWatchLoggingOptions" .= _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationCloudWatchLoggingOptions
-    , "DomainARN" .= _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationDomainARN
-    , "IndexName" .= _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationIndexName
-    , "IndexRotationPeriod" .= _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod
-    , "RetryOptions" .= _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationRetryOptions
-    , "RoleARN" .= _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationRoleARN
-    , "S3BackupMode" .= _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationS3BackupMode
-    , "S3Configuration" .= _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationS3Configuration
-    , "TypeName" .= _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationTypeName
+    object $
+    catMaybes
+    [ Just ("BufferingHints" .= _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationBufferingHints)
+    , ("CloudWatchLoggingOptions" .=) <$> _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationCloudWatchLoggingOptions
+    , Just ("DomainARN" .= _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationDomainARN)
+    , Just ("IndexName" .= _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationIndexName)
+    , Just ("IndexRotationPeriod" .= _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod)
+    , Just ("RetryOptions" .= _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationRetryOptions)
+    , Just ("RoleARN" .= _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationRoleARN)
+    , Just ("S3BackupMode" .= _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationS3BackupMode)
+    , Just ("S3Configuration" .= _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationS3Configuration)
+    , Just ("TypeName" .= _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationTypeName)
     ]
 
 instance FromJSON KinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguration where
   parseJSON (Object obj) =
     KinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguration <$>
       obj .: "BufferingHints" <*>
-      obj .: "CloudWatchLoggingOptions" <*>
+      obj .:? "CloudWatchLoggingOptions" <*>
       obj .: "DomainARN" <*>
       obj .: "IndexName" <*>
       obj .: "IndexRotationPeriod" <*>

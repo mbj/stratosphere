@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.EC2InstanceBlockDeviceMapping where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -26,20 +27,21 @@ data EC2InstanceBlockDeviceMapping =
 
 instance ToJSON EC2InstanceBlockDeviceMapping where
   toJSON EC2InstanceBlockDeviceMapping{..} =
-    object
-    [ "DeviceName" .= _eC2InstanceBlockDeviceMappingDeviceName
-    , "Ebs" .= _eC2InstanceBlockDeviceMappingEbs
-    , "NoDevice" .= _eC2InstanceBlockDeviceMappingNoDevice
-    , "VirtualName" .= _eC2InstanceBlockDeviceMappingVirtualName
+    object $
+    catMaybes
+    [ Just ("DeviceName" .= _eC2InstanceBlockDeviceMappingDeviceName)
+    , ("Ebs" .=) <$> _eC2InstanceBlockDeviceMappingEbs
+    , ("NoDevice" .=) <$> _eC2InstanceBlockDeviceMappingNoDevice
+    , ("VirtualName" .=) <$> _eC2InstanceBlockDeviceMappingVirtualName
     ]
 
 instance FromJSON EC2InstanceBlockDeviceMapping where
   parseJSON (Object obj) =
     EC2InstanceBlockDeviceMapping <$>
       obj .: "DeviceName" <*>
-      obj .: "Ebs" <*>
-      obj .: "NoDevice" <*>
-      obj .: "VirtualName"
+      obj .:? "Ebs" <*>
+      obj .:? "NoDevice" <*>
+      obj .:? "VirtualName"
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2InstanceBlockDeviceMapping' containing required

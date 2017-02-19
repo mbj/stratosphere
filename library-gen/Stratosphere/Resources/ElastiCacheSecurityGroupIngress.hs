@@ -7,6 +7,7 @@ module Stratosphere.Resources.ElastiCacheSecurityGroupIngress where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -24,10 +25,11 @@ data ElastiCacheSecurityGroupIngress =
 
 instance ToJSON ElastiCacheSecurityGroupIngress where
   toJSON ElastiCacheSecurityGroupIngress{..} =
-    object
-    [ "CacheSecurityGroupName" .= _elastiCacheSecurityGroupIngressCacheSecurityGroupName
-    , "EC2SecurityGroupName" .= _elastiCacheSecurityGroupIngressEC2SecurityGroupName
-    , "EC2SecurityGroupOwnerId" .= _elastiCacheSecurityGroupIngressEC2SecurityGroupOwnerId
+    object $
+    catMaybes
+    [ Just ("CacheSecurityGroupName" .= _elastiCacheSecurityGroupIngressCacheSecurityGroupName)
+    , Just ("EC2SecurityGroupName" .= _elastiCacheSecurityGroupIngressEC2SecurityGroupName)
+    , ("EC2SecurityGroupOwnerId" .=) <$> _elastiCacheSecurityGroupIngressEC2SecurityGroupOwnerId
     ]
 
 instance FromJSON ElastiCacheSecurityGroupIngress where
@@ -35,7 +37,7 @@ instance FromJSON ElastiCacheSecurityGroupIngress where
     ElastiCacheSecurityGroupIngress <$>
       obj .: "CacheSecurityGroupName" <*>
       obj .: "EC2SecurityGroupName" <*>
-      obj .: "EC2SecurityGroupOwnerId"
+      obj .:? "EC2SecurityGroupOwnerId"
   parseJSON _ = mempty
 
 -- | Constructor for 'ElastiCacheSecurityGroupIngress' containing required

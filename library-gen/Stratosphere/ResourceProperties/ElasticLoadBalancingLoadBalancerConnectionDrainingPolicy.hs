@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.ElasticLoadBalancingLoadBalancerConnectio
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -25,16 +26,17 @@ data ElasticLoadBalancingLoadBalancerConnectionDrainingPolicy =
 
 instance ToJSON ElasticLoadBalancingLoadBalancerConnectionDrainingPolicy where
   toJSON ElasticLoadBalancingLoadBalancerConnectionDrainingPolicy{..} =
-    object
-    [ "Enabled" .= _elasticLoadBalancingLoadBalancerConnectionDrainingPolicyEnabled
-    , "Timeout" .= _elasticLoadBalancingLoadBalancerConnectionDrainingPolicyTimeout
+    object $
+    catMaybes
+    [ Just ("Enabled" .= _elasticLoadBalancingLoadBalancerConnectionDrainingPolicyEnabled)
+    , ("Timeout" .=) <$> _elasticLoadBalancingLoadBalancerConnectionDrainingPolicyTimeout
     ]
 
 instance FromJSON ElasticLoadBalancingLoadBalancerConnectionDrainingPolicy where
   parseJSON (Object obj) =
     ElasticLoadBalancingLoadBalancerConnectionDrainingPolicy <$>
       obj .: "Enabled" <*>
-      obj .: "Timeout"
+      obj .:? "Timeout"
   parseJSON _ = mempty
 
 -- | Constructor for

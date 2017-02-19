@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.ApiGatewayMethodMethodResponse where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -24,18 +25,19 @@ data ApiGatewayMethodMethodResponse =
 
 instance ToJSON ApiGatewayMethodMethodResponse where
   toJSON ApiGatewayMethodMethodResponse{..} =
-    object
-    [ "ResponseModels" .= _apiGatewayMethodMethodResponseResponseModels
-    , "ResponseParameters" .= _apiGatewayMethodMethodResponseResponseParameters
-    , "StatusCode" .= _apiGatewayMethodMethodResponseStatusCode
+    object $
+    catMaybes
+    [ ("ResponseModels" .=) <$> _apiGatewayMethodMethodResponseResponseModels
+    , ("ResponseParameters" .=) <$> _apiGatewayMethodMethodResponseResponseParameters
+    , ("StatusCode" .=) <$> _apiGatewayMethodMethodResponseStatusCode
     ]
 
 instance FromJSON ApiGatewayMethodMethodResponse where
   parseJSON (Object obj) =
     ApiGatewayMethodMethodResponse <$>
-      obj .: "ResponseModels" <*>
-      obj .: "ResponseParameters" <*>
-      obj .: "StatusCode"
+      obj .:? "ResponseModels" <*>
+      obj .:? "ResponseParameters" <*>
+      obj .:? "StatusCode"
   parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayMethodMethodResponse' containing required

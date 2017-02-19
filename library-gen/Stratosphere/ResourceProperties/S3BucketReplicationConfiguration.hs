@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.S3BucketReplicationConfiguration where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,9 +24,10 @@ data S3BucketReplicationConfiguration =
 
 instance ToJSON S3BucketReplicationConfiguration where
   toJSON S3BucketReplicationConfiguration{..} =
-    object
-    [ "Role" .= _s3BucketReplicationConfigurationRole
-    , "Rules" .= _s3BucketReplicationConfigurationRules
+    object $
+    catMaybes
+    [ Just ("Role" .= _s3BucketReplicationConfigurationRole)
+    , Just ("Rules" .= _s3BucketReplicationConfigurationRules)
     ]
 
 instance FromJSON S3BucketReplicationConfiguration where

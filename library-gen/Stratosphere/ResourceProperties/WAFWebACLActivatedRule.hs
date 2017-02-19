@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.WAFWebACLActivatedRule where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -24,10 +25,11 @@ data WAFWebACLActivatedRule =
 
 instance ToJSON WAFWebACLActivatedRule where
   toJSON WAFWebACLActivatedRule{..} =
-    object
-    [ "Action" .= _wAFWebACLActivatedRuleAction
-    , "Priority" .= _wAFWebACLActivatedRulePriority
-    , "RuleId" .= _wAFWebACLActivatedRuleRuleId
+    object $
+    catMaybes
+    [ Just ("Action" .= _wAFWebACLActivatedRuleAction)
+    , Just ("Priority" .= _wAFWebACLActivatedRulePriority)
+    , Just ("RuleId" .= _wAFWebACLActivatedRuleRuleId)
     ]
 
 instance FromJSON WAFWebACLActivatedRule where

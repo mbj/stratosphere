@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.CloudFrontDistributionForwardedValues whe
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -26,20 +27,21 @@ data CloudFrontDistributionForwardedValues =
 
 instance ToJSON CloudFrontDistributionForwardedValues where
   toJSON CloudFrontDistributionForwardedValues{..} =
-    object
-    [ "Cookies" .= _cloudFrontDistributionForwardedValuesCookies
-    , "Headers" .= _cloudFrontDistributionForwardedValuesHeaders
-    , "QueryString" .= _cloudFrontDistributionForwardedValuesQueryString
-    , "QueryStringCacheKeys" .= _cloudFrontDistributionForwardedValuesQueryStringCacheKeys
+    object $
+    catMaybes
+    [ ("Cookies" .=) <$> _cloudFrontDistributionForwardedValuesCookies
+    , ("Headers" .=) <$> _cloudFrontDistributionForwardedValuesHeaders
+    , Just ("QueryString" .= _cloudFrontDistributionForwardedValuesQueryString)
+    , ("QueryStringCacheKeys" .=) <$> _cloudFrontDistributionForwardedValuesQueryStringCacheKeys
     ]
 
 instance FromJSON CloudFrontDistributionForwardedValues where
   parseJSON (Object obj) =
     CloudFrontDistributionForwardedValues <$>
-      obj .: "Cookies" <*>
-      obj .: "Headers" <*>
+      obj .:? "Cookies" <*>
+      obj .:? "Headers" <*>
       obj .: "QueryString" <*>
-      obj .: "QueryStringCacheKeys"
+      obj .:? "QueryStringCacheKeys"
   parseJSON _ = mempty
 
 -- | Constructor for 'CloudFrontDistributionForwardedValues' containing

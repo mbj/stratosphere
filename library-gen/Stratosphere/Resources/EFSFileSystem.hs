@@ -7,6 +7,7 @@ module Stratosphere.Resources.EFSFileSystem where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,16 +24,17 @@ data EFSFileSystem =
 
 instance ToJSON EFSFileSystem where
   toJSON EFSFileSystem{..} =
-    object
-    [ "FileSystemTags" .= _eFSFileSystemFileSystemTags
-    , "PerformanceMode" .= _eFSFileSystemPerformanceMode
+    object $
+    catMaybes
+    [ ("FileSystemTags" .=) <$> _eFSFileSystemFileSystemTags
+    , ("PerformanceMode" .=) <$> _eFSFileSystemPerformanceMode
     ]
 
 instance FromJSON EFSFileSystem where
   parseJSON (Object obj) =
     EFSFileSystem <$>
-      obj .: "FileSystemTags" <*>
-      obj .: "PerformanceMode"
+      obj .:? "FileSystemTags" <*>
+      obj .:? "PerformanceMode"
   parseJSON _ = mempty
 
 -- | Constructor for 'EFSFileSystem' containing required fields as arguments.

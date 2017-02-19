@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.Route53HealthCheckHealthCheckTag where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,9 +24,10 @@ data Route53HealthCheckHealthCheckTag =
 
 instance ToJSON Route53HealthCheckHealthCheckTag where
   toJSON Route53HealthCheckHealthCheckTag{..} =
-    object
-    [ "Key" .= _route53HealthCheckHealthCheckTagKey
-    , "Value" .= _route53HealthCheckHealthCheckTagValue
+    object $
+    catMaybes
+    [ Just ("Key" .= _route53HealthCheckHealthCheckTagKey)
+    , Just ("Value" .= _route53HealthCheckHealthCheckTagValue)
     ]
 
 instance FromJSON Route53HealthCheckHealthCheckTag where

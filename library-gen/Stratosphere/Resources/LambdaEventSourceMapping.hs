@@ -7,6 +7,7 @@ module Stratosphere.Resources.LambdaEventSourceMapping where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -26,19 +27,20 @@ data LambdaEventSourceMapping =
 
 instance ToJSON LambdaEventSourceMapping where
   toJSON LambdaEventSourceMapping{..} =
-    object
-    [ "BatchSize" .= _lambdaEventSourceMappingBatchSize
-    , "Enabled" .= _lambdaEventSourceMappingEnabled
-    , "EventSourceArn" .= _lambdaEventSourceMappingEventSourceArn
-    , "FunctionName" .= _lambdaEventSourceMappingFunctionName
-    , "StartingPosition" .= _lambdaEventSourceMappingStartingPosition
+    object $
+    catMaybes
+    [ ("BatchSize" .=) <$> _lambdaEventSourceMappingBatchSize
+    , ("Enabled" .=) <$> _lambdaEventSourceMappingEnabled
+    , Just ("EventSourceArn" .= _lambdaEventSourceMappingEventSourceArn)
+    , Just ("FunctionName" .= _lambdaEventSourceMappingFunctionName)
+    , Just ("StartingPosition" .= _lambdaEventSourceMappingStartingPosition)
     ]
 
 instance FromJSON LambdaEventSourceMapping where
   parseJSON (Object obj) =
     LambdaEventSourceMapping <$>
-      obj .: "BatchSize" <*>
-      obj .: "Enabled" <*>
+      obj .:? "BatchSize" <*>
+      obj .:? "Enabled" <*>
       obj .: "EventSourceArn" <*>
       obj .: "FunctionName" <*>
       obj .: "StartingPosition"

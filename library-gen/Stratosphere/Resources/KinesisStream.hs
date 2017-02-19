@@ -7,6 +7,7 @@ module Stratosphere.Resources.KinesisStream where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -24,18 +25,19 @@ data KinesisStream =
 
 instance ToJSON KinesisStream where
   toJSON KinesisStream{..} =
-    object
-    [ "Name" .= _kinesisStreamName
-    , "ShardCount" .= _kinesisStreamShardCount
-    , "Tags" .= _kinesisStreamTags
+    object $
+    catMaybes
+    [ ("Name" .=) <$> _kinesisStreamName
+    , Just ("ShardCount" .= _kinesisStreamShardCount)
+    , ("Tags" .=) <$> _kinesisStreamTags
     ]
 
 instance FromJSON KinesisStream where
   parseJSON (Object obj) =
     KinesisStream <$>
-      obj .: "Name" <*>
+      obj .:? "Name" <*>
       obj .: "ShardCount" <*>
-      obj .: "Tags"
+      obj .:? "Tags"
   parseJSON _ = mempty
 
 -- | Constructor for 'KinesisStream' containing required fields as arguments.

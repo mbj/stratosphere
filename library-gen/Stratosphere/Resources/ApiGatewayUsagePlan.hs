@@ -7,6 +7,7 @@ module Stratosphere.Resources.ApiGatewayUsagePlan where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -28,22 +29,23 @@ data ApiGatewayUsagePlan =
 
 instance ToJSON ApiGatewayUsagePlan where
   toJSON ApiGatewayUsagePlan{..} =
-    object
-    [ "ApiStages" .= _apiGatewayUsagePlanApiStages
-    , "Description" .= _apiGatewayUsagePlanDescription
-    , "Quota" .= _apiGatewayUsagePlanQuota
-    , "Throttle" .= _apiGatewayUsagePlanThrottle
-    , "UsagePlanName" .= _apiGatewayUsagePlanUsagePlanName
+    object $
+    catMaybes
+    [ ("ApiStages" .=) <$> _apiGatewayUsagePlanApiStages
+    , ("Description" .=) <$> _apiGatewayUsagePlanDescription
+    , ("Quota" .=) <$> _apiGatewayUsagePlanQuota
+    , ("Throttle" .=) <$> _apiGatewayUsagePlanThrottle
+    , ("UsagePlanName" .=) <$> _apiGatewayUsagePlanUsagePlanName
     ]
 
 instance FromJSON ApiGatewayUsagePlan where
   parseJSON (Object obj) =
     ApiGatewayUsagePlan <$>
-      obj .: "ApiStages" <*>
-      obj .: "Description" <*>
-      obj .: "Quota" <*>
-      obj .: "Throttle" <*>
-      obj .: "UsagePlanName"
+      obj .:? "ApiStages" <*>
+      obj .:? "Description" <*>
+      obj .:? "Quota" <*>
+      obj .:? "Throttle" <*>
+      obj .:? "UsagePlanName"
   parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayUsagePlan' containing required fields as

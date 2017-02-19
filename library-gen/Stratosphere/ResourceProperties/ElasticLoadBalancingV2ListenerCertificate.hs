@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.ElasticLoadBalancingV2ListenerCertificate
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,14 +24,15 @@ data ElasticLoadBalancingV2ListenerCertificate =
 
 instance ToJSON ElasticLoadBalancingV2ListenerCertificate where
   toJSON ElasticLoadBalancingV2ListenerCertificate{..} =
-    object
-    [ "CertificateArn" .= _elasticLoadBalancingV2ListenerCertificateCertificateArn
+    object $
+    catMaybes
+    [ ("CertificateArn" .=) <$> _elasticLoadBalancingV2ListenerCertificateCertificateArn
     ]
 
 instance FromJSON ElasticLoadBalancingV2ListenerCertificate where
   parseJSON (Object obj) =
     ElasticLoadBalancingV2ListenerCertificate <$>
-      obj .: "CertificateArn"
+      obj .:? "CertificateArn"
   parseJSON _ = mempty
 
 -- | Constructor for 'ElasticLoadBalancingV2ListenerCertificate' containing

@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.ElasticLoadBalancingV2ListenerRuleRuleCon
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -25,16 +26,17 @@ data ElasticLoadBalancingV2ListenerRuleRuleCondition =
 
 instance ToJSON ElasticLoadBalancingV2ListenerRuleRuleCondition where
   toJSON ElasticLoadBalancingV2ListenerRuleRuleCondition{..} =
-    object
-    [ "Field" .= _elasticLoadBalancingV2ListenerRuleRuleConditionField
-    , "Values" .= _elasticLoadBalancingV2ListenerRuleRuleConditionValues
+    object $
+    catMaybes
+    [ ("Field" .=) <$> _elasticLoadBalancingV2ListenerRuleRuleConditionField
+    , ("Values" .=) <$> _elasticLoadBalancingV2ListenerRuleRuleConditionValues
     ]
 
 instance FromJSON ElasticLoadBalancingV2ListenerRuleRuleCondition where
   parseJSON (Object obj) =
     ElasticLoadBalancingV2ListenerRuleRuleCondition <$>
-      obj .: "Field" <*>
-      obj .: "Values"
+      obj .:? "Field" <*>
+      obj .:? "Values"
   parseJSON _ = mempty
 
 -- | Constructor for 'ElasticLoadBalancingV2ListenerRuleRuleCondition'

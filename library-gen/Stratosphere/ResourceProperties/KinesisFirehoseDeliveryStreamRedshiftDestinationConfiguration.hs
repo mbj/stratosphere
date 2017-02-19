@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamRedshiftDest
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -32,20 +33,21 @@ data KinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration =
 
 instance ToJSON KinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration where
   toJSON KinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration{..} =
-    object
-    [ "CloudWatchLoggingOptions" .= _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationCloudWatchLoggingOptions
-    , "ClusterJDBCURL" .= _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationClusterJDBCURL
-    , "CopyCommand" .= _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationCopyCommand
-    , "Password" .= _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationPassword
-    , "RoleARN" .= _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationRoleARN
-    , "S3Configuration" .= _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationS3Configuration
-    , "Username" .= _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationUsername
+    object $
+    catMaybes
+    [ ("CloudWatchLoggingOptions" .=) <$> _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationCloudWatchLoggingOptions
+    , Just ("ClusterJDBCURL" .= _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationClusterJDBCURL)
+    , Just ("CopyCommand" .= _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationCopyCommand)
+    , Just ("Password" .= _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationPassword)
+    , Just ("RoleARN" .= _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationRoleARN)
+    , Just ("S3Configuration" .= _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationS3Configuration)
+    , Just ("Username" .= _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationUsername)
     ]
 
 instance FromJSON KinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration where
   parseJSON (Object obj) =
     KinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration <$>
-      obj .: "CloudWatchLoggingOptions" <*>
+      obj .:? "CloudWatchLoggingOptions" <*>
       obj .: "ClusterJDBCURL" <*>
       obj .: "CopyCommand" <*>
       obj .: "Password" <*>

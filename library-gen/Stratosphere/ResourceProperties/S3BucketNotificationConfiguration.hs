@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.S3BucketNotificationConfiguration where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -26,18 +27,19 @@ data S3BucketNotificationConfiguration =
 
 instance ToJSON S3BucketNotificationConfiguration where
   toJSON S3BucketNotificationConfiguration{..} =
-    object
-    [ "LambdaConfigurations" .= _s3BucketNotificationConfigurationLambdaConfigurations
-    , "QueueConfigurations" .= _s3BucketNotificationConfigurationQueueConfigurations
-    , "TopicConfigurations" .= _s3BucketNotificationConfigurationTopicConfigurations
+    object $
+    catMaybes
+    [ ("LambdaConfigurations" .=) <$> _s3BucketNotificationConfigurationLambdaConfigurations
+    , ("QueueConfigurations" .=) <$> _s3BucketNotificationConfigurationQueueConfigurations
+    , ("TopicConfigurations" .=) <$> _s3BucketNotificationConfigurationTopicConfigurations
     ]
 
 instance FromJSON S3BucketNotificationConfiguration where
   parseJSON (Object obj) =
     S3BucketNotificationConfiguration <$>
-      obj .: "LambdaConfigurations" <*>
-      obj .: "QueueConfigurations" <*>
-      obj .: "TopicConfigurations"
+      obj .:? "LambdaConfigurations" <*>
+      obj .:? "QueueConfigurations" <*>
+      obj .:? "TopicConfigurations"
   parseJSON _ = mempty
 
 -- | Constructor for 'S3BucketNotificationConfiguration' containing required

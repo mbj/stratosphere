@@ -7,6 +7,7 @@ module Stratosphere.Resources.EC2EIPAssociation where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -26,22 +27,23 @@ data EC2EIPAssociation =
 
 instance ToJSON EC2EIPAssociation where
   toJSON EC2EIPAssociation{..} =
-    object
-    [ "AllocationId" .= _eC2EIPAssociationAllocationId
-    , "Eip" .= _eC2EIPAssociationEip
-    , "InstanceId" .= _eC2EIPAssociationInstanceId
-    , "NetworkInterfaceId" .= _eC2EIPAssociationNetworkInterfaceId
-    , "PrivateIpAddress" .= _eC2EIPAssociationPrivateIpAddress
+    object $
+    catMaybes
+    [ ("AllocationId" .=) <$> _eC2EIPAssociationAllocationId
+    , ("Eip" .=) <$> _eC2EIPAssociationEip
+    , ("InstanceId" .=) <$> _eC2EIPAssociationInstanceId
+    , ("NetworkInterfaceId" .=) <$> _eC2EIPAssociationNetworkInterfaceId
+    , ("PrivateIpAddress" .=) <$> _eC2EIPAssociationPrivateIpAddress
     ]
 
 instance FromJSON EC2EIPAssociation where
   parseJSON (Object obj) =
     EC2EIPAssociation <$>
-      obj .: "AllocationId" <*>
-      obj .: "Eip" <*>
-      obj .: "InstanceId" <*>
-      obj .: "NetworkInterfaceId" <*>
-      obj .: "PrivateIpAddress"
+      obj .:? "AllocationId" <*>
+      obj .:? "Eip" <*>
+      obj .:? "InstanceId" <*>
+      obj .:? "NetworkInterfaceId" <*>
+      obj .:? "PrivateIpAddress"
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2EIPAssociation' containing required fields as

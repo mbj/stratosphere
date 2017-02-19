@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.ElasticLoadBalancingLoadBalancerLBCookieS
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -25,16 +26,17 @@ data ElasticLoadBalancingLoadBalancerLBCookieStickinessPolicy =
 
 instance ToJSON ElasticLoadBalancingLoadBalancerLBCookieStickinessPolicy where
   toJSON ElasticLoadBalancingLoadBalancerLBCookieStickinessPolicy{..} =
-    object
-    [ "CookieExpirationPeriod" .= _elasticLoadBalancingLoadBalancerLBCookieStickinessPolicyCookieExpirationPeriod
-    , "PolicyName" .= _elasticLoadBalancingLoadBalancerLBCookieStickinessPolicyPolicyName
+    object $
+    catMaybes
+    [ ("CookieExpirationPeriod" .=) <$> _elasticLoadBalancingLoadBalancerLBCookieStickinessPolicyCookieExpirationPeriod
+    , ("PolicyName" .=) <$> _elasticLoadBalancingLoadBalancerLBCookieStickinessPolicyPolicyName
     ]
 
 instance FromJSON ElasticLoadBalancingLoadBalancerLBCookieStickinessPolicy where
   parseJSON (Object obj) =
     ElasticLoadBalancingLoadBalancerLBCookieStickinessPolicy <$>
-      obj .: "CookieExpirationPeriod" <*>
-      obj .: "PolicyName"
+      obj .:? "CookieExpirationPeriod" <*>
+      obj .:? "PolicyName"
   parseJSON _ = mempty
 
 -- | Constructor for

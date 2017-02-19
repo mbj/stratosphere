@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.ConfigConfigRuleScope where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -25,20 +26,21 @@ data ConfigConfigRuleScope =
 
 instance ToJSON ConfigConfigRuleScope where
   toJSON ConfigConfigRuleScope{..} =
-    object
-    [ "ComplianceResourceId" .= _configConfigRuleScopeComplianceResourceId
-    , "ComplianceResourceTypes" .= _configConfigRuleScopeComplianceResourceTypes
-    , "TagKey" .= _configConfigRuleScopeTagKey
-    , "TagValue" .= _configConfigRuleScopeTagValue
+    object $
+    catMaybes
+    [ ("ComplianceResourceId" .=) <$> _configConfigRuleScopeComplianceResourceId
+    , ("ComplianceResourceTypes" .=) <$> _configConfigRuleScopeComplianceResourceTypes
+    , ("TagKey" .=) <$> _configConfigRuleScopeTagKey
+    , ("TagValue" .=) <$> _configConfigRuleScopeTagValue
     ]
 
 instance FromJSON ConfigConfigRuleScope where
   parseJSON (Object obj) =
     ConfigConfigRuleScope <$>
-      obj .: "ComplianceResourceId" <*>
-      obj .: "ComplianceResourceTypes" <*>
-      obj .: "TagKey" <*>
-      obj .: "TagValue"
+      obj .:? "ComplianceResourceId" <*>
+      obj .:? "ComplianceResourceTypes" <*>
+      obj .:? "TagKey" <*>
+      obj .:? "TagValue"
   parseJSON _ = mempty
 
 -- | Constructor for 'ConfigConfigRuleScope' containing required fields as

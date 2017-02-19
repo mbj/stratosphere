@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.CodeDeployDeploymentGroupS3Location where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -26,12 +27,13 @@ data CodeDeployDeploymentGroupS3Location =
 
 instance ToJSON CodeDeployDeploymentGroupS3Location where
   toJSON CodeDeployDeploymentGroupS3Location{..} =
-    object
-    [ "Bucket" .= _codeDeployDeploymentGroupS3LocationBucket
-    , "BundleType" .= _codeDeployDeploymentGroupS3LocationBundleType
-    , "ETag" .= _codeDeployDeploymentGroupS3LocationETag
-    , "Key" .= _codeDeployDeploymentGroupS3LocationKey
-    , "Version" .= _codeDeployDeploymentGroupS3LocationVersion
+    object $
+    catMaybes
+    [ Just ("Bucket" .= _codeDeployDeploymentGroupS3LocationBucket)
+    , Just ("BundleType" .= _codeDeployDeploymentGroupS3LocationBundleType)
+    , ("ETag" .=) <$> _codeDeployDeploymentGroupS3LocationETag
+    , Just ("Key" .= _codeDeployDeploymentGroupS3LocationKey)
+    , ("Version" .=) <$> _codeDeployDeploymentGroupS3LocationVersion
     ]
 
 instance FromJSON CodeDeployDeploymentGroupS3Location where
@@ -39,9 +41,9 @@ instance FromJSON CodeDeployDeploymentGroupS3Location where
     CodeDeployDeploymentGroupS3Location <$>
       obj .: "Bucket" <*>
       obj .: "BundleType" <*>
-      obj .: "ETag" <*>
+      obj .:? "ETag" <*>
       obj .: "Key" <*>
-      obj .: "Version"
+      obj .:? "Version"
   parseJSON _ = mempty
 
 -- | Constructor for 'CodeDeployDeploymentGroupS3Location' containing required

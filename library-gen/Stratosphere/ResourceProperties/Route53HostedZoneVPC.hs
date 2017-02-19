@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.Route53HostedZoneVPC where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,9 +24,10 @@ data Route53HostedZoneVPC =
 
 instance ToJSON Route53HostedZoneVPC where
   toJSON Route53HostedZoneVPC{..} =
-    object
-    [ "VPCId" .= _route53HostedZoneVPCVPCId
-    , "VPCRegion" .= _route53HostedZoneVPCVPCRegion
+    object $
+    catMaybes
+    [ Just ("VPCId" .= _route53HostedZoneVPCVPCId)
+    , Just ("VPCRegion" .= _route53HostedZoneVPCVPCRegion)
     ]
 
 instance FromJSON Route53HostedZoneVPC where

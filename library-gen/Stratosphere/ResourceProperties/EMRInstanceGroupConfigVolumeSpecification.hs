@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.EMRInstanceGroupConfigVolumeSpecification
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -25,16 +26,17 @@ data EMRInstanceGroupConfigVolumeSpecification =
 
 instance ToJSON EMRInstanceGroupConfigVolumeSpecification where
   toJSON EMRInstanceGroupConfigVolumeSpecification{..} =
-    object
-    [ "Iops" .= _eMRInstanceGroupConfigVolumeSpecificationIops
-    , "SizeInGB" .= _eMRInstanceGroupConfigVolumeSpecificationSizeInGB
-    , "VolumeType" .= _eMRInstanceGroupConfigVolumeSpecificationVolumeType
+    object $
+    catMaybes
+    [ ("Iops" .=) <$> _eMRInstanceGroupConfigVolumeSpecificationIops
+    , Just ("SizeInGB" .= _eMRInstanceGroupConfigVolumeSpecificationSizeInGB)
+    , Just ("VolumeType" .= _eMRInstanceGroupConfigVolumeSpecificationVolumeType)
     ]
 
 instance FromJSON EMRInstanceGroupConfigVolumeSpecification where
   parseJSON (Object obj) =
     EMRInstanceGroupConfigVolumeSpecification <$>
-      obj .: "Iops" <*>
+      obj .:? "Iops" <*>
       obj .: "SizeInGB" <*>
       obj .: "VolumeType"
   parseJSON _ = mempty

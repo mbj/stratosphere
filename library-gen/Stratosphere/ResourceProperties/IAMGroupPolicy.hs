@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.IAMGroupPolicy where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,9 +24,10 @@ data IAMGroupPolicy =
 
 instance ToJSON IAMGroupPolicy where
   toJSON IAMGroupPolicy{..} =
-    object
-    [ "PolicyDocument" .= _iAMGroupPolicyPolicyDocument
-    , "PolicyName" .= _iAMGroupPolicyPolicyName
+    object $
+    catMaybes
+    [ Just ("PolicyDocument" .= _iAMGroupPolicyPolicyDocument)
+    , Just ("PolicyName" .= _iAMGroupPolicyPolicyName)
     ]
 
 instance FromJSON IAMGroupPolicy where

@@ -7,6 +7,7 @@ module Stratosphere.Resources.EC2Instance where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -55,70 +56,71 @@ data EC2Instance =
 
 instance ToJSON EC2Instance where
   toJSON EC2Instance{..} =
-    object
-    [ "AdditionalInfo" .= _eC2InstanceAdditionalInfo
-    , "Affinity" .= _eC2InstanceAffinity
-    , "AvailabilityZone" .= _eC2InstanceAvailabilityZone
-    , "BlockDeviceMappings" .= _eC2InstanceBlockDeviceMappings
-    , "DisableApiTermination" .= _eC2InstanceDisableApiTermination
-    , "EbsOptimized" .= _eC2InstanceEbsOptimized
-    , "HostId" .= _eC2InstanceHostId
-    , "IamInstanceProfile" .= _eC2InstanceIamInstanceProfile
-    , "ImageId" .= _eC2InstanceImageId
-    , "InstanceInitiatedShutdownBehavior" .= _eC2InstanceInstanceInitiatedShutdownBehavior
-    , "InstanceType" .= _eC2InstanceInstanceType
-    , "Ipv6AddressCount" .= _eC2InstanceIpv6AddressCount
-    , "Ipv6Addresses" .= _eC2InstanceIpv6Addresses
-    , "KernelId" .= _eC2InstanceKernelId
-    , "KeyName" .= _eC2InstanceKeyName
-    , "Monitoring" .= _eC2InstanceMonitoring
-    , "NetworkInterfaces" .= _eC2InstanceNetworkInterfaces
-    , "PlacementGroupName" .= _eC2InstancePlacementGroupName
-    , "PrivateIpAddress" .= _eC2InstancePrivateIpAddress
-    , "RamdiskId" .= _eC2InstanceRamdiskId
-    , "SecurityGroupIds" .= _eC2InstanceSecurityGroupIds
-    , "SecurityGroups" .= _eC2InstanceSecurityGroups
-    , "SourceDestCheck" .= _eC2InstanceSourceDestCheck
-    , "SsmAssociations" .= _eC2InstanceSsmAssociations
-    , "SubnetId" .= _eC2InstanceSubnetId
-    , "Tags" .= _eC2InstanceTags
-    , "Tenancy" .= _eC2InstanceTenancy
-    , "UserData" .= _eC2InstanceUserData
-    , "Volumes" .= _eC2InstanceVolumes
+    object $
+    catMaybes
+    [ ("AdditionalInfo" .=) <$> _eC2InstanceAdditionalInfo
+    , ("Affinity" .=) <$> _eC2InstanceAffinity
+    , ("AvailabilityZone" .=) <$> _eC2InstanceAvailabilityZone
+    , ("BlockDeviceMappings" .=) <$> _eC2InstanceBlockDeviceMappings
+    , ("DisableApiTermination" .=) <$> _eC2InstanceDisableApiTermination
+    , ("EbsOptimized" .=) <$> _eC2InstanceEbsOptimized
+    , ("HostId" .=) <$> _eC2InstanceHostId
+    , ("IamInstanceProfile" .=) <$> _eC2InstanceIamInstanceProfile
+    , Just ("ImageId" .= _eC2InstanceImageId)
+    , ("InstanceInitiatedShutdownBehavior" .=) <$> _eC2InstanceInstanceInitiatedShutdownBehavior
+    , ("InstanceType" .=) <$> _eC2InstanceInstanceType
+    , ("Ipv6AddressCount" .=) <$> _eC2InstanceIpv6AddressCount
+    , ("Ipv6Addresses" .=) <$> _eC2InstanceIpv6Addresses
+    , ("KernelId" .=) <$> _eC2InstanceKernelId
+    , ("KeyName" .=) <$> _eC2InstanceKeyName
+    , ("Monitoring" .=) <$> _eC2InstanceMonitoring
+    , ("NetworkInterfaces" .=) <$> _eC2InstanceNetworkInterfaces
+    , ("PlacementGroupName" .=) <$> _eC2InstancePlacementGroupName
+    , ("PrivateIpAddress" .=) <$> _eC2InstancePrivateIpAddress
+    , ("RamdiskId" .=) <$> _eC2InstanceRamdiskId
+    , ("SecurityGroupIds" .=) <$> _eC2InstanceSecurityGroupIds
+    , ("SecurityGroups" .=) <$> _eC2InstanceSecurityGroups
+    , ("SourceDestCheck" .=) <$> _eC2InstanceSourceDestCheck
+    , ("SsmAssociations" .=) <$> _eC2InstanceSsmAssociations
+    , ("SubnetId" .=) <$> _eC2InstanceSubnetId
+    , ("Tags" .=) <$> _eC2InstanceTags
+    , ("Tenancy" .=) <$> _eC2InstanceTenancy
+    , ("UserData" .=) <$> _eC2InstanceUserData
+    , ("Volumes" .=) <$> _eC2InstanceVolumes
     ]
 
 instance FromJSON EC2Instance where
   parseJSON (Object obj) =
     EC2Instance <$>
-      obj .: "AdditionalInfo" <*>
-      obj .: "Affinity" <*>
-      obj .: "AvailabilityZone" <*>
-      obj .: "BlockDeviceMappings" <*>
-      obj .: "DisableApiTermination" <*>
-      obj .: "EbsOptimized" <*>
-      obj .: "HostId" <*>
-      obj .: "IamInstanceProfile" <*>
+      obj .:? "AdditionalInfo" <*>
+      obj .:? "Affinity" <*>
+      obj .:? "AvailabilityZone" <*>
+      obj .:? "BlockDeviceMappings" <*>
+      obj .:? "DisableApiTermination" <*>
+      obj .:? "EbsOptimized" <*>
+      obj .:? "HostId" <*>
+      obj .:? "IamInstanceProfile" <*>
       obj .: "ImageId" <*>
-      obj .: "InstanceInitiatedShutdownBehavior" <*>
-      obj .: "InstanceType" <*>
-      obj .: "Ipv6AddressCount" <*>
-      obj .: "Ipv6Addresses" <*>
-      obj .: "KernelId" <*>
-      obj .: "KeyName" <*>
-      obj .: "Monitoring" <*>
-      obj .: "NetworkInterfaces" <*>
-      obj .: "PlacementGroupName" <*>
-      obj .: "PrivateIpAddress" <*>
-      obj .: "RamdiskId" <*>
-      obj .: "SecurityGroupIds" <*>
-      obj .: "SecurityGroups" <*>
-      obj .: "SourceDestCheck" <*>
-      obj .: "SsmAssociations" <*>
-      obj .: "SubnetId" <*>
-      obj .: "Tags" <*>
-      obj .: "Tenancy" <*>
-      obj .: "UserData" <*>
-      obj .: "Volumes"
+      obj .:? "InstanceInitiatedShutdownBehavior" <*>
+      obj .:? "InstanceType" <*>
+      obj .:? "Ipv6AddressCount" <*>
+      obj .:? "Ipv6Addresses" <*>
+      obj .:? "KernelId" <*>
+      obj .:? "KeyName" <*>
+      obj .:? "Monitoring" <*>
+      obj .:? "NetworkInterfaces" <*>
+      obj .:? "PlacementGroupName" <*>
+      obj .:? "PrivateIpAddress" <*>
+      obj .:? "RamdiskId" <*>
+      obj .:? "SecurityGroupIds" <*>
+      obj .:? "SecurityGroups" <*>
+      obj .:? "SourceDestCheck" <*>
+      obj .:? "SsmAssociations" <*>
+      obj .:? "SubnetId" <*>
+      obj .:? "Tags" <*>
+      obj .:? "Tenancy" <*>
+      obj .:? "UserData" <*>
+      obj .:? "Volumes"
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2Instance' containing required fields as arguments.

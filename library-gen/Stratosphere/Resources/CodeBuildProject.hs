@@ -7,6 +7,7 @@ module Stratosphere.Resources.CodeBuildProject where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -33,30 +34,31 @@ data CodeBuildProject =
 
 instance ToJSON CodeBuildProject where
   toJSON CodeBuildProject{..} =
-    object
-    [ "Artifacts" .= _codeBuildProjectArtifacts
-    , "Description" .= _codeBuildProjectDescription
-    , "EncryptionKey" .= _codeBuildProjectEncryptionKey
-    , "Environment" .= _codeBuildProjectEnvironment
-    , "Name" .= _codeBuildProjectName
-    , "ServiceRole" .= _codeBuildProjectServiceRole
-    , "Source" .= _codeBuildProjectSource
-    , "Tags" .= _codeBuildProjectTags
-    , "TimeoutInMinutes" .= _codeBuildProjectTimeoutInMinutes
+    object $
+    catMaybes
+    [ ("Artifacts" .=) <$> _codeBuildProjectArtifacts
+    , ("Description" .=) <$> _codeBuildProjectDescription
+    , ("EncryptionKey" .=) <$> _codeBuildProjectEncryptionKey
+    , ("Environment" .=) <$> _codeBuildProjectEnvironment
+    , ("Name" .=) <$> _codeBuildProjectName
+    , ("ServiceRole" .=) <$> _codeBuildProjectServiceRole
+    , ("Source" .=) <$> _codeBuildProjectSource
+    , ("Tags" .=) <$> _codeBuildProjectTags
+    , ("TimeoutInMinutes" .=) <$> _codeBuildProjectTimeoutInMinutes
     ]
 
 instance FromJSON CodeBuildProject where
   parseJSON (Object obj) =
     CodeBuildProject <$>
-      obj .: "Artifacts" <*>
-      obj .: "Description" <*>
-      obj .: "EncryptionKey" <*>
-      obj .: "Environment" <*>
-      obj .: "Name" <*>
-      obj .: "ServiceRole" <*>
-      obj .: "Source" <*>
-      obj .: "Tags" <*>
-      obj .: "TimeoutInMinutes"
+      obj .:? "Artifacts" <*>
+      obj .:? "Description" <*>
+      obj .:? "EncryptionKey" <*>
+      obj .:? "Environment" <*>
+      obj .:? "Name" <*>
+      obj .:? "ServiceRole" <*>
+      obj .:? "Source" <*>
+      obj .:? "Tags" <*>
+      obj .:? "TimeoutInMinutes"
   parseJSON _ = mempty
 
 -- | Constructor for 'CodeBuildProject' containing required fields as

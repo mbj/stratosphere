@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.ElasticBeanstalkApplicationVersionSourceB
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -25,9 +26,10 @@ data ElasticBeanstalkApplicationVersionSourceBundle =
 
 instance ToJSON ElasticBeanstalkApplicationVersionSourceBundle where
   toJSON ElasticBeanstalkApplicationVersionSourceBundle{..} =
-    object
-    [ "S3Bucket" .= _elasticBeanstalkApplicationVersionSourceBundleS3Bucket
-    , "S3Key" .= _elasticBeanstalkApplicationVersionSourceBundleS3Key
+    object $
+    catMaybes
+    [ Just ("S3Bucket" .= _elasticBeanstalkApplicationVersionSourceBundleS3Bucket)
+    , Just ("S3Key" .= _elasticBeanstalkApplicationVersionSourceBundleS3Key)
     ]
 
 instance FromJSON ElasticBeanstalkApplicationVersionSourceBundle where

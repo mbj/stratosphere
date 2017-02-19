@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.IAMUserLoginProfile where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,16 +24,17 @@ data IAMUserLoginProfile =
 
 instance ToJSON IAMUserLoginProfile where
   toJSON IAMUserLoginProfile{..} =
-    object
-    [ "Password" .= _iAMUserLoginProfilePassword
-    , "PasswordResetRequired" .= _iAMUserLoginProfilePasswordResetRequired
+    object $
+    catMaybes
+    [ Just ("Password" .= _iAMUserLoginProfilePassword)
+    , ("PasswordResetRequired" .=) <$> _iAMUserLoginProfilePasswordResetRequired
     ]
 
 instance FromJSON IAMUserLoginProfile where
   parseJSON (Object obj) =
     IAMUserLoginProfile <$>
       obj .: "Password" <*>
-      obj .: "PasswordResetRequired"
+      obj .:? "PasswordResetRequired"
   parseJSON _ = mempty
 
 -- | Constructor for 'IAMUserLoginProfile' containing required fields as

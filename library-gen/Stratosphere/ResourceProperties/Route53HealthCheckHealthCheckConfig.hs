@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.Route53HealthCheckHealthCheckConfig where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -29,27 +30,28 @@ data Route53HealthCheckHealthCheckConfig =
 
 instance ToJSON Route53HealthCheckHealthCheckConfig where
   toJSON Route53HealthCheckHealthCheckConfig{..} =
-    object
-    [ "FailureThreshold" .= _route53HealthCheckHealthCheckConfigFailureThreshold
-    , "FullyQualifiedDomainName" .= _route53HealthCheckHealthCheckConfigFullyQualifiedDomainName
-    , "IPAddress" .= _route53HealthCheckHealthCheckConfigIPAddress
-    , "Port" .= _route53HealthCheckHealthCheckConfigPort
-    , "RequestInterval" .= _route53HealthCheckHealthCheckConfigRequestInterval
-    , "ResourcePath" .= _route53HealthCheckHealthCheckConfigResourcePath
-    , "SearchString" .= _route53HealthCheckHealthCheckConfigSearchString
-    , "Type" .= _route53HealthCheckHealthCheckConfigType
+    object $
+    catMaybes
+    [ ("FailureThreshold" .=) <$> _route53HealthCheckHealthCheckConfigFailureThreshold
+    , ("FullyQualifiedDomainName" .=) <$> _route53HealthCheckHealthCheckConfigFullyQualifiedDomainName
+    , ("IPAddress" .=) <$> _route53HealthCheckHealthCheckConfigIPAddress
+    , ("Port" .=) <$> _route53HealthCheckHealthCheckConfigPort
+    , ("RequestInterval" .=) <$> _route53HealthCheckHealthCheckConfigRequestInterval
+    , ("ResourcePath" .=) <$> _route53HealthCheckHealthCheckConfigResourcePath
+    , ("SearchString" .=) <$> _route53HealthCheckHealthCheckConfigSearchString
+    , Just ("Type" .= _route53HealthCheckHealthCheckConfigType)
     ]
 
 instance FromJSON Route53HealthCheckHealthCheckConfig where
   parseJSON (Object obj) =
     Route53HealthCheckHealthCheckConfig <$>
-      obj .: "FailureThreshold" <*>
-      obj .: "FullyQualifiedDomainName" <*>
-      obj .: "IPAddress" <*>
-      obj .: "Port" <*>
-      obj .: "RequestInterval" <*>
-      obj .: "ResourcePath" <*>
-      obj .: "SearchString" <*>
+      obj .:? "FailureThreshold" <*>
+      obj .:? "FullyQualifiedDomainName" <*>
+      obj .:? "IPAddress" <*>
+      obj .:? "Port" <*>
+      obj .:? "RequestInterval" <*>
+      obj .:? "ResourcePath" <*>
+      obj .:? "SearchString" <*>
       obj .: "Type"
   parseJSON _ = mempty
 

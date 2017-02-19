@@ -7,6 +7,7 @@ module Stratosphere.Resources.ApplicationAutoScalingScalingPolicy where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -28,14 +29,15 @@ data ApplicationAutoScalingScalingPolicy =
 
 instance ToJSON ApplicationAutoScalingScalingPolicy where
   toJSON ApplicationAutoScalingScalingPolicy{..} =
-    object
-    [ "PolicyName" .= _applicationAutoScalingScalingPolicyPolicyName
-    , "PolicyType" .= _applicationAutoScalingScalingPolicyPolicyType
-    , "ResourceId" .= _applicationAutoScalingScalingPolicyResourceId
-    , "ScalableDimension" .= _applicationAutoScalingScalingPolicyScalableDimension
-    , "ScalingTargetId" .= _applicationAutoScalingScalingPolicyScalingTargetId
-    , "ServiceNamespace" .= _applicationAutoScalingScalingPolicyServiceNamespace
-    , "StepScalingPolicyConfiguration" .= _applicationAutoScalingScalingPolicyStepScalingPolicyConfiguration
+    object $
+    catMaybes
+    [ Just ("PolicyName" .= _applicationAutoScalingScalingPolicyPolicyName)
+    , Just ("PolicyType" .= _applicationAutoScalingScalingPolicyPolicyType)
+    , ("ResourceId" .=) <$> _applicationAutoScalingScalingPolicyResourceId
+    , ("ScalableDimension" .=) <$> _applicationAutoScalingScalingPolicyScalableDimension
+    , ("ScalingTargetId" .=) <$> _applicationAutoScalingScalingPolicyScalingTargetId
+    , ("ServiceNamespace" .=) <$> _applicationAutoScalingScalingPolicyServiceNamespace
+    , ("StepScalingPolicyConfiguration" .=) <$> _applicationAutoScalingScalingPolicyStepScalingPolicyConfiguration
     ]
 
 instance FromJSON ApplicationAutoScalingScalingPolicy where
@@ -43,11 +45,11 @@ instance FromJSON ApplicationAutoScalingScalingPolicy where
     ApplicationAutoScalingScalingPolicy <$>
       obj .: "PolicyName" <*>
       obj .: "PolicyType" <*>
-      obj .: "ResourceId" <*>
-      obj .: "ScalableDimension" <*>
-      obj .: "ScalingTargetId" <*>
-      obj .: "ServiceNamespace" <*>
-      obj .: "StepScalingPolicyConfiguration"
+      obj .:? "ResourceId" <*>
+      obj .:? "ScalableDimension" <*>
+      obj .:? "ScalingTargetId" <*>
+      obj .:? "ServiceNamespace" <*>
+      obj .:? "StepScalingPolicyConfiguration"
   parseJSON _ = mempty
 
 -- | Constructor for 'ApplicationAutoScalingScalingPolicy' containing required

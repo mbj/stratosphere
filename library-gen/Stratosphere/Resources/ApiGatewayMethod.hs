@@ -7,6 +7,7 @@ module Stratosphere.Resources.ApiGatewayMethod where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -33,32 +34,33 @@ data ApiGatewayMethod =
 
 instance ToJSON ApiGatewayMethod where
   toJSON ApiGatewayMethod{..} =
-    object
-    [ "ApiKeyRequired" .= _apiGatewayMethodApiKeyRequired
-    , "AuthorizationType" .= _apiGatewayMethodAuthorizationType
-    , "AuthorizerId" .= _apiGatewayMethodAuthorizerId
-    , "HttpMethod" .= _apiGatewayMethodHttpMethod
-    , "Integration" .= _apiGatewayMethodIntegration
-    , "MethodResponses" .= _apiGatewayMethodMethodResponses
-    , "RequestModels" .= _apiGatewayMethodRequestModels
-    , "RequestParameters" .= _apiGatewayMethodRequestParameters
-    , "ResourceId" .= _apiGatewayMethodResourceId
-    , "RestApiId" .= _apiGatewayMethodRestApiId
+    object $
+    catMaybes
+    [ ("ApiKeyRequired" .=) <$> _apiGatewayMethodApiKeyRequired
+    , ("AuthorizationType" .=) <$> _apiGatewayMethodAuthorizationType
+    , ("AuthorizerId" .=) <$> _apiGatewayMethodAuthorizerId
+    , Just ("HttpMethod" .= _apiGatewayMethodHttpMethod)
+    , ("Integration" .=) <$> _apiGatewayMethodIntegration
+    , ("MethodResponses" .=) <$> _apiGatewayMethodMethodResponses
+    , ("RequestModels" .=) <$> _apiGatewayMethodRequestModels
+    , ("RequestParameters" .=) <$> _apiGatewayMethodRequestParameters
+    , ("ResourceId" .=) <$> _apiGatewayMethodResourceId
+    , ("RestApiId" .=) <$> _apiGatewayMethodRestApiId
     ]
 
 instance FromJSON ApiGatewayMethod where
   parseJSON (Object obj) =
     ApiGatewayMethod <$>
-      obj .: "ApiKeyRequired" <*>
-      obj .: "AuthorizationType" <*>
-      obj .: "AuthorizerId" <*>
+      obj .:? "ApiKeyRequired" <*>
+      obj .:? "AuthorizationType" <*>
+      obj .:? "AuthorizerId" <*>
       obj .: "HttpMethod" <*>
-      obj .: "Integration" <*>
-      obj .: "MethodResponses" <*>
-      obj .: "RequestModels" <*>
-      obj .: "RequestParameters" <*>
-      obj .: "ResourceId" <*>
-      obj .: "RestApiId"
+      obj .:? "Integration" <*>
+      obj .:? "MethodResponses" <*>
+      obj .:? "RequestModels" <*>
+      obj .:? "RequestParameters" <*>
+      obj .:? "ResourceId" <*>
+      obj .:? "RestApiId"
   parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayMethod' containing required fields as

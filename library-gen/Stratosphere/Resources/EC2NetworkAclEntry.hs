@@ -7,6 +7,7 @@ module Stratosphere.Resources.EC2NetworkAclEntry where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -31,27 +32,28 @@ data EC2NetworkAclEntry =
 
 instance ToJSON EC2NetworkAclEntry where
   toJSON EC2NetworkAclEntry{..} =
-    object
-    [ "CidrBlock" .= _eC2NetworkAclEntryCidrBlock
-    , "Egress" .= _eC2NetworkAclEntryEgress
-    , "Icmp" .= _eC2NetworkAclEntryIcmp
-    , "Ipv6CidrBlock" .= _eC2NetworkAclEntryIpv6CidrBlock
-    , "NetworkAclId" .= _eC2NetworkAclEntryNetworkAclId
-    , "PortRange" .= _eC2NetworkAclEntryPortRange
-    , "Protocol" .= _eC2NetworkAclEntryProtocol
-    , "RuleAction" .= _eC2NetworkAclEntryRuleAction
-    , "RuleNumber" .= _eC2NetworkAclEntryRuleNumber
+    object $
+    catMaybes
+    [ Just ("CidrBlock" .= _eC2NetworkAclEntryCidrBlock)
+    , ("Egress" .=) <$> _eC2NetworkAclEntryEgress
+    , ("Icmp" .=) <$> _eC2NetworkAclEntryIcmp
+    , ("Ipv6CidrBlock" .=) <$> _eC2NetworkAclEntryIpv6CidrBlock
+    , Just ("NetworkAclId" .= _eC2NetworkAclEntryNetworkAclId)
+    , ("PortRange" .=) <$> _eC2NetworkAclEntryPortRange
+    , Just ("Protocol" .= _eC2NetworkAclEntryProtocol)
+    , Just ("RuleAction" .= _eC2NetworkAclEntryRuleAction)
+    , Just ("RuleNumber" .= _eC2NetworkAclEntryRuleNumber)
     ]
 
 instance FromJSON EC2NetworkAclEntry where
   parseJSON (Object obj) =
     EC2NetworkAclEntry <$>
       obj .: "CidrBlock" <*>
-      obj .: "Egress" <*>
-      obj .: "Icmp" <*>
-      obj .: "Ipv6CidrBlock" <*>
+      obj .:? "Egress" <*>
+      obj .:? "Icmp" <*>
+      obj .:? "Ipv6CidrBlock" <*>
       obj .: "NetworkAclId" <*>
-      obj .: "PortRange" <*>
+      obj .:? "PortRange" <*>
       obj .: "Protocol" <*>
       obj .: "RuleAction" <*>
       obj .: "RuleNumber"

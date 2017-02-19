@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.ElasticsearchDomainElasticsearchClusterCo
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -29,24 +30,25 @@ data ElasticsearchDomainElasticsearchClusterConfig =
 
 instance ToJSON ElasticsearchDomainElasticsearchClusterConfig where
   toJSON ElasticsearchDomainElasticsearchClusterConfig{..} =
-    object
-    [ "DedicatedMasterCount" .= _elasticsearchDomainElasticsearchClusterConfigDedicatedMasterCount
-    , "DedicatedMasterEnabled" .= _elasticsearchDomainElasticsearchClusterConfigDedicatedMasterEnabled
-    , "DedicatedMasterType" .= _elasticsearchDomainElasticsearchClusterConfigDedicatedMasterType
-    , "InstanceCount" .= _elasticsearchDomainElasticsearchClusterConfigInstanceCount
-    , "InstanceType" .= _elasticsearchDomainElasticsearchClusterConfigInstanceType
-    , "ZoneAwarenessEnabled" .= _elasticsearchDomainElasticsearchClusterConfigZoneAwarenessEnabled
+    object $
+    catMaybes
+    [ ("DedicatedMasterCount" .=) <$> _elasticsearchDomainElasticsearchClusterConfigDedicatedMasterCount
+    , ("DedicatedMasterEnabled" .=) <$> _elasticsearchDomainElasticsearchClusterConfigDedicatedMasterEnabled
+    , ("DedicatedMasterType" .=) <$> _elasticsearchDomainElasticsearchClusterConfigDedicatedMasterType
+    , ("InstanceCount" .=) <$> _elasticsearchDomainElasticsearchClusterConfigInstanceCount
+    , ("InstanceType" .=) <$> _elasticsearchDomainElasticsearchClusterConfigInstanceType
+    , ("ZoneAwarenessEnabled" .=) <$> _elasticsearchDomainElasticsearchClusterConfigZoneAwarenessEnabled
     ]
 
 instance FromJSON ElasticsearchDomainElasticsearchClusterConfig where
   parseJSON (Object obj) =
     ElasticsearchDomainElasticsearchClusterConfig <$>
-      obj .: "DedicatedMasterCount" <*>
-      obj .: "DedicatedMasterEnabled" <*>
-      obj .: "DedicatedMasterType" <*>
-      obj .: "InstanceCount" <*>
-      obj .: "InstanceType" <*>
-      obj .: "ZoneAwarenessEnabled"
+      obj .:? "DedicatedMasterCount" <*>
+      obj .:? "DedicatedMasterEnabled" <*>
+      obj .:? "DedicatedMasterType" <*>
+      obj .:? "InstanceCount" <*>
+      obj .:? "InstanceType" <*>
+      obj .:? "ZoneAwarenessEnabled"
   parseJSON _ = mempty
 
 -- | Constructor for 'ElasticsearchDomainElasticsearchClusterConfig'

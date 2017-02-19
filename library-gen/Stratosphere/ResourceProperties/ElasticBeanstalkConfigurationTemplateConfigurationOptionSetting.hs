@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.ElasticBeanstalkConfigurationTemplateConf
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -26,10 +27,11 @@ data ElasticBeanstalkConfigurationTemplateConfigurationOptionSetting =
 
 instance ToJSON ElasticBeanstalkConfigurationTemplateConfigurationOptionSetting where
   toJSON ElasticBeanstalkConfigurationTemplateConfigurationOptionSetting{..} =
-    object
-    [ "Namespace" .= _elasticBeanstalkConfigurationTemplateConfigurationOptionSettingNamespace
-    , "OptionName" .= _elasticBeanstalkConfigurationTemplateConfigurationOptionSettingOptionName
-    , "Value" .= _elasticBeanstalkConfigurationTemplateConfigurationOptionSettingValue
+    object $
+    catMaybes
+    [ Just ("Namespace" .= _elasticBeanstalkConfigurationTemplateConfigurationOptionSettingNamespace)
+    , Just ("OptionName" .= _elasticBeanstalkConfigurationTemplateConfigurationOptionSettingOptionName)
+    , Just ("Value" .= _elasticBeanstalkConfigurationTemplateConfigurationOptionSettingValue)
     ]
 
 instance FromJSON ElasticBeanstalkConfigurationTemplateConfigurationOptionSetting where

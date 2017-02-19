@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.RDSOptionGroupOptionSetting where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,16 +24,17 @@ data RDSOptionGroupOptionSetting =
 
 instance ToJSON RDSOptionGroupOptionSetting where
   toJSON RDSOptionGroupOptionSetting{..} =
-    object
-    [ "Name" .= _rDSOptionGroupOptionSettingName
-    , "Value" .= _rDSOptionGroupOptionSettingValue
+    object $
+    catMaybes
+    [ ("Name" .=) <$> _rDSOptionGroupOptionSettingName
+    , ("Value" .=) <$> _rDSOptionGroupOptionSettingValue
     ]
 
 instance FromJSON RDSOptionGroupOptionSetting where
   parseJSON (Object obj) =
     RDSOptionGroupOptionSetting <$>
-      obj .: "Name" <*>
-      obj .: "Value"
+      obj .:? "Name" <*>
+      obj .:? "Value"
   parseJSON _ = mempty
 
 -- | Constructor for 'RDSOptionGroupOptionSetting' containing required fields

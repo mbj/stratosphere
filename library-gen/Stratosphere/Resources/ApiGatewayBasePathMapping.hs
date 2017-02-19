@@ -7,6 +7,7 @@ module Stratosphere.Resources.ApiGatewayBasePathMapping where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -25,20 +26,21 @@ data ApiGatewayBasePathMapping =
 
 instance ToJSON ApiGatewayBasePathMapping where
   toJSON ApiGatewayBasePathMapping{..} =
-    object
-    [ "BasePath" .= _apiGatewayBasePathMappingBasePath
-    , "DomainName" .= _apiGatewayBasePathMappingDomainName
-    , "RestApiId" .= _apiGatewayBasePathMappingRestApiId
-    , "Stage" .= _apiGatewayBasePathMappingStage
+    object $
+    catMaybes
+    [ ("BasePath" .=) <$> _apiGatewayBasePathMappingBasePath
+    , ("DomainName" .=) <$> _apiGatewayBasePathMappingDomainName
+    , ("RestApiId" .=) <$> _apiGatewayBasePathMappingRestApiId
+    , ("Stage" .=) <$> _apiGatewayBasePathMappingStage
     ]
 
 instance FromJSON ApiGatewayBasePathMapping where
   parseJSON (Object obj) =
     ApiGatewayBasePathMapping <$>
-      obj .: "BasePath" <*>
-      obj .: "DomainName" <*>
-      obj .: "RestApiId" <*>
-      obj .: "Stage"
+      obj .:? "BasePath" <*>
+      obj .:? "DomainName" <*>
+      obj .:? "RestApiId" <*>
+      obj .:? "Stage"
   parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayBasePathMapping' containing required fields as

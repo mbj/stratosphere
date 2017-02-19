@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.ECSTaskDefinitionLogConfiguration where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,16 +24,17 @@ data ECSTaskDefinitionLogConfiguration =
 
 instance ToJSON ECSTaskDefinitionLogConfiguration where
   toJSON ECSTaskDefinitionLogConfiguration{..} =
-    object
-    [ "LogDriver" .= _eCSTaskDefinitionLogConfigurationLogDriver
-    , "Options" .= _eCSTaskDefinitionLogConfigurationOptions
+    object $
+    catMaybes
+    [ Just ("LogDriver" .= _eCSTaskDefinitionLogConfigurationLogDriver)
+    , ("Options" .=) <$> _eCSTaskDefinitionLogConfigurationOptions
     ]
 
 instance FromJSON ECSTaskDefinitionLogConfiguration where
   parseJSON (Object obj) =
     ECSTaskDefinitionLogConfiguration <$>
       obj .: "LogDriver" <*>
-      obj .: "Options"
+      obj .:? "Options"
   parseJSON _ = mempty
 
 -- | Constructor for 'ECSTaskDefinitionLogConfiguration' containing required

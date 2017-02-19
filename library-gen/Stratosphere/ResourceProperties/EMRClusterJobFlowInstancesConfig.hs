@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.EMRClusterJobFlowInstancesConfig where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -34,36 +35,37 @@ data EMRClusterJobFlowInstancesConfig =
 
 instance ToJSON EMRClusterJobFlowInstancesConfig where
   toJSON EMRClusterJobFlowInstancesConfig{..} =
-    object
-    [ "AdditionalMasterSecurityGroups" .= _eMRClusterJobFlowInstancesConfigAdditionalMasterSecurityGroups
-    , "AdditionalSlaveSecurityGroups" .= _eMRClusterJobFlowInstancesConfigAdditionalSlaveSecurityGroups
-    , "CoreInstanceGroup" .= _eMRClusterJobFlowInstancesConfigCoreInstanceGroup
-    , "Ec2KeyName" .= _eMRClusterJobFlowInstancesConfigEc2KeyName
-    , "Ec2SubnetId" .= _eMRClusterJobFlowInstancesConfigEc2SubnetId
-    , "EmrManagedMasterSecurityGroup" .= _eMRClusterJobFlowInstancesConfigEmrManagedMasterSecurityGroup
-    , "EmrManagedSlaveSecurityGroup" .= _eMRClusterJobFlowInstancesConfigEmrManagedSlaveSecurityGroup
-    , "HadoopVersion" .= _eMRClusterJobFlowInstancesConfigHadoopVersion
-    , "MasterInstanceGroup" .= _eMRClusterJobFlowInstancesConfigMasterInstanceGroup
-    , "Placement" .= _eMRClusterJobFlowInstancesConfigPlacement
-    , "ServiceAccessSecurityGroup" .= _eMRClusterJobFlowInstancesConfigServiceAccessSecurityGroup
-    , "TerminationProtected" .= _eMRClusterJobFlowInstancesConfigTerminationProtected
+    object $
+    catMaybes
+    [ ("AdditionalMasterSecurityGroups" .=) <$> _eMRClusterJobFlowInstancesConfigAdditionalMasterSecurityGroups
+    , ("AdditionalSlaveSecurityGroups" .=) <$> _eMRClusterJobFlowInstancesConfigAdditionalSlaveSecurityGroups
+    , Just ("CoreInstanceGroup" .= _eMRClusterJobFlowInstancesConfigCoreInstanceGroup)
+    , ("Ec2KeyName" .=) <$> _eMRClusterJobFlowInstancesConfigEc2KeyName
+    , ("Ec2SubnetId" .=) <$> _eMRClusterJobFlowInstancesConfigEc2SubnetId
+    , ("EmrManagedMasterSecurityGroup" .=) <$> _eMRClusterJobFlowInstancesConfigEmrManagedMasterSecurityGroup
+    , ("EmrManagedSlaveSecurityGroup" .=) <$> _eMRClusterJobFlowInstancesConfigEmrManagedSlaveSecurityGroup
+    , ("HadoopVersion" .=) <$> _eMRClusterJobFlowInstancesConfigHadoopVersion
+    , Just ("MasterInstanceGroup" .= _eMRClusterJobFlowInstancesConfigMasterInstanceGroup)
+    , ("Placement" .=) <$> _eMRClusterJobFlowInstancesConfigPlacement
+    , ("ServiceAccessSecurityGroup" .=) <$> _eMRClusterJobFlowInstancesConfigServiceAccessSecurityGroup
+    , ("TerminationProtected" .=) <$> _eMRClusterJobFlowInstancesConfigTerminationProtected
     ]
 
 instance FromJSON EMRClusterJobFlowInstancesConfig where
   parseJSON (Object obj) =
     EMRClusterJobFlowInstancesConfig <$>
-      obj .: "AdditionalMasterSecurityGroups" <*>
-      obj .: "AdditionalSlaveSecurityGroups" <*>
+      obj .:? "AdditionalMasterSecurityGroups" <*>
+      obj .:? "AdditionalSlaveSecurityGroups" <*>
       obj .: "CoreInstanceGroup" <*>
-      obj .: "Ec2KeyName" <*>
-      obj .: "Ec2SubnetId" <*>
-      obj .: "EmrManagedMasterSecurityGroup" <*>
-      obj .: "EmrManagedSlaveSecurityGroup" <*>
-      obj .: "HadoopVersion" <*>
+      obj .:? "Ec2KeyName" <*>
+      obj .:? "Ec2SubnetId" <*>
+      obj .:? "EmrManagedMasterSecurityGroup" <*>
+      obj .:? "EmrManagedSlaveSecurityGroup" <*>
+      obj .:? "HadoopVersion" <*>
       obj .: "MasterInstanceGroup" <*>
-      obj .: "Placement" <*>
-      obj .: "ServiceAccessSecurityGroup" <*>
-      obj .: "TerminationProtected"
+      obj .:? "Placement" <*>
+      obj .:? "ServiceAccessSecurityGroup" <*>
+      obj .:? "TerminationProtected"
   parseJSON _ = mempty
 
 -- | Constructor for 'EMRClusterJobFlowInstancesConfig' containing required

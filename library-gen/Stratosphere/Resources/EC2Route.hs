@@ -7,6 +7,7 @@ module Stratosphere.Resources.EC2Route where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -29,28 +30,29 @@ data EC2Route =
 
 instance ToJSON EC2Route where
   toJSON EC2Route{..} =
-    object
-    [ "DestinationCidrBlock" .= _eC2RouteDestinationCidrBlock
-    , "DestinationIpv6CidrBlock" .= _eC2RouteDestinationIpv6CidrBlock
-    , "GatewayId" .= _eC2RouteGatewayId
-    , "InstanceId" .= _eC2RouteInstanceId
-    , "NatGatewayId" .= _eC2RouteNatGatewayId
-    , "NetworkInterfaceId" .= _eC2RouteNetworkInterfaceId
-    , "RouteTableId" .= _eC2RouteRouteTableId
-    , "VpcPeeringConnectionId" .= _eC2RouteVpcPeeringConnectionId
+    object $
+    catMaybes
+    [ Just ("DestinationCidrBlock" .= _eC2RouteDestinationCidrBlock)
+    , ("DestinationIpv6CidrBlock" .=) <$> _eC2RouteDestinationIpv6CidrBlock
+    , ("GatewayId" .=) <$> _eC2RouteGatewayId
+    , ("InstanceId" .=) <$> _eC2RouteInstanceId
+    , ("NatGatewayId" .=) <$> _eC2RouteNatGatewayId
+    , ("NetworkInterfaceId" .=) <$> _eC2RouteNetworkInterfaceId
+    , Just ("RouteTableId" .= _eC2RouteRouteTableId)
+    , ("VpcPeeringConnectionId" .=) <$> _eC2RouteVpcPeeringConnectionId
     ]
 
 instance FromJSON EC2Route where
   parseJSON (Object obj) =
     EC2Route <$>
       obj .: "DestinationCidrBlock" <*>
-      obj .: "DestinationIpv6CidrBlock" <*>
-      obj .: "GatewayId" <*>
-      obj .: "InstanceId" <*>
-      obj .: "NatGatewayId" <*>
-      obj .: "NetworkInterfaceId" <*>
+      obj .:? "DestinationIpv6CidrBlock" <*>
+      obj .:? "GatewayId" <*>
+      obj .:? "InstanceId" <*>
+      obj .:? "NatGatewayId" <*>
+      obj .:? "NetworkInterfaceId" <*>
       obj .: "RouteTableId" <*>
-      obj .: "VpcPeeringConnectionId"
+      obj .:? "VpcPeeringConnectionId"
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2Route' containing required fields as arguments.

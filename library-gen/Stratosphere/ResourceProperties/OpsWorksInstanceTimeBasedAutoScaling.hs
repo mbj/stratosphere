@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.OpsWorksInstanceTimeBasedAutoScaling wher
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -28,26 +29,27 @@ data OpsWorksInstanceTimeBasedAutoScaling =
 
 instance ToJSON OpsWorksInstanceTimeBasedAutoScaling where
   toJSON OpsWorksInstanceTimeBasedAutoScaling{..} =
-    object
-    [ "Friday" .= _opsWorksInstanceTimeBasedAutoScalingFriday
-    , "Monday" .= _opsWorksInstanceTimeBasedAutoScalingMonday
-    , "Saturday" .= _opsWorksInstanceTimeBasedAutoScalingSaturday
-    , "Sunday" .= _opsWorksInstanceTimeBasedAutoScalingSunday
-    , "Thursday" .= _opsWorksInstanceTimeBasedAutoScalingThursday
-    , "Tuesday" .= _opsWorksInstanceTimeBasedAutoScalingTuesday
-    , "Wednesday" .= _opsWorksInstanceTimeBasedAutoScalingWednesday
+    object $
+    catMaybes
+    [ ("Friday" .=) <$> _opsWorksInstanceTimeBasedAutoScalingFriday
+    , ("Monday" .=) <$> _opsWorksInstanceTimeBasedAutoScalingMonday
+    , ("Saturday" .=) <$> _opsWorksInstanceTimeBasedAutoScalingSaturday
+    , ("Sunday" .=) <$> _opsWorksInstanceTimeBasedAutoScalingSunday
+    , ("Thursday" .=) <$> _opsWorksInstanceTimeBasedAutoScalingThursday
+    , ("Tuesday" .=) <$> _opsWorksInstanceTimeBasedAutoScalingTuesday
+    , ("Wednesday" .=) <$> _opsWorksInstanceTimeBasedAutoScalingWednesday
     ]
 
 instance FromJSON OpsWorksInstanceTimeBasedAutoScaling where
   parseJSON (Object obj) =
     OpsWorksInstanceTimeBasedAutoScaling <$>
-      obj .: "Friday" <*>
-      obj .: "Monday" <*>
-      obj .: "Saturday" <*>
-      obj .: "Sunday" <*>
-      obj .: "Thursday" <*>
-      obj .: "Tuesday" <*>
-      obj .: "Wednesday"
+      obj .:? "Friday" <*>
+      obj .:? "Monday" <*>
+      obj .:? "Saturday" <*>
+      obj .:? "Sunday" <*>
+      obj .:? "Thursday" <*>
+      obj .:? "Tuesday" <*>
+      obj .:? "Wednesday"
   parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksInstanceTimeBasedAutoScaling' containing

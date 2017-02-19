@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.CertificateManagerCertificateDomainValida
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -25,9 +26,10 @@ data CertificateManagerCertificateDomainValidationOption =
 
 instance ToJSON CertificateManagerCertificateDomainValidationOption where
   toJSON CertificateManagerCertificateDomainValidationOption{..} =
-    object
-    [ "DomainName" .= _certificateManagerCertificateDomainValidationOptionDomainName
-    , "ValidationDomain" .= _certificateManagerCertificateDomainValidationOptionValidationDomain
+    object $
+    catMaybes
+    [ Just ("DomainName" .= _certificateManagerCertificateDomainValidationOptionDomainName)
+    , Just ("ValidationDomain" .= _certificateManagerCertificateDomainValidationOptionValidationDomain)
     ]
 
 instance FromJSON CertificateManagerCertificateDomainValidationOption where

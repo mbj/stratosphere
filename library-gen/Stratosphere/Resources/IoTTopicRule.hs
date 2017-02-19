@@ -7,6 +7,7 @@ module Stratosphere.Resources.IoTTopicRule where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,15 +24,16 @@ data IoTTopicRule =
 
 instance ToJSON IoTTopicRule where
   toJSON IoTTopicRule{..} =
-    object
-    [ "RuleName" .= _ioTTopicRuleRuleName
-    , "TopicRulePayload" .= _ioTTopicRuleTopicRulePayload
+    object $
+    catMaybes
+    [ ("RuleName" .=) <$> _ioTTopicRuleRuleName
+    , Just ("TopicRulePayload" .= _ioTTopicRuleTopicRulePayload)
     ]
 
 instance FromJSON IoTTopicRule where
   parseJSON (Object obj) =
     IoTTopicRule <$>
-      obj .: "RuleName" <*>
+      obj .:? "RuleName" <*>
       obj .: "TopicRulePayload"
   parseJSON _ = mempty
 

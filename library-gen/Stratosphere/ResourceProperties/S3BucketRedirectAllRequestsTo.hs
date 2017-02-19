@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.S3BucketRedirectAllRequestsTo where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,16 +24,17 @@ data S3BucketRedirectAllRequestsTo =
 
 instance ToJSON S3BucketRedirectAllRequestsTo where
   toJSON S3BucketRedirectAllRequestsTo{..} =
-    object
-    [ "HostName" .= _s3BucketRedirectAllRequestsToHostName
-    , "Protocol" .= _s3BucketRedirectAllRequestsToProtocol
+    object $
+    catMaybes
+    [ Just ("HostName" .= _s3BucketRedirectAllRequestsToHostName)
+    , ("Protocol" .=) <$> _s3BucketRedirectAllRequestsToProtocol
     ]
 
 instance FromJSON S3BucketRedirectAllRequestsTo where
   parseJSON (Object obj) =
     S3BucketRedirectAllRequestsTo <$>
       obj .: "HostName" <*>
-      obj .: "Protocol"
+      obj .:? "Protocol"
   parseJSON _ = mempty
 
 -- | Constructor for 'S3BucketRedirectAllRequestsTo' containing required

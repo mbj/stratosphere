@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.S3BucketRedirectRule where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -26,22 +27,23 @@ data S3BucketRedirectRule =
 
 instance ToJSON S3BucketRedirectRule where
   toJSON S3BucketRedirectRule{..} =
-    object
-    [ "HostName" .= _s3BucketRedirectRuleHostName
-    , "HttpRedirectCode" .= _s3BucketRedirectRuleHttpRedirectCode
-    , "Protocol" .= _s3BucketRedirectRuleProtocol
-    , "ReplaceKeyPrefixWith" .= _s3BucketRedirectRuleReplaceKeyPrefixWith
-    , "ReplaceKeyWith" .= _s3BucketRedirectRuleReplaceKeyWith
+    object $
+    catMaybes
+    [ ("HostName" .=) <$> _s3BucketRedirectRuleHostName
+    , ("HttpRedirectCode" .=) <$> _s3BucketRedirectRuleHttpRedirectCode
+    , ("Protocol" .=) <$> _s3BucketRedirectRuleProtocol
+    , ("ReplaceKeyPrefixWith" .=) <$> _s3BucketRedirectRuleReplaceKeyPrefixWith
+    , ("ReplaceKeyWith" .=) <$> _s3BucketRedirectRuleReplaceKeyWith
     ]
 
 instance FromJSON S3BucketRedirectRule where
   parseJSON (Object obj) =
     S3BucketRedirectRule <$>
-      obj .: "HostName" <*>
-      obj .: "HttpRedirectCode" <*>
-      obj .: "Protocol" <*>
-      obj .: "ReplaceKeyPrefixWith" <*>
-      obj .: "ReplaceKeyWith"
+      obj .:? "HostName" <*>
+      obj .:? "HttpRedirectCode" <*>
+      obj .:? "Protocol" <*>
+      obj .:? "ReplaceKeyPrefixWith" <*>
+      obj .:? "ReplaceKeyWith"
   parseJSON _ = mempty
 
 -- | Constructor for 'S3BucketRedirectRule' containing required fields as

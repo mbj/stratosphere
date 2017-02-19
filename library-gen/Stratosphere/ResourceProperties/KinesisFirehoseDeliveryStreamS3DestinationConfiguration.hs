@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamS3Destinatio
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -33,14 +34,15 @@ data KinesisFirehoseDeliveryStreamS3DestinationConfiguration =
 
 instance ToJSON KinesisFirehoseDeliveryStreamS3DestinationConfiguration where
   toJSON KinesisFirehoseDeliveryStreamS3DestinationConfiguration{..} =
-    object
-    [ "BucketARN" .= _kinesisFirehoseDeliveryStreamS3DestinationConfigurationBucketARN
-    , "BufferingHints" .= _kinesisFirehoseDeliveryStreamS3DestinationConfigurationBufferingHints
-    , "CloudWatchLoggingOptions" .= _kinesisFirehoseDeliveryStreamS3DestinationConfigurationCloudWatchLoggingOptions
-    , "CompressionFormat" .= _kinesisFirehoseDeliveryStreamS3DestinationConfigurationCompressionFormat
-    , "EncryptionConfiguration" .= _kinesisFirehoseDeliveryStreamS3DestinationConfigurationEncryptionConfiguration
-    , "Prefix" .= _kinesisFirehoseDeliveryStreamS3DestinationConfigurationPrefix
-    , "RoleARN" .= _kinesisFirehoseDeliveryStreamS3DestinationConfigurationRoleARN
+    object $
+    catMaybes
+    [ Just ("BucketARN" .= _kinesisFirehoseDeliveryStreamS3DestinationConfigurationBucketARN)
+    , Just ("BufferingHints" .= _kinesisFirehoseDeliveryStreamS3DestinationConfigurationBufferingHints)
+    , ("CloudWatchLoggingOptions" .=) <$> _kinesisFirehoseDeliveryStreamS3DestinationConfigurationCloudWatchLoggingOptions
+    , Just ("CompressionFormat" .= _kinesisFirehoseDeliveryStreamS3DestinationConfigurationCompressionFormat)
+    , ("EncryptionConfiguration" .=) <$> _kinesisFirehoseDeliveryStreamS3DestinationConfigurationEncryptionConfiguration
+    , Just ("Prefix" .= _kinesisFirehoseDeliveryStreamS3DestinationConfigurationPrefix)
+    , Just ("RoleARN" .= _kinesisFirehoseDeliveryStreamS3DestinationConfigurationRoleARN)
     ]
 
 instance FromJSON KinesisFirehoseDeliveryStreamS3DestinationConfiguration where
@@ -48,9 +50,9 @@ instance FromJSON KinesisFirehoseDeliveryStreamS3DestinationConfiguration where
     KinesisFirehoseDeliveryStreamS3DestinationConfiguration <$>
       obj .: "BucketARN" <*>
       obj .: "BufferingHints" <*>
-      obj .: "CloudWatchLoggingOptions" <*>
+      obj .:? "CloudWatchLoggingOptions" <*>
       obj .: "CompressionFormat" <*>
-      obj .: "EncryptionConfiguration" <*>
+      obj .:? "EncryptionConfiguration" <*>
       obj .: "Prefix" <*>
       obj .: "RoleARN"
   parseJSON _ = mempty

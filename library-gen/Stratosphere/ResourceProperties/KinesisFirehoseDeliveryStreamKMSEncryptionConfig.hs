@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamKMSEncryptio
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -24,8 +25,9 @@ data KinesisFirehoseDeliveryStreamKMSEncryptionConfig =
 
 instance ToJSON KinesisFirehoseDeliveryStreamKMSEncryptionConfig where
   toJSON KinesisFirehoseDeliveryStreamKMSEncryptionConfig{..} =
-    object
-    [ "AWSKMSKeyARN" .= _kinesisFirehoseDeliveryStreamKMSEncryptionConfigAWSKMSKeyARN
+    object $
+    catMaybes
+    [ Just ("AWSKMSKeyARN" .= _kinesisFirehoseDeliveryStreamKMSEncryptionConfigAWSKMSKeyARN)
     ]
 
 instance FromJSON KinesisFirehoseDeliveryStreamKMSEncryptionConfig where

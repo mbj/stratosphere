@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.CodeBuildProjectArtifacts where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -27,24 +28,25 @@ data CodeBuildProjectArtifacts =
 
 instance ToJSON CodeBuildProjectArtifacts where
   toJSON CodeBuildProjectArtifacts{..} =
-    object
-    [ "Location" .= _codeBuildProjectArtifactsLocation
-    , "Name" .= _codeBuildProjectArtifactsName
-    , "NamespaceType" .= _codeBuildProjectArtifactsNamespaceType
-    , "Packaging" .= _codeBuildProjectArtifactsPackaging
-    , "Path" .= _codeBuildProjectArtifactsPath
-    , "Type" .= _codeBuildProjectArtifactsType
+    object $
+    catMaybes
+    [ ("Location" .=) <$> _codeBuildProjectArtifactsLocation
+    , ("Name" .=) <$> _codeBuildProjectArtifactsName
+    , ("NamespaceType" .=) <$> _codeBuildProjectArtifactsNamespaceType
+    , ("Packaging" .=) <$> _codeBuildProjectArtifactsPackaging
+    , ("Path" .=) <$> _codeBuildProjectArtifactsPath
+    , ("Type" .=) <$> _codeBuildProjectArtifactsType
     ]
 
 instance FromJSON CodeBuildProjectArtifacts where
   parseJSON (Object obj) =
     CodeBuildProjectArtifacts <$>
-      obj .: "Location" <*>
-      obj .: "Name" <*>
-      obj .: "NamespaceType" <*>
-      obj .: "Packaging" <*>
-      obj .: "Path" <*>
-      obj .: "Type"
+      obj .:? "Location" <*>
+      obj .:? "Name" <*>
+      obj .:? "NamespaceType" <*>
+      obj .:? "Packaging" <*>
+      obj .:? "Path" <*>
+      obj .:? "Type"
   parseJSON _ = mempty
 
 -- | Constructor for 'CodeBuildProjectArtifacts' containing required fields as

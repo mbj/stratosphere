@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.OpsWorksLayerLifecycleEventConfiguration 
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,14 +24,15 @@ data OpsWorksLayerLifecycleEventConfiguration =
 
 instance ToJSON OpsWorksLayerLifecycleEventConfiguration where
   toJSON OpsWorksLayerLifecycleEventConfiguration{..} =
-    object
-    [ "ShutdownEventConfiguration" .= _opsWorksLayerLifecycleEventConfigurationShutdownEventConfiguration
+    object $
+    catMaybes
+    [ ("ShutdownEventConfiguration" .=) <$> _opsWorksLayerLifecycleEventConfigurationShutdownEventConfiguration
     ]
 
 instance FromJSON OpsWorksLayerLifecycleEventConfiguration where
   parseJSON (Object obj) =
     OpsWorksLayerLifecycleEventConfiguration <$>
-      obj .: "ShutdownEventConfiguration"
+      obj .:? "ShutdownEventConfiguration"
   parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksLayerLifecycleEventConfiguration' containing

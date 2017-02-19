@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.CloudFrontDistributionCustomOriginConfig 
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -26,20 +27,21 @@ data CloudFrontDistributionCustomOriginConfig =
 
 instance ToJSON CloudFrontDistributionCustomOriginConfig where
   toJSON CloudFrontDistributionCustomOriginConfig{..} =
-    object
-    [ "HTTPPort" .= _cloudFrontDistributionCustomOriginConfigHTTPPort
-    , "HTTPSPort" .= _cloudFrontDistributionCustomOriginConfigHTTPSPort
-    , "OriginProtocolPolicy" .= _cloudFrontDistributionCustomOriginConfigOriginProtocolPolicy
-    , "OriginSSLProtocols" .= _cloudFrontDistributionCustomOriginConfigOriginSSLProtocols
+    object $
+    catMaybes
+    [ ("HTTPPort" .=) <$> _cloudFrontDistributionCustomOriginConfigHTTPPort
+    , ("HTTPSPort" .=) <$> _cloudFrontDistributionCustomOriginConfigHTTPSPort
+    , Just ("OriginProtocolPolicy" .= _cloudFrontDistributionCustomOriginConfigOriginProtocolPolicy)
+    , ("OriginSSLProtocols" .=) <$> _cloudFrontDistributionCustomOriginConfigOriginSSLProtocols
     ]
 
 instance FromJSON CloudFrontDistributionCustomOriginConfig where
   parseJSON (Object obj) =
     CloudFrontDistributionCustomOriginConfig <$>
-      obj .: "HTTPPort" <*>
-      obj .: "HTTPSPort" <*>
+      obj .:? "HTTPPort" <*>
+      obj .:? "HTTPSPort" <*>
       obj .: "OriginProtocolPolicy" <*>
-      obj .: "OriginSSLProtocols"
+      obj .:? "OriginSSLProtocols"
   parseJSON _ = mempty
 
 -- | Constructor for 'CloudFrontDistributionCustomOriginConfig' containing

@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.CodePipelinePipelineInputArtifact where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -22,8 +23,9 @@ data CodePipelinePipelineInputArtifact =
 
 instance ToJSON CodePipelinePipelineInputArtifact where
   toJSON CodePipelinePipelineInputArtifact{..} =
-    object
-    [ "Name" .= _codePipelinePipelineInputArtifactName
+    object $
+    catMaybes
+    [ Just ("Name" .= _codePipelinePipelineInputArtifactName)
     ]
 
 instance FromJSON CodePipelinePipelineInputArtifact where

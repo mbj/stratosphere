@@ -7,6 +7,7 @@ module Stratosphere.Resources.EC2FlowLog where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -26,12 +27,13 @@ data EC2FlowLog =
 
 instance ToJSON EC2FlowLog where
   toJSON EC2FlowLog{..} =
-    object
-    [ "DeliverLogsPermissionArn" .= _eC2FlowLogDeliverLogsPermissionArn
-    , "LogGroupName" .= _eC2FlowLogLogGroupName
-    , "ResourceId" .= _eC2FlowLogResourceId
-    , "ResourceType" .= _eC2FlowLogResourceType
-    , "TrafficType" .= _eC2FlowLogTrafficType
+    object $
+    catMaybes
+    [ Just ("DeliverLogsPermissionArn" .= _eC2FlowLogDeliverLogsPermissionArn)
+    , Just ("LogGroupName" .= _eC2FlowLogLogGroupName)
+    , Just ("ResourceId" .= _eC2FlowLogResourceId)
+    , Just ("ResourceType" .= _eC2FlowLogResourceType)
+    , Just ("TrafficType" .= _eC2FlowLogTrafficType)
     ]
 
 instance FromJSON EC2FlowLog where

@@ -7,6 +7,7 @@ module Stratosphere.Resources.DirectoryServiceSimpleAD where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -29,26 +30,27 @@ data DirectoryServiceSimpleAD =
 
 instance ToJSON DirectoryServiceSimpleAD where
   toJSON DirectoryServiceSimpleAD{..} =
-    object
-    [ "CreateAlias" .= _directoryServiceSimpleADCreateAlias
-    , "Description" .= _directoryServiceSimpleADDescription
-    , "EnableSso" .= _directoryServiceSimpleADEnableSso
-    , "Name" .= _directoryServiceSimpleADName
-    , "Password" .= _directoryServiceSimpleADPassword
-    , "ShortName" .= _directoryServiceSimpleADShortName
-    , "Size" .= _directoryServiceSimpleADSize
-    , "VpcSettings" .= _directoryServiceSimpleADVpcSettings
+    object $
+    catMaybes
+    [ ("CreateAlias" .=) <$> _directoryServiceSimpleADCreateAlias
+    , ("Description" .=) <$> _directoryServiceSimpleADDescription
+    , ("EnableSso" .=) <$> _directoryServiceSimpleADEnableSso
+    , Just ("Name" .= _directoryServiceSimpleADName)
+    , Just ("Password" .= _directoryServiceSimpleADPassword)
+    , ("ShortName" .=) <$> _directoryServiceSimpleADShortName
+    , Just ("Size" .= _directoryServiceSimpleADSize)
+    , Just ("VpcSettings" .= _directoryServiceSimpleADVpcSettings)
     ]
 
 instance FromJSON DirectoryServiceSimpleAD where
   parseJSON (Object obj) =
     DirectoryServiceSimpleAD <$>
-      obj .: "CreateAlias" <*>
-      obj .: "Description" <*>
-      obj .: "EnableSso" <*>
+      obj .:? "CreateAlias" <*>
+      obj .:? "Description" <*>
+      obj .:? "EnableSso" <*>
       obj .: "Name" <*>
       obj .: "Password" <*>
-      obj .: "ShortName" <*>
+      obj .:? "ShortName" <*>
       obj .: "Size" <*>
       obj .: "VpcSettings"
   parseJSON _ = mempty

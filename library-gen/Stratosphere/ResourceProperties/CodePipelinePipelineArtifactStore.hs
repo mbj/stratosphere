@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.CodePipelinePipelineArtifactStore where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -24,16 +25,17 @@ data CodePipelinePipelineArtifactStore =
 
 instance ToJSON CodePipelinePipelineArtifactStore where
   toJSON CodePipelinePipelineArtifactStore{..} =
-    object
-    [ "EncryptionKey" .= _codePipelinePipelineArtifactStoreEncryptionKey
-    , "Location" .= _codePipelinePipelineArtifactStoreLocation
-    , "Type" .= _codePipelinePipelineArtifactStoreType
+    object $
+    catMaybes
+    [ ("EncryptionKey" .=) <$> _codePipelinePipelineArtifactStoreEncryptionKey
+    , Just ("Location" .= _codePipelinePipelineArtifactStoreLocation)
+    , Just ("Type" .= _codePipelinePipelineArtifactStoreType)
     ]
 
 instance FromJSON CodePipelinePipelineArtifactStore where
   parseJSON (Object obj) =
     CodePipelinePipelineArtifactStore <$>
-      obj .: "EncryptionKey" <*>
+      obj .:? "EncryptionKey" <*>
       obj .: "Location" <*>
       obj .: "Type"
   parseJSON _ = mempty

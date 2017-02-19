@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.S3BucketLambdaConfiguration where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -24,17 +25,18 @@ data S3BucketLambdaConfiguration =
 
 instance ToJSON S3BucketLambdaConfiguration where
   toJSON S3BucketLambdaConfiguration{..} =
-    object
-    [ "Event" .= _s3BucketLambdaConfigurationEvent
-    , "Filter" .= _s3BucketLambdaConfigurationFilter
-    , "Function" .= _s3BucketLambdaConfigurationFunction
+    object $
+    catMaybes
+    [ Just ("Event" .= _s3BucketLambdaConfigurationEvent)
+    , ("Filter" .=) <$> _s3BucketLambdaConfigurationFilter
+    , Just ("Function" .= _s3BucketLambdaConfigurationFunction)
     ]
 
 instance FromJSON S3BucketLambdaConfiguration where
   parseJSON (Object obj) =
     S3BucketLambdaConfiguration <$>
       obj .: "Event" <*>
-      obj .: "Filter" <*>
+      obj .:? "Filter" <*>
       obj .: "Function"
   parseJSON _ = mempty
 

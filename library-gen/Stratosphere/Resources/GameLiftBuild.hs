@@ -7,6 +7,7 @@ module Stratosphere.Resources.GameLiftBuild where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -24,18 +25,19 @@ data GameLiftBuild =
 
 instance ToJSON GameLiftBuild where
   toJSON GameLiftBuild{..} =
-    object
-    [ "Name" .= _gameLiftBuildName
-    , "StorageLocation" .= _gameLiftBuildStorageLocation
-    , "Version" .= _gameLiftBuildVersion
+    object $
+    catMaybes
+    [ ("Name" .=) <$> _gameLiftBuildName
+    , ("StorageLocation" .=) <$> _gameLiftBuildStorageLocation
+    , ("Version" .=) <$> _gameLiftBuildVersion
     ]
 
 instance FromJSON GameLiftBuild where
   parseJSON (Object obj) =
     GameLiftBuild <$>
-      obj .: "Name" <*>
-      obj .: "StorageLocation" <*>
-      obj .: "Version"
+      obj .:? "Name" <*>
+      obj .:? "StorageLocation" <*>
+      obj .:? "Version"
   parseJSON _ = mempty
 
 -- | Constructor for 'GameLiftBuild' containing required fields as arguments.

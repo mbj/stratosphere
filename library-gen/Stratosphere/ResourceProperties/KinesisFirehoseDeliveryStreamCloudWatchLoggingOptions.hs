@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamCloudWatchLo
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -26,18 +27,19 @@ data KinesisFirehoseDeliveryStreamCloudWatchLoggingOptions =
 
 instance ToJSON KinesisFirehoseDeliveryStreamCloudWatchLoggingOptions where
   toJSON KinesisFirehoseDeliveryStreamCloudWatchLoggingOptions{..} =
-    object
-    [ "Enabled" .= _kinesisFirehoseDeliveryStreamCloudWatchLoggingOptionsEnabled
-    , "LogGroupName" .= _kinesisFirehoseDeliveryStreamCloudWatchLoggingOptionsLogGroupName
-    , "LogStreamName" .= _kinesisFirehoseDeliveryStreamCloudWatchLoggingOptionsLogStreamName
+    object $
+    catMaybes
+    [ ("Enabled" .=) <$> _kinesisFirehoseDeliveryStreamCloudWatchLoggingOptionsEnabled
+    , ("LogGroupName" .=) <$> _kinesisFirehoseDeliveryStreamCloudWatchLoggingOptionsLogGroupName
+    , ("LogStreamName" .=) <$> _kinesisFirehoseDeliveryStreamCloudWatchLoggingOptionsLogStreamName
     ]
 
 instance FromJSON KinesisFirehoseDeliveryStreamCloudWatchLoggingOptions where
   parseJSON (Object obj) =
     KinesisFirehoseDeliveryStreamCloudWatchLoggingOptions <$>
-      obj .: "Enabled" <*>
-      obj .: "LogGroupName" <*>
-      obj .: "LogStreamName"
+      obj .:? "Enabled" <*>
+      obj .:? "LogGroupName" <*>
+      obj .:? "LogStreamName"
   parseJSON _ = mempty
 
 -- | Constructor for 'KinesisFirehoseDeliveryStreamCloudWatchLoggingOptions'

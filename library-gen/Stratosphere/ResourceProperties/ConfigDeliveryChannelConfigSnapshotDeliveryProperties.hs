@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.ConfigDeliveryChannelConfigSnapshotDelive
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -24,14 +25,15 @@ data ConfigDeliveryChannelConfigSnapshotDeliveryProperties =
 
 instance ToJSON ConfigDeliveryChannelConfigSnapshotDeliveryProperties where
   toJSON ConfigDeliveryChannelConfigSnapshotDeliveryProperties{..} =
-    object
-    [ "DeliveryFrequency" .= _configDeliveryChannelConfigSnapshotDeliveryPropertiesDeliveryFrequency
+    object $
+    catMaybes
+    [ ("DeliveryFrequency" .=) <$> _configDeliveryChannelConfigSnapshotDeliveryPropertiesDeliveryFrequency
     ]
 
 instance FromJSON ConfigDeliveryChannelConfigSnapshotDeliveryProperties where
   parseJSON (Object obj) =
     ConfigDeliveryChannelConfigSnapshotDeliveryProperties <$>
-      obj .: "DeliveryFrequency"
+      obj .:? "DeliveryFrequency"
   parseJSON _ = mempty
 
 -- | Constructor for 'ConfigDeliveryChannelConfigSnapshotDeliveryProperties'

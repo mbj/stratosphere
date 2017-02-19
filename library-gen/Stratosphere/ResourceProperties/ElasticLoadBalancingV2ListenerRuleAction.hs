@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.ElasticLoadBalancingV2ListenerRuleAction 
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -24,9 +25,10 @@ data ElasticLoadBalancingV2ListenerRuleAction =
 
 instance ToJSON ElasticLoadBalancingV2ListenerRuleAction where
   toJSON ElasticLoadBalancingV2ListenerRuleAction{..} =
-    object
-    [ "TargetGroupArn" .= _elasticLoadBalancingV2ListenerRuleActionTargetGroupArn
-    , "Type" .= _elasticLoadBalancingV2ListenerRuleActionType
+    object $
+    catMaybes
+    [ Just ("TargetGroupArn" .= _elasticLoadBalancingV2ListenerRuleActionTargetGroupArn)
+    , Just ("Type" .= _elasticLoadBalancingV2ListenerRuleActionType)
     ]
 
 instance FromJSON ElasticLoadBalancingV2ListenerRuleAction where

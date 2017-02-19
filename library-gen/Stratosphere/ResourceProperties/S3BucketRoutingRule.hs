@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.S3BucketRoutingRule where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -24,16 +25,17 @@ data S3BucketRoutingRule =
 
 instance ToJSON S3BucketRoutingRule where
   toJSON S3BucketRoutingRule{..} =
-    object
-    [ "RedirectRule" .= _s3BucketRoutingRuleRedirectRule
-    , "RoutingRuleCondition" .= _s3BucketRoutingRuleRoutingRuleCondition
+    object $
+    catMaybes
+    [ Just ("RedirectRule" .= _s3BucketRoutingRuleRedirectRule)
+    , ("RoutingRuleCondition" .=) <$> _s3BucketRoutingRuleRoutingRuleCondition
     ]
 
 instance FromJSON S3BucketRoutingRule where
   parseJSON (Object obj) =
     S3BucketRoutingRule <$>
       obj .: "RedirectRule" <*>
-      obj .: "RoutingRuleCondition"
+      obj .:? "RoutingRuleCondition"
   parseJSON _ = mempty
 
 -- | Constructor for 'S3BucketRoutingRule' containing required fields as

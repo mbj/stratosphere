@@ -7,6 +7,7 @@ module Stratosphere.Resources.RDSDBSubnetGroup where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -24,10 +25,11 @@ data RDSDBSubnetGroup =
 
 instance ToJSON RDSDBSubnetGroup where
   toJSON RDSDBSubnetGroup{..} =
-    object
-    [ "DBSubnetGroupDescription" .= _rDSDBSubnetGroupDBSubnetGroupDescription
-    , "SubnetIds" .= _rDSDBSubnetGroupSubnetIds
-    , "Tags" .= _rDSDBSubnetGroupTags
+    object $
+    catMaybes
+    [ Just ("DBSubnetGroupDescription" .= _rDSDBSubnetGroupDBSubnetGroupDescription)
+    , Just ("SubnetIds" .= _rDSDBSubnetGroupSubnetIds)
+    , ("Tags" .=) <$> _rDSDBSubnetGroupTags
     ]
 
 instance FromJSON RDSDBSubnetGroup where
@@ -35,7 +37,7 @@ instance FromJSON RDSDBSubnetGroup where
     RDSDBSubnetGroup <$>
       obj .: "DBSubnetGroupDescription" <*>
       obj .: "SubnetIds" <*>
-      obj .: "Tags"
+      obj .:? "Tags"
   parseJSON _ = mempty
 
 -- | Constructor for 'RDSDBSubnetGroup' containing required fields as

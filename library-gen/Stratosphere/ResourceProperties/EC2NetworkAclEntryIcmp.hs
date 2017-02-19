@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.EC2NetworkAclEntryIcmp where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -23,16 +24,17 @@ data EC2NetworkAclEntryIcmp =
 
 instance ToJSON EC2NetworkAclEntryIcmp where
   toJSON EC2NetworkAclEntryIcmp{..} =
-    object
-    [ "Code" .= _eC2NetworkAclEntryIcmpCode
-    , "Type" .= _eC2NetworkAclEntryIcmpType
+    object $
+    catMaybes
+    [ ("Code" .=) <$> _eC2NetworkAclEntryIcmpCode
+    , ("Type" .=) <$> _eC2NetworkAclEntryIcmpType
     ]
 
 instance FromJSON EC2NetworkAclEntryIcmp where
   parseJSON (Object obj) =
     EC2NetworkAclEntryIcmp <$>
-      obj .: "Code" <*>
-      obj .: "Type"
+      obj .:? "Code" <*>
+      obj .:? "Type"
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2NetworkAclEntryIcmp' containing required fields as

@@ -7,6 +7,7 @@ module Stratosphere.Resources.EC2PlacementGroup where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -22,14 +23,15 @@ data EC2PlacementGroup =
 
 instance ToJSON EC2PlacementGroup where
   toJSON EC2PlacementGroup{..} =
-    object
-    [ "Strategy" .= _eC2PlacementGroupStrategy
+    object $
+    catMaybes
+    [ ("Strategy" .=) <$> _eC2PlacementGroupStrategy
     ]
 
 instance FromJSON EC2PlacementGroup where
   parseJSON (Object obj) =
     EC2PlacementGroup <$>
-      obj .: "Strategy"
+      obj .:? "Strategy"
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2PlacementGroup' containing required fields as

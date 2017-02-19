@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.EC2SpotFleetIamInstanceProfile where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -22,14 +23,15 @@ data EC2SpotFleetIamInstanceProfile =
 
 instance ToJSON EC2SpotFleetIamInstanceProfile where
   toJSON EC2SpotFleetIamInstanceProfile{..} =
-    object
-    [ "Arn" .= _eC2SpotFleetIamInstanceProfileArn
+    object $
+    catMaybes
+    [ ("Arn" .=) <$> _eC2SpotFleetIamInstanceProfileArn
     ]
 
 instance FromJSON EC2SpotFleetIamInstanceProfile where
   parseJSON (Object obj) =
     EC2SpotFleetIamInstanceProfile <$>
-      obj .: "Arn"
+      obj .:? "Arn"
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2SpotFleetIamInstanceProfile' containing required

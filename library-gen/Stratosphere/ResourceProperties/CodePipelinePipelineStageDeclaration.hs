@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.CodePipelinePipelineStageDeclaration wher
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -25,17 +26,18 @@ data CodePipelinePipelineStageDeclaration =
 
 instance ToJSON CodePipelinePipelineStageDeclaration where
   toJSON CodePipelinePipelineStageDeclaration{..} =
-    object
-    [ "Actions" .= _codePipelinePipelineStageDeclarationActions
-    , "Blockers" .= _codePipelinePipelineStageDeclarationBlockers
-    , "Name" .= _codePipelinePipelineStageDeclarationName
+    object $
+    catMaybes
+    [ Just ("Actions" .= _codePipelinePipelineStageDeclarationActions)
+    , ("Blockers" .=) <$> _codePipelinePipelineStageDeclarationBlockers
+    , Just ("Name" .= _codePipelinePipelineStageDeclarationName)
     ]
 
 instance FromJSON CodePipelinePipelineStageDeclaration where
   parseJSON (Object obj) =
     CodePipelinePipelineStageDeclaration <$>
       obj .: "Actions" <*>
-      obj .: "Blockers" <*>
+      obj .:? "Blockers" <*>
       obj .: "Name"
   parseJSON _ = mempty
 

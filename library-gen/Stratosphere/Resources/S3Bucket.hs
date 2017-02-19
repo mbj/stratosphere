@@ -7,6 +7,7 @@ module Stratosphere.Resources.S3Bucket where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -39,32 +40,33 @@ data S3Bucket =
 
 instance ToJSON S3Bucket where
   toJSON S3Bucket{..} =
-    object
-    [ "AccessControl" .= _s3BucketAccessControl
-    , "BucketName" .= _s3BucketBucketName
-    , "CorsConfiguration" .= _s3BucketCorsConfiguration
-    , "LifecycleConfiguration" .= _s3BucketLifecycleConfiguration
-    , "LoggingConfiguration" .= _s3BucketLoggingConfiguration
-    , "NotificationConfiguration" .= _s3BucketNotificationConfiguration
-    , "ReplicationConfiguration" .= _s3BucketReplicationConfiguration
-    , "Tags" .= _s3BucketTags
-    , "VersioningConfiguration" .= _s3BucketVersioningConfiguration
-    , "WebsiteConfiguration" .= _s3BucketWebsiteConfiguration
+    object $
+    catMaybes
+    [ ("AccessControl" .=) <$> _s3BucketAccessControl
+    , ("BucketName" .=) <$> _s3BucketBucketName
+    , ("CorsConfiguration" .=) <$> _s3BucketCorsConfiguration
+    , ("LifecycleConfiguration" .=) <$> _s3BucketLifecycleConfiguration
+    , ("LoggingConfiguration" .=) <$> _s3BucketLoggingConfiguration
+    , ("NotificationConfiguration" .=) <$> _s3BucketNotificationConfiguration
+    , ("ReplicationConfiguration" .=) <$> _s3BucketReplicationConfiguration
+    , ("Tags" .=) <$> _s3BucketTags
+    , ("VersioningConfiguration" .=) <$> _s3BucketVersioningConfiguration
+    , ("WebsiteConfiguration" .=) <$> _s3BucketWebsiteConfiguration
     ]
 
 instance FromJSON S3Bucket where
   parseJSON (Object obj) =
     S3Bucket <$>
-      obj .: "AccessControl" <*>
-      obj .: "BucketName" <*>
-      obj .: "CorsConfiguration" <*>
-      obj .: "LifecycleConfiguration" <*>
-      obj .: "LoggingConfiguration" <*>
-      obj .: "NotificationConfiguration" <*>
-      obj .: "ReplicationConfiguration" <*>
-      obj .: "Tags" <*>
-      obj .: "VersioningConfiguration" <*>
-      obj .: "WebsiteConfiguration"
+      obj .:? "AccessControl" <*>
+      obj .:? "BucketName" <*>
+      obj .:? "CorsConfiguration" <*>
+      obj .:? "LifecycleConfiguration" <*>
+      obj .:? "LoggingConfiguration" <*>
+      obj .:? "NotificationConfiguration" <*>
+      obj .:? "ReplicationConfiguration" <*>
+      obj .:? "Tags" <*>
+      obj .:? "VersioningConfiguration" <*>
+      obj .:? "WebsiteConfiguration"
   parseJSON _ = mempty
 
 -- | Constructor for 'S3Bucket' containing required fields as arguments.

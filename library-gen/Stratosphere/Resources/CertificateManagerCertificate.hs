@@ -7,6 +7,7 @@ module Stratosphere.Resources.CertificateManagerCertificate where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -26,20 +27,21 @@ data CertificateManagerCertificate =
 
 instance ToJSON CertificateManagerCertificate where
   toJSON CertificateManagerCertificate{..} =
-    object
-    [ "DomainName" .= _certificateManagerCertificateDomainName
-    , "DomainValidationOptions" .= _certificateManagerCertificateDomainValidationOptions
-    , "SubjectAlternativeNames" .= _certificateManagerCertificateSubjectAlternativeNames
-    , "Tags" .= _certificateManagerCertificateTags
+    object $
+    catMaybes
+    [ Just ("DomainName" .= _certificateManagerCertificateDomainName)
+    , ("DomainValidationOptions" .=) <$> _certificateManagerCertificateDomainValidationOptions
+    , ("SubjectAlternativeNames" .=) <$> _certificateManagerCertificateSubjectAlternativeNames
+    , ("Tags" .=) <$> _certificateManagerCertificateTags
     ]
 
 instance FromJSON CertificateManagerCertificate where
   parseJSON (Object obj) =
     CertificateManagerCertificate <$>
       obj .: "DomainName" <*>
-      obj .: "DomainValidationOptions" <*>
-      obj .: "SubjectAlternativeNames" <*>
-      obj .: "Tags"
+      obj .:? "DomainValidationOptions" <*>
+      obj .:? "SubjectAlternativeNames" <*>
+      obj .:? "Tags"
   parseJSON _ = mempty
 
 -- | Constructor for 'CertificateManagerCertificate' containing required

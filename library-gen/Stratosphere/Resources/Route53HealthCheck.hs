@@ -7,6 +7,7 @@ module Stratosphere.Resources.Route53HealthCheck where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -24,16 +25,17 @@ data Route53HealthCheck =
 
 instance ToJSON Route53HealthCheck where
   toJSON Route53HealthCheck{..} =
-    object
-    [ "HealthCheckConfig" .= _route53HealthCheckHealthCheckConfig
-    , "HealthCheckTags" .= _route53HealthCheckHealthCheckTags
+    object $
+    catMaybes
+    [ Just ("HealthCheckConfig" .= _route53HealthCheckHealthCheckConfig)
+    , ("HealthCheckTags" .=) <$> _route53HealthCheckHealthCheckTags
     ]
 
 instance FromJSON Route53HealthCheck where
   parseJSON (Object obj) =
     Route53HealthCheck <$>
       obj .: "HealthCheckConfig" <*>
-      obj .: "HealthCheckTags"
+      obj .:? "HealthCheckTags"
   parseJSON _ = mempty
 
 -- | Constructor for 'Route53HealthCheck' containing required fields as

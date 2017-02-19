@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.IoTTopicRuleCloudwatchAlarmAction where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -25,11 +26,12 @@ data IoTTopicRuleCloudwatchAlarmAction =
 
 instance ToJSON IoTTopicRuleCloudwatchAlarmAction where
   toJSON IoTTopicRuleCloudwatchAlarmAction{..} =
-    object
-    [ "AlarmName" .= _ioTTopicRuleCloudwatchAlarmActionAlarmName
-    , "RoleArn" .= _ioTTopicRuleCloudwatchAlarmActionRoleArn
-    , "StateReason" .= _ioTTopicRuleCloudwatchAlarmActionStateReason
-    , "StateValue" .= _ioTTopicRuleCloudwatchAlarmActionStateValue
+    object $
+    catMaybes
+    [ Just ("AlarmName" .= _ioTTopicRuleCloudwatchAlarmActionAlarmName)
+    , Just ("RoleArn" .= _ioTTopicRuleCloudwatchAlarmActionRoleArn)
+    , Just ("StateReason" .= _ioTTopicRuleCloudwatchAlarmActionStateReason)
+    , Just ("StateValue" .= _ioTTopicRuleCloudwatchAlarmActionStateValue)
     ]
 
 instance FromJSON IoTTopicRuleCloudwatchAlarmAction where

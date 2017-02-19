@@ -7,6 +7,7 @@ module Stratosphere.Resources.ApiGatewayRestApi where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -29,28 +30,29 @@ data ApiGatewayRestApi =
 
 instance ToJSON ApiGatewayRestApi where
   toJSON ApiGatewayRestApi{..} =
-    object
-    [ "Body" .= _apiGatewayRestApiBody
-    , "BodyS3Location" .= _apiGatewayRestApiBodyS3Location
-    , "CloneFrom" .= _apiGatewayRestApiCloneFrom
-    , "Description" .= _apiGatewayRestApiDescription
-    , "FailOnWarnings" .= _apiGatewayRestApiFailOnWarnings
-    , "Mode" .= _apiGatewayRestApiMode
-    , "Name" .= _apiGatewayRestApiName
-    , "Parameters" .= _apiGatewayRestApiParameters
+    object $
+    catMaybes
+    [ ("Body" .=) <$> _apiGatewayRestApiBody
+    , ("BodyS3Location" .=) <$> _apiGatewayRestApiBodyS3Location
+    , ("CloneFrom" .=) <$> _apiGatewayRestApiCloneFrom
+    , ("Description" .=) <$> _apiGatewayRestApiDescription
+    , ("FailOnWarnings" .=) <$> _apiGatewayRestApiFailOnWarnings
+    , ("Mode" .=) <$> _apiGatewayRestApiMode
+    , ("Name" .=) <$> _apiGatewayRestApiName
+    , ("Parameters" .=) <$> _apiGatewayRestApiParameters
     ]
 
 instance FromJSON ApiGatewayRestApi where
   parseJSON (Object obj) =
     ApiGatewayRestApi <$>
-      obj .: "Body" <*>
-      obj .: "BodyS3Location" <*>
-      obj .: "CloneFrom" <*>
-      obj .: "Description" <*>
-      obj .: "FailOnWarnings" <*>
-      obj .: "Mode" <*>
-      obj .: "Name" <*>
-      obj .: "Parameters"
+      obj .:? "Body" <*>
+      obj .:? "BodyS3Location" <*>
+      obj .:? "CloneFrom" <*>
+      obj .:? "Description" <*>
+      obj .:? "FailOnWarnings" <*>
+      obj .:? "Mode" <*>
+      obj .:? "Name" <*>
+      obj .:? "Parameters"
   parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayRestApi' containing required fields as

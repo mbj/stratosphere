@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties.IoTTopicRuleTopicRulePayload where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
+import Data.Maybe (catMaybes)
 import Data.Monoid (mempty)
 import Data.Text
 
@@ -26,20 +27,21 @@ data IoTTopicRuleTopicRulePayload =
 
 instance ToJSON IoTTopicRuleTopicRulePayload where
   toJSON IoTTopicRuleTopicRulePayload{..} =
-    object
-    [ "Actions" .= _ioTTopicRuleTopicRulePayloadActions
-    , "AwsIotSqlVersion" .= _ioTTopicRuleTopicRulePayloadAwsIotSqlVersion
-    , "Description" .= _ioTTopicRuleTopicRulePayloadDescription
-    , "RuleDisabled" .= _ioTTopicRuleTopicRulePayloadRuleDisabled
-    , "Sql" .= _ioTTopicRuleTopicRulePayloadSql
+    object $
+    catMaybes
+    [ Just ("Actions" .= _ioTTopicRuleTopicRulePayloadActions)
+    , ("AwsIotSqlVersion" .=) <$> _ioTTopicRuleTopicRulePayloadAwsIotSqlVersion
+    , ("Description" .=) <$> _ioTTopicRuleTopicRulePayloadDescription
+    , Just ("RuleDisabled" .= _ioTTopicRuleTopicRulePayloadRuleDisabled)
+    , Just ("Sql" .= _ioTTopicRuleTopicRulePayloadSql)
     ]
 
 instance FromJSON IoTTopicRuleTopicRulePayload where
   parseJSON (Object obj) =
     IoTTopicRuleTopicRulePayload <$>
       obj .: "Actions" <*>
-      obj .: "AwsIotSqlVersion" <*>
-      obj .: "Description" <*>
+      obj .:? "AwsIotSqlVersion" <*>
+      obj .:? "Description" <*>
       obj .: "RuleDisabled" <*>
       obj .: "Sql"
   parseJSON _ = mempty
