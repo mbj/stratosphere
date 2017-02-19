@@ -26,7 +26,8 @@ renderToJSON module'@Module{..}
   | null moduleProperties = "toJSON _ = toJSON ([] :: [String])"
   | otherwise =
       [st|toJSON #{moduleName}{..} =
-    object
+    object $
+    catMaybes
     [ #{renderToJSONFields module'}
     ]|]
 
@@ -34,7 +35,10 @@ renderToJSONFields :: Module -> Text
 renderToJSONFields Module{..} =
   T.intercalate "\n    , " $ map renderField moduleProperties
   where
-    renderField Property{..} = [st|"#{propertyName}" .= #{moduleFieldPrefix}#{propertyName}|]
+    renderField Property{..} =
+      if propertyRequired
+      then [st|Just ("#{propertyName}" .= #{moduleFieldPrefix}#{propertyName})|]
+      else [st|("#{propertyName}" .=) <$> #{moduleFieldPrefix}#{propertyName}|]
 
 renderFromJSON :: Module -> Text
 renderFromJSON module'@Module{..}
@@ -48,4 +52,7 @@ renderFromJSONFields :: Module -> Text
 renderFromJSONFields Module{..} =
   T.intercalate " <*>\n      " $ map renderField moduleProperties
   where
-    renderField Property{..} = [st|obj .: "#{propertyName}"|]
+    renderField Property{..} =
+      if propertyRequired
+      then [st|obj .: "#{propertyName}"|]
+      else [st|obj .:? "#{propertyName}"|]
