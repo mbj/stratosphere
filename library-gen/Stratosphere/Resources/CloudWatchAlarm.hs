@@ -24,7 +24,7 @@ data CloudWatchAlarm =
   , _cloudWatchAlarmAlarmName :: Maybe (Val Text)
   , _cloudWatchAlarmComparisonOperator :: Val Text
   , _cloudWatchAlarmDimensions :: Maybe [CloudWatchAlarmDimension]
-  , _cloudWatchAlarmEvaluationPeriods :: Val Double'
+  , _cloudWatchAlarmEvaluationPeriods :: Val Integer'
   , _cloudWatchAlarmInsufficientDataActions :: Maybe [Val Text]
   , _cloudWatchAlarmMetricName :: Val Text
   , _cloudWatchAlarmNamespace :: Val Text
@@ -80,7 +80,7 @@ instance FromJSON CloudWatchAlarm where
 -- | arguments.
 cloudWatchAlarm
   :: Val Text -- ^ 'cwaComparisonOperator'
-  -> Val Double' -- ^ 'cwaEvaluationPeriods'
+  -> Val Integer' -- ^ 'cwaEvaluationPeriods'
   -> Val Text -- ^ 'cwaMetricName'
   -> Val Text -- ^ 'cwaNamespace'
   -> Val Integer' -- ^ 'cwaPeriod'
@@ -131,7 +131,7 @@ cwaDimensions :: Lens' CloudWatchAlarm (Maybe [CloudWatchAlarmDimension])
 cwaDimensions = lens _cloudWatchAlarmDimensions (\s a -> s { _cloudWatchAlarmDimensions = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html#cfn-cloudwatch-alarms-evaluationperiods
-cwaEvaluationPeriods :: Lens' CloudWatchAlarm (Val Double')
+cwaEvaluationPeriods :: Lens' CloudWatchAlarm (Val Integer')
 cwaEvaluationPeriods = lens _cloudWatchAlarmEvaluationPeriods (\s a -> s { _cloudWatchAlarmEvaluationPeriods = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html#cfn-cloudwatch-alarms-insufficientdataactions
