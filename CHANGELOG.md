@@ -1,5 +1,7 @@
 # Change Log
 
+## 0.4.2
+
 ## 0.4.1
 
 * Manually write out all JSON instances to speed up compilation
