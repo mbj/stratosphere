@@ -2,6 +2,10 @@
 
 ## 0.4.1
 
+* Manually write out all JSON instances to speed up compilation
+* Fix bug in CloudFormation specification where `EvaluationPeriods` was
+  accidentally set to `Double`.
+
 ## 0.4.0
 
 * Derive the `Eq` type class for everything. This is useful when comparing two
