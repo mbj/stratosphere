@@ -15,9 +15,9 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for
--- | ElasticLoadBalancingLoadBalancerLBCookieStickinessPolicy. See
--- | 'elasticLoadBalancingLoadBalancerLBCookieStickinessPolicy' for a more
--- | convenient constructor.
+-- ElasticLoadBalancingLoadBalancerLBCookieStickinessPolicy. See
+-- 'elasticLoadBalancingLoadBalancerLBCookieStickinessPolicy' for a more
+-- convenient constructor.
 data ElasticLoadBalancingLoadBalancerLBCookieStickinessPolicy =
   ElasticLoadBalancingLoadBalancerLBCookieStickinessPolicy
   { _elasticLoadBalancingLoadBalancerLBCookieStickinessPolicyCookieExpirationPeriod :: Maybe (Val Text)
@@ -40,8 +40,8 @@ instance FromJSON ElasticLoadBalancingLoadBalancerLBCookieStickinessPolicy where
   parseJSON _ = mempty
 
 -- | Constructor for
--- | 'ElasticLoadBalancingLoadBalancerLBCookieStickinessPolicy' containing
--- | required fields as arguments.
+-- 'ElasticLoadBalancingLoadBalancerLBCookieStickinessPolicy' containing
+-- required fields as arguments.
 elasticLoadBalancingLoadBalancerLBCookieStickinessPolicy
   :: ElasticLoadBalancingLoadBalancerLBCookieStickinessPolicy
 elasticLoadBalancingLoadBalancerLBCookieStickinessPolicy  =

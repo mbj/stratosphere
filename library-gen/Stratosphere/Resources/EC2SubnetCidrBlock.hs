@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for EC2SubnetCidrBlock. See
--- | 'ec2SubnetCidrBlock' for a more convenient constructor.
+-- 'ec2SubnetCidrBlock' for a more convenient constructor.
 data EC2SubnetCidrBlock =
   EC2SubnetCidrBlock
   { _eC2SubnetCidrBlockIpv6CidrBlock :: Val Text
@@ -38,7 +38,7 @@ instance FromJSON EC2SubnetCidrBlock where
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2SubnetCidrBlock' containing required fields as
--- | arguments.
+-- arguments.
 ec2SubnetCidrBlock
   :: Val Text -- ^ 'ecscbIpv6CidrBlock'
   -> Val Text -- ^ 'ecscbSubnetId'

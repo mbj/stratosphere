@@ -20,7 +20,7 @@ import Stratosphere.ResourceProperties.Tag
 import Stratosphere.ResourceProperties.EC2InstanceVolume
 
 -- | Full data type definition for EC2Instance. See 'ec2Instance' for a more
--- | convenient constructor.
+-- convenient constructor.
 data EC2Instance =
   EC2Instance
   { _eC2InstanceAdditionalInfo :: Maybe (Val Text)

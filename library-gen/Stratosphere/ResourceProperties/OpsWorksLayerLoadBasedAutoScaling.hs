@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.OpsWorksLayerAutoScalingThresholds
 
 -- | Full data type definition for OpsWorksLayerLoadBasedAutoScaling. See
--- | 'opsWorksLayerLoadBasedAutoScaling' for a more convenient constructor.
+-- 'opsWorksLayerLoadBasedAutoScaling' for a more convenient constructor.
 data OpsWorksLayerLoadBasedAutoScaling =
   OpsWorksLayerLoadBasedAutoScaling
   { _opsWorksLayerLoadBasedAutoScalingDownScaling :: Maybe OpsWorksLayerAutoScalingThresholds
@@ -41,7 +41,7 @@ instance FromJSON OpsWorksLayerLoadBasedAutoScaling where
   parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksLayerLoadBasedAutoScaling' containing required
--- | fields as arguments.
+-- fields as arguments.
 opsWorksLayerLoadBasedAutoScaling
   :: OpsWorksLayerLoadBasedAutoScaling
 opsWorksLayerLoadBasedAutoScaling  =

@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for EFSFileSystemElasticFileSystemTag. See
--- | 'efsFileSystemElasticFileSystemTag' for a more convenient constructor.
+-- 'efsFileSystemElasticFileSystemTag' for a more convenient constructor.
 data EFSFileSystemElasticFileSystemTag =
   EFSFileSystemElasticFileSystemTag
   { _eFSFileSystemElasticFileSystemTagKey :: Val Text
@@ -38,7 +38,7 @@ instance FromJSON EFSFileSystemElasticFileSystemTag where
   parseJSON _ = mempty
 
 -- | Constructor for 'EFSFileSystemElasticFileSystemTag' containing required
--- | fields as arguments.
+-- fields as arguments.
 efsFileSystemElasticFileSystemTag
   :: Val Text -- ^ 'efsfsefstKey'
   -> Val Text -- ^ 'efsfsefstValue'

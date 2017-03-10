@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for CloudFormationCustomResource. See
--- | 'cloudFormationCustomResource' for a more convenient constructor.
+-- 'cloudFormationCustomResource' for a more convenient constructor.
 data CloudFormationCustomResource =
   CloudFormationCustomResource
   { _cloudFormationCustomResourceServiceToken :: Val Text
@@ -35,7 +35,7 @@ instance FromJSON CloudFormationCustomResource where
   parseJSON _ = mempty
 
 -- | Constructor for 'CloudFormationCustomResource' containing required fields
--- | as arguments.
+-- as arguments.
 cloudFormationCustomResource
   :: Val Text -- ^ 'cfcrServiceToken'
   -> CloudFormationCustomResource

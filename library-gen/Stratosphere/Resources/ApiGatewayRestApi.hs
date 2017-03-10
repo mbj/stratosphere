@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.ApiGatewayRestApiS3Location
 
 -- | Full data type definition for ApiGatewayRestApi. See 'apiGatewayRestApi'
--- | for a more convenient constructor.
+-- for a more convenient constructor.
 data ApiGatewayRestApi =
   ApiGatewayRestApi
   { _apiGatewayRestApiBody :: Maybe Object
@@ -56,7 +56,7 @@ instance FromJSON ApiGatewayRestApi where
   parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayRestApi' containing required fields as
--- | arguments.
+-- arguments.
 apiGatewayRestApi
   :: ApiGatewayRestApi
 apiGatewayRestApi  =

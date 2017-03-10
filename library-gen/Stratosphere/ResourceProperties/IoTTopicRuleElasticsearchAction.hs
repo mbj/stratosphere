@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for IoTTopicRuleElasticsearchAction. See
--- | 'ioTTopicRuleElasticsearchAction' for a more convenient constructor.
+-- 'ioTTopicRuleElasticsearchAction' for a more convenient constructor.
 data IoTTopicRuleElasticsearchAction =
   IoTTopicRuleElasticsearchAction
   { _ioTTopicRuleElasticsearchActionEndpoint :: Val Text
@@ -47,7 +47,7 @@ instance FromJSON IoTTopicRuleElasticsearchAction where
   parseJSON _ = mempty
 
 -- | Constructor for 'IoTTopicRuleElasticsearchAction' containing required
--- | fields as arguments.
+-- fields as arguments.
 ioTTopicRuleElasticsearchAction
   :: Val Text -- ^ 'ittreaEndpoint'
   -> Val Text -- ^ 'ittreaId'

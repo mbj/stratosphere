@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for EC2NatGateway. See 'ec2NatGateway' for a
--- | more convenient constructor.
+-- more convenient constructor.
 data EC2NatGateway =
   EC2NatGateway
   { _eC2NatGatewayAllocationId :: Val Text

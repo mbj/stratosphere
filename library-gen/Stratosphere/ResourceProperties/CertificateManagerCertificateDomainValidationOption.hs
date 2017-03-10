@@ -15,9 +15,9 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for
--- | CertificateManagerCertificateDomainValidationOption. See
--- | 'certificateManagerCertificateDomainValidationOption' for a more
--- | convenient constructor.
+-- CertificateManagerCertificateDomainValidationOption. See
+-- 'certificateManagerCertificateDomainValidationOption' for a more
+-- convenient constructor.
 data CertificateManagerCertificateDomainValidationOption =
   CertificateManagerCertificateDomainValidationOption
   { _certificateManagerCertificateDomainValidationOptionDomainName :: Val Text
@@ -40,7 +40,7 @@ instance FromJSON CertificateManagerCertificateDomainValidationOption where
   parseJSON _ = mempty
 
 -- | Constructor for 'CertificateManagerCertificateDomainValidationOption'
--- | containing required fields as arguments.
+-- containing required fields as arguments.
 certificateManagerCertificateDomainValidationOption
   :: Val Text -- ^ 'cmcdvoDomainName'
   -> Val Text -- ^ 'cmcdvoValidationDomain'

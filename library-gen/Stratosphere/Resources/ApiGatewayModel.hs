@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for ApiGatewayModel. See 'apiGatewayModel' for
--- | a more convenient constructor.
+-- a more convenient constructor.
 data ApiGatewayModel =
   ApiGatewayModel
   { _apiGatewayModelContentType :: Maybe (Val Text)
@@ -47,7 +47,7 @@ instance FromJSON ApiGatewayModel where
   parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayModel' containing required fields as
--- | arguments.
+-- arguments.
 apiGatewayModel
   :: Val Text -- ^ 'agmoRestApiId'
   -> ApiGatewayModel

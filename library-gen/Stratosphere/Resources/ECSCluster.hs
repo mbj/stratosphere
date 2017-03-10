@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for ECSCluster. See 'ecsCluster' for a more
--- | convenient constructor.
+-- convenient constructor.
 data ECSCluster =
   ECSCluster
   { _eCSClusterClusterName :: Maybe (Val Text)

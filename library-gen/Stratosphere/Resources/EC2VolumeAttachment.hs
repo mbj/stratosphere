@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for EC2VolumeAttachment. See
--- | 'ec2VolumeAttachment' for a more convenient constructor.
+-- 'ec2VolumeAttachment' for a more convenient constructor.
 data EC2VolumeAttachment =
   EC2VolumeAttachment
   { _eC2VolumeAttachmentDevice :: Val Text
@@ -41,7 +41,7 @@ instance FromJSON EC2VolumeAttachment where
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2VolumeAttachment' containing required fields as
--- | arguments.
+-- arguments.
 ec2VolumeAttachment
   :: Val Text -- ^ 'ecvaDevice'
   -> Val Text -- ^ 'ecvaInstanceId'

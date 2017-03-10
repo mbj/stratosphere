@@ -15,9 +15,9 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for
--- | ElasticLoadBalancingLoadBalancerAccessLoggingPolicy. See
--- | 'elasticLoadBalancingLoadBalancerAccessLoggingPolicy' for a more
--- | convenient constructor.
+-- ElasticLoadBalancingLoadBalancerAccessLoggingPolicy. See
+-- 'elasticLoadBalancingLoadBalancerAccessLoggingPolicy' for a more
+-- convenient constructor.
 data ElasticLoadBalancingLoadBalancerAccessLoggingPolicy =
   ElasticLoadBalancingLoadBalancerAccessLoggingPolicy
   { _elasticLoadBalancingLoadBalancerAccessLoggingPolicyEmitInterval :: Maybe (Val Integer')
@@ -46,7 +46,7 @@ instance FromJSON ElasticLoadBalancingLoadBalancerAccessLoggingPolicy where
   parseJSON _ = mempty
 
 -- | Constructor for 'ElasticLoadBalancingLoadBalancerAccessLoggingPolicy'
--- | containing required fields as arguments.
+-- containing required fields as arguments.
 elasticLoadBalancingLoadBalancerAccessLoggingPolicy
   :: Val Bool' -- ^ 'elblbalpEnabled'
   -> Val Text -- ^ 'elblbalpS3BucketName'

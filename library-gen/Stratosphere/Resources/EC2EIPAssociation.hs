@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for EC2EIPAssociation. See 'ec2EIPAssociation'
--- | for a more convenient constructor.
+-- for a more convenient constructor.
 data EC2EIPAssociation =
   EC2EIPAssociation
   { _eC2EIPAssociationAllocationId :: Maybe (Val Text)
@@ -47,7 +47,7 @@ instance FromJSON EC2EIPAssociation where
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2EIPAssociation' containing required fields as
--- | arguments.
+-- arguments.
 ec2EIPAssociation
   :: EC2EIPAssociation
 ec2EIPAssociation  =

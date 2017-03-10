@@ -21,8 +21,8 @@ import Stratosphere.ResourceProperties.CloudFrontDistributionRestrictions
 import Stratosphere.ResourceProperties.CloudFrontDistributionViewerCertificate
 
 -- | Full data type definition for CloudFrontDistributionDistributionConfig.
--- | See 'cloudFrontDistributionDistributionConfig' for a more convenient
--- | constructor.
+-- See 'cloudFrontDistributionDistributionConfig' for a more convenient
+-- constructor.
 data CloudFrontDistributionDistributionConfig =
   CloudFrontDistributionDistributionConfig
   { _cloudFrontDistributionDistributionConfigAliases :: Maybe [Val Text]
@@ -81,7 +81,7 @@ instance FromJSON CloudFrontDistributionDistributionConfig where
   parseJSON _ = mempty
 
 -- | Constructor for 'CloudFrontDistributionDistributionConfig' containing
--- | required fields as arguments.
+-- required fields as arguments.
 cloudFrontDistributionDistributionConfig
   :: CloudFrontDistributionDefaultCacheBehavior -- ^ 'cfddcDefaultCacheBehavior'
   -> Val Bool' -- ^ 'cfddcEnabled'

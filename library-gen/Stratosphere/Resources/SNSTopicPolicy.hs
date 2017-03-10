@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for SNSTopicPolicy. See 'snsTopicPolicy' for a
--- | more convenient constructor.
+-- more convenient constructor.
 data SNSTopicPolicy =
   SNSTopicPolicy
   { _sNSTopicPolicyPolicyDocument :: Object

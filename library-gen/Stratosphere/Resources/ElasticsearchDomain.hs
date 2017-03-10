@@ -18,7 +18,7 @@ import Stratosphere.ResourceProperties.ElasticsearchDomainSnapshotOptions
 import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for ElasticsearchDomain. See
--- | 'elasticsearchDomain' for a more convenient constructor.
+-- 'elasticsearchDomain' for a more convenient constructor.
 data ElasticsearchDomain =
   ElasticsearchDomain
   { _elasticsearchDomainAccessPolicies :: Maybe Object
@@ -59,7 +59,7 @@ instance FromJSON ElasticsearchDomain where
   parseJSON _ = mempty
 
 -- | Constructor for 'ElasticsearchDomain' containing required fields as
--- | arguments.
+-- arguments.
 elasticsearchDomain
   :: ElasticsearchDomain
 elasticsearchDomain  =

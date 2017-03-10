@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for ApiGatewayApiKeyStageKey. See
--- | 'apiGatewayApiKeyStageKey' for a more convenient constructor.
+-- 'apiGatewayApiKeyStageKey' for a more convenient constructor.
 data ApiGatewayApiKeyStageKey =
   ApiGatewayApiKeyStageKey
   { _apiGatewayApiKeyStageKeyRestApiId :: Maybe (Val Text)
@@ -38,7 +38,7 @@ instance FromJSON ApiGatewayApiKeyStageKey where
   parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayApiKeyStageKey' containing required fields as
--- | arguments.
+-- arguments.
 apiGatewayApiKeyStageKey
   :: ApiGatewayApiKeyStageKey
 apiGatewayApiKeyStageKey  =

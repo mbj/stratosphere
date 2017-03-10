@@ -15,9 +15,9 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for
--- | ElastiCacheReplicationGroupNodeGroupConfiguration. See
--- | 'elastiCacheReplicationGroupNodeGroupConfiguration' for a more convenient
--- | constructor.
+-- ElastiCacheReplicationGroupNodeGroupConfiguration. See
+-- 'elastiCacheReplicationGroupNodeGroupConfiguration' for a more convenient
+-- constructor.
 data ElastiCacheReplicationGroupNodeGroupConfiguration =
   ElastiCacheReplicationGroupNodeGroupConfiguration
   { _elastiCacheReplicationGroupNodeGroupConfigurationPrimaryAvailabilityZone :: Maybe (Val Text)
@@ -46,7 +46,7 @@ instance FromJSON ElastiCacheReplicationGroupNodeGroupConfiguration where
   parseJSON _ = mempty
 
 -- | Constructor for 'ElastiCacheReplicationGroupNodeGroupConfiguration'
--- | containing required fields as arguments.
+-- containing required fields as arguments.
 elastiCacheReplicationGroupNodeGroupConfiguration
   :: ElastiCacheReplicationGroupNodeGroupConfiguration
 elastiCacheReplicationGroupNodeGroupConfiguration  =

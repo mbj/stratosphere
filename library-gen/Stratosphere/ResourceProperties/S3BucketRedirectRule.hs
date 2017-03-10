@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for S3BucketRedirectRule. See
--- | 's3BucketRedirectRule' for a more convenient constructor.
+-- 's3BucketRedirectRule' for a more convenient constructor.
 data S3BucketRedirectRule =
   S3BucketRedirectRule
   { _s3BucketRedirectRuleHostName :: Maybe (Val Text)
@@ -47,7 +47,7 @@ instance FromJSON S3BucketRedirectRule where
   parseJSON _ = mempty
 
 -- | Constructor for 'S3BucketRedirectRule' containing required fields as
--- | arguments.
+-- arguments.
 s3BucketRedirectRule
   :: S3BucketRedirectRule
 s3BucketRedirectRule  =

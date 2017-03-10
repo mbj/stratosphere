@@ -19,7 +19,7 @@ import Stratosphere.ResourceProperties.OpsWorksStackElasticIp
 import Stratosphere.ResourceProperties.OpsWorksStackRdsDbInstance
 
 -- | Full data type definition for OpsWorksStack. See 'opsWorksStack' for a
--- | more convenient constructor.
+-- more convenient constructor.
 data OpsWorksStack =
   OpsWorksStack
   { _opsWorksStackAgentVersion :: Maybe (Val Text)

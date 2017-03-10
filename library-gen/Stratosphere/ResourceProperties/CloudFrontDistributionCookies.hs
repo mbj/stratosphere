@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for CloudFrontDistributionCookies. See
--- | 'cloudFrontDistributionCookies' for a more convenient constructor.
+-- 'cloudFrontDistributionCookies' for a more convenient constructor.
 data CloudFrontDistributionCookies =
   CloudFrontDistributionCookies
   { _cloudFrontDistributionCookiesForward :: Val Text
@@ -38,7 +38,7 @@ instance FromJSON CloudFrontDistributionCookies where
   parseJSON _ = mempty
 
 -- | Constructor for 'CloudFrontDistributionCookies' containing required
--- | fields as arguments.
+-- fields as arguments.
 cloudFrontDistributionCookies
   :: Val Text -- ^ 'cfdcForward'
   -> CloudFrontDistributionCookies

@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for ECSTaskDefinitionUlimit. See
--- | 'ecsTaskDefinitionUlimit' for a more convenient constructor.
+-- 'ecsTaskDefinitionUlimit' for a more convenient constructor.
 data ECSTaskDefinitionUlimit =
   ECSTaskDefinitionUlimit
   { _eCSTaskDefinitionUlimitHardLimit :: Val Integer'
@@ -41,7 +41,7 @@ instance FromJSON ECSTaskDefinitionUlimit where
   parseJSON _ = mempty
 
 -- | Constructor for 'ECSTaskDefinitionUlimit' containing required fields as
--- | arguments.
+-- arguments.
 ecsTaskDefinitionUlimit
   :: Val Integer' -- ^ 'ecstduHardLimit'
   -> Val Text -- ^ 'ecstduName'

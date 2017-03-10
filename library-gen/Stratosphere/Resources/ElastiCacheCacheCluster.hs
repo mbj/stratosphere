@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for ElastiCacheCacheCluster. See
--- | 'elastiCacheCacheCluster' for a more convenient constructor.
+-- 'elastiCacheCacheCluster' for a more convenient constructor.
 data ElastiCacheCacheCluster =
   ElastiCacheCacheCluster
   { _elastiCacheCacheClusterAZMode :: Maybe (Val Text)
@@ -95,7 +95,7 @@ instance FromJSON ElastiCacheCacheCluster where
   parseJSON _ = mempty
 
 -- | Constructor for 'ElastiCacheCacheCluster' containing required fields as
--- | arguments.
+-- arguments.
 elastiCacheCacheCluster
   :: Val Text -- ^ 'ecccCacheNodeType'
   -> Val Text -- ^ 'ecccEngine'

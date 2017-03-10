@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for LogsLogStream. See 'logsLogStream' for a
--- | more convenient constructor.
+-- more convenient constructor.
 data LogsLogStream =
   LogsLogStream
   { _logsLogStreamLogGroupName :: Val Text

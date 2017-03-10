@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for EMRClusterVolumeSpecification. See
--- | 'emrClusterVolumeSpecification' for a more convenient constructor.
+-- 'emrClusterVolumeSpecification' for a more convenient constructor.
 data EMRClusterVolumeSpecification =
   EMRClusterVolumeSpecification
   { _eMRClusterVolumeSpecificationIops :: Maybe (Val Integer')
@@ -41,7 +41,7 @@ instance FromJSON EMRClusterVolumeSpecification where
   parseJSON _ = mempty
 
 -- | Constructor for 'EMRClusterVolumeSpecification' containing required
--- | fields as arguments.
+-- fields as arguments.
 emrClusterVolumeSpecification
   :: Val Integer' -- ^ 'emrcvsSizeInGB'
   -> Val Text -- ^ 'emrcvsVolumeType'

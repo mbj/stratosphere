@@ -17,7 +17,7 @@ import Stratosphere.ResourceProperties.CloudFrontDistributionOriginCustomHeader
 import Stratosphere.ResourceProperties.CloudFrontDistributionS3OriginConfig
 
 -- | Full data type definition for CloudFrontDistributionOrigin. See
--- | 'cloudFrontDistributionOrigin' for a more convenient constructor.
+-- 'cloudFrontDistributionOrigin' for a more convenient constructor.
 data CloudFrontDistributionOrigin =
   CloudFrontDistributionOrigin
   { _cloudFrontDistributionOriginCustomOriginConfig :: Maybe CloudFrontDistributionCustomOriginConfig
@@ -52,7 +52,7 @@ instance FromJSON CloudFrontDistributionOrigin where
   parseJSON _ = mempty
 
 -- | Constructor for 'CloudFrontDistributionOrigin' containing required fields
--- | as arguments.
+-- as arguments.
 cloudFrontDistributionOrigin
   :: Val Text -- ^ 'cfdoDomainName'
   -> Val Text -- ^ 'cfdoId'

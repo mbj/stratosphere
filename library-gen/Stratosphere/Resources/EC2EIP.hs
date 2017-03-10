@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for EC2EIP. See 'ec2EIP' for a more convenient
--- | constructor.
+-- constructor.
 data EC2EIP =
   EC2EIP
   { _eC2EIPDomain :: Maybe (Val Text)

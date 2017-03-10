@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for ApiGatewayUsagePlanApiStage. See
--- | 'apiGatewayUsagePlanApiStage' for a more convenient constructor.
+-- 'apiGatewayUsagePlanApiStage' for a more convenient constructor.
 data ApiGatewayUsagePlanApiStage =
   ApiGatewayUsagePlanApiStage
   { _apiGatewayUsagePlanApiStageApiId :: Maybe (Val Text)
@@ -38,7 +38,7 @@ instance FromJSON ApiGatewayUsagePlanApiStage where
   parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayUsagePlanApiStage' containing required fields
--- | as arguments.
+-- as arguments.
 apiGatewayUsagePlanApiStage
   :: ApiGatewayUsagePlanApiStage
 apiGatewayUsagePlanApiStage  =

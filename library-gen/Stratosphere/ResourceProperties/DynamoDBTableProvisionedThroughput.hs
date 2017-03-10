@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for DynamoDBTableProvisionedThroughput. See
--- | 'dynamoDBTableProvisionedThroughput' for a more convenient constructor.
+-- 'dynamoDBTableProvisionedThroughput' for a more convenient constructor.
 data DynamoDBTableProvisionedThroughput =
   DynamoDBTableProvisionedThroughput
   { _dynamoDBTableProvisionedThroughputReadCapacityUnits :: Val Integer'
@@ -38,7 +38,7 @@ instance FromJSON DynamoDBTableProvisionedThroughput where
   parseJSON _ = mempty
 
 -- | Constructor for 'DynamoDBTableProvisionedThroughput' containing required
--- | fields as arguments.
+-- fields as arguments.
 dynamoDBTableProvisionedThroughput
   :: Val Integer' -- ^ 'ddbtptReadCapacityUnits'
   -> Val Integer' -- ^ 'ddbtptWriteCapacityUnits'

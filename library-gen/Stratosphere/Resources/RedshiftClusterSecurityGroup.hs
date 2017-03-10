@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for RedshiftClusterSecurityGroup. See
--- | 'redshiftClusterSecurityGroup' for a more convenient constructor.
+-- 'redshiftClusterSecurityGroup' for a more convenient constructor.
 data RedshiftClusterSecurityGroup =
   RedshiftClusterSecurityGroup
   { _redshiftClusterSecurityGroupDescription :: Val Text
@@ -35,7 +35,7 @@ instance FromJSON RedshiftClusterSecurityGroup where
   parseJSON _ = mempty
 
 -- | Constructor for 'RedshiftClusterSecurityGroup' containing required fields
--- | as arguments.
+-- as arguments.
 redshiftClusterSecurityGroup
   :: Val Text -- ^ 'rcsegDescription'
   -> RedshiftClusterSecurityGroup

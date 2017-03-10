@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for IoTTopicRuleRepublishAction. See
--- | 'ioTTopicRuleRepublishAction' for a more convenient constructor.
+-- 'ioTTopicRuleRepublishAction' for a more convenient constructor.
 data IoTTopicRuleRepublishAction =
   IoTTopicRuleRepublishAction
   { _ioTTopicRuleRepublishActionRoleArn :: Val Text
@@ -38,7 +38,7 @@ instance FromJSON IoTTopicRuleRepublishAction where
   parseJSON _ = mempty
 
 -- | Constructor for 'IoTTopicRuleRepublishAction' containing required fields
--- | as arguments.
+-- as arguments.
 ioTTopicRuleRepublishAction
   :: Val Text -- ^ 'ittrraRoleArn'
   -> Val Text -- ^ 'ittrraTopic'

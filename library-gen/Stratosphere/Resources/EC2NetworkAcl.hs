@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for EC2NetworkAcl. See 'ec2NetworkAcl' for a
--- | more convenient constructor.
+-- more convenient constructor.
 data EC2NetworkAcl =
   EC2NetworkAcl
   { _eC2NetworkAclTags :: Maybe [Tag]

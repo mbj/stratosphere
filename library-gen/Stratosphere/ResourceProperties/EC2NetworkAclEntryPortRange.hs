@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for EC2NetworkAclEntryPortRange. See
--- | 'ec2NetworkAclEntryPortRange' for a more convenient constructor.
+-- 'ec2NetworkAclEntryPortRange' for a more convenient constructor.
 data EC2NetworkAclEntryPortRange =
   EC2NetworkAclEntryPortRange
   { _eC2NetworkAclEntryPortRangeFrom :: Maybe (Val Integer')
@@ -38,7 +38,7 @@ instance FromJSON EC2NetworkAclEntryPortRange where
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2NetworkAclEntryPortRange' containing required fields
--- | as arguments.
+-- as arguments.
 ec2NetworkAclEntryPortRange
   :: EC2NetworkAclEntryPortRange
 ec2NetworkAclEntryPortRange  =

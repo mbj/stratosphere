@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for EC2Route. See 'ec2Route' for a more
--- | convenient constructor.
+-- convenient constructor.
 data EC2Route =
   EC2Route
   { _eC2RouteDestinationCidrBlock :: Val Text

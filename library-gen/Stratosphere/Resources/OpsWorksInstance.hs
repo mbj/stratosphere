@@ -16,7 +16,7 @@ import Stratosphere.ResourceProperties.OpsWorksInstanceBlockDeviceMapping
 import Stratosphere.ResourceProperties.OpsWorksInstanceTimeBasedAutoScaling
 
 -- | Full data type definition for OpsWorksInstance. See 'opsWorksInstance'
--- | for a more convenient constructor.
+-- for a more convenient constructor.
 data OpsWorksInstance =
   OpsWorksInstance
   { _opsWorksInstanceAgentVersion :: Maybe (Val Text)
@@ -96,7 +96,7 @@ instance FromJSON OpsWorksInstance where
   parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksInstance' containing required fields as
--- | arguments.
+-- arguments.
 opsWorksInstance
   :: Val Text -- ^ 'owiInstanceType'
   -> [Val Text] -- ^ 'owiLayerIds'

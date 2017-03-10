@@ -15,8 +15,8 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for ConfigConfigurationRecorderRecordingGroup.
--- | See 'configConfigurationRecorderRecordingGroup' for a more convenient
--- | constructor.
+-- See 'configConfigurationRecorderRecordingGroup' for a more convenient
+-- constructor.
 data ConfigConfigurationRecorderRecordingGroup =
   ConfigConfigurationRecorderRecordingGroup
   { _configConfigurationRecorderRecordingGroupAllSupported :: Maybe (Val Bool')
@@ -42,7 +42,7 @@ instance FromJSON ConfigConfigurationRecorderRecordingGroup where
   parseJSON _ = mempty
 
 -- | Constructor for 'ConfigConfigurationRecorderRecordingGroup' containing
--- | required fields as arguments.
+-- required fields as arguments.
 configConfigurationRecorderRecordingGroup
   :: ConfigConfigurationRecorderRecordingGroup
 configConfigurationRecorderRecordingGroup  =

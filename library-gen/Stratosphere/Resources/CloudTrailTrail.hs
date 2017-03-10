@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for CloudTrailTrail. See 'cloudTrailTrail' for
--- | a more convenient constructor.
+-- a more convenient constructor.
 data CloudTrailTrail =
   CloudTrailTrail
   { _cloudTrailTrailCloudWatchLogsLogGroupArn :: Maybe (Val Text)
@@ -62,7 +62,7 @@ instance FromJSON CloudTrailTrail where
   parseJSON _ = mempty
 
 -- | Constructor for 'CloudTrailTrail' containing required fields as
--- | arguments.
+-- arguments.
 cloudTrailTrail
   :: Val Bool' -- ^ 'cttIsLogging'
   -> Val Text -- ^ 'cttS3BucketName'

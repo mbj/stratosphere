@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.S3BucketS3KeyFilter
 
 -- | Full data type definition for S3BucketNotificationFilter. See
--- | 's3BucketNotificationFilter' for a more convenient constructor.
+-- 's3BucketNotificationFilter' for a more convenient constructor.
 data S3BucketNotificationFilter =
   S3BucketNotificationFilter
   { _s3BucketNotificationFilterS3Key :: S3BucketS3KeyFilter
@@ -35,7 +35,7 @@ instance FromJSON S3BucketNotificationFilter where
   parseJSON _ = mempty
 
 -- | Constructor for 'S3BucketNotificationFilter' containing required fields
--- | as arguments.
+-- as arguments.
 s3BucketNotificationFilter
   :: S3BucketS3KeyFilter -- ^ 'sbnfS3Key'
   -> S3BucketNotificationFilter

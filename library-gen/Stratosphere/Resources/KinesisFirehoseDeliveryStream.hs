@@ -17,7 +17,7 @@ import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamRedshiftDest
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamS3DestinationConfiguration
 
 -- | Full data type definition for KinesisFirehoseDeliveryStream. See
--- | 'kinesisFirehoseDeliveryStream' for a more convenient constructor.
+-- 'kinesisFirehoseDeliveryStream' for a more convenient constructor.
 data KinesisFirehoseDeliveryStream =
   KinesisFirehoseDeliveryStream
   { _kinesisFirehoseDeliveryStreamDeliveryStreamName :: Maybe (Val Text)
@@ -46,7 +46,7 @@ instance FromJSON KinesisFirehoseDeliveryStream where
   parseJSON _ = mempty
 
 -- | Constructor for 'KinesisFirehoseDeliveryStream' containing required
--- | fields as arguments.
+-- fields as arguments.
 kinesisFirehoseDeliveryStream
   :: KinesisFirehoseDeliveryStream
 kinesisFirehoseDeliveryStream  =

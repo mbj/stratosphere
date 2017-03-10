@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for RedshiftClusterSubnetGroup. See
--- | 'redshiftClusterSubnetGroup' for a more convenient constructor.
+-- 'redshiftClusterSubnetGroup' for a more convenient constructor.
 data RedshiftClusterSubnetGroup =
   RedshiftClusterSubnetGroup
   { _redshiftClusterSubnetGroupDescription :: Val Text
@@ -38,7 +38,7 @@ instance FromJSON RedshiftClusterSubnetGroup where
   parseJSON _ = mempty
 
 -- | Constructor for 'RedshiftClusterSubnetGroup' containing required fields
--- | as arguments.
+-- as arguments.
 redshiftClusterSubnetGroup
   :: Val Text -- ^ 'rcsugDescription'
   -> [Val Text] -- ^ 'rcsugSubnetIds'

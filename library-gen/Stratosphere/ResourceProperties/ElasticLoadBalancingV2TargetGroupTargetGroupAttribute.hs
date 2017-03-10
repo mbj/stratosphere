@@ -15,9 +15,9 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for
--- | ElasticLoadBalancingV2TargetGroupTargetGroupAttribute. See
--- | 'elasticLoadBalancingV2TargetGroupTargetGroupAttribute' for a more
--- | convenient constructor.
+-- ElasticLoadBalancingV2TargetGroupTargetGroupAttribute. See
+-- 'elasticLoadBalancingV2TargetGroupTargetGroupAttribute' for a more
+-- convenient constructor.
 data ElasticLoadBalancingV2TargetGroupTargetGroupAttribute =
   ElasticLoadBalancingV2TargetGroupTargetGroupAttribute
   { _elasticLoadBalancingV2TargetGroupTargetGroupAttributeKey :: Maybe (Val Text)
@@ -40,7 +40,7 @@ instance FromJSON ElasticLoadBalancingV2TargetGroupTargetGroupAttribute where
   parseJSON _ = mempty
 
 -- | Constructor for 'ElasticLoadBalancingV2TargetGroupTargetGroupAttribute'
--- | containing required fields as arguments.
+-- containing required fields as arguments.
 elasticLoadBalancingV2TargetGroupTargetGroupAttribute
   :: ElasticLoadBalancingV2TargetGroupTargetGroupAttribute
 elasticLoadBalancingV2TargetGroupTargetGroupAttribute  =

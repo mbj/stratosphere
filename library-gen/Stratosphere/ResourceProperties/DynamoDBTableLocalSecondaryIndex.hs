@@ -16,7 +16,7 @@ import Stratosphere.ResourceProperties.DynamoDBTableKeySchema
 import Stratosphere.ResourceProperties.DynamoDBTableProjection
 
 -- | Full data type definition for DynamoDBTableLocalSecondaryIndex. See
--- | 'dynamoDBTableLocalSecondaryIndex' for a more convenient constructor.
+-- 'dynamoDBTableLocalSecondaryIndex' for a more convenient constructor.
 data DynamoDBTableLocalSecondaryIndex =
   DynamoDBTableLocalSecondaryIndex
   { _dynamoDBTableLocalSecondaryIndexIndexName :: Val Text
@@ -42,7 +42,7 @@ instance FromJSON DynamoDBTableLocalSecondaryIndex where
   parseJSON _ = mempty
 
 -- | Constructor for 'DynamoDBTableLocalSecondaryIndex' containing required
--- | fields as arguments.
+-- fields as arguments.
 dynamoDBTableLocalSecondaryIndex
   :: Val Text -- ^ 'ddbtlsiIndexName'
   -> [DynamoDBTableKeySchema] -- ^ 'ddbtlsiKeySchema'

@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for IoTTopicRuleS3Action. See
--- | 'ioTTopicRuleS3Action' for a more convenient constructor.
+-- 'ioTTopicRuleS3Action' for a more convenient constructor.
 data IoTTopicRuleS3Action =
   IoTTopicRuleS3Action
   { _ioTTopicRuleS3ActionBucketName :: Val Text
@@ -41,7 +41,7 @@ instance FromJSON IoTTopicRuleS3Action where
   parseJSON _ = mempty
 
 -- | Constructor for 'IoTTopicRuleS3Action' containing required fields as
--- | arguments.
+-- arguments.
 ioTTopicRuleS3Action
   :: Val Text -- ^ 'ittrs3aBucketName'
   -> Val Text -- ^ 'ittrs3aKey'

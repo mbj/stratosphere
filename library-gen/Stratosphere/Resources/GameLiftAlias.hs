@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.GameLiftAliasRoutingStrategy
 
 -- | Full data type definition for GameLiftAlias. See 'gameLiftAlias' for a
--- | more convenient constructor.
+-- more convenient constructor.
 data GameLiftAlias =
   GameLiftAlias
   { _gameLiftAliasDescription :: Maybe (Val Text)

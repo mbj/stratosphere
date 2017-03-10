@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for EC2SpotFleetPrivateIpAddresses. See
--- | 'ec2SpotFleetPrivateIpAddresses' for a more convenient constructor.
+-- 'ec2SpotFleetPrivateIpAddresses' for a more convenient constructor.
 data EC2SpotFleetPrivateIpAddresses =
   EC2SpotFleetPrivateIpAddresses
   { _eC2SpotFleetPrivateIpAddressesPrimary :: Maybe (Val Bool')
@@ -38,7 +38,7 @@ instance FromJSON EC2SpotFleetPrivateIpAddresses where
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2SpotFleetPrivateIpAddresses' containing required
--- | fields as arguments.
+-- fields as arguments.
 ec2SpotFleetPrivateIpAddresses
   :: Val Text -- ^ 'ecsfpiaPrivateIpAddress'
   -> EC2SpotFleetPrivateIpAddresses

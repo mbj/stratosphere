@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for LogsSubscriptionFilter. See
--- | 'logsSubscriptionFilter' for a more convenient constructor.
+-- 'logsSubscriptionFilter' for a more convenient constructor.
 data LogsSubscriptionFilter =
   LogsSubscriptionFilter
   { _logsSubscriptionFilterDestinationArn :: Val Text
@@ -44,7 +44,7 @@ instance FromJSON LogsSubscriptionFilter where
   parseJSON _ = mempty
 
 -- | Constructor for 'LogsSubscriptionFilter' containing required fields as
--- | arguments.
+-- arguments.
 logsSubscriptionFilter
   :: Val Text -- ^ 'lsfDestinationArn'
   -> Val Text -- ^ 'lsfFilterPattern'

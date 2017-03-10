@@ -15,8 +15,8 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for CloudFrontDistributionCustomOriginConfig.
--- | See 'cloudFrontDistributionCustomOriginConfig' for a more convenient
--- | constructor.
+-- See 'cloudFrontDistributionCustomOriginConfig' for a more convenient
+-- constructor.
 data CloudFrontDistributionCustomOriginConfig =
   CloudFrontDistributionCustomOriginConfig
   { _cloudFrontDistributionCustomOriginConfigHTTPPort :: Maybe (Val Integer')
@@ -45,7 +45,7 @@ instance FromJSON CloudFrontDistributionCustomOriginConfig where
   parseJSON _ = mempty
 
 -- | Constructor for 'CloudFrontDistributionCustomOriginConfig' containing
--- | required fields as arguments.
+-- required fields as arguments.
 cloudFrontDistributionCustomOriginConfig
   :: Val Text -- ^ 'cfdcocOriginProtocolPolicy'
   -> CloudFrontDistributionCustomOriginConfig

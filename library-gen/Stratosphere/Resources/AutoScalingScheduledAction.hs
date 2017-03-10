@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for AutoScalingScheduledAction. See
--- | 'autoScalingScheduledAction' for a more convenient constructor.
+-- 'autoScalingScheduledAction' for a more convenient constructor.
 data AutoScalingScheduledAction =
   AutoScalingScheduledAction
   { _autoScalingScheduledActionAutoScalingGroupName :: Val Text
@@ -53,7 +53,7 @@ instance FromJSON AutoScalingScheduledAction where
   parseJSON _ = mempty
 
 -- | Constructor for 'AutoScalingScheduledAction' containing required fields
--- | as arguments.
+-- as arguments.
 autoScalingScheduledAction
   :: Val Text -- ^ 'assaAutoScalingGroupName'
   -> AutoScalingScheduledAction

@@ -17,7 +17,7 @@ import Stratosphere.ResourceProperties.EC2NetworkInterfacePrivateIpAddressSpecif
 import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for EC2NetworkInterface. See
--- | 'ec2NetworkInterface' for a more convenient constructor.
+-- 'ec2NetworkInterface' for a more convenient constructor.
 data EC2NetworkInterface =
   EC2NetworkInterface
   { _eC2NetworkInterfaceDescription :: Maybe (Val Text)
@@ -64,7 +64,7 @@ instance FromJSON EC2NetworkInterface where
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2NetworkInterface' containing required fields as
--- | arguments.
+-- arguments.
 ec2NetworkInterface
   :: Val Text -- ^ 'ecniSubnetId'
   -> EC2NetworkInterface

@@ -16,7 +16,7 @@ import Stratosphere.ResourceProperties.RDSOptionGroupOptionConfiguration
 import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for RDSOptionGroup. See 'rdsOptionGroup' for a
--- | more convenient constructor.
+-- more convenient constructor.
 data RDSOptionGroup =
   RDSOptionGroup
   { _rDSOptionGroupEngineName :: Val Text

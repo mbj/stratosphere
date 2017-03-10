@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.IoTTopicRuleTopicRulePayload
 
 -- | Full data type definition for IoTTopicRule. See 'ioTTopicRule' for a more
--- | convenient constructor.
+-- convenient constructor.
 data IoTTopicRule =
   IoTTopicRule
   { _ioTTopicRuleRuleName :: Maybe (Val Text)

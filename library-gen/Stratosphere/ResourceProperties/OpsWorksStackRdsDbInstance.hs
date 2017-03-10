@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for OpsWorksStackRdsDbInstance. See
--- | 'opsWorksStackRdsDbInstance' for a more convenient constructor.
+-- 'opsWorksStackRdsDbInstance' for a more convenient constructor.
 data OpsWorksStackRdsDbInstance =
   OpsWorksStackRdsDbInstance
   { _opsWorksStackRdsDbInstanceDbPassword :: Val Text
@@ -41,7 +41,7 @@ instance FromJSON OpsWorksStackRdsDbInstance where
   parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksStackRdsDbInstance' containing required fields
--- | as arguments.
+-- as arguments.
 opsWorksStackRdsDbInstance
   :: Val Text -- ^ 'owsrdiDbPassword'
   -> Val Text -- ^ 'owsrdiDbUser'

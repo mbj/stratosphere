@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for Route53HealthCheckHealthCheckConfig. See
--- | 'route53HealthCheckHealthCheckConfig' for a more convenient constructor.
+-- 'route53HealthCheckHealthCheckConfig' for a more convenient constructor.
 data Route53HealthCheckHealthCheckConfig =
   Route53HealthCheckHealthCheckConfig
   { _route53HealthCheckHealthCheckConfigFailureThreshold :: Maybe (Val Integer')
@@ -56,7 +56,7 @@ instance FromJSON Route53HealthCheckHealthCheckConfig where
   parseJSON _ = mempty
 
 -- | Constructor for 'Route53HealthCheckHealthCheckConfig' containing required
--- | fields as arguments.
+-- fields as arguments.
 route53HealthCheckHealthCheckConfig
   :: Val Text -- ^ 'rhchccType'
   -> Route53HealthCheckHealthCheckConfig

@@ -15,8 +15,8 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for KinesisFirehoseDeliveryStreamCopyCommand.
--- | See 'kinesisFirehoseDeliveryStreamCopyCommand' for a more convenient
--- | constructor.
+-- See 'kinesisFirehoseDeliveryStreamCopyCommand' for a more convenient
+-- constructor.
 data KinesisFirehoseDeliveryStreamCopyCommand =
   KinesisFirehoseDeliveryStreamCopyCommand
   { _kinesisFirehoseDeliveryStreamCopyCommandCopyOptions :: Maybe (Val Text)
@@ -42,7 +42,7 @@ instance FromJSON KinesisFirehoseDeliveryStreamCopyCommand where
   parseJSON _ = mempty
 
 -- | Constructor for 'KinesisFirehoseDeliveryStreamCopyCommand' containing
--- | required fields as arguments.
+-- required fields as arguments.
 kinesisFirehoseDeliveryStreamCopyCommand
   :: Val Text -- ^ 'kfdsccDataTableName'
   -> KinesisFirehoseDeliveryStreamCopyCommand

@@ -15,8 +15,8 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for CloudFrontDistributionCustomErrorResponse.
--- | See 'cloudFrontDistributionCustomErrorResponse' for a more convenient
--- | constructor.
+-- See 'cloudFrontDistributionCustomErrorResponse' for a more convenient
+-- constructor.
 data CloudFrontDistributionCustomErrorResponse =
   CloudFrontDistributionCustomErrorResponse
   { _cloudFrontDistributionCustomErrorResponseErrorCachingMinTTL :: Maybe (Val Integer')
@@ -45,7 +45,7 @@ instance FromJSON CloudFrontDistributionCustomErrorResponse where
   parseJSON _ = mempty
 
 -- | Constructor for 'CloudFrontDistributionCustomErrorResponse' containing
--- | required fields as arguments.
+-- required fields as arguments.
 cloudFrontDistributionCustomErrorResponse
   :: Val Integer' -- ^ 'cfdcerErrorCode'
   -> CloudFrontDistributionCustomErrorResponse

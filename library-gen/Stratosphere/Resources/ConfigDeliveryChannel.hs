@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.ConfigDeliveryChannelConfigSnapshotDeliveryProperties
 
 -- | Full data type definition for ConfigDeliveryChannel. See
--- | 'configDeliveryChannel' for a more convenient constructor.
+-- 'configDeliveryChannel' for a more convenient constructor.
 data ConfigDeliveryChannel =
   ConfigDeliveryChannel
   { _configDeliveryChannelConfigSnapshotDeliveryProperties :: Maybe ConfigDeliveryChannelConfigSnapshotDeliveryProperties
@@ -47,7 +47,7 @@ instance FromJSON ConfigDeliveryChannel where
   parseJSON _ = mempty
 
 -- | Constructor for 'ConfigDeliveryChannel' containing required fields as
--- | arguments.
+-- arguments.
 configDeliveryChannel
   :: Val Text -- ^ 'cdcS3BucketName'
   -> ConfigDeliveryChannel

@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for ECSTaskDefinitionKeyValuePair. See
--- | 'ecsTaskDefinitionKeyValuePair' for a more convenient constructor.
+-- 'ecsTaskDefinitionKeyValuePair' for a more convenient constructor.
 data ECSTaskDefinitionKeyValuePair =
   ECSTaskDefinitionKeyValuePair
   { _eCSTaskDefinitionKeyValuePairName :: Maybe (Val Text)
@@ -38,7 +38,7 @@ instance FromJSON ECSTaskDefinitionKeyValuePair where
   parseJSON _ = mempty
 
 -- | Constructor for 'ECSTaskDefinitionKeyValuePair' containing required
--- | fields as arguments.
+-- fields as arguments.
 ecsTaskDefinitionKeyValuePair
   :: ECSTaskDefinitionKeyValuePair
 ecsTaskDefinitionKeyValuePair  =

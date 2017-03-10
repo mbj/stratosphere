@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for RDSEventSubscription. See
--- | 'rdsEventSubscription' for a more convenient constructor.
+-- 'rdsEventSubscription' for a more convenient constructor.
 data RDSEventSubscription =
   RDSEventSubscription
   { _rDSEventSubscriptionEnabled :: Maybe (Val Bool')
@@ -47,7 +47,7 @@ instance FromJSON RDSEventSubscription where
   parseJSON _ = mempty
 
 -- | Constructor for 'RDSEventSubscription' containing required fields as
--- | arguments.
+-- arguments.
 rdsEventSubscription
   :: Val Text -- ^ 'rdsesSnsTopicArn'
   -> RDSEventSubscription

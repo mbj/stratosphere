@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for ECSTaskDefinitionMountPoint. See
--- | 'ecsTaskDefinitionMountPoint' for a more convenient constructor.
+-- 'ecsTaskDefinitionMountPoint' for a more convenient constructor.
 data ECSTaskDefinitionMountPoint =
   ECSTaskDefinitionMountPoint
   { _eCSTaskDefinitionMountPointContainerPath :: Maybe (Val Text)
@@ -41,7 +41,7 @@ instance FromJSON ECSTaskDefinitionMountPoint where
   parseJSON _ = mempty
 
 -- | Constructor for 'ECSTaskDefinitionMountPoint' containing required fields
--- | as arguments.
+-- as arguments.
 ecsTaskDefinitionMountPoint
   :: ECSTaskDefinitionMountPoint
 ecsTaskDefinitionMountPoint  =

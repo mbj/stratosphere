@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for LambdaPermission. See 'lambdaPermission'
--- | for a more convenient constructor.
+-- for a more convenient constructor.
 data LambdaPermission =
   LambdaPermission
   { _lambdaPermissionAction :: Val Text
@@ -47,7 +47,7 @@ instance FromJSON LambdaPermission where
   parseJSON _ = mempty
 
 -- | Constructor for 'LambdaPermission' containing required fields as
--- | arguments.
+-- arguments.
 lambdaPermission
   :: Val Text -- ^ 'lpAction'
   -> Val Text -- ^ 'lpFunctionName'

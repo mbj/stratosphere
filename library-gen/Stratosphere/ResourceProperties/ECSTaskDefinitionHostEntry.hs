@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for ECSTaskDefinitionHostEntry. See
--- | 'ecsTaskDefinitionHostEntry' for a more convenient constructor.
+-- 'ecsTaskDefinitionHostEntry' for a more convenient constructor.
 data ECSTaskDefinitionHostEntry =
   ECSTaskDefinitionHostEntry
   { _eCSTaskDefinitionHostEntryHostname :: Val Text
@@ -38,7 +38,7 @@ instance FromJSON ECSTaskDefinitionHostEntry where
   parseJSON _ = mempty
 
 -- | Constructor for 'ECSTaskDefinitionHostEntry' containing required fields
--- | as arguments.
+-- as arguments.
 ecsTaskDefinitionHostEntry
   :: Val Text -- ^ 'ecstdheHostname'
   -> Val Text -- ^ 'ecstdheIpAddress'

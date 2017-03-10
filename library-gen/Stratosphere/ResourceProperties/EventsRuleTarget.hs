@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for EventsRuleTarget. See 'eventsRuleTarget'
--- | for a more convenient constructor.
+-- for a more convenient constructor.
 data EventsRuleTarget =
   EventsRuleTarget
   { _eventsRuleTargetArn :: Val Text
@@ -44,7 +44,7 @@ instance FromJSON EventsRuleTarget where
   parseJSON _ = mempty
 
 -- | Constructor for 'EventsRuleTarget' containing required fields as
--- | arguments.
+-- arguments.
 eventsRuleTarget
   :: Val Text -- ^ 'ertArn'
   -> Val Text -- ^ 'ertId'

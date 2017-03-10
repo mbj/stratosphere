@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.DataPipelinePipelineField
 
 -- | Full data type definition for DataPipelinePipelinePipelineObject. See
--- | 'dataPipelinePipelinePipelineObject' for a more convenient constructor.
+-- 'dataPipelinePipelinePipelineObject' for a more convenient constructor.
 data DataPipelinePipelinePipelineObject =
   DataPipelinePipelinePipelineObject
   { _dataPipelinePipelinePipelineObjectFields :: [DataPipelinePipelineField]
@@ -41,7 +41,7 @@ instance FromJSON DataPipelinePipelinePipelineObject where
   parseJSON _ = mempty
 
 -- | Constructor for 'DataPipelinePipelinePipelineObject' containing required
--- | fields as arguments.
+-- fields as arguments.
 dataPipelinePipelinePipelineObject
   :: [DataPipelinePipelineField] -- ^ 'dpppioFields'
   -> Val Text -- ^ 'dpppioId'

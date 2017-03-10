@@ -15,8 +15,8 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for ElasticLoadBalancingLoadBalancerPolicies.
--- | See 'elasticLoadBalancingLoadBalancerPolicies' for a more convenient
--- | constructor.
+-- See 'elasticLoadBalancingLoadBalancerPolicies' for a more convenient
+-- constructor.
 data ElasticLoadBalancingLoadBalancerPolicies =
   ElasticLoadBalancingLoadBalancerPolicies
   { _elasticLoadBalancingLoadBalancerPoliciesAttributes :: [Object]
@@ -48,7 +48,7 @@ instance FromJSON ElasticLoadBalancingLoadBalancerPolicies where
   parseJSON _ = mempty
 
 -- | Constructor for 'ElasticLoadBalancingLoadBalancerPolicies' containing
--- | required fields as arguments.
+-- required fields as arguments.
 elasticLoadBalancingLoadBalancerPolicies
   :: [Object] -- ^ 'elblbpAttributes'
   -> Val Text -- ^ 'elblbpPolicyName'

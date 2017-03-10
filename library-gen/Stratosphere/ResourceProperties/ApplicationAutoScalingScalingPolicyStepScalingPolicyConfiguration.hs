@@ -15,9 +15,9 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.ApplicationAutoScalingScalingPolicyStepAdjustment
 
 -- | Full data type definition for
--- | ApplicationAutoScalingScalingPolicyStepScalingPolicyConfiguration. See
--- | 'applicationAutoScalingScalingPolicyStepScalingPolicyConfiguration' for a
--- | more convenient constructor.
+-- ApplicationAutoScalingScalingPolicyStepScalingPolicyConfiguration. See
+-- 'applicationAutoScalingScalingPolicyStepScalingPolicyConfiguration' for a
+-- more convenient constructor.
 data ApplicationAutoScalingScalingPolicyStepScalingPolicyConfiguration =
   ApplicationAutoScalingScalingPolicyStepScalingPolicyConfiguration
   { _applicationAutoScalingScalingPolicyStepScalingPolicyConfigurationAdjustmentType :: Maybe (Val Text)
@@ -49,8 +49,8 @@ instance FromJSON ApplicationAutoScalingScalingPolicyStepScalingPolicyConfigurat
   parseJSON _ = mempty
 
 -- | Constructor for
--- | 'ApplicationAutoScalingScalingPolicyStepScalingPolicyConfiguration'
--- | containing required fields as arguments.
+-- 'ApplicationAutoScalingScalingPolicyStepScalingPolicyConfiguration'
+-- containing required fields as arguments.
 applicationAutoScalingScalingPolicyStepScalingPolicyConfiguration
   :: ApplicationAutoScalingScalingPolicyStepScalingPolicyConfiguration
 applicationAutoScalingScalingPolicyStepScalingPolicyConfiguration  =

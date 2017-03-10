@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.CodePipelinePipelineEncryptionKey
 
 -- | Full data type definition for CodePipelinePipelineArtifactStore. See
--- | 'codePipelinePipelineArtifactStore' for a more convenient constructor.
+-- 'codePipelinePipelineArtifactStore' for a more convenient constructor.
 data CodePipelinePipelineArtifactStore =
   CodePipelinePipelineArtifactStore
   { _codePipelinePipelineArtifactStoreEncryptionKey :: Maybe CodePipelinePipelineEncryptionKey
@@ -41,7 +41,7 @@ instance FromJSON CodePipelinePipelineArtifactStore where
   parseJSON _ = mempty
 
 -- | Constructor for 'CodePipelinePipelineArtifactStore' containing required
--- | fields as arguments.
+-- fields as arguments.
 codePipelinePipelineArtifactStore
   :: Val Text -- ^ 'cppasLocation'
   -> Val Text -- ^ 'cppasType'

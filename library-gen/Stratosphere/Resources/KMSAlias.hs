@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for KMSAlias. See 'kmsAlias' for a more
--- | convenient constructor.
+-- convenient constructor.
 data KMSAlias =
   KMSAlias
   { _kMSAliasAliasName :: Val Text

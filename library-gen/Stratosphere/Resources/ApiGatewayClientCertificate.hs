@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for ApiGatewayClientCertificate. See
--- | 'apiGatewayClientCertificate' for a more convenient constructor.
+-- 'apiGatewayClientCertificate' for a more convenient constructor.
 data ApiGatewayClientCertificate =
   ApiGatewayClientCertificate
   { _apiGatewayClientCertificateDescription :: Maybe (Val Text)
@@ -35,7 +35,7 @@ instance FromJSON ApiGatewayClientCertificate where
   parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayClientCertificate' containing required fields
--- | as arguments.
+-- as arguments.
 apiGatewayClientCertificate
   :: ApiGatewayClientCertificate
 apiGatewayClientCertificate  =

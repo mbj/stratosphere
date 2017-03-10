@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for EC2RouteTable. See 'ec2RouteTable' for a
--- | more convenient constructor.
+-- more convenient constructor.
 data EC2RouteTable =
   EC2RouteTable
   { _eC2RouteTableTags :: Maybe [Tag]

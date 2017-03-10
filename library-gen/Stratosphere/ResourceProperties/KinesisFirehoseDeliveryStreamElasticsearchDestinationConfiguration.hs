@@ -19,9 +19,9 @@ import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamElasticsearc
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamS3DestinationConfiguration
 
 -- | Full data type definition for
--- | KinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguration. See
--- | 'kinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguration' for
--- | a more convenient constructor.
+-- KinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguration. See
+-- 'kinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguration' for
+-- a more convenient constructor.
 data KinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguration =
   KinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguration
   { _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationBufferingHints :: KinesisFirehoseDeliveryStreamElasticsearchBufferingHints
@@ -68,8 +68,8 @@ instance FromJSON KinesisFirehoseDeliveryStreamElasticsearchDestinationConfigura
   parseJSON _ = mempty
 
 -- | Constructor for
--- | 'KinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguration'
--- | containing required fields as arguments.
+-- 'KinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguration'
+-- containing required fields as arguments.
 kinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguration
   :: KinesisFirehoseDeliveryStreamElasticsearchBufferingHints -- ^ 'kfdsedcBufferingHints'
   -> Val Text -- ^ 'kfdsedcDomainARN'

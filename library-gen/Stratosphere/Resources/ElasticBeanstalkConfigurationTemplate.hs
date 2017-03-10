@@ -16,8 +16,8 @@ import Stratosphere.ResourceProperties.ElasticBeanstalkConfigurationTemplateConf
 import Stratosphere.ResourceProperties.ElasticBeanstalkConfigurationTemplateSourceConfiguration
 
 -- | Full data type definition for ElasticBeanstalkConfigurationTemplate. See
--- | 'elasticBeanstalkConfigurationTemplate' for a more convenient
--- | constructor.
+-- 'elasticBeanstalkConfigurationTemplate' for a more convenient
+-- constructor.
 data ElasticBeanstalkConfigurationTemplate =
   ElasticBeanstalkConfigurationTemplate
   { _elasticBeanstalkConfigurationTemplateApplicationName :: Val Text
@@ -52,7 +52,7 @@ instance FromJSON ElasticBeanstalkConfigurationTemplate where
   parseJSON _ = mempty
 
 -- | Constructor for 'ElasticBeanstalkConfigurationTemplate' containing
--- | required fields as arguments.
+-- required fields as arguments.
 elasticBeanstalkConfigurationTemplate
   :: Val Text -- ^ 'ebctApplicationName'
   -> ElasticBeanstalkConfigurationTemplate

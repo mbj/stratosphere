@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for RDSDBSecurityGroupIngress. See
--- | 'rdsdbSecurityGroupIngress' for a more convenient constructor.
+-- 'rdsdbSecurityGroupIngress' for a more convenient constructor.
 data RDSDBSecurityGroupIngress =
   RDSDBSecurityGroupIngress
   { _rDSDBSecurityGroupIngressCIDRIP :: Maybe (Val Text)
@@ -47,7 +47,7 @@ instance FromJSON RDSDBSecurityGroupIngress where
   parseJSON _ = mempty
 
 -- | Constructor for 'RDSDBSecurityGroupIngress' containing required fields as
--- | arguments.
+-- arguments.
 rdsdbSecurityGroupIngress
   :: Val Text -- ^ 'rdsdbsgiDBSecurityGroupName'
   -> RDSDBSecurityGroupIngress

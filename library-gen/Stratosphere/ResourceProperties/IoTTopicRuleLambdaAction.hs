@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for IoTTopicRuleLambdaAction. See
--- | 'ioTTopicRuleLambdaAction' for a more convenient constructor.
+-- 'ioTTopicRuleLambdaAction' for a more convenient constructor.
 data IoTTopicRuleLambdaAction =
   IoTTopicRuleLambdaAction
   { _ioTTopicRuleLambdaActionFunctionArn :: Val Text
@@ -35,7 +35,7 @@ instance FromJSON IoTTopicRuleLambdaAction where
   parseJSON _ = mempty
 
 -- | Constructor for 'IoTTopicRuleLambdaAction' containing required fields as
--- | arguments.
+-- arguments.
 ioTTopicRuleLambdaAction
   :: Val Text -- ^ 'ittrlaFunctionArn'
   -> IoTTopicRuleLambdaAction

@@ -15,9 +15,9 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for
--- | ElasticLoadBalancingLoadBalancerHealthCheck. See
--- | 'elasticLoadBalancingLoadBalancerHealthCheck' for a more convenient
--- | constructor.
+-- ElasticLoadBalancingLoadBalancerHealthCheck. See
+-- 'elasticLoadBalancingLoadBalancerHealthCheck' for a more convenient
+-- constructor.
 data ElasticLoadBalancingLoadBalancerHealthCheck =
   ElasticLoadBalancingLoadBalancerHealthCheck
   { _elasticLoadBalancingLoadBalancerHealthCheckHealthyThreshold :: Val Text
@@ -49,7 +49,7 @@ instance FromJSON ElasticLoadBalancingLoadBalancerHealthCheck where
   parseJSON _ = mempty
 
 -- | Constructor for 'ElasticLoadBalancingLoadBalancerHealthCheck' containing
--- | required fields as arguments.
+-- required fields as arguments.
 elasticLoadBalancingLoadBalancerHealthCheck
   :: Val Text -- ^ 'elblbhcHealthyThreshold'
   -> Val Text -- ^ 'elblbhcInterval'

@@ -16,7 +16,7 @@ import Stratosphere.ResourceProperties.EC2SpotFleetInstanceIpv6Address
 import Stratosphere.ResourceProperties.EC2SpotFleetPrivateIpAddresses
 
 -- | Full data type definition for EC2SpotFleetNetworkInterfaces. See
--- | 'ec2SpotFleetNetworkInterfaces' for a more convenient constructor.
+-- 'ec2SpotFleetNetworkInterfaces' for a more convenient constructor.
 data EC2SpotFleetNetworkInterfaces =
   EC2SpotFleetNetworkInterfaces
   { _eC2SpotFleetNetworkInterfacesAssociatePublicIpAddress :: Maybe (Val Bool')
@@ -66,7 +66,7 @@ instance FromJSON EC2SpotFleetNetworkInterfaces where
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2SpotFleetNetworkInterfaces' containing required
--- | fields as arguments.
+-- fields as arguments.
 ec2SpotFleetNetworkInterfaces
   :: Val Integer' -- ^ 'ecsfniDeviceIndex'
   -> EC2SpotFleetNetworkInterfaces

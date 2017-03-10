@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for CodePipelinePipelineActionTypeId. See
--- | 'codePipelinePipelineActionTypeId' for a more convenient constructor.
+-- 'codePipelinePipelineActionTypeId' for a more convenient constructor.
 data CodePipelinePipelineActionTypeId =
   CodePipelinePipelineActionTypeId
   { _codePipelinePipelineActionTypeIdCategory :: Val Text
@@ -44,7 +44,7 @@ instance FromJSON CodePipelinePipelineActionTypeId where
   parseJSON _ = mempty
 
 -- | Constructor for 'CodePipelinePipelineActionTypeId' containing required
--- | fields as arguments.
+-- fields as arguments.
 codePipelinePipelineActionTypeId
   :: Val Text -- ^ 'cppatiCategory'
   -> Val Text -- ^ 'cppatiOwner'

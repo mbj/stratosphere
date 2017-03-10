@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for CodeDeployApplication. See
--- | 'codeDeployApplication' for a more convenient constructor.
+-- 'codeDeployApplication' for a more convenient constructor.
 data CodeDeployApplication =
   CodeDeployApplication
   { _codeDeployApplicationApplicationName :: Maybe (Val Text)
@@ -35,7 +35,7 @@ instance FromJSON CodeDeployApplication where
   parseJSON _ = mempty
 
 -- | Constructor for 'CodeDeployApplication' containing required fields as
--- | arguments.
+-- arguments.
 codeDeployApplication
   :: CodeDeployApplication
 codeDeployApplication  =

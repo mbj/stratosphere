@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for S3BucketFilterRule. See
--- | 's3BucketFilterRule' for a more convenient constructor.
+-- 's3BucketFilterRule' for a more convenient constructor.
 data S3BucketFilterRule =
   S3BucketFilterRule
   { _s3BucketFilterRuleName :: Val Text
@@ -38,7 +38,7 @@ instance FromJSON S3BucketFilterRule where
   parseJSON _ = mempty
 
 -- | Constructor for 'S3BucketFilterRule' containing required fields as
--- | arguments.
+-- arguments.
 s3BucketFilterRule
   :: Val Text -- ^ 'sbfrName'
   -> Val Text -- ^ 'sbfrValue'

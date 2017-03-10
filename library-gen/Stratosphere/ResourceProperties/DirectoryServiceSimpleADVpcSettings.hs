@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for DirectoryServiceSimpleADVpcSettings. See
--- | 'directoryServiceSimpleADVpcSettings' for a more convenient constructor.
+-- 'directoryServiceSimpleADVpcSettings' for a more convenient constructor.
 data DirectoryServiceSimpleADVpcSettings =
   DirectoryServiceSimpleADVpcSettings
   { _directoryServiceSimpleADVpcSettingsSubnetIds :: [Val Text]
@@ -38,7 +38,7 @@ instance FromJSON DirectoryServiceSimpleADVpcSettings where
   parseJSON _ = mempty
 
 -- | Constructor for 'DirectoryServiceSimpleADVpcSettings' containing required
--- | fields as arguments.
+-- fields as arguments.
 directoryServiceSimpleADVpcSettings
   :: [Val Text] -- ^ 'dssadvsSubnetIds'
   -> Val Text -- ^ 'dssadvsVpcId'

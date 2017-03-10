@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for EC2SpotFleetSecurityGroups. See
--- | 'ec2SpotFleetSecurityGroups' for a more convenient constructor.
+-- 'ec2SpotFleetSecurityGroups' for a more convenient constructor.
 data EC2SpotFleetSecurityGroups =
   EC2SpotFleetSecurityGroups
   { _eC2SpotFleetSecurityGroupsGroupId :: Maybe (Val Text)
@@ -35,7 +35,7 @@ instance FromJSON EC2SpotFleetSecurityGroups where
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2SpotFleetSecurityGroups' containing required fields
--- | as arguments.
+-- as arguments.
 ec2SpotFleetSecurityGroups
   :: EC2SpotFleetSecurityGroups
 ec2SpotFleetSecurityGroups  =

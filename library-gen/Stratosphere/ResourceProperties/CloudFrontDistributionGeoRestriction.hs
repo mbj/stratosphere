@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for CloudFrontDistributionGeoRestriction. See
--- | 'cloudFrontDistributionGeoRestriction' for a more convenient constructor.
+-- 'cloudFrontDistributionGeoRestriction' for a more convenient constructor.
 data CloudFrontDistributionGeoRestriction =
   CloudFrontDistributionGeoRestriction
   { _cloudFrontDistributionGeoRestrictionLocations :: Maybe [Val Text]
@@ -38,7 +38,7 @@ instance FromJSON CloudFrontDistributionGeoRestriction where
   parseJSON _ = mempty
 
 -- | Constructor for 'CloudFrontDistributionGeoRestriction' containing
--- | required fields as arguments.
+-- required fields as arguments.
 cloudFrontDistributionGeoRestriction
   :: Val Text -- ^ 'cfdgrRestrictionType'
   -> CloudFrontDistributionGeoRestriction

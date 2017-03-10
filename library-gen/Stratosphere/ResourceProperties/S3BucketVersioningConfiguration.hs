@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for S3BucketVersioningConfiguration. See
--- | 's3BucketVersioningConfiguration' for a more convenient constructor.
+-- 's3BucketVersioningConfiguration' for a more convenient constructor.
 data S3BucketVersioningConfiguration =
   S3BucketVersioningConfiguration
   { _s3BucketVersioningConfigurationStatus :: Val Text
@@ -35,7 +35,7 @@ instance FromJSON S3BucketVersioningConfiguration where
   parseJSON _ = mempty
 
 -- | Constructor for 'S3BucketVersioningConfiguration' containing required
--- | fields as arguments.
+-- fields as arguments.
 s3BucketVersioningConfiguration
   :: Val Text -- ^ 'sbvcStatus'
   -> S3BucketVersioningConfiguration

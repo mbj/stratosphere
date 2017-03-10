@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for ElastiCacheParameterGroup. See
--- | 'elastiCacheParameterGroup' for a more convenient constructor.
+-- 'elastiCacheParameterGroup' for a more convenient constructor.
 data ElastiCacheParameterGroup =
   ElastiCacheParameterGroup
   { _elastiCacheParameterGroupCacheParameterGroupFamily :: Val Text
@@ -41,7 +41,7 @@ instance FromJSON ElastiCacheParameterGroup where
   parseJSON _ = mempty
 
 -- | Constructor for 'ElastiCacheParameterGroup' containing required fields as
--- | arguments.
+-- arguments.
 elastiCacheParameterGroup
   :: Val Text -- ^ 'ecpgCacheParameterGroupFamily'
   -> Val Text -- ^ 'ecpgDescription'

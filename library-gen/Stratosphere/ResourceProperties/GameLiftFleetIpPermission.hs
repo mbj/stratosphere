@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for GameLiftFleetIpPermission. See
--- | 'gameLiftFleetIpPermission' for a more convenient constructor.
+-- 'gameLiftFleetIpPermission' for a more convenient constructor.
 data GameLiftFleetIpPermission =
   GameLiftFleetIpPermission
   { _gameLiftFleetIpPermissionFromPort :: Val Integer'
@@ -44,7 +44,7 @@ instance FromJSON GameLiftFleetIpPermission where
   parseJSON _ = mempty
 
 -- | Constructor for 'GameLiftFleetIpPermission' containing required fields as
--- | arguments.
+-- arguments.
 gameLiftFleetIpPermission
   :: Val Integer' -- ^ 'glfipFromPort'
   -> Val Text -- ^ 'glfipIpRange'

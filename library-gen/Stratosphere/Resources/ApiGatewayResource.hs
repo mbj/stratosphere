@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for ApiGatewayResource. See
--- | 'apiGatewayResource' for a more convenient constructor.
+-- 'apiGatewayResource' for a more convenient constructor.
 data ApiGatewayResource =
   ApiGatewayResource
   { _apiGatewayResourceParentId :: Val Text
@@ -41,7 +41,7 @@ instance FromJSON ApiGatewayResource where
   parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayResource' containing required fields as
--- | arguments.
+-- arguments.
 apiGatewayResource
   :: Val Text -- ^ 'agrParentId'
   -> Val Text -- ^ 'agrPathPart'

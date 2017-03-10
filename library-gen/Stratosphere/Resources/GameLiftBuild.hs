@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.GameLiftBuildS3Location
 
 -- | Full data type definition for GameLiftBuild. See 'gameLiftBuild' for a
--- | more convenient constructor.
+-- more convenient constructor.
 data GameLiftBuild =
   GameLiftBuild
   { _gameLiftBuildName :: Maybe (Val Text)

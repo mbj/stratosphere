@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for LogsLogGroup. See 'logsLogGroup' for a more
--- | convenient constructor.
+-- convenient constructor.
 data LogsLogGroup =
   LogsLogGroup
   { _logsLogGroupLogGroupName :: Maybe (Val Text)

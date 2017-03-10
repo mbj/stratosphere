@@ -15,9 +15,9 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for
--- | ConfigDeliveryChannelConfigSnapshotDeliveryProperties. See
--- | 'configDeliveryChannelConfigSnapshotDeliveryProperties' for a more
--- | convenient constructor.
+-- ConfigDeliveryChannelConfigSnapshotDeliveryProperties. See
+-- 'configDeliveryChannelConfigSnapshotDeliveryProperties' for a more
+-- convenient constructor.
 data ConfigDeliveryChannelConfigSnapshotDeliveryProperties =
   ConfigDeliveryChannelConfigSnapshotDeliveryProperties
   { _configDeliveryChannelConfigSnapshotDeliveryPropertiesDeliveryFrequency :: Maybe (Val Text)
@@ -37,7 +37,7 @@ instance FromJSON ConfigDeliveryChannelConfigSnapshotDeliveryProperties where
   parseJSON _ = mempty
 
 -- | Constructor for 'ConfigDeliveryChannelConfigSnapshotDeliveryProperties'
--- | containing required fields as arguments.
+-- containing required fields as arguments.
 configDeliveryChannelConfigSnapshotDeliveryProperties
   :: ConfigDeliveryChannelConfigSnapshotDeliveryProperties
 configDeliveryChannelConfigSnapshotDeliveryProperties  =

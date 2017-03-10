@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for EC2InternetGateway. See
--- | 'ec2InternetGateway' for a more convenient constructor.
+-- 'ec2InternetGateway' for a more convenient constructor.
 data EC2InternetGateway =
   EC2InternetGateway
   { _eC2InternetGatewayTags :: Maybe [Tag]
@@ -35,7 +35,7 @@ instance FromJSON EC2InternetGateway where
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2InternetGateway' containing required fields as
--- | arguments.
+-- arguments.
 ec2InternetGateway
   :: EC2InternetGateway
 ec2InternetGateway  =

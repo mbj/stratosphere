@@ -15,8 +15,8 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for AutoScalingAutoScalingGroupTagProperty. See
--- | 'autoScalingAutoScalingGroupTagProperty' for a more convenient
--- | constructor.
+-- 'autoScalingAutoScalingGroupTagProperty' for a more convenient
+-- constructor.
 data AutoScalingAutoScalingGroupTagProperty =
   AutoScalingAutoScalingGroupTagProperty
   { _autoScalingAutoScalingGroupTagPropertyKey :: Val Text
@@ -42,7 +42,7 @@ instance FromJSON AutoScalingAutoScalingGroupTagProperty where
   parseJSON _ = mempty
 
 -- | Constructor for 'AutoScalingAutoScalingGroupTagProperty' containing
--- | required fields as arguments.
+-- required fields as arguments.
 autoScalingAutoScalingGroupTagProperty
   :: Val Text -- ^ 'asasgtpKey'
   -> Val Bool' -- ^ 'asasgtpPropagateAtLaunch'

@@ -16,7 +16,7 @@ import Stratosphere.ResourceProperties.S3BucketRedirectRule
 import Stratosphere.ResourceProperties.S3BucketRoutingRuleCondition
 
 -- | Full data type definition for S3BucketRoutingRule. See
--- | 's3BucketRoutingRule' for a more convenient constructor.
+-- 's3BucketRoutingRule' for a more convenient constructor.
 data S3BucketRoutingRule =
   S3BucketRoutingRule
   { _s3BucketRoutingRuleRedirectRule :: S3BucketRedirectRule
@@ -39,7 +39,7 @@ instance FromJSON S3BucketRoutingRule where
   parseJSON _ = mempty
 
 -- | Constructor for 'S3BucketRoutingRule' containing required fields as
--- | arguments.
+-- arguments.
 s3BucketRoutingRule
   :: S3BucketRedirectRule -- ^ 'sbrrRedirectRule'
   -> S3BucketRoutingRule

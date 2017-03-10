@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for IoTTopicRuleDynamoDBAction. See
--- | 'ioTTopicRuleDynamoDBAction' for a more convenient constructor.
+-- 'ioTTopicRuleDynamoDBAction' for a more convenient constructor.
 data IoTTopicRuleDynamoDBAction =
   IoTTopicRuleDynamoDBAction
   { _ioTTopicRuleDynamoDBActionHashKeyField :: Val Text
@@ -53,7 +53,7 @@ instance FromJSON IoTTopicRuleDynamoDBAction where
   parseJSON _ = mempty
 
 -- | Constructor for 'IoTTopicRuleDynamoDBAction' containing required fields
--- | as arguments.
+-- as arguments.
 ioTTopicRuleDynamoDBAction
   :: Val Text -- ^ 'ittrddbaHashKeyField'
   -> Val Text -- ^ 'ittrddbaHashKeyValue'

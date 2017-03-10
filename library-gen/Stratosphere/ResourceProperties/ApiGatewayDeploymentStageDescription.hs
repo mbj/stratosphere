@@ -16,7 +16,7 @@ import Stratosphere.Types
 import Stratosphere.ResourceProperties.ApiGatewayDeploymentMethodSetting
 
 -- | Full data type definition for ApiGatewayDeploymentStageDescription. See
--- | 'apiGatewayDeploymentStageDescription' for a more convenient constructor.
+-- 'apiGatewayDeploymentStageDescription' for a more convenient constructor.
 data ApiGatewayDeploymentStageDescription =
   ApiGatewayDeploymentStageDescription
   { _apiGatewayDeploymentStageDescriptionCacheClusterEnabled :: Maybe (Val Bool')
@@ -78,7 +78,7 @@ instance FromJSON ApiGatewayDeploymentStageDescription where
   parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayDeploymentStageDescription' containing
--- | required fields as arguments.
+-- required fields as arguments.
 apiGatewayDeploymentStageDescription
   :: ApiGatewayDeploymentStageDescription
 apiGatewayDeploymentStageDescription  =

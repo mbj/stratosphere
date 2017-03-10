@@ -15,9 +15,9 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for
--- | AutoScalingAutoScalingGroupMetricsCollection. See
--- | 'autoScalingAutoScalingGroupMetricsCollection' for a more convenient
--- | constructor.
+-- AutoScalingAutoScalingGroupMetricsCollection. See
+-- 'autoScalingAutoScalingGroupMetricsCollection' for a more convenient
+-- constructor.
 data AutoScalingAutoScalingGroupMetricsCollection =
   AutoScalingAutoScalingGroupMetricsCollection
   { _autoScalingAutoScalingGroupMetricsCollectionGranularity :: Val Text
@@ -40,7 +40,7 @@ instance FromJSON AutoScalingAutoScalingGroupMetricsCollection where
   parseJSON _ = mempty
 
 -- | Constructor for 'AutoScalingAutoScalingGroupMetricsCollection' containing
--- | required fields as arguments.
+-- required fields as arguments.
 autoScalingAutoScalingGroupMetricsCollection
   :: Val Text -- ^ 'asasgmcGranularity'
   -> AutoScalingAutoScalingGroupMetricsCollection

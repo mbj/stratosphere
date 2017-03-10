@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.WAFWebACLWafAction
 
 -- | Full data type definition for WAFWebACLActivatedRule. See
--- | 'wafWebACLActivatedRule' for a more convenient constructor.
+-- 'wafWebACLActivatedRule' for a more convenient constructor.
 data WAFWebACLActivatedRule =
   WAFWebACLActivatedRule
   { _wAFWebACLActivatedRuleAction :: WAFWebACLWafAction
@@ -41,7 +41,7 @@ instance FromJSON WAFWebACLActivatedRule where
   parseJSON _ = mempty
 
 -- | Constructor for 'WAFWebACLActivatedRule' containing required fields as
--- | arguments.
+-- arguments.
 wafWebACLActivatedRule
   :: WAFWebACLWafAction -- ^ 'wafwaclarAction'
   -> Val Integer' -- ^ 'wafwaclarPriority'

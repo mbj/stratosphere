@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for OpsWorksInstanceTimeBasedAutoScaling. See
--- | 'opsWorksInstanceTimeBasedAutoScaling' for a more convenient constructor.
+-- 'opsWorksInstanceTimeBasedAutoScaling' for a more convenient constructor.
 data OpsWorksInstanceTimeBasedAutoScaling =
   OpsWorksInstanceTimeBasedAutoScaling
   { _opsWorksInstanceTimeBasedAutoScalingFriday :: Maybe Object
@@ -53,7 +53,7 @@ instance FromJSON OpsWorksInstanceTimeBasedAutoScaling where
   parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksInstanceTimeBasedAutoScaling' containing
--- | required fields as arguments.
+-- required fields as arguments.
 opsWorksInstanceTimeBasedAutoScaling
   :: OpsWorksInstanceTimeBasedAutoScaling
 opsWorksInstanceTimeBasedAutoScaling  =

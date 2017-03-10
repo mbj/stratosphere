@@ -15,8 +15,8 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for CloudFrontDistributionViewerCertificate.
--- | See 'cloudFrontDistributionViewerCertificate' for a more convenient
--- | constructor.
+-- See 'cloudFrontDistributionViewerCertificate' for a more convenient
+-- constructor.
 data CloudFrontDistributionViewerCertificate =
   CloudFrontDistributionViewerCertificate
   { _cloudFrontDistributionViewerCertificateAcmCertificateArn :: Maybe (Val Text)
@@ -48,7 +48,7 @@ instance FromJSON CloudFrontDistributionViewerCertificate where
   parseJSON _ = mempty
 
 -- | Constructor for 'CloudFrontDistributionViewerCertificate' containing
--- | required fields as arguments.
+-- required fields as arguments.
 cloudFrontDistributionViewerCertificate
   :: CloudFrontDistributionViewerCertificate
 cloudFrontDistributionViewerCertificate  =

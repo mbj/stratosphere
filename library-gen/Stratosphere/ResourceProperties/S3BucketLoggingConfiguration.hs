@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for S3BucketLoggingConfiguration. See
--- | 's3BucketLoggingConfiguration' for a more convenient constructor.
+-- 's3BucketLoggingConfiguration' for a more convenient constructor.
 data S3BucketLoggingConfiguration =
   S3BucketLoggingConfiguration
   { _s3BucketLoggingConfigurationDestinationBucketName :: Maybe (Val Text)
@@ -38,7 +38,7 @@ instance FromJSON S3BucketLoggingConfiguration where
   parseJSON _ = mempty
 
 -- | Constructor for 'S3BucketLoggingConfiguration' containing required fields
--- | as arguments.
+-- as arguments.
 s3BucketLoggingConfiguration
   :: S3BucketLoggingConfiguration
 s3BucketLoggingConfiguration  =

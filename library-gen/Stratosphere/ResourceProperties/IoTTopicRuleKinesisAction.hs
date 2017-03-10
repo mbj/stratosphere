@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for IoTTopicRuleKinesisAction. See
--- | 'ioTTopicRuleKinesisAction' for a more convenient constructor.
+-- 'ioTTopicRuleKinesisAction' for a more convenient constructor.
 data IoTTopicRuleKinesisAction =
   IoTTopicRuleKinesisAction
   { _ioTTopicRuleKinesisActionPartitionKey :: Maybe (Val Text)
@@ -41,7 +41,7 @@ instance FromJSON IoTTopicRuleKinesisAction where
   parseJSON _ = mempty
 
 -- | Constructor for 'IoTTopicRuleKinesisAction' containing required fields as
--- | arguments.
+-- arguments.
 ioTTopicRuleKinesisAction
   :: Val Text -- ^ 'ittrkaRoleArn'
   -> Val Text -- ^ 'ittrkaStreamName'

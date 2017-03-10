@@ -15,9 +15,9 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for
--- | ElasticBeanstalkConfigurationTemplateConfigurationOptionSetting. See
--- | 'elasticBeanstalkConfigurationTemplateConfigurationOptionSetting' for a
--- | more convenient constructor.
+-- ElasticBeanstalkConfigurationTemplateConfigurationOptionSetting. See
+-- 'elasticBeanstalkConfigurationTemplateConfigurationOptionSetting' for a
+-- more convenient constructor.
 data ElasticBeanstalkConfigurationTemplateConfigurationOptionSetting =
   ElasticBeanstalkConfigurationTemplateConfigurationOptionSetting
   { _elasticBeanstalkConfigurationTemplateConfigurationOptionSettingNamespace :: Val Text
@@ -43,8 +43,8 @@ instance FromJSON ElasticBeanstalkConfigurationTemplateConfigurationOptionSettin
   parseJSON _ = mempty
 
 -- | Constructor for
--- | 'ElasticBeanstalkConfigurationTemplateConfigurationOptionSetting'
--- | containing required fields as arguments.
+-- 'ElasticBeanstalkConfigurationTemplateConfigurationOptionSetting'
+-- containing required fields as arguments.
 elasticBeanstalkConfigurationTemplateConfigurationOptionSetting
   :: Val Text -- ^ 'ebctcosNamespace'
   -> Val Text -- ^ 'ebctcosOptionName'

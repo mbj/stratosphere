@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for SSMAssociationParameterValues. See
--- | 'ssmAssociationParameterValues' for a more convenient constructor.
+-- 'ssmAssociationParameterValues' for a more convenient constructor.
 data SSMAssociationParameterValues =
   SSMAssociationParameterValues
   { _sSMAssociationParameterValuesParameterValues :: [Val Text]
@@ -35,7 +35,7 @@ instance FromJSON SSMAssociationParameterValues where
   parseJSON _ = mempty
 
 -- | Constructor for 'SSMAssociationParameterValues' containing required
--- | fields as arguments.
+-- fields as arguments.
 ssmAssociationParameterValues
   :: [Val Text] -- ^ 'ssmapvParameterValues'
   -> SSMAssociationParameterValues

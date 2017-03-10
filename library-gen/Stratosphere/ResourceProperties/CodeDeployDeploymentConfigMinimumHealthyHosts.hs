@@ -15,9 +15,9 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for
--- | CodeDeployDeploymentConfigMinimumHealthyHosts. See
--- | 'codeDeployDeploymentConfigMinimumHealthyHosts' for a more convenient
--- | constructor.
+-- CodeDeployDeploymentConfigMinimumHealthyHosts. See
+-- 'codeDeployDeploymentConfigMinimumHealthyHosts' for a more convenient
+-- constructor.
 data CodeDeployDeploymentConfigMinimumHealthyHosts =
   CodeDeployDeploymentConfigMinimumHealthyHosts
   { _codeDeployDeploymentConfigMinimumHealthyHostsType :: Maybe (Val Text)
@@ -40,7 +40,7 @@ instance FromJSON CodeDeployDeploymentConfigMinimumHealthyHosts where
   parseJSON _ = mempty
 
 -- | Constructor for 'CodeDeployDeploymentConfigMinimumHealthyHosts'
--- | containing required fields as arguments.
+-- containing required fields as arguments.
 codeDeployDeploymentConfigMinimumHealthyHosts
   :: CodeDeployDeploymentConfigMinimumHealthyHosts
 codeDeployDeploymentConfigMinimumHealthyHosts  =

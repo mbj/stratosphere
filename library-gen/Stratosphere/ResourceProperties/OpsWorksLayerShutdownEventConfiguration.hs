@@ -15,8 +15,8 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for OpsWorksLayerShutdownEventConfiguration.
--- | See 'opsWorksLayerShutdownEventConfiguration' for a more convenient
--- | constructor.
+-- See 'opsWorksLayerShutdownEventConfiguration' for a more convenient
+-- constructor.
 data OpsWorksLayerShutdownEventConfiguration =
   OpsWorksLayerShutdownEventConfiguration
   { _opsWorksLayerShutdownEventConfigurationDelayUntilElbConnectionsDrained :: Maybe (Val Bool')
@@ -39,7 +39,7 @@ instance FromJSON OpsWorksLayerShutdownEventConfiguration where
   parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksLayerShutdownEventConfiguration' containing
--- | required fields as arguments.
+-- required fields as arguments.
 opsWorksLayerShutdownEventConfiguration
   :: OpsWorksLayerShutdownEventConfiguration
 opsWorksLayerShutdownEventConfiguration  =

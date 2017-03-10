@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.EC2SpotFleetEbs
 
 -- | Full data type definition for EC2SpotFleetBlockDeviceMappings. See
--- | 'ec2SpotFleetBlockDeviceMappings' for a more convenient constructor.
+-- 'ec2SpotFleetBlockDeviceMappings' for a more convenient constructor.
 data EC2SpotFleetBlockDeviceMappings =
   EC2SpotFleetBlockDeviceMappings
   { _eC2SpotFleetBlockDeviceMappingsDeviceName :: Val Text
@@ -44,7 +44,7 @@ instance FromJSON EC2SpotFleetBlockDeviceMappings where
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2SpotFleetBlockDeviceMappings' containing required
--- | fields as arguments.
+-- fields as arguments.
 ec2SpotFleetBlockDeviceMappings
   :: Val Text -- ^ 'ecsfbdmDeviceName'
   -> EC2SpotFleetBlockDeviceMappings

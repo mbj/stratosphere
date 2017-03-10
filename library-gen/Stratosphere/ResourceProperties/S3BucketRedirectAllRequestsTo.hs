@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for S3BucketRedirectAllRequestsTo. See
--- | 's3BucketRedirectAllRequestsTo' for a more convenient constructor.
+-- 's3BucketRedirectAllRequestsTo' for a more convenient constructor.
 data S3BucketRedirectAllRequestsTo =
   S3BucketRedirectAllRequestsTo
   { _s3BucketRedirectAllRequestsToHostName :: Val Text
@@ -38,7 +38,7 @@ instance FromJSON S3BucketRedirectAllRequestsTo where
   parseJSON _ = mempty
 
 -- | Constructor for 'S3BucketRedirectAllRequestsTo' containing required
--- | fields as arguments.
+-- fields as arguments.
 s3BucketRedirectAllRequestsTo
   :: Val Text -- ^ 'sbrartHostName'
   -> S3BucketRedirectAllRequestsTo

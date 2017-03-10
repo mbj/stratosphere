@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for AutoScalingLifecycleHook. See
--- | 'autoScalingLifecycleHook' for a more convenient constructor.
+-- 'autoScalingLifecycleHook' for a more convenient constructor.
 data AutoScalingLifecycleHook =
   AutoScalingLifecycleHook
   { _autoScalingLifecycleHookAutoScalingGroupName :: Val Text
@@ -53,7 +53,7 @@ instance FromJSON AutoScalingLifecycleHook where
   parseJSON _ = mempty
 
 -- | Constructor for 'AutoScalingLifecycleHook' containing required fields as
--- | arguments.
+-- arguments.
 autoScalingLifecycleHook
   :: Val Text -- ^ 'aslhAutoScalingGroupName'
   -> Val Text -- ^ 'aslhLifecycleTransition'

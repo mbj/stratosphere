@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for EC2VPCGatewayAttachment. See
--- | 'ec2VPCGatewayAttachment' for a more convenient constructor.
+-- 'ec2VPCGatewayAttachment' for a more convenient constructor.
 data EC2VPCGatewayAttachment =
   EC2VPCGatewayAttachment
   { _eC2VPCGatewayAttachmentInternetGatewayId :: Maybe (Val Text)
@@ -41,7 +41,7 @@ instance FromJSON EC2VPCGatewayAttachment where
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2VPCGatewayAttachment' containing required fields as
--- | arguments.
+-- arguments.
 ec2VPCGatewayAttachment
   :: Val Text -- ^ 'ecvpcgaVpcId'
   -> EC2VPCGatewayAttachment

@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for ECSServiceDeploymentConfiguration. See
--- | 'ecsServiceDeploymentConfiguration' for a more convenient constructor.
+-- 'ecsServiceDeploymentConfiguration' for a more convenient constructor.
 data ECSServiceDeploymentConfiguration =
   ECSServiceDeploymentConfiguration
   { _eCSServiceDeploymentConfigurationMaximumPercent :: Maybe (Val Integer')
@@ -38,7 +38,7 @@ instance FromJSON ECSServiceDeploymentConfiguration where
   parseJSON _ = mempty
 
 -- | Constructor for 'ECSServiceDeploymentConfiguration' containing required
--- | fields as arguments.
+-- fields as arguments.
 ecsServiceDeploymentConfiguration
   :: ECSServiceDeploymentConfiguration
 ecsServiceDeploymentConfiguration  =

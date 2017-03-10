@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.CodeBuildProjectEnvironmentVariable
 
 -- | Full data type definition for CodeBuildProjectEnvironment. See
--- | 'codeBuildProjectEnvironment' for a more convenient constructor.
+-- 'codeBuildProjectEnvironment' for a more convenient constructor.
 data CodeBuildProjectEnvironment =
   CodeBuildProjectEnvironment
   { _codeBuildProjectEnvironmentComputeType :: Maybe (Val Text)
@@ -44,7 +44,7 @@ instance FromJSON CodeBuildProjectEnvironment where
   parseJSON _ = mempty
 
 -- | Constructor for 'CodeBuildProjectEnvironment' containing required fields
--- | as arguments.
+-- as arguments.
 codeBuildProjectEnvironment
   :: CodeBuildProjectEnvironment
 codeBuildProjectEnvironment  =

@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for LambdaFunctionCode. See
--- | 'lambdaFunctionCode' for a more convenient constructor.
+-- 'lambdaFunctionCode' for a more convenient constructor.
 data LambdaFunctionCode =
   LambdaFunctionCode
   { _lambdaFunctionCodeS3Bucket :: Maybe (Val Text)
@@ -44,7 +44,7 @@ instance FromJSON LambdaFunctionCode where
   parseJSON _ = mempty
 
 -- | Constructor for 'LambdaFunctionCode' containing required fields as
--- | arguments.
+-- arguments.
 lambdaFunctionCode
   :: LambdaFunctionCode
 lambdaFunctionCode  =

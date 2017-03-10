@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.GameLiftFleetIpPermission
 
 -- | Full data type definition for GameLiftFleet. See 'gameLiftFleet' for a
--- | more convenient constructor.
+-- more convenient constructor.
 data GameLiftFleet =
   GameLiftFleet
   { _gameLiftFleetBuildId :: Val Text

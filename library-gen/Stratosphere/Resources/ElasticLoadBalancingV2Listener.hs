@@ -16,7 +16,7 @@ import Stratosphere.ResourceProperties.ElasticLoadBalancingV2ListenerCertificate
 import Stratosphere.ResourceProperties.ElasticLoadBalancingV2ListenerAction
 
 -- | Full data type definition for ElasticLoadBalancingV2Listener. See
--- | 'elasticLoadBalancingV2Listener' for a more convenient constructor.
+-- 'elasticLoadBalancingV2Listener' for a more convenient constructor.
 data ElasticLoadBalancingV2Listener =
   ElasticLoadBalancingV2Listener
   { _elasticLoadBalancingV2ListenerCertificates :: Maybe [ElasticLoadBalancingV2ListenerCertificate]
@@ -51,7 +51,7 @@ instance FromJSON ElasticLoadBalancingV2Listener where
   parseJSON _ = mempty
 
 -- | Constructor for 'ElasticLoadBalancingV2Listener' containing required
--- | fields as arguments.
+-- fields as arguments.
 elasticLoadBalancingV2Listener
   :: [ElasticLoadBalancingV2ListenerAction] -- ^ 'elbvlDefaultActions'
   -> Val Text -- ^ 'elbvlLoadBalancerArn'

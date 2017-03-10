@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for ECSServiceLoadBalancer. See
--- | 'ecsServiceLoadBalancer' for a more convenient constructor.
+-- 'ecsServiceLoadBalancer' for a more convenient constructor.
 data ECSServiceLoadBalancer =
   ECSServiceLoadBalancer
   { _eCSServiceLoadBalancerContainerName :: Maybe (Val Text)
@@ -44,7 +44,7 @@ instance FromJSON ECSServiceLoadBalancer where
   parseJSON _ = mempty
 
 -- | Constructor for 'ECSServiceLoadBalancer' containing required fields as
--- | arguments.
+-- arguments.
 ecsServiceLoadBalancer
   :: Val Integer' -- ^ 'ecsslbContainerPort'
   -> ECSServiceLoadBalancer

@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for IAMManagedPolicy. See 'iamManagedPolicy'
--- | for a more convenient constructor.
+-- for a more convenient constructor.
 data IAMManagedPolicy =
   IAMManagedPolicy
   { _iAMManagedPolicyDescription :: Maybe (Val Text)
@@ -50,7 +50,7 @@ instance FromJSON IAMManagedPolicy where
   parseJSON _ = mempty
 
 -- | Constructor for 'IAMManagedPolicy' containing required fields as
--- | arguments.
+-- arguments.
 iamManagedPolicy
   :: IAMManagedPolicy
 iamManagedPolicy  =

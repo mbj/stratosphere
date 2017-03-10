@@ -17,7 +17,7 @@ import Stratosphere.ResourceProperties.DynamoDBTableProjection
 import Stratosphere.ResourceProperties.DynamoDBTableProvisionedThroughput
 
 -- | Full data type definition for DynamoDBTableGlobalSecondaryIndex. See
--- | 'dynamoDBTableGlobalSecondaryIndex' for a more convenient constructor.
+-- 'dynamoDBTableGlobalSecondaryIndex' for a more convenient constructor.
 data DynamoDBTableGlobalSecondaryIndex =
   DynamoDBTableGlobalSecondaryIndex
   { _dynamoDBTableGlobalSecondaryIndexIndexName :: Val Text
@@ -46,7 +46,7 @@ instance FromJSON DynamoDBTableGlobalSecondaryIndex where
   parseJSON _ = mempty
 
 -- | Constructor for 'DynamoDBTableGlobalSecondaryIndex' containing required
--- | fields as arguments.
+-- fields as arguments.
 dynamoDBTableGlobalSecondaryIndex
   :: Val Text -- ^ 'ddbtgsiIndexName'
   -> [DynamoDBTableKeySchema] -- ^ 'ddbtgsiKeySchema'

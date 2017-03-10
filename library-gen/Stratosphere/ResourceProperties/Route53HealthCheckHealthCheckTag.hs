@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for Route53HealthCheckHealthCheckTag. See
--- | 'route53HealthCheckHealthCheckTag' for a more convenient constructor.
+-- 'route53HealthCheckHealthCheckTag' for a more convenient constructor.
 data Route53HealthCheckHealthCheckTag =
   Route53HealthCheckHealthCheckTag
   { _route53HealthCheckHealthCheckTagKey :: Val Text
@@ -38,7 +38,7 @@ instance FromJSON Route53HealthCheckHealthCheckTag where
   parseJSON _ = mempty
 
 -- | Constructor for 'Route53HealthCheckHealthCheckTag' containing required
--- | fields as arguments.
+-- fields as arguments.
 route53HealthCheckHealthCheckTag
   :: Val Text -- ^ 'rhchctKey'
   -> Val Text -- ^ 'rhchctValue'

@@ -15,9 +15,9 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for
--- | CodePipelineCustomActionTypeConfigurationProperties. See
--- | 'codePipelineCustomActionTypeConfigurationProperties' for a more
--- | convenient constructor.
+-- CodePipelineCustomActionTypeConfigurationProperties. See
+-- 'codePipelineCustomActionTypeConfigurationProperties' for a more
+-- convenient constructor.
 data CodePipelineCustomActionTypeConfigurationProperties =
   CodePipelineCustomActionTypeConfigurationProperties
   { _codePipelineCustomActionTypeConfigurationPropertiesDescription :: Maybe (Val Text)
@@ -55,7 +55,7 @@ instance FromJSON CodePipelineCustomActionTypeConfigurationProperties where
   parseJSON _ = mempty
 
 -- | Constructor for 'CodePipelineCustomActionTypeConfigurationProperties'
--- | containing required fields as arguments.
+-- containing required fields as arguments.
 codePipelineCustomActionTypeConfigurationProperties
   :: Val Bool' -- ^ 'cpcatcpKey'
   -> Val Text -- ^ 'cpcatcpName'

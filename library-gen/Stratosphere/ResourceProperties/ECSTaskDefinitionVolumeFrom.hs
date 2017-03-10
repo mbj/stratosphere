@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for ECSTaskDefinitionVolumeFrom. See
--- | 'ecsTaskDefinitionVolumeFrom' for a more convenient constructor.
+-- 'ecsTaskDefinitionVolumeFrom' for a more convenient constructor.
 data ECSTaskDefinitionVolumeFrom =
   ECSTaskDefinitionVolumeFrom
   { _eCSTaskDefinitionVolumeFromReadOnly :: Maybe (Val Bool')
@@ -38,7 +38,7 @@ instance FromJSON ECSTaskDefinitionVolumeFrom where
   parseJSON _ = mempty
 
 -- | Constructor for 'ECSTaskDefinitionVolumeFrom' containing required fields
--- | as arguments.
+-- as arguments.
 ecsTaskDefinitionVolumeFrom
   :: ECSTaskDefinitionVolumeFrom
 ecsTaskDefinitionVolumeFrom  =

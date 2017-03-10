@@ -16,7 +16,7 @@ import Stratosphere.ResourceProperties.Route53RecordSetAliasTarget
 import Stratosphere.ResourceProperties.Route53RecordSetGeoLocation
 
 -- | Full data type definition for Route53RecordSet. See 'route53RecordSet'
--- | for a more convenient constructor.
+-- for a more convenient constructor.
 data Route53RecordSet =
   Route53RecordSet
   { _route53RecordSetAliasTarget :: Maybe Route53RecordSetAliasTarget
@@ -75,7 +75,7 @@ instance FromJSON Route53RecordSet where
   parseJSON _ = mempty
 
 -- | Constructor for 'Route53RecordSet' containing required fields as
--- | arguments.
+-- arguments.
 route53RecordSet
   :: Val Text -- ^ 'rrsName'
   -> Val Text -- ^ 'rrsType'

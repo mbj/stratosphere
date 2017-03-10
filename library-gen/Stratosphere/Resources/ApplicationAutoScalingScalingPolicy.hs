@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.ApplicationAutoScalingScalingPolicyStepScalingPolicyConfiguration
 
 -- | Full data type definition for ApplicationAutoScalingScalingPolicy. See
--- | 'applicationAutoScalingScalingPolicy' for a more convenient constructor.
+-- 'applicationAutoScalingScalingPolicy' for a more convenient constructor.
 data ApplicationAutoScalingScalingPolicy =
   ApplicationAutoScalingScalingPolicy
   { _applicationAutoScalingScalingPolicyPolicyName :: Val Text
@@ -53,7 +53,7 @@ instance FromJSON ApplicationAutoScalingScalingPolicy where
   parseJSON _ = mempty
 
 -- | Constructor for 'ApplicationAutoScalingScalingPolicy' containing required
--- | fields as arguments.
+-- fields as arguments.
 applicationAutoScalingScalingPolicy
   :: Val Text -- ^ 'aasspPolicyName'
   -> Val Text -- ^ 'aasspPolicyType'

@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for OpsWorksLayerVolumeConfiguration. See
--- | 'opsWorksLayerVolumeConfiguration' for a more convenient constructor.
+-- 'opsWorksLayerVolumeConfiguration' for a more convenient constructor.
 data OpsWorksLayerVolumeConfiguration =
   OpsWorksLayerVolumeConfiguration
   { _opsWorksLayerVolumeConfigurationIops :: Maybe (Val Integer')
@@ -50,7 +50,7 @@ instance FromJSON OpsWorksLayerVolumeConfiguration where
   parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksLayerVolumeConfiguration' containing required
--- | fields as arguments.
+-- fields as arguments.
 opsWorksLayerVolumeConfiguration
   :: OpsWorksLayerVolumeConfiguration
 opsWorksLayerVolumeConfiguration  =

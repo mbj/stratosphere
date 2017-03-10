@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for EC2VPNConnectionRoute. See
--- | 'ec2VPNConnectionRoute' for a more convenient constructor.
+-- 'ec2VPNConnectionRoute' for a more convenient constructor.
 data EC2VPNConnectionRoute =
   EC2VPNConnectionRoute
   { _eC2VPNConnectionRouteDestinationCidrBlock :: Val Text
@@ -38,7 +38,7 @@ instance FromJSON EC2VPNConnectionRoute where
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2VPNConnectionRoute' containing required fields as
--- | arguments.
+-- arguments.
 ec2VPNConnectionRoute
   :: Val Text -- ^ 'ecvpncrDestinationCidrBlock'
   -> Val Text -- ^ 'ecvpncrVpnConnectionId'

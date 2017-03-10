@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.Types
 
 -- | Full data type definition for DynamoDBTableStreamSpecification. See
--- | 'dynamoDBTableStreamSpecification' for a more convenient constructor.
+-- 'dynamoDBTableStreamSpecification' for a more convenient constructor.
 data DynamoDBTableStreamSpecification =
   DynamoDBTableStreamSpecification
   { _dynamoDBTableStreamSpecificationStreamViewType :: Val StreamViewType
@@ -35,7 +35,7 @@ instance FromJSON DynamoDBTableStreamSpecification where
   parseJSON _ = mempty
 
 -- | Constructor for 'DynamoDBTableStreamSpecification' containing required
--- | fields as arguments.
+-- fields as arguments.
 dynamoDBTableStreamSpecification
   :: Val StreamViewType -- ^ 'ddbtssStreamViewType'
   -> DynamoDBTableStreamSpecification

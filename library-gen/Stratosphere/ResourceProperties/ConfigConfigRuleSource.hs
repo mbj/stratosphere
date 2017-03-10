@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.ConfigConfigRuleSourceDetail
 
 -- | Full data type definition for ConfigConfigRuleSource. See
--- | 'configConfigRuleSource' for a more convenient constructor.
+-- 'configConfigRuleSource' for a more convenient constructor.
 data ConfigConfigRuleSource =
   ConfigConfigRuleSource
   { _configConfigRuleSourceOwner :: Val Text
@@ -41,7 +41,7 @@ instance FromJSON ConfigConfigRuleSource where
   parseJSON _ = mempty
 
 -- | Constructor for 'ConfigConfigRuleSource' containing required fields as
--- | arguments.
+-- arguments.
 configConfigRuleSource
   :: Val Text -- ^ 'ccrsOwner'
   -> Val Text -- ^ 'ccrsSourceIdentifier'

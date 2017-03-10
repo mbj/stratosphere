@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.Types
 
 -- | Full data type definition for ApiGatewayAuthorizer. See
--- | 'apiGatewayAuthorizer' for a more convenient constructor.
+-- 'apiGatewayAuthorizer' for a more convenient constructor.
 data ApiGatewayAuthorizer =
   ApiGatewayAuthorizer
   { _apiGatewayAuthorizerAuthorizerCredentials :: Maybe (Val Text)
@@ -59,7 +59,7 @@ instance FromJSON ApiGatewayAuthorizer where
   parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayAuthorizer' containing required fields as
--- | arguments.
+-- arguments.
 apiGatewayAuthorizer
   :: ApiGatewayAuthorizer
 apiGatewayAuthorizer  =

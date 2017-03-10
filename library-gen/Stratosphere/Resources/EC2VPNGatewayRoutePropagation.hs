@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for EC2VPNGatewayRoutePropagation. See
--- | 'ec2VPNGatewayRoutePropagation' for a more convenient constructor.
+-- 'ec2VPNGatewayRoutePropagation' for a more convenient constructor.
 data EC2VPNGatewayRoutePropagation =
   EC2VPNGatewayRoutePropagation
   { _eC2VPNGatewayRoutePropagationRouteTableIds :: [Val Text]
@@ -38,7 +38,7 @@ instance FromJSON EC2VPNGatewayRoutePropagation where
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2VPNGatewayRoutePropagation' containing required
--- | fields as arguments.
+-- fields as arguments.
 ec2VPNGatewayRoutePropagation
   :: [Val Text] -- ^ 'ecvpngrpRouteTableIds'
   -> Val Text -- ^ 'ecvpngrpVpnGatewayId'

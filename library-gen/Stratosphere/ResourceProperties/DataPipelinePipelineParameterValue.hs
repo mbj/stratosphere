@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for DataPipelinePipelineParameterValue. See
--- | 'dataPipelinePipelineParameterValue' for a more convenient constructor.
+-- 'dataPipelinePipelineParameterValue' for a more convenient constructor.
 data DataPipelinePipelineParameterValue =
   DataPipelinePipelineParameterValue
   { _dataPipelinePipelineParameterValueId :: Val Text
@@ -38,7 +38,7 @@ instance FromJSON DataPipelinePipelineParameterValue where
   parseJSON _ = mempty
 
 -- | Constructor for 'DataPipelinePipelineParameterValue' containing required
--- | fields as arguments.
+-- fields as arguments.
 dataPipelinePipelineParameterValue
   :: Val Text -- ^ 'dpppvId'
   -> Val Text -- ^ 'dpppvStringValue'

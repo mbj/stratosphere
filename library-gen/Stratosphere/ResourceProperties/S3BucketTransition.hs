@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for S3BucketTransition. See
--- | 's3BucketTransition' for a more convenient constructor.
+-- 's3BucketTransition' for a more convenient constructor.
 data S3BucketTransition =
   S3BucketTransition
   { _s3BucketTransitionStorageClass :: Val Text
@@ -41,7 +41,7 @@ instance FromJSON S3BucketTransition where
   parseJSON _ = mempty
 
 -- | Constructor for 'S3BucketTransition' containing required fields as
--- | arguments.
+-- arguments.
 s3BucketTransition
   :: Val Text -- ^ 'sbtStorageClass'
   -> S3BucketTransition

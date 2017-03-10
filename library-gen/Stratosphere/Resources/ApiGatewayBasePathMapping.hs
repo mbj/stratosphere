@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for ApiGatewayBasePathMapping. See
--- | 'apiGatewayBasePathMapping' for a more convenient constructor.
+-- 'apiGatewayBasePathMapping' for a more convenient constructor.
 data ApiGatewayBasePathMapping =
   ApiGatewayBasePathMapping
   { _apiGatewayBasePathMappingBasePath :: Maybe (Val Text)
@@ -44,7 +44,7 @@ instance FromJSON ApiGatewayBasePathMapping where
   parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayBasePathMapping' containing required fields as
--- | arguments.
+-- arguments.
 apiGatewayBasePathMapping
   :: ApiGatewayBasePathMapping
 apiGatewayBasePathMapping  =

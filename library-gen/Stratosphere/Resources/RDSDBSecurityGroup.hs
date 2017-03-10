@@ -16,7 +16,7 @@ import Stratosphere.ResourceProperties.RDSDBSecurityGroupIngressProperty
 import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for RDSDBSecurityGroup. See
--- | 'rdsdbSecurityGroup' for a more convenient constructor.
+-- 'rdsdbSecurityGroup' for a more convenient constructor.
 data RDSDBSecurityGroup =
   RDSDBSecurityGroup
   { _rDSDBSecurityGroupDBSecurityGroupIngress :: [RDSDBSecurityGroupIngressProperty]
@@ -45,7 +45,7 @@ instance FromJSON RDSDBSecurityGroup where
   parseJSON _ = mempty
 
 -- | Constructor for 'RDSDBSecurityGroup' containing required fields as
--- | arguments.
+-- arguments.
 rdsdbSecurityGroup
   :: [RDSDBSecurityGroupIngressProperty] -- ^ 'rdsdbsegDBSecurityGroupIngress'
   -> Val Text -- ^ 'rdsdbsegGroupDescription'

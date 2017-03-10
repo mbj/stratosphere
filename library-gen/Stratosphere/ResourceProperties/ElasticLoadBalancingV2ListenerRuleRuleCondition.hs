@@ -15,9 +15,9 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for
--- | ElasticLoadBalancingV2ListenerRuleRuleCondition. See
--- | 'elasticLoadBalancingV2ListenerRuleRuleCondition' for a more convenient
--- | constructor.
+-- ElasticLoadBalancingV2ListenerRuleRuleCondition. See
+-- 'elasticLoadBalancingV2ListenerRuleRuleCondition' for a more convenient
+-- constructor.
 data ElasticLoadBalancingV2ListenerRuleRuleCondition =
   ElasticLoadBalancingV2ListenerRuleRuleCondition
   { _elasticLoadBalancingV2ListenerRuleRuleConditionField :: Maybe (Val Text)
@@ -40,7 +40,7 @@ instance FromJSON ElasticLoadBalancingV2ListenerRuleRuleCondition where
   parseJSON _ = mempty
 
 -- | Constructor for 'ElasticLoadBalancingV2ListenerRuleRuleCondition'
--- | containing required fields as arguments.
+-- containing required fields as arguments.
 elasticLoadBalancingV2ListenerRuleRuleCondition
   :: ElasticLoadBalancingV2ListenerRuleRuleCondition
 elasticLoadBalancingV2ListenerRuleRuleCondition  =

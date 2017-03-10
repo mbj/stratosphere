@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for Route53RecordSetAliasTarget. See
--- | 'route53RecordSetAliasTarget' for a more convenient constructor.
+-- 'route53RecordSetAliasTarget' for a more convenient constructor.
 data Route53RecordSetAliasTarget =
   Route53RecordSetAliasTarget
   { _route53RecordSetAliasTargetDNSName :: Val Text
@@ -41,7 +41,7 @@ instance FromJSON Route53RecordSetAliasTarget where
   parseJSON _ = mempty
 
 -- | Constructor for 'Route53RecordSetAliasTarget' containing required fields
--- | as arguments.
+-- as arguments.
 route53RecordSetAliasTarget
   :: Val Text -- ^ 'rrsatDNSName'
   -> Val Text -- ^ 'rrsatHostedZoneId'

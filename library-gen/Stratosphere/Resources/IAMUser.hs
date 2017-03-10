@@ -16,7 +16,7 @@ import Stratosphere.ResourceProperties.IAMUserLoginProfile
 import Stratosphere.ResourceProperties.IAMUserPolicy
 
 -- | Full data type definition for IAMUser. See 'iamUser' for a more
--- | convenient constructor.
+-- convenient constructor.
 data IAMUser =
   IAMUser
   { _iAMUserGroups :: Maybe [Val Text]

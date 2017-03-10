@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for EC2FlowLog. See 'ec2FlowLog' for a more
--- | convenient constructor.
+-- convenient constructor.
 data EC2FlowLog =
   EC2FlowLog
   { _eC2FlowLogDeliverLogsPermissionArn :: Val Text

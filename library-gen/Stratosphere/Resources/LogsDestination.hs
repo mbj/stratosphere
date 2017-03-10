@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for LogsDestination. See 'logsDestination' for
--- | a more convenient constructor.
+-- a more convenient constructor.
 data LogsDestination =
   LogsDestination
   { _logsDestinationDestinationName :: Val Text
@@ -44,7 +44,7 @@ instance FromJSON LogsDestination where
   parseJSON _ = mempty
 
 -- | Constructor for 'LogsDestination' containing required fields as
--- | arguments.
+-- arguments.
 logsDestination
   :: Val Text -- ^ 'ldDestinationName'
   -> Val Text -- ^ 'ldDestinationPolicy'

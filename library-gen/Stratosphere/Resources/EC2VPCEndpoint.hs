@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for EC2VPCEndpoint. See 'ec2VPCEndpoint' for a
--- | more convenient constructor.
+-- more convenient constructor.
 data EC2VPCEndpoint =
   EC2VPCEndpoint
   { _eC2VPCEndpointPolicyDocument :: Maybe Object

@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for EC2VPC. See 'ec2VPC' for a more convenient
--- | constructor.
+-- constructor.
 data EC2VPC =
   EC2VPC
   { _eC2VPCCidrBlock :: Val Text

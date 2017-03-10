@@ -15,9 +15,9 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for
--- | ElasticLoadBalancingLoadBalancerConnectionSettings. See
--- | 'elasticLoadBalancingLoadBalancerConnectionSettings' for a more
--- | convenient constructor.
+-- ElasticLoadBalancingLoadBalancerConnectionSettings. See
+-- 'elasticLoadBalancingLoadBalancerConnectionSettings' for a more
+-- convenient constructor.
 data ElasticLoadBalancingLoadBalancerConnectionSettings =
   ElasticLoadBalancingLoadBalancerConnectionSettings
   { _elasticLoadBalancingLoadBalancerConnectionSettingsIdleTimeout :: Val Integer'
@@ -37,7 +37,7 @@ instance FromJSON ElasticLoadBalancingLoadBalancerConnectionSettings where
   parseJSON _ = mempty
 
 -- | Constructor for 'ElasticLoadBalancingLoadBalancerConnectionSettings'
--- | containing required fields as arguments.
+-- containing required fields as arguments.
 elasticLoadBalancingLoadBalancerConnectionSettings
   :: Val Integer' -- ^ 'elblbcsIdleTimeout'
   -> ElasticLoadBalancingLoadBalancerConnectionSettings

@@ -18,7 +18,7 @@ import Stratosphere.ResourceProperties.ElasticLoadBalancingV2TargetGroupTargetGr
 import Stratosphere.ResourceProperties.ElasticLoadBalancingV2TargetGroupTargetDescription
 
 -- | Full data type definition for ElasticLoadBalancingV2TargetGroup. See
--- | 'elasticLoadBalancingV2TargetGroup' for a more convenient constructor.
+-- 'elasticLoadBalancingV2TargetGroup' for a more convenient constructor.
 data ElasticLoadBalancingV2TargetGroup =
   ElasticLoadBalancingV2TargetGroup
   { _elasticLoadBalancingV2TargetGroupHealthCheckIntervalSeconds :: Maybe (Val Integer')
@@ -80,7 +80,7 @@ instance FromJSON ElasticLoadBalancingV2TargetGroup where
   parseJSON _ = mempty
 
 -- | Constructor for 'ElasticLoadBalancingV2TargetGroup' containing required
--- | fields as arguments.
+-- fields as arguments.
 elasticLoadBalancingV2TargetGroup
   :: Val Integer' -- ^ 'elbvtgPort'
   -> Val Text -- ^ 'elbvtgProtocol'

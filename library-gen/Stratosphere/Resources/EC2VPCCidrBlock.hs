@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for EC2VPCCidrBlock. See 'ec2VPCCidrBlock' for
--- | a more convenient constructor.
+-- a more convenient constructor.
 data EC2VPCCidrBlock =
   EC2VPCCidrBlock
   { _eC2VPCCidrBlockAmazonProvidedIpv6CidrBlock :: Maybe (Val Bool')
@@ -38,7 +38,7 @@ instance FromJSON EC2VPCCidrBlock where
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2VPCCidrBlock' containing required fields as
--- | arguments.
+-- arguments.
 ec2VPCCidrBlock
   :: Val Text -- ^ 'ecvpccbVpcId'
   -> EC2VPCCidrBlock

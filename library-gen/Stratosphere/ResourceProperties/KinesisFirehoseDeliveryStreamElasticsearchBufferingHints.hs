@@ -15,9 +15,9 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for
--- | KinesisFirehoseDeliveryStreamElasticsearchBufferingHints. See
--- | 'kinesisFirehoseDeliveryStreamElasticsearchBufferingHints' for a more
--- | convenient constructor.
+-- KinesisFirehoseDeliveryStreamElasticsearchBufferingHints. See
+-- 'kinesisFirehoseDeliveryStreamElasticsearchBufferingHints' for a more
+-- convenient constructor.
 data KinesisFirehoseDeliveryStreamElasticsearchBufferingHints =
   KinesisFirehoseDeliveryStreamElasticsearchBufferingHints
   { _kinesisFirehoseDeliveryStreamElasticsearchBufferingHintsIntervalInSeconds :: Val Integer'
@@ -40,8 +40,8 @@ instance FromJSON KinesisFirehoseDeliveryStreamElasticsearchBufferingHints where
   parseJSON _ = mempty
 
 -- | Constructor for
--- | 'KinesisFirehoseDeliveryStreamElasticsearchBufferingHints' containing
--- | required fields as arguments.
+-- 'KinesisFirehoseDeliveryStreamElasticsearchBufferingHints' containing
+-- required fields as arguments.
 kinesisFirehoseDeliveryStreamElasticsearchBufferingHints
   :: Val Integer' -- ^ 'kfdsebhIntervalInSeconds'
   -> Val Integer' -- ^ 'kfdsebhSizeInMBs'

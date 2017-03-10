@@ -17,9 +17,9 @@ import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamCopyCommand
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamS3DestinationConfiguration
 
 -- | Full data type definition for
--- | KinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration. See
--- | 'kinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration' for a
--- | more convenient constructor.
+-- KinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration. See
+-- 'kinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration' for a
+-- more convenient constructor.
 data KinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration =
   KinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration
   { _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationCloudWatchLoggingOptions :: Maybe KinesisFirehoseDeliveryStreamCloudWatchLoggingOptions
@@ -57,8 +57,8 @@ instance FromJSON KinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration 
   parseJSON _ = mempty
 
 -- | Constructor for
--- | 'KinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration'
--- | containing required fields as arguments.
+-- 'KinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration'
+-- containing required fields as arguments.
 kinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration
   :: Val Text -- ^ 'kfdsrdcClusterJDBCURL'
   -> KinesisFirehoseDeliveryStreamCopyCommand -- ^ 'kfdsrdcCopyCommand'

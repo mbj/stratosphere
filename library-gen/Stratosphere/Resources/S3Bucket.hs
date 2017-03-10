@@ -23,7 +23,7 @@ import Stratosphere.ResourceProperties.S3BucketVersioningConfiguration
 import Stratosphere.ResourceProperties.S3BucketWebsiteConfiguration
 
 -- | Full data type definition for S3Bucket. See 's3Bucket' for a more
--- | convenient constructor.
+-- convenient constructor.
 data S3Bucket =
   S3Bucket
   { _s3BucketAccessControl :: Maybe (Val CannedACL)

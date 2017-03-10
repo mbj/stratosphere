@@ -15,8 +15,8 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.CloudFrontDistributionCookies
 
 -- | Full data type definition for CloudFrontDistributionForwardedValues. See
--- | 'cloudFrontDistributionForwardedValues' for a more convenient
--- | constructor.
+-- 'cloudFrontDistributionForwardedValues' for a more convenient
+-- constructor.
 data CloudFrontDistributionForwardedValues =
   CloudFrontDistributionForwardedValues
   { _cloudFrontDistributionForwardedValuesCookies :: Maybe CloudFrontDistributionCookies
@@ -45,7 +45,7 @@ instance FromJSON CloudFrontDistributionForwardedValues where
   parseJSON _ = mempty
 
 -- | Constructor for 'CloudFrontDistributionForwardedValues' containing
--- | required fields as arguments.
+-- required fields as arguments.
 cloudFrontDistributionForwardedValues
   :: Val Bool' -- ^ 'cfdfvQueryString'
   -> CloudFrontDistributionForwardedValues

@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.S3BucketRule
 
 -- | Full data type definition for S3BucketLifecycleConfiguration. See
--- | 's3BucketLifecycleConfiguration' for a more convenient constructor.
+-- 's3BucketLifecycleConfiguration' for a more convenient constructor.
 data S3BucketLifecycleConfiguration =
   S3BucketLifecycleConfiguration
   { _s3BucketLifecycleConfigurationRules :: [S3BucketRule]
@@ -35,7 +35,7 @@ instance FromJSON S3BucketLifecycleConfiguration where
   parseJSON _ = mempty
 
 -- | Constructor for 'S3BucketLifecycleConfiguration' containing required
--- | fields as arguments.
+-- fields as arguments.
 s3BucketLifecycleConfiguration
   :: [S3BucketRule] -- ^ 'sblcRules'
   -> S3BucketLifecycleConfiguration

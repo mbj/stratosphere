@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for IAMAccessKey. See 'iamAccessKey' for a more
--- | convenient constructor.
+-- convenient constructor.
 data IAMAccessKey =
   IAMAccessKey
   { _iAMAccessKeySerial :: Maybe (Val Integer')

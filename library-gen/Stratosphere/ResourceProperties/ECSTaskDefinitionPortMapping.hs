@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for ECSTaskDefinitionPortMapping. See
--- | 'ecsTaskDefinitionPortMapping' for a more convenient constructor.
+-- 'ecsTaskDefinitionPortMapping' for a more convenient constructor.
 data ECSTaskDefinitionPortMapping =
   ECSTaskDefinitionPortMapping
   { _eCSTaskDefinitionPortMappingContainerPort :: Maybe (Val Integer')
@@ -41,7 +41,7 @@ instance FromJSON ECSTaskDefinitionPortMapping where
   parseJSON _ = mempty
 
 -- | Constructor for 'ECSTaskDefinitionPortMapping' containing required fields
--- | as arguments.
+-- as arguments.
 ecsTaskDefinitionPortMapping
   :: ECSTaskDefinitionPortMapping
 ecsTaskDefinitionPortMapping  =

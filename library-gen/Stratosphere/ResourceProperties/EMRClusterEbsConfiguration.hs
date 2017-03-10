@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.EMRClusterEbsBlockDeviceConfig
 
 -- | Full data type definition for EMRClusterEbsConfiguration. See
--- | 'emrClusterEbsConfiguration' for a more convenient constructor.
+-- 'emrClusterEbsConfiguration' for a more convenient constructor.
 data EMRClusterEbsConfiguration =
   EMRClusterEbsConfiguration
   { _eMRClusterEbsConfigurationEbsBlockDeviceConfigs :: Maybe [EMRClusterEbsBlockDeviceConfig]
@@ -38,7 +38,7 @@ instance FromJSON EMRClusterEbsConfiguration where
   parseJSON _ = mempty
 
 -- | Constructor for 'EMRClusterEbsConfiguration' containing required fields
--- | as arguments.
+-- as arguments.
 emrClusterEbsConfiguration
   :: EMRClusterEbsConfiguration
 emrClusterEbsConfiguration  =

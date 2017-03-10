@@ -16,7 +16,7 @@ import Stratosphere.ResourceProperties.EC2InstanceInstanceIpv6Address
 import Stratosphere.ResourceProperties.EC2InstancePrivateIpAddressSpecification
 
 -- | Full data type definition for EC2InstanceNetworkInterface. See
--- | 'ec2InstanceNetworkInterface' for a more convenient constructor.
+-- 'ec2InstanceNetworkInterface' for a more convenient constructor.
 data EC2InstanceNetworkInterface =
   EC2InstanceNetworkInterface
   { _eC2InstanceNetworkInterfaceAssociatePublicIpAddress :: Maybe (Val Bool')
@@ -69,7 +69,7 @@ instance FromJSON EC2InstanceNetworkInterface where
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2InstanceNetworkInterface' containing required fields
--- | as arguments.
+-- as arguments.
 ec2InstanceNetworkInterface
   :: Val Text -- ^ 'eciniDeviceIndex'
   -> EC2InstanceNetworkInterface

@@ -17,7 +17,7 @@ import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupEc2TagFilter
 import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupOnPremisesInstanceTagFilter
 
 -- | Full data type definition for CodeDeployDeploymentGroup. See
--- | 'codeDeployDeploymentGroup' for a more convenient constructor.
+-- 'codeDeployDeploymentGroup' for a more convenient constructor.
 data CodeDeployDeploymentGroup =
   CodeDeployDeploymentGroup
   { _codeDeployDeploymentGroupApplicationName :: Val Text
@@ -58,7 +58,7 @@ instance FromJSON CodeDeployDeploymentGroup where
   parseJSON _ = mempty
 
 -- | Constructor for 'CodeDeployDeploymentGroup' containing required fields as
--- | arguments.
+-- arguments.
 codeDeployDeploymentGroup
   :: Val Text -- ^ 'cddgApplicationName'
   -> Val Text -- ^ 'cddgServiceRoleArn'

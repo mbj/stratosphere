@@ -16,7 +16,7 @@ import Stratosphere.ResourceProperties.EC2SecurityGroupRule
 import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for EC2SecurityGroup. See 'ec2SecurityGroup'
--- | for a more convenient constructor.
+-- for a more convenient constructor.
 data EC2SecurityGroup =
   EC2SecurityGroup
   { _eC2SecurityGroupGroupDescription :: Val Text
@@ -48,7 +48,7 @@ instance FromJSON EC2SecurityGroup where
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2SecurityGroup' containing required fields as
--- | arguments.
+-- arguments.
 ec2SecurityGroup
   :: Val Text -- ^ 'ecsgGroupDescription'
   -> EC2SecurityGroup

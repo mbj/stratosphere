@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for RDSDBCluster. See 'rdsdbCluster' for a more
--- | convenient constructor.
+-- convenient constructor.
 data RDSDBCluster =
   RDSDBCluster
   { _rDSDBClusterAvailabilityZones :: Maybe (Val Text)

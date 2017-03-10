@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.AutoScalingLaunchConfigurationBlockDeviceMapping
 
 -- | Full data type definition for AutoScalingLaunchConfiguration. See
--- | 'autoScalingLaunchConfiguration' for a more convenient constructor.
+-- 'autoScalingLaunchConfiguration' for a more convenient constructor.
 data AutoScalingLaunchConfiguration =
   AutoScalingLaunchConfiguration
   { _autoScalingLaunchConfigurationAssociatePublicIpAddress :: Maybe (Val Bool')
@@ -83,7 +83,7 @@ instance FromJSON AutoScalingLaunchConfiguration where
   parseJSON _ = mempty
 
 -- | Constructor for 'AutoScalingLaunchConfiguration' containing required
--- | fields as arguments.
+-- fields as arguments.
 autoScalingLaunchConfiguration
   :: Val Text -- ^ 'aslcImageId'
   -> Val Text -- ^ 'aslcInstanceType'

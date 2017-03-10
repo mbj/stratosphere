@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for CodePipelinePipelineOutputArtifact. See
--- | 'codePipelinePipelineOutputArtifact' for a more convenient constructor.
+-- 'codePipelinePipelineOutputArtifact' for a more convenient constructor.
 data CodePipelinePipelineOutputArtifact =
   CodePipelinePipelineOutputArtifact
   { _codePipelinePipelineOutputArtifactName :: Val Text
@@ -35,7 +35,7 @@ instance FromJSON CodePipelinePipelineOutputArtifact where
   parseJSON _ = mempty
 
 -- | Constructor for 'CodePipelinePipelineOutputArtifact' containing required
--- | fields as arguments.
+-- fields as arguments.
 codePipelinePipelineOutputArtifact
   :: Val Text -- ^ 'cppoaName'
   -> CodePipelinePipelineOutputArtifact

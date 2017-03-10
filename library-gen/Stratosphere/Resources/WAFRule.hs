@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.WAFRulePredicate
 
 -- | Full data type definition for WAFRule. See 'wafRule' for a more
--- | convenient constructor.
+-- convenient constructor.
 data WAFRule =
   WAFRule
   { _wAFRuleMetricName :: Val Text

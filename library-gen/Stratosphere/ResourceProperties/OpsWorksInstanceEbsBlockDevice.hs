@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for OpsWorksInstanceEbsBlockDevice. See
--- | 'opsWorksInstanceEbsBlockDevice' for a more convenient constructor.
+-- 'opsWorksInstanceEbsBlockDevice' for a more convenient constructor.
 data OpsWorksInstanceEbsBlockDevice =
   OpsWorksInstanceEbsBlockDevice
   { _opsWorksInstanceEbsBlockDeviceDeleteOnTermination :: Maybe (Val Bool')
@@ -47,7 +47,7 @@ instance FromJSON OpsWorksInstanceEbsBlockDevice where
   parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksInstanceEbsBlockDevice' containing required
--- | fields as arguments.
+-- fields as arguments.
 opsWorksInstanceEbsBlockDevice
   :: OpsWorksInstanceEbsBlockDevice
 opsWorksInstanceEbsBlockDevice  =

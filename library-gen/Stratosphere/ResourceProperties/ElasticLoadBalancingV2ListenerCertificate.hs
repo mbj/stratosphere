@@ -15,8 +15,8 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for ElasticLoadBalancingV2ListenerCertificate.
--- | See 'elasticLoadBalancingV2ListenerCertificate' for a more convenient
--- | constructor.
+-- See 'elasticLoadBalancingV2ListenerCertificate' for a more convenient
+-- constructor.
 data ElasticLoadBalancingV2ListenerCertificate =
   ElasticLoadBalancingV2ListenerCertificate
   { _elasticLoadBalancingV2ListenerCertificateCertificateArn :: Maybe (Val Text)
@@ -36,7 +36,7 @@ instance FromJSON ElasticLoadBalancingV2ListenerCertificate where
   parseJSON _ = mempty
 
 -- | Constructor for 'ElasticLoadBalancingV2ListenerCertificate' containing
--- | required fields as arguments.
+-- required fields as arguments.
 elasticLoadBalancingV2ListenerCertificate
   :: ElasticLoadBalancingV2ListenerCertificate
 elasticLoadBalancingV2ListenerCertificate  =

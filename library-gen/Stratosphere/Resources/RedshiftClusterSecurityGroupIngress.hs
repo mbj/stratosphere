@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for RedshiftClusterSecurityGroupIngress. See
--- | 'redshiftClusterSecurityGroupIngress' for a more convenient constructor.
+-- 'redshiftClusterSecurityGroupIngress' for a more convenient constructor.
 data RedshiftClusterSecurityGroupIngress =
   RedshiftClusterSecurityGroupIngress
   { _redshiftClusterSecurityGroupIngressCIDRIP :: Maybe (Val Text)
@@ -44,7 +44,7 @@ instance FromJSON RedshiftClusterSecurityGroupIngress where
   parseJSON _ = mempty
 
 -- | Constructor for 'RedshiftClusterSecurityGroupIngress' containing required
--- | fields as arguments.
+-- fields as arguments.
 redshiftClusterSecurityGroupIngress
   :: Val Text -- ^ 'rcsgiClusterSecurityGroupName'
   -> RedshiftClusterSecurityGroupIngress

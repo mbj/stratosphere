@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for EC2SecurityGroupRule. See
--- | 'ec2SecurityGroupRule' for a more convenient constructor.
+-- 'ec2SecurityGroupRule' for a more convenient constructor.
 data EC2SecurityGroupRule =
   EC2SecurityGroupRule
   { _eC2SecurityGroupRuleCidrIp :: Maybe (Val Text)
@@ -53,7 +53,7 @@ instance FromJSON EC2SecurityGroupRule where
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2SecurityGroupRule' containing required fields as
--- | arguments.
+-- arguments.
 ec2SecurityGroupRule
   :: Val Text -- ^ 'ecsgrIpProtocol'
   -> EC2SecurityGroupRule

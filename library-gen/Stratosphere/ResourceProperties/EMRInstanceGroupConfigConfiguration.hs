@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for EMRInstanceGroupConfigConfiguration. See
--- | 'emrInstanceGroupConfigConfiguration' for a more convenient constructor.
+-- 'emrInstanceGroupConfigConfiguration' for a more convenient constructor.
 data EMRInstanceGroupConfigConfiguration =
   EMRInstanceGroupConfigConfiguration
   { _eMRInstanceGroupConfigConfigurationClassification :: Maybe (Val Text)
@@ -41,7 +41,7 @@ instance FromJSON EMRInstanceGroupConfigConfiguration where
   parseJSON _ = mempty
 
 -- | Constructor for 'EMRInstanceGroupConfigConfiguration' containing required
--- | fields as arguments.
+-- fields as arguments.
 emrInstanceGroupConfigConfiguration
   :: EMRInstanceGroupConfigConfiguration
 emrInstanceGroupConfigConfiguration  =

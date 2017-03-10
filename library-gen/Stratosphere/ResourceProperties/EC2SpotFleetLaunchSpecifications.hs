@@ -20,7 +20,7 @@ import Stratosphere.ResourceProperties.EC2SpotFleetPlacement
 import Stratosphere.ResourceProperties.EC2SpotFleetSecurityGroups
 
 -- | Full data type definition for EC2SpotFleetLaunchSpecifications. See
--- | 'ec2SpotFleetLaunchSpecifications' for a more convenient constructor.
+-- 'ec2SpotFleetLaunchSpecifications' for a more convenient constructor.
 data EC2SpotFleetLaunchSpecifications =
   EC2SpotFleetLaunchSpecifications
   { _eC2SpotFleetLaunchSpecificationsBlockDeviceMappings :: Maybe [EC2SpotFleetBlockDeviceMappings]
@@ -85,7 +85,7 @@ instance FromJSON EC2SpotFleetLaunchSpecifications where
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2SpotFleetLaunchSpecifications' containing required
--- | fields as arguments.
+-- fields as arguments.
 ec2SpotFleetLaunchSpecifications
   :: Val Text -- ^ 'ecsflsImageId'
   -> Val Text -- ^ 'ecsflsInstanceType'

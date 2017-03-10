@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for ConfigConfigRuleSourceDetail. See
--- | 'configConfigRuleSourceDetail' for a more convenient constructor.
+-- 'configConfigRuleSourceDetail' for a more convenient constructor.
 data ConfigConfigRuleSourceDetail =
   ConfigConfigRuleSourceDetail
   { _configConfigRuleSourceDetailEventSource :: Val Text
@@ -38,7 +38,7 @@ instance FromJSON ConfigConfigRuleSourceDetail where
   parseJSON _ = mempty
 
 -- | Constructor for 'ConfigConfigRuleSourceDetail' containing required fields
--- | as arguments.
+-- as arguments.
 configConfigRuleSourceDetail
   :: Val Text -- ^ 'ccrsdEventSource'
   -> Val Text -- ^ 'ccrsdMessageType'

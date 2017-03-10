@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.IAMRolePolicy
 
 -- | Full data type definition for IAMRole. See 'iamRole' for a more
--- | convenient constructor.
+-- convenient constructor.
 data IAMRole =
   IAMRole
   { _iAMRoleAssumeRolePolicyDocument :: Object

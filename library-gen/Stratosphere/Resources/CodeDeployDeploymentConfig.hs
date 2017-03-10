@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for CodeDeployDeploymentConfig. See
--- | 'codeDeployDeploymentConfig' for a more convenient constructor.
+-- 'codeDeployDeploymentConfig' for a more convenient constructor.
 data CodeDeployDeploymentConfig =
   CodeDeployDeploymentConfig
   { _codeDeployDeploymentConfigDeploymentConfigName :: Maybe (Val Text)
@@ -38,7 +38,7 @@ instance FromJSON CodeDeployDeploymentConfig where
   parseJSON _ = mempty
 
 -- | Constructor for 'CodeDeployDeploymentConfig' containing required fields
--- | as arguments.
+-- as arguments.
 codeDeployDeploymentConfig
   :: CodeDeployDeploymentConfig
 codeDeployDeploymentConfig  =

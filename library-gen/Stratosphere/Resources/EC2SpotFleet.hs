@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.EC2SpotFleetSpotFleetRequestConfigData
 
 -- | Full data type definition for EC2SpotFleet. See 'ec2SpotFleet' for a more
--- | convenient constructor.
+-- convenient constructor.
 data EC2SpotFleet =
   EC2SpotFleet
   { _eC2SpotFleetSpotFleetRequestConfigData :: EC2SpotFleetSpotFleetRequestConfigData

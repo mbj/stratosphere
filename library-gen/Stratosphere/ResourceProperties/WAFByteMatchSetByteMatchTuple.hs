@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.WAFByteMatchSetFieldToMatch
 
 -- | Full data type definition for WAFByteMatchSetByteMatchTuple. See
--- | 'wafByteMatchSetByteMatchTuple' for a more convenient constructor.
+-- 'wafByteMatchSetByteMatchTuple' for a more convenient constructor.
 data WAFByteMatchSetByteMatchTuple =
   WAFByteMatchSetByteMatchTuple
   { _wAFByteMatchSetByteMatchTupleFieldToMatch :: WAFByteMatchSetFieldToMatch
@@ -47,7 +47,7 @@ instance FromJSON WAFByteMatchSetByteMatchTuple where
   parseJSON _ = mempty
 
 -- | Constructor for 'WAFByteMatchSetByteMatchTuple' containing required
--- | fields as arguments.
+-- fields as arguments.
 wafByteMatchSetByteMatchTuple
   :: WAFByteMatchSetFieldToMatch -- ^ 'wafbmsbmtFieldToMatch'
   -> Val Text -- ^ 'wafbmsbmtPositionalConstraint'

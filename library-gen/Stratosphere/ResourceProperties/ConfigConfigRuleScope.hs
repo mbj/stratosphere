@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for ConfigConfigRuleScope. See
--- | 'configConfigRuleScope' for a more convenient constructor.
+-- 'configConfigRuleScope' for a more convenient constructor.
 data ConfigConfigRuleScope =
   ConfigConfigRuleScope
   { _configConfigRuleScopeComplianceResourceId :: Maybe (Val Text)
@@ -44,7 +44,7 @@ instance FromJSON ConfigConfigRuleScope where
   parseJSON _ = mempty
 
 -- | Constructor for 'ConfigConfigRuleScope' containing required fields as
--- | arguments.
+-- arguments.
 configConfigRuleScope
   :: ConfigConfigRuleScope
 configConfigRuleScope  =

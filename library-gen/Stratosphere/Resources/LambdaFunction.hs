@@ -18,7 +18,7 @@ import Stratosphere.ResourceProperties.LambdaFunctionEnvironment
 import Stratosphere.ResourceProperties.LambdaFunctionVpcConfig
 
 -- | Full data type definition for LambdaFunction. See 'lambdaFunction' for a
--- | more convenient constructor.
+-- more convenient constructor.
 data LambdaFunction =
   LambdaFunction
   { _lambdaFunctionCode :: LambdaFunctionCode

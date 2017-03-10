@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for S3BucketCorsRule. See 's3BucketCorsRule'
--- | for a more convenient constructor.
+-- for a more convenient constructor.
 data S3BucketCorsRule =
   S3BucketCorsRule
   { _s3BucketCorsRuleAllowedHeaders :: Maybe [Val Text]
@@ -50,7 +50,7 @@ instance FromJSON S3BucketCorsRule where
   parseJSON _ = mempty
 
 -- | Constructor for 'S3BucketCorsRule' containing required fields as
--- | arguments.
+-- arguments.
 s3BucketCorsRule
   :: [Val Text] -- ^ 'sbcrAllowedMethods'
   -> [Val Text] -- ^ 'sbcrAllowedOrigins'

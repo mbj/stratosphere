@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for ApiGatewayUsagePlanThrottleSettings. See
--- | 'apiGatewayUsagePlanThrottleSettings' for a more convenient constructor.
+-- 'apiGatewayUsagePlanThrottleSettings' for a more convenient constructor.
 data ApiGatewayUsagePlanThrottleSettings =
   ApiGatewayUsagePlanThrottleSettings
   { _apiGatewayUsagePlanThrottleSettingsBurstLimit :: Maybe (Val Integer')
@@ -38,7 +38,7 @@ instance FromJSON ApiGatewayUsagePlanThrottleSettings where
   parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayUsagePlanThrottleSettings' containing required
--- | fields as arguments.
+-- fields as arguments.
 apiGatewayUsagePlanThrottleSettings
   :: ApiGatewayUsagePlanThrottleSettings
 apiGatewayUsagePlanThrottleSettings  =

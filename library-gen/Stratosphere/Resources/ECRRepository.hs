@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for ECRRepository. See 'ecrRepository' for a
--- | more convenient constructor.
+-- more convenient constructor.
 data ECRRepository =
   ECRRepository
   { _eCRRepositoryRepositoryName :: Maybe (Val Text)

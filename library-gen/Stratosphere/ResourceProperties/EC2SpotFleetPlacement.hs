@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for EC2SpotFleetPlacement. See
--- | 'ec2SpotFleetPlacement' for a more convenient constructor.
+-- 'ec2SpotFleetPlacement' for a more convenient constructor.
 data EC2SpotFleetPlacement =
   EC2SpotFleetPlacement
   { _eC2SpotFleetPlacementAvailabilityZone :: Maybe (Val Text)
@@ -38,7 +38,7 @@ instance FromJSON EC2SpotFleetPlacement where
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2SpotFleetPlacement' containing required fields as
--- | arguments.
+-- arguments.
 ec2SpotFleetPlacement
   :: EC2SpotFleetPlacement
 ec2SpotFleetPlacement  =

@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.CloudWatchAlarmDimension
 
 -- | Full data type definition for CloudWatchAlarm. See 'cloudWatchAlarm' for
--- | a more convenient constructor.
+-- a more convenient constructor.
 data CloudWatchAlarm =
   CloudWatchAlarm
   { _cloudWatchAlarmActionsEnabled :: Maybe (Val Bool')
@@ -77,7 +77,7 @@ instance FromJSON CloudWatchAlarm where
   parseJSON _ = mempty
 
 -- | Constructor for 'CloudWatchAlarm' containing required fields as
--- | arguments.
+-- arguments.
 cloudWatchAlarm
   :: Val Text -- ^ 'cwaComparisonOperator'
   -> Val Integer' -- ^ 'cwaEvaluationPeriods'

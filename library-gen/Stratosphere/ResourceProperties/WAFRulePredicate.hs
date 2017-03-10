@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for WAFRulePredicate. See 'wafRulePredicate'
--- | for a more convenient constructor.
+-- for a more convenient constructor.
 data WAFRulePredicate =
   WAFRulePredicate
   { _wAFRulePredicateDataId :: Val Text
@@ -41,7 +41,7 @@ instance FromJSON WAFRulePredicate where
   parseJSON _ = mempty
 
 -- | Constructor for 'WAFRulePredicate' containing required fields as
--- | arguments.
+-- arguments.
 wafRulePredicate
   :: Val Text -- ^ 'wafrpDataId'
   -> Val Bool' -- ^ 'wafrpNegated'

@@ -15,9 +15,9 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for
--- | ElasticLoadBalancingV2LoadBalancerLoadBalancerAttribute. See
--- | 'elasticLoadBalancingV2LoadBalancerLoadBalancerAttribute' for a more
--- | convenient constructor.
+-- ElasticLoadBalancingV2LoadBalancerLoadBalancerAttribute. See
+-- 'elasticLoadBalancingV2LoadBalancerLoadBalancerAttribute' for a more
+-- convenient constructor.
 data ElasticLoadBalancingV2LoadBalancerLoadBalancerAttribute =
   ElasticLoadBalancingV2LoadBalancerLoadBalancerAttribute
   { _elasticLoadBalancingV2LoadBalancerLoadBalancerAttributeKey :: Maybe (Val Text)
@@ -40,7 +40,7 @@ instance FromJSON ElasticLoadBalancingV2LoadBalancerLoadBalancerAttribute where
   parseJSON _ = mempty
 
 -- | Constructor for 'ElasticLoadBalancingV2LoadBalancerLoadBalancerAttribute'
--- | containing required fields as arguments.
+-- containing required fields as arguments.
 elasticLoadBalancingV2LoadBalancerLoadBalancerAttribute
   :: ElasticLoadBalancingV2LoadBalancerLoadBalancerAttribute
 elasticLoadBalancingV2LoadBalancerLoadBalancerAttribute  =

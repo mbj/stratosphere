@@ -15,9 +15,9 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for
--- | ElasticsearchDomainElasticsearchClusterConfig. See
--- | 'elasticsearchDomainElasticsearchClusterConfig' for a more convenient
--- | constructor.
+-- ElasticsearchDomainElasticsearchClusterConfig. See
+-- 'elasticsearchDomainElasticsearchClusterConfig' for a more convenient
+-- constructor.
 data ElasticsearchDomainElasticsearchClusterConfig =
   ElasticsearchDomainElasticsearchClusterConfig
   { _elasticsearchDomainElasticsearchClusterConfigDedicatedMasterCount :: Maybe (Val Integer')
@@ -52,7 +52,7 @@ instance FromJSON ElasticsearchDomainElasticsearchClusterConfig where
   parseJSON _ = mempty
 
 -- | Constructor for 'ElasticsearchDomainElasticsearchClusterConfig'
--- | containing required fields as arguments.
+-- containing required fields as arguments.
 elasticsearchDomainElasticsearchClusterConfig
   :: ElasticsearchDomainElasticsearchClusterConfig
 elasticsearchDomainElasticsearchClusterConfig  =

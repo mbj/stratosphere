@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for IoTCertificate. See 'ioTCertificate' for a
--- | more convenient constructor.
+-- more convenient constructor.
 data IoTCertificate =
   IoTCertificate
   { _ioTCertificateCertificateSigningRequest :: Val Text

@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for DataPipelinePipelinePipelineTag. See
--- | 'dataPipelinePipelinePipelineTag' for a more convenient constructor.
+-- 'dataPipelinePipelinePipelineTag' for a more convenient constructor.
 data DataPipelinePipelinePipelineTag =
   DataPipelinePipelinePipelineTag
   { _dataPipelinePipelinePipelineTagKey :: Val Text
@@ -38,7 +38,7 @@ instance FromJSON DataPipelinePipelinePipelineTag where
   parseJSON _ = mempty
 
 -- | Constructor for 'DataPipelinePipelinePipelineTag' containing required
--- | fields as arguments.
+-- fields as arguments.
 dataPipelinePipelinePipelineTag
   :: Val Text -- ^ 'dppptKey'
   -> Val Text -- ^ 'dppptValue'

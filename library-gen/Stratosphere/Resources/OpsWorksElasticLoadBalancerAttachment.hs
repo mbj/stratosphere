@@ -15,8 +15,8 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for OpsWorksElasticLoadBalancerAttachment. See
--- | 'opsWorksElasticLoadBalancerAttachment' for a more convenient
--- | constructor.
+-- 'opsWorksElasticLoadBalancerAttachment' for a more convenient
+-- constructor.
 data OpsWorksElasticLoadBalancerAttachment =
   OpsWorksElasticLoadBalancerAttachment
   { _opsWorksElasticLoadBalancerAttachmentElasticLoadBalancerName :: Val Text
@@ -39,7 +39,7 @@ instance FromJSON OpsWorksElasticLoadBalancerAttachment where
   parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksElasticLoadBalancerAttachment' containing
--- | required fields as arguments.
+-- required fields as arguments.
 opsWorksElasticLoadBalancerAttachment
   :: Val Text -- ^ 'owelbaElasticLoadBalancerName'
   -> Val Text -- ^ 'owelbaLayerId'

@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for ElastiCacheSubnetGroup. See
--- | 'elastiCacheSubnetGroup' for a more convenient constructor.
+-- 'elastiCacheSubnetGroup' for a more convenient constructor.
 data ElastiCacheSubnetGroup =
   ElastiCacheSubnetGroup
   { _elastiCacheSubnetGroupCacheSubnetGroupName :: Maybe (Val Text)
@@ -41,7 +41,7 @@ instance FromJSON ElastiCacheSubnetGroup where
   parseJSON _ = mempty
 
 -- | Constructor for 'ElastiCacheSubnetGroup' containing required fields as
--- | arguments.
+-- arguments.
 elastiCacheSubnetGroup
   :: Val Text -- ^ 'ecsugDescription'
   -> [Val Text] -- ^ 'ecsugSubnetIds'

@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.Types
 
 -- | Full data type definition for DynamoDBTableProjection. See
--- | 'dynamoDBTableProjection' for a more convenient constructor.
+-- 'dynamoDBTableProjection' for a more convenient constructor.
 data DynamoDBTableProjection =
   DynamoDBTableProjection
   { _dynamoDBTableProjectionNonKeyAttributes :: Maybe [Val Text]
@@ -38,7 +38,7 @@ instance FromJSON DynamoDBTableProjection where
   parseJSON _ = mempty
 
 -- | Constructor for 'DynamoDBTableProjection' containing required fields as
--- | arguments.
+-- arguments.
 dynamoDBTableProjection
   :: DynamoDBTableProjection
 dynamoDBTableProjection  =

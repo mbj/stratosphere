@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for EC2SpotFleetEbs. See 'ec2SpotFleetEbs' for
--- | a more convenient constructor.
+-- a more convenient constructor.
 data EC2SpotFleetEbs =
   EC2SpotFleetEbs
   { _eC2SpotFleetEbsDeleteOnTermination :: Maybe (Val Bool')
@@ -50,7 +50,7 @@ instance FromJSON EC2SpotFleetEbs where
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2SpotFleetEbs' containing required fields as
--- | arguments.
+-- arguments.
 ec2SpotFleetEbs
   :: EC2SpotFleetEbs
 ec2SpotFleetEbs  =

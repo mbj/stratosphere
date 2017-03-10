@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for ApiGatewayAccount. See 'apiGatewayAccount'
--- | for a more convenient constructor.
+-- for a more convenient constructor.
 data ApiGatewayAccount =
   ApiGatewayAccount
   { _apiGatewayAccountCloudWatchRoleArn :: Maybe (Val Text)
@@ -35,7 +35,7 @@ instance FromJSON ApiGatewayAccount where
   parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayAccount' containing required fields as
--- | arguments.
+-- arguments.
 apiGatewayAccount
   :: ApiGatewayAccount
 apiGatewayAccount  =

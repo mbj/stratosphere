@@ -15,8 +15,8 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for EC2InstancePrivateIpAddressSpecification.
--- | See 'ec2InstancePrivateIpAddressSpecification' for a more convenient
--- | constructor.
+-- See 'ec2InstancePrivateIpAddressSpecification' for a more convenient
+-- constructor.
 data EC2InstancePrivateIpAddressSpecification =
   EC2InstancePrivateIpAddressSpecification
   { _eC2InstancePrivateIpAddressSpecificationPrimary :: Val Bool'
@@ -39,7 +39,7 @@ instance FromJSON EC2InstancePrivateIpAddressSpecification where
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2InstancePrivateIpAddressSpecification' containing
--- | required fields as arguments.
+-- required fields as arguments.
 ec2InstancePrivateIpAddressSpecification
   :: Val Bool' -- ^ 'ecipiasPrimary'
   -> Val Text -- ^ 'ecipiasPrivateIpAddress'

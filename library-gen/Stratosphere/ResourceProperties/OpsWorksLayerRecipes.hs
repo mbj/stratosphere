@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for OpsWorksLayerRecipes. See
--- | 'opsWorksLayerRecipes' for a more convenient constructor.
+-- 'opsWorksLayerRecipes' for a more convenient constructor.
 data OpsWorksLayerRecipes =
   OpsWorksLayerRecipes
   { _opsWorksLayerRecipesConfigure :: Maybe [Val Text]
@@ -47,7 +47,7 @@ instance FromJSON OpsWorksLayerRecipes where
   parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksLayerRecipes' containing required fields as
--- | arguments.
+-- arguments.
 opsWorksLayerRecipes
   :: OpsWorksLayerRecipes
 opsWorksLayerRecipes  =

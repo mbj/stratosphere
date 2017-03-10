@@ -16,7 +16,7 @@ import Stratosphere.ResourceProperties.CodePipelinePipelineActionDeclaration
 import Stratosphere.ResourceProperties.CodePipelinePipelineBlockerDeclaration
 
 -- | Full data type definition for CodePipelinePipelineStageDeclaration. See
--- | 'codePipelinePipelineStageDeclaration' for a more convenient constructor.
+-- 'codePipelinePipelineStageDeclaration' for a more convenient constructor.
 data CodePipelinePipelineStageDeclaration =
   CodePipelinePipelineStageDeclaration
   { _codePipelinePipelineStageDeclarationActions :: [CodePipelinePipelineActionDeclaration]
@@ -42,7 +42,7 @@ instance FromJSON CodePipelinePipelineStageDeclaration where
   parseJSON _ = mempty
 
 -- | Constructor for 'CodePipelinePipelineStageDeclaration' containing
--- | required fields as arguments.
+-- required fields as arguments.
 codePipelinePipelineStageDeclaration
   :: [CodePipelinePipelineActionDeclaration] -- ^ 'cppsdActions'
   -> Val Text -- ^ 'cppsdName'

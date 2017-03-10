@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.WAFXssMatchSetFieldToMatch
 
 -- | Full data type definition for WAFXssMatchSetXssMatchTuple. See
--- | 'wafXssMatchSetXssMatchTuple' for a more convenient constructor.
+-- 'wafXssMatchSetXssMatchTuple' for a more convenient constructor.
 data WAFXssMatchSetXssMatchTuple =
   WAFXssMatchSetXssMatchTuple
   { _wAFXssMatchSetXssMatchTupleFieldToMatch :: WAFXssMatchSetFieldToMatch
@@ -38,7 +38,7 @@ instance FromJSON WAFXssMatchSetXssMatchTuple where
   parseJSON _ = mempty
 
 -- | Constructor for 'WAFXssMatchSetXssMatchTuple' containing required fields
--- | as arguments.
+-- as arguments.
 wafXssMatchSetXssMatchTuple
   :: WAFXssMatchSetFieldToMatch -- ^ 'wafxmsxmtFieldToMatch'
   -> Val Text -- ^ 'wafxmsxmtTextTransformation'

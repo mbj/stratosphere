@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for ElasticBeanstalkEnvironmentTier. See
--- | 'elasticBeanstalkEnvironmentTier' for a more convenient constructor.
+-- 'elasticBeanstalkEnvironmentTier' for a more convenient constructor.
 data ElasticBeanstalkEnvironmentTier =
   ElasticBeanstalkEnvironmentTier
   { _elasticBeanstalkEnvironmentTierName :: Maybe (Val Text)
@@ -41,7 +41,7 @@ instance FromJSON ElasticBeanstalkEnvironmentTier where
   parseJSON _ = mempty
 
 -- | Constructor for 'ElasticBeanstalkEnvironmentTier' containing required
--- | fields as arguments.
+-- fields as arguments.
 elasticBeanstalkEnvironmentTier
   :: ElasticBeanstalkEnvironmentTier
 elasticBeanstalkEnvironmentTier  =

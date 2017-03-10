@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for EC2VPNConnection. See 'ec2VPNConnection'
--- | for a more convenient constructor.
+-- for a more convenient constructor.
 data EC2VPNConnection =
   EC2VPNConnection
   { _eC2VPNConnectionCustomerGatewayId :: Val Text
@@ -47,7 +47,7 @@ instance FromJSON EC2VPNConnection where
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2VPNConnection' containing required fields as
--- | arguments.
+-- arguments.
 ec2VPNConnection
   :: Val Text -- ^ 'ecvpncCustomerGatewayId'
   -> Val Text -- ^ 'ecvpncType'

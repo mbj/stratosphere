@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for IoTPolicyPrincipalAttachment. See
--- | 'ioTPolicyPrincipalAttachment' for a more convenient constructor.
+-- 'ioTPolicyPrincipalAttachment' for a more convenient constructor.
 data IoTPolicyPrincipalAttachment =
   IoTPolicyPrincipalAttachment
   { _ioTPolicyPrincipalAttachmentPolicyName :: Val Text
@@ -38,7 +38,7 @@ instance FromJSON IoTPolicyPrincipalAttachment where
   parseJSON _ = mempty
 
 -- | Constructor for 'IoTPolicyPrincipalAttachment' containing required fields
--- | as arguments.
+-- as arguments.
 ioTPolicyPrincipalAttachment
   :: Val Text -- ^ 'itppaPolicyName'
   -> Val Text -- ^ 'itppaPrincipal'

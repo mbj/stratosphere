@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for IAMInstanceProfile. See
--- | 'iamInstanceProfile' for a more convenient constructor.
+-- 'iamInstanceProfile' for a more convenient constructor.
 data IAMInstanceProfile =
   IAMInstanceProfile
   { _iAMInstanceProfilePath :: Val Text
@@ -38,7 +38,7 @@ instance FromJSON IAMInstanceProfile where
   parseJSON _ = mempty
 
 -- | Constructor for 'IAMInstanceProfile' containing required fields as
--- | arguments.
+-- arguments.
 iamInstanceProfile
   :: Val Text -- ^ 'iamipPath'
   -> [Val Text] -- ^ 'iamipRoles'

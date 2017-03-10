@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for RDSOptionGroupOptionSetting. See
--- | 'rdsOptionGroupOptionSetting' for a more convenient constructor.
+-- 'rdsOptionGroupOptionSetting' for a more convenient constructor.
 data RDSOptionGroupOptionSetting =
   RDSOptionGroupOptionSetting
   { _rDSOptionGroupOptionSettingName :: Maybe (Val Text)
@@ -38,7 +38,7 @@ instance FromJSON RDSOptionGroupOptionSetting where
   parseJSON _ = mempty
 
 -- | Constructor for 'RDSOptionGroupOptionSetting' containing required fields
--- | as arguments.
+-- as arguments.
 rdsOptionGroupOptionSetting
   :: RDSOptionGroupOptionSetting
 rdsOptionGroupOptionSetting  =

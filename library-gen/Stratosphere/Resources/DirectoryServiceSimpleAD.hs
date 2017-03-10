@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.DirectoryServiceSimpleADVpcSettings
 
 -- | Full data type definition for DirectoryServiceSimpleAD. See
--- | 'directoryServiceSimpleAD' for a more convenient constructor.
+-- 'directoryServiceSimpleAD' for a more convenient constructor.
 data DirectoryServiceSimpleAD =
   DirectoryServiceSimpleAD
   { _directoryServiceSimpleADCreateAlias :: Maybe (Val Bool')
@@ -56,7 +56,7 @@ instance FromJSON DirectoryServiceSimpleAD where
   parseJSON _ = mempty
 
 -- | Constructor for 'DirectoryServiceSimpleAD' containing required fields as
--- | arguments.
+-- arguments.
 directoryServiceSimpleAD
   :: Val Text -- ^ 'dssadName'
   -> Val Text -- ^ 'dssadPassword'

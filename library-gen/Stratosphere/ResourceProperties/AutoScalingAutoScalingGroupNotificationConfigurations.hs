@@ -15,9 +15,9 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for
--- | AutoScalingAutoScalingGroupNotificationConfigurations. See
--- | 'autoScalingAutoScalingGroupNotificationConfigurations' for a more
--- | convenient constructor.
+-- AutoScalingAutoScalingGroupNotificationConfigurations. See
+-- 'autoScalingAutoScalingGroupNotificationConfigurations' for a more
+-- convenient constructor.
 data AutoScalingAutoScalingGroupNotificationConfigurations =
   AutoScalingAutoScalingGroupNotificationConfigurations
   { _autoScalingAutoScalingGroupNotificationConfigurationsNotificationTypes :: Maybe [Val Text]
@@ -40,7 +40,7 @@ instance FromJSON AutoScalingAutoScalingGroupNotificationConfigurations where
   parseJSON _ = mempty
 
 -- | Constructor for 'AutoScalingAutoScalingGroupNotificationConfigurations'
--- | containing required fields as arguments.
+-- containing required fields as arguments.
 autoScalingAutoScalingGroupNotificationConfigurations
   :: Val Text -- ^ 'asasgncTopicARN'
   -> AutoScalingAutoScalingGroupNotificationConfigurations

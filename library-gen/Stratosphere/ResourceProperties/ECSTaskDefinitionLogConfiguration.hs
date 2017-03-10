@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for ECSTaskDefinitionLogConfiguration. See
--- | 'ecsTaskDefinitionLogConfiguration' for a more convenient constructor.
+-- 'ecsTaskDefinitionLogConfiguration' for a more convenient constructor.
 data ECSTaskDefinitionLogConfiguration =
   ECSTaskDefinitionLogConfiguration
   { _eCSTaskDefinitionLogConfigurationLogDriver :: Val Text
@@ -38,7 +38,7 @@ instance FromJSON ECSTaskDefinitionLogConfiguration where
   parseJSON _ = mempty
 
 -- | Constructor for 'ECSTaskDefinitionLogConfiguration' containing required
--- | fields as arguments.
+-- fields as arguments.
 ecsTaskDefinitionLogConfiguration
   :: Val Text -- ^ 'ecstdlcLogDriver'
   -> ECSTaskDefinitionLogConfiguration

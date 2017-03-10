@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for KMSKey. See 'kmsKey' for a more convenient
--- | constructor.
+-- constructor.
 data KMSKey =
   KMSKey
   { _kMSKeyDescription :: Maybe (Val Text)

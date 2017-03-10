@@ -17,7 +17,7 @@ import Stratosphere.ResourceProperties.CodePipelineCustomActionTypeArtifactDetai
 import Stratosphere.ResourceProperties.CodePipelineCustomActionTypeSettings
 
 -- | Full data type definition for CodePipelineCustomActionType. See
--- | 'codePipelineCustomActionType' for a more convenient constructor.
+-- 'codePipelineCustomActionType' for a more convenient constructor.
 data CodePipelineCustomActionType =
   CodePipelineCustomActionType
   { _codePipelineCustomActionTypeCategory :: Val Text
@@ -55,7 +55,7 @@ instance FromJSON CodePipelineCustomActionType where
   parseJSON _ = mempty
 
 -- | Constructor for 'CodePipelineCustomActionType' containing required fields
--- | as arguments.
+-- as arguments.
 codePipelineCustomActionType
   :: Val Text -- ^ 'cpcatCategory'
   -> CodePipelineCustomActionTypeArtifactDetails -- ^ 'cpcatInputArtifactDetails'

@@ -17,7 +17,7 @@ import Stratosphere.ResourceProperties.S3BucketQueueConfiguration
 import Stratosphere.ResourceProperties.S3BucketTopicConfiguration
 
 -- | Full data type definition for S3BucketNotificationConfiguration. See
--- | 's3BucketNotificationConfiguration' for a more convenient constructor.
+-- 's3BucketNotificationConfiguration' for a more convenient constructor.
 data S3BucketNotificationConfiguration =
   S3BucketNotificationConfiguration
   { _s3BucketNotificationConfigurationLambdaConfigurations :: Maybe [S3BucketLambdaConfiguration]
@@ -43,7 +43,7 @@ instance FromJSON S3BucketNotificationConfiguration where
   parseJSON _ = mempty
 
 -- | Constructor for 'S3BucketNotificationConfiguration' containing required
--- | fields as arguments.
+-- fields as arguments.
 s3BucketNotificationConfiguration
   :: S3BucketNotificationConfiguration
 s3BucketNotificationConfiguration  =

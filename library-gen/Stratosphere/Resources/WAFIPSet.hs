@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.WAFIPSetIPSetDescriptor
 
 -- | Full data type definition for WAFIPSet. See 'wafipSet' for a more
--- | convenient constructor.
+-- convenient constructor.
 data WAFIPSet =
   WAFIPSet
   { _wAFIPSetIPSetDescriptors :: Maybe [WAFIPSetIPSetDescriptor]

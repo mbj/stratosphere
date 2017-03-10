@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.EMRClusterScriptBootstrapActionConfig
 
 -- | Full data type definition for EMRClusterBootstrapActionConfig. See
--- | 'emrClusterBootstrapActionConfig' for a more convenient constructor.
+-- 'emrClusterBootstrapActionConfig' for a more convenient constructor.
 data EMRClusterBootstrapActionConfig =
   EMRClusterBootstrapActionConfig
   { _eMRClusterBootstrapActionConfigName :: Val Text
@@ -38,7 +38,7 @@ instance FromJSON EMRClusterBootstrapActionConfig where
   parseJSON _ = mempty
 
 -- | Constructor for 'EMRClusterBootstrapActionConfig' containing required
--- | fields as arguments.
+-- fields as arguments.
 emrClusterBootstrapActionConfig
   :: Val Text -- ^ 'emrcbacName'
   -> EMRClusterScriptBootstrapActionConfig -- ^ 'emrcbacScriptBootstrapAction'

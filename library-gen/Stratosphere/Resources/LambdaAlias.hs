@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for LambdaAlias. See 'lambdaAlias' for a more
--- | convenient constructor.
+-- convenient constructor.
 data LambdaAlias =
   LambdaAlias
   { _lambdaAliasDescription :: Maybe (Val Text)

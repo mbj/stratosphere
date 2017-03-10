@@ -15,8 +15,8 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for ElasticBeanstalkEnvironmentOptionSettings.
--- | See 'elasticBeanstalkEnvironmentOptionSettings' for a more convenient
--- | constructor.
+-- See 'elasticBeanstalkEnvironmentOptionSettings' for a more convenient
+-- constructor.
 data ElasticBeanstalkEnvironmentOptionSettings =
   ElasticBeanstalkEnvironmentOptionSettings
   { _elasticBeanstalkEnvironmentOptionSettingsNamespace :: Val Text
@@ -42,7 +42,7 @@ instance FromJSON ElasticBeanstalkEnvironmentOptionSettings where
   parseJSON _ = mempty
 
 -- | Constructor for 'ElasticBeanstalkEnvironmentOptionSettings' containing
--- | required fields as arguments.
+-- required fields as arguments.
 elasticBeanstalkEnvironmentOptionSettings
   :: Val Text -- ^ 'ebeosNamespace'
   -> Val Text -- ^ 'ebeosOptionName'

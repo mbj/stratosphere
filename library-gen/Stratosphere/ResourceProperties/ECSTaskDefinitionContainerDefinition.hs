@@ -21,7 +21,7 @@ import Stratosphere.ResourceProperties.ECSTaskDefinitionUlimit
 import Stratosphere.ResourceProperties.ECSTaskDefinitionVolumeFrom
 
 -- | Full data type definition for ECSTaskDefinitionContainerDefinition. See
--- | 'ecsTaskDefinitionContainerDefinition' for a more convenient constructor.
+-- 'ecsTaskDefinitionContainerDefinition' for a more convenient constructor.
 data ECSTaskDefinitionContainerDefinition =
   ECSTaskDefinitionContainerDefinition
   { _eCSTaskDefinitionContainerDefinitionCommand :: Maybe [Val Text]
@@ -116,7 +116,7 @@ instance FromJSON ECSTaskDefinitionContainerDefinition where
   parseJSON _ = mempty
 
 -- | Constructor for 'ECSTaskDefinitionContainerDefinition' containing
--- | required fields as arguments.
+-- required fields as arguments.
 ecsTaskDefinitionContainerDefinition
   :: Val Text -- ^ 'ecstdcdImage'
   -> Val Text -- ^ 'ecstdcdName'

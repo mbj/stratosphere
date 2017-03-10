@@ -15,8 +15,8 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for EMRInstanceGroupConfigVolumeSpecification.
--- | See 'emrInstanceGroupConfigVolumeSpecification' for a more convenient
--- | constructor.
+-- See 'emrInstanceGroupConfigVolumeSpecification' for a more convenient
+-- constructor.
 data EMRInstanceGroupConfigVolumeSpecification =
   EMRInstanceGroupConfigVolumeSpecification
   { _eMRInstanceGroupConfigVolumeSpecificationIops :: Maybe (Val Integer')
@@ -42,7 +42,7 @@ instance FromJSON EMRInstanceGroupConfigVolumeSpecification where
   parseJSON _ = mempty
 
 -- | Constructor for 'EMRInstanceGroupConfigVolumeSpecification' containing
--- | required fields as arguments.
+-- required fields as arguments.
 emrInstanceGroupConfigVolumeSpecification
   :: Val Integer' -- ^ 'emrigcvsSizeInGB'
   -> Val Text -- ^ 'emrigcvsVolumeType'

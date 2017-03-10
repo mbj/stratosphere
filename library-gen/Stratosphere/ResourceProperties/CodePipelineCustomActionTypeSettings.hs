@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for CodePipelineCustomActionTypeSettings. See
--- | 'codePipelineCustomActionTypeSettings' for a more convenient constructor.
+-- 'codePipelineCustomActionTypeSettings' for a more convenient constructor.
 data CodePipelineCustomActionTypeSettings =
   CodePipelineCustomActionTypeSettings
   { _codePipelineCustomActionTypeSettingsEntityUrlTemplate :: Maybe (Val Text)
@@ -44,7 +44,7 @@ instance FromJSON CodePipelineCustomActionTypeSettings where
   parseJSON _ = mempty
 
 -- | Constructor for 'CodePipelineCustomActionTypeSettings' containing
--- | required fields as arguments.
+-- required fields as arguments.
 codePipelineCustomActionTypeSettings
   :: CodePipelineCustomActionTypeSettings
 codePipelineCustomActionTypeSettings  =

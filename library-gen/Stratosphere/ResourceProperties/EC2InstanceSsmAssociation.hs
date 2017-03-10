@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.EC2InstanceAssociationParameter
 
 -- | Full data type definition for EC2InstanceSsmAssociation. See
--- | 'ec2InstanceSsmAssociation' for a more convenient constructor.
+-- 'ec2InstanceSsmAssociation' for a more convenient constructor.
 data EC2InstanceSsmAssociation =
   EC2InstanceSsmAssociation
   { _eC2InstanceSsmAssociationAssociationParameters :: Maybe [EC2InstanceAssociationParameter]
@@ -38,7 +38,7 @@ instance FromJSON EC2InstanceSsmAssociation where
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2InstanceSsmAssociation' containing required fields as
--- | arguments.
+-- arguments.
 ec2InstanceSsmAssociation
   :: Val Text -- ^ 'ecisaDocumentName'
   -> EC2InstanceSsmAssociation

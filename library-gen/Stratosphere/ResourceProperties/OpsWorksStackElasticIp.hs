@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for OpsWorksStackElasticIp. See
--- | 'opsWorksStackElasticIp' for a more convenient constructor.
+-- 'opsWorksStackElasticIp' for a more convenient constructor.
 data OpsWorksStackElasticIp =
   OpsWorksStackElasticIp
   { _opsWorksStackElasticIpIp :: Val Text
@@ -38,7 +38,7 @@ instance FromJSON OpsWorksStackElasticIp where
   parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksStackElasticIp' containing required fields as
--- | arguments.
+-- arguments.
 opsWorksStackElasticIp
   :: Val Text -- ^ 'owseiIp'
   -> OpsWorksStackElasticIp

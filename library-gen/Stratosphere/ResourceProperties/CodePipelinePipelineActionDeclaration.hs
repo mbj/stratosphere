@@ -17,8 +17,8 @@ import Stratosphere.ResourceProperties.CodePipelinePipelineInputArtifact
 import Stratosphere.ResourceProperties.CodePipelinePipelineOutputArtifact
 
 -- | Full data type definition for CodePipelinePipelineActionDeclaration. See
--- | 'codePipelinePipelineActionDeclaration' for a more convenient
--- | constructor.
+-- 'codePipelinePipelineActionDeclaration' for a more convenient
+-- constructor.
 data CodePipelinePipelineActionDeclaration =
   CodePipelinePipelineActionDeclaration
   { _codePipelinePipelineActionDeclarationActionTypeId :: CodePipelinePipelineActionTypeId
@@ -56,7 +56,7 @@ instance FromJSON CodePipelinePipelineActionDeclaration where
   parseJSON _ = mempty
 
 -- | Constructor for 'CodePipelinePipelineActionDeclaration' containing
--- | required fields as arguments.
+-- required fields as arguments.
 codePipelinePipelineActionDeclaration
   :: CodePipelinePipelineActionTypeId -- ^ 'cppadActionTypeId'
   -> Val Text -- ^ 'cppadName'

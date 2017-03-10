@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for EC2SpotFleetInstanceIpv6Address. See
--- | 'ec2SpotFleetInstanceIpv6Address' for a more convenient constructor.
+-- 'ec2SpotFleetInstanceIpv6Address' for a more convenient constructor.
 data EC2SpotFleetInstanceIpv6Address =
   EC2SpotFleetInstanceIpv6Address
   { _eC2SpotFleetInstanceIpv6AddressIpv6Address :: Val Text
@@ -35,7 +35,7 @@ instance FromJSON EC2SpotFleetInstanceIpv6Address where
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2SpotFleetInstanceIpv6Address' containing required
--- | fields as arguments.
+-- fields as arguments.
 ec2SpotFleetInstanceIpv6Address
   :: Val Text -- ^ 'ecsfiiaIpv6Address'
   -> EC2SpotFleetInstanceIpv6Address

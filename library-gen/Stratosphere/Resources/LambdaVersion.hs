@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for LambdaVersion. See 'lambdaVersion' for a
--- | more convenient constructor.
+-- more convenient constructor.
 data LambdaVersion =
   LambdaVersion
   { _lambdaVersionCodeSha256 :: Maybe (Val Text)

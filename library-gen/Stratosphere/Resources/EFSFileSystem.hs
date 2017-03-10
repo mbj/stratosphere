@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.EFSFileSystemElasticFileSystemTag
 
 -- | Full data type definition for EFSFileSystem. See 'efsFileSystem' for a
--- | more convenient constructor.
+-- more convenient constructor.
 data EFSFileSystem =
   EFSFileSystem
   { _eFSFileSystemFileSystemTags :: Maybe [EFSFileSystemElasticFileSystemTag]

@@ -16,7 +16,7 @@ import Stratosphere.ResourceProperties.CertificateManagerCertificateDomainValida
 import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for CertificateManagerCertificate. See
--- | 'certificateManagerCertificate' for a more convenient constructor.
+-- 'certificateManagerCertificate' for a more convenient constructor.
 data CertificateManagerCertificate =
   CertificateManagerCertificate
   { _certificateManagerCertificateDomainName :: Val Text
@@ -45,7 +45,7 @@ instance FromJSON CertificateManagerCertificate where
   parseJSON _ = mempty
 
 -- | Constructor for 'CertificateManagerCertificate' containing required
--- | fields as arguments.
+-- fields as arguments.
 certificateManagerCertificate
   :: Val Text -- ^ 'cmcDomainName'
   -> CertificateManagerCertificate

@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.WAFByteMatchSetByteMatchTuple
 
 -- | Full data type definition for WAFByteMatchSet. See 'wafByteMatchSet' for
--- | a more convenient constructor.
+-- a more convenient constructor.
 data WAFByteMatchSet =
   WAFByteMatchSet
   { _wAFByteMatchSetByteMatchTuples :: Maybe [WAFByteMatchSetByteMatchTuple]
@@ -38,7 +38,7 @@ instance FromJSON WAFByteMatchSet where
   parseJSON _ = mempty
 
 -- | Constructor for 'WAFByteMatchSet' containing required fields as
--- | arguments.
+-- arguments.
 wafByteMatchSet
   :: Val Text -- ^ 'wafbmsName'
   -> WAFByteMatchSet

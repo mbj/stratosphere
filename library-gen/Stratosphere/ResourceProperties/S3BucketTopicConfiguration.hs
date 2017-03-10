@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.S3BucketNotificationFilter
 
 -- | Full data type definition for S3BucketTopicConfiguration. See
--- | 's3BucketTopicConfiguration' for a more convenient constructor.
+-- 's3BucketTopicConfiguration' for a more convenient constructor.
 data S3BucketTopicConfiguration =
   S3BucketTopicConfiguration
   { _s3BucketTopicConfigurationEvent :: Val Text
@@ -41,7 +41,7 @@ instance FromJSON S3BucketTopicConfiguration where
   parseJSON _ = mempty
 
 -- | Constructor for 'S3BucketTopicConfiguration' containing required fields
--- | as arguments.
+-- as arguments.
 s3BucketTopicConfiguration
   :: Val Text -- ^ 'sbtcEvent'
   -> Val Text -- ^ 'sbtcTopic'

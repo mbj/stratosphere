@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for S3BucketRoutingRuleCondition. See
--- | 's3BucketRoutingRuleCondition' for a more convenient constructor.
+-- 's3BucketRoutingRuleCondition' for a more convenient constructor.
 data S3BucketRoutingRuleCondition =
   S3BucketRoutingRuleCondition
   { _s3BucketRoutingRuleConditionHttpErrorCodeReturnedEquals :: Maybe (Val Text)
@@ -38,7 +38,7 @@ instance FromJSON S3BucketRoutingRuleCondition where
   parseJSON _ = mempty
 
 -- | Constructor for 'S3BucketRoutingRuleCondition' containing required fields
--- | as arguments.
+-- as arguments.
 s3BucketRoutingRuleCondition
   :: S3BucketRoutingRuleCondition
 s3BucketRoutingRuleCondition  =

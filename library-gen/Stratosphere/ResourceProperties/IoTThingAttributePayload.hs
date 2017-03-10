@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for IoTThingAttributePayload. See
--- | 'ioTThingAttributePayload' for a more convenient constructor.
+-- 'ioTThingAttributePayload' for a more convenient constructor.
 data IoTThingAttributePayload =
   IoTThingAttributePayload
   { _ioTThingAttributePayloadAttributes :: Maybe Object
@@ -35,7 +35,7 @@ instance FromJSON IoTThingAttributePayload where
   parseJSON _ = mempty
 
 -- | Constructor for 'IoTThingAttributePayload' containing required fields as
--- | arguments.
+-- arguments.
 ioTThingAttributePayload
   :: IoTThingAttributePayload
 ioTThingAttributePayload  =

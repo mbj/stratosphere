@@ -18,7 +18,7 @@ import Stratosphere.ResourceProperties.DataPipelinePipelinePipelineObject
 import Stratosphere.ResourceProperties.DataPipelinePipelinePipelineTag
 
 -- | Full data type definition for DataPipelinePipeline. See
--- | 'dataPipelinePipeline' for a more convenient constructor.
+-- 'dataPipelinePipeline' for a more convenient constructor.
 data DataPipelinePipeline =
   DataPipelinePipeline
   { _dataPipelinePipelineActivate :: Maybe (Val Bool')
@@ -56,7 +56,7 @@ instance FromJSON DataPipelinePipeline where
   parseJSON _ = mempty
 
 -- | Constructor for 'DataPipelinePipeline' containing required fields as
--- | arguments.
+-- arguments.
 dataPipelinePipeline
   :: Val Text -- ^ 'dppName'
   -> [DataPipelinePipelineParameterObject] -- ^ 'dppParameterObjects'

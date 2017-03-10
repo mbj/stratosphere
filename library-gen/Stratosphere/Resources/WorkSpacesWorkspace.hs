@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for WorkSpacesWorkspace. See
--- | 'workSpacesWorkspace' for a more convenient constructor.
+-- 'workSpacesWorkspace' for a more convenient constructor.
 data WorkSpacesWorkspace =
   WorkSpacesWorkspace
   { _workSpacesWorkspaceBundleId :: Val Text
@@ -50,7 +50,7 @@ instance FromJSON WorkSpacesWorkspace where
   parseJSON _ = mempty
 
 -- | Constructor for 'WorkSpacesWorkspace' containing required fields as
--- | arguments.
+-- arguments.
 workSpacesWorkspace
   :: Val Text -- ^ 'wswBundleId'
   -> Val Text -- ^ 'wswDirectoryId'

@@ -4,16 +4,17 @@
 
 module Gen.Render.RenderDocstring where
 
+import Data.Text (Text)
 import qualified Data.Text as T
 
-renderDocstring :: T.Text -> T.Text
+renderDocstring :: Text -> Text
 renderDocstring = wrapDocstring 79
 
-wrapDocstring :: Int -> T.Text -> T.Text
+wrapDocstring :: Int -> Text -> Text
 wrapDocstring width text = T.init $ T.unlines $ T.pack <$> commented
   where
     lines' = wrapLine' (width - 5) (T.unpack text)
-    commented = fmap (\l -> "-- | " ++ l) lines'
+    commented = zipWith (++) ("-- | " : repeat "-- ") lines'
 
 wrapLine' :: Int -> String -> [String]
 wrapLine' maxLen line = filter (not . null) $ map unwords $ gobble 0 [] $ words line

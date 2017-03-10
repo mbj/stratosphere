@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.ApiGatewayDeploymentStageDescription
 
 -- | Full data type definition for ApiGatewayDeployment. See
--- | 'apiGatewayDeployment' for a more convenient constructor.
+-- 'apiGatewayDeployment' for a more convenient constructor.
 data ApiGatewayDeployment =
   ApiGatewayDeployment
   { _apiGatewayDeploymentDescription :: Maybe (Val Text)
@@ -44,7 +44,7 @@ instance FromJSON ApiGatewayDeployment where
   parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayDeployment' containing required fields as
--- | arguments.
+-- arguments.
 apiGatewayDeployment
   :: Val Text -- ^ 'agdRestApiId'
   -> ApiGatewayDeployment

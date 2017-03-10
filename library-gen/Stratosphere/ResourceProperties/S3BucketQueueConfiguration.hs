@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.S3BucketNotificationFilter
 
 -- | Full data type definition for S3BucketQueueConfiguration. See
--- | 's3BucketQueueConfiguration' for a more convenient constructor.
+-- 's3BucketQueueConfiguration' for a more convenient constructor.
 data S3BucketQueueConfiguration =
   S3BucketQueueConfiguration
   { _s3BucketQueueConfigurationEvent :: Val Text
@@ -41,7 +41,7 @@ instance FromJSON S3BucketQueueConfiguration where
   parseJSON _ = mempty
 
 -- | Constructor for 'S3BucketQueueConfiguration' containing required fields
--- | as arguments.
+-- as arguments.
 s3BucketQueueConfiguration
   :: Val Text -- ^ 'sbqcEvent'
   -> Val Text -- ^ 'sbqcQueue'

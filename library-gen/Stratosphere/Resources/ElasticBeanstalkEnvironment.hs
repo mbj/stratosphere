@@ -16,7 +16,7 @@ import Stratosphere.ResourceProperties.ElasticBeanstalkEnvironmentOptionSettings
 import Stratosphere.ResourceProperties.ElasticBeanstalkEnvironmentTier
 
 -- | Full data type definition for ElasticBeanstalkEnvironment. See
--- | 'elasticBeanstalkEnvironment' for a more convenient constructor.
+-- 'elasticBeanstalkEnvironment' for a more convenient constructor.
 data ElasticBeanstalkEnvironment =
   ElasticBeanstalkEnvironment
   { _elasticBeanstalkEnvironmentApplicationName :: Val Text
@@ -60,7 +60,7 @@ instance FromJSON ElasticBeanstalkEnvironment where
   parseJSON _ = mempty
 
 -- | Constructor for 'ElasticBeanstalkEnvironment' containing required fields
--- | as arguments.
+-- as arguments.
 elasticBeanstalkEnvironment
   :: Val Text -- ^ 'ebeApplicationName'
   -> ElasticBeanstalkEnvironment

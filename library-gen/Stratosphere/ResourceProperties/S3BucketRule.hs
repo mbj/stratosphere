@@ -16,7 +16,7 @@ import Stratosphere.ResourceProperties.S3BucketNoncurrentVersionTransition
 import Stratosphere.ResourceProperties.S3BucketTransition
 
 -- | Full data type definition for S3BucketRule. See 's3BucketRule' for a more
--- | convenient constructor.
+-- convenient constructor.
 data S3BucketRule =
   S3BucketRule
   { _s3BucketRuleExpirationDate :: Maybe (Val Text)

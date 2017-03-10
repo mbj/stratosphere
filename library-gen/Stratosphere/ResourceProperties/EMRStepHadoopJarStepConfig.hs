@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.EMRStepKeyValue
 
 -- | Full data type definition for EMRStepHadoopJarStepConfig. See
--- | 'emrStepHadoopJarStepConfig' for a more convenient constructor.
+-- 'emrStepHadoopJarStepConfig' for a more convenient constructor.
 data EMRStepHadoopJarStepConfig =
   EMRStepHadoopJarStepConfig
   { _eMRStepHadoopJarStepConfigArgs :: Maybe [Val Text]
@@ -44,7 +44,7 @@ instance FromJSON EMRStepHadoopJarStepConfig where
   parseJSON _ = mempty
 
 -- | Constructor for 'EMRStepHadoopJarStepConfig' containing required fields
--- | as arguments.
+-- as arguments.
 emrStepHadoopJarStepConfig
   :: Val Text -- ^ 'emrshjscJar'
   -> EMRStepHadoopJarStepConfig

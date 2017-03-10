@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for EC2InstanceVolume. See 'ec2InstanceVolume'
--- | for a more convenient constructor.
+-- for a more convenient constructor.
 data EC2InstanceVolume =
   EC2InstanceVolume
   { _eC2InstanceVolumeDevice :: Val Text
@@ -38,7 +38,7 @@ instance FromJSON EC2InstanceVolume where
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2InstanceVolume' containing required fields as
--- | arguments.
+-- arguments.
 ec2InstanceVolume
   :: Val Text -- ^ 'ecivDevice'
   -> Val Text -- ^ 'ecivVolumeId'

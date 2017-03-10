@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for EC2SubnetRouteTableAssociation. See
--- | 'ec2SubnetRouteTableAssociation' for a more convenient constructor.
+-- 'ec2SubnetRouteTableAssociation' for a more convenient constructor.
 data EC2SubnetRouteTableAssociation =
   EC2SubnetRouteTableAssociation
   { _eC2SubnetRouteTableAssociationRouteTableId :: Val Text
@@ -38,7 +38,7 @@ instance FromJSON EC2SubnetRouteTableAssociation where
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2SubnetRouteTableAssociation' containing required
--- | fields as arguments.
+-- fields as arguments.
 ec2SubnetRouteTableAssociation
   :: Val Text -- ^ 'ecsrtaRouteTableId'
   -> Val Text -- ^ 'ecsrtaSubnetId'

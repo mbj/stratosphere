@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupRevision
 
 -- | Full data type definition for CodeDeployDeploymentGroupDeployment. See
--- | 'codeDeployDeploymentGroupDeployment' for a more convenient constructor.
+-- 'codeDeployDeploymentGroupDeployment' for a more convenient constructor.
 data CodeDeployDeploymentGroupDeployment =
   CodeDeployDeploymentGroupDeployment
   { _codeDeployDeploymentGroupDeploymentDescription :: Maybe (Val Text)
@@ -41,7 +41,7 @@ instance FromJSON CodeDeployDeploymentGroupDeployment where
   parseJSON _ = mempty
 
 -- | Constructor for 'CodeDeployDeploymentGroupDeployment' containing required
--- | fields as arguments.
+-- fields as arguments.
 codeDeployDeploymentGroupDeployment
   :: CodeDeployDeploymentGroupRevision -- ^ 'cddgdRevision'
   -> CodeDeployDeploymentGroupDeployment

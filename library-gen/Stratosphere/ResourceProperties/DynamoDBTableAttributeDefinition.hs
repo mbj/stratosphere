@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.Types
 
 -- | Full data type definition for DynamoDBTableAttributeDefinition. See
--- | 'dynamoDBTableAttributeDefinition' for a more convenient constructor.
+-- 'dynamoDBTableAttributeDefinition' for a more convenient constructor.
 data DynamoDBTableAttributeDefinition =
   DynamoDBTableAttributeDefinition
   { _dynamoDBTableAttributeDefinitionAttributeName :: Val Text
@@ -38,7 +38,7 @@ instance FromJSON DynamoDBTableAttributeDefinition where
   parseJSON _ = mempty
 
 -- | Constructor for 'DynamoDBTableAttributeDefinition' containing required
--- | fields as arguments.
+-- fields as arguments.
 dynamoDBTableAttributeDefinition
   :: Val Text -- ^ 'ddbtadAttributeName'
   -> Val AttributeType -- ^ 'ddbtadAttributeType'

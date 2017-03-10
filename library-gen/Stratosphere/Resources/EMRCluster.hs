@@ -19,7 +19,7 @@ import Stratosphere.ResourceProperties.EMRClusterJobFlowInstancesConfig
 import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for EMRCluster. See 'emrCluster' for a more
--- | convenient constructor.
+-- convenient constructor.
 data EMRCluster =
   EMRCluster
   { _eMRClusterAdditionalInfo :: Maybe Object

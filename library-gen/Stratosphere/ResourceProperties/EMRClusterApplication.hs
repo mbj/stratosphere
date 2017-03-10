@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for EMRClusterApplication. See
--- | 'emrClusterApplication' for a more convenient constructor.
+-- 'emrClusterApplication' for a more convenient constructor.
 data EMRClusterApplication =
   EMRClusterApplication
   { _eMRClusterApplicationAdditionalInfo :: Maybe Object
@@ -44,7 +44,7 @@ instance FromJSON EMRClusterApplication where
   parseJSON _ = mempty
 
 -- | Constructor for 'EMRClusterApplication' containing required fields as
--- | arguments.
+-- arguments.
 emrClusterApplication
   :: EMRClusterApplication
 emrClusterApplication  =

@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for EC2InstanceNoDevice. See
--- | 'ec2InstanceNoDevice' for a more convenient constructor.
+-- 'ec2InstanceNoDevice' for a more convenient constructor.
 data EC2InstanceNoDevice =
   EC2InstanceNoDevice
   { 
@@ -29,7 +29,7 @@ instance FromJSON EC2InstanceNoDevice where
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2InstanceNoDevice' containing required fields as
--- | arguments.
+-- arguments.
 ec2InstanceNoDevice
   :: EC2InstanceNoDevice
 ec2InstanceNoDevice  =

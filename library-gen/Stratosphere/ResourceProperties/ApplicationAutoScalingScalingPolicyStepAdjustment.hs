@@ -15,9 +15,9 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for
--- | ApplicationAutoScalingScalingPolicyStepAdjustment. See
--- | 'applicationAutoScalingScalingPolicyStepAdjustment' for a more convenient
--- | constructor.
+-- ApplicationAutoScalingScalingPolicyStepAdjustment. See
+-- 'applicationAutoScalingScalingPolicyStepAdjustment' for a more convenient
+-- constructor.
 data ApplicationAutoScalingScalingPolicyStepAdjustment =
   ApplicationAutoScalingScalingPolicyStepAdjustment
   { _applicationAutoScalingScalingPolicyStepAdjustmentMetricIntervalLowerBound :: Maybe (Val Double')
@@ -43,7 +43,7 @@ instance FromJSON ApplicationAutoScalingScalingPolicyStepAdjustment where
   parseJSON _ = mempty
 
 -- | Constructor for 'ApplicationAutoScalingScalingPolicyStepAdjustment'
--- | containing required fields as arguments.
+-- containing required fields as arguments.
 applicationAutoScalingScalingPolicyStepAdjustment
   :: Val Integer' -- ^ 'aasspsaScalingAdjustment'
   -> ApplicationAutoScalingScalingPolicyStepAdjustment

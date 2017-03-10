@@ -16,7 +16,7 @@ import Stratosphere.Types
 import Stratosphere.ResourceProperties.EventsRuleTarget
 
 -- | Full data type definition for EventsRule. See 'eventsRule' for a more
--- | convenient constructor.
+-- convenient constructor.
 data EventsRule =
   EventsRule
   { _eventsRuleDescription :: Maybe (Val Text)

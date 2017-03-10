@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for ApiGatewayMethodIntegrationResponse. See
--- | 'apiGatewayMethodIntegrationResponse' for a more convenient constructor.
+-- 'apiGatewayMethodIntegrationResponse' for a more convenient constructor.
 data ApiGatewayMethodIntegrationResponse =
   ApiGatewayMethodIntegrationResponse
   { _apiGatewayMethodIntegrationResponseResponseParameters :: Maybe Object
@@ -44,7 +44,7 @@ instance FromJSON ApiGatewayMethodIntegrationResponse where
   parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayMethodIntegrationResponse' containing required
--- | fields as arguments.
+-- fields as arguments.
 apiGatewayMethodIntegrationResponse
   :: ApiGatewayMethodIntegrationResponse
 apiGatewayMethodIntegrationResponse  =

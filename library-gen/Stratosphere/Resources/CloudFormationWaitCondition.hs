@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for CloudFormationWaitCondition. See
--- | 'cloudFormationWaitCondition' for a more convenient constructor.
+-- 'cloudFormationWaitCondition' for a more convenient constructor.
 data CloudFormationWaitCondition =
   CloudFormationWaitCondition
   { _cloudFormationWaitConditionCount :: Maybe (Val Integer')
@@ -41,7 +41,7 @@ instance FromJSON CloudFormationWaitCondition where
   parseJSON _ = mempty
 
 -- | Constructor for 'CloudFormationWaitCondition' containing required fields
--- | as arguments.
+-- as arguments.
 cloudFormationWaitCondition
   :: Val Text -- ^ 'cfwcHandle'
   -> Val Text -- ^ 'cfwcTimeout'

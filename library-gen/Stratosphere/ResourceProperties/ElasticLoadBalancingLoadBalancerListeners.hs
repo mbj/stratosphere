@@ -15,8 +15,8 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for ElasticLoadBalancingLoadBalancerListeners.
--- | See 'elasticLoadBalancingLoadBalancerListeners' for a more convenient
--- | constructor.
+-- See 'elasticLoadBalancingLoadBalancerListeners' for a more convenient
+-- constructor.
 data ElasticLoadBalancingLoadBalancerListeners =
   ElasticLoadBalancingLoadBalancerListeners
   { _elasticLoadBalancingLoadBalancerListenersInstancePort :: Val Text
@@ -51,7 +51,7 @@ instance FromJSON ElasticLoadBalancingLoadBalancerListeners where
   parseJSON _ = mempty
 
 -- | Constructor for 'ElasticLoadBalancingLoadBalancerListeners' containing
--- | required fields as arguments.
+-- required fields as arguments.
 elasticLoadBalancingLoadBalancerListeners
   :: Val Text -- ^ 'elblblInstancePort'
   -> Val Text -- ^ 'elblblLoadBalancerPort'

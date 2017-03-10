@@ -17,7 +17,7 @@ import Stratosphere.ResourceProperties.ApiGatewayUsagePlanQuotaSettings
 import Stratosphere.ResourceProperties.ApiGatewayUsagePlanThrottleSettings
 
 -- | Full data type definition for ApiGatewayUsagePlan. See
--- | 'apiGatewayUsagePlan' for a more convenient constructor.
+-- 'apiGatewayUsagePlan' for a more convenient constructor.
 data ApiGatewayUsagePlan =
   ApiGatewayUsagePlan
   { _apiGatewayUsagePlanApiStages :: Maybe [ApiGatewayUsagePlanApiStage]
@@ -49,7 +49,7 @@ instance FromJSON ApiGatewayUsagePlan where
   parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayUsagePlan' containing required fields as
--- | arguments.
+-- arguments.
 apiGatewayUsagePlan
   :: ApiGatewayUsagePlan
 apiGatewayUsagePlan  =

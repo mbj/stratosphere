@@ -23,7 +23,7 @@ import Stratosphere.ResourceProperties.ElasticLoadBalancingLoadBalancerPolicies
 import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for ElasticLoadBalancingLoadBalancer. See
--- | 'elasticLoadBalancingLoadBalancer' for a more convenient constructor.
+-- 'elasticLoadBalancingLoadBalancer' for a more convenient constructor.
 data ElasticLoadBalancingLoadBalancer =
   ElasticLoadBalancingLoadBalancer
   { _elasticLoadBalancingLoadBalancerAccessLoggingPolicy :: Maybe ElasticLoadBalancingLoadBalancerAccessLoggingPolicy
@@ -88,7 +88,7 @@ instance FromJSON ElasticLoadBalancingLoadBalancer where
   parseJSON _ = mempty
 
 -- | Constructor for 'ElasticLoadBalancingLoadBalancer' containing required
--- | fields as arguments.
+-- fields as arguments.
 elasticLoadBalancingLoadBalancer
   :: [ElasticLoadBalancingLoadBalancerListeners] -- ^ 'elblbListeners'
   -> ElasticLoadBalancingLoadBalancer

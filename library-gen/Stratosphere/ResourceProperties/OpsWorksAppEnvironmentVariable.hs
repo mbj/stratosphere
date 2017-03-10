@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for OpsWorksAppEnvironmentVariable. See
--- | 'opsWorksAppEnvironmentVariable' for a more convenient constructor.
+-- 'opsWorksAppEnvironmentVariable' for a more convenient constructor.
 data OpsWorksAppEnvironmentVariable =
   OpsWorksAppEnvironmentVariable
   { _opsWorksAppEnvironmentVariableKey :: Val Text
@@ -41,7 +41,7 @@ instance FromJSON OpsWorksAppEnvironmentVariable where
   parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksAppEnvironmentVariable' containing required
--- | fields as arguments.
+-- fields as arguments.
 opsWorksAppEnvironmentVariable
   :: Val Text -- ^ 'owaevKey'
   -> Val Text -- ^ 'owaevValue'

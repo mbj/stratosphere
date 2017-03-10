@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for OpsWorksVolume. See 'opsWorksVolume' for a
--- | more convenient constructor.
+-- more convenient constructor.
 data OpsWorksVolume =
   OpsWorksVolume
   { _opsWorksVolumeEc2VolumeId :: Val Text

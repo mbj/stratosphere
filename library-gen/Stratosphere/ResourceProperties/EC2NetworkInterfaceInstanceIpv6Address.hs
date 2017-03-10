@@ -15,8 +15,8 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for EC2NetworkInterfaceInstanceIpv6Address. See
--- | 'ec2NetworkInterfaceInstanceIpv6Address' for a more convenient
--- | constructor.
+-- 'ec2NetworkInterfaceInstanceIpv6Address' for a more convenient
+-- constructor.
 data EC2NetworkInterfaceInstanceIpv6Address =
   EC2NetworkInterfaceInstanceIpv6Address
   { _eC2NetworkInterfaceInstanceIpv6AddressIpv6Address :: Val Text
@@ -36,7 +36,7 @@ instance FromJSON EC2NetworkInterfaceInstanceIpv6Address where
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2NetworkInterfaceInstanceIpv6Address' containing
--- | required fields as arguments.
+-- required fields as arguments.
 ec2NetworkInterfaceInstanceIpv6Address
   :: Val Text -- ^ 'ecniiiaIpv6Address'
   -> EC2NetworkInterfaceInstanceIpv6Address

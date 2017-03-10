@@ -16,7 +16,7 @@ import Stratosphere.ResourceProperties.ECSServiceDeploymentConfiguration
 import Stratosphere.ResourceProperties.ECSServiceLoadBalancer
 
 -- | Full data type definition for ECSService. See 'ecsService' for a more
--- | convenient constructor.
+-- convenient constructor.
 data ECSService =
   ECSService
   { _eCSServiceCluster :: Maybe (Val Text)

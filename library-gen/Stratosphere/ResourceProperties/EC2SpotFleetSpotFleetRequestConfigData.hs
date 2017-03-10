@@ -15,8 +15,8 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.EC2SpotFleetLaunchSpecifications
 
 -- | Full data type definition for EC2SpotFleetSpotFleetRequestConfigData. See
--- | 'ec2SpotFleetSpotFleetRequestConfigData' for a more convenient
--- | constructor.
+-- 'ec2SpotFleetSpotFleetRequestConfigData' for a more convenient
+-- constructor.
 data EC2SpotFleetSpotFleetRequestConfigData =
   EC2SpotFleetSpotFleetRequestConfigData
   { _eC2SpotFleetSpotFleetRequestConfigDataAllocationStrategy :: Maybe (Val Text)
@@ -60,7 +60,7 @@ instance FromJSON EC2SpotFleetSpotFleetRequestConfigData where
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2SpotFleetSpotFleetRequestConfigData' containing
--- | required fields as arguments.
+-- required fields as arguments.
 ec2SpotFleetSpotFleetRequestConfigData
   :: Val Text -- ^ 'ecsfsfrcdIamFleetRole'
   -> [EC2SpotFleetLaunchSpecifications] -- ^ 'ecsfsfrcdLaunchSpecifications'

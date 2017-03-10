@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for WAFIPSetIPSetDescriptor. See
--- | 'wafipSetIPSetDescriptor' for a more convenient constructor.
+-- 'wafipSetIPSetDescriptor' for a more convenient constructor.
 data WAFIPSetIPSetDescriptor =
   WAFIPSetIPSetDescriptor
   { _wAFIPSetIPSetDescriptorType :: Val Text
@@ -38,7 +38,7 @@ instance FromJSON WAFIPSetIPSetDescriptor where
   parseJSON _ = mempty
 
 -- | Constructor for 'WAFIPSetIPSetDescriptor' containing required fields as
--- | arguments.
+-- arguments.
 wafipSetIPSetDescriptor
   :: Val Text -- ^ 'wafipsipsdType'
   -> Val Text -- ^ 'wafipsipsdValue'

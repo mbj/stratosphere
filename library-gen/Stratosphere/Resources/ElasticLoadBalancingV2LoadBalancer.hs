@@ -16,7 +16,7 @@ import Stratosphere.ResourceProperties.ElasticLoadBalancingV2LoadBalancerLoadBal
 import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for ElasticLoadBalancingV2LoadBalancer. See
--- | 'elasticLoadBalancingV2LoadBalancer' for a more convenient constructor.
+-- 'elasticLoadBalancingV2LoadBalancer' for a more convenient constructor.
 data ElasticLoadBalancingV2LoadBalancer =
   ElasticLoadBalancingV2LoadBalancer
   { _elasticLoadBalancingV2LoadBalancerIpAddressType :: Maybe (Val Text)
@@ -54,7 +54,7 @@ instance FromJSON ElasticLoadBalancingV2LoadBalancer where
   parseJSON _ = mempty
 
 -- | Constructor for 'ElasticLoadBalancingV2LoadBalancer' containing required
--- | fields as arguments.
+-- fields as arguments.
 elasticLoadBalancingV2LoadBalancer
   :: ElasticLoadBalancingV2LoadBalancer
 elasticLoadBalancingV2LoadBalancer  =

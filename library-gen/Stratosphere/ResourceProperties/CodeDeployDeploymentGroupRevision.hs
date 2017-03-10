@@ -16,7 +16,7 @@ import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupGitHubLocation
 import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupS3Location
 
 -- | Full data type definition for CodeDeployDeploymentGroupRevision. See
--- | 'codeDeployDeploymentGroupRevision' for a more convenient constructor.
+-- 'codeDeployDeploymentGroupRevision' for a more convenient constructor.
 data CodeDeployDeploymentGroupRevision =
   CodeDeployDeploymentGroupRevision
   { _codeDeployDeploymentGroupRevisionGitHubLocation :: Maybe CodeDeployDeploymentGroupGitHubLocation
@@ -42,7 +42,7 @@ instance FromJSON CodeDeployDeploymentGroupRevision where
   parseJSON _ = mempty
 
 -- | Constructor for 'CodeDeployDeploymentGroupRevision' containing required
--- | fields as arguments.
+-- fields as arguments.
 codeDeployDeploymentGroupRevision
   :: CodeDeployDeploymentGroupRevision
 codeDeployDeploymentGroupRevision  =

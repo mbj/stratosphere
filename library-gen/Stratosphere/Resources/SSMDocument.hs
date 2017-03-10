@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for SSMDocument. See 'ssmDocument' for a more
--- | convenient constructor.
+-- convenient constructor.
 data SSMDocument =
   SSMDocument
   { _sSMDocumentContent :: Object

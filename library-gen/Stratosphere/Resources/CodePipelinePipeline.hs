@@ -17,7 +17,7 @@ import Stratosphere.ResourceProperties.CodePipelinePipelineStageTransition
 import Stratosphere.ResourceProperties.CodePipelinePipelineStageDeclaration
 
 -- | Full data type definition for CodePipelinePipeline. See
--- | 'codePipelinePipeline' for a more convenient constructor.
+-- 'codePipelinePipeline' for a more convenient constructor.
 data CodePipelinePipeline =
   CodePipelinePipeline
   { _codePipelinePipelineArtifactStore :: CodePipelinePipelineArtifactStore
@@ -52,7 +52,7 @@ instance FromJSON CodePipelinePipeline where
   parseJSON _ = mempty
 
 -- | Constructor for 'CodePipelinePipeline' containing required fields as
--- | arguments.
+-- arguments.
 codePipelinePipeline
   :: CodePipelinePipelineArtifactStore -- ^ 'cppArtifactStore'
   -> Val Text -- ^ 'cppRoleArn'

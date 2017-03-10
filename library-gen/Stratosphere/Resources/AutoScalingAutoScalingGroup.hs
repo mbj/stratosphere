@@ -17,7 +17,7 @@ import Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupNotificationCo
 import Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupTagProperty
 
 -- | Full data type definition for AutoScalingAutoScalingGroup. See
--- | 'autoScalingAutoScalingGroup' for a more convenient constructor.
+-- 'autoScalingAutoScalingGroup' for a more convenient constructor.
 data AutoScalingAutoScalingGroup =
   AutoScalingAutoScalingGroup
   { _autoScalingAutoScalingGroupAvailabilityZones :: Maybe [Val Text]
@@ -85,7 +85,7 @@ instance FromJSON AutoScalingAutoScalingGroup where
   parseJSON _ = mempty
 
 -- | Constructor for 'AutoScalingAutoScalingGroup' containing required fields
--- | as arguments.
+-- as arguments.
 autoScalingAutoScalingGroup
   :: Val Text -- ^ 'asasgMaxSize'
   -> Val Text -- ^ 'asasgMinSize'

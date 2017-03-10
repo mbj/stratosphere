@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for IAMUserToGroupAddition. See
--- | 'iamUserToGroupAddition' for a more convenient constructor.
+-- 'iamUserToGroupAddition' for a more convenient constructor.
 data IAMUserToGroupAddition =
   IAMUserToGroupAddition
   { _iAMUserToGroupAdditionGroupName :: Val Text
@@ -38,7 +38,7 @@ instance FromJSON IAMUserToGroupAddition where
   parseJSON _ = mempty
 
 -- | Constructor for 'IAMUserToGroupAddition' containing required fields as
--- | arguments.
+-- arguments.
 iamUserToGroupAddition
   :: Val Text -- ^ 'iamutgaGroupName'
   -> [Val Text] -- ^ 'iamutgaUsers'

@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.CloudFrontDistributionDistributionConfig
 
 -- | Full data type definition for CloudFrontDistribution. See
--- | 'cloudFrontDistribution' for a more convenient constructor.
+-- 'cloudFrontDistribution' for a more convenient constructor.
 data CloudFrontDistribution =
   CloudFrontDistribution
   { _cloudFrontDistributionDistributionConfig :: CloudFrontDistributionDistributionConfig
@@ -35,7 +35,7 @@ instance FromJSON CloudFrontDistribution where
   parseJSON _ = mempty
 
 -- | Constructor for 'CloudFrontDistribution' containing required fields as
--- | arguments.
+-- arguments.
 cloudFrontDistribution
   :: CloudFrontDistributionDistributionConfig -- ^ 'cfdDistributionConfig'
   -> CloudFrontDistribution

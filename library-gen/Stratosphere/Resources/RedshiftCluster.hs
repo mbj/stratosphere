@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for RedshiftCluster. See 'redshiftCluster' for
--- | a more convenient constructor.
+-- a more convenient constructor.
 data RedshiftCluster =
   RedshiftCluster
   { _redshiftClusterAllowVersionUpdate :: Maybe (Val Bool')
@@ -104,7 +104,7 @@ instance FromJSON RedshiftCluster where
   parseJSON _ = mempty
 
 -- | Constructor for 'RedshiftCluster' containing required fields as
--- | arguments.
+-- arguments.
 redshiftCluster
   :: Val Text -- ^ 'rcClusterType'
   -> Val Text -- ^ 'rcDBName'

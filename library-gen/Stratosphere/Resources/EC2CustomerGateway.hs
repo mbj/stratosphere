@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for EC2CustomerGateway. See
--- | 'ec2CustomerGateway' for a more convenient constructor.
+-- 'ec2CustomerGateway' for a more convenient constructor.
 data EC2CustomerGateway =
   EC2CustomerGateway
   { _eC2CustomerGatewayBgpAsn :: Val Integer'
@@ -44,7 +44,7 @@ instance FromJSON EC2CustomerGateway where
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2CustomerGateway' containing required fields as
--- | arguments.
+-- arguments.
 ec2CustomerGateway
   :: Val Integer' -- ^ 'eccgBgpAsn'
   -> Val Text -- ^ 'eccgIpAddress'

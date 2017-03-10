@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for GameLiftAliasRoutingStrategy. See
--- | 'gameLiftAliasRoutingStrategy' for a more convenient constructor.
+-- 'gameLiftAliasRoutingStrategy' for a more convenient constructor.
 data GameLiftAliasRoutingStrategy =
   GameLiftAliasRoutingStrategy
   { _gameLiftAliasRoutingStrategyFleetId :: Maybe (Val Text)
@@ -41,7 +41,7 @@ instance FromJSON GameLiftAliasRoutingStrategy where
   parseJSON _ = mempty
 
 -- | Constructor for 'GameLiftAliasRoutingStrategy' containing required fields
--- | as arguments.
+-- as arguments.
 gameLiftAliasRoutingStrategy
   :: Val Text -- ^ 'glarsType'
   -> GameLiftAliasRoutingStrategy

@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for CloudFormationWaitConditionHandle. See
--- | 'cloudFormationWaitConditionHandle' for a more convenient constructor.
+-- 'cloudFormationWaitConditionHandle' for a more convenient constructor.
 data CloudFormationWaitConditionHandle =
   CloudFormationWaitConditionHandle
   { 
@@ -29,7 +29,7 @@ instance FromJSON CloudFormationWaitConditionHandle where
   parseJSON _ = mempty
 
 -- | Constructor for 'CloudFormationWaitConditionHandle' containing required
--- | fields as arguments.
+-- fields as arguments.
 cloudFormationWaitConditionHandle
   :: CloudFormationWaitConditionHandle
 cloudFormationWaitConditionHandle  =

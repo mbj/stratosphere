@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for CodeBuildProjectArtifacts. See
--- | 'codeBuildProjectArtifacts' for a more convenient constructor.
+-- 'codeBuildProjectArtifacts' for a more convenient constructor.
 data CodeBuildProjectArtifacts =
   CodeBuildProjectArtifacts
   { _codeBuildProjectArtifactsLocation :: Maybe (Val Text)
@@ -50,7 +50,7 @@ instance FromJSON CodeBuildProjectArtifacts where
   parseJSON _ = mempty
 
 -- | Constructor for 'CodeBuildProjectArtifacts' containing required fields as
--- | arguments.
+-- arguments.
 codeBuildProjectArtifacts
   :: CodeBuildProjectArtifacts
 codeBuildProjectArtifacts  =

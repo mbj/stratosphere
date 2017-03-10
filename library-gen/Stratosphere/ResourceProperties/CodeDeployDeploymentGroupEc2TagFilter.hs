@@ -15,8 +15,8 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for CodeDeployDeploymentGroupEc2TagFilter. See
--- | 'codeDeployDeploymentGroupEc2TagFilter' for a more convenient
--- | constructor.
+-- 'codeDeployDeploymentGroupEc2TagFilter' for a more convenient
+-- constructor.
 data CodeDeployDeploymentGroupEc2TagFilter =
   CodeDeployDeploymentGroupEc2TagFilter
   { _codeDeployDeploymentGroupEc2TagFilterKey :: Maybe (Val Text)
@@ -42,7 +42,7 @@ instance FromJSON CodeDeployDeploymentGroupEc2TagFilter where
   parseJSON _ = mempty
 
 -- | Constructor for 'CodeDeployDeploymentGroupEc2TagFilter' containing
--- | required fields as arguments.
+-- required fields as arguments.
 codeDeployDeploymentGroupEc2TagFilter
   :: Val Text -- ^ 'cddgetfType'
   -> CodeDeployDeploymentGroupEc2TagFilter

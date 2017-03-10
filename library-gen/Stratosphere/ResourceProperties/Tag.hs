@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for Tag. See 'tag' for a more convenient
--- | constructor.
+-- constructor.
 data Tag =
   Tag
   { _tagKey :: Val Text

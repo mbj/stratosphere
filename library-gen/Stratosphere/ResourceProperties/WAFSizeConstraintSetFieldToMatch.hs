@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for WAFSizeConstraintSetFieldToMatch. See
--- | 'wafSizeConstraintSetFieldToMatch' for a more convenient constructor.
+-- 'wafSizeConstraintSetFieldToMatch' for a more convenient constructor.
 data WAFSizeConstraintSetFieldToMatch =
   WAFSizeConstraintSetFieldToMatch
   { _wAFSizeConstraintSetFieldToMatchData :: Maybe (Val Text)
@@ -38,7 +38,7 @@ instance FromJSON WAFSizeConstraintSetFieldToMatch where
   parseJSON _ = mempty
 
 -- | Constructor for 'WAFSizeConstraintSetFieldToMatch' containing required
--- | fields as arguments.
+-- fields as arguments.
 wafSizeConstraintSetFieldToMatch
   :: Val Text -- ^ 'wafscsftmType'
   -> WAFSizeConstraintSetFieldToMatch

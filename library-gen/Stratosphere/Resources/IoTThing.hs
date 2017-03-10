@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.IoTThingAttributePayload
 
 -- | Full data type definition for IoTThing. See 'ioTThing' for a more
--- | convenient constructor.
+-- convenient constructor.
 data IoTThing =
   IoTThing
   { _ioTThingAttributePayload :: Maybe IoTThingAttributePayload

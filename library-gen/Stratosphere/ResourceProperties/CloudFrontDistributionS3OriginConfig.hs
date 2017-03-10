@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for CloudFrontDistributionS3OriginConfig. See
--- | 'cloudFrontDistributionS3OriginConfig' for a more convenient constructor.
+-- 'cloudFrontDistributionS3OriginConfig' for a more convenient constructor.
 data CloudFrontDistributionS3OriginConfig =
   CloudFrontDistributionS3OriginConfig
   { _cloudFrontDistributionS3OriginConfigOriginAccessIdentity :: Maybe (Val Text)
@@ -35,7 +35,7 @@ instance FromJSON CloudFrontDistributionS3OriginConfig where
   parseJSON _ = mempty
 
 -- | Constructor for 'CloudFrontDistributionS3OriginConfig' containing
--- | required fields as arguments.
+-- required fields as arguments.
 cloudFrontDistributionS3OriginConfig
   :: CloudFrontDistributionS3OriginConfig
 cloudFrontDistributionS3OriginConfig  =

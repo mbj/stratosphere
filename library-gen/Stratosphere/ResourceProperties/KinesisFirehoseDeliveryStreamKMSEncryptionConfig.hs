@@ -15,9 +15,9 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for
--- | KinesisFirehoseDeliveryStreamKMSEncryptionConfig. See
--- | 'kinesisFirehoseDeliveryStreamKMSEncryptionConfig' for a more convenient
--- | constructor.
+-- KinesisFirehoseDeliveryStreamKMSEncryptionConfig. See
+-- 'kinesisFirehoseDeliveryStreamKMSEncryptionConfig' for a more convenient
+-- constructor.
 data KinesisFirehoseDeliveryStreamKMSEncryptionConfig =
   KinesisFirehoseDeliveryStreamKMSEncryptionConfig
   { _kinesisFirehoseDeliveryStreamKMSEncryptionConfigAWSKMSKeyARN :: Val Text
@@ -37,7 +37,7 @@ instance FromJSON KinesisFirehoseDeliveryStreamKMSEncryptionConfig where
   parseJSON _ = mempty
 
 -- | Constructor for 'KinesisFirehoseDeliveryStreamKMSEncryptionConfig'
--- | containing required fields as arguments.
+-- containing required fields as arguments.
 kinesisFirehoseDeliveryStreamKMSEncryptionConfig
   :: Val Text -- ^ 'kfdskmsecAWSKMSKeyARN'
   -> KinesisFirehoseDeliveryStreamKMSEncryptionConfig

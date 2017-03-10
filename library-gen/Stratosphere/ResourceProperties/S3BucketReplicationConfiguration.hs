@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.S3BucketReplicationRule
 
 -- | Full data type definition for S3BucketReplicationConfiguration. See
--- | 's3BucketReplicationConfiguration' for a more convenient constructor.
+-- 's3BucketReplicationConfiguration' for a more convenient constructor.
 data S3BucketReplicationConfiguration =
   S3BucketReplicationConfiguration
   { _s3BucketReplicationConfigurationRole :: Val Text
@@ -38,7 +38,7 @@ instance FromJSON S3BucketReplicationConfiguration where
   parseJSON _ = mempty
 
 -- | Constructor for 'S3BucketReplicationConfiguration' containing required
--- | fields as arguments.
+-- fields as arguments.
 s3BucketReplicationConfiguration
   :: Val Text -- ^ 'sbrcRole'
   -> [S3BucketReplicationRule] -- ^ 'sbrcRules'

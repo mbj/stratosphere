@@ -15,9 +15,9 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for
--- | KinesisFirehoseDeliveryStreamElasticsearchRetryOptions. See
--- | 'kinesisFirehoseDeliveryStreamElasticsearchRetryOptions' for a more
--- | convenient constructor.
+-- KinesisFirehoseDeliveryStreamElasticsearchRetryOptions. See
+-- 'kinesisFirehoseDeliveryStreamElasticsearchRetryOptions' for a more
+-- convenient constructor.
 data KinesisFirehoseDeliveryStreamElasticsearchRetryOptions =
   KinesisFirehoseDeliveryStreamElasticsearchRetryOptions
   { _kinesisFirehoseDeliveryStreamElasticsearchRetryOptionsDurationInSeconds :: Val Integer'
@@ -37,7 +37,7 @@ instance FromJSON KinesisFirehoseDeliveryStreamElasticsearchRetryOptions where
   parseJSON _ = mempty
 
 -- | Constructor for 'KinesisFirehoseDeliveryStreamElasticsearchRetryOptions'
--- | containing required fields as arguments.
+-- containing required fields as arguments.
 kinesisFirehoseDeliveryStreamElasticsearchRetryOptions
   :: Val Integer' -- ^ 'kfdseroDurationInSeconds'
   -> KinesisFirehoseDeliveryStreamElasticsearchRetryOptions

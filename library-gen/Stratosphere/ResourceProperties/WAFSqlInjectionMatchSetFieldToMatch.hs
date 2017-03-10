@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for WAFSqlInjectionMatchSetFieldToMatch. See
--- | 'wafSqlInjectionMatchSetFieldToMatch' for a more convenient constructor.
+-- 'wafSqlInjectionMatchSetFieldToMatch' for a more convenient constructor.
 data WAFSqlInjectionMatchSetFieldToMatch =
   WAFSqlInjectionMatchSetFieldToMatch
   { _wAFSqlInjectionMatchSetFieldToMatchData :: Maybe (Val Text)
@@ -38,7 +38,7 @@ instance FromJSON WAFSqlInjectionMatchSetFieldToMatch where
   parseJSON _ = mempty
 
 -- | Constructor for 'WAFSqlInjectionMatchSetFieldToMatch' containing required
--- | fields as arguments.
+-- fields as arguments.
 wafSqlInjectionMatchSetFieldToMatch
   :: Val Text -- ^ 'wafsimsftmType'
   -> WAFSqlInjectionMatchSetFieldToMatch

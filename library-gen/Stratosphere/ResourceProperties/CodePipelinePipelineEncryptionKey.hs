@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for CodePipelinePipelineEncryptionKey. See
--- | 'codePipelinePipelineEncryptionKey' for a more convenient constructor.
+-- 'codePipelinePipelineEncryptionKey' for a more convenient constructor.
 data CodePipelinePipelineEncryptionKey =
   CodePipelinePipelineEncryptionKey
   { _codePipelinePipelineEncryptionKeyId :: Val Text
@@ -38,7 +38,7 @@ instance FromJSON CodePipelinePipelineEncryptionKey where
   parseJSON _ = mempty
 
 -- | Constructor for 'CodePipelinePipelineEncryptionKey' containing required
--- | fields as arguments.
+-- fields as arguments.
 codePipelinePipelineEncryptionKey
   :: Val Text -- ^ 'cppekId'
   -> Val Text -- ^ 'cppekType'

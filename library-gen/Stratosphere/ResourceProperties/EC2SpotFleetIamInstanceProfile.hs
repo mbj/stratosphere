@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for EC2SpotFleetIamInstanceProfile. See
--- | 'ec2SpotFleetIamInstanceProfile' for a more convenient constructor.
+-- 'ec2SpotFleetIamInstanceProfile' for a more convenient constructor.
 data EC2SpotFleetIamInstanceProfile =
   EC2SpotFleetIamInstanceProfile
   { _eC2SpotFleetIamInstanceProfileArn :: Maybe (Val Text)
@@ -35,7 +35,7 @@ instance FromJSON EC2SpotFleetIamInstanceProfile where
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2SpotFleetIamInstanceProfile' containing required
--- | fields as arguments.
+-- fields as arguments.
 ec2SpotFleetIamInstanceProfile
   :: EC2SpotFleetIamInstanceProfile
 ec2SpotFleetIamInstanceProfile  =

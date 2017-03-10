@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for S3BucketPolicy. See 's3BucketPolicy' for a
--- | more convenient constructor.
+-- more convenient constructor.
 data S3BucketPolicy =
   S3BucketPolicy
   { _s3BucketPolicyBucket :: Val Text

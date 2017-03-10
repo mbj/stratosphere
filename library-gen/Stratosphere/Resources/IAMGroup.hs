@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.IAMGroupPolicy
 
 -- | Full data type definition for IAMGroup. See 'iamGroup' for a more
--- | convenient constructor.
+-- convenient constructor.
 data IAMGroup =
   IAMGroup
   { _iAMGroupGroupName :: Maybe (Val Text)

@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.S3BucketCorsRule
 
 -- | Full data type definition for S3BucketCorsConfiguration. See
--- | 's3BucketCorsConfiguration' for a more convenient constructor.
+-- 's3BucketCorsConfiguration' for a more convenient constructor.
 data S3BucketCorsConfiguration =
   S3BucketCorsConfiguration
   { _s3BucketCorsConfigurationCorsRules :: [S3BucketCorsRule]
@@ -35,7 +35,7 @@ instance FromJSON S3BucketCorsConfiguration where
   parseJSON _ = mempty
 
 -- | Constructor for 'S3BucketCorsConfiguration' containing required fields as
--- | arguments.
+-- arguments.
 s3BucketCorsConfiguration
   :: [S3BucketCorsRule] -- ^ 'sbccCorsRules'
   -> S3BucketCorsConfiguration

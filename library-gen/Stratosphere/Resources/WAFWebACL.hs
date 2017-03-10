@@ -16,7 +16,7 @@ import Stratosphere.ResourceProperties.WAFWebACLWafAction
 import Stratosphere.ResourceProperties.WAFWebACLActivatedRule
 
 -- | Full data type definition for WAFWebACL. See 'wafWebACL' for a more
--- | convenient constructor.
+-- convenient constructor.
 data WAFWebACL =
   WAFWebACL
   { _wAFWebACLDefaultAction :: WAFWebACLWafAction

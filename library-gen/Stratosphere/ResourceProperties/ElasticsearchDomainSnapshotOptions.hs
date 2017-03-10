@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for ElasticsearchDomainSnapshotOptions. See
--- | 'elasticsearchDomainSnapshotOptions' for a more convenient constructor.
+-- 'elasticsearchDomainSnapshotOptions' for a more convenient constructor.
 data ElasticsearchDomainSnapshotOptions =
   ElasticsearchDomainSnapshotOptions
   { _elasticsearchDomainSnapshotOptionsAutomatedSnapshotStartHour :: Maybe (Val Integer')
@@ -35,7 +35,7 @@ instance FromJSON ElasticsearchDomainSnapshotOptions where
   parseJSON _ = mempty
 
 -- | Constructor for 'ElasticsearchDomainSnapshotOptions' containing required
--- | fields as arguments.
+-- fields as arguments.
 elasticsearchDomainSnapshotOptions
   :: ElasticsearchDomainSnapshotOptions
 elasticsearchDomainSnapshotOptions  =

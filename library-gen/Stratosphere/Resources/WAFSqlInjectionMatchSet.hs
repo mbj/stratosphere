@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.WAFSqlInjectionMatchSetSqlInjectionMatchTuple
 
 -- | Full data type definition for WAFSqlInjectionMatchSet. See
--- | 'wafSqlInjectionMatchSet' for a more convenient constructor.
+-- 'wafSqlInjectionMatchSet' for a more convenient constructor.
 data WAFSqlInjectionMatchSet =
   WAFSqlInjectionMatchSet
   { _wAFSqlInjectionMatchSetName :: Val Text
@@ -38,7 +38,7 @@ instance FromJSON WAFSqlInjectionMatchSet where
   parseJSON _ = mempty
 
 -- | Constructor for 'WAFSqlInjectionMatchSet' containing required fields as
--- | arguments.
+-- arguments.
 wafSqlInjectionMatchSet
   :: Val Text -- ^ 'wafsimsName'
   -> WAFSqlInjectionMatchSet

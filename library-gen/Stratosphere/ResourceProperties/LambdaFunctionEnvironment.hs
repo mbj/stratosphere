@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for LambdaFunctionEnvironment. See
--- | 'lambdaFunctionEnvironment' for a more convenient constructor.
+-- 'lambdaFunctionEnvironment' for a more convenient constructor.
 data LambdaFunctionEnvironment =
   LambdaFunctionEnvironment
   { _lambdaFunctionEnvironmentVariables :: Maybe Object
@@ -35,7 +35,7 @@ instance FromJSON LambdaFunctionEnvironment where
   parseJSON _ = mempty
 
 -- | Constructor for 'LambdaFunctionEnvironment' containing required fields as
--- | arguments.
+-- arguments.
 lambdaFunctionEnvironment
   :: LambdaFunctionEnvironment
 lambdaFunctionEnvironment  =

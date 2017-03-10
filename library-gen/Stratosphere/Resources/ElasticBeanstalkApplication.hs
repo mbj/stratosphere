@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for ElasticBeanstalkApplication. See
--- | 'elasticBeanstalkApplication' for a more convenient constructor.
+-- 'elasticBeanstalkApplication' for a more convenient constructor.
 data ElasticBeanstalkApplication =
   ElasticBeanstalkApplication
   { _elasticBeanstalkApplicationApplicationName :: Maybe (Val Text)
@@ -38,7 +38,7 @@ instance FromJSON ElasticBeanstalkApplication where
   parseJSON _ = mempty
 
 -- | Constructor for 'ElasticBeanstalkApplication' containing required fields
--- | as arguments.
+-- as arguments.
 elasticBeanstalkApplication
   :: ElasticBeanstalkApplication
 elasticBeanstalkApplication  =

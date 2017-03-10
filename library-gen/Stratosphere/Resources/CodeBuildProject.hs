@@ -18,7 +18,7 @@ import Stratosphere.ResourceProperties.CodeBuildProjectSource
 import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for CodeBuildProject. See 'codeBuildProject'
--- | for a more convenient constructor.
+-- for a more convenient constructor.
 data CodeBuildProject =
   CodeBuildProject
   { _codeBuildProjectArtifacts :: Maybe CodeBuildProjectArtifacts
@@ -62,7 +62,7 @@ instance FromJSON CodeBuildProject where
   parseJSON _ = mempty
 
 -- | Constructor for 'CodeBuildProject' containing required fields as
--- | arguments.
+-- arguments.
 codeBuildProject
   :: CodeBuildProject
 codeBuildProject  =

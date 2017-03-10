@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.WAFSizeConstraintSetFieldToMatch
 
 -- | Full data type definition for WAFSizeConstraintSetSizeConstraint. See
--- | 'wafSizeConstraintSetSizeConstraint' for a more convenient constructor.
+-- 'wafSizeConstraintSetSizeConstraint' for a more convenient constructor.
 data WAFSizeConstraintSetSizeConstraint =
   WAFSizeConstraintSetSizeConstraint
   { _wAFSizeConstraintSetSizeConstraintComparisonOperator :: Val Text
@@ -44,7 +44,7 @@ instance FromJSON WAFSizeConstraintSetSizeConstraint where
   parseJSON _ = mempty
 
 -- | Constructor for 'WAFSizeConstraintSetSizeConstraint' containing required
--- | fields as arguments.
+-- fields as arguments.
 wafSizeConstraintSetSizeConstraint
   :: Val Text -- ^ 'wafscsscComparisonOperator'
   -> WAFSizeConstraintSetFieldToMatch -- ^ 'wafscsscFieldToMatch'

@@ -15,8 +15,8 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for AutoScalingLaunchConfigurationBlockDevice.
--- | See 'autoScalingLaunchConfigurationBlockDevice' for a more convenient
--- | constructor.
+-- See 'autoScalingLaunchConfigurationBlockDevice' for a more convenient
+-- constructor.
 data AutoScalingLaunchConfigurationBlockDevice =
   AutoScalingLaunchConfigurationBlockDevice
   { _autoScalingLaunchConfigurationBlockDeviceDeleteOnTermination :: Maybe (Val Bool')
@@ -51,7 +51,7 @@ instance FromJSON AutoScalingLaunchConfigurationBlockDevice where
   parseJSON _ = mempty
 
 -- | Constructor for 'AutoScalingLaunchConfigurationBlockDevice' containing
--- | required fields as arguments.
+-- required fields as arguments.
 autoScalingLaunchConfigurationBlockDevice
   :: AutoScalingLaunchConfigurationBlockDevice
 autoScalingLaunchConfigurationBlockDevice  =

@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.WAFSizeConstraintSetSizeConstraint
 
 -- | Full data type definition for WAFSizeConstraintSet. See
--- | 'wafSizeConstraintSet' for a more convenient constructor.
+-- 'wafSizeConstraintSet' for a more convenient constructor.
 data WAFSizeConstraintSet =
   WAFSizeConstraintSet
   { _wAFSizeConstraintSetName :: Val Text
@@ -38,7 +38,7 @@ instance FromJSON WAFSizeConstraintSet where
   parseJSON _ = mempty
 
 -- | Constructor for 'WAFSizeConstraintSet' containing required fields as
--- | arguments.
+-- arguments.
 wafSizeConstraintSet
   :: Val Text -- ^ 'wafscsName'
   -> [WAFSizeConstraintSetSizeConstraint] -- ^ 'wafscsSizeConstraints'

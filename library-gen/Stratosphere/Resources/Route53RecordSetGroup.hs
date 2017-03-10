@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.Route53RecordSetGroupRecordSet
 
 -- | Full data type definition for Route53RecordSetGroup. See
--- | 'route53RecordSetGroup' for a more convenient constructor.
+-- 'route53RecordSetGroup' for a more convenient constructor.
 data Route53RecordSetGroup =
   Route53RecordSetGroup
   { _route53RecordSetGroupComment :: Maybe (Val Text)
@@ -44,7 +44,7 @@ instance FromJSON Route53RecordSetGroup where
   parseJSON _ = mempty
 
 -- | Constructor for 'Route53RecordSetGroup' containing required fields as
--- | arguments.
+-- arguments.
 route53RecordSetGroup
   :: Route53RecordSetGroup
 route53RecordSetGroup  =

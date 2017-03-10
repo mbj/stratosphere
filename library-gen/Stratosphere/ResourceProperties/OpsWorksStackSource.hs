@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for OpsWorksStackSource. See
--- | 'opsWorksStackSource' for a more convenient constructor.
+-- 'opsWorksStackSource' for a more convenient constructor.
 data OpsWorksStackSource =
   OpsWorksStackSource
   { _opsWorksStackSourcePassword :: Maybe (Val Text)
@@ -50,7 +50,7 @@ instance FromJSON OpsWorksStackSource where
   parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksStackSource' containing required fields as
--- | arguments.
+-- arguments.
 opsWorksStackSource
   :: OpsWorksStackSource
 opsWorksStackSource  =

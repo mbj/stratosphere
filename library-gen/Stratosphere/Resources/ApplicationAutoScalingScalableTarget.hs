@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for ApplicationAutoScalingScalableTarget. See
--- | 'applicationAutoScalingScalableTarget' for a more convenient constructor.
+-- 'applicationAutoScalingScalableTarget' for a more convenient constructor.
 data ApplicationAutoScalingScalableTarget =
   ApplicationAutoScalingScalableTarget
   { _applicationAutoScalingScalableTargetMaxCapacity :: Val Integer'
@@ -50,7 +50,7 @@ instance FromJSON ApplicationAutoScalingScalableTarget where
   parseJSON _ = mempty
 
 -- | Constructor for 'ApplicationAutoScalingScalableTarget' containing
--- | required fields as arguments.
+-- required fields as arguments.
 applicationAutoScalingScalableTarget
   :: Val Integer' -- ^ 'aasstMaxCapacity'
   -> Val Integer' -- ^ 'aasstMinCapacity'

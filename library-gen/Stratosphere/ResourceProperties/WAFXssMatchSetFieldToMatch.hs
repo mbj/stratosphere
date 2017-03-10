@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for WAFXssMatchSetFieldToMatch. See
--- | 'wafXssMatchSetFieldToMatch' for a more convenient constructor.
+-- 'wafXssMatchSetFieldToMatch' for a more convenient constructor.
 data WAFXssMatchSetFieldToMatch =
   WAFXssMatchSetFieldToMatch
   { _wAFXssMatchSetFieldToMatchData :: Maybe (Val Text)
@@ -38,7 +38,7 @@ instance FromJSON WAFXssMatchSetFieldToMatch where
   parseJSON _ = mempty
 
 -- | Constructor for 'WAFXssMatchSetFieldToMatch' containing required fields
--- | as arguments.
+-- as arguments.
 wafXssMatchSetFieldToMatch
   :: Val Text -- ^ 'wafxmsftmType'
   -> WAFXssMatchSetFieldToMatch

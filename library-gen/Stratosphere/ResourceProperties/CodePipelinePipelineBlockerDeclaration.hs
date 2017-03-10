@@ -15,8 +15,8 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for CodePipelinePipelineBlockerDeclaration. See
--- | 'codePipelinePipelineBlockerDeclaration' for a more convenient
--- | constructor.
+-- 'codePipelinePipelineBlockerDeclaration' for a more convenient
+-- constructor.
 data CodePipelinePipelineBlockerDeclaration =
   CodePipelinePipelineBlockerDeclaration
   { _codePipelinePipelineBlockerDeclarationName :: Val Text
@@ -39,7 +39,7 @@ instance FromJSON CodePipelinePipelineBlockerDeclaration where
   parseJSON _ = mempty
 
 -- | Constructor for 'CodePipelinePipelineBlockerDeclaration' containing
--- | required fields as arguments.
+-- required fields as arguments.
 codePipelinePipelineBlockerDeclaration
   :: Val Text -- ^ 'cppbdName'
   -> Val Text -- ^ 'cppbdType'

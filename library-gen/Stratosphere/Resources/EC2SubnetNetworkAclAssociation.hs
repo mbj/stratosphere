@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for EC2SubnetNetworkAclAssociation. See
--- | 'ec2SubnetNetworkAclAssociation' for a more convenient constructor.
+-- 'ec2SubnetNetworkAclAssociation' for a more convenient constructor.
 data EC2SubnetNetworkAclAssociation =
   EC2SubnetNetworkAclAssociation
   { _eC2SubnetNetworkAclAssociationNetworkAclId :: Val Text
@@ -38,7 +38,7 @@ instance FromJSON EC2SubnetNetworkAclAssociation where
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2SubnetNetworkAclAssociation' containing required
--- | fields as arguments.
+-- fields as arguments.
 ec2SubnetNetworkAclAssociation
   :: Val Text -- ^ 'ecsnaaNetworkAclId'
   -> Val Text -- ^ 'ecsnaaSubnetId'

@@ -18,7 +18,7 @@ import Stratosphere.ResourceProperties.OpsWorksLayerLoadBasedAutoScaling
 import Stratosphere.ResourceProperties.OpsWorksLayerVolumeConfiguration
 
 -- | Full data type definition for OpsWorksLayer. See 'opsWorksLayer' for a
--- | more convenient constructor.
+-- more convenient constructor.
 data OpsWorksLayer =
   OpsWorksLayer
   { _opsWorksLayerAttributes :: Maybe Object

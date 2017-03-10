@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for EC2VPCDHCPOptionsAssociation. See
--- | 'ec2VPCDHCPOptionsAssociation' for a more convenient constructor.
+-- 'ec2VPCDHCPOptionsAssociation' for a more convenient constructor.
 data EC2VPCDHCPOptionsAssociation =
   EC2VPCDHCPOptionsAssociation
   { _eC2VPCDHCPOptionsAssociationDhcpOptionsId :: Val Text
@@ -38,7 +38,7 @@ instance FromJSON EC2VPCDHCPOptionsAssociation where
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2VPCDHCPOptionsAssociation' containing required fields
--- | as arguments.
+-- as arguments.
 ec2VPCDHCPOptionsAssociation
   :: Val Text -- ^ 'ecvpcdhcpoaDhcpOptionsId'
   -> Val Text -- ^ 'ecvpcdhcpoaVpcId'

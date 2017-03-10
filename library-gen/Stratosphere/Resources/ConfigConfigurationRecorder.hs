@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.ConfigConfigurationRecorderRecordingGroup
 
 -- | Full data type definition for ConfigConfigurationRecorder. See
--- | 'configConfigurationRecorder' for a more convenient constructor.
+-- 'configConfigurationRecorder' for a more convenient constructor.
 data ConfigConfigurationRecorder =
   ConfigConfigurationRecorder
   { _configConfigurationRecorderName :: Maybe (Val Text)
@@ -41,7 +41,7 @@ instance FromJSON ConfigConfigurationRecorder where
   parseJSON _ = mempty
 
 -- | Constructor for 'ConfigConfigurationRecorder' containing required fields
--- | as arguments.
+-- as arguments.
 configConfigurationRecorder
   :: Val Text -- ^ 'ccrRoleArn'
   -> ConfigConfigurationRecorder

@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for EC2VPCPeeringConnection. See
--- | 'ec2VPCPeeringConnection' for a more convenient constructor.
+-- 'ec2VPCPeeringConnection' for a more convenient constructor.
 data EC2VPCPeeringConnection =
   EC2VPCPeeringConnection
   { _eC2VPCPeeringConnectionPeerVpcId :: Val Text
@@ -41,7 +41,7 @@ instance FromJSON EC2VPCPeeringConnection where
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2VPCPeeringConnection' containing required fields as
--- | arguments.
+-- arguments.
 ec2VPCPeeringConnection
   :: Val Text -- ^ 'ecvpcpcPeerVpcId'
   -> Val Text -- ^ 'ecvpcpcVpcId'

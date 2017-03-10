@@ -16,7 +16,7 @@ import Stratosphere.ResourceProperties.SSMAssociationParameterValues
 import Stratosphere.ResourceProperties.SSMAssociationTarget
 
 -- | Full data type definition for SSMAssociation. See 'ssmAssociation' for a
--- | more convenient constructor.
+-- more convenient constructor.
 data SSMAssociation =
   SSMAssociation
   { _sSMAssociationDocumentVersion :: Maybe (Val Text)

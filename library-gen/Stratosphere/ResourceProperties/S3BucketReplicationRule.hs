@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.S3BucketReplicationDestination
 
 -- | Full data type definition for S3BucketReplicationRule. See
--- | 's3BucketReplicationRule' for a more convenient constructor.
+-- 's3BucketReplicationRule' for a more convenient constructor.
 data S3BucketReplicationRule =
   S3BucketReplicationRule
   { _s3BucketReplicationRuleDestination :: S3BucketReplicationDestination
@@ -44,7 +44,7 @@ instance FromJSON S3BucketReplicationRule where
   parseJSON _ = mempty
 
 -- | Constructor for 'S3BucketReplicationRule' containing required fields as
--- | arguments.
+-- arguments.
 s3BucketReplicationRule
   :: S3BucketReplicationDestination -- ^ 'sbrrDestination'
   -> Val Text -- ^ 'sbrrPrefix'

@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for EMRClusterPlacementType. See
--- | 'emrClusterPlacementType' for a more convenient constructor.
+-- 'emrClusterPlacementType' for a more convenient constructor.
 data EMRClusterPlacementType =
   EMRClusterPlacementType
   { _eMRClusterPlacementTypeAvailabilityZone :: Val Text
@@ -35,7 +35,7 @@ instance FromJSON EMRClusterPlacementType where
   parseJSON _ = mempty
 
 -- | Constructor for 'EMRClusterPlacementType' containing required fields as
--- | arguments.
+-- arguments.
 emrClusterPlacementType
   :: Val Text -- ^ 'emrcptAvailabilityZone'
   -> EMRClusterPlacementType

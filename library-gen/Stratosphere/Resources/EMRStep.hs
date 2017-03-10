@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.EMRStepHadoopJarStepConfig
 
 -- | Full data type definition for EMRStep. See 'emrStep' for a more
--- | convenient constructor.
+-- convenient constructor.
 data EMRStep =
   EMRStep
   { _eMRStepActionOnFailure :: Val Text

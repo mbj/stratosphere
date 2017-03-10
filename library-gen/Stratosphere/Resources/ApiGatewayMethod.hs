@@ -17,7 +17,7 @@ import Stratosphere.ResourceProperties.ApiGatewayMethodIntegration
 import Stratosphere.ResourceProperties.ApiGatewayMethodMethodResponse
 
 -- | Full data type definition for ApiGatewayMethod. See 'apiGatewayMethod'
--- | for a more convenient constructor.
+-- for a more convenient constructor.
 data ApiGatewayMethod =
   ApiGatewayMethod
   { _apiGatewayMethodApiKeyRequired :: Maybe (Val Bool')
@@ -64,7 +64,7 @@ instance FromJSON ApiGatewayMethod where
   parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayMethod' containing required fields as
--- | arguments.
+-- arguments.
 apiGatewayMethod
   :: Val HttpMethod -- ^ 'agmeHttpMethod'
   -> ApiGatewayMethod

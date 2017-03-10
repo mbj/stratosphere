@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for Route53HostedZoneHostedZoneConfig. See
--- | 'route53HostedZoneHostedZoneConfig' for a more convenient constructor.
+-- 'route53HostedZoneHostedZoneConfig' for a more convenient constructor.
 data Route53HostedZoneHostedZoneConfig =
   Route53HostedZoneHostedZoneConfig
   { _route53HostedZoneHostedZoneConfigComment :: Maybe (Val Text)
@@ -35,7 +35,7 @@ instance FromJSON Route53HostedZoneHostedZoneConfig where
   parseJSON _ = mempty
 
 -- | Constructor for 'Route53HostedZoneHostedZoneConfig' containing required
--- | fields as arguments.
+-- fields as arguments.
 route53HostedZoneHostedZoneConfig
   :: Route53HostedZoneHostedZoneConfig
 route53HostedZoneHostedZoneConfig  =

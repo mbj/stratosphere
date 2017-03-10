@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for IoTTopicRuleSqsAction. See
--- | 'ioTTopicRuleSqsAction' for a more convenient constructor.
+-- 'ioTTopicRuleSqsAction' for a more convenient constructor.
 data IoTTopicRuleSqsAction =
   IoTTopicRuleSqsAction
   { _ioTTopicRuleSqsActionQueueUrl :: Val Text
@@ -41,7 +41,7 @@ instance FromJSON IoTTopicRuleSqsAction where
   parseJSON _ = mempty
 
 -- | Constructor for 'IoTTopicRuleSqsAction' containing required fields as
--- | arguments.
+-- arguments.
 ioTTopicRuleSqsAction
   :: Val Text -- ^ 'ittrsqaQueueUrl'
   -> Val Text -- ^ 'ittrsqaRoleArn'

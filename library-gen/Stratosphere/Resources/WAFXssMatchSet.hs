@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.WAFXssMatchSetXssMatchTuple
 
 -- | Full data type definition for WAFXssMatchSet. See 'wafXssMatchSet' for a
--- | more convenient constructor.
+-- more convenient constructor.
 data WAFXssMatchSet =
   WAFXssMatchSet
   { _wAFXssMatchSetName :: Val Text

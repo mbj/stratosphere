@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for EC2SecurityGroupEgress. See
--- | 'ec2SecurityGroupEgress' for a more convenient constructor.
+-- 'ec2SecurityGroupEgress' for a more convenient constructor.
 data EC2SecurityGroupEgress =
   EC2SecurityGroupEgress
   { _eC2SecurityGroupEgressCidrIp :: Maybe (Val Text)
@@ -56,7 +56,7 @@ instance FromJSON EC2SecurityGroupEgress where
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2SecurityGroupEgress' containing required fields as
--- | arguments.
+-- arguments.
 ec2SecurityGroupEgress
   :: Val Text -- ^ 'ecsgeGroupId'
   -> Val Text -- ^ 'ecsgeIpProtocol'

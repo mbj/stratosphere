@@ -15,9 +15,9 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for
--- | CodePipelineCustomActionTypeArtifactDetails. See
--- | 'codePipelineCustomActionTypeArtifactDetails' for a more convenient
--- | constructor.
+-- CodePipelineCustomActionTypeArtifactDetails. See
+-- 'codePipelineCustomActionTypeArtifactDetails' for a more convenient
+-- constructor.
 data CodePipelineCustomActionTypeArtifactDetails =
   CodePipelineCustomActionTypeArtifactDetails
   { _codePipelineCustomActionTypeArtifactDetailsMaximumCount :: Val Integer'
@@ -40,7 +40,7 @@ instance FromJSON CodePipelineCustomActionTypeArtifactDetails where
   parseJSON _ = mempty
 
 -- | Constructor for 'CodePipelineCustomActionTypeArtifactDetails' containing
--- | required fields as arguments.
+-- required fields as arguments.
 codePipelineCustomActionTypeArtifactDetails
   :: Val Integer' -- ^ 'cpcatadMaximumCount'
   -> Val Integer' -- ^ 'cpcatadMinimumCount'

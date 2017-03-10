@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.RDSOptionGroupOptionSetting
 
 -- | Full data type definition for RDSOptionGroupOptionConfiguration. See
--- | 'rdsOptionGroupOptionConfiguration' for a more convenient constructor.
+-- 'rdsOptionGroupOptionConfiguration' for a more convenient constructor.
 data RDSOptionGroupOptionConfiguration =
   RDSOptionGroupOptionConfiguration
   { _rDSOptionGroupOptionConfigurationDBSecurityGroupMemberships :: Maybe [Val Text]
@@ -47,7 +47,7 @@ instance FromJSON RDSOptionGroupOptionConfiguration where
   parseJSON _ = mempty
 
 -- | Constructor for 'RDSOptionGroupOptionConfiguration' containing required
--- | fields as arguments.
+-- fields as arguments.
 rdsOptionGroupOptionConfiguration
   :: Val Text -- ^ 'rdsogocOptionName'
   -> RDSOptionGroupOptionConfiguration

@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for S3BucketReplicationDestination. See
--- | 's3BucketReplicationDestination' for a more convenient constructor.
+-- 's3BucketReplicationDestination' for a more convenient constructor.
 data S3BucketReplicationDestination =
   S3BucketReplicationDestination
   { _s3BucketReplicationDestinationBucket :: Val Text
@@ -38,7 +38,7 @@ instance FromJSON S3BucketReplicationDestination where
   parseJSON _ = mempty
 
 -- | Constructor for 'S3BucketReplicationDestination' containing required
--- | fields as arguments.
+-- fields as arguments.
 s3BucketReplicationDestination
   :: Val Text -- ^ 'sbrdBucket'
   -> S3BucketReplicationDestination

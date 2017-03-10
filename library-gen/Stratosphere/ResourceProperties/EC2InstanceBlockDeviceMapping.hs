@@ -16,7 +16,7 @@ import Stratosphere.ResourceProperties.EC2InstanceEbs
 import Stratosphere.ResourceProperties.EC2InstanceNoDevice
 
 -- | Full data type definition for EC2InstanceBlockDeviceMapping. See
--- | 'ec2InstanceBlockDeviceMapping' for a more convenient constructor.
+-- 'ec2InstanceBlockDeviceMapping' for a more convenient constructor.
 data EC2InstanceBlockDeviceMapping =
   EC2InstanceBlockDeviceMapping
   { _eC2InstanceBlockDeviceMappingDeviceName :: Val Text
@@ -45,7 +45,7 @@ instance FromJSON EC2InstanceBlockDeviceMapping where
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2InstanceBlockDeviceMapping' containing required
--- | fields as arguments.
+-- fields as arguments.
 ec2InstanceBlockDeviceMapping
   :: Val Text -- ^ 'ecibdmDeviceName'
   -> EC2InstanceBlockDeviceMapping

@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for IAMPolicy. See 'iamPolicy' for a more
--- | convenient constructor.
+-- convenient constructor.
 data IAMPolicy =
   IAMPolicy
   { _iAMPolicyGroups :: Maybe [Val Text]

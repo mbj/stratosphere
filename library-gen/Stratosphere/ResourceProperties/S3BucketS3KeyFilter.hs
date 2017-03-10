@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.S3BucketFilterRule
 
 -- | Full data type definition for S3BucketS3KeyFilter. See
--- | 's3BucketS3KeyFilter' for a more convenient constructor.
+-- 's3BucketS3KeyFilter' for a more convenient constructor.
 data S3BucketS3KeyFilter =
   S3BucketS3KeyFilter
   { _s3BucketS3KeyFilterRules :: [S3BucketFilterRule]
@@ -35,7 +35,7 @@ instance FromJSON S3BucketS3KeyFilter where
   parseJSON _ = mempty
 
 -- | Constructor for 'S3BucketS3KeyFilter' containing required fields as
--- | arguments.
+-- arguments.
 s3BucketS3KeyFilter
   :: [S3BucketFilterRule] -- ^ 'sbskfRules'
   -> S3BucketS3KeyFilter

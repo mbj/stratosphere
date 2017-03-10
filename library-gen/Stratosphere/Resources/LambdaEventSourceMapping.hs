@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for LambdaEventSourceMapping. See
--- | 'lambdaEventSourceMapping' for a more convenient constructor.
+-- 'lambdaEventSourceMapping' for a more convenient constructor.
 data LambdaEventSourceMapping =
   LambdaEventSourceMapping
   { _lambdaEventSourceMappingBatchSize :: Maybe (Val Integer')
@@ -47,7 +47,7 @@ instance FromJSON LambdaEventSourceMapping where
   parseJSON _ = mempty
 
 -- | Constructor for 'LambdaEventSourceMapping' containing required fields as
--- | arguments.
+-- arguments.
 lambdaEventSourceMapping
   :: Val Text -- ^ 'lesmEventSourceArn'
   -> Val Text -- ^ 'lesmFunctionName'

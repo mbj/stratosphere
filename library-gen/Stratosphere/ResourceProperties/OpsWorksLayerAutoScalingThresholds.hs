@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for OpsWorksLayerAutoScalingThresholds. See
--- | 'opsWorksLayerAutoScalingThresholds' for a more convenient constructor.
+-- 'opsWorksLayerAutoScalingThresholds' for a more convenient constructor.
 data OpsWorksLayerAutoScalingThresholds =
   OpsWorksLayerAutoScalingThresholds
   { _opsWorksLayerAutoScalingThresholdsCpuThreshold :: Maybe (Val Double')
@@ -50,7 +50,7 @@ instance FromJSON OpsWorksLayerAutoScalingThresholds where
   parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksLayerAutoScalingThresholds' containing required
--- | fields as arguments.
+-- fields as arguments.
 opsWorksLayerAutoScalingThresholds
   :: OpsWorksLayerAutoScalingThresholds
 opsWorksLayerAutoScalingThresholds  =

@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for EC2InstanceAssociationParameter. See
--- | 'ec2InstanceAssociationParameter' for a more convenient constructor.
+-- 'ec2InstanceAssociationParameter' for a more convenient constructor.
 data EC2InstanceAssociationParameter =
   EC2InstanceAssociationParameter
   { _eC2InstanceAssociationParameterKey :: Val Text
@@ -38,7 +38,7 @@ instance FromJSON EC2InstanceAssociationParameter where
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2InstanceAssociationParameter' containing required
--- | fields as arguments.
+-- fields as arguments.
 ec2InstanceAssociationParameter
   :: Val Text -- ^ 'eciapKey'
   -> [Val Text] -- ^ 'eciapValue'

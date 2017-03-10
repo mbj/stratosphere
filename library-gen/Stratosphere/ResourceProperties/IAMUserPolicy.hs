@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for IAMUserPolicy. See 'iamUserPolicy' for a
--- | more convenient constructor.
+-- more convenient constructor.
 data IAMUserPolicy =
   IAMUserPolicy
   { _iAMUserPolicyPolicyDocument :: Object

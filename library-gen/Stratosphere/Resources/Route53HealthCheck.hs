@@ -16,7 +16,7 @@ import Stratosphere.ResourceProperties.Route53HealthCheckHealthCheckConfig
 import Stratosphere.ResourceProperties.Route53HealthCheckHealthCheckTag
 
 -- | Full data type definition for Route53HealthCheck. See
--- | 'route53HealthCheck' for a more convenient constructor.
+-- 'route53HealthCheck' for a more convenient constructor.
 data Route53HealthCheck =
   Route53HealthCheck
   { _route53HealthCheckHealthCheckConfig :: Route53HealthCheckHealthCheckConfig
@@ -39,7 +39,7 @@ instance FromJSON Route53HealthCheck where
   parseJSON _ = mempty
 
 -- | Constructor for 'Route53HealthCheck' containing required fields as
--- | arguments.
+-- arguments.
 route53HealthCheck
   :: Route53HealthCheckHealthCheckConfig -- ^ 'rhcHealthCheckConfig'
   -> Route53HealthCheck

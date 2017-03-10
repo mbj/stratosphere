@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for EC2DHCPOptions. See 'ec2DHCPOptions' for a
--- | more convenient constructor.
+-- more convenient constructor.
 data EC2DHCPOptions =
   EC2DHCPOptions
   { _eC2DHCPOptionsDomainName :: Maybe (Val Text)

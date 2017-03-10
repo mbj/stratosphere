@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for CloudFormationStack. See
--- | 'cloudFormationStack' for a more convenient constructor.
+-- 'cloudFormationStack' for a more convenient constructor.
 data CloudFormationStack =
   CloudFormationStack
   { _cloudFormationStackNotificationARNs :: Maybe [Val Text]
@@ -47,7 +47,7 @@ instance FromJSON CloudFormationStack where
   parseJSON _ = mempty
 
 -- | Constructor for 'CloudFormationStack' containing required fields as
--- | arguments.
+-- arguments.
 cloudFormationStack
   :: Val Text -- ^ 'cfsTemplateURL'
   -> CloudFormationStack

@@ -16,7 +16,7 @@ import Stratosphere.ResourceProperties.ConfigConfigRuleScope
 import Stratosphere.ResourceProperties.ConfigConfigRuleSource
 
 -- | Full data type definition for ConfigConfigRule. See 'configConfigRule'
--- | for a more convenient constructor.
+-- for a more convenient constructor.
 data ConfigConfigRule =
   ConfigConfigRule
   { _configConfigRuleConfigRuleName :: Maybe (Val Text)
@@ -51,7 +51,7 @@ instance FromJSON ConfigConfigRule where
   parseJSON _ = mempty
 
 -- | Constructor for 'ConfigConfigRule' containing required fields as
--- | arguments.
+-- arguments.
 configConfigRule
   :: ConfigConfigRuleSource -- ^ 'ccrSource'
   -> ConfigConfigRule

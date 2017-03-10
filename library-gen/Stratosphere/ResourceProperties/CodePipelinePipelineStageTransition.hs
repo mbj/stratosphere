@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for CodePipelinePipelineStageTransition. See
--- | 'codePipelinePipelineStageTransition' for a more convenient constructor.
+-- 'codePipelinePipelineStageTransition' for a more convenient constructor.
 data CodePipelinePipelineStageTransition =
   CodePipelinePipelineStageTransition
   { _codePipelinePipelineStageTransitionReason :: Val Text
@@ -38,7 +38,7 @@ instance FromJSON CodePipelinePipelineStageTransition where
   parseJSON _ = mempty
 
 -- | Constructor for 'CodePipelinePipelineStageTransition' containing required
--- | fields as arguments.
+-- fields as arguments.
 codePipelinePipelineStageTransition
   :: Val Text -- ^ 'cppstReason'
   -> Val Text -- ^ 'cppstStageName'

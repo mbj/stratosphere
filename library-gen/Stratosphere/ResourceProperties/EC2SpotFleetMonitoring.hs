@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for EC2SpotFleetMonitoring. See
--- | 'ec2SpotFleetMonitoring' for a more convenient constructor.
+-- 'ec2SpotFleetMonitoring' for a more convenient constructor.
 data EC2SpotFleetMonitoring =
   EC2SpotFleetMonitoring
   { _eC2SpotFleetMonitoringEnabled :: Maybe (Val Bool')
@@ -35,7 +35,7 @@ instance FromJSON EC2SpotFleetMonitoring where
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2SpotFleetMonitoring' containing required fields as
--- | arguments.
+-- arguments.
 ec2SpotFleetMonitoring
   :: EC2SpotFleetMonitoring
 ec2SpotFleetMonitoring  =

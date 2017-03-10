@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for RDSDBSubnetGroup. See 'rdsdbSubnetGroup'
--- | for a more convenient constructor.
+-- for a more convenient constructor.
 data RDSDBSubnetGroup =
   RDSDBSubnetGroup
   { _rDSDBSubnetGroupDBSubnetGroupDescription :: Val Text
@@ -41,7 +41,7 @@ instance FromJSON RDSDBSubnetGroup where
   parseJSON _ = mempty
 
 -- | Constructor for 'RDSDBSubnetGroup' containing required fields as
--- | arguments.
+-- arguments.
 rdsdbSubnetGroup
   :: Val Text -- ^ 'rdsdbsugDBSubnetGroupDescription'
   -> [Val Text] -- ^ 'rdsdbsugSubnetIds'

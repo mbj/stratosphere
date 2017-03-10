@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.Types
 
 -- | Full data type definition for ApiGatewayUsagePlanQuotaSettings. See
--- | 'apiGatewayUsagePlanQuotaSettings' for a more convenient constructor.
+-- 'apiGatewayUsagePlanQuotaSettings' for a more convenient constructor.
 data ApiGatewayUsagePlanQuotaSettings =
   ApiGatewayUsagePlanQuotaSettings
   { _apiGatewayUsagePlanQuotaSettingsLimit :: Maybe (Val Integer')
@@ -41,7 +41,7 @@ instance FromJSON ApiGatewayUsagePlanQuotaSettings where
   parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayUsagePlanQuotaSettings' containing required
--- | fields as arguments.
+-- fields as arguments.
 apiGatewayUsagePlanQuotaSettings
   :: ApiGatewayUsagePlanQuotaSettings
 apiGatewayUsagePlanQuotaSettings  =

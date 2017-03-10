@@ -15,8 +15,8 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for DirectoryServiceMicrosoftADVpcSettings. See
--- | 'directoryServiceMicrosoftADVpcSettings' for a more convenient
--- | constructor.
+-- 'directoryServiceMicrosoftADVpcSettings' for a more convenient
+-- constructor.
 data DirectoryServiceMicrosoftADVpcSettings =
   DirectoryServiceMicrosoftADVpcSettings
   { _directoryServiceMicrosoftADVpcSettingsSubnetIds :: [Val Text]
@@ -39,7 +39,7 @@ instance FromJSON DirectoryServiceMicrosoftADVpcSettings where
   parseJSON _ = mempty
 
 -- | Constructor for 'DirectoryServiceMicrosoftADVpcSettings' containing
--- | required fields as arguments.
+-- required fields as arguments.
 directoryServiceMicrosoftADVpcSettings
   :: [Val Text] -- ^ 'dsmadvsSubnetIds'
   -> Val Text -- ^ 'dsmadvsVpcId'

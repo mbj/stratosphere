@@ -15,9 +15,9 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for
--- | CodeDeployDeploymentGroupOnPremisesInstanceTagFilter. See
--- | 'codeDeployDeploymentGroupOnPremisesInstanceTagFilter' for a more
--- | convenient constructor.
+-- CodeDeployDeploymentGroupOnPremisesInstanceTagFilter. See
+-- 'codeDeployDeploymentGroupOnPremisesInstanceTagFilter' for a more
+-- convenient constructor.
 data CodeDeployDeploymentGroupOnPremisesInstanceTagFilter =
   CodeDeployDeploymentGroupOnPremisesInstanceTagFilter
   { _codeDeployDeploymentGroupOnPremisesInstanceTagFilterKey :: Maybe (Val Text)
@@ -43,7 +43,7 @@ instance FromJSON CodeDeployDeploymentGroupOnPremisesInstanceTagFilter where
   parseJSON _ = mempty
 
 -- | Constructor for 'CodeDeployDeploymentGroupOnPremisesInstanceTagFilter'
--- | containing required fields as arguments.
+-- containing required fields as arguments.
 codeDeployDeploymentGroupOnPremisesInstanceTagFilter
   :: CodeDeployDeploymentGroupOnPremisesInstanceTagFilter
 codeDeployDeploymentGroupOnPremisesInstanceTagFilter  =

@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.ElasticBeanstalkApplicationVersionSourceBundle
 
 -- | Full data type definition for ElasticBeanstalkApplicationVersion. See
--- | 'elasticBeanstalkApplicationVersion' for a more convenient constructor.
+-- 'elasticBeanstalkApplicationVersion' for a more convenient constructor.
 data ElasticBeanstalkApplicationVersion =
   ElasticBeanstalkApplicationVersion
   { _elasticBeanstalkApplicationVersionApplicationName :: Val Text
@@ -41,7 +41,7 @@ instance FromJSON ElasticBeanstalkApplicationVersion where
   parseJSON _ = mempty
 
 -- | Constructor for 'ElasticBeanstalkApplicationVersion' containing required
--- | fields as arguments.
+-- fields as arguments.
 elasticBeanstalkApplicationVersion
   :: Val Text -- ^ 'ebavApplicationName'
   -> ElasticBeanstalkApplicationVersionSourceBundle -- ^ 'ebavSourceBundle'

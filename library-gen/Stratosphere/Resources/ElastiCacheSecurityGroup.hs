@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for ElastiCacheSecurityGroup. See
--- | 'elastiCacheSecurityGroup' for a more convenient constructor.
+-- 'elastiCacheSecurityGroup' for a more convenient constructor.
 data ElastiCacheSecurityGroup =
   ElastiCacheSecurityGroup
   { _elastiCacheSecurityGroupDescription :: Val Text
@@ -35,7 +35,7 @@ instance FromJSON ElastiCacheSecurityGroup where
   parseJSON _ = mempty
 
 -- | Constructor for 'ElastiCacheSecurityGroup' containing required fields as
--- | arguments.
+-- arguments.
 elastiCacheSecurityGroup
   :: Val Text -- ^ 'ecsegDescription'
   -> ElastiCacheSecurityGroup

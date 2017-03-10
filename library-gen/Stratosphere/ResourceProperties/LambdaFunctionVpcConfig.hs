@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for LambdaFunctionVpcConfig. See
--- | 'lambdaFunctionVpcConfig' for a more convenient constructor.
+-- 'lambdaFunctionVpcConfig' for a more convenient constructor.
 data LambdaFunctionVpcConfig =
   LambdaFunctionVpcConfig
   { _lambdaFunctionVpcConfigSecurityGroupIds :: [Val Text]
@@ -38,7 +38,7 @@ instance FromJSON LambdaFunctionVpcConfig where
   parseJSON _ = mempty
 
 -- | Constructor for 'LambdaFunctionVpcConfig' containing required fields as
--- | arguments.
+-- arguments.
 lambdaFunctionVpcConfig
   :: [Val Text] -- ^ 'lfvcSecurityGroupIds'
   -> [Val Text] -- ^ 'lfvcSubnetIds'

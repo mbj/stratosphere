@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for EC2Host. See 'ec2Host' for a more
--- | convenient constructor.
+-- convenient constructor.
 data EC2Host =
   EC2Host
   { _eC2HostAutoPlacement :: Maybe (Val Text)

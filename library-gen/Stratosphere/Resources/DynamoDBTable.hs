@@ -20,7 +20,7 @@ import Stratosphere.ResourceProperties.DynamoDBTableProvisionedThroughput
 import Stratosphere.ResourceProperties.DynamoDBTableStreamSpecification
 
 -- | Full data type definition for DynamoDBTable. See 'dynamoDBTable' for a
--- | more convenient constructor.
+-- more convenient constructor.
 data DynamoDBTable =
   DynamoDBTable
   { _dynamoDBTableAttributeDefinitions :: [DynamoDBTableAttributeDefinition]

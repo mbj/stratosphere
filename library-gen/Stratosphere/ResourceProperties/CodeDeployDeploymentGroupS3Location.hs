@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for CodeDeployDeploymentGroupS3Location. See
--- | 'codeDeployDeploymentGroupS3Location' for a more convenient constructor.
+-- 'codeDeployDeploymentGroupS3Location' for a more convenient constructor.
 data CodeDeployDeploymentGroupS3Location =
   CodeDeployDeploymentGroupS3Location
   { _codeDeployDeploymentGroupS3LocationBucket :: Val Text
@@ -47,7 +47,7 @@ instance FromJSON CodeDeployDeploymentGroupS3Location where
   parseJSON _ = mempty
 
 -- | Constructor for 'CodeDeployDeploymentGroupS3Location' containing required
--- | fields as arguments.
+-- fields as arguments.
 codeDeployDeploymentGroupS3Location
   :: Val Text -- ^ 'cddgslBucket'
   -> Val Text -- ^ 'cddgslBundleType'

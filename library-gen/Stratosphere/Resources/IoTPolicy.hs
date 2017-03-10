@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for IoTPolicy. See 'ioTPolicy' for a more
--- | convenient constructor.
+-- convenient constructor.
 data IoTPolicy =
   IoTPolicy
   { _ioTPolicyPolicyDocument :: Object

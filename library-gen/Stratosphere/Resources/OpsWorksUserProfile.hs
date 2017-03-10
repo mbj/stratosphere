@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for OpsWorksUserProfile. See
--- | 'opsWorksUserProfile' for a more convenient constructor.
+-- 'opsWorksUserProfile' for a more convenient constructor.
 data OpsWorksUserProfile =
   OpsWorksUserProfile
   { _opsWorksUserProfileAllowSelfManagement :: Maybe (Val Bool')
@@ -41,7 +41,7 @@ instance FromJSON OpsWorksUserProfile where
   parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksUserProfile' containing required fields as
--- | arguments.
+-- arguments.
 opsWorksUserProfile
   :: Val Text -- ^ 'owupIamUserArn'
   -> OpsWorksUserProfile

@@ -16,7 +16,7 @@ import Stratosphere.ResourceProperties.EC2NetworkAclEntryIcmp
 import Stratosphere.ResourceProperties.EC2NetworkAclEntryPortRange
 
 -- | Full data type definition for EC2NetworkAclEntry. See
--- | 'ec2NetworkAclEntry' for a more convenient constructor.
+-- 'ec2NetworkAclEntry' for a more convenient constructor.
 data EC2NetworkAclEntry =
   EC2NetworkAclEntry
   { _eC2NetworkAclEntryCidrBlock :: Val Text
@@ -60,7 +60,7 @@ instance FromJSON EC2NetworkAclEntry where
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2NetworkAclEntry' containing required fields as
--- | arguments.
+-- arguments.
 ec2NetworkAclEntry
   :: Val Text -- ^ 'ecnaeCidrBlock'
   -> Val Text -- ^ 'ecnaeNetworkAclId'

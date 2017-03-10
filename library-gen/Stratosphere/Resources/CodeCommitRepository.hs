@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.CodeCommitRepositoryRepositoryTrigger
 
 -- | Full data type definition for CodeCommitRepository. See
--- | 'codeCommitRepository' for a more convenient constructor.
+-- 'codeCommitRepository' for a more convenient constructor.
 data CodeCommitRepository =
   CodeCommitRepository
   { _codeCommitRepositoryRepositoryDescription :: Maybe (Val Text)
@@ -41,7 +41,7 @@ instance FromJSON CodeCommitRepository where
   parseJSON _ = mempty
 
 -- | Constructor for 'CodeCommitRepository' containing required fields as
--- | arguments.
+-- arguments.
 codeCommitRepository
   :: Val Text -- ^ 'ccrRepositoryName'
   -> CodeCommitRepository

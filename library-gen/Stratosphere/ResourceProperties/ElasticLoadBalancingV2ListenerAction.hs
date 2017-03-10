@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for ElasticLoadBalancingV2ListenerAction. See
--- | 'elasticLoadBalancingV2ListenerAction' for a more convenient constructor.
+-- 'elasticLoadBalancingV2ListenerAction' for a more convenient constructor.
 data ElasticLoadBalancingV2ListenerAction =
   ElasticLoadBalancingV2ListenerAction
   { _elasticLoadBalancingV2ListenerActionTargetGroupArn :: Val Text
@@ -38,7 +38,7 @@ instance FromJSON ElasticLoadBalancingV2ListenerAction where
   parseJSON _ = mempty
 
 -- | Constructor for 'ElasticLoadBalancingV2ListenerAction' containing
--- | required fields as arguments.
+-- required fields as arguments.
 elasticLoadBalancingV2ListenerAction
   :: Val Text -- ^ 'elbvlaTargetGroupArn'
   -> Val Text -- ^ 'elbvlaType'

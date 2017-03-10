@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for Route53RecordSetGroupGeoLocation. See
--- | 'route53RecordSetGroupGeoLocation' for a more convenient constructor.
+-- 'route53RecordSetGroupGeoLocation' for a more convenient constructor.
 data Route53RecordSetGroupGeoLocation =
   Route53RecordSetGroupGeoLocation
   { _route53RecordSetGroupGeoLocationContinentCode :: Maybe (Val Text)
@@ -41,7 +41,7 @@ instance FromJSON Route53RecordSetGroupGeoLocation where
   parseJSON _ = mempty
 
 -- | Constructor for 'Route53RecordSetGroupGeoLocation' containing required
--- | fields as arguments.
+-- fields as arguments.
 route53RecordSetGroupGeoLocation
   :: Route53RecordSetGroupGeoLocation
 route53RecordSetGroupGeoLocation  =

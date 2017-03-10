@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for LogsMetricFilterMetricTransformation. See
--- | 'logsMetricFilterMetricTransformation' for a more convenient constructor.
+-- 'logsMetricFilterMetricTransformation' for a more convenient constructor.
 data LogsMetricFilterMetricTransformation =
   LogsMetricFilterMetricTransformation
   { _logsMetricFilterMetricTransformationMetricName :: Val Text
@@ -41,7 +41,7 @@ instance FromJSON LogsMetricFilterMetricTransformation where
   parseJSON _ = mempty
 
 -- | Constructor for 'LogsMetricFilterMetricTransformation' containing
--- | required fields as arguments.
+-- required fields as arguments.
 logsMetricFilterMetricTransformation
   :: Val Text -- ^ 'lmfmtMetricName'
   -> Val Text -- ^ 'lmfmtMetricNamespace'

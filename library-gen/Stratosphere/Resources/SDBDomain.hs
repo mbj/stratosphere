@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for SDBDomain. See 'sdbDomain' for a more
--- | convenient constructor.
+-- convenient constructor.
 data SDBDomain =
   SDBDomain
   { _sDBDomainDescription :: Maybe (Val Text)

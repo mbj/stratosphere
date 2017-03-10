@@ -16,7 +16,7 @@ import Stratosphere.ResourceProperties.EMRClusterInstanceGroupConfig
 import Stratosphere.ResourceProperties.EMRClusterPlacementType
 
 -- | Full data type definition for EMRClusterJobFlowInstancesConfig. See
--- | 'emrClusterJobFlowInstancesConfig' for a more convenient constructor.
+-- 'emrClusterJobFlowInstancesConfig' for a more convenient constructor.
 data EMRClusterJobFlowInstancesConfig =
   EMRClusterJobFlowInstancesConfig
   { _eMRClusterJobFlowInstancesConfigAdditionalMasterSecurityGroups :: Maybe [Val Text]
@@ -69,7 +69,7 @@ instance FromJSON EMRClusterJobFlowInstancesConfig where
   parseJSON _ = mempty
 
 -- | Constructor for 'EMRClusterJobFlowInstancesConfig' containing required
--- | fields as arguments.
+-- fields as arguments.
 emrClusterJobFlowInstancesConfig
   :: EMRClusterInstanceGroupConfig -- ^ 'emrcjficCoreInstanceGroup'
   -> EMRClusterInstanceGroupConfig -- ^ 'emrcjficMasterInstanceGroup'

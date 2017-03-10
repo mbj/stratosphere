@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for OpsWorksStackChefConfiguration. See
--- | 'opsWorksStackChefConfiguration' for a more convenient constructor.
+-- 'opsWorksStackChefConfiguration' for a more convenient constructor.
 data OpsWorksStackChefConfiguration =
   OpsWorksStackChefConfiguration
   { _opsWorksStackChefConfigurationBerkshelfVersion :: Maybe (Val Text)
@@ -38,7 +38,7 @@ instance FromJSON OpsWorksStackChefConfiguration where
   parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksStackChefConfiguration' containing required
--- | fields as arguments.
+-- fields as arguments.
 opsWorksStackChefConfiguration
   :: OpsWorksStackChefConfiguration
 opsWorksStackChefConfiguration  =

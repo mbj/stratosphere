@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for IoTThingPrincipalAttachment. See
--- | 'ioTThingPrincipalAttachment' for a more convenient constructor.
+-- 'ioTThingPrincipalAttachment' for a more convenient constructor.
 data IoTThingPrincipalAttachment =
   IoTThingPrincipalAttachment
   { _ioTThingPrincipalAttachmentPrincipal :: Val Text
@@ -38,7 +38,7 @@ instance FromJSON IoTThingPrincipalAttachment where
   parseJSON _ = mempty
 
 -- | Constructor for 'IoTThingPrincipalAttachment' containing required fields
--- | as arguments.
+-- as arguments.
 ioTThingPrincipalAttachment
   :: Val Text -- ^ 'ittpaPrincipal'
   -> Val Text -- ^ 'ittpaThingName'

@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for EFSMountTarget. See 'efsMountTarget' for a
--- | more convenient constructor.
+-- more convenient constructor.
 data EFSMountTarget =
   EFSMountTarget
   { _eFSMountTargetFileSystemId :: Val Text

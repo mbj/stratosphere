@@ -16,9 +16,9 @@ import Stratosphere.Types
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamKMSEncryptionConfig
 
 -- | Full data type definition for
--- | KinesisFirehoseDeliveryStreamEncryptionConfiguration. See
--- | 'kinesisFirehoseDeliveryStreamEncryptionConfiguration' for a more
--- | convenient constructor.
+-- KinesisFirehoseDeliveryStreamEncryptionConfiguration. See
+-- 'kinesisFirehoseDeliveryStreamEncryptionConfiguration' for a more
+-- convenient constructor.
 data KinesisFirehoseDeliveryStreamEncryptionConfiguration =
   KinesisFirehoseDeliveryStreamEncryptionConfiguration
   { _kinesisFirehoseDeliveryStreamEncryptionConfigurationKMSEncryptionConfig :: Maybe KinesisFirehoseDeliveryStreamKMSEncryptionConfig
@@ -41,7 +41,7 @@ instance FromJSON KinesisFirehoseDeliveryStreamEncryptionConfiguration where
   parseJSON _ = mempty
 
 -- | Constructor for 'KinesisFirehoseDeliveryStreamEncryptionConfiguration'
--- | containing required fields as arguments.
+-- containing required fields as arguments.
 kinesisFirehoseDeliveryStreamEncryptionConfiguration
   :: KinesisFirehoseDeliveryStreamEncryptionConfiguration
 kinesisFirehoseDeliveryStreamEncryptionConfiguration  =

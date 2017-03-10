@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for IoTTopicRuleCloudwatchMetricAction. See
--- | 'ioTTopicRuleCloudwatchMetricAction' for a more convenient constructor.
+-- 'ioTTopicRuleCloudwatchMetricAction' for a more convenient constructor.
 data IoTTopicRuleCloudwatchMetricAction =
   IoTTopicRuleCloudwatchMetricAction
   { _ioTTopicRuleCloudwatchMetricActionMetricName :: Val Text
@@ -50,7 +50,7 @@ instance FromJSON IoTTopicRuleCloudwatchMetricAction where
   parseJSON _ = mempty
 
 -- | Constructor for 'IoTTopicRuleCloudwatchMetricAction' containing required
--- | fields as arguments.
+-- fields as arguments.
 ioTTopicRuleCloudwatchMetricAction
   :: Val Text -- ^ 'ittrcmaMetricName'
   -> Val Text -- ^ 'ittrcmaMetricNamespace'

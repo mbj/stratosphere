@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for EC2NetworkAclEntryIcmp. See
--- | 'ec2NetworkAclEntryIcmp' for a more convenient constructor.
+-- 'ec2NetworkAclEntryIcmp' for a more convenient constructor.
 data EC2NetworkAclEntryIcmp =
   EC2NetworkAclEntryIcmp
   { _eC2NetworkAclEntryIcmpCode :: Maybe (Val Integer')
@@ -38,7 +38,7 @@ instance FromJSON EC2NetworkAclEntryIcmp where
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2NetworkAclEntryIcmp' containing required fields as
--- | arguments.
+-- arguments.
 ec2NetworkAclEntryIcmp
   :: EC2NetworkAclEntryIcmp
 ec2NetworkAclEntryIcmp  =

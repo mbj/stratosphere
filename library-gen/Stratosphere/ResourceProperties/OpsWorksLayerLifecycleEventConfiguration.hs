@@ -15,8 +15,8 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.OpsWorksLayerShutdownEventConfiguration
 
 -- | Full data type definition for OpsWorksLayerLifecycleEventConfiguration.
--- | See 'opsWorksLayerLifecycleEventConfiguration' for a more convenient
--- | constructor.
+-- See 'opsWorksLayerLifecycleEventConfiguration' for a more convenient
+-- constructor.
 data OpsWorksLayerLifecycleEventConfiguration =
   OpsWorksLayerLifecycleEventConfiguration
   { _opsWorksLayerLifecycleEventConfigurationShutdownEventConfiguration :: Maybe OpsWorksLayerShutdownEventConfiguration
@@ -36,7 +36,7 @@ instance FromJSON OpsWorksLayerLifecycleEventConfiguration where
   parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksLayerLifecycleEventConfiguration' containing
--- | required fields as arguments.
+-- required fields as arguments.
 opsWorksLayerLifecycleEventConfiguration
   :: OpsWorksLayerLifecycleEventConfiguration
 opsWorksLayerLifecycleEventConfiguration  =

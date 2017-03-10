@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for IAMUserLoginProfile. See
--- | 'iamUserLoginProfile' for a more convenient constructor.
+-- 'iamUserLoginProfile' for a more convenient constructor.
 data IAMUserLoginProfile =
   IAMUserLoginProfile
   { _iAMUserLoginProfilePassword :: Val Text
@@ -38,7 +38,7 @@ instance FromJSON IAMUserLoginProfile where
   parseJSON _ = mempty
 
 -- | Constructor for 'IAMUserLoginProfile' containing required fields as
--- | arguments.
+-- arguments.
 iamUserLoginProfile
   :: Val Text -- ^ 'iamulpPassword'
   -> IAMUserLoginProfile

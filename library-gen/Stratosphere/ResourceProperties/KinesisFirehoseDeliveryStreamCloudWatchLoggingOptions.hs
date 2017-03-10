@@ -15,9 +15,9 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for
--- | KinesisFirehoseDeliveryStreamCloudWatchLoggingOptions. See
--- | 'kinesisFirehoseDeliveryStreamCloudWatchLoggingOptions' for a more
--- | convenient constructor.
+-- KinesisFirehoseDeliveryStreamCloudWatchLoggingOptions. See
+-- 'kinesisFirehoseDeliveryStreamCloudWatchLoggingOptions' for a more
+-- convenient constructor.
 data KinesisFirehoseDeliveryStreamCloudWatchLoggingOptions =
   KinesisFirehoseDeliveryStreamCloudWatchLoggingOptions
   { _kinesisFirehoseDeliveryStreamCloudWatchLoggingOptionsEnabled :: Maybe (Val Bool')
@@ -43,7 +43,7 @@ instance FromJSON KinesisFirehoseDeliveryStreamCloudWatchLoggingOptions where
   parseJSON _ = mempty
 
 -- | Constructor for 'KinesisFirehoseDeliveryStreamCloudWatchLoggingOptions'
--- | containing required fields as arguments.
+-- containing required fields as arguments.
 kinesisFirehoseDeliveryStreamCloudWatchLoggingOptions
   :: KinesisFirehoseDeliveryStreamCloudWatchLoggingOptions
 kinesisFirehoseDeliveryStreamCloudWatchLoggingOptions  =

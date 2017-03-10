@@ -16,7 +16,7 @@ import Stratosphere.ResourceProperties.EMRInstanceGroupConfigConfiguration
 import Stratosphere.ResourceProperties.EMRInstanceGroupConfigEbsConfiguration
 
 -- | Full data type definition for EMRInstanceGroupConfig. See
--- | 'emrInstanceGroupConfig' for a more convenient constructor.
+-- 'emrInstanceGroupConfig' for a more convenient constructor.
 data EMRInstanceGroupConfig =
   EMRInstanceGroupConfig
   { _eMRInstanceGroupConfigBidPrice :: Maybe (Val Text)
@@ -60,7 +60,7 @@ instance FromJSON EMRInstanceGroupConfig where
   parseJSON _ = mempty
 
 -- | Constructor for 'EMRInstanceGroupConfig' containing required fields as
--- | arguments.
+-- arguments.
 emrInstanceGroupConfig
   :: Val Integer' -- ^ 'emrigcInstanceCount'
   -> Val Text -- ^ 'emrigcInstanceRole'

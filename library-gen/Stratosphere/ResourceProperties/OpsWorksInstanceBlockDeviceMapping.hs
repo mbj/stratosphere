@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.OpsWorksInstanceEbsBlockDevice
 
 -- | Full data type definition for OpsWorksInstanceBlockDeviceMapping. See
--- | 'opsWorksInstanceBlockDeviceMapping' for a more convenient constructor.
+-- 'opsWorksInstanceBlockDeviceMapping' for a more convenient constructor.
 data OpsWorksInstanceBlockDeviceMapping =
   OpsWorksInstanceBlockDeviceMapping
   { _opsWorksInstanceBlockDeviceMappingDeviceName :: Maybe (Val Text)
@@ -44,7 +44,7 @@ instance FromJSON OpsWorksInstanceBlockDeviceMapping where
   parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksInstanceBlockDeviceMapping' containing required
--- | fields as arguments.
+-- fields as arguments.
 opsWorksInstanceBlockDeviceMapping
   :: OpsWorksInstanceBlockDeviceMapping
 opsWorksInstanceBlockDeviceMapping  =

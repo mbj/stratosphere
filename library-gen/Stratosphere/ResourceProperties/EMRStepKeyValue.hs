@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for EMRStepKeyValue. See 'emrStepKeyValue' for
--- | a more convenient constructor.
+-- a more convenient constructor.
 data EMRStepKeyValue =
   EMRStepKeyValue
   { _eMRStepKeyValueKey :: Maybe (Val Text)
@@ -38,7 +38,7 @@ instance FromJSON EMRStepKeyValue where
   parseJSON _ = mempty
 
 -- | Constructor for 'EMRStepKeyValue' containing required fields as
--- | arguments.
+-- arguments.
 emrStepKeyValue
   :: EMRStepKeyValue
 emrStepKeyValue  =

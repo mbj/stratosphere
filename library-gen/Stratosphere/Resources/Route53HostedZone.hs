@@ -17,7 +17,7 @@ import Stratosphere.ResourceProperties.Route53HostedZoneHostedZoneTag
 import Stratosphere.ResourceProperties.Route53HostedZoneVPC
 
 -- | Full data type definition for Route53HostedZone. See 'route53HostedZone'
--- | for a more convenient constructor.
+-- for a more convenient constructor.
 data Route53HostedZone =
   Route53HostedZone
   { _route53HostedZoneHostedZoneConfig :: Maybe Route53HostedZoneHostedZoneConfig
@@ -46,7 +46,7 @@ instance FromJSON Route53HostedZone where
   parseJSON _ = mempty
 
 -- | Constructor for 'Route53HostedZone' containing required fields as
--- | arguments.
+-- arguments.
 route53HostedZone
   :: Val Text -- ^ 'rhzName'
   -> Route53HostedZone

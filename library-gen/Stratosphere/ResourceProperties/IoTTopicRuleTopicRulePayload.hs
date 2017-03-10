@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.IoTTopicRuleAction
 
 -- | Full data type definition for IoTTopicRuleTopicRulePayload. See
--- | 'ioTTopicRuleTopicRulePayload' for a more convenient constructor.
+-- 'ioTTopicRuleTopicRulePayload' for a more convenient constructor.
 data IoTTopicRuleTopicRulePayload =
   IoTTopicRuleTopicRulePayload
   { _ioTTopicRuleTopicRulePayloadActions :: [IoTTopicRuleAction]
@@ -47,7 +47,7 @@ instance FromJSON IoTTopicRuleTopicRulePayload where
   parseJSON _ = mempty
 
 -- | Constructor for 'IoTTopicRuleTopicRulePayload' containing required fields
--- | as arguments.
+-- as arguments.
 ioTTopicRuleTopicRulePayload
   :: [IoTTopicRuleAction] -- ^ 'ittrtrpActions'
   -> Val Bool' -- ^ 'ittrtrpRuleDisabled'

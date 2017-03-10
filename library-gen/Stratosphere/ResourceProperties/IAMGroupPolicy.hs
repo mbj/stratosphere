@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for IAMGroupPolicy. See 'iamGroupPolicy' for a
--- | more convenient constructor.
+-- more convenient constructor.
 data IAMGroupPolicy =
   IAMGroupPolicy
   { _iAMGroupPolicyPolicyDocument :: Object

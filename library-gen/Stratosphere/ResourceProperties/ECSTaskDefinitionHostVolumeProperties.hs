@@ -15,8 +15,8 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for ECSTaskDefinitionHostVolumeProperties. See
--- | 'ecsTaskDefinitionHostVolumeProperties' for a more convenient
--- | constructor.
+-- 'ecsTaskDefinitionHostVolumeProperties' for a more convenient
+-- constructor.
 data ECSTaskDefinitionHostVolumeProperties =
   ECSTaskDefinitionHostVolumeProperties
   { _eCSTaskDefinitionHostVolumePropertiesSourcePath :: Maybe (Val Text)
@@ -36,7 +36,7 @@ instance FromJSON ECSTaskDefinitionHostVolumeProperties where
   parseJSON _ = mempty
 
 -- | Constructor for 'ECSTaskDefinitionHostVolumeProperties' containing
--- | required fields as arguments.
+-- required fields as arguments.
 ecsTaskDefinitionHostVolumeProperties
   :: ECSTaskDefinitionHostVolumeProperties
 ecsTaskDefinitionHostVolumeProperties  =

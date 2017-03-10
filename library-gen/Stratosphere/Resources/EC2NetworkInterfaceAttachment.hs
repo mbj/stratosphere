@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for EC2NetworkInterfaceAttachment. See
--- | 'ec2NetworkInterfaceAttachment' for a more convenient constructor.
+-- 'ec2NetworkInterfaceAttachment' for a more convenient constructor.
 data EC2NetworkInterfaceAttachment =
   EC2NetworkInterfaceAttachment
   { _eC2NetworkInterfaceAttachmentDeleteOnTermination :: Maybe (Val Bool')
@@ -44,7 +44,7 @@ instance FromJSON EC2NetworkInterfaceAttachment where
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2NetworkInterfaceAttachment' containing required
--- | fields as arguments.
+-- fields as arguments.
 ec2NetworkInterfaceAttachment
   :: Val Text -- ^ 'ecniaDeviceIndex'
   -> Val Text -- ^ 'ecniaInstanceId'

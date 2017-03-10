@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.Types
 
 -- | Full data type definition for SNSSubscription. See 'snsSubscription' for
--- | a more convenient constructor.
+-- a more convenient constructor.
 data SNSSubscription =
   SNSSubscription
   { _sNSSubscriptionEndpoint :: Maybe (Val Text)
@@ -41,7 +41,7 @@ instance FromJSON SNSSubscription where
   parseJSON _ = mempty
 
 -- | Constructor for 'SNSSubscription' containing required fields as
--- | arguments.
+-- arguments.
 snsSubscription
   :: SNSSubscription
 snsSubscription  =

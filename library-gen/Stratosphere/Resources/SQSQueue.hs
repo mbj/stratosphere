@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for SQSQueue. See 'sqsQueue' for a more
--- | convenient constructor.
+-- convenient constructor.
 data SQSQueue =
   SQSQueue
   { _sQSQueueDelaySeconds :: Maybe (Val Integer')

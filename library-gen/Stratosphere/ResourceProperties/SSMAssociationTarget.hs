@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for SSMAssociationTarget. See
--- | 'ssmAssociationTarget' for a more convenient constructor.
+-- 'ssmAssociationTarget' for a more convenient constructor.
 data SSMAssociationTarget =
   SSMAssociationTarget
   { _sSMAssociationTargetKey :: Val Text
@@ -38,7 +38,7 @@ instance FromJSON SSMAssociationTarget where
   parseJSON _ = mempty
 
 -- | Constructor for 'SSMAssociationTarget' containing required fields as
--- | arguments.
+-- arguments.
 ssmAssociationTarget
   :: Val Text -- ^ 'ssmatKey'
   -> [Val Text] -- ^ 'ssmatValues'

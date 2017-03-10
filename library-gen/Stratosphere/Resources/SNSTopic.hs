@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.SNSTopicSubscription
 
 -- | Full data type definition for SNSTopic. See 'snsTopic' for a more
--- | convenient constructor.
+-- convenient constructor.
 data SNSTopic =
   SNSTopic
   { _sNSTopicDisplayName :: Maybe (Val Text)

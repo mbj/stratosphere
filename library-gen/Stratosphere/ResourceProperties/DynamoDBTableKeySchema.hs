@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.Types
 
 -- | Full data type definition for DynamoDBTableKeySchema. See
--- | 'dynamoDBTableKeySchema' for a more convenient constructor.
+-- 'dynamoDBTableKeySchema' for a more convenient constructor.
 data DynamoDBTableKeySchema =
   DynamoDBTableKeySchema
   { _dynamoDBTableKeySchemaAttributeName :: Val Text
@@ -38,7 +38,7 @@ instance FromJSON DynamoDBTableKeySchema where
   parseJSON _ = mempty
 
 -- | Constructor for 'DynamoDBTableKeySchema' containing required fields as
--- | arguments.
+-- arguments.
 dynamoDBTableKeySchema
   :: Val Text -- ^ 'ddbtksAttributeName'
   -> Val KeyType -- ^ 'ddbtksKeyType'

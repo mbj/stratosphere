@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for EC2PlacementGroup. See 'ec2PlacementGroup'
--- | for a more convenient constructor.
+-- for a more convenient constructor.
 data EC2PlacementGroup =
   EC2PlacementGroup
   { _eC2PlacementGroupStrategy :: Maybe (Val Text)
@@ -35,7 +35,7 @@ instance FromJSON EC2PlacementGroup where
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2PlacementGroup' containing required fields as
--- | arguments.
+-- arguments.
 ec2PlacementGroup
   :: EC2PlacementGroup
 ec2PlacementGroup  =

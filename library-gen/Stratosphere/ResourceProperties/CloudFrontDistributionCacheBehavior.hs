@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.CloudFrontDistributionForwardedValues
 
 -- | Full data type definition for CloudFrontDistributionCacheBehavior. See
--- | 'cloudFrontDistributionCacheBehavior' for a more convenient constructor.
+-- 'cloudFrontDistributionCacheBehavior' for a more convenient constructor.
 data CloudFrontDistributionCacheBehavior =
   CloudFrontDistributionCacheBehavior
   { _cloudFrontDistributionCacheBehaviorAllowedMethods :: Maybe [Val Text]
@@ -68,7 +68,7 @@ instance FromJSON CloudFrontDistributionCacheBehavior where
   parseJSON _ = mempty
 
 -- | Constructor for 'CloudFrontDistributionCacheBehavior' containing required
--- | fields as arguments.
+-- fields as arguments.
 cloudFrontDistributionCacheBehavior
   :: CloudFrontDistributionForwardedValues -- ^ 'cfdcbForwardedValues'
   -> Val Text -- ^ 'cfdcbPathPattern'

@@ -18,9 +18,9 @@ import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamCloudWatchLo
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamEncryptionConfiguration
 
 -- | Full data type definition for
--- | KinesisFirehoseDeliveryStreamS3DestinationConfiguration. See
--- | 'kinesisFirehoseDeliveryStreamS3DestinationConfiguration' for a more
--- | convenient constructor.
+-- KinesisFirehoseDeliveryStreamS3DestinationConfiguration. See
+-- 'kinesisFirehoseDeliveryStreamS3DestinationConfiguration' for a more
+-- convenient constructor.
 data KinesisFirehoseDeliveryStreamS3DestinationConfiguration =
   KinesisFirehoseDeliveryStreamS3DestinationConfiguration
   { _kinesisFirehoseDeliveryStreamS3DestinationConfigurationBucketARN :: Val Text
@@ -58,7 +58,7 @@ instance FromJSON KinesisFirehoseDeliveryStreamS3DestinationConfiguration where
   parseJSON _ = mempty
 
 -- | Constructor for 'KinesisFirehoseDeliveryStreamS3DestinationConfiguration'
--- | containing required fields as arguments.
+-- containing required fields as arguments.
 kinesisFirehoseDeliveryStreamS3DestinationConfiguration
   :: Val Text -- ^ 'kfdssdcBucketARN'
   -> KinesisFirehoseDeliveryStreamBufferingHints -- ^ 'kfdssdcBufferingHints'

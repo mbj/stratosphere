@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.CodeBuildProjectSourceAuth
 
 -- | Full data type definition for CodeBuildProjectSource. See
--- | 'codeBuildProjectSource' for a more convenient constructor.
+-- 'codeBuildProjectSource' for a more convenient constructor.
 data CodeBuildProjectSource =
   CodeBuildProjectSource
   { _codeBuildProjectSourceAuth :: Maybe CodeBuildProjectSourceAuth
@@ -44,7 +44,7 @@ instance FromJSON CodeBuildProjectSource where
   parseJSON _ = mempty
 
 -- | Constructor for 'CodeBuildProjectSource' containing required fields as
--- | arguments.
+-- arguments.
 codeBuildProjectSource
   :: CodeBuildProjectSource
 codeBuildProjectSource  =

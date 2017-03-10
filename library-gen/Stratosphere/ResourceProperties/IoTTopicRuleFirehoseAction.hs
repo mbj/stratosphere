@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for IoTTopicRuleFirehoseAction. See
--- | 'ioTTopicRuleFirehoseAction' for a more convenient constructor.
+-- 'ioTTopicRuleFirehoseAction' for a more convenient constructor.
 data IoTTopicRuleFirehoseAction =
   IoTTopicRuleFirehoseAction
   { _ioTTopicRuleFirehoseActionDeliveryStreamName :: Val Text
@@ -41,7 +41,7 @@ instance FromJSON IoTTopicRuleFirehoseAction where
   parseJSON _ = mempty
 
 -- | Constructor for 'IoTTopicRuleFirehoseAction' containing required fields
--- | as arguments.
+-- as arguments.
 ioTTopicRuleFirehoseAction
   :: Val Text -- ^ 'ittrfaDeliveryStreamName'
   -> Val Text -- ^ 'ittrfaRoleArn'

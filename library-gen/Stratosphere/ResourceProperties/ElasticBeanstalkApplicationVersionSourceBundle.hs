@@ -15,9 +15,9 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for
--- | ElasticBeanstalkApplicationVersionSourceBundle. See
--- | 'elasticBeanstalkApplicationVersionSourceBundle' for a more convenient
--- | constructor.
+-- ElasticBeanstalkApplicationVersionSourceBundle. See
+-- 'elasticBeanstalkApplicationVersionSourceBundle' for a more convenient
+-- constructor.
 data ElasticBeanstalkApplicationVersionSourceBundle =
   ElasticBeanstalkApplicationVersionSourceBundle
   { _elasticBeanstalkApplicationVersionSourceBundleS3Bucket :: Val Text
@@ -40,7 +40,7 @@ instance FromJSON ElasticBeanstalkApplicationVersionSourceBundle where
   parseJSON _ = mempty
 
 -- | Constructor for 'ElasticBeanstalkApplicationVersionSourceBundle'
--- | containing required fields as arguments.
+-- containing required fields as arguments.
 elasticBeanstalkApplicationVersionSourceBundle
   :: Val Text -- ^ 'ebavsbS3Bucket'
   -> Val Text -- ^ 'ebavsbS3Key'

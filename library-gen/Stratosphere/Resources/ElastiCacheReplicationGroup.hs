@@ -16,7 +16,7 @@ import Stratosphere.ResourceProperties.ElastiCacheReplicationGroupNodeGroupConfi
 import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for ElastiCacheReplicationGroup. See
--- | 'elastiCacheReplicationGroup' for a more convenient constructor.
+-- 'elastiCacheReplicationGroup' for a more convenient constructor.
 data ElastiCacheReplicationGroup =
   ElastiCacheReplicationGroup
   { _elastiCacheReplicationGroupAutoMinorVersionUpgrade :: Maybe (Val Bool')
@@ -111,7 +111,7 @@ instance FromJSON ElastiCacheReplicationGroup where
   parseJSON _ = mempty
 
 -- | Constructor for 'ElastiCacheReplicationGroup' containing required fields
--- | as arguments.
+-- as arguments.
 elastiCacheReplicationGroup
   :: Val Text -- ^ 'ecrgReplicationGroupDescription'
   -> ElastiCacheReplicationGroup

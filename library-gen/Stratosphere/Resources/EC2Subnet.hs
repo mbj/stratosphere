@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for EC2Subnet. See 'ec2Subnet' for a more
--- | convenient constructor.
+-- convenient constructor.
 data EC2Subnet =
   EC2Subnet
   { _eC2SubnetAvailabilityZone :: Maybe (Val Text)

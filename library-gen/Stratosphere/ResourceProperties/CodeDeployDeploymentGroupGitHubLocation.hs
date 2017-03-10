@@ -15,8 +15,8 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for CodeDeployDeploymentGroupGitHubLocation.
--- | See 'codeDeployDeploymentGroupGitHubLocation' for a more convenient
--- | constructor.
+-- See 'codeDeployDeploymentGroupGitHubLocation' for a more convenient
+-- constructor.
 data CodeDeployDeploymentGroupGitHubLocation =
   CodeDeployDeploymentGroupGitHubLocation
   { _codeDeployDeploymentGroupGitHubLocationCommitId :: Val Text
@@ -39,7 +39,7 @@ instance FromJSON CodeDeployDeploymentGroupGitHubLocation where
   parseJSON _ = mempty
 
 -- | Constructor for 'CodeDeployDeploymentGroupGitHubLocation' containing
--- | required fields as arguments.
+-- required fields as arguments.
 codeDeployDeploymentGroupGitHubLocation
   :: Val Text -- ^ 'cddgghlCommitId'
   -> Val Text -- ^ 'cddgghlRepository'

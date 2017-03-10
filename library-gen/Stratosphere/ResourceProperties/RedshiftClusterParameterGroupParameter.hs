@@ -15,8 +15,8 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for RedshiftClusterParameterGroupParameter. See
--- | 'redshiftClusterParameterGroupParameter' for a more convenient
--- | constructor.
+-- 'redshiftClusterParameterGroupParameter' for a more convenient
+-- constructor.
 data RedshiftClusterParameterGroupParameter =
   RedshiftClusterParameterGroupParameter
   { _redshiftClusterParameterGroupParameterParameterName :: Val Text
@@ -39,7 +39,7 @@ instance FromJSON RedshiftClusterParameterGroupParameter where
   parseJSON _ = mempty
 
 -- | Constructor for 'RedshiftClusterParameterGroupParameter' containing
--- | required fields as arguments.
+-- required fields as arguments.
 redshiftClusterParameterGroupParameter
   :: Val Text -- ^ 'rcpgpParameterName'
   -> Val Text -- ^ 'rcpgpParameterValue'

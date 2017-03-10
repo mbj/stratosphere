@@ -16,7 +16,7 @@ import Stratosphere.ResourceProperties.S3BucketRedirectAllRequestsTo
 import Stratosphere.ResourceProperties.S3BucketRoutingRule
 
 -- | Full data type definition for S3BucketWebsiteConfiguration. See
--- | 's3BucketWebsiteConfiguration' for a more convenient constructor.
+-- 's3BucketWebsiteConfiguration' for a more convenient constructor.
 data S3BucketWebsiteConfiguration =
   S3BucketWebsiteConfiguration
   { _s3BucketWebsiteConfigurationErrorDocument :: Maybe (Val Text)
@@ -45,7 +45,7 @@ instance FromJSON S3BucketWebsiteConfiguration where
   parseJSON _ = mempty
 
 -- | Constructor for 'S3BucketWebsiteConfiguration' containing required fields
--- | as arguments.
+-- as arguments.
 s3BucketWebsiteConfiguration
   :: S3BucketWebsiteConfiguration
 s3BucketWebsiteConfiguration  =

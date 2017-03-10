@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for EC2Volume. See 'ec2Volume' for a more
--- | convenient constructor.
+-- convenient constructor.
 data EC2Volume =
   EC2Volume
   { _eC2VolumeAutoEnableIO :: Maybe (Val Bool')

@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for SQSQueuePolicy. See 'sqsQueuePolicy' for a
--- | more convenient constructor.
+-- more convenient constructor.
 data SQSQueuePolicy =
   SQSQueuePolicy
   { _sQSQueuePolicyPolicyDocument :: Object

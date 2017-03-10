@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for OpsWorksAppSslConfiguration. See
--- | 'opsWorksAppSslConfiguration' for a more convenient constructor.
+-- 'opsWorksAppSslConfiguration' for a more convenient constructor.
 data OpsWorksAppSslConfiguration =
   OpsWorksAppSslConfiguration
   { _opsWorksAppSslConfigurationCertificate :: Maybe (Val Text)
@@ -41,7 +41,7 @@ instance FromJSON OpsWorksAppSslConfiguration where
   parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksAppSslConfiguration' containing required fields
--- | as arguments.
+-- as arguments.
 opsWorksAppSslConfiguration
   :: OpsWorksAppSslConfiguration
 opsWorksAppSslConfiguration  =

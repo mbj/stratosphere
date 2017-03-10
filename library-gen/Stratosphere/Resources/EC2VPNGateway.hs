@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for EC2VPNGateway. See 'ec2VPNGateway' for a
--- | more convenient constructor.
+-- more convenient constructor.
 data EC2VPNGateway =
   EC2VPNGateway
   { _eC2VPNGatewayTags :: Maybe [Tag]

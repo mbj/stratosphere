@@ -16,7 +16,7 @@ import Stratosphere.ResourceProperties.ElasticLoadBalancingV2ListenerRuleAction
 import Stratosphere.ResourceProperties.ElasticLoadBalancingV2ListenerRuleRuleCondition
 
 -- | Full data type definition for ElasticLoadBalancingV2ListenerRule. See
--- | 'elasticLoadBalancingV2ListenerRule' for a more convenient constructor.
+-- 'elasticLoadBalancingV2ListenerRule' for a more convenient constructor.
 data ElasticLoadBalancingV2ListenerRule =
   ElasticLoadBalancingV2ListenerRule
   { _elasticLoadBalancingV2ListenerRuleActions :: [ElasticLoadBalancingV2ListenerRuleAction]
@@ -45,7 +45,7 @@ instance FromJSON ElasticLoadBalancingV2ListenerRule where
   parseJSON _ = mempty
 
 -- | Constructor for 'ElasticLoadBalancingV2ListenerRule' containing required
--- | fields as arguments.
+-- fields as arguments.
 elasticLoadBalancingV2ListenerRule
   :: [ElasticLoadBalancingV2ListenerRuleAction] -- ^ 'elbvlrActions'
   -> [ElasticLoadBalancingV2ListenerRuleRuleCondition] -- ^ 'elbvlrConditions'

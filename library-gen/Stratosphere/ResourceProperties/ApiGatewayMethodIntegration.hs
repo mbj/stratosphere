@@ -16,7 +16,7 @@ import Stratosphere.Types
 import Stratosphere.ResourceProperties.ApiGatewayMethodIntegrationResponse
 
 -- | Full data type definition for ApiGatewayMethodIntegration. See
--- | 'apiGatewayMethodIntegration' for a more convenient constructor.
+-- 'apiGatewayMethodIntegration' for a more convenient constructor.
 data ApiGatewayMethodIntegration =
   ApiGatewayMethodIntegration
   { _apiGatewayMethodIntegrationCacheKeyParameters :: Maybe [Val Text]
@@ -63,7 +63,7 @@ instance FromJSON ApiGatewayMethodIntegration where
   parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayMethodIntegration' containing required fields
--- | as arguments.
+-- as arguments.
 apiGatewayMethodIntegration
   :: ApiGatewayMethodIntegration
 apiGatewayMethodIntegration  =

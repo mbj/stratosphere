@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for RDSDBParameterGroup. See
--- | 'rdsdbParameterGroup' for a more convenient constructor.
+-- 'rdsdbParameterGroup' for a more convenient constructor.
 data RDSDBParameterGroup =
   RDSDBParameterGroup
   { _rDSDBParameterGroupDescription :: Val Text
@@ -44,7 +44,7 @@ instance FromJSON RDSDBParameterGroup where
   parseJSON _ = mempty
 
 -- | Constructor for 'RDSDBParameterGroup' containing required fields as
--- | arguments.
+-- arguments.
 rdsdbParameterGroup
   :: Val Text -- ^ 'rdsdbpgDescription'
   -> Val Text -- ^ 'rdsdbpgFamily'

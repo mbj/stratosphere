@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for WAFWebACLWafAction. See
--- | 'wafWebACLWafAction' for a more convenient constructor.
+-- 'wafWebACLWafAction' for a more convenient constructor.
 data WAFWebACLWafAction =
   WAFWebACLWafAction
   { _wAFWebACLWafActionType :: Val Text
@@ -35,7 +35,7 @@ instance FromJSON WAFWebACLWafAction where
   parseJSON _ = mempty
 
 -- | Constructor for 'WAFWebACLWafAction' containing required fields as
--- | arguments.
+-- arguments.
 wafWebACLWafAction
   :: Val Text -- ^ 'wafwaclwaType'
   -> WAFWebACLWafAction

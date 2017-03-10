@@ -16,7 +16,7 @@ import Stratosphere.ResourceProperties.EMRClusterConfiguration
 import Stratosphere.ResourceProperties.EMRClusterEbsConfiguration
 
 -- | Full data type definition for EMRClusterInstanceGroupConfig. See
--- | 'emrClusterInstanceGroupConfig' for a more convenient constructor.
+-- 'emrClusterInstanceGroupConfig' for a more convenient constructor.
 data EMRClusterInstanceGroupConfig =
   EMRClusterInstanceGroupConfig
   { _eMRClusterInstanceGroupConfigBidPrice :: Maybe (Val Text)
@@ -54,7 +54,7 @@ instance FromJSON EMRClusterInstanceGroupConfig where
   parseJSON _ = mempty
 
 -- | Constructor for 'EMRClusterInstanceGroupConfig' containing required
--- | fields as arguments.
+-- fields as arguments.
 emrClusterInstanceGroupConfig
   :: Val Integer' -- ^ 'emrcigcInstanceCount'
   -> Val Text -- ^ 'emrcigcInstanceType'

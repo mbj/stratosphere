@@ -15,8 +15,8 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for ElasticLoadBalancingV2TargetGroupMatcher.
--- | See 'elasticLoadBalancingV2TargetGroupMatcher' for a more convenient
--- | constructor.
+-- See 'elasticLoadBalancingV2TargetGroupMatcher' for a more convenient
+-- constructor.
 data ElasticLoadBalancingV2TargetGroupMatcher =
   ElasticLoadBalancingV2TargetGroupMatcher
   { _elasticLoadBalancingV2TargetGroupMatcherHttpCode :: Val Text
@@ -36,7 +36,7 @@ instance FromJSON ElasticLoadBalancingV2TargetGroupMatcher where
   parseJSON _ = mempty
 
 -- | Constructor for 'ElasticLoadBalancingV2TargetGroupMatcher' containing
--- | required fields as arguments.
+-- required fields as arguments.
 elasticLoadBalancingV2TargetGroupMatcher
   :: Val Text -- ^ 'elbvtgmHttpCode'
   -> ElasticLoadBalancingV2TargetGroupMatcher

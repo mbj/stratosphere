@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for CloudWatchAlarmDimension. See
--- | 'cloudWatchAlarmDimension' for a more convenient constructor.
+-- 'cloudWatchAlarmDimension' for a more convenient constructor.
 data CloudWatchAlarmDimension =
   CloudWatchAlarmDimension
   { _cloudWatchAlarmDimensionName :: Val Text
@@ -38,7 +38,7 @@ instance FromJSON CloudWatchAlarmDimension where
   parseJSON _ = mempty
 
 -- | Constructor for 'CloudWatchAlarmDimension' containing required fields as
--- | arguments.
+-- arguments.
 cloudWatchAlarmDimension
   :: Val Text -- ^ 'cwadName'
   -> Val Text -- ^ 'cwadValue'

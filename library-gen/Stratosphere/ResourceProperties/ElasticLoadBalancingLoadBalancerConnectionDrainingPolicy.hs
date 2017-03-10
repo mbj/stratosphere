@@ -15,9 +15,9 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for
--- | ElasticLoadBalancingLoadBalancerConnectionDrainingPolicy. See
--- | 'elasticLoadBalancingLoadBalancerConnectionDrainingPolicy' for a more
--- | convenient constructor.
+-- ElasticLoadBalancingLoadBalancerConnectionDrainingPolicy. See
+-- 'elasticLoadBalancingLoadBalancerConnectionDrainingPolicy' for a more
+-- convenient constructor.
 data ElasticLoadBalancingLoadBalancerConnectionDrainingPolicy =
   ElasticLoadBalancingLoadBalancerConnectionDrainingPolicy
   { _elasticLoadBalancingLoadBalancerConnectionDrainingPolicyEnabled :: Val Bool'
@@ -40,8 +40,8 @@ instance FromJSON ElasticLoadBalancingLoadBalancerConnectionDrainingPolicy where
   parseJSON _ = mempty
 
 -- | Constructor for
--- | 'ElasticLoadBalancingLoadBalancerConnectionDrainingPolicy' containing
--- | required fields as arguments.
+-- 'ElasticLoadBalancingLoadBalancerConnectionDrainingPolicy' containing
+-- required fields as arguments.
 elasticLoadBalancingLoadBalancerConnectionDrainingPolicy
   :: Val Bool' -- ^ 'elblbcdpEnabled'
   -> ElasticLoadBalancingLoadBalancerConnectionDrainingPolicy

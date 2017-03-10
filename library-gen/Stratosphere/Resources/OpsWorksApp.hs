@@ -18,7 +18,7 @@ import Stratosphere.ResourceProperties.OpsWorksAppEnvironmentVariable
 import Stratosphere.ResourceProperties.OpsWorksAppSslConfiguration
 
 -- | Full data type definition for OpsWorksApp. See 'opsWorksApp' for a more
--- | convenient constructor.
+-- convenient constructor.
 data OpsWorksApp =
   OpsWorksApp
   { _opsWorksAppAppSource :: Maybe OpsWorksAppSource

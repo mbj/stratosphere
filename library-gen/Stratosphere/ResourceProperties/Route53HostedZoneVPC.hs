@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for Route53HostedZoneVPC. See
--- | 'route53HostedZoneVPC' for a more convenient constructor.
+-- 'route53HostedZoneVPC' for a more convenient constructor.
 data Route53HostedZoneVPC =
   Route53HostedZoneVPC
   { _route53HostedZoneVPCVPCId :: Val Text
@@ -38,7 +38,7 @@ instance FromJSON Route53HostedZoneVPC where
   parseJSON _ = mempty
 
 -- | Constructor for 'Route53HostedZoneVPC' containing required fields as
--- | arguments.
+-- arguments.
 route53HostedZoneVPC
   :: Val Text -- ^ 'rhzvpcVPCId'
   -> Val Text -- ^ 'rhzvpcVPCRegion'

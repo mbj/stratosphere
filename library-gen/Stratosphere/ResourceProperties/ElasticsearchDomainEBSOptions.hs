@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for ElasticsearchDomainEBSOptions. See
--- | 'elasticsearchDomainEBSOptions' for a more convenient constructor.
+-- 'elasticsearchDomainEBSOptions' for a more convenient constructor.
 data ElasticsearchDomainEBSOptions =
   ElasticsearchDomainEBSOptions
   { _elasticsearchDomainEBSOptionsEBSEnabled :: Maybe (Val Bool')
@@ -44,7 +44,7 @@ instance FromJSON ElasticsearchDomainEBSOptions where
   parseJSON _ = mempty
 
 -- | Constructor for 'ElasticsearchDomainEBSOptions' containing required
--- | fields as arguments.
+-- fields as arguments.
 elasticsearchDomainEBSOptions
   :: ElasticsearchDomainEBSOptions
 elasticsearchDomainEBSOptions  =

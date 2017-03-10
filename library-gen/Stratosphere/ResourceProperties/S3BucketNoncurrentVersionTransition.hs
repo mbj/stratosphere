@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for S3BucketNoncurrentVersionTransition. See
--- | 's3BucketNoncurrentVersionTransition' for a more convenient constructor.
+-- 's3BucketNoncurrentVersionTransition' for a more convenient constructor.
 data S3BucketNoncurrentVersionTransition =
   S3BucketNoncurrentVersionTransition
   { _s3BucketNoncurrentVersionTransitionStorageClass :: Val Text
@@ -38,7 +38,7 @@ instance FromJSON S3BucketNoncurrentVersionTransition where
   parseJSON _ = mempty
 
 -- | Constructor for 'S3BucketNoncurrentVersionTransition' containing required
--- | fields as arguments.
+-- fields as arguments.
 s3BucketNoncurrentVersionTransition
   :: Val Text -- ^ 'sbnvtStorageClass'
   -> Val Integer' -- ^ 'sbnvtTransitionInDays'

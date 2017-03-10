@@ -15,8 +15,8 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for CloudFrontDistributionOriginCustomHeader.
--- | See 'cloudFrontDistributionOriginCustomHeader' for a more convenient
--- | constructor.
+-- See 'cloudFrontDistributionOriginCustomHeader' for a more convenient
+-- constructor.
 data CloudFrontDistributionOriginCustomHeader =
   CloudFrontDistributionOriginCustomHeader
   { _cloudFrontDistributionOriginCustomHeaderHeaderName :: Val Text
@@ -39,7 +39,7 @@ instance FromJSON CloudFrontDistributionOriginCustomHeader where
   parseJSON _ = mempty
 
 -- | Constructor for 'CloudFrontDistributionOriginCustomHeader' containing
--- | required fields as arguments.
+-- required fields as arguments.
 cloudFrontDistributionOriginCustomHeader
   :: Val Text -- ^ 'cfdochHeaderName'
   -> Val Text -- ^ 'cfdochHeaderValue'

@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.ApiGatewayStageMethodSetting
 
 -- | Full data type definition for ApiGatewayStage. See 'apiGatewayStage' for
--- | a more convenient constructor.
+-- a more convenient constructor.
 data ApiGatewayStage =
   ApiGatewayStage
   { _apiGatewayStageCacheClusterEnabled :: Maybe (Val Bool')
@@ -59,7 +59,7 @@ instance FromJSON ApiGatewayStage where
   parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayStage' containing required fields as
--- | arguments.
+-- arguments.
 apiGatewayStage
   :: ApiGatewayStage
 apiGatewayStage  =

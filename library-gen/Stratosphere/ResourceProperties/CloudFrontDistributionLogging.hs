@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for CloudFrontDistributionLogging. See
--- | 'cloudFrontDistributionLogging' for a more convenient constructor.
+-- 'cloudFrontDistributionLogging' for a more convenient constructor.
 data CloudFrontDistributionLogging =
   CloudFrontDistributionLogging
   { _cloudFrontDistributionLoggingBucket :: Val Text
@@ -41,7 +41,7 @@ instance FromJSON CloudFrontDistributionLogging where
   parseJSON _ = mempty
 
 -- | Constructor for 'CloudFrontDistributionLogging' containing required
--- | fields as arguments.
+-- fields as arguments.
 cloudFrontDistributionLogging
   :: Val Text -- ^ 'cfdlBucket'
   -> CloudFrontDistributionLogging

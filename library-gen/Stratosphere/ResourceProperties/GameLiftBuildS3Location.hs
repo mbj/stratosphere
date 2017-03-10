@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for GameLiftBuildS3Location. See
--- | 'gameLiftBuildS3Location' for a more convenient constructor.
+-- 'gameLiftBuildS3Location' for a more convenient constructor.
 data GameLiftBuildS3Location =
   GameLiftBuildS3Location
   { _gameLiftBuildS3LocationBucket :: Val Text
@@ -41,7 +41,7 @@ instance FromJSON GameLiftBuildS3Location where
   parseJSON _ = mempty
 
 -- | Constructor for 'GameLiftBuildS3Location' containing required fields as
--- | arguments.
+-- arguments.
 gameLiftBuildS3Location
   :: Val Text -- ^ 'glbslBucket'
   -> Val Text -- ^ 'glbslKey'

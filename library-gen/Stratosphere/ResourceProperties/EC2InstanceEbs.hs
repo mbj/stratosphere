@@ -15,7 +15,7 @@ import Stratosphere.Values
 
 
 -- | Full data type definition for EC2InstanceEbs. See 'ec2InstanceEbs' for a
--- | more convenient constructor.
+-- more convenient constructor.
 data EC2InstanceEbs =
   EC2InstanceEbs
   { _eC2InstanceEbsDeleteOnTermination :: Maybe (Val Bool')

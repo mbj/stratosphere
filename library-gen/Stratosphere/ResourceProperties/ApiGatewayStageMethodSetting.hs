@@ -15,7 +15,7 @@ import Stratosphere.Values
 import Stratosphere.Types
 
 -- | Full data type definition for ApiGatewayStageMethodSetting. See
--- | 'apiGatewayStageMethodSetting' for a more convenient constructor.
+-- 'apiGatewayStageMethodSetting' for a more convenient constructor.
 data ApiGatewayStageMethodSetting =
   ApiGatewayStageMethodSetting
   { _apiGatewayStageMethodSettingCacheDataEncrypted :: Maybe (Val Bool')
@@ -62,7 +62,7 @@ instance FromJSON ApiGatewayStageMethodSetting where
   parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayStageMethodSetting' containing required fields
--- | as arguments.
+-- as arguments.
 apiGatewayStageMethodSetting
   :: ApiGatewayStageMethodSetting
 apiGatewayStageMethodSetting  =

@@ -15,9 +15,9 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.AutoScalingLaunchConfigurationBlockDevice
 
 -- | Full data type definition for
--- | AutoScalingLaunchConfigurationBlockDeviceMapping. See
--- | 'autoScalingLaunchConfigurationBlockDeviceMapping' for a more convenient
--- | constructor.
+-- AutoScalingLaunchConfigurationBlockDeviceMapping. See
+-- 'autoScalingLaunchConfigurationBlockDeviceMapping' for a more convenient
+-- constructor.
 data AutoScalingLaunchConfigurationBlockDeviceMapping =
   AutoScalingLaunchConfigurationBlockDeviceMapping
   { _autoScalingLaunchConfigurationBlockDeviceMappingDeviceName :: Val Text
@@ -46,7 +46,7 @@ instance FromJSON AutoScalingLaunchConfigurationBlockDeviceMapping where
   parseJSON _ = mempty
 
 -- | Constructor for 'AutoScalingLaunchConfigurationBlockDeviceMapping'
--- | containing required fields as arguments.
+-- containing required fields as arguments.
 autoScalingLaunchConfigurationBlockDeviceMapping
   :: Val Text -- ^ 'aslcbdmDeviceName'
   -> AutoScalingLaunchConfigurationBlockDeviceMapping
