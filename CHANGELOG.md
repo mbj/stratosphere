@@ -2,6 +2,8 @@
 
 ## 0.4.2
 
+* Update the resource specification document to version `1.2.1`
+
 ## 0.4.1
 
 * Manually write out all JSON instances to speed up compilation

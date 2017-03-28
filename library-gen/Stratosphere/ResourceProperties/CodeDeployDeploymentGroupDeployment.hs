@@ -12,7 +12,7 @@ import Data.Monoid (mempty)
 import Data.Text
 
 import Stratosphere.Values
-import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupRevision
+import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupRevisionLocation
 
 -- | Full data type definition for CodeDeployDeploymentGroupDeployment. See
 -- 'codeDeployDeploymentGroupDeployment' for a more convenient constructor.
@@ -20,7 +20,7 @@ data CodeDeployDeploymentGroupDeployment =
   CodeDeployDeploymentGroupDeployment
   { _codeDeployDeploymentGroupDeploymentDescription :: Maybe (Val Text)
   , _codeDeployDeploymentGroupDeploymentIgnoreApplicationStopFailures :: Maybe (Val Bool')
-  , _codeDeployDeploymentGroupDeploymentRevision :: CodeDeployDeploymentGroupRevision
+  , _codeDeployDeploymentGroupDeploymentRevision :: CodeDeployDeploymentGroupRevisionLocation
   } deriving (Show, Eq)
 
 instance ToJSON CodeDeployDeploymentGroupDeployment where
@@ -43,7 +43,7 @@ instance FromJSON CodeDeployDeploymentGroupDeployment where
 -- | Constructor for 'CodeDeployDeploymentGroupDeployment' containing required
 -- fields as arguments.
 codeDeployDeploymentGroupDeployment
-  :: CodeDeployDeploymentGroupRevision -- ^ 'cddgdRevision'
+  :: CodeDeployDeploymentGroupRevisionLocation -- ^ 'cddgdRevision'
   -> CodeDeployDeploymentGroupDeployment
 codeDeployDeploymentGroupDeployment revisionarg =
   CodeDeployDeploymentGroupDeployment
@@ -61,5 +61,5 @@ cddgdIgnoreApplicationStopFailures :: Lens' CodeDeployDeploymentGroupDeployment 
 cddgdIgnoreApplicationStopFailures = lens _codeDeployDeploymentGroupDeploymentIgnoreApplicationStopFailures (\s a -> s { _codeDeployDeploymentGroupDeploymentIgnoreApplicationStopFailures = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-deployment.html#cfn-properties-codedeploy-deploymentgroup-deployment-revision
-cddgdRevision :: Lens' CodeDeployDeploymentGroupDeployment CodeDeployDeploymentGroupRevision
+cddgdRevision :: Lens' CodeDeployDeploymentGroupDeployment CodeDeployDeploymentGroupRevisionLocation
 cddgdRevision = lens _codeDeployDeploymentGroupDeploymentRevision (\s a -> s { _codeDeployDeploymentGroupDeploymentRevision = a })

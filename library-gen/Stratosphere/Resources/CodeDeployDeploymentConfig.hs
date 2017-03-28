@@ -12,14 +12,14 @@ import Data.Monoid (mempty)
 import Data.Text
 
 import Stratosphere.Values
-
+import Stratosphere.ResourceProperties.CodeDeployDeploymentConfigMinimumHealthyHosts
 
 -- | Full data type definition for CodeDeployDeploymentConfig. See
 -- 'codeDeployDeploymentConfig' for a more convenient constructor.
 data CodeDeployDeploymentConfig =
   CodeDeployDeploymentConfig
   { _codeDeployDeploymentConfigDeploymentConfigName :: Maybe (Val Text)
-  , _codeDeployDeploymentConfigMinimumHealthyHosts :: Maybe (Val Text)
+  , _codeDeployDeploymentConfigMinimumHealthyHosts :: Maybe CodeDeployDeploymentConfigMinimumHealthyHosts
   } deriving (Show, Eq)
 
 instance ToJSON CodeDeployDeploymentConfig where
@@ -52,5 +52,5 @@ cddcDeploymentConfigName :: Lens' CodeDeployDeploymentConfig (Maybe (Val Text))
 cddcDeploymentConfigName = lens _codeDeployDeploymentConfigDeploymentConfigName (\s a -> s { _codeDeployDeploymentConfigDeploymentConfigName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentconfig.html#cfn-codedeploy-deploymentconfig-minimumhealthyhosts
-cddcMinimumHealthyHosts :: Lens' CodeDeployDeploymentConfig (Maybe (Val Text))
+cddcMinimumHealthyHosts :: Lens' CodeDeployDeploymentConfig (Maybe CodeDeployDeploymentConfigMinimumHealthyHosts)
 cddcMinimumHealthyHosts = lens _codeDeployDeploymentConfigMinimumHealthyHosts (\s a -> s { _codeDeployDeploymentConfigMinimumHealthyHosts = a })

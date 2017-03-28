@@ -13,8 +13,8 @@ import Data.Text
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupDeployment
-import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupEc2TagFilter
-import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupOnPremisesInstanceTagFilter
+import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupEC2TagFilter
+import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupTagFilter
 
 -- | Full data type definition for CodeDeployDeploymentGroup. See
 -- 'codeDeployDeploymentGroup' for a more convenient constructor.
@@ -25,8 +25,8 @@ data CodeDeployDeploymentGroup =
   , _codeDeployDeploymentGroupDeployment :: Maybe CodeDeployDeploymentGroupDeployment
   , _codeDeployDeploymentGroupDeploymentConfigName :: Maybe (Val Text)
   , _codeDeployDeploymentGroupDeploymentGroupName :: Maybe (Val Text)
-  , _codeDeployDeploymentGroupEc2TagFilters :: Maybe [CodeDeployDeploymentGroupEc2TagFilter]
-  , _codeDeployDeploymentGroupOnPremisesInstanceTagFilters :: Maybe [CodeDeployDeploymentGroupOnPremisesInstanceTagFilter]
+  , _codeDeployDeploymentGroupEc2TagFilters :: Maybe [CodeDeployDeploymentGroupEC2TagFilter]
+  , _codeDeployDeploymentGroupOnPremisesInstanceTagFilters :: Maybe [CodeDeployDeploymentGroupTagFilter]
   , _codeDeployDeploymentGroupServiceRoleArn :: Val Text
   } deriving (Show, Eq)
 
@@ -96,11 +96,11 @@ cddgDeploymentGroupName :: Lens' CodeDeployDeploymentGroup (Maybe (Val Text))
 cddgDeploymentGroupName = lens _codeDeployDeploymentGroupDeploymentGroupName (\s a -> s { _codeDeployDeploymentGroupDeploymentGroupName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-ec2tagfilters
-cddgEc2TagFilters :: Lens' CodeDeployDeploymentGroup (Maybe [CodeDeployDeploymentGroupEc2TagFilter])
+cddgEc2TagFilters :: Lens' CodeDeployDeploymentGroup (Maybe [CodeDeployDeploymentGroupEC2TagFilter])
 cddgEc2TagFilters = lens _codeDeployDeploymentGroupEc2TagFilters (\s a -> s { _codeDeployDeploymentGroupEc2TagFilters = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-onpremisesinstancetagfilters
-cddgOnPremisesInstanceTagFilters :: Lens' CodeDeployDeploymentGroup (Maybe [CodeDeployDeploymentGroupOnPremisesInstanceTagFilter])
+cddgOnPremisesInstanceTagFilters :: Lens' CodeDeployDeploymentGroup (Maybe [CodeDeployDeploymentGroupTagFilter])
 cddgOnPremisesInstanceTagFilters = lens _codeDeployDeploymentGroupOnPremisesInstanceTagFilters (\s a -> s { _codeDeployDeploymentGroupOnPremisesInstanceTagFilters = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-servicerolearn
