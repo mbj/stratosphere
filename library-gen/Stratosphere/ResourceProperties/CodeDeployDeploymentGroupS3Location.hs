@@ -19,7 +19,7 @@ import Stratosphere.Values
 data CodeDeployDeploymentGroupS3Location =
   CodeDeployDeploymentGroupS3Location
   { _codeDeployDeploymentGroupS3LocationBucket :: Val Text
-  , _codeDeployDeploymentGroupS3LocationBundleType :: Val Text
+  , _codeDeployDeploymentGroupS3LocationBundleType :: Maybe (Val Text)
   , _codeDeployDeploymentGroupS3LocationETag :: Maybe (Val Text)
   , _codeDeployDeploymentGroupS3LocationKey :: Val Text
   , _codeDeployDeploymentGroupS3LocationVersion :: Maybe (Val Text)
@@ -30,7 +30,7 @@ instance ToJSON CodeDeployDeploymentGroupS3Location where
     object $
     catMaybes
     [ Just ("Bucket" .= _codeDeployDeploymentGroupS3LocationBucket)
-    , Just ("BundleType" .= _codeDeployDeploymentGroupS3LocationBundleType)
+    , ("BundleType" .=) <$> _codeDeployDeploymentGroupS3LocationBundleType
     , ("ETag" .=) <$> _codeDeployDeploymentGroupS3LocationETag
     , Just ("Key" .= _codeDeployDeploymentGroupS3LocationKey)
     , ("Version" .=) <$> _codeDeployDeploymentGroupS3LocationVersion
@@ -40,7 +40,7 @@ instance FromJSON CodeDeployDeploymentGroupS3Location where
   parseJSON (Object obj) =
     CodeDeployDeploymentGroupS3Location <$>
       obj .: "Bucket" <*>
-      obj .: "BundleType" <*>
+      obj .:? "BundleType" <*>
       obj .:? "ETag" <*>
       obj .: "Key" <*>
       obj .:? "Version"
@@ -50,13 +50,12 @@ instance FromJSON CodeDeployDeploymentGroupS3Location where
 -- fields as arguments.
 codeDeployDeploymentGroupS3Location
   :: Val Text -- ^ 'cddgslBucket'
-  -> Val Text -- ^ 'cddgslBundleType'
   -> Val Text -- ^ 'cddgslKey'
   -> CodeDeployDeploymentGroupS3Location
-codeDeployDeploymentGroupS3Location bucketarg bundleTypearg keyarg =
+codeDeployDeploymentGroupS3Location bucketarg keyarg =
   CodeDeployDeploymentGroupS3Location
   { _codeDeployDeploymentGroupS3LocationBucket = bucketarg
-  , _codeDeployDeploymentGroupS3LocationBundleType = bundleTypearg
+  , _codeDeployDeploymentGroupS3LocationBundleType = Nothing
   , _codeDeployDeploymentGroupS3LocationETag = Nothing
   , _codeDeployDeploymentGroupS3LocationKey = keyarg
   , _codeDeployDeploymentGroupS3LocationVersion = Nothing
@@ -67,7 +66,7 @@ cddgslBucket :: Lens' CodeDeployDeploymentGroupS3Location (Val Text)
 cddgslBucket = lens _codeDeployDeploymentGroupS3LocationBucket (\s a -> s { _codeDeployDeploymentGroupS3LocationBucket = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-deployment-revision-s3location.html#cfn-properties-codedeploy-deploymentgroup-deployment-revision-s3location-bundletype
-cddgslBundleType :: Lens' CodeDeployDeploymentGroupS3Location (Val Text)
+cddgslBundleType :: Lens' CodeDeployDeploymentGroupS3Location (Maybe (Val Text))
 cddgslBundleType = lens _codeDeployDeploymentGroupS3LocationBundleType (\s a -> s { _codeDeployDeploymentGroupS3LocationBundleType = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-deployment-revision-s3location.html#cfn-properties-codedeploy-deploymentgroup-deployment-revision-s3location-etag

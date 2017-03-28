@@ -14,6 +14,7 @@ import Data.Text
 import Stratosphere.Values
 import Stratosphere.Types
 import Stratosphere.ResourceProperties.LambdaFunctionCode
+import Stratosphere.ResourceProperties.LambdaFunctionDeadLetterConfig
 import Stratosphere.ResourceProperties.LambdaFunctionEnvironment
 import Stratosphere.ResourceProperties.LambdaFunctionVpcConfig
 
@@ -22,6 +23,7 @@ import Stratosphere.ResourceProperties.LambdaFunctionVpcConfig
 data LambdaFunction =
   LambdaFunction
   { _lambdaFunctionCode :: LambdaFunctionCode
+  , _lambdaFunctionDeadLetterConfig :: Maybe LambdaFunctionDeadLetterConfig
   , _lambdaFunctionDescription :: Maybe (Val Text)
   , _lambdaFunctionEnvironment :: Maybe LambdaFunctionEnvironment
   , _lambdaFunctionFunctionName :: Maybe (Val Text)
@@ -39,6 +41,7 @@ instance ToJSON LambdaFunction where
     object $
     catMaybes
     [ Just ("Code" .= _lambdaFunctionCode)
+    , ("DeadLetterConfig" .=) <$> _lambdaFunctionDeadLetterConfig
     , ("Description" .=) <$> _lambdaFunctionDescription
     , ("Environment" .=) <$> _lambdaFunctionEnvironment
     , ("FunctionName" .=) <$> _lambdaFunctionFunctionName
@@ -55,6 +58,7 @@ instance FromJSON LambdaFunction where
   parseJSON (Object obj) =
     LambdaFunction <$>
       obj .: "Code" <*>
+      obj .:? "DeadLetterConfig" <*>
       obj .:? "Description" <*>
       obj .:? "Environment" <*>
       obj .:? "FunctionName" <*>
@@ -77,6 +81,7 @@ lambdaFunction
 lambdaFunction codearg handlerarg rolearg runtimearg =
   LambdaFunction
   { _lambdaFunctionCode = codearg
+  , _lambdaFunctionDeadLetterConfig = Nothing
   , _lambdaFunctionDescription = Nothing
   , _lambdaFunctionEnvironment = Nothing
   , _lambdaFunctionFunctionName = Nothing
@@ -92,6 +97,10 @@ lambdaFunction codearg handlerarg rolearg runtimearg =
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-code
 lfCode :: Lens' LambdaFunction LambdaFunctionCode
 lfCode = lens _lambdaFunctionCode (\s a -> s { _lambdaFunctionCode = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-deadletterconfig
+lfDeadLetterConfig :: Lens' LambdaFunction (Maybe LambdaFunctionDeadLetterConfig)
+lfDeadLetterConfig = lens _lambdaFunctionDeadLetterConfig (\s a -> s { _lambdaFunctionDeadLetterConfig = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-description
 lfDescription :: Lens' LambdaFunction (Maybe (Val Text))

@@ -21,7 +21,7 @@ data RedshiftCluster =
   { _redshiftClusterAllowVersionUpdate :: Maybe (Val Bool')
   , _redshiftClusterAutomatedSnapshotRetentionPeriod :: Maybe (Val Integer')
   , _redshiftClusterAvailabilityZone :: Maybe (Val Text)
-  , _redshiftClusterClusterParameterGroupName :: Maybe (Val Integer')
+  , _redshiftClusterClusterParameterGroupName :: Maybe (Val Text)
   , _redshiftClusterClusterSecurityGroups :: Maybe [Val Text]
   , _redshiftClusterClusterSubnetGroupName :: Maybe (Val Text)
   , _redshiftClusterClusterType :: Val Text
@@ -153,7 +153,7 @@ rcAvailabilityZone :: Lens' RedshiftCluster (Maybe (Val Text))
 rcAvailabilityZone = lens _redshiftClusterAvailabilityZone (\s a -> s { _redshiftClusterAvailabilityZone = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-clusterparametergroupname
-rcClusterParameterGroupName :: Lens' RedshiftCluster (Maybe (Val Integer'))
+rcClusterParameterGroupName :: Lens' RedshiftCluster (Maybe (Val Text))
 rcClusterParameterGroupName = lens _redshiftClusterClusterParameterGroupName (\s a -> s { _redshiftClusterClusterParameterGroupName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-clustersecuritygroups

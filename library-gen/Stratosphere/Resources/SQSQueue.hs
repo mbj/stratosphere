@@ -18,7 +18,9 @@ import Stratosphere.Values
 -- convenient constructor.
 data SQSQueue =
   SQSQueue
-  { _sQSQueueDelaySeconds :: Maybe (Val Integer')
+  { _sQSQueueContentBasedDeduplication :: Maybe (Val Bool')
+  , _sQSQueueDelaySeconds :: Maybe (Val Integer')
+  , _sQSQueueFifoQueue :: Maybe (Val Bool')
   , _sQSQueueMaximumMessageSize :: Maybe (Val Integer')
   , _sQSQueueMessageRetentionPeriod :: Maybe (Val Integer')
   , _sQSQueueQueueName :: Maybe (Val Text)
@@ -31,7 +33,9 @@ instance ToJSON SQSQueue where
   toJSON SQSQueue{..} =
     object $
     catMaybes
-    [ ("DelaySeconds" .=) <$> _sQSQueueDelaySeconds
+    [ ("ContentBasedDeduplication" .=) <$> _sQSQueueContentBasedDeduplication
+    , ("DelaySeconds" .=) <$> _sQSQueueDelaySeconds
+    , ("FifoQueue" .=) <$> _sQSQueueFifoQueue
     , ("MaximumMessageSize" .=) <$> _sQSQueueMaximumMessageSize
     , ("MessageRetentionPeriod" .=) <$> _sQSQueueMessageRetentionPeriod
     , ("QueueName" .=) <$> _sQSQueueQueueName
@@ -43,7 +47,9 @@ instance ToJSON SQSQueue where
 instance FromJSON SQSQueue where
   parseJSON (Object obj) =
     SQSQueue <$>
+      obj .:? "ContentBasedDeduplication" <*>
       obj .:? "DelaySeconds" <*>
+      obj .:? "FifoQueue" <*>
       obj .:? "MaximumMessageSize" <*>
       obj .:? "MessageRetentionPeriod" <*>
       obj .:? "QueueName" <*>
@@ -57,7 +63,9 @@ sqsQueue
   :: SQSQueue
 sqsQueue  =
   SQSQueue
-  { _sQSQueueDelaySeconds = Nothing
+  { _sQSQueueContentBasedDeduplication = Nothing
+  , _sQSQueueDelaySeconds = Nothing
+  , _sQSQueueFifoQueue = Nothing
   , _sQSQueueMaximumMessageSize = Nothing
   , _sQSQueueMessageRetentionPeriod = Nothing
   , _sQSQueueQueueName = Nothing
@@ -66,9 +74,17 @@ sqsQueue  =
   , _sQSQueueVisibilityTimeout = Nothing
   }
 
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-sqs-queue-contentbaseddeduplication
+sqsqContentBasedDeduplication :: Lens' SQSQueue (Maybe (Val Bool'))
+sqsqContentBasedDeduplication = lens _sQSQueueContentBasedDeduplication (\s a -> s { _sQSQueueContentBasedDeduplication = a })
+
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-sqs-queue-delayseconds
 sqsqDelaySeconds :: Lens' SQSQueue (Maybe (Val Integer'))
 sqsqDelaySeconds = lens _sQSQueueDelaySeconds (\s a -> s { _sQSQueueDelaySeconds = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-sqs-queue-fifoqueue
+sqsqFifoQueue :: Lens' SQSQueue (Maybe (Val Bool'))
+sqsqFifoQueue = lens _sQSQueueFifoQueue (\s a -> s { _sQSQueueFifoQueue = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-sqs-queue-maxmesgsize
 sqsqMaximumMessageSize :: Lens' SQSQueue (Maybe (Val Integer'))

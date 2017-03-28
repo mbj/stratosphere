@@ -55,18 +55,6 @@ fixSpecBugs spec =
   & propertyTypesLens
   . at "AWS::RDS::DBSecurityGroup.Ingress"
   .~ Nothing
-  -- AWS::AutoScaling::AutoScalingGroup has a property called AsTags, but it
-  -- should just be called Tags.
-  & resourceTypesLens
-  . ix "AWS::AutoScaling::AutoScalingGroup"
-  . resourcePropsLens
-  . at "Tags"
-  .~ (spec ^? resourceTypesLens . ix "AWS::AutoScaling::AutoScalingGroup" . resourcePropsLens . ix "AsTags")
-  & resourceTypesLens
-  . ix "AWS::AutoScaling::AutoScalingGroup"
-  . resourcePropsLens
-  . at "AsTags"
-  .~ Nothing
   -- AWS::ECS::TaskDefinition.ContainerDefinition has two properties that are
   -- required, but the doc says they aren't.
   & propertyTypesLens

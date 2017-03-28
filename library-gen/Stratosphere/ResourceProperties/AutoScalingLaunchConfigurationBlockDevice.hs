@@ -23,7 +23,7 @@ data AutoScalingLaunchConfigurationBlockDevice =
   , _autoScalingLaunchConfigurationBlockDeviceEncrypted :: Maybe (Val Bool')
   , _autoScalingLaunchConfigurationBlockDeviceIops :: Maybe (Val Integer')
   , _autoScalingLaunchConfigurationBlockDeviceSnapshotId :: Maybe (Val Text)
-  , _autoScalingLaunchConfigurationBlockDeviceVolumeSize :: Maybe (Val Text)
+  , _autoScalingLaunchConfigurationBlockDeviceVolumeSize :: Maybe (Val Integer')
   , _autoScalingLaunchConfigurationBlockDeviceVolumeType :: Maybe (Val Text)
   } deriving (Show, Eq)
 
@@ -81,7 +81,7 @@ aslcbdSnapshotId :: Lens' AutoScalingLaunchConfigurationBlockDevice (Maybe (Val 
 aslcbdSnapshotId = lens _autoScalingLaunchConfigurationBlockDeviceSnapshotId (\s a -> s { _autoScalingLaunchConfigurationBlockDeviceSnapshotId = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig-blockdev-template.html#cfn-as-launchconfig-blockdev-template-volumesize
-aslcbdVolumeSize :: Lens' AutoScalingLaunchConfigurationBlockDevice (Maybe (Val Text))
+aslcbdVolumeSize :: Lens' AutoScalingLaunchConfigurationBlockDevice (Maybe (Val Integer'))
 aslcbdVolumeSize = lens _autoScalingLaunchConfigurationBlockDeviceVolumeSize (\s a -> s { _autoScalingLaunchConfigurationBlockDeviceVolumeSize = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig-blockdev-template.html#cfn-as-launchconfig-blockdev-template-volumetype

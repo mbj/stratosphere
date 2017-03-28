@@ -20,39 +20,41 @@ import Stratosphere.Values
 -- constructor.
 data CodeDeployDeploymentConfigMinimumHealthyHosts =
   CodeDeployDeploymentConfigMinimumHealthyHosts
-  { _codeDeployDeploymentConfigMinimumHealthyHostsType :: Maybe (Val Text)
-  , _codeDeployDeploymentConfigMinimumHealthyHostsValue :: Maybe (Val Integer')
+  { _codeDeployDeploymentConfigMinimumHealthyHostsType :: Val Text
+  , _codeDeployDeploymentConfigMinimumHealthyHostsValue :: Val Integer'
   } deriving (Show, Eq)
 
 instance ToJSON CodeDeployDeploymentConfigMinimumHealthyHosts where
   toJSON CodeDeployDeploymentConfigMinimumHealthyHosts{..} =
     object $
     catMaybes
-    [ ("Type" .=) <$> _codeDeployDeploymentConfigMinimumHealthyHostsType
-    , ("Value" .=) <$> _codeDeployDeploymentConfigMinimumHealthyHostsValue
+    [ Just ("Type" .= _codeDeployDeploymentConfigMinimumHealthyHostsType)
+    , Just ("Value" .= _codeDeployDeploymentConfigMinimumHealthyHostsValue)
     ]
 
 instance FromJSON CodeDeployDeploymentConfigMinimumHealthyHosts where
   parseJSON (Object obj) =
     CodeDeployDeploymentConfigMinimumHealthyHosts <$>
-      obj .:? "Type" <*>
-      obj .:? "Value"
+      obj .: "Type" <*>
+      obj .: "Value"
   parseJSON _ = mempty
 
 -- | Constructor for 'CodeDeployDeploymentConfigMinimumHealthyHosts'
 -- containing required fields as arguments.
 codeDeployDeploymentConfigMinimumHealthyHosts
-  :: CodeDeployDeploymentConfigMinimumHealthyHosts
-codeDeployDeploymentConfigMinimumHealthyHosts  =
+  :: Val Text -- ^ 'cddcmhhType'
+  -> Val Integer' -- ^ 'cddcmhhValue'
+  -> CodeDeployDeploymentConfigMinimumHealthyHosts
+codeDeployDeploymentConfigMinimumHealthyHosts typearg valuearg =
   CodeDeployDeploymentConfigMinimumHealthyHosts
-  { _codeDeployDeploymentConfigMinimumHealthyHostsType = Nothing
-  , _codeDeployDeploymentConfigMinimumHealthyHostsValue = Nothing
+  { _codeDeployDeploymentConfigMinimumHealthyHostsType = typearg
+  , _codeDeployDeploymentConfigMinimumHealthyHostsValue = valuearg
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentconfig-minimumhealthyhosts.html#cfn-codedeploy-deploymentconfig-minimumhealthyhosts-type
-cddcmhhType :: Lens' CodeDeployDeploymentConfigMinimumHealthyHosts (Maybe (Val Text))
+cddcmhhType :: Lens' CodeDeployDeploymentConfigMinimumHealthyHosts (Val Text)
 cddcmhhType = lens _codeDeployDeploymentConfigMinimumHealthyHostsType (\s a -> s { _codeDeployDeploymentConfigMinimumHealthyHostsType = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentconfig-minimumhealthyhosts.html#cfn-codedeploy-deploymentconfig-minimumhealthyhosts-value
-cddcmhhValue :: Lens' CodeDeployDeploymentConfigMinimumHealthyHosts (Maybe (Val Integer'))
+cddcmhhValue :: Lens' CodeDeployDeploymentConfigMinimumHealthyHosts (Val Integer')
 cddcmhhValue = lens _codeDeployDeploymentConfigMinimumHealthyHostsValue (\s a -> s { _codeDeployDeploymentConfigMinimumHealthyHostsValue = a })
