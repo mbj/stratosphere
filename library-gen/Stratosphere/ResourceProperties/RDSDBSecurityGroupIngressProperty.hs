@@ -18,7 +18,7 @@ import Stratosphere.Values
 -- 'rdsdbSecurityGroupIngressProperty' for a more convenient constructor.
 data RDSDBSecurityGroupIngressProperty =
   RDSDBSecurityGroupIngressProperty
-  { _rDSDBSecurityGroupIngressPropertyCDIRIP :: Maybe (Val Text)
+  { _rDSDBSecurityGroupIngressPropertyCIDRIP :: Maybe (Val Text)
   , _rDSDBSecurityGroupIngressPropertyEC2SecurityGroupId :: Maybe (Val Text)
   , _rDSDBSecurityGroupIngressPropertyEC2SecurityGroupName :: Maybe (Val Text)
   , _rDSDBSecurityGroupIngressPropertyEC2SecurityGroupOwnerId :: Maybe (Val Text)
@@ -28,7 +28,7 @@ instance ToJSON RDSDBSecurityGroupIngressProperty where
   toJSON RDSDBSecurityGroupIngressProperty{..} =
     object $
     catMaybes
-    [ ("CDIRIP" .=) <$> _rDSDBSecurityGroupIngressPropertyCDIRIP
+    [ ("CIDRIP" .=) <$> _rDSDBSecurityGroupIngressPropertyCIDRIP
     , ("EC2SecurityGroupId" .=) <$> _rDSDBSecurityGroupIngressPropertyEC2SecurityGroupId
     , ("EC2SecurityGroupName" .=) <$> _rDSDBSecurityGroupIngressPropertyEC2SecurityGroupName
     , ("EC2SecurityGroupOwnerId" .=) <$> _rDSDBSecurityGroupIngressPropertyEC2SecurityGroupOwnerId
@@ -37,7 +37,7 @@ instance ToJSON RDSDBSecurityGroupIngressProperty where
 instance FromJSON RDSDBSecurityGroupIngressProperty where
   parseJSON (Object obj) =
     RDSDBSecurityGroupIngressProperty <$>
-      obj .:? "CDIRIP" <*>
+      obj .:? "CIDRIP" <*>
       obj .:? "EC2SecurityGroupId" <*>
       obj .:? "EC2SecurityGroupName" <*>
       obj .:? "EC2SecurityGroupOwnerId"
@@ -49,15 +49,15 @@ rdsdbSecurityGroupIngressProperty
   :: RDSDBSecurityGroupIngressProperty
 rdsdbSecurityGroupIngressProperty  =
   RDSDBSecurityGroupIngressProperty
-  { _rDSDBSecurityGroupIngressPropertyCDIRIP = Nothing
+  { _rDSDBSecurityGroupIngressPropertyCIDRIP = Nothing
   , _rDSDBSecurityGroupIngressPropertyEC2SecurityGroupId = Nothing
   , _rDSDBSecurityGroupIngressPropertyEC2SecurityGroupName = Nothing
   , _rDSDBSecurityGroupIngressPropertyEC2SecurityGroupOwnerId = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-security-group-rule.html#cfn-rds-securitygroup-cidrip
-rdsdbsgipCDIRIP :: Lens' RDSDBSecurityGroupIngressProperty (Maybe (Val Text))
-rdsdbsgipCDIRIP = lens _rDSDBSecurityGroupIngressPropertyCDIRIP (\s a -> s { _rDSDBSecurityGroupIngressPropertyCDIRIP = a })
+rdsdbsgipCIDRIP :: Lens' RDSDBSecurityGroupIngressProperty (Maybe (Val Text))
+rdsdbsgipCIDRIP = lens _rDSDBSecurityGroupIngressPropertyCIDRIP (\s a -> s { _rDSDBSecurityGroupIngressPropertyCIDRIP = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-security-group-rule.html#cfn-rds-securitygroup-ec2securitygroupid
 rdsdbsgipEC2SecurityGroupId :: Lens' RDSDBSecurityGroupIngressProperty (Maybe (Val Text))

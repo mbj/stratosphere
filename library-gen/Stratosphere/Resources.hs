@@ -79,6 +79,13 @@ import Stratosphere.Resources.CodeDeployDeploymentConfig as X
 import Stratosphere.Resources.CodeDeployDeploymentGroup as X
 import Stratosphere.Resources.CodePipelineCustomActionType as X
 import Stratosphere.Resources.CodePipelinePipeline as X
+import Stratosphere.Resources.CognitoIdentityPool as X
+import Stratosphere.Resources.CognitoIdentityPoolRoleAttachment as X
+import Stratosphere.Resources.CognitoUserPool as X
+import Stratosphere.Resources.CognitoUserPoolClient as X
+import Stratosphere.Resources.CognitoUserPoolGroup as X
+import Stratosphere.Resources.CognitoUserPoolUser as X
+import Stratosphere.Resources.CognitoUserPoolUserToGroupAttachment as X
 import Stratosphere.Resources.ConfigConfigRule as X
 import Stratosphere.Resources.ConfigConfigurationRecorder as X
 import Stratosphere.Resources.ConfigDeliveryChannel as X
@@ -282,6 +289,24 @@ import Stratosphere.ResourceProperties.CodePipelinePipelineInputArtifact as X
 import Stratosphere.ResourceProperties.CodePipelinePipelineOutputArtifact as X
 import Stratosphere.ResourceProperties.CodePipelinePipelineStageDeclaration as X
 import Stratosphere.ResourceProperties.CodePipelinePipelineStageTransition as X
+import Stratosphere.ResourceProperties.CognitoIdentityPoolCognitoIdentityProvider as X
+import Stratosphere.ResourceProperties.CognitoIdentityPoolCognitoStreams as X
+import Stratosphere.ResourceProperties.CognitoIdentityPoolPushSync as X
+import Stratosphere.ResourceProperties.CognitoIdentityPoolRoleAttachmentMappingRule as X
+import Stratosphere.ResourceProperties.CognitoIdentityPoolRoleAttachmentRoleMapping as X
+import Stratosphere.ResourceProperties.CognitoIdentityPoolRoleAttachmentRulesConfigurationType as X
+import Stratosphere.ResourceProperties.CognitoUserPoolAdminCreateUserConfig as X
+import Stratosphere.ResourceProperties.CognitoUserPoolDeviceConfiguration as X
+import Stratosphere.ResourceProperties.CognitoUserPoolEmailConfiguration as X
+import Stratosphere.ResourceProperties.CognitoUserPoolInviteMessageTemplate as X
+import Stratosphere.ResourceProperties.CognitoUserPoolLambdaConfig as X
+import Stratosphere.ResourceProperties.CognitoUserPoolNumberAttributeConstraints as X
+import Stratosphere.ResourceProperties.CognitoUserPoolPasswordPolicy as X
+import Stratosphere.ResourceProperties.CognitoUserPoolPolicies as X
+import Stratosphere.ResourceProperties.CognitoUserPoolSchemaAttribute as X
+import Stratosphere.ResourceProperties.CognitoUserPoolSmsConfiguration as X
+import Stratosphere.ResourceProperties.CognitoUserPoolStringAttributeConstraints as X
+import Stratosphere.ResourceProperties.CognitoUserPoolUserAttributeType as X
 import Stratosphere.ResourceProperties.ConfigConfigRuleScope as X
 import Stratosphere.ResourceProperties.ConfigConfigRuleSource as X
 import Stratosphere.ResourceProperties.ConfigConfigRuleSourceDetail as X
@@ -329,6 +354,8 @@ import Stratosphere.ResourceProperties.EC2SpotFleetSecurityGroups as X
 import Stratosphere.ResourceProperties.EC2SpotFleetSpotFleetRequestConfigData as X
 import Stratosphere.ResourceProperties.ECSServiceDeploymentConfiguration as X
 import Stratosphere.ResourceProperties.ECSServiceLoadBalancer as X
+import Stratosphere.ResourceProperties.ECSServicePlacementConstraint as X
+import Stratosphere.ResourceProperties.ECSServicePlacementStrategy as X
 import Stratosphere.ResourceProperties.ECSTaskDefinitionContainerDefinition as X
 import Stratosphere.ResourceProperties.ECSTaskDefinitionHostEntry as X
 import Stratosphere.ResourceProperties.ECSTaskDefinitionHostVolumeProperties as X
@@ -336,19 +363,28 @@ import Stratosphere.ResourceProperties.ECSTaskDefinitionKeyValuePair as X
 import Stratosphere.ResourceProperties.ECSTaskDefinitionLogConfiguration as X
 import Stratosphere.ResourceProperties.ECSTaskDefinitionMountPoint as X
 import Stratosphere.ResourceProperties.ECSTaskDefinitionPortMapping as X
+import Stratosphere.ResourceProperties.ECSTaskDefinitionTaskDefinitionPlacementConstraint as X
 import Stratosphere.ResourceProperties.ECSTaskDefinitionUlimit as X
 import Stratosphere.ResourceProperties.ECSTaskDefinitionVolume as X
 import Stratosphere.ResourceProperties.ECSTaskDefinitionVolumeFrom as X
 import Stratosphere.ResourceProperties.EFSFileSystemElasticFileSystemTag as X
 import Stratosphere.ResourceProperties.EMRClusterApplication as X
+import Stratosphere.ResourceProperties.EMRClusterAutoScalingPolicy as X
 import Stratosphere.ResourceProperties.EMRClusterBootstrapActionConfig as X
+import Stratosphere.ResourceProperties.EMRClusterCloudWatchAlarmDefinition as X
 import Stratosphere.ResourceProperties.EMRClusterConfiguration as X
 import Stratosphere.ResourceProperties.EMRClusterEbsBlockDeviceConfig as X
 import Stratosphere.ResourceProperties.EMRClusterEbsConfiguration as X
 import Stratosphere.ResourceProperties.EMRClusterInstanceGroupConfig as X
 import Stratosphere.ResourceProperties.EMRClusterJobFlowInstancesConfig as X
+import Stratosphere.ResourceProperties.EMRClusterMetricDimension as X
 import Stratosphere.ResourceProperties.EMRClusterPlacementType as X
+import Stratosphere.ResourceProperties.EMRClusterScalingAction as X
+import Stratosphere.ResourceProperties.EMRClusterScalingConstraints as X
+import Stratosphere.ResourceProperties.EMRClusterScalingRule as X
+import Stratosphere.ResourceProperties.EMRClusterScalingTrigger as X
 import Stratosphere.ResourceProperties.EMRClusterScriptBootstrapActionConfig as X
+import Stratosphere.ResourceProperties.EMRClusterSimpleScalingPolicyConfiguration as X
 import Stratosphere.ResourceProperties.EMRClusterVolumeSpecification as X
 import Stratosphere.ResourceProperties.EMRInstanceGroupConfigConfiguration as X
 import Stratosphere.ResourceProperties.EMRInstanceGroupConfigEbsBlockDeviceConfig as X
@@ -535,6 +571,13 @@ data ResourceProperties
   | CodeDeployDeploymentGroupProperties CodeDeployDeploymentGroup
   | CodePipelineCustomActionTypeProperties CodePipelineCustomActionType
   | CodePipelinePipelineProperties CodePipelinePipeline
+  | CognitoIdentityPoolProperties CognitoIdentityPool
+  | CognitoIdentityPoolRoleAttachmentProperties CognitoIdentityPoolRoleAttachment
+  | CognitoUserPoolProperties CognitoUserPool
+  | CognitoUserPoolClientProperties CognitoUserPoolClient
+  | CognitoUserPoolGroupProperties CognitoUserPoolGroup
+  | CognitoUserPoolUserProperties CognitoUserPoolUser
+  | CognitoUserPoolUserToGroupAttachmentProperties CognitoUserPoolUserToGroupAttachment
   | ConfigConfigRuleProperties ConfigConfigRule
   | ConfigConfigurationRecorderProperties ConfigConfigurationRecorder
   | ConfigDeliveryChannelProperties ConfigDeliveryChannel
@@ -798,6 +841,20 @@ resourcePropertiesJSON (CodePipelineCustomActionTypeProperties x) =
   [ "Type" .= ("AWS::CodePipeline::CustomActionType" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (CodePipelinePipelineProperties x) =
   [ "Type" .= ("AWS::CodePipeline::Pipeline" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (CognitoIdentityPoolProperties x) =
+  [ "Type" .= ("AWS::Cognito::IdentityPool" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (CognitoIdentityPoolRoleAttachmentProperties x) =
+  [ "Type" .= ("AWS::Cognito::IdentityPoolRoleAttachment" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (CognitoUserPoolProperties x) =
+  [ "Type" .= ("AWS::Cognito::UserPool" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (CognitoUserPoolClientProperties x) =
+  [ "Type" .= ("AWS::Cognito::UserPoolClient" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (CognitoUserPoolGroupProperties x) =
+  [ "Type" .= ("AWS::Cognito::UserPoolGroup" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (CognitoUserPoolUserProperties x) =
+  [ "Type" .= ("AWS::Cognito::UserPoolUser" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (CognitoUserPoolUserToGroupAttachmentProperties x) =
+  [ "Type" .= ("AWS::Cognito::UserPoolUserToGroupAttachment" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ConfigConfigRuleProperties x) =
   [ "Type" .= ("AWS::Config::ConfigRule" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ConfigConfigurationRecorderProperties x) =
@@ -1124,6 +1181,13 @@ resourceFromJSON n o =
          "AWS::CodeDeploy::DeploymentGroup" -> CodeDeployDeploymentGroupProperties <$> (o .: "Properties")
          "AWS::CodePipeline::CustomActionType" -> CodePipelineCustomActionTypeProperties <$> (o .: "Properties")
          "AWS::CodePipeline::Pipeline" -> CodePipelinePipelineProperties <$> (o .: "Properties")
+         "AWS::Cognito::IdentityPool" -> CognitoIdentityPoolProperties <$> (o .: "Properties")
+         "AWS::Cognito::IdentityPoolRoleAttachment" -> CognitoIdentityPoolRoleAttachmentProperties <$> (o .: "Properties")
+         "AWS::Cognito::UserPool" -> CognitoUserPoolProperties <$> (o .: "Properties")
+         "AWS::Cognito::UserPoolClient" -> CognitoUserPoolClientProperties <$> (o .: "Properties")
+         "AWS::Cognito::UserPoolGroup" -> CognitoUserPoolGroupProperties <$> (o .: "Properties")
+         "AWS::Cognito::UserPoolUser" -> CognitoUserPoolUserProperties <$> (o .: "Properties")
+         "AWS::Cognito::UserPoolUserToGroupAttachment" -> CognitoUserPoolUserToGroupAttachmentProperties <$> (o .: "Properties")
          "AWS::Config::ConfigRule" -> ConfigConfigRuleProperties <$> (o .: "Properties")
          "AWS::Config::ConfigurationRecorder" -> ConfigConfigurationRecorderProperties <$> (o .: "Properties")
          "AWS::Config::DeliveryChannel" -> ConfigDeliveryChannelProperties <$> (o .: "Properties")

@@ -24,6 +24,7 @@ data EMRCluster =
   EMRCluster
   { _eMRClusterAdditionalInfo :: Maybe Object
   , _eMRClusterApplications :: Maybe [EMRClusterApplication]
+  , _eMRClusterAutoScalingRole :: Maybe (Val Text)
   , _eMRClusterBootstrapActions :: Maybe [EMRClusterBootstrapActionConfig]
   , _eMRClusterConfigurations :: Maybe [EMRClusterConfiguration]
   , _eMRClusterInstances :: EMRClusterJobFlowInstancesConfig
@@ -42,6 +43,7 @@ instance ToJSON EMRCluster where
     catMaybes
     [ ("AdditionalInfo" .=) <$> _eMRClusterAdditionalInfo
     , ("Applications" .=) <$> _eMRClusterApplications
+    , ("AutoScalingRole" .=) <$> _eMRClusterAutoScalingRole
     , ("BootstrapActions" .=) <$> _eMRClusterBootstrapActions
     , ("Configurations" .=) <$> _eMRClusterConfigurations
     , Just ("Instances" .= _eMRClusterInstances)
@@ -59,6 +61,7 @@ instance FromJSON EMRCluster where
     EMRCluster <$>
       obj .:? "AdditionalInfo" <*>
       obj .:? "Applications" <*>
+      obj .:? "AutoScalingRole" <*>
       obj .:? "BootstrapActions" <*>
       obj .:? "Configurations" <*>
       obj .: "Instances" <*>
@@ -82,6 +85,7 @@ emrCluster instancesarg jobFlowRolearg namearg serviceRolearg =
   EMRCluster
   { _eMRClusterAdditionalInfo = Nothing
   , _eMRClusterApplications = Nothing
+  , _eMRClusterAutoScalingRole = Nothing
   , _eMRClusterBootstrapActions = Nothing
   , _eMRClusterConfigurations = Nothing
   , _eMRClusterInstances = instancesarg
@@ -101,6 +105,10 @@ emrcAdditionalInfo = lens _eMRClusterAdditionalInfo (\s a -> s { _eMRClusterAddi
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-cluster.html#cfn-emr-cluster-applications
 emrcApplications :: Lens' EMRCluster (Maybe [EMRClusterApplication])
 emrcApplications = lens _eMRClusterApplications (\s a -> s { _eMRClusterApplications = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-cluster.html#cfn-elasticmapreduce-cluster-autoscalingrole
+emrcAutoScalingRole :: Lens' EMRCluster (Maybe (Val Text))
+emrcAutoScalingRole = lens _eMRClusterAutoScalingRole (\s a -> s { _eMRClusterAutoScalingRole = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-cluster.html#cfn-emr-cluster-bootstrapactions
 emrcBootstrapActions :: Lens' EMRCluster (Maybe [EMRClusterBootstrapActionConfig])

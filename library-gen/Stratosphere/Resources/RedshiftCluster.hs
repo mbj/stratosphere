@@ -30,6 +30,7 @@ data RedshiftCluster =
   , _redshiftClusterElasticIp :: Maybe (Val Text)
   , _redshiftClusterEncrypted :: Maybe (Val Bool')
   , _redshiftClusterHsmClientCertificateIdentifier :: Maybe (Val Text)
+  , _redshiftClusterIamRoles :: Maybe [Val Text]
   , _redshiftClusterKmsKeyId :: Maybe (Val Text)
   , _redshiftClusterMasterUserPassword :: Val Text
   , _redshiftClusterMasterUsername :: Val Text
@@ -60,6 +61,7 @@ instance ToJSON RedshiftCluster where
     , ("ElasticIp" .=) <$> _redshiftClusterElasticIp
     , ("Encrypted" .=) <$> _redshiftClusterEncrypted
     , ("HsmClientCertificateIdentifier" .=) <$> _redshiftClusterHsmClientCertificateIdentifier
+    , ("IamRoles" .=) <$> _redshiftClusterIamRoles
     , ("KmsKeyId" .=) <$> _redshiftClusterKmsKeyId
     , Just ("MasterUserPassword" .= _redshiftClusterMasterUserPassword)
     , Just ("MasterUsername" .= _redshiftClusterMasterUsername)
@@ -89,6 +91,7 @@ instance FromJSON RedshiftCluster where
       obj .:? "ElasticIp" <*>
       obj .:? "Encrypted" <*>
       obj .:? "HsmClientCertificateIdentifier" <*>
+      obj .:? "IamRoles" <*>
       obj .:? "KmsKeyId" <*>
       obj .: "MasterUserPassword" <*>
       obj .: "MasterUsername" <*>
@@ -126,6 +129,7 @@ redshiftCluster clusterTypearg dBNamearg masterUserPasswordarg masterUsernamearg
   , _redshiftClusterElasticIp = Nothing
   , _redshiftClusterEncrypted = Nothing
   , _redshiftClusterHsmClientCertificateIdentifier = Nothing
+  , _redshiftClusterIamRoles = Nothing
   , _redshiftClusterKmsKeyId = Nothing
   , _redshiftClusterMasterUserPassword = masterUserPasswordarg
   , _redshiftClusterMasterUsername = masterUsernamearg
@@ -187,6 +191,10 @@ rcEncrypted = lens _redshiftClusterEncrypted (\s a -> s { _redshiftClusterEncryp
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-hsmclientcertidentifier
 rcHsmClientCertificateIdentifier :: Lens' RedshiftCluster (Maybe (Val Text))
 rcHsmClientCertificateIdentifier = lens _redshiftClusterHsmClientCertificateIdentifier (\s a -> s { _redshiftClusterHsmClientCertificateIdentifier = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-iamroles
+rcIamRoles :: Lens' RedshiftCluster (Maybe [Val Text])
+rcIamRoles = lens _redshiftClusterIamRoles (\s a -> s { _redshiftClusterIamRoles = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-kmskeyid
 rcKmsKeyId :: Lens' RedshiftCluster (Maybe (Val Text))

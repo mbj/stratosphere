@@ -16,6 +16,7 @@ import Stratosphere.Types
 import Stratosphere.ResourceProperties.LambdaFunctionCode
 import Stratosphere.ResourceProperties.LambdaFunctionDeadLetterConfig
 import Stratosphere.ResourceProperties.LambdaFunctionEnvironment
+import Stratosphere.ResourceProperties.Tag
 import Stratosphere.ResourceProperties.LambdaFunctionVpcConfig
 
 -- | Full data type definition for LambdaFunction. See 'lambdaFunction' for a
@@ -32,6 +33,7 @@ data LambdaFunction =
   , _lambdaFunctionMemorySize :: Maybe (Val Integer')
   , _lambdaFunctionRole :: Val Text
   , _lambdaFunctionRuntime :: Val Runtime
+  , _lambdaFunctionTags :: Maybe [Tag]
   , _lambdaFunctionTimeout :: Maybe (Val Integer')
   , _lambdaFunctionVpcConfig :: Maybe LambdaFunctionVpcConfig
   } deriving (Show, Eq)
@@ -50,6 +52,7 @@ instance ToJSON LambdaFunction where
     , ("MemorySize" .=) <$> _lambdaFunctionMemorySize
     , Just ("Role" .= _lambdaFunctionRole)
     , Just ("Runtime" .= _lambdaFunctionRuntime)
+    , ("Tags" .=) <$> _lambdaFunctionTags
     , ("Timeout" .=) <$> _lambdaFunctionTimeout
     , ("VpcConfig" .=) <$> _lambdaFunctionVpcConfig
     ]
@@ -67,6 +70,7 @@ instance FromJSON LambdaFunction where
       obj .:? "MemorySize" <*>
       obj .: "Role" <*>
       obj .: "Runtime" <*>
+      obj .:? "Tags" <*>
       obj .:? "Timeout" <*>
       obj .:? "VpcConfig"
   parseJSON _ = mempty
@@ -90,6 +94,7 @@ lambdaFunction codearg handlerarg rolearg runtimearg =
   , _lambdaFunctionMemorySize = Nothing
   , _lambdaFunctionRole = rolearg
   , _lambdaFunctionRuntime = runtimearg
+  , _lambdaFunctionTags = Nothing
   , _lambdaFunctionTimeout = Nothing
   , _lambdaFunctionVpcConfig = Nothing
   }
@@ -133,6 +138,10 @@ lfRole = lens _lambdaFunctionRole (\s a -> s { _lambdaFunctionRole = a })
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-runtime
 lfRuntime :: Lens' LambdaFunction (Val Runtime)
 lfRuntime = lens _lambdaFunctionRuntime (\s a -> s { _lambdaFunctionRuntime = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-tags
+lfTags :: Lens' LambdaFunction (Maybe [Tag])
+lfTags = lens _lambdaFunctionTags (\s a -> s { _lambdaFunctionTags = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-timeout
 lfTimeout :: Lens' LambdaFunction (Maybe (Val Integer'))

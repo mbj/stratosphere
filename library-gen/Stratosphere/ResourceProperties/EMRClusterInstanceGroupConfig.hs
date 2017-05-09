@@ -12,6 +12,7 @@ import Data.Monoid (mempty)
 import Data.Text
 
 import Stratosphere.Values
+import Stratosphere.ResourceProperties.EMRClusterAutoScalingPolicy
 import Stratosphere.ResourceProperties.EMRClusterConfiguration
 import Stratosphere.ResourceProperties.EMRClusterEbsConfiguration
 
@@ -19,7 +20,8 @@ import Stratosphere.ResourceProperties.EMRClusterEbsConfiguration
 -- 'emrClusterInstanceGroupConfig' for a more convenient constructor.
 data EMRClusterInstanceGroupConfig =
   EMRClusterInstanceGroupConfig
-  { _eMRClusterInstanceGroupConfigBidPrice :: Maybe (Val Text)
+  { _eMRClusterInstanceGroupConfigAutoScalingPolicy :: Maybe EMRClusterAutoScalingPolicy
+  , _eMRClusterInstanceGroupConfigBidPrice :: Maybe (Val Text)
   , _eMRClusterInstanceGroupConfigConfigurations :: Maybe [EMRClusterConfiguration]
   , _eMRClusterInstanceGroupConfigEbsConfiguration :: Maybe EMRClusterEbsConfiguration
   , _eMRClusterInstanceGroupConfigInstanceCount :: Val Integer'
@@ -32,7 +34,8 @@ instance ToJSON EMRClusterInstanceGroupConfig where
   toJSON EMRClusterInstanceGroupConfig{..} =
     object $
     catMaybes
-    [ ("BidPrice" .=) <$> _eMRClusterInstanceGroupConfigBidPrice
+    [ ("AutoScalingPolicy" .=) <$> _eMRClusterInstanceGroupConfigAutoScalingPolicy
+    , ("BidPrice" .=) <$> _eMRClusterInstanceGroupConfigBidPrice
     , ("Configurations" .=) <$> _eMRClusterInstanceGroupConfigConfigurations
     , ("EbsConfiguration" .=) <$> _eMRClusterInstanceGroupConfigEbsConfiguration
     , Just ("InstanceCount" .= _eMRClusterInstanceGroupConfigInstanceCount)
@@ -44,6 +47,7 @@ instance ToJSON EMRClusterInstanceGroupConfig where
 instance FromJSON EMRClusterInstanceGroupConfig where
   parseJSON (Object obj) =
     EMRClusterInstanceGroupConfig <$>
+      obj .:? "AutoScalingPolicy" <*>
       obj .:? "BidPrice" <*>
       obj .:? "Configurations" <*>
       obj .:? "EbsConfiguration" <*>
@@ -61,7 +65,8 @@ emrClusterInstanceGroupConfig
   -> EMRClusterInstanceGroupConfig
 emrClusterInstanceGroupConfig instanceCountarg instanceTypearg =
   EMRClusterInstanceGroupConfig
-  { _eMRClusterInstanceGroupConfigBidPrice = Nothing
+  { _eMRClusterInstanceGroupConfigAutoScalingPolicy = Nothing
+  , _eMRClusterInstanceGroupConfigBidPrice = Nothing
   , _eMRClusterInstanceGroupConfigConfigurations = Nothing
   , _eMRClusterInstanceGroupConfigEbsConfiguration = Nothing
   , _eMRClusterInstanceGroupConfigInstanceCount = instanceCountarg
@@ -69,6 +74,10 @@ emrClusterInstanceGroupConfig instanceCountarg instanceTypearg =
   , _eMRClusterInstanceGroupConfigMarket = Nothing
   , _eMRClusterInstanceGroupConfigName = Nothing
   }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-jobflowinstancesconfig-instancegroupconfig.html#cfn-elasticmapreduce-cluster-instancegroupconfig-autoscalingpolicy
+emrcigcAutoScalingPolicy :: Lens' EMRClusterInstanceGroupConfig (Maybe EMRClusterAutoScalingPolicy)
+emrcigcAutoScalingPolicy = lens _eMRClusterInstanceGroupConfigAutoScalingPolicy (\s a -> s { _eMRClusterInstanceGroupConfigAutoScalingPolicy = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-jobflowinstancesconfig-instancegroupconfig.html#cfn-emr-cluster-jobflowinstancesconfig-instancegroupconfig-bidprice
 emrcigcBidPrice :: Lens' EMRClusterInstanceGroupConfig (Maybe (Val Text))
