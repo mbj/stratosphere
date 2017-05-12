@@ -10,7 +10,7 @@
 {-# LANGUAGE TypeFamilies #-}
 
 #if MIN_VERSION_GLASGOW_HASKELL(8,0,1,0)
-{-# OPTIONS_GHC -fmax-pmcheck-iterations=10000000 #-}
+{-# OPTIONS_GHC -fmax-pmcheck-iterations=20000000 #-}
 #endif
 
 -- | See:
@@ -137,6 +137,7 @@ import Stratosphere.Resources.EFSFileSystem as X
 import Stratosphere.Resources.EFSMountTarget as X
 import Stratosphere.Resources.EMRCluster as X
 import Stratosphere.Resources.EMRInstanceGroupConfig as X
+import Stratosphere.Resources.EMRSecurityConfiguration as X
 import Stratosphere.Resources.EMRStep as X
 import Stratosphere.Resources.ElastiCacheCacheCluster as X
 import Stratosphere.Resources.ElastiCacheParameterGroup as X
@@ -221,6 +222,7 @@ import Stratosphere.Resources.SQSQueue as X
 import Stratosphere.Resources.SQSQueuePolicy as X
 import Stratosphere.Resources.SSMAssociation as X
 import Stratosphere.Resources.SSMDocument as X
+import Stratosphere.Resources.SSMParameter as X
 import Stratosphere.Resources.WAFByteMatchSet as X
 import Stratosphere.Resources.WAFIPSet as X
 import Stratosphere.Resources.WAFRule as X
@@ -228,6 +230,14 @@ import Stratosphere.Resources.WAFSizeConstraintSet as X
 import Stratosphere.Resources.WAFSqlInjectionMatchSet as X
 import Stratosphere.Resources.WAFWebACL as X
 import Stratosphere.Resources.WAFXssMatchSet as X
+import Stratosphere.Resources.WAFRegionalByteMatchSet as X
+import Stratosphere.Resources.WAFRegionalIPSet as X
+import Stratosphere.Resources.WAFRegionalRule as X
+import Stratosphere.Resources.WAFRegionalSizeConstraintSet as X
+import Stratosphere.Resources.WAFRegionalSqlInjectionMatchSet as X
+import Stratosphere.Resources.WAFRegionalWebACL as X
+import Stratosphere.Resources.WAFRegionalWebACLAssociation as X
+import Stratosphere.Resources.WAFRegionalXssMatchSet as X
 import Stratosphere.Resources.WorkSpacesWorkspace as X
 import Stratosphere.ResourceProperties.ApiGatewayApiKeyStageKey as X
 import Stratosphere.ResourceProperties.ApiGatewayDeploymentMethodSetting as X
@@ -525,6 +535,18 @@ import Stratosphere.ResourceProperties.WAFWebACLActivatedRule as X
 import Stratosphere.ResourceProperties.WAFWebACLWafAction as X
 import Stratosphere.ResourceProperties.WAFXssMatchSetFieldToMatch as X
 import Stratosphere.ResourceProperties.WAFXssMatchSetXssMatchTuple as X
+import Stratosphere.ResourceProperties.WAFRegionalByteMatchSetByteMatchTuple as X
+import Stratosphere.ResourceProperties.WAFRegionalByteMatchSetFieldToMatch as X
+import Stratosphere.ResourceProperties.WAFRegionalIPSetIPSetDescriptor as X
+import Stratosphere.ResourceProperties.WAFRegionalRulePredicate as X
+import Stratosphere.ResourceProperties.WAFRegionalSizeConstraintSetFieldToMatch as X
+import Stratosphere.ResourceProperties.WAFRegionalSizeConstraintSetSizeConstraint as X
+import Stratosphere.ResourceProperties.WAFRegionalSqlInjectionMatchSetFieldToMatch as X
+import Stratosphere.ResourceProperties.WAFRegionalSqlInjectionMatchSetSqlInjectionMatchTuple as X
+import Stratosphere.ResourceProperties.WAFRegionalWebACLAction as X
+import Stratosphere.ResourceProperties.WAFRegionalWebACLRule as X
+import Stratosphere.ResourceProperties.WAFRegionalXssMatchSetFieldToMatch as X
+import Stratosphere.ResourceProperties.WAFRegionalXssMatchSetXssMatchTuple as X
 import Stratosphere.ResourceProperties.Tag as X
 
 import Stratosphere.ResourceAttributes.AutoScalingReplacingUpdatePolicy as X
@@ -629,6 +651,7 @@ data ResourceProperties
   | EFSMountTargetProperties EFSMountTarget
   | EMRClusterProperties EMRCluster
   | EMRInstanceGroupConfigProperties EMRInstanceGroupConfig
+  | EMRSecurityConfigurationProperties EMRSecurityConfiguration
   | EMRStepProperties EMRStep
   | ElastiCacheCacheClusterProperties ElastiCacheCacheCluster
   | ElastiCacheParameterGroupProperties ElastiCacheParameterGroup
@@ -713,6 +736,7 @@ data ResourceProperties
   | SQSQueuePolicyProperties SQSQueuePolicy
   | SSMAssociationProperties SSMAssociation
   | SSMDocumentProperties SSMDocument
+  | SSMParameterProperties SSMParameter
   | WAFByteMatchSetProperties WAFByteMatchSet
   | WAFIPSetProperties WAFIPSet
   | WAFRuleProperties WAFRule
@@ -720,6 +744,14 @@ data ResourceProperties
   | WAFSqlInjectionMatchSetProperties WAFSqlInjectionMatchSet
   | WAFWebACLProperties WAFWebACL
   | WAFXssMatchSetProperties WAFXssMatchSet
+  | WAFRegionalByteMatchSetProperties WAFRegionalByteMatchSet
+  | WAFRegionalIPSetProperties WAFRegionalIPSet
+  | WAFRegionalRuleProperties WAFRegionalRule
+  | WAFRegionalSizeConstraintSetProperties WAFRegionalSizeConstraintSet
+  | WAFRegionalSqlInjectionMatchSetProperties WAFRegionalSqlInjectionMatchSet
+  | WAFRegionalWebACLProperties WAFRegionalWebACL
+  | WAFRegionalWebACLAssociationProperties WAFRegionalWebACLAssociation
+  | WAFRegionalXssMatchSetProperties WAFRegionalXssMatchSet
   | WorkSpacesWorkspaceProperties WorkSpacesWorkspace
 
   deriving (Show, Eq)
@@ -957,6 +989,8 @@ resourcePropertiesJSON (EMRClusterProperties x) =
   [ "Type" .= ("AWS::EMR::Cluster" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (EMRInstanceGroupConfigProperties x) =
   [ "Type" .= ("AWS::EMR::InstanceGroupConfig" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (EMRSecurityConfigurationProperties x) =
+  [ "Type" .= ("AWS::EMR::SecurityConfiguration" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (EMRStepProperties x) =
   [ "Type" .= ("AWS::EMR::Step" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ElastiCacheCacheClusterProperties x) =
@@ -1125,6 +1159,8 @@ resourcePropertiesJSON (SSMAssociationProperties x) =
   [ "Type" .= ("AWS::SSM::Association" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (SSMDocumentProperties x) =
   [ "Type" .= ("AWS::SSM::Document" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (SSMParameterProperties x) =
+  [ "Type" .= ("AWS::SSM::Parameter" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (WAFByteMatchSetProperties x) =
   [ "Type" .= ("AWS::WAF::ByteMatchSet" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (WAFIPSetProperties x) =
@@ -1139,6 +1175,22 @@ resourcePropertiesJSON (WAFWebACLProperties x) =
   [ "Type" .= ("AWS::WAF::WebACL" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (WAFXssMatchSetProperties x) =
   [ "Type" .= ("AWS::WAF::XssMatchSet" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (WAFRegionalByteMatchSetProperties x) =
+  [ "Type" .= ("AWS::WAFRegional::ByteMatchSet" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (WAFRegionalIPSetProperties x) =
+  [ "Type" .= ("AWS::WAFRegional::IPSet" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (WAFRegionalRuleProperties x) =
+  [ "Type" .= ("AWS::WAFRegional::Rule" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (WAFRegionalSizeConstraintSetProperties x) =
+  [ "Type" .= ("AWS::WAFRegional::SizeConstraintSet" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (WAFRegionalSqlInjectionMatchSetProperties x) =
+  [ "Type" .= ("AWS::WAFRegional::SqlInjectionMatchSet" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (WAFRegionalWebACLProperties x) =
+  [ "Type" .= ("AWS::WAFRegional::WebACL" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (WAFRegionalWebACLAssociationProperties x) =
+  [ "Type" .= ("AWS::WAFRegional::WebACLAssociation" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (WAFRegionalXssMatchSetProperties x) =
+  [ "Type" .= ("AWS::WAFRegional::XssMatchSet" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (WorkSpacesWorkspaceProperties x) =
   [ "Type" .= ("AWS::WorkSpaces::Workspace" :: String), "Properties" .= toJSON x]
 
@@ -1239,6 +1291,7 @@ resourceFromJSON n o =
          "AWS::EFS::MountTarget" -> EFSMountTargetProperties <$> (o .: "Properties")
          "AWS::EMR::Cluster" -> EMRClusterProperties <$> (o .: "Properties")
          "AWS::EMR::InstanceGroupConfig" -> EMRInstanceGroupConfigProperties <$> (o .: "Properties")
+         "AWS::EMR::SecurityConfiguration" -> EMRSecurityConfigurationProperties <$> (o .: "Properties")
          "AWS::EMR::Step" -> EMRStepProperties <$> (o .: "Properties")
          "AWS::ElastiCache::CacheCluster" -> ElastiCacheCacheClusterProperties <$> (o .: "Properties")
          "AWS::ElastiCache::ParameterGroup" -> ElastiCacheParameterGroupProperties <$> (o .: "Properties")
@@ -1323,6 +1376,7 @@ resourceFromJSON n o =
          "AWS::SQS::QueuePolicy" -> SQSQueuePolicyProperties <$> (o .: "Properties")
          "AWS::SSM::Association" -> SSMAssociationProperties <$> (o .: "Properties")
          "AWS::SSM::Document" -> SSMDocumentProperties <$> (o .: "Properties")
+         "AWS::SSM::Parameter" -> SSMParameterProperties <$> (o .: "Properties")
          "AWS::WAF::ByteMatchSet" -> WAFByteMatchSetProperties <$> (o .: "Properties")
          "AWS::WAF::IPSet" -> WAFIPSetProperties <$> (o .: "Properties")
          "AWS::WAF::Rule" -> WAFRuleProperties <$> (o .: "Properties")
@@ -1330,6 +1384,14 @@ resourceFromJSON n o =
          "AWS::WAF::SqlInjectionMatchSet" -> WAFSqlInjectionMatchSetProperties <$> (o .: "Properties")
          "AWS::WAF::WebACL" -> WAFWebACLProperties <$> (o .: "Properties")
          "AWS::WAF::XssMatchSet" -> WAFXssMatchSetProperties <$> (o .: "Properties")
+         "AWS::WAFRegional::ByteMatchSet" -> WAFRegionalByteMatchSetProperties <$> (o .: "Properties")
+         "AWS::WAFRegional::IPSet" -> WAFRegionalIPSetProperties <$> (o .: "Properties")
+         "AWS::WAFRegional::Rule" -> WAFRegionalRuleProperties <$> (o .: "Properties")
+         "AWS::WAFRegional::SizeConstraintSet" -> WAFRegionalSizeConstraintSetProperties <$> (o .: "Properties")
+         "AWS::WAFRegional::SqlInjectionMatchSet" -> WAFRegionalSqlInjectionMatchSetProperties <$> (o .: "Properties")
+         "AWS::WAFRegional::WebACL" -> WAFRegionalWebACLProperties <$> (o .: "Properties")
+         "AWS::WAFRegional::WebACLAssociation" -> WAFRegionalWebACLAssociationProperties <$> (o .: "Properties")
+         "AWS::WAFRegional::XssMatchSet" -> WAFRegionalXssMatchSetProperties <$> (o .: "Properties")
          "AWS::WorkSpaces::Workspace" -> WorkSpacesWorkspaceProperties <$> (o .: "Properties")
 
          _ -> fail $ "Unknown resource type: " ++ type'

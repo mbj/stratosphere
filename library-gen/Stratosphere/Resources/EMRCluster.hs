@@ -32,6 +32,7 @@ data EMRCluster =
   , _eMRClusterLogUri :: Maybe (Val Text)
   , _eMRClusterName :: Val Text
   , _eMRClusterReleaseLabel :: Maybe (Val Text)
+  , _eMRClusterSecurityConfiguration :: Maybe (Val Text)
   , _eMRClusterServiceRole :: Val Text
   , _eMRClusterTags :: Maybe [Tag]
   , _eMRClusterVisibleToAllUsers :: Maybe (Val Bool')
@@ -51,6 +52,7 @@ instance ToJSON EMRCluster where
     , ("LogUri" .=) <$> _eMRClusterLogUri
     , Just ("Name" .= _eMRClusterName)
     , ("ReleaseLabel" .=) <$> _eMRClusterReleaseLabel
+    , ("SecurityConfiguration" .=) <$> _eMRClusterSecurityConfiguration
     , Just ("ServiceRole" .= _eMRClusterServiceRole)
     , ("Tags" .=) <$> _eMRClusterTags
     , ("VisibleToAllUsers" .=) <$> _eMRClusterVisibleToAllUsers
@@ -69,6 +71,7 @@ instance FromJSON EMRCluster where
       obj .:? "LogUri" <*>
       obj .: "Name" <*>
       obj .:? "ReleaseLabel" <*>
+      obj .:? "SecurityConfiguration" <*>
       obj .: "ServiceRole" <*>
       obj .:? "Tags" <*>
       obj .:? "VisibleToAllUsers"
@@ -93,6 +96,7 @@ emrCluster instancesarg jobFlowRolearg namearg serviceRolearg =
   , _eMRClusterLogUri = Nothing
   , _eMRClusterName = namearg
   , _eMRClusterReleaseLabel = Nothing
+  , _eMRClusterSecurityConfiguration = Nothing
   , _eMRClusterServiceRole = serviceRolearg
   , _eMRClusterTags = Nothing
   , _eMRClusterVisibleToAllUsers = Nothing
@@ -137,6 +141,10 @@ emrcName = lens _eMRClusterName (\s a -> s { _eMRClusterName = a })
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-cluster.html#cfn-emr-cluster-releaselabel
 emrcReleaseLabel :: Lens' EMRCluster (Maybe (Val Text))
 emrcReleaseLabel = lens _eMRClusterReleaseLabel (\s a -> s { _eMRClusterReleaseLabel = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-cluster.html#cfn-emr-securityconfiguration
+emrcSecurityConfiguration :: Lens' EMRCluster (Maybe (Val Text))
+emrcSecurityConfiguration = lens _eMRClusterSecurityConfiguration (\s a -> s { _eMRClusterSecurityConfiguration = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-cluster.html#cfn-emr-cluster-servicerole
 emrcServiceRole :: Lens' EMRCluster (Val Text)
