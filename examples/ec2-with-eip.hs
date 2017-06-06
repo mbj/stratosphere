@@ -45,7 +45,7 @@ myTemplate =
     EC2EIPAssociationProperties $
     ec2EIPAssociation
     & eceipaInstanceId ?~ Ref "EC2Instance"
-    & eceipaEip ?~ Ref "IPAddress"
+    & eceipaEIP ?~ Ref "IPAddress"
   ]
   & description ?~ "See https://s3.amazonaws.com/cloudformation-templates-us-east-1/EIP_With_Association.template"
   & formatVersion ?~ "2010-09-09"
