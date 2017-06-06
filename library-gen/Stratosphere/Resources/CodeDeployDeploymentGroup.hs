@@ -12,15 +12,18 @@ import Data.Monoid (mempty)
 import Data.Text
 
 import Stratosphere.Values
+import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupAlarmConfiguration
 import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupDeployment
 import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupEC2TagFilter
 import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupTagFilter
+import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupTriggerConfig
 
 -- | Full data type definition for CodeDeployDeploymentGroup. See
 -- 'codeDeployDeploymentGroup' for a more convenient constructor.
 data CodeDeployDeploymentGroup =
   CodeDeployDeploymentGroup
-  { _codeDeployDeploymentGroupApplicationName :: Val Text
+  { _codeDeployDeploymentGroupAlarmConfiguration :: Maybe CodeDeployDeploymentGroupAlarmConfiguration
+  , _codeDeployDeploymentGroupApplicationName :: Val Text
   , _codeDeployDeploymentGroupAutoScalingGroups :: Maybe [Val Text]
   , _codeDeployDeploymentGroupDeployment :: Maybe CodeDeployDeploymentGroupDeployment
   , _codeDeployDeploymentGroupDeploymentConfigName :: Maybe (Val Text)
@@ -28,13 +31,15 @@ data CodeDeployDeploymentGroup =
   , _codeDeployDeploymentGroupEc2TagFilters :: Maybe [CodeDeployDeploymentGroupEC2TagFilter]
   , _codeDeployDeploymentGroupOnPremisesInstanceTagFilters :: Maybe [CodeDeployDeploymentGroupTagFilter]
   , _codeDeployDeploymentGroupServiceRoleArn :: Val Text
+  , _codeDeployDeploymentGroupTriggerConfigurations :: Maybe [CodeDeployDeploymentGroupTriggerConfig]
   } deriving (Show, Eq)
 
 instance ToJSON CodeDeployDeploymentGroup where
   toJSON CodeDeployDeploymentGroup{..} =
     object $
     catMaybes
-    [ Just ("ApplicationName" .= _codeDeployDeploymentGroupApplicationName)
+    [ ("AlarmConfiguration" .=) <$> _codeDeployDeploymentGroupAlarmConfiguration
+    , Just ("ApplicationName" .= _codeDeployDeploymentGroupApplicationName)
     , ("AutoScalingGroups" .=) <$> _codeDeployDeploymentGroupAutoScalingGroups
     , ("Deployment" .=) <$> _codeDeployDeploymentGroupDeployment
     , ("DeploymentConfigName" .=) <$> _codeDeployDeploymentGroupDeploymentConfigName
@@ -42,11 +47,13 @@ instance ToJSON CodeDeployDeploymentGroup where
     , ("Ec2TagFilters" .=) <$> _codeDeployDeploymentGroupEc2TagFilters
     , ("OnPremisesInstanceTagFilters" .=) <$> _codeDeployDeploymentGroupOnPremisesInstanceTagFilters
     , Just ("ServiceRoleArn" .= _codeDeployDeploymentGroupServiceRoleArn)
+    , ("TriggerConfigurations" .=) <$> _codeDeployDeploymentGroupTriggerConfigurations
     ]
 
 instance FromJSON CodeDeployDeploymentGroup where
   parseJSON (Object obj) =
     CodeDeployDeploymentGroup <$>
+      obj .:? "AlarmConfiguration" <*>
       obj .: "ApplicationName" <*>
       obj .:? "AutoScalingGroups" <*>
       obj .:? "Deployment" <*>
@@ -54,7 +61,8 @@ instance FromJSON CodeDeployDeploymentGroup where
       obj .:? "DeploymentGroupName" <*>
       obj .:? "Ec2TagFilters" <*>
       obj .:? "OnPremisesInstanceTagFilters" <*>
-      obj .: "ServiceRoleArn"
+      obj .: "ServiceRoleArn" <*>
+      obj .:? "TriggerConfigurations"
   parseJSON _ = mempty
 
 -- | Constructor for 'CodeDeployDeploymentGroup' containing required fields as
@@ -65,7 +73,8 @@ codeDeployDeploymentGroup
   -> CodeDeployDeploymentGroup
 codeDeployDeploymentGroup applicationNamearg serviceRoleArnarg =
   CodeDeployDeploymentGroup
-  { _codeDeployDeploymentGroupApplicationName = applicationNamearg
+  { _codeDeployDeploymentGroupAlarmConfiguration = Nothing
+  , _codeDeployDeploymentGroupApplicationName = applicationNamearg
   , _codeDeployDeploymentGroupAutoScalingGroups = Nothing
   , _codeDeployDeploymentGroupDeployment = Nothing
   , _codeDeployDeploymentGroupDeploymentConfigName = Nothing
@@ -73,7 +82,12 @@ codeDeployDeploymentGroup applicationNamearg serviceRoleArnarg =
   , _codeDeployDeploymentGroupEc2TagFilters = Nothing
   , _codeDeployDeploymentGroupOnPremisesInstanceTagFilters = Nothing
   , _codeDeployDeploymentGroupServiceRoleArn = serviceRoleArnarg
+  , _codeDeployDeploymentGroupTriggerConfigurations = Nothing
   }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-alarmconfiguration
+cddgAlarmConfiguration :: Lens' CodeDeployDeploymentGroup (Maybe CodeDeployDeploymentGroupAlarmConfiguration)
+cddgAlarmConfiguration = lens _codeDeployDeploymentGroupAlarmConfiguration (\s a -> s { _codeDeployDeploymentGroupAlarmConfiguration = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-applicationname
 cddgApplicationName :: Lens' CodeDeployDeploymentGroup (Val Text)
@@ -106,3 +120,7 @@ cddgOnPremisesInstanceTagFilters = lens _codeDeployDeploymentGroupOnPremisesInst
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-servicerolearn
 cddgServiceRoleArn :: Lens' CodeDeployDeploymentGroup (Val Text)
 cddgServiceRoleArn = lens _codeDeployDeploymentGroupServiceRoleArn (\s a -> s { _codeDeployDeploymentGroupServiceRoleArn = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-triggerconfigurations
+cddgTriggerConfigurations :: Lens' CodeDeployDeploymentGroup (Maybe [CodeDeployDeploymentGroupTriggerConfig])
+cddgTriggerConfigurations = lens _codeDeployDeploymentGroupTriggerConfigurations (\s a -> s { _codeDeployDeploymentGroupTriggerConfigurations = a })

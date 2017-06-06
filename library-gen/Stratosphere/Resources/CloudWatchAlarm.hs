@@ -24,14 +24,17 @@ data CloudWatchAlarm =
   , _cloudWatchAlarmAlarmName :: Maybe (Val Text)
   , _cloudWatchAlarmComparisonOperator :: Val Text
   , _cloudWatchAlarmDimensions :: Maybe [CloudWatchAlarmDimension]
+  , _cloudWatchAlarmEvaluateLowSampleCountPercentile :: Maybe (Val Text)
   , _cloudWatchAlarmEvaluationPeriods :: Val Integer'
+  , _cloudWatchAlarmExtendedStatistic :: Maybe (Val Text)
   , _cloudWatchAlarmInsufficientDataActions :: Maybe [Val Text]
   , _cloudWatchAlarmMetricName :: Val Text
   , _cloudWatchAlarmNamespace :: Val Text
   , _cloudWatchAlarmOKActions :: Maybe [Val Text]
   , _cloudWatchAlarmPeriod :: Val Integer'
-  , _cloudWatchAlarmStatistic :: Val Text
+  , _cloudWatchAlarmStatistic :: Maybe (Val Text)
   , _cloudWatchAlarmThreshold :: Val Double'
+  , _cloudWatchAlarmTreatMissingData :: Maybe (Val Text)
   , _cloudWatchAlarmUnit :: Maybe (Val Text)
   } deriving (Show, Eq)
 
@@ -45,14 +48,17 @@ instance ToJSON CloudWatchAlarm where
     , ("AlarmName" .=) <$> _cloudWatchAlarmAlarmName
     , Just ("ComparisonOperator" .= _cloudWatchAlarmComparisonOperator)
     , ("Dimensions" .=) <$> _cloudWatchAlarmDimensions
+    , ("EvaluateLowSampleCountPercentile" .=) <$> _cloudWatchAlarmEvaluateLowSampleCountPercentile
     , Just ("EvaluationPeriods" .= _cloudWatchAlarmEvaluationPeriods)
+    , ("ExtendedStatistic" .=) <$> _cloudWatchAlarmExtendedStatistic
     , ("InsufficientDataActions" .=) <$> _cloudWatchAlarmInsufficientDataActions
     , Just ("MetricName" .= _cloudWatchAlarmMetricName)
     , Just ("Namespace" .= _cloudWatchAlarmNamespace)
     , ("OKActions" .=) <$> _cloudWatchAlarmOKActions
     , Just ("Period" .= _cloudWatchAlarmPeriod)
-    , Just ("Statistic" .= _cloudWatchAlarmStatistic)
+    , ("Statistic" .=) <$> _cloudWatchAlarmStatistic
     , Just ("Threshold" .= _cloudWatchAlarmThreshold)
+    , ("TreatMissingData" .=) <$> _cloudWatchAlarmTreatMissingData
     , ("Unit" .=) <$> _cloudWatchAlarmUnit
     ]
 
@@ -65,14 +71,17 @@ instance FromJSON CloudWatchAlarm where
       obj .:? "AlarmName" <*>
       obj .: "ComparisonOperator" <*>
       obj .:? "Dimensions" <*>
+      obj .:? "EvaluateLowSampleCountPercentile" <*>
       obj .: "EvaluationPeriods" <*>
+      obj .:? "ExtendedStatistic" <*>
       obj .:? "InsufficientDataActions" <*>
       obj .: "MetricName" <*>
       obj .: "Namespace" <*>
       obj .:? "OKActions" <*>
       obj .: "Period" <*>
-      obj .: "Statistic" <*>
+      obj .:? "Statistic" <*>
       obj .: "Threshold" <*>
+      obj .:? "TreatMissingData" <*>
       obj .:? "Unit"
   parseJSON _ = mempty
 
@@ -84,10 +93,9 @@ cloudWatchAlarm
   -> Val Text -- ^ 'cwaMetricName'
   -> Val Text -- ^ 'cwaNamespace'
   -> Val Integer' -- ^ 'cwaPeriod'
-  -> Val Text -- ^ 'cwaStatistic'
   -> Val Double' -- ^ 'cwaThreshold'
   -> CloudWatchAlarm
-cloudWatchAlarm comparisonOperatorarg evaluationPeriodsarg metricNamearg namespacearg periodarg statisticarg thresholdarg =
+cloudWatchAlarm comparisonOperatorarg evaluationPeriodsarg metricNamearg namespacearg periodarg thresholdarg =
   CloudWatchAlarm
   { _cloudWatchAlarmActionsEnabled = Nothing
   , _cloudWatchAlarmAlarmActions = Nothing
@@ -95,14 +103,17 @@ cloudWatchAlarm comparisonOperatorarg evaluationPeriodsarg metricNamearg namespa
   , _cloudWatchAlarmAlarmName = Nothing
   , _cloudWatchAlarmComparisonOperator = comparisonOperatorarg
   , _cloudWatchAlarmDimensions = Nothing
+  , _cloudWatchAlarmEvaluateLowSampleCountPercentile = Nothing
   , _cloudWatchAlarmEvaluationPeriods = evaluationPeriodsarg
+  , _cloudWatchAlarmExtendedStatistic = Nothing
   , _cloudWatchAlarmInsufficientDataActions = Nothing
   , _cloudWatchAlarmMetricName = metricNamearg
   , _cloudWatchAlarmNamespace = namespacearg
   , _cloudWatchAlarmOKActions = Nothing
   , _cloudWatchAlarmPeriod = periodarg
-  , _cloudWatchAlarmStatistic = statisticarg
+  , _cloudWatchAlarmStatistic = Nothing
   , _cloudWatchAlarmThreshold = thresholdarg
+  , _cloudWatchAlarmTreatMissingData = Nothing
   , _cloudWatchAlarmUnit = Nothing
   }
 
@@ -130,9 +141,17 @@ cwaComparisonOperator = lens _cloudWatchAlarmComparisonOperator (\s a -> s { _cl
 cwaDimensions :: Lens' CloudWatchAlarm (Maybe [CloudWatchAlarmDimension])
 cwaDimensions = lens _cloudWatchAlarmDimensions (\s a -> s { _cloudWatchAlarmDimensions = a })
 
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html#cfn-cloudwatch-alarms-evaluatelowsamplecountpercentile
+cwaEvaluateLowSampleCountPercentile :: Lens' CloudWatchAlarm (Maybe (Val Text))
+cwaEvaluateLowSampleCountPercentile = lens _cloudWatchAlarmEvaluateLowSampleCountPercentile (\s a -> s { _cloudWatchAlarmEvaluateLowSampleCountPercentile = a })
+
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html#cfn-cloudwatch-alarms-evaluationperiods
 cwaEvaluationPeriods :: Lens' CloudWatchAlarm (Val Integer')
 cwaEvaluationPeriods = lens _cloudWatchAlarmEvaluationPeriods (\s a -> s { _cloudWatchAlarmEvaluationPeriods = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html#cfn-cloudwatch-alarms-extendedstatistic
+cwaExtendedStatistic :: Lens' CloudWatchAlarm (Maybe (Val Text))
+cwaExtendedStatistic = lens _cloudWatchAlarmExtendedStatistic (\s a -> s { _cloudWatchAlarmExtendedStatistic = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html#cfn-cloudwatch-alarms-insufficientdataactions
 cwaInsufficientDataActions :: Lens' CloudWatchAlarm (Maybe [Val Text])
@@ -155,12 +174,16 @@ cwaPeriod :: Lens' CloudWatchAlarm (Val Integer')
 cwaPeriod = lens _cloudWatchAlarmPeriod (\s a -> s { _cloudWatchAlarmPeriod = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html#cfn-cloudwatch-alarms-statistic
-cwaStatistic :: Lens' CloudWatchAlarm (Val Text)
+cwaStatistic :: Lens' CloudWatchAlarm (Maybe (Val Text))
 cwaStatistic = lens _cloudWatchAlarmStatistic (\s a -> s { _cloudWatchAlarmStatistic = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html#cfn-cloudwatch-alarms-threshold
 cwaThreshold :: Lens' CloudWatchAlarm (Val Double')
 cwaThreshold = lens _cloudWatchAlarmThreshold (\s a -> s { _cloudWatchAlarmThreshold = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html#cfn-cloudwatch-alarms-treatmissingdata
+cwaTreatMissingData :: Lens' CloudWatchAlarm (Maybe (Val Text))
+cwaTreatMissingData = lens _cloudWatchAlarmTreatMissingData (\s a -> s { _cloudWatchAlarmTreatMissingData = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html#cfn-cloudwatch-alarms-unit
 cwaUnit :: Lens' CloudWatchAlarm (Maybe (Val Text))

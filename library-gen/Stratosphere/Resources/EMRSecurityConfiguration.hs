@@ -19,7 +19,7 @@ import Stratosphere.Values
 data EMRSecurityConfiguration =
   EMRSecurityConfiguration
   { _eMRSecurityConfigurationName :: Maybe (Val Text)
-  , _eMRSecurityConfigurationSecurityConfiguration :: Val Text
+  , _eMRSecurityConfigurationSecurityConfiguration :: Object
   } deriving (Show, Eq)
 
 instance ToJSON EMRSecurityConfiguration where
@@ -40,7 +40,7 @@ instance FromJSON EMRSecurityConfiguration where
 -- | Constructor for 'EMRSecurityConfiguration' containing required fields as
 -- arguments.
 emrSecurityConfiguration
-  :: Val Text -- ^ 'emrscSecurityConfiguration'
+  :: Object -- ^ 'emrscSecurityConfiguration'
   -> EMRSecurityConfiguration
 emrSecurityConfiguration securityConfigurationarg =
   EMRSecurityConfiguration
@@ -53,5 +53,5 @@ emrscName :: Lens' EMRSecurityConfiguration (Maybe (Val Text))
 emrscName = lens _eMRSecurityConfigurationName (\s a -> s { _eMRSecurityConfigurationName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-securityconfiguration.html#cfn-emr-securityconfiguration-securityconfiguration
-emrscSecurityConfiguration :: Lens' EMRSecurityConfiguration (Val Text)
+emrscSecurityConfiguration :: Lens' EMRSecurityConfiguration Object
 emrscSecurityConfiguration = lens _eMRSecurityConfigurationSecurityConfiguration (\s a -> s { _eMRSecurityConfigurationSecurityConfiguration = a })

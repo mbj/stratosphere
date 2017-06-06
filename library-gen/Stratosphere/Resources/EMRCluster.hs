@@ -32,6 +32,7 @@ data EMRCluster =
   , _eMRClusterLogUri :: Maybe (Val Text)
   , _eMRClusterName :: Val Text
   , _eMRClusterReleaseLabel :: Maybe (Val Text)
+  , _eMRClusterScaleDownBehavior :: Maybe (Val Text)
   , _eMRClusterSecurityConfiguration :: Maybe (Val Text)
   , _eMRClusterServiceRole :: Val Text
   , _eMRClusterTags :: Maybe [Tag]
@@ -52,6 +53,7 @@ instance ToJSON EMRCluster where
     , ("LogUri" .=) <$> _eMRClusterLogUri
     , Just ("Name" .= _eMRClusterName)
     , ("ReleaseLabel" .=) <$> _eMRClusterReleaseLabel
+    , ("ScaleDownBehavior" .=) <$> _eMRClusterScaleDownBehavior
     , ("SecurityConfiguration" .=) <$> _eMRClusterSecurityConfiguration
     , Just ("ServiceRole" .= _eMRClusterServiceRole)
     , ("Tags" .=) <$> _eMRClusterTags
@@ -71,6 +73,7 @@ instance FromJSON EMRCluster where
       obj .:? "LogUri" <*>
       obj .: "Name" <*>
       obj .:? "ReleaseLabel" <*>
+      obj .:? "ScaleDownBehavior" <*>
       obj .:? "SecurityConfiguration" <*>
       obj .: "ServiceRole" <*>
       obj .:? "Tags" <*>
@@ -96,6 +99,7 @@ emrCluster instancesarg jobFlowRolearg namearg serviceRolearg =
   , _eMRClusterLogUri = Nothing
   , _eMRClusterName = namearg
   , _eMRClusterReleaseLabel = Nothing
+  , _eMRClusterScaleDownBehavior = Nothing
   , _eMRClusterSecurityConfiguration = Nothing
   , _eMRClusterServiceRole = serviceRolearg
   , _eMRClusterTags = Nothing
@@ -141,6 +145,10 @@ emrcName = lens _eMRClusterName (\s a -> s { _eMRClusterName = a })
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-cluster.html#cfn-emr-cluster-releaselabel
 emrcReleaseLabel :: Lens' EMRCluster (Maybe (Val Text))
 emrcReleaseLabel = lens _eMRClusterReleaseLabel (\s a -> s { _eMRClusterReleaseLabel = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-cluster.html#cfn-elasticmapreduce-cluster-scaledownbehavior
+emrcScaleDownBehavior :: Lens' EMRCluster (Maybe (Val Text))
+emrcScaleDownBehavior = lens _eMRClusterScaleDownBehavior (\s a -> s { _eMRClusterScaleDownBehavior = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-cluster.html#cfn-emr-securityconfiguration
 emrcSecurityConfiguration :: Lens' EMRCluster (Maybe (Val Text))

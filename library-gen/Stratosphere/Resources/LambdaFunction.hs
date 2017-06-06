@@ -17,6 +17,7 @@ import Stratosphere.ResourceProperties.LambdaFunctionCode
 import Stratosphere.ResourceProperties.LambdaFunctionDeadLetterConfig
 import Stratosphere.ResourceProperties.LambdaFunctionEnvironment
 import Stratosphere.ResourceProperties.Tag
+import Stratosphere.ResourceProperties.LambdaFunctionTracingConfig
 import Stratosphere.ResourceProperties.LambdaFunctionVpcConfig
 
 -- | Full data type definition for LambdaFunction. See 'lambdaFunction' for a
@@ -35,6 +36,7 @@ data LambdaFunction =
   , _lambdaFunctionRuntime :: Val Runtime
   , _lambdaFunctionTags :: Maybe [Tag]
   , _lambdaFunctionTimeout :: Maybe (Val Integer')
+  , _lambdaFunctionTracingConfig :: Maybe LambdaFunctionTracingConfig
   , _lambdaFunctionVpcConfig :: Maybe LambdaFunctionVpcConfig
   } deriving (Show, Eq)
 
@@ -54,6 +56,7 @@ instance ToJSON LambdaFunction where
     , Just ("Runtime" .= _lambdaFunctionRuntime)
     , ("Tags" .=) <$> _lambdaFunctionTags
     , ("Timeout" .=) <$> _lambdaFunctionTimeout
+    , ("TracingConfig" .=) <$> _lambdaFunctionTracingConfig
     , ("VpcConfig" .=) <$> _lambdaFunctionVpcConfig
     ]
 
@@ -72,6 +75,7 @@ instance FromJSON LambdaFunction where
       obj .: "Runtime" <*>
       obj .:? "Tags" <*>
       obj .:? "Timeout" <*>
+      obj .:? "TracingConfig" <*>
       obj .:? "VpcConfig"
   parseJSON _ = mempty
 
@@ -96,6 +100,7 @@ lambdaFunction codearg handlerarg rolearg runtimearg =
   , _lambdaFunctionRuntime = runtimearg
   , _lambdaFunctionTags = Nothing
   , _lambdaFunctionTimeout = Nothing
+  , _lambdaFunctionTracingConfig = Nothing
   , _lambdaFunctionVpcConfig = Nothing
   }
 
@@ -146,6 +151,10 @@ lfTags = lens _lambdaFunctionTags (\s a -> s { _lambdaFunctionTags = a })
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-timeout
 lfTimeout :: Lens' LambdaFunction (Maybe (Val Integer'))
 lfTimeout = lens _lambdaFunctionTimeout (\s a -> s { _lambdaFunctionTimeout = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-tracingconfig
+lfTracingConfig :: Lens' LambdaFunction (Maybe LambdaFunctionTracingConfig)
+lfTracingConfig = lens _lambdaFunctionTracingConfig (\s a -> s { _lambdaFunctionTracingConfig = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-vpcconfig
 lfVpcConfig :: Lens' LambdaFunction (Maybe LambdaFunctionVpcConfig)

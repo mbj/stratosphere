@@ -223,6 +223,8 @@ import Stratosphere.Resources.SQSQueuePolicy as X
 import Stratosphere.Resources.SSMAssociation as X
 import Stratosphere.Resources.SSMDocument as X
 import Stratosphere.Resources.SSMParameter as X
+import Stratosphere.Resources.StepFunctionsActivity as X
+import Stratosphere.Resources.StepFunctionsStateMachine as X
 import Stratosphere.Resources.WAFByteMatchSet as X
 import Stratosphere.Resources.WAFIPSet as X
 import Stratosphere.Resources.WAFRule as X
@@ -281,12 +283,15 @@ import Stratosphere.ResourceProperties.CodeBuildProjectSource as X
 import Stratosphere.ResourceProperties.CodeBuildProjectSourceAuth as X
 import Stratosphere.ResourceProperties.CodeCommitRepositoryRepositoryTrigger as X
 import Stratosphere.ResourceProperties.CodeDeployDeploymentConfigMinimumHealthyHosts as X
+import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupAlarm as X
+import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupAlarmConfiguration as X
 import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupDeployment as X
 import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupEC2TagFilter as X
 import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupGitHubLocation as X
 import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupRevisionLocation as X
 import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupS3Location as X
 import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupTagFilter as X
+import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupTriggerConfig as X
 import Stratosphere.ResourceProperties.CodePipelineCustomActionTypeArtifactDetails as X
 import Stratosphere.ResourceProperties.CodePipelineCustomActionTypeConfigurationProperties as X
 import Stratosphere.ResourceProperties.CodePipelineCustomActionTypeSettings as X
@@ -351,17 +356,17 @@ import Stratosphere.ResourceProperties.EC2NetworkAclEntryPortRange as X
 import Stratosphere.ResourceProperties.EC2NetworkInterfaceInstanceIpv6Address as X
 import Stratosphere.ResourceProperties.EC2NetworkInterfacePrivateIpAddressSpecification as X
 import Stratosphere.ResourceProperties.EC2SecurityGroupRule as X
-import Stratosphere.ResourceProperties.EC2SpotFleetBlockDeviceMappings as X
-import Stratosphere.ResourceProperties.EC2SpotFleetEbs as X
-import Stratosphere.ResourceProperties.EC2SpotFleetIamInstanceProfile as X
+import Stratosphere.ResourceProperties.EC2SpotFleetBlockDeviceMapping as X
+import Stratosphere.ResourceProperties.EC2SpotFleetEbsBlockDevice as X
+import Stratosphere.ResourceProperties.EC2SpotFleetGroupIdentifier as X
+import Stratosphere.ResourceProperties.EC2SpotFleetIamInstanceProfileSpecification as X
 import Stratosphere.ResourceProperties.EC2SpotFleetInstanceIpv6Address as X
-import Stratosphere.ResourceProperties.EC2SpotFleetLaunchSpecifications as X
-import Stratosphere.ResourceProperties.EC2SpotFleetMonitoring as X
-import Stratosphere.ResourceProperties.EC2SpotFleetNetworkInterfaces as X
-import Stratosphere.ResourceProperties.EC2SpotFleetPlacement as X
-import Stratosphere.ResourceProperties.EC2SpotFleetPrivateIpAddresses as X
-import Stratosphere.ResourceProperties.EC2SpotFleetSecurityGroups as X
+import Stratosphere.ResourceProperties.EC2SpotFleetInstanceNetworkInterfaceSpecification as X
+import Stratosphere.ResourceProperties.EC2SpotFleetPrivateIpAddressSpecification as X
+import Stratosphere.ResourceProperties.EC2SpotFleetSpotFleetLaunchSpecification as X
+import Stratosphere.ResourceProperties.EC2SpotFleetSpotFleetMonitoring as X
 import Stratosphere.ResourceProperties.EC2SpotFleetSpotFleetRequestConfigData as X
+import Stratosphere.ResourceProperties.EC2SpotFleetSpotPlacement as X
 import Stratosphere.ResourceProperties.ECSServiceDeploymentConfiguration as X
 import Stratosphere.ResourceProperties.ECSServiceLoadBalancer as X
 import Stratosphere.ResourceProperties.ECSServicePlacementConstraint as X
@@ -396,9 +401,17 @@ import Stratosphere.ResourceProperties.EMRClusterScalingTrigger as X
 import Stratosphere.ResourceProperties.EMRClusterScriptBootstrapActionConfig as X
 import Stratosphere.ResourceProperties.EMRClusterSimpleScalingPolicyConfiguration as X
 import Stratosphere.ResourceProperties.EMRClusterVolumeSpecification as X
+import Stratosphere.ResourceProperties.EMRInstanceGroupConfigAutoScalingPolicy as X
+import Stratosphere.ResourceProperties.EMRInstanceGroupConfigCloudWatchAlarmDefinition as X
 import Stratosphere.ResourceProperties.EMRInstanceGroupConfigConfiguration as X
 import Stratosphere.ResourceProperties.EMRInstanceGroupConfigEbsBlockDeviceConfig as X
 import Stratosphere.ResourceProperties.EMRInstanceGroupConfigEbsConfiguration as X
+import Stratosphere.ResourceProperties.EMRInstanceGroupConfigMetricDimension as X
+import Stratosphere.ResourceProperties.EMRInstanceGroupConfigScalingAction as X
+import Stratosphere.ResourceProperties.EMRInstanceGroupConfigScalingConstraints as X
+import Stratosphere.ResourceProperties.EMRInstanceGroupConfigScalingRule as X
+import Stratosphere.ResourceProperties.EMRInstanceGroupConfigScalingTrigger as X
+import Stratosphere.ResourceProperties.EMRInstanceGroupConfigSimpleScalingPolicyConfiguration as X
 import Stratosphere.ResourceProperties.EMRInstanceGroupConfigVolumeSpecification as X
 import Stratosphere.ResourceProperties.EMRStepHadoopJarStepConfig as X
 import Stratosphere.ResourceProperties.EMRStepKeyValue as X
@@ -462,6 +475,7 @@ import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamS3Destinatio
 import Stratosphere.ResourceProperties.LambdaFunctionCode as X
 import Stratosphere.ResourceProperties.LambdaFunctionDeadLetterConfig as X
 import Stratosphere.ResourceProperties.LambdaFunctionEnvironment as X
+import Stratosphere.ResourceProperties.LambdaFunctionTracingConfig as X
 import Stratosphere.ResourceProperties.LambdaFunctionVpcConfig as X
 import Stratosphere.ResourceProperties.LogsMetricFilterMetricTransformation as X
 import Stratosphere.ResourceProperties.OpsWorksAppDataSource as X
@@ -737,6 +751,8 @@ data ResourceProperties
   | SSMAssociationProperties SSMAssociation
   | SSMDocumentProperties SSMDocument
   | SSMParameterProperties SSMParameter
+  | StepFunctionsActivityProperties StepFunctionsActivity
+  | StepFunctionsStateMachineProperties StepFunctionsStateMachine
   | WAFByteMatchSetProperties WAFByteMatchSet
   | WAFIPSetProperties WAFIPSet
   | WAFRuleProperties WAFRule
@@ -1161,6 +1177,10 @@ resourcePropertiesJSON (SSMDocumentProperties x) =
   [ "Type" .= ("AWS::SSM::Document" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (SSMParameterProperties x) =
   [ "Type" .= ("AWS::SSM::Parameter" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (StepFunctionsActivityProperties x) =
+  [ "Type" .= ("AWS::StepFunctions::Activity" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (StepFunctionsStateMachineProperties x) =
+  [ "Type" .= ("AWS::StepFunctions::StateMachine" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (WAFByteMatchSetProperties x) =
   [ "Type" .= ("AWS::WAF::ByteMatchSet" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (WAFIPSetProperties x) =
@@ -1377,6 +1397,8 @@ resourceFromJSON n o =
          "AWS::SSM::Association" -> SSMAssociationProperties <$> (o .: "Properties")
          "AWS::SSM::Document" -> SSMDocumentProperties <$> (o .: "Properties")
          "AWS::SSM::Parameter" -> SSMParameterProperties <$> (o .: "Properties")
+         "AWS::StepFunctions::Activity" -> StepFunctionsActivityProperties <$> (o .: "Properties")
+         "AWS::StepFunctions::StateMachine" -> StepFunctionsStateMachineProperties <$> (o .: "Properties")
          "AWS::WAF::ByteMatchSet" -> WAFByteMatchSetProperties <$> (o .: "Properties")
          "AWS::WAF::IPSet" -> WAFIPSetProperties <$> (o .: "Properties")
          "AWS::WAF::Rule" -> WAFRuleProperties <$> (o .: "Properties")

@@ -21,7 +21,7 @@ data EMRClusterJobFlowInstancesConfig =
   EMRClusterJobFlowInstancesConfig
   { _eMRClusterJobFlowInstancesConfigAdditionalMasterSecurityGroups :: Maybe [Val Text]
   , _eMRClusterJobFlowInstancesConfigAdditionalSlaveSecurityGroups :: Maybe [Val Text]
-  , _eMRClusterJobFlowInstancesConfigCoreInstanceGroup :: EMRClusterInstanceGroupConfig
+  , _eMRClusterJobFlowInstancesConfigCoreInstanceGroup :: Maybe EMRClusterInstanceGroupConfig
   , _eMRClusterJobFlowInstancesConfigEc2KeyName :: Maybe (Val Text)
   , _eMRClusterJobFlowInstancesConfigEc2SubnetId :: Maybe (Val Text)
   , _eMRClusterJobFlowInstancesConfigEmrManagedMasterSecurityGroup :: Maybe (Val Text)
@@ -39,7 +39,7 @@ instance ToJSON EMRClusterJobFlowInstancesConfig where
     catMaybes
     [ ("AdditionalMasterSecurityGroups" .=) <$> _eMRClusterJobFlowInstancesConfigAdditionalMasterSecurityGroups
     , ("AdditionalSlaveSecurityGroups" .=) <$> _eMRClusterJobFlowInstancesConfigAdditionalSlaveSecurityGroups
-    , Just ("CoreInstanceGroup" .= _eMRClusterJobFlowInstancesConfigCoreInstanceGroup)
+    , ("CoreInstanceGroup" .=) <$> _eMRClusterJobFlowInstancesConfigCoreInstanceGroup
     , ("Ec2KeyName" .=) <$> _eMRClusterJobFlowInstancesConfigEc2KeyName
     , ("Ec2SubnetId" .=) <$> _eMRClusterJobFlowInstancesConfigEc2SubnetId
     , ("EmrManagedMasterSecurityGroup" .=) <$> _eMRClusterJobFlowInstancesConfigEmrManagedMasterSecurityGroup
@@ -56,7 +56,7 @@ instance FromJSON EMRClusterJobFlowInstancesConfig where
     EMRClusterJobFlowInstancesConfig <$>
       obj .:? "AdditionalMasterSecurityGroups" <*>
       obj .:? "AdditionalSlaveSecurityGroups" <*>
-      obj .: "CoreInstanceGroup" <*>
+      obj .:? "CoreInstanceGroup" <*>
       obj .:? "Ec2KeyName" <*>
       obj .:? "Ec2SubnetId" <*>
       obj .:? "EmrManagedMasterSecurityGroup" <*>
@@ -71,14 +71,13 @@ instance FromJSON EMRClusterJobFlowInstancesConfig where
 -- | Constructor for 'EMRClusterJobFlowInstancesConfig' containing required
 -- fields as arguments.
 emrClusterJobFlowInstancesConfig
-  :: EMRClusterInstanceGroupConfig -- ^ 'emrcjficCoreInstanceGroup'
-  -> EMRClusterInstanceGroupConfig -- ^ 'emrcjficMasterInstanceGroup'
+  :: EMRClusterInstanceGroupConfig -- ^ 'emrcjficMasterInstanceGroup'
   -> EMRClusterJobFlowInstancesConfig
-emrClusterJobFlowInstancesConfig coreInstanceGrouparg masterInstanceGrouparg =
+emrClusterJobFlowInstancesConfig masterInstanceGrouparg =
   EMRClusterJobFlowInstancesConfig
   { _eMRClusterJobFlowInstancesConfigAdditionalMasterSecurityGroups = Nothing
   , _eMRClusterJobFlowInstancesConfigAdditionalSlaveSecurityGroups = Nothing
-  , _eMRClusterJobFlowInstancesConfigCoreInstanceGroup = coreInstanceGrouparg
+  , _eMRClusterJobFlowInstancesConfigCoreInstanceGroup = Nothing
   , _eMRClusterJobFlowInstancesConfigEc2KeyName = Nothing
   , _eMRClusterJobFlowInstancesConfigEc2SubnetId = Nothing
   , _eMRClusterJobFlowInstancesConfigEmrManagedMasterSecurityGroup = Nothing
@@ -99,7 +98,7 @@ emrcjficAdditionalSlaveSecurityGroups :: Lens' EMRClusterJobFlowInstancesConfig 
 emrcjficAdditionalSlaveSecurityGroups = lens _eMRClusterJobFlowInstancesConfigAdditionalSlaveSecurityGroups (\s a -> s { _eMRClusterJobFlowInstancesConfigAdditionalSlaveSecurityGroups = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-jobflowinstancesconfig.html#cfn-emr-cluster-jobflowinstancesconfig-coreinstancegroup
-emrcjficCoreInstanceGroup :: Lens' EMRClusterJobFlowInstancesConfig EMRClusterInstanceGroupConfig
+emrcjficCoreInstanceGroup :: Lens' EMRClusterJobFlowInstancesConfig (Maybe EMRClusterInstanceGroupConfig)
 emrcjficCoreInstanceGroup = lens _eMRClusterJobFlowInstancesConfigCoreInstanceGroup (\s a -> s { _eMRClusterJobFlowInstancesConfigCoreInstanceGroup = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-jobflowinstancesconfig.html#cfn-emr-cluster-jobflowinstancesconfig-ec2keyname

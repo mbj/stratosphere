@@ -12,6 +12,7 @@ import Data.Monoid (mempty)
 import Data.Text
 
 import Stratosphere.Values
+import Stratosphere.ResourceProperties.EMRInstanceGroupConfigAutoScalingPolicy
 import Stratosphere.ResourceProperties.EMRInstanceGroupConfigConfiguration
 import Stratosphere.ResourceProperties.EMRInstanceGroupConfigEbsConfiguration
 
@@ -19,7 +20,8 @@ import Stratosphere.ResourceProperties.EMRInstanceGroupConfigEbsConfiguration
 -- 'emrInstanceGroupConfig' for a more convenient constructor.
 data EMRInstanceGroupConfig =
   EMRInstanceGroupConfig
-  { _eMRInstanceGroupConfigBidPrice :: Maybe (Val Text)
+  { _eMRInstanceGroupConfigAutoScalingPolicy :: Maybe EMRInstanceGroupConfigAutoScalingPolicy
+  , _eMRInstanceGroupConfigBidPrice :: Maybe (Val Text)
   , _eMRInstanceGroupConfigConfigurations :: Maybe [EMRInstanceGroupConfigConfiguration]
   , _eMRInstanceGroupConfigEbsConfiguration :: Maybe EMRInstanceGroupConfigEbsConfiguration
   , _eMRInstanceGroupConfigInstanceCount :: Val Integer'
@@ -34,7 +36,8 @@ instance ToJSON EMRInstanceGroupConfig where
   toJSON EMRInstanceGroupConfig{..} =
     object $
     catMaybes
-    [ ("BidPrice" .=) <$> _eMRInstanceGroupConfigBidPrice
+    [ ("AutoScalingPolicy" .=) <$> _eMRInstanceGroupConfigAutoScalingPolicy
+    , ("BidPrice" .=) <$> _eMRInstanceGroupConfigBidPrice
     , ("Configurations" .=) <$> _eMRInstanceGroupConfigConfigurations
     , ("EbsConfiguration" .=) <$> _eMRInstanceGroupConfigEbsConfiguration
     , Just ("InstanceCount" .= _eMRInstanceGroupConfigInstanceCount)
@@ -48,6 +51,7 @@ instance ToJSON EMRInstanceGroupConfig where
 instance FromJSON EMRInstanceGroupConfig where
   parseJSON (Object obj) =
     EMRInstanceGroupConfig <$>
+      obj .:? "AutoScalingPolicy" <*>
       obj .:? "BidPrice" <*>
       obj .:? "Configurations" <*>
       obj .:? "EbsConfiguration" <*>
@@ -69,7 +73,8 @@ emrInstanceGroupConfig
   -> EMRInstanceGroupConfig
 emrInstanceGroupConfig instanceCountarg instanceRolearg instanceTypearg jobFlowIdarg =
   EMRInstanceGroupConfig
-  { _eMRInstanceGroupConfigBidPrice = Nothing
+  { _eMRInstanceGroupConfigAutoScalingPolicy = Nothing
+  , _eMRInstanceGroupConfigBidPrice = Nothing
   , _eMRInstanceGroupConfigConfigurations = Nothing
   , _eMRInstanceGroupConfigEbsConfiguration = Nothing
   , _eMRInstanceGroupConfigInstanceCount = instanceCountarg
@@ -79,6 +84,10 @@ emrInstanceGroupConfig instanceCountarg instanceRolearg instanceTypearg jobFlowI
   , _eMRInstanceGroupConfigMarket = Nothing
   , _eMRInstanceGroupConfigName = Nothing
   }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-instancegroupconfig.html#cfn-elasticmapreduce-instancegroupconfig-autoscalingpolicy
+emrigcAutoScalingPolicy :: Lens' EMRInstanceGroupConfig (Maybe EMRInstanceGroupConfigAutoScalingPolicy)
+emrigcAutoScalingPolicy = lens _eMRInstanceGroupConfigAutoScalingPolicy (\s a -> s { _eMRInstanceGroupConfigAutoScalingPolicy = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-instancegroupconfig.html#cfn-emr-instancegroupconfig-bidprice
 emrigcBidPrice :: Lens' EMRInstanceGroupConfig (Maybe (Val Text))

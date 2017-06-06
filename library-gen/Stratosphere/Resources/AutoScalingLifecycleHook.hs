@@ -23,8 +23,8 @@ data AutoScalingLifecycleHook =
   , _autoScalingLifecycleHookHeartbeatTimeout :: Maybe (Val Integer')
   , _autoScalingLifecycleHookLifecycleTransition :: Val Text
   , _autoScalingLifecycleHookNotificationMetadata :: Maybe (Val Text)
-  , _autoScalingLifecycleHookNotificationTargetARN :: Val Text
-  , _autoScalingLifecycleHookRoleARN :: Val Text
+  , _autoScalingLifecycleHookNotificationTargetARN :: Maybe (Val Text)
+  , _autoScalingLifecycleHookRoleARN :: Maybe (Val Text)
   } deriving (Show, Eq)
 
 instance ToJSON AutoScalingLifecycleHook where
@@ -36,8 +36,8 @@ instance ToJSON AutoScalingLifecycleHook where
     , ("HeartbeatTimeout" .=) <$> _autoScalingLifecycleHookHeartbeatTimeout
     , Just ("LifecycleTransition" .= _autoScalingLifecycleHookLifecycleTransition)
     , ("NotificationMetadata" .=) <$> _autoScalingLifecycleHookNotificationMetadata
-    , Just ("NotificationTargetARN" .= _autoScalingLifecycleHookNotificationTargetARN)
-    , Just ("RoleARN" .= _autoScalingLifecycleHookRoleARN)
+    , ("NotificationTargetARN" .=) <$> _autoScalingLifecycleHookNotificationTargetARN
+    , ("RoleARN" .=) <$> _autoScalingLifecycleHookRoleARN
     ]
 
 instance FromJSON AutoScalingLifecycleHook where
@@ -48,8 +48,8 @@ instance FromJSON AutoScalingLifecycleHook where
       obj .:? "HeartbeatTimeout" <*>
       obj .: "LifecycleTransition" <*>
       obj .:? "NotificationMetadata" <*>
-      obj .: "NotificationTargetARN" <*>
-      obj .: "RoleARN"
+      obj .:? "NotificationTargetARN" <*>
+      obj .:? "RoleARN"
   parseJSON _ = mempty
 
 -- | Constructor for 'AutoScalingLifecycleHook' containing required fields as
@@ -57,18 +57,16 @@ instance FromJSON AutoScalingLifecycleHook where
 autoScalingLifecycleHook
   :: Val Text -- ^ 'aslhAutoScalingGroupName'
   -> Val Text -- ^ 'aslhLifecycleTransition'
-  -> Val Text -- ^ 'aslhNotificationTargetARN'
-  -> Val Text -- ^ 'aslhRoleARN'
   -> AutoScalingLifecycleHook
-autoScalingLifecycleHook autoScalingGroupNamearg lifecycleTransitionarg notificationTargetARNarg roleARNarg =
+autoScalingLifecycleHook autoScalingGroupNamearg lifecycleTransitionarg =
   AutoScalingLifecycleHook
   { _autoScalingLifecycleHookAutoScalingGroupName = autoScalingGroupNamearg
   , _autoScalingLifecycleHookDefaultResult = Nothing
   , _autoScalingLifecycleHookHeartbeatTimeout = Nothing
   , _autoScalingLifecycleHookLifecycleTransition = lifecycleTransitionarg
   , _autoScalingLifecycleHookNotificationMetadata = Nothing
-  , _autoScalingLifecycleHookNotificationTargetARN = notificationTargetARNarg
-  , _autoScalingLifecycleHookRoleARN = roleARNarg
+  , _autoScalingLifecycleHookNotificationTargetARN = Nothing
+  , _autoScalingLifecycleHookRoleARN = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-lifecyclehook.html#cfn-as-lifecyclehook-autoscalinggroupname
@@ -92,9 +90,9 @@ aslhNotificationMetadata :: Lens' AutoScalingLifecycleHook (Maybe (Val Text))
 aslhNotificationMetadata = lens _autoScalingLifecycleHookNotificationMetadata (\s a -> s { _autoScalingLifecycleHookNotificationMetadata = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-lifecyclehook.html#cfn-as-lifecyclehook-notificationtargetarn
-aslhNotificationTargetARN :: Lens' AutoScalingLifecycleHook (Val Text)
+aslhNotificationTargetARN :: Lens' AutoScalingLifecycleHook (Maybe (Val Text))
 aslhNotificationTargetARN = lens _autoScalingLifecycleHookNotificationTargetARN (\s a -> s { _autoScalingLifecycleHookNotificationTargetARN = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-lifecyclehook.html#cfn-as-lifecyclehook-rolearn
-aslhRoleARN :: Lens' AutoScalingLifecycleHook (Val Text)
+aslhRoleARN :: Lens' AutoScalingLifecycleHook (Maybe (Val Text))
 aslhRoleARN = lens _autoScalingLifecycleHookRoleARN (\s a -> s { _autoScalingLifecycleHookRoleARN = a })
