@@ -20,6 +20,7 @@ import Stratosphere.ResourceProperties.Tag
 data EC2SecurityGroup =
   EC2SecurityGroup
   { _eC2SecurityGroupGroupDescription :: Val Text
+  , _eC2SecurityGroupGroupName :: Maybe (Val Text)
   , _eC2SecurityGroupSecurityGroupEgress :: Maybe [EC2SecurityGroupRule]
   , _eC2SecurityGroupSecurityGroupIngress :: Maybe [EC2SecurityGroupRule]
   , _eC2SecurityGroupTags :: Maybe [Tag]
@@ -31,6 +32,7 @@ instance ToJSON EC2SecurityGroup where
     object $
     catMaybes
     [ Just ("GroupDescription" .= _eC2SecurityGroupGroupDescription)
+    , ("GroupName" .=) <$> _eC2SecurityGroupGroupName
     , ("SecurityGroupEgress" .=) <$> _eC2SecurityGroupSecurityGroupEgress
     , ("SecurityGroupIngress" .=) <$> _eC2SecurityGroupSecurityGroupIngress
     , ("Tags" .=) <$> _eC2SecurityGroupTags
@@ -41,6 +43,7 @@ instance FromJSON EC2SecurityGroup where
   parseJSON (Object obj) =
     EC2SecurityGroup <$>
       obj .: "GroupDescription" <*>
+      obj .:? "GroupName" <*>
       obj .:? "SecurityGroupEgress" <*>
       obj .:? "SecurityGroupIngress" <*>
       obj .:? "Tags" <*>
@@ -55,6 +58,7 @@ ec2SecurityGroup
 ec2SecurityGroup groupDescriptionarg =
   EC2SecurityGroup
   { _eC2SecurityGroupGroupDescription = groupDescriptionarg
+  , _eC2SecurityGroupGroupName = Nothing
   , _eC2SecurityGroupSecurityGroupEgress = Nothing
   , _eC2SecurityGroupSecurityGroupIngress = Nothing
   , _eC2SecurityGroupTags = Nothing
@@ -64,6 +68,10 @@ ec2SecurityGroup groupDescriptionarg =
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group.html#cfn-ec2-securitygroup-groupdescription
 ecsgGroupDescription :: Lens' EC2SecurityGroup (Val Text)
 ecsgGroupDescription = lens _eC2SecurityGroupGroupDescription (\s a -> s { _eC2SecurityGroupGroupDescription = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group.html#cfn-ec2-securitygroup-groupname
+ecsgGroupName :: Lens' EC2SecurityGroup (Maybe (Val Text))
+ecsgGroupName = lens _eC2SecurityGroupGroupName (\s a -> s { _eC2SecurityGroupGroupName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group.html#cfn-ec2-securitygroup-securitygroupegress
 ecsgSecurityGroupEgress :: Lens' EC2SecurityGroup (Maybe [EC2SecurityGroupRule])

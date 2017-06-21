@@ -24,6 +24,7 @@ data EMRCluster =
   EMRCluster
   { _eMRClusterAdditionalInfo :: Maybe Object
   , _eMRClusterApplications :: Maybe [EMRClusterApplication]
+  , _eMRClusterAutoScalingRole :: Maybe (Val Text)
   , _eMRClusterBootstrapActions :: Maybe [EMRClusterBootstrapActionConfig]
   , _eMRClusterConfigurations :: Maybe [EMRClusterConfiguration]
   , _eMRClusterInstances :: EMRClusterJobFlowInstancesConfig
@@ -31,6 +32,8 @@ data EMRCluster =
   , _eMRClusterLogUri :: Maybe (Val Text)
   , _eMRClusterName :: Val Text
   , _eMRClusterReleaseLabel :: Maybe (Val Text)
+  , _eMRClusterScaleDownBehavior :: Maybe (Val Text)
+  , _eMRClusterSecurityConfiguration :: Maybe (Val Text)
   , _eMRClusterServiceRole :: Val Text
   , _eMRClusterTags :: Maybe [Tag]
   , _eMRClusterVisibleToAllUsers :: Maybe (Val Bool')
@@ -42,6 +45,7 @@ instance ToJSON EMRCluster where
     catMaybes
     [ ("AdditionalInfo" .=) <$> _eMRClusterAdditionalInfo
     , ("Applications" .=) <$> _eMRClusterApplications
+    , ("AutoScalingRole" .=) <$> _eMRClusterAutoScalingRole
     , ("BootstrapActions" .=) <$> _eMRClusterBootstrapActions
     , ("Configurations" .=) <$> _eMRClusterConfigurations
     , Just ("Instances" .= _eMRClusterInstances)
@@ -49,6 +53,8 @@ instance ToJSON EMRCluster where
     , ("LogUri" .=) <$> _eMRClusterLogUri
     , Just ("Name" .= _eMRClusterName)
     , ("ReleaseLabel" .=) <$> _eMRClusterReleaseLabel
+    , ("ScaleDownBehavior" .=) <$> _eMRClusterScaleDownBehavior
+    , ("SecurityConfiguration" .=) <$> _eMRClusterSecurityConfiguration
     , Just ("ServiceRole" .= _eMRClusterServiceRole)
     , ("Tags" .=) <$> _eMRClusterTags
     , ("VisibleToAllUsers" .=) <$> _eMRClusterVisibleToAllUsers
@@ -59,6 +65,7 @@ instance FromJSON EMRCluster where
     EMRCluster <$>
       obj .:? "AdditionalInfo" <*>
       obj .:? "Applications" <*>
+      obj .:? "AutoScalingRole" <*>
       obj .:? "BootstrapActions" <*>
       obj .:? "Configurations" <*>
       obj .: "Instances" <*>
@@ -66,6 +73,8 @@ instance FromJSON EMRCluster where
       obj .:? "LogUri" <*>
       obj .: "Name" <*>
       obj .:? "ReleaseLabel" <*>
+      obj .:? "ScaleDownBehavior" <*>
+      obj .:? "SecurityConfiguration" <*>
       obj .: "ServiceRole" <*>
       obj .:? "Tags" <*>
       obj .:? "VisibleToAllUsers"
@@ -82,6 +91,7 @@ emrCluster instancesarg jobFlowRolearg namearg serviceRolearg =
   EMRCluster
   { _eMRClusterAdditionalInfo = Nothing
   , _eMRClusterApplications = Nothing
+  , _eMRClusterAutoScalingRole = Nothing
   , _eMRClusterBootstrapActions = Nothing
   , _eMRClusterConfigurations = Nothing
   , _eMRClusterInstances = instancesarg
@@ -89,6 +99,8 @@ emrCluster instancesarg jobFlowRolearg namearg serviceRolearg =
   , _eMRClusterLogUri = Nothing
   , _eMRClusterName = namearg
   , _eMRClusterReleaseLabel = Nothing
+  , _eMRClusterScaleDownBehavior = Nothing
+  , _eMRClusterSecurityConfiguration = Nothing
   , _eMRClusterServiceRole = serviceRolearg
   , _eMRClusterTags = Nothing
   , _eMRClusterVisibleToAllUsers = Nothing
@@ -101,6 +113,10 @@ emrcAdditionalInfo = lens _eMRClusterAdditionalInfo (\s a -> s { _eMRClusterAddi
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-cluster.html#cfn-emr-cluster-applications
 emrcApplications :: Lens' EMRCluster (Maybe [EMRClusterApplication])
 emrcApplications = lens _eMRClusterApplications (\s a -> s { _eMRClusterApplications = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-cluster.html#cfn-elasticmapreduce-cluster-autoscalingrole
+emrcAutoScalingRole :: Lens' EMRCluster (Maybe (Val Text))
+emrcAutoScalingRole = lens _eMRClusterAutoScalingRole (\s a -> s { _eMRClusterAutoScalingRole = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-cluster.html#cfn-emr-cluster-bootstrapactions
 emrcBootstrapActions :: Lens' EMRCluster (Maybe [EMRClusterBootstrapActionConfig])
@@ -129,6 +145,14 @@ emrcName = lens _eMRClusterName (\s a -> s { _eMRClusterName = a })
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-cluster.html#cfn-emr-cluster-releaselabel
 emrcReleaseLabel :: Lens' EMRCluster (Maybe (Val Text))
 emrcReleaseLabel = lens _eMRClusterReleaseLabel (\s a -> s { _eMRClusterReleaseLabel = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-cluster.html#cfn-elasticmapreduce-cluster-scaledownbehavior
+emrcScaleDownBehavior :: Lens' EMRCluster (Maybe (Val Text))
+emrcScaleDownBehavior = lens _eMRClusterScaleDownBehavior (\s a -> s { _eMRClusterScaleDownBehavior = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-cluster.html#cfn-emr-securityconfiguration
+emrcSecurityConfiguration :: Lens' EMRCluster (Maybe (Val Text))
+emrcSecurityConfiguration = lens _eMRClusterSecurityConfiguration (\s a -> s { _eMRClusterSecurityConfiguration = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-cluster.html#cfn-emr-cluster-servicerole
 emrcServiceRole :: Lens' EMRCluster (Val Text)

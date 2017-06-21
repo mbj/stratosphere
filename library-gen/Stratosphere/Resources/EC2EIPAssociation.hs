@@ -19,7 +19,7 @@ import Stratosphere.Values
 data EC2EIPAssociation =
   EC2EIPAssociation
   { _eC2EIPAssociationAllocationId :: Maybe (Val Text)
-  , _eC2EIPAssociationEip :: Maybe (Val Text)
+  , _eC2EIPAssociationEIP :: Maybe (Val Text)
   , _eC2EIPAssociationInstanceId :: Maybe (Val Text)
   , _eC2EIPAssociationNetworkInterfaceId :: Maybe (Val Text)
   , _eC2EIPAssociationPrivateIpAddress :: Maybe (Val Text)
@@ -30,7 +30,7 @@ instance ToJSON EC2EIPAssociation where
     object $
     catMaybes
     [ ("AllocationId" .=) <$> _eC2EIPAssociationAllocationId
-    , ("Eip" .=) <$> _eC2EIPAssociationEip
+    , ("EIP" .=) <$> _eC2EIPAssociationEIP
     , ("InstanceId" .=) <$> _eC2EIPAssociationInstanceId
     , ("NetworkInterfaceId" .=) <$> _eC2EIPAssociationNetworkInterfaceId
     , ("PrivateIpAddress" .=) <$> _eC2EIPAssociationPrivateIpAddress
@@ -40,7 +40,7 @@ instance FromJSON EC2EIPAssociation where
   parseJSON (Object obj) =
     EC2EIPAssociation <$>
       obj .:? "AllocationId" <*>
-      obj .:? "Eip" <*>
+      obj .:? "EIP" <*>
       obj .:? "InstanceId" <*>
       obj .:? "NetworkInterfaceId" <*>
       obj .:? "PrivateIpAddress"
@@ -53,7 +53,7 @@ ec2EIPAssociation
 ec2EIPAssociation  =
   EC2EIPAssociation
   { _eC2EIPAssociationAllocationId = Nothing
-  , _eC2EIPAssociationEip = Nothing
+  , _eC2EIPAssociationEIP = Nothing
   , _eC2EIPAssociationInstanceId = Nothing
   , _eC2EIPAssociationNetworkInterfaceId = Nothing
   , _eC2EIPAssociationPrivateIpAddress = Nothing
@@ -64,8 +64,8 @@ eceipaAllocationId :: Lens' EC2EIPAssociation (Maybe (Val Text))
 eceipaAllocationId = lens _eC2EIPAssociationAllocationId (\s a -> s { _eC2EIPAssociationAllocationId = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-eip-association.html#cfn-ec2-eipassociation-eip
-eceipaEip :: Lens' EC2EIPAssociation (Maybe (Val Text))
-eceipaEip = lens _eC2EIPAssociationEip (\s a -> s { _eC2EIPAssociationEip = a })
+eceipaEIP :: Lens' EC2EIPAssociation (Maybe (Val Text))
+eceipaEIP = lens _eC2EIPAssociationEIP (\s a -> s { _eC2EIPAssociationEIP = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-eip-association.html#cfn-ec2-eipassociation-instanceid
 eceipaInstanceId :: Lens' EC2EIPAssociation (Maybe (Val Text))

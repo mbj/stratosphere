@@ -22,6 +22,7 @@ data EventsRuleTarget =
   , _eventsRuleTargetId :: Val Text
   , _eventsRuleTargetInput :: Maybe (Val Text)
   , _eventsRuleTargetInputPath :: Maybe (Val Text)
+  , _eventsRuleTargetRoleArn :: Maybe (Val Text)
   } deriving (Show, Eq)
 
 instance ToJSON EventsRuleTarget where
@@ -32,6 +33,7 @@ instance ToJSON EventsRuleTarget where
     , Just ("Id" .= _eventsRuleTargetId)
     , ("Input" .=) <$> _eventsRuleTargetInput
     , ("InputPath" .=) <$> _eventsRuleTargetInputPath
+    , ("RoleArn" .=) <$> _eventsRuleTargetRoleArn
     ]
 
 instance FromJSON EventsRuleTarget where
@@ -40,7 +42,8 @@ instance FromJSON EventsRuleTarget where
       obj .: "Arn" <*>
       obj .: "Id" <*>
       obj .:? "Input" <*>
-      obj .:? "InputPath"
+      obj .:? "InputPath" <*>
+      obj .:? "RoleArn"
   parseJSON _ = mempty
 
 -- | Constructor for 'EventsRuleTarget' containing required fields as
@@ -55,6 +58,7 @@ eventsRuleTarget arnarg idarg =
   , _eventsRuleTargetId = idarg
   , _eventsRuleTargetInput = Nothing
   , _eventsRuleTargetInputPath = Nothing
+  , _eventsRuleTargetRoleArn = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-arn
@@ -72,3 +76,7 @@ ertInput = lens _eventsRuleTargetInput (\s a -> s { _eventsRuleTargetInput = a }
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-inputpath
 ertInputPath :: Lens' EventsRuleTarget (Maybe (Val Text))
 ertInputPath = lens _eventsRuleTargetInputPath (\s a -> s { _eventsRuleTargetInputPath = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-rolearn
+ertRoleArn :: Lens' EventsRuleTarget (Maybe (Val Text))
+ertRoleArn = lens _eventsRuleTargetRoleArn (\s a -> s { _eventsRuleTargetRoleArn = a })

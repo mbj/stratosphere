@@ -19,6 +19,7 @@ import Stratosphere.Values
 data ConfigConfigRuleSourceDetail =
   ConfigConfigRuleSourceDetail
   { _configConfigRuleSourceDetailEventSource :: Val Text
+  , _configConfigRuleSourceDetailMaximumExecutionFrequency :: Maybe (Val Text)
   , _configConfigRuleSourceDetailMessageType :: Val Text
   } deriving (Show, Eq)
 
@@ -27,6 +28,7 @@ instance ToJSON ConfigConfigRuleSourceDetail where
     object $
     catMaybes
     [ Just ("EventSource" .= _configConfigRuleSourceDetailEventSource)
+    , ("MaximumExecutionFrequency" .=) <$> _configConfigRuleSourceDetailMaximumExecutionFrequency
     , Just ("MessageType" .= _configConfigRuleSourceDetailMessageType)
     ]
 
@@ -34,6 +36,7 @@ instance FromJSON ConfigConfigRuleSourceDetail where
   parseJSON (Object obj) =
     ConfigConfigRuleSourceDetail <$>
       obj .: "EventSource" <*>
+      obj .:? "MaximumExecutionFrequency" <*>
       obj .: "MessageType"
   parseJSON _ = mempty
 
@@ -46,12 +49,17 @@ configConfigRuleSourceDetail
 configConfigRuleSourceDetail eventSourcearg messageTypearg =
   ConfigConfigRuleSourceDetail
   { _configConfigRuleSourceDetailEventSource = eventSourcearg
+  , _configConfigRuleSourceDetailMaximumExecutionFrequency = Nothing
   , _configConfigRuleSourceDetailMessageType = messageTypearg
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source-sourcedetails.html#cfn-config-configrule-source-sourcedetail-eventsource
 ccrsdEventSource :: Lens' ConfigConfigRuleSourceDetail (Val Text)
 ccrsdEventSource = lens _configConfigRuleSourceDetailEventSource (\s a -> s { _configConfigRuleSourceDetailEventSource = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source-sourcedetails.html#cfn-config-configrule-sourcedetail-maximumexecutionfrequency
+ccrsdMaximumExecutionFrequency :: Lens' ConfigConfigRuleSourceDetail (Maybe (Val Text))
+ccrsdMaximumExecutionFrequency = lens _configConfigRuleSourceDetailMaximumExecutionFrequency (\s a -> s { _configConfigRuleSourceDetailMaximumExecutionFrequency = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source-sourcedetails.html#cfn-config-configrule-source-sourcedetail-messagetype
 ccrsdMessageType :: Lens' ConfigConfigRuleSourceDetail (Val Text)

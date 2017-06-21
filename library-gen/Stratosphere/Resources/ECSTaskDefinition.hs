@@ -13,6 +13,7 @@ import Data.Text
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.ECSTaskDefinitionContainerDefinition
+import Stratosphere.ResourceProperties.ECSTaskDefinitionTaskDefinitionPlacementConstraint
 import Stratosphere.ResourceProperties.ECSTaskDefinitionVolume
 
 -- | Full data type definition for ECSTaskDefinition. See 'ecsTaskDefinition'
@@ -22,6 +23,7 @@ data ECSTaskDefinition =
   { _eCSTaskDefinitionContainerDefinitions :: Maybe [ECSTaskDefinitionContainerDefinition]
   , _eCSTaskDefinitionFamily :: Maybe (Val Text)
   , _eCSTaskDefinitionNetworkMode :: Maybe (Val Text)
+  , _eCSTaskDefinitionPlacementConstraints :: Maybe [ECSTaskDefinitionTaskDefinitionPlacementConstraint]
   , _eCSTaskDefinitionTaskRoleArn :: Maybe (Val Text)
   , _eCSTaskDefinitionVolumes :: Maybe [ECSTaskDefinitionVolume]
   } deriving (Show, Eq)
@@ -33,6 +35,7 @@ instance ToJSON ECSTaskDefinition where
     [ ("ContainerDefinitions" .=) <$> _eCSTaskDefinitionContainerDefinitions
     , ("Family" .=) <$> _eCSTaskDefinitionFamily
     , ("NetworkMode" .=) <$> _eCSTaskDefinitionNetworkMode
+    , ("PlacementConstraints" .=) <$> _eCSTaskDefinitionPlacementConstraints
     , ("TaskRoleArn" .=) <$> _eCSTaskDefinitionTaskRoleArn
     , ("Volumes" .=) <$> _eCSTaskDefinitionVolumes
     ]
@@ -43,6 +46,7 @@ instance FromJSON ECSTaskDefinition where
       obj .:? "ContainerDefinitions" <*>
       obj .:? "Family" <*>
       obj .:? "NetworkMode" <*>
+      obj .:? "PlacementConstraints" <*>
       obj .:? "TaskRoleArn" <*>
       obj .:? "Volumes"
   parseJSON _ = mempty
@@ -56,6 +60,7 @@ ecsTaskDefinition  =
   { _eCSTaskDefinitionContainerDefinitions = Nothing
   , _eCSTaskDefinitionFamily = Nothing
   , _eCSTaskDefinitionNetworkMode = Nothing
+  , _eCSTaskDefinitionPlacementConstraints = Nothing
   , _eCSTaskDefinitionTaskRoleArn = Nothing
   , _eCSTaskDefinitionVolumes = Nothing
   }
@@ -71,6 +76,10 @@ ecstdFamily = lens _eCSTaskDefinitionFamily (\s a -> s { _eCSTaskDefinitionFamil
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-networkmode
 ecstdNetworkMode :: Lens' ECSTaskDefinition (Maybe (Val Text))
 ecstdNetworkMode = lens _eCSTaskDefinitionNetworkMode (\s a -> s { _eCSTaskDefinitionNetworkMode = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-placementconstraints
+ecstdPlacementConstraints :: Lens' ECSTaskDefinition (Maybe [ECSTaskDefinitionTaskDefinitionPlacementConstraint])
+ecstdPlacementConstraints = lens _eCSTaskDefinitionPlacementConstraints (\s a -> s { _eCSTaskDefinitionPlacementConstraints = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-taskrolearn
 ecstdTaskRoleArn :: Lens' ECSTaskDefinition (Maybe (Val Text))

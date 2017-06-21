@@ -1,0 +1,57 @@
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-xssmatchset-fieldtomatch.html
+
+module Stratosphere.ResourceProperties.WAFRegionalXssMatchSetFieldToMatch where
+
+import Control.Lens hiding ((.=))
+import Data.Aeson
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
+import Data.Text
+
+import Stratosphere.Values
+
+
+-- | Full data type definition for WAFRegionalXssMatchSetFieldToMatch. See
+-- 'wafRegionalXssMatchSetFieldToMatch' for a more convenient constructor.
+data WAFRegionalXssMatchSetFieldToMatch =
+  WAFRegionalXssMatchSetFieldToMatch
+  { _wAFRegionalXssMatchSetFieldToMatchData :: Maybe (Val Text)
+  , _wAFRegionalXssMatchSetFieldToMatchType :: Val Text
+  } deriving (Show, Eq)
+
+instance ToJSON WAFRegionalXssMatchSetFieldToMatch where
+  toJSON WAFRegionalXssMatchSetFieldToMatch{..} =
+    object $
+    catMaybes
+    [ ("Data" .=) <$> _wAFRegionalXssMatchSetFieldToMatchData
+    , Just ("Type" .= _wAFRegionalXssMatchSetFieldToMatchType)
+    ]
+
+instance FromJSON WAFRegionalXssMatchSetFieldToMatch where
+  parseJSON (Object obj) =
+    WAFRegionalXssMatchSetFieldToMatch <$>
+      obj .:? "Data" <*>
+      obj .: "Type"
+  parseJSON _ = mempty
+
+-- | Constructor for 'WAFRegionalXssMatchSetFieldToMatch' containing required
+-- fields as arguments.
+wafRegionalXssMatchSetFieldToMatch
+  :: Val Text -- ^ 'wafrxmsftmType'
+  -> WAFRegionalXssMatchSetFieldToMatch
+wafRegionalXssMatchSetFieldToMatch typearg =
+  WAFRegionalXssMatchSetFieldToMatch
+  { _wAFRegionalXssMatchSetFieldToMatchData = Nothing
+  , _wAFRegionalXssMatchSetFieldToMatchType = typearg
+  }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-xssmatchset-fieldtomatch.html#cfn-wafregional-xssmatchset-fieldtomatch-data
+wafrxmsftmData :: Lens' WAFRegionalXssMatchSetFieldToMatch (Maybe (Val Text))
+wafrxmsftmData = lens _wAFRegionalXssMatchSetFieldToMatchData (\s a -> s { _wAFRegionalXssMatchSetFieldToMatchData = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-xssmatchset-fieldtomatch.html#cfn-wafregional-xssmatchset-fieldtomatch-type
+wafrxmsftmType :: Lens' WAFRegionalXssMatchSetFieldToMatch (Val Text)
+wafrxmsftmType = lens _wAFRegionalXssMatchSetFieldToMatchType (\s a -> s { _wAFRegionalXssMatchSetFieldToMatchType = a })

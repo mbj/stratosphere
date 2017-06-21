@@ -10,7 +10,7 @@
 {-# LANGUAGE TypeFamilies #-}
 
 #if MIN_VERSION_GLASGOW_HASKELL(8,0,1,0)
-{-# OPTIONS_GHC -fmax-pmcheck-iterations=10000000 #-}
+{-# OPTIONS_GHC -fmax-pmcheck-iterations=20000000 #-}
 #endif
 
 -- | See:
@@ -79,6 +79,13 @@ import Stratosphere.Resources.CodeDeployDeploymentConfig as X
 import Stratosphere.Resources.CodeDeployDeploymentGroup as X
 import Stratosphere.Resources.CodePipelineCustomActionType as X
 import Stratosphere.Resources.CodePipelinePipeline as X
+import Stratosphere.Resources.CognitoIdentityPool as X
+import Stratosphere.Resources.CognitoIdentityPoolRoleAttachment as X
+import Stratosphere.Resources.CognitoUserPool as X
+import Stratosphere.Resources.CognitoUserPoolClient as X
+import Stratosphere.Resources.CognitoUserPoolGroup as X
+import Stratosphere.Resources.CognitoUserPoolUser as X
+import Stratosphere.Resources.CognitoUserPoolUserToGroupAttachment as X
 import Stratosphere.Resources.ConfigConfigRule as X
 import Stratosphere.Resources.ConfigConfigurationRecorder as X
 import Stratosphere.Resources.ConfigDeliveryChannel as X
@@ -130,6 +137,7 @@ import Stratosphere.Resources.EFSFileSystem as X
 import Stratosphere.Resources.EFSMountTarget as X
 import Stratosphere.Resources.EMRCluster as X
 import Stratosphere.Resources.EMRInstanceGroupConfig as X
+import Stratosphere.Resources.EMRSecurityConfiguration as X
 import Stratosphere.Resources.EMRStep as X
 import Stratosphere.Resources.ElastiCacheCacheCluster as X
 import Stratosphere.Resources.ElastiCacheParameterGroup as X
@@ -214,6 +222,9 @@ import Stratosphere.Resources.SQSQueue as X
 import Stratosphere.Resources.SQSQueuePolicy as X
 import Stratosphere.Resources.SSMAssociation as X
 import Stratosphere.Resources.SSMDocument as X
+import Stratosphere.Resources.SSMParameter as X
+import Stratosphere.Resources.StepFunctionsActivity as X
+import Stratosphere.Resources.StepFunctionsStateMachine as X
 import Stratosphere.Resources.WAFByteMatchSet as X
 import Stratosphere.Resources.WAFIPSet as X
 import Stratosphere.Resources.WAFRule as X
@@ -221,6 +232,14 @@ import Stratosphere.Resources.WAFSizeConstraintSet as X
 import Stratosphere.Resources.WAFSqlInjectionMatchSet as X
 import Stratosphere.Resources.WAFWebACL as X
 import Stratosphere.Resources.WAFXssMatchSet as X
+import Stratosphere.Resources.WAFRegionalByteMatchSet as X
+import Stratosphere.Resources.WAFRegionalIPSet as X
+import Stratosphere.Resources.WAFRegionalRule as X
+import Stratosphere.Resources.WAFRegionalSizeConstraintSet as X
+import Stratosphere.Resources.WAFRegionalSqlInjectionMatchSet as X
+import Stratosphere.Resources.WAFRegionalWebACL as X
+import Stratosphere.Resources.WAFRegionalWebACLAssociation as X
+import Stratosphere.Resources.WAFRegionalXssMatchSet as X
 import Stratosphere.Resources.WorkSpacesWorkspace as X
 import Stratosphere.ResourceProperties.ApiGatewayApiKeyStageKey as X
 import Stratosphere.ResourceProperties.ApiGatewayDeploymentMethodSetting as X
@@ -264,12 +283,15 @@ import Stratosphere.ResourceProperties.CodeBuildProjectSource as X
 import Stratosphere.ResourceProperties.CodeBuildProjectSourceAuth as X
 import Stratosphere.ResourceProperties.CodeCommitRepositoryRepositoryTrigger as X
 import Stratosphere.ResourceProperties.CodeDeployDeploymentConfigMinimumHealthyHosts as X
+import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupAlarm as X
+import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupAlarmConfiguration as X
 import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupDeployment as X
 import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupEC2TagFilter as X
 import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupGitHubLocation as X
 import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupRevisionLocation as X
 import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupS3Location as X
 import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupTagFilter as X
+import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupTriggerConfig as X
 import Stratosphere.ResourceProperties.CodePipelineCustomActionTypeArtifactDetails as X
 import Stratosphere.ResourceProperties.CodePipelineCustomActionTypeConfigurationProperties as X
 import Stratosphere.ResourceProperties.CodePipelineCustomActionTypeSettings as X
@@ -282,6 +304,24 @@ import Stratosphere.ResourceProperties.CodePipelinePipelineInputArtifact as X
 import Stratosphere.ResourceProperties.CodePipelinePipelineOutputArtifact as X
 import Stratosphere.ResourceProperties.CodePipelinePipelineStageDeclaration as X
 import Stratosphere.ResourceProperties.CodePipelinePipelineStageTransition as X
+import Stratosphere.ResourceProperties.CognitoIdentityPoolCognitoIdentityProvider as X
+import Stratosphere.ResourceProperties.CognitoIdentityPoolCognitoStreams as X
+import Stratosphere.ResourceProperties.CognitoIdentityPoolPushSync as X
+import Stratosphere.ResourceProperties.CognitoIdentityPoolRoleAttachmentMappingRule as X
+import Stratosphere.ResourceProperties.CognitoIdentityPoolRoleAttachmentRoleMapping as X
+import Stratosphere.ResourceProperties.CognitoIdentityPoolRoleAttachmentRulesConfigurationType as X
+import Stratosphere.ResourceProperties.CognitoUserPoolAdminCreateUserConfig as X
+import Stratosphere.ResourceProperties.CognitoUserPoolDeviceConfiguration as X
+import Stratosphere.ResourceProperties.CognitoUserPoolEmailConfiguration as X
+import Stratosphere.ResourceProperties.CognitoUserPoolInviteMessageTemplate as X
+import Stratosphere.ResourceProperties.CognitoUserPoolLambdaConfig as X
+import Stratosphere.ResourceProperties.CognitoUserPoolNumberAttributeConstraints as X
+import Stratosphere.ResourceProperties.CognitoUserPoolPasswordPolicy as X
+import Stratosphere.ResourceProperties.CognitoUserPoolPolicies as X
+import Stratosphere.ResourceProperties.CognitoUserPoolSchemaAttribute as X
+import Stratosphere.ResourceProperties.CognitoUserPoolSmsConfiguration as X
+import Stratosphere.ResourceProperties.CognitoUserPoolStringAttributeConstraints as X
+import Stratosphere.ResourceProperties.CognitoUserPoolUserAttributeType as X
 import Stratosphere.ResourceProperties.ConfigConfigRuleScope as X
 import Stratosphere.ResourceProperties.ConfigConfigRuleSource as X
 import Stratosphere.ResourceProperties.ConfigConfigRuleSourceDetail as X
@@ -316,19 +356,21 @@ import Stratosphere.ResourceProperties.EC2NetworkAclEntryPortRange as X
 import Stratosphere.ResourceProperties.EC2NetworkInterfaceInstanceIpv6Address as X
 import Stratosphere.ResourceProperties.EC2NetworkInterfacePrivateIpAddressSpecification as X
 import Stratosphere.ResourceProperties.EC2SecurityGroupRule as X
-import Stratosphere.ResourceProperties.EC2SpotFleetBlockDeviceMappings as X
-import Stratosphere.ResourceProperties.EC2SpotFleetEbs as X
-import Stratosphere.ResourceProperties.EC2SpotFleetIamInstanceProfile as X
+import Stratosphere.ResourceProperties.EC2SpotFleetBlockDeviceMapping as X
+import Stratosphere.ResourceProperties.EC2SpotFleetEbsBlockDevice as X
+import Stratosphere.ResourceProperties.EC2SpotFleetGroupIdentifier as X
+import Stratosphere.ResourceProperties.EC2SpotFleetIamInstanceProfileSpecification as X
 import Stratosphere.ResourceProperties.EC2SpotFleetInstanceIpv6Address as X
-import Stratosphere.ResourceProperties.EC2SpotFleetLaunchSpecifications as X
-import Stratosphere.ResourceProperties.EC2SpotFleetMonitoring as X
-import Stratosphere.ResourceProperties.EC2SpotFleetNetworkInterfaces as X
-import Stratosphere.ResourceProperties.EC2SpotFleetPlacement as X
-import Stratosphere.ResourceProperties.EC2SpotFleetPrivateIpAddresses as X
-import Stratosphere.ResourceProperties.EC2SpotFleetSecurityGroups as X
+import Stratosphere.ResourceProperties.EC2SpotFleetInstanceNetworkInterfaceSpecification as X
+import Stratosphere.ResourceProperties.EC2SpotFleetPrivateIpAddressSpecification as X
+import Stratosphere.ResourceProperties.EC2SpotFleetSpotFleetLaunchSpecification as X
+import Stratosphere.ResourceProperties.EC2SpotFleetSpotFleetMonitoring as X
 import Stratosphere.ResourceProperties.EC2SpotFleetSpotFleetRequestConfigData as X
+import Stratosphere.ResourceProperties.EC2SpotFleetSpotPlacement as X
 import Stratosphere.ResourceProperties.ECSServiceDeploymentConfiguration as X
 import Stratosphere.ResourceProperties.ECSServiceLoadBalancer as X
+import Stratosphere.ResourceProperties.ECSServicePlacementConstraint as X
+import Stratosphere.ResourceProperties.ECSServicePlacementStrategy as X
 import Stratosphere.ResourceProperties.ECSTaskDefinitionContainerDefinition as X
 import Stratosphere.ResourceProperties.ECSTaskDefinitionHostEntry as X
 import Stratosphere.ResourceProperties.ECSTaskDefinitionHostVolumeProperties as X
@@ -336,23 +378,40 @@ import Stratosphere.ResourceProperties.ECSTaskDefinitionKeyValuePair as X
 import Stratosphere.ResourceProperties.ECSTaskDefinitionLogConfiguration as X
 import Stratosphere.ResourceProperties.ECSTaskDefinitionMountPoint as X
 import Stratosphere.ResourceProperties.ECSTaskDefinitionPortMapping as X
+import Stratosphere.ResourceProperties.ECSTaskDefinitionTaskDefinitionPlacementConstraint as X
 import Stratosphere.ResourceProperties.ECSTaskDefinitionUlimit as X
 import Stratosphere.ResourceProperties.ECSTaskDefinitionVolume as X
 import Stratosphere.ResourceProperties.ECSTaskDefinitionVolumeFrom as X
 import Stratosphere.ResourceProperties.EFSFileSystemElasticFileSystemTag as X
 import Stratosphere.ResourceProperties.EMRClusterApplication as X
+import Stratosphere.ResourceProperties.EMRClusterAutoScalingPolicy as X
 import Stratosphere.ResourceProperties.EMRClusterBootstrapActionConfig as X
+import Stratosphere.ResourceProperties.EMRClusterCloudWatchAlarmDefinition as X
 import Stratosphere.ResourceProperties.EMRClusterConfiguration as X
 import Stratosphere.ResourceProperties.EMRClusterEbsBlockDeviceConfig as X
 import Stratosphere.ResourceProperties.EMRClusterEbsConfiguration as X
 import Stratosphere.ResourceProperties.EMRClusterInstanceGroupConfig as X
 import Stratosphere.ResourceProperties.EMRClusterJobFlowInstancesConfig as X
+import Stratosphere.ResourceProperties.EMRClusterMetricDimension as X
 import Stratosphere.ResourceProperties.EMRClusterPlacementType as X
+import Stratosphere.ResourceProperties.EMRClusterScalingAction as X
+import Stratosphere.ResourceProperties.EMRClusterScalingConstraints as X
+import Stratosphere.ResourceProperties.EMRClusterScalingRule as X
+import Stratosphere.ResourceProperties.EMRClusterScalingTrigger as X
 import Stratosphere.ResourceProperties.EMRClusterScriptBootstrapActionConfig as X
+import Stratosphere.ResourceProperties.EMRClusterSimpleScalingPolicyConfiguration as X
 import Stratosphere.ResourceProperties.EMRClusterVolumeSpecification as X
+import Stratosphere.ResourceProperties.EMRInstanceGroupConfigAutoScalingPolicy as X
+import Stratosphere.ResourceProperties.EMRInstanceGroupConfigCloudWatchAlarmDefinition as X
 import Stratosphere.ResourceProperties.EMRInstanceGroupConfigConfiguration as X
 import Stratosphere.ResourceProperties.EMRInstanceGroupConfigEbsBlockDeviceConfig as X
 import Stratosphere.ResourceProperties.EMRInstanceGroupConfigEbsConfiguration as X
+import Stratosphere.ResourceProperties.EMRInstanceGroupConfigMetricDimension as X
+import Stratosphere.ResourceProperties.EMRInstanceGroupConfigScalingAction as X
+import Stratosphere.ResourceProperties.EMRInstanceGroupConfigScalingConstraints as X
+import Stratosphere.ResourceProperties.EMRInstanceGroupConfigScalingRule as X
+import Stratosphere.ResourceProperties.EMRInstanceGroupConfigScalingTrigger as X
+import Stratosphere.ResourceProperties.EMRInstanceGroupConfigSimpleScalingPolicyConfiguration as X
 import Stratosphere.ResourceProperties.EMRInstanceGroupConfigVolumeSpecification as X
 import Stratosphere.ResourceProperties.EMRStepHadoopJarStepConfig as X
 import Stratosphere.ResourceProperties.EMRStepKeyValue as X
@@ -416,6 +475,7 @@ import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamS3Destinatio
 import Stratosphere.ResourceProperties.LambdaFunctionCode as X
 import Stratosphere.ResourceProperties.LambdaFunctionDeadLetterConfig as X
 import Stratosphere.ResourceProperties.LambdaFunctionEnvironment as X
+import Stratosphere.ResourceProperties.LambdaFunctionTracingConfig as X
 import Stratosphere.ResourceProperties.LambdaFunctionVpcConfig as X
 import Stratosphere.ResourceProperties.LogsMetricFilterMetricTransformation as X
 import Stratosphere.ResourceProperties.OpsWorksAppDataSource as X
@@ -489,6 +549,18 @@ import Stratosphere.ResourceProperties.WAFWebACLActivatedRule as X
 import Stratosphere.ResourceProperties.WAFWebACLWafAction as X
 import Stratosphere.ResourceProperties.WAFXssMatchSetFieldToMatch as X
 import Stratosphere.ResourceProperties.WAFXssMatchSetXssMatchTuple as X
+import Stratosphere.ResourceProperties.WAFRegionalByteMatchSetByteMatchTuple as X
+import Stratosphere.ResourceProperties.WAFRegionalByteMatchSetFieldToMatch as X
+import Stratosphere.ResourceProperties.WAFRegionalIPSetIPSetDescriptor as X
+import Stratosphere.ResourceProperties.WAFRegionalRulePredicate as X
+import Stratosphere.ResourceProperties.WAFRegionalSizeConstraintSetFieldToMatch as X
+import Stratosphere.ResourceProperties.WAFRegionalSizeConstraintSetSizeConstraint as X
+import Stratosphere.ResourceProperties.WAFRegionalSqlInjectionMatchSetFieldToMatch as X
+import Stratosphere.ResourceProperties.WAFRegionalSqlInjectionMatchSetSqlInjectionMatchTuple as X
+import Stratosphere.ResourceProperties.WAFRegionalWebACLAction as X
+import Stratosphere.ResourceProperties.WAFRegionalWebACLRule as X
+import Stratosphere.ResourceProperties.WAFRegionalXssMatchSetFieldToMatch as X
+import Stratosphere.ResourceProperties.WAFRegionalXssMatchSetXssMatchTuple as X
 import Stratosphere.ResourceProperties.Tag as X
 
 import Stratosphere.ResourceAttributes.AutoScalingReplacingUpdatePolicy as X
@@ -535,6 +607,13 @@ data ResourceProperties
   | CodeDeployDeploymentGroupProperties CodeDeployDeploymentGroup
   | CodePipelineCustomActionTypeProperties CodePipelineCustomActionType
   | CodePipelinePipelineProperties CodePipelinePipeline
+  | CognitoIdentityPoolProperties CognitoIdentityPool
+  | CognitoIdentityPoolRoleAttachmentProperties CognitoIdentityPoolRoleAttachment
+  | CognitoUserPoolProperties CognitoUserPool
+  | CognitoUserPoolClientProperties CognitoUserPoolClient
+  | CognitoUserPoolGroupProperties CognitoUserPoolGroup
+  | CognitoUserPoolUserProperties CognitoUserPoolUser
+  | CognitoUserPoolUserToGroupAttachmentProperties CognitoUserPoolUserToGroupAttachment
   | ConfigConfigRuleProperties ConfigConfigRule
   | ConfigConfigurationRecorderProperties ConfigConfigurationRecorder
   | ConfigDeliveryChannelProperties ConfigDeliveryChannel
@@ -586,6 +665,7 @@ data ResourceProperties
   | EFSMountTargetProperties EFSMountTarget
   | EMRClusterProperties EMRCluster
   | EMRInstanceGroupConfigProperties EMRInstanceGroupConfig
+  | EMRSecurityConfigurationProperties EMRSecurityConfiguration
   | EMRStepProperties EMRStep
   | ElastiCacheCacheClusterProperties ElastiCacheCacheCluster
   | ElastiCacheParameterGroupProperties ElastiCacheParameterGroup
@@ -670,6 +750,9 @@ data ResourceProperties
   | SQSQueuePolicyProperties SQSQueuePolicy
   | SSMAssociationProperties SSMAssociation
   | SSMDocumentProperties SSMDocument
+  | SSMParameterProperties SSMParameter
+  | StepFunctionsActivityProperties StepFunctionsActivity
+  | StepFunctionsStateMachineProperties StepFunctionsStateMachine
   | WAFByteMatchSetProperties WAFByteMatchSet
   | WAFIPSetProperties WAFIPSet
   | WAFRuleProperties WAFRule
@@ -677,6 +760,14 @@ data ResourceProperties
   | WAFSqlInjectionMatchSetProperties WAFSqlInjectionMatchSet
   | WAFWebACLProperties WAFWebACL
   | WAFXssMatchSetProperties WAFXssMatchSet
+  | WAFRegionalByteMatchSetProperties WAFRegionalByteMatchSet
+  | WAFRegionalIPSetProperties WAFRegionalIPSet
+  | WAFRegionalRuleProperties WAFRegionalRule
+  | WAFRegionalSizeConstraintSetProperties WAFRegionalSizeConstraintSet
+  | WAFRegionalSqlInjectionMatchSetProperties WAFRegionalSqlInjectionMatchSet
+  | WAFRegionalWebACLProperties WAFRegionalWebACL
+  | WAFRegionalWebACLAssociationProperties WAFRegionalWebACLAssociation
+  | WAFRegionalXssMatchSetProperties WAFRegionalXssMatchSet
   | WorkSpacesWorkspaceProperties WorkSpacesWorkspace
 
   deriving (Show, Eq)
@@ -798,6 +889,20 @@ resourcePropertiesJSON (CodePipelineCustomActionTypeProperties x) =
   [ "Type" .= ("AWS::CodePipeline::CustomActionType" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (CodePipelinePipelineProperties x) =
   [ "Type" .= ("AWS::CodePipeline::Pipeline" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (CognitoIdentityPoolProperties x) =
+  [ "Type" .= ("AWS::Cognito::IdentityPool" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (CognitoIdentityPoolRoleAttachmentProperties x) =
+  [ "Type" .= ("AWS::Cognito::IdentityPoolRoleAttachment" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (CognitoUserPoolProperties x) =
+  [ "Type" .= ("AWS::Cognito::UserPool" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (CognitoUserPoolClientProperties x) =
+  [ "Type" .= ("AWS::Cognito::UserPoolClient" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (CognitoUserPoolGroupProperties x) =
+  [ "Type" .= ("AWS::Cognito::UserPoolGroup" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (CognitoUserPoolUserProperties x) =
+  [ "Type" .= ("AWS::Cognito::UserPoolUser" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (CognitoUserPoolUserToGroupAttachmentProperties x) =
+  [ "Type" .= ("AWS::Cognito::UserPoolUserToGroupAttachment" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ConfigConfigRuleProperties x) =
   [ "Type" .= ("AWS::Config::ConfigRule" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ConfigConfigurationRecorderProperties x) =
@@ -900,6 +1005,8 @@ resourcePropertiesJSON (EMRClusterProperties x) =
   [ "Type" .= ("AWS::EMR::Cluster" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (EMRInstanceGroupConfigProperties x) =
   [ "Type" .= ("AWS::EMR::InstanceGroupConfig" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (EMRSecurityConfigurationProperties x) =
+  [ "Type" .= ("AWS::EMR::SecurityConfiguration" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (EMRStepProperties x) =
   [ "Type" .= ("AWS::EMR::Step" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ElastiCacheCacheClusterProperties x) =
@@ -1068,6 +1175,12 @@ resourcePropertiesJSON (SSMAssociationProperties x) =
   [ "Type" .= ("AWS::SSM::Association" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (SSMDocumentProperties x) =
   [ "Type" .= ("AWS::SSM::Document" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (SSMParameterProperties x) =
+  [ "Type" .= ("AWS::SSM::Parameter" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (StepFunctionsActivityProperties x) =
+  [ "Type" .= ("AWS::StepFunctions::Activity" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (StepFunctionsStateMachineProperties x) =
+  [ "Type" .= ("AWS::StepFunctions::StateMachine" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (WAFByteMatchSetProperties x) =
   [ "Type" .= ("AWS::WAF::ByteMatchSet" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (WAFIPSetProperties x) =
@@ -1082,6 +1195,22 @@ resourcePropertiesJSON (WAFWebACLProperties x) =
   [ "Type" .= ("AWS::WAF::WebACL" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (WAFXssMatchSetProperties x) =
   [ "Type" .= ("AWS::WAF::XssMatchSet" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (WAFRegionalByteMatchSetProperties x) =
+  [ "Type" .= ("AWS::WAFRegional::ByteMatchSet" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (WAFRegionalIPSetProperties x) =
+  [ "Type" .= ("AWS::WAFRegional::IPSet" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (WAFRegionalRuleProperties x) =
+  [ "Type" .= ("AWS::WAFRegional::Rule" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (WAFRegionalSizeConstraintSetProperties x) =
+  [ "Type" .= ("AWS::WAFRegional::SizeConstraintSet" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (WAFRegionalSqlInjectionMatchSetProperties x) =
+  [ "Type" .= ("AWS::WAFRegional::SqlInjectionMatchSet" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (WAFRegionalWebACLProperties x) =
+  [ "Type" .= ("AWS::WAFRegional::WebACL" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (WAFRegionalWebACLAssociationProperties x) =
+  [ "Type" .= ("AWS::WAFRegional::WebACLAssociation" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (WAFRegionalXssMatchSetProperties x) =
+  [ "Type" .= ("AWS::WAFRegional::XssMatchSet" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (WorkSpacesWorkspaceProperties x) =
   [ "Type" .= ("AWS::WorkSpaces::Workspace" :: String), "Properties" .= toJSON x]
 
@@ -1124,6 +1253,13 @@ resourceFromJSON n o =
          "AWS::CodeDeploy::DeploymentGroup" -> CodeDeployDeploymentGroupProperties <$> (o .: "Properties")
          "AWS::CodePipeline::CustomActionType" -> CodePipelineCustomActionTypeProperties <$> (o .: "Properties")
          "AWS::CodePipeline::Pipeline" -> CodePipelinePipelineProperties <$> (o .: "Properties")
+         "AWS::Cognito::IdentityPool" -> CognitoIdentityPoolProperties <$> (o .: "Properties")
+         "AWS::Cognito::IdentityPoolRoleAttachment" -> CognitoIdentityPoolRoleAttachmentProperties <$> (o .: "Properties")
+         "AWS::Cognito::UserPool" -> CognitoUserPoolProperties <$> (o .: "Properties")
+         "AWS::Cognito::UserPoolClient" -> CognitoUserPoolClientProperties <$> (o .: "Properties")
+         "AWS::Cognito::UserPoolGroup" -> CognitoUserPoolGroupProperties <$> (o .: "Properties")
+         "AWS::Cognito::UserPoolUser" -> CognitoUserPoolUserProperties <$> (o .: "Properties")
+         "AWS::Cognito::UserPoolUserToGroupAttachment" -> CognitoUserPoolUserToGroupAttachmentProperties <$> (o .: "Properties")
          "AWS::Config::ConfigRule" -> ConfigConfigRuleProperties <$> (o .: "Properties")
          "AWS::Config::ConfigurationRecorder" -> ConfigConfigurationRecorderProperties <$> (o .: "Properties")
          "AWS::Config::DeliveryChannel" -> ConfigDeliveryChannelProperties <$> (o .: "Properties")
@@ -1175,6 +1311,7 @@ resourceFromJSON n o =
          "AWS::EFS::MountTarget" -> EFSMountTargetProperties <$> (o .: "Properties")
          "AWS::EMR::Cluster" -> EMRClusterProperties <$> (o .: "Properties")
          "AWS::EMR::InstanceGroupConfig" -> EMRInstanceGroupConfigProperties <$> (o .: "Properties")
+         "AWS::EMR::SecurityConfiguration" -> EMRSecurityConfigurationProperties <$> (o .: "Properties")
          "AWS::EMR::Step" -> EMRStepProperties <$> (o .: "Properties")
          "AWS::ElastiCache::CacheCluster" -> ElastiCacheCacheClusterProperties <$> (o .: "Properties")
          "AWS::ElastiCache::ParameterGroup" -> ElastiCacheParameterGroupProperties <$> (o .: "Properties")
@@ -1259,6 +1396,9 @@ resourceFromJSON n o =
          "AWS::SQS::QueuePolicy" -> SQSQueuePolicyProperties <$> (o .: "Properties")
          "AWS::SSM::Association" -> SSMAssociationProperties <$> (o .: "Properties")
          "AWS::SSM::Document" -> SSMDocumentProperties <$> (o .: "Properties")
+         "AWS::SSM::Parameter" -> SSMParameterProperties <$> (o .: "Properties")
+         "AWS::StepFunctions::Activity" -> StepFunctionsActivityProperties <$> (o .: "Properties")
+         "AWS::StepFunctions::StateMachine" -> StepFunctionsStateMachineProperties <$> (o .: "Properties")
          "AWS::WAF::ByteMatchSet" -> WAFByteMatchSetProperties <$> (o .: "Properties")
          "AWS::WAF::IPSet" -> WAFIPSetProperties <$> (o .: "Properties")
          "AWS::WAF::Rule" -> WAFRuleProperties <$> (o .: "Properties")
@@ -1266,6 +1406,14 @@ resourceFromJSON n o =
          "AWS::WAF::SqlInjectionMatchSet" -> WAFSqlInjectionMatchSetProperties <$> (o .: "Properties")
          "AWS::WAF::WebACL" -> WAFWebACLProperties <$> (o .: "Properties")
          "AWS::WAF::XssMatchSet" -> WAFXssMatchSetProperties <$> (o .: "Properties")
+         "AWS::WAFRegional::ByteMatchSet" -> WAFRegionalByteMatchSetProperties <$> (o .: "Properties")
+         "AWS::WAFRegional::IPSet" -> WAFRegionalIPSetProperties <$> (o .: "Properties")
+         "AWS::WAFRegional::Rule" -> WAFRegionalRuleProperties <$> (o .: "Properties")
+         "AWS::WAFRegional::SizeConstraintSet" -> WAFRegionalSizeConstraintSetProperties <$> (o .: "Properties")
+         "AWS::WAFRegional::SqlInjectionMatchSet" -> WAFRegionalSqlInjectionMatchSetProperties <$> (o .: "Properties")
+         "AWS::WAFRegional::WebACL" -> WAFRegionalWebACLProperties <$> (o .: "Properties")
+         "AWS::WAFRegional::WebACLAssociation" -> WAFRegionalWebACLAssociationProperties <$> (o .: "Properties")
+         "AWS::WAFRegional::XssMatchSet" -> WAFRegionalXssMatchSetProperties <$> (o .: "Properties")
          "AWS::WorkSpaces::Workspace" -> WorkSpacesWorkspaceProperties <$> (o .: "Properties")
 
          _ -> fail $ "Unknown resource type: " ++ type'

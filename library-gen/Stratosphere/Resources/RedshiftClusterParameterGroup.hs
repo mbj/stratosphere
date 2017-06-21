@@ -13,6 +13,7 @@ import Data.Text
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.RedshiftClusterParameterGroupParameter
+import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for RedshiftClusterParameterGroup. See
 -- 'redshiftClusterParameterGroup' for a more convenient constructor.
@@ -21,6 +22,7 @@ data RedshiftClusterParameterGroup =
   { _redshiftClusterParameterGroupDescription :: Val Text
   , _redshiftClusterParameterGroupParameterGroupFamily :: Val Text
   , _redshiftClusterParameterGroupParameters :: Maybe [RedshiftClusterParameterGroupParameter]
+  , _redshiftClusterParameterGroupTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
 instance ToJSON RedshiftClusterParameterGroup where
@@ -30,6 +32,7 @@ instance ToJSON RedshiftClusterParameterGroup where
     [ Just ("Description" .= _redshiftClusterParameterGroupDescription)
     , Just ("ParameterGroupFamily" .= _redshiftClusterParameterGroupParameterGroupFamily)
     , ("Parameters" .=) <$> _redshiftClusterParameterGroupParameters
+    , ("Tags" .=) <$> _redshiftClusterParameterGroupTags
     ]
 
 instance FromJSON RedshiftClusterParameterGroup where
@@ -37,7 +40,8 @@ instance FromJSON RedshiftClusterParameterGroup where
     RedshiftClusterParameterGroup <$>
       obj .: "Description" <*>
       obj .: "ParameterGroupFamily" <*>
-      obj .:? "Parameters"
+      obj .:? "Parameters" <*>
+      obj .:? "Tags"
   parseJSON _ = mempty
 
 -- | Constructor for 'RedshiftClusterParameterGroup' containing required
@@ -51,6 +55,7 @@ redshiftClusterParameterGroup descriptionarg parameterGroupFamilyarg =
   { _redshiftClusterParameterGroupDescription = descriptionarg
   , _redshiftClusterParameterGroupParameterGroupFamily = parameterGroupFamilyarg
   , _redshiftClusterParameterGroupParameters = Nothing
+  , _redshiftClusterParameterGroupTags = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clusterparametergroup.html#cfn-redshift-clusterparametergroup-description
@@ -64,3 +69,7 @@ rcpgParameterGroupFamily = lens _redshiftClusterParameterGroupParameterGroupFami
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clusterparametergroup.html#cfn-redshift-clusterparametergroup-parameters
 rcpgParameters :: Lens' RedshiftClusterParameterGroup (Maybe [RedshiftClusterParameterGroupParameter])
 rcpgParameters = lens _redshiftClusterParameterGroupParameters (\s a -> s { _redshiftClusterParameterGroupParameters = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clusterparametergroup.html#cfn-redshift-clusterparametergroup-tags
+rcpgTags :: Lens' RedshiftClusterParameterGroup (Maybe [Tag])
+rcpgTags = lens _redshiftClusterParameterGroupTags (\s a -> s { _redshiftClusterParameterGroupTags = a })

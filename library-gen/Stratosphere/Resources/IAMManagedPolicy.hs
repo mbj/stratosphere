@@ -20,8 +20,9 @@ data IAMManagedPolicy =
   IAMManagedPolicy
   { _iAMManagedPolicyDescription :: Maybe (Val Text)
   , _iAMManagedPolicyGroups :: Maybe [Val Text]
+  , _iAMManagedPolicyManagedPolicyName :: Maybe (Val Text)
   , _iAMManagedPolicyPath :: Maybe (Val Text)
-  , _iAMManagedPolicyPolicyDocument :: Maybe Object
+  , _iAMManagedPolicyPolicyDocument :: Object
   , _iAMManagedPolicyRoles :: Maybe [Val Text]
   , _iAMManagedPolicyUsers :: Maybe [Val Text]
   } deriving (Show, Eq)
@@ -32,8 +33,9 @@ instance ToJSON IAMManagedPolicy where
     catMaybes
     [ ("Description" .=) <$> _iAMManagedPolicyDescription
     , ("Groups" .=) <$> _iAMManagedPolicyGroups
+    , ("ManagedPolicyName" .=) <$> _iAMManagedPolicyManagedPolicyName
     , ("Path" .=) <$> _iAMManagedPolicyPath
-    , ("PolicyDocument" .=) <$> _iAMManagedPolicyPolicyDocument
+    , Just ("PolicyDocument" .= _iAMManagedPolicyPolicyDocument)
     , ("Roles" .=) <$> _iAMManagedPolicyRoles
     , ("Users" .=) <$> _iAMManagedPolicyUsers
     ]
@@ -43,8 +45,9 @@ instance FromJSON IAMManagedPolicy where
     IAMManagedPolicy <$>
       obj .:? "Description" <*>
       obj .:? "Groups" <*>
+      obj .:? "ManagedPolicyName" <*>
       obj .:? "Path" <*>
-      obj .:? "PolicyDocument" <*>
+      obj .: "PolicyDocument" <*>
       obj .:? "Roles" <*>
       obj .:? "Users"
   parseJSON _ = mempty
@@ -52,13 +55,15 @@ instance FromJSON IAMManagedPolicy where
 -- | Constructor for 'IAMManagedPolicy' containing required fields as
 -- arguments.
 iamManagedPolicy
-  :: IAMManagedPolicy
-iamManagedPolicy  =
+  :: Object -- ^ 'iammpPolicyDocument'
+  -> IAMManagedPolicy
+iamManagedPolicy policyDocumentarg =
   IAMManagedPolicy
   { _iAMManagedPolicyDescription = Nothing
   , _iAMManagedPolicyGroups = Nothing
+  , _iAMManagedPolicyManagedPolicyName = Nothing
   , _iAMManagedPolicyPath = Nothing
-  , _iAMManagedPolicyPolicyDocument = Nothing
+  , _iAMManagedPolicyPolicyDocument = policyDocumentarg
   , _iAMManagedPolicyRoles = Nothing
   , _iAMManagedPolicyUsers = Nothing
   }
@@ -71,12 +76,16 @@ iammpDescription = lens _iAMManagedPolicyDescription (\s a -> s { _iAMManagedPol
 iammpGroups :: Lens' IAMManagedPolicy (Maybe [Val Text])
 iammpGroups = lens _iAMManagedPolicyGroups (\s a -> s { _iAMManagedPolicyGroups = a })
 
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-managedpolicy.html#cfn-iam-managedpolicy-managedpolicyname
+iammpManagedPolicyName :: Lens' IAMManagedPolicy (Maybe (Val Text))
+iammpManagedPolicyName = lens _iAMManagedPolicyManagedPolicyName (\s a -> s { _iAMManagedPolicyManagedPolicyName = a })
+
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-managedpolicy.html#cfn-ec2-dhcpoptions-path
 iammpPath :: Lens' IAMManagedPolicy (Maybe (Val Text))
 iammpPath = lens _iAMManagedPolicyPath (\s a -> s { _iAMManagedPolicyPath = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-managedpolicy.html#cfn-iam-managedpolicy-policydocument
-iammpPolicyDocument :: Lens' IAMManagedPolicy (Maybe Object)
+iammpPolicyDocument :: Lens' IAMManagedPolicy Object
 iammpPolicyDocument = lens _iAMManagedPolicyPolicyDocument (\s a -> s { _iAMManagedPolicyPolicyDocument = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-managedpolicy.html#cfn-iam-managedpolicy-roles
