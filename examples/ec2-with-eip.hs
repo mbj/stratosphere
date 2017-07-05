@@ -34,11 +34,11 @@ myTemplate =
     ec2SecurityGroup
     "Enable SSH Access"
     & ecsgSecurityGroupIngress ?~ [
-      ec2SecurityGroupRule
+      ec2SecurityGroupIngressProperty
       "tcp"
-      & ecsgrFromPort ?~ Literal 22
-      & ecsgrToPort ?~ Literal 22
-      & ecsgrCidrIp ?~ Ref "SSHLocation"
+      & ecsgipFromPort ?~ Literal 22
+      & ecsgipToPort ?~ Literal 22
+      & ecsgipCidrIp ?~ Ref "SSHLocation"
       ]
   , resource "IPAddress" (EC2EIPProperties ec2EIP)
   , resource "IPAssoc" $
