@@ -1,7 +1,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-step.html
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-step.html
 
 module Stratosphere.Resources.EMRStep where
 
@@ -58,18 +58,18 @@ emrStep actionOnFailurearg hadoopJarSteparg jobFlowIdarg namearg =
   , _eMRStepName = namearg
   }
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-step.html#cfn-elasticmapreduce-step-actiononfailure
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-step.html#cfn-elasticmapreduce-step-actiononfailure
 emrsActionOnFailure :: Lens' EMRStep (Val Text)
 emrsActionOnFailure = lens _eMRStepActionOnFailure (\s a -> s { _eMRStepActionOnFailure = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-step.html#cfn-elasticmapreduce-step-hadoopjarstep
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-step.html#cfn-elasticmapreduce-step-hadoopjarstep
 emrsHadoopJarStep :: Lens' EMRStep EMRStepHadoopJarStepConfig
 emrsHadoopJarStep = lens _eMRStepHadoopJarStep (\s a -> s { _eMRStepHadoopJarStep = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-step.html#cfn-elasticmapreduce-step-jobflowid
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-step.html#cfn-elasticmapreduce-step-jobflowid
 emrsJobFlowId :: Lens' EMRStep (Val Text)
 emrsJobFlowId = lens _eMRStepJobFlowId (\s a -> s { _eMRStepJobFlowId = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-step.html#cfn-elasticmapreduce-step-name
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-step.html#cfn-elasticmapreduce-step-name
 emrsName :: Lens' EMRStep (Val Text)
 emrsName = lens _eMRStepName (\s a -> s { _eMRStepName = a })

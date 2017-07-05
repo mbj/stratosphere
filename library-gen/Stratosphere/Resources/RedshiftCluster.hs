@@ -12,6 +12,7 @@ import Data.Monoid (mempty)
 import Data.Text
 
 import Stratosphere.Values
+import Stratosphere.ResourceProperties.RedshiftClusterLoggingProperties
 import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for RedshiftCluster. See 'redshiftCluster' for
@@ -33,6 +34,7 @@ data RedshiftCluster =
   , _redshiftClusterHsmConfigurationIdentifier :: Maybe (Val Text)
   , _redshiftClusterIamRoles :: Maybe [Val Text]
   , _redshiftClusterKmsKeyId :: Maybe (Val Text)
+  , _redshiftClusterLoggingProperties :: Maybe RedshiftClusterLoggingProperties
   , _redshiftClusterMasterUserPassword :: Val Text
   , _redshiftClusterMasterUsername :: Val Text
   , _redshiftClusterNodeType :: Val Text
@@ -66,6 +68,7 @@ instance ToJSON RedshiftCluster where
     , ("HsmConfigurationIdentifier" .=) <$> _redshiftClusterHsmConfigurationIdentifier
     , ("IamRoles" .=) <$> _redshiftClusterIamRoles
     , ("KmsKeyId" .=) <$> _redshiftClusterKmsKeyId
+    , ("LoggingProperties" .=) <$> _redshiftClusterLoggingProperties
     , Just ("MasterUserPassword" .= _redshiftClusterMasterUserPassword)
     , Just ("MasterUsername" .= _redshiftClusterMasterUsername)
     , Just ("NodeType" .= _redshiftClusterNodeType)
@@ -98,6 +101,7 @@ instance FromJSON RedshiftCluster where
       obj .:? "HsmConfigurationIdentifier" <*>
       obj .:? "IamRoles" <*>
       obj .:? "KmsKeyId" <*>
+      obj .:? "LoggingProperties" <*>
       obj .: "MasterUserPassword" <*>
       obj .: "MasterUsername" <*>
       obj .: "NodeType" <*>
@@ -138,6 +142,7 @@ redshiftCluster clusterTypearg dBNamearg masterUserPasswordarg masterUsernamearg
   , _redshiftClusterHsmConfigurationIdentifier = Nothing
   , _redshiftClusterIamRoles = Nothing
   , _redshiftClusterKmsKeyId = Nothing
+  , _redshiftClusterLoggingProperties = Nothing
   , _redshiftClusterMasterUserPassword = masterUserPasswordarg
   , _redshiftClusterMasterUsername = masterUsernamearg
   , _redshiftClusterNodeType = nodeTypearg
@@ -211,6 +216,10 @@ rcIamRoles = lens _redshiftClusterIamRoles (\s a -> s { _redshiftClusterIamRoles
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-kmskeyid
 rcKmsKeyId :: Lens' RedshiftCluster (Maybe (Val Text))
 rcKmsKeyId = lens _redshiftClusterKmsKeyId (\s a -> s { _redshiftClusterKmsKeyId = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-loggingproperties
+rcLoggingProperties :: Lens' RedshiftCluster (Maybe RedshiftClusterLoggingProperties)
+rcLoggingProperties = lens _redshiftClusterLoggingProperties (\s a -> s { _redshiftClusterLoggingProperties = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-masteruserpassword
 rcMasterUserPassword :: Lens' RedshiftCluster (Val Text)

@@ -13,6 +13,7 @@ import Data.Text
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguration
+import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamExtendedS3DestinationConfiguration
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamS3DestinationConfiguration
 
@@ -22,6 +23,7 @@ data KinesisFirehoseDeliveryStream =
   KinesisFirehoseDeliveryStream
   { _kinesisFirehoseDeliveryStreamDeliveryStreamName :: Maybe (Val Text)
   , _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguration :: Maybe KinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguration
+  , _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfiguration :: Maybe KinesisFirehoseDeliveryStreamExtendedS3DestinationConfiguration
   , _kinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration :: Maybe KinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration
   , _kinesisFirehoseDeliveryStreamS3DestinationConfiguration :: Maybe KinesisFirehoseDeliveryStreamS3DestinationConfiguration
   } deriving (Show, Eq)
@@ -32,6 +34,7 @@ instance ToJSON KinesisFirehoseDeliveryStream where
     catMaybes
     [ ("DeliveryStreamName" .=) <$> _kinesisFirehoseDeliveryStreamDeliveryStreamName
     , ("ElasticsearchDestinationConfiguration" .=) <$> _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguration
+    , ("ExtendedS3DestinationConfiguration" .=) <$> _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfiguration
     , ("RedshiftDestinationConfiguration" .=) <$> _kinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration
     , ("S3DestinationConfiguration" .=) <$> _kinesisFirehoseDeliveryStreamS3DestinationConfiguration
     ]
@@ -41,6 +44,7 @@ instance FromJSON KinesisFirehoseDeliveryStream where
     KinesisFirehoseDeliveryStream <$>
       obj .:? "DeliveryStreamName" <*>
       obj .:? "ElasticsearchDestinationConfiguration" <*>
+      obj .:? "ExtendedS3DestinationConfiguration" <*>
       obj .:? "RedshiftDestinationConfiguration" <*>
       obj .:? "S3DestinationConfiguration"
   parseJSON _ = mempty
@@ -53,6 +57,7 @@ kinesisFirehoseDeliveryStream  =
   KinesisFirehoseDeliveryStream
   { _kinesisFirehoseDeliveryStreamDeliveryStreamName = Nothing
   , _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguration = Nothing
+  , _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfiguration = Nothing
   , _kinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration = Nothing
   , _kinesisFirehoseDeliveryStreamS3DestinationConfiguration = Nothing
   }
@@ -64,6 +69,10 @@ kfdsDeliveryStreamName = lens _kinesisFirehoseDeliveryStreamDeliveryStreamName (
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverstream-elasticsearchdestinationconfiguration
 kfdsElasticsearchDestinationConfiguration :: Lens' KinesisFirehoseDeliveryStream (Maybe KinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguration)
 kfdsElasticsearchDestinationConfiguration = lens _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguration (\s a -> s { _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguration = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration
+kfdsExtendedS3DestinationConfiguration :: Lens' KinesisFirehoseDeliveryStream (Maybe KinesisFirehoseDeliveryStreamExtendedS3DestinationConfiguration)
+kfdsExtendedS3DestinationConfiguration = lens _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfiguration (\s a -> s { _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfiguration = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration
 kfdsRedshiftDestinationConfiguration :: Lens' KinesisFirehoseDeliveryStream (Maybe KinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration)

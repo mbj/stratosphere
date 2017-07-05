@@ -13,6 +13,7 @@ import Data.Text
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.ApplicationAutoScalingScalingPolicyStepScalingPolicyConfiguration
+import Stratosphere.ResourceProperties.ApplicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfiguration
 
 -- | Full data type definition for ApplicationAutoScalingScalingPolicy. See
 -- 'applicationAutoScalingScalingPolicy' for a more convenient constructor.
@@ -25,6 +26,7 @@ data ApplicationAutoScalingScalingPolicy =
   , _applicationAutoScalingScalingPolicyScalingTargetId :: Maybe (Val Text)
   , _applicationAutoScalingScalingPolicyServiceNamespace :: Maybe (Val Text)
   , _applicationAutoScalingScalingPolicyStepScalingPolicyConfiguration :: Maybe ApplicationAutoScalingScalingPolicyStepScalingPolicyConfiguration
+  , _applicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfiguration :: Maybe ApplicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfiguration
   } deriving (Show, Eq)
 
 instance ToJSON ApplicationAutoScalingScalingPolicy where
@@ -38,6 +40,7 @@ instance ToJSON ApplicationAutoScalingScalingPolicy where
     , ("ScalingTargetId" .=) <$> _applicationAutoScalingScalingPolicyScalingTargetId
     , ("ServiceNamespace" .=) <$> _applicationAutoScalingScalingPolicyServiceNamespace
     , ("StepScalingPolicyConfiguration" .=) <$> _applicationAutoScalingScalingPolicyStepScalingPolicyConfiguration
+    , ("TargetTrackingScalingPolicyConfiguration" .=) <$> _applicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfiguration
     ]
 
 instance FromJSON ApplicationAutoScalingScalingPolicy where
@@ -49,7 +52,8 @@ instance FromJSON ApplicationAutoScalingScalingPolicy where
       obj .:? "ScalableDimension" <*>
       obj .:? "ScalingTargetId" <*>
       obj .:? "ServiceNamespace" <*>
-      obj .:? "StepScalingPolicyConfiguration"
+      obj .:? "StepScalingPolicyConfiguration" <*>
+      obj .:? "TargetTrackingScalingPolicyConfiguration"
   parseJSON _ = mempty
 
 -- | Constructor for 'ApplicationAutoScalingScalingPolicy' containing required
@@ -67,6 +71,7 @@ applicationAutoScalingScalingPolicy policyNamearg policyTypearg =
   , _applicationAutoScalingScalingPolicyScalingTargetId = Nothing
   , _applicationAutoScalingScalingPolicyServiceNamespace = Nothing
   , _applicationAutoScalingScalingPolicyStepScalingPolicyConfiguration = Nothing
+  , _applicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfiguration = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html#cfn-applicationautoscaling-scalingpolicy-policyname
@@ -96,3 +101,7 @@ aasspServiceNamespace = lens _applicationAutoScalingScalingPolicyServiceNamespac
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html#cfn-applicationautoscaling-scalingpolicy-stepscalingpolicyconfiguration
 aasspStepScalingPolicyConfiguration :: Lens' ApplicationAutoScalingScalingPolicy (Maybe ApplicationAutoScalingScalingPolicyStepScalingPolicyConfiguration)
 aasspStepScalingPolicyConfiguration = lens _applicationAutoScalingScalingPolicyStepScalingPolicyConfiguration (\s a -> s { _applicationAutoScalingScalingPolicyStepScalingPolicyConfiguration = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html#cfn-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration
+aasspTargetTrackingScalingPolicyConfiguration :: Lens' ApplicationAutoScalingScalingPolicy (Maybe ApplicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfiguration)
+aasspTargetTrackingScalingPolicyConfiguration = lens _applicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfiguration (\s a -> s { _applicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfiguration = a })

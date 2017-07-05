@@ -22,6 +22,7 @@ data EC2NetworkInterface =
   EC2NetworkInterface
   { _eC2NetworkInterfaceDescription :: Maybe (Val Text)
   , _eC2NetworkInterfaceGroupSet :: Maybe [Val Text]
+  , _eC2NetworkInterfaceInterfaceType :: Maybe (Val Text)
   , _eC2NetworkInterfaceIpv6AddressCount :: Maybe (Val Integer')
   , _eC2NetworkInterfaceIpv6Addresses :: Maybe EC2NetworkInterfaceInstanceIpv6Address
   , _eC2NetworkInterfacePrivateIpAddress :: Maybe (Val Text)
@@ -38,6 +39,7 @@ instance ToJSON EC2NetworkInterface where
     catMaybes
     [ ("Description" .=) <$> _eC2NetworkInterfaceDescription
     , ("GroupSet" .=) <$> _eC2NetworkInterfaceGroupSet
+    , ("InterfaceType" .=) <$> _eC2NetworkInterfaceInterfaceType
     , ("Ipv6AddressCount" .=) <$> _eC2NetworkInterfaceIpv6AddressCount
     , ("Ipv6Addresses" .=) <$> _eC2NetworkInterfaceIpv6Addresses
     , ("PrivateIpAddress" .=) <$> _eC2NetworkInterfacePrivateIpAddress
@@ -53,6 +55,7 @@ instance FromJSON EC2NetworkInterface where
     EC2NetworkInterface <$>
       obj .:? "Description" <*>
       obj .:? "GroupSet" <*>
+      obj .:? "InterfaceType" <*>
       obj .:? "Ipv6AddressCount" <*>
       obj .:? "Ipv6Addresses" <*>
       obj .:? "PrivateIpAddress" <*>
@@ -72,6 +75,7 @@ ec2NetworkInterface subnetIdarg =
   EC2NetworkInterface
   { _eC2NetworkInterfaceDescription = Nothing
   , _eC2NetworkInterfaceGroupSet = Nothing
+  , _eC2NetworkInterfaceInterfaceType = Nothing
   , _eC2NetworkInterfaceIpv6AddressCount = Nothing
   , _eC2NetworkInterfaceIpv6Addresses = Nothing
   , _eC2NetworkInterfacePrivateIpAddress = Nothing
@@ -89,6 +93,10 @@ ecniDescription = lens _eC2NetworkInterfaceDescription (\s a -> s { _eC2NetworkI
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html#cfn-awsec2networkinterface-groupset
 ecniGroupSet :: Lens' EC2NetworkInterface (Maybe [Val Text])
 ecniGroupSet = lens _eC2NetworkInterfaceGroupSet (\s a -> s { _eC2NetworkInterfaceGroupSet = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html#cfn-ec2-networkinterface-interfacetype
+ecniInterfaceType :: Lens' EC2NetworkInterface (Maybe (Val Text))
+ecniInterfaceType = lens _eC2NetworkInterfaceInterfaceType (\s a -> s { _eC2NetworkInterfaceInterfaceType = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html#cfn-ec2-networkinterface-ipv6addresscount
 ecniIpv6AddressCount :: Lens' EC2NetworkInterface (Maybe (Val Integer'))

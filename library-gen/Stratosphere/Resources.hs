@@ -51,12 +51,14 @@ import Stratosphere.Resources.ApiGatewayAuthorizer as X
 import Stratosphere.Resources.ApiGatewayBasePathMapping as X
 import Stratosphere.Resources.ApiGatewayClientCertificate as X
 import Stratosphere.Resources.ApiGatewayDeployment as X
+import Stratosphere.Resources.ApiGatewayDomainName as X
 import Stratosphere.Resources.ApiGatewayMethod as X
 import Stratosphere.Resources.ApiGatewayModel as X
 import Stratosphere.Resources.ApiGatewayResource as X
 import Stratosphere.Resources.ApiGatewayRestApi as X
 import Stratosphere.Resources.ApiGatewayStage as X
 import Stratosphere.Resources.ApiGatewayUsagePlan as X
+import Stratosphere.Resources.ApiGatewayUsagePlanKey as X
 import Stratosphere.Resources.ApplicationAutoScalingScalableTarget as X
 import Stratosphere.Resources.ApplicationAutoScalingScalingPolicy as X
 import Stratosphere.Resources.AutoScalingAutoScalingGroup as X
@@ -97,6 +99,7 @@ import Stratosphere.Resources.EC2CustomerGateway as X
 import Stratosphere.Resources.EC2DHCPOptions as X
 import Stratosphere.Resources.EC2EIP as X
 import Stratosphere.Resources.EC2EIPAssociation as X
+import Stratosphere.Resources.EC2EgressOnlyInternetGateway as X
 import Stratosphere.Resources.EC2FlowLog as X
 import Stratosphere.Resources.EC2Host as X
 import Stratosphere.Resources.EC2Instance as X
@@ -106,6 +109,7 @@ import Stratosphere.Resources.EC2NetworkAcl as X
 import Stratosphere.Resources.EC2NetworkAclEntry as X
 import Stratosphere.Resources.EC2NetworkInterface as X
 import Stratosphere.Resources.EC2NetworkInterfaceAttachment as X
+import Stratosphere.Resources.EC2NetworkInterfacePermission as X
 import Stratosphere.Resources.EC2PlacementGroup as X
 import Stratosphere.Resources.EC2Route as X
 import Stratosphere.Resources.EC2RouteTable as X
@@ -117,6 +121,7 @@ import Stratosphere.Resources.EC2Subnet as X
 import Stratosphere.Resources.EC2SubnetCidrBlock as X
 import Stratosphere.Resources.EC2SubnetNetworkAclAssociation as X
 import Stratosphere.Resources.EC2SubnetRouteTableAssociation as X
+import Stratosphere.Resources.EC2TrunkInterfaceAssociation as X
 import Stratosphere.Resources.EC2VPC as X
 import Stratosphere.Resources.EC2VPCCidrBlock as X
 import Stratosphere.Resources.EC2VPCDHCPOptionsAssociation as X
@@ -136,6 +141,7 @@ import Stratosphere.Resources.ECSTaskDefinition as X
 import Stratosphere.Resources.EFSFileSystem as X
 import Stratosphere.Resources.EFSMountTarget as X
 import Stratosphere.Resources.EMRCluster as X
+import Stratosphere.Resources.EMRInstanceFleetConfig as X
 import Stratosphere.Resources.EMRInstanceGroupConfig as X
 import Stratosphere.Resources.EMRSecurityConfiguration as X
 import Stratosphere.Resources.EMRStep as X
@@ -252,10 +258,14 @@ import Stratosphere.ResourceProperties.ApiGatewayStageMethodSetting as X
 import Stratosphere.ResourceProperties.ApiGatewayUsagePlanApiStage as X
 import Stratosphere.ResourceProperties.ApiGatewayUsagePlanQuotaSettings as X
 import Stratosphere.ResourceProperties.ApiGatewayUsagePlanThrottleSettings as X
+import Stratosphere.ResourceProperties.ApplicationAutoScalingScalingPolicyCustomizedMetricSpecification as X
+import Stratosphere.ResourceProperties.ApplicationAutoScalingScalingPolicyMetricDimension as X
+import Stratosphere.ResourceProperties.ApplicationAutoScalingScalingPolicyPredefinedMetricSpecification as X
 import Stratosphere.ResourceProperties.ApplicationAutoScalingScalingPolicyStepAdjustment as X
 import Stratosphere.ResourceProperties.ApplicationAutoScalingScalingPolicyStepScalingPolicyConfiguration as X
+import Stratosphere.ResourceProperties.ApplicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfiguration as X
 import Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupMetricsCollection as X
-import Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupNotificationConfigurations as X
+import Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupNotificationConfiguration as X
 import Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupTagProperty as X
 import Stratosphere.ResourceProperties.AutoScalingLaunchConfigurationBlockDevice as X
 import Stratosphere.ResourceProperties.AutoScalingLaunchConfigurationBlockDeviceMapping as X
@@ -355,7 +365,8 @@ import Stratosphere.ResourceProperties.EC2NetworkAclEntryIcmp as X
 import Stratosphere.ResourceProperties.EC2NetworkAclEntryPortRange as X
 import Stratosphere.ResourceProperties.EC2NetworkInterfaceInstanceIpv6Address as X
 import Stratosphere.ResourceProperties.EC2NetworkInterfacePrivateIpAddressSpecification as X
-import Stratosphere.ResourceProperties.EC2SecurityGroupRule as X
+import Stratosphere.ResourceProperties.EC2SecurityGroupEgressProperty as X
+import Stratosphere.ResourceProperties.EC2SecurityGroupIngressProperty as X
 import Stratosphere.ResourceProperties.EC2SpotFleetBlockDeviceMapping as X
 import Stratosphere.ResourceProperties.EC2SpotFleetEbsBlockDevice as X
 import Stratosphere.ResourceProperties.EC2SpotFleetGroupIdentifier as X
@@ -390,7 +401,10 @@ import Stratosphere.ResourceProperties.EMRClusterCloudWatchAlarmDefinition as X
 import Stratosphere.ResourceProperties.EMRClusterConfiguration as X
 import Stratosphere.ResourceProperties.EMRClusterEbsBlockDeviceConfig as X
 import Stratosphere.ResourceProperties.EMRClusterEbsConfiguration as X
+import Stratosphere.ResourceProperties.EMRClusterInstanceFleetConfig as X
+import Stratosphere.ResourceProperties.EMRClusterInstanceFleetProvisioningSpecifications as X
 import Stratosphere.ResourceProperties.EMRClusterInstanceGroupConfig as X
+import Stratosphere.ResourceProperties.EMRClusterInstanceTypeConfig as X
 import Stratosphere.ResourceProperties.EMRClusterJobFlowInstancesConfig as X
 import Stratosphere.ResourceProperties.EMRClusterMetricDimension as X
 import Stratosphere.ResourceProperties.EMRClusterPlacementType as X
@@ -400,7 +414,15 @@ import Stratosphere.ResourceProperties.EMRClusterScalingRule as X
 import Stratosphere.ResourceProperties.EMRClusterScalingTrigger as X
 import Stratosphere.ResourceProperties.EMRClusterScriptBootstrapActionConfig as X
 import Stratosphere.ResourceProperties.EMRClusterSimpleScalingPolicyConfiguration as X
+import Stratosphere.ResourceProperties.EMRClusterSpotProvisioningSpecification as X
 import Stratosphere.ResourceProperties.EMRClusterVolumeSpecification as X
+import Stratosphere.ResourceProperties.EMRInstanceFleetConfigConfiguration as X
+import Stratosphere.ResourceProperties.EMRInstanceFleetConfigEbsBlockDeviceConfig as X
+import Stratosphere.ResourceProperties.EMRInstanceFleetConfigEbsConfiguration as X
+import Stratosphere.ResourceProperties.EMRInstanceFleetConfigInstanceFleetProvisioningSpecifications as X
+import Stratosphere.ResourceProperties.EMRInstanceFleetConfigInstanceTypeConfig as X
+import Stratosphere.ResourceProperties.EMRInstanceFleetConfigSpotProvisioningSpecification as X
+import Stratosphere.ResourceProperties.EMRInstanceFleetConfigVolumeSpecification as X
 import Stratosphere.ResourceProperties.EMRInstanceGroupConfigAutoScalingPolicy as X
 import Stratosphere.ResourceProperties.EMRInstanceGroupConfigCloudWatchAlarmDefinition as X
 import Stratosphere.ResourceProperties.EMRInstanceGroupConfigConfiguration as X
@@ -469,7 +491,11 @@ import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamElasticsearc
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguration as X
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamElasticsearchRetryOptions as X
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamEncryptionConfiguration as X
+import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamExtendedS3DestinationConfiguration as X
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamKMSEncryptionConfig as X
+import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamProcessingConfiguration as X
+import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamProcessor as X
+import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamProcessorParameter as X
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration as X
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamS3DestinationConfiguration as X
 import Stratosphere.ResourceProperties.LambdaFunctionCode as X
@@ -499,6 +525,7 @@ import Stratosphere.ResourceProperties.OpsWorksStackStackConfigurationManager as
 import Stratosphere.ResourceProperties.RDSDBSecurityGroupIngressProperty as X
 import Stratosphere.ResourceProperties.RDSOptionGroupOptionConfiguration as X
 import Stratosphere.ResourceProperties.RDSOptionGroupOptionSetting as X
+import Stratosphere.ResourceProperties.RedshiftClusterLoggingProperties as X
 import Stratosphere.ResourceProperties.RedshiftClusterParameterGroupParameter as X
 import Stratosphere.ResourceProperties.Route53HealthCheckAlarmIdentifier as X
 import Stratosphere.ResourceProperties.Route53HealthCheckHealthCheckConfig as X
@@ -579,12 +606,14 @@ data ResourceProperties
   | ApiGatewayBasePathMappingProperties ApiGatewayBasePathMapping
   | ApiGatewayClientCertificateProperties ApiGatewayClientCertificate
   | ApiGatewayDeploymentProperties ApiGatewayDeployment
+  | ApiGatewayDomainNameProperties ApiGatewayDomainName
   | ApiGatewayMethodProperties ApiGatewayMethod
   | ApiGatewayModelProperties ApiGatewayModel
   | ApiGatewayResourceProperties ApiGatewayResource
   | ApiGatewayRestApiProperties ApiGatewayRestApi
   | ApiGatewayStageProperties ApiGatewayStage
   | ApiGatewayUsagePlanProperties ApiGatewayUsagePlan
+  | ApiGatewayUsagePlanKeyProperties ApiGatewayUsagePlanKey
   | ApplicationAutoScalingScalableTargetProperties ApplicationAutoScalingScalableTarget
   | ApplicationAutoScalingScalingPolicyProperties ApplicationAutoScalingScalingPolicy
   | AutoScalingAutoScalingGroupProperties AutoScalingAutoScalingGroup
@@ -625,6 +654,7 @@ data ResourceProperties
   | EC2DHCPOptionsProperties EC2DHCPOptions
   | EC2EIPProperties EC2EIP
   | EC2EIPAssociationProperties EC2EIPAssociation
+  | EC2EgressOnlyInternetGatewayProperties EC2EgressOnlyInternetGateway
   | EC2FlowLogProperties EC2FlowLog
   | EC2HostProperties EC2Host
   | EC2InstanceProperties EC2Instance
@@ -634,6 +664,7 @@ data ResourceProperties
   | EC2NetworkAclEntryProperties EC2NetworkAclEntry
   | EC2NetworkInterfaceProperties EC2NetworkInterface
   | EC2NetworkInterfaceAttachmentProperties EC2NetworkInterfaceAttachment
+  | EC2NetworkInterfacePermissionProperties EC2NetworkInterfacePermission
   | EC2PlacementGroupProperties EC2PlacementGroup
   | EC2RouteProperties EC2Route
   | EC2RouteTableProperties EC2RouteTable
@@ -645,6 +676,7 @@ data ResourceProperties
   | EC2SubnetCidrBlockProperties EC2SubnetCidrBlock
   | EC2SubnetNetworkAclAssociationProperties EC2SubnetNetworkAclAssociation
   | EC2SubnetRouteTableAssociationProperties EC2SubnetRouteTableAssociation
+  | EC2TrunkInterfaceAssociationProperties EC2TrunkInterfaceAssociation
   | EC2VPCProperties EC2VPC
   | EC2VPCCidrBlockProperties EC2VPCCidrBlock
   | EC2VPCDHCPOptionsAssociationProperties EC2VPCDHCPOptionsAssociation
@@ -664,6 +696,7 @@ data ResourceProperties
   | EFSFileSystemProperties EFSFileSystem
   | EFSMountTargetProperties EFSMountTarget
   | EMRClusterProperties EMRCluster
+  | EMRInstanceFleetConfigProperties EMRInstanceFleetConfig
   | EMRInstanceGroupConfigProperties EMRInstanceGroupConfig
   | EMRSecurityConfigurationProperties EMRSecurityConfiguration
   | EMRStepProperties EMRStep
@@ -833,6 +866,8 @@ resourcePropertiesJSON (ApiGatewayClientCertificateProperties x) =
   [ "Type" .= ("AWS::ApiGateway::ClientCertificate" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ApiGatewayDeploymentProperties x) =
   [ "Type" .= ("AWS::ApiGateway::Deployment" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (ApiGatewayDomainNameProperties x) =
+  [ "Type" .= ("AWS::ApiGateway::DomainName" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ApiGatewayMethodProperties x) =
   [ "Type" .= ("AWS::ApiGateway::Method" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ApiGatewayModelProperties x) =
@@ -845,6 +880,8 @@ resourcePropertiesJSON (ApiGatewayStageProperties x) =
   [ "Type" .= ("AWS::ApiGateway::Stage" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ApiGatewayUsagePlanProperties x) =
   [ "Type" .= ("AWS::ApiGateway::UsagePlan" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (ApiGatewayUsagePlanKeyProperties x) =
+  [ "Type" .= ("AWS::ApiGateway::UsagePlanKey" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ApplicationAutoScalingScalableTargetProperties x) =
   [ "Type" .= ("AWS::ApplicationAutoScaling::ScalableTarget" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ApplicationAutoScalingScalingPolicyProperties x) =
@@ -925,6 +962,8 @@ resourcePropertiesJSON (EC2EIPProperties x) =
   [ "Type" .= ("AWS::EC2::EIP" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (EC2EIPAssociationProperties x) =
   [ "Type" .= ("AWS::EC2::EIPAssociation" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (EC2EgressOnlyInternetGatewayProperties x) =
+  [ "Type" .= ("AWS::EC2::EgressOnlyInternetGateway" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (EC2FlowLogProperties x) =
   [ "Type" .= ("AWS::EC2::FlowLog" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (EC2HostProperties x) =
@@ -943,6 +982,8 @@ resourcePropertiesJSON (EC2NetworkInterfaceProperties x) =
   [ "Type" .= ("AWS::EC2::NetworkInterface" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (EC2NetworkInterfaceAttachmentProperties x) =
   [ "Type" .= ("AWS::EC2::NetworkInterfaceAttachment" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (EC2NetworkInterfacePermissionProperties x) =
+  [ "Type" .= ("AWS::EC2::NetworkInterfacePermission" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (EC2PlacementGroupProperties x) =
   [ "Type" .= ("AWS::EC2::PlacementGroup" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (EC2RouteProperties x) =
@@ -965,6 +1006,8 @@ resourcePropertiesJSON (EC2SubnetNetworkAclAssociationProperties x) =
   [ "Type" .= ("AWS::EC2::SubnetNetworkAclAssociation" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (EC2SubnetRouteTableAssociationProperties x) =
   [ "Type" .= ("AWS::EC2::SubnetRouteTableAssociation" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (EC2TrunkInterfaceAssociationProperties x) =
+  [ "Type" .= ("AWS::EC2::TrunkInterfaceAssociation" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (EC2VPCProperties x) =
   [ "Type" .= ("AWS::EC2::VPC" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (EC2VPCCidrBlockProperties x) =
@@ -1003,6 +1046,8 @@ resourcePropertiesJSON (EFSMountTargetProperties x) =
   [ "Type" .= ("AWS::EFS::MountTarget" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (EMRClusterProperties x) =
   [ "Type" .= ("AWS::EMR::Cluster" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (EMRInstanceFleetConfigProperties x) =
+  [ "Type" .= ("AWS::EMR::InstanceFleetConfig" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (EMRInstanceGroupConfigProperties x) =
   [ "Type" .= ("AWS::EMR::InstanceGroupConfig" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (EMRSecurityConfigurationProperties x) =
@@ -1225,12 +1270,14 @@ resourceFromJSON n o =
          "AWS::ApiGateway::BasePathMapping" -> ApiGatewayBasePathMappingProperties <$> (o .: "Properties")
          "AWS::ApiGateway::ClientCertificate" -> ApiGatewayClientCertificateProperties <$> (o .: "Properties")
          "AWS::ApiGateway::Deployment" -> ApiGatewayDeploymentProperties <$> (o .: "Properties")
+         "AWS::ApiGateway::DomainName" -> ApiGatewayDomainNameProperties <$> (o .: "Properties")
          "AWS::ApiGateway::Method" -> ApiGatewayMethodProperties <$> (o .: "Properties")
          "AWS::ApiGateway::Model" -> ApiGatewayModelProperties <$> (o .: "Properties")
          "AWS::ApiGateway::Resource" -> ApiGatewayResourceProperties <$> (o .: "Properties")
          "AWS::ApiGateway::RestApi" -> ApiGatewayRestApiProperties <$> (o .: "Properties")
          "AWS::ApiGateway::Stage" -> ApiGatewayStageProperties <$> (o .: "Properties")
          "AWS::ApiGateway::UsagePlan" -> ApiGatewayUsagePlanProperties <$> (o .: "Properties")
+         "AWS::ApiGateway::UsagePlanKey" -> ApiGatewayUsagePlanKeyProperties <$> (o .: "Properties")
          "AWS::ApplicationAutoScaling::ScalableTarget" -> ApplicationAutoScalingScalableTargetProperties <$> (o .: "Properties")
          "AWS::ApplicationAutoScaling::ScalingPolicy" -> ApplicationAutoScalingScalingPolicyProperties <$> (o .: "Properties")
          "AWS::AutoScaling::AutoScalingGroup" -> AutoScalingAutoScalingGroupProperties <$> (o .: "Properties")
@@ -1271,6 +1318,7 @@ resourceFromJSON n o =
          "AWS::EC2::DHCPOptions" -> EC2DHCPOptionsProperties <$> (o .: "Properties")
          "AWS::EC2::EIP" -> EC2EIPProperties <$> (o .: "Properties")
          "AWS::EC2::EIPAssociation" -> EC2EIPAssociationProperties <$> (o .: "Properties")
+         "AWS::EC2::EgressOnlyInternetGateway" -> EC2EgressOnlyInternetGatewayProperties <$> (o .: "Properties")
          "AWS::EC2::FlowLog" -> EC2FlowLogProperties <$> (o .: "Properties")
          "AWS::EC2::Host" -> EC2HostProperties <$> (o .: "Properties")
          "AWS::EC2::Instance" -> EC2InstanceProperties <$> (o .: "Properties")
@@ -1280,6 +1328,7 @@ resourceFromJSON n o =
          "AWS::EC2::NetworkAclEntry" -> EC2NetworkAclEntryProperties <$> (o .: "Properties")
          "AWS::EC2::NetworkInterface" -> EC2NetworkInterfaceProperties <$> (o .: "Properties")
          "AWS::EC2::NetworkInterfaceAttachment" -> EC2NetworkInterfaceAttachmentProperties <$> (o .: "Properties")
+         "AWS::EC2::NetworkInterfacePermission" -> EC2NetworkInterfacePermissionProperties <$> (o .: "Properties")
          "AWS::EC2::PlacementGroup" -> EC2PlacementGroupProperties <$> (o .: "Properties")
          "AWS::EC2::Route" -> EC2RouteProperties <$> (o .: "Properties")
          "AWS::EC2::RouteTable" -> EC2RouteTableProperties <$> (o .: "Properties")
@@ -1291,6 +1340,7 @@ resourceFromJSON n o =
          "AWS::EC2::SubnetCidrBlock" -> EC2SubnetCidrBlockProperties <$> (o .: "Properties")
          "AWS::EC2::SubnetNetworkAclAssociation" -> EC2SubnetNetworkAclAssociationProperties <$> (o .: "Properties")
          "AWS::EC2::SubnetRouteTableAssociation" -> EC2SubnetRouteTableAssociationProperties <$> (o .: "Properties")
+         "AWS::EC2::TrunkInterfaceAssociation" -> EC2TrunkInterfaceAssociationProperties <$> (o .: "Properties")
          "AWS::EC2::VPC" -> EC2VPCProperties <$> (o .: "Properties")
          "AWS::EC2::VPCCidrBlock" -> EC2VPCCidrBlockProperties <$> (o .: "Properties")
          "AWS::EC2::VPCDHCPOptionsAssociation" -> EC2VPCDHCPOptionsAssociationProperties <$> (o .: "Properties")
@@ -1310,6 +1360,7 @@ resourceFromJSON n o =
          "AWS::EFS::FileSystem" -> EFSFileSystemProperties <$> (o .: "Properties")
          "AWS::EFS::MountTarget" -> EFSMountTargetProperties <$> (o .: "Properties")
          "AWS::EMR::Cluster" -> EMRClusterProperties <$> (o .: "Properties")
+         "AWS::EMR::InstanceFleetConfig" -> EMRInstanceFleetConfigProperties <$> (o .: "Properties")
          "AWS::EMR::InstanceGroupConfig" -> EMRInstanceGroupConfigProperties <$> (o .: "Properties")
          "AWS::EMR::SecurityConfiguration" -> EMRSecurityConfigurationProperties <$> (o .: "Properties")
          "AWS::EMR::Step" -> EMRStepProperties <$> (o .: "Properties")

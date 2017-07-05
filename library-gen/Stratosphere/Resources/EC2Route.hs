@@ -18,7 +18,7 @@ import Stratosphere.Values
 -- convenient constructor.
 data EC2Route =
   EC2Route
-  { _eC2RouteDestinationCidrBlock :: Val Text
+  { _eC2RouteDestinationCidrBlock :: Maybe (Val Text)
   , _eC2RouteDestinationIpv6CidrBlock :: Maybe (Val Text)
   , _eC2RouteGatewayId :: Maybe (Val Text)
   , _eC2RouteInstanceId :: Maybe (Val Text)
@@ -32,7 +32,7 @@ instance ToJSON EC2Route where
   toJSON EC2Route{..} =
     object $
     catMaybes
-    [ Just ("DestinationCidrBlock" .= _eC2RouteDestinationCidrBlock)
+    [ ("DestinationCidrBlock" .=) <$> _eC2RouteDestinationCidrBlock
     , ("DestinationIpv6CidrBlock" .=) <$> _eC2RouteDestinationIpv6CidrBlock
     , ("GatewayId" .=) <$> _eC2RouteGatewayId
     , ("InstanceId" .=) <$> _eC2RouteInstanceId
@@ -45,7 +45,7 @@ instance ToJSON EC2Route where
 instance FromJSON EC2Route where
   parseJSON (Object obj) =
     EC2Route <$>
-      obj .: "DestinationCidrBlock" <*>
+      obj .:? "DestinationCidrBlock" <*>
       obj .:? "DestinationIpv6CidrBlock" <*>
       obj .:? "GatewayId" <*>
       obj .:? "InstanceId" <*>
@@ -57,12 +57,11 @@ instance FromJSON EC2Route where
 
 -- | Constructor for 'EC2Route' containing required fields as arguments.
 ec2Route
-  :: Val Text -- ^ 'ecrDestinationCidrBlock'
-  -> Val Text -- ^ 'ecrRouteTableId'
+  :: Val Text -- ^ 'ecrRouteTableId'
   -> EC2Route
-ec2Route destinationCidrBlockarg routeTableIdarg =
+ec2Route routeTableIdarg =
   EC2Route
-  { _eC2RouteDestinationCidrBlock = destinationCidrBlockarg
+  { _eC2RouteDestinationCidrBlock = Nothing
   , _eC2RouteDestinationIpv6CidrBlock = Nothing
   , _eC2RouteGatewayId = Nothing
   , _eC2RouteInstanceId = Nothing
@@ -73,7 +72,7 @@ ec2Route destinationCidrBlockarg routeTableIdarg =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-destinationcidrblock
-ecrDestinationCidrBlock :: Lens' EC2Route (Val Text)
+ecrDestinationCidrBlock :: Lens' EC2Route (Maybe (Val Text))
 ecrDestinationCidrBlock = lens _eC2RouteDestinationCidrBlock (\s a -> s { _eC2RouteDestinationCidrBlock = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-destinationipv6cidrblock

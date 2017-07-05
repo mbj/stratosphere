@@ -22,7 +22,7 @@ data EC2DHCPOptions =
   , _eC2DHCPOptionsDomainNameServers :: Maybe [Val Text]
   , _eC2DHCPOptionsNetbiosNameServers :: Maybe [Val Text]
   , _eC2DHCPOptionsNetbiosNodeType :: Maybe (Val Integer')
-  , _eC2DHCPOptionsNtpServers :: Maybe (Val Text)
+  , _eC2DHCPOptionsNtpServers :: Maybe [Val Text]
   , _eC2DHCPOptionsTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
@@ -79,7 +79,7 @@ ecdhcpoNetbiosNodeType :: Lens' EC2DHCPOptions (Maybe (Val Integer'))
 ecdhcpoNetbiosNodeType = lens _eC2DHCPOptionsNetbiosNodeType (\s a -> s { _eC2DHCPOptionsNetbiosNodeType = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcp-options.html#cfn-ec2-dhcpoptions-ntpservers
-ecdhcpoNtpServers :: Lens' EC2DHCPOptions (Maybe (Val Text))
+ecdhcpoNtpServers :: Lens' EC2DHCPOptions (Maybe [Val Text])
 ecdhcpoNtpServers = lens _eC2DHCPOptionsNtpServers (\s a -> s { _eC2DHCPOptionsNtpServers = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcp-options.html#cfn-ec2-dhcpoptions-tags

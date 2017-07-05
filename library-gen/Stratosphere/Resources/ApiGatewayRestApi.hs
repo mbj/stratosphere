@@ -18,7 +18,8 @@ import Stratosphere.ResourceProperties.ApiGatewayRestApiS3Location
 -- for a more convenient constructor.
 data ApiGatewayRestApi =
   ApiGatewayRestApi
-  { _apiGatewayRestApiBody :: Maybe Object
+  { _apiGatewayRestApiBinaryMediaTypes :: Maybe [Val Text]
+  , _apiGatewayRestApiBody :: Maybe Object
   , _apiGatewayRestApiBodyS3Location :: Maybe ApiGatewayRestApiS3Location
   , _apiGatewayRestApiCloneFrom :: Maybe (Val Text)
   , _apiGatewayRestApiDescription :: Maybe (Val Text)
@@ -32,7 +33,8 @@ instance ToJSON ApiGatewayRestApi where
   toJSON ApiGatewayRestApi{..} =
     object $
     catMaybes
-    [ ("Body" .=) <$> _apiGatewayRestApiBody
+    [ ("BinaryMediaTypes" .=) <$> _apiGatewayRestApiBinaryMediaTypes
+    , ("Body" .=) <$> _apiGatewayRestApiBody
     , ("BodyS3Location" .=) <$> _apiGatewayRestApiBodyS3Location
     , ("CloneFrom" .=) <$> _apiGatewayRestApiCloneFrom
     , ("Description" .=) <$> _apiGatewayRestApiDescription
@@ -45,6 +47,7 @@ instance ToJSON ApiGatewayRestApi where
 instance FromJSON ApiGatewayRestApi where
   parseJSON (Object obj) =
     ApiGatewayRestApi <$>
+      obj .:? "BinaryMediaTypes" <*>
       obj .:? "Body" <*>
       obj .:? "BodyS3Location" <*>
       obj .:? "CloneFrom" <*>
@@ -61,7 +64,8 @@ apiGatewayRestApi
   :: ApiGatewayRestApi
 apiGatewayRestApi  =
   ApiGatewayRestApi
-  { _apiGatewayRestApiBody = Nothing
+  { _apiGatewayRestApiBinaryMediaTypes = Nothing
+  , _apiGatewayRestApiBody = Nothing
   , _apiGatewayRestApiBodyS3Location = Nothing
   , _apiGatewayRestApiCloneFrom = Nothing
   , _apiGatewayRestApiDescription = Nothing
@@ -70,6 +74,10 @@ apiGatewayRestApi  =
   , _apiGatewayRestApiName = Nothing
   , _apiGatewayRestApiParameters = Nothing
   }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-binarymediatypes
+agraBinaryMediaTypes :: Lens' ApiGatewayRestApi (Maybe [Val Text])
+agraBinaryMediaTypes = lens _apiGatewayRestApiBinaryMediaTypes (\s a -> s { _apiGatewayRestApiBinaryMediaTypes = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-body
 agraBody :: Lens' ApiGatewayRestApi (Maybe Object)

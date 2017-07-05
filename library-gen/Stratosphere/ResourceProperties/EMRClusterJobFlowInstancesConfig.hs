@@ -12,6 +12,7 @@ import Data.Monoid (mempty)
 import Data.Text
 
 import Stratosphere.Values
+import Stratosphere.ResourceProperties.EMRClusterInstanceFleetConfig
 import Stratosphere.ResourceProperties.EMRClusterInstanceGroupConfig
 import Stratosphere.ResourceProperties.EMRClusterPlacementType
 
@@ -21,13 +22,15 @@ data EMRClusterJobFlowInstancesConfig =
   EMRClusterJobFlowInstancesConfig
   { _eMRClusterJobFlowInstancesConfigAdditionalMasterSecurityGroups :: Maybe [Val Text]
   , _eMRClusterJobFlowInstancesConfigAdditionalSlaveSecurityGroups :: Maybe [Val Text]
+  , _eMRClusterJobFlowInstancesConfigCoreInstanceFleet :: Maybe EMRClusterInstanceFleetConfig
   , _eMRClusterJobFlowInstancesConfigCoreInstanceGroup :: Maybe EMRClusterInstanceGroupConfig
   , _eMRClusterJobFlowInstancesConfigEc2KeyName :: Maybe (Val Text)
   , _eMRClusterJobFlowInstancesConfigEc2SubnetId :: Maybe (Val Text)
   , _eMRClusterJobFlowInstancesConfigEmrManagedMasterSecurityGroup :: Maybe (Val Text)
   , _eMRClusterJobFlowInstancesConfigEmrManagedSlaveSecurityGroup :: Maybe (Val Text)
   , _eMRClusterJobFlowInstancesConfigHadoopVersion :: Maybe (Val Text)
-  , _eMRClusterJobFlowInstancesConfigMasterInstanceGroup :: EMRClusterInstanceGroupConfig
+  , _eMRClusterJobFlowInstancesConfigMasterInstanceFleet :: Maybe EMRClusterInstanceFleetConfig
+  , _eMRClusterJobFlowInstancesConfigMasterInstanceGroup :: Maybe EMRClusterInstanceGroupConfig
   , _eMRClusterJobFlowInstancesConfigPlacement :: Maybe EMRClusterPlacementType
   , _eMRClusterJobFlowInstancesConfigServiceAccessSecurityGroup :: Maybe (Val Text)
   , _eMRClusterJobFlowInstancesConfigTerminationProtected :: Maybe (Val Bool')
@@ -39,13 +42,15 @@ instance ToJSON EMRClusterJobFlowInstancesConfig where
     catMaybes
     [ ("AdditionalMasterSecurityGroups" .=) <$> _eMRClusterJobFlowInstancesConfigAdditionalMasterSecurityGroups
     , ("AdditionalSlaveSecurityGroups" .=) <$> _eMRClusterJobFlowInstancesConfigAdditionalSlaveSecurityGroups
+    , ("CoreInstanceFleet" .=) <$> _eMRClusterJobFlowInstancesConfigCoreInstanceFleet
     , ("CoreInstanceGroup" .=) <$> _eMRClusterJobFlowInstancesConfigCoreInstanceGroup
     , ("Ec2KeyName" .=) <$> _eMRClusterJobFlowInstancesConfigEc2KeyName
     , ("Ec2SubnetId" .=) <$> _eMRClusterJobFlowInstancesConfigEc2SubnetId
     , ("EmrManagedMasterSecurityGroup" .=) <$> _eMRClusterJobFlowInstancesConfigEmrManagedMasterSecurityGroup
     , ("EmrManagedSlaveSecurityGroup" .=) <$> _eMRClusterJobFlowInstancesConfigEmrManagedSlaveSecurityGroup
     , ("HadoopVersion" .=) <$> _eMRClusterJobFlowInstancesConfigHadoopVersion
-    , Just ("MasterInstanceGroup" .= _eMRClusterJobFlowInstancesConfigMasterInstanceGroup)
+    , ("MasterInstanceFleet" .=) <$> _eMRClusterJobFlowInstancesConfigMasterInstanceFleet
+    , ("MasterInstanceGroup" .=) <$> _eMRClusterJobFlowInstancesConfigMasterInstanceGroup
     , ("Placement" .=) <$> _eMRClusterJobFlowInstancesConfigPlacement
     , ("ServiceAccessSecurityGroup" .=) <$> _eMRClusterJobFlowInstancesConfigServiceAccessSecurityGroup
     , ("TerminationProtected" .=) <$> _eMRClusterJobFlowInstancesConfigTerminationProtected
@@ -56,13 +61,15 @@ instance FromJSON EMRClusterJobFlowInstancesConfig where
     EMRClusterJobFlowInstancesConfig <$>
       obj .:? "AdditionalMasterSecurityGroups" <*>
       obj .:? "AdditionalSlaveSecurityGroups" <*>
+      obj .:? "CoreInstanceFleet" <*>
       obj .:? "CoreInstanceGroup" <*>
       obj .:? "Ec2KeyName" <*>
       obj .:? "Ec2SubnetId" <*>
       obj .:? "EmrManagedMasterSecurityGroup" <*>
       obj .:? "EmrManagedSlaveSecurityGroup" <*>
       obj .:? "HadoopVersion" <*>
-      obj .: "MasterInstanceGroup" <*>
+      obj .:? "MasterInstanceFleet" <*>
+      obj .:? "MasterInstanceGroup" <*>
       obj .:? "Placement" <*>
       obj .:? "ServiceAccessSecurityGroup" <*>
       obj .:? "TerminationProtected"
@@ -71,19 +78,20 @@ instance FromJSON EMRClusterJobFlowInstancesConfig where
 -- | Constructor for 'EMRClusterJobFlowInstancesConfig' containing required
 -- fields as arguments.
 emrClusterJobFlowInstancesConfig
-  :: EMRClusterInstanceGroupConfig -- ^ 'emrcjficMasterInstanceGroup'
-  -> EMRClusterJobFlowInstancesConfig
-emrClusterJobFlowInstancesConfig masterInstanceGrouparg =
+  :: EMRClusterJobFlowInstancesConfig
+emrClusterJobFlowInstancesConfig  =
   EMRClusterJobFlowInstancesConfig
   { _eMRClusterJobFlowInstancesConfigAdditionalMasterSecurityGroups = Nothing
   , _eMRClusterJobFlowInstancesConfigAdditionalSlaveSecurityGroups = Nothing
+  , _eMRClusterJobFlowInstancesConfigCoreInstanceFleet = Nothing
   , _eMRClusterJobFlowInstancesConfigCoreInstanceGroup = Nothing
   , _eMRClusterJobFlowInstancesConfigEc2KeyName = Nothing
   , _eMRClusterJobFlowInstancesConfigEc2SubnetId = Nothing
   , _eMRClusterJobFlowInstancesConfigEmrManagedMasterSecurityGroup = Nothing
   , _eMRClusterJobFlowInstancesConfigEmrManagedSlaveSecurityGroup = Nothing
   , _eMRClusterJobFlowInstancesConfigHadoopVersion = Nothing
-  , _eMRClusterJobFlowInstancesConfigMasterInstanceGroup = masterInstanceGrouparg
+  , _eMRClusterJobFlowInstancesConfigMasterInstanceFleet = Nothing
+  , _eMRClusterJobFlowInstancesConfigMasterInstanceGroup = Nothing
   , _eMRClusterJobFlowInstancesConfigPlacement = Nothing
   , _eMRClusterJobFlowInstancesConfigServiceAccessSecurityGroup = Nothing
   , _eMRClusterJobFlowInstancesConfigTerminationProtected = Nothing
@@ -96,6 +104,10 @@ emrcjficAdditionalMasterSecurityGroups = lens _eMRClusterJobFlowInstancesConfigA
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-jobflowinstancesconfig.html#cfn-emr-cluster-jobflowinstancesconfig-additionalslavesecuritygroups
 emrcjficAdditionalSlaveSecurityGroups :: Lens' EMRClusterJobFlowInstancesConfig (Maybe [Val Text])
 emrcjficAdditionalSlaveSecurityGroups = lens _eMRClusterJobFlowInstancesConfigAdditionalSlaveSecurityGroups (\s a -> s { _eMRClusterJobFlowInstancesConfigAdditionalSlaveSecurityGroups = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-jobflowinstancesconfig.html#cfn-elasticmapreduce-cluster-jobflowinstancesconfig-coreinstancefleet
+emrcjficCoreInstanceFleet :: Lens' EMRClusterJobFlowInstancesConfig (Maybe EMRClusterInstanceFleetConfig)
+emrcjficCoreInstanceFleet = lens _eMRClusterJobFlowInstancesConfigCoreInstanceFleet (\s a -> s { _eMRClusterJobFlowInstancesConfigCoreInstanceFleet = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-jobflowinstancesconfig.html#cfn-emr-cluster-jobflowinstancesconfig-coreinstancegroup
 emrcjficCoreInstanceGroup :: Lens' EMRClusterJobFlowInstancesConfig (Maybe EMRClusterInstanceGroupConfig)
@@ -121,8 +133,12 @@ emrcjficEmrManagedSlaveSecurityGroup = lens _eMRClusterJobFlowInstancesConfigEmr
 emrcjficHadoopVersion :: Lens' EMRClusterJobFlowInstancesConfig (Maybe (Val Text))
 emrcjficHadoopVersion = lens _eMRClusterJobFlowInstancesConfigHadoopVersion (\s a -> s { _eMRClusterJobFlowInstancesConfigHadoopVersion = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-jobflowinstancesconfig.html#cfn-emr-cluster-jobflowinstancesconfig-masterinstancegroup
-emrcjficMasterInstanceGroup :: Lens' EMRClusterJobFlowInstancesConfig EMRClusterInstanceGroupConfig
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-jobflowinstancesconfig.html#cfn-elasticmapreduce-cluster-jobflowinstancesconfig-masterinstancefleet
+emrcjficMasterInstanceFleet :: Lens' EMRClusterJobFlowInstancesConfig (Maybe EMRClusterInstanceFleetConfig)
+emrcjficMasterInstanceFleet = lens _eMRClusterJobFlowInstancesConfigMasterInstanceFleet (\s a -> s { _eMRClusterJobFlowInstancesConfigMasterInstanceFleet = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-jobflowinstancesconfig.html#cfn-emr-cluster-jobflowinstancesconfig-coreinstancegroup
+emrcjficMasterInstanceGroup :: Lens' EMRClusterJobFlowInstancesConfig (Maybe EMRClusterInstanceGroupConfig)
 emrcjficMasterInstanceGroup = lens _eMRClusterJobFlowInstancesConfigMasterInstanceGroup (\s a -> s { _eMRClusterJobFlowInstancesConfigMasterInstanceGroup = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-jobflowinstancesconfig.html#cfn-emr-cluster-jobflowinstancesconfig-placement

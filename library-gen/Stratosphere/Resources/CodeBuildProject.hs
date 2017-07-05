@@ -21,13 +21,13 @@ import Stratosphere.ResourceProperties.Tag
 -- for a more convenient constructor.
 data CodeBuildProject =
   CodeBuildProject
-  { _codeBuildProjectArtifacts :: Maybe CodeBuildProjectArtifacts
+  { _codeBuildProjectArtifacts :: CodeBuildProjectArtifacts
   , _codeBuildProjectDescription :: Maybe (Val Text)
   , _codeBuildProjectEncryptionKey :: Maybe (Val Text)
-  , _codeBuildProjectEnvironment :: Maybe CodeBuildProjectEnvironment
+  , _codeBuildProjectEnvironment :: CodeBuildProjectEnvironment
   , _codeBuildProjectName :: Maybe (Val Text)
-  , _codeBuildProjectServiceRole :: Maybe (Val Text)
-  , _codeBuildProjectSource :: Maybe CodeBuildProjectSource
+  , _codeBuildProjectServiceRole :: Val Text
+  , _codeBuildProjectSource :: CodeBuildProjectSource
   , _codeBuildProjectTags :: Maybe [Tag]
   , _codeBuildProjectTimeoutInMinutes :: Maybe (Val Integer')
   } deriving (Show, Eq)
@@ -36,13 +36,13 @@ instance ToJSON CodeBuildProject where
   toJSON CodeBuildProject{..} =
     object $
     catMaybes
-    [ ("Artifacts" .=) <$> _codeBuildProjectArtifacts
+    [ Just ("Artifacts" .= _codeBuildProjectArtifacts)
     , ("Description" .=) <$> _codeBuildProjectDescription
     , ("EncryptionKey" .=) <$> _codeBuildProjectEncryptionKey
-    , ("Environment" .=) <$> _codeBuildProjectEnvironment
+    , Just ("Environment" .= _codeBuildProjectEnvironment)
     , ("Name" .=) <$> _codeBuildProjectName
-    , ("ServiceRole" .=) <$> _codeBuildProjectServiceRole
-    , ("Source" .=) <$> _codeBuildProjectSource
+    , Just ("ServiceRole" .= _codeBuildProjectServiceRole)
+    , Just ("Source" .= _codeBuildProjectSource)
     , ("Tags" .=) <$> _codeBuildProjectTags
     , ("TimeoutInMinutes" .=) <$> _codeBuildProjectTimeoutInMinutes
     ]
@@ -50,13 +50,13 @@ instance ToJSON CodeBuildProject where
 instance FromJSON CodeBuildProject where
   parseJSON (Object obj) =
     CodeBuildProject <$>
-      obj .:? "Artifacts" <*>
+      obj .: "Artifacts" <*>
       obj .:? "Description" <*>
       obj .:? "EncryptionKey" <*>
-      obj .:? "Environment" <*>
+      obj .: "Environment" <*>
       obj .:? "Name" <*>
-      obj .:? "ServiceRole" <*>
-      obj .:? "Source" <*>
+      obj .: "ServiceRole" <*>
+      obj .: "Source" <*>
       obj .:? "Tags" <*>
       obj .:? "TimeoutInMinutes"
   parseJSON _ = mempty
@@ -64,22 +64,26 @@ instance FromJSON CodeBuildProject where
 -- | Constructor for 'CodeBuildProject' containing required fields as
 -- arguments.
 codeBuildProject
-  :: CodeBuildProject
-codeBuildProject  =
+  :: CodeBuildProjectArtifacts -- ^ 'cbpArtifacts'
+  -> CodeBuildProjectEnvironment -- ^ 'cbpEnvironment'
+  -> Val Text -- ^ 'cbpServiceRole'
+  -> CodeBuildProjectSource -- ^ 'cbpSource'
+  -> CodeBuildProject
+codeBuildProject artifactsarg environmentarg serviceRolearg sourcearg =
   CodeBuildProject
-  { _codeBuildProjectArtifacts = Nothing
+  { _codeBuildProjectArtifacts = artifactsarg
   , _codeBuildProjectDescription = Nothing
   , _codeBuildProjectEncryptionKey = Nothing
-  , _codeBuildProjectEnvironment = Nothing
+  , _codeBuildProjectEnvironment = environmentarg
   , _codeBuildProjectName = Nothing
-  , _codeBuildProjectServiceRole = Nothing
-  , _codeBuildProjectSource = Nothing
+  , _codeBuildProjectServiceRole = serviceRolearg
+  , _codeBuildProjectSource = sourcearg
   , _codeBuildProjectTags = Nothing
   , _codeBuildProjectTimeoutInMinutes = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-artifacts
-cbpArtifacts :: Lens' CodeBuildProject (Maybe CodeBuildProjectArtifacts)
+cbpArtifacts :: Lens' CodeBuildProject CodeBuildProjectArtifacts
 cbpArtifacts = lens _codeBuildProjectArtifacts (\s a -> s { _codeBuildProjectArtifacts = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-description
@@ -91,7 +95,7 @@ cbpEncryptionKey :: Lens' CodeBuildProject (Maybe (Val Text))
 cbpEncryptionKey = lens _codeBuildProjectEncryptionKey (\s a -> s { _codeBuildProjectEncryptionKey = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-environment
-cbpEnvironment :: Lens' CodeBuildProject (Maybe CodeBuildProjectEnvironment)
+cbpEnvironment :: Lens' CodeBuildProject CodeBuildProjectEnvironment
 cbpEnvironment = lens _codeBuildProjectEnvironment (\s a -> s { _codeBuildProjectEnvironment = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-name
@@ -99,11 +103,11 @@ cbpName :: Lens' CodeBuildProject (Maybe (Val Text))
 cbpName = lens _codeBuildProjectName (\s a -> s { _codeBuildProjectName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-servicerole
-cbpServiceRole :: Lens' CodeBuildProject (Maybe (Val Text))
+cbpServiceRole :: Lens' CodeBuildProject (Val Text)
 cbpServiceRole = lens _codeBuildProjectServiceRole (\s a -> s { _codeBuildProjectServiceRole = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-source
-cbpSource :: Lens' CodeBuildProject (Maybe CodeBuildProjectSource)
+cbpSource :: Lens' CodeBuildProject CodeBuildProjectSource
 cbpSource = lens _codeBuildProjectSource (\s a -> s { _codeBuildProjectSource = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-tags

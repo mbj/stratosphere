@@ -12,7 +12,7 @@ import Data.Monoid (mempty)
 import Data.Text
 
 import Stratosphere.Values
-
+import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for CloudTrailTrail. See 'cloudTrailTrail' for
 -- a more convenient constructor.
@@ -28,6 +28,8 @@ data CloudTrailTrail =
   , _cloudTrailTrailS3BucketName :: Val Text
   , _cloudTrailTrailS3KeyPrefix :: Maybe (Val Text)
   , _cloudTrailTrailSnsTopicName :: Maybe (Val Text)
+  , _cloudTrailTrailTags :: Maybe [Tag]
+  , _cloudTrailTrailTrailName :: Maybe (Val Text)
   } deriving (Show, Eq)
 
 instance ToJSON CloudTrailTrail where
@@ -44,6 +46,8 @@ instance ToJSON CloudTrailTrail where
     , Just ("S3BucketName" .= _cloudTrailTrailS3BucketName)
     , ("S3KeyPrefix" .=) <$> _cloudTrailTrailS3KeyPrefix
     , ("SnsTopicName" .=) <$> _cloudTrailTrailSnsTopicName
+    , ("Tags" .=) <$> _cloudTrailTrailTags
+    , ("TrailName" .=) <$> _cloudTrailTrailTrailName
     ]
 
 instance FromJSON CloudTrailTrail where
@@ -58,7 +62,9 @@ instance FromJSON CloudTrailTrail where
       obj .:? "KMSKeyId" <*>
       obj .: "S3BucketName" <*>
       obj .:? "S3KeyPrefix" <*>
-      obj .:? "SnsTopicName"
+      obj .:? "SnsTopicName" <*>
+      obj .:? "Tags" <*>
+      obj .:? "TrailName"
   parseJSON _ = mempty
 
 -- | Constructor for 'CloudTrailTrail' containing required fields as
@@ -79,6 +85,8 @@ cloudTrailTrail isLoggingarg s3BucketNamearg =
   , _cloudTrailTrailS3BucketName = s3BucketNamearg
   , _cloudTrailTrailS3KeyPrefix = Nothing
   , _cloudTrailTrailSnsTopicName = Nothing
+  , _cloudTrailTrailTags = Nothing
+  , _cloudTrailTrailTrailName = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html#cfn-cloudtrail-trail-cloudwatchlogsloggrouparn
@@ -120,3 +128,11 @@ cttS3KeyPrefix = lens _cloudTrailTrailS3KeyPrefix (\s a -> s { _cloudTrailTrailS
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html#cfn-cloudtrail-trail-snstopicname
 cttSnsTopicName :: Lens' CloudTrailTrail (Maybe (Val Text))
 cttSnsTopicName = lens _cloudTrailTrailSnsTopicName (\s a -> s { _cloudTrailTrailSnsTopicName = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html#cfn-cloudtrail-trail-tags
+cttTags :: Lens' CloudTrailTrail (Maybe [Tag])
+cttTags = lens _cloudTrailTrailTags (\s a -> s { _cloudTrailTrailTags = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html#cfn-cloudtrail-trail-trailname
+cttTrailName :: Lens' CloudTrailTrail (Maybe (Val Text))
+cttTrailName = lens _cloudTrailTrailTrailName (\s a -> s { _cloudTrailTrailTrailName = a })

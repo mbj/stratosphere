@@ -92,10 +92,12 @@ normalizeSpecType allFullNames resourceType (MapType (SubPropertyType name)) =
 normalizeSpecType _ _ type' = type'
 
 normalizeTypeName :: Set Text -> Text -> Text -> Text
--- This is our only naming conflict. There is a resource named
--- AWS::RDS::DBSecurityGroupIngress, and a property named
--- AWS::RDS::DBSecurityGroup.Ingress.
+-- There are a few naming conflicts with security group types. For example,
+-- there is a resource named AWS::RDS::DBSecurityGroupIngress, and a property
+-- named AWS::RDS::DBSecurityGroup.Ingress.
 normalizeTypeName _ "AWS::RDS::DBSecurityGroup" "Ingress" = computeModuleName "AWS::RDS::DBSecurityGroup.IngressProperty"
+normalizeTypeName _ "AWS::EC2::SecurityGroup" "Ingress" = computeModuleName "AWS::EC2::SecurityGroup.IngressProperty"
+normalizeTypeName _ "AWS::EC2::SecurityGroup" "Egress" = computeModuleName "AWS::EC2::SecurityGroup.EgressProperty"
 -- Non-errors
 normalizeTypeName allFullNames resourceType name
   -- As far as I know, the only property type that isn't fully qualified is

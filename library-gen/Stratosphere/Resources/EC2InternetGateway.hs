@@ -1,7 +1,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-internet-gateway.html
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-internetgateway.html
 
 module Stratosphere.Resources.EC2InternetGateway where
 
@@ -43,6 +43,6 @@ ec2InternetGateway  =
   { _eC2InternetGatewayTags = Nothing
   }
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-internet-gateway.html#cfn-ec2-internetgateway-tags
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-internetgateway.html#cfn-ec2-internetgateway-tags
 ecigTags :: Lens' EC2InternetGateway (Maybe [Tag])
 ecigTags = lens _eC2InternetGatewayTags (\s a -> s { _eC2InternetGatewayTags = a })

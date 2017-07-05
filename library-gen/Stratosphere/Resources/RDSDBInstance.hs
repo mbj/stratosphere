@@ -24,6 +24,7 @@ data RDSDBInstance =
   , _rDSDBInstanceAvailabilityZone :: Maybe (Val Text)
   , _rDSDBInstanceBackupRetentionPeriod :: Maybe (Val Text)
   , _rDSDBInstanceCharacterSetName :: Maybe (Val Text)
+  , _rDSDBInstanceCopyTagsToSnapshot :: Maybe (Val Bool')
   , _rDSDBInstanceDBClusterIdentifier :: Maybe (Val Text)
   , _rDSDBInstanceDBInstanceClass :: Val Text
   , _rDSDBInstanceDBInstanceIdentifier :: Maybe (Val Text)
@@ -67,6 +68,7 @@ instance ToJSON RDSDBInstance where
     , ("AvailabilityZone" .=) <$> _rDSDBInstanceAvailabilityZone
     , ("BackupRetentionPeriod" .=) <$> _rDSDBInstanceBackupRetentionPeriod
     , ("CharacterSetName" .=) <$> _rDSDBInstanceCharacterSetName
+    , ("CopyTagsToSnapshot" .=) <$> _rDSDBInstanceCopyTagsToSnapshot
     , ("DBClusterIdentifier" .=) <$> _rDSDBInstanceDBClusterIdentifier
     , Just ("DBInstanceClass" .= _rDSDBInstanceDBInstanceClass)
     , ("DBInstanceIdentifier" .=) <$> _rDSDBInstanceDBInstanceIdentifier
@@ -109,6 +111,7 @@ instance FromJSON RDSDBInstance where
       obj .:? "AvailabilityZone" <*>
       obj .:? "BackupRetentionPeriod" <*>
       obj .:? "CharacterSetName" <*>
+      obj .:? "CopyTagsToSnapshot" <*>
       obj .:? "DBClusterIdentifier" <*>
       obj .: "DBInstanceClass" <*>
       obj .:? "DBInstanceIdentifier" <*>
@@ -154,6 +157,7 @@ rdsdbInstance dBInstanceClassarg =
   , _rDSDBInstanceAvailabilityZone = Nothing
   , _rDSDBInstanceBackupRetentionPeriod = Nothing
   , _rDSDBInstanceCharacterSetName = Nothing
+  , _rDSDBInstanceCopyTagsToSnapshot = Nothing
   , _rDSDBInstanceDBClusterIdentifier = Nothing
   , _rDSDBInstanceDBInstanceClass = dBInstanceClassarg
   , _rDSDBInstanceDBInstanceIdentifier = Nothing
@@ -210,6 +214,10 @@ rdsdbiBackupRetentionPeriod = lens _rDSDBInstanceBackupRetentionPeriod (\s a -> 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-charactersetname
 rdsdbiCharacterSetName :: Lens' RDSDBInstance (Maybe (Val Text))
 rdsdbiCharacterSetName = lens _rDSDBInstanceCharacterSetName (\s a -> s { _rDSDBInstanceCharacterSetName = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-copytagstosnapshot
+rdsdbiCopyTagsToSnapshot :: Lens' RDSDBInstance (Maybe (Val Bool'))
+rdsdbiCopyTagsToSnapshot = lens _rDSDBInstanceCopyTagsToSnapshot (\s a -> s { _rDSDBInstanceCopyTagsToSnapshot = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-dbclusteridentifier
 rdsdbiDBClusterIdentifier :: Lens' RDSDBInstance (Maybe (Val Text))

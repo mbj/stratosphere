@@ -21,7 +21,7 @@ data CodeBuildProjectSource =
   { _codeBuildProjectSourceAuth :: Maybe CodeBuildProjectSourceAuth
   , _codeBuildProjectSourceBuildSpec :: Maybe (Val Text)
   , _codeBuildProjectSourceLocation :: Maybe (Val Text)
-  , _codeBuildProjectSourceType :: Maybe (Val Text)
+  , _codeBuildProjectSourceType :: Val Text
   } deriving (Show, Eq)
 
 instance ToJSON CodeBuildProjectSource where
@@ -31,7 +31,7 @@ instance ToJSON CodeBuildProjectSource where
     [ ("Auth" .=) <$> _codeBuildProjectSourceAuth
     , ("BuildSpec" .=) <$> _codeBuildProjectSourceBuildSpec
     , ("Location" .=) <$> _codeBuildProjectSourceLocation
-    , ("Type" .=) <$> _codeBuildProjectSourceType
+    , Just ("Type" .= _codeBuildProjectSourceType)
     ]
 
 instance FromJSON CodeBuildProjectSource where
@@ -40,19 +40,20 @@ instance FromJSON CodeBuildProjectSource where
       obj .:? "Auth" <*>
       obj .:? "BuildSpec" <*>
       obj .:? "Location" <*>
-      obj .:? "Type"
+      obj .: "Type"
   parseJSON _ = mempty
 
 -- | Constructor for 'CodeBuildProjectSource' containing required fields as
 -- arguments.
 codeBuildProjectSource
-  :: CodeBuildProjectSource
-codeBuildProjectSource  =
+  :: Val Text -- ^ 'cbpsType'
+  -> CodeBuildProjectSource
+codeBuildProjectSource typearg =
   CodeBuildProjectSource
   { _codeBuildProjectSourceAuth = Nothing
   , _codeBuildProjectSourceBuildSpec = Nothing
   , _codeBuildProjectSourceLocation = Nothing
-  , _codeBuildProjectSourceType = Nothing
+  , _codeBuildProjectSourceType = typearg
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-source.html#cfn-codebuild-project-source-auth
@@ -68,5 +69,5 @@ cbpsLocation :: Lens' CodeBuildProjectSource (Maybe (Val Text))
 cbpsLocation = lens _codeBuildProjectSourceLocation (\s a -> s { _codeBuildProjectSourceLocation = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-source.html#cfn-codebuild-project-source-type
-cbpsType :: Lens' CodeBuildProjectSource (Maybe (Val Text))
+cbpsType :: Lens' CodeBuildProjectSource (Val Text)
 cbpsType = lens _codeBuildProjectSourceType (\s a -> s { _codeBuildProjectSourceType = a })

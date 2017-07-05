@@ -2,6 +2,8 @@
 
 ## 0.4.4
 
+* Update the resource specification document to version `1.4.2`
+
 ## 0.4.3
 
 * Update the resource specification document to version `1.4.1`

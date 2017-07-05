@@ -13,7 +13,7 @@ import Data.Text
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupMetricsCollection
-import Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupNotificationConfigurations
+import Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupNotificationConfiguration
 import Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupTagProperty
 
 -- | Full data type definition for AutoScalingAutoScalingGroup. See
@@ -29,9 +29,9 @@ data AutoScalingAutoScalingGroup =
   , _autoScalingAutoScalingGroupLaunchConfigurationName :: Maybe (Val Text)
   , _autoScalingAutoScalingGroupLoadBalancerNames :: Maybe [Val Text]
   , _autoScalingAutoScalingGroupMaxSize :: Val Text
-  , _autoScalingAutoScalingGroupMetricsCollection :: Maybe AutoScalingAutoScalingGroupMetricsCollection
+  , _autoScalingAutoScalingGroupMetricsCollection :: Maybe [AutoScalingAutoScalingGroupMetricsCollection]
   , _autoScalingAutoScalingGroupMinSize :: Val Text
-  , _autoScalingAutoScalingGroupNotificationConfigurations :: Maybe AutoScalingAutoScalingGroupNotificationConfigurations
+  , _autoScalingAutoScalingGroupNotificationConfigurations :: Maybe [AutoScalingAutoScalingGroupNotificationConfiguration]
   , _autoScalingAutoScalingGroupPlacementGroup :: Maybe (Val Text)
   , _autoScalingAutoScalingGroupTags :: Maybe [AutoScalingAutoScalingGroupTagProperty]
   , _autoScalingAutoScalingGroupTargetGroupARNs :: Maybe [Val Text]
@@ -148,7 +148,7 @@ asasgMaxSize :: Lens' AutoScalingAutoScalingGroup (Val Text)
 asasgMaxSize = lens _autoScalingAutoScalingGroupMaxSize (\s a -> s { _autoScalingAutoScalingGroupMaxSize = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-metricscollection
-asasgMetricsCollection :: Lens' AutoScalingAutoScalingGroup (Maybe AutoScalingAutoScalingGroupMetricsCollection)
+asasgMetricsCollection :: Lens' AutoScalingAutoScalingGroup (Maybe [AutoScalingAutoScalingGroupMetricsCollection])
 asasgMetricsCollection = lens _autoScalingAutoScalingGroupMetricsCollection (\s a -> s { _autoScalingAutoScalingGroupMetricsCollection = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-minsize
@@ -156,7 +156,7 @@ asasgMinSize :: Lens' AutoScalingAutoScalingGroup (Val Text)
 asasgMinSize = lens _autoScalingAutoScalingGroupMinSize (\s a -> s { _autoScalingAutoScalingGroupMinSize = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-notificationconfigurations
-asasgNotificationConfigurations :: Lens' AutoScalingAutoScalingGroup (Maybe AutoScalingAutoScalingGroupNotificationConfigurations)
+asasgNotificationConfigurations :: Lens' AutoScalingAutoScalingGroup (Maybe [AutoScalingAutoScalingGroupNotificationConfiguration])
 asasgNotificationConfigurations = lens _autoScalingAutoScalingGroupNotificationConfigurations (\s a -> s { _autoScalingAutoScalingGroupNotificationConfigurations = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-placementgroup

@@ -31,6 +31,7 @@ data RDSDBCluster =
   , _rDSDBClusterPort :: Maybe (Val Integer')
   , _rDSDBClusterPreferredBackupWindow :: Maybe (Val Text)
   , _rDSDBClusterPreferredMaintenanceWindow :: Maybe (Val Text)
+  , _rDSDBClusterReplicationSourceIdentifier :: Maybe (Val Text)
   , _rDSDBClusterSnapshotIdentifier :: Maybe (Val Text)
   , _rDSDBClusterStorageEncrypted :: Maybe (Val Bool')
   , _rDSDBClusterTags :: Maybe [Tag]
@@ -54,6 +55,7 @@ instance ToJSON RDSDBCluster where
     , ("Port" .=) <$> _rDSDBClusterPort
     , ("PreferredBackupWindow" .=) <$> _rDSDBClusterPreferredBackupWindow
     , ("PreferredMaintenanceWindow" .=) <$> _rDSDBClusterPreferredMaintenanceWindow
+    , ("ReplicationSourceIdentifier" .=) <$> _rDSDBClusterReplicationSourceIdentifier
     , ("SnapshotIdentifier" .=) <$> _rDSDBClusterSnapshotIdentifier
     , ("StorageEncrypted" .=) <$> _rDSDBClusterStorageEncrypted
     , ("Tags" .=) <$> _rDSDBClusterTags
@@ -76,6 +78,7 @@ instance FromJSON RDSDBCluster where
       obj .:? "Port" <*>
       obj .:? "PreferredBackupWindow" <*>
       obj .:? "PreferredMaintenanceWindow" <*>
+      obj .:? "ReplicationSourceIdentifier" <*>
       obj .:? "SnapshotIdentifier" <*>
       obj .:? "StorageEncrypted" <*>
       obj .:? "Tags" <*>
@@ -101,6 +104,7 @@ rdsdbCluster enginearg =
   , _rDSDBClusterPort = Nothing
   , _rDSDBClusterPreferredBackupWindow = Nothing
   , _rDSDBClusterPreferredMaintenanceWindow = Nothing
+  , _rDSDBClusterReplicationSourceIdentifier = Nothing
   , _rDSDBClusterSnapshotIdentifier = Nothing
   , _rDSDBClusterStorageEncrypted = Nothing
   , _rDSDBClusterTags = Nothing
@@ -158,6 +162,10 @@ rdsdbcPreferredBackupWindow = lens _rDSDBClusterPreferredBackupWindow (\s a -> s
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-preferredmaintenancewindow
 rdsdbcPreferredMaintenanceWindow :: Lens' RDSDBCluster (Maybe (Val Text))
 rdsdbcPreferredMaintenanceWindow = lens _rDSDBClusterPreferredMaintenanceWindow (\s a -> s { _rDSDBClusterPreferredMaintenanceWindow = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-replicationsourceidentifier
+rdsdbcReplicationSourceIdentifier :: Lens' RDSDBCluster (Maybe (Val Text))
+rdsdbcReplicationSourceIdentifier = lens _rDSDBClusterReplicationSourceIdentifier (\s a -> s { _rDSDBClusterReplicationSourceIdentifier = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-snapshotidentifier
 rdsdbcSnapshotIdentifier :: Lens' RDSDBCluster (Maybe (Val Text))

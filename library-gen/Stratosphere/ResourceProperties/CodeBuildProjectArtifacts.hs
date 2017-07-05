@@ -23,7 +23,7 @@ data CodeBuildProjectArtifacts =
   , _codeBuildProjectArtifactsNamespaceType :: Maybe (Val Text)
   , _codeBuildProjectArtifactsPackaging :: Maybe (Val Text)
   , _codeBuildProjectArtifactsPath :: Maybe (Val Text)
-  , _codeBuildProjectArtifactsType :: Maybe (Val Text)
+  , _codeBuildProjectArtifactsType :: Val Text
   } deriving (Show, Eq)
 
 instance ToJSON CodeBuildProjectArtifacts where
@@ -35,7 +35,7 @@ instance ToJSON CodeBuildProjectArtifacts where
     , ("NamespaceType" .=) <$> _codeBuildProjectArtifactsNamespaceType
     , ("Packaging" .=) <$> _codeBuildProjectArtifactsPackaging
     , ("Path" .=) <$> _codeBuildProjectArtifactsPath
-    , ("Type" .=) <$> _codeBuildProjectArtifactsType
+    , Just ("Type" .= _codeBuildProjectArtifactsType)
     ]
 
 instance FromJSON CodeBuildProjectArtifacts where
@@ -46,21 +46,22 @@ instance FromJSON CodeBuildProjectArtifacts where
       obj .:? "NamespaceType" <*>
       obj .:? "Packaging" <*>
       obj .:? "Path" <*>
-      obj .:? "Type"
+      obj .: "Type"
   parseJSON _ = mempty
 
 -- | Constructor for 'CodeBuildProjectArtifacts' containing required fields as
 -- arguments.
 codeBuildProjectArtifacts
-  :: CodeBuildProjectArtifacts
-codeBuildProjectArtifacts  =
+  :: Val Text -- ^ 'cbpaType'
+  -> CodeBuildProjectArtifacts
+codeBuildProjectArtifacts typearg =
   CodeBuildProjectArtifacts
   { _codeBuildProjectArtifactsLocation = Nothing
   , _codeBuildProjectArtifactsName = Nothing
   , _codeBuildProjectArtifactsNamespaceType = Nothing
   , _codeBuildProjectArtifactsPackaging = Nothing
   , _codeBuildProjectArtifactsPath = Nothing
-  , _codeBuildProjectArtifactsType = Nothing
+  , _codeBuildProjectArtifactsType = typearg
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-artifacts.html#cfn-codebuild-project-artifacts-location
@@ -84,5 +85,5 @@ cbpaPath :: Lens' CodeBuildProjectArtifacts (Maybe (Val Text))
 cbpaPath = lens _codeBuildProjectArtifactsPath (\s a -> s { _codeBuildProjectArtifactsPath = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-artifacts.html#cfn-codebuild-project-artifacts-type
-cbpaType :: Lens' CodeBuildProjectArtifacts (Maybe (Val Text))
+cbpaType :: Lens' CodeBuildProjectArtifacts (Val Text)
 cbpaType = lens _codeBuildProjectArtifactsType (\s a -> s { _codeBuildProjectArtifactsType = a })

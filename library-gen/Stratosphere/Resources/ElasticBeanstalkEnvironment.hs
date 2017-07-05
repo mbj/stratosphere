@@ -13,6 +13,7 @@ import Data.Text
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.ElasticBeanstalkEnvironmentOptionSettings
+import Stratosphere.ResourceProperties.Tag
 import Stratosphere.ResourceProperties.ElasticBeanstalkEnvironmentTier
 
 -- | Full data type definition for ElasticBeanstalkEnvironment. See
@@ -25,6 +26,7 @@ data ElasticBeanstalkEnvironment =
   , _elasticBeanstalkEnvironmentEnvironmentName :: Maybe (Val Text)
   , _elasticBeanstalkEnvironmentOptionSettings :: Maybe [ElasticBeanstalkEnvironmentOptionSettings]
   , _elasticBeanstalkEnvironmentSolutionStackName :: Maybe (Val Text)
+  , _elasticBeanstalkEnvironmentTags :: Maybe [Tag]
   , _elasticBeanstalkEnvironmentTemplateName :: Maybe (Val Text)
   , _elasticBeanstalkEnvironmentTier :: Maybe ElasticBeanstalkEnvironmentTier
   , _elasticBeanstalkEnvironmentVersionLabel :: Maybe (Val Text)
@@ -40,6 +42,7 @@ instance ToJSON ElasticBeanstalkEnvironment where
     , ("EnvironmentName" .=) <$> _elasticBeanstalkEnvironmentEnvironmentName
     , ("OptionSettings" .=) <$> _elasticBeanstalkEnvironmentOptionSettings
     , ("SolutionStackName" .=) <$> _elasticBeanstalkEnvironmentSolutionStackName
+    , ("Tags" .=) <$> _elasticBeanstalkEnvironmentTags
     , ("TemplateName" .=) <$> _elasticBeanstalkEnvironmentTemplateName
     , ("Tier" .=) <$> _elasticBeanstalkEnvironmentTier
     , ("VersionLabel" .=) <$> _elasticBeanstalkEnvironmentVersionLabel
@@ -54,6 +57,7 @@ instance FromJSON ElasticBeanstalkEnvironment where
       obj .:? "EnvironmentName" <*>
       obj .:? "OptionSettings" <*>
       obj .:? "SolutionStackName" <*>
+      obj .:? "Tags" <*>
       obj .:? "TemplateName" <*>
       obj .:? "Tier" <*>
       obj .:? "VersionLabel"
@@ -72,6 +76,7 @@ elasticBeanstalkEnvironment applicationNamearg =
   , _elasticBeanstalkEnvironmentEnvironmentName = Nothing
   , _elasticBeanstalkEnvironmentOptionSettings = Nothing
   , _elasticBeanstalkEnvironmentSolutionStackName = Nothing
+  , _elasticBeanstalkEnvironmentTags = Nothing
   , _elasticBeanstalkEnvironmentTemplateName = Nothing
   , _elasticBeanstalkEnvironmentTier = Nothing
   , _elasticBeanstalkEnvironmentVersionLabel = Nothing
@@ -100,6 +105,10 @@ ebeOptionSettings = lens _elasticBeanstalkEnvironmentOptionSettings (\s a -> s {
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html#cfn-beanstalk-environment-solutionstackname
 ebeSolutionStackName :: Lens' ElasticBeanstalkEnvironment (Maybe (Val Text))
 ebeSolutionStackName = lens _elasticBeanstalkEnvironmentSolutionStackName (\s a -> s { _elasticBeanstalkEnvironmentSolutionStackName = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html#cfn-elasticbeanstalk-environment-tags
+ebeTags :: Lens' ElasticBeanstalkEnvironment (Maybe [Tag])
+ebeTags = lens _elasticBeanstalkEnvironmentTags (\s a -> s { _elasticBeanstalkEnvironmentTags = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html#cfn-beanstalk-environment-templatename
 ebeTemplateName :: Lens' ElasticBeanstalkEnvironment (Maybe (Val Text))

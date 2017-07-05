@@ -20,7 +20,7 @@ data ConfigConfigurationRecorder =
   ConfigConfigurationRecorder
   { _configConfigurationRecorderName :: Maybe (Val Text)
   , _configConfigurationRecorderRecordingGroup :: Maybe ConfigConfigurationRecorderRecordingGroup
-  , _configConfigurationRecorderRoleArn :: Val Text
+  , _configConfigurationRecorderRoleARN :: Val Text
   } deriving (Show, Eq)
 
 instance ToJSON ConfigConfigurationRecorder where
@@ -29,7 +29,7 @@ instance ToJSON ConfigConfigurationRecorder where
     catMaybes
     [ ("Name" .=) <$> _configConfigurationRecorderName
     , ("RecordingGroup" .=) <$> _configConfigurationRecorderRecordingGroup
-    , Just ("RoleArn" .= _configConfigurationRecorderRoleArn)
+    , Just ("RoleARN" .= _configConfigurationRecorderRoleARN)
     ]
 
 instance FromJSON ConfigConfigurationRecorder where
@@ -37,19 +37,19 @@ instance FromJSON ConfigConfigurationRecorder where
     ConfigConfigurationRecorder <$>
       obj .:? "Name" <*>
       obj .:? "RecordingGroup" <*>
-      obj .: "RoleArn"
+      obj .: "RoleARN"
   parseJSON _ = mempty
 
 -- | Constructor for 'ConfigConfigurationRecorder' containing required fields
 -- as arguments.
 configConfigurationRecorder
-  :: Val Text -- ^ 'ccrRoleArn'
+  :: Val Text -- ^ 'ccrRoleARN'
   -> ConfigConfigurationRecorder
-configConfigurationRecorder roleArnarg =
+configConfigurationRecorder roleARNarg =
   ConfigConfigurationRecorder
   { _configConfigurationRecorderName = Nothing
   , _configConfigurationRecorderRecordingGroup = Nothing
-  , _configConfigurationRecorderRoleArn = roleArnarg
+  , _configConfigurationRecorderRoleARN = roleARNarg
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationrecorder.html#cfn-config-configurationrecorder-name
@@ -61,5 +61,5 @@ ccrRecordingGroup :: Lens' ConfigConfigurationRecorder (Maybe ConfigConfiguratio
 ccrRecordingGroup = lens _configConfigurationRecorderRecordingGroup (\s a -> s { _configConfigurationRecorderRecordingGroup = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationrecorder.html#cfn-config-configurationrecorder-rolearn
-ccrRoleArn :: Lens' ConfigConfigurationRecorder (Val Text)
-ccrRoleArn = lens _configConfigurationRecorderRoleArn (\s a -> s { _configConfigurationRecorderRoleArn = a })
+ccrRoleARN :: Lens' ConfigConfigurationRecorder (Val Text)
+ccrRoleARN = lens _configConfigurationRecorderRoleARN (\s a -> s { _configConfigurationRecorderRoleARN = a })

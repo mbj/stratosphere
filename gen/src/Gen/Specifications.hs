@@ -44,16 +44,28 @@ specFromRaw spec = CloudFormationSpec props version resources
 fixSpecBugs :: RawCloudFormationSpec -> RawCloudFormationSpec
 fixSpecBugs spec =
   spec
-  -- This is our only naming conflict. There is a resource named
-  -- AWS::RDS::DBSecurityGroupIngress, and a property named
-  -- AWS::RDS::DBSecurityGroup.Ingress. There is a corresponding fix in the
-  -- function to render the full type name for
+  -- There are a few naming conflicts with security group types. For example,
+  -- there is a resource named AWS::RDS::DBSecurityGroupIngress, and a property
+  -- named AWS::RDS::DBSecurityGroup.Ingress. There is a corresponding fix in
+  -- the function to render the full type name for
   -- AWS::RDS::DBSecurityGroup.Ingress.
   & propertyTypesLens
   . at "AWS::RDS::DBSecurityGroup.IngressProperty"
   .~ (spec ^. propertyTypesLens . at "AWS::RDS::DBSecurityGroup.Ingress")
   & propertyTypesLens
   . at "AWS::RDS::DBSecurityGroup.Ingress"
+  .~ Nothing
+  & propertyTypesLens
+  . at "AWS::EC2::SecurityGroup.IngressProperty"
+  .~ (spec ^. propertyTypesLens . at "AWS::EC2::SecurityGroup.Ingress")
+  & propertyTypesLens
+  . at "AWS::EC2::SecurityGroup.Ingress"
+  .~ Nothing
+  & propertyTypesLens
+  . at "AWS::EC2::SecurityGroup.EgressProperty"
+  .~ (spec ^. propertyTypesLens . at "AWS::EC2::SecurityGroup.Egress")
+  & propertyTypesLens
+  . at "AWS::EC2::SecurityGroup.Egress"
   .~ Nothing
   -- AWS::ECS::TaskDefinition.ContainerDefinition has two properties that are
   -- required, but the doc says they aren't.

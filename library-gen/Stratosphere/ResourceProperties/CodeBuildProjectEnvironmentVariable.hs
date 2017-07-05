@@ -18,39 +18,41 @@ import Stratosphere.Values
 -- 'codeBuildProjectEnvironmentVariable' for a more convenient constructor.
 data CodeBuildProjectEnvironmentVariable =
   CodeBuildProjectEnvironmentVariable
-  { _codeBuildProjectEnvironmentVariableName :: Maybe (Val Text)
-  , _codeBuildProjectEnvironmentVariableValue :: Maybe (Val Text)
+  { _codeBuildProjectEnvironmentVariableName :: Val Text
+  , _codeBuildProjectEnvironmentVariableValue :: Val Text
   } deriving (Show, Eq)
 
 instance ToJSON CodeBuildProjectEnvironmentVariable where
   toJSON CodeBuildProjectEnvironmentVariable{..} =
     object $
     catMaybes
-    [ ("Name" .=) <$> _codeBuildProjectEnvironmentVariableName
-    , ("Value" .=) <$> _codeBuildProjectEnvironmentVariableValue
+    [ Just ("Name" .= _codeBuildProjectEnvironmentVariableName)
+    , Just ("Value" .= _codeBuildProjectEnvironmentVariableValue)
     ]
 
 instance FromJSON CodeBuildProjectEnvironmentVariable where
   parseJSON (Object obj) =
     CodeBuildProjectEnvironmentVariable <$>
-      obj .:? "Name" <*>
-      obj .:? "Value"
+      obj .: "Name" <*>
+      obj .: "Value"
   parseJSON _ = mempty
 
 -- | Constructor for 'CodeBuildProjectEnvironmentVariable' containing required
 -- fields as arguments.
 codeBuildProjectEnvironmentVariable
-  :: CodeBuildProjectEnvironmentVariable
-codeBuildProjectEnvironmentVariable  =
+  :: Val Text -- ^ 'cbpevName'
+  -> Val Text -- ^ 'cbpevValue'
+  -> CodeBuildProjectEnvironmentVariable
+codeBuildProjectEnvironmentVariable namearg valuearg =
   CodeBuildProjectEnvironmentVariable
-  { _codeBuildProjectEnvironmentVariableName = Nothing
-  , _codeBuildProjectEnvironmentVariableValue = Nothing
+  { _codeBuildProjectEnvironmentVariableName = namearg
+  , _codeBuildProjectEnvironmentVariableValue = valuearg
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environmentvariable.html#cfn-codebuild-project-environmentvariable-name
-cbpevName :: Lens' CodeBuildProjectEnvironmentVariable (Maybe (Val Text))
+cbpevName :: Lens' CodeBuildProjectEnvironmentVariable (Val Text)
 cbpevName = lens _codeBuildProjectEnvironmentVariableName (\s a -> s { _codeBuildProjectEnvironmentVariableName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environmentvariable.html#cfn-codebuild-project-environmentvariable-value
-cbpevValue :: Lens' CodeBuildProjectEnvironmentVariable (Maybe (Val Text))
+cbpevValue :: Lens' CodeBuildProjectEnvironmentVariable (Val Text)
 cbpevValue = lens _codeBuildProjectEnvironmentVariableValue (\s a -> s { _codeBuildProjectEnvironmentVariableValue = a })

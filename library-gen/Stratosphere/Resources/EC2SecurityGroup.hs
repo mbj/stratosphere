@@ -12,7 +12,8 @@ import Data.Monoid (mempty)
 import Data.Text
 
 import Stratosphere.Values
-import Stratosphere.ResourceProperties.EC2SecurityGroupRule
+import Stratosphere.ResourceProperties.EC2SecurityGroupEgressProperty
+import Stratosphere.ResourceProperties.EC2SecurityGroupIngressProperty
 import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for EC2SecurityGroup. See 'ec2SecurityGroup'
@@ -21,8 +22,8 @@ data EC2SecurityGroup =
   EC2SecurityGroup
   { _eC2SecurityGroupGroupDescription :: Val Text
   , _eC2SecurityGroupGroupName :: Maybe (Val Text)
-  , _eC2SecurityGroupSecurityGroupEgress :: Maybe [EC2SecurityGroupRule]
-  , _eC2SecurityGroupSecurityGroupIngress :: Maybe [EC2SecurityGroupRule]
+  , _eC2SecurityGroupSecurityGroupEgress :: Maybe [EC2SecurityGroupEgressProperty]
+  , _eC2SecurityGroupSecurityGroupIngress :: Maybe [EC2SecurityGroupIngressProperty]
   , _eC2SecurityGroupTags :: Maybe [Tag]
   , _eC2SecurityGroupVpcId :: Maybe (Val Text)
   } deriving (Show, Eq)
@@ -74,11 +75,11 @@ ecsgGroupName :: Lens' EC2SecurityGroup (Maybe (Val Text))
 ecsgGroupName = lens _eC2SecurityGroupGroupName (\s a -> s { _eC2SecurityGroupGroupName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group.html#cfn-ec2-securitygroup-securitygroupegress
-ecsgSecurityGroupEgress :: Lens' EC2SecurityGroup (Maybe [EC2SecurityGroupRule])
+ecsgSecurityGroupEgress :: Lens' EC2SecurityGroup (Maybe [EC2SecurityGroupEgressProperty])
 ecsgSecurityGroupEgress = lens _eC2SecurityGroupSecurityGroupEgress (\s a -> s { _eC2SecurityGroupSecurityGroupEgress = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group.html#cfn-ec2-securitygroup-securitygroupingress
-ecsgSecurityGroupIngress :: Lens' EC2SecurityGroup (Maybe [EC2SecurityGroupRule])
+ecsgSecurityGroupIngress :: Lens' EC2SecurityGroup (Maybe [EC2SecurityGroupIngressProperty])
 ecsgSecurityGroupIngress = lens _eC2SecurityGroupSecurityGroupIngress (\s a -> s { _eC2SecurityGroupSecurityGroupIngress = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group.html#cfn-ec2-securitygroup-tags
