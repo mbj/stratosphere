@@ -1,5 +1,7 @@
 # Change Log
 
+## 0.4.5
+
 ## 0.4.4
 
 * Update the resource specification document to version `1.4.2`
