@@ -74,6 +74,7 @@ import Stratosphere.Resources.CloudFormationWaitConditionHandle as X
 import Stratosphere.Resources.CloudFrontDistribution as X
 import Stratosphere.Resources.CloudTrailTrail as X
 import Stratosphere.Resources.CloudWatchAlarm as X
+import Stratosphere.Resources.CloudWatchDashboard as X
 import Stratosphere.Resources.CodeBuildProject as X
 import Stratosphere.Resources.CodeCommitRepository as X
 import Stratosphere.Resources.CodeDeployApplication as X
@@ -91,6 +92,12 @@ import Stratosphere.Resources.CognitoUserPoolUserToGroupAttachment as X
 import Stratosphere.Resources.ConfigConfigRule as X
 import Stratosphere.Resources.ConfigConfigurationRecorder as X
 import Stratosphere.Resources.ConfigDeliveryChannel as X
+import Stratosphere.Resources.DMSCertificate as X
+import Stratosphere.Resources.DMSEndpoint as X
+import Stratosphere.Resources.DMSEventSubscription as X
+import Stratosphere.Resources.DMSReplicationInstance as X
+import Stratosphere.Resources.DMSReplicationSubnetGroup as X
+import Stratosphere.Resources.DMSReplicationTask as X
 import Stratosphere.Resources.DataPipelinePipeline as X
 import Stratosphere.Resources.DirectoryServiceMicrosoftAD as X
 import Stratosphere.Resources.DirectoryServiceSimpleAD as X
@@ -337,6 +344,9 @@ import Stratosphere.ResourceProperties.ConfigConfigRuleSource as X
 import Stratosphere.ResourceProperties.ConfigConfigRuleSourceDetail as X
 import Stratosphere.ResourceProperties.ConfigConfigurationRecorderRecordingGroup as X
 import Stratosphere.ResourceProperties.ConfigDeliveryChannelConfigSnapshotDeliveryProperties as X
+import Stratosphere.ResourceProperties.DMSEndpointDynamoDbSettings as X
+import Stratosphere.ResourceProperties.DMSEndpointMongoDbSettings as X
+import Stratosphere.ResourceProperties.DMSEndpointS3Settings as X
 import Stratosphere.ResourceProperties.DataPipelinePipelineField as X
 import Stratosphere.ResourceProperties.DataPipelinePipelineParameterAttribute as X
 import Stratosphere.ResourceProperties.DataPipelinePipelineParameterObject as X
@@ -491,11 +501,7 @@ import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamElasticsearc
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguration as X
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamElasticsearchRetryOptions as X
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamEncryptionConfiguration as X
-import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamExtendedS3DestinationConfiguration as X
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamKMSEncryptionConfig as X
-import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamProcessingConfiguration as X
-import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamProcessor as X
-import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamProcessorParameter as X
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration as X
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamS3DestinationConfiguration as X
 import Stratosphere.ResourceProperties.LambdaFunctionCode as X
@@ -629,6 +635,7 @@ data ResourceProperties
   | CloudFrontDistributionProperties CloudFrontDistribution
   | CloudTrailTrailProperties CloudTrailTrail
   | CloudWatchAlarmProperties CloudWatchAlarm
+  | CloudWatchDashboardProperties CloudWatchDashboard
   | CodeBuildProjectProperties CodeBuildProject
   | CodeCommitRepositoryProperties CodeCommitRepository
   | CodeDeployApplicationProperties CodeDeployApplication
@@ -646,6 +653,12 @@ data ResourceProperties
   | ConfigConfigRuleProperties ConfigConfigRule
   | ConfigConfigurationRecorderProperties ConfigConfigurationRecorder
   | ConfigDeliveryChannelProperties ConfigDeliveryChannel
+  | DMSCertificateProperties DMSCertificate
+  | DMSEndpointProperties DMSEndpoint
+  | DMSEventSubscriptionProperties DMSEventSubscription
+  | DMSReplicationInstanceProperties DMSReplicationInstance
+  | DMSReplicationSubnetGroupProperties DMSReplicationSubnetGroup
+  | DMSReplicationTaskProperties DMSReplicationTask
   | DataPipelinePipelineProperties DataPipelinePipeline
   | DirectoryServiceMicrosoftADProperties DirectoryServiceMicrosoftAD
   | DirectoryServiceSimpleADProperties DirectoryServiceSimpleAD
@@ -912,6 +925,8 @@ resourcePropertiesJSON (CloudTrailTrailProperties x) =
   [ "Type" .= ("AWS::CloudTrail::Trail" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (CloudWatchAlarmProperties x) =
   [ "Type" .= ("AWS::CloudWatch::Alarm" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (CloudWatchDashboardProperties x) =
+  [ "Type" .= ("AWS::CloudWatch::Dashboard" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (CodeBuildProjectProperties x) =
   [ "Type" .= ("AWS::CodeBuild::Project" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (CodeCommitRepositoryProperties x) =
@@ -946,6 +961,18 @@ resourcePropertiesJSON (ConfigConfigurationRecorderProperties x) =
   [ "Type" .= ("AWS::Config::ConfigurationRecorder" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ConfigDeliveryChannelProperties x) =
   [ "Type" .= ("AWS::Config::DeliveryChannel" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (DMSCertificateProperties x) =
+  [ "Type" .= ("AWS::DMS::Certificate" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (DMSEndpointProperties x) =
+  [ "Type" .= ("AWS::DMS::Endpoint" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (DMSEventSubscriptionProperties x) =
+  [ "Type" .= ("AWS::DMS::EventSubscription" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (DMSReplicationInstanceProperties x) =
+  [ "Type" .= ("AWS::DMS::ReplicationInstance" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (DMSReplicationSubnetGroupProperties x) =
+  [ "Type" .= ("AWS::DMS::ReplicationSubnetGroup" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (DMSReplicationTaskProperties x) =
+  [ "Type" .= ("AWS::DMS::ReplicationTask" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (DataPipelinePipelineProperties x) =
   [ "Type" .= ("AWS::DataPipeline::Pipeline" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (DirectoryServiceMicrosoftADProperties x) =
@@ -1293,6 +1320,7 @@ resourceFromJSON n o =
          "AWS::CloudFront::Distribution" -> CloudFrontDistributionProperties <$> (o .: "Properties")
          "AWS::CloudTrail::Trail" -> CloudTrailTrailProperties <$> (o .: "Properties")
          "AWS::CloudWatch::Alarm" -> CloudWatchAlarmProperties <$> (o .: "Properties")
+         "AWS::CloudWatch::Dashboard" -> CloudWatchDashboardProperties <$> (o .: "Properties")
          "AWS::CodeBuild::Project" -> CodeBuildProjectProperties <$> (o .: "Properties")
          "AWS::CodeCommit::Repository" -> CodeCommitRepositoryProperties <$> (o .: "Properties")
          "AWS::CodeDeploy::Application" -> CodeDeployApplicationProperties <$> (o .: "Properties")
@@ -1310,6 +1338,12 @@ resourceFromJSON n o =
          "AWS::Config::ConfigRule" -> ConfigConfigRuleProperties <$> (o .: "Properties")
          "AWS::Config::ConfigurationRecorder" -> ConfigConfigurationRecorderProperties <$> (o .: "Properties")
          "AWS::Config::DeliveryChannel" -> ConfigDeliveryChannelProperties <$> (o .: "Properties")
+         "AWS::DMS::Certificate" -> DMSCertificateProperties <$> (o .: "Properties")
+         "AWS::DMS::Endpoint" -> DMSEndpointProperties <$> (o .: "Properties")
+         "AWS::DMS::EventSubscription" -> DMSEventSubscriptionProperties <$> (o .: "Properties")
+         "AWS::DMS::ReplicationInstance" -> DMSReplicationInstanceProperties <$> (o .: "Properties")
+         "AWS::DMS::ReplicationSubnetGroup" -> DMSReplicationSubnetGroupProperties <$> (o .: "Properties")
+         "AWS::DMS::ReplicationTask" -> DMSReplicationTaskProperties <$> (o .: "Properties")
          "AWS::DataPipeline::Pipeline" -> DataPipelinePipelineProperties <$> (o .: "Properties")
          "AWS::DirectoryService::MicrosoftAD" -> DirectoryServiceMicrosoftADProperties <$> (o .: "Properties")
          "AWS::DirectoryService::SimpleAD" -> DirectoryServiceSimpleADProperties <$> (o .: "Properties")
