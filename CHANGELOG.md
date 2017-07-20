@@ -1,5 +1,7 @@
 # Change Log
 
+## 0.5.1
+
 ## 0.5.0
 
 * Update resource specification document (no version given)
