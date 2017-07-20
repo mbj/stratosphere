@@ -1,7 +1,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail.html
 
 module Stratosphere.Resources.CloudTrailTrail where
 
@@ -89,50 +89,50 @@ cloudTrailTrail isLoggingarg s3BucketNamearg =
   , _cloudTrailTrailTrailName = Nothing
   }
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html#cfn-cloudtrail-trail-cloudwatchlogsloggrouparn
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail.html#aws-cloudtrail-trail-cloudwatchlogsloggroupaem
 cttCloudWatchLogsLogGroupArn :: Lens' CloudTrailTrail (Maybe (Val Text))
 cttCloudWatchLogsLogGroupArn = lens _cloudTrailTrailCloudWatchLogsLogGroupArn (\s a -> s { _cloudTrailTrailCloudWatchLogsLogGroupArn = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html#cfn-cloudtrail-trail-cloudwatchlogsrolearn
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail.html#aws-cloudtrail-trail-cloudwatchlogsrolearn
 cttCloudWatchLogsRoleArn :: Lens' CloudTrailTrail (Maybe (Val Text))
 cttCloudWatchLogsRoleArn = lens _cloudTrailTrailCloudWatchLogsRoleArn (\s a -> s { _cloudTrailTrailCloudWatchLogsRoleArn = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html#cfn-cloudtrail-trail-enablelogfilevalidation
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail.html#aws-cloudtrail-trail-enablelogfilevalidation
 cttEnableLogFileValidation :: Lens' CloudTrailTrail (Maybe (Val Bool'))
 cttEnableLogFileValidation = lens _cloudTrailTrailEnableLogFileValidation (\s a -> s { _cloudTrailTrailEnableLogFileValidation = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html#cfn-cloudtrail-trail-includeglobalserviceevents
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail.html#aws-cloudtrail-trail-includeglobalserviceevents
 cttIncludeGlobalServiceEvents :: Lens' CloudTrailTrail (Maybe (Val Bool'))
 cttIncludeGlobalServiceEvents = lens _cloudTrailTrailIncludeGlobalServiceEvents (\s a -> s { _cloudTrailTrailIncludeGlobalServiceEvents = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html#cfn-cloudtrail-trail-islogging
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail.html#aws-cloudtrail-trail-islogging
 cttIsLogging :: Lens' CloudTrailTrail (Val Bool')
 cttIsLogging = lens _cloudTrailTrailIsLogging (\s a -> s { _cloudTrailTrailIsLogging = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html#cfn-cloudtrail-trail-ismultiregiontrail
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail.html#aws-cloudtrail-trail-ismultiregiontrail
 cttIsMultiRegionTrail :: Lens' CloudTrailTrail (Maybe (Val Bool'))
 cttIsMultiRegionTrail = lens _cloudTrailTrailIsMultiRegionTrail (\s a -> s { _cloudTrailTrailIsMultiRegionTrail = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html#cfn-cloudtrail-trail-kmskeyid
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail.html#aws-cloudtrail-trail-kmskeyid
 cttKMSKeyId :: Lens' CloudTrailTrail (Maybe (Val Text))
 cttKMSKeyId = lens _cloudTrailTrailKMSKeyId (\s a -> s { _cloudTrailTrailKMSKeyId = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html#cfn-cloudtrail-trail-s3bucketname
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail.html#aws-cloudtrail-trail-s3bucketname
 cttS3BucketName :: Lens' CloudTrailTrail (Val Text)
 cttS3BucketName = lens _cloudTrailTrailS3BucketName (\s a -> s { _cloudTrailTrailS3BucketName = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html#cfn-cloudtrail-trail-s3keyprefix
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail.html#aws-cloudtrail-trail-s3keyprefix
 cttS3KeyPrefix :: Lens' CloudTrailTrail (Maybe (Val Text))
 cttS3KeyPrefix = lens _cloudTrailTrailS3KeyPrefix (\s a -> s { _cloudTrailTrailS3KeyPrefix = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html#cfn-cloudtrail-trail-snstopicname
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail.html#aws-cloudtrail-trail-snstopicname
 cttSnsTopicName :: Lens' CloudTrailTrail (Maybe (Val Text))
 cttSnsTopicName = lens _cloudTrailTrailSnsTopicName (\s a -> s { _cloudTrailTrailSnsTopicName = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html#cfn-cloudtrail-trail-tags
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail.html#cfn-cloudtrail-trail-tags
 cttTags :: Lens' CloudTrailTrail (Maybe [Tag])
 cttTags = lens _cloudTrailTrailTags (\s a -> s { _cloudTrailTrailTags = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html#cfn-cloudtrail-trail-trailname
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail.html#aws-cloudtrail-trail-trailname
 cttTrailName :: Lens' CloudTrailTrail (Maybe (Val Text))
 cttTrailName = lens _cloudTrailTrailTrailName (\s a -> s { _cloudTrailTrailTrailName = a })

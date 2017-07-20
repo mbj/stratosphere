@@ -14,7 +14,6 @@ import Data.Text
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamCloudWatchLoggingOptions
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamCopyCommand
-import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamProcessingConfiguration
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamS3DestinationConfiguration
 
 -- | Full data type definition for
@@ -27,7 +26,6 @@ data KinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration =
   , _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationClusterJDBCURL :: Val Text
   , _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationCopyCommand :: KinesisFirehoseDeliveryStreamCopyCommand
   , _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationPassword :: Val Text
-  , _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationProcessingConfiguration :: Maybe KinesisFirehoseDeliveryStreamProcessingConfiguration
   , _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationRoleARN :: Val Text
   , _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationS3Configuration :: KinesisFirehoseDeliveryStreamS3DestinationConfiguration
   , _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationUsername :: Val Text
@@ -41,7 +39,6 @@ instance ToJSON KinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration wh
     , Just ("ClusterJDBCURL" .= _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationClusterJDBCURL)
     , Just ("CopyCommand" .= _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationCopyCommand)
     , Just ("Password" .= _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationPassword)
-    , ("ProcessingConfiguration" .=) <$> _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationProcessingConfiguration
     , Just ("RoleARN" .= _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationRoleARN)
     , Just ("S3Configuration" .= _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationS3Configuration)
     , Just ("Username" .= _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationUsername)
@@ -54,7 +51,6 @@ instance FromJSON KinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration 
       obj .: "ClusterJDBCURL" <*>
       obj .: "CopyCommand" <*>
       obj .: "Password" <*>
-      obj .:? "ProcessingConfiguration" <*>
       obj .: "RoleARN" <*>
       obj .: "S3Configuration" <*>
       obj .: "Username"
@@ -77,7 +73,6 @@ kinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration clusterJDBCURLarg 
   , _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationClusterJDBCURL = clusterJDBCURLarg
   , _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationCopyCommand = copyCommandarg
   , _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationPassword = passwordarg
-  , _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationProcessingConfiguration = Nothing
   , _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationRoleARN = roleARNarg
   , _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationS3Configuration = s3Configurationarg
   , _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationUsername = usernamearg
@@ -98,10 +93,6 @@ kfdsrdcCopyCommand = lens _kinesisFirehoseDeliveryStreamRedshiftDestinationConfi
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-kinesisdeliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-kinesisdeliverystream-redshiftdestinationconfiguration-password
 kfdsrdcPassword :: Lens' KinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration (Val Text)
 kfdsrdcPassword = lens _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationPassword (\s a -> s { _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationPassword = a })
-
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-kinesisdeliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-kinesisdeliverystream-ProcessingConfiguration
-kfdsrdcProcessingConfiguration :: Lens' KinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration (Maybe KinesisFirehoseDeliveryStreamProcessingConfiguration)
-kfdsrdcProcessingConfiguration = lens _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationProcessingConfiguration (\s a -> s { _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationProcessingConfiguration = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-kinesisdeliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-kinesisdeliverystream-redshiftdestinationconfiguration-rolearn
 kfdsrdcRoleARN :: Lens' KinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration (Val Text)
