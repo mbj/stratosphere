@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-jobflowinstancesconfig-placementtype.html
 
@@ -25,13 +26,13 @@ instance ToJSON EMRClusterPlacementType where
   toJSON EMRClusterPlacementType{..} =
     object $
     catMaybes
-    [ Just ("AvailabilityZone" .= _eMRClusterPlacementTypeAvailabilityZone)
+    [ (Just . ("AvailabilityZone",) . toJSON) _eMRClusterPlacementTypeAvailabilityZone
     ]
 
 instance FromJSON EMRClusterPlacementType where
   parseJSON (Object obj) =
     EMRClusterPlacementType <$>
-      obj .: "AvailabilityZone"
+      (obj .: "AvailabilityZone")
   parseJSON _ = mempty
 
 -- | Constructor for 'EMRClusterPlacementType' containing required fields as

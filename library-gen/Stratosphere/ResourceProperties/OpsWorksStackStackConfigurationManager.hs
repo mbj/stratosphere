@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-stack-stackconfigmanager.html
 
@@ -27,15 +28,15 @@ instance ToJSON OpsWorksStackStackConfigurationManager where
   toJSON OpsWorksStackStackConfigurationManager{..} =
     object $
     catMaybes
-    [ ("Name" .=) <$> _opsWorksStackStackConfigurationManagerName
-    , ("Version" .=) <$> _opsWorksStackStackConfigurationManagerVersion
+    [ fmap (("Name",) . toJSON) _opsWorksStackStackConfigurationManagerName
+    , fmap (("Version",) . toJSON) _opsWorksStackStackConfigurationManagerVersion
     ]
 
 instance FromJSON OpsWorksStackStackConfigurationManager where
   parseJSON (Object obj) =
     OpsWorksStackStackConfigurationManager <$>
-      obj .:? "Name" <*>
-      obj .:? "Version"
+      (obj .:? "Name") <*>
+      (obj .:? "Version")
   parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksStackStackConfigurationManager' containing

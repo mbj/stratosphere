@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html
 
@@ -26,15 +27,15 @@ instance ToJSON IAMUserPolicy where
   toJSON IAMUserPolicy{..} =
     object $
     catMaybes
-    [ Just ("PolicyDocument" .= _iAMUserPolicyPolicyDocument)
-    , Just ("PolicyName" .= _iAMUserPolicyPolicyName)
+    [ (Just . ("PolicyDocument",) . toJSON) _iAMUserPolicyPolicyDocument
+    , (Just . ("PolicyName",) . toJSON) _iAMUserPolicyPolicyName
     ]
 
 instance FromJSON IAMUserPolicy where
   parseJSON (Object obj) =
     IAMUserPolicy <$>
-      obj .: "PolicyDocument" <*>
-      obj .: "PolicyName"
+      (obj .: "PolicyDocument") <*>
+      (obj .: "PolicyName")
   parseJSON _ = mempty
 
 -- | Constructor for 'IAMUserPolicy' containing required fields as arguments.

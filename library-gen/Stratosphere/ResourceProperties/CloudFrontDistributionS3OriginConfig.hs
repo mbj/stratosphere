@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-s3origin.html
 
@@ -25,13 +26,13 @@ instance ToJSON CloudFrontDistributionS3OriginConfig where
   toJSON CloudFrontDistributionS3OriginConfig{..} =
     object $
     catMaybes
-    [ ("OriginAccessIdentity" .=) <$> _cloudFrontDistributionS3OriginConfigOriginAccessIdentity
+    [ fmap (("OriginAccessIdentity",) . toJSON) _cloudFrontDistributionS3OriginConfigOriginAccessIdentity
     ]
 
 instance FromJSON CloudFrontDistributionS3OriginConfig where
   parseJSON (Object obj) =
     CloudFrontDistributionS3OriginConfig <$>
-      obj .:? "OriginAccessIdentity"
+      (obj .:? "OriginAccessIdentity")
   parseJSON _ = mempty
 
 -- | Constructor for 'CloudFrontDistributionS3OriginConfig' containing

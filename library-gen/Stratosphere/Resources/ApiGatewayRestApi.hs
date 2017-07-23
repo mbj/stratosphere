@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html
 
@@ -23,7 +24,7 @@ data ApiGatewayRestApi =
   , _apiGatewayRestApiBodyS3Location :: Maybe ApiGatewayRestApiS3Location
   , _apiGatewayRestApiCloneFrom :: Maybe (Val Text)
   , _apiGatewayRestApiDescription :: Maybe (Val Text)
-  , _apiGatewayRestApiFailOnWarnings :: Maybe (Val Bool')
+  , _apiGatewayRestApiFailOnWarnings :: Maybe (Val Bool)
   , _apiGatewayRestApiMode :: Maybe (Val Text)
   , _apiGatewayRestApiName :: Maybe (Val Text)
   , _apiGatewayRestApiParameters :: Maybe Object
@@ -33,29 +34,29 @@ instance ToJSON ApiGatewayRestApi where
   toJSON ApiGatewayRestApi{..} =
     object $
     catMaybes
-    [ ("BinaryMediaTypes" .=) <$> _apiGatewayRestApiBinaryMediaTypes
-    , ("Body" .=) <$> _apiGatewayRestApiBody
-    , ("BodyS3Location" .=) <$> _apiGatewayRestApiBodyS3Location
-    , ("CloneFrom" .=) <$> _apiGatewayRestApiCloneFrom
-    , ("Description" .=) <$> _apiGatewayRestApiDescription
-    , ("FailOnWarnings" .=) <$> _apiGatewayRestApiFailOnWarnings
-    , ("Mode" .=) <$> _apiGatewayRestApiMode
-    , ("Name" .=) <$> _apiGatewayRestApiName
-    , ("Parameters" .=) <$> _apiGatewayRestApiParameters
+    [ fmap (("BinaryMediaTypes",) . toJSON) _apiGatewayRestApiBinaryMediaTypes
+    , fmap (("Body",) . toJSON) _apiGatewayRestApiBody
+    , fmap (("BodyS3Location",) . toJSON) _apiGatewayRestApiBodyS3Location
+    , fmap (("CloneFrom",) . toJSON) _apiGatewayRestApiCloneFrom
+    , fmap (("Description",) . toJSON) _apiGatewayRestApiDescription
+    , fmap (("FailOnWarnings",) . toJSON . fmap Bool') _apiGatewayRestApiFailOnWarnings
+    , fmap (("Mode",) . toJSON) _apiGatewayRestApiMode
+    , fmap (("Name",) . toJSON) _apiGatewayRestApiName
+    , fmap (("Parameters",) . toJSON) _apiGatewayRestApiParameters
     ]
 
 instance FromJSON ApiGatewayRestApi where
   parseJSON (Object obj) =
     ApiGatewayRestApi <$>
-      obj .:? "BinaryMediaTypes" <*>
-      obj .:? "Body" <*>
-      obj .:? "BodyS3Location" <*>
-      obj .:? "CloneFrom" <*>
-      obj .:? "Description" <*>
-      obj .:? "FailOnWarnings" <*>
-      obj .:? "Mode" <*>
-      obj .:? "Name" <*>
-      obj .:? "Parameters"
+      (obj .:? "BinaryMediaTypes") <*>
+      (obj .:? "Body") <*>
+      (obj .:? "BodyS3Location") <*>
+      (obj .:? "CloneFrom") <*>
+      (obj .:? "Description") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "FailOnWarnings") <*>
+      (obj .:? "Mode") <*>
+      (obj .:? "Name") <*>
+      (obj .:? "Parameters")
   parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayRestApi' containing required fields as
@@ -96,7 +97,7 @@ agraDescription :: Lens' ApiGatewayRestApi (Maybe (Val Text))
 agraDescription = lens _apiGatewayRestApiDescription (\s a -> s { _apiGatewayRestApiDescription = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-failonwarnings
-agraFailOnWarnings :: Lens' ApiGatewayRestApi (Maybe (Val Bool'))
+agraFailOnWarnings :: Lens' ApiGatewayRestApi (Maybe (Val Bool))
 agraFailOnWarnings = lens _apiGatewayRestApiFailOnWarnings (\s a -> s { _apiGatewayRestApiFailOnWarnings = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-mode

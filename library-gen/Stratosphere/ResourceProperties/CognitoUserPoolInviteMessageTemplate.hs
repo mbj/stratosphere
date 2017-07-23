@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-invitemessagetemplate.html
 
@@ -27,17 +28,17 @@ instance ToJSON CognitoUserPoolInviteMessageTemplate where
   toJSON CognitoUserPoolInviteMessageTemplate{..} =
     object $
     catMaybes
-    [ ("EmailMessage" .=) <$> _cognitoUserPoolInviteMessageTemplateEmailMessage
-    , ("EmailSubject" .=) <$> _cognitoUserPoolInviteMessageTemplateEmailSubject
-    , ("SMSMessage" .=) <$> _cognitoUserPoolInviteMessageTemplateSMSMessage
+    [ fmap (("EmailMessage",) . toJSON) _cognitoUserPoolInviteMessageTemplateEmailMessage
+    , fmap (("EmailSubject",) . toJSON) _cognitoUserPoolInviteMessageTemplateEmailSubject
+    , fmap (("SMSMessage",) . toJSON) _cognitoUserPoolInviteMessageTemplateSMSMessage
     ]
 
 instance FromJSON CognitoUserPoolInviteMessageTemplate where
   parseJSON (Object obj) =
     CognitoUserPoolInviteMessageTemplate <$>
-      obj .:? "EmailMessage" <*>
-      obj .:? "EmailSubject" <*>
-      obj .:? "SMSMessage"
+      (obj .:? "EmailMessage") <*>
+      (obj .:? "EmailSubject") <*>
+      (obj .:? "SMSMessage")
   parseJSON _ = mempty
 
 -- | Constructor for 'CognitoUserPoolInviteMessageTemplate' containing

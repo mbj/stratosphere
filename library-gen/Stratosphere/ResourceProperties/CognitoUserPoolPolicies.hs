@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-policies.html
 
@@ -25,13 +26,13 @@ instance ToJSON CognitoUserPoolPolicies where
   toJSON CognitoUserPoolPolicies{..} =
     object $
     catMaybes
-    [ ("PasswordPolicy" .=) <$> _cognitoUserPoolPoliciesPasswordPolicy
+    [ fmap (("PasswordPolicy",) . toJSON) _cognitoUserPoolPoliciesPasswordPolicy
     ]
 
 instance FromJSON CognitoUserPoolPolicies where
   parseJSON (Object obj) =
     CognitoUserPoolPolicies <$>
-      obj .:? "PasswordPolicy"
+      (obj .:? "PasswordPolicy")
   parseJSON _ = mempty
 
 -- | Constructor for 'CognitoUserPoolPolicies' containing required fields as

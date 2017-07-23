@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html
 
@@ -33,27 +34,27 @@ instance ToJSON ApplicationAutoScalingScalingPolicy where
   toJSON ApplicationAutoScalingScalingPolicy{..} =
     object $
     catMaybes
-    [ Just ("PolicyName" .= _applicationAutoScalingScalingPolicyPolicyName)
-    , Just ("PolicyType" .= _applicationAutoScalingScalingPolicyPolicyType)
-    , ("ResourceId" .=) <$> _applicationAutoScalingScalingPolicyResourceId
-    , ("ScalableDimension" .=) <$> _applicationAutoScalingScalingPolicyScalableDimension
-    , ("ScalingTargetId" .=) <$> _applicationAutoScalingScalingPolicyScalingTargetId
-    , ("ServiceNamespace" .=) <$> _applicationAutoScalingScalingPolicyServiceNamespace
-    , ("StepScalingPolicyConfiguration" .=) <$> _applicationAutoScalingScalingPolicyStepScalingPolicyConfiguration
-    , ("TargetTrackingScalingPolicyConfiguration" .=) <$> _applicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfiguration
+    [ (Just . ("PolicyName",) . toJSON) _applicationAutoScalingScalingPolicyPolicyName
+    , (Just . ("PolicyType",) . toJSON) _applicationAutoScalingScalingPolicyPolicyType
+    , fmap (("ResourceId",) . toJSON) _applicationAutoScalingScalingPolicyResourceId
+    , fmap (("ScalableDimension",) . toJSON) _applicationAutoScalingScalingPolicyScalableDimension
+    , fmap (("ScalingTargetId",) . toJSON) _applicationAutoScalingScalingPolicyScalingTargetId
+    , fmap (("ServiceNamespace",) . toJSON) _applicationAutoScalingScalingPolicyServiceNamespace
+    , fmap (("StepScalingPolicyConfiguration",) . toJSON) _applicationAutoScalingScalingPolicyStepScalingPolicyConfiguration
+    , fmap (("TargetTrackingScalingPolicyConfiguration",) . toJSON) _applicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfiguration
     ]
 
 instance FromJSON ApplicationAutoScalingScalingPolicy where
   parseJSON (Object obj) =
     ApplicationAutoScalingScalingPolicy <$>
-      obj .: "PolicyName" <*>
-      obj .: "PolicyType" <*>
-      obj .:? "ResourceId" <*>
-      obj .:? "ScalableDimension" <*>
-      obj .:? "ScalingTargetId" <*>
-      obj .:? "ServiceNamespace" <*>
-      obj .:? "StepScalingPolicyConfiguration" <*>
-      obj .:? "TargetTrackingScalingPolicyConfiguration"
+      (obj .: "PolicyName") <*>
+      (obj .: "PolicyType") <*>
+      (obj .:? "ResourceId") <*>
+      (obj .:? "ScalableDimension") <*>
+      (obj .:? "ScalingTargetId") <*>
+      (obj .:? "ServiceNamespace") <*>
+      (obj .:? "StepScalingPolicyConfiguration") <*>
+      (obj .:? "TargetTrackingScalingPolicyConfiguration")
   parseJSON _ = mempty
 
 -- | Constructor for 'ApplicationAutoScalingScalingPolicy' containing required

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-webacl-rule.html
 
@@ -19,7 +20,7 @@ import Stratosphere.ResourceProperties.WAFRegionalWebACLAction
 data WAFRegionalWebACLRule =
   WAFRegionalWebACLRule
   { _wAFRegionalWebACLRuleAction :: WAFRegionalWebACLAction
-  , _wAFRegionalWebACLRulePriority :: Val Integer'
+  , _wAFRegionalWebACLRulePriority :: Val Integer
   , _wAFRegionalWebACLRuleRuleId :: Val Text
   } deriving (Show, Eq)
 
@@ -27,24 +28,24 @@ instance ToJSON WAFRegionalWebACLRule where
   toJSON WAFRegionalWebACLRule{..} =
     object $
     catMaybes
-    [ Just ("Action" .= _wAFRegionalWebACLRuleAction)
-    , Just ("Priority" .= _wAFRegionalWebACLRulePriority)
-    , Just ("RuleId" .= _wAFRegionalWebACLRuleRuleId)
+    [ (Just . ("Action",) . toJSON) _wAFRegionalWebACLRuleAction
+    , (Just . ("Priority",) . toJSON . fmap Integer') _wAFRegionalWebACLRulePriority
+    , (Just . ("RuleId",) . toJSON) _wAFRegionalWebACLRuleRuleId
     ]
 
 instance FromJSON WAFRegionalWebACLRule where
   parseJSON (Object obj) =
     WAFRegionalWebACLRule <$>
-      obj .: "Action" <*>
-      obj .: "Priority" <*>
-      obj .: "RuleId"
+      (obj .: "Action") <*>
+      fmap (fmap unInteger') (obj .: "Priority") <*>
+      (obj .: "RuleId")
   parseJSON _ = mempty
 
 -- | Constructor for 'WAFRegionalWebACLRule' containing required fields as
 -- arguments.
 wafRegionalWebACLRule
   :: WAFRegionalWebACLAction -- ^ 'wafrwaclrAction'
-  -> Val Integer' -- ^ 'wafrwaclrPriority'
+  -> Val Integer -- ^ 'wafrwaclrPriority'
   -> Val Text -- ^ 'wafrwaclrRuleId'
   -> WAFRegionalWebACLRule
 wafRegionalWebACLRule actionarg priorityarg ruleIdarg =
@@ -59,7 +60,7 @@ wafrwaclrAction :: Lens' WAFRegionalWebACLRule WAFRegionalWebACLAction
 wafrwaclrAction = lens _wAFRegionalWebACLRuleAction (\s a -> s { _wAFRegionalWebACLRuleAction = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-webacl-rule.html#cfn-wafregional-webacl-rule-priority
-wafrwaclrPriority :: Lens' WAFRegionalWebACLRule (Val Integer')
+wafrwaclrPriority :: Lens' WAFRegionalWebACLRule (Val Integer)
 wafrwaclrPriority = lens _wAFRegionalWebACLRulePriority (\s a -> s { _wAFRegionalWebACLRulePriority = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-webacl-rule.html#cfn-wafregional-webacl-rule-ruleid

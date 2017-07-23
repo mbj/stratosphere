@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html
 
@@ -32,27 +33,27 @@ instance ToJSON EC2Route where
   toJSON EC2Route{..} =
     object $
     catMaybes
-    [ ("DestinationCidrBlock" .=) <$> _eC2RouteDestinationCidrBlock
-    , ("DestinationIpv6CidrBlock" .=) <$> _eC2RouteDestinationIpv6CidrBlock
-    , ("GatewayId" .=) <$> _eC2RouteGatewayId
-    , ("InstanceId" .=) <$> _eC2RouteInstanceId
-    , ("NatGatewayId" .=) <$> _eC2RouteNatGatewayId
-    , ("NetworkInterfaceId" .=) <$> _eC2RouteNetworkInterfaceId
-    , Just ("RouteTableId" .= _eC2RouteRouteTableId)
-    , ("VpcPeeringConnectionId" .=) <$> _eC2RouteVpcPeeringConnectionId
+    [ fmap (("DestinationCidrBlock",) . toJSON) _eC2RouteDestinationCidrBlock
+    , fmap (("DestinationIpv6CidrBlock",) . toJSON) _eC2RouteDestinationIpv6CidrBlock
+    , fmap (("GatewayId",) . toJSON) _eC2RouteGatewayId
+    , fmap (("InstanceId",) . toJSON) _eC2RouteInstanceId
+    , fmap (("NatGatewayId",) . toJSON) _eC2RouteNatGatewayId
+    , fmap (("NetworkInterfaceId",) . toJSON) _eC2RouteNetworkInterfaceId
+    , (Just . ("RouteTableId",) . toJSON) _eC2RouteRouteTableId
+    , fmap (("VpcPeeringConnectionId",) . toJSON) _eC2RouteVpcPeeringConnectionId
     ]
 
 instance FromJSON EC2Route where
   parseJSON (Object obj) =
     EC2Route <$>
-      obj .:? "DestinationCidrBlock" <*>
-      obj .:? "DestinationIpv6CidrBlock" <*>
-      obj .:? "GatewayId" <*>
-      obj .:? "InstanceId" <*>
-      obj .:? "NatGatewayId" <*>
-      obj .:? "NetworkInterfaceId" <*>
-      obj .: "RouteTableId" <*>
-      obj .:? "VpcPeeringConnectionId"
+      (obj .:? "DestinationCidrBlock") <*>
+      (obj .:? "DestinationIpv6CidrBlock") <*>
+      (obj .:? "GatewayId") <*>
+      (obj .:? "InstanceId") <*>
+      (obj .:? "NatGatewayId") <*>
+      (obj .:? "NetworkInterfaceId") <*>
+      (obj .: "RouteTableId") <*>
+      (obj .:? "VpcPeeringConnectionId")
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2Route' containing required fields as arguments.

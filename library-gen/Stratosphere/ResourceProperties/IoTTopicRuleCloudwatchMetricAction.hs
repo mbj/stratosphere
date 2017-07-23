@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-cloudwatchmetric.html
 
@@ -30,23 +31,23 @@ instance ToJSON IoTTopicRuleCloudwatchMetricAction where
   toJSON IoTTopicRuleCloudwatchMetricAction{..} =
     object $
     catMaybes
-    [ Just ("MetricName" .= _ioTTopicRuleCloudwatchMetricActionMetricName)
-    , Just ("MetricNamespace" .= _ioTTopicRuleCloudwatchMetricActionMetricNamespace)
-    , ("MetricTimestamp" .=) <$> _ioTTopicRuleCloudwatchMetricActionMetricTimestamp
-    , Just ("MetricUnit" .= _ioTTopicRuleCloudwatchMetricActionMetricUnit)
-    , Just ("MetricValue" .= _ioTTopicRuleCloudwatchMetricActionMetricValue)
-    , Just ("RoleArn" .= _ioTTopicRuleCloudwatchMetricActionRoleArn)
+    [ (Just . ("MetricName",) . toJSON) _ioTTopicRuleCloudwatchMetricActionMetricName
+    , (Just . ("MetricNamespace",) . toJSON) _ioTTopicRuleCloudwatchMetricActionMetricNamespace
+    , fmap (("MetricTimestamp",) . toJSON) _ioTTopicRuleCloudwatchMetricActionMetricTimestamp
+    , (Just . ("MetricUnit",) . toJSON) _ioTTopicRuleCloudwatchMetricActionMetricUnit
+    , (Just . ("MetricValue",) . toJSON) _ioTTopicRuleCloudwatchMetricActionMetricValue
+    , (Just . ("RoleArn",) . toJSON) _ioTTopicRuleCloudwatchMetricActionRoleArn
     ]
 
 instance FromJSON IoTTopicRuleCloudwatchMetricAction where
   parseJSON (Object obj) =
     IoTTopicRuleCloudwatchMetricAction <$>
-      obj .: "MetricName" <*>
-      obj .: "MetricNamespace" <*>
-      obj .:? "MetricTimestamp" <*>
-      obj .: "MetricUnit" <*>
-      obj .: "MetricValue" <*>
-      obj .: "RoleArn"
+      (obj .: "MetricName") <*>
+      (obj .: "MetricNamespace") <*>
+      (obj .:? "MetricTimestamp") <*>
+      (obj .: "MetricUnit") <*>
+      (obj .: "MetricValue") <*>
+      (obj .: "RoleArn")
   parseJSON _ = mempty
 
 -- | Constructor for 'IoTTopicRuleCloudwatchMetricAction' containing required

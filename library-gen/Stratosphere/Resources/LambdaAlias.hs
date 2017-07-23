@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-alias.html
 
@@ -28,19 +29,19 @@ instance ToJSON LambdaAlias where
   toJSON LambdaAlias{..} =
     object $
     catMaybes
-    [ ("Description" .=) <$> _lambdaAliasDescription
-    , Just ("FunctionName" .= _lambdaAliasFunctionName)
-    , Just ("FunctionVersion" .= _lambdaAliasFunctionVersion)
-    , Just ("Name" .= _lambdaAliasName)
+    [ fmap (("Description",) . toJSON) _lambdaAliasDescription
+    , (Just . ("FunctionName",) . toJSON) _lambdaAliasFunctionName
+    , (Just . ("FunctionVersion",) . toJSON) _lambdaAliasFunctionVersion
+    , (Just . ("Name",) . toJSON) _lambdaAliasName
     ]
 
 instance FromJSON LambdaAlias where
   parseJSON (Object obj) =
     LambdaAlias <$>
-      obj .:? "Description" <*>
-      obj .: "FunctionName" <*>
-      obj .: "FunctionVersion" <*>
-      obj .: "Name"
+      (obj .:? "Description") <*>
+      (obj .: "FunctionName") <*>
+      (obj .: "FunctionVersion") <*>
+      (obj .: "Name")
   parseJSON _ = mempty
 
 -- | Constructor for 'LambdaAlias' containing required fields as arguments.

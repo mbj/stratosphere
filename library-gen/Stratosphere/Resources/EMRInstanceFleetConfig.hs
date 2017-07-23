@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-instancefleetconfig.html
 
@@ -24,33 +25,33 @@ data EMRInstanceFleetConfig =
   , _eMRInstanceFleetConfigInstanceTypeConfigs :: Maybe [EMRInstanceFleetConfigInstanceTypeConfig]
   , _eMRInstanceFleetConfigLaunchSpecifications :: Maybe EMRInstanceFleetConfigInstanceFleetProvisioningSpecifications
   , _eMRInstanceFleetConfigName :: Maybe (Val Text)
-  , _eMRInstanceFleetConfigTargetOnDemandCapacity :: Maybe (Val Integer')
-  , _eMRInstanceFleetConfigTargetSpotCapacity :: Maybe (Val Integer')
+  , _eMRInstanceFleetConfigTargetOnDemandCapacity :: Maybe (Val Integer)
+  , _eMRInstanceFleetConfigTargetSpotCapacity :: Maybe (Val Integer)
   } deriving (Show, Eq)
 
 instance ToJSON EMRInstanceFleetConfig where
   toJSON EMRInstanceFleetConfig{..} =
     object $
     catMaybes
-    [ Just ("ClusterId" .= _eMRInstanceFleetConfigClusterId)
-    , Just ("InstanceFleetType" .= _eMRInstanceFleetConfigInstanceFleetType)
-    , ("InstanceTypeConfigs" .=) <$> _eMRInstanceFleetConfigInstanceTypeConfigs
-    , ("LaunchSpecifications" .=) <$> _eMRInstanceFleetConfigLaunchSpecifications
-    , ("Name" .=) <$> _eMRInstanceFleetConfigName
-    , ("TargetOnDemandCapacity" .=) <$> _eMRInstanceFleetConfigTargetOnDemandCapacity
-    , ("TargetSpotCapacity" .=) <$> _eMRInstanceFleetConfigTargetSpotCapacity
+    [ (Just . ("ClusterId",) . toJSON) _eMRInstanceFleetConfigClusterId
+    , (Just . ("InstanceFleetType",) . toJSON) _eMRInstanceFleetConfigInstanceFleetType
+    , fmap (("InstanceTypeConfigs",) . toJSON) _eMRInstanceFleetConfigInstanceTypeConfigs
+    , fmap (("LaunchSpecifications",) . toJSON) _eMRInstanceFleetConfigLaunchSpecifications
+    , fmap (("Name",) . toJSON) _eMRInstanceFleetConfigName
+    , fmap (("TargetOnDemandCapacity",) . toJSON . fmap Integer') _eMRInstanceFleetConfigTargetOnDemandCapacity
+    , fmap (("TargetSpotCapacity",) . toJSON . fmap Integer') _eMRInstanceFleetConfigTargetSpotCapacity
     ]
 
 instance FromJSON EMRInstanceFleetConfig where
   parseJSON (Object obj) =
     EMRInstanceFleetConfig <$>
-      obj .: "ClusterId" <*>
-      obj .: "InstanceFleetType" <*>
-      obj .:? "InstanceTypeConfigs" <*>
-      obj .:? "LaunchSpecifications" <*>
-      obj .:? "Name" <*>
-      obj .:? "TargetOnDemandCapacity" <*>
-      obj .:? "TargetSpotCapacity"
+      (obj .: "ClusterId") <*>
+      (obj .: "InstanceFleetType") <*>
+      (obj .:? "InstanceTypeConfigs") <*>
+      (obj .:? "LaunchSpecifications") <*>
+      (obj .:? "Name") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "TargetOnDemandCapacity") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "TargetSpotCapacity")
   parseJSON _ = mempty
 
 -- | Constructor for 'EMRInstanceFleetConfig' containing required fields as
@@ -91,9 +92,9 @@ emrifcName :: Lens' EMRInstanceFleetConfig (Maybe (Val Text))
 emrifcName = lens _eMRInstanceFleetConfigName (\s a -> s { _eMRInstanceFleetConfigName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-instancefleetconfig.html#cfn-elasticmapreduce-instancefleetconfig-targetondemandcapacity
-emrifcTargetOnDemandCapacity :: Lens' EMRInstanceFleetConfig (Maybe (Val Integer'))
+emrifcTargetOnDemandCapacity :: Lens' EMRInstanceFleetConfig (Maybe (Val Integer))
 emrifcTargetOnDemandCapacity = lens _eMRInstanceFleetConfigTargetOnDemandCapacity (\s a -> s { _eMRInstanceFleetConfigTargetOnDemandCapacity = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-instancefleetconfig.html#cfn-elasticmapreduce-instancefleetconfig-targetspotcapacity
-emrifcTargetSpotCapacity :: Lens' EMRInstanceFleetConfig (Maybe (Val Integer'))
+emrifcTargetSpotCapacity :: Lens' EMRInstanceFleetConfig (Maybe (Val Integer))
 emrifcTargetSpotCapacity = lens _eMRInstanceFleetConfigTargetSpotCapacity (\s a -> s { _eMRInstanceFleetConfigTargetSpotCapacity = a })

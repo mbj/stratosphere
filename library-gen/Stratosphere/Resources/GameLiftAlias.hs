@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html
 
@@ -27,17 +28,17 @@ instance ToJSON GameLiftAlias where
   toJSON GameLiftAlias{..} =
     object $
     catMaybes
-    [ ("Description" .=) <$> _gameLiftAliasDescription
-    , Just ("Name" .= _gameLiftAliasName)
-    , Just ("RoutingStrategy" .= _gameLiftAliasRoutingStrategy)
+    [ fmap (("Description",) . toJSON) _gameLiftAliasDescription
+    , (Just . ("Name",) . toJSON) _gameLiftAliasName
+    , (Just . ("RoutingStrategy",) . toJSON) _gameLiftAliasRoutingStrategy
     ]
 
 instance FromJSON GameLiftAlias where
   parseJSON (Object obj) =
     GameLiftAlias <$>
-      obj .:? "Description" <*>
-      obj .: "Name" <*>
-      obj .: "RoutingStrategy"
+      (obj .:? "Description") <*>
+      (obj .: "Name") <*>
+      (obj .: "RoutingStrategy")
   parseJSON _ = mempty
 
 -- | Constructor for 'GameLiftAlias' containing required fields as arguments.

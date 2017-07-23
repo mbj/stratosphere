@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-endpoint.html
 
@@ -31,7 +32,7 @@ data DMSEndpoint =
   , _dMSEndpointKmsKeyId :: Maybe (Val Text)
   , _dMSEndpointMongoDbSettings :: Maybe DMSEndpointMongoDbSettings
   , _dMSEndpointPassword :: Maybe (Val Text)
-  , _dMSEndpointPort :: Maybe (Val Integer')
+  , _dMSEndpointPort :: Maybe (Val Integer)
   , _dMSEndpointS3Settings :: Maybe DMSEndpointS3Settings
   , _dMSEndpointServerName :: Maybe (Val Text)
   , _dMSEndpointSslMode :: Maybe (Val Text)
@@ -43,43 +44,43 @@ instance ToJSON DMSEndpoint where
   toJSON DMSEndpoint{..} =
     object $
     catMaybes
-    [ ("CertificateArn" .=) <$> _dMSEndpointCertificateArn
-    , ("DatabaseName" .=) <$> _dMSEndpointDatabaseName
-    , ("DynamoDbSettings" .=) <$> _dMSEndpointDynamoDbSettings
-    , ("EndpointIdentifier" .=) <$> _dMSEndpointEndpointIdentifier
-    , Just ("EndpointType" .= _dMSEndpointEndpointType)
-    , Just ("EngineName" .= _dMSEndpointEngineName)
-    , ("ExtraConnectionAttributes" .=) <$> _dMSEndpointExtraConnectionAttributes
-    , ("KmsKeyId" .=) <$> _dMSEndpointKmsKeyId
-    , ("MongoDbSettings" .=) <$> _dMSEndpointMongoDbSettings
-    , ("Password" .=) <$> _dMSEndpointPassword
-    , ("Port" .=) <$> _dMSEndpointPort
-    , ("S3Settings" .=) <$> _dMSEndpointS3Settings
-    , ("ServerName" .=) <$> _dMSEndpointServerName
-    , ("SslMode" .=) <$> _dMSEndpointSslMode
-    , ("Tags" .=) <$> _dMSEndpointTags
-    , ("Username" .=) <$> _dMSEndpointUsername
+    [ fmap (("CertificateArn",) . toJSON) _dMSEndpointCertificateArn
+    , fmap (("DatabaseName",) . toJSON) _dMSEndpointDatabaseName
+    , fmap (("DynamoDbSettings",) . toJSON) _dMSEndpointDynamoDbSettings
+    , fmap (("EndpointIdentifier",) . toJSON) _dMSEndpointEndpointIdentifier
+    , (Just . ("EndpointType",) . toJSON) _dMSEndpointEndpointType
+    , (Just . ("EngineName",) . toJSON) _dMSEndpointEngineName
+    , fmap (("ExtraConnectionAttributes",) . toJSON) _dMSEndpointExtraConnectionAttributes
+    , fmap (("KmsKeyId",) . toJSON) _dMSEndpointKmsKeyId
+    , fmap (("MongoDbSettings",) . toJSON) _dMSEndpointMongoDbSettings
+    , fmap (("Password",) . toJSON) _dMSEndpointPassword
+    , fmap (("Port",) . toJSON . fmap Integer') _dMSEndpointPort
+    , fmap (("S3Settings",) . toJSON) _dMSEndpointS3Settings
+    , fmap (("ServerName",) . toJSON) _dMSEndpointServerName
+    , fmap (("SslMode",) . toJSON) _dMSEndpointSslMode
+    , fmap (("Tags",) . toJSON) _dMSEndpointTags
+    , fmap (("Username",) . toJSON) _dMSEndpointUsername
     ]
 
 instance FromJSON DMSEndpoint where
   parseJSON (Object obj) =
     DMSEndpoint <$>
-      obj .:? "CertificateArn" <*>
-      obj .:? "DatabaseName" <*>
-      obj .:? "DynamoDbSettings" <*>
-      obj .:? "EndpointIdentifier" <*>
-      obj .: "EndpointType" <*>
-      obj .: "EngineName" <*>
-      obj .:? "ExtraConnectionAttributes" <*>
-      obj .:? "KmsKeyId" <*>
-      obj .:? "MongoDbSettings" <*>
-      obj .:? "Password" <*>
-      obj .:? "Port" <*>
-      obj .:? "S3Settings" <*>
-      obj .:? "ServerName" <*>
-      obj .:? "SslMode" <*>
-      obj .:? "Tags" <*>
-      obj .:? "Username"
+      (obj .:? "CertificateArn") <*>
+      (obj .:? "DatabaseName") <*>
+      (obj .:? "DynamoDbSettings") <*>
+      (obj .:? "EndpointIdentifier") <*>
+      (obj .: "EndpointType") <*>
+      (obj .: "EngineName") <*>
+      (obj .:? "ExtraConnectionAttributes") <*>
+      (obj .:? "KmsKeyId") <*>
+      (obj .:? "MongoDbSettings") <*>
+      (obj .:? "Password") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "Port") <*>
+      (obj .:? "S3Settings") <*>
+      (obj .:? "ServerName") <*>
+      (obj .:? "SslMode") <*>
+      (obj .:? "Tags") <*>
+      (obj .:? "Username")
   parseJSON _ = mempty
 
 -- | Constructor for 'DMSEndpoint' containing required fields as arguments.
@@ -148,7 +149,7 @@ dmsePassword :: Lens' DMSEndpoint (Maybe (Val Text))
 dmsePassword = lens _dMSEndpointPassword (\s a -> s { _dMSEndpointPassword = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-endpoint.html#cfn-dms-endpoint-port
-dmsePort :: Lens' DMSEndpoint (Maybe (Val Integer'))
+dmsePort :: Lens' DMSEndpoint (Maybe (Val Integer))
 dmsePort = lens _dMSEndpointPort (\s a -> s { _dMSEndpointPort = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-endpoint.html#cfn-dms-endpoint-s3settings

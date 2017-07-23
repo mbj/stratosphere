@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-ebsconfiguration.html
 
@@ -20,22 +21,22 @@ import Stratosphere.ResourceProperties.EMRInstanceGroupConfigEbsBlockDeviceConfi
 data EMRInstanceGroupConfigEbsConfiguration =
   EMRInstanceGroupConfigEbsConfiguration
   { _eMRInstanceGroupConfigEbsConfigurationEbsBlockDeviceConfigs :: Maybe [EMRInstanceGroupConfigEbsBlockDeviceConfig]
-  , _eMRInstanceGroupConfigEbsConfigurationEbsOptimized :: Maybe (Val Bool')
+  , _eMRInstanceGroupConfigEbsConfigurationEbsOptimized :: Maybe (Val Bool)
   } deriving (Show, Eq)
 
 instance ToJSON EMRInstanceGroupConfigEbsConfiguration where
   toJSON EMRInstanceGroupConfigEbsConfiguration{..} =
     object $
     catMaybes
-    [ ("EbsBlockDeviceConfigs" .=) <$> _eMRInstanceGroupConfigEbsConfigurationEbsBlockDeviceConfigs
-    , ("EbsOptimized" .=) <$> _eMRInstanceGroupConfigEbsConfigurationEbsOptimized
+    [ fmap (("EbsBlockDeviceConfigs",) . toJSON) _eMRInstanceGroupConfigEbsConfigurationEbsBlockDeviceConfigs
+    , fmap (("EbsOptimized",) . toJSON . fmap Bool') _eMRInstanceGroupConfigEbsConfigurationEbsOptimized
     ]
 
 instance FromJSON EMRInstanceGroupConfigEbsConfiguration where
   parseJSON (Object obj) =
     EMRInstanceGroupConfigEbsConfiguration <$>
-      obj .:? "EbsBlockDeviceConfigs" <*>
-      obj .:? "EbsOptimized"
+      (obj .:? "EbsBlockDeviceConfigs") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "EbsOptimized")
   parseJSON _ = mempty
 
 -- | Constructor for 'EMRInstanceGroupConfigEbsConfiguration' containing
@@ -53,5 +54,5 @@ emrigcecEbsBlockDeviceConfigs :: Lens' EMRInstanceGroupConfigEbsConfiguration (M
 emrigcecEbsBlockDeviceConfigs = lens _eMRInstanceGroupConfigEbsConfigurationEbsBlockDeviceConfigs (\s a -> s { _eMRInstanceGroupConfigEbsConfigurationEbsBlockDeviceConfigs = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-ebsconfiguration.html#cfn-emr-ebsconfiguration-ebsoptimized
-emrigcecEbsOptimized :: Lens' EMRInstanceGroupConfigEbsConfiguration (Maybe (Val Bool'))
+emrigcecEbsOptimized :: Lens' EMRInstanceGroupConfigEbsConfiguration (Maybe (Val Bool))
 emrigcecEbsOptimized = lens _eMRInstanceGroupConfigEbsConfigurationEbsOptimized (\s a -> s { _eMRInstanceGroupConfigEbsConfigurationEbsOptimized = a })

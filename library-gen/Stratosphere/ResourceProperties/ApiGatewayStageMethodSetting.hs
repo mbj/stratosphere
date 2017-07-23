@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html
 
@@ -18,47 +19,47 @@ import Stratosphere.Types
 -- 'apiGatewayStageMethodSetting' for a more convenient constructor.
 data ApiGatewayStageMethodSetting =
   ApiGatewayStageMethodSetting
-  { _apiGatewayStageMethodSettingCacheDataEncrypted :: Maybe (Val Bool')
-  , _apiGatewayStageMethodSettingCacheTtlInSeconds :: Maybe (Val Integer')
-  , _apiGatewayStageMethodSettingCachingEnabled :: Maybe (Val Bool')
-  , _apiGatewayStageMethodSettingDataTraceEnabled :: Maybe (Val Bool')
+  { _apiGatewayStageMethodSettingCacheDataEncrypted :: Maybe (Val Bool)
+  , _apiGatewayStageMethodSettingCacheTtlInSeconds :: Maybe (Val Integer)
+  , _apiGatewayStageMethodSettingCachingEnabled :: Maybe (Val Bool)
+  , _apiGatewayStageMethodSettingDataTraceEnabled :: Maybe (Val Bool)
   , _apiGatewayStageMethodSettingHttpMethod :: Maybe (Val HttpMethod)
   , _apiGatewayStageMethodSettingLoggingLevel :: Maybe (Val LoggingLevel)
-  , _apiGatewayStageMethodSettingMetricsEnabled :: Maybe (Val Bool')
+  , _apiGatewayStageMethodSettingMetricsEnabled :: Maybe (Val Bool)
   , _apiGatewayStageMethodSettingResourcePath :: Maybe (Val Text)
-  , _apiGatewayStageMethodSettingThrottlingBurstLimit :: Maybe (Val Integer')
-  , _apiGatewayStageMethodSettingThrottlingRateLimit :: Maybe (Val Double')
+  , _apiGatewayStageMethodSettingThrottlingBurstLimit :: Maybe (Val Integer)
+  , _apiGatewayStageMethodSettingThrottlingRateLimit :: Maybe (Val Double)
   } deriving (Show, Eq)
 
 instance ToJSON ApiGatewayStageMethodSetting where
   toJSON ApiGatewayStageMethodSetting{..} =
     object $
     catMaybes
-    [ ("CacheDataEncrypted" .=) <$> _apiGatewayStageMethodSettingCacheDataEncrypted
-    , ("CacheTtlInSeconds" .=) <$> _apiGatewayStageMethodSettingCacheTtlInSeconds
-    , ("CachingEnabled" .=) <$> _apiGatewayStageMethodSettingCachingEnabled
-    , ("DataTraceEnabled" .=) <$> _apiGatewayStageMethodSettingDataTraceEnabled
-    , ("HttpMethod" .=) <$> _apiGatewayStageMethodSettingHttpMethod
-    , ("LoggingLevel" .=) <$> _apiGatewayStageMethodSettingLoggingLevel
-    , ("MetricsEnabled" .=) <$> _apiGatewayStageMethodSettingMetricsEnabled
-    , ("ResourcePath" .=) <$> _apiGatewayStageMethodSettingResourcePath
-    , ("ThrottlingBurstLimit" .=) <$> _apiGatewayStageMethodSettingThrottlingBurstLimit
-    , ("ThrottlingRateLimit" .=) <$> _apiGatewayStageMethodSettingThrottlingRateLimit
+    [ fmap (("CacheDataEncrypted",) . toJSON . fmap Bool') _apiGatewayStageMethodSettingCacheDataEncrypted
+    , fmap (("CacheTtlInSeconds",) . toJSON . fmap Integer') _apiGatewayStageMethodSettingCacheTtlInSeconds
+    , fmap (("CachingEnabled",) . toJSON . fmap Bool') _apiGatewayStageMethodSettingCachingEnabled
+    , fmap (("DataTraceEnabled",) . toJSON . fmap Bool') _apiGatewayStageMethodSettingDataTraceEnabled
+    , fmap (("HttpMethod",) . toJSON) _apiGatewayStageMethodSettingHttpMethod
+    , fmap (("LoggingLevel",) . toJSON) _apiGatewayStageMethodSettingLoggingLevel
+    , fmap (("MetricsEnabled",) . toJSON . fmap Bool') _apiGatewayStageMethodSettingMetricsEnabled
+    , fmap (("ResourcePath",) . toJSON) _apiGatewayStageMethodSettingResourcePath
+    , fmap (("ThrottlingBurstLimit",) . toJSON . fmap Integer') _apiGatewayStageMethodSettingThrottlingBurstLimit
+    , fmap (("ThrottlingRateLimit",) . toJSON . fmap Double') _apiGatewayStageMethodSettingThrottlingRateLimit
     ]
 
 instance FromJSON ApiGatewayStageMethodSetting where
   parseJSON (Object obj) =
     ApiGatewayStageMethodSetting <$>
-      obj .:? "CacheDataEncrypted" <*>
-      obj .:? "CacheTtlInSeconds" <*>
-      obj .:? "CachingEnabled" <*>
-      obj .:? "DataTraceEnabled" <*>
-      obj .:? "HttpMethod" <*>
-      obj .:? "LoggingLevel" <*>
-      obj .:? "MetricsEnabled" <*>
-      obj .:? "ResourcePath" <*>
-      obj .:? "ThrottlingBurstLimit" <*>
-      obj .:? "ThrottlingRateLimit"
+      fmap (fmap (fmap unBool')) (obj .:? "CacheDataEncrypted") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "CacheTtlInSeconds") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "CachingEnabled") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "DataTraceEnabled") <*>
+      (obj .:? "HttpMethod") <*>
+      (obj .:? "LoggingLevel") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "MetricsEnabled") <*>
+      (obj .:? "ResourcePath") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "ThrottlingBurstLimit") <*>
+      fmap (fmap (fmap unDouble')) (obj .:? "ThrottlingRateLimit")
   parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayStageMethodSetting' containing required fields
@@ -80,19 +81,19 @@ apiGatewayStageMethodSetting  =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-cachedataencrypted
-agsmsCacheDataEncrypted :: Lens' ApiGatewayStageMethodSetting (Maybe (Val Bool'))
+agsmsCacheDataEncrypted :: Lens' ApiGatewayStageMethodSetting (Maybe (Val Bool))
 agsmsCacheDataEncrypted = lens _apiGatewayStageMethodSettingCacheDataEncrypted (\s a -> s { _apiGatewayStageMethodSettingCacheDataEncrypted = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-cachettlinseconds
-agsmsCacheTtlInSeconds :: Lens' ApiGatewayStageMethodSetting (Maybe (Val Integer'))
+agsmsCacheTtlInSeconds :: Lens' ApiGatewayStageMethodSetting (Maybe (Val Integer))
 agsmsCacheTtlInSeconds = lens _apiGatewayStageMethodSettingCacheTtlInSeconds (\s a -> s { _apiGatewayStageMethodSettingCacheTtlInSeconds = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-cachingenabled
-agsmsCachingEnabled :: Lens' ApiGatewayStageMethodSetting (Maybe (Val Bool'))
+agsmsCachingEnabled :: Lens' ApiGatewayStageMethodSetting (Maybe (Val Bool))
 agsmsCachingEnabled = lens _apiGatewayStageMethodSettingCachingEnabled (\s a -> s { _apiGatewayStageMethodSettingCachingEnabled = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-datatraceenabled
-agsmsDataTraceEnabled :: Lens' ApiGatewayStageMethodSetting (Maybe (Val Bool'))
+agsmsDataTraceEnabled :: Lens' ApiGatewayStageMethodSetting (Maybe (Val Bool))
 agsmsDataTraceEnabled = lens _apiGatewayStageMethodSettingDataTraceEnabled (\s a -> s { _apiGatewayStageMethodSettingDataTraceEnabled = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-httpmethod
@@ -104,7 +105,7 @@ agsmsLoggingLevel :: Lens' ApiGatewayStageMethodSetting (Maybe (Val LoggingLevel
 agsmsLoggingLevel = lens _apiGatewayStageMethodSettingLoggingLevel (\s a -> s { _apiGatewayStageMethodSettingLoggingLevel = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-metricsenabled
-agsmsMetricsEnabled :: Lens' ApiGatewayStageMethodSetting (Maybe (Val Bool'))
+agsmsMetricsEnabled :: Lens' ApiGatewayStageMethodSetting (Maybe (Val Bool))
 agsmsMetricsEnabled = lens _apiGatewayStageMethodSettingMetricsEnabled (\s a -> s { _apiGatewayStageMethodSettingMetricsEnabled = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-resourcepath
@@ -112,9 +113,9 @@ agsmsResourcePath :: Lens' ApiGatewayStageMethodSetting (Maybe (Val Text))
 agsmsResourcePath = lens _apiGatewayStageMethodSettingResourcePath (\s a -> s { _apiGatewayStageMethodSettingResourcePath = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-throttlingburstlimit
-agsmsThrottlingBurstLimit :: Lens' ApiGatewayStageMethodSetting (Maybe (Val Integer'))
+agsmsThrottlingBurstLimit :: Lens' ApiGatewayStageMethodSetting (Maybe (Val Integer))
 agsmsThrottlingBurstLimit = lens _apiGatewayStageMethodSettingThrottlingBurstLimit (\s a -> s { _apiGatewayStageMethodSettingThrottlingBurstLimit = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-throttlingratelimit
-agsmsThrottlingRateLimit :: Lens' ApiGatewayStageMethodSetting (Maybe (Val Double'))
+agsmsThrottlingRateLimit :: Lens' ApiGatewayStageMethodSetting (Maybe (Val Double))
 agsmsThrottlingRateLimit = lens _apiGatewayStageMethodSettingThrottlingRateLimit (\s a -> s { _apiGatewayStageMethodSettingThrottlingRateLimit = a })

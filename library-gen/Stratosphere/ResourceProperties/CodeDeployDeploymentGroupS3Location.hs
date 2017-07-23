@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-deployment-revision-s3location.html
 
@@ -29,21 +30,21 @@ instance ToJSON CodeDeployDeploymentGroupS3Location where
   toJSON CodeDeployDeploymentGroupS3Location{..} =
     object $
     catMaybes
-    [ Just ("Bucket" .= _codeDeployDeploymentGroupS3LocationBucket)
-    , ("BundleType" .=) <$> _codeDeployDeploymentGroupS3LocationBundleType
-    , ("ETag" .=) <$> _codeDeployDeploymentGroupS3LocationETag
-    , Just ("Key" .= _codeDeployDeploymentGroupS3LocationKey)
-    , ("Version" .=) <$> _codeDeployDeploymentGroupS3LocationVersion
+    [ (Just . ("Bucket",) . toJSON) _codeDeployDeploymentGroupS3LocationBucket
+    , fmap (("BundleType",) . toJSON) _codeDeployDeploymentGroupS3LocationBundleType
+    , fmap (("ETag",) . toJSON) _codeDeployDeploymentGroupS3LocationETag
+    , (Just . ("Key",) . toJSON) _codeDeployDeploymentGroupS3LocationKey
+    , fmap (("Version",) . toJSON) _codeDeployDeploymentGroupS3LocationVersion
     ]
 
 instance FromJSON CodeDeployDeploymentGroupS3Location where
   parseJSON (Object obj) =
     CodeDeployDeploymentGroupS3Location <$>
-      obj .: "Bucket" <*>
-      obj .:? "BundleType" <*>
-      obj .:? "ETag" <*>
-      obj .: "Key" <*>
-      obj .:? "Version"
+      (obj .: "Bucket") <*>
+      (obj .:? "BundleType") <*>
+      (obj .:? "ETag") <*>
+      (obj .: "Key") <*>
+      (obj .:? "Version")
   parseJSON _ = mempty
 
 -- | Constructor for 'CodeDeployDeploymentGroupS3Location' containing required

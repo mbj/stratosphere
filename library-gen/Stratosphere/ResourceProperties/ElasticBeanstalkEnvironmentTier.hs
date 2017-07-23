@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment-tier.html
 
@@ -27,17 +28,17 @@ instance ToJSON ElasticBeanstalkEnvironmentTier where
   toJSON ElasticBeanstalkEnvironmentTier{..} =
     object $
     catMaybes
-    [ ("Name" .=) <$> _elasticBeanstalkEnvironmentTierName
-    , ("Type" .=) <$> _elasticBeanstalkEnvironmentTierType
-    , ("Version" .=) <$> _elasticBeanstalkEnvironmentTierVersion
+    [ fmap (("Name",) . toJSON) _elasticBeanstalkEnvironmentTierName
+    , fmap (("Type",) . toJSON) _elasticBeanstalkEnvironmentTierType
+    , fmap (("Version",) . toJSON) _elasticBeanstalkEnvironmentTierVersion
     ]
 
 instance FromJSON ElasticBeanstalkEnvironmentTier where
   parseJSON (Object obj) =
     ElasticBeanstalkEnvironmentTier <$>
-      obj .:? "Name" <*>
-      obj .:? "Type" <*>
-      obj .:? "Version"
+      (obj .:? "Name") <*>
+      (obj .:? "Type") <*>
+      (obj .:? "Version")
   parseJSON _ = mempty
 
 -- | Constructor for 'ElasticBeanstalkEnvironmentTier' containing required

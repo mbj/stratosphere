@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution.html
 
@@ -25,13 +26,13 @@ instance ToJSON CloudFrontDistribution where
   toJSON CloudFrontDistribution{..} =
     object $
     catMaybes
-    [ Just ("DistributionConfig" .= _cloudFrontDistributionDistributionConfig)
+    [ (Just . ("DistributionConfig",) . toJSON) _cloudFrontDistributionDistributionConfig
     ]
 
 instance FromJSON CloudFrontDistribution where
   parseJSON (Object obj) =
     CloudFrontDistribution <$>
-      obj .: "DistributionConfig"
+      (obj .: "DistributionConfig")
   parseJSON _ = mempty
 
 -- | Constructor for 'CloudFrontDistribution' containing required fields as

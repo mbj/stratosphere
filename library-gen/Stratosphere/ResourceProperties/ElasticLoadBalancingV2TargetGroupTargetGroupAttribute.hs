@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-targetgroup-targetgroupattributes.html
 
@@ -28,15 +29,15 @@ instance ToJSON ElasticLoadBalancingV2TargetGroupTargetGroupAttribute where
   toJSON ElasticLoadBalancingV2TargetGroupTargetGroupAttribute{..} =
     object $
     catMaybes
-    [ ("Key" .=) <$> _elasticLoadBalancingV2TargetGroupTargetGroupAttributeKey
-    , ("Value" .=) <$> _elasticLoadBalancingV2TargetGroupTargetGroupAttributeValue
+    [ fmap (("Key",) . toJSON) _elasticLoadBalancingV2TargetGroupTargetGroupAttributeKey
+    , fmap (("Value",) . toJSON) _elasticLoadBalancingV2TargetGroupTargetGroupAttributeValue
     ]
 
 instance FromJSON ElasticLoadBalancingV2TargetGroupTargetGroupAttribute where
   parseJSON (Object obj) =
     ElasticLoadBalancingV2TargetGroupTargetGroupAttribute <$>
-      obj .:? "Key" <*>
-      obj .:? "Value"
+      (obj .:? "Key") <*>
+      (obj .:? "Value")
   parseJSON _ = mempty
 
 -- | Constructor for 'ElasticLoadBalancingV2TargetGroupTargetGroupAttribute'

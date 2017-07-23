@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-build-storagelocation.html
 
@@ -27,17 +28,17 @@ instance ToJSON GameLiftBuildS3Location where
   toJSON GameLiftBuildS3Location{..} =
     object $
     catMaybes
-    [ Just ("Bucket" .= _gameLiftBuildS3LocationBucket)
-    , Just ("Key" .= _gameLiftBuildS3LocationKey)
-    , Just ("RoleArn" .= _gameLiftBuildS3LocationRoleArn)
+    [ (Just . ("Bucket",) . toJSON) _gameLiftBuildS3LocationBucket
+    , (Just . ("Key",) . toJSON) _gameLiftBuildS3LocationKey
+    , (Just . ("RoleArn",) . toJSON) _gameLiftBuildS3LocationRoleArn
     ]
 
 instance FromJSON GameLiftBuildS3Location where
   parseJSON (Object obj) =
     GameLiftBuildS3Location <$>
-      obj .: "Bucket" <*>
-      obj .: "Key" <*>
-      obj .: "RoleArn"
+      (obj .: "Bucket") <*>
+      (obj .: "Key") <*>
+      (obj .: "RoleArn")
   parseJSON _ = mempty
 
 -- | Constructor for 'GameLiftBuildS3Location' containing required fields as

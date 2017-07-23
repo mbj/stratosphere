@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationrecorder-recordinggroup.html
 
@@ -19,8 +20,8 @@ import Stratosphere.Values
 -- constructor.
 data ConfigConfigurationRecorderRecordingGroup =
   ConfigConfigurationRecorderRecordingGroup
-  { _configConfigurationRecorderRecordingGroupAllSupported :: Maybe (Val Bool')
-  , _configConfigurationRecorderRecordingGroupIncludeGlobalResourceTypes :: Maybe (Val Bool')
+  { _configConfigurationRecorderRecordingGroupAllSupported :: Maybe (Val Bool)
+  , _configConfigurationRecorderRecordingGroupIncludeGlobalResourceTypes :: Maybe (Val Bool)
   , _configConfigurationRecorderRecordingGroupResourceTypes :: Maybe (ValList Text)
   } deriving (Show, Eq)
 
@@ -28,17 +29,17 @@ instance ToJSON ConfigConfigurationRecorderRecordingGroup where
   toJSON ConfigConfigurationRecorderRecordingGroup{..} =
     object $
     catMaybes
-    [ ("AllSupported" .=) <$> _configConfigurationRecorderRecordingGroupAllSupported
-    , ("IncludeGlobalResourceTypes" .=) <$> _configConfigurationRecorderRecordingGroupIncludeGlobalResourceTypes
-    , ("ResourceTypes" .=) <$> _configConfigurationRecorderRecordingGroupResourceTypes
+    [ fmap (("AllSupported",) . toJSON . fmap Bool') _configConfigurationRecorderRecordingGroupAllSupported
+    , fmap (("IncludeGlobalResourceTypes",) . toJSON . fmap Bool') _configConfigurationRecorderRecordingGroupIncludeGlobalResourceTypes
+    , fmap (("ResourceTypes",) . toJSON) _configConfigurationRecorderRecordingGroupResourceTypes
     ]
 
 instance FromJSON ConfigConfigurationRecorderRecordingGroup where
   parseJSON (Object obj) =
     ConfigConfigurationRecorderRecordingGroup <$>
-      obj .:? "AllSupported" <*>
-      obj .:? "IncludeGlobalResourceTypes" <*>
-      obj .:? "ResourceTypes"
+      fmap (fmap (fmap unBool')) (obj .:? "AllSupported") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "IncludeGlobalResourceTypes") <*>
+      (obj .:? "ResourceTypes")
   parseJSON _ = mempty
 
 -- | Constructor for 'ConfigConfigurationRecorderRecordingGroup' containing
@@ -53,11 +54,11 @@ configConfigurationRecorderRecordingGroup  =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationrecorder-recordinggroup.html#cfn-config-configurationrecorder-recordinggroup-allsupported
-ccrrgAllSupported :: Lens' ConfigConfigurationRecorderRecordingGroup (Maybe (Val Bool'))
+ccrrgAllSupported :: Lens' ConfigConfigurationRecorderRecordingGroup (Maybe (Val Bool))
 ccrrgAllSupported = lens _configConfigurationRecorderRecordingGroupAllSupported (\s a -> s { _configConfigurationRecorderRecordingGroupAllSupported = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationrecorder-recordinggroup.html#cfn-config-configurationrecorder-recordinggroup-includeglobalresourcetypes
-ccrrgIncludeGlobalResourceTypes :: Lens' ConfigConfigurationRecorderRecordingGroup (Maybe (Val Bool'))
+ccrrgIncludeGlobalResourceTypes :: Lens' ConfigConfigurationRecorderRecordingGroup (Maybe (Val Bool))
 ccrrgIncludeGlobalResourceTypes = lens _configConfigurationRecorderRecordingGroupIncludeGlobalResourceTypes (\s a -> s { _configConfigurationRecorderRecordingGroupIncludeGlobalResourceTypes = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationrecorder-recordinggroup.html#cfn-config-configurationrecorder-recordinggroup-resourcetypes

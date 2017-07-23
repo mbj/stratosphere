@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-dimension.html
 
@@ -26,15 +27,15 @@ instance ToJSON CloudWatchAlarmDimension where
   toJSON CloudWatchAlarmDimension{..} =
     object $
     catMaybes
-    [ Just ("Name" .= _cloudWatchAlarmDimensionName)
-    , Just ("Value" .= _cloudWatchAlarmDimensionValue)
+    [ (Just . ("Name",) . toJSON) _cloudWatchAlarmDimensionName
+    , (Just . ("Value",) . toJSON) _cloudWatchAlarmDimensionValue
     ]
 
 instance FromJSON CloudWatchAlarmDimension where
   parseJSON (Object obj) =
     CloudWatchAlarmDimension <$>
-      obj .: "Name" <*>
-      obj .: "Value"
+      (obj .: "Name") <*>
+      (obj .: "Value")
   parseJSON _ = mempty
 
 -- | Constructor for 'CloudWatchAlarmDimension' containing required fields as

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-kinesisdeliverystream-s3destinationconfiguration-encryptionconfiguration-kmsencryptionconfig.html
 
@@ -27,13 +28,13 @@ instance ToJSON KinesisFirehoseDeliveryStreamKMSEncryptionConfig where
   toJSON KinesisFirehoseDeliveryStreamKMSEncryptionConfig{..} =
     object $
     catMaybes
-    [ Just ("AWSKMSKeyARN" .= _kinesisFirehoseDeliveryStreamKMSEncryptionConfigAWSKMSKeyARN)
+    [ (Just . ("AWSKMSKeyARN",) . toJSON) _kinesisFirehoseDeliveryStreamKMSEncryptionConfigAWSKMSKeyARN
     ]
 
 instance FromJSON KinesisFirehoseDeliveryStreamKMSEncryptionConfig where
   parseJSON (Object obj) =
     KinesisFirehoseDeliveryStreamKMSEncryptionConfig <$>
-      obj .: "AWSKMSKeyARN"
+      (obj .: "AWSKMSKeyARN")
   parseJSON _ = mempty
 
 -- | Constructor for 'KinesisFirehoseDeliveryStreamKMSEncryptionConfig'

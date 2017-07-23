@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-volume.html
 
@@ -28,19 +29,19 @@ instance ToJSON OpsWorksVolume where
   toJSON OpsWorksVolume{..} =
     object $
     catMaybes
-    [ Just ("Ec2VolumeId" .= _opsWorksVolumeEc2VolumeId)
-    , ("MountPoint" .=) <$> _opsWorksVolumeMountPoint
-    , ("Name" .=) <$> _opsWorksVolumeName
-    , Just ("StackId" .= _opsWorksVolumeStackId)
+    [ (Just . ("Ec2VolumeId",) . toJSON) _opsWorksVolumeEc2VolumeId
+    , fmap (("MountPoint",) . toJSON) _opsWorksVolumeMountPoint
+    , fmap (("Name",) . toJSON) _opsWorksVolumeName
+    , (Just . ("StackId",) . toJSON) _opsWorksVolumeStackId
     ]
 
 instance FromJSON OpsWorksVolume where
   parseJSON (Object obj) =
     OpsWorksVolume <$>
-      obj .: "Ec2VolumeId" <*>
-      obj .:? "MountPoint" <*>
-      obj .:? "Name" <*>
-      obj .: "StackId"
+      (obj .: "Ec2VolumeId") <*>
+      (obj .:? "MountPoint") <*>
+      (obj .:? "Name") <*>
+      (obj .: "StackId")
   parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksVolume' containing required fields as arguments.

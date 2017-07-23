@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-webacl.html
 
@@ -29,19 +30,19 @@ instance ToJSON WAFRegionalWebACL where
   toJSON WAFRegionalWebACL{..} =
     object $
     catMaybes
-    [ Just ("DefaultAction" .= _wAFRegionalWebACLDefaultAction)
-    , Just ("MetricName" .= _wAFRegionalWebACLMetricName)
-    , Just ("Name" .= _wAFRegionalWebACLName)
-    , ("Rules" .=) <$> _wAFRegionalWebACLRules
+    [ (Just . ("DefaultAction",) . toJSON) _wAFRegionalWebACLDefaultAction
+    , (Just . ("MetricName",) . toJSON) _wAFRegionalWebACLMetricName
+    , (Just . ("Name",) . toJSON) _wAFRegionalWebACLName
+    , fmap (("Rules",) . toJSON) _wAFRegionalWebACLRules
     ]
 
 instance FromJSON WAFRegionalWebACL where
   parseJSON (Object obj) =
     WAFRegionalWebACL <$>
-      obj .: "DefaultAction" <*>
-      obj .: "MetricName" <*>
-      obj .: "Name" <*>
-      obj .:? "Rules"
+      (obj .: "DefaultAction") <*>
+      (obj .: "MetricName") <*>
+      (obj .: "Name") <*>
+      (obj .:? "Rules")
   parseJSON _ = mempty
 
 -- | Constructor for 'WAFRegionalWebACL' containing required fields as

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-version.html
 
@@ -27,17 +28,17 @@ instance ToJSON LambdaVersion where
   toJSON LambdaVersion{..} =
     object $
     catMaybes
-    [ ("CodeSha256" .=) <$> _lambdaVersionCodeSha256
-    , ("Description" .=) <$> _lambdaVersionDescription
-    , Just ("FunctionName" .= _lambdaVersionFunctionName)
+    [ fmap (("CodeSha256",) . toJSON) _lambdaVersionCodeSha256
+    , fmap (("Description",) . toJSON) _lambdaVersionDescription
+    , (Just . ("FunctionName",) . toJSON) _lambdaVersionFunctionName
     ]
 
 instance FromJSON LambdaVersion where
   parseJSON (Object obj) =
     LambdaVersion <$>
-      obj .:? "CodeSha256" <*>
-      obj .:? "Description" <*>
-      obj .: "FunctionName"
+      (obj .:? "CodeSha256") <*>
+      (obj .:? "Description") <*>
+      (obj .: "FunctionName")
   parseJSON _ = mempty
 
 -- | Constructor for 'LambdaVersion' containing required fields as arguments.

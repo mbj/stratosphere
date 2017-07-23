@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-natgateway.html
 
@@ -26,15 +27,15 @@ instance ToJSON EC2NatGateway where
   toJSON EC2NatGateway{..} =
     object $
     catMaybes
-    [ Just ("AllocationId" .= _eC2NatGatewayAllocationId)
-    , Just ("SubnetId" .= _eC2NatGatewaySubnetId)
+    [ (Just . ("AllocationId",) . toJSON) _eC2NatGatewayAllocationId
+    , (Just . ("SubnetId",) . toJSON) _eC2NatGatewaySubnetId
     ]
 
 instance FromJSON EC2NatGateway where
   parseJSON (Object obj) =
     EC2NatGateway <$>
-      obj .: "AllocationId" <*>
-      obj .: "SubnetId"
+      (obj .: "AllocationId") <*>
+      (obj .: "SubnetId")
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2NatGateway' containing required fields as arguments.

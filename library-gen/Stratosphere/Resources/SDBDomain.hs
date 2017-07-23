@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-simpledb.html
 
@@ -25,13 +26,13 @@ instance ToJSON SDBDomain where
   toJSON SDBDomain{..} =
     object $
     catMaybes
-    [ ("Description" .=) <$> _sDBDomainDescription
+    [ fmap (("Description",) . toJSON) _sDBDomainDescription
     ]
 
 instance FromJSON SDBDomain where
   parseJSON (Object obj) =
     SDBDomain <$>
-      obj .:? "Description"
+      (obj .:? "Description")
   parseJSON _ = mempty
 
 -- | Constructor for 'SDBDomain' containing required fields as arguments.

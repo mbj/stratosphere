@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-kinesis.html
 
@@ -27,17 +28,17 @@ instance ToJSON IoTTopicRuleKinesisAction where
   toJSON IoTTopicRuleKinesisAction{..} =
     object $
     catMaybes
-    [ ("PartitionKey" .=) <$> _ioTTopicRuleKinesisActionPartitionKey
-    , Just ("RoleArn" .= _ioTTopicRuleKinesisActionRoleArn)
-    , Just ("StreamName" .= _ioTTopicRuleKinesisActionStreamName)
+    [ fmap (("PartitionKey",) . toJSON) _ioTTopicRuleKinesisActionPartitionKey
+    , (Just . ("RoleArn",) . toJSON) _ioTTopicRuleKinesisActionRoleArn
+    , (Just . ("StreamName",) . toJSON) _ioTTopicRuleKinesisActionStreamName
     ]
 
 instance FromJSON IoTTopicRuleKinesisAction where
   parseJSON (Object obj) =
     IoTTopicRuleKinesisAction <$>
-      obj .:? "PartitionKey" <*>
-      obj .: "RoleArn" <*>
-      obj .: "StreamName"
+      (obj .:? "PartitionKey") <*>
+      (obj .: "RoleArn") <*>
+      (obj .: "StreamName")
   parseJSON _ = mempty
 
 -- | Constructor for 'IoTTopicRuleKinesisAction' containing required fields as

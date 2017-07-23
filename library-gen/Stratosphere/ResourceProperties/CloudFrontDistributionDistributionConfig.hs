@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distributionconfig.html
 
@@ -31,7 +32,7 @@ data CloudFrontDistributionDistributionConfig =
   , _cloudFrontDistributionDistributionConfigCustomErrorResponses :: Maybe [CloudFrontDistributionCustomErrorResponse]
   , _cloudFrontDistributionDistributionConfigDefaultCacheBehavior :: CloudFrontDistributionDefaultCacheBehavior
   , _cloudFrontDistributionDistributionConfigDefaultRootObject :: Maybe (Val Text)
-  , _cloudFrontDistributionDistributionConfigEnabled :: Val Bool'
+  , _cloudFrontDistributionDistributionConfigEnabled :: Val Bool
   , _cloudFrontDistributionDistributionConfigHttpVersion :: Maybe (Val Text)
   , _cloudFrontDistributionDistributionConfigLogging :: Maybe CloudFrontDistributionLogging
   , _cloudFrontDistributionDistributionConfigOrigins :: [CloudFrontDistributionOrigin]
@@ -45,46 +46,46 @@ instance ToJSON CloudFrontDistributionDistributionConfig where
   toJSON CloudFrontDistributionDistributionConfig{..} =
     object $
     catMaybes
-    [ ("Aliases" .=) <$> _cloudFrontDistributionDistributionConfigAliases
-    , ("CacheBehaviors" .=) <$> _cloudFrontDistributionDistributionConfigCacheBehaviors
-    , ("Comment" .=) <$> _cloudFrontDistributionDistributionConfigComment
-    , ("CustomErrorResponses" .=) <$> _cloudFrontDistributionDistributionConfigCustomErrorResponses
-    , Just ("DefaultCacheBehavior" .= _cloudFrontDistributionDistributionConfigDefaultCacheBehavior)
-    , ("DefaultRootObject" .=) <$> _cloudFrontDistributionDistributionConfigDefaultRootObject
-    , Just ("Enabled" .= _cloudFrontDistributionDistributionConfigEnabled)
-    , ("HttpVersion" .=) <$> _cloudFrontDistributionDistributionConfigHttpVersion
-    , ("Logging" .=) <$> _cloudFrontDistributionDistributionConfigLogging
-    , Just ("Origins" .= _cloudFrontDistributionDistributionConfigOrigins)
-    , ("PriceClass" .=) <$> _cloudFrontDistributionDistributionConfigPriceClass
-    , ("Restrictions" .=) <$> _cloudFrontDistributionDistributionConfigRestrictions
-    , ("ViewerCertificate" .=) <$> _cloudFrontDistributionDistributionConfigViewerCertificate
-    , ("WebACLId" .=) <$> _cloudFrontDistributionDistributionConfigWebACLId
+    [ fmap (("Aliases",) . toJSON) _cloudFrontDistributionDistributionConfigAliases
+    , fmap (("CacheBehaviors",) . toJSON) _cloudFrontDistributionDistributionConfigCacheBehaviors
+    , fmap (("Comment",) . toJSON) _cloudFrontDistributionDistributionConfigComment
+    , fmap (("CustomErrorResponses",) . toJSON) _cloudFrontDistributionDistributionConfigCustomErrorResponses
+    , (Just . ("DefaultCacheBehavior",) . toJSON) _cloudFrontDistributionDistributionConfigDefaultCacheBehavior
+    , fmap (("DefaultRootObject",) . toJSON) _cloudFrontDistributionDistributionConfigDefaultRootObject
+    , (Just . ("Enabled",) . toJSON . fmap Bool') _cloudFrontDistributionDistributionConfigEnabled
+    , fmap (("HttpVersion",) . toJSON) _cloudFrontDistributionDistributionConfigHttpVersion
+    , fmap (("Logging",) . toJSON) _cloudFrontDistributionDistributionConfigLogging
+    , (Just . ("Origins",) . toJSON) _cloudFrontDistributionDistributionConfigOrigins
+    , fmap (("PriceClass",) . toJSON) _cloudFrontDistributionDistributionConfigPriceClass
+    , fmap (("Restrictions",) . toJSON) _cloudFrontDistributionDistributionConfigRestrictions
+    , fmap (("ViewerCertificate",) . toJSON) _cloudFrontDistributionDistributionConfigViewerCertificate
+    , fmap (("WebACLId",) . toJSON) _cloudFrontDistributionDistributionConfigWebACLId
     ]
 
 instance FromJSON CloudFrontDistributionDistributionConfig where
   parseJSON (Object obj) =
     CloudFrontDistributionDistributionConfig <$>
-      obj .:? "Aliases" <*>
-      obj .:? "CacheBehaviors" <*>
-      obj .:? "Comment" <*>
-      obj .:? "CustomErrorResponses" <*>
-      obj .: "DefaultCacheBehavior" <*>
-      obj .:? "DefaultRootObject" <*>
-      obj .: "Enabled" <*>
-      obj .:? "HttpVersion" <*>
-      obj .:? "Logging" <*>
-      obj .: "Origins" <*>
-      obj .:? "PriceClass" <*>
-      obj .:? "Restrictions" <*>
-      obj .:? "ViewerCertificate" <*>
-      obj .:? "WebACLId"
+      (obj .:? "Aliases") <*>
+      (obj .:? "CacheBehaviors") <*>
+      (obj .:? "Comment") <*>
+      (obj .:? "CustomErrorResponses") <*>
+      (obj .: "DefaultCacheBehavior") <*>
+      (obj .:? "DefaultRootObject") <*>
+      fmap (fmap unBool') (obj .: "Enabled") <*>
+      (obj .:? "HttpVersion") <*>
+      (obj .:? "Logging") <*>
+      (obj .: "Origins") <*>
+      (obj .:? "PriceClass") <*>
+      (obj .:? "Restrictions") <*>
+      (obj .:? "ViewerCertificate") <*>
+      (obj .:? "WebACLId")
   parseJSON _ = mempty
 
 -- | Constructor for 'CloudFrontDistributionDistributionConfig' containing
 -- required fields as arguments.
 cloudFrontDistributionDistributionConfig
   :: CloudFrontDistributionDefaultCacheBehavior -- ^ 'cfddcDefaultCacheBehavior'
-  -> Val Bool' -- ^ 'cfddcEnabled'
+  -> Val Bool -- ^ 'cfddcEnabled'
   -> [CloudFrontDistributionOrigin] -- ^ 'cfddcOrigins'
   -> CloudFrontDistributionDistributionConfig
 cloudFrontDistributionDistributionConfig defaultCacheBehaviorarg enabledarg originsarg =
@@ -130,7 +131,7 @@ cfddcDefaultRootObject :: Lens' CloudFrontDistributionDistributionConfig (Maybe 
 cfddcDefaultRootObject = lens _cloudFrontDistributionDistributionConfigDefaultRootObject (\s a -> s { _cloudFrontDistributionDistributionConfigDefaultRootObject = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distributionconfig.html#cfn-cloudfront-distributionconfig-enabled
-cfddcEnabled :: Lens' CloudFrontDistributionDistributionConfig (Val Bool')
+cfddcEnabled :: Lens' CloudFrontDistributionDistributionConfig (Val Bool)
 cfddcEnabled = lens _cloudFrontDistributionDistributionConfigEnabled (\s a -> s { _cloudFrontDistributionDistributionConfigEnabled = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distributionconfig.html#cfn-cloudfront-distributionconfig-httpversion

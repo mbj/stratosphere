@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waitcondition.html
 
@@ -18,7 +19,7 @@ import Stratosphere.Values
 -- 'cloudFormationWaitCondition' for a more convenient constructor.
 data CloudFormationWaitCondition =
   CloudFormationWaitCondition
-  { _cloudFormationWaitConditionCount :: Maybe (Val Integer')
+  { _cloudFormationWaitConditionCount :: Maybe (Val Integer)
   , _cloudFormationWaitConditionHandle :: Val Text
   , _cloudFormationWaitConditionTimeout :: Val Text
   } deriving (Show, Eq)
@@ -27,17 +28,17 @@ instance ToJSON CloudFormationWaitCondition where
   toJSON CloudFormationWaitCondition{..} =
     object $
     catMaybes
-    [ ("Count" .=) <$> _cloudFormationWaitConditionCount
-    , Just ("Handle" .= _cloudFormationWaitConditionHandle)
-    , Just ("Timeout" .= _cloudFormationWaitConditionTimeout)
+    [ fmap (("Count",) . toJSON . fmap Integer') _cloudFormationWaitConditionCount
+    , (Just . ("Handle",) . toJSON) _cloudFormationWaitConditionHandle
+    , (Just . ("Timeout",) . toJSON) _cloudFormationWaitConditionTimeout
     ]
 
 instance FromJSON CloudFormationWaitCondition where
   parseJSON (Object obj) =
     CloudFormationWaitCondition <$>
-      obj .:? "Count" <*>
-      obj .: "Handle" <*>
-      obj .: "Timeout"
+      fmap (fmap (fmap unInteger')) (obj .:? "Count") <*>
+      (obj .: "Handle") <*>
+      (obj .: "Timeout")
   parseJSON _ = mempty
 
 -- | Constructor for 'CloudFormationWaitCondition' containing required fields
@@ -54,7 +55,7 @@ cloudFormationWaitCondition handlearg timeoutarg =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waitcondition.html#cfn-waitcondition-count
-cfwcCount :: Lens' CloudFormationWaitCondition (Maybe (Val Integer'))
+cfwcCount :: Lens' CloudFormationWaitCondition (Maybe (Val Integer))
 cfwcCount = lens _cloudFormationWaitConditionCount (\s a -> s { _cloudFormationWaitConditionCount = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waitcondition.html#cfn-waitcondition-handle

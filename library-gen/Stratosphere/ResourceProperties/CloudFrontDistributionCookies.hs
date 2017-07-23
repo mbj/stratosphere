@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-forwardedvalues-cookies.html
 
@@ -26,15 +27,15 @@ instance ToJSON CloudFrontDistributionCookies where
   toJSON CloudFrontDistributionCookies{..} =
     object $
     catMaybes
-    [ Just ("Forward" .= _cloudFrontDistributionCookiesForward)
-    , ("WhitelistedNames" .=) <$> _cloudFrontDistributionCookiesWhitelistedNames
+    [ (Just . ("Forward",) . toJSON) _cloudFrontDistributionCookiesForward
+    , fmap (("WhitelistedNames",) . toJSON) _cloudFrontDistributionCookiesWhitelistedNames
     ]
 
 instance FromJSON CloudFrontDistributionCookies where
   parseJSON (Object obj) =
     CloudFrontDistributionCookies <$>
-      obj .: "Forward" <*>
-      obj .:? "WhitelistedNames"
+      (obj .: "Forward") <*>
+      (obj .:? "WhitelistedNames")
   parseJSON _ = mempty
 
 -- | Constructor for 'CloudFrontDistributionCookies' containing required

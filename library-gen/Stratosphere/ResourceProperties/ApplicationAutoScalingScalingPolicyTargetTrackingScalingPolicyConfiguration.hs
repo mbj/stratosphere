@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration.html
 
@@ -24,37 +25,37 @@ data ApplicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfiguration
   ApplicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfiguration
   { _applicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification :: Maybe ApplicationAutoScalingScalingPolicyCustomizedMetricSpecification
   , _applicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification :: Maybe ApplicationAutoScalingScalingPolicyPredefinedMetricSpecification
-  , _applicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfigurationScaleInCooldown :: Maybe (Val Integer')
-  , _applicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfigurationScaleOutCooldown :: Maybe (Val Integer')
-  , _applicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfigurationTargetValue :: Val Double'
+  , _applicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfigurationScaleInCooldown :: Maybe (Val Integer)
+  , _applicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfigurationScaleOutCooldown :: Maybe (Val Integer)
+  , _applicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfigurationTargetValue :: Val Double
   } deriving (Show, Eq)
 
 instance ToJSON ApplicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfiguration where
   toJSON ApplicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfiguration{..} =
     object $
     catMaybes
-    [ ("CustomizedMetricSpecification" .=) <$> _applicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification
-    , ("PredefinedMetricSpecification" .=) <$> _applicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification
-    , ("ScaleInCooldown" .=) <$> _applicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfigurationScaleInCooldown
-    , ("ScaleOutCooldown" .=) <$> _applicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfigurationScaleOutCooldown
-    , Just ("TargetValue" .= _applicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfigurationTargetValue)
+    [ fmap (("CustomizedMetricSpecification",) . toJSON) _applicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification
+    , fmap (("PredefinedMetricSpecification",) . toJSON) _applicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification
+    , fmap (("ScaleInCooldown",) . toJSON . fmap Integer') _applicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfigurationScaleInCooldown
+    , fmap (("ScaleOutCooldown",) . toJSON . fmap Integer') _applicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfigurationScaleOutCooldown
+    , (Just . ("TargetValue",) . toJSON . fmap Double') _applicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfigurationTargetValue
     ]
 
 instance FromJSON ApplicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfiguration where
   parseJSON (Object obj) =
     ApplicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfiguration <$>
-      obj .:? "CustomizedMetricSpecification" <*>
-      obj .:? "PredefinedMetricSpecification" <*>
-      obj .:? "ScaleInCooldown" <*>
-      obj .:? "ScaleOutCooldown" <*>
-      obj .: "TargetValue"
+      (obj .:? "CustomizedMetricSpecification") <*>
+      (obj .:? "PredefinedMetricSpecification") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "ScaleInCooldown") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "ScaleOutCooldown") <*>
+      fmap (fmap unDouble') (obj .: "TargetValue")
   parseJSON _ = mempty
 
 -- | Constructor for
 -- 'ApplicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfiguration'
 -- containing required fields as arguments.
 applicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfiguration
-  :: Val Double' -- ^ 'aasspttspcTargetValue'
+  :: Val Double -- ^ 'aasspttspcTargetValue'
   -> ApplicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfiguration
 applicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfiguration targetValuearg =
   ApplicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfiguration
@@ -74,13 +75,13 @@ aasspttspcPredefinedMetricSpecification :: Lens' ApplicationAutoScalingScalingPo
 aasspttspcPredefinedMetricSpecification = lens _applicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification (\s a -> s { _applicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration.html#cfn-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration-scaleincooldown
-aasspttspcScaleInCooldown :: Lens' ApplicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfiguration (Maybe (Val Integer'))
+aasspttspcScaleInCooldown :: Lens' ApplicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfiguration (Maybe (Val Integer))
 aasspttspcScaleInCooldown = lens _applicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfigurationScaleInCooldown (\s a -> s { _applicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfigurationScaleInCooldown = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration.html#cfn-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration-scaleoutcooldown
-aasspttspcScaleOutCooldown :: Lens' ApplicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfiguration (Maybe (Val Integer'))
+aasspttspcScaleOutCooldown :: Lens' ApplicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfiguration (Maybe (Val Integer))
 aasspttspcScaleOutCooldown = lens _applicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfigurationScaleOutCooldown (\s a -> s { _applicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfigurationScaleOutCooldown = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration.html#cfn-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration-targetvalue
-aasspttspcTargetValue :: Lens' ApplicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfiguration (Val Double')
+aasspttspcTargetValue :: Lens' ApplicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfiguration (Val Double)
 aasspttspcTargetValue = lens _applicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfigurationTargetValue (\s a -> s { _applicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfigurationTargetValue = a })

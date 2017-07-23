@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig.html
 
@@ -25,13 +26,13 @@ instance ToJSON S3BucketLifecycleConfiguration where
   toJSON S3BucketLifecycleConfiguration{..} =
     object $
     catMaybes
-    [ Just ("Rules" .= _s3BucketLifecycleConfigurationRules)
+    [ (Just . ("Rules",) . toJSON) _s3BucketLifecycleConfigurationRules
     ]
 
 instance FromJSON S3BucketLifecycleConfiguration where
   parseJSON (Object obj) =
     S3BucketLifecycleConfiguration <$>
-      obj .: "Rules"
+      (obj .: "Rules")
   parseJSON _ = mempty
 
 -- | Constructor for 'S3BucketLifecycleConfiguration' containing required

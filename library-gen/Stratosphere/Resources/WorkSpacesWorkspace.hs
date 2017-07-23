@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-workspace.html
 
@@ -20,9 +21,9 @@ data WorkSpacesWorkspace =
   WorkSpacesWorkspace
   { _workSpacesWorkspaceBundleId :: Val Text
   , _workSpacesWorkspaceDirectoryId :: Val Text
-  , _workSpacesWorkspaceRootVolumeEncryptionEnabled :: Maybe (Val Bool')
+  , _workSpacesWorkspaceRootVolumeEncryptionEnabled :: Maybe (Val Bool)
   , _workSpacesWorkspaceUserName :: Val Text
-  , _workSpacesWorkspaceUserVolumeEncryptionEnabled :: Maybe (Val Bool')
+  , _workSpacesWorkspaceUserVolumeEncryptionEnabled :: Maybe (Val Bool)
   , _workSpacesWorkspaceVolumeEncryptionKey :: Maybe (Val Text)
   } deriving (Show, Eq)
 
@@ -30,23 +31,23 @@ instance ToJSON WorkSpacesWorkspace where
   toJSON WorkSpacesWorkspace{..} =
     object $
     catMaybes
-    [ Just ("BundleId" .= _workSpacesWorkspaceBundleId)
-    , Just ("DirectoryId" .= _workSpacesWorkspaceDirectoryId)
-    , ("RootVolumeEncryptionEnabled" .=) <$> _workSpacesWorkspaceRootVolumeEncryptionEnabled
-    , Just ("UserName" .= _workSpacesWorkspaceUserName)
-    , ("UserVolumeEncryptionEnabled" .=) <$> _workSpacesWorkspaceUserVolumeEncryptionEnabled
-    , ("VolumeEncryptionKey" .=) <$> _workSpacesWorkspaceVolumeEncryptionKey
+    [ (Just . ("BundleId",) . toJSON) _workSpacesWorkspaceBundleId
+    , (Just . ("DirectoryId",) . toJSON) _workSpacesWorkspaceDirectoryId
+    , fmap (("RootVolumeEncryptionEnabled",) . toJSON . fmap Bool') _workSpacesWorkspaceRootVolumeEncryptionEnabled
+    , (Just . ("UserName",) . toJSON) _workSpacesWorkspaceUserName
+    , fmap (("UserVolumeEncryptionEnabled",) . toJSON . fmap Bool') _workSpacesWorkspaceUserVolumeEncryptionEnabled
+    , fmap (("VolumeEncryptionKey",) . toJSON) _workSpacesWorkspaceVolumeEncryptionKey
     ]
 
 instance FromJSON WorkSpacesWorkspace where
   parseJSON (Object obj) =
     WorkSpacesWorkspace <$>
-      obj .: "BundleId" <*>
-      obj .: "DirectoryId" <*>
-      obj .:? "RootVolumeEncryptionEnabled" <*>
-      obj .: "UserName" <*>
-      obj .:? "UserVolumeEncryptionEnabled" <*>
-      obj .:? "VolumeEncryptionKey"
+      (obj .: "BundleId") <*>
+      (obj .: "DirectoryId") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "RootVolumeEncryptionEnabled") <*>
+      (obj .: "UserName") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "UserVolumeEncryptionEnabled") <*>
+      (obj .:? "VolumeEncryptionKey")
   parseJSON _ = mempty
 
 -- | Constructor for 'WorkSpacesWorkspace' containing required fields as
@@ -75,7 +76,7 @@ wswDirectoryId :: Lens' WorkSpacesWorkspace (Val Text)
 wswDirectoryId = lens _workSpacesWorkspaceDirectoryId (\s a -> s { _workSpacesWorkspaceDirectoryId = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-workspace.html#cfn-workspaces-workspace-rootvolumeencryptionenabled
-wswRootVolumeEncryptionEnabled :: Lens' WorkSpacesWorkspace (Maybe (Val Bool'))
+wswRootVolumeEncryptionEnabled :: Lens' WorkSpacesWorkspace (Maybe (Val Bool))
 wswRootVolumeEncryptionEnabled = lens _workSpacesWorkspaceRootVolumeEncryptionEnabled (\s a -> s { _workSpacesWorkspaceRootVolumeEncryptionEnabled = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-workspace.html#cfn-workspaces-workspace-username
@@ -83,7 +84,7 @@ wswUserName :: Lens' WorkSpacesWorkspace (Val Text)
 wswUserName = lens _workSpacesWorkspaceUserName (\s a -> s { _workSpacesWorkspaceUserName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-workspace.html#cfn-workspaces-workspace-uservolumeencryptionenabled
-wswUserVolumeEncryptionEnabled :: Lens' WorkSpacesWorkspace (Maybe (Val Bool'))
+wswUserVolumeEncryptionEnabled :: Lens' WorkSpacesWorkspace (Maybe (Val Bool))
 wswUserVolumeEncryptionEnabled = lens _workSpacesWorkspaceUserVolumeEncryptionEnabled (\s a -> s { _workSpacesWorkspaceUserVolumeEncryptionEnabled = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-workspace.html#cfn-workspaces-workspace-volumeencryptionkey

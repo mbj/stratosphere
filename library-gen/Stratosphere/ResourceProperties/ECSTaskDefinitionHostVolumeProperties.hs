@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumes-host.html
 
@@ -26,13 +27,13 @@ instance ToJSON ECSTaskDefinitionHostVolumeProperties where
   toJSON ECSTaskDefinitionHostVolumeProperties{..} =
     object $
     catMaybes
-    [ ("SourcePath" .=) <$> _eCSTaskDefinitionHostVolumePropertiesSourcePath
+    [ fmap (("SourcePath",) . toJSON) _eCSTaskDefinitionHostVolumePropertiesSourcePath
     ]
 
 instance FromJSON ECSTaskDefinitionHostVolumeProperties where
   parseJSON (Object obj) =
     ECSTaskDefinitionHostVolumeProperties <$>
-      obj .:? "SourcePath"
+      (obj .:? "SourcePath")
   parseJSON _ = mempty
 
 -- | Constructor for 'ECSTaskDefinitionHostVolumeProperties' containing

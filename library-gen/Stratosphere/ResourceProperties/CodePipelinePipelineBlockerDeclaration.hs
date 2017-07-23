@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages-blockers.html
 
@@ -27,15 +28,15 @@ instance ToJSON CodePipelinePipelineBlockerDeclaration where
   toJSON CodePipelinePipelineBlockerDeclaration{..} =
     object $
     catMaybes
-    [ Just ("Name" .= _codePipelinePipelineBlockerDeclarationName)
-    , Just ("Type" .= _codePipelinePipelineBlockerDeclarationType)
+    [ (Just . ("Name",) . toJSON) _codePipelinePipelineBlockerDeclarationName
+    , (Just . ("Type",) . toJSON) _codePipelinePipelineBlockerDeclarationType
     ]
 
 instance FromJSON CodePipelinePipelineBlockerDeclaration where
   parseJSON (Object obj) =
     CodePipelinePipelineBlockerDeclaration <$>
-      obj .: "Name" <*>
-      obj .: "Type"
+      (obj .: "Name") <*>
+      (obj .: "Type")
   parseJSON _ = mempty
 
 -- | Constructor for 'CodePipelinePipelineBlockerDeclaration' containing

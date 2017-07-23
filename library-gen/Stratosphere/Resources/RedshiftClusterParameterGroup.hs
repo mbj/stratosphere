@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clusterparametergroup.html
 
@@ -29,19 +30,19 @@ instance ToJSON RedshiftClusterParameterGroup where
   toJSON RedshiftClusterParameterGroup{..} =
     object $
     catMaybes
-    [ Just ("Description" .= _redshiftClusterParameterGroupDescription)
-    , Just ("ParameterGroupFamily" .= _redshiftClusterParameterGroupParameterGroupFamily)
-    , ("Parameters" .=) <$> _redshiftClusterParameterGroupParameters
-    , ("Tags" .=) <$> _redshiftClusterParameterGroupTags
+    [ (Just . ("Description",) . toJSON) _redshiftClusterParameterGroupDescription
+    , (Just . ("ParameterGroupFamily",) . toJSON) _redshiftClusterParameterGroupParameterGroupFamily
+    , fmap (("Parameters",) . toJSON) _redshiftClusterParameterGroupParameters
+    , fmap (("Tags",) . toJSON) _redshiftClusterParameterGroupTags
     ]
 
 instance FromJSON RedshiftClusterParameterGroup where
   parseJSON (Object obj) =
     RedshiftClusterParameterGroup <$>
-      obj .: "Description" <*>
-      obj .: "ParameterGroupFamily" <*>
-      obj .:? "Parameters" <*>
-      obj .:? "Tags"
+      (obj .: "Description") <*>
+      (obj .: "ParameterGroupFamily") <*>
+      (obj .:? "Parameters") <*>
+      (obj .:? "Tags")
   parseJSON _ = mempty
 
 -- | Constructor for 'RedshiftClusterParameterGroup' containing required

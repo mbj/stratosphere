@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-lambda.html
 
@@ -25,13 +26,13 @@ instance ToJSON IoTTopicRuleLambdaAction where
   toJSON IoTTopicRuleLambdaAction{..} =
     object $
     catMaybes
-    [ Just ("FunctionArn" .= _ioTTopicRuleLambdaActionFunctionArn)
+    [ (Just . ("FunctionArn",) . toJSON) _ioTTopicRuleLambdaActionFunctionArn
     ]
 
 instance FromJSON IoTTopicRuleLambdaAction where
   parseJSON (Object obj) =
     IoTTopicRuleLambdaAction <$>
-      obj .: "FunctionArn"
+      (obj .: "FunctionArn")
   parseJSON _ = mempty
 
 -- | Constructor for 'IoTTopicRuleLambdaAction' containing required fields as

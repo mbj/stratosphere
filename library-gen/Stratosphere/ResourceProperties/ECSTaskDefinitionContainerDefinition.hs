@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html
 
@@ -25,27 +26,27 @@ import Stratosphere.ResourceProperties.ECSTaskDefinitionVolumeFrom
 data ECSTaskDefinitionContainerDefinition =
   ECSTaskDefinitionContainerDefinition
   { _eCSTaskDefinitionContainerDefinitionCommand :: Maybe (ValList Text)
-  , _eCSTaskDefinitionContainerDefinitionCpu :: Maybe (Val Integer')
-  , _eCSTaskDefinitionContainerDefinitionDisableNetworking :: Maybe (Val Bool')
+  , _eCSTaskDefinitionContainerDefinitionCpu :: Maybe (Val Integer)
+  , _eCSTaskDefinitionContainerDefinitionDisableNetworking :: Maybe (Val Bool)
   , _eCSTaskDefinitionContainerDefinitionDnsSearchDomains :: Maybe (ValList Text)
   , _eCSTaskDefinitionContainerDefinitionDnsServers :: Maybe (ValList Text)
   , _eCSTaskDefinitionContainerDefinitionDockerLabels :: Maybe Object
   , _eCSTaskDefinitionContainerDefinitionDockerSecurityOptions :: Maybe (ValList Text)
   , _eCSTaskDefinitionContainerDefinitionEntryPoint :: Maybe (ValList Text)
   , _eCSTaskDefinitionContainerDefinitionEnvironment :: Maybe [ECSTaskDefinitionKeyValuePair]
-  , _eCSTaskDefinitionContainerDefinitionEssential :: Maybe (Val Bool')
+  , _eCSTaskDefinitionContainerDefinitionEssential :: Maybe (Val Bool)
   , _eCSTaskDefinitionContainerDefinitionExtraHosts :: Maybe [ECSTaskDefinitionHostEntry]
   , _eCSTaskDefinitionContainerDefinitionHostname :: Maybe (Val Text)
   , _eCSTaskDefinitionContainerDefinitionImage :: Val Text
   , _eCSTaskDefinitionContainerDefinitionLinks :: Maybe (ValList Text)
   , _eCSTaskDefinitionContainerDefinitionLogConfiguration :: Maybe ECSTaskDefinitionLogConfiguration
-  , _eCSTaskDefinitionContainerDefinitionMemory :: Maybe (Val Integer')
-  , _eCSTaskDefinitionContainerDefinitionMemoryReservation :: Maybe (Val Integer')
+  , _eCSTaskDefinitionContainerDefinitionMemory :: Maybe (Val Integer)
+  , _eCSTaskDefinitionContainerDefinitionMemoryReservation :: Maybe (Val Integer)
   , _eCSTaskDefinitionContainerDefinitionMountPoints :: Maybe [ECSTaskDefinitionMountPoint]
   , _eCSTaskDefinitionContainerDefinitionName :: Val Text
   , _eCSTaskDefinitionContainerDefinitionPortMappings :: Maybe [ECSTaskDefinitionPortMapping]
-  , _eCSTaskDefinitionContainerDefinitionPrivileged :: Maybe (Val Bool')
-  , _eCSTaskDefinitionContainerDefinitionReadonlyRootFilesystem :: Maybe (Val Bool')
+  , _eCSTaskDefinitionContainerDefinitionPrivileged :: Maybe (Val Bool)
+  , _eCSTaskDefinitionContainerDefinitionReadonlyRootFilesystem :: Maybe (Val Bool)
   , _eCSTaskDefinitionContainerDefinitionUlimits :: Maybe [ECSTaskDefinitionUlimit]
   , _eCSTaskDefinitionContainerDefinitionUser :: Maybe (Val Text)
   , _eCSTaskDefinitionContainerDefinitionVolumesFrom :: Maybe [ECSTaskDefinitionVolumeFrom]
@@ -56,63 +57,63 @@ instance ToJSON ECSTaskDefinitionContainerDefinition where
   toJSON ECSTaskDefinitionContainerDefinition{..} =
     object $
     catMaybes
-    [ ("Command" .=) <$> _eCSTaskDefinitionContainerDefinitionCommand
-    , ("Cpu" .=) <$> _eCSTaskDefinitionContainerDefinitionCpu
-    , ("DisableNetworking" .=) <$> _eCSTaskDefinitionContainerDefinitionDisableNetworking
-    , ("DnsSearchDomains" .=) <$> _eCSTaskDefinitionContainerDefinitionDnsSearchDomains
-    , ("DnsServers" .=) <$> _eCSTaskDefinitionContainerDefinitionDnsServers
-    , ("DockerLabels" .=) <$> _eCSTaskDefinitionContainerDefinitionDockerLabels
-    , ("DockerSecurityOptions" .=) <$> _eCSTaskDefinitionContainerDefinitionDockerSecurityOptions
-    , ("EntryPoint" .=) <$> _eCSTaskDefinitionContainerDefinitionEntryPoint
-    , ("Environment" .=) <$> _eCSTaskDefinitionContainerDefinitionEnvironment
-    , ("Essential" .=) <$> _eCSTaskDefinitionContainerDefinitionEssential
-    , ("ExtraHosts" .=) <$> _eCSTaskDefinitionContainerDefinitionExtraHosts
-    , ("Hostname" .=) <$> _eCSTaskDefinitionContainerDefinitionHostname
-    , Just ("Image" .= _eCSTaskDefinitionContainerDefinitionImage)
-    , ("Links" .=) <$> _eCSTaskDefinitionContainerDefinitionLinks
-    , ("LogConfiguration" .=) <$> _eCSTaskDefinitionContainerDefinitionLogConfiguration
-    , ("Memory" .=) <$> _eCSTaskDefinitionContainerDefinitionMemory
-    , ("MemoryReservation" .=) <$> _eCSTaskDefinitionContainerDefinitionMemoryReservation
-    , ("MountPoints" .=) <$> _eCSTaskDefinitionContainerDefinitionMountPoints
-    , Just ("Name" .= _eCSTaskDefinitionContainerDefinitionName)
-    , ("PortMappings" .=) <$> _eCSTaskDefinitionContainerDefinitionPortMappings
-    , ("Privileged" .=) <$> _eCSTaskDefinitionContainerDefinitionPrivileged
-    , ("ReadonlyRootFilesystem" .=) <$> _eCSTaskDefinitionContainerDefinitionReadonlyRootFilesystem
-    , ("Ulimits" .=) <$> _eCSTaskDefinitionContainerDefinitionUlimits
-    , ("User" .=) <$> _eCSTaskDefinitionContainerDefinitionUser
-    , ("VolumesFrom" .=) <$> _eCSTaskDefinitionContainerDefinitionVolumesFrom
-    , ("WorkingDirectory" .=) <$> _eCSTaskDefinitionContainerDefinitionWorkingDirectory
+    [ fmap (("Command",) . toJSON) _eCSTaskDefinitionContainerDefinitionCommand
+    , fmap (("Cpu",) . toJSON . fmap Integer') _eCSTaskDefinitionContainerDefinitionCpu
+    , fmap (("DisableNetworking",) . toJSON . fmap Bool') _eCSTaskDefinitionContainerDefinitionDisableNetworking
+    , fmap (("DnsSearchDomains",) . toJSON) _eCSTaskDefinitionContainerDefinitionDnsSearchDomains
+    , fmap (("DnsServers",) . toJSON) _eCSTaskDefinitionContainerDefinitionDnsServers
+    , fmap (("DockerLabels",) . toJSON) _eCSTaskDefinitionContainerDefinitionDockerLabels
+    , fmap (("DockerSecurityOptions",) . toJSON) _eCSTaskDefinitionContainerDefinitionDockerSecurityOptions
+    , fmap (("EntryPoint",) . toJSON) _eCSTaskDefinitionContainerDefinitionEntryPoint
+    , fmap (("Environment",) . toJSON) _eCSTaskDefinitionContainerDefinitionEnvironment
+    , fmap (("Essential",) . toJSON . fmap Bool') _eCSTaskDefinitionContainerDefinitionEssential
+    , fmap (("ExtraHosts",) . toJSON) _eCSTaskDefinitionContainerDefinitionExtraHosts
+    , fmap (("Hostname",) . toJSON) _eCSTaskDefinitionContainerDefinitionHostname
+    , (Just . ("Image",) . toJSON) _eCSTaskDefinitionContainerDefinitionImage
+    , fmap (("Links",) . toJSON) _eCSTaskDefinitionContainerDefinitionLinks
+    , fmap (("LogConfiguration",) . toJSON) _eCSTaskDefinitionContainerDefinitionLogConfiguration
+    , fmap (("Memory",) . toJSON . fmap Integer') _eCSTaskDefinitionContainerDefinitionMemory
+    , fmap (("MemoryReservation",) . toJSON . fmap Integer') _eCSTaskDefinitionContainerDefinitionMemoryReservation
+    , fmap (("MountPoints",) . toJSON) _eCSTaskDefinitionContainerDefinitionMountPoints
+    , (Just . ("Name",) . toJSON) _eCSTaskDefinitionContainerDefinitionName
+    , fmap (("PortMappings",) . toJSON) _eCSTaskDefinitionContainerDefinitionPortMappings
+    , fmap (("Privileged",) . toJSON . fmap Bool') _eCSTaskDefinitionContainerDefinitionPrivileged
+    , fmap (("ReadonlyRootFilesystem",) . toJSON . fmap Bool') _eCSTaskDefinitionContainerDefinitionReadonlyRootFilesystem
+    , fmap (("Ulimits",) . toJSON) _eCSTaskDefinitionContainerDefinitionUlimits
+    , fmap (("User",) . toJSON) _eCSTaskDefinitionContainerDefinitionUser
+    , fmap (("VolumesFrom",) . toJSON) _eCSTaskDefinitionContainerDefinitionVolumesFrom
+    , fmap (("WorkingDirectory",) . toJSON) _eCSTaskDefinitionContainerDefinitionWorkingDirectory
     ]
 
 instance FromJSON ECSTaskDefinitionContainerDefinition where
   parseJSON (Object obj) =
     ECSTaskDefinitionContainerDefinition <$>
-      obj .:? "Command" <*>
-      obj .:? "Cpu" <*>
-      obj .:? "DisableNetworking" <*>
-      obj .:? "DnsSearchDomains" <*>
-      obj .:? "DnsServers" <*>
-      obj .:? "DockerLabels" <*>
-      obj .:? "DockerSecurityOptions" <*>
-      obj .:? "EntryPoint" <*>
-      obj .:? "Environment" <*>
-      obj .:? "Essential" <*>
-      obj .:? "ExtraHosts" <*>
-      obj .:? "Hostname" <*>
-      obj .: "Image" <*>
-      obj .:? "Links" <*>
-      obj .:? "LogConfiguration" <*>
-      obj .:? "Memory" <*>
-      obj .:? "MemoryReservation" <*>
-      obj .:? "MountPoints" <*>
-      obj .: "Name" <*>
-      obj .:? "PortMappings" <*>
-      obj .:? "Privileged" <*>
-      obj .:? "ReadonlyRootFilesystem" <*>
-      obj .:? "Ulimits" <*>
-      obj .:? "User" <*>
-      obj .:? "VolumesFrom" <*>
-      obj .:? "WorkingDirectory"
+      (obj .:? "Command") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "Cpu") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "DisableNetworking") <*>
+      (obj .:? "DnsSearchDomains") <*>
+      (obj .:? "DnsServers") <*>
+      (obj .:? "DockerLabels") <*>
+      (obj .:? "DockerSecurityOptions") <*>
+      (obj .:? "EntryPoint") <*>
+      (obj .:? "Environment") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "Essential") <*>
+      (obj .:? "ExtraHosts") <*>
+      (obj .:? "Hostname") <*>
+      (obj .: "Image") <*>
+      (obj .:? "Links") <*>
+      (obj .:? "LogConfiguration") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "Memory") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "MemoryReservation") <*>
+      (obj .:? "MountPoints") <*>
+      (obj .: "Name") <*>
+      (obj .:? "PortMappings") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "Privileged") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "ReadonlyRootFilesystem") <*>
+      (obj .:? "Ulimits") <*>
+      (obj .:? "User") <*>
+      (obj .:? "VolumesFrom") <*>
+      (obj .:? "WorkingDirectory")
   parseJSON _ = mempty
 
 -- | Constructor for 'ECSTaskDefinitionContainerDefinition' containing
@@ -156,11 +157,11 @@ ecstdcdCommand :: Lens' ECSTaskDefinitionContainerDefinition (Maybe (ValList Tex
 ecstdcdCommand = lens _eCSTaskDefinitionContainerDefinitionCommand (\s a -> s { _eCSTaskDefinitionContainerDefinitionCommand = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-cpu
-ecstdcdCpu :: Lens' ECSTaskDefinitionContainerDefinition (Maybe (Val Integer'))
+ecstdcdCpu :: Lens' ECSTaskDefinitionContainerDefinition (Maybe (Val Integer))
 ecstdcdCpu = lens _eCSTaskDefinitionContainerDefinitionCpu (\s a -> s { _eCSTaskDefinitionContainerDefinitionCpu = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-disablenetworking
-ecstdcdDisableNetworking :: Lens' ECSTaskDefinitionContainerDefinition (Maybe (Val Bool'))
+ecstdcdDisableNetworking :: Lens' ECSTaskDefinitionContainerDefinition (Maybe (Val Bool))
 ecstdcdDisableNetworking = lens _eCSTaskDefinitionContainerDefinitionDisableNetworking (\s a -> s { _eCSTaskDefinitionContainerDefinitionDisableNetworking = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-dnssearchdomains
@@ -188,7 +189,7 @@ ecstdcdEnvironment :: Lens' ECSTaskDefinitionContainerDefinition (Maybe [ECSTask
 ecstdcdEnvironment = lens _eCSTaskDefinitionContainerDefinitionEnvironment (\s a -> s { _eCSTaskDefinitionContainerDefinitionEnvironment = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-essential
-ecstdcdEssential :: Lens' ECSTaskDefinitionContainerDefinition (Maybe (Val Bool'))
+ecstdcdEssential :: Lens' ECSTaskDefinitionContainerDefinition (Maybe (Val Bool))
 ecstdcdEssential = lens _eCSTaskDefinitionContainerDefinitionEssential (\s a -> s { _eCSTaskDefinitionContainerDefinitionEssential = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-extrahosts
@@ -212,11 +213,11 @@ ecstdcdLogConfiguration :: Lens' ECSTaskDefinitionContainerDefinition (Maybe ECS
 ecstdcdLogConfiguration = lens _eCSTaskDefinitionContainerDefinitionLogConfiguration (\s a -> s { _eCSTaskDefinitionContainerDefinitionLogConfiguration = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-memory
-ecstdcdMemory :: Lens' ECSTaskDefinitionContainerDefinition (Maybe (Val Integer'))
+ecstdcdMemory :: Lens' ECSTaskDefinitionContainerDefinition (Maybe (Val Integer))
 ecstdcdMemory = lens _eCSTaskDefinitionContainerDefinitionMemory (\s a -> s { _eCSTaskDefinitionContainerDefinitionMemory = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-memoryreservation
-ecstdcdMemoryReservation :: Lens' ECSTaskDefinitionContainerDefinition (Maybe (Val Integer'))
+ecstdcdMemoryReservation :: Lens' ECSTaskDefinitionContainerDefinition (Maybe (Val Integer))
 ecstdcdMemoryReservation = lens _eCSTaskDefinitionContainerDefinitionMemoryReservation (\s a -> s { _eCSTaskDefinitionContainerDefinitionMemoryReservation = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-mountpoints
@@ -232,11 +233,11 @@ ecstdcdPortMappings :: Lens' ECSTaskDefinitionContainerDefinition (Maybe [ECSTas
 ecstdcdPortMappings = lens _eCSTaskDefinitionContainerDefinitionPortMappings (\s a -> s { _eCSTaskDefinitionContainerDefinitionPortMappings = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-privileged
-ecstdcdPrivileged :: Lens' ECSTaskDefinitionContainerDefinition (Maybe (Val Bool'))
+ecstdcdPrivileged :: Lens' ECSTaskDefinitionContainerDefinition (Maybe (Val Bool))
 ecstdcdPrivileged = lens _eCSTaskDefinitionContainerDefinitionPrivileged (\s a -> s { _eCSTaskDefinitionContainerDefinitionPrivileged = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-readonlyrootfilesystem
-ecstdcdReadonlyRootFilesystem :: Lens' ECSTaskDefinitionContainerDefinition (Maybe (Val Bool'))
+ecstdcdReadonlyRootFilesystem :: Lens' ECSTaskDefinitionContainerDefinition (Maybe (Val Bool))
 ecstdcdReadonlyRootFilesystem = lens _eCSTaskDefinitionContainerDefinitionReadonlyRootFilesystem (\s a -> s { _eCSTaskDefinitionContainerDefinitionReadonlyRootFilesystem = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-ulimits

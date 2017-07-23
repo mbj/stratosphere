@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html
 
@@ -36,31 +37,31 @@ instance ToJSON ElasticBeanstalkEnvironment where
   toJSON ElasticBeanstalkEnvironment{..} =
     object $
     catMaybes
-    [ Just ("ApplicationName" .= _elasticBeanstalkEnvironmentApplicationName)
-    , ("CNAMEPrefix" .=) <$> _elasticBeanstalkEnvironmentCNAMEPrefix
-    , ("Description" .=) <$> _elasticBeanstalkEnvironmentDescription
-    , ("EnvironmentName" .=) <$> _elasticBeanstalkEnvironmentEnvironmentName
-    , ("OptionSettings" .=) <$> _elasticBeanstalkEnvironmentOptionSettings
-    , ("SolutionStackName" .=) <$> _elasticBeanstalkEnvironmentSolutionStackName
-    , ("Tags" .=) <$> _elasticBeanstalkEnvironmentTags
-    , ("TemplateName" .=) <$> _elasticBeanstalkEnvironmentTemplateName
-    , ("Tier" .=) <$> _elasticBeanstalkEnvironmentTier
-    , ("VersionLabel" .=) <$> _elasticBeanstalkEnvironmentVersionLabel
+    [ (Just . ("ApplicationName",) . toJSON) _elasticBeanstalkEnvironmentApplicationName
+    , fmap (("CNAMEPrefix",) . toJSON) _elasticBeanstalkEnvironmentCNAMEPrefix
+    , fmap (("Description",) . toJSON) _elasticBeanstalkEnvironmentDescription
+    , fmap (("EnvironmentName",) . toJSON) _elasticBeanstalkEnvironmentEnvironmentName
+    , fmap (("OptionSettings",) . toJSON) _elasticBeanstalkEnvironmentOptionSettings
+    , fmap (("SolutionStackName",) . toJSON) _elasticBeanstalkEnvironmentSolutionStackName
+    , fmap (("Tags",) . toJSON) _elasticBeanstalkEnvironmentTags
+    , fmap (("TemplateName",) . toJSON) _elasticBeanstalkEnvironmentTemplateName
+    , fmap (("Tier",) . toJSON) _elasticBeanstalkEnvironmentTier
+    , fmap (("VersionLabel",) . toJSON) _elasticBeanstalkEnvironmentVersionLabel
     ]
 
 instance FromJSON ElasticBeanstalkEnvironment where
   parseJSON (Object obj) =
     ElasticBeanstalkEnvironment <$>
-      obj .: "ApplicationName" <*>
-      obj .:? "CNAMEPrefix" <*>
-      obj .:? "Description" <*>
-      obj .:? "EnvironmentName" <*>
-      obj .:? "OptionSettings" <*>
-      obj .:? "SolutionStackName" <*>
-      obj .:? "Tags" <*>
-      obj .:? "TemplateName" <*>
-      obj .:? "Tier" <*>
-      obj .:? "VersionLabel"
+      (obj .: "ApplicationName") <*>
+      (obj .:? "CNAMEPrefix") <*>
+      (obj .:? "Description") <*>
+      (obj .:? "EnvironmentName") <*>
+      (obj .:? "OptionSettings") <*>
+      (obj .:? "SolutionStackName") <*>
+      (obj .:? "Tags") <*>
+      (obj .:? "TemplateName") <*>
+      (obj .:? "Tier") <*>
+      (obj .:? "VersionLabel")
   parseJSON _ = mempty
 
 -- | Constructor for 'ElasticBeanstalkEnvironment' containing required fields

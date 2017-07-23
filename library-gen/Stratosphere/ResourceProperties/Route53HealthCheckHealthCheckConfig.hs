@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html
 
@@ -20,16 +21,16 @@ data Route53HealthCheckHealthCheckConfig =
   Route53HealthCheckHealthCheckConfig
   { _route53HealthCheckHealthCheckConfigAlarmIdentifier :: Maybe Route53HealthCheckAlarmIdentifier
   , _route53HealthCheckHealthCheckConfigChildHealthChecks :: Maybe (ValList Text)
-  , _route53HealthCheckHealthCheckConfigEnableSNI :: Maybe (Val Bool')
-  , _route53HealthCheckHealthCheckConfigFailureThreshold :: Maybe (Val Integer')
+  , _route53HealthCheckHealthCheckConfigEnableSNI :: Maybe (Val Bool)
+  , _route53HealthCheckHealthCheckConfigFailureThreshold :: Maybe (Val Integer)
   , _route53HealthCheckHealthCheckConfigFullyQualifiedDomainName :: Maybe (Val Text)
-  , _route53HealthCheckHealthCheckConfigHealthThreshold :: Maybe (Val Integer')
+  , _route53HealthCheckHealthCheckConfigHealthThreshold :: Maybe (Val Integer)
   , _route53HealthCheckHealthCheckConfigIPAddress :: Maybe (Val Text)
   , _route53HealthCheckHealthCheckConfigInsufficientDataHealthStatus :: Maybe (Val Text)
-  , _route53HealthCheckHealthCheckConfigInverted :: Maybe (Val Bool')
-  , _route53HealthCheckHealthCheckConfigMeasureLatency :: Maybe (Val Bool')
-  , _route53HealthCheckHealthCheckConfigPort :: Maybe (Val Integer')
-  , _route53HealthCheckHealthCheckConfigRequestInterval :: Maybe (Val Integer')
+  , _route53HealthCheckHealthCheckConfigInverted :: Maybe (Val Bool)
+  , _route53HealthCheckHealthCheckConfigMeasureLatency :: Maybe (Val Bool)
+  , _route53HealthCheckHealthCheckConfigPort :: Maybe (Val Integer)
+  , _route53HealthCheckHealthCheckConfigRequestInterval :: Maybe (Val Integer)
   , _route53HealthCheckHealthCheckConfigResourcePath :: Maybe (Val Text)
   , _route53HealthCheckHealthCheckConfigSearchString :: Maybe (Val Text)
   , _route53HealthCheckHealthCheckConfigType :: Val Text
@@ -39,41 +40,41 @@ instance ToJSON Route53HealthCheckHealthCheckConfig where
   toJSON Route53HealthCheckHealthCheckConfig{..} =
     object $
     catMaybes
-    [ ("AlarmIdentifier" .=) <$> _route53HealthCheckHealthCheckConfigAlarmIdentifier
-    , ("ChildHealthChecks" .=) <$> _route53HealthCheckHealthCheckConfigChildHealthChecks
-    , ("EnableSNI" .=) <$> _route53HealthCheckHealthCheckConfigEnableSNI
-    , ("FailureThreshold" .=) <$> _route53HealthCheckHealthCheckConfigFailureThreshold
-    , ("FullyQualifiedDomainName" .=) <$> _route53HealthCheckHealthCheckConfigFullyQualifiedDomainName
-    , ("HealthThreshold" .=) <$> _route53HealthCheckHealthCheckConfigHealthThreshold
-    , ("IPAddress" .=) <$> _route53HealthCheckHealthCheckConfigIPAddress
-    , ("InsufficientDataHealthStatus" .=) <$> _route53HealthCheckHealthCheckConfigInsufficientDataHealthStatus
-    , ("Inverted" .=) <$> _route53HealthCheckHealthCheckConfigInverted
-    , ("MeasureLatency" .=) <$> _route53HealthCheckHealthCheckConfigMeasureLatency
-    , ("Port" .=) <$> _route53HealthCheckHealthCheckConfigPort
-    , ("RequestInterval" .=) <$> _route53HealthCheckHealthCheckConfigRequestInterval
-    , ("ResourcePath" .=) <$> _route53HealthCheckHealthCheckConfigResourcePath
-    , ("SearchString" .=) <$> _route53HealthCheckHealthCheckConfigSearchString
-    , Just ("Type" .= _route53HealthCheckHealthCheckConfigType)
+    [ fmap (("AlarmIdentifier",) . toJSON) _route53HealthCheckHealthCheckConfigAlarmIdentifier
+    , fmap (("ChildHealthChecks",) . toJSON) _route53HealthCheckHealthCheckConfigChildHealthChecks
+    , fmap (("EnableSNI",) . toJSON . fmap Bool') _route53HealthCheckHealthCheckConfigEnableSNI
+    , fmap (("FailureThreshold",) . toJSON . fmap Integer') _route53HealthCheckHealthCheckConfigFailureThreshold
+    , fmap (("FullyQualifiedDomainName",) . toJSON) _route53HealthCheckHealthCheckConfigFullyQualifiedDomainName
+    , fmap (("HealthThreshold",) . toJSON . fmap Integer') _route53HealthCheckHealthCheckConfigHealthThreshold
+    , fmap (("IPAddress",) . toJSON) _route53HealthCheckHealthCheckConfigIPAddress
+    , fmap (("InsufficientDataHealthStatus",) . toJSON) _route53HealthCheckHealthCheckConfigInsufficientDataHealthStatus
+    , fmap (("Inverted",) . toJSON . fmap Bool') _route53HealthCheckHealthCheckConfigInverted
+    , fmap (("MeasureLatency",) . toJSON . fmap Bool') _route53HealthCheckHealthCheckConfigMeasureLatency
+    , fmap (("Port",) . toJSON . fmap Integer') _route53HealthCheckHealthCheckConfigPort
+    , fmap (("RequestInterval",) . toJSON . fmap Integer') _route53HealthCheckHealthCheckConfigRequestInterval
+    , fmap (("ResourcePath",) . toJSON) _route53HealthCheckHealthCheckConfigResourcePath
+    , fmap (("SearchString",) . toJSON) _route53HealthCheckHealthCheckConfigSearchString
+    , (Just . ("Type",) . toJSON) _route53HealthCheckHealthCheckConfigType
     ]
 
 instance FromJSON Route53HealthCheckHealthCheckConfig where
   parseJSON (Object obj) =
     Route53HealthCheckHealthCheckConfig <$>
-      obj .:? "AlarmIdentifier" <*>
-      obj .:? "ChildHealthChecks" <*>
-      obj .:? "EnableSNI" <*>
-      obj .:? "FailureThreshold" <*>
-      obj .:? "FullyQualifiedDomainName" <*>
-      obj .:? "HealthThreshold" <*>
-      obj .:? "IPAddress" <*>
-      obj .:? "InsufficientDataHealthStatus" <*>
-      obj .:? "Inverted" <*>
-      obj .:? "MeasureLatency" <*>
-      obj .:? "Port" <*>
-      obj .:? "RequestInterval" <*>
-      obj .:? "ResourcePath" <*>
-      obj .:? "SearchString" <*>
-      obj .: "Type"
+      (obj .:? "AlarmIdentifier") <*>
+      (obj .:? "ChildHealthChecks") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "EnableSNI") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "FailureThreshold") <*>
+      (obj .:? "FullyQualifiedDomainName") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "HealthThreshold") <*>
+      (obj .:? "IPAddress") <*>
+      (obj .:? "InsufficientDataHealthStatus") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "Inverted") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "MeasureLatency") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "Port") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "RequestInterval") <*>
+      (obj .:? "ResourcePath") <*>
+      (obj .:? "SearchString") <*>
+      (obj .: "Type")
   parseJSON _ = mempty
 
 -- | Constructor for 'Route53HealthCheckHealthCheckConfig' containing required
@@ -109,11 +110,11 @@ rhchccChildHealthChecks :: Lens' Route53HealthCheckHealthCheckConfig (Maybe (Val
 rhchccChildHealthChecks = lens _route53HealthCheckHealthCheckConfigChildHealthChecks (\s a -> s { _route53HealthCheckHealthCheckConfigChildHealthChecks = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-enablesni
-rhchccEnableSNI :: Lens' Route53HealthCheckHealthCheckConfig (Maybe (Val Bool'))
+rhchccEnableSNI :: Lens' Route53HealthCheckHealthCheckConfig (Maybe (Val Bool))
 rhchccEnableSNI = lens _route53HealthCheckHealthCheckConfigEnableSNI (\s a -> s { _route53HealthCheckHealthCheckConfigEnableSNI = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-failurethreshold
-rhchccFailureThreshold :: Lens' Route53HealthCheckHealthCheckConfig (Maybe (Val Integer'))
+rhchccFailureThreshold :: Lens' Route53HealthCheckHealthCheckConfig (Maybe (Val Integer))
 rhchccFailureThreshold = lens _route53HealthCheckHealthCheckConfigFailureThreshold (\s a -> s { _route53HealthCheckHealthCheckConfigFailureThreshold = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-fullyqualifieddomainname
@@ -121,7 +122,7 @@ rhchccFullyQualifiedDomainName :: Lens' Route53HealthCheckHealthCheckConfig (May
 rhchccFullyQualifiedDomainName = lens _route53HealthCheckHealthCheckConfigFullyQualifiedDomainName (\s a -> s { _route53HealthCheckHealthCheckConfigFullyQualifiedDomainName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-healththreshold
-rhchccHealthThreshold :: Lens' Route53HealthCheckHealthCheckConfig (Maybe (Val Integer'))
+rhchccHealthThreshold :: Lens' Route53HealthCheckHealthCheckConfig (Maybe (Val Integer))
 rhchccHealthThreshold = lens _route53HealthCheckHealthCheckConfigHealthThreshold (\s a -> s { _route53HealthCheckHealthCheckConfigHealthThreshold = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-ipaddress
@@ -133,19 +134,19 @@ rhchccInsufficientDataHealthStatus :: Lens' Route53HealthCheckHealthCheckConfig 
 rhchccInsufficientDataHealthStatus = lens _route53HealthCheckHealthCheckConfigInsufficientDataHealthStatus (\s a -> s { _route53HealthCheckHealthCheckConfigInsufficientDataHealthStatus = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-inverted
-rhchccInverted :: Lens' Route53HealthCheckHealthCheckConfig (Maybe (Val Bool'))
+rhchccInverted :: Lens' Route53HealthCheckHealthCheckConfig (Maybe (Val Bool))
 rhchccInverted = lens _route53HealthCheckHealthCheckConfigInverted (\s a -> s { _route53HealthCheckHealthCheckConfigInverted = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-measurelatency
-rhchccMeasureLatency :: Lens' Route53HealthCheckHealthCheckConfig (Maybe (Val Bool'))
+rhchccMeasureLatency :: Lens' Route53HealthCheckHealthCheckConfig (Maybe (Val Bool))
 rhchccMeasureLatency = lens _route53HealthCheckHealthCheckConfigMeasureLatency (\s a -> s { _route53HealthCheckHealthCheckConfigMeasureLatency = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-port
-rhchccPort :: Lens' Route53HealthCheckHealthCheckConfig (Maybe (Val Integer'))
+rhchccPort :: Lens' Route53HealthCheckHealthCheckConfig (Maybe (Val Integer))
 rhchccPort = lens _route53HealthCheckHealthCheckConfigPort (\s a -> s { _route53HealthCheckHealthCheckConfigPort = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-requestinterval
-rhchccRequestInterval :: Lens' Route53HealthCheckHealthCheckConfig (Maybe (Val Integer'))
+rhchccRequestInterval :: Lens' Route53HealthCheckHealthCheckConfig (Maybe (Val Integer))
 rhchccRequestInterval = lens _route53HealthCheckHealthCheckConfigRequestInterval (\s a -> s { _route53HealthCheckHealthCheckConfigRequestInterval = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-resourcepath

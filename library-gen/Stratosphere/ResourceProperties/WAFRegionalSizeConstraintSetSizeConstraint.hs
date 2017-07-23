@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-sizeconstraintset-sizeconstraint.html
 
@@ -21,7 +22,7 @@ data WAFRegionalSizeConstraintSetSizeConstraint =
   WAFRegionalSizeConstraintSetSizeConstraint
   { _wAFRegionalSizeConstraintSetSizeConstraintComparisonOperator :: Val Text
   , _wAFRegionalSizeConstraintSetSizeConstraintFieldToMatch :: WAFRegionalSizeConstraintSetFieldToMatch
-  , _wAFRegionalSizeConstraintSetSizeConstraintSize :: Val Integer'
+  , _wAFRegionalSizeConstraintSetSizeConstraintSize :: Val Integer
   , _wAFRegionalSizeConstraintSetSizeConstraintTextTransformation :: Val Text
   } deriving (Show, Eq)
 
@@ -29,19 +30,19 @@ instance ToJSON WAFRegionalSizeConstraintSetSizeConstraint where
   toJSON WAFRegionalSizeConstraintSetSizeConstraint{..} =
     object $
     catMaybes
-    [ Just ("ComparisonOperator" .= _wAFRegionalSizeConstraintSetSizeConstraintComparisonOperator)
-    , Just ("FieldToMatch" .= _wAFRegionalSizeConstraintSetSizeConstraintFieldToMatch)
-    , Just ("Size" .= _wAFRegionalSizeConstraintSetSizeConstraintSize)
-    , Just ("TextTransformation" .= _wAFRegionalSizeConstraintSetSizeConstraintTextTransformation)
+    [ (Just . ("ComparisonOperator",) . toJSON) _wAFRegionalSizeConstraintSetSizeConstraintComparisonOperator
+    , (Just . ("FieldToMatch",) . toJSON) _wAFRegionalSizeConstraintSetSizeConstraintFieldToMatch
+    , (Just . ("Size",) . toJSON . fmap Integer') _wAFRegionalSizeConstraintSetSizeConstraintSize
+    , (Just . ("TextTransformation",) . toJSON) _wAFRegionalSizeConstraintSetSizeConstraintTextTransformation
     ]
 
 instance FromJSON WAFRegionalSizeConstraintSetSizeConstraint where
   parseJSON (Object obj) =
     WAFRegionalSizeConstraintSetSizeConstraint <$>
-      obj .: "ComparisonOperator" <*>
-      obj .: "FieldToMatch" <*>
-      obj .: "Size" <*>
-      obj .: "TextTransformation"
+      (obj .: "ComparisonOperator") <*>
+      (obj .: "FieldToMatch") <*>
+      fmap (fmap unInteger') (obj .: "Size") <*>
+      (obj .: "TextTransformation")
   parseJSON _ = mempty
 
 -- | Constructor for 'WAFRegionalSizeConstraintSetSizeConstraint' containing
@@ -49,7 +50,7 @@ instance FromJSON WAFRegionalSizeConstraintSetSizeConstraint where
 wafRegionalSizeConstraintSetSizeConstraint
   :: Val Text -- ^ 'wafrscsscComparisonOperator'
   -> WAFRegionalSizeConstraintSetFieldToMatch -- ^ 'wafrscsscFieldToMatch'
-  -> Val Integer' -- ^ 'wafrscsscSize'
+  -> Val Integer -- ^ 'wafrscsscSize'
   -> Val Text -- ^ 'wafrscsscTextTransformation'
   -> WAFRegionalSizeConstraintSetSizeConstraint
 wafRegionalSizeConstraintSetSizeConstraint comparisonOperatorarg fieldToMatcharg sizearg textTransformationarg =
@@ -69,7 +70,7 @@ wafrscsscFieldToMatch :: Lens' WAFRegionalSizeConstraintSetSizeConstraint WAFReg
 wafrscsscFieldToMatch = lens _wAFRegionalSizeConstraintSetSizeConstraintFieldToMatch (\s a -> s { _wAFRegionalSizeConstraintSetSizeConstraintFieldToMatch = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-sizeconstraintset-sizeconstraint.html#cfn-wafregional-sizeconstraintset-sizeconstraint-size
-wafrscsscSize :: Lens' WAFRegionalSizeConstraintSetSizeConstraint (Val Integer')
+wafrscsscSize :: Lens' WAFRegionalSizeConstraintSetSizeConstraint (Val Integer)
 wafrscsscSize = lens _wAFRegionalSizeConstraintSetSizeConstraintSize (\s a -> s { _wAFRegionalSizeConstraintSetSizeConstraintSize = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-sizeconstraintset-sizeconstraint.html#cfn-wafregional-sizeconstraintset-sizeconstraint-texttransformation

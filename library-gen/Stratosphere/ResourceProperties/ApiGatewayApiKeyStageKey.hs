@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-apikey-stagekey.html
 
@@ -26,15 +27,15 @@ instance ToJSON ApiGatewayApiKeyStageKey where
   toJSON ApiGatewayApiKeyStageKey{..} =
     object $
     catMaybes
-    [ ("RestApiId" .=) <$> _apiGatewayApiKeyStageKeyRestApiId
-    , ("StageName" .=) <$> _apiGatewayApiKeyStageKeyStageName
+    [ fmap (("RestApiId",) . toJSON) _apiGatewayApiKeyStageKeyRestApiId
+    , fmap (("StageName",) . toJSON) _apiGatewayApiKeyStageKeyStageName
     ]
 
 instance FromJSON ApiGatewayApiKeyStageKey where
   parseJSON (Object obj) =
     ApiGatewayApiKeyStageKey <$>
-      obj .:? "RestApiId" <*>
-      obj .:? "StageName"
+      (obj .:? "RestApiId") <*>
+      (obj .:? "StageName")
   parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayApiKeyStageKey' containing required fields as

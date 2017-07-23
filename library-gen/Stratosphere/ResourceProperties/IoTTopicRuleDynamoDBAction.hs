@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-dynamodb.html
 
@@ -31,25 +32,25 @@ instance ToJSON IoTTopicRuleDynamoDBAction where
   toJSON IoTTopicRuleDynamoDBAction{..} =
     object $
     catMaybes
-    [ Just ("HashKeyField" .= _ioTTopicRuleDynamoDBActionHashKeyField)
-    , Just ("HashKeyValue" .= _ioTTopicRuleDynamoDBActionHashKeyValue)
-    , ("PayloadField" .=) <$> _ioTTopicRuleDynamoDBActionPayloadField
-    , Just ("RangeKeyField" .= _ioTTopicRuleDynamoDBActionRangeKeyField)
-    , Just ("RangeKeyValue" .= _ioTTopicRuleDynamoDBActionRangeKeyValue)
-    , Just ("RoleArn" .= _ioTTopicRuleDynamoDBActionRoleArn)
-    , Just ("TableName" .= _ioTTopicRuleDynamoDBActionTableName)
+    [ (Just . ("HashKeyField",) . toJSON) _ioTTopicRuleDynamoDBActionHashKeyField
+    , (Just . ("HashKeyValue",) . toJSON) _ioTTopicRuleDynamoDBActionHashKeyValue
+    , fmap (("PayloadField",) . toJSON) _ioTTopicRuleDynamoDBActionPayloadField
+    , (Just . ("RangeKeyField",) . toJSON) _ioTTopicRuleDynamoDBActionRangeKeyField
+    , (Just . ("RangeKeyValue",) . toJSON) _ioTTopicRuleDynamoDBActionRangeKeyValue
+    , (Just . ("RoleArn",) . toJSON) _ioTTopicRuleDynamoDBActionRoleArn
+    , (Just . ("TableName",) . toJSON) _ioTTopicRuleDynamoDBActionTableName
     ]
 
 instance FromJSON IoTTopicRuleDynamoDBAction where
   parseJSON (Object obj) =
     IoTTopicRuleDynamoDBAction <$>
-      obj .: "HashKeyField" <*>
-      obj .: "HashKeyValue" <*>
-      obj .:? "PayloadField" <*>
-      obj .: "RangeKeyField" <*>
-      obj .: "RangeKeyValue" <*>
-      obj .: "RoleArn" <*>
-      obj .: "TableName"
+      (obj .: "HashKeyField") <*>
+      (obj .: "HashKeyValue") <*>
+      (obj .:? "PayloadField") <*>
+      (obj .: "RangeKeyField") <*>
+      (obj .: "RangeKeyValue") <*>
+      (obj .: "RoleArn") <*>
+      (obj .: "TableName")
   parseJSON _ = mempty
 
 -- | Constructor for 'IoTTopicRuleDynamoDBAction' containing required fields

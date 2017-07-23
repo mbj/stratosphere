@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-alias.html
 
@@ -26,15 +27,15 @@ instance ToJSON KMSAlias where
   toJSON KMSAlias{..} =
     object $
     catMaybes
-    [ Just ("AliasName" .= _kMSAliasAliasName)
-    , Just ("TargetKeyId" .= _kMSAliasTargetKeyId)
+    [ (Just . ("AliasName",) . toJSON) _kMSAliasAliasName
+    , (Just . ("TargetKeyId",) . toJSON) _kMSAliasTargetKeyId
     ]
 
 instance FromJSON KMSAlias where
   parseJSON (Object obj) =
     KMSAlias <$>
-      obj .: "AliasName" <*>
-      obj .: "TargetKeyId"
+      (obj .: "AliasName") <*>
+      (obj .: "TargetKeyId")
   parseJSON _ = mempty
 
 -- | Constructor for 'KMSAlias' containing required fields as arguments.

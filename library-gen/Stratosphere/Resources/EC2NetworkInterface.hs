@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html
 
@@ -23,12 +24,12 @@ data EC2NetworkInterface =
   { _eC2NetworkInterfaceDescription :: Maybe (Val Text)
   , _eC2NetworkInterfaceGroupSet :: Maybe (ValList Text)
   , _eC2NetworkInterfaceInterfaceType :: Maybe (Val Text)
-  , _eC2NetworkInterfaceIpv6AddressCount :: Maybe (Val Integer')
+  , _eC2NetworkInterfaceIpv6AddressCount :: Maybe (Val Integer)
   , _eC2NetworkInterfaceIpv6Addresses :: Maybe EC2NetworkInterfaceInstanceIpv6Address
   , _eC2NetworkInterfacePrivateIpAddress :: Maybe (Val Text)
   , _eC2NetworkInterfacePrivateIpAddresses :: Maybe [EC2NetworkInterfacePrivateIpAddressSpecification]
-  , _eC2NetworkInterfaceSecondaryPrivateIpAddressCount :: Maybe (Val Integer')
-  , _eC2NetworkInterfaceSourceDestCheck :: Maybe (Val Bool')
+  , _eC2NetworkInterfaceSecondaryPrivateIpAddressCount :: Maybe (Val Integer)
+  , _eC2NetworkInterfaceSourceDestCheck :: Maybe (Val Bool)
   , _eC2NetworkInterfaceSubnetId :: Val Text
   , _eC2NetworkInterfaceTags :: Maybe [Tag]
   } deriving (Show, Eq)
@@ -37,33 +38,33 @@ instance ToJSON EC2NetworkInterface where
   toJSON EC2NetworkInterface{..} =
     object $
     catMaybes
-    [ ("Description" .=) <$> _eC2NetworkInterfaceDescription
-    , ("GroupSet" .=) <$> _eC2NetworkInterfaceGroupSet
-    , ("InterfaceType" .=) <$> _eC2NetworkInterfaceInterfaceType
-    , ("Ipv6AddressCount" .=) <$> _eC2NetworkInterfaceIpv6AddressCount
-    , ("Ipv6Addresses" .=) <$> _eC2NetworkInterfaceIpv6Addresses
-    , ("PrivateIpAddress" .=) <$> _eC2NetworkInterfacePrivateIpAddress
-    , ("PrivateIpAddresses" .=) <$> _eC2NetworkInterfacePrivateIpAddresses
-    , ("SecondaryPrivateIpAddressCount" .=) <$> _eC2NetworkInterfaceSecondaryPrivateIpAddressCount
-    , ("SourceDestCheck" .=) <$> _eC2NetworkInterfaceSourceDestCheck
-    , Just ("SubnetId" .= _eC2NetworkInterfaceSubnetId)
-    , ("Tags" .=) <$> _eC2NetworkInterfaceTags
+    [ fmap (("Description",) . toJSON) _eC2NetworkInterfaceDescription
+    , fmap (("GroupSet",) . toJSON) _eC2NetworkInterfaceGroupSet
+    , fmap (("InterfaceType",) . toJSON) _eC2NetworkInterfaceInterfaceType
+    , fmap (("Ipv6AddressCount",) . toJSON . fmap Integer') _eC2NetworkInterfaceIpv6AddressCount
+    , fmap (("Ipv6Addresses",) . toJSON) _eC2NetworkInterfaceIpv6Addresses
+    , fmap (("PrivateIpAddress",) . toJSON) _eC2NetworkInterfacePrivateIpAddress
+    , fmap (("PrivateIpAddresses",) . toJSON) _eC2NetworkInterfacePrivateIpAddresses
+    , fmap (("SecondaryPrivateIpAddressCount",) . toJSON . fmap Integer') _eC2NetworkInterfaceSecondaryPrivateIpAddressCount
+    , fmap (("SourceDestCheck",) . toJSON . fmap Bool') _eC2NetworkInterfaceSourceDestCheck
+    , (Just . ("SubnetId",) . toJSON) _eC2NetworkInterfaceSubnetId
+    , fmap (("Tags",) . toJSON) _eC2NetworkInterfaceTags
     ]
 
 instance FromJSON EC2NetworkInterface where
   parseJSON (Object obj) =
     EC2NetworkInterface <$>
-      obj .:? "Description" <*>
-      obj .:? "GroupSet" <*>
-      obj .:? "InterfaceType" <*>
-      obj .:? "Ipv6AddressCount" <*>
-      obj .:? "Ipv6Addresses" <*>
-      obj .:? "PrivateIpAddress" <*>
-      obj .:? "PrivateIpAddresses" <*>
-      obj .:? "SecondaryPrivateIpAddressCount" <*>
-      obj .:? "SourceDestCheck" <*>
-      obj .: "SubnetId" <*>
-      obj .:? "Tags"
+      (obj .:? "Description") <*>
+      (obj .:? "GroupSet") <*>
+      (obj .:? "InterfaceType") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "Ipv6AddressCount") <*>
+      (obj .:? "Ipv6Addresses") <*>
+      (obj .:? "PrivateIpAddress") <*>
+      (obj .:? "PrivateIpAddresses") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "SecondaryPrivateIpAddressCount") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "SourceDestCheck") <*>
+      (obj .: "SubnetId") <*>
+      (obj .:? "Tags")
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2NetworkInterface' containing required fields as
@@ -99,7 +100,7 @@ ecniInterfaceType :: Lens' EC2NetworkInterface (Maybe (Val Text))
 ecniInterfaceType = lens _eC2NetworkInterfaceInterfaceType (\s a -> s { _eC2NetworkInterfaceInterfaceType = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html#cfn-ec2-networkinterface-ipv6addresscount
-ecniIpv6AddressCount :: Lens' EC2NetworkInterface (Maybe (Val Integer'))
+ecniIpv6AddressCount :: Lens' EC2NetworkInterface (Maybe (Val Integer))
 ecniIpv6AddressCount = lens _eC2NetworkInterfaceIpv6AddressCount (\s a -> s { _eC2NetworkInterfaceIpv6AddressCount = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html#cfn-ec2-networkinterface-ipv6addresses
@@ -115,11 +116,11 @@ ecniPrivateIpAddresses :: Lens' EC2NetworkInterface (Maybe [EC2NetworkInterfaceP
 ecniPrivateIpAddresses = lens _eC2NetworkInterfacePrivateIpAddresses (\s a -> s { _eC2NetworkInterfacePrivateIpAddresses = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html#cfn-awsec2networkinterface-secondaryprivateipcount
-ecniSecondaryPrivateIpAddressCount :: Lens' EC2NetworkInterface (Maybe (Val Integer'))
+ecniSecondaryPrivateIpAddressCount :: Lens' EC2NetworkInterface (Maybe (Val Integer))
 ecniSecondaryPrivateIpAddressCount = lens _eC2NetworkInterfaceSecondaryPrivateIpAddressCount (\s a -> s { _eC2NetworkInterfaceSecondaryPrivateIpAddressCount = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html#cfn-awsec2networkinterface-sourcedestcheck
-ecniSourceDestCheck :: Lens' EC2NetworkInterface (Maybe (Val Bool'))
+ecniSourceDestCheck :: Lens' EC2NetworkInterface (Maybe (Val Bool))
 ecniSourceDestCheck = lens _eC2NetworkInterfaceSourceDestCheck (\s a -> s { _eC2NetworkInterfaceSourceDestCheck = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html#cfn-awsec2networkinterface-subnetid

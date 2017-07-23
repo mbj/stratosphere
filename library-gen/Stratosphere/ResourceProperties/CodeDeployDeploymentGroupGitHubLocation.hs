@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-deployment-revision-githublocation.html
 
@@ -27,15 +28,15 @@ instance ToJSON CodeDeployDeploymentGroupGitHubLocation where
   toJSON CodeDeployDeploymentGroupGitHubLocation{..} =
     object $
     catMaybes
-    [ Just ("CommitId" .= _codeDeployDeploymentGroupGitHubLocationCommitId)
-    , Just ("Repository" .= _codeDeployDeploymentGroupGitHubLocationRepository)
+    [ (Just . ("CommitId",) . toJSON) _codeDeployDeploymentGroupGitHubLocationCommitId
+    , (Just . ("Repository",) . toJSON) _codeDeployDeploymentGroupGitHubLocationRepository
     ]
 
 instance FromJSON CodeDeployDeploymentGroupGitHubLocation where
   parseJSON (Object obj) =
     CodeDeployDeploymentGroupGitHubLocation <$>
-      obj .: "CommitId" <*>
-      obj .: "Repository"
+      (obj .: "CommitId") <*>
+      (obj .: "Repository")
   parseJSON _ = mempty
 
 -- | Constructor for 'CodeDeployDeploymentGroupGitHubLocation' containing

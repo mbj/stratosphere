@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-deliverychannel.html
 
@@ -29,21 +30,21 @@ instance ToJSON ConfigDeliveryChannel where
   toJSON ConfigDeliveryChannel{..} =
     object $
     catMaybes
-    [ ("ConfigSnapshotDeliveryProperties" .=) <$> _configDeliveryChannelConfigSnapshotDeliveryProperties
-    , ("Name" .=) <$> _configDeliveryChannelName
-    , Just ("S3BucketName" .= _configDeliveryChannelS3BucketName)
-    , ("S3KeyPrefix" .=) <$> _configDeliveryChannelS3KeyPrefix
-    , ("SnsTopicARN" .=) <$> _configDeliveryChannelSnsTopicARN
+    [ fmap (("ConfigSnapshotDeliveryProperties",) . toJSON) _configDeliveryChannelConfigSnapshotDeliveryProperties
+    , fmap (("Name",) . toJSON) _configDeliveryChannelName
+    , (Just . ("S3BucketName",) . toJSON) _configDeliveryChannelS3BucketName
+    , fmap (("S3KeyPrefix",) . toJSON) _configDeliveryChannelS3KeyPrefix
+    , fmap (("SnsTopicARN",) . toJSON) _configDeliveryChannelSnsTopicARN
     ]
 
 instance FromJSON ConfigDeliveryChannel where
   parseJSON (Object obj) =
     ConfigDeliveryChannel <$>
-      obj .:? "ConfigSnapshotDeliveryProperties" <*>
-      obj .:? "Name" <*>
-      obj .: "S3BucketName" <*>
-      obj .:? "S3KeyPrefix" <*>
-      obj .:? "SnsTopicARN"
+      (obj .:? "ConfigSnapshotDeliveryProperties") <*>
+      (obj .:? "Name") <*>
+      (obj .: "S3BucketName") <*>
+      (obj .:? "S3KeyPrefix") <*>
+      (obj .:? "SnsTopicARN")
   parseJSON _ = mempty
 
 -- | Constructor for 'ConfigDeliveryChannel' containing required fields as

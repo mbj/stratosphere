@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-filesystemtags.html
 
@@ -26,15 +27,15 @@ instance ToJSON EFSFileSystemElasticFileSystemTag where
   toJSON EFSFileSystemElasticFileSystemTag{..} =
     object $
     catMaybes
-    [ Just ("Key" .= _eFSFileSystemElasticFileSystemTagKey)
-    , Just ("Value" .= _eFSFileSystemElasticFileSystemTagValue)
+    [ (Just . ("Key",) . toJSON) _eFSFileSystemElasticFileSystemTagKey
+    , (Just . ("Value",) . toJSON) _eFSFileSystemElasticFileSystemTagValue
     ]
 
 instance FromJSON EFSFileSystemElasticFileSystemTag where
   parseJSON (Object obj) =
     EFSFileSystemElasticFileSystemTag <$>
-      obj .: "Key" <*>
-      obj .: "Value"
+      (obj .: "Key") <*>
+      (obj .: "Value")
   parseJSON _ = mempty
 
 -- | Constructor for 'EFSFileSystemElasticFileSystemTag' containing required

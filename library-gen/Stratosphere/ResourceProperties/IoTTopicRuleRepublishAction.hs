@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-republish.html
 
@@ -26,15 +27,15 @@ instance ToJSON IoTTopicRuleRepublishAction where
   toJSON IoTTopicRuleRepublishAction{..} =
     object $
     catMaybes
-    [ Just ("RoleArn" .= _ioTTopicRuleRepublishActionRoleArn)
-    , Just ("Topic" .= _ioTTopicRuleRepublishActionTopic)
+    [ (Just . ("RoleArn",) . toJSON) _ioTTopicRuleRepublishActionRoleArn
+    , (Just . ("Topic",) . toJSON) _ioTTopicRuleRepublishActionTopic
     ]
 
 instance FromJSON IoTTopicRuleRepublishAction where
   parseJSON (Object obj) =
     IoTTopicRuleRepublishAction <$>
-      obj .: "RoleArn" <*>
-      obj .: "Topic"
+      (obj .: "RoleArn") <*>
+      (obj .: "Topic")
   parseJSON _ = mempty
 
 -- | Constructor for 'IoTTopicRuleRepublishAction' containing required fields

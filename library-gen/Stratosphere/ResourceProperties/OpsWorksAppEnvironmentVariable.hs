@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-app-environment.html
 
@@ -19,7 +20,7 @@ import Stratosphere.Values
 data OpsWorksAppEnvironmentVariable =
   OpsWorksAppEnvironmentVariable
   { _opsWorksAppEnvironmentVariableKey :: Val Text
-  , _opsWorksAppEnvironmentVariableSecure :: Maybe (Val Bool')
+  , _opsWorksAppEnvironmentVariableSecure :: Maybe (Val Bool)
   , _opsWorksAppEnvironmentVariableValue :: Val Text
   } deriving (Show, Eq)
 
@@ -27,17 +28,17 @@ instance ToJSON OpsWorksAppEnvironmentVariable where
   toJSON OpsWorksAppEnvironmentVariable{..} =
     object $
     catMaybes
-    [ Just ("Key" .= _opsWorksAppEnvironmentVariableKey)
-    , ("Secure" .=) <$> _opsWorksAppEnvironmentVariableSecure
-    , Just ("Value" .= _opsWorksAppEnvironmentVariableValue)
+    [ (Just . ("Key",) . toJSON) _opsWorksAppEnvironmentVariableKey
+    , fmap (("Secure",) . toJSON . fmap Bool') _opsWorksAppEnvironmentVariableSecure
+    , (Just . ("Value",) . toJSON) _opsWorksAppEnvironmentVariableValue
     ]
 
 instance FromJSON OpsWorksAppEnvironmentVariable where
   parseJSON (Object obj) =
     OpsWorksAppEnvironmentVariable <$>
-      obj .: "Key" <*>
-      obj .:? "Secure" <*>
-      obj .: "Value"
+      (obj .: "Key") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "Secure") <*>
+      (obj .: "Value")
   parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksAppEnvironmentVariable' containing required
@@ -58,7 +59,7 @@ owaevKey :: Lens' OpsWorksAppEnvironmentVariable (Val Text)
 owaevKey = lens _opsWorksAppEnvironmentVariableKey (\s a -> s { _opsWorksAppEnvironmentVariableKey = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-app-environment.html#cfn-opsworks-app-environment-secure
-owaevSecure :: Lens' OpsWorksAppEnvironmentVariable (Maybe (Val Bool'))
+owaevSecure :: Lens' OpsWorksAppEnvironmentVariable (Maybe (Val Bool))
 owaevSecure = lens _opsWorksAppEnvironmentVariableSecure (\s a -> s { _opsWorksAppEnvironmentVariableSecure = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-app-environment.html#value

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-instanceipv6address.html
 
@@ -25,13 +26,13 @@ instance ToJSON EC2SpotFleetInstanceIpv6Address where
   toJSON EC2SpotFleetInstanceIpv6Address{..} =
     object $
     catMaybes
-    [ Just ("Ipv6Address" .= _eC2SpotFleetInstanceIpv6AddressIpv6Address)
+    [ (Just . ("Ipv6Address",) . toJSON) _eC2SpotFleetInstanceIpv6AddressIpv6Address
     ]
 
 instance FromJSON EC2SpotFleetInstanceIpv6Address where
   parseJSON (Object obj) =
     EC2SpotFleetInstanceIpv6Address <$>
-      obj .: "Ipv6Address"
+      (obj .: "Ipv6Address")
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2SpotFleetInstanceIpv6Address' containing required

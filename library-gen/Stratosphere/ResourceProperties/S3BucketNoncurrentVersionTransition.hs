@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule-noncurrentversiontransition.html
 
@@ -19,29 +20,29 @@ import Stratosphere.Values
 data S3BucketNoncurrentVersionTransition =
   S3BucketNoncurrentVersionTransition
   { _s3BucketNoncurrentVersionTransitionStorageClass :: Val Text
-  , _s3BucketNoncurrentVersionTransitionTransitionInDays :: Val Integer'
+  , _s3BucketNoncurrentVersionTransitionTransitionInDays :: Val Integer
   } deriving (Show, Eq)
 
 instance ToJSON S3BucketNoncurrentVersionTransition where
   toJSON S3BucketNoncurrentVersionTransition{..} =
     object $
     catMaybes
-    [ Just ("StorageClass" .= _s3BucketNoncurrentVersionTransitionStorageClass)
-    , Just ("TransitionInDays" .= _s3BucketNoncurrentVersionTransitionTransitionInDays)
+    [ (Just . ("StorageClass",) . toJSON) _s3BucketNoncurrentVersionTransitionStorageClass
+    , (Just . ("TransitionInDays",) . toJSON . fmap Integer') _s3BucketNoncurrentVersionTransitionTransitionInDays
     ]
 
 instance FromJSON S3BucketNoncurrentVersionTransition where
   parseJSON (Object obj) =
     S3BucketNoncurrentVersionTransition <$>
-      obj .: "StorageClass" <*>
-      obj .: "TransitionInDays"
+      (obj .: "StorageClass") <*>
+      fmap (fmap unInteger') (obj .: "TransitionInDays")
   parseJSON _ = mempty
 
 -- | Constructor for 'S3BucketNoncurrentVersionTransition' containing required
 -- fields as arguments.
 s3BucketNoncurrentVersionTransition
   :: Val Text -- ^ 'sbnvtStorageClass'
-  -> Val Integer' -- ^ 'sbnvtTransitionInDays'
+  -> Val Integer -- ^ 'sbnvtTransitionInDays'
   -> S3BucketNoncurrentVersionTransition
 s3BucketNoncurrentVersionTransition storageClassarg transitionInDaysarg =
   S3BucketNoncurrentVersionTransition
@@ -54,5 +55,5 @@ sbnvtStorageClass :: Lens' S3BucketNoncurrentVersionTransition (Val Text)
 sbnvtStorageClass = lens _s3BucketNoncurrentVersionTransitionStorageClass (\s a -> s { _s3BucketNoncurrentVersionTransitionStorageClass = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule-noncurrentversiontransition.html#cfn-s3-bucket-lifecycleconfig-rule-noncurrentversiontransition-transitionindays
-sbnvtTransitionInDays :: Lens' S3BucketNoncurrentVersionTransition (Val Integer')
+sbnvtTransitionInDays :: Lens' S3BucketNoncurrentVersionTransition (Val Integer)
 sbnvtTransitionInDays = lens _s3BucketNoncurrentVersionTransitionTransitionInDays (\s a -> s { _s3BucketNoncurrentVersionTransitionTransitionInDays = a })

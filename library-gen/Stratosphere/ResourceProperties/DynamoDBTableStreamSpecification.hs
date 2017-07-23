@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-streamspecification.html
 
@@ -25,13 +26,13 @@ instance ToJSON DynamoDBTableStreamSpecification where
   toJSON DynamoDBTableStreamSpecification{..} =
     object $
     catMaybes
-    [ Just ("StreamViewType" .= _dynamoDBTableStreamSpecificationStreamViewType)
+    [ (Just . ("StreamViewType",) . toJSON) _dynamoDBTableStreamSpecificationStreamViewType
     ]
 
 instance FromJSON DynamoDBTableStreamSpecification where
   parseJSON (Object obj) =
     DynamoDBTableStreamSpecification <$>
-      obj .: "StreamViewType"
+      (obj .: "StreamViewType")
   parseJSON _ = mempty
 
 -- | Constructor for 'DynamoDBTableStreamSpecification' containing required

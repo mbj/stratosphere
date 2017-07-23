@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html
 
@@ -26,15 +27,15 @@ instance ToJSON Tag where
   toJSON Tag{..} =
     object $
     catMaybes
-    [ Just ("Key" .= _tagKey)
-    , Just ("Value" .= _tagValue)
+    [ (Just . ("Key",) . toJSON) _tagKey
+    , (Just . ("Value",) . toJSON) _tagValue
     ]
 
 instance FromJSON Tag where
   parseJSON (Object obj) =
     Tag <$>
-      obj .: "Key" <*>
-      obj .: "Value"
+      (obj .: "Key") <*>
+      (obj .: "Value")
   parseJSON _ = mempty
 
 -- | Constructor for 'Tag' containing required fields as arguments.

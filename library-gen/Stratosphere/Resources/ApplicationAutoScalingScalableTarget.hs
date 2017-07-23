@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html
 
@@ -18,8 +19,8 @@ import Stratosphere.Values
 -- 'applicationAutoScalingScalableTarget' for a more convenient constructor.
 data ApplicationAutoScalingScalableTarget =
   ApplicationAutoScalingScalableTarget
-  { _applicationAutoScalingScalableTargetMaxCapacity :: Val Integer'
-  , _applicationAutoScalingScalableTargetMinCapacity :: Val Integer'
+  { _applicationAutoScalingScalableTargetMaxCapacity :: Val Integer
+  , _applicationAutoScalingScalableTargetMinCapacity :: Val Integer
   , _applicationAutoScalingScalableTargetResourceId :: Val Text
   , _applicationAutoScalingScalableTargetRoleARN :: Val Text
   , _applicationAutoScalingScalableTargetScalableDimension :: Val Text
@@ -30,30 +31,30 @@ instance ToJSON ApplicationAutoScalingScalableTarget where
   toJSON ApplicationAutoScalingScalableTarget{..} =
     object $
     catMaybes
-    [ Just ("MaxCapacity" .= _applicationAutoScalingScalableTargetMaxCapacity)
-    , Just ("MinCapacity" .= _applicationAutoScalingScalableTargetMinCapacity)
-    , Just ("ResourceId" .= _applicationAutoScalingScalableTargetResourceId)
-    , Just ("RoleARN" .= _applicationAutoScalingScalableTargetRoleARN)
-    , Just ("ScalableDimension" .= _applicationAutoScalingScalableTargetScalableDimension)
-    , Just ("ServiceNamespace" .= _applicationAutoScalingScalableTargetServiceNamespace)
+    [ (Just . ("MaxCapacity",) . toJSON . fmap Integer') _applicationAutoScalingScalableTargetMaxCapacity
+    , (Just . ("MinCapacity",) . toJSON . fmap Integer') _applicationAutoScalingScalableTargetMinCapacity
+    , (Just . ("ResourceId",) . toJSON) _applicationAutoScalingScalableTargetResourceId
+    , (Just . ("RoleARN",) . toJSON) _applicationAutoScalingScalableTargetRoleARN
+    , (Just . ("ScalableDimension",) . toJSON) _applicationAutoScalingScalableTargetScalableDimension
+    , (Just . ("ServiceNamespace",) . toJSON) _applicationAutoScalingScalableTargetServiceNamespace
     ]
 
 instance FromJSON ApplicationAutoScalingScalableTarget where
   parseJSON (Object obj) =
     ApplicationAutoScalingScalableTarget <$>
-      obj .: "MaxCapacity" <*>
-      obj .: "MinCapacity" <*>
-      obj .: "ResourceId" <*>
-      obj .: "RoleARN" <*>
-      obj .: "ScalableDimension" <*>
-      obj .: "ServiceNamespace"
+      fmap (fmap unInteger') (obj .: "MaxCapacity") <*>
+      fmap (fmap unInteger') (obj .: "MinCapacity") <*>
+      (obj .: "ResourceId") <*>
+      (obj .: "RoleARN") <*>
+      (obj .: "ScalableDimension") <*>
+      (obj .: "ServiceNamespace")
   parseJSON _ = mempty
 
 -- | Constructor for 'ApplicationAutoScalingScalableTarget' containing
 -- required fields as arguments.
 applicationAutoScalingScalableTarget
-  :: Val Integer' -- ^ 'aasstMaxCapacity'
-  -> Val Integer' -- ^ 'aasstMinCapacity'
+  :: Val Integer -- ^ 'aasstMaxCapacity'
+  -> Val Integer -- ^ 'aasstMinCapacity'
   -> Val Text -- ^ 'aasstResourceId'
   -> Val Text -- ^ 'aasstRoleARN'
   -> Val Text -- ^ 'aasstScalableDimension'
@@ -70,11 +71,11 @@ applicationAutoScalingScalableTarget maxCapacityarg minCapacityarg resourceIdarg
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html#cfn-applicationautoscaling-scalabletarget-maxcapacity
-aasstMaxCapacity :: Lens' ApplicationAutoScalingScalableTarget (Val Integer')
+aasstMaxCapacity :: Lens' ApplicationAutoScalingScalableTarget (Val Integer)
 aasstMaxCapacity = lens _applicationAutoScalingScalableTargetMaxCapacity (\s a -> s { _applicationAutoScalingScalableTargetMaxCapacity = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html#cfn-applicationautoscaling-scalabletarget-mincapacity
-aasstMinCapacity :: Lens' ApplicationAutoScalingScalableTarget (Val Integer')
+aasstMinCapacity :: Lens' ApplicationAutoScalingScalableTarget (Val Integer)
 aasstMinCapacity = lens _applicationAutoScalingScalableTargetMinCapacity (\s a -> s { _applicationAutoScalingScalableTargetMinCapacity = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html#cfn-applicationautoscaling-scalabletarget-resourceid

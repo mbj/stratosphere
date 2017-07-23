@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html
 
@@ -31,21 +32,21 @@ instance ToJSON ApiGatewayUsagePlan where
   toJSON ApiGatewayUsagePlan{..} =
     object $
     catMaybes
-    [ ("ApiStages" .=) <$> _apiGatewayUsagePlanApiStages
-    , ("Description" .=) <$> _apiGatewayUsagePlanDescription
-    , ("Quota" .=) <$> _apiGatewayUsagePlanQuota
-    , ("Throttle" .=) <$> _apiGatewayUsagePlanThrottle
-    , ("UsagePlanName" .=) <$> _apiGatewayUsagePlanUsagePlanName
+    [ fmap (("ApiStages",) . toJSON) _apiGatewayUsagePlanApiStages
+    , fmap (("Description",) . toJSON) _apiGatewayUsagePlanDescription
+    , fmap (("Quota",) . toJSON) _apiGatewayUsagePlanQuota
+    , fmap (("Throttle",) . toJSON) _apiGatewayUsagePlanThrottle
+    , fmap (("UsagePlanName",) . toJSON) _apiGatewayUsagePlanUsagePlanName
     ]
 
 instance FromJSON ApiGatewayUsagePlan where
   parseJSON (Object obj) =
     ApiGatewayUsagePlan <$>
-      obj .:? "ApiStages" <*>
-      obj .:? "Description" <*>
-      obj .:? "Quota" <*>
-      obj .:? "Throttle" <*>
-      obj .:? "UsagePlanName"
+      (obj .:? "ApiStages") <*>
+      (obj .:? "Description") <*>
+      (obj .:? "Quota") <*>
+      (obj .:? "Throttle") <*>
+      (obj .:? "UsagePlanName")
   parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayUsagePlan' containing required fields as

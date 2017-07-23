@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-webacl-rules.html
 
@@ -19,7 +20,7 @@ import Stratosphere.ResourceProperties.WAFWebACLWafAction
 data WAFWebACLActivatedRule =
   WAFWebACLActivatedRule
   { _wAFWebACLActivatedRuleAction :: WAFWebACLWafAction
-  , _wAFWebACLActivatedRulePriority :: Val Integer'
+  , _wAFWebACLActivatedRulePriority :: Val Integer
   , _wAFWebACLActivatedRuleRuleId :: Val Text
   } deriving (Show, Eq)
 
@@ -27,24 +28,24 @@ instance ToJSON WAFWebACLActivatedRule where
   toJSON WAFWebACLActivatedRule{..} =
     object $
     catMaybes
-    [ Just ("Action" .= _wAFWebACLActivatedRuleAction)
-    , Just ("Priority" .= _wAFWebACLActivatedRulePriority)
-    , Just ("RuleId" .= _wAFWebACLActivatedRuleRuleId)
+    [ (Just . ("Action",) . toJSON) _wAFWebACLActivatedRuleAction
+    , (Just . ("Priority",) . toJSON . fmap Integer') _wAFWebACLActivatedRulePriority
+    , (Just . ("RuleId",) . toJSON) _wAFWebACLActivatedRuleRuleId
     ]
 
 instance FromJSON WAFWebACLActivatedRule where
   parseJSON (Object obj) =
     WAFWebACLActivatedRule <$>
-      obj .: "Action" <*>
-      obj .: "Priority" <*>
-      obj .: "RuleId"
+      (obj .: "Action") <*>
+      fmap (fmap unInteger') (obj .: "Priority") <*>
+      (obj .: "RuleId")
   parseJSON _ = mempty
 
 -- | Constructor for 'WAFWebACLActivatedRule' containing required fields as
 -- arguments.
 wafWebACLActivatedRule
   :: WAFWebACLWafAction -- ^ 'wafwaclarAction'
-  -> Val Integer' -- ^ 'wafwaclarPriority'
+  -> Val Integer -- ^ 'wafwaclarPriority'
   -> Val Text -- ^ 'wafwaclarRuleId'
   -> WAFWebACLActivatedRule
 wafWebACLActivatedRule actionarg priorityarg ruleIdarg =
@@ -59,7 +60,7 @@ wafwaclarAction :: Lens' WAFWebACLActivatedRule WAFWebACLWafAction
 wafwaclarAction = lens _wAFWebACLActivatedRuleAction (\s a -> s { _wAFWebACLActivatedRuleAction = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-webacl-rules.html#cfn-waf-webacl-rules-priority
-wafwaclarPriority :: Lens' WAFWebACLActivatedRule (Val Integer')
+wafwaclarPriority :: Lens' WAFWebACLActivatedRule (Val Integer)
 wafwaclarPriority = lens _wAFWebACLActivatedRulePriority (\s a -> s { _wAFWebACLActivatedRulePriority = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-webacl-rules.html#cfn-waf-webacl-rules-ruleid

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-dashboard.html
 
@@ -26,15 +27,15 @@ instance ToJSON CloudWatchDashboard where
   toJSON CloudWatchDashboard{..} =
     object $
     catMaybes
-    [ Just ("DashboardBody" .= _cloudWatchDashboardDashboardBody)
-    , ("DashboardName" .=) <$> _cloudWatchDashboardDashboardName
+    [ (Just . ("DashboardBody",) . toJSON) _cloudWatchDashboardDashboardBody
+    , fmap (("DashboardName",) . toJSON) _cloudWatchDashboardDashboardName
     ]
 
 instance FromJSON CloudWatchDashboard where
   parseJSON (Object obj) =
     CloudWatchDashboard <$>
-      obj .: "DashboardBody" <*>
-      obj .:? "DashboardName"
+      (obj .: "DashboardBody") <*>
+      (obj .:? "DashboardName")
   parseJSON _ = mempty
 
 -- | Constructor for 'CloudWatchDashboard' containing required fields as

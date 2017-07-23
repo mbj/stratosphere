@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volumeattachment.html
 
@@ -27,17 +28,17 @@ instance ToJSON EC2VolumeAttachment where
   toJSON EC2VolumeAttachment{..} =
     object $
     catMaybes
-    [ Just ("Device" .= _eC2VolumeAttachmentDevice)
-    , Just ("InstanceId" .= _eC2VolumeAttachmentInstanceId)
-    , Just ("VolumeId" .= _eC2VolumeAttachmentVolumeId)
+    [ (Just . ("Device",) . toJSON) _eC2VolumeAttachmentDevice
+    , (Just . ("InstanceId",) . toJSON) _eC2VolumeAttachmentInstanceId
+    , (Just . ("VolumeId",) . toJSON) _eC2VolumeAttachmentVolumeId
     ]
 
 instance FromJSON EC2VolumeAttachment where
   parseJSON (Object obj) =
     EC2VolumeAttachment <$>
-      obj .: "Device" <*>
-      obj .: "InstanceId" <*>
-      obj .: "VolumeId"
+      (obj .: "Device") <*>
+      (obj .: "InstanceId") <*>
+      (obj .: "VolumeId")
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2VolumeAttachment' containing required fields as

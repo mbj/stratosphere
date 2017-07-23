@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html
 
@@ -25,7 +26,7 @@ import Stratosphere.ResourceProperties.EC2SpotFleetGroupIdentifier
 data EC2SpotFleetSpotFleetLaunchSpecification =
   EC2SpotFleetSpotFleetLaunchSpecification
   { _eC2SpotFleetSpotFleetLaunchSpecificationBlockDeviceMappings :: Maybe [EC2SpotFleetBlockDeviceMapping]
-  , _eC2SpotFleetSpotFleetLaunchSpecificationEbsOptimized :: Maybe (Val Bool')
+  , _eC2SpotFleetSpotFleetLaunchSpecificationEbsOptimized :: Maybe (Val Bool)
   , _eC2SpotFleetSpotFleetLaunchSpecificationIamInstanceProfile :: Maybe EC2SpotFleetIamInstanceProfileSpecification
   , _eC2SpotFleetSpotFleetLaunchSpecificationImageId :: Val Text
   , _eC2SpotFleetSpotFleetLaunchSpecificationInstanceType :: Val Text
@@ -39,50 +40,50 @@ data EC2SpotFleetSpotFleetLaunchSpecification =
   , _eC2SpotFleetSpotFleetLaunchSpecificationSpotPrice :: Maybe (Val Text)
   , _eC2SpotFleetSpotFleetLaunchSpecificationSubnetId :: Maybe (Val Text)
   , _eC2SpotFleetSpotFleetLaunchSpecificationUserData :: Maybe (Val Text)
-  , _eC2SpotFleetSpotFleetLaunchSpecificationWeightedCapacity :: Maybe (Val Double')
+  , _eC2SpotFleetSpotFleetLaunchSpecificationWeightedCapacity :: Maybe (Val Double)
   } deriving (Show, Eq)
 
 instance ToJSON EC2SpotFleetSpotFleetLaunchSpecification where
   toJSON EC2SpotFleetSpotFleetLaunchSpecification{..} =
     object $
     catMaybes
-    [ ("BlockDeviceMappings" .=) <$> _eC2SpotFleetSpotFleetLaunchSpecificationBlockDeviceMappings
-    , ("EbsOptimized" .=) <$> _eC2SpotFleetSpotFleetLaunchSpecificationEbsOptimized
-    , ("IamInstanceProfile" .=) <$> _eC2SpotFleetSpotFleetLaunchSpecificationIamInstanceProfile
-    , Just ("ImageId" .= _eC2SpotFleetSpotFleetLaunchSpecificationImageId)
-    , Just ("InstanceType" .= _eC2SpotFleetSpotFleetLaunchSpecificationInstanceType)
-    , ("KernelId" .=) <$> _eC2SpotFleetSpotFleetLaunchSpecificationKernelId
-    , ("KeyName" .=) <$> _eC2SpotFleetSpotFleetLaunchSpecificationKeyName
-    , ("Monitoring" .=) <$> _eC2SpotFleetSpotFleetLaunchSpecificationMonitoring
-    , ("NetworkInterfaces" .=) <$> _eC2SpotFleetSpotFleetLaunchSpecificationNetworkInterfaces
-    , ("Placement" .=) <$> _eC2SpotFleetSpotFleetLaunchSpecificationPlacement
-    , ("RamdiskId" .=) <$> _eC2SpotFleetSpotFleetLaunchSpecificationRamdiskId
-    , ("SecurityGroups" .=) <$> _eC2SpotFleetSpotFleetLaunchSpecificationSecurityGroups
-    , ("SpotPrice" .=) <$> _eC2SpotFleetSpotFleetLaunchSpecificationSpotPrice
-    , ("SubnetId" .=) <$> _eC2SpotFleetSpotFleetLaunchSpecificationSubnetId
-    , ("UserData" .=) <$> _eC2SpotFleetSpotFleetLaunchSpecificationUserData
-    , ("WeightedCapacity" .=) <$> _eC2SpotFleetSpotFleetLaunchSpecificationWeightedCapacity
+    [ fmap (("BlockDeviceMappings",) . toJSON) _eC2SpotFleetSpotFleetLaunchSpecificationBlockDeviceMappings
+    , fmap (("EbsOptimized",) . toJSON . fmap Bool') _eC2SpotFleetSpotFleetLaunchSpecificationEbsOptimized
+    , fmap (("IamInstanceProfile",) . toJSON) _eC2SpotFleetSpotFleetLaunchSpecificationIamInstanceProfile
+    , (Just . ("ImageId",) . toJSON) _eC2SpotFleetSpotFleetLaunchSpecificationImageId
+    , (Just . ("InstanceType",) . toJSON) _eC2SpotFleetSpotFleetLaunchSpecificationInstanceType
+    , fmap (("KernelId",) . toJSON) _eC2SpotFleetSpotFleetLaunchSpecificationKernelId
+    , fmap (("KeyName",) . toJSON) _eC2SpotFleetSpotFleetLaunchSpecificationKeyName
+    , fmap (("Monitoring",) . toJSON) _eC2SpotFleetSpotFleetLaunchSpecificationMonitoring
+    , fmap (("NetworkInterfaces",) . toJSON) _eC2SpotFleetSpotFleetLaunchSpecificationNetworkInterfaces
+    , fmap (("Placement",) . toJSON) _eC2SpotFleetSpotFleetLaunchSpecificationPlacement
+    , fmap (("RamdiskId",) . toJSON) _eC2SpotFleetSpotFleetLaunchSpecificationRamdiskId
+    , fmap (("SecurityGroups",) . toJSON) _eC2SpotFleetSpotFleetLaunchSpecificationSecurityGroups
+    , fmap (("SpotPrice",) . toJSON) _eC2SpotFleetSpotFleetLaunchSpecificationSpotPrice
+    , fmap (("SubnetId",) . toJSON) _eC2SpotFleetSpotFleetLaunchSpecificationSubnetId
+    , fmap (("UserData",) . toJSON) _eC2SpotFleetSpotFleetLaunchSpecificationUserData
+    , fmap (("WeightedCapacity",) . toJSON . fmap Double') _eC2SpotFleetSpotFleetLaunchSpecificationWeightedCapacity
     ]
 
 instance FromJSON EC2SpotFleetSpotFleetLaunchSpecification where
   parseJSON (Object obj) =
     EC2SpotFleetSpotFleetLaunchSpecification <$>
-      obj .:? "BlockDeviceMappings" <*>
-      obj .:? "EbsOptimized" <*>
-      obj .:? "IamInstanceProfile" <*>
-      obj .: "ImageId" <*>
-      obj .: "InstanceType" <*>
-      obj .:? "KernelId" <*>
-      obj .:? "KeyName" <*>
-      obj .:? "Monitoring" <*>
-      obj .:? "NetworkInterfaces" <*>
-      obj .:? "Placement" <*>
-      obj .:? "RamdiskId" <*>
-      obj .:? "SecurityGroups" <*>
-      obj .:? "SpotPrice" <*>
-      obj .:? "SubnetId" <*>
-      obj .:? "UserData" <*>
-      obj .:? "WeightedCapacity"
+      (obj .:? "BlockDeviceMappings") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "EbsOptimized") <*>
+      (obj .:? "IamInstanceProfile") <*>
+      (obj .: "ImageId") <*>
+      (obj .: "InstanceType") <*>
+      (obj .:? "KernelId") <*>
+      (obj .:? "KeyName") <*>
+      (obj .:? "Monitoring") <*>
+      (obj .:? "NetworkInterfaces") <*>
+      (obj .:? "Placement") <*>
+      (obj .:? "RamdiskId") <*>
+      (obj .:? "SecurityGroups") <*>
+      (obj .:? "SpotPrice") <*>
+      (obj .:? "SubnetId") <*>
+      (obj .:? "UserData") <*>
+      fmap (fmap (fmap unDouble')) (obj .:? "WeightedCapacity")
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2SpotFleetSpotFleetLaunchSpecification' containing
@@ -116,7 +117,7 @@ ecsfsflsBlockDeviceMappings :: Lens' EC2SpotFleetSpotFleetLaunchSpecification (M
 ecsfsflsBlockDeviceMappings = lens _eC2SpotFleetSpotFleetLaunchSpecificationBlockDeviceMappings (\s a -> s { _eC2SpotFleetSpotFleetLaunchSpecificationBlockDeviceMappings = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-ebsoptimized
-ecsfsflsEbsOptimized :: Lens' EC2SpotFleetSpotFleetLaunchSpecification (Maybe (Val Bool'))
+ecsfsflsEbsOptimized :: Lens' EC2SpotFleetSpotFleetLaunchSpecification (Maybe (Val Bool))
 ecsfsflsEbsOptimized = lens _eC2SpotFleetSpotFleetLaunchSpecificationEbsOptimized (\s a -> s { _eC2SpotFleetSpotFleetLaunchSpecificationEbsOptimized = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-iaminstanceprofile
@@ -172,5 +173,5 @@ ecsfsflsUserData :: Lens' EC2SpotFleetSpotFleetLaunchSpecification (Maybe (Val T
 ecsfsflsUserData = lens _eC2SpotFleetSpotFleetLaunchSpecificationUserData (\s a -> s { _eC2SpotFleetSpotFleetLaunchSpecificationUserData = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-weightedcapacity
-ecsfsflsWeightedCapacity :: Lens' EC2SpotFleetSpotFleetLaunchSpecification (Maybe (Val Double'))
+ecsfsflsWeightedCapacity :: Lens' EC2SpotFleetSpotFleetLaunchSpecification (Maybe (Val Double))
 ecsfsflsWeightedCapacity = lens _eC2SpotFleetSpotFleetLaunchSpecificationWeightedCapacity (\s a -> s { _eC2SpotFleetSpotFleetLaunchSpecificationWeightedCapacity = a })

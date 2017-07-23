@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html
 
@@ -26,15 +27,15 @@ instance ToJSON StepFunctionsStateMachine where
   toJSON StepFunctionsStateMachine{..} =
     object $
     catMaybes
-    [ Just ("DefinitionString" .= _stepFunctionsStateMachineDefinitionString)
-    , Just ("RoleArn" .= _stepFunctionsStateMachineRoleArn)
+    [ (Just . ("DefinitionString",) . toJSON) _stepFunctionsStateMachineDefinitionString
+    , (Just . ("RoleArn",) . toJSON) _stepFunctionsStateMachineRoleArn
     ]
 
 instance FromJSON StepFunctionsStateMachine where
   parseJSON (Object obj) =
     StepFunctionsStateMachine <$>
-      obj .: "DefinitionString" <*>
-      obj .: "RoleArn"
+      (obj .: "DefinitionString") <*>
+      (obj .: "RoleArn")
   parseJSON _ = mempty
 
 -- | Constructor for 'StepFunctionsStateMachine' containing required fields as

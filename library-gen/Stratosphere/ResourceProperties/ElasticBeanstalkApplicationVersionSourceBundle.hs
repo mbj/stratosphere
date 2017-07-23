@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-sourcebundle.html
 
@@ -28,15 +29,15 @@ instance ToJSON ElasticBeanstalkApplicationVersionSourceBundle where
   toJSON ElasticBeanstalkApplicationVersionSourceBundle{..} =
     object $
     catMaybes
-    [ Just ("S3Bucket" .= _elasticBeanstalkApplicationVersionSourceBundleS3Bucket)
-    , Just ("S3Key" .= _elasticBeanstalkApplicationVersionSourceBundleS3Key)
+    [ (Just . ("S3Bucket",) . toJSON) _elasticBeanstalkApplicationVersionSourceBundleS3Bucket
+    , (Just . ("S3Key",) . toJSON) _elasticBeanstalkApplicationVersionSourceBundleS3Key
     ]
 
 instance FromJSON ElasticBeanstalkApplicationVersionSourceBundle where
   parseJSON (Object obj) =
     ElasticBeanstalkApplicationVersionSourceBundle <$>
-      obj .: "S3Bucket" <*>
-      obj .: "S3Key"
+      (obj .: "S3Bucket") <*>
+      (obj .: "S3Key")
   parseJSON _ = mempty
 
 -- | Constructor for 'ElasticBeanstalkApplicationVersionSourceBundle'

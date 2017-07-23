@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-certificates.html
 
@@ -26,13 +27,13 @@ instance ToJSON ElasticLoadBalancingV2ListenerCertificate where
   toJSON ElasticLoadBalancingV2ListenerCertificate{..} =
     object $
     catMaybes
-    [ ("CertificateArn" .=) <$> _elasticLoadBalancingV2ListenerCertificateCertificateArn
+    [ fmap (("CertificateArn",) . toJSON) _elasticLoadBalancingV2ListenerCertificateCertificateArn
     ]
 
 instance FromJSON ElasticLoadBalancingV2ListenerCertificate where
   parseJSON (Object obj) =
     ElasticLoadBalancingV2ListenerCertificate <$>
-      obj .:? "CertificateArn"
+      (obj .:? "CertificateArn")
   parseJSON _ = mempty
 
 -- | Constructor for 'ElasticLoadBalancingV2ListenerCertificate' containing

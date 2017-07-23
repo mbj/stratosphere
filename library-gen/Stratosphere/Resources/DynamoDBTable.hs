@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html
 
@@ -36,25 +37,25 @@ instance ToJSON DynamoDBTable where
   toJSON DynamoDBTable{..} =
     object $
     catMaybes
-    [ Just ("AttributeDefinitions" .= _dynamoDBTableAttributeDefinitions)
-    , ("GlobalSecondaryIndexes" .=) <$> _dynamoDBTableGlobalSecondaryIndexes
-    , Just ("KeySchema" .= _dynamoDBTableKeySchema)
-    , ("LocalSecondaryIndexes" .=) <$> _dynamoDBTableLocalSecondaryIndexes
-    , Just ("ProvisionedThroughput" .= _dynamoDBTableProvisionedThroughput)
-    , ("StreamSpecification" .=) <$> _dynamoDBTableStreamSpecification
-    , ("TableName" .=) <$> _dynamoDBTableTableName
+    [ (Just . ("AttributeDefinitions",) . toJSON) _dynamoDBTableAttributeDefinitions
+    , fmap (("GlobalSecondaryIndexes",) . toJSON) _dynamoDBTableGlobalSecondaryIndexes
+    , (Just . ("KeySchema",) . toJSON) _dynamoDBTableKeySchema
+    , fmap (("LocalSecondaryIndexes",) . toJSON) _dynamoDBTableLocalSecondaryIndexes
+    , (Just . ("ProvisionedThroughput",) . toJSON) _dynamoDBTableProvisionedThroughput
+    , fmap (("StreamSpecification",) . toJSON) _dynamoDBTableStreamSpecification
+    , fmap (("TableName",) . toJSON) _dynamoDBTableTableName
     ]
 
 instance FromJSON DynamoDBTable where
   parseJSON (Object obj) =
     DynamoDBTable <$>
-      obj .: "AttributeDefinitions" <*>
-      obj .:? "GlobalSecondaryIndexes" <*>
-      obj .: "KeySchema" <*>
-      obj .:? "LocalSecondaryIndexes" <*>
-      obj .: "ProvisionedThroughput" <*>
-      obj .:? "StreamSpecification" <*>
-      obj .:? "TableName"
+      (obj .: "AttributeDefinitions") <*>
+      (obj .:? "GlobalSecondaryIndexes") <*>
+      (obj .: "KeySchema") <*>
+      (obj .:? "LocalSecondaryIndexes") <*>
+      (obj .: "ProvisionedThroughput") <*>
+      (obj .:? "StreamSpecification") <*>
+      (obj .:? "TableName")
   parseJSON _ = mempty
 
 -- | Constructor for 'DynamoDBTable' containing required fields as arguments.

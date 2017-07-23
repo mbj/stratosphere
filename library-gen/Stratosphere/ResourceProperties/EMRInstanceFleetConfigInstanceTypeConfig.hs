@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-instancetypeconfig.html
 
@@ -21,34 +22,34 @@ import Stratosphere.ResourceProperties.EMRInstanceFleetConfigEbsConfiguration
 data EMRInstanceFleetConfigInstanceTypeConfig =
   EMRInstanceFleetConfigInstanceTypeConfig
   { _eMRInstanceFleetConfigInstanceTypeConfigBidPrice :: Maybe (Val Text)
-  , _eMRInstanceFleetConfigInstanceTypeConfigBidPriceAsPercentageOfOnDemandPrice :: Maybe (Val Double')
+  , _eMRInstanceFleetConfigInstanceTypeConfigBidPriceAsPercentageOfOnDemandPrice :: Maybe (Val Double)
   , _eMRInstanceFleetConfigInstanceTypeConfigConfigurations :: Maybe [EMRInstanceFleetConfigConfiguration]
   , _eMRInstanceFleetConfigInstanceTypeConfigEbsConfiguration :: Maybe EMRInstanceFleetConfigEbsConfiguration
   , _eMRInstanceFleetConfigInstanceTypeConfigInstanceType :: Val Text
-  , _eMRInstanceFleetConfigInstanceTypeConfigWeightedCapacity :: Maybe (Val Integer')
+  , _eMRInstanceFleetConfigInstanceTypeConfigWeightedCapacity :: Maybe (Val Integer)
   } deriving (Show, Eq)
 
 instance ToJSON EMRInstanceFleetConfigInstanceTypeConfig where
   toJSON EMRInstanceFleetConfigInstanceTypeConfig{..} =
     object $
     catMaybes
-    [ ("BidPrice" .=) <$> _eMRInstanceFleetConfigInstanceTypeConfigBidPrice
-    , ("BidPriceAsPercentageOfOnDemandPrice" .=) <$> _eMRInstanceFleetConfigInstanceTypeConfigBidPriceAsPercentageOfOnDemandPrice
-    , ("Configurations" .=) <$> _eMRInstanceFleetConfigInstanceTypeConfigConfigurations
-    , ("EbsConfiguration" .=) <$> _eMRInstanceFleetConfigInstanceTypeConfigEbsConfiguration
-    , Just ("InstanceType" .= _eMRInstanceFleetConfigInstanceTypeConfigInstanceType)
-    , ("WeightedCapacity" .=) <$> _eMRInstanceFleetConfigInstanceTypeConfigWeightedCapacity
+    [ fmap (("BidPrice",) . toJSON) _eMRInstanceFleetConfigInstanceTypeConfigBidPrice
+    , fmap (("BidPriceAsPercentageOfOnDemandPrice",) . toJSON . fmap Double') _eMRInstanceFleetConfigInstanceTypeConfigBidPriceAsPercentageOfOnDemandPrice
+    , fmap (("Configurations",) . toJSON) _eMRInstanceFleetConfigInstanceTypeConfigConfigurations
+    , fmap (("EbsConfiguration",) . toJSON) _eMRInstanceFleetConfigInstanceTypeConfigEbsConfiguration
+    , (Just . ("InstanceType",) . toJSON) _eMRInstanceFleetConfigInstanceTypeConfigInstanceType
+    , fmap (("WeightedCapacity",) . toJSON . fmap Integer') _eMRInstanceFleetConfigInstanceTypeConfigWeightedCapacity
     ]
 
 instance FromJSON EMRInstanceFleetConfigInstanceTypeConfig where
   parseJSON (Object obj) =
     EMRInstanceFleetConfigInstanceTypeConfig <$>
-      obj .:? "BidPrice" <*>
-      obj .:? "BidPriceAsPercentageOfOnDemandPrice" <*>
-      obj .:? "Configurations" <*>
-      obj .:? "EbsConfiguration" <*>
-      obj .: "InstanceType" <*>
-      obj .:? "WeightedCapacity"
+      (obj .:? "BidPrice") <*>
+      fmap (fmap (fmap unDouble')) (obj .:? "BidPriceAsPercentageOfOnDemandPrice") <*>
+      (obj .:? "Configurations") <*>
+      (obj .:? "EbsConfiguration") <*>
+      (obj .: "InstanceType") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "WeightedCapacity")
   parseJSON _ = mempty
 
 -- | Constructor for 'EMRInstanceFleetConfigInstanceTypeConfig' containing
@@ -71,7 +72,7 @@ emrifcitcBidPrice :: Lens' EMRInstanceFleetConfigInstanceTypeConfig (Maybe (Val 
 emrifcitcBidPrice = lens _eMRInstanceFleetConfigInstanceTypeConfigBidPrice (\s a -> s { _eMRInstanceFleetConfigInstanceTypeConfigBidPrice = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-instancetypeconfig.html#cfn-elasticmapreduce-instancefleetconfig-instancetypeconfig-bidpriceaspercentageofondemandprice
-emrifcitcBidPriceAsPercentageOfOnDemandPrice :: Lens' EMRInstanceFleetConfigInstanceTypeConfig (Maybe (Val Double'))
+emrifcitcBidPriceAsPercentageOfOnDemandPrice :: Lens' EMRInstanceFleetConfigInstanceTypeConfig (Maybe (Val Double))
 emrifcitcBidPriceAsPercentageOfOnDemandPrice = lens _eMRInstanceFleetConfigInstanceTypeConfigBidPriceAsPercentageOfOnDemandPrice (\s a -> s { _eMRInstanceFleetConfigInstanceTypeConfigBidPriceAsPercentageOfOnDemandPrice = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-instancetypeconfig.html#cfn-elasticmapreduce-instancefleetconfig-instancetypeconfig-configurations
@@ -87,5 +88,5 @@ emrifcitcInstanceType :: Lens' EMRInstanceFleetConfigInstanceTypeConfig (Val Tex
 emrifcitcInstanceType = lens _eMRInstanceFleetConfigInstanceTypeConfigInstanceType (\s a -> s { _eMRInstanceFleetConfigInstanceTypeConfigInstanceType = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-instancetypeconfig.html#cfn-elasticmapreduce-instancefleetconfig-instancetypeconfig-weightedcapacity
-emrifcitcWeightedCapacity :: Lens' EMRInstanceFleetConfigInstanceTypeConfig (Maybe (Val Integer'))
+emrifcitcWeightedCapacity :: Lens' EMRInstanceFleetConfigInstanceTypeConfig (Maybe (Val Integer))
 emrifcitcWeightedCapacity = lens _eMRInstanceFleetConfigInstanceTypeConfigWeightedCapacity (\s a -> s { _eMRInstanceFleetConfigInstanceTypeConfigWeightedCapacity = a })

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-egressonlyinternetgateway.html
 
@@ -25,13 +26,13 @@ instance ToJSON EC2EgressOnlyInternetGateway where
   toJSON EC2EgressOnlyInternetGateway{..} =
     object $
     catMaybes
-    [ Just ("VpcId" .= _eC2EgressOnlyInternetGatewayVpcId)
+    [ (Just . ("VpcId",) . toJSON) _eC2EgressOnlyInternetGatewayVpcId
     ]
 
 instance FromJSON EC2EgressOnlyInternetGateway where
   parseJSON (Object obj) =
     EC2EgressOnlyInternetGateway <$>
-      obj .: "VpcId"
+      (obj .: "VpcId")
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2EgressOnlyInternetGateway' containing required fields

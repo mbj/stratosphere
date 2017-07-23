@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-elasticsearch.html
 
@@ -29,21 +30,21 @@ instance ToJSON IoTTopicRuleElasticsearchAction where
   toJSON IoTTopicRuleElasticsearchAction{..} =
     object $
     catMaybes
-    [ Just ("Endpoint" .= _ioTTopicRuleElasticsearchActionEndpoint)
-    , Just ("Id" .= _ioTTopicRuleElasticsearchActionId)
-    , Just ("Index" .= _ioTTopicRuleElasticsearchActionIndex)
-    , Just ("RoleArn" .= _ioTTopicRuleElasticsearchActionRoleArn)
-    , Just ("Type" .= _ioTTopicRuleElasticsearchActionType)
+    [ (Just . ("Endpoint",) . toJSON) _ioTTopicRuleElasticsearchActionEndpoint
+    , (Just . ("Id",) . toJSON) _ioTTopicRuleElasticsearchActionId
+    , (Just . ("Index",) . toJSON) _ioTTopicRuleElasticsearchActionIndex
+    , (Just . ("RoleArn",) . toJSON) _ioTTopicRuleElasticsearchActionRoleArn
+    , (Just . ("Type",) . toJSON) _ioTTopicRuleElasticsearchActionType
     ]
 
 instance FromJSON IoTTopicRuleElasticsearchAction where
   parseJSON (Object obj) =
     IoTTopicRuleElasticsearchAction <$>
-      obj .: "Endpoint" <*>
-      obj .: "Id" <*>
-      obj .: "Index" <*>
-      obj .: "RoleArn" <*>
-      obj .: "Type"
+      (obj .: "Endpoint") <*>
+      (obj .: "Id") <*>
+      (obj .: "Index") <*>
+      (obj .: "RoleArn") <*>
+      (obj .: "Type")
   parseJSON _ = mempty
 
 -- | Constructor for 'IoTTopicRuleElasticsearchAction' containing required

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-versioningconfig.html
 
@@ -25,13 +26,13 @@ instance ToJSON S3BucketVersioningConfiguration where
   toJSON S3BucketVersioningConfiguration{..} =
     object $
     catMaybes
-    [ Just ("Status" .= _s3BucketVersioningConfigurationStatus)
+    [ (Just . ("Status",) . toJSON) _s3BucketVersioningConfigurationStatus
     ]
 
 instance FromJSON S3BucketVersioningConfiguration where
   parseJSON (Object obj) =
     S3BucketVersioningConfiguration <$>
-      obj .: "Status"
+      (obj .: "Status")
   parseJSON _ = mempty
 
 -- | Constructor for 'S3BucketVersioningConfiguration' containing required

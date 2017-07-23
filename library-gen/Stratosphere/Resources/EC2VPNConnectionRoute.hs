@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpn-connection-route.html
 
@@ -26,15 +27,15 @@ instance ToJSON EC2VPNConnectionRoute where
   toJSON EC2VPNConnectionRoute{..} =
     object $
     catMaybes
-    [ Just ("DestinationCidrBlock" .= _eC2VPNConnectionRouteDestinationCidrBlock)
-    , Just ("VpnConnectionId" .= _eC2VPNConnectionRouteVpnConnectionId)
+    [ (Just . ("DestinationCidrBlock",) . toJSON) _eC2VPNConnectionRouteDestinationCidrBlock
+    , (Just . ("VpnConnectionId",) . toJSON) _eC2VPNConnectionRouteVpnConnectionId
     ]
 
 instance FromJSON EC2VPNConnectionRoute where
   parseJSON (Object obj) =
     EC2VPNConnectionRoute <$>
-      obj .: "DestinationCidrBlock" <*>
-      obj .: "VpnConnectionId"
+      (obj .: "DestinationCidrBlock") <*>
+      (obj .: "VpnConnectionId")
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2VPNConnectionRoute' containing required fields as

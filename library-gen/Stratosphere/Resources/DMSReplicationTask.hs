@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html
 
@@ -18,7 +19,7 @@ import Stratosphere.ResourceProperties.Tag
 -- 'dmsReplicationTask' for a more convenient constructor.
 data DMSReplicationTask =
   DMSReplicationTask
-  { _dMSReplicationTaskCdcStartTime :: Maybe (Val Double')
+  { _dMSReplicationTaskCdcStartTime :: Maybe (Val Double)
   , _dMSReplicationTaskMigrationType :: Val Text
   , _dMSReplicationTaskReplicationInstanceArn :: Val Text
   , _dMSReplicationTaskReplicationTaskIdentifier :: Maybe (Val Text)
@@ -33,29 +34,29 @@ instance ToJSON DMSReplicationTask where
   toJSON DMSReplicationTask{..} =
     object $
     catMaybes
-    [ ("CdcStartTime" .=) <$> _dMSReplicationTaskCdcStartTime
-    , Just ("MigrationType" .= _dMSReplicationTaskMigrationType)
-    , Just ("ReplicationInstanceArn" .= _dMSReplicationTaskReplicationInstanceArn)
-    , ("ReplicationTaskIdentifier" .=) <$> _dMSReplicationTaskReplicationTaskIdentifier
-    , ("ReplicationTaskSettings" .=) <$> _dMSReplicationTaskReplicationTaskSettings
-    , Just ("SourceEndpointArn" .= _dMSReplicationTaskSourceEndpointArn)
-    , Just ("TableMappings" .= _dMSReplicationTaskTableMappings)
-    , ("Tags" .=) <$> _dMSReplicationTaskTags
-    , Just ("TargetEndpointArn" .= _dMSReplicationTaskTargetEndpointArn)
+    [ fmap (("CdcStartTime",) . toJSON . fmap Double') _dMSReplicationTaskCdcStartTime
+    , (Just . ("MigrationType",) . toJSON) _dMSReplicationTaskMigrationType
+    , (Just . ("ReplicationInstanceArn",) . toJSON) _dMSReplicationTaskReplicationInstanceArn
+    , fmap (("ReplicationTaskIdentifier",) . toJSON) _dMSReplicationTaskReplicationTaskIdentifier
+    , fmap (("ReplicationTaskSettings",) . toJSON) _dMSReplicationTaskReplicationTaskSettings
+    , (Just . ("SourceEndpointArn",) . toJSON) _dMSReplicationTaskSourceEndpointArn
+    , (Just . ("TableMappings",) . toJSON) _dMSReplicationTaskTableMappings
+    , fmap (("Tags",) . toJSON) _dMSReplicationTaskTags
+    , (Just . ("TargetEndpointArn",) . toJSON) _dMSReplicationTaskTargetEndpointArn
     ]
 
 instance FromJSON DMSReplicationTask where
   parseJSON (Object obj) =
     DMSReplicationTask <$>
-      obj .:? "CdcStartTime" <*>
-      obj .: "MigrationType" <*>
-      obj .: "ReplicationInstanceArn" <*>
-      obj .:? "ReplicationTaskIdentifier" <*>
-      obj .:? "ReplicationTaskSettings" <*>
-      obj .: "SourceEndpointArn" <*>
-      obj .: "TableMappings" <*>
-      obj .:? "Tags" <*>
-      obj .: "TargetEndpointArn"
+      fmap (fmap (fmap unDouble')) (obj .:? "CdcStartTime") <*>
+      (obj .: "MigrationType") <*>
+      (obj .: "ReplicationInstanceArn") <*>
+      (obj .:? "ReplicationTaskIdentifier") <*>
+      (obj .:? "ReplicationTaskSettings") <*>
+      (obj .: "SourceEndpointArn") <*>
+      (obj .: "TableMappings") <*>
+      (obj .:? "Tags") <*>
+      (obj .: "TargetEndpointArn")
   parseJSON _ = mempty
 
 -- | Constructor for 'DMSReplicationTask' containing required fields as
@@ -81,7 +82,7 @@ dmsReplicationTask migrationTypearg replicationInstanceArnarg sourceEndpointArna
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html#cfn-dms-replicationtask-cdcstarttime
-dmsrtCdcStartTime :: Lens' DMSReplicationTask (Maybe (Val Double'))
+dmsrtCdcStartTime :: Lens' DMSReplicationTask (Maybe (Val Double))
 dmsrtCdcStartTime = lens _dMSReplicationTaskCdcStartTime (\s a -> s { _dMSReplicationTaskCdcStartTime = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html#cfn-dms-replicationtask-migrationtype

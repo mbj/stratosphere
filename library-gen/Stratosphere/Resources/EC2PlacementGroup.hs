@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-placementgroup.html
 
@@ -25,13 +26,13 @@ instance ToJSON EC2PlacementGroup where
   toJSON EC2PlacementGroup{..} =
     object $
     catMaybes
-    [ ("Strategy" .=) <$> _eC2PlacementGroupStrategy
+    [ fmap (("Strategy",) . toJSON) _eC2PlacementGroupStrategy
     ]
 
 instance FromJSON EC2PlacementGroup where
   parseJSON (Object obj) =
     EC2PlacementGroup <$>
-      obj .:? "Strategy"
+      (obj .:? "Strategy")
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2PlacementGroup' containing required fields as

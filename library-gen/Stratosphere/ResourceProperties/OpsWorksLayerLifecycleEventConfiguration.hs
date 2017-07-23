@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-lifecycleeventconfiguration.html
 
@@ -26,13 +27,13 @@ instance ToJSON OpsWorksLayerLifecycleEventConfiguration where
   toJSON OpsWorksLayerLifecycleEventConfiguration{..} =
     object $
     catMaybes
-    [ ("ShutdownEventConfiguration" .=) <$> _opsWorksLayerLifecycleEventConfigurationShutdownEventConfiguration
+    [ fmap (("ShutdownEventConfiguration",) . toJSON) _opsWorksLayerLifecycleEventConfigurationShutdownEventConfiguration
     ]
 
 instance FromJSON OpsWorksLayerLifecycleEventConfiguration where
   parseJSON (Object obj) =
     OpsWorksLayerLifecycleEventConfiguration <$>
-      obj .:? "ShutdownEventConfiguration"
+      (obj .:? "ShutdownEventConfiguration")
   parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksLayerLifecycleEventConfiguration' containing

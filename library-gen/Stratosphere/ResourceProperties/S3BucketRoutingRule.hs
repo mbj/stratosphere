@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html
 
@@ -27,15 +28,15 @@ instance ToJSON S3BucketRoutingRule where
   toJSON S3BucketRoutingRule{..} =
     object $
     catMaybes
-    [ Just ("RedirectRule" .= _s3BucketRoutingRuleRedirectRule)
-    , ("RoutingRuleCondition" .=) <$> _s3BucketRoutingRuleRoutingRuleCondition
+    [ (Just . ("RedirectRule",) . toJSON) _s3BucketRoutingRuleRedirectRule
+    , fmap (("RoutingRuleCondition",) . toJSON) _s3BucketRoutingRuleRoutingRuleCondition
     ]
 
 instance FromJSON S3BucketRoutingRule where
   parseJSON (Object obj) =
     S3BucketRoutingRule <$>
-      obj .: "RedirectRule" <*>
-      obj .:? "RoutingRuleCondition"
+      (obj .: "RedirectRule") <*>
+      (obj .:? "RoutingRuleCondition")
   parseJSON _ = mempty
 
 -- | Constructor for 'S3BucketRoutingRule' containing required fields as

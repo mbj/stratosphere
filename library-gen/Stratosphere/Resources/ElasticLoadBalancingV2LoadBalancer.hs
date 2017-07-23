@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html
 
@@ -32,25 +33,25 @@ instance ToJSON ElasticLoadBalancingV2LoadBalancer where
   toJSON ElasticLoadBalancingV2LoadBalancer{..} =
     object $
     catMaybes
-    [ ("IpAddressType" .=) <$> _elasticLoadBalancingV2LoadBalancerIpAddressType
-    , ("LoadBalancerAttributes" .=) <$> _elasticLoadBalancingV2LoadBalancerLoadBalancerAttributes
-    , ("Name" .=) <$> _elasticLoadBalancingV2LoadBalancerName
-    , ("Scheme" .=) <$> _elasticLoadBalancingV2LoadBalancerScheme
-    , ("SecurityGroups" .=) <$> _elasticLoadBalancingV2LoadBalancerSecurityGroups
-    , ("Subnets" .=) <$> _elasticLoadBalancingV2LoadBalancerSubnets
-    , ("Tags" .=) <$> _elasticLoadBalancingV2LoadBalancerTags
+    [ fmap (("IpAddressType",) . toJSON) _elasticLoadBalancingV2LoadBalancerIpAddressType
+    , fmap (("LoadBalancerAttributes",) . toJSON) _elasticLoadBalancingV2LoadBalancerLoadBalancerAttributes
+    , fmap (("Name",) . toJSON) _elasticLoadBalancingV2LoadBalancerName
+    , fmap (("Scheme",) . toJSON) _elasticLoadBalancingV2LoadBalancerScheme
+    , fmap (("SecurityGroups",) . toJSON) _elasticLoadBalancingV2LoadBalancerSecurityGroups
+    , fmap (("Subnets",) . toJSON) _elasticLoadBalancingV2LoadBalancerSubnets
+    , fmap (("Tags",) . toJSON) _elasticLoadBalancingV2LoadBalancerTags
     ]
 
 instance FromJSON ElasticLoadBalancingV2LoadBalancer where
   parseJSON (Object obj) =
     ElasticLoadBalancingV2LoadBalancer <$>
-      obj .:? "IpAddressType" <*>
-      obj .:? "LoadBalancerAttributes" <*>
-      obj .:? "Name" <*>
-      obj .:? "Scheme" <*>
-      obj .:? "SecurityGroups" <*>
-      obj .:? "Subnets" <*>
-      obj .:? "Tags"
+      (obj .:? "IpAddressType") <*>
+      (obj .:? "LoadBalancerAttributes") <*>
+      (obj .:? "Name") <*>
+      (obj .:? "Scheme") <*>
+      (obj .:? "SecurityGroups") <*>
+      (obj .:? "Subnets") <*>
+      (obj .:? "Tags")
   parseJSON _ = mempty
 
 -- | Constructor for 'ElasticLoadBalancingV2LoadBalancer' containing required

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-customactiontype.html
 
@@ -33,25 +34,25 @@ instance ToJSON CodePipelineCustomActionType where
   toJSON CodePipelineCustomActionType{..} =
     object $
     catMaybes
-    [ Just ("Category" .= _codePipelineCustomActionTypeCategory)
-    , ("ConfigurationProperties" .=) <$> _codePipelineCustomActionTypeConfigurationProperties
-    , Just ("InputArtifactDetails" .= _codePipelineCustomActionTypeInputArtifactDetails)
-    , Just ("OutputArtifactDetails" .= _codePipelineCustomActionTypeOutputArtifactDetails)
-    , Just ("Provider" .= _codePipelineCustomActionTypeProvider)
-    , ("Settings" .=) <$> _codePipelineCustomActionTypeSettings
-    , ("Version" .=) <$> _codePipelineCustomActionTypeVersion
+    [ (Just . ("Category",) . toJSON) _codePipelineCustomActionTypeCategory
+    , fmap (("ConfigurationProperties",) . toJSON) _codePipelineCustomActionTypeConfigurationProperties
+    , (Just . ("InputArtifactDetails",) . toJSON) _codePipelineCustomActionTypeInputArtifactDetails
+    , (Just . ("OutputArtifactDetails",) . toJSON) _codePipelineCustomActionTypeOutputArtifactDetails
+    , (Just . ("Provider",) . toJSON) _codePipelineCustomActionTypeProvider
+    , fmap (("Settings",) . toJSON) _codePipelineCustomActionTypeSettings
+    , fmap (("Version",) . toJSON) _codePipelineCustomActionTypeVersion
     ]
 
 instance FromJSON CodePipelineCustomActionType where
   parseJSON (Object obj) =
     CodePipelineCustomActionType <$>
-      obj .: "Category" <*>
-      obj .:? "ConfigurationProperties" <*>
-      obj .: "InputArtifactDetails" <*>
-      obj .: "OutputArtifactDetails" <*>
-      obj .: "Provider" <*>
-      obj .:? "Settings" <*>
-      obj .:? "Version"
+      (obj .: "Category") <*>
+      (obj .:? "ConfigurationProperties") <*>
+      (obj .: "InputArtifactDetails") <*>
+      (obj .: "OutputArtifactDetails") <*>
+      (obj .: "Provider") <*>
+      (obj .:? "Settings") <*>
+      (obj .:? "Version")
   parseJSON _ = mempty
 
 -- | Constructor for 'CodePipelineCustomActionType' containing required fields

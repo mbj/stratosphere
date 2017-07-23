@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-scope.html
 
@@ -28,19 +29,19 @@ instance ToJSON ConfigConfigRuleScope where
   toJSON ConfigConfigRuleScope{..} =
     object $
     catMaybes
-    [ ("ComplianceResourceId" .=) <$> _configConfigRuleScopeComplianceResourceId
-    , ("ComplianceResourceTypes" .=) <$> _configConfigRuleScopeComplianceResourceTypes
-    , ("TagKey" .=) <$> _configConfigRuleScopeTagKey
-    , ("TagValue" .=) <$> _configConfigRuleScopeTagValue
+    [ fmap (("ComplianceResourceId",) . toJSON) _configConfigRuleScopeComplianceResourceId
+    , fmap (("ComplianceResourceTypes",) . toJSON) _configConfigRuleScopeComplianceResourceTypes
+    , fmap (("TagKey",) . toJSON) _configConfigRuleScopeTagKey
+    , fmap (("TagValue",) . toJSON) _configConfigRuleScopeTagValue
     ]
 
 instance FromJSON ConfigConfigRuleScope where
   parseJSON (Object obj) =
     ConfigConfigRuleScope <$>
-      obj .:? "ComplianceResourceId" <*>
-      obj .:? "ComplianceResourceTypes" <*>
-      obj .:? "TagKey" <*>
-      obj .:? "TagValue"
+      (obj .:? "ComplianceResourceId") <*>
+      (obj .:? "ComplianceResourceTypes") <*>
+      (obj .:? "TagKey") <*>
+      (obj .:? "TagValue")
   parseJSON _ = mempty
 
 -- | Constructor for 'ConfigConfigRuleScope' containing required fields as

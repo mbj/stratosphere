@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html
 
@@ -28,19 +29,19 @@ instance ToJSON IAMGroup where
   toJSON IAMGroup{..} =
     object $
     catMaybes
-    [ ("GroupName" .=) <$> _iAMGroupGroupName
-    , ("ManagedPolicyArns" .=) <$> _iAMGroupManagedPolicyArns
-    , ("Path" .=) <$> _iAMGroupPath
-    , ("Policies" .=) <$> _iAMGroupPolicies
+    [ fmap (("GroupName",) . toJSON) _iAMGroupGroupName
+    , fmap (("ManagedPolicyArns",) . toJSON) _iAMGroupManagedPolicyArns
+    , fmap (("Path",) . toJSON) _iAMGroupPath
+    , fmap (("Policies",) . toJSON) _iAMGroupPolicies
     ]
 
 instance FromJSON IAMGroup where
   parseJSON (Object obj) =
     IAMGroup <$>
-      obj .:? "GroupName" <*>
-      obj .:? "ManagedPolicyArns" <*>
-      obj .:? "Path" <*>
-      obj .:? "Policies"
+      (obj .:? "GroupName") <*>
+      (obj .:? "ManagedPolicyArns") <*>
+      (obj .:? "Path") <*>
+      (obj .:? "Policies")
   parseJSON _ = mempty
 
 -- | Constructor for 'IAMGroup' containing required fields as arguments.

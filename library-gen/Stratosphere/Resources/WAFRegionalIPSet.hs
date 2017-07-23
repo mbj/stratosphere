@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-ipset.html
 
@@ -26,15 +27,15 @@ instance ToJSON WAFRegionalIPSet where
   toJSON WAFRegionalIPSet{..} =
     object $
     catMaybes
-    [ ("IPSetDescriptors" .=) <$> _wAFRegionalIPSetIPSetDescriptors
-    , Just ("Name" .= _wAFRegionalIPSetName)
+    [ fmap (("IPSetDescriptors",) . toJSON) _wAFRegionalIPSetIPSetDescriptors
+    , (Just . ("Name",) . toJSON) _wAFRegionalIPSetName
     ]
 
 instance FromJSON WAFRegionalIPSet where
   parseJSON (Object obj) =
     WAFRegionalIPSet <$>
-      obj .:? "IPSetDescriptors" <*>
-      obj .: "Name"
+      (obj .:? "IPSetDescriptors") <*>
+      (obj .: "Name")
   parseJSON _ = mempty
 
 -- | Constructor for 'WAFRegionalIPSet' containing required fields as

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules-destination.html
 
@@ -26,15 +27,15 @@ instance ToJSON S3BucketReplicationDestination where
   toJSON S3BucketReplicationDestination{..} =
     object $
     catMaybes
-    [ Just ("Bucket" .= _s3BucketReplicationDestinationBucket)
-    , ("StorageClass" .=) <$> _s3BucketReplicationDestinationStorageClass
+    [ (Just . ("Bucket",) . toJSON) _s3BucketReplicationDestinationBucket
+    , fmap (("StorageClass",) . toJSON) _s3BucketReplicationDestinationStorageClass
     ]
 
 instance FromJSON S3BucketReplicationDestination where
   parseJSON (Object obj) =
     S3BucketReplicationDestination <$>
-      obj .: "Bucket" <*>
-      obj .:? "StorageClass"
+      (obj .: "Bucket") <*>
+      (obj .:? "StorageClass")
   parseJSON _ = mempty
 
 -- | Constructor for 'S3BucketReplicationDestination' containing required

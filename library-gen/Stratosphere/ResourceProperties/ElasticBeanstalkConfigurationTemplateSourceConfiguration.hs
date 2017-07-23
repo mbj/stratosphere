@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-configurationtemplate-sourceconfiguration.html
 
@@ -28,15 +29,15 @@ instance ToJSON ElasticBeanstalkConfigurationTemplateSourceConfiguration where
   toJSON ElasticBeanstalkConfigurationTemplateSourceConfiguration{..} =
     object $
     catMaybes
-    [ Just ("ApplicationName" .= _elasticBeanstalkConfigurationTemplateSourceConfigurationApplicationName)
-    , Just ("TemplateName" .= _elasticBeanstalkConfigurationTemplateSourceConfigurationTemplateName)
+    [ (Just . ("ApplicationName",) . toJSON) _elasticBeanstalkConfigurationTemplateSourceConfigurationApplicationName
+    , (Just . ("TemplateName",) . toJSON) _elasticBeanstalkConfigurationTemplateSourceConfigurationTemplateName
     ]
 
 instance FromJSON ElasticBeanstalkConfigurationTemplateSourceConfiguration where
   parseJSON (Object obj) =
     ElasticBeanstalkConfigurationTemplateSourceConfiguration <$>
-      obj .: "ApplicationName" <*>
-      obj .: "TemplateName"
+      (obj .: "ApplicationName") <*>
+      (obj .: "TemplateName")
   parseJSON _ = mempty
 
 -- | Constructor for

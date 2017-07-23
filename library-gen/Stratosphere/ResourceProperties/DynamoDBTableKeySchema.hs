@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-keyschema.html
 
@@ -26,15 +27,15 @@ instance ToJSON DynamoDBTableKeySchema where
   toJSON DynamoDBTableKeySchema{..} =
     object $
     catMaybes
-    [ Just ("AttributeName" .= _dynamoDBTableKeySchemaAttributeName)
-    , Just ("KeyType" .= _dynamoDBTableKeySchemaKeyType)
+    [ (Just . ("AttributeName",) . toJSON) _dynamoDBTableKeySchemaAttributeName
+    , (Just . ("KeyType",) . toJSON) _dynamoDBTableKeySchemaKeyType
     ]
 
 instance FromJSON DynamoDBTableKeySchema where
   parseJSON (Object obj) =
     DynamoDBTableKeySchema <$>
-      obj .: "AttributeName" <*>
-      obj .: "KeyType"
+      (obj .: "AttributeName") <*>
+      (obj .: "KeyType")
   parseJSON _ = mempty
 
 -- | Constructor for 'DynamoDBTableKeySchema' containing required fields as

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-redirectallrequeststo.html
 
@@ -26,15 +27,15 @@ instance ToJSON S3BucketRedirectAllRequestsTo where
   toJSON S3BucketRedirectAllRequestsTo{..} =
     object $
     catMaybes
-    [ Just ("HostName" .= _s3BucketRedirectAllRequestsToHostName)
-    , ("Protocol" .=) <$> _s3BucketRedirectAllRequestsToProtocol
+    [ (Just . ("HostName",) . toJSON) _s3BucketRedirectAllRequestsToHostName
+    , fmap (("Protocol",) . toJSON) _s3BucketRedirectAllRequestsToProtocol
     ]
 
 instance FromJSON S3BucketRedirectAllRequestsTo where
   parseJSON (Object obj) =
     S3BucketRedirectAllRequestsTo <$>
-      obj .: "HostName" <*>
-      obj .:? "Protocol"
+      (obj .: "HostName") <*>
+      (obj .:? "Protocol")
   parseJSON _ = mempty
 
 -- | Constructor for 'S3BucketRedirectAllRequestsTo' containing required

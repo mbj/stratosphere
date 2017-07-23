@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages.html
 
@@ -28,17 +29,17 @@ instance ToJSON CodePipelinePipelineStageDeclaration where
   toJSON CodePipelinePipelineStageDeclaration{..} =
     object $
     catMaybes
-    [ Just ("Actions" .= _codePipelinePipelineStageDeclarationActions)
-    , ("Blockers" .=) <$> _codePipelinePipelineStageDeclarationBlockers
-    , Just ("Name" .= _codePipelinePipelineStageDeclarationName)
+    [ (Just . ("Actions",) . toJSON) _codePipelinePipelineStageDeclarationActions
+    , fmap (("Blockers",) . toJSON) _codePipelinePipelineStageDeclarationBlockers
+    , (Just . ("Name",) . toJSON) _codePipelinePipelineStageDeclarationName
     ]
 
 instance FromJSON CodePipelinePipelineStageDeclaration where
   parseJSON (Object obj) =
     CodePipelinePipelineStageDeclaration <$>
-      obj .: "Actions" <*>
-      obj .:? "Blockers" <*>
-      obj .: "Name"
+      (obj .: "Actions") <*>
+      (obj .:? "Blockers") <*>
+      (obj .: "Name")
   parseJSON _ = mempty
 
 -- | Constructor for 'CodePipelinePipelineStageDeclaration' containing

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html
 
@@ -19,7 +20,7 @@ import Stratosphere.ResourceProperties.Tag
 data ElastiCacheCacheCluster =
   ElastiCacheCacheCluster
   { _elastiCacheCacheClusterAZMode :: Maybe (Val Text)
-  , _elastiCacheCacheClusterAutoMinorVersionUpgrade :: Maybe (Val Bool')
+  , _elastiCacheCacheClusterAutoMinorVersionUpgrade :: Maybe (Val Bool)
   , _elastiCacheCacheClusterCacheNodeType :: Val Text
   , _elastiCacheCacheClusterCacheParameterGroupName :: Maybe (Val Text)
   , _elastiCacheCacheClusterCacheSecurityGroupNames :: Maybe (ValList Text)
@@ -28,14 +29,14 @@ data ElastiCacheCacheCluster =
   , _elastiCacheCacheClusterEngine :: Val Text
   , _elastiCacheCacheClusterEngineVersion :: Maybe (Val Text)
   , _elastiCacheCacheClusterNotificationTopicArn :: Maybe (Val Text)
-  , _elastiCacheCacheClusterNumCacheNodes :: Val Integer'
-  , _elastiCacheCacheClusterPort :: Maybe (Val Integer')
+  , _elastiCacheCacheClusterNumCacheNodes :: Val Integer
+  , _elastiCacheCacheClusterPort :: Maybe (Val Integer)
   , _elastiCacheCacheClusterPreferredAvailabilityZone :: Maybe (Val Text)
   , _elastiCacheCacheClusterPreferredAvailabilityZones :: Maybe (ValList Text)
   , _elastiCacheCacheClusterPreferredMaintenanceWindow :: Maybe (Val Text)
   , _elastiCacheCacheClusterSnapshotArns :: Maybe (ValList Text)
   , _elastiCacheCacheClusterSnapshotName :: Maybe (Val Text)
-  , _elastiCacheCacheClusterSnapshotRetentionLimit :: Maybe (Val Integer')
+  , _elastiCacheCacheClusterSnapshotRetentionLimit :: Maybe (Val Integer)
   , _elastiCacheCacheClusterSnapshotWindow :: Maybe (Val Text)
   , _elastiCacheCacheClusterTags :: Maybe [Tag]
   , _elastiCacheCacheClusterVpcSecurityGroupIds :: Maybe (ValList Text)
@@ -45,53 +46,53 @@ instance ToJSON ElastiCacheCacheCluster where
   toJSON ElastiCacheCacheCluster{..} =
     object $
     catMaybes
-    [ ("AZMode" .=) <$> _elastiCacheCacheClusterAZMode
-    , ("AutoMinorVersionUpgrade" .=) <$> _elastiCacheCacheClusterAutoMinorVersionUpgrade
-    , Just ("CacheNodeType" .= _elastiCacheCacheClusterCacheNodeType)
-    , ("CacheParameterGroupName" .=) <$> _elastiCacheCacheClusterCacheParameterGroupName
-    , ("CacheSecurityGroupNames" .=) <$> _elastiCacheCacheClusterCacheSecurityGroupNames
-    , ("CacheSubnetGroupName" .=) <$> _elastiCacheCacheClusterCacheSubnetGroupName
-    , ("ClusterName" .=) <$> _elastiCacheCacheClusterClusterName
-    , Just ("Engine" .= _elastiCacheCacheClusterEngine)
-    , ("EngineVersion" .=) <$> _elastiCacheCacheClusterEngineVersion
-    , ("NotificationTopicArn" .=) <$> _elastiCacheCacheClusterNotificationTopicArn
-    , Just ("NumCacheNodes" .= _elastiCacheCacheClusterNumCacheNodes)
-    , ("Port" .=) <$> _elastiCacheCacheClusterPort
-    , ("PreferredAvailabilityZone" .=) <$> _elastiCacheCacheClusterPreferredAvailabilityZone
-    , ("PreferredAvailabilityZones" .=) <$> _elastiCacheCacheClusterPreferredAvailabilityZones
-    , ("PreferredMaintenanceWindow" .=) <$> _elastiCacheCacheClusterPreferredMaintenanceWindow
-    , ("SnapshotArns" .=) <$> _elastiCacheCacheClusterSnapshotArns
-    , ("SnapshotName" .=) <$> _elastiCacheCacheClusterSnapshotName
-    , ("SnapshotRetentionLimit" .=) <$> _elastiCacheCacheClusterSnapshotRetentionLimit
-    , ("SnapshotWindow" .=) <$> _elastiCacheCacheClusterSnapshotWindow
-    , ("Tags" .=) <$> _elastiCacheCacheClusterTags
-    , ("VpcSecurityGroupIds" .=) <$> _elastiCacheCacheClusterVpcSecurityGroupIds
+    [ fmap (("AZMode",) . toJSON) _elastiCacheCacheClusterAZMode
+    , fmap (("AutoMinorVersionUpgrade",) . toJSON . fmap Bool') _elastiCacheCacheClusterAutoMinorVersionUpgrade
+    , (Just . ("CacheNodeType",) . toJSON) _elastiCacheCacheClusterCacheNodeType
+    , fmap (("CacheParameterGroupName",) . toJSON) _elastiCacheCacheClusterCacheParameterGroupName
+    , fmap (("CacheSecurityGroupNames",) . toJSON) _elastiCacheCacheClusterCacheSecurityGroupNames
+    , fmap (("CacheSubnetGroupName",) . toJSON) _elastiCacheCacheClusterCacheSubnetGroupName
+    , fmap (("ClusterName",) . toJSON) _elastiCacheCacheClusterClusterName
+    , (Just . ("Engine",) . toJSON) _elastiCacheCacheClusterEngine
+    , fmap (("EngineVersion",) . toJSON) _elastiCacheCacheClusterEngineVersion
+    , fmap (("NotificationTopicArn",) . toJSON) _elastiCacheCacheClusterNotificationTopicArn
+    , (Just . ("NumCacheNodes",) . toJSON . fmap Integer') _elastiCacheCacheClusterNumCacheNodes
+    , fmap (("Port",) . toJSON . fmap Integer') _elastiCacheCacheClusterPort
+    , fmap (("PreferredAvailabilityZone",) . toJSON) _elastiCacheCacheClusterPreferredAvailabilityZone
+    , fmap (("PreferredAvailabilityZones",) . toJSON) _elastiCacheCacheClusterPreferredAvailabilityZones
+    , fmap (("PreferredMaintenanceWindow",) . toJSON) _elastiCacheCacheClusterPreferredMaintenanceWindow
+    , fmap (("SnapshotArns",) . toJSON) _elastiCacheCacheClusterSnapshotArns
+    , fmap (("SnapshotName",) . toJSON) _elastiCacheCacheClusterSnapshotName
+    , fmap (("SnapshotRetentionLimit",) . toJSON . fmap Integer') _elastiCacheCacheClusterSnapshotRetentionLimit
+    , fmap (("SnapshotWindow",) . toJSON) _elastiCacheCacheClusterSnapshotWindow
+    , fmap (("Tags",) . toJSON) _elastiCacheCacheClusterTags
+    , fmap (("VpcSecurityGroupIds",) . toJSON) _elastiCacheCacheClusterVpcSecurityGroupIds
     ]
 
 instance FromJSON ElastiCacheCacheCluster where
   parseJSON (Object obj) =
     ElastiCacheCacheCluster <$>
-      obj .:? "AZMode" <*>
-      obj .:? "AutoMinorVersionUpgrade" <*>
-      obj .: "CacheNodeType" <*>
-      obj .:? "CacheParameterGroupName" <*>
-      obj .:? "CacheSecurityGroupNames" <*>
-      obj .:? "CacheSubnetGroupName" <*>
-      obj .:? "ClusterName" <*>
-      obj .: "Engine" <*>
-      obj .:? "EngineVersion" <*>
-      obj .:? "NotificationTopicArn" <*>
-      obj .: "NumCacheNodes" <*>
-      obj .:? "Port" <*>
-      obj .:? "PreferredAvailabilityZone" <*>
-      obj .:? "PreferredAvailabilityZones" <*>
-      obj .:? "PreferredMaintenanceWindow" <*>
-      obj .:? "SnapshotArns" <*>
-      obj .:? "SnapshotName" <*>
-      obj .:? "SnapshotRetentionLimit" <*>
-      obj .:? "SnapshotWindow" <*>
-      obj .:? "Tags" <*>
-      obj .:? "VpcSecurityGroupIds"
+      (obj .:? "AZMode") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "AutoMinorVersionUpgrade") <*>
+      (obj .: "CacheNodeType") <*>
+      (obj .:? "CacheParameterGroupName") <*>
+      (obj .:? "CacheSecurityGroupNames") <*>
+      (obj .:? "CacheSubnetGroupName") <*>
+      (obj .:? "ClusterName") <*>
+      (obj .: "Engine") <*>
+      (obj .:? "EngineVersion") <*>
+      (obj .:? "NotificationTopicArn") <*>
+      fmap (fmap unInteger') (obj .: "NumCacheNodes") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "Port") <*>
+      (obj .:? "PreferredAvailabilityZone") <*>
+      (obj .:? "PreferredAvailabilityZones") <*>
+      (obj .:? "PreferredMaintenanceWindow") <*>
+      (obj .:? "SnapshotArns") <*>
+      (obj .:? "SnapshotName") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "SnapshotRetentionLimit") <*>
+      (obj .:? "SnapshotWindow") <*>
+      (obj .:? "Tags") <*>
+      (obj .:? "VpcSecurityGroupIds")
   parseJSON _ = mempty
 
 -- | Constructor for 'ElastiCacheCacheCluster' containing required fields as
@@ -99,7 +100,7 @@ instance FromJSON ElastiCacheCacheCluster where
 elastiCacheCacheCluster
   :: Val Text -- ^ 'ecccCacheNodeType'
   -> Val Text -- ^ 'ecccEngine'
-  -> Val Integer' -- ^ 'ecccNumCacheNodes'
+  -> Val Integer -- ^ 'ecccNumCacheNodes'
   -> ElastiCacheCacheCluster
 elastiCacheCacheCluster cacheNodeTypearg enginearg numCacheNodesarg =
   ElastiCacheCacheCluster
@@ -131,7 +132,7 @@ ecccAZMode :: Lens' ElastiCacheCacheCluster (Maybe (Val Text))
 ecccAZMode = lens _elastiCacheCacheClusterAZMode (\s a -> s { _elastiCacheCacheClusterAZMode = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-autominorversionupgrade
-ecccAutoMinorVersionUpgrade :: Lens' ElastiCacheCacheCluster (Maybe (Val Bool'))
+ecccAutoMinorVersionUpgrade :: Lens' ElastiCacheCacheCluster (Maybe (Val Bool))
 ecccAutoMinorVersionUpgrade = lens _elastiCacheCacheClusterAutoMinorVersionUpgrade (\s a -> s { _elastiCacheCacheClusterAutoMinorVersionUpgrade = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-cachenodetype
@@ -167,11 +168,11 @@ ecccNotificationTopicArn :: Lens' ElastiCacheCacheCluster (Maybe (Val Text))
 ecccNotificationTopicArn = lens _elastiCacheCacheClusterNotificationTopicArn (\s a -> s { _elastiCacheCacheClusterNotificationTopicArn = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-numcachenodes
-ecccNumCacheNodes :: Lens' ElastiCacheCacheCluster (Val Integer')
+ecccNumCacheNodes :: Lens' ElastiCacheCacheCluster (Val Integer)
 ecccNumCacheNodes = lens _elastiCacheCacheClusterNumCacheNodes (\s a -> s { _elastiCacheCacheClusterNumCacheNodes = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-port
-ecccPort :: Lens' ElastiCacheCacheCluster (Maybe (Val Integer'))
+ecccPort :: Lens' ElastiCacheCacheCluster (Maybe (Val Integer))
 ecccPort = lens _elastiCacheCacheClusterPort (\s a -> s { _elastiCacheCacheClusterPort = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-preferredavailabilityzone
@@ -195,7 +196,7 @@ ecccSnapshotName :: Lens' ElastiCacheCacheCluster (Maybe (Val Text))
 ecccSnapshotName = lens _elastiCacheCacheClusterSnapshotName (\s a -> s { _elastiCacheCacheClusterSnapshotName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-snapshotretentionlimit
-ecccSnapshotRetentionLimit :: Lens' ElastiCacheCacheCluster (Maybe (Val Integer'))
+ecccSnapshotRetentionLimit :: Lens' ElastiCacheCacheCluster (Maybe (Val Integer))
 ecccSnapshotRetentionLimit = lens _elastiCacheCacheClusterSnapshotRetentionLimit (\s a -> s { _elastiCacheCacheClusterSnapshotRetentionLimit = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-snapshotwindow

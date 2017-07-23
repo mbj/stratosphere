@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stack.html
 
@@ -22,28 +23,28 @@ data CloudFormationStack =
   , _cloudFormationStackParameters :: Maybe Object
   , _cloudFormationStackTags :: Maybe [Tag]
   , _cloudFormationStackTemplateURL :: Val Text
-  , _cloudFormationStackTimeoutInMinutes :: Maybe (Val Integer')
+  , _cloudFormationStackTimeoutInMinutes :: Maybe (Val Integer)
   } deriving (Show, Eq)
 
 instance ToJSON CloudFormationStack where
   toJSON CloudFormationStack{..} =
     object $
     catMaybes
-    [ ("NotificationARNs" .=) <$> _cloudFormationStackNotificationARNs
-    , ("Parameters" .=) <$> _cloudFormationStackParameters
-    , ("Tags" .=) <$> _cloudFormationStackTags
-    , Just ("TemplateURL" .= _cloudFormationStackTemplateURL)
-    , ("TimeoutInMinutes" .=) <$> _cloudFormationStackTimeoutInMinutes
+    [ fmap (("NotificationARNs",) . toJSON) _cloudFormationStackNotificationARNs
+    , fmap (("Parameters",) . toJSON) _cloudFormationStackParameters
+    , fmap (("Tags",) . toJSON) _cloudFormationStackTags
+    , (Just . ("TemplateURL",) . toJSON) _cloudFormationStackTemplateURL
+    , fmap (("TimeoutInMinutes",) . toJSON . fmap Integer') _cloudFormationStackTimeoutInMinutes
     ]
 
 instance FromJSON CloudFormationStack where
   parseJSON (Object obj) =
     CloudFormationStack <$>
-      obj .:? "NotificationARNs" <*>
-      obj .:? "Parameters" <*>
-      obj .:? "Tags" <*>
-      obj .: "TemplateURL" <*>
-      obj .:? "TimeoutInMinutes"
+      (obj .:? "NotificationARNs") <*>
+      (obj .:? "Parameters") <*>
+      (obj .:? "Tags") <*>
+      (obj .: "TemplateURL") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "TimeoutInMinutes")
   parseJSON _ = mempty
 
 -- | Constructor for 'CloudFormationStack' containing required fields as
@@ -77,5 +78,5 @@ cfsTemplateURL :: Lens' CloudFormationStack (Val Text)
 cfsTemplateURL = lens _cloudFormationStackTemplateURL (\s a -> s { _cloudFormationStackTemplateURL = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stack.html#cfn-cloudformation-stack-timeoutinminutes
-cfsTimeoutInMinutes :: Lens' CloudFormationStack (Maybe (Val Integer'))
+cfsTimeoutInMinutes :: Lens' CloudFormationStack (Maybe (Val Integer))
 cfsTimeoutInMinutes = lens _cloudFormationStackTimeoutInMinutes (\s a -> s { _cloudFormationStackTimeoutInMinutes = a })

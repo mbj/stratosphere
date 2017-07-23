@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thingprincipalattachment.html
 
@@ -26,15 +27,15 @@ instance ToJSON IoTThingPrincipalAttachment where
   toJSON IoTThingPrincipalAttachment{..} =
     object $
     catMaybes
-    [ Just ("Principal" .= _ioTThingPrincipalAttachmentPrincipal)
-    , Just ("ThingName" .= _ioTThingPrincipalAttachmentThingName)
+    [ (Just . ("Principal",) . toJSON) _ioTThingPrincipalAttachmentPrincipal
+    , (Just . ("ThingName",) . toJSON) _ioTThingPrincipalAttachmentThingName
     ]
 
 instance FromJSON IoTThingPrincipalAttachment where
   parseJSON (Object obj) =
     IoTThingPrincipalAttachment <$>
-      obj .: "Principal" <*>
-      obj .: "ThingName"
+      (obj .: "Principal") <*>
+      (obj .: "ThingName")
   parseJSON _ = mempty
 
 -- | Constructor for 'IoTThingPrincipalAttachment' containing required fields

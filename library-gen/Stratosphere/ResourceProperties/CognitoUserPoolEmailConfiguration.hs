@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-emailconfiguration.html
 
@@ -26,15 +27,15 @@ instance ToJSON CognitoUserPoolEmailConfiguration where
   toJSON CognitoUserPoolEmailConfiguration{..} =
     object $
     catMaybes
-    [ ("ReplyToEmailAddress" .=) <$> _cognitoUserPoolEmailConfigurationReplyToEmailAddress
-    , ("SourceArn" .=) <$> _cognitoUserPoolEmailConfigurationSourceArn
+    [ fmap (("ReplyToEmailAddress",) . toJSON) _cognitoUserPoolEmailConfigurationReplyToEmailAddress
+    , fmap (("SourceArn",) . toJSON) _cognitoUserPoolEmailConfigurationSourceArn
     ]
 
 instance FromJSON CognitoUserPoolEmailConfiguration where
   parseJSON (Object obj) =
     CognitoUserPoolEmailConfiguration <$>
-      obj .:? "ReplyToEmailAddress" <*>
-      obj .:? "SourceArn"
+      (obj .:? "ReplyToEmailAddress") <*>
+      (obj .:? "SourceArn")
   parseJSON _ = mempty
 
 -- | Constructor for 'CognitoUserPoolEmailConfiguration' containing required

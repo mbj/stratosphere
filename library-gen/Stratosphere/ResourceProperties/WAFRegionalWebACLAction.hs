@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-webacl-action.html
 
@@ -25,13 +26,13 @@ instance ToJSON WAFRegionalWebACLAction where
   toJSON WAFRegionalWebACLAction{..} =
     object $
     catMaybes
-    [ Just ("Type" .= _wAFRegionalWebACLActionType)
+    [ (Just . ("Type",) . toJSON) _wAFRegionalWebACLActionType
     ]
 
 instance FromJSON WAFRegionalWebACLAction where
   parseJSON (Object obj) =
     WAFRegionalWebACLAction <$>
-      obj .: "Type"
+      (obj .: "Type")
   parseJSON _ = mempty
 
 -- | Constructor for 'WAFRegionalWebACLAction' containing required fields as

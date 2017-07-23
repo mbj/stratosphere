@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-predefinedmetricspecification.html
 
@@ -28,15 +29,15 @@ instance ToJSON ApplicationAutoScalingScalingPolicyPredefinedMetricSpecification
   toJSON ApplicationAutoScalingScalingPolicyPredefinedMetricSpecification{..} =
     object $
     catMaybes
-    [ Just ("PredefinedMetricType" .= _applicationAutoScalingScalingPolicyPredefinedMetricSpecificationPredefinedMetricType)
-    , ("ResourceLabel" .=) <$> _applicationAutoScalingScalingPolicyPredefinedMetricSpecificationResourceLabel
+    [ (Just . ("PredefinedMetricType",) . toJSON) _applicationAutoScalingScalingPolicyPredefinedMetricSpecificationPredefinedMetricType
+    , fmap (("ResourceLabel",) . toJSON) _applicationAutoScalingScalingPolicyPredefinedMetricSpecificationResourceLabel
     ]
 
 instance FromJSON ApplicationAutoScalingScalingPolicyPredefinedMetricSpecification where
   parseJSON (Object obj) =
     ApplicationAutoScalingScalingPolicyPredefinedMetricSpecification <$>
-      obj .: "PredefinedMetricType" <*>
-      obj .:? "ResourceLabel"
+      (obj .: "PredefinedMetricType") <*>
+      (obj .:? "ResourceLabel")
   parseJSON _ = mempty
 
 -- | Constructor for

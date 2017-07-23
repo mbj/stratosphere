@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-customactiontype-configurationproperties.html
 
@@ -21,11 +22,11 @@ import Stratosphere.Values
 data CodePipelineCustomActionTypeConfigurationProperties =
   CodePipelineCustomActionTypeConfigurationProperties
   { _codePipelineCustomActionTypeConfigurationPropertiesDescription :: Maybe (Val Text)
-  , _codePipelineCustomActionTypeConfigurationPropertiesKey :: Val Bool'
+  , _codePipelineCustomActionTypeConfigurationPropertiesKey :: Val Bool
   , _codePipelineCustomActionTypeConfigurationPropertiesName :: Val Text
-  , _codePipelineCustomActionTypeConfigurationPropertiesQueryable :: Maybe (Val Bool')
-  , _codePipelineCustomActionTypeConfigurationPropertiesRequired :: Val Bool'
-  , _codePipelineCustomActionTypeConfigurationPropertiesSecret :: Val Bool'
+  , _codePipelineCustomActionTypeConfigurationPropertiesQueryable :: Maybe (Val Bool)
+  , _codePipelineCustomActionTypeConfigurationPropertiesRequired :: Val Bool
+  , _codePipelineCustomActionTypeConfigurationPropertiesSecret :: Val Bool
   , _codePipelineCustomActionTypeConfigurationPropertiesType :: Maybe (Val Text)
   } deriving (Show, Eq)
 
@@ -33,34 +34,34 @@ instance ToJSON CodePipelineCustomActionTypeConfigurationProperties where
   toJSON CodePipelineCustomActionTypeConfigurationProperties{..} =
     object $
     catMaybes
-    [ ("Description" .=) <$> _codePipelineCustomActionTypeConfigurationPropertiesDescription
-    , Just ("Key" .= _codePipelineCustomActionTypeConfigurationPropertiesKey)
-    , Just ("Name" .= _codePipelineCustomActionTypeConfigurationPropertiesName)
-    , ("Queryable" .=) <$> _codePipelineCustomActionTypeConfigurationPropertiesQueryable
-    , Just ("Required" .= _codePipelineCustomActionTypeConfigurationPropertiesRequired)
-    , Just ("Secret" .= _codePipelineCustomActionTypeConfigurationPropertiesSecret)
-    , ("Type" .=) <$> _codePipelineCustomActionTypeConfigurationPropertiesType
+    [ fmap (("Description",) . toJSON) _codePipelineCustomActionTypeConfigurationPropertiesDescription
+    , (Just . ("Key",) . toJSON . fmap Bool') _codePipelineCustomActionTypeConfigurationPropertiesKey
+    , (Just . ("Name",) . toJSON) _codePipelineCustomActionTypeConfigurationPropertiesName
+    , fmap (("Queryable",) . toJSON . fmap Bool') _codePipelineCustomActionTypeConfigurationPropertiesQueryable
+    , (Just . ("Required",) . toJSON . fmap Bool') _codePipelineCustomActionTypeConfigurationPropertiesRequired
+    , (Just . ("Secret",) . toJSON . fmap Bool') _codePipelineCustomActionTypeConfigurationPropertiesSecret
+    , fmap (("Type",) . toJSON) _codePipelineCustomActionTypeConfigurationPropertiesType
     ]
 
 instance FromJSON CodePipelineCustomActionTypeConfigurationProperties where
   parseJSON (Object obj) =
     CodePipelineCustomActionTypeConfigurationProperties <$>
-      obj .:? "Description" <*>
-      obj .: "Key" <*>
-      obj .: "Name" <*>
-      obj .:? "Queryable" <*>
-      obj .: "Required" <*>
-      obj .: "Secret" <*>
-      obj .:? "Type"
+      (obj .:? "Description") <*>
+      fmap (fmap unBool') (obj .: "Key") <*>
+      (obj .: "Name") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "Queryable") <*>
+      fmap (fmap unBool') (obj .: "Required") <*>
+      fmap (fmap unBool') (obj .: "Secret") <*>
+      (obj .:? "Type")
   parseJSON _ = mempty
 
 -- | Constructor for 'CodePipelineCustomActionTypeConfigurationProperties'
 -- containing required fields as arguments.
 codePipelineCustomActionTypeConfigurationProperties
-  :: Val Bool' -- ^ 'cpcatcpKey'
+  :: Val Bool -- ^ 'cpcatcpKey'
   -> Val Text -- ^ 'cpcatcpName'
-  -> Val Bool' -- ^ 'cpcatcpRequired'
-  -> Val Bool' -- ^ 'cpcatcpSecret'
+  -> Val Bool -- ^ 'cpcatcpRequired'
+  -> Val Bool -- ^ 'cpcatcpSecret'
   -> CodePipelineCustomActionTypeConfigurationProperties
 codePipelineCustomActionTypeConfigurationProperties keyarg namearg requiredarg secretarg =
   CodePipelineCustomActionTypeConfigurationProperties
@@ -78,7 +79,7 @@ cpcatcpDescription :: Lens' CodePipelineCustomActionTypeConfigurationProperties 
 cpcatcpDescription = lens _codePipelineCustomActionTypeConfigurationPropertiesDescription (\s a -> s { _codePipelineCustomActionTypeConfigurationPropertiesDescription = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-customactiontype-configurationproperties.html#cfn-codepipeline-customactiontype-configurationproperties-key
-cpcatcpKey :: Lens' CodePipelineCustomActionTypeConfigurationProperties (Val Bool')
+cpcatcpKey :: Lens' CodePipelineCustomActionTypeConfigurationProperties (Val Bool)
 cpcatcpKey = lens _codePipelineCustomActionTypeConfigurationPropertiesKey (\s a -> s { _codePipelineCustomActionTypeConfigurationPropertiesKey = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-customactiontype-configurationproperties.html#cfn-codepipeline-customactiontype-configurationproperties-name
@@ -86,15 +87,15 @@ cpcatcpName :: Lens' CodePipelineCustomActionTypeConfigurationProperties (Val Te
 cpcatcpName = lens _codePipelineCustomActionTypeConfigurationPropertiesName (\s a -> s { _codePipelineCustomActionTypeConfigurationPropertiesName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-customactiontype-configurationproperties.html#cfn-codepipeline-customactiontype-configurationproperties-queryable
-cpcatcpQueryable :: Lens' CodePipelineCustomActionTypeConfigurationProperties (Maybe (Val Bool'))
+cpcatcpQueryable :: Lens' CodePipelineCustomActionTypeConfigurationProperties (Maybe (Val Bool))
 cpcatcpQueryable = lens _codePipelineCustomActionTypeConfigurationPropertiesQueryable (\s a -> s { _codePipelineCustomActionTypeConfigurationPropertiesQueryable = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-customactiontype-configurationproperties.html#cfn-codepipeline-customactiontype-configurationproperties-required
-cpcatcpRequired :: Lens' CodePipelineCustomActionTypeConfigurationProperties (Val Bool')
+cpcatcpRequired :: Lens' CodePipelineCustomActionTypeConfigurationProperties (Val Bool)
 cpcatcpRequired = lens _codePipelineCustomActionTypeConfigurationPropertiesRequired (\s a -> s { _codePipelineCustomActionTypeConfigurationPropertiesRequired = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-customactiontype-configurationproperties.html#cfn-codepipeline-customactiontype-configurationproperties-secret
-cpcatcpSecret :: Lens' CodePipelineCustomActionTypeConfigurationProperties (Val Bool')
+cpcatcpSecret :: Lens' CodePipelineCustomActionTypeConfigurationProperties (Val Bool)
 cpcatcpSecret = lens _codePipelineCustomActionTypeConfigurationPropertiesSecret (\s a -> s { _codePipelineCustomActionTypeConfigurationPropertiesSecret = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-customactiontype-configurationproperties.html#cfn-codepipeline-customactiontype-configurationproperties-type

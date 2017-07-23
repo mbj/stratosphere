@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html
 
@@ -26,15 +27,15 @@ instance ToJSON ApiGatewayDomainName where
   toJSON ApiGatewayDomainName{..} =
     object $
     catMaybes
-    [ Just ("CertificateArn" .= _apiGatewayDomainNameCertificateArn)
-    , Just ("DomainName" .= _apiGatewayDomainNameDomainName)
+    [ (Just . ("CertificateArn",) . toJSON) _apiGatewayDomainNameCertificateArn
+    , (Just . ("DomainName",) . toJSON) _apiGatewayDomainNameDomainName
     ]
 
 instance FromJSON ApiGatewayDomainName where
   parseJSON (Object obj) =
     ApiGatewayDomainName <$>
-      obj .: "CertificateArn" <*>
-      obj .: "DomainName"
+      (obj .: "CertificateArn") <*>
+      (obj .: "DomainName")
   parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayDomainName' containing required fields as

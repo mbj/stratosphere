@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplankey.html
 
@@ -27,17 +28,17 @@ instance ToJSON ApiGatewayUsagePlanKey where
   toJSON ApiGatewayUsagePlanKey{..} =
     object $
     catMaybes
-    [ Just ("KeyId" .= _apiGatewayUsagePlanKeyKeyId)
-    , Just ("KeyType" .= _apiGatewayUsagePlanKeyKeyType)
-    , Just ("UsagePlanId" .= _apiGatewayUsagePlanKeyUsagePlanId)
+    [ (Just . ("KeyId",) . toJSON) _apiGatewayUsagePlanKeyKeyId
+    , (Just . ("KeyType",) . toJSON) _apiGatewayUsagePlanKeyKeyType
+    , (Just . ("UsagePlanId",) . toJSON) _apiGatewayUsagePlanKeyUsagePlanId
     ]
 
 instance FromJSON ApiGatewayUsagePlanKey where
   parseJSON (Object obj) =
     ApiGatewayUsagePlanKey <$>
-      obj .: "KeyId" <*>
-      obj .: "KeyType" <*>
-      obj .: "UsagePlanId"
+      (obj .: "KeyId") <*>
+      (obj .: "KeyType") <*>
+      (obj .: "UsagePlanId")
   parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayUsagePlanKey' containing required fields as

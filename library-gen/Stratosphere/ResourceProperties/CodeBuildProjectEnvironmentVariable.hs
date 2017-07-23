@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environmentvariable.html
 
@@ -26,15 +27,15 @@ instance ToJSON CodeBuildProjectEnvironmentVariable where
   toJSON CodeBuildProjectEnvironmentVariable{..} =
     object $
     catMaybes
-    [ Just ("Name" .= _codeBuildProjectEnvironmentVariableName)
-    , Just ("Value" .= _codeBuildProjectEnvironmentVariableValue)
+    [ (Just . ("Name",) . toJSON) _codeBuildProjectEnvironmentVariableName
+    , (Just . ("Value",) . toJSON) _codeBuildProjectEnvironmentVariableValue
     ]
 
 instance FromJSON CodeBuildProjectEnvironmentVariable where
   parseJSON (Object obj) =
     CodeBuildProjectEnvironmentVariable <$>
-      obj .: "Name" <*>
-      obj .: "Value"
+      (obj .: "Name") <*>
+      (obj .: "Value")
   parseJSON _ = mempty
 
 -- | Constructor for 'CodeBuildProjectEnvironmentVariable' containing required

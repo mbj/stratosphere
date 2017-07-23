@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-parameter-group.html
 
@@ -27,17 +28,17 @@ instance ToJSON ElastiCacheParameterGroup where
   toJSON ElastiCacheParameterGroup{..} =
     object $
     catMaybes
-    [ Just ("CacheParameterGroupFamily" .= _elastiCacheParameterGroupCacheParameterGroupFamily)
-    , Just ("Description" .= _elastiCacheParameterGroupDescription)
-    , ("Properties" .=) <$> _elastiCacheParameterGroupProperties
+    [ (Just . ("CacheParameterGroupFamily",) . toJSON) _elastiCacheParameterGroupCacheParameterGroupFamily
+    , (Just . ("Description",) . toJSON) _elastiCacheParameterGroupDescription
+    , fmap (("Properties",) . toJSON) _elastiCacheParameterGroupProperties
     ]
 
 instance FromJSON ElastiCacheParameterGroup where
   parseJSON (Object obj) =
     ElastiCacheParameterGroup <$>
-      obj .: "CacheParameterGroupFamily" <*>
-      obj .: "Description" <*>
-      obj .:? "Properties"
+      (obj .: "CacheParameterGroupFamily") <*>
+      (obj .: "Description") <*>
+      (obj .:? "Properties")
   parseJSON _ = mempty
 
 -- | Constructor for 'ElastiCacheParameterGroup' containing required fields as

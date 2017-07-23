@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html
 
@@ -18,15 +19,15 @@ import Stratosphere.ResourceProperties.AutoScalingLaunchConfigurationBlockDevice
 -- 'autoScalingLaunchConfiguration' for a more convenient constructor.
 data AutoScalingLaunchConfiguration =
   AutoScalingLaunchConfiguration
-  { _autoScalingLaunchConfigurationAssociatePublicIpAddress :: Maybe (Val Bool')
+  { _autoScalingLaunchConfigurationAssociatePublicIpAddress :: Maybe (Val Bool)
   , _autoScalingLaunchConfigurationBlockDeviceMappings :: Maybe [AutoScalingLaunchConfigurationBlockDeviceMapping]
   , _autoScalingLaunchConfigurationClassicLinkVPCId :: Maybe (Val Text)
   , _autoScalingLaunchConfigurationClassicLinkVPCSecurityGroups :: Maybe (ValList Text)
-  , _autoScalingLaunchConfigurationEbsOptimized :: Maybe (Val Bool')
+  , _autoScalingLaunchConfigurationEbsOptimized :: Maybe (Val Bool)
   , _autoScalingLaunchConfigurationIamInstanceProfile :: Maybe (Val Text)
   , _autoScalingLaunchConfigurationImageId :: Val Text
   , _autoScalingLaunchConfigurationInstanceId :: Maybe (Val Text)
-  , _autoScalingLaunchConfigurationInstanceMonitoring :: Maybe (Val Bool')
+  , _autoScalingLaunchConfigurationInstanceMonitoring :: Maybe (Val Bool)
   , _autoScalingLaunchConfigurationInstanceType :: Val Text
   , _autoScalingLaunchConfigurationKernelId :: Maybe (Val Text)
   , _autoScalingLaunchConfigurationKeyName :: Maybe (Val Text)
@@ -41,45 +42,45 @@ instance ToJSON AutoScalingLaunchConfiguration where
   toJSON AutoScalingLaunchConfiguration{..} =
     object $
     catMaybes
-    [ ("AssociatePublicIpAddress" .=) <$> _autoScalingLaunchConfigurationAssociatePublicIpAddress
-    , ("BlockDeviceMappings" .=) <$> _autoScalingLaunchConfigurationBlockDeviceMappings
-    , ("ClassicLinkVPCId" .=) <$> _autoScalingLaunchConfigurationClassicLinkVPCId
-    , ("ClassicLinkVPCSecurityGroups" .=) <$> _autoScalingLaunchConfigurationClassicLinkVPCSecurityGroups
-    , ("EbsOptimized" .=) <$> _autoScalingLaunchConfigurationEbsOptimized
-    , ("IamInstanceProfile" .=) <$> _autoScalingLaunchConfigurationIamInstanceProfile
-    , Just ("ImageId" .= _autoScalingLaunchConfigurationImageId)
-    , ("InstanceId" .=) <$> _autoScalingLaunchConfigurationInstanceId
-    , ("InstanceMonitoring" .=) <$> _autoScalingLaunchConfigurationInstanceMonitoring
-    , Just ("InstanceType" .= _autoScalingLaunchConfigurationInstanceType)
-    , ("KernelId" .=) <$> _autoScalingLaunchConfigurationKernelId
-    , ("KeyName" .=) <$> _autoScalingLaunchConfigurationKeyName
-    , ("PlacementTenancy" .=) <$> _autoScalingLaunchConfigurationPlacementTenancy
-    , ("RamDiskId" .=) <$> _autoScalingLaunchConfigurationRamDiskId
-    , ("SecurityGroups" .=) <$> _autoScalingLaunchConfigurationSecurityGroups
-    , ("SpotPrice" .=) <$> _autoScalingLaunchConfigurationSpotPrice
-    , ("UserData" .=) <$> _autoScalingLaunchConfigurationUserData
+    [ fmap (("AssociatePublicIpAddress",) . toJSON . fmap Bool') _autoScalingLaunchConfigurationAssociatePublicIpAddress
+    , fmap (("BlockDeviceMappings",) . toJSON) _autoScalingLaunchConfigurationBlockDeviceMappings
+    , fmap (("ClassicLinkVPCId",) . toJSON) _autoScalingLaunchConfigurationClassicLinkVPCId
+    , fmap (("ClassicLinkVPCSecurityGroups",) . toJSON) _autoScalingLaunchConfigurationClassicLinkVPCSecurityGroups
+    , fmap (("EbsOptimized",) . toJSON . fmap Bool') _autoScalingLaunchConfigurationEbsOptimized
+    , fmap (("IamInstanceProfile",) . toJSON) _autoScalingLaunchConfigurationIamInstanceProfile
+    , (Just . ("ImageId",) . toJSON) _autoScalingLaunchConfigurationImageId
+    , fmap (("InstanceId",) . toJSON) _autoScalingLaunchConfigurationInstanceId
+    , fmap (("InstanceMonitoring",) . toJSON . fmap Bool') _autoScalingLaunchConfigurationInstanceMonitoring
+    , (Just . ("InstanceType",) . toJSON) _autoScalingLaunchConfigurationInstanceType
+    , fmap (("KernelId",) . toJSON) _autoScalingLaunchConfigurationKernelId
+    , fmap (("KeyName",) . toJSON) _autoScalingLaunchConfigurationKeyName
+    , fmap (("PlacementTenancy",) . toJSON) _autoScalingLaunchConfigurationPlacementTenancy
+    , fmap (("RamDiskId",) . toJSON) _autoScalingLaunchConfigurationRamDiskId
+    , fmap (("SecurityGroups",) . toJSON) _autoScalingLaunchConfigurationSecurityGroups
+    , fmap (("SpotPrice",) . toJSON) _autoScalingLaunchConfigurationSpotPrice
+    , fmap (("UserData",) . toJSON) _autoScalingLaunchConfigurationUserData
     ]
 
 instance FromJSON AutoScalingLaunchConfiguration where
   parseJSON (Object obj) =
     AutoScalingLaunchConfiguration <$>
-      obj .:? "AssociatePublicIpAddress" <*>
-      obj .:? "BlockDeviceMappings" <*>
-      obj .:? "ClassicLinkVPCId" <*>
-      obj .:? "ClassicLinkVPCSecurityGroups" <*>
-      obj .:? "EbsOptimized" <*>
-      obj .:? "IamInstanceProfile" <*>
-      obj .: "ImageId" <*>
-      obj .:? "InstanceId" <*>
-      obj .:? "InstanceMonitoring" <*>
-      obj .: "InstanceType" <*>
-      obj .:? "KernelId" <*>
-      obj .:? "KeyName" <*>
-      obj .:? "PlacementTenancy" <*>
-      obj .:? "RamDiskId" <*>
-      obj .:? "SecurityGroups" <*>
-      obj .:? "SpotPrice" <*>
-      obj .:? "UserData"
+      fmap (fmap (fmap unBool')) (obj .:? "AssociatePublicIpAddress") <*>
+      (obj .:? "BlockDeviceMappings") <*>
+      (obj .:? "ClassicLinkVPCId") <*>
+      (obj .:? "ClassicLinkVPCSecurityGroups") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "EbsOptimized") <*>
+      (obj .:? "IamInstanceProfile") <*>
+      (obj .: "ImageId") <*>
+      (obj .:? "InstanceId") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "InstanceMonitoring") <*>
+      (obj .: "InstanceType") <*>
+      (obj .:? "KernelId") <*>
+      (obj .:? "KeyName") <*>
+      (obj .:? "PlacementTenancy") <*>
+      (obj .:? "RamDiskId") <*>
+      (obj .:? "SecurityGroups") <*>
+      (obj .:? "SpotPrice") <*>
+      (obj .:? "UserData")
   parseJSON _ = mempty
 
 -- | Constructor for 'AutoScalingLaunchConfiguration' containing required
@@ -110,7 +111,7 @@ autoScalingLaunchConfiguration imageIdarg instanceTypearg =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cf-as-launchconfig-associatepubip
-aslcAssociatePublicIpAddress :: Lens' AutoScalingLaunchConfiguration (Maybe (Val Bool'))
+aslcAssociatePublicIpAddress :: Lens' AutoScalingLaunchConfiguration (Maybe (Val Bool))
 aslcAssociatePublicIpAddress = lens _autoScalingLaunchConfigurationAssociatePublicIpAddress (\s a -> s { _autoScalingLaunchConfigurationAssociatePublicIpAddress = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-as-launchconfig-blockdevicemappings
@@ -126,7 +127,7 @@ aslcClassicLinkVPCSecurityGroups :: Lens' AutoScalingLaunchConfiguration (Maybe 
 aslcClassicLinkVPCSecurityGroups = lens _autoScalingLaunchConfigurationClassicLinkVPCSecurityGroups (\s a -> s { _autoScalingLaunchConfigurationClassicLinkVPCSecurityGroups = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-as-launchconfig-ebsoptimized
-aslcEbsOptimized :: Lens' AutoScalingLaunchConfiguration (Maybe (Val Bool'))
+aslcEbsOptimized :: Lens' AutoScalingLaunchConfiguration (Maybe (Val Bool))
 aslcEbsOptimized = lens _autoScalingLaunchConfigurationEbsOptimized (\s a -> s { _autoScalingLaunchConfigurationEbsOptimized = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-as-launchconfig-iaminstanceprofile
@@ -142,7 +143,7 @@ aslcInstanceId :: Lens' AutoScalingLaunchConfiguration (Maybe (Val Text))
 aslcInstanceId = lens _autoScalingLaunchConfigurationInstanceId (\s a -> s { _autoScalingLaunchConfigurationInstanceId = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-as-launchconfig-instancemonitoring
-aslcInstanceMonitoring :: Lens' AutoScalingLaunchConfiguration (Maybe (Val Bool'))
+aslcInstanceMonitoring :: Lens' AutoScalingLaunchConfiguration (Maybe (Val Bool))
 aslcInstanceMonitoring = lens _autoScalingLaunchConfigurationInstanceMonitoring (\s a -> s { _autoScalingLaunchConfigurationInstanceMonitoring = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-as-launchconfig-instancetype

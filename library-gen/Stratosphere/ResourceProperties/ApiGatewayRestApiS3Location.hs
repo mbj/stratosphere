@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-restapi-bodys3location.html
 
@@ -28,19 +29,19 @@ instance ToJSON ApiGatewayRestApiS3Location where
   toJSON ApiGatewayRestApiS3Location{..} =
     object $
     catMaybes
-    [ ("Bucket" .=) <$> _apiGatewayRestApiS3LocationBucket
-    , ("ETag" .=) <$> _apiGatewayRestApiS3LocationETag
-    , ("Key" .=) <$> _apiGatewayRestApiS3LocationKey
-    , ("Version" .=) <$> _apiGatewayRestApiS3LocationVersion
+    [ fmap (("Bucket",) . toJSON) _apiGatewayRestApiS3LocationBucket
+    , fmap (("ETag",) . toJSON) _apiGatewayRestApiS3LocationETag
+    , fmap (("Key",) . toJSON) _apiGatewayRestApiS3LocationKey
+    , fmap (("Version",) . toJSON) _apiGatewayRestApiS3LocationVersion
     ]
 
 instance FromJSON ApiGatewayRestApiS3Location where
   parseJSON (Object obj) =
     ApiGatewayRestApiS3Location <$>
-      obj .:? "Bucket" <*>
-      obj .:? "ETag" <*>
-      obj .:? "Key" <*>
-      obj .:? "Version"
+      (obj .:? "Bucket") <*>
+      (obj .:? "ETag") <*>
+      (obj .:? "Key") <*>
+      (obj .:? "Version")
   parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayRestApiS3Location' containing required fields

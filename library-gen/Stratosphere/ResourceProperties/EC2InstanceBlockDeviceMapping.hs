@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-blockdev-mapping.html
 
@@ -29,19 +30,19 @@ instance ToJSON EC2InstanceBlockDeviceMapping where
   toJSON EC2InstanceBlockDeviceMapping{..} =
     object $
     catMaybes
-    [ Just ("DeviceName" .= _eC2InstanceBlockDeviceMappingDeviceName)
-    , ("Ebs" .=) <$> _eC2InstanceBlockDeviceMappingEbs
-    , ("NoDevice" .=) <$> _eC2InstanceBlockDeviceMappingNoDevice
-    , ("VirtualName" .=) <$> _eC2InstanceBlockDeviceMappingVirtualName
+    [ (Just . ("DeviceName",) . toJSON) _eC2InstanceBlockDeviceMappingDeviceName
+    , fmap (("Ebs",) . toJSON) _eC2InstanceBlockDeviceMappingEbs
+    , fmap (("NoDevice",) . toJSON) _eC2InstanceBlockDeviceMappingNoDevice
+    , fmap (("VirtualName",) . toJSON) _eC2InstanceBlockDeviceMappingVirtualName
     ]
 
 instance FromJSON EC2InstanceBlockDeviceMapping where
   parseJSON (Object obj) =
     EC2InstanceBlockDeviceMapping <$>
-      obj .: "DeviceName" <*>
-      obj .:? "Ebs" <*>
-      obj .:? "NoDevice" <*>
-      obj .:? "VirtualName"
+      (obj .: "DeviceName") <*>
+      (obj .:? "Ebs") <*>
+      (obj .:? "NoDevice") <*>
+      (obj .:? "VirtualName")
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2InstanceBlockDeviceMapping' containing required

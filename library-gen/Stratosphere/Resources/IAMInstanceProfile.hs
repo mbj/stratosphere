@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html
 
@@ -27,17 +28,17 @@ instance ToJSON IAMInstanceProfile where
   toJSON IAMInstanceProfile{..} =
     object $
     catMaybes
-    [ ("InstanceProfileName" .=) <$> _iAMInstanceProfileInstanceProfileName
-    , ("Path" .=) <$> _iAMInstanceProfilePath
-    , Just ("Roles" .= _iAMInstanceProfileRoles)
+    [ fmap (("InstanceProfileName",) . toJSON) _iAMInstanceProfileInstanceProfileName
+    , fmap (("Path",) . toJSON) _iAMInstanceProfilePath
+    , (Just . ("Roles",) . toJSON) _iAMInstanceProfileRoles
     ]
 
 instance FromJSON IAMInstanceProfile where
   parseJSON (Object obj) =
     IAMInstanceProfile <$>
-      obj .:? "InstanceProfileName" <*>
-      obj .:? "Path" <*>
-      obj .: "Roles"
+      (obj .:? "InstanceProfileName") <*>
+      (obj .:? "Path") <*>
+      (obj .: "Roles")
   parseJSON _ = mempty
 
 -- | Constructor for 'IAMInstanceProfile' containing required fields as

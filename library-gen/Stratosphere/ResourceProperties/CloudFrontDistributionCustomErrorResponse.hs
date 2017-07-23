@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distributionconfig-customerrorresponse.html
 
@@ -19,9 +20,9 @@ import Stratosphere.Values
 -- constructor.
 data CloudFrontDistributionCustomErrorResponse =
   CloudFrontDistributionCustomErrorResponse
-  { _cloudFrontDistributionCustomErrorResponseErrorCachingMinTTL :: Maybe (Val Integer')
-  , _cloudFrontDistributionCustomErrorResponseErrorCode :: Val Integer'
-  , _cloudFrontDistributionCustomErrorResponseResponseCode :: Maybe (Val Integer')
+  { _cloudFrontDistributionCustomErrorResponseErrorCachingMinTTL :: Maybe (Val Integer)
+  , _cloudFrontDistributionCustomErrorResponseErrorCode :: Val Integer
+  , _cloudFrontDistributionCustomErrorResponseResponseCode :: Maybe (Val Integer)
   , _cloudFrontDistributionCustomErrorResponseResponsePagePath :: Maybe (Val Text)
   } deriving (Show, Eq)
 
@@ -29,25 +30,25 @@ instance ToJSON CloudFrontDistributionCustomErrorResponse where
   toJSON CloudFrontDistributionCustomErrorResponse{..} =
     object $
     catMaybes
-    [ ("ErrorCachingMinTTL" .=) <$> _cloudFrontDistributionCustomErrorResponseErrorCachingMinTTL
-    , Just ("ErrorCode" .= _cloudFrontDistributionCustomErrorResponseErrorCode)
-    , ("ResponseCode" .=) <$> _cloudFrontDistributionCustomErrorResponseResponseCode
-    , ("ResponsePagePath" .=) <$> _cloudFrontDistributionCustomErrorResponseResponsePagePath
+    [ fmap (("ErrorCachingMinTTL",) . toJSON . fmap Integer') _cloudFrontDistributionCustomErrorResponseErrorCachingMinTTL
+    , (Just . ("ErrorCode",) . toJSON . fmap Integer') _cloudFrontDistributionCustomErrorResponseErrorCode
+    , fmap (("ResponseCode",) . toJSON . fmap Integer') _cloudFrontDistributionCustomErrorResponseResponseCode
+    , fmap (("ResponsePagePath",) . toJSON) _cloudFrontDistributionCustomErrorResponseResponsePagePath
     ]
 
 instance FromJSON CloudFrontDistributionCustomErrorResponse where
   parseJSON (Object obj) =
     CloudFrontDistributionCustomErrorResponse <$>
-      obj .:? "ErrorCachingMinTTL" <*>
-      obj .: "ErrorCode" <*>
-      obj .:? "ResponseCode" <*>
-      obj .:? "ResponsePagePath"
+      fmap (fmap (fmap unInteger')) (obj .:? "ErrorCachingMinTTL") <*>
+      fmap (fmap unInteger') (obj .: "ErrorCode") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "ResponseCode") <*>
+      (obj .:? "ResponsePagePath")
   parseJSON _ = mempty
 
 -- | Constructor for 'CloudFrontDistributionCustomErrorResponse' containing
 -- required fields as arguments.
 cloudFrontDistributionCustomErrorResponse
-  :: Val Integer' -- ^ 'cfdcerErrorCode'
+  :: Val Integer -- ^ 'cfdcerErrorCode'
   -> CloudFrontDistributionCustomErrorResponse
 cloudFrontDistributionCustomErrorResponse errorCodearg =
   CloudFrontDistributionCustomErrorResponse
@@ -58,15 +59,15 @@ cloudFrontDistributionCustomErrorResponse errorCodearg =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distributionconfig-customerrorresponse.html#cfn-cloudfront-distributionconfig-customerrorresponse-errorcachingminttl
-cfdcerErrorCachingMinTTL :: Lens' CloudFrontDistributionCustomErrorResponse (Maybe (Val Integer'))
+cfdcerErrorCachingMinTTL :: Lens' CloudFrontDistributionCustomErrorResponse (Maybe (Val Integer))
 cfdcerErrorCachingMinTTL = lens _cloudFrontDistributionCustomErrorResponseErrorCachingMinTTL (\s a -> s { _cloudFrontDistributionCustomErrorResponseErrorCachingMinTTL = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distributionconfig-customerrorresponse.html#cfn-cloudfront-distributionconfig-customerrorresponse-errorcode
-cfdcerErrorCode :: Lens' CloudFrontDistributionCustomErrorResponse (Val Integer')
+cfdcerErrorCode :: Lens' CloudFrontDistributionCustomErrorResponse (Val Integer)
 cfdcerErrorCode = lens _cloudFrontDistributionCustomErrorResponseErrorCode (\s a -> s { _cloudFrontDistributionCustomErrorResponseErrorCode = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distributionconfig-customerrorresponse.html#cfn-cloudfront-distributionconfig-customerrorresponse-responsecode
-cfdcerResponseCode :: Lens' CloudFrontDistributionCustomErrorResponse (Maybe (Val Integer'))
+cfdcerResponseCode :: Lens' CloudFrontDistributionCustomErrorResponse (Maybe (Val Integer))
 cfdcerResponseCode = lens _cloudFrontDistributionCustomErrorResponseResponseCode (\s a -> s { _cloudFrontDistributionCustomErrorResponseResponseCode = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distributionconfig-customerrorresponse.html#cfn-cloudfront-distributionconfig-customerrorresponse-responsepagepath

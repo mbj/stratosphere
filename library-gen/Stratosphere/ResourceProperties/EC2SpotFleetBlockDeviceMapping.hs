@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-blockdevicemappings.html
 
@@ -28,19 +29,19 @@ instance ToJSON EC2SpotFleetBlockDeviceMapping where
   toJSON EC2SpotFleetBlockDeviceMapping{..} =
     object $
     catMaybes
-    [ Just ("DeviceName" .= _eC2SpotFleetBlockDeviceMappingDeviceName)
-    , ("Ebs" .=) <$> _eC2SpotFleetBlockDeviceMappingEbs
-    , ("NoDevice" .=) <$> _eC2SpotFleetBlockDeviceMappingNoDevice
-    , ("VirtualName" .=) <$> _eC2SpotFleetBlockDeviceMappingVirtualName
+    [ (Just . ("DeviceName",) . toJSON) _eC2SpotFleetBlockDeviceMappingDeviceName
+    , fmap (("Ebs",) . toJSON) _eC2SpotFleetBlockDeviceMappingEbs
+    , fmap (("NoDevice",) . toJSON) _eC2SpotFleetBlockDeviceMappingNoDevice
+    , fmap (("VirtualName",) . toJSON) _eC2SpotFleetBlockDeviceMappingVirtualName
     ]
 
 instance FromJSON EC2SpotFleetBlockDeviceMapping where
   parseJSON (Object obj) =
     EC2SpotFleetBlockDeviceMapping <$>
-      obj .: "DeviceName" <*>
-      obj .:? "Ebs" <*>
-      obj .:? "NoDevice" <*>
-      obj .:? "VirtualName"
+      (obj .: "DeviceName") <*>
+      (obj .:? "Ebs") <*>
+      (obj .:? "NoDevice") <*>
+      (obj .:? "VirtualName")
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2SpotFleetBlockDeviceMapping' containing required

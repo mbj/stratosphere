@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnetcidrblock.html
 
@@ -26,15 +27,15 @@ instance ToJSON EC2SubnetCidrBlock where
   toJSON EC2SubnetCidrBlock{..} =
     object $
     catMaybes
-    [ Just ("Ipv6CidrBlock" .= _eC2SubnetCidrBlockIpv6CidrBlock)
-    , Just ("SubnetId" .= _eC2SubnetCidrBlockSubnetId)
+    [ (Just . ("Ipv6CidrBlock",) . toJSON) _eC2SubnetCidrBlockIpv6CidrBlock
+    , (Just . ("SubnetId",) . toJSON) _eC2SubnetCidrBlockSubnetId
     ]
 
 instance FromJSON EC2SubnetCidrBlock where
   parseJSON (Object obj) =
     EC2SubnetCidrBlock <$>
-      obj .: "Ipv6CidrBlock" <*>
-      obj .: "SubnetId"
+      (obj .: "Ipv6CidrBlock") <*>
+      (obj .: "SubnetId")
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2SubnetCidrBlock' containing required fields as

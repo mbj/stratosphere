@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-placementstrategy.html
 
@@ -26,15 +27,15 @@ instance ToJSON ECSServicePlacementStrategy where
   toJSON ECSServicePlacementStrategy{..} =
     object $
     catMaybes
-    [ ("Field" .=) <$> _eCSServicePlacementStrategyField
-    , Just ("Type" .= _eCSServicePlacementStrategyType)
+    [ fmap (("Field",) . toJSON) _eCSServicePlacementStrategyField
+    , (Just . ("Type",) . toJSON) _eCSServicePlacementStrategyType
     ]
 
 instance FromJSON ECSServicePlacementStrategy where
   parseJSON (Object obj) =
     ECSServicePlacementStrategy <$>
-      obj .:? "Field" <*>
-      obj .: "Type"
+      (obj .:? "Field") <*>
+      (obj .: "Type")
   parseJSON _ = mempty
 
 -- | Constructor for 'ECSServicePlacementStrategy' containing required fields

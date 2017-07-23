@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html
 
@@ -20,9 +21,9 @@ import Stratosphere.ResourceProperties.S3BucketTransition
 data S3BucketRule =
   S3BucketRule
   { _s3BucketRuleExpirationDate :: Maybe (Val Text)
-  , _s3BucketRuleExpirationInDays :: Maybe (Val Integer')
+  , _s3BucketRuleExpirationInDays :: Maybe (Val Integer)
   , _s3BucketRuleId :: Maybe (Val Text)
-  , _s3BucketRuleNoncurrentVersionExpirationInDays :: Maybe (Val Integer')
+  , _s3BucketRuleNoncurrentVersionExpirationInDays :: Maybe (Val Integer)
   , _s3BucketRuleNoncurrentVersionTransition :: Maybe S3BucketNoncurrentVersionTransition
   , _s3BucketRuleNoncurrentVersionTransitions :: Maybe S3BucketNoncurrentVersionTransition
   , _s3BucketRulePrefix :: Maybe (Val Text)
@@ -35,31 +36,31 @@ instance ToJSON S3BucketRule where
   toJSON S3BucketRule{..} =
     object $
     catMaybes
-    [ ("ExpirationDate" .=) <$> _s3BucketRuleExpirationDate
-    , ("ExpirationInDays" .=) <$> _s3BucketRuleExpirationInDays
-    , ("Id" .=) <$> _s3BucketRuleId
-    , ("NoncurrentVersionExpirationInDays" .=) <$> _s3BucketRuleNoncurrentVersionExpirationInDays
-    , ("NoncurrentVersionTransition" .=) <$> _s3BucketRuleNoncurrentVersionTransition
-    , ("NoncurrentVersionTransitions" .=) <$> _s3BucketRuleNoncurrentVersionTransitions
-    , ("Prefix" .=) <$> _s3BucketRulePrefix
-    , Just ("Status" .= _s3BucketRuleStatus)
-    , ("Transition" .=) <$> _s3BucketRuleTransition
-    , ("Transitions" .=) <$> _s3BucketRuleTransitions
+    [ fmap (("ExpirationDate",) . toJSON) _s3BucketRuleExpirationDate
+    , fmap (("ExpirationInDays",) . toJSON . fmap Integer') _s3BucketRuleExpirationInDays
+    , fmap (("Id",) . toJSON) _s3BucketRuleId
+    , fmap (("NoncurrentVersionExpirationInDays",) . toJSON . fmap Integer') _s3BucketRuleNoncurrentVersionExpirationInDays
+    , fmap (("NoncurrentVersionTransition",) . toJSON) _s3BucketRuleNoncurrentVersionTransition
+    , fmap (("NoncurrentVersionTransitions",) . toJSON) _s3BucketRuleNoncurrentVersionTransitions
+    , fmap (("Prefix",) . toJSON) _s3BucketRulePrefix
+    , (Just . ("Status",) . toJSON) _s3BucketRuleStatus
+    , fmap (("Transition",) . toJSON) _s3BucketRuleTransition
+    , fmap (("Transitions",) . toJSON) _s3BucketRuleTransitions
     ]
 
 instance FromJSON S3BucketRule where
   parseJSON (Object obj) =
     S3BucketRule <$>
-      obj .:? "ExpirationDate" <*>
-      obj .:? "ExpirationInDays" <*>
-      obj .:? "Id" <*>
-      obj .:? "NoncurrentVersionExpirationInDays" <*>
-      obj .:? "NoncurrentVersionTransition" <*>
-      obj .:? "NoncurrentVersionTransitions" <*>
-      obj .:? "Prefix" <*>
-      obj .: "Status" <*>
-      obj .:? "Transition" <*>
-      obj .:? "Transitions"
+      (obj .:? "ExpirationDate") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "ExpirationInDays") <*>
+      (obj .:? "Id") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "NoncurrentVersionExpirationInDays") <*>
+      (obj .:? "NoncurrentVersionTransition") <*>
+      (obj .:? "NoncurrentVersionTransitions") <*>
+      (obj .:? "Prefix") <*>
+      (obj .: "Status") <*>
+      (obj .:? "Transition") <*>
+      (obj .:? "Transitions")
   parseJSON _ = mempty
 
 -- | Constructor for 'S3BucketRule' containing required fields as arguments.
@@ -85,7 +86,7 @@ sbrExpirationDate :: Lens' S3BucketRule (Maybe (Val Text))
 sbrExpirationDate = lens _s3BucketRuleExpirationDate (\s a -> s { _s3BucketRuleExpirationDate = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html#cfn-s3-bucket-lifecycleconfig-rule-expirationindays
-sbrExpirationInDays :: Lens' S3BucketRule (Maybe (Val Integer'))
+sbrExpirationInDays :: Lens' S3BucketRule (Maybe (Val Integer))
 sbrExpirationInDays = lens _s3BucketRuleExpirationInDays (\s a -> s { _s3BucketRuleExpirationInDays = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html#cfn-s3-bucket-lifecycleconfig-rule-id
@@ -93,7 +94,7 @@ sbrId :: Lens' S3BucketRule (Maybe (Val Text))
 sbrId = lens _s3BucketRuleId (\s a -> s { _s3BucketRuleId = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html#cfn-s3-bucket-lifecycleconfig-rule-noncurrentversionexpirationindays
-sbrNoncurrentVersionExpirationInDays :: Lens' S3BucketRule (Maybe (Val Integer'))
+sbrNoncurrentVersionExpirationInDays :: Lens' S3BucketRule (Maybe (Val Integer))
 sbrNoncurrentVersionExpirationInDays = lens _s3BucketRuleNoncurrentVersionExpirationInDays (\s a -> s { _s3BucketRuleNoncurrentVersionExpirationInDays = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html#cfn-s3-bucket-lifecycleconfig-rule-noncurrentversiontransition

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-cluster.html
 
@@ -36,48 +37,48 @@ data EMRCluster =
   , _eMRClusterSecurityConfiguration :: Maybe (Val Text)
   , _eMRClusterServiceRole :: Val Text
   , _eMRClusterTags :: Maybe [Tag]
-  , _eMRClusterVisibleToAllUsers :: Maybe (Val Bool')
+  , _eMRClusterVisibleToAllUsers :: Maybe (Val Bool)
   } deriving (Show, Eq)
 
 instance ToJSON EMRCluster where
   toJSON EMRCluster{..} =
     object $
     catMaybes
-    [ ("AdditionalInfo" .=) <$> _eMRClusterAdditionalInfo
-    , ("Applications" .=) <$> _eMRClusterApplications
-    , ("AutoScalingRole" .=) <$> _eMRClusterAutoScalingRole
-    , ("BootstrapActions" .=) <$> _eMRClusterBootstrapActions
-    , ("Configurations" .=) <$> _eMRClusterConfigurations
-    , Just ("Instances" .= _eMRClusterInstances)
-    , Just ("JobFlowRole" .= _eMRClusterJobFlowRole)
-    , ("LogUri" .=) <$> _eMRClusterLogUri
-    , Just ("Name" .= _eMRClusterName)
-    , ("ReleaseLabel" .=) <$> _eMRClusterReleaseLabel
-    , ("ScaleDownBehavior" .=) <$> _eMRClusterScaleDownBehavior
-    , ("SecurityConfiguration" .=) <$> _eMRClusterSecurityConfiguration
-    , Just ("ServiceRole" .= _eMRClusterServiceRole)
-    , ("Tags" .=) <$> _eMRClusterTags
-    , ("VisibleToAllUsers" .=) <$> _eMRClusterVisibleToAllUsers
+    [ fmap (("AdditionalInfo",) . toJSON) _eMRClusterAdditionalInfo
+    , fmap (("Applications",) . toJSON) _eMRClusterApplications
+    , fmap (("AutoScalingRole",) . toJSON) _eMRClusterAutoScalingRole
+    , fmap (("BootstrapActions",) . toJSON) _eMRClusterBootstrapActions
+    , fmap (("Configurations",) . toJSON) _eMRClusterConfigurations
+    , (Just . ("Instances",) . toJSON) _eMRClusterInstances
+    , (Just . ("JobFlowRole",) . toJSON) _eMRClusterJobFlowRole
+    , fmap (("LogUri",) . toJSON) _eMRClusterLogUri
+    , (Just . ("Name",) . toJSON) _eMRClusterName
+    , fmap (("ReleaseLabel",) . toJSON) _eMRClusterReleaseLabel
+    , fmap (("ScaleDownBehavior",) . toJSON) _eMRClusterScaleDownBehavior
+    , fmap (("SecurityConfiguration",) . toJSON) _eMRClusterSecurityConfiguration
+    , (Just . ("ServiceRole",) . toJSON) _eMRClusterServiceRole
+    , fmap (("Tags",) . toJSON) _eMRClusterTags
+    , fmap (("VisibleToAllUsers",) . toJSON . fmap Bool') _eMRClusterVisibleToAllUsers
     ]
 
 instance FromJSON EMRCluster where
   parseJSON (Object obj) =
     EMRCluster <$>
-      obj .:? "AdditionalInfo" <*>
-      obj .:? "Applications" <*>
-      obj .:? "AutoScalingRole" <*>
-      obj .:? "BootstrapActions" <*>
-      obj .:? "Configurations" <*>
-      obj .: "Instances" <*>
-      obj .: "JobFlowRole" <*>
-      obj .:? "LogUri" <*>
-      obj .: "Name" <*>
-      obj .:? "ReleaseLabel" <*>
-      obj .:? "ScaleDownBehavior" <*>
-      obj .:? "SecurityConfiguration" <*>
-      obj .: "ServiceRole" <*>
-      obj .:? "Tags" <*>
-      obj .:? "VisibleToAllUsers"
+      (obj .:? "AdditionalInfo") <*>
+      (obj .:? "Applications") <*>
+      (obj .:? "AutoScalingRole") <*>
+      (obj .:? "BootstrapActions") <*>
+      (obj .:? "Configurations") <*>
+      (obj .: "Instances") <*>
+      (obj .: "JobFlowRole") <*>
+      (obj .:? "LogUri") <*>
+      (obj .: "Name") <*>
+      (obj .:? "ReleaseLabel") <*>
+      (obj .:? "ScaleDownBehavior") <*>
+      (obj .:? "SecurityConfiguration") <*>
+      (obj .: "ServiceRole") <*>
+      (obj .:? "Tags") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "VisibleToAllUsers")
   parseJSON _ = mempty
 
 -- | Constructor for 'EMRCluster' containing required fields as arguments.
@@ -163,5 +164,5 @@ emrcTags :: Lens' EMRCluster (Maybe [Tag])
 emrcTags = lens _eMRClusterTags (\s a -> s { _eMRClusterTags = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-cluster.html#cfn-emr-cluster-visibletoallusers
-emrcVisibleToAllUsers :: Lens' EMRCluster (Maybe (Val Bool'))
+emrcVisibleToAllUsers :: Lens' EMRCluster (Maybe (Val Bool))
 emrcVisibleToAllUsers = lens _eMRClusterVisibleToAllUsers (\s a -> s { _eMRClusterVisibleToAllUsers = a })

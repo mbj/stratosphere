@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-policy.html
 
@@ -30,21 +31,21 @@ instance ToJSON ElasticLoadBalancingLoadBalancerPolicies where
   toJSON ElasticLoadBalancingLoadBalancerPolicies{..} =
     object $
     catMaybes
-    [ Just ("Attributes" .= _elasticLoadBalancingLoadBalancerPoliciesAttributes)
-    , ("InstancePorts" .=) <$> _elasticLoadBalancingLoadBalancerPoliciesInstancePorts
-    , ("LoadBalancerPorts" .=) <$> _elasticLoadBalancingLoadBalancerPoliciesLoadBalancerPorts
-    , Just ("PolicyName" .= _elasticLoadBalancingLoadBalancerPoliciesPolicyName)
-    , Just ("PolicyType" .= _elasticLoadBalancingLoadBalancerPoliciesPolicyType)
+    [ (Just . ("Attributes",) . toJSON) _elasticLoadBalancingLoadBalancerPoliciesAttributes
+    , fmap (("InstancePorts",) . toJSON) _elasticLoadBalancingLoadBalancerPoliciesInstancePorts
+    , fmap (("LoadBalancerPorts",) . toJSON) _elasticLoadBalancingLoadBalancerPoliciesLoadBalancerPorts
+    , (Just . ("PolicyName",) . toJSON) _elasticLoadBalancingLoadBalancerPoliciesPolicyName
+    , (Just . ("PolicyType",) . toJSON) _elasticLoadBalancingLoadBalancerPoliciesPolicyType
     ]
 
 instance FromJSON ElasticLoadBalancingLoadBalancerPolicies where
   parseJSON (Object obj) =
     ElasticLoadBalancingLoadBalancerPolicies <$>
-      obj .: "Attributes" <*>
-      obj .:? "InstancePorts" <*>
-      obj .:? "LoadBalancerPorts" <*>
-      obj .: "PolicyName" <*>
-      obj .: "PolicyType"
+      (obj .: "Attributes") <*>
+      (obj .:? "InstancePorts") <*>
+      (obj .:? "LoadBalancerPorts") <*>
+      (obj .: "PolicyName") <*>
+      (obj .: "PolicyType")
   parseJSON _ = mempty
 
 -- | Constructor for 'ElasticLoadBalancingLoadBalancerPolicies' containing

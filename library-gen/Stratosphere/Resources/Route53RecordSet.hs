@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset.html
 
@@ -32,46 +33,46 @@ data Route53RecordSet =
   , _route53RecordSetSetIdentifier :: Maybe (Val Text)
   , _route53RecordSetTTL :: Maybe (Val Text)
   , _route53RecordSetType :: Val Text
-  , _route53RecordSetWeight :: Maybe (Val Integer')
+  , _route53RecordSetWeight :: Maybe (Val Integer)
   } deriving (Show, Eq)
 
 instance ToJSON Route53RecordSet where
   toJSON Route53RecordSet{..} =
     object $
     catMaybes
-    [ ("AliasTarget" .=) <$> _route53RecordSetAliasTarget
-    , ("Comment" .=) <$> _route53RecordSetComment
-    , ("Failover" .=) <$> _route53RecordSetFailover
-    , ("GeoLocation" .=) <$> _route53RecordSetGeoLocation
-    , ("HealthCheckId" .=) <$> _route53RecordSetHealthCheckId
-    , ("HostedZoneId" .=) <$> _route53RecordSetHostedZoneId
-    , ("HostedZoneName" .=) <$> _route53RecordSetHostedZoneName
-    , Just ("Name" .= _route53RecordSetName)
-    , ("Region" .=) <$> _route53RecordSetRegion
-    , ("ResourceRecords" .=) <$> _route53RecordSetResourceRecords
-    , ("SetIdentifier" .=) <$> _route53RecordSetSetIdentifier
-    , ("TTL" .=) <$> _route53RecordSetTTL
-    , Just ("Type" .= _route53RecordSetType)
-    , ("Weight" .=) <$> _route53RecordSetWeight
+    [ fmap (("AliasTarget",) . toJSON) _route53RecordSetAliasTarget
+    , fmap (("Comment",) . toJSON) _route53RecordSetComment
+    , fmap (("Failover",) . toJSON) _route53RecordSetFailover
+    , fmap (("GeoLocation",) . toJSON) _route53RecordSetGeoLocation
+    , fmap (("HealthCheckId",) . toJSON) _route53RecordSetHealthCheckId
+    , fmap (("HostedZoneId",) . toJSON) _route53RecordSetHostedZoneId
+    , fmap (("HostedZoneName",) . toJSON) _route53RecordSetHostedZoneName
+    , (Just . ("Name",) . toJSON) _route53RecordSetName
+    , fmap (("Region",) . toJSON) _route53RecordSetRegion
+    , fmap (("ResourceRecords",) . toJSON) _route53RecordSetResourceRecords
+    , fmap (("SetIdentifier",) . toJSON) _route53RecordSetSetIdentifier
+    , fmap (("TTL",) . toJSON) _route53RecordSetTTL
+    , (Just . ("Type",) . toJSON) _route53RecordSetType
+    , fmap (("Weight",) . toJSON . fmap Integer') _route53RecordSetWeight
     ]
 
 instance FromJSON Route53RecordSet where
   parseJSON (Object obj) =
     Route53RecordSet <$>
-      obj .:? "AliasTarget" <*>
-      obj .:? "Comment" <*>
-      obj .:? "Failover" <*>
-      obj .:? "GeoLocation" <*>
-      obj .:? "HealthCheckId" <*>
-      obj .:? "HostedZoneId" <*>
-      obj .:? "HostedZoneName" <*>
-      obj .: "Name" <*>
-      obj .:? "Region" <*>
-      obj .:? "ResourceRecords" <*>
-      obj .:? "SetIdentifier" <*>
-      obj .:? "TTL" <*>
-      obj .: "Type" <*>
-      obj .:? "Weight"
+      (obj .:? "AliasTarget") <*>
+      (obj .:? "Comment") <*>
+      (obj .:? "Failover") <*>
+      (obj .:? "GeoLocation") <*>
+      (obj .:? "HealthCheckId") <*>
+      (obj .:? "HostedZoneId") <*>
+      (obj .:? "HostedZoneName") <*>
+      (obj .: "Name") <*>
+      (obj .:? "Region") <*>
+      (obj .:? "ResourceRecords") <*>
+      (obj .:? "SetIdentifier") <*>
+      (obj .:? "TTL") <*>
+      (obj .: "Type") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "Weight")
   parseJSON _ = mempty
 
 -- | Constructor for 'Route53RecordSet' containing required fields as
@@ -151,5 +152,5 @@ rrsType :: Lens' Route53RecordSet (Val Text)
 rrsType = lens _route53RecordSetType (\s a -> s { _route53RecordSetType = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset.html#cfn-route53-recordset-weight
-rrsWeight :: Lens' Route53RecordSet (Maybe (Val Integer'))
+rrsWeight :: Lens' Route53RecordSet (Maybe (Val Integer))
 rrsWeight = lens _route53RecordSetWeight (\s a -> s { _route53RecordSetWeight = a })

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html
 
@@ -42,31 +43,31 @@ instance ToJSON S3Bucket where
   toJSON S3Bucket{..} =
     object $
     catMaybes
-    [ ("AccessControl" .=) <$> _s3BucketAccessControl
-    , ("BucketName" .=) <$> _s3BucketBucketName
-    , ("CorsConfiguration" .=) <$> _s3BucketCorsConfiguration
-    , ("LifecycleConfiguration" .=) <$> _s3BucketLifecycleConfiguration
-    , ("LoggingConfiguration" .=) <$> _s3BucketLoggingConfiguration
-    , ("NotificationConfiguration" .=) <$> _s3BucketNotificationConfiguration
-    , ("ReplicationConfiguration" .=) <$> _s3BucketReplicationConfiguration
-    , ("Tags" .=) <$> _s3BucketTags
-    , ("VersioningConfiguration" .=) <$> _s3BucketVersioningConfiguration
-    , ("WebsiteConfiguration" .=) <$> _s3BucketWebsiteConfiguration
+    [ fmap (("AccessControl",) . toJSON) _s3BucketAccessControl
+    , fmap (("BucketName",) . toJSON) _s3BucketBucketName
+    , fmap (("CorsConfiguration",) . toJSON) _s3BucketCorsConfiguration
+    , fmap (("LifecycleConfiguration",) . toJSON) _s3BucketLifecycleConfiguration
+    , fmap (("LoggingConfiguration",) . toJSON) _s3BucketLoggingConfiguration
+    , fmap (("NotificationConfiguration",) . toJSON) _s3BucketNotificationConfiguration
+    , fmap (("ReplicationConfiguration",) . toJSON) _s3BucketReplicationConfiguration
+    , fmap (("Tags",) . toJSON) _s3BucketTags
+    , fmap (("VersioningConfiguration",) . toJSON) _s3BucketVersioningConfiguration
+    , fmap (("WebsiteConfiguration",) . toJSON) _s3BucketWebsiteConfiguration
     ]
 
 instance FromJSON S3Bucket where
   parseJSON (Object obj) =
     S3Bucket <$>
-      obj .:? "AccessControl" <*>
-      obj .:? "BucketName" <*>
-      obj .:? "CorsConfiguration" <*>
-      obj .:? "LifecycleConfiguration" <*>
-      obj .:? "LoggingConfiguration" <*>
-      obj .:? "NotificationConfiguration" <*>
-      obj .:? "ReplicationConfiguration" <*>
-      obj .:? "Tags" <*>
-      obj .:? "VersioningConfiguration" <*>
-      obj .:? "WebsiteConfiguration"
+      (obj .:? "AccessControl") <*>
+      (obj .:? "BucketName") <*>
+      (obj .:? "CorsConfiguration") <*>
+      (obj .:? "LifecycleConfiguration") <*>
+      (obj .:? "LoggingConfiguration") <*>
+      (obj .:? "NotificationConfiguration") <*>
+      (obj .:? "ReplicationConfiguration") <*>
+      (obj .:? "Tags") <*>
+      (obj .:? "VersioningConfiguration") <*>
+      (obj .:? "WebsiteConfiguration")
   parseJSON _ = mempty
 
 -- | Constructor for 'S3Bucket' containing required fields as arguments.

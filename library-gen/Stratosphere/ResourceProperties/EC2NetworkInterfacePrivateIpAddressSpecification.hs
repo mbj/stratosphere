@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-interface-privateipspec.html
 
@@ -20,7 +21,7 @@ import Stratosphere.Values
 -- constructor.
 data EC2NetworkInterfacePrivateIpAddressSpecification =
   EC2NetworkInterfacePrivateIpAddressSpecification
-  { _eC2NetworkInterfacePrivateIpAddressSpecificationPrimary :: Val Bool'
+  { _eC2NetworkInterfacePrivateIpAddressSpecificationPrimary :: Val Bool
   , _eC2NetworkInterfacePrivateIpAddressSpecificationPrivateIpAddress :: Val Text
   } deriving (Show, Eq)
 
@@ -28,21 +29,21 @@ instance ToJSON EC2NetworkInterfacePrivateIpAddressSpecification where
   toJSON EC2NetworkInterfacePrivateIpAddressSpecification{..} =
     object $
     catMaybes
-    [ Just ("Primary" .= _eC2NetworkInterfacePrivateIpAddressSpecificationPrimary)
-    , Just ("PrivateIpAddress" .= _eC2NetworkInterfacePrivateIpAddressSpecificationPrivateIpAddress)
+    [ (Just . ("Primary",) . toJSON . fmap Bool') _eC2NetworkInterfacePrivateIpAddressSpecificationPrimary
+    , (Just . ("PrivateIpAddress",) . toJSON) _eC2NetworkInterfacePrivateIpAddressSpecificationPrivateIpAddress
     ]
 
 instance FromJSON EC2NetworkInterfacePrivateIpAddressSpecification where
   parseJSON (Object obj) =
     EC2NetworkInterfacePrivateIpAddressSpecification <$>
-      obj .: "Primary" <*>
-      obj .: "PrivateIpAddress"
+      fmap (fmap unBool') (obj .: "Primary") <*>
+      (obj .: "PrivateIpAddress")
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2NetworkInterfacePrivateIpAddressSpecification'
 -- containing required fields as arguments.
 ec2NetworkInterfacePrivateIpAddressSpecification
-  :: Val Bool' -- ^ 'ecnipiasPrimary'
+  :: Val Bool -- ^ 'ecnipiasPrimary'
   -> Val Text -- ^ 'ecnipiasPrivateIpAddress'
   -> EC2NetworkInterfacePrivateIpAddressSpecification
 ec2NetworkInterfacePrivateIpAddressSpecification primaryarg privateIpAddressarg =
@@ -52,7 +53,7 @@ ec2NetworkInterfacePrivateIpAddressSpecification primaryarg privateIpAddressarg 
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-interface-privateipspec.html#cfn-ec2-networkinterface-privateipspecification-primary
-ecnipiasPrimary :: Lens' EC2NetworkInterfacePrivateIpAddressSpecification (Val Bool')
+ecnipiasPrimary :: Lens' EC2NetworkInterfacePrivateIpAddressSpecification (Val Bool)
 ecnipiasPrimary = lens _eC2NetworkInterfacePrivateIpAddressSpecificationPrimary (\s a -> s { _eC2NetworkInterfacePrivateIpAddressSpecificationPrimary = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-interface-privateipspec.html#cfn-ec2-networkinterface-privateipspecification-privateipaddress

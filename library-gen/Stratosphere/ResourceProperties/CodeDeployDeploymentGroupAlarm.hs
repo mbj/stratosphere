@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-alarm.html
 
@@ -25,13 +26,13 @@ instance ToJSON CodeDeployDeploymentGroupAlarm where
   toJSON CodeDeployDeploymentGroupAlarm{..} =
     object $
     catMaybes
-    [ ("Name" .=) <$> _codeDeployDeploymentGroupAlarmName
+    [ fmap (("Name",) . toJSON) _codeDeployDeploymentGroupAlarmName
     ]
 
 instance FromJSON CodeDeployDeploymentGroupAlarm where
   parseJSON (Object obj) =
     CodeDeployDeploymentGroupAlarm <$>
-      obj .:? "Name"
+      (obj .:? "Name")
   parseJSON _ = mempty
 
 -- | Constructor for 'CodeDeployDeploymentGroupAlarm' containing required

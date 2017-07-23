@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clustersubnetgroup.html
 
@@ -27,17 +28,17 @@ instance ToJSON RedshiftClusterSubnetGroup where
   toJSON RedshiftClusterSubnetGroup{..} =
     object $
     catMaybes
-    [ Just ("Description" .= _redshiftClusterSubnetGroupDescription)
-    , Just ("SubnetIds" .= _redshiftClusterSubnetGroupSubnetIds)
-    , ("Tags" .=) <$> _redshiftClusterSubnetGroupTags
+    [ (Just . ("Description",) . toJSON) _redshiftClusterSubnetGroupDescription
+    , (Just . ("SubnetIds",) . toJSON) _redshiftClusterSubnetGroupSubnetIds
+    , fmap (("Tags",) . toJSON) _redshiftClusterSubnetGroupTags
     ]
 
 instance FromJSON RedshiftClusterSubnetGroup where
   parseJSON (Object obj) =
     RedshiftClusterSubnetGroup <$>
-      obj .: "Description" <*>
-      obj .: "SubnetIds" <*>
-      obj .:? "Tags"
+      (obj .: "Description") <*>
+      (obj .: "SubnetIds") <*>
+      (obj .:? "Tags")
   parseJSON _ = mempty
 
 -- | Constructor for 'RedshiftClusterSubnetGroup' containing required fields

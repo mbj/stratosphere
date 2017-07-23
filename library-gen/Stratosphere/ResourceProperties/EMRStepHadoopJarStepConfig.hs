@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-step-hadoopjarstepconfig.html
 
@@ -28,19 +29,19 @@ instance ToJSON EMRStepHadoopJarStepConfig where
   toJSON EMRStepHadoopJarStepConfig{..} =
     object $
     catMaybes
-    [ ("Args" .=) <$> _eMRStepHadoopJarStepConfigArgs
-    , Just ("Jar" .= _eMRStepHadoopJarStepConfigJar)
-    , ("MainClass" .=) <$> _eMRStepHadoopJarStepConfigMainClass
-    , ("StepProperties" .=) <$> _eMRStepHadoopJarStepConfigStepProperties
+    [ fmap (("Args",) . toJSON) _eMRStepHadoopJarStepConfigArgs
+    , (Just . ("Jar",) . toJSON) _eMRStepHadoopJarStepConfigJar
+    , fmap (("MainClass",) . toJSON) _eMRStepHadoopJarStepConfigMainClass
+    , fmap (("StepProperties",) . toJSON) _eMRStepHadoopJarStepConfigStepProperties
     ]
 
 instance FromJSON EMRStepHadoopJarStepConfig where
   parseJSON (Object obj) =
     EMRStepHadoopJarStepConfig <$>
-      obj .:? "Args" <*>
-      obj .: "Jar" <*>
-      obj .:? "MainClass" <*>
-      obj .:? "StepProperties"
+      (obj .:? "Args") <*>
+      (obj .: "Jar") <*>
+      (obj .:? "MainClass") <*>
+      (obj .:? "StepProperties")
   parseJSON _ = mempty
 
 -- | Constructor for 'EMRStepHadoopJarStepConfig' containing required fields

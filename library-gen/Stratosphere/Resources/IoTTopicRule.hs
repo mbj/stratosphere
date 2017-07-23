@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html
 
@@ -26,15 +27,15 @@ instance ToJSON IoTTopicRule where
   toJSON IoTTopicRule{..} =
     object $
     catMaybes
-    [ ("RuleName" .=) <$> _ioTTopicRuleRuleName
-    , Just ("TopicRulePayload" .= _ioTTopicRuleTopicRulePayload)
+    [ fmap (("RuleName",) . toJSON) _ioTTopicRuleRuleName
+    , (Just . ("TopicRulePayload",) . toJSON) _ioTTopicRuleTopicRulePayload
     ]
 
 instance FromJSON IoTTopicRule where
   parseJSON (Object obj) =
     IoTTopicRule <$>
-      obj .:? "RuleName" <*>
-      obj .: "TopicRulePayload"
+      (obj .:? "RuleName") <*>
+      (obj .: "TopicRulePayload")
   parseJSON _ = mempty
 
 -- | Constructor for 'IoTTopicRule' containing required fields as arguments.

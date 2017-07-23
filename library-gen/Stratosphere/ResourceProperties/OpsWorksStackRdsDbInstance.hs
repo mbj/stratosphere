@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-stack-rdsdbinstance.html
 
@@ -27,17 +28,17 @@ instance ToJSON OpsWorksStackRdsDbInstance where
   toJSON OpsWorksStackRdsDbInstance{..} =
     object $
     catMaybes
-    [ Just ("DbPassword" .= _opsWorksStackRdsDbInstanceDbPassword)
-    , Just ("DbUser" .= _opsWorksStackRdsDbInstanceDbUser)
-    , Just ("RdsDbInstanceArn" .= _opsWorksStackRdsDbInstanceRdsDbInstanceArn)
+    [ (Just . ("DbPassword",) . toJSON) _opsWorksStackRdsDbInstanceDbPassword
+    , (Just . ("DbUser",) . toJSON) _opsWorksStackRdsDbInstanceDbUser
+    , (Just . ("RdsDbInstanceArn",) . toJSON) _opsWorksStackRdsDbInstanceRdsDbInstanceArn
     ]
 
 instance FromJSON OpsWorksStackRdsDbInstance where
   parseJSON (Object obj) =
     OpsWorksStackRdsDbInstance <$>
-      obj .: "DbPassword" <*>
-      obj .: "DbUser" <*>
-      obj .: "RdsDbInstanceArn"
+      (obj .: "DbPassword") <*>
+      (obj .: "DbUser") <*>
+      (obj .: "RdsDbInstanceArn")
   parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksStackRdsDbInstance' containing required fields

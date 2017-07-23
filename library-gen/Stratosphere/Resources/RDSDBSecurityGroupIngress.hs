@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-security-group-ingress.html
 
@@ -29,21 +30,21 @@ instance ToJSON RDSDBSecurityGroupIngress where
   toJSON RDSDBSecurityGroupIngress{..} =
     object $
     catMaybes
-    [ ("CIDRIP" .=) <$> _rDSDBSecurityGroupIngressCIDRIP
-    , Just ("DBSecurityGroupName" .= _rDSDBSecurityGroupIngressDBSecurityGroupName)
-    , ("EC2SecurityGroupId" .=) <$> _rDSDBSecurityGroupIngressEC2SecurityGroupId
-    , ("EC2SecurityGroupName" .=) <$> _rDSDBSecurityGroupIngressEC2SecurityGroupName
-    , ("EC2SecurityGroupOwnerId" .=) <$> _rDSDBSecurityGroupIngressEC2SecurityGroupOwnerId
+    [ fmap (("CIDRIP",) . toJSON) _rDSDBSecurityGroupIngressCIDRIP
+    , (Just . ("DBSecurityGroupName",) . toJSON) _rDSDBSecurityGroupIngressDBSecurityGroupName
+    , fmap (("EC2SecurityGroupId",) . toJSON) _rDSDBSecurityGroupIngressEC2SecurityGroupId
+    , fmap (("EC2SecurityGroupName",) . toJSON) _rDSDBSecurityGroupIngressEC2SecurityGroupName
+    , fmap (("EC2SecurityGroupOwnerId",) . toJSON) _rDSDBSecurityGroupIngressEC2SecurityGroupOwnerId
     ]
 
 instance FromJSON RDSDBSecurityGroupIngress where
   parseJSON (Object obj) =
     RDSDBSecurityGroupIngress <$>
-      obj .:? "CIDRIP" <*>
-      obj .: "DBSecurityGroupName" <*>
-      obj .:? "EC2SecurityGroupId" <*>
-      obj .:? "EC2SecurityGroupName" <*>
-      obj .:? "EC2SecurityGroupOwnerId"
+      (obj .:? "CIDRIP") <*>
+      (obj .: "DBSecurityGroupName") <*>
+      (obj .:? "EC2SecurityGroupId") <*>
+      (obj .:? "EC2SecurityGroupName") <*>
+      (obj .:? "EC2SecurityGroupOwnerId")
   parseJSON _ = mempty
 
 -- | Constructor for 'RDSDBSecurityGroupIngress' containing required fields as

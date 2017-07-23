@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-bootstrapactionconfig-scriptbootstrapactionconfig.html
 
@@ -27,15 +28,15 @@ instance ToJSON EMRClusterScriptBootstrapActionConfig where
   toJSON EMRClusterScriptBootstrapActionConfig{..} =
     object $
     catMaybes
-    [ ("Args" .=) <$> _eMRClusterScriptBootstrapActionConfigArgs
-    , Just ("Path" .= _eMRClusterScriptBootstrapActionConfigPath)
+    [ fmap (("Args",) . toJSON) _eMRClusterScriptBootstrapActionConfigArgs
+    , (Just . ("Path",) . toJSON) _eMRClusterScriptBootstrapActionConfigPath
     ]
 
 instance FromJSON EMRClusterScriptBootstrapActionConfig where
   parseJSON (Object obj) =
     EMRClusterScriptBootstrapActionConfig <$>
-      obj .:? "Args" <*>
-      obj .: "Path"
+      (obj .:? "Args") <*>
+      (obj .: "Path")
   parseJSON _ = mempty
 
 -- | Constructor for 'EMRClusterScriptBootstrapActionConfig' containing

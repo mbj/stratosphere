@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypool-pushsync.html
 
@@ -26,15 +27,15 @@ instance ToJSON CognitoIdentityPoolPushSync where
   toJSON CognitoIdentityPoolPushSync{..} =
     object $
     catMaybes
-    [ ("ApplicationArns" .=) <$> _cognitoIdentityPoolPushSyncApplicationArns
-    , ("RoleArn" .=) <$> _cognitoIdentityPoolPushSyncRoleArn
+    [ fmap (("ApplicationArns",) . toJSON) _cognitoIdentityPoolPushSyncApplicationArns
+    , fmap (("RoleArn",) . toJSON) _cognitoIdentityPoolPushSyncRoleArn
     ]
 
 instance FromJSON CognitoIdentityPoolPushSync where
   parseJSON (Object obj) =
     CognitoIdentityPoolPushSync <$>
-      obj .:? "ApplicationArns" <*>
-      obj .:? "RoleArn"
+      (obj .:? "ApplicationArns") <*>
+      (obj .:? "RoleArn")
   parseJSON _ = mempty
 
 -- | Constructor for 'CognitoIdentityPoolPushSync' containing required fields

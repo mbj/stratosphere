@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-numberattributeconstraints.html
 
@@ -27,15 +28,15 @@ instance ToJSON CognitoUserPoolNumberAttributeConstraints where
   toJSON CognitoUserPoolNumberAttributeConstraints{..} =
     object $
     catMaybes
-    [ ("MaxValue" .=) <$> _cognitoUserPoolNumberAttributeConstraintsMaxValue
-    , ("MinValue" .=) <$> _cognitoUserPoolNumberAttributeConstraintsMinValue
+    [ fmap (("MaxValue",) . toJSON) _cognitoUserPoolNumberAttributeConstraintsMaxValue
+    , fmap (("MinValue",) . toJSON) _cognitoUserPoolNumberAttributeConstraintsMinValue
     ]
 
 instance FromJSON CognitoUserPoolNumberAttributeConstraints where
   parseJSON (Object obj) =
     CognitoUserPoolNumberAttributeConstraints <$>
-      obj .:? "MaxValue" <*>
-      obj .:? "MinValue"
+      (obj .:? "MaxValue") <*>
+      (obj .:? "MinValue")
   parseJSON _ = mempty
 
 -- | Constructor for 'CognitoUserPoolNumberAttributeConstraints' containing

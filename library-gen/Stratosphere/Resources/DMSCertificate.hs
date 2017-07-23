@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-certificate.html
 
@@ -27,17 +28,17 @@ instance ToJSON DMSCertificate where
   toJSON DMSCertificate{..} =
     object $
     catMaybes
-    [ ("CertificateIdentifier" .=) <$> _dMSCertificateCertificateIdentifier
-    , ("CertificatePem" .=) <$> _dMSCertificateCertificatePem
-    , ("CertificateWallet" .=) <$> _dMSCertificateCertificateWallet
+    [ fmap (("CertificateIdentifier",) . toJSON) _dMSCertificateCertificateIdentifier
+    , fmap (("CertificatePem",) . toJSON) _dMSCertificateCertificatePem
+    , fmap (("CertificateWallet",) . toJSON) _dMSCertificateCertificateWallet
     ]
 
 instance FromJSON DMSCertificate where
   parseJSON (Object obj) =
     DMSCertificate <$>
-      obj .:? "CertificateIdentifier" <*>
-      obj .:? "CertificatePem" <*>
-      obj .:? "CertificateWallet"
+      (obj .:? "CertificateIdentifier") <*>
+      (obj .:? "CertificatePem") <*>
+      (obj .:? "CertificateWallet")
   parseJSON _ = mempty
 
 -- | Constructor for 'DMSCertificate' containing required fields as arguments.

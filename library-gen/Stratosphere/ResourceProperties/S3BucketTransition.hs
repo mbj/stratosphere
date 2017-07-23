@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule-transition.html
 
@@ -20,24 +21,24 @@ data S3BucketTransition =
   S3BucketTransition
   { _s3BucketTransitionStorageClass :: Val Text
   , _s3BucketTransitionTransitionDate :: Maybe (Val Text)
-  , _s3BucketTransitionTransitionInDays :: Maybe (Val Integer')
+  , _s3BucketTransitionTransitionInDays :: Maybe (Val Integer)
   } deriving (Show, Eq)
 
 instance ToJSON S3BucketTransition where
   toJSON S3BucketTransition{..} =
     object $
     catMaybes
-    [ Just ("StorageClass" .= _s3BucketTransitionStorageClass)
-    , ("TransitionDate" .=) <$> _s3BucketTransitionTransitionDate
-    , ("TransitionInDays" .=) <$> _s3BucketTransitionTransitionInDays
+    [ (Just . ("StorageClass",) . toJSON) _s3BucketTransitionStorageClass
+    , fmap (("TransitionDate",) . toJSON) _s3BucketTransitionTransitionDate
+    , fmap (("TransitionInDays",) . toJSON . fmap Integer') _s3BucketTransitionTransitionInDays
     ]
 
 instance FromJSON S3BucketTransition where
   parseJSON (Object obj) =
     S3BucketTransition <$>
-      obj .: "StorageClass" <*>
-      obj .:? "TransitionDate" <*>
-      obj .:? "TransitionInDays"
+      (obj .: "StorageClass") <*>
+      (obj .:? "TransitionDate") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "TransitionInDays")
   parseJSON _ = mempty
 
 -- | Constructor for 'S3BucketTransition' containing required fields as
@@ -61,5 +62,5 @@ sbtTransitionDate :: Lens' S3BucketTransition (Maybe (Val Text))
 sbtTransitionDate = lens _s3BucketTransitionTransitionDate (\s a -> s { _s3BucketTransitionTransitionDate = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule-transition.html#cfn-s3-bucket-lifecycleconfig-rule-transition-transitionindays
-sbtTransitionInDays :: Lens' S3BucketTransition (Maybe (Val Integer'))
+sbtTransitionInDays :: Lens' S3BucketTransition (Maybe (Val Integer))
 sbtTransitionInDays = lens _s3BucketTransitionTransitionInDays (\s a -> s { _s3BucketTransitionTransitionInDays = a })

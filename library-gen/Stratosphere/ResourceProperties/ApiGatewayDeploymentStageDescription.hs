@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-deployment-stagedescription.html
 
@@ -19,20 +20,20 @@ import Stratosphere.ResourceProperties.ApiGatewayDeploymentMethodSetting
 -- 'apiGatewayDeploymentStageDescription' for a more convenient constructor.
 data ApiGatewayDeploymentStageDescription =
   ApiGatewayDeploymentStageDescription
-  { _apiGatewayDeploymentStageDescriptionCacheClusterEnabled :: Maybe (Val Bool')
+  { _apiGatewayDeploymentStageDescriptionCacheClusterEnabled :: Maybe (Val Bool)
   , _apiGatewayDeploymentStageDescriptionCacheClusterSize :: Maybe (Val Text)
-  , _apiGatewayDeploymentStageDescriptionCacheDataEncrypted :: Maybe (Val Bool')
-  , _apiGatewayDeploymentStageDescriptionCacheTtlInSeconds :: Maybe (Val Integer')
-  , _apiGatewayDeploymentStageDescriptionCachingEnabled :: Maybe (Val Bool')
+  , _apiGatewayDeploymentStageDescriptionCacheDataEncrypted :: Maybe (Val Bool)
+  , _apiGatewayDeploymentStageDescriptionCacheTtlInSeconds :: Maybe (Val Integer)
+  , _apiGatewayDeploymentStageDescriptionCachingEnabled :: Maybe (Val Bool)
   , _apiGatewayDeploymentStageDescriptionClientCertificateId :: Maybe (Val Text)
-  , _apiGatewayDeploymentStageDescriptionDataTraceEnabled :: Maybe (Val Bool')
+  , _apiGatewayDeploymentStageDescriptionDataTraceEnabled :: Maybe (Val Bool)
   , _apiGatewayDeploymentStageDescriptionDescription :: Maybe (Val Text)
   , _apiGatewayDeploymentStageDescriptionLoggingLevel :: Maybe (Val LoggingLevel)
   , _apiGatewayDeploymentStageDescriptionMethodSettings :: Maybe [ApiGatewayDeploymentMethodSetting]
-  , _apiGatewayDeploymentStageDescriptionMetricsEnabled :: Maybe (Val Bool')
+  , _apiGatewayDeploymentStageDescriptionMetricsEnabled :: Maybe (Val Bool)
   , _apiGatewayDeploymentStageDescriptionStageName :: Maybe (Val Text)
-  , _apiGatewayDeploymentStageDescriptionThrottlingBurstLimit :: Maybe (Val Integer')
-  , _apiGatewayDeploymentStageDescriptionThrottlingRateLimit :: Maybe (Val Double')
+  , _apiGatewayDeploymentStageDescriptionThrottlingBurstLimit :: Maybe (Val Integer)
+  , _apiGatewayDeploymentStageDescriptionThrottlingRateLimit :: Maybe (Val Double)
   , _apiGatewayDeploymentStageDescriptionVariables :: Maybe Object
   } deriving (Show, Eq)
 
@@ -40,41 +41,41 @@ instance ToJSON ApiGatewayDeploymentStageDescription where
   toJSON ApiGatewayDeploymentStageDescription{..} =
     object $
     catMaybes
-    [ ("CacheClusterEnabled" .=) <$> _apiGatewayDeploymentStageDescriptionCacheClusterEnabled
-    , ("CacheClusterSize" .=) <$> _apiGatewayDeploymentStageDescriptionCacheClusterSize
-    , ("CacheDataEncrypted" .=) <$> _apiGatewayDeploymentStageDescriptionCacheDataEncrypted
-    , ("CacheTtlInSeconds" .=) <$> _apiGatewayDeploymentStageDescriptionCacheTtlInSeconds
-    , ("CachingEnabled" .=) <$> _apiGatewayDeploymentStageDescriptionCachingEnabled
-    , ("ClientCertificateId" .=) <$> _apiGatewayDeploymentStageDescriptionClientCertificateId
-    , ("DataTraceEnabled" .=) <$> _apiGatewayDeploymentStageDescriptionDataTraceEnabled
-    , ("Description" .=) <$> _apiGatewayDeploymentStageDescriptionDescription
-    , ("LoggingLevel" .=) <$> _apiGatewayDeploymentStageDescriptionLoggingLevel
-    , ("MethodSettings" .=) <$> _apiGatewayDeploymentStageDescriptionMethodSettings
-    , ("MetricsEnabled" .=) <$> _apiGatewayDeploymentStageDescriptionMetricsEnabled
-    , ("StageName" .=) <$> _apiGatewayDeploymentStageDescriptionStageName
-    , ("ThrottlingBurstLimit" .=) <$> _apiGatewayDeploymentStageDescriptionThrottlingBurstLimit
-    , ("ThrottlingRateLimit" .=) <$> _apiGatewayDeploymentStageDescriptionThrottlingRateLimit
-    , ("Variables" .=) <$> _apiGatewayDeploymentStageDescriptionVariables
+    [ fmap (("CacheClusterEnabled",) . toJSON . fmap Bool') _apiGatewayDeploymentStageDescriptionCacheClusterEnabled
+    , fmap (("CacheClusterSize",) . toJSON) _apiGatewayDeploymentStageDescriptionCacheClusterSize
+    , fmap (("CacheDataEncrypted",) . toJSON . fmap Bool') _apiGatewayDeploymentStageDescriptionCacheDataEncrypted
+    , fmap (("CacheTtlInSeconds",) . toJSON . fmap Integer') _apiGatewayDeploymentStageDescriptionCacheTtlInSeconds
+    , fmap (("CachingEnabled",) . toJSON . fmap Bool') _apiGatewayDeploymentStageDescriptionCachingEnabled
+    , fmap (("ClientCertificateId",) . toJSON) _apiGatewayDeploymentStageDescriptionClientCertificateId
+    , fmap (("DataTraceEnabled",) . toJSON . fmap Bool') _apiGatewayDeploymentStageDescriptionDataTraceEnabled
+    , fmap (("Description",) . toJSON) _apiGatewayDeploymentStageDescriptionDescription
+    , fmap (("LoggingLevel",) . toJSON) _apiGatewayDeploymentStageDescriptionLoggingLevel
+    , fmap (("MethodSettings",) . toJSON) _apiGatewayDeploymentStageDescriptionMethodSettings
+    , fmap (("MetricsEnabled",) . toJSON . fmap Bool') _apiGatewayDeploymentStageDescriptionMetricsEnabled
+    , fmap (("StageName",) . toJSON) _apiGatewayDeploymentStageDescriptionStageName
+    , fmap (("ThrottlingBurstLimit",) . toJSON . fmap Integer') _apiGatewayDeploymentStageDescriptionThrottlingBurstLimit
+    , fmap (("ThrottlingRateLimit",) . toJSON . fmap Double') _apiGatewayDeploymentStageDescriptionThrottlingRateLimit
+    , fmap (("Variables",) . toJSON) _apiGatewayDeploymentStageDescriptionVariables
     ]
 
 instance FromJSON ApiGatewayDeploymentStageDescription where
   parseJSON (Object obj) =
     ApiGatewayDeploymentStageDescription <$>
-      obj .:? "CacheClusterEnabled" <*>
-      obj .:? "CacheClusterSize" <*>
-      obj .:? "CacheDataEncrypted" <*>
-      obj .:? "CacheTtlInSeconds" <*>
-      obj .:? "CachingEnabled" <*>
-      obj .:? "ClientCertificateId" <*>
-      obj .:? "DataTraceEnabled" <*>
-      obj .:? "Description" <*>
-      obj .:? "LoggingLevel" <*>
-      obj .:? "MethodSettings" <*>
-      obj .:? "MetricsEnabled" <*>
-      obj .:? "StageName" <*>
-      obj .:? "ThrottlingBurstLimit" <*>
-      obj .:? "ThrottlingRateLimit" <*>
-      obj .:? "Variables"
+      fmap (fmap (fmap unBool')) (obj .:? "CacheClusterEnabled") <*>
+      (obj .:? "CacheClusterSize") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "CacheDataEncrypted") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "CacheTtlInSeconds") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "CachingEnabled") <*>
+      (obj .:? "ClientCertificateId") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "DataTraceEnabled") <*>
+      (obj .:? "Description") <*>
+      (obj .:? "LoggingLevel") <*>
+      (obj .:? "MethodSettings") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "MetricsEnabled") <*>
+      (obj .:? "StageName") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "ThrottlingBurstLimit") <*>
+      fmap (fmap (fmap unDouble')) (obj .:? "ThrottlingRateLimit") <*>
+      (obj .:? "Variables")
   parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayDeploymentStageDescription' containing
@@ -101,7 +102,7 @@ apiGatewayDeploymentStageDescription  =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-cacheclusterenabled
-agdsdCacheClusterEnabled :: Lens' ApiGatewayDeploymentStageDescription (Maybe (Val Bool'))
+agdsdCacheClusterEnabled :: Lens' ApiGatewayDeploymentStageDescription (Maybe (Val Bool))
 agdsdCacheClusterEnabled = lens _apiGatewayDeploymentStageDescriptionCacheClusterEnabled (\s a -> s { _apiGatewayDeploymentStageDescriptionCacheClusterEnabled = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-cacheclustersize
@@ -109,15 +110,15 @@ agdsdCacheClusterSize :: Lens' ApiGatewayDeploymentStageDescription (Maybe (Val 
 agdsdCacheClusterSize = lens _apiGatewayDeploymentStageDescriptionCacheClusterSize (\s a -> s { _apiGatewayDeploymentStageDescriptionCacheClusterSize = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-cachedataencrypted
-agdsdCacheDataEncrypted :: Lens' ApiGatewayDeploymentStageDescription (Maybe (Val Bool'))
+agdsdCacheDataEncrypted :: Lens' ApiGatewayDeploymentStageDescription (Maybe (Val Bool))
 agdsdCacheDataEncrypted = lens _apiGatewayDeploymentStageDescriptionCacheDataEncrypted (\s a -> s { _apiGatewayDeploymentStageDescriptionCacheDataEncrypted = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-cachettlinseconds
-agdsdCacheTtlInSeconds :: Lens' ApiGatewayDeploymentStageDescription (Maybe (Val Integer'))
+agdsdCacheTtlInSeconds :: Lens' ApiGatewayDeploymentStageDescription (Maybe (Val Integer))
 agdsdCacheTtlInSeconds = lens _apiGatewayDeploymentStageDescriptionCacheTtlInSeconds (\s a -> s { _apiGatewayDeploymentStageDescriptionCacheTtlInSeconds = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-cachingenabled
-agdsdCachingEnabled :: Lens' ApiGatewayDeploymentStageDescription (Maybe (Val Bool'))
+agdsdCachingEnabled :: Lens' ApiGatewayDeploymentStageDescription (Maybe (Val Bool))
 agdsdCachingEnabled = lens _apiGatewayDeploymentStageDescriptionCachingEnabled (\s a -> s { _apiGatewayDeploymentStageDescriptionCachingEnabled = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-clientcertificateid
@@ -125,7 +126,7 @@ agdsdClientCertificateId :: Lens' ApiGatewayDeploymentStageDescription (Maybe (V
 agdsdClientCertificateId = lens _apiGatewayDeploymentStageDescriptionClientCertificateId (\s a -> s { _apiGatewayDeploymentStageDescriptionClientCertificateId = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-datatraceenabled
-agdsdDataTraceEnabled :: Lens' ApiGatewayDeploymentStageDescription (Maybe (Val Bool'))
+agdsdDataTraceEnabled :: Lens' ApiGatewayDeploymentStageDescription (Maybe (Val Bool))
 agdsdDataTraceEnabled = lens _apiGatewayDeploymentStageDescriptionDataTraceEnabled (\s a -> s { _apiGatewayDeploymentStageDescriptionDataTraceEnabled = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-description
@@ -141,7 +142,7 @@ agdsdMethodSettings :: Lens' ApiGatewayDeploymentStageDescription (Maybe [ApiGat
 agdsdMethodSettings = lens _apiGatewayDeploymentStageDescriptionMethodSettings (\s a -> s { _apiGatewayDeploymentStageDescriptionMethodSettings = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-metricsenabled
-agdsdMetricsEnabled :: Lens' ApiGatewayDeploymentStageDescription (Maybe (Val Bool'))
+agdsdMetricsEnabled :: Lens' ApiGatewayDeploymentStageDescription (Maybe (Val Bool))
 agdsdMetricsEnabled = lens _apiGatewayDeploymentStageDescriptionMetricsEnabled (\s a -> s { _apiGatewayDeploymentStageDescriptionMetricsEnabled = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-stagename
@@ -149,11 +150,11 @@ agdsdStageName :: Lens' ApiGatewayDeploymentStageDescription (Maybe (Val Text))
 agdsdStageName = lens _apiGatewayDeploymentStageDescriptionStageName (\s a -> s { _apiGatewayDeploymentStageDescriptionStageName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-throttlingburstlimit
-agdsdThrottlingBurstLimit :: Lens' ApiGatewayDeploymentStageDescription (Maybe (Val Integer'))
+agdsdThrottlingBurstLimit :: Lens' ApiGatewayDeploymentStageDescription (Maybe (Val Integer))
 agdsdThrottlingBurstLimit = lens _apiGatewayDeploymentStageDescriptionThrottlingBurstLimit (\s a -> s { _apiGatewayDeploymentStageDescriptionThrottlingBurstLimit = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-throttlingratelimit
-agdsdThrottlingRateLimit :: Lens' ApiGatewayDeploymentStageDescription (Maybe (Val Double'))
+agdsdThrottlingRateLimit :: Lens' ApiGatewayDeploymentStageDescription (Maybe (Val Double))
 agdsdThrottlingRateLimit = lens _apiGatewayDeploymentStageDescriptionThrottlingRateLimit (\s a -> s { _apiGatewayDeploymentStageDescriptionThrottlingRateLimit = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-variables

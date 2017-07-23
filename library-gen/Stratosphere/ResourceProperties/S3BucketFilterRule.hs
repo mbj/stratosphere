@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfiguration-config-filter-s3key-rules.html
 
@@ -26,15 +27,15 @@ instance ToJSON S3BucketFilterRule where
   toJSON S3BucketFilterRule{..} =
     object $
     catMaybes
-    [ Just ("Name" .= _s3BucketFilterRuleName)
-    , Just ("Value" .= _s3BucketFilterRuleValue)
+    [ (Just . ("Name",) . toJSON) _s3BucketFilterRuleName
+    , (Just . ("Value",) . toJSON) _s3BucketFilterRuleValue
     ]
 
 instance FromJSON S3BucketFilterRule where
   parseJSON (Object obj) =
     S3BucketFilterRule <$>
-      obj .: "Name" <*>
-      obj .: "Value"
+      (obj .: "Name") <*>
+      (obj .: "Value")
   parseJSON _ = mempty
 
 -- | Constructor for 'S3BucketFilterRule' containing required fields as

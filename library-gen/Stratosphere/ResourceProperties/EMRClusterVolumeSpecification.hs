@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-ebsconfiguration-ebsblockdeviceconfig-volumespecification.html
 
@@ -18,8 +19,8 @@ import Stratosphere.Values
 -- 'emrClusterVolumeSpecification' for a more convenient constructor.
 data EMRClusterVolumeSpecification =
   EMRClusterVolumeSpecification
-  { _eMRClusterVolumeSpecificationIops :: Maybe (Val Integer')
-  , _eMRClusterVolumeSpecificationSizeInGB :: Val Integer'
+  { _eMRClusterVolumeSpecificationIops :: Maybe (Val Integer)
+  , _eMRClusterVolumeSpecificationSizeInGB :: Val Integer
   , _eMRClusterVolumeSpecificationVolumeType :: Val Text
   } deriving (Show, Eq)
 
@@ -27,23 +28,23 @@ instance ToJSON EMRClusterVolumeSpecification where
   toJSON EMRClusterVolumeSpecification{..} =
     object $
     catMaybes
-    [ ("Iops" .=) <$> _eMRClusterVolumeSpecificationIops
-    , Just ("SizeInGB" .= _eMRClusterVolumeSpecificationSizeInGB)
-    , Just ("VolumeType" .= _eMRClusterVolumeSpecificationVolumeType)
+    [ fmap (("Iops",) . toJSON . fmap Integer') _eMRClusterVolumeSpecificationIops
+    , (Just . ("SizeInGB",) . toJSON . fmap Integer') _eMRClusterVolumeSpecificationSizeInGB
+    , (Just . ("VolumeType",) . toJSON) _eMRClusterVolumeSpecificationVolumeType
     ]
 
 instance FromJSON EMRClusterVolumeSpecification where
   parseJSON (Object obj) =
     EMRClusterVolumeSpecification <$>
-      obj .:? "Iops" <*>
-      obj .: "SizeInGB" <*>
-      obj .: "VolumeType"
+      fmap (fmap (fmap unInteger')) (obj .:? "Iops") <*>
+      fmap (fmap unInteger') (obj .: "SizeInGB") <*>
+      (obj .: "VolumeType")
   parseJSON _ = mempty
 
 -- | Constructor for 'EMRClusterVolumeSpecification' containing required
 -- fields as arguments.
 emrClusterVolumeSpecification
-  :: Val Integer' -- ^ 'emrcvsSizeInGB'
+  :: Val Integer -- ^ 'emrcvsSizeInGB'
   -> Val Text -- ^ 'emrcvsVolumeType'
   -> EMRClusterVolumeSpecification
 emrClusterVolumeSpecification sizeInGBarg volumeTypearg =
@@ -54,11 +55,11 @@ emrClusterVolumeSpecification sizeInGBarg volumeTypearg =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-ebsconfiguration-ebsblockdeviceconfig-volumespecification.html#cfn-emr-ebsconfiguration-ebsblockdeviceconfig-volumespecification-iops
-emrcvsIops :: Lens' EMRClusterVolumeSpecification (Maybe (Val Integer'))
+emrcvsIops :: Lens' EMRClusterVolumeSpecification (Maybe (Val Integer))
 emrcvsIops = lens _eMRClusterVolumeSpecificationIops (\s a -> s { _eMRClusterVolumeSpecificationIops = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-ebsconfiguration-ebsblockdeviceconfig-volumespecification.html#cfn-emr-ebsconfiguration-ebsblockdeviceconfig-volumespecification-sizeingb
-emrcvsSizeInGB :: Lens' EMRClusterVolumeSpecification (Val Integer')
+emrcvsSizeInGB :: Lens' EMRClusterVolumeSpecification (Val Integer)
 emrcvsSizeInGB = lens _eMRClusterVolumeSpecificationSizeInGB (\s a -> s { _eMRClusterVolumeSpecificationSizeInGB = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-ebsconfiguration-ebsblockdeviceconfig-volumespecification.html#cfn-emr-ebsconfiguration-ebsblockdeviceconfig-volumespecification-volumetype

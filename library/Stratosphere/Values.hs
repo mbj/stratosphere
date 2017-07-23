@@ -1,3 +1,4 @@
+{-# LANGUAGE DeriveFunctor #-}
 {-# LANGUAGE GADTs #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE MultiParamTypeClasses #-}
@@ -37,20 +38,21 @@ data Val a
  = Literal a
  | Ref Text
  | If Text (Val a) (Val a)
- | And (Val Bool') (Val Bool')
- | Equals (Val Bool') (Val Bool')
- | Or (Val Bool') (Val Bool')
+ | And (Val Bool) (Val Bool)
+ | Equals (Val Bool) (Val Bool)
+ | Or (Val Bool) (Val Bool)
  | GetAtt Text Text
  | Base64 (Val a)
  | Join Text [Val a]
  | Split Text Text
- | Select Integer' (Val a)
+ | Select Integer (Val a)
  | GetAZs (Val a)
  | FindInMap (Val a) (Val a) (Val a) -- ^ Map name, top level key, and second level key
  | ImportValue Text -- ^ The account-and-region-unique exported name of the value to import
 
 deriving instance (Show a) => Show (Val a)
 deriving instance (Eq a) => Eq (Val a)
+deriving instance Functor Val
 
 instance (IsString a) => IsString (Val a) where
   fromString s = Literal (fromString s)
@@ -59,14 +61,14 @@ instance (ToJSON a) => ToJSON (Val a) where
   toJSON (Literal v) = toJSON v
   toJSON (Ref r) = refToJSON r
   toJSON (If i x y) = mkFunc "Fn::If" [toJSON i, toJSON x, toJSON y]
-  toJSON (And x y) = mkFunc "Fn::And" [toJSON x, toJSON y]
-  toJSON (Equals x y) = mkFunc "Fn::Equals" [toJSON x, toJSON y]
-  toJSON (Or x y) = mkFunc "Fn::Or" [toJSON x, toJSON y]
+  toJSON (And x y) = mkFunc "Fn::And" [toJSON (Bool' <$> x), toJSON (Bool' <$> y)]
+  toJSON (Equals x y) = mkFunc "Fn::Equals" [toJSON (Bool' <$> x), toJSON (Bool' <$> y)]
+  toJSON (Or x y) = mkFunc "Fn::Or" [toJSON (Bool' <$> x), toJSON (Bool' <$> y)]
   toJSON (GetAtt x y) = mkFunc "Fn::GetAtt" [toJSON x, toJSON y]
   toJSON (Base64 v) = object [("Fn::Base64", toJSON v)]
   toJSON (Join d vs) = mkFunc "Fn::Join" [toJSON d, toJSON vs]
   toJSON (Split d s) = mkFunc "Fn::Split" [toJSON d, toJSON s]
-  toJSON (Select i vs) = mkFunc "Fn::Select" [toJSON i, toJSON vs]
+  toJSON (Select i vs) = mkFunc "Fn::Select" [toJSON (Integer' i), toJSON vs]
   toJSON (GetAZs r) = object [("Fn::GetAZs", toJSON r)]
   toJSON (FindInMap mapName topKey secondKey) =
     object [("Fn::FindInMap", toJSON [toJSON mapName, toJSON topKey, toJSON secondKey])]
@@ -84,14 +86,14 @@ instance (FromJSON a) => FromJSON (Val a) where
       [] -> fail "Empty object as Val"
       [("Ref", o')] -> Ref <$> parseJSON o'
       [("Fn::If", o')] -> (\(i, x, y) -> If i x y) <$> parseJSON o'
-      [("Fn::And", o')] -> uncurry And <$> parseJSON o'
-      [("Fn::Equals", o')] -> uncurry Equals <$> parseJSON o'
-      [("Fn::Or", o')] -> uncurry Or <$> parseJSON o'
+      [("Fn::And", o')] -> (\(x, y) -> And (unBool' <$> x) (unBool' <$> y)) <$> parseJSON o'
+      [("Fn::Equals", o')] -> (\(x, y) -> Equals (unBool' <$> x) (unBool' <$> y)) <$> parseJSON o'
+      [("Fn::Or", o')] -> (\(x, y) -> Or (unBool' <$> x) (unBool' <$> y)) <$> parseJSON o'
       [("Fn::GetAtt", o')] -> uncurry GetAtt <$> parseJSON o'
       [("Fn::Base64", o')] -> Base64 <$> parseJSON o'
       [("Fn::Join", o')] -> uncurry Join <$> parseJSON o'
       [("Fn::Split", o')] -> uncurry Split <$> parseJSON o'
-      [("Fn::Select", o')] -> uncurry Select <$> parseJSON o'
+      [("Fn::Select", o')] -> (\(x, y) -> Select (unInteger' x) y) <$> parseJSON o'
       [("Fn::GetAZs", o')] -> GetAZs <$> parseJSON o'
       [("Fn::FindInMap", o')] -> do
         (mapName, topKey, secondKey) <- parseJSON o'
@@ -149,21 +151,19 @@ instance FromJSON Integer' where
       (Just n) -> return n
 
 -- | We need to wrap Bools for the same reason we need to wrap Ints.
-data Bool'
-  = False'
-  | True'
+newtype Bool' = Bool' { unBool' :: Bool }
   deriving (Show, Bounded, Enum, Eq, Ord)
 
 instance ToJSON Bool' where
-  toJSON True' = "true"
-  toJSON False' = "false"
+  toJSON (Bool' True) = "true"
+  toJSON (Bool' False) = "false"
 
 instance FromJSON Bool' where
   parseJSON v = do
     string <- parseJSON v
     case string of
-      "true" -> return True'
-      "false" -> return False'
+      "true" -> return (Bool' True)
+      "false" -> return (Bool' False)
       _ -> fail $ "Unknown bool string " ++ string
 
 -- | Class used to create a 'Ref' from another type.

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbclusterparametergroup.html
 
@@ -28,19 +29,19 @@ instance ToJSON RDSDBClusterParameterGroup where
   toJSON RDSDBClusterParameterGroup{..} =
     object $
     catMaybes
-    [ Just ("Description" .= _rDSDBClusterParameterGroupDescription)
-    , Just ("Family" .= _rDSDBClusterParameterGroupFamily)
-    , Just ("Parameters" .= _rDSDBClusterParameterGroupParameters)
-    , ("Tags" .=) <$> _rDSDBClusterParameterGroupTags
+    [ (Just . ("Description",) . toJSON) _rDSDBClusterParameterGroupDescription
+    , (Just . ("Family",) . toJSON) _rDSDBClusterParameterGroupFamily
+    , (Just . ("Parameters",) . toJSON) _rDSDBClusterParameterGroupParameters
+    , fmap (("Tags",) . toJSON) _rDSDBClusterParameterGroupTags
     ]
 
 instance FromJSON RDSDBClusterParameterGroup where
   parseJSON (Object obj) =
     RDSDBClusterParameterGroup <$>
-      obj .: "Description" <*>
-      obj .: "Family" <*>
-      obj .: "Parameters" <*>
-      obj .:? "Tags"
+      (obj .: "Description") <*>
+      (obj .: "Family") <*>
+      (obj .: "Parameters") <*>
+      (obj .:? "Tags")
   parseJSON _ = mempty
 
 -- | Constructor for 'RDSDBClusterParameterGroup' containing required fields

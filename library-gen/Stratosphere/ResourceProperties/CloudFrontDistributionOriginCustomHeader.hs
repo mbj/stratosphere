@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-origin-origincustomheader.html
 
@@ -27,15 +28,15 @@ instance ToJSON CloudFrontDistributionOriginCustomHeader where
   toJSON CloudFrontDistributionOriginCustomHeader{..} =
     object $
     catMaybes
-    [ Just ("HeaderName" .= _cloudFrontDistributionOriginCustomHeaderHeaderName)
-    , Just ("HeaderValue" .= _cloudFrontDistributionOriginCustomHeaderHeaderValue)
+    [ (Just . ("HeaderName",) . toJSON) _cloudFrontDistributionOriginCustomHeaderHeaderName
+    , (Just . ("HeaderValue",) . toJSON) _cloudFrontDistributionOriginCustomHeaderHeaderValue
     ]
 
 instance FromJSON CloudFrontDistributionOriginCustomHeader where
   parseJSON (Object obj) =
     CloudFrontDistributionOriginCustomHeader <$>
-      obj .: "HeaderName" <*>
-      obj .: "HeaderValue"
+      (obj .: "HeaderName") <*>
+      (obj .: "HeaderValue")
   parseJSON _ = mempty
 
 -- | Constructor for 'CloudFrontDistributionOriginCustomHeader' containing

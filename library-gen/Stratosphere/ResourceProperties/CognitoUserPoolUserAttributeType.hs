@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpooluser-attributetype.html
 
@@ -26,15 +27,15 @@ instance ToJSON CognitoUserPoolUserAttributeType where
   toJSON CognitoUserPoolUserAttributeType{..} =
     object $
     catMaybes
-    [ ("Name" .=) <$> _cognitoUserPoolUserAttributeTypeName
-    , ("Value" .=) <$> _cognitoUserPoolUserAttributeTypeValue
+    [ fmap (("Name",) . toJSON) _cognitoUserPoolUserAttributeTypeName
+    , fmap (("Value",) . toJSON) _cognitoUserPoolUserAttributeTypeValue
     ]
 
 instance FromJSON CognitoUserPoolUserAttributeType where
   parseJSON (Object obj) =
     CognitoUserPoolUserAttributeType <$>
-      obj .:? "Name" <*>
-      obj .:? "Value"
+      (obj .:? "Name") <*>
+      (obj .:? "Value")
   parseJSON _ = mempty
 
 -- | Constructor for 'CognitoUserPoolUserAttributeType' containing required

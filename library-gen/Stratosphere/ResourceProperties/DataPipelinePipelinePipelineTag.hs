@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datapipeline-pipeline-pipelinetags.html
 
@@ -26,15 +27,15 @@ instance ToJSON DataPipelinePipelinePipelineTag where
   toJSON DataPipelinePipelinePipelineTag{..} =
     object $
     catMaybes
-    [ Just ("Key" .= _dataPipelinePipelinePipelineTagKey)
-    , Just ("Value" .= _dataPipelinePipelinePipelineTagValue)
+    [ (Just . ("Key",) . toJSON) _dataPipelinePipelinePipelineTagKey
+    , (Just . ("Value",) . toJSON) _dataPipelinePipelinePipelineTagValue
     ]
 
 instance FromJSON DataPipelinePipelinePipelineTag where
   parseJSON (Object obj) =
     DataPipelinePipelinePipelineTag <$>
-      obj .: "Key" <*>
-      obj .: "Value"
+      (obj .: "Key") <*>
+      (obj .: "Value")
   parseJSON _ = mempty
 
 -- | Constructor for 'DataPipelinePipelinePipelineTag' containing required

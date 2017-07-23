@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html
 
@@ -26,15 +27,15 @@ instance ToJSON IAMUserToGroupAddition where
   toJSON IAMUserToGroupAddition{..} =
     object $
     catMaybes
-    [ Just ("GroupName" .= _iAMUserToGroupAdditionGroupName)
-    , Just ("Users" .= _iAMUserToGroupAdditionUsers)
+    [ (Just . ("GroupName",) . toJSON) _iAMUserToGroupAdditionGroupName
+    , (Just . ("Users",) . toJSON) _iAMUserToGroupAdditionUsers
     ]
 
 instance FromJSON IAMUserToGroupAddition where
   parseJSON (Object obj) =
     IAMUserToGroupAddition <$>
-      obj .: "GroupName" <*>
-      obj .: "Users"
+      (obj .: "GroupName") <*>
+      (obj .: "Users")
   parseJSON _ = mempty
 
 -- | Constructor for 'IAMUserToGroupAddition' containing required fields as

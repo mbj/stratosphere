@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-activity.html
 
@@ -25,13 +26,13 @@ instance ToJSON StepFunctionsActivity where
   toJSON StepFunctionsActivity{..} =
     object $
     catMaybes
-    [ Just ("Name" .= _stepFunctionsActivityName)
+    [ (Just . ("Name",) . toJSON) _stepFunctionsActivityName
     ]
 
 instance FromJSON StepFunctionsActivity where
   parseJSON (Object obj) =
     StepFunctionsActivity <$>
-      obj .: "Name"
+      (obj .: "Name")
   parseJSON _ = mempty
 
 -- | Constructor for 'StepFunctionsActivity' containing required fields as

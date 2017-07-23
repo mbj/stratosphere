@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-option-settings.html
 
@@ -28,17 +29,17 @@ instance ToJSON ElasticBeanstalkEnvironmentOptionSettings where
   toJSON ElasticBeanstalkEnvironmentOptionSettings{..} =
     object $
     catMaybes
-    [ Just ("Namespace" .= _elasticBeanstalkEnvironmentOptionSettingsNamespace)
-    , Just ("OptionName" .= _elasticBeanstalkEnvironmentOptionSettingsOptionName)
-    , Just ("Value" .= _elasticBeanstalkEnvironmentOptionSettingsValue)
+    [ (Just . ("Namespace",) . toJSON) _elasticBeanstalkEnvironmentOptionSettingsNamespace
+    , (Just . ("OptionName",) . toJSON) _elasticBeanstalkEnvironmentOptionSettingsOptionName
+    , (Just . ("Value",) . toJSON) _elasticBeanstalkEnvironmentOptionSettingsValue
     ]
 
 instance FromJSON ElasticBeanstalkEnvironmentOptionSettings where
   parseJSON (Object obj) =
     ElasticBeanstalkEnvironmentOptionSettings <$>
-      obj .: "Namespace" <*>
-      obj .: "OptionName" <*>
-      obj .: "Value"
+      (obj .: "Namespace") <*>
+      (obj .: "OptionName") <*>
+      (obj .: "Value")
   parseJSON _ = mempty
 
 -- | Constructor for 'ElasticBeanstalkEnvironmentOptionSettings' containing

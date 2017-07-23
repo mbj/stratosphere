@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-target.html
 
@@ -26,15 +27,15 @@ instance ToJSON SSMAssociationTarget where
   toJSON SSMAssociationTarget{..} =
     object $
     catMaybes
-    [ Just ("Key" .= _sSMAssociationTargetKey)
-    , Just ("Values" .= _sSMAssociationTargetValues)
+    [ (Just . ("Key",) . toJSON) _sSMAssociationTargetKey
+    , (Just . ("Values",) . toJSON) _sSMAssociationTargetValues
     ]
 
 instance FromJSON SSMAssociationTarget where
   parseJSON (Object obj) =
     SSMAssociationTarget <$>
-      obj .: "Key" <*>
-      obj .: "Values"
+      (obj .: "Key") <*>
+      (obj .: "Values")
   parseJSON _ = mempty
 
 -- | Constructor for 'SSMAssociationTarget' containing required fields as

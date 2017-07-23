@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-attributedef.html
 
@@ -26,15 +27,15 @@ instance ToJSON DynamoDBTableAttributeDefinition where
   toJSON DynamoDBTableAttributeDefinition{..} =
     object $
     catMaybes
-    [ Just ("AttributeName" .= _dynamoDBTableAttributeDefinitionAttributeName)
-    , Just ("AttributeType" .= _dynamoDBTableAttributeDefinitionAttributeType)
+    [ (Just . ("AttributeName",) . toJSON) _dynamoDBTableAttributeDefinitionAttributeName
+    , (Just . ("AttributeType",) . toJSON) _dynamoDBTableAttributeDefinitionAttributeType
     ]
 
 instance FromJSON DynamoDBTableAttributeDefinition where
   parseJSON (Object obj) =
     DynamoDBTableAttributeDefinition <$>
-      obj .: "AttributeName" <*>
-      obj .: "AttributeType"
+      (obj .: "AttributeName") <*>
+      (obj .: "AttributeType")
   parseJSON _ = mempty
 
 -- | Constructor for 'DynamoDBTableAttributeDefinition' containing required

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html
 
@@ -29,36 +30,36 @@ data CodeBuildProject =
   , _codeBuildProjectServiceRole :: Val Text
   , _codeBuildProjectSource :: CodeBuildProjectSource
   , _codeBuildProjectTags :: Maybe [Tag]
-  , _codeBuildProjectTimeoutInMinutes :: Maybe (Val Integer')
+  , _codeBuildProjectTimeoutInMinutes :: Maybe (Val Integer)
   } deriving (Show, Eq)
 
 instance ToJSON CodeBuildProject where
   toJSON CodeBuildProject{..} =
     object $
     catMaybes
-    [ Just ("Artifacts" .= _codeBuildProjectArtifacts)
-    , ("Description" .=) <$> _codeBuildProjectDescription
-    , ("EncryptionKey" .=) <$> _codeBuildProjectEncryptionKey
-    , Just ("Environment" .= _codeBuildProjectEnvironment)
-    , ("Name" .=) <$> _codeBuildProjectName
-    , Just ("ServiceRole" .= _codeBuildProjectServiceRole)
-    , Just ("Source" .= _codeBuildProjectSource)
-    , ("Tags" .=) <$> _codeBuildProjectTags
-    , ("TimeoutInMinutes" .=) <$> _codeBuildProjectTimeoutInMinutes
+    [ (Just . ("Artifacts",) . toJSON) _codeBuildProjectArtifacts
+    , fmap (("Description",) . toJSON) _codeBuildProjectDescription
+    , fmap (("EncryptionKey",) . toJSON) _codeBuildProjectEncryptionKey
+    , (Just . ("Environment",) . toJSON) _codeBuildProjectEnvironment
+    , fmap (("Name",) . toJSON) _codeBuildProjectName
+    , (Just . ("ServiceRole",) . toJSON) _codeBuildProjectServiceRole
+    , (Just . ("Source",) . toJSON) _codeBuildProjectSource
+    , fmap (("Tags",) . toJSON) _codeBuildProjectTags
+    , fmap (("TimeoutInMinutes",) . toJSON . fmap Integer') _codeBuildProjectTimeoutInMinutes
     ]
 
 instance FromJSON CodeBuildProject where
   parseJSON (Object obj) =
     CodeBuildProject <$>
-      obj .: "Artifacts" <*>
-      obj .:? "Description" <*>
-      obj .:? "EncryptionKey" <*>
-      obj .: "Environment" <*>
-      obj .:? "Name" <*>
-      obj .: "ServiceRole" <*>
-      obj .: "Source" <*>
-      obj .:? "Tags" <*>
-      obj .:? "TimeoutInMinutes"
+      (obj .: "Artifacts") <*>
+      (obj .:? "Description") <*>
+      (obj .:? "EncryptionKey") <*>
+      (obj .: "Environment") <*>
+      (obj .:? "Name") <*>
+      (obj .: "ServiceRole") <*>
+      (obj .: "Source") <*>
+      (obj .:? "Tags") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "TimeoutInMinutes")
   parseJSON _ = mempty
 
 -- | Constructor for 'CodeBuildProject' containing required fields as
@@ -115,5 +116,5 @@ cbpTags :: Lens' CodeBuildProject (Maybe [Tag])
 cbpTags = lens _codeBuildProjectTags (\s a -> s { _codeBuildProjectTags = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-timeoutinminutes
-cbpTimeoutInMinutes :: Lens' CodeBuildProject (Maybe (Val Integer'))
+cbpTimeoutInMinutes :: Lens' CodeBuildProject (Maybe (Val Integer))
 cbpTimeoutInMinutes = lens _codeBuildProjectTimeoutInMinutes (\s a -> s { _codeBuildProjectTimeoutInMinutes = a })

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-mappingrule.html
 
@@ -30,19 +31,19 @@ instance ToJSON CognitoIdentityPoolRoleAttachmentMappingRule where
   toJSON CognitoIdentityPoolRoleAttachmentMappingRule{..} =
     object $
     catMaybes
-    [ Just ("Claim" .= _cognitoIdentityPoolRoleAttachmentMappingRuleClaim)
-    , Just ("MatchType" .= _cognitoIdentityPoolRoleAttachmentMappingRuleMatchType)
-    , Just ("RoleARN" .= _cognitoIdentityPoolRoleAttachmentMappingRuleRoleARN)
-    , Just ("Value" .= _cognitoIdentityPoolRoleAttachmentMappingRuleValue)
+    [ (Just . ("Claim",) . toJSON) _cognitoIdentityPoolRoleAttachmentMappingRuleClaim
+    , (Just . ("MatchType",) . toJSON) _cognitoIdentityPoolRoleAttachmentMappingRuleMatchType
+    , (Just . ("RoleARN",) . toJSON) _cognitoIdentityPoolRoleAttachmentMappingRuleRoleARN
+    , (Just . ("Value",) . toJSON) _cognitoIdentityPoolRoleAttachmentMappingRuleValue
     ]
 
 instance FromJSON CognitoIdentityPoolRoleAttachmentMappingRule where
   parseJSON (Object obj) =
     CognitoIdentityPoolRoleAttachmentMappingRule <$>
-      obj .: "Claim" <*>
-      obj .: "MatchType" <*>
-      obj .: "RoleARN" <*>
-      obj .: "Value"
+      (obj .: "Claim") <*>
+      (obj .: "MatchType") <*>
+      (obj .: "RoleARN") <*>
+      (obj .: "Value")
   parseJSON _ = mempty
 
 -- | Constructor for 'CognitoIdentityPoolRoleAttachmentMappingRule' containing

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-rule.html
 
@@ -27,17 +28,17 @@ instance ToJSON WAFRegionalRule where
   toJSON WAFRegionalRule{..} =
     object $
     catMaybes
-    [ Just ("MetricName" .= _wAFRegionalRuleMetricName)
-    , Just ("Name" .= _wAFRegionalRuleName)
-    , ("Predicates" .=) <$> _wAFRegionalRulePredicates
+    [ (Just . ("MetricName",) . toJSON) _wAFRegionalRuleMetricName
+    , (Just . ("Name",) . toJSON) _wAFRegionalRuleName
+    , fmap (("Predicates",) . toJSON) _wAFRegionalRulePredicates
     ]
 
 instance FromJSON WAFRegionalRule where
   parseJSON (Object obj) =
     WAFRegionalRule <$>
-      obj .: "MetricName" <*>
-      obj .: "Name" <*>
-      obj .:? "Predicates"
+      (obj .: "MetricName") <*>
+      (obj .: "Name") <*>
+      (obj .:? "Predicates")
   parseJSON _ = mempty
 
 -- | Constructor for 'WAFRegionalRule' containing required fields as

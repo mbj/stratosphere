@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface-attachment.html
 
@@ -18,7 +19,7 @@ import Stratosphere.Values
 -- 'ec2NetworkInterfaceAttachment' for a more convenient constructor.
 data EC2NetworkInterfaceAttachment =
   EC2NetworkInterfaceAttachment
-  { _eC2NetworkInterfaceAttachmentDeleteOnTermination :: Maybe (Val Bool')
+  { _eC2NetworkInterfaceAttachmentDeleteOnTermination :: Maybe (Val Bool)
   , _eC2NetworkInterfaceAttachmentDeviceIndex :: Val Text
   , _eC2NetworkInterfaceAttachmentInstanceId :: Val Text
   , _eC2NetworkInterfaceAttachmentNetworkInterfaceId :: Val Text
@@ -28,19 +29,19 @@ instance ToJSON EC2NetworkInterfaceAttachment where
   toJSON EC2NetworkInterfaceAttachment{..} =
     object $
     catMaybes
-    [ ("DeleteOnTermination" .=) <$> _eC2NetworkInterfaceAttachmentDeleteOnTermination
-    , Just ("DeviceIndex" .= _eC2NetworkInterfaceAttachmentDeviceIndex)
-    , Just ("InstanceId" .= _eC2NetworkInterfaceAttachmentInstanceId)
-    , Just ("NetworkInterfaceId" .= _eC2NetworkInterfaceAttachmentNetworkInterfaceId)
+    [ fmap (("DeleteOnTermination",) . toJSON . fmap Bool') _eC2NetworkInterfaceAttachmentDeleteOnTermination
+    , (Just . ("DeviceIndex",) . toJSON) _eC2NetworkInterfaceAttachmentDeviceIndex
+    , (Just . ("InstanceId",) . toJSON) _eC2NetworkInterfaceAttachmentInstanceId
+    , (Just . ("NetworkInterfaceId",) . toJSON) _eC2NetworkInterfaceAttachmentNetworkInterfaceId
     ]
 
 instance FromJSON EC2NetworkInterfaceAttachment where
   parseJSON (Object obj) =
     EC2NetworkInterfaceAttachment <$>
-      obj .:? "DeleteOnTermination" <*>
-      obj .: "DeviceIndex" <*>
-      obj .: "InstanceId" <*>
-      obj .: "NetworkInterfaceId"
+      fmap (fmap (fmap unBool')) (obj .:? "DeleteOnTermination") <*>
+      (obj .: "DeviceIndex") <*>
+      (obj .: "InstanceId") <*>
+      (obj .: "NetworkInterfaceId")
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2NetworkInterfaceAttachment' containing required
@@ -59,7 +60,7 @@ ec2NetworkInterfaceAttachment deviceIndexarg instanceIdarg networkInterfaceIdarg
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface-attachment.html#cfn-ec2-network-interface-attachment-deleteonterm
-ecniaDeleteOnTermination :: Lens' EC2NetworkInterfaceAttachment (Maybe (Val Bool'))
+ecniaDeleteOnTermination :: Lens' EC2NetworkInterfaceAttachment (Maybe (Val Bool))
 ecniaDeleteOnTermination = lens _eC2NetworkInterfaceAttachmentDeleteOnTermination (\s a -> s { _eC2NetworkInterfaceAttachmentDeleteOnTermination = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface-attachment.html#cfn-ec2-network-interface-attachment-deviceindex

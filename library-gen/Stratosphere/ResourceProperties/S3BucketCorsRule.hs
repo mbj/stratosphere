@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-cors-corsrule.html
 
@@ -23,30 +24,30 @@ data S3BucketCorsRule =
   , _s3BucketCorsRuleAllowedOrigins :: ValList Text
   , _s3BucketCorsRuleExposedHeaders :: Maybe (ValList Text)
   , _s3BucketCorsRuleId :: Maybe (Val Text)
-  , _s3BucketCorsRuleMaxAge :: Maybe (Val Integer')
+  , _s3BucketCorsRuleMaxAge :: Maybe (Val Integer)
   } deriving (Show, Eq)
 
 instance ToJSON S3BucketCorsRule where
   toJSON S3BucketCorsRule{..} =
     object $
     catMaybes
-    [ ("AllowedHeaders" .=) <$> _s3BucketCorsRuleAllowedHeaders
-    , Just ("AllowedMethods" .= _s3BucketCorsRuleAllowedMethods)
-    , Just ("AllowedOrigins" .= _s3BucketCorsRuleAllowedOrigins)
-    , ("ExposedHeaders" .=) <$> _s3BucketCorsRuleExposedHeaders
-    , ("Id" .=) <$> _s3BucketCorsRuleId
-    , ("MaxAge" .=) <$> _s3BucketCorsRuleMaxAge
+    [ fmap (("AllowedHeaders",) . toJSON) _s3BucketCorsRuleAllowedHeaders
+    , (Just . ("AllowedMethods",) . toJSON) _s3BucketCorsRuleAllowedMethods
+    , (Just . ("AllowedOrigins",) . toJSON) _s3BucketCorsRuleAllowedOrigins
+    , fmap (("ExposedHeaders",) . toJSON) _s3BucketCorsRuleExposedHeaders
+    , fmap (("Id",) . toJSON) _s3BucketCorsRuleId
+    , fmap (("MaxAge",) . toJSON . fmap Integer') _s3BucketCorsRuleMaxAge
     ]
 
 instance FromJSON S3BucketCorsRule where
   parseJSON (Object obj) =
     S3BucketCorsRule <$>
-      obj .:? "AllowedHeaders" <*>
-      obj .: "AllowedMethods" <*>
-      obj .: "AllowedOrigins" <*>
-      obj .:? "ExposedHeaders" <*>
-      obj .:? "Id" <*>
-      obj .:? "MaxAge"
+      (obj .:? "AllowedHeaders") <*>
+      (obj .: "AllowedMethods") <*>
+      (obj .: "AllowedOrigins") <*>
+      (obj .:? "ExposedHeaders") <*>
+      (obj .:? "Id") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "MaxAge")
   parseJSON _ = mempty
 
 -- | Constructor for 'S3BucketCorsRule' containing required fields as
@@ -86,5 +87,5 @@ sbcrId :: Lens' S3BucketCorsRule (Maybe (Val Text))
 sbcrId = lens _s3BucketCorsRuleId (\s a -> s { _s3BucketCorsRuleId = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-cors-corsrule.html#cfn-s3-bucket-cors-corsrule-maxage
-sbcrMaxAge :: Lens' S3BucketCorsRule (Maybe (Val Integer'))
+sbcrMaxAge :: Lens' S3BucketCorsRule (Maybe (Val Integer))
 sbcrMaxAge = lens _s3BucketCorsRuleMaxAge (\s a -> s { _s3BucketCorsRuleMaxAge = a })

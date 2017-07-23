@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-certificate.html
 
@@ -29,19 +30,19 @@ instance ToJSON CertificateManagerCertificate where
   toJSON CertificateManagerCertificate{..} =
     object $
     catMaybes
-    [ Just ("DomainName" .= _certificateManagerCertificateDomainName)
-    , ("DomainValidationOptions" .=) <$> _certificateManagerCertificateDomainValidationOptions
-    , ("SubjectAlternativeNames" .=) <$> _certificateManagerCertificateSubjectAlternativeNames
-    , ("Tags" .=) <$> _certificateManagerCertificateTags
+    [ (Just . ("DomainName",) . toJSON) _certificateManagerCertificateDomainName
+    , fmap (("DomainValidationOptions",) . toJSON) _certificateManagerCertificateDomainValidationOptions
+    , fmap (("SubjectAlternativeNames",) . toJSON) _certificateManagerCertificateSubjectAlternativeNames
+    , fmap (("Tags",) . toJSON) _certificateManagerCertificateTags
     ]
 
 instance FromJSON CertificateManagerCertificate where
   parseJSON (Object obj) =
     CertificateManagerCertificate <$>
-      obj .: "DomainName" <*>
-      obj .:? "DomainValidationOptions" <*>
-      obj .:? "SubjectAlternativeNames" <*>
-      obj .:? "Tags"
+      (obj .: "DomainName") <*>
+      (obj .:? "DomainValidationOptions") <*>
+      (obj .:? "SubjectAlternativeNames") <*>
+      (obj .:? "Tags")
   parseJSON _ = mempty
 
 -- | Constructor for 'CertificateManagerCertificate' containing required

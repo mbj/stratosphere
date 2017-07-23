@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancegroupconfig-autoscalingpolicy.html
 
@@ -28,15 +29,15 @@ instance ToJSON EMRInstanceGroupConfigAutoScalingPolicy where
   toJSON EMRInstanceGroupConfigAutoScalingPolicy{..} =
     object $
     catMaybes
-    [ Just ("Constraints" .= _eMRInstanceGroupConfigAutoScalingPolicyConstraints)
-    , Just ("Rules" .= _eMRInstanceGroupConfigAutoScalingPolicyRules)
+    [ (Just . ("Constraints",) . toJSON) _eMRInstanceGroupConfigAutoScalingPolicyConstraints
+    , (Just . ("Rules",) . toJSON) _eMRInstanceGroupConfigAutoScalingPolicyRules
     ]
 
 instance FromJSON EMRInstanceGroupConfigAutoScalingPolicy where
   parseJSON (Object obj) =
     EMRInstanceGroupConfigAutoScalingPolicy <$>
-      obj .: "Constraints" <*>
-      obj .: "Rules"
+      (obj .: "Constraints") <*>
+      (obj .: "Rules")
   parseJSON _ = mempty
 
 -- | Constructor for 'EMRInstanceGroupConfigAutoScalingPolicy' containing

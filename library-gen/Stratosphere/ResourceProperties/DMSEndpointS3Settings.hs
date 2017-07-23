@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-s3settings.html
 
@@ -31,25 +32,25 @@ instance ToJSON DMSEndpointS3Settings where
   toJSON DMSEndpointS3Settings{..} =
     object $
     catMaybes
-    [ ("BucketFolder" .=) <$> _dMSEndpointS3SettingsBucketFolder
-    , ("BucketName" .=) <$> _dMSEndpointS3SettingsBucketName
-    , ("CompressionType" .=) <$> _dMSEndpointS3SettingsCompressionType
-    , ("CsvDelimiter" .=) <$> _dMSEndpointS3SettingsCsvDelimiter
-    , ("CsvRowDelimiter" .=) <$> _dMSEndpointS3SettingsCsvRowDelimiter
-    , ("ExternalTableDefinition" .=) <$> _dMSEndpointS3SettingsExternalTableDefinition
-    , ("ServiceAccessRoleArn" .=) <$> _dMSEndpointS3SettingsServiceAccessRoleArn
+    [ fmap (("BucketFolder",) . toJSON) _dMSEndpointS3SettingsBucketFolder
+    , fmap (("BucketName",) . toJSON) _dMSEndpointS3SettingsBucketName
+    , fmap (("CompressionType",) . toJSON) _dMSEndpointS3SettingsCompressionType
+    , fmap (("CsvDelimiter",) . toJSON) _dMSEndpointS3SettingsCsvDelimiter
+    , fmap (("CsvRowDelimiter",) . toJSON) _dMSEndpointS3SettingsCsvRowDelimiter
+    , fmap (("ExternalTableDefinition",) . toJSON) _dMSEndpointS3SettingsExternalTableDefinition
+    , fmap (("ServiceAccessRoleArn",) . toJSON) _dMSEndpointS3SettingsServiceAccessRoleArn
     ]
 
 instance FromJSON DMSEndpointS3Settings where
   parseJSON (Object obj) =
     DMSEndpointS3Settings <$>
-      obj .:? "BucketFolder" <*>
-      obj .:? "BucketName" <*>
-      obj .:? "CompressionType" <*>
-      obj .:? "CsvDelimiter" <*>
-      obj .:? "CsvRowDelimiter" <*>
-      obj .:? "ExternalTableDefinition" <*>
-      obj .:? "ServiceAccessRoleArn"
+      (obj .:? "BucketFolder") <*>
+      (obj .:? "BucketName") <*>
+      (obj .:? "CompressionType") <*>
+      (obj .:? "CsvDelimiter") <*>
+      (obj .:? "CsvRowDelimiter") <*>
+      (obj .:? "ExternalTableDefinition") <*>
+      (obj .:? "ServiceAccessRoleArn")
   parseJSON _ = mempty
 
 -- | Constructor for 'DMSEndpointS3Settings' containing required fields as

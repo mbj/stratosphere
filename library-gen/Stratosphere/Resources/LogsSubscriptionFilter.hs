@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-subscriptionfilter.html
 
@@ -28,19 +29,19 @@ instance ToJSON LogsSubscriptionFilter where
   toJSON LogsSubscriptionFilter{..} =
     object $
     catMaybes
-    [ Just ("DestinationArn" .= _logsSubscriptionFilterDestinationArn)
-    , Just ("FilterPattern" .= _logsSubscriptionFilterFilterPattern)
-    , Just ("LogGroupName" .= _logsSubscriptionFilterLogGroupName)
-    , ("RoleArn" .=) <$> _logsSubscriptionFilterRoleArn
+    [ (Just . ("DestinationArn",) . toJSON) _logsSubscriptionFilterDestinationArn
+    , (Just . ("FilterPattern",) . toJSON) _logsSubscriptionFilterFilterPattern
+    , (Just . ("LogGroupName",) . toJSON) _logsSubscriptionFilterLogGroupName
+    , fmap (("RoleArn",) . toJSON) _logsSubscriptionFilterRoleArn
     ]
 
 instance FromJSON LogsSubscriptionFilter where
   parseJSON (Object obj) =
     LogsSubscriptionFilter <$>
-      obj .: "DestinationArn" <*>
-      obj .: "FilterPattern" <*>
-      obj .: "LogGroupName" <*>
-      obj .:? "RoleArn"
+      (obj .: "DestinationArn") <*>
+      (obj .: "FilterPattern") <*>
+      (obj .: "LogGroupName") <*>
+      (obj .:? "RoleArn")
   parseJSON _ = mempty
 
 -- | Constructor for 'LogsSubscriptionFilter' containing required fields as

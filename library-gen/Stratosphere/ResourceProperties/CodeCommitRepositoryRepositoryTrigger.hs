@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codecommit-repository-repositorytrigger.html
 
@@ -30,21 +31,21 @@ instance ToJSON CodeCommitRepositoryRepositoryTrigger where
   toJSON CodeCommitRepositoryRepositoryTrigger{..} =
     object $
     catMaybes
-    [ ("Branches" .=) <$> _codeCommitRepositoryRepositoryTriggerBranches
-    , ("CustomData" .=) <$> _codeCommitRepositoryRepositoryTriggerCustomData
-    , ("DestinationArn" .=) <$> _codeCommitRepositoryRepositoryTriggerDestinationArn
-    , ("Events" .=) <$> _codeCommitRepositoryRepositoryTriggerEvents
-    , ("Name" .=) <$> _codeCommitRepositoryRepositoryTriggerName
+    [ fmap (("Branches",) . toJSON) _codeCommitRepositoryRepositoryTriggerBranches
+    , fmap (("CustomData",) . toJSON) _codeCommitRepositoryRepositoryTriggerCustomData
+    , fmap (("DestinationArn",) . toJSON) _codeCommitRepositoryRepositoryTriggerDestinationArn
+    , fmap (("Events",) . toJSON) _codeCommitRepositoryRepositoryTriggerEvents
+    , fmap (("Name",) . toJSON) _codeCommitRepositoryRepositoryTriggerName
     ]
 
 instance FromJSON CodeCommitRepositoryRepositoryTrigger where
   parseJSON (Object obj) =
     CodeCommitRepositoryRepositoryTrigger <$>
-      obj .:? "Branches" <*>
-      obj .:? "CustomData" <*>
-      obj .:? "DestinationArn" <*>
-      obj .:? "Events" <*>
-      obj .:? "Name"
+      (obj .:? "Branches") <*>
+      (obj .:? "CustomData") <*>
+      (obj .:? "DestinationArn") <*>
+      (obj .:? "Events") <*>
+      (obj .:? "Name")
   parseJSON _ = mempty
 
 -- | Constructor for 'CodeCommitRepositoryRepositoryTrigger' containing

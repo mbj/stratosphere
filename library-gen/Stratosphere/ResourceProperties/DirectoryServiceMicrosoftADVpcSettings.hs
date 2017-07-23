@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-directoryservice-microsoftad-vpcsettings.html
 
@@ -27,15 +28,15 @@ instance ToJSON DirectoryServiceMicrosoftADVpcSettings where
   toJSON DirectoryServiceMicrosoftADVpcSettings{..} =
     object $
     catMaybes
-    [ Just ("SubnetIds" .= _directoryServiceMicrosoftADVpcSettingsSubnetIds)
-    , Just ("VpcId" .= _directoryServiceMicrosoftADVpcSettingsVpcId)
+    [ (Just . ("SubnetIds",) . toJSON) _directoryServiceMicrosoftADVpcSettingsSubnetIds
+    , (Just . ("VpcId",) . toJSON) _directoryServiceMicrosoftADVpcSettingsVpcId
     ]
 
 instance FromJSON DirectoryServiceMicrosoftADVpcSettings where
   parseJSON (Object obj) =
     DirectoryServiceMicrosoftADVpcSettings <$>
-      obj .: "SubnetIds" <*>
-      obj .: "VpcId"
+      (obj .: "SubnetIds") <*>
+      (obj .: "VpcId")
   parseJSON _ = mempty
 
 -- | Constructor for 'DirectoryServiceMicrosoftADVpcSettings' containing

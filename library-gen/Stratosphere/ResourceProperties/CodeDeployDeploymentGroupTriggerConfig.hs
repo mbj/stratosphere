@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-triggerconfig.html
 
@@ -28,17 +29,17 @@ instance ToJSON CodeDeployDeploymentGroupTriggerConfig where
   toJSON CodeDeployDeploymentGroupTriggerConfig{..} =
     object $
     catMaybes
-    [ ("TriggerEvents" .=) <$> _codeDeployDeploymentGroupTriggerConfigTriggerEvents
-    , ("TriggerName" .=) <$> _codeDeployDeploymentGroupTriggerConfigTriggerName
-    , ("TriggerTargetArn" .=) <$> _codeDeployDeploymentGroupTriggerConfigTriggerTargetArn
+    [ fmap (("TriggerEvents",) . toJSON) _codeDeployDeploymentGroupTriggerConfigTriggerEvents
+    , fmap (("TriggerName",) . toJSON) _codeDeployDeploymentGroupTriggerConfigTriggerName
+    , fmap (("TriggerTargetArn",) . toJSON) _codeDeployDeploymentGroupTriggerConfigTriggerTargetArn
     ]
 
 instance FromJSON CodeDeployDeploymentGroupTriggerConfig where
   parseJSON (Object obj) =
     CodeDeployDeploymentGroupTriggerConfig <$>
-      obj .:? "TriggerEvents" <*>
-      obj .:? "TriggerName" <*>
-      obj .:? "TriggerTargetArn"
+      (obj .:? "TriggerEvents") <*>
+      (obj .:? "TriggerName") <*>
+      (obj .:? "TriggerTargetArn")
   parseJSON _ = mempty
 
 -- | Constructor for 'CodeDeployDeploymentGroupTriggerConfig' containing

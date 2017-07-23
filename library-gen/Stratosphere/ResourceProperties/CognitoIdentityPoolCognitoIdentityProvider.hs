@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypool-cognitoidentityprovider.html
 
@@ -21,24 +22,24 @@ data CognitoIdentityPoolCognitoIdentityProvider =
   CognitoIdentityPoolCognitoIdentityProvider
   { _cognitoIdentityPoolCognitoIdentityProviderClientId :: Maybe (Val Text)
   , _cognitoIdentityPoolCognitoIdentityProviderProviderName :: Maybe (Val Text)
-  , _cognitoIdentityPoolCognitoIdentityProviderServerSideTokenCheck :: Maybe (Val Bool')
+  , _cognitoIdentityPoolCognitoIdentityProviderServerSideTokenCheck :: Maybe (Val Bool)
   } deriving (Show, Eq)
 
 instance ToJSON CognitoIdentityPoolCognitoIdentityProvider where
   toJSON CognitoIdentityPoolCognitoIdentityProvider{..} =
     object $
     catMaybes
-    [ ("ClientId" .=) <$> _cognitoIdentityPoolCognitoIdentityProviderClientId
-    , ("ProviderName" .=) <$> _cognitoIdentityPoolCognitoIdentityProviderProviderName
-    , ("ServerSideTokenCheck" .=) <$> _cognitoIdentityPoolCognitoIdentityProviderServerSideTokenCheck
+    [ fmap (("ClientId",) . toJSON) _cognitoIdentityPoolCognitoIdentityProviderClientId
+    , fmap (("ProviderName",) . toJSON) _cognitoIdentityPoolCognitoIdentityProviderProviderName
+    , fmap (("ServerSideTokenCheck",) . toJSON . fmap Bool') _cognitoIdentityPoolCognitoIdentityProviderServerSideTokenCheck
     ]
 
 instance FromJSON CognitoIdentityPoolCognitoIdentityProvider where
   parseJSON (Object obj) =
     CognitoIdentityPoolCognitoIdentityProvider <$>
-      obj .:? "ClientId" <*>
-      obj .:? "ProviderName" <*>
-      obj .:? "ServerSideTokenCheck"
+      (obj .:? "ClientId") <*>
+      (obj .:? "ProviderName") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "ServerSideTokenCheck")
   parseJSON _ = mempty
 
 -- | Constructor for 'CognitoIdentityPoolCognitoIdentityProvider' containing
@@ -61,5 +62,5 @@ cipcipProviderName :: Lens' CognitoIdentityPoolCognitoIdentityProvider (Maybe (V
 cipcipProviderName = lens _cognitoIdentityPoolCognitoIdentityProviderProviderName (\s a -> s { _cognitoIdentityPoolCognitoIdentityProviderProviderName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypool-cognitoidentityprovider.html#cfn-cognito-identitypool-cognitoidentityprovider-serversidetokencheck
-cipcipServerSideTokenCheck :: Lens' CognitoIdentityPoolCognitoIdentityProvider (Maybe (Val Bool'))
+cipcipServerSideTokenCheck :: Lens' CognitoIdentityPoolCognitoIdentityProvider (Maybe (Val Bool))
 cipcipServerSideTokenCheck = lens _cognitoIdentityPoolCognitoIdentityProviderServerSideTokenCheck (\s a -> s { _cognitoIdentityPoolCognitoIdentityProviderServerSideTokenCheck = a })

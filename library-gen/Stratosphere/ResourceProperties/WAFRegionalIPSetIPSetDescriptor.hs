@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-ipset-ipsetdescriptor.html
 
@@ -26,15 +27,15 @@ instance ToJSON WAFRegionalIPSetIPSetDescriptor where
   toJSON WAFRegionalIPSetIPSetDescriptor{..} =
     object $
     catMaybes
-    [ Just ("Type" .= _wAFRegionalIPSetIPSetDescriptorType)
-    , Just ("Value" .= _wAFRegionalIPSetIPSetDescriptorValue)
+    [ (Just . ("Type",) . toJSON) _wAFRegionalIPSetIPSetDescriptorType
+    , (Just . ("Value",) . toJSON) _wAFRegionalIPSetIPSetDescriptorValue
     ]
 
 instance FromJSON WAFRegionalIPSetIPSetDescriptor where
   parseJSON (Object obj) =
     WAFRegionalIPSetIPSetDescriptor <$>
-      obj .: "Type" <*>
-      obj .: "Value"
+      (obj .: "Type") <*>
+      (obj .: "Value")
   parseJSON _ = mempty
 
 -- | Constructor for 'WAFRegionalIPSetIPSetDescriptor' containing required

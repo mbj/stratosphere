@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-dynamodbsettings.html
 
@@ -25,13 +26,13 @@ instance ToJSON DMSEndpointDynamoDbSettings where
   toJSON DMSEndpointDynamoDbSettings{..} =
     object $
     catMaybes
-    [ ("ServiceAccessRoleArn" .=) <$> _dMSEndpointDynamoDbSettingsServiceAccessRoleArn
+    [ fmap (("ServiceAccessRoleArn",) . toJSON) _dMSEndpointDynamoDbSettingsServiceAccessRoleArn
     ]
 
 instance FromJSON DMSEndpointDynamoDbSettings where
   parseJSON (Object obj) =
     DMSEndpointDynamoDbSettings <$>
-      obj .:? "ServiceAccessRoleArn"
+      (obj .:? "ServiceAccessRoleArn")
   parseJSON _ = mempty
 
 -- | Constructor for 'DMSEndpointDynamoDbSettings' containing required fields

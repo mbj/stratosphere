@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-application.html
 
@@ -28,19 +29,19 @@ instance ToJSON EMRClusterApplication where
   toJSON EMRClusterApplication{..} =
     object $
     catMaybes
-    [ ("AdditionalInfo" .=) <$> _eMRClusterApplicationAdditionalInfo
-    , ("Args" .=) <$> _eMRClusterApplicationArgs
-    , ("Name" .=) <$> _eMRClusterApplicationName
-    , ("Version" .=) <$> _eMRClusterApplicationVersion
+    [ fmap (("AdditionalInfo",) . toJSON) _eMRClusterApplicationAdditionalInfo
+    , fmap (("Args",) . toJSON) _eMRClusterApplicationArgs
+    , fmap (("Name",) . toJSON) _eMRClusterApplicationName
+    , fmap (("Version",) . toJSON) _eMRClusterApplicationVersion
     ]
 
 instance FromJSON EMRClusterApplication where
   parseJSON (Object obj) =
     EMRClusterApplication <$>
-      obj .:? "AdditionalInfo" <*>
-      obj .:? "Args" <*>
-      obj .:? "Name" <*>
-      obj .:? "Version"
+      (obj .:? "AdditionalInfo") <*>
+      (obj .:? "Args") <*>
+      (obj .:? "Name") <*>
+      (obj .:? "Version")
   parseJSON _ = mempty
 
 -- | Constructor for 'EMRClusterApplication' containing required fields as

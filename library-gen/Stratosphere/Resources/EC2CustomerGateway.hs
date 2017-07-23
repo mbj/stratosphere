@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-customer-gateway.html
 
@@ -18,7 +19,7 @@ import Stratosphere.ResourceProperties.Tag
 -- 'ec2CustomerGateway' for a more convenient constructor.
 data EC2CustomerGateway =
   EC2CustomerGateway
-  { _eC2CustomerGatewayBgpAsn :: Val Integer'
+  { _eC2CustomerGatewayBgpAsn :: Val Integer
   , _eC2CustomerGatewayIpAddress :: Val Text
   , _eC2CustomerGatewayTags :: Maybe [Tag]
   , _eC2CustomerGatewayType :: Val Text
@@ -28,25 +29,25 @@ instance ToJSON EC2CustomerGateway where
   toJSON EC2CustomerGateway{..} =
     object $
     catMaybes
-    [ Just ("BgpAsn" .= _eC2CustomerGatewayBgpAsn)
-    , Just ("IpAddress" .= _eC2CustomerGatewayIpAddress)
-    , ("Tags" .=) <$> _eC2CustomerGatewayTags
-    , Just ("Type" .= _eC2CustomerGatewayType)
+    [ (Just . ("BgpAsn",) . toJSON . fmap Integer') _eC2CustomerGatewayBgpAsn
+    , (Just . ("IpAddress",) . toJSON) _eC2CustomerGatewayIpAddress
+    , fmap (("Tags",) . toJSON) _eC2CustomerGatewayTags
+    , (Just . ("Type",) . toJSON) _eC2CustomerGatewayType
     ]
 
 instance FromJSON EC2CustomerGateway where
   parseJSON (Object obj) =
     EC2CustomerGateway <$>
-      obj .: "BgpAsn" <*>
-      obj .: "IpAddress" <*>
-      obj .:? "Tags" <*>
-      obj .: "Type"
+      fmap (fmap unInteger') (obj .: "BgpAsn") <*>
+      (obj .: "IpAddress") <*>
+      (obj .:? "Tags") <*>
+      (obj .: "Type")
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2CustomerGateway' containing required fields as
 -- arguments.
 ec2CustomerGateway
-  :: Val Integer' -- ^ 'eccgBgpAsn'
+  :: Val Integer -- ^ 'eccgBgpAsn'
   -> Val Text -- ^ 'eccgIpAddress'
   -> Val Text -- ^ 'eccgType'
   -> EC2CustomerGateway
@@ -59,7 +60,7 @@ ec2CustomerGateway bgpAsnarg ipAddressarg typearg =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-customer-gateway.html#cfn-ec2-customergateway-bgpasn
-eccgBgpAsn :: Lens' EC2CustomerGateway (Val Integer')
+eccgBgpAsn :: Lens' EC2CustomerGateway (Val Integer)
 eccgBgpAsn = lens _eC2CustomerGatewayBgpAsn (\s a -> s { _eC2CustomerGatewayBgpAsn = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-customer-gateway.html#cfn-ec2-customergateway-ipaddress

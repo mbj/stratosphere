@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-recordsetgroup.html
 
@@ -28,19 +29,19 @@ instance ToJSON Route53RecordSetGroup where
   toJSON Route53RecordSetGroup{..} =
     object $
     catMaybes
-    [ ("Comment" .=) <$> _route53RecordSetGroupComment
-    , ("HostedZoneId" .=) <$> _route53RecordSetGroupHostedZoneId
-    , ("HostedZoneName" .=) <$> _route53RecordSetGroupHostedZoneName
-    , ("RecordSets" .=) <$> _route53RecordSetGroupRecordSets
+    [ fmap (("Comment",) . toJSON) _route53RecordSetGroupComment
+    , fmap (("HostedZoneId",) . toJSON) _route53RecordSetGroupHostedZoneId
+    , fmap (("HostedZoneName",) . toJSON) _route53RecordSetGroupHostedZoneName
+    , fmap (("RecordSets",) . toJSON) _route53RecordSetGroupRecordSets
     ]
 
 instance FromJSON Route53RecordSetGroup where
   parseJSON (Object obj) =
     Route53RecordSetGroup <$>
-      obj .:? "Comment" <*>
-      obj .:? "HostedZoneId" <*>
-      obj .:? "HostedZoneName" <*>
-      obj .:? "RecordSets"
+      (obj .:? "Comment") <*>
+      (obj .:? "HostedZoneId") <*>
+      (obj .:? "HostedZoneName") <*>
+      (obj .:? "RecordSets")
   parseJSON _ = mempty
 
 -- | Constructor for 'Route53RecordSetGroup' containing required fields as

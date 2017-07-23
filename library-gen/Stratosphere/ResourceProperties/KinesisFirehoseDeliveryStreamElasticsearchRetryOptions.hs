@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-kinesisdeliverystream-elasticsearchdestinationconfiguration-retryoptions.html
 
@@ -20,26 +21,26 @@ import Stratosphere.Values
 -- convenient constructor.
 data KinesisFirehoseDeliveryStreamElasticsearchRetryOptions =
   KinesisFirehoseDeliveryStreamElasticsearchRetryOptions
-  { _kinesisFirehoseDeliveryStreamElasticsearchRetryOptionsDurationInSeconds :: Val Integer'
+  { _kinesisFirehoseDeliveryStreamElasticsearchRetryOptionsDurationInSeconds :: Val Integer
   } deriving (Show, Eq)
 
 instance ToJSON KinesisFirehoseDeliveryStreamElasticsearchRetryOptions where
   toJSON KinesisFirehoseDeliveryStreamElasticsearchRetryOptions{..} =
     object $
     catMaybes
-    [ Just ("DurationInSeconds" .= _kinesisFirehoseDeliveryStreamElasticsearchRetryOptionsDurationInSeconds)
+    [ (Just . ("DurationInSeconds",) . toJSON . fmap Integer') _kinesisFirehoseDeliveryStreamElasticsearchRetryOptionsDurationInSeconds
     ]
 
 instance FromJSON KinesisFirehoseDeliveryStreamElasticsearchRetryOptions where
   parseJSON (Object obj) =
     KinesisFirehoseDeliveryStreamElasticsearchRetryOptions <$>
-      obj .: "DurationInSeconds"
+      fmap (fmap unInteger') (obj .: "DurationInSeconds")
   parseJSON _ = mempty
 
 -- | Constructor for 'KinesisFirehoseDeliveryStreamElasticsearchRetryOptions'
 -- containing required fields as arguments.
 kinesisFirehoseDeliveryStreamElasticsearchRetryOptions
-  :: Val Integer' -- ^ 'kfdseroDurationInSeconds'
+  :: Val Integer -- ^ 'kfdseroDurationInSeconds'
   -> KinesisFirehoseDeliveryStreamElasticsearchRetryOptions
 kinesisFirehoseDeliveryStreamElasticsearchRetryOptions durationInSecondsarg =
   KinesisFirehoseDeliveryStreamElasticsearchRetryOptions
@@ -47,5 +48,5 @@ kinesisFirehoseDeliveryStreamElasticsearchRetryOptions durationInSecondsarg =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-kinesisdeliverystream-elasticsearchdestinationconfiguration-retryoptions.html#cfn-kinesisfirehose-kinesisdeliverystream-elasticsearchdestinationconfiguration-retryoptions-durationinseconds
-kfdseroDurationInSeconds :: Lens' KinesisFirehoseDeliveryStreamElasticsearchRetryOptions (Val Integer')
+kfdseroDurationInSeconds :: Lens' KinesisFirehoseDeliveryStreamElasticsearchRetryOptions (Val Integer)
 kfdseroDurationInSeconds = lens _kinesisFirehoseDeliveryStreamElasticsearchRetryOptionsDurationInSeconds (\s a -> s { _kinesisFirehoseDeliveryStreamElasticsearchRetryOptionsDurationInSeconds = a })

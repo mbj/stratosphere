@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-ssmassociations.html
 
@@ -26,15 +27,15 @@ instance ToJSON EC2InstanceSsmAssociation where
   toJSON EC2InstanceSsmAssociation{..} =
     object $
     catMaybes
-    [ ("AssociationParameters" .=) <$> _eC2InstanceSsmAssociationAssociationParameters
-    , Just ("DocumentName" .= _eC2InstanceSsmAssociationDocumentName)
+    [ fmap (("AssociationParameters",) . toJSON) _eC2InstanceSsmAssociationAssociationParameters
+    , (Just . ("DocumentName",) . toJSON) _eC2InstanceSsmAssociationDocumentName
     ]
 
 instance FromJSON EC2InstanceSsmAssociation where
   parseJSON (Object obj) =
     EC2InstanceSsmAssociation <$>
-      obj .:? "AssociationParameters" <*>
-      obj .: "DocumentName"
+      (obj .:? "AssociationParameters") <*>
+      (obj .: "DocumentName")
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2InstanceSsmAssociation' containing required fields as

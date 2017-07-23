@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route-table.html
 
@@ -26,15 +27,15 @@ instance ToJSON EC2RouteTable where
   toJSON EC2RouteTable{..} =
     object $
     catMaybes
-    [ ("Tags" .=) <$> _eC2RouteTableTags
-    , Just ("VpcId" .= _eC2RouteTableVpcId)
+    [ fmap (("Tags",) . toJSON) _eC2RouteTableTags
+    , (Just . ("VpcId",) . toJSON) _eC2RouteTableVpcId
     ]
 
 instance FromJSON EC2RouteTable where
   parseJSON (Object obj) =
     EC2RouteTable <$>
-      obj .:? "Tags" <*>
-      obj .: "VpcId"
+      (obj .:? "Tags") <*>
+      (obj .: "VpcId")
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2RouteTable' containing required fields as arguments.

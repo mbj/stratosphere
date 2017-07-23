@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datapipeline-pipeline.html
 
@@ -21,7 +22,7 @@ import Stratosphere.ResourceProperties.DataPipelinePipelinePipelineTag
 -- 'dataPipelinePipeline' for a more convenient constructor.
 data DataPipelinePipeline =
   DataPipelinePipeline
-  { _dataPipelinePipelineActivate :: Maybe (Val Bool')
+  { _dataPipelinePipelineActivate :: Maybe (Val Bool)
   , _dataPipelinePipelineDescription :: Maybe (Val Text)
   , _dataPipelinePipelineName :: Val Text
   , _dataPipelinePipelineParameterObjects :: [DataPipelinePipelineParameterObject]
@@ -34,25 +35,25 @@ instance ToJSON DataPipelinePipeline where
   toJSON DataPipelinePipeline{..} =
     object $
     catMaybes
-    [ ("Activate" .=) <$> _dataPipelinePipelineActivate
-    , ("Description" .=) <$> _dataPipelinePipelineDescription
-    , Just ("Name" .= _dataPipelinePipelineName)
-    , Just ("ParameterObjects" .= _dataPipelinePipelineParameterObjects)
-    , ("ParameterValues" .=) <$> _dataPipelinePipelineParameterValues
-    , ("PipelineObjects" .=) <$> _dataPipelinePipelinePipelineObjects
-    , ("PipelineTags" .=) <$> _dataPipelinePipelinePipelineTags
+    [ fmap (("Activate",) . toJSON . fmap Bool') _dataPipelinePipelineActivate
+    , fmap (("Description",) . toJSON) _dataPipelinePipelineDescription
+    , (Just . ("Name",) . toJSON) _dataPipelinePipelineName
+    , (Just . ("ParameterObjects",) . toJSON) _dataPipelinePipelineParameterObjects
+    , fmap (("ParameterValues",) . toJSON) _dataPipelinePipelineParameterValues
+    , fmap (("PipelineObjects",) . toJSON) _dataPipelinePipelinePipelineObjects
+    , fmap (("PipelineTags",) . toJSON) _dataPipelinePipelinePipelineTags
     ]
 
 instance FromJSON DataPipelinePipeline where
   parseJSON (Object obj) =
     DataPipelinePipeline <$>
-      obj .:? "Activate" <*>
-      obj .:? "Description" <*>
-      obj .: "Name" <*>
-      obj .: "ParameterObjects" <*>
-      obj .:? "ParameterValues" <*>
-      obj .:? "PipelineObjects" <*>
-      obj .:? "PipelineTags"
+      fmap (fmap (fmap unBool')) (obj .:? "Activate") <*>
+      (obj .:? "Description") <*>
+      (obj .: "Name") <*>
+      (obj .: "ParameterObjects") <*>
+      (obj .:? "ParameterValues") <*>
+      (obj .:? "PipelineObjects") <*>
+      (obj .:? "PipelineTags")
   parseJSON _ = mempty
 
 -- | Constructor for 'DataPipelinePipeline' containing required fields as
@@ -73,7 +74,7 @@ dataPipelinePipeline namearg parameterObjectsarg =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datapipeline-pipeline.html#cfn-datapipeline-pipeline-activate
-dppActivate :: Lens' DataPipelinePipeline (Maybe (Val Bool'))
+dppActivate :: Lens' DataPipelinePipeline (Maybe (Val Bool))
 dppActivate = lens _dataPipelinePipelineActivate (\s a -> s { _dataPipelinePipelineActivate = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datapipeline-pipeline.html#cfn-datapipeline-pipeline-description

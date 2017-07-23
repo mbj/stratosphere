@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-taskdefinitionplacementconstraint.html
 
@@ -28,15 +29,15 @@ instance ToJSON ECSTaskDefinitionTaskDefinitionPlacementConstraint where
   toJSON ECSTaskDefinitionTaskDefinitionPlacementConstraint{..} =
     object $
     catMaybes
-    [ ("Expression" .=) <$> _eCSTaskDefinitionTaskDefinitionPlacementConstraintExpression
-    , Just ("Type" .= _eCSTaskDefinitionTaskDefinitionPlacementConstraintType)
+    [ fmap (("Expression",) . toJSON) _eCSTaskDefinitionTaskDefinitionPlacementConstraintExpression
+    , (Just . ("Type",) . toJSON) _eCSTaskDefinitionTaskDefinitionPlacementConstraintType
     ]
 
 instance FromJSON ECSTaskDefinitionTaskDefinitionPlacementConstraint where
   parseJSON (Object obj) =
     ECSTaskDefinitionTaskDefinitionPlacementConstraint <$>
-      obj .:? "Expression" <*>
-      obj .: "Type"
+      (obj .:? "Expression") <*>
+      (obj .: "Type")
   parseJSON _ = mempty
 
 -- | Constructor for 'ECSTaskDefinitionTaskDefinitionPlacementConstraint'

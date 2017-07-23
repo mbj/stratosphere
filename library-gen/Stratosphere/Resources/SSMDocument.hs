@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html
 
@@ -26,15 +27,15 @@ instance ToJSON SSMDocument where
   toJSON SSMDocument{..} =
     object $
     catMaybes
-    [ Just ("Content" .= _sSMDocumentContent)
-    , ("DocumentType" .=) <$> _sSMDocumentDocumentType
+    [ (Just . ("Content",) . toJSON) _sSMDocumentContent
+    , fmap (("DocumentType",) . toJSON) _sSMDocumentDocumentType
     ]
 
 instance FromJSON SSMDocument where
   parseJSON (Object obj) =
     SSMDocument <$>
-      obj .: "Content" <*>
-      obj .:? "DocumentType"
+      (obj .: "Content") <*>
+      (obj .:? "DocumentType")
   parseJSON _ = mempty
 
 -- | Constructor for 'SSMDocument' containing required fields as arguments.

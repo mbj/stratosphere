@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-scalingrule.html
 
@@ -29,19 +30,19 @@ instance ToJSON EMRClusterScalingRule where
   toJSON EMRClusterScalingRule{..} =
     object $
     catMaybes
-    [ Just ("Action" .= _eMRClusterScalingRuleAction)
-    , ("Description" .=) <$> _eMRClusterScalingRuleDescription
-    , Just ("Name" .= _eMRClusterScalingRuleName)
-    , Just ("Trigger" .= _eMRClusterScalingRuleTrigger)
+    [ (Just . ("Action",) . toJSON) _eMRClusterScalingRuleAction
+    , fmap (("Description",) . toJSON) _eMRClusterScalingRuleDescription
+    , (Just . ("Name",) . toJSON) _eMRClusterScalingRuleName
+    , (Just . ("Trigger",) . toJSON) _eMRClusterScalingRuleTrigger
     ]
 
 instance FromJSON EMRClusterScalingRule where
   parseJSON (Object obj) =
     EMRClusterScalingRule <$>
-      obj .: "Action" <*>
-      obj .:? "Description" <*>
-      obj .: "Name" <*>
-      obj .: "Trigger"
+      (obj .: "Action") <*>
+      (obj .:? "Description") <*>
+      (obj .: "Name") <*>
+      (obj .: "Trigger")
   parseJSON _ = mempty
 
 -- | Constructor for 'EMRClusterScalingRule' containing required fields as

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-step-keyvalue.html
 
@@ -26,15 +27,15 @@ instance ToJSON EMRStepKeyValue where
   toJSON EMRStepKeyValue{..} =
     object $
     catMaybes
-    [ ("Key" .=) <$> _eMRStepKeyValueKey
-    , ("Value" .=) <$> _eMRStepKeyValueValue
+    [ fmap (("Key",) . toJSON) _eMRStepKeyValueKey
+    , fmap (("Value",) . toJSON) _eMRStepKeyValueValue
     ]
 
 instance FromJSON EMRStepKeyValue where
   parseJSON (Object obj) =
     EMRStepKeyValue <$>
-      obj .:? "Key" <*>
-      obj .:? "Value"
+      (obj .:? "Key") <*>
+      (obj .:? "Value")
   parseJSON _ = mempty
 
 -- | Constructor for 'EMRStepKeyValue' containing required fields as

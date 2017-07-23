@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-forwardedvalues.html
 
@@ -21,7 +22,7 @@ data CloudFrontDistributionForwardedValues =
   CloudFrontDistributionForwardedValues
   { _cloudFrontDistributionForwardedValuesCookies :: Maybe CloudFrontDistributionCookies
   , _cloudFrontDistributionForwardedValuesHeaders :: Maybe (ValList Text)
-  , _cloudFrontDistributionForwardedValuesQueryString :: Val Bool'
+  , _cloudFrontDistributionForwardedValuesQueryString :: Val Bool
   , _cloudFrontDistributionForwardedValuesQueryStringCacheKeys :: Maybe (ValList Text)
   } deriving (Show, Eq)
 
@@ -29,25 +30,25 @@ instance ToJSON CloudFrontDistributionForwardedValues where
   toJSON CloudFrontDistributionForwardedValues{..} =
     object $
     catMaybes
-    [ ("Cookies" .=) <$> _cloudFrontDistributionForwardedValuesCookies
-    , ("Headers" .=) <$> _cloudFrontDistributionForwardedValuesHeaders
-    , Just ("QueryString" .= _cloudFrontDistributionForwardedValuesQueryString)
-    , ("QueryStringCacheKeys" .=) <$> _cloudFrontDistributionForwardedValuesQueryStringCacheKeys
+    [ fmap (("Cookies",) . toJSON) _cloudFrontDistributionForwardedValuesCookies
+    , fmap (("Headers",) . toJSON) _cloudFrontDistributionForwardedValuesHeaders
+    , (Just . ("QueryString",) . toJSON . fmap Bool') _cloudFrontDistributionForwardedValuesQueryString
+    , fmap (("QueryStringCacheKeys",) . toJSON) _cloudFrontDistributionForwardedValuesQueryStringCacheKeys
     ]
 
 instance FromJSON CloudFrontDistributionForwardedValues where
   parseJSON (Object obj) =
     CloudFrontDistributionForwardedValues <$>
-      obj .:? "Cookies" <*>
-      obj .:? "Headers" <*>
-      obj .: "QueryString" <*>
-      obj .:? "QueryStringCacheKeys"
+      (obj .:? "Cookies") <*>
+      (obj .:? "Headers") <*>
+      fmap (fmap unBool') (obj .: "QueryString") <*>
+      (obj .:? "QueryStringCacheKeys")
   parseJSON _ = mempty
 
 -- | Constructor for 'CloudFrontDistributionForwardedValues' containing
 -- required fields as arguments.
 cloudFrontDistributionForwardedValues
-  :: Val Bool' -- ^ 'cfdfvQueryString'
+  :: Val Bool -- ^ 'cfdfvQueryString'
   -> CloudFrontDistributionForwardedValues
 cloudFrontDistributionForwardedValues queryStringarg =
   CloudFrontDistributionForwardedValues
@@ -66,7 +67,7 @@ cfdfvHeaders :: Lens' CloudFrontDistributionForwardedValues (Maybe (ValList Text
 cfdfvHeaders = lens _cloudFrontDistributionForwardedValuesHeaders (\s a -> s { _cloudFrontDistributionForwardedValuesHeaders = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-forwardedvalues.html#cfn-cloudfront-forwardedvalues-querystring
-cfdfvQueryString :: Lens' CloudFrontDistributionForwardedValues (Val Bool')
+cfdfvQueryString :: Lens' CloudFrontDistributionForwardedValues (Val Bool)
 cfdfvQueryString = lens _cloudFrontDistributionForwardedValuesQueryString (\s a -> s { _cloudFrontDistributionForwardedValuesQueryString = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-forwardedvalues.html#cfn-cloudfront-forwardedvalues-querystringcachekeys

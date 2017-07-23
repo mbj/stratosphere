@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-mongodbsettings.html
 
@@ -26,7 +27,7 @@ data DMSEndpointMongoDbSettings =
   , _dMSEndpointMongoDbSettingsExtractDocId :: Maybe (Val Text)
   , _dMSEndpointMongoDbSettingsNestingLevel :: Maybe (Val Text)
   , _dMSEndpointMongoDbSettingsPassword :: Maybe (Val Text)
-  , _dMSEndpointMongoDbSettingsPort :: Maybe (Val Integer')
+  , _dMSEndpointMongoDbSettingsPort :: Maybe (Val Integer)
   , _dMSEndpointMongoDbSettingsServerName :: Maybe (Val Text)
   , _dMSEndpointMongoDbSettingsUsername :: Maybe (Val Text)
   } deriving (Show, Eq)
@@ -35,33 +36,33 @@ instance ToJSON DMSEndpointMongoDbSettings where
   toJSON DMSEndpointMongoDbSettings{..} =
     object $
     catMaybes
-    [ ("AuthMechanism" .=) <$> _dMSEndpointMongoDbSettingsAuthMechanism
-    , ("AuthSource" .=) <$> _dMSEndpointMongoDbSettingsAuthSource
-    , ("AuthType" .=) <$> _dMSEndpointMongoDbSettingsAuthType
-    , ("DatabaseName" .=) <$> _dMSEndpointMongoDbSettingsDatabaseName
-    , ("DocsToInvestigate" .=) <$> _dMSEndpointMongoDbSettingsDocsToInvestigate
-    , ("ExtractDocId" .=) <$> _dMSEndpointMongoDbSettingsExtractDocId
-    , ("NestingLevel" .=) <$> _dMSEndpointMongoDbSettingsNestingLevel
-    , ("Password" .=) <$> _dMSEndpointMongoDbSettingsPassword
-    , ("Port" .=) <$> _dMSEndpointMongoDbSettingsPort
-    , ("ServerName" .=) <$> _dMSEndpointMongoDbSettingsServerName
-    , ("Username" .=) <$> _dMSEndpointMongoDbSettingsUsername
+    [ fmap (("AuthMechanism",) . toJSON) _dMSEndpointMongoDbSettingsAuthMechanism
+    , fmap (("AuthSource",) . toJSON) _dMSEndpointMongoDbSettingsAuthSource
+    , fmap (("AuthType",) . toJSON) _dMSEndpointMongoDbSettingsAuthType
+    , fmap (("DatabaseName",) . toJSON) _dMSEndpointMongoDbSettingsDatabaseName
+    , fmap (("DocsToInvestigate",) . toJSON) _dMSEndpointMongoDbSettingsDocsToInvestigate
+    , fmap (("ExtractDocId",) . toJSON) _dMSEndpointMongoDbSettingsExtractDocId
+    , fmap (("NestingLevel",) . toJSON) _dMSEndpointMongoDbSettingsNestingLevel
+    , fmap (("Password",) . toJSON) _dMSEndpointMongoDbSettingsPassword
+    , fmap (("Port",) . toJSON . fmap Integer') _dMSEndpointMongoDbSettingsPort
+    , fmap (("ServerName",) . toJSON) _dMSEndpointMongoDbSettingsServerName
+    , fmap (("Username",) . toJSON) _dMSEndpointMongoDbSettingsUsername
     ]
 
 instance FromJSON DMSEndpointMongoDbSettings where
   parseJSON (Object obj) =
     DMSEndpointMongoDbSettings <$>
-      obj .:? "AuthMechanism" <*>
-      obj .:? "AuthSource" <*>
-      obj .:? "AuthType" <*>
-      obj .:? "DatabaseName" <*>
-      obj .:? "DocsToInvestigate" <*>
-      obj .:? "ExtractDocId" <*>
-      obj .:? "NestingLevel" <*>
-      obj .:? "Password" <*>
-      obj .:? "Port" <*>
-      obj .:? "ServerName" <*>
-      obj .:? "Username"
+      (obj .:? "AuthMechanism") <*>
+      (obj .:? "AuthSource") <*>
+      (obj .:? "AuthType") <*>
+      (obj .:? "DatabaseName") <*>
+      (obj .:? "DocsToInvestigate") <*>
+      (obj .:? "ExtractDocId") <*>
+      (obj .:? "NestingLevel") <*>
+      (obj .:? "Password") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "Port") <*>
+      (obj .:? "ServerName") <*>
+      (obj .:? "Username")
   parseJSON _ = mempty
 
 -- | Constructor for 'DMSEndpointMongoDbSettings' containing required fields
@@ -116,7 +117,7 @@ dmsemdsPassword :: Lens' DMSEndpointMongoDbSettings (Maybe (Val Text))
 dmsemdsPassword = lens _dMSEndpointMongoDbSettingsPassword (\s a -> s { _dMSEndpointMongoDbSettingsPassword = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-mongodbsettings.html#cfn-dms-endpoint-mongodbsettings-port
-dmsemdsPort :: Lens' DMSEndpointMongoDbSettings (Maybe (Val Integer'))
+dmsemdsPort :: Lens' DMSEndpointMongoDbSettings (Maybe (Val Integer))
 dmsemdsPort = lens _dMSEndpointMongoDbSettingsPort (\s a -> s { _dMSEndpointMongoDbSettingsPort = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-mongodbsettings.html#cfn-dms-endpoint-mongodbsettings-servername

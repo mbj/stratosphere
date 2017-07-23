@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpn-connection.html
 
@@ -19,7 +20,7 @@ import Stratosphere.ResourceProperties.Tag
 data EC2VPNConnection =
   EC2VPNConnection
   { _eC2VPNConnectionCustomerGatewayId :: Val Text
-  , _eC2VPNConnectionStaticRoutesOnly :: Maybe (Val Bool')
+  , _eC2VPNConnectionStaticRoutesOnly :: Maybe (Val Bool)
   , _eC2VPNConnectionTags :: Maybe [Tag]
   , _eC2VPNConnectionType :: Val Text
   , _eC2VPNConnectionVpnGatewayId :: Val Text
@@ -29,21 +30,21 @@ instance ToJSON EC2VPNConnection where
   toJSON EC2VPNConnection{..} =
     object $
     catMaybes
-    [ Just ("CustomerGatewayId" .= _eC2VPNConnectionCustomerGatewayId)
-    , ("StaticRoutesOnly" .=) <$> _eC2VPNConnectionStaticRoutesOnly
-    , ("Tags" .=) <$> _eC2VPNConnectionTags
-    , Just ("Type" .= _eC2VPNConnectionType)
-    , Just ("VpnGatewayId" .= _eC2VPNConnectionVpnGatewayId)
+    [ (Just . ("CustomerGatewayId",) . toJSON) _eC2VPNConnectionCustomerGatewayId
+    , fmap (("StaticRoutesOnly",) . toJSON . fmap Bool') _eC2VPNConnectionStaticRoutesOnly
+    , fmap (("Tags",) . toJSON) _eC2VPNConnectionTags
+    , (Just . ("Type",) . toJSON) _eC2VPNConnectionType
+    , (Just . ("VpnGatewayId",) . toJSON) _eC2VPNConnectionVpnGatewayId
     ]
 
 instance FromJSON EC2VPNConnection where
   parseJSON (Object obj) =
     EC2VPNConnection <$>
-      obj .: "CustomerGatewayId" <*>
-      obj .:? "StaticRoutesOnly" <*>
-      obj .:? "Tags" <*>
-      obj .: "Type" <*>
-      obj .: "VpnGatewayId"
+      (obj .: "CustomerGatewayId") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "StaticRoutesOnly") <*>
+      (obj .:? "Tags") <*>
+      (obj .: "Type") <*>
+      (obj .: "VpnGatewayId")
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2VPNConnection' containing required fields as
@@ -67,7 +68,7 @@ ecvpncCustomerGatewayId :: Lens' EC2VPNConnection (Val Text)
 ecvpncCustomerGatewayId = lens _eC2VPNConnectionCustomerGatewayId (\s a -> s { _eC2VPNConnectionCustomerGatewayId = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpn-connection.html#cfn-ec2-vpnconnection-StaticRoutesOnly
-ecvpncStaticRoutesOnly :: Lens' EC2VPNConnection (Maybe (Val Bool'))
+ecvpncStaticRoutesOnly :: Lens' EC2VPNConnection (Maybe (Val Bool))
 ecvpncStaticRoutesOnly = lens _eC2VPNConnectionStaticRoutesOnly (\s a -> s { _eC2VPNConnectionStaticRoutesOnly = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpn-connection.html#cfn-ec2-vpnconnection-tags

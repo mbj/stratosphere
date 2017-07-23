@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpn-gatewayrouteprop.html
 
@@ -26,15 +27,15 @@ instance ToJSON EC2VPNGatewayRoutePropagation where
   toJSON EC2VPNGatewayRoutePropagation{..} =
     object $
     catMaybes
-    [ Just ("RouteTableIds" .= _eC2VPNGatewayRoutePropagationRouteTableIds)
-    , Just ("VpnGatewayId" .= _eC2VPNGatewayRoutePropagationVpnGatewayId)
+    [ (Just . ("RouteTableIds",) . toJSON) _eC2VPNGatewayRoutePropagationRouteTableIds
+    , (Just . ("VpnGatewayId",) . toJSON) _eC2VPNGatewayRoutePropagationVpnGatewayId
     ]
 
 instance FromJSON EC2VPNGatewayRoutePropagation where
   parseJSON (Object obj) =
     EC2VPNGatewayRoutePropagation <$>
-      obj .: "RouteTableIds" <*>
-      obj .: "VpnGatewayId"
+      (obj .: "RouteTableIds") <*>
+      (obj .: "VpnGatewayId")
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2VPNGatewayRoutePropagation' containing required

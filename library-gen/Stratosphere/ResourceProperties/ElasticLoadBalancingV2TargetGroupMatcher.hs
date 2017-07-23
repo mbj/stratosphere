@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-targetgroup-matcher.html
 
@@ -26,13 +27,13 @@ instance ToJSON ElasticLoadBalancingV2TargetGroupMatcher where
   toJSON ElasticLoadBalancingV2TargetGroupMatcher{..} =
     object $
     catMaybes
-    [ Just ("HttpCode" .= _elasticLoadBalancingV2TargetGroupMatcherHttpCode)
+    [ (Just . ("HttpCode",) . toJSON) _elasticLoadBalancingV2TargetGroupMatcherHttpCode
     ]
 
 instance FromJSON ElasticLoadBalancingV2TargetGroupMatcher where
   parseJSON (Object obj) =
     ElasticLoadBalancingV2TargetGroupMatcher <$>
-      obj .: "HttpCode"
+      (obj .: "HttpCode")
   parseJSON _ = mempty
 
 -- | Constructor for 'ElasticLoadBalancingV2TargetGroupMatcher' containing

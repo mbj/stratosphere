@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html
 
@@ -20,7 +21,7 @@ data EC2Subnet =
   EC2Subnet
   { _eC2SubnetAvailabilityZone :: Maybe (Val Text)
   , _eC2SubnetCidrBlock :: Val Text
-  , _eC2SubnetMapPublicIpOnLaunch :: Maybe (Val Bool')
+  , _eC2SubnetMapPublicIpOnLaunch :: Maybe (Val Bool)
   , _eC2SubnetTags :: Maybe [Tag]
   , _eC2SubnetVpcId :: Val Text
   } deriving (Show, Eq)
@@ -29,21 +30,21 @@ instance ToJSON EC2Subnet where
   toJSON EC2Subnet{..} =
     object $
     catMaybes
-    [ ("AvailabilityZone" .=) <$> _eC2SubnetAvailabilityZone
-    , Just ("CidrBlock" .= _eC2SubnetCidrBlock)
-    , ("MapPublicIpOnLaunch" .=) <$> _eC2SubnetMapPublicIpOnLaunch
-    , ("Tags" .=) <$> _eC2SubnetTags
-    , Just ("VpcId" .= _eC2SubnetVpcId)
+    [ fmap (("AvailabilityZone",) . toJSON) _eC2SubnetAvailabilityZone
+    , (Just . ("CidrBlock",) . toJSON) _eC2SubnetCidrBlock
+    , fmap (("MapPublicIpOnLaunch",) . toJSON . fmap Bool') _eC2SubnetMapPublicIpOnLaunch
+    , fmap (("Tags",) . toJSON) _eC2SubnetTags
+    , (Just . ("VpcId",) . toJSON) _eC2SubnetVpcId
     ]
 
 instance FromJSON EC2Subnet where
   parseJSON (Object obj) =
     EC2Subnet <$>
-      obj .:? "AvailabilityZone" <*>
-      obj .: "CidrBlock" <*>
-      obj .:? "MapPublicIpOnLaunch" <*>
-      obj .:? "Tags" <*>
-      obj .: "VpcId"
+      (obj .:? "AvailabilityZone") <*>
+      (obj .: "CidrBlock") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "MapPublicIpOnLaunch") <*>
+      (obj .:? "Tags") <*>
+      (obj .: "VpcId")
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2Subnet' containing required fields as arguments.
@@ -69,7 +70,7 @@ ecsCidrBlock :: Lens' EC2Subnet (Val Text)
 ecsCidrBlock = lens _eC2SubnetCidrBlock (\s a -> s { _eC2SubnetCidrBlock = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html#cfn-ec2-subnet-mappubliciponlaunch
-ecsMapPublicIpOnLaunch :: Lens' EC2Subnet (Maybe (Val Bool'))
+ecsMapPublicIpOnLaunch :: Lens' EC2Subnet (Maybe (Val Bool))
 ecsMapPublicIpOnLaunch = lens _eC2SubnetMapPublicIpOnLaunch (\s a -> s { _eC2SubnetMapPublicIpOnLaunch = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html#cfn-ec2-subnet-tags

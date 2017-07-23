@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-lsi.html
 
@@ -28,17 +29,17 @@ instance ToJSON DynamoDBTableLocalSecondaryIndex where
   toJSON DynamoDBTableLocalSecondaryIndex{..} =
     object $
     catMaybes
-    [ Just ("IndexName" .= _dynamoDBTableLocalSecondaryIndexIndexName)
-    , Just ("KeySchema" .= _dynamoDBTableLocalSecondaryIndexKeySchema)
-    , Just ("Projection" .= _dynamoDBTableLocalSecondaryIndexProjection)
+    [ (Just . ("IndexName",) . toJSON) _dynamoDBTableLocalSecondaryIndexIndexName
+    , (Just . ("KeySchema",) . toJSON) _dynamoDBTableLocalSecondaryIndexKeySchema
+    , (Just . ("Projection",) . toJSON) _dynamoDBTableLocalSecondaryIndexProjection
     ]
 
 instance FromJSON DynamoDBTableLocalSecondaryIndex where
   parseJSON (Object obj) =
     DynamoDBTableLocalSecondaryIndex <$>
-      obj .: "IndexName" <*>
-      obj .: "KeySchema" <*>
-      obj .: "Projection"
+      (obj .: "IndexName") <*>
+      (obj .: "KeySchema") <*>
+      (obj .: "Projection")
   parseJSON _ = mempty
 
 -- | Constructor for 'DynamoDBTableLocalSecondaryIndex' containing required

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbsubnet-group.html
 
@@ -27,17 +28,17 @@ instance ToJSON RDSDBSubnetGroup where
   toJSON RDSDBSubnetGroup{..} =
     object $
     catMaybes
-    [ Just ("DBSubnetGroupDescription" .= _rDSDBSubnetGroupDBSubnetGroupDescription)
-    , Just ("SubnetIds" .= _rDSDBSubnetGroupSubnetIds)
-    , ("Tags" .=) <$> _rDSDBSubnetGroupTags
+    [ (Just . ("DBSubnetGroupDescription",) . toJSON) _rDSDBSubnetGroupDBSubnetGroupDescription
+    , (Just . ("SubnetIds",) . toJSON) _rDSDBSubnetGroupSubnetIds
+    , fmap (("Tags",) . toJSON) _rDSDBSubnetGroupTags
     ]
 
 instance FromJSON RDSDBSubnetGroup where
   parseJSON (Object obj) =
     RDSDBSubnetGroup <$>
-      obj .: "DBSubnetGroupDescription" <*>
-      obj .: "SubnetIds" <*>
-      obj .:? "Tags"
+      (obj .: "DBSubnetGroupDescription") <*>
+      (obj .: "SubnetIds") <*>
+      (obj .:? "Tags")
   parseJSON _ = mempty
 
 -- | Constructor for 'RDSDBSubnetGroup' containing required fields as

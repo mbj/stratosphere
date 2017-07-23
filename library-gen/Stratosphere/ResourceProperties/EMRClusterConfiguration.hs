@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-configuration.html
 
@@ -27,17 +28,17 @@ instance ToJSON EMRClusterConfiguration where
   toJSON EMRClusterConfiguration{..} =
     object $
     catMaybes
-    [ ("Classification" .=) <$> _eMRClusterConfigurationClassification
-    , ("ConfigurationProperties" .=) <$> _eMRClusterConfigurationConfigurationProperties
-    , ("Configurations" .=) <$> _eMRClusterConfigurationConfigurations
+    [ fmap (("Classification",) . toJSON) _eMRClusterConfigurationClassification
+    , fmap (("ConfigurationProperties",) . toJSON) _eMRClusterConfigurationConfigurationProperties
+    , fmap (("Configurations",) . toJSON) _eMRClusterConfigurationConfigurations
     ]
 
 instance FromJSON EMRClusterConfiguration where
   parseJSON (Object obj) =
     EMRClusterConfiguration <$>
-      obj .:? "Classification" <*>
-      obj .:? "ConfigurationProperties" <*>
-      obj .:? "Configurations"
+      (obj .:? "Classification") <*>
+      (obj .:? "ConfigurationProperties") <*>
+      (obj .:? "Configurations")
   parseJSON _ = mempty
 
 -- | Constructor for 'EMRClusterConfiguration' containing required fields as

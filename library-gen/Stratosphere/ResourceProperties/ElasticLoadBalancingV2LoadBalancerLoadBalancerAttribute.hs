@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-loadbalancerattributes.html
 
@@ -28,15 +29,15 @@ instance ToJSON ElasticLoadBalancingV2LoadBalancerLoadBalancerAttribute where
   toJSON ElasticLoadBalancingV2LoadBalancerLoadBalancerAttribute{..} =
     object $
     catMaybes
-    [ ("Key" .=) <$> _elasticLoadBalancingV2LoadBalancerLoadBalancerAttributeKey
-    , ("Value" .=) <$> _elasticLoadBalancingV2LoadBalancerLoadBalancerAttributeValue
+    [ fmap (("Key",) . toJSON) _elasticLoadBalancingV2LoadBalancerLoadBalancerAttributeKey
+    , fmap (("Value",) . toJSON) _elasticLoadBalancingV2LoadBalancerLoadBalancerAttributeValue
     ]
 
 instance FromJSON ElasticLoadBalancingV2LoadBalancerLoadBalancerAttribute where
   parseJSON (Object obj) =
     ElasticLoadBalancingV2LoadBalancerLoadBalancerAttribute <$>
-      obj .:? "Key" <*>
-      obj .:? "Value"
+      (obj .:? "Key") <*>
+      (obj .:? "Value")
   parseJSON _ = mempty
 
 -- | Constructor for 'ElasticLoadBalancingV2LoadBalancerLoadBalancerAttribute'

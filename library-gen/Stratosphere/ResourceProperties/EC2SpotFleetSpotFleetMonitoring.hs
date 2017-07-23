@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-monitoring.html
 
@@ -18,20 +19,20 @@ import Stratosphere.Values
 -- 'ec2SpotFleetSpotFleetMonitoring' for a more convenient constructor.
 data EC2SpotFleetSpotFleetMonitoring =
   EC2SpotFleetSpotFleetMonitoring
-  { _eC2SpotFleetSpotFleetMonitoringEnabled :: Maybe (Val Bool')
+  { _eC2SpotFleetSpotFleetMonitoringEnabled :: Maybe (Val Bool)
   } deriving (Show, Eq)
 
 instance ToJSON EC2SpotFleetSpotFleetMonitoring where
   toJSON EC2SpotFleetSpotFleetMonitoring{..} =
     object $
     catMaybes
-    [ ("Enabled" .=) <$> _eC2SpotFleetSpotFleetMonitoringEnabled
+    [ fmap (("Enabled",) . toJSON . fmap Bool') _eC2SpotFleetSpotFleetMonitoringEnabled
     ]
 
 instance FromJSON EC2SpotFleetSpotFleetMonitoring where
   parseJSON (Object obj) =
     EC2SpotFleetSpotFleetMonitoring <$>
-      obj .:? "Enabled"
+      fmap (fmap (fmap unBool')) (obj .:? "Enabled")
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2SpotFleetSpotFleetMonitoring' containing required
@@ -44,5 +45,5 @@ ec2SpotFleetSpotFleetMonitoring  =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-monitoring.html#cfn-ec2-spotfleet-spotfleetmonitoring-enabled
-ecsfsfmEnabled :: Lens' EC2SpotFleetSpotFleetMonitoring (Maybe (Val Bool'))
+ecsfsfmEnabled :: Lens' EC2SpotFleetSpotFleetMonitoring (Maybe (Val Bool))
 ecsfsfmEnabled = lens _eC2SpotFleetSpotFleetMonitoringEnabled (\s a -> s { _eC2SpotFleetSpotFleetMonitoringEnabled = a })

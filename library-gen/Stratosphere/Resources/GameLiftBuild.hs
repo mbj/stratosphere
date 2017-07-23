@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-build.html
 
@@ -27,17 +28,17 @@ instance ToJSON GameLiftBuild where
   toJSON GameLiftBuild{..} =
     object $
     catMaybes
-    [ ("Name" .=) <$> _gameLiftBuildName
-    , ("StorageLocation" .=) <$> _gameLiftBuildStorageLocation
-    , ("Version" .=) <$> _gameLiftBuildVersion
+    [ fmap (("Name",) . toJSON) _gameLiftBuildName
+    , fmap (("StorageLocation",) . toJSON) _gameLiftBuildStorageLocation
+    , fmap (("Version",) . toJSON) _gameLiftBuildVersion
     ]
 
 instance FromJSON GameLiftBuild where
   parseJSON (Object obj) =
     GameLiftBuild <$>
-      obj .:? "Name" <*>
-      obj .:? "StorageLocation" <*>
-      obj .:? "Version"
+      (obj .:? "Name") <*>
+      (obj .:? "StorageLocation") <*>
+      (obj .:? "Version")
   parseJSON _ = mempty
 
 -- | Constructor for 'GameLiftBuild' containing required fields as arguments.

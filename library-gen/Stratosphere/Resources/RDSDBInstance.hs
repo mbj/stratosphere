@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html
 
@@ -19,12 +20,12 @@ import Stratosphere.ResourceProperties.Tag
 data RDSDBInstance =
   RDSDBInstance
   { _rDSDBInstanceAllocatedStorage :: Maybe (Val Text)
-  , _rDSDBInstanceAllowMajorVersionUpgrade :: Maybe (Val Bool')
-  , _rDSDBInstanceAutoMinorVersionUpgrade :: Maybe (Val Bool')
+  , _rDSDBInstanceAllowMajorVersionUpgrade :: Maybe (Val Bool)
+  , _rDSDBInstanceAutoMinorVersionUpgrade :: Maybe (Val Bool)
   , _rDSDBInstanceAvailabilityZone :: Maybe (Val Text)
   , _rDSDBInstanceBackupRetentionPeriod :: Maybe (Val Text)
   , _rDSDBInstanceCharacterSetName :: Maybe (Val Text)
-  , _rDSDBInstanceCopyTagsToSnapshot :: Maybe (Val Bool')
+  , _rDSDBInstanceCopyTagsToSnapshot :: Maybe (Val Bool)
   , _rDSDBInstanceDBClusterIdentifier :: Maybe (Val Text)
   , _rDSDBInstanceDBInstanceClass :: Val Text
   , _rDSDBInstanceDBInstanceIdentifier :: Maybe (Val Text)
@@ -37,21 +38,21 @@ data RDSDBInstance =
   , _rDSDBInstanceDomainIAMRoleName :: Maybe (Val Text)
   , _rDSDBInstanceEngine :: Maybe (Val Text)
   , _rDSDBInstanceEngineVersion :: Maybe (Val Text)
-  , _rDSDBInstanceIops :: Maybe (Val Integer')
+  , _rDSDBInstanceIops :: Maybe (Val Integer)
   , _rDSDBInstanceKmsKeyId :: Maybe (Val Text)
   , _rDSDBInstanceLicenseModel :: Maybe (Val Text)
   , _rDSDBInstanceMasterUserPassword :: Maybe (Val Text)
   , _rDSDBInstanceMasterUsername :: Maybe (Val Text)
-  , _rDSDBInstanceMonitoringInterval :: Maybe (Val Integer')
+  , _rDSDBInstanceMonitoringInterval :: Maybe (Val Integer)
   , _rDSDBInstanceMonitoringRoleArn :: Maybe (Val Text)
-  , _rDSDBInstanceMultiAZ :: Maybe (Val Bool')
+  , _rDSDBInstanceMultiAZ :: Maybe (Val Bool)
   , _rDSDBInstanceOptionGroupName :: Maybe (Val Text)
   , _rDSDBInstancePort :: Maybe (Val Text)
   , _rDSDBInstancePreferredBackupWindow :: Maybe (Val Text)
   , _rDSDBInstancePreferredMaintenanceWindow :: Maybe (Val Text)
-  , _rDSDBInstancePubliclyAccessible :: Maybe (Val Bool')
+  , _rDSDBInstancePubliclyAccessible :: Maybe (Val Bool)
   , _rDSDBInstanceSourceDBInstanceIdentifier :: Maybe (Val Text)
-  , _rDSDBInstanceStorageEncrypted :: Maybe (Val Bool')
+  , _rDSDBInstanceStorageEncrypted :: Maybe (Val Bool)
   , _rDSDBInstanceStorageType :: Maybe (Val Text)
   , _rDSDBInstanceTags :: Maybe [Tag]
   , _rDSDBInstanceTimezone :: Maybe (Val Text)
@@ -62,87 +63,87 @@ instance ToJSON RDSDBInstance where
   toJSON RDSDBInstance{..} =
     object $
     catMaybes
-    [ ("AllocatedStorage" .=) <$> _rDSDBInstanceAllocatedStorage
-    , ("AllowMajorVersionUpgrade" .=) <$> _rDSDBInstanceAllowMajorVersionUpgrade
-    , ("AutoMinorVersionUpgrade" .=) <$> _rDSDBInstanceAutoMinorVersionUpgrade
-    , ("AvailabilityZone" .=) <$> _rDSDBInstanceAvailabilityZone
-    , ("BackupRetentionPeriod" .=) <$> _rDSDBInstanceBackupRetentionPeriod
-    , ("CharacterSetName" .=) <$> _rDSDBInstanceCharacterSetName
-    , ("CopyTagsToSnapshot" .=) <$> _rDSDBInstanceCopyTagsToSnapshot
-    , ("DBClusterIdentifier" .=) <$> _rDSDBInstanceDBClusterIdentifier
-    , Just ("DBInstanceClass" .= _rDSDBInstanceDBInstanceClass)
-    , ("DBInstanceIdentifier" .=) <$> _rDSDBInstanceDBInstanceIdentifier
-    , ("DBName" .=) <$> _rDSDBInstanceDBName
-    , ("DBParameterGroupName" .=) <$> _rDSDBInstanceDBParameterGroupName
-    , ("DBSecurityGroups" .=) <$> _rDSDBInstanceDBSecurityGroups
-    , ("DBSnapshotIdentifier" .=) <$> _rDSDBInstanceDBSnapshotIdentifier
-    , ("DBSubnetGroupName" .=) <$> _rDSDBInstanceDBSubnetGroupName
-    , ("Domain" .=) <$> _rDSDBInstanceDomain
-    , ("DomainIAMRoleName" .=) <$> _rDSDBInstanceDomainIAMRoleName
-    , ("Engine" .=) <$> _rDSDBInstanceEngine
-    , ("EngineVersion" .=) <$> _rDSDBInstanceEngineVersion
-    , ("Iops" .=) <$> _rDSDBInstanceIops
-    , ("KmsKeyId" .=) <$> _rDSDBInstanceKmsKeyId
-    , ("LicenseModel" .=) <$> _rDSDBInstanceLicenseModel
-    , ("MasterUserPassword" .=) <$> _rDSDBInstanceMasterUserPassword
-    , ("MasterUsername" .=) <$> _rDSDBInstanceMasterUsername
-    , ("MonitoringInterval" .=) <$> _rDSDBInstanceMonitoringInterval
-    , ("MonitoringRoleArn" .=) <$> _rDSDBInstanceMonitoringRoleArn
-    , ("MultiAZ" .=) <$> _rDSDBInstanceMultiAZ
-    , ("OptionGroupName" .=) <$> _rDSDBInstanceOptionGroupName
-    , ("Port" .=) <$> _rDSDBInstancePort
-    , ("PreferredBackupWindow" .=) <$> _rDSDBInstancePreferredBackupWindow
-    , ("PreferredMaintenanceWindow" .=) <$> _rDSDBInstancePreferredMaintenanceWindow
-    , ("PubliclyAccessible" .=) <$> _rDSDBInstancePubliclyAccessible
-    , ("SourceDBInstanceIdentifier" .=) <$> _rDSDBInstanceSourceDBInstanceIdentifier
-    , ("StorageEncrypted" .=) <$> _rDSDBInstanceStorageEncrypted
-    , ("StorageType" .=) <$> _rDSDBInstanceStorageType
-    , ("Tags" .=) <$> _rDSDBInstanceTags
-    , ("Timezone" .=) <$> _rDSDBInstanceTimezone
-    , ("VPCSecurityGroups" .=) <$> _rDSDBInstanceVPCSecurityGroups
+    [ fmap (("AllocatedStorage",) . toJSON) _rDSDBInstanceAllocatedStorage
+    , fmap (("AllowMajorVersionUpgrade",) . toJSON . fmap Bool') _rDSDBInstanceAllowMajorVersionUpgrade
+    , fmap (("AutoMinorVersionUpgrade",) . toJSON . fmap Bool') _rDSDBInstanceAutoMinorVersionUpgrade
+    , fmap (("AvailabilityZone",) . toJSON) _rDSDBInstanceAvailabilityZone
+    , fmap (("BackupRetentionPeriod",) . toJSON) _rDSDBInstanceBackupRetentionPeriod
+    , fmap (("CharacterSetName",) . toJSON) _rDSDBInstanceCharacterSetName
+    , fmap (("CopyTagsToSnapshot",) . toJSON . fmap Bool') _rDSDBInstanceCopyTagsToSnapshot
+    , fmap (("DBClusterIdentifier",) . toJSON) _rDSDBInstanceDBClusterIdentifier
+    , (Just . ("DBInstanceClass",) . toJSON) _rDSDBInstanceDBInstanceClass
+    , fmap (("DBInstanceIdentifier",) . toJSON) _rDSDBInstanceDBInstanceIdentifier
+    , fmap (("DBName",) . toJSON) _rDSDBInstanceDBName
+    , fmap (("DBParameterGroupName",) . toJSON) _rDSDBInstanceDBParameterGroupName
+    , fmap (("DBSecurityGroups",) . toJSON) _rDSDBInstanceDBSecurityGroups
+    , fmap (("DBSnapshotIdentifier",) . toJSON) _rDSDBInstanceDBSnapshotIdentifier
+    , fmap (("DBSubnetGroupName",) . toJSON) _rDSDBInstanceDBSubnetGroupName
+    , fmap (("Domain",) . toJSON) _rDSDBInstanceDomain
+    , fmap (("DomainIAMRoleName",) . toJSON) _rDSDBInstanceDomainIAMRoleName
+    , fmap (("Engine",) . toJSON) _rDSDBInstanceEngine
+    , fmap (("EngineVersion",) . toJSON) _rDSDBInstanceEngineVersion
+    , fmap (("Iops",) . toJSON . fmap Integer') _rDSDBInstanceIops
+    , fmap (("KmsKeyId",) . toJSON) _rDSDBInstanceKmsKeyId
+    , fmap (("LicenseModel",) . toJSON) _rDSDBInstanceLicenseModel
+    , fmap (("MasterUserPassword",) . toJSON) _rDSDBInstanceMasterUserPassword
+    , fmap (("MasterUsername",) . toJSON) _rDSDBInstanceMasterUsername
+    , fmap (("MonitoringInterval",) . toJSON . fmap Integer') _rDSDBInstanceMonitoringInterval
+    , fmap (("MonitoringRoleArn",) . toJSON) _rDSDBInstanceMonitoringRoleArn
+    , fmap (("MultiAZ",) . toJSON . fmap Bool') _rDSDBInstanceMultiAZ
+    , fmap (("OptionGroupName",) . toJSON) _rDSDBInstanceOptionGroupName
+    , fmap (("Port",) . toJSON) _rDSDBInstancePort
+    , fmap (("PreferredBackupWindow",) . toJSON) _rDSDBInstancePreferredBackupWindow
+    , fmap (("PreferredMaintenanceWindow",) . toJSON) _rDSDBInstancePreferredMaintenanceWindow
+    , fmap (("PubliclyAccessible",) . toJSON . fmap Bool') _rDSDBInstancePubliclyAccessible
+    , fmap (("SourceDBInstanceIdentifier",) . toJSON) _rDSDBInstanceSourceDBInstanceIdentifier
+    , fmap (("StorageEncrypted",) . toJSON . fmap Bool') _rDSDBInstanceStorageEncrypted
+    , fmap (("StorageType",) . toJSON) _rDSDBInstanceStorageType
+    , fmap (("Tags",) . toJSON) _rDSDBInstanceTags
+    , fmap (("Timezone",) . toJSON) _rDSDBInstanceTimezone
+    , fmap (("VPCSecurityGroups",) . toJSON) _rDSDBInstanceVPCSecurityGroups
     ]
 
 instance FromJSON RDSDBInstance where
   parseJSON (Object obj) =
     RDSDBInstance <$>
-      obj .:? "AllocatedStorage" <*>
-      obj .:? "AllowMajorVersionUpgrade" <*>
-      obj .:? "AutoMinorVersionUpgrade" <*>
-      obj .:? "AvailabilityZone" <*>
-      obj .:? "BackupRetentionPeriod" <*>
-      obj .:? "CharacterSetName" <*>
-      obj .:? "CopyTagsToSnapshot" <*>
-      obj .:? "DBClusterIdentifier" <*>
-      obj .: "DBInstanceClass" <*>
-      obj .:? "DBInstanceIdentifier" <*>
-      obj .:? "DBName" <*>
-      obj .:? "DBParameterGroupName" <*>
-      obj .:? "DBSecurityGroups" <*>
-      obj .:? "DBSnapshotIdentifier" <*>
-      obj .:? "DBSubnetGroupName" <*>
-      obj .:? "Domain" <*>
-      obj .:? "DomainIAMRoleName" <*>
-      obj .:? "Engine" <*>
-      obj .:? "EngineVersion" <*>
-      obj .:? "Iops" <*>
-      obj .:? "KmsKeyId" <*>
-      obj .:? "LicenseModel" <*>
-      obj .:? "MasterUserPassword" <*>
-      obj .:? "MasterUsername" <*>
-      obj .:? "MonitoringInterval" <*>
-      obj .:? "MonitoringRoleArn" <*>
-      obj .:? "MultiAZ" <*>
-      obj .:? "OptionGroupName" <*>
-      obj .:? "Port" <*>
-      obj .:? "PreferredBackupWindow" <*>
-      obj .:? "PreferredMaintenanceWindow" <*>
-      obj .:? "PubliclyAccessible" <*>
-      obj .:? "SourceDBInstanceIdentifier" <*>
-      obj .:? "StorageEncrypted" <*>
-      obj .:? "StorageType" <*>
-      obj .:? "Tags" <*>
-      obj .:? "Timezone" <*>
-      obj .:? "VPCSecurityGroups"
+      (obj .:? "AllocatedStorage") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "AllowMajorVersionUpgrade") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "AutoMinorVersionUpgrade") <*>
+      (obj .:? "AvailabilityZone") <*>
+      (obj .:? "BackupRetentionPeriod") <*>
+      (obj .:? "CharacterSetName") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "CopyTagsToSnapshot") <*>
+      (obj .:? "DBClusterIdentifier") <*>
+      (obj .: "DBInstanceClass") <*>
+      (obj .:? "DBInstanceIdentifier") <*>
+      (obj .:? "DBName") <*>
+      (obj .:? "DBParameterGroupName") <*>
+      (obj .:? "DBSecurityGroups") <*>
+      (obj .:? "DBSnapshotIdentifier") <*>
+      (obj .:? "DBSubnetGroupName") <*>
+      (obj .:? "Domain") <*>
+      (obj .:? "DomainIAMRoleName") <*>
+      (obj .:? "Engine") <*>
+      (obj .:? "EngineVersion") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "Iops") <*>
+      (obj .:? "KmsKeyId") <*>
+      (obj .:? "LicenseModel") <*>
+      (obj .:? "MasterUserPassword") <*>
+      (obj .:? "MasterUsername") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "MonitoringInterval") <*>
+      (obj .:? "MonitoringRoleArn") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "MultiAZ") <*>
+      (obj .:? "OptionGroupName") <*>
+      (obj .:? "Port") <*>
+      (obj .:? "PreferredBackupWindow") <*>
+      (obj .:? "PreferredMaintenanceWindow") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "PubliclyAccessible") <*>
+      (obj .:? "SourceDBInstanceIdentifier") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "StorageEncrypted") <*>
+      (obj .:? "StorageType") <*>
+      (obj .:? "Tags") <*>
+      (obj .:? "Timezone") <*>
+      (obj .:? "VPCSecurityGroups")
   parseJSON _ = mempty
 
 -- | Constructor for 'RDSDBInstance' containing required fields as arguments.
@@ -196,11 +197,11 @@ rdsdbiAllocatedStorage :: Lens' RDSDBInstance (Maybe (Val Text))
 rdsdbiAllocatedStorage = lens _rDSDBInstanceAllocatedStorage (\s a -> s { _rDSDBInstanceAllocatedStorage = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-allowmajorversionupgrade
-rdsdbiAllowMajorVersionUpgrade :: Lens' RDSDBInstance (Maybe (Val Bool'))
+rdsdbiAllowMajorVersionUpgrade :: Lens' RDSDBInstance (Maybe (Val Bool))
 rdsdbiAllowMajorVersionUpgrade = lens _rDSDBInstanceAllowMajorVersionUpgrade (\s a -> s { _rDSDBInstanceAllowMajorVersionUpgrade = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-autominorversionupgrade
-rdsdbiAutoMinorVersionUpgrade :: Lens' RDSDBInstance (Maybe (Val Bool'))
+rdsdbiAutoMinorVersionUpgrade :: Lens' RDSDBInstance (Maybe (Val Bool))
 rdsdbiAutoMinorVersionUpgrade = lens _rDSDBInstanceAutoMinorVersionUpgrade (\s a -> s { _rDSDBInstanceAutoMinorVersionUpgrade = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-availabilityzone
@@ -216,7 +217,7 @@ rdsdbiCharacterSetName :: Lens' RDSDBInstance (Maybe (Val Text))
 rdsdbiCharacterSetName = lens _rDSDBInstanceCharacterSetName (\s a -> s { _rDSDBInstanceCharacterSetName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-copytagstosnapshot
-rdsdbiCopyTagsToSnapshot :: Lens' RDSDBInstance (Maybe (Val Bool'))
+rdsdbiCopyTagsToSnapshot :: Lens' RDSDBInstance (Maybe (Val Bool))
 rdsdbiCopyTagsToSnapshot = lens _rDSDBInstanceCopyTagsToSnapshot (\s a -> s { _rDSDBInstanceCopyTagsToSnapshot = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-dbclusteridentifier
@@ -268,7 +269,7 @@ rdsdbiEngineVersion :: Lens' RDSDBInstance (Maybe (Val Text))
 rdsdbiEngineVersion = lens _rDSDBInstanceEngineVersion (\s a -> s { _rDSDBInstanceEngineVersion = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-iops
-rdsdbiIops :: Lens' RDSDBInstance (Maybe (Val Integer'))
+rdsdbiIops :: Lens' RDSDBInstance (Maybe (Val Integer))
 rdsdbiIops = lens _rDSDBInstanceIops (\s a -> s { _rDSDBInstanceIops = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-kmskeyid
@@ -288,7 +289,7 @@ rdsdbiMasterUsername :: Lens' RDSDBInstance (Maybe (Val Text))
 rdsdbiMasterUsername = lens _rDSDBInstanceMasterUsername (\s a -> s { _rDSDBInstanceMasterUsername = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-monitoringinterval
-rdsdbiMonitoringInterval :: Lens' RDSDBInstance (Maybe (Val Integer'))
+rdsdbiMonitoringInterval :: Lens' RDSDBInstance (Maybe (Val Integer))
 rdsdbiMonitoringInterval = lens _rDSDBInstanceMonitoringInterval (\s a -> s { _rDSDBInstanceMonitoringInterval = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-monitoringrolearn
@@ -296,7 +297,7 @@ rdsdbiMonitoringRoleArn :: Lens' RDSDBInstance (Maybe (Val Text))
 rdsdbiMonitoringRoleArn = lens _rDSDBInstanceMonitoringRoleArn (\s a -> s { _rDSDBInstanceMonitoringRoleArn = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-multiaz
-rdsdbiMultiAZ :: Lens' RDSDBInstance (Maybe (Val Bool'))
+rdsdbiMultiAZ :: Lens' RDSDBInstance (Maybe (Val Bool))
 rdsdbiMultiAZ = lens _rDSDBInstanceMultiAZ (\s a -> s { _rDSDBInstanceMultiAZ = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-optiongroupname
@@ -316,7 +317,7 @@ rdsdbiPreferredMaintenanceWindow :: Lens' RDSDBInstance (Maybe (Val Text))
 rdsdbiPreferredMaintenanceWindow = lens _rDSDBInstancePreferredMaintenanceWindow (\s a -> s { _rDSDBInstancePreferredMaintenanceWindow = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-publiclyaccessible
-rdsdbiPubliclyAccessible :: Lens' RDSDBInstance (Maybe (Val Bool'))
+rdsdbiPubliclyAccessible :: Lens' RDSDBInstance (Maybe (Val Bool))
 rdsdbiPubliclyAccessible = lens _rDSDBInstancePubliclyAccessible (\s a -> s { _rDSDBInstancePubliclyAccessible = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-sourcedbinstanceidentifier
@@ -324,7 +325,7 @@ rdsdbiSourceDBInstanceIdentifier :: Lens' RDSDBInstance (Maybe (Val Text))
 rdsdbiSourceDBInstanceIdentifier = lens _rDSDBInstanceSourceDBInstanceIdentifier (\s a -> s { _rDSDBInstanceSourceDBInstanceIdentifier = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-storageencrypted
-rdsdbiStorageEncrypted :: Lens' RDSDBInstance (Maybe (Val Bool'))
+rdsdbiStorageEncrypted :: Lens' RDSDBInstance (Maybe (Val Bool))
 rdsdbiStorageEncrypted = lens _rDSDBInstanceStorageEncrypted (\s a -> s { _rDSDBInstanceStorageEncrypted = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-storagetype

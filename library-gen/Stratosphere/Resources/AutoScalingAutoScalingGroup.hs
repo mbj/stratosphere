@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html
 
@@ -23,7 +24,7 @@ data AutoScalingAutoScalingGroup =
   { _autoScalingAutoScalingGroupAvailabilityZones :: Maybe (ValList Text)
   , _autoScalingAutoScalingGroupCooldown :: Maybe (Val Text)
   , _autoScalingAutoScalingGroupDesiredCapacity :: Maybe (Val Text)
-  , _autoScalingAutoScalingGroupHealthCheckGracePeriod :: Maybe (Val Integer')
+  , _autoScalingAutoScalingGroupHealthCheckGracePeriod :: Maybe (Val Integer)
   , _autoScalingAutoScalingGroupHealthCheckType :: Maybe (Val Text)
   , _autoScalingAutoScalingGroupInstanceId :: Maybe (Val Text)
   , _autoScalingAutoScalingGroupLaunchConfigurationName :: Maybe (Val Text)
@@ -43,45 +44,45 @@ instance ToJSON AutoScalingAutoScalingGroup where
   toJSON AutoScalingAutoScalingGroup{..} =
     object $
     catMaybes
-    [ ("AvailabilityZones" .=) <$> _autoScalingAutoScalingGroupAvailabilityZones
-    , ("Cooldown" .=) <$> _autoScalingAutoScalingGroupCooldown
-    , ("DesiredCapacity" .=) <$> _autoScalingAutoScalingGroupDesiredCapacity
-    , ("HealthCheckGracePeriod" .=) <$> _autoScalingAutoScalingGroupHealthCheckGracePeriod
-    , ("HealthCheckType" .=) <$> _autoScalingAutoScalingGroupHealthCheckType
-    , ("InstanceId" .=) <$> _autoScalingAutoScalingGroupInstanceId
-    , ("LaunchConfigurationName" .=) <$> _autoScalingAutoScalingGroupLaunchConfigurationName
-    , ("LoadBalancerNames" .=) <$> _autoScalingAutoScalingGroupLoadBalancerNames
-    , Just ("MaxSize" .= _autoScalingAutoScalingGroupMaxSize)
-    , ("MetricsCollection" .=) <$> _autoScalingAutoScalingGroupMetricsCollection
-    , Just ("MinSize" .= _autoScalingAutoScalingGroupMinSize)
-    , ("NotificationConfigurations" .=) <$> _autoScalingAutoScalingGroupNotificationConfigurations
-    , ("PlacementGroup" .=) <$> _autoScalingAutoScalingGroupPlacementGroup
-    , ("Tags" .=) <$> _autoScalingAutoScalingGroupTags
-    , ("TargetGroupARNs" .=) <$> _autoScalingAutoScalingGroupTargetGroupARNs
-    , ("TerminationPolicies" .=) <$> _autoScalingAutoScalingGroupTerminationPolicies
-    , ("VPCZoneIdentifier" .=) <$> _autoScalingAutoScalingGroupVPCZoneIdentifier
+    [ fmap (("AvailabilityZones",) . toJSON) _autoScalingAutoScalingGroupAvailabilityZones
+    , fmap (("Cooldown",) . toJSON) _autoScalingAutoScalingGroupCooldown
+    , fmap (("DesiredCapacity",) . toJSON) _autoScalingAutoScalingGroupDesiredCapacity
+    , fmap (("HealthCheckGracePeriod",) . toJSON . fmap Integer') _autoScalingAutoScalingGroupHealthCheckGracePeriod
+    , fmap (("HealthCheckType",) . toJSON) _autoScalingAutoScalingGroupHealthCheckType
+    , fmap (("InstanceId",) . toJSON) _autoScalingAutoScalingGroupInstanceId
+    , fmap (("LaunchConfigurationName",) . toJSON) _autoScalingAutoScalingGroupLaunchConfigurationName
+    , fmap (("LoadBalancerNames",) . toJSON) _autoScalingAutoScalingGroupLoadBalancerNames
+    , (Just . ("MaxSize",) . toJSON) _autoScalingAutoScalingGroupMaxSize
+    , fmap (("MetricsCollection",) . toJSON) _autoScalingAutoScalingGroupMetricsCollection
+    , (Just . ("MinSize",) . toJSON) _autoScalingAutoScalingGroupMinSize
+    , fmap (("NotificationConfigurations",) . toJSON) _autoScalingAutoScalingGroupNotificationConfigurations
+    , fmap (("PlacementGroup",) . toJSON) _autoScalingAutoScalingGroupPlacementGroup
+    , fmap (("Tags",) . toJSON) _autoScalingAutoScalingGroupTags
+    , fmap (("TargetGroupARNs",) . toJSON) _autoScalingAutoScalingGroupTargetGroupARNs
+    , fmap (("TerminationPolicies",) . toJSON) _autoScalingAutoScalingGroupTerminationPolicies
+    , fmap (("VPCZoneIdentifier",) . toJSON) _autoScalingAutoScalingGroupVPCZoneIdentifier
     ]
 
 instance FromJSON AutoScalingAutoScalingGroup where
   parseJSON (Object obj) =
     AutoScalingAutoScalingGroup <$>
-      obj .:? "AvailabilityZones" <*>
-      obj .:? "Cooldown" <*>
-      obj .:? "DesiredCapacity" <*>
-      obj .:? "HealthCheckGracePeriod" <*>
-      obj .:? "HealthCheckType" <*>
-      obj .:? "InstanceId" <*>
-      obj .:? "LaunchConfigurationName" <*>
-      obj .:? "LoadBalancerNames" <*>
-      obj .: "MaxSize" <*>
-      obj .:? "MetricsCollection" <*>
-      obj .: "MinSize" <*>
-      obj .:? "NotificationConfigurations" <*>
-      obj .:? "PlacementGroup" <*>
-      obj .:? "Tags" <*>
-      obj .:? "TargetGroupARNs" <*>
-      obj .:? "TerminationPolicies" <*>
-      obj .:? "VPCZoneIdentifier"
+      (obj .:? "AvailabilityZones") <*>
+      (obj .:? "Cooldown") <*>
+      (obj .:? "DesiredCapacity") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "HealthCheckGracePeriod") <*>
+      (obj .:? "HealthCheckType") <*>
+      (obj .:? "InstanceId") <*>
+      (obj .:? "LaunchConfigurationName") <*>
+      (obj .:? "LoadBalancerNames") <*>
+      (obj .: "MaxSize") <*>
+      (obj .:? "MetricsCollection") <*>
+      (obj .: "MinSize") <*>
+      (obj .:? "NotificationConfigurations") <*>
+      (obj .:? "PlacementGroup") <*>
+      (obj .:? "Tags") <*>
+      (obj .:? "TargetGroupARNs") <*>
+      (obj .:? "TerminationPolicies") <*>
+      (obj .:? "VPCZoneIdentifier")
   parseJSON _ = mempty
 
 -- | Constructor for 'AutoScalingAutoScalingGroup' containing required fields
@@ -124,7 +125,7 @@ asasgDesiredCapacity :: Lens' AutoScalingAutoScalingGroup (Maybe (Val Text))
 asasgDesiredCapacity = lens _autoScalingAutoScalingGroupDesiredCapacity (\s a -> s { _autoScalingAutoScalingGroupDesiredCapacity = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-healthcheckgraceperiod
-asasgHealthCheckGracePeriod :: Lens' AutoScalingAutoScalingGroup (Maybe (Val Integer'))
+asasgHealthCheckGracePeriod :: Lens' AutoScalingAutoScalingGroup (Maybe (Val Integer))
 asasgHealthCheckGracePeriod = lens _autoScalingAutoScalingGroupHealthCheckGracePeriod (\s a -> s { _autoScalingAutoScalingGroupHealthCheckGracePeriod = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-healthchecktype

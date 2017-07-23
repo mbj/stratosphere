@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-bytematchset-bytematchtuples.html
 
@@ -29,21 +30,21 @@ instance ToJSON WAFByteMatchSetByteMatchTuple where
   toJSON WAFByteMatchSetByteMatchTuple{..} =
     object $
     catMaybes
-    [ Just ("FieldToMatch" .= _wAFByteMatchSetByteMatchTupleFieldToMatch)
-    , Just ("PositionalConstraint" .= _wAFByteMatchSetByteMatchTuplePositionalConstraint)
-    , ("TargetString" .=) <$> _wAFByteMatchSetByteMatchTupleTargetString
-    , ("TargetStringBase64" .=) <$> _wAFByteMatchSetByteMatchTupleTargetStringBase64
-    , Just ("TextTransformation" .= _wAFByteMatchSetByteMatchTupleTextTransformation)
+    [ (Just . ("FieldToMatch",) . toJSON) _wAFByteMatchSetByteMatchTupleFieldToMatch
+    , (Just . ("PositionalConstraint",) . toJSON) _wAFByteMatchSetByteMatchTuplePositionalConstraint
+    , fmap (("TargetString",) . toJSON) _wAFByteMatchSetByteMatchTupleTargetString
+    , fmap (("TargetStringBase64",) . toJSON) _wAFByteMatchSetByteMatchTupleTargetStringBase64
+    , (Just . ("TextTransformation",) . toJSON) _wAFByteMatchSetByteMatchTupleTextTransformation
     ]
 
 instance FromJSON WAFByteMatchSetByteMatchTuple where
   parseJSON (Object obj) =
     WAFByteMatchSetByteMatchTuple <$>
-      obj .: "FieldToMatch" <*>
-      obj .: "PositionalConstraint" <*>
-      obj .:? "TargetString" <*>
-      obj .:? "TargetStringBase64" <*>
-      obj .: "TextTransformation"
+      (obj .: "FieldToMatch") <*>
+      (obj .: "PositionalConstraint") <*>
+      (obj .:? "TargetString") <*>
+      (obj .:? "TargetStringBase64") <*>
+      (obj .: "TextTransformation")
   parseJSON _ = mempty
 
 -- | Constructor for 'WAFByteMatchSetByteMatchTuple' containing required

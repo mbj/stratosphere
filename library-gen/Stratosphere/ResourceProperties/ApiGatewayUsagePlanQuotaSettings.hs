@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html
 
@@ -18,8 +19,8 @@ import Stratosphere.Types
 -- 'apiGatewayUsagePlanQuotaSettings' for a more convenient constructor.
 data ApiGatewayUsagePlanQuotaSettings =
   ApiGatewayUsagePlanQuotaSettings
-  { _apiGatewayUsagePlanQuotaSettingsLimit :: Maybe (Val Integer')
-  , _apiGatewayUsagePlanQuotaSettingsOffset :: Maybe (Val Integer')
+  { _apiGatewayUsagePlanQuotaSettingsLimit :: Maybe (Val Integer)
+  , _apiGatewayUsagePlanQuotaSettingsOffset :: Maybe (Val Integer)
   , _apiGatewayUsagePlanQuotaSettingsPeriod :: Maybe (Val Period)
   } deriving (Show, Eq)
 
@@ -27,17 +28,17 @@ instance ToJSON ApiGatewayUsagePlanQuotaSettings where
   toJSON ApiGatewayUsagePlanQuotaSettings{..} =
     object $
     catMaybes
-    [ ("Limit" .=) <$> _apiGatewayUsagePlanQuotaSettingsLimit
-    , ("Offset" .=) <$> _apiGatewayUsagePlanQuotaSettingsOffset
-    , ("Period" .=) <$> _apiGatewayUsagePlanQuotaSettingsPeriod
+    [ fmap (("Limit",) . toJSON . fmap Integer') _apiGatewayUsagePlanQuotaSettingsLimit
+    , fmap (("Offset",) . toJSON . fmap Integer') _apiGatewayUsagePlanQuotaSettingsOffset
+    , fmap (("Period",) . toJSON) _apiGatewayUsagePlanQuotaSettingsPeriod
     ]
 
 instance FromJSON ApiGatewayUsagePlanQuotaSettings where
   parseJSON (Object obj) =
     ApiGatewayUsagePlanQuotaSettings <$>
-      obj .:? "Limit" <*>
-      obj .:? "Offset" <*>
-      obj .:? "Period"
+      fmap (fmap (fmap unInteger')) (obj .:? "Limit") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "Offset") <*>
+      (obj .:? "Period")
   parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayUsagePlanQuotaSettings' containing required
@@ -52,11 +53,11 @@ apiGatewayUsagePlanQuotaSettings  =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html#cfn-apigateway-usageplan-quotasettings-limit
-agupqsLimit :: Lens' ApiGatewayUsagePlanQuotaSettings (Maybe (Val Integer'))
+agupqsLimit :: Lens' ApiGatewayUsagePlanQuotaSettings (Maybe (Val Integer))
 agupqsLimit = lens _apiGatewayUsagePlanQuotaSettingsLimit (\s a -> s { _apiGatewayUsagePlanQuotaSettingsLimit = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html#cfn-apigateway-usageplan-quotasettings-offset
-agupqsOffset :: Lens' ApiGatewayUsagePlanQuotaSettings (Maybe (Val Integer'))
+agupqsOffset :: Lens' ApiGatewayUsagePlanQuotaSettings (Maybe (Val Integer))
 agupqsOffset = lens _apiGatewayUsagePlanQuotaSettingsOffset (\s a -> s { _apiGatewayUsagePlanQuotaSettingsOffset = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html#cfn-apigateway-usageplan-quotasettings-period

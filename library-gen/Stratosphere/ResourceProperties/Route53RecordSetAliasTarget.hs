@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-aliastarget.html
 
@@ -19,7 +20,7 @@ import Stratosphere.Values
 data Route53RecordSetAliasTarget =
   Route53RecordSetAliasTarget
   { _route53RecordSetAliasTargetDNSName :: Val Text
-  , _route53RecordSetAliasTargetEvaluateTargetHealth :: Maybe (Val Bool')
+  , _route53RecordSetAliasTargetEvaluateTargetHealth :: Maybe (Val Bool)
   , _route53RecordSetAliasTargetHostedZoneId :: Val Text
   } deriving (Show, Eq)
 
@@ -27,17 +28,17 @@ instance ToJSON Route53RecordSetAliasTarget where
   toJSON Route53RecordSetAliasTarget{..} =
     object $
     catMaybes
-    [ Just ("DNSName" .= _route53RecordSetAliasTargetDNSName)
-    , ("EvaluateTargetHealth" .=) <$> _route53RecordSetAliasTargetEvaluateTargetHealth
-    , Just ("HostedZoneId" .= _route53RecordSetAliasTargetHostedZoneId)
+    [ (Just . ("DNSName",) . toJSON) _route53RecordSetAliasTargetDNSName
+    , fmap (("EvaluateTargetHealth",) . toJSON . fmap Bool') _route53RecordSetAliasTargetEvaluateTargetHealth
+    , (Just . ("HostedZoneId",) . toJSON) _route53RecordSetAliasTargetHostedZoneId
     ]
 
 instance FromJSON Route53RecordSetAliasTarget where
   parseJSON (Object obj) =
     Route53RecordSetAliasTarget <$>
-      obj .: "DNSName" <*>
-      obj .:? "EvaluateTargetHealth" <*>
-      obj .: "HostedZoneId"
+      (obj .: "DNSName") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "EvaluateTargetHealth") <*>
+      (obj .: "HostedZoneId")
   parseJSON _ = mempty
 
 -- | Constructor for 'Route53RecordSetAliasTarget' containing required fields
@@ -58,7 +59,7 @@ rrsatDNSName :: Lens' Route53RecordSetAliasTarget (Val Text)
 rrsatDNSName = lens _route53RecordSetAliasTargetDNSName (\s a -> s { _route53RecordSetAliasTargetDNSName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-aliastarget.html#cfn-route53-aliastarget-evaluatetargethealth
-rrsatEvaluateTargetHealth :: Lens' Route53RecordSetAliasTarget (Maybe (Val Bool'))
+rrsatEvaluateTargetHealth :: Lens' Route53RecordSetAliasTarget (Maybe (Val Bool))
 rrsatEvaluateTargetHealth = lens _route53RecordSetAliasTargetEvaluateTargetHealth (\s a -> s { _route53RecordSetAliasTargetEvaluateTargetHealth = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-aliastarget.html#cfn-route53-aliastarget-hostedzoneid

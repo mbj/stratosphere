@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-sourceauth.html
 
@@ -26,15 +27,15 @@ instance ToJSON CodeBuildProjectSourceAuth where
   toJSON CodeBuildProjectSourceAuth{..} =
     object $
     catMaybes
-    [ ("Resource" .=) <$> _codeBuildProjectSourceAuthResource
-    , ("Type" .=) <$> _codeBuildProjectSourceAuthType
+    [ fmap (("Resource",) . toJSON) _codeBuildProjectSourceAuthResource
+    , fmap (("Type",) . toJSON) _codeBuildProjectSourceAuthType
     ]
 
 instance FromJSON CodeBuildProjectSourceAuth where
   parseJSON (Object obj) =
     CodeBuildProjectSourceAuth <$>
-      obj .:? "Resource" <*>
-      obj .:? "Type"
+      (obj .:? "Resource") <*>
+      (obj .:? "Type")
   parseJSON _ = mempty
 
 -- | Constructor for 'CodeBuildProjectSourceAuth' containing required fields

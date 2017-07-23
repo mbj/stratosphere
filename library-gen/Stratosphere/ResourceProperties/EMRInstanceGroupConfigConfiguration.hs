@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-configuration.html
 
@@ -27,17 +28,17 @@ instance ToJSON EMRInstanceGroupConfigConfiguration where
   toJSON EMRInstanceGroupConfigConfiguration{..} =
     object $
     catMaybes
-    [ ("Classification" .=) <$> _eMRInstanceGroupConfigConfigurationClassification
-    , ("ConfigurationProperties" .=) <$> _eMRInstanceGroupConfigConfigurationConfigurationProperties
-    , ("Configurations" .=) <$> _eMRInstanceGroupConfigConfigurationConfigurations
+    [ fmap (("Classification",) . toJSON) _eMRInstanceGroupConfigConfigurationClassification
+    , fmap (("ConfigurationProperties",) . toJSON) _eMRInstanceGroupConfigConfigurationConfigurationProperties
+    , fmap (("Configurations",) . toJSON) _eMRInstanceGroupConfigConfigurationConfigurations
     ]
 
 instance FromJSON EMRInstanceGroupConfigConfiguration where
   parseJSON (Object obj) =
     EMRInstanceGroupConfigConfiguration <$>
-      obj .:? "Classification" <*>
-      obj .:? "ConfigurationProperties" <*>
-      obj .:? "Configurations"
+      (obj .:? "Classification") <*>
+      (obj .:? "ConfigurationProperties") <*>
+      (obj .:? "Configurations")
   parseJSON _ = mempty
 
 -- | Constructor for 'EMRInstanceGroupConfigConfiguration' containing required

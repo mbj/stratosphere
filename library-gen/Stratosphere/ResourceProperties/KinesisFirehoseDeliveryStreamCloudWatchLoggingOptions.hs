@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-kinesisdeliverystream-destination-cloudwatchloggingoptions.html
 
@@ -20,7 +21,7 @@ import Stratosphere.Values
 -- convenient constructor.
 data KinesisFirehoseDeliveryStreamCloudWatchLoggingOptions =
   KinesisFirehoseDeliveryStreamCloudWatchLoggingOptions
-  { _kinesisFirehoseDeliveryStreamCloudWatchLoggingOptionsEnabled :: Maybe (Val Bool')
+  { _kinesisFirehoseDeliveryStreamCloudWatchLoggingOptionsEnabled :: Maybe (Val Bool)
   , _kinesisFirehoseDeliveryStreamCloudWatchLoggingOptionsLogGroupName :: Maybe (Val Text)
   , _kinesisFirehoseDeliveryStreamCloudWatchLoggingOptionsLogStreamName :: Maybe (Val Text)
   } deriving (Show, Eq)
@@ -29,17 +30,17 @@ instance ToJSON KinesisFirehoseDeliveryStreamCloudWatchLoggingOptions where
   toJSON KinesisFirehoseDeliveryStreamCloudWatchLoggingOptions{..} =
     object $
     catMaybes
-    [ ("Enabled" .=) <$> _kinesisFirehoseDeliveryStreamCloudWatchLoggingOptionsEnabled
-    , ("LogGroupName" .=) <$> _kinesisFirehoseDeliveryStreamCloudWatchLoggingOptionsLogGroupName
-    , ("LogStreamName" .=) <$> _kinesisFirehoseDeliveryStreamCloudWatchLoggingOptionsLogStreamName
+    [ fmap (("Enabled",) . toJSON . fmap Bool') _kinesisFirehoseDeliveryStreamCloudWatchLoggingOptionsEnabled
+    , fmap (("LogGroupName",) . toJSON) _kinesisFirehoseDeliveryStreamCloudWatchLoggingOptionsLogGroupName
+    , fmap (("LogStreamName",) . toJSON) _kinesisFirehoseDeliveryStreamCloudWatchLoggingOptionsLogStreamName
     ]
 
 instance FromJSON KinesisFirehoseDeliveryStreamCloudWatchLoggingOptions where
   parseJSON (Object obj) =
     KinesisFirehoseDeliveryStreamCloudWatchLoggingOptions <$>
-      obj .:? "Enabled" <*>
-      obj .:? "LogGroupName" <*>
-      obj .:? "LogStreamName"
+      fmap (fmap (fmap unBool')) (obj .:? "Enabled") <*>
+      (obj .:? "LogGroupName") <*>
+      (obj .:? "LogStreamName")
   parseJSON _ = mempty
 
 -- | Constructor for 'KinesisFirehoseDeliveryStreamCloudWatchLoggingOptions'
@@ -54,7 +55,7 @@ kinesisFirehoseDeliveryStreamCloudWatchLoggingOptions  =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-kinesisdeliverystream-destination-cloudwatchloggingoptions.html#cfn-kinesisfirehose-kinesisdeliverystream-destination-cloudwatchloggingoptions-enabled
-kfdscwloEnabled :: Lens' KinesisFirehoseDeliveryStreamCloudWatchLoggingOptions (Maybe (Val Bool'))
+kfdscwloEnabled :: Lens' KinesisFirehoseDeliveryStreamCloudWatchLoggingOptions (Maybe (Val Bool))
 kfdscwloEnabled = lens _kinesisFirehoseDeliveryStreamCloudWatchLoggingOptionsEnabled (\s a -> s { _kinesisFirehoseDeliveryStreamCloudWatchLoggingOptionsEnabled = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-kinesisdeliverystream-destination-cloudwatchloggingoptions.html#cfn-kinesisfirehose-kinesisdeliverystream-destination-cloudwatchloggingoptions-loggroupname

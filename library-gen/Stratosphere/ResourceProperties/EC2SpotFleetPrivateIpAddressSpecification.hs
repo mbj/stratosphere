@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-networkinterfaces-privateipaddresses.html
 
@@ -19,7 +20,7 @@ import Stratosphere.Values
 -- constructor.
 data EC2SpotFleetPrivateIpAddressSpecification =
   EC2SpotFleetPrivateIpAddressSpecification
-  { _eC2SpotFleetPrivateIpAddressSpecificationPrimary :: Maybe (Val Bool')
+  { _eC2SpotFleetPrivateIpAddressSpecificationPrimary :: Maybe (Val Bool)
   , _eC2SpotFleetPrivateIpAddressSpecificationPrivateIpAddress :: Val Text
   } deriving (Show, Eq)
 
@@ -27,15 +28,15 @@ instance ToJSON EC2SpotFleetPrivateIpAddressSpecification where
   toJSON EC2SpotFleetPrivateIpAddressSpecification{..} =
     object $
     catMaybes
-    [ ("Primary" .=) <$> _eC2SpotFleetPrivateIpAddressSpecificationPrimary
-    , Just ("PrivateIpAddress" .= _eC2SpotFleetPrivateIpAddressSpecificationPrivateIpAddress)
+    [ fmap (("Primary",) . toJSON . fmap Bool') _eC2SpotFleetPrivateIpAddressSpecificationPrimary
+    , (Just . ("PrivateIpAddress",) . toJSON) _eC2SpotFleetPrivateIpAddressSpecificationPrivateIpAddress
     ]
 
 instance FromJSON EC2SpotFleetPrivateIpAddressSpecification where
   parseJSON (Object obj) =
     EC2SpotFleetPrivateIpAddressSpecification <$>
-      obj .:? "Primary" <*>
-      obj .: "PrivateIpAddress"
+      fmap (fmap (fmap unBool')) (obj .:? "Primary") <*>
+      (obj .: "PrivateIpAddress")
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2SpotFleetPrivateIpAddressSpecification' containing
@@ -50,7 +51,7 @@ ec2SpotFleetPrivateIpAddressSpecification privateIpAddressarg =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-networkinterfaces-privateipaddresses.html#cfn-ec2-spotfleet-privateipaddressspecification-primary
-ecsfpiasPrimary :: Lens' EC2SpotFleetPrivateIpAddressSpecification (Maybe (Val Bool'))
+ecsfpiasPrimary :: Lens' EC2SpotFleetPrivateIpAddressSpecification (Maybe (Val Bool))
 ecsfpiasPrimary = lens _eC2SpotFleetPrivateIpAddressSpecificationPrimary (\s a -> s { _eC2SpotFleetPrivateIpAddressSpecificationPrimary = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-networkinterfaces-privateipaddresses.html#cfn-ec2-spotfleet-privateipaddressspecification-privateipaddress

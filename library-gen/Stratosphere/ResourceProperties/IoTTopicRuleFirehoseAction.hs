@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-firehose.html
 
@@ -27,17 +28,17 @@ instance ToJSON IoTTopicRuleFirehoseAction where
   toJSON IoTTopicRuleFirehoseAction{..} =
     object $
     catMaybes
-    [ Just ("DeliveryStreamName" .= _ioTTopicRuleFirehoseActionDeliveryStreamName)
-    , Just ("RoleArn" .= _ioTTopicRuleFirehoseActionRoleArn)
-    , ("Separator" .=) <$> _ioTTopicRuleFirehoseActionSeparator
+    [ (Just . ("DeliveryStreamName",) . toJSON) _ioTTopicRuleFirehoseActionDeliveryStreamName
+    , (Just . ("RoleArn",) . toJSON) _ioTTopicRuleFirehoseActionRoleArn
+    , fmap (("Separator",) . toJSON) _ioTTopicRuleFirehoseActionSeparator
     ]
 
 instance FromJSON IoTTopicRuleFirehoseAction where
   parseJSON (Object obj) =
     IoTTopicRuleFirehoseAction <$>
-      obj .: "DeliveryStreamName" <*>
-      obj .: "RoleArn" <*>
-      obj .:? "Separator"
+      (obj .: "DeliveryStreamName") <*>
+      (obj .: "RoleArn") <*>
+      (obj .:? "Separator")
   parseJSON _ = mempty
 
 -- | Constructor for 'IoTTopicRuleFirehoseAction' containing required fields

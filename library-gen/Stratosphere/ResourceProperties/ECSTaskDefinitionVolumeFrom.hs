@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-volumesfrom.html
 
@@ -18,7 +19,7 @@ import Stratosphere.Values
 -- 'ecsTaskDefinitionVolumeFrom' for a more convenient constructor.
 data ECSTaskDefinitionVolumeFrom =
   ECSTaskDefinitionVolumeFrom
-  { _eCSTaskDefinitionVolumeFromReadOnly :: Maybe (Val Bool')
+  { _eCSTaskDefinitionVolumeFromReadOnly :: Maybe (Val Bool)
   , _eCSTaskDefinitionVolumeFromSourceContainer :: Maybe (Val Text)
   } deriving (Show, Eq)
 
@@ -26,15 +27,15 @@ instance ToJSON ECSTaskDefinitionVolumeFrom where
   toJSON ECSTaskDefinitionVolumeFrom{..} =
     object $
     catMaybes
-    [ ("ReadOnly" .=) <$> _eCSTaskDefinitionVolumeFromReadOnly
-    , ("SourceContainer" .=) <$> _eCSTaskDefinitionVolumeFromSourceContainer
+    [ fmap (("ReadOnly",) . toJSON . fmap Bool') _eCSTaskDefinitionVolumeFromReadOnly
+    , fmap (("SourceContainer",) . toJSON) _eCSTaskDefinitionVolumeFromSourceContainer
     ]
 
 instance FromJSON ECSTaskDefinitionVolumeFrom where
   parseJSON (Object obj) =
     ECSTaskDefinitionVolumeFrom <$>
-      obj .:? "ReadOnly" <*>
-      obj .:? "SourceContainer"
+      fmap (fmap (fmap unBool')) (obj .:? "ReadOnly") <*>
+      (obj .:? "SourceContainer")
   parseJSON _ = mempty
 
 -- | Constructor for 'ECSTaskDefinitionVolumeFrom' containing required fields
@@ -48,7 +49,7 @@ ecsTaskDefinitionVolumeFrom  =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-volumesfrom.html#cfn-ecs-taskdefinition-containerdefinition-volumesfrom-readonly
-ecstdvfReadOnly :: Lens' ECSTaskDefinitionVolumeFrom (Maybe (Val Bool'))
+ecstdvfReadOnly :: Lens' ECSTaskDefinitionVolumeFrom (Maybe (Val Bool))
 ecstdvfReadOnly = lens _eCSTaskDefinitionVolumeFromReadOnly (\s a -> s { _eCSTaskDefinitionVolumeFromReadOnly = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-volumesfrom.html#cfn-ecs-taskdefinition-containerdefinition-volumesfrom-sourcecontainer

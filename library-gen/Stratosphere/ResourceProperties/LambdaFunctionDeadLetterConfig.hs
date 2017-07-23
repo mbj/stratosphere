@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-deadletterconfig.html
 
@@ -25,13 +26,13 @@ instance ToJSON LambdaFunctionDeadLetterConfig where
   toJSON LambdaFunctionDeadLetterConfig{..} =
     object $
     catMaybes
-    [ ("TargetArn" .=) <$> _lambdaFunctionDeadLetterConfigTargetArn
+    [ fmap (("TargetArn",) . toJSON) _lambdaFunctionDeadLetterConfigTargetArn
     ]
 
 instance FromJSON LambdaFunctionDeadLetterConfig where
   parseJSON (Object obj) =
     LambdaFunctionDeadLetterConfig <$>
-      obj .:? "TargetArn"
+      (obj .:? "TargetArn")
   parseJSON _ = mempty
 
 -- | Constructor for 'LambdaFunctionDeadLetterConfig' containing required

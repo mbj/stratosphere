@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-webaclassociation.html
 
@@ -26,15 +27,15 @@ instance ToJSON WAFRegionalWebACLAssociation where
   toJSON WAFRegionalWebACLAssociation{..} =
     object $
     catMaybes
-    [ Just ("ResourceArn" .= _wAFRegionalWebACLAssociationResourceArn)
-    , Just ("WebACLId" .= _wAFRegionalWebACLAssociationWebACLId)
+    [ (Just . ("ResourceArn",) . toJSON) _wAFRegionalWebACLAssociationResourceArn
+    , (Just . ("WebACLId",) . toJSON) _wAFRegionalWebACLAssociationWebACLId
     ]
 
 instance FromJSON WAFRegionalWebACLAssociation where
   parseJSON (Object obj) =
     WAFRegionalWebACLAssociation <$>
-      obj .: "ResourceArn" <*>
-      obj .: "WebACLId"
+      (obj .: "ResourceArn") <*>
+      (obj .: "WebACLId")
   parseJSON _ = mempty
 
 -- | Constructor for 'WAFRegionalWebACLAssociation' containing required fields

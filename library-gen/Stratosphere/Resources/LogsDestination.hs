@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-destination.html
 
@@ -28,19 +29,19 @@ instance ToJSON LogsDestination where
   toJSON LogsDestination{..} =
     object $
     catMaybes
-    [ Just ("DestinationName" .= _logsDestinationDestinationName)
-    , Just ("DestinationPolicy" .= _logsDestinationDestinationPolicy)
-    , Just ("RoleArn" .= _logsDestinationRoleArn)
-    , Just ("TargetArn" .= _logsDestinationTargetArn)
+    [ (Just . ("DestinationName",) . toJSON) _logsDestinationDestinationName
+    , (Just . ("DestinationPolicy",) . toJSON) _logsDestinationDestinationPolicy
+    , (Just . ("RoleArn",) . toJSON) _logsDestinationRoleArn
+    , (Just . ("TargetArn",) . toJSON) _logsDestinationTargetArn
     ]
 
 instance FromJSON LogsDestination where
   parseJSON (Object obj) =
     LogsDestination <$>
-      obj .: "DestinationName" <*>
-      obj .: "DestinationPolicy" <*>
-      obj .: "RoleArn" <*>
-      obj .: "TargetArn"
+      (obj .: "DestinationName") <*>
+      (obj .: "DestinationPolicy") <*>
+      (obj .: "RoleArn") <*>
+      (obj .: "TargetArn")
   parseJSON _ = mempty
 
 -- | Constructor for 'LogsDestination' containing required fields as

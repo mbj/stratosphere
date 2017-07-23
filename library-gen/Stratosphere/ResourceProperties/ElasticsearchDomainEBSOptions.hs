@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-ebsoptions.html
 
@@ -18,9 +19,9 @@ import Stratosphere.Values
 -- 'elasticsearchDomainEBSOptions' for a more convenient constructor.
 data ElasticsearchDomainEBSOptions =
   ElasticsearchDomainEBSOptions
-  { _elasticsearchDomainEBSOptionsEBSEnabled :: Maybe (Val Bool')
-  , _elasticsearchDomainEBSOptionsIops :: Maybe (Val Integer')
-  , _elasticsearchDomainEBSOptionsVolumeSize :: Maybe (Val Integer')
+  { _elasticsearchDomainEBSOptionsEBSEnabled :: Maybe (Val Bool)
+  , _elasticsearchDomainEBSOptionsIops :: Maybe (Val Integer)
+  , _elasticsearchDomainEBSOptionsVolumeSize :: Maybe (Val Integer)
   , _elasticsearchDomainEBSOptionsVolumeType :: Maybe (Val Text)
   } deriving (Show, Eq)
 
@@ -28,19 +29,19 @@ instance ToJSON ElasticsearchDomainEBSOptions where
   toJSON ElasticsearchDomainEBSOptions{..} =
     object $
     catMaybes
-    [ ("EBSEnabled" .=) <$> _elasticsearchDomainEBSOptionsEBSEnabled
-    , ("Iops" .=) <$> _elasticsearchDomainEBSOptionsIops
-    , ("VolumeSize" .=) <$> _elasticsearchDomainEBSOptionsVolumeSize
-    , ("VolumeType" .=) <$> _elasticsearchDomainEBSOptionsVolumeType
+    [ fmap (("EBSEnabled",) . toJSON . fmap Bool') _elasticsearchDomainEBSOptionsEBSEnabled
+    , fmap (("Iops",) . toJSON . fmap Integer') _elasticsearchDomainEBSOptionsIops
+    , fmap (("VolumeSize",) . toJSON . fmap Integer') _elasticsearchDomainEBSOptionsVolumeSize
+    , fmap (("VolumeType",) . toJSON) _elasticsearchDomainEBSOptionsVolumeType
     ]
 
 instance FromJSON ElasticsearchDomainEBSOptions where
   parseJSON (Object obj) =
     ElasticsearchDomainEBSOptions <$>
-      obj .:? "EBSEnabled" <*>
-      obj .:? "Iops" <*>
-      obj .:? "VolumeSize" <*>
-      obj .:? "VolumeType"
+      fmap (fmap (fmap unBool')) (obj .:? "EBSEnabled") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "Iops") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "VolumeSize") <*>
+      (obj .:? "VolumeType")
   parseJSON _ = mempty
 
 -- | Constructor for 'ElasticsearchDomainEBSOptions' containing required
@@ -56,15 +57,15 @@ elasticsearchDomainEBSOptions  =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-ebsoptions.html#cfn-elasticsearch-domain-ebsoptions-ebsenabled
-edebsoEBSEnabled :: Lens' ElasticsearchDomainEBSOptions (Maybe (Val Bool'))
+edebsoEBSEnabled :: Lens' ElasticsearchDomainEBSOptions (Maybe (Val Bool))
 edebsoEBSEnabled = lens _elasticsearchDomainEBSOptionsEBSEnabled (\s a -> s { _elasticsearchDomainEBSOptionsEBSEnabled = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-ebsoptions.html#cfn-elasticsearch-domain-ebsoptions-iops
-edebsoIops :: Lens' ElasticsearchDomainEBSOptions (Maybe (Val Integer'))
+edebsoIops :: Lens' ElasticsearchDomainEBSOptions (Maybe (Val Integer))
 edebsoIops = lens _elasticsearchDomainEBSOptionsIops (\s a -> s { _elasticsearchDomainEBSOptionsIops = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-ebsoptions.html#cfn-elasticsearch-domain-ebsoptions-volumesize
-edebsoVolumeSize :: Lens' ElasticsearchDomainEBSOptions (Maybe (Val Integer'))
+edebsoVolumeSize :: Lens' ElasticsearchDomainEBSOptions (Maybe (Val Integer))
 edebsoVolumeSize = lens _elasticsearchDomainEBSOptionsVolumeSize (\s a -> s { _elasticsearchDomainEBSOptionsVolumeSize = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-ebsoptions.html#cfn-elasticsearch-domain-ebsoptions-volumetype

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directoryservice-simplead.html
 
@@ -18,9 +19,9 @@ import Stratosphere.ResourceProperties.DirectoryServiceSimpleADVpcSettings
 -- 'directoryServiceSimpleAD' for a more convenient constructor.
 data DirectoryServiceSimpleAD =
   DirectoryServiceSimpleAD
-  { _directoryServiceSimpleADCreateAlias :: Maybe (Val Bool')
+  { _directoryServiceSimpleADCreateAlias :: Maybe (Val Bool)
   , _directoryServiceSimpleADDescription :: Maybe (Val Text)
-  , _directoryServiceSimpleADEnableSso :: Maybe (Val Bool')
+  , _directoryServiceSimpleADEnableSso :: Maybe (Val Bool)
   , _directoryServiceSimpleADName :: Val Text
   , _directoryServiceSimpleADPassword :: Val Text
   , _directoryServiceSimpleADShortName :: Maybe (Val Text)
@@ -32,27 +33,27 @@ instance ToJSON DirectoryServiceSimpleAD where
   toJSON DirectoryServiceSimpleAD{..} =
     object $
     catMaybes
-    [ ("CreateAlias" .=) <$> _directoryServiceSimpleADCreateAlias
-    , ("Description" .=) <$> _directoryServiceSimpleADDescription
-    , ("EnableSso" .=) <$> _directoryServiceSimpleADEnableSso
-    , Just ("Name" .= _directoryServiceSimpleADName)
-    , Just ("Password" .= _directoryServiceSimpleADPassword)
-    , ("ShortName" .=) <$> _directoryServiceSimpleADShortName
-    , Just ("Size" .= _directoryServiceSimpleADSize)
-    , Just ("VpcSettings" .= _directoryServiceSimpleADVpcSettings)
+    [ fmap (("CreateAlias",) . toJSON . fmap Bool') _directoryServiceSimpleADCreateAlias
+    , fmap (("Description",) . toJSON) _directoryServiceSimpleADDescription
+    , fmap (("EnableSso",) . toJSON . fmap Bool') _directoryServiceSimpleADEnableSso
+    , (Just . ("Name",) . toJSON) _directoryServiceSimpleADName
+    , (Just . ("Password",) . toJSON) _directoryServiceSimpleADPassword
+    , fmap (("ShortName",) . toJSON) _directoryServiceSimpleADShortName
+    , (Just . ("Size",) . toJSON) _directoryServiceSimpleADSize
+    , (Just . ("VpcSettings",) . toJSON) _directoryServiceSimpleADVpcSettings
     ]
 
 instance FromJSON DirectoryServiceSimpleAD where
   parseJSON (Object obj) =
     DirectoryServiceSimpleAD <$>
-      obj .:? "CreateAlias" <*>
-      obj .:? "Description" <*>
-      obj .:? "EnableSso" <*>
-      obj .: "Name" <*>
-      obj .: "Password" <*>
-      obj .:? "ShortName" <*>
-      obj .: "Size" <*>
-      obj .: "VpcSettings"
+      fmap (fmap (fmap unBool')) (obj .:? "CreateAlias") <*>
+      (obj .:? "Description") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "EnableSso") <*>
+      (obj .: "Name") <*>
+      (obj .: "Password") <*>
+      (obj .:? "ShortName") <*>
+      (obj .: "Size") <*>
+      (obj .: "VpcSettings")
   parseJSON _ = mempty
 
 -- | Constructor for 'DirectoryServiceSimpleAD' containing required fields as
@@ -76,7 +77,7 @@ directoryServiceSimpleAD namearg passwordarg sizearg vpcSettingsarg =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directoryservice-simplead.html#cfn-directoryservice-simplead-createalias
-dssadCreateAlias :: Lens' DirectoryServiceSimpleAD (Maybe (Val Bool'))
+dssadCreateAlias :: Lens' DirectoryServiceSimpleAD (Maybe (Val Bool))
 dssadCreateAlias = lens _directoryServiceSimpleADCreateAlias (\s a -> s { _directoryServiceSimpleADCreateAlias = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directoryservice-simplead.html#cfn-directoryservice-simplead-description
@@ -84,7 +85,7 @@ dssadDescription :: Lens' DirectoryServiceSimpleAD (Maybe (Val Text))
 dssadDescription = lens _directoryServiceSimpleADDescription (\s a -> s { _directoryServiceSimpleADDescription = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directoryservice-simplead.html#cfn-directoryservice-simplead-enablesso
-dssadEnableSso :: Lens' DirectoryServiceSimpleAD (Maybe (Val Bool'))
+dssadEnableSso :: Lens' DirectoryServiceSimpleAD (Maybe (Val Bool))
 dssadEnableSso = lens _directoryServiceSimpleADEnableSso (\s a -> s { _directoryServiceSimpleADEnableSso = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directoryservice-simplead.html#cfn-directoryservice-simplead-name

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages-actions-actiontypeid.html
 
@@ -28,19 +29,19 @@ instance ToJSON CodePipelinePipelineActionTypeId where
   toJSON CodePipelinePipelineActionTypeId{..} =
     object $
     catMaybes
-    [ Just ("Category" .= _codePipelinePipelineActionTypeIdCategory)
-    , Just ("Owner" .= _codePipelinePipelineActionTypeIdOwner)
-    , Just ("Provider" .= _codePipelinePipelineActionTypeIdProvider)
-    , Just ("Version" .= _codePipelinePipelineActionTypeIdVersion)
+    [ (Just . ("Category",) . toJSON) _codePipelinePipelineActionTypeIdCategory
+    , (Just . ("Owner",) . toJSON) _codePipelinePipelineActionTypeIdOwner
+    , (Just . ("Provider",) . toJSON) _codePipelinePipelineActionTypeIdProvider
+    , (Just . ("Version",) . toJSON) _codePipelinePipelineActionTypeIdVersion
     ]
 
 instance FromJSON CodePipelinePipelineActionTypeId where
   parseJSON (Object obj) =
     CodePipelinePipelineActionTypeId <$>
-      obj .: "Category" <*>
-      obj .: "Owner" <*>
-      obj .: "Provider" <*>
-      obj .: "Version"
+      (obj .: "Category") <*>
+      (obj .: "Owner") <*>
+      (obj .: "Provider") <*>
+      (obj .: "Version")
   parseJSON _ = mempty
 
 -- | Constructor for 'CodePipelinePipelineActionTypeId' containing required

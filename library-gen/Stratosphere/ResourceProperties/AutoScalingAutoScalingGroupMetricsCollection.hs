@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-metricscollection.html
 
@@ -28,15 +29,15 @@ instance ToJSON AutoScalingAutoScalingGroupMetricsCollection where
   toJSON AutoScalingAutoScalingGroupMetricsCollection{..} =
     object $
     catMaybes
-    [ Just ("Granularity" .= _autoScalingAutoScalingGroupMetricsCollectionGranularity)
-    , ("Metrics" .=) <$> _autoScalingAutoScalingGroupMetricsCollectionMetrics
+    [ (Just . ("Granularity",) . toJSON) _autoScalingAutoScalingGroupMetricsCollectionGranularity
+    , fmap (("Metrics",) . toJSON) _autoScalingAutoScalingGroupMetricsCollectionMetrics
     ]
 
 instance FromJSON AutoScalingAutoScalingGroupMetricsCollection where
   parseJSON (Object obj) =
     AutoScalingAutoScalingGroupMetricsCollection <$>
-      obj .: "Granularity" <*>
-      obj .:? "Metrics"
+      (obj .: "Granularity") <*>
+      (obj .:? "Metrics")
   parseJSON _ = mempty
 
 -- | Constructor for 'AutoScalingAutoScalingGroupMetricsCollection' containing

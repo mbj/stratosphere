@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-stack-elasticip.html
 
@@ -26,15 +27,15 @@ instance ToJSON OpsWorksStackElasticIp where
   toJSON OpsWorksStackElasticIp{..} =
     object $
     catMaybes
-    [ Just ("Ip" .= _opsWorksStackElasticIpIp)
-    , ("Name" .=) <$> _opsWorksStackElasticIpName
+    [ (Just . ("Ip",) . toJSON) _opsWorksStackElasticIpIp
+    , fmap (("Name",) . toJSON) _opsWorksStackElasticIpName
     ]
 
 instance FromJSON OpsWorksStackElasticIp where
   parseJSON (Object obj) =
     OpsWorksStackElasticIp <$>
-      obj .: "Ip" <*>
-      obj .:? "Name"
+      (obj .: "Ip") <*>
+      (obj .:? "Name")
   parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksStackElasticIp' containing required fields as

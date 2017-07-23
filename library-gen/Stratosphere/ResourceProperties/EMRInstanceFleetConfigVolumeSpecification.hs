@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-volumespecification.html
 
@@ -19,8 +20,8 @@ import Stratosphere.Values
 -- constructor.
 data EMRInstanceFleetConfigVolumeSpecification =
   EMRInstanceFleetConfigVolumeSpecification
-  { _eMRInstanceFleetConfigVolumeSpecificationIops :: Maybe (Val Integer')
-  , _eMRInstanceFleetConfigVolumeSpecificationSizeInGB :: Val Integer'
+  { _eMRInstanceFleetConfigVolumeSpecificationIops :: Maybe (Val Integer)
+  , _eMRInstanceFleetConfigVolumeSpecificationSizeInGB :: Val Integer
   , _eMRInstanceFleetConfigVolumeSpecificationVolumeType :: Val Text
   } deriving (Show, Eq)
 
@@ -28,23 +29,23 @@ instance ToJSON EMRInstanceFleetConfigVolumeSpecification where
   toJSON EMRInstanceFleetConfigVolumeSpecification{..} =
     object $
     catMaybes
-    [ ("Iops" .=) <$> _eMRInstanceFleetConfigVolumeSpecificationIops
-    , Just ("SizeInGB" .= _eMRInstanceFleetConfigVolumeSpecificationSizeInGB)
-    , Just ("VolumeType" .= _eMRInstanceFleetConfigVolumeSpecificationVolumeType)
+    [ fmap (("Iops",) . toJSON . fmap Integer') _eMRInstanceFleetConfigVolumeSpecificationIops
+    , (Just . ("SizeInGB",) . toJSON . fmap Integer') _eMRInstanceFleetConfigVolumeSpecificationSizeInGB
+    , (Just . ("VolumeType",) . toJSON) _eMRInstanceFleetConfigVolumeSpecificationVolumeType
     ]
 
 instance FromJSON EMRInstanceFleetConfigVolumeSpecification where
   parseJSON (Object obj) =
     EMRInstanceFleetConfigVolumeSpecification <$>
-      obj .:? "Iops" <*>
-      obj .: "SizeInGB" <*>
-      obj .: "VolumeType"
+      fmap (fmap (fmap unInteger')) (obj .:? "Iops") <*>
+      fmap (fmap unInteger') (obj .: "SizeInGB") <*>
+      (obj .: "VolumeType")
   parseJSON _ = mempty
 
 -- | Constructor for 'EMRInstanceFleetConfigVolumeSpecification' containing
 -- required fields as arguments.
 emrInstanceFleetConfigVolumeSpecification
-  :: Val Integer' -- ^ 'emrifcvsSizeInGB'
+  :: Val Integer -- ^ 'emrifcvsSizeInGB'
   -> Val Text -- ^ 'emrifcvsVolumeType'
   -> EMRInstanceFleetConfigVolumeSpecification
 emrInstanceFleetConfigVolumeSpecification sizeInGBarg volumeTypearg =
@@ -55,11 +56,11 @@ emrInstanceFleetConfigVolumeSpecification sizeInGBarg volumeTypearg =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-volumespecification.html#cfn-elasticmapreduce-instancefleetconfig-volumespecification-iops
-emrifcvsIops :: Lens' EMRInstanceFleetConfigVolumeSpecification (Maybe (Val Integer'))
+emrifcvsIops :: Lens' EMRInstanceFleetConfigVolumeSpecification (Maybe (Val Integer))
 emrifcvsIops = lens _eMRInstanceFleetConfigVolumeSpecificationIops (\s a -> s { _eMRInstanceFleetConfigVolumeSpecificationIops = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-volumespecification.html#cfn-elasticmapreduce-instancefleetconfig-volumespecification-sizeingb
-emrifcvsSizeInGB :: Lens' EMRInstanceFleetConfigVolumeSpecification (Val Integer')
+emrifcvsSizeInGB :: Lens' EMRInstanceFleetConfigVolumeSpecification (Val Integer)
 emrifcvsSizeInGB = lens _eMRInstanceFleetConfigVolumeSpecificationSizeInGB (\s a -> s { _eMRInstanceFleetConfigVolumeSpecificationSizeInGB = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-volumespecification.html#cfn-elasticmapreduce-instancefleetconfig-volumespecification-volumetype

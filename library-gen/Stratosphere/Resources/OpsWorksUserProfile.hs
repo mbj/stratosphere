@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-userprofile.html
 
@@ -18,7 +19,7 @@ import Stratosphere.Values
 -- 'opsWorksUserProfile' for a more convenient constructor.
 data OpsWorksUserProfile =
   OpsWorksUserProfile
-  { _opsWorksUserProfileAllowSelfManagement :: Maybe (Val Bool')
+  { _opsWorksUserProfileAllowSelfManagement :: Maybe (Val Bool)
   , _opsWorksUserProfileIamUserArn :: Val Text
   , _opsWorksUserProfileSshPublicKey :: Maybe (Val Text)
   , _opsWorksUserProfileSshUsername :: Maybe (Val Text)
@@ -28,19 +29,19 @@ instance ToJSON OpsWorksUserProfile where
   toJSON OpsWorksUserProfile{..} =
     object $
     catMaybes
-    [ ("AllowSelfManagement" .=) <$> _opsWorksUserProfileAllowSelfManagement
-    , Just ("IamUserArn" .= _opsWorksUserProfileIamUserArn)
-    , ("SshPublicKey" .=) <$> _opsWorksUserProfileSshPublicKey
-    , ("SshUsername" .=) <$> _opsWorksUserProfileSshUsername
+    [ fmap (("AllowSelfManagement",) . toJSON . fmap Bool') _opsWorksUserProfileAllowSelfManagement
+    , (Just . ("IamUserArn",) . toJSON) _opsWorksUserProfileIamUserArn
+    , fmap (("SshPublicKey",) . toJSON) _opsWorksUserProfileSshPublicKey
+    , fmap (("SshUsername",) . toJSON) _opsWorksUserProfileSshUsername
     ]
 
 instance FromJSON OpsWorksUserProfile where
   parseJSON (Object obj) =
     OpsWorksUserProfile <$>
-      obj .:? "AllowSelfManagement" <*>
-      obj .: "IamUserArn" <*>
-      obj .:? "SshPublicKey" <*>
-      obj .:? "SshUsername"
+      fmap (fmap (fmap unBool')) (obj .:? "AllowSelfManagement") <*>
+      (obj .: "IamUserArn") <*>
+      (obj .:? "SshPublicKey") <*>
+      (obj .:? "SshUsername")
   parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksUserProfile' containing required fields as
@@ -57,7 +58,7 @@ opsWorksUserProfile iamUserArnarg =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-userprofile.html#cfn-opsworks-userprofile-allowselfmanagement
-owupAllowSelfManagement :: Lens' OpsWorksUserProfile (Maybe (Val Bool'))
+owupAllowSelfManagement :: Lens' OpsWorksUserProfile (Maybe (Val Bool))
 owupAllowSelfManagement = lens _opsWorksUserProfileAllowSelfManagement (\s a -> s { _opsWorksUserProfileAllowSelfManagement = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-userprofile.html#cfn-opsworks-userprofile-iamuserarn

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distributionconfig-restrictions-georestriction.html
 
@@ -26,15 +27,15 @@ instance ToJSON CloudFrontDistributionGeoRestriction where
   toJSON CloudFrontDistributionGeoRestriction{..} =
     object $
     catMaybes
-    [ ("Locations" .=) <$> _cloudFrontDistributionGeoRestrictionLocations
-    , Just ("RestrictionType" .= _cloudFrontDistributionGeoRestrictionRestrictionType)
+    [ fmap (("Locations",) . toJSON) _cloudFrontDistributionGeoRestrictionLocations
+    , (Just . ("RestrictionType",) . toJSON) _cloudFrontDistributionGeoRestrictionRestrictionType
     ]
 
 instance FromJSON CloudFrontDistributionGeoRestriction where
   parseJSON (Object obj) =
     CloudFrontDistributionGeoRestriction <$>
-      obj .:? "Locations" <*>
-      obj .: "RestrictionType"
+      (obj .:? "Locations") <*>
+      (obj .: "RestrictionType")
   parseJSON _ = mempty
 
 -- | Constructor for 'CloudFrontDistributionGeoRestriction' containing

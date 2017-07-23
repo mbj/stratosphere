@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-kinesisdeliverystream-redshiftdestinationconfiguration.html
 
@@ -35,25 +36,25 @@ instance ToJSON KinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration wh
   toJSON KinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration{..} =
     object $
     catMaybes
-    [ ("CloudWatchLoggingOptions" .=) <$> _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationCloudWatchLoggingOptions
-    , Just ("ClusterJDBCURL" .= _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationClusterJDBCURL)
-    , Just ("CopyCommand" .= _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationCopyCommand)
-    , Just ("Password" .= _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationPassword)
-    , Just ("RoleARN" .= _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationRoleARN)
-    , Just ("S3Configuration" .= _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationS3Configuration)
-    , Just ("Username" .= _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationUsername)
+    [ fmap (("CloudWatchLoggingOptions",) . toJSON) _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationCloudWatchLoggingOptions
+    , (Just . ("ClusterJDBCURL",) . toJSON) _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationClusterJDBCURL
+    , (Just . ("CopyCommand",) . toJSON) _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationCopyCommand
+    , (Just . ("Password",) . toJSON) _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationPassword
+    , (Just . ("RoleARN",) . toJSON) _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationRoleARN
+    , (Just . ("S3Configuration",) . toJSON) _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationS3Configuration
+    , (Just . ("Username",) . toJSON) _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationUsername
     ]
 
 instance FromJSON KinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration where
   parseJSON (Object obj) =
     KinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration <$>
-      obj .:? "CloudWatchLoggingOptions" <*>
-      obj .: "ClusterJDBCURL" <*>
-      obj .: "CopyCommand" <*>
-      obj .: "Password" <*>
-      obj .: "RoleARN" <*>
-      obj .: "S3Configuration" <*>
-      obj .: "Username"
+      (obj .:? "CloudWatchLoggingOptions") <*>
+      (obj .: "ClusterJDBCURL") <*>
+      (obj .: "CopyCommand") <*>
+      (obj .: "Password") <*>
+      (obj .: "RoleARN") <*>
+      (obj .: "S3Configuration") <*>
+      (obj .: "Username")
   parseJSON _ = mempty
 
 -- | Constructor for

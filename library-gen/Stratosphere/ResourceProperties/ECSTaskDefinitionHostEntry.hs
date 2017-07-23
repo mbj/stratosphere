@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-hostentry.html
 
@@ -26,15 +27,15 @@ instance ToJSON ECSTaskDefinitionHostEntry where
   toJSON ECSTaskDefinitionHostEntry{..} =
     object $
     catMaybes
-    [ Just ("Hostname" .= _eCSTaskDefinitionHostEntryHostname)
-    , Just ("IpAddress" .= _eCSTaskDefinitionHostEntryIpAddress)
+    [ (Just . ("Hostname",) . toJSON) _eCSTaskDefinitionHostEntryHostname
+    , (Just . ("IpAddress",) . toJSON) _eCSTaskDefinitionHostEntryIpAddress
     ]
 
 instance FromJSON ECSTaskDefinitionHostEntry where
   parseJSON (Object obj) =
     ECSTaskDefinitionHostEntry <$>
-      obj .: "Hostname" <*>
-      obj .: "IpAddress"
+      (obj .: "Hostname") <*>
+      (obj .: "IpAddress")
   parseJSON _ = mempty
 
 -- | Constructor for 'ECSTaskDefinitionHostEntry' containing required fields

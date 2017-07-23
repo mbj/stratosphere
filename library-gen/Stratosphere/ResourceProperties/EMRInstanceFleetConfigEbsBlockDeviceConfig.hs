@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-ebsblockdeviceconfig.html
 
@@ -20,22 +21,22 @@ import Stratosphere.ResourceProperties.EMRInstanceFleetConfigVolumeSpecification
 data EMRInstanceFleetConfigEbsBlockDeviceConfig =
   EMRInstanceFleetConfigEbsBlockDeviceConfig
   { _eMRInstanceFleetConfigEbsBlockDeviceConfigVolumeSpecification :: EMRInstanceFleetConfigVolumeSpecification
-  , _eMRInstanceFleetConfigEbsBlockDeviceConfigVolumesPerInstance :: Maybe (Val Integer')
+  , _eMRInstanceFleetConfigEbsBlockDeviceConfigVolumesPerInstance :: Maybe (Val Integer)
   } deriving (Show, Eq)
 
 instance ToJSON EMRInstanceFleetConfigEbsBlockDeviceConfig where
   toJSON EMRInstanceFleetConfigEbsBlockDeviceConfig{..} =
     object $
     catMaybes
-    [ Just ("VolumeSpecification" .= _eMRInstanceFleetConfigEbsBlockDeviceConfigVolumeSpecification)
-    , ("VolumesPerInstance" .=) <$> _eMRInstanceFleetConfigEbsBlockDeviceConfigVolumesPerInstance
+    [ (Just . ("VolumeSpecification",) . toJSON) _eMRInstanceFleetConfigEbsBlockDeviceConfigVolumeSpecification
+    , fmap (("VolumesPerInstance",) . toJSON . fmap Integer') _eMRInstanceFleetConfigEbsBlockDeviceConfigVolumesPerInstance
     ]
 
 instance FromJSON EMRInstanceFleetConfigEbsBlockDeviceConfig where
   parseJSON (Object obj) =
     EMRInstanceFleetConfigEbsBlockDeviceConfig <$>
-      obj .: "VolumeSpecification" <*>
-      obj .:? "VolumesPerInstance"
+      (obj .: "VolumeSpecification") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "VolumesPerInstance")
   parseJSON _ = mempty
 
 -- | Constructor for 'EMRInstanceFleetConfigEbsBlockDeviceConfig' containing
@@ -54,5 +55,5 @@ emrifcebdcVolumeSpecification :: Lens' EMRInstanceFleetConfigEbsBlockDeviceConfi
 emrifcebdcVolumeSpecification = lens _eMRInstanceFleetConfigEbsBlockDeviceConfigVolumeSpecification (\s a -> s { _eMRInstanceFleetConfigEbsBlockDeviceConfigVolumeSpecification = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-ebsblockdeviceconfig.html#cfn-elasticmapreduce-instancefleetconfig-ebsblockdeviceconfig-volumesperinstance
-emrifcebdcVolumesPerInstance :: Lens' EMRInstanceFleetConfigEbsBlockDeviceConfig (Maybe (Val Integer'))
+emrifcebdcVolumesPerInstance :: Lens' EMRInstanceFleetConfigEbsBlockDeviceConfig (Maybe (Val Integer))
 emrifcebdcVolumesPerInstance = lens _eMRInstanceFleetConfigEbsBlockDeviceConfigVolumesPerInstance (\s a -> s { _eMRInstanceFleetConfigEbsBlockDeviceConfigVolumesPerInstance = a })

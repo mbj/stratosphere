@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-lifecyclehook.html
 
@@ -20,7 +21,7 @@ data AutoScalingLifecycleHook =
   AutoScalingLifecycleHook
   { _autoScalingLifecycleHookAutoScalingGroupName :: Val Text
   , _autoScalingLifecycleHookDefaultResult :: Maybe (Val Text)
-  , _autoScalingLifecycleHookHeartbeatTimeout :: Maybe (Val Integer')
+  , _autoScalingLifecycleHookHeartbeatTimeout :: Maybe (Val Integer)
   , _autoScalingLifecycleHookLifecycleTransition :: Val Text
   , _autoScalingLifecycleHookNotificationMetadata :: Maybe (Val Text)
   , _autoScalingLifecycleHookNotificationTargetARN :: Maybe (Val Text)
@@ -31,25 +32,25 @@ instance ToJSON AutoScalingLifecycleHook where
   toJSON AutoScalingLifecycleHook{..} =
     object $
     catMaybes
-    [ Just ("AutoScalingGroupName" .= _autoScalingLifecycleHookAutoScalingGroupName)
-    , ("DefaultResult" .=) <$> _autoScalingLifecycleHookDefaultResult
-    , ("HeartbeatTimeout" .=) <$> _autoScalingLifecycleHookHeartbeatTimeout
-    , Just ("LifecycleTransition" .= _autoScalingLifecycleHookLifecycleTransition)
-    , ("NotificationMetadata" .=) <$> _autoScalingLifecycleHookNotificationMetadata
-    , ("NotificationTargetARN" .=) <$> _autoScalingLifecycleHookNotificationTargetARN
-    , ("RoleARN" .=) <$> _autoScalingLifecycleHookRoleARN
+    [ (Just . ("AutoScalingGroupName",) . toJSON) _autoScalingLifecycleHookAutoScalingGroupName
+    , fmap (("DefaultResult",) . toJSON) _autoScalingLifecycleHookDefaultResult
+    , fmap (("HeartbeatTimeout",) . toJSON . fmap Integer') _autoScalingLifecycleHookHeartbeatTimeout
+    , (Just . ("LifecycleTransition",) . toJSON) _autoScalingLifecycleHookLifecycleTransition
+    , fmap (("NotificationMetadata",) . toJSON) _autoScalingLifecycleHookNotificationMetadata
+    , fmap (("NotificationTargetARN",) . toJSON) _autoScalingLifecycleHookNotificationTargetARN
+    , fmap (("RoleARN",) . toJSON) _autoScalingLifecycleHookRoleARN
     ]
 
 instance FromJSON AutoScalingLifecycleHook where
   parseJSON (Object obj) =
     AutoScalingLifecycleHook <$>
-      obj .: "AutoScalingGroupName" <*>
-      obj .:? "DefaultResult" <*>
-      obj .:? "HeartbeatTimeout" <*>
-      obj .: "LifecycleTransition" <*>
-      obj .:? "NotificationMetadata" <*>
-      obj .:? "NotificationTargetARN" <*>
-      obj .:? "RoleARN"
+      (obj .: "AutoScalingGroupName") <*>
+      (obj .:? "DefaultResult") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "HeartbeatTimeout") <*>
+      (obj .: "LifecycleTransition") <*>
+      (obj .:? "NotificationMetadata") <*>
+      (obj .:? "NotificationTargetARN") <*>
+      (obj .:? "RoleARN")
   parseJSON _ = mempty
 
 -- | Constructor for 'AutoScalingLifecycleHook' containing required fields as
@@ -78,7 +79,7 @@ aslhDefaultResult :: Lens' AutoScalingLifecycleHook (Maybe (Val Text))
 aslhDefaultResult = lens _autoScalingLifecycleHookDefaultResult (\s a -> s { _autoScalingLifecycleHookDefaultResult = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-lifecyclehook.html#cfn-as-lifecyclehook-heartbeattimeout
-aslhHeartbeatTimeout :: Lens' AutoScalingLifecycleHook (Maybe (Val Integer'))
+aslhHeartbeatTimeout :: Lens' AutoScalingLifecycleHook (Maybe (Val Integer))
 aslhHeartbeatTimeout = lens _autoScalingLifecycleHookHeartbeatTimeout (\s a -> s { _autoScalingLifecycleHookHeartbeatTimeout = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-lifecyclehook.html#cfn-as-lifecyclehook-lifecycletransition

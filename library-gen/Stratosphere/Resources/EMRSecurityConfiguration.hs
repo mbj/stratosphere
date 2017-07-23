@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-securityconfiguration.html
 
@@ -26,15 +27,15 @@ instance ToJSON EMRSecurityConfiguration where
   toJSON EMRSecurityConfiguration{..} =
     object $
     catMaybes
-    [ ("Name" .=) <$> _eMRSecurityConfigurationName
-    , Just ("SecurityConfiguration" .= _eMRSecurityConfigurationSecurityConfiguration)
+    [ fmap (("Name",) . toJSON) _eMRSecurityConfigurationName
+    , (Just . ("SecurityConfiguration",) . toJSON) _eMRSecurityConfigurationSecurityConfiguration
     ]
 
 instance FromJSON EMRSecurityConfiguration where
   parseJSON (Object obj) =
     EMRSecurityConfiguration <$>
-      obj .:? "Name" <*>
-      obj .: "SecurityConfiguration"
+      (obj .:? "Name") <*>
+      (obj .: "SecurityConfiguration")
   parseJSON _ = mempty
 
 -- | Constructor for 'EMRSecurityConfiguration' containing required fields as

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-beanstalk-configurationtemplate.html
 
@@ -32,23 +33,23 @@ instance ToJSON ElasticBeanstalkConfigurationTemplate where
   toJSON ElasticBeanstalkConfigurationTemplate{..} =
     object $
     catMaybes
-    [ Just ("ApplicationName" .= _elasticBeanstalkConfigurationTemplateApplicationName)
-    , ("Description" .=) <$> _elasticBeanstalkConfigurationTemplateDescription
-    , ("EnvironmentId" .=) <$> _elasticBeanstalkConfigurationTemplateEnvironmentId
-    , ("OptionSettings" .=) <$> _elasticBeanstalkConfigurationTemplateOptionSettings
-    , ("SolutionStackName" .=) <$> _elasticBeanstalkConfigurationTemplateSolutionStackName
-    , ("SourceConfiguration" .=) <$> _elasticBeanstalkConfigurationTemplateSourceConfiguration
+    [ (Just . ("ApplicationName",) . toJSON) _elasticBeanstalkConfigurationTemplateApplicationName
+    , fmap (("Description",) . toJSON) _elasticBeanstalkConfigurationTemplateDescription
+    , fmap (("EnvironmentId",) . toJSON) _elasticBeanstalkConfigurationTemplateEnvironmentId
+    , fmap (("OptionSettings",) . toJSON) _elasticBeanstalkConfigurationTemplateOptionSettings
+    , fmap (("SolutionStackName",) . toJSON) _elasticBeanstalkConfigurationTemplateSolutionStackName
+    , fmap (("SourceConfiguration",) . toJSON) _elasticBeanstalkConfigurationTemplateSourceConfiguration
     ]
 
 instance FromJSON ElasticBeanstalkConfigurationTemplate where
   parseJSON (Object obj) =
     ElasticBeanstalkConfigurationTemplate <$>
-      obj .: "ApplicationName" <*>
-      obj .:? "Description" <*>
-      obj .:? "EnvironmentId" <*>
-      obj .:? "OptionSettings" <*>
-      obj .:? "SolutionStackName" <*>
-      obj .:? "SourceConfiguration"
+      (obj .: "ApplicationName") <*>
+      (obj .:? "Description") <*>
+      (obj .:? "EnvironmentId") <*>
+      (obj .:? "OptionSettings") <*>
+      (obj .:? "SolutionStackName") <*>
+      (obj .:? "SourceConfiguration")
   parseJSON _ = mempty
 
 -- | Constructor for 'ElasticBeanstalkConfigurationTemplate' containing

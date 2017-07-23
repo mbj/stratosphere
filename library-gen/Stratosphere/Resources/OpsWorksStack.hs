@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-stack.html
 
@@ -26,7 +27,7 @@ data OpsWorksStack =
   , _opsWorksStackAttributes :: Maybe Object
   , _opsWorksStackChefConfiguration :: Maybe OpsWorksStackChefConfiguration
   , _opsWorksStackCloneAppIds :: Maybe (ValList Text)
-  , _opsWorksStackClonePermissions :: Maybe (Val Bool')
+  , _opsWorksStackClonePermissions :: Maybe (Val Bool)
   , _opsWorksStackConfigurationManager :: Maybe OpsWorksStackStackConfigurationManager
   , _opsWorksStackCustomCookbooksSource :: Maybe OpsWorksStackSource
   , _opsWorksStackCustomJson :: Maybe Object
@@ -43,8 +44,8 @@ data OpsWorksStack =
   , _opsWorksStackRdsDbInstances :: Maybe [OpsWorksStackRdsDbInstance]
   , _opsWorksStackServiceRoleArn :: Val Text
   , _opsWorksStackSourceStackId :: Maybe (Val Text)
-  , _opsWorksStackUseCustomCookbooks :: Maybe (Val Bool')
-  , _opsWorksStackUseOpsworksSecurityGroups :: Maybe (Val Bool')
+  , _opsWorksStackUseCustomCookbooks :: Maybe (Val Bool)
+  , _opsWorksStackUseOpsworksSecurityGroups :: Maybe (Val Bool)
   , _opsWorksStackVpcId :: Maybe (Val Text)
   } deriving (Show, Eq)
 
@@ -52,59 +53,59 @@ instance ToJSON OpsWorksStack where
   toJSON OpsWorksStack{..} =
     object $
     catMaybes
-    [ ("AgentVersion" .=) <$> _opsWorksStackAgentVersion
-    , ("Attributes" .=) <$> _opsWorksStackAttributes
-    , ("ChefConfiguration" .=) <$> _opsWorksStackChefConfiguration
-    , ("CloneAppIds" .=) <$> _opsWorksStackCloneAppIds
-    , ("ClonePermissions" .=) <$> _opsWorksStackClonePermissions
-    , ("ConfigurationManager" .=) <$> _opsWorksStackConfigurationManager
-    , ("CustomCookbooksSource" .=) <$> _opsWorksStackCustomCookbooksSource
-    , ("CustomJson" .=) <$> _opsWorksStackCustomJson
-    , ("DefaultAvailabilityZone" .=) <$> _opsWorksStackDefaultAvailabilityZone
-    , Just ("DefaultInstanceProfileArn" .= _opsWorksStackDefaultInstanceProfileArn)
-    , ("DefaultOs" .=) <$> _opsWorksStackDefaultOs
-    , ("DefaultRootDeviceType" .=) <$> _opsWorksStackDefaultRootDeviceType
-    , ("DefaultSshKeyName" .=) <$> _opsWorksStackDefaultSshKeyName
-    , ("DefaultSubnetId" .=) <$> _opsWorksStackDefaultSubnetId
-    , ("EcsClusterArn" .=) <$> _opsWorksStackEcsClusterArn
-    , ("ElasticIps" .=) <$> _opsWorksStackElasticIps
-    , ("HostnameTheme" .=) <$> _opsWorksStackHostnameTheme
-    , Just ("Name" .= _opsWorksStackName)
-    , ("RdsDbInstances" .=) <$> _opsWorksStackRdsDbInstances
-    , Just ("ServiceRoleArn" .= _opsWorksStackServiceRoleArn)
-    , ("SourceStackId" .=) <$> _opsWorksStackSourceStackId
-    , ("UseCustomCookbooks" .=) <$> _opsWorksStackUseCustomCookbooks
-    , ("UseOpsworksSecurityGroups" .=) <$> _opsWorksStackUseOpsworksSecurityGroups
-    , ("VpcId" .=) <$> _opsWorksStackVpcId
+    [ fmap (("AgentVersion",) . toJSON) _opsWorksStackAgentVersion
+    , fmap (("Attributes",) . toJSON) _opsWorksStackAttributes
+    , fmap (("ChefConfiguration",) . toJSON) _opsWorksStackChefConfiguration
+    , fmap (("CloneAppIds",) . toJSON) _opsWorksStackCloneAppIds
+    , fmap (("ClonePermissions",) . toJSON . fmap Bool') _opsWorksStackClonePermissions
+    , fmap (("ConfigurationManager",) . toJSON) _opsWorksStackConfigurationManager
+    , fmap (("CustomCookbooksSource",) . toJSON) _opsWorksStackCustomCookbooksSource
+    , fmap (("CustomJson",) . toJSON) _opsWorksStackCustomJson
+    , fmap (("DefaultAvailabilityZone",) . toJSON) _opsWorksStackDefaultAvailabilityZone
+    , (Just . ("DefaultInstanceProfileArn",) . toJSON) _opsWorksStackDefaultInstanceProfileArn
+    , fmap (("DefaultOs",) . toJSON) _opsWorksStackDefaultOs
+    , fmap (("DefaultRootDeviceType",) . toJSON) _opsWorksStackDefaultRootDeviceType
+    , fmap (("DefaultSshKeyName",) . toJSON) _opsWorksStackDefaultSshKeyName
+    , fmap (("DefaultSubnetId",) . toJSON) _opsWorksStackDefaultSubnetId
+    , fmap (("EcsClusterArn",) . toJSON) _opsWorksStackEcsClusterArn
+    , fmap (("ElasticIps",) . toJSON) _opsWorksStackElasticIps
+    , fmap (("HostnameTheme",) . toJSON) _opsWorksStackHostnameTheme
+    , (Just . ("Name",) . toJSON) _opsWorksStackName
+    , fmap (("RdsDbInstances",) . toJSON) _opsWorksStackRdsDbInstances
+    , (Just . ("ServiceRoleArn",) . toJSON) _opsWorksStackServiceRoleArn
+    , fmap (("SourceStackId",) . toJSON) _opsWorksStackSourceStackId
+    , fmap (("UseCustomCookbooks",) . toJSON . fmap Bool') _opsWorksStackUseCustomCookbooks
+    , fmap (("UseOpsworksSecurityGroups",) . toJSON . fmap Bool') _opsWorksStackUseOpsworksSecurityGroups
+    , fmap (("VpcId",) . toJSON) _opsWorksStackVpcId
     ]
 
 instance FromJSON OpsWorksStack where
   parseJSON (Object obj) =
     OpsWorksStack <$>
-      obj .:? "AgentVersion" <*>
-      obj .:? "Attributes" <*>
-      obj .:? "ChefConfiguration" <*>
-      obj .:? "CloneAppIds" <*>
-      obj .:? "ClonePermissions" <*>
-      obj .:? "ConfigurationManager" <*>
-      obj .:? "CustomCookbooksSource" <*>
-      obj .:? "CustomJson" <*>
-      obj .:? "DefaultAvailabilityZone" <*>
-      obj .: "DefaultInstanceProfileArn" <*>
-      obj .:? "DefaultOs" <*>
-      obj .:? "DefaultRootDeviceType" <*>
-      obj .:? "DefaultSshKeyName" <*>
-      obj .:? "DefaultSubnetId" <*>
-      obj .:? "EcsClusterArn" <*>
-      obj .:? "ElasticIps" <*>
-      obj .:? "HostnameTheme" <*>
-      obj .: "Name" <*>
-      obj .:? "RdsDbInstances" <*>
-      obj .: "ServiceRoleArn" <*>
-      obj .:? "SourceStackId" <*>
-      obj .:? "UseCustomCookbooks" <*>
-      obj .:? "UseOpsworksSecurityGroups" <*>
-      obj .:? "VpcId"
+      (obj .:? "AgentVersion") <*>
+      (obj .:? "Attributes") <*>
+      (obj .:? "ChefConfiguration") <*>
+      (obj .:? "CloneAppIds") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "ClonePermissions") <*>
+      (obj .:? "ConfigurationManager") <*>
+      (obj .:? "CustomCookbooksSource") <*>
+      (obj .:? "CustomJson") <*>
+      (obj .:? "DefaultAvailabilityZone") <*>
+      (obj .: "DefaultInstanceProfileArn") <*>
+      (obj .:? "DefaultOs") <*>
+      (obj .:? "DefaultRootDeviceType") <*>
+      (obj .:? "DefaultSshKeyName") <*>
+      (obj .:? "DefaultSubnetId") <*>
+      (obj .:? "EcsClusterArn") <*>
+      (obj .:? "ElasticIps") <*>
+      (obj .:? "HostnameTheme") <*>
+      (obj .: "Name") <*>
+      (obj .:? "RdsDbInstances") <*>
+      (obj .: "ServiceRoleArn") <*>
+      (obj .:? "SourceStackId") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "UseCustomCookbooks") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "UseOpsworksSecurityGroups") <*>
+      (obj .:? "VpcId")
   parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksStack' containing required fields as arguments.
@@ -158,7 +159,7 @@ owsCloneAppIds :: Lens' OpsWorksStack (Maybe (ValList Text))
 owsCloneAppIds = lens _opsWorksStackCloneAppIds (\s a -> s { _opsWorksStackCloneAppIds = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-stack.html#cfn-opsworks-stack-clonepermissions
-owsClonePermissions :: Lens' OpsWorksStack (Maybe (Val Bool'))
+owsClonePermissions :: Lens' OpsWorksStack (Maybe (Val Bool))
 owsClonePermissions = lens _opsWorksStackClonePermissions (\s a -> s { _opsWorksStackClonePermissions = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-stack.html#cfn-opsworks-stack-configmanager
@@ -226,11 +227,11 @@ owsSourceStackId :: Lens' OpsWorksStack (Maybe (Val Text))
 owsSourceStackId = lens _opsWorksStackSourceStackId (\s a -> s { _opsWorksStackSourceStackId = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-stack.html#usecustcookbooks
-owsUseCustomCookbooks :: Lens' OpsWorksStack (Maybe (Val Bool'))
+owsUseCustomCookbooks :: Lens' OpsWorksStack (Maybe (Val Bool))
 owsUseCustomCookbooks = lens _opsWorksStackUseCustomCookbooks (\s a -> s { _opsWorksStackUseCustomCookbooks = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-stack.html#cfn-opsworks-stack-useopsworkssecuritygroups
-owsUseOpsworksSecurityGroups :: Lens' OpsWorksStack (Maybe (Val Bool'))
+owsUseOpsworksSecurityGroups :: Lens' OpsWorksStack (Maybe (Val Bool))
 owsUseOpsworksSecurityGroups = lens _opsWorksStackUseOpsworksSecurityGroups (\s a -> s { _opsWorksStackUseOpsworksSecurityGroups = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-stack.html#cfn-opsworks-stack-vpcid

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html
 
@@ -30,19 +31,19 @@ instance ToJSON KinesisFirehoseDeliveryStream where
   toJSON KinesisFirehoseDeliveryStream{..} =
     object $
     catMaybes
-    [ ("DeliveryStreamName" .=) <$> _kinesisFirehoseDeliveryStreamDeliveryStreamName
-    , ("ElasticsearchDestinationConfiguration" .=) <$> _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguration
-    , ("RedshiftDestinationConfiguration" .=) <$> _kinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration
-    , ("S3DestinationConfiguration" .=) <$> _kinesisFirehoseDeliveryStreamS3DestinationConfiguration
+    [ fmap (("DeliveryStreamName",) . toJSON) _kinesisFirehoseDeliveryStreamDeliveryStreamName
+    , fmap (("ElasticsearchDestinationConfiguration",) . toJSON) _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguration
+    , fmap (("RedshiftDestinationConfiguration",) . toJSON) _kinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration
+    , fmap (("S3DestinationConfiguration",) . toJSON) _kinesisFirehoseDeliveryStreamS3DestinationConfiguration
     ]
 
 instance FromJSON KinesisFirehoseDeliveryStream where
   parseJSON (Object obj) =
     KinesisFirehoseDeliveryStream <$>
-      obj .:? "DeliveryStreamName" <*>
-      obj .:? "ElasticsearchDestinationConfiguration" <*>
-      obj .:? "RedshiftDestinationConfiguration" <*>
-      obj .:? "S3DestinationConfiguration"
+      (obj .:? "DeliveryStreamName") <*>
+      (obj .:? "ElasticsearchDestinationConfiguration") <*>
+      (obj .:? "RedshiftDestinationConfiguration") <*>
+      (obj .:? "S3DestinationConfiguration")
   parseJSON _ = mempty
 
 -- | Constructor for 'KinesisFirehoseDeliveryStream' containing required

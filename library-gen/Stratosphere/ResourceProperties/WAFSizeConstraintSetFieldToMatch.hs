@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-sizeconstraintset-sizeconstraint-fieldtomatch.html
 
@@ -26,15 +27,15 @@ instance ToJSON WAFSizeConstraintSetFieldToMatch where
   toJSON WAFSizeConstraintSetFieldToMatch{..} =
     object $
     catMaybes
-    [ ("Data" .=) <$> _wAFSizeConstraintSetFieldToMatchData
-    , Just ("Type" .= _wAFSizeConstraintSetFieldToMatchType)
+    [ fmap (("Data",) . toJSON) _wAFSizeConstraintSetFieldToMatchData
+    , (Just . ("Type",) . toJSON) _wAFSizeConstraintSetFieldToMatchType
     ]
 
 instance FromJSON WAFSizeConstraintSetFieldToMatch where
   parseJSON (Object obj) =
     WAFSizeConstraintSetFieldToMatch <$>
-      obj .:? "Data" <*>
-      obj .: "Type"
+      (obj .:? "Data") <*>
+      (obj .: "Type")
   parseJSON _ = mempty
 
 -- | Constructor for 'WAFSizeConstraintSetFieldToMatch' containing required

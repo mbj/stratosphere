@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfigurations.html
 
@@ -21,7 +22,7 @@ data RDSOptionGroupOptionConfiguration =
   { _rDSOptionGroupOptionConfigurationDBSecurityGroupMemberships :: Maybe (ValList Text)
   , _rDSOptionGroupOptionConfigurationOptionName :: Val Text
   , _rDSOptionGroupOptionConfigurationOptionSettings :: Maybe RDSOptionGroupOptionSetting
-  , _rDSOptionGroupOptionConfigurationPort :: Maybe (Val Integer')
+  , _rDSOptionGroupOptionConfigurationPort :: Maybe (Val Integer)
   , _rDSOptionGroupOptionConfigurationVpcSecurityGroupMemberships :: Maybe (ValList Text)
   } deriving (Show, Eq)
 
@@ -29,21 +30,21 @@ instance ToJSON RDSOptionGroupOptionConfiguration where
   toJSON RDSOptionGroupOptionConfiguration{..} =
     object $
     catMaybes
-    [ ("DBSecurityGroupMemberships" .=) <$> _rDSOptionGroupOptionConfigurationDBSecurityGroupMemberships
-    , Just ("OptionName" .= _rDSOptionGroupOptionConfigurationOptionName)
-    , ("OptionSettings" .=) <$> _rDSOptionGroupOptionConfigurationOptionSettings
-    , ("Port" .=) <$> _rDSOptionGroupOptionConfigurationPort
-    , ("VpcSecurityGroupMemberships" .=) <$> _rDSOptionGroupOptionConfigurationVpcSecurityGroupMemberships
+    [ fmap (("DBSecurityGroupMemberships",) . toJSON) _rDSOptionGroupOptionConfigurationDBSecurityGroupMemberships
+    , (Just . ("OptionName",) . toJSON) _rDSOptionGroupOptionConfigurationOptionName
+    , fmap (("OptionSettings",) . toJSON) _rDSOptionGroupOptionConfigurationOptionSettings
+    , fmap (("Port",) . toJSON . fmap Integer') _rDSOptionGroupOptionConfigurationPort
+    , fmap (("VpcSecurityGroupMemberships",) . toJSON) _rDSOptionGroupOptionConfigurationVpcSecurityGroupMemberships
     ]
 
 instance FromJSON RDSOptionGroupOptionConfiguration where
   parseJSON (Object obj) =
     RDSOptionGroupOptionConfiguration <$>
-      obj .:? "DBSecurityGroupMemberships" <*>
-      obj .: "OptionName" <*>
-      obj .:? "OptionSettings" <*>
-      obj .:? "Port" <*>
-      obj .:? "VpcSecurityGroupMemberships"
+      (obj .:? "DBSecurityGroupMemberships") <*>
+      (obj .: "OptionName") <*>
+      (obj .:? "OptionSettings") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "Port") <*>
+      (obj .:? "VpcSecurityGroupMemberships")
   parseJSON _ = mempty
 
 -- | Constructor for 'RDSOptionGroupOptionConfiguration' containing required
@@ -73,7 +74,7 @@ rdsogocOptionSettings :: Lens' RDSOptionGroupOptionConfiguration (Maybe RDSOptio
 rdsogocOptionSettings = lens _rDSOptionGroupOptionConfigurationOptionSettings (\s a -> s { _rDSOptionGroupOptionConfigurationOptionSettings = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfigurations.html#cfn-rds-optiongroup-optionconfigurations-port
-rdsogocPort :: Lens' RDSOptionGroupOptionConfiguration (Maybe (Val Integer'))
+rdsogocPort :: Lens' RDSOptionGroupOptionConfiguration (Maybe (Val Integer))
 rdsogocPort = lens _rDSOptionGroupOptionConfigurationPort (\s a -> s { _rDSOptionGroupOptionConfigurationPort = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfigurations.html#cfn-rds-optiongroup-optionconfigurations-vpcsecuritygroupmemberships

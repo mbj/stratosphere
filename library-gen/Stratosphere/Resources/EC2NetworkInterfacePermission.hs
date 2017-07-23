@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinterfacepermission.html
 
@@ -27,17 +28,17 @@ instance ToJSON EC2NetworkInterfacePermission where
   toJSON EC2NetworkInterfacePermission{..} =
     object $
     catMaybes
-    [ Just ("AwsAccountId" .= _eC2NetworkInterfacePermissionAwsAccountId)
-    , Just ("NetworkInterfaceId" .= _eC2NetworkInterfacePermissionNetworkInterfaceId)
-    , Just ("Permission" .= _eC2NetworkInterfacePermissionPermission)
+    [ (Just . ("AwsAccountId",) . toJSON) _eC2NetworkInterfacePermissionAwsAccountId
+    , (Just . ("NetworkInterfaceId",) . toJSON) _eC2NetworkInterfacePermissionNetworkInterfaceId
+    , (Just . ("Permission",) . toJSON) _eC2NetworkInterfacePermissionPermission
     ]
 
 instance FromJSON EC2NetworkInterfacePermission where
   parseJSON (Object obj) =
     EC2NetworkInterfacePermission <$>
-      obj .: "AwsAccountId" <*>
-      obj .: "NetworkInterfaceId" <*>
-      obj .: "Permission"
+      (obj .: "AwsAccountId") <*>
+      (obj .: "NetworkInterfaceId") <*>
+      (obj .: "Permission")
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2NetworkInterfacePermission' containing required

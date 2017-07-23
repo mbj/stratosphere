@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html
 
@@ -29,21 +30,21 @@ instance ToJSON EC2FlowLog where
   toJSON EC2FlowLog{..} =
     object $
     catMaybes
-    [ Just ("DeliverLogsPermissionArn" .= _eC2FlowLogDeliverLogsPermissionArn)
-    , Just ("LogGroupName" .= _eC2FlowLogLogGroupName)
-    , Just ("ResourceId" .= _eC2FlowLogResourceId)
-    , Just ("ResourceType" .= _eC2FlowLogResourceType)
-    , Just ("TrafficType" .= _eC2FlowLogTrafficType)
+    [ (Just . ("DeliverLogsPermissionArn",) . toJSON) _eC2FlowLogDeliverLogsPermissionArn
+    , (Just . ("LogGroupName",) . toJSON) _eC2FlowLogLogGroupName
+    , (Just . ("ResourceId",) . toJSON) _eC2FlowLogResourceId
+    , (Just . ("ResourceType",) . toJSON) _eC2FlowLogResourceType
+    , (Just . ("TrafficType",) . toJSON) _eC2FlowLogTrafficType
     ]
 
 instance FromJSON EC2FlowLog where
   parseJSON (Object obj) =
     EC2FlowLog <$>
-      obj .: "DeliverLogsPermissionArn" <*>
-      obj .: "LogGroupName" <*>
-      obj .: "ResourceId" <*>
-      obj .: "ResourceType" <*>
-      obj .: "TrafficType"
+      (obj .: "DeliverLogsPermissionArn") <*>
+      (obj .: "LogGroupName") <*>
+      (obj .: "ResourceId") <*>
+      (obj .: "ResourceType") <*>
+      (obj .: "TrafficType")
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2FlowLog' containing required fields as arguments.

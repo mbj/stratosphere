@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html
 
@@ -29,21 +30,21 @@ instance ToJSON LambdaPermission where
   toJSON LambdaPermission{..} =
     object $
     catMaybes
-    [ Just ("Action" .= _lambdaPermissionAction)
-    , Just ("FunctionName" .= _lambdaPermissionFunctionName)
-    , Just ("Principal" .= _lambdaPermissionPrincipal)
-    , ("SourceAccount" .=) <$> _lambdaPermissionSourceAccount
-    , ("SourceArn" .=) <$> _lambdaPermissionSourceArn
+    [ (Just . ("Action",) . toJSON) _lambdaPermissionAction
+    , (Just . ("FunctionName",) . toJSON) _lambdaPermissionFunctionName
+    , (Just . ("Principal",) . toJSON) _lambdaPermissionPrincipal
+    , fmap (("SourceAccount",) . toJSON) _lambdaPermissionSourceAccount
+    , fmap (("SourceArn",) . toJSON) _lambdaPermissionSourceArn
     ]
 
 instance FromJSON LambdaPermission where
   parseJSON (Object obj) =
     LambdaPermission <$>
-      obj .: "Action" <*>
-      obj .: "FunctionName" <*>
-      obj .: "Principal" <*>
-      obj .:? "SourceAccount" <*>
-      obj .:? "SourceArn"
+      (obj .: "Action") <*>
+      (obj .: "FunctionName") <*>
+      (obj .: "Principal") <*>
+      (obj .:? "SourceAccount") <*>
+      (obj .:? "SourceArn")
   parseJSON _ = mempty
 
 -- | Constructor for 'LambdaPermission' containing required fields as

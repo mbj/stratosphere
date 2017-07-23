@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-layer.html
 
@@ -22,14 +23,14 @@ import Stratosphere.ResourceProperties.OpsWorksLayerVolumeConfiguration
 data OpsWorksLayer =
   OpsWorksLayer
   { _opsWorksLayerAttributes :: Maybe Object
-  , _opsWorksLayerAutoAssignElasticIps :: Val Bool'
-  , _opsWorksLayerAutoAssignPublicIps :: Val Bool'
+  , _opsWorksLayerAutoAssignElasticIps :: Val Bool
+  , _opsWorksLayerAutoAssignPublicIps :: Val Bool
   , _opsWorksLayerCustomInstanceProfileArn :: Maybe (Val Text)
   , _opsWorksLayerCustomJson :: Maybe Object
   , _opsWorksLayerCustomRecipes :: Maybe OpsWorksLayerRecipes
   , _opsWorksLayerCustomSecurityGroupIds :: Maybe (ValList Text)
-  , _opsWorksLayerEnableAutoHealing :: Val Bool'
-  , _opsWorksLayerInstallUpdatesOnBoot :: Maybe (Val Bool')
+  , _opsWorksLayerEnableAutoHealing :: Val Bool
+  , _opsWorksLayerInstallUpdatesOnBoot :: Maybe (Val Bool)
   , _opsWorksLayerLifecycleEventConfiguration :: Maybe OpsWorksLayerLifecycleEventConfiguration
   , _opsWorksLayerLoadBasedAutoScaling :: Maybe OpsWorksLayerLoadBasedAutoScaling
   , _opsWorksLayerName :: Val Text
@@ -37,7 +38,7 @@ data OpsWorksLayer =
   , _opsWorksLayerShortname :: Val Text
   , _opsWorksLayerStackId :: Val Text
   , _opsWorksLayerType :: Val Text
-  , _opsWorksLayerUseEbsOptimizedInstances :: Maybe (Val Bool')
+  , _opsWorksLayerUseEbsOptimizedInstances :: Maybe (Val Bool)
   , _opsWorksLayerVolumeConfigurations :: Maybe [OpsWorksLayerVolumeConfiguration]
   } deriving (Show, Eq)
 
@@ -45,54 +46,54 @@ instance ToJSON OpsWorksLayer where
   toJSON OpsWorksLayer{..} =
     object $
     catMaybes
-    [ ("Attributes" .=) <$> _opsWorksLayerAttributes
-    , Just ("AutoAssignElasticIps" .= _opsWorksLayerAutoAssignElasticIps)
-    , Just ("AutoAssignPublicIps" .= _opsWorksLayerAutoAssignPublicIps)
-    , ("CustomInstanceProfileArn" .=) <$> _opsWorksLayerCustomInstanceProfileArn
-    , ("CustomJson" .=) <$> _opsWorksLayerCustomJson
-    , ("CustomRecipes" .=) <$> _opsWorksLayerCustomRecipes
-    , ("CustomSecurityGroupIds" .=) <$> _opsWorksLayerCustomSecurityGroupIds
-    , Just ("EnableAutoHealing" .= _opsWorksLayerEnableAutoHealing)
-    , ("InstallUpdatesOnBoot" .=) <$> _opsWorksLayerInstallUpdatesOnBoot
-    , ("LifecycleEventConfiguration" .=) <$> _opsWorksLayerLifecycleEventConfiguration
-    , ("LoadBasedAutoScaling" .=) <$> _opsWorksLayerLoadBasedAutoScaling
-    , Just ("Name" .= _opsWorksLayerName)
-    , ("Packages" .=) <$> _opsWorksLayerPackages
-    , Just ("Shortname" .= _opsWorksLayerShortname)
-    , Just ("StackId" .= _opsWorksLayerStackId)
-    , Just ("Type" .= _opsWorksLayerType)
-    , ("UseEbsOptimizedInstances" .=) <$> _opsWorksLayerUseEbsOptimizedInstances
-    , ("VolumeConfigurations" .=) <$> _opsWorksLayerVolumeConfigurations
+    [ fmap (("Attributes",) . toJSON) _opsWorksLayerAttributes
+    , (Just . ("AutoAssignElasticIps",) . toJSON . fmap Bool') _opsWorksLayerAutoAssignElasticIps
+    , (Just . ("AutoAssignPublicIps",) . toJSON . fmap Bool') _opsWorksLayerAutoAssignPublicIps
+    , fmap (("CustomInstanceProfileArn",) . toJSON) _opsWorksLayerCustomInstanceProfileArn
+    , fmap (("CustomJson",) . toJSON) _opsWorksLayerCustomJson
+    , fmap (("CustomRecipes",) . toJSON) _opsWorksLayerCustomRecipes
+    , fmap (("CustomSecurityGroupIds",) . toJSON) _opsWorksLayerCustomSecurityGroupIds
+    , (Just . ("EnableAutoHealing",) . toJSON . fmap Bool') _opsWorksLayerEnableAutoHealing
+    , fmap (("InstallUpdatesOnBoot",) . toJSON . fmap Bool') _opsWorksLayerInstallUpdatesOnBoot
+    , fmap (("LifecycleEventConfiguration",) . toJSON) _opsWorksLayerLifecycleEventConfiguration
+    , fmap (("LoadBasedAutoScaling",) . toJSON) _opsWorksLayerLoadBasedAutoScaling
+    , (Just . ("Name",) . toJSON) _opsWorksLayerName
+    , fmap (("Packages",) . toJSON) _opsWorksLayerPackages
+    , (Just . ("Shortname",) . toJSON) _opsWorksLayerShortname
+    , (Just . ("StackId",) . toJSON) _opsWorksLayerStackId
+    , (Just . ("Type",) . toJSON) _opsWorksLayerType
+    , fmap (("UseEbsOptimizedInstances",) . toJSON . fmap Bool') _opsWorksLayerUseEbsOptimizedInstances
+    , fmap (("VolumeConfigurations",) . toJSON) _opsWorksLayerVolumeConfigurations
     ]
 
 instance FromJSON OpsWorksLayer where
   parseJSON (Object obj) =
     OpsWorksLayer <$>
-      obj .:? "Attributes" <*>
-      obj .: "AutoAssignElasticIps" <*>
-      obj .: "AutoAssignPublicIps" <*>
-      obj .:? "CustomInstanceProfileArn" <*>
-      obj .:? "CustomJson" <*>
-      obj .:? "CustomRecipes" <*>
-      obj .:? "CustomSecurityGroupIds" <*>
-      obj .: "EnableAutoHealing" <*>
-      obj .:? "InstallUpdatesOnBoot" <*>
-      obj .:? "LifecycleEventConfiguration" <*>
-      obj .:? "LoadBasedAutoScaling" <*>
-      obj .: "Name" <*>
-      obj .:? "Packages" <*>
-      obj .: "Shortname" <*>
-      obj .: "StackId" <*>
-      obj .: "Type" <*>
-      obj .:? "UseEbsOptimizedInstances" <*>
-      obj .:? "VolumeConfigurations"
+      (obj .:? "Attributes") <*>
+      fmap (fmap unBool') (obj .: "AutoAssignElasticIps") <*>
+      fmap (fmap unBool') (obj .: "AutoAssignPublicIps") <*>
+      (obj .:? "CustomInstanceProfileArn") <*>
+      (obj .:? "CustomJson") <*>
+      (obj .:? "CustomRecipes") <*>
+      (obj .:? "CustomSecurityGroupIds") <*>
+      fmap (fmap unBool') (obj .: "EnableAutoHealing") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "InstallUpdatesOnBoot") <*>
+      (obj .:? "LifecycleEventConfiguration") <*>
+      (obj .:? "LoadBasedAutoScaling") <*>
+      (obj .: "Name") <*>
+      (obj .:? "Packages") <*>
+      (obj .: "Shortname") <*>
+      (obj .: "StackId") <*>
+      (obj .: "Type") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "UseEbsOptimizedInstances") <*>
+      (obj .:? "VolumeConfigurations")
   parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksLayer' containing required fields as arguments.
 opsWorksLayer
-  :: Val Bool' -- ^ 'owlAutoAssignElasticIps'
-  -> Val Bool' -- ^ 'owlAutoAssignPublicIps'
-  -> Val Bool' -- ^ 'owlEnableAutoHealing'
+  :: Val Bool -- ^ 'owlAutoAssignElasticIps'
+  -> Val Bool -- ^ 'owlAutoAssignPublicIps'
+  -> Val Bool -- ^ 'owlEnableAutoHealing'
   -> Val Text -- ^ 'owlName'
   -> Val Text -- ^ 'owlShortname'
   -> Val Text -- ^ 'owlStackId'
@@ -125,11 +126,11 @@ owlAttributes :: Lens' OpsWorksLayer (Maybe Object)
 owlAttributes = lens _opsWorksLayerAttributes (\s a -> s { _opsWorksLayerAttributes = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-layer.html#cfn-opsworks-layer-autoassignelasticips
-owlAutoAssignElasticIps :: Lens' OpsWorksLayer (Val Bool')
+owlAutoAssignElasticIps :: Lens' OpsWorksLayer (Val Bool)
 owlAutoAssignElasticIps = lens _opsWorksLayerAutoAssignElasticIps (\s a -> s { _opsWorksLayerAutoAssignElasticIps = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-layer.html#cfn-opsworks-layer-autoassignpublicips
-owlAutoAssignPublicIps :: Lens' OpsWorksLayer (Val Bool')
+owlAutoAssignPublicIps :: Lens' OpsWorksLayer (Val Bool)
 owlAutoAssignPublicIps = lens _opsWorksLayerAutoAssignPublicIps (\s a -> s { _opsWorksLayerAutoAssignPublicIps = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-layer.html#cfn-opsworks-layer-custominstanceprofilearn
@@ -149,11 +150,11 @@ owlCustomSecurityGroupIds :: Lens' OpsWorksLayer (Maybe (ValList Text))
 owlCustomSecurityGroupIds = lens _opsWorksLayerCustomSecurityGroupIds (\s a -> s { _opsWorksLayerCustomSecurityGroupIds = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-layer.html#cfn-opsworks-layer-enableautohealing
-owlEnableAutoHealing :: Lens' OpsWorksLayer (Val Bool')
+owlEnableAutoHealing :: Lens' OpsWorksLayer (Val Bool)
 owlEnableAutoHealing = lens _opsWorksLayerEnableAutoHealing (\s a -> s { _opsWorksLayerEnableAutoHealing = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-layer.html#cfn-opsworks-layer-installupdatesonboot
-owlInstallUpdatesOnBoot :: Lens' OpsWorksLayer (Maybe (Val Bool'))
+owlInstallUpdatesOnBoot :: Lens' OpsWorksLayer (Maybe (Val Bool))
 owlInstallUpdatesOnBoot = lens _opsWorksLayerInstallUpdatesOnBoot (\s a -> s { _opsWorksLayerInstallUpdatesOnBoot = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-layer.html#cfn-opsworks-layer-lifecycleeventconfiguration
@@ -185,7 +186,7 @@ owlType :: Lens' OpsWorksLayer (Val Text)
 owlType = lens _opsWorksLayerType (\s a -> s { _opsWorksLayerType = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-layer.html#cfn-opsworks-layer-useebsoptimizedinstances
-owlUseEbsOptimizedInstances :: Lens' OpsWorksLayer (Maybe (Val Bool'))
+owlUseEbsOptimizedInstances :: Lens' OpsWorksLayer (Maybe (Val Bool))
 owlUseEbsOptimizedInstances = lens _opsWorksLayerUseEbsOptimizedInstances (\s a -> s { _opsWorksLayerUseEbsOptimizedInstances = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-layer.html#cfn-opsworks-layer-volumeconfigurations

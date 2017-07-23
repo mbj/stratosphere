@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-account.html
 
@@ -25,13 +26,13 @@ instance ToJSON ApiGatewayAccount where
   toJSON ApiGatewayAccount{..} =
     object $
     catMaybes
-    [ ("CloudWatchRoleArn" .=) <$> _apiGatewayAccountCloudWatchRoleArn
+    [ fmap (("CloudWatchRoleArn",) . toJSON) _apiGatewayAccountCloudWatchRoleArn
     ]
 
 instance FromJSON ApiGatewayAccount where
   parseJSON (Object obj) =
     ApiGatewayAccount <$>
-      obj .:? "CloudWatchRoleArn"
+      (obj .:? "CloudWatchRoleArn")
   parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayAccount' containing required fields as

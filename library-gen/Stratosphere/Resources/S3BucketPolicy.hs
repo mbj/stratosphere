@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-policy.html
 
@@ -26,15 +27,15 @@ instance ToJSON S3BucketPolicy where
   toJSON S3BucketPolicy{..} =
     object $
     catMaybes
-    [ Just ("Bucket" .= _s3BucketPolicyBucket)
-    , Just ("PolicyDocument" .= _s3BucketPolicyPolicyDocument)
+    [ (Just . ("Bucket",) . toJSON) _s3BucketPolicyBucket
+    , (Just . ("PolicyDocument",) . toJSON) _s3BucketPolicyPolicyDocument
     ]
 
 instance FromJSON S3BucketPolicy where
   parseJSON (Object obj) =
     S3BucketPolicy <$>
-      obj .: "Bucket" <*>
-      obj .: "PolicyDocument"
+      (obj .: "Bucket") <*>
+      (obj .: "PolicyDocument")
   parseJSON _ = mempty
 
 -- | Constructor for 'S3BucketPolicy' containing required fields as arguments.

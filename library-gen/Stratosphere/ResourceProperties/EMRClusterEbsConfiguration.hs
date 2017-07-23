@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-ebsconfiguration.html
 
@@ -19,22 +20,22 @@ import Stratosphere.ResourceProperties.EMRClusterEbsBlockDeviceConfig
 data EMRClusterEbsConfiguration =
   EMRClusterEbsConfiguration
   { _eMRClusterEbsConfigurationEbsBlockDeviceConfigs :: Maybe [EMRClusterEbsBlockDeviceConfig]
-  , _eMRClusterEbsConfigurationEbsOptimized :: Maybe (Val Bool')
+  , _eMRClusterEbsConfigurationEbsOptimized :: Maybe (Val Bool)
   } deriving (Show, Eq)
 
 instance ToJSON EMRClusterEbsConfiguration where
   toJSON EMRClusterEbsConfiguration{..} =
     object $
     catMaybes
-    [ ("EbsBlockDeviceConfigs" .=) <$> _eMRClusterEbsConfigurationEbsBlockDeviceConfigs
-    , ("EbsOptimized" .=) <$> _eMRClusterEbsConfigurationEbsOptimized
+    [ fmap (("EbsBlockDeviceConfigs",) . toJSON) _eMRClusterEbsConfigurationEbsBlockDeviceConfigs
+    , fmap (("EbsOptimized",) . toJSON . fmap Bool') _eMRClusterEbsConfigurationEbsOptimized
     ]
 
 instance FromJSON EMRClusterEbsConfiguration where
   parseJSON (Object obj) =
     EMRClusterEbsConfiguration <$>
-      obj .:? "EbsBlockDeviceConfigs" <*>
-      obj .:? "EbsOptimized"
+      (obj .:? "EbsBlockDeviceConfigs") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "EbsOptimized")
   parseJSON _ = mempty
 
 -- | Constructor for 'EMRClusterEbsConfiguration' containing required fields
@@ -52,5 +53,5 @@ emrcecEbsBlockDeviceConfigs :: Lens' EMRClusterEbsConfiguration (Maybe [EMRClust
 emrcecEbsBlockDeviceConfigs = lens _eMRClusterEbsConfigurationEbsBlockDeviceConfigs (\s a -> s { _eMRClusterEbsConfigurationEbsBlockDeviceConfigs = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-ebsconfiguration.html#cfn-emr-ebsconfiguration-ebsoptimized
-emrcecEbsOptimized :: Lens' EMRClusterEbsConfiguration (Maybe (Val Bool'))
+emrcecEbsOptimized :: Lens' EMRClusterEbsConfiguration (Maybe (Val Bool))
 emrcecEbsOptimized = lens _eMRClusterEbsConfigurationEbsOptimized (\s a -> s { _eMRClusterEbsConfigurationEbsOptimized = a })

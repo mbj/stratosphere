@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-gsi.html
 
@@ -30,19 +31,19 @@ instance ToJSON DynamoDBTableGlobalSecondaryIndex where
   toJSON DynamoDBTableGlobalSecondaryIndex{..} =
     object $
     catMaybes
-    [ Just ("IndexName" .= _dynamoDBTableGlobalSecondaryIndexIndexName)
-    , Just ("KeySchema" .= _dynamoDBTableGlobalSecondaryIndexKeySchema)
-    , Just ("Projection" .= _dynamoDBTableGlobalSecondaryIndexProjection)
-    , Just ("ProvisionedThroughput" .= _dynamoDBTableGlobalSecondaryIndexProvisionedThroughput)
+    [ (Just . ("IndexName",) . toJSON) _dynamoDBTableGlobalSecondaryIndexIndexName
+    , (Just . ("KeySchema",) . toJSON) _dynamoDBTableGlobalSecondaryIndexKeySchema
+    , (Just . ("Projection",) . toJSON) _dynamoDBTableGlobalSecondaryIndexProjection
+    , (Just . ("ProvisionedThroughput",) . toJSON) _dynamoDBTableGlobalSecondaryIndexProvisionedThroughput
     ]
 
 instance FromJSON DynamoDBTableGlobalSecondaryIndex where
   parseJSON (Object obj) =
     DynamoDBTableGlobalSecondaryIndex <$>
-      obj .: "IndexName" <*>
-      obj .: "KeySchema" <*>
-      obj .: "Projection" <*>
-      obj .: "ProvisionedThroughput"
+      (obj .: "IndexName") <*>
+      (obj .: "KeySchema") <*>
+      (obj .: "Projection") <*>
+      (obj .: "ProvisionedThroughput")
   parseJSON _ = mempty
 
 -- | Constructor for 'DynamoDBTableGlobalSecondaryIndex' containing required

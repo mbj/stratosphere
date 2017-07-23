@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environment.html
 
@@ -21,7 +22,7 @@ data CodeBuildProjectEnvironment =
   { _codeBuildProjectEnvironmentComputeType :: Val Text
   , _codeBuildProjectEnvironmentEnvironmentVariables :: Maybe [CodeBuildProjectEnvironmentVariable]
   , _codeBuildProjectEnvironmentImage :: Val Text
-  , _codeBuildProjectEnvironmentPrivilegedMode :: Maybe (Val Bool')
+  , _codeBuildProjectEnvironmentPrivilegedMode :: Maybe (Val Bool)
   , _codeBuildProjectEnvironmentType :: Val Text
   } deriving (Show, Eq)
 
@@ -29,21 +30,21 @@ instance ToJSON CodeBuildProjectEnvironment where
   toJSON CodeBuildProjectEnvironment{..} =
     object $
     catMaybes
-    [ Just ("ComputeType" .= _codeBuildProjectEnvironmentComputeType)
-    , ("EnvironmentVariables" .=) <$> _codeBuildProjectEnvironmentEnvironmentVariables
-    , Just ("Image" .= _codeBuildProjectEnvironmentImage)
-    , ("PrivilegedMode" .=) <$> _codeBuildProjectEnvironmentPrivilegedMode
-    , Just ("Type" .= _codeBuildProjectEnvironmentType)
+    [ (Just . ("ComputeType",) . toJSON) _codeBuildProjectEnvironmentComputeType
+    , fmap (("EnvironmentVariables",) . toJSON) _codeBuildProjectEnvironmentEnvironmentVariables
+    , (Just . ("Image",) . toJSON) _codeBuildProjectEnvironmentImage
+    , fmap (("PrivilegedMode",) . toJSON . fmap Bool') _codeBuildProjectEnvironmentPrivilegedMode
+    , (Just . ("Type",) . toJSON) _codeBuildProjectEnvironmentType
     ]
 
 instance FromJSON CodeBuildProjectEnvironment where
   parseJSON (Object obj) =
     CodeBuildProjectEnvironment <$>
-      obj .: "ComputeType" <*>
-      obj .:? "EnvironmentVariables" <*>
-      obj .: "Image" <*>
-      obj .:? "PrivilegedMode" <*>
-      obj .: "Type"
+      (obj .: "ComputeType") <*>
+      (obj .:? "EnvironmentVariables") <*>
+      (obj .: "Image") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "PrivilegedMode") <*>
+      (obj .: "Type")
   parseJSON _ = mempty
 
 -- | Constructor for 'CodeBuildProjectEnvironment' containing required fields
@@ -75,7 +76,7 @@ cbpeImage :: Lens' CodeBuildProjectEnvironment (Val Text)
 cbpeImage = lens _codeBuildProjectEnvironmentImage (\s a -> s { _codeBuildProjectEnvironmentImage = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environment.html#cfn-codebuild-project-environment-privilegedmode
-cbpePrivilegedMode :: Lens' CodeBuildProjectEnvironment (Maybe (Val Bool'))
+cbpePrivilegedMode :: Lens' CodeBuildProjectEnvironment (Maybe (Val Bool))
 cbpePrivilegedMode = lens _codeBuildProjectEnvironmentPrivilegedMode (\s a -> s { _codeBuildProjectEnvironmentPrivilegedMode = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environment.html#cfn-codebuild-project-environment-type

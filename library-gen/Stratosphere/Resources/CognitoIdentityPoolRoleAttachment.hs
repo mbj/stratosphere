@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypoolroleattachment.html
 
@@ -27,17 +28,17 @@ instance ToJSON CognitoIdentityPoolRoleAttachment where
   toJSON CognitoIdentityPoolRoleAttachment{..} =
     object $
     catMaybes
-    [ Just ("IdentityPoolId" .= _cognitoIdentityPoolRoleAttachmentIdentityPoolId)
-    , ("RoleMappings" .=) <$> _cognitoIdentityPoolRoleAttachmentRoleMappings
-    , ("Roles" .=) <$> _cognitoIdentityPoolRoleAttachmentRoles
+    [ (Just . ("IdentityPoolId",) . toJSON) _cognitoIdentityPoolRoleAttachmentIdentityPoolId
+    , fmap (("RoleMappings",) . toJSON) _cognitoIdentityPoolRoleAttachmentRoleMappings
+    , fmap (("Roles",) . toJSON) _cognitoIdentityPoolRoleAttachmentRoles
     ]
 
 instance FromJSON CognitoIdentityPoolRoleAttachment where
   parseJSON (Object obj) =
     CognitoIdentityPoolRoleAttachment <$>
-      obj .: "IdentityPoolId" <*>
-      obj .:? "RoleMappings" <*>
-      obj .:? "Roles"
+      (obj .: "IdentityPoolId") <*>
+      (obj .:? "RoleMappings") <*>
+      (obj .:? "Roles")
   parseJSON _ = mempty
 
 -- | Constructor for 'CognitoIdentityPoolRoleAttachment' containing required

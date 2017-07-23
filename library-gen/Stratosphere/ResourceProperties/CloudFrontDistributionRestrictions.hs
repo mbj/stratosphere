@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distributionconfig-restrictions.html
 
@@ -25,13 +26,13 @@ instance ToJSON CloudFrontDistributionRestrictions where
   toJSON CloudFrontDistributionRestrictions{..} =
     object $
     catMaybes
-    [ Just ("GeoRestriction" .= _cloudFrontDistributionRestrictionsGeoRestriction)
+    [ (Just . ("GeoRestriction",) . toJSON) _cloudFrontDistributionRestrictionsGeoRestriction
     ]
 
 instance FromJSON CloudFrontDistributionRestrictions where
   parseJSON (Object obj) =
     CloudFrontDistributionRestrictions <$>
-      obj .: "GeoRestriction"
+      (obj .: "GeoRestriction")
   parseJSON _ = mempty
 
 -- | Constructor for 'CloudFrontDistributionRestrictions' containing required

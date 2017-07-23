@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html
 
@@ -31,11 +32,11 @@ data LambdaFunction =
   , _lambdaFunctionFunctionName :: Maybe (Val Text)
   , _lambdaFunctionHandler :: Val Text
   , _lambdaFunctionKmsKeyArn :: Maybe (Val Text)
-  , _lambdaFunctionMemorySize :: Maybe (Val Integer')
+  , _lambdaFunctionMemorySize :: Maybe (Val Integer)
   , _lambdaFunctionRole :: Val Text
   , _lambdaFunctionRuntime :: Val Runtime
   , _lambdaFunctionTags :: Maybe [Tag]
-  , _lambdaFunctionTimeout :: Maybe (Val Integer')
+  , _lambdaFunctionTimeout :: Maybe (Val Integer)
   , _lambdaFunctionTracingConfig :: Maybe LambdaFunctionTracingConfig
   , _lambdaFunctionVpcConfig :: Maybe LambdaFunctionVpcConfig
   } deriving (Show, Eq)
@@ -44,39 +45,39 @@ instance ToJSON LambdaFunction where
   toJSON LambdaFunction{..} =
     object $
     catMaybes
-    [ Just ("Code" .= _lambdaFunctionCode)
-    , ("DeadLetterConfig" .=) <$> _lambdaFunctionDeadLetterConfig
-    , ("Description" .=) <$> _lambdaFunctionDescription
-    , ("Environment" .=) <$> _lambdaFunctionEnvironment
-    , ("FunctionName" .=) <$> _lambdaFunctionFunctionName
-    , Just ("Handler" .= _lambdaFunctionHandler)
-    , ("KmsKeyArn" .=) <$> _lambdaFunctionKmsKeyArn
-    , ("MemorySize" .=) <$> _lambdaFunctionMemorySize
-    , Just ("Role" .= _lambdaFunctionRole)
-    , Just ("Runtime" .= _lambdaFunctionRuntime)
-    , ("Tags" .=) <$> _lambdaFunctionTags
-    , ("Timeout" .=) <$> _lambdaFunctionTimeout
-    , ("TracingConfig" .=) <$> _lambdaFunctionTracingConfig
-    , ("VpcConfig" .=) <$> _lambdaFunctionVpcConfig
+    [ (Just . ("Code",) . toJSON) _lambdaFunctionCode
+    , fmap (("DeadLetterConfig",) . toJSON) _lambdaFunctionDeadLetterConfig
+    , fmap (("Description",) . toJSON) _lambdaFunctionDescription
+    , fmap (("Environment",) . toJSON) _lambdaFunctionEnvironment
+    , fmap (("FunctionName",) . toJSON) _lambdaFunctionFunctionName
+    , (Just . ("Handler",) . toJSON) _lambdaFunctionHandler
+    , fmap (("KmsKeyArn",) . toJSON) _lambdaFunctionKmsKeyArn
+    , fmap (("MemorySize",) . toJSON . fmap Integer') _lambdaFunctionMemorySize
+    , (Just . ("Role",) . toJSON) _lambdaFunctionRole
+    , (Just . ("Runtime",) . toJSON) _lambdaFunctionRuntime
+    , fmap (("Tags",) . toJSON) _lambdaFunctionTags
+    , fmap (("Timeout",) . toJSON . fmap Integer') _lambdaFunctionTimeout
+    , fmap (("TracingConfig",) . toJSON) _lambdaFunctionTracingConfig
+    , fmap (("VpcConfig",) . toJSON) _lambdaFunctionVpcConfig
     ]
 
 instance FromJSON LambdaFunction where
   parseJSON (Object obj) =
     LambdaFunction <$>
-      obj .: "Code" <*>
-      obj .:? "DeadLetterConfig" <*>
-      obj .:? "Description" <*>
-      obj .:? "Environment" <*>
-      obj .:? "FunctionName" <*>
-      obj .: "Handler" <*>
-      obj .:? "KmsKeyArn" <*>
-      obj .:? "MemorySize" <*>
-      obj .: "Role" <*>
-      obj .: "Runtime" <*>
-      obj .:? "Tags" <*>
-      obj .:? "Timeout" <*>
-      obj .:? "TracingConfig" <*>
-      obj .:? "VpcConfig"
+      (obj .: "Code") <*>
+      (obj .:? "DeadLetterConfig") <*>
+      (obj .:? "Description") <*>
+      (obj .:? "Environment") <*>
+      (obj .:? "FunctionName") <*>
+      (obj .: "Handler") <*>
+      (obj .:? "KmsKeyArn") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "MemorySize") <*>
+      (obj .: "Role") <*>
+      (obj .: "Runtime") <*>
+      (obj .:? "Tags") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "Timeout") <*>
+      (obj .:? "TracingConfig") <*>
+      (obj .:? "VpcConfig")
   parseJSON _ = mempty
 
 -- | Constructor for 'LambdaFunction' containing required fields as arguments.
@@ -133,7 +134,7 @@ lfKmsKeyArn :: Lens' LambdaFunction (Maybe (Val Text))
 lfKmsKeyArn = lens _lambdaFunctionKmsKeyArn (\s a -> s { _lambdaFunctionKmsKeyArn = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-memorysize
-lfMemorySize :: Lens' LambdaFunction (Maybe (Val Integer'))
+lfMemorySize :: Lens' LambdaFunction (Maybe (Val Integer))
 lfMemorySize = lens _lambdaFunctionMemorySize (\s a -> s { _lambdaFunctionMemorySize = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-role
@@ -149,7 +150,7 @@ lfTags :: Lens' LambdaFunction (Maybe [Tag])
 lfTags = lens _lambdaFunctionTags (\s a -> s { _lambdaFunctionTags = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-timeout
-lfTimeout :: Lens' LambdaFunction (Maybe (Val Integer'))
+lfTimeout :: Lens' LambdaFunction (Maybe (Val Integer))
 lfTimeout = lens _lambdaFunctionTimeout (\s a -> s { _lambdaFunctionTimeout = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-tracingconfig

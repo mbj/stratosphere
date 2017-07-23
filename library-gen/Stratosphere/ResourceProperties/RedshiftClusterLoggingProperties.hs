@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-cluster-loggingproperties.html
 
@@ -26,15 +27,15 @@ instance ToJSON RedshiftClusterLoggingProperties where
   toJSON RedshiftClusterLoggingProperties{..} =
     object $
     catMaybes
-    [ Just ("BucketName" .= _redshiftClusterLoggingPropertiesBucketName)
-    , ("S3KeyPrefix" .=) <$> _redshiftClusterLoggingPropertiesS3KeyPrefix
+    [ (Just . ("BucketName",) . toJSON) _redshiftClusterLoggingPropertiesBucketName
+    , fmap (("S3KeyPrefix",) . toJSON) _redshiftClusterLoggingPropertiesS3KeyPrefix
     ]
 
 instance FromJSON RedshiftClusterLoggingProperties where
   parseJSON (Object obj) =
     RedshiftClusterLoggingProperties <$>
-      obj .: "BucketName" <*>
-      obj .:? "S3KeyPrefix"
+      (obj .: "BucketName") <*>
+      (obj .:? "S3KeyPrefix")
   parseJSON _ = mempty
 
 -- | Constructor for 'RedshiftClusterLoggingProperties' containing required

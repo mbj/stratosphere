@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source-sourcedetails.html
 
@@ -27,17 +28,17 @@ instance ToJSON ConfigConfigRuleSourceDetail where
   toJSON ConfigConfigRuleSourceDetail{..} =
     object $
     catMaybes
-    [ Just ("EventSource" .= _configConfigRuleSourceDetailEventSource)
-    , ("MaximumExecutionFrequency" .=) <$> _configConfigRuleSourceDetailMaximumExecutionFrequency
-    , Just ("MessageType" .= _configConfigRuleSourceDetailMessageType)
+    [ (Just . ("EventSource",) . toJSON) _configConfigRuleSourceDetailEventSource
+    , fmap (("MaximumExecutionFrequency",) . toJSON) _configConfigRuleSourceDetailMaximumExecutionFrequency
+    , (Just . ("MessageType",) . toJSON) _configConfigRuleSourceDetailMessageType
     ]
 
 instance FromJSON ConfigConfigRuleSourceDetail where
   parseJSON (Object obj) =
     ConfigConfigRuleSourceDetail <$>
-      obj .: "EventSource" <*>
-      obj .:? "MaximumExecutionFrequency" <*>
-      obj .: "MessageType"
+      (obj .: "EventSource") <*>
+      (obj .:? "MaximumExecutionFrequency") <*>
+      (obj .: "MessageType")
   parseJSON _ = mempty
 
 -- | Constructor for 'ConfigConfigRuleSourceDetail' containing required fields

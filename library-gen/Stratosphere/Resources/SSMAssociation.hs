@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html
 
@@ -31,23 +32,23 @@ instance ToJSON SSMAssociation where
   toJSON SSMAssociation{..} =
     object $
     catMaybes
-    [ ("DocumentVersion" .=) <$> _sSMAssociationDocumentVersion
-    , ("InstanceId" .=) <$> _sSMAssociationInstanceId
-    , Just ("Name" .= _sSMAssociationName)
-    , ("Parameters" .=) <$> _sSMAssociationParameters
-    , ("ScheduleExpression" .=) <$> _sSMAssociationScheduleExpression
-    , ("Targets" .=) <$> _sSMAssociationTargets
+    [ fmap (("DocumentVersion",) . toJSON) _sSMAssociationDocumentVersion
+    , fmap (("InstanceId",) . toJSON) _sSMAssociationInstanceId
+    , (Just . ("Name",) . toJSON) _sSMAssociationName
+    , fmap (("Parameters",) . toJSON) _sSMAssociationParameters
+    , fmap (("ScheduleExpression",) . toJSON) _sSMAssociationScheduleExpression
+    , fmap (("Targets",) . toJSON) _sSMAssociationTargets
     ]
 
 instance FromJSON SSMAssociation where
   parseJSON (Object obj) =
     SSMAssociation <$>
-      obj .:? "DocumentVersion" <*>
-      obj .:? "InstanceId" <*>
-      obj .: "Name" <*>
-      obj .:? "Parameters" <*>
-      obj .:? "ScheduleExpression" <*>
-      obj .:? "Targets"
+      (obj .:? "DocumentVersion") <*>
+      (obj .:? "InstanceId") <*>
+      (obj .: "Name") <*>
+      (obj .:? "Parameters") <*>
+      (obj .:? "ScheduleExpression") <*>
+      (obj .:? "Targets")
   parseJSON _ = mempty
 
 -- | Constructor for 'SSMAssociation' containing required fields as arguments.

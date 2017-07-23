@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-code.html
 
@@ -28,19 +29,19 @@ instance ToJSON LambdaFunctionCode where
   toJSON LambdaFunctionCode{..} =
     object $
     catMaybes
-    [ ("S3Bucket" .=) <$> _lambdaFunctionCodeS3Bucket
-    , ("S3Key" .=) <$> _lambdaFunctionCodeS3Key
-    , ("S3ObjectVersion" .=) <$> _lambdaFunctionCodeS3ObjectVersion
-    , ("ZipFile" .=) <$> _lambdaFunctionCodeZipFile
+    [ fmap (("S3Bucket",) . toJSON) _lambdaFunctionCodeS3Bucket
+    , fmap (("S3Key",) . toJSON) _lambdaFunctionCodeS3Key
+    , fmap (("S3ObjectVersion",) . toJSON) _lambdaFunctionCodeS3ObjectVersion
+    , fmap (("ZipFile",) . toJSON) _lambdaFunctionCodeZipFile
     ]
 
 instance FromJSON LambdaFunctionCode where
   parseJSON (Object obj) =
     LambdaFunctionCode <$>
-      obj .:? "S3Bucket" <*>
-      obj .:? "S3Key" <*>
-      obj .:? "S3ObjectVersion" <*>
-      obj .:? "ZipFile"
+      (obj .:? "S3Bucket") <*>
+      (obj .:? "S3Key") <*>
+      (obj .:? "S3ObjectVersion") <*>
+      (obj .:? "ZipFile")
   parseJSON _ = mempty
 
 -- | Constructor for 'LambdaFunctionCode' containing required fields as

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-sizeconstraintset.html
 
@@ -26,15 +27,15 @@ instance ToJSON WAFSizeConstraintSet where
   toJSON WAFSizeConstraintSet{..} =
     object $
     catMaybes
-    [ Just ("Name" .= _wAFSizeConstraintSetName)
-    , Just ("SizeConstraints" .= _wAFSizeConstraintSetSizeConstraints)
+    [ (Just . ("Name",) . toJSON) _wAFSizeConstraintSetName
+    , (Just . ("SizeConstraints",) . toJSON) _wAFSizeConstraintSetSizeConstraints
     ]
 
 instance FromJSON WAFSizeConstraintSet where
   parseJSON (Object obj) =
     WAFSizeConstraintSet <$>
-      obj .: "Name" <*>
-      obj .: "SizeConstraints"
+      (obj .: "Name") <*>
+      (obj .: "SizeConstraints")
   parseJSON _ = mempty
 
 -- | Constructor for 'WAFSizeConstraintSet' containing required fields as

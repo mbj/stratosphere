@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-deliverychannel-configsnapshotdeliveryproperties.html
 
@@ -27,13 +28,13 @@ instance ToJSON ConfigDeliveryChannelConfigSnapshotDeliveryProperties where
   toJSON ConfigDeliveryChannelConfigSnapshotDeliveryProperties{..} =
     object $
     catMaybes
-    [ ("DeliveryFrequency" .=) <$> _configDeliveryChannelConfigSnapshotDeliveryPropertiesDeliveryFrequency
+    [ fmap (("DeliveryFrequency",) . toJSON) _configDeliveryChannelConfigSnapshotDeliveryPropertiesDeliveryFrequency
     ]
 
 instance FromJSON ConfigDeliveryChannelConfigSnapshotDeliveryProperties where
   parseJSON (Object obj) =
     ConfigDeliveryChannelConfigSnapshotDeliveryProperties <$>
-      obj .:? "DeliveryFrequency"
+      (obj .:? "DeliveryFrequency")
   parseJSON _ = mempty
 
 -- | Constructor for 'ConfigDeliveryChannelConfigSnapshotDeliveryProperties'

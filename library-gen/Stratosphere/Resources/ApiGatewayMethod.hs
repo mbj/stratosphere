@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html
 
@@ -20,7 +21,7 @@ import Stratosphere.ResourceProperties.ApiGatewayMethodMethodResponse
 -- for a more convenient constructor.
 data ApiGatewayMethod =
   ApiGatewayMethod
-  { _apiGatewayMethodApiKeyRequired :: Maybe (Val Bool')
+  { _apiGatewayMethodApiKeyRequired :: Maybe (Val Bool)
   , _apiGatewayMethodAuthorizationType :: Maybe (Val AuthorizationType)
   , _apiGatewayMethodAuthorizerId :: Maybe (Val Text)
   , _apiGatewayMethodHttpMethod :: Val HttpMethod
@@ -36,31 +37,31 @@ instance ToJSON ApiGatewayMethod where
   toJSON ApiGatewayMethod{..} =
     object $
     catMaybes
-    [ ("ApiKeyRequired" .=) <$> _apiGatewayMethodApiKeyRequired
-    , ("AuthorizationType" .=) <$> _apiGatewayMethodAuthorizationType
-    , ("AuthorizerId" .=) <$> _apiGatewayMethodAuthorizerId
-    , Just ("HttpMethod" .= _apiGatewayMethodHttpMethod)
-    , ("Integration" .=) <$> _apiGatewayMethodIntegration
-    , ("MethodResponses" .=) <$> _apiGatewayMethodMethodResponses
-    , ("RequestModels" .=) <$> _apiGatewayMethodRequestModels
-    , ("RequestParameters" .=) <$> _apiGatewayMethodRequestParameters
-    , ("ResourceId" .=) <$> _apiGatewayMethodResourceId
-    , ("RestApiId" .=) <$> _apiGatewayMethodRestApiId
+    [ fmap (("ApiKeyRequired",) . toJSON . fmap Bool') _apiGatewayMethodApiKeyRequired
+    , fmap (("AuthorizationType",) . toJSON) _apiGatewayMethodAuthorizationType
+    , fmap (("AuthorizerId",) . toJSON) _apiGatewayMethodAuthorizerId
+    , (Just . ("HttpMethod",) . toJSON) _apiGatewayMethodHttpMethod
+    , fmap (("Integration",) . toJSON) _apiGatewayMethodIntegration
+    , fmap (("MethodResponses",) . toJSON) _apiGatewayMethodMethodResponses
+    , fmap (("RequestModels",) . toJSON) _apiGatewayMethodRequestModels
+    , fmap (("RequestParameters",) . toJSON) _apiGatewayMethodRequestParameters
+    , fmap (("ResourceId",) . toJSON) _apiGatewayMethodResourceId
+    , fmap (("RestApiId",) . toJSON) _apiGatewayMethodRestApiId
     ]
 
 instance FromJSON ApiGatewayMethod where
   parseJSON (Object obj) =
     ApiGatewayMethod <$>
-      obj .:? "ApiKeyRequired" <*>
-      obj .:? "AuthorizationType" <*>
-      obj .:? "AuthorizerId" <*>
-      obj .: "HttpMethod" <*>
-      obj .:? "Integration" <*>
-      obj .:? "MethodResponses" <*>
-      obj .:? "RequestModels" <*>
-      obj .:? "RequestParameters" <*>
-      obj .:? "ResourceId" <*>
-      obj .:? "RestApiId"
+      fmap (fmap (fmap unBool')) (obj .:? "ApiKeyRequired") <*>
+      (obj .:? "AuthorizationType") <*>
+      (obj .:? "AuthorizerId") <*>
+      (obj .: "HttpMethod") <*>
+      (obj .:? "Integration") <*>
+      (obj .:? "MethodResponses") <*>
+      (obj .:? "RequestModels") <*>
+      (obj .:? "RequestParameters") <*>
+      (obj .:? "ResourceId") <*>
+      (obj .:? "RestApiId")
   parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayMethod' containing required fields as
@@ -83,7 +84,7 @@ apiGatewayMethod httpMethodarg =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html#cfn-apigateway-method-apikeyrequired
-agmeApiKeyRequired :: Lens' ApiGatewayMethod (Maybe (Val Bool'))
+agmeApiKeyRequired :: Lens' ApiGatewayMethod (Maybe (Val Bool))
 agmeApiKeyRequired = lens _apiGatewayMethodApiKeyRequired (\s a -> s { _apiGatewayMethodApiKeyRequired = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html#cfn-apigateway-method-authorizationtype

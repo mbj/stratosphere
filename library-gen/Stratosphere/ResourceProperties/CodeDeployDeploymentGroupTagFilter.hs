@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-onpremisesinstancetagfilters.html
 
@@ -27,17 +28,17 @@ instance ToJSON CodeDeployDeploymentGroupTagFilter where
   toJSON CodeDeployDeploymentGroupTagFilter{..} =
     object $
     catMaybes
-    [ ("Key" .=) <$> _codeDeployDeploymentGroupTagFilterKey
-    , ("Type" .=) <$> _codeDeployDeploymentGroupTagFilterType
-    , ("Value" .=) <$> _codeDeployDeploymentGroupTagFilterValue
+    [ fmap (("Key",) . toJSON) _codeDeployDeploymentGroupTagFilterKey
+    , fmap (("Type",) . toJSON) _codeDeployDeploymentGroupTagFilterType
+    , fmap (("Value",) . toJSON) _codeDeployDeploymentGroupTagFilterValue
     ]
 
 instance FromJSON CodeDeployDeploymentGroupTagFilter where
   parseJSON (Object obj) =
     CodeDeployDeploymentGroupTagFilter <$>
-      obj .:? "Key" <*>
-      obj .:? "Type" <*>
-      obj .:? "Value"
+      (obj .:? "Key") <*>
+      (obj .:? "Type") <*>
+      (obj .:? "Value")
   parseJSON _ = mempty
 
 -- | Constructor for 'CodeDeployDeploymentGroupTagFilter' containing required

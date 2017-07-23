@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-schemaattribute.html
 
@@ -20,11 +21,11 @@ import Stratosphere.ResourceProperties.CognitoUserPoolStringAttributeConstraints
 data CognitoUserPoolSchemaAttribute =
   CognitoUserPoolSchemaAttribute
   { _cognitoUserPoolSchemaAttributeAttributeDataType :: Maybe (Val Text)
-  , _cognitoUserPoolSchemaAttributeDeveloperOnlyAttribute :: Maybe (Val Bool')
-  , _cognitoUserPoolSchemaAttributeMutable :: Maybe (Val Bool')
+  , _cognitoUserPoolSchemaAttributeDeveloperOnlyAttribute :: Maybe (Val Bool)
+  , _cognitoUserPoolSchemaAttributeMutable :: Maybe (Val Bool)
   , _cognitoUserPoolSchemaAttributeName :: Maybe (Val Text)
   , _cognitoUserPoolSchemaAttributeNumberAttributeConstraints :: Maybe CognitoUserPoolNumberAttributeConstraints
-  , _cognitoUserPoolSchemaAttributeRequired :: Maybe (Val Bool')
+  , _cognitoUserPoolSchemaAttributeRequired :: Maybe (Val Bool)
   , _cognitoUserPoolSchemaAttributeStringAttributeConstraints :: Maybe CognitoUserPoolStringAttributeConstraints
   } deriving (Show, Eq)
 
@@ -32,25 +33,25 @@ instance ToJSON CognitoUserPoolSchemaAttribute where
   toJSON CognitoUserPoolSchemaAttribute{..} =
     object $
     catMaybes
-    [ ("AttributeDataType" .=) <$> _cognitoUserPoolSchemaAttributeAttributeDataType
-    , ("DeveloperOnlyAttribute" .=) <$> _cognitoUserPoolSchemaAttributeDeveloperOnlyAttribute
-    , ("Mutable" .=) <$> _cognitoUserPoolSchemaAttributeMutable
-    , ("Name" .=) <$> _cognitoUserPoolSchemaAttributeName
-    , ("NumberAttributeConstraints" .=) <$> _cognitoUserPoolSchemaAttributeNumberAttributeConstraints
-    , ("Required" .=) <$> _cognitoUserPoolSchemaAttributeRequired
-    , ("StringAttributeConstraints" .=) <$> _cognitoUserPoolSchemaAttributeStringAttributeConstraints
+    [ fmap (("AttributeDataType",) . toJSON) _cognitoUserPoolSchemaAttributeAttributeDataType
+    , fmap (("DeveloperOnlyAttribute",) . toJSON . fmap Bool') _cognitoUserPoolSchemaAttributeDeveloperOnlyAttribute
+    , fmap (("Mutable",) . toJSON . fmap Bool') _cognitoUserPoolSchemaAttributeMutable
+    , fmap (("Name",) . toJSON) _cognitoUserPoolSchemaAttributeName
+    , fmap (("NumberAttributeConstraints",) . toJSON) _cognitoUserPoolSchemaAttributeNumberAttributeConstraints
+    , fmap (("Required",) . toJSON . fmap Bool') _cognitoUserPoolSchemaAttributeRequired
+    , fmap (("StringAttributeConstraints",) . toJSON) _cognitoUserPoolSchemaAttributeStringAttributeConstraints
     ]
 
 instance FromJSON CognitoUserPoolSchemaAttribute where
   parseJSON (Object obj) =
     CognitoUserPoolSchemaAttribute <$>
-      obj .:? "AttributeDataType" <*>
-      obj .:? "DeveloperOnlyAttribute" <*>
-      obj .:? "Mutable" <*>
-      obj .:? "Name" <*>
-      obj .:? "NumberAttributeConstraints" <*>
-      obj .:? "Required" <*>
-      obj .:? "StringAttributeConstraints"
+      (obj .:? "AttributeDataType") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "DeveloperOnlyAttribute") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "Mutable") <*>
+      (obj .:? "Name") <*>
+      (obj .:? "NumberAttributeConstraints") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "Required") <*>
+      (obj .:? "StringAttributeConstraints")
   parseJSON _ = mempty
 
 -- | Constructor for 'CognitoUserPoolSchemaAttribute' containing required
@@ -73,11 +74,11 @@ cupsaAttributeDataType :: Lens' CognitoUserPoolSchemaAttribute (Maybe (Val Text)
 cupsaAttributeDataType = lens _cognitoUserPoolSchemaAttributeAttributeDataType (\s a -> s { _cognitoUserPoolSchemaAttributeAttributeDataType = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-schemaattribute.html#cfn-cognito-userpool-schemaattribute-developeronlyattribute
-cupsaDeveloperOnlyAttribute :: Lens' CognitoUserPoolSchemaAttribute (Maybe (Val Bool'))
+cupsaDeveloperOnlyAttribute :: Lens' CognitoUserPoolSchemaAttribute (Maybe (Val Bool))
 cupsaDeveloperOnlyAttribute = lens _cognitoUserPoolSchemaAttributeDeveloperOnlyAttribute (\s a -> s { _cognitoUserPoolSchemaAttributeDeveloperOnlyAttribute = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-schemaattribute.html#cfn-cognito-userpool-schemaattribute-mutable
-cupsaMutable :: Lens' CognitoUserPoolSchemaAttribute (Maybe (Val Bool'))
+cupsaMutable :: Lens' CognitoUserPoolSchemaAttribute (Maybe (Val Bool))
 cupsaMutable = lens _cognitoUserPoolSchemaAttributeMutable (\s a -> s { _cognitoUserPoolSchemaAttributeMutable = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-schemaattribute.html#cfn-cognito-userpool-schemaattribute-name
@@ -89,7 +90,7 @@ cupsaNumberAttributeConstraints :: Lens' CognitoUserPoolSchemaAttribute (Maybe C
 cupsaNumberAttributeConstraints = lens _cognitoUserPoolSchemaAttributeNumberAttributeConstraints (\s a -> s { _cognitoUserPoolSchemaAttributeNumberAttributeConstraints = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-schemaattribute.html#cfn-cognito-userpool-schemaattribute-required
-cupsaRequired :: Lens' CognitoUserPoolSchemaAttribute (Maybe (Val Bool'))
+cupsaRequired :: Lens' CognitoUserPoolSchemaAttribute (Maybe (Val Bool))
 cupsaRequired = lens _cognitoUserPoolSchemaAttributeRequired (\s a -> s { _cognitoUserPoolSchemaAttributeRequired = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-schemaattribute.html#cfn-cognito-userpool-schemaattribute-stringattributeconstraints

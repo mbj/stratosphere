@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-actions.html
 
@@ -45,33 +46,33 @@ instance ToJSON IoTTopicRuleAction where
   toJSON IoTTopicRuleAction{..} =
     object $
     catMaybes
-    [ ("CloudwatchAlarm" .=) <$> _ioTTopicRuleActionCloudwatchAlarm
-    , ("CloudwatchMetric" .=) <$> _ioTTopicRuleActionCloudwatchMetric
-    , ("DynamoDB" .=) <$> _ioTTopicRuleActionDynamoDB
-    , ("Elasticsearch" .=) <$> _ioTTopicRuleActionElasticsearch
-    , ("Firehose" .=) <$> _ioTTopicRuleActionFirehose
-    , ("Kinesis" .=) <$> _ioTTopicRuleActionKinesis
-    , ("Lambda" .=) <$> _ioTTopicRuleActionLambda
-    , ("Republish" .=) <$> _ioTTopicRuleActionRepublish
-    , ("S3" .=) <$> _ioTTopicRuleActionS3
-    , ("Sns" .=) <$> _ioTTopicRuleActionSns
-    , ("Sqs" .=) <$> _ioTTopicRuleActionSqs
+    [ fmap (("CloudwatchAlarm",) . toJSON) _ioTTopicRuleActionCloudwatchAlarm
+    , fmap (("CloudwatchMetric",) . toJSON) _ioTTopicRuleActionCloudwatchMetric
+    , fmap (("DynamoDB",) . toJSON) _ioTTopicRuleActionDynamoDB
+    , fmap (("Elasticsearch",) . toJSON) _ioTTopicRuleActionElasticsearch
+    , fmap (("Firehose",) . toJSON) _ioTTopicRuleActionFirehose
+    , fmap (("Kinesis",) . toJSON) _ioTTopicRuleActionKinesis
+    , fmap (("Lambda",) . toJSON) _ioTTopicRuleActionLambda
+    , fmap (("Republish",) . toJSON) _ioTTopicRuleActionRepublish
+    , fmap (("S3",) . toJSON) _ioTTopicRuleActionS3
+    , fmap (("Sns",) . toJSON) _ioTTopicRuleActionSns
+    , fmap (("Sqs",) . toJSON) _ioTTopicRuleActionSqs
     ]
 
 instance FromJSON IoTTopicRuleAction where
   parseJSON (Object obj) =
     IoTTopicRuleAction <$>
-      obj .:? "CloudwatchAlarm" <*>
-      obj .:? "CloudwatchMetric" <*>
-      obj .:? "DynamoDB" <*>
-      obj .:? "Elasticsearch" <*>
-      obj .:? "Firehose" <*>
-      obj .:? "Kinesis" <*>
-      obj .:? "Lambda" <*>
-      obj .:? "Republish" <*>
-      obj .:? "S3" <*>
-      obj .:? "Sns" <*>
-      obj .:? "Sqs"
+      (obj .:? "CloudwatchAlarm") <*>
+      (obj .:? "CloudwatchMetric") <*>
+      (obj .:? "DynamoDB") <*>
+      (obj .:? "Elasticsearch") <*>
+      (obj .:? "Firehose") <*>
+      (obj .:? "Kinesis") <*>
+      (obj .:? "Lambda") <*>
+      (obj .:? "Republish") <*>
+      (obj .:? "S3") <*>
+      (obj .:? "Sns") <*>
+      (obj .:? "Sqs")
   parseJSON _ = mempty
 
 -- | Constructor for 'IoTTopicRuleAction' containing required fields as

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html
 
@@ -26,15 +27,15 @@ instance ToJSON EFSFileSystem where
   toJSON EFSFileSystem{..} =
     object $
     catMaybes
-    [ ("FileSystemTags" .=) <$> _eFSFileSystemFileSystemTags
-    , ("PerformanceMode" .=) <$> _eFSFileSystemPerformanceMode
+    [ fmap (("FileSystemTags",) . toJSON) _eFSFileSystemFileSystemTags
+    , fmap (("PerformanceMode",) . toJSON) _eFSFileSystemPerformanceMode
     ]
 
 instance FromJSON EFSFileSystem where
   parseJSON (Object obj) =
     EFSFileSystem <$>
-      obj .:? "FileSystemTags" <*>
-      obj .:? "PerformanceMode"
+      (obj .:? "FileSystemTags") <*>
+      (obj .:? "PerformanceMode")
   parseJSON _ = mempty
 
 -- | Constructor for 'EFSFileSystem' containing required fields as arguments.

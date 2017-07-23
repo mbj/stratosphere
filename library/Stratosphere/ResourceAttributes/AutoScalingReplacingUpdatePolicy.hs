@@ -1,5 +1,6 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | To specify how AWS CloudFormation handles replacing updates for an Auto
 -- Scaling group, use the AutoScalingReplacingUpdate policy.
@@ -8,9 +9,8 @@ module Stratosphere.ResourceAttributes.AutoScalingReplacingUpdatePolicy where
 
 import Control.Lens
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -19,14 +19,21 @@ import Stratosphere.Values
 -- 'autoScalingReplacingUpdatePolicy' for a more convenient constructor.
 data AutoScalingReplacingUpdatePolicy =
   AutoScalingReplacingUpdatePolicy
-  { _autoScalingReplacingUpdatePolicyWillReplace :: Maybe (Val Bool')
-  } deriving (Show, Eq, Generic)
+  { _autoScalingReplacingUpdatePolicyWillReplace :: Maybe (Val Bool)
+  } deriving (Show, Eq)
 
 instance ToJSON AutoScalingReplacingUpdatePolicy where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 33, omitNothingFields = True }
+  toJSON AutoScalingReplacingUpdatePolicy{..} =
+    object $
+    catMaybes
+    [ fmap (("WillReplace",) . toJSON . fmap Bool') _autoScalingReplacingUpdatePolicyWillReplace
+    ]
 
 instance FromJSON AutoScalingReplacingUpdatePolicy where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 33, omitNothingFields = True }
+  parseJSON (Object obj) =
+    AutoScalingReplacingUpdatePolicy <$>
+      fmap (fmap (fmap unBool')) (obj .:? "WillReplace")
+  parseJSON _ = mempty
 
 -- | Constructor for 'AutoScalingReplacingUpdatePolicy' containing required fields
 -- as arguments.
@@ -46,5 +53,5 @@ autoScalingReplacingUpdatePolicy  =
 -- AWS CloudFormation removes the old Auto Scaling group during the cleanup
 -- process. If the update doesn't succeed, AWS CloudFormation removes the new
 -- Auto Scaling group.
-asrupWillReplace :: Lens' AutoScalingReplacingUpdatePolicy (Maybe (Val Bool'))
+asrupWillReplace :: Lens' AutoScalingReplacingUpdatePolicy (Maybe (Val Bool))
 asrupWillReplace = lens _autoScalingReplacingUpdatePolicyWillReplace (\s a -> s { _autoScalingReplacingUpdatePolicyWillReplace = a })

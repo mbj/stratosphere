@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-artifactstore-encryptionkey.html
 
@@ -26,15 +27,15 @@ instance ToJSON CodePipelinePipelineEncryptionKey where
   toJSON CodePipelinePipelineEncryptionKey{..} =
     object $
     catMaybes
-    [ Just ("Id" .= _codePipelinePipelineEncryptionKeyId)
-    , Just ("Type" .= _codePipelinePipelineEncryptionKeyType)
+    [ (Just . ("Id",) . toJSON) _codePipelinePipelineEncryptionKeyId
+    , (Just . ("Type",) . toJSON) _codePipelinePipelineEncryptionKeyType
     ]
 
 instance FromJSON CodePipelinePipelineEncryptionKey where
   parseJSON (Object obj) =
     CodePipelinePipelineEncryptionKey <$>
-      obj .: "Id" <*>
-      obj .: "Type"
+      (obj .: "Id") <*>
+      (obj .: "Type")
   parseJSON _ = mempty
 
 -- | Constructor for 'CodePipelinePipelineEncryptionKey' containing required

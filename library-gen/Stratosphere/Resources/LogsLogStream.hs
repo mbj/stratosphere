@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-logstream.html
 
@@ -26,15 +27,15 @@ instance ToJSON LogsLogStream where
   toJSON LogsLogStream{..} =
     object $
     catMaybes
-    [ Just ("LogGroupName" .= _logsLogStreamLogGroupName)
-    , ("LogStreamName" .=) <$> _logsLogStreamLogStreamName
+    [ (Just . ("LogGroupName",) . toJSON) _logsLogStreamLogGroupName
+    , fmap (("LogStreamName",) . toJSON) _logsLogStreamLogStreamName
     ]
 
 instance FromJSON LogsLogStream where
   parseJSON (Object obj) =
     LogsLogStream <$>
-      obj .: "LogGroupName" <*>
-      obj .:? "LogStreamName"
+      (obj .: "LogGroupName") <*>
+      (obj .:? "LogStreamName")
   parseJSON _ = mempty
 
 -- | Constructor for 'LogsLogStream' containing required fields as arguments.

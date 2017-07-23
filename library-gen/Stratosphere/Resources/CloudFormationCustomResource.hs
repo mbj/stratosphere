@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cfn-customresource.html
 
@@ -25,13 +26,13 @@ instance ToJSON CloudFormationCustomResource where
   toJSON CloudFormationCustomResource{..} =
     object $
     catMaybes
-    [ Just ("ServiceToken" .= _cloudFormationCustomResourceServiceToken)
+    [ (Just . ("ServiceToken",) . toJSON) _cloudFormationCustomResourceServiceToken
     ]
 
 instance FromJSON CloudFormationCustomResource where
   parseJSON (Object obj) =
     CloudFormationCustomResource <$>
-      obj .: "ServiceToken"
+      (obj .: "ServiceToken")
   parseJSON _ = mempty
 
 -- | Constructor for 'CloudFormationCustomResource' containing required fields

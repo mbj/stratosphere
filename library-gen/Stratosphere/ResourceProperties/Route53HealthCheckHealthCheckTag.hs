@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthchecktag.html
 
@@ -26,15 +27,15 @@ instance ToJSON Route53HealthCheckHealthCheckTag where
   toJSON Route53HealthCheckHealthCheckTag{..} =
     object $
     catMaybes
-    [ Just ("Key" .= _route53HealthCheckHealthCheckTagKey)
-    , Just ("Value" .= _route53HealthCheckHealthCheckTagValue)
+    [ (Just . ("Key",) . toJSON) _route53HealthCheckHealthCheckTagKey
+    , (Just . ("Value",) . toJSON) _route53HealthCheckHealthCheckTagValue
     ]
 
 instance FromJSON Route53HealthCheckHealthCheckTag where
   parseJSON (Object obj) =
     Route53HealthCheckHealthCheckTag <$>
-      obj .: "Key" <*>
-      obj .: "Value"
+      (obj .: "Key") <*>
+      (obj .: "Value")
   parseJSON _ = mempty
 
 -- | Constructor for 'Route53HealthCheckHealthCheckTag' containing required

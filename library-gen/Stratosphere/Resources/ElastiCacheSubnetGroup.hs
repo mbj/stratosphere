@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-subnetgroup.html
 
@@ -27,17 +28,17 @@ instance ToJSON ElastiCacheSubnetGroup where
   toJSON ElastiCacheSubnetGroup{..} =
     object $
     catMaybes
-    [ ("CacheSubnetGroupName" .=) <$> _elastiCacheSubnetGroupCacheSubnetGroupName
-    , Just ("Description" .= _elastiCacheSubnetGroupDescription)
-    , Just ("SubnetIds" .= _elastiCacheSubnetGroupSubnetIds)
+    [ fmap (("CacheSubnetGroupName",) . toJSON) _elastiCacheSubnetGroupCacheSubnetGroupName
+    , (Just . ("Description",) . toJSON) _elastiCacheSubnetGroupDescription
+    , (Just . ("SubnetIds",) . toJSON) _elastiCacheSubnetGroupSubnetIds
     ]
 
 instance FromJSON ElastiCacheSubnetGroup where
   parseJSON (Object obj) =
     ElastiCacheSubnetGroup <$>
-      obj .:? "CacheSubnetGroupName" <*>
-      obj .: "Description" <*>
-      obj .: "SubnetIds"
+      (obj .:? "CacheSubnetGroupName") <*>
+      (obj .: "Description") <*>
+      (obj .: "SubnetIds")
   parseJSON _ = mempty
 
 -- | Constructor for 'ElastiCacheSubnetGroup' containing required fields as
