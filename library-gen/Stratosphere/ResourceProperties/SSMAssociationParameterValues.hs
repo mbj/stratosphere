@@ -18,7 +18,7 @@ import Stratosphere.Values
 -- 'ssmAssociationParameterValues' for a more convenient constructor.
 data SSMAssociationParameterValues =
   SSMAssociationParameterValues
-  { _sSMAssociationParameterValuesParameterValues :: [Val Text]
+  { _sSMAssociationParameterValuesParameterValues :: ValList Text
   } deriving (Show, Eq)
 
 instance ToJSON SSMAssociationParameterValues where
@@ -37,7 +37,7 @@ instance FromJSON SSMAssociationParameterValues where
 -- | Constructor for 'SSMAssociationParameterValues' containing required
 -- fields as arguments.
 ssmAssociationParameterValues
-  :: [Val Text] -- ^ 'ssmapvParameterValues'
+  :: ValList Text -- ^ 'ssmapvParameterValues'
   -> SSMAssociationParameterValues
 ssmAssociationParameterValues parameterValuesarg =
   SSMAssociationParameterValues
@@ -45,5 +45,5 @@ ssmAssociationParameterValues parameterValuesarg =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-parametervalues.html#cfn-ssm-association-parametervalues-parametervalues
-ssmapvParameterValues :: Lens' SSMAssociationParameterValues [Val Text]
+ssmapvParameterValues :: Lens' SSMAssociationParameterValues (ValList Text)
 ssmapvParameterValues = lens _sSMAssociationParameterValuesParameterValues (\s a -> s { _sSMAssociationParameterValuesParameterValues = a })

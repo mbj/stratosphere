@@ -24,20 +24,20 @@ import Stratosphere.ResourceProperties.ECSTaskDefinitionVolumeFrom
 -- 'ecsTaskDefinitionContainerDefinition' for a more convenient constructor.
 data ECSTaskDefinitionContainerDefinition =
   ECSTaskDefinitionContainerDefinition
-  { _eCSTaskDefinitionContainerDefinitionCommand :: Maybe [Val Text]
+  { _eCSTaskDefinitionContainerDefinitionCommand :: Maybe (ValList Text)
   , _eCSTaskDefinitionContainerDefinitionCpu :: Maybe (Val Integer')
   , _eCSTaskDefinitionContainerDefinitionDisableNetworking :: Maybe (Val Bool')
-  , _eCSTaskDefinitionContainerDefinitionDnsSearchDomains :: Maybe [Val Text]
-  , _eCSTaskDefinitionContainerDefinitionDnsServers :: Maybe [Val Text]
+  , _eCSTaskDefinitionContainerDefinitionDnsSearchDomains :: Maybe (ValList Text)
+  , _eCSTaskDefinitionContainerDefinitionDnsServers :: Maybe (ValList Text)
   , _eCSTaskDefinitionContainerDefinitionDockerLabels :: Maybe Object
-  , _eCSTaskDefinitionContainerDefinitionDockerSecurityOptions :: Maybe [Val Text]
-  , _eCSTaskDefinitionContainerDefinitionEntryPoint :: Maybe [Val Text]
+  , _eCSTaskDefinitionContainerDefinitionDockerSecurityOptions :: Maybe (ValList Text)
+  , _eCSTaskDefinitionContainerDefinitionEntryPoint :: Maybe (ValList Text)
   , _eCSTaskDefinitionContainerDefinitionEnvironment :: Maybe [ECSTaskDefinitionKeyValuePair]
   , _eCSTaskDefinitionContainerDefinitionEssential :: Maybe (Val Bool')
   , _eCSTaskDefinitionContainerDefinitionExtraHosts :: Maybe [ECSTaskDefinitionHostEntry]
   , _eCSTaskDefinitionContainerDefinitionHostname :: Maybe (Val Text)
   , _eCSTaskDefinitionContainerDefinitionImage :: Val Text
-  , _eCSTaskDefinitionContainerDefinitionLinks :: Maybe [Val Text]
+  , _eCSTaskDefinitionContainerDefinitionLinks :: Maybe (ValList Text)
   , _eCSTaskDefinitionContainerDefinitionLogConfiguration :: Maybe ECSTaskDefinitionLogConfiguration
   , _eCSTaskDefinitionContainerDefinitionMemory :: Maybe (Val Integer')
   , _eCSTaskDefinitionContainerDefinitionMemoryReservation :: Maybe (Val Integer')
@@ -152,7 +152,7 @@ ecsTaskDefinitionContainerDefinition imagearg namearg =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-command
-ecstdcdCommand :: Lens' ECSTaskDefinitionContainerDefinition (Maybe [Val Text])
+ecstdcdCommand :: Lens' ECSTaskDefinitionContainerDefinition (Maybe (ValList Text))
 ecstdcdCommand = lens _eCSTaskDefinitionContainerDefinitionCommand (\s a -> s { _eCSTaskDefinitionContainerDefinitionCommand = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-cpu
@@ -164,11 +164,11 @@ ecstdcdDisableNetworking :: Lens' ECSTaskDefinitionContainerDefinition (Maybe (V
 ecstdcdDisableNetworking = lens _eCSTaskDefinitionContainerDefinitionDisableNetworking (\s a -> s { _eCSTaskDefinitionContainerDefinitionDisableNetworking = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-dnssearchdomains
-ecstdcdDnsSearchDomains :: Lens' ECSTaskDefinitionContainerDefinition (Maybe [Val Text])
+ecstdcdDnsSearchDomains :: Lens' ECSTaskDefinitionContainerDefinition (Maybe (ValList Text))
 ecstdcdDnsSearchDomains = lens _eCSTaskDefinitionContainerDefinitionDnsSearchDomains (\s a -> s { _eCSTaskDefinitionContainerDefinitionDnsSearchDomains = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-dnsservers
-ecstdcdDnsServers :: Lens' ECSTaskDefinitionContainerDefinition (Maybe [Val Text])
+ecstdcdDnsServers :: Lens' ECSTaskDefinitionContainerDefinition (Maybe (ValList Text))
 ecstdcdDnsServers = lens _eCSTaskDefinitionContainerDefinitionDnsServers (\s a -> s { _eCSTaskDefinitionContainerDefinitionDnsServers = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-dockerlabels
@@ -176,11 +176,11 @@ ecstdcdDockerLabels :: Lens' ECSTaskDefinitionContainerDefinition (Maybe Object)
 ecstdcdDockerLabels = lens _eCSTaskDefinitionContainerDefinitionDockerLabels (\s a -> s { _eCSTaskDefinitionContainerDefinitionDockerLabels = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-dockersecurityoptions
-ecstdcdDockerSecurityOptions :: Lens' ECSTaskDefinitionContainerDefinition (Maybe [Val Text])
+ecstdcdDockerSecurityOptions :: Lens' ECSTaskDefinitionContainerDefinition (Maybe (ValList Text))
 ecstdcdDockerSecurityOptions = lens _eCSTaskDefinitionContainerDefinitionDockerSecurityOptions (\s a -> s { _eCSTaskDefinitionContainerDefinitionDockerSecurityOptions = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-entrypoint
-ecstdcdEntryPoint :: Lens' ECSTaskDefinitionContainerDefinition (Maybe [Val Text])
+ecstdcdEntryPoint :: Lens' ECSTaskDefinitionContainerDefinition (Maybe (ValList Text))
 ecstdcdEntryPoint = lens _eCSTaskDefinitionContainerDefinitionEntryPoint (\s a -> s { _eCSTaskDefinitionContainerDefinitionEntryPoint = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-environment
@@ -204,7 +204,7 @@ ecstdcdImage :: Lens' ECSTaskDefinitionContainerDefinition (Val Text)
 ecstdcdImage = lens _eCSTaskDefinitionContainerDefinitionImage (\s a -> s { _eCSTaskDefinitionContainerDefinitionImage = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-links
-ecstdcdLinks :: Lens' ECSTaskDefinitionContainerDefinition (Maybe [Val Text])
+ecstdcdLinks :: Lens' ECSTaskDefinitionContainerDefinition (Maybe (ValList Text))
 ecstdcdLinks = lens _eCSTaskDefinitionContainerDefinitionLinks (\s a -> s { _eCSTaskDefinitionContainerDefinitionLinks = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-logconfiguration

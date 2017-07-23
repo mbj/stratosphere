@@ -19,7 +19,7 @@ import Stratosphere.ResourceProperties.IAMGroupPolicy
 data IAMGroup =
   IAMGroup
   { _iAMGroupGroupName :: Maybe (Val Text)
-  , _iAMGroupManagedPolicyArns :: Maybe [Val Text]
+  , _iAMGroupManagedPolicyArns :: Maybe (ValList Text)
   , _iAMGroupPath :: Maybe (Val Text)
   , _iAMGroupPolicies :: Maybe [IAMGroupPolicy]
   } deriving (Show, Eq)
@@ -59,7 +59,7 @@ iamgGroupName :: Lens' IAMGroup (Maybe (Val Text))
 iamgGroupName = lens _iAMGroupGroupName (\s a -> s { _iAMGroupGroupName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html#cfn-iam-group-managepolicyarns
-iamgManagedPolicyArns :: Lens' IAMGroup (Maybe [Val Text])
+iamgManagedPolicyArns :: Lens' IAMGroup (Maybe (ValList Text))
 iamgManagedPolicyArns = lens _iAMGroupManagedPolicyArns (\s a -> s { _iAMGroupManagedPolicyArns = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html#cfn-iam-group-path

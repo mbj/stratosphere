@@ -21,7 +21,7 @@ import Stratosphere.Values
 data ElastiCacheReplicationGroupNodeGroupConfiguration =
   ElastiCacheReplicationGroupNodeGroupConfiguration
   { _elastiCacheReplicationGroupNodeGroupConfigurationPrimaryAvailabilityZone :: Maybe (Val Text)
-  , _elastiCacheReplicationGroupNodeGroupConfigurationReplicaAvailabilityZones :: Maybe [Val Text]
+  , _elastiCacheReplicationGroupNodeGroupConfigurationReplicaAvailabilityZones :: Maybe (ValList Text)
   , _elastiCacheReplicationGroupNodeGroupConfigurationReplicaCount :: Maybe (Val Integer')
   , _elastiCacheReplicationGroupNodeGroupConfigurationSlots :: Maybe (Val Text)
   } deriving (Show, Eq)
@@ -62,7 +62,7 @@ ecrgngcPrimaryAvailabilityZone :: Lens' ElastiCacheReplicationGroupNodeGroupConf
 ecrgngcPrimaryAvailabilityZone = lens _elastiCacheReplicationGroupNodeGroupConfigurationPrimaryAvailabilityZone (\s a -> s { _elastiCacheReplicationGroupNodeGroupConfigurationPrimaryAvailabilityZone = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-nodegroupconfiguration.html#cfn-elasticache-replicationgroup-nodegroupconfiguration-replicaavailabilityzones
-ecrgngcReplicaAvailabilityZones :: Lens' ElastiCacheReplicationGroupNodeGroupConfiguration (Maybe [Val Text])
+ecrgngcReplicaAvailabilityZones :: Lens' ElastiCacheReplicationGroupNodeGroupConfiguration (Maybe (ValList Text))
 ecrgngcReplicaAvailabilityZones = lens _elastiCacheReplicationGroupNodeGroupConfigurationReplicaAvailabilityZones (\s a -> s { _elastiCacheReplicationGroupNodeGroupConfigurationReplicaAvailabilityZones = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-nodegroupconfiguration.html#cfn-elasticache-replicationgroup-nodegroupconfiguration-replicacount

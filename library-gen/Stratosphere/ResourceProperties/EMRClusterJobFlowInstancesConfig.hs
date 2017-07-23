@@ -20,8 +20,8 @@ import Stratosphere.ResourceProperties.EMRClusterPlacementType
 -- 'emrClusterJobFlowInstancesConfig' for a more convenient constructor.
 data EMRClusterJobFlowInstancesConfig =
   EMRClusterJobFlowInstancesConfig
-  { _eMRClusterJobFlowInstancesConfigAdditionalMasterSecurityGroups :: Maybe [Val Text]
-  , _eMRClusterJobFlowInstancesConfigAdditionalSlaveSecurityGroups :: Maybe [Val Text]
+  { _eMRClusterJobFlowInstancesConfigAdditionalMasterSecurityGroups :: Maybe (ValList Text)
+  , _eMRClusterJobFlowInstancesConfigAdditionalSlaveSecurityGroups :: Maybe (ValList Text)
   , _eMRClusterJobFlowInstancesConfigCoreInstanceFleet :: Maybe EMRClusterInstanceFleetConfig
   , _eMRClusterJobFlowInstancesConfigCoreInstanceGroup :: Maybe EMRClusterInstanceGroupConfig
   , _eMRClusterJobFlowInstancesConfigEc2KeyName :: Maybe (Val Text)
@@ -98,11 +98,11 @@ emrClusterJobFlowInstancesConfig  =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-jobflowinstancesconfig.html#cfn-emr-cluster-jobflowinstancesconfig-additionalmastersecuritygroups
-emrcjficAdditionalMasterSecurityGroups :: Lens' EMRClusterJobFlowInstancesConfig (Maybe [Val Text])
+emrcjficAdditionalMasterSecurityGroups :: Lens' EMRClusterJobFlowInstancesConfig (Maybe (ValList Text))
 emrcjficAdditionalMasterSecurityGroups = lens _eMRClusterJobFlowInstancesConfigAdditionalMasterSecurityGroups (\s a -> s { _eMRClusterJobFlowInstancesConfigAdditionalMasterSecurityGroups = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-jobflowinstancesconfig.html#cfn-emr-cluster-jobflowinstancesconfig-additionalslavesecuritygroups
-emrcjficAdditionalSlaveSecurityGroups :: Lens' EMRClusterJobFlowInstancesConfig (Maybe [Val Text])
+emrcjficAdditionalSlaveSecurityGroups :: Lens' EMRClusterJobFlowInstancesConfig (Maybe (ValList Text))
 emrcjficAdditionalSlaveSecurityGroups = lens _eMRClusterJobFlowInstancesConfigAdditionalSlaveSecurityGroups (\s a -> s { _eMRClusterJobFlowInstancesConfigAdditionalSlaveSecurityGroups = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-jobflowinstancesconfig.html#cfn-elasticmapreduce-cluster-jobflowinstancesconfig-coreinstancefleet

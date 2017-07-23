@@ -19,10 +19,10 @@ import Stratosphere.Values
 -- constructor.
 data CodeCommitRepositoryRepositoryTrigger =
   CodeCommitRepositoryRepositoryTrigger
-  { _codeCommitRepositoryRepositoryTriggerBranches :: Maybe [Val Text]
+  { _codeCommitRepositoryRepositoryTriggerBranches :: Maybe (ValList Text)
   , _codeCommitRepositoryRepositoryTriggerCustomData :: Maybe (Val Text)
   , _codeCommitRepositoryRepositoryTriggerDestinationArn :: Maybe (Val Text)
-  , _codeCommitRepositoryRepositoryTriggerEvents :: Maybe [Val Text]
+  , _codeCommitRepositoryRepositoryTriggerEvents :: Maybe (ValList Text)
   , _codeCommitRepositoryRepositoryTriggerName :: Maybe (Val Text)
   } deriving (Show, Eq)
 
@@ -61,7 +61,7 @@ codeCommitRepositoryRepositoryTrigger  =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codecommit-repository-repositorytrigger.html#cfn-codecommit-repository-repositorytrigger-branches
-ccrrtBranches :: Lens' CodeCommitRepositoryRepositoryTrigger (Maybe [Val Text])
+ccrrtBranches :: Lens' CodeCommitRepositoryRepositoryTrigger (Maybe (ValList Text))
 ccrrtBranches = lens _codeCommitRepositoryRepositoryTriggerBranches (\s a -> s { _codeCommitRepositoryRepositoryTriggerBranches = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codecommit-repository-repositorytrigger.html#cfn-codecommit-repository-repositorytrigger-customdata
@@ -73,7 +73,7 @@ ccrrtDestinationArn :: Lens' CodeCommitRepositoryRepositoryTrigger (Maybe (Val T
 ccrrtDestinationArn = lens _codeCommitRepositoryRepositoryTriggerDestinationArn (\s a -> s { _codeCommitRepositoryRepositoryTriggerDestinationArn = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codecommit-repository-repositorytrigger.html#cfn-codecommit-repository-repositorytrigger-events
-ccrrtEvents :: Lens' CodeCommitRepositoryRepositoryTrigger (Maybe [Val Text])
+ccrrtEvents :: Lens' CodeCommitRepositoryRepositoryTrigger (Maybe (ValList Text))
 ccrrtEvents = lens _codeCommitRepositoryRepositoryTriggerEvents (\s a -> s { _codeCommitRepositoryRepositoryTriggerEvents = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codecommit-repository-repositorytrigger.html#cfn-codecommit-repository-repositorytrigger-name

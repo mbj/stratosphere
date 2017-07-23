@@ -28,19 +28,19 @@ data ElasticLoadBalancingLoadBalancer =
   ElasticLoadBalancingLoadBalancer
   { _elasticLoadBalancingLoadBalancerAccessLoggingPolicy :: Maybe ElasticLoadBalancingLoadBalancerAccessLoggingPolicy
   , _elasticLoadBalancingLoadBalancerAppCookieStickinessPolicy :: Maybe [ElasticLoadBalancingLoadBalancerAppCookieStickinessPolicy]
-  , _elasticLoadBalancingLoadBalancerAvailabilityZones :: Maybe [Val Text]
+  , _elasticLoadBalancingLoadBalancerAvailabilityZones :: Maybe (ValList Text)
   , _elasticLoadBalancingLoadBalancerConnectionDrainingPolicy :: Maybe ElasticLoadBalancingLoadBalancerConnectionDrainingPolicy
   , _elasticLoadBalancingLoadBalancerConnectionSettings :: Maybe ElasticLoadBalancingLoadBalancerConnectionSettings
   , _elasticLoadBalancingLoadBalancerCrossZone :: Maybe (Val Bool')
   , _elasticLoadBalancingLoadBalancerHealthCheck :: Maybe ElasticLoadBalancingLoadBalancerHealthCheck
-  , _elasticLoadBalancingLoadBalancerInstances :: Maybe [Val Text]
+  , _elasticLoadBalancingLoadBalancerInstances :: Maybe (ValList Text)
   , _elasticLoadBalancingLoadBalancerLBCookieStickinessPolicy :: Maybe [ElasticLoadBalancingLoadBalancerLBCookieStickinessPolicy]
   , _elasticLoadBalancingLoadBalancerListeners :: [ElasticLoadBalancingLoadBalancerListeners]
   , _elasticLoadBalancingLoadBalancerLoadBalancerName :: Maybe (Val Text)
   , _elasticLoadBalancingLoadBalancerPolicies :: Maybe [ElasticLoadBalancingLoadBalancerPolicies]
   , _elasticLoadBalancingLoadBalancerScheme :: Maybe (Val Text)
-  , _elasticLoadBalancingLoadBalancerSecurityGroups :: Maybe [Val Text]
-  , _elasticLoadBalancingLoadBalancerSubnets :: Maybe [Val Text]
+  , _elasticLoadBalancingLoadBalancerSecurityGroups :: Maybe (ValList Text)
+  , _elasticLoadBalancingLoadBalancerSubnets :: Maybe (ValList Text)
   , _elasticLoadBalancingLoadBalancerTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
@@ -121,7 +121,7 @@ elblbAppCookieStickinessPolicy :: Lens' ElasticLoadBalancingLoadBalancer (Maybe 
 elblbAppCookieStickinessPolicy = lens _elasticLoadBalancingLoadBalancerAppCookieStickinessPolicy (\s a -> s { _elasticLoadBalancingLoadBalancerAppCookieStickinessPolicy = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb.html#cfn-ec2-elb-availabilityzones
-elblbAvailabilityZones :: Lens' ElasticLoadBalancingLoadBalancer (Maybe [Val Text])
+elblbAvailabilityZones :: Lens' ElasticLoadBalancingLoadBalancer (Maybe (ValList Text))
 elblbAvailabilityZones = lens _elasticLoadBalancingLoadBalancerAvailabilityZones (\s a -> s { _elasticLoadBalancingLoadBalancerAvailabilityZones = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb.html#cfn-ec2-elb-connectiondrainingpolicy
@@ -141,7 +141,7 @@ elblbHealthCheck :: Lens' ElasticLoadBalancingLoadBalancer (Maybe ElasticLoadBal
 elblbHealthCheck = lens _elasticLoadBalancingLoadBalancerHealthCheck (\s a -> s { _elasticLoadBalancingLoadBalancerHealthCheck = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb.html#cfn-ec2-elb-instances
-elblbInstances :: Lens' ElasticLoadBalancingLoadBalancer (Maybe [Val Text])
+elblbInstances :: Lens' ElasticLoadBalancingLoadBalancer (Maybe (ValList Text))
 elblbInstances = lens _elasticLoadBalancingLoadBalancerInstances (\s a -> s { _elasticLoadBalancingLoadBalancerInstances = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb.html#cfn-ec2-elb-lbcookiestickinesspolicy
@@ -165,11 +165,11 @@ elblbScheme :: Lens' ElasticLoadBalancingLoadBalancer (Maybe (Val Text))
 elblbScheme = lens _elasticLoadBalancingLoadBalancerScheme (\s a -> s { _elasticLoadBalancingLoadBalancerScheme = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb.html#cfn-ec2-elb-securitygroups
-elblbSecurityGroups :: Lens' ElasticLoadBalancingLoadBalancer (Maybe [Val Text])
+elblbSecurityGroups :: Lens' ElasticLoadBalancingLoadBalancer (Maybe (ValList Text))
 elblbSecurityGroups = lens _elasticLoadBalancingLoadBalancerSecurityGroups (\s a -> s { _elasticLoadBalancingLoadBalancerSecurityGroups = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb.html#cfn-ec2-elb-subnets
-elblbSubnets :: Lens' ElasticLoadBalancingLoadBalancer (Maybe [Val Text])
+elblbSubnets :: Lens' ElasticLoadBalancingLoadBalancer (Maybe (ValList Text))
 elblbSubnets = lens _elasticLoadBalancingLoadBalancerSubnets (\s a -> s { _elasticLoadBalancingLoadBalancerSubnets = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb.html#cfn-elasticloadbalancing-loadbalancer-tags

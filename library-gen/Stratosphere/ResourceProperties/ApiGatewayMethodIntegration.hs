@@ -19,7 +19,7 @@ import Stratosphere.ResourceProperties.ApiGatewayMethodIntegrationResponse
 -- 'apiGatewayMethodIntegration' for a more convenient constructor.
 data ApiGatewayMethodIntegration =
   ApiGatewayMethodIntegration
-  { _apiGatewayMethodIntegrationCacheKeyParameters :: Maybe [Val Text]
+  { _apiGatewayMethodIntegrationCacheKeyParameters :: Maybe (ValList Text)
   , _apiGatewayMethodIntegrationCacheNamespace :: Maybe (Val Text)
   , _apiGatewayMethodIntegrationCredentials :: Maybe (Val Text)
   , _apiGatewayMethodIntegrationIntegrationHttpMethod :: Maybe (Val HttpMethod)
@@ -81,7 +81,7 @@ apiGatewayMethodIntegration  =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-cachekeyparameters
-agmiCacheKeyParameters :: Lens' ApiGatewayMethodIntegration (Maybe [Val Text])
+agmiCacheKeyParameters :: Lens' ApiGatewayMethodIntegration (Maybe (ValList Text))
 agmiCacheKeyParameters = lens _apiGatewayMethodIntegrationCacheKeyParameters (\s a -> s { _apiGatewayMethodIntegrationCacheKeyParameters = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-cachenamespace

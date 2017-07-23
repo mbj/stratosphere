@@ -20,23 +20,23 @@ import Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupTagProperty
 -- 'autoScalingAutoScalingGroup' for a more convenient constructor.
 data AutoScalingAutoScalingGroup =
   AutoScalingAutoScalingGroup
-  { _autoScalingAutoScalingGroupAvailabilityZones :: Maybe [Val Text]
+  { _autoScalingAutoScalingGroupAvailabilityZones :: Maybe (ValList Text)
   , _autoScalingAutoScalingGroupCooldown :: Maybe (Val Text)
   , _autoScalingAutoScalingGroupDesiredCapacity :: Maybe (Val Text)
   , _autoScalingAutoScalingGroupHealthCheckGracePeriod :: Maybe (Val Integer')
   , _autoScalingAutoScalingGroupHealthCheckType :: Maybe (Val Text)
   , _autoScalingAutoScalingGroupInstanceId :: Maybe (Val Text)
   , _autoScalingAutoScalingGroupLaunchConfigurationName :: Maybe (Val Text)
-  , _autoScalingAutoScalingGroupLoadBalancerNames :: Maybe [Val Text]
+  , _autoScalingAutoScalingGroupLoadBalancerNames :: Maybe (ValList Text)
   , _autoScalingAutoScalingGroupMaxSize :: Val Text
   , _autoScalingAutoScalingGroupMetricsCollection :: Maybe [AutoScalingAutoScalingGroupMetricsCollection]
   , _autoScalingAutoScalingGroupMinSize :: Val Text
   , _autoScalingAutoScalingGroupNotificationConfigurations :: Maybe [AutoScalingAutoScalingGroupNotificationConfiguration]
   , _autoScalingAutoScalingGroupPlacementGroup :: Maybe (Val Text)
   , _autoScalingAutoScalingGroupTags :: Maybe [AutoScalingAutoScalingGroupTagProperty]
-  , _autoScalingAutoScalingGroupTargetGroupARNs :: Maybe [Val Text]
-  , _autoScalingAutoScalingGroupTerminationPolicies :: Maybe [Val Text]
-  , _autoScalingAutoScalingGroupVPCZoneIdentifier :: Maybe [Val Text]
+  , _autoScalingAutoScalingGroupTargetGroupARNs :: Maybe (ValList Text)
+  , _autoScalingAutoScalingGroupTerminationPolicies :: Maybe (ValList Text)
+  , _autoScalingAutoScalingGroupVPCZoneIdentifier :: Maybe (ValList Text)
   } deriving (Show, Eq)
 
 instance ToJSON AutoScalingAutoScalingGroup where
@@ -112,7 +112,7 @@ autoScalingAutoScalingGroup maxSizearg minSizearg =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-availabilityzones
-asasgAvailabilityZones :: Lens' AutoScalingAutoScalingGroup (Maybe [Val Text])
+asasgAvailabilityZones :: Lens' AutoScalingAutoScalingGroup (Maybe (ValList Text))
 asasgAvailabilityZones = lens _autoScalingAutoScalingGroupAvailabilityZones (\s a -> s { _autoScalingAutoScalingGroupAvailabilityZones = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-cooldown
@@ -140,7 +140,7 @@ asasgLaunchConfigurationName :: Lens' AutoScalingAutoScalingGroup (Maybe (Val Te
 asasgLaunchConfigurationName = lens _autoScalingAutoScalingGroupLaunchConfigurationName (\s a -> s { _autoScalingAutoScalingGroupLaunchConfigurationName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-loadbalancernames
-asasgLoadBalancerNames :: Lens' AutoScalingAutoScalingGroup (Maybe [Val Text])
+asasgLoadBalancerNames :: Lens' AutoScalingAutoScalingGroup (Maybe (ValList Text))
 asasgLoadBalancerNames = lens _autoScalingAutoScalingGroupLoadBalancerNames (\s a -> s { _autoScalingAutoScalingGroupLoadBalancerNames = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-maxsize
@@ -168,13 +168,13 @@ asasgTags :: Lens' AutoScalingAutoScalingGroup (Maybe [AutoScalingAutoScalingGro
 asasgTags = lens _autoScalingAutoScalingGroupTags (\s a -> s { _autoScalingAutoScalingGroupTags = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-targetgrouparns
-asasgTargetGroupARNs :: Lens' AutoScalingAutoScalingGroup (Maybe [Val Text])
+asasgTargetGroupARNs :: Lens' AutoScalingAutoScalingGroup (Maybe (ValList Text))
 asasgTargetGroupARNs = lens _autoScalingAutoScalingGroupTargetGroupARNs (\s a -> s { _autoScalingAutoScalingGroupTargetGroupARNs = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-termpolicy
-asasgTerminationPolicies :: Lens' AutoScalingAutoScalingGroup (Maybe [Val Text])
+asasgTerminationPolicies :: Lens' AutoScalingAutoScalingGroup (Maybe (ValList Text))
 asasgTerminationPolicies = lens _autoScalingAutoScalingGroupTerminationPolicies (\s a -> s { _autoScalingAutoScalingGroupTerminationPolicies = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-vpczoneidentifier
-asasgVPCZoneIdentifier :: Lens' AutoScalingAutoScalingGroup (Maybe [Val Text])
+asasgVPCZoneIdentifier :: Lens' AutoScalingAutoScalingGroup (Maybe (ValList Text))
 asasgVPCZoneIdentifier = lens _autoScalingAutoScalingGroupVPCZoneIdentifier (\s a -> s { _autoScalingAutoScalingGroupVPCZoneIdentifier = a })

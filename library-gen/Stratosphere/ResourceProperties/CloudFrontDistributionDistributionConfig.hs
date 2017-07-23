@@ -25,7 +25,7 @@ import Stratosphere.ResourceProperties.CloudFrontDistributionViewerCertificate
 -- constructor.
 data CloudFrontDistributionDistributionConfig =
   CloudFrontDistributionDistributionConfig
-  { _cloudFrontDistributionDistributionConfigAliases :: Maybe [Val Text]
+  { _cloudFrontDistributionDistributionConfigAliases :: Maybe (ValList Text)
   , _cloudFrontDistributionDistributionConfigCacheBehaviors :: Maybe [CloudFrontDistributionCacheBehavior]
   , _cloudFrontDistributionDistributionConfigComment :: Maybe (Val Text)
   , _cloudFrontDistributionDistributionConfigCustomErrorResponses :: Maybe [CloudFrontDistributionCustomErrorResponse]
@@ -106,7 +106,7 @@ cloudFrontDistributionDistributionConfig defaultCacheBehaviorarg enabledarg orig
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distributionconfig.html#cfn-cloudfront-distributionconfig-aliases
-cfddcAliases :: Lens' CloudFrontDistributionDistributionConfig (Maybe [Val Text])
+cfddcAliases :: Lens' CloudFrontDistributionDistributionConfig (Maybe (ValList Text))
 cfddcAliases = lens _cloudFrontDistributionDistributionConfigAliases (\s a -> s { _cloudFrontDistributionDistributionConfigAliases = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distributionconfig.html#cfn-cloudfront-distributionconfig-cachebehaviors

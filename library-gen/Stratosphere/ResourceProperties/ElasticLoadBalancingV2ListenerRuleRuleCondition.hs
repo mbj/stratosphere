@@ -21,7 +21,7 @@ import Stratosphere.Values
 data ElasticLoadBalancingV2ListenerRuleRuleCondition =
   ElasticLoadBalancingV2ListenerRuleRuleCondition
   { _elasticLoadBalancingV2ListenerRuleRuleConditionField :: Maybe (Val Text)
-  , _elasticLoadBalancingV2ListenerRuleRuleConditionValues :: Maybe [Val Text]
+  , _elasticLoadBalancingV2ListenerRuleRuleConditionValues :: Maybe (ValList Text)
   } deriving (Show, Eq)
 
 instance ToJSON ElasticLoadBalancingV2ListenerRuleRuleCondition where
@@ -54,5 +54,5 @@ elbvlrrcField :: Lens' ElasticLoadBalancingV2ListenerRuleRuleCondition (Maybe (V
 elbvlrrcField = lens _elasticLoadBalancingV2ListenerRuleRuleConditionField (\s a -> s { _elasticLoadBalancingV2ListenerRuleRuleConditionField = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-conditions.html#cfn-elasticloadbalancingv2-listenerrule-conditions-values
-elbvlrrcValues :: Lens' ElasticLoadBalancingV2ListenerRuleRuleCondition (Maybe [Val Text])
+elbvlrrcValues :: Lens' ElasticLoadBalancingV2ListenerRuleRuleCondition (Maybe (ValList Text))
 elbvlrrcValues = lens _elasticLoadBalancingV2ListenerRuleRuleConditionValues (\s a -> s { _elasticLoadBalancingV2ListenerRuleRuleConditionValues = a })

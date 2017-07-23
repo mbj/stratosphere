@@ -18,7 +18,7 @@ import Stratosphere.Values
 -- 'directoryServiceSimpleADVpcSettings' for a more convenient constructor.
 data DirectoryServiceSimpleADVpcSettings =
   DirectoryServiceSimpleADVpcSettings
-  { _directoryServiceSimpleADVpcSettingsSubnetIds :: [Val Text]
+  { _directoryServiceSimpleADVpcSettingsSubnetIds :: ValList Text
   , _directoryServiceSimpleADVpcSettingsVpcId :: Val Text
   } deriving (Show, Eq)
 
@@ -40,7 +40,7 @@ instance FromJSON DirectoryServiceSimpleADVpcSettings where
 -- | Constructor for 'DirectoryServiceSimpleADVpcSettings' containing required
 -- fields as arguments.
 directoryServiceSimpleADVpcSettings
-  :: [Val Text] -- ^ 'dssadvsSubnetIds'
+  :: ValList Text -- ^ 'dssadvsSubnetIds'
   -> Val Text -- ^ 'dssadvsVpcId'
   -> DirectoryServiceSimpleADVpcSettings
 directoryServiceSimpleADVpcSettings subnetIdsarg vpcIdarg =
@@ -50,7 +50,7 @@ directoryServiceSimpleADVpcSettings subnetIdsarg vpcIdarg =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-directoryservice-simplead-vpcsettings.html#cfn-directoryservice-simplead-vpcsettings-subnetids
-dssadvsSubnetIds :: Lens' DirectoryServiceSimpleADVpcSettings [Val Text]
+dssadvsSubnetIds :: Lens' DirectoryServiceSimpleADVpcSettings (ValList Text)
 dssadvsSubnetIds = lens _directoryServiceSimpleADVpcSettingsSubnetIds (\s a -> s { _directoryServiceSimpleADVpcSettingsSubnetIds = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-directoryservice-simplead-vpcsettings.html#cfn-directoryservice-simplead-vpcsettings-vpcid

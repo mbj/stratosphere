@@ -25,7 +25,7 @@ data OpsWorksStack =
   { _opsWorksStackAgentVersion :: Maybe (Val Text)
   , _opsWorksStackAttributes :: Maybe Object
   , _opsWorksStackChefConfiguration :: Maybe OpsWorksStackChefConfiguration
-  , _opsWorksStackCloneAppIds :: Maybe [Val Text]
+  , _opsWorksStackCloneAppIds :: Maybe (ValList Text)
   , _opsWorksStackClonePermissions :: Maybe (Val Bool')
   , _opsWorksStackConfigurationManager :: Maybe OpsWorksStackStackConfigurationManager
   , _opsWorksStackCustomCookbooksSource :: Maybe OpsWorksStackSource
@@ -154,7 +154,7 @@ owsChefConfiguration :: Lens' OpsWorksStack (Maybe OpsWorksStackChefConfiguratio
 owsChefConfiguration = lens _opsWorksStackChefConfiguration (\s a -> s { _opsWorksStackChefConfiguration = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-stack.html#cfn-opsworks-stack-cloneappids
-owsCloneAppIds :: Lens' OpsWorksStack (Maybe [Val Text])
+owsCloneAppIds :: Lens' OpsWorksStack (Maybe (ValList Text))
 owsCloneAppIds = lens _opsWorksStackCloneAppIds (\s a -> s { _opsWorksStackCloneAppIds = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-stack.html#cfn-opsworks-stack-clonepermissions

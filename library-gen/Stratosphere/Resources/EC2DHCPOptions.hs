@@ -19,10 +19,10 @@ import Stratosphere.ResourceProperties.Tag
 data EC2DHCPOptions =
   EC2DHCPOptions
   { _eC2DHCPOptionsDomainName :: Maybe (Val Text)
-  , _eC2DHCPOptionsDomainNameServers :: Maybe [Val Text]
-  , _eC2DHCPOptionsNetbiosNameServers :: Maybe [Val Text]
+  , _eC2DHCPOptionsDomainNameServers :: Maybe (ValList Text)
+  , _eC2DHCPOptionsNetbiosNameServers :: Maybe (ValList Text)
   , _eC2DHCPOptionsNetbiosNodeType :: Maybe (Val Integer')
-  , _eC2DHCPOptionsNtpServers :: Maybe [Val Text]
+  , _eC2DHCPOptionsNtpServers :: Maybe (ValList Text)
   , _eC2DHCPOptionsTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
@@ -67,11 +67,11 @@ ecdhcpoDomainName :: Lens' EC2DHCPOptions (Maybe (Val Text))
 ecdhcpoDomainName = lens _eC2DHCPOptionsDomainName (\s a -> s { _eC2DHCPOptionsDomainName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcp-options.html#cfn-ec2-dhcpoptions-domainnameservers
-ecdhcpoDomainNameServers :: Lens' EC2DHCPOptions (Maybe [Val Text])
+ecdhcpoDomainNameServers :: Lens' EC2DHCPOptions (Maybe (ValList Text))
 ecdhcpoDomainNameServers = lens _eC2DHCPOptionsDomainNameServers (\s a -> s { _eC2DHCPOptionsDomainNameServers = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcp-options.html#cfn-ec2-dhcpoptions-netbiosnameservers
-ecdhcpoNetbiosNameServers :: Lens' EC2DHCPOptions (Maybe [Val Text])
+ecdhcpoNetbiosNameServers :: Lens' EC2DHCPOptions (Maybe (ValList Text))
 ecdhcpoNetbiosNameServers = lens _eC2DHCPOptionsNetbiosNameServers (\s a -> s { _eC2DHCPOptionsNetbiosNameServers = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcp-options.html#cfn-ec2-dhcpoptions-netbiosnodetype
@@ -79,7 +79,7 @@ ecdhcpoNetbiosNodeType :: Lens' EC2DHCPOptions (Maybe (Val Integer'))
 ecdhcpoNetbiosNodeType = lens _eC2DHCPOptionsNetbiosNodeType (\s a -> s { _eC2DHCPOptionsNetbiosNodeType = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcp-options.html#cfn-ec2-dhcpoptions-ntpservers
-ecdhcpoNtpServers :: Lens' EC2DHCPOptions (Maybe [Val Text])
+ecdhcpoNtpServers :: Lens' EC2DHCPOptions (Maybe (ValList Text))
 ecdhcpoNtpServers = lens _eC2DHCPOptionsNtpServers (\s a -> s { _eC2DHCPOptionsNtpServers = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcp-options.html#cfn-ec2-dhcpoptions-tags

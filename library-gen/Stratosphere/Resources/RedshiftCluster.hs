@@ -23,7 +23,7 @@ data RedshiftCluster =
   , _redshiftClusterAutomatedSnapshotRetentionPeriod :: Maybe (Val Integer')
   , _redshiftClusterAvailabilityZone :: Maybe (Val Text)
   , _redshiftClusterClusterParameterGroupName :: Maybe (Val Text)
-  , _redshiftClusterClusterSecurityGroups :: Maybe [Val Text]
+  , _redshiftClusterClusterSecurityGroups :: Maybe (ValList Text)
   , _redshiftClusterClusterSubnetGroupName :: Maybe (Val Text)
   , _redshiftClusterClusterType :: Val Text
   , _redshiftClusterClusterVersion :: Maybe (Val Text)
@@ -32,7 +32,7 @@ data RedshiftCluster =
   , _redshiftClusterEncrypted :: Maybe (Val Bool')
   , _redshiftClusterHsmClientCertificateIdentifier :: Maybe (Val Text)
   , _redshiftClusterHsmConfigurationIdentifier :: Maybe (Val Text)
-  , _redshiftClusterIamRoles :: Maybe [Val Text]
+  , _redshiftClusterIamRoles :: Maybe (ValList Text)
   , _redshiftClusterKmsKeyId :: Maybe (Val Text)
   , _redshiftClusterLoggingProperties :: Maybe RedshiftClusterLoggingProperties
   , _redshiftClusterMasterUserPassword :: Val Text
@@ -46,7 +46,7 @@ data RedshiftCluster =
   , _redshiftClusterSnapshotClusterIdentifier :: Maybe (Val Text)
   , _redshiftClusterSnapshotIdentifier :: Maybe (Val Text)
   , _redshiftClusterTags :: Maybe [Tag]
-  , _redshiftClusterVpcSecurityGroupIds :: Maybe [Val Text]
+  , _redshiftClusterVpcSecurityGroupIds :: Maybe (ValList Text)
   } deriving (Show, Eq)
 
 instance ToJSON RedshiftCluster where
@@ -174,7 +174,7 @@ rcClusterParameterGroupName :: Lens' RedshiftCluster (Maybe (Val Text))
 rcClusterParameterGroupName = lens _redshiftClusterClusterParameterGroupName (\s a -> s { _redshiftClusterClusterParameterGroupName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-clustersecuritygroups
-rcClusterSecurityGroups :: Lens' RedshiftCluster (Maybe [Val Text])
+rcClusterSecurityGroups :: Lens' RedshiftCluster (Maybe (ValList Text))
 rcClusterSecurityGroups = lens _redshiftClusterClusterSecurityGroups (\s a -> s { _redshiftClusterClusterSecurityGroups = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-clustersubnetgroupname
@@ -210,7 +210,7 @@ rcHsmConfigurationIdentifier :: Lens' RedshiftCluster (Maybe (Val Text))
 rcHsmConfigurationIdentifier = lens _redshiftClusterHsmConfigurationIdentifier (\s a -> s { _redshiftClusterHsmConfigurationIdentifier = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-iamroles
-rcIamRoles :: Lens' RedshiftCluster (Maybe [Val Text])
+rcIamRoles :: Lens' RedshiftCluster (Maybe (ValList Text))
 rcIamRoles = lens _redshiftClusterIamRoles (\s a -> s { _redshiftClusterIamRoles = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-kmskeyid
@@ -266,5 +266,5 @@ rcTags :: Lens' RedshiftCluster (Maybe [Tag])
 rcTags = lens _redshiftClusterTags (\s a -> s { _redshiftClusterTags = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-vpcsecuritygroupids
-rcVpcSecurityGroupIds :: Lens' RedshiftCluster (Maybe [Val Text])
+rcVpcSecurityGroupIds :: Lens' RedshiftCluster (Maybe (ValList Text))
 rcVpcSecurityGroupIds = lens _redshiftClusterVpcSecurityGroupIds (\s a -> s { _redshiftClusterVpcSecurityGroupIds = a })

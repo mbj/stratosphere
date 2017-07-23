@@ -22,6 +22,9 @@ myTemplate =
     & resUpdatePolicy ?~ asgUpdatePolicy
   , launchConfigResource
   ]
+  & parameters ?~
+  [ parameter "AvailabilityZones" "List<AWS::EC2::AvailabilityZone::Name>"
+  ]
   & description ?~ "Auto scaling group example"
   & formatVersion ?~ "2010-09-09"
 
@@ -34,6 +37,11 @@ asgResource =
   "4"
   & asasgDesiredCapacity ?~ "3"
   & asasgLaunchConfigurationName ?~ Ref "LaunchConfig"
+  & asasgAvailabilityZones ?~ RefList "AvailabilityZones"
+  & asasgTerminationPolicies ?~
+    [ "OldestLaunchConfiguration"
+    , "ClosestToNextInstanceHour"
+    ]
 
 asgCreationPolicy :: CreationPolicy
 asgCreationPolicy =

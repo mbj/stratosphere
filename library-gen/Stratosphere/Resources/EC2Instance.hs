@@ -43,8 +43,8 @@ data EC2Instance =
   , _eC2InstancePlacementGroupName :: Maybe (Val Text)
   , _eC2InstancePrivateIpAddress :: Maybe (Val Text)
   , _eC2InstanceRamdiskId :: Maybe (Val Text)
-  , _eC2InstanceSecurityGroupIds :: Maybe [Val Text]
-  , _eC2InstanceSecurityGroups :: Maybe [Val Text]
+  , _eC2InstanceSecurityGroupIds :: Maybe (ValList Text)
+  , _eC2InstanceSecurityGroups :: Maybe (ValList Text)
   , _eC2InstanceSourceDestCheck :: Maybe (Val Bool')
   , _eC2InstanceSsmAssociations :: Maybe [EC2InstanceSsmAssociation]
   , _eC2InstanceSubnetId :: Maybe (Val Text)
@@ -241,11 +241,11 @@ eciRamdiskId :: Lens' EC2Instance (Maybe (Val Text))
 eciRamdiskId = lens _eC2InstanceRamdiskId (\s a -> s { _eC2InstanceRamdiskId = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-securitygroupids
-eciSecurityGroupIds :: Lens' EC2Instance (Maybe [Val Text])
+eciSecurityGroupIds :: Lens' EC2Instance (Maybe (ValList Text))
 eciSecurityGroupIds = lens _eC2InstanceSecurityGroupIds (\s a -> s { _eC2InstanceSecurityGroupIds = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-securitygroups
-eciSecurityGroups :: Lens' EC2Instance (Maybe [Val Text])
+eciSecurityGroups :: Lens' EC2Instance (Maybe (ValList Text))
 eciSecurityGroups = lens _eC2InstanceSecurityGroups (\s a -> s { _eC2InstanceSecurityGroups = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-sourcedestcheck

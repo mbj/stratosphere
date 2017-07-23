@@ -18,7 +18,7 @@ import Stratosphere.Values
 -- 'ec2VPNGatewayRoutePropagation' for a more convenient constructor.
 data EC2VPNGatewayRoutePropagation =
   EC2VPNGatewayRoutePropagation
-  { _eC2VPNGatewayRoutePropagationRouteTableIds :: [Val Text]
+  { _eC2VPNGatewayRoutePropagationRouteTableIds :: ValList Text
   , _eC2VPNGatewayRoutePropagationVpnGatewayId :: Val Text
   } deriving (Show, Eq)
 
@@ -40,7 +40,7 @@ instance FromJSON EC2VPNGatewayRoutePropagation where
 -- | Constructor for 'EC2VPNGatewayRoutePropagation' containing required
 -- fields as arguments.
 ec2VPNGatewayRoutePropagation
-  :: [Val Text] -- ^ 'ecvpngrpRouteTableIds'
+  :: ValList Text -- ^ 'ecvpngrpRouteTableIds'
   -> Val Text -- ^ 'ecvpngrpVpnGatewayId'
   -> EC2VPNGatewayRoutePropagation
 ec2VPNGatewayRoutePropagation routeTableIdsarg vpnGatewayIdarg =
@@ -50,7 +50,7 @@ ec2VPNGatewayRoutePropagation routeTableIdsarg vpnGatewayIdarg =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpn-gatewayrouteprop.html#cfn-ec2-vpngatewayrouteprop-routetableids
-ecvpngrpRouteTableIds :: Lens' EC2VPNGatewayRoutePropagation [Val Text]
+ecvpngrpRouteTableIds :: Lens' EC2VPNGatewayRoutePropagation (ValList Text)
 ecvpngrpRouteTableIds = lens _eC2VPNGatewayRoutePropagationRouteTableIds (\s a -> s { _eC2VPNGatewayRoutePropagationRouteTableIds = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpn-gatewayrouteprop.html#cfn-ec2-vpngatewayrouteprop-vpngatewayid

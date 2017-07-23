@@ -19,7 +19,7 @@ import Stratosphere.ResourceProperties.Tag
 data RedshiftClusterSubnetGroup =
   RedshiftClusterSubnetGroup
   { _redshiftClusterSubnetGroupDescription :: Val Text
-  , _redshiftClusterSubnetGroupSubnetIds :: [Val Text]
+  , _redshiftClusterSubnetGroupSubnetIds :: ValList Text
   , _redshiftClusterSubnetGroupTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
@@ -44,7 +44,7 @@ instance FromJSON RedshiftClusterSubnetGroup where
 -- as arguments.
 redshiftClusterSubnetGroup
   :: Val Text -- ^ 'rcsugDescription'
-  -> [Val Text] -- ^ 'rcsugSubnetIds'
+  -> ValList Text -- ^ 'rcsugSubnetIds'
   -> RedshiftClusterSubnetGroup
 redshiftClusterSubnetGroup descriptionarg subnetIdsarg =
   RedshiftClusterSubnetGroup
@@ -58,7 +58,7 @@ rcsugDescription :: Lens' RedshiftClusterSubnetGroup (Val Text)
 rcsugDescription = lens _redshiftClusterSubnetGroupDescription (\s a -> s { _redshiftClusterSubnetGroupDescription = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clustersubnetgroup.html#cfn-redshift-clustersubnetgroup-subnetids
-rcsugSubnetIds :: Lens' RedshiftClusterSubnetGroup [Val Text]
+rcsugSubnetIds :: Lens' RedshiftClusterSubnetGroup (ValList Text)
 rcsugSubnetIds = lens _redshiftClusterSubnetGroupSubnetIds (\s a -> s { _redshiftClusterSubnetGroupSubnetIds = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clustersubnetgroup.html#cfn-redshift-clustersubnetgroup-tags

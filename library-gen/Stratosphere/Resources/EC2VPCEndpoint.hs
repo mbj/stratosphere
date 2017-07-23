@@ -19,7 +19,7 @@ import Stratosphere.Values
 data EC2VPCEndpoint =
   EC2VPCEndpoint
   { _eC2VPCEndpointPolicyDocument :: Maybe Object
-  , _eC2VPCEndpointRouteTableIds :: Maybe [Val Text]
+  , _eC2VPCEndpointRouteTableIds :: Maybe (ValList Text)
   , _eC2VPCEndpointServiceName :: Val Text
   , _eC2VPCEndpointVpcId :: Val Text
   } deriving (Show, Eq)
@@ -61,7 +61,7 @@ ecvpcePolicyDocument :: Lens' EC2VPCEndpoint (Maybe Object)
 ecvpcePolicyDocument = lens _eC2VPCEndpointPolicyDocument (\s a -> s { _eC2VPCEndpointPolicyDocument = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-routetableids
-ecvpceRouteTableIds :: Lens' EC2VPCEndpoint (Maybe [Val Text])
+ecvpceRouteTableIds :: Lens' EC2VPCEndpoint (Maybe (ValList Text))
 ecvpceRouteTableIds = lens _eC2VPCEndpointRouteTableIds (\s a -> s { _eC2VPCEndpointRouteTableIds = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-servicename

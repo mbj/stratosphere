@@ -18,7 +18,7 @@ import Stratosphere.Types
 -- 'dynamoDBTableProjection' for a more convenient constructor.
 data DynamoDBTableProjection =
   DynamoDBTableProjection
-  { _dynamoDBTableProjectionNonKeyAttributes :: Maybe [Val Text]
+  { _dynamoDBTableProjectionNonKeyAttributes :: Maybe (ValList Text)
   , _dynamoDBTableProjectionProjectionType :: Maybe (Val ProjectionType)
   } deriving (Show, Eq)
 
@@ -48,7 +48,7 @@ dynamoDBTableProjection  =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-projectionobject.html#cfn-dynamodb-projectionobj-nonkeyatt
-ddbtpNonKeyAttributes :: Lens' DynamoDBTableProjection (Maybe [Val Text])
+ddbtpNonKeyAttributes :: Lens' DynamoDBTableProjection (Maybe (ValList Text))
 ddbtpNonKeyAttributes = lens _dynamoDBTableProjectionNonKeyAttributes (\s a -> s { _dynamoDBTableProjectionNonKeyAttributes = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-projectionobject.html#cfn-dynamodb-projectionobj-projtype

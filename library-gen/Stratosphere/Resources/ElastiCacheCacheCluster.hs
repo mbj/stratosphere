@@ -22,7 +22,7 @@ data ElastiCacheCacheCluster =
   , _elastiCacheCacheClusterAutoMinorVersionUpgrade :: Maybe (Val Bool')
   , _elastiCacheCacheClusterCacheNodeType :: Val Text
   , _elastiCacheCacheClusterCacheParameterGroupName :: Maybe (Val Text)
-  , _elastiCacheCacheClusterCacheSecurityGroupNames :: Maybe [Val Text]
+  , _elastiCacheCacheClusterCacheSecurityGroupNames :: Maybe (ValList Text)
   , _elastiCacheCacheClusterCacheSubnetGroupName :: Maybe (Val Text)
   , _elastiCacheCacheClusterClusterName :: Maybe (Val Text)
   , _elastiCacheCacheClusterEngine :: Val Text
@@ -31,14 +31,14 @@ data ElastiCacheCacheCluster =
   , _elastiCacheCacheClusterNumCacheNodes :: Val Integer'
   , _elastiCacheCacheClusterPort :: Maybe (Val Integer')
   , _elastiCacheCacheClusterPreferredAvailabilityZone :: Maybe (Val Text)
-  , _elastiCacheCacheClusterPreferredAvailabilityZones :: Maybe [Val Text]
+  , _elastiCacheCacheClusterPreferredAvailabilityZones :: Maybe (ValList Text)
   , _elastiCacheCacheClusterPreferredMaintenanceWindow :: Maybe (Val Text)
-  , _elastiCacheCacheClusterSnapshotArns :: Maybe [Val Text]
+  , _elastiCacheCacheClusterSnapshotArns :: Maybe (ValList Text)
   , _elastiCacheCacheClusterSnapshotName :: Maybe (Val Text)
   , _elastiCacheCacheClusterSnapshotRetentionLimit :: Maybe (Val Integer')
   , _elastiCacheCacheClusterSnapshotWindow :: Maybe (Val Text)
   , _elastiCacheCacheClusterTags :: Maybe [Tag]
-  , _elastiCacheCacheClusterVpcSecurityGroupIds :: Maybe [Val Text]
+  , _elastiCacheCacheClusterVpcSecurityGroupIds :: Maybe (ValList Text)
   } deriving (Show, Eq)
 
 instance ToJSON ElastiCacheCacheCluster where
@@ -143,7 +143,7 @@ ecccCacheParameterGroupName :: Lens' ElastiCacheCacheCluster (Maybe (Val Text))
 ecccCacheParameterGroupName = lens _elastiCacheCacheClusterCacheParameterGroupName (\s a -> s { _elastiCacheCacheClusterCacheParameterGroupName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-cachesecuritygroupnames
-ecccCacheSecurityGroupNames :: Lens' ElastiCacheCacheCluster (Maybe [Val Text])
+ecccCacheSecurityGroupNames :: Lens' ElastiCacheCacheCluster (Maybe (ValList Text))
 ecccCacheSecurityGroupNames = lens _elastiCacheCacheClusterCacheSecurityGroupNames (\s a -> s { _elastiCacheCacheClusterCacheSecurityGroupNames = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-cachesubnetgroupname
@@ -179,7 +179,7 @@ ecccPreferredAvailabilityZone :: Lens' ElastiCacheCacheCluster (Maybe (Val Text)
 ecccPreferredAvailabilityZone = lens _elastiCacheCacheClusterPreferredAvailabilityZone (\s a -> s { _elastiCacheCacheClusterPreferredAvailabilityZone = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-preferredavailabilityzones
-ecccPreferredAvailabilityZones :: Lens' ElastiCacheCacheCluster (Maybe [Val Text])
+ecccPreferredAvailabilityZones :: Lens' ElastiCacheCacheCluster (Maybe (ValList Text))
 ecccPreferredAvailabilityZones = lens _elastiCacheCacheClusterPreferredAvailabilityZones (\s a -> s { _elastiCacheCacheClusterPreferredAvailabilityZones = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-preferredmaintenancewindow
@@ -187,7 +187,7 @@ ecccPreferredMaintenanceWindow :: Lens' ElastiCacheCacheCluster (Maybe (Val Text
 ecccPreferredMaintenanceWindow = lens _elastiCacheCacheClusterPreferredMaintenanceWindow (\s a -> s { _elastiCacheCacheClusterPreferredMaintenanceWindow = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-snapshotarns
-ecccSnapshotArns :: Lens' ElastiCacheCacheCluster (Maybe [Val Text])
+ecccSnapshotArns :: Lens' ElastiCacheCacheCluster (Maybe (ValList Text))
 ecccSnapshotArns = lens _elastiCacheCacheClusterSnapshotArns (\s a -> s { _elastiCacheCacheClusterSnapshotArns = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-snapshotname
@@ -207,5 +207,5 @@ ecccTags :: Lens' ElastiCacheCacheCluster (Maybe [Tag])
 ecccTags = lens _elastiCacheCacheClusterTags (\s a -> s { _elastiCacheCacheClusterTags = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html#cfn-elasticache-cachecluster-vpcsecuritygroupids
-ecccVpcSecurityGroupIds :: Lens' ElastiCacheCacheCluster (Maybe [Val Text])
+ecccVpcSecurityGroupIds :: Lens' ElastiCacheCacheCluster (Maybe (ValList Text))
 ecccVpcSecurityGroupIds = lens _elastiCacheCacheClusterVpcSecurityGroupIds (\s a -> s { _elastiCacheCacheClusterVpcSecurityGroupIds = a })

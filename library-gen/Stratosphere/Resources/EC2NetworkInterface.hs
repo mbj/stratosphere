@@ -21,7 +21,7 @@ import Stratosphere.ResourceProperties.Tag
 data EC2NetworkInterface =
   EC2NetworkInterface
   { _eC2NetworkInterfaceDescription :: Maybe (Val Text)
-  , _eC2NetworkInterfaceGroupSet :: Maybe [Val Text]
+  , _eC2NetworkInterfaceGroupSet :: Maybe (ValList Text)
   , _eC2NetworkInterfaceInterfaceType :: Maybe (Val Text)
   , _eC2NetworkInterfaceIpv6AddressCount :: Maybe (Val Integer')
   , _eC2NetworkInterfaceIpv6Addresses :: Maybe EC2NetworkInterfaceInstanceIpv6Address
@@ -91,7 +91,7 @@ ecniDescription :: Lens' EC2NetworkInterface (Maybe (Val Text))
 ecniDescription = lens _eC2NetworkInterfaceDescription (\s a -> s { _eC2NetworkInterfaceDescription = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html#cfn-awsec2networkinterface-groupset
-ecniGroupSet :: Lens' EC2NetworkInterface (Maybe [Val Text])
+ecniGroupSet :: Lens' EC2NetworkInterface (Maybe (ValList Text))
 ecniGroupSet = lens _eC2NetworkInterfaceGroupSet (\s a -> s { _eC2NetworkInterfaceGroupSet = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html#cfn-ec2-networkinterface-interfacetype

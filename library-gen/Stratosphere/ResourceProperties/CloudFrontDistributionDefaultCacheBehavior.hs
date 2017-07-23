@@ -19,8 +19,8 @@ import Stratosphere.ResourceProperties.CloudFrontDistributionForwardedValues
 -- constructor.
 data CloudFrontDistributionDefaultCacheBehavior =
   CloudFrontDistributionDefaultCacheBehavior
-  { _cloudFrontDistributionDefaultCacheBehaviorAllowedMethods :: Maybe [Val Text]
-  , _cloudFrontDistributionDefaultCacheBehaviorCachedMethods :: Maybe [Val Text]
+  { _cloudFrontDistributionDefaultCacheBehaviorAllowedMethods :: Maybe (ValList Text)
+  , _cloudFrontDistributionDefaultCacheBehaviorCachedMethods :: Maybe (ValList Text)
   , _cloudFrontDistributionDefaultCacheBehaviorCompress :: Maybe (Val Bool')
   , _cloudFrontDistributionDefaultCacheBehaviorDefaultTTL :: Maybe (Val Integer')
   , _cloudFrontDistributionDefaultCacheBehaviorForwardedValues :: CloudFrontDistributionForwardedValues
@@ -28,7 +28,7 @@ data CloudFrontDistributionDefaultCacheBehavior =
   , _cloudFrontDistributionDefaultCacheBehaviorMinTTL :: Maybe (Val Integer')
   , _cloudFrontDistributionDefaultCacheBehaviorSmoothStreaming :: Maybe (Val Bool')
   , _cloudFrontDistributionDefaultCacheBehaviorTargetOriginId :: Val Text
-  , _cloudFrontDistributionDefaultCacheBehaviorTrustedSigners :: Maybe [Val Text]
+  , _cloudFrontDistributionDefaultCacheBehaviorTrustedSigners :: Maybe (ValList Text)
   , _cloudFrontDistributionDefaultCacheBehaviorViewerProtocolPolicy :: Val Text
   } deriving (Show, Eq)
 
@@ -88,11 +88,11 @@ cloudFrontDistributionDefaultCacheBehavior forwardedValuesarg targetOriginIdarg 
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-defaultcachebehavior.html#cfn-cloudfront-defaultcachebehavior-allowedmethods
-cfddcbAllowedMethods :: Lens' CloudFrontDistributionDefaultCacheBehavior (Maybe [Val Text])
+cfddcbAllowedMethods :: Lens' CloudFrontDistributionDefaultCacheBehavior (Maybe (ValList Text))
 cfddcbAllowedMethods = lens _cloudFrontDistributionDefaultCacheBehaviorAllowedMethods (\s a -> s { _cloudFrontDistributionDefaultCacheBehaviorAllowedMethods = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-defaultcachebehavior.html#cfn-cloudfront-defaultcachebehavior-cachedmethods
-cfddcbCachedMethods :: Lens' CloudFrontDistributionDefaultCacheBehavior (Maybe [Val Text])
+cfddcbCachedMethods :: Lens' CloudFrontDistributionDefaultCacheBehavior (Maybe (ValList Text))
 cfddcbCachedMethods = lens _cloudFrontDistributionDefaultCacheBehaviorCachedMethods (\s a -> s { _cloudFrontDistributionDefaultCacheBehaviorCachedMethods = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-defaultcachebehavior.html#cfn-cloudfront-defaultcachebehavior-compress
@@ -124,7 +124,7 @@ cfddcbTargetOriginId :: Lens' CloudFrontDistributionDefaultCacheBehavior (Val Te
 cfddcbTargetOriginId = lens _cloudFrontDistributionDefaultCacheBehaviorTargetOriginId (\s a -> s { _cloudFrontDistributionDefaultCacheBehaviorTargetOriginId = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-defaultcachebehavior.html#cfn-cloudfront-defaultcachebehavior-trustedsigners
-cfddcbTrustedSigners :: Lens' CloudFrontDistributionDefaultCacheBehavior (Maybe [Val Text])
+cfddcbTrustedSigners :: Lens' CloudFrontDistributionDefaultCacheBehavior (Maybe (ValList Text))
 cfddcbTrustedSigners = lens _cloudFrontDistributionDefaultCacheBehaviorTrustedSigners (\s a -> s { _cloudFrontDistributionDefaultCacheBehaviorTrustedSigners = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-defaultcachebehavior.html#cfn-cloudfront-defaultcachebehavior-viewerprotocolpolicy

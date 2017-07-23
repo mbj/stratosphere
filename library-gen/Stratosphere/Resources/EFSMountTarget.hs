@@ -20,7 +20,7 @@ data EFSMountTarget =
   EFSMountTarget
   { _eFSMountTargetFileSystemId :: Val Text
   , _eFSMountTargetIpAddress :: Maybe (Val Text)
-  , _eFSMountTargetSecurityGroups :: [Val Text]
+  , _eFSMountTargetSecurityGroups :: ValList Text
   , _eFSMountTargetSubnetId :: Val Text
   } deriving (Show, Eq)
 
@@ -46,7 +46,7 @@ instance FromJSON EFSMountTarget where
 -- | Constructor for 'EFSMountTarget' containing required fields as arguments.
 efsMountTarget
   :: Val Text -- ^ 'efsmtFileSystemId'
-  -> [Val Text] -- ^ 'efsmtSecurityGroups'
+  -> ValList Text -- ^ 'efsmtSecurityGroups'
   -> Val Text -- ^ 'efsmtSubnetId'
   -> EFSMountTarget
 efsMountTarget fileSystemIdarg securityGroupsarg subnetIdarg =
@@ -66,7 +66,7 @@ efsmtIpAddress :: Lens' EFSMountTarget (Maybe (Val Text))
 efsmtIpAddress = lens _eFSMountTargetIpAddress (\s a -> s { _eFSMountTargetIpAddress = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html#cfn-efs-mounttarget-securitygroups
-efsmtSecurityGroups :: Lens' EFSMountTarget [Val Text]
+efsmtSecurityGroups :: Lens' EFSMountTarget (ValList Text)
 efsmtSecurityGroups = lens _eFSMountTargetSecurityGroups (\s a -> s { _eFSMountTargetSecurityGroups = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html#cfn-efs-mounttarget-subnetid

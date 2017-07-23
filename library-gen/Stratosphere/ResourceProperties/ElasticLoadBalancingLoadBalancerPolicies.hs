@@ -20,8 +20,8 @@ import Stratosphere.Values
 data ElasticLoadBalancingLoadBalancerPolicies =
   ElasticLoadBalancingLoadBalancerPolicies
   { _elasticLoadBalancingLoadBalancerPoliciesAttributes :: [Object]
-  , _elasticLoadBalancingLoadBalancerPoliciesInstancePorts :: Maybe [Val Text]
-  , _elasticLoadBalancingLoadBalancerPoliciesLoadBalancerPorts :: Maybe [Val Text]
+  , _elasticLoadBalancingLoadBalancerPoliciesInstancePorts :: Maybe (ValList Text)
+  , _elasticLoadBalancingLoadBalancerPoliciesLoadBalancerPorts :: Maybe (ValList Text)
   , _elasticLoadBalancingLoadBalancerPoliciesPolicyName :: Val Text
   , _elasticLoadBalancingLoadBalancerPoliciesPolicyType :: Val Text
   } deriving (Show, Eq)
@@ -68,11 +68,11 @@ elblbpAttributes :: Lens' ElasticLoadBalancingLoadBalancerPolicies [Object]
 elblbpAttributes = lens _elasticLoadBalancingLoadBalancerPoliciesAttributes (\s a -> s { _elasticLoadBalancingLoadBalancerPoliciesAttributes = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-policy.html#cfn-ec2-elb-policy-instanceports
-elblbpInstancePorts :: Lens' ElasticLoadBalancingLoadBalancerPolicies (Maybe [Val Text])
+elblbpInstancePorts :: Lens' ElasticLoadBalancingLoadBalancerPolicies (Maybe (ValList Text))
 elblbpInstancePorts = lens _elasticLoadBalancingLoadBalancerPoliciesInstancePorts (\s a -> s { _elasticLoadBalancingLoadBalancerPoliciesInstancePorts = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-policy.html#cfn-ec2-elb-policy-loadbalancerports
-elblbpLoadBalancerPorts :: Lens' ElasticLoadBalancingLoadBalancerPolicies (Maybe [Val Text])
+elblbpLoadBalancerPorts :: Lens' ElasticLoadBalancingLoadBalancerPolicies (Maybe (ValList Text))
 elblbpLoadBalancerPorts = lens _elasticLoadBalancingLoadBalancerPoliciesLoadBalancerPorts (\s a -> s { _elasticLoadBalancingLoadBalancerPoliciesLoadBalancerPorts = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-policy.html#cfn-ec2-elb-policy-policyname

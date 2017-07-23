@@ -19,7 +19,7 @@ import Stratosphere.ResourceProperties.Tag
 data RDSDBSubnetGroup =
   RDSDBSubnetGroup
   { _rDSDBSubnetGroupDBSubnetGroupDescription :: Val Text
-  , _rDSDBSubnetGroupSubnetIds :: [Val Text]
+  , _rDSDBSubnetGroupSubnetIds :: ValList Text
   , _rDSDBSubnetGroupTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
@@ -44,7 +44,7 @@ instance FromJSON RDSDBSubnetGroup where
 -- arguments.
 rdsdbSubnetGroup
   :: Val Text -- ^ 'rdsdbsugDBSubnetGroupDescription'
-  -> [Val Text] -- ^ 'rdsdbsugSubnetIds'
+  -> ValList Text -- ^ 'rdsdbsugSubnetIds'
   -> RDSDBSubnetGroup
 rdsdbSubnetGroup dBSubnetGroupDescriptionarg subnetIdsarg =
   RDSDBSubnetGroup
@@ -58,7 +58,7 @@ rdsdbsugDBSubnetGroupDescription :: Lens' RDSDBSubnetGroup (Val Text)
 rdsdbsugDBSubnetGroupDescription = lens _rDSDBSubnetGroupDBSubnetGroupDescription (\s a -> s { _rDSDBSubnetGroupDBSubnetGroupDescription = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbsubnet-group.html#cfn-rds-dbsubnetgroup-subnetids
-rdsdbsugSubnetIds :: Lens' RDSDBSubnetGroup [Val Text]
+rdsdbsugSubnetIds :: Lens' RDSDBSubnetGroup (ValList Text)
 rdsdbsugSubnetIds = lens _rDSDBSubnetGroupSubnetIds (\s a -> s { _rDSDBSubnetGroupSubnetIds = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbsubnet-group.html#cfn-rds-dbsubnetgroup-tags

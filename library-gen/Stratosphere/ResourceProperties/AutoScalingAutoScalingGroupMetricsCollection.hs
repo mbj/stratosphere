@@ -21,7 +21,7 @@ import Stratosphere.Values
 data AutoScalingAutoScalingGroupMetricsCollection =
   AutoScalingAutoScalingGroupMetricsCollection
   { _autoScalingAutoScalingGroupMetricsCollectionGranularity :: Val Text
-  , _autoScalingAutoScalingGroupMetricsCollectionMetrics :: Maybe [Val Text]
+  , _autoScalingAutoScalingGroupMetricsCollectionMetrics :: Maybe (ValList Text)
   } deriving (Show, Eq)
 
 instance ToJSON AutoScalingAutoScalingGroupMetricsCollection where
@@ -55,5 +55,5 @@ asasgmcGranularity :: Lens' AutoScalingAutoScalingGroupMetricsCollection (Val Te
 asasgmcGranularity = lens _autoScalingAutoScalingGroupMetricsCollectionGranularity (\s a -> s { _autoScalingAutoScalingGroupMetricsCollectionGranularity = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-metricscollection.html#cfn-as-metricscollection-metrics
-asasgmcMetrics :: Lens' AutoScalingAutoScalingGroupMetricsCollection (Maybe [Val Text])
+asasgmcMetrics :: Lens' AutoScalingAutoScalingGroupMetricsCollection (Maybe (ValList Text))
 asasgmcMetrics = lens _autoScalingAutoScalingGroupMetricsCollectionMetrics (\s a -> s { _autoScalingAutoScalingGroupMetricsCollectionMetrics = a })

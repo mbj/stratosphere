@@ -24,7 +24,7 @@ data CodeDeployDeploymentGroup =
   CodeDeployDeploymentGroup
   { _codeDeployDeploymentGroupAlarmConfiguration :: Maybe CodeDeployDeploymentGroupAlarmConfiguration
   , _codeDeployDeploymentGroupApplicationName :: Val Text
-  , _codeDeployDeploymentGroupAutoScalingGroups :: Maybe [Val Text]
+  , _codeDeployDeploymentGroupAutoScalingGroups :: Maybe (ValList Text)
   , _codeDeployDeploymentGroupDeployment :: Maybe CodeDeployDeploymentGroupDeployment
   , _codeDeployDeploymentGroupDeploymentConfigName :: Maybe (Val Text)
   , _codeDeployDeploymentGroupDeploymentGroupName :: Maybe (Val Text)
@@ -94,7 +94,7 @@ cddgApplicationName :: Lens' CodeDeployDeploymentGroup (Val Text)
 cddgApplicationName = lens _codeDeployDeploymentGroupApplicationName (\s a -> s { _codeDeployDeploymentGroupApplicationName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-autoscalinggroups
-cddgAutoScalingGroups :: Lens' CodeDeployDeploymentGroup (Maybe [Val Text])
+cddgAutoScalingGroups :: Lens' CodeDeployDeploymentGroup (Maybe (ValList Text))
 cddgAutoScalingGroups = lens _codeDeployDeploymentGroupAutoScalingGroups (\s a -> s { _codeDeployDeploymentGroupAutoScalingGroups = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-deployment

@@ -18,11 +18,11 @@ import Stratosphere.Values
 -- 'opsWorksLayerRecipes' for a more convenient constructor.
 data OpsWorksLayerRecipes =
   OpsWorksLayerRecipes
-  { _opsWorksLayerRecipesConfigure :: Maybe [Val Text]
-  , _opsWorksLayerRecipesDeploy :: Maybe [Val Text]
-  , _opsWorksLayerRecipesSetup :: Maybe [Val Text]
-  , _opsWorksLayerRecipesShutdown :: Maybe [Val Text]
-  , _opsWorksLayerRecipesUndeploy :: Maybe [Val Text]
+  { _opsWorksLayerRecipesConfigure :: Maybe (ValList Text)
+  , _opsWorksLayerRecipesDeploy :: Maybe (ValList Text)
+  , _opsWorksLayerRecipesSetup :: Maybe (ValList Text)
+  , _opsWorksLayerRecipesShutdown :: Maybe (ValList Text)
+  , _opsWorksLayerRecipesUndeploy :: Maybe (ValList Text)
   } deriving (Show, Eq)
 
 instance ToJSON OpsWorksLayerRecipes where
@@ -60,21 +60,21 @@ opsWorksLayerRecipes  =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-recipes.html#cfn-opsworks-layer-customrecipes-configure
-owlrConfigure :: Lens' OpsWorksLayerRecipes (Maybe [Val Text])
+owlrConfigure :: Lens' OpsWorksLayerRecipes (Maybe (ValList Text))
 owlrConfigure = lens _opsWorksLayerRecipesConfigure (\s a -> s { _opsWorksLayerRecipesConfigure = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-recipes.html#cfn-opsworks-layer-customrecipes-deploy
-owlrDeploy :: Lens' OpsWorksLayerRecipes (Maybe [Val Text])
+owlrDeploy :: Lens' OpsWorksLayerRecipes (Maybe (ValList Text))
 owlrDeploy = lens _opsWorksLayerRecipesDeploy (\s a -> s { _opsWorksLayerRecipesDeploy = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-recipes.html#cfn-opsworks-layer-customrecipes-setup
-owlrSetup :: Lens' OpsWorksLayerRecipes (Maybe [Val Text])
+owlrSetup :: Lens' OpsWorksLayerRecipes (Maybe (ValList Text))
 owlrSetup = lens _opsWorksLayerRecipesSetup (\s a -> s { _opsWorksLayerRecipesSetup = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-recipes.html#cfn-opsworks-layer-customrecipes-shutdown
-owlrShutdown :: Lens' OpsWorksLayerRecipes (Maybe [Val Text])
+owlrShutdown :: Lens' OpsWorksLayerRecipes (Maybe (ValList Text))
 owlrShutdown = lens _opsWorksLayerRecipesShutdown (\s a -> s { _opsWorksLayerRecipesShutdown = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-recipes.html#cfn-opsworks-layer-customrecipes-undeploy
-owlrUndeploy :: Lens' OpsWorksLayerRecipes (Maybe [Val Text])
+owlrUndeploy :: Lens' OpsWorksLayerRecipes (Maybe (ValList Text))
 owlrUndeploy = lens _opsWorksLayerRecipesUndeploy (\s a -> s { _opsWorksLayerRecipesUndeploy = a })

@@ -30,7 +30,7 @@ data RDSDBInstance =
   , _rDSDBInstanceDBInstanceIdentifier :: Maybe (Val Text)
   , _rDSDBInstanceDBName :: Maybe (Val Text)
   , _rDSDBInstanceDBParameterGroupName :: Maybe (Val Text)
-  , _rDSDBInstanceDBSecurityGroups :: Maybe [Val Text]
+  , _rDSDBInstanceDBSecurityGroups :: Maybe (ValList Text)
   , _rDSDBInstanceDBSnapshotIdentifier :: Maybe (Val Text)
   , _rDSDBInstanceDBSubnetGroupName :: Maybe (Val Text)
   , _rDSDBInstanceDomain :: Maybe (Val Text)
@@ -55,7 +55,7 @@ data RDSDBInstance =
   , _rDSDBInstanceStorageType :: Maybe (Val Text)
   , _rDSDBInstanceTags :: Maybe [Tag]
   , _rDSDBInstanceTimezone :: Maybe (Val Text)
-  , _rDSDBInstanceVPCSecurityGroups :: Maybe [Val Text]
+  , _rDSDBInstanceVPCSecurityGroups :: Maybe (ValList Text)
   } deriving (Show, Eq)
 
 instance ToJSON RDSDBInstance where
@@ -240,7 +240,7 @@ rdsdbiDBParameterGroupName :: Lens' RDSDBInstance (Maybe (Val Text))
 rdsdbiDBParameterGroupName = lens _rDSDBInstanceDBParameterGroupName (\s a -> s { _rDSDBInstanceDBParameterGroupName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-dbsecuritygroups
-rdsdbiDBSecurityGroups :: Lens' RDSDBInstance (Maybe [Val Text])
+rdsdbiDBSecurityGroups :: Lens' RDSDBInstance (Maybe (ValList Text))
 rdsdbiDBSecurityGroups = lens _rDSDBInstanceDBSecurityGroups (\s a -> s { _rDSDBInstanceDBSecurityGroups = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-dbsnapshotidentifier
@@ -340,5 +340,5 @@ rdsdbiTimezone :: Lens' RDSDBInstance (Maybe (Val Text))
 rdsdbiTimezone = lens _rDSDBInstanceTimezone (\s a -> s { _rDSDBInstanceTimezone = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-vpcsecuritygroups
-rdsdbiVPCSecurityGroups :: Lens' RDSDBInstance (Maybe [Val Text])
+rdsdbiVPCSecurityGroups :: Lens' RDSDBInstance (Maybe (ValList Text))
 rdsdbiVPCSecurityGroups = lens _rDSDBInstanceVPCSecurityGroups (\s a -> s { _rDSDBInstanceVPCSecurityGroups = a })

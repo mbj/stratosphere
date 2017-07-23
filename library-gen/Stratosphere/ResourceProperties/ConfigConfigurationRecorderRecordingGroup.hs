@@ -21,7 +21,7 @@ data ConfigConfigurationRecorderRecordingGroup =
   ConfigConfigurationRecorderRecordingGroup
   { _configConfigurationRecorderRecordingGroupAllSupported :: Maybe (Val Bool')
   , _configConfigurationRecorderRecordingGroupIncludeGlobalResourceTypes :: Maybe (Val Bool')
-  , _configConfigurationRecorderRecordingGroupResourceTypes :: Maybe [Val Text]
+  , _configConfigurationRecorderRecordingGroupResourceTypes :: Maybe (ValList Text)
   } deriving (Show, Eq)
 
 instance ToJSON ConfigConfigurationRecorderRecordingGroup where
@@ -61,5 +61,5 @@ ccrrgIncludeGlobalResourceTypes :: Lens' ConfigConfigurationRecorderRecordingGro
 ccrrgIncludeGlobalResourceTypes = lens _configConfigurationRecorderRecordingGroupIncludeGlobalResourceTypes (\s a -> s { _configConfigurationRecorderRecordingGroupIncludeGlobalResourceTypes = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationrecorder-recordinggroup.html#cfn-config-configurationrecorder-recordinggroup-resourcetypes
-ccrrgResourceTypes :: Lens' ConfigConfigurationRecorderRecordingGroup (Maybe [Val Text])
+ccrrgResourceTypes :: Lens' ConfigConfigurationRecorderRecordingGroup (Maybe (ValList Text))
 ccrrgResourceTypes = lens _configConfigurationRecorderRecordingGroupResourceTypes (\s a -> s { _configConfigurationRecorderRecordingGroupResourceTypes = a })

@@ -19,7 +19,7 @@ import Stratosphere.Values
 data IAMUserToGroupAddition =
   IAMUserToGroupAddition
   { _iAMUserToGroupAdditionGroupName :: Val Text
-  , _iAMUserToGroupAdditionUsers :: [Val Text]
+  , _iAMUserToGroupAdditionUsers :: ValList Text
   } deriving (Show, Eq)
 
 instance ToJSON IAMUserToGroupAddition where
@@ -41,7 +41,7 @@ instance FromJSON IAMUserToGroupAddition where
 -- arguments.
 iamUserToGroupAddition
   :: Val Text -- ^ 'iamutgaGroupName'
-  -> [Val Text] -- ^ 'iamutgaUsers'
+  -> ValList Text -- ^ 'iamutgaUsers'
   -> IAMUserToGroupAddition
 iamUserToGroupAddition groupNamearg usersarg =
   IAMUserToGroupAddition
@@ -54,5 +54,5 @@ iamutgaGroupName :: Lens' IAMUserToGroupAddition (Val Text)
 iamutgaGroupName = lens _iAMUserToGroupAdditionGroupName (\s a -> s { _iAMUserToGroupAdditionGroupName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html#cfn-iam-addusertogroup-users
-iamutgaUsers :: Lens' IAMUserToGroupAddition [Val Text]
+iamutgaUsers :: Lens' IAMUserToGroupAddition (ValList Text)
 iamutgaUsers = lens _iAMUserToGroupAdditionUsers (\s a -> s { _iAMUserToGroupAdditionUsers = a })

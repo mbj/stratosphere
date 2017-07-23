@@ -20,7 +20,7 @@ data ElastiCacheSubnetGroup =
   ElastiCacheSubnetGroup
   { _elastiCacheSubnetGroupCacheSubnetGroupName :: Maybe (Val Text)
   , _elastiCacheSubnetGroupDescription :: Val Text
-  , _elastiCacheSubnetGroupSubnetIds :: [Val Text]
+  , _elastiCacheSubnetGroupSubnetIds :: ValList Text
   } deriving (Show, Eq)
 
 instance ToJSON ElastiCacheSubnetGroup where
@@ -44,7 +44,7 @@ instance FromJSON ElastiCacheSubnetGroup where
 -- arguments.
 elastiCacheSubnetGroup
   :: Val Text -- ^ 'ecsugDescription'
-  -> [Val Text] -- ^ 'ecsugSubnetIds'
+  -> ValList Text -- ^ 'ecsugSubnetIds'
   -> ElastiCacheSubnetGroup
 elastiCacheSubnetGroup descriptionarg subnetIdsarg =
   ElastiCacheSubnetGroup
@@ -62,5 +62,5 @@ ecsugDescription :: Lens' ElastiCacheSubnetGroup (Val Text)
 ecsugDescription = lens _elastiCacheSubnetGroupDescription (\s a -> s { _elastiCacheSubnetGroupDescription = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-subnetgroup.html#cfn-elasticache-subnetgroup-subnetids
-ecsugSubnetIds :: Lens' ElastiCacheSubnetGroup [Val Text]
+ecsugSubnetIds :: Lens' ElastiCacheSubnetGroup (ValList Text)
 ecsugSubnetIds = lens _elastiCacheSubnetGroupSubnetIds (\s a -> s { _elastiCacheSubnetGroupSubnetIds = a })

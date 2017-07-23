@@ -18,7 +18,7 @@ import Stratosphere.ResourceProperties.CognitoUserPoolUserAttributeType
 -- 'cognitoUserPoolUser' for a more convenient constructor.
 data CognitoUserPoolUser =
   CognitoUserPoolUser
-  { _cognitoUserPoolUserDesiredDeliveryMediums :: Maybe [Val Text]
+  { _cognitoUserPoolUserDesiredDeliveryMediums :: Maybe (ValList Text)
   , _cognitoUserPoolUserForceAliasCreation :: Maybe (Val Bool')
   , _cognitoUserPoolUserMessageAction :: Maybe (Val Text)
   , _cognitoUserPoolUserUserAttributes :: Maybe [CognitoUserPoolUserAttributeType]
@@ -69,7 +69,7 @@ cognitoUserPoolUser userPoolIdarg =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooluser.html#cfn-cognito-userpooluser-desireddeliverymediums
-cupuDesiredDeliveryMediums :: Lens' CognitoUserPoolUser (Maybe [Val Text])
+cupuDesiredDeliveryMediums :: Lens' CognitoUserPoolUser (Maybe (ValList Text))
 cupuDesiredDeliveryMediums = lens _cognitoUserPoolUserDesiredDeliveryMediums (\s a -> s { _cognitoUserPoolUserDesiredDeliveryMediums = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooluser.html#cfn-cognito-userpooluser-forcealiascreation

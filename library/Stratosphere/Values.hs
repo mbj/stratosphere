@@ -3,27 +3,29 @@
 {-# LANGUAGE MultiParamTypeClasses #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StandaloneDeriving #-}
+{-# LANGUAGE TypeFamilies #-}
 
 module Stratosphere.Values
-       ( Val (..)
-       , Integer' (..)
-       , Bool' (..)
-       , Double' (..)
-       , ToRef (..)
-       ) where
+  ( Val (..)
+  , ValList (..)
+  , Integer' (..)
+  , Bool' (..)
+  , Double' (..)
+  , ToRef (..)
+  ) where
 
 import Data.Aeson
 import qualified Data.HashMap.Strict as HM
 import Data.String (IsString (..))
-import qualified Data.Text as T
+import Data.Text (Text)
 import Text.Read (readMaybe)
-import GHC.Exts (fromList)
+import GHC.Exts (IsList(..))
 
 -- GADTs are cool, but I couldn't get this to work with FromJSON
 -- data Val a where
 --   Literal :: a -> Val a
---   Ref :: T.Text -> Val a
---   If :: T.Text -> Val a -> Val a -> Val a
+--   Ref :: Text -> Val a
+--   If :: Text -> Val a -> Val a -> Val a
 --   And :: Val Bool -> Val Bool -> Val Bool
 --   Equals :: (Show a, ToJSON a) => Val a -> Val a -> Val Bool
 --   Or :: Val Bool -> Val Bool -> Val Bool
@@ -33,19 +35,19 @@ import GHC.Exts (fromList)
 -- http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference.html
 data Val a
  = Literal a
- | Ref T.Text
- | If T.Text (Val a) (Val a)
+ | Ref Text
+ | If Text (Val a) (Val a)
  | And (Val Bool') (Val Bool')
  | Equals (Val Bool') (Val Bool')
  | Or (Val Bool') (Val Bool')
- | GetAtt T.Text T.Text
+ | GetAtt Text Text
  | Base64 (Val a)
- | Join T.Text [Val a]
- | Split T.Text T.Text
+ | Join Text [Val a]
+ | Split Text Text
  | Select Integer' (Val a)
  | GetAZs (Val a)
  | FindInMap (Val a) (Val a) (Val a) -- ^ Map name, top level key, and second level key
- | ImportValue T.Text -- ^ The account-and-region-unique exported name of the value to import
+ | ImportValue Text -- ^ The account-and-region-unique exported name of the value to import
 
 deriving instance (Show a) => Show (Val a)
 deriving instance (Eq a) => Eq (Val a)
@@ -55,7 +57,7 @@ instance (IsString a) => IsString (Val a) where
 
 instance (ToJSON a) => ToJSON (Val a) where
   toJSON (Literal v) = toJSON v
-  toJSON (Ref r) = object [("Ref", toJSON r)]
+  toJSON (Ref r) = refToJSON r
   toJSON (If i x y) = mkFunc "Fn::If" [toJSON i, toJSON x, toJSON y]
   toJSON (And x y) = mkFunc "Fn::And" [toJSON x, toJSON y]
   toJSON (Equals x y) = mkFunc "Fn::Equals" [toJSON x, toJSON y]
@@ -70,7 +72,10 @@ instance (ToJSON a) => ToJSON (Val a) where
     object [("Fn::FindInMap", toJSON [toJSON mapName, toJSON topKey, toJSON secondKey])]
   toJSON (ImportValue t) = object [("Fn::ImportValue", toJSON t)]
 
-mkFunc :: T.Text -> [Value] -> Value
+refToJSON :: Text -> Value
+refToJSON ref = object [("Ref", toJSON ref)]
+
+mkFunc :: Text -> [Value] -> Value
 mkFunc name args = object [(name, Array $ fromList args)]
 
 instance (FromJSON a) => FromJSON (Val a) where
@@ -96,6 +101,36 @@ instance (FromJSON a) => FromJSON (Val a) where
       os -> Literal <$> parseJSON (object os)
   parseJSON v = Literal <$> parseJSON v
 
+-- | There are two ways to construct a list of 'Val's. One is to use a literal
+-- 'ValList' to construct the list. The other is to reference something that is
+-- already a list. For example, if you have a parameter called @SubnetIds@ of
+-- type @List<AWS::EC2::Subnet::Id>@ then, you can use @RefList "SubnetIds"@ to
+-- reference it.
+data ValList a
+  = ValList [Val a]
+  | RefList Text
+  deriving (Show, Eq)
+
+instance IsList (ValList a) where
+  type Item (ValList a) = Val a
+  fromList = ValList
+
+  toList (ValList xs) = xs
+  -- This is obviously not meaningful, but the IsList instance is so useful
+  -- that I decided to allow it.
+  toList (RefList _) = []
+
+instance (ToJSON a) => ToJSON (ValList a) where
+  toJSON (ValList vals) = toJSON vals
+  toJSON (RefList ref) = refToJSON ref
+
+instance (FromJSON a) => FromJSON (ValList a) where
+  parseJSON a@(Array _) = ValList <$> parseJSON a
+  parseJSON (Object o) =
+    case HM.toList o of
+      [("Ref", o')] -> RefList <$> parseJSON o'
+      _ -> fail "Could not parse object into RefList"
+  parseJSON _ = fail "Expected Array or Object for ValList in parseJSON"
 
 -- | We need to wrap integers so we can override the Aeson type-classes. This
 -- is necessary because CloudFront made the silly decision to represent numbers

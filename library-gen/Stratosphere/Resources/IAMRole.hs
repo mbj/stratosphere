@@ -19,7 +19,7 @@ import Stratosphere.ResourceProperties.IAMRolePolicy
 data IAMRole =
   IAMRole
   { _iAMRoleAssumeRolePolicyDocument :: Object
-  , _iAMRoleManagedPolicyArns :: Maybe [Val Text]
+  , _iAMRoleManagedPolicyArns :: Maybe (ValList Text)
   , _iAMRolePath :: Maybe (Val Text)
   , _iAMRolePolicies :: Maybe [IAMRolePolicy]
   , _iAMRoleRoleName :: Maybe (Val Text)
@@ -64,7 +64,7 @@ iamrAssumeRolePolicyDocument :: Lens' IAMRole Object
 iamrAssumeRolePolicyDocument = lens _iAMRoleAssumeRolePolicyDocument (\s a -> s { _iAMRoleAssumeRolePolicyDocument = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html#cfn-iam-role-managepolicyarns
-iamrManagedPolicyArns :: Lens' IAMRole (Maybe [Val Text])
+iamrManagedPolicyArns :: Lens' IAMRole (Maybe (ValList Text))
 iamrManagedPolicyArns = lens _iAMRoleManagedPolicyArns (\s a -> s { _iAMRoleManagedPolicyArns = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html#cfn-iam-role-path

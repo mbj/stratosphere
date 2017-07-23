@@ -18,8 +18,8 @@ import Stratosphere.Values
 -- 'lambdaFunctionVpcConfig' for a more convenient constructor.
 data LambdaFunctionVpcConfig =
   LambdaFunctionVpcConfig
-  { _lambdaFunctionVpcConfigSecurityGroupIds :: [Val Text]
-  , _lambdaFunctionVpcConfigSubnetIds :: [Val Text]
+  { _lambdaFunctionVpcConfigSecurityGroupIds :: ValList Text
+  , _lambdaFunctionVpcConfigSubnetIds :: ValList Text
   } deriving (Show, Eq)
 
 instance ToJSON LambdaFunctionVpcConfig where
@@ -40,8 +40,8 @@ instance FromJSON LambdaFunctionVpcConfig where
 -- | Constructor for 'LambdaFunctionVpcConfig' containing required fields as
 -- arguments.
 lambdaFunctionVpcConfig
-  :: [Val Text] -- ^ 'lfvcSecurityGroupIds'
-  -> [Val Text] -- ^ 'lfvcSubnetIds'
+  :: ValList Text -- ^ 'lfvcSecurityGroupIds'
+  -> ValList Text -- ^ 'lfvcSubnetIds'
   -> LambdaFunctionVpcConfig
 lambdaFunctionVpcConfig securityGroupIdsarg subnetIdsarg =
   LambdaFunctionVpcConfig
@@ -50,9 +50,9 @@ lambdaFunctionVpcConfig securityGroupIdsarg subnetIdsarg =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-vpcconfig.html#cfn-lambda-function-vpcconfig-securitygroupids
-lfvcSecurityGroupIds :: Lens' LambdaFunctionVpcConfig [Val Text]
+lfvcSecurityGroupIds :: Lens' LambdaFunctionVpcConfig (ValList Text)
 lfvcSecurityGroupIds = lens _lambdaFunctionVpcConfigSecurityGroupIds (\s a -> s { _lambdaFunctionVpcConfigSecurityGroupIds = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-vpcconfig.html#cfn-lambda-function-vpcconfig-subnetids
-lfvcSubnetIds :: Lens' LambdaFunctionVpcConfig [Val Text]
+lfvcSubnetIds :: Lens' LambdaFunctionVpcConfig (ValList Text)
 lfvcSubnetIds = lens _lambdaFunctionVpcConfigSubnetIds (\s a -> s { _lambdaFunctionVpcConfigSubnetIds = a })

@@ -19,7 +19,7 @@ import Stratosphere.Values
 data ConfigConfigRuleScope =
   ConfigConfigRuleScope
   { _configConfigRuleScopeComplianceResourceId :: Maybe (Val Text)
-  , _configConfigRuleScopeComplianceResourceTypes :: Maybe [Val Text]
+  , _configConfigRuleScopeComplianceResourceTypes :: Maybe (ValList Text)
   , _configConfigRuleScopeTagKey :: Maybe (Val Text)
   , _configConfigRuleScopeTagValue :: Maybe (Val Text)
   } deriving (Show, Eq)
@@ -60,7 +60,7 @@ ccrsComplianceResourceId :: Lens' ConfigConfigRuleScope (Maybe (Val Text))
 ccrsComplianceResourceId = lens _configConfigRuleScopeComplianceResourceId (\s a -> s { _configConfigRuleScopeComplianceResourceId = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-scope.html#cfn-config-configrule-scope-complianceresourcetypes
-ccrsComplianceResourceTypes :: Lens' ConfigConfigRuleScope (Maybe [Val Text])
+ccrsComplianceResourceTypes :: Lens' ConfigConfigRuleScope (Maybe (ValList Text))
 ccrsComplianceResourceTypes = lens _configConfigRuleScopeComplianceResourceTypes (\s a -> s { _configConfigRuleScopeComplianceResourceTypes = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-scope.html#cfn-config-configrule-scope-tagkey

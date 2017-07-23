@@ -23,7 +23,7 @@ data GameLiftFleet =
   , _gameLiftFleetDesiredEC2Instances :: Val Integer'
   , _gameLiftFleetEC2InboundPermissions :: Maybe [GameLiftFleetIpPermission]
   , _gameLiftFleetEC2InstanceType :: Val Text
-  , _gameLiftFleetLogPaths :: Maybe [Val Text]
+  , _gameLiftFleetLogPaths :: Maybe (ValList Text)
   , _gameLiftFleetMaxSize :: Maybe (Val Integer')
   , _gameLiftFleetMinSize :: Maybe (Val Integer')
   , _gameLiftFleetName :: Val Text
@@ -108,7 +108,7 @@ glfEC2InstanceType :: Lens' GameLiftFleet (Val Text)
 glfEC2InstanceType = lens _gameLiftFleetEC2InstanceType (\s a -> s { _gameLiftFleetEC2InstanceType = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-logpaths
-glfLogPaths :: Lens' GameLiftFleet (Maybe [Val Text])
+glfLogPaths :: Lens' GameLiftFleet (Maybe (ValList Text))
 glfLogPaths = lens _gameLiftFleetLogPaths (\s a -> s { _gameLiftFleetLogPaths = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-maxsize

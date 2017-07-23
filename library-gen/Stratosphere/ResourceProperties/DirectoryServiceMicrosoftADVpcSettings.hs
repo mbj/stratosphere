@@ -19,7 +19,7 @@ import Stratosphere.Values
 -- constructor.
 data DirectoryServiceMicrosoftADVpcSettings =
   DirectoryServiceMicrosoftADVpcSettings
-  { _directoryServiceMicrosoftADVpcSettingsSubnetIds :: [Val Text]
+  { _directoryServiceMicrosoftADVpcSettingsSubnetIds :: ValList Text
   , _directoryServiceMicrosoftADVpcSettingsVpcId :: Val Text
   } deriving (Show, Eq)
 
@@ -41,7 +41,7 @@ instance FromJSON DirectoryServiceMicrosoftADVpcSettings where
 -- | Constructor for 'DirectoryServiceMicrosoftADVpcSettings' containing
 -- required fields as arguments.
 directoryServiceMicrosoftADVpcSettings
-  :: [Val Text] -- ^ 'dsmadvsSubnetIds'
+  :: ValList Text -- ^ 'dsmadvsSubnetIds'
   -> Val Text -- ^ 'dsmadvsVpcId'
   -> DirectoryServiceMicrosoftADVpcSettings
 directoryServiceMicrosoftADVpcSettings subnetIdsarg vpcIdarg =
@@ -51,7 +51,7 @@ directoryServiceMicrosoftADVpcSettings subnetIdsarg vpcIdarg =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-directoryservice-microsoftad-vpcsettings.html#cfn-directoryservice-microsoftad-vpcsettings-subnetids
-dsmadvsSubnetIds :: Lens' DirectoryServiceMicrosoftADVpcSettings [Val Text]
+dsmadvsSubnetIds :: Lens' DirectoryServiceMicrosoftADVpcSettings (ValList Text)
 dsmadvsSubnetIds = lens _directoryServiceMicrosoftADVpcSettingsSubnetIds (\s a -> s { _directoryServiceMicrosoftADVpcSettingsSubnetIds = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-directoryservice-microsoftad-vpcsettings.html#cfn-directoryservice-microsoftad-vpcsettings-vpcid

@@ -26,11 +26,11 @@ data OpsWorksInstance =
   , _opsWorksInstanceAvailabilityZone :: Maybe (Val Text)
   , _opsWorksInstanceBlockDeviceMappings :: Maybe [OpsWorksInstanceBlockDeviceMapping]
   , _opsWorksInstanceEbsOptimized :: Maybe (Val Bool')
-  , _opsWorksInstanceElasticIps :: Maybe [Val Text]
+  , _opsWorksInstanceElasticIps :: Maybe (ValList Text)
   , _opsWorksInstanceHostname :: Maybe (Val Text)
   , _opsWorksInstanceInstallUpdatesOnBoot :: Maybe (Val Bool')
   , _opsWorksInstanceInstanceType :: Val Text
-  , _opsWorksInstanceLayerIds :: [Val Text]
+  , _opsWorksInstanceLayerIds :: ValList Text
   , _opsWorksInstanceOs :: Maybe (Val Text)
   , _opsWorksInstanceRootDeviceType :: Maybe (Val Text)
   , _opsWorksInstanceSshKeyName :: Maybe (Val Text)
@@ -39,7 +39,7 @@ data OpsWorksInstance =
   , _opsWorksInstanceTenancy :: Maybe (Val Text)
   , _opsWorksInstanceTimeBasedAutoScaling :: Maybe OpsWorksInstanceTimeBasedAutoScaling
   , _opsWorksInstanceVirtualizationType :: Maybe (Val Text)
-  , _opsWorksInstanceVolumes :: Maybe [Val Text]
+  , _opsWorksInstanceVolumes :: Maybe (ValList Text)
   } deriving (Show, Eq)
 
 instance ToJSON OpsWorksInstance where
@@ -99,7 +99,7 @@ instance FromJSON OpsWorksInstance where
 -- arguments.
 opsWorksInstance
   :: Val Text -- ^ 'owiInstanceType'
-  -> [Val Text] -- ^ 'owiLayerIds'
+  -> ValList Text -- ^ 'owiLayerIds'
   -> Val Text -- ^ 'owiStackId'
   -> OpsWorksInstance
 opsWorksInstance instanceTypearg layerIdsarg stackIdarg =
@@ -156,7 +156,7 @@ owiEbsOptimized :: Lens' OpsWorksInstance (Maybe (Val Bool'))
 owiEbsOptimized = lens _opsWorksInstanceEbsOptimized (\s a -> s { _opsWorksInstanceEbsOptimized = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-instance.html#cfn-opsworks-instance-elasticips
-owiElasticIps :: Lens' OpsWorksInstance (Maybe [Val Text])
+owiElasticIps :: Lens' OpsWorksInstance (Maybe (ValList Text))
 owiElasticIps = lens _opsWorksInstanceElasticIps (\s a -> s { _opsWorksInstanceElasticIps = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-instance.html#cfn-opsworks-instance-hostname
@@ -172,7 +172,7 @@ owiInstanceType :: Lens' OpsWorksInstance (Val Text)
 owiInstanceType = lens _opsWorksInstanceInstanceType (\s a -> s { _opsWorksInstanceInstanceType = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-instance.html#cfn-opsworks-instance-layerids
-owiLayerIds :: Lens' OpsWorksInstance [Val Text]
+owiLayerIds :: Lens' OpsWorksInstance (ValList Text)
 owiLayerIds = lens _opsWorksInstanceLayerIds (\s a -> s { _opsWorksInstanceLayerIds = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-instance.html#cfn-opsworks-instance-os
@@ -208,5 +208,5 @@ owiVirtualizationType :: Lens' OpsWorksInstance (Maybe (Val Text))
 owiVirtualizationType = lens _opsWorksInstanceVirtualizationType (\s a -> s { _opsWorksInstanceVirtualizationType = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-instance.html#cfn-opsworks-instance-volumes
-owiVolumes :: Lens' OpsWorksInstance (Maybe [Val Text])
+owiVolumes :: Lens' OpsWorksInstance (Maybe (ValList Text))
 owiVolumes = lens _opsWorksInstanceVolumes (\s a -> s { _opsWorksInstanceVolumes = a })

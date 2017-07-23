@@ -31,7 +31,7 @@ data DMSReplicationInstance =
   , _dMSReplicationInstanceReplicationInstanceIdentifier :: Maybe (Val Text)
   , _dMSReplicationInstanceReplicationSubnetGroupIdentifier :: Maybe (Val Text)
   , _dMSReplicationInstanceTags :: Maybe [Tag]
-  , _dMSReplicationInstanceVpcSecurityGroupIds :: Maybe [Val Text]
+  , _dMSReplicationInstanceVpcSecurityGroupIds :: Maybe (ValList Text)
   } deriving (Show, Eq)
 
 instance ToJSON DMSReplicationInstance where
@@ -149,5 +149,5 @@ dmsriTags :: Lens' DMSReplicationInstance (Maybe [Tag])
 dmsriTags = lens _dMSReplicationInstanceTags (\s a -> s { _dMSReplicationInstanceTags = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.html#cfn-dms-replicationinstance-vpcsecuritygroupids
-dmsriVpcSecurityGroupIds :: Lens' DMSReplicationInstance (Maybe [Val Text])
+dmsriVpcSecurityGroupIds :: Lens' DMSReplicationInstance (Maybe (ValList Text))
 dmsriVpcSecurityGroupIds = lens _dMSReplicationInstanceVpcSecurityGroupIds (\s a -> s { _dMSReplicationInstanceVpcSecurityGroupIds = a })
