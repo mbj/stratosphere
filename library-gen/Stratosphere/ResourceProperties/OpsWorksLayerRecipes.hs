@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-recipes.html
 
@@ -29,21 +30,21 @@ instance ToJSON OpsWorksLayerRecipes where
   toJSON OpsWorksLayerRecipes{..} =
     object $
     catMaybes
-    [ ("Configure" .=) <$> _opsWorksLayerRecipesConfigure
-    , ("Deploy" .=) <$> _opsWorksLayerRecipesDeploy
-    , ("Setup" .=) <$> _opsWorksLayerRecipesSetup
-    , ("Shutdown" .=) <$> _opsWorksLayerRecipesShutdown
-    , ("Undeploy" .=) <$> _opsWorksLayerRecipesUndeploy
+    [ fmap (("Configure",) . toJSON) _opsWorksLayerRecipesConfigure
+    , fmap (("Deploy",) . toJSON) _opsWorksLayerRecipesDeploy
+    , fmap (("Setup",) . toJSON) _opsWorksLayerRecipesSetup
+    , fmap (("Shutdown",) . toJSON) _opsWorksLayerRecipesShutdown
+    , fmap (("Undeploy",) . toJSON) _opsWorksLayerRecipesUndeploy
     ]
 
 instance FromJSON OpsWorksLayerRecipes where
   parseJSON (Object obj) =
     OpsWorksLayerRecipes <$>
-      obj .:? "Configure" <*>
-      obj .:? "Deploy" <*>
-      obj .:? "Setup" <*>
-      obj .:? "Shutdown" <*>
-      obj .:? "Undeploy"
+      (obj .:? "Configure") <*>
+      (obj .:? "Deploy") <*>
+      (obj .:? "Setup") <*>
+      (obj .:? "Shutdown") <*>
+      (obj .:? "Undeploy")
   parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksLayerRecipes' containing required fields as

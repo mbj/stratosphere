@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-webacl.html
 
@@ -29,19 +30,19 @@ instance ToJSON WAFWebACL where
   toJSON WAFWebACL{..} =
     object $
     catMaybes
-    [ Just ("DefaultAction" .= _wAFWebACLDefaultAction)
-    , Just ("MetricName" .= _wAFWebACLMetricName)
-    , Just ("Name" .= _wAFWebACLName)
-    , ("Rules" .=) <$> _wAFWebACLRules
+    [ (Just . ("DefaultAction",) . toJSON) _wAFWebACLDefaultAction
+    , (Just . ("MetricName",) . toJSON) _wAFWebACLMetricName
+    , (Just . ("Name",) . toJSON) _wAFWebACLName
+    , fmap (("Rules",) . toJSON) _wAFWebACLRules
     ]
 
 instance FromJSON WAFWebACL where
   parseJSON (Object obj) =
     WAFWebACL <$>
-      obj .: "DefaultAction" <*>
-      obj .: "MetricName" <*>
-      obj .: "Name" <*>
-      obj .:? "Rules"
+      (obj .: "DefaultAction") <*>
+      (obj .: "MetricName") <*>
+      (obj .: "Name") <*>
+      (obj .:? "Rules")
   parseJSON _ = mempty
 
 -- | Constructor for 'WAFWebACL' containing required fields as arguments.

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationrecorder.html
 
@@ -27,17 +28,17 @@ instance ToJSON ConfigConfigurationRecorder where
   toJSON ConfigConfigurationRecorder{..} =
     object $
     catMaybes
-    [ ("Name" .=) <$> _configConfigurationRecorderName
-    , ("RecordingGroup" .=) <$> _configConfigurationRecorderRecordingGroup
-    , Just ("RoleARN" .= _configConfigurationRecorderRoleARN)
+    [ fmap (("Name",) . toJSON) _configConfigurationRecorderName
+    , fmap (("RecordingGroup",) . toJSON) _configConfigurationRecorderRecordingGroup
+    , (Just . ("RoleARN",) . toJSON) _configConfigurationRecorderRoleARN
     ]
 
 instance FromJSON ConfigConfigurationRecorder where
   parseJSON (Object obj) =
     ConfigConfigurationRecorder <$>
-      obj .:? "Name" <*>
-      obj .:? "RecordingGroup" <*>
-      obj .: "RoleARN"
+      (obj .:? "Name") <*>
+      (obj .:? "RecordingGroup") <*>
+      (obj .: "RoleARN")
   parseJSON _ = mempty
 
 -- | Constructor for 'ConfigConfigurationRecorder' containing required fields

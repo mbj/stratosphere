@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-instancegroupconfig.html
 
@@ -24,7 +25,7 @@ data EMRInstanceGroupConfig =
   , _eMRInstanceGroupConfigBidPrice :: Maybe (Val Text)
   , _eMRInstanceGroupConfigConfigurations :: Maybe [EMRInstanceGroupConfigConfiguration]
   , _eMRInstanceGroupConfigEbsConfiguration :: Maybe EMRInstanceGroupConfigEbsConfiguration
-  , _eMRInstanceGroupConfigInstanceCount :: Val Integer'
+  , _eMRInstanceGroupConfigInstanceCount :: Val Integer
   , _eMRInstanceGroupConfigInstanceRole :: Val Text
   , _eMRInstanceGroupConfigInstanceType :: Val Text
   , _eMRInstanceGroupConfigJobFlowId :: Val Text
@@ -36,37 +37,37 @@ instance ToJSON EMRInstanceGroupConfig where
   toJSON EMRInstanceGroupConfig{..} =
     object $
     catMaybes
-    [ ("AutoScalingPolicy" .=) <$> _eMRInstanceGroupConfigAutoScalingPolicy
-    , ("BidPrice" .=) <$> _eMRInstanceGroupConfigBidPrice
-    , ("Configurations" .=) <$> _eMRInstanceGroupConfigConfigurations
-    , ("EbsConfiguration" .=) <$> _eMRInstanceGroupConfigEbsConfiguration
-    , Just ("InstanceCount" .= _eMRInstanceGroupConfigInstanceCount)
-    , Just ("InstanceRole" .= _eMRInstanceGroupConfigInstanceRole)
-    , Just ("InstanceType" .= _eMRInstanceGroupConfigInstanceType)
-    , Just ("JobFlowId" .= _eMRInstanceGroupConfigJobFlowId)
-    , ("Market" .=) <$> _eMRInstanceGroupConfigMarket
-    , ("Name" .=) <$> _eMRInstanceGroupConfigName
+    [ fmap (("AutoScalingPolicy",) . toJSON) _eMRInstanceGroupConfigAutoScalingPolicy
+    , fmap (("BidPrice",) . toJSON) _eMRInstanceGroupConfigBidPrice
+    , fmap (("Configurations",) . toJSON) _eMRInstanceGroupConfigConfigurations
+    , fmap (("EbsConfiguration",) . toJSON) _eMRInstanceGroupConfigEbsConfiguration
+    , (Just . ("InstanceCount",) . toJSON . fmap Integer') _eMRInstanceGroupConfigInstanceCount
+    , (Just . ("InstanceRole",) . toJSON) _eMRInstanceGroupConfigInstanceRole
+    , (Just . ("InstanceType",) . toJSON) _eMRInstanceGroupConfigInstanceType
+    , (Just . ("JobFlowId",) . toJSON) _eMRInstanceGroupConfigJobFlowId
+    , fmap (("Market",) . toJSON) _eMRInstanceGroupConfigMarket
+    , fmap (("Name",) . toJSON) _eMRInstanceGroupConfigName
     ]
 
 instance FromJSON EMRInstanceGroupConfig where
   parseJSON (Object obj) =
     EMRInstanceGroupConfig <$>
-      obj .:? "AutoScalingPolicy" <*>
-      obj .:? "BidPrice" <*>
-      obj .:? "Configurations" <*>
-      obj .:? "EbsConfiguration" <*>
-      obj .: "InstanceCount" <*>
-      obj .: "InstanceRole" <*>
-      obj .: "InstanceType" <*>
-      obj .: "JobFlowId" <*>
-      obj .:? "Market" <*>
-      obj .:? "Name"
+      (obj .:? "AutoScalingPolicy") <*>
+      (obj .:? "BidPrice") <*>
+      (obj .:? "Configurations") <*>
+      (obj .:? "EbsConfiguration") <*>
+      fmap (fmap unInteger') (obj .: "InstanceCount") <*>
+      (obj .: "InstanceRole") <*>
+      (obj .: "InstanceType") <*>
+      (obj .: "JobFlowId") <*>
+      (obj .:? "Market") <*>
+      (obj .:? "Name")
   parseJSON _ = mempty
 
 -- | Constructor for 'EMRInstanceGroupConfig' containing required fields as
 -- arguments.
 emrInstanceGroupConfig
-  :: Val Integer' -- ^ 'emrigcInstanceCount'
+  :: Val Integer -- ^ 'emrigcInstanceCount'
   -> Val Text -- ^ 'emrigcInstanceRole'
   -> Val Text -- ^ 'emrigcInstanceType'
   -> Val Text -- ^ 'emrigcJobFlowId'
@@ -102,7 +103,7 @@ emrigcEbsConfiguration :: Lens' EMRInstanceGroupConfig (Maybe EMRInstanceGroupCo
 emrigcEbsConfiguration = lens _eMRInstanceGroupConfigEbsConfiguration (\s a -> s { _eMRInstanceGroupConfigEbsConfiguration = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-instancegroupconfig.html#cfn-emr-instancegroupconfiginstancecount-
-emrigcInstanceCount :: Lens' EMRInstanceGroupConfig (Val Integer')
+emrigcInstanceCount :: Lens' EMRInstanceGroupConfig (Val Integer)
 emrigcInstanceCount = lens _eMRInstanceGroupConfigInstanceCount (\s a -> s { _eMRInstanceGroupConfigInstanceCount = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-instancegroupconfig.html#cfn-emr-instancegroupconfig-instancerole

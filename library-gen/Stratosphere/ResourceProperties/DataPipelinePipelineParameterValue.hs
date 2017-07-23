@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datapipeline-pipeline-parametervalues.html
 
@@ -26,15 +27,15 @@ instance ToJSON DataPipelinePipelineParameterValue where
   toJSON DataPipelinePipelineParameterValue{..} =
     object $
     catMaybes
-    [ Just ("Id" .= _dataPipelinePipelineParameterValueId)
-    , Just ("StringValue" .= _dataPipelinePipelineParameterValueStringValue)
+    [ (Just . ("Id",) . toJSON) _dataPipelinePipelineParameterValueId
+    , (Just . ("StringValue",) . toJSON) _dataPipelinePipelineParameterValueStringValue
     ]
 
 instance FromJSON DataPipelinePipelineParameterValue where
   parseJSON (Object obj) =
     DataPipelinePipelineParameterValue <$>
-      obj .: "Id" <*>
-      obj .: "StringValue"
+      (obj .: "Id") <*>
+      (obj .: "StringValue")
   parseJSON _ = mempty
 
 -- | Constructor for 'DataPipelinePipelineParameterValue' containing required

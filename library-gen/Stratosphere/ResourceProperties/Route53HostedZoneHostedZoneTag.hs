@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzonetags.html
 
@@ -26,15 +27,15 @@ instance ToJSON Route53HostedZoneHostedZoneTag where
   toJSON Route53HostedZoneHostedZoneTag{..} =
     object $
     catMaybes
-    [ Just ("Key" .= _route53HostedZoneHostedZoneTagKey)
-    , Just ("Value" .= _route53HostedZoneHostedZoneTagValue)
+    [ (Just . ("Key",) . toJSON) _route53HostedZoneHostedZoneTagKey
+    , (Just . ("Value",) . toJSON) _route53HostedZoneHostedZoneTagValue
     ]
 
 instance FromJSON Route53HostedZoneHostedZoneTag where
   parseJSON (Object obj) =
     Route53HostedZoneHostedZoneTag <$>
-      obj .: "Key" <*>
-      obj .: "Value"
+      (obj .: "Key") <*>
+      (obj .: "Value")
   parseJSON _ = mempty
 
 -- | Constructor for 'Route53HostedZoneHostedZoneTag' containing required

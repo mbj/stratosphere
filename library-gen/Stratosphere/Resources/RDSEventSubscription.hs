@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-eventsubscription.html
 
@@ -18,7 +19,7 @@ import Stratosphere.Values
 -- 'rdsEventSubscription' for a more convenient constructor.
 data RDSEventSubscription =
   RDSEventSubscription
-  { _rDSEventSubscriptionEnabled :: Maybe (Val Bool')
+  { _rDSEventSubscriptionEnabled :: Maybe (Val Bool)
   , _rDSEventSubscriptionEventCategories :: Maybe (ValList Text)
   , _rDSEventSubscriptionSnsTopicArn :: Val Text
   , _rDSEventSubscriptionSourceIds :: Maybe (ValList Text)
@@ -29,21 +30,21 @@ instance ToJSON RDSEventSubscription where
   toJSON RDSEventSubscription{..} =
     object $
     catMaybes
-    [ ("Enabled" .=) <$> _rDSEventSubscriptionEnabled
-    , ("EventCategories" .=) <$> _rDSEventSubscriptionEventCategories
-    , Just ("SnsTopicArn" .= _rDSEventSubscriptionSnsTopicArn)
-    , ("SourceIds" .=) <$> _rDSEventSubscriptionSourceIds
-    , ("SourceType" .=) <$> _rDSEventSubscriptionSourceType
+    [ fmap (("Enabled",) . toJSON . fmap Bool') _rDSEventSubscriptionEnabled
+    , fmap (("EventCategories",) . toJSON) _rDSEventSubscriptionEventCategories
+    , (Just . ("SnsTopicArn",) . toJSON) _rDSEventSubscriptionSnsTopicArn
+    , fmap (("SourceIds",) . toJSON) _rDSEventSubscriptionSourceIds
+    , fmap (("SourceType",) . toJSON) _rDSEventSubscriptionSourceType
     ]
 
 instance FromJSON RDSEventSubscription where
   parseJSON (Object obj) =
     RDSEventSubscription <$>
-      obj .:? "Enabled" <*>
-      obj .:? "EventCategories" <*>
-      obj .: "SnsTopicArn" <*>
-      obj .:? "SourceIds" <*>
-      obj .:? "SourceType"
+      fmap (fmap (fmap unBool')) (obj .:? "Enabled") <*>
+      (obj .:? "EventCategories") <*>
+      (obj .: "SnsTopicArn") <*>
+      (obj .:? "SourceIds") <*>
+      (obj .:? "SourceType")
   parseJSON _ = mempty
 
 -- | Constructor for 'RDSEventSubscription' containing required fields as
@@ -61,7 +62,7 @@ rdsEventSubscription snsTopicArnarg =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-eventsubscription.html#cfn-rds-eventsubscription-enabled
-rdsesEnabled :: Lens' RDSEventSubscription (Maybe (Val Bool'))
+rdsesEnabled :: Lens' RDSEventSubscription (Maybe (Val Bool))
 rdsesEnabled = lens _rDSEventSubscriptionEnabled (\s a -> s { _rDSEventSubscriptionEnabled = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-eventsubscription.html#cfn-rds-eventsubscription-eventcategories

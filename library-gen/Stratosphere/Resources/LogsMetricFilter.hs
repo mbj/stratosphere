@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-metricfilter.html
 
@@ -27,17 +28,17 @@ instance ToJSON LogsMetricFilter where
   toJSON LogsMetricFilter{..} =
     object $
     catMaybes
-    [ Just ("FilterPattern" .= _logsMetricFilterFilterPattern)
-    , Just ("LogGroupName" .= _logsMetricFilterLogGroupName)
-    , Just ("MetricTransformations" .= _logsMetricFilterMetricTransformations)
+    [ (Just . ("FilterPattern",) . toJSON) _logsMetricFilterFilterPattern
+    , (Just . ("LogGroupName",) . toJSON) _logsMetricFilterLogGroupName
+    , (Just . ("MetricTransformations",) . toJSON) _logsMetricFilterMetricTransformations
     ]
 
 instance FromJSON LogsMetricFilter where
   parseJSON (Object obj) =
     LogsMetricFilter <$>
-      obj .: "FilterPattern" <*>
-      obj .: "LogGroupName" <*>
-      obj .: "MetricTransformations"
+      (obj .: "FilterPattern") <*>
+      (obj .: "LogGroupName") <*>
+      (obj .: "MetricTransformations")
   parseJSON _ = mempty
 
 -- | Constructor for 'LogsMetricFilter' containing required fields as

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html
 
@@ -26,15 +27,15 @@ instance ToJSON IoTCertificate where
   toJSON IoTCertificate{..} =
     object $
     catMaybes
-    [ Just ("CertificateSigningRequest" .= _ioTCertificateCertificateSigningRequest)
-    , Just ("Status" .= _ioTCertificateStatus)
+    [ (Just . ("CertificateSigningRequest",) . toJSON) _ioTCertificateCertificateSigningRequest
+    , (Just . ("Status",) . toJSON) _ioTCertificateStatus
     ]
 
 instance FromJSON IoTCertificate where
   parseJSON (Object obj) =
     IoTCertificate <$>
-      obj .: "CertificateSigningRequest" <*>
-      obj .: "Status"
+      (obj .: "CertificateSigningRequest") <*>
+      (obj .: "Status")
   parseJSON _ = mempty
 
 -- | Constructor for 'IoTCertificate' containing required fields as arguments.

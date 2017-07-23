@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-instance-blockdevicemapping.html
 
@@ -28,19 +29,19 @@ instance ToJSON OpsWorksInstanceBlockDeviceMapping where
   toJSON OpsWorksInstanceBlockDeviceMapping{..} =
     object $
     catMaybes
-    [ ("DeviceName" .=) <$> _opsWorksInstanceBlockDeviceMappingDeviceName
-    , ("Ebs" .=) <$> _opsWorksInstanceBlockDeviceMappingEbs
-    , ("NoDevice" .=) <$> _opsWorksInstanceBlockDeviceMappingNoDevice
-    , ("VirtualName" .=) <$> _opsWorksInstanceBlockDeviceMappingVirtualName
+    [ fmap (("DeviceName",) . toJSON) _opsWorksInstanceBlockDeviceMappingDeviceName
+    , fmap (("Ebs",) . toJSON) _opsWorksInstanceBlockDeviceMappingEbs
+    , fmap (("NoDevice",) . toJSON) _opsWorksInstanceBlockDeviceMappingNoDevice
+    , fmap (("VirtualName",) . toJSON) _opsWorksInstanceBlockDeviceMappingVirtualName
     ]
 
 instance FromJSON OpsWorksInstanceBlockDeviceMapping where
   parseJSON (Object obj) =
     OpsWorksInstanceBlockDeviceMapping <$>
-      obj .:? "DeviceName" <*>
-      obj .:? "Ebs" <*>
-      obj .:? "NoDevice" <*>
-      obj .:? "VirtualName"
+      (obj .:? "DeviceName") <*>
+      (obj .:? "Ebs") <*>
+      (obj .:? "NoDevice") <*>
+      (obj .:? "VirtualName")
   parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksInstanceBlockDeviceMapping' containing required

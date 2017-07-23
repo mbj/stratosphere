@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-webacl-action.html
 
@@ -25,13 +26,13 @@ instance ToJSON WAFWebACLWafAction where
   toJSON WAFWebACLWafAction{..} =
     object $
     catMaybes
-    [ Just ("Type" .= _wAFWebACLWafActionType)
+    [ (Just . ("Type",) . toJSON) _wAFWebACLWafActionType
     ]
 
 instance FromJSON WAFWebACLWafAction where
   parseJSON (Object obj) =
     WAFWebACLWafAction <$>
-      obj .: "Type"
+      (obj .: "Type")
   parseJSON _ = mempty
 
 -- | Constructor for 'WAFWebACLWafAction' containing required fields as

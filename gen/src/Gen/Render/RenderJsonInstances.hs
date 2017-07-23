@@ -4,6 +4,7 @@
 
 module Gen.Render.RenderJsonInstances where
 
+import Data.Monoid ((<>))
 import Data.Text (Text)
 import qualified Data.Text as T
 import Text.Shakespeare.Text (st)
@@ -37,8 +38,22 @@ renderToJSONFields Module{..} =
   where
     renderField Property{..} =
       if propertyRequired
-      then [st|Just ("#{propertyName}" .= #{moduleFieldPrefix}#{propertyName})|]
-      else [st|("#{propertyName}" .=) <$> #{moduleFieldPrefix}#{propertyName}|]
+      then [st|(Just . ("#{propertyName}",) . toJSON#{toJSONWrapper propertySpecType}) #{moduleFieldPrefix}#{propertyName}|]
+      else [st|fmap (("#{propertyName}",) . toJSON#{toJSONWrapper propertySpecType}) #{moduleFieldPrefix}#{propertyName}|]
+
+toJSONWrapper :: SpecType -> Text
+toJSONWrapper (AtomicType type') = maybe "" (" . fmap " <>) (atomicType' type')
+-- AFAIK we never have a list of numbers or bools, so I don't think this case
+-- occurs. Grep for "fmap (fmap" to check.
+toJSONWrapper (ListType type') = maybe "" (\t -> ". fmap (fmap " <> t <> ")") (atomicType' type')
+toJSONWrapper (MapType _) = ""
+
+-- | Get the newtype version of the AtomicType, if applicable.
+atomicType' :: AtomicType -> Maybe Text
+atomicType' IntegerPrimitive = Just "Integer'"
+atomicType' DoublePrimitive = Just "Double'"
+atomicType' BoolPrimitive = Just "Bool'"
+atomicType' _ = Nothing
 
 renderFromJSON :: Module -> Text
 renderFromJSON module'@Module{..}
@@ -54,5 +69,18 @@ renderFromJSONFields Module{..} =
   where
     renderField Property{..} =
       if propertyRequired
-      then [st|obj .: "#{propertyName}"|]
-      else [st|obj .:? "#{propertyName}"|]
+      then [st|#{fromJSONWrapper True propertySpecType}(obj .: "#{propertyName}")|]
+      else [st|#{fromJSONWrapper False propertySpecType}(obj .:? "#{propertyName}")|]
+
+fromJSONWrapper :: Bool -> SpecType -> Text
+fromJSONWrapper required specType = maybe "" go (fromJSONWrapper' specType)
+  where
+    go wrapper =
+      if required
+      then wrapper <> " "
+      else "fmap (" <> wrapper <> ") "
+
+fromJSONWrapper' :: SpecType -> Maybe Text
+fromJSONWrapper' (AtomicType type') = (\t -> "fmap (fmap un" <> t <> ")") <$> atomicType' type'
+fromJSONWrapper' (ListType type') = (\t -> "fmap (fmap (fmap un" <> t <> "))") <$> atomicType' type'
+fromJSONWrapper' (MapType _) = Nothing

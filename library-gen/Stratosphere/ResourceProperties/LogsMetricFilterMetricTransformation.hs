@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-metricfilter-metrictransformation.html
 
@@ -27,17 +28,17 @@ instance ToJSON LogsMetricFilterMetricTransformation where
   toJSON LogsMetricFilterMetricTransformation{..} =
     object $
     catMaybes
-    [ Just ("MetricName" .= _logsMetricFilterMetricTransformationMetricName)
-    , Just ("MetricNamespace" .= _logsMetricFilterMetricTransformationMetricNamespace)
-    , Just ("MetricValue" .= _logsMetricFilterMetricTransformationMetricValue)
+    [ (Just . ("MetricName",) . toJSON) _logsMetricFilterMetricTransformationMetricName
+    , (Just . ("MetricNamespace",) . toJSON) _logsMetricFilterMetricTransformationMetricNamespace
+    , (Just . ("MetricValue",) . toJSON) _logsMetricFilterMetricTransformationMetricValue
     ]
 
 instance FromJSON LogsMetricFilterMetricTransformation where
   parseJSON (Object obj) =
     LogsMetricFilterMetricTransformation <$>
-      obj .: "MetricName" <*>
-      obj .: "MetricNamespace" <*>
-      obj .: "MetricValue"
+      (obj .: "MetricName") <*>
+      (obj .: "MetricNamespace") <*>
+      (obj .: "MetricValue")
   parseJSON _ = mempty
 
 -- | Constructor for 'LogsMetricFilterMetricTransformation' containing

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-jobflowinstancesconfig-instancegroupconfig.html
 
@@ -24,7 +25,7 @@ data EMRClusterInstanceGroupConfig =
   , _eMRClusterInstanceGroupConfigBidPrice :: Maybe (Val Text)
   , _eMRClusterInstanceGroupConfigConfigurations :: Maybe [EMRClusterConfiguration]
   , _eMRClusterInstanceGroupConfigEbsConfiguration :: Maybe EMRClusterEbsConfiguration
-  , _eMRClusterInstanceGroupConfigInstanceCount :: Val Integer'
+  , _eMRClusterInstanceGroupConfigInstanceCount :: Val Integer
   , _eMRClusterInstanceGroupConfigInstanceType :: Val Text
   , _eMRClusterInstanceGroupConfigMarket :: Maybe (Val Text)
   , _eMRClusterInstanceGroupConfigName :: Maybe (Val Text)
@@ -34,33 +35,33 @@ instance ToJSON EMRClusterInstanceGroupConfig where
   toJSON EMRClusterInstanceGroupConfig{..} =
     object $
     catMaybes
-    [ ("AutoScalingPolicy" .=) <$> _eMRClusterInstanceGroupConfigAutoScalingPolicy
-    , ("BidPrice" .=) <$> _eMRClusterInstanceGroupConfigBidPrice
-    , ("Configurations" .=) <$> _eMRClusterInstanceGroupConfigConfigurations
-    , ("EbsConfiguration" .=) <$> _eMRClusterInstanceGroupConfigEbsConfiguration
-    , Just ("InstanceCount" .= _eMRClusterInstanceGroupConfigInstanceCount)
-    , Just ("InstanceType" .= _eMRClusterInstanceGroupConfigInstanceType)
-    , ("Market" .=) <$> _eMRClusterInstanceGroupConfigMarket
-    , ("Name" .=) <$> _eMRClusterInstanceGroupConfigName
+    [ fmap (("AutoScalingPolicy",) . toJSON) _eMRClusterInstanceGroupConfigAutoScalingPolicy
+    , fmap (("BidPrice",) . toJSON) _eMRClusterInstanceGroupConfigBidPrice
+    , fmap (("Configurations",) . toJSON) _eMRClusterInstanceGroupConfigConfigurations
+    , fmap (("EbsConfiguration",) . toJSON) _eMRClusterInstanceGroupConfigEbsConfiguration
+    , (Just . ("InstanceCount",) . toJSON . fmap Integer') _eMRClusterInstanceGroupConfigInstanceCount
+    , (Just . ("InstanceType",) . toJSON) _eMRClusterInstanceGroupConfigInstanceType
+    , fmap (("Market",) . toJSON) _eMRClusterInstanceGroupConfigMarket
+    , fmap (("Name",) . toJSON) _eMRClusterInstanceGroupConfigName
     ]
 
 instance FromJSON EMRClusterInstanceGroupConfig where
   parseJSON (Object obj) =
     EMRClusterInstanceGroupConfig <$>
-      obj .:? "AutoScalingPolicy" <*>
-      obj .:? "BidPrice" <*>
-      obj .:? "Configurations" <*>
-      obj .:? "EbsConfiguration" <*>
-      obj .: "InstanceCount" <*>
-      obj .: "InstanceType" <*>
-      obj .:? "Market" <*>
-      obj .:? "Name"
+      (obj .:? "AutoScalingPolicy") <*>
+      (obj .:? "BidPrice") <*>
+      (obj .:? "Configurations") <*>
+      (obj .:? "EbsConfiguration") <*>
+      fmap (fmap unInteger') (obj .: "InstanceCount") <*>
+      (obj .: "InstanceType") <*>
+      (obj .:? "Market") <*>
+      (obj .:? "Name")
   parseJSON _ = mempty
 
 -- | Constructor for 'EMRClusterInstanceGroupConfig' containing required
 -- fields as arguments.
 emrClusterInstanceGroupConfig
-  :: Val Integer' -- ^ 'emrcigcInstanceCount'
+  :: Val Integer -- ^ 'emrcigcInstanceCount'
   -> Val Text -- ^ 'emrcigcInstanceType'
   -> EMRClusterInstanceGroupConfig
 emrClusterInstanceGroupConfig instanceCountarg instanceTypearg =
@@ -92,7 +93,7 @@ emrcigcEbsConfiguration :: Lens' EMRClusterInstanceGroupConfig (Maybe EMRCluster
 emrcigcEbsConfiguration = lens _eMRClusterInstanceGroupConfigEbsConfiguration (\s a -> s { _eMRClusterInstanceGroupConfigEbsConfiguration = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-jobflowinstancesconfig-instancegroupconfig.html#cfn-emr-cluster-jobflowinstancesconfig-instancegroupconfig-instancecount
-emrcigcInstanceCount :: Lens' EMRClusterInstanceGroupConfig (Val Integer')
+emrcigcInstanceCount :: Lens' EMRClusterInstanceGroupConfig (Val Integer)
 emrcigcInstanceCount = lens _eMRClusterInstanceGroupConfigInstanceCount (\s a -> s { _eMRClusterInstanceGroupConfigInstanceCount = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-jobflowinstancesconfig-instancegroupconfig.html#cfn-emr-cluster-jobflowinstancesconfig-instancegroupconfig-instancetype

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-sizeconstraintset-fieldtomatch.html
 
@@ -27,15 +28,15 @@ instance ToJSON WAFRegionalSizeConstraintSetFieldToMatch where
   toJSON WAFRegionalSizeConstraintSetFieldToMatch{..} =
     object $
     catMaybes
-    [ ("Data" .=) <$> _wAFRegionalSizeConstraintSetFieldToMatchData
-    , Just ("Type" .= _wAFRegionalSizeConstraintSetFieldToMatchType)
+    [ fmap (("Data",) . toJSON) _wAFRegionalSizeConstraintSetFieldToMatchData
+    , (Just . ("Type",) . toJSON) _wAFRegionalSizeConstraintSetFieldToMatchType
     ]
 
 instance FromJSON WAFRegionalSizeConstraintSetFieldToMatch where
   parseJSON (Object obj) =
     WAFRegionalSizeConstraintSetFieldToMatch <$>
-      obj .:? "Data" <*>
-      obj .: "Type"
+      (obj .:? "Data") <*>
+      (obj .: "Type")
   parseJSON _ = mempty
 
 -- | Constructor for 'WAFRegionalSizeConstraintSetFieldToMatch' containing

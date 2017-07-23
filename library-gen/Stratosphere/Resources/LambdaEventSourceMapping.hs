@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html
 
@@ -18,8 +19,8 @@ import Stratosphere.Values
 -- 'lambdaEventSourceMapping' for a more convenient constructor.
 data LambdaEventSourceMapping =
   LambdaEventSourceMapping
-  { _lambdaEventSourceMappingBatchSize :: Maybe (Val Integer')
-  , _lambdaEventSourceMappingEnabled :: Maybe (Val Bool')
+  { _lambdaEventSourceMappingBatchSize :: Maybe (Val Integer)
+  , _lambdaEventSourceMappingEnabled :: Maybe (Val Bool)
   , _lambdaEventSourceMappingEventSourceArn :: Val Text
   , _lambdaEventSourceMappingFunctionName :: Val Text
   , _lambdaEventSourceMappingStartingPosition :: Val Text
@@ -29,21 +30,21 @@ instance ToJSON LambdaEventSourceMapping where
   toJSON LambdaEventSourceMapping{..} =
     object $
     catMaybes
-    [ ("BatchSize" .=) <$> _lambdaEventSourceMappingBatchSize
-    , ("Enabled" .=) <$> _lambdaEventSourceMappingEnabled
-    , Just ("EventSourceArn" .= _lambdaEventSourceMappingEventSourceArn)
-    , Just ("FunctionName" .= _lambdaEventSourceMappingFunctionName)
-    , Just ("StartingPosition" .= _lambdaEventSourceMappingStartingPosition)
+    [ fmap (("BatchSize",) . toJSON . fmap Integer') _lambdaEventSourceMappingBatchSize
+    , fmap (("Enabled",) . toJSON . fmap Bool') _lambdaEventSourceMappingEnabled
+    , (Just . ("EventSourceArn",) . toJSON) _lambdaEventSourceMappingEventSourceArn
+    , (Just . ("FunctionName",) . toJSON) _lambdaEventSourceMappingFunctionName
+    , (Just . ("StartingPosition",) . toJSON) _lambdaEventSourceMappingStartingPosition
     ]
 
 instance FromJSON LambdaEventSourceMapping where
   parseJSON (Object obj) =
     LambdaEventSourceMapping <$>
-      obj .:? "BatchSize" <*>
-      obj .:? "Enabled" <*>
-      obj .: "EventSourceArn" <*>
-      obj .: "FunctionName" <*>
-      obj .: "StartingPosition"
+      fmap (fmap (fmap unInteger')) (obj .:? "BatchSize") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "Enabled") <*>
+      (obj .: "EventSourceArn") <*>
+      (obj .: "FunctionName") <*>
+      (obj .: "StartingPosition")
   parseJSON _ = mempty
 
 -- | Constructor for 'LambdaEventSourceMapping' containing required fields as
@@ -63,11 +64,11 @@ lambdaEventSourceMapping eventSourceArnarg functionNamearg startingPositionarg =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-batchsize
-lesmBatchSize :: Lens' LambdaEventSourceMapping (Maybe (Val Integer'))
+lesmBatchSize :: Lens' LambdaEventSourceMapping (Maybe (Val Integer))
 lesmBatchSize = lens _lambdaEventSourceMappingBatchSize (\s a -> s { _lambdaEventSourceMappingBatchSize = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-enabled
-lesmEnabled :: Lens' LambdaEventSourceMapping (Maybe (Val Bool'))
+lesmEnabled :: Lens' LambdaEventSourceMapping (Maybe (Val Bool))
 lesmEnabled = lens _lambdaEventSourceMappingEnabled (\s a -> s { _lambdaEventSourceMappingEnabled = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-eventsourcearn

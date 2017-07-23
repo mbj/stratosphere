@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html
 
@@ -32,23 +33,23 @@ instance ToJSON ECSTaskDefinition where
   toJSON ECSTaskDefinition{..} =
     object $
     catMaybes
-    [ ("ContainerDefinitions" .=) <$> _eCSTaskDefinitionContainerDefinitions
-    , ("Family" .=) <$> _eCSTaskDefinitionFamily
-    , ("NetworkMode" .=) <$> _eCSTaskDefinitionNetworkMode
-    , ("PlacementConstraints" .=) <$> _eCSTaskDefinitionPlacementConstraints
-    , ("TaskRoleArn" .=) <$> _eCSTaskDefinitionTaskRoleArn
-    , ("Volumes" .=) <$> _eCSTaskDefinitionVolumes
+    [ fmap (("ContainerDefinitions",) . toJSON) _eCSTaskDefinitionContainerDefinitions
+    , fmap (("Family",) . toJSON) _eCSTaskDefinitionFamily
+    , fmap (("NetworkMode",) . toJSON) _eCSTaskDefinitionNetworkMode
+    , fmap (("PlacementConstraints",) . toJSON) _eCSTaskDefinitionPlacementConstraints
+    , fmap (("TaskRoleArn",) . toJSON) _eCSTaskDefinitionTaskRoleArn
+    , fmap (("Volumes",) . toJSON) _eCSTaskDefinitionVolumes
     ]
 
 instance FromJSON ECSTaskDefinition where
   parseJSON (Object obj) =
     ECSTaskDefinition <$>
-      obj .:? "ContainerDefinitions" <*>
-      obj .:? "Family" <*>
-      obj .:? "NetworkMode" <*>
-      obj .:? "PlacementConstraints" <*>
-      obj .:? "TaskRoleArn" <*>
-      obj .:? "Volumes"
+      (obj .:? "ContainerDefinitions") <*>
+      (obj .:? "Family") <*>
+      (obj .:? "NetworkMode") <*>
+      (obj .:? "PlacementConstraints") <*>
+      (obj .:? "TaskRoleArn") <*>
+      (obj .:? "Volumes")
   parseJSON _ = mempty
 
 -- | Constructor for 'ECSTaskDefinition' containing required fields as

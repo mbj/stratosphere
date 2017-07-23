@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html
 
@@ -23,7 +24,7 @@ data ECSService =
   ECSService
   { _eCSServiceCluster :: Maybe (Val Text)
   , _eCSServiceDeploymentConfiguration :: Maybe ECSServiceDeploymentConfiguration
-  , _eCSServiceDesiredCount :: Maybe (Val Integer')
+  , _eCSServiceDesiredCount :: Maybe (Val Integer)
   , _eCSServiceLoadBalancers :: Maybe [ECSServiceLoadBalancer]
   , _eCSServicePlacementConstraints :: Maybe [ECSServicePlacementConstraint]
   , _eCSServicePlacementStrategies :: Maybe [ECSServicePlacementStrategy]
@@ -36,29 +37,29 @@ instance ToJSON ECSService where
   toJSON ECSService{..} =
     object $
     catMaybes
-    [ ("Cluster" .=) <$> _eCSServiceCluster
-    , ("DeploymentConfiguration" .=) <$> _eCSServiceDeploymentConfiguration
-    , ("DesiredCount" .=) <$> _eCSServiceDesiredCount
-    , ("LoadBalancers" .=) <$> _eCSServiceLoadBalancers
-    , ("PlacementConstraints" .=) <$> _eCSServicePlacementConstraints
-    , ("PlacementStrategies" .=) <$> _eCSServicePlacementStrategies
-    , ("Role" .=) <$> _eCSServiceRole
-    , ("ServiceName" .=) <$> _eCSServiceServiceName
-    , Just ("TaskDefinition" .= _eCSServiceTaskDefinition)
+    [ fmap (("Cluster",) . toJSON) _eCSServiceCluster
+    , fmap (("DeploymentConfiguration",) . toJSON) _eCSServiceDeploymentConfiguration
+    , fmap (("DesiredCount",) . toJSON . fmap Integer') _eCSServiceDesiredCount
+    , fmap (("LoadBalancers",) . toJSON) _eCSServiceLoadBalancers
+    , fmap (("PlacementConstraints",) . toJSON) _eCSServicePlacementConstraints
+    , fmap (("PlacementStrategies",) . toJSON) _eCSServicePlacementStrategies
+    , fmap (("Role",) . toJSON) _eCSServiceRole
+    , fmap (("ServiceName",) . toJSON) _eCSServiceServiceName
+    , (Just . ("TaskDefinition",) . toJSON) _eCSServiceTaskDefinition
     ]
 
 instance FromJSON ECSService where
   parseJSON (Object obj) =
     ECSService <$>
-      obj .:? "Cluster" <*>
-      obj .:? "DeploymentConfiguration" <*>
-      obj .:? "DesiredCount" <*>
-      obj .:? "LoadBalancers" <*>
-      obj .:? "PlacementConstraints" <*>
-      obj .:? "PlacementStrategies" <*>
-      obj .:? "Role" <*>
-      obj .:? "ServiceName" <*>
-      obj .: "TaskDefinition"
+      (obj .:? "Cluster") <*>
+      (obj .:? "DeploymentConfiguration") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "DesiredCount") <*>
+      (obj .:? "LoadBalancers") <*>
+      (obj .:? "PlacementConstraints") <*>
+      (obj .:? "PlacementStrategies") <*>
+      (obj .:? "Role") <*>
+      (obj .:? "ServiceName") <*>
+      (obj .: "TaskDefinition")
   parseJSON _ = mempty
 
 -- | Constructor for 'ECSService' containing required fields as arguments.
@@ -87,7 +88,7 @@ ecssDeploymentConfiguration :: Lens' ECSService (Maybe ECSServiceDeploymentConfi
 ecssDeploymentConfiguration = lens _eCSServiceDeploymentConfiguration (\s a -> s { _eCSServiceDeploymentConfiguration = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-desiredcount
-ecssDesiredCount :: Lens' ECSService (Maybe (Val Integer'))
+ecssDesiredCount :: Lens' ECSService (Maybe (Val Integer))
 ecssDesiredCount = lens _eCSServiceDesiredCount (\s a -> s { _eCSServiceDesiredCount = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-loadbalancers

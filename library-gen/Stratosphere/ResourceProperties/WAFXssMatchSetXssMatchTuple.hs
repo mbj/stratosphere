@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-xssmatchset-xssmatchtuple.html
 
@@ -26,15 +27,15 @@ instance ToJSON WAFXssMatchSetXssMatchTuple where
   toJSON WAFXssMatchSetXssMatchTuple{..} =
     object $
     catMaybes
-    [ Just ("FieldToMatch" .= _wAFXssMatchSetXssMatchTupleFieldToMatch)
-    , Just ("TextTransformation" .= _wAFXssMatchSetXssMatchTupleTextTransformation)
+    [ (Just . ("FieldToMatch",) . toJSON) _wAFXssMatchSetXssMatchTupleFieldToMatch
+    , (Just . ("TextTransformation",) . toJSON) _wAFXssMatchSetXssMatchTupleTextTransformation
     ]
 
 instance FromJSON WAFXssMatchSetXssMatchTuple where
   parseJSON (Object obj) =
     WAFXssMatchSetXssMatchTuple <$>
-      obj .: "FieldToMatch" <*>
-      obj .: "TextTransformation"
+      (obj .: "FieldToMatch") <*>
+      (obj .: "TextTransformation")
   parseJSON _ = mempty
 
 -- | Constructor for 'WAFXssMatchSetXssMatchTuple' containing required fields

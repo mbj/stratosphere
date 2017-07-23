@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig-topicconfig.html
 
@@ -27,17 +28,17 @@ instance ToJSON S3BucketTopicConfiguration where
   toJSON S3BucketTopicConfiguration{..} =
     object $
     catMaybes
-    [ Just ("Event" .= _s3BucketTopicConfigurationEvent)
-    , ("Filter" .=) <$> _s3BucketTopicConfigurationFilter
-    , Just ("Topic" .= _s3BucketTopicConfigurationTopic)
+    [ (Just . ("Event",) . toJSON) _s3BucketTopicConfigurationEvent
+    , fmap (("Filter",) . toJSON) _s3BucketTopicConfigurationFilter
+    , (Just . ("Topic",) . toJSON) _s3BucketTopicConfigurationTopic
     ]
 
 instance FromJSON S3BucketTopicConfiguration where
   parseJSON (Object obj) =
     S3BucketTopicConfiguration <$>
-      obj .: "Event" <*>
-      obj .:? "Filter" <*>
-      obj .: "Topic"
+      (obj .: "Event") <*>
+      (obj .:? "Filter") <*>
+      (obj .: "Topic")
   parseJSON _ = mempty
 
 -- | Constructor for 'S3BucketTopicConfiguration' containing required fields

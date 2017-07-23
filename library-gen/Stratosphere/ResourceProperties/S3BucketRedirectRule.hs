@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules-redirectrule.html
 
@@ -29,21 +30,21 @@ instance ToJSON S3BucketRedirectRule where
   toJSON S3BucketRedirectRule{..} =
     object $
     catMaybes
-    [ ("HostName" .=) <$> _s3BucketRedirectRuleHostName
-    , ("HttpRedirectCode" .=) <$> _s3BucketRedirectRuleHttpRedirectCode
-    , ("Protocol" .=) <$> _s3BucketRedirectRuleProtocol
-    , ("ReplaceKeyPrefixWith" .=) <$> _s3BucketRedirectRuleReplaceKeyPrefixWith
-    , ("ReplaceKeyWith" .=) <$> _s3BucketRedirectRuleReplaceKeyWith
+    [ fmap (("HostName",) . toJSON) _s3BucketRedirectRuleHostName
+    , fmap (("HttpRedirectCode",) . toJSON) _s3BucketRedirectRuleHttpRedirectCode
+    , fmap (("Protocol",) . toJSON) _s3BucketRedirectRuleProtocol
+    , fmap (("ReplaceKeyPrefixWith",) . toJSON) _s3BucketRedirectRuleReplaceKeyPrefixWith
+    , fmap (("ReplaceKeyWith",) . toJSON) _s3BucketRedirectRuleReplaceKeyWith
     ]
 
 instance FromJSON S3BucketRedirectRule where
   parseJSON (Object obj) =
     S3BucketRedirectRule <$>
-      obj .:? "HostName" <*>
-      obj .:? "HttpRedirectCode" <*>
-      obj .:? "Protocol" <*>
-      obj .:? "ReplaceKeyPrefixWith" <*>
-      obj .:? "ReplaceKeyWith"
+      (obj .:? "HostName") <*>
+      (obj .:? "HttpRedirectCode") <*>
+      (obj .:? "Protocol") <*>
+      (obj .:? "ReplaceKeyPrefixWith") <*>
+      (obj .:? "ReplaceKeyWith")
   parseJSON _ = mempty
 
 -- | Constructor for 'S3BucketRedirectRule' containing required fields as

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html
 
@@ -18,7 +19,7 @@ import Stratosphere.Values
 -- convenient constructor.
 data IAMAccessKey =
   IAMAccessKey
-  { _iAMAccessKeySerial :: Maybe (Val Integer')
+  { _iAMAccessKeySerial :: Maybe (Val Integer)
   , _iAMAccessKeyStatus :: Maybe (Val Text)
   , _iAMAccessKeyUserName :: Val Text
   } deriving (Show, Eq)
@@ -27,17 +28,17 @@ instance ToJSON IAMAccessKey where
   toJSON IAMAccessKey{..} =
     object $
     catMaybes
-    [ ("Serial" .=) <$> _iAMAccessKeySerial
-    , ("Status" .=) <$> _iAMAccessKeyStatus
-    , Just ("UserName" .= _iAMAccessKeyUserName)
+    [ fmap (("Serial",) . toJSON . fmap Integer') _iAMAccessKeySerial
+    , fmap (("Status",) . toJSON) _iAMAccessKeyStatus
+    , (Just . ("UserName",) . toJSON) _iAMAccessKeyUserName
     ]
 
 instance FromJSON IAMAccessKey where
   parseJSON (Object obj) =
     IAMAccessKey <$>
-      obj .:? "Serial" <*>
-      obj .:? "Status" <*>
-      obj .: "UserName"
+      fmap (fmap (fmap unInteger')) (obj .:? "Serial") <*>
+      (obj .:? "Status") <*>
+      (obj .: "UserName")
   parseJSON _ = mempty
 
 -- | Constructor for 'IAMAccessKey' containing required fields as arguments.
@@ -52,7 +53,7 @@ iamAccessKey userNamearg =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html#cfn-iam-accesskey-serial
-iamakSerial :: Lens' IAMAccessKey (Maybe (Val Integer'))
+iamakSerial :: Lens' IAMAccessKey (Maybe (Val Integer))
 iamakSerial = lens _iAMAccessKeySerial (\s a -> s { _iAMAccessKeySerial = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html#cfn-iam-accesskey-status

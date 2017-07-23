@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancegroupconfig-simplescalingpolicyconfiguration.html
 
@@ -21,31 +22,31 @@ import Stratosphere.Values
 data EMRInstanceGroupConfigSimpleScalingPolicyConfiguration =
   EMRInstanceGroupConfigSimpleScalingPolicyConfiguration
   { _eMRInstanceGroupConfigSimpleScalingPolicyConfigurationAdjustmentType :: Maybe (Val Text)
-  , _eMRInstanceGroupConfigSimpleScalingPolicyConfigurationCoolDown :: Maybe (Val Integer')
-  , _eMRInstanceGroupConfigSimpleScalingPolicyConfigurationScalingAdjustment :: Val Integer'
+  , _eMRInstanceGroupConfigSimpleScalingPolicyConfigurationCoolDown :: Maybe (Val Integer)
+  , _eMRInstanceGroupConfigSimpleScalingPolicyConfigurationScalingAdjustment :: Val Integer
   } deriving (Show, Eq)
 
 instance ToJSON EMRInstanceGroupConfigSimpleScalingPolicyConfiguration where
   toJSON EMRInstanceGroupConfigSimpleScalingPolicyConfiguration{..} =
     object $
     catMaybes
-    [ ("AdjustmentType" .=) <$> _eMRInstanceGroupConfigSimpleScalingPolicyConfigurationAdjustmentType
-    , ("CoolDown" .=) <$> _eMRInstanceGroupConfigSimpleScalingPolicyConfigurationCoolDown
-    , Just ("ScalingAdjustment" .= _eMRInstanceGroupConfigSimpleScalingPolicyConfigurationScalingAdjustment)
+    [ fmap (("AdjustmentType",) . toJSON) _eMRInstanceGroupConfigSimpleScalingPolicyConfigurationAdjustmentType
+    , fmap (("CoolDown",) . toJSON . fmap Integer') _eMRInstanceGroupConfigSimpleScalingPolicyConfigurationCoolDown
+    , (Just . ("ScalingAdjustment",) . toJSON . fmap Integer') _eMRInstanceGroupConfigSimpleScalingPolicyConfigurationScalingAdjustment
     ]
 
 instance FromJSON EMRInstanceGroupConfigSimpleScalingPolicyConfiguration where
   parseJSON (Object obj) =
     EMRInstanceGroupConfigSimpleScalingPolicyConfiguration <$>
-      obj .:? "AdjustmentType" <*>
-      obj .:? "CoolDown" <*>
-      obj .: "ScalingAdjustment"
+      (obj .:? "AdjustmentType") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "CoolDown") <*>
+      fmap (fmap unInteger') (obj .: "ScalingAdjustment")
   parseJSON _ = mempty
 
 -- | Constructor for 'EMRInstanceGroupConfigSimpleScalingPolicyConfiguration'
 -- containing required fields as arguments.
 emrInstanceGroupConfigSimpleScalingPolicyConfiguration
-  :: Val Integer' -- ^ 'emrigcsspcScalingAdjustment'
+  :: Val Integer -- ^ 'emrigcsspcScalingAdjustment'
   -> EMRInstanceGroupConfigSimpleScalingPolicyConfiguration
 emrInstanceGroupConfigSimpleScalingPolicyConfiguration scalingAdjustmentarg =
   EMRInstanceGroupConfigSimpleScalingPolicyConfiguration
@@ -59,9 +60,9 @@ emrigcsspcAdjustmentType :: Lens' EMRInstanceGroupConfigSimpleScalingPolicyConfi
 emrigcsspcAdjustmentType = lens _eMRInstanceGroupConfigSimpleScalingPolicyConfigurationAdjustmentType (\s a -> s { _eMRInstanceGroupConfigSimpleScalingPolicyConfigurationAdjustmentType = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancegroupconfig-simplescalingpolicyconfiguration.html#cfn-elasticmapreduce-instancegroupconfig-simplescalingpolicyconfiguration-cooldown
-emrigcsspcCoolDown :: Lens' EMRInstanceGroupConfigSimpleScalingPolicyConfiguration (Maybe (Val Integer'))
+emrigcsspcCoolDown :: Lens' EMRInstanceGroupConfigSimpleScalingPolicyConfiguration (Maybe (Val Integer))
 emrigcsspcCoolDown = lens _eMRInstanceGroupConfigSimpleScalingPolicyConfigurationCoolDown (\s a -> s { _eMRInstanceGroupConfigSimpleScalingPolicyConfigurationCoolDown = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancegroupconfig-simplescalingpolicyconfiguration.html#cfn-elasticmapreduce-instancegroupconfig-simplescalingpolicyconfiguration-scalingadjustment
-emrigcsspcScalingAdjustment :: Lens' EMRInstanceGroupConfigSimpleScalingPolicyConfiguration (Val Integer')
+emrigcsspcScalingAdjustment :: Lens' EMRInstanceGroupConfigSimpleScalingPolicyConfiguration (Val Integer)
 emrigcsspcScalingAdjustment = lens _eMRInstanceGroupConfigSimpleScalingPolicyConfigurationScalingAdjustment (\s a -> s { _eMRInstanceGroupConfigSimpleScalingPolicyConfigurationScalingAdjustment = a })

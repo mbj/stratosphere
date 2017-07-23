@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html
 
@@ -26,15 +27,15 @@ instance ToJSON ECRRepository where
   toJSON ECRRepository{..} =
     object $
     catMaybes
-    [ ("RepositoryName" .=) <$> _eCRRepositoryRepositoryName
-    , ("RepositoryPolicyText" .=) <$> _eCRRepositoryRepositoryPolicyText
+    [ fmap (("RepositoryName",) . toJSON) _eCRRepositoryRepositoryName
+    , fmap (("RepositoryPolicyText",) . toJSON) _eCRRepositoryRepositoryPolicyText
     ]
 
 instance FromJSON ECRRepository where
   parseJSON (Object obj) =
     ECRRepository <$>
-      obj .:? "RepositoryName" <*>
-      obj .:? "RepositoryPolicyText"
+      (obj .:? "RepositoryName") <*>
+      (obj .:? "RepositoryPolicyText")
   parseJSON _ = mempty
 
 -- | Constructor for 'ECRRepository' containing required fields as arguments.

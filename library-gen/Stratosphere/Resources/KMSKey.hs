@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html
 
@@ -19,8 +20,8 @@ import Stratosphere.Values
 data KMSKey =
   KMSKey
   { _kMSKeyDescription :: Maybe (Val Text)
-  , _kMSKeyEnableKeyRotation :: Maybe (Val Bool')
-  , _kMSKeyEnabled :: Maybe (Val Bool')
+  , _kMSKeyEnableKeyRotation :: Maybe (Val Bool)
+  , _kMSKeyEnabled :: Maybe (Val Bool)
   , _kMSKeyKeyPolicy :: Object
   , _kMSKeyKeyUsage :: Maybe (Val Text)
   } deriving (Show, Eq)
@@ -29,21 +30,21 @@ instance ToJSON KMSKey where
   toJSON KMSKey{..} =
     object $
     catMaybes
-    [ ("Description" .=) <$> _kMSKeyDescription
-    , ("EnableKeyRotation" .=) <$> _kMSKeyEnableKeyRotation
-    , ("Enabled" .=) <$> _kMSKeyEnabled
-    , Just ("KeyPolicy" .= _kMSKeyKeyPolicy)
-    , ("KeyUsage" .=) <$> _kMSKeyKeyUsage
+    [ fmap (("Description",) . toJSON) _kMSKeyDescription
+    , fmap (("EnableKeyRotation",) . toJSON . fmap Bool') _kMSKeyEnableKeyRotation
+    , fmap (("Enabled",) . toJSON . fmap Bool') _kMSKeyEnabled
+    , (Just . ("KeyPolicy",) . toJSON) _kMSKeyKeyPolicy
+    , fmap (("KeyUsage",) . toJSON) _kMSKeyKeyUsage
     ]
 
 instance FromJSON KMSKey where
   parseJSON (Object obj) =
     KMSKey <$>
-      obj .:? "Description" <*>
-      obj .:? "EnableKeyRotation" <*>
-      obj .:? "Enabled" <*>
-      obj .: "KeyPolicy" <*>
-      obj .:? "KeyUsage"
+      (obj .:? "Description") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "EnableKeyRotation") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "Enabled") <*>
+      (obj .: "KeyPolicy") <*>
+      (obj .:? "KeyUsage")
   parseJSON _ = mempty
 
 -- | Constructor for 'KMSKey' containing required fields as arguments.
@@ -64,11 +65,11 @@ kmskDescription :: Lens' KMSKey (Maybe (Val Text))
 kmskDescription = lens _kMSKeyDescription (\s a -> s { _kMSKeyDescription = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-enablekeyrotation
-kmskEnableKeyRotation :: Lens' KMSKey (Maybe (Val Bool'))
+kmskEnableKeyRotation :: Lens' KMSKey (Maybe (Val Bool))
 kmskEnableKeyRotation = lens _kMSKeyEnableKeyRotation (\s a -> s { _kMSKeyEnableKeyRotation = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-enabled
-kmskEnabled :: Lens' KMSKey (Maybe (Val Bool'))
+kmskEnabled :: Lens' KMSKey (Maybe (Val Bool))
 kmskEnabled = lens _kMSKeyEnabled (\s a -> s { _kMSKeyEnabled = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keypolicy

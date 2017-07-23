@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-logging.html
 
@@ -19,7 +20,7 @@ import Stratosphere.Values
 data CloudFrontDistributionLogging =
   CloudFrontDistributionLogging
   { _cloudFrontDistributionLoggingBucket :: Val Text
-  , _cloudFrontDistributionLoggingIncludeCookies :: Maybe (Val Bool')
+  , _cloudFrontDistributionLoggingIncludeCookies :: Maybe (Val Bool)
   , _cloudFrontDistributionLoggingPrefix :: Maybe (Val Text)
   } deriving (Show, Eq)
 
@@ -27,17 +28,17 @@ instance ToJSON CloudFrontDistributionLogging where
   toJSON CloudFrontDistributionLogging{..} =
     object $
     catMaybes
-    [ Just ("Bucket" .= _cloudFrontDistributionLoggingBucket)
-    , ("IncludeCookies" .=) <$> _cloudFrontDistributionLoggingIncludeCookies
-    , ("Prefix" .=) <$> _cloudFrontDistributionLoggingPrefix
+    [ (Just . ("Bucket",) . toJSON) _cloudFrontDistributionLoggingBucket
+    , fmap (("IncludeCookies",) . toJSON . fmap Bool') _cloudFrontDistributionLoggingIncludeCookies
+    , fmap (("Prefix",) . toJSON) _cloudFrontDistributionLoggingPrefix
     ]
 
 instance FromJSON CloudFrontDistributionLogging where
   parseJSON (Object obj) =
     CloudFrontDistributionLogging <$>
-      obj .: "Bucket" <*>
-      obj .:? "IncludeCookies" <*>
-      obj .:? "Prefix"
+      (obj .: "Bucket") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "IncludeCookies") <*>
+      (obj .:? "Prefix")
   parseJSON _ = mempty
 
 -- | Constructor for 'CloudFrontDistributionLogging' containing required
@@ -57,7 +58,7 @@ cfdlBucket :: Lens' CloudFrontDistributionLogging (Val Text)
 cfdlBucket = lens _cloudFrontDistributionLoggingBucket (\s a -> s { _cloudFrontDistributionLoggingBucket = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-logging.html#cfn-cloudfront-logging-includecookies
-cfdlIncludeCookies :: Lens' CloudFrontDistributionLogging (Maybe (Val Bool'))
+cfdlIncludeCookies :: Lens' CloudFrontDistributionLogging (Maybe (Val Bool))
 cfdlIncludeCookies = lens _cloudFrontDistributionLoggingIncludeCookies (\s a -> s { _cloudFrontDistributionLoggingIncludeCookies = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-logging.html#cfn-cloudfront-logging-prefix

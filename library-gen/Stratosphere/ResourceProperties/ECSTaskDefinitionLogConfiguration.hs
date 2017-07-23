@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-logconfiguration.html
 
@@ -26,15 +27,15 @@ instance ToJSON ECSTaskDefinitionLogConfiguration where
   toJSON ECSTaskDefinitionLogConfiguration{..} =
     object $
     catMaybes
-    [ Just ("LogDriver" .= _eCSTaskDefinitionLogConfigurationLogDriver)
-    , ("Options" .=) <$> _eCSTaskDefinitionLogConfigurationOptions
+    [ (Just . ("LogDriver",) . toJSON) _eCSTaskDefinitionLogConfigurationLogDriver
+    , fmap (("Options",) . toJSON) _eCSTaskDefinitionLogConfigurationOptions
     ]
 
 instance FromJSON ECSTaskDefinitionLogConfiguration where
   parseJSON (Object obj) =
     ECSTaskDefinitionLogConfiguration <$>
-      obj .: "LogDriver" <*>
-      obj .:? "Options"
+      (obj .: "LogDriver") <*>
+      (obj .:? "Options")
   parseJSON _ = mempty
 
 -- | Constructor for 'ECSTaskDefinitionLogConfiguration' containing required

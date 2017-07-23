@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html
 
@@ -32,27 +33,27 @@ instance ToJSON CognitoUserPoolLambdaConfig where
   toJSON CognitoUserPoolLambdaConfig{..} =
     object $
     catMaybes
-    [ ("CreateAuthChallenge" .=) <$> _cognitoUserPoolLambdaConfigCreateAuthChallenge
-    , ("CustomMessage" .=) <$> _cognitoUserPoolLambdaConfigCustomMessage
-    , ("DefineAuthChallenge" .=) <$> _cognitoUserPoolLambdaConfigDefineAuthChallenge
-    , ("PostAuthentication" .=) <$> _cognitoUserPoolLambdaConfigPostAuthentication
-    , ("PostConfirmation" .=) <$> _cognitoUserPoolLambdaConfigPostConfirmation
-    , ("PreAuthentication" .=) <$> _cognitoUserPoolLambdaConfigPreAuthentication
-    , ("PreSignUp" .=) <$> _cognitoUserPoolLambdaConfigPreSignUp
-    , ("VerifyAuthChallengeResponse" .=) <$> _cognitoUserPoolLambdaConfigVerifyAuthChallengeResponse
+    [ fmap (("CreateAuthChallenge",) . toJSON) _cognitoUserPoolLambdaConfigCreateAuthChallenge
+    , fmap (("CustomMessage",) . toJSON) _cognitoUserPoolLambdaConfigCustomMessage
+    , fmap (("DefineAuthChallenge",) . toJSON) _cognitoUserPoolLambdaConfigDefineAuthChallenge
+    , fmap (("PostAuthentication",) . toJSON) _cognitoUserPoolLambdaConfigPostAuthentication
+    , fmap (("PostConfirmation",) . toJSON) _cognitoUserPoolLambdaConfigPostConfirmation
+    , fmap (("PreAuthentication",) . toJSON) _cognitoUserPoolLambdaConfigPreAuthentication
+    , fmap (("PreSignUp",) . toJSON) _cognitoUserPoolLambdaConfigPreSignUp
+    , fmap (("VerifyAuthChallengeResponse",) . toJSON) _cognitoUserPoolLambdaConfigVerifyAuthChallengeResponse
     ]
 
 instance FromJSON CognitoUserPoolLambdaConfig where
   parseJSON (Object obj) =
     CognitoUserPoolLambdaConfig <$>
-      obj .:? "CreateAuthChallenge" <*>
-      obj .:? "CustomMessage" <*>
-      obj .:? "DefineAuthChallenge" <*>
-      obj .:? "PostAuthentication" <*>
-      obj .:? "PostConfirmation" <*>
-      obj .:? "PreAuthentication" <*>
-      obj .:? "PreSignUp" <*>
-      obj .:? "VerifyAuthChallengeResponse"
+      (obj .:? "CreateAuthChallenge") <*>
+      (obj .:? "CustomMessage") <*>
+      (obj .:? "DefineAuthChallenge") <*>
+      (obj .:? "PostAuthentication") <*>
+      (obj .:? "PostConfirmation") <*>
+      (obj .:? "PreAuthentication") <*>
+      (obj .:? "PreSignUp") <*>
+      (obj .:? "VerifyAuthChallengeResponse")
   parseJSON _ = mempty
 
 -- | Constructor for 'CognitoUserPoolLambdaConfig' containing required fields

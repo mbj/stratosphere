@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-spotprovisioningspecification.html
 
@@ -19,33 +20,33 @@ import Stratosphere.Values
 -- constructor.
 data EMRClusterSpotProvisioningSpecification =
   EMRClusterSpotProvisioningSpecification
-  { _eMRClusterSpotProvisioningSpecificationBlockDurationMinutes :: Maybe (Val Integer')
+  { _eMRClusterSpotProvisioningSpecificationBlockDurationMinutes :: Maybe (Val Integer)
   , _eMRClusterSpotProvisioningSpecificationTimeoutAction :: Val Text
-  , _eMRClusterSpotProvisioningSpecificationTimeoutDurationMinutes :: Val Integer'
+  , _eMRClusterSpotProvisioningSpecificationTimeoutDurationMinutes :: Val Integer
   } deriving (Show, Eq)
 
 instance ToJSON EMRClusterSpotProvisioningSpecification where
   toJSON EMRClusterSpotProvisioningSpecification{..} =
     object $
     catMaybes
-    [ ("BlockDurationMinutes" .=) <$> _eMRClusterSpotProvisioningSpecificationBlockDurationMinutes
-    , Just ("TimeoutAction" .= _eMRClusterSpotProvisioningSpecificationTimeoutAction)
-    , Just ("TimeoutDurationMinutes" .= _eMRClusterSpotProvisioningSpecificationTimeoutDurationMinutes)
+    [ fmap (("BlockDurationMinutes",) . toJSON . fmap Integer') _eMRClusterSpotProvisioningSpecificationBlockDurationMinutes
+    , (Just . ("TimeoutAction",) . toJSON) _eMRClusterSpotProvisioningSpecificationTimeoutAction
+    , (Just . ("TimeoutDurationMinutes",) . toJSON . fmap Integer') _eMRClusterSpotProvisioningSpecificationTimeoutDurationMinutes
     ]
 
 instance FromJSON EMRClusterSpotProvisioningSpecification where
   parseJSON (Object obj) =
     EMRClusterSpotProvisioningSpecification <$>
-      obj .:? "BlockDurationMinutes" <*>
-      obj .: "TimeoutAction" <*>
-      obj .: "TimeoutDurationMinutes"
+      fmap (fmap (fmap unInteger')) (obj .:? "BlockDurationMinutes") <*>
+      (obj .: "TimeoutAction") <*>
+      fmap (fmap unInteger') (obj .: "TimeoutDurationMinutes")
   parseJSON _ = mempty
 
 -- | Constructor for 'EMRClusterSpotProvisioningSpecification' containing
 -- required fields as arguments.
 emrClusterSpotProvisioningSpecification
   :: Val Text -- ^ 'emrcspsTimeoutAction'
-  -> Val Integer' -- ^ 'emrcspsTimeoutDurationMinutes'
+  -> Val Integer -- ^ 'emrcspsTimeoutDurationMinutes'
   -> EMRClusterSpotProvisioningSpecification
 emrClusterSpotProvisioningSpecification timeoutActionarg timeoutDurationMinutesarg =
   EMRClusterSpotProvisioningSpecification
@@ -55,7 +56,7 @@ emrClusterSpotProvisioningSpecification timeoutActionarg timeoutDurationMinutesa
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-spotprovisioningspecification.html#cfn-elasticmapreduce-cluster-spotprovisioningspecification-blockdurationminutes
-emrcspsBlockDurationMinutes :: Lens' EMRClusterSpotProvisioningSpecification (Maybe (Val Integer'))
+emrcspsBlockDurationMinutes :: Lens' EMRClusterSpotProvisioningSpecification (Maybe (Val Integer))
 emrcspsBlockDurationMinutes = lens _eMRClusterSpotProvisioningSpecificationBlockDurationMinutes (\s a -> s { _eMRClusterSpotProvisioningSpecificationBlockDurationMinutes = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-spotprovisioningspecification.html#cfn-elasticmapreduce-cluster-spotprovisioningspecification-timeoutaction
@@ -63,5 +64,5 @@ emrcspsTimeoutAction :: Lens' EMRClusterSpotProvisioningSpecification (Val Text)
 emrcspsTimeoutAction = lens _eMRClusterSpotProvisioningSpecificationTimeoutAction (\s a -> s { _eMRClusterSpotProvisioningSpecificationTimeoutAction = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-spotprovisioningspecification.html#cfn-elasticmapreduce-cluster-spotprovisioningspecification-timeoutdurationminutes
-emrcspsTimeoutDurationMinutes :: Lens' EMRClusterSpotProvisioningSpecification (Val Integer')
+emrcspsTimeoutDurationMinutes :: Lens' EMRClusterSpotProvisioningSpecification (Val Integer)
 emrcspsTimeoutDurationMinutes = lens _eMRClusterSpotProvisioningSpecificationTimeoutDurationMinutes (\s a -> s { _eMRClusterSpotProvisioningSpecificationTimeoutDurationMinutes = a })

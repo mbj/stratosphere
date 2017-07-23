@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-alias-routingstrategy.html
 
@@ -27,17 +28,17 @@ instance ToJSON GameLiftAliasRoutingStrategy where
   toJSON GameLiftAliasRoutingStrategy{..} =
     object $
     catMaybes
-    [ ("FleetId" .=) <$> _gameLiftAliasRoutingStrategyFleetId
-    , ("Message" .=) <$> _gameLiftAliasRoutingStrategyMessage
-    , Just ("Type" .= _gameLiftAliasRoutingStrategyType)
+    [ fmap (("FleetId",) . toJSON) _gameLiftAliasRoutingStrategyFleetId
+    , fmap (("Message",) . toJSON) _gameLiftAliasRoutingStrategyMessage
+    , (Just . ("Type",) . toJSON) _gameLiftAliasRoutingStrategyType
     ]
 
 instance FromJSON GameLiftAliasRoutingStrategy where
   parseJSON (Object obj) =
     GameLiftAliasRoutingStrategy <$>
-      obj .:? "FleetId" <*>
-      obj .:? "Message" <*>
-      obj .: "Type"
+      (obj .:? "FleetId") <*>
+      (obj .:? "Message") <*>
+      (obj .: "Type")
   parseJSON _ = mempty
 
 -- | Constructor for 'GameLiftAliasRoutingStrategy' containing required fields

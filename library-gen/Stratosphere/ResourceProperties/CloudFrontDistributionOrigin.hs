@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-origin.html
 
@@ -32,23 +33,23 @@ instance ToJSON CloudFrontDistributionOrigin where
   toJSON CloudFrontDistributionOrigin{..} =
     object $
     catMaybes
-    [ ("CustomOriginConfig" .=) <$> _cloudFrontDistributionOriginCustomOriginConfig
-    , Just ("DomainName" .= _cloudFrontDistributionOriginDomainName)
-    , Just ("Id" .= _cloudFrontDistributionOriginId)
-    , ("OriginCustomHeaders" .=) <$> _cloudFrontDistributionOriginOriginCustomHeaders
-    , ("OriginPath" .=) <$> _cloudFrontDistributionOriginOriginPath
-    , ("S3OriginConfig" .=) <$> _cloudFrontDistributionOriginS3OriginConfig
+    [ fmap (("CustomOriginConfig",) . toJSON) _cloudFrontDistributionOriginCustomOriginConfig
+    , (Just . ("DomainName",) . toJSON) _cloudFrontDistributionOriginDomainName
+    , (Just . ("Id",) . toJSON) _cloudFrontDistributionOriginId
+    , fmap (("OriginCustomHeaders",) . toJSON) _cloudFrontDistributionOriginOriginCustomHeaders
+    , fmap (("OriginPath",) . toJSON) _cloudFrontDistributionOriginOriginPath
+    , fmap (("S3OriginConfig",) . toJSON) _cloudFrontDistributionOriginS3OriginConfig
     ]
 
 instance FromJSON CloudFrontDistributionOrigin where
   parseJSON (Object obj) =
     CloudFrontDistributionOrigin <$>
-      obj .:? "CustomOriginConfig" <*>
-      obj .: "DomainName" <*>
-      obj .: "Id" <*>
-      obj .:? "OriginCustomHeaders" <*>
-      obj .:? "OriginPath" <*>
-      obj .:? "S3OriginConfig"
+      (obj .:? "CustomOriginConfig") <*>
+      (obj .: "DomainName") <*>
+      (obj .: "Id") <*>
+      (obj .:? "OriginCustomHeaders") <*>
+      (obj .:? "OriginPath") <*>
+      (obj .:? "S3OriginConfig")
   parseJSON _ = mempty
 
 -- | Constructor for 'CloudFrontDistributionOrigin' containing required fields

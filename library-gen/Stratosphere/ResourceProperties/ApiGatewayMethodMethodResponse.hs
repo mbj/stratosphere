@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-methodresponse.html
 
@@ -27,17 +28,17 @@ instance ToJSON ApiGatewayMethodMethodResponse where
   toJSON ApiGatewayMethodMethodResponse{..} =
     object $
     catMaybes
-    [ ("ResponseModels" .=) <$> _apiGatewayMethodMethodResponseResponseModels
-    , ("ResponseParameters" .=) <$> _apiGatewayMethodMethodResponseResponseParameters
-    , ("StatusCode" .=) <$> _apiGatewayMethodMethodResponseStatusCode
+    [ fmap (("ResponseModels",) . toJSON) _apiGatewayMethodMethodResponseResponseModels
+    , fmap (("ResponseParameters",) . toJSON) _apiGatewayMethodMethodResponseResponseParameters
+    , fmap (("StatusCode",) . toJSON) _apiGatewayMethodMethodResponseStatusCode
     ]
 
 instance FromJSON ApiGatewayMethodMethodResponse where
   parseJSON (Object obj) =
     ApiGatewayMethodMethodResponse <$>
-      obj .:? "ResponseModels" <*>
-      obj .:? "ResponseParameters" <*>
-      obj .:? "StatusCode"
+      (obj .:? "ResponseModels") <*>
+      (obj .:? "ResponseParameters") <*>
+      (obj .:? "StatusCode")
   parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayMethodMethodResponse' containing required

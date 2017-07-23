@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thing.html
 
@@ -26,15 +27,15 @@ instance ToJSON IoTThing where
   toJSON IoTThing{..} =
     object $
     catMaybes
-    [ ("AttributePayload" .=) <$> _ioTThingAttributePayload
-    , ("ThingName" .=) <$> _ioTThingThingName
+    [ fmap (("AttributePayload",) . toJSON) _ioTThingAttributePayload
+    , fmap (("ThingName",) . toJSON) _ioTThingThingName
     ]
 
 instance FromJSON IoTThing where
   parseJSON (Object obj) =
     IoTThing <$>
-      obj .:? "AttributePayload" <*>
-      obj .:? "ThingName"
+      (obj .:? "AttributePayload") <*>
+      (obj .:? "ThingName")
   parseJSON _ = mempty
 
 -- | Constructor for 'IoTThing' containing required fields as arguments.

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration.html
 
@@ -29,19 +30,19 @@ instance ToJSON S3BucketWebsiteConfiguration where
   toJSON S3BucketWebsiteConfiguration{..} =
     object $
     catMaybes
-    [ ("ErrorDocument" .=) <$> _s3BucketWebsiteConfigurationErrorDocument
-    , ("IndexDocument" .=) <$> _s3BucketWebsiteConfigurationIndexDocument
-    , ("RedirectAllRequestsTo" .=) <$> _s3BucketWebsiteConfigurationRedirectAllRequestsTo
-    , ("RoutingRules" .=) <$> _s3BucketWebsiteConfigurationRoutingRules
+    [ fmap (("ErrorDocument",) . toJSON) _s3BucketWebsiteConfigurationErrorDocument
+    , fmap (("IndexDocument",) . toJSON) _s3BucketWebsiteConfigurationIndexDocument
+    , fmap (("RedirectAllRequestsTo",) . toJSON) _s3BucketWebsiteConfigurationRedirectAllRequestsTo
+    , fmap (("RoutingRules",) . toJSON) _s3BucketWebsiteConfigurationRoutingRules
     ]
 
 instance FromJSON S3BucketWebsiteConfiguration where
   parseJSON (Object obj) =
     S3BucketWebsiteConfiguration <$>
-      obj .:? "ErrorDocument" <*>
-      obj .:? "IndexDocument" <*>
-      obj .:? "RedirectAllRequestsTo" <*>
-      obj .:? "RoutingRules"
+      (obj .:? "ErrorDocument") <*>
+      (obj .:? "IndexDocument") <*>
+      (obj .:? "RedirectAllRequestsTo") <*>
+      (obj .:? "RoutingRules")
   parseJSON _ = mempty
 
 -- | Constructor for 'S3BucketWebsiteConfiguration' containing required fields

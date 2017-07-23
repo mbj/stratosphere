@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html
 
@@ -28,19 +29,19 @@ instance ToJSON EFSMountTarget where
   toJSON EFSMountTarget{..} =
     object $
     catMaybes
-    [ Just ("FileSystemId" .= _eFSMountTargetFileSystemId)
-    , ("IpAddress" .=) <$> _eFSMountTargetIpAddress
-    , Just ("SecurityGroups" .= _eFSMountTargetSecurityGroups)
-    , Just ("SubnetId" .= _eFSMountTargetSubnetId)
+    [ (Just . ("FileSystemId",) . toJSON) _eFSMountTargetFileSystemId
+    , fmap (("IpAddress",) . toJSON) _eFSMountTargetIpAddress
+    , (Just . ("SecurityGroups",) . toJSON) _eFSMountTargetSecurityGroups
+    , (Just . ("SubnetId",) . toJSON) _eFSMountTargetSubnetId
     ]
 
 instance FromJSON EFSMountTarget where
   parseJSON (Object obj) =
     EFSMountTarget <$>
-      obj .: "FileSystemId" <*>
-      obj .:? "IpAddress" <*>
-      obj .: "SecurityGroups" <*>
-      obj .: "SubnetId"
+      (obj .: "FileSystemId") <*>
+      (obj .:? "IpAddress") <*>
+      (obj .: "SecurityGroups") <*>
+      (obj .: "SubnetId")
   parseJSON _ = mempty
 
 -- | Constructor for 'EFSMountTarget' containing required fields as arguments.

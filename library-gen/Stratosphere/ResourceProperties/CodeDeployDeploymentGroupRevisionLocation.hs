@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-deployment-revision.html
 
@@ -29,17 +30,17 @@ instance ToJSON CodeDeployDeploymentGroupRevisionLocation where
   toJSON CodeDeployDeploymentGroupRevisionLocation{..} =
     object $
     catMaybes
-    [ ("GitHubLocation" .=) <$> _codeDeployDeploymentGroupRevisionLocationGitHubLocation
-    , ("RevisionType" .=) <$> _codeDeployDeploymentGroupRevisionLocationRevisionType
-    , ("S3Location" .=) <$> _codeDeployDeploymentGroupRevisionLocationS3Location
+    [ fmap (("GitHubLocation",) . toJSON) _codeDeployDeploymentGroupRevisionLocationGitHubLocation
+    , fmap (("RevisionType",) . toJSON) _codeDeployDeploymentGroupRevisionLocationRevisionType
+    , fmap (("S3Location",) . toJSON) _codeDeployDeploymentGroupRevisionLocationS3Location
     ]
 
 instance FromJSON CodeDeployDeploymentGroupRevisionLocation where
   parseJSON (Object obj) =
     CodeDeployDeploymentGroupRevisionLocation <$>
-      obj .:? "GitHubLocation" <*>
-      obj .:? "RevisionType" <*>
-      obj .:? "S3Location"
+      (obj .:? "GitHubLocation") <*>
+      (obj .:? "RevisionType") <*>
+      (obj .:? "S3Location")
   parseJSON _ = mempty
 
 -- | Constructor for 'CodeDeployDeploymentGroupRevisionLocation' containing

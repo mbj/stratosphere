@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-ebsconfiguration.html
 
@@ -20,22 +21,22 @@ import Stratosphere.ResourceProperties.EMRInstanceFleetConfigEbsBlockDeviceConfi
 data EMRInstanceFleetConfigEbsConfiguration =
   EMRInstanceFleetConfigEbsConfiguration
   { _eMRInstanceFleetConfigEbsConfigurationEbsBlockDeviceConfigs :: Maybe [EMRInstanceFleetConfigEbsBlockDeviceConfig]
-  , _eMRInstanceFleetConfigEbsConfigurationEbsOptimized :: Maybe (Val Bool')
+  , _eMRInstanceFleetConfigEbsConfigurationEbsOptimized :: Maybe (Val Bool)
   } deriving (Show, Eq)
 
 instance ToJSON EMRInstanceFleetConfigEbsConfiguration where
   toJSON EMRInstanceFleetConfigEbsConfiguration{..} =
     object $
     catMaybes
-    [ ("EbsBlockDeviceConfigs" .=) <$> _eMRInstanceFleetConfigEbsConfigurationEbsBlockDeviceConfigs
-    , ("EbsOptimized" .=) <$> _eMRInstanceFleetConfigEbsConfigurationEbsOptimized
+    [ fmap (("EbsBlockDeviceConfigs",) . toJSON) _eMRInstanceFleetConfigEbsConfigurationEbsBlockDeviceConfigs
+    , fmap (("EbsOptimized",) . toJSON . fmap Bool') _eMRInstanceFleetConfigEbsConfigurationEbsOptimized
     ]
 
 instance FromJSON EMRInstanceFleetConfigEbsConfiguration where
   parseJSON (Object obj) =
     EMRInstanceFleetConfigEbsConfiguration <$>
-      obj .:? "EbsBlockDeviceConfigs" <*>
-      obj .:? "EbsOptimized"
+      (obj .:? "EbsBlockDeviceConfigs") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "EbsOptimized")
   parseJSON _ = mempty
 
 -- | Constructor for 'EMRInstanceFleetConfigEbsConfiguration' containing
@@ -53,5 +54,5 @@ emrifcecEbsBlockDeviceConfigs :: Lens' EMRInstanceFleetConfigEbsConfiguration (M
 emrifcecEbsBlockDeviceConfigs = lens _eMRInstanceFleetConfigEbsConfigurationEbsBlockDeviceConfigs (\s a -> s { _eMRInstanceFleetConfigEbsConfigurationEbsBlockDeviceConfigs = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-ebsconfiguration.html#cfn-elasticmapreduce-instancefleetconfig-ebsconfiguration-ebsoptimized
-emrifcecEbsOptimized :: Lens' EMRInstanceFleetConfigEbsConfiguration (Maybe (Val Bool'))
+emrifcecEbsOptimized :: Lens' EMRInstanceFleetConfigEbsConfiguration (Maybe (Val Bool))
 emrifcecEbsOptimized = lens _eMRInstanceFleetConfigEbsConfigurationEbsOptimized (\s a -> s { _eMRInstanceFleetConfigEbsConfigurationEbsOptimized = a })

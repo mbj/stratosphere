@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-policy.html
 
@@ -26,15 +27,15 @@ instance ToJSON SNSTopicPolicy where
   toJSON SNSTopicPolicy{..} =
     object $
     catMaybes
-    [ Just ("PolicyDocument" .= _sNSTopicPolicyPolicyDocument)
-    , Just ("Topics" .= _sNSTopicPolicyTopics)
+    [ (Just . ("PolicyDocument",) . toJSON) _sNSTopicPolicyPolicyDocument
+    , (Just . ("Topics",) . toJSON) _sNSTopicPolicyTopics
     ]
 
 instance FromJSON SNSTopicPolicy where
   parseJSON (Object obj) =
     SNSTopicPolicy <$>
-      obj .: "PolicyDocument" <*>
-      obj .: "Topics"
+      (obj .: "PolicyDocument") <*>
+      (obj .: "Topics")
   parseJSON _ = mempty
 
 -- | Constructor for 'SNSTopicPolicy' containing required fields as arguments.

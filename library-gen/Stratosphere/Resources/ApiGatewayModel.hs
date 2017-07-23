@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-model.html
 
@@ -29,21 +30,21 @@ instance ToJSON ApiGatewayModel where
   toJSON ApiGatewayModel{..} =
     object $
     catMaybes
-    [ ("ContentType" .=) <$> _apiGatewayModelContentType
-    , ("Description" .=) <$> _apiGatewayModelDescription
-    , ("Name" .=) <$> _apiGatewayModelName
-    , Just ("RestApiId" .= _apiGatewayModelRestApiId)
-    , ("Schema" .=) <$> _apiGatewayModelSchema
+    [ fmap (("ContentType",) . toJSON) _apiGatewayModelContentType
+    , fmap (("Description",) . toJSON) _apiGatewayModelDescription
+    , fmap (("Name",) . toJSON) _apiGatewayModelName
+    , (Just . ("RestApiId",) . toJSON) _apiGatewayModelRestApiId
+    , fmap (("Schema",) . toJSON) _apiGatewayModelSchema
     ]
 
 instance FromJSON ApiGatewayModel where
   parseJSON (Object obj) =
     ApiGatewayModel <$>
-      obj .:? "ContentType" <*>
-      obj .:? "Description" <*>
-      obj .:? "Name" <*>
-      obj .: "RestApiId" <*>
-      obj .:? "Schema"
+      (obj .:? "ContentType") <*>
+      (obj .:? "Description") <*>
+      (obj .:? "Name") <*>
+      (obj .: "RestApiId") <*>
+      (obj .:? "Schema")
   parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayModel' containing required fields as

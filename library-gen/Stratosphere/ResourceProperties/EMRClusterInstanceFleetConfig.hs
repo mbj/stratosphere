@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancefleetconfig.html
 
@@ -22,29 +23,29 @@ data EMRClusterInstanceFleetConfig =
   { _eMRClusterInstanceFleetConfigInstanceTypeConfigs :: Maybe [EMRClusterInstanceTypeConfig]
   , _eMRClusterInstanceFleetConfigLaunchSpecifications :: Maybe EMRClusterInstanceFleetProvisioningSpecifications
   , _eMRClusterInstanceFleetConfigName :: Maybe (Val Text)
-  , _eMRClusterInstanceFleetConfigTargetOnDemandCapacity :: Maybe (Val Integer')
-  , _eMRClusterInstanceFleetConfigTargetSpotCapacity :: Maybe (Val Integer')
+  , _eMRClusterInstanceFleetConfigTargetOnDemandCapacity :: Maybe (Val Integer)
+  , _eMRClusterInstanceFleetConfigTargetSpotCapacity :: Maybe (Val Integer)
   } deriving (Show, Eq)
 
 instance ToJSON EMRClusterInstanceFleetConfig where
   toJSON EMRClusterInstanceFleetConfig{..} =
     object $
     catMaybes
-    [ ("InstanceTypeConfigs" .=) <$> _eMRClusterInstanceFleetConfigInstanceTypeConfigs
-    , ("LaunchSpecifications" .=) <$> _eMRClusterInstanceFleetConfigLaunchSpecifications
-    , ("Name" .=) <$> _eMRClusterInstanceFleetConfigName
-    , ("TargetOnDemandCapacity" .=) <$> _eMRClusterInstanceFleetConfigTargetOnDemandCapacity
-    , ("TargetSpotCapacity" .=) <$> _eMRClusterInstanceFleetConfigTargetSpotCapacity
+    [ fmap (("InstanceTypeConfigs",) . toJSON) _eMRClusterInstanceFleetConfigInstanceTypeConfigs
+    , fmap (("LaunchSpecifications",) . toJSON) _eMRClusterInstanceFleetConfigLaunchSpecifications
+    , fmap (("Name",) . toJSON) _eMRClusterInstanceFleetConfigName
+    , fmap (("TargetOnDemandCapacity",) . toJSON . fmap Integer') _eMRClusterInstanceFleetConfigTargetOnDemandCapacity
+    , fmap (("TargetSpotCapacity",) . toJSON . fmap Integer') _eMRClusterInstanceFleetConfigTargetSpotCapacity
     ]
 
 instance FromJSON EMRClusterInstanceFleetConfig where
   parseJSON (Object obj) =
     EMRClusterInstanceFleetConfig <$>
-      obj .:? "InstanceTypeConfigs" <*>
-      obj .:? "LaunchSpecifications" <*>
-      obj .:? "Name" <*>
-      obj .:? "TargetOnDemandCapacity" <*>
-      obj .:? "TargetSpotCapacity"
+      (obj .:? "InstanceTypeConfigs") <*>
+      (obj .:? "LaunchSpecifications") <*>
+      (obj .:? "Name") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "TargetOnDemandCapacity") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "TargetSpotCapacity")
   parseJSON _ = mempty
 
 -- | Constructor for 'EMRClusterInstanceFleetConfig' containing required
@@ -73,9 +74,9 @@ emrcifcName :: Lens' EMRClusterInstanceFleetConfig (Maybe (Val Text))
 emrcifcName = lens _eMRClusterInstanceFleetConfigName (\s a -> s { _eMRClusterInstanceFleetConfigName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancefleetconfig.html#cfn-elasticmapreduce-cluster-instancefleetconfig-targetondemandcapacity
-emrcifcTargetOnDemandCapacity :: Lens' EMRClusterInstanceFleetConfig (Maybe (Val Integer'))
+emrcifcTargetOnDemandCapacity :: Lens' EMRClusterInstanceFleetConfig (Maybe (Val Integer))
 emrcifcTargetOnDemandCapacity = lens _eMRClusterInstanceFleetConfigTargetOnDemandCapacity (\s a -> s { _eMRClusterInstanceFleetConfigTargetOnDemandCapacity = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancefleetconfig.html#cfn-elasticmapreduce-cluster-instancefleetconfig-targetspotcapacity
-emrcifcTargetSpotCapacity :: Lens' EMRClusterInstanceFleetConfig (Maybe (Val Integer'))
+emrcifcTargetSpotCapacity :: Lens' EMRClusterInstanceFleetConfig (Maybe (Val Integer))
 emrcifcTargetSpotCapacity = lens _eMRClusterInstanceFleetConfigTargetSpotCapacity (\s a -> s { _eMRClusterInstanceFleetConfigTargetSpotCapacity = a })

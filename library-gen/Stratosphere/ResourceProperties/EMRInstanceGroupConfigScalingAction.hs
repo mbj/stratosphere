@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancegroupconfig-scalingaction.html
 
@@ -26,15 +27,15 @@ instance ToJSON EMRInstanceGroupConfigScalingAction where
   toJSON EMRInstanceGroupConfigScalingAction{..} =
     object $
     catMaybes
-    [ ("Market" .=) <$> _eMRInstanceGroupConfigScalingActionMarket
-    , Just ("SimpleScalingPolicyConfiguration" .= _eMRInstanceGroupConfigScalingActionSimpleScalingPolicyConfiguration)
+    [ fmap (("Market",) . toJSON) _eMRInstanceGroupConfigScalingActionMarket
+    , (Just . ("SimpleScalingPolicyConfiguration",) . toJSON) _eMRInstanceGroupConfigScalingActionSimpleScalingPolicyConfiguration
     ]
 
 instance FromJSON EMRInstanceGroupConfigScalingAction where
   parseJSON (Object obj) =
     EMRInstanceGroupConfigScalingAction <$>
-      obj .:? "Market" <*>
-      obj .: "SimpleScalingPolicyConfiguration"
+      (obj .:? "Market") <*>
+      (obj .: "SimpleScalingPolicyConfiguration")
   parseJSON _ = mempty
 
 -- | Constructor for 'EMRInstanceGroupConfigScalingAction' containing required

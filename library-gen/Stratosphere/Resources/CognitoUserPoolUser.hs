@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooluser.html
 
@@ -19,7 +20,7 @@ import Stratosphere.ResourceProperties.CognitoUserPoolUserAttributeType
 data CognitoUserPoolUser =
   CognitoUserPoolUser
   { _cognitoUserPoolUserDesiredDeliveryMediums :: Maybe (ValList Text)
-  , _cognitoUserPoolUserForceAliasCreation :: Maybe (Val Bool')
+  , _cognitoUserPoolUserForceAliasCreation :: Maybe (Val Bool)
   , _cognitoUserPoolUserMessageAction :: Maybe (Val Text)
   , _cognitoUserPoolUserUserAttributes :: Maybe [CognitoUserPoolUserAttributeType]
   , _cognitoUserPoolUserUserPoolId :: Val Text
@@ -31,25 +32,25 @@ instance ToJSON CognitoUserPoolUser where
   toJSON CognitoUserPoolUser{..} =
     object $
     catMaybes
-    [ ("DesiredDeliveryMediums" .=) <$> _cognitoUserPoolUserDesiredDeliveryMediums
-    , ("ForceAliasCreation" .=) <$> _cognitoUserPoolUserForceAliasCreation
-    , ("MessageAction" .=) <$> _cognitoUserPoolUserMessageAction
-    , ("UserAttributes" .=) <$> _cognitoUserPoolUserUserAttributes
-    , Just ("UserPoolId" .= _cognitoUserPoolUserUserPoolId)
-    , ("Username" .=) <$> _cognitoUserPoolUserUsername
-    , ("ValidationData" .=) <$> _cognitoUserPoolUserValidationData
+    [ fmap (("DesiredDeliveryMediums",) . toJSON) _cognitoUserPoolUserDesiredDeliveryMediums
+    , fmap (("ForceAliasCreation",) . toJSON . fmap Bool') _cognitoUserPoolUserForceAliasCreation
+    , fmap (("MessageAction",) . toJSON) _cognitoUserPoolUserMessageAction
+    , fmap (("UserAttributes",) . toJSON) _cognitoUserPoolUserUserAttributes
+    , (Just . ("UserPoolId",) . toJSON) _cognitoUserPoolUserUserPoolId
+    , fmap (("Username",) . toJSON) _cognitoUserPoolUserUsername
+    , fmap (("ValidationData",) . toJSON) _cognitoUserPoolUserValidationData
     ]
 
 instance FromJSON CognitoUserPoolUser where
   parseJSON (Object obj) =
     CognitoUserPoolUser <$>
-      obj .:? "DesiredDeliveryMediums" <*>
-      obj .:? "ForceAliasCreation" <*>
-      obj .:? "MessageAction" <*>
-      obj .:? "UserAttributes" <*>
-      obj .: "UserPoolId" <*>
-      obj .:? "Username" <*>
-      obj .:? "ValidationData"
+      (obj .:? "DesiredDeliveryMediums") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "ForceAliasCreation") <*>
+      (obj .:? "MessageAction") <*>
+      (obj .:? "UserAttributes") <*>
+      (obj .: "UserPoolId") <*>
+      (obj .:? "Username") <*>
+      (obj .:? "ValidationData")
   parseJSON _ = mempty
 
 -- | Constructor for 'CognitoUserPoolUser' containing required fields as
@@ -73,7 +74,7 @@ cupuDesiredDeliveryMediums :: Lens' CognitoUserPoolUser (Maybe (ValList Text))
 cupuDesiredDeliveryMediums = lens _cognitoUserPoolUserDesiredDeliveryMediums (\s a -> s { _cognitoUserPoolUserDesiredDeliveryMediums = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooluser.html#cfn-cognito-userpooluser-forcealiascreation
-cupuForceAliasCreation :: Lens' CognitoUserPoolUser (Maybe (Val Bool'))
+cupuForceAliasCreation :: Lens' CognitoUserPoolUser (Maybe (Val Bool))
 cupuForceAliasCreation = lens _cognitoUserPoolUserForceAliasCreation (\s a -> s { _cognitoUserPoolUserForceAliasCreation = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooluser.html#cfn-cognito-userpooluser-messageaction

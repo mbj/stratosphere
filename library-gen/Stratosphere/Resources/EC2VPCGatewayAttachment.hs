@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc-gateway-attachment.html
 
@@ -27,17 +28,17 @@ instance ToJSON EC2VPCGatewayAttachment where
   toJSON EC2VPCGatewayAttachment{..} =
     object $
     catMaybes
-    [ ("InternetGatewayId" .=) <$> _eC2VPCGatewayAttachmentInternetGatewayId
-    , Just ("VpcId" .= _eC2VPCGatewayAttachmentVpcId)
-    , ("VpnGatewayId" .=) <$> _eC2VPCGatewayAttachmentVpnGatewayId
+    [ fmap (("InternetGatewayId",) . toJSON) _eC2VPCGatewayAttachmentInternetGatewayId
+    , (Just . ("VpcId",) . toJSON) _eC2VPCGatewayAttachmentVpcId
+    , fmap (("VpnGatewayId",) . toJSON) _eC2VPCGatewayAttachmentVpnGatewayId
     ]
 
 instance FromJSON EC2VPCGatewayAttachment where
   parseJSON (Object obj) =
     EC2VPCGatewayAttachment <$>
-      obj .:? "InternetGatewayId" <*>
-      obj .: "VpcId" <*>
-      obj .:? "VpnGatewayId"
+      (obj .:? "InternetGatewayId") <*>
+      (obj .: "VpcId") <*>
+      (obj .:? "VpnGatewayId")
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2VPCGatewayAttachment' containing required fields as

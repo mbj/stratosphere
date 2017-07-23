@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html
 
@@ -19,8 +20,8 @@ import Stratosphere.ResourceProperties.Tag
 -- 'elastiCacheReplicationGroup' for a more convenient constructor.
 data ElastiCacheReplicationGroup =
   ElastiCacheReplicationGroup
-  { _elastiCacheReplicationGroupAutoMinorVersionUpgrade :: Maybe (Val Bool')
-  , _elastiCacheReplicationGroupAutomaticFailoverEnabled :: Maybe (Val Bool')
+  { _elastiCacheReplicationGroupAutoMinorVersionUpgrade :: Maybe (Val Bool)
+  , _elastiCacheReplicationGroupAutomaticFailoverEnabled :: Maybe (Val Bool)
   , _elastiCacheReplicationGroupCacheNodeType :: Maybe (Val Text)
   , _elastiCacheReplicationGroupCacheParameterGroupName :: Maybe (Val Text)
   , _elastiCacheReplicationGroupCacheSecurityGroupNames :: Maybe (ValList Text)
@@ -29,19 +30,19 @@ data ElastiCacheReplicationGroup =
   , _elastiCacheReplicationGroupEngineVersion :: Maybe (Val Text)
   , _elastiCacheReplicationGroupNodeGroupConfiguration :: Maybe [ElastiCacheReplicationGroupNodeGroupConfiguration]
   , _elastiCacheReplicationGroupNotificationTopicArn :: Maybe (Val Text)
-  , _elastiCacheReplicationGroupNumCacheClusters :: Maybe (Val Integer')
-  , _elastiCacheReplicationGroupNumNodeGroups :: Maybe (Val Integer')
-  , _elastiCacheReplicationGroupPort :: Maybe (Val Integer')
+  , _elastiCacheReplicationGroupNumCacheClusters :: Maybe (Val Integer)
+  , _elastiCacheReplicationGroupNumNodeGroups :: Maybe (Val Integer)
+  , _elastiCacheReplicationGroupPort :: Maybe (Val Integer)
   , _elastiCacheReplicationGroupPreferredCacheClusterAZs :: Maybe (ValList Text)
   , _elastiCacheReplicationGroupPreferredMaintenanceWindow :: Maybe (Val Text)
   , _elastiCacheReplicationGroupPrimaryClusterId :: Maybe (Val Text)
-  , _elastiCacheReplicationGroupReplicasPerNodeGroup :: Maybe (Val Integer')
+  , _elastiCacheReplicationGroupReplicasPerNodeGroup :: Maybe (Val Integer)
   , _elastiCacheReplicationGroupReplicationGroupDescription :: Val Text
   , _elastiCacheReplicationGroupReplicationGroupId :: Maybe (Val Text)
   , _elastiCacheReplicationGroupSecurityGroupIds :: Maybe (ValList Text)
   , _elastiCacheReplicationGroupSnapshotArns :: Maybe (ValList Text)
   , _elastiCacheReplicationGroupSnapshotName :: Maybe (Val Text)
-  , _elastiCacheReplicationGroupSnapshotRetentionLimit :: Maybe (Val Integer')
+  , _elastiCacheReplicationGroupSnapshotRetentionLimit :: Maybe (Val Integer)
   , _elastiCacheReplicationGroupSnapshotWindow :: Maybe (Val Text)
   , _elastiCacheReplicationGroupSnapshottingClusterId :: Maybe (Val Text)
   , _elastiCacheReplicationGroupTags :: Maybe [Tag]
@@ -51,63 +52,63 @@ instance ToJSON ElastiCacheReplicationGroup where
   toJSON ElastiCacheReplicationGroup{..} =
     object $
     catMaybes
-    [ ("AutoMinorVersionUpgrade" .=) <$> _elastiCacheReplicationGroupAutoMinorVersionUpgrade
-    , ("AutomaticFailoverEnabled" .=) <$> _elastiCacheReplicationGroupAutomaticFailoverEnabled
-    , ("CacheNodeType" .=) <$> _elastiCacheReplicationGroupCacheNodeType
-    , ("CacheParameterGroupName" .=) <$> _elastiCacheReplicationGroupCacheParameterGroupName
-    , ("CacheSecurityGroupNames" .=) <$> _elastiCacheReplicationGroupCacheSecurityGroupNames
-    , ("CacheSubnetGroupName" .=) <$> _elastiCacheReplicationGroupCacheSubnetGroupName
-    , ("Engine" .=) <$> _elastiCacheReplicationGroupEngine
-    , ("EngineVersion" .=) <$> _elastiCacheReplicationGroupEngineVersion
-    , ("NodeGroupConfiguration" .=) <$> _elastiCacheReplicationGroupNodeGroupConfiguration
-    , ("NotificationTopicArn" .=) <$> _elastiCacheReplicationGroupNotificationTopicArn
-    , ("NumCacheClusters" .=) <$> _elastiCacheReplicationGroupNumCacheClusters
-    , ("NumNodeGroups" .=) <$> _elastiCacheReplicationGroupNumNodeGroups
-    , ("Port" .=) <$> _elastiCacheReplicationGroupPort
-    , ("PreferredCacheClusterAZs" .=) <$> _elastiCacheReplicationGroupPreferredCacheClusterAZs
-    , ("PreferredMaintenanceWindow" .=) <$> _elastiCacheReplicationGroupPreferredMaintenanceWindow
-    , ("PrimaryClusterId" .=) <$> _elastiCacheReplicationGroupPrimaryClusterId
-    , ("ReplicasPerNodeGroup" .=) <$> _elastiCacheReplicationGroupReplicasPerNodeGroup
-    , Just ("ReplicationGroupDescription" .= _elastiCacheReplicationGroupReplicationGroupDescription)
-    , ("ReplicationGroupId" .=) <$> _elastiCacheReplicationGroupReplicationGroupId
-    , ("SecurityGroupIds" .=) <$> _elastiCacheReplicationGroupSecurityGroupIds
-    , ("SnapshotArns" .=) <$> _elastiCacheReplicationGroupSnapshotArns
-    , ("SnapshotName" .=) <$> _elastiCacheReplicationGroupSnapshotName
-    , ("SnapshotRetentionLimit" .=) <$> _elastiCacheReplicationGroupSnapshotRetentionLimit
-    , ("SnapshotWindow" .=) <$> _elastiCacheReplicationGroupSnapshotWindow
-    , ("SnapshottingClusterId" .=) <$> _elastiCacheReplicationGroupSnapshottingClusterId
-    , ("Tags" .=) <$> _elastiCacheReplicationGroupTags
+    [ fmap (("AutoMinorVersionUpgrade",) . toJSON . fmap Bool') _elastiCacheReplicationGroupAutoMinorVersionUpgrade
+    , fmap (("AutomaticFailoverEnabled",) . toJSON . fmap Bool') _elastiCacheReplicationGroupAutomaticFailoverEnabled
+    , fmap (("CacheNodeType",) . toJSON) _elastiCacheReplicationGroupCacheNodeType
+    , fmap (("CacheParameterGroupName",) . toJSON) _elastiCacheReplicationGroupCacheParameterGroupName
+    , fmap (("CacheSecurityGroupNames",) . toJSON) _elastiCacheReplicationGroupCacheSecurityGroupNames
+    , fmap (("CacheSubnetGroupName",) . toJSON) _elastiCacheReplicationGroupCacheSubnetGroupName
+    , fmap (("Engine",) . toJSON) _elastiCacheReplicationGroupEngine
+    , fmap (("EngineVersion",) . toJSON) _elastiCacheReplicationGroupEngineVersion
+    , fmap (("NodeGroupConfiguration",) . toJSON) _elastiCacheReplicationGroupNodeGroupConfiguration
+    , fmap (("NotificationTopicArn",) . toJSON) _elastiCacheReplicationGroupNotificationTopicArn
+    , fmap (("NumCacheClusters",) . toJSON . fmap Integer') _elastiCacheReplicationGroupNumCacheClusters
+    , fmap (("NumNodeGroups",) . toJSON . fmap Integer') _elastiCacheReplicationGroupNumNodeGroups
+    , fmap (("Port",) . toJSON . fmap Integer') _elastiCacheReplicationGroupPort
+    , fmap (("PreferredCacheClusterAZs",) . toJSON) _elastiCacheReplicationGroupPreferredCacheClusterAZs
+    , fmap (("PreferredMaintenanceWindow",) . toJSON) _elastiCacheReplicationGroupPreferredMaintenanceWindow
+    , fmap (("PrimaryClusterId",) . toJSON) _elastiCacheReplicationGroupPrimaryClusterId
+    , fmap (("ReplicasPerNodeGroup",) . toJSON . fmap Integer') _elastiCacheReplicationGroupReplicasPerNodeGroup
+    , (Just . ("ReplicationGroupDescription",) . toJSON) _elastiCacheReplicationGroupReplicationGroupDescription
+    , fmap (("ReplicationGroupId",) . toJSON) _elastiCacheReplicationGroupReplicationGroupId
+    , fmap (("SecurityGroupIds",) . toJSON) _elastiCacheReplicationGroupSecurityGroupIds
+    , fmap (("SnapshotArns",) . toJSON) _elastiCacheReplicationGroupSnapshotArns
+    , fmap (("SnapshotName",) . toJSON) _elastiCacheReplicationGroupSnapshotName
+    , fmap (("SnapshotRetentionLimit",) . toJSON . fmap Integer') _elastiCacheReplicationGroupSnapshotRetentionLimit
+    , fmap (("SnapshotWindow",) . toJSON) _elastiCacheReplicationGroupSnapshotWindow
+    , fmap (("SnapshottingClusterId",) . toJSON) _elastiCacheReplicationGroupSnapshottingClusterId
+    , fmap (("Tags",) . toJSON) _elastiCacheReplicationGroupTags
     ]
 
 instance FromJSON ElastiCacheReplicationGroup where
   parseJSON (Object obj) =
     ElastiCacheReplicationGroup <$>
-      obj .:? "AutoMinorVersionUpgrade" <*>
-      obj .:? "AutomaticFailoverEnabled" <*>
-      obj .:? "CacheNodeType" <*>
-      obj .:? "CacheParameterGroupName" <*>
-      obj .:? "CacheSecurityGroupNames" <*>
-      obj .:? "CacheSubnetGroupName" <*>
-      obj .:? "Engine" <*>
-      obj .:? "EngineVersion" <*>
-      obj .:? "NodeGroupConfiguration" <*>
-      obj .:? "NotificationTopicArn" <*>
-      obj .:? "NumCacheClusters" <*>
-      obj .:? "NumNodeGroups" <*>
-      obj .:? "Port" <*>
-      obj .:? "PreferredCacheClusterAZs" <*>
-      obj .:? "PreferredMaintenanceWindow" <*>
-      obj .:? "PrimaryClusterId" <*>
-      obj .:? "ReplicasPerNodeGroup" <*>
-      obj .: "ReplicationGroupDescription" <*>
-      obj .:? "ReplicationGroupId" <*>
-      obj .:? "SecurityGroupIds" <*>
-      obj .:? "SnapshotArns" <*>
-      obj .:? "SnapshotName" <*>
-      obj .:? "SnapshotRetentionLimit" <*>
-      obj .:? "SnapshotWindow" <*>
-      obj .:? "SnapshottingClusterId" <*>
-      obj .:? "Tags"
+      fmap (fmap (fmap unBool')) (obj .:? "AutoMinorVersionUpgrade") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "AutomaticFailoverEnabled") <*>
+      (obj .:? "CacheNodeType") <*>
+      (obj .:? "CacheParameterGroupName") <*>
+      (obj .:? "CacheSecurityGroupNames") <*>
+      (obj .:? "CacheSubnetGroupName") <*>
+      (obj .:? "Engine") <*>
+      (obj .:? "EngineVersion") <*>
+      (obj .:? "NodeGroupConfiguration") <*>
+      (obj .:? "NotificationTopicArn") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "NumCacheClusters") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "NumNodeGroups") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "Port") <*>
+      (obj .:? "PreferredCacheClusterAZs") <*>
+      (obj .:? "PreferredMaintenanceWindow") <*>
+      (obj .:? "PrimaryClusterId") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "ReplicasPerNodeGroup") <*>
+      (obj .: "ReplicationGroupDescription") <*>
+      (obj .:? "ReplicationGroupId") <*>
+      (obj .:? "SecurityGroupIds") <*>
+      (obj .:? "SnapshotArns") <*>
+      (obj .:? "SnapshotName") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "SnapshotRetentionLimit") <*>
+      (obj .:? "SnapshotWindow") <*>
+      (obj .:? "SnapshottingClusterId") <*>
+      (obj .:? "Tags")
   parseJSON _ = mempty
 
 -- | Constructor for 'ElastiCacheReplicationGroup' containing required fields
@@ -146,11 +147,11 @@ elastiCacheReplicationGroup replicationGroupDescriptionarg =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-autominorversionupgrade
-ecrgAutoMinorVersionUpgrade :: Lens' ElastiCacheReplicationGroup (Maybe (Val Bool'))
+ecrgAutoMinorVersionUpgrade :: Lens' ElastiCacheReplicationGroup (Maybe (Val Bool))
 ecrgAutoMinorVersionUpgrade = lens _elastiCacheReplicationGroupAutoMinorVersionUpgrade (\s a -> s { _elastiCacheReplicationGroupAutoMinorVersionUpgrade = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-automaticfailoverenabled
-ecrgAutomaticFailoverEnabled :: Lens' ElastiCacheReplicationGroup (Maybe (Val Bool'))
+ecrgAutomaticFailoverEnabled :: Lens' ElastiCacheReplicationGroup (Maybe (Val Bool))
 ecrgAutomaticFailoverEnabled = lens _elastiCacheReplicationGroupAutomaticFailoverEnabled (\s a -> s { _elastiCacheReplicationGroupAutomaticFailoverEnabled = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-cachenodetype
@@ -186,15 +187,15 @@ ecrgNotificationTopicArn :: Lens' ElastiCacheReplicationGroup (Maybe (Val Text))
 ecrgNotificationTopicArn = lens _elastiCacheReplicationGroupNotificationTopicArn (\s a -> s { _elastiCacheReplicationGroupNotificationTopicArn = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-numcacheclusters
-ecrgNumCacheClusters :: Lens' ElastiCacheReplicationGroup (Maybe (Val Integer'))
+ecrgNumCacheClusters :: Lens' ElastiCacheReplicationGroup (Maybe (Val Integer))
 ecrgNumCacheClusters = lens _elastiCacheReplicationGroupNumCacheClusters (\s a -> s { _elastiCacheReplicationGroupNumCacheClusters = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-numnodegroups
-ecrgNumNodeGroups :: Lens' ElastiCacheReplicationGroup (Maybe (Val Integer'))
+ecrgNumNodeGroups :: Lens' ElastiCacheReplicationGroup (Maybe (Val Integer))
 ecrgNumNodeGroups = lens _elastiCacheReplicationGroupNumNodeGroups (\s a -> s { _elastiCacheReplicationGroupNumNodeGroups = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-port
-ecrgPort :: Lens' ElastiCacheReplicationGroup (Maybe (Val Integer'))
+ecrgPort :: Lens' ElastiCacheReplicationGroup (Maybe (Val Integer))
 ecrgPort = lens _elastiCacheReplicationGroupPort (\s a -> s { _elastiCacheReplicationGroupPort = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-preferredcacheclusterazs
@@ -210,7 +211,7 @@ ecrgPrimaryClusterId :: Lens' ElastiCacheReplicationGroup (Maybe (Val Text))
 ecrgPrimaryClusterId = lens _elastiCacheReplicationGroupPrimaryClusterId (\s a -> s { _elastiCacheReplicationGroupPrimaryClusterId = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-replicaspernodegroup
-ecrgReplicasPerNodeGroup :: Lens' ElastiCacheReplicationGroup (Maybe (Val Integer'))
+ecrgReplicasPerNodeGroup :: Lens' ElastiCacheReplicationGroup (Maybe (Val Integer))
 ecrgReplicasPerNodeGroup = lens _elastiCacheReplicationGroupReplicasPerNodeGroup (\s a -> s { _elastiCacheReplicationGroupReplicasPerNodeGroup = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-replicationgroupdescription
@@ -234,7 +235,7 @@ ecrgSnapshotName :: Lens' ElastiCacheReplicationGroup (Maybe (Val Text))
 ecrgSnapshotName = lens _elastiCacheReplicationGroupSnapshotName (\s a -> s { _elastiCacheReplicationGroupSnapshotName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-snapshotretentionlimit
-ecrgSnapshotRetentionLimit :: Lens' ElastiCacheReplicationGroup (Maybe (Val Integer'))
+ecrgSnapshotRetentionLimit :: Lens' ElastiCacheReplicationGroup (Maybe (Val Integer))
 ecrgSnapshotRetentionLimit = lens _elastiCacheReplicationGroupSnapshotRetentionLimit (\s a -> s { _elastiCacheReplicationGroupSnapshotRetentionLimit = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-snapshotwindow

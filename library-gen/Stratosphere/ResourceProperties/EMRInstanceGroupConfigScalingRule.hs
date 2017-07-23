@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancegroupconfig-scalingrule.html
 
@@ -29,19 +30,19 @@ instance ToJSON EMRInstanceGroupConfigScalingRule where
   toJSON EMRInstanceGroupConfigScalingRule{..} =
     object $
     catMaybes
-    [ Just ("Action" .= _eMRInstanceGroupConfigScalingRuleAction)
-    , ("Description" .=) <$> _eMRInstanceGroupConfigScalingRuleDescription
-    , Just ("Name" .= _eMRInstanceGroupConfigScalingRuleName)
-    , Just ("Trigger" .= _eMRInstanceGroupConfigScalingRuleTrigger)
+    [ (Just . ("Action",) . toJSON) _eMRInstanceGroupConfigScalingRuleAction
+    , fmap (("Description",) . toJSON) _eMRInstanceGroupConfigScalingRuleDescription
+    , (Just . ("Name",) . toJSON) _eMRInstanceGroupConfigScalingRuleName
+    , (Just . ("Trigger",) . toJSON) _eMRInstanceGroupConfigScalingRuleTrigger
     ]
 
 instance FromJSON EMRInstanceGroupConfigScalingRule where
   parseJSON (Object obj) =
     EMRInstanceGroupConfigScalingRule <$>
-      obj .: "Action" <*>
-      obj .:? "Description" <*>
-      obj .: "Name" <*>
-      obj .: "Trigger"
+      (obj .: "Action") <*>
+      (obj .:? "Description") <*>
+      (obj .: "Name") <*>
+      (obj .: "Trigger")
   parseJSON _ = mempty
 
 -- | Constructor for 'EMRInstanceGroupConfigScalingRule' containing required

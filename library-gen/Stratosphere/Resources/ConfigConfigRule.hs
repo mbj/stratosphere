@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configrule.html
 
@@ -31,23 +32,23 @@ instance ToJSON ConfigConfigRule where
   toJSON ConfigConfigRule{..} =
     object $
     catMaybes
-    [ ("ConfigRuleName" .=) <$> _configConfigRuleConfigRuleName
-    , ("Description" .=) <$> _configConfigRuleDescription
-    , ("InputParameters" .=) <$> _configConfigRuleInputParameters
-    , ("MaximumExecutionFrequency" .=) <$> _configConfigRuleMaximumExecutionFrequency
-    , ("Scope" .=) <$> _configConfigRuleScope
-    , Just ("Source" .= _configConfigRuleSource)
+    [ fmap (("ConfigRuleName",) . toJSON) _configConfigRuleConfigRuleName
+    , fmap (("Description",) . toJSON) _configConfigRuleDescription
+    , fmap (("InputParameters",) . toJSON) _configConfigRuleInputParameters
+    , fmap (("MaximumExecutionFrequency",) . toJSON) _configConfigRuleMaximumExecutionFrequency
+    , fmap (("Scope",) . toJSON) _configConfigRuleScope
+    , (Just . ("Source",) . toJSON) _configConfigRuleSource
     ]
 
 instance FromJSON ConfigConfigRule where
   parseJSON (Object obj) =
     ConfigConfigRule <$>
-      obj .:? "ConfigRuleName" <*>
-      obj .:? "Description" <*>
-      obj .:? "InputParameters" <*>
-      obj .:? "MaximumExecutionFrequency" <*>
-      obj .:? "Scope" <*>
-      obj .: "Source"
+      (obj .:? "ConfigRuleName") <*>
+      (obj .:? "Description") <*>
+      (obj .:? "InputParameters") <*>
+      (obj .:? "MaximumExecutionFrequency") <*>
+      (obj .:? "Scope") <*>
+      (obj .: "Source")
   parseJSON _ = mempty
 
 -- | Constructor for 'ConfigConfigRule' containing required fields as

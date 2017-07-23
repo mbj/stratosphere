@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directoryservice-microsoftad.html
 
@@ -18,8 +19,8 @@ import Stratosphere.ResourceProperties.DirectoryServiceMicrosoftADVpcSettings
 -- 'directoryServiceMicrosoftAD' for a more convenient constructor.
 data DirectoryServiceMicrosoftAD =
   DirectoryServiceMicrosoftAD
-  { _directoryServiceMicrosoftADCreateAlias :: Maybe (Val Bool')
-  , _directoryServiceMicrosoftADEnableSso :: Maybe (Val Bool')
+  { _directoryServiceMicrosoftADCreateAlias :: Maybe (Val Bool)
+  , _directoryServiceMicrosoftADEnableSso :: Maybe (Val Bool)
   , _directoryServiceMicrosoftADName :: Val Text
   , _directoryServiceMicrosoftADPassword :: Val Text
   , _directoryServiceMicrosoftADShortName :: Maybe (Val Text)
@@ -30,23 +31,23 @@ instance ToJSON DirectoryServiceMicrosoftAD where
   toJSON DirectoryServiceMicrosoftAD{..} =
     object $
     catMaybes
-    [ ("CreateAlias" .=) <$> _directoryServiceMicrosoftADCreateAlias
-    , ("EnableSso" .=) <$> _directoryServiceMicrosoftADEnableSso
-    , Just ("Name" .= _directoryServiceMicrosoftADName)
-    , Just ("Password" .= _directoryServiceMicrosoftADPassword)
-    , ("ShortName" .=) <$> _directoryServiceMicrosoftADShortName
-    , Just ("VpcSettings" .= _directoryServiceMicrosoftADVpcSettings)
+    [ fmap (("CreateAlias",) . toJSON . fmap Bool') _directoryServiceMicrosoftADCreateAlias
+    , fmap (("EnableSso",) . toJSON . fmap Bool') _directoryServiceMicrosoftADEnableSso
+    , (Just . ("Name",) . toJSON) _directoryServiceMicrosoftADName
+    , (Just . ("Password",) . toJSON) _directoryServiceMicrosoftADPassword
+    , fmap (("ShortName",) . toJSON) _directoryServiceMicrosoftADShortName
+    , (Just . ("VpcSettings",) . toJSON) _directoryServiceMicrosoftADVpcSettings
     ]
 
 instance FromJSON DirectoryServiceMicrosoftAD where
   parseJSON (Object obj) =
     DirectoryServiceMicrosoftAD <$>
-      obj .:? "CreateAlias" <*>
-      obj .:? "EnableSso" <*>
-      obj .: "Name" <*>
-      obj .: "Password" <*>
-      obj .:? "ShortName" <*>
-      obj .: "VpcSettings"
+      fmap (fmap (fmap unBool')) (obj .:? "CreateAlias") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "EnableSso") <*>
+      (obj .: "Name") <*>
+      (obj .: "Password") <*>
+      (obj .:? "ShortName") <*>
+      (obj .: "VpcSettings")
   parseJSON _ = mempty
 
 -- | Constructor for 'DirectoryServiceMicrosoftAD' containing required fields
@@ -67,11 +68,11 @@ directoryServiceMicrosoftAD namearg passwordarg vpcSettingsarg =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directoryservice-microsoftad.html#cfn-directoryservice-microsoftad-createalias
-dsmadCreateAlias :: Lens' DirectoryServiceMicrosoftAD (Maybe (Val Bool'))
+dsmadCreateAlias :: Lens' DirectoryServiceMicrosoftAD (Maybe (Val Bool))
 dsmadCreateAlias = lens _directoryServiceMicrosoftADCreateAlias (\s a -> s { _directoryServiceMicrosoftADCreateAlias = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directoryservice-microsoftad.html#cfn-directoryservice-microsoftad-enablesso
-dsmadEnableSso :: Lens' DirectoryServiceMicrosoftAD (Maybe (Val Bool'))
+dsmadEnableSso :: Lens' DirectoryServiceMicrosoftAD (Maybe (Val Bool))
 dsmadEnableSso = lens _directoryServiceMicrosoftADEnableSso (\s a -> s { _directoryServiceMicrosoftADEnableSso = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directoryservice-microsoftad.html#cfn-directoryservice-microsoftad-name

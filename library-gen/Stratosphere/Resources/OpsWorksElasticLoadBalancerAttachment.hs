@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-elbattachment.html
 
@@ -27,15 +28,15 @@ instance ToJSON OpsWorksElasticLoadBalancerAttachment where
   toJSON OpsWorksElasticLoadBalancerAttachment{..} =
     object $
     catMaybes
-    [ Just ("ElasticLoadBalancerName" .= _opsWorksElasticLoadBalancerAttachmentElasticLoadBalancerName)
-    , Just ("LayerId" .= _opsWorksElasticLoadBalancerAttachmentLayerId)
+    [ (Just . ("ElasticLoadBalancerName",) . toJSON) _opsWorksElasticLoadBalancerAttachmentElasticLoadBalancerName
+    , (Just . ("LayerId",) . toJSON) _opsWorksElasticLoadBalancerAttachmentLayerId
     ]
 
 instance FromJSON OpsWorksElasticLoadBalancerAttachment where
   parseJSON (Object obj) =
     OpsWorksElasticLoadBalancerAttachment <$>
-      obj .: "ElasticLoadBalancerName" <*>
-      obj .: "LayerId"
+      (obj .: "ElasticLoadBalancerName") <*>
+      (obj .: "LayerId")
   parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksElasticLoadBalancerAttachment' containing

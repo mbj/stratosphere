@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-scheduledaction.html
 
@@ -19,10 +20,10 @@ import Stratosphere.Values
 data AutoScalingScheduledAction =
   AutoScalingScheduledAction
   { _autoScalingScheduledActionAutoScalingGroupName :: Val Text
-  , _autoScalingScheduledActionDesiredCapacity :: Maybe (Val Integer')
+  , _autoScalingScheduledActionDesiredCapacity :: Maybe (Val Integer)
   , _autoScalingScheduledActionEndTime :: Maybe (Val Text)
-  , _autoScalingScheduledActionMaxSize :: Maybe (Val Integer')
-  , _autoScalingScheduledActionMinSize :: Maybe (Val Integer')
+  , _autoScalingScheduledActionMaxSize :: Maybe (Val Integer)
+  , _autoScalingScheduledActionMinSize :: Maybe (Val Integer)
   , _autoScalingScheduledActionRecurrence :: Maybe (Val Text)
   , _autoScalingScheduledActionStartTime :: Maybe (Val Text)
   } deriving (Show, Eq)
@@ -31,25 +32,25 @@ instance ToJSON AutoScalingScheduledAction where
   toJSON AutoScalingScheduledAction{..} =
     object $
     catMaybes
-    [ Just ("AutoScalingGroupName" .= _autoScalingScheduledActionAutoScalingGroupName)
-    , ("DesiredCapacity" .=) <$> _autoScalingScheduledActionDesiredCapacity
-    , ("EndTime" .=) <$> _autoScalingScheduledActionEndTime
-    , ("MaxSize" .=) <$> _autoScalingScheduledActionMaxSize
-    , ("MinSize" .=) <$> _autoScalingScheduledActionMinSize
-    , ("Recurrence" .=) <$> _autoScalingScheduledActionRecurrence
-    , ("StartTime" .=) <$> _autoScalingScheduledActionStartTime
+    [ (Just . ("AutoScalingGroupName",) . toJSON) _autoScalingScheduledActionAutoScalingGroupName
+    , fmap (("DesiredCapacity",) . toJSON . fmap Integer') _autoScalingScheduledActionDesiredCapacity
+    , fmap (("EndTime",) . toJSON) _autoScalingScheduledActionEndTime
+    , fmap (("MaxSize",) . toJSON . fmap Integer') _autoScalingScheduledActionMaxSize
+    , fmap (("MinSize",) . toJSON . fmap Integer') _autoScalingScheduledActionMinSize
+    , fmap (("Recurrence",) . toJSON) _autoScalingScheduledActionRecurrence
+    , fmap (("StartTime",) . toJSON) _autoScalingScheduledActionStartTime
     ]
 
 instance FromJSON AutoScalingScheduledAction where
   parseJSON (Object obj) =
     AutoScalingScheduledAction <$>
-      obj .: "AutoScalingGroupName" <*>
-      obj .:? "DesiredCapacity" <*>
-      obj .:? "EndTime" <*>
-      obj .:? "MaxSize" <*>
-      obj .:? "MinSize" <*>
-      obj .:? "Recurrence" <*>
-      obj .:? "StartTime"
+      (obj .: "AutoScalingGroupName") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "DesiredCapacity") <*>
+      (obj .:? "EndTime") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "MaxSize") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "MinSize") <*>
+      (obj .:? "Recurrence") <*>
+      (obj .:? "StartTime")
   parseJSON _ = mempty
 
 -- | Constructor for 'AutoScalingScheduledAction' containing required fields
@@ -73,7 +74,7 @@ assaAutoScalingGroupName :: Lens' AutoScalingScheduledAction (Val Text)
 assaAutoScalingGroupName = lens _autoScalingScheduledActionAutoScalingGroupName (\s a -> s { _autoScalingScheduledActionAutoScalingGroupName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-scheduledaction.html#cfn-as-scheduledaction-desiredcapacity
-assaDesiredCapacity :: Lens' AutoScalingScheduledAction (Maybe (Val Integer'))
+assaDesiredCapacity :: Lens' AutoScalingScheduledAction (Maybe (Val Integer))
 assaDesiredCapacity = lens _autoScalingScheduledActionDesiredCapacity (\s a -> s { _autoScalingScheduledActionDesiredCapacity = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-scheduledaction.html#cfn-as-scheduledaction-endtime
@@ -81,11 +82,11 @@ assaEndTime :: Lens' AutoScalingScheduledAction (Maybe (Val Text))
 assaEndTime = lens _autoScalingScheduledActionEndTime (\s a -> s { _autoScalingScheduledActionEndTime = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-scheduledaction.html#cfn-as-scheduledaction-maxsize
-assaMaxSize :: Lens' AutoScalingScheduledAction (Maybe (Val Integer'))
+assaMaxSize :: Lens' AutoScalingScheduledAction (Maybe (Val Integer))
 assaMaxSize = lens _autoScalingScheduledActionMaxSize (\s a -> s { _autoScalingScheduledActionMaxSize = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-scheduledaction.html#cfn-as-scheduledaction-minsize
-assaMinSize :: Lens' AutoScalingScheduledAction (Maybe (Val Integer'))
+assaMinSize :: Lens' AutoScalingScheduledAction (Maybe (Val Integer))
 assaMinSize = lens _autoScalingScheduledActionMinSize (\s a -> s { _autoScalingScheduledActionMinSize = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-scheduledaction.html#cfn-as-scheduledaction-recurrence

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfigurations-optionsettings.html
 
@@ -26,15 +27,15 @@ instance ToJSON RDSOptionGroupOptionSetting where
   toJSON RDSOptionGroupOptionSetting{..} =
     object $
     catMaybes
-    [ ("Name" .=) <$> _rDSOptionGroupOptionSettingName
-    , ("Value" .=) <$> _rDSOptionGroupOptionSettingValue
+    [ fmap (("Name",) . toJSON) _rDSOptionGroupOptionSettingName
+    , fmap (("Value",) . toJSON) _rDSOptionGroupOptionSettingValue
     ]
 
 instance FromJSON RDSOptionGroupOptionSetting where
   parseJSON (Object obj) =
     RDSOptionGroupOptionSetting <$>
-      obj .:? "Name" <*>
-      obj .:? "Value"
+      (obj .:? "Name") <*>
+      (obj .:? "Value")
   parseJSON _ = mempty
 
 -- | Constructor for 'RDSOptionGroupOptionSetting' containing required fields

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-xssmatchset.html
 
@@ -26,15 +27,15 @@ instance ToJSON WAFRegionalXssMatchSet where
   toJSON WAFRegionalXssMatchSet{..} =
     object $
     catMaybes
-    [ Just ("Name" .= _wAFRegionalXssMatchSetName)
-    , ("XssMatchTuples" .=) <$> _wAFRegionalXssMatchSetXssMatchTuples
+    [ (Just . ("Name",) . toJSON) _wAFRegionalXssMatchSetName
+    , fmap (("XssMatchTuples",) . toJSON) _wAFRegionalXssMatchSetXssMatchTuples
     ]
 
 instance FromJSON WAFRegionalXssMatchSet where
   parseJSON (Object obj) =
     WAFRegionalXssMatchSet <$>
-      obj .: "Name" <*>
-      obj .:? "XssMatchTuples"
+      (obj .: "Name") <*>
+      (obj .:? "XssMatchTuples")
   parseJSON _ = mempty
 
 -- | Constructor for 'WAFRegionalXssMatchSet' containing required fields as

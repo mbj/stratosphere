@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-hostedzoneconfig.html
 
@@ -25,13 +26,13 @@ instance ToJSON Route53HostedZoneHostedZoneConfig where
   toJSON Route53HostedZoneHostedZoneConfig{..} =
     object $
     catMaybes
-    [ ("Comment" .=) <$> _route53HostedZoneHostedZoneConfigComment
+    [ fmap (("Comment",) . toJSON) _route53HostedZoneHostedZoneConfigComment
     ]
 
 instance FromJSON Route53HostedZoneHostedZoneConfig where
   parseJSON (Object obj) =
     Route53HostedZoneHostedZoneConfig <$>
-      obj .:? "Comment"
+      (obj .:? "Comment")
   parseJSON _ = mempty
 
 -- | Constructor for 'Route53HostedZoneHostedZoneConfig' containing required

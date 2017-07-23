@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-s3.html
 
@@ -27,17 +28,17 @@ instance ToJSON IoTTopicRuleS3Action where
   toJSON IoTTopicRuleS3Action{..} =
     object $
     catMaybes
-    [ Just ("BucketName" .= _ioTTopicRuleS3ActionBucketName)
-    , Just ("Key" .= _ioTTopicRuleS3ActionKey)
-    , Just ("RoleArn" .= _ioTTopicRuleS3ActionRoleArn)
+    [ (Just . ("BucketName",) . toJSON) _ioTTopicRuleS3ActionBucketName
+    , (Just . ("Key",) . toJSON) _ioTTopicRuleS3ActionKey
+    , (Just . ("RoleArn",) . toJSON) _ioTTopicRuleS3ActionRoleArn
     ]
 
 instance FromJSON IoTTopicRuleS3Action where
   parseJSON (Object obj) =
     IoTTopicRuleS3Action <$>
-      obj .: "BucketName" <*>
-      obj .: "Key" <*>
-      obj .: "RoleArn"
+      (obj .: "BucketName") <*>
+      (obj .: "Key") <*>
+      (obj .: "RoleArn")
   parseJSON _ = mempty
 
 -- | Constructor for 'IoTTopicRuleS3Action' containing required fields as

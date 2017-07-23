@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-loggingconfig.html
 
@@ -26,15 +27,15 @@ instance ToJSON S3BucketLoggingConfiguration where
   toJSON S3BucketLoggingConfiguration{..} =
     object $
     catMaybes
-    [ ("DestinationBucketName" .=) <$> _s3BucketLoggingConfigurationDestinationBucketName
-    , ("LogFilePrefix" .=) <$> _s3BucketLoggingConfigurationLogFilePrefix
+    [ fmap (("DestinationBucketName",) . toJSON) _s3BucketLoggingConfigurationDestinationBucketName
+    , fmap (("LogFilePrefix",) . toJSON) _s3BucketLoggingConfigurationLogFilePrefix
     ]
 
 instance FromJSON S3BucketLoggingConfiguration where
   parseJSON (Object obj) =
     S3BucketLoggingConfiguration <$>
-      obj .:? "DestinationBucketName" <*>
-      obj .:? "LogFilePrefix"
+      (obj .:? "DestinationBucketName") <*>
+      (obj .:? "LogFilePrefix")
   parseJSON _ = mempty
 
 -- | Constructor for 'S3BucketLoggingConfiguration' containing required fields

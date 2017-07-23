@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-bytematchset.html
 
@@ -26,15 +27,15 @@ instance ToJSON WAFByteMatchSet where
   toJSON WAFByteMatchSet{..} =
     object $
     catMaybes
-    [ ("ByteMatchTuples" .=) <$> _wAFByteMatchSetByteMatchTuples
-    , Just ("Name" .= _wAFByteMatchSetName)
+    [ fmap (("ByteMatchTuples",) . toJSON) _wAFByteMatchSetByteMatchTuples
+    , (Just . ("Name",) . toJSON) _wAFByteMatchSetName
     ]
 
 instance FromJSON WAFByteMatchSet where
   parseJSON (Object obj) =
     WAFByteMatchSet <$>
-      obj .:? "ByteMatchTuples" <*>
-      obj .: "Name"
+      (obj .:? "ByteMatchTuples") <*>
+      (obj .: "Name")
   parseJSON _ = mempty
 
 -- | Constructor for 'WAFByteMatchSet' containing required fields as

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-environment.html
 
@@ -25,13 +26,13 @@ instance ToJSON LambdaFunctionEnvironment where
   toJSON LambdaFunctionEnvironment{..} =
     object $
     catMaybes
-    [ ("Variables" .=) <$> _lambdaFunctionEnvironmentVariables
+    [ fmap (("Variables",) . toJSON) _lambdaFunctionEnvironmentVariables
     ]
 
 instance FromJSON LambdaFunctionEnvironment where
   parseJSON (Object obj) =
     LambdaFunctionEnvironment <$>
-      obj .:? "Variables"
+      (obj .:? "Variables")
   parseJSON _ = mempty
 
 -- | Constructor for 'LambdaFunctionEnvironment' containing required fields as

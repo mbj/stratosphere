@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-parameter.html
 
@@ -28,19 +29,19 @@ instance ToJSON SSMParameter where
   toJSON SSMParameter{..} =
     object $
     catMaybes
-    [ ("Description" .=) <$> _sSMParameterDescription
-    , ("Name" .=) <$> _sSMParameterName
-    , Just ("Type" .= _sSMParameterType)
-    , Just ("Value" .= _sSMParameterValue)
+    [ fmap (("Description",) . toJSON) _sSMParameterDescription
+    , fmap (("Name",) . toJSON) _sSMParameterName
+    , (Just . ("Type",) . toJSON) _sSMParameterType
+    , (Just . ("Value",) . toJSON) _sSMParameterValue
     ]
 
 instance FromJSON SSMParameter where
   parseJSON (Object obj) =
     SSMParameter <$>
-      obj .:? "Description" <*>
-      obj .:? "Name" <*>
-      obj .: "Type" <*>
-      obj .: "Value"
+      (obj .:? "Description") <*>
+      (obj .:? "Name") <*>
+      (obj .: "Type") <*>
+      (obj .: "Value")
   parseJSON _ = mempty
 
 -- | Constructor for 'SSMParameter' containing required fields as arguments.

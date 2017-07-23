@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html
 
@@ -46,43 +47,43 @@ instance ToJSON CognitoUserPool where
   toJSON CognitoUserPool{..} =
     object $
     catMaybes
-    [ ("AdminCreateUserConfig" .=) <$> _cognitoUserPoolAdminCreateUserConfig
-    , ("AliasAttributes" .=) <$> _cognitoUserPoolAliasAttributes
-    , ("AutoVerifiedAttributes" .=) <$> _cognitoUserPoolAutoVerifiedAttributes
-    , ("DeviceConfiguration" .=) <$> _cognitoUserPoolDeviceConfiguration
-    , ("EmailConfiguration" .=) <$> _cognitoUserPoolEmailConfiguration
-    , ("EmailVerificationMessage" .=) <$> _cognitoUserPoolEmailVerificationMessage
-    , ("EmailVerificationSubject" .=) <$> _cognitoUserPoolEmailVerificationSubject
-    , ("LambdaConfig" .=) <$> _cognitoUserPoolLambdaConfig
-    , ("MfaConfiguration" .=) <$> _cognitoUserPoolMfaConfiguration
-    , ("Policies" .=) <$> _cognitoUserPoolPolicies
-    , ("Schema" .=) <$> _cognitoUserPoolSchema
-    , ("SmsAuthenticationMessage" .=) <$> _cognitoUserPoolSmsAuthenticationMessage
-    , ("SmsConfiguration" .=) <$> _cognitoUserPoolSmsConfiguration
-    , ("SmsVerificationMessage" .=) <$> _cognitoUserPoolSmsVerificationMessage
-    , ("UserPoolName" .=) <$> _cognitoUserPoolUserPoolName
-    , ("UserPoolTags" .=) <$> _cognitoUserPoolUserPoolTags
+    [ fmap (("AdminCreateUserConfig",) . toJSON) _cognitoUserPoolAdminCreateUserConfig
+    , fmap (("AliasAttributes",) . toJSON) _cognitoUserPoolAliasAttributes
+    , fmap (("AutoVerifiedAttributes",) . toJSON) _cognitoUserPoolAutoVerifiedAttributes
+    , fmap (("DeviceConfiguration",) . toJSON) _cognitoUserPoolDeviceConfiguration
+    , fmap (("EmailConfiguration",) . toJSON) _cognitoUserPoolEmailConfiguration
+    , fmap (("EmailVerificationMessage",) . toJSON) _cognitoUserPoolEmailVerificationMessage
+    , fmap (("EmailVerificationSubject",) . toJSON) _cognitoUserPoolEmailVerificationSubject
+    , fmap (("LambdaConfig",) . toJSON) _cognitoUserPoolLambdaConfig
+    , fmap (("MfaConfiguration",) . toJSON) _cognitoUserPoolMfaConfiguration
+    , fmap (("Policies",) . toJSON) _cognitoUserPoolPolicies
+    , fmap (("Schema",) . toJSON) _cognitoUserPoolSchema
+    , fmap (("SmsAuthenticationMessage",) . toJSON) _cognitoUserPoolSmsAuthenticationMessage
+    , fmap (("SmsConfiguration",) . toJSON) _cognitoUserPoolSmsConfiguration
+    , fmap (("SmsVerificationMessage",) . toJSON) _cognitoUserPoolSmsVerificationMessage
+    , fmap (("UserPoolName",) . toJSON) _cognitoUserPoolUserPoolName
+    , fmap (("UserPoolTags",) . toJSON) _cognitoUserPoolUserPoolTags
     ]
 
 instance FromJSON CognitoUserPool where
   parseJSON (Object obj) =
     CognitoUserPool <$>
-      obj .:? "AdminCreateUserConfig" <*>
-      obj .:? "AliasAttributes" <*>
-      obj .:? "AutoVerifiedAttributes" <*>
-      obj .:? "DeviceConfiguration" <*>
-      obj .:? "EmailConfiguration" <*>
-      obj .:? "EmailVerificationMessage" <*>
-      obj .:? "EmailVerificationSubject" <*>
-      obj .:? "LambdaConfig" <*>
-      obj .:? "MfaConfiguration" <*>
-      obj .:? "Policies" <*>
-      obj .:? "Schema" <*>
-      obj .:? "SmsAuthenticationMessage" <*>
-      obj .:? "SmsConfiguration" <*>
-      obj .:? "SmsVerificationMessage" <*>
-      obj .:? "UserPoolName" <*>
-      obj .:? "UserPoolTags"
+      (obj .:? "AdminCreateUserConfig") <*>
+      (obj .:? "AliasAttributes") <*>
+      (obj .:? "AutoVerifiedAttributes") <*>
+      (obj .:? "DeviceConfiguration") <*>
+      (obj .:? "EmailConfiguration") <*>
+      (obj .:? "EmailVerificationMessage") <*>
+      (obj .:? "EmailVerificationSubject") <*>
+      (obj .:? "LambdaConfig") <*>
+      (obj .:? "MfaConfiguration") <*>
+      (obj .:? "Policies") <*>
+      (obj .:? "Schema") <*>
+      (obj .:? "SmsAuthenticationMessage") <*>
+      (obj .:? "SmsConfiguration") <*>
+      (obj .:? "SmsVerificationMessage") <*>
+      (obj .:? "UserPoolName") <*>
+      (obj .:? "UserPoolTags")
   parseJSON _ = mempty
 
 -- | Constructor for 'CognitoUserPool' containing required fields as

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc-dhcp-options-assoc.html
 
@@ -26,15 +27,15 @@ instance ToJSON EC2VPCDHCPOptionsAssociation where
   toJSON EC2VPCDHCPOptionsAssociation{..} =
     object $
     catMaybes
-    [ Just ("DhcpOptionsId" .= _eC2VPCDHCPOptionsAssociationDhcpOptionsId)
-    , Just ("VpcId" .= _eC2VPCDHCPOptionsAssociationVpcId)
+    [ (Just . ("DhcpOptionsId",) . toJSON) _eC2VPCDHCPOptionsAssociationDhcpOptionsId
+    , (Just . ("VpcId",) . toJSON) _eC2VPCDHCPOptionsAssociationVpcId
     ]
 
 instance FromJSON EC2VPCDHCPOptionsAssociation where
   parseJSON (Object obj) =
     EC2VPCDHCPOptionsAssociation <$>
-      obj .: "DhcpOptionsId" <*>
-      obj .: "VpcId"
+      (obj .: "DhcpOptionsId") <*>
+      (obj .: "VpcId")
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2VPCDHCPOptionsAssociation' containing required fields

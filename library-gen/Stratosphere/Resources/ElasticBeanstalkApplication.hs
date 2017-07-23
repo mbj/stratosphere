@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk.html
 
@@ -26,15 +27,15 @@ instance ToJSON ElasticBeanstalkApplication where
   toJSON ElasticBeanstalkApplication{..} =
     object $
     catMaybes
-    [ ("ApplicationName" .=) <$> _elasticBeanstalkApplicationApplicationName
-    , ("Description" .=) <$> _elasticBeanstalkApplicationDescription
+    [ fmap (("ApplicationName",) . toJSON) _elasticBeanstalkApplicationApplicationName
+    , fmap (("Description",) . toJSON) _elasticBeanstalkApplicationDescription
     ]
 
 instance FromJSON ElasticBeanstalkApplication where
   parseJSON (Object obj) =
     ElasticBeanstalkApplication <$>
-      obj .:? "ApplicationName" <*>
-      obj .:? "Description"
+      (obj .:? "ApplicationName") <*>
+      (obj .:? "Description")
   parseJSON _ = mempty
 
 -- | Constructor for 'ElasticBeanstalkApplication' containing required fields

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group.html
 
@@ -32,23 +33,23 @@ instance ToJSON EC2SecurityGroup where
   toJSON EC2SecurityGroup{..} =
     object $
     catMaybes
-    [ Just ("GroupDescription" .= _eC2SecurityGroupGroupDescription)
-    , ("GroupName" .=) <$> _eC2SecurityGroupGroupName
-    , ("SecurityGroupEgress" .=) <$> _eC2SecurityGroupSecurityGroupEgress
-    , ("SecurityGroupIngress" .=) <$> _eC2SecurityGroupSecurityGroupIngress
-    , ("Tags" .=) <$> _eC2SecurityGroupTags
-    , ("VpcId" .=) <$> _eC2SecurityGroupVpcId
+    [ (Just . ("GroupDescription",) . toJSON) _eC2SecurityGroupGroupDescription
+    , fmap (("GroupName",) . toJSON) _eC2SecurityGroupGroupName
+    , fmap (("SecurityGroupEgress",) . toJSON) _eC2SecurityGroupSecurityGroupEgress
+    , fmap (("SecurityGroupIngress",) . toJSON) _eC2SecurityGroupSecurityGroupIngress
+    , fmap (("Tags",) . toJSON) _eC2SecurityGroupTags
+    , fmap (("VpcId",) . toJSON) _eC2SecurityGroupVpcId
     ]
 
 instance FromJSON EC2SecurityGroup where
   parseJSON (Object obj) =
     EC2SecurityGroup <$>
-      obj .: "GroupDescription" <*>
-      obj .:? "GroupName" <*>
-      obj .:? "SecurityGroupEgress" <*>
-      obj .:? "SecurityGroupIngress" <*>
-      obj .:? "Tags" <*>
-      obj .:? "VpcId"
+      (obj .: "GroupDescription") <*>
+      (obj .:? "GroupName") <*>
+      (obj .:? "SecurityGroupEgress") <*>
+      (obj .:? "SecurityGroupIngress") <*>
+      (obj .:? "Tags") <*>
+      (obj .:? "VpcId")
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2SecurityGroup' containing required fields as

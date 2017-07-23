@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentconfiguration.html
 
@@ -18,23 +19,23 @@ import Stratosphere.Values
 -- 'ecsServiceDeploymentConfiguration' for a more convenient constructor.
 data ECSServiceDeploymentConfiguration =
   ECSServiceDeploymentConfiguration
-  { _eCSServiceDeploymentConfigurationMaximumPercent :: Maybe (Val Integer')
-  , _eCSServiceDeploymentConfigurationMinimumHealthyPercent :: Maybe (Val Integer')
+  { _eCSServiceDeploymentConfigurationMaximumPercent :: Maybe (Val Integer)
+  , _eCSServiceDeploymentConfigurationMinimumHealthyPercent :: Maybe (Val Integer)
   } deriving (Show, Eq)
 
 instance ToJSON ECSServiceDeploymentConfiguration where
   toJSON ECSServiceDeploymentConfiguration{..} =
     object $
     catMaybes
-    [ ("MaximumPercent" .=) <$> _eCSServiceDeploymentConfigurationMaximumPercent
-    , ("MinimumHealthyPercent" .=) <$> _eCSServiceDeploymentConfigurationMinimumHealthyPercent
+    [ fmap (("MaximumPercent",) . toJSON . fmap Integer') _eCSServiceDeploymentConfigurationMaximumPercent
+    , fmap (("MinimumHealthyPercent",) . toJSON . fmap Integer') _eCSServiceDeploymentConfigurationMinimumHealthyPercent
     ]
 
 instance FromJSON ECSServiceDeploymentConfiguration where
   parseJSON (Object obj) =
     ECSServiceDeploymentConfiguration <$>
-      obj .:? "MaximumPercent" <*>
-      obj .:? "MinimumHealthyPercent"
+      fmap (fmap (fmap unInteger')) (obj .:? "MaximumPercent") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "MinimumHealthyPercent")
   parseJSON _ = mempty
 
 -- | Constructor for 'ECSServiceDeploymentConfiguration' containing required
@@ -48,9 +49,9 @@ ecsServiceDeploymentConfiguration  =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentconfiguration.html#cfn-ecs-service-deploymentconfiguration-maximumpercent
-ecssdcMaximumPercent :: Lens' ECSServiceDeploymentConfiguration (Maybe (Val Integer'))
+ecssdcMaximumPercent :: Lens' ECSServiceDeploymentConfiguration (Maybe (Val Integer))
 ecssdcMaximumPercent = lens _eCSServiceDeploymentConfigurationMaximumPercent (\s a -> s { _eCSServiceDeploymentConfigurationMaximumPercent = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentconfiguration.html#cfn-ecs-service-deploymentconfiguration-minimumhealthypercent
-ecssdcMinimumHealthyPercent :: Lens' ECSServiceDeploymentConfiguration (Maybe (Val Integer'))
+ecssdcMinimumHealthyPercent :: Lens' ECSServiceDeploymentConfiguration (Maybe (Val Integer))
 ecssdcMinimumHealthyPercent = lens _eCSServiceDeploymentConfigurationMinimumHealthyPercent (\s a -> s { _eCSServiceDeploymentConfigurationMinimumHealthyPercent = a })

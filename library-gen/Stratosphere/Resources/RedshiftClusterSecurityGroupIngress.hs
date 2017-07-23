@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clustersecuritygroupingress.html
 
@@ -28,19 +29,19 @@ instance ToJSON RedshiftClusterSecurityGroupIngress where
   toJSON RedshiftClusterSecurityGroupIngress{..} =
     object $
     catMaybes
-    [ ("CIDRIP" .=) <$> _redshiftClusterSecurityGroupIngressCIDRIP
-    , Just ("ClusterSecurityGroupName" .= _redshiftClusterSecurityGroupIngressClusterSecurityGroupName)
-    , ("EC2SecurityGroupName" .=) <$> _redshiftClusterSecurityGroupIngressEC2SecurityGroupName
-    , ("EC2SecurityGroupOwnerId" .=) <$> _redshiftClusterSecurityGroupIngressEC2SecurityGroupOwnerId
+    [ fmap (("CIDRIP",) . toJSON) _redshiftClusterSecurityGroupIngressCIDRIP
+    , (Just . ("ClusterSecurityGroupName",) . toJSON) _redshiftClusterSecurityGroupIngressClusterSecurityGroupName
+    , fmap (("EC2SecurityGroupName",) . toJSON) _redshiftClusterSecurityGroupIngressEC2SecurityGroupName
+    , fmap (("EC2SecurityGroupOwnerId",) . toJSON) _redshiftClusterSecurityGroupIngressEC2SecurityGroupOwnerId
     ]
 
 instance FromJSON RedshiftClusterSecurityGroupIngress where
   parseJSON (Object obj) =
     RedshiftClusterSecurityGroupIngress <$>
-      obj .:? "CIDRIP" <*>
-      obj .: "ClusterSecurityGroupName" <*>
-      obj .:? "EC2SecurityGroupName" <*>
-      obj .:? "EC2SecurityGroupOwnerId"
+      (obj .:? "CIDRIP") <*>
+      (obj .: "ClusterSecurityGroupName") <*>
+      (obj .:? "EC2SecurityGroupName") <*>
+      (obj .:? "EC2SecurityGroupOwnerId")
   parseJSON _ = mempty
 
 -- | Constructor for 'RedshiftClusterSecurityGroupIngress' containing required

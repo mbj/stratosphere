@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolgroup.html
 
@@ -20,7 +21,7 @@ data CognitoUserPoolGroup =
   CognitoUserPoolGroup
   { _cognitoUserPoolGroupDescription :: Maybe (Val Text)
   , _cognitoUserPoolGroupGroupName :: Maybe (Val Text)
-  , _cognitoUserPoolGroupPrecedence :: Maybe (Val Double')
+  , _cognitoUserPoolGroupPrecedence :: Maybe (Val Double)
   , _cognitoUserPoolGroupRoleArn :: Maybe (Val Text)
   , _cognitoUserPoolGroupUserPoolId :: Val Text
   } deriving (Show, Eq)
@@ -29,21 +30,21 @@ instance ToJSON CognitoUserPoolGroup where
   toJSON CognitoUserPoolGroup{..} =
     object $
     catMaybes
-    [ ("Description" .=) <$> _cognitoUserPoolGroupDescription
-    , ("GroupName" .=) <$> _cognitoUserPoolGroupGroupName
-    , ("Precedence" .=) <$> _cognitoUserPoolGroupPrecedence
-    , ("RoleArn" .=) <$> _cognitoUserPoolGroupRoleArn
-    , Just ("UserPoolId" .= _cognitoUserPoolGroupUserPoolId)
+    [ fmap (("Description",) . toJSON) _cognitoUserPoolGroupDescription
+    , fmap (("GroupName",) . toJSON) _cognitoUserPoolGroupGroupName
+    , fmap (("Precedence",) . toJSON . fmap Double') _cognitoUserPoolGroupPrecedence
+    , fmap (("RoleArn",) . toJSON) _cognitoUserPoolGroupRoleArn
+    , (Just . ("UserPoolId",) . toJSON) _cognitoUserPoolGroupUserPoolId
     ]
 
 instance FromJSON CognitoUserPoolGroup where
   parseJSON (Object obj) =
     CognitoUserPoolGroup <$>
-      obj .:? "Description" <*>
-      obj .:? "GroupName" <*>
-      obj .:? "Precedence" <*>
-      obj .:? "RoleArn" <*>
-      obj .: "UserPoolId"
+      (obj .:? "Description") <*>
+      (obj .:? "GroupName") <*>
+      fmap (fmap (fmap unDouble')) (obj .:? "Precedence") <*>
+      (obj .:? "RoleArn") <*>
+      (obj .: "UserPoolId")
   parseJSON _ = mempty
 
 -- | Constructor for 'CognitoUserPoolGroup' containing required fields as
@@ -69,7 +70,7 @@ cupgGroupName :: Lens' CognitoUserPoolGroup (Maybe (Val Text))
 cupgGroupName = lens _cognitoUserPoolGroupGroupName (\s a -> s { _cognitoUserPoolGroupGroupName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolgroup.html#cfn-cognito-userpoolgroup-precedence
-cupgPrecedence :: Lens' CognitoUserPoolGroup (Maybe (Val Double'))
+cupgPrecedence :: Lens' CognitoUserPoolGroup (Maybe (Val Double))
 cupgPrecedence = lens _cognitoUserPoolGroupPrecedence (\s a -> s { _cognitoUserPoolGroupPrecedence = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolgroup.html#cfn-cognito-userpoolgroup-rolearn

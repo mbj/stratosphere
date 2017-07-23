@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcpeeringconnection.html
 
@@ -29,21 +30,21 @@ instance ToJSON EC2VPCPeeringConnection where
   toJSON EC2VPCPeeringConnection{..} =
     object $
     catMaybes
-    [ ("PeerOwnerId" .=) <$> _eC2VPCPeeringConnectionPeerOwnerId
-    , ("PeerRoleArn" .=) <$> _eC2VPCPeeringConnectionPeerRoleArn
-    , Just ("PeerVpcId" .= _eC2VPCPeeringConnectionPeerVpcId)
-    , ("Tags" .=) <$> _eC2VPCPeeringConnectionTags
-    , Just ("VpcId" .= _eC2VPCPeeringConnectionVpcId)
+    [ fmap (("PeerOwnerId",) . toJSON) _eC2VPCPeeringConnectionPeerOwnerId
+    , fmap (("PeerRoleArn",) . toJSON) _eC2VPCPeeringConnectionPeerRoleArn
+    , (Just . ("PeerVpcId",) . toJSON) _eC2VPCPeeringConnectionPeerVpcId
+    , fmap (("Tags",) . toJSON) _eC2VPCPeeringConnectionTags
+    , (Just . ("VpcId",) . toJSON) _eC2VPCPeeringConnectionVpcId
     ]
 
 instance FromJSON EC2VPCPeeringConnection where
   parseJSON (Object obj) =
     EC2VPCPeeringConnection <$>
-      obj .:? "PeerOwnerId" <*>
-      obj .:? "PeerRoleArn" <*>
-      obj .: "PeerVpcId" <*>
-      obj .:? "Tags" <*>
-      obj .: "VpcId"
+      (obj .:? "PeerOwnerId") <*>
+      (obj .:? "PeerRoleArn") <*>
+      (obj .: "PeerVpcId") <*>
+      (obj .:? "Tags") <*>
+      (obj .: "VpcId")
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2VPCPeeringConnection' containing required fields as

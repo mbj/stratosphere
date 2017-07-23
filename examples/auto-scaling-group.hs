@@ -55,14 +55,14 @@ asgUpdatePolicy =
   updatePolicy
   & upAutoScalingScheduledAction ?~ (
     autoScalingScheduledActionPolicy
-    & assapIgnoreUnmodifiedGroupSizeProperties ?~ Literal True'
+    & assapIgnoreUnmodifiedGroupSizeProperties ?~ Literal True
     )
   & upAutoScalingRollingUpdate ?~ (
     autoScalingRollingUpdatePolicy
     & asrupMinInstancesInService ?~ Literal 1
     & asrupMaxBatchSize ?~ Literal 2
     & asrupPauseTime ?~ "PT15M"
-    & asrupWaitOnResourceSignals ?~ Literal True'
+    & asrupWaitOnResourceSignals ?~ Literal True
     )
 
 launchConfigResource :: Resource

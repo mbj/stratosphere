@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-listener.html
 
@@ -31,23 +32,23 @@ instance ToJSON ElasticLoadBalancingLoadBalancerListeners where
   toJSON ElasticLoadBalancingLoadBalancerListeners{..} =
     object $
     catMaybes
-    [ Just ("InstancePort" .= _elasticLoadBalancingLoadBalancerListenersInstancePort)
-    , ("InstanceProtocol" .=) <$> _elasticLoadBalancingLoadBalancerListenersInstanceProtocol
-    , Just ("LoadBalancerPort" .= _elasticLoadBalancingLoadBalancerListenersLoadBalancerPort)
-    , ("PolicyNames" .=) <$> _elasticLoadBalancingLoadBalancerListenersPolicyNames
-    , Just ("Protocol" .= _elasticLoadBalancingLoadBalancerListenersProtocol)
-    , ("SSLCertificateId" .=) <$> _elasticLoadBalancingLoadBalancerListenersSSLCertificateId
+    [ (Just . ("InstancePort",) . toJSON) _elasticLoadBalancingLoadBalancerListenersInstancePort
+    , fmap (("InstanceProtocol",) . toJSON) _elasticLoadBalancingLoadBalancerListenersInstanceProtocol
+    , (Just . ("LoadBalancerPort",) . toJSON) _elasticLoadBalancingLoadBalancerListenersLoadBalancerPort
+    , fmap (("PolicyNames",) . toJSON) _elasticLoadBalancingLoadBalancerListenersPolicyNames
+    , (Just . ("Protocol",) . toJSON) _elasticLoadBalancingLoadBalancerListenersProtocol
+    , fmap (("SSLCertificateId",) . toJSON) _elasticLoadBalancingLoadBalancerListenersSSLCertificateId
     ]
 
 instance FromJSON ElasticLoadBalancingLoadBalancerListeners where
   parseJSON (Object obj) =
     ElasticLoadBalancingLoadBalancerListeners <$>
-      obj .: "InstancePort" <*>
-      obj .:? "InstanceProtocol" <*>
-      obj .: "LoadBalancerPort" <*>
-      obj .:? "PolicyNames" <*>
-      obj .: "Protocol" <*>
-      obj .:? "SSLCertificateId"
+      (obj .: "InstancePort") <*>
+      (obj .:? "InstanceProtocol") <*>
+      (obj .: "LoadBalancerPort") <*>
+      (obj .:? "PolicyNames") <*>
+      (obj .: "Protocol") <*>
+      (obj .:? "SSLCertificateId")
   parseJSON _ = mempty
 
 -- | Constructor for 'ElasticLoadBalancingLoadBalancerListeners' containing

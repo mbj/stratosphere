@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-directoryservice-simplead-vpcsettings.html
 
@@ -26,15 +27,15 @@ instance ToJSON DirectoryServiceSimpleADVpcSettings where
   toJSON DirectoryServiceSimpleADVpcSettings{..} =
     object $
     catMaybes
-    [ Just ("SubnetIds" .= _directoryServiceSimpleADVpcSettingsSubnetIds)
-    , Just ("VpcId" .= _directoryServiceSimpleADVpcSettingsVpcId)
+    [ (Just . ("SubnetIds",) . toJSON) _directoryServiceSimpleADVpcSettingsSubnetIds
+    , (Just . ("VpcId",) . toJSON) _directoryServiceSimpleADVpcSettingsVpcId
     ]
 
 instance FromJSON DirectoryServiceSimpleADVpcSettings where
   parseJSON (Object obj) =
     DirectoryServiceSimpleADVpcSettings <$>
-      obj .: "SubnetIds" <*>
-      obj .: "VpcId"
+      (obj .: "SubnetIds") <*>
+      (obj .: "VpcId")
   parseJSON _ = mempty
 
 -- | Constructor for 'DirectoryServiceSimpleADVpcSettings' containing required

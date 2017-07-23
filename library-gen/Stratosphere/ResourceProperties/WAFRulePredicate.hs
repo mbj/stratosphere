@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-rule-predicates.html
 
@@ -19,7 +20,7 @@ import Stratosphere.Values
 data WAFRulePredicate =
   WAFRulePredicate
   { _wAFRulePredicateDataId :: Val Text
-  , _wAFRulePredicateNegated :: Val Bool'
+  , _wAFRulePredicateNegated :: Val Bool
   , _wAFRulePredicateType :: Val Text
   } deriving (Show, Eq)
 
@@ -27,24 +28,24 @@ instance ToJSON WAFRulePredicate where
   toJSON WAFRulePredicate{..} =
     object $
     catMaybes
-    [ Just ("DataId" .= _wAFRulePredicateDataId)
-    , Just ("Negated" .= _wAFRulePredicateNegated)
-    , Just ("Type" .= _wAFRulePredicateType)
+    [ (Just . ("DataId",) . toJSON) _wAFRulePredicateDataId
+    , (Just . ("Negated",) . toJSON . fmap Bool') _wAFRulePredicateNegated
+    , (Just . ("Type",) . toJSON) _wAFRulePredicateType
     ]
 
 instance FromJSON WAFRulePredicate where
   parseJSON (Object obj) =
     WAFRulePredicate <$>
-      obj .: "DataId" <*>
-      obj .: "Negated" <*>
-      obj .: "Type"
+      (obj .: "DataId") <*>
+      fmap (fmap unBool') (obj .: "Negated") <*>
+      (obj .: "Type")
   parseJSON _ = mempty
 
 -- | Constructor for 'WAFRulePredicate' containing required fields as
 -- arguments.
 wafRulePredicate
   :: Val Text -- ^ 'wafrpDataId'
-  -> Val Bool' -- ^ 'wafrpNegated'
+  -> Val Bool -- ^ 'wafrpNegated'
   -> Val Text -- ^ 'wafrpType'
   -> WAFRulePredicate
 wafRulePredicate dataIdarg negatedarg typearg =
@@ -59,7 +60,7 @@ wafrpDataId :: Lens' WAFRulePredicate (Val Text)
 wafrpDataId = lens _wAFRulePredicateDataId (\s a -> s { _wAFRulePredicateDataId = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-rule-predicates.html#cfn-waf-rule-predicates-negated
-wafrpNegated :: Lens' WAFRulePredicate (Val Bool')
+wafrpNegated :: Lens' WAFRulePredicate (Val Bool)
 wafrpNegated = lens _wAFRulePredicateNegated (\s a -> s { _wAFRulePredicateNegated = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-rule-predicates.html#cfn-waf-rule-predicates-type

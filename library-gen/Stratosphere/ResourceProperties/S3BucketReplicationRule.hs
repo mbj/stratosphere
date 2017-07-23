@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules.html
 
@@ -28,19 +29,19 @@ instance ToJSON S3BucketReplicationRule where
   toJSON S3BucketReplicationRule{..} =
     object $
     catMaybes
-    [ Just ("Destination" .= _s3BucketReplicationRuleDestination)
-    , ("Id" .=) <$> _s3BucketReplicationRuleId
-    , Just ("Prefix" .= _s3BucketReplicationRulePrefix)
-    , Just ("Status" .= _s3BucketReplicationRuleStatus)
+    [ (Just . ("Destination",) . toJSON) _s3BucketReplicationRuleDestination
+    , fmap (("Id",) . toJSON) _s3BucketReplicationRuleId
+    , (Just . ("Prefix",) . toJSON) _s3BucketReplicationRulePrefix
+    , (Just . ("Status",) . toJSON) _s3BucketReplicationRuleStatus
     ]
 
 instance FromJSON S3BucketReplicationRule where
   parseJSON (Object obj) =
     S3BucketReplicationRule <$>
-      obj .: "Destination" <*>
-      obj .:? "Id" <*>
-      obj .: "Prefix" <*>
-      obj .: "Status"
+      (obj .: "Destination") <*>
+      (obj .:? "Id") <*>
+      (obj .: "Prefix") <*>
+      (obj .: "Status")
   parseJSON _ = mempty
 
 -- | Constructor for 'S3BucketReplicationRule' containing required fields as

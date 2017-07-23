@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-sizeconstraintset.html
 
@@ -26,15 +27,15 @@ instance ToJSON WAFRegionalSizeConstraintSet where
   toJSON WAFRegionalSizeConstraintSet{..} =
     object $
     catMaybes
-    [ Just ("Name" .= _wAFRegionalSizeConstraintSetName)
-    , ("SizeConstraints" .=) <$> _wAFRegionalSizeConstraintSetSizeConstraints
+    [ (Just . ("Name",) . toJSON) _wAFRegionalSizeConstraintSetName
+    , fmap (("SizeConstraints",) . toJSON) _wAFRegionalSizeConstraintSetSizeConstraints
     ]
 
 instance FromJSON WAFRegionalSizeConstraintSet where
   parseJSON (Object obj) =
     WAFRegionalSizeConstraintSet <$>
-      obj .: "Name" <*>
-      obj .:? "SizeConstraints"
+      (obj .: "Name") <*>
+      (obj .:? "SizeConstraints")
   parseJSON _ = mempty
 
 -- | Constructor for 'WAFRegionalSizeConstraintSet' containing required fields

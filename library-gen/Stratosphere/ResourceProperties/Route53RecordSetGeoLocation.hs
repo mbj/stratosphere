@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset-geolocation.html
 
@@ -27,17 +28,17 @@ instance ToJSON Route53RecordSetGeoLocation where
   toJSON Route53RecordSetGeoLocation{..} =
     object $
     catMaybes
-    [ ("ContinentCode" .=) <$> _route53RecordSetGeoLocationContinentCode
-    , ("CountryCode" .=) <$> _route53RecordSetGeoLocationCountryCode
-    , ("SubdivisionCode" .=) <$> _route53RecordSetGeoLocationSubdivisionCode
+    [ fmap (("ContinentCode",) . toJSON) _route53RecordSetGeoLocationContinentCode
+    , fmap (("CountryCode",) . toJSON) _route53RecordSetGeoLocationCountryCode
+    , fmap (("SubdivisionCode",) . toJSON) _route53RecordSetGeoLocationSubdivisionCode
     ]
 
 instance FromJSON Route53RecordSetGeoLocation where
   parseJSON (Object obj) =
     Route53RecordSetGeoLocation <$>
-      obj .:? "ContinentCode" <*>
-      obj .:? "CountryCode" <*>
-      obj .:? "SubdivisionCode"
+      (obj .:? "ContinentCode") <*>
+      (obj .:? "CountryCode") <*>
+      (obj .:? "SubdivisionCode")
   parseJSON _ = mempty
 
 -- | Constructor for 'Route53RecordSetGeoLocation' containing required fields

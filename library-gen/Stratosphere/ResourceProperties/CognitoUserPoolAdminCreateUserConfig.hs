@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-admincreateuserconfig.html
 
@@ -18,26 +19,26 @@ import Stratosphere.ResourceProperties.CognitoUserPoolInviteMessageTemplate
 -- 'cognitoUserPoolAdminCreateUserConfig' for a more convenient constructor.
 data CognitoUserPoolAdminCreateUserConfig =
   CognitoUserPoolAdminCreateUserConfig
-  { _cognitoUserPoolAdminCreateUserConfigAllowAdminCreateUserOnly :: Maybe (Val Bool')
+  { _cognitoUserPoolAdminCreateUserConfigAllowAdminCreateUserOnly :: Maybe (Val Bool)
   , _cognitoUserPoolAdminCreateUserConfigInviteMessageTemplate :: Maybe CognitoUserPoolInviteMessageTemplate
-  , _cognitoUserPoolAdminCreateUserConfigUnusedAccountValidityDays :: Maybe (Val Double')
+  , _cognitoUserPoolAdminCreateUserConfigUnusedAccountValidityDays :: Maybe (Val Double)
   } deriving (Show, Eq)
 
 instance ToJSON CognitoUserPoolAdminCreateUserConfig where
   toJSON CognitoUserPoolAdminCreateUserConfig{..} =
     object $
     catMaybes
-    [ ("AllowAdminCreateUserOnly" .=) <$> _cognitoUserPoolAdminCreateUserConfigAllowAdminCreateUserOnly
-    , ("InviteMessageTemplate" .=) <$> _cognitoUserPoolAdminCreateUserConfigInviteMessageTemplate
-    , ("UnusedAccountValidityDays" .=) <$> _cognitoUserPoolAdminCreateUserConfigUnusedAccountValidityDays
+    [ fmap (("AllowAdminCreateUserOnly",) . toJSON . fmap Bool') _cognitoUserPoolAdminCreateUserConfigAllowAdminCreateUserOnly
+    , fmap (("InviteMessageTemplate",) . toJSON) _cognitoUserPoolAdminCreateUserConfigInviteMessageTemplate
+    , fmap (("UnusedAccountValidityDays",) . toJSON . fmap Double') _cognitoUserPoolAdminCreateUserConfigUnusedAccountValidityDays
     ]
 
 instance FromJSON CognitoUserPoolAdminCreateUserConfig where
   parseJSON (Object obj) =
     CognitoUserPoolAdminCreateUserConfig <$>
-      obj .:? "AllowAdminCreateUserOnly" <*>
-      obj .:? "InviteMessageTemplate" <*>
-      obj .:? "UnusedAccountValidityDays"
+      fmap (fmap (fmap unBool')) (obj .:? "AllowAdminCreateUserOnly") <*>
+      (obj .:? "InviteMessageTemplate") <*>
+      fmap (fmap (fmap unDouble')) (obj .:? "UnusedAccountValidityDays")
   parseJSON _ = mempty
 
 -- | Constructor for 'CognitoUserPoolAdminCreateUserConfig' containing
@@ -52,7 +53,7 @@ cognitoUserPoolAdminCreateUserConfig  =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-admincreateuserconfig.html#cfn-cognito-userpool-admincreateuserconfig-allowadmincreateuseronly
-cupacucAllowAdminCreateUserOnly :: Lens' CognitoUserPoolAdminCreateUserConfig (Maybe (Val Bool'))
+cupacucAllowAdminCreateUserOnly :: Lens' CognitoUserPoolAdminCreateUserConfig (Maybe (Val Bool))
 cupacucAllowAdminCreateUserOnly = lens _cognitoUserPoolAdminCreateUserConfigAllowAdminCreateUserOnly (\s a -> s { _cognitoUserPoolAdminCreateUserConfigAllowAdminCreateUserOnly = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-admincreateuserconfig.html#cfn-cognito-userpool-admincreateuserconfig-invitemessagetemplate
@@ -60,5 +61,5 @@ cupacucInviteMessageTemplate :: Lens' CognitoUserPoolAdminCreateUserConfig (Mayb
 cupacucInviteMessageTemplate = lens _cognitoUserPoolAdminCreateUserConfigInviteMessageTemplate (\s a -> s { _cognitoUserPoolAdminCreateUserConfigInviteMessageTemplate = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-admincreateuserconfig.html#cfn-cognito-userpool-admincreateuserconfig-unusedaccountvaliditydays
-cupacucUnusedAccountValidityDays :: Lens' CognitoUserPoolAdminCreateUserConfig (Maybe (Val Double'))
+cupacucUnusedAccountValidityDays :: Lens' CognitoUserPoolAdminCreateUserConfig (Maybe (Val Double))
 cupacucUnusedAccountValidityDays = lens _cognitoUserPoolAdminCreateUserConfigUnusedAccountValidityDays (\s a -> s { _cognitoUserPoolAdminCreateUserConfigUnusedAccountValidityDays = a })

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-eip-association.html
 
@@ -29,21 +30,21 @@ instance ToJSON EC2EIPAssociation where
   toJSON EC2EIPAssociation{..} =
     object $
     catMaybes
-    [ ("AllocationId" .=) <$> _eC2EIPAssociationAllocationId
-    , ("EIP" .=) <$> _eC2EIPAssociationEIP
-    , ("InstanceId" .=) <$> _eC2EIPAssociationInstanceId
-    , ("NetworkInterfaceId" .=) <$> _eC2EIPAssociationNetworkInterfaceId
-    , ("PrivateIpAddress" .=) <$> _eC2EIPAssociationPrivateIpAddress
+    [ fmap (("AllocationId",) . toJSON) _eC2EIPAssociationAllocationId
+    , fmap (("EIP",) . toJSON) _eC2EIPAssociationEIP
+    , fmap (("InstanceId",) . toJSON) _eC2EIPAssociationInstanceId
+    , fmap (("NetworkInterfaceId",) . toJSON) _eC2EIPAssociationNetworkInterfaceId
+    , fmap (("PrivateIpAddress",) . toJSON) _eC2EIPAssociationPrivateIpAddress
     ]
 
 instance FromJSON EC2EIPAssociation where
   parseJSON (Object obj) =
     EC2EIPAssociation <$>
-      obj .:? "AllocationId" <*>
-      obj .:? "EIP" <*>
-      obj .:? "InstanceId" <*>
-      obj .:? "NetworkInterfaceId" <*>
-      obj .:? "PrivateIpAddress"
+      (obj .:? "AllocationId") <*>
+      (obj .:? "EIP") <*>
+      (obj .:? "InstanceId") <*>
+      (obj .:? "NetworkInterfaceId") <*>
+      (obj .:? "PrivateIpAddress")
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2EIPAssociation' containing required fields as

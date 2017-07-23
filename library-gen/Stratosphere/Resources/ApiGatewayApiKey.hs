@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html
 
@@ -19,7 +20,7 @@ import Stratosphere.ResourceProperties.ApiGatewayApiKeyStageKey
 data ApiGatewayApiKey =
   ApiGatewayApiKey
   { _apiGatewayApiKeyDescription :: Maybe (Val Text)
-  , _apiGatewayApiKeyEnabled :: Maybe (Val Bool')
+  , _apiGatewayApiKeyEnabled :: Maybe (Val Bool)
   , _apiGatewayApiKeyName :: Maybe (Val Text)
   , _apiGatewayApiKeyStageKeys :: Maybe [ApiGatewayApiKeyStageKey]
   } deriving (Show, Eq)
@@ -28,19 +29,19 @@ instance ToJSON ApiGatewayApiKey where
   toJSON ApiGatewayApiKey{..} =
     object $
     catMaybes
-    [ ("Description" .=) <$> _apiGatewayApiKeyDescription
-    , ("Enabled" .=) <$> _apiGatewayApiKeyEnabled
-    , ("Name" .=) <$> _apiGatewayApiKeyName
-    , ("StageKeys" .=) <$> _apiGatewayApiKeyStageKeys
+    [ fmap (("Description",) . toJSON) _apiGatewayApiKeyDescription
+    , fmap (("Enabled",) . toJSON . fmap Bool') _apiGatewayApiKeyEnabled
+    , fmap (("Name",) . toJSON) _apiGatewayApiKeyName
+    , fmap (("StageKeys",) . toJSON) _apiGatewayApiKeyStageKeys
     ]
 
 instance FromJSON ApiGatewayApiKey where
   parseJSON (Object obj) =
     ApiGatewayApiKey <$>
-      obj .:? "Description" <*>
-      obj .:? "Enabled" <*>
-      obj .:? "Name" <*>
-      obj .:? "StageKeys"
+      (obj .:? "Description") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "Enabled") <*>
+      (obj .:? "Name") <*>
+      (obj .:? "StageKeys")
   parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayApiKey' containing required fields as
@@ -60,7 +61,7 @@ agakDescription :: Lens' ApiGatewayApiKey (Maybe (Val Text))
 agakDescription = lens _apiGatewayApiKeyDescription (\s a -> s { _apiGatewayApiKeyDescription = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apigateway-apikey-enabled
-agakEnabled :: Lens' ApiGatewayApiKey (Maybe (Val Bool'))
+agakEnabled :: Lens' ApiGatewayApiKey (Maybe (Val Bool))
 agakEnabled = lens _apiGatewayApiKeyEnabled (\s a -> s { _apiGatewayApiKeyEnabled = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apigateway-apikey-name

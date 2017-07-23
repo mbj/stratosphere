@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html
 
@@ -20,7 +21,7 @@ import Stratosphere.ResourceProperties.CognitoIdentityPoolPushSync
 -- 'cognitoIdentityPool' for a more convenient constructor.
 data CognitoIdentityPool =
   CognitoIdentityPool
-  { _cognitoIdentityPoolAllowUnauthenticatedIdentities :: Val Bool'
+  { _cognitoIdentityPoolAllowUnauthenticatedIdentities :: Val Bool
   , _cognitoIdentityPoolCognitoEvents :: Maybe Object
   , _cognitoIdentityPoolCognitoIdentityProviders :: Maybe [CognitoIdentityPoolCognitoIdentityProvider]
   , _cognitoIdentityPoolCognitoStreams :: Maybe CognitoIdentityPoolCognitoStreams
@@ -36,37 +37,37 @@ instance ToJSON CognitoIdentityPool where
   toJSON CognitoIdentityPool{..} =
     object $
     catMaybes
-    [ Just ("AllowUnauthenticatedIdentities" .= _cognitoIdentityPoolAllowUnauthenticatedIdentities)
-    , ("CognitoEvents" .=) <$> _cognitoIdentityPoolCognitoEvents
-    , ("CognitoIdentityProviders" .=) <$> _cognitoIdentityPoolCognitoIdentityProviders
-    , ("CognitoStreams" .=) <$> _cognitoIdentityPoolCognitoStreams
-    , ("DeveloperProviderName" .=) <$> _cognitoIdentityPoolDeveloperProviderName
-    , ("IdentityPoolName" .=) <$> _cognitoIdentityPoolIdentityPoolName
-    , ("OpenIdConnectProviderARNs" .=) <$> _cognitoIdentityPoolOpenIdConnectProviderARNs
-    , ("PushSync" .=) <$> _cognitoIdentityPoolPushSync
-    , ("SamlProviderARNs" .=) <$> _cognitoIdentityPoolSamlProviderARNs
-    , ("SupportedLoginProviders" .=) <$> _cognitoIdentityPoolSupportedLoginProviders
+    [ (Just . ("AllowUnauthenticatedIdentities",) . toJSON . fmap Bool') _cognitoIdentityPoolAllowUnauthenticatedIdentities
+    , fmap (("CognitoEvents",) . toJSON) _cognitoIdentityPoolCognitoEvents
+    , fmap (("CognitoIdentityProviders",) . toJSON) _cognitoIdentityPoolCognitoIdentityProviders
+    , fmap (("CognitoStreams",) . toJSON) _cognitoIdentityPoolCognitoStreams
+    , fmap (("DeveloperProviderName",) . toJSON) _cognitoIdentityPoolDeveloperProviderName
+    , fmap (("IdentityPoolName",) . toJSON) _cognitoIdentityPoolIdentityPoolName
+    , fmap (("OpenIdConnectProviderARNs",) . toJSON) _cognitoIdentityPoolOpenIdConnectProviderARNs
+    , fmap (("PushSync",) . toJSON) _cognitoIdentityPoolPushSync
+    , fmap (("SamlProviderARNs",) . toJSON) _cognitoIdentityPoolSamlProviderARNs
+    , fmap (("SupportedLoginProviders",) . toJSON) _cognitoIdentityPoolSupportedLoginProviders
     ]
 
 instance FromJSON CognitoIdentityPool where
   parseJSON (Object obj) =
     CognitoIdentityPool <$>
-      obj .: "AllowUnauthenticatedIdentities" <*>
-      obj .:? "CognitoEvents" <*>
-      obj .:? "CognitoIdentityProviders" <*>
-      obj .:? "CognitoStreams" <*>
-      obj .:? "DeveloperProviderName" <*>
-      obj .:? "IdentityPoolName" <*>
-      obj .:? "OpenIdConnectProviderARNs" <*>
-      obj .:? "PushSync" <*>
-      obj .:? "SamlProviderARNs" <*>
-      obj .:? "SupportedLoginProviders"
+      fmap (fmap unBool') (obj .: "AllowUnauthenticatedIdentities") <*>
+      (obj .:? "CognitoEvents") <*>
+      (obj .:? "CognitoIdentityProviders") <*>
+      (obj .:? "CognitoStreams") <*>
+      (obj .:? "DeveloperProviderName") <*>
+      (obj .:? "IdentityPoolName") <*>
+      (obj .:? "OpenIdConnectProviderARNs") <*>
+      (obj .:? "PushSync") <*>
+      (obj .:? "SamlProviderARNs") <*>
+      (obj .:? "SupportedLoginProviders")
   parseJSON _ = mempty
 
 -- | Constructor for 'CognitoIdentityPool' containing required fields as
 -- arguments.
 cognitoIdentityPool
-  :: Val Bool' -- ^ 'cipAllowUnauthenticatedIdentities'
+  :: Val Bool -- ^ 'cipAllowUnauthenticatedIdentities'
   -> CognitoIdentityPool
 cognitoIdentityPool allowUnauthenticatedIdentitiesarg =
   CognitoIdentityPool
@@ -83,7 +84,7 @@ cognitoIdentityPool allowUnauthenticatedIdentitiesarg =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html#cfn-cognito-identitypool-allowunauthenticatedidentities
-cipAllowUnauthenticatedIdentities :: Lens' CognitoIdentityPool (Val Bool')
+cipAllowUnauthenticatedIdentities :: Lens' CognitoIdentityPool (Val Bool)
 cipAllowUnauthenticatedIdentities = lens _cognitoIdentityPoolAllowUnauthenticatedIdentities (\s a -> s { _cognitoIdentityPoolAllowUnauthenticatedIdentities = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html#cfn-cognito-identitypool-cognitoevents

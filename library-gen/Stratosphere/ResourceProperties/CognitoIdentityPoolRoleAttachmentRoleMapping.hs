@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-rolemapping.html
 
@@ -29,17 +30,17 @@ instance ToJSON CognitoIdentityPoolRoleAttachmentRoleMapping where
   toJSON CognitoIdentityPoolRoleAttachmentRoleMapping{..} =
     object $
     catMaybes
-    [ ("AmbiguousRoleResolution" .=) <$> _cognitoIdentityPoolRoleAttachmentRoleMappingAmbiguousRoleResolution
-    , ("RulesConfiguration" .=) <$> _cognitoIdentityPoolRoleAttachmentRoleMappingRulesConfiguration
-    , Just ("Type" .= _cognitoIdentityPoolRoleAttachmentRoleMappingType)
+    [ fmap (("AmbiguousRoleResolution",) . toJSON) _cognitoIdentityPoolRoleAttachmentRoleMappingAmbiguousRoleResolution
+    , fmap (("RulesConfiguration",) . toJSON) _cognitoIdentityPoolRoleAttachmentRoleMappingRulesConfiguration
+    , (Just . ("Type",) . toJSON) _cognitoIdentityPoolRoleAttachmentRoleMappingType
     ]
 
 instance FromJSON CognitoIdentityPoolRoleAttachmentRoleMapping where
   parseJSON (Object obj) =
     CognitoIdentityPoolRoleAttachmentRoleMapping <$>
-      obj .:? "AmbiguousRoleResolution" <*>
-      obj .:? "RulesConfiguration" <*>
-      obj .: "Type"
+      (obj .:? "AmbiguousRoleResolution") <*>
+      (obj .:? "RulesConfiguration") <*>
+      (obj .: "Type")
   parseJSON _ = mempty
 
 -- | Constructor for 'CognitoIdentityPoolRoleAttachmentRoleMapping' containing

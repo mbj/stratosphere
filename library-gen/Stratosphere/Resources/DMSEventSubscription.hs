@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-eventsubscription.html
 
@@ -18,7 +19,7 @@ import Stratosphere.ResourceProperties.Tag
 -- 'dmsEventSubscription' for a more convenient constructor.
 data DMSEventSubscription =
   DMSEventSubscription
-  { _dMSEventSubscriptionEnabled :: Maybe (Val Bool')
+  { _dMSEventSubscriptionEnabled :: Maybe (Val Bool)
   , _dMSEventSubscriptionEventCategories :: Maybe (ValList Text)
   , _dMSEventSubscriptionSnsTopicArn :: Val Text
   , _dMSEventSubscriptionSourceIds :: Maybe (ValList Text)
@@ -31,25 +32,25 @@ instance ToJSON DMSEventSubscription where
   toJSON DMSEventSubscription{..} =
     object $
     catMaybes
-    [ ("Enabled" .=) <$> _dMSEventSubscriptionEnabled
-    , ("EventCategories" .=) <$> _dMSEventSubscriptionEventCategories
-    , Just ("SnsTopicArn" .= _dMSEventSubscriptionSnsTopicArn)
-    , ("SourceIds" .=) <$> _dMSEventSubscriptionSourceIds
-    , ("SourceType" .=) <$> _dMSEventSubscriptionSourceType
-    , ("SubscriptionName" .=) <$> _dMSEventSubscriptionSubscriptionName
-    , ("Tags" .=) <$> _dMSEventSubscriptionTags
+    [ fmap (("Enabled",) . toJSON . fmap Bool') _dMSEventSubscriptionEnabled
+    , fmap (("EventCategories",) . toJSON) _dMSEventSubscriptionEventCategories
+    , (Just . ("SnsTopicArn",) . toJSON) _dMSEventSubscriptionSnsTopicArn
+    , fmap (("SourceIds",) . toJSON) _dMSEventSubscriptionSourceIds
+    , fmap (("SourceType",) . toJSON) _dMSEventSubscriptionSourceType
+    , fmap (("SubscriptionName",) . toJSON) _dMSEventSubscriptionSubscriptionName
+    , fmap (("Tags",) . toJSON) _dMSEventSubscriptionTags
     ]
 
 instance FromJSON DMSEventSubscription where
   parseJSON (Object obj) =
     DMSEventSubscription <$>
-      obj .:? "Enabled" <*>
-      obj .:? "EventCategories" <*>
-      obj .: "SnsTopicArn" <*>
-      obj .:? "SourceIds" <*>
-      obj .:? "SourceType" <*>
-      obj .:? "SubscriptionName" <*>
-      obj .:? "Tags"
+      fmap (fmap (fmap unBool')) (obj .:? "Enabled") <*>
+      (obj .:? "EventCategories") <*>
+      (obj .: "SnsTopicArn") <*>
+      (obj .:? "SourceIds") <*>
+      (obj .:? "SourceType") <*>
+      (obj .:? "SubscriptionName") <*>
+      (obj .:? "Tags")
   parseJSON _ = mempty
 
 -- | Constructor for 'DMSEventSubscription' containing required fields as
@@ -69,7 +70,7 @@ dmsEventSubscription snsTopicArnarg =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-eventsubscription.html#cfn-dms-eventsubscription-enabled
-dmsesEnabled :: Lens' DMSEventSubscription (Maybe (Val Bool'))
+dmsesEnabled :: Lens' DMSEventSubscription (Maybe (Val Bool))
 dmsesEnabled = lens _dMSEventSubscriptionEnabled (\s a -> s { _dMSEventSubscriptionEnabled = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-eventsubscription.html#cfn-dms-eventsubscription-eventcategories

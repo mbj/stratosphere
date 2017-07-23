@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-security-group.html
 
@@ -29,19 +30,19 @@ instance ToJSON RDSDBSecurityGroup where
   toJSON RDSDBSecurityGroup{..} =
     object $
     catMaybes
-    [ Just ("DBSecurityGroupIngress" .= _rDSDBSecurityGroupDBSecurityGroupIngress)
-    , ("EC2VpcId" .=) <$> _rDSDBSecurityGroupEC2VpcId
-    , Just ("GroupDescription" .= _rDSDBSecurityGroupGroupDescription)
-    , ("Tags" .=) <$> _rDSDBSecurityGroupTags
+    [ (Just . ("DBSecurityGroupIngress",) . toJSON) _rDSDBSecurityGroupDBSecurityGroupIngress
+    , fmap (("EC2VpcId",) . toJSON) _rDSDBSecurityGroupEC2VpcId
+    , (Just . ("GroupDescription",) . toJSON) _rDSDBSecurityGroupGroupDescription
+    , fmap (("Tags",) . toJSON) _rDSDBSecurityGroupTags
     ]
 
 instance FromJSON RDSDBSecurityGroup where
   parseJSON (Object obj) =
     RDSDBSecurityGroup <$>
-      obj .: "DBSecurityGroupIngress" <*>
-      obj .:? "EC2VpcId" <*>
-      obj .: "GroupDescription" <*>
-      obj .:? "Tags"
+      (obj .: "DBSecurityGroupIngress") <*>
+      (obj .:? "EC2VpcId") <*>
+      (obj .: "GroupDescription") <*>
+      (obj .:? "Tags")
   parseJSON _ = mempty
 
 -- | Constructor for 'RDSDBSecurityGroup' containing required fields as

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-ipset-ipsetdescriptors.html
 
@@ -26,15 +27,15 @@ instance ToJSON WAFIPSetIPSetDescriptor where
   toJSON WAFIPSetIPSetDescriptor{..} =
     object $
     catMaybes
-    [ Just ("Type" .= _wAFIPSetIPSetDescriptorType)
-    , Just ("Value" .= _wAFIPSetIPSetDescriptorValue)
+    [ (Just . ("Type",) . toJSON) _wAFIPSetIPSetDescriptorType
+    , (Just . ("Value",) . toJSON) _wAFIPSetIPSetDescriptorValue
     ]
 
 instance FromJSON WAFIPSetIPSetDescriptor where
   parseJSON (Object obj) =
     WAFIPSetIPSetDescriptor <$>
-      obj .: "Type" <*>
-      obj .: "Value"
+      (obj .: "Type") <*>
+      (obj .: "Value")
   parseJSON _ = mempty
 
 -- | Constructor for 'WAFIPSetIPSetDescriptor' containing required fields as

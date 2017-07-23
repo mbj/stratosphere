@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-environment.html
 
@@ -26,15 +27,15 @@ instance ToJSON ECSTaskDefinitionKeyValuePair where
   toJSON ECSTaskDefinitionKeyValuePair{..} =
     object $
     catMaybes
-    [ ("Name" .=) <$> _eCSTaskDefinitionKeyValuePairName
-    , ("Value" .=) <$> _eCSTaskDefinitionKeyValuePairValue
+    [ fmap (("Name",) . toJSON) _eCSTaskDefinitionKeyValuePairName
+    , fmap (("Value",) . toJSON) _eCSTaskDefinitionKeyValuePairValue
     ]
 
 instance FromJSON ECSTaskDefinitionKeyValuePair where
   parseJSON (Object obj) =
     ECSTaskDefinitionKeyValuePair <$>
-      obj .:? "Name" <*>
-      obj .:? "Value"
+      (obj .:? "Name") <*>
+      (obj .:? "Value")
   parseJSON _ = mempty
 
 -- | Constructor for 'ECSTaskDefinitionKeyValuePair' containing required

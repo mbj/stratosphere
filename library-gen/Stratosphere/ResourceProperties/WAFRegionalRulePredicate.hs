@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-rule-predicate.html
 
@@ -19,7 +20,7 @@ import Stratosphere.Values
 data WAFRegionalRulePredicate =
   WAFRegionalRulePredicate
   { _wAFRegionalRulePredicateDataId :: Val Text
-  , _wAFRegionalRulePredicateNegated :: Val Bool'
+  , _wAFRegionalRulePredicateNegated :: Val Bool
   , _wAFRegionalRulePredicateType :: Val Text
   } deriving (Show, Eq)
 
@@ -27,24 +28,24 @@ instance ToJSON WAFRegionalRulePredicate where
   toJSON WAFRegionalRulePredicate{..} =
     object $
     catMaybes
-    [ Just ("DataId" .= _wAFRegionalRulePredicateDataId)
-    , Just ("Negated" .= _wAFRegionalRulePredicateNegated)
-    , Just ("Type" .= _wAFRegionalRulePredicateType)
+    [ (Just . ("DataId",) . toJSON) _wAFRegionalRulePredicateDataId
+    , (Just . ("Negated",) . toJSON . fmap Bool') _wAFRegionalRulePredicateNegated
+    , (Just . ("Type",) . toJSON) _wAFRegionalRulePredicateType
     ]
 
 instance FromJSON WAFRegionalRulePredicate where
   parseJSON (Object obj) =
     WAFRegionalRulePredicate <$>
-      obj .: "DataId" <*>
-      obj .: "Negated" <*>
-      obj .: "Type"
+      (obj .: "DataId") <*>
+      fmap (fmap unBool') (obj .: "Negated") <*>
+      (obj .: "Type")
   parseJSON _ = mempty
 
 -- | Constructor for 'WAFRegionalRulePredicate' containing required fields as
 -- arguments.
 wafRegionalRulePredicate
   :: Val Text -- ^ 'wafrrpDataId'
-  -> Val Bool' -- ^ 'wafrrpNegated'
+  -> Val Bool -- ^ 'wafrrpNegated'
   -> Val Text -- ^ 'wafrrpType'
   -> WAFRegionalRulePredicate
 wafRegionalRulePredicate dataIdarg negatedarg typearg =
@@ -59,7 +60,7 @@ wafrrpDataId :: Lens' WAFRegionalRulePredicate (Val Text)
 wafrrpDataId = lens _wAFRegionalRulePredicateDataId (\s a -> s { _wAFRegionalRulePredicateDataId = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-rule-predicate.html#cfn-wafregional-rule-predicate-negated
-wafrrpNegated :: Lens' WAFRegionalRulePredicate (Val Bool')
+wafrrpNegated :: Lens' WAFRegionalRulePredicate (Val Bool)
 wafrrpNegated = lens _wAFRegionalRulePredicateNegated (\s a -> s { _wAFRegionalRulePredicateNegated = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafregional-rule-predicate.html#cfn-wafregional-rule-predicate-type

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-eip.html
 
@@ -26,15 +27,15 @@ instance ToJSON EC2EIP where
   toJSON EC2EIP{..} =
     object $
     catMaybes
-    [ ("Domain" .=) <$> _eC2EIPDomain
-    , ("InstanceId" .=) <$> _eC2EIPInstanceId
+    [ fmap (("Domain",) . toJSON) _eC2EIPDomain
+    , fmap (("InstanceId",) . toJSON) _eC2EIPInstanceId
     ]
 
 instance FromJSON EC2EIP where
   parseJSON (Object obj) =
     EC2EIP <$>
-      obj .:? "Domain" <*>
-      obj .:? "InstanceId"
+      (obj .:? "Domain") <*>
+      (obj .:? "InstanceId")
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2EIP' containing required fields as arguments.

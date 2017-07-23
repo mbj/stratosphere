@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-metricdimension.html
 
@@ -26,15 +27,15 @@ instance ToJSON EMRClusterMetricDimension where
   toJSON EMRClusterMetricDimension{..} =
     object $
     catMaybes
-    [ Just ("Key" .= _eMRClusterMetricDimensionKey)
-    , Just ("Value" .= _eMRClusterMetricDimensionValue)
+    [ (Just . ("Key",) . toJSON) _eMRClusterMetricDimensionKey
+    , (Just . ("Value",) . toJSON) _eMRClusterMetricDimensionValue
     ]
 
 instance FromJSON EMRClusterMetricDimension where
   parseJSON (Object obj) =
     EMRClusterMetricDimension <$>
-      obj .: "Key" <*>
-      obj .: "Value"
+      (obj .: "Key") <*>
+      (obj .: "Value")
   parseJSON _ = mempty
 
 -- | Constructor for 'EMRClusterMetricDimension' containing required fields as

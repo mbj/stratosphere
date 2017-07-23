@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-securitygroups.html
 
@@ -25,13 +26,13 @@ instance ToJSON EC2SpotFleetGroupIdentifier where
   toJSON EC2SpotFleetGroupIdentifier{..} =
     object $
     catMaybes
-    [ Just ("GroupId" .= _eC2SpotFleetGroupIdentifierGroupId)
+    [ (Just . ("GroupId",) . toJSON) _eC2SpotFleetGroupIdentifierGroupId
     ]
 
 instance FromJSON EC2SpotFleetGroupIdentifier where
   parseJSON (Object obj) =
     EC2SpotFleetGroupIdentifier <$>
-      obj .: "GroupId"
+      (obj .: "GroupId")
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2SpotFleetGroupIdentifier' containing required fields

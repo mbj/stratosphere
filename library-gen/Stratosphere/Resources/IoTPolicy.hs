@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-policy.html
 
@@ -26,15 +27,15 @@ instance ToJSON IoTPolicy where
   toJSON IoTPolicy{..} =
     object $
     catMaybes
-    [ Just ("PolicyDocument" .= _ioTPolicyPolicyDocument)
-    , ("PolicyName" .=) <$> _ioTPolicyPolicyName
+    [ (Just . ("PolicyDocument",) . toJSON) _ioTPolicyPolicyDocument
+    , fmap (("PolicyName",) . toJSON) _ioTPolicyPolicyName
     ]
 
 instance FromJSON IoTPolicy where
   parseJSON (Object obj) =
     IoTPolicy <$>
-      obj .: "PolicyDocument" <*>
-      obj .:? "PolicyName"
+      (obj .: "PolicyDocument") <*>
+      (obj .:? "PolicyName")
   parseJSON _ = mempty
 
 -- | Constructor for 'IoTPolicy' containing required fields as arguments.

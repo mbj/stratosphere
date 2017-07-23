@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html
 
@@ -29,21 +30,21 @@ instance ToJSON EventsRuleTarget where
   toJSON EventsRuleTarget{..} =
     object $
     catMaybes
-    [ Just ("Arn" .= _eventsRuleTargetArn)
-    , Just ("Id" .= _eventsRuleTargetId)
-    , ("Input" .=) <$> _eventsRuleTargetInput
-    , ("InputPath" .=) <$> _eventsRuleTargetInputPath
-    , ("RoleArn" .=) <$> _eventsRuleTargetRoleArn
+    [ (Just . ("Arn",) . toJSON) _eventsRuleTargetArn
+    , (Just . ("Id",) . toJSON) _eventsRuleTargetId
+    , fmap (("Input",) . toJSON) _eventsRuleTargetInput
+    , fmap (("InputPath",) . toJSON) _eventsRuleTargetInputPath
+    , fmap (("RoleArn",) . toJSON) _eventsRuleTargetRoleArn
     ]
 
 instance FromJSON EventsRuleTarget where
   parseJSON (Object obj) =
     EventsRuleTarget <$>
-      obj .: "Arn" <*>
-      obj .: "Id" <*>
-      obj .:? "Input" <*>
-      obj .:? "InputPath" <*>
-      obj .:? "RoleArn"
+      (obj .: "Arn") <*>
+      (obj .: "Id") <*>
+      (obj .:? "Input") <*>
+      (obj .:? "InputPath") <*>
+      (obj .:? "RoleArn")
   parseJSON _ = mempty
 
 -- | Constructor for 'EventsRuleTarget' containing required fields as

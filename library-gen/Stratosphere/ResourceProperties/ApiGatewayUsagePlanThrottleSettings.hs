@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-throttlesettings.html
 
@@ -18,23 +19,23 @@ import Stratosphere.Values
 -- 'apiGatewayUsagePlanThrottleSettings' for a more convenient constructor.
 data ApiGatewayUsagePlanThrottleSettings =
   ApiGatewayUsagePlanThrottleSettings
-  { _apiGatewayUsagePlanThrottleSettingsBurstLimit :: Maybe (Val Integer')
-  , _apiGatewayUsagePlanThrottleSettingsRateLimit :: Maybe (Val Double')
+  { _apiGatewayUsagePlanThrottleSettingsBurstLimit :: Maybe (Val Integer)
+  , _apiGatewayUsagePlanThrottleSettingsRateLimit :: Maybe (Val Double)
   } deriving (Show, Eq)
 
 instance ToJSON ApiGatewayUsagePlanThrottleSettings where
   toJSON ApiGatewayUsagePlanThrottleSettings{..} =
     object $
     catMaybes
-    [ ("BurstLimit" .=) <$> _apiGatewayUsagePlanThrottleSettingsBurstLimit
-    , ("RateLimit" .=) <$> _apiGatewayUsagePlanThrottleSettingsRateLimit
+    [ fmap (("BurstLimit",) . toJSON . fmap Integer') _apiGatewayUsagePlanThrottleSettingsBurstLimit
+    , fmap (("RateLimit",) . toJSON . fmap Double') _apiGatewayUsagePlanThrottleSettingsRateLimit
     ]
 
 instance FromJSON ApiGatewayUsagePlanThrottleSettings where
   parseJSON (Object obj) =
     ApiGatewayUsagePlanThrottleSettings <$>
-      obj .:? "BurstLimit" <*>
-      obj .:? "RateLimit"
+      fmap (fmap (fmap unInteger')) (obj .:? "BurstLimit") <*>
+      fmap (fmap (fmap unDouble')) (obj .:? "RateLimit")
   parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayUsagePlanThrottleSettings' containing required
@@ -48,9 +49,9 @@ apiGatewayUsagePlanThrottleSettings  =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-throttlesettings.html#cfn-apigateway-usageplan-throttlesettings-burstlimit
-aguptsBurstLimit :: Lens' ApiGatewayUsagePlanThrottleSettings (Maybe (Val Integer'))
+aguptsBurstLimit :: Lens' ApiGatewayUsagePlanThrottleSettings (Maybe (Val Integer))
 aguptsBurstLimit = lens _apiGatewayUsagePlanThrottleSettingsBurstLimit (\s a -> s { _apiGatewayUsagePlanThrottleSettingsBurstLimit = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-throttlesettings.html#cfn-apigateway-usageplan-throttlesettings-ratelimit
-aguptsRateLimit :: Lens' ApiGatewayUsagePlanThrottleSettings (Maybe (Val Double'))
+aguptsRateLimit :: Lens' ApiGatewayUsagePlanThrottleSettings (Maybe (Val Double))
 aguptsRateLimit = lens _apiGatewayUsagePlanThrottleSettingsRateLimit (\s a -> s { _apiGatewayUsagePlanThrottleSettingsRateLimit = a })

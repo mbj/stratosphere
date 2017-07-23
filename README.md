@@ -91,11 +91,6 @@ call. We encapsulate all of these possibilities in the `Val a` type.
 We recommend using the `OverloadedStrings` extension to reduce the number of
 `Literal`s you have to use.
 
-Note that CloudFormation represents numbers and bools in JSON as strings, so we
-had to some types called `Integer'` and `Bool'` to override the `aeson`
-instances. In a future version we plan on using our own JSON encoder/decoder to
-get around this.
-
 ## Lenses
 
 Almost every CloudFormation resource has a handful of required arguments, and

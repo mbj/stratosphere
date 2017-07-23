@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-health-check.html
 
@@ -31,21 +32,21 @@ instance ToJSON ElasticLoadBalancingLoadBalancerHealthCheck where
   toJSON ElasticLoadBalancingLoadBalancerHealthCheck{..} =
     object $
     catMaybes
-    [ Just ("HealthyThreshold" .= _elasticLoadBalancingLoadBalancerHealthCheckHealthyThreshold)
-    , Just ("Interval" .= _elasticLoadBalancingLoadBalancerHealthCheckInterval)
-    , Just ("Target" .= _elasticLoadBalancingLoadBalancerHealthCheckTarget)
-    , Just ("Timeout" .= _elasticLoadBalancingLoadBalancerHealthCheckTimeout)
-    , Just ("UnhealthyThreshold" .= _elasticLoadBalancingLoadBalancerHealthCheckUnhealthyThreshold)
+    [ (Just . ("HealthyThreshold",) . toJSON) _elasticLoadBalancingLoadBalancerHealthCheckHealthyThreshold
+    , (Just . ("Interval",) . toJSON) _elasticLoadBalancingLoadBalancerHealthCheckInterval
+    , (Just . ("Target",) . toJSON) _elasticLoadBalancingLoadBalancerHealthCheckTarget
+    , (Just . ("Timeout",) . toJSON) _elasticLoadBalancingLoadBalancerHealthCheckTimeout
+    , (Just . ("UnhealthyThreshold",) . toJSON) _elasticLoadBalancingLoadBalancerHealthCheckUnhealthyThreshold
     ]
 
 instance FromJSON ElasticLoadBalancingLoadBalancerHealthCheck where
   parseJSON (Object obj) =
     ElasticLoadBalancingLoadBalancerHealthCheck <$>
-      obj .: "HealthyThreshold" <*>
-      obj .: "Interval" <*>
-      obj .: "Target" <*>
-      obj .: "Timeout" <*>
-      obj .: "UnhealthyThreshold"
+      (obj .: "HealthyThreshold") <*>
+      (obj .: "Interval") <*>
+      (obj .: "Target") <*>
+      (obj .: "Timeout") <*>
+      (obj .: "UnhealthyThreshold")
   parseJSON _ = mempty
 
 -- | Constructor for 'ElasticLoadBalancingLoadBalancerHealthCheck' containing

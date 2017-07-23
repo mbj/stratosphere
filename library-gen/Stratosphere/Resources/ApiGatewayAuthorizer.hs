@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-authorizer.html
 
@@ -19,7 +20,7 @@ import Stratosphere.Types
 data ApiGatewayAuthorizer =
   ApiGatewayAuthorizer
   { _apiGatewayAuthorizerAuthorizerCredentials :: Maybe (Val Text)
-  , _apiGatewayAuthorizerAuthorizerResultTtlInSeconds :: Maybe (Val Integer')
+  , _apiGatewayAuthorizerAuthorizerResultTtlInSeconds :: Maybe (Val Integer)
   , _apiGatewayAuthorizerAuthorizerUri :: Maybe (Val Text)
   , _apiGatewayAuthorizerIdentitySource :: Maybe (Val Text)
   , _apiGatewayAuthorizerIdentityValidationExpression :: Maybe (Val Text)
@@ -33,29 +34,29 @@ instance ToJSON ApiGatewayAuthorizer where
   toJSON ApiGatewayAuthorizer{..} =
     object $
     catMaybes
-    [ ("AuthorizerCredentials" .=) <$> _apiGatewayAuthorizerAuthorizerCredentials
-    , ("AuthorizerResultTtlInSeconds" .=) <$> _apiGatewayAuthorizerAuthorizerResultTtlInSeconds
-    , ("AuthorizerUri" .=) <$> _apiGatewayAuthorizerAuthorizerUri
-    , ("IdentitySource" .=) <$> _apiGatewayAuthorizerIdentitySource
-    , ("IdentityValidationExpression" .=) <$> _apiGatewayAuthorizerIdentityValidationExpression
-    , ("Name" .=) <$> _apiGatewayAuthorizerName
-    , ("ProviderARNs" .=) <$> _apiGatewayAuthorizerProviderARNs
-    , ("RestApiId" .=) <$> _apiGatewayAuthorizerRestApiId
-    , ("Type" .=) <$> _apiGatewayAuthorizerType
+    [ fmap (("AuthorizerCredentials",) . toJSON) _apiGatewayAuthorizerAuthorizerCredentials
+    , fmap (("AuthorizerResultTtlInSeconds",) . toJSON . fmap Integer') _apiGatewayAuthorizerAuthorizerResultTtlInSeconds
+    , fmap (("AuthorizerUri",) . toJSON) _apiGatewayAuthorizerAuthorizerUri
+    , fmap (("IdentitySource",) . toJSON) _apiGatewayAuthorizerIdentitySource
+    , fmap (("IdentityValidationExpression",) . toJSON) _apiGatewayAuthorizerIdentityValidationExpression
+    , fmap (("Name",) . toJSON) _apiGatewayAuthorizerName
+    , fmap (("ProviderARNs",) . toJSON) _apiGatewayAuthorizerProviderARNs
+    , fmap (("RestApiId",) . toJSON) _apiGatewayAuthorizerRestApiId
+    , fmap (("Type",) . toJSON) _apiGatewayAuthorizerType
     ]
 
 instance FromJSON ApiGatewayAuthorizer where
   parseJSON (Object obj) =
     ApiGatewayAuthorizer <$>
-      obj .:? "AuthorizerCredentials" <*>
-      obj .:? "AuthorizerResultTtlInSeconds" <*>
-      obj .:? "AuthorizerUri" <*>
-      obj .:? "IdentitySource" <*>
-      obj .:? "IdentityValidationExpression" <*>
-      obj .:? "Name" <*>
-      obj .:? "ProviderARNs" <*>
-      obj .:? "RestApiId" <*>
-      obj .:? "Type"
+      (obj .:? "AuthorizerCredentials") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "AuthorizerResultTtlInSeconds") <*>
+      (obj .:? "AuthorizerUri") <*>
+      (obj .:? "IdentitySource") <*>
+      (obj .:? "IdentityValidationExpression") <*>
+      (obj .:? "Name") <*>
+      (obj .:? "ProviderARNs") <*>
+      (obj .:? "RestApiId") <*>
+      (obj .:? "Type")
   parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayAuthorizer' containing required fields as
@@ -80,7 +81,7 @@ agaAuthorizerCredentials :: Lens' ApiGatewayAuthorizer (Maybe (Val Text))
 agaAuthorizerCredentials = lens _apiGatewayAuthorizerAuthorizerCredentials (\s a -> s { _apiGatewayAuthorizerAuthorizerCredentials = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-authorizer.html#cfn-apigateway-authorizer-authorizerresultttlinseconds
-agaAuthorizerResultTtlInSeconds :: Lens' ApiGatewayAuthorizer (Maybe (Val Integer'))
+agaAuthorizerResultTtlInSeconds :: Lens' ApiGatewayAuthorizer (Maybe (Val Integer))
 agaAuthorizerResultTtlInSeconds = lens _apiGatewayAuthorizerAuthorizerResultTtlInSeconds (\s a -> s { _apiGatewayAuthorizerAuthorizerResultTtlInSeconds = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-authorizer.html#cfn-apigateway-authorizer-authorizeruri

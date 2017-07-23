@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html
 
@@ -25,13 +26,13 @@ instance ToJSON ECSCluster where
   toJSON ECSCluster{..} =
     object $
     catMaybes
-    [ ("ClusterName" .=) <$> _eCSClusterClusterName
+    [ fmap (("ClusterName",) . toJSON) _eCSClusterClusterName
     ]
 
 instance FromJSON ECSCluster where
   parseJSON (Object obj) =
     ECSCluster <$>
-      obj .:? "ClusterName"
+      (obj .:? "ClusterName")
   parseJSON _ = mempty
 
 -- | Constructor for 'ECSCluster' containing required fields as arguments.

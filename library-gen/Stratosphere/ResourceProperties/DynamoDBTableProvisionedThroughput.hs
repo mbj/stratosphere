@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-provisionedthroughput.html
 
@@ -18,30 +19,30 @@ import Stratosphere.Values
 -- 'dynamoDBTableProvisionedThroughput' for a more convenient constructor.
 data DynamoDBTableProvisionedThroughput =
   DynamoDBTableProvisionedThroughput
-  { _dynamoDBTableProvisionedThroughputReadCapacityUnits :: Val Integer'
-  , _dynamoDBTableProvisionedThroughputWriteCapacityUnits :: Val Integer'
+  { _dynamoDBTableProvisionedThroughputReadCapacityUnits :: Val Integer
+  , _dynamoDBTableProvisionedThroughputWriteCapacityUnits :: Val Integer
   } deriving (Show, Eq)
 
 instance ToJSON DynamoDBTableProvisionedThroughput where
   toJSON DynamoDBTableProvisionedThroughput{..} =
     object $
     catMaybes
-    [ Just ("ReadCapacityUnits" .= _dynamoDBTableProvisionedThroughputReadCapacityUnits)
-    , Just ("WriteCapacityUnits" .= _dynamoDBTableProvisionedThroughputWriteCapacityUnits)
+    [ (Just . ("ReadCapacityUnits",) . toJSON . fmap Integer') _dynamoDBTableProvisionedThroughputReadCapacityUnits
+    , (Just . ("WriteCapacityUnits",) . toJSON . fmap Integer') _dynamoDBTableProvisionedThroughputWriteCapacityUnits
     ]
 
 instance FromJSON DynamoDBTableProvisionedThroughput where
   parseJSON (Object obj) =
     DynamoDBTableProvisionedThroughput <$>
-      obj .: "ReadCapacityUnits" <*>
-      obj .: "WriteCapacityUnits"
+      fmap (fmap unInteger') (obj .: "ReadCapacityUnits") <*>
+      fmap (fmap unInteger') (obj .: "WriteCapacityUnits")
   parseJSON _ = mempty
 
 -- | Constructor for 'DynamoDBTableProvisionedThroughput' containing required
 -- fields as arguments.
 dynamoDBTableProvisionedThroughput
-  :: Val Integer' -- ^ 'ddbtptReadCapacityUnits'
-  -> Val Integer' -- ^ 'ddbtptWriteCapacityUnits'
+  :: Val Integer -- ^ 'ddbtptReadCapacityUnits'
+  -> Val Integer -- ^ 'ddbtptWriteCapacityUnits'
   -> DynamoDBTableProvisionedThroughput
 dynamoDBTableProvisionedThroughput readCapacityUnitsarg writeCapacityUnitsarg =
   DynamoDBTableProvisionedThroughput
@@ -50,9 +51,9 @@ dynamoDBTableProvisionedThroughput readCapacityUnitsarg writeCapacityUnitsarg =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-provisionedthroughput.html#cfn-dynamodb-provisionedthroughput-readcapacityunits
-ddbtptReadCapacityUnits :: Lens' DynamoDBTableProvisionedThroughput (Val Integer')
+ddbtptReadCapacityUnits :: Lens' DynamoDBTableProvisionedThroughput (Val Integer)
 ddbtptReadCapacityUnits = lens _dynamoDBTableProvisionedThroughputReadCapacityUnits (\s a -> s { _dynamoDBTableProvisionedThroughputReadCapacityUnits = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-provisionedthroughput.html#cfn-dynamodb-provisionedthroughput-writecapacityunits
-ddbtptWriteCapacityUnits :: Lens' DynamoDBTableProvisionedThroughput (Val Integer')
+ddbtptWriteCapacityUnits :: Lens' DynamoDBTableProvisionedThroughput (Val Integer)
 ddbtptWriteCapacityUnits = lens _dynamoDBTableProvisionedThroughputWriteCapacityUnits (\s a -> s { _dynamoDBTableProvisionedThroughputWriteCapacityUnits = a })

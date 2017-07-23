@@ -1,5 +1,6 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | To specify how AWS CloudFormation handles updates for the MinSize,
 -- MaxSize, and DesiredCapacity properties when the
@@ -21,9 +22,8 @@ module Stratosphere.ResourceAttributes.AutoScalingScheduledActionPolicy where
 
 import Control.Lens
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -32,14 +32,21 @@ import Stratosphere.Values
 -- 'autoScalingScheduledActionPolicy' for a more convenient constructor.
 data AutoScalingScheduledActionPolicy =
   AutoScalingScheduledActionPolicy
-  { _autoScalingScheduledActionPolicyIgnoreUnmodifiedGroupSizeProperties :: Maybe (Val Bool')
-  } deriving (Show, Eq, Generic)
+  { _autoScalingScheduledActionPolicyIgnoreUnmodifiedGroupSizeProperties :: Maybe (Val Bool)
+  } deriving (Show, Eq)
 
 instance ToJSON AutoScalingScheduledActionPolicy where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 33, omitNothingFields = True }
+  toJSON AutoScalingScheduledActionPolicy{..} =
+    object $
+    catMaybes
+    [ fmap (("IgnoreUnmodifiedGroupSizeProperties",) . toJSON . fmap Bool') _autoScalingScheduledActionPolicyIgnoreUnmodifiedGroupSizeProperties
+    ]
 
 instance FromJSON AutoScalingScheduledActionPolicy where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 33, omitNothingFields = True }
+  parseJSON (Object obj) =
+    AutoScalingScheduledActionPolicy <$>
+      fmap (fmap (fmap unBool')) (obj .:? "IgnoreUnmodifiedGroupSizeProperties")
+  parseJSON _ = mempty
 
 -- | Constructor for 'AutoScalingScheduledActionPolicy' containing required fields
 -- as arguments.
@@ -56,5 +63,5 @@ autoScalingScheduledActionPolicy  =
 -- template during a stack update. If you modify any of the group size
 -- property values in your template, AWS CloudFormation uses the modified
 -- values and updates your Auto Scaling group.
-assapIgnoreUnmodifiedGroupSizeProperties :: Lens' AutoScalingScheduledActionPolicy (Maybe (Val Bool'))
+assapIgnoreUnmodifiedGroupSizeProperties :: Lens' AutoScalingScheduledActionPolicy (Maybe (Val Bool))
 assapIgnoreUnmodifiedGroupSizeProperties = lens _autoScalingScheduledActionPolicyIgnoreUnmodifiedGroupSizeProperties (\s a -> s { _autoScalingScheduledActionPolicyIgnoreUnmodifiedGroupSizeProperties = a })

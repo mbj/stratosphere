@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-customizedmetricspecification.html
 
@@ -31,21 +32,21 @@ instance ToJSON ApplicationAutoScalingScalingPolicyCustomizedMetricSpecification
   toJSON ApplicationAutoScalingScalingPolicyCustomizedMetricSpecification{..} =
     object $
     catMaybes
-    [ ("Dimensions" .=) <$> _applicationAutoScalingScalingPolicyCustomizedMetricSpecificationDimensions
-    , Just ("MetricName" .= _applicationAutoScalingScalingPolicyCustomizedMetricSpecificationMetricName)
-    , Just ("Namespace" .= _applicationAutoScalingScalingPolicyCustomizedMetricSpecificationNamespace)
-    , Just ("Statistic" .= _applicationAutoScalingScalingPolicyCustomizedMetricSpecificationStatistic)
-    , ("Unit" .=) <$> _applicationAutoScalingScalingPolicyCustomizedMetricSpecificationUnit
+    [ fmap (("Dimensions",) . toJSON) _applicationAutoScalingScalingPolicyCustomizedMetricSpecificationDimensions
+    , (Just . ("MetricName",) . toJSON) _applicationAutoScalingScalingPolicyCustomizedMetricSpecificationMetricName
+    , (Just . ("Namespace",) . toJSON) _applicationAutoScalingScalingPolicyCustomizedMetricSpecificationNamespace
+    , (Just . ("Statistic",) . toJSON) _applicationAutoScalingScalingPolicyCustomizedMetricSpecificationStatistic
+    , fmap (("Unit",) . toJSON) _applicationAutoScalingScalingPolicyCustomizedMetricSpecificationUnit
     ]
 
 instance FromJSON ApplicationAutoScalingScalingPolicyCustomizedMetricSpecification where
   parseJSON (Object obj) =
     ApplicationAutoScalingScalingPolicyCustomizedMetricSpecification <$>
-      obj .:? "Dimensions" <*>
-      obj .: "MetricName" <*>
-      obj .: "Namespace" <*>
-      obj .: "Statistic" <*>
-      obj .:? "Unit"
+      (obj .:? "Dimensions") <*>
+      (obj .: "MetricName") <*>
+      (obj .: "Namespace") <*>
+      (obj .: "Statistic") <*>
+      (obj .:? "Unit")
   parseJSON _ = mempty
 
 -- | Constructor for

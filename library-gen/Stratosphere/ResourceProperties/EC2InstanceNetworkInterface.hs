@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-iface-embedded.html
 
@@ -19,17 +20,17 @@ import Stratosphere.ResourceProperties.EC2InstancePrivateIpAddressSpecification
 -- 'ec2InstanceNetworkInterface' for a more convenient constructor.
 data EC2InstanceNetworkInterface =
   EC2InstanceNetworkInterface
-  { _eC2InstanceNetworkInterfaceAssociatePublicIpAddress :: Maybe (Val Bool')
-  , _eC2InstanceNetworkInterfaceDeleteOnTermination :: Maybe (Val Bool')
+  { _eC2InstanceNetworkInterfaceAssociatePublicIpAddress :: Maybe (Val Bool)
+  , _eC2InstanceNetworkInterfaceDeleteOnTermination :: Maybe (Val Bool)
   , _eC2InstanceNetworkInterfaceDescription :: Maybe (Val Text)
   , _eC2InstanceNetworkInterfaceDeviceIndex :: Val Text
   , _eC2InstanceNetworkInterfaceGroupSet :: Maybe (ValList Text)
-  , _eC2InstanceNetworkInterfaceIpv6AddressCount :: Maybe (Val Integer')
+  , _eC2InstanceNetworkInterfaceIpv6AddressCount :: Maybe (Val Integer)
   , _eC2InstanceNetworkInterfaceIpv6Addresses :: Maybe [EC2InstanceInstanceIpv6Address]
   , _eC2InstanceNetworkInterfaceNetworkInterfaceId :: Maybe (Val Text)
   , _eC2InstanceNetworkInterfacePrivateIpAddress :: Maybe (Val Text)
   , _eC2InstanceNetworkInterfacePrivateIpAddresses :: Maybe [EC2InstancePrivateIpAddressSpecification]
-  , _eC2InstanceNetworkInterfaceSecondaryPrivateIpAddressCount :: Maybe (Val Integer')
+  , _eC2InstanceNetworkInterfaceSecondaryPrivateIpAddressCount :: Maybe (Val Integer)
   , _eC2InstanceNetworkInterfaceSubnetId :: Maybe (Val Text)
   } deriving (Show, Eq)
 
@@ -37,35 +38,35 @@ instance ToJSON EC2InstanceNetworkInterface where
   toJSON EC2InstanceNetworkInterface{..} =
     object $
     catMaybes
-    [ ("AssociatePublicIpAddress" .=) <$> _eC2InstanceNetworkInterfaceAssociatePublicIpAddress
-    , ("DeleteOnTermination" .=) <$> _eC2InstanceNetworkInterfaceDeleteOnTermination
-    , ("Description" .=) <$> _eC2InstanceNetworkInterfaceDescription
-    , Just ("DeviceIndex" .= _eC2InstanceNetworkInterfaceDeviceIndex)
-    , ("GroupSet" .=) <$> _eC2InstanceNetworkInterfaceGroupSet
-    , ("Ipv6AddressCount" .=) <$> _eC2InstanceNetworkInterfaceIpv6AddressCount
-    , ("Ipv6Addresses" .=) <$> _eC2InstanceNetworkInterfaceIpv6Addresses
-    , ("NetworkInterfaceId" .=) <$> _eC2InstanceNetworkInterfaceNetworkInterfaceId
-    , ("PrivateIpAddress" .=) <$> _eC2InstanceNetworkInterfacePrivateIpAddress
-    , ("PrivateIpAddresses" .=) <$> _eC2InstanceNetworkInterfacePrivateIpAddresses
-    , ("SecondaryPrivateIpAddressCount" .=) <$> _eC2InstanceNetworkInterfaceSecondaryPrivateIpAddressCount
-    , ("SubnetId" .=) <$> _eC2InstanceNetworkInterfaceSubnetId
+    [ fmap (("AssociatePublicIpAddress",) . toJSON . fmap Bool') _eC2InstanceNetworkInterfaceAssociatePublicIpAddress
+    , fmap (("DeleteOnTermination",) . toJSON . fmap Bool') _eC2InstanceNetworkInterfaceDeleteOnTermination
+    , fmap (("Description",) . toJSON) _eC2InstanceNetworkInterfaceDescription
+    , (Just . ("DeviceIndex",) . toJSON) _eC2InstanceNetworkInterfaceDeviceIndex
+    , fmap (("GroupSet",) . toJSON) _eC2InstanceNetworkInterfaceGroupSet
+    , fmap (("Ipv6AddressCount",) . toJSON . fmap Integer') _eC2InstanceNetworkInterfaceIpv6AddressCount
+    , fmap (("Ipv6Addresses",) . toJSON) _eC2InstanceNetworkInterfaceIpv6Addresses
+    , fmap (("NetworkInterfaceId",) . toJSON) _eC2InstanceNetworkInterfaceNetworkInterfaceId
+    , fmap (("PrivateIpAddress",) . toJSON) _eC2InstanceNetworkInterfacePrivateIpAddress
+    , fmap (("PrivateIpAddresses",) . toJSON) _eC2InstanceNetworkInterfacePrivateIpAddresses
+    , fmap (("SecondaryPrivateIpAddressCount",) . toJSON . fmap Integer') _eC2InstanceNetworkInterfaceSecondaryPrivateIpAddressCount
+    , fmap (("SubnetId",) . toJSON) _eC2InstanceNetworkInterfaceSubnetId
     ]
 
 instance FromJSON EC2InstanceNetworkInterface where
   parseJSON (Object obj) =
     EC2InstanceNetworkInterface <$>
-      obj .:? "AssociatePublicIpAddress" <*>
-      obj .:? "DeleteOnTermination" <*>
-      obj .:? "Description" <*>
-      obj .: "DeviceIndex" <*>
-      obj .:? "GroupSet" <*>
-      obj .:? "Ipv6AddressCount" <*>
-      obj .:? "Ipv6Addresses" <*>
-      obj .:? "NetworkInterfaceId" <*>
-      obj .:? "PrivateIpAddress" <*>
-      obj .:? "PrivateIpAddresses" <*>
-      obj .:? "SecondaryPrivateIpAddressCount" <*>
-      obj .:? "SubnetId"
+      fmap (fmap (fmap unBool')) (obj .:? "AssociatePublicIpAddress") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "DeleteOnTermination") <*>
+      (obj .:? "Description") <*>
+      (obj .: "DeviceIndex") <*>
+      (obj .:? "GroupSet") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "Ipv6AddressCount") <*>
+      (obj .:? "Ipv6Addresses") <*>
+      (obj .:? "NetworkInterfaceId") <*>
+      (obj .:? "PrivateIpAddress") <*>
+      (obj .:? "PrivateIpAddresses") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "SecondaryPrivateIpAddressCount") <*>
+      (obj .:? "SubnetId")
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2InstanceNetworkInterface' containing required fields
@@ -90,11 +91,11 @@ ec2InstanceNetworkInterface deviceIndexarg =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-iface-embedded.html#aws-properties-ec2-network-iface-embedded-associatepubip
-eciniAssociatePublicIpAddress :: Lens' EC2InstanceNetworkInterface (Maybe (Val Bool'))
+eciniAssociatePublicIpAddress :: Lens' EC2InstanceNetworkInterface (Maybe (Val Bool))
 eciniAssociatePublicIpAddress = lens _eC2InstanceNetworkInterfaceAssociatePublicIpAddress (\s a -> s { _eC2InstanceNetworkInterfaceAssociatePublicIpAddress = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-iface-embedded.html#aws-properties-ec2-network-iface-embedded-delete
-eciniDeleteOnTermination :: Lens' EC2InstanceNetworkInterface (Maybe (Val Bool'))
+eciniDeleteOnTermination :: Lens' EC2InstanceNetworkInterface (Maybe (Val Bool))
 eciniDeleteOnTermination = lens _eC2InstanceNetworkInterfaceDeleteOnTermination (\s a -> s { _eC2InstanceNetworkInterfaceDeleteOnTermination = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-iface-embedded.html#aws-properties-ec2-network-iface-embedded-description
@@ -110,7 +111,7 @@ eciniGroupSet :: Lens' EC2InstanceNetworkInterface (Maybe (ValList Text))
 eciniGroupSet = lens _eC2InstanceNetworkInterfaceGroupSet (\s a -> s { _eC2InstanceNetworkInterfaceGroupSet = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-iface-embedded.html#cfn-ec2-instance-networkinterface-ipv6addresscount
-eciniIpv6AddressCount :: Lens' EC2InstanceNetworkInterface (Maybe (Val Integer'))
+eciniIpv6AddressCount :: Lens' EC2InstanceNetworkInterface (Maybe (Val Integer))
 eciniIpv6AddressCount = lens _eC2InstanceNetworkInterfaceIpv6AddressCount (\s a -> s { _eC2InstanceNetworkInterfaceIpv6AddressCount = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-iface-embedded.html#cfn-ec2-instance-networkinterface-ipv6addresses
@@ -130,7 +131,7 @@ eciniPrivateIpAddresses :: Lens' EC2InstanceNetworkInterface (Maybe [EC2Instance
 eciniPrivateIpAddresses = lens _eC2InstanceNetworkInterfacePrivateIpAddresses (\s a -> s { _eC2InstanceNetworkInterfacePrivateIpAddresses = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-iface-embedded.html#aws-properties-ec2-network-iface-embedded-secondprivateip
-eciniSecondaryPrivateIpAddressCount :: Lens' EC2InstanceNetworkInterface (Maybe (Val Integer'))
+eciniSecondaryPrivateIpAddressCount :: Lens' EC2InstanceNetworkInterface (Maybe (Val Integer))
 eciniSecondaryPrivateIpAddressCount = lens _eC2InstanceNetworkInterfaceSecondaryPrivateIpAddressCount (\s a -> s { _eC2InstanceNetworkInterfaceSecondaryPrivateIpAddressCount = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-iface-embedded.html#aws-properties-ec2-network-iface-embedded-subnetid

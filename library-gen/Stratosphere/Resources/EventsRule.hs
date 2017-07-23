@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html
 
@@ -32,25 +33,25 @@ instance ToJSON EventsRule where
   toJSON EventsRule{..} =
     object $
     catMaybes
-    [ ("Description" .=) <$> _eventsRuleDescription
-    , ("EventPattern" .=) <$> _eventsRuleEventPattern
-    , ("Name" .=) <$> _eventsRuleName
-    , ("RoleArn" .=) <$> _eventsRuleRoleArn
-    , ("ScheduleExpression" .=) <$> _eventsRuleScheduleExpression
-    , ("State" .=) <$> _eventsRuleState
-    , ("Targets" .=) <$> _eventsRuleTargets
+    [ fmap (("Description",) . toJSON) _eventsRuleDescription
+    , fmap (("EventPattern",) . toJSON) _eventsRuleEventPattern
+    , fmap (("Name",) . toJSON) _eventsRuleName
+    , fmap (("RoleArn",) . toJSON) _eventsRuleRoleArn
+    , fmap (("ScheduleExpression",) . toJSON) _eventsRuleScheduleExpression
+    , fmap (("State",) . toJSON) _eventsRuleState
+    , fmap (("Targets",) . toJSON) _eventsRuleTargets
     ]
 
 instance FromJSON EventsRule where
   parseJSON (Object obj) =
     EventsRule <$>
-      obj .:? "Description" <*>
-      obj .:? "EventPattern" <*>
-      obj .:? "Name" <*>
-      obj .:? "RoleArn" <*>
-      obj .:? "ScheduleExpression" <*>
-      obj .:? "State" <*>
-      obj .:? "Targets"
+      (obj .:? "Description") <*>
+      (obj .:? "EventPattern") <*>
+      (obj .:? "Name") <*>
+      (obj .:? "RoleArn") <*>
+      (obj .:? "ScheduleExpression") <*>
+      (obj .:? "State") <*>
+      (obj .:? "Targets")
   parseJSON _ = mempty
 
 -- | Constructor for 'EventsRule' containing required fields as arguments.

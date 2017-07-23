@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-smsconfiguration.html
 
@@ -26,15 +27,15 @@ instance ToJSON CognitoUserPoolSmsConfiguration where
   toJSON CognitoUserPoolSmsConfiguration{..} =
     object $
     catMaybes
-    [ ("ExternalId" .=) <$> _cognitoUserPoolSmsConfigurationExternalId
-    , ("SnsCallerArn" .=) <$> _cognitoUserPoolSmsConfigurationSnsCallerArn
+    [ fmap (("ExternalId",) . toJSON) _cognitoUserPoolSmsConfigurationExternalId
+    , fmap (("SnsCallerArn",) . toJSON) _cognitoUserPoolSmsConfigurationSnsCallerArn
     ]
 
 instance FromJSON CognitoUserPoolSmsConfiguration where
   parseJSON (Object obj) =
     CognitoUserPoolSmsConfiguration <$>
-      obj .:? "ExternalId" <*>
-      obj .:? "SnsCallerArn"
+      (obj .:? "ExternalId") <*>
+      (obj .:? "SnsCallerArn")
   parseJSON _ = mempty
 
 -- | Constructor for 'CognitoUserPoolSmsConfiguration' containing required

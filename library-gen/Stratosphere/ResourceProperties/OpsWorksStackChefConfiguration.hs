@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-stack-chefconfiguration.html
 
@@ -19,22 +20,22 @@ import Stratosphere.Values
 data OpsWorksStackChefConfiguration =
   OpsWorksStackChefConfiguration
   { _opsWorksStackChefConfigurationBerkshelfVersion :: Maybe (Val Text)
-  , _opsWorksStackChefConfigurationManageBerkshelf :: Maybe (Val Bool')
+  , _opsWorksStackChefConfigurationManageBerkshelf :: Maybe (Val Bool)
   } deriving (Show, Eq)
 
 instance ToJSON OpsWorksStackChefConfiguration where
   toJSON OpsWorksStackChefConfiguration{..} =
     object $
     catMaybes
-    [ ("BerkshelfVersion" .=) <$> _opsWorksStackChefConfigurationBerkshelfVersion
-    , ("ManageBerkshelf" .=) <$> _opsWorksStackChefConfigurationManageBerkshelf
+    [ fmap (("BerkshelfVersion",) . toJSON) _opsWorksStackChefConfigurationBerkshelfVersion
+    , fmap (("ManageBerkshelf",) . toJSON . fmap Bool') _opsWorksStackChefConfigurationManageBerkshelf
     ]
 
 instance FromJSON OpsWorksStackChefConfiguration where
   parseJSON (Object obj) =
     OpsWorksStackChefConfiguration <$>
-      obj .:? "BerkshelfVersion" <*>
-      obj .:? "ManageBerkshelf"
+      (obj .:? "BerkshelfVersion") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "ManageBerkshelf")
   parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksStackChefConfiguration' containing required
@@ -52,5 +53,5 @@ owsccBerkshelfVersion :: Lens' OpsWorksStackChefConfiguration (Maybe (Val Text))
 owsccBerkshelfVersion = lens _opsWorksStackChefConfigurationBerkshelfVersion (\s a -> s { _opsWorksStackChefConfigurationBerkshelfVersion = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-stack-chefconfiguration.html#cfn-opsworks-chefconfiguration-berkshelfversion
-owsccManageBerkshelf :: Lens' OpsWorksStackChefConfiguration (Maybe (Val Bool'))
+owsccManageBerkshelf :: Lens' OpsWorksStackChefConfiguration (Maybe (Val Bool))
 owsccManageBerkshelf = lens _opsWorksStackChefConfigurationManageBerkshelf (\s a -> s { _opsWorksStackChefConfigurationManageBerkshelf = a })

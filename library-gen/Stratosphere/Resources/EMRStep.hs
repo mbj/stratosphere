@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-step.html
 
@@ -28,19 +29,19 @@ instance ToJSON EMRStep where
   toJSON EMRStep{..} =
     object $
     catMaybes
-    [ Just ("ActionOnFailure" .= _eMRStepActionOnFailure)
-    , Just ("HadoopJarStep" .= _eMRStepHadoopJarStep)
-    , Just ("JobFlowId" .= _eMRStepJobFlowId)
-    , Just ("Name" .= _eMRStepName)
+    [ (Just . ("ActionOnFailure",) . toJSON) _eMRStepActionOnFailure
+    , (Just . ("HadoopJarStep",) . toJSON) _eMRStepHadoopJarStep
+    , (Just . ("JobFlowId",) . toJSON) _eMRStepJobFlowId
+    , (Just . ("Name",) . toJSON) _eMRStepName
     ]
 
 instance FromJSON EMRStep where
   parseJSON (Object obj) =
     EMRStep <$>
-      obj .: "ActionOnFailure" <*>
-      obj .: "HadoopJarStep" <*>
-      obj .: "JobFlowId" <*>
-      obj .: "Name"
+      (obj .: "ActionOnFailure") <*>
+      (obj .: "HadoopJarStep") <*>
+      (obj .: "JobFlowId") <*>
+      (obj .: "Name")
   parseJSON _ = mempty
 
 -- | Constructor for 'EMRStep' containing required fields as arguments.

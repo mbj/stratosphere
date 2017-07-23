@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration.html
 
@@ -26,15 +27,15 @@ instance ToJSON S3BucketReplicationConfiguration where
   toJSON S3BucketReplicationConfiguration{..} =
     object $
     catMaybes
-    [ Just ("Role" .= _s3BucketReplicationConfigurationRole)
-    , Just ("Rules" .= _s3BucketReplicationConfigurationRules)
+    [ (Just . ("Role",) . toJSON) _s3BucketReplicationConfigurationRole
+    , (Just . ("Rules",) . toJSON) _s3BucketReplicationConfigurationRules
     ]
 
 instance FromJSON S3BucketReplicationConfiguration where
   parseJSON (Object obj) =
     S3BucketReplicationConfiguration <$>
-      obj .: "Role" <*>
-      obj .: "Rules"
+      (obj .: "Role") <*>
+      (obj .: "Rules")
   parseJSON _ = mempty
 
 -- | Constructor for 'S3BucketReplicationConfiguration' containing required

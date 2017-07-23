@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-cloudwatchalarmdefinition.html
 
@@ -20,12 +21,12 @@ data EMRClusterCloudWatchAlarmDefinition =
   EMRClusterCloudWatchAlarmDefinition
   { _eMRClusterCloudWatchAlarmDefinitionComparisonOperator :: Val Text
   , _eMRClusterCloudWatchAlarmDefinitionDimensions :: Maybe [EMRClusterMetricDimension]
-  , _eMRClusterCloudWatchAlarmDefinitionEvaluationPeriods :: Maybe (Val Integer')
+  , _eMRClusterCloudWatchAlarmDefinitionEvaluationPeriods :: Maybe (Val Integer)
   , _eMRClusterCloudWatchAlarmDefinitionMetricName :: Val Text
   , _eMRClusterCloudWatchAlarmDefinitionNamespace :: Maybe (Val Text)
-  , _eMRClusterCloudWatchAlarmDefinitionPeriod :: Val Integer'
+  , _eMRClusterCloudWatchAlarmDefinitionPeriod :: Val Integer
   , _eMRClusterCloudWatchAlarmDefinitionStatistic :: Maybe (Val Text)
-  , _eMRClusterCloudWatchAlarmDefinitionThreshold :: Val Double'
+  , _eMRClusterCloudWatchAlarmDefinitionThreshold :: Val Double
   , _eMRClusterCloudWatchAlarmDefinitionUnit :: Maybe (Val Text)
   } deriving (Show, Eq)
 
@@ -33,29 +34,29 @@ instance ToJSON EMRClusterCloudWatchAlarmDefinition where
   toJSON EMRClusterCloudWatchAlarmDefinition{..} =
     object $
     catMaybes
-    [ Just ("ComparisonOperator" .= _eMRClusterCloudWatchAlarmDefinitionComparisonOperator)
-    , ("Dimensions" .=) <$> _eMRClusterCloudWatchAlarmDefinitionDimensions
-    , ("EvaluationPeriods" .=) <$> _eMRClusterCloudWatchAlarmDefinitionEvaluationPeriods
-    , Just ("MetricName" .= _eMRClusterCloudWatchAlarmDefinitionMetricName)
-    , ("Namespace" .=) <$> _eMRClusterCloudWatchAlarmDefinitionNamespace
-    , Just ("Period" .= _eMRClusterCloudWatchAlarmDefinitionPeriod)
-    , ("Statistic" .=) <$> _eMRClusterCloudWatchAlarmDefinitionStatistic
-    , Just ("Threshold" .= _eMRClusterCloudWatchAlarmDefinitionThreshold)
-    , ("Unit" .=) <$> _eMRClusterCloudWatchAlarmDefinitionUnit
+    [ (Just . ("ComparisonOperator",) . toJSON) _eMRClusterCloudWatchAlarmDefinitionComparisonOperator
+    , fmap (("Dimensions",) . toJSON) _eMRClusterCloudWatchAlarmDefinitionDimensions
+    , fmap (("EvaluationPeriods",) . toJSON . fmap Integer') _eMRClusterCloudWatchAlarmDefinitionEvaluationPeriods
+    , (Just . ("MetricName",) . toJSON) _eMRClusterCloudWatchAlarmDefinitionMetricName
+    , fmap (("Namespace",) . toJSON) _eMRClusterCloudWatchAlarmDefinitionNamespace
+    , (Just . ("Period",) . toJSON . fmap Integer') _eMRClusterCloudWatchAlarmDefinitionPeriod
+    , fmap (("Statistic",) . toJSON) _eMRClusterCloudWatchAlarmDefinitionStatistic
+    , (Just . ("Threshold",) . toJSON . fmap Double') _eMRClusterCloudWatchAlarmDefinitionThreshold
+    , fmap (("Unit",) . toJSON) _eMRClusterCloudWatchAlarmDefinitionUnit
     ]
 
 instance FromJSON EMRClusterCloudWatchAlarmDefinition where
   parseJSON (Object obj) =
     EMRClusterCloudWatchAlarmDefinition <$>
-      obj .: "ComparisonOperator" <*>
-      obj .:? "Dimensions" <*>
-      obj .:? "EvaluationPeriods" <*>
-      obj .: "MetricName" <*>
-      obj .:? "Namespace" <*>
-      obj .: "Period" <*>
-      obj .:? "Statistic" <*>
-      obj .: "Threshold" <*>
-      obj .:? "Unit"
+      (obj .: "ComparisonOperator") <*>
+      (obj .:? "Dimensions") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "EvaluationPeriods") <*>
+      (obj .: "MetricName") <*>
+      (obj .:? "Namespace") <*>
+      fmap (fmap unInteger') (obj .: "Period") <*>
+      (obj .:? "Statistic") <*>
+      fmap (fmap unDouble') (obj .: "Threshold") <*>
+      (obj .:? "Unit")
   parseJSON _ = mempty
 
 -- | Constructor for 'EMRClusterCloudWatchAlarmDefinition' containing required
@@ -63,8 +64,8 @@ instance FromJSON EMRClusterCloudWatchAlarmDefinition where
 emrClusterCloudWatchAlarmDefinition
   :: Val Text -- ^ 'emrccwadComparisonOperator'
   -> Val Text -- ^ 'emrccwadMetricName'
-  -> Val Integer' -- ^ 'emrccwadPeriod'
-  -> Val Double' -- ^ 'emrccwadThreshold'
+  -> Val Integer -- ^ 'emrccwadPeriod'
+  -> Val Double -- ^ 'emrccwadThreshold'
   -> EMRClusterCloudWatchAlarmDefinition
 emrClusterCloudWatchAlarmDefinition comparisonOperatorarg metricNamearg periodarg thresholdarg =
   EMRClusterCloudWatchAlarmDefinition
@@ -88,7 +89,7 @@ emrccwadDimensions :: Lens' EMRClusterCloudWatchAlarmDefinition (Maybe [EMRClust
 emrccwadDimensions = lens _eMRClusterCloudWatchAlarmDefinitionDimensions (\s a -> s { _eMRClusterCloudWatchAlarmDefinitionDimensions = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-cloudwatchalarmdefinition.html#cfn-elasticmapreduce-cluster-cloudwatchalarmdefinition-evaluationperiods
-emrccwadEvaluationPeriods :: Lens' EMRClusterCloudWatchAlarmDefinition (Maybe (Val Integer'))
+emrccwadEvaluationPeriods :: Lens' EMRClusterCloudWatchAlarmDefinition (Maybe (Val Integer))
 emrccwadEvaluationPeriods = lens _eMRClusterCloudWatchAlarmDefinitionEvaluationPeriods (\s a -> s { _eMRClusterCloudWatchAlarmDefinitionEvaluationPeriods = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-cloudwatchalarmdefinition.html#cfn-elasticmapreduce-cluster-cloudwatchalarmdefinition-metricname
@@ -100,7 +101,7 @@ emrccwadNamespace :: Lens' EMRClusterCloudWatchAlarmDefinition (Maybe (Val Text)
 emrccwadNamespace = lens _eMRClusterCloudWatchAlarmDefinitionNamespace (\s a -> s { _eMRClusterCloudWatchAlarmDefinitionNamespace = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-cloudwatchalarmdefinition.html#cfn-elasticmapreduce-cluster-cloudwatchalarmdefinition-period
-emrccwadPeriod :: Lens' EMRClusterCloudWatchAlarmDefinition (Val Integer')
+emrccwadPeriod :: Lens' EMRClusterCloudWatchAlarmDefinition (Val Integer)
 emrccwadPeriod = lens _eMRClusterCloudWatchAlarmDefinitionPeriod (\s a -> s { _eMRClusterCloudWatchAlarmDefinitionPeriod = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-cloudwatchalarmdefinition.html#cfn-elasticmapreduce-cluster-cloudwatchalarmdefinition-statistic
@@ -108,7 +109,7 @@ emrccwadStatistic :: Lens' EMRClusterCloudWatchAlarmDefinition (Maybe (Val Text)
 emrccwadStatistic = lens _eMRClusterCloudWatchAlarmDefinitionStatistic (\s a -> s { _eMRClusterCloudWatchAlarmDefinitionStatistic = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-cloudwatchalarmdefinition.html#cfn-elasticmapreduce-cluster-cloudwatchalarmdefinition-threshold
-emrccwadThreshold :: Lens' EMRClusterCloudWatchAlarmDefinition (Val Double')
+emrccwadThreshold :: Lens' EMRClusterCloudWatchAlarmDefinition (Val Double)
 emrccwadThreshold = lens _eMRClusterCloudWatchAlarmDefinitionThreshold (\s a -> s { _eMRClusterCloudWatchAlarmDefinitionThreshold = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-cloudwatchalarmdefinition.html#cfn-elasticmapreduce-cluster-cloudwatchalarmdefinition-unit

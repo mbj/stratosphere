@@ -49,16 +49,16 @@ data Parameter =
   , parameterAllowedPattern :: Maybe T.Text
     -- ^ A regular expression that represents the patterns you want to allow
     -- for String types.
-  , parameterMaxLength :: Maybe Integer'
+  , parameterMaxLength :: Maybe Integer
     -- ^ An integer value that determines the largest number of characters you
     -- want to allow for String types.
-  , parameterMinLength :: Maybe Integer'
+  , parameterMinLength :: Maybe Integer
     -- ^ An integer value that determines the smallest number of characters you
     -- want to allow for String types.
-  , parameterMaxValue :: Maybe Integer'
+  , parameterMaxValue :: Maybe Integer
     -- ^ A numeric value that determines the largest numeric value you want to
     -- allow for Number types.
-  , parameterMinValue :: Maybe Integer'
+  , parameterMinValue :: Maybe Integer
     -- ^ A numeric value that determines the smallest numeric value you want to
     -- allow for Number types.
   , parameterDescription :: Maybe T.Text
@@ -80,10 +80,10 @@ parameterToJSON Parameter {..} =
   , maybeField "NoEcho" parameterNoEcho
   , maybeField "AllowedValues" parameterAllowedValues
   , maybeField "AllowedPattern" parameterAllowedPattern
-  , maybeField "MaxLength" parameterMaxLength
-  , maybeField "MinLength" parameterMinLength
-  , maybeField "MaxValue" parameterMaxValue
-  , maybeField "MinValue" parameterMinValue
+  , maybeField "MaxLength" (Integer' <$> parameterMaxLength)
+  , maybeField "MinLength" (Integer' <$> parameterMinLength)
+  , maybeField "MaxValue" (Integer' <$> parameterMaxValue)
+  , maybeField "MinValue" (Integer' <$> parameterMinValue)
   , maybeField "Description" parameterDescription
   , maybeField "ConstraintDescription" parameterConstraintDescription
   ]
@@ -96,10 +96,10 @@ parameterFromJSON n o =
   <*> o .:? "NoEcho"
   <*> o .:? "AllowedValues"
   <*> o .:? "AllowedPattern"
-  <*> o .:? "MaxLength"
-  <*> o .:? "MinLength"
-  <*> o .:? "MaxValue"
-  <*> o .:? "MinValue"
+  <*> fmap (fmap unInteger') (o .:? "MaxLength")
+  <*> fmap (fmap unInteger') (o .:? "MinLength")
+  <*> fmap (fmap unInteger') (o .:? "MaxValue")
+  <*> fmap (fmap unInteger') (o .:? "MinValue")
   <*> o .:? "Description"
   <*> o .:? "ConstraintDescription"
 

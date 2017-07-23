@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-policy.html
 
@@ -21,11 +22,11 @@ data AutoScalingScalingPolicy =
   { _autoScalingScalingPolicyAdjustmentType :: Val Text
   , _autoScalingScalingPolicyAutoScalingGroupName :: Val Text
   , _autoScalingScalingPolicyCooldown :: Maybe (Val Text)
-  , _autoScalingScalingPolicyEstimatedInstanceWarmup :: Maybe (Val Integer')
+  , _autoScalingScalingPolicyEstimatedInstanceWarmup :: Maybe (Val Integer)
   , _autoScalingScalingPolicyMetricAggregationType :: Maybe (Val Text)
-  , _autoScalingScalingPolicyMinAdjustmentMagnitude :: Maybe (Val Integer')
+  , _autoScalingScalingPolicyMinAdjustmentMagnitude :: Maybe (Val Integer)
   , _autoScalingScalingPolicyPolicyType :: Maybe (Val Text)
-  , _autoScalingScalingPolicyScalingAdjustment :: Maybe (Val Integer')
+  , _autoScalingScalingPolicyScalingAdjustment :: Maybe (Val Integer)
   , _autoScalingScalingPolicyStepAdjustments :: Maybe [AutoScalingScalingPolicyStepAdjustment]
   } deriving (Show, Eq)
 
@@ -33,29 +34,29 @@ instance ToJSON AutoScalingScalingPolicy where
   toJSON AutoScalingScalingPolicy{..} =
     object $
     catMaybes
-    [ Just ("AdjustmentType" .= _autoScalingScalingPolicyAdjustmentType)
-    , Just ("AutoScalingGroupName" .= _autoScalingScalingPolicyAutoScalingGroupName)
-    , ("Cooldown" .=) <$> _autoScalingScalingPolicyCooldown
-    , ("EstimatedInstanceWarmup" .=) <$> _autoScalingScalingPolicyEstimatedInstanceWarmup
-    , ("MetricAggregationType" .=) <$> _autoScalingScalingPolicyMetricAggregationType
-    , ("MinAdjustmentMagnitude" .=) <$> _autoScalingScalingPolicyMinAdjustmentMagnitude
-    , ("PolicyType" .=) <$> _autoScalingScalingPolicyPolicyType
-    , ("ScalingAdjustment" .=) <$> _autoScalingScalingPolicyScalingAdjustment
-    , ("StepAdjustments" .=) <$> _autoScalingScalingPolicyStepAdjustments
+    [ (Just . ("AdjustmentType",) . toJSON) _autoScalingScalingPolicyAdjustmentType
+    , (Just . ("AutoScalingGroupName",) . toJSON) _autoScalingScalingPolicyAutoScalingGroupName
+    , fmap (("Cooldown",) . toJSON) _autoScalingScalingPolicyCooldown
+    , fmap (("EstimatedInstanceWarmup",) . toJSON . fmap Integer') _autoScalingScalingPolicyEstimatedInstanceWarmup
+    , fmap (("MetricAggregationType",) . toJSON) _autoScalingScalingPolicyMetricAggregationType
+    , fmap (("MinAdjustmentMagnitude",) . toJSON . fmap Integer') _autoScalingScalingPolicyMinAdjustmentMagnitude
+    , fmap (("PolicyType",) . toJSON) _autoScalingScalingPolicyPolicyType
+    , fmap (("ScalingAdjustment",) . toJSON . fmap Integer') _autoScalingScalingPolicyScalingAdjustment
+    , fmap (("StepAdjustments",) . toJSON) _autoScalingScalingPolicyStepAdjustments
     ]
 
 instance FromJSON AutoScalingScalingPolicy where
   parseJSON (Object obj) =
     AutoScalingScalingPolicy <$>
-      obj .: "AdjustmentType" <*>
-      obj .: "AutoScalingGroupName" <*>
-      obj .:? "Cooldown" <*>
-      obj .:? "EstimatedInstanceWarmup" <*>
-      obj .:? "MetricAggregationType" <*>
-      obj .:? "MinAdjustmentMagnitude" <*>
-      obj .:? "PolicyType" <*>
-      obj .:? "ScalingAdjustment" <*>
-      obj .:? "StepAdjustments"
+      (obj .: "AdjustmentType") <*>
+      (obj .: "AutoScalingGroupName") <*>
+      (obj .:? "Cooldown") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "EstimatedInstanceWarmup") <*>
+      (obj .:? "MetricAggregationType") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "MinAdjustmentMagnitude") <*>
+      (obj .:? "PolicyType") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "ScalingAdjustment") <*>
+      (obj .:? "StepAdjustments")
   parseJSON _ = mempty
 
 -- | Constructor for 'AutoScalingScalingPolicy' containing required fields as
@@ -90,7 +91,7 @@ asspCooldown :: Lens' AutoScalingScalingPolicy (Maybe (Val Text))
 asspCooldown = lens _autoScalingScalingPolicyCooldown (\s a -> s { _autoScalingScalingPolicyCooldown = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-policy.html#cfn-as-scalingpolicy-estimatedinstancewarmup
-asspEstimatedInstanceWarmup :: Lens' AutoScalingScalingPolicy (Maybe (Val Integer'))
+asspEstimatedInstanceWarmup :: Lens' AutoScalingScalingPolicy (Maybe (Val Integer))
 asspEstimatedInstanceWarmup = lens _autoScalingScalingPolicyEstimatedInstanceWarmup (\s a -> s { _autoScalingScalingPolicyEstimatedInstanceWarmup = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-policy.html#cfn-as-scalingpolicy-metricaggregationtype
@@ -98,7 +99,7 @@ asspMetricAggregationType :: Lens' AutoScalingScalingPolicy (Maybe (Val Text))
 asspMetricAggregationType = lens _autoScalingScalingPolicyMetricAggregationType (\s a -> s { _autoScalingScalingPolicyMetricAggregationType = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-policy.html#cfn-as-scalingpolicy-minadjustmentmagnitude
-asspMinAdjustmentMagnitude :: Lens' AutoScalingScalingPolicy (Maybe (Val Integer'))
+asspMinAdjustmentMagnitude :: Lens' AutoScalingScalingPolicy (Maybe (Val Integer))
 asspMinAdjustmentMagnitude = lens _autoScalingScalingPolicyMinAdjustmentMagnitude (\s a -> s { _autoScalingScalingPolicyMinAdjustmentMagnitude = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-policy.html#cfn-as-scalingpolicy-policytype
@@ -106,7 +107,7 @@ asspPolicyType :: Lens' AutoScalingScalingPolicy (Maybe (Val Text))
 asspPolicyType = lens _autoScalingScalingPolicyPolicyType (\s a -> s { _autoScalingScalingPolicyPolicyType = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-policy.html#cfn-as-scalingpolicy-scalingadjustment
-asspScalingAdjustment :: Lens' AutoScalingScalingPolicy (Maybe (Val Integer'))
+asspScalingAdjustment :: Lens' AutoScalingScalingPolicy (Maybe (Val Integer))
 asspScalingAdjustment = lens _autoScalingScalingPolicyScalingAdjustment (\s a -> s { _autoScalingScalingPolicyScalingAdjustment = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-policy.html#cfn-as-scalingpolicy-stepadjustments

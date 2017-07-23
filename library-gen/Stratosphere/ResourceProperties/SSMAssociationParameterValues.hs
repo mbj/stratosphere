@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-parametervalues.html
 
@@ -25,13 +26,13 @@ instance ToJSON SSMAssociationParameterValues where
   toJSON SSMAssociationParameterValues{..} =
     object $
     catMaybes
-    [ Just ("ParameterValues" .= _sSMAssociationParameterValuesParameterValues)
+    [ (Just . ("ParameterValues",) . toJSON) _sSMAssociationParameterValuesParameterValues
     ]
 
 instance FromJSON SSMAssociationParameterValues where
   parseJSON (Object obj) =
     SSMAssociationParameterValues <$>
-      obj .: "ParameterValues"
+      (obj .: "ParameterValues")
   parseJSON _ = mempty
 
 -- | Constructor for 'SSMAssociationParameterValues' containing required

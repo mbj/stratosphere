@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-tracingconfig.html
 
@@ -25,13 +26,13 @@ instance ToJSON LambdaFunctionTracingConfig where
   toJSON LambdaFunctionTracingConfig{..} =
     object $
     catMaybes
-    [ ("Mode" .=) <$> _lambdaFunctionTracingConfigMode
+    [ fmap (("Mode",) . toJSON) _lambdaFunctionTracingConfigMode
     ]
 
 instance FromJSON LambdaFunctionTracingConfig where
   parseJSON (Object obj) =
     LambdaFunctionTracingConfig <$>
-      obj .:? "Mode"
+      (obj .:? "Mode")
   parseJSON _ = mempty
 
 -- | Constructor for 'LambdaFunctionTracingConfig' containing required fields

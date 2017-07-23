@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html
 
@@ -29,21 +30,21 @@ instance ToJSON IAMPolicy where
   toJSON IAMPolicy{..} =
     object $
     catMaybes
-    [ ("Groups" .=) <$> _iAMPolicyGroups
-    , Just ("PolicyDocument" .= _iAMPolicyPolicyDocument)
-    , Just ("PolicyName" .= _iAMPolicyPolicyName)
-    , ("Roles" .=) <$> _iAMPolicyRoles
-    , ("Users" .=) <$> _iAMPolicyUsers
+    [ fmap (("Groups",) . toJSON) _iAMPolicyGroups
+    , (Just . ("PolicyDocument",) . toJSON) _iAMPolicyPolicyDocument
+    , (Just . ("PolicyName",) . toJSON) _iAMPolicyPolicyName
+    , fmap (("Roles",) . toJSON) _iAMPolicyRoles
+    , fmap (("Users",) . toJSON) _iAMPolicyUsers
     ]
 
 instance FromJSON IAMPolicy where
   parseJSON (Object obj) =
     IAMPolicy <$>
-      obj .:? "Groups" <*>
-      obj .: "PolicyDocument" <*>
-      obj .: "PolicyName" <*>
-      obj .:? "Roles" <*>
-      obj .:? "Users"
+      (obj .:? "Groups") <*>
+      (obj .: "PolicyDocument") <*>
+      (obj .: "PolicyName") <*>
+      (obj .:? "Roles") <*>
+      (obj .:? "Users")
   parseJSON _ = mempty
 
 -- | Constructor for 'IAMPolicy' containing required fields as arguments.

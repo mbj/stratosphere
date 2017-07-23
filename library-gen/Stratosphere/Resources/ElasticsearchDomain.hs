@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html
 
@@ -35,27 +36,27 @@ instance ToJSON ElasticsearchDomain where
   toJSON ElasticsearchDomain{..} =
     object $
     catMaybes
-    [ ("AccessPolicies" .=) <$> _elasticsearchDomainAccessPolicies
-    , ("AdvancedOptions" .=) <$> _elasticsearchDomainAdvancedOptions
-    , ("DomainName" .=) <$> _elasticsearchDomainDomainName
-    , ("EBSOptions" .=) <$> _elasticsearchDomainEBSOptions
-    , ("ElasticsearchClusterConfig" .=) <$> _elasticsearchDomainElasticsearchClusterConfig
-    , ("ElasticsearchVersion" .=) <$> _elasticsearchDomainElasticsearchVersion
-    , ("SnapshotOptions" .=) <$> _elasticsearchDomainSnapshotOptions
-    , ("Tags" .=) <$> _elasticsearchDomainTags
+    [ fmap (("AccessPolicies",) . toJSON) _elasticsearchDomainAccessPolicies
+    , fmap (("AdvancedOptions",) . toJSON) _elasticsearchDomainAdvancedOptions
+    , fmap (("DomainName",) . toJSON) _elasticsearchDomainDomainName
+    , fmap (("EBSOptions",) . toJSON) _elasticsearchDomainEBSOptions
+    , fmap (("ElasticsearchClusterConfig",) . toJSON) _elasticsearchDomainElasticsearchClusterConfig
+    , fmap (("ElasticsearchVersion",) . toJSON) _elasticsearchDomainElasticsearchVersion
+    , fmap (("SnapshotOptions",) . toJSON) _elasticsearchDomainSnapshotOptions
+    , fmap (("Tags",) . toJSON) _elasticsearchDomainTags
     ]
 
 instance FromJSON ElasticsearchDomain where
   parseJSON (Object obj) =
     ElasticsearchDomain <$>
-      obj .:? "AccessPolicies" <*>
-      obj .:? "AdvancedOptions" <*>
-      obj .:? "DomainName" <*>
-      obj .:? "EBSOptions" <*>
-      obj .:? "ElasticsearchClusterConfig" <*>
-      obj .:? "ElasticsearchVersion" <*>
-      obj .:? "SnapshotOptions" <*>
-      obj .:? "Tags"
+      (obj .:? "AccessPolicies") <*>
+      (obj .:? "AdvancedOptions") <*>
+      (obj .:? "DomainName") <*>
+      (obj .:? "EBSOptions") <*>
+      (obj .:? "ElasticsearchClusterConfig") <*>
+      (obj .:? "ElasticsearchVersion") <*>
+      (obj .:? "SnapshotOptions") <*>
+      (obj .:? "Tags")
   parseJSON _ = mempty
 
 -- | Constructor for 'ElasticsearchDomain' containing required fields as

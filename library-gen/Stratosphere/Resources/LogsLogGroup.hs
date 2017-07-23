@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html
 
@@ -19,22 +20,22 @@ import Stratosphere.Values
 data LogsLogGroup =
   LogsLogGroup
   { _logsLogGroupLogGroupName :: Maybe (Val Text)
-  , _logsLogGroupRetentionInDays :: Maybe (Val Integer')
+  , _logsLogGroupRetentionInDays :: Maybe (Val Integer)
   } deriving (Show, Eq)
 
 instance ToJSON LogsLogGroup where
   toJSON LogsLogGroup{..} =
     object $
     catMaybes
-    [ ("LogGroupName" .=) <$> _logsLogGroupLogGroupName
-    , ("RetentionInDays" .=) <$> _logsLogGroupRetentionInDays
+    [ fmap (("LogGroupName",) . toJSON) _logsLogGroupLogGroupName
+    , fmap (("RetentionInDays",) . toJSON . fmap Integer') _logsLogGroupRetentionInDays
     ]
 
 instance FromJSON LogsLogGroup where
   parseJSON (Object obj) =
     LogsLogGroup <$>
-      obj .:? "LogGroupName" <*>
-      obj .:? "RetentionInDays"
+      (obj .:? "LogGroupName") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "RetentionInDays")
   parseJSON _ = mempty
 
 -- | Constructor for 'LogsLogGroup' containing required fields as arguments.
@@ -51,5 +52,5 @@ llgLogGroupName :: Lens' LogsLogGroup (Maybe (Val Text))
 llgLogGroupName = lens _logsLogGroupLogGroupName (\s a -> s { _logsLogGroupLogGroupName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html#cfn-cwl-loggroup-retentionindays
-llgRetentionInDays :: Lens' LogsLogGroup (Maybe (Val Integer'))
+llgRetentionInDays :: Lens' LogsLogGroup (Maybe (Val Integer))
 llgRetentionInDays = lens _logsLogGroupRetentionInDays (\s a -> s { _logsLogGroupRetentionInDays = a })

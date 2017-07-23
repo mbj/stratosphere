@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-ebsconfiguration-ebsblockdeviceconfig.html
 
@@ -19,22 +20,22 @@ import Stratosphere.ResourceProperties.EMRClusterVolumeSpecification
 data EMRClusterEbsBlockDeviceConfig =
   EMRClusterEbsBlockDeviceConfig
   { _eMRClusterEbsBlockDeviceConfigVolumeSpecification :: EMRClusterVolumeSpecification
-  , _eMRClusterEbsBlockDeviceConfigVolumesPerInstance :: Maybe (Val Integer')
+  , _eMRClusterEbsBlockDeviceConfigVolumesPerInstance :: Maybe (Val Integer)
   } deriving (Show, Eq)
 
 instance ToJSON EMRClusterEbsBlockDeviceConfig where
   toJSON EMRClusterEbsBlockDeviceConfig{..} =
     object $
     catMaybes
-    [ Just ("VolumeSpecification" .= _eMRClusterEbsBlockDeviceConfigVolumeSpecification)
-    , ("VolumesPerInstance" .=) <$> _eMRClusterEbsBlockDeviceConfigVolumesPerInstance
+    [ (Just . ("VolumeSpecification",) . toJSON) _eMRClusterEbsBlockDeviceConfigVolumeSpecification
+    , fmap (("VolumesPerInstance",) . toJSON . fmap Integer') _eMRClusterEbsBlockDeviceConfigVolumesPerInstance
     ]
 
 instance FromJSON EMRClusterEbsBlockDeviceConfig where
   parseJSON (Object obj) =
     EMRClusterEbsBlockDeviceConfig <$>
-      obj .: "VolumeSpecification" <*>
-      obj .:? "VolumesPerInstance"
+      (obj .: "VolumeSpecification") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "VolumesPerInstance")
   parseJSON _ = mempty
 
 -- | Constructor for 'EMRClusterEbsBlockDeviceConfig' containing required
@@ -53,5 +54,5 @@ emrcebdcVolumeSpecification :: Lens' EMRClusterEbsBlockDeviceConfig EMRClusterVo
 emrcebdcVolumeSpecification = lens _eMRClusterEbsBlockDeviceConfigVolumeSpecification (\s a -> s { _eMRClusterEbsBlockDeviceConfigVolumeSpecification = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-ebsconfiguration-ebsblockdeviceconfig.html#cfn-emr-ebsconfiguration-ebsblockdeviceconfig-volumesperinstance
-emrcebdcVolumesPerInstance :: Lens' EMRClusterEbsBlockDeviceConfig (Maybe (Val Integer'))
+emrcebdcVolumesPerInstance :: Lens' EMRClusterEbsBlockDeviceConfig (Maybe (Val Integer))
 emrcebdcVolumesPerInstance = lens _eMRClusterEbsBlockDeviceConfigVolumesPerInstance (\s a -> s { _eMRClusterEbsBlockDeviceConfigVolumesPerInstance = a })

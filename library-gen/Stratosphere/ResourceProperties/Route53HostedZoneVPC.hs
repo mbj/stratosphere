@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone-hostedzonevpcs.html
 
@@ -26,15 +27,15 @@ instance ToJSON Route53HostedZoneVPC where
   toJSON Route53HostedZoneVPC{..} =
     object $
     catMaybes
-    [ Just ("VPCId" .= _route53HostedZoneVPCVPCId)
-    , Just ("VPCRegion" .= _route53HostedZoneVPCVPCRegion)
+    [ (Just . ("VPCId",) . toJSON) _route53HostedZoneVPCVPCId
+    , (Just . ("VPCRegion",) . toJSON) _route53HostedZoneVPCVPCRegion
     ]
 
 instance FromJSON Route53HostedZoneVPC where
   parseJSON (Object obj) =
     Route53HostedZoneVPC <$>
-      obj .: "VPCId" <*>
-      obj .: "VPCRegion"
+      (obj .: "VPCId") <*>
+      (obj .: "VPCRegion")
   parseJSON _ = mempty
 
 -- | Constructor for 'Route53HostedZoneVPC' containing required fields as

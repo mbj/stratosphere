@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-ulimit.html
 
@@ -18,34 +19,34 @@ import Stratosphere.Values
 -- 'ecsTaskDefinitionUlimit' for a more convenient constructor.
 data ECSTaskDefinitionUlimit =
   ECSTaskDefinitionUlimit
-  { _eCSTaskDefinitionUlimitHardLimit :: Val Integer'
+  { _eCSTaskDefinitionUlimitHardLimit :: Val Integer
   , _eCSTaskDefinitionUlimitName :: Val Text
-  , _eCSTaskDefinitionUlimitSoftLimit :: Val Integer'
+  , _eCSTaskDefinitionUlimitSoftLimit :: Val Integer
   } deriving (Show, Eq)
 
 instance ToJSON ECSTaskDefinitionUlimit where
   toJSON ECSTaskDefinitionUlimit{..} =
     object $
     catMaybes
-    [ Just ("HardLimit" .= _eCSTaskDefinitionUlimitHardLimit)
-    , Just ("Name" .= _eCSTaskDefinitionUlimitName)
-    , Just ("SoftLimit" .= _eCSTaskDefinitionUlimitSoftLimit)
+    [ (Just . ("HardLimit",) . toJSON . fmap Integer') _eCSTaskDefinitionUlimitHardLimit
+    , (Just . ("Name",) . toJSON) _eCSTaskDefinitionUlimitName
+    , (Just . ("SoftLimit",) . toJSON . fmap Integer') _eCSTaskDefinitionUlimitSoftLimit
     ]
 
 instance FromJSON ECSTaskDefinitionUlimit where
   parseJSON (Object obj) =
     ECSTaskDefinitionUlimit <$>
-      obj .: "HardLimit" <*>
-      obj .: "Name" <*>
-      obj .: "SoftLimit"
+      fmap (fmap unInteger') (obj .: "HardLimit") <*>
+      (obj .: "Name") <*>
+      fmap (fmap unInteger') (obj .: "SoftLimit")
   parseJSON _ = mempty
 
 -- | Constructor for 'ECSTaskDefinitionUlimit' containing required fields as
 -- arguments.
 ecsTaskDefinitionUlimit
-  :: Val Integer' -- ^ 'ecstduHardLimit'
+  :: Val Integer -- ^ 'ecstduHardLimit'
   -> Val Text -- ^ 'ecstduName'
-  -> Val Integer' -- ^ 'ecstduSoftLimit'
+  -> Val Integer -- ^ 'ecstduSoftLimit'
   -> ECSTaskDefinitionUlimit
 ecsTaskDefinitionUlimit hardLimitarg namearg softLimitarg =
   ECSTaskDefinitionUlimit
@@ -55,7 +56,7 @@ ecsTaskDefinitionUlimit hardLimitarg namearg softLimitarg =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-ulimit.html#cfn-ecs-taskdefinition-containerdefinition-ulimit-hardlimit
-ecstduHardLimit :: Lens' ECSTaskDefinitionUlimit (Val Integer')
+ecstduHardLimit :: Lens' ECSTaskDefinitionUlimit (Val Integer)
 ecstduHardLimit = lens _eCSTaskDefinitionUlimitHardLimit (\s a -> s { _eCSTaskDefinitionUlimitHardLimit = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-ulimit.html#cfn-ecs-taskdefinition-containerdefinition-ulimit-name
@@ -63,5 +64,5 @@ ecstduName :: Lens' ECSTaskDefinitionUlimit (Val Text)
 ecstduName = lens _eCSTaskDefinitionUlimitName (\s a -> s { _eCSTaskDefinitionUlimitName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-ulimit.html#cfn-ecs-taskdefinition-containerdefinition-ulimit-softlimit
-ecstduSoftLimit :: Lens' ECSTaskDefinitionUlimit (Val Integer')
+ecstduSoftLimit :: Lens' ECSTaskDefinitionUlimit (Val Integer)
 ecstduSoftLimit = lens _eCSTaskDefinitionUlimitSoftLimit (\s a -> s { _eCSTaskDefinitionUlimitSoftLimit = a })

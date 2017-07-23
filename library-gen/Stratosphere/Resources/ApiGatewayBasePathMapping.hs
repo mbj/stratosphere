@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-basepathmapping.html
 
@@ -28,19 +29,19 @@ instance ToJSON ApiGatewayBasePathMapping where
   toJSON ApiGatewayBasePathMapping{..} =
     object $
     catMaybes
-    [ ("BasePath" .=) <$> _apiGatewayBasePathMappingBasePath
-    , ("DomainName" .=) <$> _apiGatewayBasePathMappingDomainName
-    , ("RestApiId" .=) <$> _apiGatewayBasePathMappingRestApiId
-    , ("Stage" .=) <$> _apiGatewayBasePathMappingStage
+    [ fmap (("BasePath",) . toJSON) _apiGatewayBasePathMappingBasePath
+    , fmap (("DomainName",) . toJSON) _apiGatewayBasePathMappingDomainName
+    , fmap (("RestApiId",) . toJSON) _apiGatewayBasePathMappingRestApiId
+    , fmap (("Stage",) . toJSON) _apiGatewayBasePathMappingStage
     ]
 
 instance FromJSON ApiGatewayBasePathMapping where
   parseJSON (Object obj) =
     ApiGatewayBasePathMapping <$>
-      obj .:? "BasePath" <*>
-      obj .:? "DomainName" <*>
-      obj .:? "RestApiId" <*>
-      obj .:? "Stage"
+      (obj .:? "BasePath") <*>
+      (obj .:? "DomainName") <*>
+      (obj .:? "RestApiId") <*>
+      (obj .:? "Stage")
   parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayBasePathMapping' containing required fields as

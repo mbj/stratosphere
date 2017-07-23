@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source.html
 
@@ -27,17 +28,17 @@ instance ToJSON ConfigConfigRuleSource where
   toJSON ConfigConfigRuleSource{..} =
     object $
     catMaybes
-    [ Just ("Owner" .= _configConfigRuleSourceOwner)
-    , ("SourceDetails" .=) <$> _configConfigRuleSourceSourceDetails
-    , Just ("SourceIdentifier" .= _configConfigRuleSourceSourceIdentifier)
+    [ (Just . ("Owner",) . toJSON) _configConfigRuleSourceOwner
+    , fmap (("SourceDetails",) . toJSON) _configConfigRuleSourceSourceDetails
+    , (Just . ("SourceIdentifier",) . toJSON) _configConfigRuleSourceSourceIdentifier
     ]
 
 instance FromJSON ConfigConfigRuleSource where
   parseJSON (Object obj) =
     ConfigConfigRuleSource <$>
-      obj .: "Owner" <*>
-      obj .:? "SourceDetails" <*>
-      obj .: "SourceIdentifier"
+      (obj .: "Owner") <*>
+      (obj .:? "SourceDetails") <*>
+      (obj .: "SourceIdentifier")
   parseJSON _ = mempty
 
 -- | Constructor for 'ConfigConfigRuleSource' containing required fields as

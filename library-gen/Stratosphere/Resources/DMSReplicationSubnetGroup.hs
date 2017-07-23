@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationsubnetgroup.html
 
@@ -28,19 +29,19 @@ instance ToJSON DMSReplicationSubnetGroup where
   toJSON DMSReplicationSubnetGroup{..} =
     object $
     catMaybes
-    [ Just ("ReplicationSubnetGroupDescription" .= _dMSReplicationSubnetGroupReplicationSubnetGroupDescription)
-    , ("ReplicationSubnetGroupIdentifier" .=) <$> _dMSReplicationSubnetGroupReplicationSubnetGroupIdentifier
-    , Just ("SubnetIds" .= _dMSReplicationSubnetGroupSubnetIds)
-    , ("Tags" .=) <$> _dMSReplicationSubnetGroupTags
+    [ (Just . ("ReplicationSubnetGroupDescription",) . toJSON) _dMSReplicationSubnetGroupReplicationSubnetGroupDescription
+    , fmap (("ReplicationSubnetGroupIdentifier",) . toJSON) _dMSReplicationSubnetGroupReplicationSubnetGroupIdentifier
+    , (Just . ("SubnetIds",) . toJSON) _dMSReplicationSubnetGroupSubnetIds
+    , fmap (("Tags",) . toJSON) _dMSReplicationSubnetGroupTags
     ]
 
 instance FromJSON DMSReplicationSubnetGroup where
   parseJSON (Object obj) =
     DMSReplicationSubnetGroup <$>
-      obj .: "ReplicationSubnetGroupDescription" <*>
-      obj .:? "ReplicationSubnetGroupIdentifier" <*>
-      obj .: "SubnetIds" <*>
-      obj .:? "Tags"
+      (obj .: "ReplicationSubnetGroupDescription") <*>
+      (obj .:? "ReplicationSubnetGroupIdentifier") <*>
+      (obj .: "SubnetIds") <*>
+      (obj .:? "Tags")
   parseJSON _ = mempty
 
 -- | Constructor for 'DMSReplicationSubnetGroup' containing required fields as

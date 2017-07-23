@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user-loginprofile.html
 
@@ -19,22 +20,22 @@ import Stratosphere.Values
 data IAMUserLoginProfile =
   IAMUserLoginProfile
   { _iAMUserLoginProfilePassword :: Val Text
-  , _iAMUserLoginProfilePasswordResetRequired :: Maybe (Val Bool')
+  , _iAMUserLoginProfilePasswordResetRequired :: Maybe (Val Bool)
   } deriving (Show, Eq)
 
 instance ToJSON IAMUserLoginProfile where
   toJSON IAMUserLoginProfile{..} =
     object $
     catMaybes
-    [ Just ("Password" .= _iAMUserLoginProfilePassword)
-    , ("PasswordResetRequired" .=) <$> _iAMUserLoginProfilePasswordResetRequired
+    [ (Just . ("Password",) . toJSON) _iAMUserLoginProfilePassword
+    , fmap (("PasswordResetRequired",) . toJSON . fmap Bool') _iAMUserLoginProfilePasswordResetRequired
     ]
 
 instance FromJSON IAMUserLoginProfile where
   parseJSON (Object obj) =
     IAMUserLoginProfile <$>
-      obj .: "Password" <*>
-      obj .:? "PasswordResetRequired"
+      (obj .: "Password") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "PasswordResetRequired")
   parseJSON _ = mempty
 
 -- | Constructor for 'IAMUserLoginProfile' containing required fields as
@@ -53,5 +54,5 @@ iamulpPassword :: Lens' IAMUserLoginProfile (Val Text)
 iamulpPassword = lens _iAMUserLoginProfilePassword (\s a -> s { _iAMUserLoginProfilePassword = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user-loginprofile.html#cfn-iam-user-loginprofile-passwordresetrequired
-iamulpPasswordResetRequired :: Lens' IAMUserLoginProfile (Maybe (Val Bool'))
+iamulpPasswordResetRequired :: Lens' IAMUserLoginProfile (Maybe (Val Bool))
 iamulpPasswordResetRequired = lens _iAMUserLoginProfilePasswordResetRequired (\s a -> s { _iAMUserLoginProfilePasswordResetRequired = a })

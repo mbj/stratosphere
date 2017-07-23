@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail.html
 
@@ -20,10 +21,10 @@ data CloudTrailTrail =
   CloudTrailTrail
   { _cloudTrailTrailCloudWatchLogsLogGroupArn :: Maybe (Val Text)
   , _cloudTrailTrailCloudWatchLogsRoleArn :: Maybe (Val Text)
-  , _cloudTrailTrailEnableLogFileValidation :: Maybe (Val Bool')
-  , _cloudTrailTrailIncludeGlobalServiceEvents :: Maybe (Val Bool')
-  , _cloudTrailTrailIsLogging :: Val Bool'
-  , _cloudTrailTrailIsMultiRegionTrail :: Maybe (Val Bool')
+  , _cloudTrailTrailEnableLogFileValidation :: Maybe (Val Bool)
+  , _cloudTrailTrailIncludeGlobalServiceEvents :: Maybe (Val Bool)
+  , _cloudTrailTrailIsLogging :: Val Bool
+  , _cloudTrailTrailIsMultiRegionTrail :: Maybe (Val Bool)
   , _cloudTrailTrailKMSKeyId :: Maybe (Val Text)
   , _cloudTrailTrailS3BucketName :: Val Text
   , _cloudTrailTrailS3KeyPrefix :: Maybe (Val Text)
@@ -36,41 +37,41 @@ instance ToJSON CloudTrailTrail where
   toJSON CloudTrailTrail{..} =
     object $
     catMaybes
-    [ ("CloudWatchLogsLogGroupArn" .=) <$> _cloudTrailTrailCloudWatchLogsLogGroupArn
-    , ("CloudWatchLogsRoleArn" .=) <$> _cloudTrailTrailCloudWatchLogsRoleArn
-    , ("EnableLogFileValidation" .=) <$> _cloudTrailTrailEnableLogFileValidation
-    , ("IncludeGlobalServiceEvents" .=) <$> _cloudTrailTrailIncludeGlobalServiceEvents
-    , Just ("IsLogging" .= _cloudTrailTrailIsLogging)
-    , ("IsMultiRegionTrail" .=) <$> _cloudTrailTrailIsMultiRegionTrail
-    , ("KMSKeyId" .=) <$> _cloudTrailTrailKMSKeyId
-    , Just ("S3BucketName" .= _cloudTrailTrailS3BucketName)
-    , ("S3KeyPrefix" .=) <$> _cloudTrailTrailS3KeyPrefix
-    , ("SnsTopicName" .=) <$> _cloudTrailTrailSnsTopicName
-    , ("Tags" .=) <$> _cloudTrailTrailTags
-    , ("TrailName" .=) <$> _cloudTrailTrailTrailName
+    [ fmap (("CloudWatchLogsLogGroupArn",) . toJSON) _cloudTrailTrailCloudWatchLogsLogGroupArn
+    , fmap (("CloudWatchLogsRoleArn",) . toJSON) _cloudTrailTrailCloudWatchLogsRoleArn
+    , fmap (("EnableLogFileValidation",) . toJSON . fmap Bool') _cloudTrailTrailEnableLogFileValidation
+    , fmap (("IncludeGlobalServiceEvents",) . toJSON . fmap Bool') _cloudTrailTrailIncludeGlobalServiceEvents
+    , (Just . ("IsLogging",) . toJSON . fmap Bool') _cloudTrailTrailIsLogging
+    , fmap (("IsMultiRegionTrail",) . toJSON . fmap Bool') _cloudTrailTrailIsMultiRegionTrail
+    , fmap (("KMSKeyId",) . toJSON) _cloudTrailTrailKMSKeyId
+    , (Just . ("S3BucketName",) . toJSON) _cloudTrailTrailS3BucketName
+    , fmap (("S3KeyPrefix",) . toJSON) _cloudTrailTrailS3KeyPrefix
+    , fmap (("SnsTopicName",) . toJSON) _cloudTrailTrailSnsTopicName
+    , fmap (("Tags",) . toJSON) _cloudTrailTrailTags
+    , fmap (("TrailName",) . toJSON) _cloudTrailTrailTrailName
     ]
 
 instance FromJSON CloudTrailTrail where
   parseJSON (Object obj) =
     CloudTrailTrail <$>
-      obj .:? "CloudWatchLogsLogGroupArn" <*>
-      obj .:? "CloudWatchLogsRoleArn" <*>
-      obj .:? "EnableLogFileValidation" <*>
-      obj .:? "IncludeGlobalServiceEvents" <*>
-      obj .: "IsLogging" <*>
-      obj .:? "IsMultiRegionTrail" <*>
-      obj .:? "KMSKeyId" <*>
-      obj .: "S3BucketName" <*>
-      obj .:? "S3KeyPrefix" <*>
-      obj .:? "SnsTopicName" <*>
-      obj .:? "Tags" <*>
-      obj .:? "TrailName"
+      (obj .:? "CloudWatchLogsLogGroupArn") <*>
+      (obj .:? "CloudWatchLogsRoleArn") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "EnableLogFileValidation") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "IncludeGlobalServiceEvents") <*>
+      fmap (fmap unBool') (obj .: "IsLogging") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "IsMultiRegionTrail") <*>
+      (obj .:? "KMSKeyId") <*>
+      (obj .: "S3BucketName") <*>
+      (obj .:? "S3KeyPrefix") <*>
+      (obj .:? "SnsTopicName") <*>
+      (obj .:? "Tags") <*>
+      (obj .:? "TrailName")
   parseJSON _ = mempty
 
 -- | Constructor for 'CloudTrailTrail' containing required fields as
 -- arguments.
 cloudTrailTrail
-  :: Val Bool' -- ^ 'cttIsLogging'
+  :: Val Bool -- ^ 'cttIsLogging'
   -> Val Text -- ^ 'cttS3BucketName'
   -> CloudTrailTrail
 cloudTrailTrail isLoggingarg s3BucketNamearg =
@@ -98,19 +99,19 @@ cttCloudWatchLogsRoleArn :: Lens' CloudTrailTrail (Maybe (Val Text))
 cttCloudWatchLogsRoleArn = lens _cloudTrailTrailCloudWatchLogsRoleArn (\s a -> s { _cloudTrailTrailCloudWatchLogsRoleArn = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail.html#aws-cloudtrail-trail-enablelogfilevalidation
-cttEnableLogFileValidation :: Lens' CloudTrailTrail (Maybe (Val Bool'))
+cttEnableLogFileValidation :: Lens' CloudTrailTrail (Maybe (Val Bool))
 cttEnableLogFileValidation = lens _cloudTrailTrailEnableLogFileValidation (\s a -> s { _cloudTrailTrailEnableLogFileValidation = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail.html#aws-cloudtrail-trail-includeglobalserviceevents
-cttIncludeGlobalServiceEvents :: Lens' CloudTrailTrail (Maybe (Val Bool'))
+cttIncludeGlobalServiceEvents :: Lens' CloudTrailTrail (Maybe (Val Bool))
 cttIncludeGlobalServiceEvents = lens _cloudTrailTrailIncludeGlobalServiceEvents (\s a -> s { _cloudTrailTrailIncludeGlobalServiceEvents = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail.html#aws-cloudtrail-trail-islogging
-cttIsLogging :: Lens' CloudTrailTrail (Val Bool')
+cttIsLogging :: Lens' CloudTrailTrail (Val Bool)
 cttIsLogging = lens _cloudTrailTrailIsLogging (\s a -> s { _cloudTrailTrailIsLogging = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail.html#aws-cloudtrail-trail-ismultiregiontrail
-cttIsMultiRegionTrail :: Lens' CloudTrailTrail (Maybe (Val Bool'))
+cttIsMultiRegionTrail :: Lens' CloudTrailTrail (Maybe (Val Bool))
 cttIsMultiRegionTrail = lens _cloudTrailTrailIsMultiRegionTrail (\s a -> s { _cloudTrailTrailIsMultiRegionTrail = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail.html#aws-cloudtrail-trail-kmskeyid

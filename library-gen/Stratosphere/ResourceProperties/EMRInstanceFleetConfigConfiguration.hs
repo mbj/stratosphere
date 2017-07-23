@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-configuration.html
 
@@ -27,17 +28,17 @@ instance ToJSON EMRInstanceFleetConfigConfiguration where
   toJSON EMRInstanceFleetConfigConfiguration{..} =
     object $
     catMaybes
-    [ ("Classification" .=) <$> _eMRInstanceFleetConfigConfigurationClassification
-    , ("ConfigurationProperties" .=) <$> _eMRInstanceFleetConfigConfigurationConfigurationProperties
-    , ("Configurations" .=) <$> _eMRInstanceFleetConfigConfigurationConfigurations
+    [ fmap (("Classification",) . toJSON) _eMRInstanceFleetConfigConfigurationClassification
+    , fmap (("ConfigurationProperties",) . toJSON) _eMRInstanceFleetConfigConfigurationConfigurationProperties
+    , fmap (("Configurations",) . toJSON) _eMRInstanceFleetConfigConfigurationConfigurations
     ]
 
 instance FromJSON EMRInstanceFleetConfigConfiguration where
   parseJSON (Object obj) =
     EMRInstanceFleetConfigConfiguration <$>
-      obj .:? "Classification" <*>
-      obj .:? "ConfigurationProperties" <*>
-      obj .:? "Configurations"
+      (obj .:? "Classification") <*>
+      (obj .:? "ConfigurationProperties") <*>
+      (obj .:? "Configurations")
   parseJSON _ = mempty
 
 -- | Constructor for 'EMRInstanceFleetConfigConfiguration' containing required

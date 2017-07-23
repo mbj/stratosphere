@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-blockdevicemappings-ebs.html
 
@@ -18,11 +19,11 @@ import Stratosphere.Values
 -- 'ec2SpotFleetEbsBlockDevice' for a more convenient constructor.
 data EC2SpotFleetEbsBlockDevice =
   EC2SpotFleetEbsBlockDevice
-  { _eC2SpotFleetEbsBlockDeviceDeleteOnTermination :: Maybe (Val Bool')
-  , _eC2SpotFleetEbsBlockDeviceEncrypted :: Maybe (Val Bool')
-  , _eC2SpotFleetEbsBlockDeviceIops :: Maybe (Val Integer')
+  { _eC2SpotFleetEbsBlockDeviceDeleteOnTermination :: Maybe (Val Bool)
+  , _eC2SpotFleetEbsBlockDeviceEncrypted :: Maybe (Val Bool)
+  , _eC2SpotFleetEbsBlockDeviceIops :: Maybe (Val Integer)
   , _eC2SpotFleetEbsBlockDeviceSnapshotId :: Maybe (Val Text)
-  , _eC2SpotFleetEbsBlockDeviceVolumeSize :: Maybe (Val Integer')
+  , _eC2SpotFleetEbsBlockDeviceVolumeSize :: Maybe (Val Integer)
   , _eC2SpotFleetEbsBlockDeviceVolumeType :: Maybe (Val Text)
   } deriving (Show, Eq)
 
@@ -30,23 +31,23 @@ instance ToJSON EC2SpotFleetEbsBlockDevice where
   toJSON EC2SpotFleetEbsBlockDevice{..} =
     object $
     catMaybes
-    [ ("DeleteOnTermination" .=) <$> _eC2SpotFleetEbsBlockDeviceDeleteOnTermination
-    , ("Encrypted" .=) <$> _eC2SpotFleetEbsBlockDeviceEncrypted
-    , ("Iops" .=) <$> _eC2SpotFleetEbsBlockDeviceIops
-    , ("SnapshotId" .=) <$> _eC2SpotFleetEbsBlockDeviceSnapshotId
-    , ("VolumeSize" .=) <$> _eC2SpotFleetEbsBlockDeviceVolumeSize
-    , ("VolumeType" .=) <$> _eC2SpotFleetEbsBlockDeviceVolumeType
+    [ fmap (("DeleteOnTermination",) . toJSON . fmap Bool') _eC2SpotFleetEbsBlockDeviceDeleteOnTermination
+    , fmap (("Encrypted",) . toJSON . fmap Bool') _eC2SpotFleetEbsBlockDeviceEncrypted
+    , fmap (("Iops",) . toJSON . fmap Integer') _eC2SpotFleetEbsBlockDeviceIops
+    , fmap (("SnapshotId",) . toJSON) _eC2SpotFleetEbsBlockDeviceSnapshotId
+    , fmap (("VolumeSize",) . toJSON . fmap Integer') _eC2SpotFleetEbsBlockDeviceVolumeSize
+    , fmap (("VolumeType",) . toJSON) _eC2SpotFleetEbsBlockDeviceVolumeType
     ]
 
 instance FromJSON EC2SpotFleetEbsBlockDevice where
   parseJSON (Object obj) =
     EC2SpotFleetEbsBlockDevice <$>
-      obj .:? "DeleteOnTermination" <*>
-      obj .:? "Encrypted" <*>
-      obj .:? "Iops" <*>
-      obj .:? "SnapshotId" <*>
-      obj .:? "VolumeSize" <*>
-      obj .:? "VolumeType"
+      fmap (fmap (fmap unBool')) (obj .:? "DeleteOnTermination") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "Encrypted") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "Iops") <*>
+      (obj .:? "SnapshotId") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "VolumeSize") <*>
+      (obj .:? "VolumeType")
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2SpotFleetEbsBlockDevice' containing required fields
@@ -64,15 +65,15 @@ ec2SpotFleetEbsBlockDevice  =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-blockdevicemappings-ebs.html#cfn-ec2-spotfleet-ebsblockdevice-deleteontermination
-ecsfebdDeleteOnTermination :: Lens' EC2SpotFleetEbsBlockDevice (Maybe (Val Bool'))
+ecsfebdDeleteOnTermination :: Lens' EC2SpotFleetEbsBlockDevice (Maybe (Val Bool))
 ecsfebdDeleteOnTermination = lens _eC2SpotFleetEbsBlockDeviceDeleteOnTermination (\s a -> s { _eC2SpotFleetEbsBlockDeviceDeleteOnTermination = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-blockdevicemappings-ebs.html#cfn-ec2-spotfleet-ebsblockdevice-encrypted
-ecsfebdEncrypted :: Lens' EC2SpotFleetEbsBlockDevice (Maybe (Val Bool'))
+ecsfebdEncrypted :: Lens' EC2SpotFleetEbsBlockDevice (Maybe (Val Bool))
 ecsfebdEncrypted = lens _eC2SpotFleetEbsBlockDeviceEncrypted (\s a -> s { _eC2SpotFleetEbsBlockDeviceEncrypted = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-blockdevicemappings-ebs.html#cfn-ec2-spotfleet-ebsblockdevice-iops
-ecsfebdIops :: Lens' EC2SpotFleetEbsBlockDevice (Maybe (Val Integer'))
+ecsfebdIops :: Lens' EC2SpotFleetEbsBlockDevice (Maybe (Val Integer))
 ecsfebdIops = lens _eC2SpotFleetEbsBlockDeviceIops (\s a -> s { _eC2SpotFleetEbsBlockDeviceIops = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-blockdevicemappings-ebs.html#cfn-ec2-spotfleet-ebsblockdevice-snapshotid
@@ -80,7 +81,7 @@ ecsfebdSnapshotId :: Lens' EC2SpotFleetEbsBlockDevice (Maybe (Val Text))
 ecsfebdSnapshotId = lens _eC2SpotFleetEbsBlockDeviceSnapshotId (\s a -> s { _eC2SpotFleetEbsBlockDeviceSnapshotId = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-blockdevicemappings-ebs.html#cfn-ec2-spotfleet-ebsblockdevice-volumesize
-ecsfebdVolumeSize :: Lens' EC2SpotFleetEbsBlockDevice (Maybe (Val Integer'))
+ecsfebdVolumeSize :: Lens' EC2SpotFleetEbsBlockDevice (Maybe (Val Integer))
 ecsfebdVolumeSize = lens _eC2SpotFleetEbsBlockDeviceVolumeSize (\s a -> s { _eC2SpotFleetEbsBlockDeviceVolumeSize = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-blockdevicemappings-ebs.html#cfn-ec2-spotfleet-ebsblockdevice-volumetype

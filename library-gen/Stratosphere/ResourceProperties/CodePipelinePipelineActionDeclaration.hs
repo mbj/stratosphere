@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages-actions.html
 
@@ -27,32 +28,32 @@ data CodePipelinePipelineActionDeclaration =
   , _codePipelinePipelineActionDeclarationName :: Val Text
   , _codePipelinePipelineActionDeclarationOutputArtifacts :: Maybe [CodePipelinePipelineOutputArtifact]
   , _codePipelinePipelineActionDeclarationRoleArn :: Maybe (Val Text)
-  , _codePipelinePipelineActionDeclarationRunOrder :: Maybe (Val Integer')
+  , _codePipelinePipelineActionDeclarationRunOrder :: Maybe (Val Integer)
   } deriving (Show, Eq)
 
 instance ToJSON CodePipelinePipelineActionDeclaration where
   toJSON CodePipelinePipelineActionDeclaration{..} =
     object $
     catMaybes
-    [ Just ("ActionTypeId" .= _codePipelinePipelineActionDeclarationActionTypeId)
-    , ("Configuration" .=) <$> _codePipelinePipelineActionDeclarationConfiguration
-    , ("InputArtifacts" .=) <$> _codePipelinePipelineActionDeclarationInputArtifacts
-    , Just ("Name" .= _codePipelinePipelineActionDeclarationName)
-    , ("OutputArtifacts" .=) <$> _codePipelinePipelineActionDeclarationOutputArtifacts
-    , ("RoleArn" .=) <$> _codePipelinePipelineActionDeclarationRoleArn
-    , ("RunOrder" .=) <$> _codePipelinePipelineActionDeclarationRunOrder
+    [ (Just . ("ActionTypeId",) . toJSON) _codePipelinePipelineActionDeclarationActionTypeId
+    , fmap (("Configuration",) . toJSON) _codePipelinePipelineActionDeclarationConfiguration
+    , fmap (("InputArtifacts",) . toJSON) _codePipelinePipelineActionDeclarationInputArtifacts
+    , (Just . ("Name",) . toJSON) _codePipelinePipelineActionDeclarationName
+    , fmap (("OutputArtifacts",) . toJSON) _codePipelinePipelineActionDeclarationOutputArtifacts
+    , fmap (("RoleArn",) . toJSON) _codePipelinePipelineActionDeclarationRoleArn
+    , fmap (("RunOrder",) . toJSON . fmap Integer') _codePipelinePipelineActionDeclarationRunOrder
     ]
 
 instance FromJSON CodePipelinePipelineActionDeclaration where
   parseJSON (Object obj) =
     CodePipelinePipelineActionDeclaration <$>
-      obj .: "ActionTypeId" <*>
-      obj .:? "Configuration" <*>
-      obj .:? "InputArtifacts" <*>
-      obj .: "Name" <*>
-      obj .:? "OutputArtifacts" <*>
-      obj .:? "RoleArn" <*>
-      obj .:? "RunOrder"
+      (obj .: "ActionTypeId") <*>
+      (obj .:? "Configuration") <*>
+      (obj .:? "InputArtifacts") <*>
+      (obj .: "Name") <*>
+      (obj .:? "OutputArtifacts") <*>
+      (obj .:? "RoleArn") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "RunOrder")
   parseJSON _ = mempty
 
 -- | Constructor for 'CodePipelinePipelineActionDeclaration' containing
@@ -97,5 +98,5 @@ cppadRoleArn :: Lens' CodePipelinePipelineActionDeclaration (Maybe (Val Text))
 cppadRoleArn = lens _codePipelinePipelineActionDeclarationRoleArn (\s a -> s { _codePipelinePipelineActionDeclarationRoleArn = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages-actions.html#cfn-codepipeline-pipeline-stages-actions-runorder
-cppadRunOrder :: Lens' CodePipelinePipelineActionDeclaration (Maybe (Val Integer'))
+cppadRunOrder :: Lens' CodePipelinePipelineActionDeclaration (Maybe (Val Integer))
 cppadRunOrder = lens _codePipelinePipelineActionDeclarationRunOrder (\s a -> s { _codePipelinePipelineActionDeclarationRunOrder = a })

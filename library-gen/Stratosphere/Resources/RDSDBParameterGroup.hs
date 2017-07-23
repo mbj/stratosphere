@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbparametergroup.html
 
@@ -28,19 +29,19 @@ instance ToJSON RDSDBParameterGroup where
   toJSON RDSDBParameterGroup{..} =
     object $
     catMaybes
-    [ Just ("Description" .= _rDSDBParameterGroupDescription)
-    , Just ("Family" .= _rDSDBParameterGroupFamily)
-    , ("Parameters" .=) <$> _rDSDBParameterGroupParameters
-    , ("Tags" .=) <$> _rDSDBParameterGroupTags
+    [ (Just . ("Description",) . toJSON) _rDSDBParameterGroupDescription
+    , (Just . ("Family",) . toJSON) _rDSDBParameterGroupFamily
+    , fmap (("Parameters",) . toJSON) _rDSDBParameterGroupParameters
+    , fmap (("Tags",) . toJSON) _rDSDBParameterGroupTags
     ]
 
 instance FromJSON RDSDBParameterGroup where
   parseJSON (Object obj) =
     RDSDBParameterGroup <$>
-      obj .: "Description" <*>
-      obj .: "Family" <*>
-      obj .:? "Parameters" <*>
-      obj .:? "Tags"
+      (obj .: "Description") <*>
+      (obj .: "Family") <*>
+      (obj .:? "Parameters") <*>
+      (obj .:? "Tags")
   parseJSON _ = mempty
 
 -- | Constructor for 'RDSDBParameterGroup' containing required fields as

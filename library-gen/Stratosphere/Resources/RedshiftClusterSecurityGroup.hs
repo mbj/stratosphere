@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clustersecuritygroup.html
 
@@ -26,15 +27,15 @@ instance ToJSON RedshiftClusterSecurityGroup where
   toJSON RedshiftClusterSecurityGroup{..} =
     object $
     catMaybes
-    [ Just ("Description" .= _redshiftClusterSecurityGroupDescription)
-    , ("Tags" .=) <$> _redshiftClusterSecurityGroupTags
+    [ (Just . ("Description",) . toJSON) _redshiftClusterSecurityGroupDescription
+    , fmap (("Tags",) . toJSON) _redshiftClusterSecurityGroupTags
     ]
 
 instance FromJSON RedshiftClusterSecurityGroup where
   parseJSON (Object obj) =
     RedshiftClusterSecurityGroup <$>
-      obj .: "Description" <*>
-      obj .:? "Tags"
+      (obj .: "Description") <*>
+      (obj .:? "Tags")
   parseJSON _ = mempty
 
 -- | Constructor for 'RedshiftClusterSecurityGroup' containing required fields

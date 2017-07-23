@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-artifactstore.html
 
@@ -27,17 +28,17 @@ instance ToJSON CodePipelinePipelineArtifactStore where
   toJSON CodePipelinePipelineArtifactStore{..} =
     object $
     catMaybes
-    [ ("EncryptionKey" .=) <$> _codePipelinePipelineArtifactStoreEncryptionKey
-    , Just ("Location" .= _codePipelinePipelineArtifactStoreLocation)
-    , Just ("Type" .= _codePipelinePipelineArtifactStoreType)
+    [ fmap (("EncryptionKey",) . toJSON) _codePipelinePipelineArtifactStoreEncryptionKey
+    , (Just . ("Location",) . toJSON) _codePipelinePipelineArtifactStoreLocation
+    , (Just . ("Type",) . toJSON) _codePipelinePipelineArtifactStoreType
     ]
 
 instance FromJSON CodePipelinePipelineArtifactStore where
   parseJSON (Object obj) =
     CodePipelinePipelineArtifactStore <$>
-      obj .:? "EncryptionKey" <*>
-      obj .: "Location" <*>
-      obj .: "Type"
+      (obj .:? "EncryptionKey") <*>
+      (obj .: "Location") <*>
+      (obj .: "Type")
   parseJSON _ = mempty
 
 -- | Constructor for 'CodePipelinePipelineArtifactStore' containing required

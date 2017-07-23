@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpn-gateway.html
 
@@ -26,15 +27,15 @@ instance ToJSON EC2VPNGateway where
   toJSON EC2VPNGateway{..} =
     object $
     catMaybes
-    [ ("Tags" .=) <$> _eC2VPNGatewayTags
-    , Just ("Type" .= _eC2VPNGatewayType)
+    [ fmap (("Tags",) . toJSON) _eC2VPNGatewayTags
+    , (Just . ("Type",) . toJSON) _eC2VPNGatewayType
     ]
 
 instance FromJSON EC2VPNGateway where
   parseJSON (Object obj) =
     EC2VPNGateway <$>
-      obj .:? "Tags" <*>
-      obj .: "Type"
+      (obj .:? "Tags") <*>
+      (obj .: "Type")
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2VPNGateway' containing required fields as arguments.

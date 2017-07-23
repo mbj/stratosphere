@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-app.html
 
@@ -26,7 +27,7 @@ data OpsWorksApp =
   , _opsWorksAppDataSources :: Maybe [OpsWorksAppDataSource]
   , _opsWorksAppDescription :: Maybe (Val Text)
   , _opsWorksAppDomains :: Maybe (ValList Text)
-  , _opsWorksAppEnableSsl :: Maybe (Val Bool')
+  , _opsWorksAppEnableSsl :: Maybe (Val Bool)
   , _opsWorksAppEnvironment :: Maybe [OpsWorksAppEnvironmentVariable]
   , _opsWorksAppName :: Val Text
   , _opsWorksAppShortname :: Maybe (Val Text)
@@ -39,35 +40,35 @@ instance ToJSON OpsWorksApp where
   toJSON OpsWorksApp{..} =
     object $
     catMaybes
-    [ ("AppSource" .=) <$> _opsWorksAppAppSource
-    , ("Attributes" .=) <$> _opsWorksAppAttributes
-    , ("DataSources" .=) <$> _opsWorksAppDataSources
-    , ("Description" .=) <$> _opsWorksAppDescription
-    , ("Domains" .=) <$> _opsWorksAppDomains
-    , ("EnableSsl" .=) <$> _opsWorksAppEnableSsl
-    , ("Environment" .=) <$> _opsWorksAppEnvironment
-    , Just ("Name" .= _opsWorksAppName)
-    , ("Shortname" .=) <$> _opsWorksAppShortname
-    , ("SslConfiguration" .=) <$> _opsWorksAppSslConfiguration
-    , Just ("StackId" .= _opsWorksAppStackId)
-    , Just ("Type" .= _opsWorksAppType)
+    [ fmap (("AppSource",) . toJSON) _opsWorksAppAppSource
+    , fmap (("Attributes",) . toJSON) _opsWorksAppAttributes
+    , fmap (("DataSources",) . toJSON) _opsWorksAppDataSources
+    , fmap (("Description",) . toJSON) _opsWorksAppDescription
+    , fmap (("Domains",) . toJSON) _opsWorksAppDomains
+    , fmap (("EnableSsl",) . toJSON . fmap Bool') _opsWorksAppEnableSsl
+    , fmap (("Environment",) . toJSON) _opsWorksAppEnvironment
+    , (Just . ("Name",) . toJSON) _opsWorksAppName
+    , fmap (("Shortname",) . toJSON) _opsWorksAppShortname
+    , fmap (("SslConfiguration",) . toJSON) _opsWorksAppSslConfiguration
+    , (Just . ("StackId",) . toJSON) _opsWorksAppStackId
+    , (Just . ("Type",) . toJSON) _opsWorksAppType
     ]
 
 instance FromJSON OpsWorksApp where
   parseJSON (Object obj) =
     OpsWorksApp <$>
-      obj .:? "AppSource" <*>
-      obj .:? "Attributes" <*>
-      obj .:? "DataSources" <*>
-      obj .:? "Description" <*>
-      obj .:? "Domains" <*>
-      obj .:? "EnableSsl" <*>
-      obj .:? "Environment" <*>
-      obj .: "Name" <*>
-      obj .:? "Shortname" <*>
-      obj .:? "SslConfiguration" <*>
-      obj .: "StackId" <*>
-      obj .: "Type"
+      (obj .:? "AppSource") <*>
+      (obj .:? "Attributes") <*>
+      (obj .:? "DataSources") <*>
+      (obj .:? "Description") <*>
+      (obj .:? "Domains") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "EnableSsl") <*>
+      (obj .:? "Environment") <*>
+      (obj .: "Name") <*>
+      (obj .:? "Shortname") <*>
+      (obj .:? "SslConfiguration") <*>
+      (obj .: "StackId") <*>
+      (obj .: "Type")
   parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksApp' containing required fields as arguments.
@@ -113,7 +114,7 @@ owaDomains :: Lens' OpsWorksApp (Maybe (ValList Text))
 owaDomains = lens _opsWorksAppDomains (\s a -> s { _opsWorksAppDomains = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-app.html#cfn-opsworks-app-enablessl
-owaEnableSsl :: Lens' OpsWorksApp (Maybe (Val Bool'))
+owaEnableSsl :: Lens' OpsWorksApp (Maybe (Val Bool))
 owaEnableSsl = lens _opsWorksAppEnableSsl (\s a -> s { _opsWorksAppEnableSsl = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-app.html#cfn-opsworks-app-environment

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-bytematchset.html
 
@@ -26,15 +27,15 @@ instance ToJSON WAFRegionalByteMatchSet where
   toJSON WAFRegionalByteMatchSet{..} =
     object $
     catMaybes
-    [ ("ByteMatchTuples" .=) <$> _wAFRegionalByteMatchSetByteMatchTuples
-    , Just ("Name" .= _wAFRegionalByteMatchSetName)
+    [ fmap (("ByteMatchTuples",) . toJSON) _wAFRegionalByteMatchSetByteMatchTuples
+    , (Just . ("Name",) . toJSON) _wAFRegionalByteMatchSetName
     ]
 
 instance FromJSON WAFRegionalByteMatchSet where
   parseJSON (Object obj) =
     WAFRegionalByteMatchSet <$>
-      obj .:? "ByteMatchTuples" <*>
-      obj .: "Name"
+      (obj .:? "ByteMatchTuples") <*>
+      (obj .: "Name")
   parseJSON _ = mempty
 
 -- | Constructor for 'WAFRegionalByteMatchSet' containing required fields as

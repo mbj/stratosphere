@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-blockdev-template.html
 
@@ -18,11 +19,11 @@ import Stratosphere.Values
 -- more convenient constructor.
 data EC2InstanceEbs =
   EC2InstanceEbs
-  { _eC2InstanceEbsDeleteOnTermination :: Maybe (Val Bool')
-  , _eC2InstanceEbsEncrypted :: Maybe (Val Bool')
-  , _eC2InstanceEbsIops :: Maybe (Val Integer')
+  { _eC2InstanceEbsDeleteOnTermination :: Maybe (Val Bool)
+  , _eC2InstanceEbsEncrypted :: Maybe (Val Bool)
+  , _eC2InstanceEbsIops :: Maybe (Val Integer)
   , _eC2InstanceEbsSnapshotId :: Maybe (Val Text)
-  , _eC2InstanceEbsVolumeSize :: Maybe (Val Integer')
+  , _eC2InstanceEbsVolumeSize :: Maybe (Val Integer)
   , _eC2InstanceEbsVolumeType :: Maybe (Val Text)
   } deriving (Show, Eq)
 
@@ -30,23 +31,23 @@ instance ToJSON EC2InstanceEbs where
   toJSON EC2InstanceEbs{..} =
     object $
     catMaybes
-    [ ("DeleteOnTermination" .=) <$> _eC2InstanceEbsDeleteOnTermination
-    , ("Encrypted" .=) <$> _eC2InstanceEbsEncrypted
-    , ("Iops" .=) <$> _eC2InstanceEbsIops
-    , ("SnapshotId" .=) <$> _eC2InstanceEbsSnapshotId
-    , ("VolumeSize" .=) <$> _eC2InstanceEbsVolumeSize
-    , ("VolumeType" .=) <$> _eC2InstanceEbsVolumeType
+    [ fmap (("DeleteOnTermination",) . toJSON . fmap Bool') _eC2InstanceEbsDeleteOnTermination
+    , fmap (("Encrypted",) . toJSON . fmap Bool') _eC2InstanceEbsEncrypted
+    , fmap (("Iops",) . toJSON . fmap Integer') _eC2InstanceEbsIops
+    , fmap (("SnapshotId",) . toJSON) _eC2InstanceEbsSnapshotId
+    , fmap (("VolumeSize",) . toJSON . fmap Integer') _eC2InstanceEbsVolumeSize
+    , fmap (("VolumeType",) . toJSON) _eC2InstanceEbsVolumeType
     ]
 
 instance FromJSON EC2InstanceEbs where
   parseJSON (Object obj) =
     EC2InstanceEbs <$>
-      obj .:? "DeleteOnTermination" <*>
-      obj .:? "Encrypted" <*>
-      obj .:? "Iops" <*>
-      obj .:? "SnapshotId" <*>
-      obj .:? "VolumeSize" <*>
-      obj .:? "VolumeType"
+      fmap (fmap (fmap unBool')) (obj .:? "DeleteOnTermination") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "Encrypted") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "Iops") <*>
+      (obj .:? "SnapshotId") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "VolumeSize") <*>
+      (obj .:? "VolumeType")
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2InstanceEbs' containing required fields as arguments.
@@ -63,15 +64,15 @@ ec2InstanceEbs  =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-blockdev-template.html#cfn-ec2-blockdev-template-deleteontermination
-ecieDeleteOnTermination :: Lens' EC2InstanceEbs (Maybe (Val Bool'))
+ecieDeleteOnTermination :: Lens' EC2InstanceEbs (Maybe (Val Bool))
 ecieDeleteOnTermination = lens _eC2InstanceEbsDeleteOnTermination (\s a -> s { _eC2InstanceEbsDeleteOnTermination = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-blockdev-template.html#cfn-ec2-blockdev-template-encrypted
-ecieEncrypted :: Lens' EC2InstanceEbs (Maybe (Val Bool'))
+ecieEncrypted :: Lens' EC2InstanceEbs (Maybe (Val Bool))
 ecieEncrypted = lens _eC2InstanceEbsEncrypted (\s a -> s { _eC2InstanceEbsEncrypted = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-blockdev-template.html#cfn-ec2-blockdev-template-iops
-ecieIops :: Lens' EC2InstanceEbs (Maybe (Val Integer'))
+ecieIops :: Lens' EC2InstanceEbs (Maybe (Val Integer))
 ecieIops = lens _eC2InstanceEbsIops (\s a -> s { _eC2InstanceEbsIops = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-blockdev-template.html#cfn-ec2-blockdev-template-snapshotid
@@ -79,7 +80,7 @@ ecieSnapshotId :: Lens' EC2InstanceEbs (Maybe (Val Text))
 ecieSnapshotId = lens _eC2InstanceEbsSnapshotId (\s a -> s { _eC2InstanceEbsSnapshotId = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-blockdev-template.html#cfn-ec2-blockdev-template-volumesize
-ecieVolumeSize :: Lens' EC2InstanceEbs (Maybe (Val Integer'))
+ecieVolumeSize :: Lens' EC2InstanceEbs (Maybe (Val Integer))
 ecieVolumeSize = lens _eC2InstanceEbsVolumeSize (\s a -> s { _eC2InstanceEbsVolumeSize = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-blockdev-template.html#cfn-ec2-blockdev-template-volumetype

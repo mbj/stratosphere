@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html
 
@@ -35,31 +36,31 @@ instance ToJSON ApiGatewayMethodIntegration where
   toJSON ApiGatewayMethodIntegration{..} =
     object $
     catMaybes
-    [ ("CacheKeyParameters" .=) <$> _apiGatewayMethodIntegrationCacheKeyParameters
-    , ("CacheNamespace" .=) <$> _apiGatewayMethodIntegrationCacheNamespace
-    , ("Credentials" .=) <$> _apiGatewayMethodIntegrationCredentials
-    , ("IntegrationHttpMethod" .=) <$> _apiGatewayMethodIntegrationIntegrationHttpMethod
-    , ("IntegrationResponses" .=) <$> _apiGatewayMethodIntegrationIntegrationResponses
-    , ("PassthroughBehavior" .=) <$> _apiGatewayMethodIntegrationPassthroughBehavior
-    , ("RequestParameters" .=) <$> _apiGatewayMethodIntegrationRequestParameters
-    , ("RequestTemplates" .=) <$> _apiGatewayMethodIntegrationRequestTemplates
-    , ("Type" .=) <$> _apiGatewayMethodIntegrationType
-    , ("Uri" .=) <$> _apiGatewayMethodIntegrationUri
+    [ fmap (("CacheKeyParameters",) . toJSON) _apiGatewayMethodIntegrationCacheKeyParameters
+    , fmap (("CacheNamespace",) . toJSON) _apiGatewayMethodIntegrationCacheNamespace
+    , fmap (("Credentials",) . toJSON) _apiGatewayMethodIntegrationCredentials
+    , fmap (("IntegrationHttpMethod",) . toJSON) _apiGatewayMethodIntegrationIntegrationHttpMethod
+    , fmap (("IntegrationResponses",) . toJSON) _apiGatewayMethodIntegrationIntegrationResponses
+    , fmap (("PassthroughBehavior",) . toJSON) _apiGatewayMethodIntegrationPassthroughBehavior
+    , fmap (("RequestParameters",) . toJSON) _apiGatewayMethodIntegrationRequestParameters
+    , fmap (("RequestTemplates",) . toJSON) _apiGatewayMethodIntegrationRequestTemplates
+    , fmap (("Type",) . toJSON) _apiGatewayMethodIntegrationType
+    , fmap (("Uri",) . toJSON) _apiGatewayMethodIntegrationUri
     ]
 
 instance FromJSON ApiGatewayMethodIntegration where
   parseJSON (Object obj) =
     ApiGatewayMethodIntegration <$>
-      obj .:? "CacheKeyParameters" <*>
-      obj .:? "CacheNamespace" <*>
-      obj .:? "Credentials" <*>
-      obj .:? "IntegrationHttpMethod" <*>
-      obj .:? "IntegrationResponses" <*>
-      obj .:? "PassthroughBehavior" <*>
-      obj .:? "RequestParameters" <*>
-      obj .:? "RequestTemplates" <*>
-      obj .:? "Type" <*>
-      obj .:? "Uri"
+      (obj .:? "CacheKeyParameters") <*>
+      (obj .:? "CacheNamespace") <*>
+      (obj .:? "Credentials") <*>
+      (obj .:? "IntegrationHttpMethod") <*>
+      (obj .:? "IntegrationResponses") <*>
+      (obj .:? "PassthroughBehavior") <*>
+      (obj .:? "RequestParameters") <*>
+      (obj .:? "RequestTemplates") <*>
+      (obj .:? "Type") <*>
+      (obj .:? "Uri")
   parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayMethodIntegration' containing required fields

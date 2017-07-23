@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html
 
@@ -28,19 +29,19 @@ instance ToJSON EC2VPCEndpoint where
   toJSON EC2VPCEndpoint{..} =
     object $
     catMaybes
-    [ ("PolicyDocument" .=) <$> _eC2VPCEndpointPolicyDocument
-    , ("RouteTableIds" .=) <$> _eC2VPCEndpointRouteTableIds
-    , Just ("ServiceName" .= _eC2VPCEndpointServiceName)
-    , Just ("VpcId" .= _eC2VPCEndpointVpcId)
+    [ fmap (("PolicyDocument",) . toJSON) _eC2VPCEndpointPolicyDocument
+    , fmap (("RouteTableIds",) . toJSON) _eC2VPCEndpointRouteTableIds
+    , (Just . ("ServiceName",) . toJSON) _eC2VPCEndpointServiceName
+    , (Just . ("VpcId",) . toJSON) _eC2VPCEndpointVpcId
     ]
 
 instance FromJSON EC2VPCEndpoint where
   parseJSON (Object obj) =
     EC2VPCEndpoint <$>
-      obj .:? "PolicyDocument" <*>
-      obj .:? "RouteTableIds" <*>
-      obj .: "ServiceName" <*>
-      obj .: "VpcId"
+      (obj .:? "PolicyDocument") <*>
+      (obj .:? "RouteTableIds") <*>
+      (obj .: "ServiceName") <*>
+      (obj .: "VpcId")
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2VPCEndpoint' containing required fields as arguments.

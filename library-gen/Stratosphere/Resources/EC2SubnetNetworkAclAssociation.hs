@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet-network-acl-assoc.html
 
@@ -26,15 +27,15 @@ instance ToJSON EC2SubnetNetworkAclAssociation where
   toJSON EC2SubnetNetworkAclAssociation{..} =
     object $
     catMaybes
-    [ Just ("NetworkAclId" .= _eC2SubnetNetworkAclAssociationNetworkAclId)
-    , Just ("SubnetId" .= _eC2SubnetNetworkAclAssociationSubnetId)
+    [ (Just . ("NetworkAclId",) . toJSON) _eC2SubnetNetworkAclAssociationNetworkAclId
+    , (Just . ("SubnetId",) . toJSON) _eC2SubnetNetworkAclAssociationSubnetId
     ]
 
 instance FromJSON EC2SubnetNetworkAclAssociation where
   parseJSON (Object obj) =
     EC2SubnetNetworkAclAssociation <$>
-      obj .: "NetworkAclId" <*>
-      obj .: "SubnetId"
+      (obj .: "NetworkAclId") <*>
+      (obj .: "SubnetId")
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2SubnetNetworkAclAssociation' containing required

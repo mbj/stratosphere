@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-alarmidentifier.html
 
@@ -26,15 +27,15 @@ instance ToJSON Route53HealthCheckAlarmIdentifier where
   toJSON Route53HealthCheckAlarmIdentifier{..} =
     object $
     catMaybes
-    [ Just ("Name" .= _route53HealthCheckAlarmIdentifierName)
-    , Just ("Region" .= _route53HealthCheckAlarmIdentifierRegion)
+    [ (Just . ("Name",) . toJSON) _route53HealthCheckAlarmIdentifierName
+    , (Just . ("Region",) . toJSON) _route53HealthCheckAlarmIdentifierRegion
     ]
 
 instance FromJSON Route53HealthCheckAlarmIdentifier where
   parseJSON (Object obj) =
     Route53HealthCheckAlarmIdentifier <$>
-      obj .: "Name" <*>
-      obj .: "Region"
+      (obj .: "Name") <*>
+      (obj .: "Region")
   parseJSON _ = mempty
 
 -- | Constructor for 'Route53HealthCheckAlarmIdentifier' containing required

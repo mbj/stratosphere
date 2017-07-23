@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-pipeline.html
 
@@ -23,7 +24,7 @@ data CodePipelinePipeline =
   { _codePipelinePipelineArtifactStore :: CodePipelinePipelineArtifactStore
   , _codePipelinePipelineDisableInboundStageTransitions :: Maybe [CodePipelinePipelineStageTransition]
   , _codePipelinePipelineName :: Maybe (Val Text)
-  , _codePipelinePipelineRestartExecutionOnUpdate :: Maybe (Val Bool')
+  , _codePipelinePipelineRestartExecutionOnUpdate :: Maybe (Val Bool)
   , _codePipelinePipelineRoleArn :: Val Text
   , _codePipelinePipelineStages :: [CodePipelinePipelineStageDeclaration]
   } deriving (Show, Eq)
@@ -32,23 +33,23 @@ instance ToJSON CodePipelinePipeline where
   toJSON CodePipelinePipeline{..} =
     object $
     catMaybes
-    [ Just ("ArtifactStore" .= _codePipelinePipelineArtifactStore)
-    , ("DisableInboundStageTransitions" .=) <$> _codePipelinePipelineDisableInboundStageTransitions
-    , ("Name" .=) <$> _codePipelinePipelineName
-    , ("RestartExecutionOnUpdate" .=) <$> _codePipelinePipelineRestartExecutionOnUpdate
-    , Just ("RoleArn" .= _codePipelinePipelineRoleArn)
-    , Just ("Stages" .= _codePipelinePipelineStages)
+    [ (Just . ("ArtifactStore",) . toJSON) _codePipelinePipelineArtifactStore
+    , fmap (("DisableInboundStageTransitions",) . toJSON) _codePipelinePipelineDisableInboundStageTransitions
+    , fmap (("Name",) . toJSON) _codePipelinePipelineName
+    , fmap (("RestartExecutionOnUpdate",) . toJSON . fmap Bool') _codePipelinePipelineRestartExecutionOnUpdate
+    , (Just . ("RoleArn",) . toJSON) _codePipelinePipelineRoleArn
+    , (Just . ("Stages",) . toJSON) _codePipelinePipelineStages
     ]
 
 instance FromJSON CodePipelinePipeline where
   parseJSON (Object obj) =
     CodePipelinePipeline <$>
-      obj .: "ArtifactStore" <*>
-      obj .:? "DisableInboundStageTransitions" <*>
-      obj .:? "Name" <*>
-      obj .:? "RestartExecutionOnUpdate" <*>
-      obj .: "RoleArn" <*>
-      obj .: "Stages"
+      (obj .: "ArtifactStore") <*>
+      (obj .:? "DisableInboundStageTransitions") <*>
+      (obj .:? "Name") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "RestartExecutionOnUpdate") <*>
+      (obj .: "RoleArn") <*>
+      (obj .: "Stages")
   parseJSON _ = mempty
 
 -- | Constructor for 'CodePipelinePipeline' containing required fields as
@@ -81,7 +82,7 @@ cppName :: Lens' CodePipelinePipeline (Maybe (Val Text))
 cppName = lens _codePipelinePipelineName (\s a -> s { _codePipelinePipelineName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-pipeline.html#cfn-codepipeline-pipeline-restartexecutiononupdate
-cppRestartExecutionOnUpdate :: Lens' CodePipelinePipeline (Maybe (Val Bool'))
+cppRestartExecutionOnUpdate :: Lens' CodePipelinePipeline (Maybe (Val Bool))
 cppRestartExecutionOnUpdate = lens _codePipelinePipelineRestartExecutionOnUpdate (\s a -> s { _codePipelinePipelineRestartExecutionOnUpdate = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-pipeline.html#cfn-codepipeline-pipeline-rolearn

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachebehavior.html
 
@@ -20,13 +21,13 @@ data CloudFrontDistributionCacheBehavior =
   CloudFrontDistributionCacheBehavior
   { _cloudFrontDistributionCacheBehaviorAllowedMethods :: Maybe (ValList Text)
   , _cloudFrontDistributionCacheBehaviorCachedMethods :: Maybe (ValList Text)
-  , _cloudFrontDistributionCacheBehaviorCompress :: Maybe (Val Bool')
-  , _cloudFrontDistributionCacheBehaviorDefaultTTL :: Maybe (Val Integer')
+  , _cloudFrontDistributionCacheBehaviorCompress :: Maybe (Val Bool)
+  , _cloudFrontDistributionCacheBehaviorDefaultTTL :: Maybe (Val Integer)
   , _cloudFrontDistributionCacheBehaviorForwardedValues :: CloudFrontDistributionForwardedValues
-  , _cloudFrontDistributionCacheBehaviorMaxTTL :: Maybe (Val Integer')
-  , _cloudFrontDistributionCacheBehaviorMinTTL :: Maybe (Val Integer')
+  , _cloudFrontDistributionCacheBehaviorMaxTTL :: Maybe (Val Integer)
+  , _cloudFrontDistributionCacheBehaviorMinTTL :: Maybe (Val Integer)
   , _cloudFrontDistributionCacheBehaviorPathPattern :: Val Text
-  , _cloudFrontDistributionCacheBehaviorSmoothStreaming :: Maybe (Val Bool')
+  , _cloudFrontDistributionCacheBehaviorSmoothStreaming :: Maybe (Val Bool)
   , _cloudFrontDistributionCacheBehaviorTargetOriginId :: Val Text
   , _cloudFrontDistributionCacheBehaviorTrustedSigners :: Maybe (ValList Text)
   , _cloudFrontDistributionCacheBehaviorViewerProtocolPolicy :: Val Text
@@ -36,35 +37,35 @@ instance ToJSON CloudFrontDistributionCacheBehavior where
   toJSON CloudFrontDistributionCacheBehavior{..} =
     object $
     catMaybes
-    [ ("AllowedMethods" .=) <$> _cloudFrontDistributionCacheBehaviorAllowedMethods
-    , ("CachedMethods" .=) <$> _cloudFrontDistributionCacheBehaviorCachedMethods
-    , ("Compress" .=) <$> _cloudFrontDistributionCacheBehaviorCompress
-    , ("DefaultTTL" .=) <$> _cloudFrontDistributionCacheBehaviorDefaultTTL
-    , Just ("ForwardedValues" .= _cloudFrontDistributionCacheBehaviorForwardedValues)
-    , ("MaxTTL" .=) <$> _cloudFrontDistributionCacheBehaviorMaxTTL
-    , ("MinTTL" .=) <$> _cloudFrontDistributionCacheBehaviorMinTTL
-    , Just ("PathPattern" .= _cloudFrontDistributionCacheBehaviorPathPattern)
-    , ("SmoothStreaming" .=) <$> _cloudFrontDistributionCacheBehaviorSmoothStreaming
-    , Just ("TargetOriginId" .= _cloudFrontDistributionCacheBehaviorTargetOriginId)
-    , ("TrustedSigners" .=) <$> _cloudFrontDistributionCacheBehaviorTrustedSigners
-    , Just ("ViewerProtocolPolicy" .= _cloudFrontDistributionCacheBehaviorViewerProtocolPolicy)
+    [ fmap (("AllowedMethods",) . toJSON) _cloudFrontDistributionCacheBehaviorAllowedMethods
+    , fmap (("CachedMethods",) . toJSON) _cloudFrontDistributionCacheBehaviorCachedMethods
+    , fmap (("Compress",) . toJSON . fmap Bool') _cloudFrontDistributionCacheBehaviorCompress
+    , fmap (("DefaultTTL",) . toJSON . fmap Integer') _cloudFrontDistributionCacheBehaviorDefaultTTL
+    , (Just . ("ForwardedValues",) . toJSON) _cloudFrontDistributionCacheBehaviorForwardedValues
+    , fmap (("MaxTTL",) . toJSON . fmap Integer') _cloudFrontDistributionCacheBehaviorMaxTTL
+    , fmap (("MinTTL",) . toJSON . fmap Integer') _cloudFrontDistributionCacheBehaviorMinTTL
+    , (Just . ("PathPattern",) . toJSON) _cloudFrontDistributionCacheBehaviorPathPattern
+    , fmap (("SmoothStreaming",) . toJSON . fmap Bool') _cloudFrontDistributionCacheBehaviorSmoothStreaming
+    , (Just . ("TargetOriginId",) . toJSON) _cloudFrontDistributionCacheBehaviorTargetOriginId
+    , fmap (("TrustedSigners",) . toJSON) _cloudFrontDistributionCacheBehaviorTrustedSigners
+    , (Just . ("ViewerProtocolPolicy",) . toJSON) _cloudFrontDistributionCacheBehaviorViewerProtocolPolicy
     ]
 
 instance FromJSON CloudFrontDistributionCacheBehavior where
   parseJSON (Object obj) =
     CloudFrontDistributionCacheBehavior <$>
-      obj .:? "AllowedMethods" <*>
-      obj .:? "CachedMethods" <*>
-      obj .:? "Compress" <*>
-      obj .:? "DefaultTTL" <*>
-      obj .: "ForwardedValues" <*>
-      obj .:? "MaxTTL" <*>
-      obj .:? "MinTTL" <*>
-      obj .: "PathPattern" <*>
-      obj .:? "SmoothStreaming" <*>
-      obj .: "TargetOriginId" <*>
-      obj .:? "TrustedSigners" <*>
-      obj .: "ViewerProtocolPolicy"
+      (obj .:? "AllowedMethods") <*>
+      (obj .:? "CachedMethods") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "Compress") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "DefaultTTL") <*>
+      (obj .: "ForwardedValues") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "MaxTTL") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "MinTTL") <*>
+      (obj .: "PathPattern") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "SmoothStreaming") <*>
+      (obj .: "TargetOriginId") <*>
+      (obj .:? "TrustedSigners") <*>
+      (obj .: "ViewerProtocolPolicy")
   parseJSON _ = mempty
 
 -- | Constructor for 'CloudFrontDistributionCacheBehavior' containing required
@@ -100,11 +101,11 @@ cfdcbCachedMethods :: Lens' CloudFrontDistributionCacheBehavior (Maybe (ValList 
 cfdcbCachedMethods = lens _cloudFrontDistributionCacheBehaviorCachedMethods (\s a -> s { _cloudFrontDistributionCacheBehaviorCachedMethods = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachebehavior.html#cfn-cloudfront-cachebehavior-compress
-cfdcbCompress :: Lens' CloudFrontDistributionCacheBehavior (Maybe (Val Bool'))
+cfdcbCompress :: Lens' CloudFrontDistributionCacheBehavior (Maybe (Val Bool))
 cfdcbCompress = lens _cloudFrontDistributionCacheBehaviorCompress (\s a -> s { _cloudFrontDistributionCacheBehaviorCompress = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachebehavior.html#cfn-cloudfront-cachebehavior-defaultttl
-cfdcbDefaultTTL :: Lens' CloudFrontDistributionCacheBehavior (Maybe (Val Integer'))
+cfdcbDefaultTTL :: Lens' CloudFrontDistributionCacheBehavior (Maybe (Val Integer))
 cfdcbDefaultTTL = lens _cloudFrontDistributionCacheBehaviorDefaultTTL (\s a -> s { _cloudFrontDistributionCacheBehaviorDefaultTTL = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachebehavior.html#cfn-cloudfront-cachebehavior-forwardedvalues
@@ -112,11 +113,11 @@ cfdcbForwardedValues :: Lens' CloudFrontDistributionCacheBehavior CloudFrontDist
 cfdcbForwardedValues = lens _cloudFrontDistributionCacheBehaviorForwardedValues (\s a -> s { _cloudFrontDistributionCacheBehaviorForwardedValues = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachebehavior.html#cfn-cloudfront-cachebehavior-maxttl
-cfdcbMaxTTL :: Lens' CloudFrontDistributionCacheBehavior (Maybe (Val Integer'))
+cfdcbMaxTTL :: Lens' CloudFrontDistributionCacheBehavior (Maybe (Val Integer))
 cfdcbMaxTTL = lens _cloudFrontDistributionCacheBehaviorMaxTTL (\s a -> s { _cloudFrontDistributionCacheBehaviorMaxTTL = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachebehavior.html#cfn-cloudfront-cachebehavior-minttl
-cfdcbMinTTL :: Lens' CloudFrontDistributionCacheBehavior (Maybe (Val Integer'))
+cfdcbMinTTL :: Lens' CloudFrontDistributionCacheBehavior (Maybe (Val Integer))
 cfdcbMinTTL = lens _cloudFrontDistributionCacheBehaviorMinTTL (\s a -> s { _cloudFrontDistributionCacheBehaviorMinTTL = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachebehavior.html#cfn-cloudfront-cachebehavior-pathpattern
@@ -124,7 +125,7 @@ cfdcbPathPattern :: Lens' CloudFrontDistributionCacheBehavior (Val Text)
 cfdcbPathPattern = lens _cloudFrontDistributionCacheBehaviorPathPattern (\s a -> s { _cloudFrontDistributionCacheBehaviorPathPattern = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachebehavior.html#cfn-cloudfront-cachebehavior-smoothstreaming
-cfdcbSmoothStreaming :: Lens' CloudFrontDistributionCacheBehavior (Maybe (Val Bool'))
+cfdcbSmoothStreaming :: Lens' CloudFrontDistributionCacheBehavior (Maybe (Val Bool))
 cfdcbSmoothStreaming = lens _cloudFrontDistributionCacheBehaviorSmoothStreaming (\s a -> s { _cloudFrontDistributionCacheBehaviorSmoothStreaming = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachebehavior.html#cfn-cloudfront-cachebehavior-targetoriginid

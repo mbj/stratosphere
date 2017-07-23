@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration-integrationresponse.html
 
@@ -28,19 +29,19 @@ instance ToJSON ApiGatewayMethodIntegrationResponse where
   toJSON ApiGatewayMethodIntegrationResponse{..} =
     object $
     catMaybes
-    [ ("ResponseParameters" .=) <$> _apiGatewayMethodIntegrationResponseResponseParameters
-    , ("ResponseTemplates" .=) <$> _apiGatewayMethodIntegrationResponseResponseTemplates
-    , ("SelectionPattern" .=) <$> _apiGatewayMethodIntegrationResponseSelectionPattern
-    , ("StatusCode" .=) <$> _apiGatewayMethodIntegrationResponseStatusCode
+    [ fmap (("ResponseParameters",) . toJSON) _apiGatewayMethodIntegrationResponseResponseParameters
+    , fmap (("ResponseTemplates",) . toJSON) _apiGatewayMethodIntegrationResponseResponseTemplates
+    , fmap (("SelectionPattern",) . toJSON) _apiGatewayMethodIntegrationResponseSelectionPattern
+    , fmap (("StatusCode",) . toJSON) _apiGatewayMethodIntegrationResponseStatusCode
     ]
 
 instance FromJSON ApiGatewayMethodIntegrationResponse where
   parseJSON (Object obj) =
     ApiGatewayMethodIntegrationResponse <$>
-      obj .:? "ResponseParameters" <*>
-      obj .:? "ResponseTemplates" <*>
-      obj .:? "SelectionPattern" <*>
-      obj .:? "StatusCode"
+      (obj .:? "ResponseParameters") <*>
+      (obj .:? "ResponseTemplates") <*>
+      (obj .:? "SelectionPattern") <*>
+      (obj .:? "StatusCode")
   parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayMethodIntegrationResponse' containing required

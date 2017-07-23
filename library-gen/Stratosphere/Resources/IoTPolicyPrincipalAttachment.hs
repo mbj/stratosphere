@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-policyprincipalattachment.html
 
@@ -26,15 +27,15 @@ instance ToJSON IoTPolicyPrincipalAttachment where
   toJSON IoTPolicyPrincipalAttachment{..} =
     object $
     catMaybes
-    [ Just ("PolicyName" .= _ioTPolicyPrincipalAttachmentPolicyName)
-    , Just ("Principal" .= _ioTPolicyPrincipalAttachmentPrincipal)
+    [ (Just . ("PolicyName",) . toJSON) _ioTPolicyPrincipalAttachmentPolicyName
+    , (Just . ("Principal",) . toJSON) _ioTPolicyPrincipalAttachmentPrincipal
     ]
 
 instance FromJSON IoTPolicyPrincipalAttachment where
   parseJSON (Object obj) =
     IoTPolicyPrincipalAttachment <$>
-      obj .: "PolicyName" <*>
-      obj .: "Principal"
+      (obj .: "PolicyName") <*>
+      (obj .: "Principal")
   parseJSON _ = mempty
 
 -- | Constructor for 'IoTPolicyPrincipalAttachment' containing required fields

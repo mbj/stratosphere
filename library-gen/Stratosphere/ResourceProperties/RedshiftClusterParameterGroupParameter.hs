@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-property-redshift-clusterparametergroup-parameter.html
 
@@ -27,15 +28,15 @@ instance ToJSON RedshiftClusterParameterGroupParameter where
   toJSON RedshiftClusterParameterGroupParameter{..} =
     object $
     catMaybes
-    [ Just ("ParameterName" .= _redshiftClusterParameterGroupParameterParameterName)
-    , Just ("ParameterValue" .= _redshiftClusterParameterGroupParameterParameterValue)
+    [ (Just . ("ParameterName",) . toJSON) _redshiftClusterParameterGroupParameterParameterName
+    , (Just . ("ParameterValue",) . toJSON) _redshiftClusterParameterGroupParameterParameterValue
     ]
 
 instance FromJSON RedshiftClusterParameterGroupParameter where
   parseJSON (Object obj) =
     RedshiftClusterParameterGroupParameter <$>
-      obj .: "ParameterName" <*>
-      obj .: "ParameterValue"
+      (obj .: "ParameterName") <*>
+      (obj .: "ParameterValue")
   parseJSON _ = mempty
 
 -- | Constructor for 'RedshiftClusterParameterGroupParameter' containing

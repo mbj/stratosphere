@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-kinesisdeliverystream-elasticsearchdestinationconfiguration.html
 
@@ -40,31 +41,31 @@ instance ToJSON KinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurati
   toJSON KinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguration{..} =
     object $
     catMaybes
-    [ Just ("BufferingHints" .= _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationBufferingHints)
-    , ("CloudWatchLoggingOptions" .=) <$> _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationCloudWatchLoggingOptions
-    , Just ("DomainARN" .= _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationDomainARN)
-    , Just ("IndexName" .= _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationIndexName)
-    , Just ("IndexRotationPeriod" .= _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod)
-    , Just ("RetryOptions" .= _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationRetryOptions)
-    , Just ("RoleARN" .= _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationRoleARN)
-    , Just ("S3BackupMode" .= _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationS3BackupMode)
-    , Just ("S3Configuration" .= _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationS3Configuration)
-    , Just ("TypeName" .= _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationTypeName)
+    [ (Just . ("BufferingHints",) . toJSON) _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationBufferingHints
+    , fmap (("CloudWatchLoggingOptions",) . toJSON) _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationCloudWatchLoggingOptions
+    , (Just . ("DomainARN",) . toJSON) _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationDomainARN
+    , (Just . ("IndexName",) . toJSON) _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationIndexName
+    , (Just . ("IndexRotationPeriod",) . toJSON) _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod
+    , (Just . ("RetryOptions",) . toJSON) _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationRetryOptions
+    , (Just . ("RoleARN",) . toJSON) _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationRoleARN
+    , (Just . ("S3BackupMode",) . toJSON) _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationS3BackupMode
+    , (Just . ("S3Configuration",) . toJSON) _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationS3Configuration
+    , (Just . ("TypeName",) . toJSON) _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationTypeName
     ]
 
 instance FromJSON KinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguration where
   parseJSON (Object obj) =
     KinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguration <$>
-      obj .: "BufferingHints" <*>
-      obj .:? "CloudWatchLoggingOptions" <*>
-      obj .: "DomainARN" <*>
-      obj .: "IndexName" <*>
-      obj .: "IndexRotationPeriod" <*>
-      obj .: "RetryOptions" <*>
-      obj .: "RoleARN" <*>
-      obj .: "S3BackupMode" <*>
-      obj .: "S3Configuration" <*>
-      obj .: "TypeName"
+      (obj .: "BufferingHints") <*>
+      (obj .:? "CloudWatchLoggingOptions") <*>
+      (obj .: "DomainARN") <*>
+      (obj .: "IndexName") <*>
+      (obj .: "IndexRotationPeriod") <*>
+      (obj .: "RetryOptions") <*>
+      (obj .: "RoleARN") <*>
+      (obj .: "S3BackupMode") <*>
+      (obj .: "S3Configuration") <*>
+      (obj .: "TypeName")
   parseJSON _ = mempty
 
 -- | Constructor for

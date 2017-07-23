@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-stepscalingpolicyconfiguration.html
 
@@ -21,9 +22,9 @@ import Stratosphere.ResourceProperties.ApplicationAutoScalingScalingPolicyStepAd
 data ApplicationAutoScalingScalingPolicyStepScalingPolicyConfiguration =
   ApplicationAutoScalingScalingPolicyStepScalingPolicyConfiguration
   { _applicationAutoScalingScalingPolicyStepScalingPolicyConfigurationAdjustmentType :: Maybe (Val Text)
-  , _applicationAutoScalingScalingPolicyStepScalingPolicyConfigurationCooldown :: Maybe (Val Integer')
+  , _applicationAutoScalingScalingPolicyStepScalingPolicyConfigurationCooldown :: Maybe (Val Integer)
   , _applicationAutoScalingScalingPolicyStepScalingPolicyConfigurationMetricAggregationType :: Maybe (Val Text)
-  , _applicationAutoScalingScalingPolicyStepScalingPolicyConfigurationMinAdjustmentMagnitude :: Maybe (Val Integer')
+  , _applicationAutoScalingScalingPolicyStepScalingPolicyConfigurationMinAdjustmentMagnitude :: Maybe (Val Integer)
   , _applicationAutoScalingScalingPolicyStepScalingPolicyConfigurationStepAdjustments :: Maybe [ApplicationAutoScalingScalingPolicyStepAdjustment]
   } deriving (Show, Eq)
 
@@ -31,21 +32,21 @@ instance ToJSON ApplicationAutoScalingScalingPolicyStepScalingPolicyConfiguratio
   toJSON ApplicationAutoScalingScalingPolicyStepScalingPolicyConfiguration{..} =
     object $
     catMaybes
-    [ ("AdjustmentType" .=) <$> _applicationAutoScalingScalingPolicyStepScalingPolicyConfigurationAdjustmentType
-    , ("Cooldown" .=) <$> _applicationAutoScalingScalingPolicyStepScalingPolicyConfigurationCooldown
-    , ("MetricAggregationType" .=) <$> _applicationAutoScalingScalingPolicyStepScalingPolicyConfigurationMetricAggregationType
-    , ("MinAdjustmentMagnitude" .=) <$> _applicationAutoScalingScalingPolicyStepScalingPolicyConfigurationMinAdjustmentMagnitude
-    , ("StepAdjustments" .=) <$> _applicationAutoScalingScalingPolicyStepScalingPolicyConfigurationStepAdjustments
+    [ fmap (("AdjustmentType",) . toJSON) _applicationAutoScalingScalingPolicyStepScalingPolicyConfigurationAdjustmentType
+    , fmap (("Cooldown",) . toJSON . fmap Integer') _applicationAutoScalingScalingPolicyStepScalingPolicyConfigurationCooldown
+    , fmap (("MetricAggregationType",) . toJSON) _applicationAutoScalingScalingPolicyStepScalingPolicyConfigurationMetricAggregationType
+    , fmap (("MinAdjustmentMagnitude",) . toJSON . fmap Integer') _applicationAutoScalingScalingPolicyStepScalingPolicyConfigurationMinAdjustmentMagnitude
+    , fmap (("StepAdjustments",) . toJSON) _applicationAutoScalingScalingPolicyStepScalingPolicyConfigurationStepAdjustments
     ]
 
 instance FromJSON ApplicationAutoScalingScalingPolicyStepScalingPolicyConfiguration where
   parseJSON (Object obj) =
     ApplicationAutoScalingScalingPolicyStepScalingPolicyConfiguration <$>
-      obj .:? "AdjustmentType" <*>
-      obj .:? "Cooldown" <*>
-      obj .:? "MetricAggregationType" <*>
-      obj .:? "MinAdjustmentMagnitude" <*>
-      obj .:? "StepAdjustments"
+      (obj .:? "AdjustmentType") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "Cooldown") <*>
+      (obj .:? "MetricAggregationType") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "MinAdjustmentMagnitude") <*>
+      (obj .:? "StepAdjustments")
   parseJSON _ = mempty
 
 -- | Constructor for
@@ -67,7 +68,7 @@ aasspsspcAdjustmentType :: Lens' ApplicationAutoScalingScalingPolicyStepScalingP
 aasspsspcAdjustmentType = lens _applicationAutoScalingScalingPolicyStepScalingPolicyConfigurationAdjustmentType (\s a -> s { _applicationAutoScalingScalingPolicyStepScalingPolicyConfigurationAdjustmentType = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-stepscalingpolicyconfiguration.html#cfn-applicationautoscaling-scalingpolicy-stepscalingpolicyconfiguration-cooldown
-aasspsspcCooldown :: Lens' ApplicationAutoScalingScalingPolicyStepScalingPolicyConfiguration (Maybe (Val Integer'))
+aasspsspcCooldown :: Lens' ApplicationAutoScalingScalingPolicyStepScalingPolicyConfiguration (Maybe (Val Integer))
 aasspsspcCooldown = lens _applicationAutoScalingScalingPolicyStepScalingPolicyConfigurationCooldown (\s a -> s { _applicationAutoScalingScalingPolicyStepScalingPolicyConfigurationCooldown = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-stepscalingpolicyconfiguration.html#cfn-applicationautoscaling-scalingpolicy-stepscalingpolicyconfiguration-metricaggregationtype
@@ -75,7 +76,7 @@ aasspsspcMetricAggregationType :: Lens' ApplicationAutoScalingScalingPolicyStepS
 aasspsspcMetricAggregationType = lens _applicationAutoScalingScalingPolicyStepScalingPolicyConfigurationMetricAggregationType (\s a -> s { _applicationAutoScalingScalingPolicyStepScalingPolicyConfigurationMetricAggregationType = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-stepscalingpolicyconfiguration.html#cfn-applicationautoscaling-scalingpolicy-stepscalingpolicyconfiguration-minadjustmentmagnitude
-aasspsspcMinAdjustmentMagnitude :: Lens' ApplicationAutoScalingScalingPolicyStepScalingPolicyConfiguration (Maybe (Val Integer'))
+aasspsspcMinAdjustmentMagnitude :: Lens' ApplicationAutoScalingScalingPolicyStepScalingPolicyConfiguration (Maybe (Val Integer))
 aasspsspcMinAdjustmentMagnitude = lens _applicationAutoScalingScalingPolicyStepScalingPolicyConfigurationMinAdjustmentMagnitude (\s a -> s { _applicationAutoScalingScalingPolicyStepScalingPolicyConfigurationMinAdjustmentMagnitude = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-stepscalingpolicyconfiguration.html#cfn-applicationautoscaling-scalingpolicy-stepscalingpolicyconfiguration-stepadjustments

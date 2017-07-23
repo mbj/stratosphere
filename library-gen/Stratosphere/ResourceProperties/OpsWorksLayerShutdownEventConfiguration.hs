@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-lifecycleeventconfiguration-shutdowneventconfiguration.html
 
@@ -19,23 +20,23 @@ import Stratosphere.Values
 -- constructor.
 data OpsWorksLayerShutdownEventConfiguration =
   OpsWorksLayerShutdownEventConfiguration
-  { _opsWorksLayerShutdownEventConfigurationDelayUntilElbConnectionsDrained :: Maybe (Val Bool')
-  , _opsWorksLayerShutdownEventConfigurationExecutionTimeout :: Maybe (Val Integer')
+  { _opsWorksLayerShutdownEventConfigurationDelayUntilElbConnectionsDrained :: Maybe (Val Bool)
+  , _opsWorksLayerShutdownEventConfigurationExecutionTimeout :: Maybe (Val Integer)
   } deriving (Show, Eq)
 
 instance ToJSON OpsWorksLayerShutdownEventConfiguration where
   toJSON OpsWorksLayerShutdownEventConfiguration{..} =
     object $
     catMaybes
-    [ ("DelayUntilElbConnectionsDrained" .=) <$> _opsWorksLayerShutdownEventConfigurationDelayUntilElbConnectionsDrained
-    , ("ExecutionTimeout" .=) <$> _opsWorksLayerShutdownEventConfigurationExecutionTimeout
+    [ fmap (("DelayUntilElbConnectionsDrained",) . toJSON . fmap Bool') _opsWorksLayerShutdownEventConfigurationDelayUntilElbConnectionsDrained
+    , fmap (("ExecutionTimeout",) . toJSON . fmap Integer') _opsWorksLayerShutdownEventConfigurationExecutionTimeout
     ]
 
 instance FromJSON OpsWorksLayerShutdownEventConfiguration where
   parseJSON (Object obj) =
     OpsWorksLayerShutdownEventConfiguration <$>
-      obj .:? "DelayUntilElbConnectionsDrained" <*>
-      obj .:? "ExecutionTimeout"
+      fmap (fmap (fmap unBool')) (obj .:? "DelayUntilElbConnectionsDrained") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "ExecutionTimeout")
   parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksLayerShutdownEventConfiguration' containing
@@ -49,9 +50,9 @@ opsWorksLayerShutdownEventConfiguration  =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-lifecycleeventconfiguration-shutdowneventconfiguration.html#cfn-opsworks-layer-lifecycleconfiguration-shutdowneventconfiguration-delayuntilelbconnectionsdrained
-owlsecDelayUntilElbConnectionsDrained :: Lens' OpsWorksLayerShutdownEventConfiguration (Maybe (Val Bool'))
+owlsecDelayUntilElbConnectionsDrained :: Lens' OpsWorksLayerShutdownEventConfiguration (Maybe (Val Bool))
 owlsecDelayUntilElbConnectionsDrained = lens _opsWorksLayerShutdownEventConfigurationDelayUntilElbConnectionsDrained (\s a -> s { _opsWorksLayerShutdownEventConfigurationDelayUntilElbConnectionsDrained = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-lifecycleeventconfiguration-shutdowneventconfiguration.html#cfn-opsworks-layer-lifecycleconfiguration-shutdowneventconfiguration-executiontimeout
-owlsecExecutionTimeout :: Lens' OpsWorksLayerShutdownEventConfiguration (Maybe (Val Integer'))
+owlsecExecutionTimeout :: Lens' OpsWorksLayerShutdownEventConfiguration (Maybe (Val Integer))
 owlsecExecutionTimeout = lens _opsWorksLayerShutdownEventConfigurationExecutionTimeout (\s a -> s { _opsWorksLayerShutdownEventConfigurationExecutionTimeout = a })

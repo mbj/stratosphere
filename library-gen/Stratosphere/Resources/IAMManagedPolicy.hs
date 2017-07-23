@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-managedpolicy.html
 
@@ -31,25 +32,25 @@ instance ToJSON IAMManagedPolicy where
   toJSON IAMManagedPolicy{..} =
     object $
     catMaybes
-    [ ("Description" .=) <$> _iAMManagedPolicyDescription
-    , ("Groups" .=) <$> _iAMManagedPolicyGroups
-    , ("ManagedPolicyName" .=) <$> _iAMManagedPolicyManagedPolicyName
-    , ("Path" .=) <$> _iAMManagedPolicyPath
-    , Just ("PolicyDocument" .= _iAMManagedPolicyPolicyDocument)
-    , ("Roles" .=) <$> _iAMManagedPolicyRoles
-    , ("Users" .=) <$> _iAMManagedPolicyUsers
+    [ fmap (("Description",) . toJSON) _iAMManagedPolicyDescription
+    , fmap (("Groups",) . toJSON) _iAMManagedPolicyGroups
+    , fmap (("ManagedPolicyName",) . toJSON) _iAMManagedPolicyManagedPolicyName
+    , fmap (("Path",) . toJSON) _iAMManagedPolicyPath
+    , (Just . ("PolicyDocument",) . toJSON) _iAMManagedPolicyPolicyDocument
+    , fmap (("Roles",) . toJSON) _iAMManagedPolicyRoles
+    , fmap (("Users",) . toJSON) _iAMManagedPolicyUsers
     ]
 
 instance FromJSON IAMManagedPolicy where
   parseJSON (Object obj) =
     IAMManagedPolicy <$>
-      obj .:? "Description" <*>
-      obj .:? "Groups" <*>
-      obj .:? "ManagedPolicyName" <*>
-      obj .:? "Path" <*>
-      obj .: "PolicyDocument" <*>
-      obj .:? "Roles" <*>
-      obj .:? "Users"
+      (obj .:? "Description") <*>
+      (obj .:? "Groups") <*>
+      (obj .:? "ManagedPolicyName") <*>
+      (obj .:? "Path") <*>
+      (obj .: "PolicyDocument") <*>
+      (obj .:? "Roles") <*>
+      (obj .:? "Users")
   parseJSON _ = mempty
 
 -- | Constructor for 'IAMManagedPolicy' containing required fields as

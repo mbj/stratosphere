@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules-routingrulecondition.html
 
@@ -26,15 +27,15 @@ instance ToJSON S3BucketRoutingRuleCondition where
   toJSON S3BucketRoutingRuleCondition{..} =
     object $
     catMaybes
-    [ ("HttpErrorCodeReturnedEquals" .=) <$> _s3BucketRoutingRuleConditionHttpErrorCodeReturnedEquals
-    , ("KeyPrefixEquals" .=) <$> _s3BucketRoutingRuleConditionKeyPrefixEquals
+    [ fmap (("HttpErrorCodeReturnedEquals",) . toJSON) _s3BucketRoutingRuleConditionHttpErrorCodeReturnedEquals
+    , fmap (("KeyPrefixEquals",) . toJSON) _s3BucketRoutingRuleConditionKeyPrefixEquals
     ]
 
 instance FromJSON S3BucketRoutingRuleCondition where
   parseJSON (Object obj) =
     S3BucketRoutingRuleCondition <$>
-      obj .:? "HttpErrorCodeReturnedEquals" <*>
-      obj .:? "KeyPrefixEquals"
+      (obj .:? "HttpErrorCodeReturnedEquals") <*>
+      (obj .:? "KeyPrefixEquals")
   parseJSON _ = mempty
 
 -- | Constructor for 'S3BucketRoutingRuleCondition' containing required fields

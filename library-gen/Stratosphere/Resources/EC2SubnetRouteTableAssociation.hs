@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet-route-table-assoc.html
 
@@ -26,15 +27,15 @@ instance ToJSON EC2SubnetRouteTableAssociation where
   toJSON EC2SubnetRouteTableAssociation{..} =
     object $
     catMaybes
-    [ Just ("RouteTableId" .= _eC2SubnetRouteTableAssociationRouteTableId)
-    , Just ("SubnetId" .= _eC2SubnetRouteTableAssociationSubnetId)
+    [ (Just . ("RouteTableId",) . toJSON) _eC2SubnetRouteTableAssociationRouteTableId
+    , (Just . ("SubnetId",) . toJSON) _eC2SubnetRouteTableAssociationSubnetId
     ]
 
 instance FromJSON EC2SubnetRouteTableAssociation where
   parseJSON (Object obj) =
     EC2SubnetRouteTableAssociation <$>
-      obj .: "RouteTableId" <*>
-      obj .: "SubnetId"
+      (obj .: "RouteTableId") <*>
+      (obj .: "SubnetId")
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2SubnetRouteTableAssociation' containing required

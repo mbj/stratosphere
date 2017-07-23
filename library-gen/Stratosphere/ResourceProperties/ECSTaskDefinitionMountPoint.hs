@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-mountpoints.html
 
@@ -19,7 +20,7 @@ import Stratosphere.Values
 data ECSTaskDefinitionMountPoint =
   ECSTaskDefinitionMountPoint
   { _eCSTaskDefinitionMountPointContainerPath :: Maybe (Val Text)
-  , _eCSTaskDefinitionMountPointReadOnly :: Maybe (Val Bool')
+  , _eCSTaskDefinitionMountPointReadOnly :: Maybe (Val Bool)
   , _eCSTaskDefinitionMountPointSourceVolume :: Maybe (Val Text)
   } deriving (Show, Eq)
 
@@ -27,17 +28,17 @@ instance ToJSON ECSTaskDefinitionMountPoint where
   toJSON ECSTaskDefinitionMountPoint{..} =
     object $
     catMaybes
-    [ ("ContainerPath" .=) <$> _eCSTaskDefinitionMountPointContainerPath
-    , ("ReadOnly" .=) <$> _eCSTaskDefinitionMountPointReadOnly
-    , ("SourceVolume" .=) <$> _eCSTaskDefinitionMountPointSourceVolume
+    [ fmap (("ContainerPath",) . toJSON) _eCSTaskDefinitionMountPointContainerPath
+    , fmap (("ReadOnly",) . toJSON . fmap Bool') _eCSTaskDefinitionMountPointReadOnly
+    , fmap (("SourceVolume",) . toJSON) _eCSTaskDefinitionMountPointSourceVolume
     ]
 
 instance FromJSON ECSTaskDefinitionMountPoint where
   parseJSON (Object obj) =
     ECSTaskDefinitionMountPoint <$>
-      obj .:? "ContainerPath" <*>
-      obj .:? "ReadOnly" <*>
-      obj .:? "SourceVolume"
+      (obj .:? "ContainerPath") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "ReadOnly") <*>
+      (obj .:? "SourceVolume")
   parseJSON _ = mempty
 
 -- | Constructor for 'ECSTaskDefinitionMountPoint' containing required fields
@@ -56,7 +57,7 @@ ecstdmpContainerPath :: Lens' ECSTaskDefinitionMountPoint (Maybe (Val Text))
 ecstdmpContainerPath = lens _eCSTaskDefinitionMountPointContainerPath (\s a -> s { _eCSTaskDefinitionMountPointContainerPath = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-mountpoints.html#cfn-ecs-taskdefinition-containerdefinition-mountpoints-readonly
-ecstdmpReadOnly :: Lens' ECSTaskDefinitionMountPoint (Maybe (Val Bool'))
+ecstdmpReadOnly :: Lens' ECSTaskDefinitionMountPoint (Maybe (Val Bool))
 ecstdmpReadOnly = lens _eCSTaskDefinitionMountPointReadOnly (\s a -> s { _eCSTaskDefinitionMountPointReadOnly = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-mountpoints.html#cfn-ecs-taskdefinition-containerdefinition-mountpoints-sourcevolume

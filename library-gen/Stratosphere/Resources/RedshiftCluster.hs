@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html
 
@@ -19,8 +20,8 @@ import Stratosphere.ResourceProperties.Tag
 -- a more convenient constructor.
 data RedshiftCluster =
   RedshiftCluster
-  { _redshiftClusterAllowVersionUpgrade :: Maybe (Val Bool')
-  , _redshiftClusterAutomatedSnapshotRetentionPeriod :: Maybe (Val Integer')
+  { _redshiftClusterAllowVersionUpgrade :: Maybe (Val Bool)
+  , _redshiftClusterAutomatedSnapshotRetentionPeriod :: Maybe (Val Integer)
   , _redshiftClusterAvailabilityZone :: Maybe (Val Text)
   , _redshiftClusterClusterParameterGroupName :: Maybe (Val Text)
   , _redshiftClusterClusterSecurityGroups :: Maybe (ValList Text)
@@ -29,7 +30,7 @@ data RedshiftCluster =
   , _redshiftClusterClusterVersion :: Maybe (Val Text)
   , _redshiftClusterDBName :: Val Text
   , _redshiftClusterElasticIp :: Maybe (Val Text)
-  , _redshiftClusterEncrypted :: Maybe (Val Bool')
+  , _redshiftClusterEncrypted :: Maybe (Val Bool)
   , _redshiftClusterHsmClientCertificateIdentifier :: Maybe (Val Text)
   , _redshiftClusterHsmConfigurationIdentifier :: Maybe (Val Text)
   , _redshiftClusterIamRoles :: Maybe (ValList Text)
@@ -38,11 +39,11 @@ data RedshiftCluster =
   , _redshiftClusterMasterUserPassword :: Val Text
   , _redshiftClusterMasterUsername :: Val Text
   , _redshiftClusterNodeType :: Val Text
-  , _redshiftClusterNumberOfNodes :: Maybe (Val Integer')
+  , _redshiftClusterNumberOfNodes :: Maybe (Val Integer)
   , _redshiftClusterOwnerAccount :: Maybe (Val Text)
-  , _redshiftClusterPort :: Maybe (Val Integer')
+  , _redshiftClusterPort :: Maybe (Val Integer)
   , _redshiftClusterPreferredMaintenanceWindow :: Maybe (Val Text)
-  , _redshiftClusterPubliclyAccessible :: Maybe (Val Bool')
+  , _redshiftClusterPubliclyAccessible :: Maybe (Val Bool)
   , _redshiftClusterSnapshotClusterIdentifier :: Maybe (Val Text)
   , _redshiftClusterSnapshotIdentifier :: Maybe (Val Text)
   , _redshiftClusterTags :: Maybe [Tag]
@@ -53,67 +54,67 @@ instance ToJSON RedshiftCluster where
   toJSON RedshiftCluster{..} =
     object $
     catMaybes
-    [ ("AllowVersionUpgrade" .=) <$> _redshiftClusterAllowVersionUpgrade
-    , ("AutomatedSnapshotRetentionPeriod" .=) <$> _redshiftClusterAutomatedSnapshotRetentionPeriod
-    , ("AvailabilityZone" .=) <$> _redshiftClusterAvailabilityZone
-    , ("ClusterParameterGroupName" .=) <$> _redshiftClusterClusterParameterGroupName
-    , ("ClusterSecurityGroups" .=) <$> _redshiftClusterClusterSecurityGroups
-    , ("ClusterSubnetGroupName" .=) <$> _redshiftClusterClusterSubnetGroupName
-    , Just ("ClusterType" .= _redshiftClusterClusterType)
-    , ("ClusterVersion" .=) <$> _redshiftClusterClusterVersion
-    , Just ("DBName" .= _redshiftClusterDBName)
-    , ("ElasticIp" .=) <$> _redshiftClusterElasticIp
-    , ("Encrypted" .=) <$> _redshiftClusterEncrypted
-    , ("HsmClientCertificateIdentifier" .=) <$> _redshiftClusterHsmClientCertificateIdentifier
-    , ("HsmConfigurationIdentifier" .=) <$> _redshiftClusterHsmConfigurationIdentifier
-    , ("IamRoles" .=) <$> _redshiftClusterIamRoles
-    , ("KmsKeyId" .=) <$> _redshiftClusterKmsKeyId
-    , ("LoggingProperties" .=) <$> _redshiftClusterLoggingProperties
-    , Just ("MasterUserPassword" .= _redshiftClusterMasterUserPassword)
-    , Just ("MasterUsername" .= _redshiftClusterMasterUsername)
-    , Just ("NodeType" .= _redshiftClusterNodeType)
-    , ("NumberOfNodes" .=) <$> _redshiftClusterNumberOfNodes
-    , ("OwnerAccount" .=) <$> _redshiftClusterOwnerAccount
-    , ("Port" .=) <$> _redshiftClusterPort
-    , ("PreferredMaintenanceWindow" .=) <$> _redshiftClusterPreferredMaintenanceWindow
-    , ("PubliclyAccessible" .=) <$> _redshiftClusterPubliclyAccessible
-    , ("SnapshotClusterIdentifier" .=) <$> _redshiftClusterSnapshotClusterIdentifier
-    , ("SnapshotIdentifier" .=) <$> _redshiftClusterSnapshotIdentifier
-    , ("Tags" .=) <$> _redshiftClusterTags
-    , ("VpcSecurityGroupIds" .=) <$> _redshiftClusterVpcSecurityGroupIds
+    [ fmap (("AllowVersionUpgrade",) . toJSON . fmap Bool') _redshiftClusterAllowVersionUpgrade
+    , fmap (("AutomatedSnapshotRetentionPeriod",) . toJSON . fmap Integer') _redshiftClusterAutomatedSnapshotRetentionPeriod
+    , fmap (("AvailabilityZone",) . toJSON) _redshiftClusterAvailabilityZone
+    , fmap (("ClusterParameterGroupName",) . toJSON) _redshiftClusterClusterParameterGroupName
+    , fmap (("ClusterSecurityGroups",) . toJSON) _redshiftClusterClusterSecurityGroups
+    , fmap (("ClusterSubnetGroupName",) . toJSON) _redshiftClusterClusterSubnetGroupName
+    , (Just . ("ClusterType",) . toJSON) _redshiftClusterClusterType
+    , fmap (("ClusterVersion",) . toJSON) _redshiftClusterClusterVersion
+    , (Just . ("DBName",) . toJSON) _redshiftClusterDBName
+    , fmap (("ElasticIp",) . toJSON) _redshiftClusterElasticIp
+    , fmap (("Encrypted",) . toJSON . fmap Bool') _redshiftClusterEncrypted
+    , fmap (("HsmClientCertificateIdentifier",) . toJSON) _redshiftClusterHsmClientCertificateIdentifier
+    , fmap (("HsmConfigurationIdentifier",) . toJSON) _redshiftClusterHsmConfigurationIdentifier
+    , fmap (("IamRoles",) . toJSON) _redshiftClusterIamRoles
+    , fmap (("KmsKeyId",) . toJSON) _redshiftClusterKmsKeyId
+    , fmap (("LoggingProperties",) . toJSON) _redshiftClusterLoggingProperties
+    , (Just . ("MasterUserPassword",) . toJSON) _redshiftClusterMasterUserPassword
+    , (Just . ("MasterUsername",) . toJSON) _redshiftClusterMasterUsername
+    , (Just . ("NodeType",) . toJSON) _redshiftClusterNodeType
+    , fmap (("NumberOfNodes",) . toJSON . fmap Integer') _redshiftClusterNumberOfNodes
+    , fmap (("OwnerAccount",) . toJSON) _redshiftClusterOwnerAccount
+    , fmap (("Port",) . toJSON . fmap Integer') _redshiftClusterPort
+    , fmap (("PreferredMaintenanceWindow",) . toJSON) _redshiftClusterPreferredMaintenanceWindow
+    , fmap (("PubliclyAccessible",) . toJSON . fmap Bool') _redshiftClusterPubliclyAccessible
+    , fmap (("SnapshotClusterIdentifier",) . toJSON) _redshiftClusterSnapshotClusterIdentifier
+    , fmap (("SnapshotIdentifier",) . toJSON) _redshiftClusterSnapshotIdentifier
+    , fmap (("Tags",) . toJSON) _redshiftClusterTags
+    , fmap (("VpcSecurityGroupIds",) . toJSON) _redshiftClusterVpcSecurityGroupIds
     ]
 
 instance FromJSON RedshiftCluster where
   parseJSON (Object obj) =
     RedshiftCluster <$>
-      obj .:? "AllowVersionUpgrade" <*>
-      obj .:? "AutomatedSnapshotRetentionPeriod" <*>
-      obj .:? "AvailabilityZone" <*>
-      obj .:? "ClusterParameterGroupName" <*>
-      obj .:? "ClusterSecurityGroups" <*>
-      obj .:? "ClusterSubnetGroupName" <*>
-      obj .: "ClusterType" <*>
-      obj .:? "ClusterVersion" <*>
-      obj .: "DBName" <*>
-      obj .:? "ElasticIp" <*>
-      obj .:? "Encrypted" <*>
-      obj .:? "HsmClientCertificateIdentifier" <*>
-      obj .:? "HsmConfigurationIdentifier" <*>
-      obj .:? "IamRoles" <*>
-      obj .:? "KmsKeyId" <*>
-      obj .:? "LoggingProperties" <*>
-      obj .: "MasterUserPassword" <*>
-      obj .: "MasterUsername" <*>
-      obj .: "NodeType" <*>
-      obj .:? "NumberOfNodes" <*>
-      obj .:? "OwnerAccount" <*>
-      obj .:? "Port" <*>
-      obj .:? "PreferredMaintenanceWindow" <*>
-      obj .:? "PubliclyAccessible" <*>
-      obj .:? "SnapshotClusterIdentifier" <*>
-      obj .:? "SnapshotIdentifier" <*>
-      obj .:? "Tags" <*>
-      obj .:? "VpcSecurityGroupIds"
+      fmap (fmap (fmap unBool')) (obj .:? "AllowVersionUpgrade") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "AutomatedSnapshotRetentionPeriod") <*>
+      (obj .:? "AvailabilityZone") <*>
+      (obj .:? "ClusterParameterGroupName") <*>
+      (obj .:? "ClusterSecurityGroups") <*>
+      (obj .:? "ClusterSubnetGroupName") <*>
+      (obj .: "ClusterType") <*>
+      (obj .:? "ClusterVersion") <*>
+      (obj .: "DBName") <*>
+      (obj .:? "ElasticIp") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "Encrypted") <*>
+      (obj .:? "HsmClientCertificateIdentifier") <*>
+      (obj .:? "HsmConfigurationIdentifier") <*>
+      (obj .:? "IamRoles") <*>
+      (obj .:? "KmsKeyId") <*>
+      (obj .:? "LoggingProperties") <*>
+      (obj .: "MasterUserPassword") <*>
+      (obj .: "MasterUsername") <*>
+      (obj .: "NodeType") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "NumberOfNodes") <*>
+      (obj .:? "OwnerAccount") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "Port") <*>
+      (obj .:? "PreferredMaintenanceWindow") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "PubliclyAccessible") <*>
+      (obj .:? "SnapshotClusterIdentifier") <*>
+      (obj .:? "SnapshotIdentifier") <*>
+      (obj .:? "Tags") <*>
+      (obj .:? "VpcSecurityGroupIds")
   parseJSON _ = mempty
 
 -- | Constructor for 'RedshiftCluster' containing required fields as
@@ -158,11 +159,11 @@ redshiftCluster clusterTypearg dBNamearg masterUserPasswordarg masterUsernamearg
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-allowversionupgrade
-rcAllowVersionUpgrade :: Lens' RedshiftCluster (Maybe (Val Bool'))
+rcAllowVersionUpgrade :: Lens' RedshiftCluster (Maybe (Val Bool))
 rcAllowVersionUpgrade = lens _redshiftClusterAllowVersionUpgrade (\s a -> s { _redshiftClusterAllowVersionUpgrade = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-automatedsnapshotretentionperiod
-rcAutomatedSnapshotRetentionPeriod :: Lens' RedshiftCluster (Maybe (Val Integer'))
+rcAutomatedSnapshotRetentionPeriod :: Lens' RedshiftCluster (Maybe (Val Integer))
 rcAutomatedSnapshotRetentionPeriod = lens _redshiftClusterAutomatedSnapshotRetentionPeriod (\s a -> s { _redshiftClusterAutomatedSnapshotRetentionPeriod = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-availabilityzone
@@ -198,7 +199,7 @@ rcElasticIp :: Lens' RedshiftCluster (Maybe (Val Text))
 rcElasticIp = lens _redshiftClusterElasticIp (\s a -> s { _redshiftClusterElasticIp = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-encrypted
-rcEncrypted :: Lens' RedshiftCluster (Maybe (Val Bool'))
+rcEncrypted :: Lens' RedshiftCluster (Maybe (Val Bool))
 rcEncrypted = lens _redshiftClusterEncrypted (\s a -> s { _redshiftClusterEncrypted = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-hsmclientcertidentifier
@@ -234,7 +235,7 @@ rcNodeType :: Lens' RedshiftCluster (Val Text)
 rcNodeType = lens _redshiftClusterNodeType (\s a -> s { _redshiftClusterNodeType = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-nodetype
-rcNumberOfNodes :: Lens' RedshiftCluster (Maybe (Val Integer'))
+rcNumberOfNodes :: Lens' RedshiftCluster (Maybe (Val Integer))
 rcNumberOfNodes = lens _redshiftClusterNumberOfNodes (\s a -> s { _redshiftClusterNumberOfNodes = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-owneraccount
@@ -242,7 +243,7 @@ rcOwnerAccount :: Lens' RedshiftCluster (Maybe (Val Text))
 rcOwnerAccount = lens _redshiftClusterOwnerAccount (\s a -> s { _redshiftClusterOwnerAccount = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-port
-rcPort :: Lens' RedshiftCluster (Maybe (Val Integer'))
+rcPort :: Lens' RedshiftCluster (Maybe (Val Integer))
 rcPort = lens _redshiftClusterPort (\s a -> s { _redshiftClusterPort = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-preferredmaintenancewindow
@@ -250,7 +251,7 @@ rcPreferredMaintenanceWindow :: Lens' RedshiftCluster (Maybe (Val Text))
 rcPreferredMaintenanceWindow = lens _redshiftClusterPreferredMaintenanceWindow (\s a -> s { _redshiftClusterPreferredMaintenanceWindow = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-publiclyaccessible
-rcPubliclyAccessible :: Lens' RedshiftCluster (Maybe (Val Bool'))
+rcPubliclyAccessible :: Lens' RedshiftCluster (Maybe (Val Bool))
 rcPubliclyAccessible = lens _redshiftClusterPubliclyAccessible (\s a -> s { _redshiftClusterPubliclyAccessible = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-snapshotclusteridentifier

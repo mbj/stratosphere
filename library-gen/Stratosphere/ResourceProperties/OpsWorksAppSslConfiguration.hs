@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-app-sslconfiguration.html
 
@@ -27,17 +28,17 @@ instance ToJSON OpsWorksAppSslConfiguration where
   toJSON OpsWorksAppSslConfiguration{..} =
     object $
     catMaybes
-    [ ("Certificate" .=) <$> _opsWorksAppSslConfigurationCertificate
-    , ("Chain" .=) <$> _opsWorksAppSslConfigurationChain
-    , ("PrivateKey" .=) <$> _opsWorksAppSslConfigurationPrivateKey
+    [ fmap (("Certificate",) . toJSON) _opsWorksAppSslConfigurationCertificate
+    , fmap (("Chain",) . toJSON) _opsWorksAppSslConfigurationChain
+    , fmap (("PrivateKey",) . toJSON) _opsWorksAppSslConfigurationPrivateKey
     ]
 
 instance FromJSON OpsWorksAppSslConfiguration where
   parseJSON (Object obj) =
     OpsWorksAppSslConfiguration <$>
-      obj .:? "Certificate" <*>
-      obj .:? "Chain" <*>
-      obj .:? "PrivateKey"
+      (obj .:? "Certificate") <*>
+      (obj .:? "Chain") <*>
+      (obj .:? "PrivateKey")
   parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksAppSslConfiguration' containing required fields

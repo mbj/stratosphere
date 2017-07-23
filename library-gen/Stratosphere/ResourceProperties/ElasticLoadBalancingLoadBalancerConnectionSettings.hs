@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-connectionsettings.html
 
@@ -20,26 +21,26 @@ import Stratosphere.Values
 -- convenient constructor.
 data ElasticLoadBalancingLoadBalancerConnectionSettings =
   ElasticLoadBalancingLoadBalancerConnectionSettings
-  { _elasticLoadBalancingLoadBalancerConnectionSettingsIdleTimeout :: Val Integer'
+  { _elasticLoadBalancingLoadBalancerConnectionSettingsIdleTimeout :: Val Integer
   } deriving (Show, Eq)
 
 instance ToJSON ElasticLoadBalancingLoadBalancerConnectionSettings where
   toJSON ElasticLoadBalancingLoadBalancerConnectionSettings{..} =
     object $
     catMaybes
-    [ Just ("IdleTimeout" .= _elasticLoadBalancingLoadBalancerConnectionSettingsIdleTimeout)
+    [ (Just . ("IdleTimeout",) . toJSON . fmap Integer') _elasticLoadBalancingLoadBalancerConnectionSettingsIdleTimeout
     ]
 
 instance FromJSON ElasticLoadBalancingLoadBalancerConnectionSettings where
   parseJSON (Object obj) =
     ElasticLoadBalancingLoadBalancerConnectionSettings <$>
-      obj .: "IdleTimeout"
+      fmap (fmap unInteger') (obj .: "IdleTimeout")
   parseJSON _ = mempty
 
 -- | Constructor for 'ElasticLoadBalancingLoadBalancerConnectionSettings'
 -- containing required fields as arguments.
 elasticLoadBalancingLoadBalancerConnectionSettings
-  :: Val Integer' -- ^ 'elblbcsIdleTimeout'
+  :: Val Integer -- ^ 'elblbcsIdleTimeout'
   -> ElasticLoadBalancingLoadBalancerConnectionSettings
 elasticLoadBalancingLoadBalancerConnectionSettings idleTimeoutarg =
   ElasticLoadBalancingLoadBalancerConnectionSettings
@@ -47,5 +48,5 @@ elasticLoadBalancingLoadBalancerConnectionSettings idleTimeoutarg =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-connectionsettings.html#cfn-elb-connectionsettings-idletimeout
-elblbcsIdleTimeout :: Lens' ElasticLoadBalancingLoadBalancerConnectionSettings (Val Integer')
+elblbcsIdleTimeout :: Lens' ElasticLoadBalancingLoadBalancerConnectionSettings (Val Integer)
 elblbcsIdleTimeout = lens _elasticLoadBalancingLoadBalancerConnectionSettingsIdleTimeout (\s a -> s { _elasticLoadBalancingLoadBalancerConnectionSettingsIdleTimeout = a })

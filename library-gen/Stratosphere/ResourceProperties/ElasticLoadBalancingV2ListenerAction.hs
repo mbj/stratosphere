@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-defaultactions.html
 
@@ -26,15 +27,15 @@ instance ToJSON ElasticLoadBalancingV2ListenerAction where
   toJSON ElasticLoadBalancingV2ListenerAction{..} =
     object $
     catMaybes
-    [ Just ("TargetGroupArn" .= _elasticLoadBalancingV2ListenerActionTargetGroupArn)
-    , Just ("Type" .= _elasticLoadBalancingV2ListenerActionType)
+    [ (Just . ("TargetGroupArn",) . toJSON) _elasticLoadBalancingV2ListenerActionTargetGroupArn
+    , (Just . ("Type",) . toJSON) _elasticLoadBalancingV2ListenerActionType
     ]
 
 instance FromJSON ElasticLoadBalancingV2ListenerAction where
   parseJSON (Object obj) =
     ElasticLoadBalancingV2ListenerAction <$>
-      obj .: "TargetGroupArn" <*>
-      obj .: "Type"
+      (obj .: "TargetGroupArn") <*>
+      (obj .: "Type")
   parseJSON _ = mempty
 
 -- | Constructor for 'ElasticLoadBalancingV2ListenerAction' containing

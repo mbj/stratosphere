@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-cors.html
 
@@ -25,13 +26,13 @@ instance ToJSON S3BucketCorsConfiguration where
   toJSON S3BucketCorsConfiguration{..} =
     object $
     catMaybes
-    [ Just ("CorsRules" .= _s3BucketCorsConfigurationCorsRules)
+    [ (Just . ("CorsRules",) . toJSON) _s3BucketCorsConfigurationCorsRules
     ]
 
 instance FromJSON S3BucketCorsConfiguration where
   parseJSON (Object obj) =
     S3BucketCorsConfiguration <$>
-      obj .: "CorsRules"
+      (obj .: "CorsRules")
   parseJSON _ = mempty
 
 -- | Constructor for 'S3BucketCorsConfiguration' containing required fields as

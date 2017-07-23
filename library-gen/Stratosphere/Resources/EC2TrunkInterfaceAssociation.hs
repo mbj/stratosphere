@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trunkinterfaceassociation.html
 
@@ -19,28 +20,28 @@ import Stratosphere.Values
 data EC2TrunkInterfaceAssociation =
   EC2TrunkInterfaceAssociation
   { _eC2TrunkInterfaceAssociationBranchInterfaceId :: Val Text
-  , _eC2TrunkInterfaceAssociationGREKey :: Maybe (Val Integer')
+  , _eC2TrunkInterfaceAssociationGREKey :: Maybe (Val Integer)
   , _eC2TrunkInterfaceAssociationTrunkInterfaceId :: Val Text
-  , _eC2TrunkInterfaceAssociationVLANId :: Maybe (Val Integer')
+  , _eC2TrunkInterfaceAssociationVLANId :: Maybe (Val Integer)
   } deriving (Show, Eq)
 
 instance ToJSON EC2TrunkInterfaceAssociation where
   toJSON EC2TrunkInterfaceAssociation{..} =
     object $
     catMaybes
-    [ Just ("BranchInterfaceId" .= _eC2TrunkInterfaceAssociationBranchInterfaceId)
-    , ("GREKey" .=) <$> _eC2TrunkInterfaceAssociationGREKey
-    , Just ("TrunkInterfaceId" .= _eC2TrunkInterfaceAssociationTrunkInterfaceId)
-    , ("VLANId" .=) <$> _eC2TrunkInterfaceAssociationVLANId
+    [ (Just . ("BranchInterfaceId",) . toJSON) _eC2TrunkInterfaceAssociationBranchInterfaceId
+    , fmap (("GREKey",) . toJSON . fmap Integer') _eC2TrunkInterfaceAssociationGREKey
+    , (Just . ("TrunkInterfaceId",) . toJSON) _eC2TrunkInterfaceAssociationTrunkInterfaceId
+    , fmap (("VLANId",) . toJSON . fmap Integer') _eC2TrunkInterfaceAssociationVLANId
     ]
 
 instance FromJSON EC2TrunkInterfaceAssociation where
   parseJSON (Object obj) =
     EC2TrunkInterfaceAssociation <$>
-      obj .: "BranchInterfaceId" <*>
-      obj .:? "GREKey" <*>
-      obj .: "TrunkInterfaceId" <*>
-      obj .:? "VLANId"
+      (obj .: "BranchInterfaceId") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "GREKey") <*>
+      (obj .: "TrunkInterfaceId") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "VLANId")
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2TrunkInterfaceAssociation' containing required fields
@@ -62,7 +63,7 @@ ectiaBranchInterfaceId :: Lens' EC2TrunkInterfaceAssociation (Val Text)
 ectiaBranchInterfaceId = lens _eC2TrunkInterfaceAssociationBranchInterfaceId (\s a -> s { _eC2TrunkInterfaceAssociationBranchInterfaceId = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trunkinterfaceassociation.html#cfn-ec2-trunkinterfaceassociation-grekey
-ectiaGREKey :: Lens' EC2TrunkInterfaceAssociation (Maybe (Val Integer'))
+ectiaGREKey :: Lens' EC2TrunkInterfaceAssociation (Maybe (Val Integer))
 ectiaGREKey = lens _eC2TrunkInterfaceAssociationGREKey (\s a -> s { _eC2TrunkInterfaceAssociationGREKey = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trunkinterfaceassociation.html#cfn-ec2-trunkinterfaceassociation-trunkinterfaceid
@@ -70,5 +71,5 @@ ectiaTrunkInterfaceId :: Lens' EC2TrunkInterfaceAssociation (Val Text)
 ectiaTrunkInterfaceId = lens _eC2TrunkInterfaceAssociationTrunkInterfaceId (\s a -> s { _eC2TrunkInterfaceAssociationTrunkInterfaceId = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trunkinterfaceassociation.html#cfn-ec2-trunkinterfaceassociation-vlanid
-ectiaVLANId :: Lens' EC2TrunkInterfaceAssociation (Maybe (Val Integer'))
+ectiaVLANId :: Lens' EC2TrunkInterfaceAssociation (Maybe (Val Integer))
 ectiaVLANId = lens _eC2TrunkInterfaceAssociationVLANId (\s a -> s { _eC2TrunkInterfaceAssociationVLANId = a })

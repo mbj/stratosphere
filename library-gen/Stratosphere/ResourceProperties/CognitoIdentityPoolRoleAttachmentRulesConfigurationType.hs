@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-rolemapping-rulesconfiguration.html
 
@@ -27,13 +28,13 @@ instance ToJSON CognitoIdentityPoolRoleAttachmentRulesConfigurationType where
   toJSON CognitoIdentityPoolRoleAttachmentRulesConfigurationType{..} =
     object $
     catMaybes
-    [ Just ("Rules" .= _cognitoIdentityPoolRoleAttachmentRulesConfigurationTypeRules)
+    [ (Just . ("Rules",) . toJSON) _cognitoIdentityPoolRoleAttachmentRulesConfigurationTypeRules
     ]
 
 instance FromJSON CognitoIdentityPoolRoleAttachmentRulesConfigurationType where
   parseJSON (Object obj) =
     CognitoIdentityPoolRoleAttachmentRulesConfigurationType <$>
-      obj .: "Rules"
+      (obj .: "Rules")
   parseJSON _ = mempty
 
 -- | Constructor for 'CognitoIdentityPoolRoleAttachmentRulesConfigurationType'

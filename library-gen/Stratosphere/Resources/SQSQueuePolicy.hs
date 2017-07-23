@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-policy.html
 
@@ -26,15 +27,15 @@ instance ToJSON SQSQueuePolicy where
   toJSON SQSQueuePolicy{..} =
     object $
     catMaybes
-    [ Just ("PolicyDocument" .= _sQSQueuePolicyPolicyDocument)
-    , Just ("Queues" .= _sQSQueuePolicyQueues)
+    [ (Just . ("PolicyDocument",) . toJSON) _sQSQueuePolicyPolicyDocument
+    , (Just . ("Queues",) . toJSON) _sQSQueuePolicyQueues
     ]
 
 instance FromJSON SQSQueuePolicy where
   parseJSON (Object obj) =
     SQSQueuePolicy <$>
-      obj .: "PolicyDocument" <*>
-      obj .: "Queues"
+      (obj .: "PolicyDocument") <*>
+      (obj .: "Queues")
   parseJSON _ = mempty
 
 -- | Constructor for 'SQSQueuePolicy' containing required fields as arguments.

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-simplescalingpolicyconfiguration.html
 
@@ -20,31 +21,31 @@ import Stratosphere.Values
 data EMRClusterSimpleScalingPolicyConfiguration =
   EMRClusterSimpleScalingPolicyConfiguration
   { _eMRClusterSimpleScalingPolicyConfigurationAdjustmentType :: Maybe (Val Text)
-  , _eMRClusterSimpleScalingPolicyConfigurationCoolDown :: Maybe (Val Integer')
-  , _eMRClusterSimpleScalingPolicyConfigurationScalingAdjustment :: Val Integer'
+  , _eMRClusterSimpleScalingPolicyConfigurationCoolDown :: Maybe (Val Integer)
+  , _eMRClusterSimpleScalingPolicyConfigurationScalingAdjustment :: Val Integer
   } deriving (Show, Eq)
 
 instance ToJSON EMRClusterSimpleScalingPolicyConfiguration where
   toJSON EMRClusterSimpleScalingPolicyConfiguration{..} =
     object $
     catMaybes
-    [ ("AdjustmentType" .=) <$> _eMRClusterSimpleScalingPolicyConfigurationAdjustmentType
-    , ("CoolDown" .=) <$> _eMRClusterSimpleScalingPolicyConfigurationCoolDown
-    , Just ("ScalingAdjustment" .= _eMRClusterSimpleScalingPolicyConfigurationScalingAdjustment)
+    [ fmap (("AdjustmentType",) . toJSON) _eMRClusterSimpleScalingPolicyConfigurationAdjustmentType
+    , fmap (("CoolDown",) . toJSON . fmap Integer') _eMRClusterSimpleScalingPolicyConfigurationCoolDown
+    , (Just . ("ScalingAdjustment",) . toJSON . fmap Integer') _eMRClusterSimpleScalingPolicyConfigurationScalingAdjustment
     ]
 
 instance FromJSON EMRClusterSimpleScalingPolicyConfiguration where
   parseJSON (Object obj) =
     EMRClusterSimpleScalingPolicyConfiguration <$>
-      obj .:? "AdjustmentType" <*>
-      obj .:? "CoolDown" <*>
-      obj .: "ScalingAdjustment"
+      (obj .:? "AdjustmentType") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "CoolDown") <*>
+      fmap (fmap unInteger') (obj .: "ScalingAdjustment")
   parseJSON _ = mempty
 
 -- | Constructor for 'EMRClusterSimpleScalingPolicyConfiguration' containing
 -- required fields as arguments.
 emrClusterSimpleScalingPolicyConfiguration
-  :: Val Integer' -- ^ 'emrcsspcScalingAdjustment'
+  :: Val Integer -- ^ 'emrcsspcScalingAdjustment'
   -> EMRClusterSimpleScalingPolicyConfiguration
 emrClusterSimpleScalingPolicyConfiguration scalingAdjustmentarg =
   EMRClusterSimpleScalingPolicyConfiguration
@@ -58,9 +59,9 @@ emrcsspcAdjustmentType :: Lens' EMRClusterSimpleScalingPolicyConfiguration (Mayb
 emrcsspcAdjustmentType = lens _eMRClusterSimpleScalingPolicyConfigurationAdjustmentType (\s a -> s { _eMRClusterSimpleScalingPolicyConfigurationAdjustmentType = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-simplescalingpolicyconfiguration.html#cfn-elasticmapreduce-cluster-simplescalingpolicyconfiguration-cooldown
-emrcsspcCoolDown :: Lens' EMRClusterSimpleScalingPolicyConfiguration (Maybe (Val Integer'))
+emrcsspcCoolDown :: Lens' EMRClusterSimpleScalingPolicyConfiguration (Maybe (Val Integer))
 emrcsspcCoolDown = lens _eMRClusterSimpleScalingPolicyConfigurationCoolDown (\s a -> s { _eMRClusterSimpleScalingPolicyConfigurationCoolDown = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-simplescalingpolicyconfiguration.html#cfn-elasticmapreduce-cluster-simplescalingpolicyconfiguration-scalingadjustment
-emrcsspcScalingAdjustment :: Lens' EMRClusterSimpleScalingPolicyConfiguration (Val Integer')
+emrcsspcScalingAdjustment :: Lens' EMRClusterSimpleScalingPolicyConfiguration (Val Integer)
 emrcsspcScalingAdjustment = lens _eMRClusterSimpleScalingPolicyConfigurationScalingAdjustment (\s a -> s { _eMRClusterSimpleScalingPolicyConfigurationScalingAdjustment = a })

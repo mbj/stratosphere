@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codecommit-repository.html
 
@@ -27,17 +28,17 @@ instance ToJSON CodeCommitRepository where
   toJSON CodeCommitRepository{..} =
     object $
     catMaybes
-    [ ("RepositoryDescription" .=) <$> _codeCommitRepositoryRepositoryDescription
-    , Just ("RepositoryName" .= _codeCommitRepositoryRepositoryName)
-    , ("Triggers" .=) <$> _codeCommitRepositoryTriggers
+    [ fmap (("RepositoryDescription",) . toJSON) _codeCommitRepositoryRepositoryDescription
+    , (Just . ("RepositoryName",) . toJSON) _codeCommitRepositoryRepositoryName
+    , fmap (("Triggers",) . toJSON) _codeCommitRepositoryTriggers
     ]
 
 instance FromJSON CodeCommitRepository where
   parseJSON (Object obj) =
     CodeCommitRepository <$>
-      obj .:? "RepositoryDescription" <*>
-      obj .: "RepositoryName" <*>
-      obj .:? "Triggers"
+      (obj .:? "RepositoryDescription") <*>
+      (obj .: "RepositoryName") <*>
+      (obj .:? "Triggers")
   parseJSON _ = mempty
 
 -- | Constructor for 'CodeCommitRepository' containing required fields as

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-acl.html
 
@@ -26,15 +27,15 @@ instance ToJSON EC2NetworkAcl where
   toJSON EC2NetworkAcl{..} =
     object $
     catMaybes
-    [ ("Tags" .=) <$> _eC2NetworkAclTags
-    , Just ("VpcId" .= _eC2NetworkAclVpcId)
+    [ fmap (("Tags",) . toJSON) _eC2NetworkAclTags
+    , (Just . ("VpcId",) . toJSON) _eC2NetworkAclVpcId
     ]
 
 instance FromJSON EC2NetworkAcl where
   parseJSON (Object obj) =
     EC2NetworkAcl <$>
-      obj .:? "Tags" <*>
-      obj .: "VpcId"
+      (obj .:? "Tags") <*>
+      (obj .: "VpcId")
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2NetworkAcl' containing required fields as arguments.

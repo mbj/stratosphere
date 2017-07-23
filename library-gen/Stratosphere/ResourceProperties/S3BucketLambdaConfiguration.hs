@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig-lambdaconfig.html
 
@@ -27,17 +28,17 @@ instance ToJSON S3BucketLambdaConfiguration where
   toJSON S3BucketLambdaConfiguration{..} =
     object $
     catMaybes
-    [ Just ("Event" .= _s3BucketLambdaConfigurationEvent)
-    , ("Filter" .=) <$> _s3BucketLambdaConfigurationFilter
-    , Just ("Function" .= _s3BucketLambdaConfigurationFunction)
+    [ (Just . ("Event",) . toJSON) _s3BucketLambdaConfigurationEvent
+    , fmap (("Filter",) . toJSON) _s3BucketLambdaConfigurationFilter
+    , (Just . ("Function",) . toJSON) _s3BucketLambdaConfigurationFunction
     ]
 
 instance FromJSON S3BucketLambdaConfiguration where
   parseJSON (Object obj) =
     S3BucketLambdaConfiguration <$>
-      obj .: "Event" <*>
-      obj .:? "Filter" <*>
-      obj .: "Function"
+      (obj .: "Event") <*>
+      (obj .:? "Filter") <*>
+      (obj .: "Function")
   parseJSON _ = mempty
 
 -- | Constructor for 'S3BucketLambdaConfiguration' containing required fields

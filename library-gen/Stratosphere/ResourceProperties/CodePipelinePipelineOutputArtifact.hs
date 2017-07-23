@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages-actions-outputartifacts.html
 
@@ -25,13 +26,13 @@ instance ToJSON CodePipelinePipelineOutputArtifact where
   toJSON CodePipelinePipelineOutputArtifact{..} =
     object $
     catMaybes
-    [ Just ("Name" .= _codePipelinePipelineOutputArtifactName)
+    [ (Just . ("Name",) . toJSON) _codePipelinePipelineOutputArtifactName
     ]
 
 instance FromJSON CodePipelinePipelineOutputArtifact where
   parseJSON (Object obj) =
     CodePipelinePipelineOutputArtifact <$>
-      obj .: "Name"
+      (obj .: "Name")
   parseJSON _ = mempty
 
 -- | Constructor for 'CodePipelinePipelineOutputArtifact' containing required

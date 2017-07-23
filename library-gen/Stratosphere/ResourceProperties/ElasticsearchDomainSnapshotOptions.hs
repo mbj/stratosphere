@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-snapshotoptions.html
 
@@ -18,20 +19,20 @@ import Stratosphere.Values
 -- 'elasticsearchDomainSnapshotOptions' for a more convenient constructor.
 data ElasticsearchDomainSnapshotOptions =
   ElasticsearchDomainSnapshotOptions
-  { _elasticsearchDomainSnapshotOptionsAutomatedSnapshotStartHour :: Maybe (Val Integer')
+  { _elasticsearchDomainSnapshotOptionsAutomatedSnapshotStartHour :: Maybe (Val Integer)
   } deriving (Show, Eq)
 
 instance ToJSON ElasticsearchDomainSnapshotOptions where
   toJSON ElasticsearchDomainSnapshotOptions{..} =
     object $
     catMaybes
-    [ ("AutomatedSnapshotStartHour" .=) <$> _elasticsearchDomainSnapshotOptionsAutomatedSnapshotStartHour
+    [ fmap (("AutomatedSnapshotStartHour",) . toJSON . fmap Integer') _elasticsearchDomainSnapshotOptionsAutomatedSnapshotStartHour
     ]
 
 instance FromJSON ElasticsearchDomainSnapshotOptions where
   parseJSON (Object obj) =
     ElasticsearchDomainSnapshotOptions <$>
-      obj .:? "AutomatedSnapshotStartHour"
+      fmap (fmap (fmap unInteger')) (obj .:? "AutomatedSnapshotStartHour")
   parseJSON _ = mempty
 
 -- | Constructor for 'ElasticsearchDomainSnapshotOptions' containing required
@@ -44,5 +45,5 @@ elasticsearchDomainSnapshotOptions  =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-snapshotoptions.html#cfn-elasticsearch-domain-snapshotoptions-automatedsnapshotstarthour
-edsoAutomatedSnapshotStartHour :: Lens' ElasticsearchDomainSnapshotOptions (Maybe (Val Integer'))
+edsoAutomatedSnapshotStartHour :: Lens' ElasticsearchDomainSnapshotOptions (Maybe (Val Integer))
 edsoAutomatedSnapshotStartHour = lens _elasticsearchDomainSnapshotOptionsAutomatedSnapshotStartHour (\s a -> s { _elasticsearchDomainSnapshotOptionsAutomatedSnapshotStartHour = a })

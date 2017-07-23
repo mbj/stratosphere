@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-cloudwatchalarm.html
 
@@ -28,19 +29,19 @@ instance ToJSON IoTTopicRuleCloudwatchAlarmAction where
   toJSON IoTTopicRuleCloudwatchAlarmAction{..} =
     object $
     catMaybes
-    [ Just ("AlarmName" .= _ioTTopicRuleCloudwatchAlarmActionAlarmName)
-    , Just ("RoleArn" .= _ioTTopicRuleCloudwatchAlarmActionRoleArn)
-    , Just ("StateReason" .= _ioTTopicRuleCloudwatchAlarmActionStateReason)
-    , Just ("StateValue" .= _ioTTopicRuleCloudwatchAlarmActionStateValue)
+    [ (Just . ("AlarmName",) . toJSON) _ioTTopicRuleCloudwatchAlarmActionAlarmName
+    , (Just . ("RoleArn",) . toJSON) _ioTTopicRuleCloudwatchAlarmActionRoleArn
+    , (Just . ("StateReason",) . toJSON) _ioTTopicRuleCloudwatchAlarmActionStateReason
+    , (Just . ("StateValue",) . toJSON) _ioTTopicRuleCloudwatchAlarmActionStateValue
     ]
 
 instance FromJSON IoTTopicRuleCloudwatchAlarmAction where
   parseJSON (Object obj) =
     IoTTopicRuleCloudwatchAlarmAction <$>
-      obj .: "AlarmName" <*>
-      obj .: "RoleArn" <*>
-      obj .: "StateReason" <*>
-      obj .: "StateValue"
+      (obj .: "AlarmName") <*>
+      (obj .: "RoleArn") <*>
+      (obj .: "StateReason") <*>
+      (obj .: "StateValue")
   parseJSON _ = mempty
 
 -- | Constructor for 'IoTTopicRuleCloudwatchAlarmAction' containing required

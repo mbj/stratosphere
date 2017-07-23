@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-scalingtrigger.html
 
@@ -25,13 +26,13 @@ instance ToJSON EMRClusterScalingTrigger where
   toJSON EMRClusterScalingTrigger{..} =
     object $
     catMaybes
-    [ Just ("CloudWatchAlarmDefinition" .= _eMRClusterScalingTriggerCloudWatchAlarmDefinition)
+    [ (Just . ("CloudWatchAlarmDefinition",) . toJSON) _eMRClusterScalingTriggerCloudWatchAlarmDefinition
     ]
 
 instance FromJSON EMRClusterScalingTrigger where
   parseJSON (Object obj) =
     EMRClusterScalingTrigger <$>
-      obj .: "CloudWatchAlarmDefinition"
+      (obj .: "CloudWatchAlarmDefinition")
   parseJSON _ = mempty
 
 -- | Constructor for 'EMRClusterScalingTrigger' containing required fields as

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html
 
@@ -19,7 +20,7 @@ import Stratosphere.ResourceProperties.Tag
 data RDSDBCluster =
   RDSDBCluster
   { _rDSDBClusterAvailabilityZones :: Maybe (Val Text)
-  , _rDSDBClusterBackupRetentionPeriod :: Maybe (Val Integer')
+  , _rDSDBClusterBackupRetentionPeriod :: Maybe (Val Integer)
   , _rDSDBClusterDBClusterParameterGroupName :: Maybe (Val Text)
   , _rDSDBClusterDBSubnetGroupName :: Maybe (Val Text)
   , _rDSDBClusterDatabaseName :: Maybe (Val Text)
@@ -28,12 +29,12 @@ data RDSDBCluster =
   , _rDSDBClusterKmsKeyId :: Maybe (Val Text)
   , _rDSDBClusterMasterUserPassword :: Maybe (Val Text)
   , _rDSDBClusterMasterUsername :: Maybe (Val Text)
-  , _rDSDBClusterPort :: Maybe (Val Integer')
+  , _rDSDBClusterPort :: Maybe (Val Integer)
   , _rDSDBClusterPreferredBackupWindow :: Maybe (Val Text)
   , _rDSDBClusterPreferredMaintenanceWindow :: Maybe (Val Text)
   , _rDSDBClusterReplicationSourceIdentifier :: Maybe (Val Text)
   , _rDSDBClusterSnapshotIdentifier :: Maybe (Val Text)
-  , _rDSDBClusterStorageEncrypted :: Maybe (Val Bool')
+  , _rDSDBClusterStorageEncrypted :: Maybe (Val Bool)
   , _rDSDBClusterTags :: Maybe [Tag]
   , _rDSDBClusterVpcSecurityGroupIds :: Maybe (ValList Text)
   } deriving (Show, Eq)
@@ -42,47 +43,47 @@ instance ToJSON RDSDBCluster where
   toJSON RDSDBCluster{..} =
     object $
     catMaybes
-    [ ("AvailabilityZones" .=) <$> _rDSDBClusterAvailabilityZones
-    , ("BackupRetentionPeriod" .=) <$> _rDSDBClusterBackupRetentionPeriod
-    , ("DBClusterParameterGroupName" .=) <$> _rDSDBClusterDBClusterParameterGroupName
-    , ("DBSubnetGroupName" .=) <$> _rDSDBClusterDBSubnetGroupName
-    , ("DatabaseName" .=) <$> _rDSDBClusterDatabaseName
-    , Just ("Engine" .= _rDSDBClusterEngine)
-    , ("EngineVersion" .=) <$> _rDSDBClusterEngineVersion
-    , ("KmsKeyId" .=) <$> _rDSDBClusterKmsKeyId
-    , ("MasterUserPassword" .=) <$> _rDSDBClusterMasterUserPassword
-    , ("MasterUsername" .=) <$> _rDSDBClusterMasterUsername
-    , ("Port" .=) <$> _rDSDBClusterPort
-    , ("PreferredBackupWindow" .=) <$> _rDSDBClusterPreferredBackupWindow
-    , ("PreferredMaintenanceWindow" .=) <$> _rDSDBClusterPreferredMaintenanceWindow
-    , ("ReplicationSourceIdentifier" .=) <$> _rDSDBClusterReplicationSourceIdentifier
-    , ("SnapshotIdentifier" .=) <$> _rDSDBClusterSnapshotIdentifier
-    , ("StorageEncrypted" .=) <$> _rDSDBClusterStorageEncrypted
-    , ("Tags" .=) <$> _rDSDBClusterTags
-    , ("VpcSecurityGroupIds" .=) <$> _rDSDBClusterVpcSecurityGroupIds
+    [ fmap (("AvailabilityZones",) . toJSON) _rDSDBClusterAvailabilityZones
+    , fmap (("BackupRetentionPeriod",) . toJSON . fmap Integer') _rDSDBClusterBackupRetentionPeriod
+    , fmap (("DBClusterParameterGroupName",) . toJSON) _rDSDBClusterDBClusterParameterGroupName
+    , fmap (("DBSubnetGroupName",) . toJSON) _rDSDBClusterDBSubnetGroupName
+    , fmap (("DatabaseName",) . toJSON) _rDSDBClusterDatabaseName
+    , (Just . ("Engine",) . toJSON) _rDSDBClusterEngine
+    , fmap (("EngineVersion",) . toJSON) _rDSDBClusterEngineVersion
+    , fmap (("KmsKeyId",) . toJSON) _rDSDBClusterKmsKeyId
+    , fmap (("MasterUserPassword",) . toJSON) _rDSDBClusterMasterUserPassword
+    , fmap (("MasterUsername",) . toJSON) _rDSDBClusterMasterUsername
+    , fmap (("Port",) . toJSON . fmap Integer') _rDSDBClusterPort
+    , fmap (("PreferredBackupWindow",) . toJSON) _rDSDBClusterPreferredBackupWindow
+    , fmap (("PreferredMaintenanceWindow",) . toJSON) _rDSDBClusterPreferredMaintenanceWindow
+    , fmap (("ReplicationSourceIdentifier",) . toJSON) _rDSDBClusterReplicationSourceIdentifier
+    , fmap (("SnapshotIdentifier",) . toJSON) _rDSDBClusterSnapshotIdentifier
+    , fmap (("StorageEncrypted",) . toJSON . fmap Bool') _rDSDBClusterStorageEncrypted
+    , fmap (("Tags",) . toJSON) _rDSDBClusterTags
+    , fmap (("VpcSecurityGroupIds",) . toJSON) _rDSDBClusterVpcSecurityGroupIds
     ]
 
 instance FromJSON RDSDBCluster where
   parseJSON (Object obj) =
     RDSDBCluster <$>
-      obj .:? "AvailabilityZones" <*>
-      obj .:? "BackupRetentionPeriod" <*>
-      obj .:? "DBClusterParameterGroupName" <*>
-      obj .:? "DBSubnetGroupName" <*>
-      obj .:? "DatabaseName" <*>
-      obj .: "Engine" <*>
-      obj .:? "EngineVersion" <*>
-      obj .:? "KmsKeyId" <*>
-      obj .:? "MasterUserPassword" <*>
-      obj .:? "MasterUsername" <*>
-      obj .:? "Port" <*>
-      obj .:? "PreferredBackupWindow" <*>
-      obj .:? "PreferredMaintenanceWindow" <*>
-      obj .:? "ReplicationSourceIdentifier" <*>
-      obj .:? "SnapshotIdentifier" <*>
-      obj .:? "StorageEncrypted" <*>
-      obj .:? "Tags" <*>
-      obj .:? "VpcSecurityGroupIds"
+      (obj .:? "AvailabilityZones") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "BackupRetentionPeriod") <*>
+      (obj .:? "DBClusterParameterGroupName") <*>
+      (obj .:? "DBSubnetGroupName") <*>
+      (obj .:? "DatabaseName") <*>
+      (obj .: "Engine") <*>
+      (obj .:? "EngineVersion") <*>
+      (obj .:? "KmsKeyId") <*>
+      (obj .:? "MasterUserPassword") <*>
+      (obj .:? "MasterUsername") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "Port") <*>
+      (obj .:? "PreferredBackupWindow") <*>
+      (obj .:? "PreferredMaintenanceWindow") <*>
+      (obj .:? "ReplicationSourceIdentifier") <*>
+      (obj .:? "SnapshotIdentifier") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "StorageEncrypted") <*>
+      (obj .:? "Tags") <*>
+      (obj .:? "VpcSecurityGroupIds")
   parseJSON _ = mempty
 
 -- | Constructor for 'RDSDBCluster' containing required fields as arguments.
@@ -116,7 +117,7 @@ rdsdbcAvailabilityZones :: Lens' RDSDBCluster (Maybe (Val Text))
 rdsdbcAvailabilityZones = lens _rDSDBClusterAvailabilityZones (\s a -> s { _rDSDBClusterAvailabilityZones = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-backuprententionperiod
-rdsdbcBackupRetentionPeriod :: Lens' RDSDBCluster (Maybe (Val Integer'))
+rdsdbcBackupRetentionPeriod :: Lens' RDSDBCluster (Maybe (Val Integer))
 rdsdbcBackupRetentionPeriod = lens _rDSDBClusterBackupRetentionPeriod (\s a -> s { _rDSDBClusterBackupRetentionPeriod = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-dbclusterparametergroupname
@@ -152,7 +153,7 @@ rdsdbcMasterUsername :: Lens' RDSDBCluster (Maybe (Val Text))
 rdsdbcMasterUsername = lens _rDSDBClusterMasterUsername (\s a -> s { _rDSDBClusterMasterUsername = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-port
-rdsdbcPort :: Lens' RDSDBCluster (Maybe (Val Integer'))
+rdsdbcPort :: Lens' RDSDBCluster (Maybe (Val Integer))
 rdsdbcPort = lens _rDSDBClusterPort (\s a -> s { _rDSDBClusterPort = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-preferredbackupwindow
@@ -172,7 +173,7 @@ rdsdbcSnapshotIdentifier :: Lens' RDSDBCluster (Maybe (Val Text))
 rdsdbcSnapshotIdentifier = lens _rDSDBClusterSnapshotIdentifier (\s a -> s { _rDSDBClusterSnapshotIdentifier = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-storageencrypted
-rdsdbcStorageEncrypted :: Lens' RDSDBCluster (Maybe (Val Bool'))
+rdsdbcStorageEncrypted :: Lens' RDSDBCluster (Maybe (Val Bool))
 rdsdbcStorageEncrypted = lens _rDSDBClusterStorageEncrypted (\s a -> s { _rDSDBClusterStorageEncrypted = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-tags

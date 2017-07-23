@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-app-datasource.html
 
@@ -27,17 +28,17 @@ instance ToJSON OpsWorksAppDataSource where
   toJSON OpsWorksAppDataSource{..} =
     object $
     catMaybes
-    [ ("Arn" .=) <$> _opsWorksAppDataSourceArn
-    , ("DatabaseName" .=) <$> _opsWorksAppDataSourceDatabaseName
-    , ("Type" .=) <$> _opsWorksAppDataSourceType
+    [ fmap (("Arn",) . toJSON) _opsWorksAppDataSourceArn
+    , fmap (("DatabaseName",) . toJSON) _opsWorksAppDataSourceDatabaseName
+    , fmap (("Type",) . toJSON) _opsWorksAppDataSourceType
     ]
 
 instance FromJSON OpsWorksAppDataSource where
   parseJSON (Object obj) =
     OpsWorksAppDataSource <$>
-      obj .:? "Arn" <*>
-      obj .:? "DatabaseName" <*>
-      obj .:? "Type"
+      (obj .:? "Arn") <*>
+      (obj .:? "DatabaseName") <*>
+      (obj .:? "Type")
   parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksAppDataSource' containing required fields as

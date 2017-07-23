@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ec2inboundpermission.html
 
@@ -18,38 +19,38 @@ import Stratosphere.Values
 -- 'gameLiftFleetIpPermission' for a more convenient constructor.
 data GameLiftFleetIpPermission =
   GameLiftFleetIpPermission
-  { _gameLiftFleetIpPermissionFromPort :: Val Integer'
+  { _gameLiftFleetIpPermissionFromPort :: Val Integer
   , _gameLiftFleetIpPermissionIpRange :: Val Text
   , _gameLiftFleetIpPermissionProtocol :: Val Text
-  , _gameLiftFleetIpPermissionToPort :: Val Integer'
+  , _gameLiftFleetIpPermissionToPort :: Val Integer
   } deriving (Show, Eq)
 
 instance ToJSON GameLiftFleetIpPermission where
   toJSON GameLiftFleetIpPermission{..} =
     object $
     catMaybes
-    [ Just ("FromPort" .= _gameLiftFleetIpPermissionFromPort)
-    , Just ("IpRange" .= _gameLiftFleetIpPermissionIpRange)
-    , Just ("Protocol" .= _gameLiftFleetIpPermissionProtocol)
-    , Just ("ToPort" .= _gameLiftFleetIpPermissionToPort)
+    [ (Just . ("FromPort",) . toJSON . fmap Integer') _gameLiftFleetIpPermissionFromPort
+    , (Just . ("IpRange",) . toJSON) _gameLiftFleetIpPermissionIpRange
+    , (Just . ("Protocol",) . toJSON) _gameLiftFleetIpPermissionProtocol
+    , (Just . ("ToPort",) . toJSON . fmap Integer') _gameLiftFleetIpPermissionToPort
     ]
 
 instance FromJSON GameLiftFleetIpPermission where
   parseJSON (Object obj) =
     GameLiftFleetIpPermission <$>
-      obj .: "FromPort" <*>
-      obj .: "IpRange" <*>
-      obj .: "Protocol" <*>
-      obj .: "ToPort"
+      fmap (fmap unInteger') (obj .: "FromPort") <*>
+      (obj .: "IpRange") <*>
+      (obj .: "Protocol") <*>
+      fmap (fmap unInteger') (obj .: "ToPort")
   parseJSON _ = mempty
 
 -- | Constructor for 'GameLiftFleetIpPermission' containing required fields as
 -- arguments.
 gameLiftFleetIpPermission
-  :: Val Integer' -- ^ 'glfipFromPort'
+  :: Val Integer -- ^ 'glfipFromPort'
   -> Val Text -- ^ 'glfipIpRange'
   -> Val Text -- ^ 'glfipProtocol'
-  -> Val Integer' -- ^ 'glfipToPort'
+  -> Val Integer -- ^ 'glfipToPort'
   -> GameLiftFleetIpPermission
 gameLiftFleetIpPermission fromPortarg ipRangearg protocolarg toPortarg =
   GameLiftFleetIpPermission
@@ -60,7 +61,7 @@ gameLiftFleetIpPermission fromPortarg ipRangearg protocolarg toPortarg =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ec2inboundpermission.html#cfn-gamelift-fleet-ec2inboundpermissions-fromport
-glfipFromPort :: Lens' GameLiftFleetIpPermission (Val Integer')
+glfipFromPort :: Lens' GameLiftFleetIpPermission (Val Integer)
 glfipFromPort = lens _gameLiftFleetIpPermissionFromPort (\s a -> s { _gameLiftFleetIpPermissionFromPort = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ec2inboundpermission.html#cfn-gamelift-fleet-ec2inboundpermissions-iprange
@@ -72,5 +73,5 @@ glfipProtocol :: Lens' GameLiftFleetIpPermission (Val Text)
 glfipProtocol = lens _gameLiftFleetIpPermissionProtocol (\s a -> s { _gameLiftFleetIpPermissionProtocol = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-ec2inboundpermission.html#cfn-gamelift-fleet-ec2inboundpermissions-toport
-glfipToPort :: Lens' GameLiftFleetIpPermission (Val Integer')
+glfipToPort :: Lens' GameLiftFleetIpPermission (Val Integer)
 glfipToPort = lens _gameLiftFleetIpPermissionToPort (\s a -> s { _gameLiftFleetIpPermissionToPort = a })

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html
 
@@ -29,21 +30,21 @@ instance ToJSON IAMRole where
   toJSON IAMRole{..} =
     object $
     catMaybes
-    [ Just ("AssumeRolePolicyDocument" .= _iAMRoleAssumeRolePolicyDocument)
-    , ("ManagedPolicyArns" .=) <$> _iAMRoleManagedPolicyArns
-    , ("Path" .=) <$> _iAMRolePath
-    , ("Policies" .=) <$> _iAMRolePolicies
-    , ("RoleName" .=) <$> _iAMRoleRoleName
+    [ (Just . ("AssumeRolePolicyDocument",) . toJSON) _iAMRoleAssumeRolePolicyDocument
+    , fmap (("ManagedPolicyArns",) . toJSON) _iAMRoleManagedPolicyArns
+    , fmap (("Path",) . toJSON) _iAMRolePath
+    , fmap (("Policies",) . toJSON) _iAMRolePolicies
+    , fmap (("RoleName",) . toJSON) _iAMRoleRoleName
     ]
 
 instance FromJSON IAMRole where
   parseJSON (Object obj) =
     IAMRole <$>
-      obj .: "AssumeRolePolicyDocument" <*>
-      obj .:? "ManagedPolicyArns" <*>
-      obj .:? "Path" <*>
-      obj .:? "Policies" <*>
-      obj .:? "RoleName"
+      (obj .: "AssumeRolePolicyDocument") <*>
+      (obj .:? "ManagedPolicyArns") <*>
+      (obj .:? "Path") <*>
+      (obj .:? "Policies") <*>
+      (obj .:? "RoleName")
   parseJSON _ = mempty
 
 -- | Constructor for 'IAMRole' containing required fields as arguments.

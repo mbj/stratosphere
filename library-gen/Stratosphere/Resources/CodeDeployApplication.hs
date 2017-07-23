@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-application.html
 
@@ -25,13 +26,13 @@ instance ToJSON CodeDeployApplication where
   toJSON CodeDeployApplication{..} =
     object $
     catMaybes
-    [ ("ApplicationName" .=) <$> _codeDeployApplicationApplicationName
+    [ fmap (("ApplicationName",) . toJSON) _codeDeployApplicationApplicationName
     ]
 
 instance FromJSON CodeDeployApplication where
   parseJSON (Object obj) =
     CodeDeployApplication <$>
-      obj .:? "ApplicationName"
+      (obj .:? "ApplicationName")
   parseJSON _ = mempty
 
 -- | Constructor for 'CodeDeployApplication' containing required fields as

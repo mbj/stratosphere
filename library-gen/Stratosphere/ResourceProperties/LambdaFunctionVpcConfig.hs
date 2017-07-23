@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-vpcconfig.html
 
@@ -26,15 +27,15 @@ instance ToJSON LambdaFunctionVpcConfig where
   toJSON LambdaFunctionVpcConfig{..} =
     object $
     catMaybes
-    [ Just ("SecurityGroupIds" .= _lambdaFunctionVpcConfigSecurityGroupIds)
-    , Just ("SubnetIds" .= _lambdaFunctionVpcConfigSubnetIds)
+    [ (Just . ("SecurityGroupIds",) . toJSON) _lambdaFunctionVpcConfigSecurityGroupIds
+    , (Just . ("SubnetIds",) . toJSON) _lambdaFunctionVpcConfigSubnetIds
     ]
 
 instance FromJSON LambdaFunctionVpcConfig where
   parseJSON (Object obj) =
     LambdaFunctionVpcConfig <$>
-      obj .: "SecurityGroupIds" <*>
-      obj .: "SubnetIds"
+      (obj .: "SecurityGroupIds") <*>
+      (obj .: "SubnetIds")
   parseJSON _ = mempty
 
 -- | Constructor for 'LambdaFunctionVpcConfig' containing required fields as

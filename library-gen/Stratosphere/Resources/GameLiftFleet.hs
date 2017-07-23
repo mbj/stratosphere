@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html
 
@@ -20,12 +21,12 @@ data GameLiftFleet =
   GameLiftFleet
   { _gameLiftFleetBuildId :: Val Text
   , _gameLiftFleetDescription :: Maybe (Val Text)
-  , _gameLiftFleetDesiredEC2Instances :: Val Integer'
+  , _gameLiftFleetDesiredEC2Instances :: Val Integer
   , _gameLiftFleetEC2InboundPermissions :: Maybe [GameLiftFleetIpPermission]
   , _gameLiftFleetEC2InstanceType :: Val Text
   , _gameLiftFleetLogPaths :: Maybe (ValList Text)
-  , _gameLiftFleetMaxSize :: Maybe (Val Integer')
-  , _gameLiftFleetMinSize :: Maybe (Val Integer')
+  , _gameLiftFleetMaxSize :: Maybe (Val Integer)
+  , _gameLiftFleetMinSize :: Maybe (Val Integer)
   , _gameLiftFleetName :: Val Text
   , _gameLiftFleetServerLaunchParameters :: Maybe (Val Text)
   , _gameLiftFleetServerLaunchPath :: Val Text
@@ -35,39 +36,39 @@ instance ToJSON GameLiftFleet where
   toJSON GameLiftFleet{..} =
     object $
     catMaybes
-    [ Just ("BuildId" .= _gameLiftFleetBuildId)
-    , ("Description" .=) <$> _gameLiftFleetDescription
-    , Just ("DesiredEC2Instances" .= _gameLiftFleetDesiredEC2Instances)
-    , ("EC2InboundPermissions" .=) <$> _gameLiftFleetEC2InboundPermissions
-    , Just ("EC2InstanceType" .= _gameLiftFleetEC2InstanceType)
-    , ("LogPaths" .=) <$> _gameLiftFleetLogPaths
-    , ("MaxSize" .=) <$> _gameLiftFleetMaxSize
-    , ("MinSize" .=) <$> _gameLiftFleetMinSize
-    , Just ("Name" .= _gameLiftFleetName)
-    , ("ServerLaunchParameters" .=) <$> _gameLiftFleetServerLaunchParameters
-    , Just ("ServerLaunchPath" .= _gameLiftFleetServerLaunchPath)
+    [ (Just . ("BuildId",) . toJSON) _gameLiftFleetBuildId
+    , fmap (("Description",) . toJSON) _gameLiftFleetDescription
+    , (Just . ("DesiredEC2Instances",) . toJSON . fmap Integer') _gameLiftFleetDesiredEC2Instances
+    , fmap (("EC2InboundPermissions",) . toJSON) _gameLiftFleetEC2InboundPermissions
+    , (Just . ("EC2InstanceType",) . toJSON) _gameLiftFleetEC2InstanceType
+    , fmap (("LogPaths",) . toJSON) _gameLiftFleetLogPaths
+    , fmap (("MaxSize",) . toJSON . fmap Integer') _gameLiftFleetMaxSize
+    , fmap (("MinSize",) . toJSON . fmap Integer') _gameLiftFleetMinSize
+    , (Just . ("Name",) . toJSON) _gameLiftFleetName
+    , fmap (("ServerLaunchParameters",) . toJSON) _gameLiftFleetServerLaunchParameters
+    , (Just . ("ServerLaunchPath",) . toJSON) _gameLiftFleetServerLaunchPath
     ]
 
 instance FromJSON GameLiftFleet where
   parseJSON (Object obj) =
     GameLiftFleet <$>
-      obj .: "BuildId" <*>
-      obj .:? "Description" <*>
-      obj .: "DesiredEC2Instances" <*>
-      obj .:? "EC2InboundPermissions" <*>
-      obj .: "EC2InstanceType" <*>
-      obj .:? "LogPaths" <*>
-      obj .:? "MaxSize" <*>
-      obj .:? "MinSize" <*>
-      obj .: "Name" <*>
-      obj .:? "ServerLaunchParameters" <*>
-      obj .: "ServerLaunchPath"
+      (obj .: "BuildId") <*>
+      (obj .:? "Description") <*>
+      fmap (fmap unInteger') (obj .: "DesiredEC2Instances") <*>
+      (obj .:? "EC2InboundPermissions") <*>
+      (obj .: "EC2InstanceType") <*>
+      (obj .:? "LogPaths") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "MaxSize") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "MinSize") <*>
+      (obj .: "Name") <*>
+      (obj .:? "ServerLaunchParameters") <*>
+      (obj .: "ServerLaunchPath")
   parseJSON _ = mempty
 
 -- | Constructor for 'GameLiftFleet' containing required fields as arguments.
 gameLiftFleet
   :: Val Text -- ^ 'glfBuildId'
-  -> Val Integer' -- ^ 'glfDesiredEC2Instances'
+  -> Val Integer -- ^ 'glfDesiredEC2Instances'
   -> Val Text -- ^ 'glfEC2InstanceType'
   -> Val Text -- ^ 'glfName'
   -> Val Text -- ^ 'glfServerLaunchPath'
@@ -96,7 +97,7 @@ glfDescription :: Lens' GameLiftFleet (Maybe (Val Text))
 glfDescription = lens _gameLiftFleetDescription (\s a -> s { _gameLiftFleetDescription = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-desiredec2instances
-glfDesiredEC2Instances :: Lens' GameLiftFleet (Val Integer')
+glfDesiredEC2Instances :: Lens' GameLiftFleet (Val Integer)
 glfDesiredEC2Instances = lens _gameLiftFleetDesiredEC2Instances (\s a -> s { _gameLiftFleetDesiredEC2Instances = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-ec2inboundpermissions
@@ -112,11 +113,11 @@ glfLogPaths :: Lens' GameLiftFleet (Maybe (ValList Text))
 glfLogPaths = lens _gameLiftFleetLogPaths (\s a -> s { _gameLiftFleetLogPaths = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-maxsize
-glfMaxSize :: Lens' GameLiftFleet (Maybe (Val Integer'))
+glfMaxSize :: Lens' GameLiftFleet (Maybe (Val Integer))
 glfMaxSize = lens _gameLiftFleetMaxSize (\s a -> s { _gameLiftFleetMaxSize = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-minsize
-glfMinSize :: Lens' GameLiftFleet (Maybe (Val Integer'))
+glfMinSize :: Lens' GameLiftFleet (Maybe (Val Integer))
 glfMinSize = lens _gameLiftFleetMinSize (\s a -> s { _gameLiftFleetMinSize = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html#cfn-gamelift-fleet-name

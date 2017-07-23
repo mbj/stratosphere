@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html
 
@@ -22,26 +23,26 @@ data ElasticLoadBalancingV2ListenerRule =
   { _elasticLoadBalancingV2ListenerRuleActions :: [ElasticLoadBalancingV2ListenerRuleAction]
   , _elasticLoadBalancingV2ListenerRuleConditions :: [ElasticLoadBalancingV2ListenerRuleRuleCondition]
   , _elasticLoadBalancingV2ListenerRuleListenerArn :: Val Text
-  , _elasticLoadBalancingV2ListenerRulePriority :: Val Integer'
+  , _elasticLoadBalancingV2ListenerRulePriority :: Val Integer
   } deriving (Show, Eq)
 
 instance ToJSON ElasticLoadBalancingV2ListenerRule where
   toJSON ElasticLoadBalancingV2ListenerRule{..} =
     object $
     catMaybes
-    [ Just ("Actions" .= _elasticLoadBalancingV2ListenerRuleActions)
-    , Just ("Conditions" .= _elasticLoadBalancingV2ListenerRuleConditions)
-    , Just ("ListenerArn" .= _elasticLoadBalancingV2ListenerRuleListenerArn)
-    , Just ("Priority" .= _elasticLoadBalancingV2ListenerRulePriority)
+    [ (Just . ("Actions",) . toJSON) _elasticLoadBalancingV2ListenerRuleActions
+    , (Just . ("Conditions",) . toJSON) _elasticLoadBalancingV2ListenerRuleConditions
+    , (Just . ("ListenerArn",) . toJSON) _elasticLoadBalancingV2ListenerRuleListenerArn
+    , (Just . ("Priority",) . toJSON . fmap Integer') _elasticLoadBalancingV2ListenerRulePriority
     ]
 
 instance FromJSON ElasticLoadBalancingV2ListenerRule where
   parseJSON (Object obj) =
     ElasticLoadBalancingV2ListenerRule <$>
-      obj .: "Actions" <*>
-      obj .: "Conditions" <*>
-      obj .: "ListenerArn" <*>
-      obj .: "Priority"
+      (obj .: "Actions") <*>
+      (obj .: "Conditions") <*>
+      (obj .: "ListenerArn") <*>
+      fmap (fmap unInteger') (obj .: "Priority")
   parseJSON _ = mempty
 
 -- | Constructor for 'ElasticLoadBalancingV2ListenerRule' containing required
@@ -50,7 +51,7 @@ elasticLoadBalancingV2ListenerRule
   :: [ElasticLoadBalancingV2ListenerRuleAction] -- ^ 'elbvlrActions'
   -> [ElasticLoadBalancingV2ListenerRuleRuleCondition] -- ^ 'elbvlrConditions'
   -> Val Text -- ^ 'elbvlrListenerArn'
-  -> Val Integer' -- ^ 'elbvlrPriority'
+  -> Val Integer -- ^ 'elbvlrPriority'
   -> ElasticLoadBalancingV2ListenerRule
 elasticLoadBalancingV2ListenerRule actionsarg conditionsarg listenerArnarg priorityarg =
   ElasticLoadBalancingV2ListenerRule
@@ -73,5 +74,5 @@ elbvlrListenerArn :: Lens' ElasticLoadBalancingV2ListenerRule (Val Text)
 elbvlrListenerArn = lens _elasticLoadBalancingV2ListenerRuleListenerArn (\s a -> s { _elasticLoadBalancingV2ListenerRuleListenerArn = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html#cfn-elasticloadbalancingv2-listenerrule-priority
-elbvlrPriority :: Lens' ElasticLoadBalancingV2ListenerRule (Val Integer')
+elbvlrPriority :: Lens' ElasticLoadBalancingV2ListenerRule (Val Integer)
 elbvlrPriority = lens _elasticLoadBalancingV2ListenerRulePriority (\s a -> s { _elasticLoadBalancingV2ListenerRulePriority = a })

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-jobflowinstancesconfig.html
 
@@ -33,46 +34,46 @@ data EMRClusterJobFlowInstancesConfig =
   , _eMRClusterJobFlowInstancesConfigMasterInstanceGroup :: Maybe EMRClusterInstanceGroupConfig
   , _eMRClusterJobFlowInstancesConfigPlacement :: Maybe EMRClusterPlacementType
   , _eMRClusterJobFlowInstancesConfigServiceAccessSecurityGroup :: Maybe (Val Text)
-  , _eMRClusterJobFlowInstancesConfigTerminationProtected :: Maybe (Val Bool')
+  , _eMRClusterJobFlowInstancesConfigTerminationProtected :: Maybe (Val Bool)
   } deriving (Show, Eq)
 
 instance ToJSON EMRClusterJobFlowInstancesConfig where
   toJSON EMRClusterJobFlowInstancesConfig{..} =
     object $
     catMaybes
-    [ ("AdditionalMasterSecurityGroups" .=) <$> _eMRClusterJobFlowInstancesConfigAdditionalMasterSecurityGroups
-    , ("AdditionalSlaveSecurityGroups" .=) <$> _eMRClusterJobFlowInstancesConfigAdditionalSlaveSecurityGroups
-    , ("CoreInstanceFleet" .=) <$> _eMRClusterJobFlowInstancesConfigCoreInstanceFleet
-    , ("CoreInstanceGroup" .=) <$> _eMRClusterJobFlowInstancesConfigCoreInstanceGroup
-    , ("Ec2KeyName" .=) <$> _eMRClusterJobFlowInstancesConfigEc2KeyName
-    , ("Ec2SubnetId" .=) <$> _eMRClusterJobFlowInstancesConfigEc2SubnetId
-    , ("EmrManagedMasterSecurityGroup" .=) <$> _eMRClusterJobFlowInstancesConfigEmrManagedMasterSecurityGroup
-    , ("EmrManagedSlaveSecurityGroup" .=) <$> _eMRClusterJobFlowInstancesConfigEmrManagedSlaveSecurityGroup
-    , ("HadoopVersion" .=) <$> _eMRClusterJobFlowInstancesConfigHadoopVersion
-    , ("MasterInstanceFleet" .=) <$> _eMRClusterJobFlowInstancesConfigMasterInstanceFleet
-    , ("MasterInstanceGroup" .=) <$> _eMRClusterJobFlowInstancesConfigMasterInstanceGroup
-    , ("Placement" .=) <$> _eMRClusterJobFlowInstancesConfigPlacement
-    , ("ServiceAccessSecurityGroup" .=) <$> _eMRClusterJobFlowInstancesConfigServiceAccessSecurityGroup
-    , ("TerminationProtected" .=) <$> _eMRClusterJobFlowInstancesConfigTerminationProtected
+    [ fmap (("AdditionalMasterSecurityGroups",) . toJSON) _eMRClusterJobFlowInstancesConfigAdditionalMasterSecurityGroups
+    , fmap (("AdditionalSlaveSecurityGroups",) . toJSON) _eMRClusterJobFlowInstancesConfigAdditionalSlaveSecurityGroups
+    , fmap (("CoreInstanceFleet",) . toJSON) _eMRClusterJobFlowInstancesConfigCoreInstanceFleet
+    , fmap (("CoreInstanceGroup",) . toJSON) _eMRClusterJobFlowInstancesConfigCoreInstanceGroup
+    , fmap (("Ec2KeyName",) . toJSON) _eMRClusterJobFlowInstancesConfigEc2KeyName
+    , fmap (("Ec2SubnetId",) . toJSON) _eMRClusterJobFlowInstancesConfigEc2SubnetId
+    , fmap (("EmrManagedMasterSecurityGroup",) . toJSON) _eMRClusterJobFlowInstancesConfigEmrManagedMasterSecurityGroup
+    , fmap (("EmrManagedSlaveSecurityGroup",) . toJSON) _eMRClusterJobFlowInstancesConfigEmrManagedSlaveSecurityGroup
+    , fmap (("HadoopVersion",) . toJSON) _eMRClusterJobFlowInstancesConfigHadoopVersion
+    , fmap (("MasterInstanceFleet",) . toJSON) _eMRClusterJobFlowInstancesConfigMasterInstanceFleet
+    , fmap (("MasterInstanceGroup",) . toJSON) _eMRClusterJobFlowInstancesConfigMasterInstanceGroup
+    , fmap (("Placement",) . toJSON) _eMRClusterJobFlowInstancesConfigPlacement
+    , fmap (("ServiceAccessSecurityGroup",) . toJSON) _eMRClusterJobFlowInstancesConfigServiceAccessSecurityGroup
+    , fmap (("TerminationProtected",) . toJSON . fmap Bool') _eMRClusterJobFlowInstancesConfigTerminationProtected
     ]
 
 instance FromJSON EMRClusterJobFlowInstancesConfig where
   parseJSON (Object obj) =
     EMRClusterJobFlowInstancesConfig <$>
-      obj .:? "AdditionalMasterSecurityGroups" <*>
-      obj .:? "AdditionalSlaveSecurityGroups" <*>
-      obj .:? "CoreInstanceFleet" <*>
-      obj .:? "CoreInstanceGroup" <*>
-      obj .:? "Ec2KeyName" <*>
-      obj .:? "Ec2SubnetId" <*>
-      obj .:? "EmrManagedMasterSecurityGroup" <*>
-      obj .:? "EmrManagedSlaveSecurityGroup" <*>
-      obj .:? "HadoopVersion" <*>
-      obj .:? "MasterInstanceFleet" <*>
-      obj .:? "MasterInstanceGroup" <*>
-      obj .:? "Placement" <*>
-      obj .:? "ServiceAccessSecurityGroup" <*>
-      obj .:? "TerminationProtected"
+      (obj .:? "AdditionalMasterSecurityGroups") <*>
+      (obj .:? "AdditionalSlaveSecurityGroups") <*>
+      (obj .:? "CoreInstanceFleet") <*>
+      (obj .:? "CoreInstanceGroup") <*>
+      (obj .:? "Ec2KeyName") <*>
+      (obj .:? "Ec2SubnetId") <*>
+      (obj .:? "EmrManagedMasterSecurityGroup") <*>
+      (obj .:? "EmrManagedSlaveSecurityGroup") <*>
+      (obj .:? "HadoopVersion") <*>
+      (obj .:? "MasterInstanceFleet") <*>
+      (obj .:? "MasterInstanceGroup") <*>
+      (obj .:? "Placement") <*>
+      (obj .:? "ServiceAccessSecurityGroup") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "TerminationProtected")
   parseJSON _ = mempty
 
 -- | Constructor for 'EMRClusterJobFlowInstancesConfig' containing required
@@ -150,5 +151,5 @@ emrcjficServiceAccessSecurityGroup :: Lens' EMRClusterJobFlowInstancesConfig (Ma
 emrcjficServiceAccessSecurityGroup = lens _eMRClusterJobFlowInstancesConfigServiceAccessSecurityGroup (\s a -> s { _eMRClusterJobFlowInstancesConfigServiceAccessSecurityGroup = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-jobflowinstancesconfig.html#cfn-emr-cluster-jobflowinstancesconfig-terminationprotected
-emrcjficTerminationProtected :: Lens' EMRClusterJobFlowInstancesConfig (Maybe (Val Bool'))
+emrcjficTerminationProtected :: Lens' EMRClusterJobFlowInstancesConfig (Maybe (Val Bool))
 emrcjficTerminationProtected = lens _eMRClusterJobFlowInstancesConfigTerminationProtected (\s a -> s { _eMRClusterJobFlowInstancesConfigTerminationProtected = a })

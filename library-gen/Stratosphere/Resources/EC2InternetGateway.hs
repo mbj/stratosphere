@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-internetgateway.html
 
@@ -25,13 +26,13 @@ instance ToJSON EC2InternetGateway where
   toJSON EC2InternetGateway{..} =
     object $
     catMaybes
-    [ ("Tags" .=) <$> _eC2InternetGatewayTags
+    [ fmap (("Tags",) . toJSON) _eC2InternetGatewayTags
     ]
 
 instance FromJSON EC2InternetGateway where
   parseJSON (Object obj) =
     EC2InternetGateway <$>
-      obj .:? "Tags"
+      (obj .:? "Tags")
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2InternetGateway' containing required fields as

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-sns.html
 
@@ -27,17 +28,17 @@ instance ToJSON IoTTopicRuleSnsAction where
   toJSON IoTTopicRuleSnsAction{..} =
     object $
     catMaybes
-    [ ("MessageFormat" .=) <$> _ioTTopicRuleSnsActionMessageFormat
-    , Just ("RoleArn" .= _ioTTopicRuleSnsActionRoleArn)
-    , Just ("TargetArn" .= _ioTTopicRuleSnsActionTargetArn)
+    [ fmap (("MessageFormat",) . toJSON) _ioTTopicRuleSnsActionMessageFormat
+    , (Just . ("RoleArn",) . toJSON) _ioTTopicRuleSnsActionRoleArn
+    , (Just . ("TargetArn",) . toJSON) _ioTTopicRuleSnsActionTargetArn
     ]
 
 instance FromJSON IoTTopicRuleSnsAction where
   parseJSON (Object obj) =
     IoTTopicRuleSnsAction <$>
-      obj .:? "MessageFormat" <*>
-      obj .: "RoleArn" <*>
-      obj .: "TargetArn"
+      (obj .:? "MessageFormat") <*>
+      (obj .: "RoleArn") <*>
+      (obj .: "TargetArn")
   parseJSON _ = mempty
 
 -- | Constructor for 'IoTTopicRuleSnsAction' containing required fields as

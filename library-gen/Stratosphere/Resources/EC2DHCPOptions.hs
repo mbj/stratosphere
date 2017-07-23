@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcp-options.html
 
@@ -21,7 +22,7 @@ data EC2DHCPOptions =
   { _eC2DHCPOptionsDomainName :: Maybe (Val Text)
   , _eC2DHCPOptionsDomainNameServers :: Maybe (ValList Text)
   , _eC2DHCPOptionsNetbiosNameServers :: Maybe (ValList Text)
-  , _eC2DHCPOptionsNetbiosNodeType :: Maybe (Val Integer')
+  , _eC2DHCPOptionsNetbiosNodeType :: Maybe (Val Integer)
   , _eC2DHCPOptionsNtpServers :: Maybe (ValList Text)
   , _eC2DHCPOptionsTags :: Maybe [Tag]
   } deriving (Show, Eq)
@@ -30,23 +31,23 @@ instance ToJSON EC2DHCPOptions where
   toJSON EC2DHCPOptions{..} =
     object $
     catMaybes
-    [ ("DomainName" .=) <$> _eC2DHCPOptionsDomainName
-    , ("DomainNameServers" .=) <$> _eC2DHCPOptionsDomainNameServers
-    , ("NetbiosNameServers" .=) <$> _eC2DHCPOptionsNetbiosNameServers
-    , ("NetbiosNodeType" .=) <$> _eC2DHCPOptionsNetbiosNodeType
-    , ("NtpServers" .=) <$> _eC2DHCPOptionsNtpServers
-    , ("Tags" .=) <$> _eC2DHCPOptionsTags
+    [ fmap (("DomainName",) . toJSON) _eC2DHCPOptionsDomainName
+    , fmap (("DomainNameServers",) . toJSON) _eC2DHCPOptionsDomainNameServers
+    , fmap (("NetbiosNameServers",) . toJSON) _eC2DHCPOptionsNetbiosNameServers
+    , fmap (("NetbiosNodeType",) . toJSON . fmap Integer') _eC2DHCPOptionsNetbiosNodeType
+    , fmap (("NtpServers",) . toJSON) _eC2DHCPOptionsNtpServers
+    , fmap (("Tags",) . toJSON) _eC2DHCPOptionsTags
     ]
 
 instance FromJSON EC2DHCPOptions where
   parseJSON (Object obj) =
     EC2DHCPOptions <$>
-      obj .:? "DomainName" <*>
-      obj .:? "DomainNameServers" <*>
-      obj .:? "NetbiosNameServers" <*>
-      obj .:? "NetbiosNodeType" <*>
-      obj .:? "NtpServers" <*>
-      obj .:? "Tags"
+      (obj .:? "DomainName") <*>
+      (obj .:? "DomainNameServers") <*>
+      (obj .:? "NetbiosNameServers") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "NetbiosNodeType") <*>
+      (obj .:? "NtpServers") <*>
+      (obj .:? "Tags")
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2DHCPOptions' containing required fields as arguments.
@@ -75,7 +76,7 @@ ecdhcpoNetbiosNameServers :: Lens' EC2DHCPOptions (Maybe (ValList Text))
 ecdhcpoNetbiosNameServers = lens _eC2DHCPOptionsNetbiosNameServers (\s a -> s { _eC2DHCPOptionsNetbiosNameServers = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcp-options.html#cfn-ec2-dhcpoptions-netbiosnodetype
-ecdhcpoNetbiosNodeType :: Lens' EC2DHCPOptions (Maybe (Val Integer'))
+ecdhcpoNetbiosNodeType :: Lens' EC2DHCPOptions (Maybe (Val Integer))
 ecdhcpoNetbiosNodeType = lens _eC2DHCPOptionsNetbiosNodeType (\s a -> s { _eC2DHCPOptionsNetbiosNodeType = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcp-options.html#cfn-ec2-dhcpoptions-ntpservers

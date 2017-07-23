@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datapipeline-pipeline-pipelineobjects-fields.html
 
@@ -27,17 +28,17 @@ instance ToJSON DataPipelinePipelineField where
   toJSON DataPipelinePipelineField{..} =
     object $
     catMaybes
-    [ Just ("Key" .= _dataPipelinePipelineFieldKey)
-    , ("RefValue" .=) <$> _dataPipelinePipelineFieldRefValue
-    , ("StringValue" .=) <$> _dataPipelinePipelineFieldStringValue
+    [ (Just . ("Key",) . toJSON) _dataPipelinePipelineFieldKey
+    , fmap (("RefValue",) . toJSON) _dataPipelinePipelineFieldRefValue
+    , fmap (("StringValue",) . toJSON) _dataPipelinePipelineFieldStringValue
     ]
 
 instance FromJSON DataPipelinePipelineField where
   parseJSON (Object obj) =
     DataPipelinePipelineField <$>
-      obj .: "Key" <*>
-      obj .:? "RefValue" <*>
-      obj .:? "StringValue"
+      (obj .: "Key") <*>
+      (obj .:? "RefValue") <*>
+      (obj .:? "StringValue")
   parseJSON _ = mempty
 
 -- | Constructor for 'DataPipelinePipelineField' containing required fields as

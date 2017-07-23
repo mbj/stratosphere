@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc.html
 
@@ -19,8 +20,8 @@ import Stratosphere.ResourceProperties.Tag
 data EC2VPC =
   EC2VPC
   { _eC2VPCCidrBlock :: Val Text
-  , _eC2VPCEnableDnsHostnames :: Maybe (Val Bool')
-  , _eC2VPCEnableDnsSupport :: Maybe (Val Bool')
+  , _eC2VPCEnableDnsHostnames :: Maybe (Val Bool)
+  , _eC2VPCEnableDnsSupport :: Maybe (Val Bool)
   , _eC2VPCInstanceTenancy :: Maybe (Val Text)
   , _eC2VPCTags :: Maybe [Tag]
   } deriving (Show, Eq)
@@ -29,21 +30,21 @@ instance ToJSON EC2VPC where
   toJSON EC2VPC{..} =
     object $
     catMaybes
-    [ Just ("CidrBlock" .= _eC2VPCCidrBlock)
-    , ("EnableDnsHostnames" .=) <$> _eC2VPCEnableDnsHostnames
-    , ("EnableDnsSupport" .=) <$> _eC2VPCEnableDnsSupport
-    , ("InstanceTenancy" .=) <$> _eC2VPCInstanceTenancy
-    , ("Tags" .=) <$> _eC2VPCTags
+    [ (Just . ("CidrBlock",) . toJSON) _eC2VPCCidrBlock
+    , fmap (("EnableDnsHostnames",) . toJSON . fmap Bool') _eC2VPCEnableDnsHostnames
+    , fmap (("EnableDnsSupport",) . toJSON . fmap Bool') _eC2VPCEnableDnsSupport
+    , fmap (("InstanceTenancy",) . toJSON) _eC2VPCInstanceTenancy
+    , fmap (("Tags",) . toJSON) _eC2VPCTags
     ]
 
 instance FromJSON EC2VPC where
   parseJSON (Object obj) =
     EC2VPC <$>
-      obj .: "CidrBlock" <*>
-      obj .:? "EnableDnsHostnames" <*>
-      obj .:? "EnableDnsSupport" <*>
-      obj .:? "InstanceTenancy" <*>
-      obj .:? "Tags"
+      (obj .: "CidrBlock") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "EnableDnsHostnames") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "EnableDnsSupport") <*>
+      (obj .:? "InstanceTenancy") <*>
+      (obj .:? "Tags")
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2VPC' containing required fields as arguments.
@@ -64,11 +65,11 @@ ecvpcCidrBlock :: Lens' EC2VPC (Val Text)
 ecvpcCidrBlock = lens _eC2VPCCidrBlock (\s a -> s { _eC2VPCCidrBlock = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc.html#cfn-aws-ec2-vpc-EnableDnsHostnames
-ecvpcEnableDnsHostnames :: Lens' EC2VPC (Maybe (Val Bool'))
+ecvpcEnableDnsHostnames :: Lens' EC2VPC (Maybe (Val Bool))
 ecvpcEnableDnsHostnames = lens _eC2VPCEnableDnsHostnames (\s a -> s { _eC2VPCEnableDnsHostnames = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc.html#cfn-aws-ec2-vpc-EnableDnsSupport
-ecvpcEnableDnsSupport :: Lens' EC2VPC (Maybe (Val Bool'))
+ecvpcEnableDnsSupport :: Lens' EC2VPC (Maybe (Val Bool))
 ecvpcEnableDnsSupport = lens _eC2VPCEnableDnsSupport (\s a -> s { _eC2VPCEnableDnsSupport = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc.html#cfn-aws-ec2-vpc-instancetenancy

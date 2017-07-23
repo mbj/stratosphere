@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-rule.html
 
@@ -27,17 +28,17 @@ instance ToJSON WAFRule where
   toJSON WAFRule{..} =
     object $
     catMaybes
-    [ Just ("MetricName" .= _wAFRuleMetricName)
-    , Just ("Name" .= _wAFRuleName)
-    , ("Predicates" .=) <$> _wAFRulePredicates
+    [ (Just . ("MetricName",) . toJSON) _wAFRuleMetricName
+    , (Just . ("Name",) . toJSON) _wAFRuleName
+    , fmap (("Predicates",) . toJSON) _wAFRulePredicates
     ]
 
 instance FromJSON WAFRule where
   parseJSON (Object obj) =
     WAFRule <$>
-      obj .: "MetricName" <*>
-      obj .: "Name" <*>
-      obj .:? "Predicates"
+      (obj .: "MetricName") <*>
+      (obj .: "Name") <*>
+      (obj .:? "Predicates")
   parseJSON _ = mempty
 
 -- | Constructor for 'WAFRule' containing required fields as arguments.

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-kinesisdeliverystream-s3destinationconfiguration.html
 
@@ -36,25 +37,25 @@ instance ToJSON KinesisFirehoseDeliveryStreamS3DestinationConfiguration where
   toJSON KinesisFirehoseDeliveryStreamS3DestinationConfiguration{..} =
     object $
     catMaybes
-    [ Just ("BucketARN" .= _kinesisFirehoseDeliveryStreamS3DestinationConfigurationBucketARN)
-    , Just ("BufferingHints" .= _kinesisFirehoseDeliveryStreamS3DestinationConfigurationBufferingHints)
-    , ("CloudWatchLoggingOptions" .=) <$> _kinesisFirehoseDeliveryStreamS3DestinationConfigurationCloudWatchLoggingOptions
-    , Just ("CompressionFormat" .= _kinesisFirehoseDeliveryStreamS3DestinationConfigurationCompressionFormat)
-    , ("EncryptionConfiguration" .=) <$> _kinesisFirehoseDeliveryStreamS3DestinationConfigurationEncryptionConfiguration
-    , Just ("Prefix" .= _kinesisFirehoseDeliveryStreamS3DestinationConfigurationPrefix)
-    , Just ("RoleARN" .= _kinesisFirehoseDeliveryStreamS3DestinationConfigurationRoleARN)
+    [ (Just . ("BucketARN",) . toJSON) _kinesisFirehoseDeliveryStreamS3DestinationConfigurationBucketARN
+    , (Just . ("BufferingHints",) . toJSON) _kinesisFirehoseDeliveryStreamS3DestinationConfigurationBufferingHints
+    , fmap (("CloudWatchLoggingOptions",) . toJSON) _kinesisFirehoseDeliveryStreamS3DestinationConfigurationCloudWatchLoggingOptions
+    , (Just . ("CompressionFormat",) . toJSON) _kinesisFirehoseDeliveryStreamS3DestinationConfigurationCompressionFormat
+    , fmap (("EncryptionConfiguration",) . toJSON) _kinesisFirehoseDeliveryStreamS3DestinationConfigurationEncryptionConfiguration
+    , (Just . ("Prefix",) . toJSON) _kinesisFirehoseDeliveryStreamS3DestinationConfigurationPrefix
+    , (Just . ("RoleARN",) . toJSON) _kinesisFirehoseDeliveryStreamS3DestinationConfigurationRoleARN
     ]
 
 instance FromJSON KinesisFirehoseDeliveryStreamS3DestinationConfiguration where
   parseJSON (Object obj) =
     KinesisFirehoseDeliveryStreamS3DestinationConfiguration <$>
-      obj .: "BucketARN" <*>
-      obj .: "BufferingHints" <*>
-      obj .:? "CloudWatchLoggingOptions" <*>
-      obj .: "CompressionFormat" <*>
-      obj .:? "EncryptionConfiguration" <*>
-      obj .: "Prefix" <*>
-      obj .: "RoleARN"
+      (obj .: "BucketARN") <*>
+      (obj .: "BufferingHints") <*>
+      (obj .:? "CloudWatchLoggingOptions") <*>
+      (obj .: "CompressionFormat") <*>
+      (obj .:? "EncryptionConfiguration") <*>
+      (obj .: "Prefix") <*>
+      (obj .: "RoleARN")
   parseJSON _ = mempty
 
 -- | Constructor for 'KinesisFirehoseDeliveryStreamS3DestinationConfiguration'

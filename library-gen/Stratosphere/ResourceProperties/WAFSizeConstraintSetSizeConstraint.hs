@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-sizeconstraintset-sizeconstraint.html
 
@@ -20,7 +21,7 @@ data WAFSizeConstraintSetSizeConstraint =
   WAFSizeConstraintSetSizeConstraint
   { _wAFSizeConstraintSetSizeConstraintComparisonOperator :: Val Text
   , _wAFSizeConstraintSetSizeConstraintFieldToMatch :: WAFSizeConstraintSetFieldToMatch
-  , _wAFSizeConstraintSetSizeConstraintSize :: Val Integer'
+  , _wAFSizeConstraintSetSizeConstraintSize :: Val Integer
   , _wAFSizeConstraintSetSizeConstraintTextTransformation :: Val Text
   } deriving (Show, Eq)
 
@@ -28,19 +29,19 @@ instance ToJSON WAFSizeConstraintSetSizeConstraint where
   toJSON WAFSizeConstraintSetSizeConstraint{..} =
     object $
     catMaybes
-    [ Just ("ComparisonOperator" .= _wAFSizeConstraintSetSizeConstraintComparisonOperator)
-    , Just ("FieldToMatch" .= _wAFSizeConstraintSetSizeConstraintFieldToMatch)
-    , Just ("Size" .= _wAFSizeConstraintSetSizeConstraintSize)
-    , Just ("TextTransformation" .= _wAFSizeConstraintSetSizeConstraintTextTransformation)
+    [ (Just . ("ComparisonOperator",) . toJSON) _wAFSizeConstraintSetSizeConstraintComparisonOperator
+    , (Just . ("FieldToMatch",) . toJSON) _wAFSizeConstraintSetSizeConstraintFieldToMatch
+    , (Just . ("Size",) . toJSON . fmap Integer') _wAFSizeConstraintSetSizeConstraintSize
+    , (Just . ("TextTransformation",) . toJSON) _wAFSizeConstraintSetSizeConstraintTextTransformation
     ]
 
 instance FromJSON WAFSizeConstraintSetSizeConstraint where
   parseJSON (Object obj) =
     WAFSizeConstraintSetSizeConstraint <$>
-      obj .: "ComparisonOperator" <*>
-      obj .: "FieldToMatch" <*>
-      obj .: "Size" <*>
-      obj .: "TextTransformation"
+      (obj .: "ComparisonOperator") <*>
+      (obj .: "FieldToMatch") <*>
+      fmap (fmap unInteger') (obj .: "Size") <*>
+      (obj .: "TextTransformation")
   parseJSON _ = mempty
 
 -- | Constructor for 'WAFSizeConstraintSetSizeConstraint' containing required
@@ -48,7 +49,7 @@ instance FromJSON WAFSizeConstraintSetSizeConstraint where
 wafSizeConstraintSetSizeConstraint
   :: Val Text -- ^ 'wafscsscComparisonOperator'
   -> WAFSizeConstraintSetFieldToMatch -- ^ 'wafscsscFieldToMatch'
-  -> Val Integer' -- ^ 'wafscsscSize'
+  -> Val Integer -- ^ 'wafscsscSize'
   -> Val Text -- ^ 'wafscsscTextTransformation'
   -> WAFSizeConstraintSetSizeConstraint
 wafSizeConstraintSetSizeConstraint comparisonOperatorarg fieldToMatcharg sizearg textTransformationarg =
@@ -68,7 +69,7 @@ wafscsscFieldToMatch :: Lens' WAFSizeConstraintSetSizeConstraint WAFSizeConstrai
 wafscsscFieldToMatch = lens _wAFSizeConstraintSetSizeConstraintFieldToMatch (\s a -> s { _wAFSizeConstraintSetSizeConstraintFieldToMatch = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-sizeconstraintset-sizeconstraint.html#cfn-waf-sizeconstraintset-sizeconstraint-size
-wafscsscSize :: Lens' WAFSizeConstraintSetSizeConstraint (Val Integer')
+wafscsscSize :: Lens' WAFSizeConstraintSetSizeConstraint (Val Integer)
 wafscsscSize = lens _wAFSizeConstraintSetSizeConstraintSize (\s a -> s { _wAFSizeConstraintSetSizeConstraintSize = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waf-sizeconstraintset-sizeconstraint.html#cfn-waf-sizeconstraintset-sizeconstraint-texttransformation

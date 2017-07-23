@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html
 
@@ -22,7 +23,7 @@ data ElasticLoadBalancingV2Listener =
   { _elasticLoadBalancingV2ListenerCertificates :: Maybe [ElasticLoadBalancingV2ListenerCertificate]
   , _elasticLoadBalancingV2ListenerDefaultActions :: [ElasticLoadBalancingV2ListenerAction]
   , _elasticLoadBalancingV2ListenerLoadBalancerArn :: Val Text
-  , _elasticLoadBalancingV2ListenerPort :: Val Integer'
+  , _elasticLoadBalancingV2ListenerPort :: Val Integer
   , _elasticLoadBalancingV2ListenerProtocol :: Val Text
   , _elasticLoadBalancingV2ListenerSslPolicy :: Maybe (Val Text)
   } deriving (Show, Eq)
@@ -31,23 +32,23 @@ instance ToJSON ElasticLoadBalancingV2Listener where
   toJSON ElasticLoadBalancingV2Listener{..} =
     object $
     catMaybes
-    [ ("Certificates" .=) <$> _elasticLoadBalancingV2ListenerCertificates
-    , Just ("DefaultActions" .= _elasticLoadBalancingV2ListenerDefaultActions)
-    , Just ("LoadBalancerArn" .= _elasticLoadBalancingV2ListenerLoadBalancerArn)
-    , Just ("Port" .= _elasticLoadBalancingV2ListenerPort)
-    , Just ("Protocol" .= _elasticLoadBalancingV2ListenerProtocol)
-    , ("SslPolicy" .=) <$> _elasticLoadBalancingV2ListenerSslPolicy
+    [ fmap (("Certificates",) . toJSON) _elasticLoadBalancingV2ListenerCertificates
+    , (Just . ("DefaultActions",) . toJSON) _elasticLoadBalancingV2ListenerDefaultActions
+    , (Just . ("LoadBalancerArn",) . toJSON) _elasticLoadBalancingV2ListenerLoadBalancerArn
+    , (Just . ("Port",) . toJSON . fmap Integer') _elasticLoadBalancingV2ListenerPort
+    , (Just . ("Protocol",) . toJSON) _elasticLoadBalancingV2ListenerProtocol
+    , fmap (("SslPolicy",) . toJSON) _elasticLoadBalancingV2ListenerSslPolicy
     ]
 
 instance FromJSON ElasticLoadBalancingV2Listener where
   parseJSON (Object obj) =
     ElasticLoadBalancingV2Listener <$>
-      obj .:? "Certificates" <*>
-      obj .: "DefaultActions" <*>
-      obj .: "LoadBalancerArn" <*>
-      obj .: "Port" <*>
-      obj .: "Protocol" <*>
-      obj .:? "SslPolicy"
+      (obj .:? "Certificates") <*>
+      (obj .: "DefaultActions") <*>
+      (obj .: "LoadBalancerArn") <*>
+      fmap (fmap unInteger') (obj .: "Port") <*>
+      (obj .: "Protocol") <*>
+      (obj .:? "SslPolicy")
   parseJSON _ = mempty
 
 -- | Constructor for 'ElasticLoadBalancingV2Listener' containing required
@@ -55,7 +56,7 @@ instance FromJSON ElasticLoadBalancingV2Listener where
 elasticLoadBalancingV2Listener
   :: [ElasticLoadBalancingV2ListenerAction] -- ^ 'elbvlDefaultActions'
   -> Val Text -- ^ 'elbvlLoadBalancerArn'
-  -> Val Integer' -- ^ 'elbvlPort'
+  -> Val Integer -- ^ 'elbvlPort'
   -> Val Text -- ^ 'elbvlProtocol'
   -> ElasticLoadBalancingV2Listener
 elasticLoadBalancingV2Listener defaultActionsarg loadBalancerArnarg portarg protocolarg =
@@ -81,7 +82,7 @@ elbvlLoadBalancerArn :: Lens' ElasticLoadBalancingV2Listener (Val Text)
 elbvlLoadBalancerArn = lens _elasticLoadBalancingV2ListenerLoadBalancerArn (\s a -> s { _elasticLoadBalancingV2ListenerLoadBalancerArn = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-port
-elbvlPort :: Lens' ElasticLoadBalancingV2Listener (Val Integer')
+elbvlPort :: Lens' ElasticLoadBalancingV2Listener (Val Integer)
 elbvlPort = lens _elasticLoadBalancingV2ListenerPort (\s a -> s { _elasticLoadBalancingV2ListenerPort = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-protocol

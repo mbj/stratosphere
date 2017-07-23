@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb.html
 
@@ -31,7 +32,7 @@ data ElasticLoadBalancingLoadBalancer =
   , _elasticLoadBalancingLoadBalancerAvailabilityZones :: Maybe (ValList Text)
   , _elasticLoadBalancingLoadBalancerConnectionDrainingPolicy :: Maybe ElasticLoadBalancingLoadBalancerConnectionDrainingPolicy
   , _elasticLoadBalancingLoadBalancerConnectionSettings :: Maybe ElasticLoadBalancingLoadBalancerConnectionSettings
-  , _elasticLoadBalancingLoadBalancerCrossZone :: Maybe (Val Bool')
+  , _elasticLoadBalancingLoadBalancerCrossZone :: Maybe (Val Bool)
   , _elasticLoadBalancingLoadBalancerHealthCheck :: Maybe ElasticLoadBalancingLoadBalancerHealthCheck
   , _elasticLoadBalancingLoadBalancerInstances :: Maybe (ValList Text)
   , _elasticLoadBalancingLoadBalancerLBCookieStickinessPolicy :: Maybe [ElasticLoadBalancingLoadBalancerLBCookieStickinessPolicy]
@@ -48,43 +49,43 @@ instance ToJSON ElasticLoadBalancingLoadBalancer where
   toJSON ElasticLoadBalancingLoadBalancer{..} =
     object $
     catMaybes
-    [ ("AccessLoggingPolicy" .=) <$> _elasticLoadBalancingLoadBalancerAccessLoggingPolicy
-    , ("AppCookieStickinessPolicy" .=) <$> _elasticLoadBalancingLoadBalancerAppCookieStickinessPolicy
-    , ("AvailabilityZones" .=) <$> _elasticLoadBalancingLoadBalancerAvailabilityZones
-    , ("ConnectionDrainingPolicy" .=) <$> _elasticLoadBalancingLoadBalancerConnectionDrainingPolicy
-    , ("ConnectionSettings" .=) <$> _elasticLoadBalancingLoadBalancerConnectionSettings
-    , ("CrossZone" .=) <$> _elasticLoadBalancingLoadBalancerCrossZone
-    , ("HealthCheck" .=) <$> _elasticLoadBalancingLoadBalancerHealthCheck
-    , ("Instances" .=) <$> _elasticLoadBalancingLoadBalancerInstances
-    , ("LBCookieStickinessPolicy" .=) <$> _elasticLoadBalancingLoadBalancerLBCookieStickinessPolicy
-    , Just ("Listeners" .= _elasticLoadBalancingLoadBalancerListeners)
-    , ("LoadBalancerName" .=) <$> _elasticLoadBalancingLoadBalancerLoadBalancerName
-    , ("Policies" .=) <$> _elasticLoadBalancingLoadBalancerPolicies
-    , ("Scheme" .=) <$> _elasticLoadBalancingLoadBalancerScheme
-    , ("SecurityGroups" .=) <$> _elasticLoadBalancingLoadBalancerSecurityGroups
-    , ("Subnets" .=) <$> _elasticLoadBalancingLoadBalancerSubnets
-    , ("Tags" .=) <$> _elasticLoadBalancingLoadBalancerTags
+    [ fmap (("AccessLoggingPolicy",) . toJSON) _elasticLoadBalancingLoadBalancerAccessLoggingPolicy
+    , fmap (("AppCookieStickinessPolicy",) . toJSON) _elasticLoadBalancingLoadBalancerAppCookieStickinessPolicy
+    , fmap (("AvailabilityZones",) . toJSON) _elasticLoadBalancingLoadBalancerAvailabilityZones
+    , fmap (("ConnectionDrainingPolicy",) . toJSON) _elasticLoadBalancingLoadBalancerConnectionDrainingPolicy
+    , fmap (("ConnectionSettings",) . toJSON) _elasticLoadBalancingLoadBalancerConnectionSettings
+    , fmap (("CrossZone",) . toJSON . fmap Bool') _elasticLoadBalancingLoadBalancerCrossZone
+    , fmap (("HealthCheck",) . toJSON) _elasticLoadBalancingLoadBalancerHealthCheck
+    , fmap (("Instances",) . toJSON) _elasticLoadBalancingLoadBalancerInstances
+    , fmap (("LBCookieStickinessPolicy",) . toJSON) _elasticLoadBalancingLoadBalancerLBCookieStickinessPolicy
+    , (Just . ("Listeners",) . toJSON) _elasticLoadBalancingLoadBalancerListeners
+    , fmap (("LoadBalancerName",) . toJSON) _elasticLoadBalancingLoadBalancerLoadBalancerName
+    , fmap (("Policies",) . toJSON) _elasticLoadBalancingLoadBalancerPolicies
+    , fmap (("Scheme",) . toJSON) _elasticLoadBalancingLoadBalancerScheme
+    , fmap (("SecurityGroups",) . toJSON) _elasticLoadBalancingLoadBalancerSecurityGroups
+    , fmap (("Subnets",) . toJSON) _elasticLoadBalancingLoadBalancerSubnets
+    , fmap (("Tags",) . toJSON) _elasticLoadBalancingLoadBalancerTags
     ]
 
 instance FromJSON ElasticLoadBalancingLoadBalancer where
   parseJSON (Object obj) =
     ElasticLoadBalancingLoadBalancer <$>
-      obj .:? "AccessLoggingPolicy" <*>
-      obj .:? "AppCookieStickinessPolicy" <*>
-      obj .:? "AvailabilityZones" <*>
-      obj .:? "ConnectionDrainingPolicy" <*>
-      obj .:? "ConnectionSettings" <*>
-      obj .:? "CrossZone" <*>
-      obj .:? "HealthCheck" <*>
-      obj .:? "Instances" <*>
-      obj .:? "LBCookieStickinessPolicy" <*>
-      obj .: "Listeners" <*>
-      obj .:? "LoadBalancerName" <*>
-      obj .:? "Policies" <*>
-      obj .:? "Scheme" <*>
-      obj .:? "SecurityGroups" <*>
-      obj .:? "Subnets" <*>
-      obj .:? "Tags"
+      (obj .:? "AccessLoggingPolicy") <*>
+      (obj .:? "AppCookieStickinessPolicy") <*>
+      (obj .:? "AvailabilityZones") <*>
+      (obj .:? "ConnectionDrainingPolicy") <*>
+      (obj .:? "ConnectionSettings") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "CrossZone") <*>
+      (obj .:? "HealthCheck") <*>
+      (obj .:? "Instances") <*>
+      (obj .:? "LBCookieStickinessPolicy") <*>
+      (obj .: "Listeners") <*>
+      (obj .:? "LoadBalancerName") <*>
+      (obj .:? "Policies") <*>
+      (obj .:? "Scheme") <*>
+      (obj .:? "SecurityGroups") <*>
+      (obj .:? "Subnets") <*>
+      (obj .:? "Tags")
   parseJSON _ = mempty
 
 -- | Constructor for 'ElasticLoadBalancingLoadBalancer' containing required
@@ -133,7 +134,7 @@ elblbConnectionSettings :: Lens' ElasticLoadBalancingLoadBalancer (Maybe Elastic
 elblbConnectionSettings = lens _elasticLoadBalancingLoadBalancerConnectionSettings (\s a -> s { _elasticLoadBalancingLoadBalancerConnectionSettings = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb.html#cfn-ec2-elb-crosszone
-elblbCrossZone :: Lens' ElasticLoadBalancingLoadBalancer (Maybe (Val Bool'))
+elblbCrossZone :: Lens' ElasticLoadBalancingLoadBalancer (Maybe (Val Bool))
 elblbCrossZone = lens _elasticLoadBalancingLoadBalancerCrossZone (\s a -> s { _elasticLoadBalancingLoadBalancerCrossZone = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb.html#cfn-ec2-elb-healthcheck

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-deployment.html
 
@@ -28,19 +29,19 @@ instance ToJSON ApiGatewayDeployment where
   toJSON ApiGatewayDeployment{..} =
     object $
     catMaybes
-    [ ("Description" .=) <$> _apiGatewayDeploymentDescription
-    , Just ("RestApiId" .= _apiGatewayDeploymentRestApiId)
-    , ("StageDescription" .=) <$> _apiGatewayDeploymentStageDescription
-    , ("StageName" .=) <$> _apiGatewayDeploymentStageName
+    [ fmap (("Description",) . toJSON) _apiGatewayDeploymentDescription
+    , (Just . ("RestApiId",) . toJSON) _apiGatewayDeploymentRestApiId
+    , fmap (("StageDescription",) . toJSON) _apiGatewayDeploymentStageDescription
+    , fmap (("StageName",) . toJSON) _apiGatewayDeploymentStageName
     ]
 
 instance FromJSON ApiGatewayDeployment where
   parseJSON (Object obj) =
     ApiGatewayDeployment <$>
-      obj .:? "Description" <*>
-      obj .: "RestApiId" <*>
-      obj .:? "StageDescription" <*>
-      obj .:? "StageName"
+      (obj .:? "Description") <*>
+      (obj .: "RestApiId") <*>
+      (obj .:? "StageDescription") <*>
+      (obj .:? "StageName")
   parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayDeployment' containing required fields as

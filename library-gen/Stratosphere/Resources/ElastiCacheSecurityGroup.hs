@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-security-group.html
 
@@ -25,13 +26,13 @@ instance ToJSON ElastiCacheSecurityGroup where
   toJSON ElastiCacheSecurityGroup{..} =
     object $
     catMaybes
-    [ Just ("Description" .= _elastiCacheSecurityGroupDescription)
+    [ (Just . ("Description",) . toJSON) _elastiCacheSecurityGroupDescription
     ]
 
 instance FromJSON ElastiCacheSecurityGroup where
   parseJSON (Object obj) =
     ElastiCacheSecurityGroup <$>
-      obj .: "Description"
+      (obj .: "Description")
   parseJSON _ = mempty
 
 -- | Constructor for 'ElastiCacheSecurityGroup' containing required fields as

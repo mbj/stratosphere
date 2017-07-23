@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-instance.html
 
@@ -25,10 +26,10 @@ data OpsWorksInstance =
   , _opsWorksInstanceAutoScalingType :: Maybe (Val Text)
   , _opsWorksInstanceAvailabilityZone :: Maybe (Val Text)
   , _opsWorksInstanceBlockDeviceMappings :: Maybe [OpsWorksInstanceBlockDeviceMapping]
-  , _opsWorksInstanceEbsOptimized :: Maybe (Val Bool')
+  , _opsWorksInstanceEbsOptimized :: Maybe (Val Bool)
   , _opsWorksInstanceElasticIps :: Maybe (ValList Text)
   , _opsWorksInstanceHostname :: Maybe (Val Text)
-  , _opsWorksInstanceInstallUpdatesOnBoot :: Maybe (Val Bool')
+  , _opsWorksInstanceInstallUpdatesOnBoot :: Maybe (Val Bool)
   , _opsWorksInstanceInstanceType :: Val Text
   , _opsWorksInstanceLayerIds :: ValList Text
   , _opsWorksInstanceOs :: Maybe (Val Text)
@@ -46,53 +47,53 @@ instance ToJSON OpsWorksInstance where
   toJSON OpsWorksInstance{..} =
     object $
     catMaybes
-    [ ("AgentVersion" .=) <$> _opsWorksInstanceAgentVersion
-    , ("AmiId" .=) <$> _opsWorksInstanceAmiId
-    , ("Architecture" .=) <$> _opsWorksInstanceArchitecture
-    , ("AutoScalingType" .=) <$> _opsWorksInstanceAutoScalingType
-    , ("AvailabilityZone" .=) <$> _opsWorksInstanceAvailabilityZone
-    , ("BlockDeviceMappings" .=) <$> _opsWorksInstanceBlockDeviceMappings
-    , ("EbsOptimized" .=) <$> _opsWorksInstanceEbsOptimized
-    , ("ElasticIps" .=) <$> _opsWorksInstanceElasticIps
-    , ("Hostname" .=) <$> _opsWorksInstanceHostname
-    , ("InstallUpdatesOnBoot" .=) <$> _opsWorksInstanceInstallUpdatesOnBoot
-    , Just ("InstanceType" .= _opsWorksInstanceInstanceType)
-    , Just ("LayerIds" .= _opsWorksInstanceLayerIds)
-    , ("Os" .=) <$> _opsWorksInstanceOs
-    , ("RootDeviceType" .=) <$> _opsWorksInstanceRootDeviceType
-    , ("SshKeyName" .=) <$> _opsWorksInstanceSshKeyName
-    , Just ("StackId" .= _opsWorksInstanceStackId)
-    , ("SubnetId" .=) <$> _opsWorksInstanceSubnetId
-    , ("Tenancy" .=) <$> _opsWorksInstanceTenancy
-    , ("TimeBasedAutoScaling" .=) <$> _opsWorksInstanceTimeBasedAutoScaling
-    , ("VirtualizationType" .=) <$> _opsWorksInstanceVirtualizationType
-    , ("Volumes" .=) <$> _opsWorksInstanceVolumes
+    [ fmap (("AgentVersion",) . toJSON) _opsWorksInstanceAgentVersion
+    , fmap (("AmiId",) . toJSON) _opsWorksInstanceAmiId
+    , fmap (("Architecture",) . toJSON) _opsWorksInstanceArchitecture
+    , fmap (("AutoScalingType",) . toJSON) _opsWorksInstanceAutoScalingType
+    , fmap (("AvailabilityZone",) . toJSON) _opsWorksInstanceAvailabilityZone
+    , fmap (("BlockDeviceMappings",) . toJSON) _opsWorksInstanceBlockDeviceMappings
+    , fmap (("EbsOptimized",) . toJSON . fmap Bool') _opsWorksInstanceEbsOptimized
+    , fmap (("ElasticIps",) . toJSON) _opsWorksInstanceElasticIps
+    , fmap (("Hostname",) . toJSON) _opsWorksInstanceHostname
+    , fmap (("InstallUpdatesOnBoot",) . toJSON . fmap Bool') _opsWorksInstanceInstallUpdatesOnBoot
+    , (Just . ("InstanceType",) . toJSON) _opsWorksInstanceInstanceType
+    , (Just . ("LayerIds",) . toJSON) _opsWorksInstanceLayerIds
+    , fmap (("Os",) . toJSON) _opsWorksInstanceOs
+    , fmap (("RootDeviceType",) . toJSON) _opsWorksInstanceRootDeviceType
+    , fmap (("SshKeyName",) . toJSON) _opsWorksInstanceSshKeyName
+    , (Just . ("StackId",) . toJSON) _opsWorksInstanceStackId
+    , fmap (("SubnetId",) . toJSON) _opsWorksInstanceSubnetId
+    , fmap (("Tenancy",) . toJSON) _opsWorksInstanceTenancy
+    , fmap (("TimeBasedAutoScaling",) . toJSON) _opsWorksInstanceTimeBasedAutoScaling
+    , fmap (("VirtualizationType",) . toJSON) _opsWorksInstanceVirtualizationType
+    , fmap (("Volumes",) . toJSON) _opsWorksInstanceVolumes
     ]
 
 instance FromJSON OpsWorksInstance where
   parseJSON (Object obj) =
     OpsWorksInstance <$>
-      obj .:? "AgentVersion" <*>
-      obj .:? "AmiId" <*>
-      obj .:? "Architecture" <*>
-      obj .:? "AutoScalingType" <*>
-      obj .:? "AvailabilityZone" <*>
-      obj .:? "BlockDeviceMappings" <*>
-      obj .:? "EbsOptimized" <*>
-      obj .:? "ElasticIps" <*>
-      obj .:? "Hostname" <*>
-      obj .:? "InstallUpdatesOnBoot" <*>
-      obj .: "InstanceType" <*>
-      obj .: "LayerIds" <*>
-      obj .:? "Os" <*>
-      obj .:? "RootDeviceType" <*>
-      obj .:? "SshKeyName" <*>
-      obj .: "StackId" <*>
-      obj .:? "SubnetId" <*>
-      obj .:? "Tenancy" <*>
-      obj .:? "TimeBasedAutoScaling" <*>
-      obj .:? "VirtualizationType" <*>
-      obj .:? "Volumes"
+      (obj .:? "AgentVersion") <*>
+      (obj .:? "AmiId") <*>
+      (obj .:? "Architecture") <*>
+      (obj .:? "AutoScalingType") <*>
+      (obj .:? "AvailabilityZone") <*>
+      (obj .:? "BlockDeviceMappings") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "EbsOptimized") <*>
+      (obj .:? "ElasticIps") <*>
+      (obj .:? "Hostname") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "InstallUpdatesOnBoot") <*>
+      (obj .: "InstanceType") <*>
+      (obj .: "LayerIds") <*>
+      (obj .:? "Os") <*>
+      (obj .:? "RootDeviceType") <*>
+      (obj .:? "SshKeyName") <*>
+      (obj .: "StackId") <*>
+      (obj .:? "SubnetId") <*>
+      (obj .:? "Tenancy") <*>
+      (obj .:? "TimeBasedAutoScaling") <*>
+      (obj .:? "VirtualizationType") <*>
+      (obj .:? "Volumes")
   parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksInstance' containing required fields as
@@ -152,7 +153,7 @@ owiBlockDeviceMappings :: Lens' OpsWorksInstance (Maybe [OpsWorksInstanceBlockDe
 owiBlockDeviceMappings = lens _opsWorksInstanceBlockDeviceMappings (\s a -> s { _opsWorksInstanceBlockDeviceMappings = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-instance.html#cfn-opsworks-instance-ebsoptimized
-owiEbsOptimized :: Lens' OpsWorksInstance (Maybe (Val Bool'))
+owiEbsOptimized :: Lens' OpsWorksInstance (Maybe (Val Bool))
 owiEbsOptimized = lens _opsWorksInstanceEbsOptimized (\s a -> s { _opsWorksInstanceEbsOptimized = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-instance.html#cfn-opsworks-instance-elasticips
@@ -164,7 +165,7 @@ owiHostname :: Lens' OpsWorksInstance (Maybe (Val Text))
 owiHostname = lens _opsWorksInstanceHostname (\s a -> s { _opsWorksInstanceHostname = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-instance.html#cfn-opsworks-instance-installupdatesonboot
-owiInstallUpdatesOnBoot :: Lens' OpsWorksInstance (Maybe (Val Bool'))
+owiInstallUpdatesOnBoot :: Lens' OpsWorksInstance (Maybe (Val Bool))
 owiInstallUpdatesOnBoot = lens _opsWorksInstanceInstallUpdatesOnBoot (\s a -> s { _opsWorksInstanceInstallUpdatesOnBoot = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-instance.html#cfn-opsworks-instance-instancetype

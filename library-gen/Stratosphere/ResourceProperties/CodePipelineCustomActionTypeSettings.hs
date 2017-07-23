@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-customactiontype-settings.html
 
@@ -28,19 +29,19 @@ instance ToJSON CodePipelineCustomActionTypeSettings where
   toJSON CodePipelineCustomActionTypeSettings{..} =
     object $
     catMaybes
-    [ ("EntityUrlTemplate" .=) <$> _codePipelineCustomActionTypeSettingsEntityUrlTemplate
-    , ("ExecutionUrlTemplate" .=) <$> _codePipelineCustomActionTypeSettingsExecutionUrlTemplate
-    , ("RevisionUrlTemplate" .=) <$> _codePipelineCustomActionTypeSettingsRevisionUrlTemplate
-    , ("ThirdPartyConfigurationUrl" .=) <$> _codePipelineCustomActionTypeSettingsThirdPartyConfigurationUrl
+    [ fmap (("EntityUrlTemplate",) . toJSON) _codePipelineCustomActionTypeSettingsEntityUrlTemplate
+    , fmap (("ExecutionUrlTemplate",) . toJSON) _codePipelineCustomActionTypeSettingsExecutionUrlTemplate
+    , fmap (("RevisionUrlTemplate",) . toJSON) _codePipelineCustomActionTypeSettingsRevisionUrlTemplate
+    , fmap (("ThirdPartyConfigurationUrl",) . toJSON) _codePipelineCustomActionTypeSettingsThirdPartyConfigurationUrl
     ]
 
 instance FromJSON CodePipelineCustomActionTypeSettings where
   parseJSON (Object obj) =
     CodePipelineCustomActionTypeSettings <$>
-      obj .:? "EntityUrlTemplate" <*>
-      obj .:? "ExecutionUrlTemplate" <*>
-      obj .:? "RevisionUrlTemplate" <*>
-      obj .:? "ThirdPartyConfigurationUrl"
+      (obj .:? "EntityUrlTemplate") <*>
+      (obj .:? "ExecutionUrlTemplate") <*>
+      (obj .:? "RevisionUrlTemplate") <*>
+      (obj .:? "ThirdPartyConfigurationUrl")
   parseJSON _ = mempty
 
 -- | Constructor for 'CodePipelineCustomActionTypeSettings' containing

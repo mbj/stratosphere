@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-sqlinjectionmatchset.html
 
@@ -26,15 +27,15 @@ instance ToJSON WAFSqlInjectionMatchSet where
   toJSON WAFSqlInjectionMatchSet{..} =
     object $
     catMaybes
-    [ Just ("Name" .= _wAFSqlInjectionMatchSetName)
-    , ("SqlInjectionMatchTuples" .=) <$> _wAFSqlInjectionMatchSetSqlInjectionMatchTuples
+    [ (Just . ("Name",) . toJSON) _wAFSqlInjectionMatchSetName
+    , fmap (("SqlInjectionMatchTuples",) . toJSON) _wAFSqlInjectionMatchSetSqlInjectionMatchTuples
     ]
 
 instance FromJSON WAFSqlInjectionMatchSet where
   parseJSON (Object obj) =
     WAFSqlInjectionMatchSet <$>
-      obj .: "Name" <*>
-      obj .:? "SqlInjectionMatchTuples"
+      (obj .: "Name") <*>
+      (obj .:? "SqlInjectionMatchTuples")
   parseJSON _ = mempty
 
 -- | Constructor for 'WAFSqlInjectionMatchSet' containing required fields as

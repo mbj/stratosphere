@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypool-cognitostreams.html
 
@@ -27,17 +28,17 @@ instance ToJSON CognitoIdentityPoolCognitoStreams where
   toJSON CognitoIdentityPoolCognitoStreams{..} =
     object $
     catMaybes
-    [ ("RoleArn" .=) <$> _cognitoIdentityPoolCognitoStreamsRoleArn
-    , ("StreamName" .=) <$> _cognitoIdentityPoolCognitoStreamsStreamName
-    , ("StreamingStatus" .=) <$> _cognitoIdentityPoolCognitoStreamsStreamingStatus
+    [ fmap (("RoleArn",) . toJSON) _cognitoIdentityPoolCognitoStreamsRoleArn
+    , fmap (("StreamName",) . toJSON) _cognitoIdentityPoolCognitoStreamsStreamName
+    , fmap (("StreamingStatus",) . toJSON) _cognitoIdentityPoolCognitoStreamsStreamingStatus
     ]
 
 instance FromJSON CognitoIdentityPoolCognitoStreams where
   parseJSON (Object obj) =
     CognitoIdentityPoolCognitoStreams <$>
-      obj .:? "RoleArn" <*>
-      obj .:? "StreamName" <*>
-      obj .:? "StreamingStatus"
+      (obj .:? "RoleArn") <*>
+      (obj .:? "StreamName") <*>
+      (obj .:? "StreamingStatus")
   parseJSON _ = mempty
 
 -- | Constructor for 'CognitoIdentityPoolCognitoStreams' containing required

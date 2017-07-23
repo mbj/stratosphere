@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancetypeconfig.html
 
@@ -20,34 +21,34 @@ import Stratosphere.ResourceProperties.EMRClusterEbsConfiguration
 data EMRClusterInstanceTypeConfig =
   EMRClusterInstanceTypeConfig
   { _eMRClusterInstanceTypeConfigBidPrice :: Maybe (Val Text)
-  , _eMRClusterInstanceTypeConfigBidPriceAsPercentageOfOnDemandPrice :: Maybe (Val Double')
+  , _eMRClusterInstanceTypeConfigBidPriceAsPercentageOfOnDemandPrice :: Maybe (Val Double)
   , _eMRClusterInstanceTypeConfigConfigurations :: Maybe [EMRClusterConfiguration]
   , _eMRClusterInstanceTypeConfigEbsConfiguration :: Maybe EMRClusterEbsConfiguration
   , _eMRClusterInstanceTypeConfigInstanceType :: Val Text
-  , _eMRClusterInstanceTypeConfigWeightedCapacity :: Maybe (Val Integer')
+  , _eMRClusterInstanceTypeConfigWeightedCapacity :: Maybe (Val Integer)
   } deriving (Show, Eq)
 
 instance ToJSON EMRClusterInstanceTypeConfig where
   toJSON EMRClusterInstanceTypeConfig{..} =
     object $
     catMaybes
-    [ ("BidPrice" .=) <$> _eMRClusterInstanceTypeConfigBidPrice
-    , ("BidPriceAsPercentageOfOnDemandPrice" .=) <$> _eMRClusterInstanceTypeConfigBidPriceAsPercentageOfOnDemandPrice
-    , ("Configurations" .=) <$> _eMRClusterInstanceTypeConfigConfigurations
-    , ("EbsConfiguration" .=) <$> _eMRClusterInstanceTypeConfigEbsConfiguration
-    , Just ("InstanceType" .= _eMRClusterInstanceTypeConfigInstanceType)
-    , ("WeightedCapacity" .=) <$> _eMRClusterInstanceTypeConfigWeightedCapacity
+    [ fmap (("BidPrice",) . toJSON) _eMRClusterInstanceTypeConfigBidPrice
+    , fmap (("BidPriceAsPercentageOfOnDemandPrice",) . toJSON . fmap Double') _eMRClusterInstanceTypeConfigBidPriceAsPercentageOfOnDemandPrice
+    , fmap (("Configurations",) . toJSON) _eMRClusterInstanceTypeConfigConfigurations
+    , fmap (("EbsConfiguration",) . toJSON) _eMRClusterInstanceTypeConfigEbsConfiguration
+    , (Just . ("InstanceType",) . toJSON) _eMRClusterInstanceTypeConfigInstanceType
+    , fmap (("WeightedCapacity",) . toJSON . fmap Integer') _eMRClusterInstanceTypeConfigWeightedCapacity
     ]
 
 instance FromJSON EMRClusterInstanceTypeConfig where
   parseJSON (Object obj) =
     EMRClusterInstanceTypeConfig <$>
-      obj .:? "BidPrice" <*>
-      obj .:? "BidPriceAsPercentageOfOnDemandPrice" <*>
-      obj .:? "Configurations" <*>
-      obj .:? "EbsConfiguration" <*>
-      obj .: "InstanceType" <*>
-      obj .:? "WeightedCapacity"
+      (obj .:? "BidPrice") <*>
+      fmap (fmap (fmap unDouble')) (obj .:? "BidPriceAsPercentageOfOnDemandPrice") <*>
+      (obj .:? "Configurations") <*>
+      (obj .:? "EbsConfiguration") <*>
+      (obj .: "InstanceType") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "WeightedCapacity")
   parseJSON _ = mempty
 
 -- | Constructor for 'EMRClusterInstanceTypeConfig' containing required fields
@@ -70,7 +71,7 @@ emrcitcBidPrice :: Lens' EMRClusterInstanceTypeConfig (Maybe (Val Text))
 emrcitcBidPrice = lens _eMRClusterInstanceTypeConfigBidPrice (\s a -> s { _eMRClusterInstanceTypeConfigBidPrice = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancetypeconfig.html#cfn-elasticmapreduce-cluster-instancetypeconfig-bidpriceaspercentageofondemandprice
-emrcitcBidPriceAsPercentageOfOnDemandPrice :: Lens' EMRClusterInstanceTypeConfig (Maybe (Val Double'))
+emrcitcBidPriceAsPercentageOfOnDemandPrice :: Lens' EMRClusterInstanceTypeConfig (Maybe (Val Double))
 emrcitcBidPriceAsPercentageOfOnDemandPrice = lens _eMRClusterInstanceTypeConfigBidPriceAsPercentageOfOnDemandPrice (\s a -> s { _eMRClusterInstanceTypeConfigBidPriceAsPercentageOfOnDemandPrice = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancetypeconfig.html#cfn-elasticmapreduce-cluster-instancetypeconfig-configurations
@@ -86,5 +87,5 @@ emrcitcInstanceType :: Lens' EMRClusterInstanceTypeConfig (Val Text)
 emrcitcInstanceType = lens _eMRClusterInstanceTypeConfigInstanceType (\s a -> s { _eMRClusterInstanceTypeConfigInstanceType = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancetypeconfig.html#cfn-elasticmapreduce-cluster-instancetypeconfig-weightedcapacity
-emrcitcWeightedCapacity :: Lens' EMRClusterInstanceTypeConfig (Maybe (Val Integer'))
+emrcitcWeightedCapacity :: Lens' EMRClusterInstanceTypeConfig (Maybe (Val Integer))
 emrcitcWeightedCapacity = lens _eMRClusterInstanceTypeConfigWeightedCapacity (\s a -> s { _eMRClusterInstanceTypeConfigWeightedCapacity = a })

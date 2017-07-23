@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-nodegroupconfiguration.html
 
@@ -22,7 +23,7 @@ data ElastiCacheReplicationGroupNodeGroupConfiguration =
   ElastiCacheReplicationGroupNodeGroupConfiguration
   { _elastiCacheReplicationGroupNodeGroupConfigurationPrimaryAvailabilityZone :: Maybe (Val Text)
   , _elastiCacheReplicationGroupNodeGroupConfigurationReplicaAvailabilityZones :: Maybe (ValList Text)
-  , _elastiCacheReplicationGroupNodeGroupConfigurationReplicaCount :: Maybe (Val Integer')
+  , _elastiCacheReplicationGroupNodeGroupConfigurationReplicaCount :: Maybe (Val Integer)
   , _elastiCacheReplicationGroupNodeGroupConfigurationSlots :: Maybe (Val Text)
   } deriving (Show, Eq)
 
@@ -30,19 +31,19 @@ instance ToJSON ElastiCacheReplicationGroupNodeGroupConfiguration where
   toJSON ElastiCacheReplicationGroupNodeGroupConfiguration{..} =
     object $
     catMaybes
-    [ ("PrimaryAvailabilityZone" .=) <$> _elastiCacheReplicationGroupNodeGroupConfigurationPrimaryAvailabilityZone
-    , ("ReplicaAvailabilityZones" .=) <$> _elastiCacheReplicationGroupNodeGroupConfigurationReplicaAvailabilityZones
-    , ("ReplicaCount" .=) <$> _elastiCacheReplicationGroupNodeGroupConfigurationReplicaCount
-    , ("Slots" .=) <$> _elastiCacheReplicationGroupNodeGroupConfigurationSlots
+    [ fmap (("PrimaryAvailabilityZone",) . toJSON) _elastiCacheReplicationGroupNodeGroupConfigurationPrimaryAvailabilityZone
+    , fmap (("ReplicaAvailabilityZones",) . toJSON) _elastiCacheReplicationGroupNodeGroupConfigurationReplicaAvailabilityZones
+    , fmap (("ReplicaCount",) . toJSON . fmap Integer') _elastiCacheReplicationGroupNodeGroupConfigurationReplicaCount
+    , fmap (("Slots",) . toJSON) _elastiCacheReplicationGroupNodeGroupConfigurationSlots
     ]
 
 instance FromJSON ElastiCacheReplicationGroupNodeGroupConfiguration where
   parseJSON (Object obj) =
     ElastiCacheReplicationGroupNodeGroupConfiguration <$>
-      obj .:? "PrimaryAvailabilityZone" <*>
-      obj .:? "ReplicaAvailabilityZones" <*>
-      obj .:? "ReplicaCount" <*>
-      obj .:? "Slots"
+      (obj .:? "PrimaryAvailabilityZone") <*>
+      (obj .:? "ReplicaAvailabilityZones") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "ReplicaCount") <*>
+      (obj .:? "Slots")
   parseJSON _ = mempty
 
 -- | Constructor for 'ElastiCacheReplicationGroupNodeGroupConfiguration'
@@ -66,7 +67,7 @@ ecrgngcReplicaAvailabilityZones :: Lens' ElastiCacheReplicationGroupNodeGroupCon
 ecrgngcReplicaAvailabilityZones = lens _elastiCacheReplicationGroupNodeGroupConfigurationReplicaAvailabilityZones (\s a -> s { _elastiCacheReplicationGroupNodeGroupConfigurationReplicaAvailabilityZones = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-nodegroupconfiguration.html#cfn-elasticache-replicationgroup-nodegroupconfiguration-replicacount
-ecrgngcReplicaCount :: Lens' ElastiCacheReplicationGroupNodeGroupConfiguration (Maybe (Val Integer'))
+ecrgngcReplicaCount :: Lens' ElastiCacheReplicationGroupNodeGroupConfiguration (Maybe (Val Integer))
 ecrgngcReplicaCount = lens _elastiCacheReplicationGroupNodeGroupConfigurationReplicaCount (\s a -> s { _elastiCacheReplicationGroupNodeGroupConfigurationReplicaCount = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-nodegroupconfiguration.html#cfn-elasticache-replicationgroup-nodegroupconfiguration-slots

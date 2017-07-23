@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-projectionobject.html
 
@@ -26,15 +27,15 @@ instance ToJSON DynamoDBTableProjection where
   toJSON DynamoDBTableProjection{..} =
     object $
     catMaybes
-    [ ("NonKeyAttributes" .=) <$> _dynamoDBTableProjectionNonKeyAttributes
-    , ("ProjectionType" .=) <$> _dynamoDBTableProjectionProjectionType
+    [ fmap (("NonKeyAttributes",) . toJSON) _dynamoDBTableProjectionNonKeyAttributes
+    , fmap (("ProjectionType",) . toJSON) _dynamoDBTableProjectionProjectionType
     ]
 
 instance FromJSON DynamoDBTableProjection where
   parseJSON (Object obj) =
     DynamoDBTableProjection <$>
-      obj .:? "NonKeyAttributes" <*>
-      obj .:? "ProjectionType"
+      (obj .:? "NonKeyAttributes") <*>
+      (obj .:? "ProjectionType")
   parseJSON _ = mempty
 
 -- | Constructor for 'DynamoDBTableProjection' containing required fields as

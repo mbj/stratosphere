@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-version.html
 
@@ -27,17 +28,17 @@ instance ToJSON ElasticBeanstalkApplicationVersion where
   toJSON ElasticBeanstalkApplicationVersion{..} =
     object $
     catMaybes
-    [ Just ("ApplicationName" .= _elasticBeanstalkApplicationVersionApplicationName)
-    , ("Description" .=) <$> _elasticBeanstalkApplicationVersionDescription
-    , Just ("SourceBundle" .= _elasticBeanstalkApplicationVersionSourceBundle)
+    [ (Just . ("ApplicationName",) . toJSON) _elasticBeanstalkApplicationVersionApplicationName
+    , fmap (("Description",) . toJSON) _elasticBeanstalkApplicationVersionDescription
+    , (Just . ("SourceBundle",) . toJSON) _elasticBeanstalkApplicationVersionSourceBundle
     ]
 
 instance FromJSON ElasticBeanstalkApplicationVersion where
   parseJSON (Object obj) =
     ElasticBeanstalkApplicationVersion <$>
-      obj .: "ApplicationName" <*>
-      obj .:? "Description" <*>
-      obj .: "SourceBundle"
+      (obj .: "ApplicationName") <*>
+      (obj .:? "Description") <*>
+      (obj .: "SourceBundle")
   parseJSON _ = mempty
 
 -- | Constructor for 'ElasticBeanstalkApplicationVersion' containing required

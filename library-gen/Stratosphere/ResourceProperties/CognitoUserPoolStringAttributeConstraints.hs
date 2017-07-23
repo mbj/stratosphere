@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-stringattributeconstraints.html
 
@@ -27,15 +28,15 @@ instance ToJSON CognitoUserPoolStringAttributeConstraints where
   toJSON CognitoUserPoolStringAttributeConstraints{..} =
     object $
     catMaybes
-    [ ("MaxLength" .=) <$> _cognitoUserPoolStringAttributeConstraintsMaxLength
-    , ("MinLength" .=) <$> _cognitoUserPoolStringAttributeConstraintsMinLength
+    [ fmap (("MaxLength",) . toJSON) _cognitoUserPoolStringAttributeConstraintsMaxLength
+    , fmap (("MinLength",) . toJSON) _cognitoUserPoolStringAttributeConstraintsMinLength
     ]
 
 instance FromJSON CognitoUserPoolStringAttributeConstraints where
   parseJSON (Object obj) =
     CognitoUserPoolStringAttributeConstraints <$>
-      obj .:? "MaxLength" <*>
-      obj .:? "MinLength"
+      (obj .:? "MaxLength") <*>
+      (obj .:? "MinLength")
   parseJSON _ = mempty
 
 -- | Constructor for 'CognitoUserPoolStringAttributeConstraints' containing

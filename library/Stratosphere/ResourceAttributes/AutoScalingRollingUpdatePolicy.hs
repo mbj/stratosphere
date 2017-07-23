@@ -1,5 +1,6 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | To specify how AWS CloudFormation handles rolling updates for an Auto
 -- Scaling group, use the AutoScalingRollingUpdatePolicy policy.
@@ -8,9 +9,8 @@ module Stratosphere.ResourceAttributes.AutoScalingRollingUpdatePolicy where
 
 import Control.Lens
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -19,19 +19,36 @@ import Stratosphere.Values
 -- 'autoScalingRollingUpdatePolicy' for a more convenient constructor.
 data AutoScalingRollingUpdatePolicy =
   AutoScalingRollingUpdatePolicy
-  { _autoScalingRollingUpdatePolicyMaxBatchSize :: Maybe (Val Integer')
-  , _autoScalingRollingUpdatePolicyMinInstancesInService :: Maybe (Val Integer')
-  , _autoScalingRollingUpdatePolicyMinSuccessfulInstancesPercent :: Maybe (Val Integer')
+  { _autoScalingRollingUpdatePolicyMaxBatchSize :: Maybe (Val Integer)
+  , _autoScalingRollingUpdatePolicyMinInstancesInService :: Maybe (Val Integer)
+  , _autoScalingRollingUpdatePolicyMinSuccessfulInstancesPercent :: Maybe (Val Integer)
   , _autoScalingRollingUpdatePolicyPauseTime :: Maybe (Val Text)
   , _autoScalingRollingUpdatePolicySuspendProcess :: Maybe [Val Text]
-  , _autoScalingRollingUpdatePolicyWaitOnResourceSignals :: Maybe (Val Bool')
-  } deriving (Show, Eq, Generic)
+  , _autoScalingRollingUpdatePolicyWaitOnResourceSignals :: Maybe (Val Bool)
+  } deriving (Show, Eq)
 
 instance ToJSON AutoScalingRollingUpdatePolicy where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 31, omitNothingFields = True }
+  toJSON AutoScalingRollingUpdatePolicy{..} =
+    object $
+    catMaybes
+    [ fmap (("MaxBatchSize",) . toJSON . fmap Integer') _autoScalingRollingUpdatePolicyMaxBatchSize
+    , fmap (("MinInstancesInService",) . toJSON . fmap Integer') _autoScalingRollingUpdatePolicyMinInstancesInService
+    , fmap (("MinSuccessfulInstancesPercent",) . toJSON . fmap Integer') _autoScalingRollingUpdatePolicyMinSuccessfulInstancesPercent
+    , fmap (("PauseTime",) . toJSON) _autoScalingRollingUpdatePolicyPauseTime
+    , fmap (("SuspendProcess",) . toJSON) _autoScalingRollingUpdatePolicySuspendProcess
+    , fmap (("WaitOnResourceSignals",) . toJSON . fmap Bool') _autoScalingRollingUpdatePolicyWaitOnResourceSignals
+    ]
 
 instance FromJSON AutoScalingRollingUpdatePolicy where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 31, omitNothingFields = True }
+  parseJSON (Object obj) =
+    AutoScalingRollingUpdatePolicy <$>
+      fmap (fmap (fmap unInteger')) (obj .:? "MaxBatchSize") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "MinInstancesInService") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "MinSuccessfulInstancesPercent") <*>
+      (obj .:? "PauseTime") <*>
+      (obj .:? "SuspendProcess") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "WaitOnResourceSignals")
+  parseJSON _ = mempty
 
 -- | Constructor for 'AutoScalingRollingUpdatePolicy' containing required fields as
 -- arguments.
@@ -49,13 +66,13 @@ autoScalingRollingUpdatePolicy  =
 
 -- | Specifies the maximum number of instances that AWS CloudFormation
 -- terminates.
-asrupMaxBatchSize :: Lens' AutoScalingRollingUpdatePolicy (Maybe (Val Integer'))
+asrupMaxBatchSize :: Lens' AutoScalingRollingUpdatePolicy (Maybe (Val Integer))
 asrupMaxBatchSize = lens _autoScalingRollingUpdatePolicyMaxBatchSize (\s a -> s { _autoScalingRollingUpdatePolicyMaxBatchSize = a })
 
 -- | Specifies the minimum number of instances that must be in service within
 -- the Auto Scaling group while AWS CloudFormation terminates obsolete
 -- instances.
-asrupMinInstancesInService :: Lens' AutoScalingRollingUpdatePolicy (Maybe (Val Integer'))
+asrupMinInstancesInService :: Lens' AutoScalingRollingUpdatePolicy (Maybe (Val Integer))
 asrupMinInstancesInService = lens _autoScalingRollingUpdatePolicyMinInstancesInService (\s a -> s { _autoScalingRollingUpdatePolicyMinInstancesInService = a })
 
 -- | Specifies the percentage of instances in an Auto Scaling rolling update
@@ -67,7 +84,7 @@ asrupMinInstancesInService = lens _autoScalingRollingUpdatePolicyMinInstancesInS
 -- property, AWS CloudFormation assumes that the instance wasn't successfully
 -- updated. If you specify this property, you must also enable the
 -- WaitOnResourceSignals and PauseTime properties.
-asrupMinSuccessfulInstancesPercent :: Lens' AutoScalingRollingUpdatePolicy (Maybe (Val Integer'))
+asrupMinSuccessfulInstancesPercent :: Lens' AutoScalingRollingUpdatePolicy (Maybe (Val Integer))
 asrupMinSuccessfulInstancesPercent = lens _autoScalingRollingUpdatePolicyMinSuccessfulInstancesPercent (\s a -> s { _autoScalingRollingUpdatePolicyMinSuccessfulInstancesPercent = a })
 
 -- | Specifies the amount of time that AWS CloudFormation should pause after
@@ -104,5 +121,5 @@ asrupSuspendProcess = lens _autoScalingRollingUpdatePolicySuspendProcess (\s a -
 -- Auto Scaling group, use the cfn-signal helper script or SignalResource API.
 -- Use this property to ensure that instances have completed installing and
 -- configuring applications before the Auto Scaling group update proceeds.
-asrupWaitOnResourceSignals :: Lens' AutoScalingRollingUpdatePolicy (Maybe (Val Bool'))
+asrupWaitOnResourceSignals :: Lens' AutoScalingRollingUpdatePolicy (Maybe (Val Bool))
 asrupWaitOnResourceSignals = lens _autoScalingRollingUpdatePolicyWaitOnResourceSignals (\s a -> s { _autoScalingRollingUpdatePolicyWaitOnResourceSignals = a })

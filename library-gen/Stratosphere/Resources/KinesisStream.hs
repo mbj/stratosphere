@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html
 
@@ -19,8 +20,8 @@ import Stratosphere.ResourceProperties.Tag
 data KinesisStream =
   KinesisStream
   { _kinesisStreamName :: Maybe (Val Text)
-  , _kinesisStreamRetentionPeriodHours :: Maybe (Val Integer')
-  , _kinesisStreamShardCount :: Val Integer'
+  , _kinesisStreamRetentionPeriodHours :: Maybe (Val Integer)
+  , _kinesisStreamShardCount :: Val Integer
   , _kinesisStreamTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
@@ -28,24 +29,24 @@ instance ToJSON KinesisStream where
   toJSON KinesisStream{..} =
     object $
     catMaybes
-    [ ("Name" .=) <$> _kinesisStreamName
-    , ("RetentionPeriodHours" .=) <$> _kinesisStreamRetentionPeriodHours
-    , Just ("ShardCount" .= _kinesisStreamShardCount)
-    , ("Tags" .=) <$> _kinesisStreamTags
+    [ fmap (("Name",) . toJSON) _kinesisStreamName
+    , fmap (("RetentionPeriodHours",) . toJSON . fmap Integer') _kinesisStreamRetentionPeriodHours
+    , (Just . ("ShardCount",) . toJSON . fmap Integer') _kinesisStreamShardCount
+    , fmap (("Tags",) . toJSON) _kinesisStreamTags
     ]
 
 instance FromJSON KinesisStream where
   parseJSON (Object obj) =
     KinesisStream <$>
-      obj .:? "Name" <*>
-      obj .:? "RetentionPeriodHours" <*>
-      obj .: "ShardCount" <*>
-      obj .:? "Tags"
+      (obj .:? "Name") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "RetentionPeriodHours") <*>
+      fmap (fmap unInteger') (obj .: "ShardCount") <*>
+      (obj .:? "Tags")
   parseJSON _ = mempty
 
 -- | Constructor for 'KinesisStream' containing required fields as arguments.
 kinesisStream
-  :: Val Integer' -- ^ 'ksShardCount'
+  :: Val Integer -- ^ 'ksShardCount'
   -> KinesisStream
 kinesisStream shardCountarg =
   KinesisStream
@@ -60,11 +61,11 @@ ksName :: Lens' KinesisStream (Maybe (Val Text))
 ksName = lens _kinesisStreamName (\s a -> s { _kinesisStreamName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-retentionperiodhours
-ksRetentionPeriodHours :: Lens' KinesisStream (Maybe (Val Integer'))
+ksRetentionPeriodHours :: Lens' KinesisStream (Maybe (Val Integer))
 ksRetentionPeriodHours = lens _kinesisStreamRetentionPeriodHours (\s a -> s { _kinesisStreamRetentionPeriodHours = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-shardcount
-ksShardCount :: Lens' KinesisStream (Val Integer')
+ksShardCount :: Lens' KinesisStream (Val Integer)
 ksShardCount = lens _kinesisStreamShardCount (\s a -> s { _kinesisStreamShardCount = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#cfn-kinesis-stream-tags

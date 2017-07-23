@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-mount-point.html
 
@@ -26,15 +27,15 @@ instance ToJSON EC2InstanceVolume where
   toJSON EC2InstanceVolume{..} =
     object $
     catMaybes
-    [ Just ("Device" .= _eC2InstanceVolumeDevice)
-    , Just ("VolumeId" .= _eC2InstanceVolumeVolumeId)
+    [ (Just . ("Device",) . toJSON) _eC2InstanceVolumeDevice
+    , (Just . ("VolumeId",) . toJSON) _eC2InstanceVolumeVolumeId
     ]
 
 instance FromJSON EC2InstanceVolume where
   parseJSON (Object obj) =
     EC2InstanceVolume <$>
-      obj .: "Device" <*>
-      obj .: "VolumeId"
+      (obj .: "Device") <*>
+      (obj .: "VolumeId")
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2InstanceVolume' containing required fields as

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic.html
 
@@ -27,17 +28,17 @@ instance ToJSON SNSTopic where
   toJSON SNSTopic{..} =
     object $
     catMaybes
-    [ ("DisplayName" .=) <$> _sNSTopicDisplayName
-    , ("Subscription" .=) <$> _sNSTopicSubscription
-    , ("TopicName" .=) <$> _sNSTopicTopicName
+    [ fmap (("DisplayName",) . toJSON) _sNSTopicDisplayName
+    , fmap (("Subscription",) . toJSON) _sNSTopicSubscription
+    , fmap (("TopicName",) . toJSON) _sNSTopicTopicName
     ]
 
 instance FromJSON SNSTopic where
   parseJSON (Object obj) =
     SNSTopic <$>
-      obj .:? "DisplayName" <*>
-      obj .:? "Subscription" <*>
-      obj .:? "TopicName"
+      (obj .:? "DisplayName") <*>
+      (obj .:? "Subscription") <*>
+      (obj .:? "TopicName")
   parseJSON _ = mempty
 
 -- | Constructor for 'SNSTopic' containing required fields as arguments.

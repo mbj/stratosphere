@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-spotfleet.html
 
@@ -25,13 +26,13 @@ instance ToJSON EC2SpotFleet where
   toJSON EC2SpotFleet{..} =
     object $
     catMaybes
-    [ Just ("SpotFleetRequestConfigData" .= _eC2SpotFleetSpotFleetRequestConfigData)
+    [ (Just . ("SpotFleetRequestConfigData",) . toJSON) _eC2SpotFleetSpotFleetRequestConfigData
     ]
 
 instance FromJSON EC2SpotFleet where
   parseJSON (Object obj) =
     EC2SpotFleet <$>
-      obj .: "SpotFleetRequestConfigData"
+      (obj .: "SpotFleetRequestConfigData")
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2SpotFleet' containing required fields as arguments.

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-autoscalingpolicy.html
 
@@ -27,15 +28,15 @@ instance ToJSON EMRClusterAutoScalingPolicy where
   toJSON EMRClusterAutoScalingPolicy{..} =
     object $
     catMaybes
-    [ Just ("Constraints" .= _eMRClusterAutoScalingPolicyConstraints)
-    , Just ("Rules" .= _eMRClusterAutoScalingPolicyRules)
+    [ (Just . ("Constraints",) . toJSON) _eMRClusterAutoScalingPolicyConstraints
+    , (Just . ("Rules",) . toJSON) _eMRClusterAutoScalingPolicyRules
     ]
 
 instance FromJSON EMRClusterAutoScalingPolicy where
   parseJSON (Object obj) =
     EMRClusterAutoScalingPolicy <$>
-      obj .: "Constraints" <*>
-      obj .: "Rules"
+      (obj .: "Constraints") <*>
+      (obj .: "Rules")
   parseJSON _ = mempty
 
 -- | Constructor for 'EMRClusterAutoScalingPolicy' containing required fields

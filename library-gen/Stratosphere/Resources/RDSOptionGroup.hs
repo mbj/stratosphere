@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-optiongroup.html
 
@@ -30,21 +31,21 @@ instance ToJSON RDSOptionGroup where
   toJSON RDSOptionGroup{..} =
     object $
     catMaybes
-    [ Just ("EngineName" .= _rDSOptionGroupEngineName)
-    , Just ("MajorEngineVersion" .= _rDSOptionGroupMajorEngineVersion)
-    , Just ("OptionConfigurations" .= _rDSOptionGroupOptionConfigurations)
-    , Just ("OptionGroupDescription" .= _rDSOptionGroupOptionGroupDescription)
-    , ("Tags" .=) <$> _rDSOptionGroupTags
+    [ (Just . ("EngineName",) . toJSON) _rDSOptionGroupEngineName
+    , (Just . ("MajorEngineVersion",) . toJSON) _rDSOptionGroupMajorEngineVersion
+    , (Just . ("OptionConfigurations",) . toJSON) _rDSOptionGroupOptionConfigurations
+    , (Just . ("OptionGroupDescription",) . toJSON) _rDSOptionGroupOptionGroupDescription
+    , fmap (("Tags",) . toJSON) _rDSOptionGroupTags
     ]
 
 instance FromJSON RDSOptionGroup where
   parseJSON (Object obj) =
     RDSOptionGroup <$>
-      obj .: "EngineName" <*>
-      obj .: "MajorEngineVersion" <*>
-      obj .: "OptionConfigurations" <*>
-      obj .: "OptionGroupDescription" <*>
-      obj .:? "Tags"
+      (obj .: "EngineName") <*>
+      (obj .: "MajorEngineVersion") <*>
+      (obj .: "OptionConfigurations") <*>
+      (obj .: "OptionGroupDescription") <*>
+      (obj .:? "Tags")
   parseJSON _ = mempty
 
 -- | Constructor for 'RDSOptionGroup' containing required fields as arguments.

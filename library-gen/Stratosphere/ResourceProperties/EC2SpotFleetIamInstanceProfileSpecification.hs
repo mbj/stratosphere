@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-iaminstanceprofile.html
 
@@ -27,13 +28,13 @@ instance ToJSON EC2SpotFleetIamInstanceProfileSpecification where
   toJSON EC2SpotFleetIamInstanceProfileSpecification{..} =
     object $
     catMaybes
-    [ ("Arn" .=) <$> _eC2SpotFleetIamInstanceProfileSpecificationArn
+    [ fmap (("Arn",) . toJSON) _eC2SpotFleetIamInstanceProfileSpecificationArn
     ]
 
 instance FromJSON EC2SpotFleetIamInstanceProfileSpecification where
   parseJSON (Object obj) =
     EC2SpotFleetIamInstanceProfileSpecification <$>
-      obj .:? "Arn"
+      (obj .:? "Arn")
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2SpotFleetIamInstanceProfileSpecification' containing

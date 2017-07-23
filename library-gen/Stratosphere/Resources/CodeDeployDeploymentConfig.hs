@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentconfig.html
 
@@ -26,15 +27,15 @@ instance ToJSON CodeDeployDeploymentConfig where
   toJSON CodeDeployDeploymentConfig{..} =
     object $
     catMaybes
-    [ ("DeploymentConfigName" .=) <$> _codeDeployDeploymentConfigDeploymentConfigName
-    , ("MinimumHealthyHosts" .=) <$> _codeDeployDeploymentConfigMinimumHealthyHosts
+    [ fmap (("DeploymentConfigName",) . toJSON) _codeDeployDeploymentConfigDeploymentConfigName
+    , fmap (("MinimumHealthyHosts",) . toJSON) _codeDeployDeploymentConfigMinimumHealthyHosts
     ]
 
 instance FromJSON CodeDeployDeploymentConfig where
   parseJSON (Object obj) =
     CodeDeployDeploymentConfig <$>
-      obj .:? "DeploymentConfigName" <*>
-      obj .:? "MinimumHealthyHosts"
+      (obj .:? "DeploymentConfigName") <*>
+      (obj .:? "MinimumHealthyHosts")
   parseJSON _ = mempty
 
 -- | Constructor for 'CodeDeployDeploymentConfig' containing required fields

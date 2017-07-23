@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset.html
 
@@ -32,46 +33,46 @@ data Route53RecordSetGroupRecordSet =
   , _route53RecordSetGroupRecordSetSetIdentifier :: Maybe (Val Text)
   , _route53RecordSetGroupRecordSetTTL :: Maybe (Val Text)
   , _route53RecordSetGroupRecordSetType :: Val Text
-  , _route53RecordSetGroupRecordSetWeight :: Maybe (Val Integer')
+  , _route53RecordSetGroupRecordSetWeight :: Maybe (Val Integer)
   } deriving (Show, Eq)
 
 instance ToJSON Route53RecordSetGroupRecordSet where
   toJSON Route53RecordSetGroupRecordSet{..} =
     object $
     catMaybes
-    [ ("AliasTarget" .=) <$> _route53RecordSetGroupRecordSetAliasTarget
-    , ("Comment" .=) <$> _route53RecordSetGroupRecordSetComment
-    , ("Failover" .=) <$> _route53RecordSetGroupRecordSetFailover
-    , ("GeoLocation" .=) <$> _route53RecordSetGroupRecordSetGeoLocation
-    , ("HealthCheckId" .=) <$> _route53RecordSetGroupRecordSetHealthCheckId
-    , ("HostedZoneId" .=) <$> _route53RecordSetGroupRecordSetHostedZoneId
-    , ("HostedZoneName" .=) <$> _route53RecordSetGroupRecordSetHostedZoneName
-    , Just ("Name" .= _route53RecordSetGroupRecordSetName)
-    , ("Region" .=) <$> _route53RecordSetGroupRecordSetRegion
-    , ("ResourceRecords" .=) <$> _route53RecordSetGroupRecordSetResourceRecords
-    , ("SetIdentifier" .=) <$> _route53RecordSetGroupRecordSetSetIdentifier
-    , ("TTL" .=) <$> _route53RecordSetGroupRecordSetTTL
-    , Just ("Type" .= _route53RecordSetGroupRecordSetType)
-    , ("Weight" .=) <$> _route53RecordSetGroupRecordSetWeight
+    [ fmap (("AliasTarget",) . toJSON) _route53RecordSetGroupRecordSetAliasTarget
+    , fmap (("Comment",) . toJSON) _route53RecordSetGroupRecordSetComment
+    , fmap (("Failover",) . toJSON) _route53RecordSetGroupRecordSetFailover
+    , fmap (("GeoLocation",) . toJSON) _route53RecordSetGroupRecordSetGeoLocation
+    , fmap (("HealthCheckId",) . toJSON) _route53RecordSetGroupRecordSetHealthCheckId
+    , fmap (("HostedZoneId",) . toJSON) _route53RecordSetGroupRecordSetHostedZoneId
+    , fmap (("HostedZoneName",) . toJSON) _route53RecordSetGroupRecordSetHostedZoneName
+    , (Just . ("Name",) . toJSON) _route53RecordSetGroupRecordSetName
+    , fmap (("Region",) . toJSON) _route53RecordSetGroupRecordSetRegion
+    , fmap (("ResourceRecords",) . toJSON) _route53RecordSetGroupRecordSetResourceRecords
+    , fmap (("SetIdentifier",) . toJSON) _route53RecordSetGroupRecordSetSetIdentifier
+    , fmap (("TTL",) . toJSON) _route53RecordSetGroupRecordSetTTL
+    , (Just . ("Type",) . toJSON) _route53RecordSetGroupRecordSetType
+    , fmap (("Weight",) . toJSON . fmap Integer') _route53RecordSetGroupRecordSetWeight
     ]
 
 instance FromJSON Route53RecordSetGroupRecordSet where
   parseJSON (Object obj) =
     Route53RecordSetGroupRecordSet <$>
-      obj .:? "AliasTarget" <*>
-      obj .:? "Comment" <*>
-      obj .:? "Failover" <*>
-      obj .:? "GeoLocation" <*>
-      obj .:? "HealthCheckId" <*>
-      obj .:? "HostedZoneId" <*>
-      obj .:? "HostedZoneName" <*>
-      obj .: "Name" <*>
-      obj .:? "Region" <*>
-      obj .:? "ResourceRecords" <*>
-      obj .:? "SetIdentifier" <*>
-      obj .:? "TTL" <*>
-      obj .: "Type" <*>
-      obj .:? "Weight"
+      (obj .:? "AliasTarget") <*>
+      (obj .:? "Comment") <*>
+      (obj .:? "Failover") <*>
+      (obj .:? "GeoLocation") <*>
+      (obj .:? "HealthCheckId") <*>
+      (obj .:? "HostedZoneId") <*>
+      (obj .:? "HostedZoneName") <*>
+      (obj .: "Name") <*>
+      (obj .:? "Region") <*>
+      (obj .:? "ResourceRecords") <*>
+      (obj .:? "SetIdentifier") <*>
+      (obj .:? "TTL") <*>
+      (obj .: "Type") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "Weight")
   parseJSON _ = mempty
 
 -- | Constructor for 'Route53RecordSetGroupRecordSet' containing required
@@ -151,5 +152,5 @@ rrsgrsType :: Lens' Route53RecordSetGroupRecordSet (Val Text)
 rrsgrsType = lens _route53RecordSetGroupRecordSetType (\s a -> s { _route53RecordSetGroupRecordSetType = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset.html#cfn-route53-recordset-weight
-rrsgrsWeight :: Lens' Route53RecordSetGroupRecordSet (Maybe (Val Integer'))
+rrsgrsWeight :: Lens' Route53RecordSetGroupRecordSet (Maybe (Val Integer))
 rrsgrsWeight = lens _route53RecordSetGroupRecordSetWeight (\s a -> s { _route53RecordSetGroupRecordSetWeight = a })

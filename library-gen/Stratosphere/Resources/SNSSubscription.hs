@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html
 
@@ -27,17 +28,17 @@ instance ToJSON SNSSubscription where
   toJSON SNSSubscription{..} =
     object $
     catMaybes
-    [ ("Endpoint" .=) <$> _sNSSubscriptionEndpoint
-    , ("Protocol" .=) <$> _sNSSubscriptionProtocol
-    , ("TopicArn" .=) <$> _sNSSubscriptionTopicArn
+    [ fmap (("Endpoint",) . toJSON) _sNSSubscriptionEndpoint
+    , fmap (("Protocol",) . toJSON) _sNSSubscriptionProtocol
+    , fmap (("TopicArn",) . toJSON) _sNSSubscriptionTopicArn
     ]
 
 instance FromJSON SNSSubscription where
   parseJSON (Object obj) =
     SNSSubscription <$>
-      obj .:? "Endpoint" <*>
-      obj .:? "Protocol" <*>
-      obj .:? "TopicArn"
+      (obj .:? "Endpoint") <*>
+      (obj .:? "Protocol") <*>
+      (obj .:? "TopicArn")
   parseJSON _ = mempty
 
 -- | Constructor for 'SNSSubscription' containing required fields as

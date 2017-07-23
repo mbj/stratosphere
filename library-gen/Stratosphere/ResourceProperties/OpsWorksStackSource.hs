@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-stack-source.html
 
@@ -30,23 +31,23 @@ instance ToJSON OpsWorksStackSource where
   toJSON OpsWorksStackSource{..} =
     object $
     catMaybes
-    [ ("Password" .=) <$> _opsWorksStackSourcePassword
-    , ("Revision" .=) <$> _opsWorksStackSourceRevision
-    , ("SshKey" .=) <$> _opsWorksStackSourceSshKey
-    , ("Type" .=) <$> _opsWorksStackSourceType
-    , ("Url" .=) <$> _opsWorksStackSourceUrl
-    , ("Username" .=) <$> _opsWorksStackSourceUsername
+    [ fmap (("Password",) . toJSON) _opsWorksStackSourcePassword
+    , fmap (("Revision",) . toJSON) _opsWorksStackSourceRevision
+    , fmap (("SshKey",) . toJSON) _opsWorksStackSourceSshKey
+    , fmap (("Type",) . toJSON) _opsWorksStackSourceType
+    , fmap (("Url",) . toJSON) _opsWorksStackSourceUrl
+    , fmap (("Username",) . toJSON) _opsWorksStackSourceUsername
     ]
 
 instance FromJSON OpsWorksStackSource where
   parseJSON (Object obj) =
     OpsWorksStackSource <$>
-      obj .:? "Password" <*>
-      obj .:? "Revision" <*>
-      obj .:? "SshKey" <*>
-      obj .:? "Type" <*>
-      obj .:? "Url" <*>
-      obj .:? "Username"
+      (obj .:? "Password") <*>
+      (obj .:? "Revision") <*>
+      (obj .:? "SshKey") <*>
+      (obj .:? "Type") <*>
+      (obj .:? "Url") <*>
+      (obj .:? "Username")
   parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksStackSource' containing required fields as

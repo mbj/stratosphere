@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-accessloggingpolicy.html
 
@@ -20,8 +21,8 @@ import Stratosphere.Values
 -- convenient constructor.
 data ElasticLoadBalancingLoadBalancerAccessLoggingPolicy =
   ElasticLoadBalancingLoadBalancerAccessLoggingPolicy
-  { _elasticLoadBalancingLoadBalancerAccessLoggingPolicyEmitInterval :: Maybe (Val Integer')
-  , _elasticLoadBalancingLoadBalancerAccessLoggingPolicyEnabled :: Val Bool'
+  { _elasticLoadBalancingLoadBalancerAccessLoggingPolicyEmitInterval :: Maybe (Val Integer)
+  , _elasticLoadBalancingLoadBalancerAccessLoggingPolicyEnabled :: Val Bool
   , _elasticLoadBalancingLoadBalancerAccessLoggingPolicyS3BucketName :: Val Text
   , _elasticLoadBalancingLoadBalancerAccessLoggingPolicyS3BucketPrefix :: Maybe (Val Text)
   } deriving (Show, Eq)
@@ -30,25 +31,25 @@ instance ToJSON ElasticLoadBalancingLoadBalancerAccessLoggingPolicy where
   toJSON ElasticLoadBalancingLoadBalancerAccessLoggingPolicy{..} =
     object $
     catMaybes
-    [ ("EmitInterval" .=) <$> _elasticLoadBalancingLoadBalancerAccessLoggingPolicyEmitInterval
-    , Just ("Enabled" .= _elasticLoadBalancingLoadBalancerAccessLoggingPolicyEnabled)
-    , Just ("S3BucketName" .= _elasticLoadBalancingLoadBalancerAccessLoggingPolicyS3BucketName)
-    , ("S3BucketPrefix" .=) <$> _elasticLoadBalancingLoadBalancerAccessLoggingPolicyS3BucketPrefix
+    [ fmap (("EmitInterval",) . toJSON . fmap Integer') _elasticLoadBalancingLoadBalancerAccessLoggingPolicyEmitInterval
+    , (Just . ("Enabled",) . toJSON . fmap Bool') _elasticLoadBalancingLoadBalancerAccessLoggingPolicyEnabled
+    , (Just . ("S3BucketName",) . toJSON) _elasticLoadBalancingLoadBalancerAccessLoggingPolicyS3BucketName
+    , fmap (("S3BucketPrefix",) . toJSON) _elasticLoadBalancingLoadBalancerAccessLoggingPolicyS3BucketPrefix
     ]
 
 instance FromJSON ElasticLoadBalancingLoadBalancerAccessLoggingPolicy where
   parseJSON (Object obj) =
     ElasticLoadBalancingLoadBalancerAccessLoggingPolicy <$>
-      obj .:? "EmitInterval" <*>
-      obj .: "Enabled" <*>
-      obj .: "S3BucketName" <*>
-      obj .:? "S3BucketPrefix"
+      fmap (fmap (fmap unInteger')) (obj .:? "EmitInterval") <*>
+      fmap (fmap unBool') (obj .: "Enabled") <*>
+      (obj .: "S3BucketName") <*>
+      (obj .:? "S3BucketPrefix")
   parseJSON _ = mempty
 
 -- | Constructor for 'ElasticLoadBalancingLoadBalancerAccessLoggingPolicy'
 -- containing required fields as arguments.
 elasticLoadBalancingLoadBalancerAccessLoggingPolicy
-  :: Val Bool' -- ^ 'elblbalpEnabled'
+  :: Val Bool -- ^ 'elblbalpEnabled'
   -> Val Text -- ^ 'elblbalpS3BucketName'
   -> ElasticLoadBalancingLoadBalancerAccessLoggingPolicy
 elasticLoadBalancingLoadBalancerAccessLoggingPolicy enabledarg s3BucketNamearg =
@@ -60,11 +61,11 @@ elasticLoadBalancingLoadBalancerAccessLoggingPolicy enabledarg s3BucketNamearg =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-accessloggingpolicy.html#cfn-elb-accessloggingpolicy-emitinterval
-elblbalpEmitInterval :: Lens' ElasticLoadBalancingLoadBalancerAccessLoggingPolicy (Maybe (Val Integer'))
+elblbalpEmitInterval :: Lens' ElasticLoadBalancingLoadBalancerAccessLoggingPolicy (Maybe (Val Integer))
 elblbalpEmitInterval = lens _elasticLoadBalancingLoadBalancerAccessLoggingPolicyEmitInterval (\s a -> s { _elasticLoadBalancingLoadBalancerAccessLoggingPolicyEmitInterval = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-accessloggingpolicy.html#cfn-elb-accessloggingpolicy-enabled
-elblbalpEnabled :: Lens' ElasticLoadBalancingLoadBalancerAccessLoggingPolicy (Val Bool')
+elblbalpEnabled :: Lens' ElasticLoadBalancingLoadBalancerAccessLoggingPolicy (Val Bool)
 elblbalpEnabled = lens _elasticLoadBalancingLoadBalancerAccessLoggingPolicyEnabled (\s a -> s { _elasticLoadBalancingLoadBalancerAccessLoggingPolicyEnabled = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-accessloggingpolicy.html#cfn-elb-accessloggingpolicy-s3bucketname

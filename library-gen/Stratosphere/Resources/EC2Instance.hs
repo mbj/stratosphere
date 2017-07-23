@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html
 
@@ -27,25 +28,25 @@ data EC2Instance =
   , _eC2InstanceAffinity :: Maybe (Val Text)
   , _eC2InstanceAvailabilityZone :: Maybe (Val Text)
   , _eC2InstanceBlockDeviceMappings :: Maybe [EC2InstanceBlockDeviceMapping]
-  , _eC2InstanceDisableApiTermination :: Maybe (Val Bool')
-  , _eC2InstanceEbsOptimized :: Maybe (Val Bool')
+  , _eC2InstanceDisableApiTermination :: Maybe (Val Bool)
+  , _eC2InstanceEbsOptimized :: Maybe (Val Bool)
   , _eC2InstanceHostId :: Maybe (Val Text)
   , _eC2InstanceIamInstanceProfile :: Maybe (Val Text)
   , _eC2InstanceImageId :: Val Text
   , _eC2InstanceInstanceInitiatedShutdownBehavior :: Maybe (Val Text)
   , _eC2InstanceInstanceType :: Maybe (Val Text)
-  , _eC2InstanceIpv6AddressCount :: Maybe (Val Integer')
+  , _eC2InstanceIpv6AddressCount :: Maybe (Val Integer)
   , _eC2InstanceIpv6Addresses :: Maybe [EC2InstanceInstanceIpv6Address]
   , _eC2InstanceKernelId :: Maybe (Val Text)
   , _eC2InstanceKeyName :: Maybe (Val Text)
-  , _eC2InstanceMonitoring :: Maybe (Val Bool')
+  , _eC2InstanceMonitoring :: Maybe (Val Bool)
   , _eC2InstanceNetworkInterfaces :: Maybe [EC2InstanceNetworkInterface]
   , _eC2InstancePlacementGroupName :: Maybe (Val Text)
   , _eC2InstancePrivateIpAddress :: Maybe (Val Text)
   , _eC2InstanceRamdiskId :: Maybe (Val Text)
   , _eC2InstanceSecurityGroupIds :: Maybe (ValList Text)
   , _eC2InstanceSecurityGroups :: Maybe (ValList Text)
-  , _eC2InstanceSourceDestCheck :: Maybe (Val Bool')
+  , _eC2InstanceSourceDestCheck :: Maybe (Val Bool)
   , _eC2InstanceSsmAssociations :: Maybe [EC2InstanceSsmAssociation]
   , _eC2InstanceSubnetId :: Maybe (Val Text)
   , _eC2InstanceTags :: Maybe [Tag]
@@ -58,69 +59,69 @@ instance ToJSON EC2Instance where
   toJSON EC2Instance{..} =
     object $
     catMaybes
-    [ ("AdditionalInfo" .=) <$> _eC2InstanceAdditionalInfo
-    , ("Affinity" .=) <$> _eC2InstanceAffinity
-    , ("AvailabilityZone" .=) <$> _eC2InstanceAvailabilityZone
-    , ("BlockDeviceMappings" .=) <$> _eC2InstanceBlockDeviceMappings
-    , ("DisableApiTermination" .=) <$> _eC2InstanceDisableApiTermination
-    , ("EbsOptimized" .=) <$> _eC2InstanceEbsOptimized
-    , ("HostId" .=) <$> _eC2InstanceHostId
-    , ("IamInstanceProfile" .=) <$> _eC2InstanceIamInstanceProfile
-    , Just ("ImageId" .= _eC2InstanceImageId)
-    , ("InstanceInitiatedShutdownBehavior" .=) <$> _eC2InstanceInstanceInitiatedShutdownBehavior
-    , ("InstanceType" .=) <$> _eC2InstanceInstanceType
-    , ("Ipv6AddressCount" .=) <$> _eC2InstanceIpv6AddressCount
-    , ("Ipv6Addresses" .=) <$> _eC2InstanceIpv6Addresses
-    , ("KernelId" .=) <$> _eC2InstanceKernelId
-    , ("KeyName" .=) <$> _eC2InstanceKeyName
-    , ("Monitoring" .=) <$> _eC2InstanceMonitoring
-    , ("NetworkInterfaces" .=) <$> _eC2InstanceNetworkInterfaces
-    , ("PlacementGroupName" .=) <$> _eC2InstancePlacementGroupName
-    , ("PrivateIpAddress" .=) <$> _eC2InstancePrivateIpAddress
-    , ("RamdiskId" .=) <$> _eC2InstanceRamdiskId
-    , ("SecurityGroupIds" .=) <$> _eC2InstanceSecurityGroupIds
-    , ("SecurityGroups" .=) <$> _eC2InstanceSecurityGroups
-    , ("SourceDestCheck" .=) <$> _eC2InstanceSourceDestCheck
-    , ("SsmAssociations" .=) <$> _eC2InstanceSsmAssociations
-    , ("SubnetId" .=) <$> _eC2InstanceSubnetId
-    , ("Tags" .=) <$> _eC2InstanceTags
-    , ("Tenancy" .=) <$> _eC2InstanceTenancy
-    , ("UserData" .=) <$> _eC2InstanceUserData
-    , ("Volumes" .=) <$> _eC2InstanceVolumes
+    [ fmap (("AdditionalInfo",) . toJSON) _eC2InstanceAdditionalInfo
+    , fmap (("Affinity",) . toJSON) _eC2InstanceAffinity
+    , fmap (("AvailabilityZone",) . toJSON) _eC2InstanceAvailabilityZone
+    , fmap (("BlockDeviceMappings",) . toJSON) _eC2InstanceBlockDeviceMappings
+    , fmap (("DisableApiTermination",) . toJSON . fmap Bool') _eC2InstanceDisableApiTermination
+    , fmap (("EbsOptimized",) . toJSON . fmap Bool') _eC2InstanceEbsOptimized
+    , fmap (("HostId",) . toJSON) _eC2InstanceHostId
+    , fmap (("IamInstanceProfile",) . toJSON) _eC2InstanceIamInstanceProfile
+    , (Just . ("ImageId",) . toJSON) _eC2InstanceImageId
+    , fmap (("InstanceInitiatedShutdownBehavior",) . toJSON) _eC2InstanceInstanceInitiatedShutdownBehavior
+    , fmap (("InstanceType",) . toJSON) _eC2InstanceInstanceType
+    , fmap (("Ipv6AddressCount",) . toJSON . fmap Integer') _eC2InstanceIpv6AddressCount
+    , fmap (("Ipv6Addresses",) . toJSON) _eC2InstanceIpv6Addresses
+    , fmap (("KernelId",) . toJSON) _eC2InstanceKernelId
+    , fmap (("KeyName",) . toJSON) _eC2InstanceKeyName
+    , fmap (("Monitoring",) . toJSON . fmap Bool') _eC2InstanceMonitoring
+    , fmap (("NetworkInterfaces",) . toJSON) _eC2InstanceNetworkInterfaces
+    , fmap (("PlacementGroupName",) . toJSON) _eC2InstancePlacementGroupName
+    , fmap (("PrivateIpAddress",) . toJSON) _eC2InstancePrivateIpAddress
+    , fmap (("RamdiskId",) . toJSON) _eC2InstanceRamdiskId
+    , fmap (("SecurityGroupIds",) . toJSON) _eC2InstanceSecurityGroupIds
+    , fmap (("SecurityGroups",) . toJSON) _eC2InstanceSecurityGroups
+    , fmap (("SourceDestCheck",) . toJSON . fmap Bool') _eC2InstanceSourceDestCheck
+    , fmap (("SsmAssociations",) . toJSON) _eC2InstanceSsmAssociations
+    , fmap (("SubnetId",) . toJSON) _eC2InstanceSubnetId
+    , fmap (("Tags",) . toJSON) _eC2InstanceTags
+    , fmap (("Tenancy",) . toJSON) _eC2InstanceTenancy
+    , fmap (("UserData",) . toJSON) _eC2InstanceUserData
+    , fmap (("Volumes",) . toJSON) _eC2InstanceVolumes
     ]
 
 instance FromJSON EC2Instance where
   parseJSON (Object obj) =
     EC2Instance <$>
-      obj .:? "AdditionalInfo" <*>
-      obj .:? "Affinity" <*>
-      obj .:? "AvailabilityZone" <*>
-      obj .:? "BlockDeviceMappings" <*>
-      obj .:? "DisableApiTermination" <*>
-      obj .:? "EbsOptimized" <*>
-      obj .:? "HostId" <*>
-      obj .:? "IamInstanceProfile" <*>
-      obj .: "ImageId" <*>
-      obj .:? "InstanceInitiatedShutdownBehavior" <*>
-      obj .:? "InstanceType" <*>
-      obj .:? "Ipv6AddressCount" <*>
-      obj .:? "Ipv6Addresses" <*>
-      obj .:? "KernelId" <*>
-      obj .:? "KeyName" <*>
-      obj .:? "Monitoring" <*>
-      obj .:? "NetworkInterfaces" <*>
-      obj .:? "PlacementGroupName" <*>
-      obj .:? "PrivateIpAddress" <*>
-      obj .:? "RamdiskId" <*>
-      obj .:? "SecurityGroupIds" <*>
-      obj .:? "SecurityGroups" <*>
-      obj .:? "SourceDestCheck" <*>
-      obj .:? "SsmAssociations" <*>
-      obj .:? "SubnetId" <*>
-      obj .:? "Tags" <*>
-      obj .:? "Tenancy" <*>
-      obj .:? "UserData" <*>
-      obj .:? "Volumes"
+      (obj .:? "AdditionalInfo") <*>
+      (obj .:? "Affinity") <*>
+      (obj .:? "AvailabilityZone") <*>
+      (obj .:? "BlockDeviceMappings") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "DisableApiTermination") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "EbsOptimized") <*>
+      (obj .:? "HostId") <*>
+      (obj .:? "IamInstanceProfile") <*>
+      (obj .: "ImageId") <*>
+      (obj .:? "InstanceInitiatedShutdownBehavior") <*>
+      (obj .:? "InstanceType") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "Ipv6AddressCount") <*>
+      (obj .:? "Ipv6Addresses") <*>
+      (obj .:? "KernelId") <*>
+      (obj .:? "KeyName") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "Monitoring") <*>
+      (obj .:? "NetworkInterfaces") <*>
+      (obj .:? "PlacementGroupName") <*>
+      (obj .:? "PrivateIpAddress") <*>
+      (obj .:? "RamdiskId") <*>
+      (obj .:? "SecurityGroupIds") <*>
+      (obj .:? "SecurityGroups") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "SourceDestCheck") <*>
+      (obj .:? "SsmAssociations") <*>
+      (obj .:? "SubnetId") <*>
+      (obj .:? "Tags") <*>
+      (obj .:? "Tenancy") <*>
+      (obj .:? "UserData") <*>
+      (obj .:? "Volumes")
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2Instance' containing required fields as arguments.
@@ -177,11 +178,11 @@ eciBlockDeviceMappings :: Lens' EC2Instance (Maybe [EC2InstanceBlockDeviceMappin
 eciBlockDeviceMappings = lens _eC2InstanceBlockDeviceMappings (\s a -> s { _eC2InstanceBlockDeviceMappings = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-disableapitermination
-eciDisableApiTermination :: Lens' EC2Instance (Maybe (Val Bool'))
+eciDisableApiTermination :: Lens' EC2Instance (Maybe (Val Bool))
 eciDisableApiTermination = lens _eC2InstanceDisableApiTermination (\s a -> s { _eC2InstanceDisableApiTermination = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-ebsoptimized
-eciEbsOptimized :: Lens' EC2Instance (Maybe (Val Bool'))
+eciEbsOptimized :: Lens' EC2Instance (Maybe (Val Bool))
 eciEbsOptimized = lens _eC2InstanceEbsOptimized (\s a -> s { _eC2InstanceEbsOptimized = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-hostid
@@ -205,7 +206,7 @@ eciInstanceType :: Lens' EC2Instance (Maybe (Val Text))
 eciInstanceType = lens _eC2InstanceInstanceType (\s a -> s { _eC2InstanceInstanceType = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-ipv6addresscount
-eciIpv6AddressCount :: Lens' EC2Instance (Maybe (Val Integer'))
+eciIpv6AddressCount :: Lens' EC2Instance (Maybe (Val Integer))
 eciIpv6AddressCount = lens _eC2InstanceIpv6AddressCount (\s a -> s { _eC2InstanceIpv6AddressCount = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-ipv6addresses
@@ -221,7 +222,7 @@ eciKeyName :: Lens' EC2Instance (Maybe (Val Text))
 eciKeyName = lens _eC2InstanceKeyName (\s a -> s { _eC2InstanceKeyName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-monitoring
-eciMonitoring :: Lens' EC2Instance (Maybe (Val Bool'))
+eciMonitoring :: Lens' EC2Instance (Maybe (Val Bool))
 eciMonitoring = lens _eC2InstanceMonitoring (\s a -> s { _eC2InstanceMonitoring = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-networkinterfaces
@@ -249,7 +250,7 @@ eciSecurityGroups :: Lens' EC2Instance (Maybe (ValList Text))
 eciSecurityGroups = lens _eC2InstanceSecurityGroups (\s a -> s { _eC2InstanceSecurityGroups = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-sourcedestcheck
-eciSourceDestCheck :: Lens' EC2Instance (Maybe (Val Bool'))
+eciSourceDestCheck :: Lens' EC2Instance (Maybe (Val Bool))
 eciSourceDestCheck = lens _eC2InstanceSourceDestCheck (\s a -> s { _eC2InstanceSourceDestCheck = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-ssmassociations

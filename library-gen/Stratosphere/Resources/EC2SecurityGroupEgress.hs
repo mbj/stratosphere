@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-security-group-egress.html
 
@@ -22,37 +23,37 @@ data EC2SecurityGroupEgress =
   , _eC2SecurityGroupEgressCidrIpv6 :: Maybe (Val Text)
   , _eC2SecurityGroupEgressDestinationPrefixListId :: Maybe (Val Text)
   , _eC2SecurityGroupEgressDestinationSecurityGroupId :: Maybe (Val Text)
-  , _eC2SecurityGroupEgressFromPort :: Maybe (Val Integer')
+  , _eC2SecurityGroupEgressFromPort :: Maybe (Val Integer)
   , _eC2SecurityGroupEgressGroupId :: Val Text
   , _eC2SecurityGroupEgressIpProtocol :: Val Text
-  , _eC2SecurityGroupEgressToPort :: Maybe (Val Integer')
+  , _eC2SecurityGroupEgressToPort :: Maybe (Val Integer)
   } deriving (Show, Eq)
 
 instance ToJSON EC2SecurityGroupEgress where
   toJSON EC2SecurityGroupEgress{..} =
     object $
     catMaybes
-    [ ("CidrIp" .=) <$> _eC2SecurityGroupEgressCidrIp
-    , ("CidrIpv6" .=) <$> _eC2SecurityGroupEgressCidrIpv6
-    , ("DestinationPrefixListId" .=) <$> _eC2SecurityGroupEgressDestinationPrefixListId
-    , ("DestinationSecurityGroupId" .=) <$> _eC2SecurityGroupEgressDestinationSecurityGroupId
-    , ("FromPort" .=) <$> _eC2SecurityGroupEgressFromPort
-    , Just ("GroupId" .= _eC2SecurityGroupEgressGroupId)
-    , Just ("IpProtocol" .= _eC2SecurityGroupEgressIpProtocol)
-    , ("ToPort" .=) <$> _eC2SecurityGroupEgressToPort
+    [ fmap (("CidrIp",) . toJSON) _eC2SecurityGroupEgressCidrIp
+    , fmap (("CidrIpv6",) . toJSON) _eC2SecurityGroupEgressCidrIpv6
+    , fmap (("DestinationPrefixListId",) . toJSON) _eC2SecurityGroupEgressDestinationPrefixListId
+    , fmap (("DestinationSecurityGroupId",) . toJSON) _eC2SecurityGroupEgressDestinationSecurityGroupId
+    , fmap (("FromPort",) . toJSON . fmap Integer') _eC2SecurityGroupEgressFromPort
+    , (Just . ("GroupId",) . toJSON) _eC2SecurityGroupEgressGroupId
+    , (Just . ("IpProtocol",) . toJSON) _eC2SecurityGroupEgressIpProtocol
+    , fmap (("ToPort",) . toJSON . fmap Integer') _eC2SecurityGroupEgressToPort
     ]
 
 instance FromJSON EC2SecurityGroupEgress where
   parseJSON (Object obj) =
     EC2SecurityGroupEgress <$>
-      obj .:? "CidrIp" <*>
-      obj .:? "CidrIpv6" <*>
-      obj .:? "DestinationPrefixListId" <*>
-      obj .:? "DestinationSecurityGroupId" <*>
-      obj .:? "FromPort" <*>
-      obj .: "GroupId" <*>
-      obj .: "IpProtocol" <*>
-      obj .:? "ToPort"
+      (obj .:? "CidrIp") <*>
+      (obj .:? "CidrIpv6") <*>
+      (obj .:? "DestinationPrefixListId") <*>
+      (obj .:? "DestinationSecurityGroupId") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "FromPort") <*>
+      (obj .: "GroupId") <*>
+      (obj .: "IpProtocol") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "ToPort")
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2SecurityGroupEgress' containing required fields as
@@ -90,7 +91,7 @@ ecsgeDestinationSecurityGroupId :: Lens' EC2SecurityGroupEgress (Maybe (Val Text
 ecsgeDestinationSecurityGroupId = lens _eC2SecurityGroupEgressDestinationSecurityGroupId (\s a -> s { _eC2SecurityGroupEgressDestinationSecurityGroupId = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-security-group-egress.html#cfn-ec2-securitygroupegress-fromport
-ecsgeFromPort :: Lens' EC2SecurityGroupEgress (Maybe (Val Integer'))
+ecsgeFromPort :: Lens' EC2SecurityGroupEgress (Maybe (Val Integer))
 ecsgeFromPort = lens _eC2SecurityGroupEgressFromPort (\s a -> s { _eC2SecurityGroupEgressFromPort = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-security-group-egress.html#cfn-ec2-securitygroupegress-groupid
@@ -102,5 +103,5 @@ ecsgeIpProtocol :: Lens' EC2SecurityGroupEgress (Val Text)
 ecsgeIpProtocol = lens _eC2SecurityGroupEgressIpProtocol (\s a -> s { _eC2SecurityGroupEgressIpProtocol = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-security-group-egress.html#cfn-ec2-securitygroupegress-toport
-ecsgeToPort :: Lens' EC2SecurityGroupEgress (Maybe (Val Integer'))
+ecsgeToPort :: Lens' EC2SecurityGroupEgress (Maybe (Val Integer))
 ecsgeToPort = lens _eC2SecurityGroupEgressToPort (\s a -> s { _eC2SecurityGroupEgressToPort = a })

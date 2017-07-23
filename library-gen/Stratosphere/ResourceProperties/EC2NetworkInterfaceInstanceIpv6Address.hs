@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinterface-instanceipv6address.html
 
@@ -26,13 +27,13 @@ instance ToJSON EC2NetworkInterfaceInstanceIpv6Address where
   toJSON EC2NetworkInterfaceInstanceIpv6Address{..} =
     object $
     catMaybes
-    [ Just ("Ipv6Address" .= _eC2NetworkInterfaceInstanceIpv6AddressIpv6Address)
+    [ (Just . ("Ipv6Address",) . toJSON) _eC2NetworkInterfaceInstanceIpv6AddressIpv6Address
     ]
 
 instance FromJSON EC2NetworkInterfaceInstanceIpv6Address where
   parseJSON (Object obj) =
     EC2NetworkInterfaceInstanceIpv6Address <$>
-      obj .: "Ipv6Address"
+      (obj .: "Ipv6Address")
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2NetworkInterfaceInstanceIpv6Address' containing

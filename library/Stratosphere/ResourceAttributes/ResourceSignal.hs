@@ -1,5 +1,6 @@
-{-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- |
 
@@ -7,9 +8,8 @@ module Stratosphere.ResourceAttributes.ResourceSignal where
 
 import Control.Lens
 import Data.Aeson
-import Data.Aeson.Types
+import Data.Maybe (catMaybes)
 import Data.Text
-import GHC.Generics
 
 import Stratosphere.Values
 
@@ -18,15 +18,24 @@ import Stratosphere.Values
 -- more convenient constructor.
 data ResourceSignal =
   ResourceSignal
-  { _resourceSignalCount :: Maybe (Val Integer')
+  { _resourceSignalCount :: Maybe (Val Integer)
   , _resourceSignalTimeout :: Maybe (Val Text)
-  } deriving (Show, Eq, Generic)
+  } deriving (Show, Eq)
 
 instance ToJSON ResourceSignal where
-  toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 15, omitNothingFields = True }
+  toJSON ResourceSignal{..} =
+    object $
+    catMaybes
+    [ fmap (("Count",) . toJSON . fmap Integer') _resourceSignalCount
+    , fmap (("Timeout",) . toJSON) _resourceSignalTimeout
+    ]
 
 instance FromJSON ResourceSignal where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 15, omitNothingFields = True }
+  parseJSON (Object obj) =
+    ResourceSignal <$>
+      fmap (fmap (fmap unInteger')) (obj .:? "Count") <*>
+      (obj .:? "Timeout")
+  parseJSON _ = mempty
 
 -- | Constructor for 'ResourceSignal' containing required fields as arguments.
 resourceSignal
@@ -42,7 +51,7 @@ resourceSignal  =
 -- failure signal or doesn't receive the specified number of signals before
 -- the timeout period expires, the resource creation fails and AWS
 -- CloudFormation rolls the stack back.
-rsCount :: Lens' ResourceSignal (Maybe (Val Integer'))
+rsCount :: Lens' ResourceSignal (Maybe (Val Integer))
 rsCount = lens _resourceSignalCount (\s a -> s { _resourceSignalCount = a })
 
 -- | The length of time that AWS CloudFormation waits for the number of

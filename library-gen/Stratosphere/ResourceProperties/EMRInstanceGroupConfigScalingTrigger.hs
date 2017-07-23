@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancegroupconfig-scalingtrigger.html
 
@@ -25,13 +26,13 @@ instance ToJSON EMRInstanceGroupConfigScalingTrigger where
   toJSON EMRInstanceGroupConfigScalingTrigger{..} =
     object $
     catMaybes
-    [ Just ("CloudWatchAlarmDefinition" .= _eMRInstanceGroupConfigScalingTriggerCloudWatchAlarmDefinition)
+    [ (Just . ("CloudWatchAlarmDefinition",) . toJSON) _eMRInstanceGroupConfigScalingTriggerCloudWatchAlarmDefinition
     ]
 
 instance FromJSON EMRInstanceGroupConfigScalingTrigger where
   parseJSON (Object obj) =
     EMRInstanceGroupConfigScalingTrigger <$>
-      obj .: "CloudWatchAlarmDefinition"
+      (obj .: "CloudWatchAlarmDefinition")
   parseJSON _ = mempty
 
 -- | Constructor for 'EMRInstanceGroupConfigScalingTrigger' containing

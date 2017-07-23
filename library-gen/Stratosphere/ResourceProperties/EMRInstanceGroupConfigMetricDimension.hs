@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancegroupconfig-metricdimension.html
 
@@ -27,15 +28,15 @@ instance ToJSON EMRInstanceGroupConfigMetricDimension where
   toJSON EMRInstanceGroupConfigMetricDimension{..} =
     object $
     catMaybes
-    [ Just ("Key" .= _eMRInstanceGroupConfigMetricDimensionKey)
-    , Just ("Value" .= _eMRInstanceGroupConfigMetricDimensionValue)
+    [ (Just . ("Key",) . toJSON) _eMRInstanceGroupConfigMetricDimensionKey
+    , (Just . ("Value",) . toJSON) _eMRInstanceGroupConfigMetricDimensionValue
     ]
 
 instance FromJSON EMRInstanceGroupConfigMetricDimension where
   parseJSON (Object obj) =
     EMRInstanceGroupConfigMetricDimension <$>
-      obj .: "Key" <*>
-      obj .: "Value"
+      (obj .: "Key") <*>
+      (obj .: "Value")
   parseJSON _ = mempty
 
 -- | Constructor for 'EMRInstanceGroupConfigMetricDimension' containing

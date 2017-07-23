@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-apistage.html
 
@@ -26,15 +27,15 @@ instance ToJSON ApiGatewayUsagePlanApiStage where
   toJSON ApiGatewayUsagePlanApiStage{..} =
     object $
     catMaybes
-    [ ("ApiId" .=) <$> _apiGatewayUsagePlanApiStageApiId
-    , ("Stage" .=) <$> _apiGatewayUsagePlanApiStageStage
+    [ fmap (("ApiId",) . toJSON) _apiGatewayUsagePlanApiStageApiId
+    , fmap (("Stage",) . toJSON) _apiGatewayUsagePlanApiStageStage
     ]
 
 instance FromJSON ApiGatewayUsagePlanApiStage where
   parseJSON (Object obj) =
     ApiGatewayUsagePlanApiStage <$>
-      obj .:? "ApiId" <*>
-      obj .:? "Stage"
+      (obj .:? "ApiId") <*>
+      (obj .:? "Stage")
   parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayUsagePlanApiStage' containing required fields

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-disableinboundstagetransitions.html
 
@@ -26,15 +27,15 @@ instance ToJSON CodePipelinePipelineStageTransition where
   toJSON CodePipelinePipelineStageTransition{..} =
     object $
     catMaybes
-    [ Just ("Reason" .= _codePipelinePipelineStageTransitionReason)
-    , Just ("StageName" .= _codePipelinePipelineStageTransitionStageName)
+    [ (Just . ("Reason",) . toJSON) _codePipelinePipelineStageTransitionReason
+    , (Just . ("StageName",) . toJSON) _codePipelinePipelineStageTransitionStageName
     ]
 
 instance FromJSON CodePipelinePipelineStageTransition where
   parseJSON (Object obj) =
     CodePipelinePipelineStageTransition <$>
-      obj .: "Reason" <*>
-      obj .: "StageName"
+      (obj .: "Reason") <*>
+      (obj .: "StageName")
   parseJSON _ = mempty
 
 -- | Constructor for 'CodePipelinePipelineStageTransition' containing required

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-instance-ebsblockdevice.html
 
@@ -18,10 +19,10 @@ import Stratosphere.Values
 -- 'opsWorksInstanceEbsBlockDevice' for a more convenient constructor.
 data OpsWorksInstanceEbsBlockDevice =
   OpsWorksInstanceEbsBlockDevice
-  { _opsWorksInstanceEbsBlockDeviceDeleteOnTermination :: Maybe (Val Bool')
-  , _opsWorksInstanceEbsBlockDeviceIops :: Maybe (Val Integer')
+  { _opsWorksInstanceEbsBlockDeviceDeleteOnTermination :: Maybe (Val Bool)
+  , _opsWorksInstanceEbsBlockDeviceIops :: Maybe (Val Integer)
   , _opsWorksInstanceEbsBlockDeviceSnapshotId :: Maybe (Val Text)
-  , _opsWorksInstanceEbsBlockDeviceVolumeSize :: Maybe (Val Integer')
+  , _opsWorksInstanceEbsBlockDeviceVolumeSize :: Maybe (Val Integer)
   , _opsWorksInstanceEbsBlockDeviceVolumeType :: Maybe (Val Text)
   } deriving (Show, Eq)
 
@@ -29,21 +30,21 @@ instance ToJSON OpsWorksInstanceEbsBlockDevice where
   toJSON OpsWorksInstanceEbsBlockDevice{..} =
     object $
     catMaybes
-    [ ("DeleteOnTermination" .=) <$> _opsWorksInstanceEbsBlockDeviceDeleteOnTermination
-    , ("Iops" .=) <$> _opsWorksInstanceEbsBlockDeviceIops
-    , ("SnapshotId" .=) <$> _opsWorksInstanceEbsBlockDeviceSnapshotId
-    , ("VolumeSize" .=) <$> _opsWorksInstanceEbsBlockDeviceVolumeSize
-    , ("VolumeType" .=) <$> _opsWorksInstanceEbsBlockDeviceVolumeType
+    [ fmap (("DeleteOnTermination",) . toJSON . fmap Bool') _opsWorksInstanceEbsBlockDeviceDeleteOnTermination
+    , fmap (("Iops",) . toJSON . fmap Integer') _opsWorksInstanceEbsBlockDeviceIops
+    , fmap (("SnapshotId",) . toJSON) _opsWorksInstanceEbsBlockDeviceSnapshotId
+    , fmap (("VolumeSize",) . toJSON . fmap Integer') _opsWorksInstanceEbsBlockDeviceVolumeSize
+    , fmap (("VolumeType",) . toJSON) _opsWorksInstanceEbsBlockDeviceVolumeType
     ]
 
 instance FromJSON OpsWorksInstanceEbsBlockDevice where
   parseJSON (Object obj) =
     OpsWorksInstanceEbsBlockDevice <$>
-      obj .:? "DeleteOnTermination" <*>
-      obj .:? "Iops" <*>
-      obj .:? "SnapshotId" <*>
-      obj .:? "VolumeSize" <*>
-      obj .:? "VolumeType"
+      fmap (fmap (fmap unBool')) (obj .:? "DeleteOnTermination") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "Iops") <*>
+      (obj .:? "SnapshotId") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "VolumeSize") <*>
+      (obj .:? "VolumeType")
   parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksInstanceEbsBlockDevice' containing required
@@ -60,11 +61,11 @@ opsWorksInstanceEbsBlockDevice  =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-instance-ebsblockdevice.html#cfn-opsworks-instance-ebsblockdevice-deleteontermination
-owiebdDeleteOnTermination :: Lens' OpsWorksInstanceEbsBlockDevice (Maybe (Val Bool'))
+owiebdDeleteOnTermination :: Lens' OpsWorksInstanceEbsBlockDevice (Maybe (Val Bool))
 owiebdDeleteOnTermination = lens _opsWorksInstanceEbsBlockDeviceDeleteOnTermination (\s a -> s { _opsWorksInstanceEbsBlockDeviceDeleteOnTermination = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-instance-ebsblockdevice.html#cfn-opsworks-instance-ebsblockdevice-iops
-owiebdIops :: Lens' OpsWorksInstanceEbsBlockDevice (Maybe (Val Integer'))
+owiebdIops :: Lens' OpsWorksInstanceEbsBlockDevice (Maybe (Val Integer))
 owiebdIops = lens _opsWorksInstanceEbsBlockDeviceIops (\s a -> s { _opsWorksInstanceEbsBlockDeviceIops = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-instance-ebsblockdevice.html#cfn-opsworks-instance-ebsblockdevice-snapshotid
@@ -72,7 +73,7 @@ owiebdSnapshotId :: Lens' OpsWorksInstanceEbsBlockDevice (Maybe (Val Text))
 owiebdSnapshotId = lens _opsWorksInstanceEbsBlockDeviceSnapshotId (\s a -> s { _opsWorksInstanceEbsBlockDeviceSnapshotId = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-instance-ebsblockdevice.html#cfn-opsworks-instance-ebsblockdevice-volumesize
-owiebdVolumeSize :: Lens' OpsWorksInstanceEbsBlockDevice (Maybe (Val Integer'))
+owiebdVolumeSize :: Lens' OpsWorksInstanceEbsBlockDevice (Maybe (Val Integer))
 owiebdVolumeSize = lens _opsWorksInstanceEbsBlockDeviceVolumeSize (\s a -> s { _opsWorksInstanceEbsBlockDeviceVolumeSize = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-instance-ebsblockdevice.html#cfn-opsworks-instance-ebsblockdevice-volumetype

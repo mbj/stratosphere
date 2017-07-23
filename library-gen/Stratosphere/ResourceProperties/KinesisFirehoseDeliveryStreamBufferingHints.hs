@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-kinesisdeliverystream-s3destinationconfiguration-bufferinghints.html
 
@@ -20,30 +21,30 @@ import Stratosphere.Values
 -- constructor.
 data KinesisFirehoseDeliveryStreamBufferingHints =
   KinesisFirehoseDeliveryStreamBufferingHints
-  { _kinesisFirehoseDeliveryStreamBufferingHintsIntervalInSeconds :: Val Integer'
-  , _kinesisFirehoseDeliveryStreamBufferingHintsSizeInMBs :: Val Integer'
+  { _kinesisFirehoseDeliveryStreamBufferingHintsIntervalInSeconds :: Val Integer
+  , _kinesisFirehoseDeliveryStreamBufferingHintsSizeInMBs :: Val Integer
   } deriving (Show, Eq)
 
 instance ToJSON KinesisFirehoseDeliveryStreamBufferingHints where
   toJSON KinesisFirehoseDeliveryStreamBufferingHints{..} =
     object $
     catMaybes
-    [ Just ("IntervalInSeconds" .= _kinesisFirehoseDeliveryStreamBufferingHintsIntervalInSeconds)
-    , Just ("SizeInMBs" .= _kinesisFirehoseDeliveryStreamBufferingHintsSizeInMBs)
+    [ (Just . ("IntervalInSeconds",) . toJSON . fmap Integer') _kinesisFirehoseDeliveryStreamBufferingHintsIntervalInSeconds
+    , (Just . ("SizeInMBs",) . toJSON . fmap Integer') _kinesisFirehoseDeliveryStreamBufferingHintsSizeInMBs
     ]
 
 instance FromJSON KinesisFirehoseDeliveryStreamBufferingHints where
   parseJSON (Object obj) =
     KinesisFirehoseDeliveryStreamBufferingHints <$>
-      obj .: "IntervalInSeconds" <*>
-      obj .: "SizeInMBs"
+      fmap (fmap unInteger') (obj .: "IntervalInSeconds") <*>
+      fmap (fmap unInteger') (obj .: "SizeInMBs")
   parseJSON _ = mempty
 
 -- | Constructor for 'KinesisFirehoseDeliveryStreamBufferingHints' containing
 -- required fields as arguments.
 kinesisFirehoseDeliveryStreamBufferingHints
-  :: Val Integer' -- ^ 'kfdsbhIntervalInSeconds'
-  -> Val Integer' -- ^ 'kfdsbhSizeInMBs'
+  :: Val Integer -- ^ 'kfdsbhIntervalInSeconds'
+  -> Val Integer -- ^ 'kfdsbhSizeInMBs'
   -> KinesisFirehoseDeliveryStreamBufferingHints
 kinesisFirehoseDeliveryStreamBufferingHints intervalInSecondsarg sizeInMBsarg =
   KinesisFirehoseDeliveryStreamBufferingHints
@@ -52,9 +53,9 @@ kinesisFirehoseDeliveryStreamBufferingHints intervalInSecondsarg sizeInMBsarg =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-kinesisdeliverystream-s3destinationconfiguration-bufferinghints.html#cfn-kinesisfirehose-kinesisdeliverystream-s3destinationconfiguration-bufferinghints-intervalinseconds
-kfdsbhIntervalInSeconds :: Lens' KinesisFirehoseDeliveryStreamBufferingHints (Val Integer')
+kfdsbhIntervalInSeconds :: Lens' KinesisFirehoseDeliveryStreamBufferingHints (Val Integer)
 kfdsbhIntervalInSeconds = lens _kinesisFirehoseDeliveryStreamBufferingHintsIntervalInSeconds (\s a -> s { _kinesisFirehoseDeliveryStreamBufferingHintsIntervalInSeconds = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-kinesisdeliverystream-s3destinationconfiguration-bufferinghints.html#cfn-kinesisfirehose-kinesisdeliverystream-s3destinationconfiguration-bufferinghints-sizeinmbs
-kfdsbhSizeInMBs :: Lens' KinesisFirehoseDeliveryStreamBufferingHints (Val Integer')
+kfdsbhSizeInMBs :: Lens' KinesisFirehoseDeliveryStreamBufferingHints (Val Integer)
 kfdsbhSizeInMBs = lens _kinesisFirehoseDeliveryStreamBufferingHintsSizeInMBs (\s a -> s { _kinesisFirehoseDeliveryStreamBufferingHintsSizeInMBs = a })

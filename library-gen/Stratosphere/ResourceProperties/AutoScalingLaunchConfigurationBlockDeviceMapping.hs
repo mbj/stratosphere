@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig-blockdev-mapping.html
 
@@ -22,7 +23,7 @@ data AutoScalingLaunchConfigurationBlockDeviceMapping =
   AutoScalingLaunchConfigurationBlockDeviceMapping
   { _autoScalingLaunchConfigurationBlockDeviceMappingDeviceName :: Val Text
   , _autoScalingLaunchConfigurationBlockDeviceMappingEbs :: Maybe AutoScalingLaunchConfigurationBlockDevice
-  , _autoScalingLaunchConfigurationBlockDeviceMappingNoDevice :: Maybe (Val Bool')
+  , _autoScalingLaunchConfigurationBlockDeviceMappingNoDevice :: Maybe (Val Bool)
   , _autoScalingLaunchConfigurationBlockDeviceMappingVirtualName :: Maybe (Val Text)
   } deriving (Show, Eq)
 
@@ -30,19 +31,19 @@ instance ToJSON AutoScalingLaunchConfigurationBlockDeviceMapping where
   toJSON AutoScalingLaunchConfigurationBlockDeviceMapping{..} =
     object $
     catMaybes
-    [ Just ("DeviceName" .= _autoScalingLaunchConfigurationBlockDeviceMappingDeviceName)
-    , ("Ebs" .=) <$> _autoScalingLaunchConfigurationBlockDeviceMappingEbs
-    , ("NoDevice" .=) <$> _autoScalingLaunchConfigurationBlockDeviceMappingNoDevice
-    , ("VirtualName" .=) <$> _autoScalingLaunchConfigurationBlockDeviceMappingVirtualName
+    [ (Just . ("DeviceName",) . toJSON) _autoScalingLaunchConfigurationBlockDeviceMappingDeviceName
+    , fmap (("Ebs",) . toJSON) _autoScalingLaunchConfigurationBlockDeviceMappingEbs
+    , fmap (("NoDevice",) . toJSON . fmap Bool') _autoScalingLaunchConfigurationBlockDeviceMappingNoDevice
+    , fmap (("VirtualName",) . toJSON) _autoScalingLaunchConfigurationBlockDeviceMappingVirtualName
     ]
 
 instance FromJSON AutoScalingLaunchConfigurationBlockDeviceMapping where
   parseJSON (Object obj) =
     AutoScalingLaunchConfigurationBlockDeviceMapping <$>
-      obj .: "DeviceName" <*>
-      obj .:? "Ebs" <*>
-      obj .:? "NoDevice" <*>
-      obj .:? "VirtualName"
+      (obj .: "DeviceName") <*>
+      (obj .:? "Ebs") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "NoDevice") <*>
+      (obj .:? "VirtualName")
   parseJSON _ = mempty
 
 -- | Constructor for 'AutoScalingLaunchConfigurationBlockDeviceMapping'
@@ -67,7 +68,7 @@ aslcbdmEbs :: Lens' AutoScalingLaunchConfigurationBlockDeviceMapping (Maybe Auto
 aslcbdmEbs = lens _autoScalingLaunchConfigurationBlockDeviceMappingEbs (\s a -> s { _autoScalingLaunchConfigurationBlockDeviceMappingEbs = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig-blockdev-mapping.html#cfn-as-launchconfig-blockdev-mapping-nodevice
-aslcbdmNoDevice :: Lens' AutoScalingLaunchConfigurationBlockDeviceMapping (Maybe (Val Bool'))
+aslcbdmNoDevice :: Lens' AutoScalingLaunchConfigurationBlockDeviceMapping (Maybe (Val Bool))
 aslcbdmNoDevice = lens _autoScalingLaunchConfigurationBlockDeviceMappingNoDevice (\s a -> s { _autoScalingLaunchConfigurationBlockDeviceMappingNoDevice = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig-blockdev-mapping.html#cfn-as-launchconfig-blockdev-mapping-virtualname

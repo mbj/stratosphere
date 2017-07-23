@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html
 
@@ -31,23 +32,23 @@ instance ToJSON IAMUser where
   toJSON IAMUser{..} =
     object $
     catMaybes
-    [ ("Groups" .=) <$> _iAMUserGroups
-    , ("LoginProfile" .=) <$> _iAMUserLoginProfile
-    , ("ManagedPolicyArns" .=) <$> _iAMUserManagedPolicyArns
-    , ("Path" .=) <$> _iAMUserPath
-    , ("Policies" .=) <$> _iAMUserPolicies
-    , ("UserName" .=) <$> _iAMUserUserName
+    [ fmap (("Groups",) . toJSON) _iAMUserGroups
+    , fmap (("LoginProfile",) . toJSON) _iAMUserLoginProfile
+    , fmap (("ManagedPolicyArns",) . toJSON) _iAMUserManagedPolicyArns
+    , fmap (("Path",) . toJSON) _iAMUserPath
+    , fmap (("Policies",) . toJSON) _iAMUserPolicies
+    , fmap (("UserName",) . toJSON) _iAMUserUserName
     ]
 
 instance FromJSON IAMUser where
   parseJSON (Object obj) =
     IAMUser <$>
-      obj .:? "Groups" <*>
-      obj .:? "LoginProfile" <*>
-      obj .:? "ManagedPolicyArns" <*>
-      obj .:? "Path" <*>
-      obj .:? "Policies" <*>
-      obj .:? "UserName"
+      (obj .:? "Groups") <*>
+      (obj .:? "LoginProfile") <*>
+      (obj .:? "ManagedPolicyArns") <*>
+      (obj .:? "Path") <*>
+      (obj .:? "Policies") <*>
+      (obj .:? "UserName")
   parseJSON _ = mempty
 
 -- | Constructor for 'IAMUser' containing required fields as arguments.

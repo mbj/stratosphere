@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-security-group-ingress.html
 
@@ -27,17 +28,17 @@ instance ToJSON ElastiCacheSecurityGroupIngress where
   toJSON ElastiCacheSecurityGroupIngress{..} =
     object $
     catMaybes
-    [ Just ("CacheSecurityGroupName" .= _elastiCacheSecurityGroupIngressCacheSecurityGroupName)
-    , Just ("EC2SecurityGroupName" .= _elastiCacheSecurityGroupIngressEC2SecurityGroupName)
-    , ("EC2SecurityGroupOwnerId" .=) <$> _elastiCacheSecurityGroupIngressEC2SecurityGroupOwnerId
+    [ (Just . ("CacheSecurityGroupName",) . toJSON) _elastiCacheSecurityGroupIngressCacheSecurityGroupName
+    , (Just . ("EC2SecurityGroupName",) . toJSON) _elastiCacheSecurityGroupIngressEC2SecurityGroupName
+    , fmap (("EC2SecurityGroupOwnerId",) . toJSON) _elastiCacheSecurityGroupIngressEC2SecurityGroupOwnerId
     ]
 
 instance FromJSON ElastiCacheSecurityGroupIngress where
   parseJSON (Object obj) =
     ElastiCacheSecurityGroupIngress <$>
-      obj .: "CacheSecurityGroupName" <*>
-      obj .: "EC2SecurityGroupName" <*>
-      obj .:? "EC2SecurityGroupOwnerId"
+      (obj .: "CacheSecurityGroupName") <*>
+      (obj .: "EC2SecurityGroupName") <*>
+      (obj .:? "EC2SecurityGroupOwnerId")
   parseJSON _ = mempty
 
 -- | Constructor for 'ElastiCacheSecurityGroupIngress' containing required

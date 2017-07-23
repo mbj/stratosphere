@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumes.html
 
@@ -26,15 +27,15 @@ instance ToJSON ECSTaskDefinitionVolume where
   toJSON ECSTaskDefinitionVolume{..} =
     object $
     catMaybes
-    [ ("Host" .=) <$> _eCSTaskDefinitionVolumeHost
-    , ("Name" .=) <$> _eCSTaskDefinitionVolumeName
+    [ fmap (("Host",) . toJSON) _eCSTaskDefinitionVolumeHost
+    , fmap (("Name",) . toJSON) _eCSTaskDefinitionVolumeName
     ]
 
 instance FromJSON ECSTaskDefinitionVolume where
   parseJSON (Object obj) =
     ECSTaskDefinitionVolume <$>
-      obj .:? "Host" <*>
-      obj .:? "Name"
+      (obj .:? "Host") <*>
+      (obj .:? "Name")
   parseJSON _ = mempty
 
 -- | Constructor for 'ECSTaskDefinitionVolume' containing required fields as

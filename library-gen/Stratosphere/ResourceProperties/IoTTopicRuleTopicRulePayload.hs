@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrulepayload.html
 
@@ -21,7 +22,7 @@ data IoTTopicRuleTopicRulePayload =
   { _ioTTopicRuleTopicRulePayloadActions :: [IoTTopicRuleAction]
   , _ioTTopicRuleTopicRulePayloadAwsIotSqlVersion :: Maybe (Val Text)
   , _ioTTopicRuleTopicRulePayloadDescription :: Maybe (Val Text)
-  , _ioTTopicRuleTopicRulePayloadRuleDisabled :: Val Bool'
+  , _ioTTopicRuleTopicRulePayloadRuleDisabled :: Val Bool
   , _ioTTopicRuleTopicRulePayloadSql :: Val Text
   } deriving (Show, Eq)
 
@@ -29,28 +30,28 @@ instance ToJSON IoTTopicRuleTopicRulePayload where
   toJSON IoTTopicRuleTopicRulePayload{..} =
     object $
     catMaybes
-    [ Just ("Actions" .= _ioTTopicRuleTopicRulePayloadActions)
-    , ("AwsIotSqlVersion" .=) <$> _ioTTopicRuleTopicRulePayloadAwsIotSqlVersion
-    , ("Description" .=) <$> _ioTTopicRuleTopicRulePayloadDescription
-    , Just ("RuleDisabled" .= _ioTTopicRuleTopicRulePayloadRuleDisabled)
-    , Just ("Sql" .= _ioTTopicRuleTopicRulePayloadSql)
+    [ (Just . ("Actions",) . toJSON) _ioTTopicRuleTopicRulePayloadActions
+    , fmap (("AwsIotSqlVersion",) . toJSON) _ioTTopicRuleTopicRulePayloadAwsIotSqlVersion
+    , fmap (("Description",) . toJSON) _ioTTopicRuleTopicRulePayloadDescription
+    , (Just . ("RuleDisabled",) . toJSON . fmap Bool') _ioTTopicRuleTopicRulePayloadRuleDisabled
+    , (Just . ("Sql",) . toJSON) _ioTTopicRuleTopicRulePayloadSql
     ]
 
 instance FromJSON IoTTopicRuleTopicRulePayload where
   parseJSON (Object obj) =
     IoTTopicRuleTopicRulePayload <$>
-      obj .: "Actions" <*>
-      obj .:? "AwsIotSqlVersion" <*>
-      obj .:? "Description" <*>
-      obj .: "RuleDisabled" <*>
-      obj .: "Sql"
+      (obj .: "Actions") <*>
+      (obj .:? "AwsIotSqlVersion") <*>
+      (obj .:? "Description") <*>
+      fmap (fmap unBool') (obj .: "RuleDisabled") <*>
+      (obj .: "Sql")
   parseJSON _ = mempty
 
 -- | Constructor for 'IoTTopicRuleTopicRulePayload' containing required fields
 -- as arguments.
 ioTTopicRuleTopicRulePayload
   :: [IoTTopicRuleAction] -- ^ 'ittrtrpActions'
-  -> Val Bool' -- ^ 'ittrtrpRuleDisabled'
+  -> Val Bool -- ^ 'ittrtrpRuleDisabled'
   -> Val Text -- ^ 'ittrtrpSql'
   -> IoTTopicRuleTopicRulePayload
 ioTTopicRuleTopicRulePayload actionsarg ruleDisabledarg sqlarg =
@@ -75,7 +76,7 @@ ittrtrpDescription :: Lens' IoTTopicRuleTopicRulePayload (Maybe (Val Text))
 ittrtrpDescription = lens _ioTTopicRuleTopicRulePayloadDescription (\s a -> s { _ioTTopicRuleTopicRulePayloadDescription = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrulepayload.html#cfn-iot-topicrulepayload-ruledisabled
-ittrtrpRuleDisabled :: Lens' IoTTopicRuleTopicRulePayload (Val Bool')
+ittrtrpRuleDisabled :: Lens' IoTTopicRuleTopicRulePayload (Val Bool)
 ittrtrpRuleDisabled = lens _ioTTopicRuleTopicRulePayloadRuleDisabled (\s a -> s { _ioTTopicRuleTopicRulePayloadRuleDisabled = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrulepayload.html#cfn-iot-topicrulepayload-sql

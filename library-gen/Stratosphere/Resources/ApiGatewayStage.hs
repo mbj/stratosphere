@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html
 
@@ -18,7 +19,7 @@ import Stratosphere.ResourceProperties.ApiGatewayStageMethodSetting
 -- a more convenient constructor.
 data ApiGatewayStage =
   ApiGatewayStage
-  { _apiGatewayStageCacheClusterEnabled :: Maybe (Val Bool')
+  { _apiGatewayStageCacheClusterEnabled :: Maybe (Val Bool)
   , _apiGatewayStageCacheClusterSize :: Maybe (Val Text)
   , _apiGatewayStageClientCertificateId :: Maybe (Val Text)
   , _apiGatewayStageDeploymentId :: Maybe (Val Text)
@@ -33,29 +34,29 @@ instance ToJSON ApiGatewayStage where
   toJSON ApiGatewayStage{..} =
     object $
     catMaybes
-    [ ("CacheClusterEnabled" .=) <$> _apiGatewayStageCacheClusterEnabled
-    , ("CacheClusterSize" .=) <$> _apiGatewayStageCacheClusterSize
-    , ("ClientCertificateId" .=) <$> _apiGatewayStageClientCertificateId
-    , ("DeploymentId" .=) <$> _apiGatewayStageDeploymentId
-    , ("Description" .=) <$> _apiGatewayStageDescription
-    , ("MethodSettings" .=) <$> _apiGatewayStageMethodSettings
-    , ("RestApiId" .=) <$> _apiGatewayStageRestApiId
-    , ("StageName" .=) <$> _apiGatewayStageStageName
-    , ("Variables" .=) <$> _apiGatewayStageVariables
+    [ fmap (("CacheClusterEnabled",) . toJSON . fmap Bool') _apiGatewayStageCacheClusterEnabled
+    , fmap (("CacheClusterSize",) . toJSON) _apiGatewayStageCacheClusterSize
+    , fmap (("ClientCertificateId",) . toJSON) _apiGatewayStageClientCertificateId
+    , fmap (("DeploymentId",) . toJSON) _apiGatewayStageDeploymentId
+    , fmap (("Description",) . toJSON) _apiGatewayStageDescription
+    , fmap (("MethodSettings",) . toJSON) _apiGatewayStageMethodSettings
+    , fmap (("RestApiId",) . toJSON) _apiGatewayStageRestApiId
+    , fmap (("StageName",) . toJSON) _apiGatewayStageStageName
+    , fmap (("Variables",) . toJSON) _apiGatewayStageVariables
     ]
 
 instance FromJSON ApiGatewayStage where
   parseJSON (Object obj) =
     ApiGatewayStage <$>
-      obj .:? "CacheClusterEnabled" <*>
-      obj .:? "CacheClusterSize" <*>
-      obj .:? "ClientCertificateId" <*>
-      obj .:? "DeploymentId" <*>
-      obj .:? "Description" <*>
-      obj .:? "MethodSettings" <*>
-      obj .:? "RestApiId" <*>
-      obj .:? "StageName" <*>
-      obj .:? "Variables"
+      fmap (fmap (fmap unBool')) (obj .:? "CacheClusterEnabled") <*>
+      (obj .:? "CacheClusterSize") <*>
+      (obj .:? "ClientCertificateId") <*>
+      (obj .:? "DeploymentId") <*>
+      (obj .:? "Description") <*>
+      (obj .:? "MethodSettings") <*>
+      (obj .:? "RestApiId") <*>
+      (obj .:? "StageName") <*>
+      (obj .:? "Variables")
   parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayStage' containing required fields as
@@ -76,7 +77,7 @@ apiGatewayStage  =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html#cfn-apigateway-stage-cacheclusterenabled
-agsCacheClusterEnabled :: Lens' ApiGatewayStage (Maybe (Val Bool'))
+agsCacheClusterEnabled :: Lens' ApiGatewayStage (Maybe (Val Bool))
 agsCacheClusterEnabled = lens _apiGatewayStageCacheClusterEnabled (\s a -> s { _apiGatewayStageCacheClusterEnabled = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html#cfn-apigateway-stage-cacheclustersize

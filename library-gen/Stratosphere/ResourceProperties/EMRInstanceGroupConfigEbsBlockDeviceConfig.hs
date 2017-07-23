@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-ebsconfiguration-ebsblockdeviceconfig.html
 
@@ -20,22 +21,22 @@ import Stratosphere.ResourceProperties.EMRInstanceGroupConfigVolumeSpecification
 data EMRInstanceGroupConfigEbsBlockDeviceConfig =
   EMRInstanceGroupConfigEbsBlockDeviceConfig
   { _eMRInstanceGroupConfigEbsBlockDeviceConfigVolumeSpecification :: EMRInstanceGroupConfigVolumeSpecification
-  , _eMRInstanceGroupConfigEbsBlockDeviceConfigVolumesPerInstance :: Maybe (Val Integer')
+  , _eMRInstanceGroupConfigEbsBlockDeviceConfigVolumesPerInstance :: Maybe (Val Integer)
   } deriving (Show, Eq)
 
 instance ToJSON EMRInstanceGroupConfigEbsBlockDeviceConfig where
   toJSON EMRInstanceGroupConfigEbsBlockDeviceConfig{..} =
     object $
     catMaybes
-    [ Just ("VolumeSpecification" .= _eMRInstanceGroupConfigEbsBlockDeviceConfigVolumeSpecification)
-    , ("VolumesPerInstance" .=) <$> _eMRInstanceGroupConfigEbsBlockDeviceConfigVolumesPerInstance
+    [ (Just . ("VolumeSpecification",) . toJSON) _eMRInstanceGroupConfigEbsBlockDeviceConfigVolumeSpecification
+    , fmap (("VolumesPerInstance",) . toJSON . fmap Integer') _eMRInstanceGroupConfigEbsBlockDeviceConfigVolumesPerInstance
     ]
 
 instance FromJSON EMRInstanceGroupConfigEbsBlockDeviceConfig where
   parseJSON (Object obj) =
     EMRInstanceGroupConfigEbsBlockDeviceConfig <$>
-      obj .: "VolumeSpecification" <*>
-      obj .:? "VolumesPerInstance"
+      (obj .: "VolumeSpecification") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "VolumesPerInstance")
   parseJSON _ = mempty
 
 -- | Constructor for 'EMRInstanceGroupConfigEbsBlockDeviceConfig' containing
@@ -54,5 +55,5 @@ emrigcebdcVolumeSpecification :: Lens' EMRInstanceGroupConfigEbsBlockDeviceConfi
 emrigcebdcVolumeSpecification = lens _eMRInstanceGroupConfigEbsBlockDeviceConfigVolumeSpecification (\s a -> s { _eMRInstanceGroupConfigEbsBlockDeviceConfigVolumeSpecification = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-ebsconfiguration-ebsblockdeviceconfig.html#cfn-emr-ebsconfiguration-ebsblockdeviceconfig-volumesperinstance
-emrigcebdcVolumesPerInstance :: Lens' EMRInstanceGroupConfigEbsBlockDeviceConfig (Maybe (Val Integer'))
+emrigcebdcVolumesPerInstance :: Lens' EMRInstanceGroupConfigEbsBlockDeviceConfig (Maybe (Val Integer))
 emrigcebdcVolumesPerInstance = lens _eMRInstanceGroupConfigEbsBlockDeviceConfigVolumesPerInstance (\s a -> s { _eMRInstanceGroupConfigEbsBlockDeviceConfigVolumesPerInstance = a })

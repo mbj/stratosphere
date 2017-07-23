@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-clientcertificate.html
 
@@ -25,13 +26,13 @@ instance ToJSON ApiGatewayClientCertificate where
   toJSON ApiGatewayClientCertificate{..} =
     object $
     catMaybes
-    [ ("Description" .=) <$> _apiGatewayClientCertificateDescription
+    [ fmap (("Description",) . toJSON) _apiGatewayClientCertificateDescription
     ]
 
 instance FromJSON ApiGatewayClientCertificate where
   parseJSON (Object obj) =
     ApiGatewayClientCertificate <$>
-      obj .:? "Description"
+      (obj .:? "Description")
   parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayClientCertificate' containing required fields

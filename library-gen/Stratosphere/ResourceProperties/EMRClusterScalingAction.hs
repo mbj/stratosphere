@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-scalingaction.html
 
@@ -26,15 +27,15 @@ instance ToJSON EMRClusterScalingAction where
   toJSON EMRClusterScalingAction{..} =
     object $
     catMaybes
-    [ ("Market" .=) <$> _eMRClusterScalingActionMarket
-    , Just ("SimpleScalingPolicyConfiguration" .= _eMRClusterScalingActionSimpleScalingPolicyConfiguration)
+    [ fmap (("Market",) . toJSON) _eMRClusterScalingActionMarket
+    , (Just . ("SimpleScalingPolicyConfiguration",) . toJSON) _eMRClusterScalingActionSimpleScalingPolicyConfiguration
     ]
 
 instance FromJSON EMRClusterScalingAction where
   parseJSON (Object obj) =
     EMRClusterScalingAction <$>
-      obj .:? "Market" <*>
-      obj .: "SimpleScalingPolicyConfiguration"
+      (obj .:? "Market") <*>
+      (obj .: "SimpleScalingPolicyConfiguration")
   parseJSON _ = mempty
 
 -- | Constructor for 'EMRClusterScalingAction' containing required fields as

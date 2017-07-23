@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-tags.html
 
@@ -20,7 +21,7 @@ import Stratosphere.Values
 data AutoScalingAutoScalingGroupTagProperty =
   AutoScalingAutoScalingGroupTagProperty
   { _autoScalingAutoScalingGroupTagPropertyKey :: Val Text
-  , _autoScalingAutoScalingGroupTagPropertyPropagateAtLaunch :: Val Bool'
+  , _autoScalingAutoScalingGroupTagPropertyPropagateAtLaunch :: Val Bool
   , _autoScalingAutoScalingGroupTagPropertyValue :: Val Text
   } deriving (Show, Eq)
 
@@ -28,24 +29,24 @@ instance ToJSON AutoScalingAutoScalingGroupTagProperty where
   toJSON AutoScalingAutoScalingGroupTagProperty{..} =
     object $
     catMaybes
-    [ Just ("Key" .= _autoScalingAutoScalingGroupTagPropertyKey)
-    , Just ("PropagateAtLaunch" .= _autoScalingAutoScalingGroupTagPropertyPropagateAtLaunch)
-    , Just ("Value" .= _autoScalingAutoScalingGroupTagPropertyValue)
+    [ (Just . ("Key",) . toJSON) _autoScalingAutoScalingGroupTagPropertyKey
+    , (Just . ("PropagateAtLaunch",) . toJSON . fmap Bool') _autoScalingAutoScalingGroupTagPropertyPropagateAtLaunch
+    , (Just . ("Value",) . toJSON) _autoScalingAutoScalingGroupTagPropertyValue
     ]
 
 instance FromJSON AutoScalingAutoScalingGroupTagProperty where
   parseJSON (Object obj) =
     AutoScalingAutoScalingGroupTagProperty <$>
-      obj .: "Key" <*>
-      obj .: "PropagateAtLaunch" <*>
-      obj .: "Value"
+      (obj .: "Key") <*>
+      fmap (fmap unBool') (obj .: "PropagateAtLaunch") <*>
+      (obj .: "Value")
   parseJSON _ = mempty
 
 -- | Constructor for 'AutoScalingAutoScalingGroupTagProperty' containing
 -- required fields as arguments.
 autoScalingAutoScalingGroupTagProperty
   :: Val Text -- ^ 'asasgtpKey'
-  -> Val Bool' -- ^ 'asasgtpPropagateAtLaunch'
+  -> Val Bool -- ^ 'asasgtpPropagateAtLaunch'
   -> Val Text -- ^ 'asasgtpValue'
   -> AutoScalingAutoScalingGroupTagProperty
 autoScalingAutoScalingGroupTagProperty keyarg propagateAtLauncharg valuearg =
@@ -60,7 +61,7 @@ asasgtpKey :: Lens' AutoScalingAutoScalingGroupTagProperty (Val Text)
 asasgtpKey = lens _autoScalingAutoScalingGroupTagPropertyKey (\s a -> s { _autoScalingAutoScalingGroupTagPropertyKey = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-tags.html#cfn-as-tags-PropagateAtLaunch
-asasgtpPropagateAtLaunch :: Lens' AutoScalingAutoScalingGroupTagProperty (Val Bool')
+asasgtpPropagateAtLaunch :: Lens' AutoScalingAutoScalingGroupTagProperty (Val Bool)
 asasgtpPropagateAtLaunch = lens _autoScalingAutoScalingGroupTagPropertyPropagateAtLaunch (\s a -> s { _autoScalingAutoScalingGroupTagPropertyPropagateAtLaunch = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-tags.html#cfn-as-tags-Value

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-instancefleetprovisioningspecifications.html
 
@@ -27,13 +28,13 @@ instance ToJSON EMRInstanceFleetConfigInstanceFleetProvisioningSpecifications wh
   toJSON EMRInstanceFleetConfigInstanceFleetProvisioningSpecifications{..} =
     object $
     catMaybes
-    [ Just ("SpotSpecification" .= _eMRInstanceFleetConfigInstanceFleetProvisioningSpecificationsSpotSpecification)
+    [ (Just . ("SpotSpecification",) . toJSON) _eMRInstanceFleetConfigInstanceFleetProvisioningSpecificationsSpotSpecification
     ]
 
 instance FromJSON EMRInstanceFleetConfigInstanceFleetProvisioningSpecifications where
   parseJSON (Object obj) =
     EMRInstanceFleetConfigInstanceFleetProvisioningSpecifications <$>
-      obj .: "SpotSpecification"
+      (obj .: "SpotSpecification")
   parseJSON _ = mempty
 
 -- | Constructor for

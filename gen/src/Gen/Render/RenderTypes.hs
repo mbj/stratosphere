@@ -74,9 +74,9 @@ renderAtomicTypeWithVal t =
 
 renderAtomicType :: AtomicType -> Text
 renderAtomicType StringPrimitive = "Text"
-renderAtomicType IntegerPrimitive = "Integer'"
-renderAtomicType DoublePrimitive = "Double'"
-renderAtomicType BoolPrimitive = "Bool'"
+renderAtomicType IntegerPrimitive = "Integer"
+renderAtomicType DoublePrimitive = "Double"
+renderAtomicType BoolPrimitive = "Bool"
 renderAtomicType JsonPrimitive = "Object"
 renderAtomicType (SubPropertyType text) = text
 renderAtomicType (CustomType text) = text

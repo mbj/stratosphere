@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-AppCookieStickinessPolicy.html
 
@@ -28,15 +29,15 @@ instance ToJSON ElasticLoadBalancingLoadBalancerAppCookieStickinessPolicy where
   toJSON ElasticLoadBalancingLoadBalancerAppCookieStickinessPolicy{..} =
     object $
     catMaybes
-    [ Just ("CookieName" .= _elasticLoadBalancingLoadBalancerAppCookieStickinessPolicyCookieName)
-    , Just ("PolicyName" .= _elasticLoadBalancingLoadBalancerAppCookieStickinessPolicyPolicyName)
+    [ (Just . ("CookieName",) . toJSON) _elasticLoadBalancingLoadBalancerAppCookieStickinessPolicyCookieName
+    , (Just . ("PolicyName",) . toJSON) _elasticLoadBalancingLoadBalancerAppCookieStickinessPolicyPolicyName
     ]
 
 instance FromJSON ElasticLoadBalancingLoadBalancerAppCookieStickinessPolicy where
   parseJSON (Object obj) =
     ElasticLoadBalancingLoadBalancerAppCookieStickinessPolicy <$>
-      obj .: "CookieName" <*>
-      obj .: "PolicyName"
+      (obj .: "CookieName") <*>
+      (obj .: "PolicyName")
   parseJSON _ = mempty
 
 -- | Constructor for

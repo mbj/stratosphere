@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.html
 
@@ -18,15 +19,15 @@ import Stratosphere.ResourceProperties.Tag
 -- 'dmsReplicationInstance' for a more convenient constructor.
 data DMSReplicationInstance =
   DMSReplicationInstance
-  { _dMSReplicationInstanceAllocatedStorage :: Maybe (Val Integer')
-  , _dMSReplicationInstanceAllowMajorVersionUpgrade :: Maybe (Val Bool')
-  , _dMSReplicationInstanceAutoMinorVersionUpgrade :: Maybe (Val Bool')
+  { _dMSReplicationInstanceAllocatedStorage :: Maybe (Val Integer)
+  , _dMSReplicationInstanceAllowMajorVersionUpgrade :: Maybe (Val Bool)
+  , _dMSReplicationInstanceAutoMinorVersionUpgrade :: Maybe (Val Bool)
   , _dMSReplicationInstanceAvailabilityZone :: Maybe (Val Text)
   , _dMSReplicationInstanceEngineVersion :: Maybe (Val Text)
   , _dMSReplicationInstanceKmsKeyId :: Maybe (Val Text)
-  , _dMSReplicationInstanceMultiAZ :: Maybe (Val Bool')
+  , _dMSReplicationInstanceMultiAZ :: Maybe (Val Bool)
   , _dMSReplicationInstancePreferredMaintenanceWindow :: Maybe (Val Text)
-  , _dMSReplicationInstancePubliclyAccessible :: Maybe (Val Bool')
+  , _dMSReplicationInstancePubliclyAccessible :: Maybe (Val Bool)
   , _dMSReplicationInstanceReplicationInstanceClass :: Val Text
   , _dMSReplicationInstanceReplicationInstanceIdentifier :: Maybe (Val Text)
   , _dMSReplicationInstanceReplicationSubnetGroupIdentifier :: Maybe (Val Text)
@@ -38,39 +39,39 @@ instance ToJSON DMSReplicationInstance where
   toJSON DMSReplicationInstance{..} =
     object $
     catMaybes
-    [ ("AllocatedStorage" .=) <$> _dMSReplicationInstanceAllocatedStorage
-    , ("AllowMajorVersionUpgrade" .=) <$> _dMSReplicationInstanceAllowMajorVersionUpgrade
-    , ("AutoMinorVersionUpgrade" .=) <$> _dMSReplicationInstanceAutoMinorVersionUpgrade
-    , ("AvailabilityZone" .=) <$> _dMSReplicationInstanceAvailabilityZone
-    , ("EngineVersion" .=) <$> _dMSReplicationInstanceEngineVersion
-    , ("KmsKeyId" .=) <$> _dMSReplicationInstanceKmsKeyId
-    , ("MultiAZ" .=) <$> _dMSReplicationInstanceMultiAZ
-    , ("PreferredMaintenanceWindow" .=) <$> _dMSReplicationInstancePreferredMaintenanceWindow
-    , ("PubliclyAccessible" .=) <$> _dMSReplicationInstancePubliclyAccessible
-    , Just ("ReplicationInstanceClass" .= _dMSReplicationInstanceReplicationInstanceClass)
-    , ("ReplicationInstanceIdentifier" .=) <$> _dMSReplicationInstanceReplicationInstanceIdentifier
-    , ("ReplicationSubnetGroupIdentifier" .=) <$> _dMSReplicationInstanceReplicationSubnetGroupIdentifier
-    , ("Tags" .=) <$> _dMSReplicationInstanceTags
-    , ("VpcSecurityGroupIds" .=) <$> _dMSReplicationInstanceVpcSecurityGroupIds
+    [ fmap (("AllocatedStorage",) . toJSON . fmap Integer') _dMSReplicationInstanceAllocatedStorage
+    , fmap (("AllowMajorVersionUpgrade",) . toJSON . fmap Bool') _dMSReplicationInstanceAllowMajorVersionUpgrade
+    , fmap (("AutoMinorVersionUpgrade",) . toJSON . fmap Bool') _dMSReplicationInstanceAutoMinorVersionUpgrade
+    , fmap (("AvailabilityZone",) . toJSON) _dMSReplicationInstanceAvailabilityZone
+    , fmap (("EngineVersion",) . toJSON) _dMSReplicationInstanceEngineVersion
+    , fmap (("KmsKeyId",) . toJSON) _dMSReplicationInstanceKmsKeyId
+    , fmap (("MultiAZ",) . toJSON . fmap Bool') _dMSReplicationInstanceMultiAZ
+    , fmap (("PreferredMaintenanceWindow",) . toJSON) _dMSReplicationInstancePreferredMaintenanceWindow
+    , fmap (("PubliclyAccessible",) . toJSON . fmap Bool') _dMSReplicationInstancePubliclyAccessible
+    , (Just . ("ReplicationInstanceClass",) . toJSON) _dMSReplicationInstanceReplicationInstanceClass
+    , fmap (("ReplicationInstanceIdentifier",) . toJSON) _dMSReplicationInstanceReplicationInstanceIdentifier
+    , fmap (("ReplicationSubnetGroupIdentifier",) . toJSON) _dMSReplicationInstanceReplicationSubnetGroupIdentifier
+    , fmap (("Tags",) . toJSON) _dMSReplicationInstanceTags
+    , fmap (("VpcSecurityGroupIds",) . toJSON) _dMSReplicationInstanceVpcSecurityGroupIds
     ]
 
 instance FromJSON DMSReplicationInstance where
   parseJSON (Object obj) =
     DMSReplicationInstance <$>
-      obj .:? "AllocatedStorage" <*>
-      obj .:? "AllowMajorVersionUpgrade" <*>
-      obj .:? "AutoMinorVersionUpgrade" <*>
-      obj .:? "AvailabilityZone" <*>
-      obj .:? "EngineVersion" <*>
-      obj .:? "KmsKeyId" <*>
-      obj .:? "MultiAZ" <*>
-      obj .:? "PreferredMaintenanceWindow" <*>
-      obj .:? "PubliclyAccessible" <*>
-      obj .: "ReplicationInstanceClass" <*>
-      obj .:? "ReplicationInstanceIdentifier" <*>
-      obj .:? "ReplicationSubnetGroupIdentifier" <*>
-      obj .:? "Tags" <*>
-      obj .:? "VpcSecurityGroupIds"
+      fmap (fmap (fmap unInteger')) (obj .:? "AllocatedStorage") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "AllowMajorVersionUpgrade") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "AutoMinorVersionUpgrade") <*>
+      (obj .:? "AvailabilityZone") <*>
+      (obj .:? "EngineVersion") <*>
+      (obj .:? "KmsKeyId") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "MultiAZ") <*>
+      (obj .:? "PreferredMaintenanceWindow") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "PubliclyAccessible") <*>
+      (obj .: "ReplicationInstanceClass") <*>
+      (obj .:? "ReplicationInstanceIdentifier") <*>
+      (obj .:? "ReplicationSubnetGroupIdentifier") <*>
+      (obj .:? "Tags") <*>
+      (obj .:? "VpcSecurityGroupIds")
   parseJSON _ = mempty
 
 -- | Constructor for 'DMSReplicationInstance' containing required fields as
@@ -97,15 +98,15 @@ dmsReplicationInstance replicationInstanceClassarg =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.html#cfn-dms-replicationinstance-allocatedstorage
-dmsriAllocatedStorage :: Lens' DMSReplicationInstance (Maybe (Val Integer'))
+dmsriAllocatedStorage :: Lens' DMSReplicationInstance (Maybe (Val Integer))
 dmsriAllocatedStorage = lens _dMSReplicationInstanceAllocatedStorage (\s a -> s { _dMSReplicationInstanceAllocatedStorage = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.html#cfn-dms-replicationinstance-allowmajorversionupgrade
-dmsriAllowMajorVersionUpgrade :: Lens' DMSReplicationInstance (Maybe (Val Bool'))
+dmsriAllowMajorVersionUpgrade :: Lens' DMSReplicationInstance (Maybe (Val Bool))
 dmsriAllowMajorVersionUpgrade = lens _dMSReplicationInstanceAllowMajorVersionUpgrade (\s a -> s { _dMSReplicationInstanceAllowMajorVersionUpgrade = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.html#cfn-dms-replicationinstance-autominorversionupgrade
-dmsriAutoMinorVersionUpgrade :: Lens' DMSReplicationInstance (Maybe (Val Bool'))
+dmsriAutoMinorVersionUpgrade :: Lens' DMSReplicationInstance (Maybe (Val Bool))
 dmsriAutoMinorVersionUpgrade = lens _dMSReplicationInstanceAutoMinorVersionUpgrade (\s a -> s { _dMSReplicationInstanceAutoMinorVersionUpgrade = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.html#cfn-dms-replicationinstance-availabilityzone
@@ -121,7 +122,7 @@ dmsriKmsKeyId :: Lens' DMSReplicationInstance (Maybe (Val Text))
 dmsriKmsKeyId = lens _dMSReplicationInstanceKmsKeyId (\s a -> s { _dMSReplicationInstanceKmsKeyId = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.html#cfn-dms-replicationinstance-multiaz
-dmsriMultiAZ :: Lens' DMSReplicationInstance (Maybe (Val Bool'))
+dmsriMultiAZ :: Lens' DMSReplicationInstance (Maybe (Val Bool))
 dmsriMultiAZ = lens _dMSReplicationInstanceMultiAZ (\s a -> s { _dMSReplicationInstanceMultiAZ = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.html#cfn-dms-replicationinstance-preferredmaintenancewindow
@@ -129,7 +130,7 @@ dmsriPreferredMaintenanceWindow :: Lens' DMSReplicationInstance (Maybe (Val Text
 dmsriPreferredMaintenanceWindow = lens _dMSReplicationInstancePreferredMaintenanceWindow (\s a -> s { _dMSReplicationInstancePreferredMaintenanceWindow = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.html#cfn-dms-replicationinstance-publiclyaccessible
-dmsriPubliclyAccessible :: Lens' DMSReplicationInstance (Maybe (Val Bool'))
+dmsriPubliclyAccessible :: Lens' DMSReplicationInstance (Maybe (Val Bool))
 dmsriPubliclyAccessible = lens _dMSReplicationInstancePubliclyAccessible (\s a -> s { _dMSReplicationInstancePubliclyAccessible = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.html#cfn-dms-replicationinstance-replicationinstanceclass

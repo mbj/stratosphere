@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-kinesisdeliverystream-redshiftdestinationconfiguration-copycommand.html
 
@@ -28,17 +29,17 @@ instance ToJSON KinesisFirehoseDeliveryStreamCopyCommand where
   toJSON KinesisFirehoseDeliveryStreamCopyCommand{..} =
     object $
     catMaybes
-    [ ("CopyOptions" .=) <$> _kinesisFirehoseDeliveryStreamCopyCommandCopyOptions
-    , ("DataTableColumns" .=) <$> _kinesisFirehoseDeliveryStreamCopyCommandDataTableColumns
-    , Just ("DataTableName" .= _kinesisFirehoseDeliveryStreamCopyCommandDataTableName)
+    [ fmap (("CopyOptions",) . toJSON) _kinesisFirehoseDeliveryStreamCopyCommandCopyOptions
+    , fmap (("DataTableColumns",) . toJSON) _kinesisFirehoseDeliveryStreamCopyCommandDataTableColumns
+    , (Just . ("DataTableName",) . toJSON) _kinesisFirehoseDeliveryStreamCopyCommandDataTableName
     ]
 
 instance FromJSON KinesisFirehoseDeliveryStreamCopyCommand where
   parseJSON (Object obj) =
     KinesisFirehoseDeliveryStreamCopyCommand <$>
-      obj .:? "CopyOptions" <*>
-      obj .:? "DataTableColumns" <*>
-      obj .: "DataTableName"
+      (obj .:? "CopyOptions") <*>
+      (obj .:? "DataTableColumns") <*>
+      (obj .: "DataTableName")
   parseJSON _ = mempty
 
 -- | Constructor for 'KinesisFirehoseDeliveryStreamCopyCommand' containing

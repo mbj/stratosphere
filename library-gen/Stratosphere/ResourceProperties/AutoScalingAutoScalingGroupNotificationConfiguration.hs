@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-notificationconfigurations.html
 
@@ -28,15 +29,15 @@ instance ToJSON AutoScalingAutoScalingGroupNotificationConfiguration where
   toJSON AutoScalingAutoScalingGroupNotificationConfiguration{..} =
     object $
     catMaybes
-    [ ("NotificationTypes" .=) <$> _autoScalingAutoScalingGroupNotificationConfigurationNotificationTypes
-    , Just ("TopicARN" .= _autoScalingAutoScalingGroupNotificationConfigurationTopicARN)
+    [ fmap (("NotificationTypes",) . toJSON) _autoScalingAutoScalingGroupNotificationConfigurationNotificationTypes
+    , (Just . ("TopicARN",) . toJSON) _autoScalingAutoScalingGroupNotificationConfigurationTopicARN
     ]
 
 instance FromJSON AutoScalingAutoScalingGroupNotificationConfiguration where
   parseJSON (Object obj) =
     AutoScalingAutoScalingGroupNotificationConfiguration <$>
-      obj .:? "NotificationTypes" <*>
-      obj .: "TopicARN"
+      (obj .:? "NotificationTypes") <*>
+      (obj .: "TopicARN")
   parseJSON _ = mempty
 
 -- | Constructor for 'AutoScalingAutoScalingGroupNotificationConfiguration'

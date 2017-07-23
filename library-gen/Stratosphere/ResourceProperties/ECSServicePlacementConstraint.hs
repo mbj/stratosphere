@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-placementconstraint.html
 
@@ -26,15 +27,15 @@ instance ToJSON ECSServicePlacementConstraint where
   toJSON ECSServicePlacementConstraint{..} =
     object $
     catMaybes
-    [ ("Expression" .=) <$> _eCSServicePlacementConstraintExpression
-    , Just ("Type" .= _eCSServicePlacementConstraintType)
+    [ fmap (("Expression",) . toJSON) _eCSServicePlacementConstraintExpression
+    , (Just . ("Type",) . toJSON) _eCSServicePlacementConstraintType
     ]
 
 instance FromJSON ECSServicePlacementConstraint where
   parseJSON (Object obj) =
     ECSServicePlacementConstraint <$>
-      obj .:? "Expression" <*>
-      obj .: "Type"
+      (obj .:? "Expression") <*>
+      (obj .: "Type")
   parseJSON _ = mempty
 
 -- | Constructor for 'ECSServicePlacementConstraint' containing required

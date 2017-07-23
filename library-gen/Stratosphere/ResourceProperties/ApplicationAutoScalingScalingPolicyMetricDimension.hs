@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-metricdimension.html
 
@@ -28,15 +29,15 @@ instance ToJSON ApplicationAutoScalingScalingPolicyMetricDimension where
   toJSON ApplicationAutoScalingScalingPolicyMetricDimension{..} =
     object $
     catMaybes
-    [ Just ("Name" .= _applicationAutoScalingScalingPolicyMetricDimensionName)
-    , Just ("Value" .= _applicationAutoScalingScalingPolicyMetricDimensionValue)
+    [ (Just . ("Name",) . toJSON) _applicationAutoScalingScalingPolicyMetricDimensionName
+    , (Just . ("Value",) . toJSON) _applicationAutoScalingScalingPolicyMetricDimensionValue
     ]
 
 instance FromJSON ApplicationAutoScalingScalingPolicyMetricDimension where
   parseJSON (Object obj) =
     ApplicationAutoScalingScalingPolicyMetricDimension <$>
-      obj .: "Name" <*>
-      obj .: "Value"
+      (obj .: "Name") <*>
+      (obj .: "Value")
   parseJSON _ = mempty
 
 -- | Constructor for 'ApplicationAutoScalingScalingPolicyMetricDimension'

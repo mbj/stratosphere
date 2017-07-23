@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html
 
@@ -27,17 +28,17 @@ instance ToJSON ApiGatewayResource where
   toJSON ApiGatewayResource{..} =
     object $
     catMaybes
-    [ Just ("ParentId" .= _apiGatewayResourceParentId)
-    , Just ("PathPart" .= _apiGatewayResourcePathPart)
-    , Just ("RestApiId" .= _apiGatewayResourceRestApiId)
+    [ (Just . ("ParentId",) . toJSON) _apiGatewayResourceParentId
+    , (Just . ("PathPart",) . toJSON) _apiGatewayResourcePathPart
+    , (Just . ("RestApiId",) . toJSON) _apiGatewayResourceRestApiId
     ]
 
 instance FromJSON ApiGatewayResource where
   parseJSON (Object obj) =
     ApiGatewayResource <$>
-      obj .: "ParentId" <*>
-      obj .: "PathPart" <*>
-      obj .: "RestApiId"
+      (obj .: "ParentId") <*>
+      (obj .: "PathPart") <*>
+      (obj .: "RestApiId")
   parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayResource' containing required fields as

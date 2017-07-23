@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html
 
@@ -38,31 +39,31 @@ instance ToJSON CodeDeployDeploymentGroup where
   toJSON CodeDeployDeploymentGroup{..} =
     object $
     catMaybes
-    [ ("AlarmConfiguration" .=) <$> _codeDeployDeploymentGroupAlarmConfiguration
-    , Just ("ApplicationName" .= _codeDeployDeploymentGroupApplicationName)
-    , ("AutoScalingGroups" .=) <$> _codeDeployDeploymentGroupAutoScalingGroups
-    , ("Deployment" .=) <$> _codeDeployDeploymentGroupDeployment
-    , ("DeploymentConfigName" .=) <$> _codeDeployDeploymentGroupDeploymentConfigName
-    , ("DeploymentGroupName" .=) <$> _codeDeployDeploymentGroupDeploymentGroupName
-    , ("Ec2TagFilters" .=) <$> _codeDeployDeploymentGroupEc2TagFilters
-    , ("OnPremisesInstanceTagFilters" .=) <$> _codeDeployDeploymentGroupOnPremisesInstanceTagFilters
-    , Just ("ServiceRoleArn" .= _codeDeployDeploymentGroupServiceRoleArn)
-    , ("TriggerConfigurations" .=) <$> _codeDeployDeploymentGroupTriggerConfigurations
+    [ fmap (("AlarmConfiguration",) . toJSON) _codeDeployDeploymentGroupAlarmConfiguration
+    , (Just . ("ApplicationName",) . toJSON) _codeDeployDeploymentGroupApplicationName
+    , fmap (("AutoScalingGroups",) . toJSON) _codeDeployDeploymentGroupAutoScalingGroups
+    , fmap (("Deployment",) . toJSON) _codeDeployDeploymentGroupDeployment
+    , fmap (("DeploymentConfigName",) . toJSON) _codeDeployDeploymentGroupDeploymentConfigName
+    , fmap (("DeploymentGroupName",) . toJSON) _codeDeployDeploymentGroupDeploymentGroupName
+    , fmap (("Ec2TagFilters",) . toJSON) _codeDeployDeploymentGroupEc2TagFilters
+    , fmap (("OnPremisesInstanceTagFilters",) . toJSON) _codeDeployDeploymentGroupOnPremisesInstanceTagFilters
+    , (Just . ("ServiceRoleArn",) . toJSON) _codeDeployDeploymentGroupServiceRoleArn
+    , fmap (("TriggerConfigurations",) . toJSON) _codeDeployDeploymentGroupTriggerConfigurations
     ]
 
 instance FromJSON CodeDeployDeploymentGroup where
   parseJSON (Object obj) =
     CodeDeployDeploymentGroup <$>
-      obj .:? "AlarmConfiguration" <*>
-      obj .: "ApplicationName" <*>
-      obj .:? "AutoScalingGroups" <*>
-      obj .:? "Deployment" <*>
-      obj .:? "DeploymentConfigName" <*>
-      obj .:? "DeploymentGroupName" <*>
-      obj .:? "Ec2TagFilters" <*>
-      obj .:? "OnPremisesInstanceTagFilters" <*>
-      obj .: "ServiceRoleArn" <*>
-      obj .:? "TriggerConfigurations"
+      (obj .:? "AlarmConfiguration") <*>
+      (obj .: "ApplicationName") <*>
+      (obj .:? "AutoScalingGroups") <*>
+      (obj .:? "Deployment") <*>
+      (obj .:? "DeploymentConfigName") <*>
+      (obj .:? "DeploymentGroupName") <*>
+      (obj .:? "Ec2TagFilters") <*>
+      (obj .:? "OnPremisesInstanceTagFilters") <*>
+      (obj .: "ServiceRoleArn") <*>
+      (obj .:? "TriggerConfigurations")
   parseJSON _ = mempty
 
 -- | Constructor for 'CodeDeployDeploymentGroup' containing required fields as

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-placement.html
 
@@ -26,15 +27,15 @@ instance ToJSON EC2SpotFleetSpotPlacement where
   toJSON EC2SpotFleetSpotPlacement{..} =
     object $
     catMaybes
-    [ ("AvailabilityZone" .=) <$> _eC2SpotFleetSpotPlacementAvailabilityZone
-    , ("GroupName" .=) <$> _eC2SpotFleetSpotPlacementGroupName
+    [ fmap (("AvailabilityZone",) . toJSON) _eC2SpotFleetSpotPlacementAvailabilityZone
+    , fmap (("GroupName",) . toJSON) _eC2SpotFleetSpotPlacementGroupName
     ]
 
 instance FromJSON EC2SpotFleetSpotPlacement where
   parseJSON (Object obj) =
     EC2SpotFleetSpotPlacement <$>
-      obj .:? "AvailabilityZone" <*>
-      obj .:? "GroupName"
+      (obj .:? "AvailabilityZone") <*>
+      (obj .:? "GroupName")
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2SpotFleetSpotPlacement' containing required fields as

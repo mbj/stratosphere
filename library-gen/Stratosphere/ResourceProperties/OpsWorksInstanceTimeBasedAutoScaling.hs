@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-instance-timebasedautoscaling.html
 
@@ -31,25 +32,25 @@ instance ToJSON OpsWorksInstanceTimeBasedAutoScaling where
   toJSON OpsWorksInstanceTimeBasedAutoScaling{..} =
     object $
     catMaybes
-    [ ("Friday" .=) <$> _opsWorksInstanceTimeBasedAutoScalingFriday
-    , ("Monday" .=) <$> _opsWorksInstanceTimeBasedAutoScalingMonday
-    , ("Saturday" .=) <$> _opsWorksInstanceTimeBasedAutoScalingSaturday
-    , ("Sunday" .=) <$> _opsWorksInstanceTimeBasedAutoScalingSunday
-    , ("Thursday" .=) <$> _opsWorksInstanceTimeBasedAutoScalingThursday
-    , ("Tuesday" .=) <$> _opsWorksInstanceTimeBasedAutoScalingTuesday
-    , ("Wednesday" .=) <$> _opsWorksInstanceTimeBasedAutoScalingWednesday
+    [ fmap (("Friday",) . toJSON) _opsWorksInstanceTimeBasedAutoScalingFriday
+    , fmap (("Monday",) . toJSON) _opsWorksInstanceTimeBasedAutoScalingMonday
+    , fmap (("Saturday",) . toJSON) _opsWorksInstanceTimeBasedAutoScalingSaturday
+    , fmap (("Sunday",) . toJSON) _opsWorksInstanceTimeBasedAutoScalingSunday
+    , fmap (("Thursday",) . toJSON) _opsWorksInstanceTimeBasedAutoScalingThursday
+    , fmap (("Tuesday",) . toJSON) _opsWorksInstanceTimeBasedAutoScalingTuesday
+    , fmap (("Wednesday",) . toJSON) _opsWorksInstanceTimeBasedAutoScalingWednesday
     ]
 
 instance FromJSON OpsWorksInstanceTimeBasedAutoScaling where
   parseJSON (Object obj) =
     OpsWorksInstanceTimeBasedAutoScaling <$>
-      obj .:? "Friday" <*>
-      obj .:? "Monday" <*>
-      obj .:? "Saturday" <*>
-      obj .:? "Sunday" <*>
-      obj .:? "Thursday" <*>
-      obj .:? "Tuesday" <*>
-      obj .:? "Wednesday"
+      (obj .:? "Friday") <*>
+      (obj .:? "Monday") <*>
+      (obj .:? "Saturday") <*>
+      (obj .:? "Sunday") <*>
+      (obj .:? "Thursday") <*>
+      (obj .:? "Tuesday") <*>
+      (obj .:? "Wednesday")
   parseJSON _ = mempty
 
 -- | Constructor for 'OpsWorksInstanceTimeBasedAutoScaling' containing

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-certificatemanager-certificate-domainvalidationoption.html
 
@@ -28,15 +29,15 @@ instance ToJSON CertificateManagerCertificateDomainValidationOption where
   toJSON CertificateManagerCertificateDomainValidationOption{..} =
     object $
     catMaybes
-    [ Just ("DomainName" .= _certificateManagerCertificateDomainValidationOptionDomainName)
-    , Just ("ValidationDomain" .= _certificateManagerCertificateDomainValidationOptionValidationDomain)
+    [ (Just . ("DomainName",) . toJSON) _certificateManagerCertificateDomainValidationOptionDomainName
+    , (Just . ("ValidationDomain",) . toJSON) _certificateManagerCertificateDomainValidationOptionValidationDomain
     ]
 
 instance FromJSON CertificateManagerCertificateDomainValidationOption where
   parseJSON (Object obj) =
     CertificateManagerCertificateDomainValidationOption <$>
-      obj .: "DomainName" <*>
-      obj .: "ValidationDomain"
+      (obj .: "DomainName") <*>
+      (obj .: "ValidationDomain")
   parseJSON _ = mempty
 
 -- | Constructor for 'CertificateManagerCertificateDomainValidationOption'

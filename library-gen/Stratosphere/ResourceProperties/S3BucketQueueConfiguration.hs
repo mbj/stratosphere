@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig-queueconfig.html
 
@@ -27,17 +28,17 @@ instance ToJSON S3BucketQueueConfiguration where
   toJSON S3BucketQueueConfiguration{..} =
     object $
     catMaybes
-    [ Just ("Event" .= _s3BucketQueueConfigurationEvent)
-    , ("Filter" .=) <$> _s3BucketQueueConfigurationFilter
-    , Just ("Queue" .= _s3BucketQueueConfigurationQueue)
+    [ (Just . ("Event",) . toJSON) _s3BucketQueueConfigurationEvent
+    , fmap (("Filter",) . toJSON) _s3BucketQueueConfigurationFilter
+    , (Just . ("Queue",) . toJSON) _s3BucketQueueConfigurationQueue
     ]
 
 instance FromJSON S3BucketQueueConfiguration where
   parseJSON (Object obj) =
     S3BucketQueueConfiguration <$>
-      obj .: "Event" <*>
-      obj .:? "Filter" <*>
-      obj .: "Queue"
+      (obj .: "Event") <*>
+      (obj .:? "Filter") <*>
+      (obj .: "Queue")
   parseJSON _ = mempty
 
 -- | Constructor for 'S3BucketQueueConfiguration' containing required fields

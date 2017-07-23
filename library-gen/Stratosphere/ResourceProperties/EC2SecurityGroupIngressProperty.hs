@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html
 
@@ -20,39 +21,39 @@ data EC2SecurityGroupIngressProperty =
   EC2SecurityGroupIngressProperty
   { _eC2SecurityGroupIngressPropertyCidrIp :: Maybe (Val Text)
   , _eC2SecurityGroupIngressPropertyCidrIpv6 :: Maybe (Val Text)
-  , _eC2SecurityGroupIngressPropertyFromPort :: Maybe (Val Integer')
+  , _eC2SecurityGroupIngressPropertyFromPort :: Maybe (Val Integer)
   , _eC2SecurityGroupIngressPropertyIpProtocol :: Val Text
   , _eC2SecurityGroupIngressPropertySourceSecurityGroupId :: Maybe (Val Text)
   , _eC2SecurityGroupIngressPropertySourceSecurityGroupName :: Maybe (Val Text)
   , _eC2SecurityGroupIngressPropertySourceSecurityGroupOwnerId :: Maybe (Val Text)
-  , _eC2SecurityGroupIngressPropertyToPort :: Maybe (Val Integer')
+  , _eC2SecurityGroupIngressPropertyToPort :: Maybe (Val Integer)
   } deriving (Show, Eq)
 
 instance ToJSON EC2SecurityGroupIngressProperty where
   toJSON EC2SecurityGroupIngressProperty{..} =
     object $
     catMaybes
-    [ ("CidrIp" .=) <$> _eC2SecurityGroupIngressPropertyCidrIp
-    , ("CidrIpv6" .=) <$> _eC2SecurityGroupIngressPropertyCidrIpv6
-    , ("FromPort" .=) <$> _eC2SecurityGroupIngressPropertyFromPort
-    , Just ("IpProtocol" .= _eC2SecurityGroupIngressPropertyIpProtocol)
-    , ("SourceSecurityGroupId" .=) <$> _eC2SecurityGroupIngressPropertySourceSecurityGroupId
-    , ("SourceSecurityGroupName" .=) <$> _eC2SecurityGroupIngressPropertySourceSecurityGroupName
-    , ("SourceSecurityGroupOwnerId" .=) <$> _eC2SecurityGroupIngressPropertySourceSecurityGroupOwnerId
-    , ("ToPort" .=) <$> _eC2SecurityGroupIngressPropertyToPort
+    [ fmap (("CidrIp",) . toJSON) _eC2SecurityGroupIngressPropertyCidrIp
+    , fmap (("CidrIpv6",) . toJSON) _eC2SecurityGroupIngressPropertyCidrIpv6
+    , fmap (("FromPort",) . toJSON . fmap Integer') _eC2SecurityGroupIngressPropertyFromPort
+    , (Just . ("IpProtocol",) . toJSON) _eC2SecurityGroupIngressPropertyIpProtocol
+    , fmap (("SourceSecurityGroupId",) . toJSON) _eC2SecurityGroupIngressPropertySourceSecurityGroupId
+    , fmap (("SourceSecurityGroupName",) . toJSON) _eC2SecurityGroupIngressPropertySourceSecurityGroupName
+    , fmap (("SourceSecurityGroupOwnerId",) . toJSON) _eC2SecurityGroupIngressPropertySourceSecurityGroupOwnerId
+    , fmap (("ToPort",) . toJSON . fmap Integer') _eC2SecurityGroupIngressPropertyToPort
     ]
 
 instance FromJSON EC2SecurityGroupIngressProperty where
   parseJSON (Object obj) =
     EC2SecurityGroupIngressProperty <$>
-      obj .:? "CidrIp" <*>
-      obj .:? "CidrIpv6" <*>
-      obj .:? "FromPort" <*>
-      obj .: "IpProtocol" <*>
-      obj .:? "SourceSecurityGroupId" <*>
-      obj .:? "SourceSecurityGroupName" <*>
-      obj .:? "SourceSecurityGroupOwnerId" <*>
-      obj .:? "ToPort"
+      (obj .:? "CidrIp") <*>
+      (obj .:? "CidrIpv6") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "FromPort") <*>
+      (obj .: "IpProtocol") <*>
+      (obj .:? "SourceSecurityGroupId") <*>
+      (obj .:? "SourceSecurityGroupName") <*>
+      (obj .:? "SourceSecurityGroupOwnerId") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "ToPort")
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2SecurityGroupIngressProperty' containing required
@@ -81,7 +82,7 @@ ecsgipCidrIpv6 :: Lens' EC2SecurityGroupIngressProperty (Maybe (Val Text))
 ecsgipCidrIpv6 = lens _eC2SecurityGroupIngressPropertyCidrIpv6 (\s a -> s { _eC2SecurityGroupIngressPropertyCidrIpv6 = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html#cfn-ec2-security-group-rule-fromport
-ecsgipFromPort :: Lens' EC2SecurityGroupIngressProperty (Maybe (Val Integer'))
+ecsgipFromPort :: Lens' EC2SecurityGroupIngressProperty (Maybe (Val Integer))
 ecsgipFromPort = lens _eC2SecurityGroupIngressPropertyFromPort (\s a -> s { _eC2SecurityGroupIngressPropertyFromPort = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html#cfn-ec2-security-group-rule-ipprotocol
@@ -101,5 +102,5 @@ ecsgipSourceSecurityGroupOwnerId :: Lens' EC2SecurityGroupIngressProperty (Maybe
 ecsgipSourceSecurityGroupOwnerId = lens _eC2SecurityGroupIngressPropertySourceSecurityGroupOwnerId (\s a -> s { _eC2SecurityGroupIngressPropertySourceSecurityGroupOwnerId = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html#cfn-ec2-security-group-rule-toport
-ecsgipToPort :: Lens' EC2SecurityGroupIngressProperty (Maybe (Val Integer'))
+ecsgipToPort :: Lens' EC2SecurityGroupIngressProperty (Maybe (Val Integer))
 ecsgipToPort = lens _eC2SecurityGroupIngressPropertyToPort (\s a -> s { _eC2SecurityGroupIngressPropertyToPort = a })
