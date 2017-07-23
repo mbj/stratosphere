@@ -1,5 +1,7 @@
 # Change Log
 
+## 0.6.1
+
 ## 0.6.0
 
 * **BREAKING CHANGE**: Added `ValList` type. This new type allows you to
