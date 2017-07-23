@@ -11,6 +11,12 @@
   `OverloadedLists` pragma, you might not have to change any of your code.
   Otherwise, you must wrap existing lists in the `ValList` constructor.
 
+* **BREAKING CHANGE**: The newtype wrappers `Integer'`, `Bool'`, and `Double'`
+  are no longer required. CloudFormation expects numbers and bools to be JSON
+  strings. These newtypes used to be necessary so we didn't use JSON
+  numbers/bools. Now the conversion is handled internally, and users don't need
+  to worry about this when using `stratosphere`.
+
 ## 0.5.0
 
 * Update resource specification document (no version given)
