@@ -1,6 +1,15 @@
 # Change Log
 
-## 0.5.1
+## 0.6.0
+
+* **BREAKING CHANGE**: Added `ValList` type. This new type allows you to
+  reference parameters that are already list types. Previously you had to use
+  some kludgy workarounds. For example, you can now `Ref` a parameter of type
+  `List<AWS::EC2::AvailabilityZone::Name>`.
+
+  Every type that used to be `[Val a]` is now `ValList a`. If you use the
+  `OverloadedLists` pragma, you might not have to change any of your code.
+  Otherwise, you must wrap existing lists in the `ValList` constructor.
 
 ## 0.5.0
 
