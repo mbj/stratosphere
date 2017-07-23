@@ -20,7 +20,7 @@ import Stratosphere.Values
 -- convenient constructor.
 data AutoScalingAutoScalingGroupNotificationConfiguration =
   AutoScalingAutoScalingGroupNotificationConfiguration
-  { _autoScalingAutoScalingGroupNotificationConfigurationNotificationTypes :: Maybe [Val Text]
+  { _autoScalingAutoScalingGroupNotificationConfigurationNotificationTypes :: Maybe (ValList Text)
   , _autoScalingAutoScalingGroupNotificationConfigurationTopicARN :: Val Text
   } deriving (Show, Eq)
 
@@ -51,7 +51,7 @@ autoScalingAutoScalingGroupNotificationConfiguration topicARNarg =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-notificationconfigurations.html#cfn-as-group-notificationconfigurations-notificationtypes
-asasgncNotificationTypes :: Lens' AutoScalingAutoScalingGroupNotificationConfiguration (Maybe [Val Text])
+asasgncNotificationTypes :: Lens' AutoScalingAutoScalingGroupNotificationConfiguration (Maybe (ValList Text))
 asasgncNotificationTypes = lens _autoScalingAutoScalingGroupNotificationConfigurationNotificationTypes (\s a -> s { _autoScalingAutoScalingGroupNotificationConfigurationNotificationTypes = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-notificationconfigurations.html#cfn-autoscaling-autoscalinggroup-notificationconfigurations-topicarn

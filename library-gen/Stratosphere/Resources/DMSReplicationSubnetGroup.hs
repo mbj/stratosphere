@@ -20,7 +20,7 @@ data DMSReplicationSubnetGroup =
   DMSReplicationSubnetGroup
   { _dMSReplicationSubnetGroupReplicationSubnetGroupDescription :: Val Text
   , _dMSReplicationSubnetGroupReplicationSubnetGroupIdentifier :: Maybe (Val Text)
-  , _dMSReplicationSubnetGroupSubnetIds :: [Val Text]
+  , _dMSReplicationSubnetGroupSubnetIds :: ValList Text
   , _dMSReplicationSubnetGroupTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
@@ -47,7 +47,7 @@ instance FromJSON DMSReplicationSubnetGroup where
 -- arguments.
 dmsReplicationSubnetGroup
   :: Val Text -- ^ 'dmsrsgReplicationSubnetGroupDescription'
-  -> [Val Text] -- ^ 'dmsrsgSubnetIds'
+  -> ValList Text -- ^ 'dmsrsgSubnetIds'
   -> DMSReplicationSubnetGroup
 dmsReplicationSubnetGroup replicationSubnetGroupDescriptionarg subnetIdsarg =
   DMSReplicationSubnetGroup
@@ -66,7 +66,7 @@ dmsrsgReplicationSubnetGroupIdentifier :: Lens' DMSReplicationSubnetGroup (Maybe
 dmsrsgReplicationSubnetGroupIdentifier = lens _dMSReplicationSubnetGroupReplicationSubnetGroupIdentifier (\s a -> s { _dMSReplicationSubnetGroupReplicationSubnetGroupIdentifier = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationsubnetgroup.html#cfn-dms-replicationsubnetgroup-subnetids
-dmsrsgSubnetIds :: Lens' DMSReplicationSubnetGroup [Val Text]
+dmsrsgSubnetIds :: Lens' DMSReplicationSubnetGroup (ValList Text)
 dmsrsgSubnetIds = lens _dMSReplicationSubnetGroupSubnetIds (\s a -> s { _dMSReplicationSubnetGroupSubnetIds = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationsubnetgroup.html#cfn-dms-replicationsubnetgroup-tags

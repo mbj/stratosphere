@@ -18,7 +18,7 @@ import Stratosphere.Values
 -- 'cloudFrontDistributionGeoRestriction' for a more convenient constructor.
 data CloudFrontDistributionGeoRestriction =
   CloudFrontDistributionGeoRestriction
-  { _cloudFrontDistributionGeoRestrictionLocations :: Maybe [Val Text]
+  { _cloudFrontDistributionGeoRestrictionLocations :: Maybe (ValList Text)
   , _cloudFrontDistributionGeoRestrictionRestrictionType :: Val Text
   } deriving (Show, Eq)
 
@@ -49,7 +49,7 @@ cloudFrontDistributionGeoRestriction restrictionTypearg =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distributionconfig-restrictions-georestriction.html#cfn-cloudfront-distributionconfig-restrictions-georestriction-locations
-cfdgrLocations :: Lens' CloudFrontDistributionGeoRestriction (Maybe [Val Text])
+cfdgrLocations :: Lens' CloudFrontDistributionGeoRestriction (Maybe (ValList Text))
 cfdgrLocations = lens _cloudFrontDistributionGeoRestrictionLocations (\s a -> s { _cloudFrontDistributionGeoRestrictionLocations = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distributionconfig-restrictions-georestriction.html#cfn-cloudfront-distributionconfig-restrictions-georestriction-restrictiontype

@@ -27,13 +27,13 @@ data OpsWorksLayer =
   , _opsWorksLayerCustomInstanceProfileArn :: Maybe (Val Text)
   , _opsWorksLayerCustomJson :: Maybe Object
   , _opsWorksLayerCustomRecipes :: Maybe OpsWorksLayerRecipes
-  , _opsWorksLayerCustomSecurityGroupIds :: Maybe [Val Text]
+  , _opsWorksLayerCustomSecurityGroupIds :: Maybe (ValList Text)
   , _opsWorksLayerEnableAutoHealing :: Val Bool'
   , _opsWorksLayerInstallUpdatesOnBoot :: Maybe (Val Bool')
   , _opsWorksLayerLifecycleEventConfiguration :: Maybe OpsWorksLayerLifecycleEventConfiguration
   , _opsWorksLayerLoadBasedAutoScaling :: Maybe OpsWorksLayerLoadBasedAutoScaling
   , _opsWorksLayerName :: Val Text
-  , _opsWorksLayerPackages :: Maybe [Val Text]
+  , _opsWorksLayerPackages :: Maybe (ValList Text)
   , _opsWorksLayerShortname :: Val Text
   , _opsWorksLayerStackId :: Val Text
   , _opsWorksLayerType :: Val Text
@@ -145,7 +145,7 @@ owlCustomRecipes :: Lens' OpsWorksLayer (Maybe OpsWorksLayerRecipes)
 owlCustomRecipes = lens _opsWorksLayerCustomRecipes (\s a -> s { _opsWorksLayerCustomRecipes = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-layer.html#cfn-opsworks-layer-customsecuritygroupids
-owlCustomSecurityGroupIds :: Lens' OpsWorksLayer (Maybe [Val Text])
+owlCustomSecurityGroupIds :: Lens' OpsWorksLayer (Maybe (ValList Text))
 owlCustomSecurityGroupIds = lens _opsWorksLayerCustomSecurityGroupIds (\s a -> s { _opsWorksLayerCustomSecurityGroupIds = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-layer.html#cfn-opsworks-layer-enableautohealing
@@ -169,7 +169,7 @@ owlName :: Lens' OpsWorksLayer (Val Text)
 owlName = lens _opsWorksLayerName (\s a -> s { _opsWorksLayerName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-layer.html#cfn-opsworks-layer-packages
-owlPackages :: Lens' OpsWorksLayer (Maybe [Val Text])
+owlPackages :: Lens' OpsWorksLayer (Maybe (ValList Text))
 owlPackages = lens _opsWorksLayerPackages (\s a -> s { _opsWorksLayerPackages = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-layer.html#cfn-opsworks-layer-shortname

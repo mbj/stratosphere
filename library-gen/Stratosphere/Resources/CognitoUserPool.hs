@@ -25,8 +25,8 @@ import Stratosphere.ResourceProperties.CognitoUserPoolSmsConfiguration
 data CognitoUserPool =
   CognitoUserPool
   { _cognitoUserPoolAdminCreateUserConfig :: Maybe CognitoUserPoolAdminCreateUserConfig
-  , _cognitoUserPoolAliasAttributes :: Maybe [Val Text]
-  , _cognitoUserPoolAutoVerifiedAttributes :: Maybe [Val Text]
+  , _cognitoUserPoolAliasAttributes :: Maybe (ValList Text)
+  , _cognitoUserPoolAutoVerifiedAttributes :: Maybe (ValList Text)
   , _cognitoUserPoolDeviceConfiguration :: Maybe CognitoUserPoolDeviceConfiguration
   , _cognitoUserPoolEmailConfiguration :: Maybe CognitoUserPoolEmailConfiguration
   , _cognitoUserPoolEmailVerificationMessage :: Maybe (Val Text)
@@ -114,11 +114,11 @@ cupAdminCreateUserConfig :: Lens' CognitoUserPool (Maybe CognitoUserPoolAdminCre
 cupAdminCreateUserConfig = lens _cognitoUserPoolAdminCreateUserConfig (\s a -> s { _cognitoUserPoolAdminCreateUserConfig = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-aliasattributes
-cupAliasAttributes :: Lens' CognitoUserPool (Maybe [Val Text])
+cupAliasAttributes :: Lens' CognitoUserPool (Maybe (ValList Text))
 cupAliasAttributes = lens _cognitoUserPoolAliasAttributes (\s a -> s { _cognitoUserPoolAliasAttributes = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-autoverifiedattributes
-cupAutoVerifiedAttributes :: Lens' CognitoUserPool (Maybe [Val Text])
+cupAutoVerifiedAttributes :: Lens' CognitoUserPool (Maybe (ValList Text))
 cupAutoVerifiedAttributes = lens _cognitoUserPoolAutoVerifiedAttributes (\s a -> s { _cognitoUserPoolAutoVerifiedAttributes = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-deviceconfiguration

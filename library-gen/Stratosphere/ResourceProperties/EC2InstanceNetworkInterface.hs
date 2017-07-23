@@ -23,7 +23,7 @@ data EC2InstanceNetworkInterface =
   , _eC2InstanceNetworkInterfaceDeleteOnTermination :: Maybe (Val Bool')
   , _eC2InstanceNetworkInterfaceDescription :: Maybe (Val Text)
   , _eC2InstanceNetworkInterfaceDeviceIndex :: Val Text
-  , _eC2InstanceNetworkInterfaceGroupSet :: Maybe [Val Text]
+  , _eC2InstanceNetworkInterfaceGroupSet :: Maybe (ValList Text)
   , _eC2InstanceNetworkInterfaceIpv6AddressCount :: Maybe (Val Integer')
   , _eC2InstanceNetworkInterfaceIpv6Addresses :: Maybe [EC2InstanceInstanceIpv6Address]
   , _eC2InstanceNetworkInterfaceNetworkInterfaceId :: Maybe (Val Text)
@@ -106,7 +106,7 @@ eciniDeviceIndex :: Lens' EC2InstanceNetworkInterface (Val Text)
 eciniDeviceIndex = lens _eC2InstanceNetworkInterfaceDeviceIndex (\s a -> s { _eC2InstanceNetworkInterfaceDeviceIndex = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-iface-embedded.html#aws-properties-ec2-network-iface-embedded-groupset
-eciniGroupSet :: Lens' EC2InstanceNetworkInterface (Maybe [Val Text])
+eciniGroupSet :: Lens' EC2InstanceNetworkInterface (Maybe (ValList Text))
 eciniGroupSet = lens _eC2InstanceNetworkInterfaceGroupSet (\s a -> s { _eC2InstanceNetworkInterfaceGroupSet = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-iface-embedded.html#cfn-ec2-instance-networkinterface-ipv6addresscount

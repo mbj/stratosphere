@@ -19,12 +19,12 @@ import Stratosphere.Values
 data CognitoUserPoolClient =
   CognitoUserPoolClient
   { _cognitoUserPoolClientClientName :: Maybe (Val Text)
-  , _cognitoUserPoolClientExplicitAuthFlows :: Maybe [Val Text]
+  , _cognitoUserPoolClientExplicitAuthFlows :: Maybe (ValList Text)
   , _cognitoUserPoolClientGenerateSecret :: Maybe (Val Bool')
-  , _cognitoUserPoolClientReadAttributes :: Maybe [Val Text]
+  , _cognitoUserPoolClientReadAttributes :: Maybe (ValList Text)
   , _cognitoUserPoolClientRefreshTokenValidity :: Maybe (Val Double')
   , _cognitoUserPoolClientUserPoolId :: Val Text
-  , _cognitoUserPoolClientWriteAttributes :: Maybe [Val Text]
+  , _cognitoUserPoolClientWriteAttributes :: Maybe (ValList Text)
   } deriving (Show, Eq)
 
 instance ToJSON CognitoUserPoolClient where
@@ -73,7 +73,7 @@ cupcClientName :: Lens' CognitoUserPoolClient (Maybe (Val Text))
 cupcClientName = lens _cognitoUserPoolClientClientName (\s a -> s { _cognitoUserPoolClientClientName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-explicitauthflows
-cupcExplicitAuthFlows :: Lens' CognitoUserPoolClient (Maybe [Val Text])
+cupcExplicitAuthFlows :: Lens' CognitoUserPoolClient (Maybe (ValList Text))
 cupcExplicitAuthFlows = lens _cognitoUserPoolClientExplicitAuthFlows (\s a -> s { _cognitoUserPoolClientExplicitAuthFlows = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-generatesecret
@@ -81,7 +81,7 @@ cupcGenerateSecret :: Lens' CognitoUserPoolClient (Maybe (Val Bool'))
 cupcGenerateSecret = lens _cognitoUserPoolClientGenerateSecret (\s a -> s { _cognitoUserPoolClientGenerateSecret = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-readattributes
-cupcReadAttributes :: Lens' CognitoUserPoolClient (Maybe [Val Text])
+cupcReadAttributes :: Lens' CognitoUserPoolClient (Maybe (ValList Text))
 cupcReadAttributes = lens _cognitoUserPoolClientReadAttributes (\s a -> s { _cognitoUserPoolClientReadAttributes = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-refreshtokenvalidity
@@ -93,5 +93,5 @@ cupcUserPoolId :: Lens' CognitoUserPoolClient (Val Text)
 cupcUserPoolId = lens _cognitoUserPoolClientUserPoolId (\s a -> s { _cognitoUserPoolClientUserPoolId = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-writeattributes
-cupcWriteAttributes :: Lens' CognitoUserPoolClient (Maybe [Val Text])
+cupcWriteAttributes :: Lens' CognitoUserPoolClient (Maybe (ValList Text))
 cupcWriteAttributes = lens _cognitoUserPoolClientWriteAttributes (\s a -> s { _cognitoUserPoolClientWriteAttributes = a })

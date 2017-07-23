@@ -25,7 +25,7 @@ data OpsWorksApp =
   , _opsWorksAppAttributes :: Maybe Object
   , _opsWorksAppDataSources :: Maybe [OpsWorksAppDataSource]
   , _opsWorksAppDescription :: Maybe (Val Text)
-  , _opsWorksAppDomains :: Maybe [Val Text]
+  , _opsWorksAppDomains :: Maybe (ValList Text)
   , _opsWorksAppEnableSsl :: Maybe (Val Bool')
   , _opsWorksAppEnvironment :: Maybe [OpsWorksAppEnvironmentVariable]
   , _opsWorksAppName :: Val Text
@@ -109,7 +109,7 @@ owaDescription :: Lens' OpsWorksApp (Maybe (Val Text))
 owaDescription = lens _opsWorksAppDescription (\s a -> s { _opsWorksAppDescription = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-app.html#cfn-opsworks-app-domains
-owaDomains :: Lens' OpsWorksApp (Maybe [Val Text])
+owaDomains :: Lens' OpsWorksApp (Maybe (ValList Text))
 owaDomains = lens _opsWorksAppDomains (\s a -> s { _opsWorksAppDomains = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-app.html#cfn-opsworks-app-enablessl

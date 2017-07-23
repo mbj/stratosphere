@@ -19,7 +19,7 @@ import Stratosphere.Values
 data SNSTopicPolicy =
   SNSTopicPolicy
   { _sNSTopicPolicyPolicyDocument :: Object
-  , _sNSTopicPolicyTopics :: [Val Text]
+  , _sNSTopicPolicyTopics :: ValList Text
   } deriving (Show, Eq)
 
 instance ToJSON SNSTopicPolicy where
@@ -40,7 +40,7 @@ instance FromJSON SNSTopicPolicy where
 -- | Constructor for 'SNSTopicPolicy' containing required fields as arguments.
 snsTopicPolicy
   :: Object -- ^ 'snstpPolicyDocument'
-  -> [Val Text] -- ^ 'snstpTopics'
+  -> ValList Text -- ^ 'snstpTopics'
   -> SNSTopicPolicy
 snsTopicPolicy policyDocumentarg topicsarg =
   SNSTopicPolicy
@@ -53,5 +53,5 @@ snstpPolicyDocument :: Lens' SNSTopicPolicy Object
 snstpPolicyDocument = lens _sNSTopicPolicyPolicyDocument (\s a -> s { _sNSTopicPolicyPolicyDocument = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-policy.html#cfn-sns-topicpolicy-topics
-snstpTopics :: Lens' SNSTopicPolicy [Val Text]
+snstpTopics :: Lens' SNSTopicPolicy (ValList Text)
 snstpTopics = lens _sNSTopicPolicyTopics (\s a -> s { _sNSTopicPolicyTopics = a })

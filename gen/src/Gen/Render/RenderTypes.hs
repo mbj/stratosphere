@@ -39,23 +39,44 @@ renderPropertyType :: Property -> Text
 renderPropertyType Property{..} = renderType propertySpecType propertyRequired
 
 renderType :: SpecType -> Bool -> Text
-renderType (AtomicType type') True = renderAtomicType type'
-renderType (AtomicType JsonPrimitive) False = "Maybe " <> renderAtomicType JsonPrimitive
+renderType (AtomicType type') True = renderAtomicTypeWithVal type'
+renderType (AtomicType JsonPrimitive) False = "Maybe " <> renderAtomicTypeWithVal JsonPrimitive
 renderType (AtomicType (SubPropertyType text)) False = "Maybe " <> text
-renderType (AtomicType type') False = "Maybe (" <> renderAtomicType type' <> ")"
-renderType (ListType type') True = "[" <> renderAtomicType type' <> "]"
-renderType (ListType type') False = "Maybe [" <> renderAtomicType type' <> "]"
+renderType (AtomicType type') False = "Maybe (" <> renderAtomicTypeWithVal type' <> ")"
+renderType (ListType type') True =
+  if isWrappedInVal type'
+  then "ValList " <> renderAtomicType type'
+  else "[" <> renderAtomicType type' <> "]"
+renderType (ListType type') False =
+  if isWrappedInVal type'
+  then "Maybe (ValList " <> renderAtomicType type' <> ")"
+  else "Maybe [" <> renderAtomicType type' <> "]"
 -- TODO: Actually use a map type, not Object
--- renderType (MapType type') True = "Map Text " <> renderAtomicType type'
--- renderType (MapType type') False = "Maybe (Map Text (" <> renderAtomicType type' <> "))"
+-- renderType (MapType type') True = "Map Text " <> renderAtomicTypeWithVal type'
+-- renderType (MapType type') False = "Maybe (Map Text (" <> renderAtomicTypeWithVal type' <> "))"
 renderType (MapType _) True = "Object"
 renderType (MapType _) False = "Maybe Object"
 
+isWrappedInVal :: AtomicType -> Bool
+isWrappedInVal StringPrimitive = True
+isWrappedInVal IntegerPrimitive = True
+isWrappedInVal DoublePrimitive = True
+isWrappedInVal BoolPrimitive = True
+isWrappedInVal JsonPrimitive = False
+isWrappedInVal (SubPropertyType _) = False
+isWrappedInVal (CustomType _) = True
+
+renderAtomicTypeWithVal :: AtomicType -> Text
+renderAtomicTypeWithVal t =
+  if isWrappedInVal t
+  then "Val " <> renderAtomicType t
+  else renderAtomicType t
+
 renderAtomicType :: AtomicType -> Text
-renderAtomicType StringPrimitive = "Val Text"
-renderAtomicType IntegerPrimitive = "Val Integer'"
-renderAtomicType DoublePrimitive = "Val Double'"
-renderAtomicType BoolPrimitive = "Val Bool'"
+renderAtomicType StringPrimitive = "Text"
+renderAtomicType IntegerPrimitive = "Integer'"
+renderAtomicType DoublePrimitive = "Double'"
+renderAtomicType BoolPrimitive = "Bool'"
 renderAtomicType JsonPrimitive = "Object"
 renderAtomicType (SubPropertyType text) = text
-renderAtomicType (CustomType text) = "Val " <> text
+renderAtomicType (CustomType text) = text

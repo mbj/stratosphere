@@ -22,7 +22,7 @@ data ElasticLoadBalancingLoadBalancerListeners =
   { _elasticLoadBalancingLoadBalancerListenersInstancePort :: Val Text
   , _elasticLoadBalancingLoadBalancerListenersInstanceProtocol :: Maybe (Val Text)
   , _elasticLoadBalancingLoadBalancerListenersLoadBalancerPort :: Val Text
-  , _elasticLoadBalancingLoadBalancerListenersPolicyNames :: Maybe [Val Text]
+  , _elasticLoadBalancingLoadBalancerListenersPolicyNames :: Maybe (ValList Text)
   , _elasticLoadBalancingLoadBalancerListenersProtocol :: Val Text
   , _elasticLoadBalancingLoadBalancerListenersSSLCertificateId :: Maybe (Val Text)
   } deriving (Show, Eq)
@@ -80,7 +80,7 @@ elblblLoadBalancerPort :: Lens' ElasticLoadBalancingLoadBalancerListeners (Val T
 elblblLoadBalancerPort = lens _elasticLoadBalancingLoadBalancerListenersLoadBalancerPort (\s a -> s { _elasticLoadBalancingLoadBalancerListenersLoadBalancerPort = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-listener.html#cfn-ec2-elb-listener-policynames
-elblblPolicyNames :: Lens' ElasticLoadBalancingLoadBalancerListeners (Maybe [Val Text])
+elblblPolicyNames :: Lens' ElasticLoadBalancingLoadBalancerListeners (Maybe (ValList Text))
 elblblPolicyNames = lens _elasticLoadBalancingLoadBalancerListenersPolicyNames (\s a -> s { _elasticLoadBalancingLoadBalancerListenersPolicyNames = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-listener.html#cfn-ec2-elb-listener-protocol

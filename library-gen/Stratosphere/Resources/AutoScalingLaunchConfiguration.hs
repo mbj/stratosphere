@@ -21,7 +21,7 @@ data AutoScalingLaunchConfiguration =
   { _autoScalingLaunchConfigurationAssociatePublicIpAddress :: Maybe (Val Bool')
   , _autoScalingLaunchConfigurationBlockDeviceMappings :: Maybe [AutoScalingLaunchConfigurationBlockDeviceMapping]
   , _autoScalingLaunchConfigurationClassicLinkVPCId :: Maybe (Val Text)
-  , _autoScalingLaunchConfigurationClassicLinkVPCSecurityGroups :: Maybe [Val Text]
+  , _autoScalingLaunchConfigurationClassicLinkVPCSecurityGroups :: Maybe (ValList Text)
   , _autoScalingLaunchConfigurationEbsOptimized :: Maybe (Val Bool')
   , _autoScalingLaunchConfigurationIamInstanceProfile :: Maybe (Val Text)
   , _autoScalingLaunchConfigurationImageId :: Val Text
@@ -32,7 +32,7 @@ data AutoScalingLaunchConfiguration =
   , _autoScalingLaunchConfigurationKeyName :: Maybe (Val Text)
   , _autoScalingLaunchConfigurationPlacementTenancy :: Maybe (Val Text)
   , _autoScalingLaunchConfigurationRamDiskId :: Maybe (Val Text)
-  , _autoScalingLaunchConfigurationSecurityGroups :: Maybe [Val Text]
+  , _autoScalingLaunchConfigurationSecurityGroups :: Maybe (ValList Text)
   , _autoScalingLaunchConfigurationSpotPrice :: Maybe (Val Text)
   , _autoScalingLaunchConfigurationUserData :: Maybe (Val Text)
   } deriving (Show, Eq)
@@ -122,7 +122,7 @@ aslcClassicLinkVPCId :: Lens' AutoScalingLaunchConfiguration (Maybe (Val Text))
 aslcClassicLinkVPCId = lens _autoScalingLaunchConfigurationClassicLinkVPCId (\s a -> s { _autoScalingLaunchConfigurationClassicLinkVPCId = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-as-launchconfig-classiclinkvpcsecuritygroups
-aslcClassicLinkVPCSecurityGroups :: Lens' AutoScalingLaunchConfiguration (Maybe [Val Text])
+aslcClassicLinkVPCSecurityGroups :: Lens' AutoScalingLaunchConfiguration (Maybe (ValList Text))
 aslcClassicLinkVPCSecurityGroups = lens _autoScalingLaunchConfigurationClassicLinkVPCSecurityGroups (\s a -> s { _autoScalingLaunchConfigurationClassicLinkVPCSecurityGroups = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-as-launchconfig-ebsoptimized
@@ -166,7 +166,7 @@ aslcRamDiskId :: Lens' AutoScalingLaunchConfiguration (Maybe (Val Text))
 aslcRamDiskId = lens _autoScalingLaunchConfigurationRamDiskId (\s a -> s { _autoScalingLaunchConfigurationRamDiskId = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-as-launchconfig-securitygroups
-aslcSecurityGroups :: Lens' AutoScalingLaunchConfiguration (Maybe [Val Text])
+aslcSecurityGroups :: Lens' AutoScalingLaunchConfiguration (Maybe (ValList Text))
 aslcSecurityGroups = lens _autoScalingLaunchConfigurationSecurityGroups (\s a -> s { _autoScalingLaunchConfigurationSecurityGroups = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-as-launchconfig-spotprice

@@ -19,7 +19,7 @@ import Stratosphere.ResourceProperties.CloudWatchAlarmDimension
 data CloudWatchAlarm =
   CloudWatchAlarm
   { _cloudWatchAlarmActionsEnabled :: Maybe (Val Bool')
-  , _cloudWatchAlarmAlarmActions :: Maybe [Val Text]
+  , _cloudWatchAlarmAlarmActions :: Maybe (ValList Text)
   , _cloudWatchAlarmAlarmDescription :: Maybe (Val Text)
   , _cloudWatchAlarmAlarmName :: Maybe (Val Text)
   , _cloudWatchAlarmComparisonOperator :: Val Text
@@ -27,10 +27,10 @@ data CloudWatchAlarm =
   , _cloudWatchAlarmEvaluateLowSampleCountPercentile :: Maybe (Val Text)
   , _cloudWatchAlarmEvaluationPeriods :: Val Integer'
   , _cloudWatchAlarmExtendedStatistic :: Maybe (Val Text)
-  , _cloudWatchAlarmInsufficientDataActions :: Maybe [Val Text]
+  , _cloudWatchAlarmInsufficientDataActions :: Maybe (ValList Text)
   , _cloudWatchAlarmMetricName :: Val Text
   , _cloudWatchAlarmNamespace :: Val Text
-  , _cloudWatchAlarmOKActions :: Maybe [Val Text]
+  , _cloudWatchAlarmOKActions :: Maybe (ValList Text)
   , _cloudWatchAlarmPeriod :: Val Integer'
   , _cloudWatchAlarmStatistic :: Maybe (Val Text)
   , _cloudWatchAlarmThreshold :: Val Double'
@@ -122,7 +122,7 @@ cwaActionsEnabled :: Lens' CloudWatchAlarm (Maybe (Val Bool'))
 cwaActionsEnabled = lens _cloudWatchAlarmActionsEnabled (\s a -> s { _cloudWatchAlarmActionsEnabled = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html#cfn-cloudwatch-alarms-alarmactions
-cwaAlarmActions :: Lens' CloudWatchAlarm (Maybe [Val Text])
+cwaAlarmActions :: Lens' CloudWatchAlarm (Maybe (ValList Text))
 cwaAlarmActions = lens _cloudWatchAlarmAlarmActions (\s a -> s { _cloudWatchAlarmAlarmActions = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html#cfn-cloudwatch-alarms-alarmdescription
@@ -154,7 +154,7 @@ cwaExtendedStatistic :: Lens' CloudWatchAlarm (Maybe (Val Text))
 cwaExtendedStatistic = lens _cloudWatchAlarmExtendedStatistic (\s a -> s { _cloudWatchAlarmExtendedStatistic = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html#cfn-cloudwatch-alarms-insufficientdataactions
-cwaInsufficientDataActions :: Lens' CloudWatchAlarm (Maybe [Val Text])
+cwaInsufficientDataActions :: Lens' CloudWatchAlarm (Maybe (ValList Text))
 cwaInsufficientDataActions = lens _cloudWatchAlarmInsufficientDataActions (\s a -> s { _cloudWatchAlarmInsufficientDataActions = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html#cfn-cloudwatch-alarms-metricname
@@ -166,7 +166,7 @@ cwaNamespace :: Lens' CloudWatchAlarm (Val Text)
 cwaNamespace = lens _cloudWatchAlarmNamespace (\s a -> s { _cloudWatchAlarmNamespace = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html#cfn-cloudwatch-alarms-okactions
-cwaOKActions :: Lens' CloudWatchAlarm (Maybe [Val Text])
+cwaOKActions :: Lens' CloudWatchAlarm (Maybe (ValList Text))
 cwaOKActions = lens _cloudWatchAlarmOKActions (\s a -> s { _cloudWatchAlarmOKActions = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html#cfn-cloudwatch-alarms-period

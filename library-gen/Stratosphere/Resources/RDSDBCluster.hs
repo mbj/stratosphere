@@ -35,7 +35,7 @@ data RDSDBCluster =
   , _rDSDBClusterSnapshotIdentifier :: Maybe (Val Text)
   , _rDSDBClusterStorageEncrypted :: Maybe (Val Bool')
   , _rDSDBClusterTags :: Maybe [Tag]
-  , _rDSDBClusterVpcSecurityGroupIds :: Maybe [Val Text]
+  , _rDSDBClusterVpcSecurityGroupIds :: Maybe (ValList Text)
   } deriving (Show, Eq)
 
 instance ToJSON RDSDBCluster where
@@ -180,5 +180,5 @@ rdsdbcTags :: Lens' RDSDBCluster (Maybe [Tag])
 rdsdbcTags = lens _rDSDBClusterTags (\s a -> s { _rDSDBClusterTags = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-vpcsecuritygroupids
-rdsdbcVpcSecurityGroupIds :: Lens' RDSDBCluster (Maybe [Val Text])
+rdsdbcVpcSecurityGroupIds :: Lens' RDSDBCluster (Maybe (ValList Text))
 rdsdbcVpcSecurityGroupIds = lens _rDSDBClusterVpcSecurityGroupIds (\s a -> s { _rDSDBClusterVpcSecurityGroupIds = a })

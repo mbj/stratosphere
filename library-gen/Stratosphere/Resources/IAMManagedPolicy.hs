@@ -19,12 +19,12 @@ import Stratosphere.Values
 data IAMManagedPolicy =
   IAMManagedPolicy
   { _iAMManagedPolicyDescription :: Maybe (Val Text)
-  , _iAMManagedPolicyGroups :: Maybe [Val Text]
+  , _iAMManagedPolicyGroups :: Maybe (ValList Text)
   , _iAMManagedPolicyManagedPolicyName :: Maybe (Val Text)
   , _iAMManagedPolicyPath :: Maybe (Val Text)
   , _iAMManagedPolicyPolicyDocument :: Object
-  , _iAMManagedPolicyRoles :: Maybe [Val Text]
-  , _iAMManagedPolicyUsers :: Maybe [Val Text]
+  , _iAMManagedPolicyRoles :: Maybe (ValList Text)
+  , _iAMManagedPolicyUsers :: Maybe (ValList Text)
   } deriving (Show, Eq)
 
 instance ToJSON IAMManagedPolicy where
@@ -73,7 +73,7 @@ iammpDescription :: Lens' IAMManagedPolicy (Maybe (Val Text))
 iammpDescription = lens _iAMManagedPolicyDescription (\s a -> s { _iAMManagedPolicyDescription = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-managedpolicy.html#cfn-iam-managedpolicy-groups
-iammpGroups :: Lens' IAMManagedPolicy (Maybe [Val Text])
+iammpGroups :: Lens' IAMManagedPolicy (Maybe (ValList Text))
 iammpGroups = lens _iAMManagedPolicyGroups (\s a -> s { _iAMManagedPolicyGroups = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-managedpolicy.html#cfn-iam-managedpolicy-managedpolicyname
@@ -89,9 +89,9 @@ iammpPolicyDocument :: Lens' IAMManagedPolicy Object
 iammpPolicyDocument = lens _iAMManagedPolicyPolicyDocument (\s a -> s { _iAMManagedPolicyPolicyDocument = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-managedpolicy.html#cfn-iam-managedpolicy-roles
-iammpRoles :: Lens' IAMManagedPolicy (Maybe [Val Text])
+iammpRoles :: Lens' IAMManagedPolicy (Maybe (ValList Text))
 iammpRoles = lens _iAMManagedPolicyRoles (\s a -> s { _iAMManagedPolicyRoles = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-managedpolicy.html#cfn-iam-managedpolicy-users
-iammpUsers :: Lens' IAMManagedPolicy (Maybe [Val Text])
+iammpUsers :: Lens' IAMManagedPolicy (Maybe (ValList Text))
 iammpUsers = lens _iAMManagedPolicyUsers (\s a -> s { _iAMManagedPolicyUsers = a })

@@ -19,7 +19,7 @@ import Stratosphere.Values
 -- constructor.
 data EMRClusterScriptBootstrapActionConfig =
   EMRClusterScriptBootstrapActionConfig
-  { _eMRClusterScriptBootstrapActionConfigArgs :: Maybe [Val Text]
+  { _eMRClusterScriptBootstrapActionConfigArgs :: Maybe (ValList Text)
   , _eMRClusterScriptBootstrapActionConfigPath :: Val Text
   } deriving (Show, Eq)
 
@@ -50,7 +50,7 @@ emrClusterScriptBootstrapActionConfig patharg =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-bootstrapactionconfig-scriptbootstrapactionconfig.html#cfn-emr-cluster-bootstrapactionconfig-scriptbootstrapaction-args
-emrcsbacArgs :: Lens' EMRClusterScriptBootstrapActionConfig (Maybe [Val Text])
+emrcsbacArgs :: Lens' EMRClusterScriptBootstrapActionConfig (Maybe (ValList Text))
 emrcsbacArgs = lens _eMRClusterScriptBootstrapActionConfigArgs (\s a -> s { _eMRClusterScriptBootstrapActionConfigArgs = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-bootstrapactionconfig-scriptbootstrapactionconfig.html#cfn-emr-cluster-bootstrapactionconfig-scriptbootstrapaction-path

@@ -18,8 +18,8 @@ import Stratosphere.ResourceProperties.CloudFrontDistributionForwardedValues
 -- 'cloudFrontDistributionCacheBehavior' for a more convenient constructor.
 data CloudFrontDistributionCacheBehavior =
   CloudFrontDistributionCacheBehavior
-  { _cloudFrontDistributionCacheBehaviorAllowedMethods :: Maybe [Val Text]
-  , _cloudFrontDistributionCacheBehaviorCachedMethods :: Maybe [Val Text]
+  { _cloudFrontDistributionCacheBehaviorAllowedMethods :: Maybe (ValList Text)
+  , _cloudFrontDistributionCacheBehaviorCachedMethods :: Maybe (ValList Text)
   , _cloudFrontDistributionCacheBehaviorCompress :: Maybe (Val Bool')
   , _cloudFrontDistributionCacheBehaviorDefaultTTL :: Maybe (Val Integer')
   , _cloudFrontDistributionCacheBehaviorForwardedValues :: CloudFrontDistributionForwardedValues
@@ -28,7 +28,7 @@ data CloudFrontDistributionCacheBehavior =
   , _cloudFrontDistributionCacheBehaviorPathPattern :: Val Text
   , _cloudFrontDistributionCacheBehaviorSmoothStreaming :: Maybe (Val Bool')
   , _cloudFrontDistributionCacheBehaviorTargetOriginId :: Val Text
-  , _cloudFrontDistributionCacheBehaviorTrustedSigners :: Maybe [Val Text]
+  , _cloudFrontDistributionCacheBehaviorTrustedSigners :: Maybe (ValList Text)
   , _cloudFrontDistributionCacheBehaviorViewerProtocolPolicy :: Val Text
   } deriving (Show, Eq)
 
@@ -92,11 +92,11 @@ cloudFrontDistributionCacheBehavior forwardedValuesarg pathPatternarg targetOrig
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachebehavior.html#cfn-cloudfront-cachebehavior-allowedmethods
-cfdcbAllowedMethods :: Lens' CloudFrontDistributionCacheBehavior (Maybe [Val Text])
+cfdcbAllowedMethods :: Lens' CloudFrontDistributionCacheBehavior (Maybe (ValList Text))
 cfdcbAllowedMethods = lens _cloudFrontDistributionCacheBehaviorAllowedMethods (\s a -> s { _cloudFrontDistributionCacheBehaviorAllowedMethods = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachebehavior.html#cfn-cloudfront-cachebehavior-cachedmethods
-cfdcbCachedMethods :: Lens' CloudFrontDistributionCacheBehavior (Maybe [Val Text])
+cfdcbCachedMethods :: Lens' CloudFrontDistributionCacheBehavior (Maybe (ValList Text))
 cfdcbCachedMethods = lens _cloudFrontDistributionCacheBehaviorCachedMethods (\s a -> s { _cloudFrontDistributionCacheBehaviorCachedMethods = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachebehavior.html#cfn-cloudfront-cachebehavior-compress
@@ -132,7 +132,7 @@ cfdcbTargetOriginId :: Lens' CloudFrontDistributionCacheBehavior (Val Text)
 cfdcbTargetOriginId = lens _cloudFrontDistributionCacheBehaviorTargetOriginId (\s a -> s { _cloudFrontDistributionCacheBehaviorTargetOriginId = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachebehavior.html#cfn-cloudfront-cachebehavior-trustedsigners
-cfdcbTrustedSigners :: Lens' CloudFrontDistributionCacheBehavior (Maybe [Val Text])
+cfdcbTrustedSigners :: Lens' CloudFrontDistributionCacheBehavior (Maybe (ValList Text))
 cfdcbTrustedSigners = lens _cloudFrontDistributionCacheBehaviorTrustedSigners (\s a -> s { _cloudFrontDistributionCacheBehaviorTrustedSigners = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-cachebehavior.html#cfn-cloudfront-cachebehavior-viewerprotocolpolicy

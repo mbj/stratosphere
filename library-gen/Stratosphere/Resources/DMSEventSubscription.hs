@@ -19,9 +19,9 @@ import Stratosphere.ResourceProperties.Tag
 data DMSEventSubscription =
   DMSEventSubscription
   { _dMSEventSubscriptionEnabled :: Maybe (Val Bool')
-  , _dMSEventSubscriptionEventCategories :: Maybe [Val Text]
+  , _dMSEventSubscriptionEventCategories :: Maybe (ValList Text)
   , _dMSEventSubscriptionSnsTopicArn :: Val Text
-  , _dMSEventSubscriptionSourceIds :: Maybe [Val Text]
+  , _dMSEventSubscriptionSourceIds :: Maybe (ValList Text)
   , _dMSEventSubscriptionSourceType :: Maybe (Val Text)
   , _dMSEventSubscriptionSubscriptionName :: Maybe (Val Text)
   , _dMSEventSubscriptionTags :: Maybe [Tag]
@@ -73,7 +73,7 @@ dmsesEnabled :: Lens' DMSEventSubscription (Maybe (Val Bool'))
 dmsesEnabled = lens _dMSEventSubscriptionEnabled (\s a -> s { _dMSEventSubscriptionEnabled = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-eventsubscription.html#cfn-dms-eventsubscription-eventcategories
-dmsesEventCategories :: Lens' DMSEventSubscription (Maybe [Val Text])
+dmsesEventCategories :: Lens' DMSEventSubscription (Maybe (ValList Text))
 dmsesEventCategories = lens _dMSEventSubscriptionEventCategories (\s a -> s { _dMSEventSubscriptionEventCategories = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-eventsubscription.html#cfn-dms-eventsubscription-snstopicarn
@@ -81,7 +81,7 @@ dmsesSnsTopicArn :: Lens' DMSEventSubscription (Val Text)
 dmsesSnsTopicArn = lens _dMSEventSubscriptionSnsTopicArn (\s a -> s { _dMSEventSubscriptionSnsTopicArn = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-eventsubscription.html#cfn-dms-eventsubscription-sourceids
-dmsesSourceIds :: Lens' DMSEventSubscription (Maybe [Val Text])
+dmsesSourceIds :: Lens' DMSEventSubscription (Maybe (ValList Text))
 dmsesSourceIds = lens _dMSEventSubscriptionSourceIds (\s a -> s { _dMSEventSubscriptionSourceIds = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-eventsubscription.html#cfn-dms-eventsubscription-sourcetype

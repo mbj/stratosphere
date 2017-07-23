@@ -19,7 +19,7 @@ import Stratosphere.ResourceProperties.Route53HealthCheckAlarmIdentifier
 data Route53HealthCheckHealthCheckConfig =
   Route53HealthCheckHealthCheckConfig
   { _route53HealthCheckHealthCheckConfigAlarmIdentifier :: Maybe Route53HealthCheckAlarmIdentifier
-  , _route53HealthCheckHealthCheckConfigChildHealthChecks :: Maybe [Val Text]
+  , _route53HealthCheckHealthCheckConfigChildHealthChecks :: Maybe (ValList Text)
   , _route53HealthCheckHealthCheckConfigEnableSNI :: Maybe (Val Bool')
   , _route53HealthCheckHealthCheckConfigFailureThreshold :: Maybe (Val Integer')
   , _route53HealthCheckHealthCheckConfigFullyQualifiedDomainName :: Maybe (Val Text)
@@ -105,7 +105,7 @@ rhchccAlarmIdentifier :: Lens' Route53HealthCheckHealthCheckConfig (Maybe Route5
 rhchccAlarmIdentifier = lens _route53HealthCheckHealthCheckConfigAlarmIdentifier (\s a -> s { _route53HealthCheckHealthCheckConfigAlarmIdentifier = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-childhealthchecks
-rhchccChildHealthChecks :: Lens' Route53HealthCheckHealthCheckConfig (Maybe [Val Text])
+rhchccChildHealthChecks :: Lens' Route53HealthCheckHealthCheckConfig (Maybe (ValList Text))
 rhchccChildHealthChecks = lens _route53HealthCheckHealthCheckConfigChildHealthChecks (\s a -> s { _route53HealthCheckHealthCheckConfigChildHealthChecks = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-enablesni

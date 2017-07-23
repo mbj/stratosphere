@@ -19,7 +19,7 @@ import Stratosphere.Values
 data CloudFrontDistributionCookies =
   CloudFrontDistributionCookies
   { _cloudFrontDistributionCookiesForward :: Val Text
-  , _cloudFrontDistributionCookiesWhitelistedNames :: Maybe [Val Text]
+  , _cloudFrontDistributionCookiesWhitelistedNames :: Maybe (ValList Text)
   } deriving (Show, Eq)
 
 instance ToJSON CloudFrontDistributionCookies where
@@ -53,5 +53,5 @@ cfdcForward :: Lens' CloudFrontDistributionCookies (Val Text)
 cfdcForward = lens _cloudFrontDistributionCookiesForward (\s a -> s { _cloudFrontDistributionCookiesForward = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-forwardedvalues-cookies.html#cfn-cloudfront-forwardedvalues-cookies-whitelistednames
-cfdcWhitelistedNames :: Lens' CloudFrontDistributionCookies (Maybe [Val Text])
+cfdcWhitelistedNames :: Lens' CloudFrontDistributionCookies (Maybe (ValList Text))
 cfdcWhitelistedNames = lens _cloudFrontDistributionCookiesWhitelistedNames (\s a -> s { _cloudFrontDistributionCookiesWhitelistedNames = a })

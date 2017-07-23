@@ -18,11 +18,11 @@ import Stratosphere.ResourceProperties.RDSOptionGroupOptionSetting
 -- 'rdsOptionGroupOptionConfiguration' for a more convenient constructor.
 data RDSOptionGroupOptionConfiguration =
   RDSOptionGroupOptionConfiguration
-  { _rDSOptionGroupOptionConfigurationDBSecurityGroupMemberships :: Maybe [Val Text]
+  { _rDSOptionGroupOptionConfigurationDBSecurityGroupMemberships :: Maybe (ValList Text)
   , _rDSOptionGroupOptionConfigurationOptionName :: Val Text
   , _rDSOptionGroupOptionConfigurationOptionSettings :: Maybe RDSOptionGroupOptionSetting
   , _rDSOptionGroupOptionConfigurationPort :: Maybe (Val Integer')
-  , _rDSOptionGroupOptionConfigurationVpcSecurityGroupMemberships :: Maybe [Val Text]
+  , _rDSOptionGroupOptionConfigurationVpcSecurityGroupMemberships :: Maybe (ValList Text)
   } deriving (Show, Eq)
 
 instance ToJSON RDSOptionGroupOptionConfiguration where
@@ -61,7 +61,7 @@ rdsOptionGroupOptionConfiguration optionNamearg =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfigurations.html#cfn-rds-optiongroup-optionconfigurations-dbsecuritygroupmemberships
-rdsogocDBSecurityGroupMemberships :: Lens' RDSOptionGroupOptionConfiguration (Maybe [Val Text])
+rdsogocDBSecurityGroupMemberships :: Lens' RDSOptionGroupOptionConfiguration (Maybe (ValList Text))
 rdsogocDBSecurityGroupMemberships = lens _rDSOptionGroupOptionConfigurationDBSecurityGroupMemberships (\s a -> s { _rDSOptionGroupOptionConfigurationDBSecurityGroupMemberships = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfigurations.html#cfn-rds-optiongroup-optionconfigurations-optionname
@@ -77,5 +77,5 @@ rdsogocPort :: Lens' RDSOptionGroupOptionConfiguration (Maybe (Val Integer'))
 rdsogocPort = lens _rDSOptionGroupOptionConfigurationPort (\s a -> s { _rDSOptionGroupOptionConfigurationPort = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfigurations.html#cfn-rds-optiongroup-optionconfigurations-vpcsecuritygroupmemberships
-rdsogocVpcSecurityGroupMemberships :: Lens' RDSOptionGroupOptionConfiguration (Maybe [Val Text])
+rdsogocVpcSecurityGroupMemberships :: Lens' RDSOptionGroupOptionConfiguration (Maybe (ValList Text))
 rdsogocVpcSecurityGroupMemberships = lens _rDSOptionGroupOptionConfigurationVpcSecurityGroupMemberships (\s a -> s { _rDSOptionGroupOptionConfigurationVpcSecurityGroupMemberships = a })

@@ -25,7 +25,7 @@ data EC2SpotFleetInstanceNetworkInterfaceSpecification =
   , _eC2SpotFleetInstanceNetworkInterfaceSpecificationDeleteOnTermination :: Maybe (Val Bool')
   , _eC2SpotFleetInstanceNetworkInterfaceSpecificationDescription :: Maybe (Val Text)
   , _eC2SpotFleetInstanceNetworkInterfaceSpecificationDeviceIndex :: Maybe (Val Integer')
-  , _eC2SpotFleetInstanceNetworkInterfaceSpecificationGroups :: Maybe [Val Text]
+  , _eC2SpotFleetInstanceNetworkInterfaceSpecificationGroups :: Maybe (ValList Text)
   , _eC2SpotFleetInstanceNetworkInterfaceSpecificationIpv6AddressCount :: Maybe (Val Integer')
   , _eC2SpotFleetInstanceNetworkInterfaceSpecificationIpv6Addresses :: Maybe [EC2SpotFleetInstanceIpv6Address]
   , _eC2SpotFleetInstanceNetworkInterfaceSpecificationNetworkInterfaceId :: Maybe (Val Text)
@@ -103,7 +103,7 @@ ecsfinisDeviceIndex :: Lens' EC2SpotFleetInstanceNetworkInterfaceSpecification (
 ecsfinisDeviceIndex = lens _eC2SpotFleetInstanceNetworkInterfaceSpecificationDeviceIndex (\s a -> s { _eC2SpotFleetInstanceNetworkInterfaceSpecificationDeviceIndex = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-networkinterfaces.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-groups
-ecsfinisGroups :: Lens' EC2SpotFleetInstanceNetworkInterfaceSpecification (Maybe [Val Text])
+ecsfinisGroups :: Lens' EC2SpotFleetInstanceNetworkInterfaceSpecification (Maybe (ValList Text))
 ecsfinisGroups = lens _eC2SpotFleetInstanceNetworkInterfaceSpecificationGroups (\s a -> s { _eC2SpotFleetInstanceNetworkInterfaceSpecificationGroups = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications-networkinterfaces.html#cfn-ec2-spotfleet-instancenetworkinterfacespecification-ipv6addresscount

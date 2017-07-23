@@ -28,7 +28,7 @@ data Route53RecordSet =
   , _route53RecordSetHostedZoneName :: Maybe (Val Text)
   , _route53RecordSetName :: Val Text
   , _route53RecordSetRegion :: Maybe (Val Text)
-  , _route53RecordSetResourceRecords :: Maybe [Val Text]
+  , _route53RecordSetResourceRecords :: Maybe (ValList Text)
   , _route53RecordSetSetIdentifier :: Maybe (Val Text)
   , _route53RecordSetTTL :: Maybe (Val Text)
   , _route53RecordSetType :: Val Text
@@ -135,7 +135,7 @@ rrsRegion :: Lens' Route53RecordSet (Maybe (Val Text))
 rrsRegion = lens _route53RecordSetRegion (\s a -> s { _route53RecordSetRegion = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset.html#cfn-route53-recordset-resourcerecords
-rrsResourceRecords :: Lens' Route53RecordSet (Maybe [Val Text])
+rrsResourceRecords :: Lens' Route53RecordSet (Maybe (ValList Text))
 rrsResourceRecords = lens _route53RecordSetResourceRecords (\s a -> s { _route53RecordSetResourceRecords = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset.html#cfn-route53-recordset-setidentifier

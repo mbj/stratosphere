@@ -26,9 +26,9 @@ data CognitoIdentityPool =
   , _cognitoIdentityPoolCognitoStreams :: Maybe CognitoIdentityPoolCognitoStreams
   , _cognitoIdentityPoolDeveloperProviderName :: Maybe (Val Text)
   , _cognitoIdentityPoolIdentityPoolName :: Maybe (Val Text)
-  , _cognitoIdentityPoolOpenIdConnectProviderARNs :: Maybe [Val Text]
+  , _cognitoIdentityPoolOpenIdConnectProviderARNs :: Maybe (ValList Text)
   , _cognitoIdentityPoolPushSync :: Maybe CognitoIdentityPoolPushSync
-  , _cognitoIdentityPoolSamlProviderARNs :: Maybe [Val Text]
+  , _cognitoIdentityPoolSamlProviderARNs :: Maybe (ValList Text)
   , _cognitoIdentityPoolSupportedLoginProviders :: Maybe Object
   } deriving (Show, Eq)
 
@@ -107,7 +107,7 @@ cipIdentityPoolName :: Lens' CognitoIdentityPool (Maybe (Val Text))
 cipIdentityPoolName = lens _cognitoIdentityPoolIdentityPoolName (\s a -> s { _cognitoIdentityPoolIdentityPoolName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html#cfn-cognito-identitypool-openidconnectproviderarns
-cipOpenIdConnectProviderARNs :: Lens' CognitoIdentityPool (Maybe [Val Text])
+cipOpenIdConnectProviderARNs :: Lens' CognitoIdentityPool (Maybe (ValList Text))
 cipOpenIdConnectProviderARNs = lens _cognitoIdentityPoolOpenIdConnectProviderARNs (\s a -> s { _cognitoIdentityPoolOpenIdConnectProviderARNs = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html#cfn-cognito-identitypool-pushsync
@@ -115,7 +115,7 @@ cipPushSync :: Lens' CognitoIdentityPool (Maybe CognitoIdentityPoolPushSync)
 cipPushSync = lens _cognitoIdentityPoolPushSync (\s a -> s { _cognitoIdentityPoolPushSync = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html#cfn-cognito-identitypool-samlproviderarns
-cipSamlProviderARNs :: Lens' CognitoIdentityPool (Maybe [Val Text])
+cipSamlProviderARNs :: Lens' CognitoIdentityPool (Maybe (ValList Text))
 cipSamlProviderARNs = lens _cognitoIdentityPoolSamlProviderARNs (\s a -> s { _cognitoIdentityPoolSamlProviderARNs = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html#cfn-cognito-identitypool-supportedloginproviders

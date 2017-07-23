@@ -20,7 +20,7 @@ data IAMInstanceProfile =
   IAMInstanceProfile
   { _iAMInstanceProfileInstanceProfileName :: Maybe (Val Text)
   , _iAMInstanceProfilePath :: Maybe (Val Text)
-  , _iAMInstanceProfileRoles :: [Val Text]
+  , _iAMInstanceProfileRoles :: ValList Text
   } deriving (Show, Eq)
 
 instance ToJSON IAMInstanceProfile where
@@ -43,7 +43,7 @@ instance FromJSON IAMInstanceProfile where
 -- | Constructor for 'IAMInstanceProfile' containing required fields as
 -- arguments.
 iamInstanceProfile
-  :: [Val Text] -- ^ 'iamipRoles'
+  :: ValList Text -- ^ 'iamipRoles'
   -> IAMInstanceProfile
 iamInstanceProfile rolesarg =
   IAMInstanceProfile
@@ -61,5 +61,5 @@ iamipPath :: Lens' IAMInstanceProfile (Maybe (Val Text))
 iamipPath = lens _iAMInstanceProfilePath (\s a -> s { _iAMInstanceProfilePath = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html#cfn-iam-instanceprofile-roles
-iamipRoles :: Lens' IAMInstanceProfile [Val Text]
+iamipRoles :: Lens' IAMInstanceProfile (ValList Text)
 iamipRoles = lens _iAMInstanceProfileRoles (\s a -> s { _iAMInstanceProfileRoles = a })

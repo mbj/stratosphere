@@ -23,8 +23,8 @@ data ElasticLoadBalancingV2LoadBalancer =
   , _elasticLoadBalancingV2LoadBalancerLoadBalancerAttributes :: Maybe [ElasticLoadBalancingV2LoadBalancerLoadBalancerAttribute]
   , _elasticLoadBalancingV2LoadBalancerName :: Maybe (Val Text)
   , _elasticLoadBalancingV2LoadBalancerScheme :: Maybe (Val Text)
-  , _elasticLoadBalancingV2LoadBalancerSecurityGroups :: Maybe [Val Text]
-  , _elasticLoadBalancingV2LoadBalancerSubnets :: Maybe [Val Text]
+  , _elasticLoadBalancingV2LoadBalancerSecurityGroups :: Maybe (ValList Text)
+  , _elasticLoadBalancingV2LoadBalancerSubnets :: Maybe (ValList Text)
   , _elasticLoadBalancingV2LoadBalancerTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
@@ -85,11 +85,11 @@ elbvlbScheme :: Lens' ElasticLoadBalancingV2LoadBalancer (Maybe (Val Text))
 elbvlbScheme = lens _elasticLoadBalancingV2LoadBalancerScheme (\s a -> s { _elasticLoadBalancingV2LoadBalancerScheme = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-securitygroups
-elbvlbSecurityGroups :: Lens' ElasticLoadBalancingV2LoadBalancer (Maybe [Val Text])
+elbvlbSecurityGroups :: Lens' ElasticLoadBalancingV2LoadBalancer (Maybe (ValList Text))
 elbvlbSecurityGroups = lens _elasticLoadBalancingV2LoadBalancerSecurityGroups (\s a -> s { _elasticLoadBalancingV2LoadBalancerSecurityGroups = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-subnets
-elbvlbSubnets :: Lens' ElasticLoadBalancingV2LoadBalancer (Maybe [Val Text])
+elbvlbSubnets :: Lens' ElasticLoadBalancingV2LoadBalancer (Maybe (ValList Text))
 elbvlbSubnets = lens _elasticLoadBalancingV2LoadBalancerSubnets (\s a -> s { _elasticLoadBalancingV2LoadBalancerSubnets = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-tags

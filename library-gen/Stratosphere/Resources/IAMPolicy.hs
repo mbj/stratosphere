@@ -18,11 +18,11 @@ import Stratosphere.Values
 -- convenient constructor.
 data IAMPolicy =
   IAMPolicy
-  { _iAMPolicyGroups :: Maybe [Val Text]
+  { _iAMPolicyGroups :: Maybe (ValList Text)
   , _iAMPolicyPolicyDocument :: Object
   , _iAMPolicyPolicyName :: Val Text
-  , _iAMPolicyRoles :: Maybe [Val Text]
-  , _iAMPolicyUsers :: Maybe [Val Text]
+  , _iAMPolicyRoles :: Maybe (ValList Text)
+  , _iAMPolicyUsers :: Maybe (ValList Text)
   } deriving (Show, Eq)
 
 instance ToJSON IAMPolicy where
@@ -61,7 +61,7 @@ iamPolicy policyDocumentarg policyNamearg =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html#cfn-iam-policy-groups
-iampGroups :: Lens' IAMPolicy (Maybe [Val Text])
+iampGroups :: Lens' IAMPolicy (Maybe (ValList Text))
 iampGroups = lens _iAMPolicyGroups (\s a -> s { _iAMPolicyGroups = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html#cfn-iam-policy-policydocument
@@ -73,9 +73,9 @@ iampPolicyName :: Lens' IAMPolicy (Val Text)
 iampPolicyName = lens _iAMPolicyPolicyName (\s a -> s { _iAMPolicyPolicyName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html#cfn-iam-policy-roles
-iampRoles :: Lens' IAMPolicy (Maybe [Val Text])
+iampRoles :: Lens' IAMPolicy (Maybe (ValList Text))
 iampRoles = lens _iAMPolicyRoles (\s a -> s { _iAMPolicyRoles = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html#cfn-iam-policy-users
-iampUsers :: Lens' IAMPolicy (Maybe [Val Text])
+iampUsers :: Lens' IAMPolicy (Maybe (ValList Text))
 iampUsers = lens _iAMPolicyUsers (\s a -> s { _iAMPolicyUsers = a })

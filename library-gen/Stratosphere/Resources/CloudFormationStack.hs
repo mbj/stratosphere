@@ -18,7 +18,7 @@ import Stratosphere.ResourceProperties.Tag
 -- 'cloudFormationStack' for a more convenient constructor.
 data CloudFormationStack =
   CloudFormationStack
-  { _cloudFormationStackNotificationARNs :: Maybe [Val Text]
+  { _cloudFormationStackNotificationARNs :: Maybe (ValList Text)
   , _cloudFormationStackParameters :: Maybe Object
   , _cloudFormationStackTags :: Maybe [Tag]
   , _cloudFormationStackTemplateURL :: Val Text
@@ -61,7 +61,7 @@ cloudFormationStack templateURLarg =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stack.html#cfn-cloudformation-stack-notificationarns
-cfsNotificationARNs :: Lens' CloudFormationStack (Maybe [Val Text])
+cfsNotificationARNs :: Lens' CloudFormationStack (Maybe (ValList Text))
 cfsNotificationARNs = lens _cloudFormationStackNotificationARNs (\s a -> s { _cloudFormationStackNotificationARNs = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stack.html#cfn-cloudformation-stack-parameters

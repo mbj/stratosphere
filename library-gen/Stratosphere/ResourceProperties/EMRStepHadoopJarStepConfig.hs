@@ -18,7 +18,7 @@ import Stratosphere.ResourceProperties.EMRStepKeyValue
 -- 'emrStepHadoopJarStepConfig' for a more convenient constructor.
 data EMRStepHadoopJarStepConfig =
   EMRStepHadoopJarStepConfig
-  { _eMRStepHadoopJarStepConfigArgs :: Maybe [Val Text]
+  { _eMRStepHadoopJarStepConfigArgs :: Maybe (ValList Text)
   , _eMRStepHadoopJarStepConfigJar :: Val Text
   , _eMRStepHadoopJarStepConfigMainClass :: Maybe (Val Text)
   , _eMRStepHadoopJarStepConfigStepProperties :: Maybe [EMRStepKeyValue]
@@ -57,7 +57,7 @@ emrStepHadoopJarStepConfig jararg =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-step-hadoopjarstepconfig.html#cfn-elasticmapreduce-step-hadoopjarstepconfig-args
-emrshjscArgs :: Lens' EMRStepHadoopJarStepConfig (Maybe [Val Text])
+emrshjscArgs :: Lens' EMRStepHadoopJarStepConfig (Maybe (ValList Text))
 emrshjscArgs = lens _eMRStepHadoopJarStepConfigArgs (\s a -> s { _eMRStepHadoopJarStepConfigArgs = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-step-hadoopjarstepconfig.html#cfn-elasticmapreduce-step-hadoopjarstepconfig-jar

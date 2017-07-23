@@ -19,7 +19,7 @@ import Stratosphere.Values
 data EC2InstanceAssociationParameter =
   EC2InstanceAssociationParameter
   { _eC2InstanceAssociationParameterKey :: Val Text
-  , _eC2InstanceAssociationParameterValue :: [Val Text]
+  , _eC2InstanceAssociationParameterValue :: ValList Text
   } deriving (Show, Eq)
 
 instance ToJSON EC2InstanceAssociationParameter where
@@ -41,7 +41,7 @@ instance FromJSON EC2InstanceAssociationParameter where
 -- fields as arguments.
 ec2InstanceAssociationParameter
   :: Val Text -- ^ 'eciapKey'
-  -> [Val Text] -- ^ 'eciapValue'
+  -> ValList Text -- ^ 'eciapValue'
   -> EC2InstanceAssociationParameter
 ec2InstanceAssociationParameter keyarg valuearg =
   EC2InstanceAssociationParameter
@@ -54,5 +54,5 @@ eciapKey :: Lens' EC2InstanceAssociationParameter (Val Text)
 eciapKey = lens _eC2InstanceAssociationParameterKey (\s a -> s { _eC2InstanceAssociationParameterKey = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-ssmassociations-associationparameters.html#cfn-ec2-instance-ssmassociations-associationparameters-value
-eciapValue :: Lens' EC2InstanceAssociationParameter [Val Text]
+eciapValue :: Lens' EC2InstanceAssociationParameter (ValList Text)
 eciapValue = lens _eC2InstanceAssociationParameterValue (\s a -> s { _eC2InstanceAssociationParameterValue = a })

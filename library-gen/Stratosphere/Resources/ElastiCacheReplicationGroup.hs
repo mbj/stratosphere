@@ -23,7 +23,7 @@ data ElastiCacheReplicationGroup =
   , _elastiCacheReplicationGroupAutomaticFailoverEnabled :: Maybe (Val Bool')
   , _elastiCacheReplicationGroupCacheNodeType :: Maybe (Val Text)
   , _elastiCacheReplicationGroupCacheParameterGroupName :: Maybe (Val Text)
-  , _elastiCacheReplicationGroupCacheSecurityGroupNames :: Maybe [Val Text]
+  , _elastiCacheReplicationGroupCacheSecurityGroupNames :: Maybe (ValList Text)
   , _elastiCacheReplicationGroupCacheSubnetGroupName :: Maybe (Val Text)
   , _elastiCacheReplicationGroupEngine :: Maybe (Val Text)
   , _elastiCacheReplicationGroupEngineVersion :: Maybe (Val Text)
@@ -32,14 +32,14 @@ data ElastiCacheReplicationGroup =
   , _elastiCacheReplicationGroupNumCacheClusters :: Maybe (Val Integer')
   , _elastiCacheReplicationGroupNumNodeGroups :: Maybe (Val Integer')
   , _elastiCacheReplicationGroupPort :: Maybe (Val Integer')
-  , _elastiCacheReplicationGroupPreferredCacheClusterAZs :: Maybe [Val Text]
+  , _elastiCacheReplicationGroupPreferredCacheClusterAZs :: Maybe (ValList Text)
   , _elastiCacheReplicationGroupPreferredMaintenanceWindow :: Maybe (Val Text)
   , _elastiCacheReplicationGroupPrimaryClusterId :: Maybe (Val Text)
   , _elastiCacheReplicationGroupReplicasPerNodeGroup :: Maybe (Val Integer')
   , _elastiCacheReplicationGroupReplicationGroupDescription :: Val Text
   , _elastiCacheReplicationGroupReplicationGroupId :: Maybe (Val Text)
-  , _elastiCacheReplicationGroupSecurityGroupIds :: Maybe [Val Text]
-  , _elastiCacheReplicationGroupSnapshotArns :: Maybe [Val Text]
+  , _elastiCacheReplicationGroupSecurityGroupIds :: Maybe (ValList Text)
+  , _elastiCacheReplicationGroupSnapshotArns :: Maybe (ValList Text)
   , _elastiCacheReplicationGroupSnapshotName :: Maybe (Val Text)
   , _elastiCacheReplicationGroupSnapshotRetentionLimit :: Maybe (Val Integer')
   , _elastiCacheReplicationGroupSnapshotWindow :: Maybe (Val Text)
@@ -162,7 +162,7 @@ ecrgCacheParameterGroupName :: Lens' ElastiCacheReplicationGroup (Maybe (Val Tex
 ecrgCacheParameterGroupName = lens _elastiCacheReplicationGroupCacheParameterGroupName (\s a -> s { _elastiCacheReplicationGroupCacheParameterGroupName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-cachesecuritygroupnames
-ecrgCacheSecurityGroupNames :: Lens' ElastiCacheReplicationGroup (Maybe [Val Text])
+ecrgCacheSecurityGroupNames :: Lens' ElastiCacheReplicationGroup (Maybe (ValList Text))
 ecrgCacheSecurityGroupNames = lens _elastiCacheReplicationGroupCacheSecurityGroupNames (\s a -> s { _elastiCacheReplicationGroupCacheSecurityGroupNames = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-cachesubnetgroupname
@@ -198,7 +198,7 @@ ecrgPort :: Lens' ElastiCacheReplicationGroup (Maybe (Val Integer'))
 ecrgPort = lens _elastiCacheReplicationGroupPort (\s a -> s { _elastiCacheReplicationGroupPort = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-preferredcacheclusterazs
-ecrgPreferredCacheClusterAZs :: Lens' ElastiCacheReplicationGroup (Maybe [Val Text])
+ecrgPreferredCacheClusterAZs :: Lens' ElastiCacheReplicationGroup (Maybe (ValList Text))
 ecrgPreferredCacheClusterAZs = lens _elastiCacheReplicationGroupPreferredCacheClusterAZs (\s a -> s { _elastiCacheReplicationGroupPreferredCacheClusterAZs = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-preferredmaintenancewindow
@@ -222,11 +222,11 @@ ecrgReplicationGroupId :: Lens' ElastiCacheReplicationGroup (Maybe (Val Text))
 ecrgReplicationGroupId = lens _elastiCacheReplicationGroupReplicationGroupId (\s a -> s { _elastiCacheReplicationGroupReplicationGroupId = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-securitygroupids
-ecrgSecurityGroupIds :: Lens' ElastiCacheReplicationGroup (Maybe [Val Text])
+ecrgSecurityGroupIds :: Lens' ElastiCacheReplicationGroup (Maybe (ValList Text))
 ecrgSecurityGroupIds = lens _elastiCacheReplicationGroupSecurityGroupIds (\s a -> s { _elastiCacheReplicationGroupSecurityGroupIds = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-snapshotarns
-ecrgSnapshotArns :: Lens' ElastiCacheReplicationGroup (Maybe [Val Text])
+ecrgSnapshotArns :: Lens' ElastiCacheReplicationGroup (Maybe (ValList Text))
 ecrgSnapshotArns = lens _elastiCacheReplicationGroupSnapshotArns (\s a -> s { _elastiCacheReplicationGroupSnapshotArns = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-snapshotname

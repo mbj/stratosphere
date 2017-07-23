@@ -18,7 +18,7 @@ import Stratosphere.ResourceProperties.ApiGatewayRestApiS3Location
 -- for a more convenient constructor.
 data ApiGatewayRestApi =
   ApiGatewayRestApi
-  { _apiGatewayRestApiBinaryMediaTypes :: Maybe [Val Text]
+  { _apiGatewayRestApiBinaryMediaTypes :: Maybe (ValList Text)
   , _apiGatewayRestApiBody :: Maybe Object
   , _apiGatewayRestApiBodyS3Location :: Maybe ApiGatewayRestApiS3Location
   , _apiGatewayRestApiCloneFrom :: Maybe (Val Text)
@@ -76,7 +76,7 @@ apiGatewayRestApi  =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-binarymediatypes
-agraBinaryMediaTypes :: Lens' ApiGatewayRestApi (Maybe [Val Text])
+agraBinaryMediaTypes :: Lens' ApiGatewayRestApi (Maybe (ValList Text))
 agraBinaryMediaTypes = lens _apiGatewayRestApiBinaryMediaTypes (\s a -> s { _apiGatewayRestApiBinaryMediaTypes = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-body

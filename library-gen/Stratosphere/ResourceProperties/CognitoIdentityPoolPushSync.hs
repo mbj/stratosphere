@@ -18,7 +18,7 @@ import Stratosphere.Values
 -- 'cognitoIdentityPoolPushSync' for a more convenient constructor.
 data CognitoIdentityPoolPushSync =
   CognitoIdentityPoolPushSync
-  { _cognitoIdentityPoolPushSyncApplicationArns :: Maybe [Val Text]
+  { _cognitoIdentityPoolPushSyncApplicationArns :: Maybe (ValList Text)
   , _cognitoIdentityPoolPushSyncRoleArn :: Maybe (Val Text)
   } deriving (Show, Eq)
 
@@ -48,7 +48,7 @@ cognitoIdentityPoolPushSync  =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypool-pushsync.html#cfn-cognito-identitypool-pushsync-applicationarns
-cippsApplicationArns :: Lens' CognitoIdentityPoolPushSync (Maybe [Val Text])
+cippsApplicationArns :: Lens' CognitoIdentityPoolPushSync (Maybe (ValList Text))
 cippsApplicationArns = lens _cognitoIdentityPoolPushSyncApplicationArns (\s a -> s { _cognitoIdentityPoolPushSyncApplicationArns = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypool-pushsync.html#cfn-cognito-identitypool-pushsync-rolearn

@@ -19,9 +19,9 @@ import Stratosphere.ResourceProperties.IAMUserPolicy
 -- convenient constructor.
 data IAMUser =
   IAMUser
-  { _iAMUserGroups :: Maybe [Val Text]
+  { _iAMUserGroups :: Maybe (ValList Text)
   , _iAMUserLoginProfile :: Maybe IAMUserLoginProfile
-  , _iAMUserManagedPolicyArns :: Maybe [Val Text]
+  , _iAMUserManagedPolicyArns :: Maybe (ValList Text)
   , _iAMUserPath :: Maybe (Val Text)
   , _iAMUserPolicies :: Maybe [IAMUserPolicy]
   , _iAMUserUserName :: Maybe (Val Text)
@@ -64,7 +64,7 @@ iamUser  =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html#cfn-iam-user-groups
-iamuGroups :: Lens' IAMUser (Maybe [Val Text])
+iamuGroups :: Lens' IAMUser (Maybe (ValList Text))
 iamuGroups = lens _iAMUserGroups (\s a -> s { _iAMUserGroups = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html#cfn-iam-user-loginprofile
@@ -72,7 +72,7 @@ iamuLoginProfile :: Lens' IAMUser (Maybe IAMUserLoginProfile)
 iamuLoginProfile = lens _iAMUserLoginProfile (\s a -> s { _iAMUserLoginProfile = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html#cfn-iam-user-managepolicyarns
-iamuManagedPolicyArns :: Lens' IAMUser (Maybe [Val Text])
+iamuManagedPolicyArns :: Lens' IAMUser (Maybe (ValList Text))
 iamuManagedPolicyArns = lens _iAMUserManagedPolicyArns (\s a -> s { _iAMUserManagedPolicyArns = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html#cfn-iam-user-path

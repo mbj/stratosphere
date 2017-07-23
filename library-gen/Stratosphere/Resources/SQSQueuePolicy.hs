@@ -19,7 +19,7 @@ import Stratosphere.Values
 data SQSQueuePolicy =
   SQSQueuePolicy
   { _sQSQueuePolicyPolicyDocument :: Object
-  , _sQSQueuePolicyQueues :: [Val Text]
+  , _sQSQueuePolicyQueues :: ValList Text
   } deriving (Show, Eq)
 
 instance ToJSON SQSQueuePolicy where
@@ -40,7 +40,7 @@ instance FromJSON SQSQueuePolicy where
 -- | Constructor for 'SQSQueuePolicy' containing required fields as arguments.
 sqsQueuePolicy
   :: Object -- ^ 'sqsqpPolicyDocument'
-  -> [Val Text] -- ^ 'sqsqpQueues'
+  -> ValList Text -- ^ 'sqsqpQueues'
   -> SQSQueuePolicy
 sqsQueuePolicy policyDocumentarg queuesarg =
   SQSQueuePolicy
@@ -53,5 +53,5 @@ sqsqpPolicyDocument :: Lens' SQSQueuePolicy Object
 sqsqpPolicyDocument = lens _sQSQueuePolicyPolicyDocument (\s a -> s { _sQSQueuePolicyPolicyDocument = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-policy.html#cfn-sqs-queuepolicy-queues
-sqsqpQueues :: Lens' SQSQueuePolicy [Val Text]
+sqsqpQueues :: Lens' SQSQueuePolicy (ValList Text)
 sqsqpQueues = lens _sQSQueuePolicyQueues (\s a -> s { _sQSQueuePolicyQueues = a })

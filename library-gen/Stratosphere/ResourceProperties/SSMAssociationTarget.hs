@@ -19,7 +19,7 @@ import Stratosphere.Values
 data SSMAssociationTarget =
   SSMAssociationTarget
   { _sSMAssociationTargetKey :: Val Text
-  , _sSMAssociationTargetValues :: [Val Text]
+  , _sSMAssociationTargetValues :: ValList Text
   } deriving (Show, Eq)
 
 instance ToJSON SSMAssociationTarget where
@@ -41,7 +41,7 @@ instance FromJSON SSMAssociationTarget where
 -- arguments.
 ssmAssociationTarget
   :: Val Text -- ^ 'ssmatKey'
-  -> [Val Text] -- ^ 'ssmatValues'
+  -> ValList Text -- ^ 'ssmatValues'
   -> SSMAssociationTarget
 ssmAssociationTarget keyarg valuesarg =
   SSMAssociationTarget
@@ -54,5 +54,5 @@ ssmatKey :: Lens' SSMAssociationTarget (Val Text)
 ssmatKey = lens _sSMAssociationTargetKey (\s a -> s { _sSMAssociationTargetKey = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-association-target.html#cfn-ssm-association-target-values
-ssmatValues :: Lens' SSMAssociationTarget [Val Text]
+ssmatValues :: Lens' SSMAssociationTarget (ValList Text)
 ssmatValues = lens _sSMAssociationTargetValues (\s a -> s { _sSMAssociationTargetValues = a })

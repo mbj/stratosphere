@@ -20,9 +20,9 @@ import Stratosphere.ResourceProperties.CloudFrontDistributionCookies
 data CloudFrontDistributionForwardedValues =
   CloudFrontDistributionForwardedValues
   { _cloudFrontDistributionForwardedValuesCookies :: Maybe CloudFrontDistributionCookies
-  , _cloudFrontDistributionForwardedValuesHeaders :: Maybe [Val Text]
+  , _cloudFrontDistributionForwardedValuesHeaders :: Maybe (ValList Text)
   , _cloudFrontDistributionForwardedValuesQueryString :: Val Bool'
-  , _cloudFrontDistributionForwardedValuesQueryStringCacheKeys :: Maybe [Val Text]
+  , _cloudFrontDistributionForwardedValuesQueryStringCacheKeys :: Maybe (ValList Text)
   } deriving (Show, Eq)
 
 instance ToJSON CloudFrontDistributionForwardedValues where
@@ -62,7 +62,7 @@ cfdfvCookies :: Lens' CloudFrontDistributionForwardedValues (Maybe CloudFrontDis
 cfdfvCookies = lens _cloudFrontDistributionForwardedValuesCookies (\s a -> s { _cloudFrontDistributionForwardedValuesCookies = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-forwardedvalues.html#cfn-cloudfront-forwardedvalues-headers
-cfdfvHeaders :: Lens' CloudFrontDistributionForwardedValues (Maybe [Val Text])
+cfdfvHeaders :: Lens' CloudFrontDistributionForwardedValues (Maybe (ValList Text))
 cfdfvHeaders = lens _cloudFrontDistributionForwardedValuesHeaders (\s a -> s { _cloudFrontDistributionForwardedValuesHeaders = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-forwardedvalues.html#cfn-cloudfront-forwardedvalues-querystring
@@ -70,5 +70,5 @@ cfdfvQueryString :: Lens' CloudFrontDistributionForwardedValues (Val Bool')
 cfdfvQueryString = lens _cloudFrontDistributionForwardedValuesQueryString (\s a -> s { _cloudFrontDistributionForwardedValuesQueryString = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-forwardedvalues.html#cfn-cloudfront-forwardedvalues-querystringcachekeys
-cfdfvQueryStringCacheKeys :: Lens' CloudFrontDistributionForwardedValues (Maybe [Val Text])
+cfdfvQueryStringCacheKeys :: Lens' CloudFrontDistributionForwardedValues (Maybe (ValList Text))
 cfdfvQueryStringCacheKeys = lens _cloudFrontDistributionForwardedValuesQueryStringCacheKeys (\s a -> s { _cloudFrontDistributionForwardedValuesQueryStringCacheKeys = a })

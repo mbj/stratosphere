@@ -21,7 +21,7 @@ data CertificateManagerCertificate =
   CertificateManagerCertificate
   { _certificateManagerCertificateDomainName :: Val Text
   , _certificateManagerCertificateDomainValidationOptions :: Maybe [CertificateManagerCertificateDomainValidationOption]
-  , _certificateManagerCertificateSubjectAlternativeNames :: Maybe [Val Text]
+  , _certificateManagerCertificateSubjectAlternativeNames :: Maybe (ValList Text)
   , _certificateManagerCertificateTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
@@ -66,7 +66,7 @@ cmcDomainValidationOptions :: Lens' CertificateManagerCertificate (Maybe [Certif
 cmcDomainValidationOptions = lens _certificateManagerCertificateDomainValidationOptions (\s a -> s { _certificateManagerCertificateDomainValidationOptions = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-certificate.html#cfn-certificatemanager-certificate-subjectalternativenames
-cmcSubjectAlternativeNames :: Lens' CertificateManagerCertificate (Maybe [Val Text])
+cmcSubjectAlternativeNames :: Lens' CertificateManagerCertificate (Maybe (ValList Text))
 cmcSubjectAlternativeNames = lens _certificateManagerCertificateSubjectAlternativeNames (\s a -> s { _certificateManagerCertificateSubjectAlternativeNames = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-certificate.html#cfn-certificatemanager-certificate-tags

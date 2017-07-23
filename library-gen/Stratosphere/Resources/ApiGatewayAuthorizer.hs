@@ -24,7 +24,7 @@ data ApiGatewayAuthorizer =
   , _apiGatewayAuthorizerIdentitySource :: Maybe (Val Text)
   , _apiGatewayAuthorizerIdentityValidationExpression :: Maybe (Val Text)
   , _apiGatewayAuthorizerName :: Maybe (Val Text)
-  , _apiGatewayAuthorizerProviderARNs :: Maybe [Val Text]
+  , _apiGatewayAuthorizerProviderARNs :: Maybe (ValList Text)
   , _apiGatewayAuthorizerRestApiId :: Maybe (Val Text)
   , _apiGatewayAuthorizerType :: Maybe (Val AuthorizerType)
   } deriving (Show, Eq)
@@ -100,7 +100,7 @@ agaName :: Lens' ApiGatewayAuthorizer (Maybe (Val Text))
 agaName = lens _apiGatewayAuthorizerName (\s a -> s { _apiGatewayAuthorizerName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-authorizer.html#cfn-apigateway-authorizer-providerarns
-agaProviderARNs :: Lens' ApiGatewayAuthorizer (Maybe [Val Text])
+agaProviderARNs :: Lens' ApiGatewayAuthorizer (Maybe (ValList Text))
 agaProviderARNs = lens _apiGatewayAuthorizerProviderARNs (\s a -> s { _apiGatewayAuthorizerProviderARNs = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-authorizer.html#cfn-apigateway-authorizer-restapiid

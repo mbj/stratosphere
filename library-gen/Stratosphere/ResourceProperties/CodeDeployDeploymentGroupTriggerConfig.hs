@@ -19,7 +19,7 @@ import Stratosphere.Values
 -- constructor.
 data CodeDeployDeploymentGroupTriggerConfig =
   CodeDeployDeploymentGroupTriggerConfig
-  { _codeDeployDeploymentGroupTriggerConfigTriggerEvents :: Maybe [Val Text]
+  { _codeDeployDeploymentGroupTriggerConfigTriggerEvents :: Maybe (ValList Text)
   , _codeDeployDeploymentGroupTriggerConfigTriggerName :: Maybe (Val Text)
   , _codeDeployDeploymentGroupTriggerConfigTriggerTargetArn :: Maybe (Val Text)
   } deriving (Show, Eq)
@@ -53,7 +53,7 @@ codeDeployDeploymentGroupTriggerConfig  =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-triggerconfig.html#cfn-codedeploy-deploymentgroup-triggerconfig-triggerevents
-cddgtcTriggerEvents :: Lens' CodeDeployDeploymentGroupTriggerConfig (Maybe [Val Text])
+cddgtcTriggerEvents :: Lens' CodeDeployDeploymentGroupTriggerConfig (Maybe (ValList Text))
 cddgtcTriggerEvents = lens _codeDeployDeploymentGroupTriggerConfigTriggerEvents (\s a -> s { _codeDeployDeploymentGroupTriggerConfigTriggerEvents = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-triggerconfig.html#cfn-codedeploy-deploymentgroup-triggerconfig-triggername

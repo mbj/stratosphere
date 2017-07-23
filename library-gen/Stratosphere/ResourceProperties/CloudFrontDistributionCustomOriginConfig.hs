@@ -22,7 +22,7 @@ data CloudFrontDistributionCustomOriginConfig =
   { _cloudFrontDistributionCustomOriginConfigHTTPPort :: Maybe (Val Integer')
   , _cloudFrontDistributionCustomOriginConfigHTTPSPort :: Maybe (Val Integer')
   , _cloudFrontDistributionCustomOriginConfigOriginProtocolPolicy :: Val Text
-  , _cloudFrontDistributionCustomOriginConfigOriginSSLProtocols :: Maybe [Val Text]
+  , _cloudFrontDistributionCustomOriginConfigOriginSSLProtocols :: Maybe (ValList Text)
   } deriving (Show, Eq)
 
 instance ToJSON CloudFrontDistributionCustomOriginConfig where
@@ -70,5 +70,5 @@ cfdcocOriginProtocolPolicy :: Lens' CloudFrontDistributionCustomOriginConfig (Va
 cfdcocOriginProtocolPolicy = lens _cloudFrontDistributionCustomOriginConfigOriginProtocolPolicy (\s a -> s { _cloudFrontDistributionCustomOriginConfigOriginProtocolPolicy = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-customorigin.html#cfn-cloudfront-customorigin-originsslprotocols
-cfdcocOriginSSLProtocols :: Lens' CloudFrontDistributionCustomOriginConfig (Maybe [Val Text])
+cfdcocOriginSSLProtocols :: Lens' CloudFrontDistributionCustomOriginConfig (Maybe (ValList Text))
 cfdcocOriginSSLProtocols = lens _cloudFrontDistributionCustomOriginConfigOriginSSLProtocols (\s a -> s { _cloudFrontDistributionCustomOriginConfigOriginSSLProtocols = a })

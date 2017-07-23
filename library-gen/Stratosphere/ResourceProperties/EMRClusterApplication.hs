@@ -19,7 +19,7 @@ import Stratosphere.Values
 data EMRClusterApplication =
   EMRClusterApplication
   { _eMRClusterApplicationAdditionalInfo :: Maybe Object
-  , _eMRClusterApplicationArgs :: Maybe [Val Text]
+  , _eMRClusterApplicationArgs :: Maybe (ValList Text)
   , _eMRClusterApplicationName :: Maybe (Val Text)
   , _eMRClusterApplicationVersion :: Maybe (Val Text)
   } deriving (Show, Eq)
@@ -60,7 +60,7 @@ emrcaAdditionalInfo :: Lens' EMRClusterApplication (Maybe Object)
 emrcaAdditionalInfo = lens _eMRClusterApplicationAdditionalInfo (\s a -> s { _eMRClusterApplicationAdditionalInfo = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-application.html#cfn-emr-cluster-application-args
-emrcaArgs :: Lens' EMRClusterApplication (Maybe [Val Text])
+emrcaArgs :: Lens' EMRClusterApplication (Maybe (ValList Text))
 emrcaArgs = lens _eMRClusterApplicationArgs (\s a -> s { _eMRClusterApplicationArgs = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-application.html#cfn-emr-cluster-application-name
