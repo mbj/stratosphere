@@ -3,6 +3,7 @@
 {-# LANGUAGE MultiParamTypeClasses #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StandaloneDeriving #-}
+{-# LANGUAGE TypeFamilies #-}
 
 module Stratosphere.Values
   ( Val (..)
@@ -18,7 +19,7 @@ import qualified Data.HashMap.Strict as HM
 import Data.String (IsString (..))
 import Data.Text (Text)
 import Text.Read (readMaybe)
-import GHC.Exts (fromList)
+import GHC.Exts (IsList(..))
 
 -- GADTs are cool, but I couldn't get this to work with FromJSON
 -- data Val a where
@@ -109,6 +110,15 @@ data ValList a
   = ValList [Val a]
   | RefList Text
   deriving (Show, Eq)
+
+instance IsList (ValList a) where
+  type Item (ValList a) = Val a
+  fromList = ValList
+
+  toList (ValList xs) = xs
+  -- This is obviously not meaningful, but the IsList instance is so useful
+  -- that I decided to allow it.
+  toList (RefList _) = []
 
 instance (ToJSON a) => ToJSON (ValList a) where
   toJSON (ValList vals) = toJSON vals
