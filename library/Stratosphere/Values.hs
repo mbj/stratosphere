@@ -8,6 +8,7 @@
 
 module Stratosphere.Values
   ( Val (..)
+  , sub
   , ValList (..)
   , Integer' (..)
   , Bool' (..)
@@ -16,6 +17,7 @@ module Stratosphere.Values
   ) where
 
 import Data.Aeson
+import Data.HashMap.Strict (HashMap)
 import qualified Data.HashMap.Strict as HM
 import Data.String (IsString (..))
 import Data.Text (Text)
@@ -47,6 +49,7 @@ data Val a
  | Select Integer (ValList a)
  | FindInMap (Val a) (Val a) (Val a) -- ^ Map name, top level key, and second level key
  | ImportValue Text -- ^ The account-and-region-unique exported name of the value to import
+ | Sub Text (Maybe (HashMap Text (Val Text))) -- ^ Substitution string and optional map of values
 
 deriving instance (Show a) => Show (Val a)
 deriving instance (Eq a) => Eq (Val a)
@@ -69,6 +72,12 @@ instance (ToJSON a) => ToJSON (Val a) where
   toJSON (FindInMap mapName topKey secondKey) =
     object [("Fn::FindInMap", toJSON [toJSON mapName, toJSON topKey, toJSON secondKey])]
   toJSON (ImportValue t) = importValueToJSON t
+  toJSON (Sub s Nothing) = object [("Fn::Sub", toJSON s)]
+  toJSON (Sub s (Just vals)) = mkFunc "Fn::Sub" [toJSON s, Object (toJSON <$> vals)]
+
+-- | Simple version of 'Sub' without a map of values.
+sub :: Text -> Val Text
+sub s = Sub s Nothing
 
 refToJSON :: Text -> Value
 refToJSON ref = object [("Ref", toJSON ref)]
@@ -96,6 +105,10 @@ instance (FromJSON a) => FromJSON (Val a) where
         (mapName, topKey, secondKey) <- parseJSON o'
         return (FindInMap mapName topKey secondKey)
       [("Fn::ImportValue", o')] -> ImportValue <$> parseJSON o'
+      [("Fn::Sub", vals)] ->
+        case vals of
+          (String s) -> return $ Sub s Nothing
+          otherwise' -> uncurry Sub <$> parseJSON otherwise'
       [(n, o')] -> Literal <$> parseJSON (object [(n, o')])
       os -> Literal <$> parseJSON (object os)
   parseJSON v = Literal <$> parseJSON v
