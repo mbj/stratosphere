@@ -89,15 +89,15 @@ executables:
         buildable: false
 
 tests:
-  tasty:
-    main: Main.hs
+  spec:
+    main: Spec.hs
     source-dirs:
       - tests
     dependencies:
       - base
       - stratosphere
-      - tasty
-      - tasty-hspec
+      - hspec
+      - hspec-discover
   style:
     main: HLint.hs
     source-dirs:
