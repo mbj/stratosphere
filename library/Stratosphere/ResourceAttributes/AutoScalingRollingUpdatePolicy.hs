@@ -23,7 +23,7 @@ data AutoScalingRollingUpdatePolicy =
   , _autoScalingRollingUpdatePolicyMinInstancesInService :: Maybe (Val Integer)
   , _autoScalingRollingUpdatePolicyMinSuccessfulInstancesPercent :: Maybe (Val Integer)
   , _autoScalingRollingUpdatePolicyPauseTime :: Maybe (Val Text)
-  , _autoScalingRollingUpdatePolicySuspendProcess :: Maybe [Val Text]
+  , _autoScalingRollingUpdatePolicySuspendProcess :: Maybe (ValList Text)
   , _autoScalingRollingUpdatePolicyWaitOnResourceSignals :: Maybe (Val Bool)
   } deriving (Show, Eq)
 
@@ -110,7 +110,7 @@ asrupPauseTime = lens _autoScalingRollingUpdatePolicyPauseTime (\s a -> s { _aut
 -- execute scaling policies associated with an alarm. For valid values, see
 -- the ScalingProcesses.member.N parameter for the SuspendProcesses action in
 -- the Auto Scaling API Reference.
-asrupSuspendProcess :: Lens' AutoScalingRollingUpdatePolicy (Maybe [Val Text])
+asrupSuspendProcess :: Lens' AutoScalingRollingUpdatePolicy (Maybe (ValList Text))
 asrupSuspendProcess = lens _autoScalingRollingUpdatePolicySuspendProcess (\s a -> s { _autoScalingRollingUpdatePolicySuspendProcess = a })
 
 -- | Specifies whether the Auto Scaling group waits on signals from new
