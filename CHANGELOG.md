@@ -5,6 +5,7 @@
 * Made `Val` and `ValList` more type-safe by moving some constructors to
   `ValList` and being more specific with types in functions that only accept
   `Text` parameters.
+* Created `ImportValueList` as a `ValList` alternative to `ImportValue`.
 
 ## 0.6.0
 

@@ -107,6 +107,7 @@ instance (FromJSON a) => FromJSON (Val a) where
 data ValList a
   = ValList [Val a]
   | RefList Text
+  | ImportValueList Text
   | Split Text Text
   | GetAZs (Val Text)
   deriving (Show, Eq)
@@ -121,12 +122,14 @@ instance IsList (ValList a) where
   -- This is obviously not meaningful, but the IsList instance is so useful
   -- that I decided to allow it.
   toList (RefList _) = []
+  toList (ImportValueList _) = []
   toList (Split _ _) = []
   toList (GetAZs _) = []
 
 instance (ToJSON a) => ToJSON (ValList a) where
   toJSON (ValList vals) = toJSON vals
   toJSON (RefList ref) = refToJSON ref
+  toJSON (ImportValueList ref) = importValueToJSON ref
   toJSON (Split d s) = mkFunc "Fn::Split" [toJSON d, toJSON s]
   toJSON (GetAZs r) = object [("Fn::GetAZs", toJSON r)]
 
@@ -135,6 +138,7 @@ instance (FromJSON a) => FromJSON (ValList a) where
   parseJSON (Object o) =
     case HM.toList o of
       [("Ref", o')] -> RefList <$> parseJSON o'
+      [("Fn::ImportValue", o')] -> ImportValueList <$> parseJSON o'
       [("Fn::Split", o')] -> uncurry Split <$> parseJSON o'
       [("Fn::GetAZs", o')] -> GetAZs <$> parseJSON o'
       _ -> fail "Could not parse object into RefList"
