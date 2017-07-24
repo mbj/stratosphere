@@ -42,11 +42,9 @@ data Val a
  | Equals (Val Bool) (Val Bool)
  | Or (Val Bool) (Val Bool)
  | GetAtt Text Text
- | Base64 (Val a)
- | Join Text [Val a]
- | Split Text Text
- | Select Integer (Val a)
- | GetAZs (Val a)
+ | Base64 (Val Text)
+ | Join Text (ValList Text)
+ | Select Integer (ValList a)
  | FindInMap (Val a) (Val a) (Val a) -- ^ Map name, top level key, and second level key
  | ImportValue Text -- ^ The account-and-region-unique exported name of the value to import
 
@@ -67,15 +65,16 @@ instance (ToJSON a) => ToJSON (Val a) where
   toJSON (GetAtt x y) = mkFunc "Fn::GetAtt" [toJSON x, toJSON y]
   toJSON (Base64 v) = object [("Fn::Base64", toJSON v)]
   toJSON (Join d vs) = mkFunc "Fn::Join" [toJSON d, toJSON vs]
-  toJSON (Split d s) = mkFunc "Fn::Split" [toJSON d, toJSON s]
   toJSON (Select i vs) = mkFunc "Fn::Select" [toJSON (Integer' i), toJSON vs]
-  toJSON (GetAZs r) = object [("Fn::GetAZs", toJSON r)]
   toJSON (FindInMap mapName topKey secondKey) =
     object [("Fn::FindInMap", toJSON [toJSON mapName, toJSON topKey, toJSON secondKey])]
-  toJSON (ImportValue t) = object [("Fn::ImportValue", toJSON t)]
+  toJSON (ImportValue t) = importValueToJSON t
 
 refToJSON :: Text -> Value
 refToJSON ref = object [("Ref", toJSON ref)]
+
+importValueToJSON :: Text -> Value
+importValueToJSON ref = object [("Fn::ImportValue", toJSON ref)]
 
 mkFunc :: Text -> [Value] -> Value
 mkFunc name args = object [(name, Array $ fromList args)]
@@ -92,9 +91,7 @@ instance (FromJSON a) => FromJSON (Val a) where
       [("Fn::GetAtt", o')] -> uncurry GetAtt <$> parseJSON o'
       [("Fn::Base64", o')] -> Base64 <$> parseJSON o'
       [("Fn::Join", o')] -> uncurry Join <$> parseJSON o'
-      [("Fn::Split", o')] -> uncurry Split <$> parseJSON o'
       [("Fn::Select", o')] -> (\(x, y) -> Select (unInteger' x) y) <$> parseJSON o'
-      [("Fn::GetAZs", o')] -> GetAZs <$> parseJSON o'
       [("Fn::FindInMap", o')] -> do
         (mapName, topKey, secondKey) <- parseJSON o'
         return (FindInMap mapName topKey secondKey)
@@ -103,15 +100,18 @@ instance (FromJSON a) => FromJSON (Val a) where
       os -> Literal <$> parseJSON (object os)
   parseJSON v = Literal <$> parseJSON v
 
--- | There are two ways to construct a list of 'Val's. One is to use a literal
--- 'ValList' to construct the list. The other is to reference something that is
--- already a list. For example, if you have a parameter called @SubnetIds@ of
--- type @List<AWS::EC2::Subnet::Id>@ then, you can use @RefList "SubnetIds"@ to
+-- | 'ValList' is like 'Val', except it is used in place of lists of Vals in
+-- templates. For example, if you have a parameter called @SubnetIds@ of type
+-- @List<AWS::EC2::Subnet::Id>@ then, you can use @RefList "SubnetIds"@ to
 -- reference it.
 data ValList a
   = ValList [Val a]
   | RefList Text
+  | Split Text Text
+  | GetAZs (Val Text)
   deriving (Show, Eq)
+
+deriving instance Functor ValList
 
 instance IsList (ValList a) where
   type Item (ValList a) = Val a
@@ -121,16 +121,22 @@ instance IsList (ValList a) where
   -- This is obviously not meaningful, but the IsList instance is so useful
   -- that I decided to allow it.
   toList (RefList _) = []
+  toList (Split _ _) = []
+  toList (GetAZs _) = []
 
 instance (ToJSON a) => ToJSON (ValList a) where
   toJSON (ValList vals) = toJSON vals
   toJSON (RefList ref) = refToJSON ref
+  toJSON (Split d s) = mkFunc "Fn::Split" [toJSON d, toJSON s]
+  toJSON (GetAZs r) = object [("Fn::GetAZs", toJSON r)]
 
 instance (FromJSON a) => FromJSON (ValList a) where
   parseJSON a@(Array _) = ValList <$> parseJSON a
   parseJSON (Object o) =
     case HM.toList o of
       [("Ref", o')] -> RefList <$> parseJSON o'
+      [("Fn::Split", o')] -> uncurry Split <$> parseJSON o'
+      [("Fn::GetAZs", o')] -> GetAZs <$> parseJSON o'
       _ -> fail "Could not parse object into RefList"
   parseJSON _ = fail "Expected Array or Object for ValList in parseJSON"
 

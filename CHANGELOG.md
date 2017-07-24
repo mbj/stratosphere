@@ -1,6 +1,10 @@
 # Change Log
 
-## 0.6.1
+## 0.7.0
+
+* Made `Val` and `ValList` more type-safe by moving some constructors to
+  `ValList` and being more specific with types in functions that only accept
+  `Text` parameters.
 
 ## 0.6.0
 
