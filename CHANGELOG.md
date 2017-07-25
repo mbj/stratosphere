@@ -1,5 +1,7 @@
 # Change Log
 
+## 0.7.1
+
 ## 0.7.0
 
 * Made `Val` and `ValList` more type-safe by moving some constructors to
