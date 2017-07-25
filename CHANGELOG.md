@@ -1,6 +1,15 @@
 # Change Log
 
-## 0.6.1
+## 0.7.0
+
+* Made `Val` and `ValList` more type-safe by moving some constructors to
+  `ValList` and being more specific with types in functions that only accept
+  `Text` parameters. Specific examples include:
+  - `Join` and `Select` now require a `ValList` argument
+  - `Base64` and `Join` now work only on `Val Text`, not `Val a`
+  - `GetAZs` and `Split` are now in `ValList`, not `Val`
+* Created `ImportValueList` as a `ValList` alternative to `ImportValue`.
+* Added support for `Fn::Sub` intrinsic function.
 
 ## 0.6.0
 

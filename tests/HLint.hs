@@ -10,6 +10,7 @@ arguments =
   , "tests"
   , "-i", "Use newtype instead of data"
   , "-i", "Unused LANGUAGE pragma"
+  , "-i", "Redundant do"
   ]
 
 main :: IO ()

@@ -1,5 +1,5 @@
 name: stratosphere
-version: "0.6.1"
+version: "0.7.0"
 synopsis: EDSL for AWS CloudFormation
 description: EDSL for AWS CloudFormation
 category: AWS, Cloud
@@ -89,15 +89,15 @@ executables:
         buildable: false
 
 tests:
-  tasty:
-    main: Main.hs
+  spec:
+    main: Spec.hs
     source-dirs:
       - tests
     dependencies:
       - base
       - stratosphere
-      - tasty
-      - tasty-hspec
+      - hspec
+      - hspec-discover
   style:
     main: HLint.hs
     source-dirs:
