@@ -20,36 +20,56 @@
 module Stratosphere.Outputs
        ( Output (..)
        , output
+       , OutputExport (..)
        , Outputs (..)
        , name
        , description
        , value
+       , export
        ) where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
 import Data.Aeson.Types (Parser)
 import Data.Maybe (catMaybes)
-import qualified Data.Text as T
+import Data.Text (Text)
 import GHC.Exts (IsList(..))
 
 import Stratosphere.Helpers
 import Stratosphere.Parameters
 import Stratosphere.Values
 
+data OutputExport
+  = OutputExport
+  { outputExportName :: Val Text
+  } deriving (Show, Eq)
+
+instance ToJSON OutputExport where
+  toJSON OutputExport{..} =
+    object
+    [ "Name" .= outputExportName
+    ]
+
+instance FromJSON OutputExport where
+  parseJSON (Object o) =
+    OutputExport <$>
+      o .: "Name"
+  parseJSON _ = mempty
+
 -- | See 'output' for a convenient constructor.
 data Output =
   Output
-  { outputName :: T.Text
+  { outputName :: Text
     -- ^ An identifier for this output. The logical ID must be alphanumeric
     -- (A-Za-z0-9) and unique within the template.
-  , outputDescription :: Maybe T.Text
+  , outputDescription :: Maybe Text
     -- ^ A String type up to 4K in length describing the output value.
-  , outputValue :: Val T.Text
+  , outputValue :: Val Text
     -- ^ The value of the property that is returned by the aws cloudformation
     -- describe-stacks command. The value of an output can be literals,
     -- parameter references, pseudo parameters, a mapping value, and intrinsic
     -- functions.
+  , outputExport :: Maybe OutputExport
   } deriving (Show, Eq)
 
 $(makeFields ''Output)
@@ -59,14 +79,15 @@ instance ToRef Output b where
 
 -- | Constructor for 'Output'
 output
-  :: T.Text -- ^ Name
-  -> Val T.Text -- ^ Value
+  :: Text -- ^ Name
+  -> Val Text -- ^ Value
   -> Output
 output oname oval =
   Output
   { outputName = oname
   , outputDescription = Nothing
   , outputValue = oval
+  , outputExport = Nothing
   }
 
 outputToJSON :: Output -> Value
@@ -74,13 +95,15 @@ outputToJSON Output {..} =
   object $ catMaybes
   [ Just ("Value" .= outputValue)
   , maybeField "Description" outputDescription
+  , maybeField "Export" outputExport
   ]
 
-outputFromJSON :: T.Text -> Object -> Parser Output
+outputFromJSON :: Text -> Object -> Parser Output
 outputFromJSON n o =
   Output n
   <$> o .:? "Description"
-  <*> o .:  "Value"
+  <*> o .: "Value"
+  <*> o .:? "Export"
 
 -- | Wrapper around a list of 'Output's to we can modify the aeson instances.
 newtype Outputs = Outputs { unOutputs :: [Output] }

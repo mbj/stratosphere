@@ -2,6 +2,9 @@
 
 ## 0.7.1
 
+* Add `Export` field to the `Output` type. This allows you to declare
+  cross-stack references.
+
 ## 0.7.0
 
 * Made `Val` and `ValList` more type-safe by moving some constructors to
