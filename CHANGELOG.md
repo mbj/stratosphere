@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.8.0
+
+* Update resource specification document (no version given in doc)
+
 ## 0.7.1
 
 * Add `Export` field to the `Output` type. This allows you to declare

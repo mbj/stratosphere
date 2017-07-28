@@ -51,9 +51,12 @@ import Stratosphere.Resources.ApiGatewayAuthorizer as X
 import Stratosphere.Resources.ApiGatewayBasePathMapping as X
 import Stratosphere.Resources.ApiGatewayClientCertificate as X
 import Stratosphere.Resources.ApiGatewayDeployment as X
+import Stratosphere.Resources.ApiGatewayDocumentationPart as X
+import Stratosphere.Resources.ApiGatewayDocumentationVersion as X
 import Stratosphere.Resources.ApiGatewayDomainName as X
 import Stratosphere.Resources.ApiGatewayMethod as X
 import Stratosphere.Resources.ApiGatewayModel as X
+import Stratosphere.Resources.ApiGatewayRequestValidator as X
 import Stratosphere.Resources.ApiGatewayResource as X
 import Stratosphere.Resources.ApiGatewayRestApi as X
 import Stratosphere.Resources.ApiGatewayStage as X
@@ -189,6 +192,9 @@ import Stratosphere.Resources.IoTTopicRule as X
 import Stratosphere.Resources.KMSAlias as X
 import Stratosphere.Resources.KMSKey as X
 import Stratosphere.Resources.KinesisStream as X
+import Stratosphere.Resources.KinesisAnalyticsApplication as X
+import Stratosphere.Resources.KinesisAnalyticsApplicationOutput as X
+import Stratosphere.Resources.KinesisAnalyticsApplicationReferenceDataSource as X
 import Stratosphere.Resources.KinesisFirehoseDeliveryStream as X
 import Stratosphere.Resources.LambdaAlias as X
 import Stratosphere.Resources.LambdaEventSourceMapping as X
@@ -257,6 +263,7 @@ import Stratosphere.Resources.WorkSpacesWorkspace as X
 import Stratosphere.ResourceProperties.ApiGatewayApiKeyStageKey as X
 import Stratosphere.ResourceProperties.ApiGatewayDeploymentMethodSetting as X
 import Stratosphere.ResourceProperties.ApiGatewayDeploymentStageDescription as X
+import Stratosphere.ResourceProperties.ApiGatewayDocumentationPartLocation as X
 import Stratosphere.ResourceProperties.ApiGatewayMethodIntegration as X
 import Stratosphere.ResourceProperties.ApiGatewayMethodIntegrationResponse as X
 import Stratosphere.ResourceProperties.ApiGatewayMethodMethodResponse as X
@@ -276,7 +283,11 @@ import Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupNotificationCo
 import Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupTagProperty as X
 import Stratosphere.ResourceProperties.AutoScalingLaunchConfigurationBlockDevice as X
 import Stratosphere.ResourceProperties.AutoScalingLaunchConfigurationBlockDeviceMapping as X
+import Stratosphere.ResourceProperties.AutoScalingScalingPolicyCustomizedMetricSpecification as X
+import Stratosphere.ResourceProperties.AutoScalingScalingPolicyMetricDimension as X
+import Stratosphere.ResourceProperties.AutoScalingScalingPolicyPredefinedMetricSpecification as X
 import Stratosphere.ResourceProperties.AutoScalingScalingPolicyStepAdjustment as X
+import Stratosphere.ResourceProperties.AutoScalingScalingPolicyTargetTrackingConfiguration as X
 import Stratosphere.ResourceProperties.CertificateManagerCertificateDomainValidationOption as X
 import Stratosphere.ResourceProperties.CloudFrontDistributionCacheBehavior as X
 import Stratosphere.ResourceProperties.CloudFrontDistributionCookies as X
@@ -292,6 +303,8 @@ import Stratosphere.ResourceProperties.CloudFrontDistributionOriginCustomHeader 
 import Stratosphere.ResourceProperties.CloudFrontDistributionRestrictions as X
 import Stratosphere.ResourceProperties.CloudFrontDistributionS3OriginConfig as X
 import Stratosphere.ResourceProperties.CloudFrontDistributionViewerCertificate as X
+import Stratosphere.ResourceProperties.CloudTrailTrailDataResource as X
+import Stratosphere.ResourceProperties.CloudTrailTrailEventSelector as X
 import Stratosphere.ResourceProperties.CloudWatchAlarmDimension as X
 import Stratosphere.ResourceProperties.CodeBuildProjectArtifacts as X
 import Stratosphere.ResourceProperties.CodeBuildProjectEnvironment as X
@@ -494,6 +507,28 @@ import Stratosphere.ResourceProperties.IoTTopicRuleS3Action as X
 import Stratosphere.ResourceProperties.IoTTopicRuleSnsAction as X
 import Stratosphere.ResourceProperties.IoTTopicRuleSqsAction as X
 import Stratosphere.ResourceProperties.IoTTopicRuleTopicRulePayload as X
+import Stratosphere.ResourceProperties.KinesisAnalyticsApplicationCSVMappingParameters as X
+import Stratosphere.ResourceProperties.KinesisAnalyticsApplicationInput as X
+import Stratosphere.ResourceProperties.KinesisAnalyticsApplicationInputParallelism as X
+import Stratosphere.ResourceProperties.KinesisAnalyticsApplicationInputSchema as X
+import Stratosphere.ResourceProperties.KinesisAnalyticsApplicationJSONMappingParameters as X
+import Stratosphere.ResourceProperties.KinesisAnalyticsApplicationKinesisFirehoseInput as X
+import Stratosphere.ResourceProperties.KinesisAnalyticsApplicationKinesisStreamsInput as X
+import Stratosphere.ResourceProperties.KinesisAnalyticsApplicationMappingParameters as X
+import Stratosphere.ResourceProperties.KinesisAnalyticsApplicationRecordColumn as X
+import Stratosphere.ResourceProperties.KinesisAnalyticsApplicationRecordFormat as X
+import Stratosphere.ResourceProperties.KinesisAnalyticsApplicationOutputDestinationSchema as X
+import Stratosphere.ResourceProperties.KinesisAnalyticsApplicationOutputKinesisFirehoseOutput as X
+import Stratosphere.ResourceProperties.KinesisAnalyticsApplicationOutputKinesisStreamsOutput as X
+import Stratosphere.ResourceProperties.KinesisAnalyticsApplicationOutputOutput as X
+import Stratosphere.ResourceProperties.KinesisAnalyticsApplicationReferenceDataSourceCSVMappingParameters as X
+import Stratosphere.ResourceProperties.KinesisAnalyticsApplicationReferenceDataSourceJSONMappingParameters as X
+import Stratosphere.ResourceProperties.KinesisAnalyticsApplicationReferenceDataSourceMappingParameters as X
+import Stratosphere.ResourceProperties.KinesisAnalyticsApplicationReferenceDataSourceRecordColumn as X
+import Stratosphere.ResourceProperties.KinesisAnalyticsApplicationReferenceDataSourceRecordFormat as X
+import Stratosphere.ResourceProperties.KinesisAnalyticsApplicationReferenceDataSourceReferenceDataSource as X
+import Stratosphere.ResourceProperties.KinesisAnalyticsApplicationReferenceDataSourceReferenceSchema as X
+import Stratosphere.ResourceProperties.KinesisAnalyticsApplicationReferenceDataSourceS3ReferenceDataSource as X
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamBufferingHints as X
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamCloudWatchLoggingOptions as X
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamCopyCommand as X
@@ -501,7 +536,11 @@ import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamElasticsearc
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguration as X
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamElasticsearchRetryOptions as X
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamEncryptionConfiguration as X
+import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamExtendedS3DestinationConfiguration as X
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamKMSEncryptionConfig as X
+import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamProcessingConfiguration as X
+import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamProcessor as X
+import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamProcessorParameter as X
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration as X
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamS3DestinationConfiguration as X
 import Stratosphere.ResourceProperties.LambdaFunctionCode as X
@@ -544,6 +583,8 @@ import Stratosphere.ResourceProperties.Route53RecordSetGeoLocation as X
 import Stratosphere.ResourceProperties.Route53RecordSetGroupAliasTarget as X
 import Stratosphere.ResourceProperties.Route53RecordSetGroupGeoLocation as X
 import Stratosphere.ResourceProperties.Route53RecordSetGroupRecordSet as X
+import Stratosphere.ResourceProperties.S3BucketAbortIncompleteMultipartUpload as X
+import Stratosphere.ResourceProperties.S3BucketAccelerateConfiguration as X
 import Stratosphere.ResourceProperties.S3BucketCorsConfiguration as X
 import Stratosphere.ResourceProperties.S3BucketCorsRule as X
 import Stratosphere.ResourceProperties.S3BucketFilterRule as X
@@ -563,6 +604,7 @@ import Stratosphere.ResourceProperties.S3BucketRoutingRule as X
 import Stratosphere.ResourceProperties.S3BucketRoutingRuleCondition as X
 import Stratosphere.ResourceProperties.S3BucketRule as X
 import Stratosphere.ResourceProperties.S3BucketS3KeyFilter as X
+import Stratosphere.ResourceProperties.S3BucketTagFilter as X
 import Stratosphere.ResourceProperties.S3BucketTopicConfiguration as X
 import Stratosphere.ResourceProperties.S3BucketTransition as X
 import Stratosphere.ResourceProperties.S3BucketVersioningConfiguration as X
@@ -612,9 +654,12 @@ data ResourceProperties
   | ApiGatewayBasePathMappingProperties ApiGatewayBasePathMapping
   | ApiGatewayClientCertificateProperties ApiGatewayClientCertificate
   | ApiGatewayDeploymentProperties ApiGatewayDeployment
+  | ApiGatewayDocumentationPartProperties ApiGatewayDocumentationPart
+  | ApiGatewayDocumentationVersionProperties ApiGatewayDocumentationVersion
   | ApiGatewayDomainNameProperties ApiGatewayDomainName
   | ApiGatewayMethodProperties ApiGatewayMethod
   | ApiGatewayModelProperties ApiGatewayModel
+  | ApiGatewayRequestValidatorProperties ApiGatewayRequestValidator
   | ApiGatewayResourceProperties ApiGatewayResource
   | ApiGatewayRestApiProperties ApiGatewayRestApi
   | ApiGatewayStageProperties ApiGatewayStage
@@ -750,6 +795,9 @@ data ResourceProperties
   | KMSAliasProperties KMSAlias
   | KMSKeyProperties KMSKey
   | KinesisStreamProperties KinesisStream
+  | KinesisAnalyticsApplicationProperties KinesisAnalyticsApplication
+  | KinesisAnalyticsApplicationOutputProperties KinesisAnalyticsApplicationOutput
+  | KinesisAnalyticsApplicationReferenceDataSourceProperties KinesisAnalyticsApplicationReferenceDataSource
   | KinesisFirehoseDeliveryStreamProperties KinesisFirehoseDeliveryStream
   | LambdaAliasProperties LambdaAlias
   | LambdaEventSourceMappingProperties LambdaEventSourceMapping
@@ -879,12 +927,18 @@ resourcePropertiesJSON (ApiGatewayClientCertificateProperties x) =
   [ "Type" .= ("AWS::ApiGateway::ClientCertificate" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ApiGatewayDeploymentProperties x) =
   [ "Type" .= ("AWS::ApiGateway::Deployment" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (ApiGatewayDocumentationPartProperties x) =
+  [ "Type" .= ("AWS::ApiGateway::DocumentationPart" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (ApiGatewayDocumentationVersionProperties x) =
+  [ "Type" .= ("AWS::ApiGateway::DocumentationVersion" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ApiGatewayDomainNameProperties x) =
   [ "Type" .= ("AWS::ApiGateway::DomainName" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ApiGatewayMethodProperties x) =
   [ "Type" .= ("AWS::ApiGateway::Method" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ApiGatewayModelProperties x) =
   [ "Type" .= ("AWS::ApiGateway::Model" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (ApiGatewayRequestValidatorProperties x) =
+  [ "Type" .= ("AWS::ApiGateway::RequestValidator" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ApiGatewayResourceProperties x) =
   [ "Type" .= ("AWS::ApiGateway::Resource" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ApiGatewayRestApiProperties x) =
@@ -1155,6 +1209,12 @@ resourcePropertiesJSON (KMSKeyProperties x) =
   [ "Type" .= ("AWS::KMS::Key" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (KinesisStreamProperties x) =
   [ "Type" .= ("AWS::Kinesis::Stream" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (KinesisAnalyticsApplicationProperties x) =
+  [ "Type" .= ("AWS::KinesisAnalytics::Application" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (KinesisAnalyticsApplicationOutputProperties x) =
+  [ "Type" .= ("AWS::KinesisAnalytics::ApplicationOutput" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (KinesisAnalyticsApplicationReferenceDataSourceProperties x) =
+  [ "Type" .= ("AWS::KinesisAnalytics::ApplicationReferenceDataSource" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (KinesisFirehoseDeliveryStreamProperties x) =
   [ "Type" .= ("AWS::KinesisFirehose::DeliveryStream" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (LambdaAliasProperties x) =
@@ -1297,9 +1357,12 @@ resourceFromJSON n o =
          "AWS::ApiGateway::BasePathMapping" -> ApiGatewayBasePathMappingProperties <$> (o .: "Properties")
          "AWS::ApiGateway::ClientCertificate" -> ApiGatewayClientCertificateProperties <$> (o .: "Properties")
          "AWS::ApiGateway::Deployment" -> ApiGatewayDeploymentProperties <$> (o .: "Properties")
+         "AWS::ApiGateway::DocumentationPart" -> ApiGatewayDocumentationPartProperties <$> (o .: "Properties")
+         "AWS::ApiGateway::DocumentationVersion" -> ApiGatewayDocumentationVersionProperties <$> (o .: "Properties")
          "AWS::ApiGateway::DomainName" -> ApiGatewayDomainNameProperties <$> (o .: "Properties")
          "AWS::ApiGateway::Method" -> ApiGatewayMethodProperties <$> (o .: "Properties")
          "AWS::ApiGateway::Model" -> ApiGatewayModelProperties <$> (o .: "Properties")
+         "AWS::ApiGateway::RequestValidator" -> ApiGatewayRequestValidatorProperties <$> (o .: "Properties")
          "AWS::ApiGateway::Resource" -> ApiGatewayResourceProperties <$> (o .: "Properties")
          "AWS::ApiGateway::RestApi" -> ApiGatewayRestApiProperties <$> (o .: "Properties")
          "AWS::ApiGateway::Stage" -> ApiGatewayStageProperties <$> (o .: "Properties")
@@ -1435,6 +1498,9 @@ resourceFromJSON n o =
          "AWS::KMS::Alias" -> KMSAliasProperties <$> (o .: "Properties")
          "AWS::KMS::Key" -> KMSKeyProperties <$> (o .: "Properties")
          "AWS::Kinesis::Stream" -> KinesisStreamProperties <$> (o .: "Properties")
+         "AWS::KinesisAnalytics::Application" -> KinesisAnalyticsApplicationProperties <$> (o .: "Properties")
+         "AWS::KinesisAnalytics::ApplicationOutput" -> KinesisAnalyticsApplicationOutputProperties <$> (o .: "Properties")
+         "AWS::KinesisAnalytics::ApplicationReferenceDataSource" -> KinesisAnalyticsApplicationReferenceDataSourceProperties <$> (o .: "Properties")
          "AWS::KinesisFirehose::DeliveryStream" -> KinesisFirehoseDeliveryStreamProperties <$> (o .: "Properties")
          "AWS::Lambda::Alias" -> LambdaAliasProperties <$> (o .: "Properties")
          "AWS::Lambda::EventSourceMapping" -> LambdaEventSourceMappingProperties <$> (o .: "Properties")

@@ -2,7 +2,7 @@
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE TupleSections #-}
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-deployment-stagedescription-methodsetting.html
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription-methodsetting.html
 
 module Stratosphere.ResourceProperties.ApiGatewayDeploymentMethodSetting where
 
@@ -80,42 +80,42 @@ apiGatewayDeploymentMethodSetting  =
   , _apiGatewayDeploymentMethodSettingThrottlingRateLimit = Nothing
   }
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-cachedataencrypted
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-cachedataencrypted
 agdmsCacheDataEncrypted :: Lens' ApiGatewayDeploymentMethodSetting (Maybe (Val Bool))
 agdmsCacheDataEncrypted = lens _apiGatewayDeploymentMethodSettingCacheDataEncrypted (\s a -> s { _apiGatewayDeploymentMethodSettingCacheDataEncrypted = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-cachettlinseconds
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-cachettlinseconds
 agdmsCacheTtlInSeconds :: Lens' ApiGatewayDeploymentMethodSetting (Maybe (Val Integer))
 agdmsCacheTtlInSeconds = lens _apiGatewayDeploymentMethodSettingCacheTtlInSeconds (\s a -> s { _apiGatewayDeploymentMethodSettingCacheTtlInSeconds = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-cachingenabled
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-cachingenabled
 agdmsCachingEnabled :: Lens' ApiGatewayDeploymentMethodSetting (Maybe (Val Bool))
 agdmsCachingEnabled = lens _apiGatewayDeploymentMethodSettingCachingEnabled (\s a -> s { _apiGatewayDeploymentMethodSettingCachingEnabled = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-datatraceenabled
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-datatraceenabled
 agdmsDataTraceEnabled :: Lens' ApiGatewayDeploymentMethodSetting (Maybe (Val Bool))
 agdmsDataTraceEnabled = lens _apiGatewayDeploymentMethodSettingDataTraceEnabled (\s a -> s { _apiGatewayDeploymentMethodSettingDataTraceEnabled = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-httpmethod
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-httpmethod
 agdmsHttpMethod :: Lens' ApiGatewayDeploymentMethodSetting (Maybe (Val HttpMethod))
 agdmsHttpMethod = lens _apiGatewayDeploymentMethodSettingHttpMethod (\s a -> s { _apiGatewayDeploymentMethodSettingHttpMethod = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-logginglevel
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-logginglevel
 agdmsLoggingLevel :: Lens' ApiGatewayDeploymentMethodSetting (Maybe (Val LoggingLevel))
 agdmsLoggingLevel = lens _apiGatewayDeploymentMethodSettingLoggingLevel (\s a -> s { _apiGatewayDeploymentMethodSettingLoggingLevel = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-metricsenabled
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-metricsenabled
 agdmsMetricsEnabled :: Lens' ApiGatewayDeploymentMethodSetting (Maybe (Val Bool))
 agdmsMetricsEnabled = lens _apiGatewayDeploymentMethodSettingMetricsEnabled (\s a -> s { _apiGatewayDeploymentMethodSettingMetricsEnabled = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-resourcepath
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-resourcepath
 agdmsResourcePath :: Lens' ApiGatewayDeploymentMethodSetting (Maybe (Val Text))
 agdmsResourcePath = lens _apiGatewayDeploymentMethodSettingResourcePath (\s a -> s { _apiGatewayDeploymentMethodSettingResourcePath = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-throttlingburstlimit
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-throttlingburstlimit
 agdmsThrottlingBurstLimit :: Lens' ApiGatewayDeploymentMethodSetting (Maybe (Val Integer))
 agdmsThrottlingBurstLimit = lens _apiGatewayDeploymentMethodSettingThrottlingBurstLimit (\s a -> s { _apiGatewayDeploymentMethodSettingThrottlingBurstLimit = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-throttlingratelimit
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-throttlingratelimit
 agdmsThrottlingRateLimit :: Lens' ApiGatewayDeploymentMethodSetting (Maybe (Val Double))
 agdmsThrottlingRateLimit = lens _apiGatewayDeploymentMethodSettingThrottlingRateLimit (\s a -> s { _apiGatewayDeploymentMethodSettingThrottlingRateLimit = a })

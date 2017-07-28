@@ -16,6 +16,7 @@ import Stratosphere.Values
 import Stratosphere.Types
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamElasticsearchBufferingHints
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamCloudWatchLoggingOptions
+import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamProcessingConfiguration
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamElasticsearchRetryOptions
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamS3DestinationConfiguration
 
@@ -30,6 +31,7 @@ data KinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguration =
   , _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationDomainARN :: Val Text
   , _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationIndexName :: Val Text
   , _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod :: Val Text
+  , _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationProcessingConfiguration :: Maybe KinesisFirehoseDeliveryStreamProcessingConfiguration
   , _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationRetryOptions :: KinesisFirehoseDeliveryStreamElasticsearchRetryOptions
   , _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationRoleARN :: Val Text
   , _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationS3BackupMode :: Val KinesisFirehoseElasticsearchS3BackupMode
@@ -46,6 +48,7 @@ instance ToJSON KinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurati
     , (Just . ("DomainARN",) . toJSON) _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationDomainARN
     , (Just . ("IndexName",) . toJSON) _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationIndexName
     , (Just . ("IndexRotationPeriod",) . toJSON) _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod
+    , fmap (("ProcessingConfiguration",) . toJSON) _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationProcessingConfiguration
     , (Just . ("RetryOptions",) . toJSON) _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationRetryOptions
     , (Just . ("RoleARN",) . toJSON) _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationRoleARN
     , (Just . ("S3BackupMode",) . toJSON) _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationS3BackupMode
@@ -61,6 +64,7 @@ instance FromJSON KinesisFirehoseDeliveryStreamElasticsearchDestinationConfigura
       (obj .: "DomainARN") <*>
       (obj .: "IndexName") <*>
       (obj .: "IndexRotationPeriod") <*>
+      (obj .:? "ProcessingConfiguration") <*>
       (obj .: "RetryOptions") <*>
       (obj .: "RoleARN") <*>
       (obj .: "S3BackupMode") <*>
@@ -89,6 +93,7 @@ kinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguration bufferingHint
   , _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationDomainARN = domainARNarg
   , _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationIndexName = indexNamearg
   , _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod = indexRotationPeriodarg
+  , _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationProcessingConfiguration = Nothing
   , _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationRetryOptions = retryOptionsarg
   , _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationRoleARN = roleARNarg
   , _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationS3BackupMode = s3BackupModearg
@@ -115,6 +120,10 @@ kfdsedcIndexName = lens _kinesisFirehoseDeliveryStreamElasticsearchDestinationCo
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-kinesisdeliverystream-elasticsearchdestinationconfiguration.html#cfn-kinesisfirehose-kinesisdeliverystream-elasticsearchdestinationconfiguration-indexrotationperiod
 kfdsedcIndexRotationPeriod :: Lens' KinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguration (Val Text)
 kfdsedcIndexRotationPeriod = lens _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod (\s a -> s { _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationIndexRotationPeriod = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-kinesisdeliverystream-elasticsearchdestinationconfiguration.html#cfn-kinesisfirehose-kinesisdeliverystream-processingconfiguration
+kfdsedcProcessingConfiguration :: Lens' KinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguration (Maybe KinesisFirehoseDeliveryStreamProcessingConfiguration)
+kfdsedcProcessingConfiguration = lens _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationProcessingConfiguration (\s a -> s { _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationProcessingConfiguration = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-kinesisdeliverystream-elasticsearchdestinationconfiguration.html#cfn-kinesisfirehose-kinesisdeliverystream-elasticsearchdestinationconfiguration-retryoptions
 kfdsedcRetryOptions :: Lens' KinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguration KinesisFirehoseDeliveryStreamElasticsearchRetryOptions

@@ -22,6 +22,8 @@ data SQSQueue =
   { _sQSQueueContentBasedDeduplication :: Maybe (Val Bool)
   , _sQSQueueDelaySeconds :: Maybe (Val Integer)
   , _sQSQueueFifoQueue :: Maybe (Val Bool)
+  , _sQSQueueKmsDataKeyReusePeriodSeconds :: Maybe (Val Integer)
+  , _sQSQueueKmsMasterKeyId :: Maybe (Val Text)
   , _sQSQueueMaximumMessageSize :: Maybe (Val Integer)
   , _sQSQueueMessageRetentionPeriod :: Maybe (Val Integer)
   , _sQSQueueQueueName :: Maybe (Val Text)
@@ -37,6 +39,8 @@ instance ToJSON SQSQueue where
     [ fmap (("ContentBasedDeduplication",) . toJSON . fmap Bool') _sQSQueueContentBasedDeduplication
     , fmap (("DelaySeconds",) . toJSON . fmap Integer') _sQSQueueDelaySeconds
     , fmap (("FifoQueue",) . toJSON . fmap Bool') _sQSQueueFifoQueue
+    , fmap (("KmsDataKeyReusePeriodSeconds",) . toJSON . fmap Integer') _sQSQueueKmsDataKeyReusePeriodSeconds
+    , fmap (("KmsMasterKeyId",) . toJSON) _sQSQueueKmsMasterKeyId
     , fmap (("MaximumMessageSize",) . toJSON . fmap Integer') _sQSQueueMaximumMessageSize
     , fmap (("MessageRetentionPeriod",) . toJSON . fmap Integer') _sQSQueueMessageRetentionPeriod
     , fmap (("QueueName",) . toJSON) _sQSQueueQueueName
@@ -51,6 +55,8 @@ instance FromJSON SQSQueue where
       fmap (fmap (fmap unBool')) (obj .:? "ContentBasedDeduplication") <*>
       fmap (fmap (fmap unInteger')) (obj .:? "DelaySeconds") <*>
       fmap (fmap (fmap unBool')) (obj .:? "FifoQueue") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "KmsDataKeyReusePeriodSeconds") <*>
+      (obj .:? "KmsMasterKeyId") <*>
       fmap (fmap (fmap unInteger')) (obj .:? "MaximumMessageSize") <*>
       fmap (fmap (fmap unInteger')) (obj .:? "MessageRetentionPeriod") <*>
       (obj .:? "QueueName") <*>
@@ -67,6 +73,8 @@ sqsQueue  =
   { _sQSQueueContentBasedDeduplication = Nothing
   , _sQSQueueDelaySeconds = Nothing
   , _sQSQueueFifoQueue = Nothing
+  , _sQSQueueKmsDataKeyReusePeriodSeconds = Nothing
+  , _sQSQueueKmsMasterKeyId = Nothing
   , _sQSQueueMaximumMessageSize = Nothing
   , _sQSQueueMessageRetentionPeriod = Nothing
   , _sQSQueueQueueName = Nothing
@@ -86,6 +94,14 @@ sqsqDelaySeconds = lens _sQSQueueDelaySeconds (\s a -> s { _sQSQueueDelaySeconds
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-sqs-queue-fifoqueue
 sqsqFifoQueue :: Lens' SQSQueue (Maybe (Val Bool))
 sqsqFifoQueue = lens _sQSQueueFifoQueue (\s a -> s { _sQSQueueFifoQueue = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-sqs-queue-kmsdatakeyreuseperiodseconds
+sqsqKmsDataKeyReusePeriodSeconds :: Lens' SQSQueue (Maybe (Val Integer))
+sqsqKmsDataKeyReusePeriodSeconds = lens _sQSQueueKmsDataKeyReusePeriodSeconds (\s a -> s { _sQSQueueKmsDataKeyReusePeriodSeconds = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-sqs-queue-kmsmasterkeyid
+sqsqKmsMasterKeyId :: Lens' SQSQueue (Maybe (Val Text))
+sqsqKmsMasterKeyId = lens _sQSQueueKmsMasterKeyId (\s a -> s { _sQSQueueKmsMasterKeyId = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-sqs-queue-maxmesgsize
 sqsqMaximumMessageSize :: Lens' SQSQueue (Maybe (Val Integer))
