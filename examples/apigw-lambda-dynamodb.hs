@@ -58,8 +58,9 @@ getMethod = (
   ApiGatewayMethodProperties $
   apiGatewayMethod
     (Literal GET)
+    (toRef apiGWResource)
+    (toRef apiGWRestApi)
     & agmeAuthorizationType ?~ Literal NONE
-    & agmeResourceId ?~ toRef apiGWResource
     & agmeAuthorizerId ?~ toRef apiGWRestApi
     & agmeIntegration ?~ integration
     & agmeMethodResponses ?~ [ methodResponse ]
@@ -83,13 +84,12 @@ getMethod = (
 
     integrationResponse =
       apiGatewayMethodIntegrationResponse
+      "200"
       & agmirResponseTemplates ?~ [ ("application/json", "$input.json('$.body')") ]
-      & agmirStatusCode ?~ "200"
 
     methodResponse =
       apiGatewayMethodMethodResponse
-      & agmmrStatusCode ?~ "200"
-
+      "200"
 
 postMethod :: Resource
 postMethod = (
@@ -97,8 +97,9 @@ postMethod = (
   ApiGatewayMethodProperties $
   apiGatewayMethod
     (Literal POST)
+    (toRef apiGWResource)
+    (toRef apiGWRestApi)
     & agmeAuthorizationType ?~ Literal NONE
-    & agmeResourceId ?~ toRef apiGWResource
     & agmeAuthorizerId ?~ toRef apiGWRestApi
     & agmeIntegration ?~ integration
     & agmeMethodResponses ?~ [ methodResponse ]
@@ -122,12 +123,12 @@ postMethod = (
 
     integrationResponse =
       apiGatewayMethodIntegrationResponse
+      "200"
       & agmirResponseTemplates ?~ [ ("application/json", "$input.json('$.body')") ]
-      & agmirStatusCode ?~ "200"
 
     methodResponse =
       apiGatewayMethodMethodResponse
-      & agmmrStatusCode ?~ "200"
+      "200"
 
 apiGWDeployment :: Resource
 apiGWDeployment = (resource "ApiGWDeployment" $
