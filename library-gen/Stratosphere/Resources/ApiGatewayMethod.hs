@@ -29,8 +29,8 @@ data ApiGatewayMethod =
   , _apiGatewayMethodMethodResponses :: Maybe [ApiGatewayMethodMethodResponse]
   , _apiGatewayMethodRequestModels :: Maybe Object
   , _apiGatewayMethodRequestParameters :: Maybe Object
-  , _apiGatewayMethodResourceId :: Maybe (Val Text)
-  , _apiGatewayMethodRestApiId :: Maybe (Val Text)
+  , _apiGatewayMethodResourceId :: Val Text
+  , _apiGatewayMethodRestApiId :: Val Text
   } deriving (Show, Eq)
 
 instance ToJSON ApiGatewayMethod where
@@ -45,8 +45,8 @@ instance ToJSON ApiGatewayMethod where
     , fmap (("MethodResponses",) . toJSON) _apiGatewayMethodMethodResponses
     , fmap (("RequestModels",) . toJSON) _apiGatewayMethodRequestModels
     , fmap (("RequestParameters",) . toJSON) _apiGatewayMethodRequestParameters
-    , fmap (("ResourceId",) . toJSON) _apiGatewayMethodResourceId
-    , fmap (("RestApiId",) . toJSON) _apiGatewayMethodRestApiId
+    , (Just . ("ResourceId",) . toJSON) _apiGatewayMethodResourceId
+    , (Just . ("RestApiId",) . toJSON) _apiGatewayMethodRestApiId
     ]
 
 instance FromJSON ApiGatewayMethod where
@@ -60,16 +60,18 @@ instance FromJSON ApiGatewayMethod where
       (obj .:? "MethodResponses") <*>
       (obj .:? "RequestModels") <*>
       (obj .:? "RequestParameters") <*>
-      (obj .:? "ResourceId") <*>
-      (obj .:? "RestApiId")
+      (obj .: "ResourceId") <*>
+      (obj .: "RestApiId")
   parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayMethod' containing required fields as
 -- arguments.
 apiGatewayMethod
   :: Val HttpMethod -- ^ 'agmeHttpMethod'
+  -> Val Text -- ^ 'agmeResourceId'
+  -> Val Text -- ^ 'agmeRestApiId'
   -> ApiGatewayMethod
-apiGatewayMethod httpMethodarg =
+apiGatewayMethod httpMethodarg resourceIdarg restApiIdarg =
   ApiGatewayMethod
   { _apiGatewayMethodApiKeyRequired = Nothing
   , _apiGatewayMethodAuthorizationType = Nothing
@@ -79,8 +81,8 @@ apiGatewayMethod httpMethodarg =
   , _apiGatewayMethodMethodResponses = Nothing
   , _apiGatewayMethodRequestModels = Nothing
   , _apiGatewayMethodRequestParameters = Nothing
-  , _apiGatewayMethodResourceId = Nothing
-  , _apiGatewayMethodRestApiId = Nothing
+  , _apiGatewayMethodResourceId = resourceIdarg
+  , _apiGatewayMethodRestApiId = restApiIdarg
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html#cfn-apigateway-method-apikeyrequired
@@ -116,9 +118,9 @@ agmeRequestParameters :: Lens' ApiGatewayMethod (Maybe Object)
 agmeRequestParameters = lens _apiGatewayMethodRequestParameters (\s a -> s { _apiGatewayMethodRequestParameters = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html#cfn-apigateway-method-resourceid
-agmeResourceId :: Lens' ApiGatewayMethod (Maybe (Val Text))
+agmeResourceId :: Lens' ApiGatewayMethod (Val Text)
 agmeResourceId = lens _apiGatewayMethodResourceId (\s a -> s { _apiGatewayMethodResourceId = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html#cfn-apigateway-method-restapiid
-agmeRestApiId :: Lens' ApiGatewayMethod (Maybe (Val Text))
+agmeRestApiId :: Lens' ApiGatewayMethod (Val Text)
 agmeRestApiId = lens _apiGatewayMethodRestApiId (\s a -> s { _apiGatewayMethodRestApiId = a })

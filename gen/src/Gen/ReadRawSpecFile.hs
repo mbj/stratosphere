@@ -9,6 +9,7 @@ module Gen.ReadRawSpecFile
   , decodeFile
   ) where
 
+import Control.Applicative ((<|>))
 import Data.Aeson
 import Data.Aeson.Types
 import Data.Map (Map)
@@ -70,12 +71,18 @@ data RawResourceAttribute
   { rawResourceAttributeItemType :: Maybe Text
   , rawResourceAttributePrimitiveItemType :: Maybe Text
   , rawResourceAttributePrimitiveType :: Maybe Text
-  , rawResourceAttributeType :: Maybe Text
+  , rawResourceAttributeType :: Maybe (Either [Text] Text)
   }
   deriving (Show, Eq, Generic)
 
 instance FromJSON RawResourceAttribute where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 20 }
+  parseJSON (Object o) =
+    RawResourceAttribute <$>
+      o .:? "ItemType" <*>
+      o .:? "PrimitiveItemType" <*>
+      o .:? "PrimitiveType" <*>
+      (fmap Left <$> o .:? "Type" <|> fmap Right <$> o .:? "Type")
+  parseJSON _ = mempty
 
 -- | Decode a JSON file into a type
 decodeFile :: (FromJSON a) => FP.FilePath -> IO (Either String a)

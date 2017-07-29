@@ -13,30 +13,35 @@ import Data.Monoid (mempty)
 import Data.Text
 
 import Stratosphere.Values
+import Stratosphere.ResourceProperties.S3BucketAbortIncompleteMultipartUpload
 import Stratosphere.ResourceProperties.S3BucketNoncurrentVersionTransition
+import Stratosphere.ResourceProperties.S3BucketTagFilter
 import Stratosphere.ResourceProperties.S3BucketTransition
 
 -- | Full data type definition for S3BucketRule. See 's3BucketRule' for a more
 -- convenient constructor.
 data S3BucketRule =
   S3BucketRule
-  { _s3BucketRuleExpirationDate :: Maybe (Val Text)
+  { _s3BucketRuleAbortIncompleteMultipartUpload :: Maybe S3BucketAbortIncompleteMultipartUpload
+  , _s3BucketRuleExpirationDate :: Maybe (Val Text)
   , _s3BucketRuleExpirationInDays :: Maybe (Val Integer)
   , _s3BucketRuleId :: Maybe (Val Text)
   , _s3BucketRuleNoncurrentVersionExpirationInDays :: Maybe (Val Integer)
   , _s3BucketRuleNoncurrentVersionTransition :: Maybe S3BucketNoncurrentVersionTransition
-  , _s3BucketRuleNoncurrentVersionTransitions :: Maybe S3BucketNoncurrentVersionTransition
+  , _s3BucketRuleNoncurrentVersionTransitions :: Maybe [S3BucketNoncurrentVersionTransition]
   , _s3BucketRulePrefix :: Maybe (Val Text)
   , _s3BucketRuleStatus :: Val Text
+  , _s3BucketRuleTagFilters :: Maybe [S3BucketTagFilter]
   , _s3BucketRuleTransition :: Maybe S3BucketTransition
-  , _s3BucketRuleTransitions :: Maybe S3BucketTransition
+  , _s3BucketRuleTransitions :: Maybe [S3BucketTransition]
   } deriving (Show, Eq)
 
 instance ToJSON S3BucketRule where
   toJSON S3BucketRule{..} =
     object $
     catMaybes
-    [ fmap (("ExpirationDate",) . toJSON) _s3BucketRuleExpirationDate
+    [ fmap (("AbortIncompleteMultipartUpload",) . toJSON) _s3BucketRuleAbortIncompleteMultipartUpload
+    , fmap (("ExpirationDate",) . toJSON) _s3BucketRuleExpirationDate
     , fmap (("ExpirationInDays",) . toJSON . fmap Integer') _s3BucketRuleExpirationInDays
     , fmap (("Id",) . toJSON) _s3BucketRuleId
     , fmap (("NoncurrentVersionExpirationInDays",) . toJSON . fmap Integer') _s3BucketRuleNoncurrentVersionExpirationInDays
@@ -44,6 +49,7 @@ instance ToJSON S3BucketRule where
     , fmap (("NoncurrentVersionTransitions",) . toJSON) _s3BucketRuleNoncurrentVersionTransitions
     , fmap (("Prefix",) . toJSON) _s3BucketRulePrefix
     , (Just . ("Status",) . toJSON) _s3BucketRuleStatus
+    , fmap (("TagFilters",) . toJSON) _s3BucketRuleTagFilters
     , fmap (("Transition",) . toJSON) _s3BucketRuleTransition
     , fmap (("Transitions",) . toJSON) _s3BucketRuleTransitions
     ]
@@ -51,6 +57,7 @@ instance ToJSON S3BucketRule where
 instance FromJSON S3BucketRule where
   parseJSON (Object obj) =
     S3BucketRule <$>
+      (obj .:? "AbortIncompleteMultipartUpload") <*>
       (obj .:? "ExpirationDate") <*>
       fmap (fmap (fmap unInteger')) (obj .:? "ExpirationInDays") <*>
       (obj .:? "Id") <*>
@@ -59,6 +66,7 @@ instance FromJSON S3BucketRule where
       (obj .:? "NoncurrentVersionTransitions") <*>
       (obj .:? "Prefix") <*>
       (obj .: "Status") <*>
+      (obj .:? "TagFilters") <*>
       (obj .:? "Transition") <*>
       (obj .:? "Transitions")
   parseJSON _ = mempty
@@ -69,7 +77,8 @@ s3BucketRule
   -> S3BucketRule
 s3BucketRule statusarg =
   S3BucketRule
-  { _s3BucketRuleExpirationDate = Nothing
+  { _s3BucketRuleAbortIncompleteMultipartUpload = Nothing
+  , _s3BucketRuleExpirationDate = Nothing
   , _s3BucketRuleExpirationInDays = Nothing
   , _s3BucketRuleId = Nothing
   , _s3BucketRuleNoncurrentVersionExpirationInDays = Nothing
@@ -77,9 +86,14 @@ s3BucketRule statusarg =
   , _s3BucketRuleNoncurrentVersionTransitions = Nothing
   , _s3BucketRulePrefix = Nothing
   , _s3BucketRuleStatus = statusarg
+  , _s3BucketRuleTagFilters = Nothing
   , _s3BucketRuleTransition = Nothing
   , _s3BucketRuleTransitions = Nothing
   }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html#cfn-s3-bucket-rule-abortincompletemultipartupload
+sbrAbortIncompleteMultipartUpload :: Lens' S3BucketRule (Maybe S3BucketAbortIncompleteMultipartUpload)
+sbrAbortIncompleteMultipartUpload = lens _s3BucketRuleAbortIncompleteMultipartUpload (\s a -> s { _s3BucketRuleAbortIncompleteMultipartUpload = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html#cfn-s3-bucket-lifecycleconfig-rule-expirationdate
 sbrExpirationDate :: Lens' S3BucketRule (Maybe (Val Text))
@@ -102,7 +116,7 @@ sbrNoncurrentVersionTransition :: Lens' S3BucketRule (Maybe S3BucketNoncurrentVe
 sbrNoncurrentVersionTransition = lens _s3BucketRuleNoncurrentVersionTransition (\s a -> s { _s3BucketRuleNoncurrentVersionTransition = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html#cfn-s3-bucket-lifecycleconfig-rule-noncurrentversiontransitions
-sbrNoncurrentVersionTransitions :: Lens' S3BucketRule (Maybe S3BucketNoncurrentVersionTransition)
+sbrNoncurrentVersionTransitions :: Lens' S3BucketRule (Maybe [S3BucketNoncurrentVersionTransition])
 sbrNoncurrentVersionTransitions = lens _s3BucketRuleNoncurrentVersionTransitions (\s a -> s { _s3BucketRuleNoncurrentVersionTransitions = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html#cfn-s3-bucket-lifecycleconfig-rule-prefix
@@ -113,10 +127,14 @@ sbrPrefix = lens _s3BucketRulePrefix (\s a -> s { _s3BucketRulePrefix = a })
 sbrStatus :: Lens' S3BucketRule (Val Text)
 sbrStatus = lens _s3BucketRuleStatus (\s a -> s { _s3BucketRuleStatus = a })
 
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html#cfn-s3-bucket-rule-tagfilters
+sbrTagFilters :: Lens' S3BucketRule (Maybe [S3BucketTagFilter])
+sbrTagFilters = lens _s3BucketRuleTagFilters (\s a -> s { _s3BucketRuleTagFilters = a })
+
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html#cfn-s3-bucket-lifecycleconfig-rule-transition
 sbrTransition :: Lens' S3BucketRule (Maybe S3BucketTransition)
 sbrTransition = lens _s3BucketRuleTransition (\s a -> s { _s3BucketRuleTransition = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html#cfn-s3-bucket-lifecycleconfig-rule-transitions
-sbrTransitions :: Lens' S3BucketRule (Maybe S3BucketTransition)
+sbrTransitions :: Lens' S3BucketRule (Maybe [S3BucketTransition])
 sbrTransitions = lens _s3BucketRuleTransitions (\s a -> s { _s3BucketRuleTransitions = a })
