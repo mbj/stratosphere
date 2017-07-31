@@ -3,6 +3,7 @@
 ## 0.8.0
 
 * Update resource specification document (no version given in doc)
+* GHC 8.2.1 compatibility
 
 ## 0.7.1
 
