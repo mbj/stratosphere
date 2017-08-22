@@ -24,9 +24,8 @@ data ApiGatewayStage =
   , _apiGatewayStageClientCertificateId :: Maybe (Val Text)
   , _apiGatewayStageDeploymentId :: Maybe (Val Text)
   , _apiGatewayStageDescription :: Maybe (Val Text)
-  , _apiGatewayStageDocumentationVersion :: Maybe (Val Text)
   , _apiGatewayStageMethodSettings :: Maybe [ApiGatewayStageMethodSetting]
-  , _apiGatewayStageRestApiId :: Val Text
+  , _apiGatewayStageRestApiId :: Maybe (Val Text)
   , _apiGatewayStageStageName :: Maybe (Val Text)
   , _apiGatewayStageVariables :: Maybe Object
   } deriving (Show, Eq)
@@ -40,9 +39,8 @@ instance ToJSON ApiGatewayStage where
     , fmap (("ClientCertificateId",) . toJSON) _apiGatewayStageClientCertificateId
     , fmap (("DeploymentId",) . toJSON) _apiGatewayStageDeploymentId
     , fmap (("Description",) . toJSON) _apiGatewayStageDescription
-    , fmap (("DocumentationVersion",) . toJSON) _apiGatewayStageDocumentationVersion
     , fmap (("MethodSettings",) . toJSON) _apiGatewayStageMethodSettings
-    , (Just . ("RestApiId",) . toJSON) _apiGatewayStageRestApiId
+    , fmap (("RestApiId",) . toJSON) _apiGatewayStageRestApiId
     , fmap (("StageName",) . toJSON) _apiGatewayStageStageName
     , fmap (("Variables",) . toJSON) _apiGatewayStageVariables
     ]
@@ -55,9 +53,8 @@ instance FromJSON ApiGatewayStage where
       (obj .:? "ClientCertificateId") <*>
       (obj .:? "DeploymentId") <*>
       (obj .:? "Description") <*>
-      (obj .:? "DocumentationVersion") <*>
       (obj .:? "MethodSettings") <*>
-      (obj .: "RestApiId") <*>
+      (obj .:? "RestApiId") <*>
       (obj .:? "StageName") <*>
       (obj .:? "Variables")
   parseJSON _ = mempty
@@ -65,18 +62,16 @@ instance FromJSON ApiGatewayStage where
 -- | Constructor for 'ApiGatewayStage' containing required fields as
 -- arguments.
 apiGatewayStage
-  :: Val Text -- ^ 'agsRestApiId'
-  -> ApiGatewayStage
-apiGatewayStage restApiIdarg =
+  :: ApiGatewayStage
+apiGatewayStage  =
   ApiGatewayStage
   { _apiGatewayStageCacheClusterEnabled = Nothing
   , _apiGatewayStageCacheClusterSize = Nothing
   , _apiGatewayStageClientCertificateId = Nothing
   , _apiGatewayStageDeploymentId = Nothing
   , _apiGatewayStageDescription = Nothing
-  , _apiGatewayStageDocumentationVersion = Nothing
   , _apiGatewayStageMethodSettings = Nothing
-  , _apiGatewayStageRestApiId = restApiIdarg
+  , _apiGatewayStageRestApiId = Nothing
   , _apiGatewayStageStageName = Nothing
   , _apiGatewayStageVariables = Nothing
   }
@@ -101,16 +96,12 @@ agsDeploymentId = lens _apiGatewayStageDeploymentId (\s a -> s { _apiGatewayStag
 agsDescription :: Lens' ApiGatewayStage (Maybe (Val Text))
 agsDescription = lens _apiGatewayStageDescription (\s a -> s { _apiGatewayStageDescription = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html#cfn-apigateway-stage-documentationversion
-agsDocumentationVersion :: Lens' ApiGatewayStage (Maybe (Val Text))
-agsDocumentationVersion = lens _apiGatewayStageDocumentationVersion (\s a -> s { _apiGatewayStageDocumentationVersion = a })
-
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html#cfn-apigateway-stage-methodsettings
 agsMethodSettings :: Lens' ApiGatewayStage (Maybe [ApiGatewayStageMethodSetting])
 agsMethodSettings = lens _apiGatewayStageMethodSettings (\s a -> s { _apiGatewayStageMethodSettings = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html#cfn-apigateway-stage-restapiid
-agsRestApiId :: Lens' ApiGatewayStage (Val Text)
+agsRestApiId :: Lens' ApiGatewayStage (Maybe (Val Text))
 agsRestApiId = lens _apiGatewayStageRestApiId (\s a -> s { _apiGatewayStageRestApiId = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html#cfn-apigateway-stage-stagename

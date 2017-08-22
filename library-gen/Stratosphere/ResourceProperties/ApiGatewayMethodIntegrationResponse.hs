@@ -22,7 +22,7 @@ data ApiGatewayMethodIntegrationResponse =
   { _apiGatewayMethodIntegrationResponseResponseParameters :: Maybe Object
   , _apiGatewayMethodIntegrationResponseResponseTemplates :: Maybe Object
   , _apiGatewayMethodIntegrationResponseSelectionPattern :: Maybe (Val Text)
-  , _apiGatewayMethodIntegrationResponseStatusCode :: Val Text
+  , _apiGatewayMethodIntegrationResponseStatusCode :: Maybe (Val Text)
   } deriving (Show, Eq)
 
 instance ToJSON ApiGatewayMethodIntegrationResponse where
@@ -32,7 +32,7 @@ instance ToJSON ApiGatewayMethodIntegrationResponse where
     [ fmap (("ResponseParameters",) . toJSON) _apiGatewayMethodIntegrationResponseResponseParameters
     , fmap (("ResponseTemplates",) . toJSON) _apiGatewayMethodIntegrationResponseResponseTemplates
     , fmap (("SelectionPattern",) . toJSON) _apiGatewayMethodIntegrationResponseSelectionPattern
-    , (Just . ("StatusCode",) . toJSON) _apiGatewayMethodIntegrationResponseStatusCode
+    , fmap (("StatusCode",) . toJSON) _apiGatewayMethodIntegrationResponseStatusCode
     ]
 
 instance FromJSON ApiGatewayMethodIntegrationResponse where
@@ -41,20 +41,19 @@ instance FromJSON ApiGatewayMethodIntegrationResponse where
       (obj .:? "ResponseParameters") <*>
       (obj .:? "ResponseTemplates") <*>
       (obj .:? "SelectionPattern") <*>
-      (obj .: "StatusCode")
+      (obj .:? "StatusCode")
   parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayMethodIntegrationResponse' containing required
 -- fields as arguments.
 apiGatewayMethodIntegrationResponse
-  :: Val Text -- ^ 'agmirStatusCode'
-  -> ApiGatewayMethodIntegrationResponse
-apiGatewayMethodIntegrationResponse statusCodearg =
+  :: ApiGatewayMethodIntegrationResponse
+apiGatewayMethodIntegrationResponse  =
   ApiGatewayMethodIntegrationResponse
   { _apiGatewayMethodIntegrationResponseResponseParameters = Nothing
   , _apiGatewayMethodIntegrationResponseResponseTemplates = Nothing
   , _apiGatewayMethodIntegrationResponseSelectionPattern = Nothing
-  , _apiGatewayMethodIntegrationResponseStatusCode = statusCodearg
+  , _apiGatewayMethodIntegrationResponseStatusCode = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration-integrationresponse.html#cfn-apigateway-method-integration-integrationresponse-responseparameters
@@ -70,5 +69,5 @@ agmirSelectionPattern :: Lens' ApiGatewayMethodIntegrationResponse (Maybe (Val T
 agmirSelectionPattern = lens _apiGatewayMethodIntegrationResponseSelectionPattern (\s a -> s { _apiGatewayMethodIntegrationResponseSelectionPattern = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration-integrationresponse.html#cfn-apigateway-method-integration-integrationresponse-statuscode
-agmirStatusCode :: Lens' ApiGatewayMethodIntegrationResponse (Val Text)
+agmirStatusCode :: Lens' ApiGatewayMethodIntegrationResponse (Maybe (Val Text))
 agmirStatusCode = lens _apiGatewayMethodIntegrationResponseStatusCode (\s a -> s { _apiGatewayMethodIntegrationResponseStatusCode = a })

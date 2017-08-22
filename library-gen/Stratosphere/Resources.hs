@@ -51,12 +51,9 @@ import Stratosphere.Resources.ApiGatewayAuthorizer as X
 import Stratosphere.Resources.ApiGatewayBasePathMapping as X
 import Stratosphere.Resources.ApiGatewayClientCertificate as X
 import Stratosphere.Resources.ApiGatewayDeployment as X
-import Stratosphere.Resources.ApiGatewayDocumentationPart as X
-import Stratosphere.Resources.ApiGatewayDocumentationVersion as X
 import Stratosphere.Resources.ApiGatewayDomainName as X
 import Stratosphere.Resources.ApiGatewayMethod as X
 import Stratosphere.Resources.ApiGatewayModel as X
-import Stratosphere.Resources.ApiGatewayRequestValidator as X
 import Stratosphere.Resources.ApiGatewayResource as X
 import Stratosphere.Resources.ApiGatewayRestApi as X
 import Stratosphere.Resources.ApiGatewayStage as X
@@ -69,6 +66,9 @@ import Stratosphere.Resources.AutoScalingLaunchConfiguration as X
 import Stratosphere.Resources.AutoScalingLifecycleHook as X
 import Stratosphere.Resources.AutoScalingScalingPolicy as X
 import Stratosphere.Resources.AutoScalingScheduledAction as X
+import Stratosphere.Resources.BatchComputeEnvironment as X
+import Stratosphere.Resources.BatchJobDefinition as X
+import Stratosphere.Resources.BatchJobQueue as X
 import Stratosphere.Resources.CertificateManagerCertificate as X
 import Stratosphere.Resources.CloudFormationCustomResource as X
 import Stratosphere.Resources.CloudFormationStack as X
@@ -263,7 +263,6 @@ import Stratosphere.Resources.WorkSpacesWorkspace as X
 import Stratosphere.ResourceProperties.ApiGatewayApiKeyStageKey as X
 import Stratosphere.ResourceProperties.ApiGatewayDeploymentMethodSetting as X
 import Stratosphere.ResourceProperties.ApiGatewayDeploymentStageDescription as X
-import Stratosphere.ResourceProperties.ApiGatewayDocumentationPartLocation as X
 import Stratosphere.ResourceProperties.ApiGatewayMethodIntegration as X
 import Stratosphere.ResourceProperties.ApiGatewayMethodIntegrationResponse as X
 import Stratosphere.ResourceProperties.ApiGatewayMethodMethodResponse as X
@@ -283,11 +282,16 @@ import Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupNotificationCo
 import Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupTagProperty as X
 import Stratosphere.ResourceProperties.AutoScalingLaunchConfigurationBlockDevice as X
 import Stratosphere.ResourceProperties.AutoScalingLaunchConfigurationBlockDeviceMapping as X
-import Stratosphere.ResourceProperties.AutoScalingScalingPolicyCustomizedMetricSpecification as X
-import Stratosphere.ResourceProperties.AutoScalingScalingPolicyMetricDimension as X
-import Stratosphere.ResourceProperties.AutoScalingScalingPolicyPredefinedMetricSpecification as X
 import Stratosphere.ResourceProperties.AutoScalingScalingPolicyStepAdjustment as X
-import Stratosphere.ResourceProperties.AutoScalingScalingPolicyTargetTrackingConfiguration as X
+import Stratosphere.ResourceProperties.BatchComputeEnvironmentComputeResources as X
+import Stratosphere.ResourceProperties.BatchJobDefinitionContainerProperties as X
+import Stratosphere.ResourceProperties.BatchJobDefinitionEnvironment as X
+import Stratosphere.ResourceProperties.BatchJobDefinitionMountPoints as X
+import Stratosphere.ResourceProperties.BatchJobDefinitionRetryStrategy as X
+import Stratosphere.ResourceProperties.BatchJobDefinitionUlimit as X
+import Stratosphere.ResourceProperties.BatchJobDefinitionVolumes as X
+import Stratosphere.ResourceProperties.BatchJobDefinitionVolumesHost as X
+import Stratosphere.ResourceProperties.BatchJobQueueComputeEnvironmentOrder as X
 import Stratosphere.ResourceProperties.CertificateManagerCertificateDomainValidationOption as X
 import Stratosphere.ResourceProperties.CloudFrontDistributionCacheBehavior as X
 import Stratosphere.ResourceProperties.CloudFrontDistributionCookies as X
@@ -303,8 +307,6 @@ import Stratosphere.ResourceProperties.CloudFrontDistributionOriginCustomHeader 
 import Stratosphere.ResourceProperties.CloudFrontDistributionRestrictions as X
 import Stratosphere.ResourceProperties.CloudFrontDistributionS3OriginConfig as X
 import Stratosphere.ResourceProperties.CloudFrontDistributionViewerCertificate as X
-import Stratosphere.ResourceProperties.CloudTrailTrailDataResource as X
-import Stratosphere.ResourceProperties.CloudTrailTrailEventSelector as X
 import Stratosphere.ResourceProperties.CloudWatchAlarmDimension as X
 import Stratosphere.ResourceProperties.CodeBuildProjectArtifacts as X
 import Stratosphere.ResourceProperties.CodeBuildProjectEnvironment as X
@@ -536,11 +538,7 @@ import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamElasticsearc
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguration as X
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamElasticsearchRetryOptions as X
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamEncryptionConfiguration as X
-import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamExtendedS3DestinationConfiguration as X
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamKMSEncryptionConfig as X
-import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamProcessingConfiguration as X
-import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamProcessor as X
-import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamProcessorParameter as X
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration as X
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamS3DestinationConfiguration as X
 import Stratosphere.ResourceProperties.LambdaFunctionCode as X
@@ -583,8 +581,6 @@ import Stratosphere.ResourceProperties.Route53RecordSetGeoLocation as X
 import Stratosphere.ResourceProperties.Route53RecordSetGroupAliasTarget as X
 import Stratosphere.ResourceProperties.Route53RecordSetGroupGeoLocation as X
 import Stratosphere.ResourceProperties.Route53RecordSetGroupRecordSet as X
-import Stratosphere.ResourceProperties.S3BucketAbortIncompleteMultipartUpload as X
-import Stratosphere.ResourceProperties.S3BucketAccelerateConfiguration as X
 import Stratosphere.ResourceProperties.S3BucketCorsConfiguration as X
 import Stratosphere.ResourceProperties.S3BucketCorsRule as X
 import Stratosphere.ResourceProperties.S3BucketFilterRule as X
@@ -604,7 +600,6 @@ import Stratosphere.ResourceProperties.S3BucketRoutingRule as X
 import Stratosphere.ResourceProperties.S3BucketRoutingRuleCondition as X
 import Stratosphere.ResourceProperties.S3BucketRule as X
 import Stratosphere.ResourceProperties.S3BucketS3KeyFilter as X
-import Stratosphere.ResourceProperties.S3BucketTagFilter as X
 import Stratosphere.ResourceProperties.S3BucketTopicConfiguration as X
 import Stratosphere.ResourceProperties.S3BucketTransition as X
 import Stratosphere.ResourceProperties.S3BucketVersioningConfiguration as X
@@ -654,12 +649,9 @@ data ResourceProperties
   | ApiGatewayBasePathMappingProperties ApiGatewayBasePathMapping
   | ApiGatewayClientCertificateProperties ApiGatewayClientCertificate
   | ApiGatewayDeploymentProperties ApiGatewayDeployment
-  | ApiGatewayDocumentationPartProperties ApiGatewayDocumentationPart
-  | ApiGatewayDocumentationVersionProperties ApiGatewayDocumentationVersion
   | ApiGatewayDomainNameProperties ApiGatewayDomainName
   | ApiGatewayMethodProperties ApiGatewayMethod
   | ApiGatewayModelProperties ApiGatewayModel
-  | ApiGatewayRequestValidatorProperties ApiGatewayRequestValidator
   | ApiGatewayResourceProperties ApiGatewayResource
   | ApiGatewayRestApiProperties ApiGatewayRestApi
   | ApiGatewayStageProperties ApiGatewayStage
@@ -672,6 +664,9 @@ data ResourceProperties
   | AutoScalingLifecycleHookProperties AutoScalingLifecycleHook
   | AutoScalingScalingPolicyProperties AutoScalingScalingPolicy
   | AutoScalingScheduledActionProperties AutoScalingScheduledAction
+  | BatchComputeEnvironmentProperties BatchComputeEnvironment
+  | BatchJobDefinitionProperties BatchJobDefinition
+  | BatchJobQueueProperties BatchJobQueue
   | CertificateManagerCertificateProperties CertificateManagerCertificate
   | CloudFormationCustomResourceProperties CloudFormationCustomResource
   | CloudFormationStackProperties CloudFormationStack
@@ -927,18 +922,12 @@ resourcePropertiesJSON (ApiGatewayClientCertificateProperties x) =
   [ "Type" .= ("AWS::ApiGateway::ClientCertificate" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ApiGatewayDeploymentProperties x) =
   [ "Type" .= ("AWS::ApiGateway::Deployment" :: String), "Properties" .= toJSON x]
-resourcePropertiesJSON (ApiGatewayDocumentationPartProperties x) =
-  [ "Type" .= ("AWS::ApiGateway::DocumentationPart" :: String), "Properties" .= toJSON x]
-resourcePropertiesJSON (ApiGatewayDocumentationVersionProperties x) =
-  [ "Type" .= ("AWS::ApiGateway::DocumentationVersion" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ApiGatewayDomainNameProperties x) =
   [ "Type" .= ("AWS::ApiGateway::DomainName" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ApiGatewayMethodProperties x) =
   [ "Type" .= ("AWS::ApiGateway::Method" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ApiGatewayModelProperties x) =
   [ "Type" .= ("AWS::ApiGateway::Model" :: String), "Properties" .= toJSON x]
-resourcePropertiesJSON (ApiGatewayRequestValidatorProperties x) =
-  [ "Type" .= ("AWS::ApiGateway::RequestValidator" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ApiGatewayResourceProperties x) =
   [ "Type" .= ("AWS::ApiGateway::Resource" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ApiGatewayRestApiProperties x) =
@@ -963,6 +952,12 @@ resourcePropertiesJSON (AutoScalingScalingPolicyProperties x) =
   [ "Type" .= ("AWS::AutoScaling::ScalingPolicy" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (AutoScalingScheduledActionProperties x) =
   [ "Type" .= ("AWS::AutoScaling::ScheduledAction" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (BatchComputeEnvironmentProperties x) =
+  [ "Type" .= ("AWS::Batch::ComputeEnvironment" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (BatchJobDefinitionProperties x) =
+  [ "Type" .= ("AWS::Batch::JobDefinition" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (BatchJobQueueProperties x) =
+  [ "Type" .= ("AWS::Batch::JobQueue" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (CertificateManagerCertificateProperties x) =
   [ "Type" .= ("AWS::CertificateManager::Certificate" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (CloudFormationCustomResourceProperties x) =
@@ -1357,12 +1352,9 @@ resourceFromJSON n o =
          "AWS::ApiGateway::BasePathMapping" -> ApiGatewayBasePathMappingProperties <$> (o .: "Properties")
          "AWS::ApiGateway::ClientCertificate" -> ApiGatewayClientCertificateProperties <$> (o .: "Properties")
          "AWS::ApiGateway::Deployment" -> ApiGatewayDeploymentProperties <$> (o .: "Properties")
-         "AWS::ApiGateway::DocumentationPart" -> ApiGatewayDocumentationPartProperties <$> (o .: "Properties")
-         "AWS::ApiGateway::DocumentationVersion" -> ApiGatewayDocumentationVersionProperties <$> (o .: "Properties")
          "AWS::ApiGateway::DomainName" -> ApiGatewayDomainNameProperties <$> (o .: "Properties")
          "AWS::ApiGateway::Method" -> ApiGatewayMethodProperties <$> (o .: "Properties")
          "AWS::ApiGateway::Model" -> ApiGatewayModelProperties <$> (o .: "Properties")
-         "AWS::ApiGateway::RequestValidator" -> ApiGatewayRequestValidatorProperties <$> (o .: "Properties")
          "AWS::ApiGateway::Resource" -> ApiGatewayResourceProperties <$> (o .: "Properties")
          "AWS::ApiGateway::RestApi" -> ApiGatewayRestApiProperties <$> (o .: "Properties")
          "AWS::ApiGateway::Stage" -> ApiGatewayStageProperties <$> (o .: "Properties")
@@ -1375,6 +1367,9 @@ resourceFromJSON n o =
          "AWS::AutoScaling::LifecycleHook" -> AutoScalingLifecycleHookProperties <$> (o .: "Properties")
          "AWS::AutoScaling::ScalingPolicy" -> AutoScalingScalingPolicyProperties <$> (o .: "Properties")
          "AWS::AutoScaling::ScheduledAction" -> AutoScalingScheduledActionProperties <$> (o .: "Properties")
+         "AWS::Batch::ComputeEnvironment" -> BatchComputeEnvironmentProperties <$> (o .: "Properties")
+         "AWS::Batch::JobDefinition" -> BatchJobDefinitionProperties <$> (o .: "Properties")
+         "AWS::Batch::JobQueue" -> BatchJobQueueProperties <$> (o .: "Properties")
          "AWS::CertificateManager::Certificate" -> CertificateManagerCertificateProperties <$> (o .: "Properties")
          "AWS::CloudFormation::CustomResource" -> CloudFormationCustomResourceProperties <$> (o .: "Properties")
          "AWS::CloudFormation::Stack" -> CloudFormationStackProperties <$> (o .: "Properties")

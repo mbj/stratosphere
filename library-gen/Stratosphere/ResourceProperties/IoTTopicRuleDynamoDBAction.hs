@@ -20,11 +20,9 @@ import Stratosphere.Values
 data IoTTopicRuleDynamoDBAction =
   IoTTopicRuleDynamoDBAction
   { _ioTTopicRuleDynamoDBActionHashKeyField :: Val Text
-  , _ioTTopicRuleDynamoDBActionHashKeyType :: Maybe (Val Text)
   , _ioTTopicRuleDynamoDBActionHashKeyValue :: Val Text
   , _ioTTopicRuleDynamoDBActionPayloadField :: Maybe (Val Text)
   , _ioTTopicRuleDynamoDBActionRangeKeyField :: Val Text
-  , _ioTTopicRuleDynamoDBActionRangeKeyType :: Maybe (Val Text)
   , _ioTTopicRuleDynamoDBActionRangeKeyValue :: Val Text
   , _ioTTopicRuleDynamoDBActionRoleArn :: Val Text
   , _ioTTopicRuleDynamoDBActionTableName :: Val Text
@@ -35,11 +33,9 @@ instance ToJSON IoTTopicRuleDynamoDBAction where
     object $
     catMaybes
     [ (Just . ("HashKeyField",) . toJSON) _ioTTopicRuleDynamoDBActionHashKeyField
-    , fmap (("HashKeyType",) . toJSON) _ioTTopicRuleDynamoDBActionHashKeyType
     , (Just . ("HashKeyValue",) . toJSON) _ioTTopicRuleDynamoDBActionHashKeyValue
     , fmap (("PayloadField",) . toJSON) _ioTTopicRuleDynamoDBActionPayloadField
     , (Just . ("RangeKeyField",) . toJSON) _ioTTopicRuleDynamoDBActionRangeKeyField
-    , fmap (("RangeKeyType",) . toJSON) _ioTTopicRuleDynamoDBActionRangeKeyType
     , (Just . ("RangeKeyValue",) . toJSON) _ioTTopicRuleDynamoDBActionRangeKeyValue
     , (Just . ("RoleArn",) . toJSON) _ioTTopicRuleDynamoDBActionRoleArn
     , (Just . ("TableName",) . toJSON) _ioTTopicRuleDynamoDBActionTableName
@@ -49,11 +45,9 @@ instance FromJSON IoTTopicRuleDynamoDBAction where
   parseJSON (Object obj) =
     IoTTopicRuleDynamoDBAction <$>
       (obj .: "HashKeyField") <*>
-      (obj .:? "HashKeyType") <*>
       (obj .: "HashKeyValue") <*>
       (obj .:? "PayloadField") <*>
       (obj .: "RangeKeyField") <*>
-      (obj .:? "RangeKeyType") <*>
       (obj .: "RangeKeyValue") <*>
       (obj .: "RoleArn") <*>
       (obj .: "TableName")
@@ -72,11 +66,9 @@ ioTTopicRuleDynamoDBAction
 ioTTopicRuleDynamoDBAction hashKeyFieldarg hashKeyValuearg rangeKeyFieldarg rangeKeyValuearg roleArnarg tableNamearg =
   IoTTopicRuleDynamoDBAction
   { _ioTTopicRuleDynamoDBActionHashKeyField = hashKeyFieldarg
-  , _ioTTopicRuleDynamoDBActionHashKeyType = Nothing
   , _ioTTopicRuleDynamoDBActionHashKeyValue = hashKeyValuearg
   , _ioTTopicRuleDynamoDBActionPayloadField = Nothing
   , _ioTTopicRuleDynamoDBActionRangeKeyField = rangeKeyFieldarg
-  , _ioTTopicRuleDynamoDBActionRangeKeyType = Nothing
   , _ioTTopicRuleDynamoDBActionRangeKeyValue = rangeKeyValuearg
   , _ioTTopicRuleDynamoDBActionRoleArn = roleArnarg
   , _ioTTopicRuleDynamoDBActionTableName = tableNamearg
@@ -85,10 +77,6 @@ ioTTopicRuleDynamoDBAction hashKeyFieldarg hashKeyValuearg rangeKeyFieldarg rang
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-dynamodb.html#cfn-iot-dynamodb-hashkeyfield
 ittrddbaHashKeyField :: Lens' IoTTopicRuleDynamoDBAction (Val Text)
 ittrddbaHashKeyField = lens _ioTTopicRuleDynamoDBActionHashKeyField (\s a -> s { _ioTTopicRuleDynamoDBActionHashKeyField = a })
-
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-dynamodb.html#cfn-iot-dynamodb-hashkeytype
-ittrddbaHashKeyType :: Lens' IoTTopicRuleDynamoDBAction (Maybe (Val Text))
-ittrddbaHashKeyType = lens _ioTTopicRuleDynamoDBActionHashKeyType (\s a -> s { _ioTTopicRuleDynamoDBActionHashKeyType = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-dynamodb.html#cfn-iot-dynamodb-hashkeyvalue
 ittrddbaHashKeyValue :: Lens' IoTTopicRuleDynamoDBAction (Val Text)
@@ -101,10 +89,6 @@ ittrddbaPayloadField = lens _ioTTopicRuleDynamoDBActionPayloadField (\s a -> s {
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-dynamodb.html#cfn-iot-dynamodb-rangekeyfield
 ittrddbaRangeKeyField :: Lens' IoTTopicRuleDynamoDBAction (Val Text)
 ittrddbaRangeKeyField = lens _ioTTopicRuleDynamoDBActionRangeKeyField (\s a -> s { _ioTTopicRuleDynamoDBActionRangeKeyField = a })
-
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-dynamodb.html#cfn-iot-dynamodb-rangeKeytype
-ittrddbaRangeKeyType :: Lens' IoTTopicRuleDynamoDBAction (Maybe (Val Text))
-ittrddbaRangeKeyType = lens _ioTTopicRuleDynamoDBActionRangeKeyType (\s a -> s { _ioTTopicRuleDynamoDBActionRangeKeyType = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-dynamodb.html#cfn-iot-dynamodb-rangekeyvalue
 ittrddbaRangeKeyValue :: Lens' IoTTopicRuleDynamoDBAction (Val Text)

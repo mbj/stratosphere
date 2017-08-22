@@ -14,13 +14,12 @@ import Data.Text
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.AutoScalingScalingPolicyStepAdjustment
-import Stratosphere.ResourceProperties.AutoScalingScalingPolicyTargetTrackingConfiguration
 
 -- | Full data type definition for AutoScalingScalingPolicy. See
 -- 'autoScalingScalingPolicy' for a more convenient constructor.
 data AutoScalingScalingPolicy =
   AutoScalingScalingPolicy
-  { _autoScalingScalingPolicyAdjustmentType :: Maybe (Val Text)
+  { _autoScalingScalingPolicyAdjustmentType :: Val Text
   , _autoScalingScalingPolicyAutoScalingGroupName :: Val Text
   , _autoScalingScalingPolicyCooldown :: Maybe (Val Text)
   , _autoScalingScalingPolicyEstimatedInstanceWarmup :: Maybe (Val Integer)
@@ -29,14 +28,13 @@ data AutoScalingScalingPolicy =
   , _autoScalingScalingPolicyPolicyType :: Maybe (Val Text)
   , _autoScalingScalingPolicyScalingAdjustment :: Maybe (Val Integer)
   , _autoScalingScalingPolicyStepAdjustments :: Maybe [AutoScalingScalingPolicyStepAdjustment]
-  , _autoScalingScalingPolicyTargetTrackingConfiguration :: Maybe AutoScalingScalingPolicyTargetTrackingConfiguration
   } deriving (Show, Eq)
 
 instance ToJSON AutoScalingScalingPolicy where
   toJSON AutoScalingScalingPolicy{..} =
     object $
     catMaybes
-    [ fmap (("AdjustmentType",) . toJSON) _autoScalingScalingPolicyAdjustmentType
+    [ (Just . ("AdjustmentType",) . toJSON) _autoScalingScalingPolicyAdjustmentType
     , (Just . ("AutoScalingGroupName",) . toJSON) _autoScalingScalingPolicyAutoScalingGroupName
     , fmap (("Cooldown",) . toJSON) _autoScalingScalingPolicyCooldown
     , fmap (("EstimatedInstanceWarmup",) . toJSON . fmap Integer') _autoScalingScalingPolicyEstimatedInstanceWarmup
@@ -45,13 +43,12 @@ instance ToJSON AutoScalingScalingPolicy where
     , fmap (("PolicyType",) . toJSON) _autoScalingScalingPolicyPolicyType
     , fmap (("ScalingAdjustment",) . toJSON . fmap Integer') _autoScalingScalingPolicyScalingAdjustment
     , fmap (("StepAdjustments",) . toJSON) _autoScalingScalingPolicyStepAdjustments
-    , fmap (("TargetTrackingConfiguration",) . toJSON) _autoScalingScalingPolicyTargetTrackingConfiguration
     ]
 
 instance FromJSON AutoScalingScalingPolicy where
   parseJSON (Object obj) =
     AutoScalingScalingPolicy <$>
-      (obj .:? "AdjustmentType") <*>
+      (obj .: "AdjustmentType") <*>
       (obj .: "AutoScalingGroupName") <*>
       (obj .:? "Cooldown") <*>
       fmap (fmap (fmap unInteger')) (obj .:? "EstimatedInstanceWarmup") <*>
@@ -59,18 +56,18 @@ instance FromJSON AutoScalingScalingPolicy where
       fmap (fmap (fmap unInteger')) (obj .:? "MinAdjustmentMagnitude") <*>
       (obj .:? "PolicyType") <*>
       fmap (fmap (fmap unInteger')) (obj .:? "ScalingAdjustment") <*>
-      (obj .:? "StepAdjustments") <*>
-      (obj .:? "TargetTrackingConfiguration")
+      (obj .:? "StepAdjustments")
   parseJSON _ = mempty
 
 -- | Constructor for 'AutoScalingScalingPolicy' containing required fields as
 -- arguments.
 autoScalingScalingPolicy
-  :: Val Text -- ^ 'asspAutoScalingGroupName'
+  :: Val Text -- ^ 'asspAdjustmentType'
+  -> Val Text -- ^ 'asspAutoScalingGroupName'
   -> AutoScalingScalingPolicy
-autoScalingScalingPolicy autoScalingGroupNamearg =
+autoScalingScalingPolicy adjustmentTypearg autoScalingGroupNamearg =
   AutoScalingScalingPolicy
-  { _autoScalingScalingPolicyAdjustmentType = Nothing
+  { _autoScalingScalingPolicyAdjustmentType = adjustmentTypearg
   , _autoScalingScalingPolicyAutoScalingGroupName = autoScalingGroupNamearg
   , _autoScalingScalingPolicyCooldown = Nothing
   , _autoScalingScalingPolicyEstimatedInstanceWarmup = Nothing
@@ -79,11 +76,10 @@ autoScalingScalingPolicy autoScalingGroupNamearg =
   , _autoScalingScalingPolicyPolicyType = Nothing
   , _autoScalingScalingPolicyScalingAdjustment = Nothing
   , _autoScalingScalingPolicyStepAdjustments = Nothing
-  , _autoScalingScalingPolicyTargetTrackingConfiguration = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-policy.html#cfn-as-scalingpolicy-adjustmenttype
-asspAdjustmentType :: Lens' AutoScalingScalingPolicy (Maybe (Val Text))
+asspAdjustmentType :: Lens' AutoScalingScalingPolicy (Val Text)
 asspAdjustmentType = lens _autoScalingScalingPolicyAdjustmentType (\s a -> s { _autoScalingScalingPolicyAdjustmentType = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-policy.html#cfn-as-scalingpolicy-autoscalinggroupname
@@ -117,7 +113,3 @@ asspScalingAdjustment = lens _autoScalingScalingPolicyScalingAdjustment (\s a ->
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-policy.html#cfn-as-scalingpolicy-stepadjustments
 asspStepAdjustments :: Lens' AutoScalingScalingPolicy (Maybe [AutoScalingScalingPolicyStepAdjustment])
 asspStepAdjustments = lens _autoScalingScalingPolicyStepAdjustments (\s a -> s { _autoScalingScalingPolicyStepAdjustments = a })
-
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-policy.html#cfn-autoscaling-scalingpolicy-targettrackingconfiguration
-asspTargetTrackingConfiguration :: Lens' AutoScalingScalingPolicy (Maybe AutoScalingScalingPolicyTargetTrackingConfiguration)
-asspTargetTrackingConfiguration = lens _autoScalingScalingPolicyTargetTrackingConfiguration (\s a -> s { _autoScalingScalingPolicyTargetTrackingConfiguration = a })

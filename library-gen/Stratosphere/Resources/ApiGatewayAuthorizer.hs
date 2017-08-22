@@ -26,7 +26,7 @@ data ApiGatewayAuthorizer =
   , _apiGatewayAuthorizerIdentityValidationExpression :: Maybe (Val Text)
   , _apiGatewayAuthorizerName :: Maybe (Val Text)
   , _apiGatewayAuthorizerProviderARNs :: Maybe (ValList Text)
-  , _apiGatewayAuthorizerRestApiId :: Val Text
+  , _apiGatewayAuthorizerRestApiId :: Maybe (Val Text)
   , _apiGatewayAuthorizerType :: Maybe (Val AuthorizerType)
   } deriving (Show, Eq)
 
@@ -41,7 +41,7 @@ instance ToJSON ApiGatewayAuthorizer where
     , fmap (("IdentityValidationExpression",) . toJSON) _apiGatewayAuthorizerIdentityValidationExpression
     , fmap (("Name",) . toJSON) _apiGatewayAuthorizerName
     , fmap (("ProviderARNs",) . toJSON) _apiGatewayAuthorizerProviderARNs
-    , (Just . ("RestApiId",) . toJSON) _apiGatewayAuthorizerRestApiId
+    , fmap (("RestApiId",) . toJSON) _apiGatewayAuthorizerRestApiId
     , fmap (("Type",) . toJSON) _apiGatewayAuthorizerType
     ]
 
@@ -55,16 +55,15 @@ instance FromJSON ApiGatewayAuthorizer where
       (obj .:? "IdentityValidationExpression") <*>
       (obj .:? "Name") <*>
       (obj .:? "ProviderARNs") <*>
-      (obj .: "RestApiId") <*>
+      (obj .:? "RestApiId") <*>
       (obj .:? "Type")
   parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayAuthorizer' containing required fields as
 -- arguments.
 apiGatewayAuthorizer
-  :: Val Text -- ^ 'agaRestApiId'
-  -> ApiGatewayAuthorizer
-apiGatewayAuthorizer restApiIdarg =
+  :: ApiGatewayAuthorizer
+apiGatewayAuthorizer  =
   ApiGatewayAuthorizer
   { _apiGatewayAuthorizerAuthorizerCredentials = Nothing
   , _apiGatewayAuthorizerAuthorizerResultTtlInSeconds = Nothing
@@ -73,7 +72,7 @@ apiGatewayAuthorizer restApiIdarg =
   , _apiGatewayAuthorizerIdentityValidationExpression = Nothing
   , _apiGatewayAuthorizerName = Nothing
   , _apiGatewayAuthorizerProviderARNs = Nothing
-  , _apiGatewayAuthorizerRestApiId = restApiIdarg
+  , _apiGatewayAuthorizerRestApiId = Nothing
   , _apiGatewayAuthorizerType = Nothing
   }
 
@@ -106,7 +105,7 @@ agaProviderARNs :: Lens' ApiGatewayAuthorizer (Maybe (ValList Text))
 agaProviderARNs = lens _apiGatewayAuthorizerProviderARNs (\s a -> s { _apiGatewayAuthorizerProviderARNs = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-authorizer.html#cfn-apigateway-authorizer-restapiid
-agaRestApiId :: Lens' ApiGatewayAuthorizer (Val Text)
+agaRestApiId :: Lens' ApiGatewayAuthorizer (Maybe (Val Text))
 agaRestApiId = lens _apiGatewayAuthorizerRestApiId (\s a -> s { _apiGatewayAuthorizerRestApiId = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-authorizer.html#cfn-apigateway-authorizer-type

@@ -20,7 +20,7 @@ import Stratosphere.Values
 data ApiGatewayBasePathMapping =
   ApiGatewayBasePathMapping
   { _apiGatewayBasePathMappingBasePath :: Maybe (Val Text)
-  , _apiGatewayBasePathMappingDomainName :: Val Text
+  , _apiGatewayBasePathMappingDomainName :: Maybe (Val Text)
   , _apiGatewayBasePathMappingRestApiId :: Maybe (Val Text)
   , _apiGatewayBasePathMappingStage :: Maybe (Val Text)
   } deriving (Show, Eq)
@@ -30,7 +30,7 @@ instance ToJSON ApiGatewayBasePathMapping where
     object $
     catMaybes
     [ fmap (("BasePath",) . toJSON) _apiGatewayBasePathMappingBasePath
-    , (Just . ("DomainName",) . toJSON) _apiGatewayBasePathMappingDomainName
+    , fmap (("DomainName",) . toJSON) _apiGatewayBasePathMappingDomainName
     , fmap (("RestApiId",) . toJSON) _apiGatewayBasePathMappingRestApiId
     , fmap (("Stage",) . toJSON) _apiGatewayBasePathMappingStage
     ]
@@ -39,7 +39,7 @@ instance FromJSON ApiGatewayBasePathMapping where
   parseJSON (Object obj) =
     ApiGatewayBasePathMapping <$>
       (obj .:? "BasePath") <*>
-      (obj .: "DomainName") <*>
+      (obj .:? "DomainName") <*>
       (obj .:? "RestApiId") <*>
       (obj .:? "Stage")
   parseJSON _ = mempty
@@ -47,12 +47,11 @@ instance FromJSON ApiGatewayBasePathMapping where
 -- | Constructor for 'ApiGatewayBasePathMapping' containing required fields as
 -- arguments.
 apiGatewayBasePathMapping
-  :: Val Text -- ^ 'agbpmDomainName'
-  -> ApiGatewayBasePathMapping
-apiGatewayBasePathMapping domainNamearg =
+  :: ApiGatewayBasePathMapping
+apiGatewayBasePathMapping  =
   ApiGatewayBasePathMapping
   { _apiGatewayBasePathMappingBasePath = Nothing
-  , _apiGatewayBasePathMappingDomainName = domainNamearg
+  , _apiGatewayBasePathMappingDomainName = Nothing
   , _apiGatewayBasePathMappingRestApiId = Nothing
   , _apiGatewayBasePathMappingStage = Nothing
   }
@@ -62,7 +61,7 @@ agbpmBasePath :: Lens' ApiGatewayBasePathMapping (Maybe (Val Text))
 agbpmBasePath = lens _apiGatewayBasePathMappingBasePath (\s a -> s { _apiGatewayBasePathMappingBasePath = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-basepathmapping.html#cfn-apigateway-basepathmapping-domainname
-agbpmDomainName :: Lens' ApiGatewayBasePathMapping (Val Text)
+agbpmDomainName :: Lens' ApiGatewayBasePathMapping (Maybe (Val Text))
 agbpmDomainName = lens _apiGatewayBasePathMappingDomainName (\s a -> s { _apiGatewayBasePathMappingDomainName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-basepathmapping.html#cfn-apigateway-basepathmapping-restapiid
