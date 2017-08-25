@@ -21,7 +21,7 @@ data ApiGatewayMethodMethodResponse =
   ApiGatewayMethodMethodResponse
   { _apiGatewayMethodMethodResponseResponseModels :: Maybe Object
   , _apiGatewayMethodMethodResponseResponseParameters :: Maybe Object
-  , _apiGatewayMethodMethodResponseStatusCode :: Maybe (Val Text)
+  , _apiGatewayMethodMethodResponseStatusCode :: Val Text
   } deriving (Show, Eq)
 
 instance ToJSON ApiGatewayMethodMethodResponse where
@@ -30,7 +30,7 @@ instance ToJSON ApiGatewayMethodMethodResponse where
     catMaybes
     [ fmap (("ResponseModels",) . toJSON) _apiGatewayMethodMethodResponseResponseModels
     , fmap (("ResponseParameters",) . toJSON) _apiGatewayMethodMethodResponseResponseParameters
-    , fmap (("StatusCode",) . toJSON) _apiGatewayMethodMethodResponseStatusCode
+    , (Just . ("StatusCode",) . toJSON) _apiGatewayMethodMethodResponseStatusCode
     ]
 
 instance FromJSON ApiGatewayMethodMethodResponse where
@@ -38,18 +38,19 @@ instance FromJSON ApiGatewayMethodMethodResponse where
     ApiGatewayMethodMethodResponse <$>
       (obj .:? "ResponseModels") <*>
       (obj .:? "ResponseParameters") <*>
-      (obj .:? "StatusCode")
+      (obj .: "StatusCode")
   parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayMethodMethodResponse' containing required
 -- fields as arguments.
 apiGatewayMethodMethodResponse
-  :: ApiGatewayMethodMethodResponse
-apiGatewayMethodMethodResponse  =
+  :: Val Text -- ^ 'agmmrStatusCode'
+  -> ApiGatewayMethodMethodResponse
+apiGatewayMethodMethodResponse statusCodearg =
   ApiGatewayMethodMethodResponse
   { _apiGatewayMethodMethodResponseResponseModels = Nothing
   , _apiGatewayMethodMethodResponseResponseParameters = Nothing
-  , _apiGatewayMethodMethodResponseStatusCode = Nothing
+  , _apiGatewayMethodMethodResponseStatusCode = statusCodearg
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-methodresponse.html#cfn-apigateway-method-methodresponse-responsemodels
@@ -61,5 +62,5 @@ agmmrResponseParameters :: Lens' ApiGatewayMethodMethodResponse (Maybe Object)
 agmmrResponseParameters = lens _apiGatewayMethodMethodResponseResponseParameters (\s a -> s { _apiGatewayMethodMethodResponseResponseParameters = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-methodresponse.html#cfn-apigateway-method-methodresponse-statuscode
-agmmrStatusCode :: Lens' ApiGatewayMethodMethodResponse (Maybe (Val Text))
+agmmrStatusCode :: Lens' ApiGatewayMethodMethodResponse (Val Text)
 agmmrStatusCode = lens _apiGatewayMethodMethodResponseStatusCode (\s a -> s { _apiGatewayMethodMethodResponseStatusCode = a })

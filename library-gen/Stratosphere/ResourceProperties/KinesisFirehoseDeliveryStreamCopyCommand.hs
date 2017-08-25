@@ -2,7 +2,7 @@
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE TupleSections #-}
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-kinesisdeliverystream-redshiftdestinationconfiguration-copycommand.html
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-copycommand.html
 
 module Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamCopyCommand where
 
@@ -54,14 +54,14 @@ kinesisFirehoseDeliveryStreamCopyCommand dataTableNamearg =
   , _kinesisFirehoseDeliveryStreamCopyCommandDataTableName = dataTableNamearg
   }
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-kinesisdeliverystream-redshiftdestinationconfiguration-copycommand.html#cfn-kinesisfirehose-kinesisdeliverystream-redshiftdestinationconfiguration-copycommand-copyoptions
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-copycommand.html#cfn-kinesisfirehose-deliverystream-copycommand-copyoptions
 kfdsccCopyOptions :: Lens' KinesisFirehoseDeliveryStreamCopyCommand (Maybe (Val Text))
 kfdsccCopyOptions = lens _kinesisFirehoseDeliveryStreamCopyCommandCopyOptions (\s a -> s { _kinesisFirehoseDeliveryStreamCopyCommandCopyOptions = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-kinesisdeliverystream-redshiftdestinationconfiguration-copycommand.html#cfn-kinesisfirehose-kinesisdeliverystream-redshiftdestinationconfiguration-copycommand-datatablecolumns
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-copycommand.html#cfn-kinesisfirehose-deliverystream-copycommand-datatablecolumns
 kfdsccDataTableColumns :: Lens' KinesisFirehoseDeliveryStreamCopyCommand (Maybe (Val Text))
 kfdsccDataTableColumns = lens _kinesisFirehoseDeliveryStreamCopyCommandDataTableColumns (\s a -> s { _kinesisFirehoseDeliveryStreamCopyCommandDataTableColumns = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-kinesisdeliverystream-redshiftdestinationconfiguration-copycommand.html#cfn-kinesisfirehose-kinesisdeliverystream-redshiftdestinationconfiguration-copycommand-datatablename
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-copycommand.html#cfn-kinesisfirehose-deliverystream-copycommand-datatablename
 kfdsccDataTableName :: Lens' KinesisFirehoseDeliveryStreamCopyCommand (Val Text)
 kfdsccDataTableName = lens _kinesisFirehoseDeliveryStreamCopyCommandDataTableName (\s a -> s { _kinesisFirehoseDeliveryStreamCopyCommandDataTableName = a })

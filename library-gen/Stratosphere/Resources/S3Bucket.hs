@@ -14,9 +14,11 @@ import Data.Text
 
 import Stratosphere.Values
 import Stratosphere.Types
+import Stratosphere.ResourceProperties.S3BucketAccelerateConfiguration
 import Stratosphere.ResourceProperties.S3BucketCorsConfiguration
 import Stratosphere.ResourceProperties.S3BucketLifecycleConfiguration
 import Stratosphere.ResourceProperties.S3BucketLoggingConfiguration
+import Stratosphere.ResourceProperties.S3BucketMetricsConfiguration
 import Stratosphere.ResourceProperties.S3BucketNotificationConfiguration
 import Stratosphere.ResourceProperties.S3BucketReplicationConfiguration
 import Stratosphere.ResourceProperties.Tag
@@ -27,11 +29,13 @@ import Stratosphere.ResourceProperties.S3BucketWebsiteConfiguration
 -- convenient constructor.
 data S3Bucket =
   S3Bucket
-  { _s3BucketAccessControl :: Maybe (Val CannedACL)
+  { _s3BucketAccelerateConfiguration :: Maybe S3BucketAccelerateConfiguration
+  , _s3BucketAccessControl :: Maybe (Val CannedACL)
   , _s3BucketBucketName :: Maybe (Val Text)
   , _s3BucketCorsConfiguration :: Maybe S3BucketCorsConfiguration
   , _s3BucketLifecycleConfiguration :: Maybe S3BucketLifecycleConfiguration
   , _s3BucketLoggingConfiguration :: Maybe S3BucketLoggingConfiguration
+  , _s3BucketMetricsConfigurations :: Maybe [S3BucketMetricsConfiguration]
   , _s3BucketNotificationConfiguration :: Maybe S3BucketNotificationConfiguration
   , _s3BucketReplicationConfiguration :: Maybe S3BucketReplicationConfiguration
   , _s3BucketTags :: Maybe [Tag]
@@ -43,11 +47,13 @@ instance ToJSON S3Bucket where
   toJSON S3Bucket{..} =
     object $
     catMaybes
-    [ fmap (("AccessControl",) . toJSON) _s3BucketAccessControl
+    [ fmap (("AccelerateConfiguration",) . toJSON) _s3BucketAccelerateConfiguration
+    , fmap (("AccessControl",) . toJSON) _s3BucketAccessControl
     , fmap (("BucketName",) . toJSON) _s3BucketBucketName
     , fmap (("CorsConfiguration",) . toJSON) _s3BucketCorsConfiguration
     , fmap (("LifecycleConfiguration",) . toJSON) _s3BucketLifecycleConfiguration
     , fmap (("LoggingConfiguration",) . toJSON) _s3BucketLoggingConfiguration
+    , fmap (("MetricsConfigurations",) . toJSON) _s3BucketMetricsConfigurations
     , fmap (("NotificationConfiguration",) . toJSON) _s3BucketNotificationConfiguration
     , fmap (("ReplicationConfiguration",) . toJSON) _s3BucketReplicationConfiguration
     , fmap (("Tags",) . toJSON) _s3BucketTags
@@ -58,11 +64,13 @@ instance ToJSON S3Bucket where
 instance FromJSON S3Bucket where
   parseJSON (Object obj) =
     S3Bucket <$>
+      (obj .:? "AccelerateConfiguration") <*>
       (obj .:? "AccessControl") <*>
       (obj .:? "BucketName") <*>
       (obj .:? "CorsConfiguration") <*>
       (obj .:? "LifecycleConfiguration") <*>
       (obj .:? "LoggingConfiguration") <*>
+      (obj .:? "MetricsConfigurations") <*>
       (obj .:? "NotificationConfiguration") <*>
       (obj .:? "ReplicationConfiguration") <*>
       (obj .:? "Tags") <*>
@@ -75,17 +83,23 @@ s3Bucket
   :: S3Bucket
 s3Bucket  =
   S3Bucket
-  { _s3BucketAccessControl = Nothing
+  { _s3BucketAccelerateConfiguration = Nothing
+  , _s3BucketAccessControl = Nothing
   , _s3BucketBucketName = Nothing
   , _s3BucketCorsConfiguration = Nothing
   , _s3BucketLifecycleConfiguration = Nothing
   , _s3BucketLoggingConfiguration = Nothing
+  , _s3BucketMetricsConfigurations = Nothing
   , _s3BucketNotificationConfiguration = Nothing
   , _s3BucketReplicationConfiguration = Nothing
   , _s3BucketTags = Nothing
   , _s3BucketVersioningConfiguration = Nothing
   , _s3BucketWebsiteConfiguration = Nothing
   }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-accelerateconfiguration
+sbAccelerateConfiguration :: Lens' S3Bucket (Maybe S3BucketAccelerateConfiguration)
+sbAccelerateConfiguration = lens _s3BucketAccelerateConfiguration (\s a -> s { _s3BucketAccelerateConfiguration = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-accesscontrol
 sbAccessControl :: Lens' S3Bucket (Maybe (Val CannedACL))
@@ -106,6 +120,10 @@ sbLifecycleConfiguration = lens _s3BucketLifecycleConfiguration (\s a -> s { _s3
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-loggingconfig
 sbLoggingConfiguration :: Lens' S3Bucket (Maybe S3BucketLoggingConfiguration)
 sbLoggingConfiguration = lens _s3BucketLoggingConfiguration (\s a -> s { _s3BucketLoggingConfiguration = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-metricsconfigurations
+sbMetricsConfigurations :: Lens' S3Bucket (Maybe [S3BucketMetricsConfiguration])
+sbMetricsConfigurations = lens _s3BucketMetricsConfigurations (\s a -> s { _s3BucketMetricsConfigurations = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-notification
 sbNotificationConfiguration :: Lens' S3Bucket (Maybe S3BucketNotificationConfiguration)

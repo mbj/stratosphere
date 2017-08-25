@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.9.0
+
+* Update resource specification document to version 1.5.0
+
 ## 0.8.0
 
 * Update resource specification document (no version given in doc)

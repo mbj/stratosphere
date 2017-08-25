@@ -2,7 +2,7 @@
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE TupleSections #-}
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-kinesisdeliverystream-s3destinationconfiguration-encryptionconfiguration.html
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-encryptionconfiguration.html
 
 module Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamEncryptionConfiguration where
 
@@ -51,10 +51,10 @@ kinesisFirehoseDeliveryStreamEncryptionConfiguration  =
   , _kinesisFirehoseDeliveryStreamEncryptionConfigurationNoEncryptionConfig = Nothing
   }
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-kinesisdeliverystream-s3destinationconfiguration-encryptionconfiguration.html#cfn-kinesisfirehose-kinesisdeliverystream-s3destinationconfiguration-encryptionconfiguration-kmsencryptionconfig
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-encryptionconfiguration.html#cfn-kinesisfirehose-deliverystream-encryptionconfiguration-kmsencryptionconfig
 kfdsecKMSEncryptionConfig :: Lens' KinesisFirehoseDeliveryStreamEncryptionConfiguration (Maybe KinesisFirehoseDeliveryStreamKMSEncryptionConfig)
 kfdsecKMSEncryptionConfig = lens _kinesisFirehoseDeliveryStreamEncryptionConfigurationKMSEncryptionConfig (\s a -> s { _kinesisFirehoseDeliveryStreamEncryptionConfigurationKMSEncryptionConfig = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-kinesisdeliverystream-s3destinationconfiguration-encryptionconfiguration.html#cfn-kinesisfirehose-kinesisdeliverystream-s3destinationconfiguration-encryptionconfiguration-noencryptionconfig
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-encryptionconfiguration.html#cfn-kinesisfirehose-deliverystream-encryptionconfiguration-noencryptionconfig
 kfdsecNoEncryptionConfig :: Lens' KinesisFirehoseDeliveryStreamEncryptionConfiguration (Maybe (Val KinesisFirehoseNoEncryptionConfig))
 kfdsecNoEncryptionConfig = lens _kinesisFirehoseDeliveryStreamEncryptionConfigurationNoEncryptionConfig (\s a -> s { _kinesisFirehoseDeliveryStreamEncryptionConfigurationNoEncryptionConfig = a })

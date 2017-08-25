@@ -20,6 +20,7 @@ import Stratosphere.Values
 data EC2VPCCidrBlock =
   EC2VPCCidrBlock
   { _eC2VPCCidrBlockAmazonProvidedIpv6CidrBlock :: Maybe (Val Bool)
+  , _eC2VPCCidrBlockCidrBlock :: Maybe (Val Text)
   , _eC2VPCCidrBlockVpcId :: Val Text
   } deriving (Show, Eq)
 
@@ -28,6 +29,7 @@ instance ToJSON EC2VPCCidrBlock where
     object $
     catMaybes
     [ fmap (("AmazonProvidedIpv6CidrBlock",) . toJSON . fmap Bool') _eC2VPCCidrBlockAmazonProvidedIpv6CidrBlock
+    , fmap (("CidrBlock",) . toJSON) _eC2VPCCidrBlockCidrBlock
     , (Just . ("VpcId",) . toJSON) _eC2VPCCidrBlockVpcId
     ]
 
@@ -35,6 +37,7 @@ instance FromJSON EC2VPCCidrBlock where
   parseJSON (Object obj) =
     EC2VPCCidrBlock <$>
       fmap (fmap (fmap unBool')) (obj .:? "AmazonProvidedIpv6CidrBlock") <*>
+      (obj .:? "CidrBlock") <*>
       (obj .: "VpcId")
   parseJSON _ = mempty
 
@@ -46,12 +49,17 @@ ec2VPCCidrBlock
 ec2VPCCidrBlock vpcIdarg =
   EC2VPCCidrBlock
   { _eC2VPCCidrBlockAmazonProvidedIpv6CidrBlock = Nothing
+  , _eC2VPCCidrBlockCidrBlock = Nothing
   , _eC2VPCCidrBlockVpcId = vpcIdarg
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpccidrblock.html#cfn-ec2-vpccidrblock-amazonprovidedipv6cidrblock
 ecvpccbAmazonProvidedIpv6CidrBlock :: Lens' EC2VPCCidrBlock (Maybe (Val Bool))
 ecvpccbAmazonProvidedIpv6CidrBlock = lens _eC2VPCCidrBlockAmazonProvidedIpv6CidrBlock (\s a -> s { _eC2VPCCidrBlockAmazonProvidedIpv6CidrBlock = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpccidrblock.html#cfn-ec2-vpccidrblock-cidrblock
+ecvpccbCidrBlock :: Lens' EC2VPCCidrBlock (Maybe (Val Text))
+ecvpccbCidrBlock = lens _eC2VPCCidrBlockCidrBlock (\s a -> s { _eC2VPCCidrBlockCidrBlock = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpccidrblock.html#cfn-ec2-vpccidrblock-vpcid
 ecvpccbVpcId :: Lens' EC2VPCCidrBlock (Val Text)

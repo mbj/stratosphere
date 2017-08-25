@@ -16,6 +16,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.IoTTopicRuleCloudwatchAlarmAction
 import Stratosphere.ResourceProperties.IoTTopicRuleCloudwatchMetricAction
 import Stratosphere.ResourceProperties.IoTTopicRuleDynamoDBAction
+import Stratosphere.ResourceProperties.IoTTopicRuleDynamoDBV2Action
 import Stratosphere.ResourceProperties.IoTTopicRuleElasticsearchAction
 import Stratosphere.ResourceProperties.IoTTopicRuleFirehoseAction
 import Stratosphere.ResourceProperties.IoTTopicRuleKinesisAction
@@ -32,6 +33,7 @@ data IoTTopicRuleAction =
   { _ioTTopicRuleActionCloudwatchAlarm :: Maybe IoTTopicRuleCloudwatchAlarmAction
   , _ioTTopicRuleActionCloudwatchMetric :: Maybe IoTTopicRuleCloudwatchMetricAction
   , _ioTTopicRuleActionDynamoDB :: Maybe IoTTopicRuleDynamoDBAction
+  , _ioTTopicRuleActionDynamoDBv2 :: Maybe IoTTopicRuleDynamoDBV2Action
   , _ioTTopicRuleActionElasticsearch :: Maybe IoTTopicRuleElasticsearchAction
   , _ioTTopicRuleActionFirehose :: Maybe IoTTopicRuleFirehoseAction
   , _ioTTopicRuleActionKinesis :: Maybe IoTTopicRuleKinesisAction
@@ -49,6 +51,7 @@ instance ToJSON IoTTopicRuleAction where
     [ fmap (("CloudwatchAlarm",) . toJSON) _ioTTopicRuleActionCloudwatchAlarm
     , fmap (("CloudwatchMetric",) . toJSON) _ioTTopicRuleActionCloudwatchMetric
     , fmap (("DynamoDB",) . toJSON) _ioTTopicRuleActionDynamoDB
+    , fmap (("DynamoDBv2",) . toJSON) _ioTTopicRuleActionDynamoDBv2
     , fmap (("Elasticsearch",) . toJSON) _ioTTopicRuleActionElasticsearch
     , fmap (("Firehose",) . toJSON) _ioTTopicRuleActionFirehose
     , fmap (("Kinesis",) . toJSON) _ioTTopicRuleActionKinesis
@@ -65,6 +68,7 @@ instance FromJSON IoTTopicRuleAction where
       (obj .:? "CloudwatchAlarm") <*>
       (obj .:? "CloudwatchMetric") <*>
       (obj .:? "DynamoDB") <*>
+      (obj .:? "DynamoDBv2") <*>
       (obj .:? "Elasticsearch") <*>
       (obj .:? "Firehose") <*>
       (obj .:? "Kinesis") <*>
@@ -84,6 +88,7 @@ ioTTopicRuleAction  =
   { _ioTTopicRuleActionCloudwatchAlarm = Nothing
   , _ioTTopicRuleActionCloudwatchMetric = Nothing
   , _ioTTopicRuleActionDynamoDB = Nothing
+  , _ioTTopicRuleActionDynamoDBv2 = Nothing
   , _ioTTopicRuleActionElasticsearch = Nothing
   , _ioTTopicRuleActionFirehose = Nothing
   , _ioTTopicRuleActionKinesis = Nothing
@@ -105,6 +110,10 @@ ittraCloudwatchMetric = lens _ioTTopicRuleActionCloudwatchMetric (\s a -> s { _i
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-actions.html#cfn-iot-action-dynamodb
 ittraDynamoDB :: Lens' IoTTopicRuleAction (Maybe IoTTopicRuleDynamoDBAction)
 ittraDynamoDB = lens _ioTTopicRuleActionDynamoDB (\s a -> s { _ioTTopicRuleActionDynamoDB = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-actions.html#cfn-iot-action-dynamodbv2
+ittraDynamoDBv2 :: Lens' IoTTopicRuleAction (Maybe IoTTopicRuleDynamoDBV2Action)
+ittraDynamoDBv2 = lens _ioTTopicRuleActionDynamoDBv2 (\s a -> s { _ioTTopicRuleActionDynamoDBv2 = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-actions.html#cfn-iot-action-elasticsearch
 ittraElasticsearch :: Lens' IoTTopicRuleAction (Maybe IoTTopicRuleElasticsearchAction)

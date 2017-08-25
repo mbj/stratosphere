@@ -49,10 +49,10 @@ s3BucketPolicy bucketarg policyDocumentarg =
   , _s3BucketPolicyPolicyDocument = policyDocumentarg
   }
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-policy.html#cfn-s3-bucketpolicy-bucket
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-policy.html#aws-properties-s3-policy-bucket
 sbpBucket :: Lens' S3BucketPolicy (Val Text)
 sbpBucket = lens _s3BucketPolicyBucket (\s a -> s { _s3BucketPolicyBucket = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-policy.html#cfn-s3-bucketpolicy-policydocument
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-policy.html#aws-properties-s3-policy-policydocument
 sbpPolicyDocument :: Lens' S3BucketPolicy Object
 sbpPolicyDocument = lens _s3BucketPolicyPolicyDocument (\s a -> s { _s3BucketPolicyPolicyDocument = a })

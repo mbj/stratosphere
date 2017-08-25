@@ -2,7 +2,7 @@
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE TupleSections #-}
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-kinesisdeliverystream-elasticsearchdestinationconfiguration.html
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchbufferinghints.html
 
 module Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamElasticsearchBufferingHints where
 
@@ -53,10 +53,10 @@ kinesisFirehoseDeliveryStreamElasticsearchBufferingHints intervalInSecondsarg si
   , _kinesisFirehoseDeliveryStreamElasticsearchBufferingHintsSizeInMBs = sizeInMBsarg
   }
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-kinesisdeliverystream-elasticsearchdestinationconfiguration.html#cfn-kinesisfirehose-kinesisdeliverystream-elasticsearchdestinationconfiguration-bufferinghints-intervalinseconds
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchbufferinghints.html#cfn-kinesisfirehose-deliverystream-elasticsearchbufferinghints-intervalinseconds
 kfdsebhIntervalInSeconds :: Lens' KinesisFirehoseDeliveryStreamElasticsearchBufferingHints (Val Integer)
 kfdsebhIntervalInSeconds = lens _kinesisFirehoseDeliveryStreamElasticsearchBufferingHintsIntervalInSeconds (\s a -> s { _kinesisFirehoseDeliveryStreamElasticsearchBufferingHintsIntervalInSeconds = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-kinesisdeliverystream-elasticsearchdestinationconfiguration.html#cfn-kinesisfirehose-kinesisdeliverystream-elasticsearchdestinationconfiguration-bufferinghints-sizeinmbs
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchbufferinghints.html#cfn-kinesisfirehose-deliverystream-elasticsearchbufferinghints-sizeinmbs
 kfdsebhSizeInMBs :: Lens' KinesisFirehoseDeliveryStreamElasticsearchBufferingHints (Val Integer)
 kfdsebhSizeInMBs = lens _kinesisFirehoseDeliveryStreamElasticsearchBufferingHintsSizeInMBs (\s a -> s { _kinesisFirehoseDeliveryStreamElasticsearchBufferingHintsSizeInMBs = a })
