@@ -2,7 +2,7 @@
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE TupleSections #-}
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-iot-dynamodbv2-putitem.html
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putiteminput.html
 
 module Stratosphere.ResourceProperties.IoTTopicRulePutItemInput where
 
@@ -45,6 +45,6 @@ ioTTopicRulePutItemInput tableNamearg =
   { _ioTTopicRulePutItemInputTableName = tableNamearg
   }
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-iot-dynamodbv2-putitem.html#cfn-iot-dynamodbv2-putitem-tablename
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-putiteminput.html#cfn-iot-topicrule-putiteminput-tablename
 ittrpiiTableName :: Lens' IoTTopicRulePutItemInput (Val Text)
 ittrpiiTableName = lens _ioTTopicRulePutItemInputTableName (\s a -> s { _ioTTopicRulePutItemInputTableName = a })

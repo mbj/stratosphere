@@ -2,7 +2,7 @@
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE TupleSections #-}
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-s3.html
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-s3action.html
 
 module Stratosphere.ResourceProperties.IoTTopicRuleS3Action where
 
@@ -55,14 +55,14 @@ ioTTopicRuleS3Action bucketNamearg keyarg roleArnarg =
   , _ioTTopicRuleS3ActionRoleArn = roleArnarg
   }
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-s3.html#cfn-iot-s3-bucketname
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-s3action.html#cfn-iot-topicrule-s3action-bucketname
 ittrs3aBucketName :: Lens' IoTTopicRuleS3Action (Val Text)
 ittrs3aBucketName = lens _ioTTopicRuleS3ActionBucketName (\s a -> s { _ioTTopicRuleS3ActionBucketName = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-s3.html#cfn-iot-s3-key
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-s3action.html#cfn-iot-topicrule-s3action-key
 ittrs3aKey :: Lens' IoTTopicRuleS3Action (Val Text)
 ittrs3aKey = lens _ioTTopicRuleS3ActionKey (\s a -> s { _ioTTopicRuleS3ActionKey = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-s3.html#cfn-iot-s3-rolearn
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-s3action.html#cfn-iot-topicrule-s3action-rolearn
 ittrs3aRoleArn :: Lens' IoTTopicRuleS3Action (Val Text)
 ittrs3aRoleArn = lens _ioTTopicRuleS3ActionRoleArn (\s a -> s { _ioTTopicRuleS3ActionRoleArn = a })

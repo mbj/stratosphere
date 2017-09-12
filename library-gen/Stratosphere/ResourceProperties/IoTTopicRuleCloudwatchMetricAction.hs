@@ -2,7 +2,7 @@
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE TupleSections #-}
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-cloudwatchmetric.html
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchmetricaction.html
 
 module Stratosphere.ResourceProperties.IoTTopicRuleCloudwatchMetricAction where
 
@@ -69,26 +69,26 @@ ioTTopicRuleCloudwatchMetricAction metricNamearg metricNamespacearg metricUnitar
   , _ioTTopicRuleCloudwatchMetricActionRoleArn = roleArnarg
   }
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-cloudwatchmetric.html#cfn-iot-cloudwatchmetric-metricname
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchmetricaction.html#cfn-iot-topicrule-cloudwatchmetricaction-metricname
 ittrcmaMetricName :: Lens' IoTTopicRuleCloudwatchMetricAction (Val Text)
 ittrcmaMetricName = lens _ioTTopicRuleCloudwatchMetricActionMetricName (\s a -> s { _ioTTopicRuleCloudwatchMetricActionMetricName = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-cloudwatchmetric.html#cfn-iot-cloudwatchmetric-metricnamespace
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchmetricaction.html#cfn-iot-topicrule-cloudwatchmetricaction-metricnamespace
 ittrcmaMetricNamespace :: Lens' IoTTopicRuleCloudwatchMetricAction (Val Text)
 ittrcmaMetricNamespace = lens _ioTTopicRuleCloudwatchMetricActionMetricNamespace (\s a -> s { _ioTTopicRuleCloudwatchMetricActionMetricNamespace = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-cloudwatchmetric.html#cfn-iot-cloudwatchmetric-metrictimestamp
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchmetricaction.html#cfn-iot-topicrule-cloudwatchmetricaction-metrictimestamp
 ittrcmaMetricTimestamp :: Lens' IoTTopicRuleCloudwatchMetricAction (Maybe (Val Text))
 ittrcmaMetricTimestamp = lens _ioTTopicRuleCloudwatchMetricActionMetricTimestamp (\s a -> s { _ioTTopicRuleCloudwatchMetricActionMetricTimestamp = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-cloudwatchmetric.html#cfn-iot-cloudwatchmetric-metricunit
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchmetricaction.html#cfn-iot-topicrule-cloudwatchmetricaction-metricunit
 ittrcmaMetricUnit :: Lens' IoTTopicRuleCloudwatchMetricAction (Val Text)
 ittrcmaMetricUnit = lens _ioTTopicRuleCloudwatchMetricActionMetricUnit (\s a -> s { _ioTTopicRuleCloudwatchMetricActionMetricUnit = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-cloudwatchmetric.html#cfn-iot-cloudwatchmetric-metricvalue
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchmetricaction.html#cfn-iot-topicrule-cloudwatchmetricaction-metricvalue
 ittrcmaMetricValue :: Lens' IoTTopicRuleCloudwatchMetricAction (Val Text)
 ittrcmaMetricValue = lens _ioTTopicRuleCloudwatchMetricActionMetricValue (\s a -> s { _ioTTopicRuleCloudwatchMetricActionMetricValue = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-cloudwatchmetric.html#cfn-iot-cloudwatchmetric-rolearn
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchmetricaction.html#cfn-iot-topicrule-cloudwatchmetricaction-rolearn
 ittrcmaRoleArn :: Lens' IoTTopicRuleCloudwatchMetricAction (Val Text)
 ittrcmaRoleArn = lens _ioTTopicRuleCloudwatchMetricActionRoleArn (\s a -> s { _ioTTopicRuleCloudwatchMetricActionRoleArn = a })

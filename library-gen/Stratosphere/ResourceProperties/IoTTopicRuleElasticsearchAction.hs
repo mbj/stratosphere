@@ -2,7 +2,7 @@
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE TupleSections #-}
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-elasticsearch.html
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-elasticsearchaction.html
 
 module Stratosphere.ResourceProperties.IoTTopicRuleElasticsearchAction where
 
@@ -65,22 +65,22 @@ ioTTopicRuleElasticsearchAction endpointarg idarg indexarg roleArnarg typearg =
   , _ioTTopicRuleElasticsearchActionType = typearg
   }
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-elasticsearch.html#cfn-iot-elasticsearch-endpoint
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-elasticsearchaction.html#cfn-iot-topicrule-elasticsearchaction-endpoint
 ittreaEndpoint :: Lens' IoTTopicRuleElasticsearchAction (Val Text)
 ittreaEndpoint = lens _ioTTopicRuleElasticsearchActionEndpoint (\s a -> s { _ioTTopicRuleElasticsearchActionEndpoint = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-elasticsearch.html#cfn-iot-elasticsearch-id
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-elasticsearchaction.html#cfn-iot-topicrule-elasticsearchaction-id
 ittreaId :: Lens' IoTTopicRuleElasticsearchAction (Val Text)
 ittreaId = lens _ioTTopicRuleElasticsearchActionId (\s a -> s { _ioTTopicRuleElasticsearchActionId = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-elasticsearch.html#cfn-iot-elasticsearch-index
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-elasticsearchaction.html#cfn-iot-topicrule-elasticsearchaction-index
 ittreaIndex :: Lens' IoTTopicRuleElasticsearchAction (Val Text)
 ittreaIndex = lens _ioTTopicRuleElasticsearchActionIndex (\s a -> s { _ioTTopicRuleElasticsearchActionIndex = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-elasticsearch.html#cfn-iot-elasticsearch-rolearn
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-elasticsearchaction.html#cfn-iot-topicrule-elasticsearchaction-rolearn
 ittreaRoleArn :: Lens' IoTTopicRuleElasticsearchAction (Val Text)
 ittreaRoleArn = lens _ioTTopicRuleElasticsearchActionRoleArn (\s a -> s { _ioTTopicRuleElasticsearchActionRoleArn = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-elasticsearch.html#cfn-iot-elasticsearch-type
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-elasticsearchaction.html#cfn-iot-topicrule-elasticsearchaction-type
 ittreaType :: Lens' IoTTopicRuleElasticsearchAction (Val Text)
 ittreaType = lens _ioTTopicRuleElasticsearchActionType (\s a -> s { _ioTTopicRuleElasticsearchActionType = a })

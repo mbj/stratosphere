@@ -34,6 +34,7 @@ data ElasticLoadBalancingV2TargetGroup =
   , _elasticLoadBalancingV2TargetGroupProtocol :: Val Text
   , _elasticLoadBalancingV2TargetGroupTags :: Maybe [Tag]
   , _elasticLoadBalancingV2TargetGroupTargetGroupAttributes :: Maybe [ElasticLoadBalancingV2TargetGroupTargetGroupAttribute]
+  , _elasticLoadBalancingV2TargetGroupTargetType :: Maybe (Val Text)
   , _elasticLoadBalancingV2TargetGroupTargets :: Maybe [ElasticLoadBalancingV2TargetGroupTargetDescription]
   , _elasticLoadBalancingV2TargetGroupUnhealthyThresholdCount :: Maybe (Val Integer)
   , _elasticLoadBalancingV2TargetGroupVpcId :: Val Text
@@ -55,6 +56,7 @@ instance ToJSON ElasticLoadBalancingV2TargetGroup where
     , (Just . ("Protocol",) . toJSON) _elasticLoadBalancingV2TargetGroupProtocol
     , fmap (("Tags",) . toJSON) _elasticLoadBalancingV2TargetGroupTags
     , fmap (("TargetGroupAttributes",) . toJSON) _elasticLoadBalancingV2TargetGroupTargetGroupAttributes
+    , fmap (("TargetType",) . toJSON) _elasticLoadBalancingV2TargetGroupTargetType
     , fmap (("Targets",) . toJSON) _elasticLoadBalancingV2TargetGroupTargets
     , fmap (("UnhealthyThresholdCount",) . toJSON . fmap Integer') _elasticLoadBalancingV2TargetGroupUnhealthyThresholdCount
     , (Just . ("VpcId",) . toJSON) _elasticLoadBalancingV2TargetGroupVpcId
@@ -75,6 +77,7 @@ instance FromJSON ElasticLoadBalancingV2TargetGroup where
       (obj .: "Protocol") <*>
       (obj .:? "Tags") <*>
       (obj .:? "TargetGroupAttributes") <*>
+      (obj .:? "TargetType") <*>
       (obj .:? "Targets") <*>
       fmap (fmap (fmap unInteger')) (obj .:? "UnhealthyThresholdCount") <*>
       (obj .: "VpcId")
@@ -101,6 +104,7 @@ elasticLoadBalancingV2TargetGroup portarg protocolarg vpcIdarg =
   , _elasticLoadBalancingV2TargetGroupProtocol = protocolarg
   , _elasticLoadBalancingV2TargetGroupTags = Nothing
   , _elasticLoadBalancingV2TargetGroupTargetGroupAttributes = Nothing
+  , _elasticLoadBalancingV2TargetGroupTargetType = Nothing
   , _elasticLoadBalancingV2TargetGroupTargets = Nothing
   , _elasticLoadBalancingV2TargetGroupUnhealthyThresholdCount = Nothing
   , _elasticLoadBalancingV2TargetGroupVpcId = vpcIdarg
@@ -153,6 +157,10 @@ elbvtgTags = lens _elasticLoadBalancingV2TargetGroupTags (\s a -> s { _elasticLo
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-targetgroup.html#cfn-elasticloadbalancingv2-targetgroup-targetgroupattributes
 elbvtgTargetGroupAttributes :: Lens' ElasticLoadBalancingV2TargetGroup (Maybe [ElasticLoadBalancingV2TargetGroupTargetGroupAttribute])
 elbvtgTargetGroupAttributes = lens _elasticLoadBalancingV2TargetGroupTargetGroupAttributes (\s a -> s { _elasticLoadBalancingV2TargetGroupTargetGroupAttributes = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-targetgroup.html#cfn-elasticloadbalancingv2-targetgroup-targettype
+elbvtgTargetType :: Lens' ElasticLoadBalancingV2TargetGroup (Maybe (Val Text))
+elbvtgTargetType = lens _elasticLoadBalancingV2TargetGroupTargetType (\s a -> s { _elasticLoadBalancingV2TargetGroupTargetType = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-targetgroup.html#cfn-elasticloadbalancingv2-targetgroup-targets
 elbvtgTargets :: Lens' ElasticLoadBalancingV2TargetGroup (Maybe [ElasticLoadBalancingV2TargetGroupTargetDescription])

@@ -2,7 +2,7 @@
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE TupleSections #-}
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-dynamodbv2.html
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbv2action.html
 
 module Stratosphere.ResourceProperties.IoTTopicRuleDynamoDBV2Action where
 
@@ -48,10 +48,10 @@ ioTTopicRuleDynamoDBV2Action  =
   , _ioTTopicRuleDynamoDBV2ActionRoleArn = Nothing
   }
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-dynamodbv2.html#cfn-iot-dynamodbv2-putitem
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbv2action.html#cfn-iot-topicrule-dynamodbv2action-putitem
 ittrddbvaPutItem :: Lens' IoTTopicRuleDynamoDBV2Action (Maybe IoTTopicRulePutItemInput)
 ittrddbvaPutItem = lens _ioTTopicRuleDynamoDBV2ActionPutItem (\s a -> s { _ioTTopicRuleDynamoDBV2ActionPutItem = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-dynamodbv2.html#cfn-iot-dynamodbv2-rolearn
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-dynamodbv2action.html#cfn-iot-topicrule-dynamodbv2action-rolearn
 ittrddbvaRoleArn :: Lens' IoTTopicRuleDynamoDBV2Action (Maybe (Val Text))
 ittrddbvaRoleArn = lens _ioTTopicRuleDynamoDBV2ActionRoleArn (\s a -> s { _ioTTopicRuleDynamoDBV2ActionRoleArn = a })

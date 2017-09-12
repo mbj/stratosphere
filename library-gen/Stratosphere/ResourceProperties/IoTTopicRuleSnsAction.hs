@@ -2,7 +2,7 @@
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE TupleSections #-}
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-sns.html
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-snsaction.html
 
 module Stratosphere.ResourceProperties.IoTTopicRuleSnsAction where
 
@@ -54,14 +54,14 @@ ioTTopicRuleSnsAction roleArnarg targetArnarg =
   , _ioTTopicRuleSnsActionTargetArn = targetArnarg
   }
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-sns.html#cfn-iot-sns-snsaction
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-snsaction.html#cfn-iot-topicrule-snsaction-messageformat
 ittrsnaMessageFormat :: Lens' IoTTopicRuleSnsAction (Maybe (Val Text))
 ittrsnaMessageFormat = lens _ioTTopicRuleSnsActionMessageFormat (\s a -> s { _ioTTopicRuleSnsActionMessageFormat = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-sns.html#cfn-iot-sns-rolearn
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-snsaction.html#cfn-iot-topicrule-snsaction-rolearn
 ittrsnaRoleArn :: Lens' IoTTopicRuleSnsAction (Val Text)
 ittrsnaRoleArn = lens _ioTTopicRuleSnsActionRoleArn (\s a -> s { _ioTTopicRuleSnsActionRoleArn = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-sns.html#cfn-iot-sns-targetarn
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-snsaction.html#cfn-iot-topicrule-snsaction-targetarn
 ittrsnaTargetArn :: Lens' IoTTopicRuleSnsAction (Val Text)
 ittrsnaTargetArn = lens _ioTTopicRuleSnsActionTargetArn (\s a -> s { _ioTTopicRuleSnsActionTargetArn = a })

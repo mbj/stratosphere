@@ -2,7 +2,7 @@
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE TupleSections #-}
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-kinesis.html
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kinesisaction.html
 
 module Stratosphere.ResourceProperties.IoTTopicRuleKinesisAction where
 
@@ -54,14 +54,14 @@ ioTTopicRuleKinesisAction roleArnarg streamNamearg =
   , _ioTTopicRuleKinesisActionStreamName = streamNamearg
   }
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-kinesis.html#cfn-iot-kinesis-partitionkey
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kinesisaction.html#cfn-iot-topicrule-kinesisaction-partitionkey
 ittrkaPartitionKey :: Lens' IoTTopicRuleKinesisAction (Maybe (Val Text))
 ittrkaPartitionKey = lens _ioTTopicRuleKinesisActionPartitionKey (\s a -> s { _ioTTopicRuleKinesisActionPartitionKey = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-kinesis.html#cfn-iot-kinesis-rolearn
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kinesisaction.html#cfn-iot-topicrule-kinesisaction-rolearn
 ittrkaRoleArn :: Lens' IoTTopicRuleKinesisAction (Val Text)
 ittrkaRoleArn = lens _ioTTopicRuleKinesisActionRoleArn (\s a -> s { _ioTTopicRuleKinesisActionRoleArn = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-kinesis.html#cfn-iot-kinesis-streamname
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kinesisaction.html#cfn-iot-topicrule-kinesisaction-streamname
 ittrkaStreamName :: Lens' IoTTopicRuleKinesisAction (Val Text)
 ittrkaStreamName = lens _ioTTopicRuleKinesisActionStreamName (\s a -> s { _ioTTopicRuleKinesisActionStreamName = a })

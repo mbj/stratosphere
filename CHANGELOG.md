@@ -2,7 +2,7 @@
 
 ## 0.9.0
 
-* Update resource specification document to version 1.5.0
+* Update resource specification document to version 1.6.0
 
 ## 0.8.0
 
