@@ -2,7 +2,7 @@
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE TupleSections #-}
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-kinesisdeliverystream-processingconfiguration.html
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processingconfiguration.html
 
 module Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamProcessingConfiguration where
 
@@ -52,10 +52,10 @@ kinesisFirehoseDeliveryStreamProcessingConfiguration enabledarg processorsarg =
   , _kinesisFirehoseDeliveryStreamProcessingConfigurationProcessors = processorsarg
   }
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-kinesisdeliverystream-processingconfiguration.html#cfn-kinesisfirehose-kinesisdeliverystream-processingconfiguration-enabled
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processingconfiguration.html#cfn-kinesisfirehose-deliverystream-processingconfiguration-enabled
 kfdspcEnabled :: Lens' KinesisFirehoseDeliveryStreamProcessingConfiguration (Val Bool)
 kfdspcEnabled = lens _kinesisFirehoseDeliveryStreamProcessingConfigurationEnabled (\s a -> s { _kinesisFirehoseDeliveryStreamProcessingConfigurationEnabled = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-kinesisdeliverystream-processingconfiguration.html#cfn-kinesisfirehose-kinesisdeliverystream-processingconfiguration-processors
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processingconfiguration.html#cfn-kinesisfirehose-deliverystream-processingconfiguration-processors
 kfdspcProcessors :: Lens' KinesisFirehoseDeliveryStreamProcessingConfiguration [KinesisFirehoseDeliveryStreamProcessor]
 kfdspcProcessors = lens _kinesisFirehoseDeliveryStreamProcessingConfigurationProcessors (\s a -> s { _kinesisFirehoseDeliveryStreamProcessingConfigurationProcessors = a })

@@ -2,7 +2,7 @@
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE TupleSections #-}
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-targetgroup-targetgroupattributes.html
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-targetgroup-targetgroupattribute.html
 
 module Stratosphere.ResourceProperties.ElasticLoadBalancingV2TargetGroupTargetGroupAttribute where
 
@@ -50,10 +50,10 @@ elasticLoadBalancingV2TargetGroupTargetGroupAttribute  =
   , _elasticLoadBalancingV2TargetGroupTargetGroupAttributeValue = Nothing
   }
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-targetgroup-targetgroupattributes.html#cfn-elasticloadbalancingv2-targetgroup-targetgroupattributes-key
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-targetgroup-targetgroupattribute.html#cfn-elasticloadbalancingv2-targetgroup-targetgroupattribute-key
 elbvtgtgaKey :: Lens' ElasticLoadBalancingV2TargetGroupTargetGroupAttribute (Maybe (Val Text))
 elbvtgtgaKey = lens _elasticLoadBalancingV2TargetGroupTargetGroupAttributeKey (\s a -> s { _elasticLoadBalancingV2TargetGroupTargetGroupAttributeKey = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-targetgroup-targetgroupattributes.html#cfn-elasticloadbalancingv2-targetgroup-targetgroupattributes-value
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-targetgroup-targetgroupattribute.html#cfn-elasticloadbalancingv2-targetgroup-targetgroupattribute-value
 elbvtgtgaValue :: Lens' ElasticLoadBalancingV2TargetGroupTargetGroupAttribute (Maybe (Val Text))
 elbvtgtgaValue = lens _elasticLoadBalancingV2TargetGroupTargetGroupAttributeValue (\s a -> s { _elasticLoadBalancingV2TargetGroupTargetGroupAttributeValue = a })

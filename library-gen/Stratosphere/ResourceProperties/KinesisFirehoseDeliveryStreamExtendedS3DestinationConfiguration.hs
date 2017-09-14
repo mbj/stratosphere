@@ -2,7 +2,7 @@
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE TupleSections #-}
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-kinesisdeliverystream-extendeds3destinationconfiguration.html
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html
 
 module Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamExtendedS3DestinationConfiguration where
 
@@ -92,42 +92,42 @@ kinesisFirehoseDeliveryStreamExtendedS3DestinationConfiguration bucketARNarg buf
   , _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfigurationS3BackupMode = Nothing
   }
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-kinesisdeliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-kinesisdeliverystream-s3destinationconfiguration-bucketarn
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-bucketarn
 kfdsesdcBucketARN :: Lens' KinesisFirehoseDeliveryStreamExtendedS3DestinationConfiguration (Val Text)
 kfdsesdcBucketARN = lens _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfigurationBucketARN (\s a -> s { _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfigurationBucketARN = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-kinesisdeliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-kinesisdeliverystream-s3destinationconfiguration-bufferinghints
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-bufferinghints
 kfdsesdcBufferingHints :: Lens' KinesisFirehoseDeliveryStreamExtendedS3DestinationConfiguration KinesisFirehoseDeliveryStreamBufferingHints
 kfdsesdcBufferingHints = lens _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfigurationBufferingHints (\s a -> s { _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfigurationBufferingHints = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-kinesisdeliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-kinesisdeliverystream-s3destinationconfiguration-cloudwatchloggingoptions
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-cloudwatchloggingoptions
 kfdsesdcCloudWatchLoggingOptions :: Lens' KinesisFirehoseDeliveryStreamExtendedS3DestinationConfiguration (Maybe KinesisFirehoseDeliveryStreamCloudWatchLoggingOptions)
 kfdsesdcCloudWatchLoggingOptions = lens _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfigurationCloudWatchLoggingOptions (\s a -> s { _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfigurationCloudWatchLoggingOptions = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-kinesisdeliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-kinesisdeliverystream-s3destinationconfiguration-compressionformat
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-compressionformat
 kfdsesdcCompressionFormat :: Lens' KinesisFirehoseDeliveryStreamExtendedS3DestinationConfiguration (Val Text)
 kfdsesdcCompressionFormat = lens _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfigurationCompressionFormat (\s a -> s { _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfigurationCompressionFormat = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-kinesisdeliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-kinesisdeliverystream-s3destinationconfiguration-encryptionconfiguration
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-encryptionconfiguration
 kfdsesdcEncryptionConfiguration :: Lens' KinesisFirehoseDeliveryStreamExtendedS3DestinationConfiguration (Maybe KinesisFirehoseDeliveryStreamEncryptionConfiguration)
 kfdsesdcEncryptionConfiguration = lens _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfigurationEncryptionConfiguration (\s a -> s { _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfigurationEncryptionConfiguration = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-kinesisdeliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-kinesisdeliverystream-s3destinationconfiguration-prefix
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-prefix
 kfdsesdcPrefix :: Lens' KinesisFirehoseDeliveryStreamExtendedS3DestinationConfiguration (Val Text)
 kfdsesdcPrefix = lens _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfigurationPrefix (\s a -> s { _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfigurationPrefix = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-kinesisdeliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-kinesisdeliverystream-processingconfiguration
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-processingconfiguration
 kfdsesdcProcessingConfiguration :: Lens' KinesisFirehoseDeliveryStreamExtendedS3DestinationConfiguration (Maybe KinesisFirehoseDeliveryStreamProcessingConfiguration)
 kfdsesdcProcessingConfiguration = lens _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfigurationProcessingConfiguration (\s a -> s { _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfigurationProcessingConfiguration = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-kinesisdeliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-kinesisdeliverystream-s3destinationconfiguration-rolearn
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-rolearn
 kfdsesdcRoleARN :: Lens' KinesisFirehoseDeliveryStreamExtendedS3DestinationConfiguration (Val Text)
 kfdsesdcRoleARN = lens _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfigurationRoleARN (\s a -> s { _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfigurationRoleARN = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-kinesisdeliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-kinesisdeliverystream-s3destinationconfiguration
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-s3backupconfiguration
 kfdsesdcS3BackupConfiguration :: Lens' KinesisFirehoseDeliveryStreamExtendedS3DestinationConfiguration (Maybe KinesisFirehoseDeliveryStreamS3DestinationConfiguration)
 kfdsesdcS3BackupConfiguration = lens _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfigurationS3BackupConfiguration (\s a -> s { _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfigurationS3BackupConfiguration = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-kinesisdeliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-kinesisdeliverystream-s3backupmode
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-s3backupmode
 kfdsesdcS3BackupMode :: Lens' KinesisFirehoseDeliveryStreamExtendedS3DestinationConfiguration (Maybe (Val Text))
 kfdsesdcS3BackupMode = lens _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfigurationS3BackupMode (\s a -> s { _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfigurationS3BackupMode = a })

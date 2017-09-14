@@ -2,7 +2,7 @@
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE TupleSections #-}
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-republish.html
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-republishaction.html
 
 module Stratosphere.ResourceProperties.IoTTopicRuleRepublishAction where
 
@@ -50,10 +50,10 @@ ioTTopicRuleRepublishAction roleArnarg topicarg =
   , _ioTTopicRuleRepublishActionTopic = topicarg
   }
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-republish.html#cfn-iot-republish-rolearn
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-republishaction.html#cfn-iot-topicrule-republishaction-rolearn
 ittrraRoleArn :: Lens' IoTTopicRuleRepublishAction (Val Text)
 ittrraRoleArn = lens _ioTTopicRuleRepublishActionRoleArn (\s a -> s { _ioTTopicRuleRepublishActionRoleArn = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-republish.html#cfn-iot-republish-topic
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-republishaction.html#cfn-iot-topicrule-republishaction-topic
 ittrraTopic :: Lens' IoTTopicRuleRepublishAction (Val Text)
 ittrraTopic = lens _ioTTopicRuleRepublishActionTopic (\s a -> s { _ioTTopicRuleRepublishActionTopic = a })

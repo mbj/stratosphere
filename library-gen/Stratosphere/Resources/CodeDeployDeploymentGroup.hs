@@ -14,8 +14,11 @@ import Data.Text
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupAlarmConfiguration
+import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupAutoRollbackConfiguration
 import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupDeployment
+import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupDeploymentStyle
 import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupEC2TagFilter
+import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupLoadBalancerInfo
 import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupTagFilter
 import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupTriggerConfig
 
@@ -25,11 +28,14 @@ data CodeDeployDeploymentGroup =
   CodeDeployDeploymentGroup
   { _codeDeployDeploymentGroupAlarmConfiguration :: Maybe CodeDeployDeploymentGroupAlarmConfiguration
   , _codeDeployDeploymentGroupApplicationName :: Val Text
+  , _codeDeployDeploymentGroupAutoRollbackConfiguration :: Maybe CodeDeployDeploymentGroupAutoRollbackConfiguration
   , _codeDeployDeploymentGroupAutoScalingGroups :: Maybe (ValList Text)
   , _codeDeployDeploymentGroupDeployment :: Maybe CodeDeployDeploymentGroupDeployment
   , _codeDeployDeploymentGroupDeploymentConfigName :: Maybe (Val Text)
   , _codeDeployDeploymentGroupDeploymentGroupName :: Maybe (Val Text)
+  , _codeDeployDeploymentGroupDeploymentStyle :: Maybe CodeDeployDeploymentGroupDeploymentStyle
   , _codeDeployDeploymentGroupEc2TagFilters :: Maybe [CodeDeployDeploymentGroupEC2TagFilter]
+  , _codeDeployDeploymentGroupLoadBalancerInfo :: Maybe CodeDeployDeploymentGroupLoadBalancerInfo
   , _codeDeployDeploymentGroupOnPremisesInstanceTagFilters :: Maybe [CodeDeployDeploymentGroupTagFilter]
   , _codeDeployDeploymentGroupServiceRoleArn :: Val Text
   , _codeDeployDeploymentGroupTriggerConfigurations :: Maybe [CodeDeployDeploymentGroupTriggerConfig]
@@ -41,11 +47,14 @@ instance ToJSON CodeDeployDeploymentGroup where
     catMaybes
     [ fmap (("AlarmConfiguration",) . toJSON) _codeDeployDeploymentGroupAlarmConfiguration
     , (Just . ("ApplicationName",) . toJSON) _codeDeployDeploymentGroupApplicationName
+    , fmap (("AutoRollbackConfiguration",) . toJSON) _codeDeployDeploymentGroupAutoRollbackConfiguration
     , fmap (("AutoScalingGroups",) . toJSON) _codeDeployDeploymentGroupAutoScalingGroups
     , fmap (("Deployment",) . toJSON) _codeDeployDeploymentGroupDeployment
     , fmap (("DeploymentConfigName",) . toJSON) _codeDeployDeploymentGroupDeploymentConfigName
     , fmap (("DeploymentGroupName",) . toJSON) _codeDeployDeploymentGroupDeploymentGroupName
+    , fmap (("DeploymentStyle",) . toJSON) _codeDeployDeploymentGroupDeploymentStyle
     , fmap (("Ec2TagFilters",) . toJSON) _codeDeployDeploymentGroupEc2TagFilters
+    , fmap (("LoadBalancerInfo",) . toJSON) _codeDeployDeploymentGroupLoadBalancerInfo
     , fmap (("OnPremisesInstanceTagFilters",) . toJSON) _codeDeployDeploymentGroupOnPremisesInstanceTagFilters
     , (Just . ("ServiceRoleArn",) . toJSON) _codeDeployDeploymentGroupServiceRoleArn
     , fmap (("TriggerConfigurations",) . toJSON) _codeDeployDeploymentGroupTriggerConfigurations
@@ -56,11 +65,14 @@ instance FromJSON CodeDeployDeploymentGroup where
     CodeDeployDeploymentGroup <$>
       (obj .:? "AlarmConfiguration") <*>
       (obj .: "ApplicationName") <*>
+      (obj .:? "AutoRollbackConfiguration") <*>
       (obj .:? "AutoScalingGroups") <*>
       (obj .:? "Deployment") <*>
       (obj .:? "DeploymentConfigName") <*>
       (obj .:? "DeploymentGroupName") <*>
+      (obj .:? "DeploymentStyle") <*>
       (obj .:? "Ec2TagFilters") <*>
+      (obj .:? "LoadBalancerInfo") <*>
       (obj .:? "OnPremisesInstanceTagFilters") <*>
       (obj .: "ServiceRoleArn") <*>
       (obj .:? "TriggerConfigurations")
@@ -76,11 +88,14 @@ codeDeployDeploymentGroup applicationNamearg serviceRoleArnarg =
   CodeDeployDeploymentGroup
   { _codeDeployDeploymentGroupAlarmConfiguration = Nothing
   , _codeDeployDeploymentGroupApplicationName = applicationNamearg
+  , _codeDeployDeploymentGroupAutoRollbackConfiguration = Nothing
   , _codeDeployDeploymentGroupAutoScalingGroups = Nothing
   , _codeDeployDeploymentGroupDeployment = Nothing
   , _codeDeployDeploymentGroupDeploymentConfigName = Nothing
   , _codeDeployDeploymentGroupDeploymentGroupName = Nothing
+  , _codeDeployDeploymentGroupDeploymentStyle = Nothing
   , _codeDeployDeploymentGroupEc2TagFilters = Nothing
+  , _codeDeployDeploymentGroupLoadBalancerInfo = Nothing
   , _codeDeployDeploymentGroupOnPremisesInstanceTagFilters = Nothing
   , _codeDeployDeploymentGroupServiceRoleArn = serviceRoleArnarg
   , _codeDeployDeploymentGroupTriggerConfigurations = Nothing
@@ -93,6 +108,10 @@ cddgAlarmConfiguration = lens _codeDeployDeploymentGroupAlarmConfiguration (\s a
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-applicationname
 cddgApplicationName :: Lens' CodeDeployDeploymentGroup (Val Text)
 cddgApplicationName = lens _codeDeployDeploymentGroupApplicationName (\s a -> s { _codeDeployDeploymentGroupApplicationName = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-autorollbackconfiguration
+cddgAutoRollbackConfiguration :: Lens' CodeDeployDeploymentGroup (Maybe CodeDeployDeploymentGroupAutoRollbackConfiguration)
+cddgAutoRollbackConfiguration = lens _codeDeployDeploymentGroupAutoRollbackConfiguration (\s a -> s { _codeDeployDeploymentGroupAutoRollbackConfiguration = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-autoscalinggroups
 cddgAutoScalingGroups :: Lens' CodeDeployDeploymentGroup (Maybe (ValList Text))
@@ -110,9 +129,17 @@ cddgDeploymentConfigName = lens _codeDeployDeploymentGroupDeploymentConfigName (
 cddgDeploymentGroupName :: Lens' CodeDeployDeploymentGroup (Maybe (Val Text))
 cddgDeploymentGroupName = lens _codeDeployDeploymentGroupDeploymentGroupName (\s a -> s { _codeDeployDeploymentGroupDeploymentGroupName = a })
 
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-deploymentstyle
+cddgDeploymentStyle :: Lens' CodeDeployDeploymentGroup (Maybe CodeDeployDeploymentGroupDeploymentStyle)
+cddgDeploymentStyle = lens _codeDeployDeploymentGroupDeploymentStyle (\s a -> s { _codeDeployDeploymentGroupDeploymentStyle = a })
+
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-ec2tagfilters
 cddgEc2TagFilters :: Lens' CodeDeployDeploymentGroup (Maybe [CodeDeployDeploymentGroupEC2TagFilter])
 cddgEc2TagFilters = lens _codeDeployDeploymentGroupEc2TagFilters (\s a -> s { _codeDeployDeploymentGroupEc2TagFilters = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-loadbalancerinfo
+cddgLoadBalancerInfo :: Lens' CodeDeployDeploymentGroup (Maybe CodeDeployDeploymentGroupLoadBalancerInfo)
+cddgLoadBalancerInfo = lens _codeDeployDeploymentGroupLoadBalancerInfo (\s a -> s { _codeDeployDeploymentGroupLoadBalancerInfo = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-onpremisesinstancetagfilters
 cddgOnPremisesInstanceTagFilters :: Lens' CodeDeployDeploymentGroup (Maybe [CodeDeployDeploymentGroupTagFilter])

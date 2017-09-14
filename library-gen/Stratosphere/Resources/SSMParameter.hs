@@ -19,7 +19,8 @@ import Stratosphere.Values
 -- convenient constructor.
 data SSMParameter =
   SSMParameter
-  { _sSMParameterDescription :: Maybe (Val Text)
+  { _sSMParameterAllowedPattern :: Maybe (Val Text)
+  , _sSMParameterDescription :: Maybe (Val Text)
   , _sSMParameterName :: Maybe (Val Text)
   , _sSMParameterType :: Val Text
   , _sSMParameterValue :: Val Text
@@ -29,7 +30,8 @@ instance ToJSON SSMParameter where
   toJSON SSMParameter{..} =
     object $
     catMaybes
-    [ fmap (("Description",) . toJSON) _sSMParameterDescription
+    [ fmap (("AllowedPattern",) . toJSON) _sSMParameterAllowedPattern
+    , fmap (("Description",) . toJSON) _sSMParameterDescription
     , fmap (("Name",) . toJSON) _sSMParameterName
     , (Just . ("Type",) . toJSON) _sSMParameterType
     , (Just . ("Value",) . toJSON) _sSMParameterValue
@@ -38,6 +40,7 @@ instance ToJSON SSMParameter where
 instance FromJSON SSMParameter where
   parseJSON (Object obj) =
     SSMParameter <$>
+      (obj .:? "AllowedPattern") <*>
       (obj .:? "Description") <*>
       (obj .:? "Name") <*>
       (obj .: "Type") <*>
@@ -51,11 +54,16 @@ ssmParameter
   -> SSMParameter
 ssmParameter typearg valuearg =
   SSMParameter
-  { _sSMParameterDescription = Nothing
+  { _sSMParameterAllowedPattern = Nothing
+  , _sSMParameterDescription = Nothing
   , _sSMParameterName = Nothing
   , _sSMParameterType = typearg
   , _sSMParameterValue = valuearg
   }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-parameter.html#cfn-ssm-parameter-allowedpattern
+ssmpAllowedPattern :: Lens' SSMParameter (Maybe (Val Text))
+ssmpAllowedPattern = lens _sSMParameterAllowedPattern (\s a -> s { _sSMParameterAllowedPattern = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-parameter.html#cfn-ssm-parameter-description
 ssmpDescription :: Lens' SSMParameter (Maybe (Val Text))

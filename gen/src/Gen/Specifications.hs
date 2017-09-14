@@ -67,6 +67,14 @@ fixSpecBugs spec =
   & propertyTypesLens
   . at "AWS::EC2::SecurityGroup.Egress"
   .~ Nothing
+  -- Rename AWS::IoT::TopicRule.DynamoDBv2Action to capitalize the "v" so it is
+  -- different from AWS::IoT::TopicRule.DynamoDBAction
+  & propertyTypesLens
+  . at "AWS::IoT::TopicRule.DynamoDBV2Action"
+  .~ (spec ^. propertyTypesLens . at "AWS::IoT::TopicRule.DynamoDBv2Action")
+  & propertyTypesLens
+  . at "AWS::IoT::TopicRule.DynamoDBv2Action"
+  .~ Nothing
   -- AWS::ECS::TaskDefinition.ContainerDefinition has two properties that are
   -- required, but the doc says they aren't.
   & propertyTypesLens

@@ -2,7 +2,7 @@
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE TupleSections #-}
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-cloudwatchalarm.html
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchalarmaction.html
 
 module Stratosphere.ResourceProperties.IoTTopicRuleCloudwatchAlarmAction where
 
@@ -60,18 +60,18 @@ ioTTopicRuleCloudwatchAlarmAction alarmNamearg roleArnarg stateReasonarg stateVa
   , _ioTTopicRuleCloudwatchAlarmActionStateValue = stateValuearg
   }
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-cloudwatchalarm.html#cfn-iot-cloudwatchalarm-alarmname
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchalarmaction.html#cfn-iot-topicrule-cloudwatchalarmaction-alarmname
 ittrcaaAlarmName :: Lens' IoTTopicRuleCloudwatchAlarmAction (Val Text)
 ittrcaaAlarmName = lens _ioTTopicRuleCloudwatchAlarmActionAlarmName (\s a -> s { _ioTTopicRuleCloudwatchAlarmActionAlarmName = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-cloudwatchalarm.html#cfn-iot-cloudwatchalarm-rolearn
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchalarmaction.html#cfn-iot-topicrule-cloudwatchalarmaction-rolearn
 ittrcaaRoleArn :: Lens' IoTTopicRuleCloudwatchAlarmAction (Val Text)
 ittrcaaRoleArn = lens _ioTTopicRuleCloudwatchAlarmActionRoleArn (\s a -> s { _ioTTopicRuleCloudwatchAlarmActionRoleArn = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-cloudwatchalarm.html#cfn-iot-cloudwatchalarm-statereason
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchalarmaction.html#cfn-iot-topicrule-cloudwatchalarmaction-statereason
 ittrcaaStateReason :: Lens' IoTTopicRuleCloudwatchAlarmAction (Val Text)
 ittrcaaStateReason = lens _ioTTopicRuleCloudwatchAlarmActionStateReason (\s a -> s { _ioTTopicRuleCloudwatchAlarmActionStateReason = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-cloudwatchalarm.html#cfn-iot-cloudwatchalarm-statevalue
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-cloudwatchalarmaction.html#cfn-iot-topicrule-cloudwatchalarmaction-statevalue
 ittrcaaStateValue :: Lens' IoTTopicRuleCloudwatchAlarmAction (Val Text)
 ittrcaaStateValue = lens _ioTTopicRuleCloudwatchAlarmActionStateValue (\s a -> s { _ioTTopicRuleCloudwatchAlarmActionStateValue = a })

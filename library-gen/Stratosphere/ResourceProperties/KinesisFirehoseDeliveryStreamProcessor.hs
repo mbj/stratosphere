@@ -2,7 +2,7 @@
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE TupleSections #-}
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-kinesisdeliverystream-processingConfiguration-processor.html
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processor.html
 
 module Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamProcessor where
 
@@ -51,10 +51,10 @@ kinesisFirehoseDeliveryStreamProcessor parametersarg typearg =
   , _kinesisFirehoseDeliveryStreamProcessorType = typearg
   }
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-kinesisdeliverystream-processingConfiguration-processor.html#cfn-kinesisfirehose-kinesisdeliverystream-processingconfiguration-processor-parameter
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processor.html#cfn-kinesisfirehose-deliverystream-processor-parameters
 kfdspParameters :: Lens' KinesisFirehoseDeliveryStreamProcessor [KinesisFirehoseDeliveryStreamProcessorParameter]
 kfdspParameters = lens _kinesisFirehoseDeliveryStreamProcessorParameters (\s a -> s { _kinesisFirehoseDeliveryStreamProcessorParameters = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-kinesisdeliverystream-processingConfiguration-processor.html#cfn-kinesisfirehose-kinesisdeliverystream-processingConfiguration-processor-type
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processor.html#cfn-kinesisfirehose-deliverystream-processor-type
 kfdspType :: Lens' KinesisFirehoseDeliveryStreamProcessor (Val Text)
 kfdspType = lens _kinesisFirehoseDeliveryStreamProcessorType (\s a -> s { _kinesisFirehoseDeliveryStreamProcessorType = a })

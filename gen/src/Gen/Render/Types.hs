@@ -98,6 +98,9 @@ normalizeTypeName :: Set Text -> Text -> Text -> Text
 normalizeTypeName _ "AWS::RDS::DBSecurityGroup" "Ingress" = computeModuleName "AWS::RDS::DBSecurityGroup.IngressProperty"
 normalizeTypeName _ "AWS::EC2::SecurityGroup" "Ingress" = computeModuleName "AWS::EC2::SecurityGroup.IngressProperty"
 normalizeTypeName _ "AWS::EC2::SecurityGroup" "Egress" = computeModuleName "AWS::EC2::SecurityGroup.EgressProperty"
+-- Rename AWS::IoT::TopicRule.DynamoDBv2Action to capitalize the "v" so it is
+-- different from AWS::IoT::TopicRule.DynamoDBAction
+normalizeTypeName _ "AWS::IoT::TopicRule" "DynamoDBv2Action" = computeModuleName "AWS::IoT::TopicRule.DynamoDBV2Action"
 -- Non-errors
 normalizeTypeName allFullNames resourceType name
   -- As far as I know, the only property type that isn't fully qualified is

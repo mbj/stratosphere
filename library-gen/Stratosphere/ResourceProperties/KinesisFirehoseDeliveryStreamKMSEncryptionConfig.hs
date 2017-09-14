@@ -2,7 +2,7 @@
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE TupleSections #-}
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-kinesisdeliverystream-s3destinationconfiguration-encryptionconfiguration-kmsencryptionconfig.html
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-kmsencryptionconfig.html
 
 module Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamKMSEncryptionConfig where
 
@@ -47,6 +47,6 @@ kinesisFirehoseDeliveryStreamKMSEncryptionConfig aWSKMSKeyARNarg =
   { _kinesisFirehoseDeliveryStreamKMSEncryptionConfigAWSKMSKeyARN = aWSKMSKeyARNarg
   }
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-kinesisdeliverystream-s3destinationconfiguration-encryptionconfiguration-kmsencryptionconfig.html#cfn-kinesisfirehose-kinesisdeliverystream-s3destinationconfiguration-encryptionconfiguration-kmsencryptionconfig-awskmskeyarn
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-kmsencryptionconfig.html#cfn-kinesisfirehose-deliverystream-kmsencryptionconfig-awskmskeyarn
 kfdskmsecAWSKMSKeyARN :: Lens' KinesisFirehoseDeliveryStreamKMSEncryptionConfig (Val Text)
 kfdskmsecAWSKMSKeyARN = lens _kinesisFirehoseDeliveryStreamKMSEncryptionConfigAWSKMSKeyARN (\s a -> s { _kinesisFirehoseDeliveryStreamKMSEncryptionConfigAWSKMSKeyARN = a })

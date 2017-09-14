@@ -2,7 +2,7 @@
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE TupleSections #-}
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-firehose.html
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-firehoseaction.html
 
 module Stratosphere.ResourceProperties.IoTTopicRuleFirehoseAction where
 
@@ -54,14 +54,14 @@ ioTTopicRuleFirehoseAction deliveryStreamNamearg roleArnarg =
   , _ioTTopicRuleFirehoseActionSeparator = Nothing
   }
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-firehose.html#cfn-iot-firehose-deliverystreamname
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-firehoseaction.html#cfn-iot-topicrule-firehoseaction-deliverystreamname
 ittrfaDeliveryStreamName :: Lens' IoTTopicRuleFirehoseAction (Val Text)
 ittrfaDeliveryStreamName = lens _ioTTopicRuleFirehoseActionDeliveryStreamName (\s a -> s { _ioTTopicRuleFirehoseActionDeliveryStreamName = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-firehose.html#cfn-iot-firehose-rolearn
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-firehoseaction.html#cfn-iot-topicrule-firehoseaction-rolearn
 ittrfaRoleArn :: Lens' IoTTopicRuleFirehoseAction (Val Text)
 ittrfaRoleArn = lens _ioTTopicRuleFirehoseActionRoleArn (\s a -> s { _ioTTopicRuleFirehoseActionRoleArn = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-firehose.html#cfn-iot-firehose-separator
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-firehoseaction.html#cfn-iot-topicrule-firehoseaction-separator
 ittrfaSeparator :: Lens' IoTTopicRuleFirehoseAction (Maybe (Val Text))
 ittrfaSeparator = lens _ioTTopicRuleFirehoseActionSeparator (\s a -> s { _ioTTopicRuleFirehoseActionSeparator = a })

@@ -2,7 +2,7 @@
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE TupleSections #-}
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrulepayload.html
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html
 
 module Stratosphere.ResourceProperties.IoTTopicRuleTopicRulePayload where
 
@@ -63,22 +63,22 @@ ioTTopicRuleTopicRulePayload actionsarg ruleDisabledarg sqlarg =
   , _ioTTopicRuleTopicRulePayloadSql = sqlarg
   }
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrulepayload.html#cfn-iot-topicrulepayload-actions
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-actions
 ittrtrpActions :: Lens' IoTTopicRuleTopicRulePayload [IoTTopicRuleAction]
 ittrtrpActions = lens _ioTTopicRuleTopicRulePayloadActions (\s a -> s { _ioTTopicRuleTopicRulePayloadActions = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrulepayload.html#cfn-iot-topicrulepayload-awsiotsqlversion
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-awsiotsqlversion
 ittrtrpAwsIotSqlVersion :: Lens' IoTTopicRuleTopicRulePayload (Maybe (Val Text))
 ittrtrpAwsIotSqlVersion = lens _ioTTopicRuleTopicRulePayloadAwsIotSqlVersion (\s a -> s { _ioTTopicRuleTopicRulePayloadAwsIotSqlVersion = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrulepayload.html#cfn-iot-topicrulepayload-description
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-description
 ittrtrpDescription :: Lens' IoTTopicRuleTopicRulePayload (Maybe (Val Text))
 ittrtrpDescription = lens _ioTTopicRuleTopicRulePayloadDescription (\s a -> s { _ioTTopicRuleTopicRulePayloadDescription = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrulepayload.html#cfn-iot-topicrulepayload-ruledisabled
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-ruledisabled
 ittrtrpRuleDisabled :: Lens' IoTTopicRuleTopicRulePayload (Val Bool)
 ittrtrpRuleDisabled = lens _ioTTopicRuleTopicRulePayloadRuleDisabled (\s a -> s { _ioTTopicRuleTopicRulePayloadRuleDisabled = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrulepayload.html#cfn-iot-topicrulepayload-sql
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-sql
 ittrtrpSql :: Lens' IoTTopicRuleTopicRulePayload (Val Text)
 ittrtrpSql = lens _ioTTopicRuleTopicRulePayloadSql (\s a -> s { _ioTTopicRuleTopicRulePayloadSql = a })

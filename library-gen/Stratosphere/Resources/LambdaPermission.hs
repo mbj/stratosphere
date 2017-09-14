@@ -20,6 +20,7 @@ import Stratosphere.Values
 data LambdaPermission =
   LambdaPermission
   { _lambdaPermissionAction :: Val Text
+  , _lambdaPermissionEventSourceToken :: Maybe (Val Text)
   , _lambdaPermissionFunctionName :: Val Text
   , _lambdaPermissionPrincipal :: Val Text
   , _lambdaPermissionSourceAccount :: Maybe (Val Text)
@@ -31,6 +32,7 @@ instance ToJSON LambdaPermission where
     object $
     catMaybes
     [ (Just . ("Action",) . toJSON) _lambdaPermissionAction
+    , fmap (("EventSourceToken",) . toJSON) _lambdaPermissionEventSourceToken
     , (Just . ("FunctionName",) . toJSON) _lambdaPermissionFunctionName
     , (Just . ("Principal",) . toJSON) _lambdaPermissionPrincipal
     , fmap (("SourceAccount",) . toJSON) _lambdaPermissionSourceAccount
@@ -41,6 +43,7 @@ instance FromJSON LambdaPermission where
   parseJSON (Object obj) =
     LambdaPermission <$>
       (obj .: "Action") <*>
+      (obj .:? "EventSourceToken") <*>
       (obj .: "FunctionName") <*>
       (obj .: "Principal") <*>
       (obj .:? "SourceAccount") <*>
@@ -57,6 +60,7 @@ lambdaPermission
 lambdaPermission actionarg functionNamearg principalarg =
   LambdaPermission
   { _lambdaPermissionAction = actionarg
+  , _lambdaPermissionEventSourceToken = Nothing
   , _lambdaPermissionFunctionName = functionNamearg
   , _lambdaPermissionPrincipal = principalarg
   , _lambdaPermissionSourceAccount = Nothing
@@ -66,6 +70,10 @@ lambdaPermission actionarg functionNamearg principalarg =
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html#cfn-lambda-permission-action
 lpAction :: Lens' LambdaPermission (Val Text)
 lpAction = lens _lambdaPermissionAction (\s a -> s { _lambdaPermissionAction = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html#cfn-lambda-permission-eventsourcetoken
+lpEventSourceToken :: Lens' LambdaPermission (Maybe (Val Text))
+lpEventSourceToken = lens _lambdaPermissionEventSourceToken (\s a -> s { _lambdaPermissionEventSourceToken = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html#cfn-lambda-permission-functionname
 lpFunctionName :: Lens' LambdaPermission (Val Text)

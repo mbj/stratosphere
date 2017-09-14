@@ -54,6 +54,7 @@ import Stratosphere.Resources.ApiGatewayDeployment as X
 import Stratosphere.Resources.ApiGatewayDocumentationPart as X
 import Stratosphere.Resources.ApiGatewayDocumentationVersion as X
 import Stratosphere.Resources.ApiGatewayDomainName as X
+import Stratosphere.Resources.ApiGatewayGatewayResponse as X
 import Stratosphere.Resources.ApiGatewayMethod as X
 import Stratosphere.Resources.ApiGatewayModel as X
 import Stratosphere.Resources.ApiGatewayRequestValidator as X
@@ -69,6 +70,9 @@ import Stratosphere.Resources.AutoScalingLaunchConfiguration as X
 import Stratosphere.Resources.AutoScalingLifecycleHook as X
 import Stratosphere.Resources.AutoScalingScalingPolicy as X
 import Stratosphere.Resources.AutoScalingScheduledAction as X
+import Stratosphere.Resources.BatchComputeEnvironment as X
+import Stratosphere.Resources.BatchJobDefinition as X
+import Stratosphere.Resources.BatchJobQueue as X
 import Stratosphere.Resources.CertificateManagerCertificate as X
 import Stratosphere.Resources.CloudFormationCustomResource as X
 import Stratosphere.Resources.CloudFormationStack as X
@@ -95,6 +99,9 @@ import Stratosphere.Resources.CognitoUserPoolUserToGroupAttachment as X
 import Stratosphere.Resources.ConfigConfigRule as X
 import Stratosphere.Resources.ConfigConfigurationRecorder as X
 import Stratosphere.Resources.ConfigDeliveryChannel as X
+import Stratosphere.Resources.DAXCluster as X
+import Stratosphere.Resources.DAXParameterGroup as X
+import Stratosphere.Resources.DAXSubnetGroup as X
 import Stratosphere.Resources.DMSCertificate as X
 import Stratosphere.Resources.DMSEndpoint as X
 import Stratosphere.Resources.DMSEventSubscription as X
@@ -288,6 +295,15 @@ import Stratosphere.ResourceProperties.AutoScalingScalingPolicyMetricDimension a
 import Stratosphere.ResourceProperties.AutoScalingScalingPolicyPredefinedMetricSpecification as X
 import Stratosphere.ResourceProperties.AutoScalingScalingPolicyStepAdjustment as X
 import Stratosphere.ResourceProperties.AutoScalingScalingPolicyTargetTrackingConfiguration as X
+import Stratosphere.ResourceProperties.BatchComputeEnvironmentComputeResources as X
+import Stratosphere.ResourceProperties.BatchJobDefinitionContainerProperties as X
+import Stratosphere.ResourceProperties.BatchJobDefinitionEnvironment as X
+import Stratosphere.ResourceProperties.BatchJobDefinitionMountPoints as X
+import Stratosphere.ResourceProperties.BatchJobDefinitionRetryStrategy as X
+import Stratosphere.ResourceProperties.BatchJobDefinitionUlimit as X
+import Stratosphere.ResourceProperties.BatchJobDefinitionVolumes as X
+import Stratosphere.ResourceProperties.BatchJobDefinitionVolumesHost as X
+import Stratosphere.ResourceProperties.BatchJobQueueComputeEnvironmentOrder as X
 import Stratosphere.ResourceProperties.CertificateManagerCertificateDomainValidationOption as X
 import Stratosphere.ResourceProperties.CloudFrontDistributionCacheBehavior as X
 import Stratosphere.ResourceProperties.CloudFrontDistributionCookies as X
@@ -315,9 +331,13 @@ import Stratosphere.ResourceProperties.CodeCommitRepositoryRepositoryTrigger as 
 import Stratosphere.ResourceProperties.CodeDeployDeploymentConfigMinimumHealthyHosts as X
 import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupAlarm as X
 import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupAlarmConfiguration as X
+import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupAutoRollbackConfiguration as X
 import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupDeployment as X
+import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupDeploymentStyle as X
 import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupEC2TagFilter as X
+import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupELBInfo as X
 import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupGitHubLocation as X
+import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupLoadBalancerInfo as X
 import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupRevisionLocation as X
 import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupS3Location as X
 import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupTagFilter as X
@@ -375,6 +395,7 @@ import Stratosphere.ResourceProperties.DynamoDBTableLocalSecondaryIndex as X
 import Stratosphere.ResourceProperties.DynamoDBTableProjection as X
 import Stratosphere.ResourceProperties.DynamoDBTableProvisionedThroughput as X
 import Stratosphere.ResourceProperties.DynamoDBTableStreamSpecification as X
+import Stratosphere.ResourceProperties.DynamoDBTableTimeToLiveSpecification as X
 import Stratosphere.ResourceProperties.EC2InstanceAssociationParameter as X
 import Stratosphere.ResourceProperties.EC2InstanceBlockDeviceMapping as X
 import Stratosphere.ResourceProperties.EC2InstanceEbs as X
@@ -479,12 +500,18 @@ import Stratosphere.ResourceProperties.ElasticLoadBalancingV2ListenerCertificate
 import Stratosphere.ResourceProperties.ElasticLoadBalancingV2ListenerRuleAction as X
 import Stratosphere.ResourceProperties.ElasticLoadBalancingV2ListenerRuleRuleCondition as X
 import Stratosphere.ResourceProperties.ElasticLoadBalancingV2LoadBalancerLoadBalancerAttribute as X
+import Stratosphere.ResourceProperties.ElasticLoadBalancingV2LoadBalancerSubnetMapping as X
 import Stratosphere.ResourceProperties.ElasticLoadBalancingV2TargetGroupMatcher as X
 import Stratosphere.ResourceProperties.ElasticLoadBalancingV2TargetGroupTargetDescription as X
 import Stratosphere.ResourceProperties.ElasticLoadBalancingV2TargetGroupTargetGroupAttribute as X
 import Stratosphere.ResourceProperties.ElasticsearchDomainEBSOptions as X
 import Stratosphere.ResourceProperties.ElasticsearchDomainElasticsearchClusterConfig as X
 import Stratosphere.ResourceProperties.ElasticsearchDomainSnapshotOptions as X
+import Stratosphere.ResourceProperties.EventsRuleEcsParameters as X
+import Stratosphere.ResourceProperties.EventsRuleInputTransformer as X
+import Stratosphere.ResourceProperties.EventsRuleKinesisParameters as X
+import Stratosphere.ResourceProperties.EventsRuleRunCommandParameters as X
+import Stratosphere.ResourceProperties.EventsRuleRunCommandTarget as X
 import Stratosphere.ResourceProperties.EventsRuleTarget as X
 import Stratosphere.ResourceProperties.GameLiftAliasRoutingStrategy as X
 import Stratosphere.ResourceProperties.GameLiftBuildS3Location as X
@@ -498,10 +525,12 @@ import Stratosphere.ResourceProperties.IoTTopicRuleAction as X
 import Stratosphere.ResourceProperties.IoTTopicRuleCloudwatchAlarmAction as X
 import Stratosphere.ResourceProperties.IoTTopicRuleCloudwatchMetricAction as X
 import Stratosphere.ResourceProperties.IoTTopicRuleDynamoDBAction as X
+import Stratosphere.ResourceProperties.IoTTopicRuleDynamoDBV2Action as X
 import Stratosphere.ResourceProperties.IoTTopicRuleElasticsearchAction as X
 import Stratosphere.ResourceProperties.IoTTopicRuleFirehoseAction as X
 import Stratosphere.ResourceProperties.IoTTopicRuleKinesisAction as X
 import Stratosphere.ResourceProperties.IoTTopicRuleLambdaAction as X
+import Stratosphere.ResourceProperties.IoTTopicRulePutItemInput as X
 import Stratosphere.ResourceProperties.IoTTopicRuleRepublishAction as X
 import Stratosphere.ResourceProperties.IoTTopicRuleS3Action as X
 import Stratosphere.ResourceProperties.IoTTopicRuleSnsAction as X
@@ -591,6 +620,7 @@ import Stratosphere.ResourceProperties.S3BucketFilterRule as X
 import Stratosphere.ResourceProperties.S3BucketLambdaConfiguration as X
 import Stratosphere.ResourceProperties.S3BucketLifecycleConfiguration as X
 import Stratosphere.ResourceProperties.S3BucketLoggingConfiguration as X
+import Stratosphere.ResourceProperties.S3BucketMetricsConfiguration as X
 import Stratosphere.ResourceProperties.S3BucketNoncurrentVersionTransition as X
 import Stratosphere.ResourceProperties.S3BucketNotificationConfiguration as X
 import Stratosphere.ResourceProperties.S3BucketNotificationFilter as X
@@ -657,6 +687,7 @@ data ResourceProperties
   | ApiGatewayDocumentationPartProperties ApiGatewayDocumentationPart
   | ApiGatewayDocumentationVersionProperties ApiGatewayDocumentationVersion
   | ApiGatewayDomainNameProperties ApiGatewayDomainName
+  | ApiGatewayGatewayResponseProperties ApiGatewayGatewayResponse
   | ApiGatewayMethodProperties ApiGatewayMethod
   | ApiGatewayModelProperties ApiGatewayModel
   | ApiGatewayRequestValidatorProperties ApiGatewayRequestValidator
@@ -672,6 +703,9 @@ data ResourceProperties
   | AutoScalingLifecycleHookProperties AutoScalingLifecycleHook
   | AutoScalingScalingPolicyProperties AutoScalingScalingPolicy
   | AutoScalingScheduledActionProperties AutoScalingScheduledAction
+  | BatchComputeEnvironmentProperties BatchComputeEnvironment
+  | BatchJobDefinitionProperties BatchJobDefinition
+  | BatchJobQueueProperties BatchJobQueue
   | CertificateManagerCertificateProperties CertificateManagerCertificate
   | CloudFormationCustomResourceProperties CloudFormationCustomResource
   | CloudFormationStackProperties CloudFormationStack
@@ -698,6 +732,9 @@ data ResourceProperties
   | ConfigConfigRuleProperties ConfigConfigRule
   | ConfigConfigurationRecorderProperties ConfigConfigurationRecorder
   | ConfigDeliveryChannelProperties ConfigDeliveryChannel
+  | DAXClusterProperties DAXCluster
+  | DAXParameterGroupProperties DAXParameterGroup
+  | DAXSubnetGroupProperties DAXSubnetGroup
   | DMSCertificateProperties DMSCertificate
   | DMSEndpointProperties DMSEndpoint
   | DMSEventSubscriptionProperties DMSEventSubscription
@@ -933,6 +970,8 @@ resourcePropertiesJSON (ApiGatewayDocumentationVersionProperties x) =
   [ "Type" .= ("AWS::ApiGateway::DocumentationVersion" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ApiGatewayDomainNameProperties x) =
   [ "Type" .= ("AWS::ApiGateway::DomainName" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (ApiGatewayGatewayResponseProperties x) =
+  [ "Type" .= ("AWS::ApiGateway::GatewayResponse" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ApiGatewayMethodProperties x) =
   [ "Type" .= ("AWS::ApiGateway::Method" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ApiGatewayModelProperties x) =
@@ -963,6 +1002,12 @@ resourcePropertiesJSON (AutoScalingScalingPolicyProperties x) =
   [ "Type" .= ("AWS::AutoScaling::ScalingPolicy" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (AutoScalingScheduledActionProperties x) =
   [ "Type" .= ("AWS::AutoScaling::ScheduledAction" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (BatchComputeEnvironmentProperties x) =
+  [ "Type" .= ("AWS::Batch::ComputeEnvironment" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (BatchJobDefinitionProperties x) =
+  [ "Type" .= ("AWS::Batch::JobDefinition" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (BatchJobQueueProperties x) =
+  [ "Type" .= ("AWS::Batch::JobQueue" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (CertificateManagerCertificateProperties x) =
   [ "Type" .= ("AWS::CertificateManager::Certificate" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (CloudFormationCustomResourceProperties x) =
@@ -1015,6 +1060,12 @@ resourcePropertiesJSON (ConfigConfigurationRecorderProperties x) =
   [ "Type" .= ("AWS::Config::ConfigurationRecorder" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ConfigDeliveryChannelProperties x) =
   [ "Type" .= ("AWS::Config::DeliveryChannel" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (DAXClusterProperties x) =
+  [ "Type" .= ("AWS::DAX::Cluster" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (DAXParameterGroupProperties x) =
+  [ "Type" .= ("AWS::DAX::ParameterGroup" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (DAXSubnetGroupProperties x) =
+  [ "Type" .= ("AWS::DAX::SubnetGroup" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (DMSCertificateProperties x) =
   [ "Type" .= ("AWS::DMS::Certificate" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (DMSEndpointProperties x) =
@@ -1360,6 +1411,7 @@ resourceFromJSON n o =
          "AWS::ApiGateway::DocumentationPart" -> ApiGatewayDocumentationPartProperties <$> (o .: "Properties")
          "AWS::ApiGateway::DocumentationVersion" -> ApiGatewayDocumentationVersionProperties <$> (o .: "Properties")
          "AWS::ApiGateway::DomainName" -> ApiGatewayDomainNameProperties <$> (o .: "Properties")
+         "AWS::ApiGateway::GatewayResponse" -> ApiGatewayGatewayResponseProperties <$> (o .: "Properties")
          "AWS::ApiGateway::Method" -> ApiGatewayMethodProperties <$> (o .: "Properties")
          "AWS::ApiGateway::Model" -> ApiGatewayModelProperties <$> (o .: "Properties")
          "AWS::ApiGateway::RequestValidator" -> ApiGatewayRequestValidatorProperties <$> (o .: "Properties")
@@ -1375,6 +1427,9 @@ resourceFromJSON n o =
          "AWS::AutoScaling::LifecycleHook" -> AutoScalingLifecycleHookProperties <$> (o .: "Properties")
          "AWS::AutoScaling::ScalingPolicy" -> AutoScalingScalingPolicyProperties <$> (o .: "Properties")
          "AWS::AutoScaling::ScheduledAction" -> AutoScalingScheduledActionProperties <$> (o .: "Properties")
+         "AWS::Batch::ComputeEnvironment" -> BatchComputeEnvironmentProperties <$> (o .: "Properties")
+         "AWS::Batch::JobDefinition" -> BatchJobDefinitionProperties <$> (o .: "Properties")
+         "AWS::Batch::JobQueue" -> BatchJobQueueProperties <$> (o .: "Properties")
          "AWS::CertificateManager::Certificate" -> CertificateManagerCertificateProperties <$> (o .: "Properties")
          "AWS::CloudFormation::CustomResource" -> CloudFormationCustomResourceProperties <$> (o .: "Properties")
          "AWS::CloudFormation::Stack" -> CloudFormationStackProperties <$> (o .: "Properties")
@@ -1401,6 +1456,9 @@ resourceFromJSON n o =
          "AWS::Config::ConfigRule" -> ConfigConfigRuleProperties <$> (o .: "Properties")
          "AWS::Config::ConfigurationRecorder" -> ConfigConfigurationRecorderProperties <$> (o .: "Properties")
          "AWS::Config::DeliveryChannel" -> ConfigDeliveryChannelProperties <$> (o .: "Properties")
+         "AWS::DAX::Cluster" -> DAXClusterProperties <$> (o .: "Properties")
+         "AWS::DAX::ParameterGroup" -> DAXParameterGroupProperties <$> (o .: "Properties")
+         "AWS::DAX::SubnetGroup" -> DAXSubnetGroupProperties <$> (o .: "Properties")
          "AWS::DMS::Certificate" -> DMSCertificateProperties <$> (o .: "Properties")
          "AWS::DMS::Endpoint" -> DMSEndpointProperties <$> (o .: "Properties")
          "AWS::DMS::EventSubscription" -> DMSEventSubscriptionProperties <$> (o .: "Properties")

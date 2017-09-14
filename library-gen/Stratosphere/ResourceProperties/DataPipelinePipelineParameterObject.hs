@@ -54,6 +54,6 @@ dataPipelinePipelineParameterObject attributesarg idarg =
 dpppaoAttributes :: Lens' DataPipelinePipelineParameterObject [DataPipelinePipelineParameterAttribute]
 dpppaoAttributes = lens _dataPipelinePipelineParameterObjectAttributes (\s a -> s { _dataPipelinePipelineParameterObjectAttributes = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datapipeline-pipeline-parameterobjects.html#cfn-datapipeline-pipeline-parameterobject-id
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datapipeline-pipeline-parameterobjects.html#cfn-datapipeline-pipeline-parameterobjects-id
 dpppaoId :: Lens' DataPipelinePipelineParameterObject (Val Text)
 dpppaoId = lens _dataPipelinePipelineParameterObjectId (\s a -> s { _dataPipelinePipelineParameterObjectId = a })

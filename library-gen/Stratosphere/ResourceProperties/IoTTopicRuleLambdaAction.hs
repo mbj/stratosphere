@@ -2,7 +2,7 @@
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE TupleSections #-}
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-lambda.html
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-lambdaaction.html
 
 module Stratosphere.ResourceProperties.IoTTopicRuleLambdaAction where
 
@@ -19,32 +19,31 @@ import Stratosphere.Values
 -- 'ioTTopicRuleLambdaAction' for a more convenient constructor.
 data IoTTopicRuleLambdaAction =
   IoTTopicRuleLambdaAction
-  { _ioTTopicRuleLambdaActionFunctionArn :: Val Text
+  { _ioTTopicRuleLambdaActionFunctionArn :: Maybe (Val Text)
   } deriving (Show, Eq)
 
 instance ToJSON IoTTopicRuleLambdaAction where
   toJSON IoTTopicRuleLambdaAction{..} =
     object $
     catMaybes
-    [ (Just . ("FunctionArn",) . toJSON) _ioTTopicRuleLambdaActionFunctionArn
+    [ fmap (("FunctionArn",) . toJSON) _ioTTopicRuleLambdaActionFunctionArn
     ]
 
 instance FromJSON IoTTopicRuleLambdaAction where
   parseJSON (Object obj) =
     IoTTopicRuleLambdaAction <$>
-      (obj .: "FunctionArn")
+      (obj .:? "FunctionArn")
   parseJSON _ = mempty
 
 -- | Constructor for 'IoTTopicRuleLambdaAction' containing required fields as
 -- arguments.
 ioTTopicRuleLambdaAction
-  :: Val Text -- ^ 'ittrlaFunctionArn'
-  -> IoTTopicRuleLambdaAction
-ioTTopicRuleLambdaAction functionArnarg =
+  :: IoTTopicRuleLambdaAction
+ioTTopicRuleLambdaAction  =
   IoTTopicRuleLambdaAction
-  { _ioTTopicRuleLambdaActionFunctionArn = functionArnarg
+  { _ioTTopicRuleLambdaActionFunctionArn = Nothing
   }
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-lambda.html#cfn-iot-lambda-functionarn
-ittrlaFunctionArn :: Lens' IoTTopicRuleLambdaAction (Val Text)
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-lambdaaction.html#cfn-iot-topicrule-lambdaaction-functionarn
+ittrlaFunctionArn :: Lens' IoTTopicRuleLambdaAction (Maybe (Val Text))
 ittrlaFunctionArn = lens _ioTTopicRuleLambdaActionFunctionArn (\s a -> s { _ioTTopicRuleLambdaActionFunctionArn = a })

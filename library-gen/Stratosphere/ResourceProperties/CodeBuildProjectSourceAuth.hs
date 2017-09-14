@@ -20,7 +20,7 @@ import Stratosphere.Values
 data CodeBuildProjectSourceAuth =
   CodeBuildProjectSourceAuth
   { _codeBuildProjectSourceAuthResource :: Maybe (Val Text)
-  , _codeBuildProjectSourceAuthType :: Maybe (Val Text)
+  , _codeBuildProjectSourceAuthType :: Val Text
   } deriving (Show, Eq)
 
 instance ToJSON CodeBuildProjectSourceAuth where
@@ -28,24 +28,25 @@ instance ToJSON CodeBuildProjectSourceAuth where
     object $
     catMaybes
     [ fmap (("Resource",) . toJSON) _codeBuildProjectSourceAuthResource
-    , fmap (("Type",) . toJSON) _codeBuildProjectSourceAuthType
+    , (Just . ("Type",) . toJSON) _codeBuildProjectSourceAuthType
     ]
 
 instance FromJSON CodeBuildProjectSourceAuth where
   parseJSON (Object obj) =
     CodeBuildProjectSourceAuth <$>
       (obj .:? "Resource") <*>
-      (obj .:? "Type")
+      (obj .: "Type")
   parseJSON _ = mempty
 
 -- | Constructor for 'CodeBuildProjectSourceAuth' containing required fields
 -- as arguments.
 codeBuildProjectSourceAuth
-  :: CodeBuildProjectSourceAuth
-codeBuildProjectSourceAuth  =
+  :: Val Text -- ^ 'cbpsaType'
+  -> CodeBuildProjectSourceAuth
+codeBuildProjectSourceAuth typearg =
   CodeBuildProjectSourceAuth
   { _codeBuildProjectSourceAuthResource = Nothing
-  , _codeBuildProjectSourceAuthType = Nothing
+  , _codeBuildProjectSourceAuthType = typearg
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-sourceauth.html#cfn-codebuild-project-sourceauth-resource
@@ -53,5 +54,5 @@ cbpsaResource :: Lens' CodeBuildProjectSourceAuth (Maybe (Val Text))
 cbpsaResource = lens _codeBuildProjectSourceAuthResource (\s a -> s { _codeBuildProjectSourceAuthResource = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-sourceauth.html#cfn-codebuild-project-sourceauth-type
-cbpsaType :: Lens' CodeBuildProjectSourceAuth (Maybe (Val Text))
+cbpsaType :: Lens' CodeBuildProjectSourceAuth (Val Text)
 cbpsaType = lens _codeBuildProjectSourceAuthType (\s a -> s { _codeBuildProjectSourceAuthType = a })

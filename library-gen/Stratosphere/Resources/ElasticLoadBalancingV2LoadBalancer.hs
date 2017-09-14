@@ -14,6 +14,7 @@ import Data.Text
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.ElasticLoadBalancingV2LoadBalancerLoadBalancerAttribute
+import Stratosphere.ResourceProperties.ElasticLoadBalancingV2LoadBalancerSubnetMapping
 import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for ElasticLoadBalancingV2LoadBalancer. See
@@ -25,8 +26,10 @@ data ElasticLoadBalancingV2LoadBalancer =
   , _elasticLoadBalancingV2LoadBalancerName :: Maybe (Val Text)
   , _elasticLoadBalancingV2LoadBalancerScheme :: Maybe (Val Text)
   , _elasticLoadBalancingV2LoadBalancerSecurityGroups :: Maybe (ValList Text)
+  , _elasticLoadBalancingV2LoadBalancerSubnetMappings :: Maybe [ElasticLoadBalancingV2LoadBalancerSubnetMapping]
   , _elasticLoadBalancingV2LoadBalancerSubnets :: Maybe (ValList Text)
   , _elasticLoadBalancingV2LoadBalancerTags :: Maybe [Tag]
+  , _elasticLoadBalancingV2LoadBalancerType :: Maybe (Val Text)
   } deriving (Show, Eq)
 
 instance ToJSON ElasticLoadBalancingV2LoadBalancer where
@@ -38,8 +41,10 @@ instance ToJSON ElasticLoadBalancingV2LoadBalancer where
     , fmap (("Name",) . toJSON) _elasticLoadBalancingV2LoadBalancerName
     , fmap (("Scheme",) . toJSON) _elasticLoadBalancingV2LoadBalancerScheme
     , fmap (("SecurityGroups",) . toJSON) _elasticLoadBalancingV2LoadBalancerSecurityGroups
+    , fmap (("SubnetMappings",) . toJSON) _elasticLoadBalancingV2LoadBalancerSubnetMappings
     , fmap (("Subnets",) . toJSON) _elasticLoadBalancingV2LoadBalancerSubnets
     , fmap (("Tags",) . toJSON) _elasticLoadBalancingV2LoadBalancerTags
+    , fmap (("Type",) . toJSON) _elasticLoadBalancingV2LoadBalancerType
     ]
 
 instance FromJSON ElasticLoadBalancingV2LoadBalancer where
@@ -50,8 +55,10 @@ instance FromJSON ElasticLoadBalancingV2LoadBalancer where
       (obj .:? "Name") <*>
       (obj .:? "Scheme") <*>
       (obj .:? "SecurityGroups") <*>
+      (obj .:? "SubnetMappings") <*>
       (obj .:? "Subnets") <*>
-      (obj .:? "Tags")
+      (obj .:? "Tags") <*>
+      (obj .:? "Type")
   parseJSON _ = mempty
 
 -- | Constructor for 'ElasticLoadBalancingV2LoadBalancer' containing required
@@ -65,8 +72,10 @@ elasticLoadBalancingV2LoadBalancer  =
   , _elasticLoadBalancingV2LoadBalancerName = Nothing
   , _elasticLoadBalancingV2LoadBalancerScheme = Nothing
   , _elasticLoadBalancingV2LoadBalancerSecurityGroups = Nothing
+  , _elasticLoadBalancingV2LoadBalancerSubnetMappings = Nothing
   , _elasticLoadBalancingV2LoadBalancerSubnets = Nothing
   , _elasticLoadBalancingV2LoadBalancerTags = Nothing
+  , _elasticLoadBalancingV2LoadBalancerType = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-ipaddresstype
@@ -89,6 +98,10 @@ elbvlbScheme = lens _elasticLoadBalancingV2LoadBalancerScheme (\s a -> s { _elas
 elbvlbSecurityGroups :: Lens' ElasticLoadBalancingV2LoadBalancer (Maybe (ValList Text))
 elbvlbSecurityGroups = lens _elasticLoadBalancingV2LoadBalancerSecurityGroups (\s a -> s { _elasticLoadBalancingV2LoadBalancerSecurityGroups = a })
 
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-subnetmappings
+elbvlbSubnetMappings :: Lens' ElasticLoadBalancingV2LoadBalancer (Maybe [ElasticLoadBalancingV2LoadBalancerSubnetMapping])
+elbvlbSubnetMappings = lens _elasticLoadBalancingV2LoadBalancerSubnetMappings (\s a -> s { _elasticLoadBalancingV2LoadBalancerSubnetMappings = a })
+
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-subnets
 elbvlbSubnets :: Lens' ElasticLoadBalancingV2LoadBalancer (Maybe (ValList Text))
 elbvlbSubnets = lens _elasticLoadBalancingV2LoadBalancerSubnets (\s a -> s { _elasticLoadBalancingV2LoadBalancerSubnets = a })
@@ -96,3 +109,7 @@ elbvlbSubnets = lens _elasticLoadBalancingV2LoadBalancerSubnets (\s a -> s { _el
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-tags
 elbvlbTags :: Lens' ElasticLoadBalancingV2LoadBalancer (Maybe [Tag])
 elbvlbTags = lens _elasticLoadBalancingV2LoadBalancerTags (\s a -> s { _elasticLoadBalancingV2LoadBalancerTags = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html#cfn-elasticloadbalancingv2-loadbalancer-type
+elbvlbType :: Lens' ElasticLoadBalancingV2LoadBalancer (Maybe (Val Text))
+elbvlbType = lens _elasticLoadBalancingV2LoadBalancerType (\s a -> s { _elasticLoadBalancingV2LoadBalancerType = a })

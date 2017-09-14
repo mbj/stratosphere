@@ -2,7 +2,7 @@
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE TupleSections #-}
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-sqs.html
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-sqsaction.html
 
 module Stratosphere.ResourceProperties.IoTTopicRuleSqsAction where
 
@@ -54,14 +54,14 @@ ioTTopicRuleSqsAction queueUrlarg roleArnarg =
   , _ioTTopicRuleSqsActionUseBase64 = Nothing
   }
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-sqs.html#cfn-iot-sqs-queueurl
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-sqsaction.html#cfn-iot-topicrule-sqsaction-queueurl
 ittrsqaQueueUrl :: Lens' IoTTopicRuleSqsAction (Val Text)
 ittrsqaQueueUrl = lens _ioTTopicRuleSqsActionQueueUrl (\s a -> s { _ioTTopicRuleSqsActionQueueUrl = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-sqs.html#cfn-iot-sqs-rolearn
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-sqsaction.html#cfn-iot-topicrule-sqsaction-rolearn
 ittrsqaRoleArn :: Lens' IoTTopicRuleSqsAction (Val Text)
 ittrsqaRoleArn = lens _ioTTopicRuleSqsActionRoleArn (\s a -> s { _ioTTopicRuleSqsActionRoleArn = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-sqs.html#cfn-iot-sqs-usebase64
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-sqsaction.html#cfn-iot-topicrule-sqsaction-usebase64
 ittrsqaUseBase64 :: Lens' IoTTopicRuleSqsAction (Maybe (Val Bool))
 ittrsqaUseBase64 = lens _ioTTopicRuleSqsActionUseBase64 (\s a -> s { _ioTTopicRuleSqsActionUseBase64 = a })

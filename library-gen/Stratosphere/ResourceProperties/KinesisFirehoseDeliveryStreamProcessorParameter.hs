@@ -2,7 +2,7 @@
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE TupleSections #-}
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-kinesisdeliverystream-ProcessingConfiguration.html
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processorparameter.html
 
 module Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamProcessorParameter where
 
@@ -52,10 +52,10 @@ kinesisFirehoseDeliveryStreamProcessorParameter parameterNamearg parameterValuea
   , _kinesisFirehoseDeliveryStreamProcessorParameterParameterValue = parameterValuearg
   }
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-kinesisdeliverystream-ProcessingConfiguration.html#cfn-kinesisfirehose-kinesisdeliverystream-processingconfiguration-processor-parameter-parameterName
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processorparameter.html#cfn-kinesisfirehose-deliverystream-processorparameter-parametername
 kfdsppParameterName :: Lens' KinesisFirehoseDeliveryStreamProcessorParameter (Val Text)
 kfdsppParameterName = lens _kinesisFirehoseDeliveryStreamProcessorParameterParameterName (\s a -> s { _kinesisFirehoseDeliveryStreamProcessorParameterParameterName = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-kinesisdeliverystream-ProcessingConfiguration.html#cfn-kinesisfirehose-kinesisdeliverystream-processingconfiguration-processor-parameter-parameterValue
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processorparameter.html#cfn-kinesisfirehose-deliverystream-processorparameter-parametervalue
 kfdsppParameterValue :: Lens' KinesisFirehoseDeliveryStreamProcessorParameter (Val Text)
 kfdsppParameterValue = lens _kinesisFirehoseDeliveryStreamProcessorParameterParameterValue (\s a -> s { _kinesisFirehoseDeliveryStreamProcessorParameterParameterValue = a })
