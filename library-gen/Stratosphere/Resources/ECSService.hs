@@ -24,7 +24,7 @@ data ECSService =
   ECSService
   { _eCSServiceCluster :: Maybe (Val Text)
   , _eCSServiceDeploymentConfiguration :: Maybe ECSServiceDeploymentConfiguration
-  , _eCSServiceDesiredCount :: Val Integer
+  , _eCSServiceDesiredCount :: Maybe (Val Integer)
   , _eCSServiceLoadBalancers :: Maybe [ECSServiceLoadBalancer]
   , _eCSServicePlacementConstraints :: Maybe [ECSServicePlacementConstraint]
   , _eCSServicePlacementStrategies :: Maybe [ECSServicePlacementStrategy]
@@ -39,7 +39,7 @@ instance ToJSON ECSService where
     catMaybes
     [ fmap (("Cluster",) . toJSON) _eCSServiceCluster
     , fmap (("DeploymentConfiguration",) . toJSON) _eCSServiceDeploymentConfiguration
-    , (Just . ("DesiredCount",) . toJSON . fmap Integer') _eCSServiceDesiredCount
+    , fmap (("DesiredCount",) . toJSON . fmap Integer') _eCSServiceDesiredCount
     , fmap (("LoadBalancers",) . toJSON) _eCSServiceLoadBalancers
     , fmap (("PlacementConstraints",) . toJSON) _eCSServicePlacementConstraints
     , fmap (("PlacementStrategies",) . toJSON) _eCSServicePlacementStrategies
@@ -53,7 +53,7 @@ instance FromJSON ECSService where
     ECSService <$>
       (obj .:? "Cluster") <*>
       (obj .:? "DeploymentConfiguration") <*>
-      fmap (fmap unInteger') (obj .: "DesiredCount") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "DesiredCount") <*>
       (obj .:? "LoadBalancers") <*>
       (obj .:? "PlacementConstraints") <*>
       (obj .:? "PlacementStrategies") <*>
@@ -64,14 +64,13 @@ instance FromJSON ECSService where
 
 -- | Constructor for 'ECSService' containing required fields as arguments.
 ecsService
-  :: Val Integer -- ^ 'ecssDesiredCount'
-  -> Val Text -- ^ 'ecssTaskDefinition'
+  :: Val Text -- ^ 'ecssTaskDefinition'
   -> ECSService
-ecsService desiredCountarg taskDefinitionarg =
+ecsService taskDefinitionarg =
   ECSService
   { _eCSServiceCluster = Nothing
   , _eCSServiceDeploymentConfiguration = Nothing
-  , _eCSServiceDesiredCount = desiredCountarg
+  , _eCSServiceDesiredCount = Nothing
   , _eCSServiceLoadBalancers = Nothing
   , _eCSServicePlacementConstraints = Nothing
   , _eCSServicePlacementStrategies = Nothing
@@ -89,7 +88,7 @@ ecssDeploymentConfiguration :: Lens' ECSService (Maybe ECSServiceDeploymentConfi
 ecssDeploymentConfiguration = lens _eCSServiceDeploymentConfiguration (\s a -> s { _eCSServiceDeploymentConfiguration = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-desiredcount
-ecssDesiredCount :: Lens' ECSService (Val Integer)
+ecssDesiredCount :: Lens' ECSService (Maybe (Val Integer))
 ecssDesiredCount = lens _eCSServiceDesiredCount (\s a -> s { _eCSServiceDesiredCount = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-loadbalancers

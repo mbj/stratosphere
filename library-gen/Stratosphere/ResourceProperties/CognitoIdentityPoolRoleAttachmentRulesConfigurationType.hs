@@ -2,7 +2,7 @@
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE TupleSections #-}
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-rolemapping-rulesconfiguration.html
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-rulesconfigurationtype.html
 
 module Stratosphere.ResourceProperties.CognitoIdentityPoolRoleAttachmentRulesConfigurationType where
 
@@ -47,6 +47,6 @@ cognitoIdentityPoolRoleAttachmentRulesConfigurationType rulesarg =
   { _cognitoIdentityPoolRoleAttachmentRulesConfigurationTypeRules = rulesarg
   }
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-rolemapping-rulesconfiguration.html#cfn-cognito-identitypoolroleattachment-rolemapping-rulesconfiguration-rules
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-rulesconfigurationtype.html#cfn-cognito-identitypoolroleattachment-rulesconfigurationtype-rules
 ciprarctRules :: Lens' CognitoIdentityPoolRoleAttachmentRulesConfigurationType [CognitoIdentityPoolRoleAttachmentMappingRule]
 ciprarctRules = lens _cognitoIdentityPoolRoleAttachmentRulesConfigurationTypeRules (\s a -> s { _cognitoIdentityPoolRoleAttachmentRulesConfigurationTypeRules = a })

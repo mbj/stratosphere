@@ -329,9 +329,9 @@ dynamoDbTable :: Resource
 dynamoDbTable = resource "Table" $
   DynamoDBTableProperties $
   dynamoDBTable
+    attributeDefinitions
     keySchema
     provisionedThroughput
-  & ddbtAttributeDefinitions ?~ attributeDefinitions
   & ddbtTableName ?~ "stratosphere-dynamodb-table"
 
   where
