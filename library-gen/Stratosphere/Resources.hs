@@ -174,7 +174,6 @@ import Stratosphere.Resources.ElasticBeanstalkConfigurationTemplate as X
 import Stratosphere.Resources.ElasticBeanstalkEnvironment as X
 import Stratosphere.Resources.ElasticLoadBalancingLoadBalancer as X
 import Stratosphere.Resources.ElasticLoadBalancingV2Listener as X
-import Stratosphere.Resources.ElasticLoadBalancingV2ListenerCertificate as X
 import Stratosphere.Resources.ElasticLoadBalancingV2ListenerRule as X
 import Stratosphere.Resources.ElasticLoadBalancingV2LoadBalancer as X
 import Stratosphere.Resources.ElasticLoadBalancingV2TargetGroup as X
@@ -809,7 +808,6 @@ data ResourceProperties
   | ElasticBeanstalkEnvironmentProperties ElasticBeanstalkEnvironment
   | ElasticLoadBalancingLoadBalancerProperties ElasticLoadBalancingLoadBalancer
   | ElasticLoadBalancingV2ListenerProperties ElasticLoadBalancingV2Listener
-  | ElasticLoadBalancingV2ListenerCertificateProperties ElasticLoadBalancingV2ListenerCertificate
   | ElasticLoadBalancingV2ListenerRuleProperties ElasticLoadBalancingV2ListenerRule
   | ElasticLoadBalancingV2LoadBalancerProperties ElasticLoadBalancingV2LoadBalancer
   | ElasticLoadBalancingV2TargetGroupProperties ElasticLoadBalancingV2TargetGroup
@@ -1213,8 +1211,6 @@ resourcePropertiesJSON (ElasticLoadBalancingLoadBalancerProperties x) =
   [ "Type" .= ("AWS::ElasticLoadBalancing::LoadBalancer" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ElasticLoadBalancingV2ListenerProperties x) =
   [ "Type" .= ("AWS::ElasticLoadBalancingV2::Listener" :: String), "Properties" .= toJSON x]
-resourcePropertiesJSON (ElasticLoadBalancingV2ListenerCertificateProperties x) =
-  [ "Type" .= ("AWS::ElasticLoadBalancingV2::ListenerCertificate" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ElasticLoadBalancingV2ListenerRuleProperties x) =
   [ "Type" .= ("AWS::ElasticLoadBalancingV2::ListenerRule" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ElasticLoadBalancingV2LoadBalancerProperties x) =
@@ -1536,7 +1532,6 @@ resourceFromJSON n o =
          "AWS::ElasticBeanstalk::Environment" -> ElasticBeanstalkEnvironmentProperties <$> (o .: "Properties")
          "AWS::ElasticLoadBalancing::LoadBalancer" -> ElasticLoadBalancingLoadBalancerProperties <$> (o .: "Properties")
          "AWS::ElasticLoadBalancingV2::Listener" -> ElasticLoadBalancingV2ListenerProperties <$> (o .: "Properties")
-         "AWS::ElasticLoadBalancingV2::ListenerCertificate" -> ElasticLoadBalancingV2ListenerCertificateProperties <$> (o .: "Properties")
          "AWS::ElasticLoadBalancingV2::ListenerRule" -> ElasticLoadBalancingV2ListenerRuleProperties <$> (o .: "Properties")
          "AWS::ElasticLoadBalancingV2::LoadBalancer" -> ElasticLoadBalancingV2LoadBalancerProperties <$> (o .: "Properties")
          "AWS::ElasticLoadBalancingV2::TargetGroup" -> ElasticLoadBalancingV2TargetGroupProperties <$> (o .: "Properties")
