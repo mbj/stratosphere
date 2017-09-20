@@ -87,22 +87,15 @@ fixSpecBugs spec =
   . propertyPropsLens
   . at "Name"
   %~ (\(Just rawProp) -> Just rawProp { rawPropertyRequired = True })
-  -- AWS::CloudWatch::Alarm has a property EvaluationPeriods that should be
-  -- Integer, but it is specified as Double.
-  & resourceTypesLens
-  . ix "AWS::CloudWatch::Alarm"
-  . resourcePropsLens
-  . at "EvaluationPeriods"
-  %~ (\(Just rawProp) -> Just rawProp { rawPropertyPrimitiveType = Just "Integer" })
   where
     propertyTypesLens :: Lens' RawCloudFormationSpec (Map Text RawPropertyType)
     propertyTypesLens = lens rawCloudFormationSpecPropertyTypes (\s a -> s { rawCloudFormationSpecPropertyTypes = a })
     propertyPropsLens :: Lens' RawPropertyType (Map Text RawProperty)
     propertyPropsLens = lens rawPropertyTypeProperties (\s a -> s { rawPropertyTypeProperties = a })
-    resourceTypesLens :: Lens' RawCloudFormationSpec (Map Text RawResourceType)
-    resourceTypesLens = lens rawCloudFormationSpecResourceTypes (\s a -> s { rawCloudFormationSpecResourceTypes = a })
-    resourcePropsLens :: Lens' RawResourceType (Map Text RawProperty)
-    resourcePropsLens = lens rawResourceTypeProperties (\s a -> s { rawResourceTypeProperties = a })
+    -- resourceTypesLens :: Lens' RawCloudFormationSpec (Map Text RawResourceType)
+    -- resourceTypesLens = lens rawCloudFormationSpecResourceTypes (\s a -> s { rawCloudFormationSpecResourceTypes = a })
+    -- resourcePropsLens :: Lens' RawResourceType (Map Text RawProperty)
+    -- resourcePropsLens = lens rawResourceTypeProperties (\s a -> s { rawResourceTypeProperties = a })
 
 data PropertyType
   = PropertyType
