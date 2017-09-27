@@ -15,6 +15,7 @@ import Data.Text
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguration
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamExtendedS3DestinationConfiguration
+import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamKinesisStreamSourceConfiguration
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamS3DestinationConfiguration
 
@@ -23,8 +24,10 @@ import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamS3Destinatio
 data KinesisFirehoseDeliveryStream =
   KinesisFirehoseDeliveryStream
   { _kinesisFirehoseDeliveryStreamDeliveryStreamName :: Maybe (Val Text)
+  , _kinesisFirehoseDeliveryStreamDeliveryStreamType :: Maybe (Val Text)
   , _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguration :: Maybe KinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguration
   , _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfiguration :: Maybe KinesisFirehoseDeliveryStreamExtendedS3DestinationConfiguration
+  , _kinesisFirehoseDeliveryStreamKinesisStreamSourceConfiguration :: Maybe KinesisFirehoseDeliveryStreamKinesisStreamSourceConfiguration
   , _kinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration :: Maybe KinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration
   , _kinesisFirehoseDeliveryStreamS3DestinationConfiguration :: Maybe KinesisFirehoseDeliveryStreamS3DestinationConfiguration
   } deriving (Show, Eq)
@@ -34,8 +37,10 @@ instance ToJSON KinesisFirehoseDeliveryStream where
     object $
     catMaybes
     [ fmap (("DeliveryStreamName",) . toJSON) _kinesisFirehoseDeliveryStreamDeliveryStreamName
+    , fmap (("DeliveryStreamType",) . toJSON) _kinesisFirehoseDeliveryStreamDeliveryStreamType
     , fmap (("ElasticsearchDestinationConfiguration",) . toJSON) _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguration
     , fmap (("ExtendedS3DestinationConfiguration",) . toJSON) _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfiguration
+    , fmap (("KinesisStreamSourceConfiguration",) . toJSON) _kinesisFirehoseDeliveryStreamKinesisStreamSourceConfiguration
     , fmap (("RedshiftDestinationConfiguration",) . toJSON) _kinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration
     , fmap (("S3DestinationConfiguration",) . toJSON) _kinesisFirehoseDeliveryStreamS3DestinationConfiguration
     ]
@@ -44,8 +49,10 @@ instance FromJSON KinesisFirehoseDeliveryStream where
   parseJSON (Object obj) =
     KinesisFirehoseDeliveryStream <$>
       (obj .:? "DeliveryStreamName") <*>
+      (obj .:? "DeliveryStreamType") <*>
       (obj .:? "ElasticsearchDestinationConfiguration") <*>
       (obj .:? "ExtendedS3DestinationConfiguration") <*>
+      (obj .:? "KinesisStreamSourceConfiguration") <*>
       (obj .:? "RedshiftDestinationConfiguration") <*>
       (obj .:? "S3DestinationConfiguration")
   parseJSON _ = mempty
@@ -57,8 +64,10 @@ kinesisFirehoseDeliveryStream
 kinesisFirehoseDeliveryStream  =
   KinesisFirehoseDeliveryStream
   { _kinesisFirehoseDeliveryStreamDeliveryStreamName = Nothing
+  , _kinesisFirehoseDeliveryStreamDeliveryStreamType = Nothing
   , _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguration = Nothing
   , _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfiguration = Nothing
+  , _kinesisFirehoseDeliveryStreamKinesisStreamSourceConfiguration = Nothing
   , _kinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration = Nothing
   , _kinesisFirehoseDeliveryStreamS3DestinationConfiguration = Nothing
   }
@@ -67,6 +76,10 @@ kinesisFirehoseDeliveryStream  =
 kfdsDeliveryStreamName :: Lens' KinesisFirehoseDeliveryStream (Maybe (Val Text))
 kfdsDeliveryStreamName = lens _kinesisFirehoseDeliveryStreamDeliveryStreamName (\s a -> s { _kinesisFirehoseDeliveryStreamDeliveryStreamName = a })
 
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-deliverystreamtype
+kfdsDeliveryStreamType :: Lens' KinesisFirehoseDeliveryStream (Maybe (Val Text))
+kfdsDeliveryStreamType = lens _kinesisFirehoseDeliveryStreamDeliveryStreamType (\s a -> s { _kinesisFirehoseDeliveryStreamDeliveryStreamType = a })
+
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration
 kfdsElasticsearchDestinationConfiguration :: Lens' KinesisFirehoseDeliveryStream (Maybe KinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguration)
 kfdsElasticsearchDestinationConfiguration = lens _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguration (\s a -> s { _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguration = a })
@@ -74,6 +87,10 @@ kfdsElasticsearchDestinationConfiguration = lens _kinesisFirehoseDeliveryStreamE
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration
 kfdsExtendedS3DestinationConfiguration :: Lens' KinesisFirehoseDeliveryStream (Maybe KinesisFirehoseDeliveryStreamExtendedS3DestinationConfiguration)
 kfdsExtendedS3DestinationConfiguration = lens _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfiguration (\s a -> s { _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfiguration = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-kinesisstreamsourceconfiguration
+kfdsKinesisStreamSourceConfiguration :: Lens' KinesisFirehoseDeliveryStream (Maybe KinesisFirehoseDeliveryStreamKinesisStreamSourceConfiguration)
+kfdsKinesisStreamSourceConfiguration = lens _kinesisFirehoseDeliveryStreamKinesisStreamSourceConfiguration (\s a -> s { _kinesisFirehoseDeliveryStreamKinesisStreamSourceConfiguration = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration
 kfdsRedshiftDestinationConfiguration :: Lens' KinesisFirehoseDeliveryStream (Maybe KinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration)

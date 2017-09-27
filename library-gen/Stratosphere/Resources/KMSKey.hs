@@ -13,7 +13,7 @@ import Data.Monoid (mempty)
 import Data.Text
 
 import Stratosphere.Values
-
+import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for KMSKey. See 'kmsKey' for a more convenient
 -- constructor.
@@ -24,6 +24,7 @@ data KMSKey =
   , _kMSKeyEnabled :: Maybe (Val Bool)
   , _kMSKeyKeyPolicy :: Object
   , _kMSKeyKeyUsage :: Maybe (Val Text)
+  , _kMSKeyTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
 instance ToJSON KMSKey where
@@ -35,6 +36,7 @@ instance ToJSON KMSKey where
     , fmap (("Enabled",) . toJSON . fmap Bool') _kMSKeyEnabled
     , (Just . ("KeyPolicy",) . toJSON) _kMSKeyKeyPolicy
     , fmap (("KeyUsage",) . toJSON) _kMSKeyKeyUsage
+    , fmap (("Tags",) . toJSON) _kMSKeyTags
     ]
 
 instance FromJSON KMSKey where
@@ -44,7 +46,8 @@ instance FromJSON KMSKey where
       fmap (fmap (fmap unBool')) (obj .:? "EnableKeyRotation") <*>
       fmap (fmap (fmap unBool')) (obj .:? "Enabled") <*>
       (obj .: "KeyPolicy") <*>
-      (obj .:? "KeyUsage")
+      (obj .:? "KeyUsage") <*>
+      (obj .:? "Tags")
   parseJSON _ = mempty
 
 -- | Constructor for 'KMSKey' containing required fields as arguments.
@@ -58,6 +61,7 @@ kmsKey keyPolicyarg =
   , _kMSKeyEnabled = Nothing
   , _kMSKeyKeyPolicy = keyPolicyarg
   , _kMSKeyKeyUsage = Nothing
+  , _kMSKeyTags = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-description
@@ -79,3 +83,7 @@ kmskKeyPolicy = lens _kMSKeyKeyPolicy (\s a -> s { _kMSKeyKeyPolicy = a })
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keyusage
 kmskKeyUsage :: Lens' KMSKey (Maybe (Val Text))
 kmskKeyUsage = lens _kMSKeyKeyUsage (\s a -> s { _kMSKeyKeyUsage = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-tags
+kmskTags :: Lens' KMSKey (Maybe [Tag])
+kmskTags = lens _kMSKeyTags (\s a -> s { _kMSKeyTags = a })

@@ -15,7 +15,9 @@ import Data.Text
 import Stratosphere.Values
 import Stratosphere.Types
 import Stratosphere.ResourceProperties.S3BucketAccelerateConfiguration
+import Stratosphere.ResourceProperties.S3BucketAnalyticsConfiguration
 import Stratosphere.ResourceProperties.S3BucketCorsConfiguration
+import Stratosphere.ResourceProperties.S3BucketInventoryConfiguration
 import Stratosphere.ResourceProperties.S3BucketLifecycleConfiguration
 import Stratosphere.ResourceProperties.S3BucketLoggingConfiguration
 import Stratosphere.ResourceProperties.S3BucketMetricsConfiguration
@@ -31,8 +33,10 @@ data S3Bucket =
   S3Bucket
   { _s3BucketAccelerateConfiguration :: Maybe S3BucketAccelerateConfiguration
   , _s3BucketAccessControl :: Maybe (Val CannedACL)
+  , _s3BucketAnalyticsConfigurations :: Maybe [S3BucketAnalyticsConfiguration]
   , _s3BucketBucketName :: Maybe (Val Text)
   , _s3BucketCorsConfiguration :: Maybe S3BucketCorsConfiguration
+  , _s3BucketInventoryConfigurations :: Maybe [S3BucketInventoryConfiguration]
   , _s3BucketLifecycleConfiguration :: Maybe S3BucketLifecycleConfiguration
   , _s3BucketLoggingConfiguration :: Maybe S3BucketLoggingConfiguration
   , _s3BucketMetricsConfigurations :: Maybe [S3BucketMetricsConfiguration]
@@ -49,8 +53,10 @@ instance ToJSON S3Bucket where
     catMaybes
     [ fmap (("AccelerateConfiguration",) . toJSON) _s3BucketAccelerateConfiguration
     , fmap (("AccessControl",) . toJSON) _s3BucketAccessControl
+    , fmap (("AnalyticsConfigurations",) . toJSON) _s3BucketAnalyticsConfigurations
     , fmap (("BucketName",) . toJSON) _s3BucketBucketName
     , fmap (("CorsConfiguration",) . toJSON) _s3BucketCorsConfiguration
+    , fmap (("InventoryConfigurations",) . toJSON) _s3BucketInventoryConfigurations
     , fmap (("LifecycleConfiguration",) . toJSON) _s3BucketLifecycleConfiguration
     , fmap (("LoggingConfiguration",) . toJSON) _s3BucketLoggingConfiguration
     , fmap (("MetricsConfigurations",) . toJSON) _s3BucketMetricsConfigurations
@@ -66,8 +72,10 @@ instance FromJSON S3Bucket where
     S3Bucket <$>
       (obj .:? "AccelerateConfiguration") <*>
       (obj .:? "AccessControl") <*>
+      (obj .:? "AnalyticsConfigurations") <*>
       (obj .:? "BucketName") <*>
       (obj .:? "CorsConfiguration") <*>
+      (obj .:? "InventoryConfigurations") <*>
       (obj .:? "LifecycleConfiguration") <*>
       (obj .:? "LoggingConfiguration") <*>
       (obj .:? "MetricsConfigurations") <*>
@@ -85,8 +93,10 @@ s3Bucket  =
   S3Bucket
   { _s3BucketAccelerateConfiguration = Nothing
   , _s3BucketAccessControl = Nothing
+  , _s3BucketAnalyticsConfigurations = Nothing
   , _s3BucketBucketName = Nothing
   , _s3BucketCorsConfiguration = Nothing
+  , _s3BucketInventoryConfigurations = Nothing
   , _s3BucketLifecycleConfiguration = Nothing
   , _s3BucketLoggingConfiguration = Nothing
   , _s3BucketMetricsConfigurations = Nothing
@@ -105,6 +115,10 @@ sbAccelerateConfiguration = lens _s3BucketAccelerateConfiguration (\s a -> s { _
 sbAccessControl :: Lens' S3Bucket (Maybe (Val CannedACL))
 sbAccessControl = lens _s3BucketAccessControl (\s a -> s { _s3BucketAccessControl = a })
 
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-analyticsconfigurations
+sbAnalyticsConfigurations :: Lens' S3Bucket (Maybe [S3BucketAnalyticsConfiguration])
+sbAnalyticsConfigurations = lens _s3BucketAnalyticsConfigurations (\s a -> s { _s3BucketAnalyticsConfigurations = a })
+
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-name
 sbBucketName :: Lens' S3Bucket (Maybe (Val Text))
 sbBucketName = lens _s3BucketBucketName (\s a -> s { _s3BucketBucketName = a })
@@ -112,6 +126,10 @@ sbBucketName = lens _s3BucketBucketName (\s a -> s { _s3BucketBucketName = a })
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-crossoriginconfig
 sbCorsConfiguration :: Lens' S3Bucket (Maybe S3BucketCorsConfiguration)
 sbCorsConfiguration = lens _s3BucketCorsConfiguration (\s a -> s { _s3BucketCorsConfiguration = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-inventoryconfigurations
+sbInventoryConfigurations :: Lens' S3Bucket (Maybe [S3BucketInventoryConfiguration])
+sbInventoryConfigurations = lens _s3BucketInventoryConfigurations (\s a -> s { _s3BucketInventoryConfigurations = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-lifecycleconfig
 sbLifecycleConfiguration :: Lens' S3Bucket (Maybe S3BucketLifecycleConfiguration)

@@ -26,7 +26,7 @@ import Stratosphere.ResourceProperties.DynamoDBTableTimeToLiveSpecification
 -- more convenient constructor.
 data DynamoDBTable =
   DynamoDBTable
-  { _dynamoDBTableAttributeDefinitions :: [DynamoDBTableAttributeDefinition]
+  { _dynamoDBTableAttributeDefinitions :: Maybe [DynamoDBTableAttributeDefinition]
   , _dynamoDBTableGlobalSecondaryIndexes :: Maybe [DynamoDBTableGlobalSecondaryIndex]
   , _dynamoDBTableKeySchema :: [DynamoDBTableKeySchema]
   , _dynamoDBTableLocalSecondaryIndexes :: Maybe [DynamoDBTableLocalSecondaryIndex]
@@ -41,7 +41,7 @@ instance ToJSON DynamoDBTable where
   toJSON DynamoDBTable{..} =
     object $
     catMaybes
-    [ (Just . ("AttributeDefinitions",) . toJSON) _dynamoDBTableAttributeDefinitions
+    [ fmap (("AttributeDefinitions",) . toJSON) _dynamoDBTableAttributeDefinitions
     , fmap (("GlobalSecondaryIndexes",) . toJSON) _dynamoDBTableGlobalSecondaryIndexes
     , (Just . ("KeySchema",) . toJSON) _dynamoDBTableKeySchema
     , fmap (("LocalSecondaryIndexes",) . toJSON) _dynamoDBTableLocalSecondaryIndexes
@@ -55,7 +55,7 @@ instance ToJSON DynamoDBTable where
 instance FromJSON DynamoDBTable where
   parseJSON (Object obj) =
     DynamoDBTable <$>
-      (obj .: "AttributeDefinitions") <*>
+      (obj .:? "AttributeDefinitions") <*>
       (obj .:? "GlobalSecondaryIndexes") <*>
       (obj .: "KeySchema") <*>
       (obj .:? "LocalSecondaryIndexes") <*>
@@ -68,13 +68,12 @@ instance FromJSON DynamoDBTable where
 
 -- | Constructor for 'DynamoDBTable' containing required fields as arguments.
 dynamoDBTable
-  :: [DynamoDBTableAttributeDefinition] -- ^ 'ddbtAttributeDefinitions'
-  -> [DynamoDBTableKeySchema] -- ^ 'ddbtKeySchema'
+  :: [DynamoDBTableKeySchema] -- ^ 'ddbtKeySchema'
   -> DynamoDBTableProvisionedThroughput -- ^ 'ddbtProvisionedThroughput'
   -> DynamoDBTable
-dynamoDBTable attributeDefinitionsarg keySchemaarg provisionedThroughputarg =
+dynamoDBTable keySchemaarg provisionedThroughputarg =
   DynamoDBTable
-  { _dynamoDBTableAttributeDefinitions = attributeDefinitionsarg
+  { _dynamoDBTableAttributeDefinitions = Nothing
   , _dynamoDBTableGlobalSecondaryIndexes = Nothing
   , _dynamoDBTableKeySchema = keySchemaarg
   , _dynamoDBTableLocalSecondaryIndexes = Nothing
@@ -86,7 +85,7 @@ dynamoDBTable attributeDefinitionsarg keySchemaarg provisionedThroughputarg =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-attributedef
-ddbtAttributeDefinitions :: Lens' DynamoDBTable [DynamoDBTableAttributeDefinition]
+ddbtAttributeDefinitions :: Lens' DynamoDBTable (Maybe [DynamoDBTableAttributeDefinition])
 ddbtAttributeDefinitions = lens _dynamoDBTableAttributeDefinitions (\s a -> s { _dynamoDBTableAttributeDefinitions = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-gsi
