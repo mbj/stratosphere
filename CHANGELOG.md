@@ -1,5 +1,7 @@
 # Change Log
 
+## 0.10.1
+
 ## 0.10.0
 
 * Update resource specification document to version 1.7.0
