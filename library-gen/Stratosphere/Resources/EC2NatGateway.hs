@@ -13,7 +13,7 @@ import Data.Monoid (mempty)
 import Data.Text
 
 import Stratosphere.Values
-
+import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for EC2NatGateway. See 'ec2NatGateway' for a
 -- more convenient constructor.
@@ -21,6 +21,7 @@ data EC2NatGateway =
   EC2NatGateway
   { _eC2NatGatewayAllocationId :: Val Text
   , _eC2NatGatewaySubnetId :: Val Text
+  , _eC2NatGatewayTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
 instance ToJSON EC2NatGateway where
@@ -29,13 +30,15 @@ instance ToJSON EC2NatGateway where
     catMaybes
     [ (Just . ("AllocationId",) . toJSON) _eC2NatGatewayAllocationId
     , (Just . ("SubnetId",) . toJSON) _eC2NatGatewaySubnetId
+    , fmap (("Tags",) . toJSON) _eC2NatGatewayTags
     ]
 
 instance FromJSON EC2NatGateway where
   parseJSON (Object obj) =
     EC2NatGateway <$>
       (obj .: "AllocationId") <*>
-      (obj .: "SubnetId")
+      (obj .: "SubnetId") <*>
+      (obj .:? "Tags")
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2NatGateway' containing required fields as arguments.
@@ -47,6 +50,7 @@ ec2NatGateway allocationIdarg subnetIdarg =
   EC2NatGateway
   { _eC2NatGatewayAllocationId = allocationIdarg
   , _eC2NatGatewaySubnetId = subnetIdarg
+  , _eC2NatGatewayTags = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-natgateway.html#cfn-ec2-natgateway-allocationid
@@ -56,3 +60,7 @@ ecngAllocationId = lens _eC2NatGatewayAllocationId (\s a -> s { _eC2NatGatewayAl
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-natgateway.html#cfn-ec2-natgateway-subnetid
 ecngSubnetId :: Lens' EC2NatGateway (Val Text)
 ecngSubnetId = lens _eC2NatGatewaySubnetId (\s a -> s { _eC2NatGatewaySubnetId = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-natgateway.html#cfn-ec2-natgateway-tags
+ecngTags :: Lens' EC2NatGateway (Maybe [Tag])
+ecngTags = lens _eC2NatGatewayTags (\s a -> s { _eC2NatGatewayTags = a })

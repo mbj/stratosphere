@@ -13,7 +13,7 @@ import Data.Monoid (mempty)
 import Data.Text
 
 import Stratosphere.Values
-import Stratosphere.ResourceProperties.ElasticBeanstalkEnvironmentOptionSettings
+import Stratosphere.ResourceProperties.ElasticBeanstalkEnvironmentOptionSetting
 import Stratosphere.ResourceProperties.Tag
 import Stratosphere.ResourceProperties.ElasticBeanstalkEnvironmentTier
 
@@ -25,7 +25,8 @@ data ElasticBeanstalkEnvironment =
   , _elasticBeanstalkEnvironmentCNAMEPrefix :: Maybe (Val Text)
   , _elasticBeanstalkEnvironmentDescription :: Maybe (Val Text)
   , _elasticBeanstalkEnvironmentEnvironmentName :: Maybe (Val Text)
-  , _elasticBeanstalkEnvironmentOptionSettings :: Maybe [ElasticBeanstalkEnvironmentOptionSettings]
+  , _elasticBeanstalkEnvironmentOptionSettings :: Maybe [ElasticBeanstalkEnvironmentOptionSetting]
+  , _elasticBeanstalkEnvironmentPlatformArn :: Maybe (Val Text)
   , _elasticBeanstalkEnvironmentSolutionStackName :: Maybe (Val Text)
   , _elasticBeanstalkEnvironmentTags :: Maybe [Tag]
   , _elasticBeanstalkEnvironmentTemplateName :: Maybe (Val Text)
@@ -42,6 +43,7 @@ instance ToJSON ElasticBeanstalkEnvironment where
     , fmap (("Description",) . toJSON) _elasticBeanstalkEnvironmentDescription
     , fmap (("EnvironmentName",) . toJSON) _elasticBeanstalkEnvironmentEnvironmentName
     , fmap (("OptionSettings",) . toJSON) _elasticBeanstalkEnvironmentOptionSettings
+    , fmap (("PlatformArn",) . toJSON) _elasticBeanstalkEnvironmentPlatformArn
     , fmap (("SolutionStackName",) . toJSON) _elasticBeanstalkEnvironmentSolutionStackName
     , fmap (("Tags",) . toJSON) _elasticBeanstalkEnvironmentTags
     , fmap (("TemplateName",) . toJSON) _elasticBeanstalkEnvironmentTemplateName
@@ -57,6 +59,7 @@ instance FromJSON ElasticBeanstalkEnvironment where
       (obj .:? "Description") <*>
       (obj .:? "EnvironmentName") <*>
       (obj .:? "OptionSettings") <*>
+      (obj .:? "PlatformArn") <*>
       (obj .:? "SolutionStackName") <*>
       (obj .:? "Tags") <*>
       (obj .:? "TemplateName") <*>
@@ -76,6 +79,7 @@ elasticBeanstalkEnvironment applicationNamearg =
   , _elasticBeanstalkEnvironmentDescription = Nothing
   , _elasticBeanstalkEnvironmentEnvironmentName = Nothing
   , _elasticBeanstalkEnvironmentOptionSettings = Nothing
+  , _elasticBeanstalkEnvironmentPlatformArn = Nothing
   , _elasticBeanstalkEnvironmentSolutionStackName = Nothing
   , _elasticBeanstalkEnvironmentTags = Nothing
   , _elasticBeanstalkEnvironmentTemplateName = Nothing
@@ -100,8 +104,12 @@ ebeEnvironmentName :: Lens' ElasticBeanstalkEnvironment (Maybe (Val Text))
 ebeEnvironmentName = lens _elasticBeanstalkEnvironmentEnvironmentName (\s a -> s { _elasticBeanstalkEnvironmentEnvironmentName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html#cfn-beanstalk-environment-optionsettings
-ebeOptionSettings :: Lens' ElasticBeanstalkEnvironment (Maybe [ElasticBeanstalkEnvironmentOptionSettings])
+ebeOptionSettings :: Lens' ElasticBeanstalkEnvironment (Maybe [ElasticBeanstalkEnvironmentOptionSetting])
 ebeOptionSettings = lens _elasticBeanstalkEnvironmentOptionSettings (\s a -> s { _elasticBeanstalkEnvironmentOptionSettings = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html#cfn-beanstalk-environment-platformarn
+ebePlatformArn :: Lens' ElasticBeanstalkEnvironment (Maybe (Val Text))
+ebePlatformArn = lens _elasticBeanstalkEnvironmentPlatformArn (\s a -> s { _elasticBeanstalkEnvironmentPlatformArn = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html#cfn-beanstalk-environment-solutionstackname
 ebeSolutionStackName :: Lens' ElasticBeanstalkEnvironment (Maybe (Val Text))

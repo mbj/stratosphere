@@ -23,7 +23,7 @@ data ElasticBeanstalkConfigurationTemplateConfigurationOptionSetting =
   ElasticBeanstalkConfigurationTemplateConfigurationOptionSetting
   { _elasticBeanstalkConfigurationTemplateConfigurationOptionSettingNamespace :: Val Text
   , _elasticBeanstalkConfigurationTemplateConfigurationOptionSettingOptionName :: Val Text
-  , _elasticBeanstalkConfigurationTemplateConfigurationOptionSettingValue :: Val Text
+  , _elasticBeanstalkConfigurationTemplateConfigurationOptionSettingValue :: Maybe (Val Text)
   } deriving (Show, Eq)
 
 instance ToJSON ElasticBeanstalkConfigurationTemplateConfigurationOptionSetting where
@@ -32,7 +32,7 @@ instance ToJSON ElasticBeanstalkConfigurationTemplateConfigurationOptionSetting 
     catMaybes
     [ (Just . ("Namespace",) . toJSON) _elasticBeanstalkConfigurationTemplateConfigurationOptionSettingNamespace
     , (Just . ("OptionName",) . toJSON) _elasticBeanstalkConfigurationTemplateConfigurationOptionSettingOptionName
-    , (Just . ("Value",) . toJSON) _elasticBeanstalkConfigurationTemplateConfigurationOptionSettingValue
+    , fmap (("Value",) . toJSON) _elasticBeanstalkConfigurationTemplateConfigurationOptionSettingValue
     ]
 
 instance FromJSON ElasticBeanstalkConfigurationTemplateConfigurationOptionSetting where
@@ -40,7 +40,7 @@ instance FromJSON ElasticBeanstalkConfigurationTemplateConfigurationOptionSettin
     ElasticBeanstalkConfigurationTemplateConfigurationOptionSetting <$>
       (obj .: "Namespace") <*>
       (obj .: "OptionName") <*>
-      (obj .: "Value")
+      (obj .:? "Value")
   parseJSON _ = mempty
 
 -- | Constructor for
@@ -49,13 +49,12 @@ instance FromJSON ElasticBeanstalkConfigurationTemplateConfigurationOptionSettin
 elasticBeanstalkConfigurationTemplateConfigurationOptionSetting
   :: Val Text -- ^ 'ebctcosNamespace'
   -> Val Text -- ^ 'ebctcosOptionName'
-  -> Val Text -- ^ 'ebctcosValue'
   -> ElasticBeanstalkConfigurationTemplateConfigurationOptionSetting
-elasticBeanstalkConfigurationTemplateConfigurationOptionSetting namespacearg optionNamearg valuearg =
+elasticBeanstalkConfigurationTemplateConfigurationOptionSetting namespacearg optionNamearg =
   ElasticBeanstalkConfigurationTemplateConfigurationOptionSetting
   { _elasticBeanstalkConfigurationTemplateConfigurationOptionSettingNamespace = namespacearg
   , _elasticBeanstalkConfigurationTemplateConfigurationOptionSettingOptionName = optionNamearg
-  , _elasticBeanstalkConfigurationTemplateConfigurationOptionSettingValue = valuearg
+  , _elasticBeanstalkConfigurationTemplateConfigurationOptionSettingValue = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-option-settings.html#cfn-beanstalk-optionsettings-namespace
@@ -67,5 +66,5 @@ ebctcosOptionName :: Lens' ElasticBeanstalkConfigurationTemplateConfigurationOpt
 ebctcosOptionName = lens _elasticBeanstalkConfigurationTemplateConfigurationOptionSettingOptionName (\s a -> s { _elasticBeanstalkConfigurationTemplateConfigurationOptionSettingOptionName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-option-settings.html#cfn-beanstalk-optionsettings-value
-ebctcosValue :: Lens' ElasticBeanstalkConfigurationTemplateConfigurationOptionSetting (Val Text)
+ebctcosValue :: Lens' ElasticBeanstalkConfigurationTemplateConfigurationOptionSetting (Maybe (Val Text))
 ebctcosValue = lens _elasticBeanstalkConfigurationTemplateConfigurationOptionSettingValue (\s a -> s { _elasticBeanstalkConfigurationTemplateConfigurationOptionSettingValue = a })

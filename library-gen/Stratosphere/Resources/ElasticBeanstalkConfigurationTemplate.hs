@@ -25,6 +25,7 @@ data ElasticBeanstalkConfigurationTemplate =
   , _elasticBeanstalkConfigurationTemplateDescription :: Maybe (Val Text)
   , _elasticBeanstalkConfigurationTemplateEnvironmentId :: Maybe (Val Text)
   , _elasticBeanstalkConfigurationTemplateOptionSettings :: Maybe [ElasticBeanstalkConfigurationTemplateConfigurationOptionSetting]
+  , _elasticBeanstalkConfigurationTemplatePlatformArn :: Maybe (Val Text)
   , _elasticBeanstalkConfigurationTemplateSolutionStackName :: Maybe (Val Text)
   , _elasticBeanstalkConfigurationTemplateSourceConfiguration :: Maybe ElasticBeanstalkConfigurationTemplateSourceConfiguration
   } deriving (Show, Eq)
@@ -37,6 +38,7 @@ instance ToJSON ElasticBeanstalkConfigurationTemplate where
     , fmap (("Description",) . toJSON) _elasticBeanstalkConfigurationTemplateDescription
     , fmap (("EnvironmentId",) . toJSON) _elasticBeanstalkConfigurationTemplateEnvironmentId
     , fmap (("OptionSettings",) . toJSON) _elasticBeanstalkConfigurationTemplateOptionSettings
+    , fmap (("PlatformArn",) . toJSON) _elasticBeanstalkConfigurationTemplatePlatformArn
     , fmap (("SolutionStackName",) . toJSON) _elasticBeanstalkConfigurationTemplateSolutionStackName
     , fmap (("SourceConfiguration",) . toJSON) _elasticBeanstalkConfigurationTemplateSourceConfiguration
     ]
@@ -48,6 +50,7 @@ instance FromJSON ElasticBeanstalkConfigurationTemplate where
       (obj .:? "Description") <*>
       (obj .:? "EnvironmentId") <*>
       (obj .:? "OptionSettings") <*>
+      (obj .:? "PlatformArn") <*>
       (obj .:? "SolutionStackName") <*>
       (obj .:? "SourceConfiguration")
   parseJSON _ = mempty
@@ -63,6 +66,7 @@ elasticBeanstalkConfigurationTemplate applicationNamearg =
   , _elasticBeanstalkConfigurationTemplateDescription = Nothing
   , _elasticBeanstalkConfigurationTemplateEnvironmentId = Nothing
   , _elasticBeanstalkConfigurationTemplateOptionSettings = Nothing
+  , _elasticBeanstalkConfigurationTemplatePlatformArn = Nothing
   , _elasticBeanstalkConfigurationTemplateSolutionStackName = Nothing
   , _elasticBeanstalkConfigurationTemplateSourceConfiguration = Nothing
   }
@@ -82,6 +86,10 @@ ebctEnvironmentId = lens _elasticBeanstalkConfigurationTemplateEnvironmentId (\s
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-beanstalk-configurationtemplate.html#cfn-elasticbeanstalk-configurationtemplate-optionsettings
 ebctOptionSettings :: Lens' ElasticBeanstalkConfigurationTemplate (Maybe [ElasticBeanstalkConfigurationTemplateConfigurationOptionSetting])
 ebctOptionSettings = lens _elasticBeanstalkConfigurationTemplateOptionSettings (\s a -> s { _elasticBeanstalkConfigurationTemplateOptionSettings = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-beanstalk-configurationtemplate.html#cfn-elasticbeanstalk-configurationtemplate-platformarn
+ebctPlatformArn :: Lens' ElasticBeanstalkConfigurationTemplate (Maybe (Val Text))
+ebctPlatformArn = lens _elasticBeanstalkConfigurationTemplatePlatformArn (\s a -> s { _elasticBeanstalkConfigurationTemplatePlatformArn = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-beanstalk-configurationtemplate.html#cfn-elasticbeanstalk-configurationtemplate-solutionstackname
 ebctSolutionStackName :: Lens' ElasticBeanstalkConfigurationTemplate (Maybe (Val Text))
