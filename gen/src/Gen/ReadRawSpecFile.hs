@@ -11,7 +11,6 @@ module Gen.ReadRawSpecFile
 
 import Control.Applicative ((<|>))
 import Data.Aeson
-import Data.Aeson.Types
 import Data.Map (Map)
 import Data.Text
 import qualified Filesystem as FS
