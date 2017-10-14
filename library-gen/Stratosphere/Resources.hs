@@ -65,6 +65,7 @@ import Stratosphere.Resources.ApiGatewayUsagePlan as X
 import Stratosphere.Resources.ApiGatewayUsagePlanKey as X
 import Stratosphere.Resources.ApplicationAutoScalingScalableTarget as X
 import Stratosphere.Resources.ApplicationAutoScalingScalingPolicy as X
+import Stratosphere.Resources.AthenaNamedQuery as X
 import Stratosphere.Resources.AutoScalingAutoScalingGroup as X
 import Stratosphere.Resources.AutoScalingLaunchConfiguration as X
 import Stratosphere.Resources.AutoScalingLifecycleHook as X
@@ -174,6 +175,7 @@ import Stratosphere.Resources.ElasticBeanstalkConfigurationTemplate as X
 import Stratosphere.Resources.ElasticBeanstalkEnvironment as X
 import Stratosphere.Resources.ElasticLoadBalancingLoadBalancer as X
 import Stratosphere.Resources.ElasticLoadBalancingV2Listener as X
+import Stratosphere.Resources.ElasticLoadBalancingV2ListenerCertificate as X
 import Stratosphere.Resources.ElasticLoadBalancingV2ListenerRule as X
 import Stratosphere.Resources.ElasticLoadBalancingV2LoadBalancer as X
 import Stratosphere.Resources.ElasticLoadBalancingV2TargetGroup as X
@@ -248,6 +250,7 @@ import Stratosphere.Resources.SQSQueue as X
 import Stratosphere.Resources.SQSQueuePolicy as X
 import Stratosphere.Resources.SSMAssociation as X
 import Stratosphere.Resources.SSMDocument as X
+import Stratosphere.Resources.SSMMaintenanceWindowTask as X
 import Stratosphere.Resources.SSMParameter as X
 import Stratosphere.Resources.StepFunctionsActivity as X
 import Stratosphere.Resources.StepFunctionsStateMachine as X
@@ -653,6 +656,18 @@ import Stratosphere.ResourceProperties.S3BucketWebsiteConfiguration as X
 import Stratosphere.ResourceProperties.SNSTopicSubscription as X
 import Stratosphere.ResourceProperties.SSMAssociationParameterValues as X
 import Stratosphere.ResourceProperties.SSMAssociationTarget as X
+import Stratosphere.ResourceProperties.SSMMaintenanceWindowTaskLoggingInfo as X
+import Stratosphere.ResourceProperties.SSMMaintenanceWindowTaskMaintenanceWindowAutomationParameters as X
+import Stratosphere.ResourceProperties.SSMMaintenanceWindowTaskMaintenanceWindowLambdaParameters as X
+import Stratosphere.ResourceProperties.SSMMaintenanceWindowTaskMaintenanceWindowRunCommandParameters as X
+import Stratosphere.ResourceProperties.SSMMaintenanceWindowTaskMaintenanceWindowStepFunctionsParameters as X
+import Stratosphere.ResourceProperties.SSMMaintenanceWindowTaskNotificationConfig as X
+import Stratosphere.ResourceProperties.SSMMaintenanceWindowTaskTarget as X
+import Stratosphere.ResourceProperties.SSMMaintenanceWindowTaskTaskInvocationParameters as X
+import Stratosphere.ResourceProperties.SSMPatchBaselinePatchFilter as X
+import Stratosphere.ResourceProperties.SSMPatchBaselinePatchFilterGroup as X
+import Stratosphere.ResourceProperties.SSMPatchBaselineRule as X
+import Stratosphere.ResourceProperties.SSMPatchBaselineRuleGroup as X
 import Stratosphere.ResourceProperties.WAFByteMatchSetByteMatchTuple as X
 import Stratosphere.ResourceProperties.WAFByteMatchSetFieldToMatch as X
 import Stratosphere.ResourceProperties.WAFIPSetIPSetDescriptor as X
@@ -709,6 +724,7 @@ data ResourceProperties
   | ApiGatewayUsagePlanKeyProperties ApiGatewayUsagePlanKey
   | ApplicationAutoScalingScalableTargetProperties ApplicationAutoScalingScalableTarget
   | ApplicationAutoScalingScalingPolicyProperties ApplicationAutoScalingScalingPolicy
+  | AthenaNamedQueryProperties AthenaNamedQuery
   | AutoScalingAutoScalingGroupProperties AutoScalingAutoScalingGroup
   | AutoScalingLaunchConfigurationProperties AutoScalingLaunchConfiguration
   | AutoScalingLifecycleHookProperties AutoScalingLifecycleHook
@@ -818,6 +834,7 @@ data ResourceProperties
   | ElasticBeanstalkEnvironmentProperties ElasticBeanstalkEnvironment
   | ElasticLoadBalancingLoadBalancerProperties ElasticLoadBalancingLoadBalancer
   | ElasticLoadBalancingV2ListenerProperties ElasticLoadBalancingV2Listener
+  | ElasticLoadBalancingV2ListenerCertificateProperties ElasticLoadBalancingV2ListenerCertificate
   | ElasticLoadBalancingV2ListenerRuleProperties ElasticLoadBalancingV2ListenerRule
   | ElasticLoadBalancingV2LoadBalancerProperties ElasticLoadBalancingV2LoadBalancer
   | ElasticLoadBalancingV2TargetGroupProperties ElasticLoadBalancingV2TargetGroup
@@ -892,6 +909,7 @@ data ResourceProperties
   | SQSQueuePolicyProperties SQSQueuePolicy
   | SSMAssociationProperties SSMAssociation
   | SSMDocumentProperties SSMDocument
+  | SSMMaintenanceWindowTaskProperties SSMMaintenanceWindowTask
   | SSMParameterProperties SSMParameter
   | StepFunctionsActivityProperties StepFunctionsActivity
   | StepFunctionsStateMachineProperties StepFunctionsStateMachine
@@ -1003,6 +1021,8 @@ resourcePropertiesJSON (ApplicationAutoScalingScalableTargetProperties x) =
   [ "Type" .= ("AWS::ApplicationAutoScaling::ScalableTarget" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ApplicationAutoScalingScalingPolicyProperties x) =
   [ "Type" .= ("AWS::ApplicationAutoScaling::ScalingPolicy" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (AthenaNamedQueryProperties x) =
+  [ "Type" .= ("AWS::Athena::NamedQuery" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (AutoScalingAutoScalingGroupProperties x) =
   [ "Type" .= ("AWS::AutoScaling::AutoScalingGroup" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (AutoScalingLaunchConfigurationProperties x) =
@@ -1221,6 +1241,8 @@ resourcePropertiesJSON (ElasticLoadBalancingLoadBalancerProperties x) =
   [ "Type" .= ("AWS::ElasticLoadBalancing::LoadBalancer" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ElasticLoadBalancingV2ListenerProperties x) =
   [ "Type" .= ("AWS::ElasticLoadBalancingV2::Listener" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (ElasticLoadBalancingV2ListenerCertificateProperties x) =
+  [ "Type" .= ("AWS::ElasticLoadBalancingV2::ListenerCertificate" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ElasticLoadBalancingV2ListenerRuleProperties x) =
   [ "Type" .= ("AWS::ElasticLoadBalancingV2::ListenerRule" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ElasticLoadBalancingV2LoadBalancerProperties x) =
@@ -1369,6 +1391,8 @@ resourcePropertiesJSON (SSMAssociationProperties x) =
   [ "Type" .= ("AWS::SSM::Association" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (SSMDocumentProperties x) =
   [ "Type" .= ("AWS::SSM::Document" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (SSMMaintenanceWindowTaskProperties x) =
+  [ "Type" .= ("AWS::SSM::MaintenanceWindowTask" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (SSMParameterProperties x) =
   [ "Type" .= ("AWS::SSM::Parameter" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (StepFunctionsActivityProperties x) =
@@ -1433,6 +1457,7 @@ resourceFromJSON n o =
          "AWS::ApiGateway::UsagePlanKey" -> ApiGatewayUsagePlanKeyProperties <$> (o .: "Properties")
          "AWS::ApplicationAutoScaling::ScalableTarget" -> ApplicationAutoScalingScalableTargetProperties <$> (o .: "Properties")
          "AWS::ApplicationAutoScaling::ScalingPolicy" -> ApplicationAutoScalingScalingPolicyProperties <$> (o .: "Properties")
+         "AWS::Athena::NamedQuery" -> AthenaNamedQueryProperties <$> (o .: "Properties")
          "AWS::AutoScaling::AutoScalingGroup" -> AutoScalingAutoScalingGroupProperties <$> (o .: "Properties")
          "AWS::AutoScaling::LaunchConfiguration" -> AutoScalingLaunchConfigurationProperties <$> (o .: "Properties")
          "AWS::AutoScaling::LifecycleHook" -> AutoScalingLifecycleHookProperties <$> (o .: "Properties")
@@ -1542,6 +1567,7 @@ resourceFromJSON n o =
          "AWS::ElasticBeanstalk::Environment" -> ElasticBeanstalkEnvironmentProperties <$> (o .: "Properties")
          "AWS::ElasticLoadBalancing::LoadBalancer" -> ElasticLoadBalancingLoadBalancerProperties <$> (o .: "Properties")
          "AWS::ElasticLoadBalancingV2::Listener" -> ElasticLoadBalancingV2ListenerProperties <$> (o .: "Properties")
+         "AWS::ElasticLoadBalancingV2::ListenerCertificate" -> ElasticLoadBalancingV2ListenerCertificateProperties <$> (o .: "Properties")
          "AWS::ElasticLoadBalancingV2::ListenerRule" -> ElasticLoadBalancingV2ListenerRuleProperties <$> (o .: "Properties")
          "AWS::ElasticLoadBalancingV2::LoadBalancer" -> ElasticLoadBalancingV2LoadBalancerProperties <$> (o .: "Properties")
          "AWS::ElasticLoadBalancingV2::TargetGroup" -> ElasticLoadBalancingV2TargetGroupProperties <$> (o .: "Properties")
@@ -1616,6 +1642,7 @@ resourceFromJSON n o =
          "AWS::SQS::QueuePolicy" -> SQSQueuePolicyProperties <$> (o .: "Properties")
          "AWS::SSM::Association" -> SSMAssociationProperties <$> (o .: "Properties")
          "AWS::SSM::Document" -> SSMDocumentProperties <$> (o .: "Properties")
+         "AWS::SSM::MaintenanceWindowTask" -> SSMMaintenanceWindowTaskProperties <$> (o .: "Properties")
          "AWS::SSM::Parameter" -> SSMParameterProperties <$> (o .: "Properties")
          "AWS::StepFunctions::Activity" -> StepFunctionsActivityProperties <$> (o .: "Properties")
          "AWS::StepFunctions::StateMachine" -> StepFunctionsStateMachineProperties <$> (o .: "Properties")
