@@ -65,6 +65,7 @@ import Stratosphere.Resources.ApiGatewayUsagePlan as X
 import Stratosphere.Resources.ApiGatewayUsagePlanKey as X
 import Stratosphere.Resources.ApplicationAutoScalingScalableTarget as X
 import Stratosphere.Resources.ApplicationAutoScalingScalingPolicy as X
+import Stratosphere.Resources.AthenaNamedQuery as X
 import Stratosphere.Resources.AutoScalingAutoScalingGroup as X
 import Stratosphere.Resources.AutoScalingLaunchConfiguration as X
 import Stratosphere.Resources.AutoScalingLifecycleHook as X
@@ -78,7 +79,9 @@ import Stratosphere.Resources.CloudFormationCustomResource as X
 import Stratosphere.Resources.CloudFormationStack as X
 import Stratosphere.Resources.CloudFormationWaitCondition as X
 import Stratosphere.Resources.CloudFormationWaitConditionHandle as X
+import Stratosphere.Resources.CloudFrontCloudFrontOriginAccessIdentity as X
 import Stratosphere.Resources.CloudFrontDistribution as X
+import Stratosphere.Resources.CloudFrontStreamingDistribution as X
 import Stratosphere.Resources.CloudTrailTrail as X
 import Stratosphere.Resources.CloudWatchAlarm as X
 import Stratosphere.Resources.CloudWatchDashboard as X
@@ -182,6 +185,15 @@ import Stratosphere.Resources.EventsRule as X
 import Stratosphere.Resources.GameLiftAlias as X
 import Stratosphere.Resources.GameLiftBuild as X
 import Stratosphere.Resources.GameLiftFleet as X
+import Stratosphere.Resources.GlueClassifier as X
+import Stratosphere.Resources.GlueConnection as X
+import Stratosphere.Resources.GlueCrawler as X
+import Stratosphere.Resources.GlueDatabase as X
+import Stratosphere.Resources.GlueDevEndpoint as X
+import Stratosphere.Resources.GlueJob as X
+import Stratosphere.Resources.GluePartition as X
+import Stratosphere.Resources.GlueTable as X
+import Stratosphere.Resources.GlueTrigger as X
 import Stratosphere.Resources.IAMAccessKey as X
 import Stratosphere.Resources.IAMGroup as X
 import Stratosphere.Resources.IAMInstanceProfile as X
@@ -248,7 +260,9 @@ import Stratosphere.Resources.SQSQueue as X
 import Stratosphere.Resources.SQSQueuePolicy as X
 import Stratosphere.Resources.SSMAssociation as X
 import Stratosphere.Resources.SSMDocument as X
+import Stratosphere.Resources.SSMMaintenanceWindowTask as X
 import Stratosphere.Resources.SSMParameter as X
+import Stratosphere.Resources.SSMPatchBaseline as X
 import Stratosphere.Resources.StepFunctionsActivity as X
 import Stratosphere.Resources.StepFunctionsStateMachine as X
 import Stratosphere.Resources.WAFByteMatchSet as X
@@ -285,6 +299,7 @@ import Stratosphere.ResourceProperties.ApplicationAutoScalingScalingPolicyPredef
 import Stratosphere.ResourceProperties.ApplicationAutoScalingScalingPolicyStepAdjustment as X
 import Stratosphere.ResourceProperties.ApplicationAutoScalingScalingPolicyStepScalingPolicyConfiguration as X
 import Stratosphere.ResourceProperties.ApplicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfiguration as X
+import Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupLifecycleHookSpecification as X
 import Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupMetricsCollection as X
 import Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupNotificationConfiguration as X
 import Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupTagProperty as X
@@ -305,6 +320,7 @@ import Stratosphere.ResourceProperties.BatchJobDefinitionVolumes as X
 import Stratosphere.ResourceProperties.BatchJobDefinitionVolumesHost as X
 import Stratosphere.ResourceProperties.BatchJobQueueComputeEnvironmentOrder as X
 import Stratosphere.ResourceProperties.CertificateManagerCertificateDomainValidationOption as X
+import Stratosphere.ResourceProperties.CloudFrontCloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfig as X
 import Stratosphere.ResourceProperties.CloudFrontDistributionCacheBehavior as X
 import Stratosphere.ResourceProperties.CloudFrontDistributionCookies as X
 import Stratosphere.ResourceProperties.CloudFrontDistributionCustomErrorResponse as X
@@ -313,12 +329,19 @@ import Stratosphere.ResourceProperties.CloudFrontDistributionDefaultCacheBehavio
 import Stratosphere.ResourceProperties.CloudFrontDistributionDistributionConfig as X
 import Stratosphere.ResourceProperties.CloudFrontDistributionForwardedValues as X
 import Stratosphere.ResourceProperties.CloudFrontDistributionGeoRestriction as X
+import Stratosphere.ResourceProperties.CloudFrontDistributionLambdaFunctionAssociation as X
+import Stratosphere.ResourceProperties.CloudFrontDistributionLegacyCustomOrigin as X
+import Stratosphere.ResourceProperties.CloudFrontDistributionLegacyS3Origin as X
 import Stratosphere.ResourceProperties.CloudFrontDistributionLogging as X
 import Stratosphere.ResourceProperties.CloudFrontDistributionOrigin as X
 import Stratosphere.ResourceProperties.CloudFrontDistributionOriginCustomHeader as X
 import Stratosphere.ResourceProperties.CloudFrontDistributionRestrictions as X
 import Stratosphere.ResourceProperties.CloudFrontDistributionS3OriginConfig as X
 import Stratosphere.ResourceProperties.CloudFrontDistributionViewerCertificate as X
+import Stratosphere.ResourceProperties.CloudFrontStreamingDistributionLogging as X
+import Stratosphere.ResourceProperties.CloudFrontStreamingDistributionS3Origin as X
+import Stratosphere.ResourceProperties.CloudFrontStreamingDistributionStreamingDistributionConfig as X
+import Stratosphere.ResourceProperties.CloudFrontStreamingDistributionTrustedSigners as X
 import Stratosphere.ResourceProperties.CloudTrailTrailDataResource as X
 import Stratosphere.ResourceProperties.CloudTrailTrailEventSelector as X
 import Stratosphere.ResourceProperties.CloudWatchAlarmDimension as X
@@ -341,6 +364,7 @@ import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupLoadBalancerInfo
 import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupRevisionLocation as X
 import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupS3Location as X
 import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupTagFilter as X
+import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupTargetGroupInfo as X
 import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupTriggerConfig as X
 import Stratosphere.ResourceProperties.CodePipelineCustomActionTypeArtifactDetails as X
 import Stratosphere.ResourceProperties.CodePipelineCustomActionTypeConfigurationProperties as X
@@ -399,6 +423,7 @@ import Stratosphere.ResourceProperties.DynamoDBTableTimeToLiveSpecification as X
 import Stratosphere.ResourceProperties.EC2InstanceAssociationParameter as X
 import Stratosphere.ResourceProperties.EC2InstanceBlockDeviceMapping as X
 import Stratosphere.ResourceProperties.EC2InstanceEbs as X
+import Stratosphere.ResourceProperties.EC2InstanceElasticGpuSpecification as X
 import Stratosphere.ResourceProperties.EC2InstanceInstanceIpv6Address as X
 import Stratosphere.ResourceProperties.EC2InstanceNetworkInterface as X
 import Stratosphere.ResourceProperties.EC2InstanceNoDevice as X
@@ -422,6 +447,7 @@ import Stratosphere.ResourceProperties.EC2SpotFleetSpotFleetLaunchSpecification 
 import Stratosphere.ResourceProperties.EC2SpotFleetSpotFleetMonitoring as X
 import Stratosphere.ResourceProperties.EC2SpotFleetSpotFleetRequestConfigData as X
 import Stratosphere.ResourceProperties.EC2SpotFleetSpotPlacement as X
+import Stratosphere.ResourceProperties.EC2VPNConnectionVpnTunnelOptionsSpecification as X
 import Stratosphere.ResourceProperties.ECSServiceDeploymentConfiguration as X
 import Stratosphere.ResourceProperties.ECSServiceLoadBalancer as X
 import Stratosphere.ResourceProperties.ECSServicePlacementConstraint as X
@@ -521,6 +547,33 @@ import Stratosphere.ResourceProperties.EventsRuleTarget as X
 import Stratosphere.ResourceProperties.GameLiftAliasRoutingStrategy as X
 import Stratosphere.ResourceProperties.GameLiftBuildS3Location as X
 import Stratosphere.ResourceProperties.GameLiftFleetIpPermission as X
+import Stratosphere.ResourceProperties.GlueClassifierGrokClassifier as X
+import Stratosphere.ResourceProperties.GlueConnectionConnectionInput as X
+import Stratosphere.ResourceProperties.GlueConnectionPhysicalConnectionRequirements as X
+import Stratosphere.ResourceProperties.GlueCrawlerJdbcTarget as X
+import Stratosphere.ResourceProperties.GlueCrawlerS3Target as X
+import Stratosphere.ResourceProperties.GlueCrawlerSchedule as X
+import Stratosphere.ResourceProperties.GlueCrawlerSchemaChangePolicy as X
+import Stratosphere.ResourceProperties.GlueCrawlerTargets as X
+import Stratosphere.ResourceProperties.GlueDatabaseDatabaseInput as X
+import Stratosphere.ResourceProperties.GlueJobConnectionsList as X
+import Stratosphere.ResourceProperties.GlueJobExecutionProperty as X
+import Stratosphere.ResourceProperties.GlueJobJobCommand as X
+import Stratosphere.ResourceProperties.GluePartitionColumn as X
+import Stratosphere.ResourceProperties.GluePartitionOrder as X
+import Stratosphere.ResourceProperties.GluePartitionPartitionInput as X
+import Stratosphere.ResourceProperties.GluePartitionSerdeInfo as X
+import Stratosphere.ResourceProperties.GluePartitionSkewedInfo as X
+import Stratosphere.ResourceProperties.GluePartitionStorageDescriptor as X
+import Stratosphere.ResourceProperties.GlueTableColumn as X
+import Stratosphere.ResourceProperties.GlueTableOrder as X
+import Stratosphere.ResourceProperties.GlueTableSerdeInfo as X
+import Stratosphere.ResourceProperties.GlueTableSkewedInfo as X
+import Stratosphere.ResourceProperties.GlueTableStorageDescriptor as X
+import Stratosphere.ResourceProperties.GlueTableTableInput as X
+import Stratosphere.ResourceProperties.GlueTriggerAction as X
+import Stratosphere.ResourceProperties.GlueTriggerCondition as X
+import Stratosphere.ResourceProperties.GlueTriggerPredicate as X
 import Stratosphere.ResourceProperties.IAMGroupPolicy as X
 import Stratosphere.ResourceProperties.IAMRolePolicy as X
 import Stratosphere.ResourceProperties.IAMUserLoginProfile as X
@@ -543,7 +596,9 @@ import Stratosphere.ResourceProperties.IoTTopicRuleSqsAction as X
 import Stratosphere.ResourceProperties.IoTTopicRuleTopicRulePayload as X
 import Stratosphere.ResourceProperties.KinesisAnalyticsApplicationCSVMappingParameters as X
 import Stratosphere.ResourceProperties.KinesisAnalyticsApplicationInput as X
+import Stratosphere.ResourceProperties.KinesisAnalyticsApplicationInputLambdaProcessor as X
 import Stratosphere.ResourceProperties.KinesisAnalyticsApplicationInputParallelism as X
+import Stratosphere.ResourceProperties.KinesisAnalyticsApplicationInputProcessingConfiguration as X
 import Stratosphere.ResourceProperties.KinesisAnalyticsApplicationInputSchema as X
 import Stratosphere.ResourceProperties.KinesisAnalyticsApplicationJSONMappingParameters as X
 import Stratosphere.ResourceProperties.KinesisAnalyticsApplicationKinesisFirehoseInput as X
@@ -578,6 +633,8 @@ import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamProcessor as
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamProcessorParameter as X
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration as X
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamS3DestinationConfiguration as X
+import Stratosphere.ResourceProperties.LambdaAliasAliasRoutingConfiguration as X
+import Stratosphere.ResourceProperties.LambdaAliasVersionWeight as X
 import Stratosphere.ResourceProperties.LambdaFunctionCode as X
 import Stratosphere.ResourceProperties.LambdaFunctionDeadLetterConfig as X
 import Stratosphere.ResourceProperties.LambdaFunctionEnvironment as X
@@ -653,6 +710,18 @@ import Stratosphere.ResourceProperties.S3BucketWebsiteConfiguration as X
 import Stratosphere.ResourceProperties.SNSTopicSubscription as X
 import Stratosphere.ResourceProperties.SSMAssociationParameterValues as X
 import Stratosphere.ResourceProperties.SSMAssociationTarget as X
+import Stratosphere.ResourceProperties.SSMMaintenanceWindowTaskLoggingInfo as X
+import Stratosphere.ResourceProperties.SSMMaintenanceWindowTaskMaintenanceWindowAutomationParameters as X
+import Stratosphere.ResourceProperties.SSMMaintenanceWindowTaskMaintenanceWindowLambdaParameters as X
+import Stratosphere.ResourceProperties.SSMMaintenanceWindowTaskMaintenanceWindowRunCommandParameters as X
+import Stratosphere.ResourceProperties.SSMMaintenanceWindowTaskMaintenanceWindowStepFunctionsParameters as X
+import Stratosphere.ResourceProperties.SSMMaintenanceWindowTaskNotificationConfig as X
+import Stratosphere.ResourceProperties.SSMMaintenanceWindowTaskTarget as X
+import Stratosphere.ResourceProperties.SSMMaintenanceWindowTaskTaskInvocationParameters as X
+import Stratosphere.ResourceProperties.SSMPatchBaselinePatchFilter as X
+import Stratosphere.ResourceProperties.SSMPatchBaselinePatchFilterGroup as X
+import Stratosphere.ResourceProperties.SSMPatchBaselineRule as X
+import Stratosphere.ResourceProperties.SSMPatchBaselineRuleGroup as X
 import Stratosphere.ResourceProperties.WAFByteMatchSetByteMatchTuple as X
 import Stratosphere.ResourceProperties.WAFByteMatchSetFieldToMatch as X
 import Stratosphere.ResourceProperties.WAFIPSetIPSetDescriptor as X
@@ -709,6 +778,7 @@ data ResourceProperties
   | ApiGatewayUsagePlanKeyProperties ApiGatewayUsagePlanKey
   | ApplicationAutoScalingScalableTargetProperties ApplicationAutoScalingScalableTarget
   | ApplicationAutoScalingScalingPolicyProperties ApplicationAutoScalingScalingPolicy
+  | AthenaNamedQueryProperties AthenaNamedQuery
   | AutoScalingAutoScalingGroupProperties AutoScalingAutoScalingGroup
   | AutoScalingLaunchConfigurationProperties AutoScalingLaunchConfiguration
   | AutoScalingLifecycleHookProperties AutoScalingLifecycleHook
@@ -722,7 +792,9 @@ data ResourceProperties
   | CloudFormationStackProperties CloudFormationStack
   | CloudFormationWaitConditionProperties CloudFormationWaitCondition
   | CloudFormationWaitConditionHandleProperties CloudFormationWaitConditionHandle
+  | CloudFrontCloudFrontOriginAccessIdentityProperties CloudFrontCloudFrontOriginAccessIdentity
   | CloudFrontDistributionProperties CloudFrontDistribution
+  | CloudFrontStreamingDistributionProperties CloudFrontStreamingDistribution
   | CloudTrailTrailProperties CloudTrailTrail
   | CloudWatchAlarmProperties CloudWatchAlarm
   | CloudWatchDashboardProperties CloudWatchDashboard
@@ -826,6 +898,15 @@ data ResourceProperties
   | GameLiftAliasProperties GameLiftAlias
   | GameLiftBuildProperties GameLiftBuild
   | GameLiftFleetProperties GameLiftFleet
+  | GlueClassifierProperties GlueClassifier
+  | GlueConnectionProperties GlueConnection
+  | GlueCrawlerProperties GlueCrawler
+  | GlueDatabaseProperties GlueDatabase
+  | GlueDevEndpointProperties GlueDevEndpoint
+  | GlueJobProperties GlueJob
+  | GluePartitionProperties GluePartition
+  | GlueTableProperties GlueTable
+  | GlueTriggerProperties GlueTrigger
   | IAMAccessKeyProperties IAMAccessKey
   | IAMGroupProperties IAMGroup
   | IAMInstanceProfileProperties IAMInstanceProfile
@@ -892,7 +973,9 @@ data ResourceProperties
   | SQSQueuePolicyProperties SQSQueuePolicy
   | SSMAssociationProperties SSMAssociation
   | SSMDocumentProperties SSMDocument
+  | SSMMaintenanceWindowTaskProperties SSMMaintenanceWindowTask
   | SSMParameterProperties SSMParameter
+  | SSMPatchBaselineProperties SSMPatchBaseline
   | StepFunctionsActivityProperties StepFunctionsActivity
   | StepFunctionsStateMachineProperties StepFunctionsStateMachine
   | WAFByteMatchSetProperties WAFByteMatchSet
@@ -1003,6 +1086,8 @@ resourcePropertiesJSON (ApplicationAutoScalingScalableTargetProperties x) =
   [ "Type" .= ("AWS::ApplicationAutoScaling::ScalableTarget" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ApplicationAutoScalingScalingPolicyProperties x) =
   [ "Type" .= ("AWS::ApplicationAutoScaling::ScalingPolicy" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (AthenaNamedQueryProperties x) =
+  [ "Type" .= ("AWS::Athena::NamedQuery" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (AutoScalingAutoScalingGroupProperties x) =
   [ "Type" .= ("AWS::AutoScaling::AutoScalingGroup" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (AutoScalingLaunchConfigurationProperties x) =
@@ -1029,8 +1114,12 @@ resourcePropertiesJSON (CloudFormationWaitConditionProperties x) =
   [ "Type" .= ("AWS::CloudFormation::WaitCondition" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (CloudFormationWaitConditionHandleProperties x) =
   [ "Type" .= ("AWS::CloudFormation::WaitConditionHandle" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (CloudFrontCloudFrontOriginAccessIdentityProperties x) =
+  [ "Type" .= ("AWS::CloudFront::CloudFrontOriginAccessIdentity" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (CloudFrontDistributionProperties x) =
   [ "Type" .= ("AWS::CloudFront::Distribution" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (CloudFrontStreamingDistributionProperties x) =
+  [ "Type" .= ("AWS::CloudFront::StreamingDistribution" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (CloudTrailTrailProperties x) =
   [ "Type" .= ("AWS::CloudTrail::Trail" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (CloudWatchAlarmProperties x) =
@@ -1237,6 +1326,24 @@ resourcePropertiesJSON (GameLiftBuildProperties x) =
   [ "Type" .= ("AWS::GameLift::Build" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (GameLiftFleetProperties x) =
   [ "Type" .= ("AWS::GameLift::Fleet" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (GlueClassifierProperties x) =
+  [ "Type" .= ("AWS::Glue::Classifier" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (GlueConnectionProperties x) =
+  [ "Type" .= ("AWS::Glue::Connection" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (GlueCrawlerProperties x) =
+  [ "Type" .= ("AWS::Glue::Crawler" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (GlueDatabaseProperties x) =
+  [ "Type" .= ("AWS::Glue::Database" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (GlueDevEndpointProperties x) =
+  [ "Type" .= ("AWS::Glue::DevEndpoint" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (GlueJobProperties x) =
+  [ "Type" .= ("AWS::Glue::Job" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (GluePartitionProperties x) =
+  [ "Type" .= ("AWS::Glue::Partition" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (GlueTableProperties x) =
+  [ "Type" .= ("AWS::Glue::Table" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (GlueTriggerProperties x) =
+  [ "Type" .= ("AWS::Glue::Trigger" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (IAMAccessKeyProperties x) =
   [ "Type" .= ("AWS::IAM::AccessKey" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (IAMGroupProperties x) =
@@ -1369,8 +1476,12 @@ resourcePropertiesJSON (SSMAssociationProperties x) =
   [ "Type" .= ("AWS::SSM::Association" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (SSMDocumentProperties x) =
   [ "Type" .= ("AWS::SSM::Document" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (SSMMaintenanceWindowTaskProperties x) =
+  [ "Type" .= ("AWS::SSM::MaintenanceWindowTask" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (SSMParameterProperties x) =
   [ "Type" .= ("AWS::SSM::Parameter" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (SSMPatchBaselineProperties x) =
+  [ "Type" .= ("AWS::SSM::PatchBaseline" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (StepFunctionsActivityProperties x) =
   [ "Type" .= ("AWS::StepFunctions::Activity" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (StepFunctionsStateMachineProperties x) =
@@ -1433,6 +1544,7 @@ resourceFromJSON n o =
          "AWS::ApiGateway::UsagePlanKey" -> ApiGatewayUsagePlanKeyProperties <$> (o .: "Properties")
          "AWS::ApplicationAutoScaling::ScalableTarget" -> ApplicationAutoScalingScalableTargetProperties <$> (o .: "Properties")
          "AWS::ApplicationAutoScaling::ScalingPolicy" -> ApplicationAutoScalingScalingPolicyProperties <$> (o .: "Properties")
+         "AWS::Athena::NamedQuery" -> AthenaNamedQueryProperties <$> (o .: "Properties")
          "AWS::AutoScaling::AutoScalingGroup" -> AutoScalingAutoScalingGroupProperties <$> (o .: "Properties")
          "AWS::AutoScaling::LaunchConfiguration" -> AutoScalingLaunchConfigurationProperties <$> (o .: "Properties")
          "AWS::AutoScaling::LifecycleHook" -> AutoScalingLifecycleHookProperties <$> (o .: "Properties")
@@ -1446,7 +1558,9 @@ resourceFromJSON n o =
          "AWS::CloudFormation::Stack" -> CloudFormationStackProperties <$> (o .: "Properties")
          "AWS::CloudFormation::WaitCondition" -> CloudFormationWaitConditionProperties <$> (o .: "Properties")
          "AWS::CloudFormation::WaitConditionHandle" -> CloudFormationWaitConditionHandleProperties <$> (o .: "Properties")
+         "AWS::CloudFront::CloudFrontOriginAccessIdentity" -> CloudFrontCloudFrontOriginAccessIdentityProperties <$> (o .: "Properties")
          "AWS::CloudFront::Distribution" -> CloudFrontDistributionProperties <$> (o .: "Properties")
+         "AWS::CloudFront::StreamingDistribution" -> CloudFrontStreamingDistributionProperties <$> (o .: "Properties")
          "AWS::CloudTrail::Trail" -> CloudTrailTrailProperties <$> (o .: "Properties")
          "AWS::CloudWatch::Alarm" -> CloudWatchAlarmProperties <$> (o .: "Properties")
          "AWS::CloudWatch::Dashboard" -> CloudWatchDashboardProperties <$> (o .: "Properties")
@@ -1550,6 +1664,15 @@ resourceFromJSON n o =
          "AWS::GameLift::Alias" -> GameLiftAliasProperties <$> (o .: "Properties")
          "AWS::GameLift::Build" -> GameLiftBuildProperties <$> (o .: "Properties")
          "AWS::GameLift::Fleet" -> GameLiftFleetProperties <$> (o .: "Properties")
+         "AWS::Glue::Classifier" -> GlueClassifierProperties <$> (o .: "Properties")
+         "AWS::Glue::Connection" -> GlueConnectionProperties <$> (o .: "Properties")
+         "AWS::Glue::Crawler" -> GlueCrawlerProperties <$> (o .: "Properties")
+         "AWS::Glue::Database" -> GlueDatabaseProperties <$> (o .: "Properties")
+         "AWS::Glue::DevEndpoint" -> GlueDevEndpointProperties <$> (o .: "Properties")
+         "AWS::Glue::Job" -> GlueJobProperties <$> (o .: "Properties")
+         "AWS::Glue::Partition" -> GluePartitionProperties <$> (o .: "Properties")
+         "AWS::Glue::Table" -> GlueTableProperties <$> (o .: "Properties")
+         "AWS::Glue::Trigger" -> GlueTriggerProperties <$> (o .: "Properties")
          "AWS::IAM::AccessKey" -> IAMAccessKeyProperties <$> (o .: "Properties")
          "AWS::IAM::Group" -> IAMGroupProperties <$> (o .: "Properties")
          "AWS::IAM::InstanceProfile" -> IAMInstanceProfileProperties <$> (o .: "Properties")
@@ -1616,7 +1739,9 @@ resourceFromJSON n o =
          "AWS::SQS::QueuePolicy" -> SQSQueuePolicyProperties <$> (o .: "Properties")
          "AWS::SSM::Association" -> SSMAssociationProperties <$> (o .: "Properties")
          "AWS::SSM::Document" -> SSMDocumentProperties <$> (o .: "Properties")
+         "AWS::SSM::MaintenanceWindowTask" -> SSMMaintenanceWindowTaskProperties <$> (o .: "Properties")
          "AWS::SSM::Parameter" -> SSMParameterProperties <$> (o .: "Properties")
+         "AWS::SSM::PatchBaseline" -> SSMPatchBaselineProperties <$> (o .: "Properties")
          "AWS::StepFunctions::Activity" -> StepFunctionsActivityProperties <$> (o .: "Properties")
          "AWS::StepFunctions::StateMachine" -> StepFunctionsStateMachineProperties <$> (o .: "Properties")
          "AWS::WAF::ByteMatchSet" -> WAFByteMatchSetProperties <$> (o .: "Properties")

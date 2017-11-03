@@ -2,7 +2,7 @@
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE TupleSections #-}
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distributionconfig-restrictions.html
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-restrictions.html
 
 module Stratosphere.ResourceProperties.CloudFrontDistributionRestrictions where
 
@@ -45,6 +45,6 @@ cloudFrontDistributionRestrictions geoRestrictionarg =
   { _cloudFrontDistributionRestrictionsGeoRestriction = geoRestrictionarg
   }
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distributionconfig-restrictions.html#cfn-cloudfront-distributionconfig-restrictions-georestriction
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-restrictions.html#cfn-cloudfront-distribution-restrictions-georestriction
 cfdrGeoRestriction :: Lens' CloudFrontDistributionRestrictions CloudFrontDistributionGeoRestriction
 cfdrGeoRestriction = lens _cloudFrontDistributionRestrictionsGeoRestriction (\s a -> s { _cloudFrontDistributionRestrictionsGeoRestriction = a })

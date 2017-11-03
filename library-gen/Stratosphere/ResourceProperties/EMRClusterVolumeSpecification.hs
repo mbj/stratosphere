@@ -2,7 +2,7 @@
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE TupleSections #-}
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-ebsconfiguration-ebsblockdeviceconfig-volumespecification.html
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-volumespecification.html
 
 module Stratosphere.ResourceProperties.EMRClusterVolumeSpecification where
 
@@ -54,14 +54,14 @@ emrClusterVolumeSpecification sizeInGBarg volumeTypearg =
   , _eMRClusterVolumeSpecificationVolumeType = volumeTypearg
   }
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-ebsconfiguration-ebsblockdeviceconfig-volumespecification.html#cfn-emr-ebsconfiguration-ebsblockdeviceconfig-volumespecification-iops
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-volumespecification.html#cfn-elasticmapreduce-cluster-volumespecification-iops
 emrcvsIops :: Lens' EMRClusterVolumeSpecification (Maybe (Val Integer))
 emrcvsIops = lens _eMRClusterVolumeSpecificationIops (\s a -> s { _eMRClusterVolumeSpecificationIops = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-ebsconfiguration-ebsblockdeviceconfig-volumespecification.html#cfn-emr-ebsconfiguration-ebsblockdeviceconfig-volumespecification-sizeingb
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-volumespecification.html#cfn-elasticmapreduce-cluster-volumespecification-sizeingb
 emrcvsSizeInGB :: Lens' EMRClusterVolumeSpecification (Val Integer)
 emrcvsSizeInGB = lens _eMRClusterVolumeSpecificationSizeInGB (\s a -> s { _eMRClusterVolumeSpecificationSizeInGB = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-ebsconfiguration-ebsblockdeviceconfig-volumespecification.html#cfn-emr-ebsconfiguration-ebsblockdeviceconfig-volumespecification-volumetype
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-volumespecification.html#cfn-elasticmapreduce-cluster-volumespecification-volumetype
 emrcvsVolumeType :: Lens' EMRClusterVolumeSpecification (Val Text)
 emrcvsVolumeType = lens _eMRClusterVolumeSpecificationVolumeType (\s a -> s { _eMRClusterVolumeSpecificationVolumeType = a })

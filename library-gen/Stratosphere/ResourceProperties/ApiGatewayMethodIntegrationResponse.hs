@@ -19,7 +19,8 @@ import Stratosphere.Values
 -- 'apiGatewayMethodIntegrationResponse' for a more convenient constructor.
 data ApiGatewayMethodIntegrationResponse =
   ApiGatewayMethodIntegrationResponse
-  { _apiGatewayMethodIntegrationResponseResponseParameters :: Maybe Object
+  { _apiGatewayMethodIntegrationResponseContentHandling :: Maybe (Val Text)
+  , _apiGatewayMethodIntegrationResponseResponseParameters :: Maybe Object
   , _apiGatewayMethodIntegrationResponseResponseTemplates :: Maybe Object
   , _apiGatewayMethodIntegrationResponseSelectionPattern :: Maybe (Val Text)
   , _apiGatewayMethodIntegrationResponseStatusCode :: Val Text
@@ -29,7 +30,8 @@ instance ToJSON ApiGatewayMethodIntegrationResponse where
   toJSON ApiGatewayMethodIntegrationResponse{..} =
     object $
     catMaybes
-    [ fmap (("ResponseParameters",) . toJSON) _apiGatewayMethodIntegrationResponseResponseParameters
+    [ fmap (("ContentHandling",) . toJSON) _apiGatewayMethodIntegrationResponseContentHandling
+    , fmap (("ResponseParameters",) . toJSON) _apiGatewayMethodIntegrationResponseResponseParameters
     , fmap (("ResponseTemplates",) . toJSON) _apiGatewayMethodIntegrationResponseResponseTemplates
     , fmap (("SelectionPattern",) . toJSON) _apiGatewayMethodIntegrationResponseSelectionPattern
     , (Just . ("StatusCode",) . toJSON) _apiGatewayMethodIntegrationResponseStatusCode
@@ -38,6 +40,7 @@ instance ToJSON ApiGatewayMethodIntegrationResponse where
 instance FromJSON ApiGatewayMethodIntegrationResponse where
   parseJSON (Object obj) =
     ApiGatewayMethodIntegrationResponse <$>
+      (obj .:? "ContentHandling") <*>
       (obj .:? "ResponseParameters") <*>
       (obj .:? "ResponseTemplates") <*>
       (obj .:? "SelectionPattern") <*>
@@ -51,11 +54,16 @@ apiGatewayMethodIntegrationResponse
   -> ApiGatewayMethodIntegrationResponse
 apiGatewayMethodIntegrationResponse statusCodearg =
   ApiGatewayMethodIntegrationResponse
-  { _apiGatewayMethodIntegrationResponseResponseParameters = Nothing
+  { _apiGatewayMethodIntegrationResponseContentHandling = Nothing
+  , _apiGatewayMethodIntegrationResponseResponseParameters = Nothing
   , _apiGatewayMethodIntegrationResponseResponseTemplates = Nothing
   , _apiGatewayMethodIntegrationResponseSelectionPattern = Nothing
   , _apiGatewayMethodIntegrationResponseStatusCode = statusCodearg
   }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration-integrationresponse.html#cfn-apigateway-method-integrationresponse-contenthandling
+agmirContentHandling :: Lens' ApiGatewayMethodIntegrationResponse (Maybe (Val Text))
+agmirContentHandling = lens _apiGatewayMethodIntegrationResponseContentHandling (\s a -> s { _apiGatewayMethodIntegrationResponseContentHandling = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration-integrationresponse.html#cfn-apigateway-method-integration-integrationresponse-responseparameters
 agmirResponseParameters :: Lens' ApiGatewayMethodIntegrationResponse (Maybe Object)

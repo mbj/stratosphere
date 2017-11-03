@@ -16,6 +16,7 @@ import Stratosphere.Values
 import Stratosphere.ResourceProperties.OpsWorksLayerRecipes
 import Stratosphere.ResourceProperties.OpsWorksLayerLifecycleEventConfiguration
 import Stratosphere.ResourceProperties.OpsWorksLayerLoadBasedAutoScaling
+import Stratosphere.ResourceProperties.Tag
 import Stratosphere.ResourceProperties.OpsWorksLayerVolumeConfiguration
 
 -- | Full data type definition for OpsWorksLayer. See 'opsWorksLayer' for a
@@ -37,6 +38,7 @@ data OpsWorksLayer =
   , _opsWorksLayerPackages :: Maybe (ValList Text)
   , _opsWorksLayerShortname :: Val Text
   , _opsWorksLayerStackId :: Val Text
+  , _opsWorksLayerTags :: Maybe [Tag]
   , _opsWorksLayerType :: Val Text
   , _opsWorksLayerUseEbsOptimizedInstances :: Maybe (Val Bool)
   , _opsWorksLayerVolumeConfigurations :: Maybe [OpsWorksLayerVolumeConfiguration]
@@ -61,6 +63,7 @@ instance ToJSON OpsWorksLayer where
     , fmap (("Packages",) . toJSON) _opsWorksLayerPackages
     , (Just . ("Shortname",) . toJSON) _opsWorksLayerShortname
     , (Just . ("StackId",) . toJSON) _opsWorksLayerStackId
+    , fmap (("Tags",) . toJSON) _opsWorksLayerTags
     , (Just . ("Type",) . toJSON) _opsWorksLayerType
     , fmap (("UseEbsOptimizedInstances",) . toJSON . fmap Bool') _opsWorksLayerUseEbsOptimizedInstances
     , fmap (("VolumeConfigurations",) . toJSON) _opsWorksLayerVolumeConfigurations
@@ -84,6 +87,7 @@ instance FromJSON OpsWorksLayer where
       (obj .:? "Packages") <*>
       (obj .: "Shortname") <*>
       (obj .: "StackId") <*>
+      (obj .:? "Tags") <*>
       (obj .: "Type") <*>
       fmap (fmap (fmap unBool')) (obj .:? "UseEbsOptimizedInstances") <*>
       (obj .:? "VolumeConfigurations")
@@ -116,6 +120,7 @@ opsWorksLayer autoAssignElasticIpsarg autoAssignPublicIpsarg enableAutoHealingar
   , _opsWorksLayerPackages = Nothing
   , _opsWorksLayerShortname = shortnamearg
   , _opsWorksLayerStackId = stackIdarg
+  , _opsWorksLayerTags = Nothing
   , _opsWorksLayerType = typearg
   , _opsWorksLayerUseEbsOptimizedInstances = Nothing
   , _opsWorksLayerVolumeConfigurations = Nothing
@@ -180,6 +185,10 @@ owlShortname = lens _opsWorksLayerShortname (\s a -> s { _opsWorksLayerShortname
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-layer.html#cfn-opsworks-layer-stackid
 owlStackId :: Lens' OpsWorksLayer (Val Text)
 owlStackId = lens _opsWorksLayerStackId (\s a -> s { _opsWorksLayerStackId = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-layer.html#cfn-opsworks-layer-tags
+owlTags :: Lens' OpsWorksLayer (Maybe [Tag])
+owlTags = lens _opsWorksLayerTags (\s a -> s { _opsWorksLayerTags = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-layer.html#cfn-opsworks-layer-type
 owlType :: Lens' OpsWorksLayer (Val Text)

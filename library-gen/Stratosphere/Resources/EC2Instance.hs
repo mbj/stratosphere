@@ -14,6 +14,7 @@ import Data.Text
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.EC2InstanceBlockDeviceMapping
+import Stratosphere.ResourceProperties.EC2InstanceElasticGpuSpecification
 import Stratosphere.ResourceProperties.EC2InstanceInstanceIpv6Address
 import Stratosphere.ResourceProperties.EC2InstanceNetworkInterface
 import Stratosphere.ResourceProperties.EC2InstanceSsmAssociation
@@ -30,6 +31,7 @@ data EC2Instance =
   , _eC2InstanceBlockDeviceMappings :: Maybe [EC2InstanceBlockDeviceMapping]
   , _eC2InstanceDisableApiTermination :: Maybe (Val Bool)
   , _eC2InstanceEbsOptimized :: Maybe (Val Bool)
+  , _eC2InstanceElasticGpuSpecifications :: Maybe [EC2InstanceElasticGpuSpecification]
   , _eC2InstanceHostId :: Maybe (Val Text)
   , _eC2InstanceIamInstanceProfile :: Maybe (Val Text)
   , _eC2InstanceImageId :: Val Text
@@ -65,6 +67,7 @@ instance ToJSON EC2Instance where
     , fmap (("BlockDeviceMappings",) . toJSON) _eC2InstanceBlockDeviceMappings
     , fmap (("DisableApiTermination",) . toJSON . fmap Bool') _eC2InstanceDisableApiTermination
     , fmap (("EbsOptimized",) . toJSON . fmap Bool') _eC2InstanceEbsOptimized
+    , fmap (("ElasticGpuSpecifications",) . toJSON) _eC2InstanceElasticGpuSpecifications
     , fmap (("HostId",) . toJSON) _eC2InstanceHostId
     , fmap (("IamInstanceProfile",) . toJSON) _eC2InstanceIamInstanceProfile
     , (Just . ("ImageId",) . toJSON) _eC2InstanceImageId
@@ -99,6 +102,7 @@ instance FromJSON EC2Instance where
       (obj .:? "BlockDeviceMappings") <*>
       fmap (fmap (fmap unBool')) (obj .:? "DisableApiTermination") <*>
       fmap (fmap (fmap unBool')) (obj .:? "EbsOptimized") <*>
+      (obj .:? "ElasticGpuSpecifications") <*>
       (obj .:? "HostId") <*>
       (obj .:? "IamInstanceProfile") <*>
       (obj .: "ImageId") <*>
@@ -136,6 +140,7 @@ ec2Instance imageIdarg =
   , _eC2InstanceBlockDeviceMappings = Nothing
   , _eC2InstanceDisableApiTermination = Nothing
   , _eC2InstanceEbsOptimized = Nothing
+  , _eC2InstanceElasticGpuSpecifications = Nothing
   , _eC2InstanceHostId = Nothing
   , _eC2InstanceIamInstanceProfile = Nothing
   , _eC2InstanceImageId = imageIdarg
@@ -184,6 +189,10 @@ eciDisableApiTermination = lens _eC2InstanceDisableApiTermination (\s a -> s { _
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-ebsoptimized
 eciEbsOptimized :: Lens' EC2Instance (Maybe (Val Bool))
 eciEbsOptimized = lens _eC2InstanceEbsOptimized (\s a -> s { _eC2InstanceEbsOptimized = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-elasticgpuspecifications
+eciElasticGpuSpecifications :: Lens' EC2Instance (Maybe [EC2InstanceElasticGpuSpecification])
+eciElasticGpuSpecifications = lens _eC2InstanceElasticGpuSpecifications (\s a -> s { _eC2InstanceElasticGpuSpecifications = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-hostid
 eciHostId :: Lens' EC2Instance (Maybe (Val Text))

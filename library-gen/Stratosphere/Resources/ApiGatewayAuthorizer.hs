@@ -19,7 +19,8 @@ import Stratosphere.Types
 -- 'apiGatewayAuthorizer' for a more convenient constructor.
 data ApiGatewayAuthorizer =
   ApiGatewayAuthorizer
-  { _apiGatewayAuthorizerAuthorizerCredentials :: Maybe (Val Text)
+  { _apiGatewayAuthorizerAuthType :: Maybe (Val Text)
+  , _apiGatewayAuthorizerAuthorizerCredentials :: Maybe (Val Text)
   , _apiGatewayAuthorizerAuthorizerResultTtlInSeconds :: Maybe (Val Integer)
   , _apiGatewayAuthorizerAuthorizerUri :: Maybe (Val Text)
   , _apiGatewayAuthorizerIdentitySource :: Maybe (Val Text)
@@ -34,7 +35,8 @@ instance ToJSON ApiGatewayAuthorizer where
   toJSON ApiGatewayAuthorizer{..} =
     object $
     catMaybes
-    [ fmap (("AuthorizerCredentials",) . toJSON) _apiGatewayAuthorizerAuthorizerCredentials
+    [ fmap (("AuthType",) . toJSON) _apiGatewayAuthorizerAuthType
+    , fmap (("AuthorizerCredentials",) . toJSON) _apiGatewayAuthorizerAuthorizerCredentials
     , fmap (("AuthorizerResultTtlInSeconds",) . toJSON . fmap Integer') _apiGatewayAuthorizerAuthorizerResultTtlInSeconds
     , fmap (("AuthorizerUri",) . toJSON) _apiGatewayAuthorizerAuthorizerUri
     , fmap (("IdentitySource",) . toJSON) _apiGatewayAuthorizerIdentitySource
@@ -48,6 +50,7 @@ instance ToJSON ApiGatewayAuthorizer where
 instance FromJSON ApiGatewayAuthorizer where
   parseJSON (Object obj) =
     ApiGatewayAuthorizer <$>
+      (obj .:? "AuthType") <*>
       (obj .:? "AuthorizerCredentials") <*>
       fmap (fmap (fmap unInteger')) (obj .:? "AuthorizerResultTtlInSeconds") <*>
       (obj .:? "AuthorizerUri") <*>
@@ -66,7 +69,8 @@ apiGatewayAuthorizer
   -> ApiGatewayAuthorizer
 apiGatewayAuthorizer restApiIdarg =
   ApiGatewayAuthorizer
-  { _apiGatewayAuthorizerAuthorizerCredentials = Nothing
+  { _apiGatewayAuthorizerAuthType = Nothing
+  , _apiGatewayAuthorizerAuthorizerCredentials = Nothing
   , _apiGatewayAuthorizerAuthorizerResultTtlInSeconds = Nothing
   , _apiGatewayAuthorizerAuthorizerUri = Nothing
   , _apiGatewayAuthorizerIdentitySource = Nothing
@@ -76,6 +80,10 @@ apiGatewayAuthorizer restApiIdarg =
   , _apiGatewayAuthorizerRestApiId = restApiIdarg
   , _apiGatewayAuthorizerType = Nothing
   }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-authorizer.html#cfn-apigateway-authorizer-authtype
+agaAuthType :: Lens' ApiGatewayAuthorizer (Maybe (Val Text))
+agaAuthType = lens _apiGatewayAuthorizerAuthType (\s a -> s { _apiGatewayAuthorizerAuthType = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-authorizer.html#cfn-apigateway-authorizer-authorizercredentials
 agaAuthorizerCredentials :: Lens' ApiGatewayAuthorizer (Maybe (Val Text))

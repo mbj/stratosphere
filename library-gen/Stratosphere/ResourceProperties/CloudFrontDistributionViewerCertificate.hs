@@ -2,7 +2,7 @@
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE TupleSections #-}
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distributionconfig-viewercertificate.html
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-viewercertificate.html
 
 module Stratosphere.ResourceProperties.CloudFrontDistributionViewerCertificate where
 
@@ -61,22 +61,22 @@ cloudFrontDistributionViewerCertificate  =
   , _cloudFrontDistributionViewerCertificateSslSupportMethod = Nothing
   }
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distributionconfig-viewercertificate.html#cfn-cloudfront-distributionconfig-viewercertificate-acmcertificatearn
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-viewercertificate.html#cfn-cloudfront-distribution-viewercertificate-acmcertificatearn
 cfdvcAcmCertificateArn :: Lens' CloudFrontDistributionViewerCertificate (Maybe (Val Text))
 cfdvcAcmCertificateArn = lens _cloudFrontDistributionViewerCertificateAcmCertificateArn (\s a -> s { _cloudFrontDistributionViewerCertificateAcmCertificateArn = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distributionconfig-viewercertificate.html#cfn-cloudfront-distributionconfig-viewercertificate-cloudfrontdefaultcertificate
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-viewercertificate.html#cfn-cloudfront-distribution-viewercertificate-cloudfrontdefaultcertificate
 cfdvcCloudFrontDefaultCertificate :: Lens' CloudFrontDistributionViewerCertificate (Maybe (Val Bool))
 cfdvcCloudFrontDefaultCertificate = lens _cloudFrontDistributionViewerCertificateCloudFrontDefaultCertificate (\s a -> s { _cloudFrontDistributionViewerCertificateCloudFrontDefaultCertificate = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distributionconfig-viewercertificate.html#cfn-cloudfront-distributionconfig-viewercertificate-iamcertificateid
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-viewercertificate.html#cfn-cloudfront-distribution-viewercertificate-iamcertificateid
 cfdvcIamCertificateId :: Lens' CloudFrontDistributionViewerCertificate (Maybe (Val Text))
 cfdvcIamCertificateId = lens _cloudFrontDistributionViewerCertificateIamCertificateId (\s a -> s { _cloudFrontDistributionViewerCertificateIamCertificateId = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distributionconfig-viewercertificate.html#cfn-cloudfront-distributionconfig-viewercertificate-sslsupportmethod
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-viewercertificate.html#cfn-cloudfront-distribution-viewercertificate-minimumprotocolversion
 cfdvcMinimumProtocolVersion :: Lens' CloudFrontDistributionViewerCertificate (Maybe (Val Text))
 cfdvcMinimumProtocolVersion = lens _cloudFrontDistributionViewerCertificateMinimumProtocolVersion (\s a -> s { _cloudFrontDistributionViewerCertificateMinimumProtocolVersion = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distributionconfig-viewercertificate.html#cfn-cloudfront-distributionconfig-viewercertificate-minimumprotocolversion
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-viewercertificate.html#cfn-cloudfront-distribution-viewercertificate-sslsupportmethod
 cfdvcSslSupportMethod :: Lens' CloudFrontDistributionViewerCertificate (Maybe (Val Text))
 cfdvcSslSupportMethod = lens _cloudFrontDistributionViewerCertificateSslSupportMethod (\s a -> s { _cloudFrontDistributionViewerCertificateSslSupportMethod = a })

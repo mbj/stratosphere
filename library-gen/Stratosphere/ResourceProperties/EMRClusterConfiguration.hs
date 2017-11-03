@@ -2,7 +2,7 @@
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE TupleSections #-}
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-configuration.html
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-configuration.html
 
 module Stratosphere.ResourceProperties.EMRClusterConfiguration where
 
@@ -52,14 +52,14 @@ emrClusterConfiguration  =
   , _eMRClusterConfigurationConfigurations = Nothing
   }
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-configuration.html#cfn-emr-cluster-configuration-classification
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-configuration.html#cfn-elasticmapreduce-cluster-configuration-classification
 emrccClassification :: Lens' EMRClusterConfiguration (Maybe (Val Text))
 emrccClassification = lens _eMRClusterConfigurationClassification (\s a -> s { _eMRClusterConfigurationClassification = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-configuration.html#cfn-emr-cluster-configuration-configurationproperties
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-configuration.html#cfn-elasticmapreduce-cluster-configuration-configurationproperties
 emrccConfigurationProperties :: Lens' EMRClusterConfiguration (Maybe Object)
 emrccConfigurationProperties = lens _eMRClusterConfigurationConfigurationProperties (\s a -> s { _eMRClusterConfigurationConfigurationProperties = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-configuration.html#cfn-emr-cluster-configuration-configurations
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-configuration.html#cfn-elasticmapreduce-cluster-configuration-configurations
 emrccConfigurations :: Lens' EMRClusterConfiguration (Maybe [EMRClusterConfiguration])
 emrccConfigurations = lens _eMRClusterConfigurationConfigurations (\s a -> s { _eMRClusterConfigurationConfigurations = a })

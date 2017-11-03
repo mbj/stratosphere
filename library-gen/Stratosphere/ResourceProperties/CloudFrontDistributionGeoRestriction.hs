@@ -2,7 +2,7 @@
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE TupleSections #-}
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distributionconfig-restrictions-georestriction.html
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-georestriction.html
 
 module Stratosphere.ResourceProperties.CloudFrontDistributionGeoRestriction where
 
@@ -49,10 +49,10 @@ cloudFrontDistributionGeoRestriction restrictionTypearg =
   , _cloudFrontDistributionGeoRestrictionRestrictionType = restrictionTypearg
   }
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distributionconfig-restrictions-georestriction.html#cfn-cloudfront-distributionconfig-restrictions-georestriction-locations
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-georestriction.html#cfn-cloudfront-distribution-georestriction-locations
 cfdgrLocations :: Lens' CloudFrontDistributionGeoRestriction (Maybe (ValList Text))
 cfdgrLocations = lens _cloudFrontDistributionGeoRestrictionLocations (\s a -> s { _cloudFrontDistributionGeoRestrictionLocations = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distributionconfig-restrictions-georestriction.html#cfn-cloudfront-distributionconfig-restrictions-georestriction-restrictiontype
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-georestriction.html#cfn-cloudfront-distribution-georestriction-restrictiontype
 cfdgrRestrictionType :: Lens' CloudFrontDistributionGeoRestriction (Val Text)
 cfdgrRestrictionType = lens _cloudFrontDistributionGeoRestrictionRestrictionType (\s a -> s { _cloudFrontDistributionGeoRestrictionRestrictionType = a })

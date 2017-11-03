@@ -2,7 +2,7 @@
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE TupleSections #-}
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-origin-origincustomheader.html
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origincustomheader.html
 
 module Stratosphere.ResourceProperties.CloudFrontDistributionOriginCustomHeader where
 
@@ -51,10 +51,10 @@ cloudFrontDistributionOriginCustomHeader headerNamearg headerValuearg =
   , _cloudFrontDistributionOriginCustomHeaderHeaderValue = headerValuearg
   }
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-origin-origincustomheader.html#cfn-cloudfront-origin-origincustomheader-headername
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origincustomheader.html#cfn-cloudfront-distribution-origincustomheader-headername
 cfdochHeaderName :: Lens' CloudFrontDistributionOriginCustomHeader (Val Text)
 cfdochHeaderName = lens _cloudFrontDistributionOriginCustomHeaderHeaderName (\s a -> s { _cloudFrontDistributionOriginCustomHeaderHeaderName = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-origin-origincustomheader.html#cfn-cloudfront-origin-origincustomheader-headervalue
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origincustomheader.html#cfn-cloudfront-distribution-origincustomheader-headervalue
 cfdochHeaderValue :: Lens' CloudFrontDistributionOriginCustomHeader (Val Text)
 cfdochHeaderValue = lens _cloudFrontDistributionOriginCustomHeaderHeaderValue (\s a -> s { _cloudFrontDistributionOriginCustomHeaderHeaderValue = a })

@@ -21,6 +21,7 @@ data EC2SecurityGroupIngressProperty =
   EC2SecurityGroupIngressProperty
   { _eC2SecurityGroupIngressPropertyCidrIp :: Maybe (Val Text)
   , _eC2SecurityGroupIngressPropertyCidrIpv6 :: Maybe (Val Text)
+  , _eC2SecurityGroupIngressPropertyDescription :: Maybe (Val Text)
   , _eC2SecurityGroupIngressPropertyFromPort :: Maybe (Val Integer)
   , _eC2SecurityGroupIngressPropertyIpProtocol :: Val Text
   , _eC2SecurityGroupIngressPropertySourceSecurityGroupId :: Maybe (Val Text)
@@ -35,6 +36,7 @@ instance ToJSON EC2SecurityGroupIngressProperty where
     catMaybes
     [ fmap (("CidrIp",) . toJSON) _eC2SecurityGroupIngressPropertyCidrIp
     , fmap (("CidrIpv6",) . toJSON) _eC2SecurityGroupIngressPropertyCidrIpv6
+    , fmap (("Description",) . toJSON) _eC2SecurityGroupIngressPropertyDescription
     , fmap (("FromPort",) . toJSON . fmap Integer') _eC2SecurityGroupIngressPropertyFromPort
     , (Just . ("IpProtocol",) . toJSON) _eC2SecurityGroupIngressPropertyIpProtocol
     , fmap (("SourceSecurityGroupId",) . toJSON) _eC2SecurityGroupIngressPropertySourceSecurityGroupId
@@ -48,6 +50,7 @@ instance FromJSON EC2SecurityGroupIngressProperty where
     EC2SecurityGroupIngressProperty <$>
       (obj .:? "CidrIp") <*>
       (obj .:? "CidrIpv6") <*>
+      (obj .:? "Description") <*>
       fmap (fmap (fmap unInteger')) (obj .:? "FromPort") <*>
       (obj .: "IpProtocol") <*>
       (obj .:? "SourceSecurityGroupId") <*>
@@ -65,6 +68,7 @@ ec2SecurityGroupIngressProperty ipProtocolarg =
   EC2SecurityGroupIngressProperty
   { _eC2SecurityGroupIngressPropertyCidrIp = Nothing
   , _eC2SecurityGroupIngressPropertyCidrIpv6 = Nothing
+  , _eC2SecurityGroupIngressPropertyDescription = Nothing
   , _eC2SecurityGroupIngressPropertyFromPort = Nothing
   , _eC2SecurityGroupIngressPropertyIpProtocol = ipProtocolarg
   , _eC2SecurityGroupIngressPropertySourceSecurityGroupId = Nothing
@@ -80,6 +84,10 @@ ecsgipCidrIp = lens _eC2SecurityGroupIngressPropertyCidrIp (\s a -> s { _eC2Secu
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html#cfn-ec2-security-group-rule-cidripv6
 ecsgipCidrIpv6 :: Lens' EC2SecurityGroupIngressProperty (Maybe (Val Text))
 ecsgipCidrIpv6 = lens _eC2SecurityGroupIngressPropertyCidrIpv6 (\s a -> s { _eC2SecurityGroupIngressPropertyCidrIpv6 = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html#cfn-ec2-security-group-rule-description
+ecsgipDescription :: Lens' EC2SecurityGroupIngressProperty (Maybe (Val Text))
+ecsgipDescription = lens _eC2SecurityGroupIngressPropertyDescription (\s a -> s { _eC2SecurityGroupIngressPropertyDescription = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html#cfn-ec2-security-group-rule-fromport
 ecsgipFromPort :: Lens' EC2SecurityGroupIngressProperty (Maybe (Val Integer))
