@@ -22,6 +22,7 @@ data ApiGatewayMethodIntegration =
   ApiGatewayMethodIntegration
   { _apiGatewayMethodIntegrationCacheKeyParameters :: Maybe (ValList Text)
   , _apiGatewayMethodIntegrationCacheNamespace :: Maybe (Val Text)
+  , _apiGatewayMethodIntegrationContentHandling :: Maybe (Val Text)
   , _apiGatewayMethodIntegrationCredentials :: Maybe (Val Text)
   , _apiGatewayMethodIntegrationIntegrationHttpMethod :: Maybe (Val HttpMethod)
   , _apiGatewayMethodIntegrationIntegrationResponses :: Maybe [ApiGatewayMethodIntegrationResponse]
@@ -38,6 +39,7 @@ instance ToJSON ApiGatewayMethodIntegration where
     catMaybes
     [ fmap (("CacheKeyParameters",) . toJSON) _apiGatewayMethodIntegrationCacheKeyParameters
     , fmap (("CacheNamespace",) . toJSON) _apiGatewayMethodIntegrationCacheNamespace
+    , fmap (("ContentHandling",) . toJSON) _apiGatewayMethodIntegrationContentHandling
     , fmap (("Credentials",) . toJSON) _apiGatewayMethodIntegrationCredentials
     , fmap (("IntegrationHttpMethod",) . toJSON) _apiGatewayMethodIntegrationIntegrationHttpMethod
     , fmap (("IntegrationResponses",) . toJSON) _apiGatewayMethodIntegrationIntegrationResponses
@@ -53,6 +55,7 @@ instance FromJSON ApiGatewayMethodIntegration where
     ApiGatewayMethodIntegration <$>
       (obj .:? "CacheKeyParameters") <*>
       (obj .:? "CacheNamespace") <*>
+      (obj .:? "ContentHandling") <*>
       (obj .:? "Credentials") <*>
       (obj .:? "IntegrationHttpMethod") <*>
       (obj .:? "IntegrationResponses") <*>
@@ -71,6 +74,7 @@ apiGatewayMethodIntegration  =
   ApiGatewayMethodIntegration
   { _apiGatewayMethodIntegrationCacheKeyParameters = Nothing
   , _apiGatewayMethodIntegrationCacheNamespace = Nothing
+  , _apiGatewayMethodIntegrationContentHandling = Nothing
   , _apiGatewayMethodIntegrationCredentials = Nothing
   , _apiGatewayMethodIntegrationIntegrationHttpMethod = Nothing
   , _apiGatewayMethodIntegrationIntegrationResponses = Nothing
@@ -88,6 +92,10 @@ agmiCacheKeyParameters = lens _apiGatewayMethodIntegrationCacheKeyParameters (\s
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-cachenamespace
 agmiCacheNamespace :: Lens' ApiGatewayMethodIntegration (Maybe (Val Text))
 agmiCacheNamespace = lens _apiGatewayMethodIntegrationCacheNamespace (\s a -> s { _apiGatewayMethodIntegrationCacheNamespace = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-contenthandling
+agmiContentHandling :: Lens' ApiGatewayMethodIntegration (Maybe (Val Text))
+agmiContentHandling = lens _apiGatewayMethodIntegrationContentHandling (\s a -> s { _apiGatewayMethodIntegrationContentHandling = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-credentials
 agmiCredentials :: Lens' ApiGatewayMethodIntegration (Maybe (Val Text))

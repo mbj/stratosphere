@@ -2,7 +2,7 @@
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE TupleSections #-}
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowruncommandparameters.html
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html
 
 module Stratosphere.ResourceProperties.SSMMaintenanceWindowTaskMaintenanceWindowRunCommandParameters where
 
@@ -79,38 +79,38 @@ ssmMaintenanceWindowTaskMaintenanceWindowRunCommandParameters  =
   , _sSMMaintenanceWindowTaskMaintenanceWindowRunCommandParametersTimeoutSeconds = Nothing
   }
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowruncommandparameters-comment
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-comment
 ssmmwtmwrcpComment :: Lens' SSMMaintenanceWindowTaskMaintenanceWindowRunCommandParameters (Maybe (Val Text))
 ssmmwtmwrcpComment = lens _sSMMaintenanceWindowTaskMaintenanceWindowRunCommandParametersComment (\s a -> s { _sSMMaintenanceWindowTaskMaintenanceWindowRunCommandParametersComment = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowruncommandparameters-documenthash
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-documenthash
 ssmmwtmwrcpDocumentHash :: Lens' SSMMaintenanceWindowTaskMaintenanceWindowRunCommandParameters (Maybe (Val Text))
 ssmmwtmwrcpDocumentHash = lens _sSMMaintenanceWindowTaskMaintenanceWindowRunCommandParametersDocumentHash (\s a -> s { _sSMMaintenanceWindowTaskMaintenanceWindowRunCommandParametersDocumentHash = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowruncommandparameters-documenthashtype
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-documenthashtype
 ssmmwtmwrcpDocumentHashType :: Lens' SSMMaintenanceWindowTaskMaintenanceWindowRunCommandParameters (Maybe (Val Text))
 ssmmwtmwrcpDocumentHashType = lens _sSMMaintenanceWindowTaskMaintenanceWindowRunCommandParametersDocumentHashType (\s a -> s { _sSMMaintenanceWindowTaskMaintenanceWindowRunCommandParametersDocumentHashType = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowruncommandparameters-notificationconfig
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-notificationconfig
 ssmmwtmwrcpNotificationConfig :: Lens' SSMMaintenanceWindowTaskMaintenanceWindowRunCommandParameters (Maybe SSMMaintenanceWindowTaskNotificationConfig)
 ssmmwtmwrcpNotificationConfig = lens _sSMMaintenanceWindowTaskMaintenanceWindowRunCommandParametersNotificationConfig (\s a -> s { _sSMMaintenanceWindowTaskMaintenanceWindowRunCommandParametersNotificationConfig = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowruncommandparameters-outputs3bucketname
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-outputs3bucketname
 ssmmwtmwrcpOutputS3BucketName :: Lens' SSMMaintenanceWindowTaskMaintenanceWindowRunCommandParameters (Maybe (Val Text))
 ssmmwtmwrcpOutputS3BucketName = lens _sSMMaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutputS3BucketName (\s a -> s { _sSMMaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutputS3BucketName = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowruncommandparameters-outputs3keyprefix
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-outputs3keyprefix
 ssmmwtmwrcpOutputS3KeyPrefix :: Lens' SSMMaintenanceWindowTaskMaintenanceWindowRunCommandParameters (Maybe (Val Text))
 ssmmwtmwrcpOutputS3KeyPrefix = lens _sSMMaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutputS3KeyPrefix (\s a -> s { _sSMMaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutputS3KeyPrefix = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowruncommandparameters-parameters
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-parameters
 ssmmwtmwrcpParameters :: Lens' SSMMaintenanceWindowTaskMaintenanceWindowRunCommandParameters (Maybe Object)
 ssmmwtmwrcpParameters = lens _sSMMaintenanceWindowTaskMaintenanceWindowRunCommandParametersParameters (\s a -> s { _sSMMaintenanceWindowTaskMaintenanceWindowRunCommandParametersParameters = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowruncommandparameters-servicerolearn
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-servicerolearn
 ssmmwtmwrcpServiceRoleArn :: Lens' SSMMaintenanceWindowTaskMaintenanceWindowRunCommandParameters (Maybe (Val Text))
 ssmmwtmwrcpServiceRoleArn = lens _sSMMaintenanceWindowTaskMaintenanceWindowRunCommandParametersServiceRoleArn (\s a -> s { _sSMMaintenanceWindowTaskMaintenanceWindowRunCommandParametersServiceRoleArn = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowruncommandparameters-timeoutseconds
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowruncommandparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowruncommandparameters-timeoutseconds
 ssmmwtmwrcpTimeoutSeconds :: Lens' SSMMaintenanceWindowTaskMaintenanceWindowRunCommandParameters (Maybe (Val Integer))
 ssmmwtmwrcpTimeoutSeconds = lens _sSMMaintenanceWindowTaskMaintenanceWindowRunCommandParametersTimeoutSeconds (\s a -> s { _sSMMaintenanceWindowTaskMaintenanceWindowRunCommandParametersTimeoutSeconds = a })

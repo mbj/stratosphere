@@ -18,6 +18,7 @@ import Stratosphere.ResourceProperties.OpsWorksStackStackConfigurationManager
 import Stratosphere.ResourceProperties.OpsWorksStackSource
 import Stratosphere.ResourceProperties.OpsWorksStackElasticIp
 import Stratosphere.ResourceProperties.OpsWorksStackRdsDbInstance
+import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for OpsWorksStack. See 'opsWorksStack' for a
 -- more convenient constructor.
@@ -44,6 +45,7 @@ data OpsWorksStack =
   , _opsWorksStackRdsDbInstances :: Maybe [OpsWorksStackRdsDbInstance]
   , _opsWorksStackServiceRoleArn :: Val Text
   , _opsWorksStackSourceStackId :: Maybe (Val Text)
+  , _opsWorksStackTags :: Maybe [Tag]
   , _opsWorksStackUseCustomCookbooks :: Maybe (Val Bool)
   , _opsWorksStackUseOpsworksSecurityGroups :: Maybe (Val Bool)
   , _opsWorksStackVpcId :: Maybe (Val Text)
@@ -74,6 +76,7 @@ instance ToJSON OpsWorksStack where
     , fmap (("RdsDbInstances",) . toJSON) _opsWorksStackRdsDbInstances
     , (Just . ("ServiceRoleArn",) . toJSON) _opsWorksStackServiceRoleArn
     , fmap (("SourceStackId",) . toJSON) _opsWorksStackSourceStackId
+    , fmap (("Tags",) . toJSON) _opsWorksStackTags
     , fmap (("UseCustomCookbooks",) . toJSON . fmap Bool') _opsWorksStackUseCustomCookbooks
     , fmap (("UseOpsworksSecurityGroups",) . toJSON . fmap Bool') _opsWorksStackUseOpsworksSecurityGroups
     , fmap (("VpcId",) . toJSON) _opsWorksStackVpcId
@@ -103,6 +106,7 @@ instance FromJSON OpsWorksStack where
       (obj .:? "RdsDbInstances") <*>
       (obj .: "ServiceRoleArn") <*>
       (obj .:? "SourceStackId") <*>
+      (obj .:? "Tags") <*>
       fmap (fmap (fmap unBool')) (obj .:? "UseCustomCookbooks") <*>
       fmap (fmap (fmap unBool')) (obj .:? "UseOpsworksSecurityGroups") <*>
       (obj .:? "VpcId")
@@ -137,6 +141,7 @@ opsWorksStack defaultInstanceProfileArnarg namearg serviceRoleArnarg =
   , _opsWorksStackRdsDbInstances = Nothing
   , _opsWorksStackServiceRoleArn = serviceRoleArnarg
   , _opsWorksStackSourceStackId = Nothing
+  , _opsWorksStackTags = Nothing
   , _opsWorksStackUseCustomCookbooks = Nothing
   , _opsWorksStackUseOpsworksSecurityGroups = Nothing
   , _opsWorksStackVpcId = Nothing
@@ -225,6 +230,10 @@ owsServiceRoleArn = lens _opsWorksStackServiceRoleArn (\s a -> s { _opsWorksStac
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-stack.html#cfn-opsworks-stack-sourcestackid
 owsSourceStackId :: Lens' OpsWorksStack (Maybe (Val Text))
 owsSourceStackId = lens _opsWorksStackSourceStackId (\s a -> s { _opsWorksStackSourceStackId = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-stack.html#cfn-opsworks-stack-tags
+owsTags :: Lens' OpsWorksStack (Maybe [Tag])
+owsTags = lens _opsWorksStackTags (\s a -> s { _opsWorksStackTags = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-stack.html#usecustcookbooks
 owsUseCustomCookbooks :: Lens' OpsWorksStack (Maybe (Val Bool))

@@ -2,7 +2,7 @@
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE TupleSections #-}
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-ebsconfiguration.html
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-ebsconfiguration.html
 
 module Stratosphere.ResourceProperties.EMRClusterEbsConfiguration where
 
@@ -48,10 +48,10 @@ emrClusterEbsConfiguration  =
   , _eMRClusterEbsConfigurationEbsOptimized = Nothing
   }
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-ebsconfiguration.html#cfn-emr-ebsconfiguration-ebsblockdeviceconfigs
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-ebsconfiguration.html#cfn-elasticmapreduce-cluster-ebsconfiguration-ebsblockdeviceconfigs
 emrcecEbsBlockDeviceConfigs :: Lens' EMRClusterEbsConfiguration (Maybe [EMRClusterEbsBlockDeviceConfig])
 emrcecEbsBlockDeviceConfigs = lens _eMRClusterEbsConfigurationEbsBlockDeviceConfigs (\s a -> s { _eMRClusterEbsConfigurationEbsBlockDeviceConfigs = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-ebsconfiguration.html#cfn-emr-ebsconfiguration-ebsoptimized
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-ebsconfiguration.html#cfn-elasticmapreduce-cluster-ebsconfiguration-ebsoptimized
 emrcecEbsOptimized :: Lens' EMRClusterEbsConfiguration (Maybe (Val Bool))
 emrcecEbsOptimized = lens _eMRClusterEbsConfigurationEbsOptimized (\s a -> s { _eMRClusterEbsConfigurationEbsOptimized = a })

@@ -2,7 +2,7 @@
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE TupleSections #-}
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-application.html
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-application.html
 
 module Stratosphere.ResourceProperties.EMRClusterApplication where
 
@@ -56,18 +56,18 @@ emrClusterApplication  =
   , _eMRClusterApplicationVersion = Nothing
   }
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-application.html#cfn-emr-cluster-application-additionalinfo
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-application.html#cfn-elasticmapreduce-cluster-application-additionalinfo
 emrcaAdditionalInfo :: Lens' EMRClusterApplication (Maybe Object)
 emrcaAdditionalInfo = lens _eMRClusterApplicationAdditionalInfo (\s a -> s { _eMRClusterApplicationAdditionalInfo = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-application.html#cfn-emr-cluster-application-args
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-application.html#cfn-elasticmapreduce-cluster-application-args
 emrcaArgs :: Lens' EMRClusterApplication (Maybe (ValList Text))
 emrcaArgs = lens _eMRClusterApplicationArgs (\s a -> s { _eMRClusterApplicationArgs = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-application.html#cfn-emr-cluster-application-name
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-application.html#cfn-elasticmapreduce-cluster-application-name
 emrcaName :: Lens' EMRClusterApplication (Maybe (Val Text))
 emrcaName = lens _eMRClusterApplicationName (\s a -> s { _eMRClusterApplicationName = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-application.html#cfn-emr-cluster-application-version
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-application.html#cfn-elasticmapreduce-cluster-application-version
 emrcaVersion :: Lens' EMRClusterApplication (Maybe (Val Text))
 emrcaVersion = lens _eMRClusterApplicationVersion (\s a -> s { _eMRClusterApplicationVersion = a })

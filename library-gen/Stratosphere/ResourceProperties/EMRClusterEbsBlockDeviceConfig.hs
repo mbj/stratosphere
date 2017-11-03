@@ -2,7 +2,7 @@
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE TupleSections #-}
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-ebsconfiguration-ebsblockdeviceconfig.html
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-ebsblockdeviceconfig.html
 
 module Stratosphere.ResourceProperties.EMRClusterEbsBlockDeviceConfig where
 
@@ -49,10 +49,10 @@ emrClusterEbsBlockDeviceConfig volumeSpecificationarg =
   , _eMRClusterEbsBlockDeviceConfigVolumesPerInstance = Nothing
   }
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-ebsconfiguration-ebsblockdeviceconfig.html#cfn-emr-ebsconfiguration-ebsblockdeviceconfig-volumespecification
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-ebsblockdeviceconfig.html#cfn-elasticmapreduce-cluster-ebsblockdeviceconfig-volumespecification
 emrcebdcVolumeSpecification :: Lens' EMRClusterEbsBlockDeviceConfig EMRClusterVolumeSpecification
 emrcebdcVolumeSpecification = lens _eMRClusterEbsBlockDeviceConfigVolumeSpecification (\s a -> s { _eMRClusterEbsBlockDeviceConfigVolumeSpecification = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-ebsconfiguration-ebsblockdeviceconfig.html#cfn-emr-ebsconfiguration-ebsblockdeviceconfig-volumesperinstance
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-ebsblockdeviceconfig.html#cfn-elasticmapreduce-cluster-ebsblockdeviceconfig-volumesperinstance
 emrcebdcVolumesPerInstance :: Lens' EMRClusterEbsBlockDeviceConfig (Maybe (Val Integer))
 emrcebdcVolumesPerInstance = lens _eMRClusterEbsBlockDeviceConfigVolumesPerInstance (\s a -> s { _eMRClusterEbsBlockDeviceConfigVolumesPerInstance = a })

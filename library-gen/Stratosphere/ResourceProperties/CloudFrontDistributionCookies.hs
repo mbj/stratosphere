@@ -2,7 +2,7 @@
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE TupleSections #-}
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-forwardedvalues-cookies.html
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cookies.html
 
 module Stratosphere.ResourceProperties.CloudFrontDistributionCookies where
 
@@ -49,10 +49,10 @@ cloudFrontDistributionCookies forwardarg =
   , _cloudFrontDistributionCookiesWhitelistedNames = Nothing
   }
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-forwardedvalues-cookies.html#cfn-cloudfront-forwardedvalues-cookies-forward
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cookies.html#cfn-cloudfront-distribution-cookies-forward
 cfdcForward :: Lens' CloudFrontDistributionCookies (Val Text)
 cfdcForward = lens _cloudFrontDistributionCookiesForward (\s a -> s { _cloudFrontDistributionCookiesForward = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-forwardedvalues-cookies.html#cfn-cloudfront-forwardedvalues-cookies-whitelistednames
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cookies.html#cfn-cloudfront-distribution-cookies-whitelistednames
 cfdcWhitelistedNames :: Lens' CloudFrontDistributionCookies (Maybe (ValList Text))
 cfdcWhitelistedNames = lens _cloudFrontDistributionCookiesWhitelistedNames (\s a -> s { _cloudFrontDistributionCookiesWhitelistedNames = a })

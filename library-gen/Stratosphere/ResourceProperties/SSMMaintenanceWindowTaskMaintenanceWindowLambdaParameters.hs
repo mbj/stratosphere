@@ -2,7 +2,7 @@
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE TupleSections #-}
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowlambdaparameters.html
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowlambdaparameters.html
 
 module Stratosphere.ResourceProperties.SSMMaintenanceWindowTaskMaintenanceWindowLambdaParameters where
 
@@ -55,14 +55,14 @@ ssmMaintenanceWindowTaskMaintenanceWindowLambdaParameters  =
   , _sSMMaintenanceWindowTaskMaintenanceWindowLambdaParametersQualifier = Nothing
   }
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowlambdaparameters.html#cfn-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowlambdaparameters-clientcontext
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowlambdaparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowlambdaparameters-clientcontext
 ssmmwtmwlpClientContext :: Lens' SSMMaintenanceWindowTaskMaintenanceWindowLambdaParameters (Maybe (Val Text))
 ssmmwtmwlpClientContext = lens _sSMMaintenanceWindowTaskMaintenanceWindowLambdaParametersClientContext (\s a -> s { _sSMMaintenanceWindowTaskMaintenanceWindowLambdaParametersClientContext = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowlambdaparameters.html#cfn-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowlambdaparameters-payload
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowlambdaparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowlambdaparameters-payload
 ssmmwtmwlpPayload :: Lens' SSMMaintenanceWindowTaskMaintenanceWindowLambdaParameters (Maybe (Val Text))
 ssmmwtmwlpPayload = lens _sSMMaintenanceWindowTaskMaintenanceWindowLambdaParametersPayload (\s a -> s { _sSMMaintenanceWindowTaskMaintenanceWindowLambdaParametersPayload = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowlambdaparameters.html#cfn-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowlambdaparameters-qualifier
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowlambdaparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowlambdaparameters-qualifier
 ssmmwtmwlpQualifier :: Lens' SSMMaintenanceWindowTaskMaintenanceWindowLambdaParameters (Maybe (Val Text))
 ssmmwtmwlpQualifier = lens _sSMMaintenanceWindowTaskMaintenanceWindowLambdaParametersQualifier (\s a -> s { _sSMMaintenanceWindowTaskMaintenanceWindowLambdaParametersQualifier = a })

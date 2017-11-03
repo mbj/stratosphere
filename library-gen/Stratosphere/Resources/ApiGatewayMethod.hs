@@ -27,8 +27,10 @@ data ApiGatewayMethod =
   , _apiGatewayMethodHttpMethod :: Val HttpMethod
   , _apiGatewayMethodIntegration :: Maybe ApiGatewayMethodIntegration
   , _apiGatewayMethodMethodResponses :: Maybe [ApiGatewayMethodMethodResponse]
+  , _apiGatewayMethodOperationName :: Maybe (Val Text)
   , _apiGatewayMethodRequestModels :: Maybe Object
   , _apiGatewayMethodRequestParameters :: Maybe Object
+  , _apiGatewayMethodRequestValidatorId :: Maybe (Val Text)
   , _apiGatewayMethodResourceId :: Val Text
   , _apiGatewayMethodRestApiId :: Val Text
   } deriving (Show, Eq)
@@ -43,8 +45,10 @@ instance ToJSON ApiGatewayMethod where
     , (Just . ("HttpMethod",) . toJSON) _apiGatewayMethodHttpMethod
     , fmap (("Integration",) . toJSON) _apiGatewayMethodIntegration
     , fmap (("MethodResponses",) . toJSON) _apiGatewayMethodMethodResponses
+    , fmap (("OperationName",) . toJSON) _apiGatewayMethodOperationName
     , fmap (("RequestModels",) . toJSON) _apiGatewayMethodRequestModels
     , fmap (("RequestParameters",) . toJSON) _apiGatewayMethodRequestParameters
+    , fmap (("RequestValidatorId",) . toJSON) _apiGatewayMethodRequestValidatorId
     , (Just . ("ResourceId",) . toJSON) _apiGatewayMethodResourceId
     , (Just . ("RestApiId",) . toJSON) _apiGatewayMethodRestApiId
     ]
@@ -58,8 +62,10 @@ instance FromJSON ApiGatewayMethod where
       (obj .: "HttpMethod") <*>
       (obj .:? "Integration") <*>
       (obj .:? "MethodResponses") <*>
+      (obj .:? "OperationName") <*>
       (obj .:? "RequestModels") <*>
       (obj .:? "RequestParameters") <*>
+      (obj .:? "RequestValidatorId") <*>
       (obj .: "ResourceId") <*>
       (obj .: "RestApiId")
   parseJSON _ = mempty
@@ -79,8 +85,10 @@ apiGatewayMethod httpMethodarg resourceIdarg restApiIdarg =
   , _apiGatewayMethodHttpMethod = httpMethodarg
   , _apiGatewayMethodIntegration = Nothing
   , _apiGatewayMethodMethodResponses = Nothing
+  , _apiGatewayMethodOperationName = Nothing
   , _apiGatewayMethodRequestModels = Nothing
   , _apiGatewayMethodRequestParameters = Nothing
+  , _apiGatewayMethodRequestValidatorId = Nothing
   , _apiGatewayMethodResourceId = resourceIdarg
   , _apiGatewayMethodRestApiId = restApiIdarg
   }
@@ -109,6 +117,10 @@ agmeIntegration = lens _apiGatewayMethodIntegration (\s a -> s { _apiGatewayMeth
 agmeMethodResponses :: Lens' ApiGatewayMethod (Maybe [ApiGatewayMethodMethodResponse])
 agmeMethodResponses = lens _apiGatewayMethodMethodResponses (\s a -> s { _apiGatewayMethodMethodResponses = a })
 
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html#cfn-apigateway-method-operationname
+agmeOperationName :: Lens' ApiGatewayMethod (Maybe (Val Text))
+agmeOperationName = lens _apiGatewayMethodOperationName (\s a -> s { _apiGatewayMethodOperationName = a })
+
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html#cfn-apigateway-method-requestmodels
 agmeRequestModels :: Lens' ApiGatewayMethod (Maybe Object)
 agmeRequestModels = lens _apiGatewayMethodRequestModels (\s a -> s { _apiGatewayMethodRequestModels = a })
@@ -116,6 +128,10 @@ agmeRequestModels = lens _apiGatewayMethodRequestModels (\s a -> s { _apiGateway
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html#cfn-apigateway-method-requestparameters
 agmeRequestParameters :: Lens' ApiGatewayMethod (Maybe Object)
 agmeRequestParameters = lens _apiGatewayMethodRequestParameters (\s a -> s { _apiGatewayMethodRequestParameters = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html#cfn-apigateway-method-requestvalidatorid
+agmeRequestValidatorId :: Lens' ApiGatewayMethod (Maybe (Val Text))
+agmeRequestValidatorId = lens _apiGatewayMethodRequestValidatorId (\s a -> s { _apiGatewayMethodRequestValidatorId = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html#cfn-apigateway-method-resourceid
 agmeResourceId :: Lens' ApiGatewayMethod (Val Text)

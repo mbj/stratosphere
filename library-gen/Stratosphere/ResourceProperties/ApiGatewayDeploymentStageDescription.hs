@@ -32,7 +32,6 @@ data ApiGatewayDeploymentStageDescription =
   , _apiGatewayDeploymentStageDescriptionLoggingLevel :: Maybe (Val LoggingLevel)
   , _apiGatewayDeploymentStageDescriptionMethodSettings :: Maybe [ApiGatewayDeploymentMethodSetting]
   , _apiGatewayDeploymentStageDescriptionMetricsEnabled :: Maybe (Val Bool)
-  , _apiGatewayDeploymentStageDescriptionStageName :: Maybe (Val Text)
   , _apiGatewayDeploymentStageDescriptionThrottlingBurstLimit :: Maybe (Val Integer)
   , _apiGatewayDeploymentStageDescriptionThrottlingRateLimit :: Maybe (Val Double)
   , _apiGatewayDeploymentStageDescriptionVariables :: Maybe Object
@@ -54,7 +53,6 @@ instance ToJSON ApiGatewayDeploymentStageDescription where
     , fmap (("LoggingLevel",) . toJSON) _apiGatewayDeploymentStageDescriptionLoggingLevel
     , fmap (("MethodSettings",) . toJSON) _apiGatewayDeploymentStageDescriptionMethodSettings
     , fmap (("MetricsEnabled",) . toJSON . fmap Bool') _apiGatewayDeploymentStageDescriptionMetricsEnabled
-    , fmap (("StageName",) . toJSON) _apiGatewayDeploymentStageDescriptionStageName
     , fmap (("ThrottlingBurstLimit",) . toJSON . fmap Integer') _apiGatewayDeploymentStageDescriptionThrottlingBurstLimit
     , fmap (("ThrottlingRateLimit",) . toJSON . fmap Double') _apiGatewayDeploymentStageDescriptionThrottlingRateLimit
     , fmap (("Variables",) . toJSON) _apiGatewayDeploymentStageDescriptionVariables
@@ -75,7 +73,6 @@ instance FromJSON ApiGatewayDeploymentStageDescription where
       (obj .:? "LoggingLevel") <*>
       (obj .:? "MethodSettings") <*>
       fmap (fmap (fmap unBool')) (obj .:? "MetricsEnabled") <*>
-      (obj .:? "StageName") <*>
       fmap (fmap (fmap unInteger')) (obj .:? "ThrottlingBurstLimit") <*>
       fmap (fmap (fmap unDouble')) (obj .:? "ThrottlingRateLimit") <*>
       (obj .:? "Variables")
@@ -99,7 +96,6 @@ apiGatewayDeploymentStageDescription  =
   , _apiGatewayDeploymentStageDescriptionLoggingLevel = Nothing
   , _apiGatewayDeploymentStageDescriptionMethodSettings = Nothing
   , _apiGatewayDeploymentStageDescriptionMetricsEnabled = Nothing
-  , _apiGatewayDeploymentStageDescriptionStageName = Nothing
   , _apiGatewayDeploymentStageDescriptionThrottlingBurstLimit = Nothing
   , _apiGatewayDeploymentStageDescriptionThrottlingRateLimit = Nothing
   , _apiGatewayDeploymentStageDescriptionVariables = Nothing
@@ -152,10 +148,6 @@ agdsdMethodSettings = lens _apiGatewayDeploymentStageDescriptionMethodSettings (
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-metricsenabled
 agdsdMetricsEnabled :: Lens' ApiGatewayDeploymentStageDescription (Maybe (Val Bool))
 agdsdMetricsEnabled = lens _apiGatewayDeploymentStageDescriptionMetricsEnabled (\s a -> s { _apiGatewayDeploymentStageDescriptionMetricsEnabled = a })
-
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-stagename
-agdsdStageName :: Lens' ApiGatewayDeploymentStageDescription (Maybe (Val Text))
-agdsdStageName = lens _apiGatewayDeploymentStageDescriptionStageName (\s a -> s { _apiGatewayDeploymentStageDescriptionStageName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-throttlingburstlimit
 agdsdThrottlingBurstLimit :: Lens' ApiGatewayDeploymentStageDescription (Maybe (Val Integer))

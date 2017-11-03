@@ -22,6 +22,7 @@ data AutoScalingLifecycleHook =
   { _autoScalingLifecycleHookAutoScalingGroupName :: Val Text
   , _autoScalingLifecycleHookDefaultResult :: Maybe (Val Text)
   , _autoScalingLifecycleHookHeartbeatTimeout :: Maybe (Val Integer)
+  , _autoScalingLifecycleHookLifecycleHookName :: Maybe (Val Text)
   , _autoScalingLifecycleHookLifecycleTransition :: Val Text
   , _autoScalingLifecycleHookNotificationMetadata :: Maybe (Val Text)
   , _autoScalingLifecycleHookNotificationTargetARN :: Maybe (Val Text)
@@ -35,6 +36,7 @@ instance ToJSON AutoScalingLifecycleHook where
     [ (Just . ("AutoScalingGroupName",) . toJSON) _autoScalingLifecycleHookAutoScalingGroupName
     , fmap (("DefaultResult",) . toJSON) _autoScalingLifecycleHookDefaultResult
     , fmap (("HeartbeatTimeout",) . toJSON . fmap Integer') _autoScalingLifecycleHookHeartbeatTimeout
+    , fmap (("LifecycleHookName",) . toJSON) _autoScalingLifecycleHookLifecycleHookName
     , (Just . ("LifecycleTransition",) . toJSON) _autoScalingLifecycleHookLifecycleTransition
     , fmap (("NotificationMetadata",) . toJSON) _autoScalingLifecycleHookNotificationMetadata
     , fmap (("NotificationTargetARN",) . toJSON) _autoScalingLifecycleHookNotificationTargetARN
@@ -47,6 +49,7 @@ instance FromJSON AutoScalingLifecycleHook where
       (obj .: "AutoScalingGroupName") <*>
       (obj .:? "DefaultResult") <*>
       fmap (fmap (fmap unInteger')) (obj .:? "HeartbeatTimeout") <*>
+      (obj .:? "LifecycleHookName") <*>
       (obj .: "LifecycleTransition") <*>
       (obj .:? "NotificationMetadata") <*>
       (obj .:? "NotificationTargetARN") <*>
@@ -64,6 +67,7 @@ autoScalingLifecycleHook autoScalingGroupNamearg lifecycleTransitionarg =
   { _autoScalingLifecycleHookAutoScalingGroupName = autoScalingGroupNamearg
   , _autoScalingLifecycleHookDefaultResult = Nothing
   , _autoScalingLifecycleHookHeartbeatTimeout = Nothing
+  , _autoScalingLifecycleHookLifecycleHookName = Nothing
   , _autoScalingLifecycleHookLifecycleTransition = lifecycleTransitionarg
   , _autoScalingLifecycleHookNotificationMetadata = Nothing
   , _autoScalingLifecycleHookNotificationTargetARN = Nothing
@@ -81,6 +85,10 @@ aslhDefaultResult = lens _autoScalingLifecycleHookDefaultResult (\s a -> s { _au
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-lifecyclehook.html#cfn-as-lifecyclehook-heartbeattimeout
 aslhHeartbeatTimeout :: Lens' AutoScalingLifecycleHook (Maybe (Val Integer))
 aslhHeartbeatTimeout = lens _autoScalingLifecycleHookHeartbeatTimeout (\s a -> s { _autoScalingLifecycleHookHeartbeatTimeout = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-lifecyclehook.html#cfn-autoscaling-lifecyclehook-lifecyclehookname
+aslhLifecycleHookName :: Lens' AutoScalingLifecycleHook (Maybe (Val Text))
+aslhLifecycleHookName = lens _autoScalingLifecycleHookLifecycleHookName (\s a -> s { _autoScalingLifecycleHookLifecycleHookName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-lifecyclehook.html#cfn-as-lifecyclehook-lifecycletransition
 aslhLifecycleTransition :: Lens' AutoScalingLifecycleHook (Val Text)

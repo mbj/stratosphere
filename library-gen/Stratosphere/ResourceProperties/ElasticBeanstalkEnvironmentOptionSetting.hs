@@ -22,6 +22,7 @@ data ElasticBeanstalkEnvironmentOptionSetting =
   ElasticBeanstalkEnvironmentOptionSetting
   { _elasticBeanstalkEnvironmentOptionSettingNamespace :: Val Text
   , _elasticBeanstalkEnvironmentOptionSettingOptionName :: Val Text
+  , _elasticBeanstalkEnvironmentOptionSettingResourceName :: Maybe (Val Text)
   , _elasticBeanstalkEnvironmentOptionSettingValue :: Maybe (Val Text)
   } deriving (Show, Eq)
 
@@ -31,6 +32,7 @@ instance ToJSON ElasticBeanstalkEnvironmentOptionSetting where
     catMaybes
     [ (Just . ("Namespace",) . toJSON) _elasticBeanstalkEnvironmentOptionSettingNamespace
     , (Just . ("OptionName",) . toJSON) _elasticBeanstalkEnvironmentOptionSettingOptionName
+    , fmap (("ResourceName",) . toJSON) _elasticBeanstalkEnvironmentOptionSettingResourceName
     , fmap (("Value",) . toJSON) _elasticBeanstalkEnvironmentOptionSettingValue
     ]
 
@@ -39,6 +41,7 @@ instance FromJSON ElasticBeanstalkEnvironmentOptionSetting where
     ElasticBeanstalkEnvironmentOptionSetting <$>
       (obj .: "Namespace") <*>
       (obj .: "OptionName") <*>
+      (obj .:? "ResourceName") <*>
       (obj .:? "Value")
   parseJSON _ = mempty
 
@@ -52,6 +55,7 @@ elasticBeanstalkEnvironmentOptionSetting namespacearg optionNamearg =
   ElasticBeanstalkEnvironmentOptionSetting
   { _elasticBeanstalkEnvironmentOptionSettingNamespace = namespacearg
   , _elasticBeanstalkEnvironmentOptionSettingOptionName = optionNamearg
+  , _elasticBeanstalkEnvironmentOptionSettingResourceName = Nothing
   , _elasticBeanstalkEnvironmentOptionSettingValue = Nothing
   }
 
@@ -62,6 +66,10 @@ ebeosNamespace = lens _elasticBeanstalkEnvironmentOptionSettingNamespace (\s a -
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-option-settings.html#cfn-beanstalk-optionsettings-optionname
 ebeosOptionName :: Lens' ElasticBeanstalkEnvironmentOptionSetting (Val Text)
 ebeosOptionName = lens _elasticBeanstalkEnvironmentOptionSettingOptionName (\s a -> s { _elasticBeanstalkEnvironmentOptionSettingOptionName = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-option-settings.html#cfn-elasticbeanstalk-environment-optionsetting-resourcename
+ebeosResourceName :: Lens' ElasticBeanstalkEnvironmentOptionSetting (Maybe (Val Text))
+ebeosResourceName = lens _elasticBeanstalkEnvironmentOptionSettingResourceName (\s a -> s { _elasticBeanstalkEnvironmentOptionSettingResourceName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-option-settings.html#cfn-beanstalk-optionsettings-value
 ebeosValue :: Lens' ElasticBeanstalkEnvironmentOptionSetting (Maybe (Val Text))

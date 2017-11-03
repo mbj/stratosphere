@@ -2,7 +2,7 @@
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE TupleSections #-}
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-s3origin.html
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-s3originconfig.html
 
 module Stratosphere.ResourceProperties.CloudFrontDistributionS3OriginConfig where
 
@@ -44,6 +44,6 @@ cloudFrontDistributionS3OriginConfig  =
   { _cloudFrontDistributionS3OriginConfigOriginAccessIdentity = Nothing
   }
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-s3origin.html#cfn-cloudfront-s3origin-originaccessidentity
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-s3originconfig.html#cfn-cloudfront-distribution-s3originconfig-originaccessidentity
 cfdsocOriginAccessIdentity :: Lens' CloudFrontDistributionS3OriginConfig (Maybe (Val Text))
 cfdsocOriginAccessIdentity = lens _cloudFrontDistributionS3OriginConfigOriginAccessIdentity (\s a -> s { _cloudFrontDistributionS3OriginConfigOriginAccessIdentity = a })

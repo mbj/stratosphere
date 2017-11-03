@@ -13,28 +13,30 @@ import Data.Monoid (mempty)
 import Data.Text
 
 import Stratosphere.Values
+import Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupTagProperty
+import Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupLifecycleHookSpecification
 import Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupMetricsCollection
 import Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupNotificationConfiguration
-import Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupTagProperty
 
 -- | Full data type definition for AutoScalingAutoScalingGroup. See
 -- 'autoScalingAutoScalingGroup' for a more convenient constructor.
 data AutoScalingAutoScalingGroup =
   AutoScalingAutoScalingGroup
-  { _autoScalingAutoScalingGroupAvailabilityZones :: Maybe (ValList Text)
+  { _autoScalingAutoScalingGroupAsTags :: Maybe [AutoScalingAutoScalingGroupTagProperty]
+  , _autoScalingAutoScalingGroupAvailabilityZones :: Maybe (ValList Text)
   , _autoScalingAutoScalingGroupCooldown :: Maybe (Val Text)
   , _autoScalingAutoScalingGroupDesiredCapacity :: Maybe (Val Text)
   , _autoScalingAutoScalingGroupHealthCheckGracePeriod :: Maybe (Val Integer)
   , _autoScalingAutoScalingGroupHealthCheckType :: Maybe (Val Text)
   , _autoScalingAutoScalingGroupInstanceId :: Maybe (Val Text)
   , _autoScalingAutoScalingGroupLaunchConfigurationName :: Maybe (Val Text)
+  , _autoScalingAutoScalingGroupLifecycleHookSpecificationList :: Maybe [AutoScalingAutoScalingGroupLifecycleHookSpecification]
   , _autoScalingAutoScalingGroupLoadBalancerNames :: Maybe (ValList Text)
   , _autoScalingAutoScalingGroupMaxSize :: Val Text
   , _autoScalingAutoScalingGroupMetricsCollection :: Maybe [AutoScalingAutoScalingGroupMetricsCollection]
   , _autoScalingAutoScalingGroupMinSize :: Val Text
   , _autoScalingAutoScalingGroupNotificationConfigurations :: Maybe [AutoScalingAutoScalingGroupNotificationConfiguration]
   , _autoScalingAutoScalingGroupPlacementGroup :: Maybe (Val Text)
-  , _autoScalingAutoScalingGroupTags :: Maybe [AutoScalingAutoScalingGroupTagProperty]
   , _autoScalingAutoScalingGroupTargetGroupARNs :: Maybe (ValList Text)
   , _autoScalingAutoScalingGroupTerminationPolicies :: Maybe (ValList Text)
   , _autoScalingAutoScalingGroupVPCZoneIdentifier :: Maybe (ValList Text)
@@ -44,20 +46,21 @@ instance ToJSON AutoScalingAutoScalingGroup where
   toJSON AutoScalingAutoScalingGroup{..} =
     object $
     catMaybes
-    [ fmap (("AvailabilityZones",) . toJSON) _autoScalingAutoScalingGroupAvailabilityZones
+    [ fmap (("AsTags",) . toJSON) _autoScalingAutoScalingGroupAsTags
+    , fmap (("AvailabilityZones",) . toJSON) _autoScalingAutoScalingGroupAvailabilityZones
     , fmap (("Cooldown",) . toJSON) _autoScalingAutoScalingGroupCooldown
     , fmap (("DesiredCapacity",) . toJSON) _autoScalingAutoScalingGroupDesiredCapacity
     , fmap (("HealthCheckGracePeriod",) . toJSON . fmap Integer') _autoScalingAutoScalingGroupHealthCheckGracePeriod
     , fmap (("HealthCheckType",) . toJSON) _autoScalingAutoScalingGroupHealthCheckType
     , fmap (("InstanceId",) . toJSON) _autoScalingAutoScalingGroupInstanceId
     , fmap (("LaunchConfigurationName",) . toJSON) _autoScalingAutoScalingGroupLaunchConfigurationName
+    , fmap (("LifecycleHookSpecificationList",) . toJSON) _autoScalingAutoScalingGroupLifecycleHookSpecificationList
     , fmap (("LoadBalancerNames",) . toJSON) _autoScalingAutoScalingGroupLoadBalancerNames
     , (Just . ("MaxSize",) . toJSON) _autoScalingAutoScalingGroupMaxSize
     , fmap (("MetricsCollection",) . toJSON) _autoScalingAutoScalingGroupMetricsCollection
     , (Just . ("MinSize",) . toJSON) _autoScalingAutoScalingGroupMinSize
     , fmap (("NotificationConfigurations",) . toJSON) _autoScalingAutoScalingGroupNotificationConfigurations
     , fmap (("PlacementGroup",) . toJSON) _autoScalingAutoScalingGroupPlacementGroup
-    , fmap (("Tags",) . toJSON) _autoScalingAutoScalingGroupTags
     , fmap (("TargetGroupARNs",) . toJSON) _autoScalingAutoScalingGroupTargetGroupARNs
     , fmap (("TerminationPolicies",) . toJSON) _autoScalingAutoScalingGroupTerminationPolicies
     , fmap (("VPCZoneIdentifier",) . toJSON) _autoScalingAutoScalingGroupVPCZoneIdentifier
@@ -66,6 +69,7 @@ instance ToJSON AutoScalingAutoScalingGroup where
 instance FromJSON AutoScalingAutoScalingGroup where
   parseJSON (Object obj) =
     AutoScalingAutoScalingGroup <$>
+      (obj .:? "AsTags") <*>
       (obj .:? "AvailabilityZones") <*>
       (obj .:? "Cooldown") <*>
       (obj .:? "DesiredCapacity") <*>
@@ -73,13 +77,13 @@ instance FromJSON AutoScalingAutoScalingGroup where
       (obj .:? "HealthCheckType") <*>
       (obj .:? "InstanceId") <*>
       (obj .:? "LaunchConfigurationName") <*>
+      (obj .:? "LifecycleHookSpecificationList") <*>
       (obj .:? "LoadBalancerNames") <*>
       (obj .: "MaxSize") <*>
       (obj .:? "MetricsCollection") <*>
       (obj .: "MinSize") <*>
       (obj .:? "NotificationConfigurations") <*>
       (obj .:? "PlacementGroup") <*>
-      (obj .:? "Tags") <*>
       (obj .:? "TargetGroupARNs") <*>
       (obj .:? "TerminationPolicies") <*>
       (obj .:? "VPCZoneIdentifier")
@@ -93,24 +97,29 @@ autoScalingAutoScalingGroup
   -> AutoScalingAutoScalingGroup
 autoScalingAutoScalingGroup maxSizearg minSizearg =
   AutoScalingAutoScalingGroup
-  { _autoScalingAutoScalingGroupAvailabilityZones = Nothing
+  { _autoScalingAutoScalingGroupAsTags = Nothing
+  , _autoScalingAutoScalingGroupAvailabilityZones = Nothing
   , _autoScalingAutoScalingGroupCooldown = Nothing
   , _autoScalingAutoScalingGroupDesiredCapacity = Nothing
   , _autoScalingAutoScalingGroupHealthCheckGracePeriod = Nothing
   , _autoScalingAutoScalingGroupHealthCheckType = Nothing
   , _autoScalingAutoScalingGroupInstanceId = Nothing
   , _autoScalingAutoScalingGroupLaunchConfigurationName = Nothing
+  , _autoScalingAutoScalingGroupLifecycleHookSpecificationList = Nothing
   , _autoScalingAutoScalingGroupLoadBalancerNames = Nothing
   , _autoScalingAutoScalingGroupMaxSize = maxSizearg
   , _autoScalingAutoScalingGroupMetricsCollection = Nothing
   , _autoScalingAutoScalingGroupMinSize = minSizearg
   , _autoScalingAutoScalingGroupNotificationConfigurations = Nothing
   , _autoScalingAutoScalingGroupPlacementGroup = Nothing
-  , _autoScalingAutoScalingGroupTags = Nothing
   , _autoScalingAutoScalingGroupTargetGroupARNs = Nothing
   , _autoScalingAutoScalingGroupTerminationPolicies = Nothing
   , _autoScalingAutoScalingGroupVPCZoneIdentifier = Nothing
   }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-tags
+asasgAsTags :: Lens' AutoScalingAutoScalingGroup (Maybe [AutoScalingAutoScalingGroupTagProperty])
+asasgAsTags = lens _autoScalingAutoScalingGroupAsTags (\s a -> s { _autoScalingAutoScalingGroupAsTags = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-availabilityzones
 asasgAvailabilityZones :: Lens' AutoScalingAutoScalingGroup (Maybe (ValList Text))
@@ -140,6 +149,10 @@ asasgInstanceId = lens _autoScalingAutoScalingGroupInstanceId (\s a -> s { _auto
 asasgLaunchConfigurationName :: Lens' AutoScalingAutoScalingGroup (Maybe (Val Text))
 asasgLaunchConfigurationName = lens _autoScalingAutoScalingGroupLaunchConfigurationName (\s a -> s { _autoScalingAutoScalingGroupLaunchConfigurationName = a })
 
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-autoscaling-autoscalinggroup-lifecyclehookspecificationlist
+asasgLifecycleHookSpecificationList :: Lens' AutoScalingAutoScalingGroup (Maybe [AutoScalingAutoScalingGroupLifecycleHookSpecification])
+asasgLifecycleHookSpecificationList = lens _autoScalingAutoScalingGroupLifecycleHookSpecificationList (\s a -> s { _autoScalingAutoScalingGroupLifecycleHookSpecificationList = a })
+
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-loadbalancernames
 asasgLoadBalancerNames :: Lens' AutoScalingAutoScalingGroup (Maybe (ValList Text))
 asasgLoadBalancerNames = lens _autoScalingAutoScalingGroupLoadBalancerNames (\s a -> s { _autoScalingAutoScalingGroupLoadBalancerNames = a })
@@ -163,10 +176,6 @@ asasgNotificationConfigurations = lens _autoScalingAutoScalingGroupNotificationC
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-placementgroup
 asasgPlacementGroup :: Lens' AutoScalingAutoScalingGroup (Maybe (Val Text))
 asasgPlacementGroup = lens _autoScalingAutoScalingGroupPlacementGroup (\s a -> s { _autoScalingAutoScalingGroupPlacementGroup = a })
-
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-tags
-asasgTags :: Lens' AutoScalingAutoScalingGroup (Maybe [AutoScalingAutoScalingGroupTagProperty])
-asasgTags = lens _autoScalingAutoScalingGroupTags (\s a -> s { _autoScalingAutoScalingGroupTags = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-targetgrouparns
 asasgTargetGroupARNs :: Lens' AutoScalingAutoScalingGroup (Maybe (ValList Text))

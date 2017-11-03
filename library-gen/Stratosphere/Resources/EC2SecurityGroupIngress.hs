@@ -21,6 +21,7 @@ data EC2SecurityGroupIngress =
   EC2SecurityGroupIngress
   { _eC2SecurityGroupIngressCidrIp :: Maybe (Val Text)
   , _eC2SecurityGroupIngressCidrIpv6 :: Maybe (Val Text)
+  , _eC2SecurityGroupIngressDescription :: Maybe (Val Text)
   , _eC2SecurityGroupIngressFromPort :: Maybe (Val Integer)
   , _eC2SecurityGroupIngressGroupId :: Maybe (Val Text)
   , _eC2SecurityGroupIngressGroupName :: Maybe (Val Text)
@@ -37,6 +38,7 @@ instance ToJSON EC2SecurityGroupIngress where
     catMaybes
     [ fmap (("CidrIp",) . toJSON) _eC2SecurityGroupIngressCidrIp
     , fmap (("CidrIpv6",) . toJSON) _eC2SecurityGroupIngressCidrIpv6
+    , fmap (("Description",) . toJSON) _eC2SecurityGroupIngressDescription
     , fmap (("FromPort",) . toJSON . fmap Integer') _eC2SecurityGroupIngressFromPort
     , fmap (("GroupId",) . toJSON) _eC2SecurityGroupIngressGroupId
     , fmap (("GroupName",) . toJSON) _eC2SecurityGroupIngressGroupName
@@ -52,6 +54,7 @@ instance FromJSON EC2SecurityGroupIngress where
     EC2SecurityGroupIngress <$>
       (obj .:? "CidrIp") <*>
       (obj .:? "CidrIpv6") <*>
+      (obj .:? "Description") <*>
       fmap (fmap (fmap unInteger')) (obj .:? "FromPort") <*>
       (obj .:? "GroupId") <*>
       (obj .:? "GroupName") <*>
@@ -71,6 +74,7 @@ ec2SecurityGroupIngress ipProtocolarg =
   EC2SecurityGroupIngress
   { _eC2SecurityGroupIngressCidrIp = Nothing
   , _eC2SecurityGroupIngressCidrIpv6 = Nothing
+  , _eC2SecurityGroupIngressDescription = Nothing
   , _eC2SecurityGroupIngressFromPort = Nothing
   , _eC2SecurityGroupIngressGroupId = Nothing
   , _eC2SecurityGroupIngressGroupName = Nothing
@@ -88,6 +92,10 @@ ecsgiCidrIp = lens _eC2SecurityGroupIngressCidrIp (\s a -> s { _eC2SecurityGroup
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-ingress.html#cfn-ec2-security-group-ingress-cidripv6
 ecsgiCidrIpv6 :: Lens' EC2SecurityGroupIngress (Maybe (Val Text))
 ecsgiCidrIpv6 = lens _eC2SecurityGroupIngressCidrIpv6 (\s a -> s { _eC2SecurityGroupIngressCidrIpv6 = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-ingress.html#cfn-ec2-security-group-ingress-description
+ecsgiDescription :: Lens' EC2SecurityGroupIngress (Maybe (Val Text))
+ecsgiDescription = lens _eC2SecurityGroupIngressDescription (\s a -> s { _eC2SecurityGroupIngressDescription = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-ingress.html#cfn-ec2-security-group-ingress-fromport
 ecsgiFromPort :: Lens' EC2SecurityGroupIngress (Maybe (Val Integer))

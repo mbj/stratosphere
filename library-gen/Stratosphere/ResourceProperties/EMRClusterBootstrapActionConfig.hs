@@ -2,7 +2,7 @@
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE TupleSections #-}
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-bootstrapactionconfig.html
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-bootstrapactionconfig.html
 
 module Stratosphere.ResourceProperties.EMRClusterBootstrapActionConfig where
 
@@ -50,10 +50,10 @@ emrClusterBootstrapActionConfig namearg scriptBootstrapActionarg =
   , _eMRClusterBootstrapActionConfigScriptBootstrapAction = scriptBootstrapActionarg
   }
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-bootstrapactionconfig.html#cfn-emr-cluster-bootstrapactionconfig-name
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-bootstrapactionconfig.html#cfn-elasticmapreduce-cluster-bootstrapactionconfig-name
 emrcbacName :: Lens' EMRClusterBootstrapActionConfig (Val Text)
 emrcbacName = lens _eMRClusterBootstrapActionConfigName (\s a -> s { _eMRClusterBootstrapActionConfigName = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-bootstrapactionconfig.html#cfn-emr-cluster-bootstrapactionconfig-scriptbootstrapaction
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-bootstrapactionconfig.html#cfn-elasticmapreduce-cluster-bootstrapactionconfig-scriptbootstrapaction
 emrcbacScriptBootstrapAction :: Lens' EMRClusterBootstrapActionConfig EMRClusterScriptBootstrapActionConfig
 emrcbacScriptBootstrapAction = lens _eMRClusterBootstrapActionConfigScriptBootstrapAction (\s a -> s { _eMRClusterBootstrapActionConfigScriptBootstrapAction = a })

@@ -2,7 +2,7 @@
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE TupleSections #-}
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowautomationparameters.html
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowautomationparameters.html
 
 module Stratosphere.ResourceProperties.SSMMaintenanceWindowTaskMaintenanceWindowAutomationParameters where
 
@@ -51,10 +51,10 @@ ssmMaintenanceWindowTaskMaintenanceWindowAutomationParameters  =
   , _sSMMaintenanceWindowTaskMaintenanceWindowAutomationParametersParameters = Nothing
   }
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowautomationparameters.html#cfn-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowautomationparameters-documentversion
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowautomationparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowautomationparameters-documentversion
 ssmmwtmwapDocumentVersion :: Lens' SSMMaintenanceWindowTaskMaintenanceWindowAutomationParameters (Maybe (Val Text))
 ssmmwtmwapDocumentVersion = lens _sSMMaintenanceWindowTaskMaintenanceWindowAutomationParametersDocumentVersion (\s a -> s { _sSMMaintenanceWindowTaskMaintenanceWindowAutomationParametersDocumentVersion = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowautomationparameters.html#cfn-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowautomationparameters-parameters
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowautomationparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowautomationparameters-parameters
 ssmmwtmwapParameters :: Lens' SSMMaintenanceWindowTaskMaintenanceWindowAutomationParameters (Maybe Object)
 ssmmwtmwapParameters = lens _sSMMaintenanceWindowTaskMaintenanceWindowAutomationParametersParameters (\s a -> s { _sSMMaintenanceWindowTaskMaintenanceWindowAutomationParametersParameters = a })

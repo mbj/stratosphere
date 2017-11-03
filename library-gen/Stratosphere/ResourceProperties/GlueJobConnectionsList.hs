@@ -1,0 +1,49 @@
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-connectionslist.html
+
+module Stratosphere.ResourceProperties.GlueJobConnectionsList where
+
+import Control.Lens hiding ((.=))
+import Data.Aeson
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
+import Data.Text
+
+import Stratosphere.Values
+
+
+-- | Full data type definition for GlueJobConnectionsList. See
+-- 'glueJobConnectionsList' for a more convenient constructor.
+data GlueJobConnectionsList =
+  GlueJobConnectionsList
+  { _glueJobConnectionsListConnections :: Maybe (ValList Text)
+  } deriving (Show, Eq)
+
+instance ToJSON GlueJobConnectionsList where
+  toJSON GlueJobConnectionsList{..} =
+    object $
+    catMaybes
+    [ fmap (("Connections",) . toJSON) _glueJobConnectionsListConnections
+    ]
+
+instance FromJSON GlueJobConnectionsList where
+  parseJSON (Object obj) =
+    GlueJobConnectionsList <$>
+      (obj .:? "Connections")
+  parseJSON _ = mempty
+
+-- | Constructor for 'GlueJobConnectionsList' containing required fields as
+-- arguments.
+glueJobConnectionsList
+  :: GlueJobConnectionsList
+glueJobConnectionsList  =
+  GlueJobConnectionsList
+  { _glueJobConnectionsListConnections = Nothing
+  }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-job-connectionslist.html#cfn-glue-job-connectionslist-connections
+gjclConnections :: Lens' GlueJobConnectionsList (Maybe (ValList Text))
+gjclConnections = lens _glueJobConnectionsListConnections (\s a -> s { _glueJobConnectionsListConnections = a })

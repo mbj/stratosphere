@@ -29,7 +29,7 @@ data KinesisFirehoseDeliveryStreamS3DestinationConfiguration =
   , _kinesisFirehoseDeliveryStreamS3DestinationConfigurationCloudWatchLoggingOptions :: Maybe KinesisFirehoseDeliveryStreamCloudWatchLoggingOptions
   , _kinesisFirehoseDeliveryStreamS3DestinationConfigurationCompressionFormat :: Val KinesisFirehoseS3CompressionFormat
   , _kinesisFirehoseDeliveryStreamS3DestinationConfigurationEncryptionConfiguration :: Maybe KinesisFirehoseDeliveryStreamEncryptionConfiguration
-  , _kinesisFirehoseDeliveryStreamS3DestinationConfigurationPrefix :: Val Text
+  , _kinesisFirehoseDeliveryStreamS3DestinationConfigurationPrefix :: Maybe (Val Text)
   , _kinesisFirehoseDeliveryStreamS3DestinationConfigurationRoleARN :: Val Text
   } deriving (Show, Eq)
 
@@ -42,7 +42,7 @@ instance ToJSON KinesisFirehoseDeliveryStreamS3DestinationConfiguration where
     , fmap (("CloudWatchLoggingOptions",) . toJSON) _kinesisFirehoseDeliveryStreamS3DestinationConfigurationCloudWatchLoggingOptions
     , (Just . ("CompressionFormat",) . toJSON) _kinesisFirehoseDeliveryStreamS3DestinationConfigurationCompressionFormat
     , fmap (("EncryptionConfiguration",) . toJSON) _kinesisFirehoseDeliveryStreamS3DestinationConfigurationEncryptionConfiguration
-    , (Just . ("Prefix",) . toJSON) _kinesisFirehoseDeliveryStreamS3DestinationConfigurationPrefix
+    , fmap (("Prefix",) . toJSON) _kinesisFirehoseDeliveryStreamS3DestinationConfigurationPrefix
     , (Just . ("RoleARN",) . toJSON) _kinesisFirehoseDeliveryStreamS3DestinationConfigurationRoleARN
     ]
 
@@ -54,7 +54,7 @@ instance FromJSON KinesisFirehoseDeliveryStreamS3DestinationConfiguration where
       (obj .:? "CloudWatchLoggingOptions") <*>
       (obj .: "CompressionFormat") <*>
       (obj .:? "EncryptionConfiguration") <*>
-      (obj .: "Prefix") <*>
+      (obj .:? "Prefix") <*>
       (obj .: "RoleARN")
   parseJSON _ = mempty
 
@@ -64,17 +64,16 @@ kinesisFirehoseDeliveryStreamS3DestinationConfiguration
   :: Val Text -- ^ 'kfdssdcBucketARN'
   -> KinesisFirehoseDeliveryStreamBufferingHints -- ^ 'kfdssdcBufferingHints'
   -> Val KinesisFirehoseS3CompressionFormat -- ^ 'kfdssdcCompressionFormat'
-  -> Val Text -- ^ 'kfdssdcPrefix'
   -> Val Text -- ^ 'kfdssdcRoleARN'
   -> KinesisFirehoseDeliveryStreamS3DestinationConfiguration
-kinesisFirehoseDeliveryStreamS3DestinationConfiguration bucketARNarg bufferingHintsarg compressionFormatarg prefixarg roleARNarg =
+kinesisFirehoseDeliveryStreamS3DestinationConfiguration bucketARNarg bufferingHintsarg compressionFormatarg roleARNarg =
   KinesisFirehoseDeliveryStreamS3DestinationConfiguration
   { _kinesisFirehoseDeliveryStreamS3DestinationConfigurationBucketARN = bucketARNarg
   , _kinesisFirehoseDeliveryStreamS3DestinationConfigurationBufferingHints = bufferingHintsarg
   , _kinesisFirehoseDeliveryStreamS3DestinationConfigurationCloudWatchLoggingOptions = Nothing
   , _kinesisFirehoseDeliveryStreamS3DestinationConfigurationCompressionFormat = compressionFormatarg
   , _kinesisFirehoseDeliveryStreamS3DestinationConfigurationEncryptionConfiguration = Nothing
-  , _kinesisFirehoseDeliveryStreamS3DestinationConfigurationPrefix = prefixarg
+  , _kinesisFirehoseDeliveryStreamS3DestinationConfigurationPrefix = Nothing
   , _kinesisFirehoseDeliveryStreamS3DestinationConfigurationRoleARN = roleARNarg
   }
 
@@ -99,7 +98,7 @@ kfdssdcEncryptionConfiguration :: Lens' KinesisFirehoseDeliveryStreamS3Destinati
 kfdssdcEncryptionConfiguration = lens _kinesisFirehoseDeliveryStreamS3DestinationConfigurationEncryptionConfiguration (\s a -> s { _kinesisFirehoseDeliveryStreamS3DestinationConfigurationEncryptionConfiguration = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-s3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-s3destinationconfiguration-prefix
-kfdssdcPrefix :: Lens' KinesisFirehoseDeliveryStreamS3DestinationConfiguration (Val Text)
+kfdssdcPrefix :: Lens' KinesisFirehoseDeliveryStreamS3DestinationConfiguration (Maybe (Val Text))
 kfdssdcPrefix = lens _kinesisFirehoseDeliveryStreamS3DestinationConfigurationPrefix (\s a -> s { _kinesisFirehoseDeliveryStreamS3DestinationConfigurationPrefix = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-s3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-s3destinationconfiguration-rolearn

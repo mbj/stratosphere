@@ -14,6 +14,7 @@ import Data.Text
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupELBInfo
+import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupTargetGroupInfo
 
 -- | Full data type definition for CodeDeployDeploymentGroupLoadBalancerInfo.
 -- See 'codeDeployDeploymentGroupLoadBalancerInfo' for a more convenient
@@ -21,6 +22,7 @@ import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupELBInfo
 data CodeDeployDeploymentGroupLoadBalancerInfo =
   CodeDeployDeploymentGroupLoadBalancerInfo
   { _codeDeployDeploymentGroupLoadBalancerInfoElbInfoList :: Maybe [CodeDeployDeploymentGroupELBInfo]
+  , _codeDeployDeploymentGroupLoadBalancerInfoTargetGroupInfoList :: Maybe [CodeDeployDeploymentGroupTargetGroupInfo]
   } deriving (Show, Eq)
 
 instance ToJSON CodeDeployDeploymentGroupLoadBalancerInfo where
@@ -28,12 +30,14 @@ instance ToJSON CodeDeployDeploymentGroupLoadBalancerInfo where
     object $
     catMaybes
     [ fmap (("ElbInfoList",) . toJSON) _codeDeployDeploymentGroupLoadBalancerInfoElbInfoList
+    , fmap (("TargetGroupInfoList",) . toJSON) _codeDeployDeploymentGroupLoadBalancerInfoTargetGroupInfoList
     ]
 
 instance FromJSON CodeDeployDeploymentGroupLoadBalancerInfo where
   parseJSON (Object obj) =
     CodeDeployDeploymentGroupLoadBalancerInfo <$>
-      (obj .:? "ElbInfoList")
+      (obj .:? "ElbInfoList") <*>
+      (obj .:? "TargetGroupInfoList")
   parseJSON _ = mempty
 
 -- | Constructor for 'CodeDeployDeploymentGroupLoadBalancerInfo' containing
@@ -43,8 +47,13 @@ codeDeployDeploymentGroupLoadBalancerInfo
 codeDeployDeploymentGroupLoadBalancerInfo  =
   CodeDeployDeploymentGroupLoadBalancerInfo
   { _codeDeployDeploymentGroupLoadBalancerInfoElbInfoList = Nothing
+  , _codeDeployDeploymentGroupLoadBalancerInfoTargetGroupInfoList = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-loadbalancerinfo.html#cfn-codedeploy-deploymentgroup-loadbalancerinfo-elbinfolist
 cddglbiElbInfoList :: Lens' CodeDeployDeploymentGroupLoadBalancerInfo (Maybe [CodeDeployDeploymentGroupELBInfo])
 cddglbiElbInfoList = lens _codeDeployDeploymentGroupLoadBalancerInfoElbInfoList (\s a -> s { _codeDeployDeploymentGroupLoadBalancerInfoElbInfoList = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-loadbalancerinfo.html#cfn-codedeploy-deploymentgroup-loadbalancerinfo-targetgroupinfolist
+cddglbiTargetGroupInfoList :: Lens' CodeDeployDeploymentGroupLoadBalancerInfo (Maybe [CodeDeployDeploymentGroupTargetGroupInfo])
+cddglbiTargetGroupInfoList = lens _codeDeployDeploymentGroupLoadBalancerInfoTargetGroupInfoList (\s a -> s { _codeDeployDeploymentGroupLoadBalancerInfoTargetGroupInfoList = a })

@@ -14,6 +14,7 @@ import Data.Text
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.Tag
+import Stratosphere.ResourceProperties.EC2VPNConnectionVpnTunnelOptionsSpecification
 
 -- | Full data type definition for EC2VPNConnection. See 'ec2VPNConnection'
 -- for a more convenient constructor.
@@ -24,6 +25,7 @@ data EC2VPNConnection =
   , _eC2VPNConnectionTags :: Maybe [Tag]
   , _eC2VPNConnectionType :: Val Text
   , _eC2VPNConnectionVpnGatewayId :: Val Text
+  , _eC2VPNConnectionVpnTunnelOptionsSpecifications :: Maybe [EC2VPNConnectionVpnTunnelOptionsSpecification]
   } deriving (Show, Eq)
 
 instance ToJSON EC2VPNConnection where
@@ -35,6 +37,7 @@ instance ToJSON EC2VPNConnection where
     , fmap (("Tags",) . toJSON) _eC2VPNConnectionTags
     , (Just . ("Type",) . toJSON) _eC2VPNConnectionType
     , (Just . ("VpnGatewayId",) . toJSON) _eC2VPNConnectionVpnGatewayId
+    , fmap (("VpnTunnelOptionsSpecifications",) . toJSON) _eC2VPNConnectionVpnTunnelOptionsSpecifications
     ]
 
 instance FromJSON EC2VPNConnection where
@@ -44,7 +47,8 @@ instance FromJSON EC2VPNConnection where
       fmap (fmap (fmap unBool')) (obj .:? "StaticRoutesOnly") <*>
       (obj .:? "Tags") <*>
       (obj .: "Type") <*>
-      (obj .: "VpnGatewayId")
+      (obj .: "VpnGatewayId") <*>
+      (obj .:? "VpnTunnelOptionsSpecifications")
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2VPNConnection' containing required fields as
@@ -61,6 +65,7 @@ ec2VPNConnection customerGatewayIdarg typearg vpnGatewayIdarg =
   , _eC2VPNConnectionTags = Nothing
   , _eC2VPNConnectionType = typearg
   , _eC2VPNConnectionVpnGatewayId = vpnGatewayIdarg
+  , _eC2VPNConnectionVpnTunnelOptionsSpecifications = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpn-connection.html#cfn-ec2-vpnconnection-customergatewayid
@@ -82,3 +87,7 @@ ecvpncType = lens _eC2VPNConnectionType (\s a -> s { _eC2VPNConnectionType = a }
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpn-connection.html#cfn-ec2-vpnconnection-vpngatewayid
 ecvpncVpnGatewayId :: Lens' EC2VPNConnection (Val Text)
 ecvpncVpnGatewayId = lens _eC2VPNConnectionVpnGatewayId (\s a -> s { _eC2VPNConnectionVpnGatewayId = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpn-connection.html#cfn-ec2-vpnconnection-vpntunneloptionsspecifications
+ecvpncVpnTunnelOptionsSpecifications :: Lens' EC2VPNConnection (Maybe [EC2VPNConnectionVpnTunnelOptionsSpecification])
+ecvpncVpnTunnelOptionsSpecifications = lens _eC2VPNConnectionVpnTunnelOptionsSpecifications (\s a -> s { _eC2VPNConnectionVpnTunnelOptionsSpecifications = a })

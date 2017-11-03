@@ -21,6 +21,7 @@ data EC2SecurityGroupEgress =
   EC2SecurityGroupEgress
   { _eC2SecurityGroupEgressCidrIp :: Maybe (Val Text)
   , _eC2SecurityGroupEgressCidrIpv6 :: Maybe (Val Text)
+  , _eC2SecurityGroupEgressDescription :: Maybe (Val Text)
   , _eC2SecurityGroupEgressDestinationPrefixListId :: Maybe (Val Text)
   , _eC2SecurityGroupEgressDestinationSecurityGroupId :: Maybe (Val Text)
   , _eC2SecurityGroupEgressFromPort :: Maybe (Val Integer)
@@ -35,6 +36,7 @@ instance ToJSON EC2SecurityGroupEgress where
     catMaybes
     [ fmap (("CidrIp",) . toJSON) _eC2SecurityGroupEgressCidrIp
     , fmap (("CidrIpv6",) . toJSON) _eC2SecurityGroupEgressCidrIpv6
+    , fmap (("Description",) . toJSON) _eC2SecurityGroupEgressDescription
     , fmap (("DestinationPrefixListId",) . toJSON) _eC2SecurityGroupEgressDestinationPrefixListId
     , fmap (("DestinationSecurityGroupId",) . toJSON) _eC2SecurityGroupEgressDestinationSecurityGroupId
     , fmap (("FromPort",) . toJSON . fmap Integer') _eC2SecurityGroupEgressFromPort
@@ -48,6 +50,7 @@ instance FromJSON EC2SecurityGroupEgress where
     EC2SecurityGroupEgress <$>
       (obj .:? "CidrIp") <*>
       (obj .:? "CidrIpv6") <*>
+      (obj .:? "Description") <*>
       (obj .:? "DestinationPrefixListId") <*>
       (obj .:? "DestinationSecurityGroupId") <*>
       fmap (fmap (fmap unInteger')) (obj .:? "FromPort") <*>
@@ -66,6 +69,7 @@ ec2SecurityGroupEgress groupIdarg ipProtocolarg =
   EC2SecurityGroupEgress
   { _eC2SecurityGroupEgressCidrIp = Nothing
   , _eC2SecurityGroupEgressCidrIpv6 = Nothing
+  , _eC2SecurityGroupEgressDescription = Nothing
   , _eC2SecurityGroupEgressDestinationPrefixListId = Nothing
   , _eC2SecurityGroupEgressDestinationSecurityGroupId = Nothing
   , _eC2SecurityGroupEgressFromPort = Nothing
@@ -81,6 +85,10 @@ ecsgeCidrIp = lens _eC2SecurityGroupEgressCidrIp (\s a -> s { _eC2SecurityGroupE
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-security-group-egress.html#cfn-ec2-securitygroupegress-cidripv6
 ecsgeCidrIpv6 :: Lens' EC2SecurityGroupEgress (Maybe (Val Text))
 ecsgeCidrIpv6 = lens _eC2SecurityGroupEgressCidrIpv6 (\s a -> s { _eC2SecurityGroupEgressCidrIpv6 = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-security-group-egress.html#cfn-ec2-securitygroupegress-description
+ecsgeDescription :: Lens' EC2SecurityGroupEgress (Maybe (Val Text))
+ecsgeDescription = lens _eC2SecurityGroupEgressDescription (\s a -> s { _eC2SecurityGroupEgressDescription = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-security-group-egress.html#cfn-ec2-securitygroupegress-destinationprefixlistid
 ecsgeDestinationPrefixListId :: Lens' EC2SecurityGroupEgress (Maybe (Val Text))

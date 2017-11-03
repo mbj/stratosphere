@@ -2,7 +2,7 @@
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE TupleSections #-}
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-jobflowinstancesconfig-instancegroupconfig.html
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancegroupconfig.html
 
 module Stratosphere.ResourceProperties.EMRClusterInstanceGroupConfig where
 
@@ -76,34 +76,34 @@ emrClusterInstanceGroupConfig instanceCountarg instanceTypearg =
   , _eMRClusterInstanceGroupConfigName = Nothing
   }
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-jobflowinstancesconfig-instancegroupconfig.html#cfn-elasticmapreduce-cluster-instancegroupconfig-autoscalingpolicy
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancegroupconfig.html#cfn-elasticmapreduce-cluster-instancegroupconfig-autoscalingpolicy
 emrcigcAutoScalingPolicy :: Lens' EMRClusterInstanceGroupConfig (Maybe EMRClusterAutoScalingPolicy)
 emrcigcAutoScalingPolicy = lens _eMRClusterInstanceGroupConfigAutoScalingPolicy (\s a -> s { _eMRClusterInstanceGroupConfigAutoScalingPolicy = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-jobflowinstancesconfig-instancegroupconfig.html#cfn-emr-cluster-jobflowinstancesconfig-instancegroupconfig-bidprice
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancegroupconfig.html#cfn-elasticmapreduce-cluster-instancegroupconfig-bidprice
 emrcigcBidPrice :: Lens' EMRClusterInstanceGroupConfig (Maybe (Val Text))
 emrcigcBidPrice = lens _eMRClusterInstanceGroupConfigBidPrice (\s a -> s { _eMRClusterInstanceGroupConfigBidPrice = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-jobflowinstancesconfig-instancegroupconfig.html#cfn-emr-cluster-jobflowinstancesconfig-instancegroupconfig-configurations
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancegroupconfig.html#cfn-elasticmapreduce-cluster-instancegroupconfig-configurations
 emrcigcConfigurations :: Lens' EMRClusterInstanceGroupConfig (Maybe [EMRClusterConfiguration])
 emrcigcConfigurations = lens _eMRClusterInstanceGroupConfigConfigurations (\s a -> s { _eMRClusterInstanceGroupConfigConfigurations = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-jobflowinstancesconfig-instancegroupconfig.html#cfn-emr-cluster-jobflowinstancesconfig-instancegroupconfigConfigurations-ebsconfiguration
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancegroupconfig.html#cfn-elasticmapreduce-cluster-instancegroupconfig-ebsconfiguration
 emrcigcEbsConfiguration :: Lens' EMRClusterInstanceGroupConfig (Maybe EMRClusterEbsConfiguration)
 emrcigcEbsConfiguration = lens _eMRClusterInstanceGroupConfigEbsConfiguration (\s a -> s { _eMRClusterInstanceGroupConfigEbsConfiguration = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-jobflowinstancesconfig-instancegroupconfig.html#cfn-emr-cluster-jobflowinstancesconfig-instancegroupconfig-instancecount
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancegroupconfig.html#cfn-elasticmapreduce-cluster-instancegroupconfig-instancecount
 emrcigcInstanceCount :: Lens' EMRClusterInstanceGroupConfig (Val Integer)
 emrcigcInstanceCount = lens _eMRClusterInstanceGroupConfigInstanceCount (\s a -> s { _eMRClusterInstanceGroupConfigInstanceCount = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-jobflowinstancesconfig-instancegroupconfig.html#cfn-emr-cluster-jobflowinstancesconfig-instancegroupconfig-instancetype
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancegroupconfig.html#cfn-elasticmapreduce-cluster-instancegroupconfig-instancetype
 emrcigcInstanceType :: Lens' EMRClusterInstanceGroupConfig (Val Text)
 emrcigcInstanceType = lens _eMRClusterInstanceGroupConfigInstanceType (\s a -> s { _eMRClusterInstanceGroupConfigInstanceType = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-jobflowinstancesconfig-instancegroupconfig.html#cfn-emr-cluster-jobflowinstancesconfig-instancegroupconfig-market
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancegroupconfig.html#cfn-elasticmapreduce-cluster-instancegroupconfig-market
 emrcigcMarket :: Lens' EMRClusterInstanceGroupConfig (Maybe (Val Text))
 emrcigcMarket = lens _eMRClusterInstanceGroupConfigMarket (\s a -> s { _eMRClusterInstanceGroupConfigMarket = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-jobflowinstancesconfig-instancegroupconfig.html#cfn-emr-cluster-jobflowinstancesconfig-instancegroupconfig-name
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-instancegroupconfig.html#cfn-elasticmapreduce-cluster-instancegroupconfig-name
 emrcigcName :: Lens' EMRClusterInstanceGroupConfig (Maybe (Val Text))
 emrcigcName = lens _eMRClusterInstanceGroupConfigName (\s a -> s { _eMRClusterInstanceGroupConfigName = a })

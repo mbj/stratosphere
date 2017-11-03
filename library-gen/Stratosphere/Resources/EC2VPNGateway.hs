@@ -19,7 +19,8 @@ import Stratosphere.ResourceProperties.Tag
 -- more convenient constructor.
 data EC2VPNGateway =
   EC2VPNGateway
-  { _eC2VPNGatewayTags :: Maybe [Tag]
+  { _eC2VPNGatewayAmazonSideAsn :: Maybe (Val Integer)
+  , _eC2VPNGatewayTags :: Maybe [Tag]
   , _eC2VPNGatewayType :: Val Text
   } deriving (Show, Eq)
 
@@ -27,13 +28,15 @@ instance ToJSON EC2VPNGateway where
   toJSON EC2VPNGateway{..} =
     object $
     catMaybes
-    [ fmap (("Tags",) . toJSON) _eC2VPNGatewayTags
+    [ fmap (("AmazonSideAsn",) . toJSON . fmap Integer') _eC2VPNGatewayAmazonSideAsn
+    , fmap (("Tags",) . toJSON) _eC2VPNGatewayTags
     , (Just . ("Type",) . toJSON) _eC2VPNGatewayType
     ]
 
 instance FromJSON EC2VPNGateway where
   parseJSON (Object obj) =
     EC2VPNGateway <$>
+      fmap (fmap (fmap unInteger')) (obj .:? "AmazonSideAsn") <*>
       (obj .:? "Tags") <*>
       (obj .: "Type")
   parseJSON _ = mempty
@@ -44,9 +47,14 @@ ec2VPNGateway
   -> EC2VPNGateway
 ec2VPNGateway typearg =
   EC2VPNGateway
-  { _eC2VPNGatewayTags = Nothing
+  { _eC2VPNGatewayAmazonSideAsn = Nothing
+  , _eC2VPNGatewayTags = Nothing
   , _eC2VPNGatewayType = typearg
   }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpn-gateway.html#cfn-ec2-vpngateway-amazonsideasn
+ecvpngAmazonSideAsn :: Lens' EC2VPNGateway (Maybe (Val Integer))
+ecvpngAmazonSideAsn = lens _eC2VPNGatewayAmazonSideAsn (\s a -> s { _eC2VPNGatewayAmazonSideAsn = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpn-gateway.html#cfn-ec2-vpngateway-tags
 ecvpngTags :: Lens' EC2VPNGateway (Maybe [Tag])

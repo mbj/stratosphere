@@ -23,8 +23,8 @@ data SSMMaintenanceWindowTask =
   SSMMaintenanceWindowTask
   { _sSMMaintenanceWindowTaskDescription :: Maybe (Val Text)
   , _sSMMaintenanceWindowTaskLoggingInfo :: Maybe SSMMaintenanceWindowTaskLoggingInfo
-  , _sSMMaintenanceWindowTaskMaxConcurrency :: Maybe (Val Integer)
-  , _sSMMaintenanceWindowTaskMaxErrors :: Val Integer
+  , _sSMMaintenanceWindowTaskMaxConcurrency :: Val Text
+  , _sSMMaintenanceWindowTaskMaxErrors :: Val Text
   , _sSMMaintenanceWindowTaskName :: Maybe (Val Text)
   , _sSMMaintenanceWindowTaskPriority :: Val Integer
   , _sSMMaintenanceWindowTaskServiceRoleArn :: Val Text
@@ -42,8 +42,8 @@ instance ToJSON SSMMaintenanceWindowTask where
     catMaybes
     [ fmap (("Description",) . toJSON) _sSMMaintenanceWindowTaskDescription
     , fmap (("LoggingInfo",) . toJSON) _sSMMaintenanceWindowTaskLoggingInfo
-    , fmap (("MaxConcurrency",) . toJSON . fmap Integer') _sSMMaintenanceWindowTaskMaxConcurrency
-    , (Just . ("MaxErrors",) . toJSON . fmap Integer') _sSMMaintenanceWindowTaskMaxErrors
+    , (Just . ("MaxConcurrency",) . toJSON) _sSMMaintenanceWindowTaskMaxConcurrency
+    , (Just . ("MaxErrors",) . toJSON) _sSMMaintenanceWindowTaskMaxErrors
     , fmap (("Name",) . toJSON) _sSMMaintenanceWindowTaskName
     , (Just . ("Priority",) . toJSON . fmap Integer') _sSMMaintenanceWindowTaskPriority
     , (Just . ("ServiceRoleArn",) . toJSON) _sSMMaintenanceWindowTaskServiceRoleArn
@@ -60,8 +60,8 @@ instance FromJSON SSMMaintenanceWindowTask where
     SSMMaintenanceWindowTask <$>
       (obj .:? "Description") <*>
       (obj .:? "LoggingInfo") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "MaxConcurrency") <*>
-      fmap (fmap unInteger') (obj .: "MaxErrors") <*>
+      (obj .: "MaxConcurrency") <*>
+      (obj .: "MaxErrors") <*>
       (obj .:? "Name") <*>
       fmap (fmap unInteger') (obj .: "Priority") <*>
       (obj .: "ServiceRoleArn") <*>
@@ -76,18 +76,19 @@ instance FromJSON SSMMaintenanceWindowTask where
 -- | Constructor for 'SSMMaintenanceWindowTask' containing required fields as
 -- arguments.
 ssmMaintenanceWindowTask
-  :: Val Integer -- ^ 'ssmmwtMaxErrors'
+  :: Val Text -- ^ 'ssmmwtMaxConcurrency'
+  -> Val Text -- ^ 'ssmmwtMaxErrors'
   -> Val Integer -- ^ 'ssmmwtPriority'
   -> Val Text -- ^ 'ssmmwtServiceRoleArn'
   -> [SSMMaintenanceWindowTaskTarget] -- ^ 'ssmmwtTargets'
   -> Val Text -- ^ 'ssmmwtTaskArn'
   -> Val Text -- ^ 'ssmmwtTaskType'
   -> SSMMaintenanceWindowTask
-ssmMaintenanceWindowTask maxErrorsarg priorityarg serviceRoleArnarg targetsarg taskArnarg taskTypearg =
+ssmMaintenanceWindowTask maxConcurrencyarg maxErrorsarg priorityarg serviceRoleArnarg targetsarg taskArnarg taskTypearg =
   SSMMaintenanceWindowTask
   { _sSMMaintenanceWindowTaskDescription = Nothing
   , _sSMMaintenanceWindowTaskLoggingInfo = Nothing
-  , _sSMMaintenanceWindowTaskMaxConcurrency = Nothing
+  , _sSMMaintenanceWindowTaskMaxConcurrency = maxConcurrencyarg
   , _sSMMaintenanceWindowTaskMaxErrors = maxErrorsarg
   , _sSMMaintenanceWindowTaskName = Nothing
   , _sSMMaintenanceWindowTaskPriority = priorityarg
@@ -109,11 +110,11 @@ ssmmwtLoggingInfo :: Lens' SSMMaintenanceWindowTask (Maybe SSMMaintenanceWindowT
 ssmmwtLoggingInfo = lens _sSMMaintenanceWindowTaskLoggingInfo (\s a -> s { _sSMMaintenanceWindowTaskLoggingInfo = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtask.html#cfn-ssm-maintenancewindowtask-maxconcurrency
-ssmmwtMaxConcurrency :: Lens' SSMMaintenanceWindowTask (Maybe (Val Integer))
+ssmmwtMaxConcurrency :: Lens' SSMMaintenanceWindowTask (Val Text)
 ssmmwtMaxConcurrency = lens _sSMMaintenanceWindowTaskMaxConcurrency (\s a -> s { _sSMMaintenanceWindowTaskMaxConcurrency = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtask.html#cfn-ssm-maintenancewindowtask-maxerrors
-ssmmwtMaxErrors :: Lens' SSMMaintenanceWindowTask (Val Integer)
+ssmmwtMaxErrors :: Lens' SSMMaintenanceWindowTask (Val Text)
 ssmmwtMaxErrors = lens _sSMMaintenanceWindowTaskMaxErrors (\s a -> s { _sSMMaintenanceWindowTaskMaxErrors = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtask.html#cfn-ssm-maintenancewindowtask-name

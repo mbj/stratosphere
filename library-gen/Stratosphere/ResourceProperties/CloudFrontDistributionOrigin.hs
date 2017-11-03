@@ -2,7 +2,7 @@
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE TupleSections #-}
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-origin.html
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html
 
 module Stratosphere.ResourceProperties.CloudFrontDistributionOrigin where
 
@@ -68,26 +68,26 @@ cloudFrontDistributionOrigin domainNamearg idarg =
   , _cloudFrontDistributionOriginS3OriginConfig = Nothing
   }
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-origin.html#cfn-cloudfront-origin-customorigin
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-customoriginconfig
 cfdoCustomOriginConfig :: Lens' CloudFrontDistributionOrigin (Maybe CloudFrontDistributionCustomOriginConfig)
 cfdoCustomOriginConfig = lens _cloudFrontDistributionOriginCustomOriginConfig (\s a -> s { _cloudFrontDistributionOriginCustomOriginConfig = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-origin.html#cfn-cloudfront-origin-domainname
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-domainname
 cfdoDomainName :: Lens' CloudFrontDistributionOrigin (Val Text)
 cfdoDomainName = lens _cloudFrontDistributionOriginDomainName (\s a -> s { _cloudFrontDistributionOriginDomainName = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-origin.html#cfn-cloudfront-origin-id
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-id
 cfdoId :: Lens' CloudFrontDistributionOrigin (Val Text)
 cfdoId = lens _cloudFrontDistributionOriginId (\s a -> s { _cloudFrontDistributionOriginId = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-origin.html#cfn-cloudfront-origin-origincustomheaders
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-origincustomheaders
 cfdoOriginCustomHeaders :: Lens' CloudFrontDistributionOrigin (Maybe [CloudFrontDistributionOriginCustomHeader])
 cfdoOriginCustomHeaders = lens _cloudFrontDistributionOriginOriginCustomHeaders (\s a -> s { _cloudFrontDistributionOriginOriginCustomHeaders = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-origin.html#cfn-cloudfront-origin-originpath
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-originpath
 cfdoOriginPath :: Lens' CloudFrontDistributionOrigin (Maybe (Val Text))
 cfdoOriginPath = lens _cloudFrontDistributionOriginOriginPath (\s a -> s { _cloudFrontDistributionOriginOriginPath = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-origin.html#cfn-cloudfront-origin-s3origin
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-s3originconfig
 cfdoS3OriginConfig :: Lens' CloudFrontDistributionOrigin (Maybe CloudFrontDistributionS3OriginConfig)
 cfdoS3OriginConfig = lens _cloudFrontDistributionOriginS3OriginConfig (\s a -> s { _cloudFrontDistributionOriginS3OriginConfig = a })

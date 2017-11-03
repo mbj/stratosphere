@@ -2,7 +2,7 @@
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE TupleSections #-}
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-jobflowinstancesconfig-placementtype.html
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-placementtype.html
 
 module Stratosphere.ResourceProperties.EMRClusterPlacementType where
 
@@ -45,6 +45,6 @@ emrClusterPlacementType availabilityZonearg =
   { _eMRClusterPlacementTypeAvailabilityZone = availabilityZonearg
   }
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-cluster-jobflowinstancesconfig-placementtype.html#aws-properties-emr-cluster-jobflowinstancesconfig-placementtype
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-placementtype.html#cfn-elasticmapreduce-cluster-placementtype-availabilityzone
 emrcptAvailabilityZone :: Lens' EMRClusterPlacementType (Val Text)
 emrcptAvailabilityZone = lens _eMRClusterPlacementTypeAvailabilityZone (\s a -> s { _eMRClusterPlacementTypeAvailabilityZone = a })

@@ -21,6 +21,7 @@ data EC2SecurityGroupEgressProperty =
   EC2SecurityGroupEgressProperty
   { _eC2SecurityGroupEgressPropertyCidrIp :: Maybe (Val Text)
   , _eC2SecurityGroupEgressPropertyCidrIpv6 :: Maybe (Val Text)
+  , _eC2SecurityGroupEgressPropertyDescription :: Maybe (Val Text)
   , _eC2SecurityGroupEgressPropertyDestinationPrefixListId :: Maybe (Val Text)
   , _eC2SecurityGroupEgressPropertyDestinationSecurityGroupId :: Maybe (Val Text)
   , _eC2SecurityGroupEgressPropertyFromPort :: Maybe (Val Integer)
@@ -34,6 +35,7 @@ instance ToJSON EC2SecurityGroupEgressProperty where
     catMaybes
     [ fmap (("CidrIp",) . toJSON) _eC2SecurityGroupEgressPropertyCidrIp
     , fmap (("CidrIpv6",) . toJSON) _eC2SecurityGroupEgressPropertyCidrIpv6
+    , fmap (("Description",) . toJSON) _eC2SecurityGroupEgressPropertyDescription
     , fmap (("DestinationPrefixListId",) . toJSON) _eC2SecurityGroupEgressPropertyDestinationPrefixListId
     , fmap (("DestinationSecurityGroupId",) . toJSON) _eC2SecurityGroupEgressPropertyDestinationSecurityGroupId
     , fmap (("FromPort",) . toJSON . fmap Integer') _eC2SecurityGroupEgressPropertyFromPort
@@ -46,6 +48,7 @@ instance FromJSON EC2SecurityGroupEgressProperty where
     EC2SecurityGroupEgressProperty <$>
       (obj .:? "CidrIp") <*>
       (obj .:? "CidrIpv6") <*>
+      (obj .:? "Description") <*>
       (obj .:? "DestinationPrefixListId") <*>
       (obj .:? "DestinationSecurityGroupId") <*>
       fmap (fmap (fmap unInteger')) (obj .:? "FromPort") <*>
@@ -62,6 +65,7 @@ ec2SecurityGroupEgressProperty ipProtocolarg =
   EC2SecurityGroupEgressProperty
   { _eC2SecurityGroupEgressPropertyCidrIp = Nothing
   , _eC2SecurityGroupEgressPropertyCidrIpv6 = Nothing
+  , _eC2SecurityGroupEgressPropertyDescription = Nothing
   , _eC2SecurityGroupEgressPropertyDestinationPrefixListId = Nothing
   , _eC2SecurityGroupEgressPropertyDestinationSecurityGroupId = Nothing
   , _eC2SecurityGroupEgressPropertyFromPort = Nothing
@@ -76,6 +80,10 @@ ecsgepCidrIp = lens _eC2SecurityGroupEgressPropertyCidrIp (\s a -> s { _eC2Secur
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html#cfn-ec2-security-group-rule-cidripv6
 ecsgepCidrIpv6 :: Lens' EC2SecurityGroupEgressProperty (Maybe (Val Text))
 ecsgepCidrIpv6 = lens _eC2SecurityGroupEgressPropertyCidrIpv6 (\s a -> s { _eC2SecurityGroupEgressPropertyCidrIpv6 = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html#cfn-ec2-security-group-rule-description
+ecsgepDescription :: Lens' EC2SecurityGroupEgressProperty (Maybe (Val Text))
+ecsgepDescription = lens _eC2SecurityGroupEgressPropertyDescription (\s a -> s { _eC2SecurityGroupEgressPropertyDescription = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html#cfn-ec2-security-group-rule-destinationprefixlistid
 ecsgepDestinationPrefixListId :: Lens' EC2SecurityGroupEgressProperty (Maybe (Val Text))

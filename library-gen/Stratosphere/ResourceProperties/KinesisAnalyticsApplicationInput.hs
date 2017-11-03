@@ -14,6 +14,7 @@ import Data.Text
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.KinesisAnalyticsApplicationInputParallelism
+import Stratosphere.ResourceProperties.KinesisAnalyticsApplicationInputProcessingConfiguration
 import Stratosphere.ResourceProperties.KinesisAnalyticsApplicationInputSchema
 import Stratosphere.ResourceProperties.KinesisAnalyticsApplicationKinesisFirehoseInput
 import Stratosphere.ResourceProperties.KinesisAnalyticsApplicationKinesisStreamsInput
@@ -23,6 +24,7 @@ import Stratosphere.ResourceProperties.KinesisAnalyticsApplicationKinesisStreams
 data KinesisAnalyticsApplicationInput =
   KinesisAnalyticsApplicationInput
   { _kinesisAnalyticsApplicationInputInputParallelism :: Maybe KinesisAnalyticsApplicationInputParallelism
+  , _kinesisAnalyticsApplicationInputInputProcessingConfiguration :: Maybe KinesisAnalyticsApplicationInputProcessingConfiguration
   , _kinesisAnalyticsApplicationInputInputSchema :: KinesisAnalyticsApplicationInputSchema
   , _kinesisAnalyticsApplicationInputKinesisFirehoseInput :: Maybe KinesisAnalyticsApplicationKinesisFirehoseInput
   , _kinesisAnalyticsApplicationInputKinesisStreamsInput :: Maybe KinesisAnalyticsApplicationKinesisStreamsInput
@@ -34,6 +36,7 @@ instance ToJSON KinesisAnalyticsApplicationInput where
     object $
     catMaybes
     [ fmap (("InputParallelism",) . toJSON) _kinesisAnalyticsApplicationInputInputParallelism
+    , fmap (("InputProcessingConfiguration",) . toJSON) _kinesisAnalyticsApplicationInputInputProcessingConfiguration
     , (Just . ("InputSchema",) . toJSON) _kinesisAnalyticsApplicationInputInputSchema
     , fmap (("KinesisFirehoseInput",) . toJSON) _kinesisAnalyticsApplicationInputKinesisFirehoseInput
     , fmap (("KinesisStreamsInput",) . toJSON) _kinesisAnalyticsApplicationInputKinesisStreamsInput
@@ -44,6 +47,7 @@ instance FromJSON KinesisAnalyticsApplicationInput where
   parseJSON (Object obj) =
     KinesisAnalyticsApplicationInput <$>
       (obj .:? "InputParallelism") <*>
+      (obj .:? "InputProcessingConfiguration") <*>
       (obj .: "InputSchema") <*>
       (obj .:? "KinesisFirehoseInput") <*>
       (obj .:? "KinesisStreamsInput") <*>
@@ -59,6 +63,7 @@ kinesisAnalyticsApplicationInput
 kinesisAnalyticsApplicationInput inputSchemaarg namePrefixarg =
   KinesisAnalyticsApplicationInput
   { _kinesisAnalyticsApplicationInputInputParallelism = Nothing
+  , _kinesisAnalyticsApplicationInputInputProcessingConfiguration = Nothing
   , _kinesisAnalyticsApplicationInputInputSchema = inputSchemaarg
   , _kinesisAnalyticsApplicationInputKinesisFirehoseInput = Nothing
   , _kinesisAnalyticsApplicationInputKinesisStreamsInput = Nothing
@@ -68,6 +73,10 @@ kinesisAnalyticsApplicationInput inputSchemaarg namePrefixarg =
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-application-input.html#cfn-kinesisanalytics-application-input-inputparallelism
 kaaiInputParallelism :: Lens' KinesisAnalyticsApplicationInput (Maybe KinesisAnalyticsApplicationInputParallelism)
 kaaiInputParallelism = lens _kinesisAnalyticsApplicationInputInputParallelism (\s a -> s { _kinesisAnalyticsApplicationInputInputParallelism = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-application-input.html#cfn-kinesisanalytics-application-input-inputprocessingconfiguration
+kaaiInputProcessingConfiguration :: Lens' KinesisAnalyticsApplicationInput (Maybe KinesisAnalyticsApplicationInputProcessingConfiguration)
+kaaiInputProcessingConfiguration = lens _kinesisAnalyticsApplicationInputInputProcessingConfiguration (\s a -> s { _kinesisAnalyticsApplicationInputInputProcessingConfiguration = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-application-input.html#cfn-kinesisanalytics-application-input-inputschema
 kaaiInputSchema :: Lens' KinesisAnalyticsApplicationInput KinesisAnalyticsApplicationInputSchema

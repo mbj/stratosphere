@@ -21,6 +21,7 @@ data EC2Route =
   EC2Route
   { _eC2RouteDestinationCidrBlock :: Maybe (Val Text)
   , _eC2RouteDestinationIpv6CidrBlock :: Maybe (Val Text)
+  , _eC2RouteEgressOnlyInternetGatewayId :: Maybe (Val Text)
   , _eC2RouteGatewayId :: Maybe (Val Text)
   , _eC2RouteInstanceId :: Maybe (Val Text)
   , _eC2RouteNatGatewayId :: Maybe (Val Text)
@@ -35,6 +36,7 @@ instance ToJSON EC2Route where
     catMaybes
     [ fmap (("DestinationCidrBlock",) . toJSON) _eC2RouteDestinationCidrBlock
     , fmap (("DestinationIpv6CidrBlock",) . toJSON) _eC2RouteDestinationIpv6CidrBlock
+    , fmap (("EgressOnlyInternetGatewayId",) . toJSON) _eC2RouteEgressOnlyInternetGatewayId
     , fmap (("GatewayId",) . toJSON) _eC2RouteGatewayId
     , fmap (("InstanceId",) . toJSON) _eC2RouteInstanceId
     , fmap (("NatGatewayId",) . toJSON) _eC2RouteNatGatewayId
@@ -48,6 +50,7 @@ instance FromJSON EC2Route where
     EC2Route <$>
       (obj .:? "DestinationCidrBlock") <*>
       (obj .:? "DestinationIpv6CidrBlock") <*>
+      (obj .:? "EgressOnlyInternetGatewayId") <*>
       (obj .:? "GatewayId") <*>
       (obj .:? "InstanceId") <*>
       (obj .:? "NatGatewayId") <*>
@@ -64,6 +67,7 @@ ec2Route routeTableIdarg =
   EC2Route
   { _eC2RouteDestinationCidrBlock = Nothing
   , _eC2RouteDestinationIpv6CidrBlock = Nothing
+  , _eC2RouteEgressOnlyInternetGatewayId = Nothing
   , _eC2RouteGatewayId = Nothing
   , _eC2RouteInstanceId = Nothing
   , _eC2RouteNatGatewayId = Nothing
@@ -79,6 +83,10 @@ ecrDestinationCidrBlock = lens _eC2RouteDestinationCidrBlock (\s a -> s { _eC2Ro
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-destinationipv6cidrblock
 ecrDestinationIpv6CidrBlock :: Lens' EC2Route (Maybe (Val Text))
 ecrDestinationIpv6CidrBlock = lens _eC2RouteDestinationIpv6CidrBlock (\s a -> s { _eC2RouteDestinationIpv6CidrBlock = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-egressonlyinternetgatewayid
+ecrEgressOnlyInternetGatewayId :: Lens' EC2Route (Maybe (Val Text))
+ecrEgressOnlyInternetGatewayId = lens _eC2RouteEgressOnlyInternetGatewayId (\s a -> s { _eC2RouteEgressOnlyInternetGatewayId = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-gatewayid
 ecrGatewayId :: Lens' EC2Route (Maybe (Val Text))

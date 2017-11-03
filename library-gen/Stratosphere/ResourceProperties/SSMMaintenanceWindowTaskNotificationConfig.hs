@@ -2,7 +2,7 @@
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE TupleSections #-}
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowruncommandparameters-notificationconfig.html
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-notificationconfig.html
 
 module Stratosphere.ResourceProperties.SSMMaintenanceWindowTaskNotificationConfig where
 
@@ -53,14 +53,14 @@ ssmMaintenanceWindowTaskNotificationConfig  =
   , _sSMMaintenanceWindowTaskNotificationConfigNotificationType = Nothing
   }
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowruncommandparameters-notificationconfig.html#cfn-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowruncommandparameters-notificationconfig-notificationarn
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-notificationconfig.html#cfn-ssm-maintenancewindowtask-notificationconfig-notificationarn
 ssmmwtncNotificationArn :: Lens' SSMMaintenanceWindowTaskNotificationConfig (Maybe (Val Text))
 ssmmwtncNotificationArn = lens _sSMMaintenanceWindowTaskNotificationConfigNotificationArn (\s a -> s { _sSMMaintenanceWindowTaskNotificationConfigNotificationArn = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowruncommandparameters-notificationconfig.html#cfn-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowruncommandparameters-notificationconfig-notificationevents
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-notificationconfig.html#cfn-ssm-maintenancewindowtask-notificationconfig-notificationevents
 ssmmwtncNotificationEvents :: Lens' SSMMaintenanceWindowTaskNotificationConfig (Maybe (ValList Text))
 ssmmwtncNotificationEvents = lens _sSMMaintenanceWindowTaskNotificationConfigNotificationEvents (\s a -> s { _sSMMaintenanceWindowTaskNotificationConfigNotificationEvents = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowruncommandparameters-notificationconfig.html#cfn-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowruncommandparameters-notificationconfig-notificationtype
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-notificationconfig.html#cfn-ssm-maintenancewindowtask-notificationconfig-notificationtype
 ssmmwtncNotificationType :: Lens' SSMMaintenanceWindowTaskNotificationConfig (Maybe (Val Text))
 ssmmwtncNotificationType = lens _sSMMaintenanceWindowTaskNotificationConfigNotificationType (\s a -> s { _sSMMaintenanceWindowTaskNotificationConfigNotificationType = a })

@@ -2,7 +2,7 @@
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE TupleSections #-}
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-defaultcachebehavior.html
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html
 
 module Stratosphere.ResourceProperties.CloudFrontDistributionDefaultCacheBehavior where
 
@@ -14,6 +14,7 @@ import Data.Text
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.CloudFrontDistributionForwardedValues
+import Stratosphere.ResourceProperties.CloudFrontDistributionLambdaFunctionAssociation
 
 -- | Full data type definition for CloudFrontDistributionDefaultCacheBehavior.
 -- See 'cloudFrontDistributionDefaultCacheBehavior' for a more convenient
@@ -23,10 +24,11 @@ data CloudFrontDistributionDefaultCacheBehavior =
   { _cloudFrontDistributionDefaultCacheBehaviorAllowedMethods :: Maybe (ValList Text)
   , _cloudFrontDistributionDefaultCacheBehaviorCachedMethods :: Maybe (ValList Text)
   , _cloudFrontDistributionDefaultCacheBehaviorCompress :: Maybe (Val Bool)
-  , _cloudFrontDistributionDefaultCacheBehaviorDefaultTTL :: Maybe (Val Integer)
+  , _cloudFrontDistributionDefaultCacheBehaviorDefaultTTL :: Maybe (Val Double)
   , _cloudFrontDistributionDefaultCacheBehaviorForwardedValues :: CloudFrontDistributionForwardedValues
-  , _cloudFrontDistributionDefaultCacheBehaviorMaxTTL :: Maybe (Val Integer)
-  , _cloudFrontDistributionDefaultCacheBehaviorMinTTL :: Maybe (Val Integer)
+  , _cloudFrontDistributionDefaultCacheBehaviorLambdaFunctionAssociations :: Maybe [CloudFrontDistributionLambdaFunctionAssociation]
+  , _cloudFrontDistributionDefaultCacheBehaviorMaxTTL :: Maybe (Val Double)
+  , _cloudFrontDistributionDefaultCacheBehaviorMinTTL :: Maybe (Val Double)
   , _cloudFrontDistributionDefaultCacheBehaviorSmoothStreaming :: Maybe (Val Bool)
   , _cloudFrontDistributionDefaultCacheBehaviorTargetOriginId :: Val Text
   , _cloudFrontDistributionDefaultCacheBehaviorTrustedSigners :: Maybe (ValList Text)
@@ -40,10 +42,11 @@ instance ToJSON CloudFrontDistributionDefaultCacheBehavior where
     [ fmap (("AllowedMethods",) . toJSON) _cloudFrontDistributionDefaultCacheBehaviorAllowedMethods
     , fmap (("CachedMethods",) . toJSON) _cloudFrontDistributionDefaultCacheBehaviorCachedMethods
     , fmap (("Compress",) . toJSON . fmap Bool') _cloudFrontDistributionDefaultCacheBehaviorCompress
-    , fmap (("DefaultTTL",) . toJSON . fmap Integer') _cloudFrontDistributionDefaultCacheBehaviorDefaultTTL
+    , fmap (("DefaultTTL",) . toJSON . fmap Double') _cloudFrontDistributionDefaultCacheBehaviorDefaultTTL
     , (Just . ("ForwardedValues",) . toJSON) _cloudFrontDistributionDefaultCacheBehaviorForwardedValues
-    , fmap (("MaxTTL",) . toJSON . fmap Integer') _cloudFrontDistributionDefaultCacheBehaviorMaxTTL
-    , fmap (("MinTTL",) . toJSON . fmap Integer') _cloudFrontDistributionDefaultCacheBehaviorMinTTL
+    , fmap (("LambdaFunctionAssociations",) . toJSON) _cloudFrontDistributionDefaultCacheBehaviorLambdaFunctionAssociations
+    , fmap (("MaxTTL",) . toJSON . fmap Double') _cloudFrontDistributionDefaultCacheBehaviorMaxTTL
+    , fmap (("MinTTL",) . toJSON . fmap Double') _cloudFrontDistributionDefaultCacheBehaviorMinTTL
     , fmap (("SmoothStreaming",) . toJSON . fmap Bool') _cloudFrontDistributionDefaultCacheBehaviorSmoothStreaming
     , (Just . ("TargetOriginId",) . toJSON) _cloudFrontDistributionDefaultCacheBehaviorTargetOriginId
     , fmap (("TrustedSigners",) . toJSON) _cloudFrontDistributionDefaultCacheBehaviorTrustedSigners
@@ -56,10 +59,11 @@ instance FromJSON CloudFrontDistributionDefaultCacheBehavior where
       (obj .:? "AllowedMethods") <*>
       (obj .:? "CachedMethods") <*>
       fmap (fmap (fmap unBool')) (obj .:? "Compress") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "DefaultTTL") <*>
+      fmap (fmap (fmap unDouble')) (obj .:? "DefaultTTL") <*>
       (obj .: "ForwardedValues") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "MaxTTL") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "MinTTL") <*>
+      (obj .:? "LambdaFunctionAssociations") <*>
+      fmap (fmap (fmap unDouble')) (obj .:? "MaxTTL") <*>
+      fmap (fmap (fmap unDouble')) (obj .:? "MinTTL") <*>
       fmap (fmap (fmap unBool')) (obj .:? "SmoothStreaming") <*>
       (obj .: "TargetOriginId") <*>
       (obj .:? "TrustedSigners") <*>
@@ -80,6 +84,7 @@ cloudFrontDistributionDefaultCacheBehavior forwardedValuesarg targetOriginIdarg 
   , _cloudFrontDistributionDefaultCacheBehaviorCompress = Nothing
   , _cloudFrontDistributionDefaultCacheBehaviorDefaultTTL = Nothing
   , _cloudFrontDistributionDefaultCacheBehaviorForwardedValues = forwardedValuesarg
+  , _cloudFrontDistributionDefaultCacheBehaviorLambdaFunctionAssociations = Nothing
   , _cloudFrontDistributionDefaultCacheBehaviorMaxTTL = Nothing
   , _cloudFrontDistributionDefaultCacheBehaviorMinTTL = Nothing
   , _cloudFrontDistributionDefaultCacheBehaviorSmoothStreaming = Nothing
@@ -88,46 +93,50 @@ cloudFrontDistributionDefaultCacheBehavior forwardedValuesarg targetOriginIdarg 
   , _cloudFrontDistributionDefaultCacheBehaviorViewerProtocolPolicy = viewerProtocolPolicyarg
   }
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-defaultcachebehavior.html#cfn-cloudfront-defaultcachebehavior-allowedmethods
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-allowedmethods
 cfddcbAllowedMethods :: Lens' CloudFrontDistributionDefaultCacheBehavior (Maybe (ValList Text))
 cfddcbAllowedMethods = lens _cloudFrontDistributionDefaultCacheBehaviorAllowedMethods (\s a -> s { _cloudFrontDistributionDefaultCacheBehaviorAllowedMethods = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-defaultcachebehavior.html#cfn-cloudfront-defaultcachebehavior-cachedmethods
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-cachedmethods
 cfddcbCachedMethods :: Lens' CloudFrontDistributionDefaultCacheBehavior (Maybe (ValList Text))
 cfddcbCachedMethods = lens _cloudFrontDistributionDefaultCacheBehaviorCachedMethods (\s a -> s { _cloudFrontDistributionDefaultCacheBehaviorCachedMethods = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-defaultcachebehavior.html#cfn-cloudfront-defaultcachebehavior-compress
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-compress
 cfddcbCompress :: Lens' CloudFrontDistributionDefaultCacheBehavior (Maybe (Val Bool))
 cfddcbCompress = lens _cloudFrontDistributionDefaultCacheBehaviorCompress (\s a -> s { _cloudFrontDistributionDefaultCacheBehaviorCompress = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-defaultcachebehavior.html#cfn-cloudfront-defaultcachebehavior-defaultttl
-cfddcbDefaultTTL :: Lens' CloudFrontDistributionDefaultCacheBehavior (Maybe (Val Integer))
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-defaultttl
+cfddcbDefaultTTL :: Lens' CloudFrontDistributionDefaultCacheBehavior (Maybe (Val Double))
 cfddcbDefaultTTL = lens _cloudFrontDistributionDefaultCacheBehaviorDefaultTTL (\s a -> s { _cloudFrontDistributionDefaultCacheBehaviorDefaultTTL = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-defaultcachebehavior.html#cfn-cloudfront-defaultcachebehavior-forwardedvalues
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-forwardedvalues
 cfddcbForwardedValues :: Lens' CloudFrontDistributionDefaultCacheBehavior CloudFrontDistributionForwardedValues
 cfddcbForwardedValues = lens _cloudFrontDistributionDefaultCacheBehaviorForwardedValues (\s a -> s { _cloudFrontDistributionDefaultCacheBehaviorForwardedValues = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-defaultcachebehavior.html#cfn-cloudfront-defaultcachebehavior-maxttl
-cfddcbMaxTTL :: Lens' CloudFrontDistributionDefaultCacheBehavior (Maybe (Val Integer))
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-lambdafunctionassociations
+cfddcbLambdaFunctionAssociations :: Lens' CloudFrontDistributionDefaultCacheBehavior (Maybe [CloudFrontDistributionLambdaFunctionAssociation])
+cfddcbLambdaFunctionAssociations = lens _cloudFrontDistributionDefaultCacheBehaviorLambdaFunctionAssociations (\s a -> s { _cloudFrontDistributionDefaultCacheBehaviorLambdaFunctionAssociations = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-maxttl
+cfddcbMaxTTL :: Lens' CloudFrontDistributionDefaultCacheBehavior (Maybe (Val Double))
 cfddcbMaxTTL = lens _cloudFrontDistributionDefaultCacheBehaviorMaxTTL (\s a -> s { _cloudFrontDistributionDefaultCacheBehaviorMaxTTL = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-defaultcachebehavior.html#cfn-cloudfront-defaultcachebehavior-minttl
-cfddcbMinTTL :: Lens' CloudFrontDistributionDefaultCacheBehavior (Maybe (Val Integer))
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-minttl
+cfddcbMinTTL :: Lens' CloudFrontDistributionDefaultCacheBehavior (Maybe (Val Double))
 cfddcbMinTTL = lens _cloudFrontDistributionDefaultCacheBehaviorMinTTL (\s a -> s { _cloudFrontDistributionDefaultCacheBehaviorMinTTL = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-defaultcachebehavior.html#cfn-cloudfront-defaultcachebehavior-smoothstreaming
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-smoothstreaming
 cfddcbSmoothStreaming :: Lens' CloudFrontDistributionDefaultCacheBehavior (Maybe (Val Bool))
 cfddcbSmoothStreaming = lens _cloudFrontDistributionDefaultCacheBehaviorSmoothStreaming (\s a -> s { _cloudFrontDistributionDefaultCacheBehaviorSmoothStreaming = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-defaultcachebehavior.html#cfn-cloudfront-defaultcachebehavior-targetoriginid
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-targetoriginid
 cfddcbTargetOriginId :: Lens' CloudFrontDistributionDefaultCacheBehavior (Val Text)
 cfddcbTargetOriginId = lens _cloudFrontDistributionDefaultCacheBehaviorTargetOriginId (\s a -> s { _cloudFrontDistributionDefaultCacheBehaviorTargetOriginId = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-defaultcachebehavior.html#cfn-cloudfront-defaultcachebehavior-trustedsigners
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-trustedsigners
 cfddcbTrustedSigners :: Lens' CloudFrontDistributionDefaultCacheBehavior (Maybe (ValList Text))
 cfddcbTrustedSigners = lens _cloudFrontDistributionDefaultCacheBehaviorTrustedSigners (\s a -> s { _cloudFrontDistributionDefaultCacheBehaviorTrustedSigners = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-defaultcachebehavior.html#cfn-cloudfront-defaultcachebehavior-viewerprotocolpolicy
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-viewerprotocolpolicy
 cfddcbViewerProtocolPolicy :: Lens' CloudFrontDistributionDefaultCacheBehavior (Val Text)
 cfddcbViewerProtocolPolicy = lens _cloudFrontDistributionDefaultCacheBehaviorViewerProtocolPolicy (\s a -> s { _cloudFrontDistributionDefaultCacheBehaviorViewerProtocolPolicy = a })

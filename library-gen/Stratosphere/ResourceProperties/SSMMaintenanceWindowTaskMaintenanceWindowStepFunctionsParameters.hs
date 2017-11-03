@@ -2,7 +2,7 @@
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE TupleSections #-}
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowstepfunctionsparameters.html
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowstepfunctionsparameters.html
 
 module Stratosphere.ResourceProperties.SSMMaintenanceWindowTaskMaintenanceWindowStepFunctionsParameters where
 
@@ -51,10 +51,10 @@ ssmMaintenanceWindowTaskMaintenanceWindowStepFunctionsParameters  =
   , _sSMMaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersName = Nothing
   }
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowstepfunctionsparameters.html#cfn-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowstepfunctionsparameters-input
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowstepfunctionsparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowstepfunctionsparameters-input
 ssmmwtmwsfpInput :: Lens' SSMMaintenanceWindowTaskMaintenanceWindowStepFunctionsParameters (Maybe (Val Text))
 ssmmwtmwsfpInput = lens _sSMMaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersInput (\s a -> s { _sSMMaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersInput = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowstepfunctionsparameters.html#cfn-ssm-maintenancewindowtask-taskinvocationparameters-maintenancewindowstepfunctionsparameters-name
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-maintenancewindowstepfunctionsparameters.html#cfn-ssm-maintenancewindowtask-maintenancewindowstepfunctionsparameters-name
 ssmmwtmwsfpName :: Lens' SSMMaintenanceWindowTaskMaintenanceWindowStepFunctionsParameters (Maybe (Val Text))
 ssmmwtmwsfpName = lens _sSMMaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersName (\s a -> s { _sSMMaintenanceWindowTaskMaintenanceWindowStepFunctionsParametersName = a })

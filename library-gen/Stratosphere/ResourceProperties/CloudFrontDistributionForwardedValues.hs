@@ -2,7 +2,7 @@
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE TupleSections #-}
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-forwardedvalues.html
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-forwardedvalues.html
 
 module Stratosphere.ResourceProperties.CloudFrontDistributionForwardedValues where
 
@@ -58,18 +58,18 @@ cloudFrontDistributionForwardedValues queryStringarg =
   , _cloudFrontDistributionForwardedValuesQueryStringCacheKeys = Nothing
   }
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-forwardedvalues.html#cfn-cloudfront-forwardedvalues-cookies
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-forwardedvalues.html#cfn-cloudfront-distribution-forwardedvalues-cookies
 cfdfvCookies :: Lens' CloudFrontDistributionForwardedValues (Maybe CloudFrontDistributionCookies)
 cfdfvCookies = lens _cloudFrontDistributionForwardedValuesCookies (\s a -> s { _cloudFrontDistributionForwardedValuesCookies = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-forwardedvalues.html#cfn-cloudfront-forwardedvalues-headers
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-forwardedvalues.html#cfn-cloudfront-distribution-forwardedvalues-headers
 cfdfvHeaders :: Lens' CloudFrontDistributionForwardedValues (Maybe (ValList Text))
 cfdfvHeaders = lens _cloudFrontDistributionForwardedValuesHeaders (\s a -> s { _cloudFrontDistributionForwardedValuesHeaders = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-forwardedvalues.html#cfn-cloudfront-forwardedvalues-querystring
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-forwardedvalues.html#cfn-cloudfront-distribution-forwardedvalues-querystring
 cfdfvQueryString :: Lens' CloudFrontDistributionForwardedValues (Val Bool)
 cfdfvQueryString = lens _cloudFrontDistributionForwardedValuesQueryString (\s a -> s { _cloudFrontDistributionForwardedValuesQueryString = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-forwardedvalues.html#cfn-cloudfront-forwardedvalues-querystringcachekeys
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-forwardedvalues.html#cfn-cloudfront-distribution-forwardedvalues-querystringcachekeys
 cfdfvQueryStringCacheKeys :: Lens' CloudFrontDistributionForwardedValues (Maybe (ValList Text))
 cfdfvQueryStringCacheKeys = lens _cloudFrontDistributionForwardedValuesQueryStringCacheKeys (\s a -> s { _cloudFrontDistributionForwardedValuesQueryStringCacheKeys = a })
