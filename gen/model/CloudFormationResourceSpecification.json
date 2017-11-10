@@ -21906,14 +21906,6 @@
     "AWS::AutoScaling::AutoScalingGroup": {
       "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html",
       "Properties": {
-        "AsTags": {
-          "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-tags",
-          "DuplicatesAllowed": true,
-          "ItemType": "TagProperty",
-          "Required": false,
-          "Type": "List",
-          "UpdateType": "Mutable"
-        },
         "AvailabilityZones": {
           "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-availabilityzones",
           "DuplicatesAllowed": true,
@@ -22006,6 +21998,14 @@
           "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-placementgroup",
           "PrimitiveType": "String",
           "Required": false,
+          "UpdateType": "Mutable"
+        },
+        "Tags": {
+          "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-tags",
+          "DuplicatesAllowed": true,
+          "ItemType": "TagProperty",
+          "Required": false,
+          "Type": "List",
           "UpdateType": "Mutable"
         },
         "TargetGroupARNs": {
@@ -22513,5 +22513,5 @@
       }
     }
   },
-  "ResourceSpecificationVersion": "1.8.0"
+  "ResourceSpecificationVersion": "1.9.1"
 }
