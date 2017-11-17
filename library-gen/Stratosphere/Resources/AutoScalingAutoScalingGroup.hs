@@ -13,17 +13,16 @@ import Data.Monoid (mempty)
 import Data.Text
 
 import Stratosphere.Values
-import Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupTagProperty
 import Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupLifecycleHookSpecification
 import Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupMetricsCollection
 import Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupNotificationConfiguration
+import Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupTagProperty
 
 -- | Full data type definition for AutoScalingAutoScalingGroup. See
 -- 'autoScalingAutoScalingGroup' for a more convenient constructor.
 data AutoScalingAutoScalingGroup =
   AutoScalingAutoScalingGroup
-  { _autoScalingAutoScalingGroupAsTags :: Maybe [AutoScalingAutoScalingGroupTagProperty]
-  , _autoScalingAutoScalingGroupAvailabilityZones :: Maybe (ValList Text)
+  { _autoScalingAutoScalingGroupAvailabilityZones :: Maybe (ValList Text)
   , _autoScalingAutoScalingGroupCooldown :: Maybe (Val Text)
   , _autoScalingAutoScalingGroupDesiredCapacity :: Maybe (Val Text)
   , _autoScalingAutoScalingGroupHealthCheckGracePeriod :: Maybe (Val Integer)
@@ -37,6 +36,7 @@ data AutoScalingAutoScalingGroup =
   , _autoScalingAutoScalingGroupMinSize :: Val Text
   , _autoScalingAutoScalingGroupNotificationConfigurations :: Maybe [AutoScalingAutoScalingGroupNotificationConfiguration]
   , _autoScalingAutoScalingGroupPlacementGroup :: Maybe (Val Text)
+  , _autoScalingAutoScalingGroupTags :: Maybe [AutoScalingAutoScalingGroupTagProperty]
   , _autoScalingAutoScalingGroupTargetGroupARNs :: Maybe (ValList Text)
   , _autoScalingAutoScalingGroupTerminationPolicies :: Maybe (ValList Text)
   , _autoScalingAutoScalingGroupVPCZoneIdentifier :: Maybe (ValList Text)
@@ -46,8 +46,7 @@ instance ToJSON AutoScalingAutoScalingGroup where
   toJSON AutoScalingAutoScalingGroup{..} =
     object $
     catMaybes
-    [ fmap (("AsTags",) . toJSON) _autoScalingAutoScalingGroupAsTags
-    , fmap (("AvailabilityZones",) . toJSON) _autoScalingAutoScalingGroupAvailabilityZones
+    [ fmap (("AvailabilityZones",) . toJSON) _autoScalingAutoScalingGroupAvailabilityZones
     , fmap (("Cooldown",) . toJSON) _autoScalingAutoScalingGroupCooldown
     , fmap (("DesiredCapacity",) . toJSON) _autoScalingAutoScalingGroupDesiredCapacity
     , fmap (("HealthCheckGracePeriod",) . toJSON . fmap Integer') _autoScalingAutoScalingGroupHealthCheckGracePeriod
@@ -61,6 +60,7 @@ instance ToJSON AutoScalingAutoScalingGroup where
     , (Just . ("MinSize",) . toJSON) _autoScalingAutoScalingGroupMinSize
     , fmap (("NotificationConfigurations",) . toJSON) _autoScalingAutoScalingGroupNotificationConfigurations
     , fmap (("PlacementGroup",) . toJSON) _autoScalingAutoScalingGroupPlacementGroup
+    , fmap (("Tags",) . toJSON) _autoScalingAutoScalingGroupTags
     , fmap (("TargetGroupARNs",) . toJSON) _autoScalingAutoScalingGroupTargetGroupARNs
     , fmap (("TerminationPolicies",) . toJSON) _autoScalingAutoScalingGroupTerminationPolicies
     , fmap (("VPCZoneIdentifier",) . toJSON) _autoScalingAutoScalingGroupVPCZoneIdentifier
@@ -69,7 +69,6 @@ instance ToJSON AutoScalingAutoScalingGroup where
 instance FromJSON AutoScalingAutoScalingGroup where
   parseJSON (Object obj) =
     AutoScalingAutoScalingGroup <$>
-      (obj .:? "AsTags") <*>
       (obj .:? "AvailabilityZones") <*>
       (obj .:? "Cooldown") <*>
       (obj .:? "DesiredCapacity") <*>
@@ -84,6 +83,7 @@ instance FromJSON AutoScalingAutoScalingGroup where
       (obj .: "MinSize") <*>
       (obj .:? "NotificationConfigurations") <*>
       (obj .:? "PlacementGroup") <*>
+      (obj .:? "Tags") <*>
       (obj .:? "TargetGroupARNs") <*>
       (obj .:? "TerminationPolicies") <*>
       (obj .:? "VPCZoneIdentifier")
@@ -97,8 +97,7 @@ autoScalingAutoScalingGroup
   -> AutoScalingAutoScalingGroup
 autoScalingAutoScalingGroup maxSizearg minSizearg =
   AutoScalingAutoScalingGroup
-  { _autoScalingAutoScalingGroupAsTags = Nothing
-  , _autoScalingAutoScalingGroupAvailabilityZones = Nothing
+  { _autoScalingAutoScalingGroupAvailabilityZones = Nothing
   , _autoScalingAutoScalingGroupCooldown = Nothing
   , _autoScalingAutoScalingGroupDesiredCapacity = Nothing
   , _autoScalingAutoScalingGroupHealthCheckGracePeriod = Nothing
@@ -112,14 +111,11 @@ autoScalingAutoScalingGroup maxSizearg minSizearg =
   , _autoScalingAutoScalingGroupMinSize = minSizearg
   , _autoScalingAutoScalingGroupNotificationConfigurations = Nothing
   , _autoScalingAutoScalingGroupPlacementGroup = Nothing
+  , _autoScalingAutoScalingGroupTags = Nothing
   , _autoScalingAutoScalingGroupTargetGroupARNs = Nothing
   , _autoScalingAutoScalingGroupTerminationPolicies = Nothing
   , _autoScalingAutoScalingGroupVPCZoneIdentifier = Nothing
   }
-
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-tags
-asasgAsTags :: Lens' AutoScalingAutoScalingGroup (Maybe [AutoScalingAutoScalingGroupTagProperty])
-asasgAsTags = lens _autoScalingAutoScalingGroupAsTags (\s a -> s { _autoScalingAutoScalingGroupAsTags = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-availabilityzones
 asasgAvailabilityZones :: Lens' AutoScalingAutoScalingGroup (Maybe (ValList Text))
@@ -176,6 +172,10 @@ asasgNotificationConfigurations = lens _autoScalingAutoScalingGroupNotificationC
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-placementgroup
 asasgPlacementGroup :: Lens' AutoScalingAutoScalingGroup (Maybe (Val Text))
 asasgPlacementGroup = lens _autoScalingAutoScalingGroupPlacementGroup (\s a -> s { _autoScalingAutoScalingGroupPlacementGroup = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-tags
+asasgTags :: Lens' AutoScalingAutoScalingGroup (Maybe [AutoScalingAutoScalingGroupTagProperty])
+asasgTags = lens _autoScalingAutoScalingGroupTags (\s a -> s { _autoScalingAutoScalingGroupTags = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-targetgrouparns
 asasgTargetGroupARNs :: Lens' AutoScalingAutoScalingGroup (Maybe (ValList Text))
