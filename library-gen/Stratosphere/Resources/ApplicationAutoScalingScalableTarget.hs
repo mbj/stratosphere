@@ -13,7 +13,7 @@ import Data.Monoid (mempty)
 import Data.Text
 
 import Stratosphere.Values
-
+import Stratosphere.ResourceProperties.ApplicationAutoScalingScalableTargetScheduledAction
 
 -- | Full data type definition for ApplicationAutoScalingScalableTarget. See
 -- 'applicationAutoScalingScalableTarget' for a more convenient constructor.
@@ -24,6 +24,7 @@ data ApplicationAutoScalingScalableTarget =
   , _applicationAutoScalingScalableTargetResourceId :: Val Text
   , _applicationAutoScalingScalableTargetRoleARN :: Val Text
   , _applicationAutoScalingScalableTargetScalableDimension :: Val Text
+  , _applicationAutoScalingScalableTargetScheduledActions :: Maybe [ApplicationAutoScalingScalableTargetScheduledAction]
   , _applicationAutoScalingScalableTargetServiceNamespace :: Val Text
   } deriving (Show, Eq)
 
@@ -36,6 +37,7 @@ instance ToJSON ApplicationAutoScalingScalableTarget where
     , (Just . ("ResourceId",) . toJSON) _applicationAutoScalingScalableTargetResourceId
     , (Just . ("RoleARN",) . toJSON) _applicationAutoScalingScalableTargetRoleARN
     , (Just . ("ScalableDimension",) . toJSON) _applicationAutoScalingScalableTargetScalableDimension
+    , fmap (("ScheduledActions",) . toJSON) _applicationAutoScalingScalableTargetScheduledActions
     , (Just . ("ServiceNamespace",) . toJSON) _applicationAutoScalingScalableTargetServiceNamespace
     ]
 
@@ -47,6 +49,7 @@ instance FromJSON ApplicationAutoScalingScalableTarget where
       (obj .: "ResourceId") <*>
       (obj .: "RoleARN") <*>
       (obj .: "ScalableDimension") <*>
+      (obj .:? "ScheduledActions") <*>
       (obj .: "ServiceNamespace")
   parseJSON _ = mempty
 
@@ -67,6 +70,7 @@ applicationAutoScalingScalableTarget maxCapacityarg minCapacityarg resourceIdarg
   , _applicationAutoScalingScalableTargetResourceId = resourceIdarg
   , _applicationAutoScalingScalableTargetRoleARN = roleARNarg
   , _applicationAutoScalingScalableTargetScalableDimension = scalableDimensionarg
+  , _applicationAutoScalingScalableTargetScheduledActions = Nothing
   , _applicationAutoScalingScalableTargetServiceNamespace = serviceNamespacearg
   }
 
@@ -89,6 +93,10 @@ aasstRoleARN = lens _applicationAutoScalingScalableTargetRoleARN (\s a -> s { _a
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html#cfn-applicationautoscaling-scalabletarget-scalabledimension
 aasstScalableDimension :: Lens' ApplicationAutoScalingScalableTarget (Val Text)
 aasstScalableDimension = lens _applicationAutoScalingScalableTargetScalableDimension (\s a -> s { _applicationAutoScalingScalableTargetScalableDimension = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html#cfn-applicationautoscaling-scalabletarget-scheduledactions
+aasstScheduledActions :: Lens' ApplicationAutoScalingScalableTarget (Maybe [ApplicationAutoScalingScalableTargetScheduledAction])
+aasstScheduledActions = lens _applicationAutoScalingScalableTargetScheduledActions (\s a -> s { _applicationAutoScalingScalableTargetScheduledActions = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html#cfn-applicationautoscaling-scalabletarget-servicenamespace
 aasstServiceNamespace :: Lens' ApplicationAutoScalingScalableTarget (Val Text)

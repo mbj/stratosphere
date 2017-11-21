@@ -2,7 +2,7 @@
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE TupleSections #-}
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-restapi-bodys3location.html
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-restapi-s3location.html
 
 module Stratosphere.ResourceProperties.ApiGatewayRestApiS3Location where
 
@@ -56,18 +56,18 @@ apiGatewayRestApiS3Location  =
   , _apiGatewayRestApiS3LocationVersion = Nothing
   }
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-restapi-bodys3location.html#cfn-apigateway-restapi-s3location-bucket
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-restapi-s3location.html#cfn-apigateway-restapi-s3location-bucket
 agraslBucket :: Lens' ApiGatewayRestApiS3Location (Maybe (Val Text))
 agraslBucket = lens _apiGatewayRestApiS3LocationBucket (\s a -> s { _apiGatewayRestApiS3LocationBucket = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-restapi-bodys3location.html#cfn-apigateway-restapi-s3location-etag
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-restapi-s3location.html#cfn-apigateway-restapi-s3location-etag
 agraslETag :: Lens' ApiGatewayRestApiS3Location (Maybe (Val Text))
 agraslETag = lens _apiGatewayRestApiS3LocationETag (\s a -> s { _apiGatewayRestApiS3LocationETag = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-restapi-bodys3location.html#cfn-apigateway-restapi-s3location-key
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-restapi-s3location.html#cfn-apigateway-restapi-s3location-key
 agraslKey :: Lens' ApiGatewayRestApiS3Location (Maybe (Val Text))
 agraslKey = lens _apiGatewayRestApiS3LocationKey (\s a -> s { _apiGatewayRestApiS3LocationKey = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-restapi-bodys3location.html#cfn-apigateway-restapi-s3location-version
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-restapi-s3location.html#cfn-apigateway-restapi-s3location-version
 agraslVersion :: Lens' ApiGatewayRestApiS3Location (Maybe (Val Text))
 agraslVersion = lens _apiGatewayRestApiS3LocationVersion (\s a -> s { _apiGatewayRestApiS3LocationVersion = a })

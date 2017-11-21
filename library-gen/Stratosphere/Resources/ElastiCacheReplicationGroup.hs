@@ -20,7 +20,9 @@ import Stratosphere.ResourceProperties.Tag
 -- 'elastiCacheReplicationGroup' for a more convenient constructor.
 data ElastiCacheReplicationGroup =
   ElastiCacheReplicationGroup
-  { _elastiCacheReplicationGroupAutoMinorVersionUpgrade :: Maybe (Val Bool)
+  { _elastiCacheReplicationGroupAtRestEncryptionEnabled :: Maybe (Val Bool)
+  , _elastiCacheReplicationGroupAuthToken :: Maybe (Val Text)
+  , _elastiCacheReplicationGroupAutoMinorVersionUpgrade :: Maybe (Val Bool)
   , _elastiCacheReplicationGroupAutomaticFailoverEnabled :: Maybe (Val Bool)
   , _elastiCacheReplicationGroupCacheNodeType :: Maybe (Val Text)
   , _elastiCacheReplicationGroupCacheParameterGroupName :: Maybe (Val Text)
@@ -46,13 +48,16 @@ data ElastiCacheReplicationGroup =
   , _elastiCacheReplicationGroupSnapshotWindow :: Maybe (Val Text)
   , _elastiCacheReplicationGroupSnapshottingClusterId :: Maybe (Val Text)
   , _elastiCacheReplicationGroupTags :: Maybe [Tag]
+  , _elastiCacheReplicationGroupTransitEncryptionEnabled :: Maybe (Val Bool)
   } deriving (Show, Eq)
 
 instance ToJSON ElastiCacheReplicationGroup where
   toJSON ElastiCacheReplicationGroup{..} =
     object $
     catMaybes
-    [ fmap (("AutoMinorVersionUpgrade",) . toJSON . fmap Bool') _elastiCacheReplicationGroupAutoMinorVersionUpgrade
+    [ fmap (("AtRestEncryptionEnabled",) . toJSON . fmap Bool') _elastiCacheReplicationGroupAtRestEncryptionEnabled
+    , fmap (("AuthToken",) . toJSON) _elastiCacheReplicationGroupAuthToken
+    , fmap (("AutoMinorVersionUpgrade",) . toJSON . fmap Bool') _elastiCacheReplicationGroupAutoMinorVersionUpgrade
     , fmap (("AutomaticFailoverEnabled",) . toJSON . fmap Bool') _elastiCacheReplicationGroupAutomaticFailoverEnabled
     , fmap (("CacheNodeType",) . toJSON) _elastiCacheReplicationGroupCacheNodeType
     , fmap (("CacheParameterGroupName",) . toJSON) _elastiCacheReplicationGroupCacheParameterGroupName
@@ -78,11 +83,14 @@ instance ToJSON ElastiCacheReplicationGroup where
     , fmap (("SnapshotWindow",) . toJSON) _elastiCacheReplicationGroupSnapshotWindow
     , fmap (("SnapshottingClusterId",) . toJSON) _elastiCacheReplicationGroupSnapshottingClusterId
     , fmap (("Tags",) . toJSON) _elastiCacheReplicationGroupTags
+    , fmap (("TransitEncryptionEnabled",) . toJSON . fmap Bool') _elastiCacheReplicationGroupTransitEncryptionEnabled
     ]
 
 instance FromJSON ElastiCacheReplicationGroup where
   parseJSON (Object obj) =
     ElastiCacheReplicationGroup <$>
+      fmap (fmap (fmap unBool')) (obj .:? "AtRestEncryptionEnabled") <*>
+      (obj .:? "AuthToken") <*>
       fmap (fmap (fmap unBool')) (obj .:? "AutoMinorVersionUpgrade") <*>
       fmap (fmap (fmap unBool')) (obj .:? "AutomaticFailoverEnabled") <*>
       (obj .:? "CacheNodeType") <*>
@@ -108,7 +116,8 @@ instance FromJSON ElastiCacheReplicationGroup where
       fmap (fmap (fmap unInteger')) (obj .:? "SnapshotRetentionLimit") <*>
       (obj .:? "SnapshotWindow") <*>
       (obj .:? "SnapshottingClusterId") <*>
-      (obj .:? "Tags")
+      (obj .:? "Tags") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "TransitEncryptionEnabled")
   parseJSON _ = mempty
 
 -- | Constructor for 'ElastiCacheReplicationGroup' containing required fields
@@ -118,7 +127,9 @@ elastiCacheReplicationGroup
   -> ElastiCacheReplicationGroup
 elastiCacheReplicationGroup replicationGroupDescriptionarg =
   ElastiCacheReplicationGroup
-  { _elastiCacheReplicationGroupAutoMinorVersionUpgrade = Nothing
+  { _elastiCacheReplicationGroupAtRestEncryptionEnabled = Nothing
+  , _elastiCacheReplicationGroupAuthToken = Nothing
+  , _elastiCacheReplicationGroupAutoMinorVersionUpgrade = Nothing
   , _elastiCacheReplicationGroupAutomaticFailoverEnabled = Nothing
   , _elastiCacheReplicationGroupCacheNodeType = Nothing
   , _elastiCacheReplicationGroupCacheParameterGroupName = Nothing
@@ -144,7 +155,16 @@ elastiCacheReplicationGroup replicationGroupDescriptionarg =
   , _elastiCacheReplicationGroupSnapshotWindow = Nothing
   , _elastiCacheReplicationGroupSnapshottingClusterId = Nothing
   , _elastiCacheReplicationGroupTags = Nothing
+  , _elastiCacheReplicationGroupTransitEncryptionEnabled = Nothing
   }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-atrestencryptionenabled
+ecrgAtRestEncryptionEnabled :: Lens' ElastiCacheReplicationGroup (Maybe (Val Bool))
+ecrgAtRestEncryptionEnabled = lens _elastiCacheReplicationGroupAtRestEncryptionEnabled (\s a -> s { _elastiCacheReplicationGroupAtRestEncryptionEnabled = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-authtoken
+ecrgAuthToken :: Lens' ElastiCacheReplicationGroup (Maybe (Val Text))
+ecrgAuthToken = lens _elastiCacheReplicationGroupAuthToken (\s a -> s { _elastiCacheReplicationGroupAuthToken = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-autominorversionupgrade
 ecrgAutoMinorVersionUpgrade :: Lens' ElastiCacheReplicationGroup (Maybe (Val Bool))
@@ -249,3 +269,7 @@ ecrgSnapshottingClusterId = lens _elastiCacheReplicationGroupSnapshottingCluster
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-tags
 ecrgTags :: Lens' ElastiCacheReplicationGroup (Maybe [Tag])
 ecrgTags = lens _elastiCacheReplicationGroupTags (\s a -> s { _elastiCacheReplicationGroupTags = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-transitencryptionenabled
+ecrgTransitEncryptionEnabled :: Lens' ElastiCacheReplicationGroup (Maybe (Val Bool))
+ecrgTransitEncryptionEnabled = lens _elastiCacheReplicationGroupTransitEncryptionEnabled (\s a -> s { _elastiCacheReplicationGroupTransitEncryptionEnabled = a })

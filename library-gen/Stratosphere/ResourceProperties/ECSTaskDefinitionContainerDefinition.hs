@@ -15,6 +15,7 @@ import Data.Text
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.ECSTaskDefinitionKeyValuePair
 import Stratosphere.ResourceProperties.ECSTaskDefinitionHostEntry
+import Stratosphere.ResourceProperties.ECSTaskDefinitionLinuxParameters
 import Stratosphere.ResourceProperties.ECSTaskDefinitionLogConfiguration
 import Stratosphere.ResourceProperties.ECSTaskDefinitionMountPoint
 import Stratosphere.ResourceProperties.ECSTaskDefinitionPortMapping
@@ -39,6 +40,7 @@ data ECSTaskDefinitionContainerDefinition =
   , _eCSTaskDefinitionContainerDefinitionHostname :: Maybe (Val Text)
   , _eCSTaskDefinitionContainerDefinitionImage :: Val Text
   , _eCSTaskDefinitionContainerDefinitionLinks :: Maybe (ValList Text)
+  , _eCSTaskDefinitionContainerDefinitionLinuxParameters :: Maybe ECSTaskDefinitionLinuxParameters
   , _eCSTaskDefinitionContainerDefinitionLogConfiguration :: Maybe ECSTaskDefinitionLogConfiguration
   , _eCSTaskDefinitionContainerDefinitionMemory :: Maybe (Val Integer)
   , _eCSTaskDefinitionContainerDefinitionMemoryReservation :: Maybe (Val Integer)
@@ -71,6 +73,7 @@ instance ToJSON ECSTaskDefinitionContainerDefinition where
     , fmap (("Hostname",) . toJSON) _eCSTaskDefinitionContainerDefinitionHostname
     , (Just . ("Image",) . toJSON) _eCSTaskDefinitionContainerDefinitionImage
     , fmap (("Links",) . toJSON) _eCSTaskDefinitionContainerDefinitionLinks
+    , fmap (("LinuxParameters",) . toJSON) _eCSTaskDefinitionContainerDefinitionLinuxParameters
     , fmap (("LogConfiguration",) . toJSON) _eCSTaskDefinitionContainerDefinitionLogConfiguration
     , fmap (("Memory",) . toJSON . fmap Integer') _eCSTaskDefinitionContainerDefinitionMemory
     , fmap (("MemoryReservation",) . toJSON . fmap Integer') _eCSTaskDefinitionContainerDefinitionMemoryReservation
@@ -102,6 +105,7 @@ instance FromJSON ECSTaskDefinitionContainerDefinition where
       (obj .:? "Hostname") <*>
       (obj .: "Image") <*>
       (obj .:? "Links") <*>
+      (obj .:? "LinuxParameters") <*>
       (obj .:? "LogConfiguration") <*>
       fmap (fmap (fmap unInteger')) (obj .:? "Memory") <*>
       fmap (fmap (fmap unInteger')) (obj .:? "MemoryReservation") <*>
@@ -138,6 +142,7 @@ ecsTaskDefinitionContainerDefinition imagearg namearg =
   , _eCSTaskDefinitionContainerDefinitionHostname = Nothing
   , _eCSTaskDefinitionContainerDefinitionImage = imagearg
   , _eCSTaskDefinitionContainerDefinitionLinks = Nothing
+  , _eCSTaskDefinitionContainerDefinitionLinuxParameters = Nothing
   , _eCSTaskDefinitionContainerDefinitionLogConfiguration = Nothing
   , _eCSTaskDefinitionContainerDefinitionMemory = Nothing
   , _eCSTaskDefinitionContainerDefinitionMemoryReservation = Nothing
@@ -207,6 +212,10 @@ ecstdcdImage = lens _eCSTaskDefinitionContainerDefinitionImage (\s a -> s { _eCS
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-links
 ecstdcdLinks :: Lens' ECSTaskDefinitionContainerDefinition (Maybe (ValList Text))
 ecstdcdLinks = lens _eCSTaskDefinitionContainerDefinitionLinks (\s a -> s { _eCSTaskDefinitionContainerDefinitionLinks = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-linuxparameters
+ecstdcdLinuxParameters :: Lens' ECSTaskDefinitionContainerDefinition (Maybe ECSTaskDefinitionLinuxParameters)
+ecstdcdLinuxParameters = lens _eCSTaskDefinitionContainerDefinitionLinuxParameters (\s a -> s { _eCSTaskDefinitionContainerDefinitionLinuxParameters = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-logconfiguration
 ecstdcdLogConfiguration :: Lens' ECSTaskDefinitionContainerDefinition (Maybe ECSTaskDefinitionLogConfiguration)

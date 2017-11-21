@@ -2,7 +2,7 @@
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE TupleSections #-}
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-beanstalk-configurationtemplate.html
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticbeanstalk-configurationtemplate.html
 
 module Stratosphere.Resources.ElasticBeanstalkConfigurationTemplate where
 
@@ -71,30 +71,30 @@ elasticBeanstalkConfigurationTemplate applicationNamearg =
   , _elasticBeanstalkConfigurationTemplateSourceConfiguration = Nothing
   }
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-beanstalk-configurationtemplate.html#cfn-elasticbeanstalk-configurationtemplate-applicationname
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticbeanstalk-configurationtemplate.html#cfn-elasticbeanstalk-configurationtemplate-applicationname
 ebctApplicationName :: Lens' ElasticBeanstalkConfigurationTemplate (Val Text)
 ebctApplicationName = lens _elasticBeanstalkConfigurationTemplateApplicationName (\s a -> s { _elasticBeanstalkConfigurationTemplateApplicationName = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-beanstalk-configurationtemplate.html#cfn-elasticbeanstalk-configurationtemplate-description
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticbeanstalk-configurationtemplate.html#cfn-elasticbeanstalk-configurationtemplate-description
 ebctDescription :: Lens' ElasticBeanstalkConfigurationTemplate (Maybe (Val Text))
 ebctDescription = lens _elasticBeanstalkConfigurationTemplateDescription (\s a -> s { _elasticBeanstalkConfigurationTemplateDescription = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-beanstalk-configurationtemplate.html#cfn-elasticbeanstalk-configurationtemplate-environmentid
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticbeanstalk-configurationtemplate.html#cfn-elasticbeanstalk-configurationtemplate-environmentid
 ebctEnvironmentId :: Lens' ElasticBeanstalkConfigurationTemplate (Maybe (Val Text))
 ebctEnvironmentId = lens _elasticBeanstalkConfigurationTemplateEnvironmentId (\s a -> s { _elasticBeanstalkConfigurationTemplateEnvironmentId = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-beanstalk-configurationtemplate.html#cfn-elasticbeanstalk-configurationtemplate-optionsettings
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticbeanstalk-configurationtemplate.html#cfn-elasticbeanstalk-configurationtemplate-optionsettings
 ebctOptionSettings :: Lens' ElasticBeanstalkConfigurationTemplate (Maybe [ElasticBeanstalkConfigurationTemplateConfigurationOptionSetting])
 ebctOptionSettings = lens _elasticBeanstalkConfigurationTemplateOptionSettings (\s a -> s { _elasticBeanstalkConfigurationTemplateOptionSettings = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-beanstalk-configurationtemplate.html#cfn-elasticbeanstalk-configurationtemplate-platformarn
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticbeanstalk-configurationtemplate.html#cfn-elasticbeanstalk-configurationtemplate-platformarn
 ebctPlatformArn :: Lens' ElasticBeanstalkConfigurationTemplate (Maybe (Val Text))
 ebctPlatformArn = lens _elasticBeanstalkConfigurationTemplatePlatformArn (\s a -> s { _elasticBeanstalkConfigurationTemplatePlatformArn = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-beanstalk-configurationtemplate.html#cfn-elasticbeanstalk-configurationtemplate-solutionstackname
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticbeanstalk-configurationtemplate.html#cfn-elasticbeanstalk-configurationtemplate-solutionstackname
 ebctSolutionStackName :: Lens' ElasticBeanstalkConfigurationTemplate (Maybe (Val Text))
 ebctSolutionStackName = lens _elasticBeanstalkConfigurationTemplateSolutionStackName (\s a -> s { _elasticBeanstalkConfigurationTemplateSolutionStackName = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-beanstalk-configurationtemplate.html#cfn-elasticbeanstalk-configurationtemplate-sourceconfiguration
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticbeanstalk-configurationtemplate.html#cfn-elasticbeanstalk-configurationtemplate-sourceconfiguration
 ebctSourceConfiguration :: Lens' ElasticBeanstalkConfigurationTemplate (Maybe ElasticBeanstalkConfigurationTemplateSourceConfiguration)
 ebctSourceConfiguration = lens _elasticBeanstalkConfigurationTemplateSourceConfiguration (\s a -> s { _elasticBeanstalkConfigurationTemplateSourceConfiguration = a })
