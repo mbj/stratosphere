@@ -17,6 +17,7 @@ import Stratosphere.ResourceProperties.ElasticsearchDomainEBSOptions
 import Stratosphere.ResourceProperties.ElasticsearchDomainElasticsearchClusterConfig
 import Stratosphere.ResourceProperties.ElasticsearchDomainSnapshotOptions
 import Stratosphere.ResourceProperties.Tag
+import Stratosphere.ResourceProperties.ElasticsearchDomainVPCOptions
 
 -- | Full data type definition for ElasticsearchDomain. See
 -- 'elasticsearchDomain' for a more convenient constructor.
@@ -30,6 +31,7 @@ data ElasticsearchDomain =
   , _elasticsearchDomainElasticsearchVersion :: Maybe (Val Text)
   , _elasticsearchDomainSnapshotOptions :: Maybe ElasticsearchDomainSnapshotOptions
   , _elasticsearchDomainTags :: Maybe [Tag]
+  , _elasticsearchDomainVPCOptions :: Maybe ElasticsearchDomainVPCOptions
   } deriving (Show, Eq)
 
 instance ToJSON ElasticsearchDomain where
@@ -44,6 +46,7 @@ instance ToJSON ElasticsearchDomain where
     , fmap (("ElasticsearchVersion",) . toJSON) _elasticsearchDomainElasticsearchVersion
     , fmap (("SnapshotOptions",) . toJSON) _elasticsearchDomainSnapshotOptions
     , fmap (("Tags",) . toJSON) _elasticsearchDomainTags
+    , fmap (("VPCOptions",) . toJSON) _elasticsearchDomainVPCOptions
     ]
 
 instance FromJSON ElasticsearchDomain where
@@ -56,7 +59,8 @@ instance FromJSON ElasticsearchDomain where
       (obj .:? "ElasticsearchClusterConfig") <*>
       (obj .:? "ElasticsearchVersion") <*>
       (obj .:? "SnapshotOptions") <*>
-      (obj .:? "Tags")
+      (obj .:? "Tags") <*>
+      (obj .:? "VPCOptions")
   parseJSON _ = mempty
 
 -- | Constructor for 'ElasticsearchDomain' containing required fields as
@@ -73,6 +77,7 @@ elasticsearchDomain  =
   , _elasticsearchDomainElasticsearchVersion = Nothing
   , _elasticsearchDomainSnapshotOptions = Nothing
   , _elasticsearchDomainTags = Nothing
+  , _elasticsearchDomainVPCOptions = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-accesspolicies
@@ -106,3 +111,7 @@ edSnapshotOptions = lens _elasticsearchDomainSnapshotOptions (\s a -> s { _elast
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-tags
 edTags :: Lens' ElasticsearchDomain (Maybe [Tag])
 edTags = lens _elasticsearchDomainTags (\s a -> s { _elasticsearchDomainTags = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-vpcoptions
+edVPCOptions :: Lens' ElasticsearchDomain (Maybe ElasticsearchDomainVPCOptions)
+edVPCOptions = lens _elasticsearchDomainVPCOptions (\s a -> s { _elasticsearchDomainVPCOptions = a })

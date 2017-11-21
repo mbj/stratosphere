@@ -2,7 +2,7 @@
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE TupleSections #-}
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-apikey-stagekey.html
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-apikey-stagekey.html
 
 module Stratosphere.ResourceProperties.ApiGatewayApiKeyStageKey where
 
@@ -48,10 +48,10 @@ apiGatewayApiKeyStageKey  =
   , _apiGatewayApiKeyStageKeyStageName = Nothing
   }
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-apikey-stagekey.html#cfn-apigateway-apikey-stagekey-restapiid
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-apikey-stagekey.html#cfn-apigateway-apikey-stagekey-restapiid
 agakskRestApiId :: Lens' ApiGatewayApiKeyStageKey (Maybe (Val Text))
 agakskRestApiId = lens _apiGatewayApiKeyStageKeyRestApiId (\s a -> s { _apiGatewayApiKeyStageKeyRestApiId = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-apikey-stagekey.html#cfn-apigateway-apikey-stagekey-stagename
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-apikey-stagekey.html#cfn-apigateway-apikey-stagekey-stagename
 agakskStageName :: Lens' ApiGatewayApiKeyStageKey (Maybe (Val Text))
 agakskStageName = lens _apiGatewayApiKeyStageKeyStageName (\s a -> s { _apiGatewayApiKeyStageKeyStageName = a })

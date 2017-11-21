@@ -13,13 +13,14 @@ import Data.Monoid (mempty)
 import Data.Text
 
 import Stratosphere.Values
-
+import Stratosphere.ResourceProperties.ECRRepositoryLifecyclePolicy
 
 -- | Full data type definition for ECRRepository. See 'ecrRepository' for a
 -- more convenient constructor.
 data ECRRepository =
   ECRRepository
-  { _eCRRepositoryRepositoryName :: Maybe (Val Text)
+  { _eCRRepositoryLifecyclePolicy :: Maybe ECRRepositoryLifecyclePolicy
+  , _eCRRepositoryRepositoryName :: Maybe (Val Text)
   , _eCRRepositoryRepositoryPolicyText :: Maybe Object
   } deriving (Show, Eq)
 
@@ -27,13 +28,15 @@ instance ToJSON ECRRepository where
   toJSON ECRRepository{..} =
     object $
     catMaybes
-    [ fmap (("RepositoryName",) . toJSON) _eCRRepositoryRepositoryName
+    [ fmap (("LifecyclePolicy",) . toJSON) _eCRRepositoryLifecyclePolicy
+    , fmap (("RepositoryName",) . toJSON) _eCRRepositoryRepositoryName
     , fmap (("RepositoryPolicyText",) . toJSON) _eCRRepositoryRepositoryPolicyText
     ]
 
 instance FromJSON ECRRepository where
   parseJSON (Object obj) =
     ECRRepository <$>
+      (obj .:? "LifecyclePolicy") <*>
       (obj .:? "RepositoryName") <*>
       (obj .:? "RepositoryPolicyText")
   parseJSON _ = mempty
@@ -43,9 +46,14 @@ ecrRepository
   :: ECRRepository
 ecrRepository  =
   ECRRepository
-  { _eCRRepositoryRepositoryName = Nothing
+  { _eCRRepositoryLifecyclePolicy = Nothing
+  , _eCRRepositoryRepositoryName = Nothing
   , _eCRRepositoryRepositoryPolicyText = Nothing
   }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-lifecyclepolicy
+ecrrLifecyclePolicy :: Lens' ECRRepository (Maybe ECRRepositoryLifecyclePolicy)
+ecrrLifecyclePolicy = lens _eCRRepositoryLifecyclePolicy (\s a -> s { _eCRRepositoryLifecyclePolicy = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-repositoryname
 ecrrRepositoryName :: Lens' ECRRepository (Maybe (Val Text))

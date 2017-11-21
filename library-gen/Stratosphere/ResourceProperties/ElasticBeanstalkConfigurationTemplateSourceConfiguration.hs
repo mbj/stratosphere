@@ -2,7 +2,7 @@
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE TupleSections #-}
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-configurationtemplate-sourceconfiguration.html
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-configurationtemplate-sourceconfiguration.html
 
 module Stratosphere.ResourceProperties.ElasticBeanstalkConfigurationTemplateSourceConfiguration where
 
@@ -53,10 +53,10 @@ elasticBeanstalkConfigurationTemplateSourceConfiguration applicationNamearg temp
   , _elasticBeanstalkConfigurationTemplateSourceConfigurationTemplateName = templateNamearg
   }
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-configurationtemplate-sourceconfiguration.html#cfn-beanstalk-configurationtemplate-sourceconfiguration-applicationname
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-configurationtemplate-sourceconfiguration.html#cfn-elasticbeanstalk-configurationtemplate-sourceconfiguration-applicationname
 ebctscApplicationName :: Lens' ElasticBeanstalkConfigurationTemplateSourceConfiguration (Val Text)
 ebctscApplicationName = lens _elasticBeanstalkConfigurationTemplateSourceConfigurationApplicationName (\s a -> s { _elasticBeanstalkConfigurationTemplateSourceConfigurationApplicationName = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-configurationtemplate-sourceconfiguration.html#cfn-beanstalk-configurationtemplate-sourceconfiguration-templatename
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-configurationtemplate-sourceconfiguration.html#cfn-elasticbeanstalk-configurationtemplate-sourceconfiguration-templatename
 ebctscTemplateName :: Lens' ElasticBeanstalkConfigurationTemplateSourceConfiguration (Val Text)
 ebctscTemplateName = lens _elasticBeanstalkConfigurationTemplateSourceConfigurationTemplateName (\s a -> s { _elasticBeanstalkConfigurationTemplateSourceConfigurationTemplateName = a })

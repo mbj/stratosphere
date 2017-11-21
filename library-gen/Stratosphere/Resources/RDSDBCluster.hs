@@ -19,7 +19,7 @@ import Stratosphere.ResourceProperties.Tag
 -- convenient constructor.
 data RDSDBCluster =
   RDSDBCluster
-  { _rDSDBClusterAvailabilityZones :: Maybe (Val Text)
+  { _rDSDBClusterAvailabilityZones :: Maybe (ValList Text)
   , _rDSDBClusterBackupRetentionPeriod :: Maybe (Val Integer)
   , _rDSDBClusterDBClusterParameterGroupName :: Maybe (Val Text)
   , _rDSDBClusterDBSubnetGroupName :: Maybe (Val Text)
@@ -113,7 +113,7 @@ rdsdbCluster enginearg =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-availabilityzones
-rdsdbcAvailabilityZones :: Lens' RDSDBCluster (Maybe (Val Text))
+rdsdbcAvailabilityZones :: Lens' RDSDBCluster (Maybe (ValList Text))
 rdsdbcAvailabilityZones = lens _rDSDBClusterAvailabilityZones (\s a -> s { _rDSDBClusterAvailabilityZones = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-backuprententionperiod

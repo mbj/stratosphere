@@ -14,6 +14,7 @@ import Data.Text
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.ApiGatewayRestApiS3Location
+import Stratosphere.ResourceProperties.ApiGatewayRestApiEndpointConfiguration
 
 -- | Full data type definition for ApiGatewayRestApi. See 'apiGatewayRestApi'
 -- for a more convenient constructor.
@@ -24,6 +25,7 @@ data ApiGatewayRestApi =
   , _apiGatewayRestApiBodyS3Location :: Maybe ApiGatewayRestApiS3Location
   , _apiGatewayRestApiCloneFrom :: Maybe (Val Text)
   , _apiGatewayRestApiDescription :: Maybe (Val Text)
+  , _apiGatewayRestApiEndpointConfiguration :: Maybe ApiGatewayRestApiEndpointConfiguration
   , _apiGatewayRestApiFailOnWarnings :: Maybe (Val Bool)
   , _apiGatewayRestApiMode :: Maybe (Val Text)
   , _apiGatewayRestApiName :: Maybe (Val Text)
@@ -39,6 +41,7 @@ instance ToJSON ApiGatewayRestApi where
     , fmap (("BodyS3Location",) . toJSON) _apiGatewayRestApiBodyS3Location
     , fmap (("CloneFrom",) . toJSON) _apiGatewayRestApiCloneFrom
     , fmap (("Description",) . toJSON) _apiGatewayRestApiDescription
+    , fmap (("EndpointConfiguration",) . toJSON) _apiGatewayRestApiEndpointConfiguration
     , fmap (("FailOnWarnings",) . toJSON . fmap Bool') _apiGatewayRestApiFailOnWarnings
     , fmap (("Mode",) . toJSON) _apiGatewayRestApiMode
     , fmap (("Name",) . toJSON) _apiGatewayRestApiName
@@ -53,6 +56,7 @@ instance FromJSON ApiGatewayRestApi where
       (obj .:? "BodyS3Location") <*>
       (obj .:? "CloneFrom") <*>
       (obj .:? "Description") <*>
+      (obj .:? "EndpointConfiguration") <*>
       fmap (fmap (fmap unBool')) (obj .:? "FailOnWarnings") <*>
       (obj .:? "Mode") <*>
       (obj .:? "Name") <*>
@@ -70,6 +74,7 @@ apiGatewayRestApi  =
   , _apiGatewayRestApiBodyS3Location = Nothing
   , _apiGatewayRestApiCloneFrom = Nothing
   , _apiGatewayRestApiDescription = Nothing
+  , _apiGatewayRestApiEndpointConfiguration = Nothing
   , _apiGatewayRestApiFailOnWarnings = Nothing
   , _apiGatewayRestApiMode = Nothing
   , _apiGatewayRestApiName = Nothing
@@ -95,6 +100,10 @@ agraCloneFrom = lens _apiGatewayRestApiCloneFrom (\s a -> s { _apiGatewayRestApi
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-description
 agraDescription :: Lens' ApiGatewayRestApi (Maybe (Val Text))
 agraDescription = lens _apiGatewayRestApiDescription (\s a -> s { _apiGatewayRestApiDescription = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-endpointconfiguration
+agraEndpointConfiguration :: Lens' ApiGatewayRestApi (Maybe ApiGatewayRestApiEndpointConfiguration)
+agraEndpointConfiguration = lens _apiGatewayRestApiEndpointConfiguration (\s a -> s { _apiGatewayRestApiEndpointConfiguration = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-failonwarnings
 agraFailOnWarnings :: Lens' ApiGatewayRestApi (Maybe (Val Bool))

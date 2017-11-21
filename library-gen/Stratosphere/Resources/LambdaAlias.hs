@@ -13,7 +13,7 @@ import Data.Monoid (mempty)
 import Data.Text
 
 import Stratosphere.Values
-import Stratosphere.ResourceProperties.LambdaAliasAliasRoutingConfiguration
+
 
 -- | Full data type definition for LambdaAlias. See 'lambdaAlias' for a more
 -- convenient constructor.
@@ -23,7 +23,6 @@ data LambdaAlias =
   , _lambdaAliasFunctionName :: Val Text
   , _lambdaAliasFunctionVersion :: Val Text
   , _lambdaAliasName :: Val Text
-  , _lambdaAliasRoutingConfig :: Maybe LambdaAliasAliasRoutingConfiguration
   } deriving (Show, Eq)
 
 instance ToJSON LambdaAlias where
@@ -34,7 +33,6 @@ instance ToJSON LambdaAlias where
     , (Just . ("FunctionName",) . toJSON) _lambdaAliasFunctionName
     , (Just . ("FunctionVersion",) . toJSON) _lambdaAliasFunctionVersion
     , (Just . ("Name",) . toJSON) _lambdaAliasName
-    , fmap (("RoutingConfig",) . toJSON) _lambdaAliasRoutingConfig
     ]
 
 instance FromJSON LambdaAlias where
@@ -43,8 +41,7 @@ instance FromJSON LambdaAlias where
       (obj .:? "Description") <*>
       (obj .: "FunctionName") <*>
       (obj .: "FunctionVersion") <*>
-      (obj .: "Name") <*>
-      (obj .:? "RoutingConfig")
+      (obj .: "Name")
   parseJSON _ = mempty
 
 -- | Constructor for 'LambdaAlias' containing required fields as arguments.
@@ -59,7 +56,6 @@ lambdaAlias functionNamearg functionVersionarg namearg =
   , _lambdaAliasFunctionName = functionNamearg
   , _lambdaAliasFunctionVersion = functionVersionarg
   , _lambdaAliasName = namearg
-  , _lambdaAliasRoutingConfig = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-alias.html#cfn-lambda-alias-description
@@ -77,7 +73,3 @@ laFunctionVersion = lens _lambdaAliasFunctionVersion (\s a -> s { _lambdaAliasFu
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-alias.html#cfn-lambda-alias-name
 laName :: Lens' LambdaAlias (Val Text)
 laName = lens _lambdaAliasName (\s a -> s { _lambdaAliasName = a })
-
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-alias.html#cfn-lambda-alias-routingconfig
-laRoutingConfig :: Lens' LambdaAlias (Maybe LambdaAliasAliasRoutingConfiguration)
-laRoutingConfig = lens _lambdaAliasRoutingConfig (\s a -> s { _lambdaAliasRoutingConfig = a })

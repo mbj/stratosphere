@@ -52,6 +52,7 @@ data RDSDBInstance =
   , _rDSDBInstancePreferredMaintenanceWindow :: Maybe (Val Text)
   , _rDSDBInstancePubliclyAccessible :: Maybe (Val Bool)
   , _rDSDBInstanceSourceDBInstanceIdentifier :: Maybe (Val Text)
+  , _rDSDBInstanceSourceRegion :: Maybe (Val Text)
   , _rDSDBInstanceStorageEncrypted :: Maybe (Val Bool)
   , _rDSDBInstanceStorageType :: Maybe (Val Text)
   , _rDSDBInstanceTags :: Maybe [Tag]
@@ -96,6 +97,7 @@ instance ToJSON RDSDBInstance where
     , fmap (("PreferredMaintenanceWindow",) . toJSON) _rDSDBInstancePreferredMaintenanceWindow
     , fmap (("PubliclyAccessible",) . toJSON . fmap Bool') _rDSDBInstancePubliclyAccessible
     , fmap (("SourceDBInstanceIdentifier",) . toJSON) _rDSDBInstanceSourceDBInstanceIdentifier
+    , fmap (("SourceRegion",) . toJSON) _rDSDBInstanceSourceRegion
     , fmap (("StorageEncrypted",) . toJSON . fmap Bool') _rDSDBInstanceStorageEncrypted
     , fmap (("StorageType",) . toJSON) _rDSDBInstanceStorageType
     , fmap (("Tags",) . toJSON) _rDSDBInstanceTags
@@ -139,6 +141,7 @@ instance FromJSON RDSDBInstance where
       (obj .:? "PreferredMaintenanceWindow") <*>
       fmap (fmap (fmap unBool')) (obj .:? "PubliclyAccessible") <*>
       (obj .:? "SourceDBInstanceIdentifier") <*>
+      (obj .:? "SourceRegion") <*>
       fmap (fmap (fmap unBool')) (obj .:? "StorageEncrypted") <*>
       (obj .:? "StorageType") <*>
       (obj .:? "Tags") <*>
@@ -185,6 +188,7 @@ rdsdbInstance dBInstanceClassarg =
   , _rDSDBInstancePreferredMaintenanceWindow = Nothing
   , _rDSDBInstancePubliclyAccessible = Nothing
   , _rDSDBInstanceSourceDBInstanceIdentifier = Nothing
+  , _rDSDBInstanceSourceRegion = Nothing
   , _rDSDBInstanceStorageEncrypted = Nothing
   , _rDSDBInstanceStorageType = Nothing
   , _rDSDBInstanceTags = Nothing
@@ -323,6 +327,10 @@ rdsdbiPubliclyAccessible = lens _rDSDBInstancePubliclyAccessible (\s a -> s { _r
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-sourcedbinstanceidentifier
 rdsdbiSourceDBInstanceIdentifier :: Lens' RDSDBInstance (Maybe (Val Text))
 rdsdbiSourceDBInstanceIdentifier = lens _rDSDBInstanceSourceDBInstanceIdentifier (\s a -> s { _rDSDBInstanceSourceDBInstanceIdentifier = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-sourceregion
+rdsdbiSourceRegion :: Lens' RDSDBInstance (Maybe (Val Text))
+rdsdbiSourceRegion = lens _rDSDBInstanceSourceRegion (\s a -> s { _rDSDBInstanceSourceRegion = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-storageencrypted
 rdsdbiStorageEncrypted :: Lens' RDSDBInstance (Maybe (Val Bool))

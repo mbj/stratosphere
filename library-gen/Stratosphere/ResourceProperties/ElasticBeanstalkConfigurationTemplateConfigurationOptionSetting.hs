@@ -2,7 +2,7 @@
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE TupleSections #-}
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-option-settings.html
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-configurationtemplate-configurationoptionsetting.html
 
 module Stratosphere.ResourceProperties.ElasticBeanstalkConfigurationTemplateConfigurationOptionSetting where
 
@@ -61,18 +61,18 @@ elasticBeanstalkConfigurationTemplateConfigurationOptionSetting namespacearg opt
   , _elasticBeanstalkConfigurationTemplateConfigurationOptionSettingValue = Nothing
   }
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-option-settings.html#cfn-beanstalk-optionsettings-namespace
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-configurationtemplate-configurationoptionsetting.html#cfn-elasticbeanstalk-configurationtemplate-configurationoptionsetting-namespace
 ebctcosNamespace :: Lens' ElasticBeanstalkConfigurationTemplateConfigurationOptionSetting (Val Text)
 ebctcosNamespace = lens _elasticBeanstalkConfigurationTemplateConfigurationOptionSettingNamespace (\s a -> s { _elasticBeanstalkConfigurationTemplateConfigurationOptionSettingNamespace = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-option-settings.html#cfn-beanstalk-optionsettings-optionname
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-configurationtemplate-configurationoptionsetting.html#cfn-elasticbeanstalk-configurationtemplate-configurationoptionsetting-optionname
 ebctcosOptionName :: Lens' ElasticBeanstalkConfigurationTemplateConfigurationOptionSetting (Val Text)
 ebctcosOptionName = lens _elasticBeanstalkConfigurationTemplateConfigurationOptionSettingOptionName (\s a -> s { _elasticBeanstalkConfigurationTemplateConfigurationOptionSettingOptionName = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-option-settings.html#cfn-elasticbeanstalk-configurationtemplate-configurationoptionsetting-resourcename
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-configurationtemplate-configurationoptionsetting.html#cfn-elasticbeanstalk-configurationtemplate-configurationoptionsetting-resourcename
 ebctcosResourceName :: Lens' ElasticBeanstalkConfigurationTemplateConfigurationOptionSetting (Maybe (Val Text))
 ebctcosResourceName = lens _elasticBeanstalkConfigurationTemplateConfigurationOptionSettingResourceName (\s a -> s { _elasticBeanstalkConfigurationTemplateConfigurationOptionSettingResourceName = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-option-settings.html#cfn-beanstalk-optionsettings-value
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-configurationtemplate-configurationoptionsetting.html#cfn-elasticbeanstalk-configurationtemplate-configurationoptionsetting-value
 ebctcosValue :: Lens' ElasticBeanstalkConfigurationTemplateConfigurationOptionSetting (Maybe (Val Text))
 ebctcosValue = lens _elasticBeanstalkConfigurationTemplateConfigurationOptionSettingValue (\s a -> s { _elasticBeanstalkConfigurationTemplateConfigurationOptionSettingValue = a })

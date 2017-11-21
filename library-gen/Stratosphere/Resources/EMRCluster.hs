@@ -29,6 +29,7 @@ data EMRCluster =
   , _eMRClusterBootstrapActions :: Maybe [EMRClusterBootstrapActionConfig]
   , _eMRClusterConfigurations :: Maybe [EMRClusterConfiguration]
   , _eMRClusterCustomAmiId :: Maybe (Val Text)
+  , _eMRClusterEbsRootVolumeSize :: Maybe (Val Integer)
   , _eMRClusterInstances :: EMRClusterJobFlowInstancesConfig
   , _eMRClusterJobFlowRole :: Val Text
   , _eMRClusterLogUri :: Maybe (Val Text)
@@ -51,6 +52,7 @@ instance ToJSON EMRCluster where
     , fmap (("BootstrapActions",) . toJSON) _eMRClusterBootstrapActions
     , fmap (("Configurations",) . toJSON) _eMRClusterConfigurations
     , fmap (("CustomAmiId",) . toJSON) _eMRClusterCustomAmiId
+    , fmap (("EbsRootVolumeSize",) . toJSON . fmap Integer') _eMRClusterEbsRootVolumeSize
     , (Just . ("Instances",) . toJSON) _eMRClusterInstances
     , (Just . ("JobFlowRole",) . toJSON) _eMRClusterJobFlowRole
     , fmap (("LogUri",) . toJSON) _eMRClusterLogUri
@@ -72,6 +74,7 @@ instance FromJSON EMRCluster where
       (obj .:? "BootstrapActions") <*>
       (obj .:? "Configurations") <*>
       (obj .:? "CustomAmiId") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "EbsRootVolumeSize") <*>
       (obj .: "Instances") <*>
       (obj .: "JobFlowRole") <*>
       (obj .:? "LogUri") <*>
@@ -99,6 +102,7 @@ emrCluster instancesarg jobFlowRolearg namearg serviceRolearg =
   , _eMRClusterBootstrapActions = Nothing
   , _eMRClusterConfigurations = Nothing
   , _eMRClusterCustomAmiId = Nothing
+  , _eMRClusterEbsRootVolumeSize = Nothing
   , _eMRClusterInstances = instancesarg
   , _eMRClusterJobFlowRole = jobFlowRolearg
   , _eMRClusterLogUri = Nothing
@@ -134,6 +138,10 @@ emrcConfigurations = lens _eMRClusterConfigurations (\s a -> s { _eMRClusterConf
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-customamiid
 emrcCustomAmiId :: Lens' EMRCluster (Maybe (Val Text))
 emrcCustomAmiId = lens _eMRClusterCustomAmiId (\s a -> s { _eMRClusterCustomAmiId = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-ebsrootvolumesize
+emrcEbsRootVolumeSize :: Lens' EMRCluster (Maybe (Val Integer))
+emrcEbsRootVolumeSize = lens _eMRClusterEbsRootVolumeSize (\s a -> s { _eMRClusterEbsRootVolumeSize = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-instances
 emrcInstances :: Lens' EMRCluster EMRClusterJobFlowInstancesConfig
