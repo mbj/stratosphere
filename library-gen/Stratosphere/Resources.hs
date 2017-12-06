@@ -75,6 +75,7 @@ import Stratosphere.Resources.BatchComputeEnvironment as X
 import Stratosphere.Resources.BatchJobDefinition as X
 import Stratosphere.Resources.BatchJobQueue as X
 import Stratosphere.Resources.CertificateManagerCertificate as X
+import Stratosphere.Resources.Cloud9EnvironmentEC2 as X
 import Stratosphere.Resources.CloudFormationCustomResource as X
 import Stratosphere.Resources.CloudFormationStack as X
 import Stratosphere.Resources.CloudFormationWaitCondition as X
@@ -194,6 +195,9 @@ import Stratosphere.Resources.GlueJob as X
 import Stratosphere.Resources.GluePartition as X
 import Stratosphere.Resources.GlueTable as X
 import Stratosphere.Resources.GlueTrigger as X
+import Stratosphere.Resources.GuardDutyDetector as X
+import Stratosphere.Resources.GuardDutyIPSet as X
+import Stratosphere.Resources.GuardDutyThreatIntelSet as X
 import Stratosphere.Resources.IAMAccessKey as X
 import Stratosphere.Resources.IAMGroup as X
 import Stratosphere.Resources.IAMInstanceProfile as X
@@ -202,6 +206,9 @@ import Stratosphere.Resources.IAMPolicy as X
 import Stratosphere.Resources.IAMRole as X
 import Stratosphere.Resources.IAMUser as X
 import Stratosphere.Resources.IAMUserToGroupAddition as X
+import Stratosphere.Resources.InspectorAssessmentTarget as X
+import Stratosphere.Resources.InspectorAssessmentTemplate as X
+import Stratosphere.Resources.InspectorResourceGroup as X
 import Stratosphere.Resources.IoTCertificate as X
 import Stratosphere.Resources.IoTPolicy as X
 import Stratosphere.Resources.IoTPolicyPrincipalAttachment as X
@@ -263,6 +270,10 @@ import Stratosphere.Resources.SSMDocument as X
 import Stratosphere.Resources.SSMMaintenanceWindowTask as X
 import Stratosphere.Resources.SSMParameter as X
 import Stratosphere.Resources.SSMPatchBaseline as X
+import Stratosphere.Resources.ServiceDiscoveryInstance as X
+import Stratosphere.Resources.ServiceDiscoveryPrivateDnsNamespace as X
+import Stratosphere.Resources.ServiceDiscoveryPublicDnsNamespace as X
+import Stratosphere.Resources.ServiceDiscoveryService as X
 import Stratosphere.Resources.StepFunctionsActivity as X
 import Stratosphere.Resources.StepFunctionsStateMachine as X
 import Stratosphere.Resources.WAFByteMatchSet as X
@@ -324,6 +335,7 @@ import Stratosphere.ResourceProperties.BatchJobDefinitionVolumes as X
 import Stratosphere.ResourceProperties.BatchJobDefinitionVolumesHost as X
 import Stratosphere.ResourceProperties.BatchJobQueueComputeEnvironmentOrder as X
 import Stratosphere.ResourceProperties.CertificateManagerCertificateDomainValidationOption as X
+import Stratosphere.ResourceProperties.Cloud9EnvironmentEC2Repository as X
 import Stratosphere.ResourceProperties.CloudFrontCloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfig as X
 import Stratosphere.ResourceProperties.CloudFrontDistributionCacheBehavior as X
 import Stratosphere.ResourceProperties.CloudFrontDistributionCookies as X
@@ -334,8 +346,6 @@ import Stratosphere.ResourceProperties.CloudFrontDistributionDistributionConfig 
 import Stratosphere.ResourceProperties.CloudFrontDistributionForwardedValues as X
 import Stratosphere.ResourceProperties.CloudFrontDistributionGeoRestriction as X
 import Stratosphere.ResourceProperties.CloudFrontDistributionLambdaFunctionAssociation as X
-import Stratosphere.ResourceProperties.CloudFrontDistributionLegacyCustomOrigin as X
-import Stratosphere.ResourceProperties.CloudFrontDistributionLegacyS3Origin as X
 import Stratosphere.ResourceProperties.CloudFrontDistributionLogging as X
 import Stratosphere.ResourceProperties.CloudFrontDistributionOrigin as X
 import Stratosphere.ResourceProperties.CloudFrontDistributionOriginCustomHeader as X
@@ -352,8 +362,10 @@ import Stratosphere.ResourceProperties.CloudWatchAlarmDimension as X
 import Stratosphere.ResourceProperties.CodeBuildProjectArtifacts as X
 import Stratosphere.ResourceProperties.CodeBuildProjectEnvironment as X
 import Stratosphere.ResourceProperties.CodeBuildProjectEnvironmentVariable as X
+import Stratosphere.ResourceProperties.CodeBuildProjectProjectCache as X
 import Stratosphere.ResourceProperties.CodeBuildProjectSource as X
 import Stratosphere.ResourceProperties.CodeBuildProjectSourceAuth as X
+import Stratosphere.ResourceProperties.CodeBuildProjectVpcConfig as X
 import Stratosphere.ResourceProperties.CodeCommitRepositoryRepositoryTrigger as X
 import Stratosphere.ResourceProperties.CodeDeployDeploymentConfigMinimumHealthyHosts as X
 import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupAlarm as X
@@ -453,8 +465,10 @@ import Stratosphere.ResourceProperties.EC2SpotFleetSpotFleetRequestConfigData as
 import Stratosphere.ResourceProperties.EC2SpotFleetSpotPlacement as X
 import Stratosphere.ResourceProperties.EC2VPNConnectionVpnTunnelOptionsSpecification as X
 import Stratosphere.ResourceProperties.ECRRepositoryLifecyclePolicy as X
+import Stratosphere.ResourceProperties.ECSServiceAwsVpcConfiguration as X
 import Stratosphere.ResourceProperties.ECSServiceDeploymentConfiguration as X
 import Stratosphere.ResourceProperties.ECSServiceLoadBalancer as X
+import Stratosphere.ResourceProperties.ECSServiceNetworkConfiguration as X
 import Stratosphere.ResourceProperties.ECSServicePlacementConstraint as X
 import Stratosphere.ResourceProperties.ECSServicePlacementStrategy as X
 import Stratosphere.ResourceProperties.ECSTaskDefinitionContainerDefinition as X
@@ -642,6 +656,8 @@ import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamProcessor as
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamProcessorParameter as X
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration as X
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamS3DestinationConfiguration as X
+import Stratosphere.ResourceProperties.LambdaAliasAliasRoutingConfiguration as X
+import Stratosphere.ResourceProperties.LambdaAliasVersionWeight as X
 import Stratosphere.ResourceProperties.LambdaFunctionCode as X
 import Stratosphere.ResourceProperties.LambdaFunctionDeadLetterConfig as X
 import Stratosphere.ResourceProperties.LambdaFunctionEnvironment as X
@@ -730,6 +746,9 @@ import Stratosphere.ResourceProperties.SSMPatchBaselinePatchFilter as X
 import Stratosphere.ResourceProperties.SSMPatchBaselinePatchFilterGroup as X
 import Stratosphere.ResourceProperties.SSMPatchBaselineRule as X
 import Stratosphere.ResourceProperties.SSMPatchBaselineRuleGroup as X
+import Stratosphere.ResourceProperties.ServiceDiscoveryServiceDnsConfig as X
+import Stratosphere.ResourceProperties.ServiceDiscoveryServiceDnsRecord as X
+import Stratosphere.ResourceProperties.ServiceDiscoveryServiceHealthCheckConfig as X
 import Stratosphere.ResourceProperties.WAFByteMatchSetByteMatchTuple as X
 import Stratosphere.ResourceProperties.WAFByteMatchSetFieldToMatch as X
 import Stratosphere.ResourceProperties.WAFIPSetIPSetDescriptor as X
@@ -796,6 +815,7 @@ data ResourceProperties
   | BatchJobDefinitionProperties BatchJobDefinition
   | BatchJobQueueProperties BatchJobQueue
   | CertificateManagerCertificateProperties CertificateManagerCertificate
+  | Cloud9EnvironmentEC2Properties Cloud9EnvironmentEC2
   | CloudFormationCustomResourceProperties CloudFormationCustomResource
   | CloudFormationStackProperties CloudFormationStack
   | CloudFormationWaitConditionProperties CloudFormationWaitCondition
@@ -915,6 +935,9 @@ data ResourceProperties
   | GluePartitionProperties GluePartition
   | GlueTableProperties GlueTable
   | GlueTriggerProperties GlueTrigger
+  | GuardDutyDetectorProperties GuardDutyDetector
+  | GuardDutyIPSetProperties GuardDutyIPSet
+  | GuardDutyThreatIntelSetProperties GuardDutyThreatIntelSet
   | IAMAccessKeyProperties IAMAccessKey
   | IAMGroupProperties IAMGroup
   | IAMInstanceProfileProperties IAMInstanceProfile
@@ -923,6 +946,9 @@ data ResourceProperties
   | IAMRoleProperties IAMRole
   | IAMUserProperties IAMUser
   | IAMUserToGroupAdditionProperties IAMUserToGroupAddition
+  | InspectorAssessmentTargetProperties InspectorAssessmentTarget
+  | InspectorAssessmentTemplateProperties InspectorAssessmentTemplate
+  | InspectorResourceGroupProperties InspectorResourceGroup
   | IoTCertificateProperties IoTCertificate
   | IoTPolicyProperties IoTPolicy
   | IoTPolicyPrincipalAttachmentProperties IoTPolicyPrincipalAttachment
@@ -984,6 +1010,10 @@ data ResourceProperties
   | SSMMaintenanceWindowTaskProperties SSMMaintenanceWindowTask
   | SSMParameterProperties SSMParameter
   | SSMPatchBaselineProperties SSMPatchBaseline
+  | ServiceDiscoveryInstanceProperties ServiceDiscoveryInstance
+  | ServiceDiscoveryPrivateDnsNamespaceProperties ServiceDiscoveryPrivateDnsNamespace
+  | ServiceDiscoveryPublicDnsNamespaceProperties ServiceDiscoveryPublicDnsNamespace
+  | ServiceDiscoveryServiceProperties ServiceDiscoveryService
   | StepFunctionsActivityProperties StepFunctionsActivity
   | StepFunctionsStateMachineProperties StepFunctionsStateMachine
   | WAFByteMatchSetProperties WAFByteMatchSet
@@ -1114,6 +1144,8 @@ resourcePropertiesJSON (BatchJobQueueProperties x) =
   [ "Type" .= ("AWS::Batch::JobQueue" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (CertificateManagerCertificateProperties x) =
   [ "Type" .= ("AWS::CertificateManager::Certificate" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (Cloud9EnvironmentEC2Properties x) =
+  [ "Type" .= ("AWS::Cloud9::EnvironmentEC2" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (CloudFormationCustomResourceProperties x) =
   [ "Type" .= ("AWS::CloudFormation::CustomResource" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (CloudFormationStackProperties x) =
@@ -1352,6 +1384,12 @@ resourcePropertiesJSON (GlueTableProperties x) =
   [ "Type" .= ("AWS::Glue::Table" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (GlueTriggerProperties x) =
   [ "Type" .= ("AWS::Glue::Trigger" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (GuardDutyDetectorProperties x) =
+  [ "Type" .= ("AWS::GuardDuty::Detector" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (GuardDutyIPSetProperties x) =
+  [ "Type" .= ("AWS::GuardDuty::IPSet" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (GuardDutyThreatIntelSetProperties x) =
+  [ "Type" .= ("AWS::GuardDuty::ThreatIntelSet" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (IAMAccessKeyProperties x) =
   [ "Type" .= ("AWS::IAM::AccessKey" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (IAMGroupProperties x) =
@@ -1368,6 +1406,12 @@ resourcePropertiesJSON (IAMUserProperties x) =
   [ "Type" .= ("AWS::IAM::User" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (IAMUserToGroupAdditionProperties x) =
   [ "Type" .= ("AWS::IAM::UserToGroupAddition" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (InspectorAssessmentTargetProperties x) =
+  [ "Type" .= ("AWS::Inspector::AssessmentTarget" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (InspectorAssessmentTemplateProperties x) =
+  [ "Type" .= ("AWS::Inspector::AssessmentTemplate" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (InspectorResourceGroupProperties x) =
+  [ "Type" .= ("AWS::Inspector::ResourceGroup" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (IoTCertificateProperties x) =
   [ "Type" .= ("AWS::IoT::Certificate" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (IoTPolicyProperties x) =
@@ -1490,6 +1534,14 @@ resourcePropertiesJSON (SSMParameterProperties x) =
   [ "Type" .= ("AWS::SSM::Parameter" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (SSMPatchBaselineProperties x) =
   [ "Type" .= ("AWS::SSM::PatchBaseline" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (ServiceDiscoveryInstanceProperties x) =
+  [ "Type" .= ("AWS::ServiceDiscovery::Instance" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (ServiceDiscoveryPrivateDnsNamespaceProperties x) =
+  [ "Type" .= ("AWS::ServiceDiscovery::PrivateDnsNamespace" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (ServiceDiscoveryPublicDnsNamespaceProperties x) =
+  [ "Type" .= ("AWS::ServiceDiscovery::PublicDnsNamespace" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (ServiceDiscoveryServiceProperties x) =
+  [ "Type" .= ("AWS::ServiceDiscovery::Service" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (StepFunctionsActivityProperties x) =
   [ "Type" .= ("AWS::StepFunctions::Activity" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (StepFunctionsStateMachineProperties x) =
@@ -1562,6 +1614,7 @@ resourceFromJSON n o =
          "AWS::Batch::JobDefinition" -> BatchJobDefinitionProperties <$> (o .: "Properties")
          "AWS::Batch::JobQueue" -> BatchJobQueueProperties <$> (o .: "Properties")
          "AWS::CertificateManager::Certificate" -> CertificateManagerCertificateProperties <$> (o .: "Properties")
+         "AWS::Cloud9::EnvironmentEC2" -> Cloud9EnvironmentEC2Properties <$> (o .: "Properties")
          "AWS::CloudFormation::CustomResource" -> CloudFormationCustomResourceProperties <$> (o .: "Properties")
          "AWS::CloudFormation::Stack" -> CloudFormationStackProperties <$> (o .: "Properties")
          "AWS::CloudFormation::WaitCondition" -> CloudFormationWaitConditionProperties <$> (o .: "Properties")
@@ -1681,6 +1734,9 @@ resourceFromJSON n o =
          "AWS::Glue::Partition" -> GluePartitionProperties <$> (o .: "Properties")
          "AWS::Glue::Table" -> GlueTableProperties <$> (o .: "Properties")
          "AWS::Glue::Trigger" -> GlueTriggerProperties <$> (o .: "Properties")
+         "AWS::GuardDuty::Detector" -> GuardDutyDetectorProperties <$> (o .: "Properties")
+         "AWS::GuardDuty::IPSet" -> GuardDutyIPSetProperties <$> (o .: "Properties")
+         "AWS::GuardDuty::ThreatIntelSet" -> GuardDutyThreatIntelSetProperties <$> (o .: "Properties")
          "AWS::IAM::AccessKey" -> IAMAccessKeyProperties <$> (o .: "Properties")
          "AWS::IAM::Group" -> IAMGroupProperties <$> (o .: "Properties")
          "AWS::IAM::InstanceProfile" -> IAMInstanceProfileProperties <$> (o .: "Properties")
@@ -1689,6 +1745,9 @@ resourceFromJSON n o =
          "AWS::IAM::Role" -> IAMRoleProperties <$> (o .: "Properties")
          "AWS::IAM::User" -> IAMUserProperties <$> (o .: "Properties")
          "AWS::IAM::UserToGroupAddition" -> IAMUserToGroupAdditionProperties <$> (o .: "Properties")
+         "AWS::Inspector::AssessmentTarget" -> InspectorAssessmentTargetProperties <$> (o .: "Properties")
+         "AWS::Inspector::AssessmentTemplate" -> InspectorAssessmentTemplateProperties <$> (o .: "Properties")
+         "AWS::Inspector::ResourceGroup" -> InspectorResourceGroupProperties <$> (o .: "Properties")
          "AWS::IoT::Certificate" -> IoTCertificateProperties <$> (o .: "Properties")
          "AWS::IoT::Policy" -> IoTPolicyProperties <$> (o .: "Properties")
          "AWS::IoT::PolicyPrincipalAttachment" -> IoTPolicyPrincipalAttachmentProperties <$> (o .: "Properties")
@@ -1750,6 +1809,10 @@ resourceFromJSON n o =
          "AWS::SSM::MaintenanceWindowTask" -> SSMMaintenanceWindowTaskProperties <$> (o .: "Properties")
          "AWS::SSM::Parameter" -> SSMParameterProperties <$> (o .: "Properties")
          "AWS::SSM::PatchBaseline" -> SSMPatchBaselineProperties <$> (o .: "Properties")
+         "AWS::ServiceDiscovery::Instance" -> ServiceDiscoveryInstanceProperties <$> (o .: "Properties")
+         "AWS::ServiceDiscovery::PrivateDnsNamespace" -> ServiceDiscoveryPrivateDnsNamespaceProperties <$> (o .: "Properties")
+         "AWS::ServiceDiscovery::PublicDnsNamespace" -> ServiceDiscoveryPublicDnsNamespaceProperties <$> (o .: "Properties")
+         "AWS::ServiceDiscovery::Service" -> ServiceDiscoveryServiceProperties <$> (o .: "Properties")
          "AWS::StepFunctions::Activity" -> StepFunctionsActivityProperties <$> (o .: "Properties")
          "AWS::StepFunctions::StateMachine" -> StepFunctionsStateMachineProperties <$> (o .: "Properties")
          "AWS::WAF::ByteMatchSet" -> WAFByteMatchSetProperties <$> (o .: "Properties")

@@ -25,7 +25,7 @@ data EC2SpotFleetSpotFleetRequestConfigData =
   , _eC2SpotFleetSpotFleetRequestConfigDataIamFleetRole :: Val Text
   , _eC2SpotFleetSpotFleetRequestConfigDataLaunchSpecifications :: [EC2SpotFleetSpotFleetLaunchSpecification]
   , _eC2SpotFleetSpotFleetRequestConfigDataReplaceUnhealthyInstances :: Maybe (Val Bool)
-  , _eC2SpotFleetSpotFleetRequestConfigDataSpotPrice :: Val Text
+  , _eC2SpotFleetSpotFleetRequestConfigDataSpotPrice :: Maybe (Val Text)
   , _eC2SpotFleetSpotFleetRequestConfigDataTargetCapacity :: Val Integer
   , _eC2SpotFleetSpotFleetRequestConfigDataTerminateInstancesWithExpiration :: Maybe (Val Bool)
   , _eC2SpotFleetSpotFleetRequestConfigDataType :: Maybe (Val Text)
@@ -42,7 +42,7 @@ instance ToJSON EC2SpotFleetSpotFleetRequestConfigData where
     , (Just . ("IamFleetRole",) . toJSON) _eC2SpotFleetSpotFleetRequestConfigDataIamFleetRole
     , (Just . ("LaunchSpecifications",) . toJSON) _eC2SpotFleetSpotFleetRequestConfigDataLaunchSpecifications
     , fmap (("ReplaceUnhealthyInstances",) . toJSON . fmap Bool') _eC2SpotFleetSpotFleetRequestConfigDataReplaceUnhealthyInstances
-    , (Just . ("SpotPrice",) . toJSON) _eC2SpotFleetSpotFleetRequestConfigDataSpotPrice
+    , fmap (("SpotPrice",) . toJSON) _eC2SpotFleetSpotFleetRequestConfigDataSpotPrice
     , (Just . ("TargetCapacity",) . toJSON . fmap Integer') _eC2SpotFleetSpotFleetRequestConfigDataTargetCapacity
     , fmap (("TerminateInstancesWithExpiration",) . toJSON . fmap Bool') _eC2SpotFleetSpotFleetRequestConfigDataTerminateInstancesWithExpiration
     , fmap (("Type",) . toJSON) _eC2SpotFleetSpotFleetRequestConfigDataType
@@ -58,7 +58,7 @@ instance FromJSON EC2SpotFleetSpotFleetRequestConfigData where
       (obj .: "IamFleetRole") <*>
       (obj .: "LaunchSpecifications") <*>
       fmap (fmap (fmap unBool')) (obj .:? "ReplaceUnhealthyInstances") <*>
-      (obj .: "SpotPrice") <*>
+      (obj .:? "SpotPrice") <*>
       fmap (fmap unInteger') (obj .: "TargetCapacity") <*>
       fmap (fmap (fmap unBool')) (obj .:? "TerminateInstancesWithExpiration") <*>
       (obj .:? "Type") <*>
@@ -71,17 +71,16 @@ instance FromJSON EC2SpotFleetSpotFleetRequestConfigData where
 ec2SpotFleetSpotFleetRequestConfigData
   :: Val Text -- ^ 'ecsfsfrcdIamFleetRole'
   -> [EC2SpotFleetSpotFleetLaunchSpecification] -- ^ 'ecsfsfrcdLaunchSpecifications'
-  -> Val Text -- ^ 'ecsfsfrcdSpotPrice'
   -> Val Integer -- ^ 'ecsfsfrcdTargetCapacity'
   -> EC2SpotFleetSpotFleetRequestConfigData
-ec2SpotFleetSpotFleetRequestConfigData iamFleetRolearg launchSpecificationsarg spotPricearg targetCapacityarg =
+ec2SpotFleetSpotFleetRequestConfigData iamFleetRolearg launchSpecificationsarg targetCapacityarg =
   EC2SpotFleetSpotFleetRequestConfigData
   { _eC2SpotFleetSpotFleetRequestConfigDataAllocationStrategy = Nothing
   , _eC2SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy = Nothing
   , _eC2SpotFleetSpotFleetRequestConfigDataIamFleetRole = iamFleetRolearg
   , _eC2SpotFleetSpotFleetRequestConfigDataLaunchSpecifications = launchSpecificationsarg
   , _eC2SpotFleetSpotFleetRequestConfigDataReplaceUnhealthyInstances = Nothing
-  , _eC2SpotFleetSpotFleetRequestConfigDataSpotPrice = spotPricearg
+  , _eC2SpotFleetSpotFleetRequestConfigDataSpotPrice = Nothing
   , _eC2SpotFleetSpotFleetRequestConfigDataTargetCapacity = targetCapacityarg
   , _eC2SpotFleetSpotFleetRequestConfigDataTerminateInstancesWithExpiration = Nothing
   , _eC2SpotFleetSpotFleetRequestConfigDataType = Nothing
@@ -110,7 +109,7 @@ ecsfsfrcdReplaceUnhealthyInstances :: Lens' EC2SpotFleetSpotFleetRequestConfigDa
 ecsfsfrcdReplaceUnhealthyInstances = lens _eC2SpotFleetSpotFleetRequestConfigDataReplaceUnhealthyInstances (\s a -> s { _eC2SpotFleetSpotFleetRequestConfigDataReplaceUnhealthyInstances = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-spotprice
-ecsfsfrcdSpotPrice :: Lens' EC2SpotFleetSpotFleetRequestConfigData (Val Text)
+ecsfsfrcdSpotPrice :: Lens' EC2SpotFleetSpotFleetRequestConfigData (Maybe (Val Text))
 ecsfsfrcdSpotPrice = lens _eC2SpotFleetSpotFleetRequestConfigDataSpotPrice (\s a -> s { _eC2SpotFleetSpotFleetRequestConfigDataSpotPrice = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-targetcapacity

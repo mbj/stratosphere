@@ -15,12 +15,10 @@ import Data.Text
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.CloudFrontDistributionCacheBehavior
 import Stratosphere.ResourceProperties.CloudFrontDistributionCustomErrorResponse
-import Stratosphere.ResourceProperties.CloudFrontDistributionLegacyCustomOrigin
 import Stratosphere.ResourceProperties.CloudFrontDistributionDefaultCacheBehavior
 import Stratosphere.ResourceProperties.CloudFrontDistributionLogging
 import Stratosphere.ResourceProperties.CloudFrontDistributionOrigin
 import Stratosphere.ResourceProperties.CloudFrontDistributionRestrictions
-import Stratosphere.ResourceProperties.CloudFrontDistributionLegacyS3Origin
 import Stratosphere.ResourceProperties.CloudFrontDistributionViewerCertificate
 
 -- | Full data type definition for CloudFrontDistributionDistributionConfig.
@@ -29,11 +27,9 @@ import Stratosphere.ResourceProperties.CloudFrontDistributionViewerCertificate
 data CloudFrontDistributionDistributionConfig =
   CloudFrontDistributionDistributionConfig
   { _cloudFrontDistributionDistributionConfigAliases :: Maybe (ValList Text)
-  , _cloudFrontDistributionDistributionConfigCNAMEs :: Maybe (ValList Text)
   , _cloudFrontDistributionDistributionConfigCacheBehaviors :: Maybe [CloudFrontDistributionCacheBehavior]
   , _cloudFrontDistributionDistributionConfigComment :: Maybe (Val Text)
   , _cloudFrontDistributionDistributionConfigCustomErrorResponses :: Maybe [CloudFrontDistributionCustomErrorResponse]
-  , _cloudFrontDistributionDistributionConfigCustomOrigin :: Maybe CloudFrontDistributionLegacyCustomOrigin
   , _cloudFrontDistributionDistributionConfigDefaultCacheBehavior :: Maybe CloudFrontDistributionDefaultCacheBehavior
   , _cloudFrontDistributionDistributionConfigDefaultRootObject :: Maybe (Val Text)
   , _cloudFrontDistributionDistributionConfigEnabled :: Val Bool
@@ -43,7 +39,6 @@ data CloudFrontDistributionDistributionConfig =
   , _cloudFrontDistributionDistributionConfigOrigins :: Maybe [CloudFrontDistributionOrigin]
   , _cloudFrontDistributionDistributionConfigPriceClass :: Maybe (Val Text)
   , _cloudFrontDistributionDistributionConfigRestrictions :: Maybe CloudFrontDistributionRestrictions
-  , _cloudFrontDistributionDistributionConfigS3Origin :: Maybe CloudFrontDistributionLegacyS3Origin
   , _cloudFrontDistributionDistributionConfigViewerCertificate :: Maybe CloudFrontDistributionViewerCertificate
   , _cloudFrontDistributionDistributionConfigWebACLId :: Maybe (Val Text)
   } deriving (Show, Eq)
@@ -53,11 +48,9 @@ instance ToJSON CloudFrontDistributionDistributionConfig where
     object $
     catMaybes
     [ fmap (("Aliases",) . toJSON) _cloudFrontDistributionDistributionConfigAliases
-    , fmap (("CNAMEs",) . toJSON) _cloudFrontDistributionDistributionConfigCNAMEs
     , fmap (("CacheBehaviors",) . toJSON) _cloudFrontDistributionDistributionConfigCacheBehaviors
     , fmap (("Comment",) . toJSON) _cloudFrontDistributionDistributionConfigComment
     , fmap (("CustomErrorResponses",) . toJSON) _cloudFrontDistributionDistributionConfigCustomErrorResponses
-    , fmap (("CustomOrigin",) . toJSON) _cloudFrontDistributionDistributionConfigCustomOrigin
     , fmap (("DefaultCacheBehavior",) . toJSON) _cloudFrontDistributionDistributionConfigDefaultCacheBehavior
     , fmap (("DefaultRootObject",) . toJSON) _cloudFrontDistributionDistributionConfigDefaultRootObject
     , (Just . ("Enabled",) . toJSON . fmap Bool') _cloudFrontDistributionDistributionConfigEnabled
@@ -67,7 +60,6 @@ instance ToJSON CloudFrontDistributionDistributionConfig where
     , fmap (("Origins",) . toJSON) _cloudFrontDistributionDistributionConfigOrigins
     , fmap (("PriceClass",) . toJSON) _cloudFrontDistributionDistributionConfigPriceClass
     , fmap (("Restrictions",) . toJSON) _cloudFrontDistributionDistributionConfigRestrictions
-    , fmap (("S3Origin",) . toJSON) _cloudFrontDistributionDistributionConfigS3Origin
     , fmap (("ViewerCertificate",) . toJSON) _cloudFrontDistributionDistributionConfigViewerCertificate
     , fmap (("WebACLId",) . toJSON) _cloudFrontDistributionDistributionConfigWebACLId
     ]
@@ -76,11 +68,9 @@ instance FromJSON CloudFrontDistributionDistributionConfig where
   parseJSON (Object obj) =
     CloudFrontDistributionDistributionConfig <$>
       (obj .:? "Aliases") <*>
-      (obj .:? "CNAMEs") <*>
       (obj .:? "CacheBehaviors") <*>
       (obj .:? "Comment") <*>
       (obj .:? "CustomErrorResponses") <*>
-      (obj .:? "CustomOrigin") <*>
       (obj .:? "DefaultCacheBehavior") <*>
       (obj .:? "DefaultRootObject") <*>
       fmap (fmap unBool') (obj .: "Enabled") <*>
@@ -90,7 +80,6 @@ instance FromJSON CloudFrontDistributionDistributionConfig where
       (obj .:? "Origins") <*>
       (obj .:? "PriceClass") <*>
       (obj .:? "Restrictions") <*>
-      (obj .:? "S3Origin") <*>
       (obj .:? "ViewerCertificate") <*>
       (obj .:? "WebACLId")
   parseJSON _ = mempty
@@ -103,11 +92,9 @@ cloudFrontDistributionDistributionConfig
 cloudFrontDistributionDistributionConfig enabledarg =
   CloudFrontDistributionDistributionConfig
   { _cloudFrontDistributionDistributionConfigAliases = Nothing
-  , _cloudFrontDistributionDistributionConfigCNAMEs = Nothing
   , _cloudFrontDistributionDistributionConfigCacheBehaviors = Nothing
   , _cloudFrontDistributionDistributionConfigComment = Nothing
   , _cloudFrontDistributionDistributionConfigCustomErrorResponses = Nothing
-  , _cloudFrontDistributionDistributionConfigCustomOrigin = Nothing
   , _cloudFrontDistributionDistributionConfigDefaultCacheBehavior = Nothing
   , _cloudFrontDistributionDistributionConfigDefaultRootObject = Nothing
   , _cloudFrontDistributionDistributionConfigEnabled = enabledarg
@@ -117,7 +104,6 @@ cloudFrontDistributionDistributionConfig enabledarg =
   , _cloudFrontDistributionDistributionConfigOrigins = Nothing
   , _cloudFrontDistributionDistributionConfigPriceClass = Nothing
   , _cloudFrontDistributionDistributionConfigRestrictions = Nothing
-  , _cloudFrontDistributionDistributionConfigS3Origin = Nothing
   , _cloudFrontDistributionDistributionConfigViewerCertificate = Nothing
   , _cloudFrontDistributionDistributionConfigWebACLId = Nothing
   }
@@ -125,10 +111,6 @@ cloudFrontDistributionDistributionConfig enabledarg =
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-aliases
 cfddcAliases :: Lens' CloudFrontDistributionDistributionConfig (Maybe (ValList Text))
 cfddcAliases = lens _cloudFrontDistributionDistributionConfigAliases (\s a -> s { _cloudFrontDistributionDistributionConfigAliases = a })
-
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-cnames
-cfddcCNAMEs :: Lens' CloudFrontDistributionDistributionConfig (Maybe (ValList Text))
-cfddcCNAMEs = lens _cloudFrontDistributionDistributionConfigCNAMEs (\s a -> s { _cloudFrontDistributionDistributionConfigCNAMEs = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-cachebehaviors
 cfddcCacheBehaviors :: Lens' CloudFrontDistributionDistributionConfig (Maybe [CloudFrontDistributionCacheBehavior])
@@ -141,10 +123,6 @@ cfddcComment = lens _cloudFrontDistributionDistributionConfigComment (\s a -> s 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-customerrorresponses
 cfddcCustomErrorResponses :: Lens' CloudFrontDistributionDistributionConfig (Maybe [CloudFrontDistributionCustomErrorResponse])
 cfddcCustomErrorResponses = lens _cloudFrontDistributionDistributionConfigCustomErrorResponses (\s a -> s { _cloudFrontDistributionDistributionConfigCustomErrorResponses = a })
-
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-customorigin
-cfddcCustomOrigin :: Lens' CloudFrontDistributionDistributionConfig (Maybe CloudFrontDistributionLegacyCustomOrigin)
-cfddcCustomOrigin = lens _cloudFrontDistributionDistributionConfigCustomOrigin (\s a -> s { _cloudFrontDistributionDistributionConfigCustomOrigin = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-defaultcachebehavior
 cfddcDefaultCacheBehavior :: Lens' CloudFrontDistributionDistributionConfig (Maybe CloudFrontDistributionDefaultCacheBehavior)
@@ -181,10 +159,6 @@ cfddcPriceClass = lens _cloudFrontDistributionDistributionConfigPriceClass (\s a
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-restrictions
 cfddcRestrictions :: Lens' CloudFrontDistributionDistributionConfig (Maybe CloudFrontDistributionRestrictions)
 cfddcRestrictions = lens _cloudFrontDistributionDistributionConfigRestrictions (\s a -> s { _cloudFrontDistributionDistributionConfigRestrictions = a })
-
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-s3origin
-cfddcS3Origin :: Lens' CloudFrontDistributionDistributionConfig (Maybe CloudFrontDistributionLegacyS3Origin)
-cfddcS3Origin = lens _cloudFrontDistributionDistributionConfigS3Origin (\s a -> s { _cloudFrontDistributionDistributionConfigS3Origin = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-viewercertificate
 cfddcViewerCertificate :: Lens' CloudFrontDistributionDistributionConfig (Maybe CloudFrontDistributionViewerCertificate)
