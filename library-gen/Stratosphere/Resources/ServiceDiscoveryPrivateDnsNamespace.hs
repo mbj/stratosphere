@@ -44,8 +44,8 @@ instance FromJSON ServiceDiscoveryPrivateDnsNamespace where
 -- | Constructor for 'ServiceDiscoveryPrivateDnsNamespace' containing required
 -- fields as arguments.
 serviceDiscoveryPrivateDnsNamespace
-  :: Val Text -- ^ 'sdpdnName'
-  -> Val Text -- ^ 'sdpdnVpc'
+  :: Val Text -- ^ 'sdprdnName'
+  -> Val Text -- ^ 'sdprdnVpc'
   -> ServiceDiscoveryPrivateDnsNamespace
 serviceDiscoveryPrivateDnsNamespace namearg vpcarg =
   ServiceDiscoveryPrivateDnsNamespace
@@ -55,13 +55,13 @@ serviceDiscoveryPrivateDnsNamespace namearg vpcarg =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-privatednsnamespace.html#cfn-servicediscovery-privatednsnamespace-description
-sdpdnDescription :: Lens' ServiceDiscoveryPrivateDnsNamespace (Maybe (Val Text))
-sdpdnDescription = lens _serviceDiscoveryPrivateDnsNamespaceDescription (\s a -> s { _serviceDiscoveryPrivateDnsNamespaceDescription = a })
+sdprdnDescription :: Lens' ServiceDiscoveryPrivateDnsNamespace (Maybe (Val Text))
+sdprdnDescription = lens _serviceDiscoveryPrivateDnsNamespaceDescription (\s a -> s { _serviceDiscoveryPrivateDnsNamespaceDescription = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-privatednsnamespace.html#cfn-servicediscovery-privatednsnamespace-name
-sdpdnName :: Lens' ServiceDiscoveryPrivateDnsNamespace (Val Text)
-sdpdnName = lens _serviceDiscoveryPrivateDnsNamespaceName (\s a -> s { _serviceDiscoveryPrivateDnsNamespaceName = a })
+sdprdnName :: Lens' ServiceDiscoveryPrivateDnsNamespace (Val Text)
+sdprdnName = lens _serviceDiscoveryPrivateDnsNamespaceName (\s a -> s { _serviceDiscoveryPrivateDnsNamespaceName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-privatednsnamespace.html#cfn-servicediscovery-privatednsnamespace-vpc
-sdpdnVpc :: Lens' ServiceDiscoveryPrivateDnsNamespace (Val Text)
-sdpdnVpc = lens _serviceDiscoveryPrivateDnsNamespaceVpc (\s a -> s { _serviceDiscoveryPrivateDnsNamespaceVpc = a })
+sdprdnVpc :: Lens' ServiceDiscoveryPrivateDnsNamespace (Val Text)
+sdprdnVpc = lens _serviceDiscoveryPrivateDnsNamespaceVpc (\s a -> s { _serviceDiscoveryPrivateDnsNamespaceVpc = a })

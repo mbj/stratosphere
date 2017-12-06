@@ -41,7 +41,7 @@ instance FromJSON ServiceDiscoveryPublicDnsNamespace where
 -- | Constructor for 'ServiceDiscoveryPublicDnsNamespace' containing required
 -- fields as arguments.
 serviceDiscoveryPublicDnsNamespace
-  :: Val Text -- ^ 'sdpdnName'
+  :: Val Text -- ^ 'sdpudnName'
   -> ServiceDiscoveryPublicDnsNamespace
 serviceDiscoveryPublicDnsNamespace namearg =
   ServiceDiscoveryPublicDnsNamespace
@@ -50,9 +50,9 @@ serviceDiscoveryPublicDnsNamespace namearg =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-publicdnsnamespace.html#cfn-servicediscovery-publicdnsnamespace-description
-sdpdnDescription :: Lens' ServiceDiscoveryPublicDnsNamespace (Maybe (Val Text))
-sdpdnDescription = lens _serviceDiscoveryPublicDnsNamespaceDescription (\s a -> s { _serviceDiscoveryPublicDnsNamespaceDescription = a })
+sdpudnDescription :: Lens' ServiceDiscoveryPublicDnsNamespace (Maybe (Val Text))
+sdpudnDescription = lens _serviceDiscoveryPublicDnsNamespaceDescription (\s a -> s { _serviceDiscoveryPublicDnsNamespaceDescription = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-publicdnsnamespace.html#cfn-servicediscovery-publicdnsnamespace-name
-sdpdnName :: Lens' ServiceDiscoveryPublicDnsNamespace (Val Text)
-sdpdnName = lens _serviceDiscoveryPublicDnsNamespaceName (\s a -> s { _serviceDiscoveryPublicDnsNamespaceName = a })
+sdpudnName :: Lens' ServiceDiscoveryPublicDnsNamespace (Val Text)
+sdpudnName = lens _serviceDiscoveryPublicDnsNamespaceName (\s a -> s { _serviceDiscoveryPublicDnsNamespaceName = a })

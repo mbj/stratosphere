@@ -161,6 +161,8 @@ computeLensPrefix "AWS::RDS::DBSecurityGroup" = "rdsdbseg"
 computeLensPrefix "AWS::RDS::DBSubnetGroup" = "rdsdbsug"
 computeLensPrefix "AWS::Redshift::ClusterSecurityGroup" = "rcseg"
 computeLensPrefix "AWS::Redshift::ClusterSubnetGroup" = "rcsug"
+computeLensPrefix "AWS::ServiceDiscovery::PublicDnsNamespace" = "sdpudn"
+computeLensPrefix "AWS::ServiceDiscovery::PrivateDnsNamespace" = "sdprdn"
 -- Everything else
 computeLensPrefix rawName = toLower $ fromMaybe rawName $ toAcronym $ computeModuleName rawName
 
