@@ -1,7 +1,7 @@
 machine:
   environment:
     PATH: "$HOME/.local/bin:$PATH"
-    STACK_VERSION: 1.5.1
+    STACK_VERSION: 1.6.1
 
     GHC_8_0_RESOLVER: nightly-2017-07-25
 
