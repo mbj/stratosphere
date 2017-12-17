@@ -13,7 +13,6 @@ github: frontrowed/stratosphere
 extra-source-files:
   - CHANGELOG.md
   - README.md
-  - stack.yaml
 
 dependencies:
   - base >= 4.8 && < 5

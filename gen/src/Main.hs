@@ -1,11 +1,11 @@
 module Main where
 
+import Control.Monad (when)
 import Data.Aeson
 import Data.List (nub)
 import Data.Monoid ((<>))
 import qualified Data.Text as T
 import qualified Data.Text.Lazy as TL
-import Extra (whenM)
 import qualified Filesystem as FS
 import Filesystem.Path.CurrentOS ((</>))
 import qualified Filesystem.Path.CurrentOS as FP
@@ -22,7 +22,8 @@ main = do
     rawSpec = either error id specEither
     spec = specFromRaw rawSpec
 
-  whenM (FS.isDirectory (".." FP.</> "library-gen")) $
+  genExists <- FS.isDirectory (".." FP.</> "library-gen")
+  when genExists $
     FS.removeTree (".." FP.</> "library-gen")
   FS.createDirectory True (".." FP.</> "library-gen")
   FS.createDirectory True (".." FP.</> "library-gen" FP.</> "Stratosphere")
