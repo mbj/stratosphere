@@ -3,9 +3,6 @@ version: "0.1.0"
 synopsis: stratosphere code generation
 maintainer: David Reaver
 
-extra-source-files:
-  - stack.yaml
-
 default-extensions:
   - DeriveGeneric
   - ExistentialQuantification
