@@ -26,6 +26,7 @@ data ECSService =
   { _eCSServiceCluster :: Maybe (Val Text)
   , _eCSServiceDeploymentConfiguration :: Maybe ECSServiceDeploymentConfiguration
   , _eCSServiceDesiredCount :: Maybe (Val Integer)
+  , _eCSServiceHealthCheckGracePeriodSeconds :: Maybe (Val Integer)
   , _eCSServiceLaunchType :: Maybe (Val Text)
   , _eCSServiceLoadBalancers :: Maybe [ECSServiceLoadBalancer]
   , _eCSServiceNetworkConfiguration :: Maybe ECSServiceNetworkConfiguration
@@ -44,6 +45,7 @@ instance ToJSON ECSService where
     [ fmap (("Cluster",) . toJSON) _eCSServiceCluster
     , fmap (("DeploymentConfiguration",) . toJSON) _eCSServiceDeploymentConfiguration
     , fmap (("DesiredCount",) . toJSON . fmap Integer') _eCSServiceDesiredCount
+    , fmap (("HealthCheckGracePeriodSeconds",) . toJSON . fmap Integer') _eCSServiceHealthCheckGracePeriodSeconds
     , fmap (("LaunchType",) . toJSON) _eCSServiceLaunchType
     , fmap (("LoadBalancers",) . toJSON) _eCSServiceLoadBalancers
     , fmap (("NetworkConfiguration",) . toJSON) _eCSServiceNetworkConfiguration
@@ -61,6 +63,7 @@ instance FromJSON ECSService where
       (obj .:? "Cluster") <*>
       (obj .:? "DeploymentConfiguration") <*>
       fmap (fmap (fmap unInteger')) (obj .:? "DesiredCount") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "HealthCheckGracePeriodSeconds") <*>
       (obj .:? "LaunchType") <*>
       (obj .:? "LoadBalancers") <*>
       (obj .:? "NetworkConfiguration") <*>
@@ -81,6 +84,7 @@ ecsService taskDefinitionarg =
   { _eCSServiceCluster = Nothing
   , _eCSServiceDeploymentConfiguration = Nothing
   , _eCSServiceDesiredCount = Nothing
+  , _eCSServiceHealthCheckGracePeriodSeconds = Nothing
   , _eCSServiceLaunchType = Nothing
   , _eCSServiceLoadBalancers = Nothing
   , _eCSServiceNetworkConfiguration = Nothing
@@ -103,6 +107,10 @@ ecssDeploymentConfiguration = lens _eCSServiceDeploymentConfiguration (\s a -> s
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-desiredcount
 ecssDesiredCount :: Lens' ECSService (Maybe (Val Integer))
 ecssDesiredCount = lens _eCSServiceDesiredCount (\s a -> s { _eCSServiceDesiredCount = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-healthcheckgraceperiodseconds
+ecssHealthCheckGracePeriodSeconds :: Lens' ECSService (Maybe (Val Integer))
+ecssHealthCheckGracePeriodSeconds = lens _eCSServiceHealthCheckGracePeriodSeconds (\s a -> s { _eCSServiceHealthCheckGracePeriodSeconds = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-launchtype
 ecssLaunchType :: Lens' ECSService (Maybe (Val Text))

@@ -14,6 +14,7 @@ import Data.Text
 
 import Stratosphere.Values
 import Stratosphere.ResourceProperties.EC2InstanceBlockDeviceMapping
+import Stratosphere.ResourceProperties.EC2InstanceCreditSpecification
 import Stratosphere.ResourceProperties.EC2InstanceElasticGpuSpecification
 import Stratosphere.ResourceProperties.EC2InstanceInstanceIpv6Address
 import Stratosphere.ResourceProperties.EC2InstanceNetworkInterface
@@ -29,6 +30,7 @@ data EC2Instance =
   , _eC2InstanceAffinity :: Maybe (Val Text)
   , _eC2InstanceAvailabilityZone :: Maybe (Val Text)
   , _eC2InstanceBlockDeviceMappings :: Maybe [EC2InstanceBlockDeviceMapping]
+  , _eC2InstanceCreditSpecification :: Maybe EC2InstanceCreditSpecification
   , _eC2InstanceDisableApiTermination :: Maybe (Val Bool)
   , _eC2InstanceEbsOptimized :: Maybe (Val Bool)
   , _eC2InstanceElasticGpuSpecifications :: Maybe [EC2InstanceElasticGpuSpecification]
@@ -65,6 +67,7 @@ instance ToJSON EC2Instance where
     , fmap (("Affinity",) . toJSON) _eC2InstanceAffinity
     , fmap (("AvailabilityZone",) . toJSON) _eC2InstanceAvailabilityZone
     , fmap (("BlockDeviceMappings",) . toJSON) _eC2InstanceBlockDeviceMappings
+    , fmap (("CreditSpecification",) . toJSON) _eC2InstanceCreditSpecification
     , fmap (("DisableApiTermination",) . toJSON . fmap Bool') _eC2InstanceDisableApiTermination
     , fmap (("EbsOptimized",) . toJSON . fmap Bool') _eC2InstanceEbsOptimized
     , fmap (("ElasticGpuSpecifications",) . toJSON) _eC2InstanceElasticGpuSpecifications
@@ -100,6 +103,7 @@ instance FromJSON EC2Instance where
       (obj .:? "Affinity") <*>
       (obj .:? "AvailabilityZone") <*>
       (obj .:? "BlockDeviceMappings") <*>
+      (obj .:? "CreditSpecification") <*>
       fmap (fmap (fmap unBool')) (obj .:? "DisableApiTermination") <*>
       fmap (fmap (fmap unBool')) (obj .:? "EbsOptimized") <*>
       (obj .:? "ElasticGpuSpecifications") <*>
@@ -138,6 +142,7 @@ ec2Instance imageIdarg =
   , _eC2InstanceAffinity = Nothing
   , _eC2InstanceAvailabilityZone = Nothing
   , _eC2InstanceBlockDeviceMappings = Nothing
+  , _eC2InstanceCreditSpecification = Nothing
   , _eC2InstanceDisableApiTermination = Nothing
   , _eC2InstanceEbsOptimized = Nothing
   , _eC2InstanceElasticGpuSpecifications = Nothing
@@ -181,6 +186,10 @@ eciAvailabilityZone = lens _eC2InstanceAvailabilityZone (\s a -> s { _eC2Instanc
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-blockdevicemappings
 eciBlockDeviceMappings :: Lens' EC2Instance (Maybe [EC2InstanceBlockDeviceMapping])
 eciBlockDeviceMappings = lens _eC2InstanceBlockDeviceMappings (\s a -> s { _eC2InstanceBlockDeviceMappings = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-creditspecification
+eciCreditSpecification :: Lens' EC2Instance (Maybe EC2InstanceCreditSpecification)
+eciCreditSpecification = lens _eC2InstanceCreditSpecification (\s a -> s { _eC2InstanceCreditSpecification = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-disableapitermination
 eciDisableApiTermination :: Lens' EC2Instance (Maybe (Val Bool))

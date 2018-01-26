@@ -1,0 +1,49 @@
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-creditspecification.html
+
+module Stratosphere.ResourceProperties.EC2InstanceCreditSpecification where
+
+import Control.Lens hiding ((.=))
+import Data.Aeson
+import Data.Maybe (catMaybes)
+import Data.Monoid (mempty)
+import Data.Text
+
+import Stratosphere.Values
+
+
+-- | Full data type definition for EC2InstanceCreditSpecification. See
+-- 'ec2InstanceCreditSpecification' for a more convenient constructor.
+data EC2InstanceCreditSpecification =
+  EC2InstanceCreditSpecification
+  { _eC2InstanceCreditSpecificationCPUCredits :: Maybe (Val Text)
+  } deriving (Show, Eq)
+
+instance ToJSON EC2InstanceCreditSpecification where
+  toJSON EC2InstanceCreditSpecification{..} =
+    object $
+    catMaybes
+    [ fmap (("CPUCredits",) . toJSON) _eC2InstanceCreditSpecificationCPUCredits
+    ]
+
+instance FromJSON EC2InstanceCreditSpecification where
+  parseJSON (Object obj) =
+    EC2InstanceCreditSpecification <$>
+      (obj .:? "CPUCredits")
+  parseJSON _ = mempty
+
+-- | Constructor for 'EC2InstanceCreditSpecification' containing required
+-- fields as arguments.
+ec2InstanceCreditSpecification
+  :: EC2InstanceCreditSpecification
+ec2InstanceCreditSpecification  =
+  EC2InstanceCreditSpecification
+  { _eC2InstanceCreditSpecificationCPUCredits = Nothing
+  }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-creditspecification.html#cfn-ec2-instance-creditspecification-cpucredits
+ecicsCPUCredits :: Lens' EC2InstanceCreditSpecification (Maybe (Val Text))
+ecicsCPUCredits = lens _eC2InstanceCreditSpecificationCPUCredits (\s a -> s { _eC2InstanceCreditSpecificationCPUCredits = a })

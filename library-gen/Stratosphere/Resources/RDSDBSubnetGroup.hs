@@ -20,6 +20,7 @@ import Stratosphere.ResourceProperties.Tag
 data RDSDBSubnetGroup =
   RDSDBSubnetGroup
   { _rDSDBSubnetGroupDBSubnetGroupDescription :: Val Text
+  , _rDSDBSubnetGroupDBSubnetGroupName :: Maybe (Val Text)
   , _rDSDBSubnetGroupSubnetIds :: ValList Text
   , _rDSDBSubnetGroupTags :: Maybe [Tag]
   } deriving (Show, Eq)
@@ -29,6 +30,7 @@ instance ToJSON RDSDBSubnetGroup where
     object $
     catMaybes
     [ (Just . ("DBSubnetGroupDescription",) . toJSON) _rDSDBSubnetGroupDBSubnetGroupDescription
+    , fmap (("DBSubnetGroupName",) . toJSON) _rDSDBSubnetGroupDBSubnetGroupName
     , (Just . ("SubnetIds",) . toJSON) _rDSDBSubnetGroupSubnetIds
     , fmap (("Tags",) . toJSON) _rDSDBSubnetGroupTags
     ]
@@ -37,6 +39,7 @@ instance FromJSON RDSDBSubnetGroup where
   parseJSON (Object obj) =
     RDSDBSubnetGroup <$>
       (obj .: "DBSubnetGroupDescription") <*>
+      (obj .:? "DBSubnetGroupName") <*>
       (obj .: "SubnetIds") <*>
       (obj .:? "Tags")
   parseJSON _ = mempty
@@ -50,6 +53,7 @@ rdsdbSubnetGroup
 rdsdbSubnetGroup dBSubnetGroupDescriptionarg subnetIdsarg =
   RDSDBSubnetGroup
   { _rDSDBSubnetGroupDBSubnetGroupDescription = dBSubnetGroupDescriptionarg
+  , _rDSDBSubnetGroupDBSubnetGroupName = Nothing
   , _rDSDBSubnetGroupSubnetIds = subnetIdsarg
   , _rDSDBSubnetGroupTags = Nothing
   }
@@ -57,6 +61,10 @@ rdsdbSubnetGroup dBSubnetGroupDescriptionarg subnetIdsarg =
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbsubnet-group.html#cfn-rds-dbsubnetgroup-dbsubnetgroupdescription
 rdsdbsugDBSubnetGroupDescription :: Lens' RDSDBSubnetGroup (Val Text)
 rdsdbsugDBSubnetGroupDescription = lens _rDSDBSubnetGroupDBSubnetGroupDescription (\s a -> s { _rDSDBSubnetGroupDBSubnetGroupDescription = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbsubnet-group.html#cfn-rds-dbsubnetgroup-dbsubnetgroupname
+rdsdbsugDBSubnetGroupName :: Lens' RDSDBSubnetGroup (Maybe (Val Text))
+rdsdbsugDBSubnetGroupName = lens _rDSDBSubnetGroupDBSubnetGroupName (\s a -> s { _rDSDBSubnetGroupDBSubnetGroupName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbsubnet-group.html#cfn-rds-dbsubnetgroup-subnetids
 rdsdbsugSubnetIds :: Lens' RDSDBSubnetGroup (ValList Text)

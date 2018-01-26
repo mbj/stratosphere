@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.15.0
+
+* Update resource specification document to some unspecified new version.
+
 ## 0.14.0
 
 * Update resource specification document to version 1.12.0

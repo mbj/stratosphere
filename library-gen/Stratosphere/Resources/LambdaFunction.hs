@@ -33,6 +33,7 @@ data LambdaFunction =
   , _lambdaFunctionHandler :: Val Text
   , _lambdaFunctionKmsKeyArn :: Maybe (Val Text)
   , _lambdaFunctionMemorySize :: Maybe (Val Integer)
+  , _lambdaFunctionReservedConcurrentExecutions :: Maybe (Val Integer)
   , _lambdaFunctionRole :: Val Text
   , _lambdaFunctionRuntime :: Val Runtime
   , _lambdaFunctionTags :: Maybe [Tag]
@@ -53,6 +54,7 @@ instance ToJSON LambdaFunction where
     , (Just . ("Handler",) . toJSON) _lambdaFunctionHandler
     , fmap (("KmsKeyArn",) . toJSON) _lambdaFunctionKmsKeyArn
     , fmap (("MemorySize",) . toJSON . fmap Integer') _lambdaFunctionMemorySize
+    , fmap (("ReservedConcurrentExecutions",) . toJSON . fmap Integer') _lambdaFunctionReservedConcurrentExecutions
     , (Just . ("Role",) . toJSON) _lambdaFunctionRole
     , (Just . ("Runtime",) . toJSON) _lambdaFunctionRuntime
     , fmap (("Tags",) . toJSON) _lambdaFunctionTags
@@ -72,6 +74,7 @@ instance FromJSON LambdaFunction where
       (obj .: "Handler") <*>
       (obj .:? "KmsKeyArn") <*>
       fmap (fmap (fmap unInteger')) (obj .:? "MemorySize") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "ReservedConcurrentExecutions") <*>
       (obj .: "Role") <*>
       (obj .: "Runtime") <*>
       (obj .:? "Tags") <*>
@@ -97,6 +100,7 @@ lambdaFunction codearg handlerarg rolearg runtimearg =
   , _lambdaFunctionHandler = handlerarg
   , _lambdaFunctionKmsKeyArn = Nothing
   , _lambdaFunctionMemorySize = Nothing
+  , _lambdaFunctionReservedConcurrentExecutions = Nothing
   , _lambdaFunctionRole = rolearg
   , _lambdaFunctionRuntime = runtimearg
   , _lambdaFunctionTags = Nothing
@@ -136,6 +140,10 @@ lfKmsKeyArn = lens _lambdaFunctionKmsKeyArn (\s a -> s { _lambdaFunctionKmsKeyAr
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-memorysize
 lfMemorySize :: Lens' LambdaFunction (Maybe (Val Integer))
 lfMemorySize = lens _lambdaFunctionMemorySize (\s a -> s { _lambdaFunctionMemorySize = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-reservedconcurrentexecutions
+lfReservedConcurrentExecutions :: Lens' LambdaFunction (Maybe (Val Integer))
+lfReservedConcurrentExecutions = lens _lambdaFunctionReservedConcurrentExecutions (\s a -> s { _lambdaFunctionReservedConcurrentExecutions = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-role
 lfRole :: Lens' LambdaFunction (Val Text)
