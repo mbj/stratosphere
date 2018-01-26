@@ -438,6 +438,7 @@ import Stratosphere.ResourceProperties.DynamoDBTableStreamSpecification as X
 import Stratosphere.ResourceProperties.DynamoDBTableTimeToLiveSpecification as X
 import Stratosphere.ResourceProperties.EC2InstanceAssociationParameter as X
 import Stratosphere.ResourceProperties.EC2InstanceBlockDeviceMapping as X
+import Stratosphere.ResourceProperties.EC2InstanceCreditSpecification as X
 import Stratosphere.ResourceProperties.EC2InstanceEbs as X
 import Stratosphere.ResourceProperties.EC2InstanceElasticGpuSpecification as X
 import Stratosphere.ResourceProperties.EC2InstanceInstanceIpv6Address as X
@@ -617,6 +618,7 @@ import Stratosphere.ResourceProperties.IoTTopicRuleS3Action as X
 import Stratosphere.ResourceProperties.IoTTopicRuleSnsAction as X
 import Stratosphere.ResourceProperties.IoTTopicRuleSqsAction as X
 import Stratosphere.ResourceProperties.IoTTopicRuleTopicRulePayload as X
+import Stratosphere.ResourceProperties.KinesisStreamStreamEncryption as X
 import Stratosphere.ResourceProperties.KinesisAnalyticsApplicationCSVMappingParameters as X
 import Stratosphere.ResourceProperties.KinesisAnalyticsApplicationInput as X
 import Stratosphere.ResourceProperties.KinesisAnalyticsApplicationInputLambdaProcessor as X
@@ -632,6 +634,7 @@ import Stratosphere.ResourceProperties.KinesisAnalyticsApplicationRecordFormat a
 import Stratosphere.ResourceProperties.KinesisAnalyticsApplicationOutputDestinationSchema as X
 import Stratosphere.ResourceProperties.KinesisAnalyticsApplicationOutputKinesisFirehoseOutput as X
 import Stratosphere.ResourceProperties.KinesisAnalyticsApplicationOutputKinesisStreamsOutput as X
+import Stratosphere.ResourceProperties.KinesisAnalyticsApplicationOutputLambdaOutput as X
 import Stratosphere.ResourceProperties.KinesisAnalyticsApplicationOutputOutput as X
 import Stratosphere.ResourceProperties.KinesisAnalyticsApplicationReferenceDataSourceCSVMappingParameters as X
 import Stratosphere.ResourceProperties.KinesisAnalyticsApplicationReferenceDataSourceJSONMappingParameters as X
@@ -701,11 +704,14 @@ import Stratosphere.ResourceProperties.Route53RecordSetGroupGeoLocation as X
 import Stratosphere.ResourceProperties.Route53RecordSetGroupRecordSet as X
 import Stratosphere.ResourceProperties.S3BucketAbortIncompleteMultipartUpload as X
 import Stratosphere.ResourceProperties.S3BucketAccelerateConfiguration as X
+import Stratosphere.ResourceProperties.S3BucketAccessControlTranslation as X
 import Stratosphere.ResourceProperties.S3BucketAnalyticsConfiguration as X
+import Stratosphere.ResourceProperties.S3BucketBucketEncryption as X
 import Stratosphere.ResourceProperties.S3BucketCorsConfiguration as X
 import Stratosphere.ResourceProperties.S3BucketCorsRule as X
 import Stratosphere.ResourceProperties.S3BucketDataExport as X
 import Stratosphere.ResourceProperties.S3BucketDestination as X
+import Stratosphere.ResourceProperties.S3BucketEncryptionConfiguration as X
 import Stratosphere.ResourceProperties.S3BucketFilterRule as X
 import Stratosphere.ResourceProperties.S3BucketInventoryConfiguration as X
 import Stratosphere.ResourceProperties.S3BucketLambdaConfiguration as X
@@ -725,6 +731,10 @@ import Stratosphere.ResourceProperties.S3BucketRoutingRule as X
 import Stratosphere.ResourceProperties.S3BucketRoutingRuleCondition as X
 import Stratosphere.ResourceProperties.S3BucketRule as X
 import Stratosphere.ResourceProperties.S3BucketS3KeyFilter as X
+import Stratosphere.ResourceProperties.S3BucketServerSideEncryptionByDefault as X
+import Stratosphere.ResourceProperties.S3BucketServerSideEncryptionRule as X
+import Stratosphere.ResourceProperties.S3BucketSourceSelectionCriteria as X
+import Stratosphere.ResourceProperties.S3BucketSseKmsEncryptedObjects as X
 import Stratosphere.ResourceProperties.S3BucketStorageClassAnalysis as X
 import Stratosphere.ResourceProperties.S3BucketTagFilter as X
 import Stratosphere.ResourceProperties.S3BucketTopicConfiguration as X

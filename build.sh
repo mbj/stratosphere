@@ -3,4 +3,4 @@
 set -ex;
 
 (cd gen/ && stack build . && stack exec stratosphere-gen)
-stack build "$@"
+stack build stratosphere "$@"

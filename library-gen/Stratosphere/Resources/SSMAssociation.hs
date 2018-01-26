@@ -20,7 +20,8 @@ import Stratosphere.ResourceProperties.SSMAssociationTarget
 -- more convenient constructor.
 data SSMAssociation =
   SSMAssociation
-  { _sSMAssociationDocumentVersion :: Maybe (Val Text)
+  { _sSMAssociationAssociationName :: Maybe (Val Text)
+  , _sSMAssociationDocumentVersion :: Maybe (Val Text)
   , _sSMAssociationInstanceId :: Maybe (Val Text)
   , _sSMAssociationName :: Val Text
   , _sSMAssociationParameters :: Maybe Object
@@ -32,7 +33,8 @@ instance ToJSON SSMAssociation where
   toJSON SSMAssociation{..} =
     object $
     catMaybes
-    [ fmap (("DocumentVersion",) . toJSON) _sSMAssociationDocumentVersion
+    [ fmap (("AssociationName",) . toJSON) _sSMAssociationAssociationName
+    , fmap (("DocumentVersion",) . toJSON) _sSMAssociationDocumentVersion
     , fmap (("InstanceId",) . toJSON) _sSMAssociationInstanceId
     , (Just . ("Name",) . toJSON) _sSMAssociationName
     , fmap (("Parameters",) . toJSON) _sSMAssociationParameters
@@ -43,6 +45,7 @@ instance ToJSON SSMAssociation where
 instance FromJSON SSMAssociation where
   parseJSON (Object obj) =
     SSMAssociation <$>
+      (obj .:? "AssociationName") <*>
       (obj .:? "DocumentVersion") <*>
       (obj .:? "InstanceId") <*>
       (obj .: "Name") <*>
@@ -57,13 +60,18 @@ ssmAssociation
   -> SSMAssociation
 ssmAssociation namearg =
   SSMAssociation
-  { _sSMAssociationDocumentVersion = Nothing
+  { _sSMAssociationAssociationName = Nothing
+  , _sSMAssociationDocumentVersion = Nothing
   , _sSMAssociationInstanceId = Nothing
   , _sSMAssociationName = namearg
   , _sSMAssociationParameters = Nothing
   , _sSMAssociationScheduleExpression = Nothing
   , _sSMAssociationTargets = Nothing
   }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-associationname
+ssmaAssociationName :: Lens' SSMAssociation (Maybe (Val Text))
+ssmaAssociationName = lens _sSMAssociationAssociationName (\s a -> s { _sSMAssociationAssociationName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-documentversion
 ssmaDocumentVersion :: Lens' SSMAssociation (Maybe (Val Text))

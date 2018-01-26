@@ -20,7 +20,7 @@ import Stratosphere.Values
 -- constructor.
 data SSMMaintenanceWindowTaskNotificationConfig =
   SSMMaintenanceWindowTaskNotificationConfig
-  { _sSMMaintenanceWindowTaskNotificationConfigNotificationArn :: Maybe (Val Text)
+  { _sSMMaintenanceWindowTaskNotificationConfigNotificationArn :: Val Text
   , _sSMMaintenanceWindowTaskNotificationConfigNotificationEvents :: Maybe (ValList Text)
   , _sSMMaintenanceWindowTaskNotificationConfigNotificationType :: Maybe (Val Text)
   } deriving (Show, Eq)
@@ -29,7 +29,7 @@ instance ToJSON SSMMaintenanceWindowTaskNotificationConfig where
   toJSON SSMMaintenanceWindowTaskNotificationConfig{..} =
     object $
     catMaybes
-    [ fmap (("NotificationArn",) . toJSON) _sSMMaintenanceWindowTaskNotificationConfigNotificationArn
+    [ (Just . ("NotificationArn",) . toJSON) _sSMMaintenanceWindowTaskNotificationConfigNotificationArn
     , fmap (("NotificationEvents",) . toJSON) _sSMMaintenanceWindowTaskNotificationConfigNotificationEvents
     , fmap (("NotificationType",) . toJSON) _sSMMaintenanceWindowTaskNotificationConfigNotificationType
     ]
@@ -37,7 +37,7 @@ instance ToJSON SSMMaintenanceWindowTaskNotificationConfig where
 instance FromJSON SSMMaintenanceWindowTaskNotificationConfig where
   parseJSON (Object obj) =
     SSMMaintenanceWindowTaskNotificationConfig <$>
-      (obj .:? "NotificationArn") <*>
+      (obj .: "NotificationArn") <*>
       (obj .:? "NotificationEvents") <*>
       (obj .:? "NotificationType")
   parseJSON _ = mempty
@@ -45,16 +45,17 @@ instance FromJSON SSMMaintenanceWindowTaskNotificationConfig where
 -- | Constructor for 'SSMMaintenanceWindowTaskNotificationConfig' containing
 -- required fields as arguments.
 ssmMaintenanceWindowTaskNotificationConfig
-  :: SSMMaintenanceWindowTaskNotificationConfig
-ssmMaintenanceWindowTaskNotificationConfig  =
+  :: Val Text -- ^ 'ssmmwtncNotificationArn'
+  -> SSMMaintenanceWindowTaskNotificationConfig
+ssmMaintenanceWindowTaskNotificationConfig notificationArnarg =
   SSMMaintenanceWindowTaskNotificationConfig
-  { _sSMMaintenanceWindowTaskNotificationConfigNotificationArn = Nothing
+  { _sSMMaintenanceWindowTaskNotificationConfigNotificationArn = notificationArnarg
   , _sSMMaintenanceWindowTaskNotificationConfigNotificationEvents = Nothing
   , _sSMMaintenanceWindowTaskNotificationConfigNotificationType = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-notificationconfig.html#cfn-ssm-maintenancewindowtask-notificationconfig-notificationarn
-ssmmwtncNotificationArn :: Lens' SSMMaintenanceWindowTaskNotificationConfig (Maybe (Val Text))
+ssmmwtncNotificationArn :: Lens' SSMMaintenanceWindowTaskNotificationConfig (Val Text)
 ssmmwtncNotificationArn = lens _sSMMaintenanceWindowTaskNotificationConfigNotificationArn (\s a -> s { _sSMMaintenanceWindowTaskNotificationConfigNotificationArn = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-notificationconfig.html#cfn-ssm-maintenancewindowtask-notificationconfig-notificationevents
