@@ -434,6 +434,7 @@ import Stratosphere.ResourceProperties.DynamoDBTableKeySchema as X
 import Stratosphere.ResourceProperties.DynamoDBTableLocalSecondaryIndex as X
 import Stratosphere.ResourceProperties.DynamoDBTableProjection as X
 import Stratosphere.ResourceProperties.DynamoDBTableProvisionedThroughput as X
+import Stratosphere.ResourceProperties.DynamoDBTableSSESpecification as X
 import Stratosphere.ResourceProperties.DynamoDBTableStreamSpecification as X
 import Stratosphere.ResourceProperties.DynamoDBTableTimeToLiveSpecification as X
 import Stratosphere.ResourceProperties.EC2InstanceAssociationParameter as X
