@@ -9,6 +9,7 @@
 
 module Stratosphere.ResourceAttributes.UpdatePolicy where
 
+import GHC.Generics (Generic)
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceAttributes.AutoScalingReplacingUpdatePolicy
 import Stratosphere.ResourceAttributes.AutoScalingRollingUpdatePolicy

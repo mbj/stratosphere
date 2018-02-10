@@ -22,6 +22,7 @@
 
 module Stratosphere.ResourceAttributes.CreationPolicy where
 
+import GHC.Generics (Generic)
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceAttributes.ResourceSignal
 

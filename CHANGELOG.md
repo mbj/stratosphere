@@ -3,6 +3,7 @@
 ## 0.15.2
 
 * Update resource specification document to some unspecified new version.
+* `stratosphere` now compiles with no warnings.
 
 ## 0.15.1
 
