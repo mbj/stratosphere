@@ -6,13 +6,7 @@
 
 module Stratosphere.Resources.EC2VPNGateway where
 
-import Control.Lens hiding ((.=))
-import Data.Aeson
-import Data.Maybe (catMaybes)
-import Data.Monoid (mempty)
-import Data.Text
-
-import Stratosphere.Values
+import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for EC2VPNGateway. See 'ec2VPNGateway' for a

@@ -6,13 +6,7 @@
 
 module Stratosphere.Resources.EC2Instance where
 
-import Control.Lens hiding ((.=))
-import Data.Aeson
-import Data.Maybe (catMaybes)
-import Data.Monoid (mempty)
-import Data.Text
-
-import Stratosphere.Values
+import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.EC2InstanceBlockDeviceMapping
 import Stratosphere.ResourceProperties.EC2InstanceCreditSpecification
 import Stratosphere.ResourceProperties.EC2InstanceElasticGpuSpecification

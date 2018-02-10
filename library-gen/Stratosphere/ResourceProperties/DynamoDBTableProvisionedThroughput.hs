@@ -6,13 +6,7 @@
 
 module Stratosphere.ResourceProperties.DynamoDBTableProvisionedThroughput where
 
-import Control.Lens hiding ((.=))
-import Data.Aeson
-import Data.Maybe (catMaybes)
-import Data.Monoid (mempty)
-import Data.Text
-
-import Stratosphere.Values
+import Stratosphere.ResourceImports
 
 
 -- | Full data type definition for DynamoDBTableProvisionedThroughput. See

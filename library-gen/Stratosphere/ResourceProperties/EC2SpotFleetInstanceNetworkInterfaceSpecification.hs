@@ -6,13 +6,7 @@
 
 module Stratosphere.ResourceProperties.EC2SpotFleetInstanceNetworkInterfaceSpecification where
 
-import Control.Lens hiding ((.=))
-import Data.Aeson
-import Data.Maybe (catMaybes)
-import Data.Monoid (mempty)
-import Data.Text
-
-import Stratosphere.Values
+import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.EC2SpotFleetInstanceIpv6Address
 import Stratosphere.ResourceProperties.EC2SpotFleetPrivateIpAddressSpecification
 

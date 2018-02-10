@@ -6,13 +6,7 @@
 
 module Stratosphere.ResourceProperties.CodePipelinePipelineActionDeclaration where
 
-import Control.Lens hiding ((.=))
-import Data.Aeson
-import Data.Maybe (catMaybes)
-import Data.Monoid (mempty)
-import Data.Text
-
-import Stratosphere.Values
+import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.CodePipelinePipelineActionTypeId
 import Stratosphere.ResourceProperties.CodePipelinePipelineInputArtifact
 import Stratosphere.ResourceProperties.CodePipelinePipelineOutputArtifact

@@ -6,12 +6,7 @@
 
 module Stratosphere.ResourceAttributes.ResourceSignal where
 
-import Control.Lens
-import Data.Aeson
-import Data.Maybe (catMaybes)
-import Data.Text
-
-import Stratosphere.Values
+import Stratosphere.ResourceImports
 
 
 -- | Full data type definition for ResourceSignal. See 'resourceSignal' for a

@@ -6,13 +6,7 @@
 
 module Stratosphere.Resources.SNSTopic where
 
-import Control.Lens hiding ((.=))
-import Data.Aeson
-import Data.Maybe (catMaybes)
-import Data.Monoid (mempty)
-import Data.Text
-
-import Stratosphere.Values
+import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.SNSTopicSubscription
 
 -- | Full data type definition for SNSTopic. See 'snsTopic' for a more

@@ -6,13 +6,7 @@
 
 module Stratosphere.ResourceProperties.S3BucketRoutingRule where
 
-import Control.Lens hiding ((.=))
-import Data.Aeson
-import Data.Maybe (catMaybes)
-import Data.Monoid (mempty)
-import Data.Text
-
-import Stratosphere.Values
+import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.S3BucketRedirectRule
 import Stratosphere.ResourceProperties.S3BucketRoutingRuleCondition
 

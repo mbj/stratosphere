@@ -6,13 +6,7 @@
 
 module Stratosphere.Resources.ElasticLoadBalancingV2TargetGroup where
 
-import Control.Lens hiding ((.=))
-import Data.Aeson
-import Data.Maybe (catMaybes)
-import Data.Monoid (mempty)
-import Data.Text
-
-import Stratosphere.Values
+import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.ElasticLoadBalancingV2TargetGroupMatcher
 import Stratosphere.ResourceProperties.Tag
 import Stratosphere.ResourceProperties.ElasticLoadBalancingV2TargetGroupTargetGroupAttribute

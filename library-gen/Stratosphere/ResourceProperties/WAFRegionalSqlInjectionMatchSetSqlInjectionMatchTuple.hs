@@ -6,13 +6,7 @@
 
 module Stratosphere.ResourceProperties.WAFRegionalSqlInjectionMatchSetSqlInjectionMatchTuple where
 
-import Control.Lens hiding ((.=))
-import Data.Aeson
-import Data.Maybe (catMaybes)
-import Data.Monoid (mempty)
-import Data.Text
-
-import Stratosphere.Values
+import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.WAFRegionalSqlInjectionMatchSetFieldToMatch
 
 -- | Full data type definition for

@@ -6,13 +6,7 @@
 
 module Stratosphere.Resources.OpsWorksLayer where
 
-import Control.Lens hiding ((.=))
-import Data.Aeson
-import Data.Maybe (catMaybes)
-import Data.Monoid (mempty)
-import Data.Text
-
-import Stratosphere.Values
+import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.OpsWorksLayerRecipes
 import Stratosphere.ResourceProperties.OpsWorksLayerLifecycleEventConfiguration
 import Stratosphere.ResourceProperties.OpsWorksLayerLoadBasedAutoScaling

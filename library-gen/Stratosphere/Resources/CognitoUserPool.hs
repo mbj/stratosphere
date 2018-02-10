@@ -6,13 +6,7 @@
 
 module Stratosphere.Resources.CognitoUserPool where
 
-import Control.Lens hiding ((.=))
-import Data.Aeson
-import Data.Maybe (catMaybes)
-import Data.Monoid (mempty)
-import Data.Text
-
-import Stratosphere.Values
+import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.CognitoUserPoolAdminCreateUserConfig
 import Stratosphere.ResourceProperties.CognitoUserPoolDeviceConfiguration
 import Stratosphere.ResourceProperties.CognitoUserPoolEmailConfiguration

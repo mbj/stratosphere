@@ -6,13 +6,7 @@
 
 module Stratosphere.ResourceProperties.S3BucketCorsConfiguration where
 
-import Control.Lens hiding ((.=))
-import Data.Aeson
-import Data.Maybe (catMaybes)
-import Data.Monoid (mempty)
-import Data.Text
-
-import Stratosphere.Values
+import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.S3BucketCorsRule
 
 -- | Full data type definition for S3BucketCorsConfiguration. See

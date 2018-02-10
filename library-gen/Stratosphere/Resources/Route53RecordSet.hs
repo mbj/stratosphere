@@ -6,13 +6,7 @@
 
 module Stratosphere.Resources.Route53RecordSet where
 
-import Control.Lens hiding ((.=))
-import Data.Aeson
-import Data.Maybe (catMaybes)
-import Data.Monoid (mempty)
-import Data.Text
-
-import Stratosphere.Values
+import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.Route53RecordSetAliasTarget
 import Stratosphere.ResourceProperties.Route53RecordSetGeoLocation
 

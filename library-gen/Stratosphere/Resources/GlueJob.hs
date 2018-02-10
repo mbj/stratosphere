@@ -6,13 +6,7 @@
 
 module Stratosphere.Resources.GlueJob where
 
-import Control.Lens hiding ((.=))
-import Data.Aeson
-import Data.Maybe (catMaybes)
-import Data.Monoid (mempty)
-import Data.Text
-
-import Stratosphere.Values
+import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.GlueJobJobCommand
 import Stratosphere.ResourceProperties.GlueJobConnectionsList
 import Stratosphere.ResourceProperties.GlueJobExecutionProperty
