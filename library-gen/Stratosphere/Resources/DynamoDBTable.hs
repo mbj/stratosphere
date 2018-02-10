@@ -18,6 +18,7 @@ import Stratosphere.ResourceProperties.DynamoDBTableGlobalSecondaryIndex
 import Stratosphere.ResourceProperties.DynamoDBTableKeySchema
 import Stratosphere.ResourceProperties.DynamoDBTableLocalSecondaryIndex
 import Stratosphere.ResourceProperties.DynamoDBTableProvisionedThroughput
+import Stratosphere.ResourceProperties.DynamoDBTableSSESpecification
 import Stratosphere.ResourceProperties.DynamoDBTableStreamSpecification
 import Stratosphere.ResourceProperties.Tag
 import Stratosphere.ResourceProperties.DynamoDBTableTimeToLiveSpecification
@@ -31,6 +32,7 @@ data DynamoDBTable =
   , _dynamoDBTableKeySchema :: [DynamoDBTableKeySchema]
   , _dynamoDBTableLocalSecondaryIndexes :: Maybe [DynamoDBTableLocalSecondaryIndex]
   , _dynamoDBTableProvisionedThroughput :: DynamoDBTableProvisionedThroughput
+  , _dynamoDBTableSSESpecification :: Maybe DynamoDBTableSSESpecification
   , _dynamoDBTableStreamSpecification :: Maybe DynamoDBTableStreamSpecification
   , _dynamoDBTableTableName :: Maybe (Val Text)
   , _dynamoDBTableTags :: Maybe [Tag]
@@ -46,6 +48,7 @@ instance ToJSON DynamoDBTable where
     , (Just . ("KeySchema",) . toJSON) _dynamoDBTableKeySchema
     , fmap (("LocalSecondaryIndexes",) . toJSON) _dynamoDBTableLocalSecondaryIndexes
     , (Just . ("ProvisionedThroughput",) . toJSON) _dynamoDBTableProvisionedThroughput
+    , fmap (("SSESpecification",) . toJSON) _dynamoDBTableSSESpecification
     , fmap (("StreamSpecification",) . toJSON) _dynamoDBTableStreamSpecification
     , fmap (("TableName",) . toJSON) _dynamoDBTableTableName
     , fmap (("Tags",) . toJSON) _dynamoDBTableTags
@@ -60,6 +63,7 @@ instance FromJSON DynamoDBTable where
       (obj .: "KeySchema") <*>
       (obj .:? "LocalSecondaryIndexes") <*>
       (obj .: "ProvisionedThroughput") <*>
+      (obj .:? "SSESpecification") <*>
       (obj .:? "StreamSpecification") <*>
       (obj .:? "TableName") <*>
       (obj .:? "Tags") <*>
@@ -78,6 +82,7 @@ dynamoDBTable keySchemaarg provisionedThroughputarg =
   , _dynamoDBTableKeySchema = keySchemaarg
   , _dynamoDBTableLocalSecondaryIndexes = Nothing
   , _dynamoDBTableProvisionedThroughput = provisionedThroughputarg
+  , _dynamoDBTableSSESpecification = Nothing
   , _dynamoDBTableStreamSpecification = Nothing
   , _dynamoDBTableTableName = Nothing
   , _dynamoDBTableTags = Nothing
@@ -103,6 +108,10 @@ ddbtLocalSecondaryIndexes = lens _dynamoDBTableLocalSecondaryIndexes (\s a -> s 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-provisionedthroughput
 ddbtProvisionedThroughput :: Lens' DynamoDBTable DynamoDBTableProvisionedThroughput
 ddbtProvisionedThroughput = lens _dynamoDBTableProvisionedThroughput (\s a -> s { _dynamoDBTableProvisionedThroughput = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-ssespecification
+ddbtSSESpecification :: Lens' DynamoDBTable (Maybe DynamoDBTableSSESpecification)
+ddbtSSESpecification = lens _dynamoDBTableSSESpecification (\s a -> s { _dynamoDBTableSSESpecification = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-streamspecification
 ddbtStreamSpecification :: Lens' DynamoDBTable (Maybe DynamoDBTableStreamSpecification)
