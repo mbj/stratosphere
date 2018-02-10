@@ -21,8 +21,8 @@ dependencies:
 
 test:
   override:
-    - stack build --resolver $GHC_8_0_RESOLVER stratosphere --test --jobs=1 --flag stratosphere:-library-only
+    - stack build --resolver $GHC_8_0_RESOLVER stratosphere --pedantic --test --jobs=1 --flag stratosphere:-library-only
     - stack haddock --resolver $GHC_8_0_RESOLVER stratosphere --no-haddock-deps --jobs=1 --flag stratosphere:-library-only
 
-    - stack build stratosphere --test --jobs=1 --flag stratosphere:-library-only
+    - stack build stratosphere --pedantic --test --jobs=1 --flag stratosphere:-library-only
     - stack haddock stratosphere --no-haddock-deps --jobs=1 --flag stratosphere:-library-only
