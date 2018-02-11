@@ -22,13 +22,8 @@
 
 module Stratosphere.ResourceAttributes.CreationPolicy where
 
-import Control.Lens
-import Data.Aeson
-import Data.Aeson.Types
-import Data.Text
-import GHC.Generics
-
-import Stratosphere.Values
+import GHC.Generics (Generic)
+import Stratosphere.ResourceImports
 import Stratosphere.ResourceAttributes.ResourceSignal
 
 -- | Full data type definition for CreationPolicy. See 'creationPolicy' for a

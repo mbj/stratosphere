@@ -6,13 +6,7 @@
 
 module Stratosphere.Resources.SSMAssociation where
 
-import Control.Lens hiding ((.=))
-import Data.Aeson
-import Data.Maybe (catMaybes)
-import Data.Monoid (mempty)
-import Data.Text
-
-import Stratosphere.Values
+import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.SSMAssociationParameterValues
 import Stratosphere.ResourceProperties.SSMAssociationTarget
 
@@ -24,7 +18,7 @@ data SSMAssociation =
   , _sSMAssociationDocumentVersion :: Maybe (Val Text)
   , _sSMAssociationInstanceId :: Maybe (Val Text)
   , _sSMAssociationName :: Val Text
-  , _sSMAssociationParameters :: Maybe Object
+  , _sSMAssociationParameters :: Maybe (Map Text SSMAssociationParameterValues)
   , _sSMAssociationScheduleExpression :: Maybe (Val Text)
   , _sSMAssociationTargets :: Maybe [SSMAssociationTarget]
   } deriving (Show, Eq)
@@ -86,7 +80,7 @@ ssmaName :: Lens' SSMAssociation (Val Text)
 ssmaName = lens _sSMAssociationName (\s a -> s { _sSMAssociationName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-parameters
-ssmaParameters :: Lens' SSMAssociation (Maybe Object)
+ssmaParameters :: Lens' SSMAssociation (Maybe (Map Text SSMAssociationParameterValues))
 ssmaParameters = lens _sSMAssociationParameters (\s a -> s { _sSMAssociationParameters = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-scheduleexpression

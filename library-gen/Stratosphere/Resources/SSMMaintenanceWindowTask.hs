@@ -6,13 +6,7 @@
 
 module Stratosphere.Resources.SSMMaintenanceWindowTask where
 
-import Control.Lens hiding ((.=))
-import Data.Aeson
-import Data.Maybe (catMaybes)
-import Data.Monoid (mempty)
-import Data.Text
-
-import Stratosphere.Values
+import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.SSMMaintenanceWindowTaskLoggingInfo
 import Stratosphere.ResourceProperties.SSMMaintenanceWindowTaskTarget
 import Stratosphere.ResourceProperties.SSMMaintenanceWindowTaskTaskInvocationParameters

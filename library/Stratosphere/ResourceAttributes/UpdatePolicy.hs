@@ -9,13 +9,8 @@
 
 module Stratosphere.ResourceAttributes.UpdatePolicy where
 
-import Control.Lens
-import Data.Aeson
-import Data.Aeson.Types
-import Data.Text
-import GHC.Generics
-
-import Stratosphere.Values
+import GHC.Generics (Generic)
+import Stratosphere.ResourceImports
 import Stratosphere.ResourceAttributes.AutoScalingReplacingUpdatePolicy
 import Stratosphere.ResourceAttributes.AutoScalingRollingUpdatePolicy
 import Stratosphere.ResourceAttributes.AutoScalingScheduledActionPolicy

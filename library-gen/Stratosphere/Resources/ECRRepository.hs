@@ -6,13 +6,7 @@
 
 module Stratosphere.Resources.ECRRepository where
 
-import Control.Lens hiding ((.=))
-import Data.Aeson
-import Data.Maybe (catMaybes)
-import Data.Monoid (mempty)
-import Data.Text
-
-import Stratosphere.Values
+import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.ECRRepositoryLifecyclePolicy
 
 -- | Full data type definition for ECRRepository. See 'ecrRepository' for a

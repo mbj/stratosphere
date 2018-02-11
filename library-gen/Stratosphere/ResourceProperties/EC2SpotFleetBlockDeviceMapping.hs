@@ -6,13 +6,7 @@
 
 module Stratosphere.ResourceProperties.EC2SpotFleetBlockDeviceMapping where
 
-import Control.Lens hiding ((.=))
-import Data.Aeson
-import Data.Maybe (catMaybes)
-import Data.Monoid (mempty)
-import Data.Text
-
-import Stratosphere.Values
+import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.EC2SpotFleetEbsBlockDevice
 
 -- | Full data type definition for EC2SpotFleetBlockDeviceMapping. See

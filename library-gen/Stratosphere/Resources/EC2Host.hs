@@ -6,13 +6,7 @@
 
 module Stratosphere.Resources.EC2Host where
 
-import Control.Lens hiding ((.=))
-import Data.Aeson
-import Data.Maybe (catMaybes)
-import Data.Monoid (mempty)
-import Data.Text
-
-import Stratosphere.Values
+import Stratosphere.ResourceImports
 
 
 -- | Full data type definition for EC2Host. See 'ec2Host' for a more

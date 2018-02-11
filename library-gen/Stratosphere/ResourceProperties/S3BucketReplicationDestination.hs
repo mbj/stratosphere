@@ -6,13 +6,7 @@
 
 module Stratosphere.ResourceProperties.S3BucketReplicationDestination where
 
-import Control.Lens hiding ((.=))
-import Data.Aeson
-import Data.Maybe (catMaybes)
-import Data.Monoid (mempty)
-import Data.Text
-
-import Stratosphere.Values
+import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.S3BucketAccessControlTranslation
 import Stratosphere.ResourceProperties.S3BucketEncryptionConfiguration
 

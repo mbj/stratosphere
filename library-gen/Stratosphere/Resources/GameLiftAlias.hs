@@ -6,13 +6,7 @@
 
 module Stratosphere.Resources.GameLiftAlias where
 
-import Control.Lens hiding ((.=))
-import Data.Aeson
-import Data.Maybe (catMaybes)
-import Data.Monoid (mempty)
-import Data.Text
-
-import Stratosphere.Values
+import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.GameLiftAliasRoutingStrategy
 
 -- | Full data type definition for GameLiftAlias. See 'gameLiftAlias' for a

@@ -7,12 +7,7 @@
 
 module Stratosphere.ResourceAttributes.AutoScalingRollingUpdatePolicy where
 
-import Control.Lens
-import Data.Aeson
-import Data.Maybe (catMaybes)
-import Data.Text
-
-import Stratosphere.Values
+import Stratosphere.ResourceImports
 
 
 -- | Full data type definition for AutoScalingRollingUpdatePolicy. See

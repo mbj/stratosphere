@@ -6,13 +6,7 @@
 
 module Stratosphere.ResourceProperties.S3BucketRule where
 
-import Control.Lens hiding ((.=))
-import Data.Aeson
-import Data.Maybe (catMaybes)
-import Data.Monoid (mempty)
-import Data.Text
-
-import Stratosphere.Values
+import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.S3BucketAbortIncompleteMultipartUpload
 import Stratosphere.ResourceProperties.S3BucketNoncurrentVersionTransition
 import Stratosphere.ResourceProperties.S3BucketTagFilter

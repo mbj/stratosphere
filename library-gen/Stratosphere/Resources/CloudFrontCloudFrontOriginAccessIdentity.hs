@@ -6,13 +6,7 @@
 
 module Stratosphere.Resources.CloudFrontCloudFrontOriginAccessIdentity where
 
-import Control.Lens hiding ((.=))
-import Data.Aeson
-import Data.Maybe (catMaybes)
-import Data.Monoid (mempty)
-import Data.Text
-
-import Stratosphere.Values
+import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.CloudFrontCloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfig
 
 -- | Full data type definition for CloudFrontCloudFrontOriginAccessIdentity.

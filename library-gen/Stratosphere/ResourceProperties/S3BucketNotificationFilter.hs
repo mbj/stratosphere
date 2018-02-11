@@ -6,13 +6,7 @@
 
 module Stratosphere.ResourceProperties.S3BucketNotificationFilter where
 
-import Control.Lens hiding ((.=))
-import Data.Aeson
-import Data.Maybe (catMaybes)
-import Data.Monoid (mempty)
-import Data.Text
-
-import Stratosphere.Values
+import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.S3BucketS3KeyFilter
 
 -- | Full data type definition for S3BucketNotificationFilter. See

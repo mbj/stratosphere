@@ -6,13 +6,7 @@
 
 module Stratosphere.Resources.ApiGatewayUsagePlan where
 
-import Control.Lens hiding ((.=))
-import Data.Aeson
-import Data.Maybe (catMaybes)
-import Data.Monoid (mempty)
-import Data.Text
-
-import Stratosphere.Values
+import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.ApiGatewayUsagePlanApiStage
 import Stratosphere.ResourceProperties.ApiGatewayUsagePlanQuotaSettings
 import Stratosphere.ResourceProperties.ApiGatewayUsagePlanThrottleSettings

@@ -6,13 +6,7 @@
 
 module Stratosphere.Resources.GlueConnection where
 
-import Control.Lens hiding ((.=))
-import Data.Aeson
-import Data.Maybe (catMaybes)
-import Data.Monoid (mempty)
-import Data.Text
-
-import Stratosphere.Values
+import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.GlueConnectionConnectionInput
 
 -- | Full data type definition for GlueConnection. See 'glueConnection' for a

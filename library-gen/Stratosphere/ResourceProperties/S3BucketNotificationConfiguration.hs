@@ -6,13 +6,7 @@
 
 module Stratosphere.ResourceProperties.S3BucketNotificationConfiguration where
 
-import Control.Lens hiding ((.=))
-import Data.Aeson
-import Data.Maybe (catMaybes)
-import Data.Monoid (mempty)
-import Data.Text
-
-import Stratosphere.Values
+import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.S3BucketLambdaConfiguration
 import Stratosphere.ResourceProperties.S3BucketQueueConfiguration
 import Stratosphere.ResourceProperties.S3BucketTopicConfiguration

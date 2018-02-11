@@ -6,13 +6,7 @@
 
 module Stratosphere.Resources.S3Bucket where
 
-import Control.Lens hiding ((.=))
-import Data.Aeson
-import Data.Maybe (catMaybes)
-import Data.Monoid (mempty)
-import Data.Text
-
-import Stratosphere.Values
+import Stratosphere.ResourceImports
 import Stratosphere.Types
 import Stratosphere.ResourceProperties.S3BucketAccelerateConfiguration
 import Stratosphere.ResourceProperties.S3BucketAnalyticsConfiguration

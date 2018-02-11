@@ -6,13 +6,7 @@
 
 module Stratosphere.ResourceProperties.EMRClusterJobFlowInstancesConfig where
 
-import Control.Lens hiding ((.=))
-import Data.Aeson
-import Data.Maybe (catMaybes)
-import Data.Monoid (mempty)
-import Data.Text
-
-import Stratosphere.Values
+import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.EMRClusterInstanceFleetConfig
 import Stratosphere.ResourceProperties.EMRClusterInstanceGroupConfig
 import Stratosphere.ResourceProperties.EMRClusterPlacementType

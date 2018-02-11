@@ -6,13 +6,7 @@
 
 module Stratosphere.Resources.EC2NetworkAcl where
 
-import Control.Lens hiding ((.=))
-import Data.Aeson
-import Data.Maybe (catMaybes)
-import Data.Monoid (mempty)
-import Data.Text
-
-import Stratosphere.Values
+import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for EC2NetworkAcl. See 'ec2NetworkAcl' for a

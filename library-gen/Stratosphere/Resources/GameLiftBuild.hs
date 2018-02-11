@@ -6,13 +6,7 @@
 
 module Stratosphere.Resources.GameLiftBuild where
 
-import Control.Lens hiding ((.=))
-import Data.Aeson
-import Data.Maybe (catMaybes)
-import Data.Monoid (mempty)
-import Data.Text
-
-import Stratosphere.Values
+import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.GameLiftBuildS3Location
 
 -- | Full data type definition for GameLiftBuild. See 'gameLiftBuild' for a
