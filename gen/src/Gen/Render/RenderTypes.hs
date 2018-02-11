@@ -51,9 +51,9 @@ renderType (ListType type') False =
   if isWrappedInVal type'
   then "Maybe (ValList " <> renderAtomicType type' <> ")"
   else "Maybe [" <> renderAtomicType type' <> "]"
--- TODO: Actually use a map type, not Object
--- renderType (MapType type') True = "Map Text " <> renderAtomicTypeWithVal type'
--- renderType (MapType type') False = "Maybe (Map Text (" <> renderAtomicTypeWithVal type' <> "))"
+-- TODO: Use Map for as much as possible instead of Object
+renderType (MapType type'@(SubPropertyType _)) True = "Map Text " <> renderAtomicTypeWithVal type'
+renderType (MapType type'@(SubPropertyType _)) False = "Maybe (Map Text " <> renderAtomicTypeWithVal type' <> ")"
 renderType (MapType _) True = "Object"
 renderType (MapType _) False = "Maybe Object"
 
