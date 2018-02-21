@@ -2,7 +2,7 @@
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE TupleSections #-}
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages-actions-outputartifacts.html
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-outputartifact.html
 
 module Stratosphere.ResourceProperties.CodePipelinePipelineOutputArtifact where
 
@@ -39,6 +39,6 @@ codePipelinePipelineOutputArtifact namearg =
   { _codePipelinePipelineOutputArtifactName = namearg
   }
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages-actions-outputartifacts.html#cfn-codepipeline-pipeline-stages-actions-outputartifacts-name
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-outputartifact.html#cfn-codepipeline-pipeline-outputartifact-name
 cppoaName :: Lens' CodePipelinePipelineOutputArtifact (Val Text)
 cppoaName = lens _codePipelinePipelineOutputArtifactName (\s a -> s { _codePipelinePipelineOutputArtifactName = a })

@@ -2,7 +2,7 @@
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE TupleSections #-}
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-disableinboundstagetransitions.html
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stagetransition.html
 
 module Stratosphere.ResourceProperties.CodePipelinePipelineStageTransition where
 
@@ -44,10 +44,10 @@ codePipelinePipelineStageTransition reasonarg stageNamearg =
   , _codePipelinePipelineStageTransitionStageName = stageNamearg
   }
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-disableinboundstagetransitions.html#cfn-codepipeline-pipeline-disableinboundstagetransitions-reason
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stagetransition.html#cfn-codepipeline-pipeline-stagetransition-reason
 cppstReason :: Lens' CodePipelinePipelineStageTransition (Val Text)
 cppstReason = lens _codePipelinePipelineStageTransitionReason (\s a -> s { _codePipelinePipelineStageTransitionReason = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-disableinboundstagetransitions.html#cfn-codepipeline-pipeline-disableinboundstagetransitions-stagename
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stagetransition.html#cfn-codepipeline-pipeline-stagetransition-stagename
 cppstStageName :: Lens' CodePipelinePipelineStageTransition (Val Text)
 cppstStageName = lens _codePipelinePipelineStageTransitionStageName (\s a -> s { _codePipelinePipelineStageTransitionStageName = a })

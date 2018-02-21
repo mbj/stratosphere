@@ -363,6 +363,7 @@ import Stratosphere.ResourceProperties.CodeBuildProjectArtifacts as X
 import Stratosphere.ResourceProperties.CodeBuildProjectEnvironment as X
 import Stratosphere.ResourceProperties.CodeBuildProjectEnvironmentVariable as X
 import Stratosphere.ResourceProperties.CodeBuildProjectProjectCache as X
+import Stratosphere.ResourceProperties.CodeBuildProjectProjectTriggers as X
 import Stratosphere.ResourceProperties.CodeBuildProjectSource as X
 import Stratosphere.ResourceProperties.CodeBuildProjectSourceAuth as X
 import Stratosphere.ResourceProperties.CodeBuildProjectVpcConfig as X
