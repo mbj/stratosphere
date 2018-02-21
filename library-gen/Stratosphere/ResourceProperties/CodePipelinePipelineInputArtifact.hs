@@ -2,7 +2,7 @@
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE TupleSections #-}
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages-actions-inputartifacts.html
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-inputartifact.html
 
 module Stratosphere.ResourceProperties.CodePipelinePipelineInputArtifact where
 
@@ -39,6 +39,6 @@ codePipelinePipelineInputArtifact namearg =
   { _codePipelinePipelineInputArtifactName = namearg
   }
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages-actions-inputartifacts.html#cfn-codepipeline-pipeline-stages-actions-inputartifacts-name
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-inputartifact.html#cfn-codepipeline-pipeline-inputartifact-name
 cppiaName :: Lens' CodePipelinePipelineInputArtifact (Val Text)
 cppiaName = lens _codePipelinePipelineInputArtifactName (\s a -> s { _codePipelinePipelineInputArtifactName = a })

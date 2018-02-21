@@ -12,6 +12,7 @@ import Stratosphere.ResourceProperties.CodeBuildProjectProjectCache
 import Stratosphere.ResourceProperties.CodeBuildProjectEnvironment
 import Stratosphere.ResourceProperties.CodeBuildProjectSource
 import Stratosphere.ResourceProperties.Tag
+import Stratosphere.ResourceProperties.CodeBuildProjectProjectTriggers
 import Stratosphere.ResourceProperties.CodeBuildProjectVpcConfig
 
 -- | Full data type definition for CodeBuildProject. See 'codeBuildProject'
@@ -29,6 +30,7 @@ data CodeBuildProject =
   , _codeBuildProjectSource :: CodeBuildProjectSource
   , _codeBuildProjectTags :: Maybe [Tag]
   , _codeBuildProjectTimeoutInMinutes :: Maybe (Val Integer)
+  , _codeBuildProjectTriggers :: Maybe CodeBuildProjectProjectTriggers
   , _codeBuildProjectVpcConfig :: Maybe CodeBuildProjectVpcConfig
   } deriving (Show, Eq)
 
@@ -47,6 +49,7 @@ instance ToJSON CodeBuildProject where
     , (Just . ("Source",) . toJSON) _codeBuildProjectSource
     , fmap (("Tags",) . toJSON) _codeBuildProjectTags
     , fmap (("TimeoutInMinutes",) . toJSON . fmap Integer') _codeBuildProjectTimeoutInMinutes
+    , fmap (("Triggers",) . toJSON) _codeBuildProjectTriggers
     , fmap (("VpcConfig",) . toJSON) _codeBuildProjectVpcConfig
     ]
 
@@ -64,6 +67,7 @@ instance FromJSON CodeBuildProject where
       (obj .: "Source") <*>
       (obj .:? "Tags") <*>
       fmap (fmap (fmap unInteger')) (obj .:? "TimeoutInMinutes") <*>
+      (obj .:? "Triggers") <*>
       (obj .:? "VpcConfig")
   parseJSON _ = mempty
 
@@ -88,6 +92,7 @@ codeBuildProject artifactsarg environmentarg serviceRolearg sourcearg =
   , _codeBuildProjectSource = sourcearg
   , _codeBuildProjectTags = Nothing
   , _codeBuildProjectTimeoutInMinutes = Nothing
+  , _codeBuildProjectTriggers = Nothing
   , _codeBuildProjectVpcConfig = Nothing
   }
 
@@ -134,6 +139,10 @@ cbpTags = lens _codeBuildProjectTags (\s a -> s { _codeBuildProjectTags = a })
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-timeoutinminutes
 cbpTimeoutInMinutes :: Lens' CodeBuildProject (Maybe (Val Integer))
 cbpTimeoutInMinutes = lens _codeBuildProjectTimeoutInMinutes (\s a -> s { _codeBuildProjectTimeoutInMinutes = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-triggers
+cbpTriggers :: Lens' CodeBuildProject (Maybe CodeBuildProjectProjectTriggers)
+cbpTriggers = lens _codeBuildProjectTriggers (\s a -> s { _codeBuildProjectTriggers = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-vpcconfig
 cbpVpcConfig :: Lens' CodeBuildProject (Maybe CodeBuildProjectVpcConfig)
