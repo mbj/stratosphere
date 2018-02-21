@@ -21,8 +21,8 @@ myTemplate =
   , incomingS3Bucket
   , outgoingS3Bucket
   ]
-  & description ?~ "Simple event triggered S3 bucket to bucket copy example"
-  & formatVersion ?~ "2010-09-09"
+  & templateDescription ?~ "Simple event triggered S3 bucket to bucket copy example"
+  & templateFormatVersion ?~ "2010-09-09"
 
 lambda :: Resource
 lambda = (
@@ -35,7 +35,7 @@ lambda = (
     (Literal NodeJS43)
     & lfFunctionName ?~ "copyS3Object"
   )
-  & dependsOn ?~ [ role' ^. resName ]
+  & resourceDependsOn ?~ [ role' ^. resourceName ]
 
   where
     lambdaCode :: LambdaFunctionCode
@@ -114,7 +114,7 @@ incomingS3Bucket = (
   & sbBucketName ?~ "stratosphere-s3-copy-incoming"
   & sbNotificationConfiguration ?~ config
   )
-  & dependsOn ?~ [ lambda ^. resName ]
+  & resourceDependsOn ?~ [ lambda ^. resourceName ]
 
   where
     config =
