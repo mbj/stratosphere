@@ -18,12 +18,12 @@ main = B.putStrLn $ encodeTemplate dbTemplate
 dbTemplate :: Template
 dbTemplate =
   template
-  [ rdsParamGroup & deletionPolicy ?~ Retain
-  , rdsMaster & deletionPolicy ?~ Retain
-  , rdsReplica & deletionPolicy ?~ Retain
+  [ rdsParamGroup & resourceDeletionPolicy ?~ Retain
+  , rdsMaster & resourceDeletionPolicy ?~ Retain
+  , rdsReplica & resourceDeletionPolicy ?~ Retain
   ]
-  & description ?~ "Stack for and RDS master and replica"
-  & parameters ?~
+  & templateDescription ?~ "Stack for and RDS master and replica"
+  & templateParameters ?~
   [ parameter "RdsMasterPassword" "String"
   , parameter "RdsSubnetGroup" "String"
   , parameter "VpcId" "String"

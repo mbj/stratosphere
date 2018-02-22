@@ -1,7 +1,9 @@
 # Change Log
 
-## 0.15.3
+## 0.16.0
 
+* **BREAKING CHANGE**: Renamed lenses for non-generated code to match naming
+  conventions of generated code.
 * Update resource specification document to 1.14.0
 
 ## 0.15.2

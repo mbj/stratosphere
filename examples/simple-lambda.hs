@@ -16,8 +16,8 @@ myTemplate :: Template
 myTemplate =
   template
   [ role', lambda ]
-  & description ?~ "Lambda example"
-  & formatVersion ?~ "2010-09-09"
+  & templateDescription ?~ "Lambda example"
+  & templateFormatVersion ?~ "2010-09-09"
 
 lambda :: Resource
 lambda = (
@@ -29,7 +29,7 @@ lambda = (
     (GetAtt "IAMRole" "Arn")
     (Literal NodeJS43)
   )
-  & dependsOn ?~ [ role' ^. resName ]
+  & resourceDependsOn ?~ [ role' ^. resourceName ]
 
 lambdaCode :: LambdaFunctionCode
 lambdaCode = lambdaFunctionCode

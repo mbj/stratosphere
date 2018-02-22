@@ -18,15 +18,15 @@
 -- name for a stack so that you can easily find it.
 
 module Stratosphere.Outputs
-       ( Output (..)
-       , output
-       , OutputExport (..)
-       , Outputs (..)
-       , name
-       , description
-       , value
-       , export
-       ) where
+  ( Output (..)
+  , output
+  , OutputExport (..)
+  , Outputs (..)
+  , outputName
+  , outputDescription
+  , outputValue
+  , outputExport
+  ) where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
@@ -36,7 +36,6 @@ import Data.Text (Text)
 import GHC.Exts (IsList(..))
 
 import Stratosphere.Helpers
-import Stratosphere.Parameters
 import Stratosphere.Values
 
 data OutputExport
@@ -59,23 +58,23 @@ instance FromJSON OutputExport where
 -- | See 'output' for a convenient constructor.
 data Output =
   Output
-  { outputName :: Text
+  { _outputName :: Text
     -- ^ An identifier for this output. The logical ID must be alphanumeric
     -- (A-Za-z0-9) and unique within the template.
-  , outputDescription :: Maybe Text
+  , _outputDescription :: Maybe Text
     -- ^ A String type up to 4K in length describing the output value.
-  , outputValue :: Val Text
+  , _outputValue :: Val Text
     -- ^ The value of the property that is returned by the aws cloudformation
     -- describe-stacks command. The value of an output can be literals,
     -- parameter references, pseudo parameters, a mapping value, and intrinsic
     -- functions.
-  , outputExport :: Maybe OutputExport
+  , _outputExport :: Maybe OutputExport
   } deriving (Show, Eq)
 
-$(makeFields ''Output)
+$(makeLenses ''Output)
 
 instance ToRef Output b where
-  toRef o = Ref (outputName o)
+  toRef o = Ref (_outputName o)
 
 -- | Constructor for 'Output'
 output
@@ -84,18 +83,18 @@ output
   -> Output
 output oname oval =
   Output
-  { outputName = oname
-  , outputDescription = Nothing
-  , outputValue = oval
-  , outputExport = Nothing
+  { _outputName = oname
+  , _outputDescription = Nothing
+  , _outputValue = oval
+  , _outputExport = Nothing
   }
 
 outputToJSON :: Output -> Value
 outputToJSON Output {..} =
   object $ catMaybes
-  [ Just ("Value" .= outputValue)
-  , maybeField "Description" outputDescription
-  , maybeField "Export" outputExport
+  [ Just ("Value" .= _outputValue)
+  , maybeField "Description" _outputDescription
+  , maybeField "Export" _outputExport
   ]
 
 outputFromJSON :: Text -> Object -> Parser Output
@@ -115,7 +114,7 @@ instance IsList Outputs where
   toList = unOutputs
 
 instance NamedItem Output where
-  itemName = outputName
+  itemName = _outputName
   nameToJSON = outputToJSON
   nameParseJSON = outputFromJSON
 

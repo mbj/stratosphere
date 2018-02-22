@@ -32,8 +32,8 @@ myTemplate = template
   , postMethod
   , apiGWDeployment
   ]
-  & description ?~ "Simple restful API gateway attached to a Lambda that reads from and writes the request body to a DynamoDB table"
-  & formatVersion ?~ "2010-09-09"
+  & templateDescription ?~ "Simple restful API gateway attached to a Lambda that reads from and writes the request body to a DynamoDB table"
+  & templateFormatVersion ?~ "2010-09-09"
 
 apiGWRestApi :: Resource
 apiGWRestApi =
@@ -65,7 +65,7 @@ getMethod = (
     & agmeIntegration ?~ integration
     & agmeMethodResponses ?~ [ methodResponse ]
   )
-  & dependsOn ?~ deps [readLambdaPermission]
+  & resourceDependsOn ?~ deps [readLambdaPermission]
 
   where
     integration =
@@ -104,7 +104,7 @@ postMethod = (
     & agmeIntegration ?~ integration
     & agmeMethodResponses ?~ [ methodResponse ]
   )
-  & dependsOn ?~ deps [writeLambdaPermission]
+  & resourceDependsOn ?~ deps [writeLambdaPermission]
 
   where
     integration =
@@ -137,7 +137,7 @@ apiGWDeployment = (resource "ApiGWDeployment" $
     (toRef apiGWRestApi)
     & agdStageName ?~ "v1"
   )
-  & dependsOn ?~ deps [
+  & resourceDependsOn ?~ deps [
       apiGWResource
     , getMethod
     , postMethod
@@ -351,4 +351,4 @@ dynamoDbTable = resource "Table" $
       (Literal 1)
 
 deps :: [Resource] -> [Text]
-deps = map (^. resName)
+deps = map (^. resourceName)

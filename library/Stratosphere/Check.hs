@@ -11,8 +11,8 @@ import Data.Hashable (Hashable)
 import qualified Data.HashMap.Strict as HM
 import qualified Data.Text as T
 
-import Stratosphere.Resources (resourceResName, unResources)
-import Stratosphere.Template (Template, templateResources)
+import Stratosphere.Resources (_resourceName, unResources)
+import Stratosphere.Template (Template, _templateResources)
 
 newtype DuplicateProperty = DuplicateProperty T.Text
   deriving (Show, Eq)
@@ -21,9 +21,9 @@ duplicateProperties :: Template -> [DuplicateProperty]
 duplicateProperties =
     map DuplicateProperty
   . duplicates
-  . map resourceResName
+  . map _resourceName
   . unResources
-  . templateResources
+  . _templateResources
 
 duplicates :: (Foldable f, Eq a, Hashable a) => f a -> [a]
 duplicates =

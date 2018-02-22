@@ -28,7 +28,7 @@ myTemplate =
       & eciUserData ?~ Base64 (Join "" ["IPAddress=", toRef sshParam])
       & eciSecurityGroups ?~ [Ref "InstanceSecuritygroup"]
       )
-    & deletionPolicy ?~ Retain
+    & resourceDeletionPolicy ?~ Retain
   , resource "InstanceSecurityGroup" $
     EC2SecurityGroupProperties $
     ec2SecurityGroup
@@ -47,43 +47,43 @@ myTemplate =
     & eceipaInstanceId ?~ Ref "EC2Instance"
     & eceipaEIP ?~ Ref "IPAddress"
   ]
-  & description ?~ "See https://s3.amazonaws.com/cloudformation-templates-us-east-1/EIP_With_Association.template"
-  & formatVersion ?~ "2010-09-09"
-  & parameters ?~
+  & templateDescription ?~ "See https://s3.amazonaws.com/cloudformation-templates-us-east-1/EIP_With_Association.template"
+  & templateFormatVersion ?~ "2010-09-09"
+  & templateParameters ?~
   [ instanceTypeParam
   , keyParam
   , sshParam
   ]
-  & outputs ?~
+  & templateOutputs ?~
   [ output "InstanceId"
     (Ref "EC2Instance")
-    & description ?~ "InstanceId of the newly created EC2 instance"
+    & outputDescription ?~ "InstanceId of the newly created EC2 instance"
   , output "InstanceIPAddress"
     (Ref "IPAddress")
-    & description ?~ "IP address of the newly created EC2 instance"
+    & outputDescription ?~ "IP address of the newly created EC2 instance"
   ]
 
 instanceTypeParam :: Parameter
 instanceTypeParam =
   parameter "InstanceType" "String"
-  & description ?~ "WebServer EC2 instance type"
-  & default' ?~ "t2.small"
-  & allowedValues ?~ [ "t1.micro", "t2.small" ]
-  & constraintDescription ?~ "must be a valid EC2 instance type."
+  & parameterDescription ?~ "WebServer EC2 instance type"
+  & parameterDefault' ?~ "t2.small"
+  & parameterAllowedValues ?~ [ "t1.micro", "t2.small" ]
+  & parameterConstraintDescription ?~ "must be a valid EC2 instance type."
 
 keyParam :: Parameter
 keyParam =
   parameter "KeyName" "AWS::EC2::KeyPair::KeyName"
-  & description ?~ "Name of an existing EC2 KeyPair to enable SSH access to the instances"
-  & constraintDescription ?~ "must be the name of an existing EC2 KeyPair."
+  & parameterDescription ?~ "Name of an existing EC2 KeyPair to enable SSH access to the instances"
+  & parameterConstraintDescription ?~ "must be the name of an existing EC2 KeyPair."
 
 sshParam :: Parameter
 sshParam =
   parameter "SSHLocation" "String"
-  & description ?~ "The IP address range that can be used to SSH to the EC2 instances"
-  & minLength ?~ 9
-  & maxLength ?~ 18
-  & default' ?~ "0.0.0.0/0"
-  & allowedValues ?~ [ "t1.micro", "t2.small" ]
-  & allowedPattern ?~ "(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})/(\\d{1,2})"
-  & constraintDescription ?~ "must be a valid IP CIDR range of the form x.x.x.x/x."
+  & parameterDescription ?~ "The IP address range that can be used to SSH to the EC2 instances"
+  & parameterMinLength ?~ 9
+  & parameterMaxLength ?~ 18
+  & parameterDefault' ?~ "0.0.0.0/0"
+  & parameterAllowedValues ?~ [ "t1.micro", "t2.small" ]
+  & parameterAllowedPattern ?~ "(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})/(\\d{1,2})"
+  & parameterConstraintDescription ?~ "must be a valid IP CIDR range of the form x.x.x.x/x."

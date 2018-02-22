@@ -18,15 +18,15 @@ myTemplate :: Template
 myTemplate =
   template
   [ asgResource
-    & resCreationPolicy ?~ asgCreationPolicy
-    & resUpdatePolicy ?~ asgUpdatePolicy
+    & resourceCreationPolicy ?~ asgCreationPolicy
+    & resourceUpdatePolicy ?~ asgUpdatePolicy
   , launchConfigResource
   ]
-  & parameters ?~
+  & templateParameters ?~
   [ parameter "AvailabilityZones" "List<AWS::EC2::AvailabilityZone::Name>"
   ]
-  & description ?~ "Auto scaling group example"
-  & formatVersion ?~ "2010-09-09"
+  & templateDescription ?~ "Auto scaling group example"
+  & templateFormatVersion ?~ "2010-09-09"
 
 asgResource :: Resource
 asgResource =

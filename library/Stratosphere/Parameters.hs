@@ -33,59 +33,59 @@ import Stratosphere.Values
 
 data Parameter =
   Parameter
-  { parameterName :: T.Text
-  , parameterType' :: T.Text
+  { _parameterName :: T.Text
+  , _parameterType' :: T.Text
     -- ^ The data type for the parameter.
-  , parameterDefault' :: Maybe Value
+  , _parameterDefault' :: Maybe Value
     -- ^ A value of the appropriate type for the template to use if no value is
     -- specified when a stack is created. If you define constraints for the
     -- parameter, you must specify a value that adheres to those constraints.
-  , parameterNoEcho :: Maybe Bool'
+  , _parameterNoEcho :: Maybe Bool'
     -- ^ Whether to mask the parameter value whenever anyone makes a call that
     -- describes the stack. If you set the value to true, the parameter value
     -- is masked with asterisks (*****).
-  , parameterAllowedValues :: Maybe Array
+  , _parameterAllowedValues :: Maybe Array
     -- ^ An array containing the list of values allowed for the parameter.
-  , parameterAllowedPattern :: Maybe T.Text
+  , _parameterAllowedPattern :: Maybe T.Text
     -- ^ A regular expression that represents the patterns you want to allow
     -- for String types.
-  , parameterMaxLength :: Maybe Integer
+  , _parameterMaxLength :: Maybe Integer
     -- ^ An integer value that determines the largest number of characters you
     -- want to allow for String types.
-  , parameterMinLength :: Maybe Integer
+  , _parameterMinLength :: Maybe Integer
     -- ^ An integer value that determines the smallest number of characters you
     -- want to allow for String types.
-  , parameterMaxValue :: Maybe Integer
+  , _parameterMaxValue :: Maybe Integer
     -- ^ A numeric value that determines the largest numeric value you want to
     -- allow for Number types.
-  , parameterMinValue :: Maybe Integer
+  , _parameterMinValue :: Maybe Integer
     -- ^ A numeric value that determines the smallest numeric value you want to
     -- allow for Number types.
-  , parameterDescription :: Maybe T.Text
+  , _parameterDescription :: Maybe T.Text
     -- ^ A string of up to 4000 characters that describes the parameter.
-  , parameterConstraintDescription :: Maybe T.Text
+  , _parameterConstraintDescription :: Maybe T.Text
     -- ^ A string that explains the constraint when the constraint is violated.
   } deriving (Show, Eq)
 
-$(makeFields ''Parameter)
+$(makeLenses ''Parameter)
 
 instance ToRef Parameter b where
-  toRef p = Ref (parameterName p)
+  toRef p = Ref (_parameterName p)
 
 parameterToJSON :: Parameter -> Value
 parameterToJSON Parameter {..} =
   object $ catMaybes
-  [ Just ("Type" .= parameterType')
-  , maybeField "Default" parameterDefault'
-  , maybeField "NoEcho" parameterNoEcho
-  , maybeField "AllowedValues" parameterAllowedValues
-  , maybeField "AllowedPattern" parameterAllowedPattern
-  , maybeField "MaxLength" (Integer' <$> parameterMaxLength)
-  , maybeField "MinLength" (Integer' <$> parameterMinLength)
-  , maybeField "MaxValue" (Integer' <$> parameterMaxValue)
-  , maybeField "MinValue" (Integer' <$> parameterMinValue)
-  , maybeField "Description" parameterDescription
-  , maybeField "ConstraintDescription" parameterConstraintDescription
+  [ Just ("Type" .= _parameterType')
+  , maybeField "Default" _parameterDefault'
+  , maybeField "NoEcho" _parameterNoEcho
+  , maybeField "AllowedValues" _parameterAllowedValues
+  , maybeField "AllowedPattern" _parameterAllowedPattern
+  , maybeField "MaxLength" (Integer' <$> _parameterMaxLength)
+  , maybeField "MinLength" (Integer' <$> _parameterMinLength)
+  , maybeField "MaxValue" (Integer' <$> _parameterMaxValue)
+  , maybeField "MinValue" (Integer' <$> _parameterMinValue)
+  , maybeField "Description" _parameterDescription
+  , maybeField "ConstraintDescription" _parameterConstraintDescription
   ]
 
 parameterFromJSON :: T.Text -> Object -> Parser Parameter
@@ -110,18 +110,18 @@ parameter
   -> Parameter
 parameter pname ptype =
   Parameter
-  { parameterName = pname
-  , parameterType' = ptype
-  , parameterDefault' = Nothing
-  , parameterNoEcho = Nothing
-  , parameterAllowedValues = Nothing
-  , parameterAllowedPattern = Nothing
-  , parameterMaxLength = Nothing
-  , parameterMinLength = Nothing
-  , parameterMaxValue = Nothing
-  , parameterMinValue = Nothing
-  , parameterDescription = Nothing
-  , parameterConstraintDescription = Nothing
+  { _parameterName = pname
+  , _parameterType' = ptype
+  , _parameterDefault' = Nothing
+  , _parameterNoEcho = Nothing
+  , _parameterAllowedValues = Nothing
+  , _parameterAllowedPattern = Nothing
+  , _parameterMaxLength = Nothing
+  , _parameterMinLength = Nothing
+  , _parameterMaxValue = Nothing
+  , _parameterMinValue = Nothing
+  , _parameterDescription = Nothing
+  , _parameterConstraintDescription = Nothing
   }
 
 -- | Wrapper around a list of 'Parameters's to we can modify the aeson
@@ -135,7 +135,7 @@ instance IsList Parameters where
   toList = unParameters
 
 instance NamedItem Parameter where
-  itemName = parameterName
+  itemName = _parameterName
   nameToJSON = parameterToJSON
   nameParseJSON = parameterFromJSON
 
