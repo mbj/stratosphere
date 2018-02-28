@@ -1,8 +1,9 @@
 # Change Log
 
-## 0.16.1
+## 0.17.0
 
 * Fix JSON instances for non-codegen code.
+* Allow the `Split` function to use `Val a` in its second argument.
 
 ## 0.16.0
 
