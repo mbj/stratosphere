@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.16.1
+
+* Fix JSON instances for non-codegen code.
+
 ## 0.16.0
 
 * **BREAKING CHANGE**: Renamed lenses for non-generated code to match naming
