@@ -121,7 +121,7 @@ data ValList a
   = ValList [Val a]
   | RefList Text
   | ImportValueList Text
-  | Split Text Text
+  | Split Text (Val a)
   | GetAZs (Val Text)
   deriving (Show, Eq)
 
