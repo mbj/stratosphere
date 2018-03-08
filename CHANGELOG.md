@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.18.0
+
+* Update resource specification document to version 2.0.0
+
 ## 0.17.0
 
 * Fix JSON instances for non-codegen code.

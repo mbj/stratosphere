@@ -17,6 +17,7 @@ data RedshiftCluster =
   { _redshiftClusterAllowVersionUpgrade :: Maybe (Val Bool)
   , _redshiftClusterAutomatedSnapshotRetentionPeriod :: Maybe (Val Integer)
   , _redshiftClusterAvailabilityZone :: Maybe (Val Text)
+  , _redshiftClusterClusterIdentifier :: Maybe (Val Text)
   , _redshiftClusterClusterParameterGroupName :: Maybe (Val Text)
   , _redshiftClusterClusterSecurityGroups :: Maybe (ValList Text)
   , _redshiftClusterClusterSubnetGroupName :: Maybe (Val Text)
@@ -51,6 +52,7 @@ instance ToJSON RedshiftCluster where
     [ fmap (("AllowVersionUpgrade",) . toJSON . fmap Bool') _redshiftClusterAllowVersionUpgrade
     , fmap (("AutomatedSnapshotRetentionPeriod",) . toJSON . fmap Integer') _redshiftClusterAutomatedSnapshotRetentionPeriod
     , fmap (("AvailabilityZone",) . toJSON) _redshiftClusterAvailabilityZone
+    , fmap (("ClusterIdentifier",) . toJSON) _redshiftClusterClusterIdentifier
     , fmap (("ClusterParameterGroupName",) . toJSON) _redshiftClusterClusterParameterGroupName
     , fmap (("ClusterSecurityGroups",) . toJSON) _redshiftClusterClusterSecurityGroups
     , fmap (("ClusterSubnetGroupName",) . toJSON) _redshiftClusterClusterSubnetGroupName
@@ -84,6 +86,7 @@ instance FromJSON RedshiftCluster where
       fmap (fmap (fmap unBool')) (obj .:? "AllowVersionUpgrade") <*>
       fmap (fmap (fmap unInteger')) (obj .:? "AutomatedSnapshotRetentionPeriod") <*>
       (obj .:? "AvailabilityZone") <*>
+      (obj .:? "ClusterIdentifier") <*>
       (obj .:? "ClusterParameterGroupName") <*>
       (obj .:? "ClusterSecurityGroups") <*>
       (obj .:? "ClusterSubnetGroupName") <*>
@@ -125,6 +128,7 @@ redshiftCluster clusterTypearg dBNamearg masterUserPasswordarg masterUsernamearg
   { _redshiftClusterAllowVersionUpgrade = Nothing
   , _redshiftClusterAutomatedSnapshotRetentionPeriod = Nothing
   , _redshiftClusterAvailabilityZone = Nothing
+  , _redshiftClusterClusterIdentifier = Nothing
   , _redshiftClusterClusterParameterGroupName = Nothing
   , _redshiftClusterClusterSecurityGroups = Nothing
   , _redshiftClusterClusterSubnetGroupName = Nothing
@@ -163,6 +167,10 @@ rcAutomatedSnapshotRetentionPeriod = lens _redshiftClusterAutomatedSnapshotReten
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-availabilityzone
 rcAvailabilityZone :: Lens' RedshiftCluster (Maybe (Val Text))
 rcAvailabilityZone = lens _redshiftClusterAvailabilityZone (\s a -> s { _redshiftClusterAvailabilityZone = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-clusteridentifier
+rcClusterIdentifier :: Lens' RedshiftCluster (Maybe (Val Text))
+rcClusterIdentifier = lens _redshiftClusterClusterIdentifier (\s a -> s { _redshiftClusterClusterIdentifier = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-cluster.html#cfn-redshift-cluster-clusterparametergroupname
 rcClusterParameterGroupName :: Lens' RedshiftCluster (Maybe (Val Text))

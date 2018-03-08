@@ -2,7 +2,7 @@
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE TupleSections #-}
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-encryptionkey.html
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-artifactstore-encryptionkey.html
 
 module Stratosphere.ResourceProperties.CodePipelinePipelineEncryptionKey where
 
@@ -44,10 +44,10 @@ codePipelinePipelineEncryptionKey idarg typearg =
   , _codePipelinePipelineEncryptionKeyType = typearg
   }
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-encryptionkey.html#cfn-codepipeline-pipeline-encryptionkey-id
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-artifactstore-encryptionkey.html#cfn-codepipeline-pipeline-artifactstore-encryptionkey-id
 cppekId :: Lens' CodePipelinePipelineEncryptionKey (Val Text)
 cppekId = lens _codePipelinePipelineEncryptionKeyId (\s a -> s { _codePipelinePipelineEncryptionKeyId = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-encryptionkey.html#cfn-codepipeline-pipeline-encryptionkey-type
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-artifactstore-encryptionkey.html#cfn-codepipeline-pipeline-artifactstore-encryptionkey-type
 cppekType :: Lens' CodePipelinePipelineEncryptionKey (Val Text)
 cppekType = lens _codePipelinePipelineEncryptionKeyType (\s a -> s { _codePipelinePipelineEncryptionKeyType = a })

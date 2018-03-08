@@ -163,6 +163,10 @@ computeLensPrefix "AWS::Redshift::ClusterSecurityGroup" = "rcseg"
 computeLensPrefix "AWS::Redshift::ClusterSubnetGroup" = "rcsug"
 computeLensPrefix "AWS::ServiceDiscovery::PublicDnsNamespace" = "sdpudn"
 computeLensPrefix "AWS::ServiceDiscovery::PrivateDnsNamespace" = "sdprdn"
+computeLensPrefix "AWS::SES::ReceiptRule.S3Action" = "sesrrsa"
+computeLensPrefix "AWS::SES::ReceiptRule.StopAction" = "sesrrsta"
+computeLensPrefix "AWS::GuardDuty::Master" = "gdma"
+computeLensPrefix "AWS::GuardDuty::Member" = "gdme"
 -- Everything else
 computeLensPrefix rawName = toLower $ fromMaybe rawName $ toAcronym $ computeModuleName rawName
 

@@ -2,7 +2,7 @@
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE TupleSections #-}
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stagedeclaration.html
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages.html
 
 module Stratosphere.ResourceProperties.CodePipelinePipelineStageDeclaration where
 
@@ -49,14 +49,14 @@ codePipelinePipelineStageDeclaration actionsarg namearg =
   , _codePipelinePipelineStageDeclarationName = namearg
   }
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stagedeclaration.html#cfn-codepipeline-pipeline-stagedeclaration-actions
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages.html#cfn-codepipeline-pipeline-stages-actions
 cppsdActions :: Lens' CodePipelinePipelineStageDeclaration [CodePipelinePipelineActionDeclaration]
 cppsdActions = lens _codePipelinePipelineStageDeclarationActions (\s a -> s { _codePipelinePipelineStageDeclarationActions = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stagedeclaration.html#cfn-codepipeline-pipeline-stagedeclaration-blockers
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages.html#cfn-codepipeline-pipeline-stages-blockers
 cppsdBlockers :: Lens' CodePipelinePipelineStageDeclaration (Maybe [CodePipelinePipelineBlockerDeclaration])
 cppsdBlockers = lens _codePipelinePipelineStageDeclarationBlockers (\s a -> s { _codePipelinePipelineStageDeclarationBlockers = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stagedeclaration.html#cfn-codepipeline-pipeline-stagedeclaration-name
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages.html#cfn-codepipeline-pipeline-stages-name
 cppsdName :: Lens' CodePipelinePipelineStageDeclaration (Val Text)
 cppsdName = lens _codePipelinePipelineStageDeclarationName (\s a -> s { _codePipelinePipelineStageDeclarationName = a })

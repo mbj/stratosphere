@@ -16,7 +16,8 @@ import Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupTagProperty
 -- 'autoScalingAutoScalingGroup' for a more convenient constructor.
 data AutoScalingAutoScalingGroup =
   AutoScalingAutoScalingGroup
-  { _autoScalingAutoScalingGroupAvailabilityZones :: Maybe (ValList Text)
+  { _autoScalingAutoScalingGroupAutoScalingGroupName :: Maybe (Val Text)
+  , _autoScalingAutoScalingGroupAvailabilityZones :: Maybe (ValList Text)
   , _autoScalingAutoScalingGroupCooldown :: Maybe (Val Text)
   , _autoScalingAutoScalingGroupDesiredCapacity :: Maybe (Val Text)
   , _autoScalingAutoScalingGroupHealthCheckGracePeriod :: Maybe (Val Integer)
@@ -40,7 +41,8 @@ instance ToJSON AutoScalingAutoScalingGroup where
   toJSON AutoScalingAutoScalingGroup{..} =
     object $
     catMaybes
-    [ fmap (("AvailabilityZones",) . toJSON) _autoScalingAutoScalingGroupAvailabilityZones
+    [ fmap (("AutoScalingGroupName",) . toJSON) _autoScalingAutoScalingGroupAutoScalingGroupName
+    , fmap (("AvailabilityZones",) . toJSON) _autoScalingAutoScalingGroupAvailabilityZones
     , fmap (("Cooldown",) . toJSON) _autoScalingAutoScalingGroupCooldown
     , fmap (("DesiredCapacity",) . toJSON) _autoScalingAutoScalingGroupDesiredCapacity
     , fmap (("HealthCheckGracePeriod",) . toJSON . fmap Integer') _autoScalingAutoScalingGroupHealthCheckGracePeriod
@@ -63,6 +65,7 @@ instance ToJSON AutoScalingAutoScalingGroup where
 instance FromJSON AutoScalingAutoScalingGroup where
   parseJSON (Object obj) =
     AutoScalingAutoScalingGroup <$>
+      (obj .:? "AutoScalingGroupName") <*>
       (obj .:? "AvailabilityZones") <*>
       (obj .:? "Cooldown") <*>
       (obj .:? "DesiredCapacity") <*>
@@ -91,7 +94,8 @@ autoScalingAutoScalingGroup
   -> AutoScalingAutoScalingGroup
 autoScalingAutoScalingGroup maxSizearg minSizearg =
   AutoScalingAutoScalingGroup
-  { _autoScalingAutoScalingGroupAvailabilityZones = Nothing
+  { _autoScalingAutoScalingGroupAutoScalingGroupName = Nothing
+  , _autoScalingAutoScalingGroupAvailabilityZones = Nothing
   , _autoScalingAutoScalingGroupCooldown = Nothing
   , _autoScalingAutoScalingGroupDesiredCapacity = Nothing
   , _autoScalingAutoScalingGroupHealthCheckGracePeriod = Nothing
@@ -110,6 +114,10 @@ autoScalingAutoScalingGroup maxSizearg minSizearg =
   , _autoScalingAutoScalingGroupTerminationPolicies = Nothing
   , _autoScalingAutoScalingGroupVPCZoneIdentifier = Nothing
   }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-autoscaling-autoscalinggroup-autoscalinggroupname
+asasgAutoScalingGroupName :: Lens' AutoScalingAutoScalingGroup (Maybe (Val Text))
+asasgAutoScalingGroupName = lens _autoScalingAutoScalingGroupAutoScalingGroupName (\s a -> s { _autoScalingAutoScalingGroupAutoScalingGroupName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-availabilityzones
 asasgAvailabilityZones :: Lens' AutoScalingAutoScalingGroup (Maybe (ValList Text))

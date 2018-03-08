@@ -24,6 +24,7 @@ data Route53HealthCheckHealthCheckConfig =
   , _route53HealthCheckHealthCheckConfigInverted :: Maybe (Val Bool)
   , _route53HealthCheckHealthCheckConfigMeasureLatency :: Maybe (Val Bool)
   , _route53HealthCheckHealthCheckConfigPort :: Maybe (Val Integer)
+  , _route53HealthCheckHealthCheckConfigRegions :: Maybe (ValList Text)
   , _route53HealthCheckHealthCheckConfigRequestInterval :: Maybe (Val Integer)
   , _route53HealthCheckHealthCheckConfigResourcePath :: Maybe (Val Text)
   , _route53HealthCheckHealthCheckConfigSearchString :: Maybe (Val Text)
@@ -45,6 +46,7 @@ instance ToJSON Route53HealthCheckHealthCheckConfig where
     , fmap (("Inverted",) . toJSON . fmap Bool') _route53HealthCheckHealthCheckConfigInverted
     , fmap (("MeasureLatency",) . toJSON . fmap Bool') _route53HealthCheckHealthCheckConfigMeasureLatency
     , fmap (("Port",) . toJSON . fmap Integer') _route53HealthCheckHealthCheckConfigPort
+    , fmap (("Regions",) . toJSON) _route53HealthCheckHealthCheckConfigRegions
     , fmap (("RequestInterval",) . toJSON . fmap Integer') _route53HealthCheckHealthCheckConfigRequestInterval
     , fmap (("ResourcePath",) . toJSON) _route53HealthCheckHealthCheckConfigResourcePath
     , fmap (("SearchString",) . toJSON) _route53HealthCheckHealthCheckConfigSearchString
@@ -65,6 +67,7 @@ instance FromJSON Route53HealthCheckHealthCheckConfig where
       fmap (fmap (fmap unBool')) (obj .:? "Inverted") <*>
       fmap (fmap (fmap unBool')) (obj .:? "MeasureLatency") <*>
       fmap (fmap (fmap unInteger')) (obj .:? "Port") <*>
+      (obj .:? "Regions") <*>
       fmap (fmap (fmap unInteger')) (obj .:? "RequestInterval") <*>
       (obj .:? "ResourcePath") <*>
       (obj .:? "SearchString") <*>
@@ -89,6 +92,7 @@ route53HealthCheckHealthCheckConfig typearg =
   , _route53HealthCheckHealthCheckConfigInverted = Nothing
   , _route53HealthCheckHealthCheckConfigMeasureLatency = Nothing
   , _route53HealthCheckHealthCheckConfigPort = Nothing
+  , _route53HealthCheckHealthCheckConfigRegions = Nothing
   , _route53HealthCheckHealthCheckConfigRequestInterval = Nothing
   , _route53HealthCheckHealthCheckConfigResourcePath = Nothing
   , _route53HealthCheckHealthCheckConfigSearchString = Nothing
@@ -138,6 +142,10 @@ rhchccMeasureLatency = lens _route53HealthCheckHealthCheckConfigMeasureLatency (
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-port
 rhchccPort :: Lens' Route53HealthCheckHealthCheckConfig (Maybe (Val Integer))
 rhchccPort = lens _route53HealthCheckHealthCheckConfigPort (\s a -> s { _route53HealthCheckHealthCheckConfigPort = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-regions
+rhchccRegions :: Lens' Route53HealthCheckHealthCheckConfig (Maybe (ValList Text))
+rhchccRegions = lens _route53HealthCheckHealthCheckConfigRegions (\s a -> s { _route53HealthCheckHealthCheckConfigRegions = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html#cfn-route53-healthcheck-healthcheckconfig-requestinterval
 rhchccRequestInterval :: Lens' Route53HealthCheckHealthCheckConfig (Maybe (Val Integer))

@@ -15,6 +15,7 @@ data RDSDBCluster =
   RDSDBCluster
   { _rDSDBClusterAvailabilityZones :: Maybe (ValList Text)
   , _rDSDBClusterBackupRetentionPeriod :: Maybe (Val Integer)
+  , _rDSDBClusterDBClusterIdentifier :: Maybe (Val Text)
   , _rDSDBClusterDBClusterParameterGroupName :: Maybe (Val Text)
   , _rDSDBClusterDBSubnetGroupName :: Maybe (Val Text)
   , _rDSDBClusterDatabaseName :: Maybe (Val Text)
@@ -39,6 +40,7 @@ instance ToJSON RDSDBCluster where
     catMaybes
     [ fmap (("AvailabilityZones",) . toJSON) _rDSDBClusterAvailabilityZones
     , fmap (("BackupRetentionPeriod",) . toJSON . fmap Integer') _rDSDBClusterBackupRetentionPeriod
+    , fmap (("DBClusterIdentifier",) . toJSON) _rDSDBClusterDBClusterIdentifier
     , fmap (("DBClusterParameterGroupName",) . toJSON) _rDSDBClusterDBClusterParameterGroupName
     , fmap (("DBSubnetGroupName",) . toJSON) _rDSDBClusterDBSubnetGroupName
     , fmap (("DatabaseName",) . toJSON) _rDSDBClusterDatabaseName
@@ -62,6 +64,7 @@ instance FromJSON RDSDBCluster where
     RDSDBCluster <$>
       (obj .:? "AvailabilityZones") <*>
       fmap (fmap (fmap unInteger')) (obj .:? "BackupRetentionPeriod") <*>
+      (obj .:? "DBClusterIdentifier") <*>
       (obj .:? "DBClusterParameterGroupName") <*>
       (obj .:? "DBSubnetGroupName") <*>
       (obj .:? "DatabaseName") <*>
@@ -88,6 +91,7 @@ rdsdbCluster enginearg =
   RDSDBCluster
   { _rDSDBClusterAvailabilityZones = Nothing
   , _rDSDBClusterBackupRetentionPeriod = Nothing
+  , _rDSDBClusterDBClusterIdentifier = Nothing
   , _rDSDBClusterDBClusterParameterGroupName = Nothing
   , _rDSDBClusterDBSubnetGroupName = Nothing
   , _rDSDBClusterDatabaseName = Nothing
@@ -113,6 +117,10 @@ rdsdbcAvailabilityZones = lens _rDSDBClusterAvailabilityZones (\s a -> s { _rDSD
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-backuprententionperiod
 rdsdbcBackupRetentionPeriod :: Lens' RDSDBCluster (Maybe (Val Integer))
 rdsdbcBackupRetentionPeriod = lens _rDSDBClusterBackupRetentionPeriod (\s a -> s { _rDSDBClusterBackupRetentionPeriod = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-dbclusteridentifier
+rdsdbcDBClusterIdentifier :: Lens' RDSDBCluster (Maybe (Val Text))
+rdsdbcDBClusterIdentifier = lens _rDSDBClusterDBClusterIdentifier (\s a -> s { _rDSDBClusterDBClusterIdentifier = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-dbclusterparametergroupname
 rdsdbcDBClusterParameterGroupName :: Lens' RDSDBCluster (Maybe (Val Text))

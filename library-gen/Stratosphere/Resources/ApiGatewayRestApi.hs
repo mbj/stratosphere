@@ -14,14 +14,15 @@ import Stratosphere.ResourceProperties.ApiGatewayRestApiEndpointConfiguration
 -- for a more convenient constructor.
 data ApiGatewayRestApi =
   ApiGatewayRestApi
-  { _apiGatewayRestApiBinaryMediaTypes :: Maybe (ValList Text)
+  { _apiGatewayRestApiApiKeySourceType :: Maybe (Val Text)
+  , _apiGatewayRestApiBinaryMediaTypes :: Maybe (ValList Text)
   , _apiGatewayRestApiBody :: Maybe Object
   , _apiGatewayRestApiBodyS3Location :: Maybe ApiGatewayRestApiS3Location
   , _apiGatewayRestApiCloneFrom :: Maybe (Val Text)
   , _apiGatewayRestApiDescription :: Maybe (Val Text)
   , _apiGatewayRestApiEndpointConfiguration :: Maybe ApiGatewayRestApiEndpointConfiguration
   , _apiGatewayRestApiFailOnWarnings :: Maybe (Val Bool)
-  , _apiGatewayRestApiMode :: Maybe (Val Text)
+  , _apiGatewayRestApiMinimumCompressionSize :: Maybe (Val Integer)
   , _apiGatewayRestApiName :: Maybe (Val Text)
   , _apiGatewayRestApiParameters :: Maybe Object
   } deriving (Show, Eq)
@@ -30,14 +31,15 @@ instance ToJSON ApiGatewayRestApi where
   toJSON ApiGatewayRestApi{..} =
     object $
     catMaybes
-    [ fmap (("BinaryMediaTypes",) . toJSON) _apiGatewayRestApiBinaryMediaTypes
+    [ fmap (("ApiKeySourceType",) . toJSON) _apiGatewayRestApiApiKeySourceType
+    , fmap (("BinaryMediaTypes",) . toJSON) _apiGatewayRestApiBinaryMediaTypes
     , fmap (("Body",) . toJSON) _apiGatewayRestApiBody
     , fmap (("BodyS3Location",) . toJSON) _apiGatewayRestApiBodyS3Location
     , fmap (("CloneFrom",) . toJSON) _apiGatewayRestApiCloneFrom
     , fmap (("Description",) . toJSON) _apiGatewayRestApiDescription
     , fmap (("EndpointConfiguration",) . toJSON) _apiGatewayRestApiEndpointConfiguration
     , fmap (("FailOnWarnings",) . toJSON . fmap Bool') _apiGatewayRestApiFailOnWarnings
-    , fmap (("Mode",) . toJSON) _apiGatewayRestApiMode
+    , fmap (("MinimumCompressionSize",) . toJSON . fmap Integer') _apiGatewayRestApiMinimumCompressionSize
     , fmap (("Name",) . toJSON) _apiGatewayRestApiName
     , fmap (("Parameters",) . toJSON) _apiGatewayRestApiParameters
     ]
@@ -45,6 +47,7 @@ instance ToJSON ApiGatewayRestApi where
 instance FromJSON ApiGatewayRestApi where
   parseJSON (Object obj) =
     ApiGatewayRestApi <$>
+      (obj .:? "ApiKeySourceType") <*>
       (obj .:? "BinaryMediaTypes") <*>
       (obj .:? "Body") <*>
       (obj .:? "BodyS3Location") <*>
@@ -52,7 +55,7 @@ instance FromJSON ApiGatewayRestApi where
       (obj .:? "Description") <*>
       (obj .:? "EndpointConfiguration") <*>
       fmap (fmap (fmap unBool')) (obj .:? "FailOnWarnings") <*>
-      (obj .:? "Mode") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "MinimumCompressionSize") <*>
       (obj .:? "Name") <*>
       (obj .:? "Parameters")
   parseJSON _ = mempty
@@ -63,17 +66,22 @@ apiGatewayRestApi
   :: ApiGatewayRestApi
 apiGatewayRestApi  =
   ApiGatewayRestApi
-  { _apiGatewayRestApiBinaryMediaTypes = Nothing
+  { _apiGatewayRestApiApiKeySourceType = Nothing
+  , _apiGatewayRestApiBinaryMediaTypes = Nothing
   , _apiGatewayRestApiBody = Nothing
   , _apiGatewayRestApiBodyS3Location = Nothing
   , _apiGatewayRestApiCloneFrom = Nothing
   , _apiGatewayRestApiDescription = Nothing
   , _apiGatewayRestApiEndpointConfiguration = Nothing
   , _apiGatewayRestApiFailOnWarnings = Nothing
-  , _apiGatewayRestApiMode = Nothing
+  , _apiGatewayRestApiMinimumCompressionSize = Nothing
   , _apiGatewayRestApiName = Nothing
   , _apiGatewayRestApiParameters = Nothing
   }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-apikeysourcetype
+agraApiKeySourceType :: Lens' ApiGatewayRestApi (Maybe (Val Text))
+agraApiKeySourceType = lens _apiGatewayRestApiApiKeySourceType (\s a -> s { _apiGatewayRestApiApiKeySourceType = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-binarymediatypes
 agraBinaryMediaTypes :: Lens' ApiGatewayRestApi (Maybe (ValList Text))
@@ -103,9 +111,9 @@ agraEndpointConfiguration = lens _apiGatewayRestApiEndpointConfiguration (\s a -
 agraFailOnWarnings :: Lens' ApiGatewayRestApi (Maybe (Val Bool))
 agraFailOnWarnings = lens _apiGatewayRestApiFailOnWarnings (\s a -> s { _apiGatewayRestApiFailOnWarnings = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-mode
-agraMode :: Lens' ApiGatewayRestApi (Maybe (Val Text))
-agraMode = lens _apiGatewayRestApiMode (\s a -> s { _apiGatewayRestApiMode = a })
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-minimumcompressionsize
+agraMinimumCompressionSize :: Lens' ApiGatewayRestApi (Maybe (Val Integer))
+agraMinimumCompressionSize = lens _apiGatewayRestApiMinimumCompressionSize (\s a -> s { _apiGatewayRestApiMinimumCompressionSize = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-name
 agraName :: Lens' ApiGatewayRestApi (Maybe (Val Text))

@@ -13,6 +13,7 @@ import Stratosphere.ResourceProperties.EC2SpotFleetSpotFleetMonitoring
 import Stratosphere.ResourceProperties.EC2SpotFleetInstanceNetworkInterfaceSpecification
 import Stratosphere.ResourceProperties.EC2SpotFleetSpotPlacement
 import Stratosphere.ResourceProperties.EC2SpotFleetGroupIdentifier
+import Stratosphere.ResourceProperties.EC2SpotFleetSpotFleetTagSpecification
 
 -- | Full data type definition for EC2SpotFleetSpotFleetLaunchSpecification.
 -- See 'ec2SpotFleetSpotFleetLaunchSpecification' for a more convenient
@@ -33,6 +34,7 @@ data EC2SpotFleetSpotFleetLaunchSpecification =
   , _eC2SpotFleetSpotFleetLaunchSpecificationSecurityGroups :: Maybe [EC2SpotFleetGroupIdentifier]
   , _eC2SpotFleetSpotFleetLaunchSpecificationSpotPrice :: Maybe (Val Text)
   , _eC2SpotFleetSpotFleetLaunchSpecificationSubnetId :: Maybe (Val Text)
+  , _eC2SpotFleetSpotFleetLaunchSpecificationTagSpecifications :: Maybe [EC2SpotFleetSpotFleetTagSpecification]
   , _eC2SpotFleetSpotFleetLaunchSpecificationUserData :: Maybe (Val Text)
   , _eC2SpotFleetSpotFleetLaunchSpecificationWeightedCapacity :: Maybe (Val Double)
   } deriving (Show, Eq)
@@ -55,6 +57,7 @@ instance ToJSON EC2SpotFleetSpotFleetLaunchSpecification where
     , fmap (("SecurityGroups",) . toJSON) _eC2SpotFleetSpotFleetLaunchSpecificationSecurityGroups
     , fmap (("SpotPrice",) . toJSON) _eC2SpotFleetSpotFleetLaunchSpecificationSpotPrice
     , fmap (("SubnetId",) . toJSON) _eC2SpotFleetSpotFleetLaunchSpecificationSubnetId
+    , fmap (("TagSpecifications",) . toJSON) _eC2SpotFleetSpotFleetLaunchSpecificationTagSpecifications
     , fmap (("UserData",) . toJSON) _eC2SpotFleetSpotFleetLaunchSpecificationUserData
     , fmap (("WeightedCapacity",) . toJSON . fmap Double') _eC2SpotFleetSpotFleetLaunchSpecificationWeightedCapacity
     ]
@@ -76,6 +79,7 @@ instance FromJSON EC2SpotFleetSpotFleetLaunchSpecification where
       (obj .:? "SecurityGroups") <*>
       (obj .:? "SpotPrice") <*>
       (obj .:? "SubnetId") <*>
+      (obj .:? "TagSpecifications") <*>
       (obj .:? "UserData") <*>
       fmap (fmap (fmap unDouble')) (obj .:? "WeightedCapacity")
   parseJSON _ = mempty
@@ -102,6 +106,7 @@ ec2SpotFleetSpotFleetLaunchSpecification imageIdarg instanceTypearg =
   , _eC2SpotFleetSpotFleetLaunchSpecificationSecurityGroups = Nothing
   , _eC2SpotFleetSpotFleetLaunchSpecificationSpotPrice = Nothing
   , _eC2SpotFleetSpotFleetLaunchSpecificationSubnetId = Nothing
+  , _eC2SpotFleetSpotFleetLaunchSpecificationTagSpecifications = Nothing
   , _eC2SpotFleetSpotFleetLaunchSpecificationUserData = Nothing
   , _eC2SpotFleetSpotFleetLaunchSpecificationWeightedCapacity = Nothing
   }
@@ -161,6 +166,10 @@ ecsfsflsSpotPrice = lens _eC2SpotFleetSpotFleetLaunchSpecificationSpotPrice (\s 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-subnetid
 ecsfsflsSubnetId :: Lens' EC2SpotFleetSpotFleetLaunchSpecification (Maybe (Val Text))
 ecsfsflsSubnetId = lens _eC2SpotFleetSpotFleetLaunchSpecificationSubnetId (\s a -> s { _eC2SpotFleetSpotFleetLaunchSpecificationSubnetId = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-tagspecifications
+ecsfsflsTagSpecifications :: Lens' EC2SpotFleetSpotFleetLaunchSpecification (Maybe [EC2SpotFleetSpotFleetTagSpecification])
+ecsfsflsTagSpecifications = lens _eC2SpotFleetSpotFleetLaunchSpecificationTagSpecifications (\s a -> s { _eC2SpotFleetSpotFleetLaunchSpecificationTagSpecifications = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications.html#cfn-ec2-spotfleet-spotfleetlaunchspecification-userdata
 ecsfsflsUserData :: Lens' EC2SpotFleetSpotFleetLaunchSpecification (Maybe (Val Text))

@@ -9,6 +9,7 @@ module Stratosphere.Resources.SSMPatchBaseline where
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.SSMPatchBaselineRuleGroup
 import Stratosphere.ResourceProperties.SSMPatchBaselinePatchFilterGroup
+import Stratosphere.ResourceProperties.SSMPatchBaselinePatchSource
 
 -- | Full data type definition for SSMPatchBaseline. See 'ssmPatchBaseline'
 -- for a more convenient constructor.
@@ -17,12 +18,14 @@ data SSMPatchBaseline =
   { _sSMPatchBaselineApprovalRules :: Maybe SSMPatchBaselineRuleGroup
   , _sSMPatchBaselineApprovedPatches :: Maybe (ValList Text)
   , _sSMPatchBaselineApprovedPatchesComplianceLevel :: Maybe (Val Text)
+  , _sSMPatchBaselineApprovedPatchesEnableNonSecurity :: Maybe (Val Bool)
   , _sSMPatchBaselineDescription :: Maybe (Val Text)
   , _sSMPatchBaselineGlobalFilters :: Maybe SSMPatchBaselinePatchFilterGroup
   , _sSMPatchBaselineName :: Val Text
   , _sSMPatchBaselineOperatingSystem :: Maybe (Val Text)
   , _sSMPatchBaselinePatchGroups :: Maybe (ValList Text)
   , _sSMPatchBaselineRejectedPatches :: Maybe (ValList Text)
+  , _sSMPatchBaselineSources :: Maybe [SSMPatchBaselinePatchSource]
   } deriving (Show, Eq)
 
 instance ToJSON SSMPatchBaseline where
@@ -32,12 +35,14 @@ instance ToJSON SSMPatchBaseline where
     [ fmap (("ApprovalRules",) . toJSON) _sSMPatchBaselineApprovalRules
     , fmap (("ApprovedPatches",) . toJSON) _sSMPatchBaselineApprovedPatches
     , fmap (("ApprovedPatchesComplianceLevel",) . toJSON) _sSMPatchBaselineApprovedPatchesComplianceLevel
+    , fmap (("ApprovedPatchesEnableNonSecurity",) . toJSON . fmap Bool') _sSMPatchBaselineApprovedPatchesEnableNonSecurity
     , fmap (("Description",) . toJSON) _sSMPatchBaselineDescription
     , fmap (("GlobalFilters",) . toJSON) _sSMPatchBaselineGlobalFilters
     , (Just . ("Name",) . toJSON) _sSMPatchBaselineName
     , fmap (("OperatingSystem",) . toJSON) _sSMPatchBaselineOperatingSystem
     , fmap (("PatchGroups",) . toJSON) _sSMPatchBaselinePatchGroups
     , fmap (("RejectedPatches",) . toJSON) _sSMPatchBaselineRejectedPatches
+    , fmap (("Sources",) . toJSON) _sSMPatchBaselineSources
     ]
 
 instance FromJSON SSMPatchBaseline where
@@ -46,12 +51,14 @@ instance FromJSON SSMPatchBaseline where
       (obj .:? "ApprovalRules") <*>
       (obj .:? "ApprovedPatches") <*>
       (obj .:? "ApprovedPatchesComplianceLevel") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "ApprovedPatchesEnableNonSecurity") <*>
       (obj .:? "Description") <*>
       (obj .:? "GlobalFilters") <*>
       (obj .: "Name") <*>
       (obj .:? "OperatingSystem") <*>
       (obj .:? "PatchGroups") <*>
-      (obj .:? "RejectedPatches")
+      (obj .:? "RejectedPatches") <*>
+      (obj .:? "Sources")
   parseJSON _ = mempty
 
 -- | Constructor for 'SSMPatchBaseline' containing required fields as
@@ -64,12 +71,14 @@ ssmPatchBaseline namearg =
   { _sSMPatchBaselineApprovalRules = Nothing
   , _sSMPatchBaselineApprovedPatches = Nothing
   , _sSMPatchBaselineApprovedPatchesComplianceLevel = Nothing
+  , _sSMPatchBaselineApprovedPatchesEnableNonSecurity = Nothing
   , _sSMPatchBaselineDescription = Nothing
   , _sSMPatchBaselineGlobalFilters = Nothing
   , _sSMPatchBaselineName = namearg
   , _sSMPatchBaselineOperatingSystem = Nothing
   , _sSMPatchBaselinePatchGroups = Nothing
   , _sSMPatchBaselineRejectedPatches = Nothing
+  , _sSMPatchBaselineSources = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html#cfn-ssm-patchbaseline-approvalrules
@@ -83,6 +92,10 @@ ssmpbApprovedPatches = lens _sSMPatchBaselineApprovedPatches (\s a -> s { _sSMPa
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html#cfn-ssm-patchbaseline-approvedpatchescompliancelevel
 ssmpbApprovedPatchesComplianceLevel :: Lens' SSMPatchBaseline (Maybe (Val Text))
 ssmpbApprovedPatchesComplianceLevel = lens _sSMPatchBaselineApprovedPatchesComplianceLevel (\s a -> s { _sSMPatchBaselineApprovedPatchesComplianceLevel = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html#cfn-ssm-patchbaseline-approvedpatchesenablenonsecurity
+ssmpbApprovedPatchesEnableNonSecurity :: Lens' SSMPatchBaseline (Maybe (Val Bool))
+ssmpbApprovedPatchesEnableNonSecurity = lens _sSMPatchBaselineApprovedPatchesEnableNonSecurity (\s a -> s { _sSMPatchBaselineApprovedPatchesEnableNonSecurity = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html#cfn-ssm-patchbaseline-description
 ssmpbDescription :: Lens' SSMPatchBaseline (Maybe (Val Text))
@@ -107,3 +120,7 @@ ssmpbPatchGroups = lens _sSMPatchBaselinePatchGroups (\s a -> s { _sSMPatchBasel
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html#cfn-ssm-patchbaseline-rejectedpatches
 ssmpbRejectedPatches :: Lens' SSMPatchBaseline (Maybe (ValList Text))
 ssmpbRejectedPatches = lens _sSMPatchBaselineRejectedPatches (\s a -> s { _sSMPatchBaselineRejectedPatches = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html#cfn-ssm-patchbaseline-sources
+ssmpbSources :: Lens' SSMPatchBaseline (Maybe [SSMPatchBaselinePatchSource])
+ssmpbSources = lens _sSMPatchBaselineSources (\s a -> s { _sSMPatchBaselineSources = a })
