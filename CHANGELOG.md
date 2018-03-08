@@ -3,6 +3,7 @@
 ## 0.18.0
 
 * Update resource specification document to version 2.0.0
+* Fix missing `AWS::ElasticLoadBalancingV2::ListenerCertificate` resource
 
 ## 0.17.0
 

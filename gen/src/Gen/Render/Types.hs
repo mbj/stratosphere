@@ -114,6 +114,10 @@ normalizeTypeName allFullNames resourceType name
 -- AWS::EC2::Instance.Ebs is EC2InstanceEbs.
 computeModuleName :: Text -> Text
 computeModuleName fullName
+  -- AWS::ElasticLoadBalancingV2::ListenerCertificate conflicts with
+  -- AWS::ElasticLoadBalancingV2::Listener.Certificate
+  | fullName == "AWS::ElasticLoadBalancingV2::ListenerCertificate" =
+      computeModuleName "AWS::ElasticLoadBalancingV2::ListenerCertificateResource"
   | "::" `isInfixOf` fullName =
     let [_, parent, baseName] = splitOn "::" fullName
     in Data.Text.filter (/= '.') (parent <> baseName)
