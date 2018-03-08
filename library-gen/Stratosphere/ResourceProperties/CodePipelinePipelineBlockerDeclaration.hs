@@ -2,7 +2,7 @@
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE TupleSections #-}
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-blockerdeclaration.html
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages-blockers.html
 
 module Stratosphere.ResourceProperties.CodePipelinePipelineBlockerDeclaration where
 
@@ -45,10 +45,10 @@ codePipelinePipelineBlockerDeclaration namearg typearg =
   , _codePipelinePipelineBlockerDeclarationType = typearg
   }
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-blockerdeclaration.html#cfn-codepipeline-pipeline-blockerdeclaration-name
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages-blockers.html#cfn-codepipeline-pipeline-stages-blockers-name
 cppbdName :: Lens' CodePipelinePipelineBlockerDeclaration (Val Text)
 cppbdName = lens _codePipelinePipelineBlockerDeclarationName (\s a -> s { _codePipelinePipelineBlockerDeclarationName = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-blockerdeclaration.html#cfn-codepipeline-pipeline-blockerdeclaration-type
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages-blockers.html#cfn-codepipeline-pipeline-stages-blockers-type
 cppbdType :: Lens' CodePipelinePipelineBlockerDeclaration (Val Text)
 cppbdType = lens _codePipelinePipelineBlockerDeclarationType (\s a -> s { _codePipelinePipelineBlockerDeclarationType = a })

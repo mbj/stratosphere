@@ -10,7 +10,7 @@
 {-# LANGUAGE TypeFamilies #-}
 
 #if MIN_VERSION_GLASGOW_HASKELL(8,0,1,0)
-{-# OPTIONS_GHC -fmax-pmcheck-iterations=20000000 #-}
+{-# OPTIONS_GHC -fmax-pmcheck-iterations=30000000 #-}
 #endif
 
 -- | See:
@@ -63,6 +63,7 @@ import Stratosphere.Resources.ApiGatewayRestApi as X
 import Stratosphere.Resources.ApiGatewayStage as X
 import Stratosphere.Resources.ApiGatewayUsagePlan as X
 import Stratosphere.Resources.ApiGatewayUsagePlanKey as X
+import Stratosphere.Resources.ApiGatewayVpcLink as X
 import Stratosphere.Resources.ApplicationAutoScalingScalableTarget as X
 import Stratosphere.Resources.ApplicationAutoScalingScalingPolicy as X
 import Stratosphere.Resources.AthenaNamedQuery as X
@@ -178,6 +179,7 @@ import Stratosphere.Resources.ElasticBeanstalkConfigurationTemplate as X
 import Stratosphere.Resources.ElasticBeanstalkEnvironment as X
 import Stratosphere.Resources.ElasticLoadBalancingLoadBalancer as X
 import Stratosphere.Resources.ElasticLoadBalancingV2Listener as X
+import Stratosphere.Resources.ElasticLoadBalancingV2ListenerCertificateResource as X
 import Stratosphere.Resources.ElasticLoadBalancingV2ListenerRule as X
 import Stratosphere.Resources.ElasticLoadBalancingV2LoadBalancer as X
 import Stratosphere.Resources.ElasticLoadBalancingV2TargetGroup as X
@@ -197,6 +199,8 @@ import Stratosphere.Resources.GlueTable as X
 import Stratosphere.Resources.GlueTrigger as X
 import Stratosphere.Resources.GuardDutyDetector as X
 import Stratosphere.Resources.GuardDutyIPSet as X
+import Stratosphere.Resources.GuardDutyMaster as X
+import Stratosphere.Resources.GuardDutyMember as X
 import Stratosphere.Resources.GuardDutyThreatIntelSet as X
 import Stratosphere.Resources.IAMAccessKey as X
 import Stratosphere.Resources.IAMGroup as X
@@ -260,6 +264,12 @@ import Stratosphere.Resources.Route53RecordSetGroup as X
 import Stratosphere.Resources.S3Bucket as X
 import Stratosphere.Resources.S3BucketPolicy as X
 import Stratosphere.Resources.SDBDomain as X
+import Stratosphere.Resources.SESConfigurationSet as X
+import Stratosphere.Resources.SESConfigurationSetEventDestination as X
+import Stratosphere.Resources.SESReceiptFilter as X
+import Stratosphere.Resources.SESReceiptRule as X
+import Stratosphere.Resources.SESReceiptRuleSet as X
+import Stratosphere.Resources.SESTemplate as X
 import Stratosphere.Resources.SNSSubscription as X
 import Stratosphere.Resources.SNSTopic as X
 import Stratosphere.Resources.SNSTopicPolicy as X
@@ -465,6 +475,7 @@ import Stratosphere.ResourceProperties.EC2SpotFleetPrivateIpAddressSpecification
 import Stratosphere.ResourceProperties.EC2SpotFleetSpotFleetLaunchSpecification as X
 import Stratosphere.ResourceProperties.EC2SpotFleetSpotFleetMonitoring as X
 import Stratosphere.ResourceProperties.EC2SpotFleetSpotFleetRequestConfigData as X
+import Stratosphere.ResourceProperties.EC2SpotFleetSpotFleetTagSpecification as X
 import Stratosphere.ResourceProperties.EC2SpotFleetSpotPlacement as X
 import Stratosphere.ResourceProperties.EC2VPNConnectionVpnTunnelOptionsSpecification as X
 import Stratosphere.ResourceProperties.ECRRepositoryLifecyclePolicy as X
@@ -743,6 +754,22 @@ import Stratosphere.ResourceProperties.S3BucketTopicConfiguration as X
 import Stratosphere.ResourceProperties.S3BucketTransition as X
 import Stratosphere.ResourceProperties.S3BucketVersioningConfiguration as X
 import Stratosphere.ResourceProperties.S3BucketWebsiteConfiguration as X
+import Stratosphere.ResourceProperties.SESConfigurationSetEventDestinationCloudWatchDestination as X
+import Stratosphere.ResourceProperties.SESConfigurationSetEventDestinationDimensionConfiguration as X
+import Stratosphere.ResourceProperties.SESConfigurationSetEventDestinationEventDestination as X
+import Stratosphere.ResourceProperties.SESConfigurationSetEventDestinationKinesisFirehoseDestination as X
+import Stratosphere.ResourceProperties.SESReceiptFilterFilter as X
+import Stratosphere.ResourceProperties.SESReceiptFilterIpFilter as X
+import Stratosphere.ResourceProperties.SESReceiptRuleAction as X
+import Stratosphere.ResourceProperties.SESReceiptRuleAddHeaderAction as X
+import Stratosphere.ResourceProperties.SESReceiptRuleBounceAction as X
+import Stratosphere.ResourceProperties.SESReceiptRuleLambdaAction as X
+import Stratosphere.ResourceProperties.SESReceiptRuleRule as X
+import Stratosphere.ResourceProperties.SESReceiptRuleS3Action as X
+import Stratosphere.ResourceProperties.SESReceiptRuleSNSAction as X
+import Stratosphere.ResourceProperties.SESReceiptRuleStopAction as X
+import Stratosphere.ResourceProperties.SESReceiptRuleWorkmailAction as X
+import Stratosphere.ResourceProperties.SESTemplateTemplate as X
 import Stratosphere.ResourceProperties.SNSTopicSubscription as X
 import Stratosphere.ResourceProperties.SSMAssociationParameterValues as X
 import Stratosphere.ResourceProperties.SSMAssociationTarget as X
@@ -756,6 +783,7 @@ import Stratosphere.ResourceProperties.SSMMaintenanceWindowTaskTarget as X
 import Stratosphere.ResourceProperties.SSMMaintenanceWindowTaskTaskInvocationParameters as X
 import Stratosphere.ResourceProperties.SSMPatchBaselinePatchFilter as X
 import Stratosphere.ResourceProperties.SSMPatchBaselinePatchFilterGroup as X
+import Stratosphere.ResourceProperties.SSMPatchBaselinePatchSource as X
 import Stratosphere.ResourceProperties.SSMPatchBaselineRule as X
 import Stratosphere.ResourceProperties.SSMPatchBaselineRuleGroup as X
 import Stratosphere.ResourceProperties.ServiceDiscoveryServiceDnsConfig as X
@@ -815,6 +843,7 @@ data ResourceProperties
   | ApiGatewayStageProperties ApiGatewayStage
   | ApiGatewayUsagePlanProperties ApiGatewayUsagePlan
   | ApiGatewayUsagePlanKeyProperties ApiGatewayUsagePlanKey
+  | ApiGatewayVpcLinkProperties ApiGatewayVpcLink
   | ApplicationAutoScalingScalableTargetProperties ApplicationAutoScalingScalableTarget
   | ApplicationAutoScalingScalingPolicyProperties ApplicationAutoScalingScalingPolicy
   | AthenaNamedQueryProperties AthenaNamedQuery
@@ -930,6 +959,7 @@ data ResourceProperties
   | ElasticBeanstalkEnvironmentProperties ElasticBeanstalkEnvironment
   | ElasticLoadBalancingLoadBalancerProperties ElasticLoadBalancingLoadBalancer
   | ElasticLoadBalancingV2ListenerProperties ElasticLoadBalancingV2Listener
+  | ElasticLoadBalancingV2ListenerCertificateResourceProperties ElasticLoadBalancingV2ListenerCertificateResource
   | ElasticLoadBalancingV2ListenerRuleProperties ElasticLoadBalancingV2ListenerRule
   | ElasticLoadBalancingV2LoadBalancerProperties ElasticLoadBalancingV2LoadBalancer
   | ElasticLoadBalancingV2TargetGroupProperties ElasticLoadBalancingV2TargetGroup
@@ -949,6 +979,8 @@ data ResourceProperties
   | GlueTriggerProperties GlueTrigger
   | GuardDutyDetectorProperties GuardDutyDetector
   | GuardDutyIPSetProperties GuardDutyIPSet
+  | GuardDutyMasterProperties GuardDutyMaster
+  | GuardDutyMemberProperties GuardDutyMember
   | GuardDutyThreatIntelSetProperties GuardDutyThreatIntelSet
   | IAMAccessKeyProperties IAMAccessKey
   | IAMGroupProperties IAMGroup
@@ -1012,6 +1044,12 @@ data ResourceProperties
   | S3BucketProperties S3Bucket
   | S3BucketPolicyProperties S3BucketPolicy
   | SDBDomainProperties SDBDomain
+  | SESConfigurationSetProperties SESConfigurationSet
+  | SESConfigurationSetEventDestinationProperties SESConfigurationSetEventDestination
+  | SESReceiptFilterProperties SESReceiptFilter
+  | SESReceiptRuleProperties SESReceiptRule
+  | SESReceiptRuleSetProperties SESReceiptRuleSet
+  | SESTemplateProperties SESTemplate
   | SNSSubscriptionProperties SNSSubscription
   | SNSTopicProperties SNSTopic
   | SNSTopicPolicyProperties SNSTopicPolicy
@@ -1132,6 +1170,8 @@ resourcePropertiesJSON (ApiGatewayUsagePlanProperties x) =
   [ "Type" .= ("AWS::ApiGateway::UsagePlan" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ApiGatewayUsagePlanKeyProperties x) =
   [ "Type" .= ("AWS::ApiGateway::UsagePlanKey" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (ApiGatewayVpcLinkProperties x) =
+  [ "Type" .= ("AWS::ApiGateway::VpcLink" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ApplicationAutoScalingScalableTargetProperties x) =
   [ "Type" .= ("AWS::ApplicationAutoScaling::ScalableTarget" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ApplicationAutoScalingScalingPolicyProperties x) =
@@ -1362,6 +1402,8 @@ resourcePropertiesJSON (ElasticLoadBalancingLoadBalancerProperties x) =
   [ "Type" .= ("AWS::ElasticLoadBalancing::LoadBalancer" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ElasticLoadBalancingV2ListenerProperties x) =
   [ "Type" .= ("AWS::ElasticLoadBalancingV2::Listener" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (ElasticLoadBalancingV2ListenerCertificateResourceProperties x) =
+  [ "Type" .= ("AWS::ElasticLoadBalancingV2::ListenerCertificate" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ElasticLoadBalancingV2ListenerRuleProperties x) =
   [ "Type" .= ("AWS::ElasticLoadBalancingV2::ListenerRule" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ElasticLoadBalancingV2LoadBalancerProperties x) =
@@ -1400,6 +1442,10 @@ resourcePropertiesJSON (GuardDutyDetectorProperties x) =
   [ "Type" .= ("AWS::GuardDuty::Detector" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (GuardDutyIPSetProperties x) =
   [ "Type" .= ("AWS::GuardDuty::IPSet" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (GuardDutyMasterProperties x) =
+  [ "Type" .= ("AWS::GuardDuty::Master" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (GuardDutyMemberProperties x) =
+  [ "Type" .= ("AWS::GuardDuty::Member" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (GuardDutyThreatIntelSetProperties x) =
   [ "Type" .= ("AWS::GuardDuty::ThreatIntelSet" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (IAMAccessKeyProperties x) =
@@ -1526,6 +1572,18 @@ resourcePropertiesJSON (S3BucketPolicyProperties x) =
   [ "Type" .= ("AWS::S3::BucketPolicy" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (SDBDomainProperties x) =
   [ "Type" .= ("AWS::SDB::Domain" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (SESConfigurationSetProperties x) =
+  [ "Type" .= ("AWS::SES::ConfigurationSet" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (SESConfigurationSetEventDestinationProperties x) =
+  [ "Type" .= ("AWS::SES::ConfigurationSetEventDestination" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (SESReceiptFilterProperties x) =
+  [ "Type" .= ("AWS::SES::ReceiptFilter" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (SESReceiptRuleProperties x) =
+  [ "Type" .= ("AWS::SES::ReceiptRule" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (SESReceiptRuleSetProperties x) =
+  [ "Type" .= ("AWS::SES::ReceiptRuleSet" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (SESTemplateProperties x) =
+  [ "Type" .= ("AWS::SES::Template" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (SNSSubscriptionProperties x) =
   [ "Type" .= ("AWS::SNS::Subscription" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (SNSTopicProperties x) =
@@ -1614,6 +1672,7 @@ resourceFromJSON n o =
          "AWS::ApiGateway::Stage" -> ApiGatewayStageProperties <$> (o .: "Properties")
          "AWS::ApiGateway::UsagePlan" -> ApiGatewayUsagePlanProperties <$> (o .: "Properties")
          "AWS::ApiGateway::UsagePlanKey" -> ApiGatewayUsagePlanKeyProperties <$> (o .: "Properties")
+         "AWS::ApiGateway::VpcLink" -> ApiGatewayVpcLinkProperties <$> (o .: "Properties")
          "AWS::ApplicationAutoScaling::ScalableTarget" -> ApplicationAutoScalingScalableTargetProperties <$> (o .: "Properties")
          "AWS::ApplicationAutoScaling::ScalingPolicy" -> ApplicationAutoScalingScalingPolicyProperties <$> (o .: "Properties")
          "AWS::Athena::NamedQuery" -> AthenaNamedQueryProperties <$> (o .: "Properties")
@@ -1729,6 +1788,7 @@ resourceFromJSON n o =
          "AWS::ElasticBeanstalk::Environment" -> ElasticBeanstalkEnvironmentProperties <$> (o .: "Properties")
          "AWS::ElasticLoadBalancing::LoadBalancer" -> ElasticLoadBalancingLoadBalancerProperties <$> (o .: "Properties")
          "AWS::ElasticLoadBalancingV2::Listener" -> ElasticLoadBalancingV2ListenerProperties <$> (o .: "Properties")
+         "AWS::ElasticLoadBalancingV2::ListenerCertificate" -> ElasticLoadBalancingV2ListenerCertificateResourceProperties <$> (o .: "Properties")
          "AWS::ElasticLoadBalancingV2::ListenerRule" -> ElasticLoadBalancingV2ListenerRuleProperties <$> (o .: "Properties")
          "AWS::ElasticLoadBalancingV2::LoadBalancer" -> ElasticLoadBalancingV2LoadBalancerProperties <$> (o .: "Properties")
          "AWS::ElasticLoadBalancingV2::TargetGroup" -> ElasticLoadBalancingV2TargetGroupProperties <$> (o .: "Properties")
@@ -1748,6 +1808,8 @@ resourceFromJSON n o =
          "AWS::Glue::Trigger" -> GlueTriggerProperties <$> (o .: "Properties")
          "AWS::GuardDuty::Detector" -> GuardDutyDetectorProperties <$> (o .: "Properties")
          "AWS::GuardDuty::IPSet" -> GuardDutyIPSetProperties <$> (o .: "Properties")
+         "AWS::GuardDuty::Master" -> GuardDutyMasterProperties <$> (o .: "Properties")
+         "AWS::GuardDuty::Member" -> GuardDutyMemberProperties <$> (o .: "Properties")
          "AWS::GuardDuty::ThreatIntelSet" -> GuardDutyThreatIntelSetProperties <$> (o .: "Properties")
          "AWS::IAM::AccessKey" -> IAMAccessKeyProperties <$> (o .: "Properties")
          "AWS::IAM::Group" -> IAMGroupProperties <$> (o .: "Properties")
@@ -1811,6 +1873,12 @@ resourceFromJSON n o =
          "AWS::S3::Bucket" -> S3BucketProperties <$> (o .: "Properties")
          "AWS::S3::BucketPolicy" -> S3BucketPolicyProperties <$> (o .: "Properties")
          "AWS::SDB::Domain" -> SDBDomainProperties <$> (o .: "Properties")
+         "AWS::SES::ConfigurationSet" -> SESConfigurationSetProperties <$> (o .: "Properties")
+         "AWS::SES::ConfigurationSetEventDestination" -> SESConfigurationSetEventDestinationProperties <$> (o .: "Properties")
+         "AWS::SES::ReceiptFilter" -> SESReceiptFilterProperties <$> (o .: "Properties")
+         "AWS::SES::ReceiptRule" -> SESReceiptRuleProperties <$> (o .: "Properties")
+         "AWS::SES::ReceiptRuleSet" -> SESReceiptRuleSetProperties <$> (o .: "Properties")
+         "AWS::SES::Template" -> SESTemplateProperties <$> (o .: "Properties")
          "AWS::SNS::Subscription" -> SNSSubscriptionProperties <$> (o .: "Properties")
          "AWS::SNS::Topic" -> SNSTopicProperties <$> (o .: "Properties")
          "AWS::SNS::TopicPolicy" -> SNSTopicPolicyProperties <$> (o .: "Properties")

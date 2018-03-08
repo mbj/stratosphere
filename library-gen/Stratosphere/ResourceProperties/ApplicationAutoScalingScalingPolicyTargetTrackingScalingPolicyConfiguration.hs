@@ -18,6 +18,7 @@ import Stratosphere.ResourceProperties.ApplicationAutoScalingScalingPolicyPredef
 data ApplicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfiguration =
   ApplicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfiguration
   { _applicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification :: Maybe ApplicationAutoScalingScalingPolicyCustomizedMetricSpecification
+  , _applicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfigurationDisableScaleIn :: Maybe (Val Bool)
   , _applicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification :: Maybe ApplicationAutoScalingScalingPolicyPredefinedMetricSpecification
   , _applicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfigurationScaleInCooldown :: Maybe (Val Integer)
   , _applicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfigurationScaleOutCooldown :: Maybe (Val Integer)
@@ -29,6 +30,7 @@ instance ToJSON ApplicationAutoScalingScalingPolicyTargetTrackingScalingPolicyCo
     object $
     catMaybes
     [ fmap (("CustomizedMetricSpecification",) . toJSON) _applicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification
+    , fmap (("DisableScaleIn",) . toJSON . fmap Bool') _applicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfigurationDisableScaleIn
     , fmap (("PredefinedMetricSpecification",) . toJSON) _applicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification
     , fmap (("ScaleInCooldown",) . toJSON . fmap Integer') _applicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfigurationScaleInCooldown
     , fmap (("ScaleOutCooldown",) . toJSON . fmap Integer') _applicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfigurationScaleOutCooldown
@@ -39,6 +41,7 @@ instance FromJSON ApplicationAutoScalingScalingPolicyTargetTrackingScalingPolicy
   parseJSON (Object obj) =
     ApplicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfiguration <$>
       (obj .:? "CustomizedMetricSpecification") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "DisableScaleIn") <*>
       (obj .:? "PredefinedMetricSpecification") <*>
       fmap (fmap (fmap unInteger')) (obj .:? "ScaleInCooldown") <*>
       fmap (fmap (fmap unInteger')) (obj .:? "ScaleOutCooldown") <*>
@@ -54,6 +57,7 @@ applicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfiguration
 applicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfiguration targetValuearg =
   ApplicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfiguration
   { _applicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification = Nothing
+  , _applicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfigurationDisableScaleIn = Nothing
   , _applicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification = Nothing
   , _applicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfigurationScaleInCooldown = Nothing
   , _applicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfigurationScaleOutCooldown = Nothing
@@ -63,6 +67,10 @@ applicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfiguration targ
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration.html#cfn-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration-customizedmetricspecification
 aasspttspcCustomizedMetricSpecification :: Lens' ApplicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfiguration (Maybe ApplicationAutoScalingScalingPolicyCustomizedMetricSpecification)
 aasspttspcCustomizedMetricSpecification = lens _applicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification (\s a -> s { _applicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration.html#cfn-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration-disablescalein
+aasspttspcDisableScaleIn :: Lens' ApplicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfiguration (Maybe (Val Bool))
+aasspttspcDisableScaleIn = lens _applicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfigurationDisableScaleIn (\s a -> s { _applicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfigurationDisableScaleIn = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration.html#cfn-applicationautoscaling-scalingpolicy-targettrackingscalingpolicyconfiguration-predefinedmetricspecification
 aasspttspcPredefinedMetricSpecification :: Lens' ApplicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfiguration (Maybe ApplicationAutoScalingScalingPolicyPredefinedMetricSpecification)

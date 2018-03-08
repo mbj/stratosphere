@@ -15,6 +15,7 @@ data SSMPatchBaselineRule =
   SSMPatchBaselineRule
   { _sSMPatchBaselineRuleApproveAfterDays :: Maybe (Val Integer)
   , _sSMPatchBaselineRuleComplianceLevel :: Maybe (Val Text)
+  , _sSMPatchBaselineRuleEnableNonSecurity :: Maybe (Val Bool)
   , _sSMPatchBaselineRulePatchFilterGroup :: Maybe SSMPatchBaselinePatchFilterGroup
   } deriving (Show, Eq)
 
@@ -24,6 +25,7 @@ instance ToJSON SSMPatchBaselineRule where
     catMaybes
     [ fmap (("ApproveAfterDays",) . toJSON . fmap Integer') _sSMPatchBaselineRuleApproveAfterDays
     , fmap (("ComplianceLevel",) . toJSON) _sSMPatchBaselineRuleComplianceLevel
+    , fmap (("EnableNonSecurity",) . toJSON . fmap Bool') _sSMPatchBaselineRuleEnableNonSecurity
     , fmap (("PatchFilterGroup",) . toJSON) _sSMPatchBaselineRulePatchFilterGroup
     ]
 
@@ -32,6 +34,7 @@ instance FromJSON SSMPatchBaselineRule where
     SSMPatchBaselineRule <$>
       fmap (fmap (fmap unInteger')) (obj .:? "ApproveAfterDays") <*>
       (obj .:? "ComplianceLevel") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "EnableNonSecurity") <*>
       (obj .:? "PatchFilterGroup")
   parseJSON _ = mempty
 
@@ -43,6 +46,7 @@ ssmPatchBaselineRule  =
   SSMPatchBaselineRule
   { _sSMPatchBaselineRuleApproveAfterDays = Nothing
   , _sSMPatchBaselineRuleComplianceLevel = Nothing
+  , _sSMPatchBaselineRuleEnableNonSecurity = Nothing
   , _sSMPatchBaselineRulePatchFilterGroup = Nothing
   }
 
@@ -53,6 +57,10 @@ ssmpbrApproveAfterDays = lens _sSMPatchBaselineRuleApproveAfterDays (\s a -> s {
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rule.html#cfn-ssm-patchbaseline-rule-compliancelevel
 ssmpbrComplianceLevel :: Lens' SSMPatchBaselineRule (Maybe (Val Text))
 ssmpbrComplianceLevel = lens _sSMPatchBaselineRuleComplianceLevel (\s a -> s { _sSMPatchBaselineRuleComplianceLevel = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rule.html#cfn-ssm-patchbaseline-rule-enablenonsecurity
+ssmpbrEnableNonSecurity :: Lens' SSMPatchBaselineRule (Maybe (Val Bool))
+ssmpbrEnableNonSecurity = lens _sSMPatchBaselineRuleEnableNonSecurity (\s a -> s { _sSMPatchBaselineRuleEnableNonSecurity = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-patchbaseline-rule.html#cfn-ssm-patchbaseline-rule-patchfiltergroup
 ssmpbrPatchFilterGroup :: Lens' SSMPatchBaselineRule (Maybe SSMPatchBaselinePatchFilterGroup)

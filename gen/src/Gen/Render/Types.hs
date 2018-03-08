@@ -114,6 +114,10 @@ normalizeTypeName allFullNames resourceType name
 -- AWS::EC2::Instance.Ebs is EC2InstanceEbs.
 computeModuleName :: Text -> Text
 computeModuleName fullName
+  -- AWS::ElasticLoadBalancingV2::ListenerCertificate conflicts with
+  -- AWS::ElasticLoadBalancingV2::Listener.Certificate
+  | fullName == "AWS::ElasticLoadBalancingV2::ListenerCertificate" =
+      computeModuleName "AWS::ElasticLoadBalancingV2::ListenerCertificateResource"
   | "::" `isInfixOf` fullName =
     let [_, parent, baseName] = splitOn "::" fullName
     in Data.Text.filter (/= '.') (parent <> baseName)
@@ -163,6 +167,10 @@ computeLensPrefix "AWS::Redshift::ClusterSecurityGroup" = "rcseg"
 computeLensPrefix "AWS::Redshift::ClusterSubnetGroup" = "rcsug"
 computeLensPrefix "AWS::ServiceDiscovery::PublicDnsNamespace" = "sdpudn"
 computeLensPrefix "AWS::ServiceDiscovery::PrivateDnsNamespace" = "sdprdn"
+computeLensPrefix "AWS::SES::ReceiptRule.S3Action" = "sesrrsa"
+computeLensPrefix "AWS::SES::ReceiptRule.StopAction" = "sesrrsta"
+computeLensPrefix "AWS::GuardDuty::Master" = "gdma"
+computeLensPrefix "AWS::GuardDuty::Member" = "gdme"
 -- Everything else
 computeLensPrefix rawName = toLower $ fromMaybe rawName $ toAcronym $ computeModuleName rawName
 
