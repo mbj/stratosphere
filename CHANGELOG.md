@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.19.0
+
+* Fix `Equals` function requiring `Val Bool` arguments instead of `Val a`
+
 ## 0.18.0
 
 * Update resource specification document to version 2.0.0
