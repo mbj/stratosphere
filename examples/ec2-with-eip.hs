@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedLists #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE QuasiQuotes #-}
 
 -- | This is a translated version of an example from the CloudFormation docs at
 -- https://s3.amazonaws.com/cloudformation-templates-us-east-1/EIP_With_Association.template.
@@ -9,6 +10,8 @@
 module Main where
 
 import Control.Lens
+import Data.Aeson
+import Data.Aeson.QQ (aesonQQ)
 import qualified Data.ByteString.Lazy.Char8 as B
 
 import Stratosphere
@@ -29,6 +32,7 @@ myTemplate =
       & eciSecurityGroups ?~ [Ref "InstanceSecuritygroup"]
       )
     & resourceDeletionPolicy ?~ Retain
+    & resourceMetadata ?~ ec2Metadata
   , resource "InstanceSecurityGroup" $
     EC2SecurityGroupProperties $
     ec2SecurityGroup
@@ -62,6 +66,37 @@ myTemplate =
     (Ref "IPAddress")
     & outputDescription ?~ "IP address of the newly created EC2 instance"
   ]
+
+ec2Metadata :: Object
+(Object ec2Metadata) = [aesonQQ|
+{
+  "AWS::CloudFormation::Init": {
+    "configSets": {
+      "test1": ["1"],
+      "test2": [{"ConfigSet": "test1"}, "2"],
+      "default": [{"ConfigSet": "test2"}]
+    },
+    "1": {
+      "commands": {
+        "test": {
+          "command": "echo \"$MAGIC\" > test.txt",
+          "env": {"MAGIC": "I come from the environment!"},
+          "cwd": "~"
+        }
+      }
+    },
+    "2": {
+      "commands": {
+        "test": {
+          "command": "echo \"$MAGIC\" >> test.txt",
+          "env": {"MAGIC": "I am test 2!"},
+          "cwd": "~"
+        }
+      }
+    }
+  }
+}
+|]
 
 instanceTypeParam :: Parameter
 instanceTypeParam =

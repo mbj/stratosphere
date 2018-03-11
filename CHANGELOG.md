@@ -3,6 +3,7 @@
 ## 0.19.0
 
 * Fix `Equals` function requiring `Val Bool` arguments instead of `Val a`
+* Add `Metadata` field to `Resource` type
 
 ## 0.18.0
 
