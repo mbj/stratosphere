@@ -1,5 +1,5 @@
 name: stratosphere
-version: "0.19.0"
+version: "0.19.1"
 synopsis: EDSL for AWS CloudFormation
 description: EDSL for AWS CloudFormation
 category: AWS, Cloud

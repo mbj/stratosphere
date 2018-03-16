@@ -1,9 +1,9 @@
 machine:
   environment:
     PATH: "$HOME/.local/bin:$PATH"
-    STACK_VERSION: 1.6.1
+    STACK_VERSION: 1.6.5
 
-    GHC_8_0_RESOLVER: nightly-2017-07-25
+    GHC_8_2_RESOLVER: nightly-2017-12-16
 
 dependencies:
   pre:
@@ -13,16 +13,16 @@ dependencies:
     - "~/.stack"
     - "~/stratosphere/.stack-work"
   override:
-    - stack setup --resolver $GHC_8_0_RESOLVER
-    - stack build --resolver $GHC_8_0_RESOLVER stratosphere --test --only-dependencies --no-run-tests --jobs=1
+    - stack setup --resolver $GHC_8_2_RESOLVER
+    - stack build --resolver $GHC_8_2_RESOLVER stratosphere --test --only-dependencies --no-run-tests --jobs=1
 
     - stack setup
     - stack build stratosphere --test --only-dependencies --no-run-tests --jobs=1
 
 test:
   override:
-    - stack build --resolver $GHC_8_0_RESOLVER stratosphere --pedantic --test --jobs=1 --flag stratosphere:-library-only
-    - stack haddock --resolver $GHC_8_0_RESOLVER stratosphere --no-haddock-deps --jobs=1 --flag stratosphere:-library-only
+    - stack build --resolver $GHC_8_2_RESOLVER stratosphere --pedantic --test --jobs=1 --flag stratosphere:-library-only
+    - stack haddock --resolver $GHC_8_2_RESOLVER stratosphere --no-haddock-deps --jobs=1 --flag stratosphere:-library-only
 
     - stack build stratosphere --pedantic --test --jobs=1 --flag stratosphere:-library-only
     - stack haddock stratosphere --no-haddock-deps --jobs=1 --flag stratosphere:-library-only

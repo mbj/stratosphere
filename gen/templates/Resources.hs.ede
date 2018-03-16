@@ -42,6 +42,7 @@ import Control.Lens hiding ((.=))
 import Data.Aeson
 import Data.Aeson.Types
 import Data.Maybe (catMaybes)
+import Data.Semigroup (Semigroup)
 import qualified Data.Text as T
 import GHC.Exts (IsList(..))
 import GHC.Generics (Generic)
@@ -130,7 +131,7 @@ resourceFromJSON n o =
 -- | Wrapper around a list of 'Resources's to we can modify the aeson
 -- instances.
 newtype Resources = Resources { unResources :: [Resource] }
-  deriving (Show, Eq, Monoid)
+  deriving (Show, Eq, Semigroup, Monoid)
 
 instance IsList Resources where
   type Item Resources = Resource
