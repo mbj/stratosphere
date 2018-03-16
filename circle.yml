@@ -14,10 +14,10 @@ dependencies:
     - "~/stratosphere/.stack-work"
   override:
     - stack setup --resolver $GHC_8_2_RESOLVER
-    - stack build --resolver $GHC_8_2_RESOLVER stratosphere --test --only-dependencies --no-run-tests --jobs=1
+    - stack build --resolver $GHC_8_2_RESOLVER stratosphere --test --only-dependencies --no-run-tests --jobs=1 --flag stratosphere:-library-only
 
     - stack setup
-    - stack build stratosphere --test --only-dependencies --no-run-tests --jobs=1
+    - stack build stratosphere --test --only-dependencies --no-run-tests --jobs=1 --flag stratosphere:-library-only
 
 test:
   override:
