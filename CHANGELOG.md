@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.19.1
+
+* Add compatibility with GHC 8.4.1
+
 ## 0.19.0
 
 * Fix `Equals` function requiring `Val Bool` arguments instead of `Val a`

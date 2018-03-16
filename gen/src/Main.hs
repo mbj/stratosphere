@@ -1,15 +1,14 @@
+{-# LANGUAGE QuasiQuotes #-}
+
 module Main where
 
 import Control.Monad (when)
-import Data.Aeson
 import Data.List (nub)
-import Data.Monoid ((<>))
 import qualified Data.Text as T
-import qualified Data.Text.Lazy as TL
-import qualified Filesystem as FS
-import Filesystem.Path.CurrentOS ((</>))
-import qualified Filesystem.Path.CurrentOS as FP
-import Text.EDE
+import qualified Data.Text.IO as TIO
+import System.Directory
+import System.FilePath.Posix
+import Text.Shakespeare.Text (st)
 
 import Gen.ReadRawSpecFile
 import Gen.Render
@@ -22,52 +21,47 @@ main = do
     rawSpec = either error id specEither
     spec = specFromRaw rawSpec
 
-  genExists <- FS.isDirectory (".." FP.</> "library-gen")
+  genExists <- doesDirectoryExist (".." </> "library-gen")
   when genExists $
-    FS.removeTree (".." FP.</> "library-gen")
-  FS.createDirectory True (".." FP.</> "library-gen")
-  FS.createDirectory True (".." FP.</> "library-gen" FP.</> "Stratosphere")
+    removeDirectoryRecursive (".." </> "library-gen")
+  createDirectory (".." </> "library-gen")
+  createDirectory (".." </> "library-gen" </> "Stratosphere")
 
   let
     modules =
       createModules
       (cloudFormationSpecPropertyTypes spec)
       (cloudFormationSpecResourceTypes spec)
-  renderModules modules
+  mapM_ renderModule modules
   renderTopLevelModule modules
 
-renderModules :: [Module] -> IO ()
-renderModules modules = do
-  template <- readTemplate "templates/resource-module.ede"
-  mapM_ (renderModule template) modules
-
-renderModule :: Template -> Module -> IO ()
-renderModule template module'@Module {..} = do
+renderModule :: Module -> IO ()
+renderModule module'@Module {..} = do
   let
-    params =
-      [ "name" .= moduleName
-      , "docstring" .= renderDocstring moduleDocumentation
-      , "moduleBase" .= modulePath
-      , "dependencies" .= renderDependencies module' moduleProperties
-      , "typeDecl" .= renderResourceTypeDecl module'
-      , "jsonInstances" .= renderToFromJSON module'
-      , "constructor" .= renderConstructor module'
-      , "lenses" .= renderLenses module'
-      , "type" .= fromPairs [ "hasType" .= moduleIsResource
-                            , "value" .= moduleResourceType
-                            ]
-      ]
-    moduleText =
-      case render template (fromPairs params) of
-        (Text.EDE.Success r) -> TL.toStrict r
-        (Failure f) -> error $ "Failure rendering: " ++ show f
-    modDir = ".." FP.</> "library-gen" FP.</>
-             FP.concat (FP.fromText <$> T.splitOn "." modulePath)
-    fileName = FP.fromText moduleName FP.<.> "hs"
-    filePath = modDir FP.</> fileName
-  FS.createDirectory True modDir
+    moduleDir = ".." </> "library-gen" </> foldl1 (</>) (T.unpack <$> T.splitOn "." modulePath)
+    fileName = T.unpack moduleName <.> "hs"
+    filePath = moduleDir </> fileName
+  createDirectoryIfMissing True moduleDir
   putStrLn ("Writing: " ++ show filePath)
-  FS.writeTextFile filePath moduleText
+  TIO.writeFile filePath [st|{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
+
+#{renderDocstring moduleDocumentation}
+
+module #{modulePath}.#{moduleName} where
+
+import Stratosphere.ResourceImports
+#{renderDependencies module' moduleProperties}
+
+#{renderResourceTypeDecl module'}
+
+#{renderToFromJSON module'}
+
+#{renderConstructor module'}
+
+#{renderLenses module'}
+|]
 
 renderDependencies :: Module -> [Property] -> T.Text
 renderDependencies Module {..} props = T.intercalate "\n" deps
@@ -82,29 +76,161 @@ renderDependencies Module {..} props = T.intercalate "\n" deps
       fmap (\d -> T.concat ["import Stratosphere.ResourceProperties.", d]) nonRecursivePropertyDeps
 
 
-readTemplate :: FP.FilePath -> IO Template
-readTemplate fp =
-  do tempResult <- eitherParseFile (FP.encodeString fp)
-     either fail return tempResult
-
 renderTopLevelModule :: [Module] -> IO ()
 renderTopLevelModule modules = do
   let
     paths = fmap (\Module{..} -> modulePath <> "." <> moduleName) modules
     resourceModules = filter moduleIsResource modules
-    params =
-      [ "moduleImports" .= renderImports paths
-      , "resourceADT" .= renderADT resourceModules
-      , "toJSONFuncs" .= renderToJSONFuncs resourceModules
-      , "fromJSONCases" .= renderFromJSONCases resourceModules
-      ]
-
-  template <- readTemplate "templates/Resources.hs.ede"
-  let
-    modText =
-      case render template (fromPairs params) of
-        (Text.EDE.Success r) -> TL.toStrict r
-        (Failure f) -> error $ "Failure rendering: " ++ show f
-    modPath = ".." FP.</> "library-gen" FP.</> "Stratosphere" FP.</> "Resources.hs"
+    modPath = ".." </> "library-gen" </> "Stratosphere" </> "Resources.hs"
   putStrLn ("Writing: " ++ show modPath)
-  FS.writeTextFile modPath modText
+  TIO.writeFile modPath [st|{-# LANGUAGE CPP #-}
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE ExistentialQuantification #-}
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE FunctionalDependencies #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE MultiParamTypeClasses #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE TemplateHaskell #-}
+{-# LANGUAGE TypeFamilies #-}
+
+#if MIN_VERSION_GLASGOW_HASKELL(8,0,1,0)
+{-# OPTIONS_GHC -fmax-pmcheck-iterations=30000000 #-}
+#endif
+
+-- | See:
+-- http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html
+--
+-- The required Resources section declare the AWS resources that you want as
+-- part of your stack, such as an Amazon EC2 instance or an Amazon S3 bucket.
+-- You must declare each resource separately; however, you can specify multiple
+-- resources of the same type. If you declare multiple resources, separate them
+-- with commas.
+
+module Stratosphere.Resources
+  ( module X
+  , Resource (..)
+  , resource
+  , resourceName
+  , resourceProperties
+  , resourceDeletionPolicy
+  , resourceCreationPolicy
+  , resourceUpdatePolicy
+  , resourceDependsOn
+  , resourceMetadata
+  , ResourceProperties (..)
+  , DeletionPolicy (..)
+  , Resources (..)
+  ) where
+
+import Control.Lens hiding ((.=))
+import Data.Aeson
+import Data.Aeson.Types
+import Data.Maybe (catMaybes)
+import Data.Semigroup (Semigroup)
+import qualified Data.Text as T
+import GHC.Exts (IsList(..))
+import GHC.Generics (Generic)
+
+#{renderImports paths}
+import Stratosphere.ResourceAttributes.AutoScalingReplacingUpdatePolicy as X
+import Stratosphere.ResourceAttributes.AutoScalingRollingUpdatePolicy as X
+import Stratosphere.ResourceAttributes.AutoScalingScheduledActionPolicy as X
+import Stratosphere.ResourceAttributes.CreationPolicy as X
+import Stratosphere.ResourceAttributes.ResourceSignal as X
+import Stratosphere.ResourceAttributes.UpdatePolicy as X
+import Stratosphere.Helpers
+import Stratosphere.Values
+
+data ResourceProperties
+#{renderADT resourceModules}
+  deriving (Show, Eq)
+
+data DeletionPolicy
+  = Delete
+  | Retain
+  | Snapshot
+  deriving (Show, Eq, Generic)
+
+instance ToJSON DeletionPolicy where
+instance FromJSON DeletionPolicy where
+
+data Resource =
+  Resource
+  { _resourceName :: T.Text
+  , _resourceProperties :: ResourceProperties
+  , _resourceDeletionPolicy :: Maybe DeletionPolicy
+  , _resourceCreationPolicy :: Maybe CreationPolicy
+  , _resourceUpdatePolicy :: Maybe UpdatePolicy
+  , _resourceDependsOn :: Maybe [T.Text]
+  , _resourceMetadata :: Maybe Object
+  } deriving (Show, Eq)
+
+instance ToRef Resource b where
+  toRef r = Ref (_resourceName r)
+
+-- | Convenient constructor for 'Resource' with required arguments.
+resource
+  :: T.Text -- ^ Logical name
+  -> ResourceProperties
+  -> Resource
+resource rn rp =
+  Resource
+  { _resourceName = rn
+  , _resourceProperties = rp
+  , _resourceDeletionPolicy = Nothing
+  , _resourceCreationPolicy = Nothing
+  , _resourceUpdatePolicy = Nothing
+  , _resourceDependsOn = Nothing
+  , _resourceMetadata = Nothing
+  }
+
+$(makeLenses ''Resource)
+
+resourceToJSON :: Resource -> Value
+resourceToJSON (Resource _ props dp cp up deps meta) =
+    object $ resourcePropertiesJSON props ++ catMaybes
+    [ maybeField "DeletionPolicy" dp
+    , maybeField "CreationPolicy" cp
+    , maybeField "UpdatePolicy" up
+    , maybeField "DependsOn" deps
+    , maybeField "Metadata" meta
+    ]
+
+resourcePropertiesJSON :: ResourceProperties -> [Pair]
+#{renderToJSONFuncs resourceModules}
+
+resourceFromJSON :: T.Text -> Object -> Parser Resource
+resourceFromJSON n o =
+    do type' <- o .: "Type" :: Parser String
+       props <- case type' of
+#{renderFromJSONCases resourceModules}
+         _ -> fail $ "Unknown resource type: " ++ type'
+       dp <- o .:? "DeletionPolicy"
+       cp <- o .:? "CreationPolicy"
+       up <- o .:? "UpdatePolicy"
+       deps <- o .:? "DependsOn"
+       meta <- o .:? "Metadata"
+       return $ Resource n props dp cp up deps meta
+
+-- | Wrapper around a list of 'Resources's to we can modify the aeson
+-- instances.
+newtype Resources = Resources { unResources :: [Resource] }
+  deriving (Show, Eq, Semigroup, Monoid)
+
+instance IsList Resources where
+  type Item Resources = Resource
+  fromList = Resources
+  toList = unResources
+
+instance NamedItem Resource where
+  itemName = _resourceName
+  nameToJSON = resourceToJSON
+  nameParseJSON = resourceFromJSON
+
+instance ToJSON Resources where
+  toJSON = namedItemToJSON . unResources
+
+instance FromJSON Resources where
+  parseJSON v = Resources <$> namedItemFromJSON v
+|]

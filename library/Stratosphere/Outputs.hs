@@ -32,6 +32,7 @@ import Control.Lens hiding ((.=))
 import Data.Aeson
 import Data.Aeson.Types (Parser)
 import Data.Maybe (catMaybes)
+import Data.Semigroup (Semigroup)
 import Data.Text (Text)
 import GHC.Exts (IsList(..))
 
@@ -106,7 +107,7 @@ outputFromJSON n o =
 
 -- | Wrapper around a list of 'Output's to we can modify the aeson instances.
 newtype Outputs = Outputs { unOutputs :: [Output] }
-  deriving (Show, Eq, Monoid)
+  deriving (Show, Eq, Semigroup, Monoid)
 
 instance IsList Outputs where
   type Item Outputs = Output
