@@ -26,11 +26,11 @@ executables:
       - aeson >= 0.11
       - bytestring
       - containers
-      - ede
+      - directory
       - extra
+      - filepath
       - lens >= 4.5
       - shakespeare
-      - system-fileio
       - system-filepath
       - text >= 1.1
       - text-manipulate

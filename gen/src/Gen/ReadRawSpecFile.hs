@@ -1,3 +1,6 @@
+{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE OverloadedStrings #-}
+
 -- | Parse the official AWS specification file.
 
 module Gen.ReadRawSpecFile
@@ -11,10 +14,9 @@ module Gen.ReadRawSpecFile
 
 import Control.Applicative ((<|>))
 import Data.Aeson
+import qualified Data.ByteString as BS
 import Data.Map (Map)
 import Data.Text
-import qualified Filesystem as FS
-import qualified Filesystem.Path.CurrentOS as FP
 import GHC.Generics
 
 data RawCloudFormationSpec
@@ -84,5 +86,5 @@ instance FromJSON RawResourceAttribute where
   parseJSON _ = mempty
 
 -- | Decode a JSON file into a type
-decodeFile :: (FromJSON a) => FP.FilePath -> IO (Either String a)
-decodeFile fp = fmap eitherDecodeStrict (FS.readFile fp)
+decodeFile :: (FromJSON a) => FilePath -> IO (Either String a)
+decodeFile fp = fmap eitherDecodeStrict (BS.readFile fp)
