@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.20.0
+
+* Fix name of `AutoScalingRollingUpdatePolicy` `SuspendProcesses` parameter
+
 ## 0.19.1
 
 * Add compatibility with GHC 8.4.1
