@@ -18,7 +18,7 @@ data AutoScalingRollingUpdatePolicy =
   , _autoScalingRollingUpdatePolicyMinInstancesInService :: Maybe (Val Integer)
   , _autoScalingRollingUpdatePolicyMinSuccessfulInstancesPercent :: Maybe (Val Integer)
   , _autoScalingRollingUpdatePolicyPauseTime :: Maybe (Val Text)
-  , _autoScalingRollingUpdatePolicySuspendProcess :: Maybe (ValList Text)
+  , _autoScalingRollingUpdatePolicySuspendProcesses :: Maybe (ValList Text)
   , _autoScalingRollingUpdatePolicyWaitOnResourceSignals :: Maybe (Val Bool)
   } deriving (Show, Eq)
 
@@ -30,7 +30,7 @@ instance ToJSON AutoScalingRollingUpdatePolicy where
     , fmap (("MinInstancesInService",) . toJSON . fmap Integer') _autoScalingRollingUpdatePolicyMinInstancesInService
     , fmap (("MinSuccessfulInstancesPercent",) . toJSON . fmap Integer') _autoScalingRollingUpdatePolicyMinSuccessfulInstancesPercent
     , fmap (("PauseTime",) . toJSON) _autoScalingRollingUpdatePolicyPauseTime
-    , fmap (("SuspendProcess",) . toJSON) _autoScalingRollingUpdatePolicySuspendProcess
+    , fmap (("SuspendProcesses",) . toJSON) _autoScalingRollingUpdatePolicySuspendProcesses
     , fmap (("WaitOnResourceSignals",) . toJSON . fmap Bool') _autoScalingRollingUpdatePolicyWaitOnResourceSignals
     ]
 
@@ -41,7 +41,7 @@ instance FromJSON AutoScalingRollingUpdatePolicy where
       fmap (fmap (fmap unInteger')) (obj .:? "MinInstancesInService") <*>
       fmap (fmap (fmap unInteger')) (obj .:? "MinSuccessfulInstancesPercent") <*>
       (obj .:? "PauseTime") <*>
-      (obj .:? "SuspendProcess") <*>
+      (obj .:? "SuspendProcesses") <*>
       fmap (fmap (fmap unBool')) (obj .:? "WaitOnResourceSignals")
   parseJSON _ = mempty
 
@@ -55,7 +55,7 @@ autoScalingRollingUpdatePolicy  =
   , _autoScalingRollingUpdatePolicyMinInstancesInService = Nothing
   , _autoScalingRollingUpdatePolicyMinSuccessfulInstancesPercent = Nothing
   , _autoScalingRollingUpdatePolicyPauseTime = Nothing
-  , _autoScalingRollingUpdatePolicySuspendProcess = Nothing
+  , _autoScalingRollingUpdatePolicySuspendProcesses = Nothing
   , _autoScalingRollingUpdatePolicyWaitOnResourceSignals = Nothing
   }
 
@@ -105,8 +105,8 @@ asrupPauseTime = lens _autoScalingRollingUpdatePolicyPauseTime (\s a -> s { _aut
 -- execute scaling policies associated with an alarm. For valid values, see
 -- the ScalingProcesses.member.N parameter for the SuspendProcesses action in
 -- the Auto Scaling API Reference.
-asrupSuspendProcess :: Lens' AutoScalingRollingUpdatePolicy (Maybe (ValList Text))
-asrupSuspendProcess = lens _autoScalingRollingUpdatePolicySuspendProcess (\s a -> s { _autoScalingRollingUpdatePolicySuspendProcess = a })
+asrupSuspendProcesses :: Lens' AutoScalingRollingUpdatePolicy (Maybe (ValList Text))
+asrupSuspendProcesses = lens _autoScalingRollingUpdatePolicySuspendProcesses (\s a -> s { _autoScalingRollingUpdatePolicySuspendProcesses = a })
 
 -- | Specifies whether the Auto Scaling group waits on signals from new
 -- instances during an update. AWS CloudFormation suspends the update of an
