@@ -3,6 +3,7 @@
 ## 0.20.0
 
 * Fix name of `AutoScalingRollingUpdatePolicy` `SuspendProcesses` parameter
+* Update list of AWS Lambda `Runtime` values
 
 ## 0.19.1
 

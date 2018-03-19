@@ -26,7 +26,7 @@ module Stratosphere.Types
   ) where
 
 import Data.Aeson
-import Data.Text (unpack)
+import Data.Text (Text, unpack)
 import GHC.Generics
 
 
@@ -163,29 +163,53 @@ instance ToJSON SNSProtocol where
   toJSON SnsApplication = String "application"
   toJSON SnsLambda      = String "lambda"
 
-
+-- | Possible values for AWS Lambda Runtimes. Note that if a valid runtime is
+-- missing, please open an issue on the Github repo. In the meantime, however,
+-- you can use the 'OtherRuntime' constructor.
+--
+-- Valid values here
+-- https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime
 data Runtime
   = NodeJS
   | NodeJS43
+  | NodeJS43Edge
+  | NodeJS610
   | Java8
   | Python27
+  | Python36
+  | DotNetCore10
+  | DotNetCore20
+  | Go1X
+  | OtherRuntime Text
   deriving (Show, Read, Eq, Generic)
 
 instance FromJSON Runtime where
   parseJSON = withText "Runtime" parse
     where
-      parse "nodejs"    = pure NodeJS
+      parse "nodejs" = pure NodeJS
       parse "nodejs4.3" = pure NodeJS43
-      parse "java8"     = pure Java8
+      parse "nodejs4.3-edge" = pure NodeJS43Edge
+      parse "nodejs6.10" = pure NodeJS610
+      parse "java8" = pure Java8
       parse "python2.7" = pure Python27
-      parse runtime     = fail ("Unexpected Runtime " ++ unpack runtime)
+      parse "python3.6" = pure Python36
+      parse "dotnetcore1.0" = pure DotNetCore10
+      parse "dotnetcore2.0" = pure DotNetCore20
+      parse "go1.x" = pure Go1X
+      parse runtime = pure $ OtherRuntime runtime
 
 instance ToJSON Runtime where
-  toJSON NodeJS   = String "nodejs"
+  toJSON NodeJS = String "nodejs"
   toJSON NodeJS43 = String "nodejs4.3"
-  toJSON Java8    = String "java8"
+  toJSON NodeJS43Edge = String "nodejs4.3-edge"
+  toJSON NodeJS610 = String "nodejs6.10"
+  toJSON Java8 = String "java8"
   toJSON Python27 = String "python2.7"
-
+  toJSON Python36 = String "python3.6"
+  toJSON DotNetCore10 = String "dotnetcore1.0"
+  toJSON DotNetCore20 = String "dotnetcore2.0"
+  toJSON Go1X = String "go1.x"
+  toJSON (OtherRuntime other) = String other
 
 -- | See:
 -- https://docs.aws.amazon.com/apigateway/api-reference/link-relation/integration-put/#passthroughBehavior
