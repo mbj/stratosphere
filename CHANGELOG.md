@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.21.0
+
+* Update resource specification document to some new unspecified version.
+
 ## 0.20.0
 
 * Fix name of `AutoScalingRollingUpdatePolicy` `SuspendProcesses` parameter
