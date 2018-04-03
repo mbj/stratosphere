@@ -174,6 +174,7 @@ data Runtime
   | NodeJS43
   | NodeJS43Edge
   | NodeJS610
+  | NodeJS810
   | Java8
   | Python27
   | Python36
@@ -190,6 +191,7 @@ instance FromJSON Runtime where
       parse "nodejs4.3" = pure NodeJS43
       parse "nodejs4.3-edge" = pure NodeJS43Edge
       parse "nodejs6.10" = pure NodeJS610
+      parse "nodejs8.10" = pure NodeJS810
       parse "java8" = pure Java8
       parse "python2.7" = pure Python27
       parse "python3.6" = pure Python36
@@ -203,6 +205,7 @@ instance ToJSON Runtime where
   toJSON NodeJS43 = String "nodejs4.3"
   toJSON NodeJS43Edge = String "nodejs4.3-edge"
   toJSON NodeJS610 = String "nodejs6.10"
+  toJSON NodeJS810 = String "nodejs8.10"
   toJSON Java8 = String "java8"
   toJSON Python27 = String "python2.7"
   toJSON Python36 = String "python3.6"

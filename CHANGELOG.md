@@ -3,6 +3,7 @@
 ## 0.21.0
 
 * Update resource specification document to some new unspecified version.
+* Add new `nodejs8.10` to lambda
 
 ## 0.20.0
 
