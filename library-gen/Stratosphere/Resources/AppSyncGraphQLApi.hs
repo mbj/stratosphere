@@ -1,0 +1,70 @@
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html
+
+module Stratosphere.Resources.AppSyncGraphQLApi where
+
+import Stratosphere.ResourceImports
+import Stratosphere.ResourceProperties.AppSyncGraphQLApiLogConfig
+import Stratosphere.ResourceProperties.AppSyncGraphQLApiUserPoolConfig
+
+-- | Full data type definition for AppSyncGraphQLApi. See 'appSyncGraphQLApi'
+-- for a more convenient constructor.
+data AppSyncGraphQLApi =
+  AppSyncGraphQLApi
+  { _appSyncGraphQLApiAuthenticationType :: Val Text
+  , _appSyncGraphQLApiLogConfig :: Maybe AppSyncGraphQLApiLogConfig
+  , _appSyncGraphQLApiName :: Val Text
+  , _appSyncGraphQLApiUserPoolConfig :: Maybe AppSyncGraphQLApiUserPoolConfig
+  } deriving (Show, Eq)
+
+instance ToJSON AppSyncGraphQLApi where
+  toJSON AppSyncGraphQLApi{..} =
+    object $
+    catMaybes
+    [ (Just . ("AuthenticationType",) . toJSON) _appSyncGraphQLApiAuthenticationType
+    , fmap (("LogConfig",) . toJSON) _appSyncGraphQLApiLogConfig
+    , (Just . ("Name",) . toJSON) _appSyncGraphQLApiName
+    , fmap (("UserPoolConfig",) . toJSON) _appSyncGraphQLApiUserPoolConfig
+    ]
+
+instance FromJSON AppSyncGraphQLApi where
+  parseJSON (Object obj) =
+    AppSyncGraphQLApi <$>
+      (obj .: "AuthenticationType") <*>
+      (obj .:? "LogConfig") <*>
+      (obj .: "Name") <*>
+      (obj .:? "UserPoolConfig")
+  parseJSON _ = mempty
+
+-- | Constructor for 'AppSyncGraphQLApi' containing required fields as
+-- arguments.
+appSyncGraphQLApi
+  :: Val Text -- ^ 'asgqlaAuthenticationType'
+  -> Val Text -- ^ 'asgqlaName'
+  -> AppSyncGraphQLApi
+appSyncGraphQLApi authenticationTypearg namearg =
+  AppSyncGraphQLApi
+  { _appSyncGraphQLApiAuthenticationType = authenticationTypearg
+  , _appSyncGraphQLApiLogConfig = Nothing
+  , _appSyncGraphQLApiName = namearg
+  , _appSyncGraphQLApiUserPoolConfig = Nothing
+  }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-authenticationtype
+asgqlaAuthenticationType :: Lens' AppSyncGraphQLApi (Val Text)
+asgqlaAuthenticationType = lens _appSyncGraphQLApiAuthenticationType (\s a -> s { _appSyncGraphQLApiAuthenticationType = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-logconfig
+asgqlaLogConfig :: Lens' AppSyncGraphQLApi (Maybe AppSyncGraphQLApiLogConfig)
+asgqlaLogConfig = lens _appSyncGraphQLApiLogConfig (\s a -> s { _appSyncGraphQLApiLogConfig = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-name
+asgqlaName :: Lens' AppSyncGraphQLApi (Val Text)
+asgqlaName = lens _appSyncGraphQLApiName (\s a -> s { _appSyncGraphQLApiName = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-userpoolconfig
+asgqlaUserPoolConfig :: Lens' AppSyncGraphQLApi (Maybe AppSyncGraphQLApiUserPoolConfig)
+asgqlaUserPoolConfig = lens _appSyncGraphQLApiUserPoolConfig (\s a -> s { _appSyncGraphQLApiUserPoolConfig = a })

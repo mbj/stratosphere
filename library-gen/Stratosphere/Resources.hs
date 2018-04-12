@@ -66,6 +66,11 @@ import Stratosphere.Resources.ApiGatewayStage as X
 import Stratosphere.Resources.ApiGatewayUsagePlan as X
 import Stratosphere.Resources.ApiGatewayUsagePlanKey as X
 import Stratosphere.Resources.ApiGatewayVpcLink as X
+import Stratosphere.Resources.AppSyncApiKey as X
+import Stratosphere.Resources.AppSyncDataSource as X
+import Stratosphere.Resources.AppSyncGraphQLApi as X
+import Stratosphere.Resources.AppSyncGraphQLSchema as X
+import Stratosphere.Resources.AppSyncResolver as X
 import Stratosphere.Resources.ApplicationAutoScalingScalableTarget as X
 import Stratosphere.Resources.ApplicationAutoScalingScalingPolicy as X
 import Stratosphere.Resources.AthenaNamedQuery as X
@@ -128,6 +133,7 @@ import Stratosphere.Resources.EC2FlowLog as X
 import Stratosphere.Resources.EC2Host as X
 import Stratosphere.Resources.EC2Instance as X
 import Stratosphere.Resources.EC2InternetGateway as X
+import Stratosphere.Resources.EC2LaunchTemplate as X
 import Stratosphere.Resources.EC2NatGateway as X
 import Stratosphere.Resources.EC2NetworkAcl as X
 import Stratosphere.Resources.EC2NetworkAclEntry as X
@@ -318,6 +324,11 @@ import Stratosphere.ResourceProperties.ApiGatewayStageMethodSetting as X
 import Stratosphere.ResourceProperties.ApiGatewayUsagePlanApiStage as X
 import Stratosphere.ResourceProperties.ApiGatewayUsagePlanQuotaSettings as X
 import Stratosphere.ResourceProperties.ApiGatewayUsagePlanThrottleSettings as X
+import Stratosphere.ResourceProperties.AppSyncDataSourceDynamoDBConfig as X
+import Stratosphere.ResourceProperties.AppSyncDataSourceElasticsearchConfig as X
+import Stratosphere.ResourceProperties.AppSyncDataSourceLambdaConfig as X
+import Stratosphere.ResourceProperties.AppSyncGraphQLApiLogConfig as X
+import Stratosphere.ResourceProperties.AppSyncGraphQLApiUserPoolConfig as X
 import Stratosphere.ResourceProperties.ApplicationAutoScalingScalableTargetScalableTargetAction as X
 import Stratosphere.ResourceProperties.ApplicationAutoScalingScalableTargetScheduledAction as X
 import Stratosphere.ResourceProperties.ApplicationAutoScalingScalingPolicyCustomizedMetricSpecification as X
@@ -461,6 +472,20 @@ import Stratosphere.ResourceProperties.EC2InstanceNoDevice as X
 import Stratosphere.ResourceProperties.EC2InstancePrivateIpAddressSpecification as X
 import Stratosphere.ResourceProperties.EC2InstanceSsmAssociation as X
 import Stratosphere.ResourceProperties.EC2InstanceVolume as X
+import Stratosphere.ResourceProperties.EC2LaunchTemplateBlockDeviceMapping as X
+import Stratosphere.ResourceProperties.EC2LaunchTemplateCreditSpecification as X
+import Stratosphere.ResourceProperties.EC2LaunchTemplateEbs as X
+import Stratosphere.ResourceProperties.EC2LaunchTemplateElasticGpuSpecification as X
+import Stratosphere.ResourceProperties.EC2LaunchTemplateIamInstanceProfile as X
+import Stratosphere.ResourceProperties.EC2LaunchTemplateInstanceMarketOptions as X
+import Stratosphere.ResourceProperties.EC2LaunchTemplateIpv6Add as X
+import Stratosphere.ResourceProperties.EC2LaunchTemplateLaunchTemplateData as X
+import Stratosphere.ResourceProperties.EC2LaunchTemplateMonitoring as X
+import Stratosphere.ResourceProperties.EC2LaunchTemplateNetworkInterface as X
+import Stratosphere.ResourceProperties.EC2LaunchTemplatePlacement as X
+import Stratosphere.ResourceProperties.EC2LaunchTemplatePrivateIpAdd as X
+import Stratosphere.ResourceProperties.EC2LaunchTemplateSpotOptions as X
+import Stratosphere.ResourceProperties.EC2LaunchTemplateTagSpecification as X
 import Stratosphere.ResourceProperties.EC2NetworkAclEntryIcmp as X
 import Stratosphere.ResourceProperties.EC2NetworkAclEntryPortRange as X
 import Stratosphere.ResourceProperties.EC2NetworkInterfaceInstanceIpv6Address as X
@@ -849,6 +874,11 @@ data ResourceProperties
   | ApiGatewayUsagePlanProperties ApiGatewayUsagePlan
   | ApiGatewayUsagePlanKeyProperties ApiGatewayUsagePlanKey
   | ApiGatewayVpcLinkProperties ApiGatewayVpcLink
+  | AppSyncApiKeyProperties AppSyncApiKey
+  | AppSyncDataSourceProperties AppSyncDataSource
+  | AppSyncGraphQLApiProperties AppSyncGraphQLApi
+  | AppSyncGraphQLSchemaProperties AppSyncGraphQLSchema
+  | AppSyncResolverProperties AppSyncResolver
   | ApplicationAutoScalingScalableTargetProperties ApplicationAutoScalingScalableTarget
   | ApplicationAutoScalingScalingPolicyProperties ApplicationAutoScalingScalingPolicy
   | AthenaNamedQueryProperties AthenaNamedQuery
@@ -911,6 +941,7 @@ data ResourceProperties
   | EC2HostProperties EC2Host
   | EC2InstanceProperties EC2Instance
   | EC2InternetGatewayProperties EC2InternetGateway
+  | EC2LaunchTemplateProperties EC2LaunchTemplate
   | EC2NatGatewayProperties EC2NatGateway
   | EC2NetworkAclProperties EC2NetworkAcl
   | EC2NetworkAclEntryProperties EC2NetworkAclEntry
@@ -1180,6 +1211,16 @@ resourcePropertiesJSON (ApiGatewayUsagePlanKeyProperties x) =
   [ "Type" .= ("AWS::ApiGateway::UsagePlanKey" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ApiGatewayVpcLinkProperties x) =
   [ "Type" .= ("AWS::ApiGateway::VpcLink" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (AppSyncApiKeyProperties x) =
+  [ "Type" .= ("AWS::AppSync::ApiKey" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (AppSyncDataSourceProperties x) =
+  [ "Type" .= ("AWS::AppSync::DataSource" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (AppSyncGraphQLApiProperties x) =
+  [ "Type" .= ("AWS::AppSync::GraphQLApi" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (AppSyncGraphQLSchemaProperties x) =
+  [ "Type" .= ("AWS::AppSync::GraphQLSchema" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (AppSyncResolverProperties x) =
+  [ "Type" .= ("AWS::AppSync::Resolver" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ApplicationAutoScalingScalableTargetProperties x) =
   [ "Type" .= ("AWS::ApplicationAutoScaling::ScalableTarget" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ApplicationAutoScalingScalingPolicyProperties x) =
@@ -1304,6 +1345,8 @@ resourcePropertiesJSON (EC2InstanceProperties x) =
   [ "Type" .= ("AWS::EC2::Instance" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (EC2InternetGatewayProperties x) =
   [ "Type" .= ("AWS::EC2::InternetGateway" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (EC2LaunchTemplateProperties x) =
+  [ "Type" .= ("AWS::EC2::LaunchTemplate" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (EC2NatGatewayProperties x) =
   [ "Type" .= ("AWS::EC2::NatGateway" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (EC2NetworkAclProperties x) =
@@ -1681,6 +1724,11 @@ resourceFromJSON n o =
          "AWS::ApiGateway::UsagePlan" -> ApiGatewayUsagePlanProperties <$> (o .: "Properties")
          "AWS::ApiGateway::UsagePlanKey" -> ApiGatewayUsagePlanKeyProperties <$> (o .: "Properties")
          "AWS::ApiGateway::VpcLink" -> ApiGatewayVpcLinkProperties <$> (o .: "Properties")
+         "AWS::AppSync::ApiKey" -> AppSyncApiKeyProperties <$> (o .: "Properties")
+         "AWS::AppSync::DataSource" -> AppSyncDataSourceProperties <$> (o .: "Properties")
+         "AWS::AppSync::GraphQLApi" -> AppSyncGraphQLApiProperties <$> (o .: "Properties")
+         "AWS::AppSync::GraphQLSchema" -> AppSyncGraphQLSchemaProperties <$> (o .: "Properties")
+         "AWS::AppSync::Resolver" -> AppSyncResolverProperties <$> (o .: "Properties")
          "AWS::ApplicationAutoScaling::ScalableTarget" -> ApplicationAutoScalingScalableTargetProperties <$> (o .: "Properties")
          "AWS::ApplicationAutoScaling::ScalingPolicy" -> ApplicationAutoScalingScalingPolicyProperties <$> (o .: "Properties")
          "AWS::Athena::NamedQuery" -> AthenaNamedQueryProperties <$> (o .: "Properties")
@@ -1743,6 +1791,7 @@ resourceFromJSON n o =
          "AWS::EC2::Host" -> EC2HostProperties <$> (o .: "Properties")
          "AWS::EC2::Instance" -> EC2InstanceProperties <$> (o .: "Properties")
          "AWS::EC2::InternetGateway" -> EC2InternetGatewayProperties <$> (o .: "Properties")
+         "AWS::EC2::LaunchTemplate" -> EC2LaunchTemplateProperties <$> (o .: "Properties")
          "AWS::EC2::NatGateway" -> EC2NatGatewayProperties <$> (o .: "Properties")
          "AWS::EC2::NetworkAcl" -> EC2NetworkAclProperties <$> (o .: "Properties")
          "AWS::EC2::NetworkAclEntry" -> EC2NetworkAclEntryProperties <$> (o .: "Properties")
