@@ -35,6 +35,7 @@ data CognitoUserPool =
   , _cognitoUserPoolSmsVerificationMessage :: Maybe (Val Text)
   , _cognitoUserPoolUserPoolName :: Maybe (Val Text)
   , _cognitoUserPoolUserPoolTags :: Maybe Object
+  , _cognitoUserPoolUsernameAttributes :: Maybe (ValList Text)
   } deriving (Show, Eq)
 
 instance ToJSON CognitoUserPool where
@@ -57,6 +58,7 @@ instance ToJSON CognitoUserPool where
     , fmap (("SmsVerificationMessage",) . toJSON) _cognitoUserPoolSmsVerificationMessage
     , fmap (("UserPoolName",) . toJSON) _cognitoUserPoolUserPoolName
     , fmap (("UserPoolTags",) . toJSON) _cognitoUserPoolUserPoolTags
+    , fmap (("UsernameAttributes",) . toJSON) _cognitoUserPoolUsernameAttributes
     ]
 
 instance FromJSON CognitoUserPool where
@@ -77,7 +79,8 @@ instance FromJSON CognitoUserPool where
       (obj .:? "SmsConfiguration") <*>
       (obj .:? "SmsVerificationMessage") <*>
       (obj .:? "UserPoolName") <*>
-      (obj .:? "UserPoolTags")
+      (obj .:? "UserPoolTags") <*>
+      (obj .:? "UsernameAttributes")
   parseJSON _ = mempty
 
 -- | Constructor for 'CognitoUserPool' containing required fields as
@@ -102,6 +105,7 @@ cognitoUserPool  =
   , _cognitoUserPoolSmsVerificationMessage = Nothing
   , _cognitoUserPoolUserPoolName = Nothing
   , _cognitoUserPoolUserPoolTags = Nothing
+  , _cognitoUserPoolUsernameAttributes = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-admincreateuserconfig
@@ -167,3 +171,7 @@ cupUserPoolName = lens _cognitoUserPoolUserPoolName (\s a -> s { _cognitoUserPoo
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-userpooltags
 cupUserPoolTags :: Lens' CognitoUserPool (Maybe Object)
 cupUserPoolTags = lens _cognitoUserPoolUserPoolTags (\s a -> s { _cognitoUserPoolUserPoolTags = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-usernameattributes
+cupUsernameAttributes :: Lens' CognitoUserPool (Maybe (ValList Text))
+cupUsernameAttributes = lens _cognitoUserPoolUsernameAttributes (\s a -> s { _cognitoUserPoolUsernameAttributes = a })
