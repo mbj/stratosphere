@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.22.0
+
+* Bug fix: `AWSTemplateFormatVersion` was being formatted incorrectly in JSON.
+
 ## 0.21.0
 
 * Update resource specification document to some new unspecified version.

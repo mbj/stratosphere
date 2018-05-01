@@ -44,7 +44,7 @@ prefixFieldRules prefix = set lensField (prefixNamer prefix) defaultFieldRules
 -- | Used for the JSON instances in Template. It is put here because it must be
 -- in a separate module.
 modTemplateJSONField :: String -> String
-modTemplateJSONField "templateFormatVersion" = "AWSTemplateFormatVersion"
+modTemplateJSONField "_templateFormatVersion" = "AWSTemplateFormatVersion"
 modTemplateJSONField s = drop 9 s
 
 
