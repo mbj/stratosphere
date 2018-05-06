@@ -14,6 +14,7 @@ import Stratosphere.ResourceImports
 data GuardDutyMember =
   GuardDutyMember
   { _guardDutyMemberDetectorId :: Val Text
+  , _guardDutyMemberDisableEmailNotification :: Maybe (Val Bool)
   , _guardDutyMemberEmail :: Val Text
   , _guardDutyMemberMemberId :: Val Text
   , _guardDutyMemberMessage :: Maybe (Val Text)
@@ -25,6 +26,7 @@ instance ToJSON GuardDutyMember where
     object $
     catMaybes
     [ (Just . ("DetectorId",) . toJSON) _guardDutyMemberDetectorId
+    , fmap (("DisableEmailNotification",) . toJSON . fmap Bool') _guardDutyMemberDisableEmailNotification
     , (Just . ("Email",) . toJSON) _guardDutyMemberEmail
     , (Just . ("MemberId",) . toJSON) _guardDutyMemberMemberId
     , fmap (("Message",) . toJSON) _guardDutyMemberMessage
@@ -35,6 +37,7 @@ instance FromJSON GuardDutyMember where
   parseJSON (Object obj) =
     GuardDutyMember <$>
       (obj .: "DetectorId") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "DisableEmailNotification") <*>
       (obj .: "Email") <*>
       (obj .: "MemberId") <*>
       (obj .:? "Message") <*>
@@ -51,6 +54,7 @@ guardDutyMember
 guardDutyMember detectorIdarg emailarg memberIdarg =
   GuardDutyMember
   { _guardDutyMemberDetectorId = detectorIdarg
+  , _guardDutyMemberDisableEmailNotification = Nothing
   , _guardDutyMemberEmail = emailarg
   , _guardDutyMemberMemberId = memberIdarg
   , _guardDutyMemberMessage = Nothing
@@ -60,6 +64,10 @@ guardDutyMember detectorIdarg emailarg memberIdarg =
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-member.html#cfn-guardduty-member-detectorid
 gdmeDetectorId :: Lens' GuardDutyMember (Val Text)
 gdmeDetectorId = lens _guardDutyMemberDetectorId (\s a -> s { _guardDutyMemberDetectorId = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-member.html#cfn-guardduty-member-disableemailnotification
+gdmeDisableEmailNotification :: Lens' GuardDutyMember (Maybe (Val Bool))
+gdmeDisableEmailNotification = lens _guardDutyMemberDisableEmailNotification (\s a -> s { _guardDutyMemberDisableEmailNotification = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-member.html#cfn-guardduty-member-email
 gdmeEmail :: Lens' GuardDutyMember (Val Text)

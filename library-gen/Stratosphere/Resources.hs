@@ -288,6 +288,7 @@ import Stratosphere.Resources.SSMDocument as X
 import Stratosphere.Resources.SSMMaintenanceWindowTask as X
 import Stratosphere.Resources.SSMParameter as X
 import Stratosphere.Resources.SSMPatchBaseline as X
+import Stratosphere.Resources.ServiceCatalogCloudFormationProvisionedProduct as X
 import Stratosphere.Resources.ServiceDiscoveryInstance as X
 import Stratosphere.Resources.ServiceDiscoveryPrivateDnsNamespace as X
 import Stratosphere.Resources.ServiceDiscoveryPublicDnsNamespace as X
@@ -328,6 +329,7 @@ import Stratosphere.ResourceProperties.AppSyncDataSourceDynamoDBConfig as X
 import Stratosphere.ResourceProperties.AppSyncDataSourceElasticsearchConfig as X
 import Stratosphere.ResourceProperties.AppSyncDataSourceLambdaConfig as X
 import Stratosphere.ResourceProperties.AppSyncGraphQLApiLogConfig as X
+import Stratosphere.ResourceProperties.AppSyncGraphQLApiOpenIDConnectConfig as X
 import Stratosphere.ResourceProperties.AppSyncGraphQLApiUserPoolConfig as X
 import Stratosphere.ResourceProperties.ApplicationAutoScalingScalableTargetScalableTargetAction as X
 import Stratosphere.ResourceProperties.ApplicationAutoScalingScalableTargetScheduledAction as X
@@ -816,6 +818,7 @@ import Stratosphere.ResourceProperties.SSMPatchBaselinePatchFilterGroup as X
 import Stratosphere.ResourceProperties.SSMPatchBaselinePatchSource as X
 import Stratosphere.ResourceProperties.SSMPatchBaselineRule as X
 import Stratosphere.ResourceProperties.SSMPatchBaselineRuleGroup as X
+import Stratosphere.ResourceProperties.ServiceCatalogCloudFormationProvisionedProductProvisioningParameter as X
 import Stratosphere.ResourceProperties.ServiceDiscoveryServiceDnsConfig as X
 import Stratosphere.ResourceProperties.ServiceDiscoveryServiceDnsRecord as X
 import Stratosphere.ResourceProperties.ServiceDiscoveryServiceHealthCheckConfig as X
@@ -1096,6 +1099,7 @@ data ResourceProperties
   | SSMMaintenanceWindowTaskProperties SSMMaintenanceWindowTask
   | SSMParameterProperties SSMParameter
   | SSMPatchBaselineProperties SSMPatchBaseline
+  | ServiceCatalogCloudFormationProvisionedProductProperties ServiceCatalogCloudFormationProvisionedProduct
   | ServiceDiscoveryInstanceProperties ServiceDiscoveryInstance
   | ServiceDiscoveryPrivateDnsNamespaceProperties ServiceDiscoveryPrivateDnsNamespace
   | ServiceDiscoveryPublicDnsNamespaceProperties ServiceDiscoveryPublicDnsNamespace
@@ -1655,6 +1659,8 @@ resourcePropertiesJSON (SSMParameterProperties x) =
   [ "Type" .= ("AWS::SSM::Parameter" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (SSMPatchBaselineProperties x) =
   [ "Type" .= ("AWS::SSM::PatchBaseline" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (ServiceCatalogCloudFormationProvisionedProductProperties x) =
+  [ "Type" .= ("AWS::ServiceCatalog::CloudFormationProvisionedProduct" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ServiceDiscoveryInstanceProperties x) =
   [ "Type" .= ("AWS::ServiceDiscovery::Instance" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ServiceDiscoveryPrivateDnsNamespaceProperties x) =
@@ -1946,6 +1952,7 @@ resourceFromJSON n o =
          "AWS::SSM::MaintenanceWindowTask" -> SSMMaintenanceWindowTaskProperties <$> (o .: "Properties")
          "AWS::SSM::Parameter" -> SSMParameterProperties <$> (o .: "Properties")
          "AWS::SSM::PatchBaseline" -> SSMPatchBaselineProperties <$> (o .: "Properties")
+         "AWS::ServiceCatalog::CloudFormationProvisionedProduct" -> ServiceCatalogCloudFormationProvisionedProductProperties <$> (o .: "Properties")
          "AWS::ServiceDiscovery::Instance" -> ServiceDiscoveryInstanceProperties <$> (o .: "Properties")
          "AWS::ServiceDiscovery::PrivateDnsNamespace" -> ServiceDiscoveryPrivateDnsNamespaceProperties <$> (o .: "Properties")
          "AWS::ServiceDiscovery::PublicDnsNamespace" -> ServiceDiscoveryPublicDnsNamespaceProperties <$> (o .: "Properties")
