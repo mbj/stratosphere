@@ -8,6 +8,7 @@ module Stratosphere.Resources.AppSyncGraphQLApi where
 
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.AppSyncGraphQLApiLogConfig
+import Stratosphere.ResourceProperties.AppSyncGraphQLApiOpenIDConnectConfig
 import Stratosphere.ResourceProperties.AppSyncGraphQLApiUserPoolConfig
 
 -- | Full data type definition for AppSyncGraphQLApi. See 'appSyncGraphQLApi'
@@ -17,6 +18,7 @@ data AppSyncGraphQLApi =
   { _appSyncGraphQLApiAuthenticationType :: Val Text
   , _appSyncGraphQLApiLogConfig :: Maybe AppSyncGraphQLApiLogConfig
   , _appSyncGraphQLApiName :: Val Text
+  , _appSyncGraphQLApiOpenIDConnectConfig :: Maybe AppSyncGraphQLApiOpenIDConnectConfig
   , _appSyncGraphQLApiUserPoolConfig :: Maybe AppSyncGraphQLApiUserPoolConfig
   } deriving (Show, Eq)
 
@@ -27,6 +29,7 @@ instance ToJSON AppSyncGraphQLApi where
     [ (Just . ("AuthenticationType",) . toJSON) _appSyncGraphQLApiAuthenticationType
     , fmap (("LogConfig",) . toJSON) _appSyncGraphQLApiLogConfig
     , (Just . ("Name",) . toJSON) _appSyncGraphQLApiName
+    , fmap (("OpenIDConnectConfig",) . toJSON) _appSyncGraphQLApiOpenIDConnectConfig
     , fmap (("UserPoolConfig",) . toJSON) _appSyncGraphQLApiUserPoolConfig
     ]
 
@@ -36,6 +39,7 @@ instance FromJSON AppSyncGraphQLApi where
       (obj .: "AuthenticationType") <*>
       (obj .:? "LogConfig") <*>
       (obj .: "Name") <*>
+      (obj .:? "OpenIDConnectConfig") <*>
       (obj .:? "UserPoolConfig")
   parseJSON _ = mempty
 
@@ -50,6 +54,7 @@ appSyncGraphQLApi authenticationTypearg namearg =
   { _appSyncGraphQLApiAuthenticationType = authenticationTypearg
   , _appSyncGraphQLApiLogConfig = Nothing
   , _appSyncGraphQLApiName = namearg
+  , _appSyncGraphQLApiOpenIDConnectConfig = Nothing
   , _appSyncGraphQLApiUserPoolConfig = Nothing
   }
 
@@ -64,6 +69,10 @@ asgqlaLogConfig = lens _appSyncGraphQLApiLogConfig (\s a -> s { _appSyncGraphQLA
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-name
 asgqlaName :: Lens' AppSyncGraphQLApi (Val Text)
 asgqlaName = lens _appSyncGraphQLApiName (\s a -> s { _appSyncGraphQLApiName = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-openidconnectconfig
+asgqlaOpenIDConnectConfig :: Lens' AppSyncGraphQLApi (Maybe AppSyncGraphQLApiOpenIDConnectConfig)
+asgqlaOpenIDConnectConfig = lens _appSyncGraphQLApiOpenIDConnectConfig (\s a -> s { _appSyncGraphQLApiOpenIDConnectConfig = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-userpoolconfig
 asgqlaUserPoolConfig :: Lens' AppSyncGraphQLApi (Maybe AppSyncGraphQLApiUserPoolConfig)
