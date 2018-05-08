@@ -206,6 +206,7 @@ import Stratosphere.Resources.GluePartition as X
 import Stratosphere.Resources.GlueTable as X
 import Stratosphere.Resources.GlueTrigger as X
 import Stratosphere.Resources.GuardDutyDetector as X
+import Stratosphere.Resources.GuardDutyFilter as X
 import Stratosphere.Resources.GuardDutyIPSet as X
 import Stratosphere.Resources.GuardDutyMaster as X
 import Stratosphere.Resources.GuardDutyMember as X
@@ -643,6 +644,8 @@ import Stratosphere.ResourceProperties.GlueTableTableInput as X
 import Stratosphere.ResourceProperties.GlueTriggerAction as X
 import Stratosphere.ResourceProperties.GlueTriggerCondition as X
 import Stratosphere.ResourceProperties.GlueTriggerPredicate as X
+import Stratosphere.ResourceProperties.GuardDutyFilterCondition as X
+import Stratosphere.ResourceProperties.GuardDutyFilterFindingCriteria as X
 import Stratosphere.ResourceProperties.IAMGroupPolicy as X
 import Stratosphere.ResourceProperties.IAMRolePolicy as X
 import Stratosphere.ResourceProperties.IAMUserLoginProfile as X
@@ -1017,6 +1020,7 @@ data ResourceProperties
   | GlueTableProperties GlueTable
   | GlueTriggerProperties GlueTrigger
   | GuardDutyDetectorProperties GuardDutyDetector
+  | GuardDutyFilterProperties GuardDutyFilter
   | GuardDutyIPSetProperties GuardDutyIPSet
   | GuardDutyMasterProperties GuardDutyMaster
   | GuardDutyMemberProperties GuardDutyMember
@@ -1495,6 +1499,8 @@ resourcePropertiesJSON (GlueTriggerProperties x) =
   [ "Type" .= ("AWS::Glue::Trigger" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (GuardDutyDetectorProperties x) =
   [ "Type" .= ("AWS::GuardDuty::Detector" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (GuardDutyFilterProperties x) =
+  [ "Type" .= ("AWS::GuardDuty::Filter" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (GuardDutyIPSetProperties x) =
   [ "Type" .= ("AWS::GuardDuty::IPSet" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (GuardDutyMasterProperties x) =
@@ -1870,6 +1876,7 @@ resourceFromJSON n o =
          "AWS::Glue::Table" -> GlueTableProperties <$> (o .: "Properties")
          "AWS::Glue::Trigger" -> GlueTriggerProperties <$> (o .: "Properties")
          "AWS::GuardDuty::Detector" -> GuardDutyDetectorProperties <$> (o .: "Properties")
+         "AWS::GuardDuty::Filter" -> GuardDutyFilterProperties <$> (o .: "Properties")
          "AWS::GuardDuty::IPSet" -> GuardDutyIPSetProperties <$> (o .: "Properties")
          "AWS::GuardDuty::Master" -> GuardDutyMasterProperties <$> (o .: "Properties")
          "AWS::GuardDuty::Member" -> GuardDutyMemberProperties <$> (o .: "Properties")
