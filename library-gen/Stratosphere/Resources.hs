@@ -79,6 +79,7 @@ import Stratosphere.Resources.AutoScalingLaunchConfiguration as X
 import Stratosphere.Resources.AutoScalingLifecycleHook as X
 import Stratosphere.Resources.AutoScalingScalingPolicy as X
 import Stratosphere.Resources.AutoScalingScheduledAction as X
+import Stratosphere.Resources.AutoScalingPlansScalingPlan as X
 import Stratosphere.Resources.BatchComputeEnvironment as X
 import Stratosphere.Resources.BatchJobDefinition as X
 import Stratosphere.Resources.BatchJobQueue as X
@@ -351,6 +352,13 @@ import Stratosphere.ResourceProperties.AutoScalingScalingPolicyMetricDimension a
 import Stratosphere.ResourceProperties.AutoScalingScalingPolicyPredefinedMetricSpecification as X
 import Stratosphere.ResourceProperties.AutoScalingScalingPolicyStepAdjustment as X
 import Stratosphere.ResourceProperties.AutoScalingScalingPolicyTargetTrackingConfiguration as X
+import Stratosphere.ResourceProperties.AutoScalingPlansScalingPlanApplicationSource as X
+import Stratosphere.ResourceProperties.AutoScalingPlansScalingPlanCustomizedScalingMetricSpecification as X
+import Stratosphere.ResourceProperties.AutoScalingPlansScalingPlanMetricDimension as X
+import Stratosphere.ResourceProperties.AutoScalingPlansScalingPlanPredefinedScalingMetricSpecification as X
+import Stratosphere.ResourceProperties.AutoScalingPlansScalingPlanScalingInstruction as X
+import Stratosphere.ResourceProperties.AutoScalingPlansScalingPlanTagFilter as X
+import Stratosphere.ResourceProperties.AutoScalingPlansScalingPlanTargetTrackingConfiguration as X
 import Stratosphere.ResourceProperties.BatchComputeEnvironmentComputeResources as X
 import Stratosphere.ResourceProperties.BatchJobDefinitionContainerProperties as X
 import Stratosphere.ResourceProperties.BatchJobDefinitionEnvironment as X
@@ -893,6 +901,7 @@ data ResourceProperties
   | AutoScalingLifecycleHookProperties AutoScalingLifecycleHook
   | AutoScalingScalingPolicyProperties AutoScalingScalingPolicy
   | AutoScalingScheduledActionProperties AutoScalingScheduledAction
+  | AutoScalingPlansScalingPlanProperties AutoScalingPlansScalingPlan
   | BatchComputeEnvironmentProperties BatchComputeEnvironment
   | BatchJobDefinitionProperties BatchJobDefinition
   | BatchJobQueueProperties BatchJobQueue
@@ -1245,6 +1254,8 @@ resourcePropertiesJSON (AutoScalingScalingPolicyProperties x) =
   [ "Type" .= ("AWS::AutoScaling::ScalingPolicy" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (AutoScalingScheduledActionProperties x) =
   [ "Type" .= ("AWS::AutoScaling::ScheduledAction" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (AutoScalingPlansScalingPlanProperties x) =
+  [ "Type" .= ("AWS::AutoScalingPlans::ScalingPlan" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (BatchComputeEnvironmentProperties x) =
   [ "Type" .= ("AWS::Batch::ComputeEnvironment" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (BatchJobDefinitionProperties x) =
@@ -1749,6 +1760,7 @@ resourceFromJSON n o =
          "AWS::AutoScaling::LifecycleHook" -> AutoScalingLifecycleHookProperties <$> (o .: "Properties")
          "AWS::AutoScaling::ScalingPolicy" -> AutoScalingScalingPolicyProperties <$> (o .: "Properties")
          "AWS::AutoScaling::ScheduledAction" -> AutoScalingScheduledActionProperties <$> (o .: "Properties")
+         "AWS::AutoScalingPlans::ScalingPlan" -> AutoScalingPlansScalingPlanProperties <$> (o .: "Properties")
          "AWS::Batch::ComputeEnvironment" -> BatchComputeEnvironmentProperties <$> (o .: "Properties")
          "AWS::Batch::JobDefinition" -> BatchJobDefinitionProperties <$> (o .: "Properties")
          "AWS::Batch::JobQueue" -> BatchJobQueueProperties <$> (o .: "Properties")
