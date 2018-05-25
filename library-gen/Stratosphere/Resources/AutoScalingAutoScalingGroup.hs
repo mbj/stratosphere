@@ -31,6 +31,7 @@ data AutoScalingAutoScalingGroup =
   , _autoScalingAutoScalingGroupMinSize :: Val Text
   , _autoScalingAutoScalingGroupNotificationConfigurations :: Maybe [AutoScalingAutoScalingGroupNotificationConfiguration]
   , _autoScalingAutoScalingGroupPlacementGroup :: Maybe (Val Text)
+  , _autoScalingAutoScalingGroupServiceLinkedRoleARN :: Maybe (Val Text)
   , _autoScalingAutoScalingGroupTags :: Maybe [AutoScalingAutoScalingGroupTagProperty]
   , _autoScalingAutoScalingGroupTargetGroupARNs :: Maybe (ValList Text)
   , _autoScalingAutoScalingGroupTerminationPolicies :: Maybe (ValList Text)
@@ -56,6 +57,7 @@ instance ToJSON AutoScalingAutoScalingGroup where
     , (Just . ("MinSize",) . toJSON) _autoScalingAutoScalingGroupMinSize
     , fmap (("NotificationConfigurations",) . toJSON) _autoScalingAutoScalingGroupNotificationConfigurations
     , fmap (("PlacementGroup",) . toJSON) _autoScalingAutoScalingGroupPlacementGroup
+    , fmap (("ServiceLinkedRoleARN",) . toJSON) _autoScalingAutoScalingGroupServiceLinkedRoleARN
     , fmap (("Tags",) . toJSON) _autoScalingAutoScalingGroupTags
     , fmap (("TargetGroupARNs",) . toJSON) _autoScalingAutoScalingGroupTargetGroupARNs
     , fmap (("TerminationPolicies",) . toJSON) _autoScalingAutoScalingGroupTerminationPolicies
@@ -80,6 +82,7 @@ instance FromJSON AutoScalingAutoScalingGroup where
       (obj .: "MinSize") <*>
       (obj .:? "NotificationConfigurations") <*>
       (obj .:? "PlacementGroup") <*>
+      (obj .:? "ServiceLinkedRoleARN") <*>
       (obj .:? "Tags") <*>
       (obj .:? "TargetGroupARNs") <*>
       (obj .:? "TerminationPolicies") <*>
@@ -109,6 +112,7 @@ autoScalingAutoScalingGroup maxSizearg minSizearg =
   , _autoScalingAutoScalingGroupMinSize = minSizearg
   , _autoScalingAutoScalingGroupNotificationConfigurations = Nothing
   , _autoScalingAutoScalingGroupPlacementGroup = Nothing
+  , _autoScalingAutoScalingGroupServiceLinkedRoleARN = Nothing
   , _autoScalingAutoScalingGroupTags = Nothing
   , _autoScalingAutoScalingGroupTargetGroupARNs = Nothing
   , _autoScalingAutoScalingGroupTerminationPolicies = Nothing
@@ -174,6 +178,10 @@ asasgNotificationConfigurations = lens _autoScalingAutoScalingGroupNotificationC
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-placementgroup
 asasgPlacementGroup :: Lens' AutoScalingAutoScalingGroup (Maybe (Val Text))
 asasgPlacementGroup = lens _autoScalingAutoScalingGroupPlacementGroup (\s a -> s { _autoScalingAutoScalingGroupPlacementGroup = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-autoscaling-autoscalinggroup-servicelinkedrolearn
+asasgServiceLinkedRoleARN :: Lens' AutoScalingAutoScalingGroup (Maybe (Val Text))
+asasgServiceLinkedRoleARN = lens _autoScalingAutoScalingGroupServiceLinkedRoleARN (\s a -> s { _autoScalingAutoScalingGroupServiceLinkedRoleARN = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-tags
 asasgTags :: Lens' AutoScalingAutoScalingGroup (Maybe [AutoScalingAutoScalingGroupTagProperty])

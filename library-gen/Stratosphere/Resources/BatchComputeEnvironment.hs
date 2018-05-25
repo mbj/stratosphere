@@ -14,7 +14,7 @@ import Stratosphere.ResourceProperties.BatchComputeEnvironmentComputeResources
 data BatchComputeEnvironment =
   BatchComputeEnvironment
   { _batchComputeEnvironmentComputeEnvironmentName :: Maybe (Val Text)
-  , _batchComputeEnvironmentComputeResources :: BatchComputeEnvironmentComputeResources
+  , _batchComputeEnvironmentComputeResources :: Maybe BatchComputeEnvironmentComputeResources
   , _batchComputeEnvironmentServiceRole :: Val Text
   , _batchComputeEnvironmentState :: Maybe (Val Text)
   , _batchComputeEnvironmentType :: Val Text
@@ -25,7 +25,7 @@ instance ToJSON BatchComputeEnvironment where
     object $
     catMaybes
     [ fmap (("ComputeEnvironmentName",) . toJSON) _batchComputeEnvironmentComputeEnvironmentName
-    , (Just . ("ComputeResources",) . toJSON) _batchComputeEnvironmentComputeResources
+    , fmap (("ComputeResources",) . toJSON) _batchComputeEnvironmentComputeResources
     , (Just . ("ServiceRole",) . toJSON) _batchComputeEnvironmentServiceRole
     , fmap (("State",) . toJSON) _batchComputeEnvironmentState
     , (Just . ("Type",) . toJSON) _batchComputeEnvironmentType
@@ -35,7 +35,7 @@ instance FromJSON BatchComputeEnvironment where
   parseJSON (Object obj) =
     BatchComputeEnvironment <$>
       (obj .:? "ComputeEnvironmentName") <*>
-      (obj .: "ComputeResources") <*>
+      (obj .:? "ComputeResources") <*>
       (obj .: "ServiceRole") <*>
       (obj .:? "State") <*>
       (obj .: "Type")
@@ -44,14 +44,13 @@ instance FromJSON BatchComputeEnvironment where
 -- | Constructor for 'BatchComputeEnvironment' containing required fields as
 -- arguments.
 batchComputeEnvironment
-  :: BatchComputeEnvironmentComputeResources -- ^ 'bceComputeResources'
-  -> Val Text -- ^ 'bceServiceRole'
+  :: Val Text -- ^ 'bceServiceRole'
   -> Val Text -- ^ 'bceType'
   -> BatchComputeEnvironment
-batchComputeEnvironment computeResourcesarg serviceRolearg typearg =
+batchComputeEnvironment serviceRolearg typearg =
   BatchComputeEnvironment
   { _batchComputeEnvironmentComputeEnvironmentName = Nothing
-  , _batchComputeEnvironmentComputeResources = computeResourcesarg
+  , _batchComputeEnvironmentComputeResources = Nothing
   , _batchComputeEnvironmentServiceRole = serviceRolearg
   , _batchComputeEnvironmentState = Nothing
   , _batchComputeEnvironmentType = typearg
@@ -62,7 +61,7 @@ bceComputeEnvironmentName :: Lens' BatchComputeEnvironment (Maybe (Val Text))
 bceComputeEnvironmentName = lens _batchComputeEnvironmentComputeEnvironmentName (\s a -> s { _batchComputeEnvironmentComputeEnvironmentName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-computeenvironment.html#cfn-batch-computeenvironment-computeresources
-bceComputeResources :: Lens' BatchComputeEnvironment BatchComputeEnvironmentComputeResources
+bceComputeResources :: Lens' BatchComputeEnvironment (Maybe BatchComputeEnvironmentComputeResources)
 bceComputeResources = lens _batchComputeEnvironmentComputeResources (\s a -> s { _batchComputeEnvironmentComputeResources = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-computeenvironment.html#cfn-batch-computeenvironment-servicerole

@@ -18,6 +18,7 @@ data CertificateManagerCertificate =
   , _certificateManagerCertificateDomainValidationOptions :: Maybe [CertificateManagerCertificateDomainValidationOption]
   , _certificateManagerCertificateSubjectAlternativeNames :: Maybe (ValList Text)
   , _certificateManagerCertificateTags :: Maybe [Tag]
+  , _certificateManagerCertificateValidationMethod :: Maybe (Val Text)
   } deriving (Show, Eq)
 
 instance ToJSON CertificateManagerCertificate where
@@ -28,6 +29,7 @@ instance ToJSON CertificateManagerCertificate where
     , fmap (("DomainValidationOptions",) . toJSON) _certificateManagerCertificateDomainValidationOptions
     , fmap (("SubjectAlternativeNames",) . toJSON) _certificateManagerCertificateSubjectAlternativeNames
     , fmap (("Tags",) . toJSON) _certificateManagerCertificateTags
+    , fmap (("ValidationMethod",) . toJSON) _certificateManagerCertificateValidationMethod
     ]
 
 instance FromJSON CertificateManagerCertificate where
@@ -36,7 +38,8 @@ instance FromJSON CertificateManagerCertificate where
       (obj .: "DomainName") <*>
       (obj .:? "DomainValidationOptions") <*>
       (obj .:? "SubjectAlternativeNames") <*>
-      (obj .:? "Tags")
+      (obj .:? "Tags") <*>
+      (obj .:? "ValidationMethod")
   parseJSON _ = mempty
 
 -- | Constructor for 'CertificateManagerCertificate' containing required
@@ -50,6 +53,7 @@ certificateManagerCertificate domainNamearg =
   , _certificateManagerCertificateDomainValidationOptions = Nothing
   , _certificateManagerCertificateSubjectAlternativeNames = Nothing
   , _certificateManagerCertificateTags = Nothing
+  , _certificateManagerCertificateValidationMethod = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-certificate.html#cfn-certificatemanager-certificate-domainname
@@ -67,3 +71,7 @@ cmcSubjectAlternativeNames = lens _certificateManagerCertificateSubjectAlternati
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-certificate.html#cfn-certificatemanager-certificate-tags
 cmcTags :: Lens' CertificateManagerCertificate (Maybe [Tag])
 cmcTags = lens _certificateManagerCertificateTags (\s a -> s { _certificateManagerCertificateTags = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-certificate.html#cfn-certificatemanager-certificate-validationmethod
+cmcValidationMethod :: Lens' CertificateManagerCertificate (Maybe (Val Text))
+cmcValidationMethod = lens _certificateManagerCertificateValidationMethod (\s a -> s { _certificateManagerCertificateValidationMethod = a })

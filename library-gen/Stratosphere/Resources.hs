@@ -83,6 +83,7 @@ import Stratosphere.Resources.AutoScalingPlansScalingPlan as X
 import Stratosphere.Resources.BatchComputeEnvironment as X
 import Stratosphere.Resources.BatchJobDefinition as X
 import Stratosphere.Resources.BatchJobQueue as X
+import Stratosphere.Resources.BudgetsBudget as X
 import Stratosphere.Resources.CertificateManagerCertificate as X
 import Stratosphere.Resources.Cloud9EnvironmentEC2 as X
 import Stratosphere.Resources.CloudFormationCustomResource as X
@@ -290,7 +291,18 @@ import Stratosphere.Resources.SSMDocument as X
 import Stratosphere.Resources.SSMMaintenanceWindowTask as X
 import Stratosphere.Resources.SSMParameter as X
 import Stratosphere.Resources.SSMPatchBaseline as X
+import Stratosphere.Resources.ServiceCatalogAcceptedPortfolioShare as X
+import Stratosphere.Resources.ServiceCatalogCloudFormationProduct as X
 import Stratosphere.Resources.ServiceCatalogCloudFormationProvisionedProduct as X
+import Stratosphere.Resources.ServiceCatalogLaunchNotificationConstraint as X
+import Stratosphere.Resources.ServiceCatalogLaunchRoleConstraint as X
+import Stratosphere.Resources.ServiceCatalogLaunchTemplateConstraint as X
+import Stratosphere.Resources.ServiceCatalogPortfolio as X
+import Stratosphere.Resources.ServiceCatalogPortfolioPrincipalAssociation as X
+import Stratosphere.Resources.ServiceCatalogPortfolioProductAssociation as X
+import Stratosphere.Resources.ServiceCatalogPortfolioShare as X
+import Stratosphere.Resources.ServiceCatalogTagOption as X
+import Stratosphere.Resources.ServiceCatalogTagOptionAssociation as X
 import Stratosphere.Resources.ServiceDiscoveryInstance as X
 import Stratosphere.Resources.ServiceDiscoveryPrivateDnsNamespace as X
 import Stratosphere.Resources.ServiceDiscoveryPublicDnsNamespace as X
@@ -364,10 +376,18 @@ import Stratosphere.ResourceProperties.BatchJobDefinitionContainerProperties as 
 import Stratosphere.ResourceProperties.BatchJobDefinitionEnvironment as X
 import Stratosphere.ResourceProperties.BatchJobDefinitionMountPoints as X
 import Stratosphere.ResourceProperties.BatchJobDefinitionRetryStrategy as X
+import Stratosphere.ResourceProperties.BatchJobDefinitionTimeout as X
 import Stratosphere.ResourceProperties.BatchJobDefinitionUlimit as X
 import Stratosphere.ResourceProperties.BatchJobDefinitionVolumes as X
 import Stratosphere.ResourceProperties.BatchJobDefinitionVolumesHost as X
 import Stratosphere.ResourceProperties.BatchJobQueueComputeEnvironmentOrder as X
+import Stratosphere.ResourceProperties.BudgetsBudgetBudgetData as X
+import Stratosphere.ResourceProperties.BudgetsBudgetCostTypes as X
+import Stratosphere.ResourceProperties.BudgetsBudgetNotification as X
+import Stratosphere.ResourceProperties.BudgetsBudgetNotificationWithSubscribers as X
+import Stratosphere.ResourceProperties.BudgetsBudgetSpend as X
+import Stratosphere.ResourceProperties.BudgetsBudgetSubscriber as X
+import Stratosphere.ResourceProperties.BudgetsBudgetTimePeriod as X
 import Stratosphere.ResourceProperties.CertificateManagerCertificateDomainValidationOption as X
 import Stratosphere.ResourceProperties.Cloud9EnvironmentEC2Repository as X
 import Stratosphere.ResourceProperties.CloudFrontCloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfig as X
@@ -467,6 +487,7 @@ import Stratosphere.ResourceProperties.DynamoDBTableAttributeDefinition as X
 import Stratosphere.ResourceProperties.DynamoDBTableGlobalSecondaryIndex as X
 import Stratosphere.ResourceProperties.DynamoDBTableKeySchema as X
 import Stratosphere.ResourceProperties.DynamoDBTableLocalSecondaryIndex as X
+import Stratosphere.ResourceProperties.DynamoDBTablePointInTimeRecoverySpecification as X
 import Stratosphere.ResourceProperties.DynamoDBTableProjection as X
 import Stratosphere.ResourceProperties.DynamoDBTableProvisionedThroughput as X
 import Stratosphere.ResourceProperties.DynamoDBTableSSESpecification as X
@@ -478,6 +499,7 @@ import Stratosphere.ResourceProperties.EC2InstanceCreditSpecification as X
 import Stratosphere.ResourceProperties.EC2InstanceEbs as X
 import Stratosphere.ResourceProperties.EC2InstanceElasticGpuSpecification as X
 import Stratosphere.ResourceProperties.EC2InstanceInstanceIpv6Address as X
+import Stratosphere.ResourceProperties.EC2InstanceLaunchTemplateSpecification as X
 import Stratosphere.ResourceProperties.EC2InstanceNetworkInterface as X
 import Stratosphere.ResourceProperties.EC2InstanceNoDevice as X
 import Stratosphere.ResourceProperties.EC2InstancePrivateIpAddressSpecification as X
@@ -505,13 +527,10 @@ import Stratosphere.ResourceProperties.EC2SecurityGroupEgressProperty as X
 import Stratosphere.ResourceProperties.EC2SecurityGroupIngressProperty as X
 import Stratosphere.ResourceProperties.EC2SpotFleetBlockDeviceMapping as X
 import Stratosphere.ResourceProperties.EC2SpotFleetEbsBlockDevice as X
-import Stratosphere.ResourceProperties.EC2SpotFleetFleetLaunchTemplateSpecification as X
 import Stratosphere.ResourceProperties.EC2SpotFleetGroupIdentifier as X
 import Stratosphere.ResourceProperties.EC2SpotFleetIamInstanceProfileSpecification as X
 import Stratosphere.ResourceProperties.EC2SpotFleetInstanceIpv6Address as X
 import Stratosphere.ResourceProperties.EC2SpotFleetInstanceNetworkInterfaceSpecification as X
-import Stratosphere.ResourceProperties.EC2SpotFleetLaunchTemplateConfig as X
-import Stratosphere.ResourceProperties.EC2SpotFleetLaunchTemplateOverrides as X
 import Stratosphere.ResourceProperties.EC2SpotFleetPrivateIpAddressSpecification as X
 import Stratosphere.ResourceProperties.EC2SpotFleetSpotFleetLaunchSpecification as X
 import Stratosphere.ResourceProperties.EC2SpotFleetSpotFleetMonitoring as X
@@ -526,8 +545,10 @@ import Stratosphere.ResourceProperties.ECSServiceLoadBalancer as X
 import Stratosphere.ResourceProperties.ECSServiceNetworkConfiguration as X
 import Stratosphere.ResourceProperties.ECSServicePlacementConstraint as X
 import Stratosphere.ResourceProperties.ECSServicePlacementStrategy as X
+import Stratosphere.ResourceProperties.ECSServiceServiceRegistry as X
 import Stratosphere.ResourceProperties.ECSTaskDefinitionContainerDefinition as X
 import Stratosphere.ResourceProperties.ECSTaskDefinitionDevice as X
+import Stratosphere.ResourceProperties.ECSTaskDefinitionHealthCheck as X
 import Stratosphere.ResourceProperties.ECSTaskDefinitionHostEntry as X
 import Stratosphere.ResourceProperties.ECSTaskDefinitionHostVolumeProperties as X
 import Stratosphere.ResourceProperties.ECSTaskDefinitionKernelCapabilities as X
@@ -614,6 +635,7 @@ import Stratosphere.ResourceProperties.ElasticLoadBalancingV2TargetGroupTargetDe
 import Stratosphere.ResourceProperties.ElasticLoadBalancingV2TargetGroupTargetGroupAttribute as X
 import Stratosphere.ResourceProperties.ElasticsearchDomainEBSOptions as X
 import Stratosphere.ResourceProperties.ElasticsearchDomainElasticsearchClusterConfig as X
+import Stratosphere.ResourceProperties.ElasticsearchDomainEncryptionAtRestOptions as X
 import Stratosphere.ResourceProperties.ElasticsearchDomainSnapshotOptions as X
 import Stratosphere.ResourceProperties.ElasticsearchDomainVPCOptions as X
 import Stratosphere.ResourceProperties.EventsRuleEcsParameters as X
@@ -715,6 +737,8 @@ import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamProcessor as
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamProcessorParameter as X
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration as X
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamS3DestinationConfiguration as X
+import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamSplunkDestinationConfiguration as X
+import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamSplunkRetryOptions as X
 import Stratosphere.ResourceProperties.LambdaAliasAliasRoutingConfiguration as X
 import Stratosphere.ResourceProperties.LambdaAliasVersionWeight as X
 import Stratosphere.ResourceProperties.LambdaFunctionCode as X
@@ -814,7 +838,9 @@ import Stratosphere.ResourceProperties.SESReceiptRuleStopAction as X
 import Stratosphere.ResourceProperties.SESReceiptRuleWorkmailAction as X
 import Stratosphere.ResourceProperties.SESTemplateTemplate as X
 import Stratosphere.ResourceProperties.SNSTopicSubscription as X
+import Stratosphere.ResourceProperties.SSMAssociationInstanceAssociationOutputLocation as X
 import Stratosphere.ResourceProperties.SSMAssociationParameterValues as X
+import Stratosphere.ResourceProperties.SSMAssociationS3OutputLocation as X
 import Stratosphere.ResourceProperties.SSMAssociationTarget as X
 import Stratosphere.ResourceProperties.SSMMaintenanceWindowTaskLoggingInfo as X
 import Stratosphere.ResourceProperties.SSMMaintenanceWindowTaskMaintenanceWindowAutomationParameters as X
@@ -829,6 +855,7 @@ import Stratosphere.ResourceProperties.SSMPatchBaselinePatchFilterGroup as X
 import Stratosphere.ResourceProperties.SSMPatchBaselinePatchSource as X
 import Stratosphere.ResourceProperties.SSMPatchBaselineRule as X
 import Stratosphere.ResourceProperties.SSMPatchBaselineRuleGroup as X
+import Stratosphere.ResourceProperties.ServiceCatalogCloudFormationProductProvisioningArtifactProperties as X
 import Stratosphere.ResourceProperties.ServiceCatalogCloudFormationProvisionedProductProvisioningParameter as X
 import Stratosphere.ResourceProperties.ServiceDiscoveryServiceDnsConfig as X
 import Stratosphere.ResourceProperties.ServiceDiscoveryServiceDnsRecord as X
@@ -905,6 +932,7 @@ data ResourceProperties
   | BatchComputeEnvironmentProperties BatchComputeEnvironment
   | BatchJobDefinitionProperties BatchJobDefinition
   | BatchJobQueueProperties BatchJobQueue
+  | BudgetsBudgetProperties BudgetsBudget
   | CertificateManagerCertificateProperties CertificateManagerCertificate
   | Cloud9EnvironmentEC2Properties Cloud9EnvironmentEC2
   | CloudFormationCustomResourceProperties CloudFormationCustomResource
@@ -1112,7 +1140,18 @@ data ResourceProperties
   | SSMMaintenanceWindowTaskProperties SSMMaintenanceWindowTask
   | SSMParameterProperties SSMParameter
   | SSMPatchBaselineProperties SSMPatchBaseline
+  | ServiceCatalogAcceptedPortfolioShareProperties ServiceCatalogAcceptedPortfolioShare
+  | ServiceCatalogCloudFormationProductProperties ServiceCatalogCloudFormationProduct
   | ServiceCatalogCloudFormationProvisionedProductProperties ServiceCatalogCloudFormationProvisionedProduct
+  | ServiceCatalogLaunchNotificationConstraintProperties ServiceCatalogLaunchNotificationConstraint
+  | ServiceCatalogLaunchRoleConstraintProperties ServiceCatalogLaunchRoleConstraint
+  | ServiceCatalogLaunchTemplateConstraintProperties ServiceCatalogLaunchTemplateConstraint
+  | ServiceCatalogPortfolioProperties ServiceCatalogPortfolio
+  | ServiceCatalogPortfolioPrincipalAssociationProperties ServiceCatalogPortfolioPrincipalAssociation
+  | ServiceCatalogPortfolioProductAssociationProperties ServiceCatalogPortfolioProductAssociation
+  | ServiceCatalogPortfolioShareProperties ServiceCatalogPortfolioShare
+  | ServiceCatalogTagOptionProperties ServiceCatalogTagOption
+  | ServiceCatalogTagOptionAssociationProperties ServiceCatalogTagOptionAssociation
   | ServiceDiscoveryInstanceProperties ServiceDiscoveryInstance
   | ServiceDiscoveryPrivateDnsNamespaceProperties ServiceDiscoveryPrivateDnsNamespace
   | ServiceDiscoveryPublicDnsNamespaceProperties ServiceDiscoveryPublicDnsNamespace
@@ -1262,6 +1301,8 @@ resourcePropertiesJSON (BatchJobDefinitionProperties x) =
   [ "Type" .= ("AWS::Batch::JobDefinition" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (BatchJobQueueProperties x) =
   [ "Type" .= ("AWS::Batch::JobQueue" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (BudgetsBudgetProperties x) =
+  [ "Type" .= ("AWS::Budgets::Budget" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (CertificateManagerCertificateProperties x) =
   [ "Type" .= ("AWS::CertificateManager::Certificate" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (Cloud9EnvironmentEC2Properties x) =
@@ -1676,8 +1717,30 @@ resourcePropertiesJSON (SSMParameterProperties x) =
   [ "Type" .= ("AWS::SSM::Parameter" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (SSMPatchBaselineProperties x) =
   [ "Type" .= ("AWS::SSM::PatchBaseline" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (ServiceCatalogAcceptedPortfolioShareProperties x) =
+  [ "Type" .= ("AWS::ServiceCatalog::AcceptedPortfolioShare" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (ServiceCatalogCloudFormationProductProperties x) =
+  [ "Type" .= ("AWS::ServiceCatalog::CloudFormationProduct" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ServiceCatalogCloudFormationProvisionedProductProperties x) =
   [ "Type" .= ("AWS::ServiceCatalog::CloudFormationProvisionedProduct" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (ServiceCatalogLaunchNotificationConstraintProperties x) =
+  [ "Type" .= ("AWS::ServiceCatalog::LaunchNotificationConstraint" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (ServiceCatalogLaunchRoleConstraintProperties x) =
+  [ "Type" .= ("AWS::ServiceCatalog::LaunchRoleConstraint" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (ServiceCatalogLaunchTemplateConstraintProperties x) =
+  [ "Type" .= ("AWS::ServiceCatalog::LaunchTemplateConstraint" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (ServiceCatalogPortfolioProperties x) =
+  [ "Type" .= ("AWS::ServiceCatalog::Portfolio" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (ServiceCatalogPortfolioPrincipalAssociationProperties x) =
+  [ "Type" .= ("AWS::ServiceCatalog::PortfolioPrincipalAssociation" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (ServiceCatalogPortfolioProductAssociationProperties x) =
+  [ "Type" .= ("AWS::ServiceCatalog::PortfolioProductAssociation" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (ServiceCatalogPortfolioShareProperties x) =
+  [ "Type" .= ("AWS::ServiceCatalog::PortfolioShare" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (ServiceCatalogTagOptionProperties x) =
+  [ "Type" .= ("AWS::ServiceCatalog::TagOption" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (ServiceCatalogTagOptionAssociationProperties x) =
+  [ "Type" .= ("AWS::ServiceCatalog::TagOptionAssociation" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ServiceDiscoveryInstanceProperties x) =
   [ "Type" .= ("AWS::ServiceDiscovery::Instance" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ServiceDiscoveryPrivateDnsNamespaceProperties x) =
@@ -1764,6 +1827,7 @@ resourceFromJSON n o =
          "AWS::Batch::ComputeEnvironment" -> BatchComputeEnvironmentProperties <$> (o .: "Properties")
          "AWS::Batch::JobDefinition" -> BatchJobDefinitionProperties <$> (o .: "Properties")
          "AWS::Batch::JobQueue" -> BatchJobQueueProperties <$> (o .: "Properties")
+         "AWS::Budgets::Budget" -> BudgetsBudgetProperties <$> (o .: "Properties")
          "AWS::CertificateManager::Certificate" -> CertificateManagerCertificateProperties <$> (o .: "Properties")
          "AWS::Cloud9::EnvironmentEC2" -> Cloud9EnvironmentEC2Properties <$> (o .: "Properties")
          "AWS::CloudFormation::CustomResource" -> CloudFormationCustomResourceProperties <$> (o .: "Properties")
@@ -1971,7 +2035,18 @@ resourceFromJSON n o =
          "AWS::SSM::MaintenanceWindowTask" -> SSMMaintenanceWindowTaskProperties <$> (o .: "Properties")
          "AWS::SSM::Parameter" -> SSMParameterProperties <$> (o .: "Properties")
          "AWS::SSM::PatchBaseline" -> SSMPatchBaselineProperties <$> (o .: "Properties")
+         "AWS::ServiceCatalog::AcceptedPortfolioShare" -> ServiceCatalogAcceptedPortfolioShareProperties <$> (o .: "Properties")
+         "AWS::ServiceCatalog::CloudFormationProduct" -> ServiceCatalogCloudFormationProductProperties <$> (o .: "Properties")
          "AWS::ServiceCatalog::CloudFormationProvisionedProduct" -> ServiceCatalogCloudFormationProvisionedProductProperties <$> (o .: "Properties")
+         "AWS::ServiceCatalog::LaunchNotificationConstraint" -> ServiceCatalogLaunchNotificationConstraintProperties <$> (o .: "Properties")
+         "AWS::ServiceCatalog::LaunchRoleConstraint" -> ServiceCatalogLaunchRoleConstraintProperties <$> (o .: "Properties")
+         "AWS::ServiceCatalog::LaunchTemplateConstraint" -> ServiceCatalogLaunchTemplateConstraintProperties <$> (o .: "Properties")
+         "AWS::ServiceCatalog::Portfolio" -> ServiceCatalogPortfolioProperties <$> (o .: "Properties")
+         "AWS::ServiceCatalog::PortfolioPrincipalAssociation" -> ServiceCatalogPortfolioPrincipalAssociationProperties <$> (o .: "Properties")
+         "AWS::ServiceCatalog::PortfolioProductAssociation" -> ServiceCatalogPortfolioProductAssociationProperties <$> (o .: "Properties")
+         "AWS::ServiceCatalog::PortfolioShare" -> ServiceCatalogPortfolioShareProperties <$> (o .: "Properties")
+         "AWS::ServiceCatalog::TagOption" -> ServiceCatalogTagOptionProperties <$> (o .: "Properties")
+         "AWS::ServiceCatalog::TagOptionAssociation" -> ServiceCatalogTagOptionAssociationProperties <$> (o .: "Properties")
          "AWS::ServiceDiscovery::Instance" -> ServiceDiscoveryInstanceProperties <$> (o .: "Properties")
          "AWS::ServiceDiscovery::PrivateDnsNamespace" -> ServiceDiscoveryPrivateDnsNamespaceProperties <$> (o .: "Properties")
          "AWS::ServiceDiscovery::PublicDnsNamespace" -> ServiceDiscoveryPublicDnsNamespaceProperties <$> (o .: "Properties")

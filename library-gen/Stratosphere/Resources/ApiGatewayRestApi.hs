@@ -25,6 +25,7 @@ data ApiGatewayRestApi =
   , _apiGatewayRestApiMinimumCompressionSize :: Maybe (Val Integer)
   , _apiGatewayRestApiName :: Maybe (Val Text)
   , _apiGatewayRestApiParameters :: Maybe Object
+  , _apiGatewayRestApiPolicy :: Maybe Object
   } deriving (Show, Eq)
 
 instance ToJSON ApiGatewayRestApi where
@@ -42,6 +43,7 @@ instance ToJSON ApiGatewayRestApi where
     , fmap (("MinimumCompressionSize",) . toJSON . fmap Integer') _apiGatewayRestApiMinimumCompressionSize
     , fmap (("Name",) . toJSON) _apiGatewayRestApiName
     , fmap (("Parameters",) . toJSON) _apiGatewayRestApiParameters
+    , fmap (("Policy",) . toJSON) _apiGatewayRestApiPolicy
     ]
 
 instance FromJSON ApiGatewayRestApi where
@@ -57,7 +59,8 @@ instance FromJSON ApiGatewayRestApi where
       fmap (fmap (fmap unBool')) (obj .:? "FailOnWarnings") <*>
       fmap (fmap (fmap unInteger')) (obj .:? "MinimumCompressionSize") <*>
       (obj .:? "Name") <*>
-      (obj .:? "Parameters")
+      (obj .:? "Parameters") <*>
+      (obj .:? "Policy")
   parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayRestApi' containing required fields as
@@ -77,6 +80,7 @@ apiGatewayRestApi  =
   , _apiGatewayRestApiMinimumCompressionSize = Nothing
   , _apiGatewayRestApiName = Nothing
   , _apiGatewayRestApiParameters = Nothing
+  , _apiGatewayRestApiPolicy = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-apikeysourcetype
@@ -122,3 +126,7 @@ agraName = lens _apiGatewayRestApiName (\s a -> s { _apiGatewayRestApiName = a }
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-parameters
 agraParameters :: Lens' ApiGatewayRestApi (Maybe Object)
 agraParameters = lens _apiGatewayRestApiParameters (\s a -> s { _apiGatewayRestApiParameters = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-policy
+agraPolicy :: Lens' ApiGatewayRestApi (Maybe Object)
+agraPolicy = lens _apiGatewayRestApiPolicy (\s a -> s { _apiGatewayRestApiPolicy = a })

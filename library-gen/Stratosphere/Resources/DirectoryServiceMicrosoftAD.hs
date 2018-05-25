@@ -14,6 +14,7 @@ import Stratosphere.ResourceProperties.DirectoryServiceMicrosoftADVpcSettings
 data DirectoryServiceMicrosoftAD =
   DirectoryServiceMicrosoftAD
   { _directoryServiceMicrosoftADCreateAlias :: Maybe (Val Bool)
+  , _directoryServiceMicrosoftADEdition :: Maybe (Val Text)
   , _directoryServiceMicrosoftADEnableSso :: Maybe (Val Bool)
   , _directoryServiceMicrosoftADName :: Val Text
   , _directoryServiceMicrosoftADPassword :: Val Text
@@ -26,6 +27,7 @@ instance ToJSON DirectoryServiceMicrosoftAD where
     object $
     catMaybes
     [ fmap (("CreateAlias",) . toJSON . fmap Bool') _directoryServiceMicrosoftADCreateAlias
+    , fmap (("Edition",) . toJSON) _directoryServiceMicrosoftADEdition
     , fmap (("EnableSso",) . toJSON . fmap Bool') _directoryServiceMicrosoftADEnableSso
     , (Just . ("Name",) . toJSON) _directoryServiceMicrosoftADName
     , (Just . ("Password",) . toJSON) _directoryServiceMicrosoftADPassword
@@ -37,6 +39,7 @@ instance FromJSON DirectoryServiceMicrosoftAD where
   parseJSON (Object obj) =
     DirectoryServiceMicrosoftAD <$>
       fmap (fmap (fmap unBool')) (obj .:? "CreateAlias") <*>
+      (obj .:? "Edition") <*>
       fmap (fmap (fmap unBool')) (obj .:? "EnableSso") <*>
       (obj .: "Name") <*>
       (obj .: "Password") <*>
@@ -54,6 +57,7 @@ directoryServiceMicrosoftAD
 directoryServiceMicrosoftAD namearg passwordarg vpcSettingsarg =
   DirectoryServiceMicrosoftAD
   { _directoryServiceMicrosoftADCreateAlias = Nothing
+  , _directoryServiceMicrosoftADEdition = Nothing
   , _directoryServiceMicrosoftADEnableSso = Nothing
   , _directoryServiceMicrosoftADName = namearg
   , _directoryServiceMicrosoftADPassword = passwordarg
@@ -64,6 +68,10 @@ directoryServiceMicrosoftAD namearg passwordarg vpcSettingsarg =
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directoryservice-microsoftad.html#cfn-directoryservice-microsoftad-createalias
 dsmadCreateAlias :: Lens' DirectoryServiceMicrosoftAD (Maybe (Val Bool))
 dsmadCreateAlias = lens _directoryServiceMicrosoftADCreateAlias (\s a -> s { _directoryServiceMicrosoftADCreateAlias = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directoryservice-microsoftad.html#cfn-directoryservice-microsoftad-edition
+dsmadEdition :: Lens' DirectoryServiceMicrosoftAD (Maybe (Val Text))
+dsmadEdition = lens _directoryServiceMicrosoftADEdition (\s a -> s { _directoryServiceMicrosoftADEdition = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directoryservice-microsoftad.html#cfn-directoryservice-microsoftad-enablesso
 dsmadEnableSso :: Lens' DirectoryServiceMicrosoftAD (Maybe (Val Bool))

@@ -17,7 +17,7 @@ data LambdaEventSourceMapping =
   , _lambdaEventSourceMappingEnabled :: Maybe (Val Bool)
   , _lambdaEventSourceMappingEventSourceArn :: Val Text
   , _lambdaEventSourceMappingFunctionName :: Val Text
-  , _lambdaEventSourceMappingStartingPosition :: Val Text
+  , _lambdaEventSourceMappingStartingPosition :: Maybe (Val Text)
   } deriving (Show, Eq)
 
 instance ToJSON LambdaEventSourceMapping where
@@ -28,7 +28,7 @@ instance ToJSON LambdaEventSourceMapping where
     , fmap (("Enabled",) . toJSON . fmap Bool') _lambdaEventSourceMappingEnabled
     , (Just . ("EventSourceArn",) . toJSON) _lambdaEventSourceMappingEventSourceArn
     , (Just . ("FunctionName",) . toJSON) _lambdaEventSourceMappingFunctionName
-    , (Just . ("StartingPosition",) . toJSON) _lambdaEventSourceMappingStartingPosition
+    , fmap (("StartingPosition",) . toJSON) _lambdaEventSourceMappingStartingPosition
     ]
 
 instance FromJSON LambdaEventSourceMapping where
@@ -38,7 +38,7 @@ instance FromJSON LambdaEventSourceMapping where
       fmap (fmap (fmap unBool')) (obj .:? "Enabled") <*>
       (obj .: "EventSourceArn") <*>
       (obj .: "FunctionName") <*>
-      (obj .: "StartingPosition")
+      (obj .:? "StartingPosition")
   parseJSON _ = mempty
 
 -- | Constructor for 'LambdaEventSourceMapping' containing required fields as
@@ -46,15 +46,14 @@ instance FromJSON LambdaEventSourceMapping where
 lambdaEventSourceMapping
   :: Val Text -- ^ 'lesmEventSourceArn'
   -> Val Text -- ^ 'lesmFunctionName'
-  -> Val Text -- ^ 'lesmStartingPosition'
   -> LambdaEventSourceMapping
-lambdaEventSourceMapping eventSourceArnarg functionNamearg startingPositionarg =
+lambdaEventSourceMapping eventSourceArnarg functionNamearg =
   LambdaEventSourceMapping
   { _lambdaEventSourceMappingBatchSize = Nothing
   , _lambdaEventSourceMappingEnabled = Nothing
   , _lambdaEventSourceMappingEventSourceArn = eventSourceArnarg
   , _lambdaEventSourceMappingFunctionName = functionNamearg
-  , _lambdaEventSourceMappingStartingPosition = startingPositionarg
+  , _lambdaEventSourceMappingStartingPosition = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-batchsize
@@ -74,5 +73,5 @@ lesmFunctionName :: Lens' LambdaEventSourceMapping (Val Text)
 lesmFunctionName = lens _lambdaEventSourceMappingFunctionName (\s a -> s { _lambdaEventSourceMappingFunctionName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-startingposition
-lesmStartingPosition :: Lens' LambdaEventSourceMapping (Val Text)
+lesmStartingPosition :: Lens' LambdaEventSourceMapping (Maybe (Val Text))
 lesmStartingPosition = lens _lambdaEventSourceMappingStartingPosition (\s a -> s { _lambdaEventSourceMappingStartingPosition = a })

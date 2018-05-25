@@ -9,6 +9,7 @@ module Stratosphere.ResourceProperties.ECSTaskDefinitionContainerDefinition wher
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.ECSTaskDefinitionKeyValuePair
 import Stratosphere.ResourceProperties.ECSTaskDefinitionHostEntry
+import Stratosphere.ResourceProperties.ECSTaskDefinitionHealthCheck
 import Stratosphere.ResourceProperties.ECSTaskDefinitionLinuxParameters
 import Stratosphere.ResourceProperties.ECSTaskDefinitionLogConfiguration
 import Stratosphere.ResourceProperties.ECSTaskDefinitionMountPoint
@@ -31,6 +32,7 @@ data ECSTaskDefinitionContainerDefinition =
   , _eCSTaskDefinitionContainerDefinitionEnvironment :: Maybe [ECSTaskDefinitionKeyValuePair]
   , _eCSTaskDefinitionContainerDefinitionEssential :: Maybe (Val Bool)
   , _eCSTaskDefinitionContainerDefinitionExtraHosts :: Maybe [ECSTaskDefinitionHostEntry]
+  , _eCSTaskDefinitionContainerDefinitionHealthCheck :: Maybe ECSTaskDefinitionHealthCheck
   , _eCSTaskDefinitionContainerDefinitionHostname :: Maybe (Val Text)
   , _eCSTaskDefinitionContainerDefinitionImage :: Val Text
   , _eCSTaskDefinitionContainerDefinitionLinks :: Maybe (ValList Text)
@@ -64,6 +66,7 @@ instance ToJSON ECSTaskDefinitionContainerDefinition where
     , fmap (("Environment",) . toJSON) _eCSTaskDefinitionContainerDefinitionEnvironment
     , fmap (("Essential",) . toJSON . fmap Bool') _eCSTaskDefinitionContainerDefinitionEssential
     , fmap (("ExtraHosts",) . toJSON) _eCSTaskDefinitionContainerDefinitionExtraHosts
+    , fmap (("HealthCheck",) . toJSON) _eCSTaskDefinitionContainerDefinitionHealthCheck
     , fmap (("Hostname",) . toJSON) _eCSTaskDefinitionContainerDefinitionHostname
     , (Just . ("Image",) . toJSON) _eCSTaskDefinitionContainerDefinitionImage
     , fmap (("Links",) . toJSON) _eCSTaskDefinitionContainerDefinitionLinks
@@ -96,6 +99,7 @@ instance FromJSON ECSTaskDefinitionContainerDefinition where
       (obj .:? "Environment") <*>
       fmap (fmap (fmap unBool')) (obj .:? "Essential") <*>
       (obj .:? "ExtraHosts") <*>
+      (obj .:? "HealthCheck") <*>
       (obj .:? "Hostname") <*>
       (obj .: "Image") <*>
       (obj .:? "Links") <*>
@@ -133,6 +137,7 @@ ecsTaskDefinitionContainerDefinition imagearg namearg =
   , _eCSTaskDefinitionContainerDefinitionEnvironment = Nothing
   , _eCSTaskDefinitionContainerDefinitionEssential = Nothing
   , _eCSTaskDefinitionContainerDefinitionExtraHosts = Nothing
+  , _eCSTaskDefinitionContainerDefinitionHealthCheck = Nothing
   , _eCSTaskDefinitionContainerDefinitionHostname = Nothing
   , _eCSTaskDefinitionContainerDefinitionImage = imagearg
   , _eCSTaskDefinitionContainerDefinitionLinks = Nothing
@@ -194,6 +199,10 @@ ecstdcdEssential = lens _eCSTaskDefinitionContainerDefinitionEssential (\s a -> 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-extrahosts
 ecstdcdExtraHosts :: Lens' ECSTaskDefinitionContainerDefinition (Maybe [ECSTaskDefinitionHostEntry])
 ecstdcdExtraHosts = lens _eCSTaskDefinitionContainerDefinitionExtraHosts (\s a -> s { _eCSTaskDefinitionContainerDefinitionExtraHosts = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-healthcheck
+ecstdcdHealthCheck :: Lens' ECSTaskDefinitionContainerDefinition (Maybe ECSTaskDefinitionHealthCheck)
+ecstdcdHealthCheck = lens _eCSTaskDefinitionContainerDefinitionHealthCheck (\s a -> s { _eCSTaskDefinitionContainerDefinitionHealthCheck = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-hostname
 ecstdcdHostname :: Lens' ECSTaskDefinitionContainerDefinition (Maybe (Val Text))
