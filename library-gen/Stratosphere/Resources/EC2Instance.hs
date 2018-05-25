@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties.EC2InstanceBlockDeviceMapping
 import Stratosphere.ResourceProperties.EC2InstanceCreditSpecification
 import Stratosphere.ResourceProperties.EC2InstanceElasticGpuSpecification
 import Stratosphere.ResourceProperties.EC2InstanceInstanceIpv6Address
+import Stratosphere.ResourceProperties.EC2InstanceLaunchTemplateSpecification
 import Stratosphere.ResourceProperties.EC2InstanceNetworkInterface
 import Stratosphere.ResourceProperties.EC2InstanceSsmAssociation
 import Stratosphere.ResourceProperties.Tag
@@ -30,13 +31,14 @@ data EC2Instance =
   , _eC2InstanceElasticGpuSpecifications :: Maybe [EC2InstanceElasticGpuSpecification]
   , _eC2InstanceHostId :: Maybe (Val Text)
   , _eC2InstanceIamInstanceProfile :: Maybe (Val Text)
-  , _eC2InstanceImageId :: Val Text
+  , _eC2InstanceImageId :: Maybe (Val Text)
   , _eC2InstanceInstanceInitiatedShutdownBehavior :: Maybe (Val Text)
   , _eC2InstanceInstanceType :: Maybe (Val Text)
   , _eC2InstanceIpv6AddressCount :: Maybe (Val Integer)
   , _eC2InstanceIpv6Addresses :: Maybe [EC2InstanceInstanceIpv6Address]
   , _eC2InstanceKernelId :: Maybe (Val Text)
   , _eC2InstanceKeyName :: Maybe (Val Text)
+  , _eC2InstanceLaunchTemplate :: Maybe EC2InstanceLaunchTemplateSpecification
   , _eC2InstanceMonitoring :: Maybe (Val Bool)
   , _eC2InstanceNetworkInterfaces :: Maybe [EC2InstanceNetworkInterface]
   , _eC2InstancePlacementGroupName :: Maybe (Val Text)
@@ -67,13 +69,14 @@ instance ToJSON EC2Instance where
     , fmap (("ElasticGpuSpecifications",) . toJSON) _eC2InstanceElasticGpuSpecifications
     , fmap (("HostId",) . toJSON) _eC2InstanceHostId
     , fmap (("IamInstanceProfile",) . toJSON) _eC2InstanceIamInstanceProfile
-    , (Just . ("ImageId",) . toJSON) _eC2InstanceImageId
+    , fmap (("ImageId",) . toJSON) _eC2InstanceImageId
     , fmap (("InstanceInitiatedShutdownBehavior",) . toJSON) _eC2InstanceInstanceInitiatedShutdownBehavior
     , fmap (("InstanceType",) . toJSON) _eC2InstanceInstanceType
     , fmap (("Ipv6AddressCount",) . toJSON . fmap Integer') _eC2InstanceIpv6AddressCount
     , fmap (("Ipv6Addresses",) . toJSON) _eC2InstanceIpv6Addresses
     , fmap (("KernelId",) . toJSON) _eC2InstanceKernelId
     , fmap (("KeyName",) . toJSON) _eC2InstanceKeyName
+    , fmap (("LaunchTemplate",) . toJSON) _eC2InstanceLaunchTemplate
     , fmap (("Monitoring",) . toJSON . fmap Bool') _eC2InstanceMonitoring
     , fmap (("NetworkInterfaces",) . toJSON) _eC2InstanceNetworkInterfaces
     , fmap (("PlacementGroupName",) . toJSON) _eC2InstancePlacementGroupName
@@ -103,13 +106,14 @@ instance FromJSON EC2Instance where
       (obj .:? "ElasticGpuSpecifications") <*>
       (obj .:? "HostId") <*>
       (obj .:? "IamInstanceProfile") <*>
-      (obj .: "ImageId") <*>
+      (obj .:? "ImageId") <*>
       (obj .:? "InstanceInitiatedShutdownBehavior") <*>
       (obj .:? "InstanceType") <*>
       fmap (fmap (fmap unInteger')) (obj .:? "Ipv6AddressCount") <*>
       (obj .:? "Ipv6Addresses") <*>
       (obj .:? "KernelId") <*>
       (obj .:? "KeyName") <*>
+      (obj .:? "LaunchTemplate") <*>
       fmap (fmap (fmap unBool')) (obj .:? "Monitoring") <*>
       (obj .:? "NetworkInterfaces") <*>
       (obj .:? "PlacementGroupName") <*>
@@ -128,9 +132,8 @@ instance FromJSON EC2Instance where
 
 -- | Constructor for 'EC2Instance' containing required fields as arguments.
 ec2Instance
-  :: Val Text -- ^ 'eciImageId'
-  -> EC2Instance
-ec2Instance imageIdarg =
+  :: EC2Instance
+ec2Instance  =
   EC2Instance
   { _eC2InstanceAdditionalInfo = Nothing
   , _eC2InstanceAffinity = Nothing
@@ -142,13 +145,14 @@ ec2Instance imageIdarg =
   , _eC2InstanceElasticGpuSpecifications = Nothing
   , _eC2InstanceHostId = Nothing
   , _eC2InstanceIamInstanceProfile = Nothing
-  , _eC2InstanceImageId = imageIdarg
+  , _eC2InstanceImageId = Nothing
   , _eC2InstanceInstanceInitiatedShutdownBehavior = Nothing
   , _eC2InstanceInstanceType = Nothing
   , _eC2InstanceIpv6AddressCount = Nothing
   , _eC2InstanceIpv6Addresses = Nothing
   , _eC2InstanceKernelId = Nothing
   , _eC2InstanceKeyName = Nothing
+  , _eC2InstanceLaunchTemplate = Nothing
   , _eC2InstanceMonitoring = Nothing
   , _eC2InstanceNetworkInterfaces = Nothing
   , _eC2InstancePlacementGroupName = Nothing
@@ -206,7 +210,7 @@ eciIamInstanceProfile :: Lens' EC2Instance (Maybe (Val Text))
 eciIamInstanceProfile = lens _eC2InstanceIamInstanceProfile (\s a -> s { _eC2InstanceIamInstanceProfile = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-imageid
-eciImageId :: Lens' EC2Instance (Val Text)
+eciImageId :: Lens' EC2Instance (Maybe (Val Text))
 eciImageId = lens _eC2InstanceImageId (\s a -> s { _eC2InstanceImageId = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-instanceinitiatedshutdownbehavior
@@ -232,6 +236,10 @@ eciKernelId = lens _eC2InstanceKernelId (\s a -> s { _eC2InstanceKernelId = a })
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-keyname
 eciKeyName :: Lens' EC2Instance (Maybe (Val Text))
 eciKeyName = lens _eC2InstanceKeyName (\s a -> s { _eC2InstanceKeyName = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-launchtemplate
+eciLaunchTemplate :: Lens' EC2Instance (Maybe EC2InstanceLaunchTemplateSpecification)
+eciLaunchTemplate = lens _eC2InstanceLaunchTemplate (\s a -> s { _eC2InstanceLaunchTemplate = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-monitoring
 eciMonitoring :: Lens' EC2Instance (Maybe (Val Bool))

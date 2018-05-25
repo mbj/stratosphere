@@ -15,6 +15,7 @@ data IAMRole =
   IAMRole
   { _iAMRoleAssumeRolePolicyDocument :: Object
   , _iAMRoleManagedPolicyArns :: Maybe (ValList Text)
+  , _iAMRoleMaxSessionDuration :: Maybe (Val Integer)
   , _iAMRolePath :: Maybe (Val Text)
   , _iAMRolePolicies :: Maybe [IAMRolePolicy]
   , _iAMRoleRoleName :: Maybe (Val Text)
@@ -26,6 +27,7 @@ instance ToJSON IAMRole where
     catMaybes
     [ (Just . ("AssumeRolePolicyDocument",) . toJSON) _iAMRoleAssumeRolePolicyDocument
     , fmap (("ManagedPolicyArns",) . toJSON) _iAMRoleManagedPolicyArns
+    , fmap (("MaxSessionDuration",) . toJSON . fmap Integer') _iAMRoleMaxSessionDuration
     , fmap (("Path",) . toJSON) _iAMRolePath
     , fmap (("Policies",) . toJSON) _iAMRolePolicies
     , fmap (("RoleName",) . toJSON) _iAMRoleRoleName
@@ -36,6 +38,7 @@ instance FromJSON IAMRole where
     IAMRole <$>
       (obj .: "AssumeRolePolicyDocument") <*>
       (obj .:? "ManagedPolicyArns") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "MaxSessionDuration") <*>
       (obj .:? "Path") <*>
       (obj .:? "Policies") <*>
       (obj .:? "RoleName")
@@ -49,6 +52,7 @@ iamRole assumeRolePolicyDocumentarg =
   IAMRole
   { _iAMRoleAssumeRolePolicyDocument = assumeRolePolicyDocumentarg
   , _iAMRoleManagedPolicyArns = Nothing
+  , _iAMRoleMaxSessionDuration = Nothing
   , _iAMRolePath = Nothing
   , _iAMRolePolicies = Nothing
   , _iAMRoleRoleName = Nothing
@@ -61,6 +65,10 @@ iamrAssumeRolePolicyDocument = lens _iAMRoleAssumeRolePolicyDocument (\s a -> s 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html#cfn-iam-role-managepolicyarns
 iamrManagedPolicyArns :: Lens' IAMRole (Maybe (ValList Text))
 iamrManagedPolicyArns = lens _iAMRoleManagedPolicyArns (\s a -> s { _iAMRoleManagedPolicyArns = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html#cfn-iam-role-maxsessionduration
+iamrMaxSessionDuration :: Lens' IAMRole (Maybe (Val Integer))
+iamrMaxSessionDuration = lens _iAMRoleMaxSessionDuration (\s a -> s { _iAMRoleMaxSessionDuration = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html#cfn-iam-role-path
 iamrPath :: Lens' IAMRole (Maybe (Val Text))

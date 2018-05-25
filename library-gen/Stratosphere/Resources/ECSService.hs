@@ -12,6 +12,7 @@ import Stratosphere.ResourceProperties.ECSServiceLoadBalancer
 import Stratosphere.ResourceProperties.ECSServiceNetworkConfiguration
 import Stratosphere.ResourceProperties.ECSServicePlacementConstraint
 import Stratosphere.ResourceProperties.ECSServicePlacementStrategy
+import Stratosphere.ResourceProperties.ECSServiceServiceRegistry
 
 -- | Full data type definition for ECSService. See 'ecsService' for a more
 -- convenient constructor.
@@ -29,6 +30,7 @@ data ECSService =
   , _eCSServicePlatformVersion :: Maybe (Val Text)
   , _eCSServiceRole :: Maybe (Val Text)
   , _eCSServiceServiceName :: Maybe (Val Text)
+  , _eCSServiceServiceRegistries :: Maybe [ECSServiceServiceRegistry]
   , _eCSServiceTaskDefinition :: Val Text
   } deriving (Show, Eq)
 
@@ -48,6 +50,7 @@ instance ToJSON ECSService where
     , fmap (("PlatformVersion",) . toJSON) _eCSServicePlatformVersion
     , fmap (("Role",) . toJSON) _eCSServiceRole
     , fmap (("ServiceName",) . toJSON) _eCSServiceServiceName
+    , fmap (("ServiceRegistries",) . toJSON) _eCSServiceServiceRegistries
     , (Just . ("TaskDefinition",) . toJSON) _eCSServiceTaskDefinition
     ]
 
@@ -66,6 +69,7 @@ instance FromJSON ECSService where
       (obj .:? "PlatformVersion") <*>
       (obj .:? "Role") <*>
       (obj .:? "ServiceName") <*>
+      (obj .:? "ServiceRegistries") <*>
       (obj .: "TaskDefinition")
   parseJSON _ = mempty
 
@@ -87,6 +91,7 @@ ecsService taskDefinitionarg =
   , _eCSServicePlatformVersion = Nothing
   , _eCSServiceRole = Nothing
   , _eCSServiceServiceName = Nothing
+  , _eCSServiceServiceRegistries = Nothing
   , _eCSServiceTaskDefinition = taskDefinitionarg
   }
 
@@ -137,6 +142,10 @@ ecssRole = lens _eCSServiceRole (\s a -> s { _eCSServiceRole = a })
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-servicename
 ecssServiceName :: Lens' ECSService (Maybe (Val Text))
 ecssServiceName = lens _eCSServiceServiceName (\s a -> s { _eCSServiceServiceName = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-serviceregistries
+ecssServiceRegistries :: Lens' ECSService (Maybe [ECSServiceServiceRegistry])
+ecssServiceRegistries = lens _eCSServiceServiceRegistries (\s a -> s { _eCSServiceServiceRegistries = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-taskdefinition
 ecssTaskDefinition :: Lens' ECSService (Val Text)

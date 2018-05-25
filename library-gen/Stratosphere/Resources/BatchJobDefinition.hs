@@ -9,6 +9,7 @@ module Stratosphere.Resources.BatchJobDefinition where
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.BatchJobDefinitionContainerProperties
 import Stratosphere.ResourceProperties.BatchJobDefinitionRetryStrategy
+import Stratosphere.ResourceProperties.BatchJobDefinitionTimeout
 
 -- | Full data type definition for BatchJobDefinition. See
 -- 'batchJobDefinition' for a more convenient constructor.
@@ -18,6 +19,7 @@ data BatchJobDefinition =
   , _batchJobDefinitionJobDefinitionName :: Maybe (Val Text)
   , _batchJobDefinitionParameters :: Maybe Object
   , _batchJobDefinitionRetryStrategy :: Maybe BatchJobDefinitionRetryStrategy
+  , _batchJobDefinitionTimeout :: Maybe BatchJobDefinitionTimeout
   , _batchJobDefinitionType :: Val Text
   } deriving (Show, Eq)
 
@@ -29,6 +31,7 @@ instance ToJSON BatchJobDefinition where
     , fmap (("JobDefinitionName",) . toJSON) _batchJobDefinitionJobDefinitionName
     , fmap (("Parameters",) . toJSON) _batchJobDefinitionParameters
     , fmap (("RetryStrategy",) . toJSON) _batchJobDefinitionRetryStrategy
+    , fmap (("Timeout",) . toJSON) _batchJobDefinitionTimeout
     , (Just . ("Type",) . toJSON) _batchJobDefinitionType
     ]
 
@@ -39,6 +42,7 @@ instance FromJSON BatchJobDefinition where
       (obj .:? "JobDefinitionName") <*>
       (obj .:? "Parameters") <*>
       (obj .:? "RetryStrategy") <*>
+      (obj .:? "Timeout") <*>
       (obj .: "Type")
   parseJSON _ = mempty
 
@@ -54,6 +58,7 @@ batchJobDefinition containerPropertiesarg typearg =
   , _batchJobDefinitionJobDefinitionName = Nothing
   , _batchJobDefinitionParameters = Nothing
   , _batchJobDefinitionRetryStrategy = Nothing
+  , _batchJobDefinitionTimeout = Nothing
   , _batchJobDefinitionType = typearg
   }
 
@@ -72,6 +77,10 @@ bjdParameters = lens _batchJobDefinitionParameters (\s a -> s { _batchJobDefinit
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-retrystrategy
 bjdRetryStrategy :: Lens' BatchJobDefinition (Maybe BatchJobDefinitionRetryStrategy)
 bjdRetryStrategy = lens _batchJobDefinitionRetryStrategy (\s a -> s { _batchJobDefinitionRetryStrategy = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-timeout
+bjdTimeout :: Lens' BatchJobDefinition (Maybe BatchJobDefinitionTimeout)
+bjdTimeout = lens _batchJobDefinitionTimeout (\s a -> s { _batchJobDefinitionTimeout = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-type
 bjdType :: Lens' BatchJobDefinition (Val Text)

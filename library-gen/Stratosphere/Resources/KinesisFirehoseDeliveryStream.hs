@@ -12,6 +12,7 @@ import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamExtendedS3De
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamKinesisStreamSourceConfiguration
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamS3DestinationConfiguration
+import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamSplunkDestinationConfiguration
 
 -- | Full data type definition for KinesisFirehoseDeliveryStream. See
 -- 'kinesisFirehoseDeliveryStream' for a more convenient constructor.
@@ -24,6 +25,7 @@ data KinesisFirehoseDeliveryStream =
   , _kinesisFirehoseDeliveryStreamKinesisStreamSourceConfiguration :: Maybe KinesisFirehoseDeliveryStreamKinesisStreamSourceConfiguration
   , _kinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration :: Maybe KinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration
   , _kinesisFirehoseDeliveryStreamS3DestinationConfiguration :: Maybe KinesisFirehoseDeliveryStreamS3DestinationConfiguration
+  , _kinesisFirehoseDeliveryStreamSplunkDestinationConfiguration :: Maybe KinesisFirehoseDeliveryStreamSplunkDestinationConfiguration
   } deriving (Show, Eq)
 
 instance ToJSON KinesisFirehoseDeliveryStream where
@@ -37,6 +39,7 @@ instance ToJSON KinesisFirehoseDeliveryStream where
     , fmap (("KinesisStreamSourceConfiguration",) . toJSON) _kinesisFirehoseDeliveryStreamKinesisStreamSourceConfiguration
     , fmap (("RedshiftDestinationConfiguration",) . toJSON) _kinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration
     , fmap (("S3DestinationConfiguration",) . toJSON) _kinesisFirehoseDeliveryStreamS3DestinationConfiguration
+    , fmap (("SplunkDestinationConfiguration",) . toJSON) _kinesisFirehoseDeliveryStreamSplunkDestinationConfiguration
     ]
 
 instance FromJSON KinesisFirehoseDeliveryStream where
@@ -48,7 +51,8 @@ instance FromJSON KinesisFirehoseDeliveryStream where
       (obj .:? "ExtendedS3DestinationConfiguration") <*>
       (obj .:? "KinesisStreamSourceConfiguration") <*>
       (obj .:? "RedshiftDestinationConfiguration") <*>
-      (obj .:? "S3DestinationConfiguration")
+      (obj .:? "S3DestinationConfiguration") <*>
+      (obj .:? "SplunkDestinationConfiguration")
   parseJSON _ = mempty
 
 -- | Constructor for 'KinesisFirehoseDeliveryStream' containing required
@@ -64,6 +68,7 @@ kinesisFirehoseDeliveryStream  =
   , _kinesisFirehoseDeliveryStreamKinesisStreamSourceConfiguration = Nothing
   , _kinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration = Nothing
   , _kinesisFirehoseDeliveryStreamS3DestinationConfiguration = Nothing
+  , _kinesisFirehoseDeliveryStreamSplunkDestinationConfiguration = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-deliverystreamname
@@ -93,3 +98,7 @@ kfdsRedshiftDestinationConfiguration = lens _kinesisFirehoseDeliveryStreamRedshi
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-s3destinationconfiguration
 kfdsS3DestinationConfiguration :: Lens' KinesisFirehoseDeliveryStream (Maybe KinesisFirehoseDeliveryStreamS3DestinationConfiguration)
 kfdsS3DestinationConfiguration = lens _kinesisFirehoseDeliveryStreamS3DestinationConfiguration (\s a -> s { _kinesisFirehoseDeliveryStreamS3DestinationConfiguration = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-splunkdestinationconfiguration
+kfdsSplunkDestinationConfiguration :: Lens' KinesisFirehoseDeliveryStream (Maybe KinesisFirehoseDeliveryStreamSplunkDestinationConfiguration)
+kfdsSplunkDestinationConfiguration = lens _kinesisFirehoseDeliveryStreamSplunkDestinationConfiguration (\s a -> s { _kinesisFirehoseDeliveryStreamSplunkDestinationConfiguration = a })

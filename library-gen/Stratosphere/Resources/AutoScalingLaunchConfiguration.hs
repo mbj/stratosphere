@@ -25,6 +25,7 @@ data AutoScalingLaunchConfiguration =
   , _autoScalingLaunchConfigurationInstanceType :: Val Text
   , _autoScalingLaunchConfigurationKernelId :: Maybe (Val Text)
   , _autoScalingLaunchConfigurationKeyName :: Maybe (Val Text)
+  , _autoScalingLaunchConfigurationLaunchConfigurationName :: Maybe (Val Text)
   , _autoScalingLaunchConfigurationPlacementTenancy :: Maybe (Val Text)
   , _autoScalingLaunchConfigurationRamDiskId :: Maybe (Val Text)
   , _autoScalingLaunchConfigurationSecurityGroups :: Maybe (ValList Text)
@@ -48,6 +49,7 @@ instance ToJSON AutoScalingLaunchConfiguration where
     , (Just . ("InstanceType",) . toJSON) _autoScalingLaunchConfigurationInstanceType
     , fmap (("KernelId",) . toJSON) _autoScalingLaunchConfigurationKernelId
     , fmap (("KeyName",) . toJSON) _autoScalingLaunchConfigurationKeyName
+    , fmap (("LaunchConfigurationName",) . toJSON) _autoScalingLaunchConfigurationLaunchConfigurationName
     , fmap (("PlacementTenancy",) . toJSON) _autoScalingLaunchConfigurationPlacementTenancy
     , fmap (("RamDiskId",) . toJSON) _autoScalingLaunchConfigurationRamDiskId
     , fmap (("SecurityGroups",) . toJSON) _autoScalingLaunchConfigurationSecurityGroups
@@ -70,6 +72,7 @@ instance FromJSON AutoScalingLaunchConfiguration where
       (obj .: "InstanceType") <*>
       (obj .:? "KernelId") <*>
       (obj .:? "KeyName") <*>
+      (obj .:? "LaunchConfigurationName") <*>
       (obj .:? "PlacementTenancy") <*>
       (obj .:? "RamDiskId") <*>
       (obj .:? "SecurityGroups") <*>
@@ -97,6 +100,7 @@ autoScalingLaunchConfiguration imageIdarg instanceTypearg =
   , _autoScalingLaunchConfigurationInstanceType = instanceTypearg
   , _autoScalingLaunchConfigurationKernelId = Nothing
   , _autoScalingLaunchConfigurationKeyName = Nothing
+  , _autoScalingLaunchConfigurationLaunchConfigurationName = Nothing
   , _autoScalingLaunchConfigurationPlacementTenancy = Nothing
   , _autoScalingLaunchConfigurationRamDiskId = Nothing
   , _autoScalingLaunchConfigurationSecurityGroups = Nothing
@@ -151,6 +155,10 @@ aslcKernelId = lens _autoScalingLaunchConfigurationKernelId (\s a -> s { _autoSc
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-as-launchconfig-keyname
 aslcKeyName :: Lens' AutoScalingLaunchConfiguration (Maybe (Val Text))
 aslcKeyName = lens _autoScalingLaunchConfigurationKeyName (\s a -> s { _autoScalingLaunchConfigurationKeyName = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-autoscaling-launchconfig-launchconfigurationname
+aslcLaunchConfigurationName :: Lens' AutoScalingLaunchConfiguration (Maybe (Val Text))
+aslcLaunchConfigurationName = lens _autoScalingLaunchConfigurationLaunchConfigurationName (\s a -> s { _autoScalingLaunchConfigurationLaunchConfigurationName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html#cfn-as-launchconfig-placementtenancy
 aslcPlacementTenancy :: Lens' AutoScalingLaunchConfiguration (Maybe (Val Text))

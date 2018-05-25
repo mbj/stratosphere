@@ -15,41 +15,39 @@ import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamProcessor
 -- convenient constructor.
 data KinesisFirehoseDeliveryStreamProcessingConfiguration =
   KinesisFirehoseDeliveryStreamProcessingConfiguration
-  { _kinesisFirehoseDeliveryStreamProcessingConfigurationEnabled :: Val Bool
-  , _kinesisFirehoseDeliveryStreamProcessingConfigurationProcessors :: [KinesisFirehoseDeliveryStreamProcessor]
+  { _kinesisFirehoseDeliveryStreamProcessingConfigurationEnabled :: Maybe (Val Bool)
+  , _kinesisFirehoseDeliveryStreamProcessingConfigurationProcessors :: Maybe [KinesisFirehoseDeliveryStreamProcessor]
   } deriving (Show, Eq)
 
 instance ToJSON KinesisFirehoseDeliveryStreamProcessingConfiguration where
   toJSON KinesisFirehoseDeliveryStreamProcessingConfiguration{..} =
     object $
     catMaybes
-    [ (Just . ("Enabled",) . toJSON . fmap Bool') _kinesisFirehoseDeliveryStreamProcessingConfigurationEnabled
-    , (Just . ("Processors",) . toJSON) _kinesisFirehoseDeliveryStreamProcessingConfigurationProcessors
+    [ fmap (("Enabled",) . toJSON . fmap Bool') _kinesisFirehoseDeliveryStreamProcessingConfigurationEnabled
+    , fmap (("Processors",) . toJSON) _kinesisFirehoseDeliveryStreamProcessingConfigurationProcessors
     ]
 
 instance FromJSON KinesisFirehoseDeliveryStreamProcessingConfiguration where
   parseJSON (Object obj) =
     KinesisFirehoseDeliveryStreamProcessingConfiguration <$>
-      fmap (fmap unBool') (obj .: "Enabled") <*>
-      (obj .: "Processors")
+      fmap (fmap (fmap unBool')) (obj .:? "Enabled") <*>
+      (obj .:? "Processors")
   parseJSON _ = mempty
 
 -- | Constructor for 'KinesisFirehoseDeliveryStreamProcessingConfiguration'
 -- containing required fields as arguments.
 kinesisFirehoseDeliveryStreamProcessingConfiguration
-  :: Val Bool -- ^ 'kfdspcEnabled'
-  -> [KinesisFirehoseDeliveryStreamProcessor] -- ^ 'kfdspcProcessors'
-  -> KinesisFirehoseDeliveryStreamProcessingConfiguration
-kinesisFirehoseDeliveryStreamProcessingConfiguration enabledarg processorsarg =
+  :: KinesisFirehoseDeliveryStreamProcessingConfiguration
+kinesisFirehoseDeliveryStreamProcessingConfiguration  =
   KinesisFirehoseDeliveryStreamProcessingConfiguration
-  { _kinesisFirehoseDeliveryStreamProcessingConfigurationEnabled = enabledarg
-  , _kinesisFirehoseDeliveryStreamProcessingConfigurationProcessors = processorsarg
+  { _kinesisFirehoseDeliveryStreamProcessingConfigurationEnabled = Nothing
+  , _kinesisFirehoseDeliveryStreamProcessingConfigurationProcessors = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processingconfiguration.html#cfn-kinesisfirehose-deliverystream-processingconfiguration-enabled
-kfdspcEnabled :: Lens' KinesisFirehoseDeliveryStreamProcessingConfiguration (Val Bool)
+kfdspcEnabled :: Lens' KinesisFirehoseDeliveryStreamProcessingConfiguration (Maybe (Val Bool))
 kfdspcEnabled = lens _kinesisFirehoseDeliveryStreamProcessingConfigurationEnabled (\s a -> s { _kinesisFirehoseDeliveryStreamProcessingConfigurationEnabled = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processingconfiguration.html#cfn-kinesisfirehose-deliverystream-processingconfiguration-processors
-kfdspcProcessors :: Lens' KinesisFirehoseDeliveryStreamProcessingConfiguration [KinesisFirehoseDeliveryStreamProcessor]
+kfdspcProcessors :: Lens' KinesisFirehoseDeliveryStreamProcessingConfiguration (Maybe [KinesisFirehoseDeliveryStreamProcessor])
 kfdspcProcessors = lens _kinesisFirehoseDeliveryStreamProcessingConfigurationProcessors (\s a -> s { _kinesisFirehoseDeliveryStreamProcessingConfigurationProcessors = a })

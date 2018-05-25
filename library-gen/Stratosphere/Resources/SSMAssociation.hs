@@ -7,6 +7,7 @@
 module Stratosphere.Resources.SSMAssociation where
 
 import Stratosphere.ResourceImports
+import Stratosphere.ResourceProperties.SSMAssociationInstanceAssociationOutputLocation
 import Stratosphere.ResourceProperties.SSMAssociationParameterValues
 import Stratosphere.ResourceProperties.SSMAssociationTarget
 
@@ -18,6 +19,7 @@ data SSMAssociation =
   , _sSMAssociationDocumentVersion :: Maybe (Val Text)
   , _sSMAssociationInstanceId :: Maybe (Val Text)
   , _sSMAssociationName :: Val Text
+  , _sSMAssociationOutputLocation :: Maybe SSMAssociationInstanceAssociationOutputLocation
   , _sSMAssociationParameters :: Maybe (Map Text SSMAssociationParameterValues)
   , _sSMAssociationScheduleExpression :: Maybe (Val Text)
   , _sSMAssociationTargets :: Maybe [SSMAssociationTarget]
@@ -31,6 +33,7 @@ instance ToJSON SSMAssociation where
     , fmap (("DocumentVersion",) . toJSON) _sSMAssociationDocumentVersion
     , fmap (("InstanceId",) . toJSON) _sSMAssociationInstanceId
     , (Just . ("Name",) . toJSON) _sSMAssociationName
+    , fmap (("OutputLocation",) . toJSON) _sSMAssociationOutputLocation
     , fmap (("Parameters",) . toJSON) _sSMAssociationParameters
     , fmap (("ScheduleExpression",) . toJSON) _sSMAssociationScheduleExpression
     , fmap (("Targets",) . toJSON) _sSMAssociationTargets
@@ -43,6 +46,7 @@ instance FromJSON SSMAssociation where
       (obj .:? "DocumentVersion") <*>
       (obj .:? "InstanceId") <*>
       (obj .: "Name") <*>
+      (obj .:? "OutputLocation") <*>
       (obj .:? "Parameters") <*>
       (obj .:? "ScheduleExpression") <*>
       (obj .:? "Targets")
@@ -58,6 +62,7 @@ ssmAssociation namearg =
   , _sSMAssociationDocumentVersion = Nothing
   , _sSMAssociationInstanceId = Nothing
   , _sSMAssociationName = namearg
+  , _sSMAssociationOutputLocation = Nothing
   , _sSMAssociationParameters = Nothing
   , _sSMAssociationScheduleExpression = Nothing
   , _sSMAssociationTargets = Nothing
@@ -78,6 +83,10 @@ ssmaInstanceId = lens _sSMAssociationInstanceId (\s a -> s { _sSMAssociationInst
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-name
 ssmaName :: Lens' SSMAssociation (Val Text)
 ssmaName = lens _sSMAssociationName (\s a -> s { _sSMAssociationName = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-outputlocation
+ssmaOutputLocation :: Lens' SSMAssociation (Maybe SSMAssociationInstanceAssociationOutputLocation)
+ssmaOutputLocation = lens _sSMAssociationOutputLocation (\s a -> s { _sSMAssociationOutputLocation = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-parameters
 ssmaParameters :: Lens' SSMAssociation (Maybe (Map Text SSMAssociationParameterValues))

@@ -25,7 +25,7 @@ myTemplate =
   [ resource "EC2Instance" (
       EC2InstanceProperties $
       ec2Instance
-      "ami-22111148"
+      & eciImageId ?~ "ami-22111148"
       & eciInstanceType ?~ toRef instanceTypeParam
       & eciKeyName ?~ toRef keyParam
       & eciUserData ?~ Base64 (Join "" ["IPAddress=", toRef sshParam])

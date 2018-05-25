@@ -9,6 +9,7 @@ module Stratosphere.Resources.ElasticsearchDomain where
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.ElasticsearchDomainEBSOptions
 import Stratosphere.ResourceProperties.ElasticsearchDomainElasticsearchClusterConfig
+import Stratosphere.ResourceProperties.ElasticsearchDomainEncryptionAtRestOptions
 import Stratosphere.ResourceProperties.ElasticsearchDomainSnapshotOptions
 import Stratosphere.ResourceProperties.Tag
 import Stratosphere.ResourceProperties.ElasticsearchDomainVPCOptions
@@ -23,6 +24,7 @@ data ElasticsearchDomain =
   , _elasticsearchDomainEBSOptions :: Maybe ElasticsearchDomainEBSOptions
   , _elasticsearchDomainElasticsearchClusterConfig :: Maybe ElasticsearchDomainElasticsearchClusterConfig
   , _elasticsearchDomainElasticsearchVersion :: Maybe (Val Text)
+  , _elasticsearchDomainEncryptionAtRestOptions :: Maybe ElasticsearchDomainEncryptionAtRestOptions
   , _elasticsearchDomainSnapshotOptions :: Maybe ElasticsearchDomainSnapshotOptions
   , _elasticsearchDomainTags :: Maybe [Tag]
   , _elasticsearchDomainVPCOptions :: Maybe ElasticsearchDomainVPCOptions
@@ -38,6 +40,7 @@ instance ToJSON ElasticsearchDomain where
     , fmap (("EBSOptions",) . toJSON) _elasticsearchDomainEBSOptions
     , fmap (("ElasticsearchClusterConfig",) . toJSON) _elasticsearchDomainElasticsearchClusterConfig
     , fmap (("ElasticsearchVersion",) . toJSON) _elasticsearchDomainElasticsearchVersion
+    , fmap (("EncryptionAtRestOptions",) . toJSON) _elasticsearchDomainEncryptionAtRestOptions
     , fmap (("SnapshotOptions",) . toJSON) _elasticsearchDomainSnapshotOptions
     , fmap (("Tags",) . toJSON) _elasticsearchDomainTags
     , fmap (("VPCOptions",) . toJSON) _elasticsearchDomainVPCOptions
@@ -52,6 +55,7 @@ instance FromJSON ElasticsearchDomain where
       (obj .:? "EBSOptions") <*>
       (obj .:? "ElasticsearchClusterConfig") <*>
       (obj .:? "ElasticsearchVersion") <*>
+      (obj .:? "EncryptionAtRestOptions") <*>
       (obj .:? "SnapshotOptions") <*>
       (obj .:? "Tags") <*>
       (obj .:? "VPCOptions")
@@ -69,6 +73,7 @@ elasticsearchDomain  =
   , _elasticsearchDomainEBSOptions = Nothing
   , _elasticsearchDomainElasticsearchClusterConfig = Nothing
   , _elasticsearchDomainElasticsearchVersion = Nothing
+  , _elasticsearchDomainEncryptionAtRestOptions = Nothing
   , _elasticsearchDomainSnapshotOptions = Nothing
   , _elasticsearchDomainTags = Nothing
   , _elasticsearchDomainVPCOptions = Nothing
@@ -97,6 +102,10 @@ edElasticsearchClusterConfig = lens _elasticsearchDomainElasticsearchClusterConf
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-elasticsearchversion
 edElasticsearchVersion :: Lens' ElasticsearchDomain (Maybe (Val Text))
 edElasticsearchVersion = lens _elasticsearchDomainElasticsearchVersion (\s a -> s { _elasticsearchDomainElasticsearchVersion = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-encryptionatrestoptions
+edEncryptionAtRestOptions :: Lens' ElasticsearchDomain (Maybe ElasticsearchDomainEncryptionAtRestOptions)
+edEncryptionAtRestOptions = lens _elasticsearchDomainEncryptionAtRestOptions (\s a -> s { _elasticsearchDomainEncryptionAtRestOptions = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-snapshotoptions
 edSnapshotOptions :: Lens' ElasticsearchDomain (Maybe ElasticsearchDomainSnapshotOptions)

@@ -13,7 +13,8 @@ import Stratosphere.ResourceImports
 -- 'logsMetricFilterMetricTransformation' for a more convenient constructor.
 data LogsMetricFilterMetricTransformation =
   LogsMetricFilterMetricTransformation
-  { _logsMetricFilterMetricTransformationMetricName :: Val Text
+  { _logsMetricFilterMetricTransformationDefaultValue :: Maybe (Val Double)
+  , _logsMetricFilterMetricTransformationMetricName :: Val Text
   , _logsMetricFilterMetricTransformationMetricNamespace :: Val Text
   , _logsMetricFilterMetricTransformationMetricValue :: Val Text
   } deriving (Show, Eq)
@@ -22,7 +23,8 @@ instance ToJSON LogsMetricFilterMetricTransformation where
   toJSON LogsMetricFilterMetricTransformation{..} =
     object $
     catMaybes
-    [ (Just . ("MetricName",) . toJSON) _logsMetricFilterMetricTransformationMetricName
+    [ fmap (("DefaultValue",) . toJSON . fmap Double') _logsMetricFilterMetricTransformationDefaultValue
+    , (Just . ("MetricName",) . toJSON) _logsMetricFilterMetricTransformationMetricName
     , (Just . ("MetricNamespace",) . toJSON) _logsMetricFilterMetricTransformationMetricNamespace
     , (Just . ("MetricValue",) . toJSON) _logsMetricFilterMetricTransformationMetricValue
     ]
@@ -30,6 +32,7 @@ instance ToJSON LogsMetricFilterMetricTransformation where
 instance FromJSON LogsMetricFilterMetricTransformation where
   parseJSON (Object obj) =
     LogsMetricFilterMetricTransformation <$>
+      fmap (fmap (fmap unDouble')) (obj .:? "DefaultValue") <*>
       (obj .: "MetricName") <*>
       (obj .: "MetricNamespace") <*>
       (obj .: "MetricValue")
@@ -44,10 +47,15 @@ logsMetricFilterMetricTransformation
   -> LogsMetricFilterMetricTransformation
 logsMetricFilterMetricTransformation metricNamearg metricNamespacearg metricValuearg =
   LogsMetricFilterMetricTransformation
-  { _logsMetricFilterMetricTransformationMetricName = metricNamearg
+  { _logsMetricFilterMetricTransformationDefaultValue = Nothing
+  , _logsMetricFilterMetricTransformationMetricName = metricNamearg
   , _logsMetricFilterMetricTransformationMetricNamespace = metricNamespacearg
   , _logsMetricFilterMetricTransformationMetricValue = metricValuearg
   }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-metricfilter-metrictransformation.html#cfn-cwl-metricfilter-metrictransformation-defaultvalue
+lmfmtDefaultValue :: Lens' LogsMetricFilterMetricTransformation (Maybe (Val Double))
+lmfmtDefaultValue = lens _logsMetricFilterMetricTransformationDefaultValue (\s a -> s { _logsMetricFilterMetricTransformationDefaultValue = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-metricfilter-metrictransformation.html#cfn-cwl-metricfilter-metrictransformation-metricname
 lmfmtMetricName :: Lens' LogsMetricFilterMetricTransformation (Val Text)

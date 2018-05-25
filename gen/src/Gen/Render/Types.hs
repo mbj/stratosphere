@@ -171,6 +171,10 @@ computeLensPrefix "AWS::SES::ReceiptRule.S3Action" = "sesrrsa"
 computeLensPrefix "AWS::SES::ReceiptRule.StopAction" = "sesrrsta"
 computeLensPrefix "AWS::GuardDuty::Master" = "gdma"
 computeLensPrefix "AWS::GuardDuty::Member" = "gdme"
+computeLensPrefix "AWS::ServiceCatalog::PortfolioPrincipalAssociation" = "scppria"
+computeLensPrefix "AWS::ServiceCatalog::PortfolioProductAssociation" = "scpproa"
+-- computeLensPrefix "AWS::KinesisFirehose::DeliveryStream.S3DestinationConfiguration" = "kfdssdc"
+computeLensPrefix "AWS::KinesisFirehose::DeliveryStream.SplunkDestinationConfiguration" = "kfdsspdc"
 -- Everything else
 computeLensPrefix rawName = toLower $ fromMaybe rawName $ toAcronym $ computeModuleName rawName
 
