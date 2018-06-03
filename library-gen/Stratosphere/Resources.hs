@@ -247,6 +247,11 @@ import Stratosphere.Resources.LogsLogGroup as X
 import Stratosphere.Resources.LogsLogStream as X
 import Stratosphere.Resources.LogsMetricFilter as X
 import Stratosphere.Resources.LogsSubscriptionFilter as X
+import Stratosphere.Resources.NeptuneDBCluster as X
+import Stratosphere.Resources.NeptuneDBClusterParameterGroup as X
+import Stratosphere.Resources.NeptuneDBInstance as X
+import Stratosphere.Resources.NeptuneDBParameterGroup as X
+import Stratosphere.Resources.NeptuneDBSubnetGroup as X
 import Stratosphere.Resources.OpsWorksApp as X
 import Stratosphere.Resources.OpsWorksElasticLoadBalancerAttachment as X
 import Stratosphere.Resources.OpsWorksInstance as X
@@ -1096,6 +1101,11 @@ data ResourceProperties
   | LogsLogStreamProperties LogsLogStream
   | LogsMetricFilterProperties LogsMetricFilter
   | LogsSubscriptionFilterProperties LogsSubscriptionFilter
+  | NeptuneDBClusterProperties NeptuneDBCluster
+  | NeptuneDBClusterParameterGroupProperties NeptuneDBClusterParameterGroup
+  | NeptuneDBInstanceProperties NeptuneDBInstance
+  | NeptuneDBParameterGroupProperties NeptuneDBParameterGroup
+  | NeptuneDBSubnetGroupProperties NeptuneDBSubnetGroup
   | OpsWorksAppProperties OpsWorksApp
   | OpsWorksElasticLoadBalancerAttachmentProperties OpsWorksElasticLoadBalancerAttachment
   | OpsWorksInstanceProperties OpsWorksInstance
@@ -1629,6 +1639,16 @@ resourcePropertiesJSON (LogsMetricFilterProperties x) =
   [ "Type" .= ("AWS::Logs::MetricFilter" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (LogsSubscriptionFilterProperties x) =
   [ "Type" .= ("AWS::Logs::SubscriptionFilter" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (NeptuneDBClusterProperties x) =
+  [ "Type" .= ("AWS::Neptune::DBCluster" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (NeptuneDBClusterParameterGroupProperties x) =
+  [ "Type" .= ("AWS::Neptune::DBClusterParameterGroup" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (NeptuneDBInstanceProperties x) =
+  [ "Type" .= ("AWS::Neptune::DBInstance" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (NeptuneDBParameterGroupProperties x) =
+  [ "Type" .= ("AWS::Neptune::DBParameterGroup" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (NeptuneDBSubnetGroupProperties x) =
+  [ "Type" .= ("AWS::Neptune::DBSubnetGroup" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (OpsWorksAppProperties x) =
   [ "Type" .= ("AWS::OpsWorks::App" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (OpsWorksElasticLoadBalancerAttachmentProperties x) =
@@ -1991,6 +2011,11 @@ resourceFromJSON n o =
          "AWS::Logs::LogStream" -> LogsLogStreamProperties <$> (o .: "Properties")
          "AWS::Logs::MetricFilter" -> LogsMetricFilterProperties <$> (o .: "Properties")
          "AWS::Logs::SubscriptionFilter" -> LogsSubscriptionFilterProperties <$> (o .: "Properties")
+         "AWS::Neptune::DBCluster" -> NeptuneDBClusterProperties <$> (o .: "Properties")
+         "AWS::Neptune::DBClusterParameterGroup" -> NeptuneDBClusterParameterGroupProperties <$> (o .: "Properties")
+         "AWS::Neptune::DBInstance" -> NeptuneDBInstanceProperties <$> (o .: "Properties")
+         "AWS::Neptune::DBParameterGroup" -> NeptuneDBParameterGroupProperties <$> (o .: "Properties")
+         "AWS::Neptune::DBSubnetGroup" -> NeptuneDBSubnetGroupProperties <$> (o .: "Properties")
          "AWS::OpsWorks::App" -> OpsWorksAppProperties <$> (o .: "Properties")
          "AWS::OpsWorks::ElasticLoadBalancerAttachment" -> OpsWorksElasticLoadBalancerAttachmentProperties <$> (o .: "Properties")
          "AWS::OpsWorks::Instance" -> OpsWorksInstanceProperties <$> (o .: "Properties")

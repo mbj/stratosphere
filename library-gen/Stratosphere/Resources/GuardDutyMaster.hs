@@ -14,7 +14,7 @@ import Stratosphere.ResourceImports
 data GuardDutyMaster =
   GuardDutyMaster
   { _guardDutyMasterDetectorId :: Val Text
-  , _guardDutyMasterInvitationId :: Val Text
+  , _guardDutyMasterInvitationId :: Maybe (Val Text)
   , _guardDutyMasterMasterId :: Val Text
   } deriving (Show, Eq)
 
@@ -23,7 +23,7 @@ instance ToJSON GuardDutyMaster where
     object $
     catMaybes
     [ (Just . ("DetectorId",) . toJSON) _guardDutyMasterDetectorId
-    , (Just . ("InvitationId",) . toJSON) _guardDutyMasterInvitationId
+    , fmap (("InvitationId",) . toJSON) _guardDutyMasterInvitationId
     , (Just . ("MasterId",) . toJSON) _guardDutyMasterMasterId
     ]
 
@@ -31,7 +31,7 @@ instance FromJSON GuardDutyMaster where
   parseJSON (Object obj) =
     GuardDutyMaster <$>
       (obj .: "DetectorId") <*>
-      (obj .: "InvitationId") <*>
+      (obj .:? "InvitationId") <*>
       (obj .: "MasterId")
   parseJSON _ = mempty
 
@@ -39,13 +39,12 @@ instance FromJSON GuardDutyMaster where
 -- arguments.
 guardDutyMaster
   :: Val Text -- ^ 'gdmaDetectorId'
-  -> Val Text -- ^ 'gdmaInvitationId'
   -> Val Text -- ^ 'gdmaMasterId'
   -> GuardDutyMaster
-guardDutyMaster detectorIdarg invitationIdarg masterIdarg =
+guardDutyMaster detectorIdarg masterIdarg =
   GuardDutyMaster
   { _guardDutyMasterDetectorId = detectorIdarg
-  , _guardDutyMasterInvitationId = invitationIdarg
+  , _guardDutyMasterInvitationId = Nothing
   , _guardDutyMasterMasterId = masterIdarg
   }
 
@@ -54,7 +53,7 @@ gdmaDetectorId :: Lens' GuardDutyMaster (Val Text)
 gdmaDetectorId = lens _guardDutyMasterDetectorId (\s a -> s { _guardDutyMasterDetectorId = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-master.html#cfn-guardduty-master-invitationid
-gdmaInvitationId :: Lens' GuardDutyMaster (Val Text)
+gdmaInvitationId :: Lens' GuardDutyMaster (Maybe (Val Text))
 gdmaInvitationId = lens _guardDutyMasterInvitationId (\s a -> s { _guardDutyMasterInvitationId = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-master.html#cfn-guardduty-master-masterid
