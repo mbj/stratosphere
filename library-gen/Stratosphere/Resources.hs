@@ -172,6 +172,7 @@ import Stratosphere.Resources.ECSService as X
 import Stratosphere.Resources.ECSTaskDefinition as X
 import Stratosphere.Resources.EFSFileSystem as X
 import Stratosphere.Resources.EFSMountTarget as X
+import Stratosphere.Resources.EKSCluster as X
 import Stratosphere.Resources.EMRCluster as X
 import Stratosphere.Resources.EMRInstanceFleetConfig as X
 import Stratosphere.Resources.EMRInstanceGroupConfig as X
@@ -567,6 +568,7 @@ import Stratosphere.ResourceProperties.ECSTaskDefinitionUlimit as X
 import Stratosphere.ResourceProperties.ECSTaskDefinitionVolume as X
 import Stratosphere.ResourceProperties.ECSTaskDefinitionVolumeFrom as X
 import Stratosphere.ResourceProperties.EFSFileSystemElasticFileSystemTag as X
+import Stratosphere.ResourceProperties.EKSClusterResourcesVpcConfig as X
 import Stratosphere.ResourceProperties.EMRClusterApplication as X
 import Stratosphere.ResourceProperties.EMRClusterAutoScalingPolicy as X
 import Stratosphere.ResourceProperties.EMRClusterBootstrapActionConfig as X
@@ -1026,6 +1028,7 @@ data ResourceProperties
   | ECSTaskDefinitionProperties ECSTaskDefinition
   | EFSFileSystemProperties EFSFileSystem
   | EFSMountTargetProperties EFSMountTarget
+  | EKSClusterProperties EKSCluster
   | EMRClusterProperties EMRCluster
   | EMRInstanceFleetConfigProperties EMRInstanceFleetConfig
   | EMRInstanceGroupConfigProperties EMRInstanceGroupConfig
@@ -1489,6 +1492,8 @@ resourcePropertiesJSON (EFSFileSystemProperties x) =
   [ "Type" .= ("AWS::EFS::FileSystem" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (EFSMountTargetProperties x) =
   [ "Type" .= ("AWS::EFS::MountTarget" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (EKSClusterProperties x) =
+  [ "Type" .= ("AWS::EKS::Cluster" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (EMRClusterProperties x) =
   [ "Type" .= ("AWS::EMR::Cluster" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (EMRInstanceFleetConfigProperties x) =
@@ -1936,6 +1941,7 @@ resourceFromJSON n o =
          "AWS::ECS::TaskDefinition" -> ECSTaskDefinitionProperties <$> (o .: "Properties")
          "AWS::EFS::FileSystem" -> EFSFileSystemProperties <$> (o .: "Properties")
          "AWS::EFS::MountTarget" -> EFSMountTargetProperties <$> (o .: "Properties")
+         "AWS::EKS::Cluster" -> EKSClusterProperties <$> (o .: "Properties")
          "AWS::EMR::Cluster" -> EMRClusterProperties <$> (o .: "Properties")
          "AWS::EMR::InstanceFleetConfig" -> EMRInstanceFleetConfigProperties <$> (o .: "Properties")
          "AWS::EMR::InstanceGroupConfig" -> EMRInstanceGroupConfigProperties <$> (o .: "Properties")
