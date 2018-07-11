@@ -13,7 +13,8 @@ import Stratosphere.ResourceProperties.CodeBuildProjectEnvironmentVariable
 -- 'codeBuildProjectEnvironment' for a more convenient constructor.
 data CodeBuildProjectEnvironment =
   CodeBuildProjectEnvironment
-  { _codeBuildProjectEnvironmentComputeType :: Val Text
+  { _codeBuildProjectEnvironmentCertificate :: Maybe (Val Text)
+  , _codeBuildProjectEnvironmentComputeType :: Val Text
   , _codeBuildProjectEnvironmentEnvironmentVariables :: Maybe [CodeBuildProjectEnvironmentVariable]
   , _codeBuildProjectEnvironmentImage :: Val Text
   , _codeBuildProjectEnvironmentPrivilegedMode :: Maybe (Val Bool)
@@ -24,7 +25,8 @@ instance ToJSON CodeBuildProjectEnvironment where
   toJSON CodeBuildProjectEnvironment{..} =
     object $
     catMaybes
-    [ (Just . ("ComputeType",) . toJSON) _codeBuildProjectEnvironmentComputeType
+    [ fmap (("Certificate",) . toJSON) _codeBuildProjectEnvironmentCertificate
+    , (Just . ("ComputeType",) . toJSON) _codeBuildProjectEnvironmentComputeType
     , fmap (("EnvironmentVariables",) . toJSON) _codeBuildProjectEnvironmentEnvironmentVariables
     , (Just . ("Image",) . toJSON) _codeBuildProjectEnvironmentImage
     , fmap (("PrivilegedMode",) . toJSON . fmap Bool') _codeBuildProjectEnvironmentPrivilegedMode
@@ -34,6 +36,7 @@ instance ToJSON CodeBuildProjectEnvironment where
 instance FromJSON CodeBuildProjectEnvironment where
   parseJSON (Object obj) =
     CodeBuildProjectEnvironment <$>
+      (obj .:? "Certificate") <*>
       (obj .: "ComputeType") <*>
       (obj .:? "EnvironmentVariables") <*>
       (obj .: "Image") <*>
@@ -50,12 +53,17 @@ codeBuildProjectEnvironment
   -> CodeBuildProjectEnvironment
 codeBuildProjectEnvironment computeTypearg imagearg typearg =
   CodeBuildProjectEnvironment
-  { _codeBuildProjectEnvironmentComputeType = computeTypearg
+  { _codeBuildProjectEnvironmentCertificate = Nothing
+  , _codeBuildProjectEnvironmentComputeType = computeTypearg
   , _codeBuildProjectEnvironmentEnvironmentVariables = Nothing
   , _codeBuildProjectEnvironmentImage = imagearg
   , _codeBuildProjectEnvironmentPrivilegedMode = Nothing
   , _codeBuildProjectEnvironmentType = typearg
   }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environment.html#cfn-codebuild-project-environment-certificate
+cbpeCertificate :: Lens' CodeBuildProjectEnvironment (Maybe (Val Text))
+cbpeCertificate = lens _codeBuildProjectEnvironmentCertificate (\s a -> s { _codeBuildProjectEnvironmentCertificate = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environment.html#cfn-codebuild-project-environment-computetype
 cbpeComputeType :: Lens' CodeBuildProjectEnvironment (Val Text)

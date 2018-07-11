@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.24.2
+
+* Update resource specification document to version 2.5.0
+
 ## 0.24.1
 
 * Update resource specification document to support EKS

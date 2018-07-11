@@ -9,6 +9,7 @@ module Stratosphere.Resources.ServiceDiscoveryService where
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.ServiceDiscoveryServiceDnsConfig
 import Stratosphere.ResourceProperties.ServiceDiscoveryServiceHealthCheckConfig
+import Stratosphere.ResourceProperties.ServiceDiscoveryServiceHealthCheckCustomConfig
 
 -- | Full data type definition for ServiceDiscoveryService. See
 -- 'serviceDiscoveryService' for a more convenient constructor.
@@ -17,6 +18,7 @@ data ServiceDiscoveryService =
   { _serviceDiscoveryServiceDescription :: Maybe (Val Text)
   , _serviceDiscoveryServiceDnsConfig :: ServiceDiscoveryServiceDnsConfig
   , _serviceDiscoveryServiceHealthCheckConfig :: Maybe ServiceDiscoveryServiceHealthCheckConfig
+  , _serviceDiscoveryServiceHealthCheckCustomConfig :: Maybe ServiceDiscoveryServiceHealthCheckCustomConfig
   , _serviceDiscoveryServiceName :: Maybe (Val Text)
   } deriving (Show, Eq)
 
@@ -27,6 +29,7 @@ instance ToJSON ServiceDiscoveryService where
     [ fmap (("Description",) . toJSON) _serviceDiscoveryServiceDescription
     , (Just . ("DnsConfig",) . toJSON) _serviceDiscoveryServiceDnsConfig
     , fmap (("HealthCheckConfig",) . toJSON) _serviceDiscoveryServiceHealthCheckConfig
+    , fmap (("HealthCheckCustomConfig",) . toJSON) _serviceDiscoveryServiceHealthCheckCustomConfig
     , fmap (("Name",) . toJSON) _serviceDiscoveryServiceName
     ]
 
@@ -36,6 +39,7 @@ instance FromJSON ServiceDiscoveryService where
       (obj .:? "Description") <*>
       (obj .: "DnsConfig") <*>
       (obj .:? "HealthCheckConfig") <*>
+      (obj .:? "HealthCheckCustomConfig") <*>
       (obj .:? "Name")
   parseJSON _ = mempty
 
@@ -49,6 +53,7 @@ serviceDiscoveryService dnsConfigarg =
   { _serviceDiscoveryServiceDescription = Nothing
   , _serviceDiscoveryServiceDnsConfig = dnsConfigarg
   , _serviceDiscoveryServiceHealthCheckConfig = Nothing
+  , _serviceDiscoveryServiceHealthCheckCustomConfig = Nothing
   , _serviceDiscoveryServiceName = Nothing
   }
 
@@ -63,6 +68,10 @@ sdsDnsConfig = lens _serviceDiscoveryServiceDnsConfig (\s a -> s { _serviceDisco
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-service.html#cfn-servicediscovery-service-healthcheckconfig
 sdsHealthCheckConfig :: Lens' ServiceDiscoveryService (Maybe ServiceDiscoveryServiceHealthCheckConfig)
 sdsHealthCheckConfig = lens _serviceDiscoveryServiceHealthCheckConfig (\s a -> s { _serviceDiscoveryServiceHealthCheckConfig = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-service.html#cfn-servicediscovery-service-healthcheckcustomconfig
+sdsHealthCheckCustomConfig :: Lens' ServiceDiscoveryService (Maybe ServiceDiscoveryServiceHealthCheckCustomConfig)
+sdsHealthCheckCustomConfig = lens _serviceDiscoveryServiceHealthCheckCustomConfig (\s a -> s { _serviceDiscoveryServiceHealthCheckCustomConfig = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-service.html#cfn-servicediscovery-service-name
 sdsName :: Lens' ServiceDiscoveryService (Maybe (Val Text))

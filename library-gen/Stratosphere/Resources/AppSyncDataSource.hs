@@ -9,6 +9,7 @@ module Stratosphere.Resources.AppSyncDataSource where
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.AppSyncDataSourceDynamoDBConfig
 import Stratosphere.ResourceProperties.AppSyncDataSourceElasticsearchConfig
+import Stratosphere.ResourceProperties.AppSyncDataSourceHttpConfig
 import Stratosphere.ResourceProperties.AppSyncDataSourceLambdaConfig
 
 -- | Full data type definition for AppSyncDataSource. See 'appSyncDataSource'
@@ -19,6 +20,7 @@ data AppSyncDataSource =
   , _appSyncDataSourceDescription :: Maybe (Val Text)
   , _appSyncDataSourceDynamoDBConfig :: Maybe AppSyncDataSourceDynamoDBConfig
   , _appSyncDataSourceElasticsearchConfig :: Maybe AppSyncDataSourceElasticsearchConfig
+  , _appSyncDataSourceHttpConfig :: Maybe AppSyncDataSourceHttpConfig
   , _appSyncDataSourceLambdaConfig :: Maybe AppSyncDataSourceLambdaConfig
   , _appSyncDataSourceName :: Val Text
   , _appSyncDataSourceServiceRoleArn :: Maybe (Val Text)
@@ -33,6 +35,7 @@ instance ToJSON AppSyncDataSource where
     , fmap (("Description",) . toJSON) _appSyncDataSourceDescription
     , fmap (("DynamoDBConfig",) . toJSON) _appSyncDataSourceDynamoDBConfig
     , fmap (("ElasticsearchConfig",) . toJSON) _appSyncDataSourceElasticsearchConfig
+    , fmap (("HttpConfig",) . toJSON) _appSyncDataSourceHttpConfig
     , fmap (("LambdaConfig",) . toJSON) _appSyncDataSourceLambdaConfig
     , (Just . ("Name",) . toJSON) _appSyncDataSourceName
     , fmap (("ServiceRoleArn",) . toJSON) _appSyncDataSourceServiceRoleArn
@@ -46,6 +49,7 @@ instance FromJSON AppSyncDataSource where
       (obj .:? "Description") <*>
       (obj .:? "DynamoDBConfig") <*>
       (obj .:? "ElasticsearchConfig") <*>
+      (obj .:? "HttpConfig") <*>
       (obj .:? "LambdaConfig") <*>
       (obj .: "Name") <*>
       (obj .:? "ServiceRoleArn") <*>
@@ -65,6 +69,7 @@ appSyncDataSource apiIdarg namearg typearg =
   , _appSyncDataSourceDescription = Nothing
   , _appSyncDataSourceDynamoDBConfig = Nothing
   , _appSyncDataSourceElasticsearchConfig = Nothing
+  , _appSyncDataSourceHttpConfig = Nothing
   , _appSyncDataSourceLambdaConfig = Nothing
   , _appSyncDataSourceName = namearg
   , _appSyncDataSourceServiceRoleArn = Nothing
@@ -86,6 +91,10 @@ asdsDynamoDBConfig = lens _appSyncDataSourceDynamoDBConfig (\s a -> s { _appSync
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html#cfn-appsync-datasource-elasticsearchconfig
 asdsElasticsearchConfig :: Lens' AppSyncDataSource (Maybe AppSyncDataSourceElasticsearchConfig)
 asdsElasticsearchConfig = lens _appSyncDataSourceElasticsearchConfig (\s a -> s { _appSyncDataSourceElasticsearchConfig = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html#cfn-appsync-datasource-httpconfig
+asdsHttpConfig :: Lens' AppSyncDataSource (Maybe AppSyncDataSourceHttpConfig)
+asdsHttpConfig = lens _appSyncDataSourceHttpConfig (\s a -> s { _appSyncDataSourceHttpConfig = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html#cfn-appsync-datasource-lambdaconfig
 asdsLambdaConfig :: Lens' AppSyncDataSource (Maybe AppSyncDataSourceLambdaConfig)

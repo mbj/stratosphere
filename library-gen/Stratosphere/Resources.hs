@@ -47,6 +47,8 @@ import qualified Data.Text as T
 import GHC.Exts (IsList(..))
 import GHC.Generics (Generic)
 
+import Stratosphere.Resources.AmazonMQBroker as X
+import Stratosphere.Resources.AmazonMQConfiguration as X
 import Stratosphere.Resources.ApiGatewayAccount as X
 import Stratosphere.Resources.ApiGatewayApiKey as X
 import Stratosphere.Resources.ApiGatewayAuthorizer as X
@@ -103,6 +105,7 @@ import Stratosphere.Resources.CodeDeployDeploymentConfig as X
 import Stratosphere.Resources.CodeDeployDeploymentGroup as X
 import Stratosphere.Resources.CodePipelineCustomActionType as X
 import Stratosphere.Resources.CodePipelinePipeline as X
+import Stratosphere.Resources.CodePipelineWebhook as X
 import Stratosphere.Resources.CognitoIdentityPool as X
 import Stratosphere.Resources.CognitoIdentityPoolRoleAttachment as X
 import Stratosphere.Resources.CognitoUserPool as X
@@ -158,6 +161,7 @@ import Stratosphere.Resources.EC2VPC as X
 import Stratosphere.Resources.EC2VPCCidrBlock as X
 import Stratosphere.Resources.EC2VPCDHCPOptionsAssociation as X
 import Stratosphere.Resources.EC2VPCEndpoint as X
+import Stratosphere.Resources.EC2VPCEndpointConnectionNotification as X
 import Stratosphere.Resources.EC2VPCGatewayAttachment as X
 import Stratosphere.Resources.EC2VPCPeeringConnection as X
 import Stratosphere.Resources.EC2VPNConnection as X
@@ -297,6 +301,12 @@ import Stratosphere.Resources.SSMDocument as X
 import Stratosphere.Resources.SSMMaintenanceWindowTask as X
 import Stratosphere.Resources.SSMParameter as X
 import Stratosphere.Resources.SSMPatchBaseline as X
+import Stratosphere.Resources.SSMResourceDataSync as X
+import Stratosphere.Resources.SageMakerEndpoint as X
+import Stratosphere.Resources.SageMakerEndpointConfig as X
+import Stratosphere.Resources.SageMakerModel as X
+import Stratosphere.Resources.SageMakerNotebookInstance as X
+import Stratosphere.Resources.SageMakerNotebookInstanceLifecycleConfig as X
 import Stratosphere.Resources.ServiceCatalogAcceptedPortfolioShare as X
 import Stratosphere.Resources.ServiceCatalogCloudFormationProduct as X
 import Stratosphere.Resources.ServiceCatalogCloudFormationProvisionedProduct as X
@@ -331,6 +341,9 @@ import Stratosphere.Resources.WAFRegionalWebACL as X
 import Stratosphere.Resources.WAFRegionalWebACLAssociation as X
 import Stratosphere.Resources.WAFRegionalXssMatchSet as X
 import Stratosphere.Resources.WorkSpacesWorkspace as X
+import Stratosphere.ResourceProperties.AmazonMQBrokerConfigurationId as X
+import Stratosphere.ResourceProperties.AmazonMQBrokerMaintenanceWindow as X
+import Stratosphere.ResourceProperties.AmazonMQBrokerUser as X
 import Stratosphere.ResourceProperties.ApiGatewayApiKeyStageKey as X
 import Stratosphere.ResourceProperties.ApiGatewayDeploymentMethodSetting as X
 import Stratosphere.ResourceProperties.ApiGatewayDeploymentStageDescription as X
@@ -347,6 +360,7 @@ import Stratosphere.ResourceProperties.ApiGatewayUsagePlanQuotaSettings as X
 import Stratosphere.ResourceProperties.ApiGatewayUsagePlanThrottleSettings as X
 import Stratosphere.ResourceProperties.AppSyncDataSourceDynamoDBConfig as X
 import Stratosphere.ResourceProperties.AppSyncDataSourceElasticsearchConfig as X
+import Stratosphere.ResourceProperties.AppSyncDataSourceHttpConfig as X
 import Stratosphere.ResourceProperties.AppSyncDataSourceLambdaConfig as X
 import Stratosphere.ResourceProperties.AppSyncGraphQLApiLogConfig as X
 import Stratosphere.ResourceProperties.AppSyncGraphQLApiOpenIDConnectConfig as X
@@ -455,6 +469,8 @@ import Stratosphere.ResourceProperties.CodePipelinePipelineInputArtifact as X
 import Stratosphere.ResourceProperties.CodePipelinePipelineOutputArtifact as X
 import Stratosphere.ResourceProperties.CodePipelinePipelineStageDeclaration as X
 import Stratosphere.ResourceProperties.CodePipelinePipelineStageTransition as X
+import Stratosphere.ResourceProperties.CodePipelineWebhookWebhookAuthConfiguration as X
+import Stratosphere.ResourceProperties.CodePipelineWebhookWebhookFilterRule as X
 import Stratosphere.ResourceProperties.CognitoIdentityPoolCognitoIdentityProvider as X
 import Stratosphere.ResourceProperties.CognitoIdentityPoolCognitoStreams as X
 import Stratosphere.ResourceProperties.CognitoIdentityPoolPushSync as X
@@ -862,11 +878,16 @@ import Stratosphere.ResourceProperties.SSMPatchBaselinePatchFilterGroup as X
 import Stratosphere.ResourceProperties.SSMPatchBaselinePatchSource as X
 import Stratosphere.ResourceProperties.SSMPatchBaselineRule as X
 import Stratosphere.ResourceProperties.SSMPatchBaselineRuleGroup as X
+import Stratosphere.ResourceProperties.SageMakerEndpointConfigProductionVariant as X
+import Stratosphere.ResourceProperties.SageMakerModelContainerDefinition as X
+import Stratosphere.ResourceProperties.SageMakerModelVpcConfig as X
+import Stratosphere.ResourceProperties.SageMakerNotebookInstanceLifecycleConfigNotebookInstanceLifecycleHook as X
 import Stratosphere.ResourceProperties.ServiceCatalogCloudFormationProductProvisioningArtifactProperties as X
 import Stratosphere.ResourceProperties.ServiceCatalogCloudFormationProvisionedProductProvisioningParameter as X
 import Stratosphere.ResourceProperties.ServiceDiscoveryServiceDnsConfig as X
 import Stratosphere.ResourceProperties.ServiceDiscoveryServiceDnsRecord as X
 import Stratosphere.ResourceProperties.ServiceDiscoveryServiceHealthCheckConfig as X
+import Stratosphere.ResourceProperties.ServiceDiscoveryServiceHealthCheckCustomConfig as X
 import Stratosphere.ResourceProperties.WAFByteMatchSetByteMatchTuple as X
 import Stratosphere.ResourceProperties.WAFByteMatchSetFieldToMatch as X
 import Stratosphere.ResourceProperties.WAFIPSetIPSetDescriptor as X
@@ -903,7 +924,9 @@ import Stratosphere.Helpers
 import Stratosphere.Values
 
 data ResourceProperties
-  = ApiGatewayAccountProperties ApiGatewayAccount
+  = AmazonMQBrokerProperties AmazonMQBroker
+  | AmazonMQConfigurationProperties AmazonMQConfiguration
+  | ApiGatewayAccountProperties ApiGatewayAccount
   | ApiGatewayApiKeyProperties ApiGatewayApiKey
   | ApiGatewayAuthorizerProperties ApiGatewayAuthorizer
   | ApiGatewayBasePathMappingProperties ApiGatewayBasePathMapping
@@ -959,6 +982,7 @@ data ResourceProperties
   | CodeDeployDeploymentGroupProperties CodeDeployDeploymentGroup
   | CodePipelineCustomActionTypeProperties CodePipelineCustomActionType
   | CodePipelinePipelineProperties CodePipelinePipeline
+  | CodePipelineWebhookProperties CodePipelineWebhook
   | CognitoIdentityPoolProperties CognitoIdentityPool
   | CognitoIdentityPoolRoleAttachmentProperties CognitoIdentityPoolRoleAttachment
   | CognitoUserPoolProperties CognitoUserPool
@@ -1014,6 +1038,7 @@ data ResourceProperties
   | EC2VPCCidrBlockProperties EC2VPCCidrBlock
   | EC2VPCDHCPOptionsAssociationProperties EC2VPCDHCPOptionsAssociation
   | EC2VPCEndpointProperties EC2VPCEndpoint
+  | EC2VPCEndpointConnectionNotificationProperties EC2VPCEndpointConnectionNotification
   | EC2VPCGatewayAttachmentProperties EC2VPCGatewayAttachment
   | EC2VPCPeeringConnectionProperties EC2VPCPeeringConnection
   | EC2VPNConnectionProperties EC2VPNConnection
@@ -1153,6 +1178,12 @@ data ResourceProperties
   | SSMMaintenanceWindowTaskProperties SSMMaintenanceWindowTask
   | SSMParameterProperties SSMParameter
   | SSMPatchBaselineProperties SSMPatchBaseline
+  | SSMResourceDataSyncProperties SSMResourceDataSync
+  | SageMakerEndpointProperties SageMakerEndpoint
+  | SageMakerEndpointConfigProperties SageMakerEndpointConfig
+  | SageMakerModelProperties SageMakerModel
+  | SageMakerNotebookInstanceProperties SageMakerNotebookInstance
+  | SageMakerNotebookInstanceLifecycleConfigProperties SageMakerNotebookInstanceLifecycleConfig
   | ServiceCatalogAcceptedPortfolioShareProperties ServiceCatalogAcceptedPortfolioShare
   | ServiceCatalogCloudFormationProductProperties ServiceCatalogCloudFormationProduct
   | ServiceCatalogCloudFormationProvisionedProductProperties ServiceCatalogCloudFormationProvisionedProduct
@@ -1242,6 +1273,10 @@ resourceToJSON (Resource _ props dp cp up deps meta) =
     ]
 
 resourcePropertiesJSON :: ResourceProperties -> [Pair]
+resourcePropertiesJSON (AmazonMQBrokerProperties x) =
+  [ "Type" .= ("AWS::AmazonMQ::Broker" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (AmazonMQConfigurationProperties x) =
+  [ "Type" .= ("AWS::AmazonMQ::Configuration" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ApiGatewayAccountProperties x) =
   [ "Type" .= ("AWS::ApiGateway::Account" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ApiGatewayApiKeyProperties x) =
@@ -1354,6 +1389,8 @@ resourcePropertiesJSON (CodePipelineCustomActionTypeProperties x) =
   [ "Type" .= ("AWS::CodePipeline::CustomActionType" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (CodePipelinePipelineProperties x) =
   [ "Type" .= ("AWS::CodePipeline::Pipeline" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (CodePipelineWebhookProperties x) =
+  [ "Type" .= ("AWS::CodePipeline::Webhook" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (CognitoIdentityPoolProperties x) =
   [ "Type" .= ("AWS::Cognito::IdentityPool" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (CognitoIdentityPoolRoleAttachmentProperties x) =
@@ -1464,6 +1501,8 @@ resourcePropertiesJSON (EC2VPCDHCPOptionsAssociationProperties x) =
   [ "Type" .= ("AWS::EC2::VPCDHCPOptionsAssociation" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (EC2VPCEndpointProperties x) =
   [ "Type" .= ("AWS::EC2::VPCEndpoint" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (EC2VPCEndpointConnectionNotificationProperties x) =
+  [ "Type" .= ("AWS::EC2::VPCEndpointConnectionNotification" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (EC2VPCGatewayAttachmentProperties x) =
   [ "Type" .= ("AWS::EC2::VPCGatewayAttachment" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (EC2VPCPeeringConnectionProperties x) =
@@ -1742,6 +1781,18 @@ resourcePropertiesJSON (SSMParameterProperties x) =
   [ "Type" .= ("AWS::SSM::Parameter" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (SSMPatchBaselineProperties x) =
   [ "Type" .= ("AWS::SSM::PatchBaseline" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (SSMResourceDataSyncProperties x) =
+  [ "Type" .= ("AWS::SSM::ResourceDataSync" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (SageMakerEndpointProperties x) =
+  [ "Type" .= ("AWS::SageMaker::Endpoint" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (SageMakerEndpointConfigProperties x) =
+  [ "Type" .= ("AWS::SageMaker::EndpointConfig" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (SageMakerModelProperties x) =
+  [ "Type" .= ("AWS::SageMaker::Model" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (SageMakerNotebookInstanceProperties x) =
+  [ "Type" .= ("AWS::SageMaker::NotebookInstance" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (SageMakerNotebookInstanceLifecycleConfigProperties x) =
+  [ "Type" .= ("AWS::SageMaker::NotebookInstanceLifecycleConfig" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ServiceCatalogAcceptedPortfolioShareProperties x) =
   [ "Type" .= ("AWS::ServiceCatalog::AcceptedPortfolioShare" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ServiceCatalogCloudFormationProductProperties x) =
@@ -1816,6 +1867,8 @@ resourceFromJSON :: T.Text -> Object -> Parser Resource
 resourceFromJSON n o =
     do type' <- o .: "Type" :: Parser String
        props <- case type' of
+         "AWS::AmazonMQ::Broker" -> AmazonMQBrokerProperties <$> (o .: "Properties")
+         "AWS::AmazonMQ::Configuration" -> AmazonMQConfigurationProperties <$> (o .: "Properties")
          "AWS::ApiGateway::Account" -> ApiGatewayAccountProperties <$> (o .: "Properties")
          "AWS::ApiGateway::ApiKey" -> ApiGatewayApiKeyProperties <$> (o .: "Properties")
          "AWS::ApiGateway::Authorizer" -> ApiGatewayAuthorizerProperties <$> (o .: "Properties")
@@ -1872,6 +1925,7 @@ resourceFromJSON n o =
          "AWS::CodeDeploy::DeploymentGroup" -> CodeDeployDeploymentGroupProperties <$> (o .: "Properties")
          "AWS::CodePipeline::CustomActionType" -> CodePipelineCustomActionTypeProperties <$> (o .: "Properties")
          "AWS::CodePipeline::Pipeline" -> CodePipelinePipelineProperties <$> (o .: "Properties")
+         "AWS::CodePipeline::Webhook" -> CodePipelineWebhookProperties <$> (o .: "Properties")
          "AWS::Cognito::IdentityPool" -> CognitoIdentityPoolProperties <$> (o .: "Properties")
          "AWS::Cognito::IdentityPoolRoleAttachment" -> CognitoIdentityPoolRoleAttachmentProperties <$> (o .: "Properties")
          "AWS::Cognito::UserPool" -> CognitoUserPoolProperties <$> (o .: "Properties")
@@ -1927,6 +1981,7 @@ resourceFromJSON n o =
          "AWS::EC2::VPCCidrBlock" -> EC2VPCCidrBlockProperties <$> (o .: "Properties")
          "AWS::EC2::VPCDHCPOptionsAssociation" -> EC2VPCDHCPOptionsAssociationProperties <$> (o .: "Properties")
          "AWS::EC2::VPCEndpoint" -> EC2VPCEndpointProperties <$> (o .: "Properties")
+         "AWS::EC2::VPCEndpointConnectionNotification" -> EC2VPCEndpointConnectionNotificationProperties <$> (o .: "Properties")
          "AWS::EC2::VPCGatewayAttachment" -> EC2VPCGatewayAttachmentProperties <$> (o .: "Properties")
          "AWS::EC2::VPCPeeringConnection" -> EC2VPCPeeringConnectionProperties <$> (o .: "Properties")
          "AWS::EC2::VPNConnection" -> EC2VPNConnectionProperties <$> (o .: "Properties")
@@ -2066,6 +2121,12 @@ resourceFromJSON n o =
          "AWS::SSM::MaintenanceWindowTask" -> SSMMaintenanceWindowTaskProperties <$> (o .: "Properties")
          "AWS::SSM::Parameter" -> SSMParameterProperties <$> (o .: "Properties")
          "AWS::SSM::PatchBaseline" -> SSMPatchBaselineProperties <$> (o .: "Properties")
+         "AWS::SSM::ResourceDataSync" -> SSMResourceDataSyncProperties <$> (o .: "Properties")
+         "AWS::SageMaker::Endpoint" -> SageMakerEndpointProperties <$> (o .: "Properties")
+         "AWS::SageMaker::EndpointConfig" -> SageMakerEndpointConfigProperties <$> (o .: "Properties")
+         "AWS::SageMaker::Model" -> SageMakerModelProperties <$> (o .: "Properties")
+         "AWS::SageMaker::NotebookInstance" -> SageMakerNotebookInstanceProperties <$> (o .: "Properties")
+         "AWS::SageMaker::NotebookInstanceLifecycleConfig" -> SageMakerNotebookInstanceLifecycleConfigProperties <$> (o .: "Properties")
          "AWS::ServiceCatalog::AcceptedPortfolioShare" -> ServiceCatalogAcceptedPortfolioShareProperties <$> (o .: "Properties")
          "AWS::ServiceCatalog::CloudFormationProduct" -> ServiceCatalogCloudFormationProductProperties <$> (o .: "Properties")
          "AWS::ServiceCatalog::CloudFormationProvisionedProduct" -> ServiceCatalogCloudFormationProvisionedProductProperties <$> (o .: "Properties")
