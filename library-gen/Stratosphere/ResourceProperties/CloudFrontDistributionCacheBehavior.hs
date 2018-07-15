@@ -18,6 +18,7 @@ data CloudFrontDistributionCacheBehavior =
   , _cloudFrontDistributionCacheBehaviorCachedMethods :: Maybe (ValList Text)
   , _cloudFrontDistributionCacheBehaviorCompress :: Maybe (Val Bool)
   , _cloudFrontDistributionCacheBehaviorDefaultTTL :: Maybe (Val Double)
+  , _cloudFrontDistributionCacheBehaviorFieldLevelEncryptionId :: Maybe (Val Text)
   , _cloudFrontDistributionCacheBehaviorForwardedValues :: CloudFrontDistributionForwardedValues
   , _cloudFrontDistributionCacheBehaviorLambdaFunctionAssociations :: Maybe [CloudFrontDistributionLambdaFunctionAssociation]
   , _cloudFrontDistributionCacheBehaviorMaxTTL :: Maybe (Val Double)
@@ -37,6 +38,7 @@ instance ToJSON CloudFrontDistributionCacheBehavior where
     , fmap (("CachedMethods",) . toJSON) _cloudFrontDistributionCacheBehaviorCachedMethods
     , fmap (("Compress",) . toJSON . fmap Bool') _cloudFrontDistributionCacheBehaviorCompress
     , fmap (("DefaultTTL",) . toJSON . fmap Double') _cloudFrontDistributionCacheBehaviorDefaultTTL
+    , fmap (("FieldLevelEncryptionId",) . toJSON) _cloudFrontDistributionCacheBehaviorFieldLevelEncryptionId
     , (Just . ("ForwardedValues",) . toJSON) _cloudFrontDistributionCacheBehaviorForwardedValues
     , fmap (("LambdaFunctionAssociations",) . toJSON) _cloudFrontDistributionCacheBehaviorLambdaFunctionAssociations
     , fmap (("MaxTTL",) . toJSON . fmap Double') _cloudFrontDistributionCacheBehaviorMaxTTL
@@ -55,6 +57,7 @@ instance FromJSON CloudFrontDistributionCacheBehavior where
       (obj .:? "CachedMethods") <*>
       fmap (fmap (fmap unBool')) (obj .:? "Compress") <*>
       fmap (fmap (fmap unDouble')) (obj .:? "DefaultTTL") <*>
+      (obj .:? "FieldLevelEncryptionId") <*>
       (obj .: "ForwardedValues") <*>
       (obj .:? "LambdaFunctionAssociations") <*>
       fmap (fmap (fmap unDouble')) (obj .:? "MaxTTL") <*>
@@ -80,6 +83,7 @@ cloudFrontDistributionCacheBehavior forwardedValuesarg pathPatternarg targetOrig
   , _cloudFrontDistributionCacheBehaviorCachedMethods = Nothing
   , _cloudFrontDistributionCacheBehaviorCompress = Nothing
   , _cloudFrontDistributionCacheBehaviorDefaultTTL = Nothing
+  , _cloudFrontDistributionCacheBehaviorFieldLevelEncryptionId = Nothing
   , _cloudFrontDistributionCacheBehaviorForwardedValues = forwardedValuesarg
   , _cloudFrontDistributionCacheBehaviorLambdaFunctionAssociations = Nothing
   , _cloudFrontDistributionCacheBehaviorMaxTTL = Nothing
@@ -106,6 +110,10 @@ cfdcbCompress = lens _cloudFrontDistributionCacheBehaviorCompress (\s a -> s { _
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-defaultttl
 cfdcbDefaultTTL :: Lens' CloudFrontDistributionCacheBehavior (Maybe (Val Double))
 cfdcbDefaultTTL = lens _cloudFrontDistributionCacheBehaviorDefaultTTL (\s a -> s { _cloudFrontDistributionCacheBehaviorDefaultTTL = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-fieldlevelencryptionid
+cfdcbFieldLevelEncryptionId :: Lens' CloudFrontDistributionCacheBehavior (Maybe (Val Text))
+cfdcbFieldLevelEncryptionId = lens _cloudFrontDistributionCacheBehaviorFieldLevelEncryptionId (\s a -> s { _cloudFrontDistributionCacheBehaviorFieldLevelEncryptionId = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-forwardedvalues
 cfdcbForwardedValues :: Lens' CloudFrontDistributionCacheBehavior CloudFrontDistributionForwardedValues

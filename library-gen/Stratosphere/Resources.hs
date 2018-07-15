@@ -113,7 +113,9 @@ import Stratosphere.Resources.CognitoUserPoolClient as X
 import Stratosphere.Resources.CognitoUserPoolGroup as X
 import Stratosphere.Resources.CognitoUserPoolUser as X
 import Stratosphere.Resources.CognitoUserPoolUserToGroupAttachment as X
+import Stratosphere.Resources.ConfigAggregationAuthorization as X
 import Stratosphere.Resources.ConfigConfigRule as X
+import Stratosphere.Resources.ConfigConfigurationAggregator as X
 import Stratosphere.Resources.ConfigConfigurationRecorder as X
 import Stratosphere.Resources.ConfigDeliveryChannel as X
 import Stratosphere.Resources.DAXCluster as X
@@ -492,6 +494,8 @@ import Stratosphere.ResourceProperties.CognitoUserPoolUserAttributeType as X
 import Stratosphere.ResourceProperties.ConfigConfigRuleScope as X
 import Stratosphere.ResourceProperties.ConfigConfigRuleSource as X
 import Stratosphere.ResourceProperties.ConfigConfigRuleSourceDetail as X
+import Stratosphere.ResourceProperties.ConfigConfigurationAggregatorAccountAggregationSource as X
+import Stratosphere.ResourceProperties.ConfigConfigurationAggregatorOrganizationAggregationSource as X
 import Stratosphere.ResourceProperties.ConfigConfigurationRecorderRecordingGroup as X
 import Stratosphere.ResourceProperties.ConfigDeliveryChannelConfigSnapshotDeliveryProperties as X
 import Stratosphere.ResourceProperties.DMSEndpointDynamoDbSettings as X
@@ -990,7 +994,9 @@ data ResourceProperties
   | CognitoUserPoolGroupProperties CognitoUserPoolGroup
   | CognitoUserPoolUserProperties CognitoUserPoolUser
   | CognitoUserPoolUserToGroupAttachmentProperties CognitoUserPoolUserToGroupAttachment
+  | ConfigAggregationAuthorizationProperties ConfigAggregationAuthorization
   | ConfigConfigRuleProperties ConfigConfigRule
+  | ConfigConfigurationAggregatorProperties ConfigConfigurationAggregator
   | ConfigConfigurationRecorderProperties ConfigConfigurationRecorder
   | ConfigDeliveryChannelProperties ConfigDeliveryChannel
   | DAXClusterProperties DAXCluster
@@ -1405,8 +1411,12 @@ resourcePropertiesJSON (CognitoUserPoolUserProperties x) =
   [ "Type" .= ("AWS::Cognito::UserPoolUser" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (CognitoUserPoolUserToGroupAttachmentProperties x) =
   [ "Type" .= ("AWS::Cognito::UserPoolUserToGroupAttachment" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (ConfigAggregationAuthorizationProperties x) =
+  [ "Type" .= ("AWS::Config::AggregationAuthorization" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ConfigConfigRuleProperties x) =
   [ "Type" .= ("AWS::Config::ConfigRule" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (ConfigConfigurationAggregatorProperties x) =
+  [ "Type" .= ("AWS::Config::ConfigurationAggregator" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ConfigConfigurationRecorderProperties x) =
   [ "Type" .= ("AWS::Config::ConfigurationRecorder" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ConfigDeliveryChannelProperties x) =
@@ -1933,7 +1943,9 @@ resourceFromJSON n o =
          "AWS::Cognito::UserPoolGroup" -> CognitoUserPoolGroupProperties <$> (o .: "Properties")
          "AWS::Cognito::UserPoolUser" -> CognitoUserPoolUserProperties <$> (o .: "Properties")
          "AWS::Cognito::UserPoolUserToGroupAttachment" -> CognitoUserPoolUserToGroupAttachmentProperties <$> (o .: "Properties")
+         "AWS::Config::AggregationAuthorization" -> ConfigAggregationAuthorizationProperties <$> (o .: "Properties")
          "AWS::Config::ConfigRule" -> ConfigConfigRuleProperties <$> (o .: "Properties")
+         "AWS::Config::ConfigurationAggregator" -> ConfigConfigurationAggregatorProperties <$> (o .: "Properties")
          "AWS::Config::ConfigurationRecorder" -> ConfigConfigurationRecorderProperties <$> (o .: "Properties")
          "AWS::Config::DeliveryChannel" -> ConfigDeliveryChannelProperties <$> (o .: "Properties")
          "AWS::DAX::Cluster" -> DAXClusterProperties <$> (o .: "Properties")
