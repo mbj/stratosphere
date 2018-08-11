@@ -164,6 +164,7 @@ import Stratosphere.Resources.EC2VPCCidrBlock as X
 import Stratosphere.Resources.EC2VPCDHCPOptionsAssociation as X
 import Stratosphere.Resources.EC2VPCEndpoint as X
 import Stratosphere.Resources.EC2VPCEndpointConnectionNotification as X
+import Stratosphere.Resources.EC2VPCEndpointServicePermissions as X
 import Stratosphere.Resources.EC2VPCGatewayAttachment as X
 import Stratosphere.Resources.EC2VPCPeeringConnection as X
 import Stratosphere.Resources.EC2VPNConnection as X
@@ -226,6 +227,7 @@ import Stratosphere.Resources.IAMInstanceProfile as X
 import Stratosphere.Resources.IAMManagedPolicy as X
 import Stratosphere.Resources.IAMPolicy as X
 import Stratosphere.Resources.IAMRole as X
+import Stratosphere.Resources.IAMServiceLinkedRole as X
 import Stratosphere.Resources.IAMUser as X
 import Stratosphere.Resources.IAMUserToGroupAddition as X
 import Stratosphere.Resources.InspectorAssessmentTarget as X
@@ -675,6 +677,8 @@ import Stratosphere.ResourceProperties.GameLiftAliasRoutingStrategy as X
 import Stratosphere.ResourceProperties.GameLiftBuildS3Location as X
 import Stratosphere.ResourceProperties.GameLiftFleetIpPermission as X
 import Stratosphere.ResourceProperties.GlueClassifierGrokClassifier as X
+import Stratosphere.ResourceProperties.GlueClassifierJsonClassifier as X
+import Stratosphere.ResourceProperties.GlueClassifierXMLClassifier as X
 import Stratosphere.ResourceProperties.GlueConnectionConnectionInput as X
 import Stratosphere.ResourceProperties.GlueConnectionPhysicalConnectionRequirements as X
 import Stratosphere.ResourceProperties.GlueCrawlerJdbcTarget as X
@@ -1045,6 +1049,7 @@ data ResourceProperties
   | EC2VPCDHCPOptionsAssociationProperties EC2VPCDHCPOptionsAssociation
   | EC2VPCEndpointProperties EC2VPCEndpoint
   | EC2VPCEndpointConnectionNotificationProperties EC2VPCEndpointConnectionNotification
+  | EC2VPCEndpointServicePermissionsProperties EC2VPCEndpointServicePermissions
   | EC2VPCGatewayAttachmentProperties EC2VPCGatewayAttachment
   | EC2VPCPeeringConnectionProperties EC2VPCPeeringConnection
   | EC2VPNConnectionProperties EC2VPNConnection
@@ -1107,6 +1112,7 @@ data ResourceProperties
   | IAMManagedPolicyProperties IAMManagedPolicy
   | IAMPolicyProperties IAMPolicy
   | IAMRoleProperties IAMRole
+  | IAMServiceLinkedRoleProperties IAMServiceLinkedRole
   | IAMUserProperties IAMUser
   | IAMUserToGroupAdditionProperties IAMUserToGroupAddition
   | InspectorAssessmentTargetProperties InspectorAssessmentTarget
@@ -1513,6 +1519,8 @@ resourcePropertiesJSON (EC2VPCEndpointProperties x) =
   [ "Type" .= ("AWS::EC2::VPCEndpoint" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (EC2VPCEndpointConnectionNotificationProperties x) =
   [ "Type" .= ("AWS::EC2::VPCEndpointConnectionNotification" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (EC2VPCEndpointServicePermissionsProperties x) =
+  [ "Type" .= ("AWS::EC2::VPCEndpointServicePermissions" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (EC2VPCGatewayAttachmentProperties x) =
   [ "Type" .= ("AWS::EC2::VPCGatewayAttachment" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (EC2VPCPeeringConnectionProperties x) =
@@ -1637,6 +1645,8 @@ resourcePropertiesJSON (IAMPolicyProperties x) =
   [ "Type" .= ("AWS::IAM::Policy" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (IAMRoleProperties x) =
   [ "Type" .= ("AWS::IAM::Role" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (IAMServiceLinkedRoleProperties x) =
+  [ "Type" .= ("AWS::IAM::ServiceLinkedRole" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (IAMUserProperties x) =
   [ "Type" .= ("AWS::IAM::User" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (IAMUserToGroupAdditionProperties x) =
@@ -1994,6 +2004,7 @@ resourceFromJSON n o =
          "AWS::EC2::VPCDHCPOptionsAssociation" -> EC2VPCDHCPOptionsAssociationProperties <$> (o .: "Properties")
          "AWS::EC2::VPCEndpoint" -> EC2VPCEndpointProperties <$> (o .: "Properties")
          "AWS::EC2::VPCEndpointConnectionNotification" -> EC2VPCEndpointConnectionNotificationProperties <$> (o .: "Properties")
+         "AWS::EC2::VPCEndpointServicePermissions" -> EC2VPCEndpointServicePermissionsProperties <$> (o .: "Properties")
          "AWS::EC2::VPCGatewayAttachment" -> EC2VPCGatewayAttachmentProperties <$> (o .: "Properties")
          "AWS::EC2::VPCPeeringConnection" -> EC2VPCPeeringConnectionProperties <$> (o .: "Properties")
          "AWS::EC2::VPNConnection" -> EC2VPNConnectionProperties <$> (o .: "Properties")
@@ -2056,6 +2067,7 @@ resourceFromJSON n o =
          "AWS::IAM::ManagedPolicy" -> IAMManagedPolicyProperties <$> (o .: "Properties")
          "AWS::IAM::Policy" -> IAMPolicyProperties <$> (o .: "Properties")
          "AWS::IAM::Role" -> IAMRoleProperties <$> (o .: "Properties")
+         "AWS::IAM::ServiceLinkedRole" -> IAMServiceLinkedRoleProperties <$> (o .: "Properties")
          "AWS::IAM::User" -> IAMUserProperties <$> (o .: "Properties")
          "AWS::IAM::UserToGroupAddition" -> IAMUserToGroupAdditionProperties <$> (o .: "Properties")
          "AWS::Inspector::AssessmentTarget" -> InspectorAssessmentTargetProperties <$> (o .: "Properties")
