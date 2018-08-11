@@ -16,6 +16,7 @@ import Stratosphere.ResourceProperties.GlueCrawlerTargets
 data GlueCrawler =
   GlueCrawler
   { _glueCrawlerClassifiers :: Maybe (ValList Text)
+  , _glueCrawlerConfiguration :: Maybe (Val Text)
   , _glueCrawlerDatabaseName :: Val Text
   , _glueCrawlerDescription :: Maybe (Val Text)
   , _glueCrawlerName :: Maybe (Val Text)
@@ -31,6 +32,7 @@ instance ToJSON GlueCrawler where
     object $
     catMaybes
     [ fmap (("Classifiers",) . toJSON) _glueCrawlerClassifiers
+    , fmap (("Configuration",) . toJSON) _glueCrawlerConfiguration
     , (Just . ("DatabaseName",) . toJSON) _glueCrawlerDatabaseName
     , fmap (("Description",) . toJSON) _glueCrawlerDescription
     , fmap (("Name",) . toJSON) _glueCrawlerName
@@ -45,6 +47,7 @@ instance FromJSON GlueCrawler where
   parseJSON (Object obj) =
     GlueCrawler <$>
       (obj .:? "Classifiers") <*>
+      (obj .:? "Configuration") <*>
       (obj .: "DatabaseName") <*>
       (obj .:? "Description") <*>
       (obj .:? "Name") <*>
@@ -64,6 +67,7 @@ glueCrawler
 glueCrawler databaseNamearg rolearg targetsarg =
   GlueCrawler
   { _glueCrawlerClassifiers = Nothing
+  , _glueCrawlerConfiguration = Nothing
   , _glueCrawlerDatabaseName = databaseNamearg
   , _glueCrawlerDescription = Nothing
   , _glueCrawlerName = Nothing
@@ -77,6 +81,10 @@ glueCrawler databaseNamearg rolearg targetsarg =
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-classifiers
 gcClassifiers :: Lens' GlueCrawler (Maybe (ValList Text))
 gcClassifiers = lens _glueCrawlerClassifiers (\s a -> s { _glueCrawlerClassifiers = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-configuration
+gcConfiguration :: Lens' GlueCrawler (Maybe (Val Text))
+gcConfiguration = lens _glueCrawlerConfiguration (\s a -> s { _glueCrawlerConfiguration = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-databasename
 gcDatabaseName :: Lens' GlueCrawler (Val Text)
