@@ -8,6 +8,7 @@ module Stratosphere.Resources.AmazonMQBroker where
 
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.AmazonMQBrokerConfigurationId
+import Stratosphere.ResourceProperties.AmazonMQBrokerLogList
 import Stratosphere.ResourceProperties.AmazonMQBrokerMaintenanceWindow
 import Stratosphere.ResourceProperties.AmazonMQBrokerUser
 
@@ -22,6 +23,7 @@ data AmazonMQBroker =
   , _amazonMQBrokerEngineType :: Val Text
   , _amazonMQBrokerEngineVersion :: Val Text
   , _amazonMQBrokerHostInstanceType :: Val Text
+  , _amazonMQBrokerLogs :: Maybe AmazonMQBrokerLogList
   , _amazonMQBrokerMaintenanceWindowStartTime :: Maybe AmazonMQBrokerMaintenanceWindow
   , _amazonMQBrokerPubliclyAccessible :: Val Bool
   , _amazonMQBrokerSecurityGroups :: Maybe (ValList Text)
@@ -40,6 +42,7 @@ instance ToJSON AmazonMQBroker where
     , (Just . ("EngineType",) . toJSON) _amazonMQBrokerEngineType
     , (Just . ("EngineVersion",) . toJSON) _amazonMQBrokerEngineVersion
     , (Just . ("HostInstanceType",) . toJSON) _amazonMQBrokerHostInstanceType
+    , fmap (("Logs",) . toJSON) _amazonMQBrokerLogs
     , fmap (("MaintenanceWindowStartTime",) . toJSON) _amazonMQBrokerMaintenanceWindowStartTime
     , (Just . ("PubliclyAccessible",) . toJSON . fmap Bool') _amazonMQBrokerPubliclyAccessible
     , fmap (("SecurityGroups",) . toJSON) _amazonMQBrokerSecurityGroups
@@ -57,6 +60,7 @@ instance FromJSON AmazonMQBroker where
       (obj .: "EngineType") <*>
       (obj .: "EngineVersion") <*>
       (obj .: "HostInstanceType") <*>
+      (obj .:? "Logs") <*>
       (obj .:? "MaintenanceWindowStartTime") <*>
       fmap (fmap unBool') (obj .: "PubliclyAccessible") <*>
       (obj .:? "SecurityGroups") <*>
@@ -84,6 +88,7 @@ amazonMQBroker autoMinorVersionUpgradearg brokerNamearg deploymentModearg engine
   , _amazonMQBrokerEngineType = engineTypearg
   , _amazonMQBrokerEngineVersion = engineVersionarg
   , _amazonMQBrokerHostInstanceType = hostInstanceTypearg
+  , _amazonMQBrokerLogs = Nothing
   , _amazonMQBrokerMaintenanceWindowStartTime = Nothing
   , _amazonMQBrokerPubliclyAccessible = publiclyAccessiblearg
   , _amazonMQBrokerSecurityGroups = Nothing
@@ -118,6 +123,10 @@ amqbEngineVersion = lens _amazonMQBrokerEngineVersion (\s a -> s { _amazonMQBrok
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-hostinstancetype
 amqbHostInstanceType :: Lens' AmazonMQBroker (Val Text)
 amqbHostInstanceType = lens _amazonMQBrokerHostInstanceType (\s a -> s { _amazonMQBrokerHostInstanceType = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-logs
+amqbLogs :: Lens' AmazonMQBroker (Maybe AmazonMQBrokerLogList)
+amqbLogs = lens _amazonMQBrokerLogs (\s a -> s { _amazonMQBrokerLogs = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-maintenancewindowstarttime
 amqbMaintenanceWindowStartTime :: Lens' AmazonMQBroker (Maybe AmazonMQBrokerMaintenanceWindow)

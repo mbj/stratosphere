@@ -346,6 +346,7 @@ import Stratosphere.Resources.WAFRegionalWebACLAssociation as X
 import Stratosphere.Resources.WAFRegionalXssMatchSet as X
 import Stratosphere.Resources.WorkSpacesWorkspace as X
 import Stratosphere.ResourceProperties.AmazonMQBrokerConfigurationId as X
+import Stratosphere.ResourceProperties.AmazonMQBrokerLogList as X
 import Stratosphere.ResourceProperties.AmazonMQBrokerMaintenanceWindow as X
 import Stratosphere.ResourceProperties.AmazonMQBrokerUser as X
 import Stratosphere.ResourceProperties.ApiGatewayApiKeyStageKey as X
@@ -500,6 +501,7 @@ import Stratosphere.ResourceProperties.ConfigConfigurationAggregatorAccountAggre
 import Stratosphere.ResourceProperties.ConfigConfigurationAggregatorOrganizationAggregationSource as X
 import Stratosphere.ResourceProperties.ConfigConfigurationRecorderRecordingGroup as X
 import Stratosphere.ResourceProperties.ConfigDeliveryChannelConfigSnapshotDeliveryProperties as X
+import Stratosphere.ResourceProperties.DAXClusterSSESpecification as X
 import Stratosphere.ResourceProperties.DMSEndpointDynamoDbSettings as X
 import Stratosphere.ResourceProperties.DMSEndpointMongoDbSettings as X
 import Stratosphere.ResourceProperties.DMSEndpointS3Settings as X
@@ -603,6 +605,7 @@ import Stratosphere.ResourceProperties.EMRClusterInstanceFleetProvisioningSpecif
 import Stratosphere.ResourceProperties.EMRClusterInstanceGroupConfig as X
 import Stratosphere.ResourceProperties.EMRClusterInstanceTypeConfig as X
 import Stratosphere.ResourceProperties.EMRClusterJobFlowInstancesConfig as X
+import Stratosphere.ResourceProperties.EMRClusterKerberosAttributes as X
 import Stratosphere.ResourceProperties.EMRClusterMetricDimension as X
 import Stratosphere.ResourceProperties.EMRClusterPlacementType as X
 import Stratosphere.ResourceProperties.EMRClusterScalingAction as X

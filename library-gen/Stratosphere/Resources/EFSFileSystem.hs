@@ -17,6 +17,8 @@ data EFSFileSystem =
   , _eFSFileSystemFileSystemTags :: Maybe [EFSFileSystemElasticFileSystemTag]
   , _eFSFileSystemKmsKeyId :: Maybe (Val Text)
   , _eFSFileSystemPerformanceMode :: Maybe (Val Text)
+  , _eFSFileSystemProvisionedThroughputInMibps :: Maybe (Val Double)
+  , _eFSFileSystemThroughputMode :: Maybe (Val Text)
   } deriving (Show, Eq)
 
 instance ToJSON EFSFileSystem where
@@ -27,6 +29,8 @@ instance ToJSON EFSFileSystem where
     , fmap (("FileSystemTags",) . toJSON) _eFSFileSystemFileSystemTags
     , fmap (("KmsKeyId",) . toJSON) _eFSFileSystemKmsKeyId
     , fmap (("PerformanceMode",) . toJSON) _eFSFileSystemPerformanceMode
+    , fmap (("ProvisionedThroughputInMibps",) . toJSON . fmap Double') _eFSFileSystemProvisionedThroughputInMibps
+    , fmap (("ThroughputMode",) . toJSON) _eFSFileSystemThroughputMode
     ]
 
 instance FromJSON EFSFileSystem where
@@ -35,7 +39,9 @@ instance FromJSON EFSFileSystem where
       fmap (fmap (fmap unBool')) (obj .:? "Encrypted") <*>
       (obj .:? "FileSystemTags") <*>
       (obj .:? "KmsKeyId") <*>
-      (obj .:? "PerformanceMode")
+      (obj .:? "PerformanceMode") <*>
+      fmap (fmap (fmap unDouble')) (obj .:? "ProvisionedThroughputInMibps") <*>
+      (obj .:? "ThroughputMode")
   parseJSON _ = mempty
 
 -- | Constructor for 'EFSFileSystem' containing required fields as arguments.
@@ -47,6 +53,8 @@ efsFileSystem  =
   , _eFSFileSystemFileSystemTags = Nothing
   , _eFSFileSystemKmsKeyId = Nothing
   , _eFSFileSystemPerformanceMode = Nothing
+  , _eFSFileSystemProvisionedThroughputInMibps = Nothing
+  , _eFSFileSystemThroughputMode = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-encrypted
@@ -64,3 +72,11 @@ efsfsKmsKeyId = lens _eFSFileSystemKmsKeyId (\s a -> s { _eFSFileSystemKmsKeyId 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-performancemode
 efsfsPerformanceMode :: Lens' EFSFileSystem (Maybe (Val Text))
 efsfsPerformanceMode = lens _eFSFileSystemPerformanceMode (\s a -> s { _eFSFileSystemPerformanceMode = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-elasticfilesystem-filesystem-provisionedthroughputinmibps
+efsfsProvisionedThroughputInMibps :: Lens' EFSFileSystem (Maybe (Val Double))
+efsfsProvisionedThroughputInMibps = lens _eFSFileSystemProvisionedThroughputInMibps (\s a -> s { _eFSFileSystemProvisionedThroughputInMibps = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-elasticfilesystem-filesystem-throughputmode
+efsfsThroughputMode :: Lens' EFSFileSystem (Maybe (Val Text))
+efsfsThroughputMode = lens _eFSFileSystemThroughputMode (\s a -> s { _eFSFileSystemThroughputMode = a })

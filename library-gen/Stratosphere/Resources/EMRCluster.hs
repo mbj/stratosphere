@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties.EMRClusterApplication
 import Stratosphere.ResourceProperties.EMRClusterBootstrapActionConfig
 import Stratosphere.ResourceProperties.EMRClusterConfiguration
 import Stratosphere.ResourceProperties.EMRClusterJobFlowInstancesConfig
+import Stratosphere.ResourceProperties.EMRClusterKerberosAttributes
 import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for EMRCluster. See 'emrCluster' for a more
@@ -26,6 +27,7 @@ data EMRCluster =
   , _eMRClusterEbsRootVolumeSize :: Maybe (Val Integer)
   , _eMRClusterInstances :: EMRClusterJobFlowInstancesConfig
   , _eMRClusterJobFlowRole :: Val Text
+  , _eMRClusterKerberosAttributes :: Maybe EMRClusterKerberosAttributes
   , _eMRClusterLogUri :: Maybe (Val Text)
   , _eMRClusterName :: Val Text
   , _eMRClusterReleaseLabel :: Maybe (Val Text)
@@ -49,6 +51,7 @@ instance ToJSON EMRCluster where
     , fmap (("EbsRootVolumeSize",) . toJSON . fmap Integer') _eMRClusterEbsRootVolumeSize
     , (Just . ("Instances",) . toJSON) _eMRClusterInstances
     , (Just . ("JobFlowRole",) . toJSON) _eMRClusterJobFlowRole
+    , fmap (("KerberosAttributes",) . toJSON) _eMRClusterKerberosAttributes
     , fmap (("LogUri",) . toJSON) _eMRClusterLogUri
     , (Just . ("Name",) . toJSON) _eMRClusterName
     , fmap (("ReleaseLabel",) . toJSON) _eMRClusterReleaseLabel
@@ -71,6 +74,7 @@ instance FromJSON EMRCluster where
       fmap (fmap (fmap unInteger')) (obj .:? "EbsRootVolumeSize") <*>
       (obj .: "Instances") <*>
       (obj .: "JobFlowRole") <*>
+      (obj .:? "KerberosAttributes") <*>
       (obj .:? "LogUri") <*>
       (obj .: "Name") <*>
       (obj .:? "ReleaseLabel") <*>
@@ -99,6 +103,7 @@ emrCluster instancesarg jobFlowRolearg namearg serviceRolearg =
   , _eMRClusterEbsRootVolumeSize = Nothing
   , _eMRClusterInstances = instancesarg
   , _eMRClusterJobFlowRole = jobFlowRolearg
+  , _eMRClusterKerberosAttributes = Nothing
   , _eMRClusterLogUri = Nothing
   , _eMRClusterName = namearg
   , _eMRClusterReleaseLabel = Nothing
@@ -144,6 +149,10 @@ emrcInstances = lens _eMRClusterInstances (\s a -> s { _eMRClusterInstances = a 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-jobflowrole
 emrcJobFlowRole :: Lens' EMRCluster (Val Text)
 emrcJobFlowRole = lens _eMRClusterJobFlowRole (\s a -> s { _eMRClusterJobFlowRole = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-kerberosattributes
+emrcKerberosAttributes :: Lens' EMRCluster (Maybe EMRClusterKerberosAttributes)
+emrcKerberosAttributes = lens _eMRClusterKerberosAttributes (\s a -> s { _eMRClusterKerberosAttributes = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-loguri
 emrcLogUri :: Lens' EMRCluster (Maybe (Val Text))
