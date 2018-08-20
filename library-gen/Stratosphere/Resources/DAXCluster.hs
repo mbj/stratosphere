@@ -7,7 +7,7 @@
 module Stratosphere.Resources.DAXCluster where
 
 import Stratosphere.ResourceImports
-
+import Stratosphere.ResourceProperties.DAXClusterSSESpecification
 
 -- | Full data type definition for DAXCluster. See 'daxCluster' for a more
 -- convenient constructor.
@@ -22,6 +22,7 @@ data DAXCluster =
   , _dAXClusterParameterGroupName :: Maybe (Val Text)
   , _dAXClusterPreferredMaintenanceWindow :: Maybe (Val Text)
   , _dAXClusterReplicationFactor :: Val Integer
+  , _dAXClusterSSESpecification :: Maybe DAXClusterSSESpecification
   , _dAXClusterSecurityGroupIds :: Maybe (ValList Text)
   , _dAXClusterSubnetGroupName :: Maybe (Val Text)
   , _dAXClusterTags :: Maybe Object
@@ -40,6 +41,7 @@ instance ToJSON DAXCluster where
     , fmap (("ParameterGroupName",) . toJSON) _dAXClusterParameterGroupName
     , fmap (("PreferredMaintenanceWindow",) . toJSON) _dAXClusterPreferredMaintenanceWindow
     , (Just . ("ReplicationFactor",) . toJSON . fmap Integer') _dAXClusterReplicationFactor
+    , fmap (("SSESpecification",) . toJSON) _dAXClusterSSESpecification
     , fmap (("SecurityGroupIds",) . toJSON) _dAXClusterSecurityGroupIds
     , fmap (("SubnetGroupName",) . toJSON) _dAXClusterSubnetGroupName
     , fmap (("Tags",) . toJSON) _dAXClusterTags
@@ -57,6 +59,7 @@ instance FromJSON DAXCluster where
       (obj .:? "ParameterGroupName") <*>
       (obj .:? "PreferredMaintenanceWindow") <*>
       fmap (fmap unInteger') (obj .: "ReplicationFactor") <*>
+      (obj .:? "SSESpecification") <*>
       (obj .:? "SecurityGroupIds") <*>
       (obj .:? "SubnetGroupName") <*>
       (obj .:? "Tags")
@@ -79,6 +82,7 @@ daxCluster iAMRoleARNarg nodeTypearg replicationFactorarg =
   , _dAXClusterParameterGroupName = Nothing
   , _dAXClusterPreferredMaintenanceWindow = Nothing
   , _dAXClusterReplicationFactor = replicationFactorarg
+  , _dAXClusterSSESpecification = Nothing
   , _dAXClusterSecurityGroupIds = Nothing
   , _dAXClusterSubnetGroupName = Nothing
   , _dAXClusterTags = Nothing
@@ -119,6 +123,10 @@ daxcPreferredMaintenanceWindow = lens _dAXClusterPreferredMaintenanceWindow (\s 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dax-cluster.html#cfn-dax-cluster-replicationfactor
 daxcReplicationFactor :: Lens' DAXCluster (Val Integer)
 daxcReplicationFactor = lens _dAXClusterReplicationFactor (\s a -> s { _dAXClusterReplicationFactor = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dax-cluster.html#cfn-dax-cluster-ssespecification
+daxcSSESpecification :: Lens' DAXCluster (Maybe DAXClusterSSESpecification)
+daxcSSESpecification = lens _dAXClusterSSESpecification (\s a -> s { _dAXClusterSSESpecification = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dax-cluster.html#cfn-dax-cluster-securitygroupids
 daxcSecurityGroupIds :: Lens' DAXCluster (Maybe (ValList Text))

@@ -7,7 +7,7 @@
 module Stratosphere.Resources.SQSQueue where
 
 import Stratosphere.ResourceImports
-
+import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for SQSQueue. See 'sqsQueue' for a more
 -- convenient constructor.
@@ -23,6 +23,7 @@ data SQSQueue =
   , _sQSQueueQueueName :: Maybe (Val Text)
   , _sQSQueueReceiveMessageWaitTimeSeconds :: Maybe (Val Integer)
   , _sQSQueueRedrivePolicy :: Maybe Object
+  , _sQSQueueTags :: Maybe [Tag]
   , _sQSQueueVisibilityTimeout :: Maybe (Val Integer)
   } deriving (Show, Eq)
 
@@ -40,6 +41,7 @@ instance ToJSON SQSQueue where
     , fmap (("QueueName",) . toJSON) _sQSQueueQueueName
     , fmap (("ReceiveMessageWaitTimeSeconds",) . toJSON . fmap Integer') _sQSQueueReceiveMessageWaitTimeSeconds
     , fmap (("RedrivePolicy",) . toJSON) _sQSQueueRedrivePolicy
+    , fmap (("Tags",) . toJSON) _sQSQueueTags
     , fmap (("VisibilityTimeout",) . toJSON . fmap Integer') _sQSQueueVisibilityTimeout
     ]
 
@@ -56,6 +58,7 @@ instance FromJSON SQSQueue where
       (obj .:? "QueueName") <*>
       fmap (fmap (fmap unInteger')) (obj .:? "ReceiveMessageWaitTimeSeconds") <*>
       (obj .:? "RedrivePolicy") <*>
+      (obj .:? "Tags") <*>
       fmap (fmap (fmap unInteger')) (obj .:? "VisibilityTimeout")
   parseJSON _ = mempty
 
@@ -74,6 +77,7 @@ sqsQueue  =
   , _sQSQueueQueueName = Nothing
   , _sQSQueueReceiveMessageWaitTimeSeconds = Nothing
   , _sQSQueueRedrivePolicy = Nothing
+  , _sQSQueueTags = Nothing
   , _sQSQueueVisibilityTimeout = Nothing
   }
 
@@ -116,6 +120,10 @@ sqsqReceiveMessageWaitTimeSeconds = lens _sQSQueueReceiveMessageWaitTimeSeconds 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-sqs-queue-redrive
 sqsqRedrivePolicy :: Lens' SQSQueue (Maybe Object)
 sqsqRedrivePolicy = lens _sQSQueueRedrivePolicy (\s a -> s { _sQSQueueRedrivePolicy = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#cfn-sqs-queue-tags
+sqsqTags :: Lens' SQSQueue (Maybe [Tag])
+sqsqTags = lens _sQSQueueTags (\s a -> s { _sQSQueueTags = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html#aws-sqs-queue-visiblitytimeout
 sqsqVisibilityTimeout :: Lens' SQSQueue (Maybe (Val Integer))

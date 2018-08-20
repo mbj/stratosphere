@@ -14,6 +14,7 @@ import Stratosphere.ResourceProperties.Tag
 data EC2VPCPeeringConnection =
   EC2VPCPeeringConnection
   { _eC2VPCPeeringConnectionPeerOwnerId :: Maybe (Val Text)
+  , _eC2VPCPeeringConnectionPeerRegion :: Maybe (Val Text)
   , _eC2VPCPeeringConnectionPeerRoleArn :: Maybe (Val Text)
   , _eC2VPCPeeringConnectionPeerVpcId :: Val Text
   , _eC2VPCPeeringConnectionTags :: Maybe [Tag]
@@ -25,6 +26,7 @@ instance ToJSON EC2VPCPeeringConnection where
     object $
     catMaybes
     [ fmap (("PeerOwnerId",) . toJSON) _eC2VPCPeeringConnectionPeerOwnerId
+    , fmap (("PeerRegion",) . toJSON) _eC2VPCPeeringConnectionPeerRegion
     , fmap (("PeerRoleArn",) . toJSON) _eC2VPCPeeringConnectionPeerRoleArn
     , (Just . ("PeerVpcId",) . toJSON) _eC2VPCPeeringConnectionPeerVpcId
     , fmap (("Tags",) . toJSON) _eC2VPCPeeringConnectionTags
@@ -35,6 +37,7 @@ instance FromJSON EC2VPCPeeringConnection where
   parseJSON (Object obj) =
     EC2VPCPeeringConnection <$>
       (obj .:? "PeerOwnerId") <*>
+      (obj .:? "PeerRegion") <*>
       (obj .:? "PeerRoleArn") <*>
       (obj .: "PeerVpcId") <*>
       (obj .:? "Tags") <*>
@@ -50,6 +53,7 @@ ec2VPCPeeringConnection
 ec2VPCPeeringConnection peerVpcIdarg vpcIdarg =
   EC2VPCPeeringConnection
   { _eC2VPCPeeringConnectionPeerOwnerId = Nothing
+  , _eC2VPCPeeringConnectionPeerRegion = Nothing
   , _eC2VPCPeeringConnectionPeerRoleArn = Nothing
   , _eC2VPCPeeringConnectionPeerVpcId = peerVpcIdarg
   , _eC2VPCPeeringConnectionTags = Nothing
@@ -59,6 +63,10 @@ ec2VPCPeeringConnection peerVpcIdarg vpcIdarg =
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcpeeringconnection.html#cfn-ec2-vpcpeeringconnection-peerownerid
 ecvpcpcPeerOwnerId :: Lens' EC2VPCPeeringConnection (Maybe (Val Text))
 ecvpcpcPeerOwnerId = lens _eC2VPCPeeringConnectionPeerOwnerId (\s a -> s { _eC2VPCPeeringConnectionPeerOwnerId = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcpeeringconnection.html#cfn-ec2-vpcpeeringconnection-peerregion
+ecvpcpcPeerRegion :: Lens' EC2VPCPeeringConnection (Maybe (Val Text))
+ecvpcpcPeerRegion = lens _eC2VPCPeeringConnectionPeerRegion (\s a -> s { _eC2VPCPeeringConnectionPeerRegion = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcpeeringconnection.html#cfn-ec2-vpcpeeringconnection-peerrolearn
 ecvpcpcPeerRoleArn :: Lens' EC2VPCPeeringConnection (Maybe (Val Text))
