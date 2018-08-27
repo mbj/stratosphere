@@ -1,0 +1,112 @@
+---
+version: 2.0
+
+references:
+  stack_build: &stack_build
+    docker:
+      # https://github.com/haskell-works/stack-build/blob/master/minimal/Dockerfile
+      - image: quay.io/haskell_works/stack-build-minimal
+
+    steps:
+      - checkout
+      - run:
+          name: Digest
+          command: |
+            # Build cache digests:
+            # 1. Build digest per stack.yaml (with contents) and stack args
+            md5sum $STACK_YAML >> rdigest
+
+            # 2. Build digest for all file changes
+            git ls-files | xargs md5sum > sdigest
+
+      - restore_cache:
+          keys:
+            - 1-{{ checksum "rdigest" }}-{{ .Branch }}-{{ checksum "sdigest" }}
+            - 1-{{ checksum "rdigest" }}-{{ .Branch }}
+
+      - run:
+          name: Dependencies
+          command: |
+            stack setup
+            stack build stratosphere --no-terminal --dependencies-only \
+              --test --no-run-tests --jobs=1 --flag stratosphere:-library-only
+
+      - run:
+          name: Build
+          command: |
+            stack build stratosphere --no-terminal --pedantic --test \
+              --no-run-tests --jobs=1 --flag stratosphere:-library-only
+
+      - save_cache:
+          key: 1-{{ checksum "rdigest" }}-{{ .Branch }}-{{ checksum "sdigest" }}
+          paths:
+            - ~/.stack
+            - ./.stack-work
+
+      - run:
+          name: Test
+          command: |
+            stack build stratosphere --no-terminal --pedantic --test \
+              --jobs=1 --flag stratosphere:-library-only
+
+  # N.B. Doc generation rebuilds everything from the ground up, so there's
+  # some repetition here.
+  stack_docs: &stack_docs
+    docker:
+      # https://github.com/haskell-works/stack-build/blob/master/minimal/Dockerfile
+      - image: quay.io/haskell_works/stack-build-minimal
+
+    steps:
+      - checkout
+      - run:
+          name: Digest
+          command: |
+            # Build cache digests:
+            # 1. Build digest per stack.yaml (with contents) and stack args
+            md5sum $STACK_YAML >> rdigest
+
+            # 2. Build digest for all file changes
+            git ls-files | xargs md5sum > sdigest
+
+      - restore_cache:
+          keys:
+            - 1-{{ checksum "rdigest" }}-{{ .Branch }}-{{ checksum "sdigest" }}
+            - 1-{{ checksum "rdigest" }}-{{ .Branch }}
+
+      # We can safely use --fast since it's just for doc generation.
+      - run:
+          name: Docs
+          command: |
+            stack haddock stratosphere --no-terminal --no-haddock-deps \
+              --fast --jobs=1 --flag stratosphere:-library-only
+          no_output_timeout: 30m
+
+      - save_cache:
+          key: 1-{{ checksum "rdigest" }}-{{ .Branch }}-{{ checksum "sdigest" }}
+          paths:
+            - ~/.stack
+            - ./.stack-work
+
+jobs:
+  build:
+    <<: *stack_build
+    environment:
+      STACK_YAML: stack.yaml
+
+  build-ghc-8-2:
+    <<: *stack_build
+    environment:
+      STACK_YAML: stack-ghc-8-2.yaml
+
+  docs:
+    <<: *stack_docs
+    environment:
+      STACK_YAML: stack.yaml
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - build-ghc-8-2
+      - docs
