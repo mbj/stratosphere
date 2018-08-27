@@ -22,17 +22,15 @@ references:
 
       - restore_cache:
           keys:
-            - 1-{{ .Branch }}-{{ checksum "rdigest" }}-{{ checksum "sdigest" }}
-            - 1-{{ .Branch }}-{{ checksum "rdigest" }}-
-            - 1-{{ .Branch }}-
-            - 1-master-
+            - 1-{{ checksum "rdigest" }}-{{ .Branch }}-{{ checksum "sdigest" }}
+            - 1-{{ checksum "rdigest" }}-{{ .Branch }}
 
       - run:
           name: Dependencies
           command: |
             stack setup $STACK_ARGUMENTS
             stack build stratosphere $STACK_ARGUMENTS --dependencies-only \
-            --test --no-run-tests --jobs=1 --flag stratosphere:-library-only
+              --test --no-run-tests --jobs=1 --flag stratosphere:-library-only
 
       - run:
           name: Build
@@ -41,7 +39,7 @@ references:
               --no-run-tests --jobs=1 --flag stratosphere:-library-only
 
       - save_cache:
-          key: 1-{{ .Branch }}-{{ checksum "rdigest" }}-{{ checksum "sdigest" }}
+          key: 1-{{ checksum "rdigest" }}-{{ .Branch }}-{{ checksum "sdigest" }}
           paths:
             - ~/.stack
             - ./.stack-work
@@ -50,7 +48,7 @@ references:
           name: Test
           command: |
             stack build stratosphere $STACK_ARGUMENTS --pedantic --test \
-            --jobs=1 --flag stratosphere:-library-only
+              --jobs=1 --flag stratosphere:-library-only
 
   # N.B. Doc generation rebuilds everything from the ground up, so there's
   # some repetition here.
@@ -74,21 +72,19 @@ references:
 
       - restore_cache:
           keys:
-            - 1-{{ .Branch }}-{{ checksum "rdigest" }}-{{ checksum "sdigest" }}
-            - 1-{{ .Branch }}-{{ checksum "rdigest" }}-
-            - 1-{{ .Branch }}-
-            - 1-master-
+            - 1-{{ checksum "rdigest" }}-{{ .Branch }}-{{ checksum "sdigest" }}
+            - 1-{{ checksum "rdigest" }}-{{ .Branch }}
 
       # We can safely use --fast since it's just for doc generation.
       - run:
           name: Docs
           command: |
-            stack haddock stratosphere $STACK_ARGUMENTS --no-haddock-deps --fast \
-            --jobs=1 --flag stratosphere:-library-only
+            stack haddock stratosphere $STACK_ARGUMENTS --no-haddock-deps \
+              --fast --jobs=1 --flag stratosphere:-library-only
           no_output_timeout: 30m
 
       - save_cache:
-          key: 1-{{ .Branch }}-{{ checksum "rdigest" }}-{{ checksum "sdigest" }}
+          key: 1-{{ checksum "rdigest" }}-{{ .Branch }}-{{ checksum "sdigest" }}
           paths:
             - ~/.stack
             - ./.stack-work
