@@ -12,7 +12,12 @@ references:
       - run:
           name: Digest
           command: |
+            # Build cache digests:
+            # 1. Build digest per stack.yaml (with contents) and stack args
             echo -- "${STACK_ARGUMENTS}" > rdigest
+            md5sum $STACK_YAML >> rdigest
+
+            # 2. Build digest for all file changes
             git ls-files | xargs md5sum > sdigest
 
       - restore_cache:
@@ -28,14 +33,12 @@ references:
             stack setup $STACK_ARGUMENTS
             stack build stratosphere $STACK_ARGUMENTS --dependencies-only \
             --test --no-run-tests --jobs=1 --flag stratosphere:-library-only
-          no_output_timeout: 30m
 
       - run:
           name: Build
           command: |
             stack build stratosphere $STACK_ARGUMENTS --pedantic --test \
               --no-run-tests --jobs=1 --flag stratosphere:-library-only
-          no_output_timeout: 30m
 
       - save_cache:
           key: 1-{{ .Branch }}-{{ checksum "rdigest" }}-{{ checksum "sdigest" }}
@@ -49,23 +52,65 @@ references:
             stack build stratosphere $STACK_ARGUMENTS --pedantic --test \
             --jobs=1 --flag stratosphere:-library-only
 
+  # N.B. Doc generation rebuilds everything from the ground up, so there's
+  # some repetition here.
+  stack_docs: &stack_docs
+    docker:
+      # https://github.com/haskell-works/stack-build/blob/master/minimal/Dockerfile
+      - image: quay.io/haskell_works/stack-build-minimal
+
+    steps:
+      - checkout
+      - run:
+          name: Digest
+          command: |
+            # Build cache digests:
+            # 1. Build digest per stack.yaml (with contents) and stack args
+            echo -- "${STACK_ARGUMENTS}" > rdigest
+            md5sum $STACK_YAML >> rdigest
+
+            # 2. Build digest for all file changes
+            git ls-files | xargs md5sum > sdigest
+
+      - restore_cache:
+          keys:
+            - 1-{{ .Branch }}-{{ checksum "rdigest" }}-{{ checksum "sdigest" }}
+            - 1-{{ .Branch }}-{{ checksum "rdigest" }}-
+            - 1-{{ .Branch }}-
+            - 1-master-
+
+      # We can safely use --fast since it's just for doc generation.
       - run:
           name: Docs
           command: |
-            stack haddock stratosphere $STACK_ARGUMENTS --no-haddock-deps \
+            stack haddock stratosphere $STACK_ARGUMENTS --no-haddock-deps --fast \
             --jobs=1 --flag stratosphere:-library-only
           no_output_timeout: 30m
+
+      - save_cache:
+          key: 1-{{ .Branch }}-{{ checksum "rdigest" }}-{{ checksum "sdigest" }}
+          paths:
+            - ~/.stack
+            - ./.stack-work
 
 jobs:
   build:
     <<: *stack_build
     environment:
+      STACK_YAML: stack.yaml
       STACK_ARGUMENTS: --no-terminal
 
   build-ghc-8-2:
     <<: *stack_build
     environment:
+      STACK_YAML: stack-ghc-8-2.yaml
       STACK_ARGUMENTS: --resolver nightly-2017-12-16 --no-terminal
+
+  docs:
+    <<: *stack_docs
+    environment:
+      STACK_YAML: stack.yaml
+      STACK_ARGUMENTS: --no-terminal
 
 workflows:
   version: 2
@@ -73,3 +118,4 @@ workflows:
     jobs:
       - build
       - build-ghc-8-2
+      - docs
