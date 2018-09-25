@@ -175,6 +175,8 @@ computeLensPrefix "AWS::ServiceCatalog::PortfolioPrincipalAssociation" = "scppri
 computeLensPrefix "AWS::ServiceCatalog::PortfolioProductAssociation" = "scpproa"
 -- computeLensPrefix "AWS::KinesisFirehose::DeliveryStream.S3DestinationConfiguration" = "kfdssdc"
 computeLensPrefix "AWS::KinesisFirehose::DeliveryStream.SplunkDestinationConfiguration" = "kfdsspdc"
+computeLensPrefix "AWS::IoT1Click::Placement" = "itcpl"
+computeLensPrefix "AWS::IoT1Click::Project" = "itcpr"
 -- Everything else
 computeLensPrefix rawName = toLower $ fromMaybe rawName $ toAcronym $ computeModuleName rawName
 

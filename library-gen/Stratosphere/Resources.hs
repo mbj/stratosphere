@@ -233,6 +233,9 @@ import Stratosphere.Resources.IAMUserToGroupAddition as X
 import Stratosphere.Resources.InspectorAssessmentTarget as X
 import Stratosphere.Resources.InspectorAssessmentTemplate as X
 import Stratosphere.Resources.InspectorResourceGroup as X
+import Stratosphere.Resources.IoT1ClickDevice as X
+import Stratosphere.Resources.IoT1ClickPlacement as X
+import Stratosphere.Resources.IoT1ClickProject as X
 import Stratosphere.Resources.IoTCertificate as X
 import Stratosphere.Resources.IoTPolicy as X
 import Stratosphere.Resources.IoTPolicyPrincipalAttachment as X
@@ -350,6 +353,9 @@ import Stratosphere.ResourceProperties.AmazonMQBrokerLogList as X
 import Stratosphere.ResourceProperties.AmazonMQBrokerMaintenanceWindow as X
 import Stratosphere.ResourceProperties.AmazonMQBrokerUser as X
 import Stratosphere.ResourceProperties.ApiGatewayApiKeyStageKey as X
+import Stratosphere.ResourceProperties.ApiGatewayDeploymentAccessLogSetting as X
+import Stratosphere.ResourceProperties.ApiGatewayDeploymentCanarySetting as X
+import Stratosphere.ResourceProperties.ApiGatewayDeploymentDeploymentCanarySettings as X
 import Stratosphere.ResourceProperties.ApiGatewayDeploymentMethodSetting as X
 import Stratosphere.ResourceProperties.ApiGatewayDeploymentStageDescription as X
 import Stratosphere.ResourceProperties.ApiGatewayDocumentationPartLocation as X
@@ -359,6 +365,8 @@ import Stratosphere.ResourceProperties.ApiGatewayMethodIntegrationResponse as X
 import Stratosphere.ResourceProperties.ApiGatewayMethodMethodResponse as X
 import Stratosphere.ResourceProperties.ApiGatewayRestApiEndpointConfiguration as X
 import Stratosphere.ResourceProperties.ApiGatewayRestApiS3Location as X
+import Stratosphere.ResourceProperties.ApiGatewayStageAccessLogSetting as X
+import Stratosphere.ResourceProperties.ApiGatewayStageCanarySetting as X
 import Stratosphere.ResourceProperties.ApiGatewayStageMethodSetting as X
 import Stratosphere.ResourceProperties.ApiGatewayUsagePlanApiStage as X
 import Stratosphere.ResourceProperties.ApiGatewayUsagePlanQuotaSettings as X
@@ -378,6 +386,7 @@ import Stratosphere.ResourceProperties.ApplicationAutoScalingScalingPolicyPredef
 import Stratosphere.ResourceProperties.ApplicationAutoScalingScalingPolicyStepAdjustment as X
 import Stratosphere.ResourceProperties.ApplicationAutoScalingScalingPolicyStepScalingPolicyConfiguration as X
 import Stratosphere.ResourceProperties.ApplicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfiguration as X
+import Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupLaunchTemplateSpecification as X
 import Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupLifecycleHookSpecification as X
 import Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupMetricsCollection as X
 import Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupNotificationConfiguration as X
@@ -439,10 +448,13 @@ import Stratosphere.ResourceProperties.CloudTrailTrailDataResource as X
 import Stratosphere.ResourceProperties.CloudTrailTrailEventSelector as X
 import Stratosphere.ResourceProperties.CloudWatchAlarmDimension as X
 import Stratosphere.ResourceProperties.CodeBuildProjectArtifacts as X
+import Stratosphere.ResourceProperties.CodeBuildProjectCloudWatchLogsConfig as X
 import Stratosphere.ResourceProperties.CodeBuildProjectEnvironment as X
 import Stratosphere.ResourceProperties.CodeBuildProjectEnvironmentVariable as X
+import Stratosphere.ResourceProperties.CodeBuildProjectLogsConfig as X
 import Stratosphere.ResourceProperties.CodeBuildProjectProjectCache as X
 import Stratosphere.ResourceProperties.CodeBuildProjectProjectTriggers as X
+import Stratosphere.ResourceProperties.CodeBuildProjectS3LogsConfig as X
 import Stratosphere.ResourceProperties.CodeBuildProjectSource as X
 import Stratosphere.ResourceProperties.CodeBuildProjectSourceAuth as X
 import Stratosphere.ResourceProperties.CodeBuildProjectVpcConfig as X
@@ -454,9 +466,13 @@ import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupAutoRollbackConf
 import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupDeployment as X
 import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupDeploymentStyle as X
 import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupEC2TagFilter as X
+import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupEC2TagSet as X
+import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupEC2TagSetListObject as X
 import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupELBInfo as X
 import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupGitHubLocation as X
 import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupLoadBalancerInfo as X
+import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupOnPremisesTagSet as X
+import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupOnPremisesTagSetListObject as X
 import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupRevisionLocation as X
 import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupS3Location as X
 import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupTagFilter as X
@@ -556,17 +572,25 @@ import Stratosphere.ResourceProperties.EC2NetworkInterfacePrivateIpAddressSpecif
 import Stratosphere.ResourceProperties.EC2SecurityGroupEgressProperty as X
 import Stratosphere.ResourceProperties.EC2SecurityGroupIngressProperty as X
 import Stratosphere.ResourceProperties.EC2SpotFleetBlockDeviceMapping as X
+import Stratosphere.ResourceProperties.EC2SpotFleetClassicLoadBalancer as X
+import Stratosphere.ResourceProperties.EC2SpotFleetClassicLoadBalancersConfig as X
 import Stratosphere.ResourceProperties.EC2SpotFleetEbsBlockDevice as X
+import Stratosphere.ResourceProperties.EC2SpotFleetFleetLaunchTemplateSpecification as X
 import Stratosphere.ResourceProperties.EC2SpotFleetGroupIdentifier as X
 import Stratosphere.ResourceProperties.EC2SpotFleetIamInstanceProfileSpecification as X
 import Stratosphere.ResourceProperties.EC2SpotFleetInstanceIpv6Address as X
 import Stratosphere.ResourceProperties.EC2SpotFleetInstanceNetworkInterfaceSpecification as X
+import Stratosphere.ResourceProperties.EC2SpotFleetLaunchTemplateConfig as X
+import Stratosphere.ResourceProperties.EC2SpotFleetLaunchTemplateOverrides as X
+import Stratosphere.ResourceProperties.EC2SpotFleetLoadBalancersConfig as X
 import Stratosphere.ResourceProperties.EC2SpotFleetPrivateIpAddressSpecification as X
 import Stratosphere.ResourceProperties.EC2SpotFleetSpotFleetLaunchSpecification as X
 import Stratosphere.ResourceProperties.EC2SpotFleetSpotFleetMonitoring as X
 import Stratosphere.ResourceProperties.EC2SpotFleetSpotFleetRequestConfigData as X
 import Stratosphere.ResourceProperties.EC2SpotFleetSpotFleetTagSpecification as X
 import Stratosphere.ResourceProperties.EC2SpotFleetSpotPlacement as X
+import Stratosphere.ResourceProperties.EC2SpotFleetTargetGroup as X
+import Stratosphere.ResourceProperties.EC2SpotFleetTargetGroupsConfig as X
 import Stratosphere.ResourceProperties.EC2VPNConnectionVpnTunnelOptionsSpecification as X
 import Stratosphere.ResourceProperties.ECRRepositoryLifecyclePolicy as X
 import Stratosphere.ResourceProperties.ECSServiceAwsVpcConfiguration as X
@@ -578,6 +602,7 @@ import Stratosphere.ResourceProperties.ECSServicePlacementStrategy as X
 import Stratosphere.ResourceProperties.ECSServiceServiceRegistry as X
 import Stratosphere.ResourceProperties.ECSTaskDefinitionContainerDefinition as X
 import Stratosphere.ResourceProperties.ECSTaskDefinitionDevice as X
+import Stratosphere.ResourceProperties.ECSTaskDefinitionDockerVolumeConfiguration as X
 import Stratosphere.ResourceProperties.ECSTaskDefinitionHealthCheck as X
 import Stratosphere.ResourceProperties.ECSTaskDefinitionHostEntry as X
 import Stratosphere.ResourceProperties.ECSTaskDefinitionHostVolumeProperties as X
@@ -587,7 +612,9 @@ import Stratosphere.ResourceProperties.ECSTaskDefinitionLinuxParameters as X
 import Stratosphere.ResourceProperties.ECSTaskDefinitionLogConfiguration as X
 import Stratosphere.ResourceProperties.ECSTaskDefinitionMountPoint as X
 import Stratosphere.ResourceProperties.ECSTaskDefinitionPortMapping as X
+import Stratosphere.ResourceProperties.ECSTaskDefinitionRepositoryCredentials as X
 import Stratosphere.ResourceProperties.ECSTaskDefinitionTaskDefinitionPlacementConstraint as X
+import Stratosphere.ResourceProperties.ECSTaskDefinitionTmpfs as X
 import Stratosphere.ResourceProperties.ECSTaskDefinitionUlimit as X
 import Stratosphere.ResourceProperties.ECSTaskDefinitionVolume as X
 import Stratosphere.ResourceProperties.ECSTaskDefinitionVolumeFrom as X
@@ -675,6 +702,7 @@ import Stratosphere.ResourceProperties.EventsRuleInputTransformer as X
 import Stratosphere.ResourceProperties.EventsRuleKinesisParameters as X
 import Stratosphere.ResourceProperties.EventsRuleRunCommandParameters as X
 import Stratosphere.ResourceProperties.EventsRuleRunCommandTarget as X
+import Stratosphere.ResourceProperties.EventsRuleSqsParameters as X
 import Stratosphere.ResourceProperties.EventsRuleTarget as X
 import Stratosphere.ResourceProperties.GameLiftAliasRoutingStrategy as X
 import Stratosphere.ResourceProperties.GameLiftBuildS3Location as X
@@ -714,6 +742,8 @@ import Stratosphere.ResourceProperties.IAMGroupPolicy as X
 import Stratosphere.ResourceProperties.IAMRolePolicy as X
 import Stratosphere.ResourceProperties.IAMUserLoginProfile as X
 import Stratosphere.ResourceProperties.IAMUserPolicy as X
+import Stratosphere.ResourceProperties.IoT1ClickProjectDeviceTemplate as X
+import Stratosphere.ResourceProperties.IoT1ClickProjectPlacementTemplate as X
 import Stratosphere.ResourceProperties.IoTThingAttributePayload as X
 import Stratosphere.ResourceProperties.IoTTopicRuleAction as X
 import Stratosphere.ResourceProperties.IoTTopicRuleCloudwatchAlarmAction as X
@@ -799,6 +829,7 @@ import Stratosphere.ResourceProperties.OpsWorksStackElasticIp as X
 import Stratosphere.ResourceProperties.OpsWorksStackRdsDbInstance as X
 import Stratosphere.ResourceProperties.OpsWorksStackSource as X
 import Stratosphere.ResourceProperties.OpsWorksStackStackConfigurationManager as X
+import Stratosphere.ResourceProperties.RDSDBClusterScalingConfiguration as X
 import Stratosphere.ResourceProperties.RDSDBSecurityGroupIngressProperty as X
 import Stratosphere.ResourceProperties.RDSOptionGroupOptionConfiguration as X
 import Stratosphere.ResourceProperties.RDSOptionGroupOptionSetting as X
@@ -1121,6 +1152,9 @@ data ResourceProperties
   | InspectorAssessmentTargetProperties InspectorAssessmentTarget
   | InspectorAssessmentTemplateProperties InspectorAssessmentTemplate
   | InspectorResourceGroupProperties InspectorResourceGroup
+  | IoT1ClickDeviceProperties IoT1ClickDevice
+  | IoT1ClickPlacementProperties IoT1ClickPlacement
+  | IoT1ClickProjectProperties IoT1ClickProject
   | IoTCertificateProperties IoTCertificate
   | IoTPolicyProperties IoTPolicy
   | IoTPolicyPrincipalAttachmentProperties IoTPolicyPrincipalAttachment
@@ -1660,6 +1694,12 @@ resourcePropertiesJSON (InspectorAssessmentTemplateProperties x) =
   [ "Type" .= ("AWS::Inspector::AssessmentTemplate" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (InspectorResourceGroupProperties x) =
   [ "Type" .= ("AWS::Inspector::ResourceGroup" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (IoT1ClickDeviceProperties x) =
+  [ "Type" .= ("AWS::IoT1Click::Device" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (IoT1ClickPlacementProperties x) =
+  [ "Type" .= ("AWS::IoT1Click::Placement" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (IoT1ClickProjectProperties x) =
+  [ "Type" .= ("AWS::IoT1Click::Project" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (IoTCertificateProperties x) =
   [ "Type" .= ("AWS::IoT::Certificate" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (IoTPolicyProperties x) =
@@ -2076,6 +2116,9 @@ resourceFromJSON n o =
          "AWS::Inspector::AssessmentTarget" -> InspectorAssessmentTargetProperties <$> (o .: "Properties")
          "AWS::Inspector::AssessmentTemplate" -> InspectorAssessmentTemplateProperties <$> (o .: "Properties")
          "AWS::Inspector::ResourceGroup" -> InspectorResourceGroupProperties <$> (o .: "Properties")
+         "AWS::IoT1Click::Device" -> IoT1ClickDeviceProperties <$> (o .: "Properties")
+         "AWS::IoT1Click::Placement" -> IoT1ClickPlacementProperties <$> (o .: "Properties")
+         "AWS::IoT1Click::Project" -> IoT1ClickProjectProperties <$> (o .: "Properties")
          "AWS::IoT::Certificate" -> IoTCertificateProperties <$> (o .: "Properties")
          "AWS::IoT::Policy" -> IoTPolicyProperties <$> (o .: "Properties")
          "AWS::IoT::PolicyPrincipalAttachment" -> IoTPolicyPrincipalAttachmentProperties <$> (o .: "Properties")

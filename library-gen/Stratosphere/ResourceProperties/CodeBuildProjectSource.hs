@@ -19,6 +19,7 @@ data CodeBuildProjectSource =
   , _codeBuildProjectSourceInsecureSsl :: Maybe (Val Bool)
   , _codeBuildProjectSourceLocation :: Maybe (Val Text)
   , _codeBuildProjectSourceReportBuildStatus :: Maybe (Val Bool)
+  , _codeBuildProjectSourceSourceIdentifier :: Maybe (Val Text)
   , _codeBuildProjectSourceType :: Val Text
   } deriving (Show, Eq)
 
@@ -32,6 +33,7 @@ instance ToJSON CodeBuildProjectSource where
     , fmap (("InsecureSsl",) . toJSON . fmap Bool') _codeBuildProjectSourceInsecureSsl
     , fmap (("Location",) . toJSON) _codeBuildProjectSourceLocation
     , fmap (("ReportBuildStatus",) . toJSON . fmap Bool') _codeBuildProjectSourceReportBuildStatus
+    , fmap (("SourceIdentifier",) . toJSON) _codeBuildProjectSourceSourceIdentifier
     , (Just . ("Type",) . toJSON) _codeBuildProjectSourceType
     ]
 
@@ -44,6 +46,7 @@ instance FromJSON CodeBuildProjectSource where
       fmap (fmap (fmap unBool')) (obj .:? "InsecureSsl") <*>
       (obj .:? "Location") <*>
       fmap (fmap (fmap unBool')) (obj .:? "ReportBuildStatus") <*>
+      (obj .:? "SourceIdentifier") <*>
       (obj .: "Type")
   parseJSON _ = mempty
 
@@ -60,6 +63,7 @@ codeBuildProjectSource typearg =
   , _codeBuildProjectSourceInsecureSsl = Nothing
   , _codeBuildProjectSourceLocation = Nothing
   , _codeBuildProjectSourceReportBuildStatus = Nothing
+  , _codeBuildProjectSourceSourceIdentifier = Nothing
   , _codeBuildProjectSourceType = typearg
   }
 
@@ -86,6 +90,10 @@ cbpsLocation = lens _codeBuildProjectSourceLocation (\s a -> s { _codeBuildProje
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-source.html#cfn-codebuild-project-source-reportbuildstatus
 cbpsReportBuildStatus :: Lens' CodeBuildProjectSource (Maybe (Val Bool))
 cbpsReportBuildStatus = lens _codeBuildProjectSourceReportBuildStatus (\s a -> s { _codeBuildProjectSourceReportBuildStatus = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-source.html#cfn-codebuild-project-source-sourceidentifier
+cbpsSourceIdentifier :: Lens' CodeBuildProjectSource (Maybe (Val Text))
+cbpsSourceIdentifier = lens _codeBuildProjectSourceSourceIdentifier (\s a -> s { _codeBuildProjectSourceSourceIdentifier = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-source.html#cfn-codebuild-project-source-type
 cbpsType :: Lens' CodeBuildProjectSource (Val Text)

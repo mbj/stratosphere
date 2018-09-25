@@ -12,8 +12,10 @@ import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupAutoRollbackConf
 import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupDeployment
 import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupDeploymentStyle
 import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupEC2TagFilter
+import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupEC2TagSet
 import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupLoadBalancerInfo
 import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupTagFilter
+import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupOnPremisesTagSet
 import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupTriggerConfig
 
 -- | Full data type definition for CodeDeployDeploymentGroup. See
@@ -29,8 +31,10 @@ data CodeDeployDeploymentGroup =
   , _codeDeployDeploymentGroupDeploymentGroupName :: Maybe (Val Text)
   , _codeDeployDeploymentGroupDeploymentStyle :: Maybe CodeDeployDeploymentGroupDeploymentStyle
   , _codeDeployDeploymentGroupEc2TagFilters :: Maybe [CodeDeployDeploymentGroupEC2TagFilter]
+  , _codeDeployDeploymentGroupEc2TagSet :: Maybe CodeDeployDeploymentGroupEC2TagSet
   , _codeDeployDeploymentGroupLoadBalancerInfo :: Maybe CodeDeployDeploymentGroupLoadBalancerInfo
   , _codeDeployDeploymentGroupOnPremisesInstanceTagFilters :: Maybe [CodeDeployDeploymentGroupTagFilter]
+  , _codeDeployDeploymentGroupOnPremisesTagSet :: Maybe CodeDeployDeploymentGroupOnPremisesTagSet
   , _codeDeployDeploymentGroupServiceRoleArn :: Val Text
   , _codeDeployDeploymentGroupTriggerConfigurations :: Maybe [CodeDeployDeploymentGroupTriggerConfig]
   } deriving (Show, Eq)
@@ -48,8 +52,10 @@ instance ToJSON CodeDeployDeploymentGroup where
     , fmap (("DeploymentGroupName",) . toJSON) _codeDeployDeploymentGroupDeploymentGroupName
     , fmap (("DeploymentStyle",) . toJSON) _codeDeployDeploymentGroupDeploymentStyle
     , fmap (("Ec2TagFilters",) . toJSON) _codeDeployDeploymentGroupEc2TagFilters
+    , fmap (("Ec2TagSet",) . toJSON) _codeDeployDeploymentGroupEc2TagSet
     , fmap (("LoadBalancerInfo",) . toJSON) _codeDeployDeploymentGroupLoadBalancerInfo
     , fmap (("OnPremisesInstanceTagFilters",) . toJSON) _codeDeployDeploymentGroupOnPremisesInstanceTagFilters
+    , fmap (("OnPremisesTagSet",) . toJSON) _codeDeployDeploymentGroupOnPremisesTagSet
     , (Just . ("ServiceRoleArn",) . toJSON) _codeDeployDeploymentGroupServiceRoleArn
     , fmap (("TriggerConfigurations",) . toJSON) _codeDeployDeploymentGroupTriggerConfigurations
     ]
@@ -66,8 +72,10 @@ instance FromJSON CodeDeployDeploymentGroup where
       (obj .:? "DeploymentGroupName") <*>
       (obj .:? "DeploymentStyle") <*>
       (obj .:? "Ec2TagFilters") <*>
+      (obj .:? "Ec2TagSet") <*>
       (obj .:? "LoadBalancerInfo") <*>
       (obj .:? "OnPremisesInstanceTagFilters") <*>
+      (obj .:? "OnPremisesTagSet") <*>
       (obj .: "ServiceRoleArn") <*>
       (obj .:? "TriggerConfigurations")
   parseJSON _ = mempty
@@ -89,8 +97,10 @@ codeDeployDeploymentGroup applicationNamearg serviceRoleArnarg =
   , _codeDeployDeploymentGroupDeploymentGroupName = Nothing
   , _codeDeployDeploymentGroupDeploymentStyle = Nothing
   , _codeDeployDeploymentGroupEc2TagFilters = Nothing
+  , _codeDeployDeploymentGroupEc2TagSet = Nothing
   , _codeDeployDeploymentGroupLoadBalancerInfo = Nothing
   , _codeDeployDeploymentGroupOnPremisesInstanceTagFilters = Nothing
+  , _codeDeployDeploymentGroupOnPremisesTagSet = Nothing
   , _codeDeployDeploymentGroupServiceRoleArn = serviceRoleArnarg
   , _codeDeployDeploymentGroupTriggerConfigurations = Nothing
   }
@@ -131,6 +141,10 @@ cddgDeploymentStyle = lens _codeDeployDeploymentGroupDeploymentStyle (\s a -> s 
 cddgEc2TagFilters :: Lens' CodeDeployDeploymentGroup (Maybe [CodeDeployDeploymentGroupEC2TagFilter])
 cddgEc2TagFilters = lens _codeDeployDeploymentGroupEc2TagFilters (\s a -> s { _codeDeployDeploymentGroupEc2TagFilters = a })
 
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-ec2tagset
+cddgEc2TagSet :: Lens' CodeDeployDeploymentGroup (Maybe CodeDeployDeploymentGroupEC2TagSet)
+cddgEc2TagSet = lens _codeDeployDeploymentGroupEc2TagSet (\s a -> s { _codeDeployDeploymentGroupEc2TagSet = a })
+
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-loadbalancerinfo
 cddgLoadBalancerInfo :: Lens' CodeDeployDeploymentGroup (Maybe CodeDeployDeploymentGroupLoadBalancerInfo)
 cddgLoadBalancerInfo = lens _codeDeployDeploymentGroupLoadBalancerInfo (\s a -> s { _codeDeployDeploymentGroupLoadBalancerInfo = a })
@@ -138,6 +152,10 @@ cddgLoadBalancerInfo = lens _codeDeployDeploymentGroupLoadBalancerInfo (\s a -> 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-onpremisesinstancetagfilters
 cddgOnPremisesInstanceTagFilters :: Lens' CodeDeployDeploymentGroup (Maybe [CodeDeployDeploymentGroupTagFilter])
 cddgOnPremisesInstanceTagFilters = lens _codeDeployDeploymentGroupOnPremisesInstanceTagFilters (\s a -> s { _codeDeployDeploymentGroupOnPremisesInstanceTagFilters = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-onpremisestagset
+cddgOnPremisesTagSet :: Lens' CodeDeployDeploymentGroup (Maybe CodeDeployDeploymentGroupOnPremisesTagSet)
+cddgOnPremisesTagSet = lens _codeDeployDeploymentGroupOnPremisesTagSet (\s a -> s { _codeDeployDeploymentGroupOnPremisesTagSet = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html#cfn-codedeploy-deploymentgroup-servicerolearn
 cddgServiceRoleArn :: Lens' CodeDeployDeploymentGroup (Val Text)

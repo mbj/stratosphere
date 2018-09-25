@@ -7,13 +7,15 @@
 module Stratosphere.Resources.ApiGatewayDeployment where
 
 import Stratosphere.ResourceImports
+import Stratosphere.ResourceProperties.ApiGatewayDeploymentDeploymentCanarySettings
 import Stratosphere.ResourceProperties.ApiGatewayDeploymentStageDescription
 
 -- | Full data type definition for ApiGatewayDeployment. See
 -- 'apiGatewayDeployment' for a more convenient constructor.
 data ApiGatewayDeployment =
   ApiGatewayDeployment
-  { _apiGatewayDeploymentDescription :: Maybe (Val Text)
+  { _apiGatewayDeploymentDeploymentCanarySettings :: Maybe ApiGatewayDeploymentDeploymentCanarySettings
+  , _apiGatewayDeploymentDescription :: Maybe (Val Text)
   , _apiGatewayDeploymentRestApiId :: Val Text
   , _apiGatewayDeploymentStageDescription :: Maybe ApiGatewayDeploymentStageDescription
   , _apiGatewayDeploymentStageName :: Maybe (Val Text)
@@ -23,7 +25,8 @@ instance ToJSON ApiGatewayDeployment where
   toJSON ApiGatewayDeployment{..} =
     object $
     catMaybes
-    [ fmap (("Description",) . toJSON) _apiGatewayDeploymentDescription
+    [ fmap (("DeploymentCanarySettings",) . toJSON) _apiGatewayDeploymentDeploymentCanarySettings
+    , fmap (("Description",) . toJSON) _apiGatewayDeploymentDescription
     , (Just . ("RestApiId",) . toJSON) _apiGatewayDeploymentRestApiId
     , fmap (("StageDescription",) . toJSON) _apiGatewayDeploymentStageDescription
     , fmap (("StageName",) . toJSON) _apiGatewayDeploymentStageName
@@ -32,6 +35,7 @@ instance ToJSON ApiGatewayDeployment where
 instance FromJSON ApiGatewayDeployment where
   parseJSON (Object obj) =
     ApiGatewayDeployment <$>
+      (obj .:? "DeploymentCanarySettings") <*>
       (obj .:? "Description") <*>
       (obj .: "RestApiId") <*>
       (obj .:? "StageDescription") <*>
@@ -45,11 +49,16 @@ apiGatewayDeployment
   -> ApiGatewayDeployment
 apiGatewayDeployment restApiIdarg =
   ApiGatewayDeployment
-  { _apiGatewayDeploymentDescription = Nothing
+  { _apiGatewayDeploymentDeploymentCanarySettings = Nothing
+  , _apiGatewayDeploymentDescription = Nothing
   , _apiGatewayDeploymentRestApiId = restApiIdarg
   , _apiGatewayDeploymentStageDescription = Nothing
   , _apiGatewayDeploymentStageName = Nothing
   }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-deployment.html#cfn-apigateway-deployment-deploymentcanarysettings
+agdDeploymentCanarySettings :: Lens' ApiGatewayDeployment (Maybe ApiGatewayDeploymentDeploymentCanarySettings)
+agdDeploymentCanarySettings = lens _apiGatewayDeploymentDeploymentCanarySettings (\s a -> s { _apiGatewayDeploymentDeploymentCanarySettings = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-deployment.html#cfn-apigateway-deployment-description
 agdDescription :: Lens' ApiGatewayDeployment (Maybe (Val Text))

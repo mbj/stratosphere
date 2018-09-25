@@ -15,7 +15,8 @@ import Stratosphere.ResourceImports
 -- constructor.
 data ElastiCacheReplicationGroupNodeGroupConfiguration =
   ElastiCacheReplicationGroupNodeGroupConfiguration
-  { _elastiCacheReplicationGroupNodeGroupConfigurationPrimaryAvailabilityZone :: Maybe (Val Text)
+  { _elastiCacheReplicationGroupNodeGroupConfigurationNodeGroupId :: Maybe (Val Text)
+  , _elastiCacheReplicationGroupNodeGroupConfigurationPrimaryAvailabilityZone :: Maybe (Val Text)
   , _elastiCacheReplicationGroupNodeGroupConfigurationReplicaAvailabilityZones :: Maybe (ValList Text)
   , _elastiCacheReplicationGroupNodeGroupConfigurationReplicaCount :: Maybe (Val Integer)
   , _elastiCacheReplicationGroupNodeGroupConfigurationSlots :: Maybe (Val Text)
@@ -25,7 +26,8 @@ instance ToJSON ElastiCacheReplicationGroupNodeGroupConfiguration where
   toJSON ElastiCacheReplicationGroupNodeGroupConfiguration{..} =
     object $
     catMaybes
-    [ fmap (("PrimaryAvailabilityZone",) . toJSON) _elastiCacheReplicationGroupNodeGroupConfigurationPrimaryAvailabilityZone
+    [ fmap (("NodeGroupId",) . toJSON) _elastiCacheReplicationGroupNodeGroupConfigurationNodeGroupId
+    , fmap (("PrimaryAvailabilityZone",) . toJSON) _elastiCacheReplicationGroupNodeGroupConfigurationPrimaryAvailabilityZone
     , fmap (("ReplicaAvailabilityZones",) . toJSON) _elastiCacheReplicationGroupNodeGroupConfigurationReplicaAvailabilityZones
     , fmap (("ReplicaCount",) . toJSON . fmap Integer') _elastiCacheReplicationGroupNodeGroupConfigurationReplicaCount
     , fmap (("Slots",) . toJSON) _elastiCacheReplicationGroupNodeGroupConfigurationSlots
@@ -34,6 +36,7 @@ instance ToJSON ElastiCacheReplicationGroupNodeGroupConfiguration where
 instance FromJSON ElastiCacheReplicationGroupNodeGroupConfiguration where
   parseJSON (Object obj) =
     ElastiCacheReplicationGroupNodeGroupConfiguration <$>
+      (obj .:? "NodeGroupId") <*>
       (obj .:? "PrimaryAvailabilityZone") <*>
       (obj .:? "ReplicaAvailabilityZones") <*>
       fmap (fmap (fmap unInteger')) (obj .:? "ReplicaCount") <*>
@@ -46,11 +49,16 @@ elastiCacheReplicationGroupNodeGroupConfiguration
   :: ElastiCacheReplicationGroupNodeGroupConfiguration
 elastiCacheReplicationGroupNodeGroupConfiguration  =
   ElastiCacheReplicationGroupNodeGroupConfiguration
-  { _elastiCacheReplicationGroupNodeGroupConfigurationPrimaryAvailabilityZone = Nothing
+  { _elastiCacheReplicationGroupNodeGroupConfigurationNodeGroupId = Nothing
+  , _elastiCacheReplicationGroupNodeGroupConfigurationPrimaryAvailabilityZone = Nothing
   , _elastiCacheReplicationGroupNodeGroupConfigurationReplicaAvailabilityZones = Nothing
   , _elastiCacheReplicationGroupNodeGroupConfigurationReplicaCount = Nothing
   , _elastiCacheReplicationGroupNodeGroupConfigurationSlots = Nothing
   }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-nodegroupconfiguration.html#cfn-elasticache-replicationgroup-nodegroupconfiguration-nodegroupid
+ecrgngcNodeGroupId :: Lens' ElastiCacheReplicationGroupNodeGroupConfiguration (Maybe (Val Text))
+ecrgngcNodeGroupId = lens _elastiCacheReplicationGroupNodeGroupConfigurationNodeGroupId (\s a -> s { _elastiCacheReplicationGroupNodeGroupConfigurationNodeGroupId = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-nodegroupconfiguration.html#cfn-elasticache-replicationgroup-nodegroupconfiguration-primaryavailabilityzone
 ecrgngcPrimaryAvailabilityZone :: Lens' ElastiCacheReplicationGroupNodeGroupConfiguration (Maybe (Val Text))

@@ -7,6 +7,7 @@
 module Stratosphere.Resources.AutoScalingAutoScalingGroup where
 
 import Stratosphere.ResourceImports
+import Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupLaunchTemplateSpecification
 import Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupLifecycleHookSpecification
 import Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupMetricsCollection
 import Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupNotificationConfiguration
@@ -24,6 +25,7 @@ data AutoScalingAutoScalingGroup =
   , _autoScalingAutoScalingGroupHealthCheckType :: Maybe (Val Text)
   , _autoScalingAutoScalingGroupInstanceId :: Maybe (Val Text)
   , _autoScalingAutoScalingGroupLaunchConfigurationName :: Maybe (Val Text)
+  , _autoScalingAutoScalingGroupLaunchTemplate :: Maybe AutoScalingAutoScalingGroupLaunchTemplateSpecification
   , _autoScalingAutoScalingGroupLifecycleHookSpecificationList :: Maybe [AutoScalingAutoScalingGroupLifecycleHookSpecification]
   , _autoScalingAutoScalingGroupLoadBalancerNames :: Maybe (ValList Text)
   , _autoScalingAutoScalingGroupMaxSize :: Val Text
@@ -50,6 +52,7 @@ instance ToJSON AutoScalingAutoScalingGroup where
     , fmap (("HealthCheckType",) . toJSON) _autoScalingAutoScalingGroupHealthCheckType
     , fmap (("InstanceId",) . toJSON) _autoScalingAutoScalingGroupInstanceId
     , fmap (("LaunchConfigurationName",) . toJSON) _autoScalingAutoScalingGroupLaunchConfigurationName
+    , fmap (("LaunchTemplate",) . toJSON) _autoScalingAutoScalingGroupLaunchTemplate
     , fmap (("LifecycleHookSpecificationList",) . toJSON) _autoScalingAutoScalingGroupLifecycleHookSpecificationList
     , fmap (("LoadBalancerNames",) . toJSON) _autoScalingAutoScalingGroupLoadBalancerNames
     , (Just . ("MaxSize",) . toJSON) _autoScalingAutoScalingGroupMaxSize
@@ -75,6 +78,7 @@ instance FromJSON AutoScalingAutoScalingGroup where
       (obj .:? "HealthCheckType") <*>
       (obj .:? "InstanceId") <*>
       (obj .:? "LaunchConfigurationName") <*>
+      (obj .:? "LaunchTemplate") <*>
       (obj .:? "LifecycleHookSpecificationList") <*>
       (obj .:? "LoadBalancerNames") <*>
       (obj .: "MaxSize") <*>
@@ -105,6 +109,7 @@ autoScalingAutoScalingGroup maxSizearg minSizearg =
   , _autoScalingAutoScalingGroupHealthCheckType = Nothing
   , _autoScalingAutoScalingGroupInstanceId = Nothing
   , _autoScalingAutoScalingGroupLaunchConfigurationName = Nothing
+  , _autoScalingAutoScalingGroupLaunchTemplate = Nothing
   , _autoScalingAutoScalingGroupLifecycleHookSpecificationList = Nothing
   , _autoScalingAutoScalingGroupLoadBalancerNames = Nothing
   , _autoScalingAutoScalingGroupMaxSize = maxSizearg
@@ -150,6 +155,10 @@ asasgInstanceId = lens _autoScalingAutoScalingGroupInstanceId (\s a -> s { _auto
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-launchconfigurationname
 asasgLaunchConfigurationName :: Lens' AutoScalingAutoScalingGroup (Maybe (Val Text))
 asasgLaunchConfigurationName = lens _autoScalingAutoScalingGroupLaunchConfigurationName (\s a -> s { _autoScalingAutoScalingGroupLaunchConfigurationName = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-launchtemplate
+asasgLaunchTemplate :: Lens' AutoScalingAutoScalingGroup (Maybe AutoScalingAutoScalingGroupLaunchTemplateSpecification)
+asasgLaunchTemplate = lens _autoScalingAutoScalingGroupLaunchTemplate (\s a -> s { _autoScalingAutoScalingGroupLaunchTemplate = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-autoscaling-autoscalinggroup-lifecyclehookspecificationlist
 asasgLifecycleHookSpecificationList :: Lens' AutoScalingAutoScalingGroup (Maybe [AutoScalingAutoScalingGroupLifecycleHookSpecification])

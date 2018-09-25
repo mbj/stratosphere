@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties.EventsRuleEcsParameters
 import Stratosphere.ResourceProperties.EventsRuleInputTransformer
 import Stratosphere.ResourceProperties.EventsRuleKinesisParameters
 import Stratosphere.ResourceProperties.EventsRuleRunCommandParameters
+import Stratosphere.ResourceProperties.EventsRuleSqsParameters
 
 -- | Full data type definition for EventsRuleTarget. See 'eventsRuleTarget'
 -- for a more convenient constructor.
@@ -25,6 +26,7 @@ data EventsRuleTarget =
   , _eventsRuleTargetKinesisParameters :: Maybe EventsRuleKinesisParameters
   , _eventsRuleTargetRoleArn :: Maybe (Val Text)
   , _eventsRuleTargetRunCommandParameters :: Maybe EventsRuleRunCommandParameters
+  , _eventsRuleTargetSqsParameters :: Maybe EventsRuleSqsParameters
   } deriving (Show, Eq)
 
 instance ToJSON EventsRuleTarget where
@@ -40,6 +42,7 @@ instance ToJSON EventsRuleTarget where
     , fmap (("KinesisParameters",) . toJSON) _eventsRuleTargetKinesisParameters
     , fmap (("RoleArn",) . toJSON) _eventsRuleTargetRoleArn
     , fmap (("RunCommandParameters",) . toJSON) _eventsRuleTargetRunCommandParameters
+    , fmap (("SqsParameters",) . toJSON) _eventsRuleTargetSqsParameters
     ]
 
 instance FromJSON EventsRuleTarget where
@@ -53,7 +56,8 @@ instance FromJSON EventsRuleTarget where
       (obj .:? "InputTransformer") <*>
       (obj .:? "KinesisParameters") <*>
       (obj .:? "RoleArn") <*>
-      (obj .:? "RunCommandParameters")
+      (obj .:? "RunCommandParameters") <*>
+      (obj .:? "SqsParameters")
   parseJSON _ = mempty
 
 -- | Constructor for 'EventsRuleTarget' containing required fields as
@@ -73,6 +77,7 @@ eventsRuleTarget arnarg idarg =
   , _eventsRuleTargetKinesisParameters = Nothing
   , _eventsRuleTargetRoleArn = Nothing
   , _eventsRuleTargetRunCommandParameters = Nothing
+  , _eventsRuleTargetSqsParameters = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-arn
@@ -110,3 +115,7 @@ ertRoleArn = lens _eventsRuleTargetRoleArn (\s a -> s { _eventsRuleTargetRoleArn
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-runcommandparameters
 ertRunCommandParameters :: Lens' EventsRuleTarget (Maybe EventsRuleRunCommandParameters)
 ertRunCommandParameters = lens _eventsRuleTargetRunCommandParameters (\s a -> s { _eventsRuleTargetRunCommandParameters = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-sqsparameters
+ertSqsParameters :: Lens' EventsRuleTarget (Maybe EventsRuleSqsParameters)
+ertSqsParameters = lens _eventsRuleTargetSqsParameters (\s a -> s { _eventsRuleTargetSqsParameters = a })

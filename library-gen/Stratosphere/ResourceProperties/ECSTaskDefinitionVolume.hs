@@ -7,13 +7,15 @@
 module Stratosphere.ResourceProperties.ECSTaskDefinitionVolume where
 
 import Stratosphere.ResourceImports
+import Stratosphere.ResourceProperties.ECSTaskDefinitionDockerVolumeConfiguration
 import Stratosphere.ResourceProperties.ECSTaskDefinitionHostVolumeProperties
 
 -- | Full data type definition for ECSTaskDefinitionVolume. See
 -- 'ecsTaskDefinitionVolume' for a more convenient constructor.
 data ECSTaskDefinitionVolume =
   ECSTaskDefinitionVolume
-  { _eCSTaskDefinitionVolumeHost :: Maybe ECSTaskDefinitionHostVolumeProperties
+  { _eCSTaskDefinitionVolumeDockerVolumeConfiguration :: Maybe ECSTaskDefinitionDockerVolumeConfiguration
+  , _eCSTaskDefinitionVolumeHost :: Maybe ECSTaskDefinitionHostVolumeProperties
   , _eCSTaskDefinitionVolumeName :: Maybe (Val Text)
   } deriving (Show, Eq)
 
@@ -21,13 +23,15 @@ instance ToJSON ECSTaskDefinitionVolume where
   toJSON ECSTaskDefinitionVolume{..} =
     object $
     catMaybes
-    [ fmap (("Host",) . toJSON) _eCSTaskDefinitionVolumeHost
+    [ fmap (("DockerVolumeConfiguration",) . toJSON) _eCSTaskDefinitionVolumeDockerVolumeConfiguration
+    , fmap (("Host",) . toJSON) _eCSTaskDefinitionVolumeHost
     , fmap (("Name",) . toJSON) _eCSTaskDefinitionVolumeName
     ]
 
 instance FromJSON ECSTaskDefinitionVolume where
   parseJSON (Object obj) =
     ECSTaskDefinitionVolume <$>
+      (obj .:? "DockerVolumeConfiguration") <*>
       (obj .:? "Host") <*>
       (obj .:? "Name")
   parseJSON _ = mempty
@@ -38,9 +42,14 @@ ecsTaskDefinitionVolume
   :: ECSTaskDefinitionVolume
 ecsTaskDefinitionVolume  =
   ECSTaskDefinitionVolume
-  { _eCSTaskDefinitionVolumeHost = Nothing
+  { _eCSTaskDefinitionVolumeDockerVolumeConfiguration = Nothing
+  , _eCSTaskDefinitionVolumeHost = Nothing
   , _eCSTaskDefinitionVolumeName = Nothing
   }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumes.html#cfn-ecs-taskdefinition-volume-dockervolumeconfiguration
+ecstdvDockerVolumeConfiguration :: Lens' ECSTaskDefinitionVolume (Maybe ECSTaskDefinitionDockerVolumeConfiguration)
+ecstdvDockerVolumeConfiguration = lens _eCSTaskDefinitionVolumeDockerVolumeConfiguration (\s a -> s { _eCSTaskDefinitionVolumeDockerVolumeConfiguration = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumes.html#cfn-ecs-taskdefinition-volumes-host
 ecstdvHost :: Lens' ECSTaskDefinitionVolume (Maybe ECSTaskDefinitionHostVolumeProperties)

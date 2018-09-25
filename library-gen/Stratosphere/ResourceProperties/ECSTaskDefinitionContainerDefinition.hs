@@ -14,6 +14,7 @@ import Stratosphere.ResourceProperties.ECSTaskDefinitionLinuxParameters
 import Stratosphere.ResourceProperties.ECSTaskDefinitionLogConfiguration
 import Stratosphere.ResourceProperties.ECSTaskDefinitionMountPoint
 import Stratosphere.ResourceProperties.ECSTaskDefinitionPortMapping
+import Stratosphere.ResourceProperties.ECSTaskDefinitionRepositoryCredentials
 import Stratosphere.ResourceProperties.ECSTaskDefinitionUlimit
 import Stratosphere.ResourceProperties.ECSTaskDefinitionVolumeFrom
 
@@ -45,6 +46,7 @@ data ECSTaskDefinitionContainerDefinition =
   , _eCSTaskDefinitionContainerDefinitionPortMappings :: Maybe [ECSTaskDefinitionPortMapping]
   , _eCSTaskDefinitionContainerDefinitionPrivileged :: Maybe (Val Bool)
   , _eCSTaskDefinitionContainerDefinitionReadonlyRootFilesystem :: Maybe (Val Bool)
+  , _eCSTaskDefinitionContainerDefinitionRepositoryCredentials :: Maybe ECSTaskDefinitionRepositoryCredentials
   , _eCSTaskDefinitionContainerDefinitionUlimits :: Maybe [ECSTaskDefinitionUlimit]
   , _eCSTaskDefinitionContainerDefinitionUser :: Maybe (Val Text)
   , _eCSTaskDefinitionContainerDefinitionVolumesFrom :: Maybe [ECSTaskDefinitionVolumeFrom]
@@ -79,6 +81,7 @@ instance ToJSON ECSTaskDefinitionContainerDefinition where
     , fmap (("PortMappings",) . toJSON) _eCSTaskDefinitionContainerDefinitionPortMappings
     , fmap (("Privileged",) . toJSON . fmap Bool') _eCSTaskDefinitionContainerDefinitionPrivileged
     , fmap (("ReadonlyRootFilesystem",) . toJSON . fmap Bool') _eCSTaskDefinitionContainerDefinitionReadonlyRootFilesystem
+    , fmap (("RepositoryCredentials",) . toJSON) _eCSTaskDefinitionContainerDefinitionRepositoryCredentials
     , fmap (("Ulimits",) . toJSON) _eCSTaskDefinitionContainerDefinitionUlimits
     , fmap (("User",) . toJSON) _eCSTaskDefinitionContainerDefinitionUser
     , fmap (("VolumesFrom",) . toJSON) _eCSTaskDefinitionContainerDefinitionVolumesFrom
@@ -112,6 +115,7 @@ instance FromJSON ECSTaskDefinitionContainerDefinition where
       (obj .:? "PortMappings") <*>
       fmap (fmap (fmap unBool')) (obj .:? "Privileged") <*>
       fmap (fmap (fmap unBool')) (obj .:? "ReadonlyRootFilesystem") <*>
+      (obj .:? "RepositoryCredentials") <*>
       (obj .:? "Ulimits") <*>
       (obj .:? "User") <*>
       (obj .:? "VolumesFrom") <*>
@@ -150,6 +154,7 @@ ecsTaskDefinitionContainerDefinition imagearg namearg =
   , _eCSTaskDefinitionContainerDefinitionPortMappings = Nothing
   , _eCSTaskDefinitionContainerDefinitionPrivileged = Nothing
   , _eCSTaskDefinitionContainerDefinitionReadonlyRootFilesystem = Nothing
+  , _eCSTaskDefinitionContainerDefinitionRepositoryCredentials = Nothing
   , _eCSTaskDefinitionContainerDefinitionUlimits = Nothing
   , _eCSTaskDefinitionContainerDefinitionUser = Nothing
   , _eCSTaskDefinitionContainerDefinitionVolumesFrom = Nothing
@@ -251,6 +256,10 @@ ecstdcdPrivileged = lens _eCSTaskDefinitionContainerDefinitionPrivileged (\s a -
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-readonlyrootfilesystem
 ecstdcdReadonlyRootFilesystem :: Lens' ECSTaskDefinitionContainerDefinition (Maybe (Val Bool))
 ecstdcdReadonlyRootFilesystem = lens _eCSTaskDefinitionContainerDefinitionReadonlyRootFilesystem (\s a -> s { _eCSTaskDefinitionContainerDefinitionReadonlyRootFilesystem = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-repositorycredentials
+ecstdcdRepositoryCredentials :: Lens' ECSTaskDefinitionContainerDefinition (Maybe ECSTaskDefinitionRepositoryCredentials)
+ecstdcdRepositoryCredentials = lens _eCSTaskDefinitionContainerDefinitionRepositoryCredentials (\s a -> s { _eCSTaskDefinitionContainerDefinitionRepositoryCredentials = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-ulimits
 ecstdcdUlimits :: Lens' ECSTaskDefinitionContainerDefinition (Maybe [ECSTaskDefinitionUlimit])

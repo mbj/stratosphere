@@ -13,7 +13,8 @@ import Stratosphere.ResourceImports
 -- 'codeBuildProjectArtifacts' for a more convenient constructor.
 data CodeBuildProjectArtifacts =
   CodeBuildProjectArtifacts
-  { _codeBuildProjectArtifactsEncryptionDisabled :: Maybe (Val Bool)
+  { _codeBuildProjectArtifactsArtifactIdentifier :: Maybe (Val Text)
+  , _codeBuildProjectArtifactsEncryptionDisabled :: Maybe (Val Bool)
   , _codeBuildProjectArtifactsLocation :: Maybe (Val Text)
   , _codeBuildProjectArtifactsName :: Maybe (Val Text)
   , _codeBuildProjectArtifactsNamespaceType :: Maybe (Val Text)
@@ -27,7 +28,8 @@ instance ToJSON CodeBuildProjectArtifacts where
   toJSON CodeBuildProjectArtifacts{..} =
     object $
     catMaybes
-    [ fmap (("EncryptionDisabled",) . toJSON . fmap Bool') _codeBuildProjectArtifactsEncryptionDisabled
+    [ fmap (("ArtifactIdentifier",) . toJSON) _codeBuildProjectArtifactsArtifactIdentifier
+    , fmap (("EncryptionDisabled",) . toJSON . fmap Bool') _codeBuildProjectArtifactsEncryptionDisabled
     , fmap (("Location",) . toJSON) _codeBuildProjectArtifactsLocation
     , fmap (("Name",) . toJSON) _codeBuildProjectArtifactsName
     , fmap (("NamespaceType",) . toJSON) _codeBuildProjectArtifactsNamespaceType
@@ -40,6 +42,7 @@ instance ToJSON CodeBuildProjectArtifacts where
 instance FromJSON CodeBuildProjectArtifacts where
   parseJSON (Object obj) =
     CodeBuildProjectArtifacts <$>
+      (obj .:? "ArtifactIdentifier") <*>
       fmap (fmap (fmap unBool')) (obj .:? "EncryptionDisabled") <*>
       (obj .:? "Location") <*>
       (obj .:? "Name") <*>
@@ -57,7 +60,8 @@ codeBuildProjectArtifacts
   -> CodeBuildProjectArtifacts
 codeBuildProjectArtifacts typearg =
   CodeBuildProjectArtifacts
-  { _codeBuildProjectArtifactsEncryptionDisabled = Nothing
+  { _codeBuildProjectArtifactsArtifactIdentifier = Nothing
+  , _codeBuildProjectArtifactsEncryptionDisabled = Nothing
   , _codeBuildProjectArtifactsLocation = Nothing
   , _codeBuildProjectArtifactsName = Nothing
   , _codeBuildProjectArtifactsNamespaceType = Nothing
@@ -66,6 +70,10 @@ codeBuildProjectArtifacts typearg =
   , _codeBuildProjectArtifactsPath = Nothing
   , _codeBuildProjectArtifactsType = typearg
   }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-artifacts.html#cfn-codebuild-project-artifacts-artifactidentifier
+cbpaArtifactIdentifier :: Lens' CodeBuildProjectArtifacts (Maybe (Val Text))
+cbpaArtifactIdentifier = lens _codeBuildProjectArtifactsArtifactIdentifier (\s a -> s { _codeBuildProjectArtifactsArtifactIdentifier = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-artifacts.html#cfn-codebuild-project-artifacts-encryptiondisabled
 cbpaEncryptionDisabled :: Lens' CodeBuildProjectArtifacts (Maybe (Val Bool))
