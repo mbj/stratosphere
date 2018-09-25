@@ -10,6 +10,7 @@ import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.CodeBuildProjectArtifacts
 import Stratosphere.ResourceProperties.CodeBuildProjectProjectCache
 import Stratosphere.ResourceProperties.CodeBuildProjectEnvironment
+import Stratosphere.ResourceProperties.CodeBuildProjectLogsConfig
 import Stratosphere.ResourceProperties.CodeBuildProjectSource
 import Stratosphere.ResourceProperties.Tag
 import Stratosphere.ResourceProperties.CodeBuildProjectProjectTriggers
@@ -25,7 +26,10 @@ data CodeBuildProject =
   , _codeBuildProjectDescription :: Maybe (Val Text)
   , _codeBuildProjectEncryptionKey :: Maybe (Val Text)
   , _codeBuildProjectEnvironment :: CodeBuildProjectEnvironment
+  , _codeBuildProjectLogsConfig :: Maybe CodeBuildProjectLogsConfig
   , _codeBuildProjectName :: Maybe (Val Text)
+  , _codeBuildProjectSecondaryArtifacts :: Maybe [CodeBuildProjectArtifacts]
+  , _codeBuildProjectSecondarySources :: Maybe [CodeBuildProjectSource]
   , _codeBuildProjectServiceRole :: Val Text
   , _codeBuildProjectSource :: CodeBuildProjectSource
   , _codeBuildProjectTags :: Maybe [Tag]
@@ -44,7 +48,10 @@ instance ToJSON CodeBuildProject where
     , fmap (("Description",) . toJSON) _codeBuildProjectDescription
     , fmap (("EncryptionKey",) . toJSON) _codeBuildProjectEncryptionKey
     , (Just . ("Environment",) . toJSON) _codeBuildProjectEnvironment
+    , fmap (("LogsConfig",) . toJSON) _codeBuildProjectLogsConfig
     , fmap (("Name",) . toJSON) _codeBuildProjectName
+    , fmap (("SecondaryArtifacts",) . toJSON) _codeBuildProjectSecondaryArtifacts
+    , fmap (("SecondarySources",) . toJSON) _codeBuildProjectSecondarySources
     , (Just . ("ServiceRole",) . toJSON) _codeBuildProjectServiceRole
     , (Just . ("Source",) . toJSON) _codeBuildProjectSource
     , fmap (("Tags",) . toJSON) _codeBuildProjectTags
@@ -62,7 +69,10 @@ instance FromJSON CodeBuildProject where
       (obj .:? "Description") <*>
       (obj .:? "EncryptionKey") <*>
       (obj .: "Environment") <*>
+      (obj .:? "LogsConfig") <*>
       (obj .:? "Name") <*>
+      (obj .:? "SecondaryArtifacts") <*>
+      (obj .:? "SecondarySources") <*>
       (obj .: "ServiceRole") <*>
       (obj .: "Source") <*>
       (obj .:? "Tags") <*>
@@ -87,7 +97,10 @@ codeBuildProject artifactsarg environmentarg serviceRolearg sourcearg =
   , _codeBuildProjectDescription = Nothing
   , _codeBuildProjectEncryptionKey = Nothing
   , _codeBuildProjectEnvironment = environmentarg
+  , _codeBuildProjectLogsConfig = Nothing
   , _codeBuildProjectName = Nothing
+  , _codeBuildProjectSecondaryArtifacts = Nothing
+  , _codeBuildProjectSecondarySources = Nothing
   , _codeBuildProjectServiceRole = serviceRolearg
   , _codeBuildProjectSource = sourcearg
   , _codeBuildProjectTags = Nothing
@@ -120,9 +133,21 @@ cbpEncryptionKey = lens _codeBuildProjectEncryptionKey (\s a -> s { _codeBuildPr
 cbpEnvironment :: Lens' CodeBuildProject CodeBuildProjectEnvironment
 cbpEnvironment = lens _codeBuildProjectEnvironment (\s a -> s { _codeBuildProjectEnvironment = a })
 
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-logsconfig
+cbpLogsConfig :: Lens' CodeBuildProject (Maybe CodeBuildProjectLogsConfig)
+cbpLogsConfig = lens _codeBuildProjectLogsConfig (\s a -> s { _codeBuildProjectLogsConfig = a })
+
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-name
 cbpName :: Lens' CodeBuildProject (Maybe (Val Text))
 cbpName = lens _codeBuildProjectName (\s a -> s { _codeBuildProjectName = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-secondaryartifacts
+cbpSecondaryArtifacts :: Lens' CodeBuildProject (Maybe [CodeBuildProjectArtifacts])
+cbpSecondaryArtifacts = lens _codeBuildProjectSecondaryArtifacts (\s a -> s { _codeBuildProjectSecondaryArtifacts = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-secondarysources
+cbpSecondarySources :: Lens' CodeBuildProject (Maybe [CodeBuildProjectSource])
+cbpSecondarySources = lens _codeBuildProjectSecondarySources (\s a -> s { _codeBuildProjectSecondarySources = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-servicerole
 cbpServiceRole :: Lens' CodeBuildProject (Val Text)

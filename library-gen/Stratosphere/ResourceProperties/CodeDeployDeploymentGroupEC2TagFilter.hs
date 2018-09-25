@@ -2,7 +2,7 @@
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE TupleSections #-}
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-ec2tagfilters.html
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-ec2tagfilter.html
 
 module Stratosphere.ResourceProperties.CodeDeployDeploymentGroupEC2TagFilter where
 
@@ -47,14 +47,14 @@ codeDeployDeploymentGroupEC2TagFilter  =
   , _codeDeployDeploymentGroupEC2TagFilterValue = Nothing
   }
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-ec2tagfilters.html#cfn-properties-codedeploy-deploymentgroup-ec2tagfilters-key
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-ec2tagfilter.html#cfn-codedeploy-deploymentgroup-ec2tagfilter-key
 cddgectfKey :: Lens' CodeDeployDeploymentGroupEC2TagFilter (Maybe (Val Text))
 cddgectfKey = lens _codeDeployDeploymentGroupEC2TagFilterKey (\s a -> s { _codeDeployDeploymentGroupEC2TagFilterKey = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-ec2tagfilters.html#cfn-properties-codedeploy-deploymentgroup-ec2tagfilters-type
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-ec2tagfilter.html#cfn-codedeploy-deploymentgroup-ec2tagfilter-type
 cddgectfType :: Lens' CodeDeployDeploymentGroupEC2TagFilter (Maybe (Val Text))
 cddgectfType = lens _codeDeployDeploymentGroupEC2TagFilterType (\s a -> s { _codeDeployDeploymentGroupEC2TagFilterType = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-ec2tagfilters.html#cfn-properties-codedeploy-deploymentgroup-ec2tagfilters-value
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-ec2tagfilter.html#cfn-codedeploy-deploymentgroup-ec2tagfilter-value
 cddgectfValue :: Lens' CodeDeployDeploymentGroupEC2TagFilter (Maybe (Val Text))
 cddgectfValue = lens _codeDeployDeploymentGroupEC2TagFilterValue (\s a -> s { _codeDeployDeploymentGroupEC2TagFilterValue = a })

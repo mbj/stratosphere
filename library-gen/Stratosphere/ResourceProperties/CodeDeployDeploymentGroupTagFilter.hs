@@ -2,7 +2,7 @@
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE TupleSections #-}
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-onpremisesinstancetagfilters.html
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-tagfilter.html
 
 module Stratosphere.ResourceProperties.CodeDeployDeploymentGroupTagFilter where
 
@@ -46,14 +46,14 @@ codeDeployDeploymentGroupTagFilter  =
   , _codeDeployDeploymentGroupTagFilterValue = Nothing
   }
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-onpremisesinstancetagfilters.html#cfn-properties-codedeploy-deploymentgroup-onpremisesinstancetagfilters-key
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-tagfilter.html#cfn-codedeploy-deploymentgroup-tagfilter-key
 cddgtfKey :: Lens' CodeDeployDeploymentGroupTagFilter (Maybe (Val Text))
 cddgtfKey = lens _codeDeployDeploymentGroupTagFilterKey (\s a -> s { _codeDeployDeploymentGroupTagFilterKey = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-onpremisesinstancetagfilters.html#cfn-properties-codedeploy-deploymentgroup-onpremisesinstancetagfilters-type
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-tagfilter.html#cfn-codedeploy-deploymentgroup-tagfilter-type
 cddgtfType :: Lens' CodeDeployDeploymentGroupTagFilter (Maybe (Val Text))
 cddgtfType = lens _codeDeployDeploymentGroupTagFilterType (\s a -> s { _codeDeployDeploymentGroupTagFilterType = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-onpremisesinstancetagfilters.html#cfn-properties-codedeploy-deploymentgroup-onpremisesinstancetagfilters-value
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-tagfilter.html#cfn-codedeploy-deploymentgroup-tagfilter-value
 cddgtfValue :: Lens' CodeDeployDeploymentGroupTagFilter (Maybe (Val Text))
 cddgtfValue = lens _codeDeployDeploymentGroupTagFilterValue (\s a -> s { _codeDeployDeploymentGroupTagFilterValue = a })

@@ -13,8 +13,8 @@ import Stratosphere.ResourceImports
 -- more convenient constructor.
 data EC2VPCEndpoint =
   EC2VPCEndpoint
-  { _eC2VPCEndpointIsPrivateDnsEnabled :: Maybe (Val Bool)
-  , _eC2VPCEndpointPolicyDocument :: Maybe Object
+  { _eC2VPCEndpointPolicyDocument :: Maybe Object
+  , _eC2VPCEndpointPrivateDnsEnabled :: Maybe (Val Bool)
   , _eC2VPCEndpointRouteTableIds :: Maybe (ValList Text)
   , _eC2VPCEndpointSecurityGroupIds :: Maybe (ValList Text)
   , _eC2VPCEndpointServiceName :: Val Text
@@ -27,8 +27,8 @@ instance ToJSON EC2VPCEndpoint where
   toJSON EC2VPCEndpoint{..} =
     object $
     catMaybes
-    [ fmap (("IsPrivateDnsEnabled",) . toJSON . fmap Bool') _eC2VPCEndpointIsPrivateDnsEnabled
-    , fmap (("PolicyDocument",) . toJSON) _eC2VPCEndpointPolicyDocument
+    [ fmap (("PolicyDocument",) . toJSON) _eC2VPCEndpointPolicyDocument
+    , fmap (("PrivateDnsEnabled",) . toJSON . fmap Bool') _eC2VPCEndpointPrivateDnsEnabled
     , fmap (("RouteTableIds",) . toJSON) _eC2VPCEndpointRouteTableIds
     , fmap (("SecurityGroupIds",) . toJSON) _eC2VPCEndpointSecurityGroupIds
     , (Just . ("ServiceName",) . toJSON) _eC2VPCEndpointServiceName
@@ -40,8 +40,8 @@ instance ToJSON EC2VPCEndpoint where
 instance FromJSON EC2VPCEndpoint where
   parseJSON (Object obj) =
     EC2VPCEndpoint <$>
-      fmap (fmap (fmap unBool')) (obj .:? "IsPrivateDnsEnabled") <*>
       (obj .:? "PolicyDocument") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "PrivateDnsEnabled") <*>
       (obj .:? "RouteTableIds") <*>
       (obj .:? "SecurityGroupIds") <*>
       (obj .: "ServiceName") <*>
@@ -57,8 +57,8 @@ ec2VPCEndpoint
   -> EC2VPCEndpoint
 ec2VPCEndpoint serviceNamearg vpcIdarg =
   EC2VPCEndpoint
-  { _eC2VPCEndpointIsPrivateDnsEnabled = Nothing
-  , _eC2VPCEndpointPolicyDocument = Nothing
+  { _eC2VPCEndpointPolicyDocument = Nothing
+  , _eC2VPCEndpointPrivateDnsEnabled = Nothing
   , _eC2VPCEndpointRouteTableIds = Nothing
   , _eC2VPCEndpointSecurityGroupIds = Nothing
   , _eC2VPCEndpointServiceName = serviceNamearg
@@ -67,13 +67,13 @@ ec2VPCEndpoint serviceNamearg vpcIdarg =
   , _eC2VPCEndpointVpcId = vpcIdarg
   }
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-isprivatednsenabled
-ecvpceIsPrivateDnsEnabled :: Lens' EC2VPCEndpoint (Maybe (Val Bool))
-ecvpceIsPrivateDnsEnabled = lens _eC2VPCEndpointIsPrivateDnsEnabled (\s a -> s { _eC2VPCEndpointIsPrivateDnsEnabled = a })
-
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-policydocument
 ecvpcePolicyDocument :: Lens' EC2VPCEndpoint (Maybe Object)
 ecvpcePolicyDocument = lens _eC2VPCEndpointPolicyDocument (\s a -> s { _eC2VPCEndpointPolicyDocument = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-privatednsenabled
+ecvpcePrivateDnsEnabled :: Lens' EC2VPCEndpoint (Maybe (Val Bool))
+ecvpcePrivateDnsEnabled = lens _eC2VPCEndpointPrivateDnsEnabled (\s a -> s { _eC2VPCEndpointPrivateDnsEnabled = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-routetableids
 ecvpceRouteTableIds :: Lens' EC2VPCEndpoint (Maybe (ValList Text))

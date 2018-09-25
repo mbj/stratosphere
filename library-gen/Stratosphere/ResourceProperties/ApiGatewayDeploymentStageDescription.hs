@@ -8,17 +8,21 @@ module Stratosphere.ResourceProperties.ApiGatewayDeploymentStageDescription wher
 
 import Stratosphere.ResourceImports
 import Stratosphere.Types
+import Stratosphere.ResourceProperties.ApiGatewayDeploymentAccessLogSetting
+import Stratosphere.ResourceProperties.ApiGatewayDeploymentCanarySetting
 import Stratosphere.ResourceProperties.ApiGatewayDeploymentMethodSetting
 
 -- | Full data type definition for ApiGatewayDeploymentStageDescription. See
 -- 'apiGatewayDeploymentStageDescription' for a more convenient constructor.
 data ApiGatewayDeploymentStageDescription =
   ApiGatewayDeploymentStageDescription
-  { _apiGatewayDeploymentStageDescriptionCacheClusterEnabled :: Maybe (Val Bool)
+  { _apiGatewayDeploymentStageDescriptionAccessLogSetting :: Maybe ApiGatewayDeploymentAccessLogSetting
+  , _apiGatewayDeploymentStageDescriptionCacheClusterEnabled :: Maybe (Val Bool)
   , _apiGatewayDeploymentStageDescriptionCacheClusterSize :: Maybe (Val Text)
   , _apiGatewayDeploymentStageDescriptionCacheDataEncrypted :: Maybe (Val Bool)
   , _apiGatewayDeploymentStageDescriptionCacheTtlInSeconds :: Maybe (Val Integer)
   , _apiGatewayDeploymentStageDescriptionCachingEnabled :: Maybe (Val Bool)
+  , _apiGatewayDeploymentStageDescriptionCanarySetting :: Maybe ApiGatewayDeploymentCanarySetting
   , _apiGatewayDeploymentStageDescriptionClientCertificateId :: Maybe (Val Text)
   , _apiGatewayDeploymentStageDescriptionDataTraceEnabled :: Maybe (Val Bool)
   , _apiGatewayDeploymentStageDescriptionDescription :: Maybe (Val Text)
@@ -35,11 +39,13 @@ instance ToJSON ApiGatewayDeploymentStageDescription where
   toJSON ApiGatewayDeploymentStageDescription{..} =
     object $
     catMaybes
-    [ fmap (("CacheClusterEnabled",) . toJSON . fmap Bool') _apiGatewayDeploymentStageDescriptionCacheClusterEnabled
+    [ fmap (("AccessLogSetting",) . toJSON) _apiGatewayDeploymentStageDescriptionAccessLogSetting
+    , fmap (("CacheClusterEnabled",) . toJSON . fmap Bool') _apiGatewayDeploymentStageDescriptionCacheClusterEnabled
     , fmap (("CacheClusterSize",) . toJSON) _apiGatewayDeploymentStageDescriptionCacheClusterSize
     , fmap (("CacheDataEncrypted",) . toJSON . fmap Bool') _apiGatewayDeploymentStageDescriptionCacheDataEncrypted
     , fmap (("CacheTtlInSeconds",) . toJSON . fmap Integer') _apiGatewayDeploymentStageDescriptionCacheTtlInSeconds
     , fmap (("CachingEnabled",) . toJSON . fmap Bool') _apiGatewayDeploymentStageDescriptionCachingEnabled
+    , fmap (("CanarySetting",) . toJSON) _apiGatewayDeploymentStageDescriptionCanarySetting
     , fmap (("ClientCertificateId",) . toJSON) _apiGatewayDeploymentStageDescriptionClientCertificateId
     , fmap (("DataTraceEnabled",) . toJSON . fmap Bool') _apiGatewayDeploymentStageDescriptionDataTraceEnabled
     , fmap (("Description",) . toJSON) _apiGatewayDeploymentStageDescriptionDescription
@@ -55,11 +61,13 @@ instance ToJSON ApiGatewayDeploymentStageDescription where
 instance FromJSON ApiGatewayDeploymentStageDescription where
   parseJSON (Object obj) =
     ApiGatewayDeploymentStageDescription <$>
+      (obj .:? "AccessLogSetting") <*>
       fmap (fmap (fmap unBool')) (obj .:? "CacheClusterEnabled") <*>
       (obj .:? "CacheClusterSize") <*>
       fmap (fmap (fmap unBool')) (obj .:? "CacheDataEncrypted") <*>
       fmap (fmap (fmap unInteger')) (obj .:? "CacheTtlInSeconds") <*>
       fmap (fmap (fmap unBool')) (obj .:? "CachingEnabled") <*>
+      (obj .:? "CanarySetting") <*>
       (obj .:? "ClientCertificateId") <*>
       fmap (fmap (fmap unBool')) (obj .:? "DataTraceEnabled") <*>
       (obj .:? "Description") <*>
@@ -78,11 +86,13 @@ apiGatewayDeploymentStageDescription
   :: ApiGatewayDeploymentStageDescription
 apiGatewayDeploymentStageDescription  =
   ApiGatewayDeploymentStageDescription
-  { _apiGatewayDeploymentStageDescriptionCacheClusterEnabled = Nothing
+  { _apiGatewayDeploymentStageDescriptionAccessLogSetting = Nothing
+  , _apiGatewayDeploymentStageDescriptionCacheClusterEnabled = Nothing
   , _apiGatewayDeploymentStageDescriptionCacheClusterSize = Nothing
   , _apiGatewayDeploymentStageDescriptionCacheDataEncrypted = Nothing
   , _apiGatewayDeploymentStageDescriptionCacheTtlInSeconds = Nothing
   , _apiGatewayDeploymentStageDescriptionCachingEnabled = Nothing
+  , _apiGatewayDeploymentStageDescriptionCanarySetting = Nothing
   , _apiGatewayDeploymentStageDescriptionClientCertificateId = Nothing
   , _apiGatewayDeploymentStageDescriptionDataTraceEnabled = Nothing
   , _apiGatewayDeploymentStageDescriptionDescription = Nothing
@@ -94,6 +104,10 @@ apiGatewayDeploymentStageDescription  =
   , _apiGatewayDeploymentStageDescriptionThrottlingRateLimit = Nothing
   , _apiGatewayDeploymentStageDescriptionVariables = Nothing
   }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-accesslogsetting
+agdsdAccessLogSetting :: Lens' ApiGatewayDeploymentStageDescription (Maybe ApiGatewayDeploymentAccessLogSetting)
+agdsdAccessLogSetting = lens _apiGatewayDeploymentStageDescriptionAccessLogSetting (\s a -> s { _apiGatewayDeploymentStageDescriptionAccessLogSetting = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-cacheclusterenabled
 agdsdCacheClusterEnabled :: Lens' ApiGatewayDeploymentStageDescription (Maybe (Val Bool))
@@ -114,6 +128,10 @@ agdsdCacheTtlInSeconds = lens _apiGatewayDeploymentStageDescriptionCacheTtlInSec
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-cachingenabled
 agdsdCachingEnabled :: Lens' ApiGatewayDeploymentStageDescription (Maybe (Val Bool))
 agdsdCachingEnabled = lens _apiGatewayDeploymentStageDescriptionCachingEnabled (\s a -> s { _apiGatewayDeploymentStageDescriptionCachingEnabled = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-canarysetting
+agdsdCanarySetting :: Lens' ApiGatewayDeploymentStageDescription (Maybe ApiGatewayDeploymentCanarySetting)
+agdsdCanarySetting = lens _apiGatewayDeploymentStageDescriptionCanarySetting (\s a -> s { _apiGatewayDeploymentStageDescriptionCanarySetting = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-clientcertificateid
 agdsdClientCertificateId :: Lens' ApiGatewayDeploymentStageDescription (Maybe (Val Text))

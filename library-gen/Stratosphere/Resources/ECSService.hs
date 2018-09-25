@@ -29,6 +29,7 @@ data ECSService =
   , _eCSServicePlacementStrategies :: Maybe [ECSServicePlacementStrategy]
   , _eCSServicePlatformVersion :: Maybe (Val Text)
   , _eCSServiceRole :: Maybe (Val Text)
+  , _eCSServiceSchedulingStrategy :: Maybe (Val Text)
   , _eCSServiceServiceName :: Maybe (Val Text)
   , _eCSServiceServiceRegistries :: Maybe [ECSServiceServiceRegistry]
   , _eCSServiceTaskDefinition :: Val Text
@@ -49,6 +50,7 @@ instance ToJSON ECSService where
     , fmap (("PlacementStrategies",) . toJSON) _eCSServicePlacementStrategies
     , fmap (("PlatformVersion",) . toJSON) _eCSServicePlatformVersion
     , fmap (("Role",) . toJSON) _eCSServiceRole
+    , fmap (("SchedulingStrategy",) . toJSON) _eCSServiceSchedulingStrategy
     , fmap (("ServiceName",) . toJSON) _eCSServiceServiceName
     , fmap (("ServiceRegistries",) . toJSON) _eCSServiceServiceRegistries
     , (Just . ("TaskDefinition",) . toJSON) _eCSServiceTaskDefinition
@@ -68,6 +70,7 @@ instance FromJSON ECSService where
       (obj .:? "PlacementStrategies") <*>
       (obj .:? "PlatformVersion") <*>
       (obj .:? "Role") <*>
+      (obj .:? "SchedulingStrategy") <*>
       (obj .:? "ServiceName") <*>
       (obj .:? "ServiceRegistries") <*>
       (obj .: "TaskDefinition")
@@ -90,6 +93,7 @@ ecsService taskDefinitionarg =
   , _eCSServicePlacementStrategies = Nothing
   , _eCSServicePlatformVersion = Nothing
   , _eCSServiceRole = Nothing
+  , _eCSServiceSchedulingStrategy = Nothing
   , _eCSServiceServiceName = Nothing
   , _eCSServiceServiceRegistries = Nothing
   , _eCSServiceTaskDefinition = taskDefinitionarg
@@ -138,6 +142,10 @@ ecssPlatformVersion = lens _eCSServicePlatformVersion (\s a -> s { _eCSServicePl
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-role
 ecssRole :: Lens' ECSService (Maybe (Val Text))
 ecssRole = lens _eCSServiceRole (\s a -> s { _eCSServiceRole = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-schedulingstrategy
+ecssSchedulingStrategy :: Lens' ECSService (Maybe (Val Text))
+ecssSchedulingStrategy = lens _eCSServiceSchedulingStrategy (\s a -> s { _eCSServiceSchedulingStrategy = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-servicename
 ecssServiceName :: Lens' ECSService (Maybe (Val Text))

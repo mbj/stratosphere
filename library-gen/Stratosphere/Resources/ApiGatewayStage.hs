@@ -7,14 +7,18 @@
 module Stratosphere.Resources.ApiGatewayStage where
 
 import Stratosphere.ResourceImports
+import Stratosphere.ResourceProperties.ApiGatewayStageAccessLogSetting
+import Stratosphere.ResourceProperties.ApiGatewayStageCanarySetting
 import Stratosphere.ResourceProperties.ApiGatewayStageMethodSetting
 
 -- | Full data type definition for ApiGatewayStage. See 'apiGatewayStage' for
 -- a more convenient constructor.
 data ApiGatewayStage =
   ApiGatewayStage
-  { _apiGatewayStageCacheClusterEnabled :: Maybe (Val Bool)
+  { _apiGatewayStageAccessLogSetting :: Maybe ApiGatewayStageAccessLogSetting
+  , _apiGatewayStageCacheClusterEnabled :: Maybe (Val Bool)
   , _apiGatewayStageCacheClusterSize :: Maybe (Val Text)
+  , _apiGatewayStageCanarySetting :: Maybe ApiGatewayStageCanarySetting
   , _apiGatewayStageClientCertificateId :: Maybe (Val Text)
   , _apiGatewayStageDeploymentId :: Maybe (Val Text)
   , _apiGatewayStageDescription :: Maybe (Val Text)
@@ -29,8 +33,10 @@ instance ToJSON ApiGatewayStage where
   toJSON ApiGatewayStage{..} =
     object $
     catMaybes
-    [ fmap (("CacheClusterEnabled",) . toJSON . fmap Bool') _apiGatewayStageCacheClusterEnabled
+    [ fmap (("AccessLogSetting",) . toJSON) _apiGatewayStageAccessLogSetting
+    , fmap (("CacheClusterEnabled",) . toJSON . fmap Bool') _apiGatewayStageCacheClusterEnabled
     , fmap (("CacheClusterSize",) . toJSON) _apiGatewayStageCacheClusterSize
+    , fmap (("CanarySetting",) . toJSON) _apiGatewayStageCanarySetting
     , fmap (("ClientCertificateId",) . toJSON) _apiGatewayStageClientCertificateId
     , fmap (("DeploymentId",) . toJSON) _apiGatewayStageDeploymentId
     , fmap (("Description",) . toJSON) _apiGatewayStageDescription
@@ -44,8 +50,10 @@ instance ToJSON ApiGatewayStage where
 instance FromJSON ApiGatewayStage where
   parseJSON (Object obj) =
     ApiGatewayStage <$>
+      (obj .:? "AccessLogSetting") <*>
       fmap (fmap (fmap unBool')) (obj .:? "CacheClusterEnabled") <*>
       (obj .:? "CacheClusterSize") <*>
+      (obj .:? "CanarySetting") <*>
       (obj .:? "ClientCertificateId") <*>
       (obj .:? "DeploymentId") <*>
       (obj .:? "Description") <*>
@@ -63,8 +71,10 @@ apiGatewayStage
   -> ApiGatewayStage
 apiGatewayStage restApiIdarg =
   ApiGatewayStage
-  { _apiGatewayStageCacheClusterEnabled = Nothing
+  { _apiGatewayStageAccessLogSetting = Nothing
+  , _apiGatewayStageCacheClusterEnabled = Nothing
   , _apiGatewayStageCacheClusterSize = Nothing
+  , _apiGatewayStageCanarySetting = Nothing
   , _apiGatewayStageClientCertificateId = Nothing
   , _apiGatewayStageDeploymentId = Nothing
   , _apiGatewayStageDescription = Nothing
@@ -75,6 +85,10 @@ apiGatewayStage restApiIdarg =
   , _apiGatewayStageVariables = Nothing
   }
 
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html#cfn-apigateway-stage-accesslogsetting
+agsAccessLogSetting :: Lens' ApiGatewayStage (Maybe ApiGatewayStageAccessLogSetting)
+agsAccessLogSetting = lens _apiGatewayStageAccessLogSetting (\s a -> s { _apiGatewayStageAccessLogSetting = a })
+
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html#cfn-apigateway-stage-cacheclusterenabled
 agsCacheClusterEnabled :: Lens' ApiGatewayStage (Maybe (Val Bool))
 agsCacheClusterEnabled = lens _apiGatewayStageCacheClusterEnabled (\s a -> s { _apiGatewayStageCacheClusterEnabled = a })
@@ -82,6 +96,10 @@ agsCacheClusterEnabled = lens _apiGatewayStageCacheClusterEnabled (\s a -> s { _
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html#cfn-apigateway-stage-cacheclustersize
 agsCacheClusterSize :: Lens' ApiGatewayStage (Maybe (Val Text))
 agsCacheClusterSize = lens _apiGatewayStageCacheClusterSize (\s a -> s { _apiGatewayStageCacheClusterSize = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html#cfn-apigateway-stage-canarysetting
+agsCanarySetting :: Lens' ApiGatewayStage (Maybe ApiGatewayStageCanarySetting)
+agsCanarySetting = lens _apiGatewayStageCanarySetting (\s a -> s { _apiGatewayStageCanarySetting = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html#cfn-apigateway-stage-clientcertificateid
 agsClientCertificateId :: Lens' ApiGatewayStage (Maybe (Val Text))

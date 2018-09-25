@@ -15,7 +15,7 @@ data RDSOptionGroupOptionConfiguration =
   RDSOptionGroupOptionConfiguration
   { _rDSOptionGroupOptionConfigurationDBSecurityGroupMemberships :: Maybe (ValList Text)
   , _rDSOptionGroupOptionConfigurationOptionName :: Val Text
-  , _rDSOptionGroupOptionConfigurationOptionSettings :: Maybe RDSOptionGroupOptionSetting
+  , _rDSOptionGroupOptionConfigurationOptionSettings :: Maybe [RDSOptionGroupOptionSetting]
   , _rDSOptionGroupOptionConfigurationOptionVersion :: Maybe (Val Text)
   , _rDSOptionGroupOptionConfigurationPort :: Maybe (Val Integer)
   , _rDSOptionGroupOptionConfigurationVpcSecurityGroupMemberships :: Maybe (ValList Text)
@@ -68,7 +68,7 @@ rdsogocOptionName :: Lens' RDSOptionGroupOptionConfiguration (Val Text)
 rdsogocOptionName = lens _rDSOptionGroupOptionConfigurationOptionName (\s a -> s { _rDSOptionGroupOptionConfigurationOptionName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfigurations.html#cfn-rds-optiongroup-optionconfigurations-optionsettings
-rdsogocOptionSettings :: Lens' RDSOptionGroupOptionConfiguration (Maybe RDSOptionGroupOptionSetting)
+rdsogocOptionSettings :: Lens' RDSOptionGroupOptionConfiguration (Maybe [RDSOptionGroupOptionSetting])
 rdsogocOptionSettings = lens _rDSOptionGroupOptionConfigurationOptionSettings (\s a -> s { _rDSOptionGroupOptionConfigurationOptionSettings = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfigurations.html#cfn-rds-optiongroup-optionconfiguration-optionversion

@@ -7,6 +7,7 @@
 module Stratosphere.Resources.RDSDBCluster where
 
 import Stratosphere.ResourceImports
+import Stratosphere.ResourceProperties.RDSDBClusterScalingConfiguration
 import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for RDSDBCluster. See 'rdsdbCluster' for a more
@@ -20,6 +21,7 @@ data RDSDBCluster =
   , _rDSDBClusterDBSubnetGroupName :: Maybe (Val Text)
   , _rDSDBClusterDatabaseName :: Maybe (Val Text)
   , _rDSDBClusterEngine :: Val Text
+  , _rDSDBClusterEngineMode :: Maybe (Val Text)
   , _rDSDBClusterEngineVersion :: Maybe (Val Text)
   , _rDSDBClusterKmsKeyId :: Maybe (Val Text)
   , _rDSDBClusterMasterUserPassword :: Maybe (Val Text)
@@ -28,6 +30,7 @@ data RDSDBCluster =
   , _rDSDBClusterPreferredBackupWindow :: Maybe (Val Text)
   , _rDSDBClusterPreferredMaintenanceWindow :: Maybe (Val Text)
   , _rDSDBClusterReplicationSourceIdentifier :: Maybe (Val Text)
+  , _rDSDBClusterScalingConfiguration :: Maybe RDSDBClusterScalingConfiguration
   , _rDSDBClusterSnapshotIdentifier :: Maybe (Val Text)
   , _rDSDBClusterStorageEncrypted :: Maybe (Val Bool)
   , _rDSDBClusterTags :: Maybe [Tag]
@@ -45,6 +48,7 @@ instance ToJSON RDSDBCluster where
     , fmap (("DBSubnetGroupName",) . toJSON) _rDSDBClusterDBSubnetGroupName
     , fmap (("DatabaseName",) . toJSON) _rDSDBClusterDatabaseName
     , (Just . ("Engine",) . toJSON) _rDSDBClusterEngine
+    , fmap (("EngineMode",) . toJSON) _rDSDBClusterEngineMode
     , fmap (("EngineVersion",) . toJSON) _rDSDBClusterEngineVersion
     , fmap (("KmsKeyId",) . toJSON) _rDSDBClusterKmsKeyId
     , fmap (("MasterUserPassword",) . toJSON) _rDSDBClusterMasterUserPassword
@@ -53,6 +57,7 @@ instance ToJSON RDSDBCluster where
     , fmap (("PreferredBackupWindow",) . toJSON) _rDSDBClusterPreferredBackupWindow
     , fmap (("PreferredMaintenanceWindow",) . toJSON) _rDSDBClusterPreferredMaintenanceWindow
     , fmap (("ReplicationSourceIdentifier",) . toJSON) _rDSDBClusterReplicationSourceIdentifier
+    , fmap (("ScalingConfiguration",) . toJSON) _rDSDBClusterScalingConfiguration
     , fmap (("SnapshotIdentifier",) . toJSON) _rDSDBClusterSnapshotIdentifier
     , fmap (("StorageEncrypted",) . toJSON . fmap Bool') _rDSDBClusterStorageEncrypted
     , fmap (("Tags",) . toJSON) _rDSDBClusterTags
@@ -69,6 +74,7 @@ instance FromJSON RDSDBCluster where
       (obj .:? "DBSubnetGroupName") <*>
       (obj .:? "DatabaseName") <*>
       (obj .: "Engine") <*>
+      (obj .:? "EngineMode") <*>
       (obj .:? "EngineVersion") <*>
       (obj .:? "KmsKeyId") <*>
       (obj .:? "MasterUserPassword") <*>
@@ -77,6 +83,7 @@ instance FromJSON RDSDBCluster where
       (obj .:? "PreferredBackupWindow") <*>
       (obj .:? "PreferredMaintenanceWindow") <*>
       (obj .:? "ReplicationSourceIdentifier") <*>
+      (obj .:? "ScalingConfiguration") <*>
       (obj .:? "SnapshotIdentifier") <*>
       fmap (fmap (fmap unBool')) (obj .:? "StorageEncrypted") <*>
       (obj .:? "Tags") <*>
@@ -96,6 +103,7 @@ rdsdbCluster enginearg =
   , _rDSDBClusterDBSubnetGroupName = Nothing
   , _rDSDBClusterDatabaseName = Nothing
   , _rDSDBClusterEngine = enginearg
+  , _rDSDBClusterEngineMode = Nothing
   , _rDSDBClusterEngineVersion = Nothing
   , _rDSDBClusterKmsKeyId = Nothing
   , _rDSDBClusterMasterUserPassword = Nothing
@@ -104,6 +112,7 @@ rdsdbCluster enginearg =
   , _rDSDBClusterPreferredBackupWindow = Nothing
   , _rDSDBClusterPreferredMaintenanceWindow = Nothing
   , _rDSDBClusterReplicationSourceIdentifier = Nothing
+  , _rDSDBClusterScalingConfiguration = Nothing
   , _rDSDBClusterSnapshotIdentifier = Nothing
   , _rDSDBClusterStorageEncrypted = Nothing
   , _rDSDBClusterTags = Nothing
@@ -138,6 +147,10 @@ rdsdbcDatabaseName = lens _rDSDBClusterDatabaseName (\s a -> s { _rDSDBClusterDa
 rdsdbcEngine :: Lens' RDSDBCluster (Val Text)
 rdsdbcEngine = lens _rDSDBClusterEngine (\s a -> s { _rDSDBClusterEngine = a })
 
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-enginemode
+rdsdbcEngineMode :: Lens' RDSDBCluster (Maybe (Val Text))
+rdsdbcEngineMode = lens _rDSDBClusterEngineMode (\s a -> s { _rDSDBClusterEngineMode = a })
+
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-engineversion
 rdsdbcEngineVersion :: Lens' RDSDBCluster (Maybe (Val Text))
 rdsdbcEngineVersion = lens _rDSDBClusterEngineVersion (\s a -> s { _rDSDBClusterEngineVersion = a })
@@ -169,6 +182,10 @@ rdsdbcPreferredMaintenanceWindow = lens _rDSDBClusterPreferredMaintenanceWindow 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-replicationsourceidentifier
 rdsdbcReplicationSourceIdentifier :: Lens' RDSDBCluster (Maybe (Val Text))
 rdsdbcReplicationSourceIdentifier = lens _rDSDBClusterReplicationSourceIdentifier (\s a -> s { _rDSDBClusterReplicationSourceIdentifier = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-scalingconfiguration
+rdsdbcScalingConfiguration :: Lens' RDSDBCluster (Maybe RDSDBClusterScalingConfiguration)
+rdsdbcScalingConfiguration = lens _rDSDBClusterScalingConfiguration (\s a -> s { _rDSDBClusterScalingConfiguration = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-snapshotidentifier
 rdsdbcSnapshotIdentifier :: Lens' RDSDBCluster (Maybe (Val Text))

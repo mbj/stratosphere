@@ -16,6 +16,8 @@ data ApiGatewayMethodIntegration =
   ApiGatewayMethodIntegration
   { _apiGatewayMethodIntegrationCacheKeyParameters :: Maybe (ValList Text)
   , _apiGatewayMethodIntegrationCacheNamespace :: Maybe (Val Text)
+  , _apiGatewayMethodIntegrationConnectionId :: Maybe (Val Text)
+  , _apiGatewayMethodIntegrationConnectionType :: Maybe (Val Text)
   , _apiGatewayMethodIntegrationContentHandling :: Maybe (Val Text)
   , _apiGatewayMethodIntegrationCredentials :: Maybe (Val Text)
   , _apiGatewayMethodIntegrationIntegrationHttpMethod :: Maybe (Val HttpMethod)
@@ -23,6 +25,7 @@ data ApiGatewayMethodIntegration =
   , _apiGatewayMethodIntegrationPassthroughBehavior :: Maybe (Val PassthroughBehavior)
   , _apiGatewayMethodIntegrationRequestParameters :: Maybe Object
   , _apiGatewayMethodIntegrationRequestTemplates :: Maybe Object
+  , _apiGatewayMethodIntegrationTimeoutInMillis :: Maybe (Val Integer)
   , _apiGatewayMethodIntegrationType :: Maybe (Val ApiBackendType)
   , _apiGatewayMethodIntegrationUri :: Maybe (Val Text)
   } deriving (Show, Eq)
@@ -33,6 +36,8 @@ instance ToJSON ApiGatewayMethodIntegration where
     catMaybes
     [ fmap (("CacheKeyParameters",) . toJSON) _apiGatewayMethodIntegrationCacheKeyParameters
     , fmap (("CacheNamespace",) . toJSON) _apiGatewayMethodIntegrationCacheNamespace
+    , fmap (("ConnectionId",) . toJSON) _apiGatewayMethodIntegrationConnectionId
+    , fmap (("ConnectionType",) . toJSON) _apiGatewayMethodIntegrationConnectionType
     , fmap (("ContentHandling",) . toJSON) _apiGatewayMethodIntegrationContentHandling
     , fmap (("Credentials",) . toJSON) _apiGatewayMethodIntegrationCredentials
     , fmap (("IntegrationHttpMethod",) . toJSON) _apiGatewayMethodIntegrationIntegrationHttpMethod
@@ -40,6 +45,7 @@ instance ToJSON ApiGatewayMethodIntegration where
     , fmap (("PassthroughBehavior",) . toJSON) _apiGatewayMethodIntegrationPassthroughBehavior
     , fmap (("RequestParameters",) . toJSON) _apiGatewayMethodIntegrationRequestParameters
     , fmap (("RequestTemplates",) . toJSON) _apiGatewayMethodIntegrationRequestTemplates
+    , fmap (("TimeoutInMillis",) . toJSON . fmap Integer') _apiGatewayMethodIntegrationTimeoutInMillis
     , fmap (("Type",) . toJSON) _apiGatewayMethodIntegrationType
     , fmap (("Uri",) . toJSON) _apiGatewayMethodIntegrationUri
     ]
@@ -49,6 +55,8 @@ instance FromJSON ApiGatewayMethodIntegration where
     ApiGatewayMethodIntegration <$>
       (obj .:? "CacheKeyParameters") <*>
       (obj .:? "CacheNamespace") <*>
+      (obj .:? "ConnectionId") <*>
+      (obj .:? "ConnectionType") <*>
       (obj .:? "ContentHandling") <*>
       (obj .:? "Credentials") <*>
       (obj .:? "IntegrationHttpMethod") <*>
@@ -56,6 +64,7 @@ instance FromJSON ApiGatewayMethodIntegration where
       (obj .:? "PassthroughBehavior") <*>
       (obj .:? "RequestParameters") <*>
       (obj .:? "RequestTemplates") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "TimeoutInMillis") <*>
       (obj .:? "Type") <*>
       (obj .:? "Uri")
   parseJSON _ = mempty
@@ -68,6 +77,8 @@ apiGatewayMethodIntegration  =
   ApiGatewayMethodIntegration
   { _apiGatewayMethodIntegrationCacheKeyParameters = Nothing
   , _apiGatewayMethodIntegrationCacheNamespace = Nothing
+  , _apiGatewayMethodIntegrationConnectionId = Nothing
+  , _apiGatewayMethodIntegrationConnectionType = Nothing
   , _apiGatewayMethodIntegrationContentHandling = Nothing
   , _apiGatewayMethodIntegrationCredentials = Nothing
   , _apiGatewayMethodIntegrationIntegrationHttpMethod = Nothing
@@ -75,6 +86,7 @@ apiGatewayMethodIntegration  =
   , _apiGatewayMethodIntegrationPassthroughBehavior = Nothing
   , _apiGatewayMethodIntegrationRequestParameters = Nothing
   , _apiGatewayMethodIntegrationRequestTemplates = Nothing
+  , _apiGatewayMethodIntegrationTimeoutInMillis = Nothing
   , _apiGatewayMethodIntegrationType = Nothing
   , _apiGatewayMethodIntegrationUri = Nothing
   }
@@ -86,6 +98,14 @@ agmiCacheKeyParameters = lens _apiGatewayMethodIntegrationCacheKeyParameters (\s
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-cachenamespace
 agmiCacheNamespace :: Lens' ApiGatewayMethodIntegration (Maybe (Val Text))
 agmiCacheNamespace = lens _apiGatewayMethodIntegrationCacheNamespace (\s a -> s { _apiGatewayMethodIntegrationCacheNamespace = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-connectionid
+agmiConnectionId :: Lens' ApiGatewayMethodIntegration (Maybe (Val Text))
+agmiConnectionId = lens _apiGatewayMethodIntegrationConnectionId (\s a -> s { _apiGatewayMethodIntegrationConnectionId = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-connectiontype
+agmiConnectionType :: Lens' ApiGatewayMethodIntegration (Maybe (Val Text))
+agmiConnectionType = lens _apiGatewayMethodIntegrationConnectionType (\s a -> s { _apiGatewayMethodIntegrationConnectionType = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-contenthandling
 agmiContentHandling :: Lens' ApiGatewayMethodIntegration (Maybe (Val Text))
@@ -114,6 +134,10 @@ agmiRequestParameters = lens _apiGatewayMethodIntegrationRequestParameters (\s a
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-requesttemplates
 agmiRequestTemplates :: Lens' ApiGatewayMethodIntegration (Maybe Object)
 agmiRequestTemplates = lens _apiGatewayMethodIntegrationRequestTemplates (\s a -> s { _apiGatewayMethodIntegrationRequestTemplates = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-timeoutinmillis
+agmiTimeoutInMillis :: Lens' ApiGatewayMethodIntegration (Maybe (Val Integer))
+agmiTimeoutInMillis = lens _apiGatewayMethodIntegrationTimeoutInMillis (\s a -> s { _apiGatewayMethodIntegrationTimeoutInMillis = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-type
 agmiType :: Lens' ApiGatewayMethodIntegration (Maybe (Val ApiBackendType))

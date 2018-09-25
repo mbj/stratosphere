@@ -16,6 +16,7 @@ import Stratosphere.ResourceProperties.ApiGatewayMethodMethodResponse
 data ApiGatewayMethod =
   ApiGatewayMethod
   { _apiGatewayMethodApiKeyRequired :: Maybe (Val Bool)
+  , _apiGatewayMethodAuthorizationScopes :: Maybe (ValList Text)
   , _apiGatewayMethodAuthorizationType :: Maybe (Val AuthorizationType)
   , _apiGatewayMethodAuthorizerId :: Maybe (Val Text)
   , _apiGatewayMethodHttpMethod :: Val HttpMethod
@@ -34,6 +35,7 @@ instance ToJSON ApiGatewayMethod where
     object $
     catMaybes
     [ fmap (("ApiKeyRequired",) . toJSON . fmap Bool') _apiGatewayMethodApiKeyRequired
+    , fmap (("AuthorizationScopes",) . toJSON) _apiGatewayMethodAuthorizationScopes
     , fmap (("AuthorizationType",) . toJSON) _apiGatewayMethodAuthorizationType
     , fmap (("AuthorizerId",) . toJSON) _apiGatewayMethodAuthorizerId
     , (Just . ("HttpMethod",) . toJSON) _apiGatewayMethodHttpMethod
@@ -51,6 +53,7 @@ instance FromJSON ApiGatewayMethod where
   parseJSON (Object obj) =
     ApiGatewayMethod <$>
       fmap (fmap (fmap unBool')) (obj .:? "ApiKeyRequired") <*>
+      (obj .:? "AuthorizationScopes") <*>
       (obj .:? "AuthorizationType") <*>
       (obj .:? "AuthorizerId") <*>
       (obj .: "HttpMethod") <*>
@@ -74,6 +77,7 @@ apiGatewayMethod
 apiGatewayMethod httpMethodarg resourceIdarg restApiIdarg =
   ApiGatewayMethod
   { _apiGatewayMethodApiKeyRequired = Nothing
+  , _apiGatewayMethodAuthorizationScopes = Nothing
   , _apiGatewayMethodAuthorizationType = Nothing
   , _apiGatewayMethodAuthorizerId = Nothing
   , _apiGatewayMethodHttpMethod = httpMethodarg
@@ -90,6 +94,10 @@ apiGatewayMethod httpMethodarg resourceIdarg restApiIdarg =
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html#cfn-apigateway-method-apikeyrequired
 agmeApiKeyRequired :: Lens' ApiGatewayMethod (Maybe (Val Bool))
 agmeApiKeyRequired = lens _apiGatewayMethodApiKeyRequired (\s a -> s { _apiGatewayMethodApiKeyRequired = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html#cfn-apigateway-method-authorizationscopes
+agmeAuthorizationScopes :: Lens' ApiGatewayMethod (Maybe (ValList Text))
+agmeAuthorizationScopes = lens _apiGatewayMethodAuthorizationScopes (\s a -> s { _apiGatewayMethodAuthorizationScopes = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html#cfn-apigateway-method-authorizationtype
 agmeAuthorizationType :: Lens' ApiGatewayMethod (Maybe (Val AuthorizationType))

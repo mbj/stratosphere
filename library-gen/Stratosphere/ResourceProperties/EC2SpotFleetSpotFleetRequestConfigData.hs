@@ -8,6 +8,8 @@ module Stratosphere.ResourceProperties.EC2SpotFleetSpotFleetRequestConfigData wh
 
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.EC2SpotFleetSpotFleetLaunchSpecification
+import Stratosphere.ResourceProperties.EC2SpotFleetLaunchTemplateConfig
+import Stratosphere.ResourceProperties.EC2SpotFleetLoadBalancersConfig
 
 -- | Full data type definition for EC2SpotFleetSpotFleetRequestConfigData. See
 -- 'ec2SpotFleetSpotFleetRequestConfigData' for a more convenient
@@ -17,7 +19,10 @@ data EC2SpotFleetSpotFleetRequestConfigData =
   { _eC2SpotFleetSpotFleetRequestConfigDataAllocationStrategy :: Maybe (Val Text)
   , _eC2SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy :: Maybe (Val Text)
   , _eC2SpotFleetSpotFleetRequestConfigDataIamFleetRole :: Val Text
+  , _eC2SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior :: Maybe (Val Text)
   , _eC2SpotFleetSpotFleetRequestConfigDataLaunchSpecifications :: Maybe [EC2SpotFleetSpotFleetLaunchSpecification]
+  , _eC2SpotFleetSpotFleetRequestConfigDataLaunchTemplateConfigs :: Maybe [EC2SpotFleetLaunchTemplateConfig]
+  , _eC2SpotFleetSpotFleetRequestConfigDataLoadBalancersConfig :: Maybe EC2SpotFleetLoadBalancersConfig
   , _eC2SpotFleetSpotFleetRequestConfigDataReplaceUnhealthyInstances :: Maybe (Val Bool)
   , _eC2SpotFleetSpotFleetRequestConfigDataSpotPrice :: Maybe (Val Text)
   , _eC2SpotFleetSpotFleetRequestConfigDataTargetCapacity :: Val Integer
@@ -34,7 +39,10 @@ instance ToJSON EC2SpotFleetSpotFleetRequestConfigData where
     [ fmap (("AllocationStrategy",) . toJSON) _eC2SpotFleetSpotFleetRequestConfigDataAllocationStrategy
     , fmap (("ExcessCapacityTerminationPolicy",) . toJSON) _eC2SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy
     , (Just . ("IamFleetRole",) . toJSON) _eC2SpotFleetSpotFleetRequestConfigDataIamFleetRole
+    , fmap (("InstanceInterruptionBehavior",) . toJSON) _eC2SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior
     , fmap (("LaunchSpecifications",) . toJSON) _eC2SpotFleetSpotFleetRequestConfigDataLaunchSpecifications
+    , fmap (("LaunchTemplateConfigs",) . toJSON) _eC2SpotFleetSpotFleetRequestConfigDataLaunchTemplateConfigs
+    , fmap (("LoadBalancersConfig",) . toJSON) _eC2SpotFleetSpotFleetRequestConfigDataLoadBalancersConfig
     , fmap (("ReplaceUnhealthyInstances",) . toJSON . fmap Bool') _eC2SpotFleetSpotFleetRequestConfigDataReplaceUnhealthyInstances
     , fmap (("SpotPrice",) . toJSON) _eC2SpotFleetSpotFleetRequestConfigDataSpotPrice
     , (Just . ("TargetCapacity",) . toJSON . fmap Integer') _eC2SpotFleetSpotFleetRequestConfigDataTargetCapacity
@@ -50,7 +58,10 @@ instance FromJSON EC2SpotFleetSpotFleetRequestConfigData where
       (obj .:? "AllocationStrategy") <*>
       (obj .:? "ExcessCapacityTerminationPolicy") <*>
       (obj .: "IamFleetRole") <*>
+      (obj .:? "InstanceInterruptionBehavior") <*>
       (obj .:? "LaunchSpecifications") <*>
+      (obj .:? "LaunchTemplateConfigs") <*>
+      (obj .:? "LoadBalancersConfig") <*>
       fmap (fmap (fmap unBool')) (obj .:? "ReplaceUnhealthyInstances") <*>
       (obj .:? "SpotPrice") <*>
       fmap (fmap unInteger') (obj .: "TargetCapacity") <*>
@@ -71,7 +82,10 @@ ec2SpotFleetSpotFleetRequestConfigData iamFleetRolearg targetCapacityarg =
   { _eC2SpotFleetSpotFleetRequestConfigDataAllocationStrategy = Nothing
   , _eC2SpotFleetSpotFleetRequestConfigDataExcessCapacityTerminationPolicy = Nothing
   , _eC2SpotFleetSpotFleetRequestConfigDataIamFleetRole = iamFleetRolearg
+  , _eC2SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior = Nothing
   , _eC2SpotFleetSpotFleetRequestConfigDataLaunchSpecifications = Nothing
+  , _eC2SpotFleetSpotFleetRequestConfigDataLaunchTemplateConfigs = Nothing
+  , _eC2SpotFleetSpotFleetRequestConfigDataLoadBalancersConfig = Nothing
   , _eC2SpotFleetSpotFleetRequestConfigDataReplaceUnhealthyInstances = Nothing
   , _eC2SpotFleetSpotFleetRequestConfigDataSpotPrice = Nothing
   , _eC2SpotFleetSpotFleetRequestConfigDataTargetCapacity = targetCapacityarg
@@ -93,9 +107,21 @@ ecsfsfrcdExcessCapacityTerminationPolicy = lens _eC2SpotFleetSpotFleetRequestCon
 ecsfsfrcdIamFleetRole :: Lens' EC2SpotFleetSpotFleetRequestConfigData (Val Text)
 ecsfsfrcdIamFleetRole = lens _eC2SpotFleetSpotFleetRequestConfigDataIamFleetRole (\s a -> s { _eC2SpotFleetSpotFleetRequestConfigDataIamFleetRole = a })
 
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-instanceinterruptionbehavior
+ecsfsfrcdInstanceInterruptionBehavior :: Lens' EC2SpotFleetSpotFleetRequestConfigData (Maybe (Val Text))
+ecsfsfrcdInstanceInterruptionBehavior = lens _eC2SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior (\s a -> s { _eC2SpotFleetSpotFleetRequestConfigDataInstanceInterruptionBehavior = a })
+
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-launchspecifications
 ecsfsfrcdLaunchSpecifications :: Lens' EC2SpotFleetSpotFleetRequestConfigData (Maybe [EC2SpotFleetSpotFleetLaunchSpecification])
 ecsfsfrcdLaunchSpecifications = lens _eC2SpotFleetSpotFleetRequestConfigDataLaunchSpecifications (\s a -> s { _eC2SpotFleetSpotFleetRequestConfigDataLaunchSpecifications = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-launchtemplateconfigs
+ecsfsfrcdLaunchTemplateConfigs :: Lens' EC2SpotFleetSpotFleetRequestConfigData (Maybe [EC2SpotFleetLaunchTemplateConfig])
+ecsfsfrcdLaunchTemplateConfigs = lens _eC2SpotFleetSpotFleetRequestConfigDataLaunchTemplateConfigs (\s a -> s { _eC2SpotFleetSpotFleetRequestConfigDataLaunchTemplateConfigs = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-loadbalancersconfig
+ecsfsfrcdLoadBalancersConfig :: Lens' EC2SpotFleetSpotFleetRequestConfigData (Maybe EC2SpotFleetLoadBalancersConfig)
+ecsfsfrcdLoadBalancersConfig = lens _eC2SpotFleetSpotFleetRequestConfigDataLoadBalancersConfig (\s a -> s { _eC2SpotFleetSpotFleetRequestConfigDataLoadBalancersConfig = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-spotfleetrequestconfigdata.html#cfn-ec2-spotfleet-spotfleetrequestconfigdata-replaceunhealthyinstances
 ecsfsfrcdReplaceUnhealthyInstances :: Lens' EC2SpotFleetSpotFleetRequestConfigData (Maybe (Val Bool))
