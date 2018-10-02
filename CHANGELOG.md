@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.26.1
+
+* Remove dependency on `aeson-qq`
+
 ## 0.26.0
 
 * Update resource specification document to version 2.8.0

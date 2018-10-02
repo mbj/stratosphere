@@ -98,6 +98,11 @@ jobs:
     environment:
       STACK_YAML: stack-ghc-8-2.yaml
 
+  build-ghc-8-4:
+    <<: *stack_build
+    environment:
+      STACK_YAML: stack-ghc-8-4.yaml
+
   docs:
     <<: *stack_docs
     environment:
@@ -109,4 +114,5 @@ workflows:
     jobs:
       - build
       - build-ghc-8-2
+      - build-ghc-8-4
       - docs

@@ -1,5 +1,5 @@
 name: stratosphere
-version: "0.26.0"
+version: "0.26.1"
 synopsis: EDSL for AWS CloudFormation
 description: EDSL for AWS CloudFormation
 category: AWS, Cloud
@@ -43,16 +43,6 @@ executables:
     main: auto-scaling-group.hs
     source-dirs: examples
     dependencies: stratosphere
-    ghc-options: -Wall
-    when:
-      - condition: flag(library-only)
-        buildable: false
-  ec2-with-eip:
-    main: ec2-with-eip.hs
-    source-dirs: examples
-    dependencies:
-      - stratosphere
-      - aeson-qq
     ghc-options: -Wall
     when:
       - condition: flag(library-only)
