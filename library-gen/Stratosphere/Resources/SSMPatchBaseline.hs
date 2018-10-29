@@ -25,6 +25,7 @@ data SSMPatchBaseline =
   , _sSMPatchBaselineOperatingSystem :: Maybe (Val Text)
   , _sSMPatchBaselinePatchGroups :: Maybe (ValList Text)
   , _sSMPatchBaselineRejectedPatches :: Maybe (ValList Text)
+  , _sSMPatchBaselineRejectedPatchesAction :: Maybe (Val Text)
   , _sSMPatchBaselineSources :: Maybe [SSMPatchBaselinePatchSource]
   } deriving (Show, Eq)
 
@@ -42,6 +43,7 @@ instance ToJSON SSMPatchBaseline where
     , fmap (("OperatingSystem",) . toJSON) _sSMPatchBaselineOperatingSystem
     , fmap (("PatchGroups",) . toJSON) _sSMPatchBaselinePatchGroups
     , fmap (("RejectedPatches",) . toJSON) _sSMPatchBaselineRejectedPatches
+    , fmap (("RejectedPatchesAction",) . toJSON) _sSMPatchBaselineRejectedPatchesAction
     , fmap (("Sources",) . toJSON) _sSMPatchBaselineSources
     ]
 
@@ -58,6 +60,7 @@ instance FromJSON SSMPatchBaseline where
       (obj .:? "OperatingSystem") <*>
       (obj .:? "PatchGroups") <*>
       (obj .:? "RejectedPatches") <*>
+      (obj .:? "RejectedPatchesAction") <*>
       (obj .:? "Sources")
   parseJSON _ = mempty
 
@@ -78,6 +81,7 @@ ssmPatchBaseline namearg =
   , _sSMPatchBaselineOperatingSystem = Nothing
   , _sSMPatchBaselinePatchGroups = Nothing
   , _sSMPatchBaselineRejectedPatches = Nothing
+  , _sSMPatchBaselineRejectedPatchesAction = Nothing
   , _sSMPatchBaselineSources = Nothing
   }
 
@@ -120,6 +124,10 @@ ssmpbPatchGroups = lens _sSMPatchBaselinePatchGroups (\s a -> s { _sSMPatchBasel
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html#cfn-ssm-patchbaseline-rejectedpatches
 ssmpbRejectedPatches :: Lens' SSMPatchBaseline (Maybe (ValList Text))
 ssmpbRejectedPatches = lens _sSMPatchBaselineRejectedPatches (\s a -> s { _sSMPatchBaselineRejectedPatches = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html#cfn-ssm-patchbaseline-rejectedpatchesaction
+ssmpbRejectedPatchesAction :: Lens' SSMPatchBaseline (Maybe (Val Text))
+ssmpbRejectedPatchesAction = lens _sSMPatchBaselineRejectedPatchesAction (\s a -> s { _sSMPatchBaselineRejectedPatchesAction = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html#cfn-ssm-patchbaseline-sources
 ssmpbSources :: Lens' SSMPatchBaseline (Maybe [SSMPatchBaselinePatchSource])

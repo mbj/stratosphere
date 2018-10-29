@@ -68,6 +68,13 @@ import Stratosphere.Resources.ApiGatewayStage as X
 import Stratosphere.Resources.ApiGatewayUsagePlan as X
 import Stratosphere.Resources.ApiGatewayUsagePlanKey as X
 import Stratosphere.Resources.ApiGatewayVpcLink as X
+import Stratosphere.Resources.AppStreamDirectoryConfig as X
+import Stratosphere.Resources.AppStreamFleet as X
+import Stratosphere.Resources.AppStreamImageBuilder as X
+import Stratosphere.Resources.AppStreamStack as X
+import Stratosphere.Resources.AppStreamStackFleetAssociation as X
+import Stratosphere.Resources.AppStreamStackUserAssociation as X
+import Stratosphere.Resources.AppStreamUser as X
 import Stratosphere.Resources.AppSyncApiKey as X
 import Stratosphere.Resources.AppSyncDataSource as X
 import Stratosphere.Resources.AppSyncGraphQLApi as X
@@ -202,6 +209,7 @@ import Stratosphere.Resources.ElasticLoadBalancingV2ListenerRule as X
 import Stratosphere.Resources.ElasticLoadBalancingV2LoadBalancer as X
 import Stratosphere.Resources.ElasticLoadBalancingV2TargetGroup as X
 import Stratosphere.Resources.ElasticsearchDomain as X
+import Stratosphere.Resources.EventsEventBusPolicy as X
 import Stratosphere.Resources.EventsRule as X
 import Stratosphere.Resources.GameLiftAlias as X
 import Stratosphere.Resources.GameLiftBuild as X
@@ -371,6 +379,15 @@ import Stratosphere.ResourceProperties.ApiGatewayStageMethodSetting as X
 import Stratosphere.ResourceProperties.ApiGatewayUsagePlanApiStage as X
 import Stratosphere.ResourceProperties.ApiGatewayUsagePlanQuotaSettings as X
 import Stratosphere.ResourceProperties.ApiGatewayUsagePlanThrottleSettings as X
+import Stratosphere.ResourceProperties.AppStreamDirectoryConfigServiceAccountCredentials as X
+import Stratosphere.ResourceProperties.AppStreamFleetComputeCapacity as X
+import Stratosphere.ResourceProperties.AppStreamFleetDomainJoinInfo as X
+import Stratosphere.ResourceProperties.AppStreamFleetVpcConfig as X
+import Stratosphere.ResourceProperties.AppStreamImageBuilderDomainJoinInfo as X
+import Stratosphere.ResourceProperties.AppStreamImageBuilderVpcConfig as X
+import Stratosphere.ResourceProperties.AppStreamStackApplicationSettings as X
+import Stratosphere.ResourceProperties.AppStreamStackStorageConnector as X
+import Stratosphere.ResourceProperties.AppStreamStackUserSetting as X
 import Stratosphere.ResourceProperties.AppSyncDataSourceDynamoDBConfig as X
 import Stratosphere.ResourceProperties.AppSyncDataSourceElasticsearchConfig as X
 import Stratosphere.ResourceProperties.AppSyncDataSourceHttpConfig as X
@@ -697,6 +714,7 @@ import Stratosphere.ResourceProperties.ElasticsearchDomainElasticsearchClusterCo
 import Stratosphere.ResourceProperties.ElasticsearchDomainEncryptionAtRestOptions as X
 import Stratosphere.ResourceProperties.ElasticsearchDomainSnapshotOptions as X
 import Stratosphere.ResourceProperties.ElasticsearchDomainVPCOptions as X
+import Stratosphere.ResourceProperties.EventsEventBusPolicyCondition as X
 import Stratosphere.ResourceProperties.EventsRuleEcsParameters as X
 import Stratosphere.ResourceProperties.EventsRuleInputTransformer as X
 import Stratosphere.ResourceProperties.EventsRuleKinesisParameters as X
@@ -987,6 +1005,13 @@ data ResourceProperties
   | ApiGatewayUsagePlanProperties ApiGatewayUsagePlan
   | ApiGatewayUsagePlanKeyProperties ApiGatewayUsagePlanKey
   | ApiGatewayVpcLinkProperties ApiGatewayVpcLink
+  | AppStreamDirectoryConfigProperties AppStreamDirectoryConfig
+  | AppStreamFleetProperties AppStreamFleet
+  | AppStreamImageBuilderProperties AppStreamImageBuilder
+  | AppStreamStackProperties AppStreamStack
+  | AppStreamStackFleetAssociationProperties AppStreamStackFleetAssociation
+  | AppStreamStackUserAssociationProperties AppStreamStackUserAssociation
+  | AppStreamUserProperties AppStreamUser
   | AppSyncApiKeyProperties AppSyncApiKey
   | AppSyncDataSourceProperties AppSyncDataSource
   | AppSyncGraphQLApiProperties AppSyncGraphQLApi
@@ -1121,6 +1146,7 @@ data ResourceProperties
   | ElasticLoadBalancingV2LoadBalancerProperties ElasticLoadBalancingV2LoadBalancer
   | ElasticLoadBalancingV2TargetGroupProperties ElasticLoadBalancingV2TargetGroup
   | ElasticsearchDomainProperties ElasticsearchDomain
+  | EventsEventBusPolicyProperties EventsEventBusPolicy
   | EventsRuleProperties EventsRule
   | GameLiftAliasProperties GameLiftAlias
   | GameLiftBuildProperties GameLiftBuild
@@ -1364,6 +1390,20 @@ resourcePropertiesJSON (ApiGatewayUsagePlanKeyProperties x) =
   [ "Type" .= ("AWS::ApiGateway::UsagePlanKey" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ApiGatewayVpcLinkProperties x) =
   [ "Type" .= ("AWS::ApiGateway::VpcLink" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (AppStreamDirectoryConfigProperties x) =
+  [ "Type" .= ("AWS::AppStream::DirectoryConfig" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (AppStreamFleetProperties x) =
+  [ "Type" .= ("AWS::AppStream::Fleet" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (AppStreamImageBuilderProperties x) =
+  [ "Type" .= ("AWS::AppStream::ImageBuilder" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (AppStreamStackProperties x) =
+  [ "Type" .= ("AWS::AppStream::Stack" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (AppStreamStackFleetAssociationProperties x) =
+  [ "Type" .= ("AWS::AppStream::StackFleetAssociation" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (AppStreamStackUserAssociationProperties x) =
+  [ "Type" .= ("AWS::AppStream::StackUserAssociation" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (AppStreamUserProperties x) =
+  [ "Type" .= ("AWS::AppStream::User" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (AppSyncApiKeyProperties x) =
   [ "Type" .= ("AWS::AppSync::ApiKey" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (AppSyncDataSourceProperties x) =
@@ -1632,6 +1672,8 @@ resourcePropertiesJSON (ElasticLoadBalancingV2TargetGroupProperties x) =
   [ "Type" .= ("AWS::ElasticLoadBalancingV2::TargetGroup" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ElasticsearchDomainProperties x) =
   [ "Type" .= ("AWS::Elasticsearch::Domain" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (EventsEventBusPolicyProperties x) =
+  [ "Type" .= ("AWS::Events::EventBusPolicy" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (EventsRuleProperties x) =
   [ "Type" .= ("AWS::Events::Rule" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (GameLiftAliasProperties x) =
@@ -1951,6 +1993,13 @@ resourceFromJSON n o =
          "AWS::ApiGateway::UsagePlan" -> ApiGatewayUsagePlanProperties <$> (o .: "Properties")
          "AWS::ApiGateway::UsagePlanKey" -> ApiGatewayUsagePlanKeyProperties <$> (o .: "Properties")
          "AWS::ApiGateway::VpcLink" -> ApiGatewayVpcLinkProperties <$> (o .: "Properties")
+         "AWS::AppStream::DirectoryConfig" -> AppStreamDirectoryConfigProperties <$> (o .: "Properties")
+         "AWS::AppStream::Fleet" -> AppStreamFleetProperties <$> (o .: "Properties")
+         "AWS::AppStream::ImageBuilder" -> AppStreamImageBuilderProperties <$> (o .: "Properties")
+         "AWS::AppStream::Stack" -> AppStreamStackProperties <$> (o .: "Properties")
+         "AWS::AppStream::StackFleetAssociation" -> AppStreamStackFleetAssociationProperties <$> (o .: "Properties")
+         "AWS::AppStream::StackUserAssociation" -> AppStreamStackUserAssociationProperties <$> (o .: "Properties")
+         "AWS::AppStream::User" -> AppStreamUserProperties <$> (o .: "Properties")
          "AWS::AppSync::ApiKey" -> AppSyncApiKeyProperties <$> (o .: "Properties")
          "AWS::AppSync::DataSource" -> AppSyncDataSourceProperties <$> (o .: "Properties")
          "AWS::AppSync::GraphQLApi" -> AppSyncGraphQLApiProperties <$> (o .: "Properties")
@@ -2085,6 +2134,7 @@ resourceFromJSON n o =
          "AWS::ElasticLoadBalancingV2::LoadBalancer" -> ElasticLoadBalancingV2LoadBalancerProperties <$> (o .: "Properties")
          "AWS::ElasticLoadBalancingV2::TargetGroup" -> ElasticLoadBalancingV2TargetGroupProperties <$> (o .: "Properties")
          "AWS::Elasticsearch::Domain" -> ElasticsearchDomainProperties <$> (o .: "Properties")
+         "AWS::Events::EventBusPolicy" -> EventsEventBusPolicyProperties <$> (o .: "Properties")
          "AWS::Events::Rule" -> EventsRuleProperties <$> (o .: "Properties")
          "AWS::GameLift::Alias" -> GameLiftAliasProperties <$> (o .: "Properties")
          "AWS::GameLift::Build" -> GameLiftBuildProperties <$> (o .: "Properties")

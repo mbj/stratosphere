@@ -14,6 +14,7 @@ import Stratosphere.ResourceImports
 data GuardDutyDetector =
   GuardDutyDetector
   { _guardDutyDetectorEnable :: Val Bool
+  , _guardDutyDetectorFindingPublishingFrequency :: Maybe (Val Text)
   } deriving (Show, Eq)
 
 instance ToJSON GuardDutyDetector where
@@ -21,12 +22,14 @@ instance ToJSON GuardDutyDetector where
     object $
     catMaybes
     [ (Just . ("Enable",) . toJSON . fmap Bool') _guardDutyDetectorEnable
+    , fmap (("FindingPublishingFrequency",) . toJSON) _guardDutyDetectorFindingPublishingFrequency
     ]
 
 instance FromJSON GuardDutyDetector where
   parseJSON (Object obj) =
     GuardDutyDetector <$>
-      fmap (fmap unBool') (obj .: "Enable")
+      fmap (fmap unBool') (obj .: "Enable") <*>
+      (obj .:? "FindingPublishingFrequency")
   parseJSON _ = mempty
 
 -- | Constructor for 'GuardDutyDetector' containing required fields as
@@ -37,8 +40,13 @@ guardDutyDetector
 guardDutyDetector enablearg =
   GuardDutyDetector
   { _guardDutyDetectorEnable = enablearg
+  , _guardDutyDetectorFindingPublishingFrequency = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-enable
 gddEnable :: Lens' GuardDutyDetector (Val Bool)
 gddEnable = lens _guardDutyDetectorEnable (\s a -> s { _guardDutyDetectorEnable = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-findingpublishingfrequency
+gddFindingPublishingFrequency :: Lens' GuardDutyDetector (Maybe (Val Text))
+gddFindingPublishingFrequency = lens _guardDutyDetectorFindingPublishingFrequency (\s a -> s { _guardDutyDetectorFindingPublishingFrequency = a })
