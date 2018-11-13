@@ -22,6 +22,7 @@ data SageMakerNotebookInstance =
   , _sageMakerNotebookInstanceSecurityGroupIds :: Maybe (ValList Text)
   , _sageMakerNotebookInstanceSubnetId :: Maybe (Val Text)
   , _sageMakerNotebookInstanceTags :: Maybe [Tag]
+  , _sageMakerNotebookInstanceVolumeSizeInGB :: Maybe (Val Integer)
   } deriving (Show, Eq)
 
 instance ToJSON SageMakerNotebookInstance where
@@ -37,6 +38,7 @@ instance ToJSON SageMakerNotebookInstance where
     , fmap (("SecurityGroupIds",) . toJSON) _sageMakerNotebookInstanceSecurityGroupIds
     , fmap (("SubnetId",) . toJSON) _sageMakerNotebookInstanceSubnetId
     , fmap (("Tags",) . toJSON) _sageMakerNotebookInstanceTags
+    , fmap (("VolumeSizeInGB",) . toJSON . fmap Integer') _sageMakerNotebookInstanceVolumeSizeInGB
     ]
 
 instance FromJSON SageMakerNotebookInstance where
@@ -50,7 +52,8 @@ instance FromJSON SageMakerNotebookInstance where
       (obj .: "RoleArn") <*>
       (obj .:? "SecurityGroupIds") <*>
       (obj .:? "SubnetId") <*>
-      (obj .:? "Tags")
+      (obj .:? "Tags") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "VolumeSizeInGB")
   parseJSON _ = mempty
 
 -- | Constructor for 'SageMakerNotebookInstance' containing required fields as
@@ -70,6 +73,7 @@ sageMakerNotebookInstance instanceTypearg roleArnarg =
   , _sageMakerNotebookInstanceSecurityGroupIds = Nothing
   , _sageMakerNotebookInstanceSubnetId = Nothing
   , _sageMakerNotebookInstanceTags = Nothing
+  , _sageMakerNotebookInstanceVolumeSizeInGB = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstance.html#cfn-sagemaker-notebookinstance-directinternetaccess
@@ -107,3 +111,7 @@ smniSubnetId = lens _sageMakerNotebookInstanceSubnetId (\s a -> s { _sageMakerNo
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstance.html#cfn-sagemaker-notebookinstance-tags
 smniTags :: Lens' SageMakerNotebookInstance (Maybe [Tag])
 smniTags = lens _sageMakerNotebookInstanceTags (\s a -> s { _sageMakerNotebookInstanceTags = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstance.html#cfn-sagemaker-notebookinstance-volumesizeingb
+smniVolumeSizeInGB :: Lens' SageMakerNotebookInstance (Maybe (Val Integer))
+smniVolumeSizeInGB = lens _sageMakerNotebookInstanceVolumeSizeInGB (\s a -> s { _sageMakerNotebookInstanceVolumeSizeInGB = a })

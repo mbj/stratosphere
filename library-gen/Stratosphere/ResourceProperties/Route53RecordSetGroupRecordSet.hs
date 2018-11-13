@@ -21,6 +21,7 @@ data Route53RecordSetGroupRecordSet =
   , _route53RecordSetGroupRecordSetHealthCheckId :: Maybe (Val Text)
   , _route53RecordSetGroupRecordSetHostedZoneId :: Maybe (Val Text)
   , _route53RecordSetGroupRecordSetHostedZoneName :: Maybe (Val Text)
+  , _route53RecordSetGroupRecordSetMultiValueAnswer :: Maybe (Val Bool)
   , _route53RecordSetGroupRecordSetName :: Val Text
   , _route53RecordSetGroupRecordSetRegion :: Maybe (Val Text)
   , _route53RecordSetGroupRecordSetResourceRecords :: Maybe (ValList Text)
@@ -41,6 +42,7 @@ instance ToJSON Route53RecordSetGroupRecordSet where
     , fmap (("HealthCheckId",) . toJSON) _route53RecordSetGroupRecordSetHealthCheckId
     , fmap (("HostedZoneId",) . toJSON) _route53RecordSetGroupRecordSetHostedZoneId
     , fmap (("HostedZoneName",) . toJSON) _route53RecordSetGroupRecordSetHostedZoneName
+    , fmap (("MultiValueAnswer",) . toJSON . fmap Bool') _route53RecordSetGroupRecordSetMultiValueAnswer
     , (Just . ("Name",) . toJSON) _route53RecordSetGroupRecordSetName
     , fmap (("Region",) . toJSON) _route53RecordSetGroupRecordSetRegion
     , fmap (("ResourceRecords",) . toJSON) _route53RecordSetGroupRecordSetResourceRecords
@@ -60,6 +62,7 @@ instance FromJSON Route53RecordSetGroupRecordSet where
       (obj .:? "HealthCheckId") <*>
       (obj .:? "HostedZoneId") <*>
       (obj .:? "HostedZoneName") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "MultiValueAnswer") <*>
       (obj .: "Name") <*>
       (obj .:? "Region") <*>
       (obj .:? "ResourceRecords") <*>
@@ -84,6 +87,7 @@ route53RecordSetGroupRecordSet namearg typearg =
   , _route53RecordSetGroupRecordSetHealthCheckId = Nothing
   , _route53RecordSetGroupRecordSetHostedZoneId = Nothing
   , _route53RecordSetGroupRecordSetHostedZoneName = Nothing
+  , _route53RecordSetGroupRecordSetMultiValueAnswer = Nothing
   , _route53RecordSetGroupRecordSetName = namearg
   , _route53RecordSetGroupRecordSetRegion = Nothing
   , _route53RecordSetGroupRecordSetResourceRecords = Nothing
@@ -120,6 +124,10 @@ rrsgrsHostedZoneId = lens _route53RecordSetGroupRecordSetHostedZoneId (\s a -> s
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset.html#cfn-route53-recordset-hostedzonename
 rrsgrsHostedZoneName :: Lens' Route53RecordSetGroupRecordSet (Maybe (Val Text))
 rrsgrsHostedZoneName = lens _route53RecordSetGroupRecordSetHostedZoneName (\s a -> s { _route53RecordSetGroupRecordSetHostedZoneName = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset.html#cfn-route53-recordset-multivalueanswer
+rrsgrsMultiValueAnswer :: Lens' Route53RecordSetGroupRecordSet (Maybe (Val Bool))
+rrsgrsMultiValueAnswer = lens _route53RecordSetGroupRecordSetMultiValueAnswer (\s a -> s { _route53RecordSetGroupRecordSetMultiValueAnswer = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset.html#cfn-route53-recordset-name
 rrsgrsName :: Lens' Route53RecordSetGroupRecordSet (Val Text)

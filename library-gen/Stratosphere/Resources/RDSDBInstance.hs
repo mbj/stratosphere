@@ -7,6 +7,7 @@
 module Stratosphere.Resources.RDSDBInstance where
 
 import Stratosphere.ResourceImports
+import Stratosphere.ResourceProperties.RDSDBInstanceProcessorFeature
 import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for RDSDBInstance. See 'rdsdbInstance' for a
@@ -30,6 +31,9 @@ data RDSDBInstance =
   , _rDSDBInstanceDBSubnetGroupName :: Maybe (Val Text)
   , _rDSDBInstanceDomain :: Maybe (Val Text)
   , _rDSDBInstanceDomainIAMRoleName :: Maybe (Val Text)
+  , _rDSDBInstanceEnableCloudwatchLogsExports :: Maybe (ValList Text)
+  , _rDSDBInstanceEnableIAMDatabaseAuthentication :: Maybe (Val Bool)
+  , _rDSDBInstanceEnablePerformanceInsights :: Maybe (Val Bool)
   , _rDSDBInstanceEngine :: Maybe (Val Text)
   , _rDSDBInstanceEngineVersion :: Maybe (Val Text)
   , _rDSDBInstanceIops :: Maybe (Val Integer)
@@ -41,9 +45,13 @@ data RDSDBInstance =
   , _rDSDBInstanceMonitoringRoleArn :: Maybe (Val Text)
   , _rDSDBInstanceMultiAZ :: Maybe (Val Bool)
   , _rDSDBInstanceOptionGroupName :: Maybe (Val Text)
+  , _rDSDBInstancePerformanceInsightsKMSKeyId :: Maybe (Val Text)
+  , _rDSDBInstancePerformanceInsightsRetentionPeriod :: Maybe (Val Integer)
   , _rDSDBInstancePort :: Maybe (Val Text)
   , _rDSDBInstancePreferredBackupWindow :: Maybe (Val Text)
   , _rDSDBInstancePreferredMaintenanceWindow :: Maybe (Val Text)
+  , _rDSDBInstanceProcessorFeatures :: Maybe [RDSDBInstanceProcessorFeature]
+  , _rDSDBInstancePromotionTier :: Maybe (Val Integer)
   , _rDSDBInstancePubliclyAccessible :: Maybe (Val Bool)
   , _rDSDBInstanceSourceDBInstanceIdentifier :: Maybe (Val Text)
   , _rDSDBInstanceSourceRegion :: Maybe (Val Text)
@@ -75,6 +83,9 @@ instance ToJSON RDSDBInstance where
     , fmap (("DBSubnetGroupName",) . toJSON) _rDSDBInstanceDBSubnetGroupName
     , fmap (("Domain",) . toJSON) _rDSDBInstanceDomain
     , fmap (("DomainIAMRoleName",) . toJSON) _rDSDBInstanceDomainIAMRoleName
+    , fmap (("EnableCloudwatchLogsExports",) . toJSON) _rDSDBInstanceEnableCloudwatchLogsExports
+    , fmap (("EnableIAMDatabaseAuthentication",) . toJSON . fmap Bool') _rDSDBInstanceEnableIAMDatabaseAuthentication
+    , fmap (("EnablePerformanceInsights",) . toJSON . fmap Bool') _rDSDBInstanceEnablePerformanceInsights
     , fmap (("Engine",) . toJSON) _rDSDBInstanceEngine
     , fmap (("EngineVersion",) . toJSON) _rDSDBInstanceEngineVersion
     , fmap (("Iops",) . toJSON . fmap Integer') _rDSDBInstanceIops
@@ -86,9 +97,13 @@ instance ToJSON RDSDBInstance where
     , fmap (("MonitoringRoleArn",) . toJSON) _rDSDBInstanceMonitoringRoleArn
     , fmap (("MultiAZ",) . toJSON . fmap Bool') _rDSDBInstanceMultiAZ
     , fmap (("OptionGroupName",) . toJSON) _rDSDBInstanceOptionGroupName
+    , fmap (("PerformanceInsightsKMSKeyId",) . toJSON) _rDSDBInstancePerformanceInsightsKMSKeyId
+    , fmap (("PerformanceInsightsRetentionPeriod",) . toJSON . fmap Integer') _rDSDBInstancePerformanceInsightsRetentionPeriod
     , fmap (("Port",) . toJSON) _rDSDBInstancePort
     , fmap (("PreferredBackupWindow",) . toJSON) _rDSDBInstancePreferredBackupWindow
     , fmap (("PreferredMaintenanceWindow",) . toJSON) _rDSDBInstancePreferredMaintenanceWindow
+    , fmap (("ProcessorFeatures",) . toJSON) _rDSDBInstanceProcessorFeatures
+    , fmap (("PromotionTier",) . toJSON . fmap Integer') _rDSDBInstancePromotionTier
     , fmap (("PubliclyAccessible",) . toJSON . fmap Bool') _rDSDBInstancePubliclyAccessible
     , fmap (("SourceDBInstanceIdentifier",) . toJSON) _rDSDBInstanceSourceDBInstanceIdentifier
     , fmap (("SourceRegion",) . toJSON) _rDSDBInstanceSourceRegion
@@ -119,6 +134,9 @@ instance FromJSON RDSDBInstance where
       (obj .:? "DBSubnetGroupName") <*>
       (obj .:? "Domain") <*>
       (obj .:? "DomainIAMRoleName") <*>
+      (obj .:? "EnableCloudwatchLogsExports") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "EnableIAMDatabaseAuthentication") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "EnablePerformanceInsights") <*>
       (obj .:? "Engine") <*>
       (obj .:? "EngineVersion") <*>
       fmap (fmap (fmap unInteger')) (obj .:? "Iops") <*>
@@ -130,9 +148,13 @@ instance FromJSON RDSDBInstance where
       (obj .:? "MonitoringRoleArn") <*>
       fmap (fmap (fmap unBool')) (obj .:? "MultiAZ") <*>
       (obj .:? "OptionGroupName") <*>
+      (obj .:? "PerformanceInsightsKMSKeyId") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "PerformanceInsightsRetentionPeriod") <*>
       (obj .:? "Port") <*>
       (obj .:? "PreferredBackupWindow") <*>
       (obj .:? "PreferredMaintenanceWindow") <*>
+      (obj .:? "ProcessorFeatures") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "PromotionTier") <*>
       fmap (fmap (fmap unBool')) (obj .:? "PubliclyAccessible") <*>
       (obj .:? "SourceDBInstanceIdentifier") <*>
       (obj .:? "SourceRegion") <*>
@@ -166,6 +188,9 @@ rdsdbInstance dBInstanceClassarg =
   , _rDSDBInstanceDBSubnetGroupName = Nothing
   , _rDSDBInstanceDomain = Nothing
   , _rDSDBInstanceDomainIAMRoleName = Nothing
+  , _rDSDBInstanceEnableCloudwatchLogsExports = Nothing
+  , _rDSDBInstanceEnableIAMDatabaseAuthentication = Nothing
+  , _rDSDBInstanceEnablePerformanceInsights = Nothing
   , _rDSDBInstanceEngine = Nothing
   , _rDSDBInstanceEngineVersion = Nothing
   , _rDSDBInstanceIops = Nothing
@@ -177,9 +202,13 @@ rdsdbInstance dBInstanceClassarg =
   , _rDSDBInstanceMonitoringRoleArn = Nothing
   , _rDSDBInstanceMultiAZ = Nothing
   , _rDSDBInstanceOptionGroupName = Nothing
+  , _rDSDBInstancePerformanceInsightsKMSKeyId = Nothing
+  , _rDSDBInstancePerformanceInsightsRetentionPeriod = Nothing
   , _rDSDBInstancePort = Nothing
   , _rDSDBInstancePreferredBackupWindow = Nothing
   , _rDSDBInstancePreferredMaintenanceWindow = Nothing
+  , _rDSDBInstanceProcessorFeatures = Nothing
+  , _rDSDBInstancePromotionTier = Nothing
   , _rDSDBInstancePubliclyAccessible = Nothing
   , _rDSDBInstanceSourceDBInstanceIdentifier = Nothing
   , _rDSDBInstanceSourceRegion = Nothing
@@ -258,6 +287,18 @@ rdsdbiDomain = lens _rDSDBInstanceDomain (\s a -> s { _rDSDBInstanceDomain = a }
 rdsdbiDomainIAMRoleName :: Lens' RDSDBInstance (Maybe (Val Text))
 rdsdbiDomainIAMRoleName = lens _rDSDBInstanceDomainIAMRoleName (\s a -> s { _rDSDBInstanceDomainIAMRoleName = a })
 
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-enablecloudwatchlogsexports
+rdsdbiEnableCloudwatchLogsExports :: Lens' RDSDBInstance (Maybe (ValList Text))
+rdsdbiEnableCloudwatchLogsExports = lens _rDSDBInstanceEnableCloudwatchLogsExports (\s a -> s { _rDSDBInstanceEnableCloudwatchLogsExports = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-enableiamdatabaseauthentication
+rdsdbiEnableIAMDatabaseAuthentication :: Lens' RDSDBInstance (Maybe (Val Bool))
+rdsdbiEnableIAMDatabaseAuthentication = lens _rDSDBInstanceEnableIAMDatabaseAuthentication (\s a -> s { _rDSDBInstanceEnableIAMDatabaseAuthentication = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-enableperformanceinsights
+rdsdbiEnablePerformanceInsights :: Lens' RDSDBInstance (Maybe (Val Bool))
+rdsdbiEnablePerformanceInsights = lens _rDSDBInstanceEnablePerformanceInsights (\s a -> s { _rDSDBInstanceEnablePerformanceInsights = a })
+
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-engine
 rdsdbiEngine :: Lens' RDSDBInstance (Maybe (Val Text))
 rdsdbiEngine = lens _rDSDBInstanceEngine (\s a -> s { _rDSDBInstanceEngine = a })
@@ -302,6 +343,14 @@ rdsdbiMultiAZ = lens _rDSDBInstanceMultiAZ (\s a -> s { _rDSDBInstanceMultiAZ = 
 rdsdbiOptionGroupName :: Lens' RDSDBInstance (Maybe (Val Text))
 rdsdbiOptionGroupName = lens _rDSDBInstanceOptionGroupName (\s a -> s { _rDSDBInstanceOptionGroupName = a })
 
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-performanceinsightskmskeyid
+rdsdbiPerformanceInsightsKMSKeyId :: Lens' RDSDBInstance (Maybe (Val Text))
+rdsdbiPerformanceInsightsKMSKeyId = lens _rDSDBInstancePerformanceInsightsKMSKeyId (\s a -> s { _rDSDBInstancePerformanceInsightsKMSKeyId = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-performanceinsightsretentionperiod
+rdsdbiPerformanceInsightsRetentionPeriod :: Lens' RDSDBInstance (Maybe (Val Integer))
+rdsdbiPerformanceInsightsRetentionPeriod = lens _rDSDBInstancePerformanceInsightsRetentionPeriod (\s a -> s { _rDSDBInstancePerformanceInsightsRetentionPeriod = a })
+
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-port
 rdsdbiPort :: Lens' RDSDBInstance (Maybe (Val Text))
 rdsdbiPort = lens _rDSDBInstancePort (\s a -> s { _rDSDBInstancePort = a })
@@ -313,6 +362,14 @@ rdsdbiPreferredBackupWindow = lens _rDSDBInstancePreferredBackupWindow (\s a -> 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-preferredmaintenancewindow
 rdsdbiPreferredMaintenanceWindow :: Lens' RDSDBInstance (Maybe (Val Text))
 rdsdbiPreferredMaintenanceWindow = lens _rDSDBInstancePreferredMaintenanceWindow (\s a -> s { _rDSDBInstancePreferredMaintenanceWindow = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-processorfeatures
+rdsdbiProcessorFeatures :: Lens' RDSDBInstance (Maybe [RDSDBInstanceProcessorFeature])
+rdsdbiProcessorFeatures = lens _rDSDBInstanceProcessorFeatures (\s a -> s { _rDSDBInstanceProcessorFeatures = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-promotiontier
+rdsdbiPromotionTier :: Lens' RDSDBInstance (Maybe (Val Integer))
+rdsdbiPromotionTier = lens _rDSDBInstancePromotionTier (\s a -> s { _rDSDBInstancePromotionTier = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-publiclyaccessible
 rdsdbiPubliclyAccessible :: Lens' RDSDBInstance (Maybe (Val Bool))

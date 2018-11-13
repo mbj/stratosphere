@@ -14,8 +14,8 @@ import Stratosphere.ResourceImports
 data CloudFormationWaitCondition =
   CloudFormationWaitCondition
   { _cloudFormationWaitConditionCount :: Maybe (Val Integer)
-  , _cloudFormationWaitConditionHandle :: Val Text
-  , _cloudFormationWaitConditionTimeout :: Val Text
+  , _cloudFormationWaitConditionHandle :: Maybe (Val Text)
+  , _cloudFormationWaitConditionTimeout :: Maybe (Val Text)
   } deriving (Show, Eq)
 
 instance ToJSON CloudFormationWaitCondition where
@@ -23,29 +23,27 @@ instance ToJSON CloudFormationWaitCondition where
     object $
     catMaybes
     [ fmap (("Count",) . toJSON . fmap Integer') _cloudFormationWaitConditionCount
-    , (Just . ("Handle",) . toJSON) _cloudFormationWaitConditionHandle
-    , (Just . ("Timeout",) . toJSON) _cloudFormationWaitConditionTimeout
+    , fmap (("Handle",) . toJSON) _cloudFormationWaitConditionHandle
+    , fmap (("Timeout",) . toJSON) _cloudFormationWaitConditionTimeout
     ]
 
 instance FromJSON CloudFormationWaitCondition where
   parseJSON (Object obj) =
     CloudFormationWaitCondition <$>
       fmap (fmap (fmap unInteger')) (obj .:? "Count") <*>
-      (obj .: "Handle") <*>
-      (obj .: "Timeout")
+      (obj .:? "Handle") <*>
+      (obj .:? "Timeout")
   parseJSON _ = mempty
 
 -- | Constructor for 'CloudFormationWaitCondition' containing required fields
 -- as arguments.
 cloudFormationWaitCondition
-  :: Val Text -- ^ 'cfwcHandle'
-  -> Val Text -- ^ 'cfwcTimeout'
-  -> CloudFormationWaitCondition
-cloudFormationWaitCondition handlearg timeoutarg =
+  :: CloudFormationWaitCondition
+cloudFormationWaitCondition  =
   CloudFormationWaitCondition
   { _cloudFormationWaitConditionCount = Nothing
-  , _cloudFormationWaitConditionHandle = handlearg
-  , _cloudFormationWaitConditionTimeout = timeoutarg
+  , _cloudFormationWaitConditionHandle = Nothing
+  , _cloudFormationWaitConditionTimeout = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waitcondition.html#cfn-waitcondition-count
@@ -53,9 +51,9 @@ cfwcCount :: Lens' CloudFormationWaitCondition (Maybe (Val Integer))
 cfwcCount = lens _cloudFormationWaitConditionCount (\s a -> s { _cloudFormationWaitConditionCount = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waitcondition.html#cfn-waitcondition-handle
-cfwcHandle :: Lens' CloudFormationWaitCondition (Val Text)
+cfwcHandle :: Lens' CloudFormationWaitCondition (Maybe (Val Text))
 cfwcHandle = lens _cloudFormationWaitConditionHandle (\s a -> s { _cloudFormationWaitConditionHandle = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waitcondition.html#cfn-waitcondition-timeout
-cfwcTimeout :: Lens' CloudFormationWaitCondition (Val Text)
+cfwcTimeout :: Lens' CloudFormationWaitCondition (Maybe (Val Text))
 cfwcTimeout = lens _cloudFormationWaitConditionTimeout (\s a -> s { _cloudFormationWaitConditionTimeout = a })

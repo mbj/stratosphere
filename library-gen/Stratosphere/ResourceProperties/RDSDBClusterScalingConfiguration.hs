@@ -16,7 +16,7 @@ data RDSDBClusterScalingConfiguration =
   { _rDSDBClusterScalingConfigurationAutoPause :: Maybe (Val Bool)
   , _rDSDBClusterScalingConfigurationMaxCapacity :: Maybe (Val Integer)
   , _rDSDBClusterScalingConfigurationMinCapacity :: Maybe (Val Integer)
-  , _rDSDBClusterScalingConfigurationSecondsBeforeAutoPause :: Maybe (Val Integer)
+  , _rDSDBClusterScalingConfigurationSecondsUntilAutoPause :: Maybe (Val Integer)
   } deriving (Show, Eq)
 
 instance ToJSON RDSDBClusterScalingConfiguration where
@@ -26,7 +26,7 @@ instance ToJSON RDSDBClusterScalingConfiguration where
     [ fmap (("AutoPause",) . toJSON . fmap Bool') _rDSDBClusterScalingConfigurationAutoPause
     , fmap (("MaxCapacity",) . toJSON . fmap Integer') _rDSDBClusterScalingConfigurationMaxCapacity
     , fmap (("MinCapacity",) . toJSON . fmap Integer') _rDSDBClusterScalingConfigurationMinCapacity
-    , fmap (("SecondsBeforeAutoPause",) . toJSON . fmap Integer') _rDSDBClusterScalingConfigurationSecondsBeforeAutoPause
+    , fmap (("SecondsUntilAutoPause",) . toJSON . fmap Integer') _rDSDBClusterScalingConfigurationSecondsUntilAutoPause
     ]
 
 instance FromJSON RDSDBClusterScalingConfiguration where
@@ -35,7 +35,7 @@ instance FromJSON RDSDBClusterScalingConfiguration where
       fmap (fmap (fmap unBool')) (obj .:? "AutoPause") <*>
       fmap (fmap (fmap unInteger')) (obj .:? "MaxCapacity") <*>
       fmap (fmap (fmap unInteger')) (obj .:? "MinCapacity") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "SecondsBeforeAutoPause")
+      fmap (fmap (fmap unInteger')) (obj .:? "SecondsUntilAutoPause")
   parseJSON _ = mempty
 
 -- | Constructor for 'RDSDBClusterScalingConfiguration' containing required
@@ -47,7 +47,7 @@ rdsdbClusterScalingConfiguration  =
   { _rDSDBClusterScalingConfigurationAutoPause = Nothing
   , _rDSDBClusterScalingConfigurationMaxCapacity = Nothing
   , _rDSDBClusterScalingConfigurationMinCapacity = Nothing
-  , _rDSDBClusterScalingConfigurationSecondsBeforeAutoPause = Nothing
+  , _rDSDBClusterScalingConfigurationSecondsUntilAutoPause = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-scalingconfiguration.html#cfn-rds-dbcluster-scalingconfiguration-autopause
@@ -62,6 +62,6 @@ rdsdbcscMaxCapacity = lens _rDSDBClusterScalingConfigurationMaxCapacity (\s a ->
 rdsdbcscMinCapacity :: Lens' RDSDBClusterScalingConfiguration (Maybe (Val Integer))
 rdsdbcscMinCapacity = lens _rDSDBClusterScalingConfigurationMinCapacity (\s a -> s { _rDSDBClusterScalingConfigurationMinCapacity = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-scalingconfiguration.html#cfn-rds-dbcluster-scalingconfiguration-secondsbeforeautopause
-rdsdbcscSecondsBeforeAutoPause :: Lens' RDSDBClusterScalingConfiguration (Maybe (Val Integer))
-rdsdbcscSecondsBeforeAutoPause = lens _rDSDBClusterScalingConfigurationSecondsBeforeAutoPause (\s a -> s { _rDSDBClusterScalingConfigurationSecondsBeforeAutoPause = a })
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-scalingconfiguration.html#cfn-rds-dbcluster-scalingconfiguration-secondsuntilautopause
+rdsdbcscSecondsUntilAutoPause :: Lens' RDSDBClusterScalingConfiguration (Maybe (Val Integer))
+rdsdbcscSecondsUntilAutoPause = lens _rDSDBClusterScalingConfigurationSecondsUntilAutoPause (\s a -> s { _rDSDBClusterScalingConfigurationSecondsUntilAutoPause = a })

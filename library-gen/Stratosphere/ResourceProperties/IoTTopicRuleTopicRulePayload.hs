@@ -16,6 +16,7 @@ data IoTTopicRuleTopicRulePayload =
   { _ioTTopicRuleTopicRulePayloadActions :: [IoTTopicRuleAction]
   , _ioTTopicRuleTopicRulePayloadAwsIotSqlVersion :: Maybe (Val Text)
   , _ioTTopicRuleTopicRulePayloadDescription :: Maybe (Val Text)
+  , _ioTTopicRuleTopicRulePayloadErrorAction :: Maybe IoTTopicRuleAction
   , _ioTTopicRuleTopicRulePayloadRuleDisabled :: Val Bool
   , _ioTTopicRuleTopicRulePayloadSql :: Val Text
   } deriving (Show, Eq)
@@ -27,6 +28,7 @@ instance ToJSON IoTTopicRuleTopicRulePayload where
     [ (Just . ("Actions",) . toJSON) _ioTTopicRuleTopicRulePayloadActions
     , fmap (("AwsIotSqlVersion",) . toJSON) _ioTTopicRuleTopicRulePayloadAwsIotSqlVersion
     , fmap (("Description",) . toJSON) _ioTTopicRuleTopicRulePayloadDescription
+    , fmap (("ErrorAction",) . toJSON) _ioTTopicRuleTopicRulePayloadErrorAction
     , (Just . ("RuleDisabled",) . toJSON . fmap Bool') _ioTTopicRuleTopicRulePayloadRuleDisabled
     , (Just . ("Sql",) . toJSON) _ioTTopicRuleTopicRulePayloadSql
     ]
@@ -37,6 +39,7 @@ instance FromJSON IoTTopicRuleTopicRulePayload where
       (obj .: "Actions") <*>
       (obj .:? "AwsIotSqlVersion") <*>
       (obj .:? "Description") <*>
+      (obj .:? "ErrorAction") <*>
       fmap (fmap unBool') (obj .: "RuleDisabled") <*>
       (obj .: "Sql")
   parseJSON _ = mempty
@@ -53,6 +56,7 @@ ioTTopicRuleTopicRulePayload actionsarg ruleDisabledarg sqlarg =
   { _ioTTopicRuleTopicRulePayloadActions = actionsarg
   , _ioTTopicRuleTopicRulePayloadAwsIotSqlVersion = Nothing
   , _ioTTopicRuleTopicRulePayloadDescription = Nothing
+  , _ioTTopicRuleTopicRulePayloadErrorAction = Nothing
   , _ioTTopicRuleTopicRulePayloadRuleDisabled = ruleDisabledarg
   , _ioTTopicRuleTopicRulePayloadSql = sqlarg
   }
@@ -68,6 +72,10 @@ ittrtrpAwsIotSqlVersion = lens _ioTTopicRuleTopicRulePayloadAwsIotSqlVersion (\s
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-description
 ittrtrpDescription :: Lens' IoTTopicRuleTopicRulePayload (Maybe (Val Text))
 ittrtrpDescription = lens _ioTTopicRuleTopicRulePayloadDescription (\s a -> s { _ioTTopicRuleTopicRulePayloadDescription = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-erroraction
+ittrtrpErrorAction :: Lens' IoTTopicRuleTopicRulePayload (Maybe IoTTopicRuleAction)
+ittrtrpErrorAction = lens _ioTTopicRuleTopicRulePayloadErrorAction (\s a -> s { _ioTTopicRuleTopicRulePayloadErrorAction = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-topicrulepayload.html#cfn-iot-topicrule-topicrulepayload-ruledisabled
 ittrtrpRuleDisabled :: Lens' IoTTopicRuleTopicRulePayload (Val Bool)

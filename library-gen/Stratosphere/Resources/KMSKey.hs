@@ -18,6 +18,7 @@ data KMSKey =
   , _kMSKeyEnabled :: Maybe (Val Bool)
   , _kMSKeyKeyPolicy :: Object
   , _kMSKeyKeyUsage :: Maybe (Val Text)
+  , _kMSKeyPendingWindowInDays :: Maybe (Val Integer)
   , _kMSKeyTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
@@ -30,6 +31,7 @@ instance ToJSON KMSKey where
     , fmap (("Enabled",) . toJSON . fmap Bool') _kMSKeyEnabled
     , (Just . ("KeyPolicy",) . toJSON) _kMSKeyKeyPolicy
     , fmap (("KeyUsage",) . toJSON) _kMSKeyKeyUsage
+    , fmap (("PendingWindowInDays",) . toJSON . fmap Integer') _kMSKeyPendingWindowInDays
     , fmap (("Tags",) . toJSON) _kMSKeyTags
     ]
 
@@ -41,6 +43,7 @@ instance FromJSON KMSKey where
       fmap (fmap (fmap unBool')) (obj .:? "Enabled") <*>
       (obj .: "KeyPolicy") <*>
       (obj .:? "KeyUsage") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "PendingWindowInDays") <*>
       (obj .:? "Tags")
   parseJSON _ = mempty
 
@@ -55,6 +58,7 @@ kmsKey keyPolicyarg =
   , _kMSKeyEnabled = Nothing
   , _kMSKeyKeyPolicy = keyPolicyarg
   , _kMSKeyKeyUsage = Nothing
+  , _kMSKeyPendingWindowInDays = Nothing
   , _kMSKeyTags = Nothing
   }
 
@@ -77,6 +81,10 @@ kmskKeyPolicy = lens _kMSKeyKeyPolicy (\s a -> s { _kMSKeyKeyPolicy = a })
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keyusage
 kmskKeyUsage :: Lens' KMSKey (Maybe (Val Text))
 kmskKeyUsage = lens _kMSKeyKeyUsage (\s a -> s { _kMSKeyKeyUsage = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-pendingwindowindays
+kmskPendingWindowInDays :: Lens' KMSKey (Maybe (Val Integer))
+kmskPendingWindowInDays = lens _kMSKeyPendingWindowInDays (\s a -> s { _kMSKeyPendingWindowInDays = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-tags
 kmskTags :: Lens' KMSKey (Maybe [Tag])
