@@ -18,6 +18,7 @@ data IAMUser =
   , _iAMUserLoginProfile :: Maybe IAMUserLoginProfile
   , _iAMUserManagedPolicyArns :: Maybe (ValList Text)
   , _iAMUserPath :: Maybe (Val Text)
+  , _iAMUserPermissionsBoundary :: Maybe (Val Text)
   , _iAMUserPolicies :: Maybe [IAMUserPolicy]
   , _iAMUserUserName :: Maybe (Val Text)
   } deriving (Show, Eq)
@@ -30,6 +31,7 @@ instance ToJSON IAMUser where
     , fmap (("LoginProfile",) . toJSON) _iAMUserLoginProfile
     , fmap (("ManagedPolicyArns",) . toJSON) _iAMUserManagedPolicyArns
     , fmap (("Path",) . toJSON) _iAMUserPath
+    , fmap (("PermissionsBoundary",) . toJSON) _iAMUserPermissionsBoundary
     , fmap (("Policies",) . toJSON) _iAMUserPolicies
     , fmap (("UserName",) . toJSON) _iAMUserUserName
     ]
@@ -41,6 +43,7 @@ instance FromJSON IAMUser where
       (obj .:? "LoginProfile") <*>
       (obj .:? "ManagedPolicyArns") <*>
       (obj .:? "Path") <*>
+      (obj .:? "PermissionsBoundary") <*>
       (obj .:? "Policies") <*>
       (obj .:? "UserName")
   parseJSON _ = mempty
@@ -54,6 +57,7 @@ iamUser  =
   , _iAMUserLoginProfile = Nothing
   , _iAMUserManagedPolicyArns = Nothing
   , _iAMUserPath = Nothing
+  , _iAMUserPermissionsBoundary = Nothing
   , _iAMUserPolicies = Nothing
   , _iAMUserUserName = Nothing
   }
@@ -73,6 +77,10 @@ iamuManagedPolicyArns = lens _iAMUserManagedPolicyArns (\s a -> s { _iAMUserMana
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html#cfn-iam-user-path
 iamuPath :: Lens' IAMUser (Maybe (Val Text))
 iamuPath = lens _iAMUserPath (\s a -> s { _iAMUserPath = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html#cfn-iam-user-permissionsboundary
+iamuPermissionsBoundary :: Lens' IAMUser (Maybe (Val Text))
+iamuPermissionsBoundary = lens _iAMUserPermissionsBoundary (\s a -> s { _iAMUserPermissionsBoundary = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html#cfn-iam-user-policies
 iamuPolicies :: Lens' IAMUser (Maybe [IAMUserPolicy])

@@ -13,7 +13,8 @@ import Stratosphere.ResourceImports
 -- 'opsWorksLayerVolumeConfiguration' for a more convenient constructor.
 data OpsWorksLayerVolumeConfiguration =
   OpsWorksLayerVolumeConfiguration
-  { _opsWorksLayerVolumeConfigurationIops :: Maybe (Val Integer)
+  { _opsWorksLayerVolumeConfigurationEncrypted :: Maybe (Val Bool)
+  , _opsWorksLayerVolumeConfigurationIops :: Maybe (Val Integer)
   , _opsWorksLayerVolumeConfigurationMountPoint :: Maybe (Val Text)
   , _opsWorksLayerVolumeConfigurationNumberOfDisks :: Maybe (Val Integer)
   , _opsWorksLayerVolumeConfigurationRaidLevel :: Maybe (Val Integer)
@@ -25,7 +26,8 @@ instance ToJSON OpsWorksLayerVolumeConfiguration where
   toJSON OpsWorksLayerVolumeConfiguration{..} =
     object $
     catMaybes
-    [ fmap (("Iops",) . toJSON . fmap Integer') _opsWorksLayerVolumeConfigurationIops
+    [ fmap (("Encrypted",) . toJSON . fmap Bool') _opsWorksLayerVolumeConfigurationEncrypted
+    , fmap (("Iops",) . toJSON . fmap Integer') _opsWorksLayerVolumeConfigurationIops
     , fmap (("MountPoint",) . toJSON) _opsWorksLayerVolumeConfigurationMountPoint
     , fmap (("NumberOfDisks",) . toJSON . fmap Integer') _opsWorksLayerVolumeConfigurationNumberOfDisks
     , fmap (("RaidLevel",) . toJSON . fmap Integer') _opsWorksLayerVolumeConfigurationRaidLevel
@@ -36,6 +38,7 @@ instance ToJSON OpsWorksLayerVolumeConfiguration where
 instance FromJSON OpsWorksLayerVolumeConfiguration where
   parseJSON (Object obj) =
     OpsWorksLayerVolumeConfiguration <$>
+      fmap (fmap (fmap unBool')) (obj .:? "Encrypted") <*>
       fmap (fmap (fmap unInteger')) (obj .:? "Iops") <*>
       (obj .:? "MountPoint") <*>
       fmap (fmap (fmap unInteger')) (obj .:? "NumberOfDisks") <*>
@@ -50,13 +53,18 @@ opsWorksLayerVolumeConfiguration
   :: OpsWorksLayerVolumeConfiguration
 opsWorksLayerVolumeConfiguration  =
   OpsWorksLayerVolumeConfiguration
-  { _opsWorksLayerVolumeConfigurationIops = Nothing
+  { _opsWorksLayerVolumeConfigurationEncrypted = Nothing
+  , _opsWorksLayerVolumeConfigurationIops = Nothing
   , _opsWorksLayerVolumeConfigurationMountPoint = Nothing
   , _opsWorksLayerVolumeConfigurationNumberOfDisks = Nothing
   , _opsWorksLayerVolumeConfigurationRaidLevel = Nothing
   , _opsWorksLayerVolumeConfigurationSize = Nothing
   , _opsWorksLayerVolumeConfigurationVolumeType = Nothing
   }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-volumeconfiguration.html#cfn-opsworks-layer-volumeconfiguration-encrypted
+owlvcEncrypted :: Lens' OpsWorksLayerVolumeConfiguration (Maybe (Val Bool))
+owlvcEncrypted = lens _opsWorksLayerVolumeConfigurationEncrypted (\s a -> s { _opsWorksLayerVolumeConfigurationEncrypted = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-volumeconfiguration.html#cfn-opsworks-layer-volconfig-iops
 owlvcIops :: Lens' OpsWorksLayerVolumeConfiguration (Maybe (Val Integer))

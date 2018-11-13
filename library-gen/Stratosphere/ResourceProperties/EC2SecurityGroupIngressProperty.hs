@@ -18,6 +18,7 @@ data EC2SecurityGroupIngressProperty =
   , _eC2SecurityGroupIngressPropertyDescription :: Maybe (Val Text)
   , _eC2SecurityGroupIngressPropertyFromPort :: Maybe (Val Integer)
   , _eC2SecurityGroupIngressPropertyIpProtocol :: Val Text
+  , _eC2SecurityGroupIngressPropertySourcePrefixListId :: Maybe (Val Text)
   , _eC2SecurityGroupIngressPropertySourceSecurityGroupId :: Maybe (Val Text)
   , _eC2SecurityGroupIngressPropertySourceSecurityGroupName :: Maybe (Val Text)
   , _eC2SecurityGroupIngressPropertySourceSecurityGroupOwnerId :: Maybe (Val Text)
@@ -33,6 +34,7 @@ instance ToJSON EC2SecurityGroupIngressProperty where
     , fmap (("Description",) . toJSON) _eC2SecurityGroupIngressPropertyDescription
     , fmap (("FromPort",) . toJSON . fmap Integer') _eC2SecurityGroupIngressPropertyFromPort
     , (Just . ("IpProtocol",) . toJSON) _eC2SecurityGroupIngressPropertyIpProtocol
+    , fmap (("SourcePrefixListId",) . toJSON) _eC2SecurityGroupIngressPropertySourcePrefixListId
     , fmap (("SourceSecurityGroupId",) . toJSON) _eC2SecurityGroupIngressPropertySourceSecurityGroupId
     , fmap (("SourceSecurityGroupName",) . toJSON) _eC2SecurityGroupIngressPropertySourceSecurityGroupName
     , fmap (("SourceSecurityGroupOwnerId",) . toJSON) _eC2SecurityGroupIngressPropertySourceSecurityGroupOwnerId
@@ -47,6 +49,7 @@ instance FromJSON EC2SecurityGroupIngressProperty where
       (obj .:? "Description") <*>
       fmap (fmap (fmap unInteger')) (obj .:? "FromPort") <*>
       (obj .: "IpProtocol") <*>
+      (obj .:? "SourcePrefixListId") <*>
       (obj .:? "SourceSecurityGroupId") <*>
       (obj .:? "SourceSecurityGroupName") <*>
       (obj .:? "SourceSecurityGroupOwnerId") <*>
@@ -65,6 +68,7 @@ ec2SecurityGroupIngressProperty ipProtocolarg =
   , _eC2SecurityGroupIngressPropertyDescription = Nothing
   , _eC2SecurityGroupIngressPropertyFromPort = Nothing
   , _eC2SecurityGroupIngressPropertyIpProtocol = ipProtocolarg
+  , _eC2SecurityGroupIngressPropertySourcePrefixListId = Nothing
   , _eC2SecurityGroupIngressPropertySourceSecurityGroupId = Nothing
   , _eC2SecurityGroupIngressPropertySourceSecurityGroupName = Nothing
   , _eC2SecurityGroupIngressPropertySourceSecurityGroupOwnerId = Nothing
@@ -90,6 +94,10 @@ ecsgipFromPort = lens _eC2SecurityGroupIngressPropertyFromPort (\s a -> s { _eC2
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html#cfn-ec2-security-group-rule-ipprotocol
 ecsgipIpProtocol :: Lens' EC2SecurityGroupIngressProperty (Val Text)
 ecsgipIpProtocol = lens _eC2SecurityGroupIngressPropertyIpProtocol (\s a -> s { _eC2SecurityGroupIngressPropertyIpProtocol = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html#cfn-ec2-securitygroup-ingress-sourceprefixlistid
+ecsgipSourcePrefixListId :: Lens' EC2SecurityGroupIngressProperty (Maybe (Val Text))
+ecsgipSourcePrefixListId = lens _eC2SecurityGroupIngressPropertySourcePrefixListId (\s a -> s { _eC2SecurityGroupIngressPropertySourcePrefixListId = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html#cfn-ec2-security-group-rule-sourcesecuritygroupid
 ecsgipSourceSecurityGroupId :: Lens' EC2SecurityGroupIngressProperty (Maybe (Val Text))

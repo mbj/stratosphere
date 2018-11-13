@@ -15,11 +15,14 @@ import Stratosphere.ResourceProperties.Tag
 data RDSDBCluster =
   RDSDBCluster
   { _rDSDBClusterAvailabilityZones :: Maybe (ValList Text)
+  , _rDSDBClusterBacktrackWindow :: Maybe (Val Integer)
   , _rDSDBClusterBackupRetentionPeriod :: Maybe (Val Integer)
   , _rDSDBClusterDBClusterIdentifier :: Maybe (Val Text)
   , _rDSDBClusterDBClusterParameterGroupName :: Maybe (Val Text)
   , _rDSDBClusterDBSubnetGroupName :: Maybe (Val Text)
   , _rDSDBClusterDatabaseName :: Maybe (Val Text)
+  , _rDSDBClusterEnableCloudwatchLogsExports :: Maybe (ValList Text)
+  , _rDSDBClusterEnableIAMDatabaseAuthentication :: Maybe (Val Bool)
   , _rDSDBClusterEngine :: Val Text
   , _rDSDBClusterEngineMode :: Maybe (Val Text)
   , _rDSDBClusterEngineVersion :: Maybe (Val Text)
@@ -42,11 +45,14 @@ instance ToJSON RDSDBCluster where
     object $
     catMaybes
     [ fmap (("AvailabilityZones",) . toJSON) _rDSDBClusterAvailabilityZones
+    , fmap (("BacktrackWindow",) . toJSON . fmap Integer') _rDSDBClusterBacktrackWindow
     , fmap (("BackupRetentionPeriod",) . toJSON . fmap Integer') _rDSDBClusterBackupRetentionPeriod
     , fmap (("DBClusterIdentifier",) . toJSON) _rDSDBClusterDBClusterIdentifier
     , fmap (("DBClusterParameterGroupName",) . toJSON) _rDSDBClusterDBClusterParameterGroupName
     , fmap (("DBSubnetGroupName",) . toJSON) _rDSDBClusterDBSubnetGroupName
     , fmap (("DatabaseName",) . toJSON) _rDSDBClusterDatabaseName
+    , fmap (("EnableCloudwatchLogsExports",) . toJSON) _rDSDBClusterEnableCloudwatchLogsExports
+    , fmap (("EnableIAMDatabaseAuthentication",) . toJSON . fmap Bool') _rDSDBClusterEnableIAMDatabaseAuthentication
     , (Just . ("Engine",) . toJSON) _rDSDBClusterEngine
     , fmap (("EngineMode",) . toJSON) _rDSDBClusterEngineMode
     , fmap (("EngineVersion",) . toJSON) _rDSDBClusterEngineVersion
@@ -68,11 +74,14 @@ instance FromJSON RDSDBCluster where
   parseJSON (Object obj) =
     RDSDBCluster <$>
       (obj .:? "AvailabilityZones") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "BacktrackWindow") <*>
       fmap (fmap (fmap unInteger')) (obj .:? "BackupRetentionPeriod") <*>
       (obj .:? "DBClusterIdentifier") <*>
       (obj .:? "DBClusterParameterGroupName") <*>
       (obj .:? "DBSubnetGroupName") <*>
       (obj .:? "DatabaseName") <*>
+      (obj .:? "EnableCloudwatchLogsExports") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "EnableIAMDatabaseAuthentication") <*>
       (obj .: "Engine") <*>
       (obj .:? "EngineMode") <*>
       (obj .:? "EngineVersion") <*>
@@ -97,11 +106,14 @@ rdsdbCluster
 rdsdbCluster enginearg =
   RDSDBCluster
   { _rDSDBClusterAvailabilityZones = Nothing
+  , _rDSDBClusterBacktrackWindow = Nothing
   , _rDSDBClusterBackupRetentionPeriod = Nothing
   , _rDSDBClusterDBClusterIdentifier = Nothing
   , _rDSDBClusterDBClusterParameterGroupName = Nothing
   , _rDSDBClusterDBSubnetGroupName = Nothing
   , _rDSDBClusterDatabaseName = Nothing
+  , _rDSDBClusterEnableCloudwatchLogsExports = Nothing
+  , _rDSDBClusterEnableIAMDatabaseAuthentication = Nothing
   , _rDSDBClusterEngine = enginearg
   , _rDSDBClusterEngineMode = Nothing
   , _rDSDBClusterEngineVersion = Nothing
@@ -123,6 +135,10 @@ rdsdbCluster enginearg =
 rdsdbcAvailabilityZones :: Lens' RDSDBCluster (Maybe (ValList Text))
 rdsdbcAvailabilityZones = lens _rDSDBClusterAvailabilityZones (\s a -> s { _rDSDBClusterAvailabilityZones = a })
 
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-backtrackwindow
+rdsdbcBacktrackWindow :: Lens' RDSDBCluster (Maybe (Val Integer))
+rdsdbcBacktrackWindow = lens _rDSDBClusterBacktrackWindow (\s a -> s { _rDSDBClusterBacktrackWindow = a })
+
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-backuprententionperiod
 rdsdbcBackupRetentionPeriod :: Lens' RDSDBCluster (Maybe (Val Integer))
 rdsdbcBackupRetentionPeriod = lens _rDSDBClusterBackupRetentionPeriod (\s a -> s { _rDSDBClusterBackupRetentionPeriod = a })
@@ -142,6 +158,14 @@ rdsdbcDBSubnetGroupName = lens _rDSDBClusterDBSubnetGroupName (\s a -> s { _rDSD
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-databasename
 rdsdbcDatabaseName :: Lens' RDSDBCluster (Maybe (Val Text))
 rdsdbcDatabaseName = lens _rDSDBClusterDatabaseName (\s a -> s { _rDSDBClusterDatabaseName = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-enablecloudwatchlogsexports
+rdsdbcEnableCloudwatchLogsExports :: Lens' RDSDBCluster (Maybe (ValList Text))
+rdsdbcEnableCloudwatchLogsExports = lens _rDSDBClusterEnableCloudwatchLogsExports (\s a -> s { _rDSDBClusterEnableCloudwatchLogsExports = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-enableiamdatabaseauthentication
+rdsdbcEnableIAMDatabaseAuthentication :: Lens' RDSDBCluster (Maybe (Val Bool))
+rdsdbcEnableIAMDatabaseAuthentication = lens _rDSDBClusterEnableIAMDatabaseAuthentication (\s a -> s { _rDSDBClusterEnableIAMDatabaseAuthentication = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-engine
 rdsdbcEngine :: Lens' RDSDBCluster (Val Text)

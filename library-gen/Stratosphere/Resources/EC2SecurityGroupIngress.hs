@@ -20,6 +20,7 @@ data EC2SecurityGroupIngress =
   , _eC2SecurityGroupIngressGroupId :: Maybe (Val Text)
   , _eC2SecurityGroupIngressGroupName :: Maybe (Val Text)
   , _eC2SecurityGroupIngressIpProtocol :: Val Text
+  , _eC2SecurityGroupIngressSourcePrefixListId :: Maybe (Val Text)
   , _eC2SecurityGroupIngressSourceSecurityGroupId :: Maybe (Val Text)
   , _eC2SecurityGroupIngressSourceSecurityGroupName :: Maybe (Val Text)
   , _eC2SecurityGroupIngressSourceSecurityGroupOwnerId :: Maybe (Val Text)
@@ -37,6 +38,7 @@ instance ToJSON EC2SecurityGroupIngress where
     , fmap (("GroupId",) . toJSON) _eC2SecurityGroupIngressGroupId
     , fmap (("GroupName",) . toJSON) _eC2SecurityGroupIngressGroupName
     , (Just . ("IpProtocol",) . toJSON) _eC2SecurityGroupIngressIpProtocol
+    , fmap (("SourcePrefixListId",) . toJSON) _eC2SecurityGroupIngressSourcePrefixListId
     , fmap (("SourceSecurityGroupId",) . toJSON) _eC2SecurityGroupIngressSourceSecurityGroupId
     , fmap (("SourceSecurityGroupName",) . toJSON) _eC2SecurityGroupIngressSourceSecurityGroupName
     , fmap (("SourceSecurityGroupOwnerId",) . toJSON) _eC2SecurityGroupIngressSourceSecurityGroupOwnerId
@@ -53,6 +55,7 @@ instance FromJSON EC2SecurityGroupIngress where
       (obj .:? "GroupId") <*>
       (obj .:? "GroupName") <*>
       (obj .: "IpProtocol") <*>
+      (obj .:? "SourcePrefixListId") <*>
       (obj .:? "SourceSecurityGroupId") <*>
       (obj .:? "SourceSecurityGroupName") <*>
       (obj .:? "SourceSecurityGroupOwnerId") <*>
@@ -73,6 +76,7 @@ ec2SecurityGroupIngress ipProtocolarg =
   , _eC2SecurityGroupIngressGroupId = Nothing
   , _eC2SecurityGroupIngressGroupName = Nothing
   , _eC2SecurityGroupIngressIpProtocol = ipProtocolarg
+  , _eC2SecurityGroupIngressSourcePrefixListId = Nothing
   , _eC2SecurityGroupIngressSourceSecurityGroupId = Nothing
   , _eC2SecurityGroupIngressSourceSecurityGroupName = Nothing
   , _eC2SecurityGroupIngressSourceSecurityGroupOwnerId = Nothing
@@ -106,6 +110,10 @@ ecsgiGroupName = lens _eC2SecurityGroupIngressGroupName (\s a -> s { _eC2Securit
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-ingress.html#cfn-ec2-security-group-ingress-ipprotocol
 ecsgiIpProtocol :: Lens' EC2SecurityGroupIngress (Val Text)
 ecsgiIpProtocol = lens _eC2SecurityGroupIngressIpProtocol (\s a -> s { _eC2SecurityGroupIngressIpProtocol = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-ingress.html#cfn-ec2-securitygroupingress-sourceprefixlistid
+ecsgiSourcePrefixListId :: Lens' EC2SecurityGroupIngress (Maybe (Val Text))
+ecsgiSourcePrefixListId = lens _eC2SecurityGroupIngressSourcePrefixListId (\s a -> s { _eC2SecurityGroupIngressSourcePrefixListId = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-ingress.html#cfn-ec2-security-group-ingress-sourcesecuritygroupid
 ecsgiSourceSecurityGroupId :: Lens' EC2SecurityGroupIngress (Maybe (Val Text))

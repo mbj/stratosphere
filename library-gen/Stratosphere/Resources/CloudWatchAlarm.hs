@@ -18,6 +18,7 @@ data CloudWatchAlarm =
   , _cloudWatchAlarmAlarmDescription :: Maybe (Val Text)
   , _cloudWatchAlarmAlarmName :: Maybe (Val Text)
   , _cloudWatchAlarmComparisonOperator :: Val Text
+  , _cloudWatchAlarmDatapointsToAlarm :: Maybe (Val Integer)
   , _cloudWatchAlarmDimensions :: Maybe [CloudWatchAlarmDimension]
   , _cloudWatchAlarmEvaluateLowSampleCountPercentile :: Maybe (Val Text)
   , _cloudWatchAlarmEvaluationPeriods :: Val Integer
@@ -42,6 +43,7 @@ instance ToJSON CloudWatchAlarm where
     , fmap (("AlarmDescription",) . toJSON) _cloudWatchAlarmAlarmDescription
     , fmap (("AlarmName",) . toJSON) _cloudWatchAlarmAlarmName
     , (Just . ("ComparisonOperator",) . toJSON) _cloudWatchAlarmComparisonOperator
+    , fmap (("DatapointsToAlarm",) . toJSON . fmap Integer') _cloudWatchAlarmDatapointsToAlarm
     , fmap (("Dimensions",) . toJSON) _cloudWatchAlarmDimensions
     , fmap (("EvaluateLowSampleCountPercentile",) . toJSON) _cloudWatchAlarmEvaluateLowSampleCountPercentile
     , (Just . ("EvaluationPeriods",) . toJSON . fmap Integer') _cloudWatchAlarmEvaluationPeriods
@@ -65,6 +67,7 @@ instance FromJSON CloudWatchAlarm where
       (obj .:? "AlarmDescription") <*>
       (obj .:? "AlarmName") <*>
       (obj .: "ComparisonOperator") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "DatapointsToAlarm") <*>
       (obj .:? "Dimensions") <*>
       (obj .:? "EvaluateLowSampleCountPercentile") <*>
       fmap (fmap unInteger') (obj .: "EvaluationPeriods") <*>
@@ -97,6 +100,7 @@ cloudWatchAlarm comparisonOperatorarg evaluationPeriodsarg metricNamearg namespa
   , _cloudWatchAlarmAlarmDescription = Nothing
   , _cloudWatchAlarmAlarmName = Nothing
   , _cloudWatchAlarmComparisonOperator = comparisonOperatorarg
+  , _cloudWatchAlarmDatapointsToAlarm = Nothing
   , _cloudWatchAlarmDimensions = Nothing
   , _cloudWatchAlarmEvaluateLowSampleCountPercentile = Nothing
   , _cloudWatchAlarmEvaluationPeriods = evaluationPeriodsarg
@@ -131,6 +135,10 @@ cwaAlarmName = lens _cloudWatchAlarmAlarmName (\s a -> s { _cloudWatchAlarmAlarm
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html#cfn-cloudwatch-alarms-comparisonoperator
 cwaComparisonOperator :: Lens' CloudWatchAlarm (Val Text)
 cwaComparisonOperator = lens _cloudWatchAlarmComparisonOperator (\s a -> s { _cloudWatchAlarmComparisonOperator = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html#cfn-cloudwatch-alarm-datapointstoalarm
+cwaDatapointsToAlarm :: Lens' CloudWatchAlarm (Maybe (Val Integer))
+cwaDatapointsToAlarm = lens _cloudWatchAlarmDatapointsToAlarm (\s a -> s { _cloudWatchAlarmDatapointsToAlarm = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html#cfn-cloudwatch-alarms-dimension
 cwaDimensions :: Lens' CloudWatchAlarm (Maybe [CloudWatchAlarmDimension])

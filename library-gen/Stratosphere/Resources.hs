@@ -10,7 +10,7 @@
 {-# LANGUAGE TypeFamilies #-}
 
 #if MIN_VERSION_GLASGOW_HASKELL(8,0,1,0)
-{-# OPTIONS_GHC -fmax-pmcheck-iterations=30000000 #-}
+{-# OPTIONS_GHC -fmax-pmcheck-iterations=40000000 #-}
 #endif
 
 -- | See:
@@ -128,6 +128,7 @@ import Stratosphere.Resources.ConfigDeliveryChannel as X
 import Stratosphere.Resources.DAXCluster as X
 import Stratosphere.Resources.DAXParameterGroup as X
 import Stratosphere.Resources.DAXSubnetGroup as X
+import Stratosphere.Resources.DLMLifecyclePolicy as X
 import Stratosphere.Resources.DMSCertificate as X
 import Stratosphere.Resources.DMSEndpoint as X
 import Stratosphere.Resources.DMSEventSubscription as X
@@ -313,6 +314,7 @@ import Stratosphere.Resources.SQSQueue as X
 import Stratosphere.Resources.SQSQueuePolicy as X
 import Stratosphere.Resources.SSMAssociation as X
 import Stratosphere.Resources.SSMDocument as X
+import Stratosphere.Resources.SSMMaintenanceWindow as X
 import Stratosphere.Resources.SSMMaintenanceWindowTask as X
 import Stratosphere.Resources.SSMParameter as X
 import Stratosphere.Resources.SSMPatchBaseline as X
@@ -322,6 +324,10 @@ import Stratosphere.Resources.SageMakerEndpointConfig as X
 import Stratosphere.Resources.SageMakerModel as X
 import Stratosphere.Resources.SageMakerNotebookInstance as X
 import Stratosphere.Resources.SageMakerNotebookInstanceLifecycleConfig as X
+import Stratosphere.Resources.SecretsManagerResourcePolicy as X
+import Stratosphere.Resources.SecretsManagerRotationSchedule as X
+import Stratosphere.Resources.SecretsManagerSecret as X
+import Stratosphere.Resources.SecretsManagerSecretTargetAttachment as X
 import Stratosphere.Resources.ServiceCatalogAcceptedPortfolioShare as X
 import Stratosphere.Resources.ServiceCatalogCloudFormationProduct as X
 import Stratosphere.Resources.ServiceCatalogCloudFormationProvisionedProduct as X
@@ -416,8 +422,10 @@ import Stratosphere.ResourceProperties.AutoScalingScalingPolicyPredefinedMetricS
 import Stratosphere.ResourceProperties.AutoScalingScalingPolicyStepAdjustment as X
 import Stratosphere.ResourceProperties.AutoScalingScalingPolicyTargetTrackingConfiguration as X
 import Stratosphere.ResourceProperties.AutoScalingPlansScalingPlanApplicationSource as X
+import Stratosphere.ResourceProperties.AutoScalingPlansScalingPlanCustomizedLoadMetricSpecification as X
 import Stratosphere.ResourceProperties.AutoScalingPlansScalingPlanCustomizedScalingMetricSpecification as X
 import Stratosphere.ResourceProperties.AutoScalingPlansScalingPlanMetricDimension as X
+import Stratosphere.ResourceProperties.AutoScalingPlansScalingPlanPredefinedLoadMetricSpecification as X
 import Stratosphere.ResourceProperties.AutoScalingPlansScalingPlanPredefinedScalingMetricSpecification as X
 import Stratosphere.ResourceProperties.AutoScalingPlansScalingPlanScalingInstruction as X
 import Stratosphere.ResourceProperties.AutoScalingPlansScalingPlanTagFilter as X
@@ -535,6 +543,10 @@ import Stratosphere.ResourceProperties.ConfigConfigurationAggregatorOrganization
 import Stratosphere.ResourceProperties.ConfigConfigurationRecorderRecordingGroup as X
 import Stratosphere.ResourceProperties.ConfigDeliveryChannelConfigSnapshotDeliveryProperties as X
 import Stratosphere.ResourceProperties.DAXClusterSSESpecification as X
+import Stratosphere.ResourceProperties.DLMLifecyclePolicyCreateRule as X
+import Stratosphere.ResourceProperties.DLMLifecyclePolicyPolicyDetails as X
+import Stratosphere.ResourceProperties.DLMLifecyclePolicyRetainRule as X
+import Stratosphere.ResourceProperties.DLMLifecyclePolicySchedule as X
 import Stratosphere.ResourceProperties.DMSEndpointDynamoDbSettings as X
 import Stratosphere.ResourceProperties.DMSEndpointMongoDbSettings as X
 import Stratosphere.ResourceProperties.DMSEndpointS3Settings as X
@@ -770,6 +782,7 @@ import Stratosphere.ResourceProperties.IoTTopicRuleDynamoDBAction as X
 import Stratosphere.ResourceProperties.IoTTopicRuleDynamoDBV2Action as X
 import Stratosphere.ResourceProperties.IoTTopicRuleElasticsearchAction as X
 import Stratosphere.ResourceProperties.IoTTopicRuleFirehoseAction as X
+import Stratosphere.ResourceProperties.IoTTopicRuleIotAnalyticsAction as X
 import Stratosphere.ResourceProperties.IoTTopicRuleKinesisAction as X
 import Stratosphere.ResourceProperties.IoTTopicRuleLambdaAction as X
 import Stratosphere.ResourceProperties.IoTTopicRulePutItemInput as X
@@ -777,6 +790,7 @@ import Stratosphere.ResourceProperties.IoTTopicRuleRepublishAction as X
 import Stratosphere.ResourceProperties.IoTTopicRuleS3Action as X
 import Stratosphere.ResourceProperties.IoTTopicRuleSnsAction as X
 import Stratosphere.ResourceProperties.IoTTopicRuleSqsAction as X
+import Stratosphere.ResourceProperties.IoTTopicRuleStepFunctionsAction as X
 import Stratosphere.ResourceProperties.IoTTopicRuleTopicRulePayload as X
 import Stratosphere.ResourceProperties.KinesisStreamStreamEncryption as X
 import Stratosphere.ResourceProperties.KinesisAnalyticsApplicationCSVMappingParameters as X
@@ -848,6 +862,7 @@ import Stratosphere.ResourceProperties.OpsWorksStackRdsDbInstance as X
 import Stratosphere.ResourceProperties.OpsWorksStackSource as X
 import Stratosphere.ResourceProperties.OpsWorksStackStackConfigurationManager as X
 import Stratosphere.ResourceProperties.RDSDBClusterScalingConfiguration as X
+import Stratosphere.ResourceProperties.RDSDBInstanceProcessorFeature as X
 import Stratosphere.ResourceProperties.RDSDBSecurityGroupIngressProperty as X
 import Stratosphere.ResourceProperties.RDSOptionGroupOptionConfiguration as X
 import Stratosphere.ResourceProperties.RDSOptionGroupOptionSetting as X
@@ -942,6 +957,8 @@ import Stratosphere.ResourceProperties.SageMakerEndpointConfigProductionVariant 
 import Stratosphere.ResourceProperties.SageMakerModelContainerDefinition as X
 import Stratosphere.ResourceProperties.SageMakerModelVpcConfig as X
 import Stratosphere.ResourceProperties.SageMakerNotebookInstanceLifecycleConfigNotebookInstanceLifecycleHook as X
+import Stratosphere.ResourceProperties.SecretsManagerRotationScheduleRotationRules as X
+import Stratosphere.ResourceProperties.SecretsManagerSecretGenerateSecretString as X
 import Stratosphere.ResourceProperties.ServiceCatalogCloudFormationProductProvisioningArtifactProperties as X
 import Stratosphere.ResourceProperties.ServiceCatalogCloudFormationProvisionedProductProvisioningParameter as X
 import Stratosphere.ResourceProperties.ServiceDiscoveryServiceDnsConfig as X
@@ -972,6 +989,7 @@ import Stratosphere.ResourceProperties.WAFRegionalWebACLAction as X
 import Stratosphere.ResourceProperties.WAFRegionalWebACLRule as X
 import Stratosphere.ResourceProperties.WAFRegionalXssMatchSetFieldToMatch as X
 import Stratosphere.ResourceProperties.WAFRegionalXssMatchSetXssMatchTuple as X
+import Stratosphere.ResourceProperties.WorkSpacesWorkspaceWorkspaceProperties as X
 import Stratosphere.ResourceProperties.Tag as X
 
 import Stratosphere.ResourceAttributes.AutoScalingReplacingUpdatePolicy as X
@@ -1065,6 +1083,7 @@ data ResourceProperties
   | DAXClusterProperties DAXCluster
   | DAXParameterGroupProperties DAXParameterGroup
   | DAXSubnetGroupProperties DAXSubnetGroup
+  | DLMLifecyclePolicyProperties DLMLifecyclePolicy
   | DMSCertificateProperties DMSCertificate
   | DMSEndpointProperties DMSEndpoint
   | DMSEventSubscriptionProperties DMSEventSubscription
@@ -1250,6 +1269,7 @@ data ResourceProperties
   | SQSQueuePolicyProperties SQSQueuePolicy
   | SSMAssociationProperties SSMAssociation
   | SSMDocumentProperties SSMDocument
+  | SSMMaintenanceWindowProperties SSMMaintenanceWindow
   | SSMMaintenanceWindowTaskProperties SSMMaintenanceWindowTask
   | SSMParameterProperties SSMParameter
   | SSMPatchBaselineProperties SSMPatchBaseline
@@ -1259,6 +1279,10 @@ data ResourceProperties
   | SageMakerModelProperties SageMakerModel
   | SageMakerNotebookInstanceProperties SageMakerNotebookInstance
   | SageMakerNotebookInstanceLifecycleConfigProperties SageMakerNotebookInstanceLifecycleConfig
+  | SecretsManagerResourcePolicyProperties SecretsManagerResourcePolicy
+  | SecretsManagerRotationScheduleProperties SecretsManagerRotationSchedule
+  | SecretsManagerSecretProperties SecretsManagerSecret
+  | SecretsManagerSecretTargetAttachmentProperties SecretsManagerSecretTargetAttachment
   | ServiceCatalogAcceptedPortfolioShareProperties ServiceCatalogAcceptedPortfolioShare
   | ServiceCatalogCloudFormationProductProperties ServiceCatalogCloudFormationProduct
   | ServiceCatalogCloudFormationProvisionedProductProperties ServiceCatalogCloudFormationProvisionedProduct
@@ -1510,6 +1534,8 @@ resourcePropertiesJSON (DAXParameterGroupProperties x) =
   [ "Type" .= ("AWS::DAX::ParameterGroup" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (DAXSubnetGroupProperties x) =
   [ "Type" .= ("AWS::DAX::SubnetGroup" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (DLMLifecyclePolicyProperties x) =
+  [ "Type" .= ("AWS::DLM::LifecyclePolicy" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (DMSCertificateProperties x) =
   [ "Type" .= ("AWS::DMS::Certificate" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (DMSEndpointProperties x) =
@@ -1880,6 +1906,8 @@ resourcePropertiesJSON (SSMAssociationProperties x) =
   [ "Type" .= ("AWS::SSM::Association" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (SSMDocumentProperties x) =
   [ "Type" .= ("AWS::SSM::Document" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (SSMMaintenanceWindowProperties x) =
+  [ "Type" .= ("AWS::SSM::MaintenanceWindow" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (SSMMaintenanceWindowTaskProperties x) =
   [ "Type" .= ("AWS::SSM::MaintenanceWindowTask" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (SSMParameterProperties x) =
@@ -1898,6 +1926,14 @@ resourcePropertiesJSON (SageMakerNotebookInstanceProperties x) =
   [ "Type" .= ("AWS::SageMaker::NotebookInstance" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (SageMakerNotebookInstanceLifecycleConfigProperties x) =
   [ "Type" .= ("AWS::SageMaker::NotebookInstanceLifecycleConfig" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (SecretsManagerResourcePolicyProperties x) =
+  [ "Type" .= ("AWS::SecretsManager::ResourcePolicy" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (SecretsManagerRotationScheduleProperties x) =
+  [ "Type" .= ("AWS::SecretsManager::RotationSchedule" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (SecretsManagerSecretProperties x) =
+  [ "Type" .= ("AWS::SecretsManager::Secret" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (SecretsManagerSecretTargetAttachmentProperties x) =
+  [ "Type" .= ("AWS::SecretsManager::SecretTargetAttachment" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ServiceCatalogAcceptedPortfolioShareProperties x) =
   [ "Type" .= ("AWS::ServiceCatalog::AcceptedPortfolioShare" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ServiceCatalogCloudFormationProductProperties x) =
@@ -2053,6 +2089,7 @@ resourceFromJSON n o =
          "AWS::DAX::Cluster" -> DAXClusterProperties <$> (o .: "Properties")
          "AWS::DAX::ParameterGroup" -> DAXParameterGroupProperties <$> (o .: "Properties")
          "AWS::DAX::SubnetGroup" -> DAXSubnetGroupProperties <$> (o .: "Properties")
+         "AWS::DLM::LifecyclePolicy" -> DLMLifecyclePolicyProperties <$> (o .: "Properties")
          "AWS::DMS::Certificate" -> DMSCertificateProperties <$> (o .: "Properties")
          "AWS::DMS::Endpoint" -> DMSEndpointProperties <$> (o .: "Properties")
          "AWS::DMS::EventSubscription" -> DMSEventSubscriptionProperties <$> (o .: "Properties")
@@ -2238,6 +2275,7 @@ resourceFromJSON n o =
          "AWS::SQS::QueuePolicy" -> SQSQueuePolicyProperties <$> (o .: "Properties")
          "AWS::SSM::Association" -> SSMAssociationProperties <$> (o .: "Properties")
          "AWS::SSM::Document" -> SSMDocumentProperties <$> (o .: "Properties")
+         "AWS::SSM::MaintenanceWindow" -> SSMMaintenanceWindowProperties <$> (o .: "Properties")
          "AWS::SSM::MaintenanceWindowTask" -> SSMMaintenanceWindowTaskProperties <$> (o .: "Properties")
          "AWS::SSM::Parameter" -> SSMParameterProperties <$> (o .: "Properties")
          "AWS::SSM::PatchBaseline" -> SSMPatchBaselineProperties <$> (o .: "Properties")
@@ -2247,6 +2285,10 @@ resourceFromJSON n o =
          "AWS::SageMaker::Model" -> SageMakerModelProperties <$> (o .: "Properties")
          "AWS::SageMaker::NotebookInstance" -> SageMakerNotebookInstanceProperties <$> (o .: "Properties")
          "AWS::SageMaker::NotebookInstanceLifecycleConfig" -> SageMakerNotebookInstanceLifecycleConfigProperties <$> (o .: "Properties")
+         "AWS::SecretsManager::ResourcePolicy" -> SecretsManagerResourcePolicyProperties <$> (o .: "Properties")
+         "AWS::SecretsManager::RotationSchedule" -> SecretsManagerRotationScheduleProperties <$> (o .: "Properties")
+         "AWS::SecretsManager::Secret" -> SecretsManagerSecretProperties <$> (o .: "Properties")
+         "AWS::SecretsManager::SecretTargetAttachment" -> SecretsManagerSecretTargetAttachmentProperties <$> (o .: "Properties")
          "AWS::ServiceCatalog::AcceptedPortfolioShare" -> ServiceCatalogAcceptedPortfolioShareProperties <$> (o .: "Properties")
          "AWS::ServiceCatalog::CloudFormationProduct" -> ServiceCatalogCloudFormationProductProperties <$> (o .: "Properties")
          "AWS::ServiceCatalog::CloudFormationProvisionedProduct" -> ServiceCatalogCloudFormationProvisionedProductProperties <$> (o .: "Properties")

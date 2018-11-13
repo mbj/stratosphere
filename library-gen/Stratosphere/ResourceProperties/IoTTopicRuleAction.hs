@@ -13,12 +13,14 @@ import Stratosphere.ResourceProperties.IoTTopicRuleDynamoDBAction
 import Stratosphere.ResourceProperties.IoTTopicRuleDynamoDBV2Action
 import Stratosphere.ResourceProperties.IoTTopicRuleElasticsearchAction
 import Stratosphere.ResourceProperties.IoTTopicRuleFirehoseAction
+import Stratosphere.ResourceProperties.IoTTopicRuleIotAnalyticsAction
 import Stratosphere.ResourceProperties.IoTTopicRuleKinesisAction
 import Stratosphere.ResourceProperties.IoTTopicRuleLambdaAction
 import Stratosphere.ResourceProperties.IoTTopicRuleRepublishAction
 import Stratosphere.ResourceProperties.IoTTopicRuleS3Action
 import Stratosphere.ResourceProperties.IoTTopicRuleSnsAction
 import Stratosphere.ResourceProperties.IoTTopicRuleSqsAction
+import Stratosphere.ResourceProperties.IoTTopicRuleStepFunctionsAction
 
 -- | Full data type definition for IoTTopicRuleAction. See
 -- 'ioTTopicRuleAction' for a more convenient constructor.
@@ -30,12 +32,14 @@ data IoTTopicRuleAction =
   , _ioTTopicRuleActionDynamoDBv2 :: Maybe IoTTopicRuleDynamoDBV2Action
   , _ioTTopicRuleActionElasticsearch :: Maybe IoTTopicRuleElasticsearchAction
   , _ioTTopicRuleActionFirehose :: Maybe IoTTopicRuleFirehoseAction
+  , _ioTTopicRuleActionIotAnalytics :: Maybe IoTTopicRuleIotAnalyticsAction
   , _ioTTopicRuleActionKinesis :: Maybe IoTTopicRuleKinesisAction
   , _ioTTopicRuleActionLambda :: Maybe IoTTopicRuleLambdaAction
   , _ioTTopicRuleActionRepublish :: Maybe IoTTopicRuleRepublishAction
   , _ioTTopicRuleActionS3 :: Maybe IoTTopicRuleS3Action
   , _ioTTopicRuleActionSns :: Maybe IoTTopicRuleSnsAction
   , _ioTTopicRuleActionSqs :: Maybe IoTTopicRuleSqsAction
+  , _ioTTopicRuleActionStepFunctions :: Maybe IoTTopicRuleStepFunctionsAction
   } deriving (Show, Eq)
 
 instance ToJSON IoTTopicRuleAction where
@@ -48,12 +52,14 @@ instance ToJSON IoTTopicRuleAction where
     , fmap (("DynamoDBv2",) . toJSON) _ioTTopicRuleActionDynamoDBv2
     , fmap (("Elasticsearch",) . toJSON) _ioTTopicRuleActionElasticsearch
     , fmap (("Firehose",) . toJSON) _ioTTopicRuleActionFirehose
+    , fmap (("IotAnalytics",) . toJSON) _ioTTopicRuleActionIotAnalytics
     , fmap (("Kinesis",) . toJSON) _ioTTopicRuleActionKinesis
     , fmap (("Lambda",) . toJSON) _ioTTopicRuleActionLambda
     , fmap (("Republish",) . toJSON) _ioTTopicRuleActionRepublish
     , fmap (("S3",) . toJSON) _ioTTopicRuleActionS3
     , fmap (("Sns",) . toJSON) _ioTTopicRuleActionSns
     , fmap (("Sqs",) . toJSON) _ioTTopicRuleActionSqs
+    , fmap (("StepFunctions",) . toJSON) _ioTTopicRuleActionStepFunctions
     ]
 
 instance FromJSON IoTTopicRuleAction where
@@ -65,12 +71,14 @@ instance FromJSON IoTTopicRuleAction where
       (obj .:? "DynamoDBv2") <*>
       (obj .:? "Elasticsearch") <*>
       (obj .:? "Firehose") <*>
+      (obj .:? "IotAnalytics") <*>
       (obj .:? "Kinesis") <*>
       (obj .:? "Lambda") <*>
       (obj .:? "Republish") <*>
       (obj .:? "S3") <*>
       (obj .:? "Sns") <*>
-      (obj .:? "Sqs")
+      (obj .:? "Sqs") <*>
+      (obj .:? "StepFunctions")
   parseJSON _ = mempty
 
 -- | Constructor for 'IoTTopicRuleAction' containing required fields as
@@ -85,12 +93,14 @@ ioTTopicRuleAction  =
   , _ioTTopicRuleActionDynamoDBv2 = Nothing
   , _ioTTopicRuleActionElasticsearch = Nothing
   , _ioTTopicRuleActionFirehose = Nothing
+  , _ioTTopicRuleActionIotAnalytics = Nothing
   , _ioTTopicRuleActionKinesis = Nothing
   , _ioTTopicRuleActionLambda = Nothing
   , _ioTTopicRuleActionRepublish = Nothing
   , _ioTTopicRuleActionS3 = Nothing
   , _ioTTopicRuleActionSns = Nothing
   , _ioTTopicRuleActionSqs = Nothing
+  , _ioTTopicRuleActionStepFunctions = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-cloudwatchalarm
@@ -117,6 +127,10 @@ ittraElasticsearch = lens _ioTTopicRuleActionElasticsearch (\s a -> s { _ioTTopi
 ittraFirehose :: Lens' IoTTopicRuleAction (Maybe IoTTopicRuleFirehoseAction)
 ittraFirehose = lens _ioTTopicRuleActionFirehose (\s a -> s { _ioTTopicRuleActionFirehose = a })
 
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-iotanalytics
+ittraIotAnalytics :: Lens' IoTTopicRuleAction (Maybe IoTTopicRuleIotAnalyticsAction)
+ittraIotAnalytics = lens _ioTTopicRuleActionIotAnalytics (\s a -> s { _ioTTopicRuleActionIotAnalytics = a })
+
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-kinesis
 ittraKinesis :: Lens' IoTTopicRuleAction (Maybe IoTTopicRuleKinesisAction)
 ittraKinesis = lens _ioTTopicRuleActionKinesis (\s a -> s { _ioTTopicRuleActionKinesis = a })
@@ -140,3 +154,7 @@ ittraSns = lens _ioTTopicRuleActionSns (\s a -> s { _ioTTopicRuleActionSns = a }
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-sqs
 ittraSqs :: Lens' IoTTopicRuleAction (Maybe IoTTopicRuleSqsAction)
 ittraSqs = lens _ioTTopicRuleActionSqs (\s a -> s { _ioTTopicRuleActionSqs = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-stepfunctions
+ittraStepFunctions :: Lens' IoTTopicRuleAction (Maybe IoTTopicRuleStepFunctionsAction)
+ittraStepFunctions = lens _ioTTopicRuleActionStepFunctions (\s a -> s { _ioTTopicRuleActionStepFunctions = a })
