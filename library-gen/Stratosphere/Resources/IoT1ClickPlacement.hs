@@ -15,7 +15,7 @@ data IoT1ClickPlacement =
   IoT1ClickPlacement
   { _ioT1ClickPlacementAssociatedDevices :: Maybe Object
   , _ioT1ClickPlacementAttributes :: Maybe Object
-  , _ioT1ClickPlacementPlacementName :: Val Text
+  , _ioT1ClickPlacementPlacementName :: Maybe (Val Text)
   , _ioT1ClickPlacementProjectName :: Val Text
   } deriving (Show, Eq)
 
@@ -25,7 +25,7 @@ instance ToJSON IoT1ClickPlacement where
     catMaybes
     [ fmap (("AssociatedDevices",) . toJSON) _ioT1ClickPlacementAssociatedDevices
     , fmap (("Attributes",) . toJSON) _ioT1ClickPlacementAttributes
-    , (Just . ("PlacementName",) . toJSON) _ioT1ClickPlacementPlacementName
+    , fmap (("PlacementName",) . toJSON) _ioT1ClickPlacementPlacementName
     , (Just . ("ProjectName",) . toJSON) _ioT1ClickPlacementProjectName
     ]
 
@@ -34,21 +34,20 @@ instance FromJSON IoT1ClickPlacement where
     IoT1ClickPlacement <$>
       (obj .:? "AssociatedDevices") <*>
       (obj .:? "Attributes") <*>
-      (obj .: "PlacementName") <*>
+      (obj .:? "PlacementName") <*>
       (obj .: "ProjectName")
   parseJSON _ = mempty
 
 -- | Constructor for 'IoT1ClickPlacement' containing required fields as
 -- arguments.
 ioT1ClickPlacement
-  :: Val Text -- ^ 'itcplPlacementName'
-  -> Val Text -- ^ 'itcplProjectName'
+  :: Val Text -- ^ 'itcplProjectName'
   -> IoT1ClickPlacement
-ioT1ClickPlacement placementNamearg projectNamearg =
+ioT1ClickPlacement projectNamearg =
   IoT1ClickPlacement
   { _ioT1ClickPlacementAssociatedDevices = Nothing
   , _ioT1ClickPlacementAttributes = Nothing
-  , _ioT1ClickPlacementPlacementName = placementNamearg
+  , _ioT1ClickPlacementPlacementName = Nothing
   , _ioT1ClickPlacementProjectName = projectNamearg
   }
 
@@ -61,7 +60,7 @@ itcplAttributes :: Lens' IoT1ClickPlacement (Maybe Object)
 itcplAttributes = lens _ioT1ClickPlacementAttributes (\s a -> s { _ioT1ClickPlacementAttributes = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot1click-placement.html#cfn-iot1click-placement-placementname
-itcplPlacementName :: Lens' IoT1ClickPlacement (Val Text)
+itcplPlacementName :: Lens' IoT1ClickPlacement (Maybe (Val Text))
 itcplPlacementName = lens _ioT1ClickPlacementPlacementName (\s a -> s { _ioT1ClickPlacementPlacementName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot1click-placement.html#cfn-iot1click-placement-projectname

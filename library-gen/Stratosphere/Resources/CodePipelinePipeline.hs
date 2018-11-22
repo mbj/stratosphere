@@ -8,6 +8,7 @@ module Stratosphere.Resources.CodePipelinePipeline where
 
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.CodePipelinePipelineArtifactStore
+import Stratosphere.ResourceProperties.CodePipelinePipelineArtifactStoreMap
 import Stratosphere.ResourceProperties.CodePipelinePipelineStageTransition
 import Stratosphere.ResourceProperties.CodePipelinePipelineStageDeclaration
 
@@ -15,7 +16,8 @@ import Stratosphere.ResourceProperties.CodePipelinePipelineStageDeclaration
 -- 'codePipelinePipeline' for a more convenient constructor.
 data CodePipelinePipeline =
   CodePipelinePipeline
-  { _codePipelinePipelineArtifactStore :: CodePipelinePipelineArtifactStore
+  { _codePipelinePipelineArtifactStore :: Maybe CodePipelinePipelineArtifactStore
+  , _codePipelinePipelineArtifactStores :: Maybe [CodePipelinePipelineArtifactStoreMap]
   , _codePipelinePipelineDisableInboundStageTransitions :: Maybe [CodePipelinePipelineStageTransition]
   , _codePipelinePipelineName :: Maybe (Val Text)
   , _codePipelinePipelineRestartExecutionOnUpdate :: Maybe (Val Bool)
@@ -27,7 +29,8 @@ instance ToJSON CodePipelinePipeline where
   toJSON CodePipelinePipeline{..} =
     object $
     catMaybes
-    [ (Just . ("ArtifactStore",) . toJSON) _codePipelinePipelineArtifactStore
+    [ fmap (("ArtifactStore",) . toJSON) _codePipelinePipelineArtifactStore
+    , fmap (("ArtifactStores",) . toJSON) _codePipelinePipelineArtifactStores
     , fmap (("DisableInboundStageTransitions",) . toJSON) _codePipelinePipelineDisableInboundStageTransitions
     , fmap (("Name",) . toJSON) _codePipelinePipelineName
     , fmap (("RestartExecutionOnUpdate",) . toJSON . fmap Bool') _codePipelinePipelineRestartExecutionOnUpdate
@@ -38,7 +41,8 @@ instance ToJSON CodePipelinePipeline where
 instance FromJSON CodePipelinePipeline where
   parseJSON (Object obj) =
     CodePipelinePipeline <$>
-      (obj .: "ArtifactStore") <*>
+      (obj .:? "ArtifactStore") <*>
+      (obj .:? "ArtifactStores") <*>
       (obj .:? "DisableInboundStageTransitions") <*>
       (obj .:? "Name") <*>
       fmap (fmap (fmap unBool')) (obj .:? "RestartExecutionOnUpdate") <*>
@@ -49,13 +53,13 @@ instance FromJSON CodePipelinePipeline where
 -- | Constructor for 'CodePipelinePipeline' containing required fields as
 -- arguments.
 codePipelinePipeline
-  :: CodePipelinePipelineArtifactStore -- ^ 'cppArtifactStore'
-  -> Val Text -- ^ 'cppRoleArn'
+  :: Val Text -- ^ 'cppRoleArn'
   -> [CodePipelinePipelineStageDeclaration] -- ^ 'cppStages'
   -> CodePipelinePipeline
-codePipelinePipeline artifactStorearg roleArnarg stagesarg =
+codePipelinePipeline roleArnarg stagesarg =
   CodePipelinePipeline
-  { _codePipelinePipelineArtifactStore = artifactStorearg
+  { _codePipelinePipelineArtifactStore = Nothing
+  , _codePipelinePipelineArtifactStores = Nothing
   , _codePipelinePipelineDisableInboundStageTransitions = Nothing
   , _codePipelinePipelineName = Nothing
   , _codePipelinePipelineRestartExecutionOnUpdate = Nothing
@@ -64,8 +68,12 @@ codePipelinePipeline artifactStorearg roleArnarg stagesarg =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-pipeline.html#cfn-codepipeline-pipeline-artifactstore
-cppArtifactStore :: Lens' CodePipelinePipeline CodePipelinePipelineArtifactStore
+cppArtifactStore :: Lens' CodePipelinePipeline (Maybe CodePipelinePipelineArtifactStore)
 cppArtifactStore = lens _codePipelinePipelineArtifactStore (\s a -> s { _codePipelinePipelineArtifactStore = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-pipeline.html#cfn-codepipeline-pipeline-artifactstores
+cppArtifactStores :: Lens' CodePipelinePipeline (Maybe [CodePipelinePipelineArtifactStoreMap])
+cppArtifactStores = lens _codePipelinePipelineArtifactStores (\s a -> s { _codePipelinePipelineArtifactStores = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-pipeline.html#cfn-codepipeline-pipeline-disableinboundstagetransitions
 cppDisableInboundStageTransitions :: Lens' CodePipelinePipeline (Maybe [CodePipelinePipelineStageTransition])

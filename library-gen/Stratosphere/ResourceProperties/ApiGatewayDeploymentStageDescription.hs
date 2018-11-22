@@ -11,6 +11,7 @@ import Stratosphere.Types
 import Stratosphere.ResourceProperties.ApiGatewayDeploymentAccessLogSetting
 import Stratosphere.ResourceProperties.ApiGatewayDeploymentCanarySetting
 import Stratosphere.ResourceProperties.ApiGatewayDeploymentMethodSetting
+import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for ApiGatewayDeploymentStageDescription. See
 -- 'apiGatewayDeploymentStageDescription' for a more convenient constructor.
@@ -30,6 +31,7 @@ data ApiGatewayDeploymentStageDescription =
   , _apiGatewayDeploymentStageDescriptionLoggingLevel :: Maybe (Val LoggingLevel)
   , _apiGatewayDeploymentStageDescriptionMethodSettings :: Maybe [ApiGatewayDeploymentMethodSetting]
   , _apiGatewayDeploymentStageDescriptionMetricsEnabled :: Maybe (Val Bool)
+  , _apiGatewayDeploymentStageDescriptionTags :: Maybe [Tag]
   , _apiGatewayDeploymentStageDescriptionThrottlingBurstLimit :: Maybe (Val Integer)
   , _apiGatewayDeploymentStageDescriptionThrottlingRateLimit :: Maybe (Val Double)
   , _apiGatewayDeploymentStageDescriptionTracingEnabled :: Maybe (Val Bool)
@@ -54,6 +56,7 @@ instance ToJSON ApiGatewayDeploymentStageDescription where
     , fmap (("LoggingLevel",) . toJSON) _apiGatewayDeploymentStageDescriptionLoggingLevel
     , fmap (("MethodSettings",) . toJSON) _apiGatewayDeploymentStageDescriptionMethodSettings
     , fmap (("MetricsEnabled",) . toJSON . fmap Bool') _apiGatewayDeploymentStageDescriptionMetricsEnabled
+    , fmap (("Tags",) . toJSON) _apiGatewayDeploymentStageDescriptionTags
     , fmap (("ThrottlingBurstLimit",) . toJSON . fmap Integer') _apiGatewayDeploymentStageDescriptionThrottlingBurstLimit
     , fmap (("ThrottlingRateLimit",) . toJSON . fmap Double') _apiGatewayDeploymentStageDescriptionThrottlingRateLimit
     , fmap (("TracingEnabled",) . toJSON . fmap Bool') _apiGatewayDeploymentStageDescriptionTracingEnabled
@@ -77,6 +80,7 @@ instance FromJSON ApiGatewayDeploymentStageDescription where
       (obj .:? "LoggingLevel") <*>
       (obj .:? "MethodSettings") <*>
       fmap (fmap (fmap unBool')) (obj .:? "MetricsEnabled") <*>
+      (obj .:? "Tags") <*>
       fmap (fmap (fmap unInteger')) (obj .:? "ThrottlingBurstLimit") <*>
       fmap (fmap (fmap unDouble')) (obj .:? "ThrottlingRateLimit") <*>
       fmap (fmap (fmap unBool')) (obj .:? "TracingEnabled") <*>
@@ -103,6 +107,7 @@ apiGatewayDeploymentStageDescription  =
   , _apiGatewayDeploymentStageDescriptionLoggingLevel = Nothing
   , _apiGatewayDeploymentStageDescriptionMethodSettings = Nothing
   , _apiGatewayDeploymentStageDescriptionMetricsEnabled = Nothing
+  , _apiGatewayDeploymentStageDescriptionTags = Nothing
   , _apiGatewayDeploymentStageDescriptionThrottlingBurstLimit = Nothing
   , _apiGatewayDeploymentStageDescriptionThrottlingRateLimit = Nothing
   , _apiGatewayDeploymentStageDescriptionTracingEnabled = Nothing
@@ -164,6 +169,10 @@ agdsdMethodSettings = lens _apiGatewayDeploymentStageDescriptionMethodSettings (
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-metricsenabled
 agdsdMetricsEnabled :: Lens' ApiGatewayDeploymentStageDescription (Maybe (Val Bool))
 agdsdMetricsEnabled = lens _apiGatewayDeploymentStageDescriptionMetricsEnabled (\s a -> s { _apiGatewayDeploymentStageDescriptionMetricsEnabled = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-tags
+agdsdTags :: Lens' ApiGatewayDeploymentStageDescription (Maybe [Tag])
+agdsdTags = lens _apiGatewayDeploymentStageDescriptionTags (\s a -> s { _apiGatewayDeploymentStageDescriptionTags = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-throttlingburstlimit
 agdsdThrottlingBurstLimit :: Lens' ApiGatewayDeploymentStageDescription (Maybe (Val Integer))

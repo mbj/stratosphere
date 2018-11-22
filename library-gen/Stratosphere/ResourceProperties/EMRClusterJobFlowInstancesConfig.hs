@@ -24,6 +24,7 @@ data EMRClusterJobFlowInstancesConfig =
   , _eMRClusterJobFlowInstancesConfigEmrManagedMasterSecurityGroup :: Maybe (Val Text)
   , _eMRClusterJobFlowInstancesConfigEmrManagedSlaveSecurityGroup :: Maybe (Val Text)
   , _eMRClusterJobFlowInstancesConfigHadoopVersion :: Maybe (Val Text)
+  , _eMRClusterJobFlowInstancesConfigKeepJobFlowAliveWhenNoSteps :: Maybe (Val Bool)
   , _eMRClusterJobFlowInstancesConfigMasterInstanceFleet :: Maybe EMRClusterInstanceFleetConfig
   , _eMRClusterJobFlowInstancesConfigMasterInstanceGroup :: Maybe EMRClusterInstanceGroupConfig
   , _eMRClusterJobFlowInstancesConfigPlacement :: Maybe EMRClusterPlacementType
@@ -44,6 +45,7 @@ instance ToJSON EMRClusterJobFlowInstancesConfig where
     , fmap (("EmrManagedMasterSecurityGroup",) . toJSON) _eMRClusterJobFlowInstancesConfigEmrManagedMasterSecurityGroup
     , fmap (("EmrManagedSlaveSecurityGroup",) . toJSON) _eMRClusterJobFlowInstancesConfigEmrManagedSlaveSecurityGroup
     , fmap (("HadoopVersion",) . toJSON) _eMRClusterJobFlowInstancesConfigHadoopVersion
+    , fmap (("KeepJobFlowAliveWhenNoSteps",) . toJSON . fmap Bool') _eMRClusterJobFlowInstancesConfigKeepJobFlowAliveWhenNoSteps
     , fmap (("MasterInstanceFleet",) . toJSON) _eMRClusterJobFlowInstancesConfigMasterInstanceFleet
     , fmap (("MasterInstanceGroup",) . toJSON) _eMRClusterJobFlowInstancesConfigMasterInstanceGroup
     , fmap (("Placement",) . toJSON) _eMRClusterJobFlowInstancesConfigPlacement
@@ -63,6 +65,7 @@ instance FromJSON EMRClusterJobFlowInstancesConfig where
       (obj .:? "EmrManagedMasterSecurityGroup") <*>
       (obj .:? "EmrManagedSlaveSecurityGroup") <*>
       (obj .:? "HadoopVersion") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "KeepJobFlowAliveWhenNoSteps") <*>
       (obj .:? "MasterInstanceFleet") <*>
       (obj .:? "MasterInstanceGroup") <*>
       (obj .:? "Placement") <*>
@@ -85,6 +88,7 @@ emrClusterJobFlowInstancesConfig  =
   , _eMRClusterJobFlowInstancesConfigEmrManagedMasterSecurityGroup = Nothing
   , _eMRClusterJobFlowInstancesConfigEmrManagedSlaveSecurityGroup = Nothing
   , _eMRClusterJobFlowInstancesConfigHadoopVersion = Nothing
+  , _eMRClusterJobFlowInstancesConfigKeepJobFlowAliveWhenNoSteps = Nothing
   , _eMRClusterJobFlowInstancesConfigMasterInstanceFleet = Nothing
   , _eMRClusterJobFlowInstancesConfigMasterInstanceGroup = Nothing
   , _eMRClusterJobFlowInstancesConfigPlacement = Nothing
@@ -127,6 +131,10 @@ emrcjficEmrManagedSlaveSecurityGroup = lens _eMRClusterJobFlowInstancesConfigEmr
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-jobflowinstancesconfig.html#cfn-elasticmapreduce-cluster-jobflowinstancesconfig-hadoopversion
 emrcjficHadoopVersion :: Lens' EMRClusterJobFlowInstancesConfig (Maybe (Val Text))
 emrcjficHadoopVersion = lens _eMRClusterJobFlowInstancesConfigHadoopVersion (\s a -> s { _eMRClusterJobFlowInstancesConfigHadoopVersion = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-jobflowinstancesconfig.html#cfn-elasticmapreduce-cluster-jobflowinstancesconfig-keepjobflowalivewhennosteps
+emrcjficKeepJobFlowAliveWhenNoSteps :: Lens' EMRClusterJobFlowInstancesConfig (Maybe (Val Bool))
+emrcjficKeepJobFlowAliveWhenNoSteps = lens _eMRClusterJobFlowInstancesConfigKeepJobFlowAliveWhenNoSteps (\s a -> s { _eMRClusterJobFlowInstancesConfigKeepJobFlowAliveWhenNoSteps = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-jobflowinstancesconfig.html#cfn-elasticmapreduce-cluster-jobflowinstancesconfig-masterinstancefleet
 emrcjficMasterInstanceFleet :: Lens' EMRClusterJobFlowInstancesConfig (Maybe EMRClusterInstanceFleetConfig)

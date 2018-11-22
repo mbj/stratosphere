@@ -29,6 +29,8 @@ data RDSDBInstance =
   , _rDSDBInstanceDBSecurityGroups :: Maybe (ValList Text)
   , _rDSDBInstanceDBSnapshotIdentifier :: Maybe (Val Text)
   , _rDSDBInstanceDBSubnetGroupName :: Maybe (Val Text)
+  , _rDSDBInstanceDeleteAutomatedBackups :: Maybe (Val Bool)
+  , _rDSDBInstanceDeletionProtection :: Maybe (Val Bool)
   , _rDSDBInstanceDomain :: Maybe (Val Text)
   , _rDSDBInstanceDomainIAMRoleName :: Maybe (Val Text)
   , _rDSDBInstanceEnableCloudwatchLogsExports :: Maybe (ValList Text)
@@ -81,6 +83,8 @@ instance ToJSON RDSDBInstance where
     , fmap (("DBSecurityGroups",) . toJSON) _rDSDBInstanceDBSecurityGroups
     , fmap (("DBSnapshotIdentifier",) . toJSON) _rDSDBInstanceDBSnapshotIdentifier
     , fmap (("DBSubnetGroupName",) . toJSON) _rDSDBInstanceDBSubnetGroupName
+    , fmap (("DeleteAutomatedBackups",) . toJSON . fmap Bool') _rDSDBInstanceDeleteAutomatedBackups
+    , fmap (("DeletionProtection",) . toJSON . fmap Bool') _rDSDBInstanceDeletionProtection
     , fmap (("Domain",) . toJSON) _rDSDBInstanceDomain
     , fmap (("DomainIAMRoleName",) . toJSON) _rDSDBInstanceDomainIAMRoleName
     , fmap (("EnableCloudwatchLogsExports",) . toJSON) _rDSDBInstanceEnableCloudwatchLogsExports
@@ -132,6 +136,8 @@ instance FromJSON RDSDBInstance where
       (obj .:? "DBSecurityGroups") <*>
       (obj .:? "DBSnapshotIdentifier") <*>
       (obj .:? "DBSubnetGroupName") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "DeleteAutomatedBackups") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "DeletionProtection") <*>
       (obj .:? "Domain") <*>
       (obj .:? "DomainIAMRoleName") <*>
       (obj .:? "EnableCloudwatchLogsExports") <*>
@@ -186,6 +192,8 @@ rdsdbInstance dBInstanceClassarg =
   , _rDSDBInstanceDBSecurityGroups = Nothing
   , _rDSDBInstanceDBSnapshotIdentifier = Nothing
   , _rDSDBInstanceDBSubnetGroupName = Nothing
+  , _rDSDBInstanceDeleteAutomatedBackups = Nothing
+  , _rDSDBInstanceDeletionProtection = Nothing
   , _rDSDBInstanceDomain = Nothing
   , _rDSDBInstanceDomainIAMRoleName = Nothing
   , _rDSDBInstanceEnableCloudwatchLogsExports = Nothing
@@ -278,6 +286,14 @@ rdsdbiDBSnapshotIdentifier = lens _rDSDBInstanceDBSnapshotIdentifier (\s a -> s 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-dbsubnetgroupname
 rdsdbiDBSubnetGroupName :: Lens' RDSDBInstance (Maybe (Val Text))
 rdsdbiDBSubnetGroupName = lens _rDSDBInstanceDBSubnetGroupName (\s a -> s { _rDSDBInstanceDBSubnetGroupName = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-deleteautomatedbackups
+rdsdbiDeleteAutomatedBackups :: Lens' RDSDBInstance (Maybe (Val Bool))
+rdsdbiDeleteAutomatedBackups = lens _rDSDBInstanceDeleteAutomatedBackups (\s a -> s { _rDSDBInstanceDeleteAutomatedBackups = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-deletionprotection
+rdsdbiDeletionProtection :: Lens' RDSDBInstance (Maybe (Val Bool))
+rdsdbiDeletionProtection = lens _rDSDBInstanceDeletionProtection (\s a -> s { _rDSDBInstanceDeletionProtection = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-domain
 rdsdbiDomain :: Lens' RDSDBInstance (Maybe (Val Text))

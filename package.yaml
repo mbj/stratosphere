@@ -1,5 +1,5 @@
 name: stratosphere
-version: "0.27.0"
+version: "0.28.0"
 synopsis: EDSL for AWS CloudFormation
 description: EDSL for AWS CloudFormation
 category: AWS, Cloud
@@ -65,14 +65,6 @@ executables:
         buildable: false
   s3-copy:
     main: s3-copy.hs
-    source-dirs: examples
-    dependencies: stratosphere
-    ghc-options: -Wall
-    when:
-      - condition: flag(library-only)
-        buildable: false
-  apigw-lambda-dynamodb:
-    main: apigw-lambda-dynamodb.hs
     source-dirs: examples
     dependencies: stratosphere
     ghc-options: -Wall

@@ -24,10 +24,10 @@ data CloudWatchAlarm =
   , _cloudWatchAlarmEvaluationPeriods :: Val Integer
   , _cloudWatchAlarmExtendedStatistic :: Maybe (Val Text)
   , _cloudWatchAlarmInsufficientDataActions :: Maybe (ValList Text)
-  , _cloudWatchAlarmMetricName :: Val Text
-  , _cloudWatchAlarmNamespace :: Val Text
+  , _cloudWatchAlarmMetricName :: Maybe (Val Text)
+  , _cloudWatchAlarmNamespace :: Maybe (Val Text)
   , _cloudWatchAlarmOKActions :: Maybe (ValList Text)
-  , _cloudWatchAlarmPeriod :: Val Integer
+  , _cloudWatchAlarmPeriod :: Maybe (Val Integer)
   , _cloudWatchAlarmStatistic :: Maybe (Val Text)
   , _cloudWatchAlarmThreshold :: Val Double
   , _cloudWatchAlarmTreatMissingData :: Maybe (Val Text)
@@ -49,10 +49,10 @@ instance ToJSON CloudWatchAlarm where
     , (Just . ("EvaluationPeriods",) . toJSON . fmap Integer') _cloudWatchAlarmEvaluationPeriods
     , fmap (("ExtendedStatistic",) . toJSON) _cloudWatchAlarmExtendedStatistic
     , fmap (("InsufficientDataActions",) . toJSON) _cloudWatchAlarmInsufficientDataActions
-    , (Just . ("MetricName",) . toJSON) _cloudWatchAlarmMetricName
-    , (Just . ("Namespace",) . toJSON) _cloudWatchAlarmNamespace
+    , fmap (("MetricName",) . toJSON) _cloudWatchAlarmMetricName
+    , fmap (("Namespace",) . toJSON) _cloudWatchAlarmNamespace
     , fmap (("OKActions",) . toJSON) _cloudWatchAlarmOKActions
-    , (Just . ("Period",) . toJSON . fmap Integer') _cloudWatchAlarmPeriod
+    , fmap (("Period",) . toJSON . fmap Integer') _cloudWatchAlarmPeriod
     , fmap (("Statistic",) . toJSON) _cloudWatchAlarmStatistic
     , (Just . ("Threshold",) . toJSON . fmap Double') _cloudWatchAlarmThreshold
     , fmap (("TreatMissingData",) . toJSON) _cloudWatchAlarmTreatMissingData
@@ -73,10 +73,10 @@ instance FromJSON CloudWatchAlarm where
       fmap (fmap unInteger') (obj .: "EvaluationPeriods") <*>
       (obj .:? "ExtendedStatistic") <*>
       (obj .:? "InsufficientDataActions") <*>
-      (obj .: "MetricName") <*>
-      (obj .: "Namespace") <*>
+      (obj .:? "MetricName") <*>
+      (obj .:? "Namespace") <*>
       (obj .:? "OKActions") <*>
-      fmap (fmap unInteger') (obj .: "Period") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "Period") <*>
       (obj .:? "Statistic") <*>
       fmap (fmap unDouble') (obj .: "Threshold") <*>
       (obj .:? "TreatMissingData") <*>
@@ -88,12 +88,9 @@ instance FromJSON CloudWatchAlarm where
 cloudWatchAlarm
   :: Val Text -- ^ 'cwaComparisonOperator'
   -> Val Integer -- ^ 'cwaEvaluationPeriods'
-  -> Val Text -- ^ 'cwaMetricName'
-  -> Val Text -- ^ 'cwaNamespace'
-  -> Val Integer -- ^ 'cwaPeriod'
   -> Val Double -- ^ 'cwaThreshold'
   -> CloudWatchAlarm
-cloudWatchAlarm comparisonOperatorarg evaluationPeriodsarg metricNamearg namespacearg periodarg thresholdarg =
+cloudWatchAlarm comparisonOperatorarg evaluationPeriodsarg thresholdarg =
   CloudWatchAlarm
   { _cloudWatchAlarmActionsEnabled = Nothing
   , _cloudWatchAlarmAlarmActions = Nothing
@@ -106,10 +103,10 @@ cloudWatchAlarm comparisonOperatorarg evaluationPeriodsarg metricNamearg namespa
   , _cloudWatchAlarmEvaluationPeriods = evaluationPeriodsarg
   , _cloudWatchAlarmExtendedStatistic = Nothing
   , _cloudWatchAlarmInsufficientDataActions = Nothing
-  , _cloudWatchAlarmMetricName = metricNamearg
-  , _cloudWatchAlarmNamespace = namespacearg
+  , _cloudWatchAlarmMetricName = Nothing
+  , _cloudWatchAlarmNamespace = Nothing
   , _cloudWatchAlarmOKActions = Nothing
-  , _cloudWatchAlarmPeriod = periodarg
+  , _cloudWatchAlarmPeriod = Nothing
   , _cloudWatchAlarmStatistic = Nothing
   , _cloudWatchAlarmThreshold = thresholdarg
   , _cloudWatchAlarmTreatMissingData = Nothing
@@ -161,11 +158,11 @@ cwaInsufficientDataActions :: Lens' CloudWatchAlarm (Maybe (ValList Text))
 cwaInsufficientDataActions = lens _cloudWatchAlarmInsufficientDataActions (\s a -> s { _cloudWatchAlarmInsufficientDataActions = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html#cfn-cloudwatch-alarms-metricname
-cwaMetricName :: Lens' CloudWatchAlarm (Val Text)
+cwaMetricName :: Lens' CloudWatchAlarm (Maybe (Val Text))
 cwaMetricName = lens _cloudWatchAlarmMetricName (\s a -> s { _cloudWatchAlarmMetricName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html#cfn-cloudwatch-alarms-namespace
-cwaNamespace :: Lens' CloudWatchAlarm (Val Text)
+cwaNamespace :: Lens' CloudWatchAlarm (Maybe (Val Text))
 cwaNamespace = lens _cloudWatchAlarmNamespace (\s a -> s { _cloudWatchAlarmNamespace = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html#cfn-cloudwatch-alarms-okactions
@@ -173,7 +170,7 @@ cwaOKActions :: Lens' CloudWatchAlarm (Maybe (ValList Text))
 cwaOKActions = lens _cloudWatchAlarmOKActions (\s a -> s { _cloudWatchAlarmOKActions = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html#cfn-cloudwatch-alarms-period
-cwaPeriod :: Lens' CloudWatchAlarm (Val Integer)
+cwaPeriod :: Lens' CloudWatchAlarm (Maybe (Val Integer))
 cwaPeriod = lens _cloudWatchAlarmPeriod (\s a -> s { _cloudWatchAlarmPeriod = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html#cfn-cloudwatch-alarms-statistic

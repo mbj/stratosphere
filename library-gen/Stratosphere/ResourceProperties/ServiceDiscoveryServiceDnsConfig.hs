@@ -14,7 +14,7 @@ import Stratosphere.ResourceProperties.ServiceDiscoveryServiceDnsRecord
 data ServiceDiscoveryServiceDnsConfig =
   ServiceDiscoveryServiceDnsConfig
   { _serviceDiscoveryServiceDnsConfigDnsRecords :: [ServiceDiscoveryServiceDnsRecord]
-  , _serviceDiscoveryServiceDnsConfigNamespaceId :: Val Text
+  , _serviceDiscoveryServiceDnsConfigNamespaceId :: Maybe (Val Text)
   , _serviceDiscoveryServiceDnsConfigRoutingPolicy :: Maybe (Val Text)
   } deriving (Show, Eq)
 
@@ -23,7 +23,7 @@ instance ToJSON ServiceDiscoveryServiceDnsConfig where
     object $
     catMaybes
     [ (Just . ("DnsRecords",) . toJSON) _serviceDiscoveryServiceDnsConfigDnsRecords
-    , (Just . ("NamespaceId",) . toJSON) _serviceDiscoveryServiceDnsConfigNamespaceId
+    , fmap (("NamespaceId",) . toJSON) _serviceDiscoveryServiceDnsConfigNamespaceId
     , fmap (("RoutingPolicy",) . toJSON) _serviceDiscoveryServiceDnsConfigRoutingPolicy
     ]
 
@@ -31,7 +31,7 @@ instance FromJSON ServiceDiscoveryServiceDnsConfig where
   parseJSON (Object obj) =
     ServiceDiscoveryServiceDnsConfig <$>
       (obj .: "DnsRecords") <*>
-      (obj .: "NamespaceId") <*>
+      (obj .:? "NamespaceId") <*>
       (obj .:? "RoutingPolicy")
   parseJSON _ = mempty
 
@@ -39,12 +39,11 @@ instance FromJSON ServiceDiscoveryServiceDnsConfig where
 -- fields as arguments.
 serviceDiscoveryServiceDnsConfig
   :: [ServiceDiscoveryServiceDnsRecord] -- ^ 'sdsdcDnsRecords'
-  -> Val Text -- ^ 'sdsdcNamespaceId'
   -> ServiceDiscoveryServiceDnsConfig
-serviceDiscoveryServiceDnsConfig dnsRecordsarg namespaceIdarg =
+serviceDiscoveryServiceDnsConfig dnsRecordsarg =
   ServiceDiscoveryServiceDnsConfig
   { _serviceDiscoveryServiceDnsConfigDnsRecords = dnsRecordsarg
-  , _serviceDiscoveryServiceDnsConfigNamespaceId = namespaceIdarg
+  , _serviceDiscoveryServiceDnsConfigNamespaceId = Nothing
   , _serviceDiscoveryServiceDnsConfigRoutingPolicy = Nothing
   }
 
@@ -53,7 +52,7 @@ sdsdcDnsRecords :: Lens' ServiceDiscoveryServiceDnsConfig [ServiceDiscoveryServi
 sdsdcDnsRecords = lens _serviceDiscoveryServiceDnsConfigDnsRecords (\s a -> s { _serviceDiscoveryServiceDnsConfigDnsRecords = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-dnsconfig.html#cfn-servicediscovery-service-dnsconfig-namespaceid
-sdsdcNamespaceId :: Lens' ServiceDiscoveryServiceDnsConfig (Val Text)
+sdsdcNamespaceId :: Lens' ServiceDiscoveryServiceDnsConfig (Maybe (Val Text))
 sdsdcNamespaceId = lens _serviceDiscoveryServiceDnsConfigNamespaceId (\s a -> s { _serviceDiscoveryServiceDnsConfigNamespaceId = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-dnsconfig.html#cfn-servicediscovery-service-dnsconfig-routingpolicy

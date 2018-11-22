@@ -11,6 +11,7 @@ import Stratosphere.ResourceProperties.AppSyncDataSourceDynamoDBConfig
 import Stratosphere.ResourceProperties.AppSyncDataSourceElasticsearchConfig
 import Stratosphere.ResourceProperties.AppSyncDataSourceHttpConfig
 import Stratosphere.ResourceProperties.AppSyncDataSourceLambdaConfig
+import Stratosphere.ResourceProperties.AppSyncDataSourceRelationalDatabaseConfig
 
 -- | Full data type definition for AppSyncDataSource. See 'appSyncDataSource'
 -- for a more convenient constructor.
@@ -23,6 +24,7 @@ data AppSyncDataSource =
   , _appSyncDataSourceHttpConfig :: Maybe AppSyncDataSourceHttpConfig
   , _appSyncDataSourceLambdaConfig :: Maybe AppSyncDataSourceLambdaConfig
   , _appSyncDataSourceName :: Val Text
+  , _appSyncDataSourceRelationalDatabaseConfig :: Maybe AppSyncDataSourceRelationalDatabaseConfig
   , _appSyncDataSourceServiceRoleArn :: Maybe (Val Text)
   , _appSyncDataSourceType :: Val Text
   } deriving (Show, Eq)
@@ -38,6 +40,7 @@ instance ToJSON AppSyncDataSource where
     , fmap (("HttpConfig",) . toJSON) _appSyncDataSourceHttpConfig
     , fmap (("LambdaConfig",) . toJSON) _appSyncDataSourceLambdaConfig
     , (Just . ("Name",) . toJSON) _appSyncDataSourceName
+    , fmap (("RelationalDatabaseConfig",) . toJSON) _appSyncDataSourceRelationalDatabaseConfig
     , fmap (("ServiceRoleArn",) . toJSON) _appSyncDataSourceServiceRoleArn
     , (Just . ("Type",) . toJSON) _appSyncDataSourceType
     ]
@@ -52,6 +55,7 @@ instance FromJSON AppSyncDataSource where
       (obj .:? "HttpConfig") <*>
       (obj .:? "LambdaConfig") <*>
       (obj .: "Name") <*>
+      (obj .:? "RelationalDatabaseConfig") <*>
       (obj .:? "ServiceRoleArn") <*>
       (obj .: "Type")
   parseJSON _ = mempty
@@ -72,6 +76,7 @@ appSyncDataSource apiIdarg namearg typearg =
   , _appSyncDataSourceHttpConfig = Nothing
   , _appSyncDataSourceLambdaConfig = Nothing
   , _appSyncDataSourceName = namearg
+  , _appSyncDataSourceRelationalDatabaseConfig = Nothing
   , _appSyncDataSourceServiceRoleArn = Nothing
   , _appSyncDataSourceType = typearg
   }
@@ -103,6 +108,10 @@ asdsLambdaConfig = lens _appSyncDataSourceLambdaConfig (\s a -> s { _appSyncData
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html#cfn-appsync-datasource-name
 asdsName :: Lens' AppSyncDataSource (Val Text)
 asdsName = lens _appSyncDataSourceName (\s a -> s { _appSyncDataSourceName = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html#cfn-appsync-datasource-relationaldatabaseconfig
+asdsRelationalDatabaseConfig :: Lens' AppSyncDataSource (Maybe AppSyncDataSourceRelationalDatabaseConfig)
+asdsRelationalDatabaseConfig = lens _appSyncDataSourceRelationalDatabaseConfig (\s a -> s { _appSyncDataSourceRelationalDatabaseConfig = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html#cfn-appsync-datasource-servicerolearn
 asdsServiceRoleArn :: Lens' AppSyncDataSource (Maybe (Val Text))

@@ -28,6 +28,7 @@ data CodeBuildProject =
   , _codeBuildProjectEnvironment :: CodeBuildProjectEnvironment
   , _codeBuildProjectLogsConfig :: Maybe CodeBuildProjectLogsConfig
   , _codeBuildProjectName :: Maybe (Val Text)
+  , _codeBuildProjectQueuedTimeoutInMinutes :: Maybe (Val Integer)
   , _codeBuildProjectSecondaryArtifacts :: Maybe [CodeBuildProjectArtifacts]
   , _codeBuildProjectSecondarySources :: Maybe [CodeBuildProjectSource]
   , _codeBuildProjectServiceRole :: Val Text
@@ -50,6 +51,7 @@ instance ToJSON CodeBuildProject where
     , (Just . ("Environment",) . toJSON) _codeBuildProjectEnvironment
     , fmap (("LogsConfig",) . toJSON) _codeBuildProjectLogsConfig
     , fmap (("Name",) . toJSON) _codeBuildProjectName
+    , fmap (("QueuedTimeoutInMinutes",) . toJSON . fmap Integer') _codeBuildProjectQueuedTimeoutInMinutes
     , fmap (("SecondaryArtifacts",) . toJSON) _codeBuildProjectSecondaryArtifacts
     , fmap (("SecondarySources",) . toJSON) _codeBuildProjectSecondarySources
     , (Just . ("ServiceRole",) . toJSON) _codeBuildProjectServiceRole
@@ -71,6 +73,7 @@ instance FromJSON CodeBuildProject where
       (obj .: "Environment") <*>
       (obj .:? "LogsConfig") <*>
       (obj .:? "Name") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "QueuedTimeoutInMinutes") <*>
       (obj .:? "SecondaryArtifacts") <*>
       (obj .:? "SecondarySources") <*>
       (obj .: "ServiceRole") <*>
@@ -99,6 +102,7 @@ codeBuildProject artifactsarg environmentarg serviceRolearg sourcearg =
   , _codeBuildProjectEnvironment = environmentarg
   , _codeBuildProjectLogsConfig = Nothing
   , _codeBuildProjectName = Nothing
+  , _codeBuildProjectQueuedTimeoutInMinutes = Nothing
   , _codeBuildProjectSecondaryArtifacts = Nothing
   , _codeBuildProjectSecondarySources = Nothing
   , _codeBuildProjectServiceRole = serviceRolearg
@@ -140,6 +144,10 @@ cbpLogsConfig = lens _codeBuildProjectLogsConfig (\s a -> s { _codeBuildProjectL
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-name
 cbpName :: Lens' CodeBuildProject (Maybe (Val Text))
 cbpName = lens _codeBuildProjectName (\s a -> s { _codeBuildProjectName = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-queuedtimeoutinminutes
+cbpQueuedTimeoutInMinutes :: Lens' CodeBuildProject (Maybe (Val Integer))
+cbpQueuedTimeoutInMinutes = lens _codeBuildProjectQueuedTimeoutInMinutes (\s a -> s { _codeBuildProjectQueuedTimeoutInMinutes = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-secondaryartifacts
 cbpSecondaryArtifacts :: Lens' CodeBuildProject (Maybe [CodeBuildProjectArtifacts])

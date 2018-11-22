@@ -7,7 +7,7 @@
 module Stratosphere.ResourceProperties.BatchComputeEnvironmentComputeResources where
 
 import Stratosphere.ResourceImports
-
+import Stratosphere.ResourceProperties.BatchComputeEnvironmentLaunchTemplateSpecification
 
 -- | Full data type definition for BatchComputeEnvironmentComputeResources.
 -- See 'batchComputeEnvironmentComputeResources' for a more convenient
@@ -20,8 +20,10 @@ data BatchComputeEnvironmentComputeResources =
   , _batchComputeEnvironmentComputeResourcesImageId :: Maybe (Val Text)
   , _batchComputeEnvironmentComputeResourcesInstanceRole :: Val Text
   , _batchComputeEnvironmentComputeResourcesInstanceTypes :: ValList Text
+  , _batchComputeEnvironmentComputeResourcesLaunchTemplate :: Maybe BatchComputeEnvironmentLaunchTemplateSpecification
   , _batchComputeEnvironmentComputeResourcesMaxvCpus :: Val Integer
   , _batchComputeEnvironmentComputeResourcesMinvCpus :: Val Integer
+  , _batchComputeEnvironmentComputeResourcesPlacementGroup :: Maybe (Val Text)
   , _batchComputeEnvironmentComputeResourcesSecurityGroupIds :: ValList Text
   , _batchComputeEnvironmentComputeResourcesSpotIamFleetRole :: Maybe (Val Text)
   , _batchComputeEnvironmentComputeResourcesSubnets :: ValList Text
@@ -39,8 +41,10 @@ instance ToJSON BatchComputeEnvironmentComputeResources where
     , fmap (("ImageId",) . toJSON) _batchComputeEnvironmentComputeResourcesImageId
     , (Just . ("InstanceRole",) . toJSON) _batchComputeEnvironmentComputeResourcesInstanceRole
     , (Just . ("InstanceTypes",) . toJSON) _batchComputeEnvironmentComputeResourcesInstanceTypes
+    , fmap (("LaunchTemplate",) . toJSON) _batchComputeEnvironmentComputeResourcesLaunchTemplate
     , (Just . ("MaxvCpus",) . toJSON . fmap Integer') _batchComputeEnvironmentComputeResourcesMaxvCpus
     , (Just . ("MinvCpus",) . toJSON . fmap Integer') _batchComputeEnvironmentComputeResourcesMinvCpus
+    , fmap (("PlacementGroup",) . toJSON) _batchComputeEnvironmentComputeResourcesPlacementGroup
     , (Just . ("SecurityGroupIds",) . toJSON) _batchComputeEnvironmentComputeResourcesSecurityGroupIds
     , fmap (("SpotIamFleetRole",) . toJSON) _batchComputeEnvironmentComputeResourcesSpotIamFleetRole
     , (Just . ("Subnets",) . toJSON) _batchComputeEnvironmentComputeResourcesSubnets
@@ -57,8 +61,10 @@ instance FromJSON BatchComputeEnvironmentComputeResources where
       (obj .:? "ImageId") <*>
       (obj .: "InstanceRole") <*>
       (obj .: "InstanceTypes") <*>
+      (obj .:? "LaunchTemplate") <*>
       fmap (fmap unInteger') (obj .: "MaxvCpus") <*>
       fmap (fmap unInteger') (obj .: "MinvCpus") <*>
+      (obj .:? "PlacementGroup") <*>
       (obj .: "SecurityGroupIds") <*>
       (obj .:? "SpotIamFleetRole") <*>
       (obj .: "Subnets") <*>
@@ -85,8 +91,10 @@ batchComputeEnvironmentComputeResources instanceRolearg instanceTypesarg maxvCpu
   , _batchComputeEnvironmentComputeResourcesImageId = Nothing
   , _batchComputeEnvironmentComputeResourcesInstanceRole = instanceRolearg
   , _batchComputeEnvironmentComputeResourcesInstanceTypes = instanceTypesarg
+  , _batchComputeEnvironmentComputeResourcesLaunchTemplate = Nothing
   , _batchComputeEnvironmentComputeResourcesMaxvCpus = maxvCpusarg
   , _batchComputeEnvironmentComputeResourcesMinvCpus = minvCpusarg
+  , _batchComputeEnvironmentComputeResourcesPlacementGroup = Nothing
   , _batchComputeEnvironmentComputeResourcesSecurityGroupIds = securityGroupIdsarg
   , _batchComputeEnvironmentComputeResourcesSpotIamFleetRole = Nothing
   , _batchComputeEnvironmentComputeResourcesSubnets = subnetsarg
@@ -118,6 +126,10 @@ bcecrInstanceRole = lens _batchComputeEnvironmentComputeResourcesInstanceRole (\
 bcecrInstanceTypes :: Lens' BatchComputeEnvironmentComputeResources (ValList Text)
 bcecrInstanceTypes = lens _batchComputeEnvironmentComputeResourcesInstanceTypes (\s a -> s { _batchComputeEnvironmentComputeResourcesInstanceTypes = a })
 
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-launchtemplate
+bcecrLaunchTemplate :: Lens' BatchComputeEnvironmentComputeResources (Maybe BatchComputeEnvironmentLaunchTemplateSpecification)
+bcecrLaunchTemplate = lens _batchComputeEnvironmentComputeResourcesLaunchTemplate (\s a -> s { _batchComputeEnvironmentComputeResourcesLaunchTemplate = a })
+
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-maxvcpus
 bcecrMaxvCpus :: Lens' BatchComputeEnvironmentComputeResources (Val Integer)
 bcecrMaxvCpus = lens _batchComputeEnvironmentComputeResourcesMaxvCpus (\s a -> s { _batchComputeEnvironmentComputeResourcesMaxvCpus = a })
@@ -125,6 +137,10 @@ bcecrMaxvCpus = lens _batchComputeEnvironmentComputeResourcesMaxvCpus (\s a -> s
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-minvcpus
 bcecrMinvCpus :: Lens' BatchComputeEnvironmentComputeResources (Val Integer)
 bcecrMinvCpus = lens _batchComputeEnvironmentComputeResourcesMinvCpus (\s a -> s { _batchComputeEnvironmentComputeResourcesMinvCpus = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-placementgroup
+bcecrPlacementGroup :: Lens' BatchComputeEnvironmentComputeResources (Maybe (Val Text))
+bcecrPlacementGroup = lens _batchComputeEnvironmentComputeResourcesPlacementGroup (\s a -> s { _batchComputeEnvironmentComputeResourcesPlacementGroup = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-securitygroupids
 bcecrSecurityGroupIds :: Lens' BatchComputeEnvironmentComputeResources (ValList Text)

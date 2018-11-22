@@ -18,7 +18,7 @@ data DynamoDBTableGlobalSecondaryIndex =
   { _dynamoDBTableGlobalSecondaryIndexIndexName :: Val Text
   , _dynamoDBTableGlobalSecondaryIndexKeySchema :: [DynamoDBTableKeySchema]
   , _dynamoDBTableGlobalSecondaryIndexProjection :: DynamoDBTableProjection
-  , _dynamoDBTableGlobalSecondaryIndexProvisionedThroughput :: DynamoDBTableProvisionedThroughput
+  , _dynamoDBTableGlobalSecondaryIndexProvisionedThroughput :: Maybe DynamoDBTableProvisionedThroughput
   } deriving (Show, Eq)
 
 instance ToJSON DynamoDBTableGlobalSecondaryIndex where
@@ -28,7 +28,7 @@ instance ToJSON DynamoDBTableGlobalSecondaryIndex where
     [ (Just . ("IndexName",) . toJSON) _dynamoDBTableGlobalSecondaryIndexIndexName
     , (Just . ("KeySchema",) . toJSON) _dynamoDBTableGlobalSecondaryIndexKeySchema
     , (Just . ("Projection",) . toJSON) _dynamoDBTableGlobalSecondaryIndexProjection
-    , (Just . ("ProvisionedThroughput",) . toJSON) _dynamoDBTableGlobalSecondaryIndexProvisionedThroughput
+    , fmap (("ProvisionedThroughput",) . toJSON) _dynamoDBTableGlobalSecondaryIndexProvisionedThroughput
     ]
 
 instance FromJSON DynamoDBTableGlobalSecondaryIndex where
@@ -37,7 +37,7 @@ instance FromJSON DynamoDBTableGlobalSecondaryIndex where
       (obj .: "IndexName") <*>
       (obj .: "KeySchema") <*>
       (obj .: "Projection") <*>
-      (obj .: "ProvisionedThroughput")
+      (obj .:? "ProvisionedThroughput")
   parseJSON _ = mempty
 
 -- | Constructor for 'DynamoDBTableGlobalSecondaryIndex' containing required
@@ -46,14 +46,13 @@ dynamoDBTableGlobalSecondaryIndex
   :: Val Text -- ^ 'ddbtgsiIndexName'
   -> [DynamoDBTableKeySchema] -- ^ 'ddbtgsiKeySchema'
   -> DynamoDBTableProjection -- ^ 'ddbtgsiProjection'
-  -> DynamoDBTableProvisionedThroughput -- ^ 'ddbtgsiProvisionedThroughput'
   -> DynamoDBTableGlobalSecondaryIndex
-dynamoDBTableGlobalSecondaryIndex indexNamearg keySchemaarg projectionarg provisionedThroughputarg =
+dynamoDBTableGlobalSecondaryIndex indexNamearg keySchemaarg projectionarg =
   DynamoDBTableGlobalSecondaryIndex
   { _dynamoDBTableGlobalSecondaryIndexIndexName = indexNamearg
   , _dynamoDBTableGlobalSecondaryIndexKeySchema = keySchemaarg
   , _dynamoDBTableGlobalSecondaryIndexProjection = projectionarg
-  , _dynamoDBTableGlobalSecondaryIndexProvisionedThroughput = provisionedThroughputarg
+  , _dynamoDBTableGlobalSecondaryIndexProvisionedThroughput = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-gsi.html#cfn-dynamodb-gsi-indexname
@@ -69,5 +68,5 @@ ddbtgsiProjection :: Lens' DynamoDBTableGlobalSecondaryIndex DynamoDBTableProjec
 ddbtgsiProjection = lens _dynamoDBTableGlobalSecondaryIndexProjection (\s a -> s { _dynamoDBTableGlobalSecondaryIndexProjection = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-gsi.html#cfn-dynamodb-gsi-provisionedthroughput
-ddbtgsiProvisionedThroughput :: Lens' DynamoDBTableGlobalSecondaryIndex DynamoDBTableProvisionedThroughput
+ddbtgsiProvisionedThroughput :: Lens' DynamoDBTableGlobalSecondaryIndex (Maybe DynamoDBTableProvisionedThroughput)
 ddbtgsiProvisionedThroughput = lens _dynamoDBTableGlobalSecondaryIndexProvisionedThroughput (\s a -> s { _dynamoDBTableGlobalSecondaryIndexProvisionedThroughput = a })

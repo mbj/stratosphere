@@ -10,6 +10,7 @@ import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.ApiGatewayStageAccessLogSetting
 import Stratosphere.ResourceProperties.ApiGatewayStageCanarySetting
 import Stratosphere.ResourceProperties.ApiGatewayStageMethodSetting
+import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for ApiGatewayStage. See 'apiGatewayStage' for
 -- a more convenient constructor.
@@ -26,6 +27,7 @@ data ApiGatewayStage =
   , _apiGatewayStageMethodSettings :: Maybe [ApiGatewayStageMethodSetting]
   , _apiGatewayStageRestApiId :: Val Text
   , _apiGatewayStageStageName :: Maybe (Val Text)
+  , _apiGatewayStageTags :: Maybe [Tag]
   , _apiGatewayStageTracingEnabled :: Maybe (Val Bool)
   , _apiGatewayStageVariables :: Maybe Object
   } deriving (Show, Eq)
@@ -45,6 +47,7 @@ instance ToJSON ApiGatewayStage where
     , fmap (("MethodSettings",) . toJSON) _apiGatewayStageMethodSettings
     , (Just . ("RestApiId",) . toJSON) _apiGatewayStageRestApiId
     , fmap (("StageName",) . toJSON) _apiGatewayStageStageName
+    , fmap (("Tags",) . toJSON) _apiGatewayStageTags
     , fmap (("TracingEnabled",) . toJSON . fmap Bool') _apiGatewayStageTracingEnabled
     , fmap (("Variables",) . toJSON) _apiGatewayStageVariables
     ]
@@ -63,6 +66,7 @@ instance FromJSON ApiGatewayStage where
       (obj .:? "MethodSettings") <*>
       (obj .: "RestApiId") <*>
       (obj .:? "StageName") <*>
+      (obj .:? "Tags") <*>
       fmap (fmap (fmap unBool')) (obj .:? "TracingEnabled") <*>
       (obj .:? "Variables")
   parseJSON _ = mempty
@@ -85,6 +89,7 @@ apiGatewayStage restApiIdarg =
   , _apiGatewayStageMethodSettings = Nothing
   , _apiGatewayStageRestApiId = restApiIdarg
   , _apiGatewayStageStageName = Nothing
+  , _apiGatewayStageTags = Nothing
   , _apiGatewayStageTracingEnabled = Nothing
   , _apiGatewayStageVariables = Nothing
   }
@@ -132,6 +137,10 @@ agsRestApiId = lens _apiGatewayStageRestApiId (\s a -> s { _apiGatewayStageRestA
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html#cfn-apigateway-stage-stagename
 agsStageName :: Lens' ApiGatewayStage (Maybe (Val Text))
 agsStageName = lens _apiGatewayStageStageName (\s a -> s { _apiGatewayStageStageName = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html#cfn-apigateway-stage-tags
+agsTags :: Lens' ApiGatewayStage (Maybe [Tag])
+agsTags = lens _apiGatewayStageTags (\s a -> s { _apiGatewayStageTags = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html#cfn-apigateway-stage-tracingenabled
 agsTracingEnabled :: Lens' ApiGatewayStage (Maybe (Val Bool))
