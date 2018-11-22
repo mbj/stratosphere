@@ -7,15 +7,17 @@
 module Stratosphere.Resources.AppSyncResolver where
 
 import Stratosphere.ResourceImports
-
+import Stratosphere.ResourceProperties.AppSyncResolverPipelineConfig
 
 -- | Full data type definition for AppSyncResolver. See 'appSyncResolver' for
 -- a more convenient constructor.
 data AppSyncResolver =
   AppSyncResolver
   { _appSyncResolverApiId :: Val Text
-  , _appSyncResolverDataSourceName :: Val Text
+  , _appSyncResolverDataSourceName :: Maybe (Val Text)
   , _appSyncResolverFieldName :: Val Text
+  , _appSyncResolverKind :: Maybe (Val Text)
+  , _appSyncResolverPipelineConfig :: Maybe AppSyncResolverPipelineConfig
   , _appSyncResolverRequestMappingTemplate :: Maybe (Val Text)
   , _appSyncResolverRequestMappingTemplateS3Location :: Maybe (Val Text)
   , _appSyncResolverResponseMappingTemplate :: Maybe (Val Text)
@@ -28,8 +30,10 @@ instance ToJSON AppSyncResolver where
     object $
     catMaybes
     [ (Just . ("ApiId",) . toJSON) _appSyncResolverApiId
-    , (Just . ("DataSourceName",) . toJSON) _appSyncResolverDataSourceName
+    , fmap (("DataSourceName",) . toJSON) _appSyncResolverDataSourceName
     , (Just . ("FieldName",) . toJSON) _appSyncResolverFieldName
+    , fmap (("Kind",) . toJSON) _appSyncResolverKind
+    , fmap (("PipelineConfig",) . toJSON) _appSyncResolverPipelineConfig
     , fmap (("RequestMappingTemplate",) . toJSON) _appSyncResolverRequestMappingTemplate
     , fmap (("RequestMappingTemplateS3Location",) . toJSON) _appSyncResolverRequestMappingTemplateS3Location
     , fmap (("ResponseMappingTemplate",) . toJSON) _appSyncResolverResponseMappingTemplate
@@ -41,8 +45,10 @@ instance FromJSON AppSyncResolver where
   parseJSON (Object obj) =
     AppSyncResolver <$>
       (obj .: "ApiId") <*>
-      (obj .: "DataSourceName") <*>
+      (obj .:? "DataSourceName") <*>
       (obj .: "FieldName") <*>
+      (obj .:? "Kind") <*>
+      (obj .:? "PipelineConfig") <*>
       (obj .:? "RequestMappingTemplate") <*>
       (obj .:? "RequestMappingTemplateS3Location") <*>
       (obj .:? "ResponseMappingTemplate") <*>
@@ -54,15 +60,16 @@ instance FromJSON AppSyncResolver where
 -- arguments.
 appSyncResolver
   :: Val Text -- ^ 'asrApiId'
-  -> Val Text -- ^ 'asrDataSourceName'
   -> Val Text -- ^ 'asrFieldName'
   -> Val Text -- ^ 'asrTypeName'
   -> AppSyncResolver
-appSyncResolver apiIdarg dataSourceNamearg fieldNamearg typeNamearg =
+appSyncResolver apiIdarg fieldNamearg typeNamearg =
   AppSyncResolver
   { _appSyncResolverApiId = apiIdarg
-  , _appSyncResolverDataSourceName = dataSourceNamearg
+  , _appSyncResolverDataSourceName = Nothing
   , _appSyncResolverFieldName = fieldNamearg
+  , _appSyncResolverKind = Nothing
+  , _appSyncResolverPipelineConfig = Nothing
   , _appSyncResolverRequestMappingTemplate = Nothing
   , _appSyncResolverRequestMappingTemplateS3Location = Nothing
   , _appSyncResolverResponseMappingTemplate = Nothing
@@ -75,12 +82,20 @@ asrApiId :: Lens' AppSyncResolver (Val Text)
 asrApiId = lens _appSyncResolverApiId (\s a -> s { _appSyncResolverApiId = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-resolver.html#cfn-appsync-resolver-datasourcename
-asrDataSourceName :: Lens' AppSyncResolver (Val Text)
+asrDataSourceName :: Lens' AppSyncResolver (Maybe (Val Text))
 asrDataSourceName = lens _appSyncResolverDataSourceName (\s a -> s { _appSyncResolverDataSourceName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-resolver.html#cfn-appsync-resolver-fieldname
 asrFieldName :: Lens' AppSyncResolver (Val Text)
 asrFieldName = lens _appSyncResolverFieldName (\s a -> s { _appSyncResolverFieldName = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-resolver.html#cfn-appsync-resolver-kind
+asrKind :: Lens' AppSyncResolver (Maybe (Val Text))
+asrKind = lens _appSyncResolverKind (\s a -> s { _appSyncResolverKind = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-resolver.html#cfn-appsync-resolver-pipelineconfig
+asrPipelineConfig :: Lens' AppSyncResolver (Maybe AppSyncResolverPipelineConfig)
+asrPipelineConfig = lens _appSyncResolverPipelineConfig (\s a -> s { _appSyncResolverPipelineConfig = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-resolver.html#cfn-appsync-resolver-requestmappingtemplate
 asrRequestMappingTemplate :: Lens' AppSyncResolver (Maybe (Val Text))

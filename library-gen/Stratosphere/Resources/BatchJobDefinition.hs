@@ -8,6 +8,7 @@ module Stratosphere.Resources.BatchJobDefinition where
 
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.BatchJobDefinitionContainerProperties
+import Stratosphere.ResourceProperties.BatchJobDefinitionNodeProperties
 import Stratosphere.ResourceProperties.BatchJobDefinitionRetryStrategy
 import Stratosphere.ResourceProperties.BatchJobDefinitionTimeout
 
@@ -15,8 +16,9 @@ import Stratosphere.ResourceProperties.BatchJobDefinitionTimeout
 -- 'batchJobDefinition' for a more convenient constructor.
 data BatchJobDefinition =
   BatchJobDefinition
-  { _batchJobDefinitionContainerProperties :: BatchJobDefinitionContainerProperties
+  { _batchJobDefinitionContainerProperties :: Maybe BatchJobDefinitionContainerProperties
   , _batchJobDefinitionJobDefinitionName :: Maybe (Val Text)
+  , _batchJobDefinitionNodeProperties :: Maybe BatchJobDefinitionNodeProperties
   , _batchJobDefinitionParameters :: Maybe Object
   , _batchJobDefinitionRetryStrategy :: Maybe BatchJobDefinitionRetryStrategy
   , _batchJobDefinitionTimeout :: Maybe BatchJobDefinitionTimeout
@@ -27,8 +29,9 @@ instance ToJSON BatchJobDefinition where
   toJSON BatchJobDefinition{..} =
     object $
     catMaybes
-    [ (Just . ("ContainerProperties",) . toJSON) _batchJobDefinitionContainerProperties
+    [ fmap (("ContainerProperties",) . toJSON) _batchJobDefinitionContainerProperties
     , fmap (("JobDefinitionName",) . toJSON) _batchJobDefinitionJobDefinitionName
+    , fmap (("NodeProperties",) . toJSON) _batchJobDefinitionNodeProperties
     , fmap (("Parameters",) . toJSON) _batchJobDefinitionParameters
     , fmap (("RetryStrategy",) . toJSON) _batchJobDefinitionRetryStrategy
     , fmap (("Timeout",) . toJSON) _batchJobDefinitionTimeout
@@ -38,8 +41,9 @@ instance ToJSON BatchJobDefinition where
 instance FromJSON BatchJobDefinition where
   parseJSON (Object obj) =
     BatchJobDefinition <$>
-      (obj .: "ContainerProperties") <*>
+      (obj .:? "ContainerProperties") <*>
       (obj .:? "JobDefinitionName") <*>
+      (obj .:? "NodeProperties") <*>
       (obj .:? "Parameters") <*>
       (obj .:? "RetryStrategy") <*>
       (obj .:? "Timeout") <*>
@@ -49,13 +53,13 @@ instance FromJSON BatchJobDefinition where
 -- | Constructor for 'BatchJobDefinition' containing required fields as
 -- arguments.
 batchJobDefinition
-  :: BatchJobDefinitionContainerProperties -- ^ 'bjdContainerProperties'
-  -> Val Text -- ^ 'bjdType'
+  :: Val Text -- ^ 'bjdType'
   -> BatchJobDefinition
-batchJobDefinition containerPropertiesarg typearg =
+batchJobDefinition typearg =
   BatchJobDefinition
-  { _batchJobDefinitionContainerProperties = containerPropertiesarg
+  { _batchJobDefinitionContainerProperties = Nothing
   , _batchJobDefinitionJobDefinitionName = Nothing
+  , _batchJobDefinitionNodeProperties = Nothing
   , _batchJobDefinitionParameters = Nothing
   , _batchJobDefinitionRetryStrategy = Nothing
   , _batchJobDefinitionTimeout = Nothing
@@ -63,12 +67,16 @@ batchJobDefinition containerPropertiesarg typearg =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-containerproperties
-bjdContainerProperties :: Lens' BatchJobDefinition BatchJobDefinitionContainerProperties
+bjdContainerProperties :: Lens' BatchJobDefinition (Maybe BatchJobDefinitionContainerProperties)
 bjdContainerProperties = lens _batchJobDefinitionContainerProperties (\s a -> s { _batchJobDefinitionContainerProperties = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-jobdefinitionname
 bjdJobDefinitionName :: Lens' BatchJobDefinition (Maybe (Val Text))
 bjdJobDefinitionName = lens _batchJobDefinitionJobDefinitionName (\s a -> s { _batchJobDefinitionJobDefinitionName = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-nodeproperties
+bjdNodeProperties :: Lens' BatchJobDefinition (Maybe BatchJobDefinitionNodeProperties)
+bjdNodeProperties = lens _batchJobDefinitionNodeProperties (\s a -> s { _batchJobDefinitionNodeProperties = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html#cfn-batch-jobdefinition-parameters
 bjdParameters :: Lens' BatchJobDefinition (Maybe Object)

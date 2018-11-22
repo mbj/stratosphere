@@ -10,6 +10,7 @@ import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupLaunchTemplateSpecification
 import Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupLifecycleHookSpecification
 import Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupMetricsCollection
+import Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupMixedInstancesPolicy
 import Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupNotificationConfiguration
 import Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupTagProperty
 
@@ -31,6 +32,7 @@ data AutoScalingAutoScalingGroup =
   , _autoScalingAutoScalingGroupMaxSize :: Val Text
   , _autoScalingAutoScalingGroupMetricsCollection :: Maybe [AutoScalingAutoScalingGroupMetricsCollection]
   , _autoScalingAutoScalingGroupMinSize :: Val Text
+  , _autoScalingAutoScalingGroupMixedInstancesPolicy :: Maybe AutoScalingAutoScalingGroupMixedInstancesPolicy
   , _autoScalingAutoScalingGroupNotificationConfigurations :: Maybe [AutoScalingAutoScalingGroupNotificationConfiguration]
   , _autoScalingAutoScalingGroupPlacementGroup :: Maybe (Val Text)
   , _autoScalingAutoScalingGroupServiceLinkedRoleARN :: Maybe (Val Text)
@@ -58,6 +60,7 @@ instance ToJSON AutoScalingAutoScalingGroup where
     , (Just . ("MaxSize",) . toJSON) _autoScalingAutoScalingGroupMaxSize
     , fmap (("MetricsCollection",) . toJSON) _autoScalingAutoScalingGroupMetricsCollection
     , (Just . ("MinSize",) . toJSON) _autoScalingAutoScalingGroupMinSize
+    , fmap (("MixedInstancesPolicy",) . toJSON) _autoScalingAutoScalingGroupMixedInstancesPolicy
     , fmap (("NotificationConfigurations",) . toJSON) _autoScalingAutoScalingGroupNotificationConfigurations
     , fmap (("PlacementGroup",) . toJSON) _autoScalingAutoScalingGroupPlacementGroup
     , fmap (("ServiceLinkedRoleARN",) . toJSON) _autoScalingAutoScalingGroupServiceLinkedRoleARN
@@ -84,6 +87,7 @@ instance FromJSON AutoScalingAutoScalingGroup where
       (obj .: "MaxSize") <*>
       (obj .:? "MetricsCollection") <*>
       (obj .: "MinSize") <*>
+      (obj .:? "MixedInstancesPolicy") <*>
       (obj .:? "NotificationConfigurations") <*>
       (obj .:? "PlacementGroup") <*>
       (obj .:? "ServiceLinkedRoleARN") <*>
@@ -115,6 +119,7 @@ autoScalingAutoScalingGroup maxSizearg minSizearg =
   , _autoScalingAutoScalingGroupMaxSize = maxSizearg
   , _autoScalingAutoScalingGroupMetricsCollection = Nothing
   , _autoScalingAutoScalingGroupMinSize = minSizearg
+  , _autoScalingAutoScalingGroupMixedInstancesPolicy = Nothing
   , _autoScalingAutoScalingGroupNotificationConfigurations = Nothing
   , _autoScalingAutoScalingGroupPlacementGroup = Nothing
   , _autoScalingAutoScalingGroupServiceLinkedRoleARN = Nothing
@@ -179,6 +184,10 @@ asasgMetricsCollection = lens _autoScalingAutoScalingGroupMetricsCollection (\s 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-minsize
 asasgMinSize :: Lens' AutoScalingAutoScalingGroup (Val Text)
 asasgMinSize = lens _autoScalingAutoScalingGroupMinSize (\s a -> s { _autoScalingAutoScalingGroupMinSize = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-mixedinstancespolicy
+asasgMixedInstancesPolicy :: Lens' AutoScalingAutoScalingGroup (Maybe AutoScalingAutoScalingGroupMixedInstancesPolicy)
+asasgMixedInstancesPolicy = lens _autoScalingAutoScalingGroupMixedInstancesPolicy (\s a -> s { _autoScalingAutoScalingGroupMixedInstancesPolicy = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-notificationconfigurations
 asasgNotificationConfigurations :: Lens' AutoScalingAutoScalingGroup (Maybe [AutoScalingAutoScalingGroupNotificationConfiguration])

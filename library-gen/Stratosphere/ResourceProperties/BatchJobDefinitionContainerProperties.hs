@@ -20,6 +20,7 @@ data BatchJobDefinitionContainerProperties =
   { _batchJobDefinitionContainerPropertiesCommand :: Maybe (ValList Text)
   , _batchJobDefinitionContainerPropertiesEnvironment :: Maybe [BatchJobDefinitionEnvironment]
   , _batchJobDefinitionContainerPropertiesImage :: Val Text
+  , _batchJobDefinitionContainerPropertiesInstanceType :: Maybe (Val Text)
   , _batchJobDefinitionContainerPropertiesJobRoleArn :: Maybe (Val Text)
   , _batchJobDefinitionContainerPropertiesMemory :: Val Integer
   , _batchJobDefinitionContainerPropertiesMountPoints :: Maybe [BatchJobDefinitionMountPoints]
@@ -38,6 +39,7 @@ instance ToJSON BatchJobDefinitionContainerProperties where
     [ fmap (("Command",) . toJSON) _batchJobDefinitionContainerPropertiesCommand
     , fmap (("Environment",) . toJSON) _batchJobDefinitionContainerPropertiesEnvironment
     , (Just . ("Image",) . toJSON) _batchJobDefinitionContainerPropertiesImage
+    , fmap (("InstanceType",) . toJSON) _batchJobDefinitionContainerPropertiesInstanceType
     , fmap (("JobRoleArn",) . toJSON) _batchJobDefinitionContainerPropertiesJobRoleArn
     , (Just . ("Memory",) . toJSON . fmap Integer') _batchJobDefinitionContainerPropertiesMemory
     , fmap (("MountPoints",) . toJSON) _batchJobDefinitionContainerPropertiesMountPoints
@@ -55,6 +57,7 @@ instance FromJSON BatchJobDefinitionContainerProperties where
       (obj .:? "Command") <*>
       (obj .:? "Environment") <*>
       (obj .: "Image") <*>
+      (obj .:? "InstanceType") <*>
       (obj .:? "JobRoleArn") <*>
       fmap (fmap unInteger') (obj .: "Memory") <*>
       (obj .:? "MountPoints") <*>
@@ -78,6 +81,7 @@ batchJobDefinitionContainerProperties imagearg memoryarg vcpusarg =
   { _batchJobDefinitionContainerPropertiesCommand = Nothing
   , _batchJobDefinitionContainerPropertiesEnvironment = Nothing
   , _batchJobDefinitionContainerPropertiesImage = imagearg
+  , _batchJobDefinitionContainerPropertiesInstanceType = Nothing
   , _batchJobDefinitionContainerPropertiesJobRoleArn = Nothing
   , _batchJobDefinitionContainerPropertiesMemory = memoryarg
   , _batchJobDefinitionContainerPropertiesMountPoints = Nothing
@@ -100,6 +104,10 @@ bjdcpEnvironment = lens _batchJobDefinitionContainerPropertiesEnvironment (\s a 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-image
 bjdcpImage :: Lens' BatchJobDefinitionContainerProperties (Val Text)
 bjdcpImage = lens _batchJobDefinitionContainerPropertiesImage (\s a -> s { _batchJobDefinitionContainerPropertiesImage = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-instancetype
+bjdcpInstanceType :: Lens' BatchJobDefinitionContainerProperties (Maybe (Val Text))
+bjdcpInstanceType = lens _batchJobDefinitionContainerPropertiesInstanceType (\s a -> s { _batchJobDefinitionContainerPropertiesInstanceType = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-jobrolearn
 bjdcpJobRoleArn :: Lens' BatchJobDefinitionContainerProperties (Maybe (Val Text))

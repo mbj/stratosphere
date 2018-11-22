@@ -7,25 +7,28 @@
 module Stratosphere.ResourceProperties.AppSyncDataSourceHttpConfig where
 
 import Stratosphere.ResourceImports
-
+import Stratosphere.ResourceProperties.AppSyncDataSourceAuthorizationConfig
 
 -- | Full data type definition for AppSyncDataSourceHttpConfig. See
 -- 'appSyncDataSourceHttpConfig' for a more convenient constructor.
 data AppSyncDataSourceHttpConfig =
   AppSyncDataSourceHttpConfig
-  { _appSyncDataSourceHttpConfigEndpoint :: Val Text
+  { _appSyncDataSourceHttpConfigAuthorizationConfig :: Maybe AppSyncDataSourceAuthorizationConfig
+  , _appSyncDataSourceHttpConfigEndpoint :: Val Text
   } deriving (Show, Eq)
 
 instance ToJSON AppSyncDataSourceHttpConfig where
   toJSON AppSyncDataSourceHttpConfig{..} =
     object $
     catMaybes
-    [ (Just . ("Endpoint",) . toJSON) _appSyncDataSourceHttpConfigEndpoint
+    [ fmap (("AuthorizationConfig",) . toJSON) _appSyncDataSourceHttpConfigAuthorizationConfig
+    , (Just . ("Endpoint",) . toJSON) _appSyncDataSourceHttpConfigEndpoint
     ]
 
 instance FromJSON AppSyncDataSourceHttpConfig where
   parseJSON (Object obj) =
     AppSyncDataSourceHttpConfig <$>
+      (obj .:? "AuthorizationConfig") <*>
       (obj .: "Endpoint")
   parseJSON _ = mempty
 
@@ -36,8 +39,13 @@ appSyncDataSourceHttpConfig
   -> AppSyncDataSourceHttpConfig
 appSyncDataSourceHttpConfig endpointarg =
   AppSyncDataSourceHttpConfig
-  { _appSyncDataSourceHttpConfigEndpoint = endpointarg
+  { _appSyncDataSourceHttpConfigAuthorizationConfig = Nothing
+  , _appSyncDataSourceHttpConfigEndpoint = endpointarg
   }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-httpconfig.html#cfn-appsync-datasource-httpconfig-authorizationconfig
+asdshcAuthorizationConfig :: Lens' AppSyncDataSourceHttpConfig (Maybe AppSyncDataSourceAuthorizationConfig)
+asdshcAuthorizationConfig = lens _appSyncDataSourceHttpConfigAuthorizationConfig (\s a -> s { _appSyncDataSourceHttpConfigAuthorizationConfig = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-httpconfig.html#cfn-appsync-datasource-httpconfig-endpoint
 asdshcEndpoint :: Lens' AppSyncDataSourceHttpConfig (Val Text)

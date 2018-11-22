@@ -21,6 +21,7 @@ data RDSDBCluster =
   , _rDSDBClusterDBClusterParameterGroupName :: Maybe (Val Text)
   , _rDSDBClusterDBSubnetGroupName :: Maybe (Val Text)
   , _rDSDBClusterDatabaseName :: Maybe (Val Text)
+  , _rDSDBClusterDeletionProtection :: Maybe (Val Bool)
   , _rDSDBClusterEnableCloudwatchLogsExports :: Maybe (ValList Text)
   , _rDSDBClusterEnableIAMDatabaseAuthentication :: Maybe (Val Bool)
   , _rDSDBClusterEngine :: Val Text
@@ -51,6 +52,7 @@ instance ToJSON RDSDBCluster where
     , fmap (("DBClusterParameterGroupName",) . toJSON) _rDSDBClusterDBClusterParameterGroupName
     , fmap (("DBSubnetGroupName",) . toJSON) _rDSDBClusterDBSubnetGroupName
     , fmap (("DatabaseName",) . toJSON) _rDSDBClusterDatabaseName
+    , fmap (("DeletionProtection",) . toJSON . fmap Bool') _rDSDBClusterDeletionProtection
     , fmap (("EnableCloudwatchLogsExports",) . toJSON) _rDSDBClusterEnableCloudwatchLogsExports
     , fmap (("EnableIAMDatabaseAuthentication",) . toJSON . fmap Bool') _rDSDBClusterEnableIAMDatabaseAuthentication
     , (Just . ("Engine",) . toJSON) _rDSDBClusterEngine
@@ -80,6 +82,7 @@ instance FromJSON RDSDBCluster where
       (obj .:? "DBClusterParameterGroupName") <*>
       (obj .:? "DBSubnetGroupName") <*>
       (obj .:? "DatabaseName") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "DeletionProtection") <*>
       (obj .:? "EnableCloudwatchLogsExports") <*>
       fmap (fmap (fmap unBool')) (obj .:? "EnableIAMDatabaseAuthentication") <*>
       (obj .: "Engine") <*>
@@ -112,6 +115,7 @@ rdsdbCluster enginearg =
   , _rDSDBClusterDBClusterParameterGroupName = Nothing
   , _rDSDBClusterDBSubnetGroupName = Nothing
   , _rDSDBClusterDatabaseName = Nothing
+  , _rDSDBClusterDeletionProtection = Nothing
   , _rDSDBClusterEnableCloudwatchLogsExports = Nothing
   , _rDSDBClusterEnableIAMDatabaseAuthentication = Nothing
   , _rDSDBClusterEngine = enginearg
@@ -158,6 +162,10 @@ rdsdbcDBSubnetGroupName = lens _rDSDBClusterDBSubnetGroupName (\s a -> s { _rDSD
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-databasename
 rdsdbcDatabaseName :: Lens' RDSDBCluster (Maybe (Val Text))
 rdsdbcDatabaseName = lens _rDSDBClusterDatabaseName (\s a -> s { _rDSDBClusterDatabaseName = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-deletionprotection
+rdsdbcDeletionProtection :: Lens' RDSDBCluster (Maybe (Val Bool))
+rdsdbcDeletionProtection = lens _rDSDBClusterDeletionProtection (\s a -> s { _rDSDBClusterDeletionProtection = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-enablecloudwatchlogsexports
 rdsdbcEnableCloudwatchLogsExports :: Lens' RDSDBCluster (Maybe (ValList Text))

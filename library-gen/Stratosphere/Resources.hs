@@ -77,6 +77,7 @@ import Stratosphere.Resources.AppStreamStackUserAssociation as X
 import Stratosphere.Resources.AppStreamUser as X
 import Stratosphere.Resources.AppSyncApiKey as X
 import Stratosphere.Resources.AppSyncDataSource as X
+import Stratosphere.Resources.AppSyncFunctionConfiguration as X
 import Stratosphere.Resources.AppSyncGraphQLApi as X
 import Stratosphere.Resources.AppSyncGraphQLSchema as X
 import Stratosphere.Resources.AppSyncResolver as X
@@ -96,6 +97,7 @@ import Stratosphere.Resources.BudgetsBudget as X
 import Stratosphere.Resources.CertificateManagerCertificate as X
 import Stratosphere.Resources.Cloud9EnvironmentEC2 as X
 import Stratosphere.Resources.CloudFormationCustomResource as X
+import Stratosphere.Resources.CloudFormationMacro as X
 import Stratosphere.Resources.CloudFormationStack as X
 import Stratosphere.Resources.CloudFormationWaitCondition as X
 import Stratosphere.Resources.CloudFormationWaitConditionHandle as X
@@ -141,6 +143,7 @@ import Stratosphere.Resources.DirectoryServiceSimpleAD as X
 import Stratosphere.Resources.DynamoDBTable as X
 import Stratosphere.Resources.EC2CustomerGateway as X
 import Stratosphere.Resources.EC2DHCPOptions as X
+import Stratosphere.Resources.EC2EC2Fleet as X
 import Stratosphere.Resources.EC2EIP as X
 import Stratosphere.Resources.EC2EIPAssociation as X
 import Stratosphere.Resources.EC2EgressOnlyInternetGateway as X
@@ -254,6 +257,7 @@ import Stratosphere.Resources.IoTTopicRule as X
 import Stratosphere.Resources.KMSAlias as X
 import Stratosphere.Resources.KMSKey as X
 import Stratosphere.Resources.KinesisStream as X
+import Stratosphere.Resources.KinesisStreamConsumer as X
 import Stratosphere.Resources.KinesisAnalyticsApplication as X
 import Stratosphere.Resources.KinesisAnalyticsApplicationOutput as X
 import Stratosphere.Resources.KinesisAnalyticsApplicationReferenceDataSource as X
@@ -298,6 +302,8 @@ import Stratosphere.Resources.Route53HealthCheck as X
 import Stratosphere.Resources.Route53HostedZone as X
 import Stratosphere.Resources.Route53RecordSet as X
 import Stratosphere.Resources.Route53RecordSetGroup as X
+import Stratosphere.Resources.Route53ResolverResolverEndpoint as X
+import Stratosphere.Resources.Route53ResolverResolverRule as X
 import Stratosphere.Resources.S3Bucket as X
 import Stratosphere.Resources.S3BucketPolicy as X
 import Stratosphere.Resources.SDBDomain as X
@@ -362,6 +368,7 @@ import Stratosphere.Resources.WAFRegionalWebACL as X
 import Stratosphere.Resources.WAFRegionalWebACLAssociation as X
 import Stratosphere.Resources.WAFRegionalXssMatchSet as X
 import Stratosphere.Resources.WorkSpacesWorkspace as X
+import Stratosphere.Resources.ASKSkill as X
 import Stratosphere.ResourceProperties.AmazonMQBrokerConfigurationId as X
 import Stratosphere.ResourceProperties.AmazonMQBrokerLogList as X
 import Stratosphere.ResourceProperties.AmazonMQBrokerMaintenanceWindow as X
@@ -394,13 +401,18 @@ import Stratosphere.ResourceProperties.AppStreamImageBuilderVpcConfig as X
 import Stratosphere.ResourceProperties.AppStreamStackApplicationSettings as X
 import Stratosphere.ResourceProperties.AppStreamStackStorageConnector as X
 import Stratosphere.ResourceProperties.AppStreamStackUserSetting as X
+import Stratosphere.ResourceProperties.AppSyncDataSourceAuthorizationConfig as X
+import Stratosphere.ResourceProperties.AppSyncDataSourceAwsIamConfig as X
 import Stratosphere.ResourceProperties.AppSyncDataSourceDynamoDBConfig as X
 import Stratosphere.ResourceProperties.AppSyncDataSourceElasticsearchConfig as X
 import Stratosphere.ResourceProperties.AppSyncDataSourceHttpConfig as X
 import Stratosphere.ResourceProperties.AppSyncDataSourceLambdaConfig as X
+import Stratosphere.ResourceProperties.AppSyncDataSourceRdsHttpEndpointConfig as X
+import Stratosphere.ResourceProperties.AppSyncDataSourceRelationalDatabaseConfig as X
 import Stratosphere.ResourceProperties.AppSyncGraphQLApiLogConfig as X
 import Stratosphere.ResourceProperties.AppSyncGraphQLApiOpenIDConnectConfig as X
 import Stratosphere.ResourceProperties.AppSyncGraphQLApiUserPoolConfig as X
+import Stratosphere.ResourceProperties.AppSyncResolverPipelineConfig as X
 import Stratosphere.ResourceProperties.ApplicationAutoScalingScalableTargetScalableTargetAction as X
 import Stratosphere.ResourceProperties.ApplicationAutoScalingScalableTargetScheduledAction as X
 import Stratosphere.ResourceProperties.ApplicationAutoScalingScalingPolicyCustomizedMetricSpecification as X
@@ -409,9 +421,13 @@ import Stratosphere.ResourceProperties.ApplicationAutoScalingScalingPolicyPredef
 import Stratosphere.ResourceProperties.ApplicationAutoScalingScalingPolicyStepAdjustment as X
 import Stratosphere.ResourceProperties.ApplicationAutoScalingScalingPolicyStepScalingPolicyConfiguration as X
 import Stratosphere.ResourceProperties.ApplicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfiguration as X
+import Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupInstancesDistribution as X
+import Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupLaunchTemplate as X
+import Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupLaunchTemplateOverrides as X
 import Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupLaunchTemplateSpecification as X
 import Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupLifecycleHookSpecification as X
 import Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupMetricsCollection as X
+import Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupMixedInstancesPolicy as X
 import Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupNotificationConfiguration as X
 import Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupTagProperty as X
 import Stratosphere.ResourceProperties.AutoScalingLaunchConfigurationBlockDevice as X
@@ -431,9 +447,12 @@ import Stratosphere.ResourceProperties.AutoScalingPlansScalingPlanScalingInstruc
 import Stratosphere.ResourceProperties.AutoScalingPlansScalingPlanTagFilter as X
 import Stratosphere.ResourceProperties.AutoScalingPlansScalingPlanTargetTrackingConfiguration as X
 import Stratosphere.ResourceProperties.BatchComputeEnvironmentComputeResources as X
+import Stratosphere.ResourceProperties.BatchComputeEnvironmentLaunchTemplateSpecification as X
 import Stratosphere.ResourceProperties.BatchJobDefinitionContainerProperties as X
 import Stratosphere.ResourceProperties.BatchJobDefinitionEnvironment as X
 import Stratosphere.ResourceProperties.BatchJobDefinitionMountPoints as X
+import Stratosphere.ResourceProperties.BatchJobDefinitionNodeProperties as X
+import Stratosphere.ResourceProperties.BatchJobDefinitionNodeRangeProperty as X
 import Stratosphere.ResourceProperties.BatchJobDefinitionRetryStrategy as X
 import Stratosphere.ResourceProperties.BatchJobDefinitionTimeout as X
 import Stratosphere.ResourceProperties.BatchJobDefinitionUlimit as X
@@ -509,6 +528,7 @@ import Stratosphere.ResourceProperties.CodePipelineCustomActionTypeSettings as X
 import Stratosphere.ResourceProperties.CodePipelinePipelineActionDeclaration as X
 import Stratosphere.ResourceProperties.CodePipelinePipelineActionTypeId as X
 import Stratosphere.ResourceProperties.CodePipelinePipelineArtifactStore as X
+import Stratosphere.ResourceProperties.CodePipelinePipelineArtifactStoreMap as X
 import Stratosphere.ResourceProperties.CodePipelinePipelineBlockerDeclaration as X
 import Stratosphere.ResourceProperties.CodePipelinePipelineEncryptionKey as X
 import Stratosphere.ResourceProperties.CodePipelinePipelineInputArtifact as X
@@ -568,6 +588,14 @@ import Stratosphere.ResourceProperties.DynamoDBTableProvisionedThroughput as X
 import Stratosphere.ResourceProperties.DynamoDBTableSSESpecification as X
 import Stratosphere.ResourceProperties.DynamoDBTableStreamSpecification as X
 import Stratosphere.ResourceProperties.DynamoDBTableTimeToLiveSpecification as X
+import Stratosphere.ResourceProperties.EC2EC2FleetFleetLaunchTemplateConfigRequest as X
+import Stratosphere.ResourceProperties.EC2EC2FleetFleetLaunchTemplateOverridesRequest as X
+import Stratosphere.ResourceProperties.EC2EC2FleetFleetLaunchTemplateSpecificationRequest as X
+import Stratosphere.ResourceProperties.EC2EC2FleetOnDemandOptionsRequest as X
+import Stratosphere.ResourceProperties.EC2EC2FleetSpotOptionsRequest as X
+import Stratosphere.ResourceProperties.EC2EC2FleetTagRequest as X
+import Stratosphere.ResourceProperties.EC2EC2FleetTagSpecification as X
+import Stratosphere.ResourceProperties.EC2EC2FleetTargetCapacitySpecificationRequest as X
 import Stratosphere.ResourceProperties.EC2InstanceAssociationParameter as X
 import Stratosphere.ResourceProperties.EC2InstanceBlockDeviceMapping as X
 import Stratosphere.ResourceProperties.EC2InstanceCreditSpecification as X
@@ -656,12 +684,14 @@ import Stratosphere.ResourceProperties.EMRClusterCloudWatchAlarmDefinition as X
 import Stratosphere.ResourceProperties.EMRClusterConfiguration as X
 import Stratosphere.ResourceProperties.EMRClusterEbsBlockDeviceConfig as X
 import Stratosphere.ResourceProperties.EMRClusterEbsConfiguration as X
+import Stratosphere.ResourceProperties.EMRClusterHadoopJarStepConfig as X
 import Stratosphere.ResourceProperties.EMRClusterInstanceFleetConfig as X
 import Stratosphere.ResourceProperties.EMRClusterInstanceFleetProvisioningSpecifications as X
 import Stratosphere.ResourceProperties.EMRClusterInstanceGroupConfig as X
 import Stratosphere.ResourceProperties.EMRClusterInstanceTypeConfig as X
 import Stratosphere.ResourceProperties.EMRClusterJobFlowInstancesConfig as X
 import Stratosphere.ResourceProperties.EMRClusterKerberosAttributes as X
+import Stratosphere.ResourceProperties.EMRClusterKeyValue as X
 import Stratosphere.ResourceProperties.EMRClusterMetricDimension as X
 import Stratosphere.ResourceProperties.EMRClusterPlacementType as X
 import Stratosphere.ResourceProperties.EMRClusterScalingAction as X
@@ -671,6 +701,7 @@ import Stratosphere.ResourceProperties.EMRClusterScalingTrigger as X
 import Stratosphere.ResourceProperties.EMRClusterScriptBootstrapActionConfig as X
 import Stratosphere.ResourceProperties.EMRClusterSimpleScalingPolicyConfiguration as X
 import Stratosphere.ResourceProperties.EMRClusterSpotProvisioningSpecification as X
+import Stratosphere.ResourceProperties.EMRClusterStepConfig as X
 import Stratosphere.ResourceProperties.EMRClusterVolumeSpecification as X
 import Stratosphere.ResourceProperties.EMRInstanceFleetConfigConfiguration as X
 import Stratosphere.ResourceProperties.EMRInstanceFleetConfigEbsBlockDeviceConfig as X
@@ -712,9 +743,17 @@ import Stratosphere.ResourceProperties.ElasticLoadBalancingLoadBalancerLBCookieS
 import Stratosphere.ResourceProperties.ElasticLoadBalancingLoadBalancerListeners as X
 import Stratosphere.ResourceProperties.ElasticLoadBalancingLoadBalancerPolicies as X
 import Stratosphere.ResourceProperties.ElasticLoadBalancingV2ListenerAction as X
+import Stratosphere.ResourceProperties.ElasticLoadBalancingV2ListenerAuthenticateCognitoConfig as X
+import Stratosphere.ResourceProperties.ElasticLoadBalancingV2ListenerAuthenticateOidcConfig as X
 import Stratosphere.ResourceProperties.ElasticLoadBalancingV2ListenerCertificate as X
+import Stratosphere.ResourceProperties.ElasticLoadBalancingV2ListenerFixedResponseConfig as X
+import Stratosphere.ResourceProperties.ElasticLoadBalancingV2ListenerRedirectConfig as X
 import Stratosphere.ResourceProperties.ElasticLoadBalancingV2ListenerCertificateCertificate as X
 import Stratosphere.ResourceProperties.ElasticLoadBalancingV2ListenerRuleAction as X
+import Stratosphere.ResourceProperties.ElasticLoadBalancingV2ListenerRuleAuthenticateCognitoConfig as X
+import Stratosphere.ResourceProperties.ElasticLoadBalancingV2ListenerRuleAuthenticateOidcConfig as X
+import Stratosphere.ResourceProperties.ElasticLoadBalancingV2ListenerRuleFixedResponseConfig as X
+import Stratosphere.ResourceProperties.ElasticLoadBalancingV2ListenerRuleRedirectConfig as X
 import Stratosphere.ResourceProperties.ElasticLoadBalancingV2ListenerRuleRuleCondition as X
 import Stratosphere.ResourceProperties.ElasticLoadBalancingV2LoadBalancerLoadBalancerAttribute as X
 import Stratosphere.ResourceProperties.ElasticLoadBalancingV2LoadBalancerSubnetMapping as X
@@ -880,6 +919,8 @@ import Stratosphere.ResourceProperties.Route53RecordSetGeoLocation as X
 import Stratosphere.ResourceProperties.Route53RecordSetGroupAliasTarget as X
 import Stratosphere.ResourceProperties.Route53RecordSetGroupGeoLocation as X
 import Stratosphere.ResourceProperties.Route53RecordSetGroupRecordSet as X
+import Stratosphere.ResourceProperties.Route53ResolverResolverEndpointIpAddressRequest as X
+import Stratosphere.ResourceProperties.Route53ResolverResolverRuleTargetAddress as X
 import Stratosphere.ResourceProperties.S3BucketAbortIncompleteMultipartUpload as X
 import Stratosphere.ResourceProperties.S3BucketAccelerateConfiguration as X
 import Stratosphere.ResourceProperties.S3BucketAccessControlTranslation as X
@@ -899,6 +940,7 @@ import Stratosphere.ResourceProperties.S3BucketMetricsConfiguration as X
 import Stratosphere.ResourceProperties.S3BucketNoncurrentVersionTransition as X
 import Stratosphere.ResourceProperties.S3BucketNotificationConfiguration as X
 import Stratosphere.ResourceProperties.S3BucketNotificationFilter as X
+import Stratosphere.ResourceProperties.S3BucketPublicAccessBlockConfiguration as X
 import Stratosphere.ResourceProperties.S3BucketQueueConfiguration as X
 import Stratosphere.ResourceProperties.S3BucketRedirectAllRequestsTo as X
 import Stratosphere.ResourceProperties.S3BucketRedirectRule as X
@@ -990,6 +1032,9 @@ import Stratosphere.ResourceProperties.WAFRegionalWebACLRule as X
 import Stratosphere.ResourceProperties.WAFRegionalXssMatchSetFieldToMatch as X
 import Stratosphere.ResourceProperties.WAFRegionalXssMatchSetXssMatchTuple as X
 import Stratosphere.ResourceProperties.WorkSpacesWorkspaceWorkspaceProperties as X
+import Stratosphere.ResourceProperties.ASKSkillAuthenticationConfiguration as X
+import Stratosphere.ResourceProperties.ASKSkillOverrides as X
+import Stratosphere.ResourceProperties.ASKSkillSkillPackage as X
 import Stratosphere.ResourceProperties.Tag as X
 
 import Stratosphere.ResourceAttributes.AutoScalingReplacingUpdatePolicy as X
@@ -1032,6 +1077,7 @@ data ResourceProperties
   | AppStreamUserProperties AppStreamUser
   | AppSyncApiKeyProperties AppSyncApiKey
   | AppSyncDataSourceProperties AppSyncDataSource
+  | AppSyncFunctionConfigurationProperties AppSyncFunctionConfiguration
   | AppSyncGraphQLApiProperties AppSyncGraphQLApi
   | AppSyncGraphQLSchemaProperties AppSyncGraphQLSchema
   | AppSyncResolverProperties AppSyncResolver
@@ -1051,6 +1097,7 @@ data ResourceProperties
   | CertificateManagerCertificateProperties CertificateManagerCertificate
   | Cloud9EnvironmentEC2Properties Cloud9EnvironmentEC2
   | CloudFormationCustomResourceProperties CloudFormationCustomResource
+  | CloudFormationMacroProperties CloudFormationMacro
   | CloudFormationStackProperties CloudFormationStack
   | CloudFormationWaitConditionProperties CloudFormationWaitCondition
   | CloudFormationWaitConditionHandleProperties CloudFormationWaitConditionHandle
@@ -1096,6 +1143,7 @@ data ResourceProperties
   | DynamoDBTableProperties DynamoDBTable
   | EC2CustomerGatewayProperties EC2CustomerGateway
   | EC2DHCPOptionsProperties EC2DHCPOptions
+  | EC2EC2FleetProperties EC2EC2Fleet
   | EC2EIPProperties EC2EIP
   | EC2EIPAssociationProperties EC2EIPAssociation
   | EC2EgressOnlyInternetGatewayProperties EC2EgressOnlyInternetGateway
@@ -1209,6 +1257,7 @@ data ResourceProperties
   | KMSAliasProperties KMSAlias
   | KMSKeyProperties KMSKey
   | KinesisStreamProperties KinesisStream
+  | KinesisStreamConsumerProperties KinesisStreamConsumer
   | KinesisAnalyticsApplicationProperties KinesisAnalyticsApplication
   | KinesisAnalyticsApplicationOutputProperties KinesisAnalyticsApplicationOutput
   | KinesisAnalyticsApplicationReferenceDataSourceProperties KinesisAnalyticsApplicationReferenceDataSource
@@ -1253,6 +1302,8 @@ data ResourceProperties
   | Route53HostedZoneProperties Route53HostedZone
   | Route53RecordSetProperties Route53RecordSet
   | Route53RecordSetGroupProperties Route53RecordSetGroup
+  | Route53ResolverResolverEndpointProperties Route53ResolverResolverEndpoint
+  | Route53ResolverResolverRuleProperties Route53ResolverResolverRule
   | S3BucketProperties S3Bucket
   | S3BucketPolicyProperties S3BucketPolicy
   | SDBDomainProperties SDBDomain
@@ -1317,6 +1368,7 @@ data ResourceProperties
   | WAFRegionalWebACLAssociationProperties WAFRegionalWebACLAssociation
   | WAFRegionalXssMatchSetProperties WAFRegionalXssMatchSet
   | WorkSpacesWorkspaceProperties WorkSpacesWorkspace
+  | ASKSkillProperties ASKSkill
 
   deriving (Show, Eq)
 
@@ -1432,6 +1484,8 @@ resourcePropertiesJSON (AppSyncApiKeyProperties x) =
   [ "Type" .= ("AWS::AppSync::ApiKey" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (AppSyncDataSourceProperties x) =
   [ "Type" .= ("AWS::AppSync::DataSource" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (AppSyncFunctionConfigurationProperties x) =
+  [ "Type" .= ("AWS::AppSync::FunctionConfiguration" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (AppSyncGraphQLApiProperties x) =
   [ "Type" .= ("AWS::AppSync::GraphQLApi" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (AppSyncGraphQLSchemaProperties x) =
@@ -1470,6 +1524,8 @@ resourcePropertiesJSON (Cloud9EnvironmentEC2Properties x) =
   [ "Type" .= ("AWS::Cloud9::EnvironmentEC2" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (CloudFormationCustomResourceProperties x) =
   [ "Type" .= ("AWS::CloudFormation::CustomResource" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (CloudFormationMacroProperties x) =
+  [ "Type" .= ("AWS::CloudFormation::Macro" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (CloudFormationStackProperties x) =
   [ "Type" .= ("AWS::CloudFormation::Stack" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (CloudFormationWaitConditionProperties x) =
@@ -1560,6 +1616,8 @@ resourcePropertiesJSON (EC2CustomerGatewayProperties x) =
   [ "Type" .= ("AWS::EC2::CustomerGateway" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (EC2DHCPOptionsProperties x) =
   [ "Type" .= ("AWS::EC2::DHCPOptions" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (EC2EC2FleetProperties x) =
+  [ "Type" .= ("AWS::EC2::EC2Fleet" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (EC2EIPProperties x) =
   [ "Type" .= ("AWS::EC2::EIP" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (EC2EIPAssociationProperties x) =
@@ -1786,6 +1844,8 @@ resourcePropertiesJSON (KMSKeyProperties x) =
   [ "Type" .= ("AWS::KMS::Key" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (KinesisStreamProperties x) =
   [ "Type" .= ("AWS::Kinesis::Stream" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (KinesisStreamConsumerProperties x) =
+  [ "Type" .= ("AWS::Kinesis::StreamConsumer" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (KinesisAnalyticsApplicationProperties x) =
   [ "Type" .= ("AWS::KinesisAnalytics::Application" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (KinesisAnalyticsApplicationOutputProperties x) =
@@ -1874,6 +1934,10 @@ resourcePropertiesJSON (Route53RecordSetProperties x) =
   [ "Type" .= ("AWS::Route53::RecordSet" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (Route53RecordSetGroupProperties x) =
   [ "Type" .= ("AWS::Route53::RecordSetGroup" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (Route53ResolverResolverEndpointProperties x) =
+  [ "Type" .= ("AWS::Route53Resolver::ResolverEndpoint" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (Route53ResolverResolverRuleProperties x) =
+  [ "Type" .= ("AWS::Route53Resolver::ResolverRule" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (S3BucketProperties x) =
   [ "Type" .= ("AWS::S3::Bucket" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (S3BucketPolicyProperties x) =
@@ -2002,6 +2066,8 @@ resourcePropertiesJSON (WAFRegionalXssMatchSetProperties x) =
   [ "Type" .= ("AWS::WAFRegional::XssMatchSet" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (WorkSpacesWorkspaceProperties x) =
   [ "Type" .= ("AWS::WorkSpaces::Workspace" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (ASKSkillProperties x) =
+  [ "Type" .= ("Alexa::ASK::Skill" :: String), "Properties" .= toJSON x]
 
 
 resourceFromJSON :: T.Text -> Object -> Parser Resource
@@ -2038,6 +2104,7 @@ resourceFromJSON n o =
          "AWS::AppStream::User" -> AppStreamUserProperties <$> (o .: "Properties")
          "AWS::AppSync::ApiKey" -> AppSyncApiKeyProperties <$> (o .: "Properties")
          "AWS::AppSync::DataSource" -> AppSyncDataSourceProperties <$> (o .: "Properties")
+         "AWS::AppSync::FunctionConfiguration" -> AppSyncFunctionConfigurationProperties <$> (o .: "Properties")
          "AWS::AppSync::GraphQLApi" -> AppSyncGraphQLApiProperties <$> (o .: "Properties")
          "AWS::AppSync::GraphQLSchema" -> AppSyncGraphQLSchemaProperties <$> (o .: "Properties")
          "AWS::AppSync::Resolver" -> AppSyncResolverProperties <$> (o .: "Properties")
@@ -2057,6 +2124,7 @@ resourceFromJSON n o =
          "AWS::CertificateManager::Certificate" -> CertificateManagerCertificateProperties <$> (o .: "Properties")
          "AWS::Cloud9::EnvironmentEC2" -> Cloud9EnvironmentEC2Properties <$> (o .: "Properties")
          "AWS::CloudFormation::CustomResource" -> CloudFormationCustomResourceProperties <$> (o .: "Properties")
+         "AWS::CloudFormation::Macro" -> CloudFormationMacroProperties <$> (o .: "Properties")
          "AWS::CloudFormation::Stack" -> CloudFormationStackProperties <$> (o .: "Properties")
          "AWS::CloudFormation::WaitCondition" -> CloudFormationWaitConditionProperties <$> (o .: "Properties")
          "AWS::CloudFormation::WaitConditionHandle" -> CloudFormationWaitConditionHandleProperties <$> (o .: "Properties")
@@ -2102,6 +2170,7 @@ resourceFromJSON n o =
          "AWS::DynamoDB::Table" -> DynamoDBTableProperties <$> (o .: "Properties")
          "AWS::EC2::CustomerGateway" -> EC2CustomerGatewayProperties <$> (o .: "Properties")
          "AWS::EC2::DHCPOptions" -> EC2DHCPOptionsProperties <$> (o .: "Properties")
+         "AWS::EC2::EC2Fleet" -> EC2EC2FleetProperties <$> (o .: "Properties")
          "AWS::EC2::EIP" -> EC2EIPProperties <$> (o .: "Properties")
          "AWS::EC2::EIPAssociation" -> EC2EIPAssociationProperties <$> (o .: "Properties")
          "AWS::EC2::EgressOnlyInternetGateway" -> EC2EgressOnlyInternetGatewayProperties <$> (o .: "Properties")
@@ -2215,6 +2284,7 @@ resourceFromJSON n o =
          "AWS::KMS::Alias" -> KMSAliasProperties <$> (o .: "Properties")
          "AWS::KMS::Key" -> KMSKeyProperties <$> (o .: "Properties")
          "AWS::Kinesis::Stream" -> KinesisStreamProperties <$> (o .: "Properties")
+         "AWS::Kinesis::StreamConsumer" -> KinesisStreamConsumerProperties <$> (o .: "Properties")
          "AWS::KinesisAnalytics::Application" -> KinesisAnalyticsApplicationProperties <$> (o .: "Properties")
          "AWS::KinesisAnalytics::ApplicationOutput" -> KinesisAnalyticsApplicationOutputProperties <$> (o .: "Properties")
          "AWS::KinesisAnalytics::ApplicationReferenceDataSource" -> KinesisAnalyticsApplicationReferenceDataSourceProperties <$> (o .: "Properties")
@@ -2259,6 +2329,8 @@ resourceFromJSON n o =
          "AWS::Route53::HostedZone" -> Route53HostedZoneProperties <$> (o .: "Properties")
          "AWS::Route53::RecordSet" -> Route53RecordSetProperties <$> (o .: "Properties")
          "AWS::Route53::RecordSetGroup" -> Route53RecordSetGroupProperties <$> (o .: "Properties")
+         "AWS::Route53Resolver::ResolverEndpoint" -> Route53ResolverResolverEndpointProperties <$> (o .: "Properties")
+         "AWS::Route53Resolver::ResolverRule" -> Route53ResolverResolverRuleProperties <$> (o .: "Properties")
          "AWS::S3::Bucket" -> S3BucketProperties <$> (o .: "Properties")
          "AWS::S3::BucketPolicy" -> S3BucketPolicyProperties <$> (o .: "Properties")
          "AWS::SDB::Domain" -> SDBDomainProperties <$> (o .: "Properties")
@@ -2323,6 +2395,7 @@ resourceFromJSON n o =
          "AWS::WAFRegional::WebACLAssociation" -> WAFRegionalWebACLAssociationProperties <$> (o .: "Properties")
          "AWS::WAFRegional::XssMatchSet" -> WAFRegionalXssMatchSetProperties <$> (o .: "Properties")
          "AWS::WorkSpaces::Workspace" -> WorkSpacesWorkspaceProperties <$> (o .: "Properties")
+         "Alexa::ASK::Skill" -> ASKSkillProperties <$> (o .: "Properties")
 
          _ -> fail $ "Unknown resource type: " ++ type'
        dp <- o .:? "DeletionPolicy"

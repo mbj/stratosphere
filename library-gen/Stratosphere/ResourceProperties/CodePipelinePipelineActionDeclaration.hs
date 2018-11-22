@@ -21,6 +21,7 @@ data CodePipelinePipelineActionDeclaration =
   , _codePipelinePipelineActionDeclarationInputArtifacts :: Maybe [CodePipelinePipelineInputArtifact]
   , _codePipelinePipelineActionDeclarationName :: Val Text
   , _codePipelinePipelineActionDeclarationOutputArtifacts :: Maybe [CodePipelinePipelineOutputArtifact]
+  , _codePipelinePipelineActionDeclarationRegion :: Maybe (Val Text)
   , _codePipelinePipelineActionDeclarationRoleArn :: Maybe (Val Text)
   , _codePipelinePipelineActionDeclarationRunOrder :: Maybe (Val Integer)
   } deriving (Show, Eq)
@@ -34,6 +35,7 @@ instance ToJSON CodePipelinePipelineActionDeclaration where
     , fmap (("InputArtifacts",) . toJSON) _codePipelinePipelineActionDeclarationInputArtifacts
     , (Just . ("Name",) . toJSON) _codePipelinePipelineActionDeclarationName
     , fmap (("OutputArtifacts",) . toJSON) _codePipelinePipelineActionDeclarationOutputArtifacts
+    , fmap (("Region",) . toJSON) _codePipelinePipelineActionDeclarationRegion
     , fmap (("RoleArn",) . toJSON) _codePipelinePipelineActionDeclarationRoleArn
     , fmap (("RunOrder",) . toJSON . fmap Integer') _codePipelinePipelineActionDeclarationRunOrder
     ]
@@ -46,6 +48,7 @@ instance FromJSON CodePipelinePipelineActionDeclaration where
       (obj .:? "InputArtifacts") <*>
       (obj .: "Name") <*>
       (obj .:? "OutputArtifacts") <*>
+      (obj .:? "Region") <*>
       (obj .:? "RoleArn") <*>
       fmap (fmap (fmap unInteger')) (obj .:? "RunOrder")
   parseJSON _ = mempty
@@ -63,6 +66,7 @@ codePipelinePipelineActionDeclaration actionTypeIdarg namearg =
   , _codePipelinePipelineActionDeclarationInputArtifacts = Nothing
   , _codePipelinePipelineActionDeclarationName = namearg
   , _codePipelinePipelineActionDeclarationOutputArtifacts = Nothing
+  , _codePipelinePipelineActionDeclarationRegion = Nothing
   , _codePipelinePipelineActionDeclarationRoleArn = Nothing
   , _codePipelinePipelineActionDeclarationRunOrder = Nothing
   }
@@ -86,6 +90,10 @@ cppadName = lens _codePipelinePipelineActionDeclarationName (\s a -> s { _codePi
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages-actions.html#cfn-codepipeline-pipeline-stages-actions-outputartifacts
 cppadOutputArtifacts :: Lens' CodePipelinePipelineActionDeclaration (Maybe [CodePipelinePipelineOutputArtifact])
 cppadOutputArtifacts = lens _codePipelinePipelineActionDeclarationOutputArtifacts (\s a -> s { _codePipelinePipelineActionDeclarationOutputArtifacts = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages-actions.html#cfn-codepipeline-pipeline-stages-actions-region
+cppadRegion :: Lens' CodePipelinePipelineActionDeclaration (Maybe (Val Text))
+cppadRegion = lens _codePipelinePipelineActionDeclarationRegion (\s a -> s { _codePipelinePipelineActionDeclarationRegion = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages-actions.html#cfn-codepipeline-pipeline-stages-actions-rolearn
 cppadRoleArn :: Lens' CodePipelinePipelineActionDeclaration (Maybe (Val Text))

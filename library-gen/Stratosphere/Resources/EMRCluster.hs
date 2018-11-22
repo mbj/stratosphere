@@ -12,6 +12,7 @@ import Stratosphere.ResourceProperties.EMRClusterBootstrapActionConfig
 import Stratosphere.ResourceProperties.EMRClusterConfiguration
 import Stratosphere.ResourceProperties.EMRClusterJobFlowInstancesConfig
 import Stratosphere.ResourceProperties.EMRClusterKerberosAttributes
+import Stratosphere.ResourceProperties.EMRClusterStepConfig
 import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for EMRCluster. See 'emrCluster' for a more
@@ -34,6 +35,7 @@ data EMRCluster =
   , _eMRClusterScaleDownBehavior :: Maybe (Val Text)
   , _eMRClusterSecurityConfiguration :: Maybe (Val Text)
   , _eMRClusterServiceRole :: Val Text
+  , _eMRClusterSteps :: Maybe [EMRClusterStepConfig]
   , _eMRClusterTags :: Maybe [Tag]
   , _eMRClusterVisibleToAllUsers :: Maybe (Val Bool)
   } deriving (Show, Eq)
@@ -58,6 +60,7 @@ instance ToJSON EMRCluster where
     , fmap (("ScaleDownBehavior",) . toJSON) _eMRClusterScaleDownBehavior
     , fmap (("SecurityConfiguration",) . toJSON) _eMRClusterSecurityConfiguration
     , (Just . ("ServiceRole",) . toJSON) _eMRClusterServiceRole
+    , fmap (("Steps",) . toJSON) _eMRClusterSteps
     , fmap (("Tags",) . toJSON) _eMRClusterTags
     , fmap (("VisibleToAllUsers",) . toJSON . fmap Bool') _eMRClusterVisibleToAllUsers
     ]
@@ -81,6 +84,7 @@ instance FromJSON EMRCluster where
       (obj .:? "ScaleDownBehavior") <*>
       (obj .:? "SecurityConfiguration") <*>
       (obj .: "ServiceRole") <*>
+      (obj .:? "Steps") <*>
       (obj .:? "Tags") <*>
       fmap (fmap (fmap unBool')) (obj .:? "VisibleToAllUsers")
   parseJSON _ = mempty
@@ -110,6 +114,7 @@ emrCluster instancesarg jobFlowRolearg namearg serviceRolearg =
   , _eMRClusterScaleDownBehavior = Nothing
   , _eMRClusterSecurityConfiguration = Nothing
   , _eMRClusterServiceRole = serviceRolearg
+  , _eMRClusterSteps = Nothing
   , _eMRClusterTags = Nothing
   , _eMRClusterVisibleToAllUsers = Nothing
   }
@@ -177,6 +182,10 @@ emrcSecurityConfiguration = lens _eMRClusterSecurityConfiguration (\s a -> s { _
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-servicerole
 emrcServiceRole :: Lens' EMRCluster (Val Text)
 emrcServiceRole = lens _eMRClusterServiceRole (\s a -> s { _eMRClusterServiceRole = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-steps
+emrcSteps :: Lens' EMRCluster (Maybe [EMRClusterStepConfig])
+emrcSteps = lens _eMRClusterSteps (\s a -> s { _eMRClusterSteps = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html#cfn-elasticmapreduce-cluster-tags
 emrcTags :: Lens' EMRCluster (Maybe [Tag])

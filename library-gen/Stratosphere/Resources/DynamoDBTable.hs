@@ -27,7 +27,7 @@ data DynamoDBTable =
   , _dynamoDBTableKeySchema :: [DynamoDBTableKeySchema]
   , _dynamoDBTableLocalSecondaryIndexes :: Maybe [DynamoDBTableLocalSecondaryIndex]
   , _dynamoDBTablePointInTimeRecoverySpecification :: Maybe DynamoDBTablePointInTimeRecoverySpecification
-  , _dynamoDBTableProvisionedThroughput :: DynamoDBTableProvisionedThroughput
+  , _dynamoDBTableProvisionedThroughput :: Maybe DynamoDBTableProvisionedThroughput
   , _dynamoDBTableSSESpecification :: Maybe DynamoDBTableSSESpecification
   , _dynamoDBTableStreamSpecification :: Maybe DynamoDBTableStreamSpecification
   , _dynamoDBTableTableName :: Maybe (Val Text)
@@ -44,7 +44,7 @@ instance ToJSON DynamoDBTable where
     , (Just . ("KeySchema",) . toJSON) _dynamoDBTableKeySchema
     , fmap (("LocalSecondaryIndexes",) . toJSON) _dynamoDBTableLocalSecondaryIndexes
     , fmap (("PointInTimeRecoverySpecification",) . toJSON) _dynamoDBTablePointInTimeRecoverySpecification
-    , (Just . ("ProvisionedThroughput",) . toJSON) _dynamoDBTableProvisionedThroughput
+    , fmap (("ProvisionedThroughput",) . toJSON) _dynamoDBTableProvisionedThroughput
     , fmap (("SSESpecification",) . toJSON) _dynamoDBTableSSESpecification
     , fmap (("StreamSpecification",) . toJSON) _dynamoDBTableStreamSpecification
     , fmap (("TableName",) . toJSON) _dynamoDBTableTableName
@@ -60,7 +60,7 @@ instance FromJSON DynamoDBTable where
       (obj .: "KeySchema") <*>
       (obj .:? "LocalSecondaryIndexes") <*>
       (obj .:? "PointInTimeRecoverySpecification") <*>
-      (obj .: "ProvisionedThroughput") <*>
+      (obj .:? "ProvisionedThroughput") <*>
       (obj .:? "SSESpecification") <*>
       (obj .:? "StreamSpecification") <*>
       (obj .:? "TableName") <*>
@@ -71,16 +71,15 @@ instance FromJSON DynamoDBTable where
 -- | Constructor for 'DynamoDBTable' containing required fields as arguments.
 dynamoDBTable
   :: [DynamoDBTableKeySchema] -- ^ 'ddbtKeySchema'
-  -> DynamoDBTableProvisionedThroughput -- ^ 'ddbtProvisionedThroughput'
   -> DynamoDBTable
-dynamoDBTable keySchemaarg provisionedThroughputarg =
+dynamoDBTable keySchemaarg =
   DynamoDBTable
   { _dynamoDBTableAttributeDefinitions = Nothing
   , _dynamoDBTableGlobalSecondaryIndexes = Nothing
   , _dynamoDBTableKeySchema = keySchemaarg
   , _dynamoDBTableLocalSecondaryIndexes = Nothing
   , _dynamoDBTablePointInTimeRecoverySpecification = Nothing
-  , _dynamoDBTableProvisionedThroughput = provisionedThroughputarg
+  , _dynamoDBTableProvisionedThroughput = Nothing
   , _dynamoDBTableSSESpecification = Nothing
   , _dynamoDBTableStreamSpecification = Nothing
   , _dynamoDBTableTableName = Nothing
@@ -109,7 +108,7 @@ ddbtPointInTimeRecoverySpecification :: Lens' DynamoDBTable (Maybe DynamoDBTable
 ddbtPointInTimeRecoverySpecification = lens _dynamoDBTablePointInTimeRecoverySpecification (\s a -> s { _dynamoDBTablePointInTimeRecoverySpecification = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-provisionedthroughput
-ddbtProvisionedThroughput :: Lens' DynamoDBTable DynamoDBTableProvisionedThroughput
+ddbtProvisionedThroughput :: Lens' DynamoDBTable (Maybe DynamoDBTableProvisionedThroughput)
 ddbtProvisionedThroughput = lens _dynamoDBTableProvisionedThroughput (\s a -> s { _dynamoDBTableProvisionedThroughput = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-ssespecification
