@@ -26,6 +26,7 @@ data LambdaFunction =
   , _lambdaFunctionFunctionName :: Maybe (Val Text)
   , _lambdaFunctionHandler :: Val Text
   , _lambdaFunctionKmsKeyArn :: Maybe (Val Text)
+  , _lambdaFunctionLayers :: Maybe (ValList Text)
   , _lambdaFunctionMemorySize :: Maybe (Val Integer)
   , _lambdaFunctionReservedConcurrentExecutions :: Maybe (Val Integer)
   , _lambdaFunctionRole :: Val Text
@@ -47,6 +48,7 @@ instance ToJSON LambdaFunction where
     , fmap (("FunctionName",) . toJSON) _lambdaFunctionFunctionName
     , (Just . ("Handler",) . toJSON) _lambdaFunctionHandler
     , fmap (("KmsKeyArn",) . toJSON) _lambdaFunctionKmsKeyArn
+    , fmap (("Layers",) . toJSON) _lambdaFunctionLayers
     , fmap (("MemorySize",) . toJSON . fmap Integer') _lambdaFunctionMemorySize
     , fmap (("ReservedConcurrentExecutions",) . toJSON . fmap Integer') _lambdaFunctionReservedConcurrentExecutions
     , (Just . ("Role",) . toJSON) _lambdaFunctionRole
@@ -67,6 +69,7 @@ instance FromJSON LambdaFunction where
       (obj .:? "FunctionName") <*>
       (obj .: "Handler") <*>
       (obj .:? "KmsKeyArn") <*>
+      (obj .:? "Layers") <*>
       fmap (fmap (fmap unInteger')) (obj .:? "MemorySize") <*>
       fmap (fmap (fmap unInteger')) (obj .:? "ReservedConcurrentExecutions") <*>
       (obj .: "Role") <*>
@@ -93,6 +96,7 @@ lambdaFunction codearg handlerarg rolearg runtimearg =
   , _lambdaFunctionFunctionName = Nothing
   , _lambdaFunctionHandler = handlerarg
   , _lambdaFunctionKmsKeyArn = Nothing
+  , _lambdaFunctionLayers = Nothing
   , _lambdaFunctionMemorySize = Nothing
   , _lambdaFunctionReservedConcurrentExecutions = Nothing
   , _lambdaFunctionRole = rolearg
@@ -130,6 +134,10 @@ lfHandler = lens _lambdaFunctionHandler (\s a -> s { _lambdaFunctionHandler = a 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-kmskeyarn
 lfKmsKeyArn :: Lens' LambdaFunction (Maybe (Val Text))
 lfKmsKeyArn = lens _lambdaFunctionKmsKeyArn (\s a -> s { _lambdaFunctionKmsKeyArn = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-layers
+lfLayers :: Lens' LambdaFunction (Maybe (ValList Text))
+lfLayers = lens _lambdaFunctionLayers (\s a -> s { _lambdaFunctionLayers = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-memorysize
 lfMemorySize :: Lens' LambdaFunction (Maybe (Val Integer))

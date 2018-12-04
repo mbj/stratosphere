@@ -169,6 +169,12 @@ import Stratosphere.Resources.EC2Subnet as X
 import Stratosphere.Resources.EC2SubnetCidrBlock as X
 import Stratosphere.Resources.EC2SubnetNetworkAclAssociation as X
 import Stratosphere.Resources.EC2SubnetRouteTableAssociation as X
+import Stratosphere.Resources.EC2TransitGateway as X
+import Stratosphere.Resources.EC2TransitGatewayAttachment as X
+import Stratosphere.Resources.EC2TransitGatewayRoute as X
+import Stratosphere.Resources.EC2TransitGatewayRouteTable as X
+import Stratosphere.Resources.EC2TransitGatewayRouteTableAssociation as X
+import Stratosphere.Resources.EC2TransitGatewayRouteTablePropagation as X
 import Stratosphere.Resources.EC2TrunkInterfaceAssociation as X
 import Stratosphere.Resources.EC2VPC as X
 import Stratosphere.Resources.EC2VPCCidrBlock as X
@@ -346,6 +352,7 @@ import Stratosphere.Resources.ServiceCatalogPortfolioProductAssociation as X
 import Stratosphere.Resources.ServiceCatalogPortfolioShare as X
 import Stratosphere.Resources.ServiceCatalogTagOption as X
 import Stratosphere.Resources.ServiceCatalogTagOptionAssociation as X
+import Stratosphere.Resources.ServiceDiscoveryHttpNamespace as X
 import Stratosphere.Resources.ServiceDiscoveryInstance as X
 import Stratosphere.Resources.ServiceDiscoveryPrivateDnsNamespace as X
 import Stratosphere.Resources.ServiceDiscoveryPublicDnsNamespace as X
@@ -601,8 +608,10 @@ import Stratosphere.ResourceProperties.EC2InstanceBlockDeviceMapping as X
 import Stratosphere.ResourceProperties.EC2InstanceCreditSpecification as X
 import Stratosphere.ResourceProperties.EC2InstanceEbs as X
 import Stratosphere.ResourceProperties.EC2InstanceElasticGpuSpecification as X
+import Stratosphere.ResourceProperties.EC2InstanceElasticInferenceAccelerator as X
 import Stratosphere.ResourceProperties.EC2InstanceInstanceIpv6Address as X
 import Stratosphere.ResourceProperties.EC2InstanceLaunchTemplateSpecification as X
+import Stratosphere.ResourceProperties.EC2InstanceLicenseSpecification as X
 import Stratosphere.ResourceProperties.EC2InstanceNetworkInterface as X
 import Stratosphere.ResourceProperties.EC2InstanceNoDevice as X
 import Stratosphere.ResourceProperties.EC2InstancePrivateIpAddressSpecification as X
@@ -1169,6 +1178,12 @@ data ResourceProperties
   | EC2SubnetCidrBlockProperties EC2SubnetCidrBlock
   | EC2SubnetNetworkAclAssociationProperties EC2SubnetNetworkAclAssociation
   | EC2SubnetRouteTableAssociationProperties EC2SubnetRouteTableAssociation
+  | EC2TransitGatewayProperties EC2TransitGateway
+  | EC2TransitGatewayAttachmentProperties EC2TransitGatewayAttachment
+  | EC2TransitGatewayRouteProperties EC2TransitGatewayRoute
+  | EC2TransitGatewayRouteTableProperties EC2TransitGatewayRouteTable
+  | EC2TransitGatewayRouteTableAssociationProperties EC2TransitGatewayRouteTableAssociation
+  | EC2TransitGatewayRouteTablePropagationProperties EC2TransitGatewayRouteTablePropagation
   | EC2TrunkInterfaceAssociationProperties EC2TrunkInterfaceAssociation
   | EC2VPCProperties EC2VPC
   | EC2VPCCidrBlockProperties EC2VPCCidrBlock
@@ -1346,6 +1361,7 @@ data ResourceProperties
   | ServiceCatalogPortfolioShareProperties ServiceCatalogPortfolioShare
   | ServiceCatalogTagOptionProperties ServiceCatalogTagOption
   | ServiceCatalogTagOptionAssociationProperties ServiceCatalogTagOptionAssociation
+  | ServiceDiscoveryHttpNamespaceProperties ServiceDiscoveryHttpNamespace
   | ServiceDiscoveryInstanceProperties ServiceDiscoveryInstance
   | ServiceDiscoveryPrivateDnsNamespaceProperties ServiceDiscoveryPrivateDnsNamespace
   | ServiceDiscoveryPublicDnsNamespaceProperties ServiceDiscoveryPublicDnsNamespace
@@ -1668,6 +1684,18 @@ resourcePropertiesJSON (EC2SubnetNetworkAclAssociationProperties x) =
   [ "Type" .= ("AWS::EC2::SubnetNetworkAclAssociation" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (EC2SubnetRouteTableAssociationProperties x) =
   [ "Type" .= ("AWS::EC2::SubnetRouteTableAssociation" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (EC2TransitGatewayProperties x) =
+  [ "Type" .= ("AWS::EC2::TransitGateway" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (EC2TransitGatewayAttachmentProperties x) =
+  [ "Type" .= ("AWS::EC2::TransitGatewayAttachment" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (EC2TransitGatewayRouteProperties x) =
+  [ "Type" .= ("AWS::EC2::TransitGatewayRoute" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (EC2TransitGatewayRouteTableProperties x) =
+  [ "Type" .= ("AWS::EC2::TransitGatewayRouteTable" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (EC2TransitGatewayRouteTableAssociationProperties x) =
+  [ "Type" .= ("AWS::EC2::TransitGatewayRouteTableAssociation" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (EC2TransitGatewayRouteTablePropagationProperties x) =
+  [ "Type" .= ("AWS::EC2::TransitGatewayRouteTablePropagation" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (EC2TrunkInterfaceAssociationProperties x) =
   [ "Type" .= ("AWS::EC2::TrunkInterfaceAssociation" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (EC2VPCProperties x) =
@@ -2022,6 +2050,8 @@ resourcePropertiesJSON (ServiceCatalogTagOptionProperties x) =
   [ "Type" .= ("AWS::ServiceCatalog::TagOption" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ServiceCatalogTagOptionAssociationProperties x) =
   [ "Type" .= ("AWS::ServiceCatalog::TagOptionAssociation" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (ServiceDiscoveryHttpNamespaceProperties x) =
+  [ "Type" .= ("AWS::ServiceDiscovery::HttpNamespace" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ServiceDiscoveryInstanceProperties x) =
   [ "Type" .= ("AWS::ServiceDiscovery::Instance" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ServiceDiscoveryPrivateDnsNamespaceProperties x) =
@@ -2196,6 +2226,12 @@ resourceFromJSON n o =
          "AWS::EC2::SubnetCidrBlock" -> EC2SubnetCidrBlockProperties <$> (o .: "Properties")
          "AWS::EC2::SubnetNetworkAclAssociation" -> EC2SubnetNetworkAclAssociationProperties <$> (o .: "Properties")
          "AWS::EC2::SubnetRouteTableAssociation" -> EC2SubnetRouteTableAssociationProperties <$> (o .: "Properties")
+         "AWS::EC2::TransitGateway" -> EC2TransitGatewayProperties <$> (o .: "Properties")
+         "AWS::EC2::TransitGatewayAttachment" -> EC2TransitGatewayAttachmentProperties <$> (o .: "Properties")
+         "AWS::EC2::TransitGatewayRoute" -> EC2TransitGatewayRouteProperties <$> (o .: "Properties")
+         "AWS::EC2::TransitGatewayRouteTable" -> EC2TransitGatewayRouteTableProperties <$> (o .: "Properties")
+         "AWS::EC2::TransitGatewayRouteTableAssociation" -> EC2TransitGatewayRouteTableAssociationProperties <$> (o .: "Properties")
+         "AWS::EC2::TransitGatewayRouteTablePropagation" -> EC2TransitGatewayRouteTablePropagationProperties <$> (o .: "Properties")
          "AWS::EC2::TrunkInterfaceAssociation" -> EC2TrunkInterfaceAssociationProperties <$> (o .: "Properties")
          "AWS::EC2::VPC" -> EC2VPCProperties <$> (o .: "Properties")
          "AWS::EC2::VPCCidrBlock" -> EC2VPCCidrBlockProperties <$> (o .: "Properties")
@@ -2373,6 +2409,7 @@ resourceFromJSON n o =
          "AWS::ServiceCatalog::PortfolioShare" -> ServiceCatalogPortfolioShareProperties <$> (o .: "Properties")
          "AWS::ServiceCatalog::TagOption" -> ServiceCatalogTagOptionProperties <$> (o .: "Properties")
          "AWS::ServiceCatalog::TagOptionAssociation" -> ServiceCatalogTagOptionAssociationProperties <$> (o .: "Properties")
+         "AWS::ServiceDiscovery::HttpNamespace" -> ServiceDiscoveryHttpNamespaceProperties <$> (o .: "Properties")
          "AWS::ServiceDiscovery::Instance" -> ServiceDiscoveryInstanceProperties <$> (o .: "Properties")
          "AWS::ServiceDiscovery::PrivateDnsNamespace" -> ServiceDiscoveryPrivateDnsNamespaceProperties <$> (o .: "Properties")
          "AWS::ServiceDiscovery::PublicDnsNamespace" -> ServiceDiscoveryPublicDnsNamespaceProperties <$> (o .: "Properties")

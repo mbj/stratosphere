@@ -10,8 +10,10 @@ import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.EC2InstanceBlockDeviceMapping
 import Stratosphere.ResourceProperties.EC2InstanceCreditSpecification
 import Stratosphere.ResourceProperties.EC2InstanceElasticGpuSpecification
+import Stratosphere.ResourceProperties.EC2InstanceElasticInferenceAccelerator
 import Stratosphere.ResourceProperties.EC2InstanceInstanceIpv6Address
 import Stratosphere.ResourceProperties.EC2InstanceLaunchTemplateSpecification
+import Stratosphere.ResourceProperties.EC2InstanceLicenseSpecification
 import Stratosphere.ResourceProperties.EC2InstanceNetworkInterface
 import Stratosphere.ResourceProperties.EC2InstanceSsmAssociation
 import Stratosphere.ResourceProperties.Tag
@@ -29,6 +31,7 @@ data EC2Instance =
   , _eC2InstanceDisableApiTermination :: Maybe (Val Bool)
   , _eC2InstanceEbsOptimized :: Maybe (Val Bool)
   , _eC2InstanceElasticGpuSpecifications :: Maybe [EC2InstanceElasticGpuSpecification]
+  , _eC2InstanceElasticInferenceAccelerators :: Maybe [EC2InstanceElasticInferenceAccelerator]
   , _eC2InstanceHostId :: Maybe (Val Text)
   , _eC2InstanceIamInstanceProfile :: Maybe (Val Text)
   , _eC2InstanceImageId :: Maybe (Val Text)
@@ -39,6 +42,7 @@ data EC2Instance =
   , _eC2InstanceKernelId :: Maybe (Val Text)
   , _eC2InstanceKeyName :: Maybe (Val Text)
   , _eC2InstanceLaunchTemplate :: Maybe EC2InstanceLaunchTemplateSpecification
+  , _eC2InstanceLicenseSpecifications :: Maybe [EC2InstanceLicenseSpecification]
   , _eC2InstanceMonitoring :: Maybe (Val Bool)
   , _eC2InstanceNetworkInterfaces :: Maybe [EC2InstanceNetworkInterface]
   , _eC2InstancePlacementGroupName :: Maybe (Val Text)
@@ -67,6 +71,7 @@ instance ToJSON EC2Instance where
     , fmap (("DisableApiTermination",) . toJSON . fmap Bool') _eC2InstanceDisableApiTermination
     , fmap (("EbsOptimized",) . toJSON . fmap Bool') _eC2InstanceEbsOptimized
     , fmap (("ElasticGpuSpecifications",) . toJSON) _eC2InstanceElasticGpuSpecifications
+    , fmap (("ElasticInferenceAccelerators",) . toJSON) _eC2InstanceElasticInferenceAccelerators
     , fmap (("HostId",) . toJSON) _eC2InstanceHostId
     , fmap (("IamInstanceProfile",) . toJSON) _eC2InstanceIamInstanceProfile
     , fmap (("ImageId",) . toJSON) _eC2InstanceImageId
@@ -77,6 +82,7 @@ instance ToJSON EC2Instance where
     , fmap (("KernelId",) . toJSON) _eC2InstanceKernelId
     , fmap (("KeyName",) . toJSON) _eC2InstanceKeyName
     , fmap (("LaunchTemplate",) . toJSON) _eC2InstanceLaunchTemplate
+    , fmap (("LicenseSpecifications",) . toJSON) _eC2InstanceLicenseSpecifications
     , fmap (("Monitoring",) . toJSON . fmap Bool') _eC2InstanceMonitoring
     , fmap (("NetworkInterfaces",) . toJSON) _eC2InstanceNetworkInterfaces
     , fmap (("PlacementGroupName",) . toJSON) _eC2InstancePlacementGroupName
@@ -104,6 +110,7 @@ instance FromJSON EC2Instance where
       fmap (fmap (fmap unBool')) (obj .:? "DisableApiTermination") <*>
       fmap (fmap (fmap unBool')) (obj .:? "EbsOptimized") <*>
       (obj .:? "ElasticGpuSpecifications") <*>
+      (obj .:? "ElasticInferenceAccelerators") <*>
       (obj .:? "HostId") <*>
       (obj .:? "IamInstanceProfile") <*>
       (obj .:? "ImageId") <*>
@@ -114,6 +121,7 @@ instance FromJSON EC2Instance where
       (obj .:? "KernelId") <*>
       (obj .:? "KeyName") <*>
       (obj .:? "LaunchTemplate") <*>
+      (obj .:? "LicenseSpecifications") <*>
       fmap (fmap (fmap unBool')) (obj .:? "Monitoring") <*>
       (obj .:? "NetworkInterfaces") <*>
       (obj .:? "PlacementGroupName") <*>
@@ -143,6 +151,7 @@ ec2Instance  =
   , _eC2InstanceDisableApiTermination = Nothing
   , _eC2InstanceEbsOptimized = Nothing
   , _eC2InstanceElasticGpuSpecifications = Nothing
+  , _eC2InstanceElasticInferenceAccelerators = Nothing
   , _eC2InstanceHostId = Nothing
   , _eC2InstanceIamInstanceProfile = Nothing
   , _eC2InstanceImageId = Nothing
@@ -153,6 +162,7 @@ ec2Instance  =
   , _eC2InstanceKernelId = Nothing
   , _eC2InstanceKeyName = Nothing
   , _eC2InstanceLaunchTemplate = Nothing
+  , _eC2InstanceLicenseSpecifications = Nothing
   , _eC2InstanceMonitoring = Nothing
   , _eC2InstanceNetworkInterfaces = Nothing
   , _eC2InstancePlacementGroupName = Nothing
@@ -201,6 +211,10 @@ eciEbsOptimized = lens _eC2InstanceEbsOptimized (\s a -> s { _eC2InstanceEbsOpti
 eciElasticGpuSpecifications :: Lens' EC2Instance (Maybe [EC2InstanceElasticGpuSpecification])
 eciElasticGpuSpecifications = lens _eC2InstanceElasticGpuSpecifications (\s a -> s { _eC2InstanceElasticGpuSpecifications = a })
 
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-elasticinferenceaccelerators
+eciElasticInferenceAccelerators :: Lens' EC2Instance (Maybe [EC2InstanceElasticInferenceAccelerator])
+eciElasticInferenceAccelerators = lens _eC2InstanceElasticInferenceAccelerators (\s a -> s { _eC2InstanceElasticInferenceAccelerators = a })
+
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-hostid
 eciHostId :: Lens' EC2Instance (Maybe (Val Text))
 eciHostId = lens _eC2InstanceHostId (\s a -> s { _eC2InstanceHostId = a })
@@ -240,6 +254,10 @@ eciKeyName = lens _eC2InstanceKeyName (\s a -> s { _eC2InstanceKeyName = a })
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-launchtemplate
 eciLaunchTemplate :: Lens' EC2Instance (Maybe EC2InstanceLaunchTemplateSpecification)
 eciLaunchTemplate = lens _eC2InstanceLaunchTemplate (\s a -> s { _eC2InstanceLaunchTemplate = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-licensespecifications
+eciLicenseSpecifications :: Lens' EC2Instance (Maybe [EC2InstanceLicenseSpecification])
+eciLicenseSpecifications = lens _eC2InstanceLicenseSpecifications (\s a -> s { _eC2InstanceLicenseSpecifications = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-monitoring
 eciMonitoring :: Lens' EC2Instance (Maybe (Val Bool))
