@@ -23,6 +23,7 @@ import Stratosphere.ResourceProperties.DynamoDBTableTimeToLiveSpecification
 data DynamoDBTable =
   DynamoDBTable
   { _dynamoDBTableAttributeDefinitions :: Maybe [DynamoDBTableAttributeDefinition]
+  , _dynamoDBTableBillingMode :: Maybe (Val Text)
   , _dynamoDBTableGlobalSecondaryIndexes :: Maybe [DynamoDBTableGlobalSecondaryIndex]
   , _dynamoDBTableKeySchema :: [DynamoDBTableKeySchema]
   , _dynamoDBTableLocalSecondaryIndexes :: Maybe [DynamoDBTableLocalSecondaryIndex]
@@ -40,6 +41,7 @@ instance ToJSON DynamoDBTable where
     object $
     catMaybes
     [ fmap (("AttributeDefinitions",) . toJSON) _dynamoDBTableAttributeDefinitions
+    , fmap (("BillingMode",) . toJSON) _dynamoDBTableBillingMode
     , fmap (("GlobalSecondaryIndexes",) . toJSON) _dynamoDBTableGlobalSecondaryIndexes
     , (Just . ("KeySchema",) . toJSON) _dynamoDBTableKeySchema
     , fmap (("LocalSecondaryIndexes",) . toJSON) _dynamoDBTableLocalSecondaryIndexes
@@ -56,6 +58,7 @@ instance FromJSON DynamoDBTable where
   parseJSON (Object obj) =
     DynamoDBTable <$>
       (obj .:? "AttributeDefinitions") <*>
+      (obj .:? "BillingMode") <*>
       (obj .:? "GlobalSecondaryIndexes") <*>
       (obj .: "KeySchema") <*>
       (obj .:? "LocalSecondaryIndexes") <*>
@@ -75,6 +78,7 @@ dynamoDBTable
 dynamoDBTable keySchemaarg =
   DynamoDBTable
   { _dynamoDBTableAttributeDefinitions = Nothing
+  , _dynamoDBTableBillingMode = Nothing
   , _dynamoDBTableGlobalSecondaryIndexes = Nothing
   , _dynamoDBTableKeySchema = keySchemaarg
   , _dynamoDBTableLocalSecondaryIndexes = Nothing
@@ -90,6 +94,10 @@ dynamoDBTable keySchemaarg =
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-attributedef
 ddbtAttributeDefinitions :: Lens' DynamoDBTable (Maybe [DynamoDBTableAttributeDefinition])
 ddbtAttributeDefinitions = lens _dynamoDBTableAttributeDefinitions (\s a -> s { _dynamoDBTableAttributeDefinitions = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-billingmode
+ddbtBillingMode :: Lens' DynamoDBTable (Maybe (Val Text))
+ddbtBillingMode = lens _dynamoDBTableBillingMode (\s a -> s { _dynamoDBTableBillingMode = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html#cfn-dynamodb-table-gsi
 ddbtGlobalSecondaryIndexes :: Lens' DynamoDBTable (Maybe [DynamoDBTableGlobalSecondaryIndex])
