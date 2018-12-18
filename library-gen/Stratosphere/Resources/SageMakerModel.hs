@@ -15,9 +15,10 @@ import Stratosphere.ResourceProperties.SageMakerModelVpcConfig
 -- more convenient constructor.
 data SageMakerModel =
   SageMakerModel
-  { _sageMakerModelExecutionRoleArn :: Val Text
+  { _sageMakerModelContainers :: Maybe [SageMakerModelContainerDefinition]
+  , _sageMakerModelExecutionRoleArn :: Val Text
   , _sageMakerModelModelName :: Maybe (Val Text)
-  , _sageMakerModelPrimaryContainer :: SageMakerModelContainerDefinition
+  , _sageMakerModelPrimaryContainer :: Maybe SageMakerModelContainerDefinition
   , _sageMakerModelTags :: Maybe [Tag]
   , _sageMakerModelVpcConfig :: Maybe SageMakerModelVpcConfig
   } deriving (Show, Eq)
@@ -26,9 +27,10 @@ instance ToJSON SageMakerModel where
   toJSON SageMakerModel{..} =
     object $
     catMaybes
-    [ (Just . ("ExecutionRoleArn",) . toJSON) _sageMakerModelExecutionRoleArn
+    [ fmap (("Containers",) . toJSON) _sageMakerModelContainers
+    , (Just . ("ExecutionRoleArn",) . toJSON) _sageMakerModelExecutionRoleArn
     , fmap (("ModelName",) . toJSON) _sageMakerModelModelName
-    , (Just . ("PrimaryContainer",) . toJSON) _sageMakerModelPrimaryContainer
+    , fmap (("PrimaryContainer",) . toJSON) _sageMakerModelPrimaryContainer
     , fmap (("Tags",) . toJSON) _sageMakerModelTags
     , fmap (("VpcConfig",) . toJSON) _sageMakerModelVpcConfig
     ]
@@ -36,9 +38,10 @@ instance ToJSON SageMakerModel where
 instance FromJSON SageMakerModel where
   parseJSON (Object obj) =
     SageMakerModel <$>
+      (obj .:? "Containers") <*>
       (obj .: "ExecutionRoleArn") <*>
       (obj .:? "ModelName") <*>
-      (obj .: "PrimaryContainer") <*>
+      (obj .:? "PrimaryContainer") <*>
       (obj .:? "Tags") <*>
       (obj .:? "VpcConfig")
   parseJSON _ = mempty
@@ -46,16 +49,20 @@ instance FromJSON SageMakerModel where
 -- | Constructor for 'SageMakerModel' containing required fields as arguments.
 sageMakerModel
   :: Val Text -- ^ 'smmExecutionRoleArn'
-  -> SageMakerModelContainerDefinition -- ^ 'smmPrimaryContainer'
   -> SageMakerModel
-sageMakerModel executionRoleArnarg primaryContainerarg =
+sageMakerModel executionRoleArnarg =
   SageMakerModel
-  { _sageMakerModelExecutionRoleArn = executionRoleArnarg
+  { _sageMakerModelContainers = Nothing
+  , _sageMakerModelExecutionRoleArn = executionRoleArnarg
   , _sageMakerModelModelName = Nothing
-  , _sageMakerModelPrimaryContainer = primaryContainerarg
+  , _sageMakerModelPrimaryContainer = Nothing
   , _sageMakerModelTags = Nothing
   , _sageMakerModelVpcConfig = Nothing
   }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.html#cfn-sagemaker-model-containers
+smmContainers :: Lens' SageMakerModel (Maybe [SageMakerModelContainerDefinition])
+smmContainers = lens _sageMakerModelContainers (\s a -> s { _sageMakerModelContainers = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.html#cfn-sagemaker-model-executionrolearn
 smmExecutionRoleArn :: Lens' SageMakerModel (Val Text)
@@ -66,7 +73,7 @@ smmModelName :: Lens' SageMakerModel (Maybe (Val Text))
 smmModelName = lens _sageMakerModelModelName (\s a -> s { _sageMakerModelModelName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.html#cfn-sagemaker-model-primarycontainer
-smmPrimaryContainer :: Lens' SageMakerModel SageMakerModelContainerDefinition
+smmPrimaryContainer :: Lens' SageMakerModel (Maybe SageMakerModelContainerDefinition)
 smmPrimaryContainer = lens _sageMakerModelPrimaryContainer (\s a -> s { _sageMakerModelPrimaryContainer = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.html#cfn-sagemaker-model-tags

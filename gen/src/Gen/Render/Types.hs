@@ -177,6 +177,10 @@ computeLensPrefix "AWS::ServiceCatalog::PortfolioProductAssociation" = "scpproa"
 computeLensPrefix "AWS::KinesisFirehose::DeliveryStream.SplunkDestinationConfiguration" = "kfdsspdc"
 computeLensPrefix "AWS::IoT1Click::Placement" = "itcpl"
 computeLensPrefix "AWS::IoT1Click::Project" = "itcpr"
+computeLensPrefix "AWS::IoTAnalytics::Dataset" = "itads"
+computeLensPrefix "AWS::IoTAnalytics::Datastore" = "itadst"
+computeLensPrefix "AWS::IoTAnalytics::Dataset.RetentionPeriod" = "itadsrp"
+computeLensPrefix "AWS::IoTAnalytics::Datastore.RetentionPeriod" = "itadstrp"
 -- Everything else
 computeLensPrefix rawName = toLower $ fromMaybe rawName $ toAcronym $ computeModuleName rawName
 

@@ -14,7 +14,8 @@ import Stratosphere.ResourceImports
 -- constructor.
 data SageMakerEndpointConfigProductionVariant =
   SageMakerEndpointConfigProductionVariant
-  { _sageMakerEndpointConfigProductionVariantInitialInstanceCount :: Val Integer
+  { _sageMakerEndpointConfigProductionVariantAcceleratorType :: Maybe (Val Text)
+  , _sageMakerEndpointConfigProductionVariantInitialInstanceCount :: Val Integer
   , _sageMakerEndpointConfigProductionVariantInitialVariantWeight :: Val Double
   , _sageMakerEndpointConfigProductionVariantInstanceType :: Val Text
   , _sageMakerEndpointConfigProductionVariantModelName :: Val Text
@@ -25,7 +26,8 @@ instance ToJSON SageMakerEndpointConfigProductionVariant where
   toJSON SageMakerEndpointConfigProductionVariant{..} =
     object $
     catMaybes
-    [ (Just . ("InitialInstanceCount",) . toJSON . fmap Integer') _sageMakerEndpointConfigProductionVariantInitialInstanceCount
+    [ fmap (("AcceleratorType",) . toJSON) _sageMakerEndpointConfigProductionVariantAcceleratorType
+    , (Just . ("InitialInstanceCount",) . toJSON . fmap Integer') _sageMakerEndpointConfigProductionVariantInitialInstanceCount
     , (Just . ("InitialVariantWeight",) . toJSON . fmap Double') _sageMakerEndpointConfigProductionVariantInitialVariantWeight
     , (Just . ("InstanceType",) . toJSON) _sageMakerEndpointConfigProductionVariantInstanceType
     , (Just . ("ModelName",) . toJSON) _sageMakerEndpointConfigProductionVariantModelName
@@ -35,6 +37,7 @@ instance ToJSON SageMakerEndpointConfigProductionVariant where
 instance FromJSON SageMakerEndpointConfigProductionVariant where
   parseJSON (Object obj) =
     SageMakerEndpointConfigProductionVariant <$>
+      (obj .:? "AcceleratorType") <*>
       fmap (fmap unInteger') (obj .: "InitialInstanceCount") <*>
       fmap (fmap unDouble') (obj .: "InitialVariantWeight") <*>
       (obj .: "InstanceType") <*>
@@ -53,12 +56,17 @@ sageMakerEndpointConfigProductionVariant
   -> SageMakerEndpointConfigProductionVariant
 sageMakerEndpointConfigProductionVariant initialInstanceCountarg initialVariantWeightarg instanceTypearg modelNamearg variantNamearg =
   SageMakerEndpointConfigProductionVariant
-  { _sageMakerEndpointConfigProductionVariantInitialInstanceCount = initialInstanceCountarg
+  { _sageMakerEndpointConfigProductionVariantAcceleratorType = Nothing
+  , _sageMakerEndpointConfigProductionVariantInitialInstanceCount = initialInstanceCountarg
   , _sageMakerEndpointConfigProductionVariantInitialVariantWeight = initialVariantWeightarg
   , _sageMakerEndpointConfigProductionVariantInstanceType = instanceTypearg
   , _sageMakerEndpointConfigProductionVariantModelName = modelNamearg
   , _sageMakerEndpointConfigProductionVariantVariantName = variantNamearg
   }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-acceleratortype
+smecpvAcceleratorType :: Lens' SageMakerEndpointConfigProductionVariant (Maybe (Val Text))
+smecpvAcceleratorType = lens _sageMakerEndpointConfigProductionVariantAcceleratorType (\s a -> s { _sageMakerEndpointConfigProductionVariantAcceleratorType = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html#cfn-sagemaker-endpointconfig-productionvariant-initialinstancecount
 smecpvInitialInstanceCount :: Lens' SageMakerEndpointConfigProductionVariant (Val Integer)

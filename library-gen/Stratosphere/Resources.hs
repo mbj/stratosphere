@@ -49,6 +49,7 @@ import GHC.Generics (Generic)
 
 import Stratosphere.Resources.AmazonMQBroker as X
 import Stratosphere.Resources.AmazonMQConfiguration as X
+import Stratosphere.Resources.AmazonMQConfigurationAssociation as X
 import Stratosphere.Resources.ApiGatewayAccount as X
 import Stratosphere.Resources.ApiGatewayApiKey as X
 import Stratosphere.Resources.ApiGatewayAuthorizer as X
@@ -260,6 +261,10 @@ import Stratosphere.Resources.IoTPolicyPrincipalAttachment as X
 import Stratosphere.Resources.IoTThing as X
 import Stratosphere.Resources.IoTThingPrincipalAttachment as X
 import Stratosphere.Resources.IoTTopicRule as X
+import Stratosphere.Resources.IoTAnalyticsChannel as X
+import Stratosphere.Resources.IoTAnalyticsDataset as X
+import Stratosphere.Resources.IoTAnalyticsDatastore as X
+import Stratosphere.Resources.IoTAnalyticsPipeline as X
 import Stratosphere.Resources.KMSAlias as X
 import Stratosphere.Resources.KMSKey as X
 import Stratosphere.Resources.KinesisStream as X
@@ -380,6 +385,7 @@ import Stratosphere.ResourceProperties.AmazonMQBrokerConfigurationId as X
 import Stratosphere.ResourceProperties.AmazonMQBrokerLogList as X
 import Stratosphere.ResourceProperties.AmazonMQBrokerMaintenanceWindow as X
 import Stratosphere.ResourceProperties.AmazonMQBrokerUser as X
+import Stratosphere.ResourceProperties.AmazonMQConfigurationAssociationConfigurationId as X
 import Stratosphere.ResourceProperties.ApiGatewayApiKeyStageKey as X
 import Stratosphere.ResourceProperties.ApiGatewayDeploymentAccessLogSetting as X
 import Stratosphere.ResourceProperties.ApiGatewayDeploymentCanarySetting as X
@@ -840,6 +846,32 @@ import Stratosphere.ResourceProperties.IoTTopicRuleSnsAction as X
 import Stratosphere.ResourceProperties.IoTTopicRuleSqsAction as X
 import Stratosphere.ResourceProperties.IoTTopicRuleStepFunctionsAction as X
 import Stratosphere.ResourceProperties.IoTTopicRuleTopicRulePayload as X
+import Stratosphere.ResourceProperties.IoTAnalyticsChannelRetentionPeriod as X
+import Stratosphere.ResourceProperties.IoTAnalyticsDatasetAction as X
+import Stratosphere.ResourceProperties.IoTAnalyticsDatasetContainerAction as X
+import Stratosphere.ResourceProperties.IoTAnalyticsDatasetDatasetContentVersionValue as X
+import Stratosphere.ResourceProperties.IoTAnalyticsDatasetDeltaTime as X
+import Stratosphere.ResourceProperties.IoTAnalyticsDatasetFilter as X
+import Stratosphere.ResourceProperties.IoTAnalyticsDatasetOutputFileUriValue as X
+import Stratosphere.ResourceProperties.IoTAnalyticsDatasetQueryAction as X
+import Stratosphere.ResourceProperties.IoTAnalyticsDatasetResourceConfiguration as X
+import Stratosphere.ResourceProperties.IoTAnalyticsDatasetRetentionPeriod as X
+import Stratosphere.ResourceProperties.IoTAnalyticsDatasetSchedule as X
+import Stratosphere.ResourceProperties.IoTAnalyticsDatasetTrigger as X
+import Stratosphere.ResourceProperties.IoTAnalyticsDatasetTriggeringDataset as X
+import Stratosphere.ResourceProperties.IoTAnalyticsDatasetVariable as X
+import Stratosphere.ResourceProperties.IoTAnalyticsDatastoreRetentionPeriod as X
+import Stratosphere.ResourceProperties.IoTAnalyticsPipelineActivity as X
+import Stratosphere.ResourceProperties.IoTAnalyticsPipelineAddAttributes as X
+import Stratosphere.ResourceProperties.IoTAnalyticsPipelineChannel as X
+import Stratosphere.ResourceProperties.IoTAnalyticsPipelineDatastore as X
+import Stratosphere.ResourceProperties.IoTAnalyticsPipelineDeviceRegistryEnrich as X
+import Stratosphere.ResourceProperties.IoTAnalyticsPipelineDeviceShadowEnrich as X
+import Stratosphere.ResourceProperties.IoTAnalyticsPipelineFilter as X
+import Stratosphere.ResourceProperties.IoTAnalyticsPipelineLambda as X
+import Stratosphere.ResourceProperties.IoTAnalyticsPipelineMath as X
+import Stratosphere.ResourceProperties.IoTAnalyticsPipelineRemoveAttributes as X
+import Stratosphere.ResourceProperties.IoTAnalyticsPipelineSelectAttributes as X
 import Stratosphere.ResourceProperties.KinesisStreamStreamEncryption as X
 import Stratosphere.ResourceProperties.KinesisAnalyticsApplicationCSVMappingParameters as X
 import Stratosphere.ResourceProperties.KinesisAnalyticsApplicationInput as X
@@ -1058,6 +1090,7 @@ import Stratosphere.Values
 data ResourceProperties
   = AmazonMQBrokerProperties AmazonMQBroker
   | AmazonMQConfigurationProperties AmazonMQConfiguration
+  | AmazonMQConfigurationAssociationProperties AmazonMQConfigurationAssociation
   | ApiGatewayAccountProperties ApiGatewayAccount
   | ApiGatewayApiKeyProperties ApiGatewayApiKey
   | ApiGatewayAuthorizerProperties ApiGatewayAuthorizer
@@ -1269,6 +1302,10 @@ data ResourceProperties
   | IoTThingProperties IoTThing
   | IoTThingPrincipalAttachmentProperties IoTThingPrincipalAttachment
   | IoTTopicRuleProperties IoTTopicRule
+  | IoTAnalyticsChannelProperties IoTAnalyticsChannel
+  | IoTAnalyticsDatasetProperties IoTAnalyticsDataset
+  | IoTAnalyticsDatastoreProperties IoTAnalyticsDatastore
+  | IoTAnalyticsPipelineProperties IoTAnalyticsPipeline
   | KMSAliasProperties KMSAlias
   | KMSKeyProperties KMSKey
   | KinesisStreamProperties KinesisStream
@@ -1444,6 +1481,8 @@ resourcePropertiesJSON (AmazonMQBrokerProperties x) =
   [ "Type" .= ("AWS::AmazonMQ::Broker" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (AmazonMQConfigurationProperties x) =
   [ "Type" .= ("AWS::AmazonMQ::Configuration" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (AmazonMQConfigurationAssociationProperties x) =
+  [ "Type" .= ("AWS::AmazonMQ::ConfigurationAssociation" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ApiGatewayAccountProperties x) =
   [ "Type" .= ("AWS::ApiGateway::Account" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ApiGatewayApiKeyProperties x) =
@@ -1866,6 +1905,14 @@ resourcePropertiesJSON (IoTThingPrincipalAttachmentProperties x) =
   [ "Type" .= ("AWS::IoT::ThingPrincipalAttachment" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (IoTTopicRuleProperties x) =
   [ "Type" .= ("AWS::IoT::TopicRule" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (IoTAnalyticsChannelProperties x) =
+  [ "Type" .= ("AWS::IoTAnalytics::Channel" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (IoTAnalyticsDatasetProperties x) =
+  [ "Type" .= ("AWS::IoTAnalytics::Dataset" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (IoTAnalyticsDatastoreProperties x) =
+  [ "Type" .= ("AWS::IoTAnalytics::Datastore" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (IoTAnalyticsPipelineProperties x) =
+  [ "Type" .= ("AWS::IoTAnalytics::Pipeline" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (KMSAliasProperties x) =
   [ "Type" .= ("AWS::KMS::Alias" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (KMSKeyProperties x) =
@@ -2106,6 +2153,7 @@ resourceFromJSON n o =
        props <- case type' of
          "AWS::AmazonMQ::Broker" -> AmazonMQBrokerProperties <$> (o .: "Properties")
          "AWS::AmazonMQ::Configuration" -> AmazonMQConfigurationProperties <$> (o .: "Properties")
+         "AWS::AmazonMQ::ConfigurationAssociation" -> AmazonMQConfigurationAssociationProperties <$> (o .: "Properties")
          "AWS::ApiGateway::Account" -> ApiGatewayAccountProperties <$> (o .: "Properties")
          "AWS::ApiGateway::ApiKey" -> ApiGatewayApiKeyProperties <$> (o .: "Properties")
          "AWS::ApiGateway::Authorizer" -> ApiGatewayAuthorizerProperties <$> (o .: "Properties")
@@ -2317,6 +2365,10 @@ resourceFromJSON n o =
          "AWS::IoT::Thing" -> IoTThingProperties <$> (o .: "Properties")
          "AWS::IoT::ThingPrincipalAttachment" -> IoTThingPrincipalAttachmentProperties <$> (o .: "Properties")
          "AWS::IoT::TopicRule" -> IoTTopicRuleProperties <$> (o .: "Properties")
+         "AWS::IoTAnalytics::Channel" -> IoTAnalyticsChannelProperties <$> (o .: "Properties")
+         "AWS::IoTAnalytics::Dataset" -> IoTAnalyticsDatasetProperties <$> (o .: "Properties")
+         "AWS::IoTAnalytics::Datastore" -> IoTAnalyticsDatastoreProperties <$> (o .: "Properties")
+         "AWS::IoTAnalytics::Pipeline" -> IoTAnalyticsPipelineProperties <$> (o .: "Properties")
          "AWS::KMS::Alias" -> KMSAliasProperties <$> (o .: "Properties")
          "AWS::KMS::Key" -> KMSKeyProperties <$> (o .: "Properties")
          "AWS::Kinesis::Stream" -> KinesisStreamProperties <$> (o .: "Properties")
