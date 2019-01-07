@@ -315,6 +315,7 @@ import Stratosphere.Resources.Route53RecordSet as X
 import Stratosphere.Resources.Route53RecordSetGroup as X
 import Stratosphere.Resources.Route53ResolverResolverEndpoint as X
 import Stratosphere.Resources.Route53ResolverResolverRule as X
+import Stratosphere.Resources.Route53ResolverResolverRuleAssociation as X
 import Stratosphere.Resources.S3Bucket as X
 import Stratosphere.Resources.S3BucketPolicy as X
 import Stratosphere.Resources.SDBDomain as X
@@ -384,7 +385,9 @@ import Stratosphere.Resources.ASKSkill as X
 import Stratosphere.ResourceProperties.AmazonMQBrokerConfigurationId as X
 import Stratosphere.ResourceProperties.AmazonMQBrokerLogList as X
 import Stratosphere.ResourceProperties.AmazonMQBrokerMaintenanceWindow as X
+import Stratosphere.ResourceProperties.AmazonMQBrokerTagsEntry as X
 import Stratosphere.ResourceProperties.AmazonMQBrokerUser as X
+import Stratosphere.ResourceProperties.AmazonMQConfigurationTagsEntry as X
 import Stratosphere.ResourceProperties.AmazonMQConfigurationAssociationConfigurationId as X
 import Stratosphere.ResourceProperties.ApiGatewayApiKeyStageKey as X
 import Stratosphere.ResourceProperties.ApiGatewayDeploymentAccessLogSetting as X
@@ -1356,6 +1359,7 @@ data ResourceProperties
   | Route53RecordSetGroupProperties Route53RecordSetGroup
   | Route53ResolverResolverEndpointProperties Route53ResolverResolverEndpoint
   | Route53ResolverResolverRuleProperties Route53ResolverResolverRule
+  | Route53ResolverResolverRuleAssociationProperties Route53ResolverResolverRuleAssociation
   | S3BucketProperties S3Bucket
   | S3BucketPolicyProperties S3BucketPolicy
   | SDBDomainProperties SDBDomain
@@ -2013,6 +2017,8 @@ resourcePropertiesJSON (Route53ResolverResolverEndpointProperties x) =
   [ "Type" .= ("AWS::Route53Resolver::ResolverEndpoint" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (Route53ResolverResolverRuleProperties x) =
   [ "Type" .= ("AWS::Route53Resolver::ResolverRule" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (Route53ResolverResolverRuleAssociationProperties x) =
+  [ "Type" .= ("AWS::Route53Resolver::ResolverRuleAssociation" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (S3BucketProperties x) =
   [ "Type" .= ("AWS::S3::Bucket" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (S3BucketPolicyProperties x) =
@@ -2419,6 +2425,7 @@ resourceFromJSON n o =
          "AWS::Route53::RecordSetGroup" -> Route53RecordSetGroupProperties <$> (o .: "Properties")
          "AWS::Route53Resolver::ResolverEndpoint" -> Route53ResolverResolverEndpointProperties <$> (o .: "Properties")
          "AWS::Route53Resolver::ResolverRule" -> Route53ResolverResolverRuleProperties <$> (o .: "Properties")
+         "AWS::Route53Resolver::ResolverRuleAssociation" -> Route53ResolverResolverRuleAssociationProperties <$> (o .: "Properties")
          "AWS::S3::Bucket" -> S3BucketProperties <$> (o .: "Properties")
          "AWS::S3::BucketPolicy" -> S3BucketPolicyProperties <$> (o .: "Properties")
          "AWS::SDB::Domain" -> SDBDomainProperties <$> (o .: "Properties")
