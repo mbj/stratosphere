@@ -7,7 +7,7 @@
 module Stratosphere.Resources.AmazonMQConfiguration where
 
 import Stratosphere.ResourceImports
-
+import Stratosphere.ResourceProperties.AmazonMQConfigurationTagsEntry
 
 -- | Full data type definition for AmazonMQConfiguration. See
 -- 'amazonMQConfiguration' for a more convenient constructor.
@@ -18,6 +18,7 @@ data AmazonMQConfiguration =
   , _amazonMQConfigurationEngineType :: Val Text
   , _amazonMQConfigurationEngineVersion :: Val Text
   , _amazonMQConfigurationName :: Val Text
+  , _amazonMQConfigurationTags :: Maybe [AmazonMQConfigurationTagsEntry]
   } deriving (Show, Eq)
 
 instance ToJSON AmazonMQConfiguration where
@@ -29,6 +30,7 @@ instance ToJSON AmazonMQConfiguration where
     , (Just . ("EngineType",) . toJSON) _amazonMQConfigurationEngineType
     , (Just . ("EngineVersion",) . toJSON) _amazonMQConfigurationEngineVersion
     , (Just . ("Name",) . toJSON) _amazonMQConfigurationName
+    , fmap (("Tags",) . toJSON) _amazonMQConfigurationTags
     ]
 
 instance FromJSON AmazonMQConfiguration where
@@ -38,7 +40,8 @@ instance FromJSON AmazonMQConfiguration where
       (obj .:? "Description") <*>
       (obj .: "EngineType") <*>
       (obj .: "EngineVersion") <*>
-      (obj .: "Name")
+      (obj .: "Name") <*>
+      (obj .:? "Tags")
   parseJSON _ = mempty
 
 -- | Constructor for 'AmazonMQConfiguration' containing required fields as
@@ -56,6 +59,7 @@ amazonMQConfiguration dataarg engineTypearg engineVersionarg namearg =
   , _amazonMQConfigurationEngineType = engineTypearg
   , _amazonMQConfigurationEngineVersion = engineVersionarg
   , _amazonMQConfigurationName = namearg
+  , _amazonMQConfigurationTags = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configuration.html#cfn-amazonmq-configuration-data
@@ -77,3 +81,7 @@ amqcEngineVersion = lens _amazonMQConfigurationEngineVersion (\s a -> s { _amazo
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configuration.html#cfn-amazonmq-configuration-name
 amqcName :: Lens' AmazonMQConfiguration (Val Text)
 amqcName = lens _amazonMQConfigurationName (\s a -> s { _amazonMQConfigurationName = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configuration.html#cfn-amazonmq-configuration-tags
+amqcTags :: Lens' AmazonMQConfiguration (Maybe [AmazonMQConfigurationTagsEntry])
+amqcTags = lens _amazonMQConfigurationTags (\s a -> s { _amazonMQConfigurationTags = a })

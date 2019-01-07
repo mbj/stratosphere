@@ -10,6 +10,7 @@ import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.AmazonMQBrokerConfigurationId
 import Stratosphere.ResourceProperties.AmazonMQBrokerLogList
 import Stratosphere.ResourceProperties.AmazonMQBrokerMaintenanceWindow
+import Stratosphere.ResourceProperties.AmazonMQBrokerTagsEntry
 import Stratosphere.ResourceProperties.AmazonMQBrokerUser
 
 -- | Full data type definition for AmazonMQBroker. See 'amazonMQBroker' for a
@@ -28,6 +29,7 @@ data AmazonMQBroker =
   , _amazonMQBrokerPubliclyAccessible :: Val Bool
   , _amazonMQBrokerSecurityGroups :: Maybe (ValList Text)
   , _amazonMQBrokerSubnetIds :: Maybe (ValList Text)
+  , _amazonMQBrokerTags :: Maybe [AmazonMQBrokerTagsEntry]
   , _amazonMQBrokerUsers :: [AmazonMQBrokerUser]
   } deriving (Show, Eq)
 
@@ -47,6 +49,7 @@ instance ToJSON AmazonMQBroker where
     , (Just . ("PubliclyAccessible",) . toJSON . fmap Bool') _amazonMQBrokerPubliclyAccessible
     , fmap (("SecurityGroups",) . toJSON) _amazonMQBrokerSecurityGroups
     , fmap (("SubnetIds",) . toJSON) _amazonMQBrokerSubnetIds
+    , fmap (("Tags",) . toJSON) _amazonMQBrokerTags
     , (Just . ("Users",) . toJSON) _amazonMQBrokerUsers
     ]
 
@@ -65,6 +68,7 @@ instance FromJSON AmazonMQBroker where
       fmap (fmap unBool') (obj .: "PubliclyAccessible") <*>
       (obj .:? "SecurityGroups") <*>
       (obj .:? "SubnetIds") <*>
+      (obj .:? "Tags") <*>
       (obj .: "Users")
   parseJSON _ = mempty
 
@@ -93,6 +97,7 @@ amazonMQBroker autoMinorVersionUpgradearg brokerNamearg deploymentModearg engine
   , _amazonMQBrokerPubliclyAccessible = publiclyAccessiblearg
   , _amazonMQBrokerSecurityGroups = Nothing
   , _amazonMQBrokerSubnetIds = Nothing
+  , _amazonMQBrokerTags = Nothing
   , _amazonMQBrokerUsers = usersarg
   }
 
@@ -143,6 +148,10 @@ amqbSecurityGroups = lens _amazonMQBrokerSecurityGroups (\s a -> s { _amazonMQBr
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-subnetids
 amqbSubnetIds :: Lens' AmazonMQBroker (Maybe (ValList Text))
 amqbSubnetIds = lens _amazonMQBrokerSubnetIds (\s a -> s { _amazonMQBrokerSubnetIds = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-tags
+amqbTags :: Lens' AmazonMQBroker (Maybe [AmazonMQBrokerTagsEntry])
+amqbTags = lens _amazonMQBrokerTags (\s a -> s { _amazonMQBrokerTags = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-users
 amqbUsers :: Lens' AmazonMQBroker [AmazonMQBrokerUser]
