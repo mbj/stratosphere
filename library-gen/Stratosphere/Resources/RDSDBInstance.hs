@@ -61,6 +61,7 @@ data RDSDBInstance =
   , _rDSDBInstanceStorageType :: Maybe (Val Text)
   , _rDSDBInstanceTags :: Maybe [Tag]
   , _rDSDBInstanceTimezone :: Maybe (Val Text)
+  , _rDSDBInstanceUseDefaultProcessorFeatures :: Maybe (Val Bool)
   , _rDSDBInstanceVPCSecurityGroups :: Maybe (ValList Text)
   } deriving (Show, Eq)
 
@@ -115,6 +116,7 @@ instance ToJSON RDSDBInstance where
     , fmap (("StorageType",) . toJSON) _rDSDBInstanceStorageType
     , fmap (("Tags",) . toJSON) _rDSDBInstanceTags
     , fmap (("Timezone",) . toJSON) _rDSDBInstanceTimezone
+    , fmap (("UseDefaultProcessorFeatures",) . toJSON . fmap Bool') _rDSDBInstanceUseDefaultProcessorFeatures
     , fmap (("VPCSecurityGroups",) . toJSON) _rDSDBInstanceVPCSecurityGroups
     ]
 
@@ -168,6 +170,7 @@ instance FromJSON RDSDBInstance where
       (obj .:? "StorageType") <*>
       (obj .:? "Tags") <*>
       (obj .:? "Timezone") <*>
+      fmap (fmap (fmap unBool')) (obj .:? "UseDefaultProcessorFeatures") <*>
       (obj .:? "VPCSecurityGroups")
   parseJSON _ = mempty
 
@@ -224,6 +227,7 @@ rdsdbInstance dBInstanceClassarg =
   , _rDSDBInstanceStorageType = Nothing
   , _rDSDBInstanceTags = Nothing
   , _rDSDBInstanceTimezone = Nothing
+  , _rDSDBInstanceUseDefaultProcessorFeatures = Nothing
   , _rDSDBInstanceVPCSecurityGroups = Nothing
   }
 
@@ -414,6 +418,10 @@ rdsdbiTags = lens _rDSDBInstanceTags (\s a -> s { _rDSDBInstanceTags = a })
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-timezone
 rdsdbiTimezone :: Lens' RDSDBInstance (Maybe (Val Text))
 rdsdbiTimezone = lens _rDSDBInstanceTimezone (\s a -> s { _rDSDBInstanceTimezone = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-usedefaultprocessorfeatures
+rdsdbiUseDefaultProcessorFeatures :: Lens' RDSDBInstance (Maybe (Val Bool))
+rdsdbiUseDefaultProcessorFeatures = lens _rDSDBInstanceUseDefaultProcessorFeatures (\s a -> s { _rDSDBInstanceUseDefaultProcessorFeatures = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-vpcsecuritygroups
 rdsdbiVPCSecurityGroups :: Lens' RDSDBInstance (Maybe (ValList Text))

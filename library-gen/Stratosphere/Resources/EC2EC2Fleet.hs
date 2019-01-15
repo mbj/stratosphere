@@ -26,8 +26,8 @@ data EC2EC2Fleet =
   , _eC2EC2FleetTargetCapacitySpecification :: EC2EC2FleetTargetCapacitySpecificationRequest
   , _eC2EC2FleetTerminateInstancesWithExpiration :: Maybe (Val Bool)
   , _eC2EC2FleetType :: Maybe (Val Text)
-  , _eC2EC2FleetValidFrom :: Maybe (Val Integer)
-  , _eC2EC2FleetValidUntil :: Maybe (Val Integer)
+  , _eC2EC2FleetValidFrom :: Maybe (Val Text)
+  , _eC2EC2FleetValidUntil :: Maybe (Val Text)
   } deriving (Show, Eq)
 
 instance ToJSON EC2EC2Fleet where
@@ -43,8 +43,8 @@ instance ToJSON EC2EC2Fleet where
     , (Just . ("TargetCapacitySpecification",) . toJSON) _eC2EC2FleetTargetCapacitySpecification
     , fmap (("TerminateInstancesWithExpiration",) . toJSON . fmap Bool') _eC2EC2FleetTerminateInstancesWithExpiration
     , fmap (("Type",) . toJSON) _eC2EC2FleetType
-    , fmap (("ValidFrom",) . toJSON . fmap Integer') _eC2EC2FleetValidFrom
-    , fmap (("ValidUntil",) . toJSON . fmap Integer') _eC2EC2FleetValidUntil
+    , fmap (("ValidFrom",) . toJSON) _eC2EC2FleetValidFrom
+    , fmap (("ValidUntil",) . toJSON) _eC2EC2FleetValidUntil
     ]
 
 instance FromJSON EC2EC2Fleet where
@@ -59,8 +59,8 @@ instance FromJSON EC2EC2Fleet where
       (obj .: "TargetCapacitySpecification") <*>
       fmap (fmap (fmap unBool')) (obj .:? "TerminateInstancesWithExpiration") <*>
       (obj .:? "Type") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "ValidFrom") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "ValidUntil")
+      (obj .:? "ValidFrom") <*>
+      (obj .:? "ValidUntil")
   parseJSON _ = mempty
 
 -- | Constructor for 'EC2EC2Fleet' containing required fields as arguments.
@@ -120,9 +120,9 @@ ececfType :: Lens' EC2EC2Fleet (Maybe (Val Text))
 ececfType = lens _eC2EC2FleetType (\s a -> s { _eC2EC2FleetType = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-validfrom
-ececfValidFrom :: Lens' EC2EC2Fleet (Maybe (Val Integer))
+ececfValidFrom :: Lens' EC2EC2Fleet (Maybe (Val Text))
 ececfValidFrom = lens _eC2EC2FleetValidFrom (\s a -> s { _eC2EC2FleetValidFrom = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html#cfn-ec2-ec2fleet-validuntil
-ececfValidUntil :: Lens' EC2EC2Fleet (Maybe (Val Integer))
+ececfValidUntil :: Lens' EC2EC2Fleet (Maybe (Val Text))
 ececfValidUntil = lens _eC2EC2FleetValidUntil (\s a -> s { _eC2EC2FleetValidUntil = a })

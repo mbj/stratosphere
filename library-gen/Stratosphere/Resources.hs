@@ -141,6 +141,10 @@ import Stratosphere.Resources.DMSReplicationTask as X
 import Stratosphere.Resources.DataPipelinePipeline as X
 import Stratosphere.Resources.DirectoryServiceMicrosoftAD as X
 import Stratosphere.Resources.DirectoryServiceSimpleAD as X
+import Stratosphere.Resources.DocDBDBCluster as X
+import Stratosphere.Resources.DocDBDBClusterParameterGroup as X
+import Stratosphere.Resources.DocDBDBInstance as X
+import Stratosphere.Resources.DocDBDBSubnetGroup as X
 import Stratosphere.Resources.DynamoDBTable as X
 import Stratosphere.Resources.EC2CustomerGateway as X
 import Stratosphere.Resources.EC2DHCPOptions as X
@@ -276,6 +280,7 @@ import Stratosphere.Resources.KinesisFirehoseDeliveryStream as X
 import Stratosphere.Resources.LambdaAlias as X
 import Stratosphere.Resources.LambdaEventSourceMapping as X
 import Stratosphere.Resources.LambdaFunction as X
+import Stratosphere.Resources.LambdaLayerVersion as X
 import Stratosphere.Resources.LambdaPermission as X
 import Stratosphere.Resources.LambdaVersion as X
 import Stratosphere.Resources.LogsDestination as X
@@ -584,6 +589,8 @@ import Stratosphere.ResourceProperties.DLMLifecyclePolicyPolicyDetails as X
 import Stratosphere.ResourceProperties.DLMLifecyclePolicyRetainRule as X
 import Stratosphere.ResourceProperties.DLMLifecyclePolicySchedule as X
 import Stratosphere.ResourceProperties.DMSEndpointDynamoDbSettings as X
+import Stratosphere.ResourceProperties.DMSEndpointElasticsearchSettings as X
+import Stratosphere.ResourceProperties.DMSEndpointKinesisSettings as X
 import Stratosphere.ResourceProperties.DMSEndpointMongoDbSettings as X
 import Stratosphere.ResourceProperties.DMSEndpointS3Settings as X
 import Stratosphere.ResourceProperties.DataPipelinePipelineField as X
@@ -781,6 +788,7 @@ import Stratosphere.ResourceProperties.ElasticLoadBalancingV2TargetGroupTargetGr
 import Stratosphere.ResourceProperties.ElasticsearchDomainEBSOptions as X
 import Stratosphere.ResourceProperties.ElasticsearchDomainElasticsearchClusterConfig as X
 import Stratosphere.ResourceProperties.ElasticsearchDomainEncryptionAtRestOptions as X
+import Stratosphere.ResourceProperties.ElasticsearchDomainNodeToNodeEncryptionOptions as X
 import Stratosphere.ResourceProperties.ElasticsearchDomainSnapshotOptions as X
 import Stratosphere.ResourceProperties.ElasticsearchDomainVPCOptions as X
 import Stratosphere.ResourceProperties.EventsEventBusPolicyCondition as X
@@ -925,6 +933,7 @@ import Stratosphere.ResourceProperties.LambdaFunctionDeadLetterConfig as X
 import Stratosphere.ResourceProperties.LambdaFunctionEnvironment as X
 import Stratosphere.ResourceProperties.LambdaFunctionTracingConfig as X
 import Stratosphere.ResourceProperties.LambdaFunctionVpcConfig as X
+import Stratosphere.ResourceProperties.LambdaLayerVersionContent as X
 import Stratosphere.ResourceProperties.LogsMetricFilterMetricTransformation as X
 import Stratosphere.ResourceProperties.OpsWorksAppDataSource as X
 import Stratosphere.ResourceProperties.OpsWorksAppEnvironmentVariable as X
@@ -1185,6 +1194,10 @@ data ResourceProperties
   | DataPipelinePipelineProperties DataPipelinePipeline
   | DirectoryServiceMicrosoftADProperties DirectoryServiceMicrosoftAD
   | DirectoryServiceSimpleADProperties DirectoryServiceSimpleAD
+  | DocDBDBClusterProperties DocDBDBCluster
+  | DocDBDBClusterParameterGroupProperties DocDBDBClusterParameterGroup
+  | DocDBDBInstanceProperties DocDBDBInstance
+  | DocDBDBSubnetGroupProperties DocDBDBSubnetGroup
   | DynamoDBTableProperties DynamoDBTable
   | EC2CustomerGatewayProperties EC2CustomerGateway
   | EC2DHCPOptionsProperties EC2DHCPOptions
@@ -1320,6 +1333,7 @@ data ResourceProperties
   | LambdaAliasProperties LambdaAlias
   | LambdaEventSourceMappingProperties LambdaEventSourceMapping
   | LambdaFunctionProperties LambdaFunction
+  | LambdaLayerVersionProperties LambdaLayerVersion
   | LambdaPermissionProperties LambdaPermission
   | LambdaVersionProperties LambdaVersion
   | LogsDestinationProperties LogsDestination
@@ -1669,6 +1683,14 @@ resourcePropertiesJSON (DirectoryServiceMicrosoftADProperties x) =
   [ "Type" .= ("AWS::DirectoryService::MicrosoftAD" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (DirectoryServiceSimpleADProperties x) =
   [ "Type" .= ("AWS::DirectoryService::SimpleAD" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (DocDBDBClusterProperties x) =
+  [ "Type" .= ("AWS::DocDB::DBCluster" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (DocDBDBClusterParameterGroupProperties x) =
+  [ "Type" .= ("AWS::DocDB::DBClusterParameterGroup" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (DocDBDBInstanceProperties x) =
+  [ "Type" .= ("AWS::DocDB::DBInstance" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (DocDBDBSubnetGroupProperties x) =
+  [ "Type" .= ("AWS::DocDB::DBSubnetGroup" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (DynamoDBTableProperties x) =
   [ "Type" .= ("AWS::DynamoDB::Table" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (EC2CustomerGatewayProperties x) =
@@ -1939,6 +1961,8 @@ resourcePropertiesJSON (LambdaEventSourceMappingProperties x) =
   [ "Type" .= ("AWS::Lambda::EventSourceMapping" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (LambdaFunctionProperties x) =
   [ "Type" .= ("AWS::Lambda::Function" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (LambdaLayerVersionProperties x) =
+  [ "Type" .= ("AWS::Lambda::LayerVersion" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (LambdaPermissionProperties x) =
   [ "Type" .= ("AWS::Lambda::Permission" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (LambdaVersionProperties x) =
@@ -2251,6 +2275,10 @@ resourceFromJSON n o =
          "AWS::DataPipeline::Pipeline" -> DataPipelinePipelineProperties <$> (o .: "Properties")
          "AWS::DirectoryService::MicrosoftAD" -> DirectoryServiceMicrosoftADProperties <$> (o .: "Properties")
          "AWS::DirectoryService::SimpleAD" -> DirectoryServiceSimpleADProperties <$> (o .: "Properties")
+         "AWS::DocDB::DBCluster" -> DocDBDBClusterProperties <$> (o .: "Properties")
+         "AWS::DocDB::DBClusterParameterGroup" -> DocDBDBClusterParameterGroupProperties <$> (o .: "Properties")
+         "AWS::DocDB::DBInstance" -> DocDBDBInstanceProperties <$> (o .: "Properties")
+         "AWS::DocDB::DBSubnetGroup" -> DocDBDBSubnetGroupProperties <$> (o .: "Properties")
          "AWS::DynamoDB::Table" -> DynamoDBTableProperties <$> (o .: "Properties")
          "AWS::EC2::CustomerGateway" -> EC2CustomerGatewayProperties <$> (o .: "Properties")
          "AWS::EC2::DHCPOptions" -> EC2DHCPOptionsProperties <$> (o .: "Properties")
@@ -2386,6 +2414,7 @@ resourceFromJSON n o =
          "AWS::Lambda::Alias" -> LambdaAliasProperties <$> (o .: "Properties")
          "AWS::Lambda::EventSourceMapping" -> LambdaEventSourceMappingProperties <$> (o .: "Properties")
          "AWS::Lambda::Function" -> LambdaFunctionProperties <$> (o .: "Properties")
+         "AWS::Lambda::LayerVersion" -> LambdaLayerVersionProperties <$> (o .: "Properties")
          "AWS::Lambda::Permission" -> LambdaPermissionProperties <$> (o .: "Properties")
          "AWS::Lambda::Version" -> LambdaVersionProperties <$> (o .: "Properties")
          "AWS::Logs::Destination" -> LogsDestinationProperties <$> (o .: "Properties")

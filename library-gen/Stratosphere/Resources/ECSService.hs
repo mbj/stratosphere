@@ -13,6 +13,7 @@ import Stratosphere.ResourceProperties.ECSServiceNetworkConfiguration
 import Stratosphere.ResourceProperties.ECSServicePlacementConstraint
 import Stratosphere.ResourceProperties.ECSServicePlacementStrategy
 import Stratosphere.ResourceProperties.ECSServiceServiceRegistry
+import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for ECSService. See 'ecsService' for a more
 -- convenient constructor.
@@ -32,6 +33,7 @@ data ECSService =
   , _eCSServiceSchedulingStrategy :: Maybe (Val Text)
   , _eCSServiceServiceName :: Maybe (Val Text)
   , _eCSServiceServiceRegistries :: Maybe [ECSServiceServiceRegistry]
+  , _eCSServiceTags :: Maybe [Tag]
   , _eCSServiceTaskDefinition :: Val Text
   } deriving (Show, Eq)
 
@@ -53,6 +55,7 @@ instance ToJSON ECSService where
     , fmap (("SchedulingStrategy",) . toJSON) _eCSServiceSchedulingStrategy
     , fmap (("ServiceName",) . toJSON) _eCSServiceServiceName
     , fmap (("ServiceRegistries",) . toJSON) _eCSServiceServiceRegistries
+    , fmap (("Tags",) . toJSON) _eCSServiceTags
     , (Just . ("TaskDefinition",) . toJSON) _eCSServiceTaskDefinition
     ]
 
@@ -73,6 +76,7 @@ instance FromJSON ECSService where
       (obj .:? "SchedulingStrategy") <*>
       (obj .:? "ServiceName") <*>
       (obj .:? "ServiceRegistries") <*>
+      (obj .:? "Tags") <*>
       (obj .: "TaskDefinition")
   parseJSON _ = mempty
 
@@ -96,6 +100,7 @@ ecsService taskDefinitionarg =
   , _eCSServiceSchedulingStrategy = Nothing
   , _eCSServiceServiceName = Nothing
   , _eCSServiceServiceRegistries = Nothing
+  , _eCSServiceTags = Nothing
   , _eCSServiceTaskDefinition = taskDefinitionarg
   }
 
@@ -154,6 +159,10 @@ ecssServiceName = lens _eCSServiceServiceName (\s a -> s { _eCSServiceServiceNam
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-serviceregistries
 ecssServiceRegistries :: Lens' ECSService (Maybe [ECSServiceServiceRegistry])
 ecssServiceRegistries = lens _eCSServiceServiceRegistries (\s a -> s { _eCSServiceServiceRegistries = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-tags
+ecssTags :: Lens' ECSService (Maybe [Tag])
+ecssTags = lens _eCSServiceTags (\s a -> s { _eCSServiceTags = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-taskdefinition
 ecssTaskDefinition :: Lens' ECSService (Val Text)
