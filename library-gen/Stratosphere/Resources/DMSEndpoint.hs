@@ -8,6 +8,8 @@ module Stratosphere.Resources.DMSEndpoint where
 
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.DMSEndpointDynamoDbSettings
+import Stratosphere.ResourceProperties.DMSEndpointElasticsearchSettings
+import Stratosphere.ResourceProperties.DMSEndpointKinesisSettings
 import Stratosphere.ResourceProperties.DMSEndpointMongoDbSettings
 import Stratosphere.ResourceProperties.DMSEndpointS3Settings
 import Stratosphere.ResourceProperties.Tag
@@ -19,10 +21,12 @@ data DMSEndpoint =
   { _dMSEndpointCertificateArn :: Maybe (Val Text)
   , _dMSEndpointDatabaseName :: Maybe (Val Text)
   , _dMSEndpointDynamoDbSettings :: Maybe DMSEndpointDynamoDbSettings
+  , _dMSEndpointElasticsearchSettings :: Maybe DMSEndpointElasticsearchSettings
   , _dMSEndpointEndpointIdentifier :: Maybe (Val Text)
   , _dMSEndpointEndpointType :: Val Text
   , _dMSEndpointEngineName :: Val Text
   , _dMSEndpointExtraConnectionAttributes :: Maybe (Val Text)
+  , _dMSEndpointKinesisSettings :: Maybe DMSEndpointKinesisSettings
   , _dMSEndpointKmsKeyId :: Maybe (Val Text)
   , _dMSEndpointMongoDbSettings :: Maybe DMSEndpointMongoDbSettings
   , _dMSEndpointPassword :: Maybe (Val Text)
@@ -41,10 +45,12 @@ instance ToJSON DMSEndpoint where
     [ fmap (("CertificateArn",) . toJSON) _dMSEndpointCertificateArn
     , fmap (("DatabaseName",) . toJSON) _dMSEndpointDatabaseName
     , fmap (("DynamoDbSettings",) . toJSON) _dMSEndpointDynamoDbSettings
+    , fmap (("ElasticsearchSettings",) . toJSON) _dMSEndpointElasticsearchSettings
     , fmap (("EndpointIdentifier",) . toJSON) _dMSEndpointEndpointIdentifier
     , (Just . ("EndpointType",) . toJSON) _dMSEndpointEndpointType
     , (Just . ("EngineName",) . toJSON) _dMSEndpointEngineName
     , fmap (("ExtraConnectionAttributes",) . toJSON) _dMSEndpointExtraConnectionAttributes
+    , fmap (("KinesisSettings",) . toJSON) _dMSEndpointKinesisSettings
     , fmap (("KmsKeyId",) . toJSON) _dMSEndpointKmsKeyId
     , fmap (("MongoDbSettings",) . toJSON) _dMSEndpointMongoDbSettings
     , fmap (("Password",) . toJSON) _dMSEndpointPassword
@@ -62,10 +68,12 @@ instance FromJSON DMSEndpoint where
       (obj .:? "CertificateArn") <*>
       (obj .:? "DatabaseName") <*>
       (obj .:? "DynamoDbSettings") <*>
+      (obj .:? "ElasticsearchSettings") <*>
       (obj .:? "EndpointIdentifier") <*>
       (obj .: "EndpointType") <*>
       (obj .: "EngineName") <*>
       (obj .:? "ExtraConnectionAttributes") <*>
+      (obj .:? "KinesisSettings") <*>
       (obj .:? "KmsKeyId") <*>
       (obj .:? "MongoDbSettings") <*>
       (obj .:? "Password") <*>
@@ -87,10 +95,12 @@ dmsEndpoint endpointTypearg engineNamearg =
   { _dMSEndpointCertificateArn = Nothing
   , _dMSEndpointDatabaseName = Nothing
   , _dMSEndpointDynamoDbSettings = Nothing
+  , _dMSEndpointElasticsearchSettings = Nothing
   , _dMSEndpointEndpointIdentifier = Nothing
   , _dMSEndpointEndpointType = endpointTypearg
   , _dMSEndpointEngineName = engineNamearg
   , _dMSEndpointExtraConnectionAttributes = Nothing
+  , _dMSEndpointKinesisSettings = Nothing
   , _dMSEndpointKmsKeyId = Nothing
   , _dMSEndpointMongoDbSettings = Nothing
   , _dMSEndpointPassword = Nothing
@@ -114,6 +124,10 @@ dmseDatabaseName = lens _dMSEndpointDatabaseName (\s a -> s { _dMSEndpointDataba
 dmseDynamoDbSettings :: Lens' DMSEndpoint (Maybe DMSEndpointDynamoDbSettings)
 dmseDynamoDbSettings = lens _dMSEndpointDynamoDbSettings (\s a -> s { _dMSEndpointDynamoDbSettings = a })
 
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-endpoint.html#cfn-dms-endpoint-elasticsearchsettings
+dmseElasticsearchSettings :: Lens' DMSEndpoint (Maybe DMSEndpointElasticsearchSettings)
+dmseElasticsearchSettings = lens _dMSEndpointElasticsearchSettings (\s a -> s { _dMSEndpointElasticsearchSettings = a })
+
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-endpoint.html#cfn-dms-endpoint-endpointidentifier
 dmseEndpointIdentifier :: Lens' DMSEndpoint (Maybe (Val Text))
 dmseEndpointIdentifier = lens _dMSEndpointEndpointIdentifier (\s a -> s { _dMSEndpointEndpointIdentifier = a })
@@ -129,6 +143,10 @@ dmseEngineName = lens _dMSEndpointEngineName (\s a -> s { _dMSEndpointEngineName
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-endpoint.html#cfn-dms-endpoint-extraconnectionattributes
 dmseExtraConnectionAttributes :: Lens' DMSEndpoint (Maybe (Val Text))
 dmseExtraConnectionAttributes = lens _dMSEndpointExtraConnectionAttributes (\s a -> s { _dMSEndpointExtraConnectionAttributes = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-endpoint.html#cfn-dms-endpoint-kinesissettings
+dmseKinesisSettings :: Lens' DMSEndpoint (Maybe DMSEndpointKinesisSettings)
+dmseKinesisSettings = lens _dMSEndpointKinesisSettings (\s a -> s { _dMSEndpointKinesisSettings = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-endpoint.html#cfn-dms-endpoint-kmskeyid
 dmseKmsKeyId :: Lens' DMSEndpoint (Maybe (Val Text))

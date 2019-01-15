@@ -19,6 +19,7 @@ data ApiGatewayApiKey =
   , _apiGatewayApiKeyGenerateDistinctId :: Maybe (Val Bool)
   , _apiGatewayApiKeyName :: Maybe (Val Text)
   , _apiGatewayApiKeyStageKeys :: Maybe [ApiGatewayApiKeyStageKey]
+  , _apiGatewayApiKeyValue :: Maybe (Val Text)
   } deriving (Show, Eq)
 
 instance ToJSON ApiGatewayApiKey where
@@ -31,6 +32,7 @@ instance ToJSON ApiGatewayApiKey where
     , fmap (("GenerateDistinctId",) . toJSON . fmap Bool') _apiGatewayApiKeyGenerateDistinctId
     , fmap (("Name",) . toJSON) _apiGatewayApiKeyName
     , fmap (("StageKeys",) . toJSON) _apiGatewayApiKeyStageKeys
+    , fmap (("Value",) . toJSON) _apiGatewayApiKeyValue
     ]
 
 instance FromJSON ApiGatewayApiKey where
@@ -41,7 +43,8 @@ instance FromJSON ApiGatewayApiKey where
       fmap (fmap (fmap unBool')) (obj .:? "Enabled") <*>
       fmap (fmap (fmap unBool')) (obj .:? "GenerateDistinctId") <*>
       (obj .:? "Name") <*>
-      (obj .:? "StageKeys")
+      (obj .:? "StageKeys") <*>
+      (obj .:? "Value")
   parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayApiKey' containing required fields as
@@ -56,6 +59,7 @@ apiGatewayApiKey  =
   , _apiGatewayApiKeyGenerateDistinctId = Nothing
   , _apiGatewayApiKeyName = Nothing
   , _apiGatewayApiKeyStageKeys = Nothing
+  , _apiGatewayApiKeyValue = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-customerid
@@ -81,3 +85,7 @@ agakName = lens _apiGatewayApiKeyName (\s a -> s { _apiGatewayApiKeyName = a })
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-stagekeys
 agakStageKeys :: Lens' ApiGatewayApiKey (Maybe [ApiGatewayApiKeyStageKey])
 agakStageKeys = lens _apiGatewayApiKeyStageKeys (\s a -> s { _apiGatewayApiKeyStageKeys = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html#cfn-apigateway-apikey-value
+agakValue :: Lens' ApiGatewayApiKey (Maybe (Val Text))
+agakValue = lens _apiGatewayApiKeyValue (\s a -> s { _apiGatewayApiKeyValue = a })

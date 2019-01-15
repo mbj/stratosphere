@@ -36,6 +36,7 @@ data RDSDBCluster =
   , _rDSDBClusterReplicationSourceIdentifier :: Maybe (Val Text)
   , _rDSDBClusterScalingConfiguration :: Maybe RDSDBClusterScalingConfiguration
   , _rDSDBClusterSnapshotIdentifier :: Maybe (Val Text)
+  , _rDSDBClusterSourceRegion :: Maybe (Val Text)
   , _rDSDBClusterStorageEncrypted :: Maybe (Val Bool)
   , _rDSDBClusterTags :: Maybe [Tag]
   , _rDSDBClusterVpcSecurityGroupIds :: Maybe (ValList Text)
@@ -67,6 +68,7 @@ instance ToJSON RDSDBCluster where
     , fmap (("ReplicationSourceIdentifier",) . toJSON) _rDSDBClusterReplicationSourceIdentifier
     , fmap (("ScalingConfiguration",) . toJSON) _rDSDBClusterScalingConfiguration
     , fmap (("SnapshotIdentifier",) . toJSON) _rDSDBClusterSnapshotIdentifier
+    , fmap (("SourceRegion",) . toJSON) _rDSDBClusterSourceRegion
     , fmap (("StorageEncrypted",) . toJSON . fmap Bool') _rDSDBClusterStorageEncrypted
     , fmap (("Tags",) . toJSON) _rDSDBClusterTags
     , fmap (("VpcSecurityGroupIds",) . toJSON) _rDSDBClusterVpcSecurityGroupIds
@@ -97,6 +99,7 @@ instance FromJSON RDSDBCluster where
       (obj .:? "ReplicationSourceIdentifier") <*>
       (obj .:? "ScalingConfiguration") <*>
       (obj .:? "SnapshotIdentifier") <*>
+      (obj .:? "SourceRegion") <*>
       fmap (fmap (fmap unBool')) (obj .:? "StorageEncrypted") <*>
       (obj .:? "Tags") <*>
       (obj .:? "VpcSecurityGroupIds")
@@ -130,6 +133,7 @@ rdsdbCluster enginearg =
   , _rDSDBClusterReplicationSourceIdentifier = Nothing
   , _rDSDBClusterScalingConfiguration = Nothing
   , _rDSDBClusterSnapshotIdentifier = Nothing
+  , _rDSDBClusterSourceRegion = Nothing
   , _rDSDBClusterStorageEncrypted = Nothing
   , _rDSDBClusterTags = Nothing
   , _rDSDBClusterVpcSecurityGroupIds = Nothing
@@ -222,6 +226,10 @@ rdsdbcScalingConfiguration = lens _rDSDBClusterScalingConfiguration (\s a -> s {
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-snapshotidentifier
 rdsdbcSnapshotIdentifier :: Lens' RDSDBCluster (Maybe (Val Text))
 rdsdbcSnapshotIdentifier = lens _rDSDBClusterSnapshotIdentifier (\s a -> s { _rDSDBClusterSnapshotIdentifier = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-sourceregion
+rdsdbcSourceRegion :: Lens' RDSDBCluster (Maybe (Val Text))
+rdsdbcSourceRegion = lens _rDSDBClusterSourceRegion (\s a -> s { _rDSDBClusterSourceRegion = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-storageencrypted
 rdsdbcStorageEncrypted :: Lens' RDSDBCluster (Maybe (Val Bool))
