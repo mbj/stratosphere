@@ -8,6 +8,7 @@ module Stratosphere.ResourceProperties.CodeBuildProjectEnvironment where
 
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.CodeBuildProjectEnvironmentVariable
+import Stratosphere.ResourceProperties.CodeBuildProjectRegistryCredential
 
 -- | Full data type definition for CodeBuildProjectEnvironment. See
 -- 'codeBuildProjectEnvironment' for a more convenient constructor.
@@ -17,7 +18,9 @@ data CodeBuildProjectEnvironment =
   , _codeBuildProjectEnvironmentComputeType :: Val Text
   , _codeBuildProjectEnvironmentEnvironmentVariables :: Maybe [CodeBuildProjectEnvironmentVariable]
   , _codeBuildProjectEnvironmentImage :: Val Text
+  , _codeBuildProjectEnvironmentImagePullCredentialsType :: Maybe (Val Text)
   , _codeBuildProjectEnvironmentPrivilegedMode :: Maybe (Val Bool)
+  , _codeBuildProjectEnvironmentRegistryCredential :: Maybe CodeBuildProjectRegistryCredential
   , _codeBuildProjectEnvironmentType :: Val Text
   } deriving (Show, Eq)
 
@@ -29,7 +32,9 @@ instance ToJSON CodeBuildProjectEnvironment where
     , (Just . ("ComputeType",) . toJSON) _codeBuildProjectEnvironmentComputeType
     , fmap (("EnvironmentVariables",) . toJSON) _codeBuildProjectEnvironmentEnvironmentVariables
     , (Just . ("Image",) . toJSON) _codeBuildProjectEnvironmentImage
+    , fmap (("ImagePullCredentialsType",) . toJSON) _codeBuildProjectEnvironmentImagePullCredentialsType
     , fmap (("PrivilegedMode",) . toJSON . fmap Bool') _codeBuildProjectEnvironmentPrivilegedMode
+    , fmap (("RegistryCredential",) . toJSON) _codeBuildProjectEnvironmentRegistryCredential
     , (Just . ("Type",) . toJSON) _codeBuildProjectEnvironmentType
     ]
 
@@ -40,7 +45,9 @@ instance FromJSON CodeBuildProjectEnvironment where
       (obj .: "ComputeType") <*>
       (obj .:? "EnvironmentVariables") <*>
       (obj .: "Image") <*>
+      (obj .:? "ImagePullCredentialsType") <*>
       fmap (fmap (fmap unBool')) (obj .:? "PrivilegedMode") <*>
+      (obj .:? "RegistryCredential") <*>
       (obj .: "Type")
   parseJSON _ = mempty
 
@@ -57,7 +64,9 @@ codeBuildProjectEnvironment computeTypearg imagearg typearg =
   , _codeBuildProjectEnvironmentComputeType = computeTypearg
   , _codeBuildProjectEnvironmentEnvironmentVariables = Nothing
   , _codeBuildProjectEnvironmentImage = imagearg
+  , _codeBuildProjectEnvironmentImagePullCredentialsType = Nothing
   , _codeBuildProjectEnvironmentPrivilegedMode = Nothing
+  , _codeBuildProjectEnvironmentRegistryCredential = Nothing
   , _codeBuildProjectEnvironmentType = typearg
   }
 
@@ -77,9 +86,17 @@ cbpeEnvironmentVariables = lens _codeBuildProjectEnvironmentEnvironmentVariables
 cbpeImage :: Lens' CodeBuildProjectEnvironment (Val Text)
 cbpeImage = lens _codeBuildProjectEnvironmentImage (\s a -> s { _codeBuildProjectEnvironmentImage = a })
 
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environment.html#cfn-codebuild-project-environment-imagepullcredentialstype
+cbpeImagePullCredentialsType :: Lens' CodeBuildProjectEnvironment (Maybe (Val Text))
+cbpeImagePullCredentialsType = lens _codeBuildProjectEnvironmentImagePullCredentialsType (\s a -> s { _codeBuildProjectEnvironmentImagePullCredentialsType = a })
+
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environment.html#cfn-codebuild-project-environment-privilegedmode
 cbpePrivilegedMode :: Lens' CodeBuildProjectEnvironment (Maybe (Val Bool))
 cbpePrivilegedMode = lens _codeBuildProjectEnvironmentPrivilegedMode (\s a -> s { _codeBuildProjectEnvironmentPrivilegedMode = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environment.html#cfn-codebuild-project-environment-registrycredential
+cbpeRegistryCredential :: Lens' CodeBuildProjectEnvironment (Maybe CodeBuildProjectRegistryCredential)
+cbpeRegistryCredential = lens _codeBuildProjectEnvironmentRegistryCredential (\s a -> s { _codeBuildProjectEnvironmentRegistryCredential = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-environment.html#cfn-codebuild-project-environment-type
 cbpeType :: Lens' CodeBuildProjectEnvironment (Val Text)

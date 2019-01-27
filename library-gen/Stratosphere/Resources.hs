@@ -281,6 +281,7 @@ import Stratosphere.Resources.LambdaAlias as X
 import Stratosphere.Resources.LambdaEventSourceMapping as X
 import Stratosphere.Resources.LambdaFunction as X
 import Stratosphere.Resources.LambdaLayerVersion as X
+import Stratosphere.Resources.LambdaLayerVersionPermission as X
 import Stratosphere.Resources.LambdaPermission as X
 import Stratosphere.Resources.LambdaVersion as X
 import Stratosphere.Resources.LogsDestination as X
@@ -300,6 +301,7 @@ import Stratosphere.Resources.OpsWorksLayer as X
 import Stratosphere.Resources.OpsWorksStack as X
 import Stratosphere.Resources.OpsWorksUserProfile as X
 import Stratosphere.Resources.OpsWorksVolume as X
+import Stratosphere.Resources.OpsWorksCMServer as X
 import Stratosphere.Resources.RDSDBCluster as X
 import Stratosphere.Resources.RDSDBClusterParameterGroup as X
 import Stratosphere.Resources.RDSDBInstance as X
@@ -519,6 +521,7 @@ import Stratosphere.ResourceProperties.CodeBuildProjectEnvironmentVariable as X
 import Stratosphere.ResourceProperties.CodeBuildProjectLogsConfig as X
 import Stratosphere.ResourceProperties.CodeBuildProjectProjectCache as X
 import Stratosphere.ResourceProperties.CodeBuildProjectProjectTriggers as X
+import Stratosphere.ResourceProperties.CodeBuildProjectRegistryCredential as X
 import Stratosphere.ResourceProperties.CodeBuildProjectS3LogsConfig as X
 import Stratosphere.ResourceProperties.CodeBuildProjectSource as X
 import Stratosphere.ResourceProperties.CodeBuildProjectSourceAuth as X
@@ -953,6 +956,7 @@ import Stratosphere.ResourceProperties.OpsWorksStackElasticIp as X
 import Stratosphere.ResourceProperties.OpsWorksStackRdsDbInstance as X
 import Stratosphere.ResourceProperties.OpsWorksStackSource as X
 import Stratosphere.ResourceProperties.OpsWorksStackStackConfigurationManager as X
+import Stratosphere.ResourceProperties.OpsWorksCMServerEngineAttribute as X
 import Stratosphere.ResourceProperties.RDSDBClusterScalingConfiguration as X
 import Stratosphere.ResourceProperties.RDSDBInstanceProcessorFeature as X
 import Stratosphere.ResourceProperties.RDSDBSecurityGroupIngressProperty as X
@@ -1334,6 +1338,7 @@ data ResourceProperties
   | LambdaEventSourceMappingProperties LambdaEventSourceMapping
   | LambdaFunctionProperties LambdaFunction
   | LambdaLayerVersionProperties LambdaLayerVersion
+  | LambdaLayerVersionPermissionProperties LambdaLayerVersionPermission
   | LambdaPermissionProperties LambdaPermission
   | LambdaVersionProperties LambdaVersion
   | LogsDestinationProperties LogsDestination
@@ -1353,6 +1358,7 @@ data ResourceProperties
   | OpsWorksStackProperties OpsWorksStack
   | OpsWorksUserProfileProperties OpsWorksUserProfile
   | OpsWorksVolumeProperties OpsWorksVolume
+  | OpsWorksCMServerProperties OpsWorksCMServer
   | RDSDBClusterProperties RDSDBCluster
   | RDSDBClusterParameterGroupProperties RDSDBClusterParameterGroup
   | RDSDBInstanceProperties RDSDBInstance
@@ -1963,6 +1969,8 @@ resourcePropertiesJSON (LambdaFunctionProperties x) =
   [ "Type" .= ("AWS::Lambda::Function" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (LambdaLayerVersionProperties x) =
   [ "Type" .= ("AWS::Lambda::LayerVersion" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (LambdaLayerVersionPermissionProperties x) =
+  [ "Type" .= ("AWS::Lambda::LayerVersionPermission" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (LambdaPermissionProperties x) =
   [ "Type" .= ("AWS::Lambda::Permission" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (LambdaVersionProperties x) =
@@ -2001,6 +2009,8 @@ resourcePropertiesJSON (OpsWorksUserProfileProperties x) =
   [ "Type" .= ("AWS::OpsWorks::UserProfile" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (OpsWorksVolumeProperties x) =
   [ "Type" .= ("AWS::OpsWorks::Volume" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (OpsWorksCMServerProperties x) =
+  [ "Type" .= ("AWS::OpsWorksCM::Server" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (RDSDBClusterProperties x) =
   [ "Type" .= ("AWS::RDS::DBCluster" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (RDSDBClusterParameterGroupProperties x) =
@@ -2415,6 +2425,7 @@ resourceFromJSON n o =
          "AWS::Lambda::EventSourceMapping" -> LambdaEventSourceMappingProperties <$> (o .: "Properties")
          "AWS::Lambda::Function" -> LambdaFunctionProperties <$> (o .: "Properties")
          "AWS::Lambda::LayerVersion" -> LambdaLayerVersionProperties <$> (o .: "Properties")
+         "AWS::Lambda::LayerVersionPermission" -> LambdaLayerVersionPermissionProperties <$> (o .: "Properties")
          "AWS::Lambda::Permission" -> LambdaPermissionProperties <$> (o .: "Properties")
          "AWS::Lambda::Version" -> LambdaVersionProperties <$> (o .: "Properties")
          "AWS::Logs::Destination" -> LogsDestinationProperties <$> (o .: "Properties")
@@ -2434,6 +2445,7 @@ resourceFromJSON n o =
          "AWS::OpsWorks::Stack" -> OpsWorksStackProperties <$> (o .: "Properties")
          "AWS::OpsWorks::UserProfile" -> OpsWorksUserProfileProperties <$> (o .: "Properties")
          "AWS::OpsWorks::Volume" -> OpsWorksVolumeProperties <$> (o .: "Properties")
+         "AWS::OpsWorksCM::Server" -> OpsWorksCMServerProperties <$> (o .: "Properties")
          "AWS::RDS::DBCluster" -> RDSDBClusterProperties <$> (o .: "Properties")
          "AWS::RDS::DBClusterParameterGroup" -> RDSDBClusterParameterGroupProperties <$> (o .: "Properties")
          "AWS::RDS::DBInstance" -> RDSDBInstanceProperties <$> (o .: "Properties")
