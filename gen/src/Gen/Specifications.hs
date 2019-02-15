@@ -1,3 +1,5 @@
+{-# LANGUAGE LambdaCase #-}
+
 -- | This transforms the output from ReadRawSpecFile for consumption into the
 -- generator.
 
@@ -15,8 +17,8 @@ module Gen.Specifications
 
 import Control.Lens
 import Data.List (sortOn)
-import Data.Maybe (catMaybes)
 import Data.Map (Map, toList)
+import Data.Maybe (catMaybes)
 import Data.Text
 import GHC.Generics hiding (to)
 
@@ -87,15 +89,26 @@ fixSpecBugs spec =
   . propertyPropsLens
   . at "Name"
   %~ (\(Just rawProp) -> Just rawProp { rawPropertyRequired = True })
+  & vpcEndpointProps
+  . at "VPCEndpointType" -- misspelled, must be VpcEndpointType, remove
+  .~ Nothing
+  & vpcEndpointProps
+  . at "VpcEndpointType" -- use the misspelled property's attributes
+  %~ (\case Nothing -> spec ^? (vpcEndpointProps . ix "VPCEndpointType")
+            ps -> ps
+     )
   where
     propertyTypesLens :: Lens' RawCloudFormationSpec (Map Text RawPropertyType)
     propertyTypesLens = lens rawCloudFormationSpecPropertyTypes (\s a -> s { rawCloudFormationSpecPropertyTypes = a })
     propertyPropsLens :: Lens' RawPropertyType (Map Text RawProperty)
     propertyPropsLens = lens rawPropertyTypeProperties (\s a -> s { rawPropertyTypeProperties = a })
-    -- resourceTypesLens :: Lens' RawCloudFormationSpec (Map Text RawResourceType)
-    -- resourceTypesLens = lens rawCloudFormationSpecResourceTypes (\s a -> s { rawCloudFormationSpecResourceTypes = a })
-    -- resourcePropsLens :: Lens' RawResourceType (Map Text RawProperty)
-    -- resourcePropsLens = lens rawResourceTypeProperties (\s a -> s { rawResourceTypeProperties = a })
+    resourceTypesLens :: Lens' RawCloudFormationSpec (Map Text RawResourceType)
+    resourceTypesLens = lens rawCloudFormationSpecResourceTypes (\s a -> s { rawCloudFormationSpecResourceTypes = a })
+    resourcePropsLens :: Lens' RawResourceType (Map Text RawProperty)
+    resourcePropsLens = lens rawResourceTypeProperties (\s a -> s { rawResourceTypeProperties = a })
+
+    vpcEndpointProps :: (Applicative f) => LensLike' f RawCloudFormationSpec (Map Text RawProperty)
+    vpcEndpointProps = resourceTypesLens . ix "AWS::EC2::VPCEndpoint" . resourcePropsLens
 
 data PropertyType
   = PropertyType
