@@ -18,6 +18,7 @@ module Gen.Specifications
 import Control.Lens
 import Data.List (sortOn)
 import Data.Map (Map, toList)
+import qualified Data.Map as Map
 import Data.Maybe (catMaybes)
 import Data.Text
 import GHC.Generics hiding (to)
@@ -96,6 +97,29 @@ fixSpecBugs spec =
   . at "VpcEndpointType" -- use the misspelled property's attributes
   %~ (\case Nothing -> spec ^? (vpcEndpointProps . ix "VPCEndpointType")
             ps -> ps
+     )
+  & resourceTypesLens
+  . at "AWS::EC2::VPCEndpointService" -- missing in the spec, support ticket is open but no ETA
+  %~ (\case Nothing -> Just $ RawResourceType
+              { rawResourceTypeAttributes = Nothing
+              , rawResourceTypeDocumentation = "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html"
+              , rawResourceTypeProperties = Map.fromList -- :: Map Text RawProperty
+                  [ ( "AcceptanceRequired"
+                    , (rawProperty False "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html#cfn-ec2-vpcendpointservice-acceptancerequired")
+                        { rawPropertyPrimitiveType = Just "Boolean"
+                        , rawPropertyUpdateType = Just "Mutable"
+                        }
+                    )
+                  , ( "NetworkLoadBalancerArns"
+                    , (rawProperty True "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html#cfn-ec2-vpcendpointservice-networkloadbalancerarns")
+                        { rawPropertyPrimitiveItemType = Just "String"
+                        , rawPropertyType = Just "List"
+                        , rawPropertyUpdateType = Just "Mutable"
+                        }
+                    )
+                  ]
+              }
+            es -> es
      )
   where
     propertyTypesLens :: Lens' RawCloudFormationSpec (Map Text RawPropertyType)
