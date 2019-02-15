@@ -15,8 +15,9 @@ module Gen.Specifications
 
 import Control.Lens
 import Data.List (sortOn)
-import Data.Maybe (catMaybes)
 import Data.Map (Map, toList)
+import qualified Data.Map as Map
+import Data.Maybe (fromMaybe, mapMaybe)
 import Data.Text
 import GHC.Generics hiding (to)
 
@@ -87,15 +88,49 @@ fixSpecBugs spec =
   . propertyPropsLens
   . at "Name"
   %~ (\(Just rawProp) -> Just rawProp { rawPropertyRequired = True })
+  & vpcEndpointProps
+  . at "VPCEndpointType" -- misspelled, must be VpcEndpointType, remove
+  .~ Nothing
+  & vpcEndpointProps
+  . at "VpcEndpointType" -- use the misspelled property's attributes
+  %~ maybe (spec ^? (vpcEndpointProps . ix "VPCEndpointType")) Just
+  & resourceTypesLens
+  . at "AWS::EC2::VPCEndpointService"
+  %~ maybe (Just missingVPCEndpointService) Just
   where
     propertyTypesLens :: Lens' RawCloudFormationSpec (Map Text RawPropertyType)
     propertyTypesLens = lens rawCloudFormationSpecPropertyTypes (\s a -> s { rawCloudFormationSpecPropertyTypes = a })
     propertyPropsLens :: Lens' RawPropertyType (Map Text RawProperty)
-    propertyPropsLens = lens rawPropertyTypeProperties (\s a -> s { rawPropertyTypeProperties = a })
-    -- resourceTypesLens :: Lens' RawCloudFormationSpec (Map Text RawResourceType)
-    -- resourceTypesLens = lens rawCloudFormationSpecResourceTypes (\s a -> s { rawCloudFormationSpecResourceTypes = a })
-    -- resourcePropsLens :: Lens' RawResourceType (Map Text RawProperty)
-    -- resourcePropsLens = lens rawResourceTypeProperties (\s a -> s { rawResourceTypeProperties = a })
+    propertyPropsLens = lens (fromMaybe Map.empty . rawPropertyTypeProperties) (\s a -> s { rawPropertyTypeProperties = Just a })
+    resourceTypesLens :: Lens' RawCloudFormationSpec (Map Text RawResourceType)
+    resourceTypesLens = lens rawCloudFormationSpecResourceTypes (\s a -> s { rawCloudFormationSpecResourceTypes = a })
+    resourcePropsLens :: Lens' RawResourceType (Map Text RawProperty)
+    resourcePropsLens = lens rawResourceTypeProperties (\s a -> s { rawResourceTypeProperties = a })
+
+    vpcEndpointProps :: (Applicative f) => LensLike' f RawCloudFormationSpec (Map Text RawProperty)
+    vpcEndpointProps = resourceTypesLens . ix "AWS::EC2::VPCEndpoint" . resourcePropsLens
+
+    -- missing in the spec, support ticket is open but no ETA
+    missingVPCEndpointService :: RawResourceType
+    missingVPCEndpointService = RawResourceType
+      { rawResourceTypeAttributes = Nothing
+      , rawResourceTypeDocumentation = "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html"
+      , rawResourceTypeProperties = Map.fromList -- :: Map Text RawProperty
+          [ ( "AcceptanceRequired"
+            , (rawProperty False "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html#cfn-ec2-vpcendpointservice-acceptancerequired")
+                { rawPropertyPrimitiveType = Just "Boolean"
+                , rawPropertyUpdateType = Just "Mutable"
+                }
+            )
+          , ( "NetworkLoadBalancerArns"
+            , (rawProperty True "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.html#cfn-ec2-vpcendpointservice-networkloadbalancerarns")
+                { rawPropertyPrimitiveItemType = Just "String"
+                , rawPropertyType = Just "List"
+                , rawPropertyUpdateType = Just "Mutable"
+                }
+            )
+          ]
+      }
 
 data PropertyType
   = PropertyType
@@ -107,7 +142,9 @@ data PropertyType
 
 propertyTypeFromRaw :: Text -> RawPropertyType -> PropertyType
 propertyTypeFromRaw fullName (RawPropertyType doc props) =
-  PropertyType fullName doc (uncurry (propertyFromRaw fullName) <$> sortOn fst (toList props))
+  PropertyType fullName (fromMaybe brokenDoc doc) (uncurry (propertyFromRaw fullName) <$> sortOn fst (toList (fromMaybe Map.empty props)))
+  where
+    brokenDoc = "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide"
 
 data Property
   = Property
@@ -193,6 +230,7 @@ textToPrimitiveType "Double" = DoublePrimitive
 textToPrimitiveType "Boolean" = BoolPrimitive
 textToPrimitiveType "Timestamp" = StringPrimitive
 textToPrimitiveType "Json" = JsonPrimitive
+textToPrimitiveType "Map" = JsonPrimitive
 textToPrimitiveType t = error $ "Unknown primitive type: " ++ unpack t
 
 subPropertyTypeName :: SpecType -> Maybe Text
@@ -208,10 +246,10 @@ customTypeName (MapType (CustomType name)) = Just name
 customTypeName _ = Nothing
 
 subPropertyTypeNames :: [Property] -> [Text]
-subPropertyTypeNames = catMaybes . fmap (subPropertyTypeName . propertySpecType)
+subPropertyTypeNames = mapMaybe (subPropertyTypeName . propertySpecType)
 
 customTypeNames :: [Property] -> [Text]
-customTypeNames = catMaybes . fmap (customTypeName . propertySpecType)
+customTypeNames = mapMaybe (customTypeName . propertySpecType)
 
 data ResourceType
   = ResourceType

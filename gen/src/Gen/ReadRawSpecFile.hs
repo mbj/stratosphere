@@ -10,6 +10,7 @@ module Gen.ReadRawSpecFile
   , RawResourceType (..)
   , RawResourceAttribute (..)
   , decodeFile
+  , rawProperty
   ) where
 
 import Control.Applicative ((<|>))
@@ -32,8 +33,8 @@ instance FromJSON RawCloudFormationSpec where
 
 data RawPropertyType
   = RawPropertyType
-  { rawPropertyTypeDocumentation :: Text
-  , rawPropertyTypeProperties :: Map Text RawProperty
+  { rawPropertyTypeDocumentation :: Maybe Text
+  , rawPropertyTypeProperties :: Maybe(Map Text RawProperty)
   }
   deriving (Show, Eq, Generic)
 
@@ -55,6 +56,18 @@ data RawProperty
 
 instance FromJSON RawProperty where
   parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 11 }
+
+rawProperty :: Bool -> Text -> RawProperty
+rawProperty rpReq rpDoc = RawProperty
+  { rawPropertyDocumentation = rpDoc
+  , rawPropertyDuplicatesAllowed = Nothing
+  , rawPropertyItemType = Nothing
+  , rawPropertyPrimitiveItemType = Nothing
+  , rawPropertyPrimitiveType = Nothing
+  , rawPropertyRequired = rpReq
+  , rawPropertyType = Nothing
+  , rawPropertyUpdateType = Nothing
+  }
 
 data RawResourceType
   = RawResourceType
