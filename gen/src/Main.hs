@@ -118,6 +118,7 @@ module Stratosphere.Resources
   , resourceUpdatePolicy
   , resourceDependsOn
   , resourceMetadata
+  , resourceCondition
   , ResourceProperties (..)
   , DeletionPolicy (..)
   , Resources (..)
@@ -164,6 +165,7 @@ data Resource =
   , _resourceUpdatePolicy :: Maybe UpdatePolicy
   , _resourceDependsOn :: Maybe [T.Text]
   , _resourceMetadata :: Maybe Object
+  , _resourceCondition :: Maybe T.Text
   } deriving (Show, Eq)
 
 instance ToRef Resource b where
@@ -183,18 +185,20 @@ resource rn rp =
   , _resourceUpdatePolicy = Nothing
   , _resourceDependsOn = Nothing
   , _resourceMetadata = Nothing
+  , _resourceCondition = Nothing
   }
 
 $(makeLenses ''Resource)
 
 resourceToJSON :: Resource -> Value
-resourceToJSON (Resource _ props dp cp up deps meta) =
+resourceToJSON (Resource _ props dp cp up deps meta cond) =
     object $ resourcePropertiesJSON props ++ catMaybes
     [ maybeField "DeletionPolicy" dp
     , maybeField "CreationPolicy" cp
     , maybeField "UpdatePolicy" up
     , maybeField "DependsOn" deps
     , maybeField "Metadata" meta
+    , maybeField "Condition" cond
     ]
 
 resourcePropertiesJSON :: ResourceProperties -> [Pair]
@@ -211,7 +215,8 @@ resourceFromJSON n o =
        up <- o .:? "UpdatePolicy"
        deps <- o .:? "DependsOn"
        meta <- o .:? "Metadata"
-       return $ Resource n props dp cp up deps meta
+       cond <- o .:? "Condition"
+       return $ Resource n props dp cp up deps meta cond
 
 -- | Wrapper around a list of 'Resources's to we can modify the aeson
 -- instances.
