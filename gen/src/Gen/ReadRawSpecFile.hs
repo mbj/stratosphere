@@ -33,8 +33,8 @@ instance FromJSON RawCloudFormationSpec where
 
 data RawPropertyType
   = RawPropertyType
-  { rawPropertyTypeDocumentation :: Text
-  , rawPropertyTypeProperties :: Map Text RawProperty
+  { rawPropertyTypeDocumentation :: Maybe Text
+  , rawPropertyTypeProperties :: Maybe(Map Text RawProperty)
   }
   deriving (Show, Eq, Generic)
 
