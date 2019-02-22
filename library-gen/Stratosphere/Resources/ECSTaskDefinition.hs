@@ -9,7 +9,6 @@ module Stratosphere.Resources.ECSTaskDefinition where
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.ECSTaskDefinitionContainerDefinition
 import Stratosphere.ResourceProperties.ECSTaskDefinitionTaskDefinitionPlacementConstraint
-import Stratosphere.ResourceProperties.Tag
 import Stratosphere.ResourceProperties.ECSTaskDefinitionVolume
 
 -- | Full data type definition for ECSTaskDefinition. See 'ecsTaskDefinition'
@@ -24,7 +23,6 @@ data ECSTaskDefinition =
   , _eCSTaskDefinitionNetworkMode :: Maybe (Val Text)
   , _eCSTaskDefinitionPlacementConstraints :: Maybe [ECSTaskDefinitionTaskDefinitionPlacementConstraint]
   , _eCSTaskDefinitionRequiresCompatibilities :: Maybe (ValList Text)
-  , _eCSTaskDefinitionTags :: Maybe [Tag]
   , _eCSTaskDefinitionTaskRoleArn :: Maybe (Val Text)
   , _eCSTaskDefinitionVolumes :: Maybe [ECSTaskDefinitionVolume]
   } deriving (Show, Eq)
@@ -41,7 +39,6 @@ instance ToJSON ECSTaskDefinition where
     , fmap (("NetworkMode",) . toJSON) _eCSTaskDefinitionNetworkMode
     , fmap (("PlacementConstraints",) . toJSON) _eCSTaskDefinitionPlacementConstraints
     , fmap (("RequiresCompatibilities",) . toJSON) _eCSTaskDefinitionRequiresCompatibilities
-    , fmap (("Tags",) . toJSON) _eCSTaskDefinitionTags
     , fmap (("TaskRoleArn",) . toJSON) _eCSTaskDefinitionTaskRoleArn
     , fmap (("Volumes",) . toJSON) _eCSTaskDefinitionVolumes
     ]
@@ -57,7 +54,6 @@ instance FromJSON ECSTaskDefinition where
       (obj .:? "NetworkMode") <*>
       (obj .:? "PlacementConstraints") <*>
       (obj .:? "RequiresCompatibilities") <*>
-      (obj .:? "Tags") <*>
       (obj .:? "TaskRoleArn") <*>
       (obj .:? "Volumes")
   parseJSON _ = mempty
@@ -76,7 +72,6 @@ ecsTaskDefinition  =
   , _eCSTaskDefinitionNetworkMode = Nothing
   , _eCSTaskDefinitionPlacementConstraints = Nothing
   , _eCSTaskDefinitionRequiresCompatibilities = Nothing
-  , _eCSTaskDefinitionTags = Nothing
   , _eCSTaskDefinitionTaskRoleArn = Nothing
   , _eCSTaskDefinitionVolumes = Nothing
   }
@@ -112,10 +107,6 @@ ecstdPlacementConstraints = lens _eCSTaskDefinitionPlacementConstraints (\s a ->
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-requirescompatibilities
 ecstdRequiresCompatibilities :: Lens' ECSTaskDefinition (Maybe (ValList Text))
 ecstdRequiresCompatibilities = lens _eCSTaskDefinitionRequiresCompatibilities (\s a -> s { _eCSTaskDefinitionRequiresCompatibilities = a })
-
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-tags
-ecstdTags :: Lens' ECSTaskDefinition (Maybe [Tag])
-ecstdTags = lens _eCSTaskDefinitionTags (\s a -> s { _eCSTaskDefinitionTags = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-taskrolearn
 ecstdTaskRoleArn :: Lens' ECSTaskDefinition (Maybe (Val Text))

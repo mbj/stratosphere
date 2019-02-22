@@ -69,6 +69,15 @@ import Stratosphere.Resources.ApiGatewayStage as X
 import Stratosphere.Resources.ApiGatewayUsagePlan as X
 import Stratosphere.Resources.ApiGatewayUsagePlanKey as X
 import Stratosphere.Resources.ApiGatewayVpcLink as X
+import Stratosphere.Resources.ApiGatewayV2Api as X
+import Stratosphere.Resources.ApiGatewayV2Authorizer as X
+import Stratosphere.Resources.ApiGatewayV2Deployment as X
+import Stratosphere.Resources.ApiGatewayV2Integration as X
+import Stratosphere.Resources.ApiGatewayV2IntegrationResponse as X
+import Stratosphere.Resources.ApiGatewayV2Model as X
+import Stratosphere.Resources.ApiGatewayV2Route as X
+import Stratosphere.Resources.ApiGatewayV2RouteResponse as X
+import Stratosphere.Resources.ApiGatewayV2Stage as X
 import Stratosphere.Resources.AppStreamDirectoryConfig as X
 import Stratosphere.Resources.AppStreamFleet as X
 import Stratosphere.Resources.AppStreamImageBuilder as X
@@ -226,6 +235,7 @@ import Stratosphere.Resources.ElasticLoadBalancingV2TargetGroup as X
 import Stratosphere.Resources.ElasticsearchDomain as X
 import Stratosphere.Resources.EventsEventBusPolicy as X
 import Stratosphere.Resources.EventsRule as X
+import Stratosphere.Resources.FSxFileSystem as X
 import Stratosphere.Resources.GameLiftAlias as X
 import Stratosphere.Resources.GameLiftBuild as X
 import Stratosphere.Resources.GameLiftFleet as X
@@ -276,6 +286,10 @@ import Stratosphere.Resources.KinesisStreamConsumer as X
 import Stratosphere.Resources.KinesisAnalyticsApplication as X
 import Stratosphere.Resources.KinesisAnalyticsApplicationOutput as X
 import Stratosphere.Resources.KinesisAnalyticsApplicationReferenceDataSource as X
+import Stratosphere.Resources.KinesisAnalyticsV2Application as X
+import Stratosphere.Resources.KinesisAnalyticsV2ApplicationCloudWatchLoggingOption as X
+import Stratosphere.Resources.KinesisAnalyticsV2ApplicationOutput as X
+import Stratosphere.Resources.KinesisAnalyticsV2ApplicationReferenceDataSource as X
 import Stratosphere.Resources.KinesisFirehoseDeliveryStream as X
 import Stratosphere.Resources.LambdaAlias as X
 import Stratosphere.Resources.LambdaEventSourceMapping as X
@@ -302,6 +316,7 @@ import Stratosphere.Resources.OpsWorksStack as X
 import Stratosphere.Resources.OpsWorksUserProfile as X
 import Stratosphere.Resources.OpsWorksVolume as X
 import Stratosphere.Resources.OpsWorksCMServer as X
+import Stratosphere.Resources.RAMResourceShare as X
 import Stratosphere.Resources.RDSDBCluster as X
 import Stratosphere.Resources.RDSDBClusterParameterGroup as X
 import Stratosphere.Resources.RDSDBInstance as X
@@ -316,6 +331,12 @@ import Stratosphere.Resources.RedshiftClusterParameterGroup as X
 import Stratosphere.Resources.RedshiftClusterSecurityGroup as X
 import Stratosphere.Resources.RedshiftClusterSecurityGroupIngress as X
 import Stratosphere.Resources.RedshiftClusterSubnetGroup as X
+import Stratosphere.Resources.RoboMakerFleet as X
+import Stratosphere.Resources.RoboMakerRobot as X
+import Stratosphere.Resources.RoboMakerRobotApplication as X
+import Stratosphere.Resources.RoboMakerRobotApplicationVersion as X
+import Stratosphere.Resources.RoboMakerSimulationApplication as X
+import Stratosphere.Resources.RoboMakerSimulationApplicationVersion as X
 import Stratosphere.Resources.Route53HealthCheck as X
 import Stratosphere.Resources.Route53HostedZone as X
 import Stratosphere.Resources.Route53RecordSet as X
@@ -415,6 +436,10 @@ import Stratosphere.ResourceProperties.ApiGatewayStageMethodSetting as X
 import Stratosphere.ResourceProperties.ApiGatewayUsagePlanApiStage as X
 import Stratosphere.ResourceProperties.ApiGatewayUsagePlanQuotaSettings as X
 import Stratosphere.ResourceProperties.ApiGatewayUsagePlanThrottleSettings as X
+import Stratosphere.ResourceProperties.ApiGatewayV2RouteParameterConstraints as X
+import Stratosphere.ResourceProperties.ApiGatewayV2RouteResponseParameterConstraints as X
+import Stratosphere.ResourceProperties.ApiGatewayV2StageAccessLogSettings as X
+import Stratosphere.ResourceProperties.ApiGatewayV2StageRouteSettings as X
 import Stratosphere.ResourceProperties.AppStreamDirectoryConfigServiceAccountCredentials as X
 import Stratosphere.ResourceProperties.AppStreamFleetComputeCapacity as X
 import Stratosphere.ResourceProperties.AppStreamFleetDomainJoinInfo as X
@@ -514,6 +539,9 @@ import Stratosphere.ResourceProperties.CloudFrontStreamingDistributionTrustedSig
 import Stratosphere.ResourceProperties.CloudTrailTrailDataResource as X
 import Stratosphere.ResourceProperties.CloudTrailTrailEventSelector as X
 import Stratosphere.ResourceProperties.CloudWatchAlarmDimension as X
+import Stratosphere.ResourceProperties.CloudWatchAlarmMetric as X
+import Stratosphere.ResourceProperties.CloudWatchAlarmMetricDataQuery as X
+import Stratosphere.ResourceProperties.CloudWatchAlarmMetricStat as X
 import Stratosphere.ResourceProperties.CodeBuildProjectArtifacts as X
 import Stratosphere.ResourceProperties.CodeBuildProjectCloudWatchLogsConfig as X
 import Stratosphere.ResourceProperties.CodeBuildProjectEnvironment as X
@@ -526,6 +554,7 @@ import Stratosphere.ResourceProperties.CodeBuildProjectS3LogsConfig as X
 import Stratosphere.ResourceProperties.CodeBuildProjectSource as X
 import Stratosphere.ResourceProperties.CodeBuildProjectSourceAuth as X
 import Stratosphere.ResourceProperties.CodeBuildProjectVpcConfig as X
+import Stratosphere.ResourceProperties.CodeBuildProjectWebhookFilter as X
 import Stratosphere.ResourceProperties.CodeCommitRepositoryRepositoryTrigger as X
 import Stratosphere.ResourceProperties.CodeDeployDeploymentConfigMinimumHealthyHosts as X
 import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupAlarm as X
@@ -637,13 +666,19 @@ import Stratosphere.ResourceProperties.EC2InstancePrivateIpAddressSpecification 
 import Stratosphere.ResourceProperties.EC2InstanceSsmAssociation as X
 import Stratosphere.ResourceProperties.EC2InstanceVolume as X
 import Stratosphere.ResourceProperties.EC2LaunchTemplateBlockDeviceMapping as X
+import Stratosphere.ResourceProperties.EC2LaunchTemplateCapacityReservationSpecification as X
+import Stratosphere.ResourceProperties.EC2LaunchTemplateCapacityReservationTarget as X
+import Stratosphere.ResourceProperties.EC2LaunchTemplateCpuOptions as X
 import Stratosphere.ResourceProperties.EC2LaunchTemplateCreditSpecification as X
 import Stratosphere.ResourceProperties.EC2LaunchTemplateEbs as X
 import Stratosphere.ResourceProperties.EC2LaunchTemplateElasticGpuSpecification as X
+import Stratosphere.ResourceProperties.EC2LaunchTemplateHibernationOptions as X
 import Stratosphere.ResourceProperties.EC2LaunchTemplateIamInstanceProfile as X
 import Stratosphere.ResourceProperties.EC2LaunchTemplateInstanceMarketOptions as X
 import Stratosphere.ResourceProperties.EC2LaunchTemplateIpv6Add as X
 import Stratosphere.ResourceProperties.EC2LaunchTemplateLaunchTemplateData as X
+import Stratosphere.ResourceProperties.EC2LaunchTemplateLaunchTemplateElasticInferenceAccelerator as X
+import Stratosphere.ResourceProperties.EC2LaunchTemplateLicenseSpecification as X
 import Stratosphere.ResourceProperties.EC2LaunchTemplateMonitoring as X
 import Stratosphere.ResourceProperties.EC2LaunchTemplateNetworkInterface as X
 import Stratosphere.ResourceProperties.EC2LaunchTemplatePlacement as X
@@ -802,6 +837,9 @@ import Stratosphere.ResourceProperties.EventsRuleRunCommandParameters as X
 import Stratosphere.ResourceProperties.EventsRuleRunCommandTarget as X
 import Stratosphere.ResourceProperties.EventsRuleSqsParameters as X
 import Stratosphere.ResourceProperties.EventsRuleTarget as X
+import Stratosphere.ResourceProperties.FSxFileSystemLustreConfiguration as X
+import Stratosphere.ResourceProperties.FSxFileSystemTagEntry as X
+import Stratosphere.ResourceProperties.FSxFileSystemWindowsConfiguration as X
 import Stratosphere.ResourceProperties.GameLiftAliasRoutingStrategy as X
 import Stratosphere.ResourceProperties.GameLiftBuildS3Location as X
 import Stratosphere.ResourceProperties.GameLiftFleetIpPermission as X
@@ -912,6 +950,44 @@ import Stratosphere.ResourceProperties.KinesisAnalyticsApplicationReferenceDataS
 import Stratosphere.ResourceProperties.KinesisAnalyticsApplicationReferenceDataSourceReferenceDataSource as X
 import Stratosphere.ResourceProperties.KinesisAnalyticsApplicationReferenceDataSourceReferenceSchema as X
 import Stratosphere.ResourceProperties.KinesisAnalyticsApplicationReferenceDataSourceS3ReferenceDataSource as X
+import Stratosphere.ResourceProperties.KinesisAnalyticsV2ApplicationApplicationCodeConfiguration as X
+import Stratosphere.ResourceProperties.KinesisAnalyticsV2ApplicationApplicationConfiguration as X
+import Stratosphere.ResourceProperties.KinesisAnalyticsV2ApplicationApplicationSnapshotConfiguration as X
+import Stratosphere.ResourceProperties.KinesisAnalyticsV2ApplicationCSVMappingParameters as X
+import Stratosphere.ResourceProperties.KinesisAnalyticsV2ApplicationCheckpointConfiguration as X
+import Stratosphere.ResourceProperties.KinesisAnalyticsV2ApplicationCodeContent as X
+import Stratosphere.ResourceProperties.KinesisAnalyticsV2ApplicationEnvironmentProperties as X
+import Stratosphere.ResourceProperties.KinesisAnalyticsV2ApplicationFlinkApplicationConfiguration as X
+import Stratosphere.ResourceProperties.KinesisAnalyticsV2ApplicationInput as X
+import Stratosphere.ResourceProperties.KinesisAnalyticsV2ApplicationInputLambdaProcessor as X
+import Stratosphere.ResourceProperties.KinesisAnalyticsV2ApplicationInputParallelism as X
+import Stratosphere.ResourceProperties.KinesisAnalyticsV2ApplicationInputProcessingConfiguration as X
+import Stratosphere.ResourceProperties.KinesisAnalyticsV2ApplicationInputSchema as X
+import Stratosphere.ResourceProperties.KinesisAnalyticsV2ApplicationJSONMappingParameters as X
+import Stratosphere.ResourceProperties.KinesisAnalyticsV2ApplicationKinesisFirehoseInput as X
+import Stratosphere.ResourceProperties.KinesisAnalyticsV2ApplicationKinesisStreamsInput as X
+import Stratosphere.ResourceProperties.KinesisAnalyticsV2ApplicationMappingParameters as X
+import Stratosphere.ResourceProperties.KinesisAnalyticsV2ApplicationMonitoringConfiguration as X
+import Stratosphere.ResourceProperties.KinesisAnalyticsV2ApplicationParallelismConfiguration as X
+import Stratosphere.ResourceProperties.KinesisAnalyticsV2ApplicationPropertyGroup as X
+import Stratosphere.ResourceProperties.KinesisAnalyticsV2ApplicationRecordColumn as X
+import Stratosphere.ResourceProperties.KinesisAnalyticsV2ApplicationRecordFormat as X
+import Stratosphere.ResourceProperties.KinesisAnalyticsV2ApplicationS3ContentLocation as X
+import Stratosphere.ResourceProperties.KinesisAnalyticsV2ApplicationSqlApplicationConfiguration as X
+import Stratosphere.ResourceProperties.KinesisAnalyticsV2ApplicationCloudWatchLoggingOptionCloudWatchLoggingOption as X
+import Stratosphere.ResourceProperties.KinesisAnalyticsV2ApplicationOutputDestinationSchema as X
+import Stratosphere.ResourceProperties.KinesisAnalyticsV2ApplicationOutputKinesisFirehoseOutput as X
+import Stratosphere.ResourceProperties.KinesisAnalyticsV2ApplicationOutputKinesisStreamsOutput as X
+import Stratosphere.ResourceProperties.KinesisAnalyticsV2ApplicationOutputLambdaOutput as X
+import Stratosphere.ResourceProperties.KinesisAnalyticsV2ApplicationOutputOutput as X
+import Stratosphere.ResourceProperties.KinesisAnalyticsV2ApplicationReferenceDataSourceCSVMappingParameters as X
+import Stratosphere.ResourceProperties.KinesisAnalyticsV2ApplicationReferenceDataSourceJSONMappingParameters as X
+import Stratosphere.ResourceProperties.KinesisAnalyticsV2ApplicationReferenceDataSourceMappingParameters as X
+import Stratosphere.ResourceProperties.KinesisAnalyticsV2ApplicationReferenceDataSourceRecordColumn as X
+import Stratosphere.ResourceProperties.KinesisAnalyticsV2ApplicationReferenceDataSourceRecordFormat as X
+import Stratosphere.ResourceProperties.KinesisAnalyticsV2ApplicationReferenceDataSourceReferenceDataSource as X
+import Stratosphere.ResourceProperties.KinesisAnalyticsV2ApplicationReferenceDataSourceReferenceSchema as X
+import Stratosphere.ResourceProperties.KinesisAnalyticsV2ApplicationReferenceDataSourceS3ReferenceDataSource as X
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamBufferingHints as X
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamCloudWatchLoggingOptions as X
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamCopyCommand as X
@@ -964,6 +1040,12 @@ import Stratosphere.ResourceProperties.RDSOptionGroupOptionConfiguration as X
 import Stratosphere.ResourceProperties.RDSOptionGroupOptionSetting as X
 import Stratosphere.ResourceProperties.RedshiftClusterLoggingProperties as X
 import Stratosphere.ResourceProperties.RedshiftClusterParameterGroupParameter as X
+import Stratosphere.ResourceProperties.RoboMakerRobotApplicationRobotSoftwareSuite as X
+import Stratosphere.ResourceProperties.RoboMakerRobotApplicationSourceConfig as X
+import Stratosphere.ResourceProperties.RoboMakerSimulationApplicationRenderingEngine as X
+import Stratosphere.ResourceProperties.RoboMakerSimulationApplicationRobotSoftwareSuite as X
+import Stratosphere.ResourceProperties.RoboMakerSimulationApplicationSimulationSoftwareSuite as X
+import Stratosphere.ResourceProperties.RoboMakerSimulationApplicationSourceConfig as X
 import Stratosphere.ResourceProperties.Route53HealthCheckAlarmIdentifier as X
 import Stratosphere.ResourceProperties.Route53HealthCheckHealthCheckConfig as X
 import Stratosphere.ResourceProperties.Route53HealthCheckHealthCheckTag as X
@@ -1126,6 +1208,15 @@ data ResourceProperties
   | ApiGatewayUsagePlanProperties ApiGatewayUsagePlan
   | ApiGatewayUsagePlanKeyProperties ApiGatewayUsagePlanKey
   | ApiGatewayVpcLinkProperties ApiGatewayVpcLink
+  | ApiGatewayV2ApiProperties ApiGatewayV2Api
+  | ApiGatewayV2AuthorizerProperties ApiGatewayV2Authorizer
+  | ApiGatewayV2DeploymentProperties ApiGatewayV2Deployment
+  | ApiGatewayV2IntegrationProperties ApiGatewayV2Integration
+  | ApiGatewayV2IntegrationResponseProperties ApiGatewayV2IntegrationResponse
+  | ApiGatewayV2ModelProperties ApiGatewayV2Model
+  | ApiGatewayV2RouteProperties ApiGatewayV2Route
+  | ApiGatewayV2RouteResponseProperties ApiGatewayV2RouteResponse
+  | ApiGatewayV2StageProperties ApiGatewayV2Stage
   | AppStreamDirectoryConfigProperties AppStreamDirectoryConfig
   | AppStreamFleetProperties AppStreamFleet
   | AppStreamImageBuilderProperties AppStreamImageBuilder
@@ -1283,6 +1374,7 @@ data ResourceProperties
   | ElasticsearchDomainProperties ElasticsearchDomain
   | EventsEventBusPolicyProperties EventsEventBusPolicy
   | EventsRuleProperties EventsRule
+  | FSxFileSystemProperties FSxFileSystem
   | GameLiftAliasProperties GameLiftAlias
   | GameLiftBuildProperties GameLiftBuild
   | GameLiftFleetProperties GameLiftFleet
@@ -1333,6 +1425,10 @@ data ResourceProperties
   | KinesisAnalyticsApplicationProperties KinesisAnalyticsApplication
   | KinesisAnalyticsApplicationOutputProperties KinesisAnalyticsApplicationOutput
   | KinesisAnalyticsApplicationReferenceDataSourceProperties KinesisAnalyticsApplicationReferenceDataSource
+  | KinesisAnalyticsV2ApplicationProperties KinesisAnalyticsV2Application
+  | KinesisAnalyticsV2ApplicationCloudWatchLoggingOptionProperties KinesisAnalyticsV2ApplicationCloudWatchLoggingOption
+  | KinesisAnalyticsV2ApplicationOutputProperties KinesisAnalyticsV2ApplicationOutput
+  | KinesisAnalyticsV2ApplicationReferenceDataSourceProperties KinesisAnalyticsV2ApplicationReferenceDataSource
   | KinesisFirehoseDeliveryStreamProperties KinesisFirehoseDeliveryStream
   | LambdaAliasProperties LambdaAlias
   | LambdaEventSourceMappingProperties LambdaEventSourceMapping
@@ -1359,6 +1455,7 @@ data ResourceProperties
   | OpsWorksUserProfileProperties OpsWorksUserProfile
   | OpsWorksVolumeProperties OpsWorksVolume
   | OpsWorksCMServerProperties OpsWorksCMServer
+  | RAMResourceShareProperties RAMResourceShare
   | RDSDBClusterProperties RDSDBCluster
   | RDSDBClusterParameterGroupProperties RDSDBClusterParameterGroup
   | RDSDBInstanceProperties RDSDBInstance
@@ -1373,6 +1470,12 @@ data ResourceProperties
   | RedshiftClusterSecurityGroupProperties RedshiftClusterSecurityGroup
   | RedshiftClusterSecurityGroupIngressProperties RedshiftClusterSecurityGroupIngress
   | RedshiftClusterSubnetGroupProperties RedshiftClusterSubnetGroup
+  | RoboMakerFleetProperties RoboMakerFleet
+  | RoboMakerRobotProperties RoboMakerRobot
+  | RoboMakerRobotApplicationProperties RoboMakerRobotApplication
+  | RoboMakerRobotApplicationVersionProperties RoboMakerRobotApplicationVersion
+  | RoboMakerSimulationApplicationProperties RoboMakerSimulationApplication
+  | RoboMakerSimulationApplicationVersionProperties RoboMakerSimulationApplicationVersion
   | Route53HealthCheckProperties Route53HealthCheck
   | Route53HostedZoneProperties Route53HostedZone
   | Route53RecordSetProperties Route53RecordSet
@@ -1545,6 +1648,24 @@ resourcePropertiesJSON (ApiGatewayUsagePlanKeyProperties x) =
   [ "Type" .= ("AWS::ApiGateway::UsagePlanKey" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (ApiGatewayVpcLinkProperties x) =
   [ "Type" .= ("AWS::ApiGateway::VpcLink" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (ApiGatewayV2ApiProperties x) =
+  [ "Type" .= ("AWS::ApiGatewayV2::Api" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (ApiGatewayV2AuthorizerProperties x) =
+  [ "Type" .= ("AWS::ApiGatewayV2::Authorizer" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (ApiGatewayV2DeploymentProperties x) =
+  [ "Type" .= ("AWS::ApiGatewayV2::Deployment" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (ApiGatewayV2IntegrationProperties x) =
+  [ "Type" .= ("AWS::ApiGatewayV2::Integration" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (ApiGatewayV2IntegrationResponseProperties x) =
+  [ "Type" .= ("AWS::ApiGatewayV2::IntegrationResponse" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (ApiGatewayV2ModelProperties x) =
+  [ "Type" .= ("AWS::ApiGatewayV2::Model" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (ApiGatewayV2RouteProperties x) =
+  [ "Type" .= ("AWS::ApiGatewayV2::Route" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (ApiGatewayV2RouteResponseProperties x) =
+  [ "Type" .= ("AWS::ApiGatewayV2::RouteResponse" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (ApiGatewayV2StageProperties x) =
+  [ "Type" .= ("AWS::ApiGatewayV2::Stage" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (AppStreamDirectoryConfigProperties x) =
   [ "Type" .= ("AWS::AppStream::DirectoryConfig" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (AppStreamFleetProperties x) =
@@ -1859,6 +1980,8 @@ resourcePropertiesJSON (EventsEventBusPolicyProperties x) =
   [ "Type" .= ("AWS::Events::EventBusPolicy" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (EventsRuleProperties x) =
   [ "Type" .= ("AWS::Events::Rule" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (FSxFileSystemProperties x) =
+  [ "Type" .= ("AWS::FSx::FileSystem" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (GameLiftAliasProperties x) =
   [ "Type" .= ("AWS::GameLift::Alias" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (GameLiftBuildProperties x) =
@@ -1959,6 +2082,14 @@ resourcePropertiesJSON (KinesisAnalyticsApplicationOutputProperties x) =
   [ "Type" .= ("AWS::KinesisAnalytics::ApplicationOutput" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (KinesisAnalyticsApplicationReferenceDataSourceProperties x) =
   [ "Type" .= ("AWS::KinesisAnalytics::ApplicationReferenceDataSource" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (KinesisAnalyticsV2ApplicationProperties x) =
+  [ "Type" .= ("AWS::KinesisAnalyticsV2::Application" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (KinesisAnalyticsV2ApplicationCloudWatchLoggingOptionProperties x) =
+  [ "Type" .= ("AWS::KinesisAnalyticsV2::ApplicationCloudWatchLoggingOption" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (KinesisAnalyticsV2ApplicationOutputProperties x) =
+  [ "Type" .= ("AWS::KinesisAnalyticsV2::ApplicationOutput" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (KinesisAnalyticsV2ApplicationReferenceDataSourceProperties x) =
+  [ "Type" .= ("AWS::KinesisAnalyticsV2::ApplicationReferenceDataSource" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (KinesisFirehoseDeliveryStreamProperties x) =
   [ "Type" .= ("AWS::KinesisFirehose::DeliveryStream" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (LambdaAliasProperties x) =
@@ -2011,6 +2142,8 @@ resourcePropertiesJSON (OpsWorksVolumeProperties x) =
   [ "Type" .= ("AWS::OpsWorks::Volume" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (OpsWorksCMServerProperties x) =
   [ "Type" .= ("AWS::OpsWorksCM::Server" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (RAMResourceShareProperties x) =
+  [ "Type" .= ("AWS::RAM::ResourceShare" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (RDSDBClusterProperties x) =
   [ "Type" .= ("AWS::RDS::DBCluster" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (RDSDBClusterParameterGroupProperties x) =
@@ -2039,6 +2172,18 @@ resourcePropertiesJSON (RedshiftClusterSecurityGroupIngressProperties x) =
   [ "Type" .= ("AWS::Redshift::ClusterSecurityGroupIngress" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (RedshiftClusterSubnetGroupProperties x) =
   [ "Type" .= ("AWS::Redshift::ClusterSubnetGroup" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (RoboMakerFleetProperties x) =
+  [ "Type" .= ("AWS::RoboMaker::Fleet" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (RoboMakerRobotProperties x) =
+  [ "Type" .= ("AWS::RoboMaker::Robot" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (RoboMakerRobotApplicationProperties x) =
+  [ "Type" .= ("AWS::RoboMaker::RobotApplication" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (RoboMakerRobotApplicationVersionProperties x) =
+  [ "Type" .= ("AWS::RoboMaker::RobotApplicationVersion" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (RoboMakerSimulationApplicationProperties x) =
+  [ "Type" .= ("AWS::RoboMaker::SimulationApplication" :: String), "Properties" .= toJSON x]
+resourcePropertiesJSON (RoboMakerSimulationApplicationVersionProperties x) =
+  [ "Type" .= ("AWS::RoboMaker::SimulationApplicationVersion" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (Route53HealthCheckProperties x) =
   [ "Type" .= ("AWS::Route53::HealthCheck" :: String), "Properties" .= toJSON x]
 resourcePropertiesJSON (Route53HostedZoneProperties x) =
@@ -2213,6 +2358,15 @@ resourceFromJSON n o =
          "AWS::ApiGateway::UsagePlan" -> ApiGatewayUsagePlanProperties <$> (o .: "Properties")
          "AWS::ApiGateway::UsagePlanKey" -> ApiGatewayUsagePlanKeyProperties <$> (o .: "Properties")
          "AWS::ApiGateway::VpcLink" -> ApiGatewayVpcLinkProperties <$> (o .: "Properties")
+         "AWS::ApiGatewayV2::Api" -> ApiGatewayV2ApiProperties <$> (o .: "Properties")
+         "AWS::ApiGatewayV2::Authorizer" -> ApiGatewayV2AuthorizerProperties <$> (o .: "Properties")
+         "AWS::ApiGatewayV2::Deployment" -> ApiGatewayV2DeploymentProperties <$> (o .: "Properties")
+         "AWS::ApiGatewayV2::Integration" -> ApiGatewayV2IntegrationProperties <$> (o .: "Properties")
+         "AWS::ApiGatewayV2::IntegrationResponse" -> ApiGatewayV2IntegrationResponseProperties <$> (o .: "Properties")
+         "AWS::ApiGatewayV2::Model" -> ApiGatewayV2ModelProperties <$> (o .: "Properties")
+         "AWS::ApiGatewayV2::Route" -> ApiGatewayV2RouteProperties <$> (o .: "Properties")
+         "AWS::ApiGatewayV2::RouteResponse" -> ApiGatewayV2RouteResponseProperties <$> (o .: "Properties")
+         "AWS::ApiGatewayV2::Stage" -> ApiGatewayV2StageProperties <$> (o .: "Properties")
          "AWS::AppStream::DirectoryConfig" -> AppStreamDirectoryConfigProperties <$> (o .: "Properties")
          "AWS::AppStream::Fleet" -> AppStreamFleetProperties <$> (o .: "Properties")
          "AWS::AppStream::ImageBuilder" -> AppStreamImageBuilderProperties <$> (o .: "Properties")
@@ -2370,6 +2524,7 @@ resourceFromJSON n o =
          "AWS::Elasticsearch::Domain" -> ElasticsearchDomainProperties <$> (o .: "Properties")
          "AWS::Events::EventBusPolicy" -> EventsEventBusPolicyProperties <$> (o .: "Properties")
          "AWS::Events::Rule" -> EventsRuleProperties <$> (o .: "Properties")
+         "AWS::FSx::FileSystem" -> FSxFileSystemProperties <$> (o .: "Properties")
          "AWS::GameLift::Alias" -> GameLiftAliasProperties <$> (o .: "Properties")
          "AWS::GameLift::Build" -> GameLiftBuildProperties <$> (o .: "Properties")
          "AWS::GameLift::Fleet" -> GameLiftFleetProperties <$> (o .: "Properties")
@@ -2420,6 +2575,10 @@ resourceFromJSON n o =
          "AWS::KinesisAnalytics::Application" -> KinesisAnalyticsApplicationProperties <$> (o .: "Properties")
          "AWS::KinesisAnalytics::ApplicationOutput" -> KinesisAnalyticsApplicationOutputProperties <$> (o .: "Properties")
          "AWS::KinesisAnalytics::ApplicationReferenceDataSource" -> KinesisAnalyticsApplicationReferenceDataSourceProperties <$> (o .: "Properties")
+         "AWS::KinesisAnalyticsV2::Application" -> KinesisAnalyticsV2ApplicationProperties <$> (o .: "Properties")
+         "AWS::KinesisAnalyticsV2::ApplicationCloudWatchLoggingOption" -> KinesisAnalyticsV2ApplicationCloudWatchLoggingOptionProperties <$> (o .: "Properties")
+         "AWS::KinesisAnalyticsV2::ApplicationOutput" -> KinesisAnalyticsV2ApplicationOutputProperties <$> (o .: "Properties")
+         "AWS::KinesisAnalyticsV2::ApplicationReferenceDataSource" -> KinesisAnalyticsV2ApplicationReferenceDataSourceProperties <$> (o .: "Properties")
          "AWS::KinesisFirehose::DeliveryStream" -> KinesisFirehoseDeliveryStreamProperties <$> (o .: "Properties")
          "AWS::Lambda::Alias" -> LambdaAliasProperties <$> (o .: "Properties")
          "AWS::Lambda::EventSourceMapping" -> LambdaEventSourceMappingProperties <$> (o .: "Properties")
@@ -2446,6 +2605,7 @@ resourceFromJSON n o =
          "AWS::OpsWorks::UserProfile" -> OpsWorksUserProfileProperties <$> (o .: "Properties")
          "AWS::OpsWorks::Volume" -> OpsWorksVolumeProperties <$> (o .: "Properties")
          "AWS::OpsWorksCM::Server" -> OpsWorksCMServerProperties <$> (o .: "Properties")
+         "AWS::RAM::ResourceShare" -> RAMResourceShareProperties <$> (o .: "Properties")
          "AWS::RDS::DBCluster" -> RDSDBClusterProperties <$> (o .: "Properties")
          "AWS::RDS::DBClusterParameterGroup" -> RDSDBClusterParameterGroupProperties <$> (o .: "Properties")
          "AWS::RDS::DBInstance" -> RDSDBInstanceProperties <$> (o .: "Properties")
@@ -2460,6 +2620,12 @@ resourceFromJSON n o =
          "AWS::Redshift::ClusterSecurityGroup" -> RedshiftClusterSecurityGroupProperties <$> (o .: "Properties")
          "AWS::Redshift::ClusterSecurityGroupIngress" -> RedshiftClusterSecurityGroupIngressProperties <$> (o .: "Properties")
          "AWS::Redshift::ClusterSubnetGroup" -> RedshiftClusterSubnetGroupProperties <$> (o .: "Properties")
+         "AWS::RoboMaker::Fleet" -> RoboMakerFleetProperties <$> (o .: "Properties")
+         "AWS::RoboMaker::Robot" -> RoboMakerRobotProperties <$> (o .: "Properties")
+         "AWS::RoboMaker::RobotApplication" -> RoboMakerRobotApplicationProperties <$> (o .: "Properties")
+         "AWS::RoboMaker::RobotApplicationVersion" -> RoboMakerRobotApplicationVersionProperties <$> (o .: "Properties")
+         "AWS::RoboMaker::SimulationApplication" -> RoboMakerSimulationApplicationProperties <$> (o .: "Properties")
+         "AWS::RoboMaker::SimulationApplicationVersion" -> RoboMakerSimulationApplicationVersionProperties <$> (o .: "Properties")
          "AWS::Route53::HealthCheck" -> Route53HealthCheckProperties <$> (o .: "Properties")
          "AWS::Route53::HostedZone" -> Route53HostedZoneProperties <$> (o .: "Properties")
          "AWS::Route53::RecordSet" -> Route53RecordSetProperties <$> (o .: "Properties")

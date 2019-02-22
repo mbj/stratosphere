@@ -7,7 +7,7 @@
 module Stratosphere.Resources.SSMMaintenanceWindow where
 
 import Stratosphere.ResourceImports
-
+import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for SSMMaintenanceWindow. See
 -- 'ssmMaintenanceWindow' for a more convenient constructor.
@@ -22,6 +22,7 @@ data SSMMaintenanceWindow =
   , _sSMMaintenanceWindowSchedule :: Val Text
   , _sSMMaintenanceWindowScheduleTimezone :: Maybe (Val Text)
   , _sSMMaintenanceWindowStartDate :: Maybe (Val Text)
+  , _sSMMaintenanceWindowTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
 instance ToJSON SSMMaintenanceWindow where
@@ -37,6 +38,7 @@ instance ToJSON SSMMaintenanceWindow where
     , (Just . ("Schedule",) . toJSON) _sSMMaintenanceWindowSchedule
     , fmap (("ScheduleTimezone",) . toJSON) _sSMMaintenanceWindowScheduleTimezone
     , fmap (("StartDate",) . toJSON) _sSMMaintenanceWindowStartDate
+    , fmap (("Tags",) . toJSON) _sSMMaintenanceWindowTags
     ]
 
 instance FromJSON SSMMaintenanceWindow where
@@ -50,7 +52,8 @@ instance FromJSON SSMMaintenanceWindow where
       (obj .: "Name") <*>
       (obj .: "Schedule") <*>
       (obj .:? "ScheduleTimezone") <*>
-      (obj .:? "StartDate")
+      (obj .:? "StartDate") <*>
+      (obj .:? "Tags")
   parseJSON _ = mempty
 
 -- | Constructor for 'SSMMaintenanceWindow' containing required fields as
@@ -73,6 +76,7 @@ ssmMaintenanceWindow allowUnassociatedTargetsarg cutoffarg durationarg namearg s
   , _sSMMaintenanceWindowSchedule = schedulearg
   , _sSMMaintenanceWindowScheduleTimezone = Nothing
   , _sSMMaintenanceWindowStartDate = Nothing
+  , _sSMMaintenanceWindowTags = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindow.html#cfn-ssm-maintenancewindow-allowunassociatedtargets
@@ -110,3 +114,7 @@ ssmmwScheduleTimezone = lens _sSMMaintenanceWindowScheduleTimezone (\s a -> s { 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindow.html#cfn-ssm-maintenancewindow-startdate
 ssmmwStartDate :: Lens' SSMMaintenanceWindow (Maybe (Val Text))
 ssmmwStartDate = lens _sSMMaintenanceWindowStartDate (\s a -> s { _sSMMaintenanceWindowStartDate = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindow.html#cfn-ssm-maintenancewindow-tags
+ssmmwTags :: Lens' SSMMaintenanceWindow (Maybe [Tag])
+ssmmwTags = lens _sSMMaintenanceWindowTags (\s a -> s { _sSMMaintenanceWindowTags = a })
