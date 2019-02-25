@@ -1,5 +1,5 @@
 ---
-resolver: nightly-2017-12-16
+resolver: lts-11.22
 packages:
   - '.'
   - 'gen'
