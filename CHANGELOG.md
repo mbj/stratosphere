@@ -1,5 +1,10 @@
 # Change Log
 
+## 0.31.0
+
+* Update resource specification document to version 2.25.0
+* Added `Condition` field to resources
+
 ## 0.30.1
 
 * Update resource specification document to version 2.21.0

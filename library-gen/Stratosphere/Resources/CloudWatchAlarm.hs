@@ -8,6 +8,7 @@ module Stratosphere.Resources.CloudWatchAlarm where
 
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.CloudWatchAlarmDimension
+import Stratosphere.ResourceProperties.CloudWatchAlarmMetricDataQuery
 
 -- | Full data type definition for CloudWatchAlarm. See 'cloudWatchAlarm' for
 -- a more convenient constructor.
@@ -25,6 +26,7 @@ data CloudWatchAlarm =
   , _cloudWatchAlarmExtendedStatistic :: Maybe (Val Text)
   , _cloudWatchAlarmInsufficientDataActions :: Maybe (ValList Text)
   , _cloudWatchAlarmMetricName :: Maybe (Val Text)
+  , _cloudWatchAlarmMetrics :: Maybe [CloudWatchAlarmMetricDataQuery]
   , _cloudWatchAlarmNamespace :: Maybe (Val Text)
   , _cloudWatchAlarmOKActions :: Maybe (ValList Text)
   , _cloudWatchAlarmPeriod :: Maybe (Val Integer)
@@ -50,6 +52,7 @@ instance ToJSON CloudWatchAlarm where
     , fmap (("ExtendedStatistic",) . toJSON) _cloudWatchAlarmExtendedStatistic
     , fmap (("InsufficientDataActions",) . toJSON) _cloudWatchAlarmInsufficientDataActions
     , fmap (("MetricName",) . toJSON) _cloudWatchAlarmMetricName
+    , fmap (("Metrics",) . toJSON) _cloudWatchAlarmMetrics
     , fmap (("Namespace",) . toJSON) _cloudWatchAlarmNamespace
     , fmap (("OKActions",) . toJSON) _cloudWatchAlarmOKActions
     , fmap (("Period",) . toJSON . fmap Integer') _cloudWatchAlarmPeriod
@@ -74,6 +77,7 @@ instance FromJSON CloudWatchAlarm where
       (obj .:? "ExtendedStatistic") <*>
       (obj .:? "InsufficientDataActions") <*>
       (obj .:? "MetricName") <*>
+      (obj .:? "Metrics") <*>
       (obj .:? "Namespace") <*>
       (obj .:? "OKActions") <*>
       fmap (fmap (fmap unInteger')) (obj .:? "Period") <*>
@@ -104,6 +108,7 @@ cloudWatchAlarm comparisonOperatorarg evaluationPeriodsarg thresholdarg =
   , _cloudWatchAlarmExtendedStatistic = Nothing
   , _cloudWatchAlarmInsufficientDataActions = Nothing
   , _cloudWatchAlarmMetricName = Nothing
+  , _cloudWatchAlarmMetrics = Nothing
   , _cloudWatchAlarmNamespace = Nothing
   , _cloudWatchAlarmOKActions = Nothing
   , _cloudWatchAlarmPeriod = Nothing
@@ -160,6 +165,10 @@ cwaInsufficientDataActions = lens _cloudWatchAlarmInsufficientDataActions (\s a 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html#cfn-cloudwatch-alarms-metricname
 cwaMetricName :: Lens' CloudWatchAlarm (Maybe (Val Text))
 cwaMetricName = lens _cloudWatchAlarmMetricName (\s a -> s { _cloudWatchAlarmMetricName = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html#cfn-cloudwatch-alarm-metrics
+cwaMetrics :: Lens' CloudWatchAlarm (Maybe [CloudWatchAlarmMetricDataQuery])
+cwaMetrics = lens _cloudWatchAlarmMetrics (\s a -> s { _cloudWatchAlarmMetrics = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html#cfn-cloudwatch-alarms-namespace
 cwaNamespace :: Lens' CloudWatchAlarm (Maybe (Val Text))

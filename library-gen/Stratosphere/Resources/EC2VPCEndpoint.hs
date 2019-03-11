@@ -19,7 +19,7 @@ data EC2VPCEndpoint =
   , _eC2VPCEndpointSecurityGroupIds :: Maybe (ValList Text)
   , _eC2VPCEndpointServiceName :: Val Text
   , _eC2VPCEndpointSubnetIds :: Maybe (ValList Text)
-  , _eC2VPCEndpointVPCEndpointType :: Maybe (Val Text)
+  , _eC2VPCEndpointVpcEndpointType :: Maybe (Val Text)
   , _eC2VPCEndpointVpcId :: Val Text
   } deriving (Show, Eq)
 
@@ -33,7 +33,7 @@ instance ToJSON EC2VPCEndpoint where
     , fmap (("SecurityGroupIds",) . toJSON) _eC2VPCEndpointSecurityGroupIds
     , (Just . ("ServiceName",) . toJSON) _eC2VPCEndpointServiceName
     , fmap (("SubnetIds",) . toJSON) _eC2VPCEndpointSubnetIds
-    , fmap (("VPCEndpointType",) . toJSON) _eC2VPCEndpointVPCEndpointType
+    , fmap (("VpcEndpointType",) . toJSON) _eC2VPCEndpointVpcEndpointType
     , (Just . ("VpcId",) . toJSON) _eC2VPCEndpointVpcId
     ]
 
@@ -46,7 +46,7 @@ instance FromJSON EC2VPCEndpoint where
       (obj .:? "SecurityGroupIds") <*>
       (obj .: "ServiceName") <*>
       (obj .:? "SubnetIds") <*>
-      (obj .:? "VPCEndpointType") <*>
+      (obj .:? "VpcEndpointType") <*>
       (obj .: "VpcId")
   parseJSON _ = mempty
 
@@ -63,7 +63,7 @@ ec2VPCEndpoint serviceNamearg vpcIdarg =
   , _eC2VPCEndpointSecurityGroupIds = Nothing
   , _eC2VPCEndpointServiceName = serviceNamearg
   , _eC2VPCEndpointSubnetIds = Nothing
-  , _eC2VPCEndpointVPCEndpointType = Nothing
+  , _eC2VPCEndpointVpcEndpointType = Nothing
   , _eC2VPCEndpointVpcId = vpcIdarg
   }
 
@@ -92,8 +92,8 @@ ecvpceSubnetIds :: Lens' EC2VPCEndpoint (Maybe (ValList Text))
 ecvpceSubnetIds = lens _eC2VPCEndpointSubnetIds (\s a -> s { _eC2VPCEndpointSubnetIds = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-vpcendpointtype
-ecvpceVPCEndpointType :: Lens' EC2VPCEndpoint (Maybe (Val Text))
-ecvpceVPCEndpointType = lens _eC2VPCEndpointVPCEndpointType (\s a -> s { _eC2VPCEndpointVPCEndpointType = a })
+ecvpceVpcEndpointType :: Lens' EC2VPCEndpoint (Maybe (Val Text))
+ecvpceVpcEndpointType = lens _eC2VPCEndpointVpcEndpointType (\s a -> s { _eC2VPCEndpointVpcEndpointType = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html#cfn-ec2-vpcendpoint-vpcid
 ecvpceVpcId :: Lens' EC2VPCEndpoint (Val Text)

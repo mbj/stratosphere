@@ -14,6 +14,7 @@ import Stratosphere.ResourceImports
 data CodeBuildProjectProjectCache =
   CodeBuildProjectProjectCache
   { _codeBuildProjectProjectCacheLocation :: Maybe (Val Text)
+  , _codeBuildProjectProjectCacheModes :: Maybe (ValList Text)
   , _codeBuildProjectProjectCacheType :: Val Text
   } deriving (Show, Eq)
 
@@ -22,6 +23,7 @@ instance ToJSON CodeBuildProjectProjectCache where
     object $
     catMaybes
     [ fmap (("Location",) . toJSON) _codeBuildProjectProjectCacheLocation
+    , fmap (("Modes",) . toJSON) _codeBuildProjectProjectCacheModes
     , (Just . ("Type",) . toJSON) _codeBuildProjectProjectCacheType
     ]
 
@@ -29,6 +31,7 @@ instance FromJSON CodeBuildProjectProjectCache where
   parseJSON (Object obj) =
     CodeBuildProjectProjectCache <$>
       (obj .:? "Location") <*>
+      (obj .:? "Modes") <*>
       (obj .: "Type")
   parseJSON _ = mempty
 
@@ -40,12 +43,17 @@ codeBuildProjectProjectCache
 codeBuildProjectProjectCache typearg =
   CodeBuildProjectProjectCache
   { _codeBuildProjectProjectCacheLocation = Nothing
+  , _codeBuildProjectProjectCacheModes = Nothing
   , _codeBuildProjectProjectCacheType = typearg
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectcache.html#cfn-codebuild-project-projectcache-location
 cbppcLocation :: Lens' CodeBuildProjectProjectCache (Maybe (Val Text))
 cbppcLocation = lens _codeBuildProjectProjectCacheLocation (\s a -> s { _codeBuildProjectProjectCacheLocation = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectcache.html#cfn-codebuild-project-projectcache-modes
+cbppcModes :: Lens' CodeBuildProjectProjectCache (Maybe (ValList Text))
+cbppcModes = lens _codeBuildProjectProjectCacheModes (\s a -> s { _codeBuildProjectProjectCacheModes = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectcache.html#cfn-codebuild-project-projectcache-type
 cbppcType :: Lens' CodeBuildProjectProjectCache (Val Text)

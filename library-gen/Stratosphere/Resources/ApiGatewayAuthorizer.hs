@@ -22,7 +22,7 @@ data ApiGatewayAuthorizer =
   , _apiGatewayAuthorizerName :: Maybe (Val Text)
   , _apiGatewayAuthorizerProviderARNs :: Maybe (ValList Text)
   , _apiGatewayAuthorizerRestApiId :: Val Text
-  , _apiGatewayAuthorizerType :: Maybe (Val AuthorizerType)
+  , _apiGatewayAuthorizerType :: Val AuthorizerType
   } deriving (Show, Eq)
 
 instance ToJSON ApiGatewayAuthorizer where
@@ -38,7 +38,7 @@ instance ToJSON ApiGatewayAuthorizer where
     , fmap (("Name",) . toJSON) _apiGatewayAuthorizerName
     , fmap (("ProviderARNs",) . toJSON) _apiGatewayAuthorizerProviderARNs
     , (Just . ("RestApiId",) . toJSON) _apiGatewayAuthorizerRestApiId
-    , fmap (("Type",) . toJSON) _apiGatewayAuthorizerType
+    , (Just . ("Type",) . toJSON) _apiGatewayAuthorizerType
     ]
 
 instance FromJSON ApiGatewayAuthorizer where
@@ -53,15 +53,16 @@ instance FromJSON ApiGatewayAuthorizer where
       (obj .:? "Name") <*>
       (obj .:? "ProviderARNs") <*>
       (obj .: "RestApiId") <*>
-      (obj .:? "Type")
+      (obj .: "Type")
   parseJSON _ = mempty
 
 -- | Constructor for 'ApiGatewayAuthorizer' containing required fields as
 -- arguments.
 apiGatewayAuthorizer
   :: Val Text -- ^ 'agaRestApiId'
+  -> Val AuthorizerType -- ^ 'agaType'
   -> ApiGatewayAuthorizer
-apiGatewayAuthorizer restApiIdarg =
+apiGatewayAuthorizer restApiIdarg typearg =
   ApiGatewayAuthorizer
   { _apiGatewayAuthorizerAuthType = Nothing
   , _apiGatewayAuthorizerAuthorizerCredentials = Nothing
@@ -72,7 +73,7 @@ apiGatewayAuthorizer restApiIdarg =
   , _apiGatewayAuthorizerName = Nothing
   , _apiGatewayAuthorizerProviderARNs = Nothing
   , _apiGatewayAuthorizerRestApiId = restApiIdarg
-  , _apiGatewayAuthorizerType = Nothing
+  , _apiGatewayAuthorizerType = typearg
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-authorizer.html#cfn-apigateway-authorizer-authtype
@@ -112,5 +113,5 @@ agaRestApiId :: Lens' ApiGatewayAuthorizer (Val Text)
 agaRestApiId = lens _apiGatewayAuthorizerRestApiId (\s a -> s { _apiGatewayAuthorizerRestApiId = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-authorizer.html#cfn-apigateway-authorizer-type
-agaType :: Lens' ApiGatewayAuthorizer (Maybe (Val AuthorizerType))
+agaType :: Lens' ApiGatewayAuthorizer (Val AuthorizerType)
 agaType = lens _apiGatewayAuthorizerType (\s a -> s { _apiGatewayAuthorizerType = a })

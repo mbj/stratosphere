@@ -181,6 +181,8 @@ computeLensPrefix "AWS::IoTAnalytics::Dataset" = "itads"
 computeLensPrefix "AWS::IoTAnalytics::Datastore" = "itadst"
 computeLensPrefix "AWS::IoTAnalytics::Dataset.RetentionPeriod" = "itadsrp"
 computeLensPrefix "AWS::IoTAnalytics::Datastore.RetentionPeriod" = "itadstrp"
+computeLensPrefix "AWS::ApiGatewayV2::Api" = "agvap"
+computeLensPrefix "AWS::ApiGatewayV2::Authorizer" = "agvau"
 -- Everything else
 computeLensPrefix rawName = toLower $ fromMaybe rawName $ toAcronym $ computeModuleName rawName
 

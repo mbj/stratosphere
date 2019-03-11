@@ -13,7 +13,8 @@ import Stratosphere.ResourceProperties.OpsWorksCMServerEngineAttribute
 -- for a more convenient constructor.
 data OpsWorksCMServer =
   OpsWorksCMServer
-  { _opsWorksCMServerBackupId :: Maybe (Val Text)
+  { _opsWorksCMServerAssociatePublicIpAddress :: Maybe (Val Bool)
+  , _opsWorksCMServerBackupId :: Maybe (Val Text)
   , _opsWorksCMServerBackupRetentionCount :: Maybe (Val Integer)
   , _opsWorksCMServerDisableAutomatedBackup :: Maybe (Val Bool)
   , _opsWorksCMServerEngine :: Maybe (Val Text)
@@ -35,7 +36,8 @@ instance ToJSON OpsWorksCMServer where
   toJSON OpsWorksCMServer{..} =
     object $
     catMaybes
-    [ fmap (("BackupId",) . toJSON) _opsWorksCMServerBackupId
+    [ fmap (("AssociatePublicIpAddress",) . toJSON . fmap Bool') _opsWorksCMServerAssociatePublicIpAddress
+    , fmap (("BackupId",) . toJSON) _opsWorksCMServerBackupId
     , fmap (("BackupRetentionCount",) . toJSON . fmap Integer') _opsWorksCMServerBackupRetentionCount
     , fmap (("DisableAutomatedBackup",) . toJSON . fmap Bool') _opsWorksCMServerDisableAutomatedBackup
     , fmap (("Engine",) . toJSON) _opsWorksCMServerEngine
@@ -56,6 +58,7 @@ instance ToJSON OpsWorksCMServer where
 instance FromJSON OpsWorksCMServer where
   parseJSON (Object obj) =
     OpsWorksCMServer <$>
+      fmap (fmap (fmap unBool')) (obj .:? "AssociatePublicIpAddress") <*>
       (obj .:? "BackupId") <*>
       fmap (fmap (fmap unInteger')) (obj .:? "BackupRetentionCount") <*>
       fmap (fmap (fmap unBool')) (obj .:? "DisableAutomatedBackup") <*>
@@ -83,7 +86,8 @@ opsWorksCMServer
   -> OpsWorksCMServer
 opsWorksCMServer instanceProfileArnarg instanceTypearg serviceRoleArnarg =
   OpsWorksCMServer
-  { _opsWorksCMServerBackupId = Nothing
+  { _opsWorksCMServerAssociatePublicIpAddress = Nothing
+  , _opsWorksCMServerBackupId = Nothing
   , _opsWorksCMServerBackupRetentionCount = Nothing
   , _opsWorksCMServerDisableAutomatedBackup = Nothing
   , _opsWorksCMServerEngine = Nothing
@@ -100,6 +104,10 @@ opsWorksCMServer instanceProfileArnarg instanceTypearg serviceRoleArnarg =
   , _opsWorksCMServerServiceRoleArn = serviceRoleArnarg
   , _opsWorksCMServerSubnetIds = Nothing
   }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-associatepublicipaddress
+owcmsAssociatePublicIpAddress :: Lens' OpsWorksCMServer (Maybe (Val Bool))
+owcmsAssociatePublicIpAddress = lens _opsWorksCMServerAssociatePublicIpAddress (\s a -> s { _opsWorksCMServerAssociatePublicIpAddress = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-backupid
 owcmsBackupId :: Lens' OpsWorksCMServer (Maybe (Val Text))

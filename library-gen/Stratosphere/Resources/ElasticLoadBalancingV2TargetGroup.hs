@@ -16,7 +16,8 @@ import Stratosphere.ResourceProperties.ElasticLoadBalancingV2TargetGroupTargetDe
 -- 'elasticLoadBalancingV2TargetGroup' for a more convenient constructor.
 data ElasticLoadBalancingV2TargetGroup =
   ElasticLoadBalancingV2TargetGroup
-  { _elasticLoadBalancingV2TargetGroupHealthCheckIntervalSeconds :: Maybe (Val Integer)
+  { _elasticLoadBalancingV2TargetGroupHealthCheckEnabled :: Maybe (Val Bool)
+  , _elasticLoadBalancingV2TargetGroupHealthCheckIntervalSeconds :: Maybe (Val Integer)
   , _elasticLoadBalancingV2TargetGroupHealthCheckPath :: Maybe (Val Text)
   , _elasticLoadBalancingV2TargetGroupHealthCheckPort :: Maybe (Val Text)
   , _elasticLoadBalancingV2TargetGroupHealthCheckProtocol :: Maybe (Val Text)
@@ -24,21 +25,22 @@ data ElasticLoadBalancingV2TargetGroup =
   , _elasticLoadBalancingV2TargetGroupHealthyThresholdCount :: Maybe (Val Integer)
   , _elasticLoadBalancingV2TargetGroupMatcher :: Maybe ElasticLoadBalancingV2TargetGroupMatcher
   , _elasticLoadBalancingV2TargetGroupName :: Maybe (Val Text)
-  , _elasticLoadBalancingV2TargetGroupPort :: Val Integer
-  , _elasticLoadBalancingV2TargetGroupProtocol :: Val Text
+  , _elasticLoadBalancingV2TargetGroupPort :: Maybe (Val Integer)
+  , _elasticLoadBalancingV2TargetGroupProtocol :: Maybe (Val Text)
   , _elasticLoadBalancingV2TargetGroupTags :: Maybe [Tag]
   , _elasticLoadBalancingV2TargetGroupTargetGroupAttributes :: Maybe [ElasticLoadBalancingV2TargetGroupTargetGroupAttribute]
   , _elasticLoadBalancingV2TargetGroupTargetType :: Maybe (Val Text)
   , _elasticLoadBalancingV2TargetGroupTargets :: Maybe [ElasticLoadBalancingV2TargetGroupTargetDescription]
   , _elasticLoadBalancingV2TargetGroupUnhealthyThresholdCount :: Maybe (Val Integer)
-  , _elasticLoadBalancingV2TargetGroupVpcId :: Val Text
+  , _elasticLoadBalancingV2TargetGroupVpcId :: Maybe (Val Text)
   } deriving (Show, Eq)
 
 instance ToJSON ElasticLoadBalancingV2TargetGroup where
   toJSON ElasticLoadBalancingV2TargetGroup{..} =
     object $
     catMaybes
-    [ fmap (("HealthCheckIntervalSeconds",) . toJSON . fmap Integer') _elasticLoadBalancingV2TargetGroupHealthCheckIntervalSeconds
+    [ fmap (("HealthCheckEnabled",) . toJSON . fmap Bool') _elasticLoadBalancingV2TargetGroupHealthCheckEnabled
+    , fmap (("HealthCheckIntervalSeconds",) . toJSON . fmap Integer') _elasticLoadBalancingV2TargetGroupHealthCheckIntervalSeconds
     , fmap (("HealthCheckPath",) . toJSON) _elasticLoadBalancingV2TargetGroupHealthCheckPath
     , fmap (("HealthCheckPort",) . toJSON) _elasticLoadBalancingV2TargetGroupHealthCheckPort
     , fmap (("HealthCheckProtocol",) . toJSON) _elasticLoadBalancingV2TargetGroupHealthCheckProtocol
@@ -46,19 +48,20 @@ instance ToJSON ElasticLoadBalancingV2TargetGroup where
     , fmap (("HealthyThresholdCount",) . toJSON . fmap Integer') _elasticLoadBalancingV2TargetGroupHealthyThresholdCount
     , fmap (("Matcher",) . toJSON) _elasticLoadBalancingV2TargetGroupMatcher
     , fmap (("Name",) . toJSON) _elasticLoadBalancingV2TargetGroupName
-    , (Just . ("Port",) . toJSON . fmap Integer') _elasticLoadBalancingV2TargetGroupPort
-    , (Just . ("Protocol",) . toJSON) _elasticLoadBalancingV2TargetGroupProtocol
+    , fmap (("Port",) . toJSON . fmap Integer') _elasticLoadBalancingV2TargetGroupPort
+    , fmap (("Protocol",) . toJSON) _elasticLoadBalancingV2TargetGroupProtocol
     , fmap (("Tags",) . toJSON) _elasticLoadBalancingV2TargetGroupTags
     , fmap (("TargetGroupAttributes",) . toJSON) _elasticLoadBalancingV2TargetGroupTargetGroupAttributes
     , fmap (("TargetType",) . toJSON) _elasticLoadBalancingV2TargetGroupTargetType
     , fmap (("Targets",) . toJSON) _elasticLoadBalancingV2TargetGroupTargets
     , fmap (("UnhealthyThresholdCount",) . toJSON . fmap Integer') _elasticLoadBalancingV2TargetGroupUnhealthyThresholdCount
-    , (Just . ("VpcId",) . toJSON) _elasticLoadBalancingV2TargetGroupVpcId
+    , fmap (("VpcId",) . toJSON) _elasticLoadBalancingV2TargetGroupVpcId
     ]
 
 instance FromJSON ElasticLoadBalancingV2TargetGroup where
   parseJSON (Object obj) =
     ElasticLoadBalancingV2TargetGroup <$>
+      fmap (fmap (fmap unBool')) (obj .:? "HealthCheckEnabled") <*>
       fmap (fmap (fmap unInteger')) (obj .:? "HealthCheckIntervalSeconds") <*>
       (obj .:? "HealthCheckPath") <*>
       (obj .:? "HealthCheckPort") <*>
@@ -67,26 +70,24 @@ instance FromJSON ElasticLoadBalancingV2TargetGroup where
       fmap (fmap (fmap unInteger')) (obj .:? "HealthyThresholdCount") <*>
       (obj .:? "Matcher") <*>
       (obj .:? "Name") <*>
-      fmap (fmap unInteger') (obj .: "Port") <*>
-      (obj .: "Protocol") <*>
+      fmap (fmap (fmap unInteger')) (obj .:? "Port") <*>
+      (obj .:? "Protocol") <*>
       (obj .:? "Tags") <*>
       (obj .:? "TargetGroupAttributes") <*>
       (obj .:? "TargetType") <*>
       (obj .:? "Targets") <*>
       fmap (fmap (fmap unInteger')) (obj .:? "UnhealthyThresholdCount") <*>
-      (obj .: "VpcId")
+      (obj .:? "VpcId")
   parseJSON _ = mempty
 
 -- | Constructor for 'ElasticLoadBalancingV2TargetGroup' containing required
 -- fields as arguments.
 elasticLoadBalancingV2TargetGroup
-  :: Val Integer -- ^ 'elbvtgPort'
-  -> Val Text -- ^ 'elbvtgProtocol'
-  -> Val Text -- ^ 'elbvtgVpcId'
-  -> ElasticLoadBalancingV2TargetGroup
-elasticLoadBalancingV2TargetGroup portarg protocolarg vpcIdarg =
+  :: ElasticLoadBalancingV2TargetGroup
+elasticLoadBalancingV2TargetGroup  =
   ElasticLoadBalancingV2TargetGroup
-  { _elasticLoadBalancingV2TargetGroupHealthCheckIntervalSeconds = Nothing
+  { _elasticLoadBalancingV2TargetGroupHealthCheckEnabled = Nothing
+  , _elasticLoadBalancingV2TargetGroupHealthCheckIntervalSeconds = Nothing
   , _elasticLoadBalancingV2TargetGroupHealthCheckPath = Nothing
   , _elasticLoadBalancingV2TargetGroupHealthCheckPort = Nothing
   , _elasticLoadBalancingV2TargetGroupHealthCheckProtocol = Nothing
@@ -94,15 +95,19 @@ elasticLoadBalancingV2TargetGroup portarg protocolarg vpcIdarg =
   , _elasticLoadBalancingV2TargetGroupHealthyThresholdCount = Nothing
   , _elasticLoadBalancingV2TargetGroupMatcher = Nothing
   , _elasticLoadBalancingV2TargetGroupName = Nothing
-  , _elasticLoadBalancingV2TargetGroupPort = portarg
-  , _elasticLoadBalancingV2TargetGroupProtocol = protocolarg
+  , _elasticLoadBalancingV2TargetGroupPort = Nothing
+  , _elasticLoadBalancingV2TargetGroupProtocol = Nothing
   , _elasticLoadBalancingV2TargetGroupTags = Nothing
   , _elasticLoadBalancingV2TargetGroupTargetGroupAttributes = Nothing
   , _elasticLoadBalancingV2TargetGroupTargetType = Nothing
   , _elasticLoadBalancingV2TargetGroupTargets = Nothing
   , _elasticLoadBalancingV2TargetGroupUnhealthyThresholdCount = Nothing
-  , _elasticLoadBalancingV2TargetGroupVpcId = vpcIdarg
+  , _elasticLoadBalancingV2TargetGroupVpcId = Nothing
   }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-targetgroup.html#cfn-elasticloadbalancingv2-targetgroup-healthcheckenabled
+elbvtgHealthCheckEnabled :: Lens' ElasticLoadBalancingV2TargetGroup (Maybe (Val Bool))
+elbvtgHealthCheckEnabled = lens _elasticLoadBalancingV2TargetGroupHealthCheckEnabled (\s a -> s { _elasticLoadBalancingV2TargetGroupHealthCheckEnabled = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-targetgroup.html#cfn-elasticloadbalancingv2-targetgroup-healthcheckintervalseconds
 elbvtgHealthCheckIntervalSeconds :: Lens' ElasticLoadBalancingV2TargetGroup (Maybe (Val Integer))
@@ -137,11 +142,11 @@ elbvtgName :: Lens' ElasticLoadBalancingV2TargetGroup (Maybe (Val Text))
 elbvtgName = lens _elasticLoadBalancingV2TargetGroupName (\s a -> s { _elasticLoadBalancingV2TargetGroupName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-targetgroup.html#cfn-elasticloadbalancingv2-targetgroup-port
-elbvtgPort :: Lens' ElasticLoadBalancingV2TargetGroup (Val Integer)
+elbvtgPort :: Lens' ElasticLoadBalancingV2TargetGroup (Maybe (Val Integer))
 elbvtgPort = lens _elasticLoadBalancingV2TargetGroupPort (\s a -> s { _elasticLoadBalancingV2TargetGroupPort = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-targetgroup.html#cfn-elasticloadbalancingv2-targetgroup-protocol
-elbvtgProtocol :: Lens' ElasticLoadBalancingV2TargetGroup (Val Text)
+elbvtgProtocol :: Lens' ElasticLoadBalancingV2TargetGroup (Maybe (Val Text))
 elbvtgProtocol = lens _elasticLoadBalancingV2TargetGroupProtocol (\s a -> s { _elasticLoadBalancingV2TargetGroupProtocol = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-targetgroup.html#cfn-elasticloadbalancingv2-targetgroup-tags
@@ -165,5 +170,5 @@ elbvtgUnhealthyThresholdCount :: Lens' ElasticLoadBalancingV2TargetGroup (Maybe 
 elbvtgUnhealthyThresholdCount = lens _elasticLoadBalancingV2TargetGroupUnhealthyThresholdCount (\s a -> s { _elasticLoadBalancingV2TargetGroupUnhealthyThresholdCount = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-targetgroup.html#cfn-elasticloadbalancingv2-targetgroup-vpcid
-elbvtgVpcId :: Lens' ElasticLoadBalancingV2TargetGroup (Val Text)
+elbvtgVpcId :: Lens' ElasticLoadBalancingV2TargetGroup (Maybe (Val Text))
 elbvtgVpcId = lens _elasticLoadBalancingV2TargetGroupVpcId (\s a -> s { _elasticLoadBalancingV2TargetGroupVpcId = a })
