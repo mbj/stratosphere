@@ -35,17 +35,6 @@ instance ToJSON ServiceDiscoveryService where
     , fmap (("NamespaceId",) . toJSON) _serviceDiscoveryServiceNamespaceId
     ]
 
-instance FromJSON ServiceDiscoveryService where
-  parseJSON (Object obj) =
-    ServiceDiscoveryService <$>
-      (obj .:? "Description") <*>
-      (obj .:? "DnsConfig") <*>
-      (obj .:? "HealthCheckConfig") <*>
-      (obj .:? "HealthCheckCustomConfig") <*>
-      (obj .:? "Name") <*>
-      (obj .:? "NamespaceId")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ServiceDiscoveryService' containing required fields as
 -- arguments.
 serviceDiscoveryService

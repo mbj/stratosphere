@@ -27,14 +27,6 @@ instance ToJSON EC2VPCGatewayAttachment where
     , fmap (("VpnGatewayId",) . toJSON) _eC2VPCGatewayAttachmentVpnGatewayId
     ]
 
-instance FromJSON EC2VPCGatewayAttachment where
-  parseJSON (Object obj) =
-    EC2VPCGatewayAttachment <$>
-      (obj .:? "InternetGatewayId") <*>
-      (obj .: "VpcId") <*>
-      (obj .:? "VpnGatewayId")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2VPCGatewayAttachment' containing required fields as
 -- arguments.
 ec2VPCGatewayAttachment

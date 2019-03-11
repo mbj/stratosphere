@@ -27,13 +27,6 @@ instance ToJSON CodeDeployDeploymentGroupAutoRollbackConfiguration where
     , fmap (("Events",) . toJSON) _codeDeployDeploymentGroupAutoRollbackConfigurationEvents
     ]
 
-instance FromJSON CodeDeployDeploymentGroupAutoRollbackConfiguration where
-  parseJSON (Object obj) =
-    CodeDeployDeploymentGroupAutoRollbackConfiguration <$>
-      fmap (fmap (fmap unBool')) (obj .:? "Enabled") <*>
-      (obj .:? "Events")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CodeDeployDeploymentGroupAutoRollbackConfiguration'
 -- containing required fields as arguments.
 codeDeployDeploymentGroupAutoRollbackConfiguration

@@ -25,13 +25,6 @@ instance ToJSON IoTAnalyticsChannelRetentionPeriod where
     , fmap (("Unlimited",) . toJSON . fmap Bool') _ioTAnalyticsChannelRetentionPeriodUnlimited
     ]
 
-instance FromJSON IoTAnalyticsChannelRetentionPeriod where
-  parseJSON (Object obj) =
-    IoTAnalyticsChannelRetentionPeriod <$>
-      fmap (fmap (fmap unInteger')) (obj .:? "NumberOfDays") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "Unlimited")
-  parseJSON _ = mempty
-
 -- | Constructor for 'IoTAnalyticsChannelRetentionPeriod' containing required
 -- fields as arguments.
 ioTAnalyticsChannelRetentionPeriod

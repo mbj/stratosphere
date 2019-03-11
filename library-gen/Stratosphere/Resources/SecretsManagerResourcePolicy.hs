@@ -25,13 +25,6 @@ instance ToJSON SecretsManagerResourcePolicy where
     , (Just . ("SecretId",) . toJSON) _secretsManagerResourcePolicySecretId
     ]
 
-instance FromJSON SecretsManagerResourcePolicy where
-  parseJSON (Object obj) =
-    SecretsManagerResourcePolicy <$>
-      (obj .: "ResourcePolicy") <*>
-      (obj .: "SecretId")
-  parseJSON _ = mempty
-
 -- | Constructor for 'SecretsManagerResourcePolicy' containing required fields
 -- as arguments.
 secretsManagerResourcePolicy

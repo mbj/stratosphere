@@ -25,13 +25,6 @@ instance ToJSON Tag where
     , (Just . ("Value",) . toJSON) _tagValue
     ]
 
-instance FromJSON Tag where
-  parseJSON (Object obj) =
-    Tag <$>
-      (obj .: "Key") <*>
-      (obj .: "Value")
-  parseJSON _ = mempty
-
 -- | Constructor for 'Tag' containing required fields as arguments.
 tag
   :: Val Text -- ^ 'tagKey'

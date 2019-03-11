@@ -34,17 +34,6 @@ instance ToJSON CloudFrontDistributionCustomOriginConfig where
     , fmap (("OriginSSLProtocols",) . toJSON) _cloudFrontDistributionCustomOriginConfigOriginSSLProtocols
     ]
 
-instance FromJSON CloudFrontDistributionCustomOriginConfig where
-  parseJSON (Object obj) =
-    CloudFrontDistributionCustomOriginConfig <$>
-      fmap (fmap (fmap unInteger')) (obj .:? "HTTPPort") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "HTTPSPort") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "OriginKeepaliveTimeout") <*>
-      (obj .: "OriginProtocolPolicy") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "OriginReadTimeout") <*>
-      (obj .:? "OriginSSLProtocols")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CloudFrontDistributionCustomOriginConfig' containing
 -- required fields as arguments.
 cloudFrontDistributionCustomOriginConfig

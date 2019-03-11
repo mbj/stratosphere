@@ -27,14 +27,6 @@ instance ToJSON OpsWorksStackRdsDbInstance where
     , (Just . ("RdsDbInstanceArn",) . toJSON) _opsWorksStackRdsDbInstanceRdsDbInstanceArn
     ]
 
-instance FromJSON OpsWorksStackRdsDbInstance where
-  parseJSON (Object obj) =
-    OpsWorksStackRdsDbInstance <$>
-      (obj .: "DbPassword") <*>
-      (obj .: "DbUser") <*>
-      (obj .: "RdsDbInstanceArn")
-  parseJSON _ = mempty
-
 -- | Constructor for 'OpsWorksStackRdsDbInstance' containing required fields
 -- as arguments.
 opsWorksStackRdsDbInstance

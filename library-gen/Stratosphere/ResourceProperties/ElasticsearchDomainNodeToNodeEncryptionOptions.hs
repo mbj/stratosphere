@@ -25,12 +25,6 @@ instance ToJSON ElasticsearchDomainNodeToNodeEncryptionOptions where
     [ fmap (("Enabled",) . toJSON . fmap Bool') _elasticsearchDomainNodeToNodeEncryptionOptionsEnabled
     ]
 
-instance FromJSON ElasticsearchDomainNodeToNodeEncryptionOptions where
-  parseJSON (Object obj) =
-    ElasticsearchDomainNodeToNodeEncryptionOptions <$>
-      fmap (fmap (fmap unBool')) (obj .:? "Enabled")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ElasticsearchDomainNodeToNodeEncryptionOptions'
 -- containing required fields as arguments.
 elasticsearchDomainNodeToNodeEncryptionOptions

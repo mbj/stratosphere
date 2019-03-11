@@ -25,13 +25,6 @@ instance ToJSON AppSyncDataSourceHttpConfig where
     , (Just . ("Endpoint",) . toJSON) _appSyncDataSourceHttpConfigEndpoint
     ]
 
-instance FromJSON AppSyncDataSourceHttpConfig where
-  parseJSON (Object obj) =
-    AppSyncDataSourceHttpConfig <$>
-      (obj .:? "AuthorizationConfig") <*>
-      (obj .: "Endpoint")
-  parseJSON _ = mempty
-
 -- | Constructor for 'AppSyncDataSourceHttpConfig' containing required fields
 -- as arguments.
 appSyncDataSourceHttpConfig

@@ -25,13 +25,6 @@ instance ToJSON GlueTriggerPredicate where
     , fmap (("Logical",) . toJSON) _glueTriggerPredicateLogical
     ]
 
-instance FromJSON GlueTriggerPredicate where
-  parseJSON (Object obj) =
-    GlueTriggerPredicate <$>
-      (obj .:? "Conditions") <*>
-      (obj .:? "Logical")
-  parseJSON _ = mempty
-
 -- | Constructor for 'GlueTriggerPredicate' containing required fields as
 -- arguments.
 glueTriggerPredicate

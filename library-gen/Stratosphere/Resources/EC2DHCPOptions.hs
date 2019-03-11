@@ -33,17 +33,6 @@ instance ToJSON EC2DHCPOptions where
     , fmap (("Tags",) . toJSON) _eC2DHCPOptionsTags
     ]
 
-instance FromJSON EC2DHCPOptions where
-  parseJSON (Object obj) =
-    EC2DHCPOptions <$>
-      (obj .:? "DomainName") <*>
-      (obj .:? "DomainNameServers") <*>
-      (obj .:? "NetbiosNameServers") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "NetbiosNodeType") <*>
-      (obj .:? "NtpServers") <*>
-      (obj .:? "Tags")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2DHCPOptions' containing required fields as arguments.
 ec2DHCPOptions
   :: EC2DHCPOptions

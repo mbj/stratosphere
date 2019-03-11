@@ -29,15 +29,6 @@ instance ToJSON SESReceiptRuleS3Action where
     , fmap (("TopicArn",) . toJSON) _sESReceiptRuleS3ActionTopicArn
     ]
 
-instance FromJSON SESReceiptRuleS3Action where
-  parseJSON (Object obj) =
-    SESReceiptRuleS3Action <$>
-      (obj .: "BucketName") <*>
-      (obj .:? "KmsKeyArn") <*>
-      (obj .:? "ObjectKeyPrefix") <*>
-      (obj .:? "TopicArn")
-  parseJSON _ = mempty
-
 -- | Constructor for 'SESReceiptRuleS3Action' containing required fields as
 -- arguments.
 sesReceiptRuleS3Action

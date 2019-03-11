@@ -25,13 +25,6 @@ instance ToJSON WAFXssMatchSetFieldToMatch where
     , (Just . ("Type",) . toJSON) _wAFXssMatchSetFieldToMatchType
     ]
 
-instance FromJSON WAFXssMatchSetFieldToMatch where
-  parseJSON (Object obj) =
-    WAFXssMatchSetFieldToMatch <$>
-      (obj .:? "Data") <*>
-      (obj .: "Type")
-  parseJSON _ = mempty
-
 -- | Constructor for 'WAFXssMatchSetFieldToMatch' containing required fields
 -- as arguments.
 wafXssMatchSetFieldToMatch

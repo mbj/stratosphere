@@ -33,16 +33,6 @@ instance ToJSON ElasticLoadBalancingLoadBalancerHealthCheck where
     , (Just . ("UnhealthyThreshold",) . toJSON) _elasticLoadBalancingLoadBalancerHealthCheckUnhealthyThreshold
     ]
 
-instance FromJSON ElasticLoadBalancingLoadBalancerHealthCheck where
-  parseJSON (Object obj) =
-    ElasticLoadBalancingLoadBalancerHealthCheck <$>
-      (obj .: "HealthyThreshold") <*>
-      (obj .: "Interval") <*>
-      (obj .: "Target") <*>
-      (obj .: "Timeout") <*>
-      (obj .: "UnhealthyThreshold")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ElasticLoadBalancingLoadBalancerHealthCheck' containing
 -- required fields as arguments.
 elasticLoadBalancingLoadBalancerHealthCheck

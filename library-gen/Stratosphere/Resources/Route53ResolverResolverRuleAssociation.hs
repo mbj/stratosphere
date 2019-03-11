@@ -28,14 +28,6 @@ instance ToJSON Route53ResolverResolverRuleAssociation where
     , (Just . ("VPCId",) . toJSON) _route53ResolverResolverRuleAssociationVPCId
     ]
 
-instance FromJSON Route53ResolverResolverRuleAssociation where
-  parseJSON (Object obj) =
-    Route53ResolverResolverRuleAssociation <$>
-      (obj .:? "Name") <*>
-      (obj .: "ResolverRuleId") <*>
-      (obj .: "VPCId")
-  parseJSON _ = mempty
-
 -- | Constructor for 'Route53ResolverResolverRuleAssociation' containing
 -- required fields as arguments.
 route53ResolverResolverRuleAssociation

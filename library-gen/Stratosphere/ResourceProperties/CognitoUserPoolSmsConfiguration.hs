@@ -25,13 +25,6 @@ instance ToJSON CognitoUserPoolSmsConfiguration where
     , fmap (("SnsCallerArn",) . toJSON) _cognitoUserPoolSmsConfigurationSnsCallerArn
     ]
 
-instance FromJSON CognitoUserPoolSmsConfiguration where
-  parseJSON (Object obj) =
-    CognitoUserPoolSmsConfiguration <$>
-      (obj .:? "ExternalId") <*>
-      (obj .:? "SnsCallerArn")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CognitoUserPoolSmsConfiguration' containing required
 -- fields as arguments.
 cognitoUserPoolSmsConfiguration

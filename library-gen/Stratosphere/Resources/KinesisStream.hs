@@ -32,16 +32,6 @@ instance ToJSON KinesisStream where
     , fmap (("Tags",) . toJSON) _kinesisStreamTags
     ]
 
-instance FromJSON KinesisStream where
-  parseJSON (Object obj) =
-    KinesisStream <$>
-      (obj .:? "Name") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "RetentionPeriodHours") <*>
-      fmap (fmap unInteger') (obj .: "ShardCount") <*>
-      (obj .:? "StreamEncryption") <*>
-      (obj .:? "Tags")
-  parseJSON _ = mempty
-
 -- | Constructor for 'KinesisStream' containing required fields as arguments.
 kinesisStream
   :: Val Integer -- ^ 'ksShardCount'

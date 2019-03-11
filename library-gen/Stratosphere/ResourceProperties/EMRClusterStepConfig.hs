@@ -27,14 +27,6 @@ instance ToJSON EMRClusterStepConfig where
     , (Just . ("Name",) . toJSON) _eMRClusterStepConfigName
     ]
 
-instance FromJSON EMRClusterStepConfig where
-  parseJSON (Object obj) =
-    EMRClusterStepConfig <$>
-      (obj .:? "ActionOnFailure") <*>
-      (obj .: "HadoopJarStep") <*>
-      (obj .: "Name")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EMRClusterStepConfig' containing required fields as
 -- arguments.
 emrClusterStepConfig

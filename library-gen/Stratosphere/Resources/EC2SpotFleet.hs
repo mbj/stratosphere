@@ -23,12 +23,6 @@ instance ToJSON EC2SpotFleet where
     [ (Just . ("SpotFleetRequestConfigData",) . toJSON) _eC2SpotFleetSpotFleetRequestConfigData
     ]
 
-instance FromJSON EC2SpotFleet where
-  parseJSON (Object obj) =
-    EC2SpotFleet <$>
-      (obj .: "SpotFleetRequestConfigData")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2SpotFleet' containing required fields as arguments.
 ec2SpotFleet
   :: EC2SpotFleetSpotFleetRequestConfigData -- ^ 'ecsfSpotFleetRequestConfigData'

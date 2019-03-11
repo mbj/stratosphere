@@ -27,13 +27,6 @@ instance ToJSON KinesisAnalyticsApplicationOutputKinesisStreamsOutput where
     , (Just . ("RoleARN",) . toJSON) _kinesisAnalyticsApplicationOutputKinesisStreamsOutputRoleARN
     ]
 
-instance FromJSON KinesisAnalyticsApplicationOutputKinesisStreamsOutput where
-  parseJSON (Object obj) =
-    KinesisAnalyticsApplicationOutputKinesisStreamsOutput <$>
-      (obj .: "ResourceARN") <*>
-      (obj .: "RoleARN")
-  parseJSON _ = mempty
-
 -- | Constructor for 'KinesisAnalyticsApplicationOutputKinesisStreamsOutput'
 -- containing required fields as arguments.
 kinesisAnalyticsApplicationOutputKinesisStreamsOutput

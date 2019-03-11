@@ -27,13 +27,6 @@ instance ToJSON KinesisAnalyticsV2ApplicationReferenceDataSource where
     , (Just . ("ReferenceDataSource",) . toJSON) _kinesisAnalyticsV2ApplicationReferenceDataSourceReferenceDataSource
     ]
 
-instance FromJSON KinesisAnalyticsV2ApplicationReferenceDataSource where
-  parseJSON (Object obj) =
-    KinesisAnalyticsV2ApplicationReferenceDataSource <$>
-      (obj .: "ApplicationName") <*>
-      (obj .: "ReferenceDataSource")
-  parseJSON _ = mempty
-
 -- | Constructor for 'KinesisAnalyticsV2ApplicationReferenceDataSource'
 -- containing required fields as arguments.
 kinesisAnalyticsV2ApplicationReferenceDataSource

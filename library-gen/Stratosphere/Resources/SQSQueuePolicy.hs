@@ -25,13 +25,6 @@ instance ToJSON SQSQueuePolicy where
     , (Just . ("Queues",) . toJSON) _sQSQueuePolicyQueues
     ]
 
-instance FromJSON SQSQueuePolicy where
-  parseJSON (Object obj) =
-    SQSQueuePolicy <$>
-      (obj .: "PolicyDocument") <*>
-      (obj .: "Queues")
-  parseJSON _ = mempty
-
 -- | Constructor for 'SQSQueuePolicy' containing required fields as arguments.
 sqsQueuePolicy
   :: Object -- ^ 'sqsqpPolicyDocument'

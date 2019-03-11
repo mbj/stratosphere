@@ -29,14 +29,6 @@ instance ToJSON SESConfigurationSetEventDestinationDimensionConfiguration where
     , (Just . ("DimensionValueSource",) . toJSON) _sESConfigurationSetEventDestinationDimensionConfigurationDimensionValueSource
     ]
 
-instance FromJSON SESConfigurationSetEventDestinationDimensionConfiguration where
-  parseJSON (Object obj) =
-    SESConfigurationSetEventDestinationDimensionConfiguration <$>
-      (obj .: "DefaultDimensionValue") <*>
-      (obj .: "DimensionName") <*>
-      (obj .: "DimensionValueSource")
-  parseJSON _ = mempty
-
 -- | Constructor for
 -- 'SESConfigurationSetEventDestinationDimensionConfiguration' containing
 -- required fields as arguments.

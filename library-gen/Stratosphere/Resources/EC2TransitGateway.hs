@@ -37,19 +37,6 @@ instance ToJSON EC2TransitGateway where
     , fmap (("VpnEcmpSupport",) . toJSON) _eC2TransitGatewayVpnEcmpSupport
     ]
 
-instance FromJSON EC2TransitGateway where
-  parseJSON (Object obj) =
-    EC2TransitGateway <$>
-      fmap (fmap (fmap unInteger')) (obj .:? "AmazonSideAsn") <*>
-      (obj .:? "AutoAcceptSharedAttachments") <*>
-      (obj .:? "DefaultRouteTableAssociation") <*>
-      (obj .:? "DefaultRouteTablePropagation") <*>
-      (obj .:? "Description") <*>
-      (obj .:? "DnsSupport") <*>
-      (obj .:? "Tags") <*>
-      (obj .:? "VpnEcmpSupport")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2TransitGateway' containing required fields as
 -- arguments.
 ec2TransitGateway

@@ -38,19 +38,6 @@ instance ToJSON CodeBuildProjectEnvironment where
     , (Just . ("Type",) . toJSON) _codeBuildProjectEnvironmentType
     ]
 
-instance FromJSON CodeBuildProjectEnvironment where
-  parseJSON (Object obj) =
-    CodeBuildProjectEnvironment <$>
-      (obj .:? "Certificate") <*>
-      (obj .: "ComputeType") <*>
-      (obj .:? "EnvironmentVariables") <*>
-      (obj .: "Image") <*>
-      (obj .:? "ImagePullCredentialsType") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "PrivilegedMode") <*>
-      (obj .:? "RegistryCredential") <*>
-      (obj .: "Type")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CodeBuildProjectEnvironment' containing required fields
 -- as arguments.
 codeBuildProjectEnvironment

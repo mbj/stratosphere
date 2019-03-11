@@ -23,12 +23,6 @@ instance ToJSON S3BucketNotificationFilter where
     [ (Just . ("S3Key",) . toJSON) _s3BucketNotificationFilterS3Key
     ]
 
-instance FromJSON S3BucketNotificationFilter where
-  parseJSON (Object obj) =
-    S3BucketNotificationFilter <$>
-      (obj .: "S3Key")
-  parseJSON _ = mempty
-
 -- | Constructor for 'S3BucketNotificationFilter' containing required fields
 -- as arguments.
 s3BucketNotificationFilter

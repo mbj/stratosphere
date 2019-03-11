@@ -29,14 +29,6 @@ instance ToJSON ElasticLoadBalancingV2TargetGroupTargetDescription where
     , fmap (("Port",) . toJSON . fmap Integer') _elasticLoadBalancingV2TargetGroupTargetDescriptionPort
     ]
 
-instance FromJSON ElasticLoadBalancingV2TargetGroupTargetDescription where
-  parseJSON (Object obj) =
-    ElasticLoadBalancingV2TargetGroupTargetDescription <$>
-      (obj .:? "AvailabilityZone") <*>
-      (obj .: "Id") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "Port")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ElasticLoadBalancingV2TargetGroupTargetDescription'
 -- containing required fields as arguments.
 elasticLoadBalancingV2TargetGroupTargetDescription

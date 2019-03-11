@@ -26,13 +26,6 @@ instance ToJSON CodeDeployDeploymentGroupGitHubLocation where
     , (Just . ("Repository",) . toJSON) _codeDeployDeploymentGroupGitHubLocationRepository
     ]
 
-instance FromJSON CodeDeployDeploymentGroupGitHubLocation where
-  parseJSON (Object obj) =
-    CodeDeployDeploymentGroupGitHubLocation <$>
-      (obj .: "CommitId") <*>
-      (obj .: "Repository")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CodeDeployDeploymentGroupGitHubLocation' containing
 -- required fields as arguments.
 codeDeployDeploymentGroupGitHubLocation

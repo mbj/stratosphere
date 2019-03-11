@@ -27,14 +27,6 @@ instance ToJSON AppStreamStackStorageConnector where
     , fmap (("ResourceIdentifier",) . toJSON) _appStreamStackStorageConnectorResourceIdentifier
     ]
 
-instance FromJSON AppStreamStackStorageConnector where
-  parseJSON (Object obj) =
-    AppStreamStackStorageConnector <$>
-      (obj .: "ConnectorType") <*>
-      (obj .:? "Domains") <*>
-      (obj .:? "ResourceIdentifier")
-  parseJSON _ = mempty
-
 -- | Constructor for 'AppStreamStackStorageConnector' containing required
 -- fields as arguments.
 appStreamStackStorageConnector

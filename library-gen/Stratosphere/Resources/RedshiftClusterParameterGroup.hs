@@ -30,15 +30,6 @@ instance ToJSON RedshiftClusterParameterGroup where
     , fmap (("Tags",) . toJSON) _redshiftClusterParameterGroupTags
     ]
 
-instance FromJSON RedshiftClusterParameterGroup where
-  parseJSON (Object obj) =
-    RedshiftClusterParameterGroup <$>
-      (obj .: "Description") <*>
-      (obj .: "ParameterGroupFamily") <*>
-      (obj .:? "Parameters") <*>
-      (obj .:? "Tags")
-  parseJSON _ = mempty
-
 -- | Constructor for 'RedshiftClusterParameterGroup' containing required
 -- fields as arguments.
 redshiftClusterParameterGroup

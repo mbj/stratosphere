@@ -26,13 +26,6 @@ instance ToJSON EMRInstanceGroupConfigEbsConfiguration where
     , fmap (("EbsOptimized",) . toJSON . fmap Bool') _eMRInstanceGroupConfigEbsConfigurationEbsOptimized
     ]
 
-instance FromJSON EMRInstanceGroupConfigEbsConfiguration where
-  parseJSON (Object obj) =
-    EMRInstanceGroupConfigEbsConfiguration <$>
-      (obj .:? "EbsBlockDeviceConfigs") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "EbsOptimized")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EMRInstanceGroupConfigEbsConfiguration' containing
 -- required fields as arguments.
 emrInstanceGroupConfigEbsConfiguration

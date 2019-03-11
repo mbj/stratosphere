@@ -35,18 +35,6 @@ instance ToJSON S3BucketInventoryConfiguration where
     , (Just . ("ScheduleFrequency",) . toJSON) _s3BucketInventoryConfigurationScheduleFrequency
     ]
 
-instance FromJSON S3BucketInventoryConfiguration where
-  parseJSON (Object obj) =
-    S3BucketInventoryConfiguration <$>
-      (obj .: "Destination") <*>
-      fmap (fmap unBool') (obj .: "Enabled") <*>
-      (obj .: "Id") <*>
-      (obj .: "IncludedObjectVersions") <*>
-      (obj .:? "OptionalFields") <*>
-      (obj .:? "Prefix") <*>
-      (obj .: "ScheduleFrequency")
-  parseJSON _ = mempty
-
 -- | Constructor for 'S3BucketInventoryConfiguration' containing required
 -- fields as arguments.
 s3BucketInventoryConfiguration

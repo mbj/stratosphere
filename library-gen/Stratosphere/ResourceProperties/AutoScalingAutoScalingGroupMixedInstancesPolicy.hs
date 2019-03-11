@@ -28,13 +28,6 @@ instance ToJSON AutoScalingAutoScalingGroupMixedInstancesPolicy where
     , (Just . ("LaunchTemplate",) . toJSON) _autoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplate
     ]
 
-instance FromJSON AutoScalingAutoScalingGroupMixedInstancesPolicy where
-  parseJSON (Object obj) =
-    AutoScalingAutoScalingGroupMixedInstancesPolicy <$>
-      (obj .:? "InstancesDistribution") <*>
-      (obj .: "LaunchTemplate")
-  parseJSON _ = mempty
-
 -- | Constructor for 'AutoScalingAutoScalingGroupMixedInstancesPolicy'
 -- containing required fields as arguments.
 autoScalingAutoScalingGroupMixedInstancesPolicy

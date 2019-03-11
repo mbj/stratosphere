@@ -23,12 +23,6 @@ instance ToJSON S3BucketVersioningConfiguration where
     [ (Just . ("Status",) . toJSON) _s3BucketVersioningConfigurationStatus
     ]
 
-instance FromJSON S3BucketVersioningConfiguration where
-  parseJSON (Object obj) =
-    S3BucketVersioningConfiguration <$>
-      (obj .: "Status")
-  parseJSON _ = mempty
-
 -- | Constructor for 'S3BucketVersioningConfiguration' containing required
 -- fields as arguments.
 s3BucketVersioningConfiguration

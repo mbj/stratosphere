@@ -29,15 +29,6 @@ instance ToJSON IoT1ClickPlacement where
     , (Just . ("ProjectName",) . toJSON) _ioT1ClickPlacementProjectName
     ]
 
-instance FromJSON IoT1ClickPlacement where
-  parseJSON (Object obj) =
-    IoT1ClickPlacement <$>
-      (obj .:? "AssociatedDevices") <*>
-      (obj .:? "Attributes") <*>
-      (obj .:? "PlacementName") <*>
-      (obj .: "ProjectName")
-  parseJSON _ = mempty
-
 -- | Constructor for 'IoT1ClickPlacement' containing required fields as
 -- arguments.
 ioT1ClickPlacement

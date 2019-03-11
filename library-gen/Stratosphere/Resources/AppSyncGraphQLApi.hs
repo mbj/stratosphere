@@ -33,16 +33,6 @@ instance ToJSON AppSyncGraphQLApi where
     , fmap (("UserPoolConfig",) . toJSON) _appSyncGraphQLApiUserPoolConfig
     ]
 
-instance FromJSON AppSyncGraphQLApi where
-  parseJSON (Object obj) =
-    AppSyncGraphQLApi <$>
-      (obj .: "AuthenticationType") <*>
-      (obj .:? "LogConfig") <*>
-      (obj .: "Name") <*>
-      (obj .:? "OpenIDConnectConfig") <*>
-      (obj .:? "UserPoolConfig")
-  parseJSON _ = mempty
-
 -- | Constructor for 'AppSyncGraphQLApi' containing required fields as
 -- arguments.
 appSyncGraphQLApi

@@ -57,29 +57,6 @@ instance ToJSON AutoScalingLaunchConfiguration where
     , fmap (("UserData",) . toJSON) _autoScalingLaunchConfigurationUserData
     ]
 
-instance FromJSON AutoScalingLaunchConfiguration where
-  parseJSON (Object obj) =
-    AutoScalingLaunchConfiguration <$>
-      fmap (fmap (fmap unBool')) (obj .:? "AssociatePublicIpAddress") <*>
-      (obj .:? "BlockDeviceMappings") <*>
-      (obj .:? "ClassicLinkVPCId") <*>
-      (obj .:? "ClassicLinkVPCSecurityGroups") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "EbsOptimized") <*>
-      (obj .:? "IamInstanceProfile") <*>
-      (obj .: "ImageId") <*>
-      (obj .:? "InstanceId") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "InstanceMonitoring") <*>
-      (obj .: "InstanceType") <*>
-      (obj .:? "KernelId") <*>
-      (obj .:? "KeyName") <*>
-      (obj .:? "LaunchConfigurationName") <*>
-      (obj .:? "PlacementTenancy") <*>
-      (obj .:? "RamDiskId") <*>
-      (obj .:? "SecurityGroups") <*>
-      (obj .:? "SpotPrice") <*>
-      (obj .:? "UserData")
-  parseJSON _ = mempty
-
 -- | Constructor for 'AutoScalingLaunchConfiguration' containing required
 -- fields as arguments.
 autoScalingLaunchConfiguration

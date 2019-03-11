@@ -54,23 +54,6 @@ instance ToJSON DynamoDBTable where
     , fmap (("TimeToLiveSpecification",) . toJSON) _dynamoDBTableTimeToLiveSpecification
     ]
 
-instance FromJSON DynamoDBTable where
-  parseJSON (Object obj) =
-    DynamoDBTable <$>
-      (obj .:? "AttributeDefinitions") <*>
-      (obj .:? "BillingMode") <*>
-      (obj .:? "GlobalSecondaryIndexes") <*>
-      (obj .: "KeySchema") <*>
-      (obj .:? "LocalSecondaryIndexes") <*>
-      (obj .:? "PointInTimeRecoverySpecification") <*>
-      (obj .:? "ProvisionedThroughput") <*>
-      (obj .:? "SSESpecification") <*>
-      (obj .:? "StreamSpecification") <*>
-      (obj .:? "TableName") <*>
-      (obj .:? "Tags") <*>
-      (obj .:? "TimeToLiveSpecification")
-  parseJSON _ = mempty
-
 -- | Constructor for 'DynamoDBTable' containing required fields as arguments.
 dynamoDBTable
   :: [DynamoDBTableKeySchema] -- ^ 'ddbtKeySchema'

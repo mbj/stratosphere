@@ -53,25 +53,6 @@ instance ToJSON AutoScalingPlansScalingPlanScalingInstruction where
     , (Just . ("TargetTrackingConfigurations",) . toJSON) _autoScalingPlansScalingPlanScalingInstructionTargetTrackingConfigurations
     ]
 
-instance FromJSON AutoScalingPlansScalingPlanScalingInstruction where
-  parseJSON (Object obj) =
-    AutoScalingPlansScalingPlanScalingInstruction <$>
-      (obj .:? "CustomizedLoadMetricSpecification") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "DisableDynamicScaling") <*>
-      fmap (fmap unInteger') (obj .: "MaxCapacity") <*>
-      fmap (fmap unInteger') (obj .: "MinCapacity") <*>
-      (obj .:? "PredefinedLoadMetricSpecification") <*>
-      (obj .:? "PredictiveScalingMaxCapacityBehavior") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "PredictiveScalingMaxCapacityBuffer") <*>
-      (obj .:? "PredictiveScalingMode") <*>
-      (obj .: "ResourceId") <*>
-      (obj .: "ScalableDimension") <*>
-      (obj .:? "ScalingPolicyUpdateBehavior") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "ScheduledActionBufferTime") <*>
-      (obj .: "ServiceNamespace") <*>
-      (obj .: "TargetTrackingConfigurations")
-  parseJSON _ = mempty
-
 -- | Constructor for 'AutoScalingPlansScalingPlanScalingInstruction'
 -- containing required fields as arguments.
 autoScalingPlansScalingPlanScalingInstruction

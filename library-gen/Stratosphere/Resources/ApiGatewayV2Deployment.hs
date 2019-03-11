@@ -27,14 +27,6 @@ instance ToJSON ApiGatewayV2Deployment where
     , fmap (("StageName",) . toJSON) _apiGatewayV2DeploymentStageName
     ]
 
-instance FromJSON ApiGatewayV2Deployment where
-  parseJSON (Object obj) =
-    ApiGatewayV2Deployment <$>
-      (obj .: "ApiId") <*>
-      (obj .:? "Description") <*>
-      (obj .:? "StageName")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ApiGatewayV2Deployment' containing required fields as
 -- arguments.
 apiGatewayV2Deployment

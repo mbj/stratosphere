@@ -27,14 +27,6 @@ instance ToJSON EC2SpotFleetSpotPlacement where
     , fmap (("Tenancy",) . toJSON) _eC2SpotFleetSpotPlacementTenancy
     ]
 
-instance FromJSON EC2SpotFleetSpotPlacement where
-  parseJSON (Object obj) =
-    EC2SpotFleetSpotPlacement <$>
-      (obj .:? "AvailabilityZone") <*>
-      (obj .:? "GroupName") <*>
-      (obj .:? "Tenancy")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2SpotFleetSpotPlacement' containing required fields as
 -- arguments.
 ec2SpotFleetSpotPlacement

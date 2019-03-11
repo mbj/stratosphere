@@ -23,12 +23,6 @@ instance ToJSON WAFRegionalWebACLAction where
     [ (Just . ("Type",) . toJSON) _wAFRegionalWebACLActionType
     ]
 
-instance FromJSON WAFRegionalWebACLAction where
-  parseJSON (Object obj) =
-    WAFRegionalWebACLAction <$>
-      (obj .: "Type")
-  parseJSON _ = mempty
-
 -- | Constructor for 'WAFRegionalWebACLAction' containing required fields as
 -- arguments.
 wafRegionalWebACLAction

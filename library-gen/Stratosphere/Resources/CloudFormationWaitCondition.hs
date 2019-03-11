@@ -27,14 +27,6 @@ instance ToJSON CloudFormationWaitCondition where
     , fmap (("Timeout",) . toJSON) _cloudFormationWaitConditionTimeout
     ]
 
-instance FromJSON CloudFormationWaitCondition where
-  parseJSON (Object obj) =
-    CloudFormationWaitCondition <$>
-      fmap (fmap (fmap unInteger')) (obj .:? "Count") <*>
-      (obj .:? "Handle") <*>
-      (obj .:? "Timeout")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CloudFormationWaitCondition' containing required fields
 -- as arguments.
 cloudFormationWaitCondition

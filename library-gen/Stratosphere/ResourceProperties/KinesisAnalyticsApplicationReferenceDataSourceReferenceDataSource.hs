@@ -30,14 +30,6 @@ instance ToJSON KinesisAnalyticsApplicationReferenceDataSourceReferenceDataSourc
     , fmap (("TableName",) . toJSON) _kinesisAnalyticsApplicationReferenceDataSourceReferenceDataSourceTableName
     ]
 
-instance FromJSON KinesisAnalyticsApplicationReferenceDataSourceReferenceDataSource where
-  parseJSON (Object obj) =
-    KinesisAnalyticsApplicationReferenceDataSourceReferenceDataSource <$>
-      (obj .: "ReferenceSchema") <*>
-      (obj .:? "S3ReferenceDataSource") <*>
-      (obj .:? "TableName")
-  parseJSON _ = mempty
-
 -- | Constructor for
 -- 'KinesisAnalyticsApplicationReferenceDataSourceReferenceDataSource'
 -- containing required fields as arguments.

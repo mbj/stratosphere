@@ -34,17 +34,6 @@ instance ToJSON AutoScalingLaunchConfigurationBlockDevice where
     , fmap (("VolumeType",) . toJSON) _autoScalingLaunchConfigurationBlockDeviceVolumeType
     ]
 
-instance FromJSON AutoScalingLaunchConfigurationBlockDevice where
-  parseJSON (Object obj) =
-    AutoScalingLaunchConfigurationBlockDevice <$>
-      fmap (fmap (fmap unBool')) (obj .:? "DeleteOnTermination") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "Encrypted") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "Iops") <*>
-      (obj .:? "SnapshotId") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "VolumeSize") <*>
-      (obj .:? "VolumeType")
-  parseJSON _ = mempty
-
 -- | Constructor for 'AutoScalingLaunchConfigurationBlockDevice' containing
 -- required fields as arguments.
 autoScalingLaunchConfigurationBlockDevice

@@ -24,12 +24,6 @@ instance ToJSON EC2SpotFleetClassicLoadBalancersConfig where
     [ (Just . ("ClassicLoadBalancers",) . toJSON) _eC2SpotFleetClassicLoadBalancersConfigClassicLoadBalancers
     ]
 
-instance FromJSON EC2SpotFleetClassicLoadBalancersConfig where
-  parseJSON (Object obj) =
-    EC2SpotFleetClassicLoadBalancersConfig <$>
-      (obj .: "ClassicLoadBalancers")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2SpotFleetClassicLoadBalancersConfig' containing
 -- required fields as arguments.
 ec2SpotFleetClassicLoadBalancersConfig

@@ -29,15 +29,6 @@ instance ToJSON Route53RecordSetGroup where
     , fmap (("RecordSets",) . toJSON) _route53RecordSetGroupRecordSets
     ]
 
-instance FromJSON Route53RecordSetGroup where
-  parseJSON (Object obj) =
-    Route53RecordSetGroup <$>
-      (obj .:? "Comment") <*>
-      (obj .:? "HostedZoneId") <*>
-      (obj .:? "HostedZoneName") <*>
-      (obj .:? "RecordSets")
-  parseJSON _ = mempty
-
 -- | Constructor for 'Route53RecordSetGroup' containing required fields as
 -- arguments.
 route53RecordSetGroup

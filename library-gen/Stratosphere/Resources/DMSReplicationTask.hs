@@ -39,20 +39,6 @@ instance ToJSON DMSReplicationTask where
     , (Just . ("TargetEndpointArn",) . toJSON) _dMSReplicationTaskTargetEndpointArn
     ]
 
-instance FromJSON DMSReplicationTask where
-  parseJSON (Object obj) =
-    DMSReplicationTask <$>
-      fmap (fmap (fmap unDouble')) (obj .:? "CdcStartTime") <*>
-      (obj .: "MigrationType") <*>
-      (obj .: "ReplicationInstanceArn") <*>
-      (obj .:? "ReplicationTaskIdentifier") <*>
-      (obj .:? "ReplicationTaskSettings") <*>
-      (obj .: "SourceEndpointArn") <*>
-      (obj .: "TableMappings") <*>
-      (obj .:? "Tags") <*>
-      (obj .: "TargetEndpointArn")
-  parseJSON _ = mempty
-
 -- | Constructor for 'DMSReplicationTask' containing required fields as
 -- arguments.
 dmsReplicationTask

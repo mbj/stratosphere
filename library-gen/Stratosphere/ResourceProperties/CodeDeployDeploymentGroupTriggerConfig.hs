@@ -28,14 +28,6 @@ instance ToJSON CodeDeployDeploymentGroupTriggerConfig where
     , fmap (("TriggerTargetArn",) . toJSON) _codeDeployDeploymentGroupTriggerConfigTriggerTargetArn
     ]
 
-instance FromJSON CodeDeployDeploymentGroupTriggerConfig where
-  parseJSON (Object obj) =
-    CodeDeployDeploymentGroupTriggerConfig <$>
-      (obj .:? "TriggerEvents") <*>
-      (obj .:? "TriggerName") <*>
-      (obj .:? "TriggerTargetArn")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CodeDeployDeploymentGroupTriggerConfig' containing
 -- required fields as arguments.
 codeDeployDeploymentGroupTriggerConfig

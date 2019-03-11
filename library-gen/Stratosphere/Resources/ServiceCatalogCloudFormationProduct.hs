@@ -42,21 +42,6 @@ instance ToJSON ServiceCatalogCloudFormationProduct where
     , fmap (("Tags",) . toJSON) _serviceCatalogCloudFormationProductTags
     ]
 
-instance FromJSON ServiceCatalogCloudFormationProduct where
-  parseJSON (Object obj) =
-    ServiceCatalogCloudFormationProduct <$>
-      (obj .:? "AcceptLanguage") <*>
-      (obj .:? "Description") <*>
-      (obj .:? "Distributor") <*>
-      (obj .: "Name") <*>
-      (obj .: "Owner") <*>
-      (obj .: "ProvisioningArtifactParameters") <*>
-      (obj .:? "SupportDescription") <*>
-      (obj .:? "SupportEmail") <*>
-      (obj .:? "SupportUrl") <*>
-      (obj .:? "Tags")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ServiceCatalogCloudFormationProduct' containing required
 -- fields as arguments.
 serviceCatalogCloudFormationProduct

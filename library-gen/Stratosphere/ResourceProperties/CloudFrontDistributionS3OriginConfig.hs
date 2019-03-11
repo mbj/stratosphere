@@ -23,12 +23,6 @@ instance ToJSON CloudFrontDistributionS3OriginConfig where
     [ fmap (("OriginAccessIdentity",) . toJSON) _cloudFrontDistributionS3OriginConfigOriginAccessIdentity
     ]
 
-instance FromJSON CloudFrontDistributionS3OriginConfig where
-  parseJSON (Object obj) =
-    CloudFrontDistributionS3OriginConfig <$>
-      (obj .:? "OriginAccessIdentity")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CloudFrontDistributionS3OriginConfig' containing
 -- required fields as arguments.
 cloudFrontDistributionS3OriginConfig

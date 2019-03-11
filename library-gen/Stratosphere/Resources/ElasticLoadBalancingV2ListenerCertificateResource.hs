@@ -27,13 +27,6 @@ instance ToJSON ElasticLoadBalancingV2ListenerCertificateResource where
     , (Just . ("ListenerArn",) . toJSON) _elasticLoadBalancingV2ListenerCertificateResourceListenerArn
     ]
 
-instance FromJSON ElasticLoadBalancingV2ListenerCertificateResource where
-  parseJSON (Object obj) =
-    ElasticLoadBalancingV2ListenerCertificateResource <$>
-      (obj .: "Certificates") <*>
-      (obj .: "ListenerArn")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ElasticLoadBalancingV2ListenerCertificateResource'
 -- containing required fields as arguments.
 elasticLoadBalancingV2ListenerCertificateResource

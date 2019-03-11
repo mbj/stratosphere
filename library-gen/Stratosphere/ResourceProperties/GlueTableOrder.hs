@@ -25,13 +25,6 @@ instance ToJSON GlueTableOrder where
     , (Just . ("SortOrder",) . toJSON . fmap Integer') _glueTableOrderSortOrder
     ]
 
-instance FromJSON GlueTableOrder where
-  parseJSON (Object obj) =
-    GlueTableOrder <$>
-      (obj .: "Column") <*>
-      fmap (fmap unInteger') (obj .: "SortOrder")
-  parseJSON _ = mempty
-
 -- | Constructor for 'GlueTableOrder' containing required fields as arguments.
 glueTableOrder
   :: Val Text -- ^ 'gtoColumn'

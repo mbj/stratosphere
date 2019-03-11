@@ -27,13 +27,6 @@ instance ToJSON KinesisAnalyticsApplicationReferenceDataSourceCSVMappingParamete
     , (Just . ("RecordRowDelimiter",) . toJSON) _kinesisAnalyticsApplicationReferenceDataSourceCSVMappingParametersRecordRowDelimiter
     ]
 
-instance FromJSON KinesisAnalyticsApplicationReferenceDataSourceCSVMappingParameters where
-  parseJSON (Object obj) =
-    KinesisAnalyticsApplicationReferenceDataSourceCSVMappingParameters <$>
-      (obj .: "RecordColumnDelimiter") <*>
-      (obj .: "RecordRowDelimiter")
-  parseJSON _ = mempty
-
 -- | Constructor for
 -- 'KinesisAnalyticsApplicationReferenceDataSourceCSVMappingParameters'
 -- containing required fields as arguments.

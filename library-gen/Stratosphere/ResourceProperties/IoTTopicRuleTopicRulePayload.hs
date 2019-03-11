@@ -33,17 +33,6 @@ instance ToJSON IoTTopicRuleTopicRulePayload where
     , (Just . ("Sql",) . toJSON) _ioTTopicRuleTopicRulePayloadSql
     ]
 
-instance FromJSON IoTTopicRuleTopicRulePayload where
-  parseJSON (Object obj) =
-    IoTTopicRuleTopicRulePayload <$>
-      (obj .: "Actions") <*>
-      (obj .:? "AwsIotSqlVersion") <*>
-      (obj .:? "Description") <*>
-      (obj .:? "ErrorAction") <*>
-      fmap (fmap unBool') (obj .: "RuleDisabled") <*>
-      (obj .: "Sql")
-  parseJSON _ = mempty
-
 -- | Constructor for 'IoTTopicRuleTopicRulePayload' containing required fields
 -- as arguments.
 ioTTopicRuleTopicRulePayload

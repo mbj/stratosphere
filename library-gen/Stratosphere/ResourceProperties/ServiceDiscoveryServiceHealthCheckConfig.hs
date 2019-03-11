@@ -28,14 +28,6 @@ instance ToJSON ServiceDiscoveryServiceHealthCheckConfig where
     , (Just . ("Type",) . toJSON) _serviceDiscoveryServiceHealthCheckConfigType
     ]
 
-instance FromJSON ServiceDiscoveryServiceHealthCheckConfig where
-  parseJSON (Object obj) =
-    ServiceDiscoveryServiceHealthCheckConfig <$>
-      fmap (fmap (fmap unDouble')) (obj .:? "FailureThreshold") <*>
-      (obj .:? "ResourcePath") <*>
-      (obj .: "Type")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ServiceDiscoveryServiceHealthCheckConfig' containing
 -- required fields as arguments.
 serviceDiscoveryServiceHealthCheckConfig

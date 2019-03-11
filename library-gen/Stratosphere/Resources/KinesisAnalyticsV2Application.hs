@@ -31,16 +31,6 @@ instance ToJSON KinesisAnalyticsV2Application where
     , (Just . ("ServiceExecutionRole",) . toJSON) _kinesisAnalyticsV2ApplicationServiceExecutionRole
     ]
 
-instance FromJSON KinesisAnalyticsV2Application where
-  parseJSON (Object obj) =
-    KinesisAnalyticsV2Application <$>
-      (obj .:? "ApplicationConfiguration") <*>
-      (obj .:? "ApplicationDescription") <*>
-      (obj .:? "ApplicationName") <*>
-      (obj .: "RuntimeEnvironment") <*>
-      (obj .: "ServiceExecutionRole")
-  parseJSON _ = mempty
-
 -- | Constructor for 'KinesisAnalyticsV2Application' containing required
 -- fields as arguments.
 kinesisAnalyticsV2Application

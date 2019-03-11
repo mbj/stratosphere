@@ -31,16 +31,6 @@ instance ToJSON OpsWorksInstanceEbsBlockDevice where
     , fmap (("VolumeType",) . toJSON) _opsWorksInstanceEbsBlockDeviceVolumeType
     ]
 
-instance FromJSON OpsWorksInstanceEbsBlockDevice where
-  parseJSON (Object obj) =
-    OpsWorksInstanceEbsBlockDevice <$>
-      fmap (fmap (fmap unBool')) (obj .:? "DeleteOnTermination") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "Iops") <*>
-      (obj .:? "SnapshotId") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "VolumeSize") <*>
-      (obj .:? "VolumeType")
-  parseJSON _ = mempty
-
 -- | Constructor for 'OpsWorksInstanceEbsBlockDevice' containing required
 -- fields as arguments.
 opsWorksInstanceEbsBlockDevice

@@ -25,13 +25,6 @@ instance ToJSON CodeBuildProjectS3LogsConfig where
     , (Just . ("Status",) . toJSON) _codeBuildProjectS3LogsConfigStatus
     ]
 
-instance FromJSON CodeBuildProjectS3LogsConfig where
-  parseJSON (Object obj) =
-    CodeBuildProjectS3LogsConfig <$>
-      (obj .:? "Location") <*>
-      (obj .: "Status")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CodeBuildProjectS3LogsConfig' containing required fields
 -- as arguments.
 codeBuildProjectS3LogsConfig

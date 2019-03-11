@@ -29,15 +29,6 @@ instance ToJSON EC2TrunkInterfaceAssociation where
     , fmap (("VLANId",) . toJSON . fmap Integer') _eC2TrunkInterfaceAssociationVLANId
     ]
 
-instance FromJSON EC2TrunkInterfaceAssociation where
-  parseJSON (Object obj) =
-    EC2TrunkInterfaceAssociation <$>
-      (obj .: "BranchInterfaceId") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "GREKey") <*>
-      (obj .: "TrunkInterfaceId") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "VLANId")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2TrunkInterfaceAssociation' containing required fields
 -- as arguments.
 ec2TrunkInterfaceAssociation

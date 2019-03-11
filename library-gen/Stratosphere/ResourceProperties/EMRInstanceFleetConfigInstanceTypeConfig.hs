@@ -35,17 +35,6 @@ instance ToJSON EMRInstanceFleetConfigInstanceTypeConfig where
     , fmap (("WeightedCapacity",) . toJSON . fmap Integer') _eMRInstanceFleetConfigInstanceTypeConfigWeightedCapacity
     ]
 
-instance FromJSON EMRInstanceFleetConfigInstanceTypeConfig where
-  parseJSON (Object obj) =
-    EMRInstanceFleetConfigInstanceTypeConfig <$>
-      (obj .:? "BidPrice") <*>
-      fmap (fmap (fmap unDouble')) (obj .:? "BidPriceAsPercentageOfOnDemandPrice") <*>
-      (obj .:? "Configurations") <*>
-      (obj .:? "EbsConfiguration") <*>
-      (obj .: "InstanceType") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "WeightedCapacity")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EMRInstanceFleetConfigInstanceTypeConfig' containing
 -- required fields as arguments.
 emrInstanceFleetConfigInstanceTypeConfig

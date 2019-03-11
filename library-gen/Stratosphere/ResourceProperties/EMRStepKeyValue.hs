@@ -25,13 +25,6 @@ instance ToJSON EMRStepKeyValue where
     , fmap (("Value",) . toJSON) _eMRStepKeyValueValue
     ]
 
-instance FromJSON EMRStepKeyValue where
-  parseJSON (Object obj) =
-    EMRStepKeyValue <$>
-      (obj .:? "Key") <*>
-      (obj .:? "Value")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EMRStepKeyValue' containing required fields as
 -- arguments.
 emrStepKeyValue

@@ -56,26 +56,6 @@ instance ToJSON ECSService where
     , (Just . ("TaskDefinition",) . toJSON) _eCSServiceTaskDefinition
     ]
 
-instance FromJSON ECSService where
-  parseJSON (Object obj) =
-    ECSService <$>
-      (obj .:? "Cluster") <*>
-      (obj .:? "DeploymentConfiguration") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "DesiredCount") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "HealthCheckGracePeriodSeconds") <*>
-      (obj .:? "LaunchType") <*>
-      (obj .:? "LoadBalancers") <*>
-      (obj .:? "NetworkConfiguration") <*>
-      (obj .:? "PlacementConstraints") <*>
-      (obj .:? "PlacementStrategies") <*>
-      (obj .:? "PlatformVersion") <*>
-      (obj .:? "Role") <*>
-      (obj .:? "SchedulingStrategy") <*>
-      (obj .:? "ServiceName") <*>
-      (obj .:? "ServiceRegistries") <*>
-      (obj .: "TaskDefinition")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ECSService' containing required fields as arguments.
 ecsService
   :: Val Text -- ^ 'ecssTaskDefinition'

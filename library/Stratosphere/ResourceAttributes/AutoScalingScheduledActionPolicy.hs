@@ -37,12 +37,6 @@ instance ToJSON AutoScalingScheduledActionPolicy where
     [ fmap (("IgnoreUnmodifiedGroupSizeProperties",) . toJSON . fmap Bool') _autoScalingScheduledActionPolicyIgnoreUnmodifiedGroupSizeProperties
     ]
 
-instance FromJSON AutoScalingScheduledActionPolicy where
-  parseJSON (Object obj) =
-    AutoScalingScheduledActionPolicy <$>
-      fmap (fmap (fmap unBool')) (obj .:? "IgnoreUnmodifiedGroupSizeProperties")
-  parseJSON _ = mempty
-
 -- | Constructor for 'AutoScalingScheduledActionPolicy' containing required fields
 -- as arguments.
 autoScalingScheduledActionPolicy

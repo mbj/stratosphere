@@ -27,14 +27,6 @@ instance ToJSON CognitoUserPoolUserToGroupAttachment where
     , (Just . ("Username",) . toJSON) _cognitoUserPoolUserToGroupAttachmentUsername
     ]
 
-instance FromJSON CognitoUserPoolUserToGroupAttachment where
-  parseJSON (Object obj) =
-    CognitoUserPoolUserToGroupAttachment <$>
-      (obj .: "GroupName") <*>
-      (obj .: "UserPoolId") <*>
-      (obj .: "Username")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CognitoUserPoolUserToGroupAttachment' containing
 -- required fields as arguments.
 cognitoUserPoolUserToGroupAttachment

@@ -28,13 +28,6 @@ instance ToJSON KinesisAnalyticsV2ApplicationReferenceDataSourceS3ReferenceDataS
     , (Just . ("FileKey",) . toJSON) _kinesisAnalyticsV2ApplicationReferenceDataSourceS3ReferenceDataSourceFileKey
     ]
 
-instance FromJSON KinesisAnalyticsV2ApplicationReferenceDataSourceS3ReferenceDataSource where
-  parseJSON (Object obj) =
-    KinesisAnalyticsV2ApplicationReferenceDataSourceS3ReferenceDataSource <$>
-      (obj .: "BucketARN") <*>
-      (obj .: "FileKey")
-  parseJSON _ = mempty
-
 -- | Constructor for
 -- 'KinesisAnalyticsV2ApplicationReferenceDataSourceS3ReferenceDataSource'
 -- containing required fields as arguments.

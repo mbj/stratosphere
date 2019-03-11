@@ -26,13 +26,6 @@ instance ToJSON S3BucketServerSideEncryptionByDefault where
     , (Just . ("SSEAlgorithm",) . toJSON) _s3BucketServerSideEncryptionByDefaultSSEAlgorithm
     ]
 
-instance FromJSON S3BucketServerSideEncryptionByDefault where
-  parseJSON (Object obj) =
-    S3BucketServerSideEncryptionByDefault <$>
-      (obj .:? "KMSMasterKeyID") <*>
-      (obj .: "SSEAlgorithm")
-  parseJSON _ = mempty
-
 -- | Constructor for 'S3BucketServerSideEncryptionByDefault' containing
 -- required fields as arguments.
 s3BucketServerSideEncryptionByDefault

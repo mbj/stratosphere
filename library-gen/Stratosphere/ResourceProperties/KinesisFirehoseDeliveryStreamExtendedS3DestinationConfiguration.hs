@@ -47,21 +47,6 @@ instance ToJSON KinesisFirehoseDeliveryStreamExtendedS3DestinationConfiguration 
     , fmap (("S3BackupMode",) . toJSON) _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfigurationS3BackupMode
     ]
 
-instance FromJSON KinesisFirehoseDeliveryStreamExtendedS3DestinationConfiguration where
-  parseJSON (Object obj) =
-    KinesisFirehoseDeliveryStreamExtendedS3DestinationConfiguration <$>
-      (obj .: "BucketARN") <*>
-      (obj .: "BufferingHints") <*>
-      (obj .:? "CloudWatchLoggingOptions") <*>
-      (obj .: "CompressionFormat") <*>
-      (obj .:? "EncryptionConfiguration") <*>
-      (obj .: "Prefix") <*>
-      (obj .:? "ProcessingConfiguration") <*>
-      (obj .: "RoleARN") <*>
-      (obj .:? "S3BackupConfiguration") <*>
-      (obj .:? "S3BackupMode")
-  parseJSON _ = mempty
-
 -- | Constructor for
 -- 'KinesisFirehoseDeliveryStreamExtendedS3DestinationConfiguration'
 -- containing required fields as arguments.

@@ -25,13 +25,6 @@ instance ToJSON LambdaAliasVersionWeight where
     , (Just . ("FunctionWeight",) . toJSON . fmap Double') _lambdaAliasVersionWeightFunctionWeight
     ]
 
-instance FromJSON LambdaAliasVersionWeight where
-  parseJSON (Object obj) =
-    LambdaAliasVersionWeight <$>
-      (obj .: "FunctionVersion") <*>
-      fmap (fmap unDouble') (obj .: "FunctionWeight")
-  parseJSON _ = mempty
-
 -- | Constructor for 'LambdaAliasVersionWeight' containing required fields as
 -- arguments.
 lambdaAliasVersionWeight

@@ -25,13 +25,6 @@ instance ToJSON WAFSizeConstraintSetFieldToMatch where
     , (Just . ("Type",) . toJSON) _wAFSizeConstraintSetFieldToMatchType
     ]
 
-instance FromJSON WAFSizeConstraintSetFieldToMatch where
-  parseJSON (Object obj) =
-    WAFSizeConstraintSetFieldToMatch <$>
-      (obj .:? "Data") <*>
-      (obj .: "Type")
-  parseJSON _ = mempty
-
 -- | Constructor for 'WAFSizeConstraintSetFieldToMatch' containing required
 -- fields as arguments.
 wafSizeConstraintSetFieldToMatch

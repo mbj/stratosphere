@@ -35,18 +35,6 @@ instance ToJSON DMSEventSubscription where
     , fmap (("Tags",) . toJSON) _dMSEventSubscriptionTags
     ]
 
-instance FromJSON DMSEventSubscription where
-  parseJSON (Object obj) =
-    DMSEventSubscription <$>
-      fmap (fmap (fmap unBool')) (obj .:? "Enabled") <*>
-      (obj .:? "EventCategories") <*>
-      (obj .: "SnsTopicArn") <*>
-      (obj .:? "SourceIds") <*>
-      (obj .:? "SourceType") <*>
-      (obj .:? "SubscriptionName") <*>
-      (obj .:? "Tags")
-  parseJSON _ = mempty
-
 -- | Constructor for 'DMSEventSubscription' containing required fields as
 -- arguments.
 dmsEventSubscription

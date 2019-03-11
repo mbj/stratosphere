@@ -26,13 +26,6 @@ instance ToJSON AppSyncDataSourceRelationalDatabaseConfig where
     , (Just . ("RelationalDatabaseSourceType",) . toJSON) _appSyncDataSourceRelationalDatabaseConfigRelationalDatabaseSourceType
     ]
 
-instance FromJSON AppSyncDataSourceRelationalDatabaseConfig where
-  parseJSON (Object obj) =
-    AppSyncDataSourceRelationalDatabaseConfig <$>
-      (obj .:? "RdsHttpEndpointConfig") <*>
-      (obj .: "RelationalDatabaseSourceType")
-  parseJSON _ = mempty
-
 -- | Constructor for 'AppSyncDataSourceRelationalDatabaseConfig' containing
 -- required fields as arguments.
 appSyncDataSourceRelationalDatabaseConfig

@@ -25,13 +25,6 @@ instance ToJSON EMRSecurityConfiguration where
     , (Just . ("SecurityConfiguration",) . toJSON) _eMRSecurityConfigurationSecurityConfiguration
     ]
 
-instance FromJSON EMRSecurityConfiguration where
-  parseJSON (Object obj) =
-    EMRSecurityConfiguration <$>
-      (obj .:? "Name") <*>
-      (obj .: "SecurityConfiguration")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EMRSecurityConfiguration' containing required fields as
 -- arguments.
 emrSecurityConfiguration

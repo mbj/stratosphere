@@ -27,13 +27,6 @@ instance ToJSON KinesisAnalyticsV2ApplicationApplicationCodeConfiguration where
     , (Just . ("CodeContentType",) . toJSON) _kinesisAnalyticsV2ApplicationApplicationCodeConfigurationCodeContentType
     ]
 
-instance FromJSON KinesisAnalyticsV2ApplicationApplicationCodeConfiguration where
-  parseJSON (Object obj) =
-    KinesisAnalyticsV2ApplicationApplicationCodeConfiguration <$>
-      (obj .: "CodeContent") <*>
-      (obj .: "CodeContentType")
-  parseJSON _ = mempty
-
 -- | Constructor for
 -- 'KinesisAnalyticsV2ApplicationApplicationCodeConfiguration' containing
 -- required fields as arguments.

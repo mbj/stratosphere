@@ -27,14 +27,6 @@ instance ToJSON AmazonMQBrokerMaintenanceWindow where
     , (Just . ("TimeZone",) . toJSON) _amazonMQBrokerMaintenanceWindowTimeZone
     ]
 
-instance FromJSON AmazonMQBrokerMaintenanceWindow where
-  parseJSON (Object obj) =
-    AmazonMQBrokerMaintenanceWindow <$>
-      (obj .: "DayOfWeek") <*>
-      (obj .: "TimeOfDay") <*>
-      (obj .: "TimeZone")
-  parseJSON _ = mempty
-
 -- | Constructor for 'AmazonMQBrokerMaintenanceWindow' containing required
 -- fields as arguments.
 amazonMQBrokerMaintenanceWindow

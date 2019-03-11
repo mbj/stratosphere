@@ -31,15 +31,6 @@ instance ToJSON AutoScalingLaunchConfigurationBlockDeviceMapping where
     , fmap (("VirtualName",) . toJSON) _autoScalingLaunchConfigurationBlockDeviceMappingVirtualName
     ]
 
-instance FromJSON AutoScalingLaunchConfigurationBlockDeviceMapping where
-  parseJSON (Object obj) =
-    AutoScalingLaunchConfigurationBlockDeviceMapping <$>
-      (obj .: "DeviceName") <*>
-      (obj .:? "Ebs") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "NoDevice") <*>
-      (obj .:? "VirtualName")
-  parseJSON _ = mempty
-
 -- | Constructor for 'AutoScalingLaunchConfigurationBlockDeviceMapping'
 -- containing required fields as arguments.
 autoScalingLaunchConfigurationBlockDeviceMapping

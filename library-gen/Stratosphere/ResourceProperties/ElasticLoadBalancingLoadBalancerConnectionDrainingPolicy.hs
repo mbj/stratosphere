@@ -27,13 +27,6 @@ instance ToJSON ElasticLoadBalancingLoadBalancerConnectionDrainingPolicy where
     , fmap (("Timeout",) . toJSON . fmap Integer') _elasticLoadBalancingLoadBalancerConnectionDrainingPolicyTimeout
     ]
 
-instance FromJSON ElasticLoadBalancingLoadBalancerConnectionDrainingPolicy where
-  parseJSON (Object obj) =
-    ElasticLoadBalancingLoadBalancerConnectionDrainingPolicy <$>
-      fmap (fmap unBool') (obj .: "Enabled") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "Timeout")
-  parseJSON _ = mempty
-
 -- | Constructor for
 -- 'ElasticLoadBalancingLoadBalancerConnectionDrainingPolicy' containing
 -- required fields as arguments.

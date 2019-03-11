@@ -25,12 +25,6 @@ instance ToJSON ElasticLoadBalancingLoadBalancerConnectionSettings where
     [ (Just . ("IdleTimeout",) . toJSON . fmap Integer') _elasticLoadBalancingLoadBalancerConnectionSettingsIdleTimeout
     ]
 
-instance FromJSON ElasticLoadBalancingLoadBalancerConnectionSettings where
-  parseJSON (Object obj) =
-    ElasticLoadBalancingLoadBalancerConnectionSettings <$>
-      fmap (fmap unInteger') (obj .: "IdleTimeout")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ElasticLoadBalancingLoadBalancerConnectionSettings'
 -- containing required fields as arguments.
 elasticLoadBalancingLoadBalancerConnectionSettings

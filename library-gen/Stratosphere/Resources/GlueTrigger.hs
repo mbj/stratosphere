@@ -34,17 +34,6 @@ instance ToJSON GlueTrigger where
     , (Just . ("Type",) . toJSON) _glueTriggerType
     ]
 
-instance FromJSON GlueTrigger where
-  parseJSON (Object obj) =
-    GlueTrigger <$>
-      (obj .: "Actions") <*>
-      (obj .:? "Description") <*>
-      (obj .:? "Name") <*>
-      (obj .:? "Predicate") <*>
-      (obj .:? "Schedule") <*>
-      (obj .: "Type")
-  parseJSON _ = mempty
-
 -- | Constructor for 'GlueTrigger' containing required fields as arguments.
 glueTrigger
   :: [GlueTriggerAction] -- ^ 'gtActions'

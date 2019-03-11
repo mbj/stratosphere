@@ -39,20 +39,6 @@ instance ToJSON EC2Volume where
     , fmap (("VolumeType",) . toJSON) _eC2VolumeVolumeType
     ]
 
-instance FromJSON EC2Volume where
-  parseJSON (Object obj) =
-    EC2Volume <$>
-      fmap (fmap (fmap unBool')) (obj .:? "AutoEnableIO") <*>
-      (obj .: "AvailabilityZone") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "Encrypted") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "Iops") <*>
-      (obj .:? "KmsKeyId") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "Size") <*>
-      (obj .:? "SnapshotId") <*>
-      (obj .:? "Tags") <*>
-      (obj .:? "VolumeType")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2Volume' containing required fields as arguments.
 ec2Volume
   :: Val Text -- ^ 'ecvAvailabilityZone'

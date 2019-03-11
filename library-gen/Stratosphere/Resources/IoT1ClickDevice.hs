@@ -25,13 +25,6 @@ instance ToJSON IoT1ClickDevice where
     , (Just . ("Enabled",) . toJSON . fmap Bool') _ioT1ClickDeviceEnabled
     ]
 
-instance FromJSON IoT1ClickDevice where
-  parseJSON (Object obj) =
-    IoT1ClickDevice <$>
-      (obj .: "DeviceId") <*>
-      fmap (fmap unBool') (obj .: "Enabled")
-  parseJSON _ = mempty
-
 -- | Constructor for 'IoT1ClickDevice' containing required fields as
 -- arguments.
 ioT1ClickDevice

@@ -27,14 +27,6 @@ instance ToJSON EC2EIP where
     , fmap (("PublicIpv4Pool",) . toJSON) _eC2EIPPublicIpv4Pool
     ]
 
-instance FromJSON EC2EIP where
-  parseJSON (Object obj) =
-    EC2EIP <$>
-      (obj .:? "Domain") <*>
-      (obj .:? "InstanceId") <*>
-      (obj .:? "PublicIpv4Pool")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2EIP' containing required fields as arguments.
 ec2EIP
   :: EC2EIP

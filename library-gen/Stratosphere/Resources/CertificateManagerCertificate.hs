@@ -32,16 +32,6 @@ instance ToJSON CertificateManagerCertificate where
     , fmap (("ValidationMethod",) . toJSON) _certificateManagerCertificateValidationMethod
     ]
 
-instance FromJSON CertificateManagerCertificate where
-  parseJSON (Object obj) =
-    CertificateManagerCertificate <$>
-      (obj .: "DomainName") <*>
-      (obj .:? "DomainValidationOptions") <*>
-      (obj .:? "SubjectAlternativeNames") <*>
-      (obj .:? "Tags") <*>
-      (obj .:? "ValidationMethod")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CertificateManagerCertificate' containing required
 -- fields as arguments.
 certificateManagerCertificate

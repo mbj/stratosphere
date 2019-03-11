@@ -35,16 +35,6 @@ instance ToJSON KinesisAnalyticsV2ApplicationOutputOutput where
     , fmap (("Name",) . toJSON) _kinesisAnalyticsV2ApplicationOutputOutputName
     ]
 
-instance FromJSON KinesisAnalyticsV2ApplicationOutputOutput where
-  parseJSON (Object obj) =
-    KinesisAnalyticsV2ApplicationOutputOutput <$>
-      (obj .: "DestinationSchema") <*>
-      (obj .:? "KinesisFirehoseOutput") <*>
-      (obj .:? "KinesisStreamsOutput") <*>
-      (obj .:? "LambdaOutput") <*>
-      (obj .:? "Name")
-  parseJSON _ = mempty
-
 -- | Constructor for 'KinesisAnalyticsV2ApplicationOutputOutput' containing
 -- required fields as arguments.
 kinesisAnalyticsV2ApplicationOutputOutput

@@ -27,14 +27,6 @@ instance ToJSON ApiGatewayDocumentationPart where
     , (Just . ("RestApiId",) . toJSON) _apiGatewayDocumentationPartRestApiId
     ]
 
-instance FromJSON ApiGatewayDocumentationPart where
-  parseJSON (Object obj) =
-    ApiGatewayDocumentationPart <$>
-      (obj .: "Location") <*>
-      (obj .: "Properties") <*>
-      (obj .: "RestApiId")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ApiGatewayDocumentationPart' containing required fields
 -- as arguments.
 apiGatewayDocumentationPart

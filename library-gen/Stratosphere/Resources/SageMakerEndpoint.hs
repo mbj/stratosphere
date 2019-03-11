@@ -27,14 +27,6 @@ instance ToJSON SageMakerEndpoint where
     , fmap (("Tags",) . toJSON) _sageMakerEndpointTags
     ]
 
-instance FromJSON SageMakerEndpoint where
-  parseJSON (Object obj) =
-    SageMakerEndpoint <$>
-      (obj .: "EndpointConfigName") <*>
-      (obj .:? "EndpointName") <*>
-      (obj .:? "Tags")
-  parseJSON _ = mempty
-
 -- | Constructor for 'SageMakerEndpoint' containing required fields as
 -- arguments.
 sageMakerEndpoint

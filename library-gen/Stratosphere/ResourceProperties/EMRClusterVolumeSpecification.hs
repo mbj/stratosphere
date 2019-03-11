@@ -27,14 +27,6 @@ instance ToJSON EMRClusterVolumeSpecification where
     , (Just . ("VolumeType",) . toJSON) _eMRClusterVolumeSpecificationVolumeType
     ]
 
-instance FromJSON EMRClusterVolumeSpecification where
-  parseJSON (Object obj) =
-    EMRClusterVolumeSpecification <$>
-      fmap (fmap (fmap unInteger')) (obj .:? "Iops") <*>
-      fmap (fmap unInteger') (obj .: "SizeInGB") <*>
-      (obj .: "VolumeType")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EMRClusterVolumeSpecification' containing required
 -- fields as arguments.
 emrClusterVolumeSpecification

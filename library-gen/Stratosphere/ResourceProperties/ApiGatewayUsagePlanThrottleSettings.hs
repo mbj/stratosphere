@@ -25,13 +25,6 @@ instance ToJSON ApiGatewayUsagePlanThrottleSettings where
     , fmap (("RateLimit",) . toJSON . fmap Double') _apiGatewayUsagePlanThrottleSettingsRateLimit
     ]
 
-instance FromJSON ApiGatewayUsagePlanThrottleSettings where
-  parseJSON (Object obj) =
-    ApiGatewayUsagePlanThrottleSettings <$>
-      fmap (fmap (fmap unInteger')) (obj .:? "BurstLimit") <*>
-      fmap (fmap (fmap unDouble')) (obj .:? "RateLimit")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ApiGatewayUsagePlanThrottleSettings' containing required
 -- fields as arguments.
 apiGatewayUsagePlanThrottleSettings

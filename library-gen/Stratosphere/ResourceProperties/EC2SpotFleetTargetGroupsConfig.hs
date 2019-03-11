@@ -23,12 +23,6 @@ instance ToJSON EC2SpotFleetTargetGroupsConfig where
     [ (Just . ("TargetGroups",) . toJSON) _eC2SpotFleetTargetGroupsConfigTargetGroups
     ]
 
-instance FromJSON EC2SpotFleetTargetGroupsConfig where
-  parseJSON (Object obj) =
-    EC2SpotFleetTargetGroupsConfig <$>
-      (obj .: "TargetGroups")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2SpotFleetTargetGroupsConfig' containing required
 -- fields as arguments.
 ec2SpotFleetTargetGroupsConfig

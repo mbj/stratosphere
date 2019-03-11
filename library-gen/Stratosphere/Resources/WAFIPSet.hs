@@ -25,13 +25,6 @@ instance ToJSON WAFIPSet where
     , (Just . ("Name",) . toJSON) _wAFIPSetName
     ]
 
-instance FromJSON WAFIPSet where
-  parseJSON (Object obj) =
-    WAFIPSet <$>
-      (obj .:? "IPSetDescriptors") <*>
-      (obj .: "Name")
-  parseJSON _ = mempty
-
 -- | Constructor for 'WAFIPSet' containing required fields as arguments.
 wafipSet
   :: Val Text -- ^ 'wafipsName'

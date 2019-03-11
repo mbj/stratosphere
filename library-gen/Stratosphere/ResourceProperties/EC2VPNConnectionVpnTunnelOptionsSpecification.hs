@@ -27,13 +27,6 @@ instance ToJSON EC2VPNConnectionVpnTunnelOptionsSpecification where
     , fmap (("TunnelInsideCidr",) . toJSON) _eC2VPNConnectionVpnTunnelOptionsSpecificationTunnelInsideCidr
     ]
 
-instance FromJSON EC2VPNConnectionVpnTunnelOptionsSpecification where
-  parseJSON (Object obj) =
-    EC2VPNConnectionVpnTunnelOptionsSpecification <$>
-      (obj .:? "PreSharedKey") <*>
-      (obj .:? "TunnelInsideCidr")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2VPNConnectionVpnTunnelOptionsSpecification'
 -- containing required fields as arguments.
 ec2VPNConnectionVpnTunnelOptionsSpecification

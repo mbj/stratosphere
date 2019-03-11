@@ -27,13 +27,6 @@ instance ToJSON BudgetsBudgetNotificationWithSubscribers where
     , (Just . ("Subscribers",) . toJSON) _budgetsBudgetNotificationWithSubscribersSubscribers
     ]
 
-instance FromJSON BudgetsBudgetNotificationWithSubscribers where
-  parseJSON (Object obj) =
-    BudgetsBudgetNotificationWithSubscribers <$>
-      (obj .: "Notification") <*>
-      (obj .: "Subscribers")
-  parseJSON _ = mempty
-
 -- | Constructor for 'BudgetsBudgetNotificationWithSubscribers' containing
 -- required fields as arguments.
 budgetsBudgetNotificationWithSubscribers

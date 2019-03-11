@@ -26,13 +26,6 @@ instance ToJSON CodePipelinePipelineBlockerDeclaration where
     , (Just . ("Type",) . toJSON) _codePipelinePipelineBlockerDeclarationType
     ]
 
-instance FromJSON CodePipelinePipelineBlockerDeclaration where
-  parseJSON (Object obj) =
-    CodePipelinePipelineBlockerDeclaration <$>
-      (obj .: "Name") <*>
-      (obj .: "Type")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CodePipelinePipelineBlockerDeclaration' containing
 -- required fields as arguments.
 codePipelinePipelineBlockerDeclaration

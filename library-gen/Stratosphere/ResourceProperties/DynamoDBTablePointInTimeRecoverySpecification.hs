@@ -25,12 +25,6 @@ instance ToJSON DynamoDBTablePointInTimeRecoverySpecification where
     [ fmap (("PointInTimeRecoveryEnabled",) . toJSON . fmap Bool') _dynamoDBTablePointInTimeRecoverySpecificationPointInTimeRecoveryEnabled
     ]
 
-instance FromJSON DynamoDBTablePointInTimeRecoverySpecification where
-  parseJSON (Object obj) =
-    DynamoDBTablePointInTimeRecoverySpecification <$>
-      fmap (fmap (fmap unBool')) (obj .:? "PointInTimeRecoveryEnabled")
-  parseJSON _ = mempty
-
 -- | Constructor for 'DynamoDBTablePointInTimeRecoverySpecification'
 -- containing required fields as arguments.
 dynamoDBTablePointInTimeRecoverySpecification

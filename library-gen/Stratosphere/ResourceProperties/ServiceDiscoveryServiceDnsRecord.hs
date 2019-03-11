@@ -25,13 +25,6 @@ instance ToJSON ServiceDiscoveryServiceDnsRecord where
     , (Just . ("Type",) . toJSON) _serviceDiscoveryServiceDnsRecordType
     ]
 
-instance FromJSON ServiceDiscoveryServiceDnsRecord where
-  parseJSON (Object obj) =
-    ServiceDiscoveryServiceDnsRecord <$>
-      (obj .: "TTL") <*>
-      (obj .: "Type")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ServiceDiscoveryServiceDnsRecord' containing required
 -- fields as arguments.
 serviceDiscoveryServiceDnsRecord

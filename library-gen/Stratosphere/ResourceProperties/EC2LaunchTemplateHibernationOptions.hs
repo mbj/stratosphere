@@ -23,12 +23,6 @@ instance ToJSON EC2LaunchTemplateHibernationOptions where
     [ fmap (("Configured",) . toJSON . fmap Bool') _eC2LaunchTemplateHibernationOptionsConfigured
     ]
 
-instance FromJSON EC2LaunchTemplateHibernationOptions where
-  parseJSON (Object obj) =
-    EC2LaunchTemplateHibernationOptions <$>
-      fmap (fmap (fmap unBool')) (obj .:? "Configured")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2LaunchTemplateHibernationOptions' containing required
 -- fields as arguments.
 ec2LaunchTemplateHibernationOptions

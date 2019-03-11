@@ -37,19 +37,6 @@ instance ToJSON DirectoryServiceSimpleAD where
     , (Just . ("VpcSettings",) . toJSON) _directoryServiceSimpleADVpcSettings
     ]
 
-instance FromJSON DirectoryServiceSimpleAD where
-  parseJSON (Object obj) =
-    DirectoryServiceSimpleAD <$>
-      fmap (fmap (fmap unBool')) (obj .:? "CreateAlias") <*>
-      (obj .:? "Description") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "EnableSso") <*>
-      (obj .: "Name") <*>
-      (obj .: "Password") <*>
-      (obj .:? "ShortName") <*>
-      (obj .: "Size") <*>
-      (obj .: "VpcSettings")
-  parseJSON _ = mempty
-
 -- | Constructor for 'DirectoryServiceSimpleAD' containing required fields as
 -- arguments.
 directoryServiceSimpleAD

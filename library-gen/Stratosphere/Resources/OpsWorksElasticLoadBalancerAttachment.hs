@@ -26,13 +26,6 @@ instance ToJSON OpsWorksElasticLoadBalancerAttachment where
     , (Just . ("LayerId",) . toJSON) _opsWorksElasticLoadBalancerAttachmentLayerId
     ]
 
-instance FromJSON OpsWorksElasticLoadBalancerAttachment where
-  parseJSON (Object obj) =
-    OpsWorksElasticLoadBalancerAttachment <$>
-      (obj .: "ElasticLoadBalancerName") <*>
-      (obj .: "LayerId")
-  parseJSON _ = mempty
-
 -- | Constructor for 'OpsWorksElasticLoadBalancerAttachment' containing
 -- required fields as arguments.
 opsWorksElasticLoadBalancerAttachment

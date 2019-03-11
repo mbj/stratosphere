@@ -37,17 +37,6 @@ instance ToJSON KinesisAnalyticsApplicationInput where
     , (Just . ("NamePrefix",) . toJSON) _kinesisAnalyticsApplicationInputNamePrefix
     ]
 
-instance FromJSON KinesisAnalyticsApplicationInput where
-  parseJSON (Object obj) =
-    KinesisAnalyticsApplicationInput <$>
-      (obj .:? "InputParallelism") <*>
-      (obj .:? "InputProcessingConfiguration") <*>
-      (obj .: "InputSchema") <*>
-      (obj .:? "KinesisFirehoseInput") <*>
-      (obj .:? "KinesisStreamsInput") <*>
-      (obj .: "NamePrefix")
-  parseJSON _ = mempty
-
 -- | Constructor for 'KinesisAnalyticsApplicationInput' containing required
 -- fields as arguments.
 kinesisAnalyticsApplicationInput

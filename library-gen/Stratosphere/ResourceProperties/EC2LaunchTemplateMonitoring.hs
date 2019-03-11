@@ -23,12 +23,6 @@ instance ToJSON EC2LaunchTemplateMonitoring where
     [ fmap (("Enabled",) . toJSON . fmap Bool') _eC2LaunchTemplateMonitoringEnabled
     ]
 
-instance FromJSON EC2LaunchTemplateMonitoring where
-  parseJSON (Object obj) =
-    EC2LaunchTemplateMonitoring <$>
-      fmap (fmap (fmap unBool')) (obj .:? "Enabled")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2LaunchTemplateMonitoring' containing required fields
 -- as arguments.
 ec2LaunchTemplateMonitoring

@@ -27,14 +27,6 @@ instance ToJSON CognitoIdentityPoolCognitoStreams where
     , fmap (("StreamingStatus",) . toJSON) _cognitoIdentityPoolCognitoStreamsStreamingStatus
     ]
 
-instance FromJSON CognitoIdentityPoolCognitoStreams where
-  parseJSON (Object obj) =
-    CognitoIdentityPoolCognitoStreams <$>
-      (obj .:? "RoleArn") <*>
-      (obj .:? "StreamName") <*>
-      (obj .:? "StreamingStatus")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CognitoIdentityPoolCognitoStreams' containing required
 -- fields as arguments.
 cognitoIdentityPoolCognitoStreams

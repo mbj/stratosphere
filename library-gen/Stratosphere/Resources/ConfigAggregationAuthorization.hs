@@ -25,13 +25,6 @@ instance ToJSON ConfigAggregationAuthorization where
     , (Just . ("AuthorizedAwsRegion",) . toJSON) _configAggregationAuthorizationAuthorizedAwsRegion
     ]
 
-instance FromJSON ConfigAggregationAuthorization where
-  parseJSON (Object obj) =
-    ConfigAggregationAuthorization <$>
-      (obj .: "AuthorizedAccountId") <*>
-      (obj .: "AuthorizedAwsRegion")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ConfigAggregationAuthorization' containing required
 -- fields as arguments.
 configAggregationAuthorization

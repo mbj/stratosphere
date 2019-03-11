@@ -27,14 +27,6 @@ instance ToJSON EMRClusterConfiguration where
     , fmap (("Configurations",) . toJSON) _eMRClusterConfigurationConfigurations
     ]
 
-instance FromJSON EMRClusterConfiguration where
-  parseJSON (Object obj) =
-    EMRClusterConfiguration <$>
-      (obj .:? "Classification") <*>
-      (obj .:? "ConfigurationProperties") <*>
-      (obj .:? "Configurations")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EMRClusterConfiguration' containing required fields as
 -- arguments.
 emrClusterConfiguration

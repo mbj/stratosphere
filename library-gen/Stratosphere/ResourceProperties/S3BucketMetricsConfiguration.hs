@@ -27,14 +27,6 @@ instance ToJSON S3BucketMetricsConfiguration where
     , fmap (("TagFilters",) . toJSON) _s3BucketMetricsConfigurationTagFilters
     ]
 
-instance FromJSON S3BucketMetricsConfiguration where
-  parseJSON (Object obj) =
-    S3BucketMetricsConfiguration <$>
-      (obj .: "Id") <*>
-      (obj .:? "Prefix") <*>
-      (obj .:? "TagFilters")
-  parseJSON _ = mempty
-
 -- | Constructor for 'S3BucketMetricsConfiguration' containing required fields
 -- as arguments.
 s3BucketMetricsConfiguration

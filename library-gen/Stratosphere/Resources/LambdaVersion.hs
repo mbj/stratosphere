@@ -27,14 +27,6 @@ instance ToJSON LambdaVersion where
     , (Just . ("FunctionName",) . toJSON) _lambdaVersionFunctionName
     ]
 
-instance FromJSON LambdaVersion where
-  parseJSON (Object obj) =
-    LambdaVersion <$>
-      (obj .:? "CodeSha256") <*>
-      (obj .:? "Description") <*>
-      (obj .: "FunctionName")
-  parseJSON _ = mempty
-
 -- | Constructor for 'LambdaVersion' containing required fields as arguments.
 lambdaVersion
   :: Val Text -- ^ 'lvFunctionName'

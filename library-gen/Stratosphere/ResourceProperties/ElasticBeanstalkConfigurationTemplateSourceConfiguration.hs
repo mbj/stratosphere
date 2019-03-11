@@ -27,13 +27,6 @@ instance ToJSON ElasticBeanstalkConfigurationTemplateSourceConfiguration where
     , (Just . ("TemplateName",) . toJSON) _elasticBeanstalkConfigurationTemplateSourceConfigurationTemplateName
     ]
 
-instance FromJSON ElasticBeanstalkConfigurationTemplateSourceConfiguration where
-  parseJSON (Object obj) =
-    ElasticBeanstalkConfigurationTemplateSourceConfiguration <$>
-      (obj .: "ApplicationName") <*>
-      (obj .: "TemplateName")
-  parseJSON _ = mempty
-
 -- | Constructor for
 -- 'ElasticBeanstalkConfigurationTemplateSourceConfiguration' containing
 -- required fields as arguments.

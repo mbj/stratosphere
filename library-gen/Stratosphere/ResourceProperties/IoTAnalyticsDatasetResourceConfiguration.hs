@@ -26,13 +26,6 @@ instance ToJSON IoTAnalyticsDatasetResourceConfiguration where
     , (Just . ("VolumeSizeInGB",) . toJSON . fmap Integer') _ioTAnalyticsDatasetResourceConfigurationVolumeSizeInGB
     ]
 
-instance FromJSON IoTAnalyticsDatasetResourceConfiguration where
-  parseJSON (Object obj) =
-    IoTAnalyticsDatasetResourceConfiguration <$>
-      (obj .: "ComputeType") <*>
-      fmap (fmap unInteger') (obj .: "VolumeSizeInGB")
-  parseJSON _ = mempty
-
 -- | Constructor for 'IoTAnalyticsDatasetResourceConfiguration' containing
 -- required fields as arguments.
 ioTAnalyticsDatasetResourceConfiguration

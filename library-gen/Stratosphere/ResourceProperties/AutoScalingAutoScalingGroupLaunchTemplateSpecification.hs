@@ -29,14 +29,6 @@ instance ToJSON AutoScalingAutoScalingGroupLaunchTemplateSpecification where
     , (Just . ("Version",) . toJSON) _autoScalingAutoScalingGroupLaunchTemplateSpecificationVersion
     ]
 
-instance FromJSON AutoScalingAutoScalingGroupLaunchTemplateSpecification where
-  parseJSON (Object obj) =
-    AutoScalingAutoScalingGroupLaunchTemplateSpecification <$>
-      (obj .:? "LaunchTemplateId") <*>
-      (obj .:? "LaunchTemplateName") <*>
-      (obj .: "Version")
-  parseJSON _ = mempty
-
 -- | Constructor for 'AutoScalingAutoScalingGroupLaunchTemplateSpecification'
 -- containing required fields as arguments.
 autoScalingAutoScalingGroupLaunchTemplateSpecification

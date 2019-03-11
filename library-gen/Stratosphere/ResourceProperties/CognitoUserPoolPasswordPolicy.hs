@@ -31,16 +31,6 @@ instance ToJSON CognitoUserPoolPasswordPolicy where
     , fmap (("RequireUppercase",) . toJSON . fmap Bool') _cognitoUserPoolPasswordPolicyRequireUppercase
     ]
 
-instance FromJSON CognitoUserPoolPasswordPolicy where
-  parseJSON (Object obj) =
-    CognitoUserPoolPasswordPolicy <$>
-      fmap (fmap (fmap unInteger')) (obj .:? "MinimumLength") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "RequireLowercase") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "RequireNumbers") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "RequireSymbols") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "RequireUppercase")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CognitoUserPoolPasswordPolicy' containing required
 -- fields as arguments.
 cognitoUserPoolPasswordPolicy

@@ -23,12 +23,6 @@ instance ToJSON LambdaFunctionTracingConfig where
     [ fmap (("Mode",) . toJSON) _lambdaFunctionTracingConfigMode
     ]
 
-instance FromJSON LambdaFunctionTracingConfig where
-  parseJSON (Object obj) =
-    LambdaFunctionTracingConfig <$>
-      (obj .:? "Mode")
-  parseJSON _ = mempty
-
 -- | Constructor for 'LambdaFunctionTracingConfig' containing required fields
 -- as arguments.
 lambdaFunctionTracingConfig

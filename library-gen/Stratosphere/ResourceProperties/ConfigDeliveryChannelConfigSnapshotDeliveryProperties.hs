@@ -25,12 +25,6 @@ instance ToJSON ConfigDeliveryChannelConfigSnapshotDeliveryProperties where
     [ fmap (("DeliveryFrequency",) . toJSON) _configDeliveryChannelConfigSnapshotDeliveryPropertiesDeliveryFrequency
     ]
 
-instance FromJSON ConfigDeliveryChannelConfigSnapshotDeliveryProperties where
-  parseJSON (Object obj) =
-    ConfigDeliveryChannelConfigSnapshotDeliveryProperties <$>
-      (obj .:? "DeliveryFrequency")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ConfigDeliveryChannelConfigSnapshotDeliveryProperties'
 -- containing required fields as arguments.
 configDeliveryChannelConfigSnapshotDeliveryProperties

@@ -32,16 +32,6 @@ instance ToJSON ServiceCatalogLaunchTemplateConstraint where
     , (Just . ("Rules",) . toJSON) _serviceCatalogLaunchTemplateConstraintRules
     ]
 
-instance FromJSON ServiceCatalogLaunchTemplateConstraint where
-  parseJSON (Object obj) =
-    ServiceCatalogLaunchTemplateConstraint <$>
-      (obj .:? "AcceptLanguage") <*>
-      (obj .:? "Description") <*>
-      (obj .: "PortfolioId") <*>
-      (obj .: "ProductId") <*>
-      (obj .: "Rules")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ServiceCatalogLaunchTemplateConstraint' containing
 -- required fields as arguments.
 serviceCatalogLaunchTemplateConstraint

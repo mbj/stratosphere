@@ -45,22 +45,6 @@ instance ToJSON EC2NetworkInterface where
     , fmap (("Tags",) . toJSON) _eC2NetworkInterfaceTags
     ]
 
-instance FromJSON EC2NetworkInterface where
-  parseJSON (Object obj) =
-    EC2NetworkInterface <$>
-      (obj .:? "Description") <*>
-      (obj .:? "GroupSet") <*>
-      (obj .:? "InterfaceType") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "Ipv6AddressCount") <*>
-      (obj .:? "Ipv6Addresses") <*>
-      (obj .:? "PrivateIpAddress") <*>
-      (obj .:? "PrivateIpAddresses") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "SecondaryPrivateIpAddressCount") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "SourceDestCheck") <*>
-      (obj .: "SubnetId") <*>
-      (obj .:? "Tags")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2NetworkInterface' containing required fields as
 -- arguments.
 ec2NetworkInterface

@@ -27,13 +27,6 @@ instance ToJSON KinesisFirehoseDeliveryStreamElasticsearchBufferingHints where
     , (Just . ("SizeInMBs",) . toJSON . fmap Integer') _kinesisFirehoseDeliveryStreamElasticsearchBufferingHintsSizeInMBs
     ]
 
-instance FromJSON KinesisFirehoseDeliveryStreamElasticsearchBufferingHints where
-  parseJSON (Object obj) =
-    KinesisFirehoseDeliveryStreamElasticsearchBufferingHints <$>
-      fmap (fmap unInteger') (obj .: "IntervalInSeconds") <*>
-      fmap (fmap unInteger') (obj .: "SizeInMBs")
-  parseJSON _ = mempty
-
 -- | Constructor for
 -- 'KinesisFirehoseDeliveryStreamElasticsearchBufferingHints' containing
 -- required fields as arguments.

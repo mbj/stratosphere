@@ -26,13 +26,6 @@ instance ToJSON ElasticsearchDomainEncryptionAtRestOptions where
     , fmap (("KmsKeyId",) . toJSON) _elasticsearchDomainEncryptionAtRestOptionsKmsKeyId
     ]
 
-instance FromJSON ElasticsearchDomainEncryptionAtRestOptions where
-  parseJSON (Object obj) =
-    ElasticsearchDomainEncryptionAtRestOptions <$>
-      fmap (fmap (fmap unBool')) (obj .:? "Enabled") <*>
-      (obj .:? "KmsKeyId")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ElasticsearchDomainEncryptionAtRestOptions' containing
 -- required fields as arguments.
 elasticsearchDomainEncryptionAtRestOptions

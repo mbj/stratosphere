@@ -30,15 +30,6 @@ instance ToJSON IoTAnalyticsDatasetContainerAction where
     , fmap (("Variables",) . toJSON) _ioTAnalyticsDatasetContainerActionVariables
     ]
 
-instance FromJSON IoTAnalyticsDatasetContainerAction where
-  parseJSON (Object obj) =
-    IoTAnalyticsDatasetContainerAction <$>
-      (obj .: "ExecutionRoleArn") <*>
-      (obj .: "Image") <*>
-      (obj .: "ResourceConfiguration") <*>
-      (obj .:? "Variables")
-  parseJSON _ = mempty
-
 -- | Constructor for 'IoTAnalyticsDatasetContainerAction' containing required
 -- fields as arguments.
 ioTAnalyticsDatasetContainerAction

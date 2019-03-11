@@ -26,13 +26,6 @@ instance ToJSON S3BucketRoutingRule where
     , fmap (("RoutingRuleCondition",) . toJSON) _s3BucketRoutingRuleRoutingRuleCondition
     ]
 
-instance FromJSON S3BucketRoutingRule where
-  parseJSON (Object obj) =
-    S3BucketRoutingRule <$>
-      (obj .: "RedirectRule") <*>
-      (obj .:? "RoutingRuleCondition")
-  parseJSON _ = mempty
-
 -- | Constructor for 'S3BucketRoutingRule' containing required fields as
 -- arguments.
 s3BucketRoutingRule

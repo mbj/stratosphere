@@ -35,18 +35,6 @@ instance ToJSON DocDBDBInstance where
     , fmap (("Tags",) . toJSON) _docDBDBInstanceTags
     ]
 
-instance FromJSON DocDBDBInstance where
-  parseJSON (Object obj) =
-    DocDBDBInstance <$>
-      fmap (fmap (fmap unBool')) (obj .:? "AutoMinorVersionUpgrade") <*>
-      (obj .:? "AvailabilityZone") <*>
-      (obj .: "DBClusterIdentifier") <*>
-      (obj .: "DBInstanceClass") <*>
-      (obj .:? "DBInstanceIdentifier") <*>
-      (obj .:? "PreferredMaintenanceWindow") <*>
-      (obj .:? "Tags")
-  parseJSON _ = mempty
-
 -- | Constructor for 'DocDBDBInstance' containing required fields as
 -- arguments.
 docDBDBInstance

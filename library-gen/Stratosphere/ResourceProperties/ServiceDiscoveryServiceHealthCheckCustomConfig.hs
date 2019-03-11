@@ -25,12 +25,6 @@ instance ToJSON ServiceDiscoveryServiceHealthCheckCustomConfig where
     [ fmap (("FailureThreshold",) . toJSON . fmap Double') _serviceDiscoveryServiceHealthCheckCustomConfigFailureThreshold
     ]
 
-instance FromJSON ServiceDiscoveryServiceHealthCheckCustomConfig where
-  parseJSON (Object obj) =
-    ServiceDiscoveryServiceHealthCheckCustomConfig <$>
-      fmap (fmap (fmap unDouble')) (obj .:? "FailureThreshold")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ServiceDiscoveryServiceHealthCheckCustomConfig'
 -- containing required fields as arguments.
 serviceDiscoveryServiceHealthCheckCustomConfig

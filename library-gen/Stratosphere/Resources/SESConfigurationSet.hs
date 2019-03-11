@@ -23,12 +23,6 @@ instance ToJSON SESConfigurationSet where
     [ fmap (("Name",) . toJSON) _sESConfigurationSetName
     ]
 
-instance FromJSON SESConfigurationSet where
-  parseJSON (Object obj) =
-    SESConfigurationSet <$>
-      (obj .:? "Name")
-  parseJSON _ = mempty
-
 -- | Constructor for 'SESConfigurationSet' containing required fields as
 -- arguments.
 sesConfigurationSet

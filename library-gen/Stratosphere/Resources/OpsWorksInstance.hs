@@ -64,32 +64,6 @@ instance ToJSON OpsWorksInstance where
     , fmap (("Volumes",) . toJSON) _opsWorksInstanceVolumes
     ]
 
-instance FromJSON OpsWorksInstance where
-  parseJSON (Object obj) =
-    OpsWorksInstance <$>
-      (obj .:? "AgentVersion") <*>
-      (obj .:? "AmiId") <*>
-      (obj .:? "Architecture") <*>
-      (obj .:? "AutoScalingType") <*>
-      (obj .:? "AvailabilityZone") <*>
-      (obj .:? "BlockDeviceMappings") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "EbsOptimized") <*>
-      (obj .:? "ElasticIps") <*>
-      (obj .:? "Hostname") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "InstallUpdatesOnBoot") <*>
-      (obj .: "InstanceType") <*>
-      (obj .: "LayerIds") <*>
-      (obj .:? "Os") <*>
-      (obj .:? "RootDeviceType") <*>
-      (obj .:? "SshKeyName") <*>
-      (obj .: "StackId") <*>
-      (obj .:? "SubnetId") <*>
-      (obj .:? "Tenancy") <*>
-      (obj .:? "TimeBasedAutoScaling") <*>
-      (obj .:? "VirtualizationType") <*>
-      (obj .:? "Volumes")
-  parseJSON _ = mempty
-
 -- | Constructor for 'OpsWorksInstance' containing required fields as
 -- arguments.
 opsWorksInstance

@@ -30,15 +30,6 @@ instance ToJSON EMRInstanceGroupConfigScalingRule where
     , (Just . ("Trigger",) . toJSON) _eMRInstanceGroupConfigScalingRuleTrigger
     ]
 
-instance FromJSON EMRInstanceGroupConfigScalingRule where
-  parseJSON (Object obj) =
-    EMRInstanceGroupConfigScalingRule <$>
-      (obj .: "Action") <*>
-      (obj .:? "Description") <*>
-      (obj .: "Name") <*>
-      (obj .: "Trigger")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EMRInstanceGroupConfigScalingRule' containing required
 -- fields as arguments.
 emrInstanceGroupConfigScalingRule

@@ -49,24 +49,6 @@ instance ToJSON ApiGatewayMethod where
     , (Just . ("RestApiId",) . toJSON) _apiGatewayMethodRestApiId
     ]
 
-instance FromJSON ApiGatewayMethod where
-  parseJSON (Object obj) =
-    ApiGatewayMethod <$>
-      fmap (fmap (fmap unBool')) (obj .:? "ApiKeyRequired") <*>
-      (obj .:? "AuthorizationScopes") <*>
-      (obj .:? "AuthorizationType") <*>
-      (obj .:? "AuthorizerId") <*>
-      (obj .: "HttpMethod") <*>
-      (obj .:? "Integration") <*>
-      (obj .:? "MethodResponses") <*>
-      (obj .:? "OperationName") <*>
-      (obj .:? "RequestModels") <*>
-      (obj .:? "RequestParameters") <*>
-      (obj .:? "RequestValidatorId") <*>
-      (obj .: "ResourceId") <*>
-      (obj .: "RestApiId")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ApiGatewayMethod' containing required fields as
 -- arguments.
 apiGatewayMethod

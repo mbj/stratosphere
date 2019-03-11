@@ -25,13 +25,6 @@ instance ToJSON ElasticsearchDomainVPCOptions where
     , fmap (("SubnetIds",) . toJSON) _elasticsearchDomainVPCOptionsSubnetIds
     ]
 
-instance FromJSON ElasticsearchDomainVPCOptions where
-  parseJSON (Object obj) =
-    ElasticsearchDomainVPCOptions <$>
-      (obj .:? "SecurityGroupIds") <*>
-      (obj .:? "SubnetIds")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ElasticsearchDomainVPCOptions' containing required
 -- fields as arguments.
 elasticsearchDomainVPCOptions

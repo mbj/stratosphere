@@ -38,18 +38,6 @@ instance ToJSON DataPipelinePipeline where
     , fmap (("PipelineTags",) . toJSON) _dataPipelinePipelinePipelineTags
     ]
 
-instance FromJSON DataPipelinePipeline where
-  parseJSON (Object obj) =
-    DataPipelinePipeline <$>
-      fmap (fmap (fmap unBool')) (obj .:? "Activate") <*>
-      (obj .:? "Description") <*>
-      (obj .: "Name") <*>
-      (obj .: "ParameterObjects") <*>
-      (obj .:? "ParameterValues") <*>
-      (obj .:? "PipelineObjects") <*>
-      (obj .:? "PipelineTags")
-  parseJSON _ = mempty
-
 -- | Constructor for 'DataPipelinePipeline' containing required fields as
 -- arguments.
 dataPipelinePipeline

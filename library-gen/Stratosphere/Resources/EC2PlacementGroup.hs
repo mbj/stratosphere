@@ -23,12 +23,6 @@ instance ToJSON EC2PlacementGroup where
     [ fmap (("Strategy",) . toJSON) _eC2PlacementGroupStrategy
     ]
 
-instance FromJSON EC2PlacementGroup where
-  parseJSON (Object obj) =
-    EC2PlacementGroup <$>
-      (obj .:? "Strategy")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2PlacementGroup' containing required fields as
 -- arguments.
 ec2PlacementGroup

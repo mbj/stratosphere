@@ -25,12 +25,6 @@ instance ToJSON KinesisAnalyticsApplicationInputProcessingConfiguration where
     [ fmap (("InputLambdaProcessor",) . toJSON) _kinesisAnalyticsApplicationInputProcessingConfigurationInputLambdaProcessor
     ]
 
-instance FromJSON KinesisAnalyticsApplicationInputProcessingConfiguration where
-  parseJSON (Object obj) =
-    KinesisAnalyticsApplicationInputProcessingConfiguration <$>
-      (obj .:? "InputLambdaProcessor")
-  parseJSON _ = mempty
-
 -- | Constructor for 'KinesisAnalyticsApplicationInputProcessingConfiguration'
 -- containing required fields as arguments.
 kinesisAnalyticsApplicationInputProcessingConfiguration

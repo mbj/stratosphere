@@ -52,26 +52,6 @@ instance ToJSON Route53RecordSet where
     , fmap (("Weight",) . toJSON . fmap Integer') _route53RecordSetWeight
     ]
 
-instance FromJSON Route53RecordSet where
-  parseJSON (Object obj) =
-    Route53RecordSet <$>
-      (obj .:? "AliasTarget") <*>
-      (obj .:? "Comment") <*>
-      (obj .:? "Failover") <*>
-      (obj .:? "GeoLocation") <*>
-      (obj .:? "HealthCheckId") <*>
-      (obj .:? "HostedZoneId") <*>
-      (obj .:? "HostedZoneName") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "MultiValueAnswer") <*>
-      (obj .: "Name") <*>
-      (obj .:? "Region") <*>
-      (obj .:? "ResourceRecords") <*>
-      (obj .:? "SetIdentifier") <*>
-      (obj .:? "TTL") <*>
-      (obj .: "Type") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "Weight")
-  parseJSON _ = mempty
-
 -- | Constructor for 'Route53RecordSet' containing required fields as
 -- arguments.
 route53RecordSet

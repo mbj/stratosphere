@@ -29,15 +29,6 @@ instance ToJSON OpsWorksUserProfile where
     , fmap (("SshUsername",) . toJSON) _opsWorksUserProfileSshUsername
     ]
 
-instance FromJSON OpsWorksUserProfile where
-  parseJSON (Object obj) =
-    OpsWorksUserProfile <$>
-      fmap (fmap (fmap unBool')) (obj .:? "AllowSelfManagement") <*>
-      (obj .: "IamUserArn") <*>
-      (obj .:? "SshPublicKey") <*>
-      (obj .:? "SshUsername")
-  parseJSON _ = mempty
-
 -- | Constructor for 'OpsWorksUserProfile' containing required fields as
 -- arguments.
 opsWorksUserProfile

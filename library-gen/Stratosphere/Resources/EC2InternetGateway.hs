@@ -23,12 +23,6 @@ instance ToJSON EC2InternetGateway where
     [ fmap (("Tags",) . toJSON) _eC2InternetGatewayTags
     ]
 
-instance FromJSON EC2InternetGateway where
-  parseJSON (Object obj) =
-    EC2InternetGateway <$>
-      (obj .:? "Tags")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2InternetGateway' containing required fields as
 -- arguments.
 ec2InternetGateway

@@ -25,13 +25,6 @@ instance ToJSON S3BucketFilterRule where
     , (Just . ("Value",) . toJSON) _s3BucketFilterRuleValue
     ]
 
-instance FromJSON S3BucketFilterRule where
-  parseJSON (Object obj) =
-    S3BucketFilterRule <$>
-      (obj .: "Name") <*>
-      (obj .: "Value")
-  parseJSON _ = mempty
-
 -- | Constructor for 'S3BucketFilterRule' containing required fields as
 -- arguments.
 s3BucketFilterRule

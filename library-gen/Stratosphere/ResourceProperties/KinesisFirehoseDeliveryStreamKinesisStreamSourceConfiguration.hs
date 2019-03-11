@@ -27,13 +27,6 @@ instance ToJSON KinesisFirehoseDeliveryStreamKinesisStreamSourceConfiguration wh
     , (Just . ("RoleARN",) . toJSON) _kinesisFirehoseDeliveryStreamKinesisStreamSourceConfigurationRoleARN
     ]
 
-instance FromJSON KinesisFirehoseDeliveryStreamKinesisStreamSourceConfiguration where
-  parseJSON (Object obj) =
-    KinesisFirehoseDeliveryStreamKinesisStreamSourceConfiguration <$>
-      (obj .: "KinesisStreamARN") <*>
-      (obj .: "RoleARN")
-  parseJSON _ = mempty
-
 -- | Constructor for
 -- 'KinesisFirehoseDeliveryStreamKinesisStreamSourceConfiguration'
 -- containing required fields as arguments.

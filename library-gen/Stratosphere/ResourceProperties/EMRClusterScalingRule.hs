@@ -30,15 +30,6 @@ instance ToJSON EMRClusterScalingRule where
     , (Just . ("Trigger",) . toJSON) _eMRClusterScalingRuleTrigger
     ]
 
-instance FromJSON EMRClusterScalingRule where
-  parseJSON (Object obj) =
-    EMRClusterScalingRule <$>
-      (obj .: "Action") <*>
-      (obj .:? "Description") <*>
-      (obj .: "Name") <*>
-      (obj .: "Trigger")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EMRClusterScalingRule' containing required fields as
 -- arguments.
 emrClusterScalingRule

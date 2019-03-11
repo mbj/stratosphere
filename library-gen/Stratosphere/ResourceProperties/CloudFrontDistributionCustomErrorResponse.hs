@@ -30,15 +30,6 @@ instance ToJSON CloudFrontDistributionCustomErrorResponse where
     , fmap (("ResponsePagePath",) . toJSON) _cloudFrontDistributionCustomErrorResponseResponsePagePath
     ]
 
-instance FromJSON CloudFrontDistributionCustomErrorResponse where
-  parseJSON (Object obj) =
-    CloudFrontDistributionCustomErrorResponse <$>
-      fmap (fmap (fmap unDouble')) (obj .:? "ErrorCachingMinTTL") <*>
-      fmap (fmap unInteger') (obj .: "ErrorCode") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "ResponseCode") <*>
-      (obj .:? "ResponsePagePath")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CloudFrontDistributionCustomErrorResponse' containing
 -- required fields as arguments.
 cloudFrontDistributionCustomErrorResponse

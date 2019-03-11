@@ -84,36 +84,6 @@ instance ToJSON EC2LaunchTemplateLaunchTemplateData where
     , fmap (("UserData",) . toJSON) _eC2LaunchTemplateLaunchTemplateDataUserData
     ]
 
-instance FromJSON EC2LaunchTemplateLaunchTemplateData where
-  parseJSON (Object obj) =
-    EC2LaunchTemplateLaunchTemplateData <$>
-      (obj .:? "BlockDeviceMappings") <*>
-      (obj .:? "CapacityReservationSpecification") <*>
-      (obj .:? "CpuOptions") <*>
-      (obj .:? "CreditSpecification") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "DisableApiTermination") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "EbsOptimized") <*>
-      (obj .:? "ElasticGpuSpecifications") <*>
-      (obj .:? "ElasticInferenceAccelerators") <*>
-      (obj .:? "HibernationOptions") <*>
-      (obj .:? "IamInstanceProfile") <*>
-      (obj .:? "ImageId") <*>
-      (obj .:? "InstanceInitiatedShutdownBehavior") <*>
-      (obj .:? "InstanceMarketOptions") <*>
-      (obj .:? "InstanceType") <*>
-      (obj .:? "KernelId") <*>
-      (obj .:? "KeyName") <*>
-      (obj .:? "LicenseSpecifications") <*>
-      (obj .:? "Monitoring") <*>
-      (obj .:? "NetworkInterfaces") <*>
-      (obj .:? "Placement") <*>
-      (obj .:? "RamDiskId") <*>
-      (obj .:? "SecurityGroupIds") <*>
-      (obj .:? "SecurityGroups") <*>
-      (obj .:? "TagSpecifications") <*>
-      (obj .:? "UserData")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2LaunchTemplateLaunchTemplateData' containing required
 -- fields as arguments.
 ec2LaunchTemplateLaunchTemplateData

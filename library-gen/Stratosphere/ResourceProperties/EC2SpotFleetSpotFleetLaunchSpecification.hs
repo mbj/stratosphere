@@ -62,28 +62,6 @@ instance ToJSON EC2SpotFleetSpotFleetLaunchSpecification where
     , fmap (("WeightedCapacity",) . toJSON . fmap Double') _eC2SpotFleetSpotFleetLaunchSpecificationWeightedCapacity
     ]
 
-instance FromJSON EC2SpotFleetSpotFleetLaunchSpecification where
-  parseJSON (Object obj) =
-    EC2SpotFleetSpotFleetLaunchSpecification <$>
-      (obj .:? "BlockDeviceMappings") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "EbsOptimized") <*>
-      (obj .:? "IamInstanceProfile") <*>
-      (obj .: "ImageId") <*>
-      (obj .: "InstanceType") <*>
-      (obj .:? "KernelId") <*>
-      (obj .:? "KeyName") <*>
-      (obj .:? "Monitoring") <*>
-      (obj .:? "NetworkInterfaces") <*>
-      (obj .:? "Placement") <*>
-      (obj .:? "RamdiskId") <*>
-      (obj .:? "SecurityGroups") <*>
-      (obj .:? "SpotPrice") <*>
-      (obj .:? "SubnetId") <*>
-      (obj .:? "TagSpecifications") <*>
-      (obj .:? "UserData") <*>
-      fmap (fmap (fmap unDouble')) (obj .:? "WeightedCapacity")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2SpotFleetSpotFleetLaunchSpecification' containing
 -- required fields as arguments.
 ec2SpotFleetSpotFleetLaunchSpecification

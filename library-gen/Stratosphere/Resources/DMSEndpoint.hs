@@ -62,29 +62,6 @@ instance ToJSON DMSEndpoint where
     , fmap (("Username",) . toJSON) _dMSEndpointUsername
     ]
 
-instance FromJSON DMSEndpoint where
-  parseJSON (Object obj) =
-    DMSEndpoint <$>
-      (obj .:? "CertificateArn") <*>
-      (obj .:? "DatabaseName") <*>
-      (obj .:? "DynamoDbSettings") <*>
-      (obj .:? "ElasticsearchSettings") <*>
-      (obj .:? "EndpointIdentifier") <*>
-      (obj .: "EndpointType") <*>
-      (obj .: "EngineName") <*>
-      (obj .:? "ExtraConnectionAttributes") <*>
-      (obj .:? "KinesisSettings") <*>
-      (obj .:? "KmsKeyId") <*>
-      (obj .:? "MongoDbSettings") <*>
-      (obj .:? "Password") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "Port") <*>
-      (obj .:? "S3Settings") <*>
-      (obj .:? "ServerName") <*>
-      (obj .:? "SslMode") <*>
-      (obj .:? "Tags") <*>
-      (obj .:? "Username")
-  parseJSON _ = mempty
-
 -- | Constructor for 'DMSEndpoint' containing required fields as arguments.
 dmsEndpoint
   :: Val Text -- ^ 'dmseEndpointType'

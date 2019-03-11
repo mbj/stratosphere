@@ -27,14 +27,6 @@ instance ToJSON WAFRulePredicate where
     , (Just . ("Type",) . toJSON) _wAFRulePredicateType
     ]
 
-instance FromJSON WAFRulePredicate where
-  parseJSON (Object obj) =
-    WAFRulePredicate <$>
-      (obj .: "DataId") <*>
-      fmap (fmap unBool') (obj .: "Negated") <*>
-      (obj .: "Type")
-  parseJSON _ = mempty
-
 -- | Constructor for 'WAFRulePredicate' containing required fields as
 -- arguments.
 wafRulePredicate

@@ -25,13 +25,6 @@ instance ToJSON LambdaFunctionVpcConfig where
     , (Just . ("SubnetIds",) . toJSON) _lambdaFunctionVpcConfigSubnetIds
     ]
 
-instance FromJSON LambdaFunctionVpcConfig where
-  parseJSON (Object obj) =
-    LambdaFunctionVpcConfig <$>
-      (obj .: "SecurityGroupIds") <*>
-      (obj .: "SubnetIds")
-  parseJSON _ = mempty
-
 -- | Constructor for 'LambdaFunctionVpcConfig' containing required fields as
 -- arguments.
 lambdaFunctionVpcConfig

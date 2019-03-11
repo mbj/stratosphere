@@ -25,13 +25,6 @@ instance ToJSON AppStreamStackUserSetting where
     , (Just . ("Permission",) . toJSON) _appStreamStackUserSettingPermission
     ]
 
-instance FromJSON AppStreamStackUserSetting where
-  parseJSON (Object obj) =
-    AppStreamStackUserSetting <$>
-      (obj .: "Action") <*>
-      (obj .: "Permission")
-  parseJSON _ = mempty
-
 -- | Constructor for 'AppStreamStackUserSetting' containing required fields as
 -- arguments.
 appStreamStackUserSetting

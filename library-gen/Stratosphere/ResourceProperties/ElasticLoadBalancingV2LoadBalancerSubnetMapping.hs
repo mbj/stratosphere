@@ -27,13 +27,6 @@ instance ToJSON ElasticLoadBalancingV2LoadBalancerSubnetMapping where
     , (Just . ("SubnetId",) . toJSON) _elasticLoadBalancingV2LoadBalancerSubnetMappingSubnetId
     ]
 
-instance FromJSON ElasticLoadBalancingV2LoadBalancerSubnetMapping where
-  parseJSON (Object obj) =
-    ElasticLoadBalancingV2LoadBalancerSubnetMapping <$>
-      (obj .: "AllocationId") <*>
-      (obj .: "SubnetId")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ElasticLoadBalancingV2LoadBalancerSubnetMapping'
 -- containing required fields as arguments.
 elasticLoadBalancingV2LoadBalancerSubnetMapping

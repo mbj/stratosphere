@@ -29,14 +29,6 @@ instance ToJSON GlueConnectionPhysicalConnectionRequirements where
     , fmap (("SubnetId",) . toJSON) _glueConnectionPhysicalConnectionRequirementsSubnetId
     ]
 
-instance FromJSON GlueConnectionPhysicalConnectionRequirements where
-  parseJSON (Object obj) =
-    GlueConnectionPhysicalConnectionRequirements <$>
-      (obj .:? "AvailabilityZone") <*>
-      (obj .:? "SecurityGroupIdList") <*>
-      (obj .:? "SubnetId")
-  parseJSON _ = mempty
-
 -- | Constructor for 'GlueConnectionPhysicalConnectionRequirements' containing
 -- required fields as arguments.
 glueConnectionPhysicalConnectionRequirements

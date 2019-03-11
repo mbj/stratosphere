@@ -28,14 +28,6 @@ instance ToJSON KinesisAnalyticsV2ApplicationCodeContent where
     , fmap (("ZipFileContent",) . toJSON) _kinesisAnalyticsV2ApplicationCodeContentZipFileContent
     ]
 
-instance FromJSON KinesisAnalyticsV2ApplicationCodeContent where
-  parseJSON (Object obj) =
-    KinesisAnalyticsV2ApplicationCodeContent <$>
-      (obj .:? "S3ContentLocation") <*>
-      (obj .:? "TextContent") <*>
-      (obj .:? "ZipFileContent")
-  parseJSON _ = mempty
-
 -- | Constructor for 'KinesisAnalyticsV2ApplicationCodeContent' containing
 -- required fields as arguments.
 kinesisAnalyticsV2ApplicationCodeContent

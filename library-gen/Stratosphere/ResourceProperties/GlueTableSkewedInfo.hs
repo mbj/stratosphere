@@ -27,14 +27,6 @@ instance ToJSON GlueTableSkewedInfo where
     , fmap (("SkewedColumnValues",) . toJSON) _glueTableSkewedInfoSkewedColumnValues
     ]
 
-instance FromJSON GlueTableSkewedInfo where
-  parseJSON (Object obj) =
-    GlueTableSkewedInfo <$>
-      (obj .:? "SkewedColumnNames") <*>
-      (obj .:? "SkewedColumnValueLocationMaps") <*>
-      (obj .:? "SkewedColumnValues")
-  parseJSON _ = mempty
-
 -- | Constructor for 'GlueTableSkewedInfo' containing required fields as
 -- arguments.
 glueTableSkewedInfo

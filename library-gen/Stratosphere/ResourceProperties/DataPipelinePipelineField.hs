@@ -27,14 +27,6 @@ instance ToJSON DataPipelinePipelineField where
     , fmap (("StringValue",) . toJSON) _dataPipelinePipelineFieldStringValue
     ]
 
-instance FromJSON DataPipelinePipelineField where
-  parseJSON (Object obj) =
-    DataPipelinePipelineField <$>
-      (obj .: "Key") <*>
-      (obj .:? "RefValue") <*>
-      (obj .:? "StringValue")
-  parseJSON _ = mempty
-
 -- | Constructor for 'DataPipelinePipelineField' containing required fields as
 -- arguments.
 dataPipelinePipelineField

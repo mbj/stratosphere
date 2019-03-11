@@ -25,13 +25,6 @@ instance ToJSON EC2EC2FleetTagSpecification where
     , fmap (("Tags",) . toJSON) _eC2EC2FleetTagSpecificationTags
     ]
 
-instance FromJSON EC2EC2FleetTagSpecification where
-  parseJSON (Object obj) =
-    EC2EC2FleetTagSpecification <$>
-      (obj .:? "ResourceType") <*>
-      (obj .:? "Tags")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2EC2FleetTagSpecification' containing required fields
 -- as arguments.
 ec2EC2FleetTagSpecification

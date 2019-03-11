@@ -33,16 +33,6 @@ instance ToJSON DLMLifecyclePolicySchedule where
     , fmap (("TagsToAdd",) . toJSON) _dLMLifecyclePolicyScheduleTagsToAdd
     ]
 
-instance FromJSON DLMLifecyclePolicySchedule where
-  parseJSON (Object obj) =
-    DLMLifecyclePolicySchedule <$>
-      fmap (fmap (fmap unBool')) (obj .:? "CopyTags") <*>
-      (obj .:? "CreateRule") <*>
-      (obj .:? "Name") <*>
-      (obj .:? "RetainRule") <*>
-      (obj .:? "TagsToAdd")
-  parseJSON _ = mempty
-
 -- | Constructor for 'DLMLifecyclePolicySchedule' containing required fields
 -- as arguments.
 dlmLifecyclePolicySchedule

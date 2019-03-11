@@ -27,13 +27,6 @@ instance ToJSON CodePipelineWebhookWebhookAuthConfiguration where
     , fmap (("SecretToken",) . toJSON) _codePipelineWebhookWebhookAuthConfigurationSecretToken
     ]
 
-instance FromJSON CodePipelineWebhookWebhookAuthConfiguration where
-  parseJSON (Object obj) =
-    CodePipelineWebhookWebhookAuthConfiguration <$>
-      (obj .:? "AllowedIPRange") <*>
-      (obj .:? "SecretToken")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CodePipelineWebhookWebhookAuthConfiguration' containing
 -- required fields as arguments.
 codePipelineWebhookWebhookAuthConfiguration

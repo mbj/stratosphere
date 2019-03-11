@@ -25,13 +25,6 @@ instance ToJSON WAFRegionalIPSet where
     , (Just . ("Name",) . toJSON) _wAFRegionalIPSetName
     ]
 
-instance FromJSON WAFRegionalIPSet where
-  parseJSON (Object obj) =
-    WAFRegionalIPSet <$>
-      (obj .:? "IPSetDescriptors") <*>
-      (obj .: "Name")
-  parseJSON _ = mempty
-
 -- | Constructor for 'WAFRegionalIPSet' containing required fields as
 -- arguments.
 wafRegionalIPSet

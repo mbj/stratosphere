@@ -31,16 +31,6 @@ instance ToJSON InspectorAssessmentTemplate where
     , fmap (("UserAttributesForFindings",) . toJSON) _inspectorAssessmentTemplateUserAttributesForFindings
     ]
 
-instance FromJSON InspectorAssessmentTemplate where
-  parseJSON (Object obj) =
-    InspectorAssessmentTemplate <$>
-      (obj .: "AssessmentTargetArn") <*>
-      (obj .:? "AssessmentTemplateName") <*>
-      fmap (fmap unInteger') (obj .: "DurationInSeconds") <*>
-      (obj .: "RulesPackageArns") <*>
-      (obj .:? "UserAttributesForFindings")
-  parseJSON _ = mempty
-
 -- | Constructor for 'InspectorAssessmentTemplate' containing required fields
 -- as arguments.
 inspectorAssessmentTemplate

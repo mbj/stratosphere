@@ -27,13 +27,6 @@ instance ToJSON ServiceCatalogCloudFormationProvisionedProductProvisioningParame
     , fmap (("Value",) . toJSON) _serviceCatalogCloudFormationProvisionedProductProvisioningParameterValue
     ]
 
-instance FromJSON ServiceCatalogCloudFormationProvisionedProductProvisioningParameter where
-  parseJSON (Object obj) =
-    ServiceCatalogCloudFormationProvisionedProductProvisioningParameter <$>
-      (obj .:? "Key") <*>
-      (obj .:? "Value")
-  parseJSON _ = mempty
-
 -- | Constructor for
 -- 'ServiceCatalogCloudFormationProvisionedProductProvisioningParameter'
 -- containing required fields as arguments.

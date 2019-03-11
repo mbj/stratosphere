@@ -31,16 +31,6 @@ instance ToJSON ApiGatewayV2Model where
     , (Just . ("Schema",) . toJSON) _apiGatewayV2ModelSchema
     ]
 
-instance FromJSON ApiGatewayV2Model where
-  parseJSON (Object obj) =
-    ApiGatewayV2Model <$>
-      (obj .: "ApiId") <*>
-      (obj .:? "ContentType") <*>
-      (obj .:? "Description") <*>
-      (obj .: "Name") <*>
-      (obj .: "Schema")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ApiGatewayV2Model' containing required fields as
 -- arguments.
 apiGatewayV2Model

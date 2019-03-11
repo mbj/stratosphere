@@ -48,23 +48,6 @@ instance ToJSON GluePartitionStorageDescriptor where
     , fmap (("StoredAsSubDirectories",) . toJSON . fmap Bool') _gluePartitionStorageDescriptorStoredAsSubDirectories
     ]
 
-instance FromJSON GluePartitionStorageDescriptor where
-  parseJSON (Object obj) =
-    GluePartitionStorageDescriptor <$>
-      (obj .:? "BucketColumns") <*>
-      (obj .:? "Columns") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "Compressed") <*>
-      (obj .:? "InputFormat") <*>
-      (obj .:? "Location") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "NumberOfBuckets") <*>
-      (obj .:? "OutputFormat") <*>
-      (obj .:? "Parameters") <*>
-      (obj .:? "SerdeInfo") <*>
-      (obj .:? "SkewedInfo") <*>
-      (obj .:? "SortColumns") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "StoredAsSubDirectories")
-  parseJSON _ = mempty
-
 -- | Constructor for 'GluePartitionStorageDescriptor' containing required
 -- fields as arguments.
 gluePartitionStorageDescriptor

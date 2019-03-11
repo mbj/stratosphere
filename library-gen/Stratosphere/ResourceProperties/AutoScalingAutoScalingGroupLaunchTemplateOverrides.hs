@@ -25,12 +25,6 @@ instance ToJSON AutoScalingAutoScalingGroupLaunchTemplateOverrides where
     [ fmap (("InstanceType",) . toJSON) _autoScalingAutoScalingGroupLaunchTemplateOverridesInstanceType
     ]
 
-instance FromJSON AutoScalingAutoScalingGroupLaunchTemplateOverrides where
-  parseJSON (Object obj) =
-    AutoScalingAutoScalingGroupLaunchTemplateOverrides <$>
-      (obj .:? "InstanceType")
-  parseJSON _ = mempty
-
 -- | Constructor for 'AutoScalingAutoScalingGroupLaunchTemplateOverrides'
 -- containing required fields as arguments.
 autoScalingAutoScalingGroupLaunchTemplateOverrides

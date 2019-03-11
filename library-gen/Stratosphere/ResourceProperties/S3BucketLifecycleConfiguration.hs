@@ -23,12 +23,6 @@ instance ToJSON S3BucketLifecycleConfiguration where
     [ (Just . ("Rules",) . toJSON) _s3BucketLifecycleConfigurationRules
     ]
 
-instance FromJSON S3BucketLifecycleConfiguration where
-  parseJSON (Object obj) =
-    S3BucketLifecycleConfiguration <$>
-      (obj .: "Rules")
-  parseJSON _ = mempty
-
 -- | Constructor for 'S3BucketLifecycleConfiguration' containing required
 -- fields as arguments.
 s3BucketLifecycleConfiguration

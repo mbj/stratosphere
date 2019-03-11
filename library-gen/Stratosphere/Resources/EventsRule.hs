@@ -36,18 +36,6 @@ instance ToJSON EventsRule where
     , fmap (("Targets",) . toJSON) _eventsRuleTargets
     ]
 
-instance FromJSON EventsRule where
-  parseJSON (Object obj) =
-    EventsRule <$>
-      (obj .:? "Description") <*>
-      (obj .:? "EventPattern") <*>
-      (obj .:? "Name") <*>
-      (obj .:? "RoleArn") <*>
-      (obj .:? "ScheduleExpression") <*>
-      (obj .:? "State") <*>
-      (obj .:? "Targets")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EventsRule' containing required fields as arguments.
 eventsRule
   :: EventsRule

@@ -5,15 +5,12 @@ module Stratosphere.Helpers
        , modTemplateJSONField
        , NamedItem (..)
        , namedItemToJSON
-       , namedItemFromJSON
        ) where
 
 import Control.Lens (set)
 import Control.Lens.TH
 import Data.Aeson
-import Data.Aeson.Types (Parser)
 import Data.Char (isUpper, toLower)
-import qualified Data.HashMap.Strict as HM
 import Data.List (stripPrefix)
 import Data.Maybe (maybeToList)
 import qualified Data.Text as T
@@ -54,14 +51,7 @@ modTemplateJSONField s = drop 9 s
 class NamedItem a where
   itemName :: a -> T.Text
   nameToJSON :: a -> Value
-  nameParseJSON :: T.Text -> Object -> Parser a
 
 namedItemToJSON :: (NamedItem a) => [a] -> Value
 namedItemToJSON xs =
     object $ fmap (\x -> itemName x .= nameToJSON x) xs
-
-namedItemFromJSON :: (NamedItem a) => Value -> Parser [a]
-namedItemFromJSON v = do
-    objs <- parseJSON v :: Parser (HM.HashMap T.Text Value)
-    sequence [withObject "NamedItem" (nameParseJSON n) obj |
-              (n, obj) <- HM.toList objs]

@@ -37,18 +37,6 @@ instance ToJSON BudgetsBudgetBudgetData where
     , (Just . ("TimeUnit",) . toJSON) _budgetsBudgetBudgetDataTimeUnit
     ]
 
-instance FromJSON BudgetsBudgetBudgetData where
-  parseJSON (Object obj) =
-    BudgetsBudgetBudgetData <$>
-      (obj .:? "BudgetLimit") <*>
-      (obj .:? "BudgetName") <*>
-      (obj .: "BudgetType") <*>
-      (obj .:? "CostFilters") <*>
-      (obj .:? "CostTypes") <*>
-      (obj .:? "TimePeriod") <*>
-      (obj .: "TimeUnit")
-  parseJSON _ = mempty
-
 -- | Constructor for 'BudgetsBudgetBudgetData' containing required fields as
 -- arguments.
 budgetsBudgetBudgetData

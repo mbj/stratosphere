@@ -60,26 +60,6 @@ instance ToJSON CodeDeployDeploymentGroup where
     , fmap (("TriggerConfigurations",) . toJSON) _codeDeployDeploymentGroupTriggerConfigurations
     ]
 
-instance FromJSON CodeDeployDeploymentGroup where
-  parseJSON (Object obj) =
-    CodeDeployDeploymentGroup <$>
-      (obj .:? "AlarmConfiguration") <*>
-      (obj .: "ApplicationName") <*>
-      (obj .:? "AutoRollbackConfiguration") <*>
-      (obj .:? "AutoScalingGroups") <*>
-      (obj .:? "Deployment") <*>
-      (obj .:? "DeploymentConfigName") <*>
-      (obj .:? "DeploymentGroupName") <*>
-      (obj .:? "DeploymentStyle") <*>
-      (obj .:? "Ec2TagFilters") <*>
-      (obj .:? "Ec2TagSet") <*>
-      (obj .:? "LoadBalancerInfo") <*>
-      (obj .:? "OnPremisesInstanceTagFilters") <*>
-      (obj .:? "OnPremisesTagSet") <*>
-      (obj .: "ServiceRoleArn") <*>
-      (obj .:? "TriggerConfigurations")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CodeDeployDeploymentGroup' containing required fields as
 -- arguments.
 codeDeployDeploymentGroup

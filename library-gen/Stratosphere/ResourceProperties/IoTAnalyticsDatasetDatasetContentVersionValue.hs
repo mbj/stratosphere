@@ -25,12 +25,6 @@ instance ToJSON IoTAnalyticsDatasetDatasetContentVersionValue where
     [ fmap (("DatasetName",) . toJSON) _ioTAnalyticsDatasetDatasetContentVersionValueDatasetName
     ]
 
-instance FromJSON IoTAnalyticsDatasetDatasetContentVersionValue where
-  parseJSON (Object obj) =
-    IoTAnalyticsDatasetDatasetContentVersionValue <$>
-      (obj .:? "DatasetName")
-  parseJSON _ = mempty
-
 -- | Constructor for 'IoTAnalyticsDatasetDatasetContentVersionValue'
 -- containing required fields as arguments.
 ioTAnalyticsDatasetDatasetContentVersionValue

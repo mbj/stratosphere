@@ -23,12 +23,6 @@ instance ToJSON ApiGatewayClientCertificate where
     [ fmap (("Description",) . toJSON) _apiGatewayClientCertificateDescription
     ]
 
-instance FromJSON ApiGatewayClientCertificate where
-  parseJSON (Object obj) =
-    ApiGatewayClientCertificate <$>
-      (obj .:? "Description")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ApiGatewayClientCertificate' containing required fields
 -- as arguments.
 apiGatewayClientCertificate

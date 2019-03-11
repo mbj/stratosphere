@@ -27,13 +27,6 @@ instance ToJSON ElasticBeanstalkApplicationApplicationResourceLifecycleConfig wh
     , fmap (("VersionLifecycleConfig",) . toJSON) _elasticBeanstalkApplicationApplicationResourceLifecycleConfigVersionLifecycleConfig
     ]
 
-instance FromJSON ElasticBeanstalkApplicationApplicationResourceLifecycleConfig where
-  parseJSON (Object obj) =
-    ElasticBeanstalkApplicationApplicationResourceLifecycleConfig <$>
-      (obj .:? "ServiceRole") <*>
-      (obj .:? "VersionLifecycleConfig")
-  parseJSON _ = mempty
-
 -- | Constructor for
 -- 'ElasticBeanstalkApplicationApplicationResourceLifecycleConfig'
 -- containing required fields as arguments.

@@ -27,14 +27,6 @@ instance ToJSON ServiceDiscoveryPrivateDnsNamespace where
     , (Just . ("Vpc",) . toJSON) _serviceDiscoveryPrivateDnsNamespaceVpc
     ]
 
-instance FromJSON ServiceDiscoveryPrivateDnsNamespace where
-  parseJSON (Object obj) =
-    ServiceDiscoveryPrivateDnsNamespace <$>
-      (obj .:? "Description") <*>
-      (obj .: "Name") <*>
-      (obj .: "Vpc")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ServiceDiscoveryPrivateDnsNamespace' containing required
 -- fields as arguments.
 serviceDiscoveryPrivateDnsNamespace

@@ -36,18 +36,6 @@ instance ToJSON CognitoUserPoolSchemaAttribute where
     , fmap (("StringAttributeConstraints",) . toJSON) _cognitoUserPoolSchemaAttributeStringAttributeConstraints
     ]
 
-instance FromJSON CognitoUserPoolSchemaAttribute where
-  parseJSON (Object obj) =
-    CognitoUserPoolSchemaAttribute <$>
-      (obj .:? "AttributeDataType") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "DeveloperOnlyAttribute") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "Mutable") <*>
-      (obj .:? "Name") <*>
-      (obj .:? "NumberAttributeConstraints") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "Required") <*>
-      (obj .:? "StringAttributeConstraints")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CognitoUserPoolSchemaAttribute' containing required
 -- fields as arguments.
 cognitoUserPoolSchemaAttribute

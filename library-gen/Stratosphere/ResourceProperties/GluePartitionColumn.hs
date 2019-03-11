@@ -27,14 +27,6 @@ instance ToJSON GluePartitionColumn where
     , fmap (("Type",) . toJSON) _gluePartitionColumnType
     ]
 
-instance FromJSON GluePartitionColumn where
-  parseJSON (Object obj) =
-    GluePartitionColumn <$>
-      (obj .:? "Comment") <*>
-      (obj .: "Name") <*>
-      (obj .:? "Type")
-  parseJSON _ = mempty
-
 -- | Constructor for 'GluePartitionColumn' containing required fields as
 -- arguments.
 gluePartitionColumn

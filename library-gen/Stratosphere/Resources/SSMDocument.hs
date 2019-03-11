@@ -27,14 +27,6 @@ instance ToJSON SSMDocument where
     , fmap (("Tags",) . toJSON) _sSMDocumentTags
     ]
 
-instance FromJSON SSMDocument where
-  parseJSON (Object obj) =
-    SSMDocument <$>
-      (obj .: "Content") <*>
-      (obj .:? "DocumentType") <*>
-      (obj .:? "Tags")
-  parseJSON _ = mempty
-
 -- | Constructor for 'SSMDocument' containing required fields as arguments.
 ssmDocument
   :: Object -- ^ 'ssmdContent'

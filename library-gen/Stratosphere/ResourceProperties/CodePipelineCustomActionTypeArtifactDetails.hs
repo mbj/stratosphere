@@ -27,13 +27,6 @@ instance ToJSON CodePipelineCustomActionTypeArtifactDetails where
     , (Just . ("MinimumCount",) . toJSON . fmap Integer') _codePipelineCustomActionTypeArtifactDetailsMinimumCount
     ]
 
-instance FromJSON CodePipelineCustomActionTypeArtifactDetails where
-  parseJSON (Object obj) =
-    CodePipelineCustomActionTypeArtifactDetails <$>
-      fmap (fmap unInteger') (obj .: "MaximumCount") <*>
-      fmap (fmap unInteger') (obj .: "MinimumCount")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CodePipelineCustomActionTypeArtifactDetails' containing
 -- required fields as arguments.
 codePipelineCustomActionTypeArtifactDetails

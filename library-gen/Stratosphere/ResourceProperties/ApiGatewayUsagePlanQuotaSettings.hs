@@ -27,14 +27,6 @@ instance ToJSON ApiGatewayUsagePlanQuotaSettings where
     , fmap (("Period",) . toJSON) _apiGatewayUsagePlanQuotaSettingsPeriod
     ]
 
-instance FromJSON ApiGatewayUsagePlanQuotaSettings where
-  parseJSON (Object obj) =
-    ApiGatewayUsagePlanQuotaSettings <$>
-      fmap (fmap (fmap unInteger')) (obj .:? "Limit") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "Offset") <*>
-      (obj .:? "Period")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ApiGatewayUsagePlanQuotaSettings' containing required
 -- fields as arguments.
 apiGatewayUsagePlanQuotaSettings

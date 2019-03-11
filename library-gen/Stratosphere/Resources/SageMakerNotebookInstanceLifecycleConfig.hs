@@ -28,14 +28,6 @@ instance ToJSON SageMakerNotebookInstanceLifecycleConfig where
     , fmap (("OnStart",) . toJSON) _sageMakerNotebookInstanceLifecycleConfigOnStart
     ]
 
-instance FromJSON SageMakerNotebookInstanceLifecycleConfig where
-  parseJSON (Object obj) =
-    SageMakerNotebookInstanceLifecycleConfig <$>
-      (obj .:? "NotebookInstanceLifecycleConfigName") <*>
-      (obj .:? "OnCreate") <*>
-      (obj .:? "OnStart")
-  parseJSON _ = mempty
-
 -- | Constructor for 'SageMakerNotebookInstanceLifecycleConfig' containing
 -- required fields as arguments.
 sageMakerNotebookInstanceLifecycleConfig

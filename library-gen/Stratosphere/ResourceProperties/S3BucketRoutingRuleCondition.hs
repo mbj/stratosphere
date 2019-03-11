@@ -25,13 +25,6 @@ instance ToJSON S3BucketRoutingRuleCondition where
     , fmap (("KeyPrefixEquals",) . toJSON) _s3BucketRoutingRuleConditionKeyPrefixEquals
     ]
 
-instance FromJSON S3BucketRoutingRuleCondition where
-  parseJSON (Object obj) =
-    S3BucketRoutingRuleCondition <$>
-      (obj .:? "HttpErrorCodeReturnedEquals") <*>
-      (obj .:? "KeyPrefixEquals")
-  parseJSON _ = mempty
-
 -- | Constructor for 'S3BucketRoutingRuleCondition' containing required fields
 -- as arguments.
 s3BucketRoutingRuleCondition

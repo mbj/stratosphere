@@ -29,15 +29,6 @@ instance ToJSON LogsSubscriptionFilter where
     , fmap (("RoleArn",) . toJSON) _logsSubscriptionFilterRoleArn
     ]
 
-instance FromJSON LogsSubscriptionFilter where
-  parseJSON (Object obj) =
-    LogsSubscriptionFilter <$>
-      (obj .: "DestinationArn") <*>
-      (obj .: "FilterPattern") <*>
-      (obj .: "LogGroupName") <*>
-      (obj .:? "RoleArn")
-  parseJSON _ = mempty
-
 -- | Constructor for 'LogsSubscriptionFilter' containing required fields as
 -- arguments.
 logsSubscriptionFilter

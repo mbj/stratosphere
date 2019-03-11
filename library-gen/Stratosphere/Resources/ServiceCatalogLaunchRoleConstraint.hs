@@ -31,16 +31,6 @@ instance ToJSON ServiceCatalogLaunchRoleConstraint where
     , (Just . ("RoleArn",) . toJSON) _serviceCatalogLaunchRoleConstraintRoleArn
     ]
 
-instance FromJSON ServiceCatalogLaunchRoleConstraint where
-  parseJSON (Object obj) =
-    ServiceCatalogLaunchRoleConstraint <$>
-      (obj .:? "AcceptLanguage") <*>
-      (obj .:? "Description") <*>
-      (obj .: "PortfolioId") <*>
-      (obj .: "ProductId") <*>
-      (obj .: "RoleArn")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ServiceCatalogLaunchRoleConstraint' containing required
 -- fields as arguments.
 serviceCatalogLaunchRoleConstraint

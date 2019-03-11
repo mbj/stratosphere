@@ -23,12 +23,6 @@ instance ToJSON GlueCrawlerSchedule where
     [ fmap (("ScheduleExpression",) . toJSON) _glueCrawlerScheduleScheduleExpression
     ]
 
-instance FromJSON GlueCrawlerSchedule where
-  parseJSON (Object obj) =
-    GlueCrawlerSchedule <$>
-      (obj .:? "ScheduleExpression")
-  parseJSON _ = mempty
-
 -- | Constructor for 'GlueCrawlerSchedule' containing required fields as
 -- arguments.
 glueCrawlerSchedule

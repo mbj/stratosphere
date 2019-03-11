@@ -39,20 +39,6 @@ instance ToJSON AppSyncFunctionConfiguration where
     , fmap (("ResponseMappingTemplateS3Location",) . toJSON) _appSyncFunctionConfigurationResponseMappingTemplateS3Location
     ]
 
-instance FromJSON AppSyncFunctionConfiguration where
-  parseJSON (Object obj) =
-    AppSyncFunctionConfiguration <$>
-      (obj .: "ApiId") <*>
-      (obj .:? "DataSourceName") <*>
-      (obj .:? "Description") <*>
-      (obj .:? "FunctionVersion") <*>
-      (obj .:? "Name") <*>
-      (obj .:? "RequestMappingTemplate") <*>
-      (obj .:? "RequestMappingTemplateS3Location") <*>
-      (obj .:? "ResponseMappingTemplate") <*>
-      (obj .:? "ResponseMappingTemplateS3Location")
-  parseJSON _ = mempty
-
 -- | Constructor for 'AppSyncFunctionConfiguration' containing required fields
 -- as arguments.
 appSyncFunctionConfiguration

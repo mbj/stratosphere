@@ -33,17 +33,6 @@ instance ToJSON RDSOptionGroupOptionConfiguration where
     , fmap (("VpcSecurityGroupMemberships",) . toJSON) _rDSOptionGroupOptionConfigurationVpcSecurityGroupMemberships
     ]
 
-instance FromJSON RDSOptionGroupOptionConfiguration where
-  parseJSON (Object obj) =
-    RDSOptionGroupOptionConfiguration <$>
-      (obj .:? "DBSecurityGroupMemberships") <*>
-      (obj .: "OptionName") <*>
-      (obj .:? "OptionSettings") <*>
-      (obj .:? "OptionVersion") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "Port") <*>
-      (obj .:? "VpcSecurityGroupMemberships")
-  parseJSON _ = mempty
-
 -- | Constructor for 'RDSOptionGroupOptionConfiguration' containing required
 -- fields as arguments.
 rdsOptionGroupOptionConfiguration

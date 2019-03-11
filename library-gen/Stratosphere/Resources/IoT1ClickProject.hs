@@ -27,14 +27,6 @@ instance ToJSON IoT1ClickProject where
     , fmap (("ProjectName",) . toJSON) _ioT1ClickProjectProjectName
     ]
 
-instance FromJSON IoT1ClickProject where
-  parseJSON (Object obj) =
-    IoT1ClickProject <$>
-      (obj .:? "Description") <*>
-      (obj .: "PlacementTemplate") <*>
-      (obj .:? "ProjectName")
-  parseJSON _ = mempty
-
 -- | Constructor for 'IoT1ClickProject' containing required fields as
 -- arguments.
 ioT1ClickProject

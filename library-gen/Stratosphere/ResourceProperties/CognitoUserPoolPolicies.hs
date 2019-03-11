@@ -23,12 +23,6 @@ instance ToJSON CognitoUserPoolPolicies where
     [ fmap (("PasswordPolicy",) . toJSON) _cognitoUserPoolPoliciesPasswordPolicy
     ]
 
-instance FromJSON CognitoUserPoolPolicies where
-  parseJSON (Object obj) =
-    CognitoUserPoolPolicies <$>
-      (obj .:? "PasswordPolicy")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CognitoUserPoolPolicies' containing required fields as
 -- arguments.
 cognitoUserPoolPolicies

@@ -26,13 +26,6 @@ instance ToJSON EMRInstanceFleetConfigEbsBlockDeviceConfig where
     , fmap (("VolumesPerInstance",) . toJSON . fmap Integer') _eMRInstanceFleetConfigEbsBlockDeviceConfigVolumesPerInstance
     ]
 
-instance FromJSON EMRInstanceFleetConfigEbsBlockDeviceConfig where
-  parseJSON (Object obj) =
-    EMRInstanceFleetConfigEbsBlockDeviceConfig <$>
-      (obj .: "VolumeSpecification") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "VolumesPerInstance")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EMRInstanceFleetConfigEbsBlockDeviceConfig' containing
 -- required fields as arguments.
 emrInstanceFleetConfigEbsBlockDeviceConfig

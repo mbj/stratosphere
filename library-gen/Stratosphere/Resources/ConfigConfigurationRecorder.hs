@@ -27,14 +27,6 @@ instance ToJSON ConfigConfigurationRecorder where
     , (Just . ("RoleARN",) . toJSON) _configConfigurationRecorderRoleARN
     ]
 
-instance FromJSON ConfigConfigurationRecorder where
-  parseJSON (Object obj) =
-    ConfigConfigurationRecorder <$>
-      (obj .:? "Name") <*>
-      (obj .:? "RecordingGroup") <*>
-      (obj .: "RoleARN")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ConfigConfigurationRecorder' containing required fields
 -- as arguments.
 configConfigurationRecorder

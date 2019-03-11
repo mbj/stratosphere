@@ -18,13 +18,13 @@ module Stratosphere.Values
 
 import Data.Aeson
 import Data.HashMap.Strict (HashMap)
-import qualified Data.HashMap.Strict as HM
 import Data.String (IsString (..))
 import Data.Text (Text)
-import Text.Read (readMaybe)
 import GHC.Exts (IsList(..))
 
--- GADTs are cool, but I couldn't get this to work with FromJSON
+-- GADTs are cool, but I couldn't get this to work with FromJSON. Now that we
+-- don't have FromJSON though, we can revisit this.
+
 -- data Val a where
 --   Literal :: a -> Val a
 --   Ref :: Text -> Val a
@@ -88,31 +88,6 @@ importValueToJSON ref = object [("Fn::ImportValue", toJSON ref)]
 mkFunc :: Text -> [Value] -> Value
 mkFunc name args = object [(name, Array $ fromList args)]
 
-instance (FromJSON a) => FromJSON (Val a) where
-  parseJSON (Object o) =
-    case HM.toList o of
-      [] -> fail "Empty object as Val"
-      [("Ref", o')] -> Ref <$> parseJSON o'
-      [("Fn::If", o')] -> (\(i, x, y) -> If i x y) <$> parseJSON o'
-      [("Fn::And", o')] -> (\(x, y) -> And (unBool' <$> x) (unBool' <$> y)) <$> parseJSON o'
-      [("Fn::Equals", o')] -> uncurry Equals <$> parseJSON o'
-      [("Fn::Or", o')] -> (\(x, y) -> Or (unBool' <$> x) (unBool' <$> y)) <$> parseJSON o'
-      [("Fn::GetAtt", o')] -> uncurry GetAtt <$> parseJSON o'
-      [("Fn::Base64", o')] -> Base64 <$> parseJSON o'
-      [("Fn::Join", o')] -> uncurry Join <$> parseJSON o'
-      [("Fn::Select", o')] -> (\(x, y) -> Select (unInteger' x) y) <$> parseJSON o'
-      [("Fn::FindInMap", o')] -> do
-        (mapName, topKey, secondKey) <- parseJSON o'
-        return (FindInMap mapName topKey secondKey)
-      [("Fn::ImportValue", o')] -> ImportValue <$> parseJSON o'
-      [("Fn::Sub", vals)] ->
-        case vals of
-          (String s) -> return $ Sub s Nothing
-          otherwise' -> uncurry Sub <$> parseJSON otherwise'
-      [(n, o')] -> Literal <$> parseJSON (object [(n, o')])
-      os -> Literal <$> parseJSON (object os)
-  parseJSON v = Literal <$> parseJSON v
-
 -- | 'ValList' is like 'Val', except it is used in place of lists of Vals in
 -- templates. For example, if you have a parameter called @SubnetIds@ of type
 -- @List<AWS::EC2::Subnet::Id>@ then, you can use @RefList "SubnetIds"@ to
@@ -146,17 +121,6 @@ instance (ToJSON a) => ToJSON (ValList a) where
   toJSON (Split d s) = mkFunc "Fn::Split" [toJSON d, toJSON s]
   toJSON (GetAZs r) = object [("Fn::GetAZs", toJSON r)]
 
-instance (FromJSON a) => FromJSON (ValList a) where
-  parseJSON a@(Array _) = ValList <$> parseJSON a
-  parseJSON (Object o) =
-    case HM.toList o of
-      [("Ref", o')] -> RefList <$> parseJSON o'
-      [("Fn::ImportValue", o')] -> ImportValueList <$> parseJSON o'
-      [("Fn::Split", o')] -> uncurry Split <$> parseJSON o'
-      [("Fn::GetAZs", o')] -> GetAZs <$> parseJSON o'
-      _ -> fail "Could not parse object into RefList"
-  parseJSON _ = fail "Expected Array or Object for ValList in parseJSON"
-
 -- | We need to wrap integers so we can override the Aeson type-classes. This
 -- is necessary because CloudFront made the silly decision to represent numbers
 -- as JSON strings.
@@ -166,13 +130,6 @@ newtype Integer' = Integer' { unInteger' :: Integer }
 instance ToJSON Integer' where
   toJSON (Integer' i) = toJSON $ show i
 
-instance FromJSON Integer' where
-  parseJSON v = Integer' <$> do
-    numString <- parseJSON v
-    case readMaybe (numString :: String) of
-      Nothing -> fail "Can't read number from string"
-      (Just n) -> return n
-
 -- | We need to wrap Bools for the same reason we need to wrap Ints.
 newtype Bool' = Bool' { unBool' :: Bool }
   deriving (Show, Bounded, Enum, Eq, Ord)
@@ -180,14 +137,6 @@ newtype Bool' = Bool' { unBool' :: Bool }
 instance ToJSON Bool' where
   toJSON (Bool' True) = "true"
   toJSON (Bool' False) = "false"
-
-instance FromJSON Bool' where
-  parseJSON v = do
-    string <- parseJSON v
-    case string of
-      "true" -> return (Bool' True)
-      "false" -> return (Bool' False)
-      _ -> fail $ "Unknown bool string " ++ string
 
 -- | Class used to create a 'Ref' from another type.
 class ToRef a b where
@@ -199,10 +148,3 @@ newtype Double' = Double' { unDouble' :: Double }
 
 instance ToJSON Double' where
   toJSON (Double' i) = toJSON $ show i
-
-instance FromJSON Double' where
-  parseJSON v = Double' <$> do
-    numString <- parseJSON v
-    case readMaybe (numString :: String) of
-      Nothing -> fail "Can't read number from string"
-      (Just n) -> return n

@@ -25,13 +25,6 @@ instance ToJSON WAFRegionalSqlInjectionMatchSet where
     , fmap (("SqlInjectionMatchTuples",) . toJSON) _wAFRegionalSqlInjectionMatchSetSqlInjectionMatchTuples
     ]
 
-instance FromJSON WAFRegionalSqlInjectionMatchSet where
-  parseJSON (Object obj) =
-    WAFRegionalSqlInjectionMatchSet <$>
-      (obj .: "Name") <*>
-      (obj .:? "SqlInjectionMatchTuples")
-  parseJSON _ = mempty
-
 -- | Constructor for 'WAFRegionalSqlInjectionMatchSet' containing required
 -- fields as arguments.
 wafRegionalSqlInjectionMatchSet

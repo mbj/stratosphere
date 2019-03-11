@@ -27,14 +27,6 @@ instance ToJSON GameLiftBuildS3Location where
     , (Just . ("RoleArn",) . toJSON) _gameLiftBuildS3LocationRoleArn
     ]
 
-instance FromJSON GameLiftBuildS3Location where
-  parseJSON (Object obj) =
-    GameLiftBuildS3Location <$>
-      (obj .: "Bucket") <*>
-      (obj .: "Key") <*>
-      (obj .: "RoleArn")
-  parseJSON _ = mempty
-
 -- | Constructor for 'GameLiftBuildS3Location' containing required fields as
 -- arguments.
 gameLiftBuildS3Location

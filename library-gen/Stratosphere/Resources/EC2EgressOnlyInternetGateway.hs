@@ -23,12 +23,6 @@ instance ToJSON EC2EgressOnlyInternetGateway where
     [ (Just . ("VpcId",) . toJSON) _eC2EgressOnlyInternetGatewayVpcId
     ]
 
-instance FromJSON EC2EgressOnlyInternetGateway where
-  parseJSON (Object obj) =
-    EC2EgressOnlyInternetGateway <$>
-      (obj .: "VpcId")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2EgressOnlyInternetGateway' containing required fields
 -- as arguments.
 ec2EgressOnlyInternetGateway

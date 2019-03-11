@@ -27,14 +27,6 @@ instance ToJSON DLMLifecyclePolicyCreateRule where
     , fmap (("Times",) . toJSON) _dLMLifecyclePolicyCreateRuleTimes
     ]
 
-instance FromJSON DLMLifecyclePolicyCreateRule where
-  parseJSON (Object obj) =
-    DLMLifecyclePolicyCreateRule <$>
-      fmap (fmap unInteger') (obj .: "Interval") <*>
-      (obj .: "IntervalUnit") <*>
-      (obj .:? "Times")
-  parseJSON _ = mempty
-
 -- | Constructor for 'DLMLifecyclePolicyCreateRule' containing required fields
 -- as arguments.
 dlmLifecyclePolicyCreateRule

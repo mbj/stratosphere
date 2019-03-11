@@ -27,13 +27,6 @@ instance ToJSON ECSTaskDefinitionTaskDefinitionPlacementConstraint where
     , (Just . ("Type",) . toJSON) _eCSTaskDefinitionTaskDefinitionPlacementConstraintType
     ]
 
-instance FromJSON ECSTaskDefinitionTaskDefinitionPlacementConstraint where
-  parseJSON (Object obj) =
-    ECSTaskDefinitionTaskDefinitionPlacementConstraint <$>
-      (obj .:? "Expression") <*>
-      (obj .: "Type")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ECSTaskDefinitionTaskDefinitionPlacementConstraint'
 -- containing required fields as arguments.
 ecsTaskDefinitionTaskDefinitionPlacementConstraint

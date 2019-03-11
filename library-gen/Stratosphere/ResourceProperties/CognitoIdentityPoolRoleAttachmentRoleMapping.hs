@@ -29,14 +29,6 @@ instance ToJSON CognitoIdentityPoolRoleAttachmentRoleMapping where
     , (Just . ("Type",) . toJSON) _cognitoIdentityPoolRoleAttachmentRoleMappingType
     ]
 
-instance FromJSON CognitoIdentityPoolRoleAttachmentRoleMapping where
-  parseJSON (Object obj) =
-    CognitoIdentityPoolRoleAttachmentRoleMapping <$>
-      (obj .:? "AmbiguousRoleResolution") <*>
-      (obj .:? "RulesConfiguration") <*>
-      (obj .: "Type")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CognitoIdentityPoolRoleAttachmentRoleMapping' containing
 -- required fields as arguments.
 cognitoIdentityPoolRoleAttachmentRoleMapping

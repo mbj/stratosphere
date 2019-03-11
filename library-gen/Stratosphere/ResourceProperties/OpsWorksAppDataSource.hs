@@ -27,14 +27,6 @@ instance ToJSON OpsWorksAppDataSource where
     , fmap (("Type",) . toJSON) _opsWorksAppDataSourceType
     ]
 
-instance FromJSON OpsWorksAppDataSource where
-  parseJSON (Object obj) =
-    OpsWorksAppDataSource <$>
-      (obj .:? "Arn") <*>
-      (obj .:? "DatabaseName") <*>
-      (obj .:? "Type")
-  parseJSON _ = mempty
-
 -- | Constructor for 'OpsWorksAppDataSource' containing required fields as
 -- arguments.
 opsWorksAppDataSource

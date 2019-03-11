@@ -25,13 +25,6 @@ instance ToJSON CognitoUserPoolEmailConfiguration where
     , fmap (("SourceArn",) . toJSON) _cognitoUserPoolEmailConfigurationSourceArn
     ]
 
-instance FromJSON CognitoUserPoolEmailConfiguration where
-  parseJSON (Object obj) =
-    CognitoUserPoolEmailConfiguration <$>
-      (obj .:? "ReplyToEmailAddress") <*>
-      (obj .:? "SourceArn")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CognitoUserPoolEmailConfiguration' containing required
 -- fields as arguments.
 cognitoUserPoolEmailConfiguration

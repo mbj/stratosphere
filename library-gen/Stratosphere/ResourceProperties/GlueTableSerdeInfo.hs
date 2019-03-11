@@ -27,14 +27,6 @@ instance ToJSON GlueTableSerdeInfo where
     , fmap (("SerializationLibrary",) . toJSON) _glueTableSerdeInfoSerializationLibrary
     ]
 
-instance FromJSON GlueTableSerdeInfo where
-  parseJSON (Object obj) =
-    GlueTableSerdeInfo <$>
-      (obj .:? "Name") <*>
-      (obj .:? "Parameters") <*>
-      (obj .:? "SerializationLibrary")
-  parseJSON _ = mempty
-
 -- | Constructor for 'GlueTableSerdeInfo' containing required fields as
 -- arguments.
 glueTableSerdeInfo

@@ -24,12 +24,6 @@ instance ToJSON IoTAnalyticsDatasetOutputFileUriValue where
     [ fmap (("FileName",) . toJSON) _ioTAnalyticsDatasetOutputFileUriValueFileName
     ]
 
-instance FromJSON IoTAnalyticsDatasetOutputFileUriValue where
-  parseJSON (Object obj) =
-    IoTAnalyticsDatasetOutputFileUriValue <$>
-      (obj .:? "FileName")
-  parseJSON _ = mempty
-
 -- | Constructor for 'IoTAnalyticsDatasetOutputFileUriValue' containing
 -- required fields as arguments.
 ioTAnalyticsDatasetOutputFileUriValue

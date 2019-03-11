@@ -23,12 +23,6 @@ instance ToJSON LambdaFunctionDeadLetterConfig where
     [ fmap (("TargetArn",) . toJSON) _lambdaFunctionDeadLetterConfigTargetArn
     ]
 
-instance FromJSON LambdaFunctionDeadLetterConfig where
-  parseJSON (Object obj) =
-    LambdaFunctionDeadLetterConfig <$>
-      (obj .:? "TargetArn")
-  parseJSON _ = mempty
-
 -- | Constructor for 'LambdaFunctionDeadLetterConfig' containing required
 -- fields as arguments.
 lambdaFunctionDeadLetterConfig

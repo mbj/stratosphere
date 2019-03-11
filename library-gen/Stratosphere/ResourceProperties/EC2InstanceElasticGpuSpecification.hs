@@ -23,12 +23,6 @@ instance ToJSON EC2InstanceElasticGpuSpecification where
     [ (Just . ("Type",) . toJSON) _eC2InstanceElasticGpuSpecificationType
     ]
 
-instance FromJSON EC2InstanceElasticGpuSpecification where
-  parseJSON (Object obj) =
-    EC2InstanceElasticGpuSpecification <$>
-      (obj .: "Type")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2InstanceElasticGpuSpecification' containing required
 -- fields as arguments.
 ec2InstanceElasticGpuSpecification

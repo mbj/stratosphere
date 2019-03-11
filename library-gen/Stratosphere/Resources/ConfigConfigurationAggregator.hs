@@ -28,14 +28,6 @@ instance ToJSON ConfigConfigurationAggregator where
     , fmap (("OrganizationAggregationSource",) . toJSON) _configConfigurationAggregatorOrganizationAggregationSource
     ]
 
-instance FromJSON ConfigConfigurationAggregator where
-  parseJSON (Object obj) =
-    ConfigConfigurationAggregator <$>
-      (obj .:? "AccountAggregationSources") <*>
-      (obj .: "ConfigurationAggregatorName") <*>
-      (obj .:? "OrganizationAggregationSource")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ConfigConfigurationAggregator' containing required
 -- fields as arguments.
 configConfigurationAggregator

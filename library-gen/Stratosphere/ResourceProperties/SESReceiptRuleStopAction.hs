@@ -25,13 +25,6 @@ instance ToJSON SESReceiptRuleStopAction where
     , fmap (("TopicArn",) . toJSON) _sESReceiptRuleStopActionTopicArn
     ]
 
-instance FromJSON SESReceiptRuleStopAction where
-  parseJSON (Object obj) =
-    SESReceiptRuleStopAction <$>
-      (obj .: "Scope") <*>
-      (obj .:? "TopicArn")
-  parseJSON _ = mempty
-
 -- | Constructor for 'SESReceiptRuleStopAction' containing required fields as
 -- arguments.
 sesReceiptRuleStopAction

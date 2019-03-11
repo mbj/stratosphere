@@ -29,15 +29,6 @@ instance ToJSON RDSDBSubnetGroup where
     , fmap (("Tags",) . toJSON) _rDSDBSubnetGroupTags
     ]
 
-instance FromJSON RDSDBSubnetGroup where
-  parseJSON (Object obj) =
-    RDSDBSubnetGroup <$>
-      (obj .: "DBSubnetGroupDescription") <*>
-      (obj .:? "DBSubnetGroupName") <*>
-      (obj .: "SubnetIds") <*>
-      (obj .:? "Tags")
-  parseJSON _ = mempty
-
 -- | Constructor for 'RDSDBSubnetGroup' containing required fields as
 -- arguments.
 rdsdbSubnetGroup

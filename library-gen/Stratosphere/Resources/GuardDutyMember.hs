@@ -33,17 +33,6 @@ instance ToJSON GuardDutyMember where
     , fmap (("Status",) . toJSON) _guardDutyMemberStatus
     ]
 
-instance FromJSON GuardDutyMember where
-  parseJSON (Object obj) =
-    GuardDutyMember <$>
-      (obj .: "DetectorId") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "DisableEmailNotification") <*>
-      (obj .: "Email") <*>
-      (obj .: "MemberId") <*>
-      (obj .:? "Message") <*>
-      (obj .:? "Status")
-  parseJSON _ = mempty
-
 -- | Constructor for 'GuardDutyMember' containing required fields as
 -- arguments.
 guardDutyMember

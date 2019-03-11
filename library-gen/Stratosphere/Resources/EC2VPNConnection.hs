@@ -34,17 +34,6 @@ instance ToJSON EC2VPNConnection where
     , fmap (("VpnTunnelOptionsSpecifications",) . toJSON) _eC2VPNConnectionVpnTunnelOptionsSpecifications
     ]
 
-instance FromJSON EC2VPNConnection where
-  parseJSON (Object obj) =
-    EC2VPNConnection <$>
-      (obj .: "CustomerGatewayId") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "StaticRoutesOnly") <*>
-      (obj .:? "Tags") <*>
-      (obj .: "Type") <*>
-      (obj .: "VpnGatewayId") <*>
-      (obj .:? "VpnTunnelOptionsSpecifications")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2VPNConnection' containing required fields as
 -- arguments.
 ec2VPNConnection

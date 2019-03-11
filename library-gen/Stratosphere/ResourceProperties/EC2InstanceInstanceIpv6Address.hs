@@ -23,12 +23,6 @@ instance ToJSON EC2InstanceInstanceIpv6Address where
     [ (Just . ("Ipv6Address",) . toJSON) _eC2InstanceInstanceIpv6AddressIpv6Address
     ]
 
-instance FromJSON EC2InstanceInstanceIpv6Address where
-  parseJSON (Object obj) =
-    EC2InstanceInstanceIpv6Address <$>
-      (obj .: "Ipv6Address")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2InstanceInstanceIpv6Address' containing required
 -- fields as arguments.
 ec2InstanceInstanceIpv6Address

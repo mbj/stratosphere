@@ -25,13 +25,6 @@ instance ToJSON IAMUserLoginProfile where
     , fmap (("PasswordResetRequired",) . toJSON . fmap Bool') _iAMUserLoginProfilePasswordResetRequired
     ]
 
-instance FromJSON IAMUserLoginProfile where
-  parseJSON (Object obj) =
-    IAMUserLoginProfile <$>
-      (obj .: "Password") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "PasswordResetRequired")
-  parseJSON _ = mempty
-
 -- | Constructor for 'IAMUserLoginProfile' containing required fields as
 -- arguments.
 iamUserLoginProfile

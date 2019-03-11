@@ -29,15 +29,6 @@ instance ToJSON EKSCluster where
     , fmap (("Version",) . toJSON) _eKSClusterVersion
     ]
 
-instance FromJSON EKSCluster where
-  parseJSON (Object obj) =
-    EKSCluster <$>
-      (obj .:? "Name") <*>
-      (obj .: "ResourcesVpcConfig") <*>
-      (obj .: "RoleArn") <*>
-      (obj .:? "Version")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EKSCluster' containing required fields as arguments.
 eksCluster
   :: EKSClusterResourcesVpcConfig -- ^ 'ekscResourcesVpcConfig'

@@ -30,15 +30,6 @@ instance ToJSON RDSDBSecurityGroup where
     , fmap (("Tags",) . toJSON) _rDSDBSecurityGroupTags
     ]
 
-instance FromJSON RDSDBSecurityGroup where
-  parseJSON (Object obj) =
-    RDSDBSecurityGroup <$>
-      (obj .: "DBSecurityGroupIngress") <*>
-      (obj .:? "EC2VpcId") <*>
-      (obj .: "GroupDescription") <*>
-      (obj .:? "Tags")
-  parseJSON _ = mempty
-
 -- | Constructor for 'RDSDBSecurityGroup' containing required fields as
 -- arguments.
 rdsdbSecurityGroup

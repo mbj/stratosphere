@@ -35,18 +35,6 @@ instance ToJSON ApiGatewayApiKey where
     , fmap (("Value",) . toJSON) _apiGatewayApiKeyValue
     ]
 
-instance FromJSON ApiGatewayApiKey where
-  parseJSON (Object obj) =
-    ApiGatewayApiKey <$>
-      (obj .:? "CustomerId") <*>
-      (obj .:? "Description") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "Enabled") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "GenerateDistinctId") <*>
-      (obj .:? "Name") <*>
-      (obj .:? "StageKeys") <*>
-      (obj .:? "Value")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ApiGatewayApiKey' containing required fields as
 -- arguments.
 apiGatewayApiKey

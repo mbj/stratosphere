@@ -27,14 +27,6 @@ instance ToJSON ASKSkillAuthenticationConfiguration where
     , (Just . ("RefreshToken",) . toJSON) _aSKSkillAuthenticationConfigurationRefreshToken
     ]
 
-instance FromJSON ASKSkillAuthenticationConfiguration where
-  parseJSON (Object obj) =
-    ASKSkillAuthenticationConfiguration <$>
-      (obj .: "ClientId") <*>
-      (obj .: "ClientSecret") <*>
-      (obj .: "RefreshToken")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ASKSkillAuthenticationConfiguration' containing required
 -- fields as arguments.
 askSkillAuthenticationConfiguration

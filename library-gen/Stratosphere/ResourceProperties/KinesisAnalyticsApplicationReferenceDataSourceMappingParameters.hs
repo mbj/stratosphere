@@ -28,13 +28,6 @@ instance ToJSON KinesisAnalyticsApplicationReferenceDataSourceMappingParameters 
     , fmap (("JSONMappingParameters",) . toJSON) _kinesisAnalyticsApplicationReferenceDataSourceMappingParametersJSONMappingParameters
     ]
 
-instance FromJSON KinesisAnalyticsApplicationReferenceDataSourceMappingParameters where
-  parseJSON (Object obj) =
-    KinesisAnalyticsApplicationReferenceDataSourceMappingParameters <$>
-      (obj .:? "CSVMappingParameters") <*>
-      (obj .:? "JSONMappingParameters")
-  parseJSON _ = mempty
-
 -- | Constructor for
 -- 'KinesisAnalyticsApplicationReferenceDataSourceMappingParameters'
 -- containing required fields as arguments.

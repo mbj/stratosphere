@@ -27,13 +27,6 @@ instance ToJSON CloudFrontStreamingDistributionTrustedSigners where
     , (Just . ("Enabled",) . toJSON . fmap Bool') _cloudFrontStreamingDistributionTrustedSignersEnabled
     ]
 
-instance FromJSON CloudFrontStreamingDistributionTrustedSigners where
-  parseJSON (Object obj) =
-    CloudFrontStreamingDistributionTrustedSigners <$>
-      (obj .:? "AwsAccountNumbers") <*>
-      fmap (fmap unBool') (obj .: "Enabled")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CloudFrontStreamingDistributionTrustedSigners'
 -- containing required fields as arguments.
 cloudFrontStreamingDistributionTrustedSigners

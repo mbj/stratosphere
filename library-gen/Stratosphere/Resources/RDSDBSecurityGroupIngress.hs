@@ -31,16 +31,6 @@ instance ToJSON RDSDBSecurityGroupIngress where
     , fmap (("EC2SecurityGroupOwnerId",) . toJSON) _rDSDBSecurityGroupIngressEC2SecurityGroupOwnerId
     ]
 
-instance FromJSON RDSDBSecurityGroupIngress where
-  parseJSON (Object obj) =
-    RDSDBSecurityGroupIngress <$>
-      (obj .:? "CIDRIP") <*>
-      (obj .: "DBSecurityGroupName") <*>
-      (obj .:? "EC2SecurityGroupId") <*>
-      (obj .:? "EC2SecurityGroupName") <*>
-      (obj .:? "EC2SecurityGroupOwnerId")
-  parseJSON _ = mempty
-
 -- | Constructor for 'RDSDBSecurityGroupIngress' containing required fields as
 -- arguments.
 rdsdbSecurityGroupIngress

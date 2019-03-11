@@ -23,12 +23,6 @@ instance ToJSON ApiGatewayAccount where
     [ fmap (("CloudWatchRoleArn",) . toJSON) _apiGatewayAccountCloudWatchRoleArn
     ]
 
-instance FromJSON ApiGatewayAccount where
-  parseJSON (Object obj) =
-    ApiGatewayAccount <$>
-      (obj .:? "CloudWatchRoleArn")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ApiGatewayAccount' containing required fields as
 -- arguments.
 apiGatewayAccount

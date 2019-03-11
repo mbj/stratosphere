@@ -23,12 +23,6 @@ instance ToJSON CodePipelinePipelineOutputArtifact where
     [ (Just . ("Name",) . toJSON) _codePipelinePipelineOutputArtifactName
     ]
 
-instance FromJSON CodePipelinePipelineOutputArtifact where
-  parseJSON (Object obj) =
-    CodePipelinePipelineOutputArtifact <$>
-      (obj .: "Name")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CodePipelinePipelineOutputArtifact' containing required
 -- fields as arguments.
 codePipelinePipelineOutputArtifact

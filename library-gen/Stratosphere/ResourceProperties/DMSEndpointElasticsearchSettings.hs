@@ -29,15 +29,6 @@ instance ToJSON DMSEndpointElasticsearchSettings where
     , fmap (("ServiceAccessRoleArn",) . toJSON) _dMSEndpointElasticsearchSettingsServiceAccessRoleArn
     ]
 
-instance FromJSON DMSEndpointElasticsearchSettings where
-  parseJSON (Object obj) =
-    DMSEndpointElasticsearchSettings <$>
-      (obj .:? "EndpointUri") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "ErrorRetryDuration") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "FullLoadErrorPercentage") <*>
-      (obj .:? "ServiceAccessRoleArn")
-  parseJSON _ = mempty
-
 -- | Constructor for 'DMSEndpointElasticsearchSettings' containing required
 -- fields as arguments.
 dmsEndpointElasticsearchSettings

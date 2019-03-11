@@ -27,13 +27,6 @@ instance ToJSON AutoScalingAutoScalingGroupMetricsCollection where
     , fmap (("Metrics",) . toJSON) _autoScalingAutoScalingGroupMetricsCollectionMetrics
     ]
 
-instance FromJSON AutoScalingAutoScalingGroupMetricsCollection where
-  parseJSON (Object obj) =
-    AutoScalingAutoScalingGroupMetricsCollection <$>
-      (obj .: "Granularity") <*>
-      (obj .:? "Metrics")
-  parseJSON _ = mempty
-
 -- | Constructor for 'AutoScalingAutoScalingGroupMetricsCollection' containing
 -- required fields as arguments.
 autoScalingAutoScalingGroupMetricsCollection

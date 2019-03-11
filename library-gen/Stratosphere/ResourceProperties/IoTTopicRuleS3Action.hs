@@ -27,14 +27,6 @@ instance ToJSON IoTTopicRuleS3Action where
     , (Just . ("RoleArn",) . toJSON) _ioTTopicRuleS3ActionRoleArn
     ]
 
-instance FromJSON IoTTopicRuleS3Action where
-  parseJSON (Object obj) =
-    IoTTopicRuleS3Action <$>
-      (obj .: "BucketName") <*>
-      (obj .: "Key") <*>
-      (obj .: "RoleArn")
-  parseJSON _ = mempty
-
 -- | Constructor for 'IoTTopicRuleS3Action' containing required fields as
 -- arguments.
 ioTTopicRuleS3Action

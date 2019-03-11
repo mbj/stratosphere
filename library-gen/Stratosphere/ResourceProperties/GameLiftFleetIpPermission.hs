@@ -29,15 +29,6 @@ instance ToJSON GameLiftFleetIpPermission where
     , (Just . ("ToPort",) . toJSON . fmap Integer') _gameLiftFleetIpPermissionToPort
     ]
 
-instance FromJSON GameLiftFleetIpPermission where
-  parseJSON (Object obj) =
-    GameLiftFleetIpPermission <$>
-      fmap (fmap unInteger') (obj .: "FromPort") <*>
-      (obj .: "IpRange") <*>
-      (obj .: "Protocol") <*>
-      fmap (fmap unInteger') (obj .: "ToPort")
-  parseJSON _ = mempty
-
 -- | Constructor for 'GameLiftFleetIpPermission' containing required fields as
 -- arguments.
 gameLiftFleetIpPermission

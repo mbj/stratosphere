@@ -43,21 +43,6 @@ instance ToJSON GlueCrawler where
     , (Just . ("Targets",) . toJSON) _glueCrawlerTargets
     ]
 
-instance FromJSON GlueCrawler where
-  parseJSON (Object obj) =
-    GlueCrawler <$>
-      (obj .:? "Classifiers") <*>
-      (obj .:? "Configuration") <*>
-      (obj .: "DatabaseName") <*>
-      (obj .:? "Description") <*>
-      (obj .:? "Name") <*>
-      (obj .: "Role") <*>
-      (obj .:? "Schedule") <*>
-      (obj .:? "SchemaChangePolicy") <*>
-      (obj .:? "TablePrefix") <*>
-      (obj .: "Targets")
-  parseJSON _ = mempty
-
 -- | Constructor for 'GlueCrawler' containing required fields as arguments.
 glueCrawler
   :: Val Text -- ^ 'gcDatabaseName'

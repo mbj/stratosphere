@@ -32,16 +32,6 @@ instance ToJSON AppSyncDataSourceRdsHttpEndpointConfig where
     , fmap (("Schema",) . toJSON) _appSyncDataSourceRdsHttpEndpointConfigSchema
     ]
 
-instance FromJSON AppSyncDataSourceRdsHttpEndpointConfig where
-  parseJSON (Object obj) =
-    AppSyncDataSourceRdsHttpEndpointConfig <$>
-      (obj .: "AwsRegion") <*>
-      (obj .: "AwsSecretStoreArn") <*>
-      (obj .:? "DatabaseName") <*>
-      (obj .: "DbClusterIdentifier") <*>
-      (obj .:? "Schema")
-  parseJSON _ = mempty
-
 -- | Constructor for 'AppSyncDataSourceRdsHttpEndpointConfig' containing
 -- required fields as arguments.
 appSyncDataSourceRdsHttpEndpointConfig

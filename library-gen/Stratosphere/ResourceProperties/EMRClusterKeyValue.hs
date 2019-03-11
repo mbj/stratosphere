@@ -25,13 +25,6 @@ instance ToJSON EMRClusterKeyValue where
     , fmap (("Value",) . toJSON) _eMRClusterKeyValueValue
     ]
 
-instance FromJSON EMRClusterKeyValue where
-  parseJSON (Object obj) =
-    EMRClusterKeyValue <$>
-      (obj .:? "Key") <*>
-      (obj .:? "Value")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EMRClusterKeyValue' containing required fields as
 -- arguments.
 emrClusterKeyValue

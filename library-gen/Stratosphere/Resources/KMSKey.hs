@@ -35,18 +35,6 @@ instance ToJSON KMSKey where
     , fmap (("Tags",) . toJSON) _kMSKeyTags
     ]
 
-instance FromJSON KMSKey where
-  parseJSON (Object obj) =
-    KMSKey <$>
-      (obj .:? "Description") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "EnableKeyRotation") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "Enabled") <*>
-      (obj .: "KeyPolicy") <*>
-      (obj .:? "KeyUsage") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "PendingWindowInDays") <*>
-      (obj .:? "Tags")
-  parseJSON _ = mempty
-
 -- | Constructor for 'KMSKey' containing required fields as arguments.
 kmsKey
   :: Object -- ^ 'kmskKeyPolicy'

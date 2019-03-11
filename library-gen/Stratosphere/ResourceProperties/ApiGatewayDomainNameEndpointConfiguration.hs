@@ -24,12 +24,6 @@ instance ToJSON ApiGatewayDomainNameEndpointConfiguration where
     [ fmap (("Types",) . toJSON) _apiGatewayDomainNameEndpointConfigurationTypes
     ]
 
-instance FromJSON ApiGatewayDomainNameEndpointConfiguration where
-  parseJSON (Object obj) =
-    ApiGatewayDomainNameEndpointConfiguration <$>
-      (obj .:? "Types")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ApiGatewayDomainNameEndpointConfiguration' containing
 -- required fields as arguments.
 apiGatewayDomainNameEndpointConfiguration

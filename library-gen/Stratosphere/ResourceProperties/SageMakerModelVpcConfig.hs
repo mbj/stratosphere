@@ -25,13 +25,6 @@ instance ToJSON SageMakerModelVpcConfig where
     , (Just . ("Subnets",) . toJSON) _sageMakerModelVpcConfigSubnets
     ]
 
-instance FromJSON SageMakerModelVpcConfig where
-  parseJSON (Object obj) =
-    SageMakerModelVpcConfig <$>
-      (obj .: "SecurityGroupIds") <*>
-      (obj .: "Subnets")
-  parseJSON _ = mempty
-
 -- | Constructor for 'SageMakerModelVpcConfig' containing required fields as
 -- arguments.
 sageMakerModelVpcConfig

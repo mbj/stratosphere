@@ -25,13 +25,6 @@ instance ToJSON ECSServicePlacementStrategy where
     , (Just . ("Type",) . toJSON) _eCSServicePlacementStrategyType
     ]
 
-instance FromJSON ECSServicePlacementStrategy where
-  parseJSON (Object obj) =
-    ECSServicePlacementStrategy <$>
-      (obj .:? "Field") <*>
-      (obj .: "Type")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ECSServicePlacementStrategy' containing required fields
 -- as arguments.
 ecsServicePlacementStrategy

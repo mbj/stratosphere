@@ -27,14 +27,6 @@ instance ToJSON ServiceDiscoveryServiceDnsConfig where
     , fmap (("RoutingPolicy",) . toJSON) _serviceDiscoveryServiceDnsConfigRoutingPolicy
     ]
 
-instance FromJSON ServiceDiscoveryServiceDnsConfig where
-  parseJSON (Object obj) =
-    ServiceDiscoveryServiceDnsConfig <$>
-      (obj .: "DnsRecords") <*>
-      (obj .:? "NamespaceId") <*>
-      (obj .:? "RoutingPolicy")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ServiceDiscoveryServiceDnsConfig' containing required
 -- fields as arguments.
 serviceDiscoveryServiceDnsConfig

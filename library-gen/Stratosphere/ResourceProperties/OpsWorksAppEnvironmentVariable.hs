@@ -27,14 +27,6 @@ instance ToJSON OpsWorksAppEnvironmentVariable where
     , (Just . ("Value",) . toJSON) _opsWorksAppEnvironmentVariableValue
     ]
 
-instance FromJSON OpsWorksAppEnvironmentVariable where
-  parseJSON (Object obj) =
-    OpsWorksAppEnvironmentVariable <$>
-      (obj .: "Key") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "Secure") <*>
-      (obj .: "Value")
-  parseJSON _ = mempty
-
 -- | Constructor for 'OpsWorksAppEnvironmentVariable' containing required
 -- fields as arguments.
 opsWorksAppEnvironmentVariable

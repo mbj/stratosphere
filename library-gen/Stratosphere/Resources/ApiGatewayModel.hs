@@ -31,16 +31,6 @@ instance ToJSON ApiGatewayModel where
     , fmap (("Schema",) . toJSON) _apiGatewayModelSchema
     ]
 
-instance FromJSON ApiGatewayModel where
-  parseJSON (Object obj) =
-    ApiGatewayModel <$>
-      (obj .:? "ContentType") <*>
-      (obj .:? "Description") <*>
-      (obj .:? "Name") <*>
-      (obj .: "RestApiId") <*>
-      (obj .:? "Schema")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ApiGatewayModel' containing required fields as
 -- arguments.
 apiGatewayModel

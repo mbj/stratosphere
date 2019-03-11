@@ -52,25 +52,6 @@ instance ToJSON EC2SpotFleetSpotFleetRequestConfigData where
     , fmap (("ValidUntil",) . toJSON) _eC2SpotFleetSpotFleetRequestConfigDataValidUntil
     ]
 
-instance FromJSON EC2SpotFleetSpotFleetRequestConfigData where
-  parseJSON (Object obj) =
-    EC2SpotFleetSpotFleetRequestConfigData <$>
-      (obj .:? "AllocationStrategy") <*>
-      (obj .:? "ExcessCapacityTerminationPolicy") <*>
-      (obj .: "IamFleetRole") <*>
-      (obj .:? "InstanceInterruptionBehavior") <*>
-      (obj .:? "LaunchSpecifications") <*>
-      (obj .:? "LaunchTemplateConfigs") <*>
-      (obj .:? "LoadBalancersConfig") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "ReplaceUnhealthyInstances") <*>
-      (obj .:? "SpotPrice") <*>
-      fmap (fmap unInteger') (obj .: "TargetCapacity") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "TerminateInstancesWithExpiration") <*>
-      (obj .:? "Type") <*>
-      (obj .:? "ValidFrom") <*>
-      (obj .:? "ValidUntil")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2SpotFleetSpotFleetRequestConfigData' containing
 -- required fields as arguments.
 ec2SpotFleetSpotFleetRequestConfigData

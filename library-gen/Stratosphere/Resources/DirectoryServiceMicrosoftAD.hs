@@ -35,18 +35,6 @@ instance ToJSON DirectoryServiceMicrosoftAD where
     , (Just . ("VpcSettings",) . toJSON) _directoryServiceMicrosoftADVpcSettings
     ]
 
-instance FromJSON DirectoryServiceMicrosoftAD where
-  parseJSON (Object obj) =
-    DirectoryServiceMicrosoftAD <$>
-      fmap (fmap (fmap unBool')) (obj .:? "CreateAlias") <*>
-      (obj .:? "Edition") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "EnableSso") <*>
-      (obj .: "Name") <*>
-      (obj .: "Password") <*>
-      (obj .:? "ShortName") <*>
-      (obj .: "VpcSettings")
-  parseJSON _ = mempty
-
 -- | Constructor for 'DirectoryServiceMicrosoftAD' containing required fields
 -- as arguments.
 directoryServiceMicrosoftAD

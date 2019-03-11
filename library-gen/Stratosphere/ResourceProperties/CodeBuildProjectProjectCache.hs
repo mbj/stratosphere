@@ -27,14 +27,6 @@ instance ToJSON CodeBuildProjectProjectCache where
     , (Just . ("Type",) . toJSON) _codeBuildProjectProjectCacheType
     ]
 
-instance FromJSON CodeBuildProjectProjectCache where
-  parseJSON (Object obj) =
-    CodeBuildProjectProjectCache <$>
-      (obj .:? "Location") <*>
-      (obj .:? "Modes") <*>
-      (obj .: "Type")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CodeBuildProjectProjectCache' containing required fields
 -- as arguments.
 codeBuildProjectProjectCache

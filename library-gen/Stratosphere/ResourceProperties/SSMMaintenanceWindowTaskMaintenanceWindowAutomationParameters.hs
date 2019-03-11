@@ -27,13 +27,6 @@ instance ToJSON SSMMaintenanceWindowTaskMaintenanceWindowAutomationParameters wh
     , fmap (("Parameters",) . toJSON) _sSMMaintenanceWindowTaskMaintenanceWindowAutomationParametersParameters
     ]
 
-instance FromJSON SSMMaintenanceWindowTaskMaintenanceWindowAutomationParameters where
-  parseJSON (Object obj) =
-    SSMMaintenanceWindowTaskMaintenanceWindowAutomationParameters <$>
-      (obj .:? "DocumentVersion") <*>
-      (obj .:? "Parameters")
-  parseJSON _ = mempty
-
 -- | Constructor for
 -- 'SSMMaintenanceWindowTaskMaintenanceWindowAutomationParameters'
 -- containing required fields as arguments.

@@ -31,16 +31,6 @@ instance ToJSON LambdaAlias where
     , fmap (("RoutingConfig",) . toJSON) _lambdaAliasRoutingConfig
     ]
 
-instance FromJSON LambdaAlias where
-  parseJSON (Object obj) =
-    LambdaAlias <$>
-      (obj .:? "Description") <*>
-      (obj .: "FunctionName") <*>
-      (obj .: "FunctionVersion") <*>
-      (obj .: "Name") <*>
-      (obj .:? "RoutingConfig")
-  parseJSON _ = mempty
-
 -- | Constructor for 'LambdaAlias' containing required fields as arguments.
 lambdaAlias
   :: Val Text -- ^ 'laFunctionName'

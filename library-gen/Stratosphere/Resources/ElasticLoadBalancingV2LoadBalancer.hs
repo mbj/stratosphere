@@ -41,20 +41,6 @@ instance ToJSON ElasticLoadBalancingV2LoadBalancer where
     , fmap (("Type",) . toJSON) _elasticLoadBalancingV2LoadBalancerType
     ]
 
-instance FromJSON ElasticLoadBalancingV2LoadBalancer where
-  parseJSON (Object obj) =
-    ElasticLoadBalancingV2LoadBalancer <$>
-      (obj .:? "IpAddressType") <*>
-      (obj .:? "LoadBalancerAttributes") <*>
-      (obj .:? "Name") <*>
-      (obj .:? "Scheme") <*>
-      (obj .:? "SecurityGroups") <*>
-      (obj .:? "SubnetMappings") <*>
-      (obj .:? "Subnets") <*>
-      (obj .:? "Tags") <*>
-      (obj .:? "Type")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ElasticLoadBalancingV2LoadBalancer' containing required
 -- fields as arguments.
 elasticLoadBalancingV2LoadBalancer

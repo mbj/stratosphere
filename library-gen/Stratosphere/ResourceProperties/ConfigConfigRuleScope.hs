@@ -29,15 +29,6 @@ instance ToJSON ConfigConfigRuleScope where
     , fmap (("TagValue",) . toJSON) _configConfigRuleScopeTagValue
     ]
 
-instance FromJSON ConfigConfigRuleScope where
-  parseJSON (Object obj) =
-    ConfigConfigRuleScope <$>
-      (obj .:? "ComplianceResourceId") <*>
-      (obj .:? "ComplianceResourceTypes") <*>
-      (obj .:? "TagKey") <*>
-      (obj .:? "TagValue")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ConfigConfigRuleScope' containing required fields as
 -- arguments.
 configConfigRuleScope

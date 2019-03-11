@@ -46,23 +46,6 @@ instance ToJSON EC2InstanceNetworkInterface where
     , fmap (("SubnetId",) . toJSON) _eC2InstanceNetworkInterfaceSubnetId
     ]
 
-instance FromJSON EC2InstanceNetworkInterface where
-  parseJSON (Object obj) =
-    EC2InstanceNetworkInterface <$>
-      fmap (fmap (fmap unBool')) (obj .:? "AssociatePublicIpAddress") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "DeleteOnTermination") <*>
-      (obj .:? "Description") <*>
-      (obj .: "DeviceIndex") <*>
-      (obj .:? "GroupSet") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "Ipv6AddressCount") <*>
-      (obj .:? "Ipv6Addresses") <*>
-      (obj .:? "NetworkInterfaceId") <*>
-      (obj .:? "PrivateIpAddress") <*>
-      (obj .:? "PrivateIpAddresses") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "SecondaryPrivateIpAddressCount") <*>
-      (obj .:? "SubnetId")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2InstanceNetworkInterface' containing required fields
 -- as arguments.
 ec2InstanceNetworkInterface

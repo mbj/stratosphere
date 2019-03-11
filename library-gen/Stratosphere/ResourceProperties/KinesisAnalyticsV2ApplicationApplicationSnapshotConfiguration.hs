@@ -25,12 +25,6 @@ instance ToJSON KinesisAnalyticsV2ApplicationApplicationSnapshotConfiguration wh
     [ (Just . ("SnapshotsEnabled",) . toJSON . fmap Bool') _kinesisAnalyticsV2ApplicationApplicationSnapshotConfigurationSnapshotsEnabled
     ]
 
-instance FromJSON KinesisAnalyticsV2ApplicationApplicationSnapshotConfiguration where
-  parseJSON (Object obj) =
-    KinesisAnalyticsV2ApplicationApplicationSnapshotConfiguration <$>
-      fmap (fmap unBool') (obj .: "SnapshotsEnabled")
-  parseJSON _ = mempty
-
 -- | Constructor for
 -- 'KinesisAnalyticsV2ApplicationApplicationSnapshotConfiguration'
 -- containing required fields as arguments.

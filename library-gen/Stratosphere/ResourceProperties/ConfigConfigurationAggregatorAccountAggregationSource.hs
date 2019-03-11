@@ -29,14 +29,6 @@ instance ToJSON ConfigConfigurationAggregatorAccountAggregationSource where
     , fmap (("AwsRegions",) . toJSON) _configConfigurationAggregatorAccountAggregationSourceAwsRegions
     ]
 
-instance FromJSON ConfigConfigurationAggregatorAccountAggregationSource where
-  parseJSON (Object obj) =
-    ConfigConfigurationAggregatorAccountAggregationSource <$>
-      (obj .: "AccountIds") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "AllAwsRegions") <*>
-      (obj .:? "AwsRegions")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ConfigConfigurationAggregatorAccountAggregationSource'
 -- containing required fields as arguments.
 configConfigurationAggregatorAccountAggregationSource

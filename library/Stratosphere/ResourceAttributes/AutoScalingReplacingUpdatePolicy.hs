@@ -24,12 +24,6 @@ instance ToJSON AutoScalingReplacingUpdatePolicy where
     [ fmap (("WillReplace",) . toJSON . fmap Bool') _autoScalingReplacingUpdatePolicyWillReplace
     ]
 
-instance FromJSON AutoScalingReplacingUpdatePolicy where
-  parseJSON (Object obj) =
-    AutoScalingReplacingUpdatePolicy <$>
-      fmap (fmap (fmap unBool')) (obj .:? "WillReplace")
-  parseJSON _ = mempty
-
 -- | Constructor for 'AutoScalingReplacingUpdatePolicy' containing required fields
 -- as arguments.
 autoScalingReplacingUpdatePolicy

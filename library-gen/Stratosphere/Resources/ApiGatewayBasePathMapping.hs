@@ -29,15 +29,6 @@ instance ToJSON ApiGatewayBasePathMapping where
     , fmap (("Stage",) . toJSON) _apiGatewayBasePathMappingStage
     ]
 
-instance FromJSON ApiGatewayBasePathMapping where
-  parseJSON (Object obj) =
-    ApiGatewayBasePathMapping <$>
-      (obj .:? "BasePath") <*>
-      (obj .: "DomainName") <*>
-      (obj .:? "RestApiId") <*>
-      (obj .:? "Stage")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ApiGatewayBasePathMapping' containing required fields as
 -- arguments.
 apiGatewayBasePathMapping

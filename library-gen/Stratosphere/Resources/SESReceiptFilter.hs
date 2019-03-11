@@ -23,12 +23,6 @@ instance ToJSON SESReceiptFilter where
     [ (Just . ("Filter",) . toJSON) _sESReceiptFilterFilter
     ]
 
-instance FromJSON SESReceiptFilter where
-  parseJSON (Object obj) =
-    SESReceiptFilter <$>
-      (obj .: "Filter")
-  parseJSON _ = mempty
-
 -- | Constructor for 'SESReceiptFilter' containing required fields as
 -- arguments.
 sesReceiptFilter

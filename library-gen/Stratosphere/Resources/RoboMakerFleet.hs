@@ -25,13 +25,6 @@ instance ToJSON RoboMakerFleet where
     , fmap (("Tags",) . toJSON) _roboMakerFleetTags
     ]
 
-instance FromJSON RoboMakerFleet where
-  parseJSON (Object obj) =
-    RoboMakerFleet <$>
-      (obj .:? "Name") <*>
-      (obj .:? "Tags")
-  parseJSON _ = mempty
-
 -- | Constructor for 'RoboMakerFleet' containing required fields as arguments.
 roboMakerFleet
   :: RoboMakerFleet

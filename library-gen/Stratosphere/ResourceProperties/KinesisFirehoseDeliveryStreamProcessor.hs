@@ -26,13 +26,6 @@ instance ToJSON KinesisFirehoseDeliveryStreamProcessor where
     , (Just . ("Type",) . toJSON) _kinesisFirehoseDeliveryStreamProcessorType
     ]
 
-instance FromJSON KinesisFirehoseDeliveryStreamProcessor where
-  parseJSON (Object obj) =
-    KinesisFirehoseDeliveryStreamProcessor <$>
-      (obj .: "Parameters") <*>
-      (obj .: "Type")
-  parseJSON _ = mempty
-
 -- | Constructor for 'KinesisFirehoseDeliveryStreamProcessor' containing
 -- required fields as arguments.
 kinesisFirehoseDeliveryStreamProcessor

@@ -29,15 +29,6 @@ instance ToJSON EMRClusterApplication where
     , fmap (("Version",) . toJSON) _eMRClusterApplicationVersion
     ]
 
-instance FromJSON EMRClusterApplication where
-  parseJSON (Object obj) =
-    EMRClusterApplication <$>
-      (obj .:? "AdditionalInfo") <*>
-      (obj .:? "Args") <*>
-      (obj .:? "Name") <*>
-      (obj .:? "Version")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EMRClusterApplication' containing required fields as
 -- arguments.
 emrClusterApplication

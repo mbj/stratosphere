@@ -27,13 +27,6 @@ instance ToJSON WAFRegionalSqlInjectionMatchSetFieldToMatch where
     , (Just . ("Type",) . toJSON) _wAFRegionalSqlInjectionMatchSetFieldToMatchType
     ]
 
-instance FromJSON WAFRegionalSqlInjectionMatchSetFieldToMatch where
-  parseJSON (Object obj) =
-    WAFRegionalSqlInjectionMatchSetFieldToMatch <$>
-      (obj .:? "Data") <*>
-      (obj .: "Type")
-  parseJSON _ = mempty
-
 -- | Constructor for 'WAFRegionalSqlInjectionMatchSetFieldToMatch' containing
 -- required fields as arguments.
 wafRegionalSqlInjectionMatchSetFieldToMatch

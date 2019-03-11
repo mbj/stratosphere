@@ -25,13 +25,6 @@ instance ToJSON ECSTaskDefinitionKeyValuePair where
     , fmap (("Value",) . toJSON) _eCSTaskDefinitionKeyValuePairValue
     ]
 
-instance FromJSON ECSTaskDefinitionKeyValuePair where
-  parseJSON (Object obj) =
-    ECSTaskDefinitionKeyValuePair <$>
-      (obj .:? "Name") <*>
-      (obj .:? "Value")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ECSTaskDefinitionKeyValuePair' containing required
 -- fields as arguments.
 ecsTaskDefinitionKeyValuePair

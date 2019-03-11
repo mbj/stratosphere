@@ -32,16 +32,6 @@ instance ToJSON ServiceCatalogLaunchNotificationConstraint where
     , (Just . ("ProductId",) . toJSON) _serviceCatalogLaunchNotificationConstraintProductId
     ]
 
-instance FromJSON ServiceCatalogLaunchNotificationConstraint where
-  parseJSON (Object obj) =
-    ServiceCatalogLaunchNotificationConstraint <$>
-      (obj .:? "AcceptLanguage") <*>
-      (obj .:? "Description") <*>
-      (obj .: "NotificationArns") <*>
-      (obj .: "PortfolioId") <*>
-      (obj .: "ProductId")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ServiceCatalogLaunchNotificationConstraint' containing
 -- required fields as arguments.
 serviceCatalogLaunchNotificationConstraint

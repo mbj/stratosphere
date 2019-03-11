@@ -27,14 +27,6 @@ instance ToJSON ServiceCatalogTagOption where
     , (Just . ("Value",) . toJSON) _serviceCatalogTagOptionValue
     ]
 
-instance FromJSON ServiceCatalogTagOption where
-  parseJSON (Object obj) =
-    ServiceCatalogTagOption <$>
-      fmap (fmap (fmap unBool')) (obj .:? "Active") <*>
-      (obj .: "Key") <*>
-      (obj .: "Value")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ServiceCatalogTagOption' containing required fields as
 -- arguments.
 serviceCatalogTagOption

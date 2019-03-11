@@ -23,12 +23,6 @@ instance ToJSON S3BucketServerSideEncryptionRule where
     [ fmap (("ServerSideEncryptionByDefault",) . toJSON) _s3BucketServerSideEncryptionRuleServerSideEncryptionByDefault
     ]
 
-instance FromJSON S3BucketServerSideEncryptionRule where
-  parseJSON (Object obj) =
-    S3BucketServerSideEncryptionRule <$>
-      (obj .:? "ServerSideEncryptionByDefault")
-  parseJSON _ = mempty
-
 -- | Constructor for 'S3BucketServerSideEncryptionRule' containing required
 -- fields as arguments.
 s3BucketServerSideEncryptionRule

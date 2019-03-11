@@ -23,12 +23,6 @@ instance ToJSON LambdaFunctionEnvironment where
     [ fmap (("Variables",) . toJSON) _lambdaFunctionEnvironmentVariables
     ]
 
-instance FromJSON LambdaFunctionEnvironment where
-  parseJSON (Object obj) =
-    LambdaFunctionEnvironment <$>
-      (obj .:? "Variables")
-  parseJSON _ = mempty
-
 -- | Constructor for 'LambdaFunctionEnvironment' containing required fields as
 -- arguments.
 lambdaFunctionEnvironment

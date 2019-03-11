@@ -27,14 +27,6 @@ instance ToJSON EventsEventBusPolicyCondition where
     , fmap (("Value",) . toJSON) _eventsEventBusPolicyConditionValue
     ]
 
-instance FromJSON EventsEventBusPolicyCondition where
-  parseJSON (Object obj) =
-    EventsEventBusPolicyCondition <$>
-      (obj .:? "Key") <*>
-      (obj .:? "Type") <*>
-      (obj .:? "Value")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EventsEventBusPolicyCondition' containing required
 -- fields as arguments.
 eventsEventBusPolicyCondition

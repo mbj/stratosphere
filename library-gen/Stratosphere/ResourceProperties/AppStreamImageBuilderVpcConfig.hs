@@ -25,13 +25,6 @@ instance ToJSON AppStreamImageBuilderVpcConfig where
     , fmap (("SubnetIds",) . toJSON) _appStreamImageBuilderVpcConfigSubnetIds
     ]
 
-instance FromJSON AppStreamImageBuilderVpcConfig where
-  parseJSON (Object obj) =
-    AppStreamImageBuilderVpcConfig <$>
-      (obj .:? "SecurityGroupIds") <*>
-      (obj .:? "SubnetIds")
-  parseJSON _ = mempty
-
 -- | Constructor for 'AppStreamImageBuilderVpcConfig' containing required
 -- fields as arguments.
 appStreamImageBuilderVpcConfig

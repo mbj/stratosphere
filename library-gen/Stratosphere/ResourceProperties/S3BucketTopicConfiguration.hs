@@ -27,14 +27,6 @@ instance ToJSON S3BucketTopicConfiguration where
     , (Just . ("Topic",) . toJSON) _s3BucketTopicConfigurationTopic
     ]
 
-instance FromJSON S3BucketTopicConfiguration where
-  parseJSON (Object obj) =
-    S3BucketTopicConfiguration <$>
-      (obj .: "Event") <*>
-      (obj .:? "Filter") <*>
-      (obj .: "Topic")
-  parseJSON _ = mempty
-
 -- | Constructor for 'S3BucketTopicConfiguration' containing required fields
 -- as arguments.
 s3BucketTopicConfiguration

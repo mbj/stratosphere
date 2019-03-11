@@ -35,17 +35,6 @@ instance ToJSON ElasticsearchDomainElasticsearchClusterConfig where
     , fmap (("ZoneAwarenessEnabled",) . toJSON . fmap Bool') _elasticsearchDomainElasticsearchClusterConfigZoneAwarenessEnabled
     ]
 
-instance FromJSON ElasticsearchDomainElasticsearchClusterConfig where
-  parseJSON (Object obj) =
-    ElasticsearchDomainElasticsearchClusterConfig <$>
-      fmap (fmap (fmap unInteger')) (obj .:? "DedicatedMasterCount") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "DedicatedMasterEnabled") <*>
-      (obj .:? "DedicatedMasterType") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "InstanceCount") <*>
-      (obj .:? "InstanceType") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "ZoneAwarenessEnabled")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ElasticsearchDomainElasticsearchClusterConfig'
 -- containing required fields as arguments.
 elasticsearchDomainElasticsearchClusterConfig

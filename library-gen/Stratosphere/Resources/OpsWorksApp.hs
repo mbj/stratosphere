@@ -48,23 +48,6 @@ instance ToJSON OpsWorksApp where
     , (Just . ("Type",) . toJSON) _opsWorksAppType
     ]
 
-instance FromJSON OpsWorksApp where
-  parseJSON (Object obj) =
-    OpsWorksApp <$>
-      (obj .:? "AppSource") <*>
-      (obj .:? "Attributes") <*>
-      (obj .:? "DataSources") <*>
-      (obj .:? "Description") <*>
-      (obj .:? "Domains") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "EnableSsl") <*>
-      (obj .:? "Environment") <*>
-      (obj .: "Name") <*>
-      (obj .:? "Shortname") <*>
-      (obj .:? "SslConfiguration") <*>
-      (obj .: "StackId") <*>
-      (obj .: "Type")
-  parseJSON _ = mempty
-
 -- | Constructor for 'OpsWorksApp' containing required fields as arguments.
 opsWorksApp
   :: Val Text -- ^ 'owaName'

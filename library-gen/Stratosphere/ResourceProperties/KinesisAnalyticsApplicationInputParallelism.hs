@@ -25,12 +25,6 @@ instance ToJSON KinesisAnalyticsApplicationInputParallelism where
     [ fmap (("Count",) . toJSON . fmap Integer') _kinesisAnalyticsApplicationInputParallelismCount
     ]
 
-instance FromJSON KinesisAnalyticsApplicationInputParallelism where
-  parseJSON (Object obj) =
-    KinesisAnalyticsApplicationInputParallelism <$>
-      fmap (fmap (fmap unInteger')) (obj .:? "Count")
-  parseJSON _ = mempty
-
 -- | Constructor for 'KinesisAnalyticsApplicationInputParallelism' containing
 -- required fields as arguments.
 kinesisAnalyticsApplicationInputParallelism

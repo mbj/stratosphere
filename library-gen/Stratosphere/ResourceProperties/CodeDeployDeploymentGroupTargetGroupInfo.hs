@@ -24,12 +24,6 @@ instance ToJSON CodeDeployDeploymentGroupTargetGroupInfo where
     [ fmap (("Name",) . toJSON) _codeDeployDeploymentGroupTargetGroupInfoName
     ]
 
-instance FromJSON CodeDeployDeploymentGroupTargetGroupInfo where
-  parseJSON (Object obj) =
-    CodeDeployDeploymentGroupTargetGroupInfo <$>
-      (obj .:? "Name")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CodeDeployDeploymentGroupTargetGroupInfo' containing
 -- required fields as arguments.
 codeDeployDeploymentGroupTargetGroupInfo

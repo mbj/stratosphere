@@ -26,12 +26,6 @@ instance ToJSON KinesisAnalyticsV2ApplicationCloudWatchLoggingOptionCloudWatchLo
     [ (Just . ("LogStreamARN",) . toJSON) _kinesisAnalyticsV2ApplicationCloudWatchLoggingOptionCloudWatchLoggingOptionLogStreamARN
     ]
 
-instance FromJSON KinesisAnalyticsV2ApplicationCloudWatchLoggingOptionCloudWatchLoggingOption where
-  parseJSON (Object obj) =
-    KinesisAnalyticsV2ApplicationCloudWatchLoggingOptionCloudWatchLoggingOption <$>
-      (obj .: "LogStreamARN")
-  parseJSON _ = mempty
-
 -- | Constructor for
 -- 'KinesisAnalyticsV2ApplicationCloudWatchLoggingOptionCloudWatchLoggingOption'
 -- containing required fields as arguments.

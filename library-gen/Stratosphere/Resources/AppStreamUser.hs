@@ -31,16 +31,6 @@ instance ToJSON AppStreamUser where
     , (Just . ("UserName",) . toJSON) _appStreamUserUserName
     ]
 
-instance FromJSON AppStreamUser where
-  parseJSON (Object obj) =
-    AppStreamUser <$>
-      (obj .: "AuthenticationType") <*>
-      (obj .:? "FirstName") <*>
-      (obj .:? "LastName") <*>
-      (obj .:? "MessageAction") <*>
-      (obj .: "UserName")
-  parseJSON _ = mempty
-
 -- | Constructor for 'AppStreamUser' containing required fields as arguments.
 appStreamUser
   :: Val Text -- ^ 'asuAuthenticationType'

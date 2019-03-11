@@ -23,12 +23,6 @@ instance ToJSON SESReceiptRuleSet where
     [ fmap (("RuleSetName",) . toJSON) _sESReceiptRuleSetRuleSetName
     ]
 
-instance FromJSON SESReceiptRuleSet where
-  parseJSON (Object obj) =
-    SESReceiptRuleSet <$>
-      (obj .:? "RuleSetName")
-  parseJSON _ = mempty
-
 -- | Constructor for 'SESReceiptRuleSet' containing required fields as
 -- arguments.
 sesReceiptRuleSet

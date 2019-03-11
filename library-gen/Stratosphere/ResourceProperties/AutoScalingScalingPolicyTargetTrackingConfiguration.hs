@@ -32,15 +32,6 @@ instance ToJSON AutoScalingScalingPolicyTargetTrackingConfiguration where
     , (Just . ("TargetValue",) . toJSON . fmap Double') _autoScalingScalingPolicyTargetTrackingConfigurationTargetValue
     ]
 
-instance FromJSON AutoScalingScalingPolicyTargetTrackingConfiguration where
-  parseJSON (Object obj) =
-    AutoScalingScalingPolicyTargetTrackingConfiguration <$>
-      (obj .:? "CustomizedMetricSpecification") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "DisableScaleIn") <*>
-      (obj .:? "PredefinedMetricSpecification") <*>
-      fmap (fmap unDouble') (obj .: "TargetValue")
-  parseJSON _ = mempty
-
 -- | Constructor for 'AutoScalingScalingPolicyTargetTrackingConfiguration'
 -- containing required fields as arguments.
 autoScalingScalingPolicyTargetTrackingConfiguration

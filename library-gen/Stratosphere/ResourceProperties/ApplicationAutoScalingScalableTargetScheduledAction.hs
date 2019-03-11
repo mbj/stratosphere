@@ -33,16 +33,6 @@ instance ToJSON ApplicationAutoScalingScalableTargetScheduledAction where
     , fmap (("StartTime",) . toJSON) _applicationAutoScalingScalableTargetScheduledActionStartTime
     ]
 
-instance FromJSON ApplicationAutoScalingScalableTargetScheduledAction where
-  parseJSON (Object obj) =
-    ApplicationAutoScalingScalableTargetScheduledAction <$>
-      (obj .:? "EndTime") <*>
-      (obj .:? "ScalableTargetAction") <*>
-      (obj .: "Schedule") <*>
-      (obj .: "ScheduledActionName") <*>
-      (obj .:? "StartTime")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ApplicationAutoScalingScalableTargetScheduledAction'
 -- containing required fields as arguments.
 applicationAutoScalingScalableTargetScheduledAction

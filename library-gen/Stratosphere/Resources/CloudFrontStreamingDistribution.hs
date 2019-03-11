@@ -26,13 +26,6 @@ instance ToJSON CloudFrontStreamingDistribution where
     , (Just . ("Tags",) . toJSON) _cloudFrontStreamingDistributionTags
     ]
 
-instance FromJSON CloudFrontStreamingDistribution where
-  parseJSON (Object obj) =
-    CloudFrontStreamingDistribution <$>
-      (obj .: "StreamingDistributionConfig") <*>
-      (obj .: "Tags")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CloudFrontStreamingDistribution' containing required
 -- fields as arguments.
 cloudFrontStreamingDistribution

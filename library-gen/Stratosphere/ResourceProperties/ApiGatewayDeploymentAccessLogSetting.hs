@@ -25,13 +25,6 @@ instance ToJSON ApiGatewayDeploymentAccessLogSetting where
     , fmap (("Format",) . toJSON) _apiGatewayDeploymentAccessLogSettingFormat
     ]
 
-instance FromJSON ApiGatewayDeploymentAccessLogSetting where
-  parseJSON (Object obj) =
-    ApiGatewayDeploymentAccessLogSetting <$>
-      (obj .:? "DestinationArn") <*>
-      (obj .:? "Format")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ApiGatewayDeploymentAccessLogSetting' containing
 -- required fields as arguments.
 apiGatewayDeploymentAccessLogSetting

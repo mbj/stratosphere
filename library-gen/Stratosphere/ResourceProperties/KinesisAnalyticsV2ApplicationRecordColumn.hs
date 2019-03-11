@@ -28,14 +28,6 @@ instance ToJSON KinesisAnalyticsV2ApplicationRecordColumn where
     , (Just . ("SqlType",) . toJSON) _kinesisAnalyticsV2ApplicationRecordColumnSqlType
     ]
 
-instance FromJSON KinesisAnalyticsV2ApplicationRecordColumn where
-  parseJSON (Object obj) =
-    KinesisAnalyticsV2ApplicationRecordColumn <$>
-      (obj .:? "Mapping") <*>
-      (obj .: "Name") <*>
-      (obj .: "SqlType")
-  parseJSON _ = mempty
-
 -- | Constructor for 'KinesisAnalyticsV2ApplicationRecordColumn' containing
 -- required fields as arguments.
 kinesisAnalyticsV2ApplicationRecordColumn

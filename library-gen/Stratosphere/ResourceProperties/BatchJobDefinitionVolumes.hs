@@ -25,13 +25,6 @@ instance ToJSON BatchJobDefinitionVolumes where
     , fmap (("Name",) . toJSON) _batchJobDefinitionVolumesName
     ]
 
-instance FromJSON BatchJobDefinitionVolumes where
-  parseJSON (Object obj) =
-    BatchJobDefinitionVolumes <$>
-      (obj .:? "Host") <*>
-      (obj .:? "Name")
-  parseJSON _ = mempty
-
 -- | Constructor for 'BatchJobDefinitionVolumes' containing required fields as
 -- arguments.
 batchJobDefinitionVolumes

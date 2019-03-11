@@ -31,16 +31,6 @@ instance ToJSON IAMPolicy where
     , fmap (("Users",) . toJSON) _iAMPolicyUsers
     ]
 
-instance FromJSON IAMPolicy where
-  parseJSON (Object obj) =
-    IAMPolicy <$>
-      (obj .:? "Groups") <*>
-      (obj .: "PolicyDocument") <*>
-      (obj .: "PolicyName") <*>
-      (obj .:? "Roles") <*>
-      (obj .:? "Users")
-  parseJSON _ = mempty
-
 -- | Constructor for 'IAMPolicy' containing required fields as arguments.
 iamPolicy
   :: Object -- ^ 'iampPolicyDocument'

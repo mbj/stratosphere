@@ -26,13 +26,6 @@ instance ToJSON RoboMakerSimulationApplicationVersion where
     , fmap (("CurrentRevisionId",) . toJSON) _roboMakerSimulationApplicationVersionCurrentRevisionId
     ]
 
-instance FromJSON RoboMakerSimulationApplicationVersion where
-  parseJSON (Object obj) =
-    RoboMakerSimulationApplicationVersion <$>
-      (obj .: "Application") <*>
-      (obj .:? "CurrentRevisionId")
-  parseJSON _ = mempty
-
 -- | Constructor for 'RoboMakerSimulationApplicationVersion' containing
 -- required fields as arguments.
 roboMakerSimulationApplicationVersion

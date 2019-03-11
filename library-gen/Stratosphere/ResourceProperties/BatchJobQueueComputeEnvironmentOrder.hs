@@ -25,13 +25,6 @@ instance ToJSON BatchJobQueueComputeEnvironmentOrder where
     , (Just . ("Order",) . toJSON . fmap Integer') _batchJobQueueComputeEnvironmentOrderOrder
     ]
 
-instance FromJSON BatchJobQueueComputeEnvironmentOrder where
-  parseJSON (Object obj) =
-    BatchJobQueueComputeEnvironmentOrder <$>
-      (obj .: "ComputeEnvironment") <*>
-      fmap (fmap unInteger') (obj .: "Order")
-  parseJSON _ = mempty
-
 -- | Constructor for 'BatchJobQueueComputeEnvironmentOrder' containing
 -- required fields as arguments.
 batchJobQueueComputeEnvironmentOrder

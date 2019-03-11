@@ -23,12 +23,6 @@ instance ToJSON BatchJobDefinitionTimeout where
     [ fmap (("AttemptDurationSeconds",) . toJSON . fmap Integer') _batchJobDefinitionTimeoutAttemptDurationSeconds
     ]
 
-instance FromJSON BatchJobDefinitionTimeout where
-  parseJSON (Object obj) =
-    BatchJobDefinitionTimeout <$>
-      fmap (fmap (fmap unInteger')) (obj .:? "AttemptDurationSeconds")
-  parseJSON _ = mempty
-
 -- | Constructor for 'BatchJobDefinitionTimeout' containing required fields as
 -- arguments.
 batchJobDefinitionTimeout

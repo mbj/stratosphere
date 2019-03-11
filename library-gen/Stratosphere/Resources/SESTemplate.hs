@@ -23,12 +23,6 @@ instance ToJSON SESTemplate where
     [ fmap (("Template",) . toJSON) _sESTemplateTemplate
     ]
 
-instance FromJSON SESTemplate where
-  parseJSON (Object obj) =
-    SESTemplate <$>
-      (obj .:? "Template")
-  parseJSON _ = mempty
-
 -- | Constructor for 'SESTemplate' containing required fields as arguments.
 sesTemplate
   :: SESTemplate

@@ -29,15 +29,6 @@ instance ToJSON NeptuneDBSubnetGroup where
     , fmap (("Tags",) . toJSON) _neptuneDBSubnetGroupTags
     ]
 
-instance FromJSON NeptuneDBSubnetGroup where
-  parseJSON (Object obj) =
-    NeptuneDBSubnetGroup <$>
-      (obj .: "DBSubnetGroupDescription") <*>
-      (obj .:? "DBSubnetGroupName") <*>
-      (obj .: "SubnetIds") <*>
-      (obj .:? "Tags")
-  parseJSON _ = mempty
-
 -- | Constructor for 'NeptuneDBSubnetGroup' containing required fields as
 -- arguments.
 neptuneDBSubnetGroup

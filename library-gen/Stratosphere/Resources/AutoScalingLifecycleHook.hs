@@ -37,19 +37,6 @@ instance ToJSON AutoScalingLifecycleHook where
     , fmap (("RoleARN",) . toJSON) _autoScalingLifecycleHookRoleARN
     ]
 
-instance FromJSON AutoScalingLifecycleHook where
-  parseJSON (Object obj) =
-    AutoScalingLifecycleHook <$>
-      (obj .: "AutoScalingGroupName") <*>
-      (obj .:? "DefaultResult") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "HeartbeatTimeout") <*>
-      (obj .:? "LifecycleHookName") <*>
-      (obj .: "LifecycleTransition") <*>
-      (obj .:? "NotificationMetadata") <*>
-      (obj .:? "NotificationTargetARN") <*>
-      (obj .:? "RoleARN")
-  parseJSON _ = mempty
-
 -- | Constructor for 'AutoScalingLifecycleHook' containing required fields as
 -- arguments.
 autoScalingLifecycleHook

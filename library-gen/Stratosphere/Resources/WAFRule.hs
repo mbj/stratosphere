@@ -27,14 +27,6 @@ instance ToJSON WAFRule where
     , fmap (("Predicates",) . toJSON) _wAFRulePredicates
     ]
 
-instance FromJSON WAFRule where
-  parseJSON (Object obj) =
-    WAFRule <$>
-      (obj .: "MetricName") <*>
-      (obj .: "Name") <*>
-      (obj .:? "Predicates")
-  parseJSON _ = mempty
-
 -- | Constructor for 'WAFRule' containing required fields as arguments.
 wafRule
   :: Val Text -- ^ 'wafrMetricName'

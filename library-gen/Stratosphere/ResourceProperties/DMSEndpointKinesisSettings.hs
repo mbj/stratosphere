@@ -27,14 +27,6 @@ instance ToJSON DMSEndpointKinesisSettings where
     , fmap (("StreamArn",) . toJSON) _dMSEndpointKinesisSettingsStreamArn
     ]
 
-instance FromJSON DMSEndpointKinesisSettings where
-  parseJSON (Object obj) =
-    DMSEndpointKinesisSettings <$>
-      (obj .:? "MessageFormat") <*>
-      (obj .:? "ServiceAccessRoleArn") <*>
-      (obj .:? "StreamArn")
-  parseJSON _ = mempty
-
 -- | Constructor for 'DMSEndpointKinesisSettings' containing required fields
 -- as arguments.
 dmsEndpointKinesisSettings

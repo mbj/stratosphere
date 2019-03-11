@@ -28,14 +28,6 @@ instance ToJSON DLMLifecyclePolicyPolicyDetails where
     , fmap (("TargetTags",) . toJSON) _dLMLifecyclePolicyPolicyDetailsTargetTags
     ]
 
-instance FromJSON DLMLifecyclePolicyPolicyDetails where
-  parseJSON (Object obj) =
-    DLMLifecyclePolicyPolicyDetails <$>
-      (obj .:? "ResourceTypes") <*>
-      (obj .:? "Schedules") <*>
-      (obj .:? "TargetTags")
-  parseJSON _ = mempty
-
 -- | Constructor for 'DLMLifecyclePolicyPolicyDetails' containing required
 -- fields as arguments.
 dlmLifecyclePolicyPolicyDetails

@@ -25,13 +25,6 @@ instance ToJSON ECSTaskDefinitionLogConfiguration where
     , fmap (("Options",) . toJSON) _eCSTaskDefinitionLogConfigurationOptions
     ]
 
-instance FromJSON ECSTaskDefinitionLogConfiguration where
-  parseJSON (Object obj) =
-    ECSTaskDefinitionLogConfiguration <$>
-      (obj .: "LogDriver") <*>
-      (obj .:? "Options")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ECSTaskDefinitionLogConfiguration' containing required
 -- fields as arguments.
 ecsTaskDefinitionLogConfiguration

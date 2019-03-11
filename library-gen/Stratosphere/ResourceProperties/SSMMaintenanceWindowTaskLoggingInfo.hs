@@ -27,14 +27,6 @@ instance ToJSON SSMMaintenanceWindowTaskLoggingInfo where
     , fmap (("S3Prefix",) . toJSON) _sSMMaintenanceWindowTaskLoggingInfoS3Prefix
     ]
 
-instance FromJSON SSMMaintenanceWindowTaskLoggingInfo where
-  parseJSON (Object obj) =
-    SSMMaintenanceWindowTaskLoggingInfo <$>
-      (obj .: "Region") <*>
-      (obj .: "S3Bucket") <*>
-      (obj .:? "S3Prefix")
-  parseJSON _ = mempty
-
 -- | Constructor for 'SSMMaintenanceWindowTaskLoggingInfo' containing required
 -- fields as arguments.
 ssmMaintenanceWindowTaskLoggingInfo

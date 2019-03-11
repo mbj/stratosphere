@@ -23,12 +23,6 @@ instance ToJSON CodeDeployDeploymentGroupELBInfo where
     [ fmap (("Name",) . toJSON) _codeDeployDeploymentGroupELBInfoName
     ]
 
-instance FromJSON CodeDeployDeploymentGroupELBInfo where
-  parseJSON (Object obj) =
-    CodeDeployDeploymentGroupELBInfo <$>
-      (obj .:? "Name")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CodeDeployDeploymentGroupELBInfo' containing required
 -- fields as arguments.
 codeDeployDeploymentGroupELBInfo

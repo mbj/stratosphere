@@ -40,20 +40,6 @@ instance ToJSON EC2NetworkAclEntry where
     , (Just . ("RuleNumber",) . toJSON . fmap Integer') _eC2NetworkAclEntryRuleNumber
     ]
 
-instance FromJSON EC2NetworkAclEntry where
-  parseJSON (Object obj) =
-    EC2NetworkAclEntry <$>
-      (obj .: "CidrBlock") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "Egress") <*>
-      (obj .:? "Icmp") <*>
-      (obj .:? "Ipv6CidrBlock") <*>
-      (obj .: "NetworkAclId") <*>
-      (obj .:? "PortRange") <*>
-      fmap (fmap unInteger') (obj .: "Protocol") <*>
-      (obj .: "RuleAction") <*>
-      fmap (fmap unInteger') (obj .: "RuleNumber")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2NetworkAclEntry' containing required fields as
 -- arguments.
 ec2NetworkAclEntry

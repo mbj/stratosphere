@@ -27,14 +27,6 @@ instance ToJSON EC2Host where
     , (Just . ("InstanceType",) . toJSON) _eC2HostInstanceType
     ]
 
-instance FromJSON EC2Host where
-  parseJSON (Object obj) =
-    EC2Host <$>
-      (obj .:? "AutoPlacement") <*>
-      (obj .: "AvailabilityZone") <*>
-      (obj .: "InstanceType")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2Host' containing required fields as arguments.
 ec2Host
   :: Val Text -- ^ 'echAvailabilityZone'

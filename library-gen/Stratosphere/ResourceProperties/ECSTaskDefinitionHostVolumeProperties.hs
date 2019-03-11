@@ -24,12 +24,6 @@ instance ToJSON ECSTaskDefinitionHostVolumeProperties where
     [ fmap (("SourcePath",) . toJSON) _eCSTaskDefinitionHostVolumePropertiesSourcePath
     ]
 
-instance FromJSON ECSTaskDefinitionHostVolumeProperties where
-  parseJSON (Object obj) =
-    ECSTaskDefinitionHostVolumeProperties <$>
-      (obj .:? "SourcePath")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ECSTaskDefinitionHostVolumeProperties' containing
 -- required fields as arguments.
 ecsTaskDefinitionHostVolumeProperties

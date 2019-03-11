@@ -34,16 +34,6 @@ instance ToJSON IoTAnalyticsDataset where
     , fmap (("Triggers",) . toJSON) _ioTAnalyticsDatasetTriggers
     ]
 
-instance FromJSON IoTAnalyticsDataset where
-  parseJSON (Object obj) =
-    IoTAnalyticsDataset <$>
-      (obj .: "Actions") <*>
-      (obj .:? "DatasetName") <*>
-      (obj .:? "RetentionPeriod") <*>
-      (obj .:? "Tags") <*>
-      (obj .:? "Triggers")
-  parseJSON _ = mempty
-
 -- | Constructor for 'IoTAnalyticsDataset' containing required fields as
 -- arguments.
 ioTAnalyticsDataset

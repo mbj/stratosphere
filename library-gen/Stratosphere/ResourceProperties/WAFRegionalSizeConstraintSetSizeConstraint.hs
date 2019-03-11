@@ -30,15 +30,6 @@ instance ToJSON WAFRegionalSizeConstraintSetSizeConstraint where
     , (Just . ("TextTransformation",) . toJSON) _wAFRegionalSizeConstraintSetSizeConstraintTextTransformation
     ]
 
-instance FromJSON WAFRegionalSizeConstraintSetSizeConstraint where
-  parseJSON (Object obj) =
-    WAFRegionalSizeConstraintSetSizeConstraint <$>
-      (obj .: "ComparisonOperator") <*>
-      (obj .: "FieldToMatch") <*>
-      fmap (fmap unInteger') (obj .: "Size") <*>
-      (obj .: "TextTransformation")
-  parseJSON _ = mempty
-
 -- | Constructor for 'WAFRegionalSizeConstraintSetSizeConstraint' containing
 -- required fields as arguments.
 wafRegionalSizeConstraintSetSizeConstraint

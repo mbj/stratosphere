@@ -27,14 +27,6 @@ instance ToJSON OpsWorksAppSslConfiguration where
     , fmap (("PrivateKey",) . toJSON) _opsWorksAppSslConfigurationPrivateKey
     ]
 
-instance FromJSON OpsWorksAppSslConfiguration where
-  parseJSON (Object obj) =
-    OpsWorksAppSslConfiguration <$>
-      (obj .:? "Certificate") <*>
-      (obj .:? "Chain") <*>
-      (obj .:? "PrivateKey")
-  parseJSON _ = mempty
-
 -- | Constructor for 'OpsWorksAppSslConfiguration' containing required fields
 -- as arguments.
 opsWorksAppSslConfiguration

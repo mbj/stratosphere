@@ -27,13 +27,6 @@ instance ToJSON ElasticLoadBalancingLoadBalancerLBCookieStickinessPolicy where
     , fmap (("PolicyName",) . toJSON) _elasticLoadBalancingLoadBalancerLBCookieStickinessPolicyPolicyName
     ]
 
-instance FromJSON ElasticLoadBalancingLoadBalancerLBCookieStickinessPolicy where
-  parseJSON (Object obj) =
-    ElasticLoadBalancingLoadBalancerLBCookieStickinessPolicy <$>
-      (obj .:? "CookieExpirationPeriod") <*>
-      (obj .:? "PolicyName")
-  parseJSON _ = mempty
-
 -- | Constructor for
 -- 'ElasticLoadBalancingLoadBalancerLBCookieStickinessPolicy' containing
 -- required fields as arguments.

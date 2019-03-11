@@ -27,14 +27,6 @@ instance ToJSON IAMInstanceProfile where
     , (Just . ("Roles",) . toJSON) _iAMInstanceProfileRoles
     ]
 
-instance FromJSON IAMInstanceProfile where
-  parseJSON (Object obj) =
-    IAMInstanceProfile <$>
-      (obj .:? "InstanceProfileName") <*>
-      (obj .:? "Path") <*>
-      (obj .: "Roles")
-  parseJSON _ = mempty
-
 -- | Constructor for 'IAMInstanceProfile' containing required fields as
 -- arguments.
 iamInstanceProfile

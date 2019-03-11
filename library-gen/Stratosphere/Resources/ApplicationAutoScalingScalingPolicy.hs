@@ -38,19 +38,6 @@ instance ToJSON ApplicationAutoScalingScalingPolicy where
     , fmap (("TargetTrackingScalingPolicyConfiguration",) . toJSON) _applicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfiguration
     ]
 
-instance FromJSON ApplicationAutoScalingScalingPolicy where
-  parseJSON (Object obj) =
-    ApplicationAutoScalingScalingPolicy <$>
-      (obj .: "PolicyName") <*>
-      (obj .: "PolicyType") <*>
-      (obj .:? "ResourceId") <*>
-      (obj .:? "ScalableDimension") <*>
-      (obj .:? "ScalingTargetId") <*>
-      (obj .:? "ServiceNamespace") <*>
-      (obj .:? "StepScalingPolicyConfiguration") <*>
-      (obj .:? "TargetTrackingScalingPolicyConfiguration")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ApplicationAutoScalingScalingPolicy' containing required
 -- fields as arguments.
 applicationAutoScalingScalingPolicy

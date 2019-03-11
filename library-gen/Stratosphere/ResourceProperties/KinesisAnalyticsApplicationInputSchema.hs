@@ -29,14 +29,6 @@ instance ToJSON KinesisAnalyticsApplicationInputSchema where
     , (Just . ("RecordFormat",) . toJSON) _kinesisAnalyticsApplicationInputSchemaRecordFormat
     ]
 
-instance FromJSON KinesisAnalyticsApplicationInputSchema where
-  parseJSON (Object obj) =
-    KinesisAnalyticsApplicationInputSchema <$>
-      (obj .: "RecordColumns") <*>
-      (obj .:? "RecordEncoding") <*>
-      (obj .: "RecordFormat")
-  parseJSON _ = mempty
-
 -- | Constructor for 'KinesisAnalyticsApplicationInputSchema' containing
 -- required fields as arguments.
 kinesisAnalyticsApplicationInputSchema

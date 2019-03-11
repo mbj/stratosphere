@@ -26,13 +26,6 @@ instance ToJSON CodeDeployDeploymentGroupDeploymentStyle where
     , fmap (("DeploymentType",) . toJSON) _codeDeployDeploymentGroupDeploymentStyleDeploymentType
     ]
 
-instance FromJSON CodeDeployDeploymentGroupDeploymentStyle where
-  parseJSON (Object obj) =
-    CodeDeployDeploymentGroupDeploymentStyle <$>
-      (obj .:? "DeploymentOption") <*>
-      (obj .:? "DeploymentType")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CodeDeployDeploymentGroupDeploymentStyle' containing
 -- required fields as arguments.
 codeDeployDeploymentGroupDeploymentStyle

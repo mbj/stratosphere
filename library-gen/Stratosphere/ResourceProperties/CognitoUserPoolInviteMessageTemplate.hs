@@ -27,14 +27,6 @@ instance ToJSON CognitoUserPoolInviteMessageTemplate where
     , fmap (("SMSMessage",) . toJSON) _cognitoUserPoolInviteMessageTemplateSMSMessage
     ]
 
-instance FromJSON CognitoUserPoolInviteMessageTemplate where
-  parseJSON (Object obj) =
-    CognitoUserPoolInviteMessageTemplate <$>
-      (obj .:? "EmailMessage") <*>
-      (obj .:? "EmailSubject") <*>
-      (obj .:? "SMSMessage")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CognitoUserPoolInviteMessageTemplate' containing
 -- required fields as arguments.
 cognitoUserPoolInviteMessageTemplate

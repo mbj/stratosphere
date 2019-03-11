@@ -35,18 +35,6 @@ instance ToJSON Cloud9EnvironmentEC2 where
     , fmap (("SubnetId",) . toJSON) _cloud9EnvironmentEC2SubnetId
     ]
 
-instance FromJSON Cloud9EnvironmentEC2 where
-  parseJSON (Object obj) =
-    Cloud9EnvironmentEC2 <$>
-      fmap (fmap (fmap unInteger')) (obj .:? "AutomaticStopTimeMinutes") <*>
-      (obj .:? "Description") <*>
-      (obj .: "InstanceType") <*>
-      (obj .:? "Name") <*>
-      (obj .:? "OwnerArn") <*>
-      (obj .:? "Repositories") <*>
-      (obj .:? "SubnetId")
-  parseJSON _ = mempty
-
 -- | Constructor for 'Cloud9EnvironmentEC2' containing required fields as
 -- arguments.
 cloud9EnvironmentEC2

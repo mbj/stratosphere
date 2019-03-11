@@ -25,13 +25,6 @@ instance ToJSON GuardDutyFilterFindingCriteria where
     , fmap (("ItemType",) . toJSON) _guardDutyFilterFindingCriteriaItemType
     ]
 
-instance FromJSON GuardDutyFilterFindingCriteria where
-  parseJSON (Object obj) =
-    GuardDutyFilterFindingCriteria <$>
-      (obj .:? "Criterion") <*>
-      (obj .:? "ItemType")
-  parseJSON _ = mempty
-
 -- | Constructor for 'GuardDutyFilterFindingCriteria' containing required
 -- fields as arguments.
 guardDutyFilterFindingCriteria

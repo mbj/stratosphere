@@ -47,24 +47,6 @@ instance ToJSON ApiGatewayV2Integration where
     , fmap (("TimeoutInMillis",) . toJSON . fmap Integer') _apiGatewayV2IntegrationTimeoutInMillis
     ]
 
-instance FromJSON ApiGatewayV2Integration where
-  parseJSON (Object obj) =
-    ApiGatewayV2Integration <$>
-      (obj .: "ApiId") <*>
-      (obj .:? "ConnectionType") <*>
-      (obj .:? "ContentHandlingStrategy") <*>
-      (obj .:? "CredentialsArn") <*>
-      (obj .:? "Description") <*>
-      (obj .:? "IntegrationMethod") <*>
-      (obj .: "IntegrationType") <*>
-      (obj .:? "IntegrationUri") <*>
-      (obj .:? "PassthroughBehavior") <*>
-      (obj .:? "RequestParameters") <*>
-      (obj .:? "RequestTemplates") <*>
-      (obj .:? "TemplateSelectionExpression") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "TimeoutInMillis")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ApiGatewayV2Integration' containing required fields as
 -- arguments.
 apiGatewayV2Integration

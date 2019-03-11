@@ -61,27 +61,6 @@ instance ToJSON ElasticLoadBalancingLoadBalancer where
     , fmap (("Tags",) . toJSON) _elasticLoadBalancingLoadBalancerTags
     ]
 
-instance FromJSON ElasticLoadBalancingLoadBalancer where
-  parseJSON (Object obj) =
-    ElasticLoadBalancingLoadBalancer <$>
-      (obj .:? "AccessLoggingPolicy") <*>
-      (obj .:? "AppCookieStickinessPolicy") <*>
-      (obj .:? "AvailabilityZones") <*>
-      (obj .:? "ConnectionDrainingPolicy") <*>
-      (obj .:? "ConnectionSettings") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "CrossZone") <*>
-      (obj .:? "HealthCheck") <*>
-      (obj .:? "Instances") <*>
-      (obj .:? "LBCookieStickinessPolicy") <*>
-      (obj .: "Listeners") <*>
-      (obj .:? "LoadBalancerName") <*>
-      (obj .:? "Policies") <*>
-      (obj .:? "Scheme") <*>
-      (obj .:? "SecurityGroups") <*>
-      (obj .:? "Subnets") <*>
-      (obj .:? "Tags")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ElasticLoadBalancingLoadBalancer' containing required
 -- fields as arguments.
 elasticLoadBalancingLoadBalancer

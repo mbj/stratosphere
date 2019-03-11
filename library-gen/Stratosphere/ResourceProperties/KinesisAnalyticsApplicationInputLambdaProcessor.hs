@@ -27,13 +27,6 @@ instance ToJSON KinesisAnalyticsApplicationInputLambdaProcessor where
     , (Just . ("RoleARN",) . toJSON) _kinesisAnalyticsApplicationInputLambdaProcessorRoleARN
     ]
 
-instance FromJSON KinesisAnalyticsApplicationInputLambdaProcessor where
-  parseJSON (Object obj) =
-    KinesisAnalyticsApplicationInputLambdaProcessor <$>
-      (obj .: "ResourceARN") <*>
-      (obj .: "RoleARN")
-  parseJSON _ = mempty
-
 -- | Constructor for 'KinesisAnalyticsApplicationInputLambdaProcessor'
 -- containing required fields as arguments.
 kinesisAnalyticsApplicationInputLambdaProcessor

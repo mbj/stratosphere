@@ -27,14 +27,6 @@ instance ToJSON StepFunctionsStateMachine where
     , fmap (("StateMachineName",) . toJSON) _stepFunctionsStateMachineStateMachineName
     ]
 
-instance FromJSON StepFunctionsStateMachine where
-  parseJSON (Object obj) =
-    StepFunctionsStateMachine <$>
-      (obj .: "DefinitionString") <*>
-      (obj .: "RoleArn") <*>
-      (obj .:? "StateMachineName")
-  parseJSON _ = mempty
-
 -- | Constructor for 'StepFunctionsStateMachine' containing required fields as
 -- arguments.
 stepFunctionsStateMachine

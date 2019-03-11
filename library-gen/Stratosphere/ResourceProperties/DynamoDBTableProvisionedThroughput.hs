@@ -25,13 +25,6 @@ instance ToJSON DynamoDBTableProvisionedThroughput where
     , (Just . ("WriteCapacityUnits",) . toJSON . fmap Integer') _dynamoDBTableProvisionedThroughputWriteCapacityUnits
     ]
 
-instance FromJSON DynamoDBTableProvisionedThroughput where
-  parseJSON (Object obj) =
-    DynamoDBTableProvisionedThroughput <$>
-      fmap (fmap unInteger') (obj .: "ReadCapacityUnits") <*>
-      fmap (fmap unInteger') (obj .: "WriteCapacityUnits")
-  parseJSON _ = mempty
-
 -- | Constructor for 'DynamoDBTableProvisionedThroughput' containing required
 -- fields as arguments.
 dynamoDBTableProvisionedThroughput

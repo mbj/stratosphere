@@ -53,27 +53,6 @@ instance ToJSON DocDBDBCluster where
     , fmap (("VpcSecurityGroupIds",) . toJSON) _docDBDBClusterVpcSecurityGroupIds
     ]
 
-instance FromJSON DocDBDBCluster where
-  parseJSON (Object obj) =
-    DocDBDBCluster <$>
-      (obj .:? "AvailabilityZones") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "BackupRetentionPeriod") <*>
-      (obj .:? "DBClusterIdentifier") <*>
-      (obj .:? "DBClusterParameterGroupName") <*>
-      (obj .:? "DBSubnetGroupName") <*>
-      (obj .:? "EngineVersion") <*>
-      (obj .:? "KmsKeyId") <*>
-      (obj .:? "MasterUserPassword") <*>
-      (obj .:? "MasterUsername") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "Port") <*>
-      (obj .:? "PreferredBackupWindow") <*>
-      (obj .:? "PreferredMaintenanceWindow") <*>
-      (obj .:? "SnapshotIdentifier") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "StorageEncrypted") <*>
-      (obj .:? "Tags") <*>
-      (obj .:? "VpcSecurityGroupIds")
-  parseJSON _ = mempty
-
 -- | Constructor for 'DocDBDBCluster' containing required fields as arguments.
 docDBDBCluster
   :: DocDBDBCluster

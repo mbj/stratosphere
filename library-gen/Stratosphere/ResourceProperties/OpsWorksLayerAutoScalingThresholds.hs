@@ -33,17 +33,6 @@ instance ToJSON OpsWorksLayerAutoScalingThresholds where
     , fmap (("ThresholdsWaitTime",) . toJSON . fmap Integer') _opsWorksLayerAutoScalingThresholdsThresholdsWaitTime
     ]
 
-instance FromJSON OpsWorksLayerAutoScalingThresholds where
-  parseJSON (Object obj) =
-    OpsWorksLayerAutoScalingThresholds <$>
-      fmap (fmap (fmap unDouble')) (obj .:? "CpuThreshold") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "IgnoreMetricsTime") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "InstanceCount") <*>
-      fmap (fmap (fmap unDouble')) (obj .:? "LoadThreshold") <*>
-      fmap (fmap (fmap unDouble')) (obj .:? "MemoryThreshold") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "ThresholdsWaitTime")
-  parseJSON _ = mempty
-
 -- | Constructor for 'OpsWorksLayerAutoScalingThresholds' containing required
 -- fields as arguments.
 opsWorksLayerAutoScalingThresholds

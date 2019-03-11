@@ -25,13 +25,6 @@ instance ToJSON BatchJobDefinitionEnvironment where
     , fmap (("Value",) . toJSON) _batchJobDefinitionEnvironmentValue
     ]
 
-instance FromJSON BatchJobDefinitionEnvironment where
-  parseJSON (Object obj) =
-    BatchJobDefinitionEnvironment <$>
-      (obj .:? "Name") <*>
-      (obj .:? "Value")
-  parseJSON _ = mempty
-
 -- | Constructor for 'BatchJobDefinitionEnvironment' containing required
 -- fields as arguments.
 batchJobDefinitionEnvironment

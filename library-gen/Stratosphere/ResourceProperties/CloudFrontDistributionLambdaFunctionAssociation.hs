@@ -27,13 +27,6 @@ instance ToJSON CloudFrontDistributionLambdaFunctionAssociation where
     , fmap (("LambdaFunctionARN",) . toJSON) _cloudFrontDistributionLambdaFunctionAssociationLambdaFunctionARN
     ]
 
-instance FromJSON CloudFrontDistributionLambdaFunctionAssociation where
-  parseJSON (Object obj) =
-    CloudFrontDistributionLambdaFunctionAssociation <$>
-      (obj .:? "EventType") <*>
-      (obj .:? "LambdaFunctionARN")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CloudFrontDistributionLambdaFunctionAssociation'
 -- containing required fields as arguments.
 cloudFrontDistributionLambdaFunctionAssociation

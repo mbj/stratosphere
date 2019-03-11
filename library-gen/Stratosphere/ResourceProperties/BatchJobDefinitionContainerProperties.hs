@@ -51,24 +51,6 @@ instance ToJSON BatchJobDefinitionContainerProperties where
     , fmap (("Volumes",) . toJSON) _batchJobDefinitionContainerPropertiesVolumes
     ]
 
-instance FromJSON BatchJobDefinitionContainerProperties where
-  parseJSON (Object obj) =
-    BatchJobDefinitionContainerProperties <$>
-      (obj .:? "Command") <*>
-      (obj .:? "Environment") <*>
-      (obj .: "Image") <*>
-      (obj .:? "InstanceType") <*>
-      (obj .:? "JobRoleArn") <*>
-      fmap (fmap unInteger') (obj .: "Memory") <*>
-      (obj .:? "MountPoints") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "Privileged") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "ReadonlyRootFilesystem") <*>
-      (obj .:? "Ulimits") <*>
-      (obj .:? "User") <*>
-      fmap (fmap unInteger') (obj .: "Vcpus") <*>
-      (obj .:? "Volumes")
-  parseJSON _ = mempty
-
 -- | Constructor for 'BatchJobDefinitionContainerProperties' containing
 -- required fields as arguments.
 batchJobDefinitionContainerProperties

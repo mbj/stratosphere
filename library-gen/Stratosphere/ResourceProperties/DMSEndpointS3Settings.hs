@@ -35,18 +35,6 @@ instance ToJSON DMSEndpointS3Settings where
     , fmap (("ServiceAccessRoleArn",) . toJSON) _dMSEndpointS3SettingsServiceAccessRoleArn
     ]
 
-instance FromJSON DMSEndpointS3Settings where
-  parseJSON (Object obj) =
-    DMSEndpointS3Settings <$>
-      (obj .:? "BucketFolder") <*>
-      (obj .:? "BucketName") <*>
-      (obj .:? "CompressionType") <*>
-      (obj .:? "CsvDelimiter") <*>
-      (obj .:? "CsvRowDelimiter") <*>
-      (obj .:? "ExternalTableDefinition") <*>
-      (obj .:? "ServiceAccessRoleArn")
-  parseJSON _ = mempty
-
 -- | Constructor for 'DMSEndpointS3Settings' containing required fields as
 -- arguments.
 dmsEndpointS3Settings

@@ -23,12 +23,6 @@ instance ToJSON DynamoDBTableSSESpecification where
     [ (Just . ("SSEEnabled",) . toJSON . fmap Bool') _dynamoDBTableSSESpecificationSSEEnabled
     ]
 
-instance FromJSON DynamoDBTableSSESpecification where
-  parseJSON (Object obj) =
-    DynamoDBTableSSESpecification <$>
-      fmap (fmap unBool') (obj .: "SSEEnabled")
-  parseJSON _ = mempty
-
 -- | Constructor for 'DynamoDBTableSSESpecification' containing required
 -- fields as arguments.
 dynamoDBTableSSESpecification

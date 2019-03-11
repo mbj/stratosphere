@@ -35,18 +35,6 @@ instance ToJSON ApiGatewayV2Api where
     , fmap (("Version",) . toJSON) _apiGatewayV2ApiVersion
     ]
 
-instance FromJSON ApiGatewayV2Api where
-  parseJSON (Object obj) =
-    ApiGatewayV2Api <$>
-      (obj .:? "ApiKeySelectionExpression") <*>
-      (obj .:? "Description") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "DisableSchemaValidation") <*>
-      (obj .: "Name") <*>
-      (obj .: "ProtocolType") <*>
-      (obj .: "RouteSelectionExpression") <*>
-      (obj .:? "Version")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ApiGatewayV2Api' containing required fields as
 -- arguments.
 apiGatewayV2Api

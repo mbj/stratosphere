@@ -29,15 +29,6 @@ instance ToJSON IoTTopicRuleCloudwatchAlarmAction where
     , (Just . ("StateValue",) . toJSON) _ioTTopicRuleCloudwatchAlarmActionStateValue
     ]
 
-instance FromJSON IoTTopicRuleCloudwatchAlarmAction where
-  parseJSON (Object obj) =
-    IoTTopicRuleCloudwatchAlarmAction <$>
-      (obj .: "AlarmName") <*>
-      (obj .: "RoleArn") <*>
-      (obj .: "StateReason") <*>
-      (obj .: "StateValue")
-  parseJSON _ = mempty
-
 -- | Constructor for 'IoTTopicRuleCloudwatchAlarmAction' containing required
 -- fields as arguments.
 ioTTopicRuleCloudwatchAlarmAction

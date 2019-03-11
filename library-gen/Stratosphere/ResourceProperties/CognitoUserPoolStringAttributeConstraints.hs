@@ -26,13 +26,6 @@ instance ToJSON CognitoUserPoolStringAttributeConstraints where
     , fmap (("MinLength",) . toJSON) _cognitoUserPoolStringAttributeConstraintsMinLength
     ]
 
-instance FromJSON CognitoUserPoolStringAttributeConstraints where
-  parseJSON (Object obj) =
-    CognitoUserPoolStringAttributeConstraints <$>
-      (obj .:? "MaxLength") <*>
-      (obj .:? "MinLength")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CognitoUserPoolStringAttributeConstraints' containing
 -- required fields as arguments.
 cognitoUserPoolStringAttributeConstraints

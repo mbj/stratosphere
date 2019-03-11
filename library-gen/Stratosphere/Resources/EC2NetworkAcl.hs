@@ -25,13 +25,6 @@ instance ToJSON EC2NetworkAcl where
     , (Just . ("VpcId",) . toJSON) _eC2NetworkAclVpcId
     ]
 
-instance FromJSON EC2NetworkAcl where
-  parseJSON (Object obj) =
-    EC2NetworkAcl <$>
-      (obj .:? "Tags") <*>
-      (obj .: "VpcId")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2NetworkAcl' containing required fields as arguments.
 ec2NetworkAcl
   :: Val Text -- ^ 'ecnaVpcId'

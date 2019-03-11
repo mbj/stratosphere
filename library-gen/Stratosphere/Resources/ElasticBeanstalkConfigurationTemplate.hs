@@ -37,18 +37,6 @@ instance ToJSON ElasticBeanstalkConfigurationTemplate where
     , fmap (("SourceConfiguration",) . toJSON) _elasticBeanstalkConfigurationTemplateSourceConfiguration
     ]
 
-instance FromJSON ElasticBeanstalkConfigurationTemplate where
-  parseJSON (Object obj) =
-    ElasticBeanstalkConfigurationTemplate <$>
-      (obj .: "ApplicationName") <*>
-      (obj .:? "Description") <*>
-      (obj .:? "EnvironmentId") <*>
-      (obj .:? "OptionSettings") <*>
-      (obj .:? "PlatformArn") <*>
-      (obj .:? "SolutionStackName") <*>
-      (obj .:? "SourceConfiguration")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ElasticBeanstalkConfigurationTemplate' containing
 -- required fields as arguments.
 elasticBeanstalkConfigurationTemplate

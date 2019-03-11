@@ -43,21 +43,6 @@ instance ToJSON GlueJob where
     , (Just . ("Role",) . toJSON) _glueJobRole
     ]
 
-instance FromJSON GlueJob where
-  parseJSON (Object obj) =
-    GlueJob <$>
-      fmap (fmap (fmap unDouble')) (obj .:? "AllocatedCapacity") <*>
-      (obj .: "Command") <*>
-      (obj .:? "Connections") <*>
-      (obj .:? "DefaultArguments") <*>
-      (obj .:? "Description") <*>
-      (obj .:? "ExecutionProperty") <*>
-      (obj .:? "LogUri") <*>
-      fmap (fmap (fmap unDouble')) (obj .:? "MaxRetries") <*>
-      (obj .:? "Name") <*>
-      (obj .: "Role")
-  parseJSON _ = mempty
-
 -- | Constructor for 'GlueJob' containing required fields as arguments.
 glueJob
   :: GlueJobJobCommand -- ^ 'gjCommand'

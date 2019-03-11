@@ -27,14 +27,6 @@ instance ToJSON IoTTopicRuleSqsAction where
     , fmap (("UseBase64",) . toJSON . fmap Bool') _ioTTopicRuleSqsActionUseBase64
     ]
 
-instance FromJSON IoTTopicRuleSqsAction where
-  parseJSON (Object obj) =
-    IoTTopicRuleSqsAction <$>
-      (obj .: "QueueUrl") <*>
-      (obj .: "RoleArn") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "UseBase64")
-  parseJSON _ = mempty
-
 -- | Constructor for 'IoTTopicRuleSqsAction' containing required fields as
 -- arguments.
 ioTTopicRuleSqsAction

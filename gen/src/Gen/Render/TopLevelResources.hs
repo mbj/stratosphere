@@ -35,11 +35,3 @@ renderTopLevelToJSON module'@Module{..} = T.append line1 line2
     line1 = T.concat ["resourcePropertiesJSON (", adtName module', " x) =\n"]
     line2 = T.concat ["  [ \"Type\" .= (\"", moduleResourceType,
                        "\" :: String), \"Properties\" .= toJSON x]"]
-
-renderFromJSONCases :: [Module] -> Text
-renderFromJSONCases = T.unlines . fmap renderTopLevelFromJSON
-
-renderTopLevelFromJSON :: Module -> Text
-renderTopLevelFromJSON module'@Module{..} =
-  T.concat ["         \"", moduleResourceType, "\" -> ", adtName module',
-             " <$> (o .: \"Properties\")"]

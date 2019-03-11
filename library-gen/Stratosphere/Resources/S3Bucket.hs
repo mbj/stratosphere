@@ -67,27 +67,6 @@ instance ToJSON S3Bucket where
     , fmap (("WebsiteConfiguration",) . toJSON) _s3BucketWebsiteConfiguration
     ]
 
-instance FromJSON S3Bucket where
-  parseJSON (Object obj) =
-    S3Bucket <$>
-      (obj .:? "AccelerateConfiguration") <*>
-      (obj .:? "AccessControl") <*>
-      (obj .:? "AnalyticsConfigurations") <*>
-      (obj .:? "BucketEncryption") <*>
-      (obj .:? "BucketName") <*>
-      (obj .:? "CorsConfiguration") <*>
-      (obj .:? "InventoryConfigurations") <*>
-      (obj .:? "LifecycleConfiguration") <*>
-      (obj .:? "LoggingConfiguration") <*>
-      (obj .:? "MetricsConfigurations") <*>
-      (obj .:? "NotificationConfiguration") <*>
-      (obj .:? "PublicAccessBlockConfiguration") <*>
-      (obj .:? "ReplicationConfiguration") <*>
-      (obj .:? "Tags") <*>
-      (obj .:? "VersioningConfiguration") <*>
-      (obj .:? "WebsiteConfiguration")
-  parseJSON _ = mempty
-
 -- | Constructor for 'S3Bucket' containing required fields as arguments.
 s3Bucket
   :: S3Bucket

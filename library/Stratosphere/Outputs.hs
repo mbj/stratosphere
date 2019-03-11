@@ -30,7 +30,6 @@ module Stratosphere.Outputs
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types (Parser)
 import Data.Maybe (catMaybes)
 import Data.Semigroup (Semigroup)
 import Data.Text (Text)
@@ -49,12 +48,6 @@ instance ToJSON OutputExport where
     object
     [ "Name" .= outputExportName
     ]
-
-instance FromJSON OutputExport where
-  parseJSON (Object o) =
-    OutputExport <$>
-      o .: "Name"
-  parseJSON _ = mempty
 
 -- | See 'output' for a convenient constructor.
 data Output =
@@ -98,13 +91,6 @@ outputToJSON Output {..} =
   , maybeField "Export" _outputExport
   ]
 
-outputFromJSON :: Text -> Object -> Parser Output
-outputFromJSON n o =
-  Output n
-  <$> o .:? "Description"
-  <*> o .: "Value"
-  <*> o .:? "Export"
-
 -- | Wrapper around a list of 'Output's to we can modify the aeson instances.
 newtype Outputs = Outputs { unOutputs :: [Output] }
   deriving (Show, Eq, Semigroup, Monoid)
@@ -117,10 +103,6 @@ instance IsList Outputs where
 instance NamedItem Output where
   itemName = _outputName
   nameToJSON = outputToJSON
-  nameParseJSON = outputFromJSON
 
 instance ToJSON Outputs where
   toJSON = namedItemToJSON . unOutputs
-
-instance FromJSON Outputs where
-  parseJSON v = Outputs <$> namedItemFromJSON v

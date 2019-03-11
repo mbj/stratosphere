@@ -30,15 +30,6 @@ instance ToJSON WAFWebACL where
     , fmap (("Rules",) . toJSON) _wAFWebACLRules
     ]
 
-instance FromJSON WAFWebACL where
-  parseJSON (Object obj) =
-    WAFWebACL <$>
-      (obj .: "DefaultAction") <*>
-      (obj .: "MetricName") <*>
-      (obj .: "Name") <*>
-      (obj .:? "Rules")
-  parseJSON _ = mempty
-
 -- | Constructor for 'WAFWebACL' containing required fields as arguments.
 wafWebACL
   :: WAFWebACLWafAction -- ^ 'wafwaclDefaultAction'

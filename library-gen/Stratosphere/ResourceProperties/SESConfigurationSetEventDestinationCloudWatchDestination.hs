@@ -25,12 +25,6 @@ instance ToJSON SESConfigurationSetEventDestinationCloudWatchDestination where
     [ fmap (("DimensionConfigurations",) . toJSON) _sESConfigurationSetEventDestinationCloudWatchDestinationDimensionConfigurations
     ]
 
-instance FromJSON SESConfigurationSetEventDestinationCloudWatchDestination where
-  parseJSON (Object obj) =
-    SESConfigurationSetEventDestinationCloudWatchDestination <$>
-      (obj .:? "DimensionConfigurations")
-  parseJSON _ = mempty
-
 -- | Constructor for
 -- 'SESConfigurationSetEventDestinationCloudWatchDestination' containing
 -- required fields as arguments.

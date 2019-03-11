@@ -53,27 +53,6 @@ instance ToJSON Route53HealthCheckHealthCheckConfig where
     , (Just . ("Type",) . toJSON) _route53HealthCheckHealthCheckConfigType
     ]
 
-instance FromJSON Route53HealthCheckHealthCheckConfig where
-  parseJSON (Object obj) =
-    Route53HealthCheckHealthCheckConfig <$>
-      (obj .:? "AlarmIdentifier") <*>
-      (obj .:? "ChildHealthChecks") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "EnableSNI") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "FailureThreshold") <*>
-      (obj .:? "FullyQualifiedDomainName") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "HealthThreshold") <*>
-      (obj .:? "IPAddress") <*>
-      (obj .:? "InsufficientDataHealthStatus") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "Inverted") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "MeasureLatency") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "Port") <*>
-      (obj .:? "Regions") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "RequestInterval") <*>
-      (obj .:? "ResourcePath") <*>
-      (obj .:? "SearchString") <*>
-      (obj .: "Type")
-  parseJSON _ = mempty
-
 -- | Constructor for 'Route53HealthCheckHealthCheckConfig' containing required
 -- fields as arguments.
 route53HealthCheckHealthCheckConfig

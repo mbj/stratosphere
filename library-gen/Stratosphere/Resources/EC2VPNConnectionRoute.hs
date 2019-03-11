@@ -25,13 +25,6 @@ instance ToJSON EC2VPNConnectionRoute where
     , (Just . ("VpnConnectionId",) . toJSON) _eC2VPNConnectionRouteVpnConnectionId
     ]
 
-instance FromJSON EC2VPNConnectionRoute where
-  parseJSON (Object obj) =
-    EC2VPNConnectionRoute <$>
-      (obj .: "DestinationCidrBlock") <*>
-      (obj .: "VpnConnectionId")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2VPNConnectionRoute' containing required fields as
 -- arguments.
 ec2VPNConnectionRoute

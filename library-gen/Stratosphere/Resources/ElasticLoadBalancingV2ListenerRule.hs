@@ -30,15 +30,6 @@ instance ToJSON ElasticLoadBalancingV2ListenerRule where
     , (Just . ("Priority",) . toJSON . fmap Integer') _elasticLoadBalancingV2ListenerRulePriority
     ]
 
-instance FromJSON ElasticLoadBalancingV2ListenerRule where
-  parseJSON (Object obj) =
-    ElasticLoadBalancingV2ListenerRule <$>
-      (obj .: "Actions") <*>
-      (obj .: "Conditions") <*>
-      (obj .: "ListenerArn") <*>
-      fmap (fmap unInteger') (obj .: "Priority")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ElasticLoadBalancingV2ListenerRule' containing required
 -- fields as arguments.
 elasticLoadBalancingV2ListenerRule

@@ -27,14 +27,6 @@ instance ToJSON SESReceiptRule where
     , (Just . ("RuleSetName",) . toJSON) _sESReceiptRuleRuleSetName
     ]
 
-instance FromJSON SESReceiptRule where
-  parseJSON (Object obj) =
-    SESReceiptRule <$>
-      (obj .:? "After") <*>
-      (obj .: "Rule") <*>
-      (obj .: "RuleSetName")
-  parseJSON _ = mempty
-
 -- | Constructor for 'SESReceiptRule' containing required fields as arguments.
 sesReceiptRule
   :: SESReceiptRuleRule -- ^ 'sesrrRule'

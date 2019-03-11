@@ -25,13 +25,6 @@ instance ToJSON CodeBuildProjectSourceAuth where
     , (Just . ("Type",) . toJSON) _codeBuildProjectSourceAuthType
     ]
 
-instance FromJSON CodeBuildProjectSourceAuth where
-  parseJSON (Object obj) =
-    CodeBuildProjectSourceAuth <$>
-      (obj .:? "Resource") <*>
-      (obj .: "Type")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CodeBuildProjectSourceAuth' containing required fields
 -- as arguments.
 codeBuildProjectSourceAuth

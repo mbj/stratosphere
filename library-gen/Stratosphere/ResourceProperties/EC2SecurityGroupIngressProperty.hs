@@ -41,21 +41,6 @@ instance ToJSON EC2SecurityGroupIngressProperty where
     , fmap (("ToPort",) . toJSON . fmap Integer') _eC2SecurityGroupIngressPropertyToPort
     ]
 
-instance FromJSON EC2SecurityGroupIngressProperty where
-  parseJSON (Object obj) =
-    EC2SecurityGroupIngressProperty <$>
-      (obj .:? "CidrIp") <*>
-      (obj .:? "CidrIpv6") <*>
-      (obj .:? "Description") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "FromPort") <*>
-      (obj .: "IpProtocol") <*>
-      (obj .:? "SourcePrefixListId") <*>
-      (obj .:? "SourceSecurityGroupId") <*>
-      (obj .:? "SourceSecurityGroupName") <*>
-      (obj .:? "SourceSecurityGroupOwnerId") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "ToPort")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2SecurityGroupIngressProperty' containing required
 -- fields as arguments.
 ec2SecurityGroupIngressProperty

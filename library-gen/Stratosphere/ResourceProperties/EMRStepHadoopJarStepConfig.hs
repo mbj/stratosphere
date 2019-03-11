@@ -29,15 +29,6 @@ instance ToJSON EMRStepHadoopJarStepConfig where
     , fmap (("StepProperties",) . toJSON) _eMRStepHadoopJarStepConfigStepProperties
     ]
 
-instance FromJSON EMRStepHadoopJarStepConfig where
-  parseJSON (Object obj) =
-    EMRStepHadoopJarStepConfig <$>
-      (obj .:? "Args") <*>
-      (obj .: "Jar") <*>
-      (obj .:? "MainClass") <*>
-      (obj .:? "StepProperties")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EMRStepHadoopJarStepConfig' containing required fields
 -- as arguments.
 emrStepHadoopJarStepConfig

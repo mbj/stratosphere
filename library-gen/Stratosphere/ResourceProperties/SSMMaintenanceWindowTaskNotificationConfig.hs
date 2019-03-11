@@ -28,14 +28,6 @@ instance ToJSON SSMMaintenanceWindowTaskNotificationConfig where
     , fmap (("NotificationType",) . toJSON) _sSMMaintenanceWindowTaskNotificationConfigNotificationType
     ]
 
-instance FromJSON SSMMaintenanceWindowTaskNotificationConfig where
-  parseJSON (Object obj) =
-    SSMMaintenanceWindowTaskNotificationConfig <$>
-      (obj .: "NotificationArn") <*>
-      (obj .:? "NotificationEvents") <*>
-      (obj .:? "NotificationType")
-  parseJSON _ = mempty
-
 -- | Constructor for 'SSMMaintenanceWindowTaskNotificationConfig' containing
 -- required fields as arguments.
 ssmMaintenanceWindowTaskNotificationConfig

@@ -23,12 +23,6 @@ instance ToJSON S3BucketSourceSelectionCriteria where
     [ (Just . ("SseKmsEncryptedObjects",) . toJSON) _s3BucketSourceSelectionCriteriaSseKmsEncryptedObjects
     ]
 
-instance FromJSON S3BucketSourceSelectionCriteria where
-  parseJSON (Object obj) =
-    S3BucketSourceSelectionCriteria <$>
-      (obj .: "SseKmsEncryptedObjects")
-  parseJSON _ = mempty
-
 -- | Constructor for 'S3BucketSourceSelectionCriteria' containing required
 -- fields as arguments.
 s3BucketSourceSelectionCriteria

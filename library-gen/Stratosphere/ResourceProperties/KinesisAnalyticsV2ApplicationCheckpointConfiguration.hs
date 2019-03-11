@@ -31,15 +31,6 @@ instance ToJSON KinesisAnalyticsV2ApplicationCheckpointConfiguration where
     , fmap (("MinPauseBetweenCheckpoints",) . toJSON . fmap Integer') _kinesisAnalyticsV2ApplicationCheckpointConfigurationMinPauseBetweenCheckpoints
     ]
 
-instance FromJSON KinesisAnalyticsV2ApplicationCheckpointConfiguration where
-  parseJSON (Object obj) =
-    KinesisAnalyticsV2ApplicationCheckpointConfiguration <$>
-      fmap (fmap (fmap unInteger')) (obj .:? "CheckpointInterval") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "CheckpointingEnabled") <*>
-      (obj .: "ConfigurationType") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "MinPauseBetweenCheckpoints")
-  parseJSON _ = mempty
-
 -- | Constructor for 'KinesisAnalyticsV2ApplicationCheckpointConfiguration'
 -- containing required fields as arguments.
 kinesisAnalyticsV2ApplicationCheckpointConfiguration

@@ -27,14 +27,6 @@ instance ToJSON OpsWorksLayerLoadBasedAutoScaling where
     , fmap (("UpScaling",) . toJSON) _opsWorksLayerLoadBasedAutoScalingUpScaling
     ]
 
-instance FromJSON OpsWorksLayerLoadBasedAutoScaling where
-  parseJSON (Object obj) =
-    OpsWorksLayerLoadBasedAutoScaling <$>
-      (obj .:? "DownScaling") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "Enable") <*>
-      (obj .:? "UpScaling")
-  parseJSON _ = mempty
-
 -- | Constructor for 'OpsWorksLayerLoadBasedAutoScaling' containing required
 -- fields as arguments.
 opsWorksLayerLoadBasedAutoScaling

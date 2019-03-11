@@ -27,14 +27,6 @@ instance ToJSON EC2VPCCidrBlock where
     , (Just . ("VpcId",) . toJSON) _eC2VPCCidrBlockVpcId
     ]
 
-instance FromJSON EC2VPCCidrBlock where
-  parseJSON (Object obj) =
-    EC2VPCCidrBlock <$>
-      fmap (fmap (fmap unBool')) (obj .:? "AmazonProvidedIpv6CidrBlock") <*>
-      (obj .:? "CidrBlock") <*>
-      (obj .: "VpcId")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2VPCCidrBlock' containing required fields as
 -- arguments.
 ec2VPCCidrBlock

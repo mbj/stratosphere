@@ -25,13 +25,6 @@ instance ToJSON S3BucketTagFilter where
     , (Just . ("Value",) . toJSON) _s3BucketTagFilterValue
     ]
 
-instance FromJSON S3BucketTagFilter where
-  parseJSON (Object obj) =
-    S3BucketTagFilter <$>
-      (obj .: "Key") <*>
-      (obj .: "Value")
-  parseJSON _ = mempty
-
 -- | Constructor for 'S3BucketTagFilter' containing required fields as
 -- arguments.
 s3BucketTagFilter

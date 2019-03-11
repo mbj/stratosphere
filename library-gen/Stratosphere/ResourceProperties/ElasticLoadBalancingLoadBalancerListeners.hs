@@ -34,17 +34,6 @@ instance ToJSON ElasticLoadBalancingLoadBalancerListeners where
     , fmap (("SSLCertificateId",) . toJSON) _elasticLoadBalancingLoadBalancerListenersSSLCertificateId
     ]
 
-instance FromJSON ElasticLoadBalancingLoadBalancerListeners where
-  parseJSON (Object obj) =
-    ElasticLoadBalancingLoadBalancerListeners <$>
-      (obj .: "InstancePort") <*>
-      (obj .:? "InstanceProtocol") <*>
-      (obj .: "LoadBalancerPort") <*>
-      (obj .:? "PolicyNames") <*>
-      (obj .: "Protocol") <*>
-      (obj .:? "SSLCertificateId")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ElasticLoadBalancingLoadBalancerListeners' containing
 -- required fields as arguments.
 elasticLoadBalancingLoadBalancerListeners

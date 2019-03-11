@@ -48,23 +48,6 @@ instance ToJSON S3BucketRule where
     , fmap (("Transitions",) . toJSON) _s3BucketRuleTransitions
     ]
 
-instance FromJSON S3BucketRule where
-  parseJSON (Object obj) =
-    S3BucketRule <$>
-      (obj .:? "AbortIncompleteMultipartUpload") <*>
-      (obj .:? "ExpirationDate") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "ExpirationInDays") <*>
-      (obj .:? "Id") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "NoncurrentVersionExpirationInDays") <*>
-      (obj .:? "NoncurrentVersionTransition") <*>
-      (obj .:? "NoncurrentVersionTransitions") <*>
-      (obj .:? "Prefix") <*>
-      (obj .: "Status") <*>
-      (obj .:? "TagFilters") <*>
-      (obj .:? "Transition") <*>
-      (obj .:? "Transitions")
-  parseJSON _ = mempty
-
 -- | Constructor for 'S3BucketRule' containing required fields as arguments.
 s3BucketRule
   :: Val Text -- ^ 'sbrStatus'

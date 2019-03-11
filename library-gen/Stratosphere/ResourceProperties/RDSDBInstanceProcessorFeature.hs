@@ -25,13 +25,6 @@ instance ToJSON RDSDBInstanceProcessorFeature where
     , fmap (("Value",) . toJSON) _rDSDBInstanceProcessorFeatureValue
     ]
 
-instance FromJSON RDSDBInstanceProcessorFeature where
-  parseJSON (Object obj) =
-    RDSDBInstanceProcessorFeature <$>
-      (obj .:? "Name") <*>
-      (obj .:? "Value")
-  parseJSON _ = mempty
-
 -- | Constructor for 'RDSDBInstanceProcessorFeature' containing required
 -- fields as arguments.
 rdsdbInstanceProcessorFeature

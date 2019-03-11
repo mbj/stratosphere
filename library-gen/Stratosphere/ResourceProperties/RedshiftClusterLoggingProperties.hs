@@ -25,13 +25,6 @@ instance ToJSON RedshiftClusterLoggingProperties where
     , fmap (("S3KeyPrefix",) . toJSON) _redshiftClusterLoggingPropertiesS3KeyPrefix
     ]
 
-instance FromJSON RedshiftClusterLoggingProperties where
-  parseJSON (Object obj) =
-    RedshiftClusterLoggingProperties <$>
-      (obj .: "BucketName") <*>
-      (obj .:? "S3KeyPrefix")
-  parseJSON _ = mempty
-
 -- | Constructor for 'RedshiftClusterLoggingProperties' containing required
 -- fields as arguments.
 redshiftClusterLoggingProperties

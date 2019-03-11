@@ -25,12 +25,6 @@ instance ToJSON CodeDeployDeploymentGroupOnPremisesTagSetListObject where
     [ fmap (("OnPremisesTagGroup",) . toJSON) _codeDeployDeploymentGroupOnPremisesTagSetListObjectOnPremisesTagGroup
     ]
 
-instance FromJSON CodeDeployDeploymentGroupOnPremisesTagSetListObject where
-  parseJSON (Object obj) =
-    CodeDeployDeploymentGroupOnPremisesTagSetListObject <$>
-      (obj .:? "OnPremisesTagGroup")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CodeDeployDeploymentGroupOnPremisesTagSetListObject'
 -- containing required fields as arguments.
 codeDeployDeploymentGroupOnPremisesTagSetListObject

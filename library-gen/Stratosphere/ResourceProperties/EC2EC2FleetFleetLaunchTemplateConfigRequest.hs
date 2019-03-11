@@ -28,13 +28,6 @@ instance ToJSON EC2EC2FleetFleetLaunchTemplateConfigRequest where
     , fmap (("Overrides",) . toJSON) _eC2EC2FleetFleetLaunchTemplateConfigRequestOverrides
     ]
 
-instance FromJSON EC2EC2FleetFleetLaunchTemplateConfigRequest where
-  parseJSON (Object obj) =
-    EC2EC2FleetFleetLaunchTemplateConfigRequest <$>
-      (obj .:? "LaunchTemplateSpecification") <*>
-      (obj .:? "Overrides")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2EC2FleetFleetLaunchTemplateConfigRequest' containing
 -- required fields as arguments.
 ec2EC2FleetFleetLaunchTemplateConfigRequest

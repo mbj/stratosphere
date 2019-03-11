@@ -29,15 +29,6 @@ instance ToJSON GlueDatabaseDatabaseInput where
     , fmap (("Parameters",) . toJSON) _glueDatabaseDatabaseInputParameters
     ]
 
-instance FromJSON GlueDatabaseDatabaseInput where
-  parseJSON (Object obj) =
-    GlueDatabaseDatabaseInput <$>
-      (obj .:? "Description") <*>
-      (obj .:? "LocationUri") <*>
-      (obj .:? "Name") <*>
-      (obj .:? "Parameters")
-  parseJSON _ = mempty
-
 -- | Constructor for 'GlueDatabaseDatabaseInput' containing required fields as
 -- arguments.
 glueDatabaseDatabaseInput

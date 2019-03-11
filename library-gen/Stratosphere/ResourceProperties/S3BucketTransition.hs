@@ -27,14 +27,6 @@ instance ToJSON S3BucketTransition where
     , fmap (("TransitionInDays",) . toJSON . fmap Integer') _s3BucketTransitionTransitionInDays
     ]
 
-instance FromJSON S3BucketTransition where
-  parseJSON (Object obj) =
-    S3BucketTransition <$>
-      (obj .: "StorageClass") <*>
-      (obj .:? "TransitionDate") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "TransitionInDays")
-  parseJSON _ = mempty
-
 -- | Constructor for 'S3BucketTransition' containing required fields as
 -- arguments.
 s3BucketTransition

@@ -28,14 +28,6 @@ instance ToJSON CognitoIdentityPoolCognitoIdentityProvider where
     , fmap (("ServerSideTokenCheck",) . toJSON . fmap Bool') _cognitoIdentityPoolCognitoIdentityProviderServerSideTokenCheck
     ]
 
-instance FromJSON CognitoIdentityPoolCognitoIdentityProvider where
-  parseJSON (Object obj) =
-    CognitoIdentityPoolCognitoIdentityProvider <$>
-      (obj .:? "ClientId") <*>
-      (obj .:? "ProviderName") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "ServerSideTokenCheck")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CognitoIdentityPoolCognitoIdentityProvider' containing
 -- required fields as arguments.
 cognitoIdentityPoolCognitoIdentityProvider

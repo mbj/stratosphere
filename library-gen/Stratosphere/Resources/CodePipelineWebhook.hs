@@ -38,19 +38,6 @@ instance ToJSON CodePipelineWebhook where
     , (Just . ("TargetPipelineVersion",) . toJSON . fmap Integer') _codePipelineWebhookTargetPipelineVersion
     ]
 
-instance FromJSON CodePipelineWebhook where
-  parseJSON (Object obj) =
-    CodePipelineWebhook <$>
-      (obj .: "Authentication") <*>
-      (obj .: "AuthenticationConfiguration") <*>
-      (obj .: "Filters") <*>
-      (obj .:? "Name") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "RegisterWithThirdParty") <*>
-      (obj .: "TargetAction") <*>
-      (obj .: "TargetPipeline") <*>
-      fmap (fmap unInteger') (obj .: "TargetPipelineVersion")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CodePipelineWebhook' containing required fields as
 -- arguments.
 codePipelineWebhook

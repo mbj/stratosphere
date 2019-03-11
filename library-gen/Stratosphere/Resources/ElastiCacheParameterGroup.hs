@@ -27,14 +27,6 @@ instance ToJSON ElastiCacheParameterGroup where
     , fmap (("Properties",) . toJSON) _elastiCacheParameterGroupProperties
     ]
 
-instance FromJSON ElastiCacheParameterGroup where
-  parseJSON (Object obj) =
-    ElastiCacheParameterGroup <$>
-      (obj .: "CacheParameterGroupFamily") <*>
-      (obj .: "Description") <*>
-      (obj .:? "Properties")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ElastiCacheParameterGroup' containing required fields as
 -- arguments.
 elastiCacheParameterGroup

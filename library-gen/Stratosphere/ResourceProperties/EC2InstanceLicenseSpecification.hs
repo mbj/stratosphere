@@ -23,12 +23,6 @@ instance ToJSON EC2InstanceLicenseSpecification where
     [ (Just . ("LicenseConfigurationArn",) . toJSON) _eC2InstanceLicenseSpecificationLicenseConfigurationArn
     ]
 
-instance FromJSON EC2InstanceLicenseSpecification where
-  parseJSON (Object obj) =
-    EC2InstanceLicenseSpecification <$>
-      (obj .: "LicenseConfigurationArn")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2InstanceLicenseSpecification' containing required
 -- fields as arguments.
 ec2InstanceLicenseSpecification

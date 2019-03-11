@@ -25,13 +25,6 @@ instance ToJSON AmazonMQBrokerTagsEntry where
     , (Just . ("Value",) . toJSON) _amazonMQBrokerTagsEntryValue
     ]
 
-instance FromJSON AmazonMQBrokerTagsEntry where
-  parseJSON (Object obj) =
-    AmazonMQBrokerTagsEntry <$>
-      (obj .: "Key") <*>
-      (obj .: "Value")
-  parseJSON _ = mempty
-
 -- | Constructor for 'AmazonMQBrokerTagsEntry' containing required fields as
 -- arguments.
 amazonMQBrokerTagsEntry

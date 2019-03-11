@@ -23,12 +23,6 @@ instance ToJSON SSMAssociationParameterValues where
     [ (Just . ("ParameterValues",) . toJSON) _sSMAssociationParameterValuesParameterValues
     ]
 
-instance FromJSON SSMAssociationParameterValues where
-  parseJSON (Object obj) =
-    SSMAssociationParameterValues <$>
-      (obj .: "ParameterValues")
-  parseJSON _ = mempty
-
 -- | Constructor for 'SSMAssociationParameterValues' containing required
 -- fields as arguments.
 ssmAssociationParameterValues

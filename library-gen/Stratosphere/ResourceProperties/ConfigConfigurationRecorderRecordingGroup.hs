@@ -28,14 +28,6 @@ instance ToJSON ConfigConfigurationRecorderRecordingGroup where
     , fmap (("ResourceTypes",) . toJSON) _configConfigurationRecorderRecordingGroupResourceTypes
     ]
 
-instance FromJSON ConfigConfigurationRecorderRecordingGroup where
-  parseJSON (Object obj) =
-    ConfigConfigurationRecorderRecordingGroup <$>
-      fmap (fmap (fmap unBool')) (obj .:? "AllSupported") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "IncludeGlobalResourceTypes") <*>
-      (obj .:? "ResourceTypes")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ConfigConfigurationRecorderRecordingGroup' containing
 -- required fields as arguments.
 configConfigurationRecorderRecordingGroup

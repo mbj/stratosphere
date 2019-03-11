@@ -27,14 +27,6 @@ instance ToJSON GlueTableColumn where
     , fmap (("Type",) . toJSON) _glueTableColumnType
     ]
 
-instance FromJSON GlueTableColumn where
-  parseJSON (Object obj) =
-    GlueTableColumn <$>
-      (obj .:? "Comment") <*>
-      (obj .: "Name") <*>
-      (obj .:? "Type")
-  parseJSON _ = mempty
-
 -- | Constructor for 'GlueTableColumn' containing required fields as
 -- arguments.
 glueTableColumn

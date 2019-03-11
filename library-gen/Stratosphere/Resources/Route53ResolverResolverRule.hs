@@ -34,17 +34,6 @@ instance ToJSON Route53ResolverResolverRule where
     , fmap (("TargetIps",) . toJSON) _route53ResolverResolverRuleTargetIps
     ]
 
-instance FromJSON Route53ResolverResolverRule where
-  parseJSON (Object obj) =
-    Route53ResolverResolverRule <$>
-      (obj .: "DomainName") <*>
-      (obj .:? "Name") <*>
-      (obj .:? "ResolverEndpointId") <*>
-      (obj .: "RuleType") <*>
-      (obj .:? "Tags") <*>
-      (obj .:? "TargetIps")
-  parseJSON _ = mempty
-
 -- | Constructor for 'Route53ResolverResolverRule' containing required fields
 -- as arguments.
 route53ResolverResolverRule

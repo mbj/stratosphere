@@ -35,18 +35,6 @@ instance ToJSON ApiGatewayV2IntegrationResponse where
     , fmap (("TemplateSelectionExpression",) . toJSON) _apiGatewayV2IntegrationResponseTemplateSelectionExpression
     ]
 
-instance FromJSON ApiGatewayV2IntegrationResponse where
-  parseJSON (Object obj) =
-    ApiGatewayV2IntegrationResponse <$>
-      (obj .: "ApiId") <*>
-      (obj .:? "ContentHandlingStrategy") <*>
-      (obj .: "IntegrationId") <*>
-      (obj .: "IntegrationResponseKey") <*>
-      (obj .:? "ResponseParameters") <*>
-      (obj .:? "ResponseTemplates") <*>
-      (obj .:? "TemplateSelectionExpression")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ApiGatewayV2IntegrationResponse' containing required
 -- fields as arguments.
 apiGatewayV2IntegrationResponse

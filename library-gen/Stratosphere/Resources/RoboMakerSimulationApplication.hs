@@ -38,18 +38,6 @@ instance ToJSON RoboMakerSimulationApplication where
     , fmap (("Tags",) . toJSON) _roboMakerSimulationApplicationTags
     ]
 
-instance FromJSON RoboMakerSimulationApplication where
-  parseJSON (Object obj) =
-    RoboMakerSimulationApplication <$>
-      (obj .:? "CurrentRevisionId") <*>
-      (obj .:? "Name") <*>
-      (obj .: "RenderingEngine") <*>
-      (obj .: "RobotSoftwareSuite") <*>
-      (obj .: "SimulationSoftwareSuite") <*>
-      (obj .: "Sources") <*>
-      (obj .:? "Tags")
-  parseJSON _ = mempty
-
 -- | Constructor for 'RoboMakerSimulationApplication' containing required
 -- fields as arguments.
 roboMakerSimulationApplication

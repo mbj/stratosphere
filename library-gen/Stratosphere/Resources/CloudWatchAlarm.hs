@@ -62,31 +62,6 @@ instance ToJSON CloudWatchAlarm where
     , fmap (("Unit",) . toJSON) _cloudWatchAlarmUnit
     ]
 
-instance FromJSON CloudWatchAlarm where
-  parseJSON (Object obj) =
-    CloudWatchAlarm <$>
-      fmap (fmap (fmap unBool')) (obj .:? "ActionsEnabled") <*>
-      (obj .:? "AlarmActions") <*>
-      (obj .:? "AlarmDescription") <*>
-      (obj .:? "AlarmName") <*>
-      (obj .: "ComparisonOperator") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "DatapointsToAlarm") <*>
-      (obj .:? "Dimensions") <*>
-      (obj .:? "EvaluateLowSampleCountPercentile") <*>
-      fmap (fmap unInteger') (obj .: "EvaluationPeriods") <*>
-      (obj .:? "ExtendedStatistic") <*>
-      (obj .:? "InsufficientDataActions") <*>
-      (obj .:? "MetricName") <*>
-      (obj .:? "Metrics") <*>
-      (obj .:? "Namespace") <*>
-      (obj .:? "OKActions") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "Period") <*>
-      (obj .:? "Statistic") <*>
-      fmap (fmap unDouble') (obj .: "Threshold") <*>
-      (obj .:? "TreatMissingData") <*>
-      (obj .:? "Unit")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CloudWatchAlarm' containing required fields as
 -- arguments.
 cloudWatchAlarm

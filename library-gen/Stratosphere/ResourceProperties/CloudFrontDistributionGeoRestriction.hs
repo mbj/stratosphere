@@ -25,13 +25,6 @@ instance ToJSON CloudFrontDistributionGeoRestriction where
     , (Just . ("RestrictionType",) . toJSON) _cloudFrontDistributionGeoRestrictionRestrictionType
     ]
 
-instance FromJSON CloudFrontDistributionGeoRestriction where
-  parseJSON (Object obj) =
-    CloudFrontDistributionGeoRestriction <$>
-      (obj .:? "Locations") <*>
-      (obj .: "RestrictionType")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CloudFrontDistributionGeoRestriction' containing
 -- required fields as arguments.
 cloudFrontDistributionGeoRestriction

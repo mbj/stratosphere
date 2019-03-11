@@ -25,13 +25,6 @@ instance ToJSON EC2SubnetNetworkAclAssociation where
     , (Just . ("SubnetId",) . toJSON) _eC2SubnetNetworkAclAssociationSubnetId
     ]
 
-instance FromJSON EC2SubnetNetworkAclAssociation where
-  parseJSON (Object obj) =
-    EC2SubnetNetworkAclAssociation <$>
-      (obj .: "NetworkAclId") <*>
-      (obj .: "SubnetId")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2SubnetNetworkAclAssociation' containing required
 -- fields as arguments.
 ec2SubnetNetworkAclAssociation

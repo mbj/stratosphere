@@ -27,14 +27,6 @@ instance ToJSON GlueCrawlerJdbcTarget where
     , fmap (("Path",) . toJSON) _glueCrawlerJdbcTargetPath
     ]
 
-instance FromJSON GlueCrawlerJdbcTarget where
-  parseJSON (Object obj) =
-    GlueCrawlerJdbcTarget <$>
-      (obj .:? "ConnectionName") <*>
-      (obj .:? "Exclusions") <*>
-      (obj .:? "Path")
-  parseJSON _ = mempty
-
 -- | Constructor for 'GlueCrawlerJdbcTarget' containing required fields as
 -- arguments.
 glueCrawlerJdbcTarget

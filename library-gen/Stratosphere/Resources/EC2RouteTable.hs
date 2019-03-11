@@ -25,13 +25,6 @@ instance ToJSON EC2RouteTable where
     , (Just . ("VpcId",) . toJSON) _eC2RouteTableVpcId
     ]
 
-instance FromJSON EC2RouteTable where
-  parseJSON (Object obj) =
-    EC2RouteTable <$>
-      (obj .:? "Tags") <*>
-      (obj .: "VpcId")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2RouteTable' containing required fields as arguments.
 ec2RouteTable
   :: Val Text -- ^ 'ecrtVpcId'

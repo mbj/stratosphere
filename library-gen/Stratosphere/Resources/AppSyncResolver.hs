@@ -41,21 +41,6 @@ instance ToJSON AppSyncResolver where
     , (Just . ("TypeName",) . toJSON) _appSyncResolverTypeName
     ]
 
-instance FromJSON AppSyncResolver where
-  parseJSON (Object obj) =
-    AppSyncResolver <$>
-      (obj .: "ApiId") <*>
-      (obj .:? "DataSourceName") <*>
-      (obj .: "FieldName") <*>
-      (obj .:? "Kind") <*>
-      (obj .:? "PipelineConfig") <*>
-      (obj .:? "RequestMappingTemplate") <*>
-      (obj .:? "RequestMappingTemplateS3Location") <*>
-      (obj .:? "ResponseMappingTemplate") <*>
-      (obj .:? "ResponseMappingTemplateS3Location") <*>
-      (obj .: "TypeName")
-  parseJSON _ = mempty
-
 -- | Constructor for 'AppSyncResolver' containing required fields as
 -- arguments.
 appSyncResolver

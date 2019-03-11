@@ -25,13 +25,6 @@ instance ToJSON WAFRegionalWebACLAssociation where
     , (Just . ("WebACLId",) . toJSON) _wAFRegionalWebACLAssociationWebACLId
     ]
 
-instance FromJSON WAFRegionalWebACLAssociation where
-  parseJSON (Object obj) =
-    WAFRegionalWebACLAssociation <$>
-      (obj .: "ResourceArn") <*>
-      (obj .: "WebACLId")
-  parseJSON _ = mempty
-
 -- | Constructor for 'WAFRegionalWebACLAssociation' containing required fields
 -- as arguments.
 wafRegionalWebACLAssociation

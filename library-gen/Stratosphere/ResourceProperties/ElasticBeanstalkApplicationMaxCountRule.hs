@@ -28,14 +28,6 @@ instance ToJSON ElasticBeanstalkApplicationMaxCountRule where
     , fmap (("MaxCount",) . toJSON . fmap Integer') _elasticBeanstalkApplicationMaxCountRuleMaxCount
     ]
 
-instance FromJSON ElasticBeanstalkApplicationMaxCountRule where
-  parseJSON (Object obj) =
-    ElasticBeanstalkApplicationMaxCountRule <$>
-      fmap (fmap (fmap unBool')) (obj .:? "DeleteSourceFromS3") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "Enabled") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "MaxCount")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ElasticBeanstalkApplicationMaxCountRule' containing
 -- required fields as arguments.
 elasticBeanstalkApplicationMaxCountRule

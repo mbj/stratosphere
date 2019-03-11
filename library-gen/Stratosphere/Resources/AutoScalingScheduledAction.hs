@@ -35,18 +35,6 @@ instance ToJSON AutoScalingScheduledAction where
     , fmap (("StartTime",) . toJSON) _autoScalingScheduledActionStartTime
     ]
 
-instance FromJSON AutoScalingScheduledAction where
-  parseJSON (Object obj) =
-    AutoScalingScheduledAction <$>
-      (obj .: "AutoScalingGroupName") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "DesiredCapacity") <*>
-      (obj .:? "EndTime") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "MaxSize") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "MinSize") <*>
-      (obj .:? "Recurrence") <*>
-      (obj .:? "StartTime")
-  parseJSON _ = mempty
-
 -- | Constructor for 'AutoScalingScheduledAction' containing required fields
 -- as arguments.
 autoScalingScheduledAction

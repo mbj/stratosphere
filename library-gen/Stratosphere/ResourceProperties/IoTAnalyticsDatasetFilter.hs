@@ -23,12 +23,6 @@ instance ToJSON IoTAnalyticsDatasetFilter where
     [ fmap (("DeltaTime",) . toJSON) _ioTAnalyticsDatasetFilterDeltaTime
     ]
 
-instance FromJSON IoTAnalyticsDatasetFilter where
-  parseJSON (Object obj) =
-    IoTAnalyticsDatasetFilter <$>
-      (obj .:? "DeltaTime")
-  parseJSON _ = mempty
-
 -- | Constructor for 'IoTAnalyticsDatasetFilter' containing required fields as
 -- arguments.
 ioTAnalyticsDatasetFilter

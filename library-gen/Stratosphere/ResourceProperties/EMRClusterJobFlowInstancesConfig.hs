@@ -53,26 +53,6 @@ instance ToJSON EMRClusterJobFlowInstancesConfig where
     , fmap (("TerminationProtected",) . toJSON . fmap Bool') _eMRClusterJobFlowInstancesConfigTerminationProtected
     ]
 
-instance FromJSON EMRClusterJobFlowInstancesConfig where
-  parseJSON (Object obj) =
-    EMRClusterJobFlowInstancesConfig <$>
-      (obj .:? "AdditionalMasterSecurityGroups") <*>
-      (obj .:? "AdditionalSlaveSecurityGroups") <*>
-      (obj .:? "CoreInstanceFleet") <*>
-      (obj .:? "CoreInstanceGroup") <*>
-      (obj .:? "Ec2KeyName") <*>
-      (obj .:? "Ec2SubnetId") <*>
-      (obj .:? "EmrManagedMasterSecurityGroup") <*>
-      (obj .:? "EmrManagedSlaveSecurityGroup") <*>
-      (obj .:? "HadoopVersion") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "KeepJobFlowAliveWhenNoSteps") <*>
-      (obj .:? "MasterInstanceFleet") <*>
-      (obj .:? "MasterInstanceGroup") <*>
-      (obj .:? "Placement") <*>
-      (obj .:? "ServiceAccessSecurityGroup") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "TerminationProtected")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EMRClusterJobFlowInstancesConfig' containing required
 -- fields as arguments.
 emrClusterJobFlowInstancesConfig

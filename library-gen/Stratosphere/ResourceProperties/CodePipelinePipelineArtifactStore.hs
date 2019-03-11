@@ -27,14 +27,6 @@ instance ToJSON CodePipelinePipelineArtifactStore where
     , (Just . ("Type",) . toJSON) _codePipelinePipelineArtifactStoreType
     ]
 
-instance FromJSON CodePipelinePipelineArtifactStore where
-  parseJSON (Object obj) =
-    CodePipelinePipelineArtifactStore <$>
-      (obj .:? "EncryptionKey") <*>
-      (obj .: "Location") <*>
-      (obj .: "Type")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CodePipelinePipelineArtifactStore' containing required
 -- fields as arguments.
 codePipelinePipelineArtifactStore

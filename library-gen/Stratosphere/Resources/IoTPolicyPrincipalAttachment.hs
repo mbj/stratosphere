@@ -25,13 +25,6 @@ instance ToJSON IoTPolicyPrincipalAttachment where
     , (Just . ("Principal",) . toJSON) _ioTPolicyPrincipalAttachmentPrincipal
     ]
 
-instance FromJSON IoTPolicyPrincipalAttachment where
-  parseJSON (Object obj) =
-    IoTPolicyPrincipalAttachment <$>
-      (obj .: "PolicyName") <*>
-      (obj .: "Principal")
-  parseJSON _ = mempty
-
 -- | Constructor for 'IoTPolicyPrincipalAttachment' containing required fields
 -- as arguments.
 ioTPolicyPrincipalAttachment

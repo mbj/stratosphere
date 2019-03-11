@@ -29,14 +29,6 @@ instance ToJSON KinesisAnalyticsV2ApplicationS3ContentLocation where
     , fmap (("ObjectVersion",) . toJSON) _kinesisAnalyticsV2ApplicationS3ContentLocationObjectVersion
     ]
 
-instance FromJSON KinesisAnalyticsV2ApplicationS3ContentLocation where
-  parseJSON (Object obj) =
-    KinesisAnalyticsV2ApplicationS3ContentLocation <$>
-      (obj .:? "BucketARN") <*>
-      (obj .:? "FileKey") <*>
-      (obj .:? "ObjectVersion")
-  parseJSON _ = mempty
-
 -- | Constructor for 'KinesisAnalyticsV2ApplicationS3ContentLocation'
 -- containing required fields as arguments.
 kinesisAnalyticsV2ApplicationS3ContentLocation

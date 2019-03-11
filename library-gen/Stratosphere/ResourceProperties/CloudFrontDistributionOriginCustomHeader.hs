@@ -26,13 +26,6 @@ instance ToJSON CloudFrontDistributionOriginCustomHeader where
     , (Just . ("HeaderValue",) . toJSON) _cloudFrontDistributionOriginCustomHeaderHeaderValue
     ]
 
-instance FromJSON CloudFrontDistributionOriginCustomHeader where
-  parseJSON (Object obj) =
-    CloudFrontDistributionOriginCustomHeader <$>
-      (obj .: "HeaderName") <*>
-      (obj .: "HeaderValue")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CloudFrontDistributionOriginCustomHeader' containing
 -- required fields as arguments.
 cloudFrontDistributionOriginCustomHeader

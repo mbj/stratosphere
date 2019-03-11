@@ -31,16 +31,6 @@ instance ToJSON ApiGatewayMethodIntegrationResponse where
     , (Just . ("StatusCode",) . toJSON) _apiGatewayMethodIntegrationResponseStatusCode
     ]
 
-instance FromJSON ApiGatewayMethodIntegrationResponse where
-  parseJSON (Object obj) =
-    ApiGatewayMethodIntegrationResponse <$>
-      (obj .:? "ContentHandling") <*>
-      (obj .:? "ResponseParameters") <*>
-      (obj .:? "ResponseTemplates") <*>
-      (obj .:? "SelectionPattern") <*>
-      (obj .: "StatusCode")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ApiGatewayMethodIntegrationResponse' containing required
 -- fields as arguments.
 apiGatewayMethodIntegrationResponse

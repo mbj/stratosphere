@@ -23,12 +23,6 @@ instance ToJSON ElastiCacheSecurityGroup where
     [ (Just . ("Description",) . toJSON) _elastiCacheSecurityGroupDescription
     ]
 
-instance FromJSON ElastiCacheSecurityGroup where
-  parseJSON (Object obj) =
-    ElastiCacheSecurityGroup <$>
-      (obj .: "Description")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ElastiCacheSecurityGroup' containing required fields as
 -- arguments.
 elastiCacheSecurityGroup

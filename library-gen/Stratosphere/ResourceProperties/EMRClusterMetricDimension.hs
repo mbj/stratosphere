@@ -25,13 +25,6 @@ instance ToJSON EMRClusterMetricDimension where
     , (Just . ("Value",) . toJSON) _eMRClusterMetricDimensionValue
     ]
 
-instance FromJSON EMRClusterMetricDimension where
-  parseJSON (Object obj) =
-    EMRClusterMetricDimension <$>
-      (obj .: "Key") <*>
-      (obj .: "Value")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EMRClusterMetricDimension' containing required fields as
 -- arguments.
 emrClusterMetricDimension

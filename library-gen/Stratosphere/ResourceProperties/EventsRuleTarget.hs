@@ -45,21 +45,6 @@ instance ToJSON EventsRuleTarget where
     , fmap (("SqsParameters",) . toJSON) _eventsRuleTargetSqsParameters
     ]
 
-instance FromJSON EventsRuleTarget where
-  parseJSON (Object obj) =
-    EventsRuleTarget <$>
-      (obj .: "Arn") <*>
-      (obj .:? "EcsParameters") <*>
-      (obj .: "Id") <*>
-      (obj .:? "Input") <*>
-      (obj .:? "InputPath") <*>
-      (obj .:? "InputTransformer") <*>
-      (obj .:? "KinesisParameters") <*>
-      (obj .:? "RoleArn") <*>
-      (obj .:? "RunCommandParameters") <*>
-      (obj .:? "SqsParameters")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EventsRuleTarget' containing required fields as
 -- arguments.
 eventsRuleTarget

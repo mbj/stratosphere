@@ -27,13 +27,6 @@ instance ToJSON Route53ResolverResolverEndpointIpAddressRequest where
     , (Just . ("SubnetId",) . toJSON) _route53ResolverResolverEndpointIpAddressRequestSubnetId
     ]
 
-instance FromJSON Route53ResolverResolverEndpointIpAddressRequest where
-  parseJSON (Object obj) =
-    Route53ResolverResolverEndpointIpAddressRequest <$>
-      (obj .:? "Ip") <*>
-      (obj .: "SubnetId")
-  parseJSON _ = mempty
-
 -- | Constructor for 'Route53ResolverResolverEndpointIpAddressRequest'
 -- containing required fields as arguments.
 route53ResolverResolverEndpointIpAddressRequest

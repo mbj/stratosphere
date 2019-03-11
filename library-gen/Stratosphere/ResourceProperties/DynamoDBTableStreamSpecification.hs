@@ -23,12 +23,6 @@ instance ToJSON DynamoDBTableStreamSpecification where
     [ (Just . ("StreamViewType",) . toJSON) _dynamoDBTableStreamSpecificationStreamViewType
     ]
 
-instance FromJSON DynamoDBTableStreamSpecification where
-  parseJSON (Object obj) =
-    DynamoDBTableStreamSpecification <$>
-      (obj .: "StreamViewType")
-  parseJSON _ = mempty
-
 -- | Constructor for 'DynamoDBTableStreamSpecification' containing required
 -- fields as arguments.
 dynamoDBTableStreamSpecification

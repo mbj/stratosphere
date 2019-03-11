@@ -29,14 +29,6 @@ instance ToJSON EMRInstanceFleetConfigSpotProvisioningSpecification where
     , (Just . ("TimeoutDurationMinutes",) . toJSON . fmap Integer') _eMRInstanceFleetConfigSpotProvisioningSpecificationTimeoutDurationMinutes
     ]
 
-instance FromJSON EMRInstanceFleetConfigSpotProvisioningSpecification where
-  parseJSON (Object obj) =
-    EMRInstanceFleetConfigSpotProvisioningSpecification <$>
-      fmap (fmap (fmap unInteger')) (obj .:? "BlockDurationMinutes") <*>
-      (obj .: "TimeoutAction") <*>
-      fmap (fmap unInteger') (obj .: "TimeoutDurationMinutes")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EMRInstanceFleetConfigSpotProvisioningSpecification'
 -- containing required fields as arguments.
 emrInstanceFleetConfigSpotProvisioningSpecification

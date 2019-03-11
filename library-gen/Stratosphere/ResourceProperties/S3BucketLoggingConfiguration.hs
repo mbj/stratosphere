@@ -25,13 +25,6 @@ instance ToJSON S3BucketLoggingConfiguration where
     , fmap (("LogFilePrefix",) . toJSON) _s3BucketLoggingConfigurationLogFilePrefix
     ]
 
-instance FromJSON S3BucketLoggingConfiguration where
-  parseJSON (Object obj) =
-    S3BucketLoggingConfiguration <$>
-      (obj .:? "DestinationBucketName") <*>
-      (obj .:? "LogFilePrefix")
-  parseJSON _ = mempty
-
 -- | Constructor for 'S3BucketLoggingConfiguration' containing required fields
 -- as arguments.
 s3BucketLoggingConfiguration

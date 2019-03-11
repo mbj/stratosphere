@@ -37,19 +37,6 @@ instance ToJSON EC2VPCEndpoint where
     , (Just . ("VpcId",) . toJSON) _eC2VPCEndpointVpcId
     ]
 
-instance FromJSON EC2VPCEndpoint where
-  parseJSON (Object obj) =
-    EC2VPCEndpoint <$>
-      (obj .:? "PolicyDocument") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "PrivateDnsEnabled") <*>
-      (obj .:? "RouteTableIds") <*>
-      (obj .:? "SecurityGroupIds") <*>
-      (obj .: "ServiceName") <*>
-      (obj .:? "SubnetIds") <*>
-      (obj .:? "VpcEndpointType") <*>
-      (obj .: "VpcId")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2VPCEndpoint' containing required fields as arguments.
 ec2VPCEndpoint
   :: Val Text -- ^ 'ecvpceServiceName'

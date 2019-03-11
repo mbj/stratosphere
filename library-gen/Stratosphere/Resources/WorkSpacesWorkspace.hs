@@ -38,19 +38,6 @@ instance ToJSON WorkSpacesWorkspace where
     , fmap (("WorkspaceProperties",) . toJSON) _workSpacesWorkspaceWorkspaceProperties
     ]
 
-instance FromJSON WorkSpacesWorkspace where
-  parseJSON (Object obj) =
-    WorkSpacesWorkspace <$>
-      (obj .: "BundleId") <*>
-      (obj .: "DirectoryId") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "RootVolumeEncryptionEnabled") <*>
-      (obj .:? "Tags") <*>
-      (obj .: "UserName") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "UserVolumeEncryptionEnabled") <*>
-      (obj .:? "VolumeEncryptionKey") <*>
-      (obj .:? "WorkspaceProperties")
-  parseJSON _ = mempty
-
 -- | Constructor for 'WorkSpacesWorkspace' containing required fields as
 -- arguments.
 workSpacesWorkspace

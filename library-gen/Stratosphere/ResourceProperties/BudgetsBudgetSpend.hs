@@ -25,13 +25,6 @@ instance ToJSON BudgetsBudgetSpend where
     , (Just . ("Unit",) . toJSON) _budgetsBudgetSpendUnit
     ]
 
-instance FromJSON BudgetsBudgetSpend where
-  parseJSON (Object obj) =
-    BudgetsBudgetSpend <$>
-      fmap (fmap unDouble') (obj .: "Amount") <*>
-      (obj .: "Unit")
-  parseJSON _ = mempty
-
 -- | Constructor for 'BudgetsBudgetSpend' containing required fields as
 -- arguments.
 budgetsBudgetSpend

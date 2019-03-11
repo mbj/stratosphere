@@ -25,13 +25,6 @@ instance ToJSON EC2InstanceSsmAssociation where
     , (Just . ("DocumentName",) . toJSON) _eC2InstanceSsmAssociationDocumentName
     ]
 
-instance FromJSON EC2InstanceSsmAssociation where
-  parseJSON (Object obj) =
-    EC2InstanceSsmAssociation <$>
-      (obj .:? "AssociationParameters") <*>
-      (obj .: "DocumentName")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2InstanceSsmAssociation' containing required fields as
 -- arguments.
 ec2InstanceSsmAssociation

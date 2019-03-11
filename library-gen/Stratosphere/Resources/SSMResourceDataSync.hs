@@ -33,17 +33,6 @@ instance ToJSON SSMResourceDataSync where
     , (Just . ("SyncName",) . toJSON) _sSMResourceDataSyncSyncName
     ]
 
-instance FromJSON SSMResourceDataSync where
-  parseJSON (Object obj) =
-    SSMResourceDataSync <$>
-      (obj .: "BucketName") <*>
-      (obj .:? "BucketPrefix") <*>
-      (obj .: "BucketRegion") <*>
-      (obj .:? "KMSKeyArn") <*>
-      (obj .: "SyncFormat") <*>
-      (obj .: "SyncName")
-  parseJSON _ = mempty
-
 -- | Constructor for 'SSMResourceDataSync' containing required fields as
 -- arguments.
 ssmResourceDataSync

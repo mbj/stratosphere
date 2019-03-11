@@ -41,21 +41,6 @@ instance ToJSON ApiGatewayAuthorizer where
     , (Just . ("Type",) . toJSON) _apiGatewayAuthorizerType
     ]
 
-instance FromJSON ApiGatewayAuthorizer where
-  parseJSON (Object obj) =
-    ApiGatewayAuthorizer <$>
-      (obj .:? "AuthType") <*>
-      (obj .:? "AuthorizerCredentials") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "AuthorizerResultTtlInSeconds") <*>
-      (obj .:? "AuthorizerUri") <*>
-      (obj .:? "IdentitySource") <*>
-      (obj .:? "IdentityValidationExpression") <*>
-      (obj .:? "Name") <*>
-      (obj .:? "ProviderARNs") <*>
-      (obj .: "RestApiId") <*>
-      (obj .: "Type")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ApiGatewayAuthorizer' containing required fields as
 -- arguments.
 apiGatewayAuthorizer

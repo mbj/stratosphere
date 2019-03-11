@@ -29,14 +29,6 @@ instance ToJSON ApplicationAutoScalingScalingPolicyStepAdjustment where
     , (Just . ("ScalingAdjustment",) . toJSON . fmap Integer') _applicationAutoScalingScalingPolicyStepAdjustmentScalingAdjustment
     ]
 
-instance FromJSON ApplicationAutoScalingScalingPolicyStepAdjustment where
-  parseJSON (Object obj) =
-    ApplicationAutoScalingScalingPolicyStepAdjustment <$>
-      fmap (fmap (fmap unDouble')) (obj .:? "MetricIntervalLowerBound") <*>
-      fmap (fmap (fmap unDouble')) (obj .:? "MetricIntervalUpperBound") <*>
-      fmap (fmap unInteger') (obj .: "ScalingAdjustment")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ApplicationAutoScalingScalingPolicyStepAdjustment'
 -- containing required fields as arguments.
 applicationAutoScalingScalingPolicyStepAdjustment

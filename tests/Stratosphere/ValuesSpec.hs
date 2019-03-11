@@ -14,15 +14,6 @@ import Stratosphere.Values
 spec :: Spec
 spec = do
   describe "Val/ValList JSON instances" $ do
-    it "is idempotent for Sub" $ do
-      idempotentJSON (sub "MyString")
-      idempotentJSON (Sub "${Greeting} ${Name}" (Just []) :: Val Text)
-      let
-        values =
-          [ ("Greeting", "Hello")
-          , ("Name", "Bob")
-          ]
-      idempotentJSON (Sub "${Greeting} ${Name}" (Just values) :: Val Text)
 
     it "Ref and RefList produce the same JSON" $ do
       toJSON (Ref "MyVal" :: Val Text) `shouldBe` toJSON (RefList "MyVal" :: ValList Text)
@@ -48,6 +39,3 @@ spec = do
             , Literal 3
             ]
       fmap (+1) input `shouldBe` expected
-
-idempotentJSON :: (ToJSON a, FromJSON a, Show a, Eq a) => a -> Expectation
-idempotentJSON x = decode (encode x) `shouldBe` Just x

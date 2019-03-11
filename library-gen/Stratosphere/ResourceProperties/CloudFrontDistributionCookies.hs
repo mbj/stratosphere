@@ -25,13 +25,6 @@ instance ToJSON CloudFrontDistributionCookies where
     , fmap (("WhitelistedNames",) . toJSON) _cloudFrontDistributionCookiesWhitelistedNames
     ]
 
-instance FromJSON CloudFrontDistributionCookies where
-  parseJSON (Object obj) =
-    CloudFrontDistributionCookies <$>
-      (obj .: "Forward") <*>
-      (obj .:? "WhitelistedNames")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CloudFrontDistributionCookies' containing required
 -- fields as arguments.
 cloudFrontDistributionCookies

@@ -26,13 +26,6 @@ instance ToJSON OpsWorksLayerShutdownEventConfiguration where
     , fmap (("ExecutionTimeout",) . toJSON . fmap Integer') _opsWorksLayerShutdownEventConfigurationExecutionTimeout
     ]
 
-instance FromJSON OpsWorksLayerShutdownEventConfiguration where
-  parseJSON (Object obj) =
-    OpsWorksLayerShutdownEventConfiguration <$>
-      fmap (fmap (fmap unBool')) (obj .:? "DelayUntilElbConnectionsDrained") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "ExecutionTimeout")
-  parseJSON _ = mempty
-
 -- | Constructor for 'OpsWorksLayerShutdownEventConfiguration' containing
 -- required fields as arguments.
 opsWorksLayerShutdownEventConfiguration

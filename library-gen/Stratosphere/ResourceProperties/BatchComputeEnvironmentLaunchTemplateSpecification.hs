@@ -29,14 +29,6 @@ instance ToJSON BatchComputeEnvironmentLaunchTemplateSpecification where
     , fmap (("Version",) . toJSON) _batchComputeEnvironmentLaunchTemplateSpecificationVersion
     ]
 
-instance FromJSON BatchComputeEnvironmentLaunchTemplateSpecification where
-  parseJSON (Object obj) =
-    BatchComputeEnvironmentLaunchTemplateSpecification <$>
-      (obj .:? "LaunchTemplateId") <*>
-      (obj .:? "LaunchTemplateName") <*>
-      (obj .:? "Version")
-  parseJSON _ = mempty
-
 -- | Constructor for 'BatchComputeEnvironmentLaunchTemplateSpecification'
 -- containing required fields as arguments.
 batchComputeEnvironmentLaunchTemplateSpecification

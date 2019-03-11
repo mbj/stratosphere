@@ -27,14 +27,6 @@ instance ToJSON CognitoIdentityPoolRoleAttachment where
     , fmap (("Roles",) . toJSON) _cognitoIdentityPoolRoleAttachmentRoles
     ]
 
-instance FromJSON CognitoIdentityPoolRoleAttachment where
-  parseJSON (Object obj) =
-    CognitoIdentityPoolRoleAttachment <$>
-      (obj .: "IdentityPoolId") <*>
-      (obj .:? "RoleMappings") <*>
-      (obj .:? "Roles")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CognitoIdentityPoolRoleAttachment' containing required
 -- fields as arguments.
 cognitoIdentityPoolRoleAttachment

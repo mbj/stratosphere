@@ -27,13 +27,6 @@ instance ToJSON ElasticLoadBalancingV2ListenerRuleRuleCondition where
     , fmap (("Values",) . toJSON) _elasticLoadBalancingV2ListenerRuleRuleConditionValues
     ]
 
-instance FromJSON ElasticLoadBalancingV2ListenerRuleRuleCondition where
-  parseJSON (Object obj) =
-    ElasticLoadBalancingV2ListenerRuleRuleCondition <$>
-      (obj .:? "Field") <*>
-      (obj .:? "Values")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ElasticLoadBalancingV2ListenerRuleRuleCondition'
 -- containing required fields as arguments.
 elasticLoadBalancingV2ListenerRuleRuleCondition

@@ -29,15 +29,6 @@ instance ToJSON ApiGatewayRequestValidator where
     , fmap (("ValidateRequestParameters",) . toJSON . fmap Bool') _apiGatewayRequestValidatorValidateRequestParameters
     ]
 
-instance FromJSON ApiGatewayRequestValidator where
-  parseJSON (Object obj) =
-    ApiGatewayRequestValidator <$>
-      (obj .:? "Name") <*>
-      (obj .: "RestApiId") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "ValidateRequestBody") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "ValidateRequestParameters")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ApiGatewayRequestValidator' containing required fields
 -- as arguments.
 apiGatewayRequestValidator

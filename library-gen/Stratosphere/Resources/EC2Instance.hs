@@ -99,45 +99,6 @@ instance ToJSON EC2Instance where
     , fmap (("Volumes",) . toJSON) _eC2InstanceVolumes
     ]
 
-instance FromJSON EC2Instance where
-  parseJSON (Object obj) =
-    EC2Instance <$>
-      (obj .:? "AdditionalInfo") <*>
-      (obj .:? "Affinity") <*>
-      (obj .:? "AvailabilityZone") <*>
-      (obj .:? "BlockDeviceMappings") <*>
-      (obj .:? "CreditSpecification") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "DisableApiTermination") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "EbsOptimized") <*>
-      (obj .:? "ElasticGpuSpecifications") <*>
-      (obj .:? "ElasticInferenceAccelerators") <*>
-      (obj .:? "HostId") <*>
-      (obj .:? "IamInstanceProfile") <*>
-      (obj .:? "ImageId") <*>
-      (obj .:? "InstanceInitiatedShutdownBehavior") <*>
-      (obj .:? "InstanceType") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "Ipv6AddressCount") <*>
-      (obj .:? "Ipv6Addresses") <*>
-      (obj .:? "KernelId") <*>
-      (obj .:? "KeyName") <*>
-      (obj .:? "LaunchTemplate") <*>
-      (obj .:? "LicenseSpecifications") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "Monitoring") <*>
-      (obj .:? "NetworkInterfaces") <*>
-      (obj .:? "PlacementGroupName") <*>
-      (obj .:? "PrivateIpAddress") <*>
-      (obj .:? "RamdiskId") <*>
-      (obj .:? "SecurityGroupIds") <*>
-      (obj .:? "SecurityGroups") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "SourceDestCheck") <*>
-      (obj .:? "SsmAssociations") <*>
-      (obj .:? "SubnetId") <*>
-      (obj .:? "Tags") <*>
-      (obj .:? "Tenancy") <*>
-      (obj .:? "UserData") <*>
-      (obj .:? "Volumes")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2Instance' containing required fields as arguments.
 ec2Instance
   :: EC2Instance

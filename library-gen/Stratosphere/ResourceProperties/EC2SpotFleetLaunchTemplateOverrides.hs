@@ -31,16 +31,6 @@ instance ToJSON EC2SpotFleetLaunchTemplateOverrides where
     , fmap (("WeightedCapacity",) . toJSON . fmap Double') _eC2SpotFleetLaunchTemplateOverridesWeightedCapacity
     ]
 
-instance FromJSON EC2SpotFleetLaunchTemplateOverrides where
-  parseJSON (Object obj) =
-    EC2SpotFleetLaunchTemplateOverrides <$>
-      (obj .:? "AvailabilityZone") <*>
-      (obj .:? "InstanceType") <*>
-      (obj .:? "SpotPrice") <*>
-      (obj .:? "SubnetId") <*>
-      fmap (fmap (fmap unDouble')) (obj .:? "WeightedCapacity")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2SpotFleetLaunchTemplateOverrides' containing required
 -- fields as arguments.
 ec2SpotFleetLaunchTemplateOverrides

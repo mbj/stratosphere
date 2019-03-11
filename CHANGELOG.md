@@ -1,5 +1,12 @@
 # Change Log
 
+## 0.32.0
+
+* **BREAKING CHANGE**: We removed all `FromJSON` instances to reduce compile
+  time and memory, and also to allow us to make other improvements that
+  `FromJSON` was blocking. See
+  https://github.com/frontrowed/stratosphere/issues/117
+
 ## 0.31.0
 
 * Update resource specification document to version 2.25.0

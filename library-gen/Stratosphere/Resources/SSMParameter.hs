@@ -31,16 +31,6 @@ instance ToJSON SSMParameter where
     , (Just . ("Value",) . toJSON) _sSMParameterValue
     ]
 
-instance FromJSON SSMParameter where
-  parseJSON (Object obj) =
-    SSMParameter <$>
-      (obj .:? "AllowedPattern") <*>
-      (obj .:? "Description") <*>
-      (obj .:? "Name") <*>
-      (obj .: "Type") <*>
-      (obj .: "Value")
-  parseJSON _ = mempty
-
 -- | Constructor for 'SSMParameter' containing required fields as arguments.
 ssmParameter
   :: Val Text -- ^ 'ssmpType'

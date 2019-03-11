@@ -27,13 +27,6 @@ instance ToJSON CodeDeployDeploymentGroupLoadBalancerInfo where
     , fmap (("TargetGroupInfoList",) . toJSON) _codeDeployDeploymentGroupLoadBalancerInfoTargetGroupInfoList
     ]
 
-instance FromJSON CodeDeployDeploymentGroupLoadBalancerInfo where
-  parseJSON (Object obj) =
-    CodeDeployDeploymentGroupLoadBalancerInfo <$>
-      (obj .:? "ElbInfoList") <*>
-      (obj .:? "TargetGroupInfoList")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CodeDeployDeploymentGroupLoadBalancerInfo' containing
 -- required fields as arguments.
 codeDeployDeploymentGroupLoadBalancerInfo

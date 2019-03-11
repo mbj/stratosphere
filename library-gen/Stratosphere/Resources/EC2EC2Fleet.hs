@@ -47,22 +47,6 @@ instance ToJSON EC2EC2Fleet where
     , fmap (("ValidUntil",) . toJSON) _eC2EC2FleetValidUntil
     ]
 
-instance FromJSON EC2EC2Fleet where
-  parseJSON (Object obj) =
-    EC2EC2Fleet <$>
-      (obj .:? "ExcessCapacityTerminationPolicy") <*>
-      (obj .: "LaunchTemplateConfigs") <*>
-      (obj .:? "OnDemandOptions") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "ReplaceUnhealthyInstances") <*>
-      (obj .:? "SpotOptions") <*>
-      (obj .:? "TagSpecifications") <*>
-      (obj .: "TargetCapacitySpecification") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "TerminateInstancesWithExpiration") <*>
-      (obj .:? "Type") <*>
-      (obj .:? "ValidFrom") <*>
-      (obj .:? "ValidUntil")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2EC2Fleet' containing required fields as arguments.
 ec2EC2Fleet
   :: [EC2EC2FleetFleetLaunchTemplateConfigRequest] -- ^ 'ececfLaunchTemplateConfigs'

@@ -29,14 +29,6 @@ instance ToJSON EC2SpotFleetFleetLaunchTemplateSpecification where
     , (Just . ("Version",) . toJSON) _eC2SpotFleetFleetLaunchTemplateSpecificationVersion
     ]
 
-instance FromJSON EC2SpotFleetFleetLaunchTemplateSpecification where
-  parseJSON (Object obj) =
-    EC2SpotFleetFleetLaunchTemplateSpecification <$>
-      (obj .:? "LaunchTemplateId") <*>
-      (obj .:? "LaunchTemplateName") <*>
-      (obj .: "Version")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2SpotFleetFleetLaunchTemplateSpecification' containing
 -- required fields as arguments.
 ec2SpotFleetFleetLaunchTemplateSpecification

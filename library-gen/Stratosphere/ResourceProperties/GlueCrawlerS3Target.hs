@@ -25,13 +25,6 @@ instance ToJSON GlueCrawlerS3Target where
     , fmap (("Path",) . toJSON) _glueCrawlerS3TargetPath
     ]
 
-instance FromJSON GlueCrawlerS3Target where
-  parseJSON (Object obj) =
-    GlueCrawlerS3Target <$>
-      (obj .:? "Exclusions") <*>
-      (obj .:? "Path")
-  parseJSON _ = mempty
-
 -- | Constructor for 'GlueCrawlerS3Target' containing required fields as
 -- arguments.
 glueCrawlerS3Target

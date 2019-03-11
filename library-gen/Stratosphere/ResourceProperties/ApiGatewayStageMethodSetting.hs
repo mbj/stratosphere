@@ -41,21 +41,6 @@ instance ToJSON ApiGatewayStageMethodSetting where
     , fmap (("ThrottlingRateLimit",) . toJSON . fmap Double') _apiGatewayStageMethodSettingThrottlingRateLimit
     ]
 
-instance FromJSON ApiGatewayStageMethodSetting where
-  parseJSON (Object obj) =
-    ApiGatewayStageMethodSetting <$>
-      fmap (fmap (fmap unBool')) (obj .:? "CacheDataEncrypted") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "CacheTtlInSeconds") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "CachingEnabled") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "DataTraceEnabled") <*>
-      (obj .:? "HttpMethod") <*>
-      (obj .:? "LoggingLevel") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "MetricsEnabled") <*>
-      (obj .:? "ResourcePath") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "ThrottlingBurstLimit") <*>
-      fmap (fmap (fmap unDouble')) (obj .:? "ThrottlingRateLimit")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ApiGatewayStageMethodSetting' containing required fields
 -- as arguments.
 apiGatewayStageMethodSetting

@@ -27,14 +27,6 @@ instance ToJSON ECSTaskDefinitionTmpfs where
     , fmap (("Size",) . toJSON . fmap Integer') _eCSTaskDefinitionTmpfsSize
     ]
 
-instance FromJSON ECSTaskDefinitionTmpfs where
-  parseJSON (Object obj) =
-    ECSTaskDefinitionTmpfs <$>
-      (obj .:? "ContainerPath") <*>
-      (obj .:? "MountOptions") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "Size")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ECSTaskDefinitionTmpfs' containing required fields as
 -- arguments.
 ecsTaskDefinitionTmpfs

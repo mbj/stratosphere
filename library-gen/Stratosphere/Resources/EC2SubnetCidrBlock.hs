@@ -25,13 +25,6 @@ instance ToJSON EC2SubnetCidrBlock where
     , (Just . ("SubnetId",) . toJSON) _eC2SubnetCidrBlockSubnetId
     ]
 
-instance FromJSON EC2SubnetCidrBlock where
-  parseJSON (Object obj) =
-    EC2SubnetCidrBlock <$>
-      (obj .: "Ipv6CidrBlock") <*>
-      (obj .: "SubnetId")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2SubnetCidrBlock' containing required fields as
 -- arguments.
 ec2SubnetCidrBlock

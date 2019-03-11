@@ -29,14 +29,6 @@ instance ToJSON CodeDeployDeploymentGroupRevisionLocation where
     , fmap (("S3Location",) . toJSON) _codeDeployDeploymentGroupRevisionLocationS3Location
     ]
 
-instance FromJSON CodeDeployDeploymentGroupRevisionLocation where
-  parseJSON (Object obj) =
-    CodeDeployDeploymentGroupRevisionLocation <$>
-      (obj .:? "GitHubLocation") <*>
-      (obj .:? "RevisionType") <*>
-      (obj .:? "S3Location")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CodeDeployDeploymentGroupRevisionLocation' containing
 -- required fields as arguments.
 codeDeployDeploymentGroupRevisionLocation

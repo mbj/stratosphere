@@ -24,12 +24,6 @@ instance ToJSON CloudFrontCloudFrontOriginAccessIdentity where
     [ (Just . ("CloudFrontOriginAccessIdentityConfig",) . toJSON) _cloudFrontCloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfig
     ]
 
-instance FromJSON CloudFrontCloudFrontOriginAccessIdentity where
-  parseJSON (Object obj) =
-    CloudFrontCloudFrontOriginAccessIdentity <$>
-      (obj .: "CloudFrontOriginAccessIdentityConfig")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CloudFrontCloudFrontOriginAccessIdentity' containing
 -- required fields as arguments.
 cloudFrontCloudFrontOriginAccessIdentity

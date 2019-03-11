@@ -39,20 +39,6 @@ instance ToJSON EMRClusterCloudWatchAlarmDefinition where
     , fmap (("Unit",) . toJSON) _eMRClusterCloudWatchAlarmDefinitionUnit
     ]
 
-instance FromJSON EMRClusterCloudWatchAlarmDefinition where
-  parseJSON (Object obj) =
-    EMRClusterCloudWatchAlarmDefinition <$>
-      (obj .: "ComparisonOperator") <*>
-      (obj .:? "Dimensions") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "EvaluationPeriods") <*>
-      (obj .: "MetricName") <*>
-      (obj .:? "Namespace") <*>
-      fmap (fmap unInteger') (obj .: "Period") <*>
-      (obj .:? "Statistic") <*>
-      fmap (fmap unDouble') (obj .: "Threshold") <*>
-      (obj .:? "Unit")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EMRClusterCloudWatchAlarmDefinition' containing required
 -- fields as arguments.
 emrClusterCloudWatchAlarmDefinition

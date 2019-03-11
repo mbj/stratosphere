@@ -23,12 +23,6 @@ instance ToJSON EMRInstanceGroupConfigScalingTrigger where
     [ (Just . ("CloudWatchAlarmDefinition",) . toJSON) _eMRInstanceGroupConfigScalingTriggerCloudWatchAlarmDefinition
     ]
 
-instance FromJSON EMRInstanceGroupConfigScalingTrigger where
-  parseJSON (Object obj) =
-    EMRInstanceGroupConfigScalingTrigger <$>
-      (obj .: "CloudWatchAlarmDefinition")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EMRInstanceGroupConfigScalingTrigger' containing
 -- required fields as arguments.
 emrInstanceGroupConfigScalingTrigger

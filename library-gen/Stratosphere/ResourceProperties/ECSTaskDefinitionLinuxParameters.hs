@@ -33,16 +33,6 @@ instance ToJSON ECSTaskDefinitionLinuxParameters where
     , fmap (("Tmpfs",) . toJSON) _eCSTaskDefinitionLinuxParametersTmpfs
     ]
 
-instance FromJSON ECSTaskDefinitionLinuxParameters where
-  parseJSON (Object obj) =
-    ECSTaskDefinitionLinuxParameters <$>
-      (obj .:? "Capabilities") <*>
-      (obj .:? "Devices") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "InitProcessEnabled") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "SharedMemorySize") <*>
-      (obj .:? "Tmpfs")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ECSTaskDefinitionLinuxParameters' containing required
 -- fields as arguments.
 ecsTaskDefinitionLinuxParameters

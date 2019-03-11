@@ -29,14 +29,6 @@ instance ToJSON CodeDeployDeploymentGroupAlarmConfiguration where
     , fmap (("IgnorePollAlarmFailure",) . toJSON . fmap Bool') _codeDeployDeploymentGroupAlarmConfigurationIgnorePollAlarmFailure
     ]
 
-instance FromJSON CodeDeployDeploymentGroupAlarmConfiguration where
-  parseJSON (Object obj) =
-    CodeDeployDeploymentGroupAlarmConfiguration <$>
-      (obj .:? "Alarms") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "Enabled") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "IgnorePollAlarmFailure")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CodeDeployDeploymentGroupAlarmConfiguration' containing
 -- required fields as arguments.
 codeDeployDeploymentGroupAlarmConfiguration

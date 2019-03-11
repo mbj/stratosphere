@@ -63,30 +63,6 @@ instance ToJSON OpsWorksLayer where
     , fmap (("VolumeConfigurations",) . toJSON) _opsWorksLayerVolumeConfigurations
     ]
 
-instance FromJSON OpsWorksLayer where
-  parseJSON (Object obj) =
-    OpsWorksLayer <$>
-      (obj .:? "Attributes") <*>
-      fmap (fmap unBool') (obj .: "AutoAssignElasticIps") <*>
-      fmap (fmap unBool') (obj .: "AutoAssignPublicIps") <*>
-      (obj .:? "CustomInstanceProfileArn") <*>
-      (obj .:? "CustomJson") <*>
-      (obj .:? "CustomRecipes") <*>
-      (obj .:? "CustomSecurityGroupIds") <*>
-      fmap (fmap unBool') (obj .: "EnableAutoHealing") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "InstallUpdatesOnBoot") <*>
-      (obj .:? "LifecycleEventConfiguration") <*>
-      (obj .:? "LoadBasedAutoScaling") <*>
-      (obj .: "Name") <*>
-      (obj .:? "Packages") <*>
-      (obj .: "Shortname") <*>
-      (obj .: "StackId") <*>
-      (obj .:? "Tags") <*>
-      (obj .: "Type") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "UseEbsOptimizedInstances") <*>
-      (obj .:? "VolumeConfigurations")
-  parseJSON _ = mempty
-
 -- | Constructor for 'OpsWorksLayer' containing required fields as arguments.
 opsWorksLayer
   :: Val Bool -- ^ 'owlAutoAssignElasticIps'

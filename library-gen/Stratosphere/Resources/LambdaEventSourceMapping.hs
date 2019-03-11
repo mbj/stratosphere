@@ -31,16 +31,6 @@ instance ToJSON LambdaEventSourceMapping where
     , fmap (("StartingPosition",) . toJSON) _lambdaEventSourceMappingStartingPosition
     ]
 
-instance FromJSON LambdaEventSourceMapping where
-  parseJSON (Object obj) =
-    LambdaEventSourceMapping <$>
-      fmap (fmap (fmap unInteger')) (obj .:? "BatchSize") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "Enabled") <*>
-      (obj .: "EventSourceArn") <*>
-      (obj .: "FunctionName") <*>
-      (obj .:? "StartingPosition")
-  parseJSON _ = mempty
-
 -- | Constructor for 'LambdaEventSourceMapping' containing required fields as
 -- arguments.
 lambdaEventSourceMapping

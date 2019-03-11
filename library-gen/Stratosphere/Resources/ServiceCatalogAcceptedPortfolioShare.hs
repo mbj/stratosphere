@@ -25,13 +25,6 @@ instance ToJSON ServiceCatalogAcceptedPortfolioShare where
     , (Just . ("PortfolioId",) . toJSON) _serviceCatalogAcceptedPortfolioSharePortfolioId
     ]
 
-instance FromJSON ServiceCatalogAcceptedPortfolioShare where
-  parseJSON (Object obj) =
-    ServiceCatalogAcceptedPortfolioShare <$>
-      (obj .:? "AcceptLanguage") <*>
-      (obj .: "PortfolioId")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ServiceCatalogAcceptedPortfolioShare' containing
 -- required fields as arguments.
 serviceCatalogAcceptedPortfolioShare

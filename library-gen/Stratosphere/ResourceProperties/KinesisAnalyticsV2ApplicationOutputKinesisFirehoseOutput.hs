@@ -25,12 +25,6 @@ instance ToJSON KinesisAnalyticsV2ApplicationOutputKinesisFirehoseOutput where
     [ (Just . ("ResourceARN",) . toJSON) _kinesisAnalyticsV2ApplicationOutputKinesisFirehoseOutputResourceARN
     ]
 
-instance FromJSON KinesisAnalyticsV2ApplicationOutputKinesisFirehoseOutput where
-  parseJSON (Object obj) =
-    KinesisAnalyticsV2ApplicationOutputKinesisFirehoseOutput <$>
-      (obj .: "ResourceARN")
-  parseJSON _ = mempty
-
 -- | Constructor for
 -- 'KinesisAnalyticsV2ApplicationOutputKinesisFirehoseOutput' containing
 -- required fields as arguments.

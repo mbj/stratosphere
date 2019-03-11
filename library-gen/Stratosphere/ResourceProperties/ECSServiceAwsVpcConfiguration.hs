@@ -27,14 +27,6 @@ instance ToJSON ECSServiceAwsVpcConfiguration where
     , (Just . ("Subnets",) . toJSON) _eCSServiceAwsVpcConfigurationSubnets
     ]
 
-instance FromJSON ECSServiceAwsVpcConfiguration where
-  parseJSON (Object obj) =
-    ECSServiceAwsVpcConfiguration <$>
-      (obj .:? "AssignPublicIp") <*>
-      (obj .:? "SecurityGroups") <*>
-      (obj .: "Subnets")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ECSServiceAwsVpcConfiguration' containing required
 -- fields as arguments.
 ecsServiceAwsVpcConfiguration

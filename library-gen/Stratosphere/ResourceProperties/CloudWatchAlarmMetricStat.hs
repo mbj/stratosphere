@@ -29,15 +29,6 @@ instance ToJSON CloudWatchAlarmMetricStat where
     , fmap (("Unit",) . toJSON) _cloudWatchAlarmMetricStatUnit
     ]
 
-instance FromJSON CloudWatchAlarmMetricStat where
-  parseJSON (Object obj) =
-    CloudWatchAlarmMetricStat <$>
-      (obj .: "Metric") <*>
-      fmap (fmap unInteger') (obj .: "Period") <*>
-      (obj .: "Stat") <*>
-      (obj .:? "Unit")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CloudWatchAlarmMetricStat' containing required fields as
 -- arguments.
 cloudWatchAlarmMetricStat

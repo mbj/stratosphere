@@ -25,13 +25,6 @@ instance ToJSON CloudWatchAlarmDimension where
     , (Just . ("Value",) . toJSON) _cloudWatchAlarmDimensionValue
     ]
 
-instance FromJSON CloudWatchAlarmDimension where
-  parseJSON (Object obj) =
-    CloudWatchAlarmDimension <$>
-      (obj .: "Name") <*>
-      (obj .: "Value")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CloudWatchAlarmDimension' containing required fields as
 -- arguments.
 cloudWatchAlarmDimension

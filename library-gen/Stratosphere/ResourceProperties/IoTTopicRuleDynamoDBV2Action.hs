@@ -25,13 +25,6 @@ instance ToJSON IoTTopicRuleDynamoDBV2Action where
     , fmap (("RoleArn",) . toJSON) _ioTTopicRuleDynamoDBV2ActionRoleArn
     ]
 
-instance FromJSON IoTTopicRuleDynamoDBV2Action where
-  parseJSON (Object obj) =
-    IoTTopicRuleDynamoDBV2Action <$>
-      (obj .:? "PutItem") <*>
-      (obj .:? "RoleArn")
-  parseJSON _ = mempty
-
 -- | Constructor for 'IoTTopicRuleDynamoDBV2Action' containing required fields
 -- as arguments.
 ioTTopicRuleDynamoDBV2Action

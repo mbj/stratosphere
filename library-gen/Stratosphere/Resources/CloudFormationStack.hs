@@ -31,16 +31,6 @@ instance ToJSON CloudFormationStack where
     , fmap (("TimeoutInMinutes",) . toJSON . fmap Integer') _cloudFormationStackTimeoutInMinutes
     ]
 
-instance FromJSON CloudFormationStack where
-  parseJSON (Object obj) =
-    CloudFormationStack <$>
-      (obj .:? "NotificationARNs") <*>
-      (obj .:? "Parameters") <*>
-      (obj .:? "Tags") <*>
-      (obj .: "TemplateURL") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "TimeoutInMinutes")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CloudFormationStack' containing required fields as
 -- arguments.
 cloudFormationStack

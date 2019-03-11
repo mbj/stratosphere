@@ -29,15 +29,6 @@ instance ToJSON LambdaLayerVersionPermission where
     , (Just . ("Principal",) . toJSON) _lambdaLayerVersionPermissionPrincipal
     ]
 
-instance FromJSON LambdaLayerVersionPermission where
-  parseJSON (Object obj) =
-    LambdaLayerVersionPermission <$>
-      (obj .: "Action") <*>
-      (obj .: "LayerVersionArn") <*>
-      (obj .:? "OrganizationId") <*>
-      (obj .: "Principal")
-  parseJSON _ = mempty
-
 -- | Constructor for 'LambdaLayerVersionPermission' containing required fields
 -- as arguments.
 lambdaLayerVersionPermission

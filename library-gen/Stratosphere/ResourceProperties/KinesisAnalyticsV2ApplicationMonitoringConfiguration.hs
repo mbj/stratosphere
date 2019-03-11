@@ -29,14 +29,6 @@ instance ToJSON KinesisAnalyticsV2ApplicationMonitoringConfiguration where
     , fmap (("MetricsLevel",) . toJSON) _kinesisAnalyticsV2ApplicationMonitoringConfigurationMetricsLevel
     ]
 
-instance FromJSON KinesisAnalyticsV2ApplicationMonitoringConfiguration where
-  parseJSON (Object obj) =
-    KinesisAnalyticsV2ApplicationMonitoringConfiguration <$>
-      (obj .: "ConfigurationType") <*>
-      (obj .:? "LogLevel") <*>
-      (obj .:? "MetricsLevel")
-  parseJSON _ = mempty
-
 -- | Constructor for 'KinesisAnalyticsV2ApplicationMonitoringConfiguration'
 -- containing required fields as arguments.
 kinesisAnalyticsV2ApplicationMonitoringConfiguration

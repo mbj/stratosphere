@@ -25,13 +25,6 @@ instance ToJSON EMRClusterScalingAction where
     , (Just . ("SimpleScalingPolicyConfiguration",) . toJSON) _eMRClusterScalingActionSimpleScalingPolicyConfiguration
     ]
 
-instance FromJSON EMRClusterScalingAction where
-  parseJSON (Object obj) =
-    EMRClusterScalingAction <$>
-      (obj .:? "Market") <*>
-      (obj .: "SimpleScalingPolicyConfiguration")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EMRClusterScalingAction' containing required fields as
 -- arguments.
 emrClusterScalingAction

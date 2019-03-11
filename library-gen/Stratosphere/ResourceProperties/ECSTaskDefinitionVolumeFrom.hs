@@ -25,13 +25,6 @@ instance ToJSON ECSTaskDefinitionVolumeFrom where
     , fmap (("SourceContainer",) . toJSON) _eCSTaskDefinitionVolumeFromSourceContainer
     ]
 
-instance FromJSON ECSTaskDefinitionVolumeFrom where
-  parseJSON (Object obj) =
-    ECSTaskDefinitionVolumeFrom <$>
-      fmap (fmap (fmap unBool')) (obj .:? "ReadOnly") <*>
-      (obj .:? "SourceContainer")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ECSTaskDefinitionVolumeFrom' containing required fields
 -- as arguments.
 ecsTaskDefinitionVolumeFrom

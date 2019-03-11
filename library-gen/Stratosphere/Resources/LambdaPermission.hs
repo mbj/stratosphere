@@ -33,17 +33,6 @@ instance ToJSON LambdaPermission where
     , fmap (("SourceArn",) . toJSON) _lambdaPermissionSourceArn
     ]
 
-instance FromJSON LambdaPermission where
-  parseJSON (Object obj) =
-    LambdaPermission <$>
-      (obj .: "Action") <*>
-      (obj .:? "EventSourceToken") <*>
-      (obj .: "FunctionName") <*>
-      (obj .: "Principal") <*>
-      (obj .:? "SourceAccount") <*>
-      (obj .:? "SourceArn")
-  parseJSON _ = mempty
-
 -- | Constructor for 'LambdaPermission' containing required fields as
 -- arguments.
 lambdaPermission

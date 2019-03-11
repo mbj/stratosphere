@@ -27,14 +27,6 @@ instance ToJSON EC2VPNGateway where
     , (Just . ("Type",) . toJSON) _eC2VPNGatewayType
     ]
 
-instance FromJSON EC2VPNGateway where
-  parseJSON (Object obj) =
-    EC2VPNGateway <$>
-      fmap (fmap (fmap unInteger')) (obj .:? "AmazonSideAsn") <*>
-      (obj .:? "Tags") <*>
-      (obj .: "Type")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2VPNGateway' containing required fields as arguments.
 ec2VPNGateway
   :: Val Text -- ^ 'ecvpngType'

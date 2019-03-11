@@ -43,22 +43,6 @@ instance ToJSON GameLiftFleet where
     , (Just . ("ServerLaunchPath",) . toJSON) _gameLiftFleetServerLaunchPath
     ]
 
-instance FromJSON GameLiftFleet where
-  parseJSON (Object obj) =
-    GameLiftFleet <$>
-      (obj .: "BuildId") <*>
-      (obj .:? "Description") <*>
-      fmap (fmap unInteger') (obj .: "DesiredEC2Instances") <*>
-      (obj .:? "EC2InboundPermissions") <*>
-      (obj .: "EC2InstanceType") <*>
-      (obj .:? "LogPaths") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "MaxSize") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "MinSize") <*>
-      (obj .: "Name") <*>
-      (obj .:? "ServerLaunchParameters") <*>
-      (obj .: "ServerLaunchPath")
-  parseJSON _ = mempty
-
 -- | Constructor for 'GameLiftFleet' containing required fields as arguments.
 gameLiftFleet
   :: Val Text -- ^ 'glfBuildId'

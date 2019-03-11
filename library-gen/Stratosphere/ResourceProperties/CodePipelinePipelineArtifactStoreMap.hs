@@ -25,13 +25,6 @@ instance ToJSON CodePipelinePipelineArtifactStoreMap where
     , (Just . ("Region",) . toJSON) _codePipelinePipelineArtifactStoreMapRegion
     ]
 
-instance FromJSON CodePipelinePipelineArtifactStoreMap where
-  parseJSON (Object obj) =
-    CodePipelinePipelineArtifactStoreMap <$>
-      (obj .: "ArtifactStore") <*>
-      (obj .: "Region")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CodePipelinePipelineArtifactStoreMap' containing
 -- required fields as arguments.
 codePipelinePipelineArtifactStoreMap

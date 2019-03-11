@@ -25,12 +25,6 @@ instance ToJSON KinesisAnalyticsV2ApplicationEnvironmentProperties where
     [ fmap (("PropertyGroups",) . toJSON) _kinesisAnalyticsV2ApplicationEnvironmentPropertiesPropertyGroups
     ]
 
-instance FromJSON KinesisAnalyticsV2ApplicationEnvironmentProperties where
-  parseJSON (Object obj) =
-    KinesisAnalyticsV2ApplicationEnvironmentProperties <$>
-      (obj .:? "PropertyGroups")
-  parseJSON _ = mempty
-
 -- | Constructor for 'KinesisAnalyticsV2ApplicationEnvironmentProperties'
 -- containing required fields as arguments.
 kinesisAnalyticsV2ApplicationEnvironmentProperties

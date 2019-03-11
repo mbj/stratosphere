@@ -25,13 +25,6 @@ instance ToJSON GlueTriggerAction where
     , fmap (("JobName",) . toJSON) _glueTriggerActionJobName
     ]
 
-instance FromJSON GlueTriggerAction where
-  parseJSON (Object obj) =
-    GlueTriggerAction <$>
-      (obj .:? "Arguments") <*>
-      (obj .:? "JobName")
-  parseJSON _ = mempty
-
 -- | Constructor for 'GlueTriggerAction' containing required fields as
 -- arguments.
 glueTriggerAction

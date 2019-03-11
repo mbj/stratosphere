@@ -28,14 +28,6 @@ instance ToJSON ASKSkill where
     , (Just . ("VendorId",) . toJSON) _aSKSkillVendorId
     ]
 
-instance FromJSON ASKSkill where
-  parseJSON (Object obj) =
-    ASKSkill <$>
-      (obj .: "AuthenticationConfiguration") <*>
-      (obj .: "SkillPackage") <*>
-      (obj .: "VendorId")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ASKSkill' containing required fields as arguments.
 askSkill
   :: ASKSkillAuthenticationConfiguration -- ^ 'asksAuthenticationConfiguration'

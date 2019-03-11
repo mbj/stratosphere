@@ -37,19 +37,6 @@ instance ToJSON GlueDevEndpoint where
     , fmap (("SubnetId",) . toJSON) _glueDevEndpointSubnetId
     ]
 
-instance FromJSON GlueDevEndpoint where
-  parseJSON (Object obj) =
-    GlueDevEndpoint <$>
-      (obj .:? "EndpointName") <*>
-      (obj .:? "ExtraJarsS3Path") <*>
-      (obj .:? "ExtraPythonLibsS3Path") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "NumberOfNodes") <*>
-      (obj .: "PublicKey") <*>
-      (obj .: "RoleArn") <*>
-      (obj .:? "SecurityGroupIds") <*>
-      (obj .:? "SubnetId")
-  parseJSON _ = mempty
-
 -- | Constructor for 'GlueDevEndpoint' containing required fields as
 -- arguments.
 glueDevEndpoint

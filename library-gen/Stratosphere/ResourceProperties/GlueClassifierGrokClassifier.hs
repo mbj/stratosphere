@@ -29,15 +29,6 @@ instance ToJSON GlueClassifierGrokClassifier where
     , fmap (("Name",) . toJSON) _glueClassifierGrokClassifierName
     ]
 
-instance FromJSON GlueClassifierGrokClassifier where
-  parseJSON (Object obj) =
-    GlueClassifierGrokClassifier <$>
-      (obj .: "Classification") <*>
-      (obj .:? "CustomPatterns") <*>
-      (obj .: "GrokPattern") <*>
-      (obj .:? "Name")
-  parseJSON _ = mempty
-
 -- | Constructor for 'GlueClassifierGrokClassifier' containing required fields
 -- as arguments.
 glueClassifierGrokClassifier

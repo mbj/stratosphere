@@ -25,13 +25,6 @@ instance ToJSON DataPipelinePipelineParameterObject where
     , (Just . ("Id",) . toJSON) _dataPipelinePipelineParameterObjectId
     ]
 
-instance FromJSON DataPipelinePipelineParameterObject where
-  parseJSON (Object obj) =
-    DataPipelinePipelineParameterObject <$>
-      (obj .: "Attributes") <*>
-      (obj .: "Id")
-  parseJSON _ = mempty
-
 -- | Constructor for 'DataPipelinePipelineParameterObject' containing required
 -- fields as arguments.
 dataPipelinePipelineParameterObject

@@ -26,13 +26,6 @@ instance ToJSON BudgetsBudget where
     , fmap (("NotificationsWithSubscribers",) . toJSON) _budgetsBudgetNotificationsWithSubscribers
     ]
 
-instance FromJSON BudgetsBudget where
-  parseJSON (Object obj) =
-    BudgetsBudget <$>
-      (obj .: "Budget") <*>
-      (obj .:? "NotificationsWithSubscribers")
-  parseJSON _ = mempty
-
 -- | Constructor for 'BudgetsBudget' containing required fields as arguments.
 budgetsBudget
   :: BudgetsBudgetBudgetData -- ^ 'bbBudget'

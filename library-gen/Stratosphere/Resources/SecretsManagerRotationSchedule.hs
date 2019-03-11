@@ -27,14 +27,6 @@ instance ToJSON SecretsManagerRotationSchedule where
     , (Just . ("SecretId",) . toJSON) _secretsManagerRotationScheduleSecretId
     ]
 
-instance FromJSON SecretsManagerRotationSchedule where
-  parseJSON (Object obj) =
-    SecretsManagerRotationSchedule <$>
-      (obj .:? "RotationLambdaARN") <*>
-      (obj .:? "RotationRules") <*>
-      (obj .: "SecretId")
-  parseJSON _ = mempty
-
 -- | Constructor for 'SecretsManagerRotationSchedule' containing required
 -- fields as arguments.
 secretsManagerRotationSchedule

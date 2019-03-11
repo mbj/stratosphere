@@ -43,22 +43,6 @@ instance ToJSON DMSEndpointMongoDbSettings where
     , fmap (("Username",) . toJSON) _dMSEndpointMongoDbSettingsUsername
     ]
 
-instance FromJSON DMSEndpointMongoDbSettings where
-  parseJSON (Object obj) =
-    DMSEndpointMongoDbSettings <$>
-      (obj .:? "AuthMechanism") <*>
-      (obj .:? "AuthSource") <*>
-      (obj .:? "AuthType") <*>
-      (obj .:? "DatabaseName") <*>
-      (obj .:? "DocsToInvestigate") <*>
-      (obj .:? "ExtractDocId") <*>
-      (obj .:? "NestingLevel") <*>
-      (obj .:? "Password") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "Port") <*>
-      (obj .:? "ServerName") <*>
-      (obj .:? "Username")
-  parseJSON _ = mempty
-
 -- | Constructor for 'DMSEndpointMongoDbSettings' containing required fields
 -- as arguments.
 dmsEndpointMongoDbSettings

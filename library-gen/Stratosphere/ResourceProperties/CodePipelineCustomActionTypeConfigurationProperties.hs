@@ -37,18 +37,6 @@ instance ToJSON CodePipelineCustomActionTypeConfigurationProperties where
     , fmap (("Type",) . toJSON) _codePipelineCustomActionTypeConfigurationPropertiesType
     ]
 
-instance FromJSON CodePipelineCustomActionTypeConfigurationProperties where
-  parseJSON (Object obj) =
-    CodePipelineCustomActionTypeConfigurationProperties <$>
-      (obj .:? "Description") <*>
-      fmap (fmap unBool') (obj .: "Key") <*>
-      (obj .: "Name") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "Queryable") <*>
-      fmap (fmap unBool') (obj .: "Required") <*>
-      fmap (fmap unBool') (obj .: "Secret") <*>
-      (obj .:? "Type")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CodePipelineCustomActionTypeConfigurationProperties'
 -- containing required fields as arguments.
 codePipelineCustomActionTypeConfigurationProperties

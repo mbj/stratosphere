@@ -33,17 +33,6 @@ instance ToJSON IoTTopicRuleCloudwatchMetricAction where
     , (Just . ("RoleArn",) . toJSON) _ioTTopicRuleCloudwatchMetricActionRoleArn
     ]
 
-instance FromJSON IoTTopicRuleCloudwatchMetricAction where
-  parseJSON (Object obj) =
-    IoTTopicRuleCloudwatchMetricAction <$>
-      (obj .: "MetricName") <*>
-      (obj .: "MetricNamespace") <*>
-      (obj .:? "MetricTimestamp") <*>
-      (obj .: "MetricUnit") <*>
-      (obj .: "MetricValue") <*>
-      (obj .: "RoleArn")
-  parseJSON _ = mempty
-
 -- | Constructor for 'IoTTopicRuleCloudwatchMetricAction' containing required
 -- fields as arguments.
 ioTTopicRuleCloudwatchMetricAction

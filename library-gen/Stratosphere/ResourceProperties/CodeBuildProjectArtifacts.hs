@@ -39,20 +39,6 @@ instance ToJSON CodeBuildProjectArtifacts where
     , (Just . ("Type",) . toJSON) _codeBuildProjectArtifactsType
     ]
 
-instance FromJSON CodeBuildProjectArtifacts where
-  parseJSON (Object obj) =
-    CodeBuildProjectArtifacts <$>
-      (obj .:? "ArtifactIdentifier") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "EncryptionDisabled") <*>
-      (obj .:? "Location") <*>
-      (obj .:? "Name") <*>
-      (obj .:? "NamespaceType") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "OverrideArtifactName") <*>
-      (obj .:? "Packaging") <*>
-      (obj .:? "Path") <*>
-      (obj .: "Type")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CodeBuildProjectArtifacts' containing required fields as
 -- arguments.
 codeBuildProjectArtifacts

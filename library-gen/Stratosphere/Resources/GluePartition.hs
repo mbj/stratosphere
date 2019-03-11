@@ -29,15 +29,6 @@ instance ToJSON GluePartition where
     , (Just . ("TableName",) . toJSON) _gluePartitionTableName
     ]
 
-instance FromJSON GluePartition where
-  parseJSON (Object obj) =
-    GluePartition <$>
-      (obj .: "CatalogId") <*>
-      (obj .: "DatabaseName") <*>
-      (obj .: "PartitionInput") <*>
-      (obj .: "TableName")
-  parseJSON _ = mempty
-
 -- | Constructor for 'GluePartition' containing required fields as arguments.
 gluePartition
   :: Val Text -- ^ 'gpCatalogId'

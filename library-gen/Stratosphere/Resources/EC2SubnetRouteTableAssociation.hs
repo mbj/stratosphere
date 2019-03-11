@@ -25,13 +25,6 @@ instance ToJSON EC2SubnetRouteTableAssociation where
     , (Just . ("SubnetId",) . toJSON) _eC2SubnetRouteTableAssociationSubnetId
     ]
 
-instance FromJSON EC2SubnetRouteTableAssociation where
-  parseJSON (Object obj) =
-    EC2SubnetRouteTableAssociation <$>
-      (obj .: "RouteTableId") <*>
-      (obj .: "SubnetId")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2SubnetRouteTableAssociation' containing required
 -- fields as arguments.
 ec2SubnetRouteTableAssociation

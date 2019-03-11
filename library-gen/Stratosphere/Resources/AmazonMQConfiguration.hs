@@ -33,17 +33,6 @@ instance ToJSON AmazonMQConfiguration where
     , fmap (("Tags",) . toJSON) _amazonMQConfigurationTags
     ]
 
-instance FromJSON AmazonMQConfiguration where
-  parseJSON (Object obj) =
-    AmazonMQConfiguration <$>
-      (obj .: "Data") <*>
-      (obj .:? "Description") <*>
-      (obj .: "EngineType") <*>
-      (obj .: "EngineVersion") <*>
-      (obj .: "Name") <*>
-      (obj .:? "Tags")
-  parseJSON _ = mempty
-
 -- | Constructor for 'AmazonMQConfiguration' containing required fields as
 -- arguments.
 amazonMQConfiguration

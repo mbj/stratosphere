@@ -30,15 +30,6 @@ instance ToJSON S3BucketWebsiteConfiguration where
     , fmap (("RoutingRules",) . toJSON) _s3BucketWebsiteConfigurationRoutingRules
     ]
 
-instance FromJSON S3BucketWebsiteConfiguration where
-  parseJSON (Object obj) =
-    S3BucketWebsiteConfiguration <$>
-      (obj .:? "ErrorDocument") <*>
-      (obj .:? "IndexDocument") <*>
-      (obj .:? "RedirectAllRequestsTo") <*>
-      (obj .:? "RoutingRules")
-  parseJSON _ = mempty
-
 -- | Constructor for 'S3BucketWebsiteConfiguration' containing required fields
 -- as arguments.
 s3BucketWebsiteConfiguration

@@ -29,15 +29,6 @@ instance ToJSON DocDBDBSubnetGroup where
     , fmap (("Tags",) . toJSON) _docDBDBSubnetGroupTags
     ]
 
-instance FromJSON DocDBDBSubnetGroup where
-  parseJSON (Object obj) =
-    DocDBDBSubnetGroup <$>
-      (obj .: "DBSubnetGroupDescription") <*>
-      (obj .:? "DBSubnetGroupName") <*>
-      (obj .: "SubnetIds") <*>
-      (obj .:? "Tags")
-  parseJSON _ = mempty
-
 -- | Constructor for 'DocDBDBSubnetGroup' containing required fields as
 -- arguments.
 docDBDBSubnetGroup

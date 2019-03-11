@@ -26,13 +26,6 @@ instance ToJSON CognitoUserPoolNumberAttributeConstraints where
     , fmap (("MinValue",) . toJSON) _cognitoUserPoolNumberAttributeConstraintsMinValue
     ]
 
-instance FromJSON CognitoUserPoolNumberAttributeConstraints where
-  parseJSON (Object obj) =
-    CognitoUserPoolNumberAttributeConstraints <$>
-      (obj .:? "MaxValue") <*>
-      (obj .:? "MinValue")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CognitoUserPoolNumberAttributeConstraints' containing
 -- required fields as arguments.
 cognitoUserPoolNumberAttributeConstraints

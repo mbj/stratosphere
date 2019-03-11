@@ -23,12 +23,6 @@ instance ToJSON AppSyncResolverPipelineConfig where
     [ fmap (("Functions",) . toJSON) _appSyncResolverPipelineConfigFunctions
     ]
 
-instance FromJSON AppSyncResolverPipelineConfig where
-  parseJSON (Object obj) =
-    AppSyncResolverPipelineConfig <$>
-      (obj .:? "Functions")
-  parseJSON _ = mempty
-
 -- | Constructor for 'AppSyncResolverPipelineConfig' containing required
 -- fields as arguments.
 appSyncResolverPipelineConfig

@@ -29,15 +29,6 @@ instance ToJSON CodePipelineCustomActionTypeSettings where
     , fmap (("ThirdPartyConfigurationUrl",) . toJSON) _codePipelineCustomActionTypeSettingsThirdPartyConfigurationUrl
     ]
 
-instance FromJSON CodePipelineCustomActionTypeSettings where
-  parseJSON (Object obj) =
-    CodePipelineCustomActionTypeSettings <$>
-      (obj .:? "EntityUrlTemplate") <*>
-      (obj .:? "ExecutionUrlTemplate") <*>
-      (obj .:? "RevisionUrlTemplate") <*>
-      (obj .:? "ThirdPartyConfigurationUrl")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CodePipelineCustomActionTypeSettings' containing
 -- required fields as arguments.
 codePipelineCustomActionTypeSettings

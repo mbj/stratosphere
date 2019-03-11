@@ -27,14 +27,6 @@ instance ToJSON CodeBuildProjectVpcConfig where
     , fmap (("VpcId",) . toJSON) _codeBuildProjectVpcConfigVpcId
     ]
 
-instance FromJSON CodeBuildProjectVpcConfig where
-  parseJSON (Object obj) =
-    CodeBuildProjectVpcConfig <$>
-      (obj .:? "SecurityGroupIds") <*>
-      (obj .:? "Subnets") <*>
-      (obj .:? "VpcId")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CodeBuildProjectVpcConfig' containing required fields as
 -- arguments.
 codeBuildProjectVpcConfig

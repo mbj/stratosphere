@@ -27,14 +27,6 @@ instance ToJSON ElasticBeanstalkEnvironmentTier where
     , fmap (("Version",) . toJSON) _elasticBeanstalkEnvironmentTierVersion
     ]
 
-instance FromJSON ElasticBeanstalkEnvironmentTier where
-  parseJSON (Object obj) =
-    ElasticBeanstalkEnvironmentTier <$>
-      (obj .:? "Name") <*>
-      (obj .:? "Type") <*>
-      (obj .:? "Version")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ElasticBeanstalkEnvironmentTier' containing required
 -- fields as arguments.
 elasticBeanstalkEnvironmentTier

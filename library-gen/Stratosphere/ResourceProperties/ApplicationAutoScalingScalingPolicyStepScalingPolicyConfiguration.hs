@@ -33,16 +33,6 @@ instance ToJSON ApplicationAutoScalingScalingPolicyStepScalingPolicyConfiguratio
     , fmap (("StepAdjustments",) . toJSON) _applicationAutoScalingScalingPolicyStepScalingPolicyConfigurationStepAdjustments
     ]
 
-instance FromJSON ApplicationAutoScalingScalingPolicyStepScalingPolicyConfiguration where
-  parseJSON (Object obj) =
-    ApplicationAutoScalingScalingPolicyStepScalingPolicyConfiguration <$>
-      (obj .:? "AdjustmentType") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "Cooldown") <*>
-      (obj .:? "MetricAggregationType") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "MinAdjustmentMagnitude") <*>
-      (obj .:? "StepAdjustments")
-  parseJSON _ = mempty
-
 -- | Constructor for
 -- 'ApplicationAutoScalingScalingPolicyStepScalingPolicyConfiguration'
 -- containing required fields as arguments.

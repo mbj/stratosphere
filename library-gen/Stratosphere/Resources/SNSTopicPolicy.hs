@@ -25,13 +25,6 @@ instance ToJSON SNSTopicPolicy where
     , (Just . ("Topics",) . toJSON) _sNSTopicPolicyTopics
     ]
 
-instance FromJSON SNSTopicPolicy where
-  parseJSON (Object obj) =
-    SNSTopicPolicy <$>
-      (obj .: "PolicyDocument") <*>
-      (obj .: "Topics")
-  parseJSON _ = mempty
-
 -- | Constructor for 'SNSTopicPolicy' containing required fields as arguments.
 snsTopicPolicy
   :: Object -- ^ 'snstpPolicyDocument'

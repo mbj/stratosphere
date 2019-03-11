@@ -80,40 +80,6 @@ instance ToJSON ElastiCacheReplicationGroup where
     , fmap (("TransitEncryptionEnabled",) . toJSON . fmap Bool') _elastiCacheReplicationGroupTransitEncryptionEnabled
     ]
 
-instance FromJSON ElastiCacheReplicationGroup where
-  parseJSON (Object obj) =
-    ElastiCacheReplicationGroup <$>
-      fmap (fmap (fmap unBool')) (obj .:? "AtRestEncryptionEnabled") <*>
-      (obj .:? "AuthToken") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "AutoMinorVersionUpgrade") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "AutomaticFailoverEnabled") <*>
-      (obj .:? "CacheNodeType") <*>
-      (obj .:? "CacheParameterGroupName") <*>
-      (obj .:? "CacheSecurityGroupNames") <*>
-      (obj .:? "CacheSubnetGroupName") <*>
-      (obj .:? "Engine") <*>
-      (obj .:? "EngineVersion") <*>
-      (obj .:? "NodeGroupConfiguration") <*>
-      (obj .:? "NotificationTopicArn") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "NumCacheClusters") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "NumNodeGroups") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "Port") <*>
-      (obj .:? "PreferredCacheClusterAZs") <*>
-      (obj .:? "PreferredMaintenanceWindow") <*>
-      (obj .:? "PrimaryClusterId") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "ReplicasPerNodeGroup") <*>
-      (obj .: "ReplicationGroupDescription") <*>
-      (obj .:? "ReplicationGroupId") <*>
-      (obj .:? "SecurityGroupIds") <*>
-      (obj .:? "SnapshotArns") <*>
-      (obj .:? "SnapshotName") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "SnapshotRetentionLimit") <*>
-      (obj .:? "SnapshotWindow") <*>
-      (obj .:? "SnapshottingClusterId") <*>
-      (obj .:? "Tags") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "TransitEncryptionEnabled")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ElastiCacheReplicationGroup' containing required fields
 -- as arguments.
 elastiCacheReplicationGroup

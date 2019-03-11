@@ -46,22 +46,6 @@ instance ToJSON EC2SpotFleetInstanceNetworkInterfaceSpecification where
     , fmap (("SubnetId",) . toJSON) _eC2SpotFleetInstanceNetworkInterfaceSpecificationSubnetId
     ]
 
-instance FromJSON EC2SpotFleetInstanceNetworkInterfaceSpecification where
-  parseJSON (Object obj) =
-    EC2SpotFleetInstanceNetworkInterfaceSpecification <$>
-      fmap (fmap (fmap unBool')) (obj .:? "AssociatePublicIpAddress") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "DeleteOnTermination") <*>
-      (obj .:? "Description") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "DeviceIndex") <*>
-      (obj .:? "Groups") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "Ipv6AddressCount") <*>
-      (obj .:? "Ipv6Addresses") <*>
-      (obj .:? "NetworkInterfaceId") <*>
-      (obj .:? "PrivateIpAddresses") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "SecondaryPrivateIpAddressCount") <*>
-      (obj .:? "SubnetId")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2SpotFleetInstanceNetworkInterfaceSpecification'
 -- containing required fields as arguments.
 ec2SpotFleetInstanceNetworkInterfaceSpecification

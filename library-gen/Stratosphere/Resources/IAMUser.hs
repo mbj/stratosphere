@@ -36,18 +36,6 @@ instance ToJSON IAMUser where
     , fmap (("UserName",) . toJSON) _iAMUserUserName
     ]
 
-instance FromJSON IAMUser where
-  parseJSON (Object obj) =
-    IAMUser <$>
-      (obj .:? "Groups") <*>
-      (obj .:? "LoginProfile") <*>
-      (obj .:? "ManagedPolicyArns") <*>
-      (obj .:? "Path") <*>
-      (obj .:? "PermissionsBoundary") <*>
-      (obj .:? "Policies") <*>
-      (obj .:? "UserName")
-  parseJSON _ = mempty
-
 -- | Constructor for 'IAMUser' containing required fields as arguments.
 iamUser
   :: IAMUser

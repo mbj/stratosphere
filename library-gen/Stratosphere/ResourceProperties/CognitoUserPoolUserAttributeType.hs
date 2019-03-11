@@ -25,13 +25,6 @@ instance ToJSON CognitoUserPoolUserAttributeType where
     , fmap (("Value",) . toJSON) _cognitoUserPoolUserAttributeTypeValue
     ]
 
-instance FromJSON CognitoUserPoolUserAttributeType where
-  parseJSON (Object obj) =
-    CognitoUserPoolUserAttributeType <$>
-      (obj .:? "Name") <*>
-      (obj .:? "Value")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CognitoUserPoolUserAttributeType' containing required
 -- fields as arguments.
 cognitoUserPoolUserAttributeType

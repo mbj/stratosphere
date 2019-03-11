@@ -31,16 +31,6 @@ instance ToJSON ASKSkillSkillPackage where
     , fmap (("S3ObjectVersion",) . toJSON) _aSKSkillSkillPackageS3ObjectVersion
     ]
 
-instance FromJSON ASKSkillSkillPackage where
-  parseJSON (Object obj) =
-    ASKSkillSkillPackage <$>
-      (obj .:? "Overrides") <*>
-      (obj .: "S3Bucket") <*>
-      (obj .:? "S3BucketRole") <*>
-      (obj .: "S3Key") <*>
-      (obj .:? "S3ObjectVersion")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ASKSkillSkillPackage' containing required fields as
 -- arguments.
 askSkillSkillPackage

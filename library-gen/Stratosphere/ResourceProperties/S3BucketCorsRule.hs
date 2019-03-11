@@ -33,17 +33,6 @@ instance ToJSON S3BucketCorsRule where
     , fmap (("MaxAge",) . toJSON . fmap Integer') _s3BucketCorsRuleMaxAge
     ]
 
-instance FromJSON S3BucketCorsRule where
-  parseJSON (Object obj) =
-    S3BucketCorsRule <$>
-      (obj .:? "AllowedHeaders") <*>
-      (obj .: "AllowedMethods") <*>
-      (obj .: "AllowedOrigins") <*>
-      (obj .:? "ExposedHeaders") <*>
-      (obj .:? "Id") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "MaxAge")
-  parseJSON _ = mempty
-
 -- | Constructor for 'S3BucketCorsRule' containing required fields as
 -- arguments.
 s3BucketCorsRule

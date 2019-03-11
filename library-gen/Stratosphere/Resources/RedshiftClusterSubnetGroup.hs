@@ -27,14 +27,6 @@ instance ToJSON RedshiftClusterSubnetGroup where
     , fmap (("Tags",) . toJSON) _redshiftClusterSubnetGroupTags
     ]
 
-instance FromJSON RedshiftClusterSubnetGroup where
-  parseJSON (Object obj) =
-    RedshiftClusterSubnetGroup <$>
-      (obj .: "Description") <*>
-      (obj .: "SubnetIds") <*>
-      (obj .:? "Tags")
-  parseJSON _ = mempty
-
 -- | Constructor for 'RedshiftClusterSubnetGroup' containing required fields
 -- as arguments.
 redshiftClusterSubnetGroup

@@ -29,15 +29,6 @@ instance ToJSON SageMakerModelContainerDefinition where
     , fmap (("ModelDataUrl",) . toJSON) _sageMakerModelContainerDefinitionModelDataUrl
     ]
 
-instance FromJSON SageMakerModelContainerDefinition where
-  parseJSON (Object obj) =
-    SageMakerModelContainerDefinition <$>
-      (obj .:? "ContainerHostname") <*>
-      (obj .:? "Environment") <*>
-      (obj .: "Image") <*>
-      (obj .:? "ModelDataUrl")
-  parseJSON _ = mempty
-
 -- | Constructor for 'SageMakerModelContainerDefinition' containing required
 -- fields as arguments.
 sageMakerModelContainerDefinition

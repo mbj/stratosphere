@@ -27,14 +27,6 @@ instance ToJSON WAFRegionalRule where
     , fmap (("Predicates",) . toJSON) _wAFRegionalRulePredicates
     ]
 
-instance FromJSON WAFRegionalRule where
-  parseJSON (Object obj) =
-    WAFRegionalRule <$>
-      (obj .: "MetricName") <*>
-      (obj .: "Name") <*>
-      (obj .:? "Predicates")
-  parseJSON _ = mempty
-
 -- | Constructor for 'WAFRegionalRule' containing required fields as
 -- arguments.
 wafRegionalRule

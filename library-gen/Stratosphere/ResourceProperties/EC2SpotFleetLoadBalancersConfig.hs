@@ -26,13 +26,6 @@ instance ToJSON EC2SpotFleetLoadBalancersConfig where
     , fmap (("TargetGroupsConfig",) . toJSON) _eC2SpotFleetLoadBalancersConfigTargetGroupsConfig
     ]
 
-instance FromJSON EC2SpotFleetLoadBalancersConfig where
-  parseJSON (Object obj) =
-    EC2SpotFleetLoadBalancersConfig <$>
-      (obj .:? "ClassicLoadBalancersConfig") <*>
-      (obj .:? "TargetGroupsConfig")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2SpotFleetLoadBalancersConfig' containing required
 -- fields as arguments.
 ec2SpotFleetLoadBalancersConfig

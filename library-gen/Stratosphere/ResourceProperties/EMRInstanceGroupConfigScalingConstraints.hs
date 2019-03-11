@@ -26,13 +26,6 @@ instance ToJSON EMRInstanceGroupConfigScalingConstraints where
     , (Just . ("MinCapacity",) . toJSON . fmap Integer') _eMRInstanceGroupConfigScalingConstraintsMinCapacity
     ]
 
-instance FromJSON EMRInstanceGroupConfigScalingConstraints where
-  parseJSON (Object obj) =
-    EMRInstanceGroupConfigScalingConstraints <$>
-      fmap (fmap unInteger') (obj .: "MaxCapacity") <*>
-      fmap (fmap unInteger') (obj .: "MinCapacity")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EMRInstanceGroupConfigScalingConstraints' containing
 -- required fields as arguments.
 emrInstanceGroupConfigScalingConstraints

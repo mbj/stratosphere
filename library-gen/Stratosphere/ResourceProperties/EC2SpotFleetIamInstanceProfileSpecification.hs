@@ -25,12 +25,6 @@ instance ToJSON EC2SpotFleetIamInstanceProfileSpecification where
     [ fmap (("Arn",) . toJSON) _eC2SpotFleetIamInstanceProfileSpecificationArn
     ]
 
-instance FromJSON EC2SpotFleetIamInstanceProfileSpecification where
-  parseJSON (Object obj) =
-    EC2SpotFleetIamInstanceProfileSpecification <$>
-      (obj .:? "Arn")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2SpotFleetIamInstanceProfileSpecification' containing
 -- required fields as arguments.
 ec2SpotFleetIamInstanceProfileSpecification

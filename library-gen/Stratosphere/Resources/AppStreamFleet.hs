@@ -49,24 +49,6 @@ instance ToJSON AppStreamFleet where
     , fmap (("VpcConfig",) . toJSON) _appStreamFleetVpcConfig
     ]
 
-instance FromJSON AppStreamFleet where
-  parseJSON (Object obj) =
-    AppStreamFleet <$>
-      (obj .: "ComputeCapacity") <*>
-      (obj .:? "Description") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "DisconnectTimeoutInSeconds") <*>
-      (obj .:? "DisplayName") <*>
-      (obj .:? "DomainJoinInfo") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "EnableDefaultInternetAccess") <*>
-      (obj .:? "FleetType") <*>
-      (obj .:? "ImageArn") <*>
-      (obj .:? "ImageName") <*>
-      (obj .: "InstanceType") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "MaxUserDurationInSeconds") <*>
-      (obj .:? "Name") <*>
-      (obj .:? "VpcConfig")
-  parseJSON _ = mempty
-
 -- | Constructor for 'AppStreamFleet' containing required fields as arguments.
 appStreamFleet
   :: AppStreamFleetComputeCapacity -- ^ 'asfComputeCapacity'

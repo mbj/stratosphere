@@ -49,24 +49,6 @@ instance ToJSON CloudFrontDistributionDefaultCacheBehavior where
     , (Just . ("ViewerProtocolPolicy",) . toJSON) _cloudFrontDistributionDefaultCacheBehaviorViewerProtocolPolicy
     ]
 
-instance FromJSON CloudFrontDistributionDefaultCacheBehavior where
-  parseJSON (Object obj) =
-    CloudFrontDistributionDefaultCacheBehavior <$>
-      (obj .:? "AllowedMethods") <*>
-      (obj .:? "CachedMethods") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "Compress") <*>
-      fmap (fmap (fmap unDouble')) (obj .:? "DefaultTTL") <*>
-      (obj .:? "FieldLevelEncryptionId") <*>
-      (obj .: "ForwardedValues") <*>
-      (obj .:? "LambdaFunctionAssociations") <*>
-      fmap (fmap (fmap unDouble')) (obj .:? "MaxTTL") <*>
-      fmap (fmap (fmap unDouble')) (obj .:? "MinTTL") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "SmoothStreaming") <*>
-      (obj .: "TargetOriginId") <*>
-      (obj .:? "TrustedSigners") <*>
-      (obj .: "ViewerProtocolPolicy")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CloudFrontDistributionDefaultCacheBehavior' containing
 -- required fields as arguments.
 cloudFrontDistributionDefaultCacheBehavior

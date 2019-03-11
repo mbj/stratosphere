@@ -25,13 +25,6 @@ instance ToJSON CodePipelinePipelineStageTransition where
     , (Just . ("StageName",) . toJSON) _codePipelinePipelineStageTransitionStageName
     ]
 
-instance FromJSON CodePipelinePipelineStageTransition where
-  parseJSON (Object obj) =
-    CodePipelinePipelineStageTransition <$>
-      (obj .: "Reason") <*>
-      (obj .: "StageName")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CodePipelinePipelineStageTransition' containing required
 -- fields as arguments.
 codePipelinePipelineStageTransition

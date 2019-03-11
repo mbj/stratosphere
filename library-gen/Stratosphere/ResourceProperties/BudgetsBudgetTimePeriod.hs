@@ -25,13 +25,6 @@ instance ToJSON BudgetsBudgetTimePeriod where
     , fmap (("Start",) . toJSON) _budgetsBudgetTimePeriodStart
     ]
 
-instance FromJSON BudgetsBudgetTimePeriod where
-  parseJSON (Object obj) =
-    BudgetsBudgetTimePeriod <$>
-      (obj .:? "End") <*>
-      (obj .:? "Start")
-  parseJSON _ = mempty
-
 -- | Constructor for 'BudgetsBudgetTimePeriod' containing required fields as
 -- arguments.
 budgetsBudgetTimePeriod

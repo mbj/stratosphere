@@ -25,13 +25,6 @@ instance ToJSON SSMMaintenanceWindowTaskTarget where
     , fmap (("Values",) . toJSON) _sSMMaintenanceWindowTaskTargetValues
     ]
 
-instance FromJSON SSMMaintenanceWindowTaskTarget where
-  parseJSON (Object obj) =
-    SSMMaintenanceWindowTaskTarget <$>
-      (obj .: "Key") <*>
-      (obj .:? "Values")
-  parseJSON _ = mempty
-
 -- | Constructor for 'SSMMaintenanceWindowTaskTarget' containing required
 -- fields as arguments.
 ssmMaintenanceWindowTaskTarget

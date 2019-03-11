@@ -23,12 +23,6 @@ instance ToJSON IoTAnalyticsDatasetSchedule where
     [ (Just . ("ScheduleExpression",) . toJSON) _ioTAnalyticsDatasetScheduleScheduleExpression
     ]
 
-instance FromJSON IoTAnalyticsDatasetSchedule where
-  parseJSON (Object obj) =
-    IoTAnalyticsDatasetSchedule <$>
-      (obj .: "ScheduleExpression")
-  parseJSON _ = mempty
-
 -- | Constructor for 'IoTAnalyticsDatasetSchedule' containing required fields
 -- as arguments.
 ioTAnalyticsDatasetSchedule

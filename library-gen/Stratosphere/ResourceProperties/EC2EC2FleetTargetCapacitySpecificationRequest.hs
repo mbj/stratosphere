@@ -31,15 +31,6 @@ instance ToJSON EC2EC2FleetTargetCapacitySpecificationRequest where
     , (Just . ("TotalTargetCapacity",) . toJSON . fmap Integer') _eC2EC2FleetTargetCapacitySpecificationRequestTotalTargetCapacity
     ]
 
-instance FromJSON EC2EC2FleetTargetCapacitySpecificationRequest where
-  parseJSON (Object obj) =
-    EC2EC2FleetTargetCapacitySpecificationRequest <$>
-      (obj .:? "DefaultTargetCapacityType") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "OnDemandTargetCapacity") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "SpotTargetCapacity") <*>
-      fmap (fmap unInteger') (obj .: "TotalTargetCapacity")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2EC2FleetTargetCapacitySpecificationRequest'
 -- containing required fields as arguments.
 ec2EC2FleetTargetCapacitySpecificationRequest
