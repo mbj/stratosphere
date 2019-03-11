@@ -1,6 +1,4 @@
-{-# LANGUAGE DeriveFunctor #-}
 {-# LANGUAGE GADTs #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE MultiParamTypeClasses #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE StandaloneDeriving #-}
@@ -15,42 +13,51 @@ module Stratosphere.Values
 
 import Data.Aeson
 import Data.HashMap.Strict (HashMap)
+import Data.Maybe (fromMaybe)
 import Data.String (IsString (..))
 import Data.Text (Text)
+import Data.Typeable
 import GHC.Exts (IsList(..))
-
--- GADTs are cool, but I couldn't get this to work with FromJSON. Now that we
--- don't have FromJSON though, we can revisit this.
-
--- data Val a where
---   Literal :: a -> Val a
---   Ref :: Text -> Val a
---   If :: Text -> Val a -> Val a -> Val a
---   And :: Val Bool -> Val Bool -> Val Bool
---   Equals :: (Show a, ToJSON a) => Val a -> Val a -> Val Bool
---   Or :: Val Bool -> Val Bool -> Val Bool
 
 -- | This type is a wrapper around any values in a template. A value can be a
 -- 'Literal', a 'Ref', or an intrinsic function. See:
 -- http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference.html
-data Val a
- = Literal a
- | Ref Text
- | If Text (Val a) (Val a)
- | And (Val Bool) (Val Bool)
- | Equals (Val a) (Val a)
- | Or (Val Bool) (Val Bool)
- | GetAtt Text Text
- | Base64 (Val Text)
- | Join Text (ValList Text)
- | Select Integer (ValList a)
- | FindInMap (Val a) (Val a) (Val a) -- ^ Map name, top level key, and second level key
- | ImportValue Text -- ^ The account-and-region-unique exported name of the value to import
- | Sub Text (Maybe (HashMap Text (Val Text))) -- ^ Substitution string and optional map of values
+data Val a where
+  Literal :: a -> Val a
+  Ref :: Text -> Val a
+  If :: Text -> Val a -> Val a -> Val a
+  And :: Val Bool -> Val Bool -> Val Bool
+  Equals :: (Show a, ToJSON a, Eq a, Typeable a) => Val a -> Val a -> Val Bool
+  Or :: Val Bool -> Val Bool -> Val Bool
+  GetAtt :: Text -> Text -> Val a
+  Base64 :: Val Text -> Val Text
+  Join :: Text -> ValList Text -> Val Text
+  Select :: Integer -> ValList a -> Val a
+  FindInMap :: Val Text -> Val Text -> Val Text -> Val a -- ^ Map name, top level key, and second level key
+  ImportValue :: Text -> Val a -- ^ The account-and-region-unique exported name of the value to import
+  Sub :: Text -> Maybe (HashMap Text (Val Text)) -> Val Text -- ^ Substitution string and optional map of values
 
 deriving instance (Show a) => Show (Val a)
-deriving instance (Eq a) => Eq (Val a)
-deriving instance Functor Val
+
+instance Eq a => Eq (Val a) where
+  Literal a == Literal a' = a == a'
+  Ref a == Ref a' = a == a'
+  If a b c == If a' b' c' = a == a' && b == b' && c == c'
+  And a b == And a' b' = a == a' && b == b'
+  Equals a b == Equals a' b' = eqEquals a b a' b'
+  Or a b == Or a' b' = a == a' && b == b'
+  GetAtt a b == GetAtt a' b' = a == a' && b == b'
+  Base64 a == Base64 a' = a == a'
+  FindInMap a b c == FindInMap a' b' c' = a == a' && b == b' && c == c'
+  ImportValue a == ImportValue a' = a == a'
+  Sub a b == Sub a' b' = a == a' && b == b'
+  _ == _ = False
+
+eqEquals :: (Typeable a, Typeable b, Eq a, Eq b) => a -> a -> b -> b -> Bool
+eqEquals a b a' b' = fromMaybe False $ do
+  a'' <- cast a'
+  b'' <- cast b'
+  pure $ a == a'' && b == b''
 
 instance (IsString a) => IsString (Val a) where
   fromString s = Literal (fromString s)
@@ -96,8 +103,6 @@ data ValList a
   | Split Text (Val a)
   | GetAZs (Val Text)
   deriving (Show, Eq)
-
-deriving instance Functor ValList
 
 instance IsList (ValList a) where
   type Item (ValList a) = Val a
