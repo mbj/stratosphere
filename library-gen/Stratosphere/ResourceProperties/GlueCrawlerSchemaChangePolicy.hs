@@ -25,13 +25,6 @@ instance ToJSON GlueCrawlerSchemaChangePolicy where
     , fmap (("UpdateBehavior",) . toJSON) _glueCrawlerSchemaChangePolicyUpdateBehavior
     ]
 
-instance FromJSON GlueCrawlerSchemaChangePolicy where
-  parseJSON (Object obj) =
-    GlueCrawlerSchemaChangePolicy <$>
-      (obj .:? "DeleteBehavior") <*>
-      (obj .:? "UpdateBehavior")
-  parseJSON _ = mempty
-
 -- | Constructor for 'GlueCrawlerSchemaChangePolicy' containing required
 -- fields as arguments.
 glueCrawlerSchemaChangePolicy

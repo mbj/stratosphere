@@ -23,12 +23,6 @@ instance ToJSON Route53HostedZoneQueryLoggingConfig where
     [ (Just . ("CloudWatchLogsLogGroupArn",) . toJSON) _route53HostedZoneQueryLoggingConfigCloudWatchLogsLogGroupArn
     ]
 
-instance FromJSON Route53HostedZoneQueryLoggingConfig where
-  parseJSON (Object obj) =
-    Route53HostedZoneQueryLoggingConfig <$>
-      (obj .: "CloudWatchLogsLogGroupArn")
-  parseJSON _ = mempty
-
 -- | Constructor for 'Route53HostedZoneQueryLoggingConfig' containing required
 -- fields as arguments.
 route53HostedZoneQueryLoggingConfig

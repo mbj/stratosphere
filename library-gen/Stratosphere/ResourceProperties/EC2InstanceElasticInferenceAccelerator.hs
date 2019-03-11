@@ -24,12 +24,6 @@ instance ToJSON EC2InstanceElasticInferenceAccelerator where
     [ (Just . ("Type",) . toJSON) _eC2InstanceElasticInferenceAcceleratorType
     ]
 
-instance FromJSON EC2InstanceElasticInferenceAccelerator where
-  parseJSON (Object obj) =
-    EC2InstanceElasticInferenceAccelerator <$>
-      (obj .: "Type")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2InstanceElasticInferenceAccelerator' containing
 -- required fields as arguments.
 ec2InstanceElasticInferenceAccelerator

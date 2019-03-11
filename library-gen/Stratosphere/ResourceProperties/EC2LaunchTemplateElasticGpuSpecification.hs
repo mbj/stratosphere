@@ -24,12 +24,6 @@ instance ToJSON EC2LaunchTemplateElasticGpuSpecification where
     [ fmap (("Type",) . toJSON) _eC2LaunchTemplateElasticGpuSpecificationType
     ]
 
-instance FromJSON EC2LaunchTemplateElasticGpuSpecification where
-  parseJSON (Object obj) =
-    EC2LaunchTemplateElasticGpuSpecification <$>
-      (obj .:? "Type")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2LaunchTemplateElasticGpuSpecification' containing
 -- required fields as arguments.
 ec2LaunchTemplateElasticGpuSpecification

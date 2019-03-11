@@ -27,14 +27,6 @@ instance ToJSON ApiGatewayUsagePlanKey where
     , (Just . ("UsagePlanId",) . toJSON) _apiGatewayUsagePlanKeyUsagePlanId
     ]
 
-instance FromJSON ApiGatewayUsagePlanKey where
-  parseJSON (Object obj) =
-    ApiGatewayUsagePlanKey <$>
-      (obj .: "KeyId") <*>
-      (obj .: "KeyType") <*>
-      (obj .: "UsagePlanId")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ApiGatewayUsagePlanKey' containing required fields as
 -- arguments.
 apiGatewayUsagePlanKey

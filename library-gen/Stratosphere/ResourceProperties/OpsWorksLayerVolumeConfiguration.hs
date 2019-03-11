@@ -35,18 +35,6 @@ instance ToJSON OpsWorksLayerVolumeConfiguration where
     , fmap (("VolumeType",) . toJSON) _opsWorksLayerVolumeConfigurationVolumeType
     ]
 
-instance FromJSON OpsWorksLayerVolumeConfiguration where
-  parseJSON (Object obj) =
-    OpsWorksLayerVolumeConfiguration <$>
-      fmap (fmap (fmap unBool')) (obj .:? "Encrypted") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "Iops") <*>
-      (obj .:? "MountPoint") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "NumberOfDisks") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "RaidLevel") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "Size") <*>
-      (obj .:? "VolumeType")
-  parseJSON _ = mempty
-
 -- | Constructor for 'OpsWorksLayerVolumeConfiguration' containing required
 -- fields as arguments.
 opsWorksLayerVolumeConfiguration

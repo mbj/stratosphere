@@ -26,13 +26,6 @@ instance ToJSON CloudFrontStreamingDistributionS3Origin where
     , (Just . ("OriginAccessIdentity",) . toJSON) _cloudFrontStreamingDistributionS3OriginOriginAccessIdentity
     ]
 
-instance FromJSON CloudFrontStreamingDistributionS3Origin where
-  parseJSON (Object obj) =
-    CloudFrontStreamingDistributionS3Origin <$>
-      (obj .: "DomainName") <*>
-      (obj .: "OriginAccessIdentity")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CloudFrontStreamingDistributionS3Origin' containing
 -- required fields as arguments.
 cloudFrontStreamingDistributionS3Origin

@@ -28,14 +28,6 @@ instance ToJSON ElasticBeanstalkApplicationMaxAgeRule where
     , fmap (("MaxAgeInDays",) . toJSON . fmap Integer') _elasticBeanstalkApplicationMaxAgeRuleMaxAgeInDays
     ]
 
-instance FromJSON ElasticBeanstalkApplicationMaxAgeRule where
-  parseJSON (Object obj) =
-    ElasticBeanstalkApplicationMaxAgeRule <$>
-      fmap (fmap (fmap unBool')) (obj .:? "DeleteSourceFromS3") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "Enabled") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "MaxAgeInDays")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ElasticBeanstalkApplicationMaxAgeRule' containing
 -- required fields as arguments.
 elasticBeanstalkApplicationMaxAgeRule

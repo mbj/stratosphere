@@ -27,14 +27,6 @@ instance ToJSON IoTTopicRuleFirehoseAction where
     , fmap (("Separator",) . toJSON) _ioTTopicRuleFirehoseActionSeparator
     ]
 
-instance FromJSON IoTTopicRuleFirehoseAction where
-  parseJSON (Object obj) =
-    IoTTopicRuleFirehoseAction <$>
-      (obj .: "DeliveryStreamName") <*>
-      (obj .: "RoleArn") <*>
-      (obj .:? "Separator")
-  parseJSON _ = mempty
-
 -- | Constructor for 'IoTTopicRuleFirehoseAction' containing required fields
 -- as arguments.
 ioTTopicRuleFirehoseAction

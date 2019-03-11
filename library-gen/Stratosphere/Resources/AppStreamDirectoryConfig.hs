@@ -27,14 +27,6 @@ instance ToJSON AppStreamDirectoryConfig where
     , (Just . ("ServiceAccountCredentials",) . toJSON) _appStreamDirectoryConfigServiceAccountCredentials
     ]
 
-instance FromJSON AppStreamDirectoryConfig where
-  parseJSON (Object obj) =
-    AppStreamDirectoryConfig <$>
-      (obj .: "DirectoryName") <*>
-      (obj .: "OrganizationalUnitDistinguishedNames") <*>
-      (obj .: "ServiceAccountCredentials")
-  parseJSON _ = mempty
-
 -- | Constructor for 'AppStreamDirectoryConfig' containing required fields as
 -- arguments.
 appStreamDirectoryConfig

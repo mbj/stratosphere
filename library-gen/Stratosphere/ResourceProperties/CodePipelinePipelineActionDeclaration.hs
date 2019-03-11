@@ -40,19 +40,6 @@ instance ToJSON CodePipelinePipelineActionDeclaration where
     , fmap (("RunOrder",) . toJSON . fmap Integer') _codePipelinePipelineActionDeclarationRunOrder
     ]
 
-instance FromJSON CodePipelinePipelineActionDeclaration where
-  parseJSON (Object obj) =
-    CodePipelinePipelineActionDeclaration <$>
-      (obj .: "ActionTypeId") <*>
-      (obj .:? "Configuration") <*>
-      (obj .:? "InputArtifacts") <*>
-      (obj .: "Name") <*>
-      (obj .:? "OutputArtifacts") <*>
-      (obj .:? "Region") <*>
-      (obj .:? "RoleArn") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "RunOrder")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CodePipelinePipelineActionDeclaration' containing
 -- required fields as arguments.
 codePipelinePipelineActionDeclaration

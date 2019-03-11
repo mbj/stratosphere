@@ -25,13 +25,6 @@ instance ToJSON CodeDeployApplication where
     , fmap (("ComputePlatform",) . toJSON) _codeDeployApplicationComputePlatform
     ]
 
-instance FromJSON CodeDeployApplication where
-  parseJSON (Object obj) =
-    CodeDeployApplication <$>
-      (obj .:? "ApplicationName") <*>
-      (obj .:? "ComputePlatform")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CodeDeployApplication' containing required fields as
 -- arguments.
 codeDeployApplication

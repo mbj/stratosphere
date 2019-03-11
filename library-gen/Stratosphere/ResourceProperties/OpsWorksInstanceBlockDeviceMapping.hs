@@ -29,15 +29,6 @@ instance ToJSON OpsWorksInstanceBlockDeviceMapping where
     , fmap (("VirtualName",) . toJSON) _opsWorksInstanceBlockDeviceMappingVirtualName
     ]
 
-instance FromJSON OpsWorksInstanceBlockDeviceMapping where
-  parseJSON (Object obj) =
-    OpsWorksInstanceBlockDeviceMapping <$>
-      (obj .:? "DeviceName") <*>
-      (obj .:? "Ebs") <*>
-      (obj .:? "NoDevice") <*>
-      (obj .:? "VirtualName")
-  parseJSON _ = mempty
-
 -- | Constructor for 'OpsWorksInstanceBlockDeviceMapping' containing required
 -- fields as arguments.
 opsWorksInstanceBlockDeviceMapping

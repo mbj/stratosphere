@@ -27,14 +27,6 @@ instance ToJSON S3BucketLambdaConfiguration where
     , (Just . ("Function",) . toJSON) _s3BucketLambdaConfigurationFunction
     ]
 
-instance FromJSON S3BucketLambdaConfiguration where
-  parseJSON (Object obj) =
-    S3BucketLambdaConfiguration <$>
-      (obj .: "Event") <*>
-      (obj .:? "Filter") <*>
-      (obj .: "Function")
-  parseJSON _ = mempty
-
 -- | Constructor for 'S3BucketLambdaConfiguration' containing required fields
 -- as arguments.
 s3BucketLambdaConfiguration

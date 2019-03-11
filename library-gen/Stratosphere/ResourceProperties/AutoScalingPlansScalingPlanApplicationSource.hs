@@ -27,13 +27,6 @@ instance ToJSON AutoScalingPlansScalingPlanApplicationSource where
     , fmap (("TagFilters",) . toJSON) _autoScalingPlansScalingPlanApplicationSourceTagFilters
     ]
 
-instance FromJSON AutoScalingPlansScalingPlanApplicationSource where
-  parseJSON (Object obj) =
-    AutoScalingPlansScalingPlanApplicationSource <$>
-      (obj .:? "CloudFormationStackARN") <*>
-      (obj .:? "TagFilters")
-  parseJSON _ = mempty
-
 -- | Constructor for 'AutoScalingPlansScalingPlanApplicationSource' containing
 -- required fields as arguments.
 autoScalingPlansScalingPlanApplicationSource

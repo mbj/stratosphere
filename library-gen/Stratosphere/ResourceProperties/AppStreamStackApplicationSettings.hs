@@ -25,13 +25,6 @@ instance ToJSON AppStreamStackApplicationSettings where
     , fmap (("SettingsGroup",) . toJSON) _appStreamStackApplicationSettingsSettingsGroup
     ]
 
-instance FromJSON AppStreamStackApplicationSettings where
-  parseJSON (Object obj) =
-    AppStreamStackApplicationSettings <$>
-      fmap (fmap unBool') (obj .: "Enabled") <*>
-      (obj .:? "SettingsGroup")
-  parseJSON _ = mempty
-
 -- | Constructor for 'AppStreamStackApplicationSettings' containing required
 -- fields as arguments.
 appStreamStackApplicationSettings

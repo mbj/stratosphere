@@ -27,14 +27,6 @@ instance ToJSON IoTAnalyticsPipelineSelectAttributes where
     , fmap (("Next",) . toJSON) _ioTAnalyticsPipelineSelectAttributesNext
     ]
 
-instance FromJSON IoTAnalyticsPipelineSelectAttributes where
-  parseJSON (Object obj) =
-    IoTAnalyticsPipelineSelectAttributes <$>
-      (obj .:? "Attributes") <*>
-      (obj .:? "Name") <*>
-      (obj .:? "Next")
-  parseJSON _ = mempty
-
 -- | Constructor for 'IoTAnalyticsPipelineSelectAttributes' containing
 -- required fields as arguments.
 ioTAnalyticsPipelineSelectAttributes

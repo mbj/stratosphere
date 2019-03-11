@@ -30,15 +30,6 @@ instance ToJSON ElasticBeanstalkEnvironmentOptionSetting where
     , fmap (("Value",) . toJSON) _elasticBeanstalkEnvironmentOptionSettingValue
     ]
 
-instance FromJSON ElasticBeanstalkEnvironmentOptionSetting where
-  parseJSON (Object obj) =
-    ElasticBeanstalkEnvironmentOptionSetting <$>
-      (obj .: "Namespace") <*>
-      (obj .: "OptionName") <*>
-      (obj .:? "ResourceName") <*>
-      (obj .:? "Value")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ElasticBeanstalkEnvironmentOptionSetting' containing
 -- required fields as arguments.
 elasticBeanstalkEnvironmentOptionSetting

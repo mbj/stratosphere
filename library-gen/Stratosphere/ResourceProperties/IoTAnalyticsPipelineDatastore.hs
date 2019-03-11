@@ -25,13 +25,6 @@ instance ToJSON IoTAnalyticsPipelineDatastore where
     , fmap (("Name",) . toJSON) _ioTAnalyticsPipelineDatastoreName
     ]
 
-instance FromJSON IoTAnalyticsPipelineDatastore where
-  parseJSON (Object obj) =
-    IoTAnalyticsPipelineDatastore <$>
-      (obj .:? "DatastoreName") <*>
-      (obj .:? "Name")
-  parseJSON _ = mempty
-
 -- | Constructor for 'IoTAnalyticsPipelineDatastore' containing required
 -- fields as arguments.
 ioTAnalyticsPipelineDatastore

@@ -23,12 +23,6 @@ instance ToJSON GlueJobExecutionProperty where
     [ fmap (("MaxConcurrentRuns",) . toJSON . fmap Double') _glueJobExecutionPropertyMaxConcurrentRuns
     ]
 
-instance FromJSON GlueJobExecutionProperty where
-  parseJSON (Object obj) =
-    GlueJobExecutionProperty <$>
-      fmap (fmap (fmap unDouble')) (obj .:? "MaxConcurrentRuns")
-  parseJSON _ = mempty
-
 -- | Constructor for 'GlueJobExecutionProperty' containing required fields as
 -- arguments.
 glueJobExecutionProperty

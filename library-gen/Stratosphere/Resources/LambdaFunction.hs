@@ -59,27 +59,6 @@ instance ToJSON LambdaFunction where
     , fmap (("VpcConfig",) . toJSON) _lambdaFunctionVpcConfig
     ]
 
-instance FromJSON LambdaFunction where
-  parseJSON (Object obj) =
-    LambdaFunction <$>
-      (obj .: "Code") <*>
-      (obj .:? "DeadLetterConfig") <*>
-      (obj .:? "Description") <*>
-      (obj .:? "Environment") <*>
-      (obj .:? "FunctionName") <*>
-      (obj .: "Handler") <*>
-      (obj .:? "KmsKeyArn") <*>
-      (obj .:? "Layers") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "MemorySize") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "ReservedConcurrentExecutions") <*>
-      (obj .: "Role") <*>
-      (obj .: "Runtime") <*>
-      (obj .:? "Tags") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "Timeout") <*>
-      (obj .:? "TracingConfig") <*>
-      (obj .:? "VpcConfig")
-  parseJSON _ = mempty
-
 -- | Constructor for 'LambdaFunction' containing required fields as arguments.
 lambdaFunction
   :: LambdaFunctionCode -- ^ 'lfCode'

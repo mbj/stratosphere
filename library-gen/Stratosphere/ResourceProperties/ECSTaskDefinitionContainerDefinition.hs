@@ -88,40 +88,6 @@ instance ToJSON ECSTaskDefinitionContainerDefinition where
     , fmap (("WorkingDirectory",) . toJSON) _eCSTaskDefinitionContainerDefinitionWorkingDirectory
     ]
 
-instance FromJSON ECSTaskDefinitionContainerDefinition where
-  parseJSON (Object obj) =
-    ECSTaskDefinitionContainerDefinition <$>
-      (obj .:? "Command") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "Cpu") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "DisableNetworking") <*>
-      (obj .:? "DnsSearchDomains") <*>
-      (obj .:? "DnsServers") <*>
-      (obj .:? "DockerLabels") <*>
-      (obj .:? "DockerSecurityOptions") <*>
-      (obj .:? "EntryPoint") <*>
-      (obj .:? "Environment") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "Essential") <*>
-      (obj .:? "ExtraHosts") <*>
-      (obj .:? "HealthCheck") <*>
-      (obj .:? "Hostname") <*>
-      (obj .: "Image") <*>
-      (obj .:? "Links") <*>
-      (obj .:? "LinuxParameters") <*>
-      (obj .:? "LogConfiguration") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "Memory") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "MemoryReservation") <*>
-      (obj .:? "MountPoints") <*>
-      (obj .: "Name") <*>
-      (obj .:? "PortMappings") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "Privileged") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "ReadonlyRootFilesystem") <*>
-      (obj .:? "RepositoryCredentials") <*>
-      (obj .:? "Ulimits") <*>
-      (obj .:? "User") <*>
-      (obj .:? "VolumesFrom") <*>
-      (obj .:? "WorkingDirectory")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ECSTaskDefinitionContainerDefinition' containing
 -- required fields as arguments.
 ecsTaskDefinitionContainerDefinition

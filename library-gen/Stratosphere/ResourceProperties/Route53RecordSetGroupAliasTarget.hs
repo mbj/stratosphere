@@ -27,14 +27,6 @@ instance ToJSON Route53RecordSetGroupAliasTarget where
     , (Just . ("HostedZoneId",) . toJSON) _route53RecordSetGroupAliasTargetHostedZoneId
     ]
 
-instance FromJSON Route53RecordSetGroupAliasTarget where
-  parseJSON (Object obj) =
-    Route53RecordSetGroupAliasTarget <$>
-      (obj .: "DNSName") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "EvaluateTargetHealth") <*>
-      (obj .: "HostedZoneId")
-  parseJSON _ = mempty
-
 -- | Constructor for 'Route53RecordSetGroupAliasTarget' containing required
 -- fields as arguments.
 route53RecordSetGroupAliasTarget

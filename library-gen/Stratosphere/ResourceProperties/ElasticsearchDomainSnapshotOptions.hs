@@ -23,12 +23,6 @@ instance ToJSON ElasticsearchDomainSnapshotOptions where
     [ fmap (("AutomatedSnapshotStartHour",) . toJSON . fmap Integer') _elasticsearchDomainSnapshotOptionsAutomatedSnapshotStartHour
     ]
 
-instance FromJSON ElasticsearchDomainSnapshotOptions where
-  parseJSON (Object obj) =
-    ElasticsearchDomainSnapshotOptions <$>
-      fmap (fmap (fmap unInteger')) (obj .:? "AutomatedSnapshotStartHour")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ElasticsearchDomainSnapshotOptions' containing required
 -- fields as arguments.
 elasticsearchDomainSnapshotOptions

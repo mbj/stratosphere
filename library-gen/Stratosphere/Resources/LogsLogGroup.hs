@@ -25,13 +25,6 @@ instance ToJSON LogsLogGroup where
     , fmap (("RetentionInDays",) . toJSON . fmap Integer') _logsLogGroupRetentionInDays
     ]
 
-instance FromJSON LogsLogGroup where
-  parseJSON (Object obj) =
-    LogsLogGroup <$>
-      (obj .:? "LogGroupName") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "RetentionInDays")
-  parseJSON _ = mempty
-
 -- | Constructor for 'LogsLogGroup' containing required fields as arguments.
 logsLogGroup
   :: LogsLogGroup

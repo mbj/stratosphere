@@ -23,12 +23,6 @@ instance ToJSON EMRClusterPlacementType where
     [ (Just . ("AvailabilityZone",) . toJSON) _eMRClusterPlacementTypeAvailabilityZone
     ]
 
-instance FromJSON EMRClusterPlacementType where
-  parseJSON (Object obj) =
-    EMRClusterPlacementType <$>
-      (obj .: "AvailabilityZone")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EMRClusterPlacementType' containing required fields as
 -- arguments.
 emrClusterPlacementType

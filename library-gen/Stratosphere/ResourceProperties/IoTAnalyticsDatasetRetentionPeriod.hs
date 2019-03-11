@@ -25,13 +25,6 @@ instance ToJSON IoTAnalyticsDatasetRetentionPeriod where
     , (Just . ("Unlimited",) . toJSON . fmap Bool') _ioTAnalyticsDatasetRetentionPeriodUnlimited
     ]
 
-instance FromJSON IoTAnalyticsDatasetRetentionPeriod where
-  parseJSON (Object obj) =
-    IoTAnalyticsDatasetRetentionPeriod <$>
-      fmap (fmap unInteger') (obj .: "NumberOfDays") <*>
-      fmap (fmap unBool') (obj .: "Unlimited")
-  parseJSON _ = mempty
-
 -- | Constructor for 'IoTAnalyticsDatasetRetentionPeriod' containing required
 -- fields as arguments.
 ioTAnalyticsDatasetRetentionPeriod

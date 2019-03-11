@@ -25,13 +25,6 @@ instance ToJSON IoTTopicRule where
     , (Just . ("TopicRulePayload",) . toJSON) _ioTTopicRuleTopicRulePayload
     ]
 
-instance FromJSON IoTTopicRule where
-  parseJSON (Object obj) =
-    IoTTopicRule <$>
-      (obj .:? "RuleName") <*>
-      (obj .: "TopicRulePayload")
-  parseJSON _ = mempty
-
 -- | Constructor for 'IoTTopicRule' containing required fields as arguments.
 ioTTopicRule
   :: IoTTopicRuleTopicRulePayload -- ^ 'ittrTopicRulePayload'

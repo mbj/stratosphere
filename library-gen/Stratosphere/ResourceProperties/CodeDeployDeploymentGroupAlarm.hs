@@ -23,12 +23,6 @@ instance ToJSON CodeDeployDeploymentGroupAlarm where
     [ fmap (("Name",) . toJSON) _codeDeployDeploymentGroupAlarmName
     ]
 
-instance FromJSON CodeDeployDeploymentGroupAlarm where
-  parseJSON (Object obj) =
-    CodeDeployDeploymentGroupAlarm <$>
-      (obj .:? "Name")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CodeDeployDeploymentGroupAlarm' containing required
 -- fields as arguments.
 codeDeployDeploymentGroupAlarm

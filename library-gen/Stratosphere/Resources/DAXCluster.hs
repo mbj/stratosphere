@@ -47,24 +47,6 @@ instance ToJSON DAXCluster where
     , fmap (("Tags",) . toJSON) _dAXClusterTags
     ]
 
-instance FromJSON DAXCluster where
-  parseJSON (Object obj) =
-    DAXCluster <$>
-      (obj .:? "AvailabilityZones") <*>
-      (obj .:? "ClusterName") <*>
-      (obj .:? "Description") <*>
-      (obj .: "IAMRoleARN") <*>
-      (obj .: "NodeType") <*>
-      (obj .:? "NotificationTopicARN") <*>
-      (obj .:? "ParameterGroupName") <*>
-      (obj .:? "PreferredMaintenanceWindow") <*>
-      fmap (fmap unInteger') (obj .: "ReplicationFactor") <*>
-      (obj .:? "SSESpecification") <*>
-      (obj .:? "SecurityGroupIds") <*>
-      (obj .:? "SubnetGroupName") <*>
-      (obj .:? "Tags")
-  parseJSON _ = mempty
-
 -- | Constructor for 'DAXCluster' containing required fields as arguments.
 daxCluster
   :: Val Text -- ^ 'daxcIAMRoleARN'

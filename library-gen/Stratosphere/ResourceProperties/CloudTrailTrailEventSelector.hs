@@ -27,14 +27,6 @@ instance ToJSON CloudTrailTrailEventSelector where
     , fmap (("ReadWriteType",) . toJSON) _cloudTrailTrailEventSelectorReadWriteType
     ]
 
-instance FromJSON CloudTrailTrailEventSelector where
-  parseJSON (Object obj) =
-    CloudTrailTrailEventSelector <$>
-      (obj .:? "DataResources") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "IncludeManagementEvents") <*>
-      (obj .:? "ReadWriteType")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CloudTrailTrailEventSelector' containing required fields
 -- as arguments.
 cloudTrailTrailEventSelector

@@ -65,30 +65,6 @@ instance ToJSON EMRCluster where
     , fmap (("VisibleToAllUsers",) . toJSON . fmap Bool') _eMRClusterVisibleToAllUsers
     ]
 
-instance FromJSON EMRCluster where
-  parseJSON (Object obj) =
-    EMRCluster <$>
-      (obj .:? "AdditionalInfo") <*>
-      (obj .:? "Applications") <*>
-      (obj .:? "AutoScalingRole") <*>
-      (obj .:? "BootstrapActions") <*>
-      (obj .:? "Configurations") <*>
-      (obj .:? "CustomAmiId") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "EbsRootVolumeSize") <*>
-      (obj .: "Instances") <*>
-      (obj .: "JobFlowRole") <*>
-      (obj .:? "KerberosAttributes") <*>
-      (obj .:? "LogUri") <*>
-      (obj .: "Name") <*>
-      (obj .:? "ReleaseLabel") <*>
-      (obj .:? "ScaleDownBehavior") <*>
-      (obj .:? "SecurityConfiguration") <*>
-      (obj .: "ServiceRole") <*>
-      (obj .:? "Steps") <*>
-      (obj .:? "Tags") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "VisibleToAllUsers")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EMRCluster' containing required fields as arguments.
 emrCluster
   :: EMRClusterJobFlowInstancesConfig -- ^ 'emrcInstances'

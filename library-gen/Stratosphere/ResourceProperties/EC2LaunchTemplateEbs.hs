@@ -35,18 +35,6 @@ instance ToJSON EC2LaunchTemplateEbs where
     , fmap (("VolumeType",) . toJSON) _eC2LaunchTemplateEbsVolumeType
     ]
 
-instance FromJSON EC2LaunchTemplateEbs where
-  parseJSON (Object obj) =
-    EC2LaunchTemplateEbs <$>
-      fmap (fmap (fmap unBool')) (obj .:? "DeleteOnTermination") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "Encrypted") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "Iops") <*>
-      (obj .:? "KmsKeyId") <*>
-      (obj .:? "SnapshotId") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "VolumeSize") <*>
-      (obj .:? "VolumeType")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2LaunchTemplateEbs' containing required fields as
 -- arguments.
 ec2LaunchTemplateEbs

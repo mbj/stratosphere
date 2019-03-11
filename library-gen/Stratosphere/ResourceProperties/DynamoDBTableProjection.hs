@@ -25,13 +25,6 @@ instance ToJSON DynamoDBTableProjection where
     , fmap (("ProjectionType",) . toJSON) _dynamoDBTableProjectionProjectionType
     ]
 
-instance FromJSON DynamoDBTableProjection where
-  parseJSON (Object obj) =
-    DynamoDBTableProjection <$>
-      (obj .:? "NonKeyAttributes") <*>
-      (obj .:? "ProjectionType")
-  parseJSON _ = mempty
-
 -- | Constructor for 'DynamoDBTableProjection' containing required fields as
 -- arguments.
 dynamoDBTableProjection

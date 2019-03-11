@@ -27,13 +27,6 @@ instance ToJSON CertificateManagerCertificateDomainValidationOption where
     , (Just . ("ValidationDomain",) . toJSON) _certificateManagerCertificateDomainValidationOptionValidationDomain
     ]
 
-instance FromJSON CertificateManagerCertificateDomainValidationOption where
-  parseJSON (Object obj) =
-    CertificateManagerCertificateDomainValidationOption <$>
-      (obj .: "DomainName") <*>
-      (obj .: "ValidationDomain")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CertificateManagerCertificateDomainValidationOption'
 -- containing required fields as arguments.
 certificateManagerCertificateDomainValidationOption

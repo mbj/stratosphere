@@ -27,14 +27,6 @@ instance ToJSON BatchJobDefinitionNodeProperties where
     , (Just . ("NumNodes",) . toJSON . fmap Integer') _batchJobDefinitionNodePropertiesNumNodes
     ]
 
-instance FromJSON BatchJobDefinitionNodeProperties where
-  parseJSON (Object obj) =
-    BatchJobDefinitionNodeProperties <$>
-      fmap (fmap unInteger') (obj .: "MainNode") <*>
-      (obj .: "NodeRangeProperties") <*>
-      fmap (fmap unInteger') (obj .: "NumNodes")
-  parseJSON _ = mempty
-
 -- | Constructor for 'BatchJobDefinitionNodeProperties' containing required
 -- fields as arguments.
 batchJobDefinitionNodeProperties

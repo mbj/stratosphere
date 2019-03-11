@@ -27,14 +27,6 @@ instance ToJSON GuardDutyMaster where
     , (Just . ("MasterId",) . toJSON) _guardDutyMasterMasterId
     ]
 
-instance FromJSON GuardDutyMaster where
-  parseJSON (Object obj) =
-    GuardDutyMaster <$>
-      (obj .: "DetectorId") <*>
-      (obj .:? "InvitationId") <*>
-      (obj .: "MasterId")
-  parseJSON _ = mempty
-
 -- | Constructor for 'GuardDutyMaster' containing required fields as
 -- arguments.
 guardDutyMaster

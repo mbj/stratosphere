@@ -33,16 +33,6 @@ instance ToJSON AutoScalingScalingPolicyCustomizedMetricSpecification where
     , fmap (("Unit",) . toJSON) _autoScalingScalingPolicyCustomizedMetricSpecificationUnit
     ]
 
-instance FromJSON AutoScalingScalingPolicyCustomizedMetricSpecification where
-  parseJSON (Object obj) =
-    AutoScalingScalingPolicyCustomizedMetricSpecification <$>
-      (obj .:? "Dimensions") <*>
-      (obj .: "MetricName") <*>
-      (obj .: "Namespace") <*>
-      (obj .: "Statistic") <*>
-      (obj .:? "Unit")
-  parseJSON _ = mempty
-
 -- | Constructor for 'AutoScalingScalingPolicyCustomizedMetricSpecification'
 -- containing required fields as arguments.
 autoScalingScalingPolicyCustomizedMetricSpecification

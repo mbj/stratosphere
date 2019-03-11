@@ -26,13 +26,6 @@ instance ToJSON EMRInstanceGroupConfigMetricDimension where
     , (Just . ("Value",) . toJSON) _eMRInstanceGroupConfigMetricDimensionValue
     ]
 
-instance FromJSON EMRInstanceGroupConfigMetricDimension where
-  parseJSON (Object obj) =
-    EMRInstanceGroupConfigMetricDimension <$>
-      (obj .: "Key") <*>
-      (obj .: "Value")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EMRInstanceGroupConfigMetricDimension' containing
 -- required fields as arguments.
 emrInstanceGroupConfigMetricDimension

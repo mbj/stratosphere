@@ -27,13 +27,6 @@ instance ToJSON WAFSqlInjectionMatchSetSqlInjectionMatchTuple where
     , (Just . ("TextTransformation",) . toJSON) _wAFSqlInjectionMatchSetSqlInjectionMatchTupleTextTransformation
     ]
 
-instance FromJSON WAFSqlInjectionMatchSetSqlInjectionMatchTuple where
-  parseJSON (Object obj) =
-    WAFSqlInjectionMatchSetSqlInjectionMatchTuple <$>
-      (obj .: "FieldToMatch") <*>
-      (obj .: "TextTransformation")
-  parseJSON _ = mempty
-
 -- | Constructor for 'WAFSqlInjectionMatchSetSqlInjectionMatchTuple'
 -- containing required fields as arguments.
 wafSqlInjectionMatchSetSqlInjectionMatchTuple

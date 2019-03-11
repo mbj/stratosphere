@@ -27,14 +27,6 @@ instance ToJSON LambdaLayerVersionContent where
     , fmap (("S3ObjectVersion",) . toJSON) _lambdaLayerVersionContentS3ObjectVersion
     ]
 
-instance FromJSON LambdaLayerVersionContent where
-  parseJSON (Object obj) =
-    LambdaLayerVersionContent <$>
-      (obj .: "S3Bucket") <*>
-      (obj .: "S3Key") <*>
-      (obj .:? "S3ObjectVersion")
-  parseJSON _ = mempty
-
 -- | Constructor for 'LambdaLayerVersionContent' containing required fields as
 -- arguments.
 lambdaLayerVersionContent

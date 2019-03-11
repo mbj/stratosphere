@@ -25,13 +25,6 @@ instance ToJSON WAFRegionalXssMatchSetFieldToMatch where
     , (Just . ("Type",) . toJSON) _wAFRegionalXssMatchSetFieldToMatchType
     ]
 
-instance FromJSON WAFRegionalXssMatchSetFieldToMatch where
-  parseJSON (Object obj) =
-    WAFRegionalXssMatchSetFieldToMatch <$>
-      (obj .:? "Data") <*>
-      (obj .: "Type")
-  parseJSON _ = mempty
-
 -- | Constructor for 'WAFRegionalXssMatchSetFieldToMatch' containing required
 -- fields as arguments.
 wafRegionalXssMatchSetFieldToMatch

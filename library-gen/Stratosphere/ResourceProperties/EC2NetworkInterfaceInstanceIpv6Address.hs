@@ -24,12 +24,6 @@ instance ToJSON EC2NetworkInterfaceInstanceIpv6Address where
     [ (Just . ("Ipv6Address",) . toJSON) _eC2NetworkInterfaceInstanceIpv6AddressIpv6Address
     ]
 
-instance FromJSON EC2NetworkInterfaceInstanceIpv6Address where
-  parseJSON (Object obj) =
-    EC2NetworkInterfaceInstanceIpv6Address <$>
-      (obj .: "Ipv6Address")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2NetworkInterfaceInstanceIpv6Address' containing
 -- required fields as arguments.
 ec2NetworkInterfaceInstanceIpv6Address

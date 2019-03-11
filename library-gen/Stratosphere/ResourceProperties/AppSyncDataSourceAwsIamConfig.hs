@@ -25,13 +25,6 @@ instance ToJSON AppSyncDataSourceAwsIamConfig where
     , fmap (("SigningServiceName",) . toJSON) _appSyncDataSourceAwsIamConfigSigningServiceName
     ]
 
-instance FromJSON AppSyncDataSourceAwsIamConfig where
-  parseJSON (Object obj) =
-    AppSyncDataSourceAwsIamConfig <$>
-      (obj .:? "SigningRegion") <*>
-      (obj .:? "SigningServiceName")
-  parseJSON _ = mempty
-
 -- | Constructor for 'AppSyncDataSourceAwsIamConfig' containing required
 -- fields as arguments.
 appSyncDataSourceAwsIamConfig

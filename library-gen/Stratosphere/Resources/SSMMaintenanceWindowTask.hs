@@ -49,24 +49,6 @@ instance ToJSON SSMMaintenanceWindowTask where
     , fmap (("WindowId",) . toJSON) _sSMMaintenanceWindowTaskWindowId
     ]
 
-instance FromJSON SSMMaintenanceWindowTask where
-  parseJSON (Object obj) =
-    SSMMaintenanceWindowTask <$>
-      (obj .:? "Description") <*>
-      (obj .:? "LoggingInfo") <*>
-      (obj .: "MaxConcurrency") <*>
-      (obj .: "MaxErrors") <*>
-      (obj .:? "Name") <*>
-      fmap (fmap unInteger') (obj .: "Priority") <*>
-      (obj .: "ServiceRoleArn") <*>
-      (obj .: "Targets") <*>
-      (obj .: "TaskArn") <*>
-      (obj .:? "TaskInvocationParameters") <*>
-      (obj .:? "TaskParameters") <*>
-      (obj .: "TaskType") <*>
-      (obj .:? "WindowId")
-  parseJSON _ = mempty
-
 -- | Constructor for 'SSMMaintenanceWindowTask' containing required fields as
 -- arguments.
 ssmMaintenanceWindowTask

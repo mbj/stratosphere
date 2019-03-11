@@ -25,13 +25,6 @@ instance ToJSON CodePipelinePipelineEncryptionKey where
     , (Just . ("Type",) . toJSON) _codePipelinePipelineEncryptionKeyType
     ]
 
-instance FromJSON CodePipelinePipelineEncryptionKey where
-  parseJSON (Object obj) =
-    CodePipelinePipelineEncryptionKey <$>
-      (obj .: "Id") <*>
-      (obj .: "Type")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CodePipelinePipelineEncryptionKey' containing required
 -- fields as arguments.
 codePipelinePipelineEncryptionKey

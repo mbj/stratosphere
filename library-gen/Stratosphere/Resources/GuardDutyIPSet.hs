@@ -31,16 +31,6 @@ instance ToJSON GuardDutyIPSet where
     , fmap (("Name",) . toJSON) _guardDutyIPSetName
     ]
 
-instance FromJSON GuardDutyIPSet where
-  parseJSON (Object obj) =
-    GuardDutyIPSet <$>
-      fmap (fmap unBool') (obj .: "Activate") <*>
-      (obj .: "DetectorId") <*>
-      (obj .: "Format") <*>
-      (obj .: "Location") <*>
-      (obj .:? "Name")
-  parseJSON _ = mempty
-
 -- | Constructor for 'GuardDutyIPSet' containing required fields as arguments.
 guardDutyIPSet
   :: Val Bool -- ^ 'gdipsActivate'

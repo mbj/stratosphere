@@ -24,12 +24,6 @@ instance ToJSON EC2LaunchTemplateLicenseSpecification where
     [ fmap (("LicenseConfigurationArn",) . toJSON) _eC2LaunchTemplateLicenseSpecificationLicenseConfigurationArn
     ]
 
-instance FromJSON EC2LaunchTemplateLicenseSpecification where
-  parseJSON (Object obj) =
-    EC2LaunchTemplateLicenseSpecification <$>
-      (obj .:? "LicenseConfigurationArn")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2LaunchTemplateLicenseSpecification' containing
 -- required fields as arguments.
 ec2LaunchTemplateLicenseSpecification

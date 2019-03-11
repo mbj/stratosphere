@@ -30,15 +30,6 @@ instance ToJSON ServiceCatalogPortfolioProductAssociation where
     , fmap (("SourcePortfolioId",) . toJSON) _serviceCatalogPortfolioProductAssociationSourcePortfolioId
     ]
 
-instance FromJSON ServiceCatalogPortfolioProductAssociation where
-  parseJSON (Object obj) =
-    ServiceCatalogPortfolioProductAssociation <$>
-      (obj .:? "AcceptLanguage") <*>
-      (obj .: "PortfolioId") <*>
-      (obj .: "ProductId") <*>
-      (obj .:? "SourcePortfolioId")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ServiceCatalogPortfolioProductAssociation' containing
 -- required fields as arguments.
 serviceCatalogPortfolioProductAssociation

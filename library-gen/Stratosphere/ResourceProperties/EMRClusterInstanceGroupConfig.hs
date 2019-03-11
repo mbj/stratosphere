@@ -39,19 +39,6 @@ instance ToJSON EMRClusterInstanceGroupConfig where
     , fmap (("Name",) . toJSON) _eMRClusterInstanceGroupConfigName
     ]
 
-instance FromJSON EMRClusterInstanceGroupConfig where
-  parseJSON (Object obj) =
-    EMRClusterInstanceGroupConfig <$>
-      (obj .:? "AutoScalingPolicy") <*>
-      (obj .:? "BidPrice") <*>
-      (obj .:? "Configurations") <*>
-      (obj .:? "EbsConfiguration") <*>
-      fmap (fmap unInteger') (obj .: "InstanceCount") <*>
-      (obj .: "InstanceType") <*>
-      (obj .:? "Market") <*>
-      (obj .:? "Name")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EMRClusterInstanceGroupConfig' containing required
 -- fields as arguments.
 emrClusterInstanceGroupConfig

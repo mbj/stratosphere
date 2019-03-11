@@ -31,15 +31,6 @@ instance ToJSON DynamoDBTableGlobalSecondaryIndex where
     , fmap (("ProvisionedThroughput",) . toJSON) _dynamoDBTableGlobalSecondaryIndexProvisionedThroughput
     ]
 
-instance FromJSON DynamoDBTableGlobalSecondaryIndex where
-  parseJSON (Object obj) =
-    DynamoDBTableGlobalSecondaryIndex <$>
-      (obj .: "IndexName") <*>
-      (obj .: "KeySchema") <*>
-      (obj .: "Projection") <*>
-      (obj .:? "ProvisionedThroughput")
-  parseJSON _ = mempty
-
 -- | Constructor for 'DynamoDBTableGlobalSecondaryIndex' containing required
 -- fields as arguments.
 dynamoDBTableGlobalSecondaryIndex

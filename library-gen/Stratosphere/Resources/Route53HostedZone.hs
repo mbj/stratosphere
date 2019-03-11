@@ -34,16 +34,6 @@ instance ToJSON Route53HostedZone where
     , fmap (("VPCs",) . toJSON) _route53HostedZoneVPCs
     ]
 
-instance FromJSON Route53HostedZone where
-  parseJSON (Object obj) =
-    Route53HostedZone <$>
-      (obj .:? "HostedZoneConfig") <*>
-      (obj .:? "HostedZoneTags") <*>
-      (obj .: "Name") <*>
-      (obj .:? "QueryLoggingConfig") <*>
-      (obj .:? "VPCs")
-  parseJSON _ = mempty
-
 -- | Constructor for 'Route53HostedZone' containing required fields as
 -- arguments.
 route53HostedZone

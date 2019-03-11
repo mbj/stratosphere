@@ -27,14 +27,6 @@ instance ToJSON ECRRepository where
     , fmap (("RepositoryPolicyText",) . toJSON) _eCRRepositoryRepositoryPolicyText
     ]
 
-instance FromJSON ECRRepository where
-  parseJSON (Object obj) =
-    ECRRepository <$>
-      (obj .:? "LifecyclePolicy") <*>
-      (obj .:? "RepositoryName") <*>
-      (obj .:? "RepositoryPolicyText")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ECRRepository' containing required fields as arguments.
 ecrRepository
   :: ECRRepository

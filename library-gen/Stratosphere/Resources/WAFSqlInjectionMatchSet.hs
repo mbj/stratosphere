@@ -25,13 +25,6 @@ instance ToJSON WAFSqlInjectionMatchSet where
     , fmap (("SqlInjectionMatchTuples",) . toJSON) _wAFSqlInjectionMatchSetSqlInjectionMatchTuples
     ]
 
-instance FromJSON WAFSqlInjectionMatchSet where
-  parseJSON (Object obj) =
-    WAFSqlInjectionMatchSet <$>
-      (obj .: "Name") <*>
-      (obj .:? "SqlInjectionMatchTuples")
-  parseJSON _ = mempty
-
 -- | Constructor for 'WAFSqlInjectionMatchSet' containing required fields as
 -- arguments.
 wafSqlInjectionMatchSet

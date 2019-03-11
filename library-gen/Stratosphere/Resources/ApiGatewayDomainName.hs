@@ -29,15 +29,6 @@ instance ToJSON ApiGatewayDomainName where
     , fmap (("RegionalCertificateArn",) . toJSON) _apiGatewayDomainNameRegionalCertificateArn
     ]
 
-instance FromJSON ApiGatewayDomainName where
-  parseJSON (Object obj) =
-    ApiGatewayDomainName <$>
-      (obj .:? "CertificateArn") <*>
-      (obj .: "DomainName") <*>
-      (obj .:? "EndpointConfiguration") <*>
-      (obj .:? "RegionalCertificateArn")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ApiGatewayDomainName' containing required fields as
 -- arguments.
 apiGatewayDomainName

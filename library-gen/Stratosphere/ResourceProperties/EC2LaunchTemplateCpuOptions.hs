@@ -25,13 +25,6 @@ instance ToJSON EC2LaunchTemplateCpuOptions where
     , fmap (("ThreadsPerCore",) . toJSON . fmap Integer') _eC2LaunchTemplateCpuOptionsThreadsPerCore
     ]
 
-instance FromJSON EC2LaunchTemplateCpuOptions where
-  parseJSON (Object obj) =
-    EC2LaunchTemplateCpuOptions <$>
-      fmap (fmap (fmap unInteger')) (obj .:? "CoreCount") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "ThreadsPerCore")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2LaunchTemplateCpuOptions' containing required fields
 -- as arguments.
 ec2LaunchTemplateCpuOptions

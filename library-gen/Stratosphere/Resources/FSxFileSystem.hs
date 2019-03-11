@@ -41,20 +41,6 @@ instance ToJSON FSxFileSystem where
     , fmap (("WindowsConfiguration",) . toJSON) _fSxFileSystemWindowsConfiguration
     ]
 
-instance FromJSON FSxFileSystem where
-  parseJSON (Object obj) =
-    FSxFileSystem <$>
-      (obj .:? "BackupId") <*>
-      (obj .:? "FileSystemType") <*>
-      (obj .:? "KmsKeyId") <*>
-      (obj .:? "LustreConfiguration") <*>
-      (obj .:? "SecurityGroupIds") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "StorageCapacity") <*>
-      (obj .:? "SubnetIds") <*>
-      (obj .:? "Tags") <*>
-      (obj .:? "WindowsConfiguration")
-  parseJSON _ = mempty
-
 -- | Constructor for 'FSxFileSystem' containing required fields as arguments.
 fSxFileSystem
   :: FSxFileSystem

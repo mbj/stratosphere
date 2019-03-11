@@ -25,13 +25,6 @@ instance ToJSON ServiceDiscoveryPublicDnsNamespace where
     , (Just . ("Name",) . toJSON) _serviceDiscoveryPublicDnsNamespaceName
     ]
 
-instance FromJSON ServiceDiscoveryPublicDnsNamespace where
-  parseJSON (Object obj) =
-    ServiceDiscoveryPublicDnsNamespace <$>
-      (obj .:? "Description") <*>
-      (obj .: "Name")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ServiceDiscoveryPublicDnsNamespace' containing required
 -- fields as arguments.
 serviceDiscoveryPublicDnsNamespace

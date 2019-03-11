@@ -27,13 +27,6 @@ instance ToJSON ElasticBeanstalkApplicationVersionSourceBundle where
     , (Just . ("S3Key",) . toJSON) _elasticBeanstalkApplicationVersionSourceBundleS3Key
     ]
 
-instance FromJSON ElasticBeanstalkApplicationVersionSourceBundle where
-  parseJSON (Object obj) =
-    ElasticBeanstalkApplicationVersionSourceBundle <$>
-      (obj .: "S3Bucket") <*>
-      (obj .: "S3Key")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ElasticBeanstalkApplicationVersionSourceBundle'
 -- containing required fields as arguments.
 elasticBeanstalkApplicationVersionSourceBundle

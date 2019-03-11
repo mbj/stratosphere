@@ -140,7 +140,3 @@ Github issue.
   are limits on the size of CloudFormation templates, and we want readable
   output without hitting the limits. Also, we have some newtypes that just
   exist to override aeson instances, and we could get rid of those.
-* Use a custom JSON decoder with useful error messages. Although we don't use
-  them, we have implemented FromJSON instances for everything. Theoretically,
-  stratosphere could be used as a checker/linter for existing JSON
-  CloudFormation templates.

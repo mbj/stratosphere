@@ -25,13 +25,6 @@ instance ToJSON DynamoDBTableKeySchema where
     , (Just . ("KeyType",) . toJSON) _dynamoDBTableKeySchemaKeyType
     ]
 
-instance FromJSON DynamoDBTableKeySchema where
-  parseJSON (Object obj) =
-    DynamoDBTableKeySchema <$>
-      (obj .: "AttributeName") <*>
-      (obj .: "KeyType")
-  parseJSON _ = mempty
-
 -- | Constructor for 'DynamoDBTableKeySchema' containing required fields as
 -- arguments.
 dynamoDBTableKeySchema

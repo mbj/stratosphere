@@ -29,15 +29,6 @@ instance ToJSON AppSyncGraphQLApiUserPoolConfig where
     , fmap (("UserPoolId",) . toJSON) _appSyncGraphQLApiUserPoolConfigUserPoolId
     ]
 
-instance FromJSON AppSyncGraphQLApiUserPoolConfig where
-  parseJSON (Object obj) =
-    AppSyncGraphQLApiUserPoolConfig <$>
-      (obj .:? "AppIdClientRegex") <*>
-      (obj .:? "AwsRegion") <*>
-      (obj .:? "DefaultAction") <*>
-      (obj .:? "UserPoolId")
-  parseJSON _ = mempty
-
 -- | Constructor for 'AppSyncGraphQLApiUserPoolConfig' containing required
 -- fields as arguments.
 appSyncGraphQLApiUserPoolConfig

@@ -28,14 +28,6 @@ instance ToJSON RoboMakerRobotApplicationSourceConfig where
     , (Just . ("S3Key",) . toJSON) _roboMakerRobotApplicationSourceConfigS3Key
     ]
 
-instance FromJSON RoboMakerRobotApplicationSourceConfig where
-  parseJSON (Object obj) =
-    RoboMakerRobotApplicationSourceConfig <$>
-      (obj .: "Architecture") <*>
-      (obj .: "S3Bucket") <*>
-      (obj .: "S3Key")
-  parseJSON _ = mempty
-
 -- | Constructor for 'RoboMakerRobotApplicationSourceConfig' containing
 -- required fields as arguments.
 roboMakerRobotApplicationSourceConfig

@@ -27,14 +27,6 @@ instance ToJSON GlueTable where
     , (Just . ("TableInput",) . toJSON) _glueTableTableInput
     ]
 
-instance FromJSON GlueTable where
-  parseJSON (Object obj) =
-    GlueTable <$>
-      (obj .: "CatalogId") <*>
-      (obj .: "DatabaseName") <*>
-      (obj .: "TableInput")
-  parseJSON _ = mempty
-
 -- | Constructor for 'GlueTable' containing required fields as arguments.
 glueTable
   :: Val Text -- ^ 'gtCatalogId'

@@ -29,15 +29,6 @@ instance ToJSON CodePipelinePipelineActionTypeId where
     , (Just . ("Version",) . toJSON) _codePipelinePipelineActionTypeIdVersion
     ]
 
-instance FromJSON CodePipelinePipelineActionTypeId where
-  parseJSON (Object obj) =
-    CodePipelinePipelineActionTypeId <$>
-      (obj .: "Category") <*>
-      (obj .: "Owner") <*>
-      (obj .: "Provider") <*>
-      (obj .: "Version")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CodePipelinePipelineActionTypeId' containing required
 -- fields as arguments.
 codePipelinePipelineActionTypeId

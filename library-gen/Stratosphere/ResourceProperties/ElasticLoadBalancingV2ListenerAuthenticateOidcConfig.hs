@@ -45,22 +45,6 @@ instance ToJSON ElasticLoadBalancingV2ListenerAuthenticateOidcConfig where
     , (Just . ("UserInfoEndpoint",) . toJSON) _elasticLoadBalancingV2ListenerAuthenticateOidcConfigUserInfoEndpoint
     ]
 
-instance FromJSON ElasticLoadBalancingV2ListenerAuthenticateOidcConfig where
-  parseJSON (Object obj) =
-    ElasticLoadBalancingV2ListenerAuthenticateOidcConfig <$>
-      (obj .:? "AuthenticationRequestExtraParams") <*>
-      (obj .: "AuthorizationEndpoint") <*>
-      (obj .: "ClientId") <*>
-      (obj .: "ClientSecret") <*>
-      (obj .: "Issuer") <*>
-      (obj .:? "OnUnauthenticatedRequest") <*>
-      (obj .:? "Scope") <*>
-      (obj .:? "SessionCookieName") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "SessionTimeout") <*>
-      (obj .: "TokenEndpoint") <*>
-      (obj .: "UserInfoEndpoint")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ElasticLoadBalancingV2ListenerAuthenticateOidcConfig'
 -- containing required fields as arguments.
 elasticLoadBalancingV2ListenerAuthenticateOidcConfig

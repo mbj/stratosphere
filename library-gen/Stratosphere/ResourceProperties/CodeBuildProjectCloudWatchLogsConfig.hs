@@ -27,14 +27,6 @@ instance ToJSON CodeBuildProjectCloudWatchLogsConfig where
     , fmap (("StreamName",) . toJSON) _codeBuildProjectCloudWatchLogsConfigStreamName
     ]
 
-instance FromJSON CodeBuildProjectCloudWatchLogsConfig where
-  parseJSON (Object obj) =
-    CodeBuildProjectCloudWatchLogsConfig <$>
-      (obj .:? "GroupName") <*>
-      (obj .: "Status") <*>
-      (obj .:? "StreamName")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CodeBuildProjectCloudWatchLogsConfig' containing
 -- required fields as arguments.
 codeBuildProjectCloudWatchLogsConfig

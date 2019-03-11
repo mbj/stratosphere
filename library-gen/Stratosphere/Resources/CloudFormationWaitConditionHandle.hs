@@ -19,10 +19,6 @@ data CloudFormationWaitConditionHandle =
 instance ToJSON CloudFormationWaitConditionHandle where
   toJSON _ = toJSON ([] :: [String])
 
-instance FromJSON CloudFormationWaitConditionHandle where
-  parseJSON (Array _) = return CloudFormationWaitConditionHandle
-  parseJSON _ = mempty
-
 -- | Constructor for 'CloudFormationWaitConditionHandle' containing required
 -- fields as arguments.
 cloudFormationWaitConditionHandle

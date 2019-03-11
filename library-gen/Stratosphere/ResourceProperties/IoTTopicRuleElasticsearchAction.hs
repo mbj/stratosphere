@@ -31,16 +31,6 @@ instance ToJSON IoTTopicRuleElasticsearchAction where
     , (Just . ("Type",) . toJSON) _ioTTopicRuleElasticsearchActionType
     ]
 
-instance FromJSON IoTTopicRuleElasticsearchAction where
-  parseJSON (Object obj) =
-    IoTTopicRuleElasticsearchAction <$>
-      (obj .: "Endpoint") <*>
-      (obj .: "Id") <*>
-      (obj .: "Index") <*>
-      (obj .: "RoleArn") <*>
-      (obj .: "Type")
-  parseJSON _ = mempty
-
 -- | Constructor for 'IoTTopicRuleElasticsearchAction' containing required
 -- fields as arguments.
 ioTTopicRuleElasticsearchAction

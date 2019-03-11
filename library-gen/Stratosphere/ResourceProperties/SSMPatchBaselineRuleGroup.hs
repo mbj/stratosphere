@@ -23,12 +23,6 @@ instance ToJSON SSMPatchBaselineRuleGroup where
     [ fmap (("PatchRules",) . toJSON) _sSMPatchBaselineRuleGroupPatchRules
     ]
 
-instance FromJSON SSMPatchBaselineRuleGroup where
-  parseJSON (Object obj) =
-    SSMPatchBaselineRuleGroup <$>
-      (obj .:? "PatchRules")
-  parseJSON _ = mempty
-
 -- | Constructor for 'SSMPatchBaselineRuleGroup' containing required fields as
 -- arguments.
 ssmPatchBaselineRuleGroup

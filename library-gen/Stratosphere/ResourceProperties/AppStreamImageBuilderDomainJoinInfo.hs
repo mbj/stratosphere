@@ -25,13 +25,6 @@ instance ToJSON AppStreamImageBuilderDomainJoinInfo where
     , fmap (("OrganizationalUnitDistinguishedName",) . toJSON) _appStreamImageBuilderDomainJoinInfoOrganizationalUnitDistinguishedName
     ]
 
-instance FromJSON AppStreamImageBuilderDomainJoinInfo where
-  parseJSON (Object obj) =
-    AppStreamImageBuilderDomainJoinInfo <$>
-      (obj .:? "DirectoryName") <*>
-      (obj .:? "OrganizationalUnitDistinguishedName")
-  parseJSON _ = mempty
-
 -- | Constructor for 'AppStreamImageBuilderDomainJoinInfo' containing required
 -- fields as arguments.
 appStreamImageBuilderDomainJoinInfo

@@ -29,14 +29,6 @@ instance ToJSON S3BucketNotificationConfiguration where
     , fmap (("TopicConfigurations",) . toJSON) _s3BucketNotificationConfigurationTopicConfigurations
     ]
 
-instance FromJSON S3BucketNotificationConfiguration where
-  parseJSON (Object obj) =
-    S3BucketNotificationConfiguration <$>
-      (obj .:? "LambdaConfigurations") <*>
-      (obj .:? "QueueConfigurations") <*>
-      (obj .:? "TopicConfigurations")
-  parseJSON _ = mempty
-
 -- | Constructor for 'S3BucketNotificationConfiguration' containing required
 -- fields as arguments.
 s3BucketNotificationConfiguration

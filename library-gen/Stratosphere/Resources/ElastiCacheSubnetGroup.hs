@@ -27,14 +27,6 @@ instance ToJSON ElastiCacheSubnetGroup where
     , (Just . ("SubnetIds",) . toJSON) _elastiCacheSubnetGroupSubnetIds
     ]
 
-instance FromJSON ElastiCacheSubnetGroup where
-  parseJSON (Object obj) =
-    ElastiCacheSubnetGroup <$>
-      (obj .:? "CacheSubnetGroupName") <*>
-      (obj .: "Description") <*>
-      (obj .: "SubnetIds")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ElastiCacheSubnetGroup' containing required fields as
 -- arguments.
 elastiCacheSubnetGroup

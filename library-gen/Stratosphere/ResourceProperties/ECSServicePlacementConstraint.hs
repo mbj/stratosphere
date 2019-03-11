@@ -25,13 +25,6 @@ instance ToJSON ECSServicePlacementConstraint where
     , (Just . ("Type",) . toJSON) _eCSServicePlacementConstraintType
     ]
 
-instance FromJSON ECSServicePlacementConstraint where
-  parseJSON (Object obj) =
-    ECSServicePlacementConstraint <$>
-      (obj .:? "Expression") <*>
-      (obj .: "Type")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ECSServicePlacementConstraint' containing required
 -- fields as arguments.
 ecsServicePlacementConstraint

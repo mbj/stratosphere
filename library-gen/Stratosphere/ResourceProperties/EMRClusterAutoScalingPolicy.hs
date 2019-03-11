@@ -26,13 +26,6 @@ instance ToJSON EMRClusterAutoScalingPolicy where
     , (Just . ("Rules",) . toJSON) _eMRClusterAutoScalingPolicyRules
     ]
 
-instance FromJSON EMRClusterAutoScalingPolicy where
-  parseJSON (Object obj) =
-    EMRClusterAutoScalingPolicy <$>
-      (obj .: "Constraints") <*>
-      (obj .: "Rules")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EMRClusterAutoScalingPolicy' containing required fields
 -- as arguments.
 emrClusterAutoScalingPolicy

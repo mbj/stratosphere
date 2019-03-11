@@ -23,12 +23,6 @@ instance ToJSON DAXClusterSSESpecification where
     [ fmap (("SSEEnabled",) . toJSON . fmap Bool') _dAXClusterSSESpecificationSSEEnabled
     ]
 
-instance FromJSON DAXClusterSSESpecification where
-  parseJSON (Object obj) =
-    DAXClusterSSESpecification <$>
-      fmap (fmap (fmap unBool')) (obj .:? "SSEEnabled")
-  parseJSON _ = mempty
-
 -- | Constructor for 'DAXClusterSSESpecification' containing required fields
 -- as arguments.
 daxClusterSSESpecification

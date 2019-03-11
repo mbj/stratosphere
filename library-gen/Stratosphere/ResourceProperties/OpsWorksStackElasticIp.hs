@@ -25,13 +25,6 @@ instance ToJSON OpsWorksStackElasticIp where
     , fmap (("Name",) . toJSON) _opsWorksStackElasticIpName
     ]
 
-instance FromJSON OpsWorksStackElasticIp where
-  parseJSON (Object obj) =
-    OpsWorksStackElasticIp <$>
-      (obj .: "Ip") <*>
-      (obj .:? "Name")
-  parseJSON _ = mempty
-
 -- | Constructor for 'OpsWorksStackElasticIp' containing required fields as
 -- arguments.
 opsWorksStackElasticIp

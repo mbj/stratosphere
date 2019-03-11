@@ -28,14 +28,6 @@ instance ToJSON DynamoDBTableLocalSecondaryIndex where
     , (Just . ("Projection",) . toJSON) _dynamoDBTableLocalSecondaryIndexProjection
     ]
 
-instance FromJSON DynamoDBTableLocalSecondaryIndex where
-  parseJSON (Object obj) =
-    DynamoDBTableLocalSecondaryIndex <$>
-      (obj .: "IndexName") <*>
-      (obj .: "KeySchema") <*>
-      (obj .: "Projection")
-  parseJSON _ = mempty
-
 -- | Constructor for 'DynamoDBTableLocalSecondaryIndex' containing required
 -- fields as arguments.
 dynamoDBTableLocalSecondaryIndex

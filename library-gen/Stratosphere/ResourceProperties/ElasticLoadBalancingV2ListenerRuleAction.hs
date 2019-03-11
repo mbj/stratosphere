@@ -39,18 +39,6 @@ instance ToJSON ElasticLoadBalancingV2ListenerRuleAction where
     , (Just . ("Type",) . toJSON) _elasticLoadBalancingV2ListenerRuleActionType
     ]
 
-instance FromJSON ElasticLoadBalancingV2ListenerRuleAction where
-  parseJSON (Object obj) =
-    ElasticLoadBalancingV2ListenerRuleAction <$>
-      (obj .:? "AuthenticateCognitoConfig") <*>
-      (obj .:? "AuthenticateOidcConfig") <*>
-      (obj .:? "FixedResponseConfig") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "Order") <*>
-      (obj .:? "RedirectConfig") <*>
-      (obj .:? "TargetGroupArn") <*>
-      (obj .: "Type")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ElasticLoadBalancingV2ListenerRuleAction' containing
 -- required fields as arguments.
 elasticLoadBalancingV2ListenerRuleAction

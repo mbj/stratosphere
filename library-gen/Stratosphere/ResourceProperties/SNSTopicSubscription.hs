@@ -25,13 +25,6 @@ instance ToJSON SNSTopicSubscription where
     , (Just . ("Protocol",) . toJSON) _sNSTopicSubscriptionProtocol
     ]
 
-instance FromJSON SNSTopicSubscription where
-  parseJSON (Object obj) =
-    SNSTopicSubscription <$>
-      (obj .: "Endpoint") <*>
-      (obj .: "Protocol")
-  parseJSON _ = mempty
-
 -- | Constructor for 'SNSTopicSubscription' containing required fields as
 -- arguments.
 snsTopicSubscription

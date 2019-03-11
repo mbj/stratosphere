@@ -41,21 +41,6 @@ instance ToJSON SSMMaintenanceWindow where
     , fmap (("Tags",) . toJSON) _sSMMaintenanceWindowTags
     ]
 
-instance FromJSON SSMMaintenanceWindow where
-  parseJSON (Object obj) =
-    SSMMaintenanceWindow <$>
-      fmap (fmap unBool') (obj .: "AllowUnassociatedTargets") <*>
-      fmap (fmap unInteger') (obj .: "Cutoff") <*>
-      (obj .:? "Description") <*>
-      fmap (fmap unInteger') (obj .: "Duration") <*>
-      (obj .:? "EndDate") <*>
-      (obj .: "Name") <*>
-      (obj .: "Schedule") <*>
-      (obj .:? "ScheduleTimezone") <*>
-      (obj .:? "StartDate") <*>
-      (obj .:? "Tags")
-  parseJSON _ = mempty
-
 -- | Constructor for 'SSMMaintenanceWindow' containing required fields as
 -- arguments.
 ssmMaintenanceWindow

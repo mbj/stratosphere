@@ -23,12 +23,6 @@ instance ToJSON S3BucketAccessControlTranslation where
     [ (Just . ("Owner",) . toJSON) _s3BucketAccessControlTranslationOwner
     ]
 
-instance FromJSON S3BucketAccessControlTranslation where
-  parseJSON (Object obj) =
-    S3BucketAccessControlTranslation <$>
-      (obj .: "Owner")
-  parseJSON _ = mempty
-
 -- | Constructor for 'S3BucketAccessControlTranslation' containing required
 -- fields as arguments.
 s3BucketAccessControlTranslation

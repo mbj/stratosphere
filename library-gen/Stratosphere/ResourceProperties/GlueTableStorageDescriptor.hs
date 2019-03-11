@@ -48,23 +48,6 @@ instance ToJSON GlueTableStorageDescriptor where
     , fmap (("StoredAsSubDirectories",) . toJSON . fmap Bool') _glueTableStorageDescriptorStoredAsSubDirectories
     ]
 
-instance FromJSON GlueTableStorageDescriptor where
-  parseJSON (Object obj) =
-    GlueTableStorageDescriptor <$>
-      (obj .:? "BucketColumns") <*>
-      (obj .:? "Columns") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "Compressed") <*>
-      (obj .:? "InputFormat") <*>
-      (obj .:? "Location") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "NumberOfBuckets") <*>
-      (obj .:? "OutputFormat") <*>
-      (obj .:? "Parameters") <*>
-      (obj .:? "SerdeInfo") <*>
-      (obj .:? "SkewedInfo") <*>
-      (obj .:? "SortColumns") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "StoredAsSubDirectories")
-  parseJSON _ = mempty
-
 -- | Constructor for 'GlueTableStorageDescriptor' containing required fields
 -- as arguments.
 glueTableStorageDescriptor

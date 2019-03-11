@@ -23,12 +23,6 @@ instance ToJSON EC2SpotFleetGroupIdentifier where
     [ (Just . ("GroupId",) . toJSON) _eC2SpotFleetGroupIdentifierGroupId
     ]
 
-instance FromJSON EC2SpotFleetGroupIdentifier where
-  parseJSON (Object obj) =
-    EC2SpotFleetGroupIdentifier <$>
-      (obj .: "GroupId")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2SpotFleetGroupIdentifier' containing required fields
 -- as arguments.
 ec2SpotFleetGroupIdentifier

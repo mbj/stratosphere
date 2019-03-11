@@ -23,12 +23,6 @@ instance ToJSON IoTTopicRulePutItemInput where
     [ (Just . ("TableName",) . toJSON) _ioTTopicRulePutItemInputTableName
     ]
 
-instance FromJSON IoTTopicRulePutItemInput where
-  parseJSON (Object obj) =
-    IoTTopicRulePutItemInput <$>
-      (obj .: "TableName")
-  parseJSON _ = mempty
-
 -- | Constructor for 'IoTTopicRulePutItemInput' containing required fields as
 -- arguments.
 ioTTopicRulePutItemInput

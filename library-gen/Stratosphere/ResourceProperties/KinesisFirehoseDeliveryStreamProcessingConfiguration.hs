@@ -27,13 +27,6 @@ instance ToJSON KinesisFirehoseDeliveryStreamProcessingConfiguration where
     , fmap (("Processors",) . toJSON) _kinesisFirehoseDeliveryStreamProcessingConfigurationProcessors
     ]
 
-instance FromJSON KinesisFirehoseDeliveryStreamProcessingConfiguration where
-  parseJSON (Object obj) =
-    KinesisFirehoseDeliveryStreamProcessingConfiguration <$>
-      fmap (fmap (fmap unBool')) (obj .:? "Enabled") <*>
-      (obj .:? "Processors")
-  parseJSON _ = mempty
-
 -- | Constructor for 'KinesisFirehoseDeliveryStreamProcessingConfiguration'
 -- containing required fields as arguments.
 kinesisFirehoseDeliveryStreamProcessingConfiguration

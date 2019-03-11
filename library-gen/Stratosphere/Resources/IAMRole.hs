@@ -35,18 +35,6 @@ instance ToJSON IAMRole where
     , fmap (("RoleName",) . toJSON) _iAMRoleRoleName
     ]
 
-instance FromJSON IAMRole where
-  parseJSON (Object obj) =
-    IAMRole <$>
-      (obj .: "AssumeRolePolicyDocument") <*>
-      (obj .:? "ManagedPolicyArns") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "MaxSessionDuration") <*>
-      (obj .:? "Path") <*>
-      (obj .:? "PermissionsBoundary") <*>
-      (obj .:? "Policies") <*>
-      (obj .:? "RoleName")
-  parseJSON _ = mempty
-
 -- | Constructor for 'IAMRole' containing required fields as arguments.
 iamRole
   :: Object -- ^ 'iamrAssumeRolePolicyDocument'

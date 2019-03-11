@@ -25,13 +25,6 @@ instance ToJSON KinesisStreamConsumer where
     , (Just . ("StreamARN",) . toJSON) _kinesisStreamConsumerStreamARN
     ]
 
-instance FromJSON KinesisStreamConsumer where
-  parseJSON (Object obj) =
-    KinesisStreamConsumer <$>
-      (obj .: "ConsumerName") <*>
-      (obj .: "StreamARN")
-  parseJSON _ = mempty
-
 -- | Constructor for 'KinesisStreamConsumer' containing required fields as
 -- arguments.
 kinesisStreamConsumer

@@ -25,13 +25,6 @@ instance ToJSON EFSFileSystemElasticFileSystemTag where
     , (Just . ("Value",) . toJSON) _eFSFileSystemElasticFileSystemTagValue
     ]
 
-instance FromJSON EFSFileSystemElasticFileSystemTag where
-  parseJSON (Object obj) =
-    EFSFileSystemElasticFileSystemTag <$>
-      (obj .: "Key") <*>
-      (obj .: "Value")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EFSFileSystemElasticFileSystemTag' containing required
 -- fields as arguments.
 efsFileSystemElasticFileSystemTag

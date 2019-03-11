@@ -27,14 +27,6 @@ instance ToJSON ECSTaskDefinitionPortMapping where
     , fmap (("Protocol",) . toJSON) _eCSTaskDefinitionPortMappingProtocol
     ]
 
-instance FromJSON ECSTaskDefinitionPortMapping where
-  parseJSON (Object obj) =
-    ECSTaskDefinitionPortMapping <$>
-      fmap (fmap (fmap unInteger')) (obj .:? "ContainerPort") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "HostPort") <*>
-      (obj .:? "Protocol")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ECSTaskDefinitionPortMapping' containing required fields
 -- as arguments.
 ecsTaskDefinitionPortMapping

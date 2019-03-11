@@ -45,23 +45,6 @@ instance ToJSON ApiGatewayV2Route where
     , fmap (("Target",) . toJSON) _apiGatewayV2RouteTarget
     ]
 
-instance FromJSON ApiGatewayV2Route where
-  parseJSON (Object obj) =
-    ApiGatewayV2Route <$>
-      (obj .: "ApiId") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "ApiKeyRequired") <*>
-      (obj .:? "AuthorizationScopes") <*>
-      (obj .:? "AuthorizationType") <*>
-      (obj .:? "AuthorizerId") <*>
-      (obj .:? "ModelSelectionExpression") <*>
-      (obj .:? "OperationName") <*>
-      (obj .:? "RequestModels") <*>
-      (obj .:? "RequestParameters") <*>
-      (obj .: "RouteKey") <*>
-      (obj .:? "RouteResponseSelectionExpression") <*>
-      (obj .:? "Target")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ApiGatewayV2Route' containing required fields as
 -- arguments.
 apiGatewayV2Route

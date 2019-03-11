@@ -27,14 +27,6 @@ instance ToJSON ConfigConfigRuleSource where
     , (Just . ("SourceIdentifier",) . toJSON) _configConfigRuleSourceSourceIdentifier
     ]
 
-instance FromJSON ConfigConfigRuleSource where
-  parseJSON (Object obj) =
-    ConfigConfigRuleSource <$>
-      (obj .: "Owner") <*>
-      (obj .:? "SourceDetails") <*>
-      (obj .: "SourceIdentifier")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ConfigConfigRuleSource' containing required fields as
 -- arguments.
 configConfigRuleSource

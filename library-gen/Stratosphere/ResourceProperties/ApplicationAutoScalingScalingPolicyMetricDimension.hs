@@ -27,13 +27,6 @@ instance ToJSON ApplicationAutoScalingScalingPolicyMetricDimension where
     , (Just . ("Value",) . toJSON) _applicationAutoScalingScalingPolicyMetricDimensionValue
     ]
 
-instance FromJSON ApplicationAutoScalingScalingPolicyMetricDimension where
-  parseJSON (Object obj) =
-    ApplicationAutoScalingScalingPolicyMetricDimension <$>
-      (obj .: "Name") <*>
-      (obj .: "Value")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ApplicationAutoScalingScalingPolicyMetricDimension'
 -- containing required fields as arguments.
 applicationAutoScalingScalingPolicyMetricDimension

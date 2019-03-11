@@ -25,13 +25,6 @@ instance ToJSON GlueClassifierJsonClassifier where
     , fmap (("Name",) . toJSON) _glueClassifierJsonClassifierName
     ]
 
-instance FromJSON GlueClassifierJsonClassifier where
-  parseJSON (Object obj) =
-    GlueClassifierJsonClassifier <$>
-      (obj .: "JsonPath") <*>
-      (obj .:? "Name")
-  parseJSON _ = mempty
-
 -- | Constructor for 'GlueClassifierJsonClassifier' containing required fields
 -- as arguments.
 glueClassifierJsonClassifier

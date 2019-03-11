@@ -80,40 +80,6 @@ instance ToJSON RedshiftCluster where
     , fmap (("VpcSecurityGroupIds",) . toJSON) _redshiftClusterVpcSecurityGroupIds
     ]
 
-instance FromJSON RedshiftCluster where
-  parseJSON (Object obj) =
-    RedshiftCluster <$>
-      fmap (fmap (fmap unBool')) (obj .:? "AllowVersionUpgrade") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "AutomatedSnapshotRetentionPeriod") <*>
-      (obj .:? "AvailabilityZone") <*>
-      (obj .:? "ClusterIdentifier") <*>
-      (obj .:? "ClusterParameterGroupName") <*>
-      (obj .:? "ClusterSecurityGroups") <*>
-      (obj .:? "ClusterSubnetGroupName") <*>
-      (obj .: "ClusterType") <*>
-      (obj .:? "ClusterVersion") <*>
-      (obj .: "DBName") <*>
-      (obj .:? "ElasticIp") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "Encrypted") <*>
-      (obj .:? "HsmClientCertificateIdentifier") <*>
-      (obj .:? "HsmConfigurationIdentifier") <*>
-      (obj .:? "IamRoles") <*>
-      (obj .:? "KmsKeyId") <*>
-      (obj .:? "LoggingProperties") <*>
-      (obj .: "MasterUserPassword") <*>
-      (obj .: "MasterUsername") <*>
-      (obj .: "NodeType") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "NumberOfNodes") <*>
-      (obj .:? "OwnerAccount") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "Port") <*>
-      (obj .:? "PreferredMaintenanceWindow") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "PubliclyAccessible") <*>
-      (obj .:? "SnapshotClusterIdentifier") <*>
-      (obj .:? "SnapshotIdentifier") <*>
-      (obj .:? "Tags") <*>
-      (obj .:? "VpcSecurityGroupIds")
-  parseJSON _ = mempty
-
 -- | Constructor for 'RedshiftCluster' containing required fields as
 -- arguments.
 redshiftCluster

@@ -27,14 +27,6 @@ instance ToJSON ServiceDiscoveryInstance where
     , (Just . ("ServiceId",) . toJSON) _serviceDiscoveryInstanceServiceId
     ]
 
-instance FromJSON ServiceDiscoveryInstance where
-  parseJSON (Object obj) =
-    ServiceDiscoveryInstance <$>
-      (obj .: "InstanceAttributes") <*>
-      (obj .:? "InstanceId") <*>
-      (obj .: "ServiceId")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ServiceDiscoveryInstance' containing required fields as
 -- arguments.
 serviceDiscoveryInstance

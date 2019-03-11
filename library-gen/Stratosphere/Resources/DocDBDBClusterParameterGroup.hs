@@ -31,16 +31,6 @@ instance ToJSON DocDBDBClusterParameterGroup where
     , fmap (("Tags",) . toJSON) _docDBDBClusterParameterGroupTags
     ]
 
-instance FromJSON DocDBDBClusterParameterGroup where
-  parseJSON (Object obj) =
-    DocDBDBClusterParameterGroup <$>
-      (obj .: "Description") <*>
-      (obj .: "Family") <*>
-      (obj .:? "Name") <*>
-      (obj .: "Parameters") <*>
-      (obj .:? "Tags")
-  parseJSON _ = mempty
-
 -- | Constructor for 'DocDBDBClusterParameterGroup' containing required fields
 -- as arguments.
 docDBDBClusterParameterGroup

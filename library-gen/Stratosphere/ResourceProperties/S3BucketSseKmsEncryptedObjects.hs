@@ -23,12 +23,6 @@ instance ToJSON S3BucketSseKmsEncryptedObjects where
     [ (Just . ("Status",) . toJSON) _s3BucketSseKmsEncryptedObjectsStatus
     ]
 
-instance FromJSON S3BucketSseKmsEncryptedObjects where
-  parseJSON (Object obj) =
-    S3BucketSseKmsEncryptedObjects <$>
-      (obj .: "Status")
-  parseJSON _ = mempty
-
 -- | Constructor for 'S3BucketSseKmsEncryptedObjects' containing required
 -- fields as arguments.
 s3BucketSseKmsEncryptedObjects

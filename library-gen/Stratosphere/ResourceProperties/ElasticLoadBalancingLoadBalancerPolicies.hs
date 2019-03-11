@@ -32,16 +32,6 @@ instance ToJSON ElasticLoadBalancingLoadBalancerPolicies where
     , (Just . ("PolicyType",) . toJSON) _elasticLoadBalancingLoadBalancerPoliciesPolicyType
     ]
 
-instance FromJSON ElasticLoadBalancingLoadBalancerPolicies where
-  parseJSON (Object obj) =
-    ElasticLoadBalancingLoadBalancerPolicies <$>
-      (obj .: "Attributes") <*>
-      (obj .:? "InstancePorts") <*>
-      (obj .:? "LoadBalancerPorts") <*>
-      (obj .: "PolicyName") <*>
-      (obj .: "PolicyType")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ElasticLoadBalancingLoadBalancerPolicies' containing
 -- required fields as arguments.
 elasticLoadBalancingLoadBalancerPolicies

@@ -23,12 +23,6 @@ instance ToJSON S3BucketAccelerateConfiguration where
     [ (Just . ("AccelerationStatus",) . toJSON) _s3BucketAccelerateConfigurationAccelerationStatus
     ]
 
-instance FromJSON S3BucketAccelerateConfiguration where
-  parseJSON (Object obj) =
-    S3BucketAccelerateConfiguration <$>
-      (obj .: "AccelerationStatus")
-  parseJSON _ = mempty
-
 -- | Constructor for 'S3BucketAccelerateConfiguration' containing required
 -- fields as arguments.
 s3BucketAccelerateConfiguration

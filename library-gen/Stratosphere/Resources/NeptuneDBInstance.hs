@@ -43,22 +43,6 @@ instance ToJSON NeptuneDBInstance where
     , fmap (("Tags",) . toJSON) _neptuneDBInstanceTags
     ]
 
-instance FromJSON NeptuneDBInstance where
-  parseJSON (Object obj) =
-    NeptuneDBInstance <$>
-      fmap (fmap (fmap unBool')) (obj .:? "AllowMajorVersionUpgrade") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "AutoMinorVersionUpgrade") <*>
-      (obj .:? "AvailabilityZone") <*>
-      (obj .:? "DBClusterIdentifier") <*>
-      (obj .: "DBInstanceClass") <*>
-      (obj .:? "DBInstanceIdentifier") <*>
-      (obj .:? "DBParameterGroupName") <*>
-      (obj .:? "DBSnapshotIdentifier") <*>
-      (obj .:? "DBSubnetGroupName") <*>
-      (obj .:? "PreferredMaintenanceWindow") <*>
-      (obj .:? "Tags")
-  parseJSON _ = mempty
-
 -- | Constructor for 'NeptuneDBInstance' containing required fields as
 -- arguments.
 neptuneDBInstance

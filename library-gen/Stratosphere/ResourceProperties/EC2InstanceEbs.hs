@@ -33,17 +33,6 @@ instance ToJSON EC2InstanceEbs where
     , fmap (("VolumeType",) . toJSON) _eC2InstanceEbsVolumeType
     ]
 
-instance FromJSON EC2InstanceEbs where
-  parseJSON (Object obj) =
-    EC2InstanceEbs <$>
-      fmap (fmap (fmap unBool')) (obj .:? "DeleteOnTermination") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "Encrypted") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "Iops") <*>
-      (obj .:? "SnapshotId") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "VolumeSize") <*>
-      (obj .:? "VolumeType")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2InstanceEbs' containing required fields as arguments.
 ec2InstanceEbs
   :: EC2InstanceEbs

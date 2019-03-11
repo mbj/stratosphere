@@ -25,13 +25,6 @@ instance ToJSON CloudWatchDashboard where
     , fmap (("DashboardName",) . toJSON) _cloudWatchDashboardDashboardName
     ]
 
-instance FromJSON CloudWatchDashboard where
-  parseJSON (Object obj) =
-    CloudWatchDashboard <$>
-      (obj .: "DashboardBody") <*>
-      (obj .:? "DashboardName")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CloudWatchDashboard' containing required fields as
 -- arguments.
 cloudWatchDashboard

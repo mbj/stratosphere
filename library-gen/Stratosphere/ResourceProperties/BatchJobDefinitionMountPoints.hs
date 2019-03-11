@@ -27,14 +27,6 @@ instance ToJSON BatchJobDefinitionMountPoints where
     , fmap (("SourceVolume",) . toJSON) _batchJobDefinitionMountPointsSourceVolume
     ]
 
-instance FromJSON BatchJobDefinitionMountPoints where
-  parseJSON (Object obj) =
-    BatchJobDefinitionMountPoints <$>
-      (obj .:? "ContainerPath") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "ReadOnly") <*>
-      (obj .:? "SourceVolume")
-  parseJSON _ = mempty
-
 -- | Constructor for 'BatchJobDefinitionMountPoints' containing required
 -- fields as arguments.
 batchJobDefinitionMountPoints

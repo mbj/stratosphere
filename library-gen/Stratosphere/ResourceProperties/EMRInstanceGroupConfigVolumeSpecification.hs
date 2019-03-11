@@ -28,14 +28,6 @@ instance ToJSON EMRInstanceGroupConfigVolumeSpecification where
     , (Just . ("VolumeType",) . toJSON) _eMRInstanceGroupConfigVolumeSpecificationVolumeType
     ]
 
-instance FromJSON EMRInstanceGroupConfigVolumeSpecification where
-  parseJSON (Object obj) =
-    EMRInstanceGroupConfigVolumeSpecification <$>
-      fmap (fmap (fmap unInteger')) (obj .:? "Iops") <*>
-      fmap (fmap unInteger') (obj .: "SizeInGB") <*>
-      (obj .: "VolumeType")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EMRInstanceGroupConfigVolumeSpecification' containing
 -- required fields as arguments.
 emrInstanceGroupConfigVolumeSpecification

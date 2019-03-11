@@ -25,13 +25,6 @@ instance ToJSON ApiGatewayApiKeyStageKey where
     , fmap (("StageName",) . toJSON) _apiGatewayApiKeyStageKeyStageName
     ]
 
-instance FromJSON ApiGatewayApiKeyStageKey where
-  parseJSON (Object obj) =
-    ApiGatewayApiKeyStageKey <$>
-      (obj .:? "RestApiId") <*>
-      (obj .:? "StageName")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ApiGatewayApiKeyStageKey' containing required fields as
 -- arguments.
 apiGatewayApiKeyStageKey

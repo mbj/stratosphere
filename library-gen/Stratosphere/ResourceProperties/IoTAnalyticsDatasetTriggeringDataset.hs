@@ -23,12 +23,6 @@ instance ToJSON IoTAnalyticsDatasetTriggeringDataset where
     [ (Just . ("DatasetName",) . toJSON) _ioTAnalyticsDatasetTriggeringDatasetDatasetName
     ]
 
-instance FromJSON IoTAnalyticsDatasetTriggeringDataset where
-  parseJSON (Object obj) =
-    IoTAnalyticsDatasetTriggeringDataset <$>
-      (obj .: "DatasetName")
-  parseJSON _ = mempty
-
 -- | Constructor for 'IoTAnalyticsDatasetTriggeringDataset' containing
 -- required fields as arguments.
 ioTAnalyticsDatasetTriggeringDataset

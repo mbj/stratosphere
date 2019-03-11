@@ -23,12 +23,6 @@ instance ToJSON S3BucketBucketEncryption where
     [ (Just . ("ServerSideEncryptionConfiguration",) . toJSON) _s3BucketBucketEncryptionServerSideEncryptionConfiguration
     ]
 
-instance FromJSON S3BucketBucketEncryption where
-  parseJSON (Object obj) =
-    S3BucketBucketEncryption <$>
-      (obj .: "ServerSideEncryptionConfiguration")
-  parseJSON _ = mempty
-
 -- | Constructor for 'S3BucketBucketEncryption' containing required fields as
 -- arguments.
 s3BucketBucketEncryption

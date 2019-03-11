@@ -27,14 +27,6 @@ instance ToJSON IAMServiceLinkedRole where
     , fmap (("Description",) . toJSON) _iAMServiceLinkedRoleDescription
     ]
 
-instance FromJSON IAMServiceLinkedRole where
-  parseJSON (Object obj) =
-    IAMServiceLinkedRole <$>
-      (obj .: "AWSServiceName") <*>
-      (obj .:? "CustomSuffix") <*>
-      (obj .:? "Description")
-  parseJSON _ = mempty
-
 -- | Constructor for 'IAMServiceLinkedRole' containing required fields as
 -- arguments.
 iamServiceLinkedRole

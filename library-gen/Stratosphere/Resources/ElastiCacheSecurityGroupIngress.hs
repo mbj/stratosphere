@@ -27,14 +27,6 @@ instance ToJSON ElastiCacheSecurityGroupIngress where
     , fmap (("EC2SecurityGroupOwnerId",) . toJSON) _elastiCacheSecurityGroupIngressEC2SecurityGroupOwnerId
     ]
 
-instance FromJSON ElastiCacheSecurityGroupIngress where
-  parseJSON (Object obj) =
-    ElastiCacheSecurityGroupIngress <$>
-      (obj .: "CacheSecurityGroupName") <*>
-      (obj .: "EC2SecurityGroupName") <*>
-      (obj .:? "EC2SecurityGroupOwnerId")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ElastiCacheSecurityGroupIngress' containing required
 -- fields as arguments.
 elastiCacheSecurityGroupIngress

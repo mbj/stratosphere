@@ -23,12 +23,6 @@ instance ToJSON S3BucketCorsConfiguration where
     [ (Just . ("CorsRules",) . toJSON) _s3BucketCorsConfigurationCorsRules
     ]
 
-instance FromJSON S3BucketCorsConfiguration where
-  parseJSON (Object obj) =
-    S3BucketCorsConfiguration <$>
-      (obj .: "CorsRules")
-  parseJSON _ = mempty
-
 -- | Constructor for 'S3BucketCorsConfiguration' containing required fields as
 -- arguments.
 s3BucketCorsConfiguration

@@ -26,13 +26,6 @@ instance ToJSON DirectoryServiceMicrosoftADVpcSettings where
     , (Just . ("VpcId",) . toJSON) _directoryServiceMicrosoftADVpcSettingsVpcId
     ]
 
-instance FromJSON DirectoryServiceMicrosoftADVpcSettings where
-  parseJSON (Object obj) =
-    DirectoryServiceMicrosoftADVpcSettings <$>
-      (obj .: "SubnetIds") <*>
-      (obj .: "VpcId")
-  parseJSON _ = mempty
-
 -- | Constructor for 'DirectoryServiceMicrosoftADVpcSettings' containing
 -- required fields as arguments.
 directoryServiceMicrosoftADVpcSettings

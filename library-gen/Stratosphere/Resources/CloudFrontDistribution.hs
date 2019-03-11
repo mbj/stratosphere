@@ -26,13 +26,6 @@ instance ToJSON CloudFrontDistribution where
     , fmap (("Tags",) . toJSON) _cloudFrontDistributionTags
     ]
 
-instance FromJSON CloudFrontDistribution where
-  parseJSON (Object obj) =
-    CloudFrontDistribution <$>
-      (obj .: "DistributionConfig") <*>
-      (obj .:? "Tags")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CloudFrontDistribution' containing required fields as
 -- arguments.
 cloudFrontDistribution

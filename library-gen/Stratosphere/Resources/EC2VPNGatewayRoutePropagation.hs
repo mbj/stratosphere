@@ -25,13 +25,6 @@ instance ToJSON EC2VPNGatewayRoutePropagation where
     , (Just . ("VpnGatewayId",) . toJSON) _eC2VPNGatewayRoutePropagationVpnGatewayId
     ]
 
-instance FromJSON EC2VPNGatewayRoutePropagation where
-  parseJSON (Object obj) =
-    EC2VPNGatewayRoutePropagation <$>
-      (obj .: "RouteTableIds") <*>
-      (obj .: "VpnGatewayId")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2VPNGatewayRoutePropagation' containing required
 -- fields as arguments.
 ec2VPNGatewayRoutePropagation

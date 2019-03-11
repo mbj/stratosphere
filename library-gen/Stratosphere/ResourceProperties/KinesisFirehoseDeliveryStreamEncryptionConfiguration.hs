@@ -28,13 +28,6 @@ instance ToJSON KinesisFirehoseDeliveryStreamEncryptionConfiguration where
     , fmap (("NoEncryptionConfig",) . toJSON) _kinesisFirehoseDeliveryStreamEncryptionConfigurationNoEncryptionConfig
     ]
 
-instance FromJSON KinesisFirehoseDeliveryStreamEncryptionConfiguration where
-  parseJSON (Object obj) =
-    KinesisFirehoseDeliveryStreamEncryptionConfiguration <$>
-      (obj .:? "KMSEncryptionConfig") <*>
-      (obj .:? "NoEncryptionConfig")
-  parseJSON _ = mempty
-
 -- | Constructor for 'KinesisFirehoseDeliveryStreamEncryptionConfiguration'
 -- containing required fields as arguments.
 kinesisFirehoseDeliveryStreamEncryptionConfiguration

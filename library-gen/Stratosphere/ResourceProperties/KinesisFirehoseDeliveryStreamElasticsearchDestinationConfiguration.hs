@@ -50,22 +50,6 @@ instance ToJSON KinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurati
     , (Just . ("TypeName",) . toJSON) _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationTypeName
     ]
 
-instance FromJSON KinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguration where
-  parseJSON (Object obj) =
-    KinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguration <$>
-      (obj .: "BufferingHints") <*>
-      (obj .:? "CloudWatchLoggingOptions") <*>
-      (obj .: "DomainARN") <*>
-      (obj .: "IndexName") <*>
-      (obj .: "IndexRotationPeriod") <*>
-      (obj .:? "ProcessingConfiguration") <*>
-      (obj .: "RetryOptions") <*>
-      (obj .: "RoleARN") <*>
-      (obj .: "S3BackupMode") <*>
-      (obj .: "S3Configuration") <*>
-      (obj .: "TypeName")
-  parseJSON _ = mempty
-
 -- | Constructor for
 -- 'KinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguration'
 -- containing required fields as arguments.

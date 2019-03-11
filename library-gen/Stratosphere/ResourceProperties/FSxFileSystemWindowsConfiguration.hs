@@ -33,17 +33,6 @@ instance ToJSON FSxFileSystemWindowsConfiguration where
     , fmap (("WeeklyMaintenanceStartTime",) . toJSON) _fSxFileSystemWindowsConfigurationWeeklyMaintenanceStartTime
     ]
 
-instance FromJSON FSxFileSystemWindowsConfiguration where
-  parseJSON (Object obj) =
-    FSxFileSystemWindowsConfiguration <$>
-      (obj .:? "ActiveDirectoryId") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "AutomaticBackupRetentionDays") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "CopyTagsToBackups") <*>
-      (obj .:? "DailyAutomaticBackupStartTime") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "ThroughputCapacity") <*>
-      (obj .:? "WeeklyMaintenanceStartTime")
-  parseJSON _ = mempty
-
 -- | Constructor for 'FSxFileSystemWindowsConfiguration' containing required
 -- fields as arguments.
 fSxFileSystemWindowsConfiguration

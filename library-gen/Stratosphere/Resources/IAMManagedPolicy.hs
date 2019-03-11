@@ -35,18 +35,6 @@ instance ToJSON IAMManagedPolicy where
     , fmap (("Users",) . toJSON) _iAMManagedPolicyUsers
     ]
 
-instance FromJSON IAMManagedPolicy where
-  parseJSON (Object obj) =
-    IAMManagedPolicy <$>
-      (obj .:? "Description") <*>
-      (obj .:? "Groups") <*>
-      (obj .:? "ManagedPolicyName") <*>
-      (obj .:? "Path") <*>
-      (obj .: "PolicyDocument") <*>
-      (obj .:? "Roles") <*>
-      (obj .:? "Users")
-  parseJSON _ = mempty
-
 -- | Constructor for 'IAMManagedPolicy' containing required fields as
 -- arguments.
 iamManagedPolicy

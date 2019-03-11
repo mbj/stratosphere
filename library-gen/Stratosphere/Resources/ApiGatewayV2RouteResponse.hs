@@ -33,17 +33,6 @@ instance ToJSON ApiGatewayV2RouteResponse where
     , (Just . ("RouteResponseKey",) . toJSON) _apiGatewayV2RouteResponseRouteResponseKey
     ]
 
-instance FromJSON ApiGatewayV2RouteResponse where
-  parseJSON (Object obj) =
-    ApiGatewayV2RouteResponse <$>
-      (obj .: "ApiId") <*>
-      (obj .:? "ModelSelectionExpression") <*>
-      (obj .:? "ResponseModels") <*>
-      (obj .:? "ResponseParameters") <*>
-      (obj .: "RouteId") <*>
-      (obj .: "RouteResponseKey")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ApiGatewayV2RouteResponse' containing required fields as
 -- arguments.
 apiGatewayV2RouteResponse

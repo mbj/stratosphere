@@ -33,17 +33,6 @@ instance ToJSON OpsWorksStackSource where
     , fmap (("Username",) . toJSON) _opsWorksStackSourceUsername
     ]
 
-instance FromJSON OpsWorksStackSource where
-  parseJSON (Object obj) =
-    OpsWorksStackSource <$>
-      (obj .:? "Password") <*>
-      (obj .:? "Revision") <*>
-      (obj .:? "SshKey") <*>
-      (obj .:? "Type") <*>
-      (obj .:? "Url") <*>
-      (obj .:? "Username")
-  parseJSON _ = mempty
-
 -- | Constructor for 'OpsWorksStackSource' containing required fields as
 -- arguments.
 opsWorksStackSource

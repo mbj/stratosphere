@@ -33,16 +33,6 @@ instance ToJSON ElastiCacheReplicationGroupNodeGroupConfiguration where
     , fmap (("Slots",) . toJSON) _elastiCacheReplicationGroupNodeGroupConfigurationSlots
     ]
 
-instance FromJSON ElastiCacheReplicationGroupNodeGroupConfiguration where
-  parseJSON (Object obj) =
-    ElastiCacheReplicationGroupNodeGroupConfiguration <$>
-      (obj .:? "NodeGroupId") <*>
-      (obj .:? "PrimaryAvailabilityZone") <*>
-      (obj .:? "ReplicaAvailabilityZones") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "ReplicaCount") <*>
-      (obj .:? "Slots")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ElastiCacheReplicationGroupNodeGroupConfiguration'
 -- containing required fields as arguments.
 elastiCacheReplicationGroupNodeGroupConfiguration

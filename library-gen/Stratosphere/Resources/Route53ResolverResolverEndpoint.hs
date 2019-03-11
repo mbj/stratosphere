@@ -32,16 +32,6 @@ instance ToJSON Route53ResolverResolverEndpoint where
     , fmap (("Tags",) . toJSON) _route53ResolverResolverEndpointTags
     ]
 
-instance FromJSON Route53ResolverResolverEndpoint where
-  parseJSON (Object obj) =
-    Route53ResolverResolverEndpoint <$>
-      (obj .: "Direction") <*>
-      (obj .: "IpAddresses") <*>
-      (obj .:? "Name") <*>
-      (obj .: "SecurityGroupIds") <*>
-      (obj .:? "Tags")
-  parseJSON _ = mempty
-
 -- | Constructor for 'Route53ResolverResolverEndpoint' containing required
 -- fields as arguments.
 route53ResolverResolverEndpoint

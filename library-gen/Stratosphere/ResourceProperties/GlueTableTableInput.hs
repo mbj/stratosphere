@@ -42,21 +42,6 @@ instance ToJSON GlueTableTableInput where
     , fmap (("ViewOriginalText",) . toJSON) _glueTableTableInputViewOriginalText
     ]
 
-instance FromJSON GlueTableTableInput where
-  parseJSON (Object obj) =
-    GlueTableTableInput <$>
-      (obj .:? "Description") <*>
-      (obj .:? "Name") <*>
-      (obj .:? "Owner") <*>
-      (obj .:? "Parameters") <*>
-      (obj .:? "PartitionKeys") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "Retention") <*>
-      (obj .:? "StorageDescriptor") <*>
-      (obj .:? "TableType") <*>
-      (obj .:? "ViewExpandedText") <*>
-      (obj .:? "ViewOriginalText")
-  parseJSON _ = mempty
-
 -- | Constructor for 'GlueTableTableInput' containing required fields as
 -- arguments.
 glueTableTableInput

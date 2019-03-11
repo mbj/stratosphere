@@ -33,17 +33,6 @@ instance ToJSON SESReceiptRuleRule where
     , fmap (("TlsPolicy",) . toJSON) _sESReceiptRuleRuleTlsPolicy
     ]
 
-instance FromJSON SESReceiptRuleRule where
-  parseJSON (Object obj) =
-    SESReceiptRuleRule <$>
-      (obj .:? "Actions") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "Enabled") <*>
-      (obj .:? "Name") <*>
-      (obj .:? "Recipients") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "ScanEnabled") <*>
-      (obj .:? "TlsPolicy")
-  parseJSON _ = mempty
-
 -- | Constructor for 'SESReceiptRuleRule' containing required fields as
 -- arguments.
 sesReceiptRuleRule

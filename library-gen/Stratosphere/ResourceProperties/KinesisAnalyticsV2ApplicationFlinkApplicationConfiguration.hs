@@ -31,14 +31,6 @@ instance ToJSON KinesisAnalyticsV2ApplicationFlinkApplicationConfiguration where
     , fmap (("ParallelismConfiguration",) . toJSON) _kinesisAnalyticsV2ApplicationFlinkApplicationConfigurationParallelismConfiguration
     ]
 
-instance FromJSON KinesisAnalyticsV2ApplicationFlinkApplicationConfiguration where
-  parseJSON (Object obj) =
-    KinesisAnalyticsV2ApplicationFlinkApplicationConfiguration <$>
-      (obj .:? "CheckpointConfiguration") <*>
-      (obj .:? "MonitoringConfiguration") <*>
-      (obj .:? "ParallelismConfiguration")
-  parseJSON _ = mempty
-
 -- | Constructor for
 -- 'KinesisAnalyticsV2ApplicationFlinkApplicationConfiguration' containing
 -- required fields as arguments.

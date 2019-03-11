@@ -29,15 +29,6 @@ instance ToJSON BudgetsBudgetNotification where
     , fmap (("ThresholdType",) . toJSON) _budgetsBudgetNotificationThresholdType
     ]
 
-instance FromJSON BudgetsBudgetNotification where
-  parseJSON (Object obj) =
-    BudgetsBudgetNotification <$>
-      (obj .: "ComparisonOperator") <*>
-      (obj .: "NotificationType") <*>
-      fmap (fmap unDouble') (obj .: "Threshold") <*>
-      (obj .:? "ThresholdType")
-  parseJSON _ = mempty
-
 -- | Constructor for 'BudgetsBudgetNotification' containing required fields as
 -- arguments.
 budgetsBudgetNotification

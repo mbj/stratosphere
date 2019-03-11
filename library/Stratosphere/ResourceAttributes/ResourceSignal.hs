@@ -25,13 +25,6 @@ instance ToJSON ResourceSignal where
     , fmap (("Timeout",) . toJSON) _resourceSignalTimeout
     ]
 
-instance FromJSON ResourceSignal where
-  parseJSON (Object obj) =
-    ResourceSignal <$>
-      fmap (fmap (fmap unInteger')) (obj .:? "Count") <*>
-      (obj .:? "Timeout")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ResourceSignal' containing required fields as arguments.
 resourceSignal
   :: ResourceSignal

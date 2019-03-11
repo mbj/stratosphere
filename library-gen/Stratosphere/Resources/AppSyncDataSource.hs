@@ -45,21 +45,6 @@ instance ToJSON AppSyncDataSource where
     , (Just . ("Type",) . toJSON) _appSyncDataSourceType
     ]
 
-instance FromJSON AppSyncDataSource where
-  parseJSON (Object obj) =
-    AppSyncDataSource <$>
-      (obj .: "ApiId") <*>
-      (obj .:? "Description") <*>
-      (obj .:? "DynamoDBConfig") <*>
-      (obj .:? "ElasticsearchConfig") <*>
-      (obj .:? "HttpConfig") <*>
-      (obj .:? "LambdaConfig") <*>
-      (obj .: "Name") <*>
-      (obj .:? "RelationalDatabaseConfig") <*>
-      (obj .:? "ServiceRoleArn") <*>
-      (obj .: "Type")
-  parseJSON _ = mempty
-
 -- | Constructor for 'AppSyncDataSource' containing required fields as
 -- arguments.
 appSyncDataSource

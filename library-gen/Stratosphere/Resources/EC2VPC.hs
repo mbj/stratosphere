@@ -31,16 +31,6 @@ instance ToJSON EC2VPC where
     , fmap (("Tags",) . toJSON) _eC2VPCTags
     ]
 
-instance FromJSON EC2VPC where
-  parseJSON (Object obj) =
-    EC2VPC <$>
-      (obj .: "CidrBlock") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "EnableDnsHostnames") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "EnableDnsSupport") <*>
-      (obj .:? "InstanceTenancy") <*>
-      (obj .:? "Tags")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2VPC' containing required fields as arguments.
 ec2VPC
   :: Val Text -- ^ 'ecvpcCidrBlock'

@@ -25,13 +25,6 @@ instance ToJSON IoTAnalyticsDatasetDeltaTime where
     , (Just . ("TimeExpression",) . toJSON) _ioTAnalyticsDatasetDeltaTimeTimeExpression
     ]
 
-instance FromJSON IoTAnalyticsDatasetDeltaTime where
-  parseJSON (Object obj) =
-    IoTAnalyticsDatasetDeltaTime <$>
-      fmap (fmap unInteger') (obj .: "OffsetSeconds") <*>
-      (obj .: "TimeExpression")
-  parseJSON _ = mempty
-
 -- | Constructor for 'IoTAnalyticsDatasetDeltaTime' containing required fields
 -- as arguments.
 ioTAnalyticsDatasetDeltaTime

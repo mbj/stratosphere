@@ -35,17 +35,6 @@ instance ToJSON AutoScalingAutoScalingGroupInstancesDistribution where
     , fmap (("SpotMaxPrice",) . toJSON) _autoScalingAutoScalingGroupInstancesDistributionSpotMaxPrice
     ]
 
-instance FromJSON AutoScalingAutoScalingGroupInstancesDistribution where
-  parseJSON (Object obj) =
-    AutoScalingAutoScalingGroupInstancesDistribution <$>
-      (obj .:? "OnDemandAllocationStrategy") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "OnDemandBaseCapacity") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "OnDemandPercentageAboveBaseCapacity") <*>
-      (obj .:? "SpotAllocationStrategy") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "SpotInstancePools") <*>
-      (obj .:? "SpotMaxPrice")
-  parseJSON _ = mempty
-
 -- | Constructor for 'AutoScalingAutoScalingGroupInstancesDistribution'
 -- containing required fields as arguments.
 autoScalingAutoScalingGroupInstancesDistribution

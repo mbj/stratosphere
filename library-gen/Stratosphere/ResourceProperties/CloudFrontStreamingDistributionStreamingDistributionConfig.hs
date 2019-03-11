@@ -39,18 +39,6 @@ instance ToJSON CloudFrontStreamingDistributionStreamingDistributionConfig where
     , (Just . ("TrustedSigners",) . toJSON) _cloudFrontStreamingDistributionStreamingDistributionConfigTrustedSigners
     ]
 
-instance FromJSON CloudFrontStreamingDistributionStreamingDistributionConfig where
-  parseJSON (Object obj) =
-    CloudFrontStreamingDistributionStreamingDistributionConfig <$>
-      (obj .:? "Aliases") <*>
-      (obj .: "Comment") <*>
-      fmap (fmap unBool') (obj .: "Enabled") <*>
-      (obj .:? "Logging") <*>
-      (obj .:? "PriceClass") <*>
-      (obj .: "S3Origin") <*>
-      (obj .: "TrustedSigners")
-  parseJSON _ = mempty
-
 -- | Constructor for
 -- 'CloudFrontStreamingDistributionStreamingDistributionConfig' containing
 -- required fields as arguments.

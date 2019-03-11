@@ -32,16 +32,6 @@ instance ToJSON EMRClusterInstanceFleetConfig where
     , fmap (("TargetSpotCapacity",) . toJSON . fmap Integer') _eMRClusterInstanceFleetConfigTargetSpotCapacity
     ]
 
-instance FromJSON EMRClusterInstanceFleetConfig where
-  parseJSON (Object obj) =
-    EMRClusterInstanceFleetConfig <$>
-      (obj .:? "InstanceTypeConfigs") <*>
-      (obj .:? "LaunchSpecifications") <*>
-      (obj .:? "Name") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "TargetOnDemandCapacity") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "TargetSpotCapacity")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EMRClusterInstanceFleetConfig' containing required
 -- fields as arguments.
 emrClusterInstanceFleetConfig

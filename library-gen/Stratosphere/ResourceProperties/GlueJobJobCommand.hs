@@ -25,13 +25,6 @@ instance ToJSON GlueJobJobCommand where
     , fmap (("ScriptLocation",) . toJSON) _glueJobJobCommandScriptLocation
     ]
 
-instance FromJSON GlueJobJobCommand where
-  parseJSON (Object obj) =
-    GlueJobJobCommand <$>
-      (obj .:? "Name") <*>
-      (obj .:? "ScriptLocation")
-  parseJSON _ = mempty
-
 -- | Constructor for 'GlueJobJobCommand' containing required fields as
 -- arguments.
 glueJobJobCommand

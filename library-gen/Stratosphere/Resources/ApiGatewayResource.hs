@@ -27,14 +27,6 @@ instance ToJSON ApiGatewayResource where
     , (Just . ("RestApiId",) . toJSON) _apiGatewayResourceRestApiId
     ]
 
-instance FromJSON ApiGatewayResource where
-  parseJSON (Object obj) =
-    ApiGatewayResource <$>
-      (obj .: "ParentId") <*>
-      (obj .: "PathPart") <*>
-      (obj .: "RestApiId")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ApiGatewayResource' containing required fields as
 -- arguments.
 apiGatewayResource

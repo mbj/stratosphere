@@ -25,13 +25,6 @@ instance ToJSON BudgetsBudgetSubscriber where
     , (Just . ("SubscriptionType",) . toJSON) _budgetsBudgetSubscriberSubscriptionType
     ]
 
-instance FromJSON BudgetsBudgetSubscriber where
-  parseJSON (Object obj) =
-    BudgetsBudgetSubscriber <$>
-      (obj .: "Address") <*>
-      (obj .: "SubscriptionType")
-  parseJSON _ = mempty
-
 -- | Constructor for 'BudgetsBudgetSubscriber' containing required fields as
 -- arguments.
 budgetsBudgetSubscriber

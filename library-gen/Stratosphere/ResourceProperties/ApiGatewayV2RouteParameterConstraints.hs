@@ -24,12 +24,6 @@ instance ToJSON ApiGatewayV2RouteParameterConstraints where
     [ (Just . ("Required",) . toJSON . fmap Bool') _apiGatewayV2RouteParameterConstraintsRequired
     ]
 
-instance FromJSON ApiGatewayV2RouteParameterConstraints where
-  parseJSON (Object obj) =
-    ApiGatewayV2RouteParameterConstraints <$>
-      fmap (fmap unBool') (obj .: "Required")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ApiGatewayV2RouteParameterConstraints' containing
 -- required fields as arguments.
 apiGatewayV2RouteParameterConstraints

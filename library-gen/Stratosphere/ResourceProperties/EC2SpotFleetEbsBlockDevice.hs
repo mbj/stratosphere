@@ -33,17 +33,6 @@ instance ToJSON EC2SpotFleetEbsBlockDevice where
     , fmap (("VolumeType",) . toJSON) _eC2SpotFleetEbsBlockDeviceVolumeType
     ]
 
-instance FromJSON EC2SpotFleetEbsBlockDevice where
-  parseJSON (Object obj) =
-    EC2SpotFleetEbsBlockDevice <$>
-      fmap (fmap (fmap unBool')) (obj .:? "DeleteOnTermination") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "Encrypted") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "Iops") <*>
-      (obj .:? "SnapshotId") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "VolumeSize") <*>
-      (obj .:? "VolumeType")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2SpotFleetEbsBlockDevice' containing required fields
 -- as arguments.
 ec2SpotFleetEbsBlockDevice

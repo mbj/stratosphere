@@ -23,12 +23,6 @@ instance ToJSON IoTTopicRuleLambdaAction where
     [ fmap (("FunctionArn",) . toJSON) _ioTTopicRuleLambdaActionFunctionArn
     ]
 
-instance FromJSON IoTTopicRuleLambdaAction where
-  parseJSON (Object obj) =
-    IoTTopicRuleLambdaAction <$>
-      (obj .:? "FunctionArn")
-  parseJSON _ = mempty
-
 -- | Constructor for 'IoTTopicRuleLambdaAction' containing required fields as
 -- arguments.
 ioTTopicRuleLambdaAction

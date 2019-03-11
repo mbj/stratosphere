@@ -25,13 +25,6 @@ instance ToJSON IoT1ClickProjectPlacementTemplate where
     , fmap (("DeviceTemplates",) . toJSON) _ioT1ClickProjectPlacementTemplateDeviceTemplates
     ]
 
-instance FromJSON IoT1ClickProjectPlacementTemplate where
-  parseJSON (Object obj) =
-    IoT1ClickProjectPlacementTemplate <$>
-      (obj .:? "DefaultAttributes") <*>
-      (obj .:? "DeviceTemplates")
-  parseJSON _ = mempty
-
 -- | Constructor for 'IoT1ClickProjectPlacementTemplate' containing required
 -- fields as arguments.
 ioT1ClickProjectPlacementTemplate

@@ -23,12 +23,6 @@ instance ToJSON EC2InstanceCreditSpecification where
     [ fmap (("CPUCredits",) . toJSON) _eC2InstanceCreditSpecificationCPUCredits
     ]
 
-instance FromJSON EC2InstanceCreditSpecification where
-  parseJSON (Object obj) =
-    EC2InstanceCreditSpecification <$>
-      (obj .:? "CPUCredits")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2InstanceCreditSpecification' containing required
 -- fields as arguments.
 ec2InstanceCreditSpecification

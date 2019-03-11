@@ -25,13 +25,6 @@ instance ToJSON IAMUserToGroupAddition where
     , (Just . ("Users",) . toJSON) _iAMUserToGroupAdditionUsers
     ]
 
-instance FromJSON IAMUserToGroupAddition where
-  parseJSON (Object obj) =
-    IAMUserToGroupAddition <$>
-      (obj .: "GroupName") <*>
-      (obj .: "Users")
-  parseJSON _ = mempty
-
 -- | Constructor for 'IAMUserToGroupAddition' containing required fields as
 -- arguments.
 iamUserToGroupAddition

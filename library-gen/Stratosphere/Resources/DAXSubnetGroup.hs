@@ -27,14 +27,6 @@ instance ToJSON DAXSubnetGroup where
     , (Just . ("SubnetIds",) . toJSON) _dAXSubnetGroupSubnetIds
     ]
 
-instance FromJSON DAXSubnetGroup where
-  parseJSON (Object obj) =
-    DAXSubnetGroup <$>
-      (obj .:? "Description") <*>
-      (obj .:? "SubnetGroupName") <*>
-      (obj .: "SubnetIds")
-  parseJSON _ = mempty
-
 -- | Constructor for 'DAXSubnetGroup' containing required fields as arguments.
 daxSubnetGroup
   :: ValList Text -- ^ 'daxsgSubnetIds'

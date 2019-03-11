@@ -27,14 +27,6 @@ instance ToJSON ConfigConfigRuleSourceDetail where
     , (Just . ("MessageType",) . toJSON) _configConfigRuleSourceDetailMessageType
     ]
 
-instance FromJSON ConfigConfigRuleSourceDetail where
-  parseJSON (Object obj) =
-    ConfigConfigRuleSourceDetail <$>
-      (obj .: "EventSource") <*>
-      (obj .:? "MaximumExecutionFrequency") <*>
-      (obj .: "MessageType")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ConfigConfigRuleSourceDetail' containing required fields
 -- as arguments.
 configConfigRuleSourceDetail

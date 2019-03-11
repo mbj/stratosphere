@@ -25,13 +25,6 @@ instance ToJSON DynamoDBTableAttributeDefinition where
     , (Just . ("AttributeType",) . toJSON) _dynamoDBTableAttributeDefinitionAttributeType
     ]
 
-instance FromJSON DynamoDBTableAttributeDefinition where
-  parseJSON (Object obj) =
-    DynamoDBTableAttributeDefinition <$>
-      (obj .: "AttributeName") <*>
-      (obj .: "AttributeType")
-  parseJSON _ = mempty
-
 -- | Constructor for 'DynamoDBTableAttributeDefinition' containing required
 -- fields as arguments.
 dynamoDBTableAttributeDefinition

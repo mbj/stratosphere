@@ -31,15 +31,6 @@ instance ToJSON ServiceCatalogPortfolioPrincipalAssociation where
     , (Just . ("PrincipalType",) . toJSON) _serviceCatalogPortfolioPrincipalAssociationPrincipalType
     ]
 
-instance FromJSON ServiceCatalogPortfolioPrincipalAssociation where
-  parseJSON (Object obj) =
-    ServiceCatalogPortfolioPrincipalAssociation <$>
-      (obj .:? "AcceptLanguage") <*>
-      (obj .: "PortfolioId") <*>
-      (obj .: "PrincipalARN") <*>
-      (obj .: "PrincipalType")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ServiceCatalogPortfolioPrincipalAssociation' containing
 -- required fields as arguments.
 serviceCatalogPortfolioPrincipalAssociation

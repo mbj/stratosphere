@@ -31,15 +31,6 @@ instance ToJSON KinesisAnalyticsV2ApplicationParallelismConfiguration where
     , fmap (("ParallelismPerKPU",) . toJSON . fmap Integer') _kinesisAnalyticsV2ApplicationParallelismConfigurationParallelismPerKPU
     ]
 
-instance FromJSON KinesisAnalyticsV2ApplicationParallelismConfiguration where
-  parseJSON (Object obj) =
-    KinesisAnalyticsV2ApplicationParallelismConfiguration <$>
-      fmap (fmap (fmap unBool')) (obj .:? "AutoScalingEnabled") <*>
-      (obj .: "ConfigurationType") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "Parallelism") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "ParallelismPerKPU")
-  parseJSON _ = mempty
-
 -- | Constructor for 'KinesisAnalyticsV2ApplicationParallelismConfiguration'
 -- containing required fields as arguments.
 kinesisAnalyticsV2ApplicationParallelismConfiguration

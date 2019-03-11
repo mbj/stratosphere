@@ -29,15 +29,6 @@ instance ToJSON SSMPatchBaselineRule where
     , fmap (("PatchFilterGroup",) . toJSON) _sSMPatchBaselineRulePatchFilterGroup
     ]
 
-instance FromJSON SSMPatchBaselineRule where
-  parseJSON (Object obj) =
-    SSMPatchBaselineRule <$>
-      fmap (fmap (fmap unInteger')) (obj .:? "ApproveAfterDays") <*>
-      (obj .:? "ComplianceLevel") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "EnableNonSecurity") <*>
-      (obj .:? "PatchFilterGroup")
-  parseJSON _ = mempty
-
 -- | Constructor for 'SSMPatchBaselineRule' containing required fields as
 -- arguments.
 ssmPatchBaselineRule

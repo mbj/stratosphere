@@ -31,16 +31,6 @@ instance ToJSON CloudFormationMacro where
     , (Just . ("Name",) . toJSON) _cloudFormationMacroName
     ]
 
-instance FromJSON CloudFormationMacro where
-  parseJSON (Object obj) =
-    CloudFormationMacro <$>
-      (obj .:? "Description") <*>
-      (obj .: "FunctionName") <*>
-      (obj .:? "LogGroupName") <*>
-      (obj .:? "LogRoleARN") <*>
-      (obj .: "Name")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CloudFormationMacro' containing required fields as
 -- arguments.
 cloudFormationMacro

@@ -31,16 +31,6 @@ instance ToJSON EC2EIPAssociation where
     , fmap (("PrivateIpAddress",) . toJSON) _eC2EIPAssociationPrivateIpAddress
     ]
 
-instance FromJSON EC2EIPAssociation where
-  parseJSON (Object obj) =
-    EC2EIPAssociation <$>
-      (obj .:? "AllocationId") <*>
-      (obj .:? "EIP") <*>
-      (obj .:? "InstanceId") <*>
-      (obj .:? "NetworkInterfaceId") <*>
-      (obj .:? "PrivateIpAddress")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2EIPAssociation' containing required fields as
 -- arguments.
 ec2EIPAssociation

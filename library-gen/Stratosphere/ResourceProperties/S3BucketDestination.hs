@@ -29,15 +29,6 @@ instance ToJSON S3BucketDestination where
     , fmap (("Prefix",) . toJSON) _s3BucketDestinationPrefix
     ]
 
-instance FromJSON S3BucketDestination where
-  parseJSON (Object obj) =
-    S3BucketDestination <$>
-      (obj .:? "BucketAccountId") <*>
-      (obj .: "BucketArn") <*>
-      (obj .: "Format") <*>
-      (obj .:? "Prefix")
-  parseJSON _ = mempty
-
 -- | Constructor for 'S3BucketDestination' containing required fields as
 -- arguments.
 s3BucketDestination

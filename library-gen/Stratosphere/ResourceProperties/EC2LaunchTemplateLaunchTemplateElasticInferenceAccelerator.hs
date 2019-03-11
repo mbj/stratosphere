@@ -25,12 +25,6 @@ instance ToJSON EC2LaunchTemplateLaunchTemplateElasticInferenceAccelerator where
     [ fmap (("Type",) . toJSON) _eC2LaunchTemplateLaunchTemplateElasticInferenceAcceleratorType
     ]
 
-instance FromJSON EC2LaunchTemplateLaunchTemplateElasticInferenceAccelerator where
-  parseJSON (Object obj) =
-    EC2LaunchTemplateLaunchTemplateElasticInferenceAccelerator <$>
-      (obj .:? "Type")
-  parseJSON _ = mempty
-
 -- | Constructor for
 -- 'EC2LaunchTemplateLaunchTemplateElasticInferenceAccelerator' containing
 -- required fields as arguments.

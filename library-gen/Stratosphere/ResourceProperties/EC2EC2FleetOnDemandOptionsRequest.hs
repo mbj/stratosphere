@@ -23,12 +23,6 @@ instance ToJSON EC2EC2FleetOnDemandOptionsRequest where
     [ fmap (("AllocationStrategy",) . toJSON) _eC2EC2FleetOnDemandOptionsRequestAllocationStrategy
     ]
 
-instance FromJSON EC2EC2FleetOnDemandOptionsRequest where
-  parseJSON (Object obj) =
-    EC2EC2FleetOnDemandOptionsRequest <$>
-      (obj .:? "AllocationStrategy")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2EC2FleetOnDemandOptionsRequest' containing required
 -- fields as arguments.
 ec2EC2FleetOnDemandOptionsRequest

@@ -31,16 +31,6 @@ instance ToJSON RDSEventSubscription where
     , fmap (("SourceType",) . toJSON) _rDSEventSubscriptionSourceType
     ]
 
-instance FromJSON RDSEventSubscription where
-  parseJSON (Object obj) =
-    RDSEventSubscription <$>
-      fmap (fmap (fmap unBool')) (obj .:? "Enabled") <*>
-      (obj .:? "EventCategories") <*>
-      (obj .: "SnsTopicArn") <*>
-      (obj .:? "SourceIds") <*>
-      (obj .:? "SourceType")
-  parseJSON _ = mempty
-
 -- | Constructor for 'RDSEventSubscription' containing required fields as
 -- arguments.
 rdsEventSubscription

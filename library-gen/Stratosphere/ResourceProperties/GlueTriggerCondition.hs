@@ -27,14 +27,6 @@ instance ToJSON GlueTriggerCondition where
     , fmap (("State",) . toJSON) _glueTriggerConditionState
     ]
 
-instance FromJSON GlueTriggerCondition where
-  parseJSON (Object obj) =
-    GlueTriggerCondition <$>
-      (obj .:? "JobName") <*>
-      (obj .:? "LogicalOperator") <*>
-      (obj .:? "State")
-  parseJSON _ = mempty
-
 -- | Constructor for 'GlueTriggerCondition' containing required fields as
 -- arguments.
 glueTriggerCondition

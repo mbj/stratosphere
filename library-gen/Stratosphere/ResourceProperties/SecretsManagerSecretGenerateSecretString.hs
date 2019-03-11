@@ -42,21 +42,6 @@ instance ToJSON SecretsManagerSecretGenerateSecretString where
     , fmap (("SecretStringTemplate",) . toJSON) _secretsManagerSecretGenerateSecretStringSecretStringTemplate
     ]
 
-instance FromJSON SecretsManagerSecretGenerateSecretString where
-  parseJSON (Object obj) =
-    SecretsManagerSecretGenerateSecretString <$>
-      (obj .:? "ExcludeCharacters") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "ExcludeLowercase") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "ExcludeNumbers") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "ExcludePunctuation") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "ExcludeUppercase") <*>
-      (obj .:? "GenerateStringKey") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "IncludeSpace") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "PasswordLength") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "RequireEachIncludedType") <*>
-      (obj .:? "SecretStringTemplate")
-  parseJSON _ = mempty
-
 -- | Constructor for 'SecretsManagerSecretGenerateSecretString' containing
 -- required fields as arguments.
 secretsManagerSecretGenerateSecretString

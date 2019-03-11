@@ -25,13 +25,6 @@ instance ToJSON InspectorAssessmentTarget where
     , fmap (("ResourceGroupArn",) . toJSON) _inspectorAssessmentTargetResourceGroupArn
     ]
 
-instance FromJSON InspectorAssessmentTarget where
-  parseJSON (Object obj) =
-    InspectorAssessmentTarget <$>
-      (obj .:? "AssessmentTargetName") <*>
-      (obj .:? "ResourceGroupArn")
-  parseJSON _ = mempty
-
 -- | Constructor for 'InspectorAssessmentTarget' containing required fields as
 -- arguments.
 inspectorAssessmentTarget

@@ -27,14 +27,6 @@ instance ToJSON EMRInstanceGroupConfigConfiguration where
     , fmap (("Configurations",) . toJSON) _eMRInstanceGroupConfigConfigurationConfigurations
     ]
 
-instance FromJSON EMRInstanceGroupConfigConfiguration where
-  parseJSON (Object obj) =
-    EMRInstanceGroupConfigConfiguration <$>
-      (obj .:? "Classification") <*>
-      (obj .:? "ConfigurationProperties") <*>
-      (obj .:? "Configurations")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EMRInstanceGroupConfigConfiguration' containing required
 -- fields as arguments.
 emrInstanceGroupConfigConfiguration

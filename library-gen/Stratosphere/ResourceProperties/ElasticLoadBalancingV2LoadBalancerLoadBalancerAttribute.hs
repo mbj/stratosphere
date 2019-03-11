@@ -27,13 +27,6 @@ instance ToJSON ElasticLoadBalancingV2LoadBalancerLoadBalancerAttribute where
     , fmap (("Value",) . toJSON) _elasticLoadBalancingV2LoadBalancerLoadBalancerAttributeValue
     ]
 
-instance FromJSON ElasticLoadBalancingV2LoadBalancerLoadBalancerAttribute where
-  parseJSON (Object obj) =
-    ElasticLoadBalancingV2LoadBalancerLoadBalancerAttribute <$>
-      (obj .:? "Key") <*>
-      (obj .:? "Value")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ElasticLoadBalancingV2LoadBalancerLoadBalancerAttribute'
 -- containing required fields as arguments.
 elasticLoadBalancingV2LoadBalancerLoadBalancerAttribute

@@ -23,12 +23,6 @@ instance ToJSON SSMPatchBaselinePatchFilterGroup where
     [ fmap (("PatchFilters",) . toJSON) _sSMPatchBaselinePatchFilterGroupPatchFilters
     ]
 
-instance FromJSON SSMPatchBaselinePatchFilterGroup where
-  parseJSON (Object obj) =
-    SSMPatchBaselinePatchFilterGroup <$>
-      (obj .:? "PatchFilters")
-  parseJSON _ = mempty
-
 -- | Constructor for 'SSMPatchBaselinePatchFilterGroup' containing required
 -- fields as arguments.
 ssmPatchBaselinePatchFilterGroup

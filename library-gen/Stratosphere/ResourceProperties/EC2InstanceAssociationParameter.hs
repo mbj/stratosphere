@@ -25,13 +25,6 @@ instance ToJSON EC2InstanceAssociationParameter where
     , (Just . ("Value",) . toJSON) _eC2InstanceAssociationParameterValue
     ]
 
-instance FromJSON EC2InstanceAssociationParameter where
-  parseJSON (Object obj) =
-    EC2InstanceAssociationParameter <$>
-      (obj .: "Key") <*>
-      (obj .: "Value")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2InstanceAssociationParameter' containing required
 -- fields as arguments.
 ec2InstanceAssociationParameter

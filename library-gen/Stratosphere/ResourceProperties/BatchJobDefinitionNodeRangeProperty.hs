@@ -25,13 +25,6 @@ instance ToJSON BatchJobDefinitionNodeRangeProperty where
     , (Just . ("TargetNodes",) . toJSON) _batchJobDefinitionNodeRangePropertyTargetNodes
     ]
 
-instance FromJSON BatchJobDefinitionNodeRangeProperty where
-  parseJSON (Object obj) =
-    BatchJobDefinitionNodeRangeProperty <$>
-      (obj .:? "Container") <*>
-      (obj .: "TargetNodes")
-  parseJSON _ = mempty
-
 -- | Constructor for 'BatchJobDefinitionNodeRangeProperty' containing required
 -- fields as arguments.
 batchJobDefinitionNodeRangeProperty

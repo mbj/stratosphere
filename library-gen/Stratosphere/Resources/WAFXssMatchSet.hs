@@ -25,13 +25,6 @@ instance ToJSON WAFXssMatchSet where
     , (Just . ("XssMatchTuples",) . toJSON) _wAFXssMatchSetXssMatchTuples
     ]
 
-instance FromJSON WAFXssMatchSet where
-  parseJSON (Object obj) =
-    WAFXssMatchSet <$>
-      (obj .: "Name") <*>
-      (obj .: "XssMatchTuples")
-  parseJSON _ = mempty
-
 -- | Constructor for 'WAFXssMatchSet' containing required fields as arguments.
 wafXssMatchSet
   :: Val Text -- ^ 'wafxmsName'

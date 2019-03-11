@@ -29,15 +29,6 @@ instance ToJSON EC2TransitGatewayRoute where
     , (Just . ("TransitGatewayRouteTableId",) . toJSON) _eC2TransitGatewayRouteTransitGatewayRouteTableId
     ]
 
-instance FromJSON EC2TransitGatewayRoute where
-  parseJSON (Object obj) =
-    EC2TransitGatewayRoute <$>
-      fmap (fmap (fmap unBool')) (obj .:? "Blackhole") <*>
-      (obj .:? "DestinationCidrBlock") <*>
-      (obj .:? "TransitGatewayAttachmentId") <*>
-      (obj .: "TransitGatewayRouteTableId")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2TransitGatewayRoute' containing required fields as
 -- arguments.
 ec2TransitGatewayRoute

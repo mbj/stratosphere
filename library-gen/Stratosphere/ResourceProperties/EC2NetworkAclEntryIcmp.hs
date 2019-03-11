@@ -25,13 +25,6 @@ instance ToJSON EC2NetworkAclEntryIcmp where
     , fmap (("Type",) . toJSON . fmap Integer') _eC2NetworkAclEntryIcmpType
     ]
 
-instance FromJSON EC2NetworkAclEntryIcmp where
-  parseJSON (Object obj) =
-    EC2NetworkAclEntryIcmp <$>
-      fmap (fmap (fmap unInteger')) (obj .:? "Code") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "Type")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2NetworkAclEntryIcmp' containing required fields as
 -- arguments.
 ec2NetworkAclEntryIcmp

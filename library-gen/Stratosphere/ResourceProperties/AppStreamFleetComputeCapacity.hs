@@ -23,12 +23,6 @@ instance ToJSON AppStreamFleetComputeCapacity where
     [ (Just . ("DesiredInstances",) . toJSON . fmap Integer') _appStreamFleetComputeCapacityDesiredInstances
     ]
 
-instance FromJSON AppStreamFleetComputeCapacity where
-  parseJSON (Object obj) =
-    AppStreamFleetComputeCapacity <$>
-      fmap (fmap unInteger') (obj .: "DesiredInstances")
-  parseJSON _ = mempty
-
 -- | Constructor for 'AppStreamFleetComputeCapacity' containing required
 -- fields as arguments.
 appStreamFleetComputeCapacity

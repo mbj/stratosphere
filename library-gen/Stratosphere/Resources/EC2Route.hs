@@ -39,20 +39,6 @@ instance ToJSON EC2Route where
     , fmap (("VpcPeeringConnectionId",) . toJSON) _eC2RouteVpcPeeringConnectionId
     ]
 
-instance FromJSON EC2Route where
-  parseJSON (Object obj) =
-    EC2Route <$>
-      (obj .:? "DestinationCidrBlock") <*>
-      (obj .:? "DestinationIpv6CidrBlock") <*>
-      (obj .:? "EgressOnlyInternetGatewayId") <*>
-      (obj .:? "GatewayId") <*>
-      (obj .:? "InstanceId") <*>
-      (obj .:? "NatGatewayId") <*>
-      (obj .:? "NetworkInterfaceId") <*>
-      (obj .: "RouteTableId") <*>
-      (obj .:? "VpcPeeringConnectionId")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2Route' containing required fields as arguments.
 ec2Route
   :: Val Text -- ^ 'ecrRouteTableId'

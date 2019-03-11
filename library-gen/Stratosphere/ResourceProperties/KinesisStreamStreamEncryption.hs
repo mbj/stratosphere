@@ -25,13 +25,6 @@ instance ToJSON KinesisStreamStreamEncryption where
     , (Just . ("KeyId",) . toJSON) _kinesisStreamStreamEncryptionKeyId
     ]
 
-instance FromJSON KinesisStreamStreamEncryption where
-  parseJSON (Object obj) =
-    KinesisStreamStreamEncryption <$>
-      (obj .: "EncryptionType") <*>
-      (obj .: "KeyId")
-  parseJSON _ = mempty
-
 -- | Constructor for 'KinesisStreamStreamEncryption' containing required
 -- fields as arguments.
 kinesisStreamStreamEncryption

@@ -27,14 +27,6 @@ instance ToJSON CloudFrontDistributionLogging where
     , fmap (("Prefix",) . toJSON) _cloudFrontDistributionLoggingPrefix
     ]
 
-instance FromJSON CloudFrontDistributionLogging where
-  parseJSON (Object obj) =
-    CloudFrontDistributionLogging <$>
-      (obj .: "Bucket") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "IncludeCookies") <*>
-      (obj .:? "Prefix")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CloudFrontDistributionLogging' containing required
 -- fields as arguments.
 cloudFrontDistributionLogging

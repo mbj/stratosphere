@@ -25,13 +25,6 @@ instance ToJSON EKSClusterResourcesVpcConfig where
     , (Just . ("SubnetIds",) . toJSON) _eKSClusterResourcesVpcConfigSubnetIds
     ]
 
-instance FromJSON EKSClusterResourcesVpcConfig where
-  parseJSON (Object obj) =
-    EKSClusterResourcesVpcConfig <$>
-      (obj .:? "SecurityGroupIds") <*>
-      (obj .: "SubnetIds")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EKSClusterResourcesVpcConfig' containing required fields
 -- as arguments.
 eksClusterResourcesVpcConfig

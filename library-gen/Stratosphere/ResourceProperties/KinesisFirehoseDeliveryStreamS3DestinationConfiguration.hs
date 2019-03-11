@@ -40,18 +40,6 @@ instance ToJSON KinesisFirehoseDeliveryStreamS3DestinationConfiguration where
     , (Just . ("RoleARN",) . toJSON) _kinesisFirehoseDeliveryStreamS3DestinationConfigurationRoleARN
     ]
 
-instance FromJSON KinesisFirehoseDeliveryStreamS3DestinationConfiguration where
-  parseJSON (Object obj) =
-    KinesisFirehoseDeliveryStreamS3DestinationConfiguration <$>
-      (obj .: "BucketARN") <*>
-      (obj .: "BufferingHints") <*>
-      (obj .:? "CloudWatchLoggingOptions") <*>
-      (obj .: "CompressionFormat") <*>
-      (obj .:? "EncryptionConfiguration") <*>
-      (obj .:? "Prefix") <*>
-      (obj .: "RoleARN")
-  parseJSON _ = mempty
-
 -- | Constructor for 'KinesisFirehoseDeliveryStreamS3DestinationConfiguration'
 -- containing required fields as arguments.
 kinesisFirehoseDeliveryStreamS3DestinationConfiguration

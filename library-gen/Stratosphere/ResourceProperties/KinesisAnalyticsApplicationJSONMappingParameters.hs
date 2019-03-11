@@ -25,12 +25,6 @@ instance ToJSON KinesisAnalyticsApplicationJSONMappingParameters where
     [ (Just . ("RecordRowPath",) . toJSON) _kinesisAnalyticsApplicationJSONMappingParametersRecordRowPath
     ]
 
-instance FromJSON KinesisAnalyticsApplicationJSONMappingParameters where
-  parseJSON (Object obj) =
-    KinesisAnalyticsApplicationJSONMappingParameters <$>
-      (obj .: "RecordRowPath")
-  parseJSON _ = mempty
-
 -- | Constructor for 'KinesisAnalyticsApplicationJSONMappingParameters'
 -- containing required fields as arguments.
 kinesisAnalyticsApplicationJSONMappingParameters

@@ -70,33 +70,6 @@ instance ToJSON AutoScalingAutoScalingGroup where
     , fmap (("VPCZoneIdentifier",) . toJSON) _autoScalingAutoScalingGroupVPCZoneIdentifier
     ]
 
-instance FromJSON AutoScalingAutoScalingGroup where
-  parseJSON (Object obj) =
-    AutoScalingAutoScalingGroup <$>
-      (obj .:? "AutoScalingGroupName") <*>
-      (obj .:? "AvailabilityZones") <*>
-      (obj .:? "Cooldown") <*>
-      (obj .:? "DesiredCapacity") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "HealthCheckGracePeriod") <*>
-      (obj .:? "HealthCheckType") <*>
-      (obj .:? "InstanceId") <*>
-      (obj .:? "LaunchConfigurationName") <*>
-      (obj .:? "LaunchTemplate") <*>
-      (obj .:? "LifecycleHookSpecificationList") <*>
-      (obj .:? "LoadBalancerNames") <*>
-      (obj .: "MaxSize") <*>
-      (obj .:? "MetricsCollection") <*>
-      (obj .: "MinSize") <*>
-      (obj .:? "MixedInstancesPolicy") <*>
-      (obj .:? "NotificationConfigurations") <*>
-      (obj .:? "PlacementGroup") <*>
-      (obj .:? "ServiceLinkedRoleARN") <*>
-      (obj .:? "Tags") <*>
-      (obj .:? "TargetGroupARNs") <*>
-      (obj .:? "TerminationPolicies") <*>
-      (obj .:? "VPCZoneIdentifier")
-  parseJSON _ = mempty
-
 -- | Constructor for 'AutoScalingAutoScalingGroup' containing required fields
 -- as arguments.
 autoScalingAutoScalingGroup

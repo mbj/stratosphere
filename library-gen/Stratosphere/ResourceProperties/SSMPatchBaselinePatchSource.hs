@@ -27,14 +27,6 @@ instance ToJSON SSMPatchBaselinePatchSource where
     , fmap (("Products",) . toJSON) _sSMPatchBaselinePatchSourceProducts
     ]
 
-instance FromJSON SSMPatchBaselinePatchSource where
-  parseJSON (Object obj) =
-    SSMPatchBaselinePatchSource <$>
-      (obj .:? "Configuration") <*>
-      (obj .:? "Name") <*>
-      (obj .:? "Products")
-  parseJSON _ = mempty
-
 -- | Constructor for 'SSMPatchBaselinePatchSource' containing required fields
 -- as arguments.
 ssmPatchBaselinePatchSource

@@ -25,13 +25,6 @@ instance ToJSON GuardDutyDetector where
     , fmap (("FindingPublishingFrequency",) . toJSON) _guardDutyDetectorFindingPublishingFrequency
     ]
 
-instance FromJSON GuardDutyDetector where
-  parseJSON (Object obj) =
-    GuardDutyDetector <$>
-      fmap (fmap unBool') (obj .: "Enable") <*>
-      (obj .:? "FindingPublishingFrequency")
-  parseJSON _ = mempty
-
 -- | Constructor for 'GuardDutyDetector' containing required fields as
 -- arguments.
 guardDutyDetector

@@ -25,13 +25,6 @@ instance ToJSON IoTThingPrincipalAttachment where
     , (Just . ("ThingName",) . toJSON) _ioTThingPrincipalAttachmentThingName
     ]
 
-instance FromJSON IoTThingPrincipalAttachment where
-  parseJSON (Object obj) =
-    IoTThingPrincipalAttachment <$>
-      (obj .: "Principal") <*>
-      (obj .: "ThingName")
-  parseJSON _ = mempty
-
 -- | Constructor for 'IoTThingPrincipalAttachment' containing required fields
 -- as arguments.
 ioTThingPrincipalAttachment

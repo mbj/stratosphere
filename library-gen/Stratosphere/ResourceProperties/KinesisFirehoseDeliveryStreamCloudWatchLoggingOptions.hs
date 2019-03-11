@@ -29,14 +29,6 @@ instance ToJSON KinesisFirehoseDeliveryStreamCloudWatchLoggingOptions where
     , fmap (("LogStreamName",) . toJSON) _kinesisFirehoseDeliveryStreamCloudWatchLoggingOptionsLogStreamName
     ]
 
-instance FromJSON KinesisFirehoseDeliveryStreamCloudWatchLoggingOptions where
-  parseJSON (Object obj) =
-    KinesisFirehoseDeliveryStreamCloudWatchLoggingOptions <$>
-      fmap (fmap (fmap unBool')) (obj .:? "Enabled") <*>
-      (obj .:? "LogGroupName") <*>
-      (obj .:? "LogStreamName")
-  parseJSON _ = mempty
-
 -- | Constructor for 'KinesisFirehoseDeliveryStreamCloudWatchLoggingOptions'
 -- containing required fields as arguments.
 kinesisFirehoseDeliveryStreamCloudWatchLoggingOptions

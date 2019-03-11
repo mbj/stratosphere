@@ -29,15 +29,6 @@ instance ToJSON EC2SpotFleetBlockDeviceMapping where
     , fmap (("VirtualName",) . toJSON) _eC2SpotFleetBlockDeviceMappingVirtualName
     ]
 
-instance FromJSON EC2SpotFleetBlockDeviceMapping where
-  parseJSON (Object obj) =
-    EC2SpotFleetBlockDeviceMapping <$>
-      (obj .: "DeviceName") <*>
-      (obj .:? "Ebs") <*>
-      (obj .:? "NoDevice") <*>
-      (obj .:? "VirtualName")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2SpotFleetBlockDeviceMapping' containing required
 -- fields as arguments.
 ec2SpotFleetBlockDeviceMapping

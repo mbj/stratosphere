@@ -29,15 +29,6 @@ instance ToJSON EC2CustomerGateway where
     , (Just . ("Type",) . toJSON) _eC2CustomerGatewayType
     ]
 
-instance FromJSON EC2CustomerGateway where
-  parseJSON (Object obj) =
-    EC2CustomerGateway <$>
-      fmap (fmap unInteger') (obj .: "BgpAsn") <*>
-      (obj .: "IpAddress") <*>
-      (obj .:? "Tags") <*>
-      (obj .: "Type")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2CustomerGateway' containing required fields as
 -- arguments.
 ec2CustomerGateway

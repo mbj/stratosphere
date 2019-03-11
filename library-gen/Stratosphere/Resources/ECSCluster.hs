@@ -23,12 +23,6 @@ instance ToJSON ECSCluster where
     [ fmap (("ClusterName",) . toJSON) _eCSClusterClusterName
     ]
 
-instance FromJSON ECSCluster where
-  parseJSON (Object obj) =
-    ECSCluster <$>
-      (obj .:? "ClusterName")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ECSCluster' containing required fields as arguments.
 ecsCluster
   :: ECSCluster

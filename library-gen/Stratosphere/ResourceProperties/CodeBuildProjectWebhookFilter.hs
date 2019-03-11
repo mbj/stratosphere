@@ -27,14 +27,6 @@ instance ToJSON CodeBuildProjectWebhookFilter where
     , (Just . ("Type",) . toJSON) _codeBuildProjectWebhookFilterType
     ]
 
-instance FromJSON CodeBuildProjectWebhookFilter where
-  parseJSON (Object obj) =
-    CodeBuildProjectWebhookFilter <$>
-      fmap (fmap (fmap unBool')) (obj .:? "ExcludeMatchedPattern") <*>
-      (obj .: "Pattern") <*>
-      (obj .: "Type")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CodeBuildProjectWebhookFilter' containing required
 -- fields as arguments.
 codeBuildProjectWebhookFilter

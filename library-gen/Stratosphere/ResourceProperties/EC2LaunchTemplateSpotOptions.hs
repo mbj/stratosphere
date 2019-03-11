@@ -27,14 +27,6 @@ instance ToJSON EC2LaunchTemplateSpotOptions where
     , fmap (("SpotInstanceType",) . toJSON) _eC2LaunchTemplateSpotOptionsSpotInstanceType
     ]
 
-instance FromJSON EC2LaunchTemplateSpotOptions where
-  parseJSON (Object obj) =
-    EC2LaunchTemplateSpotOptions <$>
-      (obj .:? "InstanceInterruptionBehavior") <*>
-      (obj .:? "MaxPrice") <*>
-      (obj .:? "SpotInstanceType")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2LaunchTemplateSpotOptions' containing required fields
 -- as arguments.
 ec2LaunchTemplateSpotOptions

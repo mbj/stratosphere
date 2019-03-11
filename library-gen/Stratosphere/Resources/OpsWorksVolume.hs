@@ -29,15 +29,6 @@ instance ToJSON OpsWorksVolume where
     , (Just . ("StackId",) . toJSON) _opsWorksVolumeStackId
     ]
 
-instance FromJSON OpsWorksVolume where
-  parseJSON (Object obj) =
-    OpsWorksVolume <$>
-      (obj .: "Ec2VolumeId") <*>
-      (obj .:? "MountPoint") <*>
-      (obj .:? "Name") <*>
-      (obj .: "StackId")
-  parseJSON _ = mempty
-
 -- | Constructor for 'OpsWorksVolume' containing required fields as arguments.
 opsWorksVolume
   :: Val Text -- ^ 'owvEc2VolumeId'

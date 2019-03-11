@@ -25,13 +25,6 @@ instance ToJSON Cloud9EnvironmentEC2Repository where
     , (Just . ("RepositoryUrl",) . toJSON) _cloud9EnvironmentEC2RepositoryRepositoryUrl
     ]
 
-instance FromJSON Cloud9EnvironmentEC2Repository where
-  parseJSON (Object obj) =
-    Cloud9EnvironmentEC2Repository <$>
-      (obj .: "PathComponent") <*>
-      (obj .: "RepositoryUrl")
-  parseJSON _ = mempty
-
 -- | Constructor for 'Cloud9EnvironmentEC2Repository' containing required
 -- fields as arguments.
 cloud9EnvironmentEC2Repository

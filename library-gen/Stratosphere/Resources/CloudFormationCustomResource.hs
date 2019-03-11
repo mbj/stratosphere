@@ -23,12 +23,6 @@ instance ToJSON CloudFormationCustomResource where
     [ (Just . ("ServiceToken",) . toJSON) _cloudFormationCustomResourceServiceToken
     ]
 
-instance FromJSON CloudFormationCustomResource where
-  parseJSON (Object obj) =
-    CloudFormationCustomResource <$>
-      (obj .: "ServiceToken")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CloudFormationCustomResource' containing required fields
 -- as arguments.
 cloudFormationCustomResource

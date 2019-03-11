@@ -27,13 +27,6 @@ instance ToJSON EC2NetworkInterfacePrivateIpAddressSpecification where
     , (Just . ("PrivateIpAddress",) . toJSON) _eC2NetworkInterfacePrivateIpAddressSpecificationPrivateIpAddress
     ]
 
-instance FromJSON EC2NetworkInterfacePrivateIpAddressSpecification where
-  parseJSON (Object obj) =
-    EC2NetworkInterfacePrivateIpAddressSpecification <$>
-      fmap (fmap unBool') (obj .: "Primary") <*>
-      (obj .: "PrivateIpAddress")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2NetworkInterfacePrivateIpAddressSpecification'
 -- containing required fields as arguments.
 ec2NetworkInterfacePrivateIpAddressSpecification

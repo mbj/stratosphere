@@ -31,16 +31,6 @@ instance ToJSON ECSTaskDefinitionHealthCheck where
     , fmap (("Timeout",) . toJSON . fmap Integer') _eCSTaskDefinitionHealthCheckTimeout
     ]
 
-instance FromJSON ECSTaskDefinitionHealthCheck where
-  parseJSON (Object obj) =
-    ECSTaskDefinitionHealthCheck <$>
-      (obj .: "Command") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "Interval") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "Retries") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "StartPeriod") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "Timeout")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ECSTaskDefinitionHealthCheck' containing required fields
 -- as arguments.
 ecsTaskDefinitionHealthCheck

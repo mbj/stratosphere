@@ -35,17 +35,6 @@ instance ToJSON SageMakerModel where
     , fmap (("VpcConfig",) . toJSON) _sageMakerModelVpcConfig
     ]
 
-instance FromJSON SageMakerModel where
-  parseJSON (Object obj) =
-    SageMakerModel <$>
-      (obj .:? "Containers") <*>
-      (obj .: "ExecutionRoleArn") <*>
-      (obj .:? "ModelName") <*>
-      (obj .:? "PrimaryContainer") <*>
-      (obj .:? "Tags") <*>
-      (obj .:? "VpcConfig")
-  parseJSON _ = mempty
-
 -- | Constructor for 'SageMakerModel' containing required fields as arguments.
 sageMakerModel
   :: Val Text -- ^ 'smmExecutionRoleArn'

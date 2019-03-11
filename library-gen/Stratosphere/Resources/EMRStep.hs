@@ -29,15 +29,6 @@ instance ToJSON EMRStep where
     , (Just . ("Name",) . toJSON) _eMRStepName
     ]
 
-instance FromJSON EMRStep where
-  parseJSON (Object obj) =
-    EMRStep <$>
-      (obj .: "ActionOnFailure") <*>
-      (obj .: "HadoopJarStep") <*>
-      (obj .: "JobFlowId") <*>
-      (obj .: "Name")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EMRStep' containing required fields as arguments.
 emrStep
   :: Val Text -- ^ 'emrsActionOnFailure'

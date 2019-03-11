@@ -25,13 +25,6 @@ instance ToJSON DynamoDBTableTimeToLiveSpecification where
     , (Just . ("Enabled",) . toJSON . fmap Bool') _dynamoDBTableTimeToLiveSpecificationEnabled
     ]
 
-instance FromJSON DynamoDBTableTimeToLiveSpecification where
-  parseJSON (Object obj) =
-    DynamoDBTableTimeToLiveSpecification <$>
-      (obj .: "AttributeName") <*>
-      fmap (fmap unBool') (obj .: "Enabled")
-  parseJSON _ = mempty
-
 -- | Constructor for 'DynamoDBTableTimeToLiveSpecification' containing
 -- required fields as arguments.
 dynamoDBTableTimeToLiveSpecification

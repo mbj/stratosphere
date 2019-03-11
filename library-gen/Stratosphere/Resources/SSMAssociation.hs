@@ -39,19 +39,6 @@ instance ToJSON SSMAssociation where
     , fmap (("Targets",) . toJSON) _sSMAssociationTargets
     ]
 
-instance FromJSON SSMAssociation where
-  parseJSON (Object obj) =
-    SSMAssociation <$>
-      (obj .:? "AssociationName") <*>
-      (obj .:? "DocumentVersion") <*>
-      (obj .:? "InstanceId") <*>
-      (obj .: "Name") <*>
-      (obj .:? "OutputLocation") <*>
-      (obj .:? "Parameters") <*>
-      (obj .:? "ScheduleExpression") <*>
-      (obj .:? "Targets")
-  parseJSON _ = mempty
-
 -- | Constructor for 'SSMAssociation' containing required fields as arguments.
 ssmAssociation
   :: Val Text -- ^ 'ssmaName'

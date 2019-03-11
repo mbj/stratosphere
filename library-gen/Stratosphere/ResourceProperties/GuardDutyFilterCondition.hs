@@ -31,16 +31,6 @@ instance ToJSON GuardDutyFilterCondition where
     , fmap (("Neq",) . toJSON) _guardDutyFilterConditionNeq
     ]
 
-instance FromJSON GuardDutyFilterCondition where
-  parseJSON (Object obj) =
-    GuardDutyFilterCondition <$>
-      (obj .:? "Eq") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "Gte") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "Lt") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "Lte") <*>
-      (obj .:? "Neq")
-  parseJSON _ = mempty
-
 -- | Constructor for 'GuardDutyFilterCondition' containing required fields as
 -- arguments.
 guardDutyFilterCondition

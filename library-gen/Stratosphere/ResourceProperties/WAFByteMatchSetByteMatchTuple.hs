@@ -31,16 +31,6 @@ instance ToJSON WAFByteMatchSetByteMatchTuple where
     , (Just . ("TextTransformation",) . toJSON) _wAFByteMatchSetByteMatchTupleTextTransformation
     ]
 
-instance FromJSON WAFByteMatchSetByteMatchTuple where
-  parseJSON (Object obj) =
-    WAFByteMatchSetByteMatchTuple <$>
-      (obj .: "FieldToMatch") <*>
-      (obj .: "PositionalConstraint") <*>
-      (obj .:? "TargetString") <*>
-      (obj .:? "TargetStringBase64") <*>
-      (obj .: "TextTransformation")
-  parseJSON _ = mempty
-
 -- | Constructor for 'WAFByteMatchSetByteMatchTuple' containing required
 -- fields as arguments.
 wafByteMatchSetByteMatchTuple

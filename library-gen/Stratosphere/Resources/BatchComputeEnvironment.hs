@@ -31,16 +31,6 @@ instance ToJSON BatchComputeEnvironment where
     , (Just . ("Type",) . toJSON) _batchComputeEnvironmentType
     ]
 
-instance FromJSON BatchComputeEnvironment where
-  parseJSON (Object obj) =
-    BatchComputeEnvironment <$>
-      (obj .:? "ComputeEnvironmentName") <*>
-      (obj .:? "ComputeResources") <*>
-      (obj .: "ServiceRole") <*>
-      (obj .:? "State") <*>
-      (obj .: "Type")
-  parseJSON _ = mempty
-
 -- | Constructor for 'BatchComputeEnvironment' containing required fields as
 -- arguments.
 batchComputeEnvironment

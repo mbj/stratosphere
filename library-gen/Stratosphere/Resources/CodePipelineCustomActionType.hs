@@ -37,18 +37,6 @@ instance ToJSON CodePipelineCustomActionType where
     , fmap (("Version",) . toJSON) _codePipelineCustomActionTypeVersion
     ]
 
-instance FromJSON CodePipelineCustomActionType where
-  parseJSON (Object obj) =
-    CodePipelineCustomActionType <$>
-      (obj .: "Category") <*>
-      (obj .:? "ConfigurationProperties") <*>
-      (obj .: "InputArtifactDetails") <*>
-      (obj .: "OutputArtifactDetails") <*>
-      (obj .: "Provider") <*>
-      (obj .:? "Settings") <*>
-      (obj .:? "Version")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CodePipelineCustomActionType' containing required fields
 -- as arguments.
 codePipelineCustomActionType

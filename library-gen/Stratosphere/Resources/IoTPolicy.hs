@@ -25,13 +25,6 @@ instance ToJSON IoTPolicy where
     , fmap (("PolicyName",) . toJSON) _ioTPolicyPolicyName
     ]
 
-instance FromJSON IoTPolicy where
-  parseJSON (Object obj) =
-    IoTPolicy <$>
-      (obj .: "PolicyDocument") <*>
-      (obj .:? "PolicyName")
-  parseJSON _ = mempty
-
 -- | Constructor for 'IoTPolicy' containing required fields as arguments.
 ioTPolicy
   :: Object -- ^ 'itpPolicyDocument'

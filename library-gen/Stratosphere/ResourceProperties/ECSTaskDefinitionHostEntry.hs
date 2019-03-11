@@ -25,13 +25,6 @@ instance ToJSON ECSTaskDefinitionHostEntry where
     , (Just . ("IpAddress",) . toJSON) _eCSTaskDefinitionHostEntryIpAddress
     ]
 
-instance FromJSON ECSTaskDefinitionHostEntry where
-  parseJSON (Object obj) =
-    ECSTaskDefinitionHostEntry <$>
-      (obj .: "Hostname") <*>
-      (obj .: "IpAddress")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ECSTaskDefinitionHostEntry' containing required fields
 -- as arguments.
 ecsTaskDefinitionHostEntry

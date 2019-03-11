@@ -25,13 +25,6 @@ instance ToJSON KMSAlias where
     , (Just . ("TargetKeyId",) . toJSON) _kMSAliasTargetKeyId
     ]
 
-instance FromJSON KMSAlias where
-  parseJSON (Object obj) =
-    KMSAlias <$>
-      (obj .: "AliasName") <*>
-      (obj .: "TargetKeyId")
-  parseJSON _ = mempty
-
 -- | Constructor for 'KMSAlias' containing required fields as arguments.
 kmsAlias
   :: Val Text -- ^ 'kmsaAliasName'

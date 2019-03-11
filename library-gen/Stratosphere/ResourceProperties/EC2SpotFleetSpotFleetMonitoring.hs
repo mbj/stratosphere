@@ -23,12 +23,6 @@ instance ToJSON EC2SpotFleetSpotFleetMonitoring where
     [ fmap (("Enabled",) . toJSON . fmap Bool') _eC2SpotFleetSpotFleetMonitoringEnabled
     ]
 
-instance FromJSON EC2SpotFleetSpotFleetMonitoring where
-  parseJSON (Object obj) =
-    EC2SpotFleetSpotFleetMonitoring <$>
-      fmap (fmap (fmap unBool')) (obj .:? "Enabled")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2SpotFleetSpotFleetMonitoring' containing required
 -- fields as arguments.
 ec2SpotFleetSpotFleetMonitoring

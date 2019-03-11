@@ -29,14 +29,6 @@ instance ToJSON ElasticLoadBalancingV2ListenerRuleFixedResponseConfig where
     , (Just . ("StatusCode",) . toJSON) _elasticLoadBalancingV2ListenerRuleFixedResponseConfigStatusCode
     ]
 
-instance FromJSON ElasticLoadBalancingV2ListenerRuleFixedResponseConfig where
-  parseJSON (Object obj) =
-    ElasticLoadBalancingV2ListenerRuleFixedResponseConfig <$>
-      (obj .:? "ContentType") <*>
-      (obj .:? "MessageBody") <*>
-      (obj .: "StatusCode")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ElasticLoadBalancingV2ListenerRuleFixedResponseConfig'
 -- containing required fields as arguments.
 elasticLoadBalancingV2ListenerRuleFixedResponseConfig

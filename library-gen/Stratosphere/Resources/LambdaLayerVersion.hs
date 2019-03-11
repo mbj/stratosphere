@@ -31,16 +31,6 @@ instance ToJSON LambdaLayerVersion where
     , fmap (("LicenseInfo",) . toJSON) _lambdaLayerVersionLicenseInfo
     ]
 
-instance FromJSON LambdaLayerVersion where
-  parseJSON (Object obj) =
-    LambdaLayerVersion <$>
-      (obj .:? "CompatibleRuntimes") <*>
-      (obj .: "Content") <*>
-      (obj .:? "Description") <*>
-      (obj .:? "LayerName") <*>
-      (obj .:? "LicenseInfo")
-  parseJSON _ = mempty
-
 -- | Constructor for 'LambdaLayerVersion' containing required fields as
 -- arguments.
 lambdaLayerVersion

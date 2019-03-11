@@ -35,18 +35,6 @@ instance ToJSON CognitoUserPoolClient where
     , fmap (("WriteAttributes",) . toJSON) _cognitoUserPoolClientWriteAttributes
     ]
 
-instance FromJSON CognitoUserPoolClient where
-  parseJSON (Object obj) =
-    CognitoUserPoolClient <$>
-      (obj .:? "ClientName") <*>
-      (obj .:? "ExplicitAuthFlows") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "GenerateSecret") <*>
-      (obj .:? "ReadAttributes") <*>
-      fmap (fmap (fmap unDouble')) (obj .:? "RefreshTokenValidity") <*>
-      (obj .: "UserPoolId") <*>
-      (obj .:? "WriteAttributes")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CognitoUserPoolClient' containing required fields as
 -- arguments.
 cognitoUserPoolClient

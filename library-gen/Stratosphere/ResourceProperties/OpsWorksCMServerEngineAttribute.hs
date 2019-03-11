@@ -25,13 +25,6 @@ instance ToJSON OpsWorksCMServerEngineAttribute where
     , fmap (("Value",) . toJSON) _opsWorksCMServerEngineAttributeValue
     ]
 
-instance FromJSON OpsWorksCMServerEngineAttribute where
-  parseJSON (Object obj) =
-    OpsWorksCMServerEngineAttribute <$>
-      (obj .:? "Name") <*>
-      (obj .:? "Value")
-  parseJSON _ = mempty
-
 -- | Constructor for 'OpsWorksCMServerEngineAttribute' containing required
 -- fields as arguments.
 opsWorksCMServerEngineAttribute

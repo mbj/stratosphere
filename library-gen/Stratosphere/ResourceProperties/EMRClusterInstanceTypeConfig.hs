@@ -34,17 +34,6 @@ instance ToJSON EMRClusterInstanceTypeConfig where
     , fmap (("WeightedCapacity",) . toJSON . fmap Integer') _eMRClusterInstanceTypeConfigWeightedCapacity
     ]
 
-instance FromJSON EMRClusterInstanceTypeConfig where
-  parseJSON (Object obj) =
-    EMRClusterInstanceTypeConfig <$>
-      (obj .:? "BidPrice") <*>
-      fmap (fmap (fmap unDouble')) (obj .:? "BidPriceAsPercentageOfOnDemandPrice") <*>
-      (obj .:? "Configurations") <*>
-      (obj .:? "EbsConfiguration") <*>
-      (obj .: "InstanceType") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "WeightedCapacity")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EMRClusterInstanceTypeConfig' containing required fields
 -- as arguments.
 emrClusterInstanceTypeConfig

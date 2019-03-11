@@ -39,20 +39,6 @@ instance ToJSON IoTTopicRuleDynamoDBAction where
     , (Just . ("TableName",) . toJSON) _ioTTopicRuleDynamoDBActionTableName
     ]
 
-instance FromJSON IoTTopicRuleDynamoDBAction where
-  parseJSON (Object obj) =
-    IoTTopicRuleDynamoDBAction <$>
-      (obj .: "HashKeyField") <*>
-      (obj .:? "HashKeyType") <*>
-      (obj .: "HashKeyValue") <*>
-      (obj .:? "PayloadField") <*>
-      (obj .:? "RangeKeyField") <*>
-      (obj .:? "RangeKeyType") <*>
-      (obj .:? "RangeKeyValue") <*>
-      (obj .: "RoleArn") <*>
-      (obj .: "TableName")
-  parseJSON _ = mempty
-
 -- | Constructor for 'IoTTopicRuleDynamoDBAction' containing required fields
 -- as arguments.
 ioTTopicRuleDynamoDBAction

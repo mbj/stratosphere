@@ -30,15 +30,6 @@ instance ToJSON CloudFrontDistributionForwardedValues where
     , fmap (("QueryStringCacheKeys",) . toJSON) _cloudFrontDistributionForwardedValuesQueryStringCacheKeys
     ]
 
-instance FromJSON CloudFrontDistributionForwardedValues where
-  parseJSON (Object obj) =
-    CloudFrontDistributionForwardedValues <$>
-      (obj .:? "Cookies") <*>
-      (obj .:? "Headers") <*>
-      fmap (fmap unBool') (obj .: "QueryString") <*>
-      (obj .:? "QueryStringCacheKeys")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CloudFrontDistributionForwardedValues' containing
 -- required fields as arguments.
 cloudFrontDistributionForwardedValues

@@ -43,21 +43,6 @@ instance ToJSON CognitoIdentityPool where
     , fmap (("SupportedLoginProviders",) . toJSON) _cognitoIdentityPoolSupportedLoginProviders
     ]
 
-instance FromJSON CognitoIdentityPool where
-  parseJSON (Object obj) =
-    CognitoIdentityPool <$>
-      fmap (fmap unBool') (obj .: "AllowUnauthenticatedIdentities") <*>
-      (obj .:? "CognitoEvents") <*>
-      (obj .:? "CognitoIdentityProviders") <*>
-      (obj .:? "CognitoStreams") <*>
-      (obj .:? "DeveloperProviderName") <*>
-      (obj .:? "IdentityPoolName") <*>
-      (obj .:? "OpenIdConnectProviderARNs") <*>
-      (obj .:? "PushSync") <*>
-      (obj .:? "SamlProviderARNs") <*>
-      (obj .:? "SupportedLoginProviders")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CognitoIdentityPool' containing required fields as
 -- arguments.
 cognitoIdentityPool

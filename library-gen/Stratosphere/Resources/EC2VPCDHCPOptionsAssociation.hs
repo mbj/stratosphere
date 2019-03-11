@@ -25,13 +25,6 @@ instance ToJSON EC2VPCDHCPOptionsAssociation where
     , (Just . ("VpcId",) . toJSON) _eC2VPCDHCPOptionsAssociationVpcId
     ]
 
-instance FromJSON EC2VPCDHCPOptionsAssociation where
-  parseJSON (Object obj) =
-    EC2VPCDHCPOptionsAssociation <$>
-      (obj .: "DhcpOptionsId") <*>
-      (obj .: "VpcId")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2VPCDHCPOptionsAssociation' containing required fields
 -- as arguments.
 ec2VPCDHCPOptionsAssociation

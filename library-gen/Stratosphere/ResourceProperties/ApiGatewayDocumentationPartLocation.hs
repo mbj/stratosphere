@@ -31,16 +31,6 @@ instance ToJSON ApiGatewayDocumentationPartLocation where
     , fmap (("Type",) . toJSON) _apiGatewayDocumentationPartLocationType
     ]
 
-instance FromJSON ApiGatewayDocumentationPartLocation where
-  parseJSON (Object obj) =
-    ApiGatewayDocumentationPartLocation <$>
-      (obj .:? "Method") <*>
-      (obj .:? "Name") <*>
-      (obj .:? "Path") <*>
-      (obj .:? "StatusCode") <*>
-      (obj .:? "Type")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ApiGatewayDocumentationPartLocation' containing required
 -- fields as arguments.
 apiGatewayDocumentationPartLocation

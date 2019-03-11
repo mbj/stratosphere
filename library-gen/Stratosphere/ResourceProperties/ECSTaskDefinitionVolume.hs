@@ -28,14 +28,6 @@ instance ToJSON ECSTaskDefinitionVolume where
     , fmap (("Name",) . toJSON) _eCSTaskDefinitionVolumeName
     ]
 
-instance FromJSON ECSTaskDefinitionVolume where
-  parseJSON (Object obj) =
-    ECSTaskDefinitionVolume <$>
-      (obj .:? "DockerVolumeConfiguration") <*>
-      (obj .:? "Host") <*>
-      (obj .:? "Name")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ECSTaskDefinitionVolume' containing required fields as
 -- arguments.
 ecsTaskDefinitionVolume

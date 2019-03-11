@@ -25,13 +25,6 @@ instance ToJSON OpsWorksStackChefConfiguration where
     , fmap (("ManageBerkshelf",) . toJSON . fmap Bool') _opsWorksStackChefConfigurationManageBerkshelf
     ]
 
-instance FromJSON OpsWorksStackChefConfiguration where
-  parseJSON (Object obj) =
-    OpsWorksStackChefConfiguration <$>
-      (obj .:? "BerkshelfVersion") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "ManageBerkshelf")
-  parseJSON _ = mempty
-
 -- | Constructor for 'OpsWorksStackChefConfiguration' containing required
 -- fields as arguments.
 opsWorksStackChefConfiguration

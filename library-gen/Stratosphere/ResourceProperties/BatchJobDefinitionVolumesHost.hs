@@ -23,12 +23,6 @@ instance ToJSON BatchJobDefinitionVolumesHost where
     [ fmap (("SourcePath",) . toJSON) _batchJobDefinitionVolumesHostSourcePath
     ]
 
-instance FromJSON BatchJobDefinitionVolumesHost where
-  parseJSON (Object obj) =
-    BatchJobDefinitionVolumesHost <$>
-      (obj .:? "SourcePath")
-  parseJSON _ = mempty
-
 -- | Constructor for 'BatchJobDefinitionVolumesHost' containing required
 -- fields as arguments.
 batchJobDefinitionVolumesHost

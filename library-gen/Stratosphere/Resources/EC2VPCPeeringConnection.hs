@@ -33,17 +33,6 @@ instance ToJSON EC2VPCPeeringConnection where
     , (Just . ("VpcId",) . toJSON) _eC2VPCPeeringConnectionVpcId
     ]
 
-instance FromJSON EC2VPCPeeringConnection where
-  parseJSON (Object obj) =
-    EC2VPCPeeringConnection <$>
-      (obj .:? "PeerOwnerId") <*>
-      (obj .:? "PeerRegion") <*>
-      (obj .:? "PeerRoleArn") <*>
-      (obj .: "PeerVpcId") <*>
-      (obj .:? "Tags") <*>
-      (obj .: "VpcId")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2VPCPeeringConnection' containing required fields as
 -- arguments.
 ec2VPCPeeringConnection

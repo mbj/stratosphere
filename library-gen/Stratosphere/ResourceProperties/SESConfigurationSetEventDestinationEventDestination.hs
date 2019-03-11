@@ -34,16 +34,6 @@ instance ToJSON SESConfigurationSetEventDestinationEventDestination where
     , fmap (("Name",) . toJSON) _sESConfigurationSetEventDestinationEventDestinationName
     ]
 
-instance FromJSON SESConfigurationSetEventDestinationEventDestination where
-  parseJSON (Object obj) =
-    SESConfigurationSetEventDestinationEventDestination <$>
-      (obj .:? "CloudWatchDestination") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "Enabled") <*>
-      (obj .:? "KinesisFirehoseDestination") <*>
-      (obj .: "MatchingEventTypes") <*>
-      (obj .:? "Name")
-  parseJSON _ = mempty
-
 -- | Constructor for 'SESConfigurationSetEventDestinationEventDestination'
 -- containing required fields as arguments.
 sesConfigurationSetEventDestinationEventDestination

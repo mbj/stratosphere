@@ -43,22 +43,6 @@ instance ToJSON BudgetsBudgetCostTypes where
     , fmap (("UseBlended",) . toJSON . fmap Bool') _budgetsBudgetCostTypesUseBlended
     ]
 
-instance FromJSON BudgetsBudgetCostTypes where
-  parseJSON (Object obj) =
-    BudgetsBudgetCostTypes <$>
-      fmap (fmap (fmap unBool')) (obj .:? "IncludeCredit") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "IncludeDiscount") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "IncludeOtherSubscription") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "IncludeRecurring") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "IncludeRefund") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "IncludeSubscription") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "IncludeSupport") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "IncludeTax") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "IncludeUpfront") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "UseAmortized") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "UseBlended")
-  parseJSON _ = mempty
-
 -- | Constructor for 'BudgetsBudgetCostTypes' containing required fields as
 -- arguments.
 budgetsBudgetCostTypes

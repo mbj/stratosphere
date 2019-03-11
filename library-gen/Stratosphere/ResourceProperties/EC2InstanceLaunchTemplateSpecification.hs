@@ -28,14 +28,6 @@ instance ToJSON EC2InstanceLaunchTemplateSpecification where
     , (Just . ("Version",) . toJSON) _eC2InstanceLaunchTemplateSpecificationVersion
     ]
 
-instance FromJSON EC2InstanceLaunchTemplateSpecification where
-  parseJSON (Object obj) =
-    EC2InstanceLaunchTemplateSpecification <$>
-      (obj .:? "LaunchTemplateId") <*>
-      (obj .:? "LaunchTemplateName") <*>
-      (obj .: "Version")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2InstanceLaunchTemplateSpecification' containing
 -- required fields as arguments.
 ec2InstanceLaunchTemplateSpecification

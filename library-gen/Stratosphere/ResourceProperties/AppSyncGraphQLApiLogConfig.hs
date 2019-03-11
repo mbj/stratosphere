@@ -25,13 +25,6 @@ instance ToJSON AppSyncGraphQLApiLogConfig where
     , fmap (("FieldLogLevel",) . toJSON) _appSyncGraphQLApiLogConfigFieldLogLevel
     ]
 
-instance FromJSON AppSyncGraphQLApiLogConfig where
-  parseJSON (Object obj) =
-    AppSyncGraphQLApiLogConfig <$>
-      (obj .:? "CloudWatchLogsRoleArn") <*>
-      (obj .:? "FieldLogLevel")
-  parseJSON _ = mempty
-
 -- | Constructor for 'AppSyncGraphQLApiLogConfig' containing required fields
 -- as arguments.
 appSyncGraphQLApiLogConfig

@@ -25,12 +25,6 @@ instance ToJSON SecretsManagerRotationScheduleRotationRules where
     [ fmap (("AutomaticallyAfterDays",) . toJSON . fmap Integer') _secretsManagerRotationScheduleRotationRulesAutomaticallyAfterDays
     ]
 
-instance FromJSON SecretsManagerRotationScheduleRotationRules where
-  parseJSON (Object obj) =
-    SecretsManagerRotationScheduleRotationRules <$>
-      fmap (fmap (fmap unInteger')) (obj .:? "AutomaticallyAfterDays")
-  parseJSON _ = mempty
-
 -- | Constructor for 'SecretsManagerRotationScheduleRotationRules' containing
 -- required fields as arguments.
 secretsManagerRotationScheduleRotationRules

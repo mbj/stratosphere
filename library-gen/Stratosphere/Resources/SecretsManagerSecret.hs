@@ -34,17 +34,6 @@ instance ToJSON SecretsManagerSecret where
     , fmap (("Tags",) . toJSON) _secretsManagerSecretTags
     ]
 
-instance FromJSON SecretsManagerSecret where
-  parseJSON (Object obj) =
-    SecretsManagerSecret <$>
-      (obj .:? "Description") <*>
-      (obj .:? "GenerateSecretString") <*>
-      (obj .:? "KmsKeyId") <*>
-      (obj .:? "Name") <*>
-      (obj .:? "SecretString") <*>
-      (obj .:? "Tags")
-  parseJSON _ = mempty
-
 -- | Constructor for 'SecretsManagerSecret' containing required fields as
 -- arguments.
 secretsManagerSecret

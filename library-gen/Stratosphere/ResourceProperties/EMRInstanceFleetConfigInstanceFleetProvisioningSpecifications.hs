@@ -25,12 +25,6 @@ instance ToJSON EMRInstanceFleetConfigInstanceFleetProvisioningSpecifications wh
     [ (Just . ("SpotSpecification",) . toJSON) _eMRInstanceFleetConfigInstanceFleetProvisioningSpecificationsSpotSpecification
     ]
 
-instance FromJSON EMRInstanceFleetConfigInstanceFleetProvisioningSpecifications where
-  parseJSON (Object obj) =
-    EMRInstanceFleetConfigInstanceFleetProvisioningSpecifications <$>
-      (obj .: "SpotSpecification")
-  parseJSON _ = mempty
-
 -- | Constructor for
 -- 'EMRInstanceFleetConfigInstanceFleetProvisioningSpecifications'
 -- containing required fields as arguments.

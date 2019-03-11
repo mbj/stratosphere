@@ -25,13 +25,6 @@ instance ToJSON AppSyncDataSourceElasticsearchConfig where
     , (Just . ("Endpoint",) . toJSON) _appSyncDataSourceElasticsearchConfigEndpoint
     ]
 
-instance FromJSON AppSyncDataSourceElasticsearchConfig where
-  parseJSON (Object obj) =
-    AppSyncDataSourceElasticsearchConfig <$>
-      (obj .: "AwsRegion") <*>
-      (obj .: "Endpoint")
-  parseJSON _ = mempty
-
 -- | Constructor for 'AppSyncDataSourceElasticsearchConfig' containing
 -- required fields as arguments.
 appSyncDataSourceElasticsearchConfig

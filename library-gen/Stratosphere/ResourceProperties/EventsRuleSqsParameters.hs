@@ -23,12 +23,6 @@ instance ToJSON EventsRuleSqsParameters where
     [ (Just . ("MessageGroupId",) . toJSON) _eventsRuleSqsParametersMessageGroupId
     ]
 
-instance FromJSON EventsRuleSqsParameters where
-  parseJSON (Object obj) =
-    EventsRuleSqsParameters <$>
-      (obj .: "MessageGroupId")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EventsRuleSqsParameters' containing required fields as
 -- arguments.
 eventsRuleSqsParameters

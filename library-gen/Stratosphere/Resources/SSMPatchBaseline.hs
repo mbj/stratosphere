@@ -47,23 +47,6 @@ instance ToJSON SSMPatchBaseline where
     , fmap (("Sources",) . toJSON) _sSMPatchBaselineSources
     ]
 
-instance FromJSON SSMPatchBaseline where
-  parseJSON (Object obj) =
-    SSMPatchBaseline <$>
-      (obj .:? "ApprovalRules") <*>
-      (obj .:? "ApprovedPatches") <*>
-      (obj .:? "ApprovedPatchesComplianceLevel") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "ApprovedPatchesEnableNonSecurity") <*>
-      (obj .:? "Description") <*>
-      (obj .:? "GlobalFilters") <*>
-      (obj .: "Name") <*>
-      (obj .:? "OperatingSystem") <*>
-      (obj .:? "PatchGroups") <*>
-      (obj .:? "RejectedPatches") <*>
-      (obj .:? "RejectedPatchesAction") <*>
-      (obj .:? "Sources")
-  parseJSON _ = mempty
-
 -- | Constructor for 'SSMPatchBaseline' containing required fields as
 -- arguments.
 ssmPatchBaseline

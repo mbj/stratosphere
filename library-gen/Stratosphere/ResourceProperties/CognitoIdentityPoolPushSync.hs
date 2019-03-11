@@ -25,13 +25,6 @@ instance ToJSON CognitoIdentityPoolPushSync where
     , fmap (("RoleArn",) . toJSON) _cognitoIdentityPoolPushSyncRoleArn
     ]
 
-instance FromJSON CognitoIdentityPoolPushSync where
-  parseJSON (Object obj) =
-    CognitoIdentityPoolPushSync <$>
-      (obj .:? "ApplicationArns") <*>
-      (obj .:? "RoleArn")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CognitoIdentityPoolPushSync' containing required fields
 -- as arguments.
 cognitoIdentityPoolPushSync

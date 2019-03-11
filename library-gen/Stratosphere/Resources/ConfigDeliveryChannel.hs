@@ -31,16 +31,6 @@ instance ToJSON ConfigDeliveryChannel where
     , fmap (("SnsTopicARN",) . toJSON) _configDeliveryChannelSnsTopicARN
     ]
 
-instance FromJSON ConfigDeliveryChannel where
-  parseJSON (Object obj) =
-    ConfigDeliveryChannel <$>
-      (obj .:? "ConfigSnapshotDeliveryProperties") <*>
-      (obj .:? "Name") <*>
-      (obj .: "S3BucketName") <*>
-      (obj .:? "S3KeyPrefix") <*>
-      (obj .:? "SnsTopicARN")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ConfigDeliveryChannel' containing required fields as
 -- arguments.
 configDeliveryChannel

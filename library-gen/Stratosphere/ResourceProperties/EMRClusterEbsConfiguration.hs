@@ -25,13 +25,6 @@ instance ToJSON EMRClusterEbsConfiguration where
     , fmap (("EbsOptimized",) . toJSON . fmap Bool') _eMRClusterEbsConfigurationEbsOptimized
     ]
 
-instance FromJSON EMRClusterEbsConfiguration where
-  parseJSON (Object obj) =
-    EMRClusterEbsConfiguration <$>
-      (obj .:? "EbsBlockDeviceConfigs") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "EbsOptimized")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EMRClusterEbsConfiguration' containing required fields
 -- as arguments.
 emrClusterEbsConfiguration

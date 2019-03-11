@@ -43,21 +43,6 @@ instance ToJSON AppStreamStack where
     , fmap (("UserSettings",) . toJSON) _appStreamStackUserSettings
     ]
 
-instance FromJSON AppStreamStack where
-  parseJSON (Object obj) =
-    AppStreamStack <$>
-      (obj .:? "ApplicationSettings") <*>
-      (obj .:? "AttributesToDelete") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "DeleteStorageConnectors") <*>
-      (obj .:? "Description") <*>
-      (obj .:? "DisplayName") <*>
-      (obj .:? "FeedbackURL") <*>
-      (obj .:? "Name") <*>
-      (obj .:? "RedirectURL") <*>
-      (obj .:? "StorageConnectors") <*>
-      (obj .:? "UserSettings")
-  parseJSON _ = mempty
-
 -- | Constructor for 'AppStreamStack' containing required fields as arguments.
 appStreamStack
   :: AppStreamStack

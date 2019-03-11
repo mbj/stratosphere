@@ -37,19 +37,6 @@ instance ToJSON CodeBuildProjectSource where
     , (Just . ("Type",) . toJSON) _codeBuildProjectSourceType
     ]
 
-instance FromJSON CodeBuildProjectSource where
-  parseJSON (Object obj) =
-    CodeBuildProjectSource <$>
-      (obj .:? "Auth") <*>
-      (obj .:? "BuildSpec") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "GitCloneDepth") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "InsecureSsl") <*>
-      (obj .:? "Location") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "ReportBuildStatus") <*>
-      (obj .:? "SourceIdentifier") <*>
-      (obj .: "Type")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CodeBuildProjectSource' containing required fields as
 -- arguments.
 codeBuildProjectSource

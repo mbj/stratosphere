@@ -29,15 +29,6 @@ instance ToJSON EC2NetworkInterfaceAttachment where
     , (Just . ("NetworkInterfaceId",) . toJSON) _eC2NetworkInterfaceAttachmentNetworkInterfaceId
     ]
 
-instance FromJSON EC2NetworkInterfaceAttachment where
-  parseJSON (Object obj) =
-    EC2NetworkInterfaceAttachment <$>
-      fmap (fmap (fmap unBool')) (obj .:? "DeleteOnTermination") <*>
-      (obj .: "DeviceIndex") <*>
-      (obj .: "InstanceId") <*>
-      (obj .: "NetworkInterfaceId")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2NetworkInterfaceAttachment' containing required
 -- fields as arguments.
 ec2NetworkInterfaceAttachment

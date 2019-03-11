@@ -29,15 +29,6 @@ instance ToJSON ApiGatewayStageCanarySetting where
     , fmap (("UseStageCache",) . toJSON . fmap Bool') _apiGatewayStageCanarySettingUseStageCache
     ]
 
-instance FromJSON ApiGatewayStageCanarySetting where
-  parseJSON (Object obj) =
-    ApiGatewayStageCanarySetting <$>
-      (obj .:? "DeploymentId") <*>
-      fmap (fmap (fmap unDouble')) (obj .:? "PercentTraffic") <*>
-      (obj .:? "StageVariableOverrides") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "UseStageCache")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ApiGatewayStageCanarySetting' containing required fields
 -- as arguments.
 apiGatewayStageCanarySetting

@@ -23,12 +23,6 @@ instance ToJSON BatchJobDefinitionRetryStrategy where
     [ fmap (("Attempts",) . toJSON . fmap Integer') _batchJobDefinitionRetryStrategyAttempts
     ]
 
-instance FromJSON BatchJobDefinitionRetryStrategy where
-  parseJSON (Object obj) =
-    BatchJobDefinitionRetryStrategy <$>
-      fmap (fmap (fmap unInteger')) (obj .:? "Attempts")
-  parseJSON _ = mempty
-
 -- | Constructor for 'BatchJobDefinitionRetryStrategy' containing required
 -- fields as arguments.
 batchJobDefinitionRetryStrategy

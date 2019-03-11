@@ -25,12 +25,6 @@ instance ToJSON KinesisAnalyticsApplicationOutputDestinationSchema where
     [ fmap (("RecordFormatType",) . toJSON) _kinesisAnalyticsApplicationOutputDestinationSchemaRecordFormatType
     ]
 
-instance FromJSON KinesisAnalyticsApplicationOutputDestinationSchema where
-  parseJSON (Object obj) =
-    KinesisAnalyticsApplicationOutputDestinationSchema <$>
-      (obj .:? "RecordFormatType")
-  parseJSON _ = mempty
-
 -- | Constructor for 'KinesisAnalyticsApplicationOutputDestinationSchema'
 -- containing required fields as arguments.
 kinesisAnalyticsApplicationOutputDestinationSchema

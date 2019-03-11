@@ -24,12 +24,6 @@ instance ToJSON ECSTaskDefinitionRepositoryCredentials where
     [ fmap (("CredentialsParameter",) . toJSON) _eCSTaskDefinitionRepositoryCredentialsCredentialsParameter
     ]
 
-instance FromJSON ECSTaskDefinitionRepositoryCredentials where
-  parseJSON (Object obj) =
-    ECSTaskDefinitionRepositoryCredentials <$>
-      (obj .:? "CredentialsParameter")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ECSTaskDefinitionRepositoryCredentials' containing
 -- required fields as arguments.
 ecsTaskDefinitionRepositoryCredentials

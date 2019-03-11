@@ -25,13 +25,6 @@ instance ToJSON EventsRuleInputTransformer where
     , (Just . ("InputTemplate",) . toJSON) _eventsRuleInputTransformerInputTemplate
     ]
 
-instance FromJSON EventsRuleInputTransformer where
-  parseJSON (Object obj) =
-    EventsRuleInputTransformer <$>
-      (obj .:? "InputPathsMap") <*>
-      (obj .: "InputTemplate")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EventsRuleInputTransformer' containing required fields
 -- as arguments.
 eventsRuleInputTransformer

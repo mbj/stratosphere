@@ -44,20 +44,6 @@ instance ToJSON KinesisFirehoseDeliveryStreamSplunkDestinationConfiguration wher
     , (Just . ("S3Configuration",) . toJSON) _kinesisFirehoseDeliveryStreamSplunkDestinationConfigurationS3Configuration
     ]
 
-instance FromJSON KinesisFirehoseDeliveryStreamSplunkDestinationConfiguration where
-  parseJSON (Object obj) =
-    KinesisFirehoseDeliveryStreamSplunkDestinationConfiguration <$>
-      (obj .:? "CloudWatchLoggingOptions") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "HECAcknowledgmentTimeoutInSeconds") <*>
-      (obj .: "HECEndpoint") <*>
-      (obj .: "HECEndpointType") <*>
-      (obj .: "HECToken") <*>
-      (obj .:? "ProcessingConfiguration") <*>
-      (obj .:? "RetryOptions") <*>
-      (obj .:? "S3BackupMode") <*>
-      (obj .: "S3Configuration")
-  parseJSON _ = mempty
-
 -- | Constructor for
 -- 'KinesisFirehoseDeliveryStreamSplunkDestinationConfiguration' containing
 -- required fields as arguments.

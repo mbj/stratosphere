@@ -27,14 +27,6 @@ instance ToJSON GlueClassifierXMLClassifier where
     , (Just . ("RowTag",) . toJSON) _glueClassifierXMLClassifierRowTag
     ]
 
-instance FromJSON GlueClassifierXMLClassifier where
-  parseJSON (Object obj) =
-    GlueClassifierXMLClassifier <$>
-      (obj .: "Classification") <*>
-      (obj .:? "Name") <*>
-      (obj .: "RowTag")
-  parseJSON _ = mempty
-
 -- | Constructor for 'GlueClassifierXMLClassifier' containing required fields
 -- as arguments.
 glueClassifierXMLClassifier

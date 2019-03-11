@@ -25,13 +25,6 @@ instance ToJSON WAFByteMatchSetFieldToMatch where
     , (Just . ("Type",) . toJSON) _wAFByteMatchSetFieldToMatchType
     ]
 
-instance FromJSON WAFByteMatchSetFieldToMatch where
-  parseJSON (Object obj) =
-    WAFByteMatchSetFieldToMatch <$>
-      (obj .:? "Data") <*>
-      (obj .: "Type")
-  parseJSON _ = mempty
-
 -- | Constructor for 'WAFByteMatchSetFieldToMatch' containing required fields
 -- as arguments.
 wafByteMatchSetFieldToMatch

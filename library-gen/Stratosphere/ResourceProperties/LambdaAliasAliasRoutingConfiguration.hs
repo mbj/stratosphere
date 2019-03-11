@@ -23,12 +23,6 @@ instance ToJSON LambdaAliasAliasRoutingConfiguration where
     [ (Just . ("AdditionalVersionWeights",) . toJSON) _lambdaAliasAliasRoutingConfigurationAdditionalVersionWeights
     ]
 
-instance FromJSON LambdaAliasAliasRoutingConfiguration where
-  parseJSON (Object obj) =
-    LambdaAliasAliasRoutingConfiguration <$>
-      (obj .: "AdditionalVersionWeights")
-  parseJSON _ = mempty
-
 -- | Constructor for 'LambdaAliasAliasRoutingConfiguration' containing
 -- required fields as arguments.
 lambdaAliasAliasRoutingConfiguration

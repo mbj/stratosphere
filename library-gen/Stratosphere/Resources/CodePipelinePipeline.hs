@@ -38,18 +38,6 @@ instance ToJSON CodePipelinePipeline where
     , (Just . ("Stages",) . toJSON) _codePipelinePipelineStages
     ]
 
-instance FromJSON CodePipelinePipeline where
-  parseJSON (Object obj) =
-    CodePipelinePipeline <$>
-      (obj .:? "ArtifactStore") <*>
-      (obj .:? "ArtifactStores") <*>
-      (obj .:? "DisableInboundStageTransitions") <*>
-      (obj .:? "Name") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "RestartExecutionOnUpdate") <*>
-      (obj .: "RoleArn") <*>
-      (obj .: "Stages")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CodePipelinePipeline' containing required fields as
 -- arguments.
 codePipelinePipeline

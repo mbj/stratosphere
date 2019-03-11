@@ -26,12 +26,6 @@ instance ToJSON SageMakerNotebookInstanceLifecycleConfigNotebookInstanceLifecycl
     [ fmap (("Content",) . toJSON) _sageMakerNotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookContent
     ]
 
-instance FromJSON SageMakerNotebookInstanceLifecycleConfigNotebookInstanceLifecycleHook where
-  parseJSON (Object obj) =
-    SageMakerNotebookInstanceLifecycleConfigNotebookInstanceLifecycleHook <$>
-      (obj .:? "Content")
-  parseJSON _ = mempty
-
 -- | Constructor for
 -- 'SageMakerNotebookInstanceLifecycleConfigNotebookInstanceLifecycleHook'
 -- containing required fields as arguments.

@@ -23,12 +23,6 @@ instance ToJSON StepFunctionsActivity where
     [ (Just . ("Name",) . toJSON) _stepFunctionsActivityName
     ]
 
-instance FromJSON StepFunctionsActivity where
-  parseJSON (Object obj) =
-    StepFunctionsActivity <$>
-      (obj .: "Name")
-  parseJSON _ = mempty
-
 -- | Constructor for 'StepFunctionsActivity' containing required fields as
 -- arguments.
 stepFunctionsActivity

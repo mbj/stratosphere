@@ -26,13 +26,6 @@ instance ToJSON EMRClusterScriptBootstrapActionConfig where
     , (Just . ("Path",) . toJSON) _eMRClusterScriptBootstrapActionConfigPath
     ]
 
-instance FromJSON EMRClusterScriptBootstrapActionConfig where
-  parseJSON (Object obj) =
-    EMRClusterScriptBootstrapActionConfig <$>
-      (obj .:? "Args") <*>
-      (obj .: "Path")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EMRClusterScriptBootstrapActionConfig' containing
 -- required fields as arguments.
 emrClusterScriptBootstrapActionConfig

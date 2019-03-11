@@ -25,13 +25,6 @@ instance ToJSON EventsRuleRunCommandTarget where
     , (Just . ("Values",) . toJSON) _eventsRuleRunCommandTargetValues
     ]
 
-instance FromJSON EventsRuleRunCommandTarget where
-  parseJSON (Object obj) =
-    EventsRuleRunCommandTarget <$>
-      (obj .: "Key") <*>
-      (obj .: "Values")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EventsRuleRunCommandTarget' containing required fields
 -- as arguments.
 eventsRuleRunCommandTarget

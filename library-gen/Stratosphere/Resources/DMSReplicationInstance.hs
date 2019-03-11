@@ -49,25 +49,6 @@ instance ToJSON DMSReplicationInstance where
     , fmap (("VpcSecurityGroupIds",) . toJSON) _dMSReplicationInstanceVpcSecurityGroupIds
     ]
 
-instance FromJSON DMSReplicationInstance where
-  parseJSON (Object obj) =
-    DMSReplicationInstance <$>
-      fmap (fmap (fmap unInteger')) (obj .:? "AllocatedStorage") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "AllowMajorVersionUpgrade") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "AutoMinorVersionUpgrade") <*>
-      (obj .:? "AvailabilityZone") <*>
-      (obj .:? "EngineVersion") <*>
-      (obj .:? "KmsKeyId") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "MultiAZ") <*>
-      (obj .:? "PreferredMaintenanceWindow") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "PubliclyAccessible") <*>
-      (obj .: "ReplicationInstanceClass") <*>
-      (obj .:? "ReplicationInstanceIdentifier") <*>
-      (obj .:? "ReplicationSubnetGroupIdentifier") <*>
-      (obj .:? "Tags") <*>
-      (obj .:? "VpcSecurityGroupIds")
-  parseJSON _ = mempty
-
 -- | Constructor for 'DMSReplicationInstance' containing required fields as
 -- arguments.
 dmsReplicationInstance

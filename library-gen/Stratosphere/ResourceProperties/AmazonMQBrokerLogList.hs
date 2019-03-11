@@ -25,13 +25,6 @@ instance ToJSON AmazonMQBrokerLogList where
     , fmap (("General",) . toJSON . fmap Bool') _amazonMQBrokerLogListGeneral
     ]
 
-instance FromJSON AmazonMQBrokerLogList where
-  parseJSON (Object obj) =
-    AmazonMQBrokerLogList <$>
-      fmap (fmap (fmap unBool')) (obj .:? "Audit") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "General")
-  parseJSON _ = mempty
-
 -- | Constructor for 'AmazonMQBrokerLogList' containing required fields as
 -- arguments.
 amazonMQBrokerLogList

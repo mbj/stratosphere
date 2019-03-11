@@ -76,36 +76,6 @@ instance ToJSON OpsWorksStack where
     , fmap (("VpcId",) . toJSON) _opsWorksStackVpcId
     ]
 
-instance FromJSON OpsWorksStack where
-  parseJSON (Object obj) =
-    OpsWorksStack <$>
-      (obj .:? "AgentVersion") <*>
-      (obj .:? "Attributes") <*>
-      (obj .:? "ChefConfiguration") <*>
-      (obj .:? "CloneAppIds") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "ClonePermissions") <*>
-      (obj .:? "ConfigurationManager") <*>
-      (obj .:? "CustomCookbooksSource") <*>
-      (obj .:? "CustomJson") <*>
-      (obj .:? "DefaultAvailabilityZone") <*>
-      (obj .: "DefaultInstanceProfileArn") <*>
-      (obj .:? "DefaultOs") <*>
-      (obj .:? "DefaultRootDeviceType") <*>
-      (obj .:? "DefaultSshKeyName") <*>
-      (obj .:? "DefaultSubnetId") <*>
-      (obj .:? "EcsClusterArn") <*>
-      (obj .:? "ElasticIps") <*>
-      (obj .:? "HostnameTheme") <*>
-      (obj .: "Name") <*>
-      (obj .:? "RdsDbInstances") <*>
-      (obj .: "ServiceRoleArn") <*>
-      (obj .:? "SourceStackId") <*>
-      (obj .:? "Tags") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "UseCustomCookbooks") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "UseOpsworksSecurityGroups") <*>
-      (obj .:? "VpcId")
-  parseJSON _ = mempty
-
 -- | Constructor for 'OpsWorksStack' containing required fields as arguments.
 opsWorksStack
   :: Val Text -- ^ 'owsDefaultInstanceProfileArn'

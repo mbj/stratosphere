@@ -29,15 +29,6 @@ instance ToJSON EC2VPCEndpointConnectionNotification where
     , fmap (("VPCEndpointId",) . toJSON) _eC2VPCEndpointConnectionNotificationVPCEndpointId
     ]
 
-instance FromJSON EC2VPCEndpointConnectionNotification where
-  parseJSON (Object obj) =
-    EC2VPCEndpointConnectionNotification <$>
-      (obj .: "ConnectionEvents") <*>
-      (obj .: "ConnectionNotificationArn") <*>
-      (obj .:? "ServiceId") <*>
-      (obj .:? "VPCEndpointId")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2VPCEndpointConnectionNotification' containing
 -- required fields as arguments.
 ec2VPCEndpointConnectionNotification

@@ -31,16 +31,6 @@ instance ToJSON OpsWorksLayerRecipes where
     , fmap (("Undeploy",) . toJSON) _opsWorksLayerRecipesUndeploy
     ]
 
-instance FromJSON OpsWorksLayerRecipes where
-  parseJSON (Object obj) =
-    OpsWorksLayerRecipes <$>
-      (obj .:? "Configure") <*>
-      (obj .:? "Deploy") <*>
-      (obj .:? "Setup") <*>
-      (obj .:? "Shutdown") <*>
-      (obj .:? "Undeploy")
-  parseJSON _ = mempty
-
 -- | Constructor for 'OpsWorksLayerRecipes' containing required fields as
 -- arguments.
 opsWorksLayerRecipes

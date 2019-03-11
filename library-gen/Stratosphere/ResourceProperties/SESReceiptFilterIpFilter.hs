@@ -25,13 +25,6 @@ instance ToJSON SESReceiptFilterIpFilter where
     , (Just . ("Policy",) . toJSON) _sESReceiptFilterIpFilterPolicy
     ]
 
-instance FromJSON SESReceiptFilterIpFilter where
-  parseJSON (Object obj) =
-    SESReceiptFilterIpFilter <$>
-      (obj .: "Cidr") <*>
-      (obj .: "Policy")
-  parseJSON _ = mempty
-
 -- | Constructor for 'SESReceiptFilterIpFilter' containing required fields as
 -- arguments.
 sesReceiptFilterIpFilter

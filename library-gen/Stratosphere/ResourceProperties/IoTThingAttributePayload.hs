@@ -23,12 +23,6 @@ instance ToJSON IoTThingAttributePayload where
     [ fmap (("Attributes",) . toJSON) _ioTThingAttributePayloadAttributes
     ]
 
-instance FromJSON IoTThingAttributePayload where
-  parseJSON (Object obj) =
-    IoTThingAttributePayload <$>
-      (obj .:? "Attributes")
-  parseJSON _ = mempty
-
 -- | Constructor for 'IoTThingAttributePayload' containing required fields as
 -- arguments.
 ioTThingAttributePayload

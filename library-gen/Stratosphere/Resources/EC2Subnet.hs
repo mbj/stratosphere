@@ -35,18 +35,6 @@ instance ToJSON EC2Subnet where
     , (Just . ("VpcId",) . toJSON) _eC2SubnetVpcId
     ]
 
-instance FromJSON EC2Subnet where
-  parseJSON (Object obj) =
-    EC2Subnet <$>
-      fmap (fmap (fmap unBool')) (obj .:? "AssignIpv6AddressOnCreation") <*>
-      (obj .:? "AvailabilityZone") <*>
-      (obj .: "CidrBlock") <*>
-      (obj .:? "Ipv6CidrBlock") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "MapPublicIpOnLaunch") <*>
-      (obj .:? "Tags") <*>
-      (obj .: "VpcId")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2Subnet' containing required fields as arguments.
 ec2Subnet
   :: Val Text -- ^ 'ecsCidrBlock'

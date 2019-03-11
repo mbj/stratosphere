@@ -53,25 +53,6 @@ instance ToJSON AmazonMQBroker where
     , (Just . ("Users",) . toJSON) _amazonMQBrokerUsers
     ]
 
-instance FromJSON AmazonMQBroker where
-  parseJSON (Object obj) =
-    AmazonMQBroker <$>
-      fmap (fmap unBool') (obj .: "AutoMinorVersionUpgrade") <*>
-      (obj .: "BrokerName") <*>
-      (obj .:? "Configuration") <*>
-      (obj .: "DeploymentMode") <*>
-      (obj .: "EngineType") <*>
-      (obj .: "EngineVersion") <*>
-      (obj .: "HostInstanceType") <*>
-      (obj .:? "Logs") <*>
-      (obj .:? "MaintenanceWindowStartTime") <*>
-      fmap (fmap unBool') (obj .: "PubliclyAccessible") <*>
-      (obj .:? "SecurityGroups") <*>
-      (obj .:? "SubnetIds") <*>
-      (obj .:? "Tags") <*>
-      (obj .: "Users")
-  parseJSON _ = mempty
-
 -- | Constructor for 'AmazonMQBroker' containing required fields as arguments.
 amazonMQBroker
   :: Val Bool -- ^ 'amqbAutoMinorVersionUpgrade'

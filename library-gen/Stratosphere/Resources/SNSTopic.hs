@@ -29,15 +29,6 @@ instance ToJSON SNSTopic where
     , fmap (("TopicName",) . toJSON) _sNSTopicTopicName
     ]
 
-instance FromJSON SNSTopic where
-  parseJSON (Object obj) =
-    SNSTopic <$>
-      (obj .:? "DisplayName") <*>
-      (obj .:? "KmsMasterKeyId") <*>
-      (obj .:? "Subscription") <*>
-      (obj .:? "TopicName")
-  parseJSON _ = mempty
-
 -- | Constructor for 'SNSTopic' containing required fields as arguments.
 snsTopic
   :: SNSTopic

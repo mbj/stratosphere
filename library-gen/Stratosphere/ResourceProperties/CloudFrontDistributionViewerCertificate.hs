@@ -32,16 +32,6 @@ instance ToJSON CloudFrontDistributionViewerCertificate where
     , fmap (("SslSupportMethod",) . toJSON) _cloudFrontDistributionViewerCertificateSslSupportMethod
     ]
 
-instance FromJSON CloudFrontDistributionViewerCertificate where
-  parseJSON (Object obj) =
-    CloudFrontDistributionViewerCertificate <$>
-      (obj .:? "AcmCertificateArn") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "CloudFrontDefaultCertificate") <*>
-      (obj .:? "IamCertificateId") <*>
-      (obj .:? "MinimumProtocolVersion") <*>
-      (obj .:? "SslSupportMethod")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CloudFrontDistributionViewerCertificate' containing
 -- required fields as arguments.
 cloudFrontDistributionViewerCertificate

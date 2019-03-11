@@ -27,14 +27,6 @@ instance ToJSON LogsMetricFilter where
     , (Just . ("MetricTransformations",) . toJSON) _logsMetricFilterMetricTransformations
     ]
 
-instance FromJSON LogsMetricFilter where
-  parseJSON (Object obj) =
-    LogsMetricFilter <$>
-      (obj .: "FilterPattern") <*>
-      (obj .: "LogGroupName") <*>
-      (obj .: "MetricTransformations")
-  parseJSON _ = mempty
-
 -- | Constructor for 'LogsMetricFilter' containing required fields as
 -- arguments.
 logsMetricFilter

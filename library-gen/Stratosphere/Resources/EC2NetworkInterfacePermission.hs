@@ -27,14 +27,6 @@ instance ToJSON EC2NetworkInterfacePermission where
     , (Just . ("Permission",) . toJSON) _eC2NetworkInterfacePermissionPermission
     ]
 
-instance FromJSON EC2NetworkInterfacePermission where
-  parseJSON (Object obj) =
-    EC2NetworkInterfacePermission <$>
-      (obj .: "AwsAccountId") <*>
-      (obj .: "NetworkInterfaceId") <*>
-      (obj .: "Permission")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2NetworkInterfacePermission' containing required
 -- fields as arguments.
 ec2NetworkInterfacePermission

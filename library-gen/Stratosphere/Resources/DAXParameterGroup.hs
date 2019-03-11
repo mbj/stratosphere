@@ -27,14 +27,6 @@ instance ToJSON DAXParameterGroup where
     , fmap (("ParameterNameValues",) . toJSON) _dAXParameterGroupParameterNameValues
     ]
 
-instance FromJSON DAXParameterGroup where
-  parseJSON (Object obj) =
-    DAXParameterGroup <$>
-      (obj .:? "Description") <*>
-      (obj .:? "ParameterGroupName") <*>
-      (obj .:? "ParameterNameValues")
-  parseJSON _ = mempty
-
 -- | Constructor for 'DAXParameterGroup' containing required fields as
 -- arguments.
 daxParameterGroup

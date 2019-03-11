@@ -23,7 +23,6 @@ module Stratosphere.Parameters where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types (Parser)
 import Data.Maybe (catMaybes)
 import Data.Semigroup (Semigroup)
 import qualified Data.Text as T
@@ -89,21 +88,6 @@ parameterToJSON Parameter {..} =
   , maybeField "ConstraintDescription" _parameterConstraintDescription
   ]
 
-parameterFromJSON :: T.Text -> Object -> Parser Parameter
-parameterFromJSON n o =
-  Parameter n
-  <$> o .:  "Type"
-  <*> o .:? "Default"
-  <*> o .:? "NoEcho"
-  <*> o .:? "AllowedValues"
-  <*> o .:? "AllowedPattern"
-  <*> fmap (fmap unInteger') (o .:? "MaxLength")
-  <*> fmap (fmap unInteger') (o .:? "MinLength")
-  <*> fmap (fmap unInteger') (o .:? "MaxValue")
-  <*> fmap (fmap unInteger') (o .:? "MinValue")
-  <*> o .:? "Description"
-  <*> o .:? "ConstraintDescription"
-
 -- | Constructor for 'Parameter' with required arguments.
 parameter
   :: T.Text -- ^ Name
@@ -138,10 +122,6 @@ instance IsList Parameters where
 instance NamedItem Parameter where
   itemName = _parameterName
   nameToJSON = parameterToJSON
-  nameParseJSON = parameterFromJSON
 
 instance ToJSON Parameters where
   toJSON = namedItemToJSON . unParameters
-
-instance FromJSON Parameters where
-  parseJSON v = Parameters <$> namedItemFromJSON v

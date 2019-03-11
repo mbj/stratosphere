@@ -61,28 +61,6 @@ instance ToJSON CognitoUserPool where
     , fmap (("UsernameAttributes",) . toJSON) _cognitoUserPoolUsernameAttributes
     ]
 
-instance FromJSON CognitoUserPool where
-  parseJSON (Object obj) =
-    CognitoUserPool <$>
-      (obj .:? "AdminCreateUserConfig") <*>
-      (obj .:? "AliasAttributes") <*>
-      (obj .:? "AutoVerifiedAttributes") <*>
-      (obj .:? "DeviceConfiguration") <*>
-      (obj .:? "EmailConfiguration") <*>
-      (obj .:? "EmailVerificationMessage") <*>
-      (obj .:? "EmailVerificationSubject") <*>
-      (obj .:? "LambdaConfig") <*>
-      (obj .:? "MfaConfiguration") <*>
-      (obj .:? "Policies") <*>
-      (obj .:? "Schema") <*>
-      (obj .:? "SmsAuthenticationMessage") <*>
-      (obj .:? "SmsConfiguration") <*>
-      (obj .:? "SmsVerificationMessage") <*>
-      (obj .:? "UserPoolName") <*>
-      (obj .:? "UserPoolTags") <*>
-      (obj .:? "UsernameAttributes")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CognitoUserPool' containing required fields as
 -- arguments.
 cognitoUserPool

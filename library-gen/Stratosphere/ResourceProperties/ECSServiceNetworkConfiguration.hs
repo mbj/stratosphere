@@ -23,12 +23,6 @@ instance ToJSON ECSServiceNetworkConfiguration where
     [ fmap (("AwsvpcConfiguration",) . toJSON) _eCSServiceNetworkConfigurationAwsvpcConfiguration
     ]
 
-instance FromJSON ECSServiceNetworkConfiguration where
-  parseJSON (Object obj) =
-    ECSServiceNetworkConfiguration <$>
-      (obj .:? "AwsvpcConfiguration")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ECSServiceNetworkConfiguration' containing required
 -- fields as arguments.
 ecsServiceNetworkConfiguration

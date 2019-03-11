@@ -35,18 +35,6 @@ instance ToJSON EC2FlowLog where
     , (Just . ("TrafficType",) . toJSON) _eC2FlowLogTrafficType
     ]
 
-instance FromJSON EC2FlowLog where
-  parseJSON (Object obj) =
-    EC2FlowLog <$>
-      (obj .:? "DeliverLogsPermissionArn") <*>
-      (obj .:? "LogDestination") <*>
-      (obj .:? "LogDestinationType") <*>
-      (obj .:? "LogGroupName") <*>
-      (obj .: "ResourceId") <*>
-      (obj .: "ResourceType") <*>
-      (obj .: "TrafficType")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2FlowLog' containing required fields as arguments.
 ec2FlowLog
   :: Val Text -- ^ 'ecflResourceId'

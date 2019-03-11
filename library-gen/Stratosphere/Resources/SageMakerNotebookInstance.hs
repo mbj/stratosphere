@@ -41,21 +41,6 @@ instance ToJSON SageMakerNotebookInstance where
     , fmap (("VolumeSizeInGB",) . toJSON . fmap Integer') _sageMakerNotebookInstanceVolumeSizeInGB
     ]
 
-instance FromJSON SageMakerNotebookInstance where
-  parseJSON (Object obj) =
-    SageMakerNotebookInstance <$>
-      (obj .:? "DirectInternetAccess") <*>
-      (obj .: "InstanceType") <*>
-      (obj .:? "KmsKeyId") <*>
-      (obj .:? "LifecycleConfigName") <*>
-      (obj .:? "NotebookInstanceName") <*>
-      (obj .: "RoleArn") <*>
-      (obj .:? "SecurityGroupIds") <*>
-      (obj .:? "SubnetId") <*>
-      (obj .:? "Tags") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "VolumeSizeInGB")
-  parseJSON _ = mempty
-
 -- | Constructor for 'SageMakerNotebookInstance' containing required fields as
 -- arguments.
 sageMakerNotebookInstance

@@ -63,30 +63,6 @@ instance ToJSON ApiGatewayDeploymentStageDescription where
     , fmap (("Variables",) . toJSON) _apiGatewayDeploymentStageDescriptionVariables
     ]
 
-instance FromJSON ApiGatewayDeploymentStageDescription where
-  parseJSON (Object obj) =
-    ApiGatewayDeploymentStageDescription <$>
-      (obj .:? "AccessLogSetting") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "CacheClusterEnabled") <*>
-      (obj .:? "CacheClusterSize") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "CacheDataEncrypted") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "CacheTtlInSeconds") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "CachingEnabled") <*>
-      (obj .:? "CanarySetting") <*>
-      (obj .:? "ClientCertificateId") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "DataTraceEnabled") <*>
-      (obj .:? "Description") <*>
-      (obj .:? "DocumentationVersion") <*>
-      (obj .:? "LoggingLevel") <*>
-      (obj .:? "MethodSettings") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "MetricsEnabled") <*>
-      (obj .:? "Tags") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "ThrottlingBurstLimit") <*>
-      fmap (fmap (fmap unDouble')) (obj .:? "ThrottlingRateLimit") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "TracingEnabled") <*>
-      (obj .:? "Variables")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ApiGatewayDeploymentStageDescription' containing
 -- required fields as arguments.
 apiGatewayDeploymentStageDescription

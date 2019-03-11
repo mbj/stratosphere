@@ -24,12 +24,6 @@ instance ToJSON OpsWorksLayerLifecycleEventConfiguration where
     [ fmap (("ShutdownEventConfiguration",) . toJSON) _opsWorksLayerLifecycleEventConfigurationShutdownEventConfiguration
     ]
 
-instance FromJSON OpsWorksLayerLifecycleEventConfiguration where
-  parseJSON (Object obj) =
-    OpsWorksLayerLifecycleEventConfiguration <$>
-      (obj .:? "ShutdownEventConfiguration")
-  parseJSON _ = mempty
-
 -- | Constructor for 'OpsWorksLayerLifecycleEventConfiguration' containing
 -- required fields as arguments.
 opsWorksLayerLifecycleEventConfiguration

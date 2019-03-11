@@ -23,12 +23,6 @@ instance ToJSON CloudFrontDistributionRestrictions where
     [ (Just . ("GeoRestriction",) . toJSON) _cloudFrontDistributionRestrictionsGeoRestriction
     ]
 
-instance FromJSON CloudFrontDistributionRestrictions where
-  parseJSON (Object obj) =
-    CloudFrontDistributionRestrictions <$>
-      (obj .: "GeoRestriction")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CloudFrontDistributionRestrictions' containing required
 -- fields as arguments.
 cloudFrontDistributionRestrictions

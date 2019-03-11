@@ -25,13 +25,6 @@ instance ToJSON SSMAssociationTarget where
     , (Just . ("Values",) . toJSON) _sSMAssociationTargetValues
     ]
 
-instance FromJSON SSMAssociationTarget where
-  parseJSON (Object obj) =
-    SSMAssociationTarget <$>
-      (obj .: "Key") <*>
-      (obj .: "Values")
-  parseJSON _ = mempty
-
 -- | Constructor for 'SSMAssociationTarget' containing required fields as
 -- arguments.
 ssmAssociationTarget

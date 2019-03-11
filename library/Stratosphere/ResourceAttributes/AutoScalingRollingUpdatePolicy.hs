@@ -34,17 +34,6 @@ instance ToJSON AutoScalingRollingUpdatePolicy where
     , fmap (("WaitOnResourceSignals",) . toJSON . fmap Bool') _autoScalingRollingUpdatePolicyWaitOnResourceSignals
     ]
 
-instance FromJSON AutoScalingRollingUpdatePolicy where
-  parseJSON (Object obj) =
-    AutoScalingRollingUpdatePolicy <$>
-      fmap (fmap (fmap unInteger')) (obj .:? "MaxBatchSize") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "MinInstancesInService") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "MinSuccessfulInstancesPercent") <*>
-      (obj .:? "PauseTime") <*>
-      (obj .:? "SuspendProcesses") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "WaitOnResourceSignals")
-  parseJSON _ = mempty
-
 -- | Constructor for 'AutoScalingRollingUpdatePolicy' containing required fields as
 -- arguments.
 autoScalingRollingUpdatePolicy

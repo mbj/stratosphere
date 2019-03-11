@@ -36,9 +36,6 @@ data CreationPolicy =
 instance ToJSON CreationPolicy where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 15, omitNothingFields = True }
 
-instance FromJSON CreationPolicy where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 15, omitNothingFields = True }
-
 -- | Constructor for 'CreationPolicy' containing required fields as arguments.
 creationPolicy
   :: ResourceSignal -- ^ 'cpResourceSignal'

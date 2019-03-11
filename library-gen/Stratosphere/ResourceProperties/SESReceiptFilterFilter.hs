@@ -25,13 +25,6 @@ instance ToJSON SESReceiptFilterFilter where
     , fmap (("Name",) . toJSON) _sESReceiptFilterFilterName
     ]
 
-instance FromJSON SESReceiptFilterFilter where
-  parseJSON (Object obj) =
-    SESReceiptFilterFilter <$>
-      (obj .: "IpFilter") <*>
-      (obj .:? "Name")
-  parseJSON _ = mempty
-
 -- | Constructor for 'SESReceiptFilterFilter' containing required fields as
 -- arguments.
 sesReceiptFilterFilter

@@ -25,13 +25,6 @@ instance ToJSON GluePartitionOrder where
     , fmap (("SortOrder",) . toJSON . fmap Integer') _gluePartitionOrderSortOrder
     ]
 
-instance FromJSON GluePartitionOrder where
-  parseJSON (Object obj) =
-    GluePartitionOrder <$>
-      (obj .: "Column") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "SortOrder")
-  parseJSON _ = mempty
-
 -- | Constructor for 'GluePartitionOrder' containing required fields as
 -- arguments.
 gluePartitionOrder

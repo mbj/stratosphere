@@ -43,21 +43,6 @@ instance ToJSON ECSTaskDefinition where
     , fmap (("Volumes",) . toJSON) _eCSTaskDefinitionVolumes
     ]
 
-instance FromJSON ECSTaskDefinition where
-  parseJSON (Object obj) =
-    ECSTaskDefinition <$>
-      (obj .:? "ContainerDefinitions") <*>
-      (obj .:? "Cpu") <*>
-      (obj .:? "ExecutionRoleArn") <*>
-      (obj .:? "Family") <*>
-      (obj .:? "Memory") <*>
-      (obj .:? "NetworkMode") <*>
-      (obj .:? "PlacementConstraints") <*>
-      (obj .:? "RequiresCompatibilities") <*>
-      (obj .:? "TaskRoleArn") <*>
-      (obj .:? "Volumes")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ECSTaskDefinition' containing required fields as
 -- arguments.
 ecsTaskDefinition

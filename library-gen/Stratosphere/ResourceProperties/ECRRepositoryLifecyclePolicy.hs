@@ -25,13 +25,6 @@ instance ToJSON ECRRepositoryLifecyclePolicy where
     , fmap (("RegistryId",) . toJSON) _eCRRepositoryLifecyclePolicyRegistryId
     ]
 
-instance FromJSON ECRRepositoryLifecyclePolicy where
-  parseJSON (Object obj) =
-    ECRRepositoryLifecyclePolicy <$>
-      (obj .:? "LifecyclePolicyText") <*>
-      (obj .:? "RegistryId")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ECRRepositoryLifecyclePolicy' containing required fields
 -- as arguments.
 ecrRepositoryLifecyclePolicy

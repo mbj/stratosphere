@@ -25,13 +25,6 @@ instance ToJSON EC2LaunchTemplateTagSpecification where
     , fmap (("Tags",) . toJSON) _eC2LaunchTemplateTagSpecificationTags
     ]
 
-instance FromJSON EC2LaunchTemplateTagSpecification where
-  parseJSON (Object obj) =
-    EC2LaunchTemplateTagSpecification <$>
-      (obj .:? "ResourceType") <*>
-      (obj .:? "Tags")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2LaunchTemplateTagSpecification' containing required
 -- fields as arguments.
 ec2LaunchTemplateTagSpecification

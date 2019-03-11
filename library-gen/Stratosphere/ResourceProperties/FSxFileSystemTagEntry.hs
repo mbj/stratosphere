@@ -25,13 +25,6 @@ instance ToJSON FSxFileSystemTagEntry where
     , (Just . ("Value",) . toJSON) _fSxFileSystemTagEntryValue
     ]
 
-instance FromJSON FSxFileSystemTagEntry where
-  parseJSON (Object obj) =
-    FSxFileSystemTagEntry <$>
-      (obj .: "Key") <*>
-      (obj .: "Value")
-  parseJSON _ = mempty
-
 -- | Constructor for 'FSxFileSystemTagEntry' containing required fields as
 -- arguments.
 fSxFileSystemTagEntry

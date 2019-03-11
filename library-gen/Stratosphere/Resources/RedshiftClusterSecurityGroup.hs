@@ -25,13 +25,6 @@ instance ToJSON RedshiftClusterSecurityGroup where
     , fmap (("Tags",) . toJSON) _redshiftClusterSecurityGroupTags
     ]
 
-instance FromJSON RedshiftClusterSecurityGroup where
-  parseJSON (Object obj) =
-    RedshiftClusterSecurityGroup <$>
-      (obj .: "Description") <*>
-      (obj .:? "Tags")
-  parseJSON _ = mempty
-
 -- | Constructor for 'RedshiftClusterSecurityGroup' containing required fields
 -- as arguments.
 redshiftClusterSecurityGroup

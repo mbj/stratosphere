@@ -31,16 +31,6 @@ instance ToJSON ApiGatewayV2StageRouteSettings where
     , fmap (("ThrottlingRateLimit",) . toJSON . fmap Double') _apiGatewayV2StageRouteSettingsThrottlingRateLimit
     ]
 
-instance FromJSON ApiGatewayV2StageRouteSettings where
-  parseJSON (Object obj) =
-    ApiGatewayV2StageRouteSettings <$>
-      fmap (fmap (fmap unBool')) (obj .:? "DataTraceEnabled") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "DetailedMetricsEnabled") <*>
-      (obj .:? "LoggingLevel") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "ThrottlingBurstLimit") <*>
-      fmap (fmap (fmap unDouble')) (obj .:? "ThrottlingRateLimit")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ApiGatewayV2StageRouteSettings' containing required
 -- fields as arguments.
 apiGatewayV2StageRouteSettings

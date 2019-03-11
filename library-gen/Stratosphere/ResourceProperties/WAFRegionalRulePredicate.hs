@@ -27,14 +27,6 @@ instance ToJSON WAFRegionalRulePredicate where
     , (Just . ("Type",) . toJSON) _wAFRegionalRulePredicateType
     ]
 
-instance FromJSON WAFRegionalRulePredicate where
-  parseJSON (Object obj) =
-    WAFRegionalRulePredicate <$>
-      (obj .: "DataId") <*>
-      fmap (fmap unBool') (obj .: "Negated") <*>
-      (obj .: "Type")
-  parseJSON _ = mempty
-
 -- | Constructor for 'WAFRegionalRulePredicate' containing required fields as
 -- arguments.
 wafRegionalRulePredicate

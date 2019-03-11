@@ -46,23 +46,6 @@ instance ToJSON EC2LaunchTemplateNetworkInterface where
     , fmap (("SubnetId",) . toJSON) _eC2LaunchTemplateNetworkInterfaceSubnetId
     ]
 
-instance FromJSON EC2LaunchTemplateNetworkInterface where
-  parseJSON (Object obj) =
-    EC2LaunchTemplateNetworkInterface <$>
-      fmap (fmap (fmap unBool')) (obj .:? "AssociatePublicIpAddress") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "DeleteOnTermination") <*>
-      (obj .:? "Description") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "DeviceIndex") <*>
-      (obj .:? "Groups") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "Ipv6AddressCount") <*>
-      (obj .:? "Ipv6Addresses") <*>
-      (obj .:? "NetworkInterfaceId") <*>
-      (obj .:? "PrivateIpAddress") <*>
-      (obj .:? "PrivateIpAddresses") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "SecondaryPrivateIpAddressCount") <*>
-      (obj .:? "SubnetId")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2LaunchTemplateNetworkInterface' containing required
 -- fields as arguments.
 ec2LaunchTemplateNetworkInterface

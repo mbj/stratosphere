@@ -27,13 +27,6 @@ instance ToJSON AutoScalingPlansScalingPlanPredefinedLoadMetricSpecification whe
     , fmap (("ResourceLabel",) . toJSON) _autoScalingPlansScalingPlanPredefinedLoadMetricSpecificationResourceLabel
     ]
 
-instance FromJSON AutoScalingPlansScalingPlanPredefinedLoadMetricSpecification where
-  parseJSON (Object obj) =
-    AutoScalingPlansScalingPlanPredefinedLoadMetricSpecification <$>
-      (obj .: "PredefinedLoadMetricType") <*>
-      (obj .:? "ResourceLabel")
-  parseJSON _ = mempty
-
 -- | Constructor for
 -- 'AutoScalingPlansScalingPlanPredefinedLoadMetricSpecification' containing
 -- required fields as arguments.

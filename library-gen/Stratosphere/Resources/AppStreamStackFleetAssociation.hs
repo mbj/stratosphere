@@ -25,13 +25,6 @@ instance ToJSON AppStreamStackFleetAssociation where
     , (Just . ("StackName",) . toJSON) _appStreamStackFleetAssociationStackName
     ]
 
-instance FromJSON AppStreamStackFleetAssociation where
-  parseJSON (Object obj) =
-    AppStreamStackFleetAssociation <$>
-      (obj .: "FleetName") <*>
-      (obj .: "StackName")
-  parseJSON _ = mempty
-
 -- | Constructor for 'AppStreamStackFleetAssociation' containing required
 -- fields as arguments.
 appStreamStackFleetAssociation

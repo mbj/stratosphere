@@ -25,13 +25,6 @@ instance ToJSON GlueConnection where
     , (Just . ("ConnectionInput",) . toJSON) _glueConnectionConnectionInput
     ]
 
-instance FromJSON GlueConnection where
-  parseJSON (Object obj) =
-    GlueConnection <$>
-      (obj .: "CatalogId") <*>
-      (obj .: "ConnectionInput")
-  parseJSON _ = mempty
-
 -- | Constructor for 'GlueConnection' containing required fields as arguments.
 glueConnection
   :: Val Text -- ^ 'gcCatalogId'

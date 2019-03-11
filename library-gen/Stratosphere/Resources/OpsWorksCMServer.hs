@@ -55,28 +55,6 @@ instance ToJSON OpsWorksCMServer where
     , fmap (("SubnetIds",) . toJSON) _opsWorksCMServerSubnetIds
     ]
 
-instance FromJSON OpsWorksCMServer where
-  parseJSON (Object obj) =
-    OpsWorksCMServer <$>
-      fmap (fmap (fmap unBool')) (obj .:? "AssociatePublicIpAddress") <*>
-      (obj .:? "BackupId") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "BackupRetentionCount") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "DisableAutomatedBackup") <*>
-      (obj .:? "Engine") <*>
-      (obj .:? "EngineAttributes") <*>
-      (obj .:? "EngineModel") <*>
-      (obj .:? "EngineVersion") <*>
-      (obj .: "InstanceProfileArn") <*>
-      (obj .: "InstanceType") <*>
-      (obj .:? "KeyPair") <*>
-      (obj .:? "PreferredBackupWindow") <*>
-      (obj .:? "PreferredMaintenanceWindow") <*>
-      (obj .:? "SecurityGroupIds") <*>
-      (obj .:? "ServerName") <*>
-      (obj .: "ServiceRoleArn") <*>
-      (obj .:? "SubnetIds")
-  parseJSON _ = mempty
-
 -- | Constructor for 'OpsWorksCMServer' containing required fields as
 -- arguments.
 opsWorksCMServer

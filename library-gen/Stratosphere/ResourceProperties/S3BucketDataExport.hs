@@ -25,13 +25,6 @@ instance ToJSON S3BucketDataExport where
     , (Just . ("OutputSchemaVersion",) . toJSON) _s3BucketDataExportOutputSchemaVersion
     ]
 
-instance FromJSON S3BucketDataExport where
-  parseJSON (Object obj) =
-    S3BucketDataExport <$>
-      (obj .: "Destination") <*>
-      (obj .: "OutputSchemaVersion")
-  parseJSON _ = mempty
-
 -- | Constructor for 'S3BucketDataExport' containing required fields as
 -- arguments.
 s3BucketDataExport

@@ -35,17 +35,6 @@ instance ToJSON EC2SecurityGroup where
     , fmap (("VpcId",) . toJSON) _eC2SecurityGroupVpcId
     ]
 
-instance FromJSON EC2SecurityGroup where
-  parseJSON (Object obj) =
-    EC2SecurityGroup <$>
-      (obj .: "GroupDescription") <*>
-      (obj .:? "GroupName") <*>
-      (obj .:? "SecurityGroupEgress") <*>
-      (obj .:? "SecurityGroupIngress") <*>
-      (obj .:? "Tags") <*>
-      (obj .:? "VpcId")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2SecurityGroup' containing required fields as
 -- arguments.
 ec2SecurityGroup

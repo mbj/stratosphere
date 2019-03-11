@@ -29,15 +29,6 @@ instance ToJSON EC2TransitGatewayAttachment where
     , (Just . ("VpcId",) . toJSON) _eC2TransitGatewayAttachmentVpcId
     ]
 
-instance FromJSON EC2TransitGatewayAttachment where
-  parseJSON (Object obj) =
-    EC2TransitGatewayAttachment <$>
-      (obj .: "SubnetIds") <*>
-      (obj .:? "Tags") <*>
-      (obj .: "TransitGatewayId") <*>
-      (obj .: "VpcId")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2TransitGatewayAttachment' containing required fields
 -- as arguments.
 ec2TransitGatewayAttachment

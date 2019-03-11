@@ -23,12 +23,6 @@ instance ToJSON ASKSkillOverrides where
     [ fmap (("Manifest",) . toJSON) _aSKSkillOverridesManifest
     ]
 
-instance FromJSON ASKSkillOverrides where
-  parseJSON (Object obj) =
-    ASKSkillOverrides <$>
-      (obj .:? "Manifest")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ASKSkillOverrides' containing required fields as
 -- arguments.
 askSkillOverrides

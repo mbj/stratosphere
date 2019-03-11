@@ -28,13 +28,6 @@ instance ToJSON ElasticBeanstalkApplicationApplicationVersionLifecycleConfig whe
     , fmap (("MaxCountRule",) . toJSON) _elasticBeanstalkApplicationApplicationVersionLifecycleConfigMaxCountRule
     ]
 
-instance FromJSON ElasticBeanstalkApplicationApplicationVersionLifecycleConfig where
-  parseJSON (Object obj) =
-    ElasticBeanstalkApplicationApplicationVersionLifecycleConfig <$>
-      (obj .:? "MaxAgeRule") <*>
-      (obj .:? "MaxCountRule")
-  parseJSON _ = mempty
-
 -- | Constructor for
 -- 'ElasticBeanstalkApplicationApplicationVersionLifecycleConfig' containing
 -- required fields as arguments.

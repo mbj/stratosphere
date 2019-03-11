@@ -63,32 +63,6 @@ instance ToJSON ElastiCacheCacheCluster where
     , fmap (("VpcSecurityGroupIds",) . toJSON) _elastiCacheCacheClusterVpcSecurityGroupIds
     ]
 
-instance FromJSON ElastiCacheCacheCluster where
-  parseJSON (Object obj) =
-    ElastiCacheCacheCluster <$>
-      (obj .:? "AZMode") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "AutoMinorVersionUpgrade") <*>
-      (obj .: "CacheNodeType") <*>
-      (obj .:? "CacheParameterGroupName") <*>
-      (obj .:? "CacheSecurityGroupNames") <*>
-      (obj .:? "CacheSubnetGroupName") <*>
-      (obj .:? "ClusterName") <*>
-      (obj .: "Engine") <*>
-      (obj .:? "EngineVersion") <*>
-      (obj .:? "NotificationTopicArn") <*>
-      fmap (fmap unInteger') (obj .: "NumCacheNodes") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "Port") <*>
-      (obj .:? "PreferredAvailabilityZone") <*>
-      (obj .:? "PreferredAvailabilityZones") <*>
-      (obj .:? "PreferredMaintenanceWindow") <*>
-      (obj .:? "SnapshotArns") <*>
-      (obj .:? "SnapshotName") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "SnapshotRetentionLimit") <*>
-      (obj .:? "SnapshotWindow") <*>
-      (obj .:? "Tags") <*>
-      (obj .:? "VpcSecurityGroupIds")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ElastiCacheCacheCluster' containing required fields as
 -- arguments.
 elastiCacheCacheCluster

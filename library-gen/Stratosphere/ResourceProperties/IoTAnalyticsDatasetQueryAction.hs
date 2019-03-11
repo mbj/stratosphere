@@ -25,13 +25,6 @@ instance ToJSON IoTAnalyticsDatasetQueryAction where
     , (Just . ("SqlQuery",) . toJSON) _ioTAnalyticsDatasetQueryActionSqlQuery
     ]
 
-instance FromJSON IoTAnalyticsDatasetQueryAction where
-  parseJSON (Object obj) =
-    IoTAnalyticsDatasetQueryAction <$>
-      (obj .:? "Filters") <*>
-      (obj .: "SqlQuery")
-  parseJSON _ = mempty
-
 -- | Constructor for 'IoTAnalyticsDatasetQueryAction' containing required
 -- fields as arguments.
 ioTAnalyticsDatasetQueryAction

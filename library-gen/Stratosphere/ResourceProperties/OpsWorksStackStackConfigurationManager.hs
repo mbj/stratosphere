@@ -26,13 +26,6 @@ instance ToJSON OpsWorksStackStackConfigurationManager where
     , fmap (("Version",) . toJSON) _opsWorksStackStackConfigurationManagerVersion
     ]
 
-instance FromJSON OpsWorksStackStackConfigurationManager where
-  parseJSON (Object obj) =
-    OpsWorksStackStackConfigurationManager <$>
-      (obj .:? "Name") <*>
-      (obj .:? "Version")
-  parseJSON _ = mempty
-
 -- | Constructor for 'OpsWorksStackStackConfigurationManager' containing
 -- required fields as arguments.
 opsWorksStackStackConfigurationManager

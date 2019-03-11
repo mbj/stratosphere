@@ -29,15 +29,6 @@ instance ToJSON EFSMountTarget where
     , (Just . ("SubnetId",) . toJSON) _eFSMountTargetSubnetId
     ]
 
-instance FromJSON EFSMountTarget where
-  parseJSON (Object obj) =
-    EFSMountTarget <$>
-      (obj .: "FileSystemId") <*>
-      (obj .:? "IpAddress") <*>
-      (obj .: "SecurityGroups") <*>
-      (obj .: "SubnetId")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EFSMountTarget' containing required fields as arguments.
 efsMountTarget
   :: Val Text -- ^ 'efsmtFileSystemId'

@@ -32,16 +32,6 @@ instance ToJSON S3BucketReplicationDestination where
     , fmap (("StorageClass",) . toJSON) _s3BucketReplicationDestinationStorageClass
     ]
 
-instance FromJSON S3BucketReplicationDestination where
-  parseJSON (Object obj) =
-    S3BucketReplicationDestination <$>
-      (obj .:? "AccessControlTranslation") <*>
-      (obj .:? "Account") <*>
-      (obj .: "Bucket") <*>
-      (obj .:? "EncryptionConfiguration") <*>
-      (obj .:? "StorageClass")
-  parseJSON _ = mempty
-
 -- | Constructor for 'S3BucketReplicationDestination' containing required
 -- fields as arguments.
 s3BucketReplicationDestination

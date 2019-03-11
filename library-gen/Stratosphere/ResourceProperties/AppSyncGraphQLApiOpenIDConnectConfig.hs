@@ -29,15 +29,6 @@ instance ToJSON AppSyncGraphQLApiOpenIDConnectConfig where
     , fmap (("Issuer",) . toJSON) _appSyncGraphQLApiOpenIDConnectConfigIssuer
     ]
 
-instance FromJSON AppSyncGraphQLApiOpenIDConnectConfig where
-  parseJSON (Object obj) =
-    AppSyncGraphQLApiOpenIDConnectConfig <$>
-      fmap (fmap (fmap unDouble')) (obj .:? "AuthTTL") <*>
-      (obj .:? "ClientId") <*>
-      fmap (fmap (fmap unDouble')) (obj .:? "IatTTL") <*>
-      (obj .:? "Issuer")
-  parseJSON _ = mempty
-
 -- | Constructor for 'AppSyncGraphQLApiOpenIDConnectConfig' containing
 -- required fields as arguments.
 appSyncGraphQLApiOpenIDConnectConfig

@@ -45,23 +45,6 @@ instance ToJSON SQSQueue where
     , fmap (("VisibilityTimeout",) . toJSON . fmap Integer') _sQSQueueVisibilityTimeout
     ]
 
-instance FromJSON SQSQueue where
-  parseJSON (Object obj) =
-    SQSQueue <$>
-      fmap (fmap (fmap unBool')) (obj .:? "ContentBasedDeduplication") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "DelaySeconds") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "FifoQueue") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "KmsDataKeyReusePeriodSeconds") <*>
-      (obj .:? "KmsMasterKeyId") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "MaximumMessageSize") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "MessageRetentionPeriod") <*>
-      (obj .:? "QueueName") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "ReceiveMessageWaitTimeSeconds") <*>
-      (obj .:? "RedrivePolicy") <*>
-      (obj .:? "Tags") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "VisibilityTimeout")
-  parseJSON _ = mempty
-
 -- | Constructor for 'SQSQueue' containing required fields as arguments.
 sqsQueue
   :: SQSQueue

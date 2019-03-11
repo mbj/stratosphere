@@ -25,13 +25,6 @@ instance ToJSON AmazonMQConfigurationAssociation where
     , (Just . ("Configuration",) . toJSON) _amazonMQConfigurationAssociationConfiguration
     ]
 
-instance FromJSON AmazonMQConfigurationAssociation where
-  parseJSON (Object obj) =
-    AmazonMQConfigurationAssociation <$>
-      (obj .: "Broker") <*>
-      (obj .: "Configuration")
-  parseJSON _ = mempty
-
 -- | Constructor for 'AmazonMQConfigurationAssociation' containing required
 -- fields as arguments.
 amazonMQConfigurationAssociation

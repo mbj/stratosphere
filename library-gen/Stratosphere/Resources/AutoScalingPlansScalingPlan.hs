@@ -26,13 +26,6 @@ instance ToJSON AutoScalingPlansScalingPlan where
     , (Just . ("ScalingInstructions",) . toJSON) _autoScalingPlansScalingPlanScalingInstructions
     ]
 
-instance FromJSON AutoScalingPlansScalingPlan where
-  parseJSON (Object obj) =
-    AutoScalingPlansScalingPlan <$>
-      (obj .: "ApplicationSource") <*>
-      (obj .: "ScalingInstructions")
-  parseJSON _ = mempty
-
 -- | Constructor for 'AutoScalingPlansScalingPlan' containing required fields
 -- as arguments.
 autoScalingPlansScalingPlan

@@ -25,13 +25,6 @@ instance ToJSON Route53HostedZoneVPC where
     , (Just . ("VPCRegion",) . toJSON) _route53HostedZoneVPCVPCRegion
     ]
 
-instance FromJSON Route53HostedZoneVPC where
-  parseJSON (Object obj) =
-    Route53HostedZoneVPC <$>
-      (obj .: "VPCId") <*>
-      (obj .: "VPCRegion")
-  parseJSON _ = mempty
-
 -- | Constructor for 'Route53HostedZoneVPC' containing required fields as
 -- arguments.
 route53HostedZoneVPC

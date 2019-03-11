@@ -27,14 +27,6 @@ instance ToJSON CloudWatchAlarmMetric where
     , fmap (("Namespace",) . toJSON) _cloudWatchAlarmMetricNamespace
     ]
 
-instance FromJSON CloudWatchAlarmMetric where
-  parseJSON (Object obj) =
-    CloudWatchAlarmMetric <$>
-      (obj .:? "Dimensions") <*>
-      (obj .:? "MetricName") <*>
-      (obj .:? "Namespace")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CloudWatchAlarmMetric' containing required fields as
 -- arguments.
 cloudWatchAlarmMetric

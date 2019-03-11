@@ -23,12 +23,6 @@ instance ToJSON EventsRuleKinesisParameters where
     [ (Just . ("PartitionKeyPath",) . toJSON) _eventsRuleKinesisParametersPartitionKeyPath
     ]
 
-instance FromJSON EventsRuleKinesisParameters where
-  parseJSON (Object obj) =
-    EventsRuleKinesisParameters <$>
-      (obj .: "PartitionKeyPath")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EventsRuleKinesisParameters' containing required fields
 -- as arguments.
 eventsRuleKinesisParameters

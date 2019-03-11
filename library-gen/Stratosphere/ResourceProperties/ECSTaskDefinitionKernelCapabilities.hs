@@ -25,13 +25,6 @@ instance ToJSON ECSTaskDefinitionKernelCapabilities where
     , fmap (("Drop",) . toJSON) _eCSTaskDefinitionKernelCapabilitiesDrop
     ]
 
-instance FromJSON ECSTaskDefinitionKernelCapabilities where
-  parseJSON (Object obj) =
-    ECSTaskDefinitionKernelCapabilities <$>
-      (obj .:? "Add") <*>
-      (obj .:? "Drop")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ECSTaskDefinitionKernelCapabilities' containing required
 -- fields as arguments.
 ecsTaskDefinitionKernelCapabilities

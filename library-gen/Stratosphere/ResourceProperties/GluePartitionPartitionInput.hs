@@ -27,14 +27,6 @@ instance ToJSON GluePartitionPartitionInput where
     , (Just . ("Values",) . toJSON) _gluePartitionPartitionInputValues
     ]
 
-instance FromJSON GluePartitionPartitionInput where
-  parseJSON (Object obj) =
-    GluePartitionPartitionInput <$>
-      (obj .:? "Parameters") <*>
-      (obj .:? "StorageDescriptor") <*>
-      (obj .: "Values")
-  parseJSON _ = mempty
-
 -- | Constructor for 'GluePartitionPartitionInput' containing required fields
 -- as arguments.
 gluePartitionPartitionInput

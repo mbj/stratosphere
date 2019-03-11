@@ -26,13 +26,6 @@ instance ToJSON EC2LaunchTemplateInstanceMarketOptions where
     , fmap (("SpotOptions",) . toJSON) _eC2LaunchTemplateInstanceMarketOptionsSpotOptions
     ]
 
-instance FromJSON EC2LaunchTemplateInstanceMarketOptions where
-  parseJSON (Object obj) =
-    EC2LaunchTemplateInstanceMarketOptions <$>
-      (obj .:? "MarketType") <*>
-      (obj .:? "SpotOptions")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2LaunchTemplateInstanceMarketOptions' containing
 -- required fields as arguments.
 ec2LaunchTemplateInstanceMarketOptions

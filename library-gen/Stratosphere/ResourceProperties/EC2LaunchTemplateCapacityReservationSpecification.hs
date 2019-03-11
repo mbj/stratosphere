@@ -25,12 +25,6 @@ instance ToJSON EC2LaunchTemplateCapacityReservationSpecification where
     [ fmap (("CapacityReservationTarget",) . toJSON) _eC2LaunchTemplateCapacityReservationSpecificationCapacityReservationTarget
     ]
 
-instance FromJSON EC2LaunchTemplateCapacityReservationSpecification where
-  parseJSON (Object obj) =
-    EC2LaunchTemplateCapacityReservationSpecification <$>
-      (obj .:? "CapacityReservationTarget")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2LaunchTemplateCapacityReservationSpecification'
 -- containing required fields as arguments.
 ec2LaunchTemplateCapacityReservationSpecification

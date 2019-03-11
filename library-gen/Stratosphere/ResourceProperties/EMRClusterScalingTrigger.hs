@@ -23,12 +23,6 @@ instance ToJSON EMRClusterScalingTrigger where
     [ (Just . ("CloudWatchAlarmDefinition",) . toJSON) _eMRClusterScalingTriggerCloudWatchAlarmDefinition
     ]
 
-instance FromJSON EMRClusterScalingTrigger where
-  parseJSON (Object obj) =
-    EMRClusterScalingTrigger <$>
-      (obj .: "CloudWatchAlarmDefinition")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EMRClusterScalingTrigger' containing required fields as
 -- arguments.
 emrClusterScalingTrigger

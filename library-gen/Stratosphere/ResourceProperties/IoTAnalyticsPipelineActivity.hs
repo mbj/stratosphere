@@ -50,21 +50,6 @@ instance ToJSON IoTAnalyticsPipelineActivity where
     , fmap (("SelectAttributes",) . toJSON) _ioTAnalyticsPipelineActivitySelectAttributes
     ]
 
-instance FromJSON IoTAnalyticsPipelineActivity where
-  parseJSON (Object obj) =
-    IoTAnalyticsPipelineActivity <$>
-      (obj .:? "AddAttributes") <*>
-      (obj .:? "Channel") <*>
-      (obj .:? "Datastore") <*>
-      (obj .:? "DeviceRegistryEnrich") <*>
-      (obj .:? "DeviceShadowEnrich") <*>
-      (obj .:? "Filter") <*>
-      (obj .:? "Lambda") <*>
-      (obj .:? "Math") <*>
-      (obj .:? "RemoveAttributes") <*>
-      (obj .:? "SelectAttributes")
-  parseJSON _ = mempty
-
 -- | Constructor for 'IoTAnalyticsPipelineActivity' containing required fields
 -- as arguments.
 ioTAnalyticsPipelineActivity

@@ -50,25 +50,6 @@ instance ToJSON ApiGatewayMethodIntegration where
     , fmap (("Uri",) . toJSON) _apiGatewayMethodIntegrationUri
     ]
 
-instance FromJSON ApiGatewayMethodIntegration where
-  parseJSON (Object obj) =
-    ApiGatewayMethodIntegration <$>
-      (obj .:? "CacheKeyParameters") <*>
-      (obj .:? "CacheNamespace") <*>
-      (obj .:? "ConnectionId") <*>
-      (obj .:? "ConnectionType") <*>
-      (obj .:? "ContentHandling") <*>
-      (obj .:? "Credentials") <*>
-      (obj .:? "IntegrationHttpMethod") <*>
-      (obj .:? "IntegrationResponses") <*>
-      (obj .:? "PassthroughBehavior") <*>
-      (obj .:? "RequestParameters") <*>
-      (obj .:? "RequestTemplates") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "TimeoutInMillis") <*>
-      (obj .:? "Type") <*>
-      (obj .:? "Uri")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ApiGatewayMethodIntegration' containing required fields
 -- as arguments.
 apiGatewayMethodIntegration

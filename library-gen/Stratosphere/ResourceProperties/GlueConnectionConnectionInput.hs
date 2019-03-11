@@ -33,17 +33,6 @@ instance ToJSON GlueConnectionConnectionInput where
     , fmap (("PhysicalConnectionRequirements",) . toJSON) _glueConnectionConnectionInputPhysicalConnectionRequirements
     ]
 
-instance FromJSON GlueConnectionConnectionInput where
-  parseJSON (Object obj) =
-    GlueConnectionConnectionInput <$>
-      (obj .: "ConnectionProperties") <*>
-      (obj .: "ConnectionType") <*>
-      (obj .:? "Description") <*>
-      (obj .:? "MatchCriteria") <*>
-      (obj .:? "Name") <*>
-      (obj .:? "PhysicalConnectionRequirements")
-  parseJSON _ = mempty
-
 -- | Constructor for 'GlueConnectionConnectionInput' containing required
 -- fields as arguments.
 glueConnectionConnectionInput

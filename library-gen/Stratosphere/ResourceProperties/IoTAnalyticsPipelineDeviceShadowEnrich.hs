@@ -32,16 +32,6 @@ instance ToJSON IoTAnalyticsPipelineDeviceShadowEnrich where
     , fmap (("ThingName",) . toJSON) _ioTAnalyticsPipelineDeviceShadowEnrichThingName
     ]
 
-instance FromJSON IoTAnalyticsPipelineDeviceShadowEnrich where
-  parseJSON (Object obj) =
-    IoTAnalyticsPipelineDeviceShadowEnrich <$>
-      (obj .:? "Attribute") <*>
-      (obj .:? "Name") <*>
-      (obj .:? "Next") <*>
-      (obj .:? "RoleArn") <*>
-      (obj .:? "ThingName")
-  parseJSON _ = mempty
-
 -- | Constructor for 'IoTAnalyticsPipelineDeviceShadowEnrich' containing
 -- required fields as arguments.
 ioTAnalyticsPipelineDeviceShadowEnrich

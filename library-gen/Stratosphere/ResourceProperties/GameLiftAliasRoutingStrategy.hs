@@ -27,14 +27,6 @@ instance ToJSON GameLiftAliasRoutingStrategy where
     , (Just . ("Type",) . toJSON) _gameLiftAliasRoutingStrategyType
     ]
 
-instance FromJSON GameLiftAliasRoutingStrategy where
-  parseJSON (Object obj) =
-    GameLiftAliasRoutingStrategy <$>
-      (obj .:? "FleetId") <*>
-      (obj .:? "Message") <*>
-      (obj .: "Type")
-  parseJSON _ = mempty
-
 -- | Constructor for 'GameLiftAliasRoutingStrategy' containing required fields
 -- as arguments.
 gameLiftAliasRoutingStrategy

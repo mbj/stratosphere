@@ -29,15 +29,6 @@ instance ToJSON AthenaNamedQuery where
     , (Just . ("QueryString",) . toJSON) _athenaNamedQueryQueryString
     ]
 
-instance FromJSON AthenaNamedQuery where
-  parseJSON (Object obj) =
-    AthenaNamedQuery <$>
-      (obj .: "Database") <*>
-      (obj .:? "Description") <*>
-      (obj .:? "Name") <*>
-      (obj .: "QueryString")
-  parseJSON _ = mempty
-
 -- | Constructor for 'AthenaNamedQuery' containing required fields as
 -- arguments.
 athenaNamedQuery

@@ -23,12 +23,6 @@ instance ToJSON InspectorResourceGroup where
     [ (Just . ("ResourceGroupTags",) . toJSON) _inspectorResourceGroupResourceGroupTags
     ]
 
-instance FromJSON InspectorResourceGroup where
-  parseJSON (Object obj) =
-    InspectorResourceGroup <$>
-      (obj .: "ResourceGroupTags")
-  parseJSON _ = mempty
-
 -- | Constructor for 'InspectorResourceGroup' containing required fields as
 -- arguments.
 inspectorResourceGroup

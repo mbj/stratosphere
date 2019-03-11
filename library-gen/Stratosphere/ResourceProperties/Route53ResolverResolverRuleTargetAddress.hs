@@ -26,13 +26,6 @@ instance ToJSON Route53ResolverResolverRuleTargetAddress where
     , (Just . ("Port",) . toJSON) _route53ResolverResolverRuleTargetAddressPort
     ]
 
-instance FromJSON Route53ResolverResolverRuleTargetAddress where
-  parseJSON (Object obj) =
-    Route53ResolverResolverRuleTargetAddress <$>
-      (obj .: "Ip") <*>
-      (obj .: "Port")
-  parseJSON _ = mempty
-
 -- | Constructor for 'Route53ResolverResolverRuleTargetAddress' containing
 -- required fields as arguments.
 route53ResolverResolverRuleTargetAddress

@@ -23,12 +23,6 @@ instance ToJSON DMSEndpointDynamoDbSettings where
     [ fmap (("ServiceAccessRoleArn",) . toJSON) _dMSEndpointDynamoDbSettingsServiceAccessRoleArn
     ]
 
-instance FromJSON DMSEndpointDynamoDbSettings where
-  parseJSON (Object obj) =
-    DMSEndpointDynamoDbSettings <$>
-      (obj .:? "ServiceAccessRoleArn")
-  parseJSON _ = mempty
-
 -- | Constructor for 'DMSEndpointDynamoDbSettings' containing required fields
 -- as arguments.
 dmsEndpointDynamoDbSettings

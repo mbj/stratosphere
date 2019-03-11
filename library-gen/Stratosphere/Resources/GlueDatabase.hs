@@ -25,13 +25,6 @@ instance ToJSON GlueDatabase where
     , (Just . ("DatabaseInput",) . toJSON) _glueDatabaseDatabaseInput
     ]
 
-instance FromJSON GlueDatabase where
-  parseJSON (Object obj) =
-    GlueDatabase <$>
-      (obj .: "CatalogId") <*>
-      (obj .: "DatabaseInput")
-  parseJSON _ = mempty
-
 -- | Constructor for 'GlueDatabase' containing required fields as arguments.
 glueDatabase
   :: Val Text -- ^ 'gdCatalogId'

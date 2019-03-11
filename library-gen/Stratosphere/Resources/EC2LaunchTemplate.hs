@@ -25,13 +25,6 @@ instance ToJSON EC2LaunchTemplate where
     , fmap (("LaunchTemplateName",) . toJSON) _eC2LaunchTemplateLaunchTemplateName
     ]
 
-instance FromJSON EC2LaunchTemplate where
-  parseJSON (Object obj) =
-    EC2LaunchTemplate <$>
-      (obj .:? "LaunchTemplateData") <*>
-      (obj .:? "LaunchTemplateName")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2LaunchTemplate' containing required fields as
 -- arguments.
 ec2LaunchTemplate

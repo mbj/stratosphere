@@ -42,19 +42,6 @@ instance ToJSON KinesisFirehoseDeliveryStream where
     , fmap (("SplunkDestinationConfiguration",) . toJSON) _kinesisFirehoseDeliveryStreamSplunkDestinationConfiguration
     ]
 
-instance FromJSON KinesisFirehoseDeliveryStream where
-  parseJSON (Object obj) =
-    KinesisFirehoseDeliveryStream <$>
-      (obj .:? "DeliveryStreamName") <*>
-      (obj .:? "DeliveryStreamType") <*>
-      (obj .:? "ElasticsearchDestinationConfiguration") <*>
-      (obj .:? "ExtendedS3DestinationConfiguration") <*>
-      (obj .:? "KinesisStreamSourceConfiguration") <*>
-      (obj .:? "RedshiftDestinationConfiguration") <*>
-      (obj .:? "S3DestinationConfiguration") <*>
-      (obj .:? "SplunkDestinationConfiguration")
-  parseJSON _ = mempty
-
 -- | Constructor for 'KinesisFirehoseDeliveryStream' containing required
 -- fields as arguments.
 kinesisFirehoseDeliveryStream

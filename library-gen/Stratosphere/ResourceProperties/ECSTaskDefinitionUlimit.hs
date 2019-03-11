@@ -27,14 +27,6 @@ instance ToJSON ECSTaskDefinitionUlimit where
     , (Just . ("SoftLimit",) . toJSON . fmap Integer') _eCSTaskDefinitionUlimitSoftLimit
     ]
 
-instance FromJSON ECSTaskDefinitionUlimit where
-  parseJSON (Object obj) =
-    ECSTaskDefinitionUlimit <$>
-      fmap (fmap unInteger') (obj .: "HardLimit") <*>
-      (obj .: "Name") <*>
-      fmap (fmap unInteger') (obj .: "SoftLimit")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ECSTaskDefinitionUlimit' containing required fields as
 -- arguments.
 ecsTaskDefinitionUlimit

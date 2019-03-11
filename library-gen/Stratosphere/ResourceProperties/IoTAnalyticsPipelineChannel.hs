@@ -27,14 +27,6 @@ instance ToJSON IoTAnalyticsPipelineChannel where
     , fmap (("Next",) . toJSON) _ioTAnalyticsPipelineChannelNext
     ]
 
-instance FromJSON IoTAnalyticsPipelineChannel where
-  parseJSON (Object obj) =
-    IoTAnalyticsPipelineChannel <$>
-      (obj .:? "ChannelName") <*>
-      (obj .:? "Name") <*>
-      (obj .:? "Next")
-  parseJSON _ = mempty
-
 -- | Constructor for 'IoTAnalyticsPipelineChannel' containing required fields
 -- as arguments.
 ioTAnalyticsPipelineChannel

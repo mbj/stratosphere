@@ -25,12 +25,6 @@ instance ToJSON SSMAssociationInstanceAssociationOutputLocation where
     [ fmap (("S3Location",) . toJSON) _sSMAssociationInstanceAssociationOutputLocationS3Location
     ]
 
-instance FromJSON SSMAssociationInstanceAssociationOutputLocation where
-  parseJSON (Object obj) =
-    SSMAssociationInstanceAssociationOutputLocation <$>
-      (obj .:? "S3Location")
-  parseJSON _ = mempty
-
 -- | Constructor for 'SSMAssociationInstanceAssociationOutputLocation'
 -- containing required fields as arguments.
 ssmAssociationInstanceAssociationOutputLocation

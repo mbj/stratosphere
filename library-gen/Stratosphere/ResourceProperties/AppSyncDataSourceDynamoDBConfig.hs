@@ -27,14 +27,6 @@ instance ToJSON AppSyncDataSourceDynamoDBConfig where
     , fmap (("UseCallerCredentials",) . toJSON . fmap Bool') _appSyncDataSourceDynamoDBConfigUseCallerCredentials
     ]
 
-instance FromJSON AppSyncDataSourceDynamoDBConfig where
-  parseJSON (Object obj) =
-    AppSyncDataSourceDynamoDBConfig <$>
-      (obj .: "AwsRegion") <*>
-      (obj .: "TableName") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "UseCallerCredentials")
-  parseJSON _ = mempty
-
 -- | Constructor for 'AppSyncDataSourceDynamoDBConfig' containing required
 -- fields as arguments.
 appSyncDataSourceDynamoDBConfig

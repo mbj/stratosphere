@@ -25,13 +25,6 @@ instance ToJSON CodePipelineWebhookWebhookFilterRule where
     , fmap (("MatchEquals",) . toJSON) _codePipelineWebhookWebhookFilterRuleMatchEquals
     ]
 
-instance FromJSON CodePipelineWebhookWebhookFilterRule where
-  parseJSON (Object obj) =
-    CodePipelineWebhookWebhookFilterRule <$>
-      (obj .: "JsonPath") <*>
-      (obj .:? "MatchEquals")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CodePipelineWebhookWebhookFilterRule' containing
 -- required fields as arguments.
 codePipelineWebhookWebhookFilterRule

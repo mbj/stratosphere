@@ -82,8 +82,8 @@ data Template =
   } deriving (Show, Eq)
 
 
-$(deriveJSON defaultOptions { fieldLabelModifier = modTemplateJSONField
-                            , omitNothingFields = True } ''Template)
+$(deriveToJSON defaultOptions { fieldLabelModifier = modTemplateJSONField
+                              , omitNothingFields = True } ''Template)
 $(makeLenses ''Template)
 
 -- | Convenient constructor for 'Template' with required arguments.

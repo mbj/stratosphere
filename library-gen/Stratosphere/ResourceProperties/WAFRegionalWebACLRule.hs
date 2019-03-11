@@ -27,14 +27,6 @@ instance ToJSON WAFRegionalWebACLRule where
     , (Just . ("RuleId",) . toJSON) _wAFRegionalWebACLRuleRuleId
     ]
 
-instance FromJSON WAFRegionalWebACLRule where
-  parseJSON (Object obj) =
-    WAFRegionalWebACLRule <$>
-      (obj .: "Action") <*>
-      fmap (fmap unInteger') (obj .: "Priority") <*>
-      (obj .: "RuleId")
-  parseJSON _ = mempty
-
 -- | Constructor for 'WAFRegionalWebACLRule' containing required fields as
 -- arguments.
 wafRegionalWebACLRule

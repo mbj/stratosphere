@@ -27,14 +27,6 @@ instance ToJSON EC2VolumeAttachment where
     , (Just . ("VolumeId",) . toJSON) _eC2VolumeAttachmentVolumeId
     ]
 
-instance FromJSON EC2VolumeAttachment where
-  parseJSON (Object obj) =
-    EC2VolumeAttachment <$>
-      (obj .: "Device") <*>
-      (obj .: "InstanceId") <*>
-      (obj .: "VolumeId")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2VolumeAttachment' containing required fields as
 -- arguments.
 ec2VolumeAttachment

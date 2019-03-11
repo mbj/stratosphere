@@ -42,19 +42,6 @@ instance ToJSON KinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration wh
     , (Just . ("Username",) . toJSON) _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationUsername
     ]
 
-instance FromJSON KinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration where
-  parseJSON (Object obj) =
-    KinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration <$>
-      (obj .:? "CloudWatchLoggingOptions") <*>
-      (obj .: "ClusterJDBCURL") <*>
-      (obj .: "CopyCommand") <*>
-      (obj .: "Password") <*>
-      (obj .:? "ProcessingConfiguration") <*>
-      (obj .: "RoleARN") <*>
-      (obj .: "S3Configuration") <*>
-      (obj .: "Username")
-  parseJSON _ = mempty
-
 -- | Constructor for
 -- 'KinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration'
 -- containing required fields as arguments.

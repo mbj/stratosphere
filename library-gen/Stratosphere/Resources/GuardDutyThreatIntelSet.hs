@@ -31,16 +31,6 @@ instance ToJSON GuardDutyThreatIntelSet where
     , fmap (("Name",) . toJSON) _guardDutyThreatIntelSetName
     ]
 
-instance FromJSON GuardDutyThreatIntelSet where
-  parseJSON (Object obj) =
-    GuardDutyThreatIntelSet <$>
-      fmap (fmap unBool') (obj .: "Activate") <*>
-      (obj .: "DetectorId") <*>
-      (obj .: "Format") <*>
-      (obj .: "Location") <*>
-      (obj .:? "Name")
-  parseJSON _ = mempty
-
 -- | Constructor for 'GuardDutyThreatIntelSet' containing required fields as
 -- arguments.
 guardDutyThreatIntelSet

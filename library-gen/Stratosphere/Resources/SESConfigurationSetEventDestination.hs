@@ -25,13 +25,6 @@ instance ToJSON SESConfigurationSetEventDestination where
     , (Just . ("EventDestination",) . toJSON) _sESConfigurationSetEventDestinationEventDestination
     ]
 
-instance FromJSON SESConfigurationSetEventDestination where
-  parseJSON (Object obj) =
-    SESConfigurationSetEventDestination <$>
-      (obj .: "ConfigurationSetName") <*>
-      (obj .: "EventDestination")
-  parseJSON _ = mempty
-
 -- | Constructor for 'SESConfigurationSetEventDestination' containing required
 -- fields as arguments.
 sesConfigurationSetEventDestination

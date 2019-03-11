@@ -23,12 +23,6 @@ instance ToJSON GlueJobConnectionsList where
     [ fmap (("Connections",) . toJSON) _glueJobConnectionsListConnections
     ]
 
-instance FromJSON GlueJobConnectionsList where
-  parseJSON (Object obj) =
-    GlueJobConnectionsList <$>
-      (obj .:? "Connections")
-  parseJSON _ = mempty
-
 -- | Constructor for 'GlueJobConnectionsList' containing required fields as
 -- arguments.
 glueJobConnectionsList

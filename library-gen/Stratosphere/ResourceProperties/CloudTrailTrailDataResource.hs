@@ -25,13 +25,6 @@ instance ToJSON CloudTrailTrailDataResource where
     , fmap (("Values",) . toJSON) _cloudTrailTrailDataResourceValues
     ]
 
-instance FromJSON CloudTrailTrailDataResource where
-  parseJSON (Object obj) =
-    CloudTrailTrailDataResource <$>
-      (obj .: "Type") <*>
-      (obj .:? "Values")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CloudTrailTrailDataResource' containing required fields
 -- as arguments.
 cloudTrailTrailDataResource

@@ -32,16 +32,6 @@ instance ToJSON WorkSpacesWorkspaceWorkspaceProperties where
     , fmap (("UserVolumeSizeGib",) . toJSON . fmap Integer') _workSpacesWorkspaceWorkspacePropertiesUserVolumeSizeGib
     ]
 
-instance FromJSON WorkSpacesWorkspaceWorkspaceProperties where
-  parseJSON (Object obj) =
-    WorkSpacesWorkspaceWorkspaceProperties <$>
-      (obj .:? "ComputeTypeName") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "RootVolumeSizeGib") <*>
-      (obj .:? "RunningMode") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "RunningModeAutoStopTimeoutInMinutes") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "UserVolumeSizeGib")
-  parseJSON _ = mempty
-
 -- | Constructor for 'WorkSpacesWorkspaceWorkspaceProperties' containing
 -- required fields as arguments.
 workSpacesWorkspaceWorkspaceProperties

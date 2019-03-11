@@ -34,17 +34,6 @@ instance ToJSON SageMakerEndpointConfigProductionVariant where
     , (Just . ("VariantName",) . toJSON) _sageMakerEndpointConfigProductionVariantVariantName
     ]
 
-instance FromJSON SageMakerEndpointConfigProductionVariant where
-  parseJSON (Object obj) =
-    SageMakerEndpointConfigProductionVariant <$>
-      (obj .:? "AcceleratorType") <*>
-      fmap (fmap unInteger') (obj .: "InitialInstanceCount") <*>
-      fmap (fmap unDouble') (obj .: "InitialVariantWeight") <*>
-      (obj .: "InstanceType") <*>
-      (obj .: "ModelName") <*>
-      (obj .: "VariantName")
-  parseJSON _ = mempty
-
 -- | Constructor for 'SageMakerEndpointConfigProductionVariant' containing
 -- required fields as arguments.
 sageMakerEndpointConfigProductionVariant

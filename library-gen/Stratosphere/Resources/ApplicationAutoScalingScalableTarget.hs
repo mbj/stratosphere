@@ -35,18 +35,6 @@ instance ToJSON ApplicationAutoScalingScalableTarget where
     , (Just . ("ServiceNamespace",) . toJSON) _applicationAutoScalingScalableTargetServiceNamespace
     ]
 
-instance FromJSON ApplicationAutoScalingScalableTarget where
-  parseJSON (Object obj) =
-    ApplicationAutoScalingScalableTarget <$>
-      fmap (fmap unInteger') (obj .: "MaxCapacity") <*>
-      fmap (fmap unInteger') (obj .: "MinCapacity") <*>
-      (obj .: "ResourceId") <*>
-      (obj .: "RoleARN") <*>
-      (obj .: "ScalableDimension") <*>
-      (obj .:? "ScheduledActions") <*>
-      (obj .: "ServiceNamespace")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ApplicationAutoScalingScalableTarget' containing
 -- required fields as arguments.
 applicationAutoScalingScalableTarget

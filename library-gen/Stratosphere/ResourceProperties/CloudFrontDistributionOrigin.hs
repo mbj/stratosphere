@@ -35,17 +35,6 @@ instance ToJSON CloudFrontDistributionOrigin where
     , fmap (("S3OriginConfig",) . toJSON) _cloudFrontDistributionOriginS3OriginConfig
     ]
 
-instance FromJSON CloudFrontDistributionOrigin where
-  parseJSON (Object obj) =
-    CloudFrontDistributionOrigin <$>
-      (obj .:? "CustomOriginConfig") <*>
-      (obj .: "DomainName") <*>
-      (obj .: "Id") <*>
-      (obj .:? "OriginCustomHeaders") <*>
-      (obj .:? "OriginPath") <*>
-      (obj .:? "S3OriginConfig")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CloudFrontDistributionOrigin' containing required fields
 -- as arguments.
 cloudFrontDistributionOrigin

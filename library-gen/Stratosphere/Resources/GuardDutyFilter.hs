@@ -33,17 +33,6 @@ instance ToJSON GuardDutyFilter where
     , (Just . ("Rank",) . toJSON . fmap Integer') _guardDutyFilterRank
     ]
 
-instance FromJSON GuardDutyFilter where
-  parseJSON (Object obj) =
-    GuardDutyFilter <$>
-      (obj .: "Action") <*>
-      (obj .: "Description") <*>
-      (obj .: "DetectorId") <*>
-      (obj .: "FindingCriteria") <*>
-      (obj .:? "Name") <*>
-      fmap (fmap unInteger') (obj .: "Rank")
-  parseJSON _ = mempty
-
 -- | Constructor for 'GuardDutyFilter' containing required fields as
 -- arguments.
 guardDutyFilter

@@ -31,16 +31,6 @@ instance ToJSON ServiceCatalogPortfolio where
     , fmap (("Tags",) . toJSON) _serviceCatalogPortfolioTags
     ]
 
-instance FromJSON ServiceCatalogPortfolio where
-  parseJSON (Object obj) =
-    ServiceCatalogPortfolio <$>
-      (obj .:? "AcceptLanguage") <*>
-      (obj .:? "Description") <*>
-      (obj .: "DisplayName") <*>
-      (obj .: "ProviderName") <*>
-      (obj .:? "Tags")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ServiceCatalogPortfolio' containing required fields as
 -- arguments.
 serviceCatalogPortfolio

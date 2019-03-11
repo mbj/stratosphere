@@ -45,22 +45,6 @@ instance ToJSON ElasticBeanstalkEnvironment where
     , fmap (("VersionLabel",) . toJSON) _elasticBeanstalkEnvironmentVersionLabel
     ]
 
-instance FromJSON ElasticBeanstalkEnvironment where
-  parseJSON (Object obj) =
-    ElasticBeanstalkEnvironment <$>
-      (obj .: "ApplicationName") <*>
-      (obj .:? "CNAMEPrefix") <*>
-      (obj .:? "Description") <*>
-      (obj .:? "EnvironmentName") <*>
-      (obj .:? "OptionSettings") <*>
-      (obj .:? "PlatformArn") <*>
-      (obj .:? "SolutionStackName") <*>
-      (obj .:? "Tags") <*>
-      (obj .:? "TemplateName") <*>
-      (obj .:? "Tier") <*>
-      (obj .:? "VersionLabel")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ElasticBeanstalkEnvironment' containing required fields
 -- as arguments.
 elasticBeanstalkEnvironment

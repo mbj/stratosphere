@@ -28,14 +28,6 @@ instance ToJSON EMRClusterSimpleScalingPolicyConfiguration where
     , (Just . ("ScalingAdjustment",) . toJSON . fmap Integer') _eMRClusterSimpleScalingPolicyConfigurationScalingAdjustment
     ]
 
-instance FromJSON EMRClusterSimpleScalingPolicyConfiguration where
-  parseJSON (Object obj) =
-    EMRClusterSimpleScalingPolicyConfiguration <$>
-      (obj .:? "AdjustmentType") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "CoolDown") <*>
-      fmap (fmap unInteger') (obj .: "ScalingAdjustment")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EMRClusterSimpleScalingPolicyConfiguration' containing
 -- required fields as arguments.
 emrClusterSimpleScalingPolicyConfiguration

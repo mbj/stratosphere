@@ -35,18 +35,6 @@ instance ToJSON CognitoUserPoolUser where
     , fmap (("ValidationData",) . toJSON) _cognitoUserPoolUserValidationData
     ]
 
-instance FromJSON CognitoUserPoolUser where
-  parseJSON (Object obj) =
-    CognitoUserPoolUser <$>
-      (obj .:? "DesiredDeliveryMediums") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "ForceAliasCreation") <*>
-      (obj .:? "MessageAction") <*>
-      (obj .:? "UserAttributes") <*>
-      (obj .: "UserPoolId") <*>
-      (obj .:? "Username") <*>
-      (obj .:? "ValidationData")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CognitoUserPoolUser' containing required fields as
 -- arguments.
 cognitoUserPoolUser

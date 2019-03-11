@@ -25,13 +25,6 @@ instance ToJSON EC2NetworkAclEntryPortRange where
     , fmap (("To",) . toJSON . fmap Integer') _eC2NetworkAclEntryPortRangeTo
     ]
 
-instance FromJSON EC2NetworkAclEntryPortRange where
-  parseJSON (Object obj) =
-    EC2NetworkAclEntryPortRange <$>
-      fmap (fmap (fmap unInteger')) (obj .:? "From") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "To")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2NetworkAclEntryPortRange' containing required fields
 -- as arguments.
 ec2NetworkAclEntryPortRange

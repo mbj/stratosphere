@@ -25,13 +25,6 @@ instance ToJSON AutoScalingPlansScalingPlanTagFilter where
     , fmap (("Values",) . toJSON) _autoScalingPlansScalingPlanTagFilterValues
     ]
 
-instance FromJSON AutoScalingPlansScalingPlanTagFilter where
-  parseJSON (Object obj) =
-    AutoScalingPlansScalingPlanTagFilter <$>
-      (obj .: "Key") <*>
-      (obj .:? "Values")
-  parseJSON _ = mempty
-
 -- | Constructor for 'AutoScalingPlansScalingPlanTagFilter' containing
 -- required fields as arguments.
 autoScalingPlansScalingPlanTagFilter

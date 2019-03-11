@@ -27,14 +27,6 @@ instance ToJSON CodeBuildProjectEnvironmentVariable where
     , (Just . ("Value",) . toJSON) _codeBuildProjectEnvironmentVariableValue
     ]
 
-instance FromJSON CodeBuildProjectEnvironmentVariable where
-  parseJSON (Object obj) =
-    CodeBuildProjectEnvironmentVariable <$>
-      (obj .: "Name") <*>
-      (obj .:? "Type") <*>
-      (obj .: "Value")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CodeBuildProjectEnvironmentVariable' containing required
 -- fields as arguments.
 codeBuildProjectEnvironmentVariable

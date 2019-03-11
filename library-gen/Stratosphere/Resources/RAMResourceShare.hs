@@ -31,16 +31,6 @@ instance ToJSON RAMResourceShare where
     , fmap (("Tags",) . toJSON) _rAMResourceShareTags
     ]
 
-instance FromJSON RAMResourceShare where
-  parseJSON (Object obj) =
-    RAMResourceShare <$>
-      fmap (fmap (fmap unBool')) (obj .:? "AllowExternalPrincipals") <*>
-      (obj .: "Name") <*>
-      (obj .:? "Principals") <*>
-      (obj .:? "ResourceArns") <*>
-      (obj .:? "Tags")
-  parseJSON _ = mempty
-
 -- | Constructor for 'RAMResourceShare' containing required fields as
 -- arguments.
 ramResourceShare

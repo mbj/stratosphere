@@ -31,16 +31,6 @@ instance ToJSON ApiGatewayGatewayResponse where
     , fmap (("StatusCode",) . toJSON) _apiGatewayGatewayResponseStatusCode
     ]
 
-instance FromJSON ApiGatewayGatewayResponse where
-  parseJSON (Object obj) =
-    ApiGatewayGatewayResponse <$>
-      (obj .:? "ResponseParameters") <*>
-      (obj .:? "ResponseTemplates") <*>
-      (obj .: "ResponseType") <*>
-      (obj .: "RestApiId") <*>
-      (obj .:? "StatusCode")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ApiGatewayGatewayResponse' containing required fields as
 -- arguments.
 apiGatewayGatewayResponse

@@ -29,14 +29,6 @@ instance ToJSON SSMMaintenanceWindowTaskMaintenanceWindowLambdaParameters where
     , fmap (("Qualifier",) . toJSON) _sSMMaintenanceWindowTaskMaintenanceWindowLambdaParametersQualifier
     ]
 
-instance FromJSON SSMMaintenanceWindowTaskMaintenanceWindowLambdaParameters where
-  parseJSON (Object obj) =
-    SSMMaintenanceWindowTaskMaintenanceWindowLambdaParameters <$>
-      (obj .:? "ClientContext") <*>
-      (obj .:? "Payload") <*>
-      (obj .:? "Qualifier")
-  parseJSON _ = mempty
-
 -- | Constructor for
 -- 'SSMMaintenanceWindowTaskMaintenanceWindowLambdaParameters' containing
 -- required fields as arguments.

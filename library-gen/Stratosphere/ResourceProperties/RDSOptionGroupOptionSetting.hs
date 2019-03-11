@@ -25,13 +25,6 @@ instance ToJSON RDSOptionGroupOptionSetting where
     , fmap (("Value",) . toJSON) _rDSOptionGroupOptionSettingValue
     ]
 
-instance FromJSON RDSOptionGroupOptionSetting where
-  parseJSON (Object obj) =
-    RDSOptionGroupOptionSetting <$>
-      (obj .:? "Name") <*>
-      (obj .:? "Value")
-  parseJSON _ = mempty
-
 -- | Constructor for 'RDSOptionGroupOptionSetting' containing required fields
 -- as arguments.
 rdsOptionGroupOptionSetting

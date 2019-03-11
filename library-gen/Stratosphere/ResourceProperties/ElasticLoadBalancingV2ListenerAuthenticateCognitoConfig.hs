@@ -39,19 +39,6 @@ instance ToJSON ElasticLoadBalancingV2ListenerAuthenticateCognitoConfig where
     , (Just . ("UserPoolDomain",) . toJSON) _elasticLoadBalancingV2ListenerAuthenticateCognitoConfigUserPoolDomain
     ]
 
-instance FromJSON ElasticLoadBalancingV2ListenerAuthenticateCognitoConfig where
-  parseJSON (Object obj) =
-    ElasticLoadBalancingV2ListenerAuthenticateCognitoConfig <$>
-      (obj .:? "AuthenticationRequestExtraParams") <*>
-      (obj .:? "OnUnauthenticatedRequest") <*>
-      (obj .:? "Scope") <*>
-      (obj .:? "SessionCookieName") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "SessionTimeout") <*>
-      (obj .: "UserPoolArn") <*>
-      (obj .: "UserPoolClientId") <*>
-      (obj .: "UserPoolDomain")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ElasticLoadBalancingV2ListenerAuthenticateCognitoConfig'
 -- containing required fields as arguments.
 elasticLoadBalancingV2ListenerAuthenticateCognitoConfig

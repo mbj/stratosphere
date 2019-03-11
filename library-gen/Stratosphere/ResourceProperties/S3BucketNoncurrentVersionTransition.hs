@@ -25,13 +25,6 @@ instance ToJSON S3BucketNoncurrentVersionTransition where
     , (Just . ("TransitionInDays",) . toJSON . fmap Integer') _s3BucketNoncurrentVersionTransitionTransitionInDays
     ]
 
-instance FromJSON S3BucketNoncurrentVersionTransition where
-  parseJSON (Object obj) =
-    S3BucketNoncurrentVersionTransition <$>
-      (obj .: "StorageClass") <*>
-      fmap (fmap unInteger') (obj .: "TransitionInDays")
-  parseJSON _ = mempty
-
 -- | Constructor for 'S3BucketNoncurrentVersionTransition' containing required
 -- fields as arguments.
 s3BucketNoncurrentVersionTransition

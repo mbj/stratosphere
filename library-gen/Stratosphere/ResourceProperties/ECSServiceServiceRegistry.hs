@@ -29,15 +29,6 @@ instance ToJSON ECSServiceServiceRegistry where
     , fmap (("RegistryArn",) . toJSON) _eCSServiceServiceRegistryRegistryArn
     ]
 
-instance FromJSON ECSServiceServiceRegistry where
-  parseJSON (Object obj) =
-    ECSServiceServiceRegistry <$>
-      (obj .:? "ContainerName") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "ContainerPort") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "Port") <*>
-      (obj .:? "RegistryArn")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ECSServiceServiceRegistry' containing required fields as
 -- arguments.
 ecsServiceServiceRegistry

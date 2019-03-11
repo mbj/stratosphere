@@ -27,14 +27,6 @@ instance ToJSON ElasticBeanstalkApplicationVersion where
     , (Just . ("SourceBundle",) . toJSON) _elasticBeanstalkApplicationVersionSourceBundle
     ]
 
-instance FromJSON ElasticBeanstalkApplicationVersion where
-  parseJSON (Object obj) =
-    ElasticBeanstalkApplicationVersion <$>
-      (obj .: "ApplicationName") <*>
-      (obj .:? "Description") <*>
-      (obj .: "SourceBundle")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ElasticBeanstalkApplicationVersion' containing required
 -- fields as arguments.
 elasticBeanstalkApplicationVersion

@@ -49,25 +49,6 @@ instance ToJSON NeptuneDBCluster where
     , fmap (("VpcSecurityGroupIds",) . toJSON) _neptuneDBClusterVpcSecurityGroupIds
     ]
 
-instance FromJSON NeptuneDBCluster where
-  parseJSON (Object obj) =
-    NeptuneDBCluster <$>
-      (obj .:? "AvailabilityZones") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "BackupRetentionPeriod") <*>
-      (obj .:? "DBClusterIdentifier") <*>
-      (obj .:? "DBClusterParameterGroupName") <*>
-      (obj .:? "DBSubnetGroupName") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "IamAuthEnabled") <*>
-      (obj .:? "KmsKeyId") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "Port") <*>
-      (obj .:? "PreferredBackupWindow") <*>
-      (obj .:? "PreferredMaintenanceWindow") <*>
-      (obj .:? "SnapshotIdentifier") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "StorageEncrypted") <*>
-      (obj .:? "Tags") <*>
-      (obj .:? "VpcSecurityGroupIds")
-  parseJSON _ = mempty
-
 -- | Constructor for 'NeptuneDBCluster' containing required fields as
 -- arguments.
 neptuneDBCluster

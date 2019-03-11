@@ -32,16 +32,6 @@ instance ToJSON S3BucketReplicationRule where
     , (Just . ("Status",) . toJSON) _s3BucketReplicationRuleStatus
     ]
 
-instance FromJSON S3BucketReplicationRule where
-  parseJSON (Object obj) =
-    S3BucketReplicationRule <$>
-      (obj .: "Destination") <*>
-      (obj .:? "Id") <*>
-      (obj .: "Prefix") <*>
-      (obj .:? "SourceSelectionCriteria") <*>
-      (obj .: "Status")
-  parseJSON _ = mempty
-
 -- | Constructor for 'S3BucketReplicationRule' containing required fields as
 -- arguments.
 s3BucketReplicationRule

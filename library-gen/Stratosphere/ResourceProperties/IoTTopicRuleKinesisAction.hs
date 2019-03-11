@@ -27,14 +27,6 @@ instance ToJSON IoTTopicRuleKinesisAction where
     , (Just . ("StreamName",) . toJSON) _ioTTopicRuleKinesisActionStreamName
     ]
 
-instance FromJSON IoTTopicRuleKinesisAction where
-  parseJSON (Object obj) =
-    IoTTopicRuleKinesisAction <$>
-      (obj .:? "PartitionKey") <*>
-      (obj .: "RoleArn") <*>
-      (obj .: "StreamName")
-  parseJSON _ = mempty
-
 -- | Constructor for 'IoTTopicRuleKinesisAction' containing required fields as
 -- arguments.
 ioTTopicRuleKinesisAction

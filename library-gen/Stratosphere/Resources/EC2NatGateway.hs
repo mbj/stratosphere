@@ -27,14 +27,6 @@ instance ToJSON EC2NatGateway where
     , fmap (("Tags",) . toJSON) _eC2NatGatewayTags
     ]
 
-instance FromJSON EC2NatGateway where
-  parseJSON (Object obj) =
-    EC2NatGateway <$>
-      (obj .: "AllocationId") <*>
-      (obj .: "SubnetId") <*>
-      (obj .:? "Tags")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2NatGateway' containing required fields as arguments.
 ec2NatGateway
   :: Val Text -- ^ 'ecngAllocationId'

@@ -52,26 +52,6 @@ instance ToJSON BatchComputeEnvironmentComputeResources where
     , (Just . ("Type",) . toJSON) _batchComputeEnvironmentComputeResourcesType
     ]
 
-instance FromJSON BatchComputeEnvironmentComputeResources where
-  parseJSON (Object obj) =
-    BatchComputeEnvironmentComputeResources <$>
-      fmap (fmap (fmap unInteger')) (obj .:? "BidPercentage") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "DesiredvCpus") <*>
-      (obj .:? "Ec2KeyPair") <*>
-      (obj .:? "ImageId") <*>
-      (obj .: "InstanceRole") <*>
-      (obj .: "InstanceTypes") <*>
-      (obj .:? "LaunchTemplate") <*>
-      fmap (fmap unInteger') (obj .: "MaxvCpus") <*>
-      fmap (fmap unInteger') (obj .: "MinvCpus") <*>
-      (obj .:? "PlacementGroup") <*>
-      (obj .: "SecurityGroupIds") <*>
-      (obj .:? "SpotIamFleetRole") <*>
-      (obj .: "Subnets") <*>
-      (obj .:? "Tags") <*>
-      (obj .: "Type")
-  parseJSON _ = mempty
-
 -- | Constructor for 'BatchComputeEnvironmentComputeResources' containing
 -- required fields as arguments.
 batchComputeEnvironmentComputeResources

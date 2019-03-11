@@ -24,12 +24,6 @@ instance ToJSON ElasticLoadBalancingV2TargetGroupMatcher where
     [ (Just . ("HttpCode",) . toJSON) _elasticLoadBalancingV2TargetGroupMatcherHttpCode
     ]
 
-instance FromJSON ElasticLoadBalancingV2TargetGroupMatcher where
-  parseJSON (Object obj) =
-    ElasticLoadBalancingV2TargetGroupMatcher <$>
-      (obj .: "HttpCode")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ElasticLoadBalancingV2TargetGroupMatcher' containing
 -- required fields as arguments.
 elasticLoadBalancingV2TargetGroupMatcher

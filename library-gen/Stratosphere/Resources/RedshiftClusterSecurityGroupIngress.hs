@@ -29,15 +29,6 @@ instance ToJSON RedshiftClusterSecurityGroupIngress where
     , fmap (("EC2SecurityGroupOwnerId",) . toJSON) _redshiftClusterSecurityGroupIngressEC2SecurityGroupOwnerId
     ]
 
-instance FromJSON RedshiftClusterSecurityGroupIngress where
-  parseJSON (Object obj) =
-    RedshiftClusterSecurityGroupIngress <$>
-      (obj .:? "CIDRIP") <*>
-      (obj .: "ClusterSecurityGroupName") <*>
-      (obj .:? "EC2SecurityGroupName") <*>
-      (obj .:? "EC2SecurityGroupOwnerId")
-  parseJSON _ = mempty
-
 -- | Constructor for 'RedshiftClusterSecurityGroupIngress' containing required
 -- fields as arguments.
 redshiftClusterSecurityGroupIngress

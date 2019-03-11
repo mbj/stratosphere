@@ -38,18 +38,6 @@ instance ToJSON BatchJobDefinition where
     , (Just . ("Type",) . toJSON) _batchJobDefinitionType
     ]
 
-instance FromJSON BatchJobDefinition where
-  parseJSON (Object obj) =
-    BatchJobDefinition <$>
-      (obj .:? "ContainerProperties") <*>
-      (obj .:? "JobDefinitionName") <*>
-      (obj .:? "NodeProperties") <*>
-      (obj .:? "Parameters") <*>
-      (obj .:? "RetryStrategy") <*>
-      (obj .:? "Timeout") <*>
-      (obj .: "Type")
-  parseJSON _ = mempty
-
 -- | Constructor for 'BatchJobDefinition' containing required fields as
 -- arguments.
 batchJobDefinition

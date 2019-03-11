@@ -27,14 +27,6 @@ instance ToJSON ECSTaskDefinitionMountPoint where
     , fmap (("SourceVolume",) . toJSON) _eCSTaskDefinitionMountPointSourceVolume
     ]
 
-instance FromJSON ECSTaskDefinitionMountPoint where
-  parseJSON (Object obj) =
-    ECSTaskDefinitionMountPoint <$>
-      (obj .:? "ContainerPath") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "ReadOnly") <*>
-      (obj .:? "SourceVolume")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ECSTaskDefinitionMountPoint' containing required fields
 -- as arguments.
 ecsTaskDefinitionMountPoint

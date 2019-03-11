@@ -27,14 +27,6 @@ instance ToJSON ECSTaskDefinitionDevice where
     , fmap (("Permissions",) . toJSON) _eCSTaskDefinitionDevicePermissions
     ]
 
-instance FromJSON ECSTaskDefinitionDevice where
-  parseJSON (Object obj) =
-    ECSTaskDefinitionDevice <$>
-      (obj .:? "ContainerPath") <*>
-      (obj .: "HostPath") <*>
-      (obj .:? "Permissions")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ECSTaskDefinitionDevice' containing required fields as
 -- arguments.
 ecsTaskDefinitionDevice

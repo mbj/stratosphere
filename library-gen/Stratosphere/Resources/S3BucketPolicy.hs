@@ -25,13 +25,6 @@ instance ToJSON S3BucketPolicy where
     , (Just . ("PolicyDocument",) . toJSON) _s3BucketPolicyPolicyDocument
     ]
 
-instance FromJSON S3BucketPolicy where
-  parseJSON (Object obj) =
-    S3BucketPolicy <$>
-      (obj .: "Bucket") <*>
-      (obj .: "PolicyDocument")
-  parseJSON _ = mempty
-
 -- | Constructor for 'S3BucketPolicy' containing required fields as arguments.
 s3BucketPolicy
   :: Val Text -- ^ 'sbpBucket'

@@ -29,15 +29,6 @@ instance ToJSON LambdaFunctionCode where
     , fmap (("ZipFile",) . toJSON) _lambdaFunctionCodeZipFile
     ]
 
-instance FromJSON LambdaFunctionCode where
-  parseJSON (Object obj) =
-    LambdaFunctionCode <$>
-      (obj .:? "S3Bucket") <*>
-      (obj .:? "S3Key") <*>
-      (obj .:? "S3ObjectVersion") <*>
-      (obj .:? "ZipFile")
-  parseJSON _ = mempty
-
 -- | Constructor for 'LambdaFunctionCode' containing required fields as
 -- arguments.
 lambdaFunctionCode

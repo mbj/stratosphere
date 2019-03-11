@@ -25,12 +25,6 @@ instance ToJSON CodeDeployDeploymentGroupEC2TagSetListObject where
     [ fmap (("Ec2TagGroup",) . toJSON) _codeDeployDeploymentGroupEC2TagSetListObjectEc2TagGroup
     ]
 
-instance FromJSON CodeDeployDeploymentGroupEC2TagSetListObject where
-  parseJSON (Object obj) =
-    CodeDeployDeploymentGroupEC2TagSetListObject <$>
-      (obj .:? "Ec2TagGroup")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CodeDeployDeploymentGroupEC2TagSetListObject' containing
 -- required fields as arguments.
 codeDeployDeploymentGroupEC2TagSetListObject

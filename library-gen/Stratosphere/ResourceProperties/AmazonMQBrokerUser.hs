@@ -29,15 +29,6 @@ instance ToJSON AmazonMQBrokerUser where
     , (Just . ("Username",) . toJSON) _amazonMQBrokerUserUsername
     ]
 
-instance FromJSON AmazonMQBrokerUser where
-  parseJSON (Object obj) =
-    AmazonMQBrokerUser <$>
-      fmap (fmap (fmap unBool')) (obj .:? "ConsoleAccess") <*>
-      (obj .:? "Groups") <*>
-      (obj .: "Password") <*>
-      (obj .: "Username")
-  parseJSON _ = mempty
-
 -- | Constructor for 'AmazonMQBrokerUser' containing required fields as
 -- arguments.
 amazonMQBrokerUser

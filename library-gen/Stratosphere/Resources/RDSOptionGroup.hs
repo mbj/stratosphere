@@ -32,16 +32,6 @@ instance ToJSON RDSOptionGroup where
     , fmap (("Tags",) . toJSON) _rDSOptionGroupTags
     ]
 
-instance FromJSON RDSOptionGroup where
-  parseJSON (Object obj) =
-    RDSOptionGroup <$>
-      (obj .: "EngineName") <*>
-      (obj .: "MajorEngineVersion") <*>
-      (obj .: "OptionConfigurations") <*>
-      (obj .: "OptionGroupDescription") <*>
-      (obj .:? "Tags")
-  parseJSON _ = mempty
-
 -- | Constructor for 'RDSOptionGroup' containing required fields as arguments.
 rdsOptionGroup
   :: Val Text -- ^ 'rdsogEngineName'

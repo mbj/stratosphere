@@ -25,13 +25,6 @@ instance ToJSON ECSServiceDeploymentConfiguration where
     , fmap (("MinimumHealthyPercent",) . toJSON . fmap Integer') _eCSServiceDeploymentConfigurationMinimumHealthyPercent
     ]
 
-instance FromJSON ECSServiceDeploymentConfiguration where
-  parseJSON (Object obj) =
-    ECSServiceDeploymentConfiguration <$>
-      fmap (fmap (fmap unInteger')) (obj .:? "MaximumPercent") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "MinimumHealthyPercent")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ECSServiceDeploymentConfiguration' containing required
 -- fields as arguments.
 ecsServiceDeploymentConfiguration

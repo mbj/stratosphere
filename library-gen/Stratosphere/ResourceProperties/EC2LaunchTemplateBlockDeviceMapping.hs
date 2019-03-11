@@ -29,15 +29,6 @@ instance ToJSON EC2LaunchTemplateBlockDeviceMapping where
     , fmap (("VirtualName",) . toJSON) _eC2LaunchTemplateBlockDeviceMappingVirtualName
     ]
 
-instance FromJSON EC2LaunchTemplateBlockDeviceMapping where
-  parseJSON (Object obj) =
-    EC2LaunchTemplateBlockDeviceMapping <$>
-      (obj .:? "DeviceName") <*>
-      (obj .:? "Ebs") <*>
-      (obj .:? "NoDevice") <*>
-      (obj .:? "VirtualName")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2LaunchTemplateBlockDeviceMapping' containing required
 -- fields as arguments.
 ec2LaunchTemplateBlockDeviceMapping

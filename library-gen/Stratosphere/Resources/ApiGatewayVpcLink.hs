@@ -27,14 +27,6 @@ instance ToJSON ApiGatewayVpcLink where
     , (Just . ("TargetArns",) . toJSON) _apiGatewayVpcLinkTargetArns
     ]
 
-instance FromJSON ApiGatewayVpcLink where
-  parseJSON (Object obj) =
-    ApiGatewayVpcLink <$>
-      (obj .:? "Description") <*>
-      (obj .: "Name") <*>
-      (obj .: "TargetArns")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ApiGatewayVpcLink' containing required fields as
 -- arguments.
 apiGatewayVpcLink

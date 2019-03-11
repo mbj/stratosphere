@@ -33,17 +33,6 @@ instance ToJSON EFSFileSystem where
     , fmap (("ThroughputMode",) . toJSON) _eFSFileSystemThroughputMode
     ]
 
-instance FromJSON EFSFileSystem where
-  parseJSON (Object obj) =
-    EFSFileSystem <$>
-      fmap (fmap (fmap unBool')) (obj .:? "Encrypted") <*>
-      (obj .:? "FileSystemTags") <*>
-      (obj .:? "KmsKeyId") <*>
-      (obj .:? "PerformanceMode") <*>
-      fmap (fmap (fmap unDouble')) (obj .:? "ProvisionedThroughputInMibps") <*>
-      (obj .:? "ThroughputMode")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EFSFileSystem' containing required fields as arguments.
 efsFileSystem
   :: EFSFileSystem

@@ -25,12 +25,6 @@ instance ToJSON KinesisFirehoseDeliveryStreamKMSEncryptionConfig where
     [ (Just . ("AWSKMSKeyARN",) . toJSON) _kinesisFirehoseDeliveryStreamKMSEncryptionConfigAWSKMSKeyARN
     ]
 
-instance FromJSON KinesisFirehoseDeliveryStreamKMSEncryptionConfig where
-  parseJSON (Object obj) =
-    KinesisFirehoseDeliveryStreamKMSEncryptionConfig <$>
-      (obj .: "AWSKMSKeyARN")
-  parseJSON _ = mempty
-
 -- | Constructor for 'KinesisFirehoseDeliveryStreamKMSEncryptionConfig'
 -- containing required fields as arguments.
 kinesisFirehoseDeliveryStreamKMSEncryptionConfig

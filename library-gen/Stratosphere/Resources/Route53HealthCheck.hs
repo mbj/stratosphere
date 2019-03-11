@@ -26,13 +26,6 @@ instance ToJSON Route53HealthCheck where
     , fmap (("HealthCheckTags",) . toJSON) _route53HealthCheckHealthCheckTags
     ]
 
-instance FromJSON Route53HealthCheck where
-  parseJSON (Object obj) =
-    Route53HealthCheck <$>
-      (obj .: "HealthCheckConfig") <*>
-      (obj .:? "HealthCheckTags")
-  parseJSON _ = mempty
-
 -- | Constructor for 'Route53HealthCheck' containing required fields as
 -- arguments.
 route53HealthCheck

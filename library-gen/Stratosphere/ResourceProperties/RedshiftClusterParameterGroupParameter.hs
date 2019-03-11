@@ -26,13 +26,6 @@ instance ToJSON RedshiftClusterParameterGroupParameter where
     , (Just . ("ParameterValue",) . toJSON) _redshiftClusterParameterGroupParameterParameterValue
     ]
 
-instance FromJSON RedshiftClusterParameterGroupParameter where
-  parseJSON (Object obj) =
-    RedshiftClusterParameterGroupParameter <$>
-      (obj .: "ParameterName") <*>
-      (obj .: "ParameterValue")
-  parseJSON _ = mempty
-
 -- | Constructor for 'RedshiftClusterParameterGroupParameter' containing
 -- required fields as arguments.
 redshiftClusterParameterGroupParameter

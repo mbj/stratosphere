@@ -31,16 +31,6 @@ instance ToJSON NeptuneDBClusterParameterGroup where
     , fmap (("Tags",) . toJSON) _neptuneDBClusterParameterGroupTags
     ]
 
-instance FromJSON NeptuneDBClusterParameterGroup where
-  parseJSON (Object obj) =
-    NeptuneDBClusterParameterGroup <$>
-      (obj .: "Description") <*>
-      (obj .: "Family") <*>
-      (obj .:? "Name") <*>
-      (obj .: "Parameters") <*>
-      (obj .:? "Tags")
-  parseJSON _ = mempty
-
 -- | Constructor for 'NeptuneDBClusterParameterGroup' containing required
 -- fields as arguments.
 neptuneDBClusterParameterGroup

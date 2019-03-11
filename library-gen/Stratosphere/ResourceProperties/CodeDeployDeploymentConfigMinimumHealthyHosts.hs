@@ -27,13 +27,6 @@ instance ToJSON CodeDeployDeploymentConfigMinimumHealthyHosts where
     , (Just . ("Value",) . toJSON . fmap Integer') _codeDeployDeploymentConfigMinimumHealthyHostsValue
     ]
 
-instance FromJSON CodeDeployDeploymentConfigMinimumHealthyHosts where
-  parseJSON (Object obj) =
-    CodeDeployDeploymentConfigMinimumHealthyHosts <$>
-      (obj .: "Type") <*>
-      fmap (fmap unInteger') (obj .: "Value")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CodeDeployDeploymentConfigMinimumHealthyHosts'
 -- containing required fields as arguments.
 codeDeployDeploymentConfigMinimumHealthyHosts

@@ -27,14 +27,6 @@ instance ToJSON DMSCertificate where
     , fmap (("CertificateWallet",) . toJSON) _dMSCertificateCertificateWallet
     ]
 
-instance FromJSON DMSCertificate where
-  parseJSON (Object obj) =
-    DMSCertificate <$>
-      (obj .:? "CertificateIdentifier") <*>
-      (obj .:? "CertificatePem") <*>
-      (obj .:? "CertificateWallet")
-  parseJSON _ = mempty
-
 -- | Constructor for 'DMSCertificate' containing required fields as arguments.
 dmsCertificate
   :: DMSCertificate

@@ -25,13 +25,6 @@ instance ToJSON LogsLogStream where
     , fmap (("LogStreamName",) . toJSON) _logsLogStreamLogStreamName
     ]
 
-instance FromJSON LogsLogStream where
-  parseJSON (Object obj) =
-    LogsLogStream <$>
-      (obj .: "LogGroupName") <*>
-      (obj .:? "LogStreamName")
-  parseJSON _ = mempty
-
 -- | Constructor for 'LogsLogStream' containing required fields as arguments.
 logsLogStream
   :: Val Text -- ^ 'llsLogGroupName'

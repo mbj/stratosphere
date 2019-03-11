@@ -25,13 +25,6 @@ instance ToJSON ServiceCatalogTagOptionAssociation where
     , (Just . ("TagOptionId",) . toJSON) _serviceCatalogTagOptionAssociationTagOptionId
     ]
 
-instance FromJSON ServiceCatalogTagOptionAssociation where
-  parseJSON (Object obj) =
-    ServiceCatalogTagOptionAssociation <$>
-      (obj .: "ResourceId") <*>
-      (obj .: "TagOptionId")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ServiceCatalogTagOptionAssociation' containing required
 -- fields as arguments.
 serviceCatalogTagOptionAssociation

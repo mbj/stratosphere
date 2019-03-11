@@ -31,15 +31,6 @@ instance ToJSON ElasticLoadBalancingLoadBalancerAccessLoggingPolicy where
     , fmap (("S3BucketPrefix",) . toJSON) _elasticLoadBalancingLoadBalancerAccessLoggingPolicyS3BucketPrefix
     ]
 
-instance FromJSON ElasticLoadBalancingLoadBalancerAccessLoggingPolicy where
-  parseJSON (Object obj) =
-    ElasticLoadBalancingLoadBalancerAccessLoggingPolicy <$>
-      fmap (fmap (fmap unInteger')) (obj .:? "EmitInterval") <*>
-      fmap (fmap unBool') (obj .: "Enabled") <*>
-      (obj .: "S3BucketName") <*>
-      (obj .:? "S3BucketPrefix")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ElasticLoadBalancingLoadBalancerAccessLoggingPolicy'
 -- containing required fields as arguments.
 elasticLoadBalancingLoadBalancerAccessLoggingPolicy

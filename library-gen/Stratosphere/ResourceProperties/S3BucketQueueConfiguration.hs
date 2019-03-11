@@ -27,14 +27,6 @@ instance ToJSON S3BucketQueueConfiguration where
     , (Just . ("Queue",) . toJSON) _s3BucketQueueConfigurationQueue
     ]
 
-instance FromJSON S3BucketQueueConfiguration where
-  parseJSON (Object obj) =
-    S3BucketQueueConfiguration <$>
-      (obj .: "Event") <*>
-      (obj .:? "Filter") <*>
-      (obj .: "Queue")
-  parseJSON _ = mempty
-
 -- | Constructor for 'S3BucketQueueConfiguration' containing required fields
 -- as arguments.
 s3BucketQueueConfiguration

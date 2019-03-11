@@ -25,13 +25,6 @@ instance ToJSON WAFRegionalXssMatchSet where
     , fmap (("XssMatchTuples",) . toJSON) _wAFRegionalXssMatchSetXssMatchTuples
     ]
 
-instance FromJSON WAFRegionalXssMatchSet where
-  parseJSON (Object obj) =
-    WAFRegionalXssMatchSet <$>
-      (obj .: "Name") <*>
-      (obj .:? "XssMatchTuples")
-  parseJSON _ = mempty
-
 -- | Constructor for 'WAFRegionalXssMatchSet' containing required fields as
 -- arguments.
 wafRegionalXssMatchSet

@@ -74,37 +74,6 @@ instance ToJSON RDSDBCluster where
     , fmap (("VpcSecurityGroupIds",) . toJSON) _rDSDBClusterVpcSecurityGroupIds
     ]
 
-instance FromJSON RDSDBCluster where
-  parseJSON (Object obj) =
-    RDSDBCluster <$>
-      (obj .:? "AvailabilityZones") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "BacktrackWindow") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "BackupRetentionPeriod") <*>
-      (obj .:? "DBClusterIdentifier") <*>
-      (obj .:? "DBClusterParameterGroupName") <*>
-      (obj .:? "DBSubnetGroupName") <*>
-      (obj .:? "DatabaseName") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "DeletionProtection") <*>
-      (obj .:? "EnableCloudwatchLogsExports") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "EnableIAMDatabaseAuthentication") <*>
-      (obj .: "Engine") <*>
-      (obj .:? "EngineMode") <*>
-      (obj .:? "EngineVersion") <*>
-      (obj .:? "KmsKeyId") <*>
-      (obj .:? "MasterUserPassword") <*>
-      (obj .:? "MasterUsername") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "Port") <*>
-      (obj .:? "PreferredBackupWindow") <*>
-      (obj .:? "PreferredMaintenanceWindow") <*>
-      (obj .:? "ReplicationSourceIdentifier") <*>
-      (obj .:? "ScalingConfiguration") <*>
-      (obj .:? "SnapshotIdentifier") <*>
-      (obj .:? "SourceRegion") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "StorageEncrypted") <*>
-      (obj .:? "Tags") <*>
-      (obj .:? "VpcSecurityGroupIds")
-  parseJSON _ = mempty
-
 -- | Constructor for 'RDSDBCluster' containing required fields as arguments.
 rdsdbCluster
   :: Val Text -- ^ 'rdsdbcEngine'

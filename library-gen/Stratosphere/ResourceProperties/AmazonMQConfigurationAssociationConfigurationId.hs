@@ -27,13 +27,6 @@ instance ToJSON AmazonMQConfigurationAssociationConfigurationId where
     , (Just . ("Revision",) . toJSON . fmap Integer') _amazonMQConfigurationAssociationConfigurationIdRevision
     ]
 
-instance FromJSON AmazonMQConfigurationAssociationConfigurationId where
-  parseJSON (Object obj) =
-    AmazonMQConfigurationAssociationConfigurationId <$>
-      (obj .: "Id") <*>
-      fmap (fmap unInteger') (obj .: "Revision")
-  parseJSON _ = mempty
-
 -- | Constructor for 'AmazonMQConfigurationAssociationConfigurationId'
 -- containing required fields as arguments.
 amazonMQConfigurationAssociationConfigurationId

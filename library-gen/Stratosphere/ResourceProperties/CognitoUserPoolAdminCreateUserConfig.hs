@@ -27,14 +27,6 @@ instance ToJSON CognitoUserPoolAdminCreateUserConfig where
     , fmap (("UnusedAccountValidityDays",) . toJSON . fmap Double') _cognitoUserPoolAdminCreateUserConfigUnusedAccountValidityDays
     ]
 
-instance FromJSON CognitoUserPoolAdminCreateUserConfig where
-  parseJSON (Object obj) =
-    CognitoUserPoolAdminCreateUserConfig <$>
-      fmap (fmap (fmap unBool')) (obj .:? "AllowAdminCreateUserOnly") <*>
-      (obj .:? "InviteMessageTemplate") <*>
-      fmap (fmap (fmap unDouble')) (obj .:? "UnusedAccountValidityDays")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CognitoUserPoolAdminCreateUserConfig' containing
 -- required fields as arguments.
 cognitoUserPoolAdminCreateUserConfig

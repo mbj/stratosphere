@@ -29,15 +29,6 @@ instance ToJSON SESTemplateTemplate where
     , fmap (("TextPart",) . toJSON) _sESTemplateTemplateTextPart
     ]
 
-instance FromJSON SESTemplateTemplate where
-  parseJSON (Object obj) =
-    SESTemplateTemplate <$>
-      (obj .:? "HtmlPart") <*>
-      (obj .:? "SubjectPart") <*>
-      (obj .:? "TemplateName") <*>
-      (obj .:? "TextPart")
-  parseJSON _ = mempty
-
 -- | Constructor for 'SESTemplateTemplate' containing required fields as
 -- arguments.
 sesTemplateTemplate

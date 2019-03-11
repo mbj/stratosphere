@@ -29,15 +29,6 @@ instance ToJSON EventsEventBusPolicy where
     , (Just . ("StatementId",) . toJSON) _eventsEventBusPolicyStatementId
     ]
 
-instance FromJSON EventsEventBusPolicy where
-  parseJSON (Object obj) =
-    EventsEventBusPolicy <$>
-      (obj .: "Action") <*>
-      (obj .:? "Condition") <*>
-      (obj .: "Principal") <*>
-      (obj .: "StatementId")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EventsEventBusPolicy' containing required fields as
 -- arguments.
 eventsEventBusPolicy

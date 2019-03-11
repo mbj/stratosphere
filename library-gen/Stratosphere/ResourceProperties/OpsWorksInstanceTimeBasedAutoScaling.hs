@@ -35,18 +35,6 @@ instance ToJSON OpsWorksInstanceTimeBasedAutoScaling where
     , fmap (("Wednesday",) . toJSON) _opsWorksInstanceTimeBasedAutoScalingWednesday
     ]
 
-instance FromJSON OpsWorksInstanceTimeBasedAutoScaling where
-  parseJSON (Object obj) =
-    OpsWorksInstanceTimeBasedAutoScaling <$>
-      (obj .:? "Friday") <*>
-      (obj .:? "Monday") <*>
-      (obj .:? "Saturday") <*>
-      (obj .:? "Sunday") <*>
-      (obj .:? "Thursday") <*>
-      (obj .:? "Tuesday") <*>
-      (obj .:? "Wednesday")
-  parseJSON _ = mempty
-
 -- | Constructor for 'OpsWorksInstanceTimeBasedAutoScaling' containing
 -- required fields as arguments.
 opsWorksInstanceTimeBasedAutoScaling

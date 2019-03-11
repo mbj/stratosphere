@@ -29,15 +29,6 @@ instance ToJSON RDSDBClusterScalingConfiguration where
     , fmap (("SecondsUntilAutoPause",) . toJSON . fmap Integer') _rDSDBClusterScalingConfigurationSecondsUntilAutoPause
     ]
 
-instance FromJSON RDSDBClusterScalingConfiguration where
-  parseJSON (Object obj) =
-    RDSDBClusterScalingConfiguration <$>
-      fmap (fmap (fmap unBool')) (obj .:? "AutoPause") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "MaxCapacity") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "MinCapacity") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "SecondsUntilAutoPause")
-  parseJSON _ = mempty
-
 -- | Constructor for 'RDSDBClusterScalingConfiguration' containing required
 -- fields as arguments.
 rdsdbClusterScalingConfiguration

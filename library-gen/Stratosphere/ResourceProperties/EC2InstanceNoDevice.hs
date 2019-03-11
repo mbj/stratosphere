@@ -19,10 +19,6 @@ data EC2InstanceNoDevice =
 instance ToJSON EC2InstanceNoDevice where
   toJSON _ = toJSON ([] :: [String])
 
-instance FromJSON EC2InstanceNoDevice where
-  parseJSON (Array _) = return EC2InstanceNoDevice
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2InstanceNoDevice' containing required fields as
 -- arguments.
 ec2InstanceNoDevice

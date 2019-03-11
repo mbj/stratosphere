@@ -27,14 +27,6 @@ instance ToJSON BatchJobDefinitionUlimit where
     , (Just . ("SoftLimit",) . toJSON . fmap Integer') _batchJobDefinitionUlimitSoftLimit
     ]
 
-instance FromJSON BatchJobDefinitionUlimit where
-  parseJSON (Object obj) =
-    BatchJobDefinitionUlimit <$>
-      fmap (fmap unInteger') (obj .: "HardLimit") <*>
-      (obj .: "Name") <*>
-      fmap (fmap unInteger') (obj .: "SoftLimit")
-  parseJSON _ = mempty
-
 -- | Constructor for 'BatchJobDefinitionUlimit' containing required fields as
 -- arguments.
 batchJobDefinitionUlimit

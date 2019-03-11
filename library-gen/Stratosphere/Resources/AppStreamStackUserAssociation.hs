@@ -29,15 +29,6 @@ instance ToJSON AppStreamStackUserAssociation where
     , (Just . ("UserName",) . toJSON) _appStreamStackUserAssociationUserName
     ]
 
-instance FromJSON AppStreamStackUserAssociation where
-  parseJSON (Object obj) =
-    AppStreamStackUserAssociation <$>
-      (obj .: "AuthenticationType") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "SendEmailNotification") <*>
-      (obj .: "StackName") <*>
-      (obj .: "UserName")
-  parseJSON _ = mempty
-
 -- | Constructor for 'AppStreamStackUserAssociation' containing required
 -- fields as arguments.
 appStreamStackUserAssociation

@@ -23,12 +23,6 @@ instance ToJSON EC2LaunchTemplateCreditSpecification where
     [ fmap (("CpuCredits",) . toJSON) _eC2LaunchTemplateCreditSpecificationCpuCredits
     ]
 
-instance FromJSON EC2LaunchTemplateCreditSpecification where
-  parseJSON (Object obj) =
-    EC2LaunchTemplateCreditSpecification <$>
-      (obj .:? "CpuCredits")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2LaunchTemplateCreditSpecification' containing
 -- required fields as arguments.
 ec2LaunchTemplateCreditSpecification

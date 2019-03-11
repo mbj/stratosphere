@@ -27,13 +27,6 @@ instance ToJSON KinesisAnalyticsV2ApplicationReferenceDataSourceRecordFormat whe
     , (Just . ("RecordFormatType",) . toJSON) _kinesisAnalyticsV2ApplicationReferenceDataSourceRecordFormatRecordFormatType
     ]
 
-instance FromJSON KinesisAnalyticsV2ApplicationReferenceDataSourceRecordFormat where
-  parseJSON (Object obj) =
-    KinesisAnalyticsV2ApplicationReferenceDataSourceRecordFormat <$>
-      (obj .:? "MappingParameters") <*>
-      (obj .: "RecordFormatType")
-  parseJSON _ = mempty
-
 -- | Constructor for
 -- 'KinesisAnalyticsV2ApplicationReferenceDataSourceRecordFormat' containing
 -- required fields as arguments.

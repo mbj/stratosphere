@@ -29,15 +29,6 @@ instance ToJSON IAMGroup where
     , fmap (("Policies",) . toJSON) _iAMGroupPolicies
     ]
 
-instance FromJSON IAMGroup where
-  parseJSON (Object obj) =
-    IAMGroup <$>
-      (obj .:? "GroupName") <*>
-      (obj .:? "ManagedPolicyArns") <*>
-      (obj .:? "Path") <*>
-      (obj .:? "Policies")
-  parseJSON _ = mempty
-
 -- | Constructor for 'IAMGroup' containing required fields as arguments.
 iamGroup
   :: IAMGroup

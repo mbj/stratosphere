@@ -27,13 +27,6 @@ instance ToJSON RoboMakerSimulationApplicationSimulationSoftwareSuite where
     , (Just . ("Version",) . toJSON) _roboMakerSimulationApplicationSimulationSoftwareSuiteVersion
     ]
 
-instance FromJSON RoboMakerSimulationApplicationSimulationSoftwareSuite where
-  parseJSON (Object obj) =
-    RoboMakerSimulationApplicationSimulationSoftwareSuite <$>
-      (obj .: "Name") <*>
-      (obj .: "Version")
-  parseJSON _ = mempty
-
 -- | Constructor for 'RoboMakerSimulationApplicationSimulationSoftwareSuite'
 -- containing required fields as arguments.
 roboMakerSimulationApplicationSimulationSoftwareSuite

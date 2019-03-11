@@ -62,28 +62,6 @@ instance ToJSON CodeBuildProject where
     , fmap (("VpcConfig",) . toJSON) _codeBuildProjectVpcConfig
     ]
 
-instance FromJSON CodeBuildProject where
-  parseJSON (Object obj) =
-    CodeBuildProject <$>
-      (obj .: "Artifacts") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "BadgeEnabled") <*>
-      (obj .:? "Cache") <*>
-      (obj .:? "Description") <*>
-      (obj .:? "EncryptionKey") <*>
-      (obj .: "Environment") <*>
-      (obj .:? "LogsConfig") <*>
-      (obj .:? "Name") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "QueuedTimeoutInMinutes") <*>
-      (obj .:? "SecondaryArtifacts") <*>
-      (obj .:? "SecondarySources") <*>
-      (obj .: "ServiceRole") <*>
-      (obj .: "Source") <*>
-      (obj .:? "Tags") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "TimeoutInMinutes") <*>
-      (obj .:? "Triggers") <*>
-      (obj .:? "VpcConfig")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CodeBuildProject' containing required fields as
 -- arguments.
 codeBuildProject

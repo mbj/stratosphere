@@ -28,14 +28,6 @@ instance ToJSON CodeDeployDeploymentGroupEC2TagFilter where
     , fmap (("Value",) . toJSON) _codeDeployDeploymentGroupEC2TagFilterValue
     ]
 
-instance FromJSON CodeDeployDeploymentGroupEC2TagFilter where
-  parseJSON (Object obj) =
-    CodeDeployDeploymentGroupEC2TagFilter <$>
-      (obj .:? "Key") <*>
-      (obj .:? "Type") <*>
-      (obj .:? "Value")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CodeDeployDeploymentGroupEC2TagFilter' containing
 -- required fields as arguments.
 codeDeployDeploymentGroupEC2TagFilter

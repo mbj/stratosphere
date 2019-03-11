@@ -27,14 +27,6 @@ instance ToJSON GameLiftBuild where
     , fmap (("Version",) . toJSON) _gameLiftBuildVersion
     ]
 
-instance FromJSON GameLiftBuild where
-  parseJSON (Object obj) =
-    GameLiftBuild <$>
-      (obj .:? "Name") <*>
-      (obj .:? "StorageLocation") <*>
-      (obj .:? "Version")
-  parseJSON _ = mempty
-
 -- | Constructor for 'GameLiftBuild' containing required fields as arguments.
 gameLiftBuild
   :: GameLiftBuild

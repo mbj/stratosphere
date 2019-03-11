@@ -23,12 +23,6 @@ instance ToJSON S3BucketEncryptionConfiguration where
     [ (Just . ("ReplicaKmsKeyID",) . toJSON) _s3BucketEncryptionConfigurationReplicaKmsKeyID
     ]
 
-instance FromJSON S3BucketEncryptionConfiguration where
-  parseJSON (Object obj) =
-    S3BucketEncryptionConfiguration <$>
-      (obj .: "ReplicaKmsKeyID")
-  parseJSON _ = mempty
-
 -- | Constructor for 'S3BucketEncryptionConfiguration' containing required
 -- fields as arguments.
 s3BucketEncryptionConfiguration

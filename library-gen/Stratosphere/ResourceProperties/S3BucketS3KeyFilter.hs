@@ -23,12 +23,6 @@ instance ToJSON S3BucketS3KeyFilter where
     [ (Just . ("Rules",) . toJSON) _s3BucketS3KeyFilterRules
     ]
 
-instance FromJSON S3BucketS3KeyFilter where
-  parseJSON (Object obj) =
-    S3BucketS3KeyFilter <$>
-      (obj .: "Rules")
-  parseJSON _ = mempty
-
 -- | Constructor for 'S3BucketS3KeyFilter' containing required fields as
 -- arguments.
 s3BucketS3KeyFilter

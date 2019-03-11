@@ -25,13 +25,6 @@ instance ToJSON IoTCertificate where
     , (Just . ("Status",) . toJSON) _ioTCertificateStatus
     ]
 
-instance FromJSON IoTCertificate where
-  parseJSON (Object obj) =
-    IoTCertificate <$>
-      (obj .: "CertificateSigningRequest") <*>
-      (obj .: "Status")
-  parseJSON _ = mempty
-
 -- | Constructor for 'IoTCertificate' containing required fields as arguments.
 ioTCertificate
   :: Val Text -- ^ 'itcCertificateSigningRequest'

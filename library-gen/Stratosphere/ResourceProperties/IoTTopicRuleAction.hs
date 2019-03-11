@@ -62,25 +62,6 @@ instance ToJSON IoTTopicRuleAction where
     , fmap (("StepFunctions",) . toJSON) _ioTTopicRuleActionStepFunctions
     ]
 
-instance FromJSON IoTTopicRuleAction where
-  parseJSON (Object obj) =
-    IoTTopicRuleAction <$>
-      (obj .:? "CloudwatchAlarm") <*>
-      (obj .:? "CloudwatchMetric") <*>
-      (obj .:? "DynamoDB") <*>
-      (obj .:? "DynamoDBv2") <*>
-      (obj .:? "Elasticsearch") <*>
-      (obj .:? "Firehose") <*>
-      (obj .:? "IotAnalytics") <*>
-      (obj .:? "Kinesis") <*>
-      (obj .:? "Lambda") <*>
-      (obj .:? "Republish") <*>
-      (obj .:? "S3") <*>
-      (obj .:? "Sns") <*>
-      (obj .:? "Sqs") <*>
-      (obj .:? "StepFunctions")
-  parseJSON _ = mempty
-
 -- | Constructor for 'IoTTopicRuleAction' containing required fields as
 -- arguments.
 ioTTopicRuleAction

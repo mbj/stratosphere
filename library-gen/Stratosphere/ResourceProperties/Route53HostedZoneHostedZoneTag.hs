@@ -25,13 +25,6 @@ instance ToJSON Route53HostedZoneHostedZoneTag where
     , (Just . ("Value",) . toJSON) _route53HostedZoneHostedZoneTagValue
     ]
 
-instance FromJSON Route53HostedZoneHostedZoneTag where
-  parseJSON (Object obj) =
-    Route53HostedZoneHostedZoneTag <$>
-      (obj .: "Key") <*>
-      (obj .: "Value")
-  parseJSON _ = mempty
-
 -- | Constructor for 'Route53HostedZoneHostedZoneTag' containing required
 -- fields as arguments.
 route53HostedZoneHostedZoneTag

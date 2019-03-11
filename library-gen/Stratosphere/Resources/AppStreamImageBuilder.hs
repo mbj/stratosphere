@@ -42,21 +42,6 @@ instance ToJSON AppStreamImageBuilder where
     , fmap (("VpcConfig",) . toJSON) _appStreamImageBuilderVpcConfig
     ]
 
-instance FromJSON AppStreamImageBuilder where
-  parseJSON (Object obj) =
-    AppStreamImageBuilder <$>
-      (obj .:? "AppstreamAgentVersion") <*>
-      (obj .:? "Description") <*>
-      (obj .:? "DisplayName") <*>
-      (obj .:? "DomainJoinInfo") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "EnableDefaultInternetAccess") <*>
-      (obj .:? "ImageArn") <*>
-      (obj .:? "ImageName") <*>
-      (obj .: "InstanceType") <*>
-      (obj .:? "Name") <*>
-      (obj .:? "VpcConfig")
-  parseJSON _ = mempty
-
 -- | Constructor for 'AppStreamImageBuilder' containing required fields as
 -- arguments.
 appStreamImageBuilder

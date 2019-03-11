@@ -31,16 +31,6 @@ instance ToJSON EC2LaunchTemplatePlacement where
     , fmap (("Tenancy",) . toJSON) _eC2LaunchTemplatePlacementTenancy
     ]
 
-instance FromJSON EC2LaunchTemplatePlacement where
-  parseJSON (Object obj) =
-    EC2LaunchTemplatePlacement <$>
-      (obj .:? "Affinity") <*>
-      (obj .:? "AvailabilityZone") <*>
-      (obj .:? "GroupName") <*>
-      (obj .:? "HostId") <*>
-      (obj .:? "Tenancy")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2LaunchTemplatePlacement' containing required fields
 -- as arguments.
 ec2LaunchTemplatePlacement

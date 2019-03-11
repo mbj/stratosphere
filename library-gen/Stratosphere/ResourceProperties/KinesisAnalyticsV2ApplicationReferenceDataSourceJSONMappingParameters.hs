@@ -26,12 +26,6 @@ instance ToJSON KinesisAnalyticsV2ApplicationReferenceDataSourceJSONMappingParam
     [ (Just . ("RecordRowPath",) . toJSON) _kinesisAnalyticsV2ApplicationReferenceDataSourceJSONMappingParametersRecordRowPath
     ]
 
-instance FromJSON KinesisAnalyticsV2ApplicationReferenceDataSourceJSONMappingParameters where
-  parseJSON (Object obj) =
-    KinesisAnalyticsV2ApplicationReferenceDataSourceJSONMappingParameters <$>
-      (obj .: "RecordRowPath")
-  parseJSON _ = mempty
-
 -- | Constructor for
 -- 'KinesisAnalyticsV2ApplicationReferenceDataSourceJSONMappingParameters'
 -- containing required fields as arguments.

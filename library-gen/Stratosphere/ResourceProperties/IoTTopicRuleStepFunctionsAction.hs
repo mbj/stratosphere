@@ -27,14 +27,6 @@ instance ToJSON IoTTopicRuleStepFunctionsAction where
     , (Just . ("StateMachineName",) . toJSON) _ioTTopicRuleStepFunctionsActionStateMachineName
     ]
 
-instance FromJSON IoTTopicRuleStepFunctionsAction where
-  parseJSON (Object obj) =
-    IoTTopicRuleStepFunctionsAction <$>
-      (obj .:? "ExecutionNamePrefix") <*>
-      (obj .: "RoleArn") <*>
-      (obj .: "StateMachineName")
-  parseJSON _ = mempty
-
 -- | Constructor for 'IoTTopicRuleStepFunctionsAction' containing required
 -- fields as arguments.
 ioTTopicRuleStepFunctionsAction

@@ -23,12 +23,6 @@ instance ToJSON SDBDomain where
     [ fmap (("Description",) . toJSON) _sDBDomainDescription
     ]
 
-instance FromJSON SDBDomain where
-  parseJSON (Object obj) =
-    SDBDomain <$>
-      (obj .:? "Description")
-  parseJSON _ = mempty
-
 -- | Constructor for 'SDBDomain' containing required fields as arguments.
 sdbDomain
   :: SDBDomain

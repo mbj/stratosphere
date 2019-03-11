@@ -27,13 +27,6 @@ instance ToJSON ElasticLoadBalancingLoadBalancerAppCookieStickinessPolicy where
     , (Just . ("PolicyName",) . toJSON) _elasticLoadBalancingLoadBalancerAppCookieStickinessPolicyPolicyName
     ]
 
-instance FromJSON ElasticLoadBalancingLoadBalancerAppCookieStickinessPolicy where
-  parseJSON (Object obj) =
-    ElasticLoadBalancingLoadBalancerAppCookieStickinessPolicy <$>
-      (obj .: "CookieName") <*>
-      (obj .: "PolicyName")
-  parseJSON _ = mempty
-
 -- | Constructor for
 -- 'ElasticLoadBalancingLoadBalancerAppCookieStickinessPolicy' containing
 -- required fields as arguments.

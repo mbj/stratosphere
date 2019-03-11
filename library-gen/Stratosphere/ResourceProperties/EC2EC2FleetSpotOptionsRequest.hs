@@ -27,14 +27,6 @@ instance ToJSON EC2EC2FleetSpotOptionsRequest where
     , fmap (("InstancePoolsToUseCount",) . toJSON . fmap Integer') _eC2EC2FleetSpotOptionsRequestInstancePoolsToUseCount
     ]
 
-instance FromJSON EC2EC2FleetSpotOptionsRequest where
-  parseJSON (Object obj) =
-    EC2EC2FleetSpotOptionsRequest <$>
-      (obj .:? "AllocationStrategy") <*>
-      (obj .:? "InstanceInterruptionBehavior") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "InstancePoolsToUseCount")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2EC2FleetSpotOptionsRequest' containing required
 -- fields as arguments.
 ec2EC2FleetSpotOptionsRequest

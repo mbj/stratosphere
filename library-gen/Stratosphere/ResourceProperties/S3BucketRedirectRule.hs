@@ -31,16 +31,6 @@ instance ToJSON S3BucketRedirectRule where
     , fmap (("ReplaceKeyWith",) . toJSON) _s3BucketRedirectRuleReplaceKeyWith
     ]
 
-instance FromJSON S3BucketRedirectRule where
-  parseJSON (Object obj) =
-    S3BucketRedirectRule <$>
-      (obj .:? "HostName") <*>
-      (obj .:? "HttpRedirectCode") <*>
-      (obj .:? "Protocol") <*>
-      (obj .:? "ReplaceKeyPrefixWith") <*>
-      (obj .:? "ReplaceKeyWith")
-  parseJSON _ = mempty
-
 -- | Constructor for 'S3BucketRedirectRule' containing required fields as
 -- arguments.
 s3BucketRedirectRule

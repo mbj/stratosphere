@@ -27,9 +27,6 @@ data UpdatePolicy =
 instance ToJSON UpdatePolicy where
   toJSON = genericToJSON defaultOptions { fieldLabelModifier = Prelude.drop 13, omitNothingFields = True }
 
-instance FromJSON UpdatePolicy where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 13, omitNothingFields = True }
-
 -- | Constructor for 'UpdatePolicy' containing required fields as arguments.
 updatePolicy
   :: UpdatePolicy

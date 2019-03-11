@@ -25,13 +25,6 @@ instance ToJSON EMRClusterScalingConstraints where
     , (Just . ("MinCapacity",) . toJSON . fmap Integer') _eMRClusterScalingConstraintsMinCapacity
     ]
 
-instance FromJSON EMRClusterScalingConstraints where
-  parseJSON (Object obj) =
-    EMRClusterScalingConstraints <$>
-      fmap (fmap unInteger') (obj .: "MaxCapacity") <*>
-      fmap (fmap unInteger') (obj .: "MinCapacity")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EMRClusterScalingConstraints' containing required fields
 -- as arguments.
 emrClusterScalingConstraints

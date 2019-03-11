@@ -27,13 +27,6 @@ instance ToJSON AutoScalingAutoScalingGroupNotificationConfiguration where
     , (Just . ("TopicARN",) . toJSON) _autoScalingAutoScalingGroupNotificationConfigurationTopicARN
     ]
 
-instance FromJSON AutoScalingAutoScalingGroupNotificationConfiguration where
-  parseJSON (Object obj) =
-    AutoScalingAutoScalingGroupNotificationConfiguration <$>
-      (obj .:? "NotificationTypes") <*>
-      (obj .: "TopicARN")
-  parseJSON _ = mempty
-
 -- | Constructor for 'AutoScalingAutoScalingGroupNotificationConfiguration'
 -- containing required fields as arguments.
 autoScalingAutoScalingGroupNotificationConfiguration

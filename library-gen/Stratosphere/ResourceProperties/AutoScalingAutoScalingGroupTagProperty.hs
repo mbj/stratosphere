@@ -28,14 +28,6 @@ instance ToJSON AutoScalingAutoScalingGroupTagProperty where
     , (Just . ("Value",) . toJSON) _autoScalingAutoScalingGroupTagPropertyValue
     ]
 
-instance FromJSON AutoScalingAutoScalingGroupTagProperty where
-  parseJSON (Object obj) =
-    AutoScalingAutoScalingGroupTagProperty <$>
-      (obj .: "Key") <*>
-      fmap (fmap unBool') (obj .: "PropagateAtLaunch") <*>
-      (obj .: "Value")
-  parseJSON _ = mempty
-
 -- | Constructor for 'AutoScalingAutoScalingGroupTagProperty' containing
 -- required fields as arguments.
 autoScalingAutoScalingGroupTagProperty

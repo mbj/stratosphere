@@ -25,13 +25,6 @@ instance ToJSON SESReceiptRuleAddHeaderAction where
     , (Just . ("HeaderValue",) . toJSON) _sESReceiptRuleAddHeaderActionHeaderValue
     ]
 
-instance FromJSON SESReceiptRuleAddHeaderAction where
-  parseJSON (Object obj) =
-    SESReceiptRuleAddHeaderAction <$>
-      (obj .: "HeaderName") <*>
-      (obj .: "HeaderValue")
-  parseJSON _ = mempty
-
 -- | Constructor for 'SESReceiptRuleAddHeaderAction' containing required
 -- fields as arguments.
 sesReceiptRuleAddHeaderAction

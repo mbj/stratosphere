@@ -34,17 +34,6 @@ instance ToJSON ElasticLoadBalancingV2Listener where
     , fmap (("SslPolicy",) . toJSON) _elasticLoadBalancingV2ListenerSslPolicy
     ]
 
-instance FromJSON ElasticLoadBalancingV2Listener where
-  parseJSON (Object obj) =
-    ElasticLoadBalancingV2Listener <$>
-      (obj .:? "Certificates") <*>
-      (obj .: "DefaultActions") <*>
-      (obj .: "LoadBalancerArn") <*>
-      fmap (fmap unInteger') (obj .: "Port") <*>
-      (obj .: "Protocol") <*>
-      (obj .:? "SslPolicy")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ElasticLoadBalancingV2Listener' containing required
 -- fields as arguments.
 elasticLoadBalancingV2Listener

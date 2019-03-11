@@ -27,13 +27,6 @@ instance ToJSON ApplicationAutoScalingScalableTargetScalableTargetAction where
     , fmap (("MinCapacity",) . toJSON . fmap Integer') _applicationAutoScalingScalableTargetScalableTargetActionMinCapacity
     ]
 
-instance FromJSON ApplicationAutoScalingScalableTargetScalableTargetAction where
-  parseJSON (Object obj) =
-    ApplicationAutoScalingScalableTargetScalableTargetAction <$>
-      fmap (fmap (fmap unInteger')) (obj .:? "MaxCapacity") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "MinCapacity")
-  parseJSON _ = mempty
-
 -- | Constructor for
 -- 'ApplicationAutoScalingScalableTargetScalableTargetAction' containing
 -- required fields as arguments.

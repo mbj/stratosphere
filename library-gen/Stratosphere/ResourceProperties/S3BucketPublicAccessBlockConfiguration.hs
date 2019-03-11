@@ -30,15 +30,6 @@ instance ToJSON S3BucketPublicAccessBlockConfiguration where
     , fmap (("RestrictPublicBuckets",) . toJSON . fmap Bool') _s3BucketPublicAccessBlockConfigurationRestrictPublicBuckets
     ]
 
-instance FromJSON S3BucketPublicAccessBlockConfiguration where
-  parseJSON (Object obj) =
-    S3BucketPublicAccessBlockConfiguration <$>
-      fmap (fmap (fmap unBool')) (obj .:? "BlockPublicAcls") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "BlockPublicPolicy") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "IgnorePublicAcls") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "RestrictPublicBuckets")
-  parseJSON _ = mempty
-
 -- | Constructor for 'S3BucketPublicAccessBlockConfiguration' containing
 -- required fields as arguments.
 s3BucketPublicAccessBlockConfiguration

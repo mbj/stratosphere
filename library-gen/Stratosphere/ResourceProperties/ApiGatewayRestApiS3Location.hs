@@ -29,15 +29,6 @@ instance ToJSON ApiGatewayRestApiS3Location where
     , fmap (("Version",) . toJSON) _apiGatewayRestApiS3LocationVersion
     ]
 
-instance FromJSON ApiGatewayRestApiS3Location where
-  parseJSON (Object obj) =
-    ApiGatewayRestApiS3Location <$>
-      (obj .:? "Bucket") <*>
-      (obj .:? "ETag") <*>
-      (obj .:? "Key") <*>
-      (obj .:? "Version")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ApiGatewayRestApiS3Location' containing required fields
 -- as arguments.
 apiGatewayRestApiS3Location

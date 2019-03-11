@@ -25,13 +25,6 @@ instance ToJSON Route53HealthCheckAlarmIdentifier where
     , (Just . ("Region",) . toJSON) _route53HealthCheckAlarmIdentifierRegion
     ]
 
-instance FromJSON Route53HealthCheckAlarmIdentifier where
-  parseJSON (Object obj) =
-    Route53HealthCheckAlarmIdentifier <$>
-      (obj .: "Name") <*>
-      (obj .: "Region")
-  parseJSON _ = mempty
-
 -- | Constructor for 'Route53HealthCheckAlarmIdentifier' containing required
 -- fields as arguments.
 route53HealthCheckAlarmIdentifier

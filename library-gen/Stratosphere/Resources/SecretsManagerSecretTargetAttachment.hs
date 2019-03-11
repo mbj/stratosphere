@@ -27,14 +27,6 @@ instance ToJSON SecretsManagerSecretTargetAttachment where
     , (Just . ("TargetType",) . toJSON) _secretsManagerSecretTargetAttachmentTargetType
     ]
 
-instance FromJSON SecretsManagerSecretTargetAttachment where
-  parseJSON (Object obj) =
-    SecretsManagerSecretTargetAttachment <$>
-      (obj .: "SecretId") <*>
-      (obj .: "TargetId") <*>
-      (obj .: "TargetType")
-  parseJSON _ = mempty
-
 -- | Constructor for 'SecretsManagerSecretTargetAttachment' containing
 -- required fields as arguments.
 secretsManagerSecretTargetAttachment

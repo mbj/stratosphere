@@ -49,22 +49,6 @@ instance ToJSON ElasticsearchDomain where
     , fmap (("VPCOptions",) . toJSON) _elasticsearchDomainVPCOptions
     ]
 
-instance FromJSON ElasticsearchDomain where
-  parseJSON (Object obj) =
-    ElasticsearchDomain <$>
-      (obj .:? "AccessPolicies") <*>
-      (obj .:? "AdvancedOptions") <*>
-      (obj .:? "DomainName") <*>
-      (obj .:? "EBSOptions") <*>
-      (obj .:? "ElasticsearchClusterConfig") <*>
-      (obj .:? "ElasticsearchVersion") <*>
-      (obj .:? "EncryptionAtRestOptions") <*>
-      (obj .:? "NodeToNodeEncryptionOptions") <*>
-      (obj .:? "SnapshotOptions") <*>
-      (obj .:? "Tags") <*>
-      (obj .:? "VPCOptions")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ElasticsearchDomain' containing required fields as
 -- arguments.
 elasticsearchDomain

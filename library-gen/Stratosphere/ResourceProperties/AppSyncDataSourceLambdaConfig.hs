@@ -23,12 +23,6 @@ instance ToJSON AppSyncDataSourceLambdaConfig where
     [ (Just . ("LambdaFunctionArn",) . toJSON) _appSyncDataSourceLambdaConfigLambdaFunctionArn
     ]
 
-instance FromJSON AppSyncDataSourceLambdaConfig where
-  parseJSON (Object obj) =
-    AppSyncDataSourceLambdaConfig <$>
-      (obj .: "LambdaFunctionArn")
-  parseJSON _ = mempty
-
 -- | Constructor for 'AppSyncDataSourceLambdaConfig' containing required
 -- fields as arguments.
 appSyncDataSourceLambdaConfig

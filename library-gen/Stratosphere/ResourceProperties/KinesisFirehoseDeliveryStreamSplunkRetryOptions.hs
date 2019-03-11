@@ -25,12 +25,6 @@ instance ToJSON KinesisFirehoseDeliveryStreamSplunkRetryOptions where
     [ (Just . ("DurationInSeconds",) . toJSON . fmap Integer') _kinesisFirehoseDeliveryStreamSplunkRetryOptionsDurationInSeconds
     ]
 
-instance FromJSON KinesisFirehoseDeliveryStreamSplunkRetryOptions where
-  parseJSON (Object obj) =
-    KinesisFirehoseDeliveryStreamSplunkRetryOptions <$>
-      fmap (fmap unInteger') (obj .: "DurationInSeconds")
-  parseJSON _ = mempty
-
 -- | Constructor for 'KinesisFirehoseDeliveryStreamSplunkRetryOptions'
 -- containing required fields as arguments.
 kinesisFirehoseDeliveryStreamSplunkRetryOptions

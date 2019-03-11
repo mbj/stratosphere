@@ -26,13 +26,6 @@ instance ToJSON EC2TransitGatewayRouteTablePropagation where
     , (Just . ("TransitGatewayRouteTableId",) . toJSON) _eC2TransitGatewayRouteTablePropagationTransitGatewayRouteTableId
     ]
 
-instance FromJSON EC2TransitGatewayRouteTablePropagation where
-  parseJSON (Object obj) =
-    EC2TransitGatewayRouteTablePropagation <$>
-      (obj .: "TransitGatewayAttachmentId") <*>
-      (obj .: "TransitGatewayRouteTableId")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2TransitGatewayRouteTablePropagation' containing
 -- required fields as arguments.
 ec2TransitGatewayRouteTablePropagation

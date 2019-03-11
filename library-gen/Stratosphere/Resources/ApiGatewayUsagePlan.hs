@@ -33,16 +33,6 @@ instance ToJSON ApiGatewayUsagePlan where
     , fmap (("UsagePlanName",) . toJSON) _apiGatewayUsagePlanUsagePlanName
     ]
 
-instance FromJSON ApiGatewayUsagePlan where
-  parseJSON (Object obj) =
-    ApiGatewayUsagePlan <$>
-      (obj .:? "ApiStages") <*>
-      (obj .:? "Description") <*>
-      (obj .:? "Quota") <*>
-      (obj .:? "Throttle") <*>
-      (obj .:? "UsagePlanName")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ApiGatewayUsagePlan' containing required fields as
 -- arguments.
 apiGatewayUsagePlan

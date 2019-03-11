@@ -48,24 +48,6 @@ instance ToJSON CloudTrailTrail where
     , fmap (("TrailName",) . toJSON) _cloudTrailTrailTrailName
     ]
 
-instance FromJSON CloudTrailTrail where
-  parseJSON (Object obj) =
-    CloudTrailTrail <$>
-      (obj .:? "CloudWatchLogsLogGroupArn") <*>
-      (obj .:? "CloudWatchLogsRoleArn") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "EnableLogFileValidation") <*>
-      (obj .:? "EventSelectors") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "IncludeGlobalServiceEvents") <*>
-      fmap (fmap unBool') (obj .: "IsLogging") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "IsMultiRegionTrail") <*>
-      (obj .:? "KMSKeyId") <*>
-      (obj .: "S3BucketName") <*>
-      (obj .:? "S3KeyPrefix") <*>
-      (obj .:? "SnsTopicName") <*>
-      (obj .:? "Tags") <*>
-      (obj .:? "TrailName")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CloudTrailTrail' containing required fields as
 -- arguments.
 cloudTrailTrail

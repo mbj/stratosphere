@@ -24,12 +24,6 @@ instance ToJSON S3BucketAbortIncompleteMultipartUpload where
     [ (Just . ("DaysAfterInitiation",) . toJSON . fmap Integer') _s3BucketAbortIncompleteMultipartUploadDaysAfterInitiation
     ]
 
-instance FromJSON S3BucketAbortIncompleteMultipartUpload where
-  parseJSON (Object obj) =
-    S3BucketAbortIncompleteMultipartUpload <$>
-      fmap (fmap unInteger') (obj .: "DaysAfterInitiation")
-  parseJSON _ = mempty
-
 -- | Constructor for 'S3BucketAbortIncompleteMultipartUpload' containing
 -- required fields as arguments.
 s3BucketAbortIncompleteMultipartUpload

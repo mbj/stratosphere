@@ -28,14 +28,6 @@ instance ToJSON KinesisFirehoseDeliveryStreamCopyCommand where
     , (Just . ("DataTableName",) . toJSON) _kinesisFirehoseDeliveryStreamCopyCommandDataTableName
     ]
 
-instance FromJSON KinesisFirehoseDeliveryStreamCopyCommand where
-  parseJSON (Object obj) =
-    KinesisFirehoseDeliveryStreamCopyCommand <$>
-      (obj .:? "CopyOptions") <*>
-      (obj .:? "DataTableColumns") <*>
-      (obj .: "DataTableName")
-  parseJSON _ = mempty
-
 -- | Constructor for 'KinesisFirehoseDeliveryStreamCopyCommand' containing
 -- required fields as arguments.
 kinesisFirehoseDeliveryStreamCopyCommand

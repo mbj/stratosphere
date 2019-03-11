@@ -29,15 +29,6 @@ instance ToJSON BatchJobQueue where
     , fmap (("State",) . toJSON) _batchJobQueueState
     ]
 
-instance FromJSON BatchJobQueue where
-  parseJSON (Object obj) =
-    BatchJobQueue <$>
-      (obj .: "ComputeEnvironmentOrder") <*>
-      (obj .:? "JobQueueName") <*>
-      fmap (fmap unInteger') (obj .: "Priority") <*>
-      (obj .:? "State")
-  parseJSON _ = mempty
-
 -- | Constructor for 'BatchJobQueue' containing required fields as arguments.
 batchJobQueue
   :: [BatchJobQueueComputeEnvironmentOrder] -- ^ 'bjqComputeEnvironmentOrder'

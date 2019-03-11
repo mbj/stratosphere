@@ -31,16 +31,6 @@ instance ToJSON CognitoUserPoolGroup where
     , (Just . ("UserPoolId",) . toJSON) _cognitoUserPoolGroupUserPoolId
     ]
 
-instance FromJSON CognitoUserPoolGroup where
-  parseJSON (Object obj) =
-    CognitoUserPoolGroup <$>
-      (obj .:? "Description") <*>
-      (obj .:? "GroupName") <*>
-      fmap (fmap (fmap unDouble')) (obj .:? "Precedence") <*>
-      (obj .:? "RoleArn") <*>
-      (obj .: "UserPoolId")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CognitoUserPoolGroup' containing required fields as
 -- arguments.
 cognitoUserPoolGroup

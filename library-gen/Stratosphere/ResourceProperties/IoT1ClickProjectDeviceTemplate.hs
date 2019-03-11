@@ -25,13 +25,6 @@ instance ToJSON IoT1ClickProjectDeviceTemplate where
     , fmap (("DeviceType",) . toJSON) _ioT1ClickProjectDeviceTemplateDeviceType
     ]
 
-instance FromJSON IoT1ClickProjectDeviceTemplate where
-  parseJSON (Object obj) =
-    IoT1ClickProjectDeviceTemplate <$>
-      (obj .:? "CallbackOverrides") <*>
-      (obj .:? "DeviceType")
-  parseJSON _ = mempty
-
 -- | Constructor for 'IoT1ClickProjectDeviceTemplate' containing required
 -- fields as arguments.
 ioT1ClickProjectDeviceTemplate

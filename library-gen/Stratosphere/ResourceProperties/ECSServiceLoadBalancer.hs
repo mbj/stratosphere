@@ -29,15 +29,6 @@ instance ToJSON ECSServiceLoadBalancer where
     , fmap (("TargetGroupArn",) . toJSON) _eCSServiceLoadBalancerTargetGroupArn
     ]
 
-instance FromJSON ECSServiceLoadBalancer where
-  parseJSON (Object obj) =
-    ECSServiceLoadBalancer <$>
-      (obj .:? "ContainerName") <*>
-      fmap (fmap unInteger') (obj .: "ContainerPort") <*>
-      (obj .:? "LoadBalancerName") <*>
-      (obj .:? "TargetGroupArn")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ECSServiceLoadBalancer' containing required fields as
 -- arguments.
 ecsServiceLoadBalancer

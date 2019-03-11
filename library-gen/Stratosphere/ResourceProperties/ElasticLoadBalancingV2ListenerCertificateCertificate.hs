@@ -25,12 +25,6 @@ instance ToJSON ElasticLoadBalancingV2ListenerCertificateCertificate where
     [ fmap (("CertificateArn",) . toJSON) _elasticLoadBalancingV2ListenerCertificateCertificateCertificateArn
     ]
 
-instance FromJSON ElasticLoadBalancingV2ListenerCertificateCertificate where
-  parseJSON (Object obj) =
-    ElasticLoadBalancingV2ListenerCertificateCertificate <$>
-      (obj .:? "CertificateArn")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ElasticLoadBalancingV2ListenerCertificateCertificate'
 -- containing required fields as arguments.
 elasticLoadBalancingV2ListenerCertificateCertificate

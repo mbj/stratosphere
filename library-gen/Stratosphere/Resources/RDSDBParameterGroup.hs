@@ -29,15 +29,6 @@ instance ToJSON RDSDBParameterGroup where
     , fmap (("Tags",) . toJSON) _rDSDBParameterGroupTags
     ]
 
-instance FromJSON RDSDBParameterGroup where
-  parseJSON (Object obj) =
-    RDSDBParameterGroup <$>
-      (obj .: "Description") <*>
-      (obj .: "Family") <*>
-      (obj .:? "Parameters") <*>
-      (obj .:? "Tags")
-  parseJSON _ = mempty
-
 -- | Constructor for 'RDSDBParameterGroup' containing required fields as
 -- arguments.
 rdsdbParameterGroup

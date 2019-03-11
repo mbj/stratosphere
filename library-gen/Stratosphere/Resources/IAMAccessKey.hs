@@ -27,14 +27,6 @@ instance ToJSON IAMAccessKey where
     , (Just . ("UserName",) . toJSON) _iAMAccessKeyUserName
     ]
 
-instance FromJSON IAMAccessKey where
-  parseJSON (Object obj) =
-    IAMAccessKey <$>
-      fmap (fmap (fmap unInteger')) (obj .:? "Serial") <*>
-      (obj .:? "Status") <*>
-      (obj .: "UserName")
-  parseJSON _ = mempty
-
 -- | Constructor for 'IAMAccessKey' containing required fields as arguments.
 iamAccessKey
   :: Val Text -- ^ 'iamakUserName'

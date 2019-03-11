@@ -29,15 +29,6 @@ instance ToJSON ElasticsearchDomainEBSOptions where
     , fmap (("VolumeType",) . toJSON) _elasticsearchDomainEBSOptionsVolumeType
     ]
 
-instance FromJSON ElasticsearchDomainEBSOptions where
-  parseJSON (Object obj) =
-    ElasticsearchDomainEBSOptions <$>
-      fmap (fmap (fmap unBool')) (obj .:? "EBSEnabled") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "Iops") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "VolumeSize") <*>
-      (obj .:? "VolumeType")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ElasticsearchDomainEBSOptions' containing required
 -- fields as arguments.
 elasticsearchDomainEBSOptions

@@ -32,16 +32,6 @@ instance ToJSON IoTAnalyticsDatasetVariable where
     , (Just . ("VariableName",) . toJSON) _ioTAnalyticsDatasetVariableVariableName
     ]
 
-instance FromJSON IoTAnalyticsDatasetVariable where
-  parseJSON (Object obj) =
-    IoTAnalyticsDatasetVariable <$>
-      (obj .:? "DatasetContentVersionValue") <*>
-      fmap (fmap (fmap unDouble')) (obj .:? "DoubleValue") <*>
-      (obj .:? "OutputFileUriValue") <*>
-      (obj .:? "StringValue") <*>
-      (obj .: "VariableName")
-  parseJSON _ = mempty
-
 -- | Constructor for 'IoTAnalyticsDatasetVariable' containing required fields
 -- as arguments.
 ioTAnalyticsDatasetVariable

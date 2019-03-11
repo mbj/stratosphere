@@ -34,15 +34,6 @@ instance ToJSON SSMMaintenanceWindowTaskTaskInvocationParameters where
     , fmap (("MaintenanceWindowStepFunctionsParameters",) . toJSON) _sSMMaintenanceWindowTaskTaskInvocationParametersMaintenanceWindowStepFunctionsParameters
     ]
 
-instance FromJSON SSMMaintenanceWindowTaskTaskInvocationParameters where
-  parseJSON (Object obj) =
-    SSMMaintenanceWindowTaskTaskInvocationParameters <$>
-      (obj .:? "MaintenanceWindowAutomationParameters") <*>
-      (obj .:? "MaintenanceWindowLambdaParameters") <*>
-      (obj .:? "MaintenanceWindowRunCommandParameters") <*>
-      (obj .:? "MaintenanceWindowStepFunctionsParameters")
-  parseJSON _ = mempty
-
 -- | Constructor for 'SSMMaintenanceWindowTaskTaskInvocationParameters'
 -- containing required fields as arguments.
 ssmMaintenanceWindowTaskTaskInvocationParameters

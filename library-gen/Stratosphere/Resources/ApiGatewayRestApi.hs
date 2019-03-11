@@ -46,23 +46,6 @@ instance ToJSON ApiGatewayRestApi where
     , fmap (("Policy",) . toJSON) _apiGatewayRestApiPolicy
     ]
 
-instance FromJSON ApiGatewayRestApi where
-  parseJSON (Object obj) =
-    ApiGatewayRestApi <$>
-      (obj .:? "ApiKeySourceType") <*>
-      (obj .:? "BinaryMediaTypes") <*>
-      (obj .:? "Body") <*>
-      (obj .:? "BodyS3Location") <*>
-      (obj .:? "CloneFrom") <*>
-      (obj .:? "Description") <*>
-      (obj .:? "EndpointConfiguration") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "FailOnWarnings") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "MinimumCompressionSize") <*>
-      (obj .:? "Name") <*>
-      (obj .:? "Parameters") <*>
-      (obj .:? "Policy")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ApiGatewayRestApi' containing required fields as
 -- arguments.
 apiGatewayRestApi

@@ -43,21 +43,6 @@ instance ToJSON EMRInstanceGroupConfig where
     , fmap (("Name",) . toJSON) _eMRInstanceGroupConfigName
     ]
 
-instance FromJSON EMRInstanceGroupConfig where
-  parseJSON (Object obj) =
-    EMRInstanceGroupConfig <$>
-      (obj .:? "AutoScalingPolicy") <*>
-      (obj .:? "BidPrice") <*>
-      (obj .:? "Configurations") <*>
-      (obj .:? "EbsConfiguration") <*>
-      fmap (fmap unInteger') (obj .: "InstanceCount") <*>
-      (obj .: "InstanceRole") <*>
-      (obj .: "InstanceType") <*>
-      (obj .: "JobFlowId") <*>
-      (obj .:? "Market") <*>
-      (obj .:? "Name")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EMRInstanceGroupConfig' containing required fields as
 -- arguments.
 emrInstanceGroupConfig

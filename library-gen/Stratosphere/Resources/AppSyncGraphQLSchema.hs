@@ -27,14 +27,6 @@ instance ToJSON AppSyncGraphQLSchema where
     , fmap (("DefinitionS3Location",) . toJSON) _appSyncGraphQLSchemaDefinitionS3Location
     ]
 
-instance FromJSON AppSyncGraphQLSchema where
-  parseJSON (Object obj) =
-    AppSyncGraphQLSchema <$>
-      (obj .: "ApiId") <*>
-      (obj .:? "Definition") <*>
-      (obj .:? "DefinitionS3Location")
-  parseJSON _ = mempty
-
 -- | Constructor for 'AppSyncGraphQLSchema' containing required fields as
 -- arguments.
 appSyncGraphQLSchema

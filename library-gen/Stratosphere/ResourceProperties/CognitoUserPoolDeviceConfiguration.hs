@@ -25,13 +25,6 @@ instance ToJSON CognitoUserPoolDeviceConfiguration where
     , fmap (("DeviceOnlyRememberedOnUserPrompt",) . toJSON . fmap Bool') _cognitoUserPoolDeviceConfigurationDeviceOnlyRememberedOnUserPrompt
     ]
 
-instance FromJSON CognitoUserPoolDeviceConfiguration where
-  parseJSON (Object obj) =
-    CognitoUserPoolDeviceConfiguration <$>
-      fmap (fmap (fmap unBool')) (obj .:? "ChallengeRequiredOnNewDevice") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "DeviceOnlyRememberedOnUserPrompt")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CognitoUserPoolDeviceConfiguration' containing required
 -- fields as arguments.
 cognitoUserPoolDeviceConfiguration

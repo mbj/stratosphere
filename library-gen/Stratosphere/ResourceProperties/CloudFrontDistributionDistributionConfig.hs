@@ -58,26 +58,6 @@ instance ToJSON CloudFrontDistributionDistributionConfig where
     , fmap (("WebACLId",) . toJSON) _cloudFrontDistributionDistributionConfigWebACLId
     ]
 
-instance FromJSON CloudFrontDistributionDistributionConfig where
-  parseJSON (Object obj) =
-    CloudFrontDistributionDistributionConfig <$>
-      (obj .:? "Aliases") <*>
-      (obj .:? "CacheBehaviors") <*>
-      (obj .:? "Comment") <*>
-      (obj .:? "CustomErrorResponses") <*>
-      (obj .:? "DefaultCacheBehavior") <*>
-      (obj .:? "DefaultRootObject") <*>
-      fmap (fmap unBool') (obj .: "Enabled") <*>
-      (obj .:? "HttpVersion") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "IPV6Enabled") <*>
-      (obj .:? "Logging") <*>
-      (obj .:? "Origins") <*>
-      (obj .:? "PriceClass") <*>
-      (obj .:? "Restrictions") <*>
-      (obj .:? "ViewerCertificate") <*>
-      (obj .:? "WebACLId")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CloudFrontDistributionDistributionConfig' containing
 -- required fields as arguments.
 cloudFrontDistributionDistributionConfig

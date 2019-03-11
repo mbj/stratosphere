@@ -37,19 +37,6 @@ instance ToJSON CognitoUserPoolLambdaConfig where
     , fmap (("VerifyAuthChallengeResponse",) . toJSON) _cognitoUserPoolLambdaConfigVerifyAuthChallengeResponse
     ]
 
-instance FromJSON CognitoUserPoolLambdaConfig where
-  parseJSON (Object obj) =
-    CognitoUserPoolLambdaConfig <$>
-      (obj .:? "CreateAuthChallenge") <*>
-      (obj .:? "CustomMessage") <*>
-      (obj .:? "DefineAuthChallenge") <*>
-      (obj .:? "PostAuthentication") <*>
-      (obj .:? "PostConfirmation") <*>
-      (obj .:? "PreAuthentication") <*>
-      (obj .:? "PreSignUp") <*>
-      (obj .:? "VerifyAuthChallengeResponse")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CognitoUserPoolLambdaConfig' containing required fields
 -- as arguments.
 cognitoUserPoolLambdaConfig

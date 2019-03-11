@@ -25,13 +25,6 @@ instance ToJSON AppSyncDataSourceAuthorizationConfig where
     , fmap (("AwsIamConfig",) . toJSON) _appSyncDataSourceAuthorizationConfigAwsIamConfig
     ]
 
-instance FromJSON AppSyncDataSourceAuthorizationConfig where
-  parseJSON (Object obj) =
-    AppSyncDataSourceAuthorizationConfig <$>
-      (obj .: "AuthorizationType") <*>
-      (obj .:? "AwsIamConfig")
-  parseJSON _ = mempty
-
 -- | Constructor for 'AppSyncDataSourceAuthorizationConfig' containing
 -- required fields as arguments.
 appSyncDataSourceAuthorizationConfig

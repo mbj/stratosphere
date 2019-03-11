@@ -27,13 +27,6 @@ instance ToJSON SESConfigurationSetEventDestinationKinesisFirehoseDestination wh
     , (Just . ("IAMRoleARN",) . toJSON) _sESConfigurationSetEventDestinationKinesisFirehoseDestinationIAMRoleARN
     ]
 
-instance FromJSON SESConfigurationSetEventDestinationKinesisFirehoseDestination where
-  parseJSON (Object obj) =
-    SESConfigurationSetEventDestinationKinesisFirehoseDestination <$>
-      (obj .: "DeliveryStreamARN") <*>
-      (obj .: "IAMRoleARN")
-  parseJSON _ = mempty
-
 -- | Constructor for
 -- 'SESConfigurationSetEventDestinationKinesisFirehoseDestination'
 -- containing required fields as arguments.

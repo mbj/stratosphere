@@ -25,13 +25,6 @@ instance ToJSON EC2LaunchTemplatePrivateIpAdd where
     , fmap (("PrivateIpAddress",) . toJSON) _eC2LaunchTemplatePrivateIpAddPrivateIpAddress
     ]
 
-instance FromJSON EC2LaunchTemplatePrivateIpAdd where
-  parseJSON (Object obj) =
-    EC2LaunchTemplatePrivateIpAdd <$>
-      fmap (fmap (fmap unBool')) (obj .:? "Primary") <*>
-      (obj .:? "PrivateIpAddress")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2LaunchTemplatePrivateIpAdd' containing required
 -- fields as arguments.
 ec2LaunchTemplatePrivateIpAdd

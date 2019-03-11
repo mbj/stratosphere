@@ -23,12 +23,6 @@ instance ToJSON WAFWebACLWafAction where
     [ (Just . ("Type",) . toJSON) _wAFWebACLWafActionType
     ]
 
-instance FromJSON WAFWebACLWafAction where
-  parseJSON (Object obj) =
-    WAFWebACLWafAction <$>
-      (obj .: "Type")
-  parseJSON _ = mempty
-
 -- | Constructor for 'WAFWebACLWafAction' containing required fields as
 -- arguments.
 wafWebACLWafAction

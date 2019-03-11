@@ -26,13 +26,6 @@ instance ToJSON WAFRegionalSizeConstraintSetFieldToMatch where
     , (Just . ("Type",) . toJSON) _wAFRegionalSizeConstraintSetFieldToMatchType
     ]
 
-instance FromJSON WAFRegionalSizeConstraintSetFieldToMatch where
-  parseJSON (Object obj) =
-    WAFRegionalSizeConstraintSetFieldToMatch <$>
-      (obj .:? "Data") <*>
-      (obj .: "Type")
-  parseJSON _ = mempty
-
 -- | Constructor for 'WAFRegionalSizeConstraintSetFieldToMatch' containing
 -- required fields as arguments.
 wafRegionalSizeConstraintSetFieldToMatch

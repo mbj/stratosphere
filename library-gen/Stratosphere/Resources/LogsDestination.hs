@@ -29,15 +29,6 @@ instance ToJSON LogsDestination where
     , (Just . ("TargetArn",) . toJSON) _logsDestinationTargetArn
     ]
 
-instance FromJSON LogsDestination where
-  parseJSON (Object obj) =
-    LogsDestination <$>
-      (obj .: "DestinationName") <*>
-      (obj .: "DestinationPolicy") <*>
-      (obj .: "RoleArn") <*>
-      (obj .: "TargetArn")
-  parseJSON _ = mempty
-
 -- | Constructor for 'LogsDestination' containing required fields as
 -- arguments.
 logsDestination

@@ -23,12 +23,6 @@ instance ToJSON S3BucketStorageClassAnalysis where
     [ fmap (("DataExport",) . toJSON) _s3BucketStorageClassAnalysisDataExport
     ]
 
-instance FromJSON S3BucketStorageClassAnalysis where
-  parseJSON (Object obj) =
-    S3BucketStorageClassAnalysis <$>
-      (obj .:? "DataExport")
-  parseJSON _ = mempty
-
 -- | Constructor for 'S3BucketStorageClassAnalysis' containing required fields
 -- as arguments.
 s3BucketStorageClassAnalysis

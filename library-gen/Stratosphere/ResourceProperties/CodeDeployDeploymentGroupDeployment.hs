@@ -27,14 +27,6 @@ instance ToJSON CodeDeployDeploymentGroupDeployment where
     , (Just . ("Revision",) . toJSON) _codeDeployDeploymentGroupDeploymentRevision
     ]
 
-instance FromJSON CodeDeployDeploymentGroupDeployment where
-  parseJSON (Object obj) =
-    CodeDeployDeploymentGroupDeployment <$>
-      (obj .:? "Description") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "IgnoreApplicationStopFailures") <*>
-      (obj .: "Revision")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CodeDeployDeploymentGroupDeployment' containing required
 -- fields as arguments.
 codeDeployDeploymentGroupDeployment

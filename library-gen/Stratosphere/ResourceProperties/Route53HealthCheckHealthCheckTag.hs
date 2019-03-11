@@ -25,13 +25,6 @@ instance ToJSON Route53HealthCheckHealthCheckTag where
     , (Just . ("Value",) . toJSON) _route53HealthCheckHealthCheckTagValue
     ]
 
-instance FromJSON Route53HealthCheckHealthCheckTag where
-  parseJSON (Object obj) =
-    Route53HealthCheckHealthCheckTag <$>
-      (obj .: "Key") <*>
-      (obj .: "Value")
-  parseJSON _ = mempty
-
 -- | Constructor for 'Route53HealthCheckHealthCheckTag' containing required
 -- fields as arguments.
 route53HealthCheckHealthCheckTag

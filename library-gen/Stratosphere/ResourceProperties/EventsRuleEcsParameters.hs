@@ -25,13 +25,6 @@ instance ToJSON EventsRuleEcsParameters where
     , (Just . ("TaskDefinitionArn",) . toJSON) _eventsRuleEcsParametersTaskDefinitionArn
     ]
 
-instance FromJSON EventsRuleEcsParameters where
-  parseJSON (Object obj) =
-    EventsRuleEcsParameters <$>
-      fmap (fmap (fmap unInteger')) (obj .:? "TaskCount") <*>
-      (obj .: "TaskDefinitionArn")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EventsRuleEcsParameters' containing required fields as
 -- arguments.
 eventsRuleEcsParameters

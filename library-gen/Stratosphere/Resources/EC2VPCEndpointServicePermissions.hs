@@ -25,13 +25,6 @@ instance ToJSON EC2VPCEndpointServicePermissions where
     , (Just . ("ServiceId",) . toJSON) _eC2VPCEndpointServicePermissionsServiceId
     ]
 
-instance FromJSON EC2VPCEndpointServicePermissions where
-  parseJSON (Object obj) =
-    EC2VPCEndpointServicePermissions <$>
-      (obj .:? "AllowedPrincipals") <*>
-      (obj .: "ServiceId")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2VPCEndpointServicePermissions' containing required
 -- fields as arguments.
 ec2VPCEndpointServicePermissions

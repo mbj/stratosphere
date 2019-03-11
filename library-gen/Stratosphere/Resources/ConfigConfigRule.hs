@@ -34,17 +34,6 @@ instance ToJSON ConfigConfigRule where
     , (Just . ("Source",) . toJSON) _configConfigRuleSource
     ]
 
-instance FromJSON ConfigConfigRule where
-  parseJSON (Object obj) =
-    ConfigConfigRule <$>
-      (obj .:? "ConfigRuleName") <*>
-      (obj .:? "Description") <*>
-      (obj .:? "InputParameters") <*>
-      (obj .:? "MaximumExecutionFrequency") <*>
-      (obj .:? "Scope") <*>
-      (obj .: "Source")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ConfigConfigRule' containing required fields as
 -- arguments.
 configConfigRule

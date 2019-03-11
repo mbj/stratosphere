@@ -25,13 +25,6 @@ instance ToJSON IoTTopicRuleRepublishAction where
     , (Just . ("Topic",) . toJSON) _ioTTopicRuleRepublishActionTopic
     ]
 
-instance FromJSON IoTTopicRuleRepublishAction where
-  parseJSON (Object obj) =
-    IoTTopicRuleRepublishAction <$>
-      (obj .: "RoleArn") <*>
-      (obj .: "Topic")
-  parseJSON _ = mempty
-
 -- | Constructor for 'IoTTopicRuleRepublishAction' containing required fields
 -- as arguments.
 ioTTopicRuleRepublishAction

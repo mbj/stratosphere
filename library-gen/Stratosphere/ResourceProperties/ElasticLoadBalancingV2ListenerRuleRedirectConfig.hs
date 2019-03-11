@@ -35,17 +35,6 @@ instance ToJSON ElasticLoadBalancingV2ListenerRuleRedirectConfig where
     , (Just . ("StatusCode",) . toJSON) _elasticLoadBalancingV2ListenerRuleRedirectConfigStatusCode
     ]
 
-instance FromJSON ElasticLoadBalancingV2ListenerRuleRedirectConfig where
-  parseJSON (Object obj) =
-    ElasticLoadBalancingV2ListenerRuleRedirectConfig <$>
-      (obj .:? "Host") <*>
-      (obj .:? "Path") <*>
-      (obj .:? "Port") <*>
-      (obj .:? "Protocol") <*>
-      (obj .:? "Query") <*>
-      (obj .: "StatusCode")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ElasticLoadBalancingV2ListenerRuleRedirectConfig'
 -- containing required fields as arguments.
 elasticLoadBalancingV2ListenerRuleRedirectConfig

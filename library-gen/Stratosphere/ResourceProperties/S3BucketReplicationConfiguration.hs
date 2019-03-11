@@ -25,13 +25,6 @@ instance ToJSON S3BucketReplicationConfiguration where
     , (Just . ("Rules",) . toJSON) _s3BucketReplicationConfigurationRules
     ]
 
-instance FromJSON S3BucketReplicationConfiguration where
-  parseJSON (Object obj) =
-    S3BucketReplicationConfiguration <$>
-      (obj .: "Role") <*>
-      (obj .: "Rules")
-  parseJSON _ = mempty
-
 -- | Constructor for 'S3BucketReplicationConfiguration' containing required
 -- fields as arguments.
 s3BucketReplicationConfiguration

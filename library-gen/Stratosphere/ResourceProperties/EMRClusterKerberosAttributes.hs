@@ -31,16 +31,6 @@ instance ToJSON EMRClusterKerberosAttributes where
     , (Just . ("Realm",) . toJSON) _eMRClusterKerberosAttributesRealm
     ]
 
-instance FromJSON EMRClusterKerberosAttributes where
-  parseJSON (Object obj) =
-    EMRClusterKerberosAttributes <$>
-      (obj .:? "ADDomainJoinPassword") <*>
-      (obj .:? "ADDomainJoinUser") <*>
-      (obj .:? "CrossRealmTrustPrincipalPassword") <*>
-      (obj .: "KdcAdminPassword") <*>
-      (obj .: "Realm")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EMRClusterKerberosAttributes' containing required fields
 -- as arguments.
 emrClusterKerberosAttributes

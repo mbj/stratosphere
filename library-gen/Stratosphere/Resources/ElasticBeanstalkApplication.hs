@@ -27,14 +27,6 @@ instance ToJSON ElasticBeanstalkApplication where
     , fmap (("ResourceLifecycleConfig",) . toJSON) _elasticBeanstalkApplicationResourceLifecycleConfig
     ]
 
-instance FromJSON ElasticBeanstalkApplication where
-  parseJSON (Object obj) =
-    ElasticBeanstalkApplication <$>
-      (obj .:? "ApplicationName") <*>
-      (obj .:? "Description") <*>
-      (obj .:? "ResourceLifecycleConfig")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ElasticBeanstalkApplication' containing required fields
 -- as arguments.
 elasticBeanstalkApplication

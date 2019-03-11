@@ -32,16 +32,6 @@ instance ToJSON ECSTaskDefinitionDockerVolumeConfiguration where
     , fmap (("Scope",) . toJSON) _eCSTaskDefinitionDockerVolumeConfigurationScope
     ]
 
-instance FromJSON ECSTaskDefinitionDockerVolumeConfiguration where
-  parseJSON (Object obj) =
-    ECSTaskDefinitionDockerVolumeConfiguration <$>
-      fmap (fmap (fmap unBool')) (obj .:? "Autoprovision") <*>
-      (obj .:? "Driver") <*>
-      (obj .:? "DriverOpts") <*>
-      (obj .:? "Labels") <*>
-      (obj .:? "Scope")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ECSTaskDefinitionDockerVolumeConfiguration' containing
 -- required fields as arguments.
 ecsTaskDefinitionDockerVolumeConfiguration

@@ -25,13 +25,6 @@ instance ToJSON CodeBuildProjectRegistryCredential where
     , (Just . ("CredentialProvider",) . toJSON) _codeBuildProjectRegistryCredentialCredentialProvider
     ]
 
-instance FromJSON CodeBuildProjectRegistryCredential where
-  parseJSON (Object obj) =
-    CodeBuildProjectRegistryCredential <$>
-      (obj .: "Credential") <*>
-      (obj .: "CredentialProvider")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CodeBuildProjectRegistryCredential' containing required
 -- fields as arguments.
 codeBuildProjectRegistryCredential

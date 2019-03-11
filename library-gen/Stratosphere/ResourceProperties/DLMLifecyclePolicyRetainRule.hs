@@ -23,12 +23,6 @@ instance ToJSON DLMLifecyclePolicyRetainRule where
     [ (Just . ("Count",) . toJSON . fmap Integer') _dLMLifecyclePolicyRetainRuleCount
     ]
 
-instance FromJSON DLMLifecyclePolicyRetainRule where
-  parseJSON (Object obj) =
-    DLMLifecyclePolicyRetainRule <$>
-      fmap (fmap unInteger') (obj .: "Count")
-  parseJSON _ = mempty
-
 -- | Constructor for 'DLMLifecyclePolicyRetainRule' containing required fields
 -- as arguments.
 dlmLifecyclePolicyRetainRule

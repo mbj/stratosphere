@@ -56,7 +56,7 @@ import Stratosphere.ResourceImports
 
 #{renderResourceTypeDecl module'}
 
-#{renderToFromJSON module'}
+#{renderToJSON module'}
 
 #{renderConstructor module'}
 
@@ -154,7 +154,6 @@ data DeletionPolicy
   deriving (Show, Eq, Generic)
 
 instance ToJSON DeletionPolicy where
-instance FromJSON DeletionPolicy where
 
 data Resource =
   Resource
@@ -204,20 +203,6 @@ resourceToJSON (Resource _ props dp cp up deps meta cond) =
 resourcePropertiesJSON :: ResourceProperties -> [Pair]
 #{renderToJSONFuncs resourceModules}
 
-resourceFromJSON :: T.Text -> Object -> Parser Resource
-resourceFromJSON n o =
-    do type' <- o .: "Type" :: Parser String
-       props <- case type' of
-#{renderFromJSONCases resourceModules}
-         _ -> fail $ "Unknown resource type: " ++ type'
-       dp <- o .:? "DeletionPolicy"
-       cp <- o .:? "CreationPolicy"
-       up <- o .:? "UpdatePolicy"
-       deps <- o .:? "DependsOn"
-       meta <- o .:? "Metadata"
-       cond <- o .:? "Condition"
-       return $ Resource n props dp cp up deps meta cond
-
 -- | Wrapper around a list of 'Resources's to we can modify the aeson
 -- instances.
 newtype Resources = Resources { unResources :: [Resource] }
@@ -231,11 +216,7 @@ instance IsList Resources where
 instance NamedItem Resource where
   itemName = _resourceName
   nameToJSON = resourceToJSON
-  nameParseJSON = resourceFromJSON
 
 instance ToJSON Resources where
   toJSON = namedItemToJSON . unResources
-
-instance FromJSON Resources where
-  parseJSON v = Resources <$> namedItemFromJSON v
 |]

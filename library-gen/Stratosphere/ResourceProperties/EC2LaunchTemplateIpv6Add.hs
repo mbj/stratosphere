@@ -23,12 +23,6 @@ instance ToJSON EC2LaunchTemplateIpv6Add where
     [ fmap (("Ipv6Address",) . toJSON) _eC2LaunchTemplateIpv6AddIpv6Address
     ]
 
-instance FromJSON EC2LaunchTemplateIpv6Add where
-  parseJSON (Object obj) =
-    EC2LaunchTemplateIpv6Add <$>
-      (obj .:? "Ipv6Address")
-  parseJSON _ = mempty
-
 -- | Constructor for 'EC2LaunchTemplateIpv6Add' containing required fields as
 -- arguments.
 ec2LaunchTemplateIpv6Add

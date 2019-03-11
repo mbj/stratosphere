@@ -27,13 +27,6 @@ instance ToJSON ElasticLoadBalancingV2TargetGroupTargetGroupAttribute where
     , fmap (("Value",) . toJSON) _elasticLoadBalancingV2TargetGroupTargetGroupAttributeValue
     ]
 
-instance FromJSON ElasticLoadBalancingV2TargetGroupTargetGroupAttribute where
-  parseJSON (Object obj) =
-    ElasticLoadBalancingV2TargetGroupTargetGroupAttribute <$>
-      (obj .:? "Key") <*>
-      (obj .:? "Value")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ElasticLoadBalancingV2TargetGroupTargetGroupAttribute'
 -- containing required fields as arguments.
 elasticLoadBalancingV2TargetGroupTargetGroupAttribute

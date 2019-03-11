@@ -27,14 +27,6 @@ instance ToJSON Route53RecordSetGroupGeoLocation where
     , fmap (("SubdivisionCode",) . toJSON) _route53RecordSetGroupGeoLocationSubdivisionCode
     ]
 
-instance FromJSON Route53RecordSetGroupGeoLocation where
-  parseJSON (Object obj) =
-    Route53RecordSetGroupGeoLocation <$>
-      (obj .:? "ContinentCode") <*>
-      (obj .:? "CountryCode") <*>
-      (obj .:? "SubdivisionCode")
-  parseJSON _ = mempty
-
 -- | Constructor for 'Route53RecordSetGroupGeoLocation' containing required
 -- fields as arguments.
 route53RecordSetGroupGeoLocation

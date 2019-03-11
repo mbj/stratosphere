@@ -25,13 +25,6 @@ instance ToJSON S3BucketRedirectAllRequestsTo where
     , fmap (("Protocol",) . toJSON) _s3BucketRedirectAllRequestsToProtocol
     ]
 
-instance FromJSON S3BucketRedirectAllRequestsTo where
-  parseJSON (Object obj) =
-    S3BucketRedirectAllRequestsTo <$>
-      (obj .: "HostName") <*>
-      (obj .:? "Protocol")
-  parseJSON _ = mempty
-
 -- | Constructor for 'S3BucketRedirectAllRequestsTo' containing required
 -- fields as arguments.
 s3BucketRedirectAllRequestsTo

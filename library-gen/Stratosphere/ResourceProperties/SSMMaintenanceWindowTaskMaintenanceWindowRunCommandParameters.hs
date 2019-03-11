@@ -41,20 +41,6 @@ instance ToJSON SSMMaintenanceWindowTaskMaintenanceWindowRunCommandParameters wh
     , fmap (("TimeoutSeconds",) . toJSON . fmap Integer') _sSMMaintenanceWindowTaskMaintenanceWindowRunCommandParametersTimeoutSeconds
     ]
 
-instance FromJSON SSMMaintenanceWindowTaskMaintenanceWindowRunCommandParameters where
-  parseJSON (Object obj) =
-    SSMMaintenanceWindowTaskMaintenanceWindowRunCommandParameters <$>
-      (obj .:? "Comment") <*>
-      (obj .:? "DocumentHash") <*>
-      (obj .:? "DocumentHashType") <*>
-      (obj .:? "NotificationConfig") <*>
-      (obj .:? "OutputS3BucketName") <*>
-      (obj .:? "OutputS3KeyPrefix") <*>
-      (obj .:? "Parameters") <*>
-      (obj .:? "ServiceRoleArn") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "TimeoutSeconds")
-  parseJSON _ = mempty
-
 -- | Constructor for
 -- 'SSMMaintenanceWindowTaskMaintenanceWindowRunCommandParameters'
 -- containing required fields as arguments.

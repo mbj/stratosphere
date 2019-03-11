@@ -27,14 +27,6 @@ instance ToJSON AppSyncApiKey where
     , fmap (("Expires",) . toJSON . fmap Double') _appSyncApiKeyExpires
     ]
 
-instance FromJSON AppSyncApiKey where
-  parseJSON (Object obj) =
-    AppSyncApiKey <$>
-      (obj .: "ApiId") <*>
-      (obj .:? "Description") <*>
-      fmap (fmap (fmap unDouble')) (obj .:? "Expires")
-  parseJSON _ = mempty
-
 -- | Constructor for 'AppSyncApiKey' containing required fields as arguments.
 appSyncApiKey
   :: Val Text -- ^ 'asakApiId'

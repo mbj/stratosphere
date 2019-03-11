@@ -31,16 +31,6 @@ instance ToJSON CloudWatchAlarmMetricDataQuery where
     , fmap (("ReturnData",) . toJSON . fmap Bool') _cloudWatchAlarmMetricDataQueryReturnData
     ]
 
-instance FromJSON CloudWatchAlarmMetricDataQuery where
-  parseJSON (Object obj) =
-    CloudWatchAlarmMetricDataQuery <$>
-      (obj .:? "Expression") <*>
-      (obj .: "Id") <*>
-      (obj .:? "Label") <*>
-      (obj .:? "MetricStat") <*>
-      fmap (fmap (fmap unBool')) (obj .:? "ReturnData")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CloudWatchAlarmMetricDataQuery' containing required
 -- fields as arguments.
 cloudWatchAlarmMetricDataQuery

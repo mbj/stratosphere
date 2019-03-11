@@ -29,14 +29,6 @@ instance ToJSON ConfigConfigurationAggregatorOrganizationAggregationSource where
     , (Just . ("RoleArn",) . toJSON) _configConfigurationAggregatorOrganizationAggregationSourceRoleArn
     ]
 
-instance FromJSON ConfigConfigurationAggregatorOrganizationAggregationSource where
-  parseJSON (Object obj) =
-    ConfigConfigurationAggregatorOrganizationAggregationSource <$>
-      fmap (fmap (fmap unBool')) (obj .:? "AllAwsRegions") <*>
-      (obj .:? "AwsRegions") <*>
-      (obj .: "RoleArn")
-  parseJSON _ = mempty
-
 -- | Constructor for
 -- 'ConfigConfigurationAggregatorOrganizationAggregationSource' containing
 -- required fields as arguments.

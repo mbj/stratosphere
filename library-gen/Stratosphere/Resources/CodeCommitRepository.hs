@@ -27,14 +27,6 @@ instance ToJSON CodeCommitRepository where
     , fmap (("Triggers",) . toJSON) _codeCommitRepositoryTriggers
     ]
 
-instance FromJSON CodeCommitRepository where
-  parseJSON (Object obj) =
-    CodeCommitRepository <$>
-      (obj .:? "RepositoryDescription") <*>
-      (obj .: "RepositoryName") <*>
-      (obj .:? "Triggers")
-  parseJSON _ = mempty
-
 -- | Constructor for 'CodeCommitRepository' containing required fields as
 -- arguments.
 codeCommitRepository

@@ -58,28 +58,6 @@ instance ToJSON ElasticLoadBalancingV2TargetGroup where
     , fmap (("VpcId",) . toJSON) _elasticLoadBalancingV2TargetGroupVpcId
     ]
 
-instance FromJSON ElasticLoadBalancingV2TargetGroup where
-  parseJSON (Object obj) =
-    ElasticLoadBalancingV2TargetGroup <$>
-      fmap (fmap (fmap unBool')) (obj .:? "HealthCheckEnabled") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "HealthCheckIntervalSeconds") <*>
-      (obj .:? "HealthCheckPath") <*>
-      (obj .:? "HealthCheckPort") <*>
-      (obj .:? "HealthCheckProtocol") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "HealthCheckTimeoutSeconds") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "HealthyThresholdCount") <*>
-      (obj .:? "Matcher") <*>
-      (obj .:? "Name") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "Port") <*>
-      (obj .:? "Protocol") <*>
-      (obj .:? "Tags") <*>
-      (obj .:? "TargetGroupAttributes") <*>
-      (obj .:? "TargetType") <*>
-      (obj .:? "Targets") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "UnhealthyThresholdCount") <*>
-      (obj .:? "VpcId")
-  parseJSON _ = mempty
-
 -- | Constructor for 'ElasticLoadBalancingV2TargetGroup' containing required
 -- fields as arguments.
 elasticLoadBalancingV2TargetGroup

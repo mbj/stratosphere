@@ -31,15 +31,6 @@ instance ToJSON ElasticBeanstalkConfigurationTemplateConfigurationOptionSetting 
     , fmap (("Value",) . toJSON) _elasticBeanstalkConfigurationTemplateConfigurationOptionSettingValue
     ]
 
-instance FromJSON ElasticBeanstalkConfigurationTemplateConfigurationOptionSetting where
-  parseJSON (Object obj) =
-    ElasticBeanstalkConfigurationTemplateConfigurationOptionSetting <$>
-      (obj .: "Namespace") <*>
-      (obj .: "OptionName") <*>
-      (obj .:? "ResourceName") <*>
-      (obj .:? "Value")
-  parseJSON _ = mempty
-
 -- | Constructor for
 -- 'ElasticBeanstalkConfigurationTemplateConfigurationOptionSetting'
 -- containing required fields as arguments.

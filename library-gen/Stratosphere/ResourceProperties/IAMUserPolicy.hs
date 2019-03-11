@@ -25,13 +25,6 @@ instance ToJSON IAMUserPolicy where
     , (Just . ("PolicyName",) . toJSON) _iAMUserPolicyPolicyName
     ]
 
-instance FromJSON IAMUserPolicy where
-  parseJSON (Object obj) =
-    IAMUserPolicy <$>
-      (obj .: "PolicyDocument") <*>
-      (obj .: "PolicyName")
-  parseJSON _ = mempty
-
 -- | Constructor for 'IAMUserPolicy' containing required fields as arguments.
 iamUserPolicy
   :: Object -- ^ 'iamupPolicyDocument'

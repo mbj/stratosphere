@@ -29,15 +29,6 @@ instance ToJSON FSxFileSystemLustreConfiguration where
     , fmap (("WeeklyMaintenanceStartTime",) . toJSON) _fSxFileSystemLustreConfigurationWeeklyMaintenanceStartTime
     ]
 
-instance FromJSON FSxFileSystemLustreConfiguration where
-  parseJSON (Object obj) =
-    FSxFileSystemLustreConfiguration <$>
-      (obj .:? "ExportPath") <*>
-      (obj .:? "ImportPath") <*>
-      fmap (fmap (fmap unInteger')) (obj .:? "ImportedFileChunkSize") <*>
-      (obj .:? "WeeklyMaintenanceStartTime")
-  parseJSON _ = mempty
-
 -- | Constructor for 'FSxFileSystemLustreConfiguration' containing required
 -- fields as arguments.
 fSxFileSystemLustreConfiguration
