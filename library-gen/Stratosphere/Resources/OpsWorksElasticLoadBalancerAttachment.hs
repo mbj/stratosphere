@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-elbattachment.html
@@ -18,13 +19,16 @@ data OpsWorksElasticLoadBalancerAttachment =
   , _opsWorksElasticLoadBalancerAttachmentLayerId :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON OpsWorksElasticLoadBalancerAttachment where
-  toJSON OpsWorksElasticLoadBalancerAttachment{..} =
-    object $
-    catMaybes
-    [ (Just . ("ElasticLoadBalancerName",) . toJSON) _opsWorksElasticLoadBalancerAttachmentElasticLoadBalancerName
-    , (Just . ("LayerId",) . toJSON) _opsWorksElasticLoadBalancerAttachmentLayerId
-    ]
+instance ToResourceProperties OpsWorksElasticLoadBalancerAttachment where
+  toResourceProperties OpsWorksElasticLoadBalancerAttachment{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::OpsWorks::ElasticLoadBalancerAttachment"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("ElasticLoadBalancerName",) . toJSON) _opsWorksElasticLoadBalancerAttachmentElasticLoadBalancerName
+        , (Just . ("LayerId",) . toJSON) _opsWorksElasticLoadBalancerAttachmentLayerId
+        ]
+    }
 
 -- | Constructor for 'OpsWorksElasticLoadBalancerAttachment' containing
 -- required fields as arguments.

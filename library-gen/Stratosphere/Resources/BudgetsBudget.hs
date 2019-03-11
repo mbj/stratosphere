@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-budgets-budget.html
@@ -18,13 +19,16 @@ data BudgetsBudget =
   , _budgetsBudgetNotificationsWithSubscribers :: Maybe [BudgetsBudgetNotificationWithSubscribers]
   } deriving (Show, Eq)
 
-instance ToJSON BudgetsBudget where
-  toJSON BudgetsBudget{..} =
-    object $
-    catMaybes
-    [ (Just . ("Budget",) . toJSON) _budgetsBudgetBudget
-    , fmap (("NotificationsWithSubscribers",) . toJSON) _budgetsBudgetNotificationsWithSubscribers
-    ]
+instance ToResourceProperties BudgetsBudget where
+  toResourceProperties BudgetsBudget{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::Budgets::Budget"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("Budget",) . toJSON) _budgetsBudgetBudget
+        , fmap (("NotificationsWithSubscribers",) . toJSON) _budgetsBudgetNotificationsWithSubscribers
+        ]
+    }
 
 -- | Constructor for 'BudgetsBudget' containing required fields as arguments.
 budgetsBudget

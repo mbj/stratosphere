@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html
@@ -37,27 +38,30 @@ data LambdaFunction =
   , _lambdaFunctionVpcConfig :: Maybe LambdaFunctionVpcConfig
   } deriving (Show, Eq)
 
-instance ToJSON LambdaFunction where
-  toJSON LambdaFunction{..} =
-    object $
-    catMaybes
-    [ (Just . ("Code",) . toJSON) _lambdaFunctionCode
-    , fmap (("DeadLetterConfig",) . toJSON) _lambdaFunctionDeadLetterConfig
-    , fmap (("Description",) . toJSON) _lambdaFunctionDescription
-    , fmap (("Environment",) . toJSON) _lambdaFunctionEnvironment
-    , fmap (("FunctionName",) . toJSON) _lambdaFunctionFunctionName
-    , (Just . ("Handler",) . toJSON) _lambdaFunctionHandler
-    , fmap (("KmsKeyArn",) . toJSON) _lambdaFunctionKmsKeyArn
-    , fmap (("Layers",) . toJSON) _lambdaFunctionLayers
-    , fmap (("MemorySize",) . toJSON . fmap Integer') _lambdaFunctionMemorySize
-    , fmap (("ReservedConcurrentExecutions",) . toJSON . fmap Integer') _lambdaFunctionReservedConcurrentExecutions
-    , (Just . ("Role",) . toJSON) _lambdaFunctionRole
-    , (Just . ("Runtime",) . toJSON) _lambdaFunctionRuntime
-    , fmap (("Tags",) . toJSON) _lambdaFunctionTags
-    , fmap (("Timeout",) . toJSON . fmap Integer') _lambdaFunctionTimeout
-    , fmap (("TracingConfig",) . toJSON) _lambdaFunctionTracingConfig
-    , fmap (("VpcConfig",) . toJSON) _lambdaFunctionVpcConfig
-    ]
+instance ToResourceProperties LambdaFunction where
+  toResourceProperties LambdaFunction{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::Lambda::Function"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("Code",) . toJSON) _lambdaFunctionCode
+        , fmap (("DeadLetterConfig",) . toJSON) _lambdaFunctionDeadLetterConfig
+        , fmap (("Description",) . toJSON) _lambdaFunctionDescription
+        , fmap (("Environment",) . toJSON) _lambdaFunctionEnvironment
+        , fmap (("FunctionName",) . toJSON) _lambdaFunctionFunctionName
+        , (Just . ("Handler",) . toJSON) _lambdaFunctionHandler
+        , fmap (("KmsKeyArn",) . toJSON) _lambdaFunctionKmsKeyArn
+        , fmap (("Layers",) . toJSON) _lambdaFunctionLayers
+        , fmap (("MemorySize",) . toJSON . fmap Integer') _lambdaFunctionMemorySize
+        , fmap (("ReservedConcurrentExecutions",) . toJSON . fmap Integer') _lambdaFunctionReservedConcurrentExecutions
+        , (Just . ("Role",) . toJSON) _lambdaFunctionRole
+        , (Just . ("Runtime",) . toJSON) _lambdaFunctionRuntime
+        , fmap (("Tags",) . toJSON) _lambdaFunctionTags
+        , fmap (("Timeout",) . toJSON . fmap Integer') _lambdaFunctionTimeout
+        , fmap (("TracingConfig",) . toJSON) _lambdaFunctionTracingConfig
+        , fmap (("VpcConfig",) . toJSON) _lambdaFunctionVpcConfig
+        ]
+    }
 
 -- | Constructor for 'LambdaFunction' containing required fields as arguments.
 lambdaFunction

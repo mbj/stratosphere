@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html
@@ -33,29 +34,32 @@ data AutoScalingLaunchConfiguration =
   , _autoScalingLaunchConfigurationUserData :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON AutoScalingLaunchConfiguration where
-  toJSON AutoScalingLaunchConfiguration{..} =
-    object $
-    catMaybes
-    [ fmap (("AssociatePublicIpAddress",) . toJSON . fmap Bool') _autoScalingLaunchConfigurationAssociatePublicIpAddress
-    , fmap (("BlockDeviceMappings",) . toJSON) _autoScalingLaunchConfigurationBlockDeviceMappings
-    , fmap (("ClassicLinkVPCId",) . toJSON) _autoScalingLaunchConfigurationClassicLinkVPCId
-    , fmap (("ClassicLinkVPCSecurityGroups",) . toJSON) _autoScalingLaunchConfigurationClassicLinkVPCSecurityGroups
-    , fmap (("EbsOptimized",) . toJSON . fmap Bool') _autoScalingLaunchConfigurationEbsOptimized
-    , fmap (("IamInstanceProfile",) . toJSON) _autoScalingLaunchConfigurationIamInstanceProfile
-    , (Just . ("ImageId",) . toJSON) _autoScalingLaunchConfigurationImageId
-    , fmap (("InstanceId",) . toJSON) _autoScalingLaunchConfigurationInstanceId
-    , fmap (("InstanceMonitoring",) . toJSON . fmap Bool') _autoScalingLaunchConfigurationInstanceMonitoring
-    , (Just . ("InstanceType",) . toJSON) _autoScalingLaunchConfigurationInstanceType
-    , fmap (("KernelId",) . toJSON) _autoScalingLaunchConfigurationKernelId
-    , fmap (("KeyName",) . toJSON) _autoScalingLaunchConfigurationKeyName
-    , fmap (("LaunchConfigurationName",) . toJSON) _autoScalingLaunchConfigurationLaunchConfigurationName
-    , fmap (("PlacementTenancy",) . toJSON) _autoScalingLaunchConfigurationPlacementTenancy
-    , fmap (("RamDiskId",) . toJSON) _autoScalingLaunchConfigurationRamDiskId
-    , fmap (("SecurityGroups",) . toJSON) _autoScalingLaunchConfigurationSecurityGroups
-    , fmap (("SpotPrice",) . toJSON) _autoScalingLaunchConfigurationSpotPrice
-    , fmap (("UserData",) . toJSON) _autoScalingLaunchConfigurationUserData
-    ]
+instance ToResourceProperties AutoScalingLaunchConfiguration where
+  toResourceProperties AutoScalingLaunchConfiguration{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::AutoScaling::LaunchConfiguration"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("AssociatePublicIpAddress",) . toJSON . fmap Bool') _autoScalingLaunchConfigurationAssociatePublicIpAddress
+        , fmap (("BlockDeviceMappings",) . toJSON) _autoScalingLaunchConfigurationBlockDeviceMappings
+        , fmap (("ClassicLinkVPCId",) . toJSON) _autoScalingLaunchConfigurationClassicLinkVPCId
+        , fmap (("ClassicLinkVPCSecurityGroups",) . toJSON) _autoScalingLaunchConfigurationClassicLinkVPCSecurityGroups
+        , fmap (("EbsOptimized",) . toJSON . fmap Bool') _autoScalingLaunchConfigurationEbsOptimized
+        , fmap (("IamInstanceProfile",) . toJSON) _autoScalingLaunchConfigurationIamInstanceProfile
+        , (Just . ("ImageId",) . toJSON) _autoScalingLaunchConfigurationImageId
+        , fmap (("InstanceId",) . toJSON) _autoScalingLaunchConfigurationInstanceId
+        , fmap (("InstanceMonitoring",) . toJSON . fmap Bool') _autoScalingLaunchConfigurationInstanceMonitoring
+        , (Just . ("InstanceType",) . toJSON) _autoScalingLaunchConfigurationInstanceType
+        , fmap (("KernelId",) . toJSON) _autoScalingLaunchConfigurationKernelId
+        , fmap (("KeyName",) . toJSON) _autoScalingLaunchConfigurationKeyName
+        , fmap (("LaunchConfigurationName",) . toJSON) _autoScalingLaunchConfigurationLaunchConfigurationName
+        , fmap (("PlacementTenancy",) . toJSON) _autoScalingLaunchConfigurationPlacementTenancy
+        , fmap (("RamDiskId",) . toJSON) _autoScalingLaunchConfigurationRamDiskId
+        , fmap (("SecurityGroups",) . toJSON) _autoScalingLaunchConfigurationSecurityGroups
+        , fmap (("SpotPrice",) . toJSON) _autoScalingLaunchConfigurationSpotPrice
+        , fmap (("UserData",) . toJSON) _autoScalingLaunchConfigurationUserData
+        ]
+    }
 
 -- | Constructor for 'AutoScalingLaunchConfiguration' containing required
 -- fields as arguments.

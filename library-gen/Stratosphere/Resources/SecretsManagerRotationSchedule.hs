@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-rotationschedule.html
@@ -18,14 +19,17 @@ data SecretsManagerRotationSchedule =
   , _secretsManagerRotationScheduleSecretId :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON SecretsManagerRotationSchedule where
-  toJSON SecretsManagerRotationSchedule{..} =
-    object $
-    catMaybes
-    [ fmap (("RotationLambdaARN",) . toJSON) _secretsManagerRotationScheduleRotationLambdaARN
-    , fmap (("RotationRules",) . toJSON) _secretsManagerRotationScheduleRotationRules
-    , (Just . ("SecretId",) . toJSON) _secretsManagerRotationScheduleSecretId
-    ]
+instance ToResourceProperties SecretsManagerRotationSchedule where
+  toResourceProperties SecretsManagerRotationSchedule{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::SecretsManager::RotationSchedule"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("RotationLambdaARN",) . toJSON) _secretsManagerRotationScheduleRotationLambdaARN
+        , fmap (("RotationRules",) . toJSON) _secretsManagerRotationScheduleRotationRules
+        , (Just . ("SecretId",) . toJSON) _secretsManagerRotationScheduleSecretId
+        ]
+    }
 
 -- | Constructor for 'SecretsManagerRotationSchedule' containing required
 -- fields as arguments.

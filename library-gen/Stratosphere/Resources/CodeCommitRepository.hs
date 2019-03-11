@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codecommit-repository.html
@@ -18,14 +19,17 @@ data CodeCommitRepository =
   , _codeCommitRepositoryTriggers :: Maybe [CodeCommitRepositoryRepositoryTrigger]
   } deriving (Show, Eq)
 
-instance ToJSON CodeCommitRepository where
-  toJSON CodeCommitRepository{..} =
-    object $
-    catMaybes
-    [ fmap (("RepositoryDescription",) . toJSON) _codeCommitRepositoryRepositoryDescription
-    , (Just . ("RepositoryName",) . toJSON) _codeCommitRepositoryRepositoryName
-    , fmap (("Triggers",) . toJSON) _codeCommitRepositoryTriggers
-    ]
+instance ToResourceProperties CodeCommitRepository where
+  toResourceProperties CodeCommitRepository{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::CodeCommit::Repository"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("RepositoryDescription",) . toJSON) _codeCommitRepositoryRepositoryDescription
+        , (Just . ("RepositoryName",) . toJSON) _codeCommitRepositoryRepositoryName
+        , fmap (("Triggers",) . toJSON) _codeCommitRepositoryTriggers
+        ]
+    }
 
 -- | Constructor for 'CodeCommitRepository' containing required fields as
 -- arguments.

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-step.html
@@ -19,15 +20,18 @@ data EMRStep =
   , _eMRStepName :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON EMRStep where
-  toJSON EMRStep{..} =
-    object $
-    catMaybes
-    [ (Just . ("ActionOnFailure",) . toJSON) _eMRStepActionOnFailure
-    , (Just . ("HadoopJarStep",) . toJSON) _eMRStepHadoopJarStep
-    , (Just . ("JobFlowId",) . toJSON) _eMRStepJobFlowId
-    , (Just . ("Name",) . toJSON) _eMRStepName
-    ]
+instance ToResourceProperties EMRStep where
+  toResourceProperties EMRStep{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::EMR::Step"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("ActionOnFailure",) . toJSON) _eMRStepActionOnFailure
+        , (Just . ("HadoopJarStep",) . toJSON) _eMRStepHadoopJarStep
+        , (Just . ("JobFlowId",) . toJSON) _eMRStepJobFlowId
+        , (Just . ("Name",) . toJSON) _eMRStepName
+        ]
+    }
 
 -- | Constructor for 'EMRStep' containing required fields as arguments.
 emrStep

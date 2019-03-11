@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html
@@ -19,15 +20,18 @@ data IAMGroup =
   , _iAMGroupPolicies :: Maybe [IAMGroupPolicy]
   } deriving (Show, Eq)
 
-instance ToJSON IAMGroup where
-  toJSON IAMGroup{..} =
-    object $
-    catMaybes
-    [ fmap (("GroupName",) . toJSON) _iAMGroupGroupName
-    , fmap (("ManagedPolicyArns",) . toJSON) _iAMGroupManagedPolicyArns
-    , fmap (("Path",) . toJSON) _iAMGroupPath
-    , fmap (("Policies",) . toJSON) _iAMGroupPolicies
-    ]
+instance ToResourceProperties IAMGroup where
+  toResourceProperties IAMGroup{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::IAM::Group"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("GroupName",) . toJSON) _iAMGroupGroupName
+        , fmap (("ManagedPolicyArns",) . toJSON) _iAMGroupManagedPolicyArns
+        , fmap (("Path",) . toJSON) _iAMGroupPath
+        , fmap (("Policies",) . toJSON) _iAMGroupPolicies
+        ]
+    }
 
 -- | Constructor for 'IAMGroup' containing required fields as arguments.
 iamGroup

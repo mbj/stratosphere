@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html
@@ -22,18 +23,21 @@ data EC2FlowLog =
   , _eC2FlowLogTrafficType :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON EC2FlowLog where
-  toJSON EC2FlowLog{..} =
-    object $
-    catMaybes
-    [ fmap (("DeliverLogsPermissionArn",) . toJSON) _eC2FlowLogDeliverLogsPermissionArn
-    , fmap (("LogDestination",) . toJSON) _eC2FlowLogLogDestination
-    , fmap (("LogDestinationType",) . toJSON) _eC2FlowLogLogDestinationType
-    , fmap (("LogGroupName",) . toJSON) _eC2FlowLogLogGroupName
-    , (Just . ("ResourceId",) . toJSON) _eC2FlowLogResourceId
-    , (Just . ("ResourceType",) . toJSON) _eC2FlowLogResourceType
-    , (Just . ("TrafficType",) . toJSON) _eC2FlowLogTrafficType
-    ]
+instance ToResourceProperties EC2FlowLog where
+  toResourceProperties EC2FlowLog{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::EC2::FlowLog"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("DeliverLogsPermissionArn",) . toJSON) _eC2FlowLogDeliverLogsPermissionArn
+        , fmap (("LogDestination",) . toJSON) _eC2FlowLogLogDestination
+        , fmap (("LogDestinationType",) . toJSON) _eC2FlowLogLogDestinationType
+        , fmap (("LogGroupName",) . toJSON) _eC2FlowLogLogGroupName
+        , (Just . ("ResourceId",) . toJSON) _eC2FlowLogResourceId
+        , (Just . ("ResourceType",) . toJSON) _eC2FlowLogResourceType
+        , (Just . ("TrafficType",) . toJSON) _eC2FlowLogTrafficType
+        ]
+    }
 
 -- | Constructor for 'EC2FlowLog' containing required fields as arguments.
 ec2FlowLog

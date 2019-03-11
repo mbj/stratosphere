@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbsubnetgroup.html
@@ -19,15 +20,18 @@ data DocDBDBSubnetGroup =
   , _docDBDBSubnetGroupTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
-instance ToJSON DocDBDBSubnetGroup where
-  toJSON DocDBDBSubnetGroup{..} =
-    object $
-    catMaybes
-    [ (Just . ("DBSubnetGroupDescription",) . toJSON) _docDBDBSubnetGroupDBSubnetGroupDescription
-    , fmap (("DBSubnetGroupName",) . toJSON) _docDBDBSubnetGroupDBSubnetGroupName
-    , (Just . ("SubnetIds",) . toJSON) _docDBDBSubnetGroupSubnetIds
-    , fmap (("Tags",) . toJSON) _docDBDBSubnetGroupTags
-    ]
+instance ToResourceProperties DocDBDBSubnetGroup where
+  toResourceProperties DocDBDBSubnetGroup{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::DocDB::DBSubnetGroup"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("DBSubnetGroupDescription",) . toJSON) _docDBDBSubnetGroupDBSubnetGroupDescription
+        , fmap (("DBSubnetGroupName",) . toJSON) _docDBDBSubnetGroupDBSubnetGroupName
+        , (Just . ("SubnetIds",) . toJSON) _docDBDBSubnetGroupSubnetIds
+        , fmap (("Tags",) . toJSON) _docDBDBSubnetGroupTags
+        ]
+    }
 
 -- | Constructor for 'DocDBDBSubnetGroup' containing required fields as
 -- arguments.

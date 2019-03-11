@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html
@@ -28,21 +29,24 @@ data ServiceCatalogCloudFormationProvisionedProduct =
   , _serviceCatalogCloudFormationProvisionedProductTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
-instance ToJSON ServiceCatalogCloudFormationProvisionedProduct where
-  toJSON ServiceCatalogCloudFormationProvisionedProduct{..} =
-    object $
-    catMaybes
-    [ fmap (("AcceptLanguage",) . toJSON) _serviceCatalogCloudFormationProvisionedProductAcceptLanguage
-    , fmap (("NotificationArns",) . toJSON) _serviceCatalogCloudFormationProvisionedProductNotificationArns
-    , fmap (("PathId",) . toJSON) _serviceCatalogCloudFormationProvisionedProductPathId
-    , fmap (("ProductId",) . toJSON) _serviceCatalogCloudFormationProvisionedProductProductId
-    , fmap (("ProductName",) . toJSON) _serviceCatalogCloudFormationProvisionedProductProductName
-    , fmap (("ProvisionedProductName",) . toJSON) _serviceCatalogCloudFormationProvisionedProductProvisionedProductName
-    , fmap (("ProvisioningArtifactId",) . toJSON) _serviceCatalogCloudFormationProvisionedProductProvisioningArtifactId
-    , fmap (("ProvisioningArtifactName",) . toJSON) _serviceCatalogCloudFormationProvisionedProductProvisioningArtifactName
-    , fmap (("ProvisioningParameters",) . toJSON) _serviceCatalogCloudFormationProvisionedProductProvisioningParameters
-    , fmap (("Tags",) . toJSON) _serviceCatalogCloudFormationProvisionedProductTags
-    ]
+instance ToResourceProperties ServiceCatalogCloudFormationProvisionedProduct where
+  toResourceProperties ServiceCatalogCloudFormationProvisionedProduct{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::ServiceCatalog::CloudFormationProvisionedProduct"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("AcceptLanguage",) . toJSON) _serviceCatalogCloudFormationProvisionedProductAcceptLanguage
+        , fmap (("NotificationArns",) . toJSON) _serviceCatalogCloudFormationProvisionedProductNotificationArns
+        , fmap (("PathId",) . toJSON) _serviceCatalogCloudFormationProvisionedProductPathId
+        , fmap (("ProductId",) . toJSON) _serviceCatalogCloudFormationProvisionedProductProductId
+        , fmap (("ProductName",) . toJSON) _serviceCatalogCloudFormationProvisionedProductProductName
+        , fmap (("ProvisionedProductName",) . toJSON) _serviceCatalogCloudFormationProvisionedProductProvisionedProductName
+        , fmap (("ProvisioningArtifactId",) . toJSON) _serviceCatalogCloudFormationProvisionedProductProvisioningArtifactId
+        , fmap (("ProvisioningArtifactName",) . toJSON) _serviceCatalogCloudFormationProvisionedProductProvisioningArtifactName
+        , fmap (("ProvisioningParameters",) . toJSON) _serviceCatalogCloudFormationProvisionedProductProvisioningParameters
+        , fmap (("Tags",) . toJSON) _serviceCatalogCloudFormationProvisionedProductTags
+        ]
+    }
 
 -- | Constructor for 'ServiceCatalogCloudFormationProvisionedProduct'
 -- containing required fields as arguments.

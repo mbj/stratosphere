@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html
@@ -23,19 +24,22 @@ data EC2TransitGateway =
   , _eC2TransitGatewayVpnEcmpSupport :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON EC2TransitGateway where
-  toJSON EC2TransitGateway{..} =
-    object $
-    catMaybes
-    [ fmap (("AmazonSideAsn",) . toJSON . fmap Integer') _eC2TransitGatewayAmazonSideAsn
-    , fmap (("AutoAcceptSharedAttachments",) . toJSON) _eC2TransitGatewayAutoAcceptSharedAttachments
-    , fmap (("DefaultRouteTableAssociation",) . toJSON) _eC2TransitGatewayDefaultRouteTableAssociation
-    , fmap (("DefaultRouteTablePropagation",) . toJSON) _eC2TransitGatewayDefaultRouteTablePropagation
-    , fmap (("Description",) . toJSON) _eC2TransitGatewayDescription
-    , fmap (("DnsSupport",) . toJSON) _eC2TransitGatewayDnsSupport
-    , fmap (("Tags",) . toJSON) _eC2TransitGatewayTags
-    , fmap (("VpnEcmpSupport",) . toJSON) _eC2TransitGatewayVpnEcmpSupport
-    ]
+instance ToResourceProperties EC2TransitGateway where
+  toResourceProperties EC2TransitGateway{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::EC2::TransitGateway"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("AmazonSideAsn",) . toJSON . fmap Integer') _eC2TransitGatewayAmazonSideAsn
+        , fmap (("AutoAcceptSharedAttachments",) . toJSON) _eC2TransitGatewayAutoAcceptSharedAttachments
+        , fmap (("DefaultRouteTableAssociation",) . toJSON) _eC2TransitGatewayDefaultRouteTableAssociation
+        , fmap (("DefaultRouteTablePropagation",) . toJSON) _eC2TransitGatewayDefaultRouteTablePropagation
+        , fmap (("Description",) . toJSON) _eC2TransitGatewayDescription
+        , fmap (("DnsSupport",) . toJSON) _eC2TransitGatewayDnsSupport
+        , fmap (("Tags",) . toJSON) _eC2TransitGatewayTags
+        , fmap (("VpnEcmpSupport",) . toJSON) _eC2TransitGatewayVpnEcmpSupport
+        ]
+    }
 
 -- | Constructor for 'EC2TransitGateway' containing required fields as
 -- arguments.

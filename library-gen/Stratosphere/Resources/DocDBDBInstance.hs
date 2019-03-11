@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbinstance.html
@@ -22,18 +23,21 @@ data DocDBDBInstance =
   , _docDBDBInstanceTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
-instance ToJSON DocDBDBInstance where
-  toJSON DocDBDBInstance{..} =
-    object $
-    catMaybes
-    [ fmap (("AutoMinorVersionUpgrade",) . toJSON . fmap Bool') _docDBDBInstanceAutoMinorVersionUpgrade
-    , fmap (("AvailabilityZone",) . toJSON) _docDBDBInstanceAvailabilityZone
-    , (Just . ("DBClusterIdentifier",) . toJSON) _docDBDBInstanceDBClusterIdentifier
-    , (Just . ("DBInstanceClass",) . toJSON) _docDBDBInstanceDBInstanceClass
-    , fmap (("DBInstanceIdentifier",) . toJSON) _docDBDBInstanceDBInstanceIdentifier
-    , fmap (("PreferredMaintenanceWindow",) . toJSON) _docDBDBInstancePreferredMaintenanceWindow
-    , fmap (("Tags",) . toJSON) _docDBDBInstanceTags
-    ]
+instance ToResourceProperties DocDBDBInstance where
+  toResourceProperties DocDBDBInstance{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::DocDB::DBInstance"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("AutoMinorVersionUpgrade",) . toJSON . fmap Bool') _docDBDBInstanceAutoMinorVersionUpgrade
+        , fmap (("AvailabilityZone",) . toJSON) _docDBDBInstanceAvailabilityZone
+        , (Just . ("DBClusterIdentifier",) . toJSON) _docDBDBInstanceDBClusterIdentifier
+        , (Just . ("DBInstanceClass",) . toJSON) _docDBDBInstanceDBInstanceClass
+        , fmap (("DBInstanceIdentifier",) . toJSON) _docDBDBInstanceDBInstanceIdentifier
+        , fmap (("PreferredMaintenanceWindow",) . toJSON) _docDBDBInstancePreferredMaintenanceWindow
+        , fmap (("Tags",) . toJSON) _docDBDBInstanceTags
+        ]
+    }
 
 -- | Constructor for 'DocDBDBInstance' containing required fields as
 -- arguments.

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-streamconsumer.html
@@ -17,13 +18,16 @@ data KinesisStreamConsumer =
   , _kinesisStreamConsumerStreamARN :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON KinesisStreamConsumer where
-  toJSON KinesisStreamConsumer{..} =
-    object $
-    catMaybes
-    [ (Just . ("ConsumerName",) . toJSON) _kinesisStreamConsumerConsumerName
-    , (Just . ("StreamARN",) . toJSON) _kinesisStreamConsumerStreamARN
-    ]
+instance ToResourceProperties KinesisStreamConsumer where
+  toResourceProperties KinesisStreamConsumer{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::Kinesis::StreamConsumer"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("ConsumerName",) . toJSON) _kinesisStreamConsumerConsumerName
+        , (Just . ("StreamARN",) . toJSON) _kinesisStreamConsumerStreamARN
+        ]
+    }
 
 -- | Constructor for 'KinesisStreamConsumer' containing required fields as
 -- arguments.

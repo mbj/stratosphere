@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationpart.html
@@ -18,14 +19,17 @@ data ApiGatewayDocumentationPart =
   , _apiGatewayDocumentationPartRestApiId :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON ApiGatewayDocumentationPart where
-  toJSON ApiGatewayDocumentationPart{..} =
-    object $
-    catMaybes
-    [ (Just . ("Location",) . toJSON) _apiGatewayDocumentationPartLocation
-    , (Just . ("Properties",) . toJSON) _apiGatewayDocumentationPartProperties
-    , (Just . ("RestApiId",) . toJSON) _apiGatewayDocumentationPartRestApiId
-    ]
+instance ToResourceProperties ApiGatewayDocumentationPart where
+  toResourceProperties ApiGatewayDocumentationPart{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::ApiGateway::DocumentationPart"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("Location",) . toJSON) _apiGatewayDocumentationPartLocation
+        , (Just . ("Properties",) . toJSON) _apiGatewayDocumentationPartProperties
+        , (Just . ("RestApiId",) . toJSON) _apiGatewayDocumentationPartRestApiId
+        ]
+    }
 
 -- | Constructor for 'ApiGatewayDocumentationPart' containing required fields
 -- as arguments.

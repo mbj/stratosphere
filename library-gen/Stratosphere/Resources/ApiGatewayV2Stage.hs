@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-stage.html
@@ -25,20 +26,23 @@ data ApiGatewayV2Stage =
   , _apiGatewayV2StageStageVariables :: Maybe Object
   } deriving (Show, Eq)
 
-instance ToJSON ApiGatewayV2Stage where
-  toJSON ApiGatewayV2Stage{..} =
-    object $
-    catMaybes
-    [ fmap (("AccessLogSettings",) . toJSON) _apiGatewayV2StageAccessLogSettings
-    , (Just . ("ApiId",) . toJSON) _apiGatewayV2StageApiId
-    , fmap (("ClientCertificateId",) . toJSON) _apiGatewayV2StageClientCertificateId
-    , fmap (("DefaultRouteSettings",) . toJSON) _apiGatewayV2StageDefaultRouteSettings
-    , (Just . ("DeploymentId",) . toJSON) _apiGatewayV2StageDeploymentId
-    , fmap (("Description",) . toJSON) _apiGatewayV2StageDescription
-    , fmap (("RouteSettings",) . toJSON) _apiGatewayV2StageRouteSettings
-    , (Just . ("StageName",) . toJSON) _apiGatewayV2StageStageName
-    , fmap (("StageVariables",) . toJSON) _apiGatewayV2StageStageVariables
-    ]
+instance ToResourceProperties ApiGatewayV2Stage where
+  toResourceProperties ApiGatewayV2Stage{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::ApiGatewayV2::Stage"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("AccessLogSettings",) . toJSON) _apiGatewayV2StageAccessLogSettings
+        , (Just . ("ApiId",) . toJSON) _apiGatewayV2StageApiId
+        , fmap (("ClientCertificateId",) . toJSON) _apiGatewayV2StageClientCertificateId
+        , fmap (("DefaultRouteSettings",) . toJSON) _apiGatewayV2StageDefaultRouteSettings
+        , (Just . ("DeploymentId",) . toJSON) _apiGatewayV2StageDeploymentId
+        , fmap (("Description",) . toJSON) _apiGatewayV2StageDescription
+        , fmap (("RouteSettings",) . toJSON) _apiGatewayV2StageRouteSettings
+        , (Just . ("StageName",) . toJSON) _apiGatewayV2StageStageName
+        , fmap (("StageVariables",) . toJSON) _apiGatewayV2StageStageVariables
+        ]
+    }
 
 -- | Constructor for 'ApiGatewayV2Stage' containing required fields as
 -- arguments.

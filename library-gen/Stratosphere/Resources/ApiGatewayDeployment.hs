@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-deployment.html
@@ -21,16 +22,19 @@ data ApiGatewayDeployment =
   , _apiGatewayDeploymentStageName :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON ApiGatewayDeployment where
-  toJSON ApiGatewayDeployment{..} =
-    object $
-    catMaybes
-    [ fmap (("DeploymentCanarySettings",) . toJSON) _apiGatewayDeploymentDeploymentCanarySettings
-    , fmap (("Description",) . toJSON) _apiGatewayDeploymentDescription
-    , (Just . ("RestApiId",) . toJSON) _apiGatewayDeploymentRestApiId
-    , fmap (("StageDescription",) . toJSON) _apiGatewayDeploymentStageDescription
-    , fmap (("StageName",) . toJSON) _apiGatewayDeploymentStageName
-    ]
+instance ToResourceProperties ApiGatewayDeployment where
+  toResourceProperties ApiGatewayDeployment{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::ApiGateway::Deployment"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("DeploymentCanarySettings",) . toJSON) _apiGatewayDeploymentDeploymentCanarySettings
+        , fmap (("Description",) . toJSON) _apiGatewayDeploymentDescription
+        , (Just . ("RestApiId",) . toJSON) _apiGatewayDeploymentRestApiId
+        , fmap (("StageDescription",) . toJSON) _apiGatewayDeploymentStageDescription
+        , fmap (("StageName",) . toJSON) _apiGatewayDeploymentStageName
+        ]
+    }
 
 -- | Constructor for 'ApiGatewayDeployment' containing required fields as
 -- arguments.

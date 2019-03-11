@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-channel.html
@@ -19,14 +20,17 @@ data IoTAnalyticsChannel =
   , _ioTAnalyticsChannelTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
-instance ToJSON IoTAnalyticsChannel where
-  toJSON IoTAnalyticsChannel{..} =
-    object $
-    catMaybes
-    [ fmap (("ChannelName",) . toJSON) _ioTAnalyticsChannelChannelName
-    , fmap (("RetentionPeriod",) . toJSON) _ioTAnalyticsChannelRetentionPeriod
-    , fmap (("Tags",) . toJSON) _ioTAnalyticsChannelTags
-    ]
+instance ToResourceProperties IoTAnalyticsChannel where
+  toResourceProperties IoTAnalyticsChannel{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::IoTAnalytics::Channel"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("ChannelName",) . toJSON) _ioTAnalyticsChannelChannelName
+        , fmap (("RetentionPeriod",) . toJSON) _ioTAnalyticsChannelRetentionPeriod
+        , fmap (("Tags",) . toJSON) _ioTAnalyticsChannelTags
+        ]
+    }
 
 -- | Constructor for 'IoTAnalyticsChannel' containing required fields as
 -- arguments.

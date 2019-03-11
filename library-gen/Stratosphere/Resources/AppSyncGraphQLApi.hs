@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html
@@ -22,16 +23,19 @@ data AppSyncGraphQLApi =
   , _appSyncGraphQLApiUserPoolConfig :: Maybe AppSyncGraphQLApiUserPoolConfig
   } deriving (Show, Eq)
 
-instance ToJSON AppSyncGraphQLApi where
-  toJSON AppSyncGraphQLApi{..} =
-    object $
-    catMaybes
-    [ (Just . ("AuthenticationType",) . toJSON) _appSyncGraphQLApiAuthenticationType
-    , fmap (("LogConfig",) . toJSON) _appSyncGraphQLApiLogConfig
-    , (Just . ("Name",) . toJSON) _appSyncGraphQLApiName
-    , fmap (("OpenIDConnectConfig",) . toJSON) _appSyncGraphQLApiOpenIDConnectConfig
-    , fmap (("UserPoolConfig",) . toJSON) _appSyncGraphQLApiUserPoolConfig
-    ]
+instance ToResourceProperties AppSyncGraphQLApi where
+  toResourceProperties AppSyncGraphQLApi{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::AppSync::GraphQLApi"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("AuthenticationType",) . toJSON) _appSyncGraphQLApiAuthenticationType
+        , fmap (("LogConfig",) . toJSON) _appSyncGraphQLApiLogConfig
+        , (Just . ("Name",) . toJSON) _appSyncGraphQLApiName
+        , fmap (("OpenIDConnectConfig",) . toJSON) _appSyncGraphQLApiOpenIDConnectConfig
+        , fmap (("UserPoolConfig",) . toJSON) _appSyncGraphQLApiUserPoolConfig
+        ]
+    }
 
 -- | Constructor for 'AppSyncGraphQLApi' containing required fields as
 -- arguments.

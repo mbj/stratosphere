@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-placementgroup.html
@@ -16,12 +17,15 @@ data EC2PlacementGroup =
   { _eC2PlacementGroupStrategy :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON EC2PlacementGroup where
-  toJSON EC2PlacementGroup{..} =
-    object $
-    catMaybes
-    [ fmap (("Strategy",) . toJSON) _eC2PlacementGroupStrategy
-    ]
+instance ToResourceProperties EC2PlacementGroup where
+  toResourceProperties EC2PlacementGroup{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::EC2::PlacementGroup"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("Strategy",) . toJSON) _eC2PlacementGroupStrategy
+        ]
+    }
 
 -- | Constructor for 'EC2PlacementGroup' containing required fields as
 -- arguments.

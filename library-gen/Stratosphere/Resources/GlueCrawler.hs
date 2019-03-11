@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html
@@ -27,21 +28,24 @@ data GlueCrawler =
   , _glueCrawlerTargets :: GlueCrawlerTargets
   } deriving (Show, Eq)
 
-instance ToJSON GlueCrawler where
-  toJSON GlueCrawler{..} =
-    object $
-    catMaybes
-    [ fmap (("Classifiers",) . toJSON) _glueCrawlerClassifiers
-    , fmap (("Configuration",) . toJSON) _glueCrawlerConfiguration
-    , (Just . ("DatabaseName",) . toJSON) _glueCrawlerDatabaseName
-    , fmap (("Description",) . toJSON) _glueCrawlerDescription
-    , fmap (("Name",) . toJSON) _glueCrawlerName
-    , (Just . ("Role",) . toJSON) _glueCrawlerRole
-    , fmap (("Schedule",) . toJSON) _glueCrawlerSchedule
-    , fmap (("SchemaChangePolicy",) . toJSON) _glueCrawlerSchemaChangePolicy
-    , fmap (("TablePrefix",) . toJSON) _glueCrawlerTablePrefix
-    , (Just . ("Targets",) . toJSON) _glueCrawlerTargets
-    ]
+instance ToResourceProperties GlueCrawler where
+  toResourceProperties GlueCrawler{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::Glue::Crawler"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("Classifiers",) . toJSON) _glueCrawlerClassifiers
+        , fmap (("Configuration",) . toJSON) _glueCrawlerConfiguration
+        , (Just . ("DatabaseName",) . toJSON) _glueCrawlerDatabaseName
+        , fmap (("Description",) . toJSON) _glueCrawlerDescription
+        , fmap (("Name",) . toJSON) _glueCrawlerName
+        , (Just . ("Role",) . toJSON) _glueCrawlerRole
+        , fmap (("Schedule",) . toJSON) _glueCrawlerSchedule
+        , fmap (("SchemaChangePolicy",) . toJSON) _glueCrawlerSchemaChangePolicy
+        , fmap (("TablePrefix",) . toJSON) _glueCrawlerTablePrefix
+        , (Just . ("Targets",) . toJSON) _glueCrawlerTargets
+        ]
+    }
 
 -- | Constructor for 'GlueCrawler' containing required fields as arguments.
 glueCrawler

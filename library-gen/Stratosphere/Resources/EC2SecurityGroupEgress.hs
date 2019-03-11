@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-security-group-egress.html
@@ -24,20 +25,23 @@ data EC2SecurityGroupEgress =
   , _eC2SecurityGroupEgressToPort :: Maybe (Val Integer)
   } deriving (Show, Eq)
 
-instance ToJSON EC2SecurityGroupEgress where
-  toJSON EC2SecurityGroupEgress{..} =
-    object $
-    catMaybes
-    [ fmap (("CidrIp",) . toJSON) _eC2SecurityGroupEgressCidrIp
-    , fmap (("CidrIpv6",) . toJSON) _eC2SecurityGroupEgressCidrIpv6
-    , fmap (("Description",) . toJSON) _eC2SecurityGroupEgressDescription
-    , fmap (("DestinationPrefixListId",) . toJSON) _eC2SecurityGroupEgressDestinationPrefixListId
-    , fmap (("DestinationSecurityGroupId",) . toJSON) _eC2SecurityGroupEgressDestinationSecurityGroupId
-    , fmap (("FromPort",) . toJSON . fmap Integer') _eC2SecurityGroupEgressFromPort
-    , (Just . ("GroupId",) . toJSON) _eC2SecurityGroupEgressGroupId
-    , (Just . ("IpProtocol",) . toJSON) _eC2SecurityGroupEgressIpProtocol
-    , fmap (("ToPort",) . toJSON . fmap Integer') _eC2SecurityGroupEgressToPort
-    ]
+instance ToResourceProperties EC2SecurityGroupEgress where
+  toResourceProperties EC2SecurityGroupEgress{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::EC2::SecurityGroupEgress"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("CidrIp",) . toJSON) _eC2SecurityGroupEgressCidrIp
+        , fmap (("CidrIpv6",) . toJSON) _eC2SecurityGroupEgressCidrIpv6
+        , fmap (("Description",) . toJSON) _eC2SecurityGroupEgressDescription
+        , fmap (("DestinationPrefixListId",) . toJSON) _eC2SecurityGroupEgressDestinationPrefixListId
+        , fmap (("DestinationSecurityGroupId",) . toJSON) _eC2SecurityGroupEgressDestinationSecurityGroupId
+        , fmap (("FromPort",) . toJSON . fmap Integer') _eC2SecurityGroupEgressFromPort
+        , (Just . ("GroupId",) . toJSON) _eC2SecurityGroupEgressGroupId
+        , (Just . ("IpProtocol",) . toJSON) _eC2SecurityGroupEgressIpProtocol
+        , fmap (("ToPort",) . toJSON . fmap Integer') _eC2SecurityGroupEgressToPort
+        ]
+    }
 
 -- | Constructor for 'EC2SecurityGroupEgress' containing required fields as
 -- arguments.

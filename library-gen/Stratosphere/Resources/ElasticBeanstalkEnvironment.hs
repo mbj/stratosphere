@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html
@@ -28,22 +29,25 @@ data ElasticBeanstalkEnvironment =
   , _elasticBeanstalkEnvironmentVersionLabel :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON ElasticBeanstalkEnvironment where
-  toJSON ElasticBeanstalkEnvironment{..} =
-    object $
-    catMaybes
-    [ (Just . ("ApplicationName",) . toJSON) _elasticBeanstalkEnvironmentApplicationName
-    , fmap (("CNAMEPrefix",) . toJSON) _elasticBeanstalkEnvironmentCNAMEPrefix
-    , fmap (("Description",) . toJSON) _elasticBeanstalkEnvironmentDescription
-    , fmap (("EnvironmentName",) . toJSON) _elasticBeanstalkEnvironmentEnvironmentName
-    , fmap (("OptionSettings",) . toJSON) _elasticBeanstalkEnvironmentOptionSettings
-    , fmap (("PlatformArn",) . toJSON) _elasticBeanstalkEnvironmentPlatformArn
-    , fmap (("SolutionStackName",) . toJSON) _elasticBeanstalkEnvironmentSolutionStackName
-    , fmap (("Tags",) . toJSON) _elasticBeanstalkEnvironmentTags
-    , fmap (("TemplateName",) . toJSON) _elasticBeanstalkEnvironmentTemplateName
-    , fmap (("Tier",) . toJSON) _elasticBeanstalkEnvironmentTier
-    , fmap (("VersionLabel",) . toJSON) _elasticBeanstalkEnvironmentVersionLabel
-    ]
+instance ToResourceProperties ElasticBeanstalkEnvironment where
+  toResourceProperties ElasticBeanstalkEnvironment{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::ElasticBeanstalk::Environment"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("ApplicationName",) . toJSON) _elasticBeanstalkEnvironmentApplicationName
+        , fmap (("CNAMEPrefix",) . toJSON) _elasticBeanstalkEnvironmentCNAMEPrefix
+        , fmap (("Description",) . toJSON) _elasticBeanstalkEnvironmentDescription
+        , fmap (("EnvironmentName",) . toJSON) _elasticBeanstalkEnvironmentEnvironmentName
+        , fmap (("OptionSettings",) . toJSON) _elasticBeanstalkEnvironmentOptionSettings
+        , fmap (("PlatformArn",) . toJSON) _elasticBeanstalkEnvironmentPlatformArn
+        , fmap (("SolutionStackName",) . toJSON) _elasticBeanstalkEnvironmentSolutionStackName
+        , fmap (("Tags",) . toJSON) _elasticBeanstalkEnvironmentTags
+        , fmap (("TemplateName",) . toJSON) _elasticBeanstalkEnvironmentTemplateName
+        , fmap (("Tier",) . toJSON) _elasticBeanstalkEnvironmentTier
+        , fmap (("VersionLabel",) . toJSON) _elasticBeanstalkEnvironmentVersionLabel
+        ]
+    }
 
 -- | Constructor for 'ElasticBeanstalkEnvironment' containing required fields
 -- as arguments.

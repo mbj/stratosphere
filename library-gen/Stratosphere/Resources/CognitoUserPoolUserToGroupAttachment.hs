@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolusertogroupattachment.html
@@ -18,14 +19,17 @@ data CognitoUserPoolUserToGroupAttachment =
   , _cognitoUserPoolUserToGroupAttachmentUsername :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON CognitoUserPoolUserToGroupAttachment where
-  toJSON CognitoUserPoolUserToGroupAttachment{..} =
-    object $
-    catMaybes
-    [ (Just . ("GroupName",) . toJSON) _cognitoUserPoolUserToGroupAttachmentGroupName
-    , (Just . ("UserPoolId",) . toJSON) _cognitoUserPoolUserToGroupAttachmentUserPoolId
-    , (Just . ("Username",) . toJSON) _cognitoUserPoolUserToGroupAttachmentUsername
-    ]
+instance ToResourceProperties CognitoUserPoolUserToGroupAttachment where
+  toResourceProperties CognitoUserPoolUserToGroupAttachment{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::Cognito::UserPoolUserToGroupAttachment"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("GroupName",) . toJSON) _cognitoUserPoolUserToGroupAttachmentGroupName
+        , (Just . ("UserPoolId",) . toJSON) _cognitoUserPoolUserToGroupAttachmentUserPoolId
+        , (Just . ("Username",) . toJSON) _cognitoUserPoolUserToGroupAttachmentUsername
+        ]
+    }
 
 -- | Constructor for 'CognitoUserPoolUserToGroupAttachment' containing
 -- required fields as arguments.

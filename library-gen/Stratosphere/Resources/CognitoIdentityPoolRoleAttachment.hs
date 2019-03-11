@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypoolroleattachment.html
@@ -18,14 +19,17 @@ data CognitoIdentityPoolRoleAttachment =
   , _cognitoIdentityPoolRoleAttachmentRoles :: Maybe Object
   } deriving (Show, Eq)
 
-instance ToJSON CognitoIdentityPoolRoleAttachment where
-  toJSON CognitoIdentityPoolRoleAttachment{..} =
-    object $
-    catMaybes
-    [ (Just . ("IdentityPoolId",) . toJSON) _cognitoIdentityPoolRoleAttachmentIdentityPoolId
-    , fmap (("RoleMappings",) . toJSON) _cognitoIdentityPoolRoleAttachmentRoleMappings
-    , fmap (("Roles",) . toJSON) _cognitoIdentityPoolRoleAttachmentRoles
-    ]
+instance ToResourceProperties CognitoIdentityPoolRoleAttachment where
+  toResourceProperties CognitoIdentityPoolRoleAttachment{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::Cognito::IdentityPoolRoleAttachment"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("IdentityPoolId",) . toJSON) _cognitoIdentityPoolRoleAttachmentIdentityPoolId
+        , fmap (("RoleMappings",) . toJSON) _cognitoIdentityPoolRoleAttachmentRoleMappings
+        , fmap (("Roles",) . toJSON) _cognitoIdentityPoolRoleAttachmentRoles
+        ]
+    }
 
 -- | Constructor for 'CognitoIdentityPoolRoleAttachment' containing required
 -- fields as arguments.

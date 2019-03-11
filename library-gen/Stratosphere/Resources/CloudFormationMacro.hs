@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-macro.html
@@ -20,16 +21,19 @@ data CloudFormationMacro =
   , _cloudFormationMacroName :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON CloudFormationMacro where
-  toJSON CloudFormationMacro{..} =
-    object $
-    catMaybes
-    [ fmap (("Description",) . toJSON) _cloudFormationMacroDescription
-    , (Just . ("FunctionName",) . toJSON) _cloudFormationMacroFunctionName
-    , fmap (("LogGroupName",) . toJSON) _cloudFormationMacroLogGroupName
-    , fmap (("LogRoleARN",) . toJSON) _cloudFormationMacroLogRoleARN
-    , (Just . ("Name",) . toJSON) _cloudFormationMacroName
-    ]
+instance ToResourceProperties CloudFormationMacro where
+  toResourceProperties CloudFormationMacro{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::CloudFormation::Macro"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("Description",) . toJSON) _cloudFormationMacroDescription
+        , (Just . ("FunctionName",) . toJSON) _cloudFormationMacroFunctionName
+        , fmap (("LogGroupName",) . toJSON) _cloudFormationMacroLogGroupName
+        , fmap (("LogRoleARN",) . toJSON) _cloudFormationMacroLogRoleARN
+        , (Just . ("Name",) . toJSON) _cloudFormationMacroName
+        ]
+    }
 
 -- | Constructor for 'CloudFormationMacro' containing required fields as
 -- arguments.

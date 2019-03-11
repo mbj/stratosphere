@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apikey.html
@@ -18,14 +19,17 @@ data AppSyncApiKey =
   , _appSyncApiKeyExpires :: Maybe (Val Double)
   } deriving (Show, Eq)
 
-instance ToJSON AppSyncApiKey where
-  toJSON AppSyncApiKey{..} =
-    object $
-    catMaybes
-    [ (Just . ("ApiId",) . toJSON) _appSyncApiKeyApiId
-    , fmap (("Description",) . toJSON) _appSyncApiKeyDescription
-    , fmap (("Expires",) . toJSON . fmap Double') _appSyncApiKeyExpires
-    ]
+instance ToResourceProperties AppSyncApiKey where
+  toResourceProperties AppSyncApiKey{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::AppSync::ApiKey"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("ApiId",) . toJSON) _appSyncApiKeyApiId
+        , fmap (("Description",) . toJSON) _appSyncApiKeyDescription
+        , fmap (("Expires",) . toJSON . fmap Double') _appSyncApiKeyExpires
+        ]
+    }
 
 -- | Constructor for 'AppSyncApiKey' containing required fields as arguments.
 appSyncApiKey

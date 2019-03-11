@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-dataset.html
@@ -23,16 +24,19 @@ data IoTAnalyticsDataset =
   , _ioTAnalyticsDatasetTriggers :: Maybe [IoTAnalyticsDatasetTrigger]
   } deriving (Show, Eq)
 
-instance ToJSON IoTAnalyticsDataset where
-  toJSON IoTAnalyticsDataset{..} =
-    object $
-    catMaybes
-    [ (Just . ("Actions",) . toJSON) _ioTAnalyticsDatasetActions
-    , fmap (("DatasetName",) . toJSON) _ioTAnalyticsDatasetDatasetName
-    , fmap (("RetentionPeriod",) . toJSON) _ioTAnalyticsDatasetRetentionPeriod
-    , fmap (("Tags",) . toJSON) _ioTAnalyticsDatasetTags
-    , fmap (("Triggers",) . toJSON) _ioTAnalyticsDatasetTriggers
-    ]
+instance ToResourceProperties IoTAnalyticsDataset where
+  toResourceProperties IoTAnalyticsDataset{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::IoTAnalytics::Dataset"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("Actions",) . toJSON) _ioTAnalyticsDatasetActions
+        , fmap (("DatasetName",) . toJSON) _ioTAnalyticsDatasetDatasetName
+        , fmap (("RetentionPeriod",) . toJSON) _ioTAnalyticsDatasetRetentionPeriod
+        , fmap (("Tags",) . toJSON) _ioTAnalyticsDatasetTags
+        , fmap (("Triggers",) . toJSON) _ioTAnalyticsDatasetTriggers
+        ]
+    }
 
 -- | Constructor for 'IoTAnalyticsDataset' containing required fields as
 -- arguments.

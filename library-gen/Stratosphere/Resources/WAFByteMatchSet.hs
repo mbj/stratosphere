@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-bytematchset.html
@@ -17,13 +18,16 @@ data WAFByteMatchSet =
   , _wAFByteMatchSetName :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON WAFByteMatchSet where
-  toJSON WAFByteMatchSet{..} =
-    object $
-    catMaybes
-    [ fmap (("ByteMatchTuples",) . toJSON) _wAFByteMatchSetByteMatchTuples
-    , (Just . ("Name",) . toJSON) _wAFByteMatchSetName
-    ]
+instance ToResourceProperties WAFByteMatchSet where
+  toResourceProperties WAFByteMatchSet{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::WAF::ByteMatchSet"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("ByteMatchTuples",) . toJSON) _wAFByteMatchSetByteMatchTuples
+        , (Just . ("Name",) . toJSON) _wAFByteMatchSetName
+        ]
+    }
 
 -- | Constructor for 'WAFByteMatchSet' containing required fields as
 -- arguments.

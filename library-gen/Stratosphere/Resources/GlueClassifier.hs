@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-classifier.html
@@ -20,14 +21,17 @@ data GlueClassifier =
   , _glueClassifierXMLClassifier :: Maybe GlueClassifierXMLClassifier
   } deriving (Show, Eq)
 
-instance ToJSON GlueClassifier where
-  toJSON GlueClassifier{..} =
-    object $
-    catMaybes
-    [ fmap (("GrokClassifier",) . toJSON) _glueClassifierGrokClassifier
-    , fmap (("JsonClassifier",) . toJSON) _glueClassifierJsonClassifier
-    , fmap (("XMLClassifier",) . toJSON) _glueClassifierXMLClassifier
-    ]
+instance ToResourceProperties GlueClassifier where
+  toResourceProperties GlueClassifier{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::Glue::Classifier"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("GrokClassifier",) . toJSON) _glueClassifierGrokClassifier
+        , fmap (("JsonClassifier",) . toJSON) _glueClassifierJsonClassifier
+        , fmap (("XMLClassifier",) . toJSON) _glueClassifierXMLClassifier
+        ]
+    }
 
 -- | Constructor for 'GlueClassifier' containing required fields as arguments.
 glueClassifier

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstancelifecycleconfig.html
@@ -19,14 +20,17 @@ data SageMakerNotebookInstanceLifecycleConfig =
   , _sageMakerNotebookInstanceLifecycleConfigOnStart :: Maybe [SageMakerNotebookInstanceLifecycleConfigNotebookInstanceLifecycleHook]
   } deriving (Show, Eq)
 
-instance ToJSON SageMakerNotebookInstanceLifecycleConfig where
-  toJSON SageMakerNotebookInstanceLifecycleConfig{..} =
-    object $
-    catMaybes
-    [ fmap (("NotebookInstanceLifecycleConfigName",) . toJSON) _sageMakerNotebookInstanceLifecycleConfigNotebookInstanceLifecycleConfigName
-    , fmap (("OnCreate",) . toJSON) _sageMakerNotebookInstanceLifecycleConfigOnCreate
-    , fmap (("OnStart",) . toJSON) _sageMakerNotebookInstanceLifecycleConfigOnStart
-    ]
+instance ToResourceProperties SageMakerNotebookInstanceLifecycleConfig where
+  toResourceProperties SageMakerNotebookInstanceLifecycleConfig{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::SageMaker::NotebookInstanceLifecycleConfig"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("NotebookInstanceLifecycleConfigName",) . toJSON) _sageMakerNotebookInstanceLifecycleConfigNotebookInstanceLifecycleConfigName
+        , fmap (("OnCreate",) . toJSON) _sageMakerNotebookInstanceLifecycleConfigOnCreate
+        , fmap (("OnStart",) . toJSON) _sageMakerNotebookInstanceLifecycleConfigOnStart
+        ]
+    }
 
 -- | Constructor for 'SageMakerNotebookInstanceLifecycleConfig' containing
 -- required fields as arguments.

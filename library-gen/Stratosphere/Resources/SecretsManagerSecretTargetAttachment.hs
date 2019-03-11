@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secrettargetattachment.html
@@ -18,14 +19,17 @@ data SecretsManagerSecretTargetAttachment =
   , _secretsManagerSecretTargetAttachmentTargetType :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON SecretsManagerSecretTargetAttachment where
-  toJSON SecretsManagerSecretTargetAttachment{..} =
-    object $
-    catMaybes
-    [ (Just . ("SecretId",) . toJSON) _secretsManagerSecretTargetAttachmentSecretId
-    , (Just . ("TargetId",) . toJSON) _secretsManagerSecretTargetAttachmentTargetId
-    , (Just . ("TargetType",) . toJSON) _secretsManagerSecretTargetAttachmentTargetType
-    ]
+instance ToResourceProperties SecretsManagerSecretTargetAttachment where
+  toResourceProperties SecretsManagerSecretTargetAttachment{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::SecretsManager::SecretTargetAttachment"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("SecretId",) . toJSON) _secretsManagerSecretTargetAttachmentSecretId
+        , (Just . ("TargetId",) . toJSON) _secretsManagerSecretTargetAttachmentTargetId
+        , (Just . ("TargetType",) . toJSON) _secretsManagerSecretTargetAttachmentTargetType
+        ]
+    }
 
 -- | Constructor for 'SecretsManagerSecretTargetAttachment' containing
 -- required fields as arguments.

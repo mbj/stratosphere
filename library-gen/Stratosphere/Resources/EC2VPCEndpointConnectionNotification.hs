@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointconnectionnotification.html
@@ -19,15 +20,18 @@ data EC2VPCEndpointConnectionNotification =
   , _eC2VPCEndpointConnectionNotificationVPCEndpointId :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON EC2VPCEndpointConnectionNotification where
-  toJSON EC2VPCEndpointConnectionNotification{..} =
-    object $
-    catMaybes
-    [ (Just . ("ConnectionEvents",) . toJSON) _eC2VPCEndpointConnectionNotificationConnectionEvents
-    , (Just . ("ConnectionNotificationArn",) . toJSON) _eC2VPCEndpointConnectionNotificationConnectionNotificationArn
-    , fmap (("ServiceId",) . toJSON) _eC2VPCEndpointConnectionNotificationServiceId
-    , fmap (("VPCEndpointId",) . toJSON) _eC2VPCEndpointConnectionNotificationVPCEndpointId
-    ]
+instance ToResourceProperties EC2VPCEndpointConnectionNotification where
+  toResourceProperties EC2VPCEndpointConnectionNotification{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::EC2::VPCEndpointConnectionNotification"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("ConnectionEvents",) . toJSON) _eC2VPCEndpointConnectionNotificationConnectionEvents
+        , (Just . ("ConnectionNotificationArn",) . toJSON) _eC2VPCEndpointConnectionNotificationConnectionNotificationArn
+        , fmap (("ServiceId",) . toJSON) _eC2VPCEndpointConnectionNotificationServiceId
+        , fmap (("VPCEndpointId",) . toJSON) _eC2VPCEndpointConnectionNotificationVPCEndpointId
+        ]
+    }
 
 -- | Constructor for 'EC2VPCEndpointConnectionNotification' containing
 -- required fields as arguments.

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-ingress.html
@@ -27,23 +28,26 @@ data EC2SecurityGroupIngress =
   , _eC2SecurityGroupIngressToPort :: Maybe (Val Integer)
   } deriving (Show, Eq)
 
-instance ToJSON EC2SecurityGroupIngress where
-  toJSON EC2SecurityGroupIngress{..} =
-    object $
-    catMaybes
-    [ fmap (("CidrIp",) . toJSON) _eC2SecurityGroupIngressCidrIp
-    , fmap (("CidrIpv6",) . toJSON) _eC2SecurityGroupIngressCidrIpv6
-    , fmap (("Description",) . toJSON) _eC2SecurityGroupIngressDescription
-    , fmap (("FromPort",) . toJSON . fmap Integer') _eC2SecurityGroupIngressFromPort
-    , fmap (("GroupId",) . toJSON) _eC2SecurityGroupIngressGroupId
-    , fmap (("GroupName",) . toJSON) _eC2SecurityGroupIngressGroupName
-    , (Just . ("IpProtocol",) . toJSON) _eC2SecurityGroupIngressIpProtocol
-    , fmap (("SourcePrefixListId",) . toJSON) _eC2SecurityGroupIngressSourcePrefixListId
-    , fmap (("SourceSecurityGroupId",) . toJSON) _eC2SecurityGroupIngressSourceSecurityGroupId
-    , fmap (("SourceSecurityGroupName",) . toJSON) _eC2SecurityGroupIngressSourceSecurityGroupName
-    , fmap (("SourceSecurityGroupOwnerId",) . toJSON) _eC2SecurityGroupIngressSourceSecurityGroupOwnerId
-    , fmap (("ToPort",) . toJSON . fmap Integer') _eC2SecurityGroupIngressToPort
-    ]
+instance ToResourceProperties EC2SecurityGroupIngress where
+  toResourceProperties EC2SecurityGroupIngress{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::EC2::SecurityGroupIngress"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("CidrIp",) . toJSON) _eC2SecurityGroupIngressCidrIp
+        , fmap (("CidrIpv6",) . toJSON) _eC2SecurityGroupIngressCidrIpv6
+        , fmap (("Description",) . toJSON) _eC2SecurityGroupIngressDescription
+        , fmap (("FromPort",) . toJSON . fmap Integer') _eC2SecurityGroupIngressFromPort
+        , fmap (("GroupId",) . toJSON) _eC2SecurityGroupIngressGroupId
+        , fmap (("GroupName",) . toJSON) _eC2SecurityGroupIngressGroupName
+        , (Just . ("IpProtocol",) . toJSON) _eC2SecurityGroupIngressIpProtocol
+        , fmap (("SourcePrefixListId",) . toJSON) _eC2SecurityGroupIngressSourcePrefixListId
+        , fmap (("SourceSecurityGroupId",) . toJSON) _eC2SecurityGroupIngressSourceSecurityGroupId
+        , fmap (("SourceSecurityGroupName",) . toJSON) _eC2SecurityGroupIngressSourceSecurityGroupName
+        , fmap (("SourceSecurityGroupOwnerId",) . toJSON) _eC2SecurityGroupIngressSourceSecurityGroupOwnerId
+        , fmap (("ToPort",) . toJSON . fmap Integer') _eC2SecurityGroupIngressToPort
+        ]
+    }
 
 -- | Constructor for 'EC2SecurityGroupIngress' containing required fields as
 -- arguments.

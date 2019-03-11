@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-launchtemplateconstraint.html
@@ -21,16 +22,19 @@ data ServiceCatalogLaunchTemplateConstraint =
   , _serviceCatalogLaunchTemplateConstraintRules :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON ServiceCatalogLaunchTemplateConstraint where
-  toJSON ServiceCatalogLaunchTemplateConstraint{..} =
-    object $
-    catMaybes
-    [ fmap (("AcceptLanguage",) . toJSON) _serviceCatalogLaunchTemplateConstraintAcceptLanguage
-    , fmap (("Description",) . toJSON) _serviceCatalogLaunchTemplateConstraintDescription
-    , (Just . ("PortfolioId",) . toJSON) _serviceCatalogLaunchTemplateConstraintPortfolioId
-    , (Just . ("ProductId",) . toJSON) _serviceCatalogLaunchTemplateConstraintProductId
-    , (Just . ("Rules",) . toJSON) _serviceCatalogLaunchTemplateConstraintRules
-    ]
+instance ToResourceProperties ServiceCatalogLaunchTemplateConstraint where
+  toResourceProperties ServiceCatalogLaunchTemplateConstraint{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::ServiceCatalog::LaunchTemplateConstraint"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("AcceptLanguage",) . toJSON) _serviceCatalogLaunchTemplateConstraintAcceptLanguage
+        , fmap (("Description",) . toJSON) _serviceCatalogLaunchTemplateConstraintDescription
+        , (Just . ("PortfolioId",) . toJSON) _serviceCatalogLaunchTemplateConstraintPortfolioId
+        , (Just . ("ProductId",) . toJSON) _serviceCatalogLaunchTemplateConstraintProductId
+        , (Just . ("Rules",) . toJSON) _serviceCatalogLaunchTemplateConstraintRules
+        ]
+    }
 
 -- | Constructor for 'ServiceCatalogLaunchTemplateConstraint' containing
 -- required fields as arguments.

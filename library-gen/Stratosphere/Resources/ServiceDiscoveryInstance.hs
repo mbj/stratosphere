@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-instance.html
@@ -18,14 +19,17 @@ data ServiceDiscoveryInstance =
   , _serviceDiscoveryInstanceServiceId :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON ServiceDiscoveryInstance where
-  toJSON ServiceDiscoveryInstance{..} =
-    object $
-    catMaybes
-    [ (Just . ("InstanceAttributes",) . toJSON) _serviceDiscoveryInstanceInstanceAttributes
-    , fmap (("InstanceId",) . toJSON) _serviceDiscoveryInstanceInstanceId
-    , (Just . ("ServiceId",) . toJSON) _serviceDiscoveryInstanceServiceId
-    ]
+instance ToResourceProperties ServiceDiscoveryInstance where
+  toResourceProperties ServiceDiscoveryInstance{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::ServiceDiscovery::Instance"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("InstanceAttributes",) . toJSON) _serviceDiscoveryInstanceInstanceAttributes
+        , fmap (("InstanceId",) . toJSON) _serviceDiscoveryInstanceInstanceId
+        , (Just . ("ServiceId",) . toJSON) _serviceDiscoveryInstanceServiceId
+        ]
+    }
 
 -- | Constructor for 'ServiceDiscoveryInstance' containing required fields as
 -- arguments.

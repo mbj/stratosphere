@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspector-resourcegroup.html
@@ -16,12 +17,15 @@ data InspectorResourceGroup =
   { _inspectorResourceGroupResourceGroupTags :: [Tag]
   } deriving (Show, Eq)
 
-instance ToJSON InspectorResourceGroup where
-  toJSON InspectorResourceGroup{..} =
-    object $
-    catMaybes
-    [ (Just . ("ResourceGroupTags",) . toJSON) _inspectorResourceGroupResourceGroupTags
-    ]
+instance ToResourceProperties InspectorResourceGroup where
+  toResourceProperties InspectorResourceGroup{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::Inspector::ResourceGroup"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("ResourceGroupTags",) . toJSON) _inspectorResourceGroupResourceGroupTags
+        ]
+    }
 
 -- | Constructor for 'InspectorResourceGroup' containing required fields as
 -- arguments.

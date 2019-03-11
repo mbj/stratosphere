@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html
@@ -21,17 +22,20 @@ data EFSFileSystem =
   , _eFSFileSystemThroughputMode :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON EFSFileSystem where
-  toJSON EFSFileSystem{..} =
-    object $
-    catMaybes
-    [ fmap (("Encrypted",) . toJSON . fmap Bool') _eFSFileSystemEncrypted
-    , fmap (("FileSystemTags",) . toJSON) _eFSFileSystemFileSystemTags
-    , fmap (("KmsKeyId",) . toJSON) _eFSFileSystemKmsKeyId
-    , fmap (("PerformanceMode",) . toJSON) _eFSFileSystemPerformanceMode
-    , fmap (("ProvisionedThroughputInMibps",) . toJSON . fmap Double') _eFSFileSystemProvisionedThroughputInMibps
-    , fmap (("ThroughputMode",) . toJSON) _eFSFileSystemThroughputMode
-    ]
+instance ToResourceProperties EFSFileSystem where
+  toResourceProperties EFSFileSystem{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::EFS::FileSystem"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("Encrypted",) . toJSON . fmap Bool') _eFSFileSystemEncrypted
+        , fmap (("FileSystemTags",) . toJSON) _eFSFileSystemFileSystemTags
+        , fmap (("KmsKeyId",) . toJSON) _eFSFileSystemKmsKeyId
+        , fmap (("PerformanceMode",) . toJSON) _eFSFileSystemPerformanceMode
+        , fmap (("ProvisionedThroughputInMibps",) . toJSON . fmap Double') _eFSFileSystemProvisionedThroughputInMibps
+        , fmap (("ThroughputMode",) . toJSON) _eFSFileSystemThroughputMode
+        ]
+    }
 
 -- | Constructor for 'EFSFileSystem' containing required fields as arguments.
 efsFileSystem

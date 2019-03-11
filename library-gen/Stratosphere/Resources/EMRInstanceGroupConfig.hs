@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-instancegroupconfig.html
@@ -27,21 +28,24 @@ data EMRInstanceGroupConfig =
   , _eMRInstanceGroupConfigName :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON EMRInstanceGroupConfig where
-  toJSON EMRInstanceGroupConfig{..} =
-    object $
-    catMaybes
-    [ fmap (("AutoScalingPolicy",) . toJSON) _eMRInstanceGroupConfigAutoScalingPolicy
-    , fmap (("BidPrice",) . toJSON) _eMRInstanceGroupConfigBidPrice
-    , fmap (("Configurations",) . toJSON) _eMRInstanceGroupConfigConfigurations
-    , fmap (("EbsConfiguration",) . toJSON) _eMRInstanceGroupConfigEbsConfiguration
-    , (Just . ("InstanceCount",) . toJSON . fmap Integer') _eMRInstanceGroupConfigInstanceCount
-    , (Just . ("InstanceRole",) . toJSON) _eMRInstanceGroupConfigInstanceRole
-    , (Just . ("InstanceType",) . toJSON) _eMRInstanceGroupConfigInstanceType
-    , (Just . ("JobFlowId",) . toJSON) _eMRInstanceGroupConfigJobFlowId
-    , fmap (("Market",) . toJSON) _eMRInstanceGroupConfigMarket
-    , fmap (("Name",) . toJSON) _eMRInstanceGroupConfigName
-    ]
+instance ToResourceProperties EMRInstanceGroupConfig where
+  toResourceProperties EMRInstanceGroupConfig{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::EMR::InstanceGroupConfig"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("AutoScalingPolicy",) . toJSON) _eMRInstanceGroupConfigAutoScalingPolicy
+        , fmap (("BidPrice",) . toJSON) _eMRInstanceGroupConfigBidPrice
+        , fmap (("Configurations",) . toJSON) _eMRInstanceGroupConfigConfigurations
+        , fmap (("EbsConfiguration",) . toJSON) _eMRInstanceGroupConfigEbsConfiguration
+        , (Just . ("InstanceCount",) . toJSON . fmap Integer') _eMRInstanceGroupConfigInstanceCount
+        , (Just . ("InstanceRole",) . toJSON) _eMRInstanceGroupConfigInstanceRole
+        , (Just . ("InstanceType",) . toJSON) _eMRInstanceGroupConfigInstanceType
+        , (Just . ("JobFlowId",) . toJSON) _eMRInstanceGroupConfigJobFlowId
+        , fmap (("Market",) . toJSON) _eMRInstanceGroupConfigMarket
+        , fmap (("Name",) . toJSON) _eMRInstanceGroupConfigName
+        ]
+    }
 
 -- | Constructor for 'EMRInstanceGroupConfig' containing required fields as
 -- arguments.

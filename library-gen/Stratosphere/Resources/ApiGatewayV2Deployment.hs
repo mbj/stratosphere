@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-deployment.html
@@ -18,14 +19,17 @@ data ApiGatewayV2Deployment =
   , _apiGatewayV2DeploymentStageName :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON ApiGatewayV2Deployment where
-  toJSON ApiGatewayV2Deployment{..} =
-    object $
-    catMaybes
-    [ (Just . ("ApiId",) . toJSON) _apiGatewayV2DeploymentApiId
-    , fmap (("Description",) . toJSON) _apiGatewayV2DeploymentDescription
-    , fmap (("StageName",) . toJSON) _apiGatewayV2DeploymentStageName
-    ]
+instance ToResourceProperties ApiGatewayV2Deployment where
+  toResourceProperties ApiGatewayV2Deployment{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::ApiGatewayV2::Deployment"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("ApiId",) . toJSON) _apiGatewayV2DeploymentApiId
+        , fmap (("Description",) . toJSON) _apiGatewayV2DeploymentDescription
+        , fmap (("StageName",) . toJSON) _apiGatewayV2DeploymentStageName
+        ]
+    }
 
 -- | Constructor for 'ApiGatewayV2Deployment' containing required fields as
 -- arguments.

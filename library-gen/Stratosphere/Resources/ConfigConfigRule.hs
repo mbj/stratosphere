@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configrule.html
@@ -22,17 +23,20 @@ data ConfigConfigRule =
   , _configConfigRuleSource :: ConfigConfigRuleSource
   } deriving (Show, Eq)
 
-instance ToJSON ConfigConfigRule where
-  toJSON ConfigConfigRule{..} =
-    object $
-    catMaybes
-    [ fmap (("ConfigRuleName",) . toJSON) _configConfigRuleConfigRuleName
-    , fmap (("Description",) . toJSON) _configConfigRuleDescription
-    , fmap (("InputParameters",) . toJSON) _configConfigRuleInputParameters
-    , fmap (("MaximumExecutionFrequency",) . toJSON) _configConfigRuleMaximumExecutionFrequency
-    , fmap (("Scope",) . toJSON) _configConfigRuleScope
-    , (Just . ("Source",) . toJSON) _configConfigRuleSource
-    ]
+instance ToResourceProperties ConfigConfigRule where
+  toResourceProperties ConfigConfigRule{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::Config::ConfigRule"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("ConfigRuleName",) . toJSON) _configConfigRuleConfigRuleName
+        , fmap (("Description",) . toJSON) _configConfigRuleDescription
+        , fmap (("InputParameters",) . toJSON) _configConfigRuleInputParameters
+        , fmap (("MaximumExecutionFrequency",) . toJSON) _configConfigRuleMaximumExecutionFrequency
+        , fmap (("Scope",) . toJSON) _configConfigRuleScope
+        , (Just . ("Source",) . toJSON) _configConfigRuleSource
+        ]
+    }
 
 -- | Constructor for 'ConfigConfigRule' containing required fields as
 -- arguments.

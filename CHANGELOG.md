@@ -1,5 +1,27 @@
 # Change Log
 
+## 0.33.0
+
+* **BREAKING CHANGE**: We nuked the huge `ResourceProperties` sum type, which
+  greatly reduced compile times, memory usage, and binary sizes for programs
+  that depend on `stratosphere`. See:
+  - https://github.com/frontrowed/stratosphere/issues/95
+  - https://github.com/frontrowed/stratosphere/pull/121
+
+  To migrate to this version, you should just have to remove any uses of the
+  old `ResourceProperties` sum type and pass your resource configuration
+  directly into `Resource`:
+
+  ```diff
+  @@ -32,7 +32,6 @@ dbTemplate =
+   rdsMaster :: Resource
+   rdsMaster =
+     resource "RDSMaster" $
+  -  RDSDBInstanceProperties $
+     rdsdbInstance
+     "db.t2.micro"
+  ```
+
 ## 0.32.0
 
 * **BREAKING CHANGE**: We removed all `FromJSON` instances to reduce compile

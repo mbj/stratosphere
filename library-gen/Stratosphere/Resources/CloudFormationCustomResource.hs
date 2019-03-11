@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cfn-customresource.html
@@ -16,12 +17,15 @@ data CloudFormationCustomResource =
   { _cloudFormationCustomResourceServiceToken :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON CloudFormationCustomResource where
-  toJSON CloudFormationCustomResource{..} =
-    object $
-    catMaybes
-    [ (Just . ("ServiceToken",) . toJSON) _cloudFormationCustomResourceServiceToken
-    ]
+instance ToResourceProperties CloudFormationCustomResource where
+  toResourceProperties CloudFormationCustomResource{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::CloudFormation::CustomResource"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("ServiceToken",) . toJSON) _cloudFormationCustomResourceServiceToken
+        ]
+    }
 
 -- | Constructor for 'CloudFormationCustomResource' containing required fields
 -- as arguments.

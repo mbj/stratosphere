@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-alias.html
@@ -20,16 +21,19 @@ data LambdaAlias =
   , _lambdaAliasRoutingConfig :: Maybe LambdaAliasAliasRoutingConfiguration
   } deriving (Show, Eq)
 
-instance ToJSON LambdaAlias where
-  toJSON LambdaAlias{..} =
-    object $
-    catMaybes
-    [ fmap (("Description",) . toJSON) _lambdaAliasDescription
-    , (Just . ("FunctionName",) . toJSON) _lambdaAliasFunctionName
-    , (Just . ("FunctionVersion",) . toJSON) _lambdaAliasFunctionVersion
-    , (Just . ("Name",) . toJSON) _lambdaAliasName
-    , fmap (("RoutingConfig",) . toJSON) _lambdaAliasRoutingConfig
-    ]
+instance ToResourceProperties LambdaAlias where
+  toResourceProperties LambdaAlias{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::Lambda::Alias"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("Description",) . toJSON) _lambdaAliasDescription
+        , (Just . ("FunctionName",) . toJSON) _lambdaAliasFunctionName
+        , (Just . ("FunctionVersion",) . toJSON) _lambdaAliasFunctionVersion
+        , (Just . ("Name",) . toJSON) _lambdaAliasName
+        , fmap (("RoutingConfig",) . toJSON) _lambdaAliasRoutingConfig
+        ]
+    }
 
 -- | Constructor for 'LambdaAlias' containing required fields as arguments.
 lambdaAlias

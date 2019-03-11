@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-user.html
@@ -20,16 +21,19 @@ data AppStreamUser =
   , _appStreamUserUserName :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON AppStreamUser where
-  toJSON AppStreamUser{..} =
-    object $
-    catMaybes
-    [ (Just . ("AuthenticationType",) . toJSON) _appStreamUserAuthenticationType
-    , fmap (("FirstName",) . toJSON) _appStreamUserFirstName
-    , fmap (("LastName",) . toJSON) _appStreamUserLastName
-    , fmap (("MessageAction",) . toJSON) _appStreamUserMessageAction
-    , (Just . ("UserName",) . toJSON) _appStreamUserUserName
-    ]
+instance ToResourceProperties AppStreamUser where
+  toResourceProperties AppStreamUser{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::AppStream::User"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("AuthenticationType",) . toJSON) _appStreamUserAuthenticationType
+        , fmap (("FirstName",) . toJSON) _appStreamUserFirstName
+        , fmap (("LastName",) . toJSON) _appStreamUserLastName
+        , fmap (("MessageAction",) . toJSON) _appStreamUserMessageAction
+        , (Just . ("UserName",) . toJSON) _appStreamUserUserName
+        ]
+    }
 
 -- | Constructor for 'AppStreamUser' containing required fields as arguments.
 appStreamUser

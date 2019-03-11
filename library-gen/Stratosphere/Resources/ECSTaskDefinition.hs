@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html
@@ -27,21 +28,24 @@ data ECSTaskDefinition =
   , _eCSTaskDefinitionVolumes :: Maybe [ECSTaskDefinitionVolume]
   } deriving (Show, Eq)
 
-instance ToJSON ECSTaskDefinition where
-  toJSON ECSTaskDefinition{..} =
-    object $
-    catMaybes
-    [ fmap (("ContainerDefinitions",) . toJSON) _eCSTaskDefinitionContainerDefinitions
-    , fmap (("Cpu",) . toJSON) _eCSTaskDefinitionCpu
-    , fmap (("ExecutionRoleArn",) . toJSON) _eCSTaskDefinitionExecutionRoleArn
-    , fmap (("Family",) . toJSON) _eCSTaskDefinitionFamily
-    , fmap (("Memory",) . toJSON) _eCSTaskDefinitionMemory
-    , fmap (("NetworkMode",) . toJSON) _eCSTaskDefinitionNetworkMode
-    , fmap (("PlacementConstraints",) . toJSON) _eCSTaskDefinitionPlacementConstraints
-    , fmap (("RequiresCompatibilities",) . toJSON) _eCSTaskDefinitionRequiresCompatibilities
-    , fmap (("TaskRoleArn",) . toJSON) _eCSTaskDefinitionTaskRoleArn
-    , fmap (("Volumes",) . toJSON) _eCSTaskDefinitionVolumes
-    ]
+instance ToResourceProperties ECSTaskDefinition where
+  toResourceProperties ECSTaskDefinition{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::ECS::TaskDefinition"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("ContainerDefinitions",) . toJSON) _eCSTaskDefinitionContainerDefinitions
+        , fmap (("Cpu",) . toJSON) _eCSTaskDefinitionCpu
+        , fmap (("ExecutionRoleArn",) . toJSON) _eCSTaskDefinitionExecutionRoleArn
+        , fmap (("Family",) . toJSON) _eCSTaskDefinitionFamily
+        , fmap (("Memory",) . toJSON) _eCSTaskDefinitionMemory
+        , fmap (("NetworkMode",) . toJSON) _eCSTaskDefinitionNetworkMode
+        , fmap (("PlacementConstraints",) . toJSON) _eCSTaskDefinitionPlacementConstraints
+        , fmap (("RequiresCompatibilities",) . toJSON) _eCSTaskDefinitionRequiresCompatibilities
+        , fmap (("TaskRoleArn",) . toJSON) _eCSTaskDefinitionTaskRoleArn
+        , fmap (("Volumes",) . toJSON) _eCSTaskDefinitionVolumes
+        ]
+    }
 
 -- | Constructor for 'ECSTaskDefinition' containing required fields as
 -- arguments.

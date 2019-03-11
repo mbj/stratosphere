@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot1click-placement.html
@@ -19,15 +20,18 @@ data IoT1ClickPlacement =
   , _ioT1ClickPlacementProjectName :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON IoT1ClickPlacement where
-  toJSON IoT1ClickPlacement{..} =
-    object $
-    catMaybes
-    [ fmap (("AssociatedDevices",) . toJSON) _ioT1ClickPlacementAssociatedDevices
-    , fmap (("Attributes",) . toJSON) _ioT1ClickPlacementAttributes
-    , fmap (("PlacementName",) . toJSON) _ioT1ClickPlacementPlacementName
-    , (Just . ("ProjectName",) . toJSON) _ioT1ClickPlacementProjectName
-    ]
+instance ToResourceProperties IoT1ClickPlacement where
+  toResourceProperties IoT1ClickPlacement{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::IoT1Click::Placement"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("AssociatedDevices",) . toJSON) _ioT1ClickPlacementAssociatedDevices
+        , fmap (("Attributes",) . toJSON) _ioT1ClickPlacementAttributes
+        , fmap (("PlacementName",) . toJSON) _ioT1ClickPlacementPlacementName
+        , (Just . ("ProjectName",) . toJSON) _ioT1ClickPlacementProjectName
+        ]
+    }
 
 -- | Constructor for 'IoT1ClickPlacement' containing required fields as
 -- arguments.

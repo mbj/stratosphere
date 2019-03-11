@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html
@@ -45,27 +46,30 @@ data S3Bucket =
   , _s3BucketWebsiteConfiguration :: Maybe S3BucketWebsiteConfiguration
   } deriving (Show, Eq)
 
-instance ToJSON S3Bucket where
-  toJSON S3Bucket{..} =
-    object $
-    catMaybes
-    [ fmap (("AccelerateConfiguration",) . toJSON) _s3BucketAccelerateConfiguration
-    , fmap (("AccessControl",) . toJSON) _s3BucketAccessControl
-    , fmap (("AnalyticsConfigurations",) . toJSON) _s3BucketAnalyticsConfigurations
-    , fmap (("BucketEncryption",) . toJSON) _s3BucketBucketEncryption
-    , fmap (("BucketName",) . toJSON) _s3BucketBucketName
-    , fmap (("CorsConfiguration",) . toJSON) _s3BucketCorsConfiguration
-    , fmap (("InventoryConfigurations",) . toJSON) _s3BucketInventoryConfigurations
-    , fmap (("LifecycleConfiguration",) . toJSON) _s3BucketLifecycleConfiguration
-    , fmap (("LoggingConfiguration",) . toJSON) _s3BucketLoggingConfiguration
-    , fmap (("MetricsConfigurations",) . toJSON) _s3BucketMetricsConfigurations
-    , fmap (("NotificationConfiguration",) . toJSON) _s3BucketNotificationConfiguration
-    , fmap (("PublicAccessBlockConfiguration",) . toJSON) _s3BucketPublicAccessBlockConfiguration
-    , fmap (("ReplicationConfiguration",) . toJSON) _s3BucketReplicationConfiguration
-    , fmap (("Tags",) . toJSON) _s3BucketTags
-    , fmap (("VersioningConfiguration",) . toJSON) _s3BucketVersioningConfiguration
-    , fmap (("WebsiteConfiguration",) . toJSON) _s3BucketWebsiteConfiguration
-    ]
+instance ToResourceProperties S3Bucket where
+  toResourceProperties S3Bucket{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::S3::Bucket"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("AccelerateConfiguration",) . toJSON) _s3BucketAccelerateConfiguration
+        , fmap (("AccessControl",) . toJSON) _s3BucketAccessControl
+        , fmap (("AnalyticsConfigurations",) . toJSON) _s3BucketAnalyticsConfigurations
+        , fmap (("BucketEncryption",) . toJSON) _s3BucketBucketEncryption
+        , fmap (("BucketName",) . toJSON) _s3BucketBucketName
+        , fmap (("CorsConfiguration",) . toJSON) _s3BucketCorsConfiguration
+        , fmap (("InventoryConfigurations",) . toJSON) _s3BucketInventoryConfigurations
+        , fmap (("LifecycleConfiguration",) . toJSON) _s3BucketLifecycleConfiguration
+        , fmap (("LoggingConfiguration",) . toJSON) _s3BucketLoggingConfiguration
+        , fmap (("MetricsConfigurations",) . toJSON) _s3BucketMetricsConfigurations
+        , fmap (("NotificationConfiguration",) . toJSON) _s3BucketNotificationConfiguration
+        , fmap (("PublicAccessBlockConfiguration",) . toJSON) _s3BucketPublicAccessBlockConfiguration
+        , fmap (("ReplicationConfiguration",) . toJSON) _s3BucketReplicationConfiguration
+        , fmap (("Tags",) . toJSON) _s3BucketTags
+        , fmap (("VersioningConfiguration",) . toJSON) _s3BucketVersioningConfiguration
+        , fmap (("WebsiteConfiguration",) . toJSON) _s3BucketWebsiteConfiguration
+        ]
+    }
 
 -- | Constructor for 'S3Bucket' containing required fields as arguments.
 s3Bucket

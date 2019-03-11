@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-subnetgroup.html
@@ -18,14 +19,17 @@ data ElastiCacheSubnetGroup =
   , _elastiCacheSubnetGroupSubnetIds :: ValList Text
   } deriving (Show, Eq)
 
-instance ToJSON ElastiCacheSubnetGroup where
-  toJSON ElastiCacheSubnetGroup{..} =
-    object $
-    catMaybes
-    [ fmap (("CacheSubnetGroupName",) . toJSON) _elastiCacheSubnetGroupCacheSubnetGroupName
-    , (Just . ("Description",) . toJSON) _elastiCacheSubnetGroupDescription
-    , (Just . ("SubnetIds",) . toJSON) _elastiCacheSubnetGroupSubnetIds
-    ]
+instance ToResourceProperties ElastiCacheSubnetGroup where
+  toResourceProperties ElastiCacheSubnetGroup{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::ElastiCache::SubnetGroup"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("CacheSubnetGroupName",) . toJSON) _elastiCacheSubnetGroupCacheSubnetGroupName
+        , (Just . ("Description",) . toJSON) _elastiCacheSubnetGroupDescription
+        , (Just . ("SubnetIds",) . toJSON) _elastiCacheSubnetGroupSubnetIds
+        ]
+    }
 
 -- | Constructor for 'ElastiCacheSubnetGroup' containing required fields as
 -- arguments.

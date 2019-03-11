@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volumeattachment.html
@@ -18,14 +19,17 @@ data EC2VolumeAttachment =
   , _eC2VolumeAttachmentVolumeId :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON EC2VolumeAttachment where
-  toJSON EC2VolumeAttachment{..} =
-    object $
-    catMaybes
-    [ (Just . ("Device",) . toJSON) _eC2VolumeAttachmentDevice
-    , (Just . ("InstanceId",) . toJSON) _eC2VolumeAttachmentInstanceId
-    , (Just . ("VolumeId",) . toJSON) _eC2VolumeAttachmentVolumeId
-    ]
+instance ToResourceProperties EC2VolumeAttachment where
+  toResourceProperties EC2VolumeAttachment{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::EC2::VolumeAttachment"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("Device",) . toJSON) _eC2VolumeAttachmentDevice
+        , (Just . ("InstanceId",) . toJSON) _eC2VolumeAttachmentInstanceId
+        , (Just . ("VolumeId",) . toJSON) _eC2VolumeAttachmentVolumeId
+        ]
+    }
 
 -- | Constructor for 'EC2VolumeAttachment' containing required fields as
 -- arguments.

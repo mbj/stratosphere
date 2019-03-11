@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html
@@ -22,17 +23,20 @@ data ElasticLoadBalancingV2Listener =
   , _elasticLoadBalancingV2ListenerSslPolicy :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON ElasticLoadBalancingV2Listener where
-  toJSON ElasticLoadBalancingV2Listener{..} =
-    object $
-    catMaybes
-    [ fmap (("Certificates",) . toJSON) _elasticLoadBalancingV2ListenerCertificates
-    , (Just . ("DefaultActions",) . toJSON) _elasticLoadBalancingV2ListenerDefaultActions
-    , (Just . ("LoadBalancerArn",) . toJSON) _elasticLoadBalancingV2ListenerLoadBalancerArn
-    , (Just . ("Port",) . toJSON . fmap Integer') _elasticLoadBalancingV2ListenerPort
-    , (Just . ("Protocol",) . toJSON) _elasticLoadBalancingV2ListenerProtocol
-    , fmap (("SslPolicy",) . toJSON) _elasticLoadBalancingV2ListenerSslPolicy
-    ]
+instance ToResourceProperties ElasticLoadBalancingV2Listener where
+  toResourceProperties ElasticLoadBalancingV2Listener{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::ElasticLoadBalancingV2::Listener"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("Certificates",) . toJSON) _elasticLoadBalancingV2ListenerCertificates
+        , (Just . ("DefaultActions",) . toJSON) _elasticLoadBalancingV2ListenerDefaultActions
+        , (Just . ("LoadBalancerArn",) . toJSON) _elasticLoadBalancingV2ListenerLoadBalancerArn
+        , (Just . ("Port",) . toJSON . fmap Integer') _elasticLoadBalancingV2ListenerPort
+        , (Just . ("Protocol",) . toJSON) _elasticLoadBalancingV2ListenerProtocol
+        , fmap (("SslPolicy",) . toJSON) _elasticLoadBalancingV2ListenerSslPolicy
+        ]
+    }
 
 -- | Constructor for 'ElasticLoadBalancingV2Listener' containing required
 -- fields as arguments.

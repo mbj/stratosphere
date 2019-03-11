@@ -32,7 +32,6 @@ dbTemplate =
 rdsMaster :: Resource
 rdsMaster =
   resource "RDSMaster" $
-  RDSDBInstanceProperties $
   rdsdbInstance
   "db.t2.micro"
   -- DBInstanceIdentifier is not present in the new schema for some reason
@@ -57,7 +56,6 @@ rdsMaster =
 rdsReplica :: Resource
 rdsReplica =
   resource "RDSReplica" $
-  RDSDBInstanceProperties $
   rdsdbInstance
   "db.t2.micro"
   -- DBInstanceIdentifier is not present in the new schema for some reason
@@ -71,7 +69,6 @@ rdsReplica =
 rdsParamGroup :: Resource
 rdsParamGroup =
   resource "RDSParamGroup" $
-  RDSDBParameterGroupProperties $
   rdsdbParameterGroup
   "Parameter group for RDS instances"
   "postgres9.3"

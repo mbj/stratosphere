@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html
@@ -18,14 +19,17 @@ data IAMInstanceProfile =
   , _iAMInstanceProfileRoles :: ValList Text
   } deriving (Show, Eq)
 
-instance ToJSON IAMInstanceProfile where
-  toJSON IAMInstanceProfile{..} =
-    object $
-    catMaybes
-    [ fmap (("InstanceProfileName",) . toJSON) _iAMInstanceProfileInstanceProfileName
-    , fmap (("Path",) . toJSON) _iAMInstanceProfilePath
-    , (Just . ("Roles",) . toJSON) _iAMInstanceProfileRoles
-    ]
+instance ToResourceProperties IAMInstanceProfile where
+  toResourceProperties IAMInstanceProfile{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::IAM::InstanceProfile"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("InstanceProfileName",) . toJSON) _iAMInstanceProfileInstanceProfileName
+        , fmap (("Path",) . toJSON) _iAMInstanceProfilePath
+        , (Just . ("Roles",) . toJSON) _iAMInstanceProfileRoles
+        ]
+    }
 
 -- | Constructor for 'IAMInstanceProfile' containing required fields as
 -- arguments.

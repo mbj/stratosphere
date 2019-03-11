@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-table.html
@@ -18,14 +19,17 @@ data GlueTable =
   , _glueTableTableInput :: GlueTableTableInput
   } deriving (Show, Eq)
 
-instance ToJSON GlueTable where
-  toJSON GlueTable{..} =
-    object $
-    catMaybes
-    [ (Just . ("CatalogId",) . toJSON) _glueTableCatalogId
-    , (Just . ("DatabaseName",) . toJSON) _glueTableDatabaseName
-    , (Just . ("TableInput",) . toJSON) _glueTableTableInput
-    ]
+instance ToResourceProperties GlueTable where
+  toResourceProperties GlueTable{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::Glue::Table"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("CatalogId",) . toJSON) _glueTableCatalogId
+        , (Just . ("DatabaseName",) . toJSON) _glueTableDatabaseName
+        , (Just . ("TableInput",) . toJSON) _glueTableTableInput
+        ]
+    }
 
 -- | Constructor for 'GlueTable' containing required fields as arguments.
 glueTable

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html
@@ -38,28 +39,31 @@ data CognitoUserPool =
   , _cognitoUserPoolUsernameAttributes :: Maybe (ValList Text)
   } deriving (Show, Eq)
 
-instance ToJSON CognitoUserPool where
-  toJSON CognitoUserPool{..} =
-    object $
-    catMaybes
-    [ fmap (("AdminCreateUserConfig",) . toJSON) _cognitoUserPoolAdminCreateUserConfig
-    , fmap (("AliasAttributes",) . toJSON) _cognitoUserPoolAliasAttributes
-    , fmap (("AutoVerifiedAttributes",) . toJSON) _cognitoUserPoolAutoVerifiedAttributes
-    , fmap (("DeviceConfiguration",) . toJSON) _cognitoUserPoolDeviceConfiguration
-    , fmap (("EmailConfiguration",) . toJSON) _cognitoUserPoolEmailConfiguration
-    , fmap (("EmailVerificationMessage",) . toJSON) _cognitoUserPoolEmailVerificationMessage
-    , fmap (("EmailVerificationSubject",) . toJSON) _cognitoUserPoolEmailVerificationSubject
-    , fmap (("LambdaConfig",) . toJSON) _cognitoUserPoolLambdaConfig
-    , fmap (("MfaConfiguration",) . toJSON) _cognitoUserPoolMfaConfiguration
-    , fmap (("Policies",) . toJSON) _cognitoUserPoolPolicies
-    , fmap (("Schema",) . toJSON) _cognitoUserPoolSchema
-    , fmap (("SmsAuthenticationMessage",) . toJSON) _cognitoUserPoolSmsAuthenticationMessage
-    , fmap (("SmsConfiguration",) . toJSON) _cognitoUserPoolSmsConfiguration
-    , fmap (("SmsVerificationMessage",) . toJSON) _cognitoUserPoolSmsVerificationMessage
-    , fmap (("UserPoolName",) . toJSON) _cognitoUserPoolUserPoolName
-    , fmap (("UserPoolTags",) . toJSON) _cognitoUserPoolUserPoolTags
-    , fmap (("UsernameAttributes",) . toJSON) _cognitoUserPoolUsernameAttributes
-    ]
+instance ToResourceProperties CognitoUserPool where
+  toResourceProperties CognitoUserPool{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::Cognito::UserPool"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("AdminCreateUserConfig",) . toJSON) _cognitoUserPoolAdminCreateUserConfig
+        , fmap (("AliasAttributes",) . toJSON) _cognitoUserPoolAliasAttributes
+        , fmap (("AutoVerifiedAttributes",) . toJSON) _cognitoUserPoolAutoVerifiedAttributes
+        , fmap (("DeviceConfiguration",) . toJSON) _cognitoUserPoolDeviceConfiguration
+        , fmap (("EmailConfiguration",) . toJSON) _cognitoUserPoolEmailConfiguration
+        , fmap (("EmailVerificationMessage",) . toJSON) _cognitoUserPoolEmailVerificationMessage
+        , fmap (("EmailVerificationSubject",) . toJSON) _cognitoUserPoolEmailVerificationSubject
+        , fmap (("LambdaConfig",) . toJSON) _cognitoUserPoolLambdaConfig
+        , fmap (("MfaConfiguration",) . toJSON) _cognitoUserPoolMfaConfiguration
+        , fmap (("Policies",) . toJSON) _cognitoUserPoolPolicies
+        , fmap (("Schema",) . toJSON) _cognitoUserPoolSchema
+        , fmap (("SmsAuthenticationMessage",) . toJSON) _cognitoUserPoolSmsAuthenticationMessage
+        , fmap (("SmsConfiguration",) . toJSON) _cognitoUserPoolSmsConfiguration
+        , fmap (("SmsVerificationMessage",) . toJSON) _cognitoUserPoolSmsVerificationMessage
+        , fmap (("UserPoolName",) . toJSON) _cognitoUserPoolUserPoolName
+        , fmap (("UserPoolTags",) . toJSON) _cognitoUserPoolUserPoolTags
+        , fmap (("UsernameAttributes",) . toJSON) _cognitoUserPoolUsernameAttributes
+        ]
+    }
 
 -- | Constructor for 'CognitoUserPool' containing required fields as
 -- arguments.

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html
@@ -27,21 +28,24 @@ data GlueJob =
   , _glueJobRole :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON GlueJob where
-  toJSON GlueJob{..} =
-    object $
-    catMaybes
-    [ fmap (("AllocatedCapacity",) . toJSON . fmap Double') _glueJobAllocatedCapacity
-    , (Just . ("Command",) . toJSON) _glueJobCommand
-    , fmap (("Connections",) . toJSON) _glueJobConnections
-    , fmap (("DefaultArguments",) . toJSON) _glueJobDefaultArguments
-    , fmap (("Description",) . toJSON) _glueJobDescription
-    , fmap (("ExecutionProperty",) . toJSON) _glueJobExecutionProperty
-    , fmap (("LogUri",) . toJSON) _glueJobLogUri
-    , fmap (("MaxRetries",) . toJSON . fmap Double') _glueJobMaxRetries
-    , fmap (("Name",) . toJSON) _glueJobName
-    , (Just . ("Role",) . toJSON) _glueJobRole
-    ]
+instance ToResourceProperties GlueJob where
+  toResourceProperties GlueJob{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::Glue::Job"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("AllocatedCapacity",) . toJSON . fmap Double') _glueJobAllocatedCapacity
+        , (Just . ("Command",) . toJSON) _glueJobCommand
+        , fmap (("Connections",) . toJSON) _glueJobConnections
+        , fmap (("DefaultArguments",) . toJSON) _glueJobDefaultArguments
+        , fmap (("Description",) . toJSON) _glueJobDescription
+        , fmap (("ExecutionProperty",) . toJSON) _glueJobExecutionProperty
+        , fmap (("LogUri",) . toJSON) _glueJobLogUri
+        , fmap (("MaxRetries",) . toJSON . fmap Double') _glueJobMaxRetries
+        , fmap (("Name",) . toJSON) _glueJobName
+        , (Just . ("Role",) . toJSON) _glueJobRole
+        ]
+    }
 
 -- | Constructor for 'GlueJob' containing required fields as arguments.
 glueJob

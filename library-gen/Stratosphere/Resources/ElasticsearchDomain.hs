@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html
@@ -32,22 +33,25 @@ data ElasticsearchDomain =
   , _elasticsearchDomainVPCOptions :: Maybe ElasticsearchDomainVPCOptions
   } deriving (Show, Eq)
 
-instance ToJSON ElasticsearchDomain where
-  toJSON ElasticsearchDomain{..} =
-    object $
-    catMaybes
-    [ fmap (("AccessPolicies",) . toJSON) _elasticsearchDomainAccessPolicies
-    , fmap (("AdvancedOptions",) . toJSON) _elasticsearchDomainAdvancedOptions
-    , fmap (("DomainName",) . toJSON) _elasticsearchDomainDomainName
-    , fmap (("EBSOptions",) . toJSON) _elasticsearchDomainEBSOptions
-    , fmap (("ElasticsearchClusterConfig",) . toJSON) _elasticsearchDomainElasticsearchClusterConfig
-    , fmap (("ElasticsearchVersion",) . toJSON) _elasticsearchDomainElasticsearchVersion
-    , fmap (("EncryptionAtRestOptions",) . toJSON) _elasticsearchDomainEncryptionAtRestOptions
-    , fmap (("NodeToNodeEncryptionOptions",) . toJSON) _elasticsearchDomainNodeToNodeEncryptionOptions
-    , fmap (("SnapshotOptions",) . toJSON) _elasticsearchDomainSnapshotOptions
-    , fmap (("Tags",) . toJSON) _elasticsearchDomainTags
-    , fmap (("VPCOptions",) . toJSON) _elasticsearchDomainVPCOptions
-    ]
+instance ToResourceProperties ElasticsearchDomain where
+  toResourceProperties ElasticsearchDomain{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::Elasticsearch::Domain"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("AccessPolicies",) . toJSON) _elasticsearchDomainAccessPolicies
+        , fmap (("AdvancedOptions",) . toJSON) _elasticsearchDomainAdvancedOptions
+        , fmap (("DomainName",) . toJSON) _elasticsearchDomainDomainName
+        , fmap (("EBSOptions",) . toJSON) _elasticsearchDomainEBSOptions
+        , fmap (("ElasticsearchClusterConfig",) . toJSON) _elasticsearchDomainElasticsearchClusterConfig
+        , fmap (("ElasticsearchVersion",) . toJSON) _elasticsearchDomainElasticsearchVersion
+        , fmap (("EncryptionAtRestOptions",) . toJSON) _elasticsearchDomainEncryptionAtRestOptions
+        , fmap (("NodeToNodeEncryptionOptions",) . toJSON) _elasticsearchDomainNodeToNodeEncryptionOptions
+        , fmap (("SnapshotOptions",) . toJSON) _elasticsearchDomainSnapshotOptions
+        , fmap (("Tags",) . toJSON) _elasticsearchDomainTags
+        , fmap (("VPCOptions",) . toJSON) _elasticsearchDomainVPCOptions
+        ]
+    }
 
 -- | Constructor for 'ElasticsearchDomain' containing required fields as
 -- arguments.

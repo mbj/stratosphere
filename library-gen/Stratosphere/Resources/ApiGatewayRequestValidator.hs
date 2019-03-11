@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-requestvalidator.html
@@ -19,15 +20,18 @@ data ApiGatewayRequestValidator =
   , _apiGatewayRequestValidatorValidateRequestParameters :: Maybe (Val Bool)
   } deriving (Show, Eq)
 
-instance ToJSON ApiGatewayRequestValidator where
-  toJSON ApiGatewayRequestValidator{..} =
-    object $
-    catMaybes
-    [ fmap (("Name",) . toJSON) _apiGatewayRequestValidatorName
-    , (Just . ("RestApiId",) . toJSON) _apiGatewayRequestValidatorRestApiId
-    , fmap (("ValidateRequestBody",) . toJSON . fmap Bool') _apiGatewayRequestValidatorValidateRequestBody
-    , fmap (("ValidateRequestParameters",) . toJSON . fmap Bool') _apiGatewayRequestValidatorValidateRequestParameters
-    ]
+instance ToResourceProperties ApiGatewayRequestValidator where
+  toResourceProperties ApiGatewayRequestValidator{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::ApiGateway::RequestValidator"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("Name",) . toJSON) _apiGatewayRequestValidatorName
+        , (Just . ("RestApiId",) . toJSON) _apiGatewayRequestValidatorRestApiId
+        , fmap (("ValidateRequestBody",) . toJSON . fmap Bool') _apiGatewayRequestValidatorValidateRequestBody
+        , fmap (("ValidateRequestParameters",) . toJSON . fmap Bool') _apiGatewayRequestValidatorValidateRequestParameters
+        ]
+    }
 
 -- | Constructor for 'ApiGatewayRequestValidator' containing required fields
 -- as arguments.

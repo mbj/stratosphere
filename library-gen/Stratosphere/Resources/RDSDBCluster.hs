@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html
@@ -42,37 +43,40 @@ data RDSDBCluster =
   , _rDSDBClusterVpcSecurityGroupIds :: Maybe (ValList Text)
   } deriving (Show, Eq)
 
-instance ToJSON RDSDBCluster where
-  toJSON RDSDBCluster{..} =
-    object $
-    catMaybes
-    [ fmap (("AvailabilityZones",) . toJSON) _rDSDBClusterAvailabilityZones
-    , fmap (("BacktrackWindow",) . toJSON . fmap Integer') _rDSDBClusterBacktrackWindow
-    , fmap (("BackupRetentionPeriod",) . toJSON . fmap Integer') _rDSDBClusterBackupRetentionPeriod
-    , fmap (("DBClusterIdentifier",) . toJSON) _rDSDBClusterDBClusterIdentifier
-    , fmap (("DBClusterParameterGroupName",) . toJSON) _rDSDBClusterDBClusterParameterGroupName
-    , fmap (("DBSubnetGroupName",) . toJSON) _rDSDBClusterDBSubnetGroupName
-    , fmap (("DatabaseName",) . toJSON) _rDSDBClusterDatabaseName
-    , fmap (("DeletionProtection",) . toJSON . fmap Bool') _rDSDBClusterDeletionProtection
-    , fmap (("EnableCloudwatchLogsExports",) . toJSON) _rDSDBClusterEnableCloudwatchLogsExports
-    , fmap (("EnableIAMDatabaseAuthentication",) . toJSON . fmap Bool') _rDSDBClusterEnableIAMDatabaseAuthentication
-    , (Just . ("Engine",) . toJSON) _rDSDBClusterEngine
-    , fmap (("EngineMode",) . toJSON) _rDSDBClusterEngineMode
-    , fmap (("EngineVersion",) . toJSON) _rDSDBClusterEngineVersion
-    , fmap (("KmsKeyId",) . toJSON) _rDSDBClusterKmsKeyId
-    , fmap (("MasterUserPassword",) . toJSON) _rDSDBClusterMasterUserPassword
-    , fmap (("MasterUsername",) . toJSON) _rDSDBClusterMasterUsername
-    , fmap (("Port",) . toJSON . fmap Integer') _rDSDBClusterPort
-    , fmap (("PreferredBackupWindow",) . toJSON) _rDSDBClusterPreferredBackupWindow
-    , fmap (("PreferredMaintenanceWindow",) . toJSON) _rDSDBClusterPreferredMaintenanceWindow
-    , fmap (("ReplicationSourceIdentifier",) . toJSON) _rDSDBClusterReplicationSourceIdentifier
-    , fmap (("ScalingConfiguration",) . toJSON) _rDSDBClusterScalingConfiguration
-    , fmap (("SnapshotIdentifier",) . toJSON) _rDSDBClusterSnapshotIdentifier
-    , fmap (("SourceRegion",) . toJSON) _rDSDBClusterSourceRegion
-    , fmap (("StorageEncrypted",) . toJSON . fmap Bool') _rDSDBClusterStorageEncrypted
-    , fmap (("Tags",) . toJSON) _rDSDBClusterTags
-    , fmap (("VpcSecurityGroupIds",) . toJSON) _rDSDBClusterVpcSecurityGroupIds
-    ]
+instance ToResourceProperties RDSDBCluster where
+  toResourceProperties RDSDBCluster{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::RDS::DBCluster"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("AvailabilityZones",) . toJSON) _rDSDBClusterAvailabilityZones
+        , fmap (("BacktrackWindow",) . toJSON . fmap Integer') _rDSDBClusterBacktrackWindow
+        , fmap (("BackupRetentionPeriod",) . toJSON . fmap Integer') _rDSDBClusterBackupRetentionPeriod
+        , fmap (("DBClusterIdentifier",) . toJSON) _rDSDBClusterDBClusterIdentifier
+        , fmap (("DBClusterParameterGroupName",) . toJSON) _rDSDBClusterDBClusterParameterGroupName
+        , fmap (("DBSubnetGroupName",) . toJSON) _rDSDBClusterDBSubnetGroupName
+        , fmap (("DatabaseName",) . toJSON) _rDSDBClusterDatabaseName
+        , fmap (("DeletionProtection",) . toJSON . fmap Bool') _rDSDBClusterDeletionProtection
+        , fmap (("EnableCloudwatchLogsExports",) . toJSON) _rDSDBClusterEnableCloudwatchLogsExports
+        , fmap (("EnableIAMDatabaseAuthentication",) . toJSON . fmap Bool') _rDSDBClusterEnableIAMDatabaseAuthentication
+        , (Just . ("Engine",) . toJSON) _rDSDBClusterEngine
+        , fmap (("EngineMode",) . toJSON) _rDSDBClusterEngineMode
+        , fmap (("EngineVersion",) . toJSON) _rDSDBClusterEngineVersion
+        , fmap (("KmsKeyId",) . toJSON) _rDSDBClusterKmsKeyId
+        , fmap (("MasterUserPassword",) . toJSON) _rDSDBClusterMasterUserPassword
+        , fmap (("MasterUsername",) . toJSON) _rDSDBClusterMasterUsername
+        , fmap (("Port",) . toJSON . fmap Integer') _rDSDBClusterPort
+        , fmap (("PreferredBackupWindow",) . toJSON) _rDSDBClusterPreferredBackupWindow
+        , fmap (("PreferredMaintenanceWindow",) . toJSON) _rDSDBClusterPreferredMaintenanceWindow
+        , fmap (("ReplicationSourceIdentifier",) . toJSON) _rDSDBClusterReplicationSourceIdentifier
+        , fmap (("ScalingConfiguration",) . toJSON) _rDSDBClusterScalingConfiguration
+        , fmap (("SnapshotIdentifier",) . toJSON) _rDSDBClusterSnapshotIdentifier
+        , fmap (("SourceRegion",) . toJSON) _rDSDBClusterSourceRegion
+        , fmap (("StorageEncrypted",) . toJSON . fmap Bool') _rDSDBClusterStorageEncrypted
+        , fmap (("Tags",) . toJSON) _rDSDBClusterTags
+        , fmap (("VpcSecurityGroupIds",) . toJSON) _rDSDBClusterVpcSecurityGroupIds
+        ]
+    }
 
 -- | Constructor for 'RDSDBCluster' containing required fields as arguments.
 rdsdbCluster

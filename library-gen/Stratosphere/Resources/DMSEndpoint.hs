@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-endpoint.html
@@ -38,29 +39,32 @@ data DMSEndpoint =
   , _dMSEndpointUsername :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON DMSEndpoint where
-  toJSON DMSEndpoint{..} =
-    object $
-    catMaybes
-    [ fmap (("CertificateArn",) . toJSON) _dMSEndpointCertificateArn
-    , fmap (("DatabaseName",) . toJSON) _dMSEndpointDatabaseName
-    , fmap (("DynamoDbSettings",) . toJSON) _dMSEndpointDynamoDbSettings
-    , fmap (("ElasticsearchSettings",) . toJSON) _dMSEndpointElasticsearchSettings
-    , fmap (("EndpointIdentifier",) . toJSON) _dMSEndpointEndpointIdentifier
-    , (Just . ("EndpointType",) . toJSON) _dMSEndpointEndpointType
-    , (Just . ("EngineName",) . toJSON) _dMSEndpointEngineName
-    , fmap (("ExtraConnectionAttributes",) . toJSON) _dMSEndpointExtraConnectionAttributes
-    , fmap (("KinesisSettings",) . toJSON) _dMSEndpointKinesisSettings
-    , fmap (("KmsKeyId",) . toJSON) _dMSEndpointKmsKeyId
-    , fmap (("MongoDbSettings",) . toJSON) _dMSEndpointMongoDbSettings
-    , fmap (("Password",) . toJSON) _dMSEndpointPassword
-    , fmap (("Port",) . toJSON . fmap Integer') _dMSEndpointPort
-    , fmap (("S3Settings",) . toJSON) _dMSEndpointS3Settings
-    , fmap (("ServerName",) . toJSON) _dMSEndpointServerName
-    , fmap (("SslMode",) . toJSON) _dMSEndpointSslMode
-    , fmap (("Tags",) . toJSON) _dMSEndpointTags
-    , fmap (("Username",) . toJSON) _dMSEndpointUsername
-    ]
+instance ToResourceProperties DMSEndpoint where
+  toResourceProperties DMSEndpoint{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::DMS::Endpoint"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("CertificateArn",) . toJSON) _dMSEndpointCertificateArn
+        , fmap (("DatabaseName",) . toJSON) _dMSEndpointDatabaseName
+        , fmap (("DynamoDbSettings",) . toJSON) _dMSEndpointDynamoDbSettings
+        , fmap (("ElasticsearchSettings",) . toJSON) _dMSEndpointElasticsearchSettings
+        , fmap (("EndpointIdentifier",) . toJSON) _dMSEndpointEndpointIdentifier
+        , (Just . ("EndpointType",) . toJSON) _dMSEndpointEndpointType
+        , (Just . ("EngineName",) . toJSON) _dMSEndpointEngineName
+        , fmap (("ExtraConnectionAttributes",) . toJSON) _dMSEndpointExtraConnectionAttributes
+        , fmap (("KinesisSettings",) . toJSON) _dMSEndpointKinesisSettings
+        , fmap (("KmsKeyId",) . toJSON) _dMSEndpointKmsKeyId
+        , fmap (("MongoDbSettings",) . toJSON) _dMSEndpointMongoDbSettings
+        , fmap (("Password",) . toJSON) _dMSEndpointPassword
+        , fmap (("Port",) . toJSON . fmap Integer') _dMSEndpointPort
+        , fmap (("S3Settings",) . toJSON) _dMSEndpointS3Settings
+        , fmap (("ServerName",) . toJSON) _dMSEndpointServerName
+        , fmap (("SslMode",) . toJSON) _dMSEndpointSslMode
+        , fmap (("Tags",) . toJSON) _dMSEndpointTags
+        , fmap (("Username",) . toJSON) _dMSEndpointUsername
+        ]
+    }
 
 -- | Constructor for 'DMSEndpoint' containing required fields as arguments.
 dmsEndpoint

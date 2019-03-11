@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbparametergroup.html
@@ -20,16 +21,19 @@ data NeptuneDBParameterGroup =
   , _neptuneDBParameterGroupTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
-instance ToJSON NeptuneDBParameterGroup where
-  toJSON NeptuneDBParameterGroup{..} =
-    object $
-    catMaybes
-    [ (Just . ("Description",) . toJSON) _neptuneDBParameterGroupDescription
-    , (Just . ("Family",) . toJSON) _neptuneDBParameterGroupFamily
-    , fmap (("Name",) . toJSON) _neptuneDBParameterGroupName
-    , (Just . ("Parameters",) . toJSON) _neptuneDBParameterGroupParameters
-    , fmap (("Tags",) . toJSON) _neptuneDBParameterGroupTags
-    ]
+instance ToResourceProperties NeptuneDBParameterGroup where
+  toResourceProperties NeptuneDBParameterGroup{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::Neptune::DBParameterGroup"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("Description",) . toJSON) _neptuneDBParameterGroupDescription
+        , (Just . ("Family",) . toJSON) _neptuneDBParameterGroupFamily
+        , fmap (("Name",) . toJSON) _neptuneDBParameterGroupName
+        , (Just . ("Parameters",) . toJSON) _neptuneDBParameterGroupParameters
+        , fmap (("Tags",) . toJSON) _neptuneDBParameterGroupTags
+        ]
+    }
 
 -- | Constructor for 'NeptuneDBParameterGroup' containing required fields as
 -- arguments.

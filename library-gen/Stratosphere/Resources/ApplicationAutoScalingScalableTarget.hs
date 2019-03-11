@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html
@@ -22,18 +23,21 @@ data ApplicationAutoScalingScalableTarget =
   , _applicationAutoScalingScalableTargetServiceNamespace :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON ApplicationAutoScalingScalableTarget where
-  toJSON ApplicationAutoScalingScalableTarget{..} =
-    object $
-    catMaybes
-    [ (Just . ("MaxCapacity",) . toJSON . fmap Integer') _applicationAutoScalingScalableTargetMaxCapacity
-    , (Just . ("MinCapacity",) . toJSON . fmap Integer') _applicationAutoScalingScalableTargetMinCapacity
-    , (Just . ("ResourceId",) . toJSON) _applicationAutoScalingScalableTargetResourceId
-    , (Just . ("RoleARN",) . toJSON) _applicationAutoScalingScalableTargetRoleARN
-    , (Just . ("ScalableDimension",) . toJSON) _applicationAutoScalingScalableTargetScalableDimension
-    , fmap (("ScheduledActions",) . toJSON) _applicationAutoScalingScalableTargetScheduledActions
-    , (Just . ("ServiceNamespace",) . toJSON) _applicationAutoScalingScalableTargetServiceNamespace
-    ]
+instance ToResourceProperties ApplicationAutoScalingScalableTarget where
+  toResourceProperties ApplicationAutoScalingScalableTarget{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::ApplicationAutoScaling::ScalableTarget"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("MaxCapacity",) . toJSON . fmap Integer') _applicationAutoScalingScalableTargetMaxCapacity
+        , (Just . ("MinCapacity",) . toJSON . fmap Integer') _applicationAutoScalingScalableTargetMinCapacity
+        , (Just . ("ResourceId",) . toJSON) _applicationAutoScalingScalableTargetResourceId
+        , (Just . ("RoleARN",) . toJSON) _applicationAutoScalingScalableTargetRoleARN
+        , (Just . ("ScalableDimension",) . toJSON) _applicationAutoScalingScalableTargetScalableDimension
+        , fmap (("ScheduledActions",) . toJSON) _applicationAutoScalingScalableTargetScheduledActions
+        , (Just . ("ServiceNamespace",) . toJSON) _applicationAutoScalingScalableTargetServiceNamespace
+        ]
+    }
 
 -- | Constructor for 'ApplicationAutoScalingScalableTarget' containing
 -- required fields as arguments.

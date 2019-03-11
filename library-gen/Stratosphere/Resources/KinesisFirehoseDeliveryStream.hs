@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html
@@ -28,19 +29,22 @@ data KinesisFirehoseDeliveryStream =
   , _kinesisFirehoseDeliveryStreamSplunkDestinationConfiguration :: Maybe KinesisFirehoseDeliveryStreamSplunkDestinationConfiguration
   } deriving (Show, Eq)
 
-instance ToJSON KinesisFirehoseDeliveryStream where
-  toJSON KinesisFirehoseDeliveryStream{..} =
-    object $
-    catMaybes
-    [ fmap (("DeliveryStreamName",) . toJSON) _kinesisFirehoseDeliveryStreamDeliveryStreamName
-    , fmap (("DeliveryStreamType",) . toJSON) _kinesisFirehoseDeliveryStreamDeliveryStreamType
-    , fmap (("ElasticsearchDestinationConfiguration",) . toJSON) _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguration
-    , fmap (("ExtendedS3DestinationConfiguration",) . toJSON) _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfiguration
-    , fmap (("KinesisStreamSourceConfiguration",) . toJSON) _kinesisFirehoseDeliveryStreamKinesisStreamSourceConfiguration
-    , fmap (("RedshiftDestinationConfiguration",) . toJSON) _kinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration
-    , fmap (("S3DestinationConfiguration",) . toJSON) _kinesisFirehoseDeliveryStreamS3DestinationConfiguration
-    , fmap (("SplunkDestinationConfiguration",) . toJSON) _kinesisFirehoseDeliveryStreamSplunkDestinationConfiguration
-    ]
+instance ToResourceProperties KinesisFirehoseDeliveryStream where
+  toResourceProperties KinesisFirehoseDeliveryStream{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::KinesisFirehose::DeliveryStream"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("DeliveryStreamName",) . toJSON) _kinesisFirehoseDeliveryStreamDeliveryStreamName
+        , fmap (("DeliveryStreamType",) . toJSON) _kinesisFirehoseDeliveryStreamDeliveryStreamType
+        , fmap (("ElasticsearchDestinationConfiguration",) . toJSON) _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguration
+        , fmap (("ExtendedS3DestinationConfiguration",) . toJSON) _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfiguration
+        , fmap (("KinesisStreamSourceConfiguration",) . toJSON) _kinesisFirehoseDeliveryStreamKinesisStreamSourceConfiguration
+        , fmap (("RedshiftDestinationConfiguration",) . toJSON) _kinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration
+        , fmap (("S3DestinationConfiguration",) . toJSON) _kinesisFirehoseDeliveryStreamS3DestinationConfiguration
+        , fmap (("SplunkDestinationConfiguration",) . toJSON) _kinesisFirehoseDeliveryStreamSplunkDestinationConfiguration
+        ]
+    }
 
 -- | Constructor for 'KinesisFirehoseDeliveryStream' containing required
 -- fields as arguments.

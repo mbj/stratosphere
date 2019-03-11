@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-privatednsnamespace.html
@@ -18,14 +19,17 @@ data ServiceDiscoveryPrivateDnsNamespace =
   , _serviceDiscoveryPrivateDnsNamespaceVpc :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON ServiceDiscoveryPrivateDnsNamespace where
-  toJSON ServiceDiscoveryPrivateDnsNamespace{..} =
-    object $
-    catMaybes
-    [ fmap (("Description",) . toJSON) _serviceDiscoveryPrivateDnsNamespaceDescription
-    , (Just . ("Name",) . toJSON) _serviceDiscoveryPrivateDnsNamespaceName
-    , (Just . ("Vpc",) . toJSON) _serviceDiscoveryPrivateDnsNamespaceVpc
-    ]
+instance ToResourceProperties ServiceDiscoveryPrivateDnsNamespace where
+  toResourceProperties ServiceDiscoveryPrivateDnsNamespace{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::ServiceDiscovery::PrivateDnsNamespace"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("Description",) . toJSON) _serviceDiscoveryPrivateDnsNamespaceDescription
+        , (Just . ("Name",) . toJSON) _serviceDiscoveryPrivateDnsNamespaceName
+        , (Just . ("Vpc",) . toJSON) _serviceDiscoveryPrivateDnsNamespaceVpc
+        ]
+    }
 
 -- | Constructor for 'ServiceDiscoveryPrivateDnsNamespace' containing required
 -- fields as arguments.

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-portfolioprincipalassociation.html
@@ -21,15 +22,18 @@ data ServiceCatalogPortfolioPrincipalAssociation =
   , _serviceCatalogPortfolioPrincipalAssociationPrincipalType :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON ServiceCatalogPortfolioPrincipalAssociation where
-  toJSON ServiceCatalogPortfolioPrincipalAssociation{..} =
-    object $
-    catMaybes
-    [ fmap (("AcceptLanguage",) . toJSON) _serviceCatalogPortfolioPrincipalAssociationAcceptLanguage
-    , (Just . ("PortfolioId",) . toJSON) _serviceCatalogPortfolioPrincipalAssociationPortfolioId
-    , (Just . ("PrincipalARN",) . toJSON) _serviceCatalogPortfolioPrincipalAssociationPrincipalARN
-    , (Just . ("PrincipalType",) . toJSON) _serviceCatalogPortfolioPrincipalAssociationPrincipalType
-    ]
+instance ToResourceProperties ServiceCatalogPortfolioPrincipalAssociation where
+  toResourceProperties ServiceCatalogPortfolioPrincipalAssociation{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::ServiceCatalog::PortfolioPrincipalAssociation"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("AcceptLanguage",) . toJSON) _serviceCatalogPortfolioPrincipalAssociationAcceptLanguage
+        , (Just . ("PortfolioId",) . toJSON) _serviceCatalogPortfolioPrincipalAssociationPortfolioId
+        , (Just . ("PrincipalARN",) . toJSON) _serviceCatalogPortfolioPrincipalAssociationPrincipalARN
+        , (Just . ("PrincipalType",) . toJSON) _serviceCatalogPortfolioPrincipalAssociationPrincipalType
+        ]
+    }
 
 -- | Constructor for 'ServiceCatalogPortfolioPrincipalAssociation' containing
 -- required fields as arguments.

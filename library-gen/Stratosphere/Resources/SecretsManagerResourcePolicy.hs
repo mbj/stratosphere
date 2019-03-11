@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-resourcepolicy.html
@@ -17,13 +18,16 @@ data SecretsManagerResourcePolicy =
   , _secretsManagerResourcePolicySecretId :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON SecretsManagerResourcePolicy where
-  toJSON SecretsManagerResourcePolicy{..} =
-    object $
-    catMaybes
-    [ (Just . ("ResourcePolicy",) . toJSON) _secretsManagerResourcePolicyResourcePolicy
-    , (Just . ("SecretId",) . toJSON) _secretsManagerResourcePolicySecretId
-    ]
+instance ToResourceProperties SecretsManagerResourcePolicy where
+  toResourceProperties SecretsManagerResourcePolicy{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::SecretsManager::ResourcePolicy"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("ResourcePolicy",) . toJSON) _secretsManagerResourcePolicyResourcePolicy
+        , (Just . ("SecretId",) . toJSON) _secretsManagerResourcePolicySecretId
+        ]
+    }
 
 -- | Constructor for 'SecretsManagerResourcePolicy' containing required fields
 -- as arguments.

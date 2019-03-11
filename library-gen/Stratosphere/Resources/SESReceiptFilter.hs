@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-receiptfilter.html
@@ -16,12 +17,15 @@ data SESReceiptFilter =
   { _sESReceiptFilterFilter :: SESReceiptFilterFilter
   } deriving (Show, Eq)
 
-instance ToJSON SESReceiptFilter where
-  toJSON SESReceiptFilter{..} =
-    object $
-    catMaybes
-    [ (Just . ("Filter",) . toJSON) _sESReceiptFilterFilter
-    ]
+instance ToResourceProperties SESReceiptFilter where
+  toResourceProperties SESReceiptFilter{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::SES::ReceiptFilter"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("Filter",) . toJSON) _sESReceiptFilterFilter
+        ]
+    }
 
 -- | Constructor for 'SESReceiptFilter' containing required fields as
 -- arguments.

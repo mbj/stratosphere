@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc-gateway-attachment.html
@@ -18,14 +19,17 @@ data EC2VPCGatewayAttachment =
   , _eC2VPCGatewayAttachmentVpnGatewayId :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON EC2VPCGatewayAttachment where
-  toJSON EC2VPCGatewayAttachment{..} =
-    object $
-    catMaybes
-    [ fmap (("InternetGatewayId",) . toJSON) _eC2VPCGatewayAttachmentInternetGatewayId
-    , (Just . ("VpcId",) . toJSON) _eC2VPCGatewayAttachmentVpcId
-    , fmap (("VpnGatewayId",) . toJSON) _eC2VPCGatewayAttachmentVpnGatewayId
-    ]
+instance ToResourceProperties EC2VPCGatewayAttachment where
+  toResourceProperties EC2VPCGatewayAttachment{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::EC2::VPCGatewayAttachment"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("InternetGatewayId",) . toJSON) _eC2VPCGatewayAttachmentInternetGatewayId
+        , (Just . ("VpcId",) . toJSON) _eC2VPCGatewayAttachmentVpcId
+        , fmap (("VpnGatewayId",) . toJSON) _eC2VPCGatewayAttachmentVpnGatewayId
+        ]
+    }
 
 -- | Constructor for 'EC2VPCGatewayAttachment' containing required fields as
 -- arguments.

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooluser.html
@@ -22,18 +23,21 @@ data CognitoUserPoolUser =
   , _cognitoUserPoolUserValidationData :: Maybe [CognitoUserPoolUserAttributeType]
   } deriving (Show, Eq)
 
-instance ToJSON CognitoUserPoolUser where
-  toJSON CognitoUserPoolUser{..} =
-    object $
-    catMaybes
-    [ fmap (("DesiredDeliveryMediums",) . toJSON) _cognitoUserPoolUserDesiredDeliveryMediums
-    , fmap (("ForceAliasCreation",) . toJSON . fmap Bool') _cognitoUserPoolUserForceAliasCreation
-    , fmap (("MessageAction",) . toJSON) _cognitoUserPoolUserMessageAction
-    , fmap (("UserAttributes",) . toJSON) _cognitoUserPoolUserUserAttributes
-    , (Just . ("UserPoolId",) . toJSON) _cognitoUserPoolUserUserPoolId
-    , fmap (("Username",) . toJSON) _cognitoUserPoolUserUsername
-    , fmap (("ValidationData",) . toJSON) _cognitoUserPoolUserValidationData
-    ]
+instance ToResourceProperties CognitoUserPoolUser where
+  toResourceProperties CognitoUserPoolUser{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::Cognito::UserPoolUser"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("DesiredDeliveryMediums",) . toJSON) _cognitoUserPoolUserDesiredDeliveryMediums
+        , fmap (("ForceAliasCreation",) . toJSON . fmap Bool') _cognitoUserPoolUserForceAliasCreation
+        , fmap (("MessageAction",) . toJSON) _cognitoUserPoolUserMessageAction
+        , fmap (("UserAttributes",) . toJSON) _cognitoUserPoolUserUserAttributes
+        , (Just . ("UserPoolId",) . toJSON) _cognitoUserPoolUserUserPoolId
+        , fmap (("Username",) . toJSON) _cognitoUserPoolUserUsername
+        , fmap (("ValidationData",) . toJSON) _cognitoUserPoolUserValidationData
+        ]
+    }
 
 -- | Constructor for 'CognitoUserPoolUser' containing required fields as
 -- arguments.

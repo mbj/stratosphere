@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-instancefleetconfig.html
@@ -23,18 +24,21 @@ data EMRInstanceFleetConfig =
   , _eMRInstanceFleetConfigTargetSpotCapacity :: Maybe (Val Integer)
   } deriving (Show, Eq)
 
-instance ToJSON EMRInstanceFleetConfig where
-  toJSON EMRInstanceFleetConfig{..} =
-    object $
-    catMaybes
-    [ (Just . ("ClusterId",) . toJSON) _eMRInstanceFleetConfigClusterId
-    , (Just . ("InstanceFleetType",) . toJSON) _eMRInstanceFleetConfigInstanceFleetType
-    , fmap (("InstanceTypeConfigs",) . toJSON) _eMRInstanceFleetConfigInstanceTypeConfigs
-    , fmap (("LaunchSpecifications",) . toJSON) _eMRInstanceFleetConfigLaunchSpecifications
-    , fmap (("Name",) . toJSON) _eMRInstanceFleetConfigName
-    , fmap (("TargetOnDemandCapacity",) . toJSON . fmap Integer') _eMRInstanceFleetConfigTargetOnDemandCapacity
-    , fmap (("TargetSpotCapacity",) . toJSON . fmap Integer') _eMRInstanceFleetConfigTargetSpotCapacity
-    ]
+instance ToResourceProperties EMRInstanceFleetConfig where
+  toResourceProperties EMRInstanceFleetConfig{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::EMR::InstanceFleetConfig"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("ClusterId",) . toJSON) _eMRInstanceFleetConfigClusterId
+        , (Just . ("InstanceFleetType",) . toJSON) _eMRInstanceFleetConfigInstanceFleetType
+        , fmap (("InstanceTypeConfigs",) . toJSON) _eMRInstanceFleetConfigInstanceTypeConfigs
+        , fmap (("LaunchSpecifications",) . toJSON) _eMRInstanceFleetConfigLaunchSpecifications
+        , fmap (("Name",) . toJSON) _eMRInstanceFleetConfigName
+        , fmap (("TargetOnDemandCapacity",) . toJSON . fmap Integer') _eMRInstanceFleetConfigTargetOnDemandCapacity
+        , fmap (("TargetSpotCapacity",) . toJSON . fmap Integer') _eMRInstanceFleetConfigTargetSpotCapacity
+        ]
+    }
 
 -- | Constructor for 'EMRInstanceFleetConfig' containing required fields as
 -- arguments.

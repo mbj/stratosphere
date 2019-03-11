@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-datastore.html
@@ -19,14 +20,17 @@ data IoTAnalyticsDatastore =
   , _ioTAnalyticsDatastoreTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
-instance ToJSON IoTAnalyticsDatastore where
-  toJSON IoTAnalyticsDatastore{..} =
-    object $
-    catMaybes
-    [ fmap (("DatastoreName",) . toJSON) _ioTAnalyticsDatastoreDatastoreName
-    , fmap (("RetentionPeriod",) . toJSON) _ioTAnalyticsDatastoreRetentionPeriod
-    , fmap (("Tags",) . toJSON) _ioTAnalyticsDatastoreTags
-    ]
+instance ToResourceProperties IoTAnalyticsDatastore where
+  toResourceProperties IoTAnalyticsDatastore{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::IoTAnalytics::Datastore"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("DatastoreName",) . toJSON) _ioTAnalyticsDatastoreDatastoreName
+        , fmap (("RetentionPeriod",) . toJSON) _ioTAnalyticsDatastoreRetentionPeriod
+        , fmap (("Tags",) . toJSON) _ioTAnalyticsDatastoreTags
+        ]
+    }
 
 -- | Constructor for 'IoTAnalyticsDatastore' containing required fields as
 -- arguments.

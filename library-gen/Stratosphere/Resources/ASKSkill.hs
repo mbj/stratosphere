@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ask-skill.html
@@ -19,14 +20,17 @@ data ASKSkill =
   , _aSKSkillVendorId :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON ASKSkill where
-  toJSON ASKSkill{..} =
-    object $
-    catMaybes
-    [ (Just . ("AuthenticationConfiguration",) . toJSON) _aSKSkillAuthenticationConfiguration
-    , (Just . ("SkillPackage",) . toJSON) _aSKSkillSkillPackage
-    , (Just . ("VendorId",) . toJSON) _aSKSkillVendorId
-    ]
+instance ToResourceProperties ASKSkill where
+  toResourceProperties ASKSkill{..} =
+    ResourceProperties
+    { resourcePropertiesType = "Alexa::ASK::Skill"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("AuthenticationConfiguration",) . toJSON) _aSKSkillAuthenticationConfiguration
+        , (Just . ("SkillPackage",) . toJSON) _aSKSkillSkillPackage
+        , (Just . ("VendorId",) . toJSON) _aSKSkillVendorId
+        ]
+    }
 
 -- | Constructor for 'ASKSkill' containing required fields as arguments.
 askSkill

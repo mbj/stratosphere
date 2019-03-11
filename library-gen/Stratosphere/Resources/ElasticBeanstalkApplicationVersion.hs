@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-version.html
@@ -18,14 +19,17 @@ data ElasticBeanstalkApplicationVersion =
   , _elasticBeanstalkApplicationVersionSourceBundle :: ElasticBeanstalkApplicationVersionSourceBundle
   } deriving (Show, Eq)
 
-instance ToJSON ElasticBeanstalkApplicationVersion where
-  toJSON ElasticBeanstalkApplicationVersion{..} =
-    object $
-    catMaybes
-    [ (Just . ("ApplicationName",) . toJSON) _elasticBeanstalkApplicationVersionApplicationName
-    , fmap (("Description",) . toJSON) _elasticBeanstalkApplicationVersionDescription
-    , (Just . ("SourceBundle",) . toJSON) _elasticBeanstalkApplicationVersionSourceBundle
-    ]
+instance ToResourceProperties ElasticBeanstalkApplicationVersion where
+  toResourceProperties ElasticBeanstalkApplicationVersion{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::ElasticBeanstalk::ApplicationVersion"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("ApplicationName",) . toJSON) _elasticBeanstalkApplicationVersionApplicationName
+        , fmap (("Description",) . toJSON) _elasticBeanstalkApplicationVersionDescription
+        , (Just . ("SourceBundle",) . toJSON) _elasticBeanstalkApplicationVersionSourceBundle
+        ]
+    }
 
 -- | Constructor for 'ElasticBeanstalkApplicationVersion' containing required
 -- fields as arguments.

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-policy.html
@@ -20,16 +21,19 @@ data IAMPolicy =
   , _iAMPolicyUsers :: Maybe (ValList Text)
   } deriving (Show, Eq)
 
-instance ToJSON IAMPolicy where
-  toJSON IAMPolicy{..} =
-    object $
-    catMaybes
-    [ fmap (("Groups",) . toJSON) _iAMPolicyGroups
-    , (Just . ("PolicyDocument",) . toJSON) _iAMPolicyPolicyDocument
-    , (Just . ("PolicyName",) . toJSON) _iAMPolicyPolicyName
-    , fmap (("Roles",) . toJSON) _iAMPolicyRoles
-    , fmap (("Users",) . toJSON) _iAMPolicyUsers
-    ]
+instance ToResourceProperties IAMPolicy where
+  toResourceProperties IAMPolicy{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::IAM::Policy"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("Groups",) . toJSON) _iAMPolicyGroups
+        , (Just . ("PolicyDocument",) . toJSON) _iAMPolicyPolicyDocument
+        , (Just . ("PolicyName",) . toJSON) _iAMPolicyPolicyName
+        , fmap (("Roles",) . toJSON) _iAMPolicyRoles
+        , fmap (("Users",) . toJSON) _iAMPolicyUsers
+        ]
+    }
 
 -- | Constructor for 'IAMPolicy' containing required fields as arguments.
 iamPolicy

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbinstance.html
@@ -26,22 +27,25 @@ data NeptuneDBInstance =
   , _neptuneDBInstanceTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
-instance ToJSON NeptuneDBInstance where
-  toJSON NeptuneDBInstance{..} =
-    object $
-    catMaybes
-    [ fmap (("AllowMajorVersionUpgrade",) . toJSON . fmap Bool') _neptuneDBInstanceAllowMajorVersionUpgrade
-    , fmap (("AutoMinorVersionUpgrade",) . toJSON . fmap Bool') _neptuneDBInstanceAutoMinorVersionUpgrade
-    , fmap (("AvailabilityZone",) . toJSON) _neptuneDBInstanceAvailabilityZone
-    , fmap (("DBClusterIdentifier",) . toJSON) _neptuneDBInstanceDBClusterIdentifier
-    , (Just . ("DBInstanceClass",) . toJSON) _neptuneDBInstanceDBInstanceClass
-    , fmap (("DBInstanceIdentifier",) . toJSON) _neptuneDBInstanceDBInstanceIdentifier
-    , fmap (("DBParameterGroupName",) . toJSON) _neptuneDBInstanceDBParameterGroupName
-    , fmap (("DBSnapshotIdentifier",) . toJSON) _neptuneDBInstanceDBSnapshotIdentifier
-    , fmap (("DBSubnetGroupName",) . toJSON) _neptuneDBInstanceDBSubnetGroupName
-    , fmap (("PreferredMaintenanceWindow",) . toJSON) _neptuneDBInstancePreferredMaintenanceWindow
-    , fmap (("Tags",) . toJSON) _neptuneDBInstanceTags
-    ]
+instance ToResourceProperties NeptuneDBInstance where
+  toResourceProperties NeptuneDBInstance{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::Neptune::DBInstance"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("AllowMajorVersionUpgrade",) . toJSON . fmap Bool') _neptuneDBInstanceAllowMajorVersionUpgrade
+        , fmap (("AutoMinorVersionUpgrade",) . toJSON . fmap Bool') _neptuneDBInstanceAutoMinorVersionUpgrade
+        , fmap (("AvailabilityZone",) . toJSON) _neptuneDBInstanceAvailabilityZone
+        , fmap (("DBClusterIdentifier",) . toJSON) _neptuneDBInstanceDBClusterIdentifier
+        , (Just . ("DBInstanceClass",) . toJSON) _neptuneDBInstanceDBInstanceClass
+        , fmap (("DBInstanceIdentifier",) . toJSON) _neptuneDBInstanceDBInstanceIdentifier
+        , fmap (("DBParameterGroupName",) . toJSON) _neptuneDBInstanceDBParameterGroupName
+        , fmap (("DBSnapshotIdentifier",) . toJSON) _neptuneDBInstanceDBSnapshotIdentifier
+        , fmap (("DBSubnetGroupName",) . toJSON) _neptuneDBInstanceDBSubnetGroupName
+        , fmap (("PreferredMaintenanceWindow",) . toJSON) _neptuneDBInstancePreferredMaintenanceWindow
+        , fmap (("Tags",) . toJSON) _neptuneDBInstanceTags
+        ]
+    }
 
 -- | Constructor for 'NeptuneDBInstance' containing required fields as
 -- arguments.

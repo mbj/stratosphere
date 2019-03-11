@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-webacl.html
@@ -20,15 +21,18 @@ data WAFWebACL =
   , _wAFWebACLRules :: Maybe [WAFWebACLActivatedRule]
   } deriving (Show, Eq)
 
-instance ToJSON WAFWebACL where
-  toJSON WAFWebACL{..} =
-    object $
-    catMaybes
-    [ (Just . ("DefaultAction",) . toJSON) _wAFWebACLDefaultAction
-    , (Just . ("MetricName",) . toJSON) _wAFWebACLMetricName
-    , (Just . ("Name",) . toJSON) _wAFWebACLName
-    , fmap (("Rules",) . toJSON) _wAFWebACLRules
-    ]
+instance ToResourceProperties WAFWebACL where
+  toResourceProperties WAFWebACL{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::WAF::WebACL"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("DefaultAction",) . toJSON) _wAFWebACLDefaultAction
+        , (Just . ("MetricName",) . toJSON) _wAFWebACLMetricName
+        , (Just . ("Name",) . toJSON) _wAFWebACLName
+        , fmap (("Rules",) . toJSON) _wAFWebACLRules
+        ]
+    }
 
 -- | Constructor for 'WAFWebACL' containing required fields as arguments.
 wafWebACL

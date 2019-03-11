@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-acceptedportfolioshare.html
@@ -17,13 +18,16 @@ data ServiceCatalogAcceptedPortfolioShare =
   , _serviceCatalogAcceptedPortfolioSharePortfolioId :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON ServiceCatalogAcceptedPortfolioShare where
-  toJSON ServiceCatalogAcceptedPortfolioShare{..} =
-    object $
-    catMaybes
-    [ fmap (("AcceptLanguage",) . toJSON) _serviceCatalogAcceptedPortfolioShareAcceptLanguage
-    , (Just . ("PortfolioId",) . toJSON) _serviceCatalogAcceptedPortfolioSharePortfolioId
-    ]
+instance ToResourceProperties ServiceCatalogAcceptedPortfolioShare where
+  toResourceProperties ServiceCatalogAcceptedPortfolioShare{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::ServiceCatalog::AcceptedPortfolioShare"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("AcceptLanguage",) . toJSON) _serviceCatalogAcceptedPortfolioShareAcceptLanguage
+        , (Just . ("PortfolioId",) . toJSON) _serviceCatalogAcceptedPortfolioSharePortfolioId
+        ]
+    }
 
 -- | Constructor for 'ServiceCatalogAcceptedPortfolioShare' containing
 -- required fields as arguments.

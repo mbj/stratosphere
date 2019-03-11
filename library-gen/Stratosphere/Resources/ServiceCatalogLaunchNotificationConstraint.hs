@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-launchnotificationconstraint.html
@@ -21,16 +22,19 @@ data ServiceCatalogLaunchNotificationConstraint =
   , _serviceCatalogLaunchNotificationConstraintProductId :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON ServiceCatalogLaunchNotificationConstraint where
-  toJSON ServiceCatalogLaunchNotificationConstraint{..} =
-    object $
-    catMaybes
-    [ fmap (("AcceptLanguage",) . toJSON) _serviceCatalogLaunchNotificationConstraintAcceptLanguage
-    , fmap (("Description",) . toJSON) _serviceCatalogLaunchNotificationConstraintDescription
-    , (Just . ("NotificationArns",) . toJSON) _serviceCatalogLaunchNotificationConstraintNotificationArns
-    , (Just . ("PortfolioId",) . toJSON) _serviceCatalogLaunchNotificationConstraintPortfolioId
-    , (Just . ("ProductId",) . toJSON) _serviceCatalogLaunchNotificationConstraintProductId
-    ]
+instance ToResourceProperties ServiceCatalogLaunchNotificationConstraint where
+  toResourceProperties ServiceCatalogLaunchNotificationConstraint{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::ServiceCatalog::LaunchNotificationConstraint"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("AcceptLanguage",) . toJSON) _serviceCatalogLaunchNotificationConstraintAcceptLanguage
+        , fmap (("Description",) . toJSON) _serviceCatalogLaunchNotificationConstraintDescription
+        , (Just . ("NotificationArns",) . toJSON) _serviceCatalogLaunchNotificationConstraintNotificationArns
+        , (Just . ("PortfolioId",) . toJSON) _serviceCatalogLaunchNotificationConstraintPortfolioId
+        , (Just . ("ProductId",) . toJSON) _serviceCatalogLaunchNotificationConstraintProductId
+        ]
+    }
 
 -- | Constructor for 'ServiceCatalogLaunchNotificationConstraint' containing
 -- required fields as arguments.

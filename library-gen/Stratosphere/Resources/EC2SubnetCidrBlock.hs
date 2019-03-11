@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnetcidrblock.html
@@ -17,13 +18,16 @@ data EC2SubnetCidrBlock =
   , _eC2SubnetCidrBlockSubnetId :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON EC2SubnetCidrBlock where
-  toJSON EC2SubnetCidrBlock{..} =
-    object $
-    catMaybes
-    [ (Just . ("Ipv6CidrBlock",) . toJSON) _eC2SubnetCidrBlockIpv6CidrBlock
-    , (Just . ("SubnetId",) . toJSON) _eC2SubnetCidrBlockSubnetId
-    ]
+instance ToResourceProperties EC2SubnetCidrBlock where
+  toResourceProperties EC2SubnetCidrBlock{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::EC2::SubnetCidrBlock"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("Ipv6CidrBlock",) . toJSON) _eC2SubnetCidrBlockIpv6CidrBlock
+        , (Just . ("SubnetId",) . toJSON) _eC2SubnetCidrBlockSubnetId
+        ]
+    }
 
 -- | Constructor for 'EC2SubnetCidrBlock' containing required fields as
 -- arguments.

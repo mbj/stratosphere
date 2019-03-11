@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationrecorder.html
@@ -18,14 +19,17 @@ data ConfigConfigurationRecorder =
   , _configConfigurationRecorderRoleARN :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON ConfigConfigurationRecorder where
-  toJSON ConfigConfigurationRecorder{..} =
-    object $
-    catMaybes
-    [ fmap (("Name",) . toJSON) _configConfigurationRecorderName
-    , fmap (("RecordingGroup",) . toJSON) _configConfigurationRecorderRecordingGroup
-    , (Just . ("RoleARN",) . toJSON) _configConfigurationRecorderRoleARN
-    ]
+instance ToResourceProperties ConfigConfigurationRecorder where
+  toResourceProperties ConfigConfigurationRecorder{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::Config::ConfigurationRecorder"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("Name",) . toJSON) _configConfigurationRecorderName
+        , fmap (("RecordingGroup",) . toJSON) _configConfigurationRecorderRecordingGroup
+        , (Just . ("RoleARN",) . toJSON) _configConfigurationRecorderRoleARN
+        ]
+    }
 
 -- | Constructor for 'ConfigConfigurationRecorder' containing required fields
 -- as arguments.

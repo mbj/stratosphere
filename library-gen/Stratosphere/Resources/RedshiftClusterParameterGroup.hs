@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clusterparametergroup.html
@@ -20,15 +21,18 @@ data RedshiftClusterParameterGroup =
   , _redshiftClusterParameterGroupTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
-instance ToJSON RedshiftClusterParameterGroup where
-  toJSON RedshiftClusterParameterGroup{..} =
-    object $
-    catMaybes
-    [ (Just . ("Description",) . toJSON) _redshiftClusterParameterGroupDescription
-    , (Just . ("ParameterGroupFamily",) . toJSON) _redshiftClusterParameterGroupParameterGroupFamily
-    , fmap (("Parameters",) . toJSON) _redshiftClusterParameterGroupParameters
-    , fmap (("Tags",) . toJSON) _redshiftClusterParameterGroupTags
-    ]
+instance ToResourceProperties RedshiftClusterParameterGroup where
+  toResourceProperties RedshiftClusterParameterGroup{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::Redshift::ClusterParameterGroup"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("Description",) . toJSON) _redshiftClusterParameterGroupDescription
+        , (Just . ("ParameterGroupFamily",) . toJSON) _redshiftClusterParameterGroupParameterGroupFamily
+        , fmap (("Parameters",) . toJSON) _redshiftClusterParameterGroupParameters
+        , fmap (("Tags",) . toJSON) _redshiftClusterParameterGroupTags
+        ]
+    }
 
 -- | Constructor for 'RedshiftClusterParameterGroup' containing required
 -- fields as arguments.

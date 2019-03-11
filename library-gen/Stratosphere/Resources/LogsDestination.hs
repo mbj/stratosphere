@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-destination.html
@@ -19,15 +20,18 @@ data LogsDestination =
   , _logsDestinationTargetArn :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON LogsDestination where
-  toJSON LogsDestination{..} =
-    object $
-    catMaybes
-    [ (Just . ("DestinationName",) . toJSON) _logsDestinationDestinationName
-    , (Just . ("DestinationPolicy",) . toJSON) _logsDestinationDestinationPolicy
-    , (Just . ("RoleArn",) . toJSON) _logsDestinationRoleArn
-    , (Just . ("TargetArn",) . toJSON) _logsDestinationTargetArn
-    ]
+instance ToResourceProperties LogsDestination where
+  toResourceProperties LogsDestination{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::Logs::Destination"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("DestinationName",) . toJSON) _logsDestinationDestinationName
+        , (Just . ("DestinationPolicy",) . toJSON) _logsDestinationDestinationPolicy
+        , (Just . ("RoleArn",) . toJSON) _logsDestinationRoleArn
+        , (Just . ("TargetArn",) . toJSON) _logsDestinationTargetArn
+        ]
+    }
 
 -- | Constructor for 'LogsDestination' containing required fields as
 -- arguments.

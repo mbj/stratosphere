@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscalingplans-scalingplan.html
@@ -18,13 +19,16 @@ data AutoScalingPlansScalingPlan =
   , _autoScalingPlansScalingPlanScalingInstructions :: [AutoScalingPlansScalingPlanScalingInstruction]
   } deriving (Show, Eq)
 
-instance ToJSON AutoScalingPlansScalingPlan where
-  toJSON AutoScalingPlansScalingPlan{..} =
-    object $
-    catMaybes
-    [ (Just . ("ApplicationSource",) . toJSON) _autoScalingPlansScalingPlanApplicationSource
-    , (Just . ("ScalingInstructions",) . toJSON) _autoScalingPlansScalingPlanScalingInstructions
-    ]
+instance ToResourceProperties AutoScalingPlansScalingPlan where
+  toResourceProperties AutoScalingPlansScalingPlan{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::AutoScalingPlans::ScalingPlan"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("ApplicationSource",) . toJSON) _autoScalingPlansScalingPlanApplicationSource
+        , (Just . ("ScalingInstructions",) . toJSON) _autoScalingPlansScalingPlanScalingInstructions
+        ]
+    }
 
 -- | Constructor for 'AutoScalingPlansScalingPlan' containing required fields
 -- as arguments.

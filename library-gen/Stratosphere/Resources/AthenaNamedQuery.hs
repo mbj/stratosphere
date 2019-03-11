@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-namedquery.html
@@ -19,15 +20,18 @@ data AthenaNamedQuery =
   , _athenaNamedQueryQueryString :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON AthenaNamedQuery where
-  toJSON AthenaNamedQuery{..} =
-    object $
-    catMaybes
-    [ (Just . ("Database",) . toJSON) _athenaNamedQueryDatabase
-    , fmap (("Description",) . toJSON) _athenaNamedQueryDescription
-    , fmap (("Name",) . toJSON) _athenaNamedQueryName
-    , (Just . ("QueryString",) . toJSON) _athenaNamedQueryQueryString
-    ]
+instance ToResourceProperties AthenaNamedQuery where
+  toResourceProperties AthenaNamedQuery{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::Athena::NamedQuery"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("Database",) . toJSON) _athenaNamedQueryDatabase
+        , fmap (("Description",) . toJSON) _athenaNamedQueryDescription
+        , fmap (("Name",) . toJSON) _athenaNamedQueryName
+        , (Just . ("QueryString",) . toJSON) _athenaNamedQueryQueryString
+        ]
+    }
 
 -- | Constructor for 'AthenaNamedQuery' containing required fields as
 -- arguments.

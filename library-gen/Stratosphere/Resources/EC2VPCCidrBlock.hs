@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpccidrblock.html
@@ -18,14 +19,17 @@ data EC2VPCCidrBlock =
   , _eC2VPCCidrBlockVpcId :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON EC2VPCCidrBlock where
-  toJSON EC2VPCCidrBlock{..} =
-    object $
-    catMaybes
-    [ fmap (("AmazonProvidedIpv6CidrBlock",) . toJSON . fmap Bool') _eC2VPCCidrBlockAmazonProvidedIpv6CidrBlock
-    , fmap (("CidrBlock",) . toJSON) _eC2VPCCidrBlockCidrBlock
-    , (Just . ("VpcId",) . toJSON) _eC2VPCCidrBlockVpcId
-    ]
+instance ToResourceProperties EC2VPCCidrBlock where
+  toResourceProperties EC2VPCCidrBlock{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::EC2::VPCCidrBlock"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("AmazonProvidedIpv6CidrBlock",) . toJSON . fmap Bool') _eC2VPCCidrBlockAmazonProvidedIpv6CidrBlock
+        , fmap (("CidrBlock",) . toJSON) _eC2VPCCidrBlockCidrBlock
+        , (Just . ("VpcId",) . toJSON) _eC2VPCCidrBlockVpcId
+        ]
+    }
 
 -- | Constructor for 'EC2VPCCidrBlock' containing required fields as
 -- arguments.

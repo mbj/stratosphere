@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html
@@ -27,21 +28,24 @@ data CognitoIdentityPool =
   , _cognitoIdentityPoolSupportedLoginProviders :: Maybe Object
   } deriving (Show, Eq)
 
-instance ToJSON CognitoIdentityPool where
-  toJSON CognitoIdentityPool{..} =
-    object $
-    catMaybes
-    [ (Just . ("AllowUnauthenticatedIdentities",) . toJSON . fmap Bool') _cognitoIdentityPoolAllowUnauthenticatedIdentities
-    , fmap (("CognitoEvents",) . toJSON) _cognitoIdentityPoolCognitoEvents
-    , fmap (("CognitoIdentityProviders",) . toJSON) _cognitoIdentityPoolCognitoIdentityProviders
-    , fmap (("CognitoStreams",) . toJSON) _cognitoIdentityPoolCognitoStreams
-    , fmap (("DeveloperProviderName",) . toJSON) _cognitoIdentityPoolDeveloperProviderName
-    , fmap (("IdentityPoolName",) . toJSON) _cognitoIdentityPoolIdentityPoolName
-    , fmap (("OpenIdConnectProviderARNs",) . toJSON) _cognitoIdentityPoolOpenIdConnectProviderARNs
-    , fmap (("PushSync",) . toJSON) _cognitoIdentityPoolPushSync
-    , fmap (("SamlProviderARNs",) . toJSON) _cognitoIdentityPoolSamlProviderARNs
-    , fmap (("SupportedLoginProviders",) . toJSON) _cognitoIdentityPoolSupportedLoginProviders
-    ]
+instance ToResourceProperties CognitoIdentityPool where
+  toResourceProperties CognitoIdentityPool{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::Cognito::IdentityPool"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("AllowUnauthenticatedIdentities",) . toJSON . fmap Bool') _cognitoIdentityPoolAllowUnauthenticatedIdentities
+        , fmap (("CognitoEvents",) . toJSON) _cognitoIdentityPoolCognitoEvents
+        , fmap (("CognitoIdentityProviders",) . toJSON) _cognitoIdentityPoolCognitoIdentityProviders
+        , fmap (("CognitoStreams",) . toJSON) _cognitoIdentityPoolCognitoStreams
+        , fmap (("DeveloperProviderName",) . toJSON) _cognitoIdentityPoolDeveloperProviderName
+        , fmap (("IdentityPoolName",) . toJSON) _cognitoIdentityPoolIdentityPoolName
+        , fmap (("OpenIdConnectProviderARNs",) . toJSON) _cognitoIdentityPoolOpenIdConnectProviderARNs
+        , fmap (("PushSync",) . toJSON) _cognitoIdentityPoolPushSync
+        , fmap (("SamlProviderARNs",) . toJSON) _cognitoIdentityPoolSamlProviderARNs
+        , fmap (("SupportedLoginProviders",) . toJSON) _cognitoIdentityPoolSupportedLoginProviders
+        ]
+    }
 
 -- | Constructor for 'CognitoIdentityPool' containing required fields as
 -- arguments.

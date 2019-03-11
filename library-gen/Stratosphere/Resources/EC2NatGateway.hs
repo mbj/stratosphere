@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-natgateway.html
@@ -18,14 +19,17 @@ data EC2NatGateway =
   , _eC2NatGatewayTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
-instance ToJSON EC2NatGateway where
-  toJSON EC2NatGateway{..} =
-    object $
-    catMaybes
-    [ (Just . ("AllocationId",) . toJSON) _eC2NatGatewayAllocationId
-    , (Just . ("SubnetId",) . toJSON) _eC2NatGatewaySubnetId
-    , fmap (("Tags",) . toJSON) _eC2NatGatewayTags
-    ]
+instance ToResourceProperties EC2NatGateway where
+  toResourceProperties EC2NatGateway{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::EC2::NatGateway"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("AllocationId",) . toJSON) _eC2NatGatewayAllocationId
+        , (Just . ("SubnetId",) . toJSON) _eC2NatGatewaySubnetId
+        , fmap (("Tags",) . toJSON) _eC2NatGatewayTags
+        ]
+    }
 
 -- | Constructor for 'EC2NatGateway' containing required fields as arguments.
 ec2NatGateway

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html
@@ -25,19 +26,22 @@ data SSMAssociation =
   , _sSMAssociationTargets :: Maybe [SSMAssociationTarget]
   } deriving (Show, Eq)
 
-instance ToJSON SSMAssociation where
-  toJSON SSMAssociation{..} =
-    object $
-    catMaybes
-    [ fmap (("AssociationName",) . toJSON) _sSMAssociationAssociationName
-    , fmap (("DocumentVersion",) . toJSON) _sSMAssociationDocumentVersion
-    , fmap (("InstanceId",) . toJSON) _sSMAssociationInstanceId
-    , (Just . ("Name",) . toJSON) _sSMAssociationName
-    , fmap (("OutputLocation",) . toJSON) _sSMAssociationOutputLocation
-    , fmap (("Parameters",) . toJSON) _sSMAssociationParameters
-    , fmap (("ScheduleExpression",) . toJSON) _sSMAssociationScheduleExpression
-    , fmap (("Targets",) . toJSON) _sSMAssociationTargets
-    ]
+instance ToResourceProperties SSMAssociation where
+  toResourceProperties SSMAssociation{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::SSM::Association"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("AssociationName",) . toJSON) _sSMAssociationAssociationName
+        , fmap (("DocumentVersion",) . toJSON) _sSMAssociationDocumentVersion
+        , fmap (("InstanceId",) . toJSON) _sSMAssociationInstanceId
+        , (Just . ("Name",) . toJSON) _sSMAssociationName
+        , fmap (("OutputLocation",) . toJSON) _sSMAssociationOutputLocation
+        , fmap (("Parameters",) . toJSON) _sSMAssociationParameters
+        , fmap (("ScheduleExpression",) . toJSON) _sSMAssociationScheduleExpression
+        , fmap (("Targets",) . toJSON) _sSMAssociationTargets
+        ]
+    }
 
 -- | Constructor for 'SSMAssociation' containing required fields as arguments.
 ssmAssociation

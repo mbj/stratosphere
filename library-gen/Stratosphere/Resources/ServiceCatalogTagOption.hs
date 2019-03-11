@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-tagoption.html
@@ -18,14 +19,17 @@ data ServiceCatalogTagOption =
   , _serviceCatalogTagOptionValue :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON ServiceCatalogTagOption where
-  toJSON ServiceCatalogTagOption{..} =
-    object $
-    catMaybes
-    [ fmap (("Active",) . toJSON . fmap Bool') _serviceCatalogTagOptionActive
-    , (Just . ("Key",) . toJSON) _serviceCatalogTagOptionKey
-    , (Just . ("Value",) . toJSON) _serviceCatalogTagOptionValue
-    ]
+instance ToResourceProperties ServiceCatalogTagOption where
+  toResourceProperties ServiceCatalogTagOption{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::ServiceCatalog::TagOption"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("Active",) . toJSON . fmap Bool') _serviceCatalogTagOptionActive
+        , (Just . ("Key",) . toJSON) _serviceCatalogTagOptionKey
+        , (Just . ("Value",) . toJSON) _serviceCatalogTagOptionValue
+        ]
+    }
 
 -- | Constructor for 'ServiceCatalogTagOption' containing required fields as
 -- arguments.

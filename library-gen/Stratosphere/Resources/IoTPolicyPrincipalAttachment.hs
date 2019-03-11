@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-policyprincipalattachment.html
@@ -17,13 +18,16 @@ data IoTPolicyPrincipalAttachment =
   , _ioTPolicyPrincipalAttachmentPrincipal :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON IoTPolicyPrincipalAttachment where
-  toJSON IoTPolicyPrincipalAttachment{..} =
-    object $
-    catMaybes
-    [ (Just . ("PolicyName",) . toJSON) _ioTPolicyPrincipalAttachmentPolicyName
-    , (Just . ("Principal",) . toJSON) _ioTPolicyPrincipalAttachmentPrincipal
-    ]
+instance ToResourceProperties IoTPolicyPrincipalAttachment where
+  toResourceProperties IoTPolicyPrincipalAttachment{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::IoT::PolicyPrincipalAttachment"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("PolicyName",) . toJSON) _ioTPolicyPrincipalAttachmentPolicyName
+        , (Just . ("Principal",) . toJSON) _ioTPolicyPrincipalAttachmentPrincipal
+        ]
+    }
 
 -- | Constructor for 'IoTPolicyPrincipalAttachment' containing required fields
 -- as arguments.

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplicationversion.html
@@ -18,13 +19,16 @@ data RoboMakerSimulationApplicationVersion =
   , _roboMakerSimulationApplicationVersionCurrentRevisionId :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON RoboMakerSimulationApplicationVersion where
-  toJSON RoboMakerSimulationApplicationVersion{..} =
-    object $
-    catMaybes
-    [ (Just . ("Application",) . toJSON) _roboMakerSimulationApplicationVersionApplication
-    , fmap (("CurrentRevisionId",) . toJSON) _roboMakerSimulationApplicationVersionCurrentRevisionId
-    ]
+instance ToResourceProperties RoboMakerSimulationApplicationVersion where
+  toResourceProperties RoboMakerSimulationApplicationVersion{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::RoboMaker::SimulationApplicationVersion"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("Application",) . toJSON) _roboMakerSimulationApplicationVersionApplication
+        , fmap (("CurrentRevisionId",) . toJSON) _roboMakerSimulationApplicationVersionCurrentRevisionId
+        ]
+    }
 
 -- | Constructor for 'RoboMakerSimulationApplicationVersion' containing
 -- required fields as arguments.

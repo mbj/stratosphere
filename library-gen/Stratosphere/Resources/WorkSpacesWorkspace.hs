@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspaces-workspace.html
@@ -24,19 +25,22 @@ data WorkSpacesWorkspace =
   , _workSpacesWorkspaceWorkspaceProperties :: Maybe WorkSpacesWorkspaceWorkspaceProperties
   } deriving (Show, Eq)
 
-instance ToJSON WorkSpacesWorkspace where
-  toJSON WorkSpacesWorkspace{..} =
-    object $
-    catMaybes
-    [ (Just . ("BundleId",) . toJSON) _workSpacesWorkspaceBundleId
-    , (Just . ("DirectoryId",) . toJSON) _workSpacesWorkspaceDirectoryId
-    , fmap (("RootVolumeEncryptionEnabled",) . toJSON . fmap Bool') _workSpacesWorkspaceRootVolumeEncryptionEnabled
-    , fmap (("Tags",) . toJSON) _workSpacesWorkspaceTags
-    , (Just . ("UserName",) . toJSON) _workSpacesWorkspaceUserName
-    , fmap (("UserVolumeEncryptionEnabled",) . toJSON . fmap Bool') _workSpacesWorkspaceUserVolumeEncryptionEnabled
-    , fmap (("VolumeEncryptionKey",) . toJSON) _workSpacesWorkspaceVolumeEncryptionKey
-    , fmap (("WorkspaceProperties",) . toJSON) _workSpacesWorkspaceWorkspaceProperties
-    ]
+instance ToResourceProperties WorkSpacesWorkspace where
+  toResourceProperties WorkSpacesWorkspace{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::WorkSpaces::Workspace"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("BundleId",) . toJSON) _workSpacesWorkspaceBundleId
+        , (Just . ("DirectoryId",) . toJSON) _workSpacesWorkspaceDirectoryId
+        , fmap (("RootVolumeEncryptionEnabled",) . toJSON . fmap Bool') _workSpacesWorkspaceRootVolumeEncryptionEnabled
+        , fmap (("Tags",) . toJSON) _workSpacesWorkspaceTags
+        , (Just . ("UserName",) . toJSON) _workSpacesWorkspaceUserName
+        , fmap (("UserVolumeEncryptionEnabled",) . toJSON . fmap Bool') _workSpacesWorkspaceUserVolumeEncryptionEnabled
+        , fmap (("VolumeEncryptionKey",) . toJSON) _workSpacesWorkspaceVolumeEncryptionKey
+        , fmap (("WorkspaceProperties",) . toJSON) _workSpacesWorkspaceWorkspaceProperties
+        ]
+    }
 
 -- | Constructor for 'WorkSpacesWorkspace' containing required fields as
 -- arguments.

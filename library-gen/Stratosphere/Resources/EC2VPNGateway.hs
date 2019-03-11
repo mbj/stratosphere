@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpn-gateway.html
@@ -18,14 +19,17 @@ data EC2VPNGateway =
   , _eC2VPNGatewayType :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON EC2VPNGateway where
-  toJSON EC2VPNGateway{..} =
-    object $
-    catMaybes
-    [ fmap (("AmazonSideAsn",) . toJSON . fmap Integer') _eC2VPNGatewayAmazonSideAsn
-    , fmap (("Tags",) . toJSON) _eC2VPNGatewayTags
-    , (Just . ("Type",) . toJSON) _eC2VPNGatewayType
-    ]
+instance ToResourceProperties EC2VPNGateway where
+  toResourceProperties EC2VPNGateway{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::EC2::VPNGateway"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("AmazonSideAsn",) . toJSON . fmap Integer') _eC2VPNGatewayAmazonSideAsn
+        , fmap (("Tags",) . toJSON) _eC2VPNGatewayTags
+        , (Just . ("Type",) . toJSON) _eC2VPNGatewayType
+        ]
+    }
 
 -- | Constructor for 'EC2VPNGateway' containing required fields as arguments.
 ec2VPNGateway

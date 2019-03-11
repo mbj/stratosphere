@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html
@@ -32,28 +33,31 @@ data OpsWorksCMServer =
   , _opsWorksCMServerSubnetIds :: Maybe (ValList Text)
   } deriving (Show, Eq)
 
-instance ToJSON OpsWorksCMServer where
-  toJSON OpsWorksCMServer{..} =
-    object $
-    catMaybes
-    [ fmap (("AssociatePublicIpAddress",) . toJSON . fmap Bool') _opsWorksCMServerAssociatePublicIpAddress
-    , fmap (("BackupId",) . toJSON) _opsWorksCMServerBackupId
-    , fmap (("BackupRetentionCount",) . toJSON . fmap Integer') _opsWorksCMServerBackupRetentionCount
-    , fmap (("DisableAutomatedBackup",) . toJSON . fmap Bool') _opsWorksCMServerDisableAutomatedBackup
-    , fmap (("Engine",) . toJSON) _opsWorksCMServerEngine
-    , fmap (("EngineAttributes",) . toJSON) _opsWorksCMServerEngineAttributes
-    , fmap (("EngineModel",) . toJSON) _opsWorksCMServerEngineModel
-    , fmap (("EngineVersion",) . toJSON) _opsWorksCMServerEngineVersion
-    , (Just . ("InstanceProfileArn",) . toJSON) _opsWorksCMServerInstanceProfileArn
-    , (Just . ("InstanceType",) . toJSON) _opsWorksCMServerInstanceType
-    , fmap (("KeyPair",) . toJSON) _opsWorksCMServerKeyPair
-    , fmap (("PreferredBackupWindow",) . toJSON) _opsWorksCMServerPreferredBackupWindow
-    , fmap (("PreferredMaintenanceWindow",) . toJSON) _opsWorksCMServerPreferredMaintenanceWindow
-    , fmap (("SecurityGroupIds",) . toJSON) _opsWorksCMServerSecurityGroupIds
-    , fmap (("ServerName",) . toJSON) _opsWorksCMServerServerName
-    , (Just . ("ServiceRoleArn",) . toJSON) _opsWorksCMServerServiceRoleArn
-    , fmap (("SubnetIds",) . toJSON) _opsWorksCMServerSubnetIds
-    ]
+instance ToResourceProperties OpsWorksCMServer where
+  toResourceProperties OpsWorksCMServer{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::OpsWorksCM::Server"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("AssociatePublicIpAddress",) . toJSON . fmap Bool') _opsWorksCMServerAssociatePublicIpAddress
+        , fmap (("BackupId",) . toJSON) _opsWorksCMServerBackupId
+        , fmap (("BackupRetentionCount",) . toJSON . fmap Integer') _opsWorksCMServerBackupRetentionCount
+        , fmap (("DisableAutomatedBackup",) . toJSON . fmap Bool') _opsWorksCMServerDisableAutomatedBackup
+        , fmap (("Engine",) . toJSON) _opsWorksCMServerEngine
+        , fmap (("EngineAttributes",) . toJSON) _opsWorksCMServerEngineAttributes
+        , fmap (("EngineModel",) . toJSON) _opsWorksCMServerEngineModel
+        , fmap (("EngineVersion",) . toJSON) _opsWorksCMServerEngineVersion
+        , (Just . ("InstanceProfileArn",) . toJSON) _opsWorksCMServerInstanceProfileArn
+        , (Just . ("InstanceType",) . toJSON) _opsWorksCMServerInstanceType
+        , fmap (("KeyPair",) . toJSON) _opsWorksCMServerKeyPair
+        , fmap (("PreferredBackupWindow",) . toJSON) _opsWorksCMServerPreferredBackupWindow
+        , fmap (("PreferredMaintenanceWindow",) . toJSON) _opsWorksCMServerPreferredMaintenanceWindow
+        , fmap (("SecurityGroupIds",) . toJSON) _opsWorksCMServerSecurityGroupIds
+        , fmap (("ServerName",) . toJSON) _opsWorksCMServerServerName
+        , (Just . ("ServiceRoleArn",) . toJSON) _opsWorksCMServerServiceRoleArn
+        , fmap (("SubnetIds",) . toJSON) _opsWorksCMServerSubnetIds
+        ]
+    }
 
 -- | Constructor for 'OpsWorksCMServer' containing required fields as
 -- arguments.

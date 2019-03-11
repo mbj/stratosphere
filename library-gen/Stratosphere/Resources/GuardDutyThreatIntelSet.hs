@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-threatintelset.html
@@ -20,16 +21,19 @@ data GuardDutyThreatIntelSet =
   , _guardDutyThreatIntelSetName :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON GuardDutyThreatIntelSet where
-  toJSON GuardDutyThreatIntelSet{..} =
-    object $
-    catMaybes
-    [ (Just . ("Activate",) . toJSON . fmap Bool') _guardDutyThreatIntelSetActivate
-    , (Just . ("DetectorId",) . toJSON) _guardDutyThreatIntelSetDetectorId
-    , (Just . ("Format",) . toJSON) _guardDutyThreatIntelSetFormat
-    , (Just . ("Location",) . toJSON) _guardDutyThreatIntelSetLocation
-    , fmap (("Name",) . toJSON) _guardDutyThreatIntelSetName
-    ]
+instance ToResourceProperties GuardDutyThreatIntelSet where
+  toResourceProperties GuardDutyThreatIntelSet{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::GuardDuty::ThreatIntelSet"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("Activate",) . toJSON . fmap Bool') _guardDutyThreatIntelSetActivate
+        , (Just . ("DetectorId",) . toJSON) _guardDutyThreatIntelSetDetectorId
+        , (Just . ("Format",) . toJSON) _guardDutyThreatIntelSetFormat
+        , (Just . ("Location",) . toJSON) _guardDutyThreatIntelSetLocation
+        , fmap (("Name",) . toJSON) _guardDutyThreatIntelSetName
+        ]
+    }
 
 -- | Constructor for 'GuardDutyThreatIntelSet' containing required fields as
 -- arguments.

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-alias.html
@@ -18,14 +19,17 @@ data GameLiftAlias =
   , _gameLiftAliasRoutingStrategy :: GameLiftAliasRoutingStrategy
   } deriving (Show, Eq)
 
-instance ToJSON GameLiftAlias where
-  toJSON GameLiftAlias{..} =
-    object $
-    catMaybes
-    [ fmap (("Description",) . toJSON) _gameLiftAliasDescription
-    , (Just . ("Name",) . toJSON) _gameLiftAliasName
-    , (Just . ("RoutingStrategy",) . toJSON) _gameLiftAliasRoutingStrategy
-    ]
+instance ToResourceProperties GameLiftAlias where
+  toResourceProperties GameLiftAlias{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::GameLift::Alias"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("Description",) . toJSON) _gameLiftAliasDescription
+        , (Just . ("Name",) . toJSON) _gameLiftAliasName
+        , (Just . ("RoutingStrategy",) . toJSON) _gameLiftAliasRoutingStrategy
+        ]
+    }
 
 -- | Constructor for 'GameLiftAlias' containing required fields as arguments.
 gameLiftAlias

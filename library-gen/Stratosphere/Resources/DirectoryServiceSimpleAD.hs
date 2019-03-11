@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directoryservice-simplead.html
@@ -23,19 +24,22 @@ data DirectoryServiceSimpleAD =
   , _directoryServiceSimpleADVpcSettings :: DirectoryServiceSimpleADVpcSettings
   } deriving (Show, Eq)
 
-instance ToJSON DirectoryServiceSimpleAD where
-  toJSON DirectoryServiceSimpleAD{..} =
-    object $
-    catMaybes
-    [ fmap (("CreateAlias",) . toJSON . fmap Bool') _directoryServiceSimpleADCreateAlias
-    , fmap (("Description",) . toJSON) _directoryServiceSimpleADDescription
-    , fmap (("EnableSso",) . toJSON . fmap Bool') _directoryServiceSimpleADEnableSso
-    , (Just . ("Name",) . toJSON) _directoryServiceSimpleADName
-    , (Just . ("Password",) . toJSON) _directoryServiceSimpleADPassword
-    , fmap (("ShortName",) . toJSON) _directoryServiceSimpleADShortName
-    , (Just . ("Size",) . toJSON) _directoryServiceSimpleADSize
-    , (Just . ("VpcSettings",) . toJSON) _directoryServiceSimpleADVpcSettings
-    ]
+instance ToResourceProperties DirectoryServiceSimpleAD where
+  toResourceProperties DirectoryServiceSimpleAD{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::DirectoryService::SimpleAD"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("CreateAlias",) . toJSON . fmap Bool') _directoryServiceSimpleADCreateAlias
+        , fmap (("Description",) . toJSON) _directoryServiceSimpleADDescription
+        , fmap (("EnableSso",) . toJSON . fmap Bool') _directoryServiceSimpleADEnableSso
+        , (Just . ("Name",) . toJSON) _directoryServiceSimpleADName
+        , (Just . ("Password",) . toJSON) _directoryServiceSimpleADPassword
+        , fmap (("ShortName",) . toJSON) _directoryServiceSimpleADShortName
+        , (Just . ("Size",) . toJSON) _directoryServiceSimpleADSize
+        , (Just . ("VpcSettings",) . toJSON) _directoryServiceSimpleADVpcSettings
+        ]
+    }
 
 -- | Constructor for 'DirectoryServiceSimpleAD' containing required fields as
 -- arguments.

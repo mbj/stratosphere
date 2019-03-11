@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-alias.html
@@ -17,13 +18,16 @@ data KMSAlias =
   , _kMSAliasTargetKeyId :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON KMSAlias where
-  toJSON KMSAlias{..} =
-    object $
-    catMaybes
-    [ (Just . ("AliasName",) . toJSON) _kMSAliasAliasName
-    , (Just . ("TargetKeyId",) . toJSON) _kMSAliasTargetKeyId
-    ]
+instance ToResourceProperties KMSAlias where
+  toResourceProperties KMSAlias{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::KMS::Alias"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("AliasName",) . toJSON) _kMSAliasAliasName
+        , (Just . ("TargetKeyId",) . toJSON) _kMSAliasTargetKeyId
+        ]
+    }
 
 -- | Constructor for 'KMSAlias' containing required fields as arguments.
 kmsAlias

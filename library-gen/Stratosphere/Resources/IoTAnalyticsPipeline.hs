@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-pipeline.html
@@ -19,14 +20,17 @@ data IoTAnalyticsPipeline =
   , _ioTAnalyticsPipelineTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
-instance ToJSON IoTAnalyticsPipeline where
-  toJSON IoTAnalyticsPipeline{..} =
-    object $
-    catMaybes
-    [ (Just . ("PipelineActivities",) . toJSON) _ioTAnalyticsPipelinePipelineActivities
-    , fmap (("PipelineName",) . toJSON) _ioTAnalyticsPipelinePipelineName
-    , fmap (("Tags",) . toJSON) _ioTAnalyticsPipelineTags
-    ]
+instance ToResourceProperties IoTAnalyticsPipeline where
+  toResourceProperties IoTAnalyticsPipeline{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::IoTAnalytics::Pipeline"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("PipelineActivities",) . toJSON) _ioTAnalyticsPipelinePipelineActivities
+        , fmap (("PipelineName",) . toJSON) _ioTAnalyticsPipelinePipelineName
+        , fmap (("Tags",) . toJSON) _ioTAnalyticsPipelineTags
+        ]
+    }
 
 -- | Constructor for 'IoTAnalyticsPipeline' containing required fields as
 -- arguments.

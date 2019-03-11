@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverendpoint.html
@@ -21,16 +22,19 @@ data Route53ResolverResolverEndpoint =
   , _route53ResolverResolverEndpointTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
-instance ToJSON Route53ResolverResolverEndpoint where
-  toJSON Route53ResolverResolverEndpoint{..} =
-    object $
-    catMaybes
-    [ (Just . ("Direction",) . toJSON) _route53ResolverResolverEndpointDirection
-    , (Just . ("IpAddresses",) . toJSON) _route53ResolverResolverEndpointIpAddresses
-    , fmap (("Name",) . toJSON) _route53ResolverResolverEndpointName
-    , (Just . ("SecurityGroupIds",) . toJSON) _route53ResolverResolverEndpointSecurityGroupIds
-    , fmap (("Tags",) . toJSON) _route53ResolverResolverEndpointTags
-    ]
+instance ToResourceProperties Route53ResolverResolverEndpoint where
+  toResourceProperties Route53ResolverResolverEndpoint{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::Route53Resolver::ResolverEndpoint"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("Direction",) . toJSON) _route53ResolverResolverEndpointDirection
+        , (Just . ("IpAddresses",) . toJSON) _route53ResolverResolverEndpointIpAddresses
+        , fmap (("Name",) . toJSON) _route53ResolverResolverEndpointName
+        , (Just . ("SecurityGroupIds",) . toJSON) _route53ResolverResolverEndpointSecurityGroupIds
+        , fmap (("Tags",) . toJSON) _route53ResolverResolverEndpointTags
+        ]
+    }
 
 -- | Constructor for 'Route53ResolverResolverEndpoint' containing required
 -- fields as arguments.

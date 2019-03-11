@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-xssmatchset.html
@@ -17,13 +18,16 @@ data WAFRegionalXssMatchSet =
   , _wAFRegionalXssMatchSetXssMatchTuples :: Maybe [WAFRegionalXssMatchSetXssMatchTuple]
   } deriving (Show, Eq)
 
-instance ToJSON WAFRegionalXssMatchSet where
-  toJSON WAFRegionalXssMatchSet{..} =
-    object $
-    catMaybes
-    [ (Just . ("Name",) . toJSON) _wAFRegionalXssMatchSetName
-    , fmap (("XssMatchTuples",) . toJSON) _wAFRegionalXssMatchSetXssMatchTuples
-    ]
+instance ToResourceProperties WAFRegionalXssMatchSet where
+  toResourceProperties WAFRegionalXssMatchSet{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::WAFRegional::XssMatchSet"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("Name",) . toJSON) _wAFRegionalXssMatchSetName
+        , fmap (("XssMatchTuples",) . toJSON) _wAFRegionalXssMatchSetXssMatchTuples
+        ]
+    }
 
 -- | Constructor for 'WAFRegionalXssMatchSet' containing required fields as
 -- arguments.

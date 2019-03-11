@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-bytematchset.html
@@ -17,13 +18,16 @@ data WAFRegionalByteMatchSet =
   , _wAFRegionalByteMatchSetName :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON WAFRegionalByteMatchSet where
-  toJSON WAFRegionalByteMatchSet{..} =
-    object $
-    catMaybes
-    [ fmap (("ByteMatchTuples",) . toJSON) _wAFRegionalByteMatchSetByteMatchTuples
-    , (Just . ("Name",) . toJSON) _wAFRegionalByteMatchSetName
-    ]
+instance ToResourceProperties WAFRegionalByteMatchSet where
+  toResourceProperties WAFRegionalByteMatchSet{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::WAFRegional::ByteMatchSet"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("ByteMatchTuples",) . toJSON) _wAFRegionalByteMatchSetByteMatchTuples
+        , (Just . ("Name",) . toJSON) _wAFRegionalByteMatchSetName
+        ]
+    }
 
 -- | Constructor for 'WAFRegionalByteMatchSet' containing required fields as
 -- arguments.

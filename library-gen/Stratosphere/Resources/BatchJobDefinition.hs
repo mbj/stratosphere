@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobdefinition.html
@@ -25,18 +26,21 @@ data BatchJobDefinition =
   , _batchJobDefinitionType :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON BatchJobDefinition where
-  toJSON BatchJobDefinition{..} =
-    object $
-    catMaybes
-    [ fmap (("ContainerProperties",) . toJSON) _batchJobDefinitionContainerProperties
-    , fmap (("JobDefinitionName",) . toJSON) _batchJobDefinitionJobDefinitionName
-    , fmap (("NodeProperties",) . toJSON) _batchJobDefinitionNodeProperties
-    , fmap (("Parameters",) . toJSON) _batchJobDefinitionParameters
-    , fmap (("RetryStrategy",) . toJSON) _batchJobDefinitionRetryStrategy
-    , fmap (("Timeout",) . toJSON) _batchJobDefinitionTimeout
-    , (Just . ("Type",) . toJSON) _batchJobDefinitionType
-    ]
+instance ToResourceProperties BatchJobDefinition where
+  toResourceProperties BatchJobDefinition{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::Batch::JobDefinition"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("ContainerProperties",) . toJSON) _batchJobDefinitionContainerProperties
+        , fmap (("JobDefinitionName",) . toJSON) _batchJobDefinitionJobDefinitionName
+        , fmap (("NodeProperties",) . toJSON) _batchJobDefinitionNodeProperties
+        , fmap (("Parameters",) . toJSON) _batchJobDefinitionParameters
+        , fmap (("RetryStrategy",) . toJSON) _batchJobDefinitionRetryStrategy
+        , fmap (("Timeout",) . toJSON) _batchJobDefinitionTimeout
+        , (Just . ("Type",) . toJSON) _batchJobDefinitionType
+        ]
+    }
 
 -- | Constructor for 'BatchJobDefinition' containing required fields as
 -- arguments.

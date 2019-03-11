@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html
@@ -17,13 +18,16 @@ data LogsLogGroup =
   , _logsLogGroupRetentionInDays :: Maybe (Val Integer)
   } deriving (Show, Eq)
 
-instance ToJSON LogsLogGroup where
-  toJSON LogsLogGroup{..} =
-    object $
-    catMaybes
-    [ fmap (("LogGroupName",) . toJSON) _logsLogGroupLogGroupName
-    , fmap (("RetentionInDays",) . toJSON . fmap Integer') _logsLogGroupRetentionInDays
-    ]
+instance ToResourceProperties LogsLogGroup where
+  toResourceProperties LogsLogGroup{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::Logs::LogGroup"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("LogGroupName",) . toJSON) _logsLogGroupLogGroupName
+        , fmap (("RetentionInDays",) . toJSON . fmap Integer') _logsLogGroupRetentionInDays
+        ]
+    }
 
 -- | Constructor for 'LogsLogGroup' containing required fields as arguments.
 logsLogGroup

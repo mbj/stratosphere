@@ -27,7 +27,6 @@ myTemplate =
 lambda :: Resource
 lambda = (
   resource "CopyS3ObjectLambda" $
-  LambdaFunctionProperties $
   lambdaFunction
     lambdaCode
     "index.handler"
@@ -60,7 +59,6 @@ lambda = (
 role' :: Resource
 role' =
   resource "IAMRole" $
-  IAMRoleProperties $
   iamRole
   rolePolicyDocumentObject
   & iamrPolicies ?~ [ executePolicy ]
@@ -109,7 +107,6 @@ role' =
 incomingS3Bucket :: Resource
 incomingS3Bucket = (
   resource "IncomingBucket" $
-  S3BucketProperties $
   s3Bucket
   & sbBucketName ?~ "stratosphere-s3-copy-incoming"
   & sbNotificationConfiguration ?~ config
@@ -127,14 +124,13 @@ incomingS3Bucket = (
       (GetAtt "CopyS3ObjectLambda" "Arn")
 
 outgoingS3Bucket :: Resource
-outgoingS3Bucket = resource "OutgoingBucket" $
-  S3BucketProperties $
+outgoingS3Bucket =
+  resource "OutgoingBucket" $
   s3Bucket
   & sbBucketName ?~ "stratosphere-s3-copy-outgoing"
 
 permission :: Resource
 permission = resource "LambdaPermission" $
-  LambdaPermissionProperties $
   lambdaPermission
     "lambda:*"
     (GetAtt "CopyS3ObjectLambda" "Arn")

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-permission.html
@@ -21,17 +22,20 @@ data LambdaPermission =
   , _lambdaPermissionSourceArn :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON LambdaPermission where
-  toJSON LambdaPermission{..} =
-    object $
-    catMaybes
-    [ (Just . ("Action",) . toJSON) _lambdaPermissionAction
-    , fmap (("EventSourceToken",) . toJSON) _lambdaPermissionEventSourceToken
-    , (Just . ("FunctionName",) . toJSON) _lambdaPermissionFunctionName
-    , (Just . ("Principal",) . toJSON) _lambdaPermissionPrincipal
-    , fmap (("SourceAccount",) . toJSON) _lambdaPermissionSourceAccount
-    , fmap (("SourceArn",) . toJSON) _lambdaPermissionSourceArn
-    ]
+instance ToResourceProperties LambdaPermission where
+  toResourceProperties LambdaPermission{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::Lambda::Permission"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("Action",) . toJSON) _lambdaPermissionAction
+        , fmap (("EventSourceToken",) . toJSON) _lambdaPermissionEventSourceToken
+        , (Just . ("FunctionName",) . toJSON) _lambdaPermissionFunctionName
+        , (Just . ("Principal",) . toJSON) _lambdaPermissionPrincipal
+        , fmap (("SourceAccount",) . toJSON) _lambdaPermissionSourceAccount
+        , fmap (("SourceArn",) . toJSON) _lambdaPermissionSourceArn
+        ]
+    }
 
 -- | Constructor for 'LambdaPermission' containing required fields as
 -- arguments.

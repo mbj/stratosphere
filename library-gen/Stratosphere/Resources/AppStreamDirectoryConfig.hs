@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-directoryconfig.html
@@ -18,14 +19,17 @@ data AppStreamDirectoryConfig =
   , _appStreamDirectoryConfigServiceAccountCredentials :: AppStreamDirectoryConfigServiceAccountCredentials
   } deriving (Show, Eq)
 
-instance ToJSON AppStreamDirectoryConfig where
-  toJSON AppStreamDirectoryConfig{..} =
-    object $
-    catMaybes
-    [ (Just . ("DirectoryName",) . toJSON) _appStreamDirectoryConfigDirectoryName
-    , (Just . ("OrganizationalUnitDistinguishedNames",) . toJSON) _appStreamDirectoryConfigOrganizationalUnitDistinguishedNames
-    , (Just . ("ServiceAccountCredentials",) . toJSON) _appStreamDirectoryConfigServiceAccountCredentials
-    ]
+instance ToResourceProperties AppStreamDirectoryConfig where
+  toResourceProperties AppStreamDirectoryConfig{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::AppStream::DirectoryConfig"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("DirectoryName",) . toJSON) _appStreamDirectoryConfigDirectoryName
+        , (Just . ("OrganizationalUnitDistinguishedNames",) . toJSON) _appStreamDirectoryConfigOrganizationalUnitDistinguishedNames
+        , (Just . ("ServiceAccountCredentials",) . toJSON) _appStreamDirectoryConfigServiceAccountCredentials
+        ]
+    }
 
 -- | Constructor for 'AppStreamDirectoryConfig' containing required fields as
 -- arguments.

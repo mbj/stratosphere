@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html
@@ -18,14 +19,17 @@ data ECRRepository =
   , _eCRRepositoryRepositoryPolicyText :: Maybe Object
   } deriving (Show, Eq)
 
-instance ToJSON ECRRepository where
-  toJSON ECRRepository{..} =
-    object $
-    catMaybes
-    [ fmap (("LifecyclePolicy",) . toJSON) _eCRRepositoryLifecyclePolicy
-    , fmap (("RepositoryName",) . toJSON) _eCRRepositoryRepositoryName
-    , fmap (("RepositoryPolicyText",) . toJSON) _eCRRepositoryRepositoryPolicyText
-    ]
+instance ToResourceProperties ECRRepository where
+  toResourceProperties ECRRepository{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::ECR::Repository"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("LifecyclePolicy",) . toJSON) _eCRRepositoryLifecyclePolicy
+        , fmap (("RepositoryName",) . toJSON) _eCRRepositoryRepositoryName
+        , fmap (("RepositoryPolicyText",) . toJSON) _eCRRepositoryRepositoryPolicyText
+        ]
+    }
 
 -- | Constructor for 'ECRRepository' containing required fields as arguments.
 ecrRepository

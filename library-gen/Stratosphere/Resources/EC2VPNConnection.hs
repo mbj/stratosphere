@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpn-connection.html
@@ -22,17 +23,20 @@ data EC2VPNConnection =
   , _eC2VPNConnectionVpnTunnelOptionsSpecifications :: Maybe [EC2VPNConnectionVpnTunnelOptionsSpecification]
   } deriving (Show, Eq)
 
-instance ToJSON EC2VPNConnection where
-  toJSON EC2VPNConnection{..} =
-    object $
-    catMaybes
-    [ (Just . ("CustomerGatewayId",) . toJSON) _eC2VPNConnectionCustomerGatewayId
-    , fmap (("StaticRoutesOnly",) . toJSON . fmap Bool') _eC2VPNConnectionStaticRoutesOnly
-    , fmap (("Tags",) . toJSON) _eC2VPNConnectionTags
-    , (Just . ("Type",) . toJSON) _eC2VPNConnectionType
-    , (Just . ("VpnGatewayId",) . toJSON) _eC2VPNConnectionVpnGatewayId
-    , fmap (("VpnTunnelOptionsSpecifications",) . toJSON) _eC2VPNConnectionVpnTunnelOptionsSpecifications
-    ]
+instance ToResourceProperties EC2VPNConnection where
+  toResourceProperties EC2VPNConnection{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::EC2::VPNConnection"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("CustomerGatewayId",) . toJSON) _eC2VPNConnectionCustomerGatewayId
+        , fmap (("StaticRoutesOnly",) . toJSON . fmap Bool') _eC2VPNConnectionStaticRoutesOnly
+        , fmap (("Tags",) . toJSON) _eC2VPNConnectionTags
+        , (Just . ("Type",) . toJSON) _eC2VPNConnectionType
+        , (Just . ("VpnGatewayId",) . toJSON) _eC2VPNConnectionVpnGatewayId
+        , fmap (("VpnTunnelOptionsSpecifications",) . toJSON) _eC2VPNConnectionVpnTunnelOptionsSpecifications
+        ]
+    }
 
 -- | Constructor for 'EC2VPNConnection' containing required fields as
 -- arguments.

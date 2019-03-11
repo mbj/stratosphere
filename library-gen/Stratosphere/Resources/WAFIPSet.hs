@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-ipset.html
@@ -17,13 +18,16 @@ data WAFIPSet =
   , _wAFIPSetName :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON WAFIPSet where
-  toJSON WAFIPSet{..} =
-    object $
-    catMaybes
-    [ fmap (("IPSetDescriptors",) . toJSON) _wAFIPSetIPSetDescriptors
-    , (Just . ("Name",) . toJSON) _wAFIPSetName
-    ]
+instance ToResourceProperties WAFIPSet where
+  toResourceProperties WAFIPSet{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::WAF::IPSet"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("IPSetDescriptors",) . toJSON) _wAFIPSetIPSetDescriptors
+        , (Just . ("Name",) . toJSON) _wAFIPSetName
+        ]
+    }
 
 -- | Constructor for 'WAFIPSet' containing required fields as arguments.
 wafipSet

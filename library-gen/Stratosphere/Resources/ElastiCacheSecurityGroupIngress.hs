@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-security-group-ingress.html
@@ -18,14 +19,17 @@ data ElastiCacheSecurityGroupIngress =
   , _elastiCacheSecurityGroupIngressEC2SecurityGroupOwnerId :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON ElastiCacheSecurityGroupIngress where
-  toJSON ElastiCacheSecurityGroupIngress{..} =
-    object $
-    catMaybes
-    [ (Just . ("CacheSecurityGroupName",) . toJSON) _elastiCacheSecurityGroupIngressCacheSecurityGroupName
-    , (Just . ("EC2SecurityGroupName",) . toJSON) _elastiCacheSecurityGroupIngressEC2SecurityGroupName
-    , fmap (("EC2SecurityGroupOwnerId",) . toJSON) _elastiCacheSecurityGroupIngressEC2SecurityGroupOwnerId
-    ]
+instance ToResourceProperties ElastiCacheSecurityGroupIngress where
+  toResourceProperties ElastiCacheSecurityGroupIngress{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::ElastiCache::SecurityGroupIngress"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("CacheSecurityGroupName",) . toJSON) _elastiCacheSecurityGroupIngressCacheSecurityGroupName
+        , (Just . ("EC2SecurityGroupName",) . toJSON) _elastiCacheSecurityGroupIngressEC2SecurityGroupName
+        , fmap (("EC2SecurityGroupOwnerId",) . toJSON) _elastiCacheSecurityGroupIngressEC2SecurityGroupOwnerId
+        ]
+    }
 
 -- | Constructor for 'ElastiCacheSecurityGroupIngress' containing required
 -- fields as arguments.

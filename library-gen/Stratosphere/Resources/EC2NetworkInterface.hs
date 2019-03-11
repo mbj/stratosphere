@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html
@@ -28,22 +29,25 @@ data EC2NetworkInterface =
   , _eC2NetworkInterfaceTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
-instance ToJSON EC2NetworkInterface where
-  toJSON EC2NetworkInterface{..} =
-    object $
-    catMaybes
-    [ fmap (("Description",) . toJSON) _eC2NetworkInterfaceDescription
-    , fmap (("GroupSet",) . toJSON) _eC2NetworkInterfaceGroupSet
-    , fmap (("InterfaceType",) . toJSON) _eC2NetworkInterfaceInterfaceType
-    , fmap (("Ipv6AddressCount",) . toJSON . fmap Integer') _eC2NetworkInterfaceIpv6AddressCount
-    , fmap (("Ipv6Addresses",) . toJSON) _eC2NetworkInterfaceIpv6Addresses
-    , fmap (("PrivateIpAddress",) . toJSON) _eC2NetworkInterfacePrivateIpAddress
-    , fmap (("PrivateIpAddresses",) . toJSON) _eC2NetworkInterfacePrivateIpAddresses
-    , fmap (("SecondaryPrivateIpAddressCount",) . toJSON . fmap Integer') _eC2NetworkInterfaceSecondaryPrivateIpAddressCount
-    , fmap (("SourceDestCheck",) . toJSON . fmap Bool') _eC2NetworkInterfaceSourceDestCheck
-    , (Just . ("SubnetId",) . toJSON) _eC2NetworkInterfaceSubnetId
-    , fmap (("Tags",) . toJSON) _eC2NetworkInterfaceTags
-    ]
+instance ToResourceProperties EC2NetworkInterface where
+  toResourceProperties EC2NetworkInterface{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::EC2::NetworkInterface"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("Description",) . toJSON) _eC2NetworkInterfaceDescription
+        , fmap (("GroupSet",) . toJSON) _eC2NetworkInterfaceGroupSet
+        , fmap (("InterfaceType",) . toJSON) _eC2NetworkInterfaceInterfaceType
+        , fmap (("Ipv6AddressCount",) . toJSON . fmap Integer') _eC2NetworkInterfaceIpv6AddressCount
+        , fmap (("Ipv6Addresses",) . toJSON) _eC2NetworkInterfaceIpv6Addresses
+        , fmap (("PrivateIpAddress",) . toJSON) _eC2NetworkInterfacePrivateIpAddress
+        , fmap (("PrivateIpAddresses",) . toJSON) _eC2NetworkInterfacePrivateIpAddresses
+        , fmap (("SecondaryPrivateIpAddressCount",) . toJSON . fmap Integer') _eC2NetworkInterfaceSecondaryPrivateIpAddressCount
+        , fmap (("SourceDestCheck",) . toJSON . fmap Bool') _eC2NetworkInterfaceSourceDestCheck
+        , (Just . ("SubnetId",) . toJSON) _eC2NetworkInterfaceSubnetId
+        , fmap (("Tags",) . toJSON) _eC2NetworkInterfaceTags
+        ]
+    }
 
 -- | Constructor for 'EC2NetworkInterface' containing required fields as
 -- arguments.

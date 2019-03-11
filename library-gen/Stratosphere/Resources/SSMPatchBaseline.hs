@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html
@@ -29,23 +30,26 @@ data SSMPatchBaseline =
   , _sSMPatchBaselineSources :: Maybe [SSMPatchBaselinePatchSource]
   } deriving (Show, Eq)
 
-instance ToJSON SSMPatchBaseline where
-  toJSON SSMPatchBaseline{..} =
-    object $
-    catMaybes
-    [ fmap (("ApprovalRules",) . toJSON) _sSMPatchBaselineApprovalRules
-    , fmap (("ApprovedPatches",) . toJSON) _sSMPatchBaselineApprovedPatches
-    , fmap (("ApprovedPatchesComplianceLevel",) . toJSON) _sSMPatchBaselineApprovedPatchesComplianceLevel
-    , fmap (("ApprovedPatchesEnableNonSecurity",) . toJSON . fmap Bool') _sSMPatchBaselineApprovedPatchesEnableNonSecurity
-    , fmap (("Description",) . toJSON) _sSMPatchBaselineDescription
-    , fmap (("GlobalFilters",) . toJSON) _sSMPatchBaselineGlobalFilters
-    , (Just . ("Name",) . toJSON) _sSMPatchBaselineName
-    , fmap (("OperatingSystem",) . toJSON) _sSMPatchBaselineOperatingSystem
-    , fmap (("PatchGroups",) . toJSON) _sSMPatchBaselinePatchGroups
-    , fmap (("RejectedPatches",) . toJSON) _sSMPatchBaselineRejectedPatches
-    , fmap (("RejectedPatchesAction",) . toJSON) _sSMPatchBaselineRejectedPatchesAction
-    , fmap (("Sources",) . toJSON) _sSMPatchBaselineSources
-    ]
+instance ToResourceProperties SSMPatchBaseline where
+  toResourceProperties SSMPatchBaseline{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::SSM::PatchBaseline"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("ApprovalRules",) . toJSON) _sSMPatchBaselineApprovalRules
+        , fmap (("ApprovedPatches",) . toJSON) _sSMPatchBaselineApprovedPatches
+        , fmap (("ApprovedPatchesComplianceLevel",) . toJSON) _sSMPatchBaselineApprovedPatchesComplianceLevel
+        , fmap (("ApprovedPatchesEnableNonSecurity",) . toJSON . fmap Bool') _sSMPatchBaselineApprovedPatchesEnableNonSecurity
+        , fmap (("Description",) . toJSON) _sSMPatchBaselineDescription
+        , fmap (("GlobalFilters",) . toJSON) _sSMPatchBaselineGlobalFilters
+        , (Just . ("Name",) . toJSON) _sSMPatchBaselineName
+        , fmap (("OperatingSystem",) . toJSON) _sSMPatchBaselineOperatingSystem
+        , fmap (("PatchGroups",) . toJSON) _sSMPatchBaselinePatchGroups
+        , fmap (("RejectedPatches",) . toJSON) _sSMPatchBaselineRejectedPatches
+        , fmap (("RejectedPatchesAction",) . toJSON) _sSMPatchBaselineRejectedPatchesAction
+        , fmap (("Sources",) . toJSON) _sSMPatchBaselineSources
+        ]
+    }
 
 -- | Constructor for 'SSMPatchBaseline' containing required fields as
 -- arguments.

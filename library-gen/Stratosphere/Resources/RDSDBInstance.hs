@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html
@@ -65,60 +66,63 @@ data RDSDBInstance =
   , _rDSDBInstanceVPCSecurityGroups :: Maybe (ValList Text)
   } deriving (Show, Eq)
 
-instance ToJSON RDSDBInstance where
-  toJSON RDSDBInstance{..} =
-    object $
-    catMaybes
-    [ fmap (("AllocatedStorage",) . toJSON) _rDSDBInstanceAllocatedStorage
-    , fmap (("AllowMajorVersionUpgrade",) . toJSON . fmap Bool') _rDSDBInstanceAllowMajorVersionUpgrade
-    , fmap (("AutoMinorVersionUpgrade",) . toJSON . fmap Bool') _rDSDBInstanceAutoMinorVersionUpgrade
-    , fmap (("AvailabilityZone",) . toJSON) _rDSDBInstanceAvailabilityZone
-    , fmap (("BackupRetentionPeriod",) . toJSON) _rDSDBInstanceBackupRetentionPeriod
-    , fmap (("CharacterSetName",) . toJSON) _rDSDBInstanceCharacterSetName
-    , fmap (("CopyTagsToSnapshot",) . toJSON . fmap Bool') _rDSDBInstanceCopyTagsToSnapshot
-    , fmap (("DBClusterIdentifier",) . toJSON) _rDSDBInstanceDBClusterIdentifier
-    , (Just . ("DBInstanceClass",) . toJSON) _rDSDBInstanceDBInstanceClass
-    , fmap (("DBInstanceIdentifier",) . toJSON) _rDSDBInstanceDBInstanceIdentifier
-    , fmap (("DBName",) . toJSON) _rDSDBInstanceDBName
-    , fmap (("DBParameterGroupName",) . toJSON) _rDSDBInstanceDBParameterGroupName
-    , fmap (("DBSecurityGroups",) . toJSON) _rDSDBInstanceDBSecurityGroups
-    , fmap (("DBSnapshotIdentifier",) . toJSON) _rDSDBInstanceDBSnapshotIdentifier
-    , fmap (("DBSubnetGroupName",) . toJSON) _rDSDBInstanceDBSubnetGroupName
-    , fmap (("DeleteAutomatedBackups",) . toJSON . fmap Bool') _rDSDBInstanceDeleteAutomatedBackups
-    , fmap (("DeletionProtection",) . toJSON . fmap Bool') _rDSDBInstanceDeletionProtection
-    , fmap (("Domain",) . toJSON) _rDSDBInstanceDomain
-    , fmap (("DomainIAMRoleName",) . toJSON) _rDSDBInstanceDomainIAMRoleName
-    , fmap (("EnableCloudwatchLogsExports",) . toJSON) _rDSDBInstanceEnableCloudwatchLogsExports
-    , fmap (("EnableIAMDatabaseAuthentication",) . toJSON . fmap Bool') _rDSDBInstanceEnableIAMDatabaseAuthentication
-    , fmap (("EnablePerformanceInsights",) . toJSON . fmap Bool') _rDSDBInstanceEnablePerformanceInsights
-    , fmap (("Engine",) . toJSON) _rDSDBInstanceEngine
-    , fmap (("EngineVersion",) . toJSON) _rDSDBInstanceEngineVersion
-    , fmap (("Iops",) . toJSON . fmap Integer') _rDSDBInstanceIops
-    , fmap (("KmsKeyId",) . toJSON) _rDSDBInstanceKmsKeyId
-    , fmap (("LicenseModel",) . toJSON) _rDSDBInstanceLicenseModel
-    , fmap (("MasterUserPassword",) . toJSON) _rDSDBInstanceMasterUserPassword
-    , fmap (("MasterUsername",) . toJSON) _rDSDBInstanceMasterUsername
-    , fmap (("MonitoringInterval",) . toJSON . fmap Integer') _rDSDBInstanceMonitoringInterval
-    , fmap (("MonitoringRoleArn",) . toJSON) _rDSDBInstanceMonitoringRoleArn
-    , fmap (("MultiAZ",) . toJSON . fmap Bool') _rDSDBInstanceMultiAZ
-    , fmap (("OptionGroupName",) . toJSON) _rDSDBInstanceOptionGroupName
-    , fmap (("PerformanceInsightsKMSKeyId",) . toJSON) _rDSDBInstancePerformanceInsightsKMSKeyId
-    , fmap (("PerformanceInsightsRetentionPeriod",) . toJSON . fmap Integer') _rDSDBInstancePerformanceInsightsRetentionPeriod
-    , fmap (("Port",) . toJSON) _rDSDBInstancePort
-    , fmap (("PreferredBackupWindow",) . toJSON) _rDSDBInstancePreferredBackupWindow
-    , fmap (("PreferredMaintenanceWindow",) . toJSON) _rDSDBInstancePreferredMaintenanceWindow
-    , fmap (("ProcessorFeatures",) . toJSON) _rDSDBInstanceProcessorFeatures
-    , fmap (("PromotionTier",) . toJSON . fmap Integer') _rDSDBInstancePromotionTier
-    , fmap (("PubliclyAccessible",) . toJSON . fmap Bool') _rDSDBInstancePubliclyAccessible
-    , fmap (("SourceDBInstanceIdentifier",) . toJSON) _rDSDBInstanceSourceDBInstanceIdentifier
-    , fmap (("SourceRegion",) . toJSON) _rDSDBInstanceSourceRegion
-    , fmap (("StorageEncrypted",) . toJSON . fmap Bool') _rDSDBInstanceStorageEncrypted
-    , fmap (("StorageType",) . toJSON) _rDSDBInstanceStorageType
-    , fmap (("Tags",) . toJSON) _rDSDBInstanceTags
-    , fmap (("Timezone",) . toJSON) _rDSDBInstanceTimezone
-    , fmap (("UseDefaultProcessorFeatures",) . toJSON . fmap Bool') _rDSDBInstanceUseDefaultProcessorFeatures
-    , fmap (("VPCSecurityGroups",) . toJSON) _rDSDBInstanceVPCSecurityGroups
-    ]
+instance ToResourceProperties RDSDBInstance where
+  toResourceProperties RDSDBInstance{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::RDS::DBInstance"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("AllocatedStorage",) . toJSON) _rDSDBInstanceAllocatedStorage
+        , fmap (("AllowMajorVersionUpgrade",) . toJSON . fmap Bool') _rDSDBInstanceAllowMajorVersionUpgrade
+        , fmap (("AutoMinorVersionUpgrade",) . toJSON . fmap Bool') _rDSDBInstanceAutoMinorVersionUpgrade
+        , fmap (("AvailabilityZone",) . toJSON) _rDSDBInstanceAvailabilityZone
+        , fmap (("BackupRetentionPeriod",) . toJSON) _rDSDBInstanceBackupRetentionPeriod
+        , fmap (("CharacterSetName",) . toJSON) _rDSDBInstanceCharacterSetName
+        , fmap (("CopyTagsToSnapshot",) . toJSON . fmap Bool') _rDSDBInstanceCopyTagsToSnapshot
+        , fmap (("DBClusterIdentifier",) . toJSON) _rDSDBInstanceDBClusterIdentifier
+        , (Just . ("DBInstanceClass",) . toJSON) _rDSDBInstanceDBInstanceClass
+        , fmap (("DBInstanceIdentifier",) . toJSON) _rDSDBInstanceDBInstanceIdentifier
+        , fmap (("DBName",) . toJSON) _rDSDBInstanceDBName
+        , fmap (("DBParameterGroupName",) . toJSON) _rDSDBInstanceDBParameterGroupName
+        , fmap (("DBSecurityGroups",) . toJSON) _rDSDBInstanceDBSecurityGroups
+        , fmap (("DBSnapshotIdentifier",) . toJSON) _rDSDBInstanceDBSnapshotIdentifier
+        , fmap (("DBSubnetGroupName",) . toJSON) _rDSDBInstanceDBSubnetGroupName
+        , fmap (("DeleteAutomatedBackups",) . toJSON . fmap Bool') _rDSDBInstanceDeleteAutomatedBackups
+        , fmap (("DeletionProtection",) . toJSON . fmap Bool') _rDSDBInstanceDeletionProtection
+        , fmap (("Domain",) . toJSON) _rDSDBInstanceDomain
+        , fmap (("DomainIAMRoleName",) . toJSON) _rDSDBInstanceDomainIAMRoleName
+        , fmap (("EnableCloudwatchLogsExports",) . toJSON) _rDSDBInstanceEnableCloudwatchLogsExports
+        , fmap (("EnableIAMDatabaseAuthentication",) . toJSON . fmap Bool') _rDSDBInstanceEnableIAMDatabaseAuthentication
+        , fmap (("EnablePerformanceInsights",) . toJSON . fmap Bool') _rDSDBInstanceEnablePerformanceInsights
+        , fmap (("Engine",) . toJSON) _rDSDBInstanceEngine
+        , fmap (("EngineVersion",) . toJSON) _rDSDBInstanceEngineVersion
+        , fmap (("Iops",) . toJSON . fmap Integer') _rDSDBInstanceIops
+        , fmap (("KmsKeyId",) . toJSON) _rDSDBInstanceKmsKeyId
+        , fmap (("LicenseModel",) . toJSON) _rDSDBInstanceLicenseModel
+        , fmap (("MasterUserPassword",) . toJSON) _rDSDBInstanceMasterUserPassword
+        , fmap (("MasterUsername",) . toJSON) _rDSDBInstanceMasterUsername
+        , fmap (("MonitoringInterval",) . toJSON . fmap Integer') _rDSDBInstanceMonitoringInterval
+        , fmap (("MonitoringRoleArn",) . toJSON) _rDSDBInstanceMonitoringRoleArn
+        , fmap (("MultiAZ",) . toJSON . fmap Bool') _rDSDBInstanceMultiAZ
+        , fmap (("OptionGroupName",) . toJSON) _rDSDBInstanceOptionGroupName
+        , fmap (("PerformanceInsightsKMSKeyId",) . toJSON) _rDSDBInstancePerformanceInsightsKMSKeyId
+        , fmap (("PerformanceInsightsRetentionPeriod",) . toJSON . fmap Integer') _rDSDBInstancePerformanceInsightsRetentionPeriod
+        , fmap (("Port",) . toJSON) _rDSDBInstancePort
+        , fmap (("PreferredBackupWindow",) . toJSON) _rDSDBInstancePreferredBackupWindow
+        , fmap (("PreferredMaintenanceWindow",) . toJSON) _rDSDBInstancePreferredMaintenanceWindow
+        , fmap (("ProcessorFeatures",) . toJSON) _rDSDBInstanceProcessorFeatures
+        , fmap (("PromotionTier",) . toJSON . fmap Integer') _rDSDBInstancePromotionTier
+        , fmap (("PubliclyAccessible",) . toJSON . fmap Bool') _rDSDBInstancePubliclyAccessible
+        , fmap (("SourceDBInstanceIdentifier",) . toJSON) _rDSDBInstanceSourceDBInstanceIdentifier
+        , fmap (("SourceRegion",) . toJSON) _rDSDBInstanceSourceRegion
+        , fmap (("StorageEncrypted",) . toJSON . fmap Bool') _rDSDBInstanceStorageEncrypted
+        , fmap (("StorageType",) . toJSON) _rDSDBInstanceStorageType
+        , fmap (("Tags",) . toJSON) _rDSDBInstanceTags
+        , fmap (("Timezone",) . toJSON) _rDSDBInstanceTimezone
+        , fmap (("UseDefaultProcessorFeatures",) . toJSON . fmap Bool') _rDSDBInstanceUseDefaultProcessorFeatures
+        , fmap (("VPCSecurityGroups",) . toJSON) _rDSDBInstanceVPCSecurityGroups
+        ]
+    }
 
 -- | Constructor for 'RDSDBInstance' containing required fields as arguments.
 rdsdbInstance

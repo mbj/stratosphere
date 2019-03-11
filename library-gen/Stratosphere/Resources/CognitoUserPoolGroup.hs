@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolgroup.html
@@ -20,16 +21,19 @@ data CognitoUserPoolGroup =
   , _cognitoUserPoolGroupUserPoolId :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON CognitoUserPoolGroup where
-  toJSON CognitoUserPoolGroup{..} =
-    object $
-    catMaybes
-    [ fmap (("Description",) . toJSON) _cognitoUserPoolGroupDescription
-    , fmap (("GroupName",) . toJSON) _cognitoUserPoolGroupGroupName
-    , fmap (("Precedence",) . toJSON . fmap Double') _cognitoUserPoolGroupPrecedence
-    , fmap (("RoleArn",) . toJSON) _cognitoUserPoolGroupRoleArn
-    , (Just . ("UserPoolId",) . toJSON) _cognitoUserPoolGroupUserPoolId
-    ]
+instance ToResourceProperties CognitoUserPoolGroup where
+  toResourceProperties CognitoUserPoolGroup{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::Cognito::UserPoolGroup"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("Description",) . toJSON) _cognitoUserPoolGroupDescription
+        , fmap (("GroupName",) . toJSON) _cognitoUserPoolGroupGroupName
+        , fmap (("Precedence",) . toJSON . fmap Double') _cognitoUserPoolGroupPrecedence
+        , fmap (("RoleArn",) . toJSON) _cognitoUserPoolGroupRoleArn
+        , (Just . ("UserPoolId",) . toJSON) _cognitoUserPoolGroupUserPoolId
+        ]
+    }
 
 -- | Constructor for 'CognitoUserPoolGroup' containing required fields as
 -- arguments.

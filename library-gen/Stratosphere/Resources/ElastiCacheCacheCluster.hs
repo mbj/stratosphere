@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-cache-cluster.html
@@ -36,32 +37,35 @@ data ElastiCacheCacheCluster =
   , _elastiCacheCacheClusterVpcSecurityGroupIds :: Maybe (ValList Text)
   } deriving (Show, Eq)
 
-instance ToJSON ElastiCacheCacheCluster where
-  toJSON ElastiCacheCacheCluster{..} =
-    object $
-    catMaybes
-    [ fmap (("AZMode",) . toJSON) _elastiCacheCacheClusterAZMode
-    , fmap (("AutoMinorVersionUpgrade",) . toJSON . fmap Bool') _elastiCacheCacheClusterAutoMinorVersionUpgrade
-    , (Just . ("CacheNodeType",) . toJSON) _elastiCacheCacheClusterCacheNodeType
-    , fmap (("CacheParameterGroupName",) . toJSON) _elastiCacheCacheClusterCacheParameterGroupName
-    , fmap (("CacheSecurityGroupNames",) . toJSON) _elastiCacheCacheClusterCacheSecurityGroupNames
-    , fmap (("CacheSubnetGroupName",) . toJSON) _elastiCacheCacheClusterCacheSubnetGroupName
-    , fmap (("ClusterName",) . toJSON) _elastiCacheCacheClusterClusterName
-    , (Just . ("Engine",) . toJSON) _elastiCacheCacheClusterEngine
-    , fmap (("EngineVersion",) . toJSON) _elastiCacheCacheClusterEngineVersion
-    , fmap (("NotificationTopicArn",) . toJSON) _elastiCacheCacheClusterNotificationTopicArn
-    , (Just . ("NumCacheNodes",) . toJSON . fmap Integer') _elastiCacheCacheClusterNumCacheNodes
-    , fmap (("Port",) . toJSON . fmap Integer') _elastiCacheCacheClusterPort
-    , fmap (("PreferredAvailabilityZone",) . toJSON) _elastiCacheCacheClusterPreferredAvailabilityZone
-    , fmap (("PreferredAvailabilityZones",) . toJSON) _elastiCacheCacheClusterPreferredAvailabilityZones
-    , fmap (("PreferredMaintenanceWindow",) . toJSON) _elastiCacheCacheClusterPreferredMaintenanceWindow
-    , fmap (("SnapshotArns",) . toJSON) _elastiCacheCacheClusterSnapshotArns
-    , fmap (("SnapshotName",) . toJSON) _elastiCacheCacheClusterSnapshotName
-    , fmap (("SnapshotRetentionLimit",) . toJSON . fmap Integer') _elastiCacheCacheClusterSnapshotRetentionLimit
-    , fmap (("SnapshotWindow",) . toJSON) _elastiCacheCacheClusterSnapshotWindow
-    , fmap (("Tags",) . toJSON) _elastiCacheCacheClusterTags
-    , fmap (("VpcSecurityGroupIds",) . toJSON) _elastiCacheCacheClusterVpcSecurityGroupIds
-    ]
+instance ToResourceProperties ElastiCacheCacheCluster where
+  toResourceProperties ElastiCacheCacheCluster{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::ElastiCache::CacheCluster"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("AZMode",) . toJSON) _elastiCacheCacheClusterAZMode
+        , fmap (("AutoMinorVersionUpgrade",) . toJSON . fmap Bool') _elastiCacheCacheClusterAutoMinorVersionUpgrade
+        , (Just . ("CacheNodeType",) . toJSON) _elastiCacheCacheClusterCacheNodeType
+        , fmap (("CacheParameterGroupName",) . toJSON) _elastiCacheCacheClusterCacheParameterGroupName
+        , fmap (("CacheSecurityGroupNames",) . toJSON) _elastiCacheCacheClusterCacheSecurityGroupNames
+        , fmap (("CacheSubnetGroupName",) . toJSON) _elastiCacheCacheClusterCacheSubnetGroupName
+        , fmap (("ClusterName",) . toJSON) _elastiCacheCacheClusterClusterName
+        , (Just . ("Engine",) . toJSON) _elastiCacheCacheClusterEngine
+        , fmap (("EngineVersion",) . toJSON) _elastiCacheCacheClusterEngineVersion
+        , fmap (("NotificationTopicArn",) . toJSON) _elastiCacheCacheClusterNotificationTopicArn
+        , (Just . ("NumCacheNodes",) . toJSON . fmap Integer') _elastiCacheCacheClusterNumCacheNodes
+        , fmap (("Port",) . toJSON . fmap Integer') _elastiCacheCacheClusterPort
+        , fmap (("PreferredAvailabilityZone",) . toJSON) _elastiCacheCacheClusterPreferredAvailabilityZone
+        , fmap (("PreferredAvailabilityZones",) . toJSON) _elastiCacheCacheClusterPreferredAvailabilityZones
+        , fmap (("PreferredMaintenanceWindow",) . toJSON) _elastiCacheCacheClusterPreferredMaintenanceWindow
+        , fmap (("SnapshotArns",) . toJSON) _elastiCacheCacheClusterSnapshotArns
+        , fmap (("SnapshotName",) . toJSON) _elastiCacheCacheClusterSnapshotName
+        , fmap (("SnapshotRetentionLimit",) . toJSON . fmap Integer') _elastiCacheCacheClusterSnapshotRetentionLimit
+        , fmap (("SnapshotWindow",) . toJSON) _elastiCacheCacheClusterSnapshotWindow
+        , fmap (("Tags",) . toJSON) _elastiCacheCacheClusterTags
+        , fmap (("VpcSecurityGroupIds",) . toJSON) _elastiCacheCacheClusterVpcSecurityGroupIds
+        ]
+    }
 
 -- | Constructor for 'ElastiCacheCacheCluster' containing required fields as
 -- arguments.

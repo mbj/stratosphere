@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-webacl.html
@@ -20,15 +21,18 @@ data WAFRegionalWebACL =
   , _wAFRegionalWebACLRules :: Maybe [WAFRegionalWebACLRule]
   } deriving (Show, Eq)
 
-instance ToJSON WAFRegionalWebACL where
-  toJSON WAFRegionalWebACL{..} =
-    object $
-    catMaybes
-    [ (Just . ("DefaultAction",) . toJSON) _wAFRegionalWebACLDefaultAction
-    , (Just . ("MetricName",) . toJSON) _wAFRegionalWebACLMetricName
-    , (Just . ("Name",) . toJSON) _wAFRegionalWebACLName
-    , fmap (("Rules",) . toJSON) _wAFRegionalWebACLRules
-    ]
+instance ToResourceProperties WAFRegionalWebACL where
+  toResourceProperties WAFRegionalWebACL{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::WAFRegional::WebACL"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("DefaultAction",) . toJSON) _wAFRegionalWebACLDefaultAction
+        , (Just . ("MetricName",) . toJSON) _wAFRegionalWebACLMetricName
+        , (Just . ("Name",) . toJSON) _wAFRegionalWebACLName
+        , fmap (("Rules",) . toJSON) _wAFRegionalWebACLRules
+        ]
+    }
 
 -- | Constructor for 'WAFRegionalWebACL' containing required fields as
 -- arguments.

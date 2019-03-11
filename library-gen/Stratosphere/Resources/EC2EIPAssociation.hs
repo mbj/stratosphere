@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-eip-association.html
@@ -20,16 +21,19 @@ data EC2EIPAssociation =
   , _eC2EIPAssociationPrivateIpAddress :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON EC2EIPAssociation where
-  toJSON EC2EIPAssociation{..} =
-    object $
-    catMaybes
-    [ fmap (("AllocationId",) . toJSON) _eC2EIPAssociationAllocationId
-    , fmap (("EIP",) . toJSON) _eC2EIPAssociationEIP
-    , fmap (("InstanceId",) . toJSON) _eC2EIPAssociationInstanceId
-    , fmap (("NetworkInterfaceId",) . toJSON) _eC2EIPAssociationNetworkInterfaceId
-    , fmap (("PrivateIpAddress",) . toJSON) _eC2EIPAssociationPrivateIpAddress
-    ]
+instance ToResourceProperties EC2EIPAssociation where
+  toResourceProperties EC2EIPAssociation{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::EC2::EIPAssociation"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("AllocationId",) . toJSON) _eC2EIPAssociationAllocationId
+        , fmap (("EIP",) . toJSON) _eC2EIPAssociationEIP
+        , fmap (("InstanceId",) . toJSON) _eC2EIPAssociationInstanceId
+        , fmap (("NetworkInterfaceId",) . toJSON) _eC2EIPAssociationNetworkInterfaceId
+        , fmap (("PrivateIpAddress",) . toJSON) _eC2EIPAssociationPrivateIpAddress
+        ]
+    }
 
 -- | Constructor for 'EC2EIPAssociation' containing required fields as
 -- arguments.

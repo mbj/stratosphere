@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-parameter-group.html
@@ -18,14 +19,17 @@ data ElastiCacheParameterGroup =
   , _elastiCacheParameterGroupProperties :: Maybe Object
   } deriving (Show, Eq)
 
-instance ToJSON ElastiCacheParameterGroup where
-  toJSON ElastiCacheParameterGroup{..} =
-    object $
-    catMaybes
-    [ (Just . ("CacheParameterGroupFamily",) . toJSON) _elastiCacheParameterGroupCacheParameterGroupFamily
-    , (Just . ("Description",) . toJSON) _elastiCacheParameterGroupDescription
-    , fmap (("Properties",) . toJSON) _elastiCacheParameterGroupProperties
-    ]
+instance ToResourceProperties ElastiCacheParameterGroup where
+  toResourceProperties ElastiCacheParameterGroup{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::ElastiCache::ParameterGroup"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("CacheParameterGroupFamily",) . toJSON) _elastiCacheParameterGroupCacheParameterGroupFamily
+        , (Just . ("Description",) . toJSON) _elastiCacheParameterGroupDescription
+        , fmap (("Properties",) . toJSON) _elastiCacheParameterGroupProperties
+        ]
+    }
 
 -- | Constructor for 'ElastiCacheParameterGroup' containing required fields as
 -- arguments.

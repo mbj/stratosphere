@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcedatasync.html
@@ -21,17 +22,20 @@ data SSMResourceDataSync =
   , _sSMResourceDataSyncSyncName :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON SSMResourceDataSync where
-  toJSON SSMResourceDataSync{..} =
-    object $
-    catMaybes
-    [ (Just . ("BucketName",) . toJSON) _sSMResourceDataSyncBucketName
-    , fmap (("BucketPrefix",) . toJSON) _sSMResourceDataSyncBucketPrefix
-    , (Just . ("BucketRegion",) . toJSON) _sSMResourceDataSyncBucketRegion
-    , fmap (("KMSKeyArn",) . toJSON) _sSMResourceDataSyncKMSKeyArn
-    , (Just . ("SyncFormat",) . toJSON) _sSMResourceDataSyncSyncFormat
-    , (Just . ("SyncName",) . toJSON) _sSMResourceDataSyncSyncName
-    ]
+instance ToResourceProperties SSMResourceDataSync where
+  toResourceProperties SSMResourceDataSync{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::SSM::ResourceDataSync"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("BucketName",) . toJSON) _sSMResourceDataSyncBucketName
+        , fmap (("BucketPrefix",) . toJSON) _sSMResourceDataSyncBucketPrefix
+        , (Just . ("BucketRegion",) . toJSON) _sSMResourceDataSyncBucketRegion
+        , fmap (("KMSKeyArn",) . toJSON) _sSMResourceDataSyncKMSKeyArn
+        , (Just . ("SyncFormat",) . toJSON) _sSMResourceDataSyncSyncFormat
+        , (Just . ("SyncName",) . toJSON) _sSMResourceDataSyncSyncName
+        ]
+    }
 
 -- | Constructor for 'SSMResourceDataSync' containing required fields as
 -- arguments.

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-basepathmapping.html
@@ -19,15 +20,18 @@ data ApiGatewayBasePathMapping =
   , _apiGatewayBasePathMappingStage :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON ApiGatewayBasePathMapping where
-  toJSON ApiGatewayBasePathMapping{..} =
-    object $
-    catMaybes
-    [ fmap (("BasePath",) . toJSON) _apiGatewayBasePathMappingBasePath
-    , (Just . ("DomainName",) . toJSON) _apiGatewayBasePathMappingDomainName
-    , fmap (("RestApiId",) . toJSON) _apiGatewayBasePathMappingRestApiId
-    , fmap (("Stage",) . toJSON) _apiGatewayBasePathMappingStage
-    ]
+instance ToResourceProperties ApiGatewayBasePathMapping where
+  toResourceProperties ApiGatewayBasePathMapping{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::ApiGateway::BasePathMapping"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("BasePath",) . toJSON) _apiGatewayBasePathMappingBasePath
+        , (Just . ("DomainName",) . toJSON) _apiGatewayBasePathMappingDomainName
+        , fmap (("RestApiId",) . toJSON) _apiGatewayBasePathMappingRestApiId
+        , fmap (("Stage",) . toJSON) _apiGatewayBasePathMappingStage
+        ]
+    }
 
 -- | Constructor for 'ApiGatewayBasePathMapping' containing required fields as
 -- arguments.

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic.html
@@ -19,15 +20,18 @@ data SNSTopic =
   , _sNSTopicTopicName :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON SNSTopic where
-  toJSON SNSTopic{..} =
-    object $
-    catMaybes
-    [ fmap (("DisplayName",) . toJSON) _sNSTopicDisplayName
-    , fmap (("KmsMasterKeyId",) . toJSON) _sNSTopicKmsMasterKeyId
-    , fmap (("Subscription",) . toJSON) _sNSTopicSubscription
-    , fmap (("TopicName",) . toJSON) _sNSTopicTopicName
-    ]
+instance ToResourceProperties SNSTopic where
+  toResourceProperties SNSTopic{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::SNS::Topic"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("DisplayName",) . toJSON) _sNSTopicDisplayName
+        , fmap (("KmsMasterKeyId",) . toJSON) _sNSTopicKmsMasterKeyId
+        , fmap (("Subscription",) . toJSON) _sNSTopicSubscription
+        , fmap (("TopicName",) . toJSON) _sNSTopicTopicName
+        ]
+    }
 
 -- | Constructor for 'SNSTopic' containing required fields as arguments.
 snsTopic

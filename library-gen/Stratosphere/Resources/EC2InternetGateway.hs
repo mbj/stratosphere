@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-internetgateway.html
@@ -16,12 +17,15 @@ data EC2InternetGateway =
   { _eC2InternetGatewayTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
-instance ToJSON EC2InternetGateway where
-  toJSON EC2InternetGateway{..} =
-    object $
-    catMaybes
-    [ fmap (("Tags",) . toJSON) _eC2InternetGatewayTags
-    ]
+instance ToResourceProperties EC2InternetGateway where
+  toResourceProperties EC2InternetGateway{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::EC2::InternetGateway"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("Tags",) . toJSON) _eC2InternetGatewayTags
+        ]
+    }
 
 -- | Constructor for 'EC2InternetGateway' containing required fields as
 -- arguments.

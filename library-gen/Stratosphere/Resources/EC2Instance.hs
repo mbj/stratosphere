@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html
@@ -59,45 +60,48 @@ data EC2Instance =
   , _eC2InstanceVolumes :: Maybe [EC2InstanceVolume]
   } deriving (Show, Eq)
 
-instance ToJSON EC2Instance where
-  toJSON EC2Instance{..} =
-    object $
-    catMaybes
-    [ fmap (("AdditionalInfo",) . toJSON) _eC2InstanceAdditionalInfo
-    , fmap (("Affinity",) . toJSON) _eC2InstanceAffinity
-    , fmap (("AvailabilityZone",) . toJSON) _eC2InstanceAvailabilityZone
-    , fmap (("BlockDeviceMappings",) . toJSON) _eC2InstanceBlockDeviceMappings
-    , fmap (("CreditSpecification",) . toJSON) _eC2InstanceCreditSpecification
-    , fmap (("DisableApiTermination",) . toJSON . fmap Bool') _eC2InstanceDisableApiTermination
-    , fmap (("EbsOptimized",) . toJSON . fmap Bool') _eC2InstanceEbsOptimized
-    , fmap (("ElasticGpuSpecifications",) . toJSON) _eC2InstanceElasticGpuSpecifications
-    , fmap (("ElasticInferenceAccelerators",) . toJSON) _eC2InstanceElasticInferenceAccelerators
-    , fmap (("HostId",) . toJSON) _eC2InstanceHostId
-    , fmap (("IamInstanceProfile",) . toJSON) _eC2InstanceIamInstanceProfile
-    , fmap (("ImageId",) . toJSON) _eC2InstanceImageId
-    , fmap (("InstanceInitiatedShutdownBehavior",) . toJSON) _eC2InstanceInstanceInitiatedShutdownBehavior
-    , fmap (("InstanceType",) . toJSON) _eC2InstanceInstanceType
-    , fmap (("Ipv6AddressCount",) . toJSON . fmap Integer') _eC2InstanceIpv6AddressCount
-    , fmap (("Ipv6Addresses",) . toJSON) _eC2InstanceIpv6Addresses
-    , fmap (("KernelId",) . toJSON) _eC2InstanceKernelId
-    , fmap (("KeyName",) . toJSON) _eC2InstanceKeyName
-    , fmap (("LaunchTemplate",) . toJSON) _eC2InstanceLaunchTemplate
-    , fmap (("LicenseSpecifications",) . toJSON) _eC2InstanceLicenseSpecifications
-    , fmap (("Monitoring",) . toJSON . fmap Bool') _eC2InstanceMonitoring
-    , fmap (("NetworkInterfaces",) . toJSON) _eC2InstanceNetworkInterfaces
-    , fmap (("PlacementGroupName",) . toJSON) _eC2InstancePlacementGroupName
-    , fmap (("PrivateIpAddress",) . toJSON) _eC2InstancePrivateIpAddress
-    , fmap (("RamdiskId",) . toJSON) _eC2InstanceRamdiskId
-    , fmap (("SecurityGroupIds",) . toJSON) _eC2InstanceSecurityGroupIds
-    , fmap (("SecurityGroups",) . toJSON) _eC2InstanceSecurityGroups
-    , fmap (("SourceDestCheck",) . toJSON . fmap Bool') _eC2InstanceSourceDestCheck
-    , fmap (("SsmAssociations",) . toJSON) _eC2InstanceSsmAssociations
-    , fmap (("SubnetId",) . toJSON) _eC2InstanceSubnetId
-    , fmap (("Tags",) . toJSON) _eC2InstanceTags
-    , fmap (("Tenancy",) . toJSON) _eC2InstanceTenancy
-    , fmap (("UserData",) . toJSON) _eC2InstanceUserData
-    , fmap (("Volumes",) . toJSON) _eC2InstanceVolumes
-    ]
+instance ToResourceProperties EC2Instance where
+  toResourceProperties EC2Instance{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::EC2::Instance"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("AdditionalInfo",) . toJSON) _eC2InstanceAdditionalInfo
+        , fmap (("Affinity",) . toJSON) _eC2InstanceAffinity
+        , fmap (("AvailabilityZone",) . toJSON) _eC2InstanceAvailabilityZone
+        , fmap (("BlockDeviceMappings",) . toJSON) _eC2InstanceBlockDeviceMappings
+        , fmap (("CreditSpecification",) . toJSON) _eC2InstanceCreditSpecification
+        , fmap (("DisableApiTermination",) . toJSON . fmap Bool') _eC2InstanceDisableApiTermination
+        , fmap (("EbsOptimized",) . toJSON . fmap Bool') _eC2InstanceEbsOptimized
+        , fmap (("ElasticGpuSpecifications",) . toJSON) _eC2InstanceElasticGpuSpecifications
+        , fmap (("ElasticInferenceAccelerators",) . toJSON) _eC2InstanceElasticInferenceAccelerators
+        , fmap (("HostId",) . toJSON) _eC2InstanceHostId
+        , fmap (("IamInstanceProfile",) . toJSON) _eC2InstanceIamInstanceProfile
+        , fmap (("ImageId",) . toJSON) _eC2InstanceImageId
+        , fmap (("InstanceInitiatedShutdownBehavior",) . toJSON) _eC2InstanceInstanceInitiatedShutdownBehavior
+        , fmap (("InstanceType",) . toJSON) _eC2InstanceInstanceType
+        , fmap (("Ipv6AddressCount",) . toJSON . fmap Integer') _eC2InstanceIpv6AddressCount
+        , fmap (("Ipv6Addresses",) . toJSON) _eC2InstanceIpv6Addresses
+        , fmap (("KernelId",) . toJSON) _eC2InstanceKernelId
+        , fmap (("KeyName",) . toJSON) _eC2InstanceKeyName
+        , fmap (("LaunchTemplate",) . toJSON) _eC2InstanceLaunchTemplate
+        , fmap (("LicenseSpecifications",) . toJSON) _eC2InstanceLicenseSpecifications
+        , fmap (("Monitoring",) . toJSON . fmap Bool') _eC2InstanceMonitoring
+        , fmap (("NetworkInterfaces",) . toJSON) _eC2InstanceNetworkInterfaces
+        , fmap (("PlacementGroupName",) . toJSON) _eC2InstancePlacementGroupName
+        , fmap (("PrivateIpAddress",) . toJSON) _eC2InstancePrivateIpAddress
+        , fmap (("RamdiskId",) . toJSON) _eC2InstanceRamdiskId
+        , fmap (("SecurityGroupIds",) . toJSON) _eC2InstanceSecurityGroupIds
+        , fmap (("SecurityGroups",) . toJSON) _eC2InstanceSecurityGroups
+        , fmap (("SourceDestCheck",) . toJSON . fmap Bool') _eC2InstanceSourceDestCheck
+        , fmap (("SsmAssociations",) . toJSON) _eC2InstanceSsmAssociations
+        , fmap (("SubnetId",) . toJSON) _eC2InstanceSubnetId
+        , fmap (("Tags",) . toJSON) _eC2InstanceTags
+        , fmap (("Tenancy",) . toJSON) _eC2InstanceTenancy
+        , fmap (("UserData",) . toJSON) _eC2InstanceUserData
+        , fmap (("Volumes",) . toJSON) _eC2InstanceVolumes
+        ]
+    }
 
 -- | Constructor for 'EC2Instance' containing required fields as arguments.
 ec2Instance

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-layer.html
@@ -38,30 +39,33 @@ data OpsWorksLayer =
   , _opsWorksLayerVolumeConfigurations :: Maybe [OpsWorksLayerVolumeConfiguration]
   } deriving (Show, Eq)
 
-instance ToJSON OpsWorksLayer where
-  toJSON OpsWorksLayer{..} =
-    object $
-    catMaybes
-    [ fmap (("Attributes",) . toJSON) _opsWorksLayerAttributes
-    , (Just . ("AutoAssignElasticIps",) . toJSON . fmap Bool') _opsWorksLayerAutoAssignElasticIps
-    , (Just . ("AutoAssignPublicIps",) . toJSON . fmap Bool') _opsWorksLayerAutoAssignPublicIps
-    , fmap (("CustomInstanceProfileArn",) . toJSON) _opsWorksLayerCustomInstanceProfileArn
-    , fmap (("CustomJson",) . toJSON) _opsWorksLayerCustomJson
-    , fmap (("CustomRecipes",) . toJSON) _opsWorksLayerCustomRecipes
-    , fmap (("CustomSecurityGroupIds",) . toJSON) _opsWorksLayerCustomSecurityGroupIds
-    , (Just . ("EnableAutoHealing",) . toJSON . fmap Bool') _opsWorksLayerEnableAutoHealing
-    , fmap (("InstallUpdatesOnBoot",) . toJSON . fmap Bool') _opsWorksLayerInstallUpdatesOnBoot
-    , fmap (("LifecycleEventConfiguration",) . toJSON) _opsWorksLayerLifecycleEventConfiguration
-    , fmap (("LoadBasedAutoScaling",) . toJSON) _opsWorksLayerLoadBasedAutoScaling
-    , (Just . ("Name",) . toJSON) _opsWorksLayerName
-    , fmap (("Packages",) . toJSON) _opsWorksLayerPackages
-    , (Just . ("Shortname",) . toJSON) _opsWorksLayerShortname
-    , (Just . ("StackId",) . toJSON) _opsWorksLayerStackId
-    , fmap (("Tags",) . toJSON) _opsWorksLayerTags
-    , (Just . ("Type",) . toJSON) _opsWorksLayerType
-    , fmap (("UseEbsOptimizedInstances",) . toJSON . fmap Bool') _opsWorksLayerUseEbsOptimizedInstances
-    , fmap (("VolumeConfigurations",) . toJSON) _opsWorksLayerVolumeConfigurations
-    ]
+instance ToResourceProperties OpsWorksLayer where
+  toResourceProperties OpsWorksLayer{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::OpsWorks::Layer"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("Attributes",) . toJSON) _opsWorksLayerAttributes
+        , (Just . ("AutoAssignElasticIps",) . toJSON . fmap Bool') _opsWorksLayerAutoAssignElasticIps
+        , (Just . ("AutoAssignPublicIps",) . toJSON . fmap Bool') _opsWorksLayerAutoAssignPublicIps
+        , fmap (("CustomInstanceProfileArn",) . toJSON) _opsWorksLayerCustomInstanceProfileArn
+        , fmap (("CustomJson",) . toJSON) _opsWorksLayerCustomJson
+        , fmap (("CustomRecipes",) . toJSON) _opsWorksLayerCustomRecipes
+        , fmap (("CustomSecurityGroupIds",) . toJSON) _opsWorksLayerCustomSecurityGroupIds
+        , (Just . ("EnableAutoHealing",) . toJSON . fmap Bool') _opsWorksLayerEnableAutoHealing
+        , fmap (("InstallUpdatesOnBoot",) . toJSON . fmap Bool') _opsWorksLayerInstallUpdatesOnBoot
+        , fmap (("LifecycleEventConfiguration",) . toJSON) _opsWorksLayerLifecycleEventConfiguration
+        , fmap (("LoadBasedAutoScaling",) . toJSON) _opsWorksLayerLoadBasedAutoScaling
+        , (Just . ("Name",) . toJSON) _opsWorksLayerName
+        , fmap (("Packages",) . toJSON) _opsWorksLayerPackages
+        , (Just . ("Shortname",) . toJSON) _opsWorksLayerShortname
+        , (Just . ("StackId",) . toJSON) _opsWorksLayerStackId
+        , fmap (("Tags",) . toJSON) _opsWorksLayerTags
+        , (Just . ("Type",) . toJSON) _opsWorksLayerType
+        , fmap (("UseEbsOptimizedInstances",) . toJSON . fmap Bool') _opsWorksLayerUseEbsOptimizedInstances
+        , fmap (("VolumeConfigurations",) . toJSON) _opsWorksLayerVolumeConfigurations
+        ]
+    }
 
 -- | Constructor for 'OpsWorksLayer' containing required fields as arguments.
 opsWorksLayer

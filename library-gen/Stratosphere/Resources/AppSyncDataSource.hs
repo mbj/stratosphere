@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-datasource.html
@@ -29,21 +30,24 @@ data AppSyncDataSource =
   , _appSyncDataSourceType :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON AppSyncDataSource where
-  toJSON AppSyncDataSource{..} =
-    object $
-    catMaybes
-    [ (Just . ("ApiId",) . toJSON) _appSyncDataSourceApiId
-    , fmap (("Description",) . toJSON) _appSyncDataSourceDescription
-    , fmap (("DynamoDBConfig",) . toJSON) _appSyncDataSourceDynamoDBConfig
-    , fmap (("ElasticsearchConfig",) . toJSON) _appSyncDataSourceElasticsearchConfig
-    , fmap (("HttpConfig",) . toJSON) _appSyncDataSourceHttpConfig
-    , fmap (("LambdaConfig",) . toJSON) _appSyncDataSourceLambdaConfig
-    , (Just . ("Name",) . toJSON) _appSyncDataSourceName
-    , fmap (("RelationalDatabaseConfig",) . toJSON) _appSyncDataSourceRelationalDatabaseConfig
-    , fmap (("ServiceRoleArn",) . toJSON) _appSyncDataSourceServiceRoleArn
-    , (Just . ("Type",) . toJSON) _appSyncDataSourceType
-    ]
+instance ToResourceProperties AppSyncDataSource where
+  toResourceProperties AppSyncDataSource{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::AppSync::DataSource"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("ApiId",) . toJSON) _appSyncDataSourceApiId
+        , fmap (("Description",) . toJSON) _appSyncDataSourceDescription
+        , fmap (("DynamoDBConfig",) . toJSON) _appSyncDataSourceDynamoDBConfig
+        , fmap (("ElasticsearchConfig",) . toJSON) _appSyncDataSourceElasticsearchConfig
+        , fmap (("HttpConfig",) . toJSON) _appSyncDataSourceHttpConfig
+        , fmap (("LambdaConfig",) . toJSON) _appSyncDataSourceLambdaConfig
+        , (Just . ("Name",) . toJSON) _appSyncDataSourceName
+        , fmap (("RelationalDatabaseConfig",) . toJSON) _appSyncDataSourceRelationalDatabaseConfig
+        , fmap (("ServiceRoleArn",) . toJSON) _appSyncDataSourceServiceRoleArn
+        , (Just . ("Type",) . toJSON) _appSyncDataSourceType
+        ]
+    }
 
 -- | Constructor for 'AppSyncDataSource' containing required fields as
 -- arguments.

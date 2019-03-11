@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticbeanstalk-configurationtemplate.html
@@ -24,18 +25,21 @@ data ElasticBeanstalkConfigurationTemplate =
   , _elasticBeanstalkConfigurationTemplateSourceConfiguration :: Maybe ElasticBeanstalkConfigurationTemplateSourceConfiguration
   } deriving (Show, Eq)
 
-instance ToJSON ElasticBeanstalkConfigurationTemplate where
-  toJSON ElasticBeanstalkConfigurationTemplate{..} =
-    object $
-    catMaybes
-    [ (Just . ("ApplicationName",) . toJSON) _elasticBeanstalkConfigurationTemplateApplicationName
-    , fmap (("Description",) . toJSON) _elasticBeanstalkConfigurationTemplateDescription
-    , fmap (("EnvironmentId",) . toJSON) _elasticBeanstalkConfigurationTemplateEnvironmentId
-    , fmap (("OptionSettings",) . toJSON) _elasticBeanstalkConfigurationTemplateOptionSettings
-    , fmap (("PlatformArn",) . toJSON) _elasticBeanstalkConfigurationTemplatePlatformArn
-    , fmap (("SolutionStackName",) . toJSON) _elasticBeanstalkConfigurationTemplateSolutionStackName
-    , fmap (("SourceConfiguration",) . toJSON) _elasticBeanstalkConfigurationTemplateSourceConfiguration
-    ]
+instance ToResourceProperties ElasticBeanstalkConfigurationTemplate where
+  toResourceProperties ElasticBeanstalkConfigurationTemplate{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::ElasticBeanstalk::ConfigurationTemplate"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("ApplicationName",) . toJSON) _elasticBeanstalkConfigurationTemplateApplicationName
+        , fmap (("Description",) . toJSON) _elasticBeanstalkConfigurationTemplateDescription
+        , fmap (("EnvironmentId",) . toJSON) _elasticBeanstalkConfigurationTemplateEnvironmentId
+        , fmap (("OptionSettings",) . toJSON) _elasticBeanstalkConfigurationTemplateOptionSettings
+        , fmap (("PlatformArn",) . toJSON) _elasticBeanstalkConfigurationTemplatePlatformArn
+        , fmap (("SolutionStackName",) . toJSON) _elasticBeanstalkConfigurationTemplateSolutionStackName
+        , fmap (("SourceConfiguration",) . toJSON) _elasticBeanstalkConfigurationTemplateSourceConfiguration
+        ]
+    }
 
 -- | Constructor for 'ElasticBeanstalkConfigurationTemplate' containing
 -- required fields as arguments.

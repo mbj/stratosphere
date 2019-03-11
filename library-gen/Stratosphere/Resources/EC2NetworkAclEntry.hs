@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-acl-entry.html
@@ -25,20 +26,23 @@ data EC2NetworkAclEntry =
   , _eC2NetworkAclEntryRuleNumber :: Val Integer
   } deriving (Show, Eq)
 
-instance ToJSON EC2NetworkAclEntry where
-  toJSON EC2NetworkAclEntry{..} =
-    object $
-    catMaybes
-    [ (Just . ("CidrBlock",) . toJSON) _eC2NetworkAclEntryCidrBlock
-    , fmap (("Egress",) . toJSON . fmap Bool') _eC2NetworkAclEntryEgress
-    , fmap (("Icmp",) . toJSON) _eC2NetworkAclEntryIcmp
-    , fmap (("Ipv6CidrBlock",) . toJSON) _eC2NetworkAclEntryIpv6CidrBlock
-    , (Just . ("NetworkAclId",) . toJSON) _eC2NetworkAclEntryNetworkAclId
-    , fmap (("PortRange",) . toJSON) _eC2NetworkAclEntryPortRange
-    , (Just . ("Protocol",) . toJSON . fmap Integer') _eC2NetworkAclEntryProtocol
-    , (Just . ("RuleAction",) . toJSON) _eC2NetworkAclEntryRuleAction
-    , (Just . ("RuleNumber",) . toJSON . fmap Integer') _eC2NetworkAclEntryRuleNumber
-    ]
+instance ToResourceProperties EC2NetworkAclEntry where
+  toResourceProperties EC2NetworkAclEntry{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::EC2::NetworkAclEntry"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("CidrBlock",) . toJSON) _eC2NetworkAclEntryCidrBlock
+        , fmap (("Egress",) . toJSON . fmap Bool') _eC2NetworkAclEntryEgress
+        , fmap (("Icmp",) . toJSON) _eC2NetworkAclEntryIcmp
+        , fmap (("Ipv6CidrBlock",) . toJSON) _eC2NetworkAclEntryIpv6CidrBlock
+        , (Just . ("NetworkAclId",) . toJSON) _eC2NetworkAclEntryNetworkAclId
+        , fmap (("PortRange",) . toJSON) _eC2NetworkAclEntryPortRange
+        , (Just . ("Protocol",) . toJSON . fmap Integer') _eC2NetworkAclEntryProtocol
+        , (Just . ("RuleAction",) . toJSON) _eC2NetworkAclEntryRuleAction
+        , (Just . ("RuleNumber",) . toJSON . fmap Integer') _eC2NetworkAclEntryRuleNumber
+        ]
+    }
 
 -- | Constructor for 'EC2NetworkAclEntry' containing required fields as
 -- arguments.

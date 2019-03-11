@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stackuserassociation.html
@@ -19,15 +20,18 @@ data AppStreamStackUserAssociation =
   , _appStreamStackUserAssociationUserName :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON AppStreamStackUserAssociation where
-  toJSON AppStreamStackUserAssociation{..} =
-    object $
-    catMaybes
-    [ (Just . ("AuthenticationType",) . toJSON) _appStreamStackUserAssociationAuthenticationType
-    , fmap (("SendEmailNotification",) . toJSON . fmap Bool') _appStreamStackUserAssociationSendEmailNotification
-    , (Just . ("StackName",) . toJSON) _appStreamStackUserAssociationStackName
-    , (Just . ("UserName",) . toJSON) _appStreamStackUserAssociationUserName
-    ]
+instance ToResourceProperties AppStreamStackUserAssociation where
+  toResourceProperties AppStreamStackUserAssociation{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::AppStream::StackUserAssociation"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("AuthenticationType",) . toJSON) _appStreamStackUserAssociationAuthenticationType
+        , fmap (("SendEmailNotification",) . toJSON . fmap Bool') _appStreamStackUserAssociationSendEmailNotification
+        , (Just . ("StackName",) . toJSON) _appStreamStackUserAssociationStackName
+        , (Just . ("UserName",) . toJSON) _appStreamStackUserAssociationUserName
+        ]
+    }
 
 -- | Constructor for 'AppStreamStackUserAssociation' containing required
 -- fields as arguments.

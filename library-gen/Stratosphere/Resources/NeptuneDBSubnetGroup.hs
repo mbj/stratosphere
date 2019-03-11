@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbsubnetgroup.html
@@ -19,15 +20,18 @@ data NeptuneDBSubnetGroup =
   , _neptuneDBSubnetGroupTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
-instance ToJSON NeptuneDBSubnetGroup where
-  toJSON NeptuneDBSubnetGroup{..} =
-    object $
-    catMaybes
-    [ (Just . ("DBSubnetGroupDescription",) . toJSON) _neptuneDBSubnetGroupDBSubnetGroupDescription
-    , fmap (("DBSubnetGroupName",) . toJSON) _neptuneDBSubnetGroupDBSubnetGroupName
-    , (Just . ("SubnetIds",) . toJSON) _neptuneDBSubnetGroupSubnetIds
-    , fmap (("Tags",) . toJSON) _neptuneDBSubnetGroupTags
-    ]
+instance ToResourceProperties NeptuneDBSubnetGroup where
+  toResourceProperties NeptuneDBSubnetGroup{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::Neptune::DBSubnetGroup"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("DBSubnetGroupDescription",) . toJSON) _neptuneDBSubnetGroupDBSubnetGroupDescription
+        , fmap (("DBSubnetGroupName",) . toJSON) _neptuneDBSubnetGroupDBSubnetGroupName
+        , (Just . ("SubnetIds",) . toJSON) _neptuneDBSubnetGroupSubnetIds
+        , fmap (("Tags",) . toJSON) _neptuneDBSubnetGroupTags
+        ]
+    }
 
 -- | Constructor for 'NeptuneDBSubnetGroup' containing required fields as
 -- arguments.

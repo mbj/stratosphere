@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html
@@ -30,24 +31,27 @@ data AppStreamFleet =
   , _appStreamFleetVpcConfig :: Maybe AppStreamFleetVpcConfig
   } deriving (Show, Eq)
 
-instance ToJSON AppStreamFleet where
-  toJSON AppStreamFleet{..} =
-    object $
-    catMaybes
-    [ (Just . ("ComputeCapacity",) . toJSON) _appStreamFleetComputeCapacity
-    , fmap (("Description",) . toJSON) _appStreamFleetDescription
-    , fmap (("DisconnectTimeoutInSeconds",) . toJSON . fmap Integer') _appStreamFleetDisconnectTimeoutInSeconds
-    , fmap (("DisplayName",) . toJSON) _appStreamFleetDisplayName
-    , fmap (("DomainJoinInfo",) . toJSON) _appStreamFleetDomainJoinInfo
-    , fmap (("EnableDefaultInternetAccess",) . toJSON . fmap Bool') _appStreamFleetEnableDefaultInternetAccess
-    , fmap (("FleetType",) . toJSON) _appStreamFleetFleetType
-    , fmap (("ImageArn",) . toJSON) _appStreamFleetImageArn
-    , fmap (("ImageName",) . toJSON) _appStreamFleetImageName
-    , (Just . ("InstanceType",) . toJSON) _appStreamFleetInstanceType
-    , fmap (("MaxUserDurationInSeconds",) . toJSON . fmap Integer') _appStreamFleetMaxUserDurationInSeconds
-    , fmap (("Name",) . toJSON) _appStreamFleetName
-    , fmap (("VpcConfig",) . toJSON) _appStreamFleetVpcConfig
-    ]
+instance ToResourceProperties AppStreamFleet where
+  toResourceProperties AppStreamFleet{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::AppStream::Fleet"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("ComputeCapacity",) . toJSON) _appStreamFleetComputeCapacity
+        , fmap (("Description",) . toJSON) _appStreamFleetDescription
+        , fmap (("DisconnectTimeoutInSeconds",) . toJSON . fmap Integer') _appStreamFleetDisconnectTimeoutInSeconds
+        , fmap (("DisplayName",) . toJSON) _appStreamFleetDisplayName
+        , fmap (("DomainJoinInfo",) . toJSON) _appStreamFleetDomainJoinInfo
+        , fmap (("EnableDefaultInternetAccess",) . toJSON . fmap Bool') _appStreamFleetEnableDefaultInternetAccess
+        , fmap (("FleetType",) . toJSON) _appStreamFleetFleetType
+        , fmap (("ImageArn",) . toJSON) _appStreamFleetImageArn
+        , fmap (("ImageName",) . toJSON) _appStreamFleetImageName
+        , (Just . ("InstanceType",) . toJSON) _appStreamFleetInstanceType
+        , fmap (("MaxUserDurationInSeconds",) . toJSON . fmap Integer') _appStreamFleetMaxUserDurationInSeconds
+        , fmap (("Name",) . toJSON) _appStreamFleetName
+        , fmap (("VpcConfig",) . toJSON) _appStreamFleetVpcConfig
+        ]
+    }
 
 -- | Constructor for 'AppStreamFleet' containing required fields as arguments.
 appStreamFleet

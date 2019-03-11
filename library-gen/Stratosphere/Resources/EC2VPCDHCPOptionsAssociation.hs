@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc-dhcp-options-assoc.html
@@ -17,13 +18,16 @@ data EC2VPCDHCPOptionsAssociation =
   , _eC2VPCDHCPOptionsAssociationVpcId :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON EC2VPCDHCPOptionsAssociation where
-  toJSON EC2VPCDHCPOptionsAssociation{..} =
-    object $
-    catMaybes
-    [ (Just . ("DhcpOptionsId",) . toJSON) _eC2VPCDHCPOptionsAssociationDhcpOptionsId
-    , (Just . ("VpcId",) . toJSON) _eC2VPCDHCPOptionsAssociationVpcId
-    ]
+instance ToResourceProperties EC2VPCDHCPOptionsAssociation where
+  toResourceProperties EC2VPCDHCPOptionsAssociation{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::EC2::VPCDHCPOptionsAssociation"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("DhcpOptionsId",) . toJSON) _eC2VPCDHCPOptionsAssociationDhcpOptionsId
+        , (Just . ("VpcId",) . toJSON) _eC2VPCDHCPOptionsAssociationVpcId
+        ]
+    }
 
 -- | Constructor for 'EC2VPCDHCPOptionsAssociation' containing required fields
 -- as arguments.

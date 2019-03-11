@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservicepermissions.html
@@ -17,13 +18,16 @@ data EC2VPCEndpointServicePermissions =
   , _eC2VPCEndpointServicePermissionsServiceId :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON EC2VPCEndpointServicePermissions where
-  toJSON EC2VPCEndpointServicePermissions{..} =
-    object $
-    catMaybes
-    [ fmap (("AllowedPrincipals",) . toJSON) _eC2VPCEndpointServicePermissionsAllowedPrincipals
-    , (Just . ("ServiceId",) . toJSON) _eC2VPCEndpointServicePermissionsServiceId
-    ]
+instance ToResourceProperties EC2VPCEndpointServicePermissions where
+  toResourceProperties EC2VPCEndpointServicePermissions{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::EC2::VPCEndpointServicePermissions"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("AllowedPrincipals",) . toJSON) _eC2VPCEndpointServicePermissionsAllowedPrincipals
+        , (Just . ("ServiceId",) . toJSON) _eC2VPCEndpointServicePermissionsServiceId
+        ]
+    }
 
 -- | Constructor for 'EC2VPCEndpointServicePermissions' containing required
 -- fields as arguments.

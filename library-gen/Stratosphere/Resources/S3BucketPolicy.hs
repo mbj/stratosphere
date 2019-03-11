@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-policy.html
@@ -17,13 +18,16 @@ data S3BucketPolicy =
   , _s3BucketPolicyPolicyDocument :: Object
   } deriving (Show, Eq)
 
-instance ToJSON S3BucketPolicy where
-  toJSON S3BucketPolicy{..} =
-    object $
-    catMaybes
-    [ (Just . ("Bucket",) . toJSON) _s3BucketPolicyBucket
-    , (Just . ("PolicyDocument",) . toJSON) _s3BucketPolicyPolicyDocument
-    ]
+instance ToResourceProperties S3BucketPolicy where
+  toResourceProperties S3BucketPolicy{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::S3::BucketPolicy"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("Bucket",) . toJSON) _s3BucketPolicyBucket
+        , (Just . ("PolicyDocument",) . toJSON) _s3BucketPolicyPolicyDocument
+        ]
+    }
 
 -- | Constructor for 'S3BucketPolicy' containing required fields as arguments.
 s3BucketPolicy

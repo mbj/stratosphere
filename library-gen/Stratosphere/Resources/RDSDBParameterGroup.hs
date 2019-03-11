@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbparametergroup.html
@@ -19,15 +20,18 @@ data RDSDBParameterGroup =
   , _rDSDBParameterGroupTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
-instance ToJSON RDSDBParameterGroup where
-  toJSON RDSDBParameterGroup{..} =
-    object $
-    catMaybes
-    [ (Just . ("Description",) . toJSON) _rDSDBParameterGroupDescription
-    , (Just . ("Family",) . toJSON) _rDSDBParameterGroupFamily
-    , fmap (("Parameters",) . toJSON) _rDSDBParameterGroupParameters
-    , fmap (("Tags",) . toJSON) _rDSDBParameterGroupTags
-    ]
+instance ToResourceProperties RDSDBParameterGroup where
+  toResourceProperties RDSDBParameterGroup{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::RDS::DBParameterGroup"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("Description",) . toJSON) _rDSDBParameterGroupDescription
+        , (Just . ("Family",) . toJSON) _rDSDBParameterGroupFamily
+        , fmap (("Parameters",) . toJSON) _rDSDBParameterGroupParameters
+        , fmap (("Tags",) . toJSON) _rDSDBParameterGroupTags
+        ]
+    }
 
 -- | Constructor for 'RDSDBParameterGroup' containing required fields as
 -- arguments.

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trunkinterfaceassociation.html
@@ -19,15 +20,18 @@ data EC2TrunkInterfaceAssociation =
   , _eC2TrunkInterfaceAssociationVLANId :: Maybe (Val Integer)
   } deriving (Show, Eq)
 
-instance ToJSON EC2TrunkInterfaceAssociation where
-  toJSON EC2TrunkInterfaceAssociation{..} =
-    object $
-    catMaybes
-    [ (Just . ("BranchInterfaceId",) . toJSON) _eC2TrunkInterfaceAssociationBranchInterfaceId
-    , fmap (("GREKey",) . toJSON . fmap Integer') _eC2TrunkInterfaceAssociationGREKey
-    , (Just . ("TrunkInterfaceId",) . toJSON) _eC2TrunkInterfaceAssociationTrunkInterfaceId
-    , fmap (("VLANId",) . toJSON . fmap Integer') _eC2TrunkInterfaceAssociationVLANId
-    ]
+instance ToResourceProperties EC2TrunkInterfaceAssociation where
+  toResourceProperties EC2TrunkInterfaceAssociation{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::EC2::TrunkInterfaceAssociation"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("BranchInterfaceId",) . toJSON) _eC2TrunkInterfaceAssociationBranchInterfaceId
+        , fmap (("GREKey",) . toJSON . fmap Integer') _eC2TrunkInterfaceAssociationGREKey
+        , (Just . ("TrunkInterfaceId",) . toJSON) _eC2TrunkInterfaceAssociationTrunkInterfaceId
+        , fmap (("VLANId",) . toJSON . fmap Integer') _eC2TrunkInterfaceAssociationVLANId
+        ]
+    }
 
 -- | Constructor for 'EC2TrunkInterfaceAssociation' containing required fields
 -- as arguments.

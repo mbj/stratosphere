@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspector-assessmenttemplate.html
@@ -20,16 +21,19 @@ data InspectorAssessmentTemplate =
   , _inspectorAssessmentTemplateUserAttributesForFindings :: Maybe [Tag]
   } deriving (Show, Eq)
 
-instance ToJSON InspectorAssessmentTemplate where
-  toJSON InspectorAssessmentTemplate{..} =
-    object $
-    catMaybes
-    [ (Just . ("AssessmentTargetArn",) . toJSON) _inspectorAssessmentTemplateAssessmentTargetArn
-    , fmap (("AssessmentTemplateName",) . toJSON) _inspectorAssessmentTemplateAssessmentTemplateName
-    , (Just . ("DurationInSeconds",) . toJSON . fmap Integer') _inspectorAssessmentTemplateDurationInSeconds
-    , (Just . ("RulesPackageArns",) . toJSON) _inspectorAssessmentTemplateRulesPackageArns
-    , fmap (("UserAttributesForFindings",) . toJSON) _inspectorAssessmentTemplateUserAttributesForFindings
-    ]
+instance ToResourceProperties InspectorAssessmentTemplate where
+  toResourceProperties InspectorAssessmentTemplate{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::Inspector::AssessmentTemplate"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("AssessmentTargetArn",) . toJSON) _inspectorAssessmentTemplateAssessmentTargetArn
+        , fmap (("AssessmentTemplateName",) . toJSON) _inspectorAssessmentTemplateAssessmentTemplateName
+        , (Just . ("DurationInSeconds",) . toJSON . fmap Integer') _inspectorAssessmentTemplateDurationInSeconds
+        , (Just . ("RulesPackageArns",) . toJSON) _inspectorAssessmentTemplateRulesPackageArns
+        , fmap (("UserAttributesForFindings",) . toJSON) _inspectorAssessmentTemplateUserAttributesForFindings
+        ]
+    }
 
 -- | Constructor for 'InspectorAssessmentTemplate' containing required fields
 -- as arguments.

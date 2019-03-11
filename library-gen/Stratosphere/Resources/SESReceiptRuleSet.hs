@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-receiptruleset.html
@@ -16,12 +17,15 @@ data SESReceiptRuleSet =
   { _sESReceiptRuleSetRuleSetName :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON SESReceiptRuleSet where
-  toJSON SESReceiptRuleSet{..} =
-    object $
-    catMaybes
-    [ fmap (("RuleSetName",) . toJSON) _sESReceiptRuleSetRuleSetName
-    ]
+instance ToResourceProperties SESReceiptRuleSet where
+  toResourceProperties SESReceiptRuleSet{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::SES::ReceiptRuleSet"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("RuleSetName",) . toJSON) _sESReceiptRuleSetRuleSetName
+        ]
+    }
 
 -- | Constructor for 'SESReceiptRuleSet' containing required fields as
 -- arguments.

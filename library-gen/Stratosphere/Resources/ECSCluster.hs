@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html
@@ -16,12 +17,15 @@ data ECSCluster =
   { _eCSClusterClusterName :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON ECSCluster where
-  toJSON ECSCluster{..} =
-    object $
-    catMaybes
-    [ fmap (("ClusterName",) . toJSON) _eCSClusterClusterName
-    ]
+instance ToResourceProperties ECSCluster where
+  toResourceProperties ECSCluster{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::ECS::Cluster"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("ClusterName",) . toJSON) _eCSClusterClusterName
+        ]
+    }
 
 -- | Constructor for 'ECSCluster' containing required fields as arguments.
 ecsCluster

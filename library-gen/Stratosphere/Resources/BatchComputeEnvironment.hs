@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-computeenvironment.html
@@ -20,16 +21,19 @@ data BatchComputeEnvironment =
   , _batchComputeEnvironmentType :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON BatchComputeEnvironment where
-  toJSON BatchComputeEnvironment{..} =
-    object $
-    catMaybes
-    [ fmap (("ComputeEnvironmentName",) . toJSON) _batchComputeEnvironmentComputeEnvironmentName
-    , fmap (("ComputeResources",) . toJSON) _batchComputeEnvironmentComputeResources
-    , (Just . ("ServiceRole",) . toJSON) _batchComputeEnvironmentServiceRole
-    , fmap (("State",) . toJSON) _batchComputeEnvironmentState
-    , (Just . ("Type",) . toJSON) _batchComputeEnvironmentType
-    ]
+instance ToResourceProperties BatchComputeEnvironment where
+  toResourceProperties BatchComputeEnvironment{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::Batch::ComputeEnvironment"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("ComputeEnvironmentName",) . toJSON) _batchComputeEnvironmentComputeEnvironmentName
+        , fmap (("ComputeResources",) . toJSON) _batchComputeEnvironmentComputeResources
+        , (Just . ("ServiceRole",) . toJSON) _batchComputeEnvironmentServiceRole
+        , fmap (("State",) . toJSON) _batchComputeEnvironmentState
+        , (Just . ("Type",) . toJSON) _batchComputeEnvironmentType
+        ]
+    }
 
 -- | Constructor for 'BatchComputeEnvironment' containing required fields as
 -- arguments.

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thing.html
@@ -17,13 +18,16 @@ data IoTThing =
   , _ioTThingThingName :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON IoTThing where
-  toJSON IoTThing{..} =
-    object $
-    catMaybes
-    [ fmap (("AttributePayload",) . toJSON) _ioTThingAttributePayload
-    , fmap (("ThingName",) . toJSON) _ioTThingThingName
-    ]
+instance ToResourceProperties IoTThing where
+  toResourceProperties IoTThing{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::IoT::Thing"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("AttributePayload",) . toJSON) _ioTThingAttributePayload
+        , fmap (("ThingName",) . toJSON) _ioTThingThingName
+        ]
+    }
 
 -- | Constructor for 'IoTThing' containing required fields as arguments.
 ioTThing

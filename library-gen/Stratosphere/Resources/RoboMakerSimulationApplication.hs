@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-simulationapplication.html
@@ -25,18 +26,21 @@ data RoboMakerSimulationApplication =
   , _roboMakerSimulationApplicationTags :: Maybe Object
   } deriving (Show, Eq)
 
-instance ToJSON RoboMakerSimulationApplication where
-  toJSON RoboMakerSimulationApplication{..} =
-    object $
-    catMaybes
-    [ fmap (("CurrentRevisionId",) . toJSON) _roboMakerSimulationApplicationCurrentRevisionId
-    , fmap (("Name",) . toJSON) _roboMakerSimulationApplicationName
-    , (Just . ("RenderingEngine",) . toJSON) _roboMakerSimulationApplicationRenderingEngine
-    , (Just . ("RobotSoftwareSuite",) . toJSON) _roboMakerSimulationApplicationRobotSoftwareSuite
-    , (Just . ("SimulationSoftwareSuite",) . toJSON) _roboMakerSimulationApplicationSimulationSoftwareSuite
-    , (Just . ("Sources",) . toJSON) _roboMakerSimulationApplicationSources
-    , fmap (("Tags",) . toJSON) _roboMakerSimulationApplicationTags
-    ]
+instance ToResourceProperties RoboMakerSimulationApplication where
+  toResourceProperties RoboMakerSimulationApplication{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::RoboMaker::SimulationApplication"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("CurrentRevisionId",) . toJSON) _roboMakerSimulationApplicationCurrentRevisionId
+        , fmap (("Name",) . toJSON) _roboMakerSimulationApplicationName
+        , (Just . ("RenderingEngine",) . toJSON) _roboMakerSimulationApplicationRenderingEngine
+        , (Just . ("RobotSoftwareSuite",) . toJSON) _roboMakerSimulationApplicationRobotSoftwareSuite
+        , (Just . ("SimulationSoftwareSuite",) . toJSON) _roboMakerSimulationApplicationSimulationSoftwareSuite
+        , (Just . ("Sources",) . toJSON) _roboMakerSimulationApplicationSources
+        , fmap (("Tags",) . toJSON) _roboMakerSimulationApplicationTags
+        ]
+    }
 
 -- | Constructor for 'RoboMakerSimulationApplication' containing required
 -- fields as arguments.

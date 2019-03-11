@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-subscriptionfilter.html
@@ -19,15 +20,18 @@ data LogsSubscriptionFilter =
   , _logsSubscriptionFilterRoleArn :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON LogsSubscriptionFilter where
-  toJSON LogsSubscriptionFilter{..} =
-    object $
-    catMaybes
-    [ (Just . ("DestinationArn",) . toJSON) _logsSubscriptionFilterDestinationArn
-    , (Just . ("FilterPattern",) . toJSON) _logsSubscriptionFilterFilterPattern
-    , (Just . ("LogGroupName",) . toJSON) _logsSubscriptionFilterLogGroupName
-    , fmap (("RoleArn",) . toJSON) _logsSubscriptionFilterRoleArn
-    ]
+instance ToResourceProperties LogsSubscriptionFilter where
+  toResourceProperties LogsSubscriptionFilter{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::Logs::SubscriptionFilter"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("DestinationArn",) . toJSON) _logsSubscriptionFilterDestinationArn
+        , (Just . ("FilterPattern",) . toJSON) _logsSubscriptionFilterFilterPattern
+        , (Just . ("LogGroupName",) . toJSON) _logsSubscriptionFilterLogGroupName
+        , fmap (("RoleArn",) . toJSON) _logsSubscriptionFilterRoleArn
+        ]
+    }
 
 -- | Constructor for 'LogsSubscriptionFilter' containing required fields as
 -- arguments.

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb.html
@@ -39,27 +40,30 @@ data ElasticLoadBalancingLoadBalancer =
   , _elasticLoadBalancingLoadBalancerTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
-instance ToJSON ElasticLoadBalancingLoadBalancer where
-  toJSON ElasticLoadBalancingLoadBalancer{..} =
-    object $
-    catMaybes
-    [ fmap (("AccessLoggingPolicy",) . toJSON) _elasticLoadBalancingLoadBalancerAccessLoggingPolicy
-    , fmap (("AppCookieStickinessPolicy",) . toJSON) _elasticLoadBalancingLoadBalancerAppCookieStickinessPolicy
-    , fmap (("AvailabilityZones",) . toJSON) _elasticLoadBalancingLoadBalancerAvailabilityZones
-    , fmap (("ConnectionDrainingPolicy",) . toJSON) _elasticLoadBalancingLoadBalancerConnectionDrainingPolicy
-    , fmap (("ConnectionSettings",) . toJSON) _elasticLoadBalancingLoadBalancerConnectionSettings
-    , fmap (("CrossZone",) . toJSON . fmap Bool') _elasticLoadBalancingLoadBalancerCrossZone
-    , fmap (("HealthCheck",) . toJSON) _elasticLoadBalancingLoadBalancerHealthCheck
-    , fmap (("Instances",) . toJSON) _elasticLoadBalancingLoadBalancerInstances
-    , fmap (("LBCookieStickinessPolicy",) . toJSON) _elasticLoadBalancingLoadBalancerLBCookieStickinessPolicy
-    , (Just . ("Listeners",) . toJSON) _elasticLoadBalancingLoadBalancerListeners
-    , fmap (("LoadBalancerName",) . toJSON) _elasticLoadBalancingLoadBalancerLoadBalancerName
-    , fmap (("Policies",) . toJSON) _elasticLoadBalancingLoadBalancerPolicies
-    , fmap (("Scheme",) . toJSON) _elasticLoadBalancingLoadBalancerScheme
-    , fmap (("SecurityGroups",) . toJSON) _elasticLoadBalancingLoadBalancerSecurityGroups
-    , fmap (("Subnets",) . toJSON) _elasticLoadBalancingLoadBalancerSubnets
-    , fmap (("Tags",) . toJSON) _elasticLoadBalancingLoadBalancerTags
-    ]
+instance ToResourceProperties ElasticLoadBalancingLoadBalancer where
+  toResourceProperties ElasticLoadBalancingLoadBalancer{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::ElasticLoadBalancing::LoadBalancer"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("AccessLoggingPolicy",) . toJSON) _elasticLoadBalancingLoadBalancerAccessLoggingPolicy
+        , fmap (("AppCookieStickinessPolicy",) . toJSON) _elasticLoadBalancingLoadBalancerAppCookieStickinessPolicy
+        , fmap (("AvailabilityZones",) . toJSON) _elasticLoadBalancingLoadBalancerAvailabilityZones
+        , fmap (("ConnectionDrainingPolicy",) . toJSON) _elasticLoadBalancingLoadBalancerConnectionDrainingPolicy
+        , fmap (("ConnectionSettings",) . toJSON) _elasticLoadBalancingLoadBalancerConnectionSettings
+        , fmap (("CrossZone",) . toJSON . fmap Bool') _elasticLoadBalancingLoadBalancerCrossZone
+        , fmap (("HealthCheck",) . toJSON) _elasticLoadBalancingLoadBalancerHealthCheck
+        , fmap (("Instances",) . toJSON) _elasticLoadBalancingLoadBalancerInstances
+        , fmap (("LBCookieStickinessPolicy",) . toJSON) _elasticLoadBalancingLoadBalancerLBCookieStickinessPolicy
+        , (Just . ("Listeners",) . toJSON) _elasticLoadBalancingLoadBalancerListeners
+        , fmap (("LoadBalancerName",) . toJSON) _elasticLoadBalancingLoadBalancerLoadBalancerName
+        , fmap (("Policies",) . toJSON) _elasticLoadBalancingLoadBalancerPolicies
+        , fmap (("Scheme",) . toJSON) _elasticLoadBalancingLoadBalancerScheme
+        , fmap (("SecurityGroups",) . toJSON) _elasticLoadBalancingLoadBalancerSecurityGroups
+        , fmap (("Subnets",) . toJSON) _elasticLoadBalancingLoadBalancerSubnets
+        , fmap (("Tags",) . toJSON) _elasticLoadBalancingLoadBalancerTags
+        ]
+    }
 
 -- | Constructor for 'ElasticLoadBalancingLoadBalancer' containing required
 -- fields as arguments.

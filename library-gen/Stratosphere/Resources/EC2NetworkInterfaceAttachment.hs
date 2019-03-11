@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface-attachment.html
@@ -19,15 +20,18 @@ data EC2NetworkInterfaceAttachment =
   , _eC2NetworkInterfaceAttachmentNetworkInterfaceId :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON EC2NetworkInterfaceAttachment where
-  toJSON EC2NetworkInterfaceAttachment{..} =
-    object $
-    catMaybes
-    [ fmap (("DeleteOnTermination",) . toJSON . fmap Bool') _eC2NetworkInterfaceAttachmentDeleteOnTermination
-    , (Just . ("DeviceIndex",) . toJSON) _eC2NetworkInterfaceAttachmentDeviceIndex
-    , (Just . ("InstanceId",) . toJSON) _eC2NetworkInterfaceAttachmentInstanceId
-    , (Just . ("NetworkInterfaceId",) . toJSON) _eC2NetworkInterfaceAttachmentNetworkInterfaceId
-    ]
+instance ToResourceProperties EC2NetworkInterfaceAttachment where
+  toResourceProperties EC2NetworkInterfaceAttachment{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::EC2::NetworkInterfaceAttachment"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("DeleteOnTermination",) . toJSON . fmap Bool') _eC2NetworkInterfaceAttachmentDeleteOnTermination
+        , (Just . ("DeviceIndex",) . toJSON) _eC2NetworkInterfaceAttachmentDeviceIndex
+        , (Just . ("InstanceId",) . toJSON) _eC2NetworkInterfaceAttachmentInstanceId
+        , (Just . ("NetworkInterfaceId",) . toJSON) _eC2NetworkInterfaceAttachmentNetworkInterfaceId
+        ]
+    }
 
 -- | Constructor for 'EC2NetworkInterfaceAttachment' containing required
 -- fields as arguments.

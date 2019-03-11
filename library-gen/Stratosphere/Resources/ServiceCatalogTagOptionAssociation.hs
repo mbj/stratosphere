@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-tagoptionassociation.html
@@ -17,13 +18,16 @@ data ServiceCatalogTagOptionAssociation =
   , _serviceCatalogTagOptionAssociationTagOptionId :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON ServiceCatalogTagOptionAssociation where
-  toJSON ServiceCatalogTagOptionAssociation{..} =
-    object $
-    catMaybes
-    [ (Just . ("ResourceId",) . toJSON) _serviceCatalogTagOptionAssociationResourceId
-    , (Just . ("TagOptionId",) . toJSON) _serviceCatalogTagOptionAssociationTagOptionId
-    ]
+instance ToResourceProperties ServiceCatalogTagOptionAssociation where
+  toResourceProperties ServiceCatalogTagOptionAssociation{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::ServiceCatalog::TagOptionAssociation"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("ResourceId",) . toJSON) _serviceCatalogTagOptionAssociationResourceId
+        , (Just . ("TagOptionId",) . toJSON) _serviceCatalogTagOptionAssociationTagOptionId
+        ]
+    }
 
 -- | Constructor for 'ServiceCatalogTagOptionAssociation' containing required
 -- fields as arguments.

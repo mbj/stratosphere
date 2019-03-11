@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clustersecuritygroupingress.html
@@ -19,15 +20,18 @@ data RedshiftClusterSecurityGroupIngress =
   , _redshiftClusterSecurityGroupIngressEC2SecurityGroupOwnerId :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON RedshiftClusterSecurityGroupIngress where
-  toJSON RedshiftClusterSecurityGroupIngress{..} =
-    object $
-    catMaybes
-    [ fmap (("CIDRIP",) . toJSON) _redshiftClusterSecurityGroupIngressCIDRIP
-    , (Just . ("ClusterSecurityGroupName",) . toJSON) _redshiftClusterSecurityGroupIngressClusterSecurityGroupName
-    , fmap (("EC2SecurityGroupName",) . toJSON) _redshiftClusterSecurityGroupIngressEC2SecurityGroupName
-    , fmap (("EC2SecurityGroupOwnerId",) . toJSON) _redshiftClusterSecurityGroupIngressEC2SecurityGroupOwnerId
-    ]
+instance ToResourceProperties RedshiftClusterSecurityGroupIngress where
+  toResourceProperties RedshiftClusterSecurityGroupIngress{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::Redshift::ClusterSecurityGroupIngress"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("CIDRIP",) . toJSON) _redshiftClusterSecurityGroupIngressCIDRIP
+        , (Just . ("ClusterSecurityGroupName",) . toJSON) _redshiftClusterSecurityGroupIngressClusterSecurityGroupName
+        , fmap (("EC2SecurityGroupName",) . toJSON) _redshiftClusterSecurityGroupIngressEC2SecurityGroupName
+        , fmap (("EC2SecurityGroupOwnerId",) . toJSON) _redshiftClusterSecurityGroupIngressEC2SecurityGroupOwnerId
+        ]
+    }
 
 -- | Constructor for 'RedshiftClusterSecurityGroupIngress' containing required
 -- fields as arguments.

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-topicrule.html
@@ -17,13 +18,16 @@ data IoTTopicRule =
   , _ioTTopicRuleTopicRulePayload :: IoTTopicRuleTopicRulePayload
   } deriving (Show, Eq)
 
-instance ToJSON IoTTopicRule where
-  toJSON IoTTopicRule{..} =
-    object $
-    catMaybes
-    [ fmap (("RuleName",) . toJSON) _ioTTopicRuleRuleName
-    , (Just . ("TopicRulePayload",) . toJSON) _ioTTopicRuleTopicRulePayload
-    ]
+instance ToResourceProperties IoTTopicRule where
+  toResourceProperties IoTTopicRule{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::IoT::TopicRule"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("RuleName",) . toJSON) _ioTTopicRuleRuleName
+        , (Just . ("TopicRulePayload",) . toJSON) _ioTTopicRuleTopicRulePayload
+        ]
+    }
 
 -- | Constructor for 'IoTTopicRule' containing required fields as arguments.
 ioTTopicRule

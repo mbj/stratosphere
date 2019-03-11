@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-cloudfrontoriginaccessidentity.html
@@ -17,12 +18,15 @@ data CloudFrontCloudFrontOriginAccessIdentity =
   { _cloudFrontCloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfig :: CloudFrontCloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfig
   } deriving (Show, Eq)
 
-instance ToJSON CloudFrontCloudFrontOriginAccessIdentity where
-  toJSON CloudFrontCloudFrontOriginAccessIdentity{..} =
-    object $
-    catMaybes
-    [ (Just . ("CloudFrontOriginAccessIdentityConfig",) . toJSON) _cloudFrontCloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfig
-    ]
+instance ToResourceProperties CloudFrontCloudFrontOriginAccessIdentity where
+  toResourceProperties CloudFrontCloudFrontOriginAccessIdentity{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::CloudFront::CloudFrontOriginAccessIdentity"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("CloudFrontOriginAccessIdentityConfig",) . toJSON) _cloudFrontCloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfig
+        ]
+    }
 
 -- | Constructor for 'CloudFrontCloudFrontOriginAccessIdentity' containing
 -- required fields as arguments.

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-dashboard.html
@@ -17,13 +18,16 @@ data CloudWatchDashboard =
   , _cloudWatchDashboardDashboardName :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON CloudWatchDashboard where
-  toJSON CloudWatchDashboard{..} =
-    object $
-    catMaybes
-    [ (Just . ("DashboardBody",) . toJSON) _cloudWatchDashboardDashboardBody
-    , fmap (("DashboardName",) . toJSON) _cloudWatchDashboardDashboardName
-    ]
+instance ToResourceProperties CloudWatchDashboard where
+  toResourceProperties CloudWatchDashboard{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::CloudWatch::Dashboard"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("DashboardBody",) . toJSON) _cloudWatchDashboardDashboardBody
+        , fmap (("DashboardName",) . toJSON) _cloudWatchDashboardDashboardName
+        ]
+    }
 
 -- | Constructor for 'CloudWatchDashboard' containing required fields as
 -- arguments.

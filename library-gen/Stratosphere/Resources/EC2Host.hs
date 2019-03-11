@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-host.html
@@ -18,14 +19,17 @@ data EC2Host =
   , _eC2HostInstanceType :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON EC2Host where
-  toJSON EC2Host{..} =
-    object $
-    catMaybes
-    [ fmap (("AutoPlacement",) . toJSON) _eC2HostAutoPlacement
-    , (Just . ("AvailabilityZone",) . toJSON) _eC2HostAvailabilityZone
-    , (Just . ("InstanceType",) . toJSON) _eC2HostInstanceType
-    ]
+instance ToResourceProperties EC2Host where
+  toResourceProperties EC2Host{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::EC2::Host"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("AutoPlacement",) . toJSON) _eC2HostAutoPlacement
+        , (Just . ("AvailabilityZone",) . toJSON) _eC2HostAvailabilityZone
+        , (Just . ("InstanceType",) . toJSON) _eC2HostInstanceType
+        ]
+    }
 
 -- | Constructor for 'EC2Host' containing required fields as arguments.
 ec2Host

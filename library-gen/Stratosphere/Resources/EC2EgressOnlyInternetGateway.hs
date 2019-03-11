@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-egressonlyinternetgateway.html
@@ -16,12 +17,15 @@ data EC2EgressOnlyInternetGateway =
   { _eC2EgressOnlyInternetGatewayVpcId :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON EC2EgressOnlyInternetGateway where
-  toJSON EC2EgressOnlyInternetGateway{..} =
-    object $
-    catMaybes
-    [ (Just . ("VpcId",) . toJSON) _eC2EgressOnlyInternetGatewayVpcId
-    ]
+instance ToResourceProperties EC2EgressOnlyInternetGateway where
+  toResourceProperties EC2EgressOnlyInternetGateway{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::EC2::EgressOnlyInternetGateway"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("VpcId",) . toJSON) _eC2EgressOnlyInternetGatewayVpcId
+        ]
+    }
 
 -- | Constructor for 'EC2EgressOnlyInternetGateway' containing required fields
 -- as arguments.

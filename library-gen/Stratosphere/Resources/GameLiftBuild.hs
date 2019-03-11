@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-build.html
@@ -18,14 +19,17 @@ data GameLiftBuild =
   , _gameLiftBuildVersion :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON GameLiftBuild where
-  toJSON GameLiftBuild{..} =
-    object $
-    catMaybes
-    [ fmap (("Name",) . toJSON) _gameLiftBuildName
-    , fmap (("StorageLocation",) . toJSON) _gameLiftBuildStorageLocation
-    , fmap (("Version",) . toJSON) _gameLiftBuildVersion
-    ]
+instance ToResourceProperties GameLiftBuild where
+  toResourceProperties GameLiftBuild{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::GameLift::Build"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("Name",) . toJSON) _gameLiftBuildName
+        , fmap (("StorageLocation",) . toJSON) _gameLiftBuildStorageLocation
+        , fmap (("Version",) . toJSON) _gameLiftBuildVersion
+        ]
+    }
 
 -- | Constructor for 'GameLiftBuild' containing required fields as arguments.
 gameLiftBuild

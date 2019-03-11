@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-devendpoint.html
@@ -23,19 +24,22 @@ data GlueDevEndpoint =
   , _glueDevEndpointSubnetId :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON GlueDevEndpoint where
-  toJSON GlueDevEndpoint{..} =
-    object $
-    catMaybes
-    [ fmap (("EndpointName",) . toJSON) _glueDevEndpointEndpointName
-    , fmap (("ExtraJarsS3Path",) . toJSON) _glueDevEndpointExtraJarsS3Path
-    , fmap (("ExtraPythonLibsS3Path",) . toJSON) _glueDevEndpointExtraPythonLibsS3Path
-    , fmap (("NumberOfNodes",) . toJSON . fmap Integer') _glueDevEndpointNumberOfNodes
-    , (Just . ("PublicKey",) . toJSON) _glueDevEndpointPublicKey
-    , (Just . ("RoleArn",) . toJSON) _glueDevEndpointRoleArn
-    , fmap (("SecurityGroupIds",) . toJSON) _glueDevEndpointSecurityGroupIds
-    , fmap (("SubnetId",) . toJSON) _glueDevEndpointSubnetId
-    ]
+instance ToResourceProperties GlueDevEndpoint where
+  toResourceProperties GlueDevEndpoint{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::Glue::DevEndpoint"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("EndpointName",) . toJSON) _glueDevEndpointEndpointName
+        , fmap (("ExtraJarsS3Path",) . toJSON) _glueDevEndpointExtraJarsS3Path
+        , fmap (("ExtraPythonLibsS3Path",) . toJSON) _glueDevEndpointExtraPythonLibsS3Path
+        , fmap (("NumberOfNodes",) . toJSON . fmap Integer') _glueDevEndpointNumberOfNodes
+        , (Just . ("PublicKey",) . toJSON) _glueDevEndpointPublicKey
+        , (Just . ("RoleArn",) . toJSON) _glueDevEndpointRoleArn
+        , fmap (("SecurityGroupIds",) . toJSON) _glueDevEndpointSecurityGroupIds
+        , fmap (("SubnetId",) . toJSON) _glueDevEndpointSubnetId
+        ]
+    }
 
 -- | Constructor for 'GlueDevEndpoint' containing required fields as
 -- arguments.

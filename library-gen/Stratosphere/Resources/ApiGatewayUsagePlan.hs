@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplan.html
@@ -22,16 +23,19 @@ data ApiGatewayUsagePlan =
   , _apiGatewayUsagePlanUsagePlanName :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON ApiGatewayUsagePlan where
-  toJSON ApiGatewayUsagePlan{..} =
-    object $
-    catMaybes
-    [ fmap (("ApiStages",) . toJSON) _apiGatewayUsagePlanApiStages
-    , fmap (("Description",) . toJSON) _apiGatewayUsagePlanDescription
-    , fmap (("Quota",) . toJSON) _apiGatewayUsagePlanQuota
-    , fmap (("Throttle",) . toJSON) _apiGatewayUsagePlanThrottle
-    , fmap (("UsagePlanName",) . toJSON) _apiGatewayUsagePlanUsagePlanName
-    ]
+instance ToResourceProperties ApiGatewayUsagePlan where
+  toResourceProperties ApiGatewayUsagePlan{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::ApiGateway::UsagePlan"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("ApiStages",) . toJSON) _apiGatewayUsagePlanApiStages
+        , fmap (("Description",) . toJSON) _apiGatewayUsagePlanDescription
+        , fmap (("Quota",) . toJSON) _apiGatewayUsagePlanQuota
+        , fmap (("Throttle",) . toJSON) _apiGatewayUsagePlanThrottle
+        , fmap (("UsagePlanName",) . toJSON) _apiGatewayUsagePlanUsagePlanName
+        ]
+    }
 
 -- | Constructor for 'ApiGatewayUsagePlan' containing required fields as
 -- arguments.

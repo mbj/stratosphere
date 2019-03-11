@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html
@@ -28,23 +29,26 @@ data ApiGatewayRestApi =
   , _apiGatewayRestApiPolicy :: Maybe Object
   } deriving (Show, Eq)
 
-instance ToJSON ApiGatewayRestApi where
-  toJSON ApiGatewayRestApi{..} =
-    object $
-    catMaybes
-    [ fmap (("ApiKeySourceType",) . toJSON) _apiGatewayRestApiApiKeySourceType
-    , fmap (("BinaryMediaTypes",) . toJSON) _apiGatewayRestApiBinaryMediaTypes
-    , fmap (("Body",) . toJSON) _apiGatewayRestApiBody
-    , fmap (("BodyS3Location",) . toJSON) _apiGatewayRestApiBodyS3Location
-    , fmap (("CloneFrom",) . toJSON) _apiGatewayRestApiCloneFrom
-    , fmap (("Description",) . toJSON) _apiGatewayRestApiDescription
-    , fmap (("EndpointConfiguration",) . toJSON) _apiGatewayRestApiEndpointConfiguration
-    , fmap (("FailOnWarnings",) . toJSON . fmap Bool') _apiGatewayRestApiFailOnWarnings
-    , fmap (("MinimumCompressionSize",) . toJSON . fmap Integer') _apiGatewayRestApiMinimumCompressionSize
-    , fmap (("Name",) . toJSON) _apiGatewayRestApiName
-    , fmap (("Parameters",) . toJSON) _apiGatewayRestApiParameters
-    , fmap (("Policy",) . toJSON) _apiGatewayRestApiPolicy
-    ]
+instance ToResourceProperties ApiGatewayRestApi where
+  toResourceProperties ApiGatewayRestApi{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::ApiGateway::RestApi"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("ApiKeySourceType",) . toJSON) _apiGatewayRestApiApiKeySourceType
+        , fmap (("BinaryMediaTypes",) . toJSON) _apiGatewayRestApiBinaryMediaTypes
+        , fmap (("Body",) . toJSON) _apiGatewayRestApiBody
+        , fmap (("BodyS3Location",) . toJSON) _apiGatewayRestApiBodyS3Location
+        , fmap (("CloneFrom",) . toJSON) _apiGatewayRestApiCloneFrom
+        , fmap (("Description",) . toJSON) _apiGatewayRestApiDescription
+        , fmap (("EndpointConfiguration",) . toJSON) _apiGatewayRestApiEndpointConfiguration
+        , fmap (("FailOnWarnings",) . toJSON . fmap Bool') _apiGatewayRestApiFailOnWarnings
+        , fmap (("MinimumCompressionSize",) . toJSON . fmap Integer') _apiGatewayRestApiMinimumCompressionSize
+        , fmap (("Name",) . toJSON) _apiGatewayRestApiName
+        , fmap (("Parameters",) . toJSON) _apiGatewayRestApiParameters
+        , fmap (("Policy",) . toJSON) _apiGatewayRestApiPolicy
+        ]
+    }
 
 -- | Constructor for 'ApiGatewayRestApi' containing required fields as
 -- arguments.

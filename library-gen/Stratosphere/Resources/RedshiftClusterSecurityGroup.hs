@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clustersecuritygroup.html
@@ -17,13 +18,16 @@ data RedshiftClusterSecurityGroup =
   , _redshiftClusterSecurityGroupTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
-instance ToJSON RedshiftClusterSecurityGroup where
-  toJSON RedshiftClusterSecurityGroup{..} =
-    object $
-    catMaybes
-    [ (Just . ("Description",) . toJSON) _redshiftClusterSecurityGroupDescription
-    , fmap (("Tags",) . toJSON) _redshiftClusterSecurityGroupTags
-    ]
+instance ToResourceProperties RedshiftClusterSecurityGroup where
+  toResourceProperties RedshiftClusterSecurityGroup{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::Redshift::ClusterSecurityGroup"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("Description",) . toJSON) _redshiftClusterSecurityGroupDescription
+        , fmap (("Tags",) . toJSON) _redshiftClusterSecurityGroupTags
+        ]
+    }
 
 -- | Constructor for 'RedshiftClusterSecurityGroup' containing required fields
 -- as arguments.

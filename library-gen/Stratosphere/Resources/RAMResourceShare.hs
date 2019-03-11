@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-resourceshare.html
@@ -20,16 +21,19 @@ data RAMResourceShare =
   , _rAMResourceShareTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
-instance ToJSON RAMResourceShare where
-  toJSON RAMResourceShare{..} =
-    object $
-    catMaybes
-    [ fmap (("AllowExternalPrincipals",) . toJSON . fmap Bool') _rAMResourceShareAllowExternalPrincipals
-    , (Just . ("Name",) . toJSON) _rAMResourceShareName
-    , fmap (("Principals",) . toJSON) _rAMResourceSharePrincipals
-    , fmap (("ResourceArns",) . toJSON) _rAMResourceShareResourceArns
-    , fmap (("Tags",) . toJSON) _rAMResourceShareTags
-    ]
+instance ToResourceProperties RAMResourceShare where
+  toResourceProperties RAMResourceShare{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::RAM::ResourceShare"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("AllowExternalPrincipals",) . toJSON . fmap Bool') _rAMResourceShareAllowExternalPrincipals
+        , (Just . ("Name",) . toJSON) _rAMResourceShareName
+        , fmap (("Principals",) . toJSON) _rAMResourceSharePrincipals
+        , fmap (("ResourceArns",) . toJSON) _rAMResourceShareResourceArns
+        , fmap (("Tags",) . toJSON) _rAMResourceShareTags
+        ]
+    }
 
 -- | Constructor for 'RAMResourceShare' containing required fields as
 -- arguments.

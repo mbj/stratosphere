@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html
@@ -29,24 +30,27 @@ data CloudTrailTrail =
   , _cloudTrailTrailTrailName :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON CloudTrailTrail where
-  toJSON CloudTrailTrail{..} =
-    object $
-    catMaybes
-    [ fmap (("CloudWatchLogsLogGroupArn",) . toJSON) _cloudTrailTrailCloudWatchLogsLogGroupArn
-    , fmap (("CloudWatchLogsRoleArn",) . toJSON) _cloudTrailTrailCloudWatchLogsRoleArn
-    , fmap (("EnableLogFileValidation",) . toJSON . fmap Bool') _cloudTrailTrailEnableLogFileValidation
-    , fmap (("EventSelectors",) . toJSON) _cloudTrailTrailEventSelectors
-    , fmap (("IncludeGlobalServiceEvents",) . toJSON . fmap Bool') _cloudTrailTrailIncludeGlobalServiceEvents
-    , (Just . ("IsLogging",) . toJSON . fmap Bool') _cloudTrailTrailIsLogging
-    , fmap (("IsMultiRegionTrail",) . toJSON . fmap Bool') _cloudTrailTrailIsMultiRegionTrail
-    , fmap (("KMSKeyId",) . toJSON) _cloudTrailTrailKMSKeyId
-    , (Just . ("S3BucketName",) . toJSON) _cloudTrailTrailS3BucketName
-    , fmap (("S3KeyPrefix",) . toJSON) _cloudTrailTrailS3KeyPrefix
-    , fmap (("SnsTopicName",) . toJSON) _cloudTrailTrailSnsTopicName
-    , fmap (("Tags",) . toJSON) _cloudTrailTrailTags
-    , fmap (("TrailName",) . toJSON) _cloudTrailTrailTrailName
-    ]
+instance ToResourceProperties CloudTrailTrail where
+  toResourceProperties CloudTrailTrail{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::CloudTrail::Trail"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("CloudWatchLogsLogGroupArn",) . toJSON) _cloudTrailTrailCloudWatchLogsLogGroupArn
+        , fmap (("CloudWatchLogsRoleArn",) . toJSON) _cloudTrailTrailCloudWatchLogsRoleArn
+        , fmap (("EnableLogFileValidation",) . toJSON . fmap Bool') _cloudTrailTrailEnableLogFileValidation
+        , fmap (("EventSelectors",) . toJSON) _cloudTrailTrailEventSelectors
+        , fmap (("IncludeGlobalServiceEvents",) . toJSON . fmap Bool') _cloudTrailTrailIncludeGlobalServiceEvents
+        , (Just . ("IsLogging",) . toJSON . fmap Bool') _cloudTrailTrailIsLogging
+        , fmap (("IsMultiRegionTrail",) . toJSON . fmap Bool') _cloudTrailTrailIsMultiRegionTrail
+        , fmap (("KMSKeyId",) . toJSON) _cloudTrailTrailKMSKeyId
+        , (Just . ("S3BucketName",) . toJSON) _cloudTrailTrailS3BucketName
+        , fmap (("S3KeyPrefix",) . toJSON) _cloudTrailTrailS3KeyPrefix
+        , fmap (("SnsTopicName",) . toJSON) _cloudTrailTrailSnsTopicName
+        , fmap (("Tags",) . toJSON) _cloudTrailTrailTags
+        , fmap (("TrailName",) . toJSON) _cloudTrailTrailTrailName
+        ]
+    }
 
 -- | Constructor for 'CloudTrailTrail' containing required fields as
 -- arguments.

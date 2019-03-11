@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-securityconfiguration.html
@@ -17,13 +18,16 @@ data EMRSecurityConfiguration =
   , _eMRSecurityConfigurationSecurityConfiguration :: Object
   } deriving (Show, Eq)
 
-instance ToJSON EMRSecurityConfiguration where
-  toJSON EMRSecurityConfiguration{..} =
-    object $
-    catMaybes
-    [ fmap (("Name",) . toJSON) _eMRSecurityConfigurationName
-    , (Just . ("SecurityConfiguration",) . toJSON) _eMRSecurityConfigurationSecurityConfiguration
-    ]
+instance ToResourceProperties EMRSecurityConfiguration where
+  toResourceProperties EMRSecurityConfiguration{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::EMR::SecurityConfiguration"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("Name",) . toJSON) _eMRSecurityConfigurationName
+        , (Just . ("SecurityConfiguration",) . toJSON) _eMRSecurityConfigurationSecurityConfiguration
+        ]
+    }
 
 -- | Constructor for 'EMRSecurityConfiguration' containing required fields as
 -- arguments.

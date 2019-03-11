@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-clientcertificate.html
@@ -16,12 +17,15 @@ data ApiGatewayClientCertificate =
   { _apiGatewayClientCertificateDescription :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON ApiGatewayClientCertificate where
-  toJSON ApiGatewayClientCertificate{..} =
-    object $
-    catMaybes
-    [ fmap (("Description",) . toJSON) _apiGatewayClientCertificateDescription
-    ]
+instance ToResourceProperties ApiGatewayClientCertificate where
+  toResourceProperties ApiGatewayClientCertificate{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::ApiGateway::ClientCertificate"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("Description",) . toJSON) _apiGatewayClientCertificateDescription
+        ]
+    }
 
 -- | Constructor for 'ApiGatewayClientCertificate' containing required fields
 -- as arguments.

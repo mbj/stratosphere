@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html
@@ -26,22 +27,25 @@ data GameLiftFleet =
   , _gameLiftFleetServerLaunchPath :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON GameLiftFleet where
-  toJSON GameLiftFleet{..} =
-    object $
-    catMaybes
-    [ (Just . ("BuildId",) . toJSON) _gameLiftFleetBuildId
-    , fmap (("Description",) . toJSON) _gameLiftFleetDescription
-    , (Just . ("DesiredEC2Instances",) . toJSON . fmap Integer') _gameLiftFleetDesiredEC2Instances
-    , fmap (("EC2InboundPermissions",) . toJSON) _gameLiftFleetEC2InboundPermissions
-    , (Just . ("EC2InstanceType",) . toJSON) _gameLiftFleetEC2InstanceType
-    , fmap (("LogPaths",) . toJSON) _gameLiftFleetLogPaths
-    , fmap (("MaxSize",) . toJSON . fmap Integer') _gameLiftFleetMaxSize
-    , fmap (("MinSize",) . toJSON . fmap Integer') _gameLiftFleetMinSize
-    , (Just . ("Name",) . toJSON) _gameLiftFleetName
-    , fmap (("ServerLaunchParameters",) . toJSON) _gameLiftFleetServerLaunchParameters
-    , (Just . ("ServerLaunchPath",) . toJSON) _gameLiftFleetServerLaunchPath
-    ]
+instance ToResourceProperties GameLiftFleet where
+  toResourceProperties GameLiftFleet{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::GameLift::Fleet"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("BuildId",) . toJSON) _gameLiftFleetBuildId
+        , fmap (("Description",) . toJSON) _gameLiftFleetDescription
+        , (Just . ("DesiredEC2Instances",) . toJSON . fmap Integer') _gameLiftFleetDesiredEC2Instances
+        , fmap (("EC2InboundPermissions",) . toJSON) _gameLiftFleetEC2InboundPermissions
+        , (Just . ("EC2InstanceType",) . toJSON) _gameLiftFleetEC2InstanceType
+        , fmap (("LogPaths",) . toJSON) _gameLiftFleetLogPaths
+        , fmap (("MaxSize",) . toJSON . fmap Integer') _gameLiftFleetMaxSize
+        , fmap (("MinSize",) . toJSON . fmap Integer') _gameLiftFleetMinSize
+        , (Just . ("Name",) . toJSON) _gameLiftFleetName
+        , fmap (("ServerLaunchParameters",) . toJSON) _gameLiftFleetServerLaunchParameters
+        , (Just . ("ServerLaunchPath",) . toJSON) _gameLiftFleetServerLaunchPath
+        ]
+    }
 
 -- | Constructor for 'GameLiftFleet' containing required fields as arguments.
 gameLiftFleet

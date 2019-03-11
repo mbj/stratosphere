@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-launchroleconstraint.html
@@ -20,16 +21,19 @@ data ServiceCatalogLaunchRoleConstraint =
   , _serviceCatalogLaunchRoleConstraintRoleArn :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON ServiceCatalogLaunchRoleConstraint where
-  toJSON ServiceCatalogLaunchRoleConstraint{..} =
-    object $
-    catMaybes
-    [ fmap (("AcceptLanguage",) . toJSON) _serviceCatalogLaunchRoleConstraintAcceptLanguage
-    , fmap (("Description",) . toJSON) _serviceCatalogLaunchRoleConstraintDescription
-    , (Just . ("PortfolioId",) . toJSON) _serviceCatalogLaunchRoleConstraintPortfolioId
-    , (Just . ("ProductId",) . toJSON) _serviceCatalogLaunchRoleConstraintProductId
-    , (Just . ("RoleArn",) . toJSON) _serviceCatalogLaunchRoleConstraintRoleArn
-    ]
+instance ToResourceProperties ServiceCatalogLaunchRoleConstraint where
+  toResourceProperties ServiceCatalogLaunchRoleConstraint{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::ServiceCatalog::LaunchRoleConstraint"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("AcceptLanguage",) . toJSON) _serviceCatalogLaunchRoleConstraintAcceptLanguage
+        , fmap (("Description",) . toJSON) _serviceCatalogLaunchRoleConstraintDescription
+        , (Just . ("PortfolioId",) . toJSON) _serviceCatalogLaunchRoleConstraintPortfolioId
+        , (Just . ("ProductId",) . toJSON) _serviceCatalogLaunchRoleConstraintProductId
+        , (Just . ("RoleArn",) . toJSON) _serviceCatalogLaunchRoleConstraintRoleArn
+        ]
+    }
 
 -- | Constructor for 'ServiceCatalogLaunchRoleConstraint' containing required
 -- fields as arguments.

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html
@@ -19,15 +20,18 @@ data EFSMountTarget =
   , _eFSMountTargetSubnetId :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON EFSMountTarget where
-  toJSON EFSMountTarget{..} =
-    object $
-    catMaybes
-    [ (Just . ("FileSystemId",) . toJSON) _eFSMountTargetFileSystemId
-    , fmap (("IpAddress",) . toJSON) _eFSMountTargetIpAddress
-    , (Just . ("SecurityGroups",) . toJSON) _eFSMountTargetSecurityGroups
-    , (Just . ("SubnetId",) . toJSON) _eFSMountTargetSubnetId
-    ]
+instance ToResourceProperties EFSMountTarget where
+  toResourceProperties EFSMountTarget{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::EFS::MountTarget"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("FileSystemId",) . toJSON) _eFSMountTargetFileSystemId
+        , fmap (("IpAddress",) . toJSON) _eFSMountTargetIpAddress
+        , (Just . ("SecurityGroups",) . toJSON) _eFSMountTargetSecurityGroups
+        , (Just . ("SubnetId",) . toJSON) _eFSMountTargetSubnetId
+        ]
+    }
 
 -- | Constructor for 'EFSMountTarget' containing required fields as arguments.
 efsMountTarget

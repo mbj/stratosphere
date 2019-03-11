@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbclusterparametergroup.html
@@ -20,16 +21,19 @@ data DocDBDBClusterParameterGroup =
   , _docDBDBClusterParameterGroupTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
-instance ToJSON DocDBDBClusterParameterGroup where
-  toJSON DocDBDBClusterParameterGroup{..} =
-    object $
-    catMaybes
-    [ (Just . ("Description",) . toJSON) _docDBDBClusterParameterGroupDescription
-    , (Just . ("Family",) . toJSON) _docDBDBClusterParameterGroupFamily
-    , fmap (("Name",) . toJSON) _docDBDBClusterParameterGroupName
-    , (Just . ("Parameters",) . toJSON) _docDBDBClusterParameterGroupParameters
-    , fmap (("Tags",) . toJSON) _docDBDBClusterParameterGroupTags
-    ]
+instance ToResourceProperties DocDBDBClusterParameterGroup where
+  toResourceProperties DocDBDBClusterParameterGroup{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::DocDB::DBClusterParameterGroup"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("Description",) . toJSON) _docDBDBClusterParameterGroupDescription
+        , (Just . ("Family",) . toJSON) _docDBDBClusterParameterGroupFamily
+        , fmap (("Name",) . toJSON) _docDBDBClusterParameterGroupName
+        , (Just . ("Parameters",) . toJSON) _docDBDBClusterParameterGroupParameters
+        , fmap (("Tags",) . toJSON) _docDBDBClusterParameterGroupTags
+        ]
+    }
 
 -- | Constructor for 'DocDBDBClusterParameterGroup' containing required fields
 -- as arguments.

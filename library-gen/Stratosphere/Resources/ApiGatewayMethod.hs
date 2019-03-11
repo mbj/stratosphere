@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-method.html
@@ -30,24 +31,27 @@ data ApiGatewayMethod =
   , _apiGatewayMethodRestApiId :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON ApiGatewayMethod where
-  toJSON ApiGatewayMethod{..} =
-    object $
-    catMaybes
-    [ fmap (("ApiKeyRequired",) . toJSON . fmap Bool') _apiGatewayMethodApiKeyRequired
-    , fmap (("AuthorizationScopes",) . toJSON) _apiGatewayMethodAuthorizationScopes
-    , fmap (("AuthorizationType",) . toJSON) _apiGatewayMethodAuthorizationType
-    , fmap (("AuthorizerId",) . toJSON) _apiGatewayMethodAuthorizerId
-    , (Just . ("HttpMethod",) . toJSON) _apiGatewayMethodHttpMethod
-    , fmap (("Integration",) . toJSON) _apiGatewayMethodIntegration
-    , fmap (("MethodResponses",) . toJSON) _apiGatewayMethodMethodResponses
-    , fmap (("OperationName",) . toJSON) _apiGatewayMethodOperationName
-    , fmap (("RequestModels",) . toJSON) _apiGatewayMethodRequestModels
-    , fmap (("RequestParameters",) . toJSON) _apiGatewayMethodRequestParameters
-    , fmap (("RequestValidatorId",) . toJSON) _apiGatewayMethodRequestValidatorId
-    , (Just . ("ResourceId",) . toJSON) _apiGatewayMethodResourceId
-    , (Just . ("RestApiId",) . toJSON) _apiGatewayMethodRestApiId
-    ]
+instance ToResourceProperties ApiGatewayMethod where
+  toResourceProperties ApiGatewayMethod{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::ApiGateway::Method"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("ApiKeyRequired",) . toJSON . fmap Bool') _apiGatewayMethodApiKeyRequired
+        , fmap (("AuthorizationScopes",) . toJSON) _apiGatewayMethodAuthorizationScopes
+        , fmap (("AuthorizationType",) . toJSON) _apiGatewayMethodAuthorizationType
+        , fmap (("AuthorizerId",) . toJSON) _apiGatewayMethodAuthorizerId
+        , (Just . ("HttpMethod",) . toJSON) _apiGatewayMethodHttpMethod
+        , fmap (("Integration",) . toJSON) _apiGatewayMethodIntegration
+        , fmap (("MethodResponses",) . toJSON) _apiGatewayMethodMethodResponses
+        , fmap (("OperationName",) . toJSON) _apiGatewayMethodOperationName
+        , fmap (("RequestModels",) . toJSON) _apiGatewayMethodRequestModels
+        , fmap (("RequestParameters",) . toJSON) _apiGatewayMethodRequestParameters
+        , fmap (("RequestValidatorId",) . toJSON) _apiGatewayMethodRequestValidatorId
+        , (Just . ("ResourceId",) . toJSON) _apiGatewayMethodResourceId
+        , (Just . ("RestApiId",) . toJSON) _apiGatewayMethodRestApiId
+        ]
+    }
 
 -- | Constructor for 'ApiGatewayMethod' containing required fields as
 -- arguments.

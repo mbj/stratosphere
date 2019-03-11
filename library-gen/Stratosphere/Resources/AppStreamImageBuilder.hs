@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html
@@ -26,21 +27,24 @@ data AppStreamImageBuilder =
   , _appStreamImageBuilderVpcConfig :: Maybe AppStreamImageBuilderVpcConfig
   } deriving (Show, Eq)
 
-instance ToJSON AppStreamImageBuilder where
-  toJSON AppStreamImageBuilder{..} =
-    object $
-    catMaybes
-    [ fmap (("AppstreamAgentVersion",) . toJSON) _appStreamImageBuilderAppstreamAgentVersion
-    , fmap (("Description",) . toJSON) _appStreamImageBuilderDescription
-    , fmap (("DisplayName",) . toJSON) _appStreamImageBuilderDisplayName
-    , fmap (("DomainJoinInfo",) . toJSON) _appStreamImageBuilderDomainJoinInfo
-    , fmap (("EnableDefaultInternetAccess",) . toJSON . fmap Bool') _appStreamImageBuilderEnableDefaultInternetAccess
-    , fmap (("ImageArn",) . toJSON) _appStreamImageBuilderImageArn
-    , fmap (("ImageName",) . toJSON) _appStreamImageBuilderImageName
-    , (Just . ("InstanceType",) . toJSON) _appStreamImageBuilderInstanceType
-    , fmap (("Name",) . toJSON) _appStreamImageBuilderName
-    , fmap (("VpcConfig",) . toJSON) _appStreamImageBuilderVpcConfig
-    ]
+instance ToResourceProperties AppStreamImageBuilder where
+  toResourceProperties AppStreamImageBuilder{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::AppStream::ImageBuilder"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("AppstreamAgentVersion",) . toJSON) _appStreamImageBuilderAppstreamAgentVersion
+        , fmap (("Description",) . toJSON) _appStreamImageBuilderDescription
+        , fmap (("DisplayName",) . toJSON) _appStreamImageBuilderDisplayName
+        , fmap (("DomainJoinInfo",) . toJSON) _appStreamImageBuilderDomainJoinInfo
+        , fmap (("EnableDefaultInternetAccess",) . toJSON . fmap Bool') _appStreamImageBuilderEnableDefaultInternetAccess
+        , fmap (("ImageArn",) . toJSON) _appStreamImageBuilderImageArn
+        , fmap (("ImageName",) . toJSON) _appStreamImageBuilderImageName
+        , (Just . ("InstanceType",) . toJSON) _appStreamImageBuilderInstanceType
+        , fmap (("Name",) . toJSON) _appStreamImageBuilderName
+        , fmap (("VpcConfig",) . toJSON) _appStreamImageBuilderVpcConfig
+        ]
+    }
 
 -- | Constructor for 'AppStreamImageBuilder' containing required fields as
 -- arguments.

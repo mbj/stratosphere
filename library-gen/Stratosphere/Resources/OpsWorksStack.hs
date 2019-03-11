@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-stack.html
@@ -45,36 +46,39 @@ data OpsWorksStack =
   , _opsWorksStackVpcId :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON OpsWorksStack where
-  toJSON OpsWorksStack{..} =
-    object $
-    catMaybes
-    [ fmap (("AgentVersion",) . toJSON) _opsWorksStackAgentVersion
-    , fmap (("Attributes",) . toJSON) _opsWorksStackAttributes
-    , fmap (("ChefConfiguration",) . toJSON) _opsWorksStackChefConfiguration
-    , fmap (("CloneAppIds",) . toJSON) _opsWorksStackCloneAppIds
-    , fmap (("ClonePermissions",) . toJSON . fmap Bool') _opsWorksStackClonePermissions
-    , fmap (("ConfigurationManager",) . toJSON) _opsWorksStackConfigurationManager
-    , fmap (("CustomCookbooksSource",) . toJSON) _opsWorksStackCustomCookbooksSource
-    , fmap (("CustomJson",) . toJSON) _opsWorksStackCustomJson
-    , fmap (("DefaultAvailabilityZone",) . toJSON) _opsWorksStackDefaultAvailabilityZone
-    , (Just . ("DefaultInstanceProfileArn",) . toJSON) _opsWorksStackDefaultInstanceProfileArn
-    , fmap (("DefaultOs",) . toJSON) _opsWorksStackDefaultOs
-    , fmap (("DefaultRootDeviceType",) . toJSON) _opsWorksStackDefaultRootDeviceType
-    , fmap (("DefaultSshKeyName",) . toJSON) _opsWorksStackDefaultSshKeyName
-    , fmap (("DefaultSubnetId",) . toJSON) _opsWorksStackDefaultSubnetId
-    , fmap (("EcsClusterArn",) . toJSON) _opsWorksStackEcsClusterArn
-    , fmap (("ElasticIps",) . toJSON) _opsWorksStackElasticIps
-    , fmap (("HostnameTheme",) . toJSON) _opsWorksStackHostnameTheme
-    , (Just . ("Name",) . toJSON) _opsWorksStackName
-    , fmap (("RdsDbInstances",) . toJSON) _opsWorksStackRdsDbInstances
-    , (Just . ("ServiceRoleArn",) . toJSON) _opsWorksStackServiceRoleArn
-    , fmap (("SourceStackId",) . toJSON) _opsWorksStackSourceStackId
-    , fmap (("Tags",) . toJSON) _opsWorksStackTags
-    , fmap (("UseCustomCookbooks",) . toJSON . fmap Bool') _opsWorksStackUseCustomCookbooks
-    , fmap (("UseOpsworksSecurityGroups",) . toJSON . fmap Bool') _opsWorksStackUseOpsworksSecurityGroups
-    , fmap (("VpcId",) . toJSON) _opsWorksStackVpcId
-    ]
+instance ToResourceProperties OpsWorksStack where
+  toResourceProperties OpsWorksStack{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::OpsWorks::Stack"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("AgentVersion",) . toJSON) _opsWorksStackAgentVersion
+        , fmap (("Attributes",) . toJSON) _opsWorksStackAttributes
+        , fmap (("ChefConfiguration",) . toJSON) _opsWorksStackChefConfiguration
+        , fmap (("CloneAppIds",) . toJSON) _opsWorksStackCloneAppIds
+        , fmap (("ClonePermissions",) . toJSON . fmap Bool') _opsWorksStackClonePermissions
+        , fmap (("ConfigurationManager",) . toJSON) _opsWorksStackConfigurationManager
+        , fmap (("CustomCookbooksSource",) . toJSON) _opsWorksStackCustomCookbooksSource
+        , fmap (("CustomJson",) . toJSON) _opsWorksStackCustomJson
+        , fmap (("DefaultAvailabilityZone",) . toJSON) _opsWorksStackDefaultAvailabilityZone
+        , (Just . ("DefaultInstanceProfileArn",) . toJSON) _opsWorksStackDefaultInstanceProfileArn
+        , fmap (("DefaultOs",) . toJSON) _opsWorksStackDefaultOs
+        , fmap (("DefaultRootDeviceType",) . toJSON) _opsWorksStackDefaultRootDeviceType
+        , fmap (("DefaultSshKeyName",) . toJSON) _opsWorksStackDefaultSshKeyName
+        , fmap (("DefaultSubnetId",) . toJSON) _opsWorksStackDefaultSubnetId
+        , fmap (("EcsClusterArn",) . toJSON) _opsWorksStackEcsClusterArn
+        , fmap (("ElasticIps",) . toJSON) _opsWorksStackElasticIps
+        , fmap (("HostnameTheme",) . toJSON) _opsWorksStackHostnameTheme
+        , (Just . ("Name",) . toJSON) _opsWorksStackName
+        , fmap (("RdsDbInstances",) . toJSON) _opsWorksStackRdsDbInstances
+        , (Just . ("ServiceRoleArn",) . toJSON) _opsWorksStackServiceRoleArn
+        , fmap (("SourceStackId",) . toJSON) _opsWorksStackSourceStackId
+        , fmap (("Tags",) . toJSON) _opsWorksStackTags
+        , fmap (("UseCustomCookbooks",) . toJSON . fmap Bool') _opsWorksStackUseCustomCookbooks
+        , fmap (("UseOpsworksSecurityGroups",) . toJSON . fmap Bool') _opsWorksStackUseOpsworksSecurityGroups
+        , fmap (("VpcId",) . toJSON) _opsWorksStackVpcId
+        ]
+    }
 
 -- | Constructor for 'OpsWorksStack' containing required fields as arguments.
 opsWorksStack

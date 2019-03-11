@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-functionconfiguration.html
@@ -24,20 +25,23 @@ data AppSyncFunctionConfiguration =
   , _appSyncFunctionConfigurationResponseMappingTemplateS3Location :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON AppSyncFunctionConfiguration where
-  toJSON AppSyncFunctionConfiguration{..} =
-    object $
-    catMaybes
-    [ (Just . ("ApiId",) . toJSON) _appSyncFunctionConfigurationApiId
-    , fmap (("DataSourceName",) . toJSON) _appSyncFunctionConfigurationDataSourceName
-    , fmap (("Description",) . toJSON) _appSyncFunctionConfigurationDescription
-    , fmap (("FunctionVersion",) . toJSON) _appSyncFunctionConfigurationFunctionVersion
-    , fmap (("Name",) . toJSON) _appSyncFunctionConfigurationName
-    , fmap (("RequestMappingTemplate",) . toJSON) _appSyncFunctionConfigurationRequestMappingTemplate
-    , fmap (("RequestMappingTemplateS3Location",) . toJSON) _appSyncFunctionConfigurationRequestMappingTemplateS3Location
-    , fmap (("ResponseMappingTemplate",) . toJSON) _appSyncFunctionConfigurationResponseMappingTemplate
-    , fmap (("ResponseMappingTemplateS3Location",) . toJSON) _appSyncFunctionConfigurationResponseMappingTemplateS3Location
-    ]
+instance ToResourceProperties AppSyncFunctionConfiguration where
+  toResourceProperties AppSyncFunctionConfiguration{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::AppSync::FunctionConfiguration"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("ApiId",) . toJSON) _appSyncFunctionConfigurationApiId
+        , fmap (("DataSourceName",) . toJSON) _appSyncFunctionConfigurationDataSourceName
+        , fmap (("Description",) . toJSON) _appSyncFunctionConfigurationDescription
+        , fmap (("FunctionVersion",) . toJSON) _appSyncFunctionConfigurationFunctionVersion
+        , fmap (("Name",) . toJSON) _appSyncFunctionConfigurationName
+        , fmap (("RequestMappingTemplate",) . toJSON) _appSyncFunctionConfigurationRequestMappingTemplate
+        , fmap (("RequestMappingTemplateS3Location",) . toJSON) _appSyncFunctionConfigurationRequestMappingTemplateS3Location
+        , fmap (("ResponseMappingTemplate",) . toJSON) _appSyncFunctionConfigurationResponseMappingTemplate
+        , fmap (("ResponseMappingTemplateS3Location",) . toJSON) _appSyncFunctionConfigurationResponseMappingTemplateS3Location
+        ]
+    }
 
 -- | Constructor for 'AppSyncFunctionConfiguration' containing required fields
 -- as arguments.

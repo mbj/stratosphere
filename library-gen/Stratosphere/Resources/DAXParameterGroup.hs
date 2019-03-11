@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dax-parametergroup.html
@@ -18,14 +19,17 @@ data DAXParameterGroup =
   , _dAXParameterGroupParameterNameValues :: Maybe Object
   } deriving (Show, Eq)
 
-instance ToJSON DAXParameterGroup where
-  toJSON DAXParameterGroup{..} =
-    object $
-    catMaybes
-    [ fmap (("Description",) . toJSON) _dAXParameterGroupDescription
-    , fmap (("ParameterGroupName",) . toJSON) _dAXParameterGroupParameterGroupName
-    , fmap (("ParameterNameValues",) . toJSON) _dAXParameterGroupParameterNameValues
-    ]
+instance ToResourceProperties DAXParameterGroup where
+  toResourceProperties DAXParameterGroup{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::DAX::ParameterGroup"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("Description",) . toJSON) _dAXParameterGroupDescription
+        , fmap (("ParameterGroupName",) . toJSON) _dAXParameterGroupParameterGroupName
+        , fmap (("ParameterNameValues",) . toJSON) _dAXParameterGroupParameterNameValues
+        ]
+    }
 
 -- | Constructor for 'DAXParameterGroup' containing required fields as
 -- arguments.

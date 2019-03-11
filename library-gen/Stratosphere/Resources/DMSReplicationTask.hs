@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html
@@ -24,20 +25,23 @@ data DMSReplicationTask =
   , _dMSReplicationTaskTargetEndpointArn :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON DMSReplicationTask where
-  toJSON DMSReplicationTask{..} =
-    object $
-    catMaybes
-    [ fmap (("CdcStartTime",) . toJSON . fmap Double') _dMSReplicationTaskCdcStartTime
-    , (Just . ("MigrationType",) . toJSON) _dMSReplicationTaskMigrationType
-    , (Just . ("ReplicationInstanceArn",) . toJSON) _dMSReplicationTaskReplicationInstanceArn
-    , fmap (("ReplicationTaskIdentifier",) . toJSON) _dMSReplicationTaskReplicationTaskIdentifier
-    , fmap (("ReplicationTaskSettings",) . toJSON) _dMSReplicationTaskReplicationTaskSettings
-    , (Just . ("SourceEndpointArn",) . toJSON) _dMSReplicationTaskSourceEndpointArn
-    , (Just . ("TableMappings",) . toJSON) _dMSReplicationTaskTableMappings
-    , fmap (("Tags",) . toJSON) _dMSReplicationTaskTags
-    , (Just . ("TargetEndpointArn",) . toJSON) _dMSReplicationTaskTargetEndpointArn
-    ]
+instance ToResourceProperties DMSReplicationTask where
+  toResourceProperties DMSReplicationTask{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::DMS::ReplicationTask"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("CdcStartTime",) . toJSON . fmap Double') _dMSReplicationTaskCdcStartTime
+        , (Just . ("MigrationType",) . toJSON) _dMSReplicationTaskMigrationType
+        , (Just . ("ReplicationInstanceArn",) . toJSON) _dMSReplicationTaskReplicationInstanceArn
+        , fmap (("ReplicationTaskIdentifier",) . toJSON) _dMSReplicationTaskReplicationTaskIdentifier
+        , fmap (("ReplicationTaskSettings",) . toJSON) _dMSReplicationTaskReplicationTaskSettings
+        , (Just . ("SourceEndpointArn",) . toJSON) _dMSReplicationTaskSourceEndpointArn
+        , (Just . ("TableMappings",) . toJSON) _dMSReplicationTaskTableMappings
+        , fmap (("Tags",) . toJSON) _dMSReplicationTaskTags
+        , (Just . ("TargetEndpointArn",) . toJSON) _dMSReplicationTaskTargetEndpointArn
+        ]
+    }
 
 -- | Constructor for 'DMSReplicationTask' containing required fields as
 -- arguments.

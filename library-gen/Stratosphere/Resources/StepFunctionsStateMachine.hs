@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html
@@ -18,14 +19,17 @@ data StepFunctionsStateMachine =
   , _stepFunctionsStateMachineStateMachineName :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON StepFunctionsStateMachine where
-  toJSON StepFunctionsStateMachine{..} =
-    object $
-    catMaybes
-    [ (Just . ("DefinitionString",) . toJSON) _stepFunctionsStateMachineDefinitionString
-    , (Just . ("RoleArn",) . toJSON) _stepFunctionsStateMachineRoleArn
-    , fmap (("StateMachineName",) . toJSON) _stepFunctionsStateMachineStateMachineName
-    ]
+instance ToResourceProperties StepFunctionsStateMachine where
+  toResourceProperties StepFunctionsStateMachine{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::StepFunctions::StateMachine"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("DefinitionString",) . toJSON) _stepFunctionsStateMachineDefinitionString
+        , (Just . ("RoleArn",) . toJSON) _stepFunctionsStateMachineRoleArn
+        , fmap (("StateMachineName",) . toJSON) _stepFunctionsStateMachineStateMachineName
+        ]
+    }
 
 -- | Constructor for 'StepFunctionsStateMachine' containing required fields as
 -- arguments.

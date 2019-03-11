@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpoint.html
@@ -18,14 +19,17 @@ data SageMakerEndpoint =
   , _sageMakerEndpointTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
-instance ToJSON SageMakerEndpoint where
-  toJSON SageMakerEndpoint{..} =
-    object $
-    catMaybes
-    [ (Just . ("EndpointConfigName",) . toJSON) _sageMakerEndpointEndpointConfigName
-    , fmap (("EndpointName",) . toJSON) _sageMakerEndpointEndpointName
-    , fmap (("Tags",) . toJSON) _sageMakerEndpointTags
-    ]
+instance ToResourceProperties SageMakerEndpoint where
+  toResourceProperties SageMakerEndpoint{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::SageMaker::Endpoint"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("EndpointConfigName",) . toJSON) _sageMakerEndpointEndpointConfigName
+        , fmap (("EndpointName",) . toJSON) _sageMakerEndpointEndpointName
+        , fmap (("Tags",) . toJSON) _sageMakerEndpointTags
+        ]
+    }
 
 -- | Constructor for 'SageMakerEndpoint' containing required fields as
 -- arguments.

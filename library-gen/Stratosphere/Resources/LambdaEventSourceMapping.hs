@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html
@@ -20,16 +21,19 @@ data LambdaEventSourceMapping =
   , _lambdaEventSourceMappingStartingPosition :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON LambdaEventSourceMapping where
-  toJSON LambdaEventSourceMapping{..} =
-    object $
-    catMaybes
-    [ fmap (("BatchSize",) . toJSON . fmap Integer') _lambdaEventSourceMappingBatchSize
-    , fmap (("Enabled",) . toJSON . fmap Bool') _lambdaEventSourceMappingEnabled
-    , (Just . ("EventSourceArn",) . toJSON) _lambdaEventSourceMappingEventSourceArn
-    , (Just . ("FunctionName",) . toJSON) _lambdaEventSourceMappingFunctionName
-    , fmap (("StartingPosition",) . toJSON) _lambdaEventSourceMappingStartingPosition
-    ]
+instance ToResourceProperties LambdaEventSourceMapping where
+  toResourceProperties LambdaEventSourceMapping{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::Lambda::EventSourceMapping"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("BatchSize",) . toJSON . fmap Integer') _lambdaEventSourceMappingBatchSize
+        , fmap (("Enabled",) . toJSON . fmap Bool') _lambdaEventSourceMappingEnabled
+        , (Just . ("EventSourceArn",) . toJSON) _lambdaEventSourceMappingEventSourceArn
+        , (Just . ("FunctionName",) . toJSON) _lambdaEventSourceMappingFunctionName
+        , fmap (("StartingPosition",) . toJSON) _lambdaEventSourceMappingStartingPosition
+        ]
+    }
 
 -- | Constructor for 'LambdaEventSourceMapping' containing required fields as
 -- arguments.

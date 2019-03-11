@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroutetable.html
@@ -17,13 +18,16 @@ data EC2TransitGatewayRouteTable =
   , _eC2TransitGatewayRouteTableTransitGatewayId :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON EC2TransitGatewayRouteTable where
-  toJSON EC2TransitGatewayRouteTable{..} =
-    object $
-    catMaybes
-    [ fmap (("Tags",) . toJSON) _eC2TransitGatewayRouteTableTags
-    , (Just . ("TransitGatewayId",) . toJSON) _eC2TransitGatewayRouteTableTransitGatewayId
-    ]
+instance ToResourceProperties EC2TransitGatewayRouteTable where
+  toResourceProperties EC2TransitGatewayRouteTable{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::EC2::TransitGatewayRouteTable"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("Tags",) . toJSON) _eC2TransitGatewayRouteTableTags
+        , (Just . ("TransitGatewayId",) . toJSON) _eC2TransitGatewayRouteTableTransitGatewayId
+        ]
+    }
 
 -- | Constructor for 'EC2TransitGatewayRouteTable' containing required fields
 -- as arguments.

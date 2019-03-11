@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-portfolioproductassociation.html
@@ -20,15 +21,18 @@ data ServiceCatalogPortfolioProductAssociation =
   , _serviceCatalogPortfolioProductAssociationSourcePortfolioId :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON ServiceCatalogPortfolioProductAssociation where
-  toJSON ServiceCatalogPortfolioProductAssociation{..} =
-    object $
-    catMaybes
-    [ fmap (("AcceptLanguage",) . toJSON) _serviceCatalogPortfolioProductAssociationAcceptLanguage
-    , (Just . ("PortfolioId",) . toJSON) _serviceCatalogPortfolioProductAssociationPortfolioId
-    , (Just . ("ProductId",) . toJSON) _serviceCatalogPortfolioProductAssociationProductId
-    , fmap (("SourcePortfolioId",) . toJSON) _serviceCatalogPortfolioProductAssociationSourcePortfolioId
-    ]
+instance ToResourceProperties ServiceCatalogPortfolioProductAssociation where
+  toResourceProperties ServiceCatalogPortfolioProductAssociation{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::ServiceCatalog::PortfolioProductAssociation"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("AcceptLanguage",) . toJSON) _serviceCatalogPortfolioProductAssociationAcceptLanguage
+        , (Just . ("PortfolioId",) . toJSON) _serviceCatalogPortfolioProductAssociationPortfolioId
+        , (Just . ("ProductId",) . toJSON) _serviceCatalogPortfolioProductAssociationProductId
+        , fmap (("SourcePortfolioId",) . toJSON) _serviceCatalogPortfolioProductAssociationSourcePortfolioId
+        ]
+    }
 
 -- | Constructor for 'ServiceCatalogPortfolioProductAssociation' containing
 -- required fields as arguments.

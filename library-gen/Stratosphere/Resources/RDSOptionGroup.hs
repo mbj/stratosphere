@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-optiongroup.html
@@ -21,16 +22,19 @@ data RDSOptionGroup =
   , _rDSOptionGroupTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
-instance ToJSON RDSOptionGroup where
-  toJSON RDSOptionGroup{..} =
-    object $
-    catMaybes
-    [ (Just . ("EngineName",) . toJSON) _rDSOptionGroupEngineName
-    , (Just . ("MajorEngineVersion",) . toJSON) _rDSOptionGroupMajorEngineVersion
-    , (Just . ("OptionConfigurations",) . toJSON) _rDSOptionGroupOptionConfigurations
-    , (Just . ("OptionGroupDescription",) . toJSON) _rDSOptionGroupOptionGroupDescription
-    , fmap (("Tags",) . toJSON) _rDSOptionGroupTags
-    ]
+instance ToResourceProperties RDSOptionGroup where
+  toResourceProperties RDSOptionGroup{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::RDS::OptionGroup"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("EngineName",) . toJSON) _rDSOptionGroupEngineName
+        , (Just . ("MajorEngineVersion",) . toJSON) _rDSOptionGroupMajorEngineVersion
+        , (Just . ("OptionConfigurations",) . toJSON) _rDSOptionGroupOptionConfigurations
+        , (Just . ("OptionGroupDescription",) . toJSON) _rDSOptionGroupOptionGroupDescription
+        , fmap (("Tags",) . toJSON) _rDSOptionGroupTags
+        ]
+    }
 
 -- | Constructor for 'RDSOptionGroup' containing required fields as arguments.
 rdsOptionGroup

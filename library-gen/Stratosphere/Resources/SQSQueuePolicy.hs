@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-policy.html
@@ -17,13 +18,16 @@ data SQSQueuePolicy =
   , _sQSQueuePolicyQueues :: ValList Text
   } deriving (Show, Eq)
 
-instance ToJSON SQSQueuePolicy where
-  toJSON SQSQueuePolicy{..} =
-    object $
-    catMaybes
-    [ (Just . ("PolicyDocument",) . toJSON) _sQSQueuePolicyPolicyDocument
-    , (Just . ("Queues",) . toJSON) _sQSQueuePolicyQueues
-    ]
+instance ToResourceProperties SQSQueuePolicy where
+  toResourceProperties SQSQueuePolicy{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::SQS::QueuePolicy"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("PolicyDocument",) . toJSON) _sQSQueuePolicyPolicyDocument
+        , (Just . ("Queues",) . toJSON) _sQSQueuePolicyQueues
+        ]
+    }
 
 -- | Constructor for 'SQSQueuePolicy' containing required fields as arguments.
 sqsQueuePolicy

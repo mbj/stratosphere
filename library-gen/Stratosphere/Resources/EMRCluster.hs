@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticmapreduce-cluster.html
@@ -40,30 +41,33 @@ data EMRCluster =
   , _eMRClusterVisibleToAllUsers :: Maybe (Val Bool)
   } deriving (Show, Eq)
 
-instance ToJSON EMRCluster where
-  toJSON EMRCluster{..} =
-    object $
-    catMaybes
-    [ fmap (("AdditionalInfo",) . toJSON) _eMRClusterAdditionalInfo
-    , fmap (("Applications",) . toJSON) _eMRClusterApplications
-    , fmap (("AutoScalingRole",) . toJSON) _eMRClusterAutoScalingRole
-    , fmap (("BootstrapActions",) . toJSON) _eMRClusterBootstrapActions
-    , fmap (("Configurations",) . toJSON) _eMRClusterConfigurations
-    , fmap (("CustomAmiId",) . toJSON) _eMRClusterCustomAmiId
-    , fmap (("EbsRootVolumeSize",) . toJSON . fmap Integer') _eMRClusterEbsRootVolumeSize
-    , (Just . ("Instances",) . toJSON) _eMRClusterInstances
-    , (Just . ("JobFlowRole",) . toJSON) _eMRClusterJobFlowRole
-    , fmap (("KerberosAttributes",) . toJSON) _eMRClusterKerberosAttributes
-    , fmap (("LogUri",) . toJSON) _eMRClusterLogUri
-    , (Just . ("Name",) . toJSON) _eMRClusterName
-    , fmap (("ReleaseLabel",) . toJSON) _eMRClusterReleaseLabel
-    , fmap (("ScaleDownBehavior",) . toJSON) _eMRClusterScaleDownBehavior
-    , fmap (("SecurityConfiguration",) . toJSON) _eMRClusterSecurityConfiguration
-    , (Just . ("ServiceRole",) . toJSON) _eMRClusterServiceRole
-    , fmap (("Steps",) . toJSON) _eMRClusterSteps
-    , fmap (("Tags",) . toJSON) _eMRClusterTags
-    , fmap (("VisibleToAllUsers",) . toJSON . fmap Bool') _eMRClusterVisibleToAllUsers
-    ]
+instance ToResourceProperties EMRCluster where
+  toResourceProperties EMRCluster{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::EMR::Cluster"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("AdditionalInfo",) . toJSON) _eMRClusterAdditionalInfo
+        , fmap (("Applications",) . toJSON) _eMRClusterApplications
+        , fmap (("AutoScalingRole",) . toJSON) _eMRClusterAutoScalingRole
+        , fmap (("BootstrapActions",) . toJSON) _eMRClusterBootstrapActions
+        , fmap (("Configurations",) . toJSON) _eMRClusterConfigurations
+        , fmap (("CustomAmiId",) . toJSON) _eMRClusterCustomAmiId
+        , fmap (("EbsRootVolumeSize",) . toJSON . fmap Integer') _eMRClusterEbsRootVolumeSize
+        , (Just . ("Instances",) . toJSON) _eMRClusterInstances
+        , (Just . ("JobFlowRole",) . toJSON) _eMRClusterJobFlowRole
+        , fmap (("KerberosAttributes",) . toJSON) _eMRClusterKerberosAttributes
+        , fmap (("LogUri",) . toJSON) _eMRClusterLogUri
+        , (Just . ("Name",) . toJSON) _eMRClusterName
+        , fmap (("ReleaseLabel",) . toJSON) _eMRClusterReleaseLabel
+        , fmap (("ScaleDownBehavior",) . toJSON) _eMRClusterScaleDownBehavior
+        , fmap (("SecurityConfiguration",) . toJSON) _eMRClusterSecurityConfiguration
+        , (Just . ("ServiceRole",) . toJSON) _eMRClusterServiceRole
+        , fmap (("Steps",) . toJSON) _eMRClusterSteps
+        , fmap (("Tags",) . toJSON) _eMRClusterTags
+        , fmap (("VisibleToAllUsers",) . toJSON . fmap Bool') _eMRClusterVisibleToAllUsers
+        ]
+    }
 
 -- | Constructor for 'EMRCluster' containing required fields as arguments.
 emrCluster

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-filter.html
@@ -21,17 +22,20 @@ data GuardDutyFilter =
   , _guardDutyFilterRank :: Val Integer
   } deriving (Show, Eq)
 
-instance ToJSON GuardDutyFilter where
-  toJSON GuardDutyFilter{..} =
-    object $
-    catMaybes
-    [ (Just . ("Action",) . toJSON) _guardDutyFilterAction
-    , (Just . ("Description",) . toJSON) _guardDutyFilterDescription
-    , (Just . ("DetectorId",) . toJSON) _guardDutyFilterDetectorId
-    , (Just . ("FindingCriteria",) . toJSON) _guardDutyFilterFindingCriteria
-    , fmap (("Name",) . toJSON) _guardDutyFilterName
-    , (Just . ("Rank",) . toJSON . fmap Integer') _guardDutyFilterRank
-    ]
+instance ToResourceProperties GuardDutyFilter where
+  toResourceProperties GuardDutyFilter{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::GuardDuty::Filter"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("Action",) . toJSON) _guardDutyFilterAction
+        , (Just . ("Description",) . toJSON) _guardDutyFilterDescription
+        , (Just . ("DetectorId",) . toJSON) _guardDutyFilterDetectorId
+        , (Just . ("FindingCriteria",) . toJSON) _guardDutyFilterFindingCriteria
+        , fmap (("Name",) . toJSON) _guardDutyFilterName
+        , (Just . ("Rank",) . toJSON . fmap Integer') _guardDutyFilterRank
+        ]
+    }
 
 -- | Constructor for 'GuardDutyFilter' containing required fields as
 -- arguments.

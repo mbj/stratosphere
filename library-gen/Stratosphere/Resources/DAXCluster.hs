@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dax-cluster.html
@@ -28,24 +29,27 @@ data DAXCluster =
   , _dAXClusterTags :: Maybe Object
   } deriving (Show, Eq)
 
-instance ToJSON DAXCluster where
-  toJSON DAXCluster{..} =
-    object $
-    catMaybes
-    [ fmap (("AvailabilityZones",) . toJSON) _dAXClusterAvailabilityZones
-    , fmap (("ClusterName",) . toJSON) _dAXClusterClusterName
-    , fmap (("Description",) . toJSON) _dAXClusterDescription
-    , (Just . ("IAMRoleARN",) . toJSON) _dAXClusterIAMRoleARN
-    , (Just . ("NodeType",) . toJSON) _dAXClusterNodeType
-    , fmap (("NotificationTopicARN",) . toJSON) _dAXClusterNotificationTopicARN
-    , fmap (("ParameterGroupName",) . toJSON) _dAXClusterParameterGroupName
-    , fmap (("PreferredMaintenanceWindow",) . toJSON) _dAXClusterPreferredMaintenanceWindow
-    , (Just . ("ReplicationFactor",) . toJSON . fmap Integer') _dAXClusterReplicationFactor
-    , fmap (("SSESpecification",) . toJSON) _dAXClusterSSESpecification
-    , fmap (("SecurityGroupIds",) . toJSON) _dAXClusterSecurityGroupIds
-    , fmap (("SubnetGroupName",) . toJSON) _dAXClusterSubnetGroupName
-    , fmap (("Tags",) . toJSON) _dAXClusterTags
-    ]
+instance ToResourceProperties DAXCluster where
+  toResourceProperties DAXCluster{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::DAX::Cluster"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("AvailabilityZones",) . toJSON) _dAXClusterAvailabilityZones
+        , fmap (("ClusterName",) . toJSON) _dAXClusterClusterName
+        , fmap (("Description",) . toJSON) _dAXClusterDescription
+        , (Just . ("IAMRoleARN",) . toJSON) _dAXClusterIAMRoleARN
+        , (Just . ("NodeType",) . toJSON) _dAXClusterNodeType
+        , fmap (("NotificationTopicARN",) . toJSON) _dAXClusterNotificationTopicARN
+        , fmap (("ParameterGroupName",) . toJSON) _dAXClusterParameterGroupName
+        , fmap (("PreferredMaintenanceWindow",) . toJSON) _dAXClusterPreferredMaintenanceWindow
+        , (Just . ("ReplicationFactor",) . toJSON . fmap Integer') _dAXClusterReplicationFactor
+        , fmap (("SSESpecification",) . toJSON) _dAXClusterSSESpecification
+        , fmap (("SecurityGroupIds",) . toJSON) _dAXClusterSecurityGroupIds
+        , fmap (("SubnetGroupName",) . toJSON) _dAXClusterSubnetGroupName
+        , fmap (("Tags",) . toJSON) _dAXClusterTags
+        ]
+    }
 
 -- | Constructor for 'DAXCluster' containing required fields as arguments.
 daxCluster

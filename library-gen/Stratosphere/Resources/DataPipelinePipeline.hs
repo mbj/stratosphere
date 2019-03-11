@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datapipeline-pipeline.html
@@ -25,18 +26,21 @@ data DataPipelinePipeline =
   , _dataPipelinePipelinePipelineTags :: Maybe [DataPipelinePipelinePipelineTag]
   } deriving (Show, Eq)
 
-instance ToJSON DataPipelinePipeline where
-  toJSON DataPipelinePipeline{..} =
-    object $
-    catMaybes
-    [ fmap (("Activate",) . toJSON . fmap Bool') _dataPipelinePipelineActivate
-    , fmap (("Description",) . toJSON) _dataPipelinePipelineDescription
-    , (Just . ("Name",) . toJSON) _dataPipelinePipelineName
-    , (Just . ("ParameterObjects",) . toJSON) _dataPipelinePipelineParameterObjects
-    , fmap (("ParameterValues",) . toJSON) _dataPipelinePipelineParameterValues
-    , fmap (("PipelineObjects",) . toJSON) _dataPipelinePipelinePipelineObjects
-    , fmap (("PipelineTags",) . toJSON) _dataPipelinePipelinePipelineTags
-    ]
+instance ToResourceProperties DataPipelinePipeline where
+  toResourceProperties DataPipelinePipeline{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::DataPipeline::Pipeline"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("Activate",) . toJSON . fmap Bool') _dataPipelinePipelineActivate
+        , fmap (("Description",) . toJSON) _dataPipelinePipelineDescription
+        , (Just . ("Name",) . toJSON) _dataPipelinePipelineName
+        , (Just . ("ParameterObjects",) . toJSON) _dataPipelinePipelineParameterObjects
+        , fmap (("ParameterValues",) . toJSON) _dataPipelinePipelineParameterValues
+        , fmap (("PipelineObjects",) . toJSON) _dataPipelinePipelinePipelineObjects
+        , fmap (("PipelineTags",) . toJSON) _dataPipelinePipelinePipelineTags
+        ]
+    }
 
 -- | Constructor for 'DataPipelinePipeline' containing required fields as
 -- arguments.

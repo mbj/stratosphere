@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-deliverychannel.html
@@ -20,16 +21,19 @@ data ConfigDeliveryChannel =
   , _configDeliveryChannelSnsTopicARN :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON ConfigDeliveryChannel where
-  toJSON ConfigDeliveryChannel{..} =
-    object $
-    catMaybes
-    [ fmap (("ConfigSnapshotDeliveryProperties",) . toJSON) _configDeliveryChannelConfigSnapshotDeliveryProperties
-    , fmap (("Name",) . toJSON) _configDeliveryChannelName
-    , (Just . ("S3BucketName",) . toJSON) _configDeliveryChannelS3BucketName
-    , fmap (("S3KeyPrefix",) . toJSON) _configDeliveryChannelS3KeyPrefix
-    , fmap (("SnsTopicARN",) . toJSON) _configDeliveryChannelSnsTopicARN
-    ]
+instance ToResourceProperties ConfigDeliveryChannel where
+  toResourceProperties ConfigDeliveryChannel{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::Config::DeliveryChannel"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("ConfigSnapshotDeliveryProperties",) . toJSON) _configDeliveryChannelConfigSnapshotDeliveryProperties
+        , fmap (("Name",) . toJSON) _configDeliveryChannelName
+        , (Just . ("S3BucketName",) . toJSON) _configDeliveryChannelS3BucketName
+        , fmap (("S3KeyPrefix",) . toJSON) _configDeliveryChannelS3KeyPrefix
+        , fmap (("SnsTopicARN",) . toJSON) _configDeliveryChannelSnsTopicARN
+        ]
+    }
 
 -- | Constructor for 'ConfigDeliveryChannel' containing required fields as
 -- arguments.

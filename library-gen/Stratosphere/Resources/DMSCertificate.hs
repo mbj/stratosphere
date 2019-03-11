@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-certificate.html
@@ -18,14 +19,17 @@ data DMSCertificate =
   , _dMSCertificateCertificateWallet :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON DMSCertificate where
-  toJSON DMSCertificate{..} =
-    object $
-    catMaybes
-    [ fmap (("CertificateIdentifier",) . toJSON) _dMSCertificateCertificateIdentifier
-    , fmap (("CertificatePem",) . toJSON) _dMSCertificateCertificatePem
-    , fmap (("CertificateWallet",) . toJSON) _dMSCertificateCertificateWallet
-    ]
+instance ToResourceProperties DMSCertificate where
+  toResourceProperties DMSCertificate{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::DMS::Certificate"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("CertificateIdentifier",) . toJSON) _dMSCertificateCertificateIdentifier
+        , fmap (("CertificatePem",) . toJSON) _dMSCertificateCertificatePem
+        , fmap (("CertificateWallet",) . toJSON) _dMSCertificateCertificateWallet
+        ]
+    }
 
 -- | Constructor for 'DMSCertificate' containing required fields as arguments.
 dmsCertificate

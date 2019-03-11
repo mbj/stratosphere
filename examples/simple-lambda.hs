@@ -22,7 +22,6 @@ myTemplate =
 lambda :: Resource
 lambda = (
   resource "LambdaFunction" $
-  LambdaFunctionProperties $
   lambdaFunction
     lambdaCode
     "index.handler"
@@ -48,7 +47,6 @@ code = "\
 role' :: Resource
 role' =
   resource "IAMRole" $
-  IAMRoleProperties $
   iamRole
   rolePolicyDocumentObject
   & iamrPolicies ?~ [ executePolicy ]

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-userprofile.html
@@ -19,15 +20,18 @@ data OpsWorksUserProfile =
   , _opsWorksUserProfileSshUsername :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON OpsWorksUserProfile where
-  toJSON OpsWorksUserProfile{..} =
-    object $
-    catMaybes
-    [ fmap (("AllowSelfManagement",) . toJSON . fmap Bool') _opsWorksUserProfileAllowSelfManagement
-    , (Just . ("IamUserArn",) . toJSON) _opsWorksUserProfileIamUserArn
-    , fmap (("SshPublicKey",) . toJSON) _opsWorksUserProfileSshPublicKey
-    , fmap (("SshUsername",) . toJSON) _opsWorksUserProfileSshUsername
-    ]
+instance ToResourceProperties OpsWorksUserProfile where
+  toResourceProperties OpsWorksUserProfile{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::OpsWorks::UserProfile"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("AllowSelfManagement",) . toJSON . fmap Bool') _opsWorksUserProfileAllowSelfManagement
+        , (Just . ("IamUserArn",) . toJSON) _opsWorksUserProfileIamUserArn
+        , fmap (("SshPublicKey",) . toJSON) _opsWorksUserProfileSshPublicKey
+        , fmap (("SshUsername",) . toJSON) _opsWorksUserProfileSshUsername
+        ]
+    }
 
 -- | Constructor for 'OpsWorksUserProfile' containing required fields as
 -- arguments.

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-instance.html
@@ -37,32 +38,35 @@ data OpsWorksInstance =
   , _opsWorksInstanceVolumes :: Maybe (ValList Text)
   } deriving (Show, Eq)
 
-instance ToJSON OpsWorksInstance where
-  toJSON OpsWorksInstance{..} =
-    object $
-    catMaybes
-    [ fmap (("AgentVersion",) . toJSON) _opsWorksInstanceAgentVersion
-    , fmap (("AmiId",) . toJSON) _opsWorksInstanceAmiId
-    , fmap (("Architecture",) . toJSON) _opsWorksInstanceArchitecture
-    , fmap (("AutoScalingType",) . toJSON) _opsWorksInstanceAutoScalingType
-    , fmap (("AvailabilityZone",) . toJSON) _opsWorksInstanceAvailabilityZone
-    , fmap (("BlockDeviceMappings",) . toJSON) _opsWorksInstanceBlockDeviceMappings
-    , fmap (("EbsOptimized",) . toJSON . fmap Bool') _opsWorksInstanceEbsOptimized
-    , fmap (("ElasticIps",) . toJSON) _opsWorksInstanceElasticIps
-    , fmap (("Hostname",) . toJSON) _opsWorksInstanceHostname
-    , fmap (("InstallUpdatesOnBoot",) . toJSON . fmap Bool') _opsWorksInstanceInstallUpdatesOnBoot
-    , (Just . ("InstanceType",) . toJSON) _opsWorksInstanceInstanceType
-    , (Just . ("LayerIds",) . toJSON) _opsWorksInstanceLayerIds
-    , fmap (("Os",) . toJSON) _opsWorksInstanceOs
-    , fmap (("RootDeviceType",) . toJSON) _opsWorksInstanceRootDeviceType
-    , fmap (("SshKeyName",) . toJSON) _opsWorksInstanceSshKeyName
-    , (Just . ("StackId",) . toJSON) _opsWorksInstanceStackId
-    , fmap (("SubnetId",) . toJSON) _opsWorksInstanceSubnetId
-    , fmap (("Tenancy",) . toJSON) _opsWorksInstanceTenancy
-    , fmap (("TimeBasedAutoScaling",) . toJSON) _opsWorksInstanceTimeBasedAutoScaling
-    , fmap (("VirtualizationType",) . toJSON) _opsWorksInstanceVirtualizationType
-    , fmap (("Volumes",) . toJSON) _opsWorksInstanceVolumes
-    ]
+instance ToResourceProperties OpsWorksInstance where
+  toResourceProperties OpsWorksInstance{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::OpsWorks::Instance"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("AgentVersion",) . toJSON) _opsWorksInstanceAgentVersion
+        , fmap (("AmiId",) . toJSON) _opsWorksInstanceAmiId
+        , fmap (("Architecture",) . toJSON) _opsWorksInstanceArchitecture
+        , fmap (("AutoScalingType",) . toJSON) _opsWorksInstanceAutoScalingType
+        , fmap (("AvailabilityZone",) . toJSON) _opsWorksInstanceAvailabilityZone
+        , fmap (("BlockDeviceMappings",) . toJSON) _opsWorksInstanceBlockDeviceMappings
+        , fmap (("EbsOptimized",) . toJSON . fmap Bool') _opsWorksInstanceEbsOptimized
+        , fmap (("ElasticIps",) . toJSON) _opsWorksInstanceElasticIps
+        , fmap (("Hostname",) . toJSON) _opsWorksInstanceHostname
+        , fmap (("InstallUpdatesOnBoot",) . toJSON . fmap Bool') _opsWorksInstanceInstallUpdatesOnBoot
+        , (Just . ("InstanceType",) . toJSON) _opsWorksInstanceInstanceType
+        , (Just . ("LayerIds",) . toJSON) _opsWorksInstanceLayerIds
+        , fmap (("Os",) . toJSON) _opsWorksInstanceOs
+        , fmap (("RootDeviceType",) . toJSON) _opsWorksInstanceRootDeviceType
+        , fmap (("SshKeyName",) . toJSON) _opsWorksInstanceSshKeyName
+        , (Just . ("StackId",) . toJSON) _opsWorksInstanceStackId
+        , fmap (("SubnetId",) . toJSON) _opsWorksInstanceSubnetId
+        , fmap (("Tenancy",) . toJSON) _opsWorksInstanceTenancy
+        , fmap (("TimeBasedAutoScaling",) . toJSON) _opsWorksInstanceTimeBasedAutoScaling
+        , fmap (("VirtualizationType",) . toJSON) _opsWorksInstanceVirtualizationType
+        , fmap (("Volumes",) . toJSON) _opsWorksInstanceVolumes
+        ]
+    }
 
 -- | Constructor for 'OpsWorksInstance' containing required fields as
 -- arguments.

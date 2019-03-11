@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-managedpolicy.html
@@ -22,18 +23,21 @@ data IAMManagedPolicy =
   , _iAMManagedPolicyUsers :: Maybe (ValList Text)
   } deriving (Show, Eq)
 
-instance ToJSON IAMManagedPolicy where
-  toJSON IAMManagedPolicy{..} =
-    object $
-    catMaybes
-    [ fmap (("Description",) . toJSON) _iAMManagedPolicyDescription
-    , fmap (("Groups",) . toJSON) _iAMManagedPolicyGroups
-    , fmap (("ManagedPolicyName",) . toJSON) _iAMManagedPolicyManagedPolicyName
-    , fmap (("Path",) . toJSON) _iAMManagedPolicyPath
-    , (Just . ("PolicyDocument",) . toJSON) _iAMManagedPolicyPolicyDocument
-    , fmap (("Roles",) . toJSON) _iAMManagedPolicyRoles
-    , fmap (("Users",) . toJSON) _iAMManagedPolicyUsers
-    ]
+instance ToResourceProperties IAMManagedPolicy where
+  toResourceProperties IAMManagedPolicy{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::IAM::ManagedPolicy"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("Description",) . toJSON) _iAMManagedPolicyDescription
+        , fmap (("Groups",) . toJSON) _iAMManagedPolicyGroups
+        , fmap (("ManagedPolicyName",) . toJSON) _iAMManagedPolicyManagedPolicyName
+        , fmap (("Path",) . toJSON) _iAMManagedPolicyPath
+        , (Just . ("PolicyDocument",) . toJSON) _iAMManagedPolicyPolicyDocument
+        , fmap (("Roles",) . toJSON) _iAMManagedPolicyRoles
+        , fmap (("Users",) . toJSON) _iAMManagedPolicyUsers
+        ]
+    }
 
 -- | Constructor for 'IAMManagedPolicy' containing required fields as
 -- arguments.

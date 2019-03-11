@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-applicationcloudwatchloggingoption.html
@@ -19,13 +20,16 @@ data KinesisAnalyticsV2ApplicationCloudWatchLoggingOption =
   , _kinesisAnalyticsV2ApplicationCloudWatchLoggingOptionCloudWatchLoggingOption :: KinesisAnalyticsV2ApplicationCloudWatchLoggingOptionCloudWatchLoggingOption
   } deriving (Show, Eq)
 
-instance ToJSON KinesisAnalyticsV2ApplicationCloudWatchLoggingOption where
-  toJSON KinesisAnalyticsV2ApplicationCloudWatchLoggingOption{..} =
-    object $
-    catMaybes
-    [ (Just . ("ApplicationName",) . toJSON) _kinesisAnalyticsV2ApplicationCloudWatchLoggingOptionApplicationName
-    , (Just . ("CloudWatchLoggingOption",) . toJSON) _kinesisAnalyticsV2ApplicationCloudWatchLoggingOptionCloudWatchLoggingOption
-    ]
+instance ToResourceProperties KinesisAnalyticsV2ApplicationCloudWatchLoggingOption where
+  toResourceProperties KinesisAnalyticsV2ApplicationCloudWatchLoggingOption{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::KinesisAnalyticsV2::ApplicationCloudWatchLoggingOption"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("ApplicationName",) . toJSON) _kinesisAnalyticsV2ApplicationCloudWatchLoggingOptionApplicationName
+        , (Just . ("CloudWatchLoggingOption",) . toJSON) _kinesisAnalyticsV2ApplicationCloudWatchLoggingOptionCloudWatchLoggingOption
+        ]
+    }
 
 -- | Constructor for 'KinesisAnalyticsV2ApplicationCloudWatchLoggingOption'
 -- containing required fields as arguments.
