@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-metricfilter.html
@@ -18,14 +19,17 @@ data LogsMetricFilter =
   , _logsMetricFilterMetricTransformations :: [LogsMetricFilterMetricTransformation]
   } deriving (Show, Eq)
 
-instance ToJSON LogsMetricFilter where
-  toJSON LogsMetricFilter{..} =
-    object $
-    catMaybes
-    [ (Just . ("FilterPattern",) . toJSON) _logsMetricFilterFilterPattern
-    , (Just . ("LogGroupName",) . toJSON) _logsMetricFilterLogGroupName
-    , (Just . ("MetricTransformations",) . toJSON) _logsMetricFilterMetricTransformations
-    ]
+instance ToResourceProperties LogsMetricFilter where
+  toResourceProperties LogsMetricFilter{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::Logs::MetricFilter"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("FilterPattern",) . toJSON) _logsMetricFilterFilterPattern
+        , (Just . ("LogGroupName",) . toJSON) _logsMetricFilterLogGroupName
+        , (Just . ("MetricTransformations",) . toJSON) _logsMetricFilterMetricTransformations
+        ]
+    }
 
 -- | Constructor for 'LogsMetricFilter' containing required fields as
 -- arguments.

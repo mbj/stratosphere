@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-rule.html
@@ -18,14 +19,17 @@ data WAFRule =
   , _wAFRulePredicates :: Maybe [WAFRulePredicate]
   } deriving (Show, Eq)
 
-instance ToJSON WAFRule where
-  toJSON WAFRule{..} =
-    object $
-    catMaybes
-    [ (Just . ("MetricName",) . toJSON) _wAFRuleMetricName
-    , (Just . ("Name",) . toJSON) _wAFRuleName
-    , fmap (("Predicates",) . toJSON) _wAFRulePredicates
-    ]
+instance ToResourceProperties WAFRule where
+  toResourceProperties WAFRule{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::WAF::Rule"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("MetricName",) . toJSON) _wAFRuleMetricName
+        , (Just . ("Name",) . toJSON) _wAFRuleName
+        , fmap (("Predicates",) . toJSON) _wAFRulePredicates
+        ]
+    }
 
 -- | Constructor for 'WAFRule' containing required fields as arguments.
 wafRule

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html
@@ -39,28 +40,31 @@ data CodeBuildProject =
   , _codeBuildProjectVpcConfig :: Maybe CodeBuildProjectVpcConfig
   } deriving (Show, Eq)
 
-instance ToJSON CodeBuildProject where
-  toJSON CodeBuildProject{..} =
-    object $
-    catMaybes
-    [ (Just . ("Artifacts",) . toJSON) _codeBuildProjectArtifacts
-    , fmap (("BadgeEnabled",) . toJSON . fmap Bool') _codeBuildProjectBadgeEnabled
-    , fmap (("Cache",) . toJSON) _codeBuildProjectCache
-    , fmap (("Description",) . toJSON) _codeBuildProjectDescription
-    , fmap (("EncryptionKey",) . toJSON) _codeBuildProjectEncryptionKey
-    , (Just . ("Environment",) . toJSON) _codeBuildProjectEnvironment
-    , fmap (("LogsConfig",) . toJSON) _codeBuildProjectLogsConfig
-    , fmap (("Name",) . toJSON) _codeBuildProjectName
-    , fmap (("QueuedTimeoutInMinutes",) . toJSON . fmap Integer') _codeBuildProjectQueuedTimeoutInMinutes
-    , fmap (("SecondaryArtifacts",) . toJSON) _codeBuildProjectSecondaryArtifacts
-    , fmap (("SecondarySources",) . toJSON) _codeBuildProjectSecondarySources
-    , (Just . ("ServiceRole",) . toJSON) _codeBuildProjectServiceRole
-    , (Just . ("Source",) . toJSON) _codeBuildProjectSource
-    , fmap (("Tags",) . toJSON) _codeBuildProjectTags
-    , fmap (("TimeoutInMinutes",) . toJSON . fmap Integer') _codeBuildProjectTimeoutInMinutes
-    , fmap (("Triggers",) . toJSON) _codeBuildProjectTriggers
-    , fmap (("VpcConfig",) . toJSON) _codeBuildProjectVpcConfig
-    ]
+instance ToResourceProperties CodeBuildProject where
+  toResourceProperties CodeBuildProject{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::CodeBuild::Project"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("Artifacts",) . toJSON) _codeBuildProjectArtifacts
+        , fmap (("BadgeEnabled",) . toJSON . fmap Bool') _codeBuildProjectBadgeEnabled
+        , fmap (("Cache",) . toJSON) _codeBuildProjectCache
+        , fmap (("Description",) . toJSON) _codeBuildProjectDescription
+        , fmap (("EncryptionKey",) . toJSON) _codeBuildProjectEncryptionKey
+        , (Just . ("Environment",) . toJSON) _codeBuildProjectEnvironment
+        , fmap (("LogsConfig",) . toJSON) _codeBuildProjectLogsConfig
+        , fmap (("Name",) . toJSON) _codeBuildProjectName
+        , fmap (("QueuedTimeoutInMinutes",) . toJSON . fmap Integer') _codeBuildProjectQueuedTimeoutInMinutes
+        , fmap (("SecondaryArtifacts",) . toJSON) _codeBuildProjectSecondaryArtifacts
+        , fmap (("SecondarySources",) . toJSON) _codeBuildProjectSecondarySources
+        , (Just . ("ServiceRole",) . toJSON) _codeBuildProjectServiceRole
+        , (Just . ("Source",) . toJSON) _codeBuildProjectSource
+        , fmap (("Tags",) . toJSON) _codeBuildProjectTags
+        , fmap (("TimeoutInMinutes",) . toJSON . fmap Integer') _codeBuildProjectTimeoutInMinutes
+        , fmap (("Triggers",) . toJSON) _codeBuildProjectTriggers
+        , fmap (("VpcConfig",) . toJSON) _codeBuildProjectVpcConfig
+        ]
+    }
 
 -- | Constructor for 'CodeBuildProject' containing required fields as
 -- arguments.

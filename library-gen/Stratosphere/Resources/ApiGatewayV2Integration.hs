@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html
@@ -28,24 +29,27 @@ data ApiGatewayV2Integration =
   , _apiGatewayV2IntegrationTimeoutInMillis :: Maybe (Val Integer)
   } deriving (Show, Eq)
 
-instance ToJSON ApiGatewayV2Integration where
-  toJSON ApiGatewayV2Integration{..} =
-    object $
-    catMaybes
-    [ (Just . ("ApiId",) . toJSON) _apiGatewayV2IntegrationApiId
-    , fmap (("ConnectionType",) . toJSON) _apiGatewayV2IntegrationConnectionType
-    , fmap (("ContentHandlingStrategy",) . toJSON) _apiGatewayV2IntegrationContentHandlingStrategy
-    , fmap (("CredentialsArn",) . toJSON) _apiGatewayV2IntegrationCredentialsArn
-    , fmap (("Description",) . toJSON) _apiGatewayV2IntegrationDescription
-    , fmap (("IntegrationMethod",) . toJSON) _apiGatewayV2IntegrationIntegrationMethod
-    , (Just . ("IntegrationType",) . toJSON) _apiGatewayV2IntegrationIntegrationType
-    , fmap (("IntegrationUri",) . toJSON) _apiGatewayV2IntegrationIntegrationUri
-    , fmap (("PassthroughBehavior",) . toJSON) _apiGatewayV2IntegrationPassthroughBehavior
-    , fmap (("RequestParameters",) . toJSON) _apiGatewayV2IntegrationRequestParameters
-    , fmap (("RequestTemplates",) . toJSON) _apiGatewayV2IntegrationRequestTemplates
-    , fmap (("TemplateSelectionExpression",) . toJSON) _apiGatewayV2IntegrationTemplateSelectionExpression
-    , fmap (("TimeoutInMillis",) . toJSON . fmap Integer') _apiGatewayV2IntegrationTimeoutInMillis
-    ]
+instance ToResourceProperties ApiGatewayV2Integration where
+  toResourceProperties ApiGatewayV2Integration{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::ApiGatewayV2::Integration"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("ApiId",) . toJSON) _apiGatewayV2IntegrationApiId
+        , fmap (("ConnectionType",) . toJSON) _apiGatewayV2IntegrationConnectionType
+        , fmap (("ContentHandlingStrategy",) . toJSON) _apiGatewayV2IntegrationContentHandlingStrategy
+        , fmap (("CredentialsArn",) . toJSON) _apiGatewayV2IntegrationCredentialsArn
+        , fmap (("Description",) . toJSON) _apiGatewayV2IntegrationDescription
+        , fmap (("IntegrationMethod",) . toJSON) _apiGatewayV2IntegrationIntegrationMethod
+        , (Just . ("IntegrationType",) . toJSON) _apiGatewayV2IntegrationIntegrationType
+        , fmap (("IntegrationUri",) . toJSON) _apiGatewayV2IntegrationIntegrationUri
+        , fmap (("PassthroughBehavior",) . toJSON) _apiGatewayV2IntegrationPassthroughBehavior
+        , fmap (("RequestParameters",) . toJSON) _apiGatewayV2IntegrationRequestParameters
+        , fmap (("RequestTemplates",) . toJSON) _apiGatewayV2IntegrationRequestTemplates
+        , fmap (("TemplateSelectionExpression",) . toJSON) _apiGatewayV2IntegrationTemplateSelectionExpression
+        , fmap (("TimeoutInMillis",) . toJSON . fmap Integer') _apiGatewayV2IntegrationTimeoutInMillis
+        ]
+    }
 
 -- | Constructor for 'ApiGatewayV2Integration' containing required fields as
 -- arguments.

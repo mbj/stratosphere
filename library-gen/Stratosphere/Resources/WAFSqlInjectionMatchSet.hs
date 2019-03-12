@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-sqlinjectionmatchset.html
@@ -17,13 +18,16 @@ data WAFSqlInjectionMatchSet =
   , _wAFSqlInjectionMatchSetSqlInjectionMatchTuples :: Maybe [WAFSqlInjectionMatchSetSqlInjectionMatchTuple]
   } deriving (Show, Eq)
 
-instance ToJSON WAFSqlInjectionMatchSet where
-  toJSON WAFSqlInjectionMatchSet{..} =
-    object $
-    catMaybes
-    [ (Just . ("Name",) . toJSON) _wAFSqlInjectionMatchSetName
-    , fmap (("SqlInjectionMatchTuples",) . toJSON) _wAFSqlInjectionMatchSetSqlInjectionMatchTuples
-    ]
+instance ToResourceProperties WAFSqlInjectionMatchSet where
+  toResourceProperties WAFSqlInjectionMatchSet{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::WAF::SqlInjectionMatchSet"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("Name",) . toJSON) _wAFSqlInjectionMatchSetName
+        , fmap (("SqlInjectionMatchTuples",) . toJSON) _wAFSqlInjectionMatchSetSqlInjectionMatchTuples
+        ]
+    }
 
 -- | Constructor for 'WAFSqlInjectionMatchSet' containing required fields as
 -- arguments.

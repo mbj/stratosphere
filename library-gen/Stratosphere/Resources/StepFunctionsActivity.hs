@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-activity.html
@@ -16,12 +17,15 @@ data StepFunctionsActivity =
   { _stepFunctionsActivityName :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON StepFunctionsActivity where
-  toJSON StepFunctionsActivity{..} =
-    object $
-    catMaybes
-    [ (Just . ("Name",) . toJSON) _stepFunctionsActivityName
-    ]
+instance ToResourceProperties StepFunctionsActivity where
+  toResourceProperties StepFunctionsActivity{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::StepFunctions::Activity"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("Name",) . toJSON) _stepFunctionsActivityName
+        ]
+    }
 
 -- | Constructor for 'StepFunctionsActivity' containing required fields as
 -- arguments.

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-simpledb.html
@@ -16,12 +17,15 @@ data SDBDomain =
   { _sDBDomainDescription :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON SDBDomain where
-  toJSON SDBDomain{..} =
-    object $
-    catMaybes
-    [ fmap (("Description",) . toJSON) _sDBDomainDescription
-    ]
+instance ToResourceProperties SDBDomain where
+  toResourceProperties SDBDomain{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::SDB::Domain"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("Description",) . toJSON) _sDBDomainDescription
+        ]
+    }
 
 -- | Constructor for 'SDBDomain' containing required fields as arguments.
 sdbDomain

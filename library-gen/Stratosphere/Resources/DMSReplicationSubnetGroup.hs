@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationsubnetgroup.html
@@ -19,15 +20,18 @@ data DMSReplicationSubnetGroup =
   , _dMSReplicationSubnetGroupTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
-instance ToJSON DMSReplicationSubnetGroup where
-  toJSON DMSReplicationSubnetGroup{..} =
-    object $
-    catMaybes
-    [ (Just . ("ReplicationSubnetGroupDescription",) . toJSON) _dMSReplicationSubnetGroupReplicationSubnetGroupDescription
-    , fmap (("ReplicationSubnetGroupIdentifier",) . toJSON) _dMSReplicationSubnetGroupReplicationSubnetGroupIdentifier
-    , (Just . ("SubnetIds",) . toJSON) _dMSReplicationSubnetGroupSubnetIds
-    , fmap (("Tags",) . toJSON) _dMSReplicationSubnetGroupTags
-    ]
+instance ToResourceProperties DMSReplicationSubnetGroup where
+  toResourceProperties DMSReplicationSubnetGroup{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::DMS::ReplicationSubnetGroup"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("ReplicationSubnetGroupDescription",) . toJSON) _dMSReplicationSubnetGroupReplicationSubnetGroupDescription
+        , fmap (("ReplicationSubnetGroupIdentifier",) . toJSON) _dMSReplicationSubnetGroupReplicationSubnetGroupIdentifier
+        , (Just . ("SubnetIds",) . toJSON) _dMSReplicationSubnetGroupSubnetIds
+        , fmap (("Tags",) . toJSON) _dMSReplicationSubnetGroupTags
+        ]
+    }
 
 -- | Constructor for 'DMSReplicationSubnetGroup' containing required fields as
 -- arguments.

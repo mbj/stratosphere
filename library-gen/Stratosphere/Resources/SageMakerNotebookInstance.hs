@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstance.html
@@ -25,21 +26,24 @@ data SageMakerNotebookInstance =
   , _sageMakerNotebookInstanceVolumeSizeInGB :: Maybe (Val Integer)
   } deriving (Show, Eq)
 
-instance ToJSON SageMakerNotebookInstance where
-  toJSON SageMakerNotebookInstance{..} =
-    object $
-    catMaybes
-    [ fmap (("DirectInternetAccess",) . toJSON) _sageMakerNotebookInstanceDirectInternetAccess
-    , (Just . ("InstanceType",) . toJSON) _sageMakerNotebookInstanceInstanceType
-    , fmap (("KmsKeyId",) . toJSON) _sageMakerNotebookInstanceKmsKeyId
-    , fmap (("LifecycleConfigName",) . toJSON) _sageMakerNotebookInstanceLifecycleConfigName
-    , fmap (("NotebookInstanceName",) . toJSON) _sageMakerNotebookInstanceNotebookInstanceName
-    , (Just . ("RoleArn",) . toJSON) _sageMakerNotebookInstanceRoleArn
-    , fmap (("SecurityGroupIds",) . toJSON) _sageMakerNotebookInstanceSecurityGroupIds
-    , fmap (("SubnetId",) . toJSON) _sageMakerNotebookInstanceSubnetId
-    , fmap (("Tags",) . toJSON) _sageMakerNotebookInstanceTags
-    , fmap (("VolumeSizeInGB",) . toJSON . fmap Integer') _sageMakerNotebookInstanceVolumeSizeInGB
-    ]
+instance ToResourceProperties SageMakerNotebookInstance where
+  toResourceProperties SageMakerNotebookInstance{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::SageMaker::NotebookInstance"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("DirectInternetAccess",) . toJSON) _sageMakerNotebookInstanceDirectInternetAccess
+        , (Just . ("InstanceType",) . toJSON) _sageMakerNotebookInstanceInstanceType
+        , fmap (("KmsKeyId",) . toJSON) _sageMakerNotebookInstanceKmsKeyId
+        , fmap (("LifecycleConfigName",) . toJSON) _sageMakerNotebookInstanceLifecycleConfigName
+        , fmap (("NotebookInstanceName",) . toJSON) _sageMakerNotebookInstanceNotebookInstanceName
+        , (Just . ("RoleArn",) . toJSON) _sageMakerNotebookInstanceRoleArn
+        , fmap (("SecurityGroupIds",) . toJSON) _sageMakerNotebookInstanceSecurityGroupIds
+        , fmap (("SubnetId",) . toJSON) _sageMakerNotebookInstanceSubnetId
+        , fmap (("Tags",) . toJSON) _sageMakerNotebookInstanceTags
+        , fmap (("VolumeSizeInGB",) . toJSON . fmap Integer') _sageMakerNotebookInstanceVolumeSizeInGB
+        ]
+    }
 
 -- | Constructor for 'SageMakerNotebookInstance' containing required fields as
 -- arguments.

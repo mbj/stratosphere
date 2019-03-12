@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset.html
@@ -31,26 +32,29 @@ data Route53RecordSet =
   , _route53RecordSetWeight :: Maybe (Val Integer)
   } deriving (Show, Eq)
 
-instance ToJSON Route53RecordSet where
-  toJSON Route53RecordSet{..} =
-    object $
-    catMaybes
-    [ fmap (("AliasTarget",) . toJSON) _route53RecordSetAliasTarget
-    , fmap (("Comment",) . toJSON) _route53RecordSetComment
-    , fmap (("Failover",) . toJSON) _route53RecordSetFailover
-    , fmap (("GeoLocation",) . toJSON) _route53RecordSetGeoLocation
-    , fmap (("HealthCheckId",) . toJSON) _route53RecordSetHealthCheckId
-    , fmap (("HostedZoneId",) . toJSON) _route53RecordSetHostedZoneId
-    , fmap (("HostedZoneName",) . toJSON) _route53RecordSetHostedZoneName
-    , fmap (("MultiValueAnswer",) . toJSON . fmap Bool') _route53RecordSetMultiValueAnswer
-    , (Just . ("Name",) . toJSON) _route53RecordSetName
-    , fmap (("Region",) . toJSON) _route53RecordSetRegion
-    , fmap (("ResourceRecords",) . toJSON) _route53RecordSetResourceRecords
-    , fmap (("SetIdentifier",) . toJSON) _route53RecordSetSetIdentifier
-    , fmap (("TTL",) . toJSON) _route53RecordSetTTL
-    , (Just . ("Type",) . toJSON) _route53RecordSetType
-    , fmap (("Weight",) . toJSON . fmap Integer') _route53RecordSetWeight
-    ]
+instance ToResourceProperties Route53RecordSet where
+  toResourceProperties Route53RecordSet{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::Route53::RecordSet"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("AliasTarget",) . toJSON) _route53RecordSetAliasTarget
+        , fmap (("Comment",) . toJSON) _route53RecordSetComment
+        , fmap (("Failover",) . toJSON) _route53RecordSetFailover
+        , fmap (("GeoLocation",) . toJSON) _route53RecordSetGeoLocation
+        , fmap (("HealthCheckId",) . toJSON) _route53RecordSetHealthCheckId
+        , fmap (("HostedZoneId",) . toJSON) _route53RecordSetHostedZoneId
+        , fmap (("HostedZoneName",) . toJSON) _route53RecordSetHostedZoneName
+        , fmap (("MultiValueAnswer",) . toJSON . fmap Bool') _route53RecordSetMultiValueAnswer
+        , (Just . ("Name",) . toJSON) _route53RecordSetName
+        , fmap (("Region",) . toJSON) _route53RecordSetRegion
+        , fmap (("ResourceRecords",) . toJSON) _route53RecordSetResourceRecords
+        , fmap (("SetIdentifier",) . toJSON) _route53RecordSetSetIdentifier
+        , fmap (("TTL",) . toJSON) _route53RecordSetTTL
+        , (Just . ("Type",) . toJSON) _route53RecordSetType
+        , fmap (("Weight",) . toJSON . fmap Integer') _route53RecordSetWeight
+        ]
+    }
 
 -- | Constructor for 'Route53RecordSet' containing required fields as
 -- arguments.

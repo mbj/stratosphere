@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-lifecyclehook.html
@@ -23,19 +24,22 @@ data AutoScalingLifecycleHook =
   , _autoScalingLifecycleHookRoleARN :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON AutoScalingLifecycleHook where
-  toJSON AutoScalingLifecycleHook{..} =
-    object $
-    catMaybes
-    [ (Just . ("AutoScalingGroupName",) . toJSON) _autoScalingLifecycleHookAutoScalingGroupName
-    , fmap (("DefaultResult",) . toJSON) _autoScalingLifecycleHookDefaultResult
-    , fmap (("HeartbeatTimeout",) . toJSON . fmap Integer') _autoScalingLifecycleHookHeartbeatTimeout
-    , fmap (("LifecycleHookName",) . toJSON) _autoScalingLifecycleHookLifecycleHookName
-    , (Just . ("LifecycleTransition",) . toJSON) _autoScalingLifecycleHookLifecycleTransition
-    , fmap (("NotificationMetadata",) . toJSON) _autoScalingLifecycleHookNotificationMetadata
-    , fmap (("NotificationTargetARN",) . toJSON) _autoScalingLifecycleHookNotificationTargetARN
-    , fmap (("RoleARN",) . toJSON) _autoScalingLifecycleHookRoleARN
-    ]
+instance ToResourceProperties AutoScalingLifecycleHook where
+  toResourceProperties AutoScalingLifecycleHook{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::AutoScaling::LifecycleHook"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("AutoScalingGroupName",) . toJSON) _autoScalingLifecycleHookAutoScalingGroupName
+        , fmap (("DefaultResult",) . toJSON) _autoScalingLifecycleHookDefaultResult
+        , fmap (("HeartbeatTimeout",) . toJSON . fmap Integer') _autoScalingLifecycleHookHeartbeatTimeout
+        , fmap (("LifecycleHookName",) . toJSON) _autoScalingLifecycleHookLifecycleHookName
+        , (Just . ("LifecycleTransition",) . toJSON) _autoScalingLifecycleHookLifecycleTransition
+        , fmap (("NotificationMetadata",) . toJSON) _autoScalingLifecycleHookNotificationMetadata
+        , fmap (("NotificationTargetARN",) . toJSON) _autoScalingLifecycleHookNotificationTargetARN
+        , fmap (("RoleARN",) . toJSON) _autoScalingLifecycleHookRoleARN
+        ]
+    }
 
 -- | Constructor for 'AutoScalingLifecycleHook' containing required fields as
 -- arguments.

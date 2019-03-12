@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-stage.html
@@ -32,25 +33,28 @@ data ApiGatewayStage =
   , _apiGatewayStageVariables :: Maybe Object
   } deriving (Show, Eq)
 
-instance ToJSON ApiGatewayStage where
-  toJSON ApiGatewayStage{..} =
-    object $
-    catMaybes
-    [ fmap (("AccessLogSetting",) . toJSON) _apiGatewayStageAccessLogSetting
-    , fmap (("CacheClusterEnabled",) . toJSON . fmap Bool') _apiGatewayStageCacheClusterEnabled
-    , fmap (("CacheClusterSize",) . toJSON) _apiGatewayStageCacheClusterSize
-    , fmap (("CanarySetting",) . toJSON) _apiGatewayStageCanarySetting
-    , fmap (("ClientCertificateId",) . toJSON) _apiGatewayStageClientCertificateId
-    , fmap (("DeploymentId",) . toJSON) _apiGatewayStageDeploymentId
-    , fmap (("Description",) . toJSON) _apiGatewayStageDescription
-    , fmap (("DocumentationVersion",) . toJSON) _apiGatewayStageDocumentationVersion
-    , fmap (("MethodSettings",) . toJSON) _apiGatewayStageMethodSettings
-    , (Just . ("RestApiId",) . toJSON) _apiGatewayStageRestApiId
-    , fmap (("StageName",) . toJSON) _apiGatewayStageStageName
-    , fmap (("Tags",) . toJSON) _apiGatewayStageTags
-    , fmap (("TracingEnabled",) . toJSON . fmap Bool') _apiGatewayStageTracingEnabled
-    , fmap (("Variables",) . toJSON) _apiGatewayStageVariables
-    ]
+instance ToResourceProperties ApiGatewayStage where
+  toResourceProperties ApiGatewayStage{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::ApiGateway::Stage"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("AccessLogSetting",) . toJSON) _apiGatewayStageAccessLogSetting
+        , fmap (("CacheClusterEnabled",) . toJSON . fmap Bool') _apiGatewayStageCacheClusterEnabled
+        , fmap (("CacheClusterSize",) . toJSON) _apiGatewayStageCacheClusterSize
+        , fmap (("CanarySetting",) . toJSON) _apiGatewayStageCanarySetting
+        , fmap (("ClientCertificateId",) . toJSON) _apiGatewayStageClientCertificateId
+        , fmap (("DeploymentId",) . toJSON) _apiGatewayStageDeploymentId
+        , fmap (("Description",) . toJSON) _apiGatewayStageDescription
+        , fmap (("DocumentationVersion",) . toJSON) _apiGatewayStageDocumentationVersion
+        , fmap (("MethodSettings",) . toJSON) _apiGatewayStageMethodSettings
+        , (Just . ("RestApiId",) . toJSON) _apiGatewayStageRestApiId
+        , fmap (("StageName",) . toJSON) _apiGatewayStageStageName
+        , fmap (("Tags",) . toJSON) _apiGatewayStageTags
+        , fmap (("TracingEnabled",) . toJSON . fmap Bool') _apiGatewayStageTracingEnabled
+        , fmap (("Variables",) . toJSON) _apiGatewayStageVariables
+        ]
+    }
 
 -- | Constructor for 'ApiGatewayStage' containing required fields as
 -- arguments.

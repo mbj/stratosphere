@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-policy.html
@@ -26,21 +27,24 @@ data AutoScalingScalingPolicy =
   , _autoScalingScalingPolicyTargetTrackingConfiguration :: Maybe AutoScalingScalingPolicyTargetTrackingConfiguration
   } deriving (Show, Eq)
 
-instance ToJSON AutoScalingScalingPolicy where
-  toJSON AutoScalingScalingPolicy{..} =
-    object $
-    catMaybes
-    [ fmap (("AdjustmentType",) . toJSON) _autoScalingScalingPolicyAdjustmentType
-    , (Just . ("AutoScalingGroupName",) . toJSON) _autoScalingScalingPolicyAutoScalingGroupName
-    , fmap (("Cooldown",) . toJSON) _autoScalingScalingPolicyCooldown
-    , fmap (("EstimatedInstanceWarmup",) . toJSON . fmap Integer') _autoScalingScalingPolicyEstimatedInstanceWarmup
-    , fmap (("MetricAggregationType",) . toJSON) _autoScalingScalingPolicyMetricAggregationType
-    , fmap (("MinAdjustmentMagnitude",) . toJSON . fmap Integer') _autoScalingScalingPolicyMinAdjustmentMagnitude
-    , fmap (("PolicyType",) . toJSON) _autoScalingScalingPolicyPolicyType
-    , fmap (("ScalingAdjustment",) . toJSON . fmap Integer') _autoScalingScalingPolicyScalingAdjustment
-    , fmap (("StepAdjustments",) . toJSON) _autoScalingScalingPolicyStepAdjustments
-    , fmap (("TargetTrackingConfiguration",) . toJSON) _autoScalingScalingPolicyTargetTrackingConfiguration
-    ]
+instance ToResourceProperties AutoScalingScalingPolicy where
+  toResourceProperties AutoScalingScalingPolicy{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::AutoScaling::ScalingPolicy"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("AdjustmentType",) . toJSON) _autoScalingScalingPolicyAdjustmentType
+        , (Just . ("AutoScalingGroupName",) . toJSON) _autoScalingScalingPolicyAutoScalingGroupName
+        , fmap (("Cooldown",) . toJSON) _autoScalingScalingPolicyCooldown
+        , fmap (("EstimatedInstanceWarmup",) . toJSON . fmap Integer') _autoScalingScalingPolicyEstimatedInstanceWarmup
+        , fmap (("MetricAggregationType",) . toJSON) _autoScalingScalingPolicyMetricAggregationType
+        , fmap (("MinAdjustmentMagnitude",) . toJSON . fmap Integer') _autoScalingScalingPolicyMinAdjustmentMagnitude
+        , fmap (("PolicyType",) . toJSON) _autoScalingScalingPolicyPolicyType
+        , fmap (("ScalingAdjustment",) . toJSON . fmap Integer') _autoScalingScalingPolicyScalingAdjustment
+        , fmap (("StepAdjustments",) . toJSON) _autoScalingScalingPolicyStepAdjustments
+        , fmap (("TargetTrackingConfiguration",) . toJSON) _autoScalingScalingPolicyTargetTrackingConfiguration
+        ]
+    }
 
 -- | Constructor for 'AutoScalingScalingPolicy' containing required fields as
 -- arguments.

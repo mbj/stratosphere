@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-customactiontype.html
@@ -24,18 +25,21 @@ data CodePipelineCustomActionType =
   , _codePipelineCustomActionTypeVersion :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON CodePipelineCustomActionType where
-  toJSON CodePipelineCustomActionType{..} =
-    object $
-    catMaybes
-    [ (Just . ("Category",) . toJSON) _codePipelineCustomActionTypeCategory
-    , fmap (("ConfigurationProperties",) . toJSON) _codePipelineCustomActionTypeConfigurationProperties
-    , (Just . ("InputArtifactDetails",) . toJSON) _codePipelineCustomActionTypeInputArtifactDetails
-    , (Just . ("OutputArtifactDetails",) . toJSON) _codePipelineCustomActionTypeOutputArtifactDetails
-    , (Just . ("Provider",) . toJSON) _codePipelineCustomActionTypeProvider
-    , fmap (("Settings",) . toJSON) _codePipelineCustomActionTypeSettings
-    , fmap (("Version",) . toJSON) _codePipelineCustomActionTypeVersion
-    ]
+instance ToResourceProperties CodePipelineCustomActionType where
+  toResourceProperties CodePipelineCustomActionType{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::CodePipeline::CustomActionType"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("Category",) . toJSON) _codePipelineCustomActionTypeCategory
+        , fmap (("ConfigurationProperties",) . toJSON) _codePipelineCustomActionTypeConfigurationProperties
+        , (Just . ("InputArtifactDetails",) . toJSON) _codePipelineCustomActionTypeInputArtifactDetails
+        , (Just . ("OutputArtifactDetails",) . toJSON) _codePipelineCustomActionTypeOutputArtifactDetails
+        , (Just . ("Provider",) . toJSON) _codePipelineCustomActionTypeProvider
+        , fmap (("Settings",) . toJSON) _codePipelineCustomActionTypeSettings
+        , fmap (("Version",) . toJSON) _codePipelineCustomActionTypeVersion
+        ]
+    }
 
 -- | Constructor for 'CodePipelineCustomActionType' containing required fields
 -- as arguments.

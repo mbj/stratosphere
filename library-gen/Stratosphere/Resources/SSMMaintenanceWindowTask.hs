@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtask.html
@@ -30,24 +31,27 @@ data SSMMaintenanceWindowTask =
   , _sSMMaintenanceWindowTaskWindowId :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON SSMMaintenanceWindowTask where
-  toJSON SSMMaintenanceWindowTask{..} =
-    object $
-    catMaybes
-    [ fmap (("Description",) . toJSON) _sSMMaintenanceWindowTaskDescription
-    , fmap (("LoggingInfo",) . toJSON) _sSMMaintenanceWindowTaskLoggingInfo
-    , (Just . ("MaxConcurrency",) . toJSON) _sSMMaintenanceWindowTaskMaxConcurrency
-    , (Just . ("MaxErrors",) . toJSON) _sSMMaintenanceWindowTaskMaxErrors
-    , fmap (("Name",) . toJSON) _sSMMaintenanceWindowTaskName
-    , (Just . ("Priority",) . toJSON . fmap Integer') _sSMMaintenanceWindowTaskPriority
-    , (Just . ("ServiceRoleArn",) . toJSON) _sSMMaintenanceWindowTaskServiceRoleArn
-    , (Just . ("Targets",) . toJSON) _sSMMaintenanceWindowTaskTargets
-    , (Just . ("TaskArn",) . toJSON) _sSMMaintenanceWindowTaskTaskArn
-    , fmap (("TaskInvocationParameters",) . toJSON) _sSMMaintenanceWindowTaskTaskInvocationParameters
-    , fmap (("TaskParameters",) . toJSON) _sSMMaintenanceWindowTaskTaskParameters
-    , (Just . ("TaskType",) . toJSON) _sSMMaintenanceWindowTaskTaskType
-    , fmap (("WindowId",) . toJSON) _sSMMaintenanceWindowTaskWindowId
-    ]
+instance ToResourceProperties SSMMaintenanceWindowTask where
+  toResourceProperties SSMMaintenanceWindowTask{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::SSM::MaintenanceWindowTask"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("Description",) . toJSON) _sSMMaintenanceWindowTaskDescription
+        , fmap (("LoggingInfo",) . toJSON) _sSMMaintenanceWindowTaskLoggingInfo
+        , (Just . ("MaxConcurrency",) . toJSON) _sSMMaintenanceWindowTaskMaxConcurrency
+        , (Just . ("MaxErrors",) . toJSON) _sSMMaintenanceWindowTaskMaxErrors
+        , fmap (("Name",) . toJSON) _sSMMaintenanceWindowTaskName
+        , (Just . ("Priority",) . toJSON . fmap Integer') _sSMMaintenanceWindowTaskPriority
+        , (Just . ("ServiceRoleArn",) . toJSON) _sSMMaintenanceWindowTaskServiceRoleArn
+        , (Just . ("Targets",) . toJSON) _sSMMaintenanceWindowTaskTargets
+        , (Just . ("TaskArn",) . toJSON) _sSMMaintenanceWindowTaskTaskArn
+        , fmap (("TaskInvocationParameters",) . toJSON) _sSMMaintenanceWindowTaskTaskInvocationParameters
+        , fmap (("TaskParameters",) . toJSON) _sSMMaintenanceWindowTaskTaskParameters
+        , (Just . ("TaskType",) . toJSON) _sSMMaintenanceWindowTaskTaskType
+        , fmap (("WindowId",) . toJSON) _sSMMaintenanceWindowTaskWindowId
+        ]
+    }
 
 -- | Constructor for 'SSMMaintenanceWindowTask' containing required fields as
 -- arguments.

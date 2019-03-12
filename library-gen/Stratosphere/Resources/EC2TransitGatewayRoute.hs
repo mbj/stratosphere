@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroute.html
@@ -19,15 +20,18 @@ data EC2TransitGatewayRoute =
   , _eC2TransitGatewayRouteTransitGatewayRouteTableId :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON EC2TransitGatewayRoute where
-  toJSON EC2TransitGatewayRoute{..} =
-    object $
-    catMaybes
-    [ fmap (("Blackhole",) . toJSON . fmap Bool') _eC2TransitGatewayRouteBlackhole
-    , fmap (("DestinationCidrBlock",) . toJSON) _eC2TransitGatewayRouteDestinationCidrBlock
-    , fmap (("TransitGatewayAttachmentId",) . toJSON) _eC2TransitGatewayRouteTransitGatewayAttachmentId
-    , (Just . ("TransitGatewayRouteTableId",) . toJSON) _eC2TransitGatewayRouteTransitGatewayRouteTableId
-    ]
+instance ToResourceProperties EC2TransitGatewayRoute where
+  toResourceProperties EC2TransitGatewayRoute{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::EC2::TransitGatewayRoute"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("Blackhole",) . toJSON . fmap Bool') _eC2TransitGatewayRouteBlackhole
+        , fmap (("DestinationCidrBlock",) . toJSON) _eC2TransitGatewayRouteDestinationCidrBlock
+        , fmap (("TransitGatewayAttachmentId",) . toJSON) _eC2TransitGatewayRouteTransitGatewayAttachmentId
+        , (Just . ("TransitGatewayRouteTableId",) . toJSON) _eC2TransitGatewayRouteTransitGatewayRouteTableId
+        ]
+    }
 
 -- | Constructor for 'EC2TransitGatewayRoute' containing required fields as
 -- arguments.

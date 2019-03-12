@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-servicelinkedrole.html
@@ -18,14 +19,17 @@ data IAMServiceLinkedRole =
   , _iAMServiceLinkedRoleDescription :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON IAMServiceLinkedRole where
-  toJSON IAMServiceLinkedRole{..} =
-    object $
-    catMaybes
-    [ (Just . ("AWSServiceName",) . toJSON) _iAMServiceLinkedRoleAWSServiceName
-    , fmap (("CustomSuffix",) . toJSON) _iAMServiceLinkedRoleCustomSuffix
-    , fmap (("Description",) . toJSON) _iAMServiceLinkedRoleDescription
-    ]
+instance ToResourceProperties IAMServiceLinkedRole where
+  toResourceProperties IAMServiceLinkedRole{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::IAM::ServiceLinkedRole"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("AWSServiceName",) . toJSON) _iAMServiceLinkedRoleAWSServiceName
+        , fmap (("CustomSuffix",) . toJSON) _iAMServiceLinkedRoleCustomSuffix
+        , fmap (("Description",) . toJSON) _iAMServiceLinkedRoleDescription
+        ]
+    }
 
 -- | Constructor for 'IAMServiceLinkedRole' containing required fields as
 -- arguments.

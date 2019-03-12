@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-aggregationauthorization.html
@@ -17,13 +18,16 @@ data ConfigAggregationAuthorization =
   , _configAggregationAuthorizationAuthorizedAwsRegion :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON ConfigAggregationAuthorization where
-  toJSON ConfigAggregationAuthorization{..} =
-    object $
-    catMaybes
-    [ (Just . ("AuthorizedAccountId",) . toJSON) _configAggregationAuthorizationAuthorizedAccountId
-    , (Just . ("AuthorizedAwsRegion",) . toJSON) _configAggregationAuthorizationAuthorizedAwsRegion
-    ]
+instance ToResourceProperties ConfigAggregationAuthorization where
+  toResourceProperties ConfigAggregationAuthorization{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::Config::AggregationAuthorization"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("AuthorizedAccountId",) . toJSON) _configAggregationAuthorizationAuthorizedAccountId
+        , (Just . ("AuthorizedAwsRegion",) . toJSON) _configAggregationAuthorizationAuthorizedAwsRegion
+        ]
+    }
 
 -- | Constructor for 'ConfigAggregationAuthorization' containing required
 -- fields as arguments.

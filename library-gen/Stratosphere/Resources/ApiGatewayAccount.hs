@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-account.html
@@ -16,12 +17,15 @@ data ApiGatewayAccount =
   { _apiGatewayAccountCloudWatchRoleArn :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON ApiGatewayAccount where
-  toJSON ApiGatewayAccount{..} =
-    object $
-    catMaybes
-    [ fmap (("CloudWatchRoleArn",) . toJSON) _apiGatewayAccountCloudWatchRoleArn
-    ]
+instance ToResourceProperties ApiGatewayAccount where
+  toResourceProperties ApiGatewayAccount{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::ApiGateway::Account"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("CloudWatchRoleArn",) . toJSON) _apiGatewayAccountCloudWatchRoleArn
+        ]
+    }
 
 -- | Constructor for 'ApiGatewayAccount' containing required fields as
 -- arguments.

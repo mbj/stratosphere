@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot1click-project.html
@@ -18,14 +19,17 @@ data IoT1ClickProject =
   , _ioT1ClickProjectProjectName :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON IoT1ClickProject where
-  toJSON IoT1ClickProject{..} =
-    object $
-    catMaybes
-    [ fmap (("Description",) . toJSON) _ioT1ClickProjectDescription
-    , (Just . ("PlacementTemplate",) . toJSON) _ioT1ClickProjectPlacementTemplate
-    , fmap (("ProjectName",) . toJSON) _ioT1ClickProjectProjectName
-    ]
+instance ToResourceProperties IoT1ClickProject where
+  toResourceProperties IoT1ClickProject{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::IoT1Click::Project"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("Description",) . toJSON) _ioT1ClickProjectDescription
+        , (Just . ("PlacementTemplate",) . toJSON) _ioT1ClickProjectPlacementTemplate
+        , fmap (("ProjectName",) . toJSON) _ioT1ClickProjectProjectName
+        ]
+    }
 
 -- | Constructor for 'IoT1ClickProject' containing required fields as
 -- arguments.

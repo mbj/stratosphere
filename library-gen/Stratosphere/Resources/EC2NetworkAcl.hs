@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-acl.html
@@ -17,13 +18,16 @@ data EC2NetworkAcl =
   , _eC2NetworkAclVpcId :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON EC2NetworkAcl where
-  toJSON EC2NetworkAcl{..} =
-    object $
-    catMaybes
-    [ fmap (("Tags",) . toJSON) _eC2NetworkAclTags
-    , (Just . ("VpcId",) . toJSON) _eC2NetworkAclVpcId
-    ]
+instance ToResourceProperties EC2NetworkAcl where
+  toResourceProperties EC2NetworkAcl{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::EC2::NetworkAcl"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("Tags",) . toJSON) _eC2NetworkAclTags
+        , (Just . ("VpcId",) . toJSON) _eC2NetworkAclVpcId
+        ]
+    }
 
 -- | Constructor for 'EC2NetworkAcl' containing required fields as arguments.
 ec2NetworkAcl

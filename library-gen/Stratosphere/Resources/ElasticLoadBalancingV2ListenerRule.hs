@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenerrule.html
@@ -20,15 +21,18 @@ data ElasticLoadBalancingV2ListenerRule =
   , _elasticLoadBalancingV2ListenerRulePriority :: Val Integer
   } deriving (Show, Eq)
 
-instance ToJSON ElasticLoadBalancingV2ListenerRule where
-  toJSON ElasticLoadBalancingV2ListenerRule{..} =
-    object $
-    catMaybes
-    [ (Just . ("Actions",) . toJSON) _elasticLoadBalancingV2ListenerRuleActions
-    , (Just . ("Conditions",) . toJSON) _elasticLoadBalancingV2ListenerRuleConditions
-    , (Just . ("ListenerArn",) . toJSON) _elasticLoadBalancingV2ListenerRuleListenerArn
-    , (Just . ("Priority",) . toJSON . fmap Integer') _elasticLoadBalancingV2ListenerRulePriority
-    ]
+instance ToResourceProperties ElasticLoadBalancingV2ListenerRule where
+  toResourceProperties ElasticLoadBalancingV2ListenerRule{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::ElasticLoadBalancingV2::ListenerRule"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("Actions",) . toJSON) _elasticLoadBalancingV2ListenerRuleActions
+        , (Just . ("Conditions",) . toJSON) _elasticLoadBalancingV2ListenerRuleConditions
+        , (Just . ("ListenerArn",) . toJSON) _elasticLoadBalancingV2ListenerRuleListenerArn
+        , (Just . ("Priority",) . toJSON . fmap Integer') _elasticLoadBalancingV2ListenerRulePriority
+        ]
+    }
 
 -- | Constructor for 'ElasticLoadBalancingV2ListenerRule' containing required
 -- fields as arguments.

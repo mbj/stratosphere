@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html
@@ -24,20 +25,23 @@ data EC2Route =
   , _eC2RouteVpcPeeringConnectionId :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON EC2Route where
-  toJSON EC2Route{..} =
-    object $
-    catMaybes
-    [ fmap (("DestinationCidrBlock",) . toJSON) _eC2RouteDestinationCidrBlock
-    , fmap (("DestinationIpv6CidrBlock",) . toJSON) _eC2RouteDestinationIpv6CidrBlock
-    , fmap (("EgressOnlyInternetGatewayId",) . toJSON) _eC2RouteEgressOnlyInternetGatewayId
-    , fmap (("GatewayId",) . toJSON) _eC2RouteGatewayId
-    , fmap (("InstanceId",) . toJSON) _eC2RouteInstanceId
-    , fmap (("NatGatewayId",) . toJSON) _eC2RouteNatGatewayId
-    , fmap (("NetworkInterfaceId",) . toJSON) _eC2RouteNetworkInterfaceId
-    , (Just . ("RouteTableId",) . toJSON) _eC2RouteRouteTableId
-    , fmap (("VpcPeeringConnectionId",) . toJSON) _eC2RouteVpcPeeringConnectionId
-    ]
+instance ToResourceProperties EC2Route where
+  toResourceProperties EC2Route{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::EC2::Route"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("DestinationCidrBlock",) . toJSON) _eC2RouteDestinationCidrBlock
+        , fmap (("DestinationIpv6CidrBlock",) . toJSON) _eC2RouteDestinationIpv6CidrBlock
+        , fmap (("EgressOnlyInternetGatewayId",) . toJSON) _eC2RouteEgressOnlyInternetGatewayId
+        , fmap (("GatewayId",) . toJSON) _eC2RouteGatewayId
+        , fmap (("InstanceId",) . toJSON) _eC2RouteInstanceId
+        , fmap (("NatGatewayId",) . toJSON) _eC2RouteNatGatewayId
+        , fmap (("NetworkInterfaceId",) . toJSON) _eC2RouteNetworkInterfaceId
+        , (Just . ("RouteTableId",) . toJSON) _eC2RouteRouteTableId
+        , fmap (("VpcPeeringConnectionId",) . toJSON) _eC2RouteVpcPeeringConnectionId
+        ]
+    }
 
 -- | Constructor for 'EC2Route' containing required fields as arguments.
 ec2Route

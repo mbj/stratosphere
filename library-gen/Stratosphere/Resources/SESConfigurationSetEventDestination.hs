@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-configurationseteventdestination.html
@@ -17,13 +18,16 @@ data SESConfigurationSetEventDestination =
   , _sESConfigurationSetEventDestinationEventDestination :: SESConfigurationSetEventDestinationEventDestination
   } deriving (Show, Eq)
 
-instance ToJSON SESConfigurationSetEventDestination where
-  toJSON SESConfigurationSetEventDestination{..} =
-    object $
-    catMaybes
-    [ (Just . ("ConfigurationSetName",) . toJSON) _sESConfigurationSetEventDestinationConfigurationSetName
-    , (Just . ("EventDestination",) . toJSON) _sESConfigurationSetEventDestinationEventDestination
-    ]
+instance ToResourceProperties SESConfigurationSetEventDestination where
+  toResourceProperties SESConfigurationSetEventDestination{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::SES::ConfigurationSetEventDestination"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("ConfigurationSetName",) . toJSON) _sESConfigurationSetEventDestinationConfigurationSetName
+        , (Just . ("EventDestination",) . toJSON) _sESConfigurationSetEventDestinationEventDestination
+        ]
+    }
 
 -- | Constructor for 'SESConfigurationSetEventDestination' containing required
 -- fields as arguments.

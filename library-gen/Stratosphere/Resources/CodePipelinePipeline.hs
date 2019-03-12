@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-pipeline.html
@@ -25,18 +26,21 @@ data CodePipelinePipeline =
   , _codePipelinePipelineStages :: [CodePipelinePipelineStageDeclaration]
   } deriving (Show, Eq)
 
-instance ToJSON CodePipelinePipeline where
-  toJSON CodePipelinePipeline{..} =
-    object $
-    catMaybes
-    [ fmap (("ArtifactStore",) . toJSON) _codePipelinePipelineArtifactStore
-    , fmap (("ArtifactStores",) . toJSON) _codePipelinePipelineArtifactStores
-    , fmap (("DisableInboundStageTransitions",) . toJSON) _codePipelinePipelineDisableInboundStageTransitions
-    , fmap (("Name",) . toJSON) _codePipelinePipelineName
-    , fmap (("RestartExecutionOnUpdate",) . toJSON . fmap Bool') _codePipelinePipelineRestartExecutionOnUpdate
-    , (Just . ("RoleArn",) . toJSON) _codePipelinePipelineRoleArn
-    , (Just . ("Stages",) . toJSON) _codePipelinePipelineStages
-    ]
+instance ToResourceProperties CodePipelinePipeline where
+  toResourceProperties CodePipelinePipeline{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::CodePipeline::Pipeline"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("ArtifactStore",) . toJSON) _codePipelinePipelineArtifactStore
+        , fmap (("ArtifactStores",) . toJSON) _codePipelinePipelineArtifactStores
+        , fmap (("DisableInboundStageTransitions",) . toJSON) _codePipelinePipelineDisableInboundStageTransitions
+        , fmap (("Name",) . toJSON) _codePipelinePipelineName
+        , fmap (("RestartExecutionOnUpdate",) . toJSON . fmap Bool') _codePipelinePipelineRestartExecutionOnUpdate
+        , (Just . ("RoleArn",) . toJSON) _codePipelinePipelineRoleArn
+        , (Just . ("Stages",) . toJSON) _codePipelinePipelineStages
+        ]
+    }
 
 -- | Constructor for 'CodePipelinePipeline' containing required fields as
 -- arguments.

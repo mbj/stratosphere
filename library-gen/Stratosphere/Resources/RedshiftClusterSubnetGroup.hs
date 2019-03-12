@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-clustersubnetgroup.html
@@ -18,14 +19,17 @@ data RedshiftClusterSubnetGroup =
   , _redshiftClusterSubnetGroupTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
-instance ToJSON RedshiftClusterSubnetGroup where
-  toJSON RedshiftClusterSubnetGroup{..} =
-    object $
-    catMaybes
-    [ (Just . ("Description",) . toJSON) _redshiftClusterSubnetGroupDescription
-    , (Just . ("SubnetIds",) . toJSON) _redshiftClusterSubnetGroupSubnetIds
-    , fmap (("Tags",) . toJSON) _redshiftClusterSubnetGroupTags
-    ]
+instance ToResourceProperties RedshiftClusterSubnetGroup where
+  toResourceProperties RedshiftClusterSubnetGroup{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::Redshift::ClusterSubnetGroup"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("Description",) . toJSON) _redshiftClusterSubnetGroupDescription
+        , (Just . ("SubnetIds",) . toJSON) _redshiftClusterSubnetGroupSubnetIds
+        , fmap (("Tags",) . toJSON) _redshiftClusterSubnetGroupTags
+        ]
+    }
 
 -- | Constructor for 'RedshiftClusterSubnetGroup' containing required fields
 -- as arguments.

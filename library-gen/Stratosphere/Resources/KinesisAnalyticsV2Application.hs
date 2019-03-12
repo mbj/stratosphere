@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.html
@@ -20,16 +21,19 @@ data KinesisAnalyticsV2Application =
   , _kinesisAnalyticsV2ApplicationServiceExecutionRole :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON KinesisAnalyticsV2Application where
-  toJSON KinesisAnalyticsV2Application{..} =
-    object $
-    catMaybes
-    [ fmap (("ApplicationConfiguration",) . toJSON) _kinesisAnalyticsV2ApplicationApplicationConfiguration
-    , fmap (("ApplicationDescription",) . toJSON) _kinesisAnalyticsV2ApplicationApplicationDescription
-    , fmap (("ApplicationName",) . toJSON) _kinesisAnalyticsV2ApplicationApplicationName
-    , (Just . ("RuntimeEnvironment",) . toJSON) _kinesisAnalyticsV2ApplicationRuntimeEnvironment
-    , (Just . ("ServiceExecutionRole",) . toJSON) _kinesisAnalyticsV2ApplicationServiceExecutionRole
-    ]
+instance ToResourceProperties KinesisAnalyticsV2Application where
+  toResourceProperties KinesisAnalyticsV2Application{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::KinesisAnalyticsV2::Application"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("ApplicationConfiguration",) . toJSON) _kinesisAnalyticsV2ApplicationApplicationConfiguration
+        , fmap (("ApplicationDescription",) . toJSON) _kinesisAnalyticsV2ApplicationApplicationDescription
+        , fmap (("ApplicationName",) . toJSON) _kinesisAnalyticsV2ApplicationApplicationName
+        , (Just . ("RuntimeEnvironment",) . toJSON) _kinesisAnalyticsV2ApplicationRuntimeEnvironment
+        , (Just . ("ServiceExecutionRole",) . toJSON) _kinesisAnalyticsV2ApplicationServiceExecutionRole
+        ]
+    }
 
 -- | Constructor for 'KinesisAnalyticsV2Application' containing required
 -- fields as arguments.

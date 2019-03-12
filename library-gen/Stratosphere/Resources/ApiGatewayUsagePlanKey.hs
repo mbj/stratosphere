@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-usageplankey.html
@@ -18,14 +19,17 @@ data ApiGatewayUsagePlanKey =
   , _apiGatewayUsagePlanKeyUsagePlanId :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON ApiGatewayUsagePlanKey where
-  toJSON ApiGatewayUsagePlanKey{..} =
-    object $
-    catMaybes
-    [ (Just . ("KeyId",) . toJSON) _apiGatewayUsagePlanKeyKeyId
-    , (Just . ("KeyType",) . toJSON) _apiGatewayUsagePlanKeyKeyType
-    , (Just . ("UsagePlanId",) . toJSON) _apiGatewayUsagePlanKeyUsagePlanId
-    ]
+instance ToResourceProperties ApiGatewayUsagePlanKey where
+  toResourceProperties ApiGatewayUsagePlanKey{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::ApiGateway::UsagePlanKey"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("KeyId",) . toJSON) _apiGatewayUsagePlanKeyKeyId
+        , (Just . ("KeyType",) . toJSON) _apiGatewayUsagePlanKeyKeyType
+        , (Just . ("UsagePlanId",) . toJSON) _apiGatewayUsagePlanKeyUsagePlanId
+        ]
+    }
 
 -- | Constructor for 'ApiGatewayUsagePlanKey' containing required fields as
 -- arguments.

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-template.html
@@ -16,12 +17,15 @@ data SESTemplate =
   { _sESTemplateTemplate :: Maybe SESTemplateTemplate
   } deriving (Show, Eq)
 
-instance ToJSON SESTemplate where
-  toJSON SESTemplate{..} =
-    object $
-    catMaybes
-    [ fmap (("Template",) . toJSON) _sESTemplateTemplate
-    ]
+instance ToResourceProperties SESTemplate where
+  toResourceProperties SESTemplate{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::SES::Template"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("Template",) . toJSON) _sESTemplateTemplate
+        ]
+    }
 
 -- | Constructor for 'SESTemplate' containing required fields as arguments.
 sesTemplate

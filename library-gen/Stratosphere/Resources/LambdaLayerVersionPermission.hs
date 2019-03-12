@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-layerversionpermission.html
@@ -19,15 +20,18 @@ data LambdaLayerVersionPermission =
   , _lambdaLayerVersionPermissionPrincipal :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON LambdaLayerVersionPermission where
-  toJSON LambdaLayerVersionPermission{..} =
-    object $
-    catMaybes
-    [ (Just . ("Action",) . toJSON) _lambdaLayerVersionPermissionAction
-    , (Just . ("LayerVersionArn",) . toJSON) _lambdaLayerVersionPermissionLayerVersionArn
-    , fmap (("OrganizationId",) . toJSON) _lambdaLayerVersionPermissionOrganizationId
-    , (Just . ("Principal",) . toJSON) _lambdaLayerVersionPermissionPrincipal
-    ]
+instance ToResourceProperties LambdaLayerVersionPermission where
+  toResourceProperties LambdaLayerVersionPermission{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::Lambda::LayerVersionPermission"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("Action",) . toJSON) _lambdaLayerVersionPermissionAction
+        , (Just . ("LayerVersionArn",) . toJSON) _lambdaLayerVersionPermissionLayerVersionArn
+        , fmap (("OrganizationId",) . toJSON) _lambdaLayerVersionPermissionOrganizationId
+        , (Just . ("Principal",) . toJSON) _lambdaLayerVersionPermissionPrincipal
+        ]
+    }
 
 -- | Constructor for 'LambdaLayerVersionPermission' containing required fields
 -- as arguments.

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-authorizer.html
@@ -25,21 +26,24 @@ data ApiGatewayAuthorizer =
   , _apiGatewayAuthorizerType :: Val AuthorizerType
   } deriving (Show, Eq)
 
-instance ToJSON ApiGatewayAuthorizer where
-  toJSON ApiGatewayAuthorizer{..} =
-    object $
-    catMaybes
-    [ fmap (("AuthType",) . toJSON) _apiGatewayAuthorizerAuthType
-    , fmap (("AuthorizerCredentials",) . toJSON) _apiGatewayAuthorizerAuthorizerCredentials
-    , fmap (("AuthorizerResultTtlInSeconds",) . toJSON . fmap Integer') _apiGatewayAuthorizerAuthorizerResultTtlInSeconds
-    , fmap (("AuthorizerUri",) . toJSON) _apiGatewayAuthorizerAuthorizerUri
-    , fmap (("IdentitySource",) . toJSON) _apiGatewayAuthorizerIdentitySource
-    , fmap (("IdentityValidationExpression",) . toJSON) _apiGatewayAuthorizerIdentityValidationExpression
-    , fmap (("Name",) . toJSON) _apiGatewayAuthorizerName
-    , fmap (("ProviderARNs",) . toJSON) _apiGatewayAuthorizerProviderARNs
-    , (Just . ("RestApiId",) . toJSON) _apiGatewayAuthorizerRestApiId
-    , (Just . ("Type",) . toJSON) _apiGatewayAuthorizerType
-    ]
+instance ToResourceProperties ApiGatewayAuthorizer where
+  toResourceProperties ApiGatewayAuthorizer{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::ApiGateway::Authorizer"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("AuthType",) . toJSON) _apiGatewayAuthorizerAuthType
+        , fmap (("AuthorizerCredentials",) . toJSON) _apiGatewayAuthorizerAuthorizerCredentials
+        , fmap (("AuthorizerResultTtlInSeconds",) . toJSON . fmap Integer') _apiGatewayAuthorizerAuthorizerResultTtlInSeconds
+        , fmap (("AuthorizerUri",) . toJSON) _apiGatewayAuthorizerAuthorizerUri
+        , fmap (("IdentitySource",) . toJSON) _apiGatewayAuthorizerIdentitySource
+        , fmap (("IdentityValidationExpression",) . toJSON) _apiGatewayAuthorizerIdentityValidationExpression
+        , fmap (("Name",) . toJSON) _apiGatewayAuthorizerName
+        , fmap (("ProviderARNs",) . toJSON) _apiGatewayAuthorizerProviderARNs
+        , (Just . ("RestApiId",) . toJSON) _apiGatewayAuthorizerRestApiId
+        , (Just . ("Type",) . toJSON) _apiGatewayAuthorizerType
+        ]
+    }
 
 -- | Constructor for 'ApiGatewayAuthorizer' containing required fields as
 -- arguments.

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-ipset.html
@@ -20,16 +21,19 @@ data GuardDutyIPSet =
   , _guardDutyIPSetName :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON GuardDutyIPSet where
-  toJSON GuardDutyIPSet{..} =
-    object $
-    catMaybes
-    [ (Just . ("Activate",) . toJSON . fmap Bool') _guardDutyIPSetActivate
-    , (Just . ("DetectorId",) . toJSON) _guardDutyIPSetDetectorId
-    , (Just . ("Format",) . toJSON) _guardDutyIPSetFormat
-    , (Just . ("Location",) . toJSON) _guardDutyIPSetLocation
-    , fmap (("Name",) . toJSON) _guardDutyIPSetName
-    ]
+instance ToResourceProperties GuardDutyIPSet where
+  toResourceProperties GuardDutyIPSet{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::GuardDuty::IPSet"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("Activate",) . toJSON . fmap Bool') _guardDutyIPSetActivate
+        , (Just . ("DetectorId",) . toJSON) _guardDutyIPSetDetectorId
+        , (Just . ("Format",) . toJSON) _guardDutyIPSetFormat
+        , (Just . ("Location",) . toJSON) _guardDutyIPSetLocation
+        , fmap (("Name",) . toJSON) _guardDutyIPSetName
+        ]
+    }
 
 -- | Constructor for 'GuardDutyIPSet' containing required fields as arguments.
 guardDutyIPSet

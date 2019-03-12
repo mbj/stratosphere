@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk.html
@@ -18,14 +19,17 @@ data ElasticBeanstalkApplication =
   , _elasticBeanstalkApplicationResourceLifecycleConfig :: Maybe ElasticBeanstalkApplicationApplicationResourceLifecycleConfig
   } deriving (Show, Eq)
 
-instance ToJSON ElasticBeanstalkApplication where
-  toJSON ElasticBeanstalkApplication{..} =
-    object $
-    catMaybes
-    [ fmap (("ApplicationName",) . toJSON) _elasticBeanstalkApplicationApplicationName
-    , fmap (("Description",) . toJSON) _elasticBeanstalkApplicationDescription
-    , fmap (("ResourceLifecycleConfig",) . toJSON) _elasticBeanstalkApplicationResourceLifecycleConfig
-    ]
+instance ToResourceProperties ElasticBeanstalkApplication where
+  toResourceProperties ElasticBeanstalkApplication{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::ElasticBeanstalk::Application"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("ApplicationName",) . toJSON) _elasticBeanstalkApplicationApplicationName
+        , fmap (("Description",) . toJSON) _elasticBeanstalkApplicationDescription
+        , fmap (("ResourceLifecycleConfig",) . toJSON) _elasticBeanstalkApplicationResourceLifecycleConfig
+        ]
+    }
 
 -- | Constructor for 'ElasticBeanstalkApplication' containing required fields
 -- as arguments.

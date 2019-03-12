@@ -1,9 +1,8 @@
 {-# LANGUAGE QuasiQuotes #-}
 
--- | Derive aeson ToJSON instance.
-
 module Gen.Render.RenderJsonInstances
   ( renderToJSON
+  , renderToResourceProperties
   ) where
 
 import Data.Monoid ((<>))
@@ -27,13 +26,35 @@ renderToJSON' module'@Module{..}
       [st|toJSON #{moduleName}{..} =
     object $
     catMaybes
-    [ #{renderToJSONFields module'}
+    [ #{renderToJSONFields 4 module'}
     ]|]
 
-renderToJSONFields :: Module -> Text
-renderToJSONFields Module{..} =
-  T.intercalate "\n    , " $ map renderField moduleProperties
+renderToResourceProperties :: Module -> Text
+renderToResourceProperties module'@Module{..} =
+  [st|instance ToResourceProperties #{moduleName} where
+  toResourceProperties #{arg} =
+    ResourceProperties
+    { resourcePropertiesType = "#{moduleResourceType}"
+    , resourcePropertiesProperties =#{props}
+    }|]
+ where
+  arg =
+    if null moduleProperties
+    then "_"
+    else [st|#{moduleName}{..}|]
+  props =
+    if null moduleProperties
+    then " hashMapEmpty"
+    else [st|
+        hashMapFromList $ catMaybes
+        [ #{renderToJSONFields 8 module'}
+        ]|]
+
+renderToJSONFields :: Int -> Module -> Text
+renderToJSONFields spaces Module{..} =
+  T.intercalate leader $ map renderField moduleProperties
   where
+    leader = "\n" <> T.pack (replicate spaces ' ') <> ", "
     renderField Property{..} =
       if propertyRequired
       then [st|(Just . ("#{propertyName}",) . toJSON#{toJSONWrapper propertySpecType}) #{moduleFieldPrefix}#{propertyName}|]

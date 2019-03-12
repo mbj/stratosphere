@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinterfacepermission.html
@@ -18,14 +19,17 @@ data EC2NetworkInterfacePermission =
   , _eC2NetworkInterfacePermissionPermission :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON EC2NetworkInterfacePermission where
-  toJSON EC2NetworkInterfacePermission{..} =
-    object $
-    catMaybes
-    [ (Just . ("AwsAccountId",) . toJSON) _eC2NetworkInterfacePermissionAwsAccountId
-    , (Just . ("NetworkInterfaceId",) . toJSON) _eC2NetworkInterfacePermissionNetworkInterfaceId
-    , (Just . ("Permission",) . toJSON) _eC2NetworkInterfacePermissionPermission
-    ]
+instance ToResourceProperties EC2NetworkInterfacePermission where
+  toResourceProperties EC2NetworkInterfacePermission{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::EC2::NetworkInterfacePermission"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("AwsAccountId",) . toJSON) _eC2NetworkInterfacePermissionAwsAccountId
+        , (Just . ("NetworkInterfaceId",) . toJSON) _eC2NetworkInterfacePermissionNetworkInterfaceId
+        , (Just . ("Permission",) . toJSON) _eC2NetworkInterfacePermissionPermission
+        ]
+    }
 
 -- | Constructor for 'EC2NetworkInterfacePermission' containing required
 -- fields as arguments.

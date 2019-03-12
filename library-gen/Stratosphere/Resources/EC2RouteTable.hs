@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route-table.html
@@ -17,13 +18,16 @@ data EC2RouteTable =
   , _eC2RouteTableVpcId :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON EC2RouteTable where
-  toJSON EC2RouteTable{..} =
-    object $
-    catMaybes
-    [ fmap (("Tags",) . toJSON) _eC2RouteTableTags
-    , (Just . ("VpcId",) . toJSON) _eC2RouteTableVpcId
-    ]
+instance ToResourceProperties EC2RouteTable where
+  toResourceProperties EC2RouteTable{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::EC2::RouteTable"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("Tags",) . toJSON) _eC2RouteTableTags
+        , (Just . ("VpcId",) . toJSON) _eC2RouteTableVpcId
+        ]
+    }
 
 -- | Constructor for 'EC2RouteTable' containing required fields as arguments.
 ec2RouteTable

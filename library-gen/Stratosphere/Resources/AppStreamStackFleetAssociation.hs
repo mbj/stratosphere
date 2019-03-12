@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stackfleetassociation.html
@@ -17,13 +18,16 @@ data AppStreamStackFleetAssociation =
   , _appStreamStackFleetAssociationStackName :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON AppStreamStackFleetAssociation where
-  toJSON AppStreamStackFleetAssociation{..} =
-    object $
-    catMaybes
-    [ (Just . ("FleetName",) . toJSON) _appStreamStackFleetAssociationFleetName
-    , (Just . ("StackName",) . toJSON) _appStreamStackFleetAssociationStackName
-    ]
+instance ToResourceProperties AppStreamStackFleetAssociation where
+  toResourceProperties AppStreamStackFleetAssociation{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::AppStream::StackFleetAssociation"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("FleetName",) . toJSON) _appStreamStackFleetAssociationFleetName
+        , (Just . ("StackName",) . toJSON) _appStreamStackFleetAssociationStackName
+        ]
+    }
 
 -- | Constructor for 'AppStreamStackFleetAssociation' containing required
 -- fields as arguments.

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-resolver.html
@@ -25,21 +26,24 @@ data AppSyncResolver =
   , _appSyncResolverTypeName :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON AppSyncResolver where
-  toJSON AppSyncResolver{..} =
-    object $
-    catMaybes
-    [ (Just . ("ApiId",) . toJSON) _appSyncResolverApiId
-    , fmap (("DataSourceName",) . toJSON) _appSyncResolverDataSourceName
-    , (Just . ("FieldName",) . toJSON) _appSyncResolverFieldName
-    , fmap (("Kind",) . toJSON) _appSyncResolverKind
-    , fmap (("PipelineConfig",) . toJSON) _appSyncResolverPipelineConfig
-    , fmap (("RequestMappingTemplate",) . toJSON) _appSyncResolverRequestMappingTemplate
-    , fmap (("RequestMappingTemplateS3Location",) . toJSON) _appSyncResolverRequestMappingTemplateS3Location
-    , fmap (("ResponseMappingTemplate",) . toJSON) _appSyncResolverResponseMappingTemplate
-    , fmap (("ResponseMappingTemplateS3Location",) . toJSON) _appSyncResolverResponseMappingTemplateS3Location
-    , (Just . ("TypeName",) . toJSON) _appSyncResolverTypeName
-    ]
+instance ToResourceProperties AppSyncResolver where
+  toResourceProperties AppSyncResolver{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::AppSync::Resolver"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("ApiId",) . toJSON) _appSyncResolverApiId
+        , fmap (("DataSourceName",) . toJSON) _appSyncResolverDataSourceName
+        , (Just . ("FieldName",) . toJSON) _appSyncResolverFieldName
+        , fmap (("Kind",) . toJSON) _appSyncResolverKind
+        , fmap (("PipelineConfig",) . toJSON) _appSyncResolverPipelineConfig
+        , fmap (("RequestMappingTemplate",) . toJSON) _appSyncResolverRequestMappingTemplate
+        , fmap (("RequestMappingTemplateS3Location",) . toJSON) _appSyncResolverRequestMappingTemplateS3Location
+        , fmap (("ResponseMappingTemplate",) . toJSON) _appSyncResolverResponseMappingTemplate
+        , fmap (("ResponseMappingTemplateS3Location",) . toJSON) _appSyncResolverResponseMappingTemplateS3Location
+        , (Just . ("TypeName",) . toJSON) _appSyncResolverTypeName
+        ]
+    }
 
 -- | Constructor for 'AppSyncResolver' containing required fields as
 -- arguments.

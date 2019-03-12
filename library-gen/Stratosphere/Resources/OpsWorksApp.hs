@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-app.html
@@ -30,23 +31,26 @@ data OpsWorksApp =
   , _opsWorksAppType :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON OpsWorksApp where
-  toJSON OpsWorksApp{..} =
-    object $
-    catMaybes
-    [ fmap (("AppSource",) . toJSON) _opsWorksAppAppSource
-    , fmap (("Attributes",) . toJSON) _opsWorksAppAttributes
-    , fmap (("DataSources",) . toJSON) _opsWorksAppDataSources
-    , fmap (("Description",) . toJSON) _opsWorksAppDescription
-    , fmap (("Domains",) . toJSON) _opsWorksAppDomains
-    , fmap (("EnableSsl",) . toJSON . fmap Bool') _opsWorksAppEnableSsl
-    , fmap (("Environment",) . toJSON) _opsWorksAppEnvironment
-    , (Just . ("Name",) . toJSON) _opsWorksAppName
-    , fmap (("Shortname",) . toJSON) _opsWorksAppShortname
-    , fmap (("SslConfiguration",) . toJSON) _opsWorksAppSslConfiguration
-    , (Just . ("StackId",) . toJSON) _opsWorksAppStackId
-    , (Just . ("Type",) . toJSON) _opsWorksAppType
-    ]
+instance ToResourceProperties OpsWorksApp where
+  toResourceProperties OpsWorksApp{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::OpsWorks::App"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("AppSource",) . toJSON) _opsWorksAppAppSource
+        , fmap (("Attributes",) . toJSON) _opsWorksAppAttributes
+        , fmap (("DataSources",) . toJSON) _opsWorksAppDataSources
+        , fmap (("Description",) . toJSON) _opsWorksAppDescription
+        , fmap (("Domains",) . toJSON) _opsWorksAppDomains
+        , fmap (("EnableSsl",) . toJSON . fmap Bool') _opsWorksAppEnableSsl
+        , fmap (("Environment",) . toJSON) _opsWorksAppEnvironment
+        , (Just . ("Name",) . toJSON) _opsWorksAppName
+        , fmap (("Shortname",) . toJSON) _opsWorksAppShortname
+        , fmap (("SslConfiguration",) . toJSON) _opsWorksAppSslConfiguration
+        , (Just . ("StackId",) . toJSON) _opsWorksAppStackId
+        , (Just . ("Type",) . toJSON) _opsWorksAppType
+        ]
+    }
 
 -- | Constructor for 'OpsWorksApp' containing required fields as arguments.
 opsWorksApp

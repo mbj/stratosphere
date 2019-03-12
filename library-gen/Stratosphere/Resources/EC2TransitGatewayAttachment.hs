@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayattachment.html
@@ -19,15 +20,18 @@ data EC2TransitGatewayAttachment =
   , _eC2TransitGatewayAttachmentVpcId :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON EC2TransitGatewayAttachment where
-  toJSON EC2TransitGatewayAttachment{..} =
-    object $
-    catMaybes
-    [ (Just . ("SubnetIds",) . toJSON) _eC2TransitGatewayAttachmentSubnetIds
-    , fmap (("Tags",) . toJSON) _eC2TransitGatewayAttachmentTags
-    , (Just . ("TransitGatewayId",) . toJSON) _eC2TransitGatewayAttachmentTransitGatewayId
-    , (Just . ("VpcId",) . toJSON) _eC2TransitGatewayAttachmentVpcId
-    ]
+instance ToResourceProperties EC2TransitGatewayAttachment where
+  toResourceProperties EC2TransitGatewayAttachment{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::EC2::TransitGatewayAttachment"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("SubnetIds",) . toJSON) _eC2TransitGatewayAttachmentSubnetIds
+        , fmap (("Tags",) . toJSON) _eC2TransitGatewayAttachmentTags
+        , (Just . ("TransitGatewayId",) . toJSON) _eC2TransitGatewayAttachmentTransitGatewayId
+        , (Just . ("VpcId",) . toJSON) _eC2TransitGatewayAttachmentVpcId
+        ]
+    }
 
 -- | Constructor for 'EC2TransitGatewayAttachment' containing required fields
 -- as arguments.

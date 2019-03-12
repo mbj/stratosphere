@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html
@@ -45,40 +46,43 @@ data ElastiCacheReplicationGroup =
   , _elastiCacheReplicationGroupTransitEncryptionEnabled :: Maybe (Val Bool)
   } deriving (Show, Eq)
 
-instance ToJSON ElastiCacheReplicationGroup where
-  toJSON ElastiCacheReplicationGroup{..} =
-    object $
-    catMaybes
-    [ fmap (("AtRestEncryptionEnabled",) . toJSON . fmap Bool') _elastiCacheReplicationGroupAtRestEncryptionEnabled
-    , fmap (("AuthToken",) . toJSON) _elastiCacheReplicationGroupAuthToken
-    , fmap (("AutoMinorVersionUpgrade",) . toJSON . fmap Bool') _elastiCacheReplicationGroupAutoMinorVersionUpgrade
-    , fmap (("AutomaticFailoverEnabled",) . toJSON . fmap Bool') _elastiCacheReplicationGroupAutomaticFailoverEnabled
-    , fmap (("CacheNodeType",) . toJSON) _elastiCacheReplicationGroupCacheNodeType
-    , fmap (("CacheParameterGroupName",) . toJSON) _elastiCacheReplicationGroupCacheParameterGroupName
-    , fmap (("CacheSecurityGroupNames",) . toJSON) _elastiCacheReplicationGroupCacheSecurityGroupNames
-    , fmap (("CacheSubnetGroupName",) . toJSON) _elastiCacheReplicationGroupCacheSubnetGroupName
-    , fmap (("Engine",) . toJSON) _elastiCacheReplicationGroupEngine
-    , fmap (("EngineVersion",) . toJSON) _elastiCacheReplicationGroupEngineVersion
-    , fmap (("NodeGroupConfiguration",) . toJSON) _elastiCacheReplicationGroupNodeGroupConfiguration
-    , fmap (("NotificationTopicArn",) . toJSON) _elastiCacheReplicationGroupNotificationTopicArn
-    , fmap (("NumCacheClusters",) . toJSON . fmap Integer') _elastiCacheReplicationGroupNumCacheClusters
-    , fmap (("NumNodeGroups",) . toJSON . fmap Integer') _elastiCacheReplicationGroupNumNodeGroups
-    , fmap (("Port",) . toJSON . fmap Integer') _elastiCacheReplicationGroupPort
-    , fmap (("PreferredCacheClusterAZs",) . toJSON) _elastiCacheReplicationGroupPreferredCacheClusterAZs
-    , fmap (("PreferredMaintenanceWindow",) . toJSON) _elastiCacheReplicationGroupPreferredMaintenanceWindow
-    , fmap (("PrimaryClusterId",) . toJSON) _elastiCacheReplicationGroupPrimaryClusterId
-    , fmap (("ReplicasPerNodeGroup",) . toJSON . fmap Integer') _elastiCacheReplicationGroupReplicasPerNodeGroup
-    , (Just . ("ReplicationGroupDescription",) . toJSON) _elastiCacheReplicationGroupReplicationGroupDescription
-    , fmap (("ReplicationGroupId",) . toJSON) _elastiCacheReplicationGroupReplicationGroupId
-    , fmap (("SecurityGroupIds",) . toJSON) _elastiCacheReplicationGroupSecurityGroupIds
-    , fmap (("SnapshotArns",) . toJSON) _elastiCacheReplicationGroupSnapshotArns
-    , fmap (("SnapshotName",) . toJSON) _elastiCacheReplicationGroupSnapshotName
-    , fmap (("SnapshotRetentionLimit",) . toJSON . fmap Integer') _elastiCacheReplicationGroupSnapshotRetentionLimit
-    , fmap (("SnapshotWindow",) . toJSON) _elastiCacheReplicationGroupSnapshotWindow
-    , fmap (("SnapshottingClusterId",) . toJSON) _elastiCacheReplicationGroupSnapshottingClusterId
-    , fmap (("Tags",) . toJSON) _elastiCacheReplicationGroupTags
-    , fmap (("TransitEncryptionEnabled",) . toJSON . fmap Bool') _elastiCacheReplicationGroupTransitEncryptionEnabled
-    ]
+instance ToResourceProperties ElastiCacheReplicationGroup where
+  toResourceProperties ElastiCacheReplicationGroup{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::ElastiCache::ReplicationGroup"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("AtRestEncryptionEnabled",) . toJSON . fmap Bool') _elastiCacheReplicationGroupAtRestEncryptionEnabled
+        , fmap (("AuthToken",) . toJSON) _elastiCacheReplicationGroupAuthToken
+        , fmap (("AutoMinorVersionUpgrade",) . toJSON . fmap Bool') _elastiCacheReplicationGroupAutoMinorVersionUpgrade
+        , fmap (("AutomaticFailoverEnabled",) . toJSON . fmap Bool') _elastiCacheReplicationGroupAutomaticFailoverEnabled
+        , fmap (("CacheNodeType",) . toJSON) _elastiCacheReplicationGroupCacheNodeType
+        , fmap (("CacheParameterGroupName",) . toJSON) _elastiCacheReplicationGroupCacheParameterGroupName
+        , fmap (("CacheSecurityGroupNames",) . toJSON) _elastiCacheReplicationGroupCacheSecurityGroupNames
+        , fmap (("CacheSubnetGroupName",) . toJSON) _elastiCacheReplicationGroupCacheSubnetGroupName
+        , fmap (("Engine",) . toJSON) _elastiCacheReplicationGroupEngine
+        , fmap (("EngineVersion",) . toJSON) _elastiCacheReplicationGroupEngineVersion
+        , fmap (("NodeGroupConfiguration",) . toJSON) _elastiCacheReplicationGroupNodeGroupConfiguration
+        , fmap (("NotificationTopicArn",) . toJSON) _elastiCacheReplicationGroupNotificationTopicArn
+        , fmap (("NumCacheClusters",) . toJSON . fmap Integer') _elastiCacheReplicationGroupNumCacheClusters
+        , fmap (("NumNodeGroups",) . toJSON . fmap Integer') _elastiCacheReplicationGroupNumNodeGroups
+        , fmap (("Port",) . toJSON . fmap Integer') _elastiCacheReplicationGroupPort
+        , fmap (("PreferredCacheClusterAZs",) . toJSON) _elastiCacheReplicationGroupPreferredCacheClusterAZs
+        , fmap (("PreferredMaintenanceWindow",) . toJSON) _elastiCacheReplicationGroupPreferredMaintenanceWindow
+        , fmap (("PrimaryClusterId",) . toJSON) _elastiCacheReplicationGroupPrimaryClusterId
+        , fmap (("ReplicasPerNodeGroup",) . toJSON . fmap Integer') _elastiCacheReplicationGroupReplicasPerNodeGroup
+        , (Just . ("ReplicationGroupDescription",) . toJSON) _elastiCacheReplicationGroupReplicationGroupDescription
+        , fmap (("ReplicationGroupId",) . toJSON) _elastiCacheReplicationGroupReplicationGroupId
+        , fmap (("SecurityGroupIds",) . toJSON) _elastiCacheReplicationGroupSecurityGroupIds
+        , fmap (("SnapshotArns",) . toJSON) _elastiCacheReplicationGroupSnapshotArns
+        , fmap (("SnapshotName",) . toJSON) _elastiCacheReplicationGroupSnapshotName
+        , fmap (("SnapshotRetentionLimit",) . toJSON . fmap Integer') _elastiCacheReplicationGroupSnapshotRetentionLimit
+        , fmap (("SnapshotWindow",) . toJSON) _elastiCacheReplicationGroupSnapshotWindow
+        , fmap (("SnapshottingClusterId",) . toJSON) _elastiCacheReplicationGroupSnapshottingClusterId
+        , fmap (("Tags",) . toJSON) _elastiCacheReplicationGroupTags
+        , fmap (("TransitEncryptionEnabled",) . toJSON . fmap Bool') _elastiCacheReplicationGroupTransitEncryptionEnabled
+        ]
+    }
 
 -- | Constructor for 'ElastiCacheReplicationGroup' containing required fields
 -- as arguments.

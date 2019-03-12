@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html
@@ -23,18 +24,21 @@ data IAMUser =
   , _iAMUserUserName :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON IAMUser where
-  toJSON IAMUser{..} =
-    object $
-    catMaybes
-    [ fmap (("Groups",) . toJSON) _iAMUserGroups
-    , fmap (("LoginProfile",) . toJSON) _iAMUserLoginProfile
-    , fmap (("ManagedPolicyArns",) . toJSON) _iAMUserManagedPolicyArns
-    , fmap (("Path",) . toJSON) _iAMUserPath
-    , fmap (("PermissionsBoundary",) . toJSON) _iAMUserPermissionsBoundary
-    , fmap (("Policies",) . toJSON) _iAMUserPolicies
-    , fmap (("UserName",) . toJSON) _iAMUserUserName
-    ]
+instance ToResourceProperties IAMUser where
+  toResourceProperties IAMUser{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::IAM::User"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("Groups",) . toJSON) _iAMUserGroups
+        , fmap (("LoginProfile",) . toJSON) _iAMUserLoginProfile
+        , fmap (("ManagedPolicyArns",) . toJSON) _iAMUserManagedPolicyArns
+        , fmap (("Path",) . toJSON) _iAMUserPath
+        , fmap (("PermissionsBoundary",) . toJSON) _iAMUserPermissionsBoundary
+        , fmap (("Policies",) . toJSON) _iAMUserPolicies
+        , fmap (("UserName",) . toJSON) _iAMUserUserName
+        ]
+    }
 
 -- | Constructor for 'IAMUser' containing required fields as arguments.
 iamUser

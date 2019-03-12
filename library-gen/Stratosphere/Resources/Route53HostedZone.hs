@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone.html
@@ -23,16 +24,19 @@ data Route53HostedZone =
   , _route53HostedZoneVPCs :: Maybe [Route53HostedZoneVPC]
   } deriving (Show, Eq)
 
-instance ToJSON Route53HostedZone where
-  toJSON Route53HostedZone{..} =
-    object $
-    catMaybes
-    [ fmap (("HostedZoneConfig",) . toJSON) _route53HostedZoneHostedZoneConfig
-    , fmap (("HostedZoneTags",) . toJSON) _route53HostedZoneHostedZoneTags
-    , (Just . ("Name",) . toJSON) _route53HostedZoneName
-    , fmap (("QueryLoggingConfig",) . toJSON) _route53HostedZoneQueryLoggingConfig
-    , fmap (("VPCs",) . toJSON) _route53HostedZoneVPCs
-    ]
+instance ToResourceProperties Route53HostedZone where
+  toResourceProperties Route53HostedZone{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::Route53::HostedZone"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("HostedZoneConfig",) . toJSON) _route53HostedZoneHostedZoneConfig
+        , fmap (("HostedZoneTags",) . toJSON) _route53HostedZoneHostedZoneTags
+        , (Just . ("Name",) . toJSON) _route53HostedZoneName
+        , fmap (("QueryLoggingConfig",) . toJSON) _route53HostedZoneQueryLoggingConfig
+        , fmap (("VPCs",) . toJSON) _route53HostedZoneVPCs
+        ]
+    }
 
 -- | Constructor for 'Route53HostedZone' containing required fields as
 -- arguments.

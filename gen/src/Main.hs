@@ -4,6 +4,7 @@ module Main where
 
 import Control.Monad (when)
 import Data.List (nub)
+import Data.Text (Text)
 import qualified Data.Text as T
 import qualified Data.Text.IO as TIO
 import System.Directory
@@ -41,10 +42,16 @@ renderModule module'@Module {..} = do
     moduleDir = ".." </> "library-gen" </> foldl1 (</>) (T.unpack <$> T.splitOn "." modulePath)
     fileName = T.unpack moduleName <.> "hs"
     filePath = moduleDir </> fileName
+    toJsonOrProps =
+      if moduleIsResource
+      then renderToResourceProperties module'
+      else renderToJSON module'
+
   createDirectoryIfMissing True moduleDir
   putStrLn ("Writing: " ++ show filePath)
   TIO.writeFile filePath [st|{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 #{renderDocstring moduleDocumentation}
@@ -56,7 +63,7 @@ import Stratosphere.ResourceImports
 
 #{renderResourceTypeDecl module'}
 
-#{renderToJSON module'}
+#{toJsonOrProps}
 
 #{renderConstructor module'}
 
@@ -80,7 +87,6 @@ renderTopLevelModule :: [Module] -> IO ()
 renderTopLevelModule modules = do
   let
     paths = fmap (\Module{..} -> modulePath <> "." <> moduleName) modules
-    resourceModules = filter moduleIsResource modules
     modPath = ".." </> "library-gen" </> "Stratosphere" </> "Resources.hs"
   putStrLn ("Writing: " ++ show modPath)
   TIO.writeFile modPath [st|{-# LANGUAGE CPP #-}
@@ -91,6 +97,7 @@ renderTopLevelModule modules = do
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE MultiParamTypeClasses #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TemplateHaskell #-}
 {-# LANGUAGE TypeFamilies #-}
 
@@ -122,7 +129,6 @@ module Stratosphere.Resources
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
-import Data.Aeson.Types
 import Data.Maybe (catMaybes)
 import Data.Semigroup (Semigroup)
 import qualified Data.Text as T
@@ -137,11 +143,8 @@ import Stratosphere.ResourceAttributes.CreationPolicy as X
 import Stratosphere.ResourceAttributes.ResourceSignal as X
 import Stratosphere.ResourceAttributes.UpdatePolicy as X
 import Stratosphere.Helpers
+import Stratosphere.ResourceProperties
 import Stratosphere.Values
-
-data ResourceProperties
-#{renderADT resourceModules}
-  deriving (Show, Eq)
 
 data DeletionPolicy
   = Delete
@@ -168,13 +171,14 @@ instance ToRef Resource b where
 
 -- | Convenient constructor for 'Resource' with required arguments.
 resource
-  :: T.Text -- ^ Logical name
-  -> ResourceProperties
+  :: (ToResourceProperties a)
+  => T.Text -- ^ Logical name
+  -> a
   -> Resource
 resource rn rp =
   Resource
   { _resourceName = rn
-  , _resourceProperties = rp
+  , _resourceProperties = toResourceProperties rp
   , _resourceDeletionPolicy = Nothing
   , _resourceCreationPolicy = Nothing
   , _resourceUpdatePolicy = Nothing
@@ -187,7 +191,9 @@ $(makeLenses ''Resource)
 
 resourceToJSON :: Resource -> Value
 resourceToJSON (Resource _ props dp cp up deps meta cond) =
-    object $ resourcePropertiesJSON props ++ catMaybes
+  object $
+    resourcePropertiesJSON props ++
+    catMaybes
     [ maybeField "DeletionPolicy" dp
     , maybeField "CreationPolicy" cp
     , maybeField "UpdatePolicy" up
@@ -195,9 +201,6 @@ resourceToJSON (Resource _ props dp cp up deps meta cond) =
     , maybeField "Metadata" meta
     , maybeField "Condition" cond
     ]
-
-resourcePropertiesJSON :: ResourceProperties -> [Pair]
-#{renderToJSONFuncs resourceModules}
 
 -- | Wrapper around a list of 'Resources's to we can modify the aeson
 -- instances.
@@ -216,3 +219,7 @@ instance NamedItem Resource where
 instance ToJSON Resources where
   toJSON = namedItemToJSON . unResources
 |]
+
+renderImports :: [Text] -> Text
+renderImports paths = T.unlines $ fmap mkImport paths
+  where mkImport path = "import " <> path <> " as X"

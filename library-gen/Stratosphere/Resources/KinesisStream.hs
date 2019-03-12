@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html
@@ -21,16 +22,19 @@ data KinesisStream =
   , _kinesisStreamTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
-instance ToJSON KinesisStream where
-  toJSON KinesisStream{..} =
-    object $
-    catMaybes
-    [ fmap (("Name",) . toJSON) _kinesisStreamName
-    , fmap (("RetentionPeriodHours",) . toJSON . fmap Integer') _kinesisStreamRetentionPeriodHours
-    , (Just . ("ShardCount",) . toJSON . fmap Integer') _kinesisStreamShardCount
-    , fmap (("StreamEncryption",) . toJSON) _kinesisStreamStreamEncryption
-    , fmap (("Tags",) . toJSON) _kinesisStreamTags
-    ]
+instance ToResourceProperties KinesisStream where
+  toResourceProperties KinesisStream{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::Kinesis::Stream"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("Name",) . toJSON) _kinesisStreamName
+        , fmap (("RetentionPeriodHours",) . toJSON . fmap Integer') _kinesisStreamRetentionPeriodHours
+        , (Just . ("ShardCount",) . toJSON . fmap Integer') _kinesisStreamShardCount
+        , fmap (("StreamEncryption",) . toJSON) _kinesisStreamStreamEncryption
+        , fmap (("Tags",) . toJSON) _kinesisStreamTags
+        ]
+    }
 
 -- | Constructor for 'KinesisStream' containing required fields as arguments.
 kinesisStream

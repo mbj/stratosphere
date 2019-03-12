@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationproduct.html
@@ -26,21 +27,24 @@ data ServiceCatalogCloudFormationProduct =
   , _serviceCatalogCloudFormationProductTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
-instance ToJSON ServiceCatalogCloudFormationProduct where
-  toJSON ServiceCatalogCloudFormationProduct{..} =
-    object $
-    catMaybes
-    [ fmap (("AcceptLanguage",) . toJSON) _serviceCatalogCloudFormationProductAcceptLanguage
-    , fmap (("Description",) . toJSON) _serviceCatalogCloudFormationProductDescription
-    , fmap (("Distributor",) . toJSON) _serviceCatalogCloudFormationProductDistributor
-    , (Just . ("Name",) . toJSON) _serviceCatalogCloudFormationProductName
-    , (Just . ("Owner",) . toJSON) _serviceCatalogCloudFormationProductOwner
-    , (Just . ("ProvisioningArtifactParameters",) . toJSON) _serviceCatalogCloudFormationProductProvisioningArtifactParameters
-    , fmap (("SupportDescription",) . toJSON) _serviceCatalogCloudFormationProductSupportDescription
-    , fmap (("SupportEmail",) . toJSON) _serviceCatalogCloudFormationProductSupportEmail
-    , fmap (("SupportUrl",) . toJSON) _serviceCatalogCloudFormationProductSupportUrl
-    , fmap (("Tags",) . toJSON) _serviceCatalogCloudFormationProductTags
-    ]
+instance ToResourceProperties ServiceCatalogCloudFormationProduct where
+  toResourceProperties ServiceCatalogCloudFormationProduct{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::ServiceCatalog::CloudFormationProduct"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("AcceptLanguage",) . toJSON) _serviceCatalogCloudFormationProductAcceptLanguage
+        , fmap (("Description",) . toJSON) _serviceCatalogCloudFormationProductDescription
+        , fmap (("Distributor",) . toJSON) _serviceCatalogCloudFormationProductDistributor
+        , (Just . ("Name",) . toJSON) _serviceCatalogCloudFormationProductName
+        , (Just . ("Owner",) . toJSON) _serviceCatalogCloudFormationProductOwner
+        , (Just . ("ProvisioningArtifactParameters",) . toJSON) _serviceCatalogCloudFormationProductProvisioningArtifactParameters
+        , fmap (("SupportDescription",) . toJSON) _serviceCatalogCloudFormationProductSupportDescription
+        , fmap (("SupportEmail",) . toJSON) _serviceCatalogCloudFormationProductSupportEmail
+        , fmap (("SupportUrl",) . toJSON) _serviceCatalogCloudFormationProductSupportUrl
+        , fmap (("Tags",) . toJSON) _serviceCatalogCloudFormationProductTags
+        ]
+    }
 
 -- | Constructor for 'ServiceCatalogCloudFormationProduct' containing required
 -- fields as arguments.

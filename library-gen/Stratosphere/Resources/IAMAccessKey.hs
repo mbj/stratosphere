@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-accesskey.html
@@ -18,14 +19,17 @@ data IAMAccessKey =
   , _iAMAccessKeyUserName :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON IAMAccessKey where
-  toJSON IAMAccessKey{..} =
-    object $
-    catMaybes
-    [ fmap (("Serial",) . toJSON . fmap Integer') _iAMAccessKeySerial
-    , fmap (("Status",) . toJSON) _iAMAccessKeyStatus
-    , (Just . ("UserName",) . toJSON) _iAMAccessKeyUserName
-    ]
+instance ToResourceProperties IAMAccessKey where
+  toResourceProperties IAMAccessKey{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::IAM::AccessKey"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("Serial",) . toJSON . fmap Integer') _iAMAccessKeySerial
+        , fmap (("Status",) . toJSON) _iAMAccessKeyStatus
+        , (Just . ("UserName",) . toJSON) _iAMAccessKeyUserName
+        ]
+    }
 
 -- | Constructor for 'IAMAccessKey' containing required fields as arguments.
 iamAccessKey

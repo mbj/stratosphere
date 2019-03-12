@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html
@@ -27,21 +28,24 @@ data AppStreamStack =
   , _appStreamStackUserSettings :: Maybe [AppStreamStackUserSetting]
   } deriving (Show, Eq)
 
-instance ToJSON AppStreamStack where
-  toJSON AppStreamStack{..} =
-    object $
-    catMaybes
-    [ fmap (("ApplicationSettings",) . toJSON) _appStreamStackApplicationSettings
-    , fmap (("AttributesToDelete",) . toJSON) _appStreamStackAttributesToDelete
-    , fmap (("DeleteStorageConnectors",) . toJSON . fmap Bool') _appStreamStackDeleteStorageConnectors
-    , fmap (("Description",) . toJSON) _appStreamStackDescription
-    , fmap (("DisplayName",) . toJSON) _appStreamStackDisplayName
-    , fmap (("FeedbackURL",) . toJSON) _appStreamStackFeedbackURL
-    , fmap (("Name",) . toJSON) _appStreamStackName
-    , fmap (("RedirectURL",) . toJSON) _appStreamStackRedirectURL
-    , fmap (("StorageConnectors",) . toJSON) _appStreamStackStorageConnectors
-    , fmap (("UserSettings",) . toJSON) _appStreamStackUserSettings
-    ]
+instance ToResourceProperties AppStreamStack where
+  toResourceProperties AppStreamStack{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::AppStream::Stack"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("ApplicationSettings",) . toJSON) _appStreamStackApplicationSettings
+        , fmap (("AttributesToDelete",) . toJSON) _appStreamStackAttributesToDelete
+        , fmap (("DeleteStorageConnectors",) . toJSON . fmap Bool') _appStreamStackDeleteStorageConnectors
+        , fmap (("Description",) . toJSON) _appStreamStackDescription
+        , fmap (("DisplayName",) . toJSON) _appStreamStackDisplayName
+        , fmap (("FeedbackURL",) . toJSON) _appStreamStackFeedbackURL
+        , fmap (("Name",) . toJSON) _appStreamStackName
+        , fmap (("RedirectURL",) . toJSON) _appStreamStackRedirectURL
+        , fmap (("StorageConnectors",) . toJSON) _appStreamStackStorageConnectors
+        , fmap (("UserSettings",) . toJSON) _appStreamStackUserSettings
+        ]
+    }
 
 -- | Constructor for 'AppStreamStack' containing required fields as arguments.
 appStreamStack

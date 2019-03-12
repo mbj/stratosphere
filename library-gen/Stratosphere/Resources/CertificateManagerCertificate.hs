@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-certificate.html
@@ -21,16 +22,19 @@ data CertificateManagerCertificate =
   , _certificateManagerCertificateValidationMethod :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON CertificateManagerCertificate where
-  toJSON CertificateManagerCertificate{..} =
-    object $
-    catMaybes
-    [ (Just . ("DomainName",) . toJSON) _certificateManagerCertificateDomainName
-    , fmap (("DomainValidationOptions",) . toJSON) _certificateManagerCertificateDomainValidationOptions
-    , fmap (("SubjectAlternativeNames",) . toJSON) _certificateManagerCertificateSubjectAlternativeNames
-    , fmap (("Tags",) . toJSON) _certificateManagerCertificateTags
-    , fmap (("ValidationMethod",) . toJSON) _certificateManagerCertificateValidationMethod
-    ]
+instance ToResourceProperties CertificateManagerCertificate where
+  toResourceProperties CertificateManagerCertificate{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::CertificateManager::Certificate"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("DomainName",) . toJSON) _certificateManagerCertificateDomainName
+        , fmap (("DomainValidationOptions",) . toJSON) _certificateManagerCertificateDomainValidationOptions
+        , fmap (("SubjectAlternativeNames",) . toJSON) _certificateManagerCertificateSubjectAlternativeNames
+        , fmap (("Tags",) . toJSON) _certificateManagerCertificateTags
+        , fmap (("ValidationMethod",) . toJSON) _certificateManagerCertificateValidationMethod
+        ]
+    }
 
 -- | Constructor for 'CertificateManagerCertificate' containing required
 -- fields as arguments.

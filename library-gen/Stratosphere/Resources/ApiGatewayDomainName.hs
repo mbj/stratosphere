@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html
@@ -19,15 +20,18 @@ data ApiGatewayDomainName =
   , _apiGatewayDomainNameRegionalCertificateArn :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON ApiGatewayDomainName where
-  toJSON ApiGatewayDomainName{..} =
-    object $
-    catMaybes
-    [ fmap (("CertificateArn",) . toJSON) _apiGatewayDomainNameCertificateArn
-    , (Just . ("DomainName",) . toJSON) _apiGatewayDomainNameDomainName
-    , fmap (("EndpointConfiguration",) . toJSON) _apiGatewayDomainNameEndpointConfiguration
-    , fmap (("RegionalCertificateArn",) . toJSON) _apiGatewayDomainNameRegionalCertificateArn
-    ]
+instance ToResourceProperties ApiGatewayDomainName where
+  toResourceProperties ApiGatewayDomainName{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::ApiGateway::DomainName"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("CertificateArn",) . toJSON) _apiGatewayDomainNameCertificateArn
+        , (Just . ("DomainName",) . toJSON) _apiGatewayDomainNameDomainName
+        , fmap (("EndpointConfiguration",) . toJSON) _apiGatewayDomainNameEndpointConfiguration
+        , fmap (("RegionalCertificateArn",) . toJSON) _apiGatewayDomainNameRegionalCertificateArn
+        ]
+    }
 
 -- | Constructor for 'ApiGatewayDomainName' containing required fields as
 -- arguments.

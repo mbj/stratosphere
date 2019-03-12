@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverruleassociation.html
@@ -19,14 +20,17 @@ data Route53ResolverResolverRuleAssociation =
   , _route53ResolverResolverRuleAssociationVPCId :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON Route53ResolverResolverRuleAssociation where
-  toJSON Route53ResolverResolverRuleAssociation{..} =
-    object $
-    catMaybes
-    [ fmap (("Name",) . toJSON) _route53ResolverResolverRuleAssociationName
-    , (Just . ("ResolverRuleId",) . toJSON) _route53ResolverResolverRuleAssociationResolverRuleId
-    , (Just . ("VPCId",) . toJSON) _route53ResolverResolverRuleAssociationVPCId
-    ]
+instance ToResourceProperties Route53ResolverResolverRuleAssociation where
+  toResourceProperties Route53ResolverResolverRuleAssociation{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::Route53Resolver::ResolverRuleAssociation"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("Name",) . toJSON) _route53ResolverResolverRuleAssociationName
+        , (Just . ("ResolverRuleId",) . toJSON) _route53ResolverResolverRuleAssociationResolverRuleId
+        , (Just . ("VPCId",) . toJSON) _route53ResolverResolverRuleAssociationVPCId
+        ]
+    }
 
 -- | Constructor for 'Route53ResolverResolverRuleAssociation' containing
 -- required fields as arguments.

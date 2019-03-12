@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html
@@ -19,15 +20,18 @@ data EKSCluster =
   , _eKSClusterVersion :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON EKSCluster where
-  toJSON EKSCluster{..} =
-    object $
-    catMaybes
-    [ fmap (("Name",) . toJSON) _eKSClusterName
-    , (Just . ("ResourcesVpcConfig",) . toJSON) _eKSClusterResourcesVpcConfig
-    , (Just . ("RoleArn",) . toJSON) _eKSClusterRoleArn
-    , fmap (("Version",) . toJSON) _eKSClusterVersion
-    ]
+instance ToResourceProperties EKSCluster where
+  toResourceProperties EKSCluster{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::EKS::Cluster"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("Name",) . toJSON) _eKSClusterName
+        , (Just . ("ResourcesVpcConfig",) . toJSON) _eKSClusterResourcesVpcConfig
+        , (Just . ("RoleArn",) . toJSON) _eKSClusterRoleArn
+        , fmap (("Version",) . toJSON) _eKSClusterVersion
+        ]
+    }
 
 -- | Constructor for 'EKSCluster' containing required fields as arguments.
 eksCluster

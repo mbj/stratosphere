@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-ipset.html
@@ -17,13 +18,16 @@ data WAFRegionalIPSet =
   , _wAFRegionalIPSetName :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON WAFRegionalIPSet where
-  toJSON WAFRegionalIPSet{..} =
-    object $
-    catMaybes
-    [ fmap (("IPSetDescriptors",) . toJSON) _wAFRegionalIPSetIPSetDescriptors
-    , (Just . ("Name",) . toJSON) _wAFRegionalIPSetName
-    ]
+instance ToResourceProperties WAFRegionalIPSet where
+  toResourceProperties WAFRegionalIPSet{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::WAFRegional::IPSet"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("IPSetDescriptors",) . toJSON) _wAFRegionalIPSetIPSetDescriptors
+        , (Just . ("Name",) . toJSON) _wAFRegionalIPSetName
+        ]
+    }
 
 -- | Constructor for 'WAFRegionalIPSet' containing required fields as
 -- arguments.

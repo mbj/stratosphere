@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thingprincipalattachment.html
@@ -17,13 +18,16 @@ data IoTThingPrincipalAttachment =
   , _ioTThingPrincipalAttachmentThingName :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON IoTThingPrincipalAttachment where
-  toJSON IoTThingPrincipalAttachment{..} =
-    object $
-    catMaybes
-    [ (Just . ("Principal",) . toJSON) _ioTThingPrincipalAttachmentPrincipal
-    , (Just . ("ThingName",) . toJSON) _ioTThingPrincipalAttachmentThingName
-    ]
+instance ToResourceProperties IoTThingPrincipalAttachment where
+  toResourceProperties IoTThingPrincipalAttachment{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::IoT::ThingPrincipalAttachment"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("Principal",) . toJSON) _ioTThingPrincipalAttachmentPrincipal
+        , (Just . ("ThingName",) . toJSON) _ioTThingPrincipalAttachmentThingName
+        ]
+    }
 
 -- | Constructor for 'IoTThingPrincipalAttachment' containing required fields
 -- as arguments.

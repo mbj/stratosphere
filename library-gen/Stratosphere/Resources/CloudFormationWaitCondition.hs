@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waitcondition.html
@@ -18,14 +19,17 @@ data CloudFormationWaitCondition =
   , _cloudFormationWaitConditionTimeout :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON CloudFormationWaitCondition where
-  toJSON CloudFormationWaitCondition{..} =
-    object $
-    catMaybes
-    [ fmap (("Count",) . toJSON . fmap Integer') _cloudFormationWaitConditionCount
-    , fmap (("Handle",) . toJSON) _cloudFormationWaitConditionHandle
-    , fmap (("Timeout",) . toJSON) _cloudFormationWaitConditionTimeout
-    ]
+instance ToResourceProperties CloudFormationWaitCondition where
+  toResourceProperties CloudFormationWaitCondition{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::CloudFormation::WaitCondition"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("Count",) . toJSON . fmap Integer') _cloudFormationWaitConditionCount
+        , fmap (("Handle",) . toJSON) _cloudFormationWaitConditionHandle
+        , fmap (("Timeout",) . toJSON) _cloudFormationWaitConditionTimeout
+        ]
+    }
 
 -- | Constructor for 'CloudFormationWaitCondition' containing required fields
 -- as arguments.

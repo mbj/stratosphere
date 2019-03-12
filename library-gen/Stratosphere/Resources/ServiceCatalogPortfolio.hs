@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-portfolio.html
@@ -20,16 +21,19 @@ data ServiceCatalogPortfolio =
   , _serviceCatalogPortfolioTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
-instance ToJSON ServiceCatalogPortfolio where
-  toJSON ServiceCatalogPortfolio{..} =
-    object $
-    catMaybes
-    [ fmap (("AcceptLanguage",) . toJSON) _serviceCatalogPortfolioAcceptLanguage
-    , fmap (("Description",) . toJSON) _serviceCatalogPortfolioDescription
-    , (Just . ("DisplayName",) . toJSON) _serviceCatalogPortfolioDisplayName
-    , (Just . ("ProviderName",) . toJSON) _serviceCatalogPortfolioProviderName
-    , fmap (("Tags",) . toJSON) _serviceCatalogPortfolioTags
-    ]
+instance ToResourceProperties ServiceCatalogPortfolio where
+  toResourceProperties ServiceCatalogPortfolio{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::ServiceCatalog::Portfolio"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("AcceptLanguage",) . toJSON) _serviceCatalogPortfolioAcceptLanguage
+        , fmap (("Description",) . toJSON) _serviceCatalogPortfolioDescription
+        , (Just . ("DisplayName",) . toJSON) _serviceCatalogPortfolioDisplayName
+        , (Just . ("ProviderName",) . toJSON) _serviceCatalogPortfolioProviderName
+        , fmap (("Tags",) . toJSON) _serviceCatalogPortfolioTags
+        ]
+    }
 
 -- | Constructor for 'ServiceCatalogPortfolio' containing required fields as
 -- arguments.

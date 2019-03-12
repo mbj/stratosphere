@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-partition.html
@@ -19,15 +20,18 @@ data GluePartition =
   , _gluePartitionTableName :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON GluePartition where
-  toJSON GluePartition{..} =
-    object $
-    catMaybes
-    [ (Just . ("CatalogId",) . toJSON) _gluePartitionCatalogId
-    , (Just . ("DatabaseName",) . toJSON) _gluePartitionDatabaseName
-    , (Just . ("PartitionInput",) . toJSON) _gluePartitionPartitionInput
-    , (Just . ("TableName",) . toJSON) _gluePartitionTableName
-    ]
+instance ToResourceProperties GluePartition where
+  toResourceProperties GluePartition{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::Glue::Partition"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("CatalogId",) . toJSON) _gluePartitionCatalogId
+        , (Just . ("DatabaseName",) . toJSON) _gluePartitionDatabaseName
+        , (Just . ("PartitionInput",) . toJSON) _gluePartitionPartitionInput
+        , (Just . ("TableName",) . toJSON) _gluePartitionTableName
+        ]
+    }
 
 -- | Constructor for 'GluePartition' containing required fields as arguments.
 gluePartition

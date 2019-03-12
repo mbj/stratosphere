@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-webhook.html
@@ -24,19 +25,22 @@ data CodePipelineWebhook =
   , _codePipelineWebhookTargetPipelineVersion :: Val Integer
   } deriving (Show, Eq)
 
-instance ToJSON CodePipelineWebhook where
-  toJSON CodePipelineWebhook{..} =
-    object $
-    catMaybes
-    [ (Just . ("Authentication",) . toJSON) _codePipelineWebhookAuthentication
-    , (Just . ("AuthenticationConfiguration",) . toJSON) _codePipelineWebhookAuthenticationConfiguration
-    , (Just . ("Filters",) . toJSON) _codePipelineWebhookFilters
-    , fmap (("Name",) . toJSON) _codePipelineWebhookName
-    , fmap (("RegisterWithThirdParty",) . toJSON . fmap Bool') _codePipelineWebhookRegisterWithThirdParty
-    , (Just . ("TargetAction",) . toJSON) _codePipelineWebhookTargetAction
-    , (Just . ("TargetPipeline",) . toJSON) _codePipelineWebhookTargetPipeline
-    , (Just . ("TargetPipelineVersion",) . toJSON . fmap Integer') _codePipelineWebhookTargetPipelineVersion
-    ]
+instance ToResourceProperties CodePipelineWebhook where
+  toResourceProperties CodePipelineWebhook{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::CodePipeline::Webhook"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("Authentication",) . toJSON) _codePipelineWebhookAuthentication
+        , (Just . ("AuthenticationConfiguration",) . toJSON) _codePipelineWebhookAuthenticationConfiguration
+        , (Just . ("Filters",) . toJSON) _codePipelineWebhookFilters
+        , fmap (("Name",) . toJSON) _codePipelineWebhookName
+        , fmap (("RegisterWithThirdParty",) . toJSON . fmap Bool') _codePipelineWebhookRegisterWithThirdParty
+        , (Just . ("TargetAction",) . toJSON) _codePipelineWebhookTargetAction
+        , (Just . ("TargetPipeline",) . toJSON) _codePipelineWebhookTargetPipeline
+        , (Just . ("TargetPipelineVersion",) . toJSON . fmap Integer') _codePipelineWebhookTargetPipelineVersion
+        ]
+    }
 
 -- | Constructor for 'CodePipelineWebhook' containing required fields as
 -- arguments.

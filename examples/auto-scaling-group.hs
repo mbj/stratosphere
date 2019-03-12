@@ -31,7 +31,6 @@ myTemplate =
 asgResource :: Resource
 asgResource =
   resource "AutoScalingGroup" $
-  AutoScalingAutoScalingGroupProperties $
   autoScalingAutoScalingGroup
   "1"
   "4"
@@ -68,7 +67,6 @@ asgUpdatePolicy =
 launchConfigResource :: Resource
 launchConfigResource =
   resource "LaunchConfig" $
-  AutoScalingLaunchConfigurationProperties $
   autoScalingLaunchConfiguration
   "ami-16d18a7e"
   "t2.micro"

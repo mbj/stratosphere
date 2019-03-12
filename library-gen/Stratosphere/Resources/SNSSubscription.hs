@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html
@@ -22,18 +23,21 @@ data SNSSubscription =
   , _sNSSubscriptionTopicArn :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON SNSSubscription where
-  toJSON SNSSubscription{..} =
-    object $
-    catMaybes
-    [ fmap (("DeliveryPolicy",) . toJSON) _sNSSubscriptionDeliveryPolicy
-    , fmap (("Endpoint",) . toJSON) _sNSSubscriptionEndpoint
-    , fmap (("FilterPolicy",) . toJSON) _sNSSubscriptionFilterPolicy
-    , (Just . ("Protocol",) . toJSON) _sNSSubscriptionProtocol
-    , fmap (("RawMessageDelivery",) . toJSON . fmap Bool') _sNSSubscriptionRawMessageDelivery
-    , fmap (("Region",) . toJSON) _sNSSubscriptionRegion
-    , (Just . ("TopicArn",) . toJSON) _sNSSubscriptionTopicArn
-    ]
+instance ToResourceProperties SNSSubscription where
+  toResourceProperties SNSSubscription{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::SNS::Subscription"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("DeliveryPolicy",) . toJSON) _sNSSubscriptionDeliveryPolicy
+        , fmap (("Endpoint",) . toJSON) _sNSSubscriptionEndpoint
+        , fmap (("FilterPolicy",) . toJSON) _sNSSubscriptionFilterPolicy
+        , (Just . ("Protocol",) . toJSON) _sNSSubscriptionProtocol
+        , fmap (("RawMessageDelivery",) . toJSON . fmap Bool') _sNSSubscriptionRawMessageDelivery
+        , fmap (("Region",) . toJSON) _sNSSubscriptionRegion
+        , (Just . ("TopicArn",) . toJSON) _sNSSubscriptionTopicArn
+        ]
+    }
 
 -- | Constructor for 'SNSSubscription' containing required fields as
 -- arguments.

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-webaclassociation.html
@@ -17,13 +18,16 @@ data WAFRegionalWebACLAssociation =
   , _wAFRegionalWebACLAssociationWebACLId :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON WAFRegionalWebACLAssociation where
-  toJSON WAFRegionalWebACLAssociation{..} =
-    object $
-    catMaybes
-    [ (Just . ("ResourceArn",) . toJSON) _wAFRegionalWebACLAssociationResourceArn
-    , (Just . ("WebACLId",) . toJSON) _wAFRegionalWebACLAssociationWebACLId
-    ]
+instance ToResourceProperties WAFRegionalWebACLAssociation where
+  toResourceProperties WAFRegionalWebACLAssociation{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::WAFRegional::WebACLAssociation"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("ResourceArn",) . toJSON) _wAFRegionalWebACLAssociationResourceArn
+        , (Just . ("WebACLId",) . toJSON) _wAFRegionalWebACLAssociationWebACLId
+        ]
+    }
 
 -- | Constructor for 'WAFRegionalWebACLAssociation' containing required fields
 -- as arguments.

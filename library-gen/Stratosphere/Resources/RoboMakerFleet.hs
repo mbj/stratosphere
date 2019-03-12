@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-fleet.html
@@ -17,13 +18,16 @@ data RoboMakerFleet =
   , _roboMakerFleetTags :: Maybe Object
   } deriving (Show, Eq)
 
-instance ToJSON RoboMakerFleet where
-  toJSON RoboMakerFleet{..} =
-    object $
-    catMaybes
-    [ fmap (("Name",) . toJSON) _roboMakerFleetName
-    , fmap (("Tags",) . toJSON) _roboMakerFleetTags
-    ]
+instance ToResourceProperties RoboMakerFleet where
+  toResourceProperties RoboMakerFleet{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::RoboMaker::Fleet"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("Name",) . toJSON) _roboMakerFleetName
+        , fmap (("Tags",) . toJSON) _roboMakerFleetTags
+        ]
+    }
 
 -- | Constructor for 'RoboMakerFleet' containing required fields as arguments.
 roboMakerFleet

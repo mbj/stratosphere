@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-member.html
@@ -21,17 +22,20 @@ data GuardDutyMember =
   , _guardDutyMemberStatus :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON GuardDutyMember where
-  toJSON GuardDutyMember{..} =
-    object $
-    catMaybes
-    [ (Just . ("DetectorId",) . toJSON) _guardDutyMemberDetectorId
-    , fmap (("DisableEmailNotification",) . toJSON . fmap Bool') _guardDutyMemberDisableEmailNotification
-    , (Just . ("Email",) . toJSON) _guardDutyMemberEmail
-    , (Just . ("MemberId",) . toJSON) _guardDutyMemberMemberId
-    , fmap (("Message",) . toJSON) _guardDutyMemberMessage
-    , fmap (("Status",) . toJSON) _guardDutyMemberStatus
-    ]
+instance ToResourceProperties GuardDutyMember where
+  toResourceProperties GuardDutyMember{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::GuardDuty::Member"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("DetectorId",) . toJSON) _guardDutyMemberDetectorId
+        , fmap (("DisableEmailNotification",) . toJSON . fmap Bool') _guardDutyMemberDisableEmailNotification
+        , (Just . ("Email",) . toJSON) _guardDutyMemberEmail
+        , (Just . ("MemberId",) . toJSON) _guardDutyMemberMemberId
+        , fmap (("Message",) . toJSON) _guardDutyMemberMessage
+        , fmap (("Status",) . toJSON) _guardDutyMemberStatus
+        ]
+    }
 
 -- | Constructor for 'GuardDutyMember' containing required fields as
 -- arguments.

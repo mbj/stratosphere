@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbclusterparametergroup.html
@@ -20,16 +21,19 @@ data NeptuneDBClusterParameterGroup =
   , _neptuneDBClusterParameterGroupTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
-instance ToJSON NeptuneDBClusterParameterGroup where
-  toJSON NeptuneDBClusterParameterGroup{..} =
-    object $
-    catMaybes
-    [ (Just . ("Description",) . toJSON) _neptuneDBClusterParameterGroupDescription
-    , (Just . ("Family",) . toJSON) _neptuneDBClusterParameterGroupFamily
-    , fmap (("Name",) . toJSON) _neptuneDBClusterParameterGroupName
-    , (Just . ("Parameters",) . toJSON) _neptuneDBClusterParameterGroupParameters
-    , fmap (("Tags",) . toJSON) _neptuneDBClusterParameterGroupTags
-    ]
+instance ToResourceProperties NeptuneDBClusterParameterGroup where
+  toResourceProperties NeptuneDBClusterParameterGroup{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::Neptune::DBClusterParameterGroup"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("Description",) . toJSON) _neptuneDBClusterParameterGroupDescription
+        , (Just . ("Family",) . toJSON) _neptuneDBClusterParameterGroupFamily
+        , fmap (("Name",) . toJSON) _neptuneDBClusterParameterGroupName
+        , (Just . ("Parameters",) . toJSON) _neptuneDBClusterParameterGroupParameters
+        , fmap (("Tags",) . toJSON) _neptuneDBClusterParameterGroupTags
+        ]
+    }
 
 -- | Constructor for 'NeptuneDBClusterParameterGroup' containing required
 -- fields as arguments.

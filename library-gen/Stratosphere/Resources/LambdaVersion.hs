@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-version.html
@@ -18,14 +19,17 @@ data LambdaVersion =
   , _lambdaVersionFunctionName :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON LambdaVersion where
-  toJSON LambdaVersion{..} =
-    object $
-    catMaybes
-    [ fmap (("CodeSha256",) . toJSON) _lambdaVersionCodeSha256
-    , fmap (("Description",) . toJSON) _lambdaVersionDescription
-    , (Just . ("FunctionName",) . toJSON) _lambdaVersionFunctionName
-    ]
+instance ToResourceProperties LambdaVersion where
+  toResourceProperties LambdaVersion{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::Lambda::Version"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("CodeSha256",) . toJSON) _lambdaVersionCodeSha256
+        , fmap (("Description",) . toJSON) _lambdaVersionDescription
+        , (Just . ("FunctionName",) . toJSON) _lambdaVersionFunctionName
+        ]
+    }
 
 -- | Constructor for 'LambdaVersion' containing required fields as arguments.
 lambdaVersion

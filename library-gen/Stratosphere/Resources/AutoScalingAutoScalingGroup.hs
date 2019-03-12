@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html
@@ -42,33 +43,36 @@ data AutoScalingAutoScalingGroup =
   , _autoScalingAutoScalingGroupVPCZoneIdentifier :: Maybe (ValList Text)
   } deriving (Show, Eq)
 
-instance ToJSON AutoScalingAutoScalingGroup where
-  toJSON AutoScalingAutoScalingGroup{..} =
-    object $
-    catMaybes
-    [ fmap (("AutoScalingGroupName",) . toJSON) _autoScalingAutoScalingGroupAutoScalingGroupName
-    , fmap (("AvailabilityZones",) . toJSON) _autoScalingAutoScalingGroupAvailabilityZones
-    , fmap (("Cooldown",) . toJSON) _autoScalingAutoScalingGroupCooldown
-    , fmap (("DesiredCapacity",) . toJSON) _autoScalingAutoScalingGroupDesiredCapacity
-    , fmap (("HealthCheckGracePeriod",) . toJSON . fmap Integer') _autoScalingAutoScalingGroupHealthCheckGracePeriod
-    , fmap (("HealthCheckType",) . toJSON) _autoScalingAutoScalingGroupHealthCheckType
-    , fmap (("InstanceId",) . toJSON) _autoScalingAutoScalingGroupInstanceId
-    , fmap (("LaunchConfigurationName",) . toJSON) _autoScalingAutoScalingGroupLaunchConfigurationName
-    , fmap (("LaunchTemplate",) . toJSON) _autoScalingAutoScalingGroupLaunchTemplate
-    , fmap (("LifecycleHookSpecificationList",) . toJSON) _autoScalingAutoScalingGroupLifecycleHookSpecificationList
-    , fmap (("LoadBalancerNames",) . toJSON) _autoScalingAutoScalingGroupLoadBalancerNames
-    , (Just . ("MaxSize",) . toJSON) _autoScalingAutoScalingGroupMaxSize
-    , fmap (("MetricsCollection",) . toJSON) _autoScalingAutoScalingGroupMetricsCollection
-    , (Just . ("MinSize",) . toJSON) _autoScalingAutoScalingGroupMinSize
-    , fmap (("MixedInstancesPolicy",) . toJSON) _autoScalingAutoScalingGroupMixedInstancesPolicy
-    , fmap (("NotificationConfigurations",) . toJSON) _autoScalingAutoScalingGroupNotificationConfigurations
-    , fmap (("PlacementGroup",) . toJSON) _autoScalingAutoScalingGroupPlacementGroup
-    , fmap (("ServiceLinkedRoleARN",) . toJSON) _autoScalingAutoScalingGroupServiceLinkedRoleARN
-    , fmap (("Tags",) . toJSON) _autoScalingAutoScalingGroupTags
-    , fmap (("TargetGroupARNs",) . toJSON) _autoScalingAutoScalingGroupTargetGroupARNs
-    , fmap (("TerminationPolicies",) . toJSON) _autoScalingAutoScalingGroupTerminationPolicies
-    , fmap (("VPCZoneIdentifier",) . toJSON) _autoScalingAutoScalingGroupVPCZoneIdentifier
-    ]
+instance ToResourceProperties AutoScalingAutoScalingGroup where
+  toResourceProperties AutoScalingAutoScalingGroup{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::AutoScaling::AutoScalingGroup"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("AutoScalingGroupName",) . toJSON) _autoScalingAutoScalingGroupAutoScalingGroupName
+        , fmap (("AvailabilityZones",) . toJSON) _autoScalingAutoScalingGroupAvailabilityZones
+        , fmap (("Cooldown",) . toJSON) _autoScalingAutoScalingGroupCooldown
+        , fmap (("DesiredCapacity",) . toJSON) _autoScalingAutoScalingGroupDesiredCapacity
+        , fmap (("HealthCheckGracePeriod",) . toJSON . fmap Integer') _autoScalingAutoScalingGroupHealthCheckGracePeriod
+        , fmap (("HealthCheckType",) . toJSON) _autoScalingAutoScalingGroupHealthCheckType
+        , fmap (("InstanceId",) . toJSON) _autoScalingAutoScalingGroupInstanceId
+        , fmap (("LaunchConfigurationName",) . toJSON) _autoScalingAutoScalingGroupLaunchConfigurationName
+        , fmap (("LaunchTemplate",) . toJSON) _autoScalingAutoScalingGroupLaunchTemplate
+        , fmap (("LifecycleHookSpecificationList",) . toJSON) _autoScalingAutoScalingGroupLifecycleHookSpecificationList
+        , fmap (("LoadBalancerNames",) . toJSON) _autoScalingAutoScalingGroupLoadBalancerNames
+        , (Just . ("MaxSize",) . toJSON) _autoScalingAutoScalingGroupMaxSize
+        , fmap (("MetricsCollection",) . toJSON) _autoScalingAutoScalingGroupMetricsCollection
+        , (Just . ("MinSize",) . toJSON) _autoScalingAutoScalingGroupMinSize
+        , fmap (("MixedInstancesPolicy",) . toJSON) _autoScalingAutoScalingGroupMixedInstancesPolicy
+        , fmap (("NotificationConfigurations",) . toJSON) _autoScalingAutoScalingGroupNotificationConfigurations
+        , fmap (("PlacementGroup",) . toJSON) _autoScalingAutoScalingGroupPlacementGroup
+        , fmap (("ServiceLinkedRoleARN",) . toJSON) _autoScalingAutoScalingGroupServiceLinkedRoleARN
+        , fmap (("Tags",) . toJSON) _autoScalingAutoScalingGroupTags
+        , fmap (("TargetGroupARNs",) . toJSON) _autoScalingAutoScalingGroupTargetGroupARNs
+        , fmap (("TerminationPolicies",) . toJSON) _autoScalingAutoScalingGroupTerminationPolicies
+        , fmap (("VPCZoneIdentifier",) . toJSON) _autoScalingAutoScalingGroupVPCZoneIdentifier
+        ]
+    }
 
 -- | Constructor for 'AutoScalingAutoScalingGroup' containing required fields
 -- as arguments.

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-resource.html
@@ -18,14 +19,17 @@ data ApiGatewayResource =
   , _apiGatewayResourceRestApiId :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON ApiGatewayResource where
-  toJSON ApiGatewayResource{..} =
-    object $
-    catMaybes
-    [ (Just . ("ParentId",) . toJSON) _apiGatewayResourceParentId
-    , (Just . ("PathPart",) . toJSON) _apiGatewayResourcePathPart
-    , (Just . ("RestApiId",) . toJSON) _apiGatewayResourceRestApiId
-    ]
+instance ToResourceProperties ApiGatewayResource where
+  toResourceProperties ApiGatewayResource{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::ApiGateway::Resource"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("ParentId",) . toJSON) _apiGatewayResourceParentId
+        , (Just . ("PathPart",) . toJSON) _apiGatewayResourcePathPart
+        , (Just . ("RestApiId",) . toJSON) _apiGatewayResourceRestApiId
+        ]
+    }
 
 -- | Constructor for 'ApiGatewayResource' containing required fields as
 -- arguments.

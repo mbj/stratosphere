@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-httpnamespace.html
@@ -17,13 +18,16 @@ data ServiceDiscoveryHttpNamespace =
   , _serviceDiscoveryHttpNamespaceName :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON ServiceDiscoveryHttpNamespace where
-  toJSON ServiceDiscoveryHttpNamespace{..} =
-    object $
-    catMaybes
-    [ fmap (("Description",) . toJSON) _serviceDiscoveryHttpNamespaceDescription
-    , (Just . ("Name",) . toJSON) _serviceDiscoveryHttpNamespaceName
-    ]
+instance ToResourceProperties ServiceDiscoveryHttpNamespace where
+  toResourceProperties ServiceDiscoveryHttpNamespace{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::ServiceDiscovery::HttpNamespace"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("Description",) . toJSON) _serviceDiscoveryHttpNamespaceDescription
+        , (Just . ("Name",) . toJSON) _serviceDiscoveryHttpNamespaceName
+        ]
+    }
 
 -- | Constructor for 'ServiceDiscoveryHttpNamespace' containing required
 -- fields as arguments.

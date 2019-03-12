@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.html
@@ -23,17 +24,20 @@ data SageMakerModel =
   , _sageMakerModelVpcConfig :: Maybe SageMakerModelVpcConfig
   } deriving (Show, Eq)
 
-instance ToJSON SageMakerModel where
-  toJSON SageMakerModel{..} =
-    object $
-    catMaybes
-    [ fmap (("Containers",) . toJSON) _sageMakerModelContainers
-    , (Just . ("ExecutionRoleArn",) . toJSON) _sageMakerModelExecutionRoleArn
-    , fmap (("ModelName",) . toJSON) _sageMakerModelModelName
-    , fmap (("PrimaryContainer",) . toJSON) _sageMakerModelPrimaryContainer
-    , fmap (("Tags",) . toJSON) _sageMakerModelTags
-    , fmap (("VpcConfig",) . toJSON) _sageMakerModelVpcConfig
-    ]
+instance ToResourceProperties SageMakerModel where
+  toResourceProperties SageMakerModel{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::SageMaker::Model"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("Containers",) . toJSON) _sageMakerModelContainers
+        , (Just . ("ExecutionRoleArn",) . toJSON) _sageMakerModelExecutionRoleArn
+        , fmap (("ModelName",) . toJSON) _sageMakerModelModelName
+        , fmap (("PrimaryContainer",) . toJSON) _sageMakerModelPrimaryContainer
+        , fmap (("Tags",) . toJSON) _sageMakerModelTags
+        , fmap (("VpcConfig",) . toJSON) _sageMakerModelVpcConfig
+        ]
+    }
 
 -- | Constructor for 'SageMakerModel' containing required fields as arguments.
 sageMakerModel

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindow.html
@@ -25,21 +26,24 @@ data SSMMaintenanceWindow =
   , _sSMMaintenanceWindowTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
-instance ToJSON SSMMaintenanceWindow where
-  toJSON SSMMaintenanceWindow{..} =
-    object $
-    catMaybes
-    [ (Just . ("AllowUnassociatedTargets",) . toJSON . fmap Bool') _sSMMaintenanceWindowAllowUnassociatedTargets
-    , (Just . ("Cutoff",) . toJSON . fmap Integer') _sSMMaintenanceWindowCutoff
-    , fmap (("Description",) . toJSON) _sSMMaintenanceWindowDescription
-    , (Just . ("Duration",) . toJSON . fmap Integer') _sSMMaintenanceWindowDuration
-    , fmap (("EndDate",) . toJSON) _sSMMaintenanceWindowEndDate
-    , (Just . ("Name",) . toJSON) _sSMMaintenanceWindowName
-    , (Just . ("Schedule",) . toJSON) _sSMMaintenanceWindowSchedule
-    , fmap (("ScheduleTimezone",) . toJSON) _sSMMaintenanceWindowScheduleTimezone
-    , fmap (("StartDate",) . toJSON) _sSMMaintenanceWindowStartDate
-    , fmap (("Tags",) . toJSON) _sSMMaintenanceWindowTags
-    ]
+instance ToResourceProperties SSMMaintenanceWindow where
+  toResourceProperties SSMMaintenanceWindow{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::SSM::MaintenanceWindow"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("AllowUnassociatedTargets",) . toJSON . fmap Bool') _sSMMaintenanceWindowAllowUnassociatedTargets
+        , (Just . ("Cutoff",) . toJSON . fmap Integer') _sSMMaintenanceWindowCutoff
+        , fmap (("Description",) . toJSON) _sSMMaintenanceWindowDescription
+        , (Just . ("Duration",) . toJSON . fmap Integer') _sSMMaintenanceWindowDuration
+        , fmap (("EndDate",) . toJSON) _sSMMaintenanceWindowEndDate
+        , (Just . ("Name",) . toJSON) _sSMMaintenanceWindowName
+        , (Just . ("Schedule",) . toJSON) _sSMMaintenanceWindowSchedule
+        , fmap (("ScheduleTimezone",) . toJSON) _sSMMaintenanceWindowScheduleTimezone
+        , fmap (("StartDate",) . toJSON) _sSMMaintenanceWindowStartDate
+        , fmap (("Tags",) . toJSON) _sSMMaintenanceWindowTags
+        ]
+    }
 
 -- | Constructor for 'SSMMaintenanceWindow' containing required fields as
 -- arguments.

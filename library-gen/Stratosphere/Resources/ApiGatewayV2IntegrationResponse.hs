@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integrationresponse.html
@@ -22,18 +23,21 @@ data ApiGatewayV2IntegrationResponse =
   , _apiGatewayV2IntegrationResponseTemplateSelectionExpression :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON ApiGatewayV2IntegrationResponse where
-  toJSON ApiGatewayV2IntegrationResponse{..} =
-    object $
-    catMaybes
-    [ (Just . ("ApiId",) . toJSON) _apiGatewayV2IntegrationResponseApiId
-    , fmap (("ContentHandlingStrategy",) . toJSON) _apiGatewayV2IntegrationResponseContentHandlingStrategy
-    , (Just . ("IntegrationId",) . toJSON) _apiGatewayV2IntegrationResponseIntegrationId
-    , (Just . ("IntegrationResponseKey",) . toJSON) _apiGatewayV2IntegrationResponseIntegrationResponseKey
-    , fmap (("ResponseParameters",) . toJSON) _apiGatewayV2IntegrationResponseResponseParameters
-    , fmap (("ResponseTemplates",) . toJSON) _apiGatewayV2IntegrationResponseResponseTemplates
-    , fmap (("TemplateSelectionExpression",) . toJSON) _apiGatewayV2IntegrationResponseTemplateSelectionExpression
-    ]
+instance ToResourceProperties ApiGatewayV2IntegrationResponse where
+  toResourceProperties ApiGatewayV2IntegrationResponse{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::ApiGatewayV2::IntegrationResponse"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("ApiId",) . toJSON) _apiGatewayV2IntegrationResponseApiId
+        , fmap (("ContentHandlingStrategy",) . toJSON) _apiGatewayV2IntegrationResponseContentHandlingStrategy
+        , (Just . ("IntegrationId",) . toJSON) _apiGatewayV2IntegrationResponseIntegrationId
+        , (Just . ("IntegrationResponseKey",) . toJSON) _apiGatewayV2IntegrationResponseIntegrationResponseKey
+        , fmap (("ResponseParameters",) . toJSON) _apiGatewayV2IntegrationResponseResponseParameters
+        , fmap (("ResponseTemplates",) . toJSON) _apiGatewayV2IntegrationResponseResponseTemplates
+        , fmap (("TemplateSelectionExpression",) . toJSON) _apiGatewayV2IntegrationResponseTemplateSelectionExpression
+        ]
+    }
 
 -- | Constructor for 'ApiGatewayV2IntegrationResponse' containing required
 -- fields as arguments.

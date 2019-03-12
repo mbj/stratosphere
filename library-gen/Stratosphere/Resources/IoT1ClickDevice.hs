@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot1click-device.html
@@ -17,13 +18,16 @@ data IoT1ClickDevice =
   , _ioT1ClickDeviceEnabled :: Val Bool
   } deriving (Show, Eq)
 
-instance ToJSON IoT1ClickDevice where
-  toJSON IoT1ClickDevice{..} =
-    object $
-    catMaybes
-    [ (Just . ("DeviceId",) . toJSON) _ioT1ClickDeviceDeviceId
-    , (Just . ("Enabled",) . toJSON . fmap Bool') _ioT1ClickDeviceEnabled
-    ]
+instance ToResourceProperties IoT1ClickDevice where
+  toResourceProperties IoT1ClickDevice{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::IoT1Click::Device"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("DeviceId",) . toJSON) _ioT1ClickDeviceDeviceId
+        , (Just . ("Enabled",) . toJSON . fmap Bool') _ioT1ClickDeviceEnabled
+        ]
+    }
 
 -- | Constructor for 'IoT1ClickDevice' containing required fields as
 -- arguments.

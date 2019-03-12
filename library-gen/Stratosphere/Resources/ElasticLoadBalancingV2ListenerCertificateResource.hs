@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listenercertificate.html
@@ -19,13 +20,16 @@ data ElasticLoadBalancingV2ListenerCertificateResource =
   , _elasticLoadBalancingV2ListenerCertificateResourceListenerArn :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON ElasticLoadBalancingV2ListenerCertificateResource where
-  toJSON ElasticLoadBalancingV2ListenerCertificateResource{..} =
-    object $
-    catMaybes
-    [ (Just . ("Certificates",) . toJSON) _elasticLoadBalancingV2ListenerCertificateResourceCertificates
-    , (Just . ("ListenerArn",) . toJSON) _elasticLoadBalancingV2ListenerCertificateResourceListenerArn
-    ]
+instance ToResourceProperties ElasticLoadBalancingV2ListenerCertificateResource where
+  toResourceProperties ElasticLoadBalancingV2ListenerCertificateResource{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::ElasticLoadBalancingV2::ListenerCertificate"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("Certificates",) . toJSON) _elasticLoadBalancingV2ListenerCertificateResourceCertificates
+        , (Just . ("ListenerArn",) . toJSON) _elasticLoadBalancingV2ListenerCertificateResourceListenerArn
+        ]
+    }
 
 -- | Constructor for 'ElasticLoadBalancingV2ListenerCertificateResource'
 -- containing required fields as arguments.

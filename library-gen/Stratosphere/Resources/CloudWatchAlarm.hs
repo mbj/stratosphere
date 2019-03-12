@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html
@@ -36,31 +37,34 @@ data CloudWatchAlarm =
   , _cloudWatchAlarmUnit :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON CloudWatchAlarm where
-  toJSON CloudWatchAlarm{..} =
-    object $
-    catMaybes
-    [ fmap (("ActionsEnabled",) . toJSON . fmap Bool') _cloudWatchAlarmActionsEnabled
-    , fmap (("AlarmActions",) . toJSON) _cloudWatchAlarmAlarmActions
-    , fmap (("AlarmDescription",) . toJSON) _cloudWatchAlarmAlarmDescription
-    , fmap (("AlarmName",) . toJSON) _cloudWatchAlarmAlarmName
-    , (Just . ("ComparisonOperator",) . toJSON) _cloudWatchAlarmComparisonOperator
-    , fmap (("DatapointsToAlarm",) . toJSON . fmap Integer') _cloudWatchAlarmDatapointsToAlarm
-    , fmap (("Dimensions",) . toJSON) _cloudWatchAlarmDimensions
-    , fmap (("EvaluateLowSampleCountPercentile",) . toJSON) _cloudWatchAlarmEvaluateLowSampleCountPercentile
-    , (Just . ("EvaluationPeriods",) . toJSON . fmap Integer') _cloudWatchAlarmEvaluationPeriods
-    , fmap (("ExtendedStatistic",) . toJSON) _cloudWatchAlarmExtendedStatistic
-    , fmap (("InsufficientDataActions",) . toJSON) _cloudWatchAlarmInsufficientDataActions
-    , fmap (("MetricName",) . toJSON) _cloudWatchAlarmMetricName
-    , fmap (("Metrics",) . toJSON) _cloudWatchAlarmMetrics
-    , fmap (("Namespace",) . toJSON) _cloudWatchAlarmNamespace
-    , fmap (("OKActions",) . toJSON) _cloudWatchAlarmOKActions
-    , fmap (("Period",) . toJSON . fmap Integer') _cloudWatchAlarmPeriod
-    , fmap (("Statistic",) . toJSON) _cloudWatchAlarmStatistic
-    , (Just . ("Threshold",) . toJSON . fmap Double') _cloudWatchAlarmThreshold
-    , fmap (("TreatMissingData",) . toJSON) _cloudWatchAlarmTreatMissingData
-    , fmap (("Unit",) . toJSON) _cloudWatchAlarmUnit
-    ]
+instance ToResourceProperties CloudWatchAlarm where
+  toResourceProperties CloudWatchAlarm{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::CloudWatch::Alarm"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("ActionsEnabled",) . toJSON . fmap Bool') _cloudWatchAlarmActionsEnabled
+        , fmap (("AlarmActions",) . toJSON) _cloudWatchAlarmAlarmActions
+        , fmap (("AlarmDescription",) . toJSON) _cloudWatchAlarmAlarmDescription
+        , fmap (("AlarmName",) . toJSON) _cloudWatchAlarmAlarmName
+        , (Just . ("ComparisonOperator",) . toJSON) _cloudWatchAlarmComparisonOperator
+        , fmap (("DatapointsToAlarm",) . toJSON . fmap Integer') _cloudWatchAlarmDatapointsToAlarm
+        , fmap (("Dimensions",) . toJSON) _cloudWatchAlarmDimensions
+        , fmap (("EvaluateLowSampleCountPercentile",) . toJSON) _cloudWatchAlarmEvaluateLowSampleCountPercentile
+        , (Just . ("EvaluationPeriods",) . toJSON . fmap Integer') _cloudWatchAlarmEvaluationPeriods
+        , fmap (("ExtendedStatistic",) . toJSON) _cloudWatchAlarmExtendedStatistic
+        , fmap (("InsufficientDataActions",) . toJSON) _cloudWatchAlarmInsufficientDataActions
+        , fmap (("MetricName",) . toJSON) _cloudWatchAlarmMetricName
+        , fmap (("Metrics",) . toJSON) _cloudWatchAlarmMetrics
+        , fmap (("Namespace",) . toJSON) _cloudWatchAlarmNamespace
+        , fmap (("OKActions",) . toJSON) _cloudWatchAlarmOKActions
+        , fmap (("Period",) . toJSON . fmap Integer') _cloudWatchAlarmPeriod
+        , fmap (("Statistic",) . toJSON) _cloudWatchAlarmStatistic
+        , (Just . ("Threshold",) . toJSON . fmap Double') _cloudWatchAlarmThreshold
+        , fmap (("TreatMissingData",) . toJSON) _cloudWatchAlarmTreatMissingData
+        , fmap (("Unit",) . toJSON) _cloudWatchAlarmUnit
+        ]
+    }
 
 -- | Constructor for 'CloudWatchAlarm' containing required fields as
 -- arguments.

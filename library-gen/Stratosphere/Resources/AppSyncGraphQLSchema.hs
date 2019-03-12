@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlschema.html
@@ -18,14 +19,17 @@ data AppSyncGraphQLSchema =
   , _appSyncGraphQLSchemaDefinitionS3Location :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON AppSyncGraphQLSchema where
-  toJSON AppSyncGraphQLSchema{..} =
-    object $
-    catMaybes
-    [ (Just . ("ApiId",) . toJSON) _appSyncGraphQLSchemaApiId
-    , fmap (("Definition",) . toJSON) _appSyncGraphQLSchemaDefinition
-    , fmap (("DefinitionS3Location",) . toJSON) _appSyncGraphQLSchemaDefinitionS3Location
-    ]
+instance ToResourceProperties AppSyncGraphQLSchema where
+  toResourceProperties AppSyncGraphQLSchema{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::AppSync::GraphQLSchema"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("ApiId",) . toJSON) _appSyncGraphQLSchemaApiId
+        , fmap (("Definition",) . toJSON) _appSyncGraphQLSchemaDefinition
+        , fmap (("DefinitionS3Location",) . toJSON) _appSyncGraphQLSchemaDefinitionS3Location
+        ]
+    }
 
 -- | Constructor for 'AppSyncGraphQLSchema' containing required fields as
 -- arguments.

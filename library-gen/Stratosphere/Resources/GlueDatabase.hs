@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-database.html
@@ -17,13 +18,16 @@ data GlueDatabase =
   , _glueDatabaseDatabaseInput :: GlueDatabaseDatabaseInput
   } deriving (Show, Eq)
 
-instance ToJSON GlueDatabase where
-  toJSON GlueDatabase{..} =
-    object $
-    catMaybes
-    [ (Just . ("CatalogId",) . toJSON) _glueDatabaseCatalogId
-    , (Just . ("DatabaseInput",) . toJSON) _glueDatabaseDatabaseInput
-    ]
+instance ToResourceProperties GlueDatabase where
+  toResourceProperties GlueDatabase{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::Glue::Database"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("CatalogId",) . toJSON) _glueDatabaseCatalogId
+        , (Just . ("DatabaseInput",) . toJSON) _glueDatabaseDatabaseInput
+        ]
+    }
 
 -- | Constructor for 'GlueDatabase' containing required fields as arguments.
 glueDatabase

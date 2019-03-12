@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-layerversion.html
@@ -20,16 +21,19 @@ data LambdaLayerVersion =
   , _lambdaLayerVersionLicenseInfo :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON LambdaLayerVersion where
-  toJSON LambdaLayerVersion{..} =
-    object $
-    catMaybes
-    [ fmap (("CompatibleRuntimes",) . toJSON) _lambdaLayerVersionCompatibleRuntimes
-    , (Just . ("Content",) . toJSON) _lambdaLayerVersionContent
-    , fmap (("Description",) . toJSON) _lambdaLayerVersionDescription
-    , fmap (("LayerName",) . toJSON) _lambdaLayerVersionLayerName
-    , fmap (("LicenseInfo",) . toJSON) _lambdaLayerVersionLicenseInfo
-    ]
+instance ToResourceProperties LambdaLayerVersion where
+  toResourceProperties LambdaLayerVersion{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::Lambda::LayerVersion"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("CompatibleRuntimes",) . toJSON) _lambdaLayerVersionCompatibleRuntimes
+        , (Just . ("Content",) . toJSON) _lambdaLayerVersionContent
+        , fmap (("Description",) . toJSON) _lambdaLayerVersionDescription
+        , fmap (("LayerName",) . toJSON) _lambdaLayerVersionLayerName
+        , fmap (("LicenseInfo",) . toJSON) _lambdaLayerVersionLicenseInfo
+        ]
+    }
 
 -- | Constructor for 'LambdaLayerVersion' containing required fields as
 -- arguments.

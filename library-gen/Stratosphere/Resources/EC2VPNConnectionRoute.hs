@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpn-connection-route.html
@@ -17,13 +18,16 @@ data EC2VPNConnectionRoute =
   , _eC2VPNConnectionRouteVpnConnectionId :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON EC2VPNConnectionRoute where
-  toJSON EC2VPNConnectionRoute{..} =
-    object $
-    catMaybes
-    [ (Just . ("DestinationCidrBlock",) . toJSON) _eC2VPNConnectionRouteDestinationCidrBlock
-    , (Just . ("VpnConnectionId",) . toJSON) _eC2VPNConnectionRouteVpnConnectionId
-    ]
+instance ToResourceProperties EC2VPNConnectionRoute where
+  toResourceProperties EC2VPNConnectionRoute{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::EC2::VPNConnectionRoute"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("DestinationCidrBlock",) . toJSON) _eC2VPNConnectionRouteDestinationCidrBlock
+        , (Just . ("VpnConnectionId",) . toJSON) _eC2VPNConnectionRouteVpnConnectionId
+        ]
+    }
 
 -- | Constructor for 'EC2VPNConnectionRoute' containing required fields as
 -- arguments.

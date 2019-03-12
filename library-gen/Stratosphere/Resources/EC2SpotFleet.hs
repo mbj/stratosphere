@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-spotfleet.html
@@ -16,12 +17,15 @@ data EC2SpotFleet =
   { _eC2SpotFleetSpotFleetRequestConfigData :: EC2SpotFleetSpotFleetRequestConfigData
   } deriving (Show, Eq)
 
-instance ToJSON EC2SpotFleet where
-  toJSON EC2SpotFleet{..} =
-    object $
-    catMaybes
-    [ (Just . ("SpotFleetRequestConfigData",) . toJSON) _eC2SpotFleetSpotFleetRequestConfigData
-    ]
+instance ToResourceProperties EC2SpotFleet where
+  toResourceProperties EC2SpotFleet{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::EC2::SpotFleet"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("SpotFleetRequestConfigData",) . toJSON) _eC2SpotFleetSpotFleetRequestConfigData
+        ]
+    }
 
 -- | Constructor for 'EC2SpotFleet' containing required fields as arguments.
 ec2SpotFleet

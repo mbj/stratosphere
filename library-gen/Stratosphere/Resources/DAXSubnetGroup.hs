@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dax-subnetgroup.html
@@ -18,14 +19,17 @@ data DAXSubnetGroup =
   , _dAXSubnetGroupSubnetIds :: ValList Text
   } deriving (Show, Eq)
 
-instance ToJSON DAXSubnetGroup where
-  toJSON DAXSubnetGroup{..} =
-    object $
-    catMaybes
-    [ fmap (("Description",) . toJSON) _dAXSubnetGroupDescription
-    , fmap (("SubnetGroupName",) . toJSON) _dAXSubnetGroupSubnetGroupName
-    , (Just . ("SubnetIds",) . toJSON) _dAXSubnetGroupSubnetIds
-    ]
+instance ToResourceProperties DAXSubnetGroup where
+  toResourceProperties DAXSubnetGroup{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::DAX::SubnetGroup"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("Description",) . toJSON) _dAXSubnetGroupDescription
+        , fmap (("SubnetGroupName",) . toJSON) _dAXSubnetGroupSubnetGroupName
+        , (Just . ("SubnetIds",) . toJSON) _dAXSubnetGroupSubnetIds
+        ]
+    }
 
 -- | Constructor for 'DAXSubnetGroup' containing required fields as arguments.
 daxSubnetGroup

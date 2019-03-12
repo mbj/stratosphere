@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-documentationversion.html
@@ -18,14 +19,17 @@ data ApiGatewayDocumentationVersion =
   , _apiGatewayDocumentationVersionRestApiId :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON ApiGatewayDocumentationVersion where
-  toJSON ApiGatewayDocumentationVersion{..} =
-    object $
-    catMaybes
-    [ fmap (("Description",) . toJSON) _apiGatewayDocumentationVersionDescription
-    , (Just . ("DocumentationVersion",) . toJSON) _apiGatewayDocumentationVersionDocumentationVersion
-    , (Just . ("RestApiId",) . toJSON) _apiGatewayDocumentationVersionRestApiId
-    ]
+instance ToResourceProperties ApiGatewayDocumentationVersion where
+  toResourceProperties ApiGatewayDocumentationVersion{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::ApiGateway::DocumentationVersion"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("Description",) . toJSON) _apiGatewayDocumentationVersionDescription
+        , (Just . ("DocumentationVersion",) . toJSON) _apiGatewayDocumentationVersionDocumentationVersion
+        , (Just . ("RestApiId",) . toJSON) _apiGatewayDocumentationVersionRestApiId
+        ]
+    }
 
 -- | Constructor for 'ApiGatewayDocumentationVersion' containing required
 -- fields as arguments.

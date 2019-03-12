@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-security-group-ingress.html
@@ -20,16 +21,19 @@ data RDSDBSecurityGroupIngress =
   , _rDSDBSecurityGroupIngressEC2SecurityGroupOwnerId :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON RDSDBSecurityGroupIngress where
-  toJSON RDSDBSecurityGroupIngress{..} =
-    object $
-    catMaybes
-    [ fmap (("CIDRIP",) . toJSON) _rDSDBSecurityGroupIngressCIDRIP
-    , (Just . ("DBSecurityGroupName",) . toJSON) _rDSDBSecurityGroupIngressDBSecurityGroupName
-    , fmap (("EC2SecurityGroupId",) . toJSON) _rDSDBSecurityGroupIngressEC2SecurityGroupId
-    , fmap (("EC2SecurityGroupName",) . toJSON) _rDSDBSecurityGroupIngressEC2SecurityGroupName
-    , fmap (("EC2SecurityGroupOwnerId",) . toJSON) _rDSDBSecurityGroupIngressEC2SecurityGroupOwnerId
-    ]
+instance ToResourceProperties RDSDBSecurityGroupIngress where
+  toResourceProperties RDSDBSecurityGroupIngress{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::RDS::DBSecurityGroupIngress"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("CIDRIP",) . toJSON) _rDSDBSecurityGroupIngressCIDRIP
+        , (Just . ("DBSecurityGroupName",) . toJSON) _rDSDBSecurityGroupIngressDBSecurityGroupName
+        , fmap (("EC2SecurityGroupId",) . toJSON) _rDSDBSecurityGroupIngressEC2SecurityGroupId
+        , fmap (("EC2SecurityGroupName",) . toJSON) _rDSDBSecurityGroupIngressEC2SecurityGroupName
+        , fmap (("EC2SecurityGroupOwnerId",) . toJSON) _rDSDBSecurityGroupIngressEC2SecurityGroupOwnerId
+        ]
+    }
 
 -- | Constructor for 'RDSDBSecurityGroupIngress' containing required fields as
 -- arguments.

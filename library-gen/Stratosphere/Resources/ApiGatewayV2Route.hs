@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-route.html
@@ -27,23 +28,26 @@ data ApiGatewayV2Route =
   , _apiGatewayV2RouteTarget :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON ApiGatewayV2Route where
-  toJSON ApiGatewayV2Route{..} =
-    object $
-    catMaybes
-    [ (Just . ("ApiId",) . toJSON) _apiGatewayV2RouteApiId
-    , fmap (("ApiKeyRequired",) . toJSON . fmap Bool') _apiGatewayV2RouteApiKeyRequired
-    , fmap (("AuthorizationScopes",) . toJSON) _apiGatewayV2RouteAuthorizationScopes
-    , fmap (("AuthorizationType",) . toJSON) _apiGatewayV2RouteAuthorizationType
-    , fmap (("AuthorizerId",) . toJSON) _apiGatewayV2RouteAuthorizerId
-    , fmap (("ModelSelectionExpression",) . toJSON) _apiGatewayV2RouteModelSelectionExpression
-    , fmap (("OperationName",) . toJSON) _apiGatewayV2RouteOperationName
-    , fmap (("RequestModels",) . toJSON) _apiGatewayV2RouteRequestModels
-    , fmap (("RequestParameters",) . toJSON) _apiGatewayV2RouteRequestParameters
-    , (Just . ("RouteKey",) . toJSON) _apiGatewayV2RouteRouteKey
-    , fmap (("RouteResponseSelectionExpression",) . toJSON) _apiGatewayV2RouteRouteResponseSelectionExpression
-    , fmap (("Target",) . toJSON) _apiGatewayV2RouteTarget
-    ]
+instance ToResourceProperties ApiGatewayV2Route where
+  toResourceProperties ApiGatewayV2Route{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::ApiGatewayV2::Route"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("ApiId",) . toJSON) _apiGatewayV2RouteApiId
+        , fmap (("ApiKeyRequired",) . toJSON . fmap Bool') _apiGatewayV2RouteApiKeyRequired
+        , fmap (("AuthorizationScopes",) . toJSON) _apiGatewayV2RouteAuthorizationScopes
+        , fmap (("AuthorizationType",) . toJSON) _apiGatewayV2RouteAuthorizationType
+        , fmap (("AuthorizerId",) . toJSON) _apiGatewayV2RouteAuthorizerId
+        , fmap (("ModelSelectionExpression",) . toJSON) _apiGatewayV2RouteModelSelectionExpression
+        , fmap (("OperationName",) . toJSON) _apiGatewayV2RouteOperationName
+        , fmap (("RequestModels",) . toJSON) _apiGatewayV2RouteRequestModels
+        , fmap (("RequestParameters",) . toJSON) _apiGatewayV2RouteRequestParameters
+        , (Just . ("RouteKey",) . toJSON) _apiGatewayV2RouteRouteKey
+        , fmap (("RouteResponseSelectionExpression",) . toJSON) _apiGatewayV2RouteRouteResponseSelectionExpression
+        , fmap (("Target",) . toJSON) _apiGatewayV2RouteTarget
+        ]
+    }
 
 -- | Constructor for 'ApiGatewayV2Route' containing required fields as
 -- arguments.

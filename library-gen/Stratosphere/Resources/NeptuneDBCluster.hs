@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html
@@ -29,25 +30,28 @@ data NeptuneDBCluster =
   , _neptuneDBClusterVpcSecurityGroupIds :: Maybe (ValList Text)
   } deriving (Show, Eq)
 
-instance ToJSON NeptuneDBCluster where
-  toJSON NeptuneDBCluster{..} =
-    object $
-    catMaybes
-    [ fmap (("AvailabilityZones",) . toJSON) _neptuneDBClusterAvailabilityZones
-    , fmap (("BackupRetentionPeriod",) . toJSON . fmap Integer') _neptuneDBClusterBackupRetentionPeriod
-    , fmap (("DBClusterIdentifier",) . toJSON) _neptuneDBClusterDBClusterIdentifier
-    , fmap (("DBClusterParameterGroupName",) . toJSON) _neptuneDBClusterDBClusterParameterGroupName
-    , fmap (("DBSubnetGroupName",) . toJSON) _neptuneDBClusterDBSubnetGroupName
-    , fmap (("IamAuthEnabled",) . toJSON . fmap Bool') _neptuneDBClusterIamAuthEnabled
-    , fmap (("KmsKeyId",) . toJSON) _neptuneDBClusterKmsKeyId
-    , fmap (("Port",) . toJSON . fmap Integer') _neptuneDBClusterPort
-    , fmap (("PreferredBackupWindow",) . toJSON) _neptuneDBClusterPreferredBackupWindow
-    , fmap (("PreferredMaintenanceWindow",) . toJSON) _neptuneDBClusterPreferredMaintenanceWindow
-    , fmap (("SnapshotIdentifier",) . toJSON) _neptuneDBClusterSnapshotIdentifier
-    , fmap (("StorageEncrypted",) . toJSON . fmap Bool') _neptuneDBClusterStorageEncrypted
-    , fmap (("Tags",) . toJSON) _neptuneDBClusterTags
-    , fmap (("VpcSecurityGroupIds",) . toJSON) _neptuneDBClusterVpcSecurityGroupIds
-    ]
+instance ToResourceProperties NeptuneDBCluster where
+  toResourceProperties NeptuneDBCluster{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::Neptune::DBCluster"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("AvailabilityZones",) . toJSON) _neptuneDBClusterAvailabilityZones
+        , fmap (("BackupRetentionPeriod",) . toJSON . fmap Integer') _neptuneDBClusterBackupRetentionPeriod
+        , fmap (("DBClusterIdentifier",) . toJSON) _neptuneDBClusterDBClusterIdentifier
+        , fmap (("DBClusterParameterGroupName",) . toJSON) _neptuneDBClusterDBClusterParameterGroupName
+        , fmap (("DBSubnetGroupName",) . toJSON) _neptuneDBClusterDBSubnetGroupName
+        , fmap (("IamAuthEnabled",) . toJSON . fmap Bool') _neptuneDBClusterIamAuthEnabled
+        , fmap (("KmsKeyId",) . toJSON) _neptuneDBClusterKmsKeyId
+        , fmap (("Port",) . toJSON . fmap Integer') _neptuneDBClusterPort
+        , fmap (("PreferredBackupWindow",) . toJSON) _neptuneDBClusterPreferredBackupWindow
+        , fmap (("PreferredMaintenanceWindow",) . toJSON) _neptuneDBClusterPreferredMaintenanceWindow
+        , fmap (("SnapshotIdentifier",) . toJSON) _neptuneDBClusterSnapshotIdentifier
+        , fmap (("StorageEncrypted",) . toJSON . fmap Bool') _neptuneDBClusterStorageEncrypted
+        , fmap (("Tags",) . toJSON) _neptuneDBClusterTags
+        , fmap (("VpcSecurityGroupIds",) . toJSON) _neptuneDBClusterVpcSecurityGroupIds
+        ]
+    }
 
 -- | Constructor for 'NeptuneDBCluster' containing required fields as
 -- arguments.

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalingpolicy.html
@@ -24,19 +25,22 @@ data ApplicationAutoScalingScalingPolicy =
   , _applicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfiguration :: Maybe ApplicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfiguration
   } deriving (Show, Eq)
 
-instance ToJSON ApplicationAutoScalingScalingPolicy where
-  toJSON ApplicationAutoScalingScalingPolicy{..} =
-    object $
-    catMaybes
-    [ (Just . ("PolicyName",) . toJSON) _applicationAutoScalingScalingPolicyPolicyName
-    , (Just . ("PolicyType",) . toJSON) _applicationAutoScalingScalingPolicyPolicyType
-    , fmap (("ResourceId",) . toJSON) _applicationAutoScalingScalingPolicyResourceId
-    , fmap (("ScalableDimension",) . toJSON) _applicationAutoScalingScalingPolicyScalableDimension
-    , fmap (("ScalingTargetId",) . toJSON) _applicationAutoScalingScalingPolicyScalingTargetId
-    , fmap (("ServiceNamespace",) . toJSON) _applicationAutoScalingScalingPolicyServiceNamespace
-    , fmap (("StepScalingPolicyConfiguration",) . toJSON) _applicationAutoScalingScalingPolicyStepScalingPolicyConfiguration
-    , fmap (("TargetTrackingScalingPolicyConfiguration",) . toJSON) _applicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfiguration
-    ]
+instance ToResourceProperties ApplicationAutoScalingScalingPolicy where
+  toResourceProperties ApplicationAutoScalingScalingPolicy{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::ApplicationAutoScaling::ScalingPolicy"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("PolicyName",) . toJSON) _applicationAutoScalingScalingPolicyPolicyName
+        , (Just . ("PolicyType",) . toJSON) _applicationAutoScalingScalingPolicyPolicyType
+        , fmap (("ResourceId",) . toJSON) _applicationAutoScalingScalingPolicyResourceId
+        , fmap (("ScalableDimension",) . toJSON) _applicationAutoScalingScalingPolicyScalableDimension
+        , fmap (("ScalingTargetId",) . toJSON) _applicationAutoScalingScalingPolicyScalingTargetId
+        , fmap (("ServiceNamespace",) . toJSON) _applicationAutoScalingScalingPolicyServiceNamespace
+        , fmap (("StepScalingPolicyConfiguration",) . toJSON) _applicationAutoScalingScalingPolicyStepScalingPolicyConfiguration
+        , fmap (("TargetTrackingScalingPolicyConfiguration",) . toJSON) _applicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfiguration
+        ]
+    }
 
 -- | Constructor for 'ApplicationAutoScalingScalingPolicy' containing required
 -- fields as arguments.

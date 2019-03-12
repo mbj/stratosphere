@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverrule.html
@@ -22,17 +23,20 @@ data Route53ResolverResolverRule =
   , _route53ResolverResolverRuleTargetIps :: Maybe [Route53ResolverResolverRuleTargetAddress]
   } deriving (Show, Eq)
 
-instance ToJSON Route53ResolverResolverRule where
-  toJSON Route53ResolverResolverRule{..} =
-    object $
-    catMaybes
-    [ (Just . ("DomainName",) . toJSON) _route53ResolverResolverRuleDomainName
-    , fmap (("Name",) . toJSON) _route53ResolverResolverRuleName
-    , fmap (("ResolverEndpointId",) . toJSON) _route53ResolverResolverRuleResolverEndpointId
-    , (Just . ("RuleType",) . toJSON) _route53ResolverResolverRuleRuleType
-    , fmap (("Tags",) . toJSON) _route53ResolverResolverRuleTags
-    , fmap (("TargetIps",) . toJSON) _route53ResolverResolverRuleTargetIps
-    ]
+instance ToResourceProperties Route53ResolverResolverRule where
+  toResourceProperties Route53ResolverResolverRule{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::Route53Resolver::ResolverRule"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("DomainName",) . toJSON) _route53ResolverResolverRuleDomainName
+        , fmap (("Name",) . toJSON) _route53ResolverResolverRuleName
+        , fmap (("ResolverEndpointId",) . toJSON) _route53ResolverResolverRuleResolverEndpointId
+        , (Just . ("RuleType",) . toJSON) _route53ResolverResolverRuleRuleType
+        , fmap (("Tags",) . toJSON) _route53ResolverResolverRuleTags
+        , fmap (("TargetIps",) . toJSON) _route53ResolverResolverRuleTargetIps
+        ]
+    }
 
 -- | Constructor for 'Route53ResolverResolverRule' containing required fields
 -- as arguments.

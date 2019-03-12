@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-logstream.html
@@ -17,13 +18,16 @@ data LogsLogStream =
   , _logsLogStreamLogStreamName :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON LogsLogStream where
-  toJSON LogsLogStream{..} =
-    object $
-    catMaybes
-    [ (Just . ("LogGroupName",) . toJSON) _logsLogStreamLogGroupName
-    , fmap (("LogStreamName",) . toJSON) _logsLogStreamLogStreamName
-    ]
+instance ToResourceProperties LogsLogStream where
+  toResourceProperties LogsLogStream{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::Logs::LogStream"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("LogGroupName",) . toJSON) _logsLogStreamLogGroupName
+        , fmap (("LogStreamName",) . toJSON) _logsLogStreamLogStreamName
+        ]
+    }
 
 -- | Constructor for 'LogsLogStream' containing required fields as arguments.
 logsLogStream

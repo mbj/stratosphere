@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-jobqueue.html
@@ -19,15 +20,18 @@ data BatchJobQueue =
   , _batchJobQueueState :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON BatchJobQueue where
-  toJSON BatchJobQueue{..} =
-    object $
-    catMaybes
-    [ (Just . ("ComputeEnvironmentOrder",) . toJSON) _batchJobQueueComputeEnvironmentOrder
-    , fmap (("JobQueueName",) . toJSON) _batchJobQueueJobQueueName
-    , (Just . ("Priority",) . toJSON . fmap Integer') _batchJobQueuePriority
-    , fmap (("State",) . toJSON) _batchJobQueueState
-    ]
+instance ToResourceProperties BatchJobQueue where
+  toResourceProperties BatchJobQueue{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::Batch::JobQueue"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("ComputeEnvironmentOrder",) . toJSON) _batchJobQueueComputeEnvironmentOrder
+        , fmap (("JobQueueName",) . toJSON) _batchJobQueueJobQueueName
+        , (Just . ("Priority",) . toJSON . fmap Integer') _batchJobQueuePriority
+        , fmap (("State",) . toJSON) _batchJobQueueState
+        ]
+    }
 
 -- | Constructor for 'BatchJobQueue' containing required fields as arguments.
 batchJobQueue

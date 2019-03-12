@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-configurationaggregator.html
@@ -19,14 +20,17 @@ data ConfigConfigurationAggregator =
   , _configConfigurationAggregatorOrganizationAggregationSource :: Maybe ConfigConfigurationAggregatorOrganizationAggregationSource
   } deriving (Show, Eq)
 
-instance ToJSON ConfigConfigurationAggregator where
-  toJSON ConfigConfigurationAggregator{..} =
-    object $
-    catMaybes
-    [ fmap (("AccountAggregationSources",) . toJSON) _configConfigurationAggregatorAccountAggregationSources
-    , (Just . ("ConfigurationAggregatorName",) . toJSON) _configConfigurationAggregatorConfigurationAggregatorName
-    , fmap (("OrganizationAggregationSource",) . toJSON) _configConfigurationAggregatorOrganizationAggregationSource
-    ]
+instance ToResourceProperties ConfigConfigurationAggregator where
+  toResourceProperties ConfigConfigurationAggregator{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::Config::ConfigurationAggregator"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("AccountAggregationSources",) . toJSON) _configConfigurationAggregatorAccountAggregationSources
+        , (Just . ("ConfigurationAggregatorName",) . toJSON) _configConfigurationAggregatorConfigurationAggregatorName
+        , fmap (("OrganizationAggregationSource",) . toJSON) _configConfigurationAggregatorOrganizationAggregationSource
+        ]
+    }
 
 -- | Constructor for 'ConfigConfigurationAggregator' containing required
 -- fields as arguments.

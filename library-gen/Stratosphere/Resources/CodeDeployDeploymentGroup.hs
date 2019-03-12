@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentgroup.html
@@ -39,26 +40,29 @@ data CodeDeployDeploymentGroup =
   , _codeDeployDeploymentGroupTriggerConfigurations :: Maybe [CodeDeployDeploymentGroupTriggerConfig]
   } deriving (Show, Eq)
 
-instance ToJSON CodeDeployDeploymentGroup where
-  toJSON CodeDeployDeploymentGroup{..} =
-    object $
-    catMaybes
-    [ fmap (("AlarmConfiguration",) . toJSON) _codeDeployDeploymentGroupAlarmConfiguration
-    , (Just . ("ApplicationName",) . toJSON) _codeDeployDeploymentGroupApplicationName
-    , fmap (("AutoRollbackConfiguration",) . toJSON) _codeDeployDeploymentGroupAutoRollbackConfiguration
-    , fmap (("AutoScalingGroups",) . toJSON) _codeDeployDeploymentGroupAutoScalingGroups
-    , fmap (("Deployment",) . toJSON) _codeDeployDeploymentGroupDeployment
-    , fmap (("DeploymentConfigName",) . toJSON) _codeDeployDeploymentGroupDeploymentConfigName
-    , fmap (("DeploymentGroupName",) . toJSON) _codeDeployDeploymentGroupDeploymentGroupName
-    , fmap (("DeploymentStyle",) . toJSON) _codeDeployDeploymentGroupDeploymentStyle
-    , fmap (("Ec2TagFilters",) . toJSON) _codeDeployDeploymentGroupEc2TagFilters
-    , fmap (("Ec2TagSet",) . toJSON) _codeDeployDeploymentGroupEc2TagSet
-    , fmap (("LoadBalancerInfo",) . toJSON) _codeDeployDeploymentGroupLoadBalancerInfo
-    , fmap (("OnPremisesInstanceTagFilters",) . toJSON) _codeDeployDeploymentGroupOnPremisesInstanceTagFilters
-    , fmap (("OnPremisesTagSet",) . toJSON) _codeDeployDeploymentGroupOnPremisesTagSet
-    , (Just . ("ServiceRoleArn",) . toJSON) _codeDeployDeploymentGroupServiceRoleArn
-    , fmap (("TriggerConfigurations",) . toJSON) _codeDeployDeploymentGroupTriggerConfigurations
-    ]
+instance ToResourceProperties CodeDeployDeploymentGroup where
+  toResourceProperties CodeDeployDeploymentGroup{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::CodeDeploy::DeploymentGroup"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("AlarmConfiguration",) . toJSON) _codeDeployDeploymentGroupAlarmConfiguration
+        , (Just . ("ApplicationName",) . toJSON) _codeDeployDeploymentGroupApplicationName
+        , fmap (("AutoRollbackConfiguration",) . toJSON) _codeDeployDeploymentGroupAutoRollbackConfiguration
+        , fmap (("AutoScalingGroups",) . toJSON) _codeDeployDeploymentGroupAutoScalingGroups
+        , fmap (("Deployment",) . toJSON) _codeDeployDeploymentGroupDeployment
+        , fmap (("DeploymentConfigName",) . toJSON) _codeDeployDeploymentGroupDeploymentConfigName
+        , fmap (("DeploymentGroupName",) . toJSON) _codeDeployDeploymentGroupDeploymentGroupName
+        , fmap (("DeploymentStyle",) . toJSON) _codeDeployDeploymentGroupDeploymentStyle
+        , fmap (("Ec2TagFilters",) . toJSON) _codeDeployDeploymentGroupEc2TagFilters
+        , fmap (("Ec2TagSet",) . toJSON) _codeDeployDeploymentGroupEc2TagSet
+        , fmap (("LoadBalancerInfo",) . toJSON) _codeDeployDeploymentGroupLoadBalancerInfo
+        , fmap (("OnPremisesInstanceTagFilters",) . toJSON) _codeDeployDeploymentGroupOnPremisesInstanceTagFilters
+        , fmap (("OnPremisesTagSet",) . toJSON) _codeDeployDeploymentGroupOnPremisesTagSet
+        , (Just . ("ServiceRoleArn",) . toJSON) _codeDeployDeploymentGroupServiceRoleArn
+        , fmap (("TriggerConfigurations",) . toJSON) _codeDeployDeploymentGroupTriggerConfigurations
+        ]
+    }
 
 -- | Constructor for 'CodeDeployDeploymentGroup' containing required fields as
 -- arguments.

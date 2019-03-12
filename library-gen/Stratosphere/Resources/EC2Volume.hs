@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html
@@ -24,20 +25,23 @@ data EC2Volume =
   , _eC2VolumeVolumeType :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON EC2Volume where
-  toJSON EC2Volume{..} =
-    object $
-    catMaybes
-    [ fmap (("AutoEnableIO",) . toJSON . fmap Bool') _eC2VolumeAutoEnableIO
-    , (Just . ("AvailabilityZone",) . toJSON) _eC2VolumeAvailabilityZone
-    , fmap (("Encrypted",) . toJSON . fmap Bool') _eC2VolumeEncrypted
-    , fmap (("Iops",) . toJSON . fmap Integer') _eC2VolumeIops
-    , fmap (("KmsKeyId",) . toJSON) _eC2VolumeKmsKeyId
-    , fmap (("Size",) . toJSON . fmap Integer') _eC2VolumeSize
-    , fmap (("SnapshotId",) . toJSON) _eC2VolumeSnapshotId
-    , fmap (("Tags",) . toJSON) _eC2VolumeTags
-    , fmap (("VolumeType",) . toJSON) _eC2VolumeVolumeType
-    ]
+instance ToResourceProperties EC2Volume where
+  toResourceProperties EC2Volume{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::EC2::Volume"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("AutoEnableIO",) . toJSON . fmap Bool') _eC2VolumeAutoEnableIO
+        , (Just . ("AvailabilityZone",) . toJSON) _eC2VolumeAvailabilityZone
+        , fmap (("Encrypted",) . toJSON . fmap Bool') _eC2VolumeEncrypted
+        , fmap (("Iops",) . toJSON . fmap Integer') _eC2VolumeIops
+        , fmap (("KmsKeyId",) . toJSON) _eC2VolumeKmsKeyId
+        , fmap (("Size",) . toJSON . fmap Integer') _eC2VolumeSize
+        , fmap (("SnapshotId",) . toJSON) _eC2VolumeSnapshotId
+        , fmap (("Tags",) . toJSON) _eC2VolumeTags
+        , fmap (("VolumeType",) . toJSON) _eC2VolumeVolumeType
+        ]
+    }
 
 -- | Constructor for 'EC2Volume' containing required fields as arguments.
 ec2Volume

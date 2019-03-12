@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet-network-acl-assoc.html
@@ -17,13 +18,16 @@ data EC2SubnetNetworkAclAssociation =
   , _eC2SubnetNetworkAclAssociationSubnetId :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON EC2SubnetNetworkAclAssociation where
-  toJSON EC2SubnetNetworkAclAssociation{..} =
-    object $
-    catMaybes
-    [ (Just . ("NetworkAclId",) . toJSON) _eC2SubnetNetworkAclAssociationNetworkAclId
-    , (Just . ("SubnetId",) . toJSON) _eC2SubnetNetworkAclAssociationSubnetId
-    ]
+instance ToResourceProperties EC2SubnetNetworkAclAssociation where
+  toResourceProperties EC2SubnetNetworkAclAssociation{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::EC2::SubnetNetworkAclAssociation"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("NetworkAclId",) . toJSON) _eC2SubnetNetworkAclAssociationNetworkAclId
+        , (Just . ("SubnetId",) . toJSON) _eC2SubnetNetworkAclAssociationSubnetId
+        ]
+    }
 
 -- | Constructor for 'EC2SubnetNetworkAclAssociation' containing required
 -- fields as arguments.

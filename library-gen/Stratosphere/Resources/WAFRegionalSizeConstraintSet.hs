@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-sizeconstraintset.html
@@ -17,13 +18,16 @@ data WAFRegionalSizeConstraintSet =
   , _wAFRegionalSizeConstraintSetSizeConstraints :: Maybe [WAFRegionalSizeConstraintSetSizeConstraint]
   } deriving (Show, Eq)
 
-instance ToJSON WAFRegionalSizeConstraintSet where
-  toJSON WAFRegionalSizeConstraintSet{..} =
-    object $
-    catMaybes
-    [ (Just . ("Name",) . toJSON) _wAFRegionalSizeConstraintSetName
-    , fmap (("SizeConstraints",) . toJSON) _wAFRegionalSizeConstraintSetSizeConstraints
-    ]
+instance ToResourceProperties WAFRegionalSizeConstraintSet where
+  toResourceProperties WAFRegionalSizeConstraintSet{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::WAFRegional::SizeConstraintSet"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("Name",) . toJSON) _wAFRegionalSizeConstraintSetName
+        , fmap (("SizeConstraints",) . toJSON) _wAFRegionalSizeConstraintSetSizeConstraints
+        ]
+    }
 
 -- | Constructor for 'WAFRegionalSizeConstraintSet' containing required fields
 -- as arguments.

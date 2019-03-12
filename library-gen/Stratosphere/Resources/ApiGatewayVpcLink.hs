@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-vpclink.html
@@ -18,14 +19,17 @@ data ApiGatewayVpcLink =
   , _apiGatewayVpcLinkTargetArns :: ValList Text
   } deriving (Show, Eq)
 
-instance ToJSON ApiGatewayVpcLink where
-  toJSON ApiGatewayVpcLink{..} =
-    object $
-    catMaybes
-    [ fmap (("Description",) . toJSON) _apiGatewayVpcLinkDescription
-    , (Just . ("Name",) . toJSON) _apiGatewayVpcLinkName
-    , (Just . ("TargetArns",) . toJSON) _apiGatewayVpcLinkTargetArns
-    ]
+instance ToResourceProperties ApiGatewayVpcLink where
+  toResourceProperties ApiGatewayVpcLink{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::ApiGateway::VpcLink"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("Description",) . toJSON) _apiGatewayVpcLinkDescription
+        , (Just . ("Name",) . toJSON) _apiGatewayVpcLinkName
+        , (Just . ("TargetArns",) . toJSON) _apiGatewayVpcLinkTargetArns
+        ]
+    }
 
 -- | Constructor for 'ApiGatewayVpcLink' containing required fields as
 -- arguments.

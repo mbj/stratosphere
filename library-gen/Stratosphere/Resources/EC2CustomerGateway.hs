@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-customer-gateway.html
@@ -19,15 +20,18 @@ data EC2CustomerGateway =
   , _eC2CustomerGatewayType :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON EC2CustomerGateway where
-  toJSON EC2CustomerGateway{..} =
-    object $
-    catMaybes
-    [ (Just . ("BgpAsn",) . toJSON . fmap Integer') _eC2CustomerGatewayBgpAsn
-    , (Just . ("IpAddress",) . toJSON) _eC2CustomerGatewayIpAddress
-    , fmap (("Tags",) . toJSON) _eC2CustomerGatewayTags
-    , (Just . ("Type",) . toJSON) _eC2CustomerGatewayType
-    ]
+instance ToResourceProperties EC2CustomerGateway where
+  toResourceProperties EC2CustomerGateway{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::EC2::CustomerGateway"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("BgpAsn",) . toJSON . fmap Integer') _eC2CustomerGatewayBgpAsn
+        , (Just . ("IpAddress",) . toJSON) _eC2CustomerGatewayIpAddress
+        , fmap (("Tags",) . toJSON) _eC2CustomerGatewayTags
+        , (Just . ("Type",) . toJSON) _eC2CustomerGatewayType
+        ]
+    }
 
 -- | Constructor for 'EC2CustomerGateway' containing required fields as
 -- arguments.

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcpeeringconnection.html
@@ -21,17 +22,20 @@ data EC2VPCPeeringConnection =
   , _eC2VPCPeeringConnectionVpcId :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON EC2VPCPeeringConnection where
-  toJSON EC2VPCPeeringConnection{..} =
-    object $
-    catMaybes
-    [ fmap (("PeerOwnerId",) . toJSON) _eC2VPCPeeringConnectionPeerOwnerId
-    , fmap (("PeerRegion",) . toJSON) _eC2VPCPeeringConnectionPeerRegion
-    , fmap (("PeerRoleArn",) . toJSON) _eC2VPCPeeringConnectionPeerRoleArn
-    , (Just . ("PeerVpcId",) . toJSON) _eC2VPCPeeringConnectionPeerVpcId
-    , fmap (("Tags",) . toJSON) _eC2VPCPeeringConnectionTags
-    , (Just . ("VpcId",) . toJSON) _eC2VPCPeeringConnectionVpcId
-    ]
+instance ToResourceProperties EC2VPCPeeringConnection where
+  toResourceProperties EC2VPCPeeringConnection{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::EC2::VPCPeeringConnection"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("PeerOwnerId",) . toJSON) _eC2VPCPeeringConnectionPeerOwnerId
+        , fmap (("PeerRegion",) . toJSON) _eC2VPCPeeringConnectionPeerRegion
+        , fmap (("PeerRoleArn",) . toJSON) _eC2VPCPeeringConnectionPeerRoleArn
+        , (Just . ("PeerVpcId",) . toJSON) _eC2VPCPeeringConnectionPeerVpcId
+        , fmap (("Tags",) . toJSON) _eC2VPCPeeringConnectionTags
+        , (Just . ("VpcId",) . toJSON) _eC2VPCPeeringConnectionVpcId
+        ]
+    }
 
 -- | Constructor for 'EC2VPCPeeringConnection' containing required fields as
 -- arguments.

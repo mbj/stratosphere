@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet-route-table-assoc.html
@@ -17,13 +18,16 @@ data EC2SubnetRouteTableAssociation =
   , _eC2SubnetRouteTableAssociationSubnetId :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON EC2SubnetRouteTableAssociation where
-  toJSON EC2SubnetRouteTableAssociation{..} =
-    object $
-    catMaybes
-    [ (Just . ("RouteTableId",) . toJSON) _eC2SubnetRouteTableAssociationRouteTableId
-    , (Just . ("SubnetId",) . toJSON) _eC2SubnetRouteTableAssociationSubnetId
-    ]
+instance ToResourceProperties EC2SubnetRouteTableAssociation where
+  toResourceProperties EC2SubnetRouteTableAssociation{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::EC2::SubnetRouteTableAssociation"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("RouteTableId",) . toJSON) _eC2SubnetRouteTableAssociationRouteTableId
+        , (Just . ("SubnetId",) . toJSON) _eC2SubnetRouteTableAssociationSubnetId
+        ]
+    }
 
 -- | Constructor for 'EC2SubnetRouteTableAssociation' containing required
 -- fields as arguments.

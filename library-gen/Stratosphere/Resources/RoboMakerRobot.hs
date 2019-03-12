@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-robomaker-robot.html
@@ -20,16 +21,19 @@ data RoboMakerRobot =
   , _roboMakerRobotTags :: Maybe Object
   } deriving (Show, Eq)
 
-instance ToJSON RoboMakerRobot where
-  toJSON RoboMakerRobot{..} =
-    object $
-    catMaybes
-    [ (Just . ("Architecture",) . toJSON) _roboMakerRobotArchitecture
-    , fmap (("Fleet",) . toJSON) _roboMakerRobotFleet
-    , (Just . ("GreengrassGroupId",) . toJSON) _roboMakerRobotGreengrassGroupId
-    , fmap (("Name",) . toJSON) _roboMakerRobotName
-    , fmap (("Tags",) . toJSON) _roboMakerRobotTags
-    ]
+instance ToResourceProperties RoboMakerRobot where
+  toResourceProperties RoboMakerRobot{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::RoboMaker::Robot"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("Architecture",) . toJSON) _roboMakerRobotArchitecture
+        , fmap (("Fleet",) . toJSON) _roboMakerRobotFleet
+        , (Just . ("GreengrassGroupId",) . toJSON) _roboMakerRobotGreengrassGroupId
+        , fmap (("Name",) . toJSON) _roboMakerRobotName
+        , fmap (("Tags",) . toJSON) _roboMakerRobotTags
+        ]
+    }
 
 -- | Constructor for 'RoboMakerRobot' containing required fields as arguments.
 roboMakerRobot

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayroutetableassociation.html
@@ -18,13 +19,16 @@ data EC2TransitGatewayRouteTableAssociation =
   , _eC2TransitGatewayRouteTableAssociationTransitGatewayRouteTableId :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON EC2TransitGatewayRouteTableAssociation where
-  toJSON EC2TransitGatewayRouteTableAssociation{..} =
-    object $
-    catMaybes
-    [ (Just . ("TransitGatewayAttachmentId",) . toJSON) _eC2TransitGatewayRouteTableAssociationTransitGatewayAttachmentId
-    , (Just . ("TransitGatewayRouteTableId",) . toJSON) _eC2TransitGatewayRouteTableAssociationTransitGatewayRouteTableId
-    ]
+instance ToResourceProperties EC2TransitGatewayRouteTableAssociation where
+  toResourceProperties EC2TransitGatewayRouteTableAssociation{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::EC2::TransitGatewayRouteTableAssociation"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("TransitGatewayAttachmentId",) . toJSON) _eC2TransitGatewayRouteTableAssociationTransitGatewayAttachmentId
+        , (Just . ("TransitGatewayRouteTableId",) . toJSON) _eC2TransitGatewayRouteTableAssociationTransitGatewayRouteTableId
+        ]
+    }
 
 -- | Constructor for 'EC2TransitGatewayRouteTableAssociation' containing
 -- required fields as arguments.

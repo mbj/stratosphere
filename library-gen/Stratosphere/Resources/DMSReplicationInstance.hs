@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.html
@@ -29,25 +30,28 @@ data DMSReplicationInstance =
   , _dMSReplicationInstanceVpcSecurityGroupIds :: Maybe (ValList Text)
   } deriving (Show, Eq)
 
-instance ToJSON DMSReplicationInstance where
-  toJSON DMSReplicationInstance{..} =
-    object $
-    catMaybes
-    [ fmap (("AllocatedStorage",) . toJSON . fmap Integer') _dMSReplicationInstanceAllocatedStorage
-    , fmap (("AllowMajorVersionUpgrade",) . toJSON . fmap Bool') _dMSReplicationInstanceAllowMajorVersionUpgrade
-    , fmap (("AutoMinorVersionUpgrade",) . toJSON . fmap Bool') _dMSReplicationInstanceAutoMinorVersionUpgrade
-    , fmap (("AvailabilityZone",) . toJSON) _dMSReplicationInstanceAvailabilityZone
-    , fmap (("EngineVersion",) . toJSON) _dMSReplicationInstanceEngineVersion
-    , fmap (("KmsKeyId",) . toJSON) _dMSReplicationInstanceKmsKeyId
-    , fmap (("MultiAZ",) . toJSON . fmap Bool') _dMSReplicationInstanceMultiAZ
-    , fmap (("PreferredMaintenanceWindow",) . toJSON) _dMSReplicationInstancePreferredMaintenanceWindow
-    , fmap (("PubliclyAccessible",) . toJSON . fmap Bool') _dMSReplicationInstancePubliclyAccessible
-    , (Just . ("ReplicationInstanceClass",) . toJSON) _dMSReplicationInstanceReplicationInstanceClass
-    , fmap (("ReplicationInstanceIdentifier",) . toJSON) _dMSReplicationInstanceReplicationInstanceIdentifier
-    , fmap (("ReplicationSubnetGroupIdentifier",) . toJSON) _dMSReplicationInstanceReplicationSubnetGroupIdentifier
-    , fmap (("Tags",) . toJSON) _dMSReplicationInstanceTags
-    , fmap (("VpcSecurityGroupIds",) . toJSON) _dMSReplicationInstanceVpcSecurityGroupIds
-    ]
+instance ToResourceProperties DMSReplicationInstance where
+  toResourceProperties DMSReplicationInstance{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::DMS::ReplicationInstance"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("AllocatedStorage",) . toJSON . fmap Integer') _dMSReplicationInstanceAllocatedStorage
+        , fmap (("AllowMajorVersionUpgrade",) . toJSON . fmap Bool') _dMSReplicationInstanceAllowMajorVersionUpgrade
+        , fmap (("AutoMinorVersionUpgrade",) . toJSON . fmap Bool') _dMSReplicationInstanceAutoMinorVersionUpgrade
+        , fmap (("AvailabilityZone",) . toJSON) _dMSReplicationInstanceAvailabilityZone
+        , fmap (("EngineVersion",) . toJSON) _dMSReplicationInstanceEngineVersion
+        , fmap (("KmsKeyId",) . toJSON) _dMSReplicationInstanceKmsKeyId
+        , fmap (("MultiAZ",) . toJSON . fmap Bool') _dMSReplicationInstanceMultiAZ
+        , fmap (("PreferredMaintenanceWindow",) . toJSON) _dMSReplicationInstancePreferredMaintenanceWindow
+        , fmap (("PubliclyAccessible",) . toJSON . fmap Bool') _dMSReplicationInstancePubliclyAccessible
+        , (Just . ("ReplicationInstanceClass",) . toJSON) _dMSReplicationInstanceReplicationInstanceClass
+        , fmap (("ReplicationInstanceIdentifier",) . toJSON) _dMSReplicationInstanceReplicationInstanceIdentifier
+        , fmap (("ReplicationSubnetGroupIdentifier",) . toJSON) _dMSReplicationInstanceReplicationSubnetGroupIdentifier
+        , fmap (("Tags",) . toJSON) _dMSReplicationInstanceTags
+        , fmap (("VpcSecurityGroupIds",) . toJSON) _dMSReplicationInstanceVpcSecurityGroupIds
+        ]
+    }
 
 -- | Constructor for 'DMSReplicationInstance' containing required fields as
 -- arguments.

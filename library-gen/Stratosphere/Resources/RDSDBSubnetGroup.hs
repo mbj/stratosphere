@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbsubnet-group.html
@@ -19,15 +20,18 @@ data RDSDBSubnetGroup =
   , _rDSDBSubnetGroupTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
-instance ToJSON RDSDBSubnetGroup where
-  toJSON RDSDBSubnetGroup{..} =
-    object $
-    catMaybes
-    [ (Just . ("DBSubnetGroupDescription",) . toJSON) _rDSDBSubnetGroupDBSubnetGroupDescription
-    , fmap (("DBSubnetGroupName",) . toJSON) _rDSDBSubnetGroupDBSubnetGroupName
-    , (Just . ("SubnetIds",) . toJSON) _rDSDBSubnetGroupSubnetIds
-    , fmap (("Tags",) . toJSON) _rDSDBSubnetGroupTags
-    ]
+instance ToResourceProperties RDSDBSubnetGroup where
+  toResourceProperties RDSDBSubnetGroup{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::RDS::DBSubnetGroup"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("DBSubnetGroupDescription",) . toJSON) _rDSDBSubnetGroupDBSubnetGroupDescription
+        , fmap (("DBSubnetGroupName",) . toJSON) _rDSDBSubnetGroupDBSubnetGroupName
+        , (Just . ("SubnetIds",) . toJSON) _rDSDBSubnetGroupSubnetIds
+        , fmap (("Tags",) . toJSON) _rDSDBSubnetGroupTags
+        ]
+    }
 
 -- | Constructor for 'RDSDBSubnetGroup' containing required fields as
 -- arguments.

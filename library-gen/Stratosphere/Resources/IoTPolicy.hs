@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-policy.html
@@ -17,13 +18,16 @@ data IoTPolicy =
   , _ioTPolicyPolicyName :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON IoTPolicy where
-  toJSON IoTPolicy{..} =
-    object $
-    catMaybes
-    [ (Just . ("PolicyDocument",) . toJSON) _ioTPolicyPolicyDocument
-    , fmap (("PolicyName",) . toJSON) _ioTPolicyPolicyName
-    ]
+instance ToResourceProperties IoTPolicy where
+  toResourceProperties IoTPolicy{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::IoT::Policy"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("PolicyDocument",) . toJSON) _ioTPolicyPolicyDocument
+        , fmap (("PolicyName",) . toJSON) _ioTPolicyPolicyName
+        ]
+    }
 
 -- | Constructor for 'IoTPolicy' containing required fields as arguments.
 ioTPolicy

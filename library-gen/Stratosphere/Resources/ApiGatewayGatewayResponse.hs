@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-gatewayresponse.html
@@ -20,16 +21,19 @@ data ApiGatewayGatewayResponse =
   , _apiGatewayGatewayResponseStatusCode :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON ApiGatewayGatewayResponse where
-  toJSON ApiGatewayGatewayResponse{..} =
-    object $
-    catMaybes
-    [ fmap (("ResponseParameters",) . toJSON) _apiGatewayGatewayResponseResponseParameters
-    , fmap (("ResponseTemplates",) . toJSON) _apiGatewayGatewayResponseResponseTemplates
-    , (Just . ("ResponseType",) . toJSON) _apiGatewayGatewayResponseResponseType
-    , (Just . ("RestApiId",) . toJSON) _apiGatewayGatewayResponseRestApiId
-    , fmap (("StatusCode",) . toJSON) _apiGatewayGatewayResponseStatusCode
-    ]
+instance ToResourceProperties ApiGatewayGatewayResponse where
+  toResourceProperties ApiGatewayGatewayResponse{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::ApiGateway::GatewayResponse"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("ResponseParameters",) . toJSON) _apiGatewayGatewayResponseResponseParameters
+        , fmap (("ResponseTemplates",) . toJSON) _apiGatewayGatewayResponseResponseTemplates
+        , (Just . ("ResponseType",) . toJSON) _apiGatewayGatewayResponseResponseType
+        , (Just . ("RestApiId",) . toJSON) _apiGatewayGatewayResponseRestApiId
+        , fmap (("StatusCode",) . toJSON) _apiGatewayGatewayResponseStatusCode
+        ]
+    }
 
 -- | Constructor for 'ApiGatewayGatewayResponse' containing required fields as
 -- arguments.

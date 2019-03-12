@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-loadbalancer.html
@@ -26,20 +27,23 @@ data ElasticLoadBalancingV2LoadBalancer =
   , _elasticLoadBalancingV2LoadBalancerType :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON ElasticLoadBalancingV2LoadBalancer where
-  toJSON ElasticLoadBalancingV2LoadBalancer{..} =
-    object $
-    catMaybes
-    [ fmap (("IpAddressType",) . toJSON) _elasticLoadBalancingV2LoadBalancerIpAddressType
-    , fmap (("LoadBalancerAttributes",) . toJSON) _elasticLoadBalancingV2LoadBalancerLoadBalancerAttributes
-    , fmap (("Name",) . toJSON) _elasticLoadBalancingV2LoadBalancerName
-    , fmap (("Scheme",) . toJSON) _elasticLoadBalancingV2LoadBalancerScheme
-    , fmap (("SecurityGroups",) . toJSON) _elasticLoadBalancingV2LoadBalancerSecurityGroups
-    , fmap (("SubnetMappings",) . toJSON) _elasticLoadBalancingV2LoadBalancerSubnetMappings
-    , fmap (("Subnets",) . toJSON) _elasticLoadBalancingV2LoadBalancerSubnets
-    , fmap (("Tags",) . toJSON) _elasticLoadBalancingV2LoadBalancerTags
-    , fmap (("Type",) . toJSON) _elasticLoadBalancingV2LoadBalancerType
-    ]
+instance ToResourceProperties ElasticLoadBalancingV2LoadBalancer where
+  toResourceProperties ElasticLoadBalancingV2LoadBalancer{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::ElasticLoadBalancingV2::LoadBalancer"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("IpAddressType",) . toJSON) _elasticLoadBalancingV2LoadBalancerIpAddressType
+        , fmap (("LoadBalancerAttributes",) . toJSON) _elasticLoadBalancingV2LoadBalancerLoadBalancerAttributes
+        , fmap (("Name",) . toJSON) _elasticLoadBalancingV2LoadBalancerName
+        , fmap (("Scheme",) . toJSON) _elasticLoadBalancingV2LoadBalancerScheme
+        , fmap (("SecurityGroups",) . toJSON) _elasticLoadBalancingV2LoadBalancerSecurityGroups
+        , fmap (("SubnetMappings",) . toJSON) _elasticLoadBalancingV2LoadBalancerSubnetMappings
+        , fmap (("Subnets",) . toJSON) _elasticLoadBalancingV2LoadBalancerSubnets
+        , fmap (("Tags",) . toJSON) _elasticLoadBalancingV2LoadBalancerTags
+        , fmap (("Type",) . toJSON) _elasticLoadBalancingV2LoadBalancerType
+        ]
+    }
 
 -- | Constructor for 'ElasticLoadBalancingV2LoadBalancer' containing required
 -- fields as arguments.

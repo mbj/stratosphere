@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html
@@ -17,13 +18,16 @@ data EC2LaunchTemplate =
   , _eC2LaunchTemplateLaunchTemplateName :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON EC2LaunchTemplate where
-  toJSON EC2LaunchTemplate{..} =
-    object $
-    catMaybes
-    [ fmap (("LaunchTemplateData",) . toJSON) _eC2LaunchTemplateLaunchTemplateData
-    , fmap (("LaunchTemplateName",) . toJSON) _eC2LaunchTemplateLaunchTemplateName
-    ]
+instance ToResourceProperties EC2LaunchTemplate where
+  toResourceProperties EC2LaunchTemplate{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::EC2::LaunchTemplate"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("LaunchTemplateData",) . toJSON) _eC2LaunchTemplateLaunchTemplateData
+        , fmap (("LaunchTemplateName",) . toJSON) _eC2LaunchTemplateLaunchTemplateName
+        ]
+    }
 
 -- | Constructor for 'EC2LaunchTemplate' containing required fields as
 -- arguments.

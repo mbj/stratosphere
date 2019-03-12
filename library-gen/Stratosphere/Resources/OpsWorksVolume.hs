@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworks-volume.html
@@ -19,15 +20,18 @@ data OpsWorksVolume =
   , _opsWorksVolumeStackId :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON OpsWorksVolume where
-  toJSON OpsWorksVolume{..} =
-    object $
-    catMaybes
-    [ (Just . ("Ec2VolumeId",) . toJSON) _opsWorksVolumeEc2VolumeId
-    , fmap (("MountPoint",) . toJSON) _opsWorksVolumeMountPoint
-    , fmap (("Name",) . toJSON) _opsWorksVolumeName
-    , (Just . ("StackId",) . toJSON) _opsWorksVolumeStackId
-    ]
+instance ToResourceProperties OpsWorksVolume where
+  toResourceProperties OpsWorksVolume{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::OpsWorks::Volume"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("Ec2VolumeId",) . toJSON) _opsWorksVolumeEc2VolumeId
+        , fmap (("MountPoint",) . toJSON) _opsWorksVolumeMountPoint
+        , fmap (("Name",) . toJSON) _opsWorksVolumeName
+        , (Just . ("StackId",) . toJSON) _opsWorksVolumeStackId
+        ]
+    }
 
 -- | Constructor for 'OpsWorksVolume' containing required fields as arguments.
 opsWorksVolume

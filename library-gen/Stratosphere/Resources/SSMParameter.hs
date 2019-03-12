@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-parameter.html
@@ -20,16 +21,19 @@ data SSMParameter =
   , _sSMParameterValue :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON SSMParameter where
-  toJSON SSMParameter{..} =
-    object $
-    catMaybes
-    [ fmap (("AllowedPattern",) . toJSON) _sSMParameterAllowedPattern
-    , fmap (("Description",) . toJSON) _sSMParameterDescription
-    , fmap (("Name",) . toJSON) _sSMParameterName
-    , (Just . ("Type",) . toJSON) _sSMParameterType
-    , (Just . ("Value",) . toJSON) _sSMParameterValue
-    ]
+instance ToResourceProperties SSMParameter where
+  toResourceProperties SSMParameter{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::SSM::Parameter"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("AllowedPattern",) . toJSON) _sSMParameterAllowedPattern
+        , fmap (("Description",) . toJSON) _sSMParameterDescription
+        , fmap (("Name",) . toJSON) _sSMParameterName
+        , (Just . ("Type",) . toJSON) _sSMParameterType
+        , (Just . ("Value",) . toJSON) _sSMParameterValue
+        ]
+    }
 
 -- | Constructor for 'SSMParameter' containing required fields as arguments.
 ssmParameter

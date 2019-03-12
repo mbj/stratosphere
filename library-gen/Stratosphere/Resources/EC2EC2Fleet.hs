@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ec2fleet.html
@@ -30,22 +31,25 @@ data EC2EC2Fleet =
   , _eC2EC2FleetValidUntil :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON EC2EC2Fleet where
-  toJSON EC2EC2Fleet{..} =
-    object $
-    catMaybes
-    [ fmap (("ExcessCapacityTerminationPolicy",) . toJSON) _eC2EC2FleetExcessCapacityTerminationPolicy
-    , (Just . ("LaunchTemplateConfigs",) . toJSON) _eC2EC2FleetLaunchTemplateConfigs
-    , fmap (("OnDemandOptions",) . toJSON) _eC2EC2FleetOnDemandOptions
-    , fmap (("ReplaceUnhealthyInstances",) . toJSON . fmap Bool') _eC2EC2FleetReplaceUnhealthyInstances
-    , fmap (("SpotOptions",) . toJSON) _eC2EC2FleetSpotOptions
-    , fmap (("TagSpecifications",) . toJSON) _eC2EC2FleetTagSpecifications
-    , (Just . ("TargetCapacitySpecification",) . toJSON) _eC2EC2FleetTargetCapacitySpecification
-    , fmap (("TerminateInstancesWithExpiration",) . toJSON . fmap Bool') _eC2EC2FleetTerminateInstancesWithExpiration
-    , fmap (("Type",) . toJSON) _eC2EC2FleetType
-    , fmap (("ValidFrom",) . toJSON) _eC2EC2FleetValidFrom
-    , fmap (("ValidUntil",) . toJSON) _eC2EC2FleetValidUntil
-    ]
+instance ToResourceProperties EC2EC2Fleet where
+  toResourceProperties EC2EC2Fleet{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::EC2::EC2Fleet"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("ExcessCapacityTerminationPolicy",) . toJSON) _eC2EC2FleetExcessCapacityTerminationPolicy
+        , (Just . ("LaunchTemplateConfigs",) . toJSON) _eC2EC2FleetLaunchTemplateConfigs
+        , fmap (("OnDemandOptions",) . toJSON) _eC2EC2FleetOnDemandOptions
+        , fmap (("ReplaceUnhealthyInstances",) . toJSON . fmap Bool') _eC2EC2FleetReplaceUnhealthyInstances
+        , fmap (("SpotOptions",) . toJSON) _eC2EC2FleetSpotOptions
+        , fmap (("TagSpecifications",) . toJSON) _eC2EC2FleetTagSpecifications
+        , (Just . ("TargetCapacitySpecification",) . toJSON) _eC2EC2FleetTargetCapacitySpecification
+        , fmap (("TerminateInstancesWithExpiration",) . toJSON . fmap Bool') _eC2EC2FleetTerminateInstancesWithExpiration
+        , fmap (("Type",) . toJSON) _eC2EC2FleetType
+        , fmap (("ValidFrom",) . toJSON) _eC2EC2FleetValidFrom
+        , fmap (("ValidUntil",) . toJSON) _eC2EC2FleetValidUntil
+        ]
+    }
 
 -- | Constructor for 'EC2EC2Fleet' containing required fields as arguments.
 ec2EC2Fleet

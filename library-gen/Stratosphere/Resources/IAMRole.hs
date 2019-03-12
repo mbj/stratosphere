@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html
@@ -22,18 +23,21 @@ data IAMRole =
   , _iAMRoleRoleName :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON IAMRole where
-  toJSON IAMRole{..} =
-    object $
-    catMaybes
-    [ (Just . ("AssumeRolePolicyDocument",) . toJSON) _iAMRoleAssumeRolePolicyDocument
-    , fmap (("ManagedPolicyArns",) . toJSON) _iAMRoleManagedPolicyArns
-    , fmap (("MaxSessionDuration",) . toJSON . fmap Integer') _iAMRoleMaxSessionDuration
-    , fmap (("Path",) . toJSON) _iAMRolePath
-    , fmap (("PermissionsBoundary",) . toJSON) _iAMRolePermissionsBoundary
-    , fmap (("Policies",) . toJSON) _iAMRolePolicies
-    , fmap (("RoleName",) . toJSON) _iAMRoleRoleName
-    ]
+instance ToResourceProperties IAMRole where
+  toResourceProperties IAMRole{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::IAM::Role"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("AssumeRolePolicyDocument",) . toJSON) _iAMRoleAssumeRolePolicyDocument
+        , fmap (("ManagedPolicyArns",) . toJSON) _iAMRoleManagedPolicyArns
+        , fmap (("MaxSessionDuration",) . toJSON . fmap Integer') _iAMRoleMaxSessionDuration
+        , fmap (("Path",) . toJSON) _iAMRolePath
+        , fmap (("PermissionsBoundary",) . toJSON) _iAMRolePermissionsBoundary
+        , fmap (("Policies",) . toJSON) _iAMRolePolicies
+        , fmap (("RoleName",) . toJSON) _iAMRoleRoleName
+        ]
+    }
 
 -- | Constructor for 'IAMRole' containing required fields as arguments.
 iamRole

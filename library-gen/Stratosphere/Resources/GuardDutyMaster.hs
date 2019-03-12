@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-master.html
@@ -18,14 +19,17 @@ data GuardDutyMaster =
   , _guardDutyMasterMasterId :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON GuardDutyMaster where
-  toJSON GuardDutyMaster{..} =
-    object $
-    catMaybes
-    [ (Just . ("DetectorId",) . toJSON) _guardDutyMasterDetectorId
-    , fmap (("InvitationId",) . toJSON) _guardDutyMasterInvitationId
-    , (Just . ("MasterId",) . toJSON) _guardDutyMasterMasterId
-    ]
+instance ToResourceProperties GuardDutyMaster where
+  toResourceProperties GuardDutyMaster{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::GuardDuty::Master"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("DetectorId",) . toJSON) _guardDutyMasterDetectorId
+        , fmap (("InvitationId",) . toJSON) _guardDutyMasterInvitationId
+        , (Just . ("MasterId",) . toJSON) _guardDutyMasterMasterId
+        ]
+    }
 
 -- | Constructor for 'GuardDutyMaster' containing required fields as
 -- arguments.

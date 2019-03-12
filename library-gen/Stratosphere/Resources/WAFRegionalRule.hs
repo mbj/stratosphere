@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-rule.html
@@ -18,14 +19,17 @@ data WAFRegionalRule =
   , _wAFRegionalRulePredicates :: Maybe [WAFRegionalRulePredicate]
   } deriving (Show, Eq)
 
-instance ToJSON WAFRegionalRule where
-  toJSON WAFRegionalRule{..} =
-    object $
-    catMaybes
-    [ (Just . ("MetricName",) . toJSON) _wAFRegionalRuleMetricName
-    , (Just . ("Name",) . toJSON) _wAFRegionalRuleName
-    , fmap (("Predicates",) . toJSON) _wAFRegionalRulePredicates
-    ]
+instance ToResourceProperties WAFRegionalRule where
+  toResourceProperties WAFRegionalRule{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::WAFRegional::Rule"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("MetricName",) . toJSON) _wAFRegionalRuleMetricName
+        , (Just . ("Name",) . toJSON) _wAFRegionalRuleName
+        , fmap (("Predicates",) . toJSON) _wAFRegionalRulePredicates
+        ]
+    }
 
 -- | Constructor for 'WAFRegionalRule' containing required fields as
 -- arguments.

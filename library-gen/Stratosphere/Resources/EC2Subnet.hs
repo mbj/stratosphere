@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html
@@ -22,18 +23,21 @@ data EC2Subnet =
   , _eC2SubnetVpcId :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON EC2Subnet where
-  toJSON EC2Subnet{..} =
-    object $
-    catMaybes
-    [ fmap (("AssignIpv6AddressOnCreation",) . toJSON . fmap Bool') _eC2SubnetAssignIpv6AddressOnCreation
-    , fmap (("AvailabilityZone",) . toJSON) _eC2SubnetAvailabilityZone
-    , (Just . ("CidrBlock",) . toJSON) _eC2SubnetCidrBlock
-    , fmap (("Ipv6CidrBlock",) . toJSON) _eC2SubnetIpv6CidrBlock
-    , fmap (("MapPublicIpOnLaunch",) . toJSON . fmap Bool') _eC2SubnetMapPublicIpOnLaunch
-    , fmap (("Tags",) . toJSON) _eC2SubnetTags
-    , (Just . ("VpcId",) . toJSON) _eC2SubnetVpcId
-    ]
+instance ToResourceProperties EC2Subnet where
+  toResourceProperties EC2Subnet{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::EC2::Subnet"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("AssignIpv6AddressOnCreation",) . toJSON . fmap Bool') _eC2SubnetAssignIpv6AddressOnCreation
+        , fmap (("AvailabilityZone",) . toJSON) _eC2SubnetAvailabilityZone
+        , (Just . ("CidrBlock",) . toJSON) _eC2SubnetCidrBlock
+        , fmap (("Ipv6CidrBlock",) . toJSON) _eC2SubnetIpv6CidrBlock
+        , fmap (("MapPublicIpOnLaunch",) . toJSON . fmap Bool') _eC2SubnetMapPublicIpOnLaunch
+        , fmap (("Tags",) . toJSON) _eC2SubnetTags
+        , (Just . ("VpcId",) . toJSON) _eC2SubnetVpcId
+        ]
+    }
 
 -- | Constructor for 'EC2Subnet' containing required fields as arguments.
 ec2Subnet

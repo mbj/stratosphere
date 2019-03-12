@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-addusertogroup.html
@@ -17,13 +18,16 @@ data IAMUserToGroupAddition =
   , _iAMUserToGroupAdditionUsers :: ValList Text
   } deriving (Show, Eq)
 
-instance ToJSON IAMUserToGroupAddition where
-  toJSON IAMUserToGroupAddition{..} =
-    object $
-    catMaybes
-    [ (Just . ("GroupName",) . toJSON) _iAMUserToGroupAdditionGroupName
-    , (Just . ("Users",) . toJSON) _iAMUserToGroupAdditionUsers
-    ]
+instance ToResourceProperties IAMUserToGroupAddition where
+  toResourceProperties IAMUserToGroupAddition{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::IAM::UserToGroupAddition"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("GroupName",) . toJSON) _iAMUserToGroupAdditionGroupName
+        , (Just . ("Users",) . toJSON) _iAMUserToGroupAdditionUsers
+        ]
+    }
 
 -- | Constructor for 'IAMUserToGroupAddition' containing required fields as
 -- arguments.

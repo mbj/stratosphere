@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html
@@ -17,13 +18,16 @@ data IoTCertificate =
   , _ioTCertificateStatus :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON IoTCertificate where
-  toJSON IoTCertificate{..} =
-    object $
-    catMaybes
-    [ (Just . ("CertificateSigningRequest",) . toJSON) _ioTCertificateCertificateSigningRequest
-    , (Just . ("Status",) . toJSON) _ioTCertificateStatus
-    ]
+instance ToResourceProperties IoTCertificate where
+  toResourceProperties IoTCertificate{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::IoT::Certificate"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("CertificateSigningRequest",) . toJSON) _ioTCertificateCertificateSigningRequest
+        , (Just . ("Status",) . toJSON) _ioTCertificateStatus
+        ]
+    }
 
 -- | Constructor for 'IoTCertificate' containing required fields as arguments.
 ioTCertificate

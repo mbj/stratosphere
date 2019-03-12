@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-xssmatchset.html
@@ -17,13 +18,16 @@ data WAFXssMatchSet =
   , _wAFXssMatchSetXssMatchTuples :: [WAFXssMatchSetXssMatchTuple]
   } deriving (Show, Eq)
 
-instance ToJSON WAFXssMatchSet where
-  toJSON WAFXssMatchSet{..} =
-    object $
-    catMaybes
-    [ (Just . ("Name",) . toJSON) _wAFXssMatchSetName
-    , (Just . ("XssMatchTuples",) . toJSON) _wAFXssMatchSetXssMatchTuples
-    ]
+instance ToResourceProperties WAFXssMatchSet where
+  toResourceProperties WAFXssMatchSet{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::WAF::XssMatchSet"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("Name",) . toJSON) _wAFXssMatchSetName
+        , (Just . ("XssMatchTuples",) . toJSON) _wAFXssMatchSetXssMatchTuples
+        ]
+    }
 
 -- | Constructor for 'WAFXssMatchSet' containing required fields as arguments.
 wafXssMatchSet

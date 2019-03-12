@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stack.html
@@ -20,16 +21,19 @@ data CloudFormationStack =
   , _cloudFormationStackTimeoutInMinutes :: Maybe (Val Integer)
   } deriving (Show, Eq)
 
-instance ToJSON CloudFormationStack where
-  toJSON CloudFormationStack{..} =
-    object $
-    catMaybes
-    [ fmap (("NotificationARNs",) . toJSON) _cloudFormationStackNotificationARNs
-    , fmap (("Parameters",) . toJSON) _cloudFormationStackParameters
-    , fmap (("Tags",) . toJSON) _cloudFormationStackTags
-    , (Just . ("TemplateURL",) . toJSON) _cloudFormationStackTemplateURL
-    , fmap (("TimeoutInMinutes",) . toJSON . fmap Integer') _cloudFormationStackTimeoutInMinutes
-    ]
+instance ToResourceProperties CloudFormationStack where
+  toResourceProperties CloudFormationStack{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::CloudFormation::Stack"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("NotificationARNs",) . toJSON) _cloudFormationStackNotificationARNs
+        , fmap (("Parameters",) . toJSON) _cloudFormationStackParameters
+        , fmap (("Tags",) . toJSON) _cloudFormationStackTags
+        , (Just . ("TemplateURL",) . toJSON) _cloudFormationStackTemplateURL
+        , fmap (("TimeoutInMinutes",) . toJSON . fmap Integer') _cloudFormationStackTimeoutInMinutes
+        ]
+    }
 
 -- | Constructor for 'CloudFormationStack' containing required fields as
 -- arguments.

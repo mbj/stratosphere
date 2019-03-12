@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-connection.html
@@ -17,13 +18,16 @@ data GlueConnection =
   , _glueConnectionConnectionInput :: GlueConnectionConnectionInput
   } deriving (Show, Eq)
 
-instance ToJSON GlueConnection where
-  toJSON GlueConnection{..} =
-    object $
-    catMaybes
-    [ (Just . ("CatalogId",) . toJSON) _glueConnectionCatalogId
-    , (Just . ("ConnectionInput",) . toJSON) _glueConnectionConnectionInput
-    ]
+instance ToResourceProperties GlueConnection where
+  toResourceProperties GlueConnection{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::Glue::Connection"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("CatalogId",) . toJSON) _glueConnectionCatalogId
+        , (Just . ("ConnectionInput",) . toJSON) _glueConnectionConnectionInput
+        ]
+    }
 
 -- | Constructor for 'GlueConnection' containing required fields as arguments.
 glueConnection

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-waitconditionhandle.html
@@ -16,8 +17,12 @@ data CloudFormationWaitConditionHandle =
   { 
   } deriving (Show, Eq)
 
-instance ToJSON CloudFormationWaitConditionHandle where
-  toJSON _ = toJSON ([] :: [String])
+instance ToResourceProperties CloudFormationWaitConditionHandle where
+  toResourceProperties _ =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::CloudFormation::WaitConditionHandle"
+    , resourcePropertiesProperties = hashMapEmpty
+    }
 
 -- | Constructor for 'CloudFormationWaitConditionHandle' containing required
 -- fields as arguments.

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html
@@ -23,19 +24,22 @@ data EC2VPCEndpoint =
   , _eC2VPCEndpointVpcId :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON EC2VPCEndpoint where
-  toJSON EC2VPCEndpoint{..} =
-    object $
-    catMaybes
-    [ fmap (("PolicyDocument",) . toJSON) _eC2VPCEndpointPolicyDocument
-    , fmap (("PrivateDnsEnabled",) . toJSON . fmap Bool') _eC2VPCEndpointPrivateDnsEnabled
-    , fmap (("RouteTableIds",) . toJSON) _eC2VPCEndpointRouteTableIds
-    , fmap (("SecurityGroupIds",) . toJSON) _eC2VPCEndpointSecurityGroupIds
-    , (Just . ("ServiceName",) . toJSON) _eC2VPCEndpointServiceName
-    , fmap (("SubnetIds",) . toJSON) _eC2VPCEndpointSubnetIds
-    , fmap (("VpcEndpointType",) . toJSON) _eC2VPCEndpointVpcEndpointType
-    , (Just . ("VpcId",) . toJSON) _eC2VPCEndpointVpcId
-    ]
+instance ToResourceProperties EC2VPCEndpoint where
+  toResourceProperties EC2VPCEndpoint{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::EC2::VPCEndpoint"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("PolicyDocument",) . toJSON) _eC2VPCEndpointPolicyDocument
+        , fmap (("PrivateDnsEnabled",) . toJSON . fmap Bool') _eC2VPCEndpointPrivateDnsEnabled
+        , fmap (("RouteTableIds",) . toJSON) _eC2VPCEndpointRouteTableIds
+        , fmap (("SecurityGroupIds",) . toJSON) _eC2VPCEndpointSecurityGroupIds
+        , (Just . ("ServiceName",) . toJSON) _eC2VPCEndpointServiceName
+        , fmap (("SubnetIds",) . toJSON) _eC2VPCEndpointSubnetIds
+        , fmap (("VpcEndpointType",) . toJSON) _eC2VPCEndpointVpcEndpointType
+        , (Just . ("VpcId",) . toJSON) _eC2VPCEndpointVpcId
+        ]
+    }
 
 -- | Constructor for 'EC2VPCEndpoint' containing required fields as arguments.
 ec2VPCEndpoint

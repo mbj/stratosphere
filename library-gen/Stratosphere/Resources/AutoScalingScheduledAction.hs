@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-scheduledaction.html
@@ -22,18 +23,21 @@ data AutoScalingScheduledAction =
   , _autoScalingScheduledActionStartTime :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON AutoScalingScheduledAction where
-  toJSON AutoScalingScheduledAction{..} =
-    object $
-    catMaybes
-    [ (Just . ("AutoScalingGroupName",) . toJSON) _autoScalingScheduledActionAutoScalingGroupName
-    , fmap (("DesiredCapacity",) . toJSON . fmap Integer') _autoScalingScheduledActionDesiredCapacity
-    , fmap (("EndTime",) . toJSON) _autoScalingScheduledActionEndTime
-    , fmap (("MaxSize",) . toJSON . fmap Integer') _autoScalingScheduledActionMaxSize
-    , fmap (("MinSize",) . toJSON . fmap Integer') _autoScalingScheduledActionMinSize
-    , fmap (("Recurrence",) . toJSON) _autoScalingScheduledActionRecurrence
-    , fmap (("StartTime",) . toJSON) _autoScalingScheduledActionStartTime
-    ]
+instance ToResourceProperties AutoScalingScheduledAction where
+  toResourceProperties AutoScalingScheduledAction{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::AutoScaling::ScheduledAction"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("AutoScalingGroupName",) . toJSON) _autoScalingScheduledActionAutoScalingGroupName
+        , fmap (("DesiredCapacity",) . toJSON . fmap Integer') _autoScalingScheduledActionDesiredCapacity
+        , fmap (("EndTime",) . toJSON) _autoScalingScheduledActionEndTime
+        , fmap (("MaxSize",) . toJSON . fmap Integer') _autoScalingScheduledActionMaxSize
+        , fmap (("MinSize",) . toJSON . fmap Integer') _autoScalingScheduledActionMinSize
+        , fmap (("Recurrence",) . toJSON) _autoScalingScheduledActionRecurrence
+        , fmap (("StartTime",) . toJSON) _autoScalingScheduledActionStartTime
+        ]
+    }
 
 -- | Constructor for 'AutoScalingScheduledAction' containing required fields
 -- as arguments.

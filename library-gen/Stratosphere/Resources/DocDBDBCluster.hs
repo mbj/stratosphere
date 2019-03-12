@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html
@@ -31,27 +32,30 @@ data DocDBDBCluster =
   , _docDBDBClusterVpcSecurityGroupIds :: Maybe (ValList Text)
   } deriving (Show, Eq)
 
-instance ToJSON DocDBDBCluster where
-  toJSON DocDBDBCluster{..} =
-    object $
-    catMaybes
-    [ fmap (("AvailabilityZones",) . toJSON) _docDBDBClusterAvailabilityZones
-    , fmap (("BackupRetentionPeriod",) . toJSON . fmap Integer') _docDBDBClusterBackupRetentionPeriod
-    , fmap (("DBClusterIdentifier",) . toJSON) _docDBDBClusterDBClusterIdentifier
-    , fmap (("DBClusterParameterGroupName",) . toJSON) _docDBDBClusterDBClusterParameterGroupName
-    , fmap (("DBSubnetGroupName",) . toJSON) _docDBDBClusterDBSubnetGroupName
-    , fmap (("EngineVersion",) . toJSON) _docDBDBClusterEngineVersion
-    , fmap (("KmsKeyId",) . toJSON) _docDBDBClusterKmsKeyId
-    , fmap (("MasterUserPassword",) . toJSON) _docDBDBClusterMasterUserPassword
-    , fmap (("MasterUsername",) . toJSON) _docDBDBClusterMasterUsername
-    , fmap (("Port",) . toJSON . fmap Integer') _docDBDBClusterPort
-    , fmap (("PreferredBackupWindow",) . toJSON) _docDBDBClusterPreferredBackupWindow
-    , fmap (("PreferredMaintenanceWindow",) . toJSON) _docDBDBClusterPreferredMaintenanceWindow
-    , fmap (("SnapshotIdentifier",) . toJSON) _docDBDBClusterSnapshotIdentifier
-    , fmap (("StorageEncrypted",) . toJSON . fmap Bool') _docDBDBClusterStorageEncrypted
-    , fmap (("Tags",) . toJSON) _docDBDBClusterTags
-    , fmap (("VpcSecurityGroupIds",) . toJSON) _docDBDBClusterVpcSecurityGroupIds
-    ]
+instance ToResourceProperties DocDBDBCluster where
+  toResourceProperties DocDBDBCluster{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::DocDB::DBCluster"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("AvailabilityZones",) . toJSON) _docDBDBClusterAvailabilityZones
+        , fmap (("BackupRetentionPeriod",) . toJSON . fmap Integer') _docDBDBClusterBackupRetentionPeriod
+        , fmap (("DBClusterIdentifier",) . toJSON) _docDBDBClusterDBClusterIdentifier
+        , fmap (("DBClusterParameterGroupName",) . toJSON) _docDBDBClusterDBClusterParameterGroupName
+        , fmap (("DBSubnetGroupName",) . toJSON) _docDBDBClusterDBSubnetGroupName
+        , fmap (("EngineVersion",) . toJSON) _docDBDBClusterEngineVersion
+        , fmap (("KmsKeyId",) . toJSON) _docDBDBClusterKmsKeyId
+        , fmap (("MasterUserPassword",) . toJSON) _docDBDBClusterMasterUserPassword
+        , fmap (("MasterUsername",) . toJSON) _docDBDBClusterMasterUsername
+        , fmap (("Port",) . toJSON . fmap Integer') _docDBDBClusterPort
+        , fmap (("PreferredBackupWindow",) . toJSON) _docDBDBClusterPreferredBackupWindow
+        , fmap (("PreferredMaintenanceWindow",) . toJSON) _docDBDBClusterPreferredMaintenanceWindow
+        , fmap (("SnapshotIdentifier",) . toJSON) _docDBDBClusterSnapshotIdentifier
+        , fmap (("StorageEncrypted",) . toJSON . fmap Bool') _docDBDBClusterStorageEncrypted
+        , fmap (("Tags",) . toJSON) _docDBDBClusterTags
+        , fmap (("VpcSecurityGroupIds",) . toJSON) _docDBDBClusterVpcSecurityGroupIds
+        ]
+    }
 
 -- | Constructor for 'DocDBDBCluster' containing required fields as arguments.
 docDBDBCluster

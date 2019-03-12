@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-streamingdistribution.html
@@ -18,13 +19,16 @@ data CloudFrontStreamingDistribution =
   , _cloudFrontStreamingDistributionTags :: [Tag]
   } deriving (Show, Eq)
 
-instance ToJSON CloudFrontStreamingDistribution where
-  toJSON CloudFrontStreamingDistribution{..} =
-    object $
-    catMaybes
-    [ (Just . ("StreamingDistributionConfig",) . toJSON) _cloudFrontStreamingDistributionStreamingDistributionConfig
-    , (Just . ("Tags",) . toJSON) _cloudFrontStreamingDistributionTags
-    ]
+instance ToResourceProperties CloudFrontStreamingDistribution where
+  toResourceProperties CloudFrontStreamingDistribution{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::CloudFront::StreamingDistribution"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("StreamingDistributionConfig",) . toJSON) _cloudFrontStreamingDistributionStreamingDistributionConfig
+        , (Just . ("Tags",) . toJSON) _cloudFrontStreamingDistributionTags
+        ]
+    }
 
 -- | Constructor for 'CloudFrontStreamingDistribution' containing required
 -- fields as arguments.

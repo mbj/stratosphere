@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html
@@ -22,18 +23,21 @@ data ApiGatewayV2Api =
   , _apiGatewayV2ApiVersion :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON ApiGatewayV2Api where
-  toJSON ApiGatewayV2Api{..} =
-    object $
-    catMaybes
-    [ fmap (("ApiKeySelectionExpression",) . toJSON) _apiGatewayV2ApiApiKeySelectionExpression
-    , fmap (("Description",) . toJSON) _apiGatewayV2ApiDescription
-    , fmap (("DisableSchemaValidation",) . toJSON . fmap Bool') _apiGatewayV2ApiDisableSchemaValidation
-    , (Just . ("Name",) . toJSON) _apiGatewayV2ApiName
-    , (Just . ("ProtocolType",) . toJSON) _apiGatewayV2ApiProtocolType
-    , (Just . ("RouteSelectionExpression",) . toJSON) _apiGatewayV2ApiRouteSelectionExpression
-    , fmap (("Version",) . toJSON) _apiGatewayV2ApiVersion
-    ]
+instance ToResourceProperties ApiGatewayV2Api where
+  toResourceProperties ApiGatewayV2Api{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::ApiGatewayV2::Api"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("ApiKeySelectionExpression",) . toJSON) _apiGatewayV2ApiApiKeySelectionExpression
+        , fmap (("Description",) . toJSON) _apiGatewayV2ApiDescription
+        , fmap (("DisableSchemaValidation",) . toJSON . fmap Bool') _apiGatewayV2ApiDisableSchemaValidation
+        , (Just . ("Name",) . toJSON) _apiGatewayV2ApiName
+        , (Just . ("ProtocolType",) . toJSON) _apiGatewayV2ApiProtocolType
+        , (Just . ("RouteSelectionExpression",) . toJSON) _apiGatewayV2ApiRouteSelectionExpression
+        , fmap (("Version",) . toJSON) _apiGatewayV2ApiVersion
+        ]
+    }
 
 -- | Constructor for 'ApiGatewayV2Api' containing required fields as
 -- arguments.

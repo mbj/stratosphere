@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html
@@ -35,26 +36,29 @@ data ECSService =
   , _eCSServiceTaskDefinition :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON ECSService where
-  toJSON ECSService{..} =
-    object $
-    catMaybes
-    [ fmap (("Cluster",) . toJSON) _eCSServiceCluster
-    , fmap (("DeploymentConfiguration",) . toJSON) _eCSServiceDeploymentConfiguration
-    , fmap (("DesiredCount",) . toJSON . fmap Integer') _eCSServiceDesiredCount
-    , fmap (("HealthCheckGracePeriodSeconds",) . toJSON . fmap Integer') _eCSServiceHealthCheckGracePeriodSeconds
-    , fmap (("LaunchType",) . toJSON) _eCSServiceLaunchType
-    , fmap (("LoadBalancers",) . toJSON) _eCSServiceLoadBalancers
-    , fmap (("NetworkConfiguration",) . toJSON) _eCSServiceNetworkConfiguration
-    , fmap (("PlacementConstraints",) . toJSON) _eCSServicePlacementConstraints
-    , fmap (("PlacementStrategies",) . toJSON) _eCSServicePlacementStrategies
-    , fmap (("PlatformVersion",) . toJSON) _eCSServicePlatformVersion
-    , fmap (("Role",) . toJSON) _eCSServiceRole
-    , fmap (("SchedulingStrategy",) . toJSON) _eCSServiceSchedulingStrategy
-    , fmap (("ServiceName",) . toJSON) _eCSServiceServiceName
-    , fmap (("ServiceRegistries",) . toJSON) _eCSServiceServiceRegistries
-    , (Just . ("TaskDefinition",) . toJSON) _eCSServiceTaskDefinition
-    ]
+instance ToResourceProperties ECSService where
+  toResourceProperties ECSService{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::ECS::Service"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("Cluster",) . toJSON) _eCSServiceCluster
+        , fmap (("DeploymentConfiguration",) . toJSON) _eCSServiceDeploymentConfiguration
+        , fmap (("DesiredCount",) . toJSON . fmap Integer') _eCSServiceDesiredCount
+        , fmap (("HealthCheckGracePeriodSeconds",) . toJSON . fmap Integer') _eCSServiceHealthCheckGracePeriodSeconds
+        , fmap (("LaunchType",) . toJSON) _eCSServiceLaunchType
+        , fmap (("LoadBalancers",) . toJSON) _eCSServiceLoadBalancers
+        , fmap (("NetworkConfiguration",) . toJSON) _eCSServiceNetworkConfiguration
+        , fmap (("PlacementConstraints",) . toJSON) _eCSServicePlacementConstraints
+        , fmap (("PlacementStrategies",) . toJSON) _eCSServicePlacementStrategies
+        , fmap (("PlatformVersion",) . toJSON) _eCSServicePlatformVersion
+        , fmap (("Role",) . toJSON) _eCSServiceRole
+        , fmap (("SchedulingStrategy",) . toJSON) _eCSServiceSchedulingStrategy
+        , fmap (("ServiceName",) . toJSON) _eCSServiceServiceName
+        , fmap (("ServiceRegistries",) . toJSON) _eCSServiceServiceRegistries
+        , (Just . ("TaskDefinition",) . toJSON) _eCSServiceTaskDefinition
+        ]
+    }
 
 -- | Constructor for 'ECSService' containing required fields as arguments.
 ecsService

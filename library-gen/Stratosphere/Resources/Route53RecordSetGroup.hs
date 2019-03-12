@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-recordsetgroup.html
@@ -19,15 +20,18 @@ data Route53RecordSetGroup =
   , _route53RecordSetGroupRecordSets :: Maybe [Route53RecordSetGroupRecordSet]
   } deriving (Show, Eq)
 
-instance ToJSON Route53RecordSetGroup where
-  toJSON Route53RecordSetGroup{..} =
-    object $
-    catMaybes
-    [ fmap (("Comment",) . toJSON) _route53RecordSetGroupComment
-    , fmap (("HostedZoneId",) . toJSON) _route53RecordSetGroupHostedZoneId
-    , fmap (("HostedZoneName",) . toJSON) _route53RecordSetGroupHostedZoneName
-    , fmap (("RecordSets",) . toJSON) _route53RecordSetGroupRecordSets
-    ]
+instance ToResourceProperties Route53RecordSetGroup where
+  toResourceProperties Route53RecordSetGroup{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::Route53::RecordSetGroup"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("Comment",) . toJSON) _route53RecordSetGroupComment
+        , fmap (("HostedZoneId",) . toJSON) _route53RecordSetGroupHostedZoneId
+        , fmap (("HostedZoneName",) . toJSON) _route53RecordSetGroupHostedZoneName
+        , fmap (("RecordSets",) . toJSON) _route53RecordSetGroupRecordSets
+        ]
+    }
 
 -- | Constructor for 'Route53RecordSetGroup' containing required fields as
 -- arguments.

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html
@@ -23,18 +24,21 @@ data EventsRule =
   , _eventsRuleTargets :: Maybe [EventsRuleTarget]
   } deriving (Show, Eq)
 
-instance ToJSON EventsRule where
-  toJSON EventsRule{..} =
-    object $
-    catMaybes
-    [ fmap (("Description",) . toJSON) _eventsRuleDescription
-    , fmap (("EventPattern",) . toJSON) _eventsRuleEventPattern
-    , fmap (("Name",) . toJSON) _eventsRuleName
-    , fmap (("RoleArn",) . toJSON) _eventsRuleRoleArn
-    , fmap (("ScheduleExpression",) . toJSON) _eventsRuleScheduleExpression
-    , fmap (("State",) . toJSON) _eventsRuleState
-    , fmap (("Targets",) . toJSON) _eventsRuleTargets
-    ]
+instance ToResourceProperties EventsRule where
+  toResourceProperties EventsRule{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::Events::Rule"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("Description",) . toJSON) _eventsRuleDescription
+        , fmap (("EventPattern",) . toJSON) _eventsRuleEventPattern
+        , fmap (("Name",) . toJSON) _eventsRuleName
+        , fmap (("RoleArn",) . toJSON) _eventsRuleRoleArn
+        , fmap (("ScheduleExpression",) . toJSON) _eventsRuleScheduleExpression
+        , fmap (("State",) . toJSON) _eventsRuleState
+        , fmap (("Targets",) . toJSON) _eventsRuleTargets
+        ]
+    }
 
 -- | Constructor for 'EventsRule' containing required fields as arguments.
 eventsRule

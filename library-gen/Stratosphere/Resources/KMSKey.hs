@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html
@@ -22,18 +23,21 @@ data KMSKey =
   , _kMSKeyTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
-instance ToJSON KMSKey where
-  toJSON KMSKey{..} =
-    object $
-    catMaybes
-    [ fmap (("Description",) . toJSON) _kMSKeyDescription
-    , fmap (("EnableKeyRotation",) . toJSON . fmap Bool') _kMSKeyEnableKeyRotation
-    , fmap (("Enabled",) . toJSON . fmap Bool') _kMSKeyEnabled
-    , (Just . ("KeyPolicy",) . toJSON) _kMSKeyKeyPolicy
-    , fmap (("KeyUsage",) . toJSON) _kMSKeyKeyUsage
-    , fmap (("PendingWindowInDays",) . toJSON . fmap Integer') _kMSKeyPendingWindowInDays
-    , fmap (("Tags",) . toJSON) _kMSKeyTags
-    ]
+instance ToResourceProperties KMSKey where
+  toResourceProperties KMSKey{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::KMS::Key"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("Description",) . toJSON) _kMSKeyDescription
+        , fmap (("EnableKeyRotation",) . toJSON . fmap Bool') _kMSKeyEnableKeyRotation
+        , fmap (("Enabled",) . toJSON . fmap Bool') _kMSKeyEnabled
+        , (Just . ("KeyPolicy",) . toJSON) _kMSKeyKeyPolicy
+        , fmap (("KeyUsage",) . toJSON) _kMSKeyKeyUsage
+        , fmap (("PendingWindowInDays",) . toJSON . fmap Integer') _kMSKeyPendingWindowInDays
+        , fmap (("Tags",) . toJSON) _kMSKeyTags
+        ]
+    }
 
 -- | Constructor for 'KMSKey' containing required fields as arguments.
 kmsKey

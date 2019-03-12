@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html
@@ -22,17 +23,20 @@ data GlueTrigger =
   , _glueTriggerType :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON GlueTrigger where
-  toJSON GlueTrigger{..} =
-    object $
-    catMaybes
-    [ (Just . ("Actions",) . toJSON) _glueTriggerActions
-    , fmap (("Description",) . toJSON) _glueTriggerDescription
-    , fmap (("Name",) . toJSON) _glueTriggerName
-    , fmap (("Predicate",) . toJSON) _glueTriggerPredicate
-    , fmap (("Schedule",) . toJSON) _glueTriggerSchedule
-    , (Just . ("Type",) . toJSON) _glueTriggerType
-    ]
+instance ToResourceProperties GlueTrigger where
+  toResourceProperties GlueTrigger{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::Glue::Trigger"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("Actions",) . toJSON) _glueTriggerActions
+        , fmap (("Description",) . toJSON) _glueTriggerDescription
+        , fmap (("Name",) . toJSON) _glueTriggerName
+        , fmap (("Predicate",) . toJSON) _glueTriggerPredicate
+        , fmap (("Schedule",) . toJSON) _glueTriggerSchedule
+        , (Just . ("Type",) . toJSON) _glueTriggerType
+        ]
+    }
 
 -- | Constructor for 'GlueTrigger' containing required fields as arguments.
 glueTrigger

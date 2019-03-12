@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-eip.html
@@ -18,14 +19,17 @@ data EC2EIP =
   , _eC2EIPPublicIpv4Pool :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON EC2EIP where
-  toJSON EC2EIP{..} =
-    object $
-    catMaybes
-    [ fmap (("Domain",) . toJSON) _eC2EIPDomain
-    , fmap (("InstanceId",) . toJSON) _eC2EIPInstanceId
-    , fmap (("PublicIpv4Pool",) . toJSON) _eC2EIPPublicIpv4Pool
-    ]
+instance ToResourceProperties EC2EIP where
+  toResourceProperties EC2EIP{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::EC2::EIP"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("Domain",) . toJSON) _eC2EIPDomain
+        , fmap (("InstanceId",) . toJSON) _eC2EIPInstanceId
+        , fmap (("PublicIpv4Pool",) . toJSON) _eC2EIPPublicIpv4Pool
+        ]
+    }
 
 -- | Constructor for 'EC2EIP' containing required fields as arguments.
 ec2EIP

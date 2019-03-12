@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configurationassociation.html
@@ -17,13 +18,16 @@ data AmazonMQConfigurationAssociation =
   , _amazonMQConfigurationAssociationConfiguration :: AmazonMQConfigurationAssociationConfigurationId
   } deriving (Show, Eq)
 
-instance ToJSON AmazonMQConfigurationAssociation where
-  toJSON AmazonMQConfigurationAssociation{..} =
-    object $
-    catMaybes
-    [ (Just . ("Broker",) . toJSON) _amazonMQConfigurationAssociationBroker
-    , (Just . ("Configuration",) . toJSON) _amazonMQConfigurationAssociationConfiguration
-    ]
+instance ToResourceProperties AmazonMQConfigurationAssociation where
+  toResourceProperties AmazonMQConfigurationAssociation{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::AmazonMQ::ConfigurationAssociation"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("Broker",) . toJSON) _amazonMQConfigurationAssociationBroker
+        , (Just . ("Configuration",) . toJSON) _amazonMQConfigurationAssociationConfiguration
+        ]
+    }
 
 -- | Constructor for 'AmazonMQConfigurationAssociation' containing required
 -- fields as arguments.

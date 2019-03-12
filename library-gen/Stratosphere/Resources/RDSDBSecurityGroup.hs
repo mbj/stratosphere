@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-security-group.html
@@ -20,15 +21,18 @@ data RDSDBSecurityGroup =
   , _rDSDBSecurityGroupTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
-instance ToJSON RDSDBSecurityGroup where
-  toJSON RDSDBSecurityGroup{..} =
-    object $
-    catMaybes
-    [ (Just . ("DBSecurityGroupIngress",) . toJSON) _rDSDBSecurityGroupDBSecurityGroupIngress
-    , fmap (("EC2VpcId",) . toJSON) _rDSDBSecurityGroupEC2VpcId
-    , (Just . ("GroupDescription",) . toJSON) _rDSDBSecurityGroupGroupDescription
-    , fmap (("Tags",) . toJSON) _rDSDBSecurityGroupTags
-    ]
+instance ToResourceProperties RDSDBSecurityGroup where
+  toResourceProperties RDSDBSecurityGroup{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::RDS::DBSecurityGroup"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("DBSecurityGroupIngress",) . toJSON) _rDSDBSecurityGroupDBSecurityGroupIngress
+        , fmap (("EC2VpcId",) . toJSON) _rDSDBSecurityGroupEC2VpcId
+        , (Just . ("GroupDescription",) . toJSON) _rDSDBSecurityGroupGroupDescription
+        , fmap (("Tags",) . toJSON) _rDSDBSecurityGroupTags
+        ]
+    }
 
 -- | Constructor for 'RDSDBSecurityGroup' containing required fields as
 -- arguments.

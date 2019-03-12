@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-security-group.html
@@ -16,12 +17,15 @@ data ElastiCacheSecurityGroup =
   { _elastiCacheSecurityGroupDescription :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON ElastiCacheSecurityGroup where
-  toJSON ElastiCacheSecurityGroup{..} =
-    object $
-    catMaybes
-    [ (Just . ("Description",) . toJSON) _elastiCacheSecurityGroupDescription
-    ]
+instance ToResourceProperties ElastiCacheSecurityGroup where
+  toResourceProperties ElastiCacheSecurityGroup{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::ElastiCache::SecurityGroup"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("Description",) . toJSON) _elastiCacheSecurityGroupDescription
+        ]
+    }
 
 -- | Constructor for 'ElastiCacheSecurityGroup' containing required fields as
 -- arguments.

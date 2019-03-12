@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distribution.html
@@ -18,13 +19,16 @@ data CloudFrontDistribution =
   , _cloudFrontDistributionTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
-instance ToJSON CloudFrontDistribution where
-  toJSON CloudFrontDistribution{..} =
-    object $
-    catMaybes
-    [ (Just . ("DistributionConfig",) . toJSON) _cloudFrontDistributionDistributionConfig
-    , fmap (("Tags",) . toJSON) _cloudFrontDistributionTags
-    ]
+instance ToResourceProperties CloudFrontDistribution where
+  toResourceProperties CloudFrontDistribution{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::CloudFront::Distribution"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("DistributionConfig",) . toJSON) _cloudFrontDistributionDistributionConfig
+        , fmap (("Tags",) . toJSON) _cloudFrontDistributionTags
+        ]
+    }
 
 -- | Constructor for 'CloudFrontDistribution' containing required fields as
 -- arguments.

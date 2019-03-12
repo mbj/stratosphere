@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html
@@ -18,14 +19,17 @@ data SSMDocument =
   , _sSMDocumentTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
-instance ToJSON SSMDocument where
-  toJSON SSMDocument{..} =
-    object $
-    catMaybes
-    [ (Just . ("Content",) . toJSON) _sSMDocumentContent
-    , fmap (("DocumentType",) . toJSON) _sSMDocumentDocumentType
-    , fmap (("Tags",) . toJSON) _sSMDocumentTags
-    ]
+instance ToResourceProperties SSMDocument where
+  toResourceProperties SSMDocument{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::SSM::Document"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("Content",) . toJSON) _sSMDocumentContent
+        , fmap (("DocumentType",) . toJSON) _sSMDocumentDocumentType
+        , fmap (("Tags",) . toJSON) _sSMDocumentTags
+        ]
+    }
 
 -- | Constructor for 'SSMDocument' containing required fields as arguments.
 ssmDocument

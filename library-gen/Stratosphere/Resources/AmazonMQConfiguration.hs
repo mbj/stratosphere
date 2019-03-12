@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-configuration.html
@@ -21,17 +22,20 @@ data AmazonMQConfiguration =
   , _amazonMQConfigurationTags :: Maybe [AmazonMQConfigurationTagsEntry]
   } deriving (Show, Eq)
 
-instance ToJSON AmazonMQConfiguration where
-  toJSON AmazonMQConfiguration{..} =
-    object $
-    catMaybes
-    [ (Just . ("Data",) . toJSON) _amazonMQConfigurationData
-    , fmap (("Description",) . toJSON) _amazonMQConfigurationDescription
-    , (Just . ("EngineType",) . toJSON) _amazonMQConfigurationEngineType
-    , (Just . ("EngineVersion",) . toJSON) _amazonMQConfigurationEngineVersion
-    , (Just . ("Name",) . toJSON) _amazonMQConfigurationName
-    , fmap (("Tags",) . toJSON) _amazonMQConfigurationTags
-    ]
+instance ToResourceProperties AmazonMQConfiguration where
+  toResourceProperties AmazonMQConfiguration{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::AmazonMQ::Configuration"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("Data",) . toJSON) _amazonMQConfigurationData
+        , fmap (("Description",) . toJSON) _amazonMQConfigurationDescription
+        , (Just . ("EngineType",) . toJSON) _amazonMQConfigurationEngineType
+        , (Just . ("EngineVersion",) . toJSON) _amazonMQConfigurationEngineVersion
+        , (Just . ("Name",) . toJSON) _amazonMQConfigurationName
+        , fmap (("Tags",) . toJSON) _amazonMQConfigurationTags
+        ]
+    }
 
 -- | Constructor for 'AmazonMQConfiguration' containing required fields as
 -- arguments.

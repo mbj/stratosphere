@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentconfig.html
@@ -17,13 +18,16 @@ data CodeDeployDeploymentConfig =
   , _codeDeployDeploymentConfigMinimumHealthyHosts :: Maybe CodeDeployDeploymentConfigMinimumHealthyHosts
   } deriving (Show, Eq)
 
-instance ToJSON CodeDeployDeploymentConfig where
-  toJSON CodeDeployDeploymentConfig{..} =
-    object $
-    catMaybes
-    [ fmap (("DeploymentConfigName",) . toJSON) _codeDeployDeploymentConfigDeploymentConfigName
-    , fmap (("MinimumHealthyHosts",) . toJSON) _codeDeployDeploymentConfigMinimumHealthyHosts
-    ]
+instance ToResourceProperties CodeDeployDeploymentConfig where
+  toResourceProperties CodeDeployDeploymentConfig{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::CodeDeploy::DeploymentConfig"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("DeploymentConfigName",) . toJSON) _codeDeployDeploymentConfigDeploymentConfigName
+        , fmap (("MinimumHealthyHosts",) . toJSON) _codeDeployDeploymentConfigMinimumHealthyHosts
+        ]
+    }
 
 -- | Constructor for 'CodeDeployDeploymentConfig' containing required fields
 -- as arguments.

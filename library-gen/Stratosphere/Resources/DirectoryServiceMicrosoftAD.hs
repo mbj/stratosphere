@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-directoryservice-microsoftad.html
@@ -22,18 +23,21 @@ data DirectoryServiceMicrosoftAD =
   , _directoryServiceMicrosoftADVpcSettings :: DirectoryServiceMicrosoftADVpcSettings
   } deriving (Show, Eq)
 
-instance ToJSON DirectoryServiceMicrosoftAD where
-  toJSON DirectoryServiceMicrosoftAD{..} =
-    object $
-    catMaybes
-    [ fmap (("CreateAlias",) . toJSON . fmap Bool') _directoryServiceMicrosoftADCreateAlias
-    , fmap (("Edition",) . toJSON) _directoryServiceMicrosoftADEdition
-    , fmap (("EnableSso",) . toJSON . fmap Bool') _directoryServiceMicrosoftADEnableSso
-    , (Just . ("Name",) . toJSON) _directoryServiceMicrosoftADName
-    , (Just . ("Password",) . toJSON) _directoryServiceMicrosoftADPassword
-    , fmap (("ShortName",) . toJSON) _directoryServiceMicrosoftADShortName
-    , (Just . ("VpcSettings",) . toJSON) _directoryServiceMicrosoftADVpcSettings
-    ]
+instance ToResourceProperties DirectoryServiceMicrosoftAD where
+  toResourceProperties DirectoryServiceMicrosoftAD{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::DirectoryService::MicrosoftAD"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("CreateAlias",) . toJSON . fmap Bool') _directoryServiceMicrosoftADCreateAlias
+        , fmap (("Edition",) . toJSON) _directoryServiceMicrosoftADEdition
+        , fmap (("EnableSso",) . toJSON . fmap Bool') _directoryServiceMicrosoftADEnableSso
+        , (Just . ("Name",) . toJSON) _directoryServiceMicrosoftADName
+        , (Just . ("Password",) . toJSON) _directoryServiceMicrosoftADPassword
+        , fmap (("ShortName",) . toJSON) _directoryServiceMicrosoftADShortName
+        , (Just . ("VpcSettings",) . toJSON) _directoryServiceMicrosoftADVpcSettings
+        ]
+    }
 
 -- | Constructor for 'DirectoryServiceMicrosoftAD' containing required fields
 -- as arguments.

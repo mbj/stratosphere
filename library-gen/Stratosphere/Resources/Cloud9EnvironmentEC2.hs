@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud9-environmentec2.html
@@ -22,18 +23,21 @@ data Cloud9EnvironmentEC2 =
   , _cloud9EnvironmentEC2SubnetId :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON Cloud9EnvironmentEC2 where
-  toJSON Cloud9EnvironmentEC2{..} =
-    object $
-    catMaybes
-    [ fmap (("AutomaticStopTimeMinutes",) . toJSON . fmap Integer') _cloud9EnvironmentEC2AutomaticStopTimeMinutes
-    , fmap (("Description",) . toJSON) _cloud9EnvironmentEC2Description
-    , (Just . ("InstanceType",) . toJSON) _cloud9EnvironmentEC2InstanceType
-    , fmap (("Name",) . toJSON) _cloud9EnvironmentEC2Name
-    , fmap (("OwnerArn",) . toJSON) _cloud9EnvironmentEC2OwnerArn
-    , fmap (("Repositories",) . toJSON) _cloud9EnvironmentEC2Repositories
-    , fmap (("SubnetId",) . toJSON) _cloud9EnvironmentEC2SubnetId
-    ]
+instance ToResourceProperties Cloud9EnvironmentEC2 where
+  toResourceProperties Cloud9EnvironmentEC2{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::Cloud9::EnvironmentEC2"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("AutomaticStopTimeMinutes",) . toJSON . fmap Integer') _cloud9EnvironmentEC2AutomaticStopTimeMinutes
+        , fmap (("Description",) . toJSON) _cloud9EnvironmentEC2Description
+        , (Just . ("InstanceType",) . toJSON) _cloud9EnvironmentEC2InstanceType
+        , fmap (("Name",) . toJSON) _cloud9EnvironmentEC2Name
+        , fmap (("OwnerArn",) . toJSON) _cloud9EnvironmentEC2OwnerArn
+        , fmap (("Repositories",) . toJSON) _cloud9EnvironmentEC2Repositories
+        , fmap (("SubnetId",) . toJSON) _cloud9EnvironmentEC2SubnetId
+        ]
+    }
 
 -- | Constructor for 'Cloud9EnvironmentEC2' containing required fields as
 -- arguments.

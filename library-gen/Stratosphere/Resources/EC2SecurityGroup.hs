@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group.html
@@ -23,17 +24,20 @@ data EC2SecurityGroup =
   , _eC2SecurityGroupVpcId :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON EC2SecurityGroup where
-  toJSON EC2SecurityGroup{..} =
-    object $
-    catMaybes
-    [ (Just . ("GroupDescription",) . toJSON) _eC2SecurityGroupGroupDescription
-    , fmap (("GroupName",) . toJSON) _eC2SecurityGroupGroupName
-    , fmap (("SecurityGroupEgress",) . toJSON) _eC2SecurityGroupSecurityGroupEgress
-    , fmap (("SecurityGroupIngress",) . toJSON) _eC2SecurityGroupSecurityGroupIngress
-    , fmap (("Tags",) . toJSON) _eC2SecurityGroupTags
-    , fmap (("VpcId",) . toJSON) _eC2SecurityGroupVpcId
-    ]
+instance ToResourceProperties EC2SecurityGroup where
+  toResourceProperties EC2SecurityGroup{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::EC2::SecurityGroup"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("GroupDescription",) . toJSON) _eC2SecurityGroupGroupDescription
+        , fmap (("GroupName",) . toJSON) _eC2SecurityGroupGroupName
+        , fmap (("SecurityGroupEgress",) . toJSON) _eC2SecurityGroupSecurityGroupEgress
+        , fmap (("SecurityGroupIngress",) . toJSON) _eC2SecurityGroupSecurityGroupIngress
+        , fmap (("Tags",) . toJSON) _eC2SecurityGroupTags
+        , fmap (("VpcId",) . toJSON) _eC2SecurityGroupVpcId
+        ]
+    }
 
 -- | Constructor for 'EC2SecurityGroup' containing required fields as
 -- arguments.

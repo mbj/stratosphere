@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-policy.html
@@ -17,13 +18,16 @@ data SNSTopicPolicy =
   , _sNSTopicPolicyTopics :: ValList Text
   } deriving (Show, Eq)
 
-instance ToJSON SNSTopicPolicy where
-  toJSON SNSTopicPolicy{..} =
-    object $
-    catMaybes
-    [ (Just . ("PolicyDocument",) . toJSON) _sNSTopicPolicyPolicyDocument
-    , (Just . ("Topics",) . toJSON) _sNSTopicPolicyTopics
-    ]
+instance ToResourceProperties SNSTopicPolicy where
+  toResourceProperties SNSTopicPolicy{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::SNS::TopicPolicy"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("PolicyDocument",) . toJSON) _sNSTopicPolicyPolicyDocument
+        , (Just . ("Topics",) . toJSON) _sNSTopicPolicyTopics
+        ]
+    }
 
 -- | Constructor for 'SNSTopicPolicy' containing required fields as arguments.
 snsTopicPolicy

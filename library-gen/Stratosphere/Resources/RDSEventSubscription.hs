@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-eventsubscription.html
@@ -20,16 +21,19 @@ data RDSEventSubscription =
   , _rDSEventSubscriptionSourceType :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON RDSEventSubscription where
-  toJSON RDSEventSubscription{..} =
-    object $
-    catMaybes
-    [ fmap (("Enabled",) . toJSON . fmap Bool') _rDSEventSubscriptionEnabled
-    , fmap (("EventCategories",) . toJSON) _rDSEventSubscriptionEventCategories
-    , (Just . ("SnsTopicArn",) . toJSON) _rDSEventSubscriptionSnsTopicArn
-    , fmap (("SourceIds",) . toJSON) _rDSEventSubscriptionSourceIds
-    , fmap (("SourceType",) . toJSON) _rDSEventSubscriptionSourceType
-    ]
+instance ToResourceProperties RDSEventSubscription where
+  toResourceProperties RDSEventSubscription{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::RDS::EventSubscription"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("Enabled",) . toJSON . fmap Bool') _rDSEventSubscriptionEnabled
+        , fmap (("EventCategories",) . toJSON) _rDSEventSubscriptionEventCategories
+        , (Just . ("SnsTopicArn",) . toJSON) _rDSEventSubscriptionSnsTopicArn
+        , fmap (("SourceIds",) . toJSON) _rDSEventSubscriptionSourceIds
+        , fmap (("SourceType",) . toJSON) _rDSEventSubscriptionSourceType
+        ]
+    }
 
 -- | Constructor for 'RDSEventSubscription' containing required fields as
 -- arguments.

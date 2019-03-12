@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html
@@ -17,13 +18,16 @@ data GuardDutyDetector =
   , _guardDutyDetectorFindingPublishingFrequency :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON GuardDutyDetector where
-  toJSON GuardDutyDetector{..} =
-    object $
-    catMaybes
-    [ (Just . ("Enable",) . toJSON . fmap Bool') _guardDutyDetectorEnable
-    , fmap (("FindingPublishingFrequency",) . toJSON) _guardDutyDetectorFindingPublishingFrequency
-    ]
+instance ToResourceProperties GuardDutyDetector where
+  toResourceProperties GuardDutyDetector{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::GuardDuty::Detector"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("Enable",) . toJSON . fmap Bool') _guardDutyDetectorEnable
+        , fmap (("FindingPublishingFrequency",) . toJSON) _guardDutyDetectorFindingPublishingFrequency
+        ]
+    }
 
 -- | Constructor for 'GuardDutyDetector' containing required fields as
 -- arguments.

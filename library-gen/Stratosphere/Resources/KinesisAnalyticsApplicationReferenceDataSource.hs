@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalytics-applicationreferencedatasource.html
@@ -19,13 +20,16 @@ data KinesisAnalyticsApplicationReferenceDataSource =
   , _kinesisAnalyticsApplicationReferenceDataSourceReferenceDataSource :: KinesisAnalyticsApplicationReferenceDataSourceReferenceDataSource
   } deriving (Show, Eq)
 
-instance ToJSON KinesisAnalyticsApplicationReferenceDataSource where
-  toJSON KinesisAnalyticsApplicationReferenceDataSource{..} =
-    object $
-    catMaybes
-    [ (Just . ("ApplicationName",) . toJSON) _kinesisAnalyticsApplicationReferenceDataSourceApplicationName
-    , (Just . ("ReferenceDataSource",) . toJSON) _kinesisAnalyticsApplicationReferenceDataSourceReferenceDataSource
-    ]
+instance ToResourceProperties KinesisAnalyticsApplicationReferenceDataSource where
+  toResourceProperties KinesisAnalyticsApplicationReferenceDataSource{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::KinesisAnalytics::ApplicationReferenceDataSource"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("ApplicationName",) . toJSON) _kinesisAnalyticsApplicationReferenceDataSourceApplicationName
+        , (Just . ("ReferenceDataSource",) . toJSON) _kinesisAnalyticsApplicationReferenceDataSourceReferenceDataSource
+        ]
+    }
 
 -- | Constructor for 'KinesisAnalyticsApplicationReferenceDataSource'
 -- containing required fields as arguments.

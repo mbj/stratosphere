@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html
@@ -19,15 +20,18 @@ data EventsEventBusPolicy =
   , _eventsEventBusPolicyStatementId :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON EventsEventBusPolicy where
-  toJSON EventsEventBusPolicy{..} =
-    object $
-    catMaybes
-    [ (Just . ("Action",) . toJSON) _eventsEventBusPolicyAction
-    , fmap (("Condition",) . toJSON) _eventsEventBusPolicyCondition
-    , (Just . ("Principal",) . toJSON) _eventsEventBusPolicyPrincipal
-    , (Just . ("StatementId",) . toJSON) _eventsEventBusPolicyStatementId
-    ]
+instance ToResourceProperties EventsEventBusPolicy where
+  toResourceProperties EventsEventBusPolicy{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::Events::EventBusPolicy"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("Action",) . toJSON) _eventsEventBusPolicyAction
+        , fmap (("Condition",) . toJSON) _eventsEventBusPolicyCondition
+        , (Just . ("Principal",) . toJSON) _eventsEventBusPolicyPrincipal
+        , (Just . ("StatementId",) . toJSON) _eventsEventBusPolicyStatementId
+        ]
+    }
 
 -- | Constructor for 'EventsEventBusPolicy' containing required fields as
 -- arguments.

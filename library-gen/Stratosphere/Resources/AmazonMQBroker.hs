@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html
@@ -33,25 +34,28 @@ data AmazonMQBroker =
   , _amazonMQBrokerUsers :: [AmazonMQBrokerUser]
   } deriving (Show, Eq)
 
-instance ToJSON AmazonMQBroker where
-  toJSON AmazonMQBroker{..} =
-    object $
-    catMaybes
-    [ (Just . ("AutoMinorVersionUpgrade",) . toJSON . fmap Bool') _amazonMQBrokerAutoMinorVersionUpgrade
-    , (Just . ("BrokerName",) . toJSON) _amazonMQBrokerBrokerName
-    , fmap (("Configuration",) . toJSON) _amazonMQBrokerConfiguration
-    , (Just . ("DeploymentMode",) . toJSON) _amazonMQBrokerDeploymentMode
-    , (Just . ("EngineType",) . toJSON) _amazonMQBrokerEngineType
-    , (Just . ("EngineVersion",) . toJSON) _amazonMQBrokerEngineVersion
-    , (Just . ("HostInstanceType",) . toJSON) _amazonMQBrokerHostInstanceType
-    , fmap (("Logs",) . toJSON) _amazonMQBrokerLogs
-    , fmap (("MaintenanceWindowStartTime",) . toJSON) _amazonMQBrokerMaintenanceWindowStartTime
-    , (Just . ("PubliclyAccessible",) . toJSON . fmap Bool') _amazonMQBrokerPubliclyAccessible
-    , fmap (("SecurityGroups",) . toJSON) _amazonMQBrokerSecurityGroups
-    , fmap (("SubnetIds",) . toJSON) _amazonMQBrokerSubnetIds
-    , fmap (("Tags",) . toJSON) _amazonMQBrokerTags
-    , (Just . ("Users",) . toJSON) _amazonMQBrokerUsers
-    ]
+instance ToResourceProperties AmazonMQBroker where
+  toResourceProperties AmazonMQBroker{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::AmazonMQ::Broker"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("AutoMinorVersionUpgrade",) . toJSON . fmap Bool') _amazonMQBrokerAutoMinorVersionUpgrade
+        , (Just . ("BrokerName",) . toJSON) _amazonMQBrokerBrokerName
+        , fmap (("Configuration",) . toJSON) _amazonMQBrokerConfiguration
+        , (Just . ("DeploymentMode",) . toJSON) _amazonMQBrokerDeploymentMode
+        , (Just . ("EngineType",) . toJSON) _amazonMQBrokerEngineType
+        , (Just . ("EngineVersion",) . toJSON) _amazonMQBrokerEngineVersion
+        , (Just . ("HostInstanceType",) . toJSON) _amazonMQBrokerHostInstanceType
+        , fmap (("Logs",) . toJSON) _amazonMQBrokerLogs
+        , fmap (("MaintenanceWindowStartTime",) . toJSON) _amazonMQBrokerMaintenanceWindowStartTime
+        , (Just . ("PubliclyAccessible",) . toJSON . fmap Bool') _amazonMQBrokerPubliclyAccessible
+        , fmap (("SecurityGroups",) . toJSON) _amazonMQBrokerSecurityGroups
+        , fmap (("SubnetIds",) . toJSON) _amazonMQBrokerSubnetIds
+        , fmap (("Tags",) . toJSON) _amazonMQBrokerTags
+        , (Just . ("Users",) . toJSON) _amazonMQBrokerUsers
+        ]
+    }
 
 -- | Constructor for 'AmazonMQBroker' containing required fields as arguments.
 amazonMQBroker

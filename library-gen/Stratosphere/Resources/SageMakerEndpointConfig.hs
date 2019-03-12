@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpointconfig.html
@@ -20,15 +21,18 @@ data SageMakerEndpointConfig =
   , _sageMakerEndpointConfigTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
-instance ToJSON SageMakerEndpointConfig where
-  toJSON SageMakerEndpointConfig{..} =
-    object $
-    catMaybes
-    [ fmap (("EndpointConfigName",) . toJSON) _sageMakerEndpointConfigEndpointConfigName
-    , fmap (("KmsKeyId",) . toJSON) _sageMakerEndpointConfigKmsKeyId
-    , (Just . ("ProductionVariants",) . toJSON) _sageMakerEndpointConfigProductionVariants
-    , fmap (("Tags",) . toJSON) _sageMakerEndpointConfigTags
-    ]
+instance ToResourceProperties SageMakerEndpointConfig where
+  toResourceProperties SageMakerEndpointConfig{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::SageMaker::EndpointConfig"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("EndpointConfigName",) . toJSON) _sageMakerEndpointConfigEndpointConfigName
+        , fmap (("KmsKeyId",) . toJSON) _sageMakerEndpointConfigKmsKeyId
+        , (Just . ("ProductionVariants",) . toJSON) _sageMakerEndpointConfigProductionVariants
+        , fmap (("Tags",) . toJSON) _sageMakerEndpointConfigTags
+        ]
+    }
 
 -- | Constructor for 'SageMakerEndpointConfig' containing required fields as
 -- arguments.

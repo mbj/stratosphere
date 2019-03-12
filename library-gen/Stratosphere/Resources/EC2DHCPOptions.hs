@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-dhcp-options.html
@@ -21,17 +22,20 @@ data EC2DHCPOptions =
   , _eC2DHCPOptionsTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
-instance ToJSON EC2DHCPOptions where
-  toJSON EC2DHCPOptions{..} =
-    object $
-    catMaybes
-    [ fmap (("DomainName",) . toJSON) _eC2DHCPOptionsDomainName
-    , fmap (("DomainNameServers",) . toJSON) _eC2DHCPOptionsDomainNameServers
-    , fmap (("NetbiosNameServers",) . toJSON) _eC2DHCPOptionsNetbiosNameServers
-    , fmap (("NetbiosNodeType",) . toJSON . fmap Integer') _eC2DHCPOptionsNetbiosNodeType
-    , fmap (("NtpServers",) . toJSON) _eC2DHCPOptionsNtpServers
-    , fmap (("Tags",) . toJSON) _eC2DHCPOptionsTags
-    ]
+instance ToResourceProperties EC2DHCPOptions where
+  toResourceProperties EC2DHCPOptions{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::EC2::DHCPOptions"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("DomainName",) . toJSON) _eC2DHCPOptionsDomainName
+        , fmap (("DomainNameServers",) . toJSON) _eC2DHCPOptionsDomainNameServers
+        , fmap (("NetbiosNameServers",) . toJSON) _eC2DHCPOptionsNetbiosNameServers
+        , fmap (("NetbiosNodeType",) . toJSON . fmap Integer') _eC2DHCPOptionsNetbiosNodeType
+        , fmap (("NtpServers",) . toJSON) _eC2DHCPOptionsNtpServers
+        , fmap (("Tags",) . toJSON) _eC2DHCPOptionsTags
+        ]
+    }
 
 -- | Constructor for 'EC2DHCPOptions' containing required fields as arguments.
 ec2DHCPOptions

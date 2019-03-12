@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-applicationoutput.html
@@ -17,13 +18,16 @@ data KinesisAnalyticsV2ApplicationOutput =
   , _kinesisAnalyticsV2ApplicationOutputOutput :: KinesisAnalyticsV2ApplicationOutputOutput
   } deriving (Show, Eq)
 
-instance ToJSON KinesisAnalyticsV2ApplicationOutput where
-  toJSON KinesisAnalyticsV2ApplicationOutput{..} =
-    object $
-    catMaybes
-    [ (Just . ("ApplicationName",) . toJSON) _kinesisAnalyticsV2ApplicationOutputApplicationName
-    , (Just . ("Output",) . toJSON) _kinesisAnalyticsV2ApplicationOutputOutput
-    ]
+instance ToResourceProperties KinesisAnalyticsV2ApplicationOutput where
+  toResourceProperties KinesisAnalyticsV2ApplicationOutput{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::KinesisAnalyticsV2::ApplicationOutput"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("ApplicationName",) . toJSON) _kinesisAnalyticsV2ApplicationOutputApplicationName
+        , (Just . ("Output",) . toJSON) _kinesisAnalyticsV2ApplicationOutputOutput
+        ]
+    }
 
 -- | Constructor for 'KinesisAnalyticsV2ApplicationOutput' containing required
 -- fields as arguments.

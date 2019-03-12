@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-routeresponse.html
@@ -21,17 +22,20 @@ data ApiGatewayV2RouteResponse =
   , _apiGatewayV2RouteResponseRouteResponseKey :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON ApiGatewayV2RouteResponse where
-  toJSON ApiGatewayV2RouteResponse{..} =
-    object $
-    catMaybes
-    [ (Just . ("ApiId",) . toJSON) _apiGatewayV2RouteResponseApiId
-    , fmap (("ModelSelectionExpression",) . toJSON) _apiGatewayV2RouteResponseModelSelectionExpression
-    , fmap (("ResponseModels",) . toJSON) _apiGatewayV2RouteResponseResponseModels
-    , fmap (("ResponseParameters",) . toJSON) _apiGatewayV2RouteResponseResponseParameters
-    , (Just . ("RouteId",) . toJSON) _apiGatewayV2RouteResponseRouteId
-    , (Just . ("RouteResponseKey",) . toJSON) _apiGatewayV2RouteResponseRouteResponseKey
-    ]
+instance ToResourceProperties ApiGatewayV2RouteResponse where
+  toResourceProperties ApiGatewayV2RouteResponse{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::ApiGatewayV2::RouteResponse"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("ApiId",) . toJSON) _apiGatewayV2RouteResponseApiId
+        , fmap (("ModelSelectionExpression",) . toJSON) _apiGatewayV2RouteResponseModelSelectionExpression
+        , fmap (("ResponseModels",) . toJSON) _apiGatewayV2RouteResponseResponseModels
+        , fmap (("ResponseParameters",) . toJSON) _apiGatewayV2RouteResponseResponseParameters
+        , (Just . ("RouteId",) . toJSON) _apiGatewayV2RouteResponseRouteId
+        , (Just . ("RouteResponseKey",) . toJSON) _apiGatewayV2RouteResponseRouteResponseKey
+        ]
+    }
 
 -- | Constructor for 'ApiGatewayV2RouteResponse' containing required fields as
 -- arguments.

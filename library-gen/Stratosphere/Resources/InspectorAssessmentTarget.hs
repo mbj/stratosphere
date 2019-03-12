@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-inspector-assessmenttarget.html
@@ -17,13 +18,16 @@ data InspectorAssessmentTarget =
   , _inspectorAssessmentTargetResourceGroupArn :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON InspectorAssessmentTarget where
-  toJSON InspectorAssessmentTarget{..} =
-    object $
-    catMaybes
-    [ fmap (("AssessmentTargetName",) . toJSON) _inspectorAssessmentTargetAssessmentTargetName
-    , fmap (("ResourceGroupArn",) . toJSON) _inspectorAssessmentTargetResourceGroupArn
-    ]
+instance ToResourceProperties InspectorAssessmentTarget where
+  toResourceProperties InspectorAssessmentTarget{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::Inspector::AssessmentTarget"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("AssessmentTargetName",) . toJSON) _inspectorAssessmentTargetAssessmentTargetName
+        , fmap (("ResourceGroupArn",) . toJSON) _inspectorAssessmentTargetResourceGroupArn
+        ]
+    }
 
 -- | Constructor for 'InspectorAssessmentTarget' containing required fields as
 -- arguments.

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html
@@ -26,20 +27,23 @@ data FSxFileSystem =
   , _fSxFileSystemWindowsConfiguration :: Maybe FSxFileSystemWindowsConfiguration
   } deriving (Show, Eq)
 
-instance ToJSON FSxFileSystem where
-  toJSON FSxFileSystem{..} =
-    object $
-    catMaybes
-    [ fmap (("BackupId",) . toJSON) _fSxFileSystemBackupId
-    , fmap (("FileSystemType",) . toJSON) _fSxFileSystemFileSystemType
-    , fmap (("KmsKeyId",) . toJSON) _fSxFileSystemKmsKeyId
-    , fmap (("LustreConfiguration",) . toJSON) _fSxFileSystemLustreConfiguration
-    , fmap (("SecurityGroupIds",) . toJSON) _fSxFileSystemSecurityGroupIds
-    , fmap (("StorageCapacity",) . toJSON . fmap Integer') _fSxFileSystemStorageCapacity
-    , fmap (("SubnetIds",) . toJSON) _fSxFileSystemSubnetIds
-    , fmap (("Tags",) . toJSON) _fSxFileSystemTags
-    , fmap (("WindowsConfiguration",) . toJSON) _fSxFileSystemWindowsConfiguration
-    ]
+instance ToResourceProperties FSxFileSystem where
+  toResourceProperties FSxFileSystem{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::FSx::FileSystem"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("BackupId",) . toJSON) _fSxFileSystemBackupId
+        , fmap (("FileSystemType",) . toJSON) _fSxFileSystemFileSystemType
+        , fmap (("KmsKeyId",) . toJSON) _fSxFileSystemKmsKeyId
+        , fmap (("LustreConfiguration",) . toJSON) _fSxFileSystemLustreConfiguration
+        , fmap (("SecurityGroupIds",) . toJSON) _fSxFileSystemSecurityGroupIds
+        , fmap (("StorageCapacity",) . toJSON . fmap Integer') _fSxFileSystemStorageCapacity
+        , fmap (("SubnetIds",) . toJSON) _fSxFileSystemSubnetIds
+        , fmap (("Tags",) . toJSON) _fSxFileSystemTags
+        , fmap (("WindowsConfiguration",) . toJSON) _fSxFileSystemWindowsConfiguration
+        ]
+    }
 
 -- | Constructor for 'FSxFileSystem' containing required fields as arguments.
 fSxFileSystem

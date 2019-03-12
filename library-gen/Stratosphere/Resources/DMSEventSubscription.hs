@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-eventsubscription.html
@@ -22,18 +23,21 @@ data DMSEventSubscription =
   , _dMSEventSubscriptionTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
-instance ToJSON DMSEventSubscription where
-  toJSON DMSEventSubscription{..} =
-    object $
-    catMaybes
-    [ fmap (("Enabled",) . toJSON . fmap Bool') _dMSEventSubscriptionEnabled
-    , fmap (("EventCategories",) . toJSON) _dMSEventSubscriptionEventCategories
-    , (Just . ("SnsTopicArn",) . toJSON) _dMSEventSubscriptionSnsTopicArn
-    , fmap (("SourceIds",) . toJSON) _dMSEventSubscriptionSourceIds
-    , fmap (("SourceType",) . toJSON) _dMSEventSubscriptionSourceType
-    , fmap (("SubscriptionName",) . toJSON) _dMSEventSubscriptionSubscriptionName
-    , fmap (("Tags",) . toJSON) _dMSEventSubscriptionTags
-    ]
+instance ToResourceProperties DMSEventSubscription where
+  toResourceProperties DMSEventSubscription{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::DMS::EventSubscription"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("Enabled",) . toJSON . fmap Bool') _dMSEventSubscriptionEnabled
+        , fmap (("EventCategories",) . toJSON) _dMSEventSubscriptionEventCategories
+        , (Just . ("SnsTopicArn",) . toJSON) _dMSEventSubscriptionSnsTopicArn
+        , fmap (("SourceIds",) . toJSON) _dMSEventSubscriptionSourceIds
+        , fmap (("SourceType",) . toJSON) _dMSEventSubscriptionSourceType
+        , fmap (("SubscriptionName",) . toJSON) _dMSEventSubscriptionSubscriptionName
+        , fmap (("Tags",) . toJSON) _dMSEventSubscriptionTags
+        ]
+    }
 
 -- | Constructor for 'DMSEventSubscription' containing required fields as
 -- arguments.

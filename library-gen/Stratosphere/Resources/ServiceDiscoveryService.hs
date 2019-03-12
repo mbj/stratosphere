@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-service.html
@@ -23,17 +24,20 @@ data ServiceDiscoveryService =
   , _serviceDiscoveryServiceNamespaceId :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON ServiceDiscoveryService where
-  toJSON ServiceDiscoveryService{..} =
-    object $
-    catMaybes
-    [ fmap (("Description",) . toJSON) _serviceDiscoveryServiceDescription
-    , fmap (("DnsConfig",) . toJSON) _serviceDiscoveryServiceDnsConfig
-    , fmap (("HealthCheckConfig",) . toJSON) _serviceDiscoveryServiceHealthCheckConfig
-    , fmap (("HealthCheckCustomConfig",) . toJSON) _serviceDiscoveryServiceHealthCheckCustomConfig
-    , fmap (("Name",) . toJSON) _serviceDiscoveryServiceName
-    , fmap (("NamespaceId",) . toJSON) _serviceDiscoveryServiceNamespaceId
-    ]
+instance ToResourceProperties ServiceDiscoveryService where
+  toResourceProperties ServiceDiscoveryService{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::ServiceDiscovery::Service"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("Description",) . toJSON) _serviceDiscoveryServiceDescription
+        , fmap (("DnsConfig",) . toJSON) _serviceDiscoveryServiceDnsConfig
+        , fmap (("HealthCheckConfig",) . toJSON) _serviceDiscoveryServiceHealthCheckConfig
+        , fmap (("HealthCheckCustomConfig",) . toJSON) _serviceDiscoveryServiceHealthCheckCustomConfig
+        , fmap (("Name",) . toJSON) _serviceDiscoveryServiceName
+        , fmap (("NamespaceId",) . toJSON) _serviceDiscoveryServiceNamespaceId
+        ]
+    }
 
 -- | Constructor for 'ServiceDiscoveryService' containing required fields as
 -- arguments.

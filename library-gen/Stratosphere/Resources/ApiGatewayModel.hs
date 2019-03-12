@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-model.html
@@ -20,16 +21,19 @@ data ApiGatewayModel =
   , _apiGatewayModelSchema :: Maybe Object
   } deriving (Show, Eq)
 
-instance ToJSON ApiGatewayModel where
-  toJSON ApiGatewayModel{..} =
-    object $
-    catMaybes
-    [ fmap (("ContentType",) . toJSON) _apiGatewayModelContentType
-    , fmap (("Description",) . toJSON) _apiGatewayModelDescription
-    , fmap (("Name",) . toJSON) _apiGatewayModelName
-    , (Just . ("RestApiId",) . toJSON) _apiGatewayModelRestApiId
-    , fmap (("Schema",) . toJSON) _apiGatewayModelSchema
-    ]
+instance ToResourceProperties ApiGatewayModel where
+  toResourceProperties ApiGatewayModel{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::ApiGateway::Model"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("ContentType",) . toJSON) _apiGatewayModelContentType
+        , fmap (("Description",) . toJSON) _apiGatewayModelDescription
+        , fmap (("Name",) . toJSON) _apiGatewayModelName
+        , (Just . ("RestApiId",) . toJSON) _apiGatewayModelRestApiId
+        , fmap (("Schema",) . toJSON) _apiGatewayModelSchema
+        ]
+    }
 
 -- | Constructor for 'ApiGatewayModel' containing required fields as
 -- arguments.

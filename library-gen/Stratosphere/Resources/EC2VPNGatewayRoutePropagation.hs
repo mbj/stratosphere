@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpn-gatewayrouteprop.html
@@ -17,13 +18,16 @@ data EC2VPNGatewayRoutePropagation =
   , _eC2VPNGatewayRoutePropagationVpnGatewayId :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON EC2VPNGatewayRoutePropagation where
-  toJSON EC2VPNGatewayRoutePropagation{..} =
-    object $
-    catMaybes
-    [ (Just . ("RouteTableIds",) . toJSON) _eC2VPNGatewayRoutePropagationRouteTableIds
-    , (Just . ("VpnGatewayId",) . toJSON) _eC2VPNGatewayRoutePropagationVpnGatewayId
-    ]
+instance ToResourceProperties EC2VPNGatewayRoutePropagation where
+  toResourceProperties EC2VPNGatewayRoutePropagation{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::EC2::VPNGatewayRoutePropagation"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("RouteTableIds",) . toJSON) _eC2VPNGatewayRoutePropagationRouteTableIds
+        , (Just . ("VpnGatewayId",) . toJSON) _eC2VPNGatewayRoutePropagationVpnGatewayId
+        ]
+    }
 
 -- | Constructor for 'EC2VPNGatewayRoutePropagation' containing required
 -- fields as arguments.

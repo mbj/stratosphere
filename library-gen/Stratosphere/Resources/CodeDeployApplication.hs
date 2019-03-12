@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-application.html
@@ -17,13 +18,16 @@ data CodeDeployApplication =
   , _codeDeployApplicationComputePlatform :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON CodeDeployApplication where
-  toJSON CodeDeployApplication{..} =
-    object $
-    catMaybes
-    [ fmap (("ApplicationName",) . toJSON) _codeDeployApplicationApplicationName
-    , fmap (("ComputePlatform",) . toJSON) _codeDeployApplicationComputePlatform
-    ]
+instance ToResourceProperties CodeDeployApplication where
+  toResourceProperties CodeDeployApplication{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::CodeDeploy::Application"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("ApplicationName",) . toJSON) _codeDeployApplicationApplicationName
+        , fmap (("ComputePlatform",) . toJSON) _codeDeployApplicationComputePlatform
+        ]
+    }
 
 -- | Constructor for 'CodeDeployApplication' containing required fields as
 -- arguments.

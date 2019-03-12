@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-publicdnsnamespace.html
@@ -17,13 +18,16 @@ data ServiceDiscoveryPublicDnsNamespace =
   , _serviceDiscoveryPublicDnsNamespaceName :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON ServiceDiscoveryPublicDnsNamespace where
-  toJSON ServiceDiscoveryPublicDnsNamespace{..} =
-    object $
-    catMaybes
-    [ fmap (("Description",) . toJSON) _serviceDiscoveryPublicDnsNamespaceDescription
-    , (Just . ("Name",) . toJSON) _serviceDiscoveryPublicDnsNamespaceName
-    ]
+instance ToResourceProperties ServiceDiscoveryPublicDnsNamespace where
+  toResourceProperties ServiceDiscoveryPublicDnsNamespace{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::ServiceDiscovery::PublicDnsNamespace"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("Description",) . toJSON) _serviceDiscoveryPublicDnsNamespaceDescription
+        , (Just . ("Name",) . toJSON) _serviceDiscoveryPublicDnsNamespaceName
+        ]
+    }
 
 -- | Constructor for 'ServiceDiscoveryPublicDnsNamespace' containing required
 -- fields as arguments.

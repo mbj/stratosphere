@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc.html
@@ -20,16 +21,19 @@ data EC2VPC =
   , _eC2VPCTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
-instance ToJSON EC2VPC where
-  toJSON EC2VPC{..} =
-    object $
-    catMaybes
-    [ (Just . ("CidrBlock",) . toJSON) _eC2VPCCidrBlock
-    , fmap (("EnableDnsHostnames",) . toJSON . fmap Bool') _eC2VPCEnableDnsHostnames
-    , fmap (("EnableDnsSupport",) . toJSON . fmap Bool') _eC2VPCEnableDnsSupport
-    , fmap (("InstanceTenancy",) . toJSON) _eC2VPCInstanceTenancy
-    , fmap (("Tags",) . toJSON) _eC2VPCTags
-    ]
+instance ToResourceProperties EC2VPC where
+  toResourceProperties EC2VPC{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::EC2::VPC"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("CidrBlock",) . toJSON) _eC2VPCCidrBlock
+        , fmap (("EnableDnsHostnames",) . toJSON . fmap Bool') _eC2VPCEnableDnsHostnames
+        , fmap (("EnableDnsSupport",) . toJSON . fmap Bool') _eC2VPCEnableDnsSupport
+        , fmap (("InstanceTenancy",) . toJSON) _eC2VPCInstanceTenancy
+        , fmap (("Tags",) . toJSON) _eC2VPCTags
+        ]
+    }
 
 -- | Constructor for 'EC2VPC' containing required fields as arguments.
 ec2VPC

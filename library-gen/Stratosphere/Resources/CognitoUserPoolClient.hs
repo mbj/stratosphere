@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html
@@ -22,18 +23,21 @@ data CognitoUserPoolClient =
   , _cognitoUserPoolClientWriteAttributes :: Maybe (ValList Text)
   } deriving (Show, Eq)
 
-instance ToJSON CognitoUserPoolClient where
-  toJSON CognitoUserPoolClient{..} =
-    object $
-    catMaybes
-    [ fmap (("ClientName",) . toJSON) _cognitoUserPoolClientClientName
-    , fmap (("ExplicitAuthFlows",) . toJSON) _cognitoUserPoolClientExplicitAuthFlows
-    , fmap (("GenerateSecret",) . toJSON . fmap Bool') _cognitoUserPoolClientGenerateSecret
-    , fmap (("ReadAttributes",) . toJSON) _cognitoUserPoolClientReadAttributes
-    , fmap (("RefreshTokenValidity",) . toJSON . fmap Double') _cognitoUserPoolClientRefreshTokenValidity
-    , (Just . ("UserPoolId",) . toJSON) _cognitoUserPoolClientUserPoolId
-    , fmap (("WriteAttributes",) . toJSON) _cognitoUserPoolClientWriteAttributes
-    ]
+instance ToResourceProperties CognitoUserPoolClient where
+  toResourceProperties CognitoUserPoolClient{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::Cognito::UserPoolClient"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("ClientName",) . toJSON) _cognitoUserPoolClientClientName
+        , fmap (("ExplicitAuthFlows",) . toJSON) _cognitoUserPoolClientExplicitAuthFlows
+        , fmap (("GenerateSecret",) . toJSON . fmap Bool') _cognitoUserPoolClientGenerateSecret
+        , fmap (("ReadAttributes",) . toJSON) _cognitoUserPoolClientReadAttributes
+        , fmap (("RefreshTokenValidity",) . toJSON . fmap Double') _cognitoUserPoolClientRefreshTokenValidity
+        , (Just . ("UserPoolId",) . toJSON) _cognitoUserPoolClientUserPoolId
+        , fmap (("WriteAttributes",) . toJSON) _cognitoUserPoolClientWriteAttributes
+        ]
+    }
 
 -- | Constructor for 'CognitoUserPoolClient' containing required fields as
 -- arguments.

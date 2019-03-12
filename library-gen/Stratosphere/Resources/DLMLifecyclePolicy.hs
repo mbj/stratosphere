@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dlm-lifecyclepolicy.html
@@ -19,15 +20,18 @@ data DLMLifecyclePolicy =
   , _dLMLifecyclePolicyState :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON DLMLifecyclePolicy where
-  toJSON DLMLifecyclePolicy{..} =
-    object $
-    catMaybes
-    [ fmap (("Description",) . toJSON) _dLMLifecyclePolicyDescription
-    , fmap (("ExecutionRoleArn",) . toJSON) _dLMLifecyclePolicyExecutionRoleArn
-    , fmap (("PolicyDetails",) . toJSON) _dLMLifecyclePolicyPolicyDetails
-    , fmap (("State",) . toJSON) _dLMLifecyclePolicyState
-    ]
+instance ToResourceProperties DLMLifecyclePolicy where
+  toResourceProperties DLMLifecyclePolicy{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::DLM::LifecyclePolicy"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("Description",) . toJSON) _dLMLifecyclePolicyDescription
+        , fmap (("ExecutionRoleArn",) . toJSON) _dLMLifecyclePolicyExecutionRoleArn
+        , fmap (("PolicyDetails",) . toJSON) _dLMLifecyclePolicyPolicyDetails
+        , fmap (("State",) . toJSON) _dLMLifecyclePolicyState
+        ]
+    }
 
 -- | Constructor for 'DLMLifecyclePolicy' containing required fields as
 -- arguments.

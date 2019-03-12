@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-waf-sizeconstraintset.html
@@ -17,13 +18,16 @@ data WAFSizeConstraintSet =
   , _wAFSizeConstraintSetSizeConstraints :: [WAFSizeConstraintSetSizeConstraint]
   } deriving (Show, Eq)
 
-instance ToJSON WAFSizeConstraintSet where
-  toJSON WAFSizeConstraintSet{..} =
-    object $
-    catMaybes
-    [ (Just . ("Name",) . toJSON) _wAFSizeConstraintSetName
-    , (Just . ("SizeConstraints",) . toJSON) _wAFSizeConstraintSetSizeConstraints
-    ]
+instance ToResourceProperties WAFSizeConstraintSet where
+  toResourceProperties WAFSizeConstraintSet{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::WAF::SizeConstraintSet"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("Name",) . toJSON) _wAFSizeConstraintSetName
+        , (Just . ("SizeConstraints",) . toJSON) _wAFSizeConstraintSetSizeConstraints
+        ]
+    }
 
 -- | Constructor for 'WAFSizeConstraintSet' containing required fields as
 -- arguments.

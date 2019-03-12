@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-configurationset.html
@@ -16,12 +17,15 @@ data SESConfigurationSet =
   { _sESConfigurationSetName :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON SESConfigurationSet where
-  toJSON SESConfigurationSet{..} =
-    object $
-    catMaybes
-    [ fmap (("Name",) . toJSON) _sESConfigurationSetName
-    ]
+instance ToResourceProperties SESConfigurationSet where
+  toResourceProperties SESConfigurationSet{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::SES::ConfigurationSet"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("Name",) . toJSON) _sESConfigurationSetName
+        ]
+    }
 
 -- | Constructor for 'SESConfigurationSet' containing required fields as
 -- arguments.

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-secretsmanager-secret.html
@@ -22,17 +23,20 @@ data SecretsManagerSecret =
   , _secretsManagerSecretTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
-instance ToJSON SecretsManagerSecret where
-  toJSON SecretsManagerSecret{..} =
-    object $
-    catMaybes
-    [ fmap (("Description",) . toJSON) _secretsManagerSecretDescription
-    , fmap (("GenerateSecretString",) . toJSON) _secretsManagerSecretGenerateSecretString
-    , fmap (("KmsKeyId",) . toJSON) _secretsManagerSecretKmsKeyId
-    , fmap (("Name",) . toJSON) _secretsManagerSecretName
-    , fmap (("SecretString",) . toJSON) _secretsManagerSecretSecretString
-    , fmap (("Tags",) . toJSON) _secretsManagerSecretTags
-    ]
+instance ToResourceProperties SecretsManagerSecret where
+  toResourceProperties SecretsManagerSecret{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::SecretsManager::Secret"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("Description",) . toJSON) _secretsManagerSecretDescription
+        , fmap (("GenerateSecretString",) . toJSON) _secretsManagerSecretGenerateSecretString
+        , fmap (("KmsKeyId",) . toJSON) _secretsManagerSecretKmsKeyId
+        , fmap (("Name",) . toJSON) _secretsManagerSecretName
+        , fmap (("SecretString",) . toJSON) _secretsManagerSecretSecretString
+        , fmap (("Tags",) . toJSON) _secretsManagerSecretTags
+        ]
+    }
 
 -- | Constructor for 'SecretsManagerSecret' containing required fields as
 -- arguments.

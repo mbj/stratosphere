@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbclusterparametergroup.html
@@ -19,15 +20,18 @@ data RDSDBClusterParameterGroup =
   , _rDSDBClusterParameterGroupTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
-instance ToJSON RDSDBClusterParameterGroup where
-  toJSON RDSDBClusterParameterGroup{..} =
-    object $
-    catMaybes
-    [ (Just . ("Description",) . toJSON) _rDSDBClusterParameterGroupDescription
-    , (Just . ("Family",) . toJSON) _rDSDBClusterParameterGroupFamily
-    , (Just . ("Parameters",) . toJSON) _rDSDBClusterParameterGroupParameters
-    , fmap (("Tags",) . toJSON) _rDSDBClusterParameterGroupTags
-    ]
+instance ToResourceProperties RDSDBClusterParameterGroup where
+  toResourceProperties RDSDBClusterParameterGroup{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::RDS::DBClusterParameterGroup"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("Description",) . toJSON) _rDSDBClusterParameterGroupDescription
+        , (Just . ("Family",) . toJSON) _rDSDBClusterParameterGroupFamily
+        , (Just . ("Parameters",) . toJSON) _rDSDBClusterParameterGroupParameters
+        , fmap (("Tags",) . toJSON) _rDSDBClusterParameterGroupTags
+        ]
+    }
 
 -- | Constructor for 'RDSDBClusterParameterGroup' containing required fields
 -- as arguments.

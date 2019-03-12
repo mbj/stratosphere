@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html
@@ -18,13 +19,16 @@ data Route53HealthCheck =
   , _route53HealthCheckHealthCheckTags :: Maybe [Route53HealthCheckHealthCheckTag]
   } deriving (Show, Eq)
 
-instance ToJSON Route53HealthCheck where
-  toJSON Route53HealthCheck{..} =
-    object $
-    catMaybes
-    [ (Just . ("HealthCheckConfig",) . toJSON) _route53HealthCheckHealthCheckConfig
-    , fmap (("HealthCheckTags",) . toJSON) _route53HealthCheckHealthCheckTags
-    ]
+instance ToResourceProperties Route53HealthCheck where
+  toResourceProperties Route53HealthCheck{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::Route53::HealthCheck"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("HealthCheckConfig",) . toJSON) _route53HealthCheckHealthCheckConfig
+        , fmap (("HealthCheckTags",) . toJSON) _route53HealthCheckHealthCheckTags
+        ]
+    }
 
 -- | Constructor for 'Route53HealthCheck' containing required fields as
 -- arguments.

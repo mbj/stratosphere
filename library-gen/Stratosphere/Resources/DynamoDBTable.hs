@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-table.html
@@ -36,23 +37,26 @@ data DynamoDBTable =
   , _dynamoDBTableTimeToLiveSpecification :: Maybe DynamoDBTableTimeToLiveSpecification
   } deriving (Show, Eq)
 
-instance ToJSON DynamoDBTable where
-  toJSON DynamoDBTable{..} =
-    object $
-    catMaybes
-    [ fmap (("AttributeDefinitions",) . toJSON) _dynamoDBTableAttributeDefinitions
-    , fmap (("BillingMode",) . toJSON) _dynamoDBTableBillingMode
-    , fmap (("GlobalSecondaryIndexes",) . toJSON) _dynamoDBTableGlobalSecondaryIndexes
-    , (Just . ("KeySchema",) . toJSON) _dynamoDBTableKeySchema
-    , fmap (("LocalSecondaryIndexes",) . toJSON) _dynamoDBTableLocalSecondaryIndexes
-    , fmap (("PointInTimeRecoverySpecification",) . toJSON) _dynamoDBTablePointInTimeRecoverySpecification
-    , fmap (("ProvisionedThroughput",) . toJSON) _dynamoDBTableProvisionedThroughput
-    , fmap (("SSESpecification",) . toJSON) _dynamoDBTableSSESpecification
-    , fmap (("StreamSpecification",) . toJSON) _dynamoDBTableStreamSpecification
-    , fmap (("TableName",) . toJSON) _dynamoDBTableTableName
-    , fmap (("Tags",) . toJSON) _dynamoDBTableTags
-    , fmap (("TimeToLiveSpecification",) . toJSON) _dynamoDBTableTimeToLiveSpecification
-    ]
+instance ToResourceProperties DynamoDBTable where
+  toResourceProperties DynamoDBTable{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::DynamoDB::Table"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("AttributeDefinitions",) . toJSON) _dynamoDBTableAttributeDefinitions
+        , fmap (("BillingMode",) . toJSON) _dynamoDBTableBillingMode
+        , fmap (("GlobalSecondaryIndexes",) . toJSON) _dynamoDBTableGlobalSecondaryIndexes
+        , (Just . ("KeySchema",) . toJSON) _dynamoDBTableKeySchema
+        , fmap (("LocalSecondaryIndexes",) . toJSON) _dynamoDBTableLocalSecondaryIndexes
+        , fmap (("PointInTimeRecoverySpecification",) . toJSON) _dynamoDBTablePointInTimeRecoverySpecification
+        , fmap (("ProvisionedThroughput",) . toJSON) _dynamoDBTableProvisionedThroughput
+        , fmap (("SSESpecification",) . toJSON) _dynamoDBTableSSESpecification
+        , fmap (("StreamSpecification",) . toJSON) _dynamoDBTableStreamSpecification
+        , fmap (("TableName",) . toJSON) _dynamoDBTableTableName
+        , fmap (("Tags",) . toJSON) _dynamoDBTableTags
+        , fmap (("TimeToLiveSpecification",) . toJSON) _dynamoDBTableTimeToLiveSpecification
+        ]
+    }
 
 -- | Constructor for 'DynamoDBTable' containing required fields as arguments.
 dynamoDBTable

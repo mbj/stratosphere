@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html
@@ -23,19 +24,22 @@ data ApiGatewayV2Authorizer =
   , _apiGatewayV2AuthorizerName :: Val Text
   } deriving (Show, Eq)
 
-instance ToJSON ApiGatewayV2Authorizer where
-  toJSON ApiGatewayV2Authorizer{..} =
-    object $
-    catMaybes
-    [ (Just . ("ApiId",) . toJSON) _apiGatewayV2AuthorizerApiId
-    , fmap (("AuthorizerCredentialsArn",) . toJSON) _apiGatewayV2AuthorizerAuthorizerCredentialsArn
-    , fmap (("AuthorizerResultTtlInSeconds",) . toJSON . fmap Integer') _apiGatewayV2AuthorizerAuthorizerResultTtlInSeconds
-    , (Just . ("AuthorizerType",) . toJSON) _apiGatewayV2AuthorizerAuthorizerType
-    , (Just . ("AuthorizerUri",) . toJSON) _apiGatewayV2AuthorizerAuthorizerUri
-    , (Just . ("IdentitySource",) . toJSON) _apiGatewayV2AuthorizerIdentitySource
-    , fmap (("IdentityValidationExpression",) . toJSON) _apiGatewayV2AuthorizerIdentityValidationExpression
-    , (Just . ("Name",) . toJSON) _apiGatewayV2AuthorizerName
-    ]
+instance ToResourceProperties ApiGatewayV2Authorizer where
+  toResourceProperties ApiGatewayV2Authorizer{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::ApiGatewayV2::Authorizer"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("ApiId",) . toJSON) _apiGatewayV2AuthorizerApiId
+        , fmap (("AuthorizerCredentialsArn",) . toJSON) _apiGatewayV2AuthorizerAuthorizerCredentialsArn
+        , fmap (("AuthorizerResultTtlInSeconds",) . toJSON . fmap Integer') _apiGatewayV2AuthorizerAuthorizerResultTtlInSeconds
+        , (Just . ("AuthorizerType",) . toJSON) _apiGatewayV2AuthorizerAuthorizerType
+        , (Just . ("AuthorizerUri",) . toJSON) _apiGatewayV2AuthorizerAuthorizerUri
+        , (Just . ("IdentitySource",) . toJSON) _apiGatewayV2AuthorizerIdentitySource
+        , fmap (("IdentityValidationExpression",) . toJSON) _apiGatewayV2AuthorizerIdentityValidationExpression
+        , (Just . ("Name",) . toJSON) _apiGatewayV2AuthorizerName
+        ]
+    }
 
 -- | Constructor for 'ApiGatewayV2Authorizer' containing required fields as
 -- arguments.

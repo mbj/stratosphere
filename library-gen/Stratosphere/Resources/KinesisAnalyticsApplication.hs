@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalytics-application.html
@@ -19,15 +20,18 @@ data KinesisAnalyticsApplication =
   , _kinesisAnalyticsApplicationInputs :: [KinesisAnalyticsApplicationInput]
   } deriving (Show, Eq)
 
-instance ToJSON KinesisAnalyticsApplication where
-  toJSON KinesisAnalyticsApplication{..} =
-    object $
-    catMaybes
-    [ fmap (("ApplicationCode",) . toJSON) _kinesisAnalyticsApplicationApplicationCode
-    , fmap (("ApplicationDescription",) . toJSON) _kinesisAnalyticsApplicationApplicationDescription
-    , fmap (("ApplicationName",) . toJSON) _kinesisAnalyticsApplicationApplicationName
-    , (Just . ("Inputs",) . toJSON) _kinesisAnalyticsApplicationInputs
-    ]
+instance ToResourceProperties KinesisAnalyticsApplication where
+  toResourceProperties KinesisAnalyticsApplication{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::KinesisAnalytics::Application"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("ApplicationCode",) . toJSON) _kinesisAnalyticsApplicationApplicationCode
+        , fmap (("ApplicationDescription",) . toJSON) _kinesisAnalyticsApplicationApplicationDescription
+        , fmap (("ApplicationName",) . toJSON) _kinesisAnalyticsApplicationApplicationName
+        , (Just . ("Inputs",) . toJSON) _kinesisAnalyticsApplicationInputs
+        ]
+    }
 
 -- | Constructor for 'KinesisAnalyticsApplication' containing required fields
 -- as arguments.

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-wafregional-sqlinjectionmatchset.html
@@ -17,13 +18,16 @@ data WAFRegionalSqlInjectionMatchSet =
   , _wAFRegionalSqlInjectionMatchSetSqlInjectionMatchTuples :: Maybe [WAFRegionalSqlInjectionMatchSetSqlInjectionMatchTuple]
   } deriving (Show, Eq)
 
-instance ToJSON WAFRegionalSqlInjectionMatchSet where
-  toJSON WAFRegionalSqlInjectionMatchSet{..} =
-    object $
-    catMaybes
-    [ (Just . ("Name",) . toJSON) _wAFRegionalSqlInjectionMatchSetName
-    , fmap (("SqlInjectionMatchTuples",) . toJSON) _wAFRegionalSqlInjectionMatchSetSqlInjectionMatchTuples
-    ]
+instance ToResourceProperties WAFRegionalSqlInjectionMatchSet where
+  toResourceProperties WAFRegionalSqlInjectionMatchSet{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::WAFRegional::SqlInjectionMatchSet"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ (Just . ("Name",) . toJSON) _wAFRegionalSqlInjectionMatchSetName
+        , fmap (("SqlInjectionMatchTuples",) . toJSON) _wAFRegionalSqlInjectionMatchSetSqlInjectionMatchTuples
+        ]
+    }
 
 -- | Constructor for 'WAFRegionalSqlInjectionMatchSet' containing required
 -- fields as arguments.

@@ -1,5 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-apikey.html
@@ -22,18 +23,21 @@ data ApiGatewayApiKey =
   , _apiGatewayApiKeyValue :: Maybe (Val Text)
   } deriving (Show, Eq)
 
-instance ToJSON ApiGatewayApiKey where
-  toJSON ApiGatewayApiKey{..} =
-    object $
-    catMaybes
-    [ fmap (("CustomerId",) . toJSON) _apiGatewayApiKeyCustomerId
-    , fmap (("Description",) . toJSON) _apiGatewayApiKeyDescription
-    , fmap (("Enabled",) . toJSON . fmap Bool') _apiGatewayApiKeyEnabled
-    , fmap (("GenerateDistinctId",) . toJSON . fmap Bool') _apiGatewayApiKeyGenerateDistinctId
-    , fmap (("Name",) . toJSON) _apiGatewayApiKeyName
-    , fmap (("StageKeys",) . toJSON) _apiGatewayApiKeyStageKeys
-    , fmap (("Value",) . toJSON) _apiGatewayApiKeyValue
-    ]
+instance ToResourceProperties ApiGatewayApiKey where
+  toResourceProperties ApiGatewayApiKey{..} =
+    ResourceProperties
+    { resourcePropertiesType = "AWS::ApiGateway::ApiKey"
+    , resourcePropertiesProperties =
+        hashMapFromList $ catMaybes
+        [ fmap (("CustomerId",) . toJSON) _apiGatewayApiKeyCustomerId
+        , fmap (("Description",) . toJSON) _apiGatewayApiKeyDescription
+        , fmap (("Enabled",) . toJSON . fmap Bool') _apiGatewayApiKeyEnabled
+        , fmap (("GenerateDistinctId",) . toJSON . fmap Bool') _apiGatewayApiKeyGenerateDistinctId
+        , fmap (("Name",) . toJSON) _apiGatewayApiKeyName
+        , fmap (("StageKeys",) . toJSON) _apiGatewayApiKeyStageKeys
+        , fmap (("Value",) . toJSON) _apiGatewayApiKeyValue
+        ]
+    }
 
 -- | Constructor for 'ApiGatewayApiKey' containing required fields as
 -- arguments.
