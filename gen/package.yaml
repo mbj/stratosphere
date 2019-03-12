@@ -20,7 +20,7 @@ executables:
   stratosphere-gen:
     source-dirs: src
     main: Main.hs
-    ghc-options: -Wall
+    ghc-options: -Wall -O0
     dependencies:
       - base
       - aeson >= 0.11

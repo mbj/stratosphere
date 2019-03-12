@@ -1,5 +1,5 @@
 name: stratosphere
-version: "0.33.0"
+version: "0.33.1"
 synopsis: EDSL for AWS CloudFormation
 description: EDSL for AWS CloudFormation
 category: AWS, Cloud
@@ -36,7 +36,7 @@ library:
   source-dirs:
     - library
     - library-gen
-  ghc-options: -Wall
+  ghc-options: -Wall -O0
 
 executables:
   auto-scaling-group:
