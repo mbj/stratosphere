@@ -36,15 +36,15 @@ instance ToJSON BatchComputeEnvironmentComputeResources where
   toJSON BatchComputeEnvironmentComputeResources{..} =
     object $
     catMaybes
-    [ fmap (("BidPercentage",) . toJSON . fmap Integer') _batchComputeEnvironmentComputeResourcesBidPercentage
-    , fmap (("DesiredvCpus",) . toJSON . fmap Integer') _batchComputeEnvironmentComputeResourcesDesiredvCpus
+    [ fmap (("BidPercentage",) . toJSON) _batchComputeEnvironmentComputeResourcesBidPercentage
+    , fmap (("DesiredvCpus",) . toJSON) _batchComputeEnvironmentComputeResourcesDesiredvCpus
     , fmap (("Ec2KeyPair",) . toJSON) _batchComputeEnvironmentComputeResourcesEc2KeyPair
     , fmap (("ImageId",) . toJSON) _batchComputeEnvironmentComputeResourcesImageId
     , (Just . ("InstanceRole",) . toJSON) _batchComputeEnvironmentComputeResourcesInstanceRole
     , (Just . ("InstanceTypes",) . toJSON) _batchComputeEnvironmentComputeResourcesInstanceTypes
     , fmap (("LaunchTemplate",) . toJSON) _batchComputeEnvironmentComputeResourcesLaunchTemplate
-    , (Just . ("MaxvCpus",) . toJSON . fmap Integer') _batchComputeEnvironmentComputeResourcesMaxvCpus
-    , (Just . ("MinvCpus",) . toJSON . fmap Integer') _batchComputeEnvironmentComputeResourcesMinvCpus
+    , (Just . ("MaxvCpus",) . toJSON) _batchComputeEnvironmentComputeResourcesMaxvCpus
+    , (Just . ("MinvCpus",) . toJSON) _batchComputeEnvironmentComputeResourcesMinvCpus
     , fmap (("PlacementGroup",) . toJSON) _batchComputeEnvironmentComputeResourcesPlacementGroup
     , (Just . ("SecurityGroupIds",) . toJSON) _batchComputeEnvironmentComputeResourcesSecurityGroupIds
     , fmap (("SpotIamFleetRole",) . toJSON) _batchComputeEnvironmentComputeResourcesSpotIamFleetRole

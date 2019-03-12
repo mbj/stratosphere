@@ -38,7 +38,7 @@ instance ToResourceProperties EMRInstanceGroupConfig where
         , fmap (("BidPrice",) . toJSON) _eMRInstanceGroupConfigBidPrice
         , fmap (("Configurations",) . toJSON) _eMRInstanceGroupConfigConfigurations
         , fmap (("EbsConfiguration",) . toJSON) _eMRInstanceGroupConfigEbsConfiguration
-        , (Just . ("InstanceCount",) . toJSON . fmap Integer') _eMRInstanceGroupConfigInstanceCount
+        , (Just . ("InstanceCount",) . toJSON) _eMRInstanceGroupConfigInstanceCount
         , (Just . ("InstanceRole",) . toJSON) _eMRInstanceGroupConfigInstanceRole
         , (Just . ("InstanceType",) . toJSON) _eMRInstanceGroupConfigInstanceType
         , (Just . ("JobFlowId",) . toJSON) _eMRInstanceGroupConfigJobFlowId

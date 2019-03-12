@@ -29,8 +29,8 @@ instance ToJSON ECSTaskDefinitionLinuxParameters where
     catMaybes
     [ fmap (("Capabilities",) . toJSON) _eCSTaskDefinitionLinuxParametersCapabilities
     , fmap (("Devices",) . toJSON) _eCSTaskDefinitionLinuxParametersDevices
-    , fmap (("InitProcessEnabled",) . toJSON . fmap Bool') _eCSTaskDefinitionLinuxParametersInitProcessEnabled
-    , fmap (("SharedMemorySize",) . toJSON . fmap Integer') _eCSTaskDefinitionLinuxParametersSharedMemorySize
+    , fmap (("InitProcessEnabled",) . toJSON) _eCSTaskDefinitionLinuxParametersInitProcessEnabled
+    , fmap (("SharedMemorySize",) . toJSON) _eCSTaskDefinitionLinuxParametersSharedMemorySize
     , fmap (("Tmpfs",) . toJSON) _eCSTaskDefinitionLinuxParametersTmpfs
     ]
 

@@ -34,16 +34,16 @@ instance ToJSON EC2SpotFleetInstanceNetworkInterfaceSpecification where
   toJSON EC2SpotFleetInstanceNetworkInterfaceSpecification{..} =
     object $
     catMaybes
-    [ fmap (("AssociatePublicIpAddress",) . toJSON . fmap Bool') _eC2SpotFleetInstanceNetworkInterfaceSpecificationAssociatePublicIpAddress
-    , fmap (("DeleteOnTermination",) . toJSON . fmap Bool') _eC2SpotFleetInstanceNetworkInterfaceSpecificationDeleteOnTermination
+    [ fmap (("AssociatePublicIpAddress",) . toJSON) _eC2SpotFleetInstanceNetworkInterfaceSpecificationAssociatePublicIpAddress
+    , fmap (("DeleteOnTermination",) . toJSON) _eC2SpotFleetInstanceNetworkInterfaceSpecificationDeleteOnTermination
     , fmap (("Description",) . toJSON) _eC2SpotFleetInstanceNetworkInterfaceSpecificationDescription
-    , fmap (("DeviceIndex",) . toJSON . fmap Integer') _eC2SpotFleetInstanceNetworkInterfaceSpecificationDeviceIndex
+    , fmap (("DeviceIndex",) . toJSON) _eC2SpotFleetInstanceNetworkInterfaceSpecificationDeviceIndex
     , fmap (("Groups",) . toJSON) _eC2SpotFleetInstanceNetworkInterfaceSpecificationGroups
-    , fmap (("Ipv6AddressCount",) . toJSON . fmap Integer') _eC2SpotFleetInstanceNetworkInterfaceSpecificationIpv6AddressCount
+    , fmap (("Ipv6AddressCount",) . toJSON) _eC2SpotFleetInstanceNetworkInterfaceSpecificationIpv6AddressCount
     , fmap (("Ipv6Addresses",) . toJSON) _eC2SpotFleetInstanceNetworkInterfaceSpecificationIpv6Addresses
     , fmap (("NetworkInterfaceId",) . toJSON) _eC2SpotFleetInstanceNetworkInterfaceSpecificationNetworkInterfaceId
     , fmap (("PrivateIpAddresses",) . toJSON) _eC2SpotFleetInstanceNetworkInterfaceSpecificationPrivateIpAddresses
-    , fmap (("SecondaryPrivateIpAddressCount",) . toJSON . fmap Integer') _eC2SpotFleetInstanceNetworkInterfaceSpecificationSecondaryPrivateIpAddressCount
+    , fmap (("SecondaryPrivateIpAddressCount",) . toJSON) _eC2SpotFleetInstanceNetworkInterfaceSpecificationSecondaryPrivateIpAddressCount
     , fmap (("SubnetId",) . toJSON) _eC2SpotFleetInstanceNetworkInterfaceSpecificationSubnetId
     ]
 

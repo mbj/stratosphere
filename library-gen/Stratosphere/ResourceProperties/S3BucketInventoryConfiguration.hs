@@ -28,7 +28,7 @@ instance ToJSON S3BucketInventoryConfiguration where
     object $
     catMaybes
     [ (Just . ("Destination",) . toJSON) _s3BucketInventoryConfigurationDestination
-    , (Just . ("Enabled",) . toJSON . fmap Bool') _s3BucketInventoryConfigurationEnabled
+    , (Just . ("Enabled",) . toJSON) _s3BucketInventoryConfigurationEnabled
     , (Just . ("Id",) . toJSON) _s3BucketInventoryConfigurationId
     , (Just . ("IncludedObjectVersions",) . toJSON) _s3BucketInventoryConfigurationIncludedObjectVersions
     , fmap (("OptionalFields",) . toJSON) _s3BucketInventoryConfigurationOptionalFields

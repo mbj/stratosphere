@@ -23,8 +23,8 @@ instance ToJSON OpsWorksLayerShutdownEventConfiguration where
   toJSON OpsWorksLayerShutdownEventConfiguration{..} =
     object $
     catMaybes
-    [ fmap (("DelayUntilElbConnectionsDrained",) . toJSON . fmap Bool') _opsWorksLayerShutdownEventConfigurationDelayUntilElbConnectionsDrained
-    , fmap (("ExecutionTimeout",) . toJSON . fmap Integer') _opsWorksLayerShutdownEventConfigurationExecutionTimeout
+    [ fmap (("DelayUntilElbConnectionsDrained",) . toJSON) _opsWorksLayerShutdownEventConfigurationDelayUntilElbConnectionsDrained
+    , fmap (("ExecutionTimeout",) . toJSON) _opsWorksLayerShutdownEventConfigurationExecutionTimeout
     ]
 
 -- | Constructor for 'OpsWorksLayerShutdownEventConfiguration' containing

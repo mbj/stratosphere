@@ -29,7 +29,7 @@ instance ToJSON SESConfigurationSetEventDestinationEventDestination where
     object $
     catMaybes
     [ fmap (("CloudWatchDestination",) . toJSON) _sESConfigurationSetEventDestinationEventDestinationCloudWatchDestination
-    , fmap (("Enabled",) . toJSON . fmap Bool') _sESConfigurationSetEventDestinationEventDestinationEnabled
+    , fmap (("Enabled",) . toJSON) _sESConfigurationSetEventDestinationEventDestinationEnabled
     , fmap (("KinesisFirehoseDestination",) . toJSON) _sESConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination
     , (Just . ("MatchingEventTypes",) . toJSON) _sESConfigurationSetEventDestinationEventDestinationMatchingEventTypes
     , fmap (("Name",) . toJSON) _sESConfigurationSetEventDestinationEventDestinationName

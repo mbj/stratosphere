@@ -31,7 +31,7 @@ instance ToResourceProperties ApiGatewayV2Api where
         hashMapFromList $ catMaybes
         [ fmap (("ApiKeySelectionExpression",) . toJSON) _apiGatewayV2ApiApiKeySelectionExpression
         , fmap (("Description",) . toJSON) _apiGatewayV2ApiDescription
-        , fmap (("DisableSchemaValidation",) . toJSON . fmap Bool') _apiGatewayV2ApiDisableSchemaValidation
+        , fmap (("DisableSchemaValidation",) . toJSON) _apiGatewayV2ApiDisableSchemaValidation
         , (Just . ("Name",) . toJSON) _apiGatewayV2ApiName
         , (Just . ("ProtocolType",) . toJSON) _apiGatewayV2ApiProtocolType
         , (Just . ("RouteSelectionExpression",) . toJSON) _apiGatewayV2ApiRouteSelectionExpression

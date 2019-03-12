@@ -42,8 +42,8 @@ instance ToResourceProperties ApiGatewayRestApi where
         , fmap (("CloneFrom",) . toJSON) _apiGatewayRestApiCloneFrom
         , fmap (("Description",) . toJSON) _apiGatewayRestApiDescription
         , fmap (("EndpointConfiguration",) . toJSON) _apiGatewayRestApiEndpointConfiguration
-        , fmap (("FailOnWarnings",) . toJSON . fmap Bool') _apiGatewayRestApiFailOnWarnings
-        , fmap (("MinimumCompressionSize",) . toJSON . fmap Integer') _apiGatewayRestApiMinimumCompressionSize
+        , fmap (("FailOnWarnings",) . toJSON) _apiGatewayRestApiFailOnWarnings
+        , fmap (("MinimumCompressionSize",) . toJSON) _apiGatewayRestApiMinimumCompressionSize
         , fmap (("Name",) . toJSON) _apiGatewayRestApiName
         , fmap (("Parameters",) . toJSON) _apiGatewayRestApiParameters
         , fmap (("Policy",) . toJSON) _apiGatewayRestApiPolicy

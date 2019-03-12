@@ -30,11 +30,11 @@ instance ToJSON CodeBuildProjectArtifacts where
     object $
     catMaybes
     [ fmap (("ArtifactIdentifier",) . toJSON) _codeBuildProjectArtifactsArtifactIdentifier
-    , fmap (("EncryptionDisabled",) . toJSON . fmap Bool') _codeBuildProjectArtifactsEncryptionDisabled
+    , fmap (("EncryptionDisabled",) . toJSON) _codeBuildProjectArtifactsEncryptionDisabled
     , fmap (("Location",) . toJSON) _codeBuildProjectArtifactsLocation
     , fmap (("Name",) . toJSON) _codeBuildProjectArtifactsName
     , fmap (("NamespaceType",) . toJSON) _codeBuildProjectArtifactsNamespaceType
-    , fmap (("OverrideArtifactName",) . toJSON . fmap Bool') _codeBuildProjectArtifactsOverrideArtifactName
+    , fmap (("OverrideArtifactName",) . toJSON) _codeBuildProjectArtifactsOverrideArtifactName
     , fmap (("Packaging",) . toJSON) _codeBuildProjectArtifactsPackaging
     , fmap (("Path",) . toJSON) _codeBuildProjectArtifactsPath
     , (Just . ("Type",) . toJSON) _codeBuildProjectArtifactsType

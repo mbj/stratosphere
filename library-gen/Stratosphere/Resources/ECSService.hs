@@ -44,8 +44,8 @@ instance ToResourceProperties ECSService where
         hashMapFromList $ catMaybes
         [ fmap (("Cluster",) . toJSON) _eCSServiceCluster
         , fmap (("DeploymentConfiguration",) . toJSON) _eCSServiceDeploymentConfiguration
-        , fmap (("DesiredCount",) . toJSON . fmap Integer') _eCSServiceDesiredCount
-        , fmap (("HealthCheckGracePeriodSeconds",) . toJSON . fmap Integer') _eCSServiceHealthCheckGracePeriodSeconds
+        , fmap (("DesiredCount",) . toJSON) _eCSServiceDesiredCount
+        , fmap (("HealthCheckGracePeriodSeconds",) . toJSON) _eCSServiceHealthCheckGracePeriodSeconds
         , fmap (("LaunchType",) . toJSON) _eCSServiceLaunchType
         , fmap (("LoadBalancers",) . toJSON) _eCSServiceLoadBalancers
         , fmap (("NetworkConfiguration",) . toJSON) _eCSServiceNetworkConfiguration

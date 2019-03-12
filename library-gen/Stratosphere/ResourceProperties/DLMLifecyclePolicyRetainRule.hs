@@ -21,7 +21,7 @@ instance ToJSON DLMLifecyclePolicyRetainRule where
   toJSON DLMLifecyclePolicyRetainRule{..} =
     object $
     catMaybes
-    [ (Just . ("Count",) . toJSON . fmap Integer') _dLMLifecyclePolicyRetainRuleCount
+    [ (Just . ("Count",) . toJSON) _dLMLifecyclePolicyRetainRuleCount
     ]
 
 -- | Constructor for 'DLMLifecyclePolicyRetainRule' containing required fields

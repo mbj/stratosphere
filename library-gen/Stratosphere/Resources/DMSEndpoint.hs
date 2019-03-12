@@ -57,7 +57,7 @@ instance ToResourceProperties DMSEndpoint where
         , fmap (("KmsKeyId",) . toJSON) _dMSEndpointKmsKeyId
         , fmap (("MongoDbSettings",) . toJSON) _dMSEndpointMongoDbSettings
         , fmap (("Password",) . toJSON) _dMSEndpointPassword
-        , fmap (("Port",) . toJSON . fmap Integer') _dMSEndpointPort
+        , fmap (("Port",) . toJSON) _dMSEndpointPort
         , fmap (("S3Settings",) . toJSON) _dMSEndpointS3Settings
         , fmap (("ServerName",) . toJSON) _dMSEndpointServerName
         , fmap (("SslMode",) . toJSON) _dMSEndpointSslMode

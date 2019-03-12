@@ -33,7 +33,7 @@ instance ToResourceProperties SNSSubscription where
         , fmap (("Endpoint",) . toJSON) _sNSSubscriptionEndpoint
         , fmap (("FilterPolicy",) . toJSON) _sNSSubscriptionFilterPolicy
         , (Just . ("Protocol",) . toJSON) _sNSSubscriptionProtocol
-        , fmap (("RawMessageDelivery",) . toJSON . fmap Bool') _sNSSubscriptionRawMessageDelivery
+        , fmap (("RawMessageDelivery",) . toJSON) _sNSSubscriptionRawMessageDelivery
         , fmap (("Region",) . toJSON) _sNSSubscriptionRegion
         , (Just . ("TopicArn",) . toJSON) _sNSSubscriptionTopicArn
         ]

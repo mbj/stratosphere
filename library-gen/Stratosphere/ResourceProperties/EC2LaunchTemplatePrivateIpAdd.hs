@@ -22,7 +22,7 @@ instance ToJSON EC2LaunchTemplatePrivateIpAdd where
   toJSON EC2LaunchTemplatePrivateIpAdd{..} =
     object $
     catMaybes
-    [ fmap (("Primary",) . toJSON . fmap Bool') _eC2LaunchTemplatePrivateIpAddPrimary
+    [ fmap (("Primary",) . toJSON) _eC2LaunchTemplatePrivateIpAddPrimary
     , fmap (("PrivateIpAddress",) . toJSON) _eC2LaunchTemplatePrivateIpAddPrivateIpAddress
     ]
 

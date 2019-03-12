@@ -23,7 +23,7 @@ instance ToJSON S3BucketNoncurrentVersionTransition where
     object $
     catMaybes
     [ (Just . ("StorageClass",) . toJSON) _s3BucketNoncurrentVersionTransitionStorageClass
-    , (Just . ("TransitionInDays",) . toJSON . fmap Integer') _s3BucketNoncurrentVersionTransitionTransitionInDays
+    , (Just . ("TransitionInDays",) . toJSON) _s3BucketNoncurrentVersionTransitionTransitionInDays
     ]
 
 -- | Constructor for 'S3BucketNoncurrentVersionTransition' containing required

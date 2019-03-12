@@ -35,10 +35,10 @@ instance ToResourceProperties CodePipelineWebhook where
         , (Just . ("AuthenticationConfiguration",) . toJSON) _codePipelineWebhookAuthenticationConfiguration
         , (Just . ("Filters",) . toJSON) _codePipelineWebhookFilters
         , fmap (("Name",) . toJSON) _codePipelineWebhookName
-        , fmap (("RegisterWithThirdParty",) . toJSON . fmap Bool') _codePipelineWebhookRegisterWithThirdParty
+        , fmap (("RegisterWithThirdParty",) . toJSON) _codePipelineWebhookRegisterWithThirdParty
         , (Just . ("TargetAction",) . toJSON) _codePipelineWebhookTargetAction
         , (Just . ("TargetPipeline",) . toJSON) _codePipelineWebhookTargetPipeline
-        , (Just . ("TargetPipelineVersion",) . toJSON . fmap Integer') _codePipelineWebhookTargetPipelineVersion
+        , (Just . ("TargetPipelineVersion",) . toJSON) _codePipelineWebhookTargetPipelineVersion
         ]
     }
 

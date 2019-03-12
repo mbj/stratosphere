@@ -30,7 +30,7 @@ instance ToResourceProperties EC2TransitGateway where
     { resourcePropertiesType = "AWS::EC2::TransitGateway"
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
-        [ fmap (("AmazonSideAsn",) . toJSON . fmap Integer') _eC2TransitGatewayAmazonSideAsn
+        [ fmap (("AmazonSideAsn",) . toJSON) _eC2TransitGatewayAmazonSideAsn
         , fmap (("AutoAcceptSharedAttachments",) . toJSON) _eC2TransitGatewayAutoAcceptSharedAttachments
         , fmap (("DefaultRouteTableAssociation",) . toJSON) _eC2TransitGatewayDefaultRouteTableAssociation
         , fmap (("DefaultRouteTablePropagation",) . toJSON) _eC2TransitGatewayDefaultRouteTablePropagation

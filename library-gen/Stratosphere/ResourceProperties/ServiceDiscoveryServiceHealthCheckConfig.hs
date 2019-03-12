@@ -24,7 +24,7 @@ instance ToJSON ServiceDiscoveryServiceHealthCheckConfig where
   toJSON ServiceDiscoveryServiceHealthCheckConfig{..} =
     object $
     catMaybes
-    [ fmap (("FailureThreshold",) . toJSON . fmap Double') _serviceDiscoveryServiceHealthCheckConfigFailureThreshold
+    [ fmap (("FailureThreshold",) . toJSON) _serviceDiscoveryServiceHealthCheckConfigFailureThreshold
     , fmap (("ResourcePath",) . toJSON) _serviceDiscoveryServiceHealthCheckConfigResourcePath
     , (Just . ("Type",) . toJSON) _serviceDiscoveryServiceHealthCheckConfigType
     ]

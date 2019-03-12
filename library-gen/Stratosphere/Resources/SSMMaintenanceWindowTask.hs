@@ -42,7 +42,7 @@ instance ToResourceProperties SSMMaintenanceWindowTask where
         , (Just . ("MaxConcurrency",) . toJSON) _sSMMaintenanceWindowTaskMaxConcurrency
         , (Just . ("MaxErrors",) . toJSON) _sSMMaintenanceWindowTaskMaxErrors
         , fmap (("Name",) . toJSON) _sSMMaintenanceWindowTaskName
-        , (Just . ("Priority",) . toJSON . fmap Integer') _sSMMaintenanceWindowTaskPriority
+        , (Just . ("Priority",) . toJSON) _sSMMaintenanceWindowTaskPriority
         , (Just . ("ServiceRoleArn",) . toJSON) _sSMMaintenanceWindowTaskServiceRoleArn
         , (Just . ("Targets",) . toJSON) _sSMMaintenanceWindowTaskTargets
         , (Just . ("TaskArn",) . toJSON) _sSMMaintenanceWindowTaskTaskArn

@@ -25,7 +25,7 @@ instance ToJSON ConfigConfigurationAggregatorOrganizationAggregationSource where
   toJSON ConfigConfigurationAggregatorOrganizationAggregationSource{..} =
     object $
     catMaybes
-    [ fmap (("AllAwsRegions",) . toJSON . fmap Bool') _configConfigurationAggregatorOrganizationAggregationSourceAllAwsRegions
+    [ fmap (("AllAwsRegions",) . toJSON) _configConfigurationAggregatorOrganizationAggregationSourceAllAwsRegions
     , fmap (("AwsRegions",) . toJSON) _configConfigurationAggregatorOrganizationAggregationSourceAwsRegions
     , (Just . ("RoleArn",) . toJSON) _configConfigurationAggregatorOrganizationAggregationSourceRoleArn
     ]

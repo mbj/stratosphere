@@ -21,7 +21,7 @@ instance ToJSON DynamoDBTableSSESpecification where
   toJSON DynamoDBTableSSESpecification{..} =
     object $
     catMaybes
-    [ (Just . ("SSEEnabled",) . toJSON . fmap Bool') _dynamoDBTableSSESpecificationSSEEnabled
+    [ (Just . ("SSEEnabled",) . toJSON) _dynamoDBTableSSESpecificationSSEEnabled
     ]
 
 -- | Constructor for 'DynamoDBTableSSESpecification' containing required

@@ -23,9 +23,9 @@ instance ToJSON BatchJobDefinitionNodeProperties where
   toJSON BatchJobDefinitionNodeProperties{..} =
     object $
     catMaybes
-    [ (Just . ("MainNode",) . toJSON . fmap Integer') _batchJobDefinitionNodePropertiesMainNode
+    [ (Just . ("MainNode",) . toJSON) _batchJobDefinitionNodePropertiesMainNode
     , (Just . ("NodeRangeProperties",) . toJSON) _batchJobDefinitionNodePropertiesNodeRangeProperties
-    , (Just . ("NumNodes",) . toJSON . fmap Integer') _batchJobDefinitionNodePropertiesNumNodes
+    , (Just . ("NumNodes",) . toJSON) _batchJobDefinitionNodePropertiesNumNodes
     ]
 
 -- | Constructor for 'BatchJobDefinitionNodeProperties' containing required

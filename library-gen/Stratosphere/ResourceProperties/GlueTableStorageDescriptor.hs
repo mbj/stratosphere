@@ -37,16 +37,16 @@ instance ToJSON GlueTableStorageDescriptor where
     catMaybes
     [ fmap (("BucketColumns",) . toJSON) _glueTableStorageDescriptorBucketColumns
     , fmap (("Columns",) . toJSON) _glueTableStorageDescriptorColumns
-    , fmap (("Compressed",) . toJSON . fmap Bool') _glueTableStorageDescriptorCompressed
+    , fmap (("Compressed",) . toJSON) _glueTableStorageDescriptorCompressed
     , fmap (("InputFormat",) . toJSON) _glueTableStorageDescriptorInputFormat
     , fmap (("Location",) . toJSON) _glueTableStorageDescriptorLocation
-    , fmap (("NumberOfBuckets",) . toJSON . fmap Integer') _glueTableStorageDescriptorNumberOfBuckets
+    , fmap (("NumberOfBuckets",) . toJSON) _glueTableStorageDescriptorNumberOfBuckets
     , fmap (("OutputFormat",) . toJSON) _glueTableStorageDescriptorOutputFormat
     , fmap (("Parameters",) . toJSON) _glueTableStorageDescriptorParameters
     , fmap (("SerdeInfo",) . toJSON) _glueTableStorageDescriptorSerdeInfo
     , fmap (("SkewedInfo",) . toJSON) _glueTableStorageDescriptorSkewedInfo
     , fmap (("SortColumns",) . toJSON) _glueTableStorageDescriptorSortColumns
-    , fmap (("StoredAsSubDirectories",) . toJSON . fmap Bool') _glueTableStorageDescriptorStoredAsSubDirectories
+    , fmap (("StoredAsSubDirectories",) . toJSON) _glueTableStorageDescriptorStoredAsSubDirectories
     ]
 
 -- | Constructor for 'GlueTableStorageDescriptor' containing required fields

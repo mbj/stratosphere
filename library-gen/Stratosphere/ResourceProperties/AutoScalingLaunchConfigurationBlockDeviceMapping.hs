@@ -28,7 +28,7 @@ instance ToJSON AutoScalingLaunchConfigurationBlockDeviceMapping where
     catMaybes
     [ (Just . ("DeviceName",) . toJSON) _autoScalingLaunchConfigurationBlockDeviceMappingDeviceName
     , fmap (("Ebs",) . toJSON) _autoScalingLaunchConfigurationBlockDeviceMappingEbs
-    , fmap (("NoDevice",) . toJSON . fmap Bool') _autoScalingLaunchConfigurationBlockDeviceMappingNoDevice
+    , fmap (("NoDevice",) . toJSON) _autoScalingLaunchConfigurationBlockDeviceMappingNoDevice
     , fmap (("VirtualName",) . toJSON) _autoScalingLaunchConfigurationBlockDeviceMappingVirtualName
     ]
 

@@ -26,7 +26,7 @@ instance ToJSON FSxFileSystemLustreConfiguration where
     catMaybes
     [ fmap (("ExportPath",) . toJSON) _fSxFileSystemLustreConfigurationExportPath
     , fmap (("ImportPath",) . toJSON) _fSxFileSystemLustreConfigurationImportPath
-    , fmap (("ImportedFileChunkSize",) . toJSON . fmap Integer') _fSxFileSystemLustreConfigurationImportedFileChunkSize
+    , fmap (("ImportedFileChunkSize",) . toJSON) _fSxFileSystemLustreConfigurationImportedFileChunkSize
     , fmap (("WeeklyMaintenanceStartTime",) . toJSON) _fSxFileSystemLustreConfigurationWeeklyMaintenanceStartTime
     ]
 

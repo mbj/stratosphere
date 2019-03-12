@@ -33,14 +33,14 @@ instance ToResourceProperties EC2NetworkAclEntry where
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
         [ (Just . ("CidrBlock",) . toJSON) _eC2NetworkAclEntryCidrBlock
-        , fmap (("Egress",) . toJSON . fmap Bool') _eC2NetworkAclEntryEgress
+        , fmap (("Egress",) . toJSON) _eC2NetworkAclEntryEgress
         , fmap (("Icmp",) . toJSON) _eC2NetworkAclEntryIcmp
         , fmap (("Ipv6CidrBlock",) . toJSON) _eC2NetworkAclEntryIpv6CidrBlock
         , (Just . ("NetworkAclId",) . toJSON) _eC2NetworkAclEntryNetworkAclId
         , fmap (("PortRange",) . toJSON) _eC2NetworkAclEntryPortRange
-        , (Just . ("Protocol",) . toJSON . fmap Integer') _eC2NetworkAclEntryProtocol
+        , (Just . ("Protocol",) . toJSON) _eC2NetworkAclEntryProtocol
         , (Just . ("RuleAction",) . toJSON) _eC2NetworkAclEntryRuleAction
-        , (Just . ("RuleNumber",) . toJSON . fmap Integer') _eC2NetworkAclEntryRuleNumber
+        , (Just . ("RuleNumber",) . toJSON) _eC2NetworkAclEntryRuleNumber
         ]
     }
 

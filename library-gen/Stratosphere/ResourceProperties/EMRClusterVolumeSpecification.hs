@@ -23,8 +23,8 @@ instance ToJSON EMRClusterVolumeSpecification where
   toJSON EMRClusterVolumeSpecification{..} =
     object $
     catMaybes
-    [ fmap (("Iops",) . toJSON . fmap Integer') _eMRClusterVolumeSpecificationIops
-    , (Just . ("SizeInGB",) . toJSON . fmap Integer') _eMRClusterVolumeSpecificationSizeInGB
+    [ fmap (("Iops",) . toJSON) _eMRClusterVolumeSpecificationIops
+    , (Just . ("SizeInGB",) . toJSON) _eMRClusterVolumeSpecificationSizeInGB
     , (Just . ("VolumeType",) . toJSON) _eMRClusterVolumeSpecificationVolumeType
     ]
 

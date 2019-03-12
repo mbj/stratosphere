@@ -36,7 +36,7 @@ instance ToResourceProperties CodePipelinePipeline where
         , fmap (("ArtifactStores",) . toJSON) _codePipelinePipelineArtifactStores
         , fmap (("DisableInboundStageTransitions",) . toJSON) _codePipelinePipelineDisableInboundStageTransitions
         , fmap (("Name",) . toJSON) _codePipelinePipelineName
-        , fmap (("RestartExecutionOnUpdate",) . toJSON . fmap Bool') _codePipelinePipelineRestartExecutionOnUpdate
+        , fmap (("RestartExecutionOnUpdate",) . toJSON) _codePipelinePipelineRestartExecutionOnUpdate
         , (Just . ("RoleArn",) . toJSON) _codePipelinePipelineRoleArn
         , (Just . ("Stages",) . toJSON) _codePipelinePipelineStages
         ]

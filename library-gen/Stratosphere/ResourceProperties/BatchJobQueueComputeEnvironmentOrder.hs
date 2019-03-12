@@ -23,7 +23,7 @@ instance ToJSON BatchJobQueueComputeEnvironmentOrder where
     object $
     catMaybes
     [ (Just . ("ComputeEnvironment",) . toJSON) _batchJobQueueComputeEnvironmentOrderComputeEnvironment
-    , (Just . ("Order",) . toJSON . fmap Integer') _batchJobQueueComputeEnvironmentOrderOrder
+    , (Just . ("Order",) . toJSON) _batchJobQueueComputeEnvironmentOrderOrder
     ]
 
 -- | Constructor for 'BatchJobQueueComputeEnvironmentOrder' containing

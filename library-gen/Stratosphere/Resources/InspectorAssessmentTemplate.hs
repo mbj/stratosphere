@@ -29,7 +29,7 @@ instance ToResourceProperties InspectorAssessmentTemplate where
         hashMapFromList $ catMaybes
         [ (Just . ("AssessmentTargetArn",) . toJSON) _inspectorAssessmentTemplateAssessmentTargetArn
         , fmap (("AssessmentTemplateName",) . toJSON) _inspectorAssessmentTemplateAssessmentTemplateName
-        , (Just . ("DurationInSeconds",) . toJSON . fmap Integer') _inspectorAssessmentTemplateDurationInSeconds
+        , (Just . ("DurationInSeconds",) . toJSON) _inspectorAssessmentTemplateDurationInSeconds
         , (Just . ("RulesPackageArns",) . toJSON) _inspectorAssessmentTemplateRulesPackageArns
         , fmap (("UserAttributesForFindings",) . toJSON) _inspectorAssessmentTemplateUserAttributesForFindings
         ]

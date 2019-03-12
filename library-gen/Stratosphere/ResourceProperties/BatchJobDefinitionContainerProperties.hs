@@ -42,13 +42,13 @@ instance ToJSON BatchJobDefinitionContainerProperties where
     , (Just . ("Image",) . toJSON) _batchJobDefinitionContainerPropertiesImage
     , fmap (("InstanceType",) . toJSON) _batchJobDefinitionContainerPropertiesInstanceType
     , fmap (("JobRoleArn",) . toJSON) _batchJobDefinitionContainerPropertiesJobRoleArn
-    , (Just . ("Memory",) . toJSON . fmap Integer') _batchJobDefinitionContainerPropertiesMemory
+    , (Just . ("Memory",) . toJSON) _batchJobDefinitionContainerPropertiesMemory
     , fmap (("MountPoints",) . toJSON) _batchJobDefinitionContainerPropertiesMountPoints
-    , fmap (("Privileged",) . toJSON . fmap Bool') _batchJobDefinitionContainerPropertiesPrivileged
-    , fmap (("ReadonlyRootFilesystem",) . toJSON . fmap Bool') _batchJobDefinitionContainerPropertiesReadonlyRootFilesystem
+    , fmap (("Privileged",) . toJSON) _batchJobDefinitionContainerPropertiesPrivileged
+    , fmap (("ReadonlyRootFilesystem",) . toJSON) _batchJobDefinitionContainerPropertiesReadonlyRootFilesystem
     , fmap (("Ulimits",) . toJSON) _batchJobDefinitionContainerPropertiesUlimits
     , fmap (("User",) . toJSON) _batchJobDefinitionContainerPropertiesUser
-    , (Just . ("Vcpus",) . toJSON . fmap Integer') _batchJobDefinitionContainerPropertiesVcpus
+    , (Just . ("Vcpus",) . toJSON) _batchJobDefinitionContainerPropertiesVcpus
     , fmap (("Volumes",) . toJSON) _batchJobDefinitionContainerPropertiesVolumes
     ]
 

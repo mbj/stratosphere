@@ -28,7 +28,7 @@ instance ToResourceProperties BatchJobQueue where
         hashMapFromList $ catMaybes
         [ (Just . ("ComputeEnvironmentOrder",) . toJSON) _batchJobQueueComputeEnvironmentOrder
         , fmap (("JobQueueName",) . toJSON) _batchJobQueueJobQueueName
-        , (Just . ("Priority",) . toJSON . fmap Integer') _batchJobQueuePriority
+        , (Just . ("Priority",) . toJSON) _batchJobQueuePriority
         , fmap (("State",) . toJSON) _batchJobQueueState
         ]
     }

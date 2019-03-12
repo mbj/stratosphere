@@ -45,14 +45,14 @@ instance ToResourceProperties Route53RecordSet where
         , fmap (("HealthCheckId",) . toJSON) _route53RecordSetHealthCheckId
         , fmap (("HostedZoneId",) . toJSON) _route53RecordSetHostedZoneId
         , fmap (("HostedZoneName",) . toJSON) _route53RecordSetHostedZoneName
-        , fmap (("MultiValueAnswer",) . toJSON . fmap Bool') _route53RecordSetMultiValueAnswer
+        , fmap (("MultiValueAnswer",) . toJSON) _route53RecordSetMultiValueAnswer
         , (Just . ("Name",) . toJSON) _route53RecordSetName
         , fmap (("Region",) . toJSON) _route53RecordSetRegion
         , fmap (("ResourceRecords",) . toJSON) _route53RecordSetResourceRecords
         , fmap (("SetIdentifier",) . toJSON) _route53RecordSetSetIdentifier
         , fmap (("TTL",) . toJSON) _route53RecordSetTTL
         , (Just . ("Type",) . toJSON) _route53RecordSetType
-        , fmap (("Weight",) . toJSON . fmap Integer') _route53RecordSetWeight
+        , fmap (("Weight",) . toJSON) _route53RecordSetWeight
         ]
     }
 

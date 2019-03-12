@@ -37,7 +37,7 @@ instance ToResourceProperties EC2SecurityGroupIngress where
         [ fmap (("CidrIp",) . toJSON) _eC2SecurityGroupIngressCidrIp
         , fmap (("CidrIpv6",) . toJSON) _eC2SecurityGroupIngressCidrIpv6
         , fmap (("Description",) . toJSON) _eC2SecurityGroupIngressDescription
-        , fmap (("FromPort",) . toJSON . fmap Integer') _eC2SecurityGroupIngressFromPort
+        , fmap (("FromPort",) . toJSON) _eC2SecurityGroupIngressFromPort
         , fmap (("GroupId",) . toJSON) _eC2SecurityGroupIngressGroupId
         , fmap (("GroupName",) . toJSON) _eC2SecurityGroupIngressGroupName
         , (Just . ("IpProtocol",) . toJSON) _eC2SecurityGroupIngressIpProtocol
@@ -45,7 +45,7 @@ instance ToResourceProperties EC2SecurityGroupIngress where
         , fmap (("SourceSecurityGroupId",) . toJSON) _eC2SecurityGroupIngressSourceSecurityGroupId
         , fmap (("SourceSecurityGroupName",) . toJSON) _eC2SecurityGroupIngressSourceSecurityGroupName
         , fmap (("SourceSecurityGroupOwnerId",) . toJSON) _eC2SecurityGroupIngressSourceSecurityGroupOwnerId
-        , fmap (("ToPort",) . toJSON . fmap Integer') _eC2SecurityGroupIngressToPort
+        , fmap (("ToPort",) . toJSON) _eC2SecurityGroupIngressToPort
         ]
     }
 

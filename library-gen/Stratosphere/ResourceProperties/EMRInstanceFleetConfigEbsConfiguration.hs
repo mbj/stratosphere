@@ -24,7 +24,7 @@ instance ToJSON EMRInstanceFleetConfigEbsConfiguration where
     object $
     catMaybes
     [ fmap (("EbsBlockDeviceConfigs",) . toJSON) _eMRInstanceFleetConfigEbsConfigurationEbsBlockDeviceConfigs
-    , fmap (("EbsOptimized",) . toJSON . fmap Bool') _eMRInstanceFleetConfigEbsConfigurationEbsOptimized
+    , fmap (("EbsOptimized",) . toJSON) _eMRInstanceFleetConfigEbsConfigurationEbsOptimized
     ]
 
 -- | Constructor for 'EMRInstanceFleetConfigEbsConfiguration' containing

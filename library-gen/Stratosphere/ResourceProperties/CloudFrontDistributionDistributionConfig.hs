@@ -48,9 +48,9 @@ instance ToJSON CloudFrontDistributionDistributionConfig where
     , fmap (("CustomErrorResponses",) . toJSON) _cloudFrontDistributionDistributionConfigCustomErrorResponses
     , fmap (("DefaultCacheBehavior",) . toJSON) _cloudFrontDistributionDistributionConfigDefaultCacheBehavior
     , fmap (("DefaultRootObject",) . toJSON) _cloudFrontDistributionDistributionConfigDefaultRootObject
-    , (Just . ("Enabled",) . toJSON . fmap Bool') _cloudFrontDistributionDistributionConfigEnabled
+    , (Just . ("Enabled",) . toJSON) _cloudFrontDistributionDistributionConfigEnabled
     , fmap (("HttpVersion",) . toJSON) _cloudFrontDistributionDistributionConfigHttpVersion
-    , fmap (("IPV6Enabled",) . toJSON . fmap Bool') _cloudFrontDistributionDistributionConfigIPV6Enabled
+    , fmap (("IPV6Enabled",) . toJSON) _cloudFrontDistributionDistributionConfigIPV6Enabled
     , fmap (("Logging",) . toJSON) _cloudFrontDistributionDistributionConfigLogging
     , fmap (("Origins",) . toJSON) _cloudFrontDistributionDistributionConfigOrigins
     , fmap (("PriceClass",) . toJSON) _cloudFrontDistributionDistributionConfigPriceClass

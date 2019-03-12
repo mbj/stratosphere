@@ -34,7 +34,7 @@ instance ToJSON AutoScalingScheduledActionPolicy where
   toJSON AutoScalingScheduledActionPolicy{..} =
     object $
     catMaybes
-    [ fmap (("IgnoreUnmodifiedGroupSizeProperties",) . toJSON . fmap Bool') _autoScalingScheduledActionPolicyIgnoreUnmodifiedGroupSizeProperties
+    [ fmap (("IgnoreUnmodifiedGroupSizeProperties",) . toJSON) _autoScalingScheduledActionPolicyIgnoreUnmodifiedGroupSizeProperties
     ]
 
 -- | Constructor for 'AutoScalingScheduledActionPolicy' containing required fields

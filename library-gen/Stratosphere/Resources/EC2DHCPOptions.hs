@@ -31,7 +31,7 @@ instance ToResourceProperties EC2DHCPOptions where
         [ fmap (("DomainName",) . toJSON) _eC2DHCPOptionsDomainName
         , fmap (("DomainNameServers",) . toJSON) _eC2DHCPOptionsDomainNameServers
         , fmap (("NetbiosNameServers",) . toJSON) _eC2DHCPOptionsNetbiosNameServers
-        , fmap (("NetbiosNodeType",) . toJSON . fmap Integer') _eC2DHCPOptionsNetbiosNodeType
+        , fmap (("NetbiosNodeType",) . toJSON) _eC2DHCPOptionsNetbiosNodeType
         , fmap (("NtpServers",) . toJSON) _eC2DHCPOptionsNtpServers
         , fmap (("Tags",) . toJSON) _eC2DHCPOptionsTags
         ]

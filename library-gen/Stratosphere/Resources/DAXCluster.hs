@@ -43,7 +43,7 @@ instance ToResourceProperties DAXCluster where
         , fmap (("NotificationTopicARN",) . toJSON) _dAXClusterNotificationTopicARN
         , fmap (("ParameterGroupName",) . toJSON) _dAXClusterParameterGroupName
         , fmap (("PreferredMaintenanceWindow",) . toJSON) _dAXClusterPreferredMaintenanceWindow
-        , (Just . ("ReplicationFactor",) . toJSON . fmap Integer') _dAXClusterReplicationFactor
+        , (Just . ("ReplicationFactor",) . toJSON) _dAXClusterReplicationFactor
         , fmap (("SSESpecification",) . toJSON) _dAXClusterSSESpecification
         , fmap (("SecurityGroupIds",) . toJSON) _dAXClusterSecurityGroupIds
         , fmap (("SubnetGroupName",) . toJSON) _dAXClusterSubnetGroupName

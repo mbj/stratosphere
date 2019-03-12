@@ -23,7 +23,7 @@ instance ToJSON DLMLifecyclePolicyCreateRule where
   toJSON DLMLifecyclePolicyCreateRule{..} =
     object $
     catMaybes
-    [ (Just . ("Interval",) . toJSON . fmap Integer') _dLMLifecyclePolicyCreateRuleInterval
+    [ (Just . ("Interval",) . toJSON) _dLMLifecyclePolicyCreateRuleInterval
     , (Just . ("IntervalUnit",) . toJSON) _dLMLifecyclePolicyCreateRuleIntervalUnit
     , fmap (("Times",) . toJSON) _dLMLifecyclePolicyCreateRuleTimes
     ]

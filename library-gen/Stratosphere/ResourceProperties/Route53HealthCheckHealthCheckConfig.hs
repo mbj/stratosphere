@@ -38,17 +38,17 @@ instance ToJSON Route53HealthCheckHealthCheckConfig where
     catMaybes
     [ fmap (("AlarmIdentifier",) . toJSON) _route53HealthCheckHealthCheckConfigAlarmIdentifier
     , fmap (("ChildHealthChecks",) . toJSON) _route53HealthCheckHealthCheckConfigChildHealthChecks
-    , fmap (("EnableSNI",) . toJSON . fmap Bool') _route53HealthCheckHealthCheckConfigEnableSNI
-    , fmap (("FailureThreshold",) . toJSON . fmap Integer') _route53HealthCheckHealthCheckConfigFailureThreshold
+    , fmap (("EnableSNI",) . toJSON) _route53HealthCheckHealthCheckConfigEnableSNI
+    , fmap (("FailureThreshold",) . toJSON) _route53HealthCheckHealthCheckConfigFailureThreshold
     , fmap (("FullyQualifiedDomainName",) . toJSON) _route53HealthCheckHealthCheckConfigFullyQualifiedDomainName
-    , fmap (("HealthThreshold",) . toJSON . fmap Integer') _route53HealthCheckHealthCheckConfigHealthThreshold
+    , fmap (("HealthThreshold",) . toJSON) _route53HealthCheckHealthCheckConfigHealthThreshold
     , fmap (("IPAddress",) . toJSON) _route53HealthCheckHealthCheckConfigIPAddress
     , fmap (("InsufficientDataHealthStatus",) . toJSON) _route53HealthCheckHealthCheckConfigInsufficientDataHealthStatus
-    , fmap (("Inverted",) . toJSON . fmap Bool') _route53HealthCheckHealthCheckConfigInverted
-    , fmap (("MeasureLatency",) . toJSON . fmap Bool') _route53HealthCheckHealthCheckConfigMeasureLatency
-    , fmap (("Port",) . toJSON . fmap Integer') _route53HealthCheckHealthCheckConfigPort
+    , fmap (("Inverted",) . toJSON) _route53HealthCheckHealthCheckConfigInverted
+    , fmap (("MeasureLatency",) . toJSON) _route53HealthCheckHealthCheckConfigMeasureLatency
+    , fmap (("Port",) . toJSON) _route53HealthCheckHealthCheckConfigPort
     , fmap (("Regions",) . toJSON) _route53HealthCheckHealthCheckConfigRegions
-    , fmap (("RequestInterval",) . toJSON . fmap Integer') _route53HealthCheckHealthCheckConfigRequestInterval
+    , fmap (("RequestInterval",) . toJSON) _route53HealthCheckHealthCheckConfigRequestInterval
     , fmap (("ResourcePath",) . toJSON) _route53HealthCheckHealthCheckConfigResourcePath
     , fmap (("SearchString",) . toJSON) _route53HealthCheckHealthCheckConfigSearchString
     , (Just . ("Type",) . toJSON) _route53HealthCheckHealthCheckConfigType

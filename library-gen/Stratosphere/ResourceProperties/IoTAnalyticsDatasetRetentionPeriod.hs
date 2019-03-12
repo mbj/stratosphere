@@ -22,8 +22,8 @@ instance ToJSON IoTAnalyticsDatasetRetentionPeriod where
   toJSON IoTAnalyticsDatasetRetentionPeriod{..} =
     object $
     catMaybes
-    [ (Just . ("NumberOfDays",) . toJSON . fmap Integer') _ioTAnalyticsDatasetRetentionPeriodNumberOfDays
-    , (Just . ("Unlimited",) . toJSON . fmap Bool') _ioTAnalyticsDatasetRetentionPeriodUnlimited
+    [ (Just . ("NumberOfDays",) . toJSON) _ioTAnalyticsDatasetRetentionPeriodNumberOfDays
+    , (Just . ("Unlimited",) . toJSON) _ioTAnalyticsDatasetRetentionPeriodUnlimited
     ]
 
 -- | Constructor for 'IoTAnalyticsDatasetRetentionPeriod' containing required

@@ -24,9 +24,9 @@ instance ToJSON EMRClusterSpotProvisioningSpecification where
   toJSON EMRClusterSpotProvisioningSpecification{..} =
     object $
     catMaybes
-    [ fmap (("BlockDurationMinutes",) . toJSON . fmap Integer') _eMRClusterSpotProvisioningSpecificationBlockDurationMinutes
+    [ fmap (("BlockDurationMinutes",) . toJSON) _eMRClusterSpotProvisioningSpecificationBlockDurationMinutes
     , (Just . ("TimeoutAction",) . toJSON) _eMRClusterSpotProvisioningSpecificationTimeoutAction
-    , (Just . ("TimeoutDurationMinutes",) . toJSON . fmap Integer') _eMRClusterSpotProvisioningSpecificationTimeoutDurationMinutes
+    , (Just . ("TimeoutDurationMinutes",) . toJSON) _eMRClusterSpotProvisioningSpecificationTimeoutDurationMinutes
     ]
 
 -- | Constructor for 'EMRClusterSpotProvisioningSpecification' containing

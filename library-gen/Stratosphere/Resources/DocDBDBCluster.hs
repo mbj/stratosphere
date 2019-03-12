@@ -39,7 +39,7 @@ instance ToResourceProperties DocDBDBCluster where
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
         [ fmap (("AvailabilityZones",) . toJSON) _docDBDBClusterAvailabilityZones
-        , fmap (("BackupRetentionPeriod",) . toJSON . fmap Integer') _docDBDBClusterBackupRetentionPeriod
+        , fmap (("BackupRetentionPeriod",) . toJSON) _docDBDBClusterBackupRetentionPeriod
         , fmap (("DBClusterIdentifier",) . toJSON) _docDBDBClusterDBClusterIdentifier
         , fmap (("DBClusterParameterGroupName",) . toJSON) _docDBDBClusterDBClusterParameterGroupName
         , fmap (("DBSubnetGroupName",) . toJSON) _docDBDBClusterDBSubnetGroupName
@@ -47,11 +47,11 @@ instance ToResourceProperties DocDBDBCluster where
         , fmap (("KmsKeyId",) . toJSON) _docDBDBClusterKmsKeyId
         , fmap (("MasterUserPassword",) . toJSON) _docDBDBClusterMasterUserPassword
         , fmap (("MasterUsername",) . toJSON) _docDBDBClusterMasterUsername
-        , fmap (("Port",) . toJSON . fmap Integer') _docDBDBClusterPort
+        , fmap (("Port",) . toJSON) _docDBDBClusterPort
         , fmap (("PreferredBackupWindow",) . toJSON) _docDBDBClusterPreferredBackupWindow
         , fmap (("PreferredMaintenanceWindow",) . toJSON) _docDBDBClusterPreferredMaintenanceWindow
         , fmap (("SnapshotIdentifier",) . toJSON) _docDBDBClusterSnapshotIdentifier
-        , fmap (("StorageEncrypted",) . toJSON . fmap Bool') _docDBDBClusterStorageEncrypted
+        , fmap (("StorageEncrypted",) . toJSON) _docDBDBClusterStorageEncrypted
         , fmap (("Tags",) . toJSON) _docDBDBClusterTags
         , fmap (("VpcSecurityGroupIds",) . toJSON) _docDBDBClusterVpcSecurityGroupIds
         ]

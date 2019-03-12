@@ -32,7 +32,7 @@ instance ToResourceProperties ApiGatewayV2Authorizer where
         hashMapFromList $ catMaybes
         [ (Just . ("ApiId",) . toJSON) _apiGatewayV2AuthorizerApiId
         , fmap (("AuthorizerCredentialsArn",) . toJSON) _apiGatewayV2AuthorizerAuthorizerCredentialsArn
-        , fmap (("AuthorizerResultTtlInSeconds",) . toJSON . fmap Integer') _apiGatewayV2AuthorizerAuthorizerResultTtlInSeconds
+        , fmap (("AuthorizerResultTtlInSeconds",) . toJSON) _apiGatewayV2AuthorizerAuthorizerResultTtlInSeconds
         , (Just . ("AuthorizerType",) . toJSON) _apiGatewayV2AuthorizerAuthorizerType
         , (Just . ("AuthorizerUri",) . toJSON) _apiGatewayV2AuthorizerAuthorizerUri
         , (Just . ("IdentitySource",) . toJSON) _apiGatewayV2AuthorizerIdentitySource

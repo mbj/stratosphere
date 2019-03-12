@@ -59,15 +59,15 @@ instance ToJSON ECSTaskDefinitionContainerDefinition where
     object $
     catMaybes
     [ fmap (("Command",) . toJSON) _eCSTaskDefinitionContainerDefinitionCommand
-    , fmap (("Cpu",) . toJSON . fmap Integer') _eCSTaskDefinitionContainerDefinitionCpu
-    , fmap (("DisableNetworking",) . toJSON . fmap Bool') _eCSTaskDefinitionContainerDefinitionDisableNetworking
+    , fmap (("Cpu",) . toJSON) _eCSTaskDefinitionContainerDefinitionCpu
+    , fmap (("DisableNetworking",) . toJSON) _eCSTaskDefinitionContainerDefinitionDisableNetworking
     , fmap (("DnsSearchDomains",) . toJSON) _eCSTaskDefinitionContainerDefinitionDnsSearchDomains
     , fmap (("DnsServers",) . toJSON) _eCSTaskDefinitionContainerDefinitionDnsServers
     , fmap (("DockerLabels",) . toJSON) _eCSTaskDefinitionContainerDefinitionDockerLabels
     , fmap (("DockerSecurityOptions",) . toJSON) _eCSTaskDefinitionContainerDefinitionDockerSecurityOptions
     , fmap (("EntryPoint",) . toJSON) _eCSTaskDefinitionContainerDefinitionEntryPoint
     , fmap (("Environment",) . toJSON) _eCSTaskDefinitionContainerDefinitionEnvironment
-    , fmap (("Essential",) . toJSON . fmap Bool') _eCSTaskDefinitionContainerDefinitionEssential
+    , fmap (("Essential",) . toJSON) _eCSTaskDefinitionContainerDefinitionEssential
     , fmap (("ExtraHosts",) . toJSON) _eCSTaskDefinitionContainerDefinitionExtraHosts
     , fmap (("HealthCheck",) . toJSON) _eCSTaskDefinitionContainerDefinitionHealthCheck
     , fmap (("Hostname",) . toJSON) _eCSTaskDefinitionContainerDefinitionHostname
@@ -75,13 +75,13 @@ instance ToJSON ECSTaskDefinitionContainerDefinition where
     , fmap (("Links",) . toJSON) _eCSTaskDefinitionContainerDefinitionLinks
     , fmap (("LinuxParameters",) . toJSON) _eCSTaskDefinitionContainerDefinitionLinuxParameters
     , fmap (("LogConfiguration",) . toJSON) _eCSTaskDefinitionContainerDefinitionLogConfiguration
-    , fmap (("Memory",) . toJSON . fmap Integer') _eCSTaskDefinitionContainerDefinitionMemory
-    , fmap (("MemoryReservation",) . toJSON . fmap Integer') _eCSTaskDefinitionContainerDefinitionMemoryReservation
+    , fmap (("Memory",) . toJSON) _eCSTaskDefinitionContainerDefinitionMemory
+    , fmap (("MemoryReservation",) . toJSON) _eCSTaskDefinitionContainerDefinitionMemoryReservation
     , fmap (("MountPoints",) . toJSON) _eCSTaskDefinitionContainerDefinitionMountPoints
     , (Just . ("Name",) . toJSON) _eCSTaskDefinitionContainerDefinitionName
     , fmap (("PortMappings",) . toJSON) _eCSTaskDefinitionContainerDefinitionPortMappings
-    , fmap (("Privileged",) . toJSON . fmap Bool') _eCSTaskDefinitionContainerDefinitionPrivileged
-    , fmap (("ReadonlyRootFilesystem",) . toJSON . fmap Bool') _eCSTaskDefinitionContainerDefinitionReadonlyRootFilesystem
+    , fmap (("Privileged",) . toJSON) _eCSTaskDefinitionContainerDefinitionPrivileged
+    , fmap (("ReadonlyRootFilesystem",) . toJSON) _eCSTaskDefinitionContainerDefinitionReadonlyRootFilesystem
     , fmap (("RepositoryCredentials",) . toJSON) _eCSTaskDefinitionContainerDefinitionRepositoryCredentials
     , fmap (("Ulimits",) . toJSON) _eCSTaskDefinitionContainerDefinitionUlimits
     , fmap (("User",) . toJSON) _eCSTaskDefinitionContainerDefinitionUser

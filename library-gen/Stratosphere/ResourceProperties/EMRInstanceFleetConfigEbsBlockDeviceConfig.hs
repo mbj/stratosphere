@@ -24,7 +24,7 @@ instance ToJSON EMRInstanceFleetConfigEbsBlockDeviceConfig where
     object $
     catMaybes
     [ (Just . ("VolumeSpecification",) . toJSON) _eMRInstanceFleetConfigEbsBlockDeviceConfigVolumeSpecification
-    , fmap (("VolumesPerInstance",) . toJSON . fmap Integer') _eMRInstanceFleetConfigEbsBlockDeviceConfigVolumesPerInstance
+    , fmap (("VolumesPerInstance",) . toJSON) _eMRInstanceFleetConfigEbsBlockDeviceConfigVolumesPerInstance
     ]
 
 -- | Constructor for 'EMRInstanceFleetConfigEbsBlockDeviceConfig' containing

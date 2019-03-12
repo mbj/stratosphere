@@ -23,7 +23,7 @@ instance ToJSON GlueTableOrder where
     object $
     catMaybes
     [ (Just . ("Column",) . toJSON) _glueTableOrderColumn
-    , (Just . ("SortOrder",) . toJSON . fmap Integer') _glueTableOrderSortOrder
+    , (Just . ("SortOrder",) . toJSON) _glueTableOrderSortOrder
     ]
 
 -- | Constructor for 'GlueTableOrder' containing required fields as arguments.

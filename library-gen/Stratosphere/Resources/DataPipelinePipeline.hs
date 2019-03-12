@@ -32,7 +32,7 @@ instance ToResourceProperties DataPipelinePipeline where
     { resourcePropertiesType = "AWS::DataPipeline::Pipeline"
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
-        [ fmap (("Activate",) . toJSON . fmap Bool') _dataPipelinePipelineActivate
+        [ fmap (("Activate",) . toJSON) _dataPipelinePipelineActivate
         , fmap (("Description",) . toJSON) _dataPipelinePipelineDescription
         , (Just . ("Name",) . toJSON) _dataPipelinePipelineName
         , (Just . ("ParameterObjects",) . toJSON) _dataPipelinePipelineParameterObjects

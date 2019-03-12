@@ -33,7 +33,7 @@ instance ToResourceProperties GuardDutyFilter where
         , (Just . ("DetectorId",) . toJSON) _guardDutyFilterDetectorId
         , (Just . ("FindingCriteria",) . toJSON) _guardDutyFilterFindingCriteria
         , fmap (("Name",) . toJSON) _guardDutyFilterName
-        , (Just . ("Rank",) . toJSON . fmap Integer') _guardDutyFilterRank
+        , (Just . ("Rank",) . toJSON) _guardDutyFilterRank
         ]
     }
 

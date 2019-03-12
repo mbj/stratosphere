@@ -24,7 +24,7 @@ instance ToJSON CodeDeployDeploymentGroupDeployment where
     object $
     catMaybes
     [ fmap (("Description",) . toJSON) _codeDeployDeploymentGroupDeploymentDescription
-    , fmap (("IgnoreApplicationStopFailures",) . toJSON . fmap Bool') _codeDeployDeploymentGroupDeploymentIgnoreApplicationStopFailures
+    , fmap (("IgnoreApplicationStopFailures",) . toJSON) _codeDeployDeploymentGroupDeploymentIgnoreApplicationStopFailures
     , (Just . ("Revision",) . toJSON) _codeDeployDeploymentGroupDeploymentRevision
     ]
 

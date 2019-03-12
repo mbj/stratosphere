@@ -29,9 +29,9 @@ instance ToResourceProperties DirectoryServiceMicrosoftAD where
     { resourcePropertiesType = "AWS::DirectoryService::MicrosoftAD"
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
-        [ fmap (("CreateAlias",) . toJSON . fmap Bool') _directoryServiceMicrosoftADCreateAlias
+        [ fmap (("CreateAlias",) . toJSON) _directoryServiceMicrosoftADCreateAlias
         , fmap (("Edition",) . toJSON) _directoryServiceMicrosoftADEdition
-        , fmap (("EnableSso",) . toJSON . fmap Bool') _directoryServiceMicrosoftADEnableSso
+        , fmap (("EnableSso",) . toJSON) _directoryServiceMicrosoftADEnableSso
         , (Just . ("Name",) . toJSON) _directoryServiceMicrosoftADName
         , (Just . ("Password",) . toJSON) _directoryServiceMicrosoftADPassword
         , fmap (("ShortName",) . toJSON) _directoryServiceMicrosoftADShortName

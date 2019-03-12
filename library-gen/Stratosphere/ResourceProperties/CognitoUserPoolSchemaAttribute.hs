@@ -29,11 +29,11 @@ instance ToJSON CognitoUserPoolSchemaAttribute where
     object $
     catMaybes
     [ fmap (("AttributeDataType",) . toJSON) _cognitoUserPoolSchemaAttributeAttributeDataType
-    , fmap (("DeveloperOnlyAttribute",) . toJSON . fmap Bool') _cognitoUserPoolSchemaAttributeDeveloperOnlyAttribute
-    , fmap (("Mutable",) . toJSON . fmap Bool') _cognitoUserPoolSchemaAttributeMutable
+    , fmap (("DeveloperOnlyAttribute",) . toJSON) _cognitoUserPoolSchemaAttributeDeveloperOnlyAttribute
+    , fmap (("Mutable",) . toJSON) _cognitoUserPoolSchemaAttributeMutable
     , fmap (("Name",) . toJSON) _cognitoUserPoolSchemaAttributeName
     , fmap (("NumberAttributeConstraints",) . toJSON) _cognitoUserPoolSchemaAttributeNumberAttributeConstraints
-    , fmap (("Required",) . toJSON . fmap Bool') _cognitoUserPoolSchemaAttributeRequired
+    , fmap (("Required",) . toJSON) _cognitoUserPoolSchemaAttributeRequired
     , fmap (("StringAttributeConstraints",) . toJSON) _cognitoUserPoolSchemaAttributeStringAttributeConstraints
     ]
 

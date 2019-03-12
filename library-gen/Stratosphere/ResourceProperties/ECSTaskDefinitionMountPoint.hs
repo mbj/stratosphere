@@ -24,7 +24,7 @@ instance ToJSON ECSTaskDefinitionMountPoint where
     object $
     catMaybes
     [ fmap (("ContainerPath",) . toJSON) _eCSTaskDefinitionMountPointContainerPath
-    , fmap (("ReadOnly",) . toJSON . fmap Bool') _eCSTaskDefinitionMountPointReadOnly
+    , fmap (("ReadOnly",) . toJSON) _eCSTaskDefinitionMountPointReadOnly
     , fmap (("SourceVolume",) . toJSON) _eCSTaskDefinitionMountPointSourceVolume
     ]
 

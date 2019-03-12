@@ -24,7 +24,7 @@ instance ToJSON CloudTrailTrailEventSelector where
     object $
     catMaybes
     [ fmap (("DataResources",) . toJSON) _cloudTrailTrailEventSelectorDataResources
-    , fmap (("IncludeManagementEvents",) . toJSON . fmap Bool') _cloudTrailTrailEventSelectorIncludeManagementEvents
+    , fmap (("IncludeManagementEvents",) . toJSON) _cloudTrailTrailEventSelectorIncludeManagementEvents
     , fmap (("ReadWriteType",) . toJSON) _cloudTrailTrailEventSelectorReadWriteType
     ]
 

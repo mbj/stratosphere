@@ -21,7 +21,7 @@ instance ToJSON GlueJobExecutionProperty where
   toJSON GlueJobExecutionProperty{..} =
     object $
     catMaybes
-    [ fmap (("MaxConcurrentRuns",) . toJSON . fmap Double') _glueJobExecutionPropertyMaxConcurrentRuns
+    [ fmap (("MaxConcurrentRuns",) . toJSON) _glueJobExecutionPropertyMaxConcurrentRuns
     ]
 
 -- | Constructor for 'GlueJobExecutionProperty' containing required fields as

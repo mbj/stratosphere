@@ -32,14 +32,14 @@ instance ToJSON SecretsManagerSecretGenerateSecretString where
     object $
     catMaybes
     [ fmap (("ExcludeCharacters",) . toJSON) _secretsManagerSecretGenerateSecretStringExcludeCharacters
-    , fmap (("ExcludeLowercase",) . toJSON . fmap Bool') _secretsManagerSecretGenerateSecretStringExcludeLowercase
-    , fmap (("ExcludeNumbers",) . toJSON . fmap Bool') _secretsManagerSecretGenerateSecretStringExcludeNumbers
-    , fmap (("ExcludePunctuation",) . toJSON . fmap Bool') _secretsManagerSecretGenerateSecretStringExcludePunctuation
-    , fmap (("ExcludeUppercase",) . toJSON . fmap Bool') _secretsManagerSecretGenerateSecretStringExcludeUppercase
+    , fmap (("ExcludeLowercase",) . toJSON) _secretsManagerSecretGenerateSecretStringExcludeLowercase
+    , fmap (("ExcludeNumbers",) . toJSON) _secretsManagerSecretGenerateSecretStringExcludeNumbers
+    , fmap (("ExcludePunctuation",) . toJSON) _secretsManagerSecretGenerateSecretStringExcludePunctuation
+    , fmap (("ExcludeUppercase",) . toJSON) _secretsManagerSecretGenerateSecretStringExcludeUppercase
     , fmap (("GenerateStringKey",) . toJSON) _secretsManagerSecretGenerateSecretStringGenerateStringKey
-    , fmap (("IncludeSpace",) . toJSON . fmap Bool') _secretsManagerSecretGenerateSecretStringIncludeSpace
-    , fmap (("PasswordLength",) . toJSON . fmap Integer') _secretsManagerSecretGenerateSecretStringPasswordLength
-    , fmap (("RequireEachIncludedType",) . toJSON . fmap Bool') _secretsManagerSecretGenerateSecretStringRequireEachIncludedType
+    , fmap (("IncludeSpace",) . toJSON) _secretsManagerSecretGenerateSecretStringIncludeSpace
+    , fmap (("PasswordLength",) . toJSON) _secretsManagerSecretGenerateSecretStringPasswordLength
+    , fmap (("RequireEachIncludedType",) . toJSON) _secretsManagerSecretGenerateSecretStringRequireEachIncludedType
     , fmap (("SecretStringTemplate",) . toJSON) _secretsManagerSecretGenerateSecretStringSecretStringTemplate
     ]
 

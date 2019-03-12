@@ -43,14 +43,14 @@ instance ToJSON Route53RecordSetGroupRecordSet where
     , fmap (("HealthCheckId",) . toJSON) _route53RecordSetGroupRecordSetHealthCheckId
     , fmap (("HostedZoneId",) . toJSON) _route53RecordSetGroupRecordSetHostedZoneId
     , fmap (("HostedZoneName",) . toJSON) _route53RecordSetGroupRecordSetHostedZoneName
-    , fmap (("MultiValueAnswer",) . toJSON . fmap Bool') _route53RecordSetGroupRecordSetMultiValueAnswer
+    , fmap (("MultiValueAnswer",) . toJSON) _route53RecordSetGroupRecordSetMultiValueAnswer
     , (Just . ("Name",) . toJSON) _route53RecordSetGroupRecordSetName
     , fmap (("Region",) . toJSON) _route53RecordSetGroupRecordSetRegion
     , fmap (("ResourceRecords",) . toJSON) _route53RecordSetGroupRecordSetResourceRecords
     , fmap (("SetIdentifier",) . toJSON) _route53RecordSetGroupRecordSetSetIdentifier
     , fmap (("TTL",) . toJSON) _route53RecordSetGroupRecordSetTTL
     , (Just . ("Type",) . toJSON) _route53RecordSetGroupRecordSetType
-    , fmap (("Weight",) . toJSON . fmap Integer') _route53RecordSetGroupRecordSetWeight
+    , fmap (("Weight",) . toJSON) _route53RecordSetGroupRecordSetWeight
     ]
 
 -- | Constructor for 'Route53RecordSetGroupRecordSet' containing required

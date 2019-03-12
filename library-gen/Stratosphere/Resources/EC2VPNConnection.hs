@@ -30,7 +30,7 @@ instance ToResourceProperties EC2VPNConnection where
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
         [ (Just . ("CustomerGatewayId",) . toJSON) _eC2VPNConnectionCustomerGatewayId
-        , fmap (("StaticRoutesOnly",) . toJSON . fmap Bool') _eC2VPNConnectionStaticRoutesOnly
+        , fmap (("StaticRoutesOnly",) . toJSON) _eC2VPNConnectionStaticRoutesOnly
         , fmap (("Tags",) . toJSON) _eC2VPNConnectionTags
         , (Just . ("Type",) . toJSON) _eC2VPNConnectionType
         , (Just . ("VpnGatewayId",) . toJSON) _eC2VPNConnectionVpnGatewayId

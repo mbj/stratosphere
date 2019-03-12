@@ -36,15 +36,15 @@ instance ToResourceProperties DMSReplicationInstance where
     { resourcePropertiesType = "AWS::DMS::ReplicationInstance"
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
-        [ fmap (("AllocatedStorage",) . toJSON . fmap Integer') _dMSReplicationInstanceAllocatedStorage
-        , fmap (("AllowMajorVersionUpgrade",) . toJSON . fmap Bool') _dMSReplicationInstanceAllowMajorVersionUpgrade
-        , fmap (("AutoMinorVersionUpgrade",) . toJSON . fmap Bool') _dMSReplicationInstanceAutoMinorVersionUpgrade
+        [ fmap (("AllocatedStorage",) . toJSON) _dMSReplicationInstanceAllocatedStorage
+        , fmap (("AllowMajorVersionUpgrade",) . toJSON) _dMSReplicationInstanceAllowMajorVersionUpgrade
+        , fmap (("AutoMinorVersionUpgrade",) . toJSON) _dMSReplicationInstanceAutoMinorVersionUpgrade
         , fmap (("AvailabilityZone",) . toJSON) _dMSReplicationInstanceAvailabilityZone
         , fmap (("EngineVersion",) . toJSON) _dMSReplicationInstanceEngineVersion
         , fmap (("KmsKeyId",) . toJSON) _dMSReplicationInstanceKmsKeyId
-        , fmap (("MultiAZ",) . toJSON . fmap Bool') _dMSReplicationInstanceMultiAZ
+        , fmap (("MultiAZ",) . toJSON) _dMSReplicationInstanceMultiAZ
         , fmap (("PreferredMaintenanceWindow",) . toJSON) _dMSReplicationInstancePreferredMaintenanceWindow
-        , fmap (("PubliclyAccessible",) . toJSON . fmap Bool') _dMSReplicationInstancePubliclyAccessible
+        , fmap (("PubliclyAccessible",) . toJSON) _dMSReplicationInstancePubliclyAccessible
         , (Just . ("ReplicationInstanceClass",) . toJSON) _dMSReplicationInstanceReplicationInstanceClass
         , fmap (("ReplicationInstanceIdentifier",) . toJSON) _dMSReplicationInstanceReplicationInstanceIdentifier
         , fmap (("ReplicationSubnetGroupIdentifier",) . toJSON) _dMSReplicationInstanceReplicationSubnetGroupIdentifier

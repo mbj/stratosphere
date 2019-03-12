@@ -31,8 +31,8 @@ instance ToResourceProperties ApiGatewayApiKey where
         hashMapFromList $ catMaybes
         [ fmap (("CustomerId",) . toJSON) _apiGatewayApiKeyCustomerId
         , fmap (("Description",) . toJSON) _apiGatewayApiKeyDescription
-        , fmap (("Enabled",) . toJSON . fmap Bool') _apiGatewayApiKeyEnabled
-        , fmap (("GenerateDistinctId",) . toJSON . fmap Bool') _apiGatewayApiKeyGenerateDistinctId
+        , fmap (("Enabled",) . toJSON) _apiGatewayApiKeyEnabled
+        , fmap (("GenerateDistinctId",) . toJSON) _apiGatewayApiKeyGenerateDistinctId
         , fmap (("Name",) . toJSON) _apiGatewayApiKeyName
         , fmap (("StageKeys",) . toJSON) _apiGatewayApiKeyStageKeys
         , fmap (("Value",) . toJSON) _apiGatewayApiKeyValue

@@ -24,9 +24,9 @@ instance ToJSON ElasticBeanstalkApplicationMaxAgeRule where
   toJSON ElasticBeanstalkApplicationMaxAgeRule{..} =
     object $
     catMaybes
-    [ fmap (("DeleteSourceFromS3",) . toJSON . fmap Bool') _elasticBeanstalkApplicationMaxAgeRuleDeleteSourceFromS3
-    , fmap (("Enabled",) . toJSON . fmap Bool') _elasticBeanstalkApplicationMaxAgeRuleEnabled
-    , fmap (("MaxAgeInDays",) . toJSON . fmap Integer') _elasticBeanstalkApplicationMaxAgeRuleMaxAgeInDays
+    [ fmap (("DeleteSourceFromS3",) . toJSON) _elasticBeanstalkApplicationMaxAgeRuleDeleteSourceFromS3
+    , fmap (("Enabled",) . toJSON) _elasticBeanstalkApplicationMaxAgeRuleEnabled
+    , fmap (("MaxAgeInDays",) . toJSON) _elasticBeanstalkApplicationMaxAgeRuleMaxAgeInDays
     ]
 
 -- | Constructor for 'ElasticBeanstalkApplicationMaxAgeRule' containing

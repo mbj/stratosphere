@@ -44,10 +44,10 @@ instance ToJSON EC2SpotFleetSpotFleetRequestConfigData where
     , fmap (("LaunchSpecifications",) . toJSON) _eC2SpotFleetSpotFleetRequestConfigDataLaunchSpecifications
     , fmap (("LaunchTemplateConfigs",) . toJSON) _eC2SpotFleetSpotFleetRequestConfigDataLaunchTemplateConfigs
     , fmap (("LoadBalancersConfig",) . toJSON) _eC2SpotFleetSpotFleetRequestConfigDataLoadBalancersConfig
-    , fmap (("ReplaceUnhealthyInstances",) . toJSON . fmap Bool') _eC2SpotFleetSpotFleetRequestConfigDataReplaceUnhealthyInstances
+    , fmap (("ReplaceUnhealthyInstances",) . toJSON) _eC2SpotFleetSpotFleetRequestConfigDataReplaceUnhealthyInstances
     , fmap (("SpotPrice",) . toJSON) _eC2SpotFleetSpotFleetRequestConfigDataSpotPrice
-    , (Just . ("TargetCapacity",) . toJSON . fmap Integer') _eC2SpotFleetSpotFleetRequestConfigDataTargetCapacity
-    , fmap (("TerminateInstancesWithExpiration",) . toJSON . fmap Bool') _eC2SpotFleetSpotFleetRequestConfigDataTerminateInstancesWithExpiration
+    , (Just . ("TargetCapacity",) . toJSON) _eC2SpotFleetSpotFleetRequestConfigDataTargetCapacity
+    , fmap (("TerminateInstancesWithExpiration",) . toJSON) _eC2SpotFleetSpotFleetRequestConfigDataTerminateInstancesWithExpiration
     , fmap (("Type",) . toJSON) _eC2SpotFleetSpotFleetRequestConfigDataType
     , fmap (("ValidFrom",) . toJSON) _eC2SpotFleetSpotFleetRequestConfigDataValidFrom
     , fmap (("ValidUntil",) . toJSON) _eC2SpotFleetSpotFleetRequestConfigDataValidUntil

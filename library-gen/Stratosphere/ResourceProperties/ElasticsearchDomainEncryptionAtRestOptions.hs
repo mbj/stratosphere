@@ -23,7 +23,7 @@ instance ToJSON ElasticsearchDomainEncryptionAtRestOptions where
   toJSON ElasticsearchDomainEncryptionAtRestOptions{..} =
     object $
     catMaybes
-    [ fmap (("Enabled",) . toJSON . fmap Bool') _elasticsearchDomainEncryptionAtRestOptionsEnabled
+    [ fmap (("Enabled",) . toJSON) _elasticsearchDomainEncryptionAtRestOptionsEnabled
     , fmap (("KmsKeyId",) . toJSON) _elasticsearchDomainEncryptionAtRestOptionsKmsKeyId
     ]
 

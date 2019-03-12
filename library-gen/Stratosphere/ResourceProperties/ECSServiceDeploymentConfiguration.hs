@@ -22,8 +22,8 @@ instance ToJSON ECSServiceDeploymentConfiguration where
   toJSON ECSServiceDeploymentConfiguration{..} =
     object $
     catMaybes
-    [ fmap (("MaximumPercent",) . toJSON . fmap Integer') _eCSServiceDeploymentConfigurationMaximumPercent
-    , fmap (("MinimumHealthyPercent",) . toJSON . fmap Integer') _eCSServiceDeploymentConfigurationMinimumHealthyPercent
+    [ fmap (("MaximumPercent",) . toJSON) _eCSServiceDeploymentConfigurationMaximumPercent
+    , fmap (("MinimumHealthyPercent",) . toJSON) _eCSServiceDeploymentConfigurationMinimumHealthyPercent
     ]
 
 -- | Constructor for 'ECSServiceDeploymentConfiguration' containing required

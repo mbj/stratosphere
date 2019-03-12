@@ -24,9 +24,9 @@ instance ToJSON ElasticsearchDomainEBSOptions where
   toJSON ElasticsearchDomainEBSOptions{..} =
     object $
     catMaybes
-    [ fmap (("EBSEnabled",) . toJSON . fmap Bool') _elasticsearchDomainEBSOptionsEBSEnabled
-    , fmap (("Iops",) . toJSON . fmap Integer') _elasticsearchDomainEBSOptionsIops
-    , fmap (("VolumeSize",) . toJSON . fmap Integer') _elasticsearchDomainEBSOptionsVolumeSize
+    [ fmap (("EBSEnabled",) . toJSON) _elasticsearchDomainEBSOptionsEBSEnabled
+    , fmap (("Iops",) . toJSON) _elasticsearchDomainEBSOptionsIops
+    , fmap (("VolumeSize",) . toJSON) _elasticsearchDomainEBSOptionsVolumeSize
     , fmap (("VolumeType",) . toJSON) _elasticsearchDomainEBSOptionsVolumeType
     ]
 

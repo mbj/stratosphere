@@ -24,7 +24,7 @@ instance ToJSON CodeDeployDeploymentGroupAutoRollbackConfiguration where
   toJSON CodeDeployDeploymentGroupAutoRollbackConfiguration{..} =
     object $
     catMaybes
-    [ fmap (("Enabled",) . toJSON . fmap Bool') _codeDeployDeploymentGroupAutoRollbackConfigurationEnabled
+    [ fmap (("Enabled",) . toJSON) _codeDeployDeploymentGroupAutoRollbackConfigurationEnabled
     , fmap (("Events",) . toJSON) _codeDeployDeploymentGroupAutoRollbackConfigurationEvents
     ]
 

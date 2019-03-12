@@ -24,8 +24,8 @@ instance ToJSON CodePipelineCustomActionTypeArtifactDetails where
   toJSON CodePipelineCustomActionTypeArtifactDetails{..} =
     object $
     catMaybes
-    [ (Just . ("MaximumCount",) . toJSON . fmap Integer') _codePipelineCustomActionTypeArtifactDetailsMaximumCount
-    , (Just . ("MinimumCount",) . toJSON . fmap Integer') _codePipelineCustomActionTypeArtifactDetailsMinimumCount
+    [ (Just . ("MaximumCount",) . toJSON) _codePipelineCustomActionTypeArtifactDetailsMaximumCount
+    , (Just . ("MinimumCount",) . toJSON) _codePipelineCustomActionTypeArtifactDetailsMinimumCount
     ]
 
 -- | Constructor for 'CodePipelineCustomActionTypeArtifactDetails' containing

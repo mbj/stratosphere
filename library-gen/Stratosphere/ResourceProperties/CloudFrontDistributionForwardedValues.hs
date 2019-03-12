@@ -27,7 +27,7 @@ instance ToJSON CloudFrontDistributionForwardedValues where
     catMaybes
     [ fmap (("Cookies",) . toJSON) _cloudFrontDistributionForwardedValuesCookies
     , fmap (("Headers",) . toJSON) _cloudFrontDistributionForwardedValuesHeaders
-    , (Just . ("QueryString",) . toJSON . fmap Bool') _cloudFrontDistributionForwardedValuesQueryString
+    , (Just . ("QueryString",) . toJSON) _cloudFrontDistributionForwardedValuesQueryString
     , fmap (("QueryStringCacheKeys",) . toJSON) _cloudFrontDistributionForwardedValuesQueryStringCacheKeys
     ]
 

@@ -22,8 +22,8 @@ instance ToJSON CognitoUserPoolDeviceConfiguration where
   toJSON CognitoUserPoolDeviceConfiguration{..} =
     object $
     catMaybes
-    [ fmap (("ChallengeRequiredOnNewDevice",) . toJSON . fmap Bool') _cognitoUserPoolDeviceConfigurationChallengeRequiredOnNewDevice
-    , fmap (("DeviceOnlyRememberedOnUserPrompt",) . toJSON . fmap Bool') _cognitoUserPoolDeviceConfigurationDeviceOnlyRememberedOnUserPrompt
+    [ fmap (("ChallengeRequiredOnNewDevice",) . toJSON) _cognitoUserPoolDeviceConfigurationChallengeRequiredOnNewDevice
+    , fmap (("DeviceOnlyRememberedOnUserPrompt",) . toJSON) _cognitoUserPoolDeviceConfigurationDeviceOnlyRememberedOnUserPrompt
     ]
 
 -- | Constructor for 'CognitoUserPoolDeviceConfiguration' containing required

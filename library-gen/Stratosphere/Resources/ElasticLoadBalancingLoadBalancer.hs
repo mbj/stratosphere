@@ -51,7 +51,7 @@ instance ToResourceProperties ElasticLoadBalancingLoadBalancer where
         , fmap (("AvailabilityZones",) . toJSON) _elasticLoadBalancingLoadBalancerAvailabilityZones
         , fmap (("ConnectionDrainingPolicy",) . toJSON) _elasticLoadBalancingLoadBalancerConnectionDrainingPolicy
         , fmap (("ConnectionSettings",) . toJSON) _elasticLoadBalancingLoadBalancerConnectionSettings
-        , fmap (("CrossZone",) . toJSON . fmap Bool') _elasticLoadBalancingLoadBalancerCrossZone
+        , fmap (("CrossZone",) . toJSON) _elasticLoadBalancingLoadBalancerCrossZone
         , fmap (("HealthCheck",) . toJSON) _elasticLoadBalancingLoadBalancerHealthCheck
         , fmap (("Instances",) . toJSON) _elasticLoadBalancingLoadBalancerInstances
         , fmap (("LBCookieStickinessPolicy",) . toJSON) _elasticLoadBalancingLoadBalancerLBCookieStickinessPolicy

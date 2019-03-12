@@ -39,17 +39,17 @@ instance ToJSON AutoScalingPlansScalingPlanScalingInstruction where
     object $
     catMaybes
     [ fmap (("CustomizedLoadMetricSpecification",) . toJSON) _autoScalingPlansScalingPlanScalingInstructionCustomizedLoadMetricSpecification
-    , fmap (("DisableDynamicScaling",) . toJSON . fmap Bool') _autoScalingPlansScalingPlanScalingInstructionDisableDynamicScaling
-    , (Just . ("MaxCapacity",) . toJSON . fmap Integer') _autoScalingPlansScalingPlanScalingInstructionMaxCapacity
-    , (Just . ("MinCapacity",) . toJSON . fmap Integer') _autoScalingPlansScalingPlanScalingInstructionMinCapacity
+    , fmap (("DisableDynamicScaling",) . toJSON) _autoScalingPlansScalingPlanScalingInstructionDisableDynamicScaling
+    , (Just . ("MaxCapacity",) . toJSON) _autoScalingPlansScalingPlanScalingInstructionMaxCapacity
+    , (Just . ("MinCapacity",) . toJSON) _autoScalingPlansScalingPlanScalingInstructionMinCapacity
     , fmap (("PredefinedLoadMetricSpecification",) . toJSON) _autoScalingPlansScalingPlanScalingInstructionPredefinedLoadMetricSpecification
     , fmap (("PredictiveScalingMaxCapacityBehavior",) . toJSON) _autoScalingPlansScalingPlanScalingInstructionPredictiveScalingMaxCapacityBehavior
-    , fmap (("PredictiveScalingMaxCapacityBuffer",) . toJSON . fmap Integer') _autoScalingPlansScalingPlanScalingInstructionPredictiveScalingMaxCapacityBuffer
+    , fmap (("PredictiveScalingMaxCapacityBuffer",) . toJSON) _autoScalingPlansScalingPlanScalingInstructionPredictiveScalingMaxCapacityBuffer
     , fmap (("PredictiveScalingMode",) . toJSON) _autoScalingPlansScalingPlanScalingInstructionPredictiveScalingMode
     , (Just . ("ResourceId",) . toJSON) _autoScalingPlansScalingPlanScalingInstructionResourceId
     , (Just . ("ScalableDimension",) . toJSON) _autoScalingPlansScalingPlanScalingInstructionScalableDimension
     , fmap (("ScalingPolicyUpdateBehavior",) . toJSON) _autoScalingPlansScalingPlanScalingInstructionScalingPolicyUpdateBehavior
-    , fmap (("ScheduledActionBufferTime",) . toJSON . fmap Integer') _autoScalingPlansScalingPlanScalingInstructionScheduledActionBufferTime
+    , fmap (("ScheduledActionBufferTime",) . toJSON) _autoScalingPlansScalingPlanScalingInstructionScheduledActionBufferTime
     , (Just . ("ServiceNamespace",) . toJSON) _autoScalingPlansScalingPlanScalingInstructionServiceNamespace
     , (Just . ("TargetTrackingConfigurations",) . toJSON) _autoScalingPlansScalingPlanScalingInstructionTargetTrackingConfigurations
     ]

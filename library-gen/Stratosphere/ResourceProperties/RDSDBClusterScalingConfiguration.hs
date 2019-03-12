@@ -24,10 +24,10 @@ instance ToJSON RDSDBClusterScalingConfiguration where
   toJSON RDSDBClusterScalingConfiguration{..} =
     object $
     catMaybes
-    [ fmap (("AutoPause",) . toJSON . fmap Bool') _rDSDBClusterScalingConfigurationAutoPause
-    , fmap (("MaxCapacity",) . toJSON . fmap Integer') _rDSDBClusterScalingConfigurationMaxCapacity
-    , fmap (("MinCapacity",) . toJSON . fmap Integer') _rDSDBClusterScalingConfigurationMinCapacity
-    , fmap (("SecondsUntilAutoPause",) . toJSON . fmap Integer') _rDSDBClusterScalingConfigurationSecondsUntilAutoPause
+    [ fmap (("AutoPause",) . toJSON) _rDSDBClusterScalingConfigurationAutoPause
+    , fmap (("MaxCapacity",) . toJSON) _rDSDBClusterScalingConfigurationMaxCapacity
+    , fmap (("MinCapacity",) . toJSON) _rDSDBClusterScalingConfigurationMinCapacity
+    , fmap (("SecondsUntilAutoPause",) . toJSON) _rDSDBClusterScalingConfigurationSecondsUntilAutoPause
     ]
 
 -- | Constructor for 'RDSDBClusterScalingConfiguration' containing required

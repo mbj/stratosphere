@@ -23,7 +23,7 @@ instance ToJSON DynamoDBTablePointInTimeRecoverySpecification where
   toJSON DynamoDBTablePointInTimeRecoverySpecification{..} =
     object $
     catMaybes
-    [ fmap (("PointInTimeRecoveryEnabled",) . toJSON . fmap Bool') _dynamoDBTablePointInTimeRecoverySpecificationPointInTimeRecoveryEnabled
+    [ fmap (("PointInTimeRecoveryEnabled",) . toJSON) _dynamoDBTablePointInTimeRecoverySpecificationPointInTimeRecoveryEnabled
     ]
 
 -- | Constructor for 'DynamoDBTablePointInTimeRecoverySpecification'

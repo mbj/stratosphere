@@ -23,7 +23,7 @@ instance ToJSON GluePartitionOrder where
     object $
     catMaybes
     [ (Just . ("Column",) . toJSON) _gluePartitionOrderColumn
-    , fmap (("SortOrder",) . toJSON . fmap Integer') _gluePartitionOrderSortOrder
+    , fmap (("SortOrder",) . toJSON) _gluePartitionOrderSortOrder
     ]
 
 -- | Constructor for 'GluePartitionOrder' containing required fields as

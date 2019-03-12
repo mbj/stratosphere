@@ -25,7 +25,7 @@ instance ToJSON CloudWatchAlarmMetricStat where
     object $
     catMaybes
     [ (Just . ("Metric",) . toJSON) _cloudWatchAlarmMetricStatMetric
-    , (Just . ("Period",) . toJSON . fmap Integer') _cloudWatchAlarmMetricStatPeriod
+    , (Just . ("Period",) . toJSON) _cloudWatchAlarmMetricStatPeriod
     , (Just . ("Stat",) . toJSON) _cloudWatchAlarmMetricStatStat
     , fmap (("Unit",) . toJSON) _cloudWatchAlarmMetricStatUnit
     ]

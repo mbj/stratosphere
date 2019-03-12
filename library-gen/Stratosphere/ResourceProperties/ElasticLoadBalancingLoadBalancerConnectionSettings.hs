@@ -23,7 +23,7 @@ instance ToJSON ElasticLoadBalancingLoadBalancerConnectionSettings where
   toJSON ElasticLoadBalancingLoadBalancerConnectionSettings{..} =
     object $
     catMaybes
-    [ (Just . ("IdleTimeout",) . toJSON . fmap Integer') _elasticLoadBalancingLoadBalancerConnectionSettingsIdleTimeout
+    [ (Just . ("IdleTimeout",) . toJSON) _elasticLoadBalancingLoadBalancerConnectionSettingsIdleTimeout
     ]
 
 -- | Constructor for 'ElasticLoadBalancingLoadBalancerConnectionSettings'

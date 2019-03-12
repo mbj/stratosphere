@@ -23,7 +23,7 @@ instance ToJSON KinesisFirehoseDeliveryStreamSplunkRetryOptions where
   toJSON KinesisFirehoseDeliveryStreamSplunkRetryOptions{..} =
     object $
     catMaybes
-    [ (Just . ("DurationInSeconds",) . toJSON . fmap Integer') _kinesisFirehoseDeliveryStreamSplunkRetryOptionsDurationInSeconds
+    [ (Just . ("DurationInSeconds",) . toJSON) _kinesisFirehoseDeliveryStreamSplunkRetryOptionsDurationInSeconds
     ]
 
 -- | Constructor for 'KinesisFirehoseDeliveryStreamSplunkRetryOptions'

@@ -37,16 +37,16 @@ instance ToJSON GluePartitionStorageDescriptor where
     catMaybes
     [ fmap (("BucketColumns",) . toJSON) _gluePartitionStorageDescriptorBucketColumns
     , fmap (("Columns",) . toJSON) _gluePartitionStorageDescriptorColumns
-    , fmap (("Compressed",) . toJSON . fmap Bool') _gluePartitionStorageDescriptorCompressed
+    , fmap (("Compressed",) . toJSON) _gluePartitionStorageDescriptorCompressed
     , fmap (("InputFormat",) . toJSON) _gluePartitionStorageDescriptorInputFormat
     , fmap (("Location",) . toJSON) _gluePartitionStorageDescriptorLocation
-    , fmap (("NumberOfBuckets",) . toJSON . fmap Integer') _gluePartitionStorageDescriptorNumberOfBuckets
+    , fmap (("NumberOfBuckets",) . toJSON) _gluePartitionStorageDescriptorNumberOfBuckets
     , fmap (("OutputFormat",) . toJSON) _gluePartitionStorageDescriptorOutputFormat
     , fmap (("Parameters",) . toJSON) _gluePartitionStorageDescriptorParameters
     , fmap (("SerdeInfo",) . toJSON) _gluePartitionStorageDescriptorSerdeInfo
     , fmap (("SkewedInfo",) . toJSON) _gluePartitionStorageDescriptorSkewedInfo
     , fmap (("SortColumns",) . toJSON) _gluePartitionStorageDescriptorSortColumns
-    , fmap (("StoredAsSubDirectories",) . toJSON . fmap Bool') _gluePartitionStorageDescriptorStoredAsSubDirectories
+    , fmap (("StoredAsSubDirectories",) . toJSON) _gluePartitionStorageDescriptorStoredAsSubDirectories
     ]
 
 -- | Constructor for 'GluePartitionStorageDescriptor' containing required

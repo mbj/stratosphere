@@ -35,7 +35,7 @@ instance ToResourceProperties ApiGatewayV2Route where
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
         [ (Just . ("ApiId",) . toJSON) _apiGatewayV2RouteApiId
-        , fmap (("ApiKeyRequired",) . toJSON . fmap Bool') _apiGatewayV2RouteApiKeyRequired
+        , fmap (("ApiKeyRequired",) . toJSON) _apiGatewayV2RouteApiKeyRequired
         , fmap (("AuthorizationScopes",) . toJSON) _apiGatewayV2RouteAuthorizationScopes
         , fmap (("AuthorizationType",) . toJSON) _apiGatewayV2RouteAuthorizationType
         , fmap (("AuthorizerId",) . toJSON) _apiGatewayV2RouteAuthorizerId

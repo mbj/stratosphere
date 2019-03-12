@@ -25,9 +25,9 @@ instance ToJSON CloudFrontDistributionCustomErrorResponse where
   toJSON CloudFrontDistributionCustomErrorResponse{..} =
     object $
     catMaybes
-    [ fmap (("ErrorCachingMinTTL",) . toJSON . fmap Double') _cloudFrontDistributionCustomErrorResponseErrorCachingMinTTL
-    , (Just . ("ErrorCode",) . toJSON . fmap Integer') _cloudFrontDistributionCustomErrorResponseErrorCode
-    , fmap (("ResponseCode",) . toJSON . fmap Integer') _cloudFrontDistributionCustomErrorResponseResponseCode
+    [ fmap (("ErrorCachingMinTTL",) . toJSON) _cloudFrontDistributionCustomErrorResponseErrorCachingMinTTL
+    , (Just . ("ErrorCode",) . toJSON) _cloudFrontDistributionCustomErrorResponseErrorCode
+    , fmap (("ResponseCode",) . toJSON) _cloudFrontDistributionCustomErrorResponseResponseCode
     , fmap (("ResponsePagePath",) . toJSON) _cloudFrontDistributionCustomErrorResponseResponsePagePath
     ]
 

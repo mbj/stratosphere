@@ -27,12 +27,12 @@ instance ToJSON EC2LaunchTemplateEbs where
   toJSON EC2LaunchTemplateEbs{..} =
     object $
     catMaybes
-    [ fmap (("DeleteOnTermination",) . toJSON . fmap Bool') _eC2LaunchTemplateEbsDeleteOnTermination
-    , fmap (("Encrypted",) . toJSON . fmap Bool') _eC2LaunchTemplateEbsEncrypted
-    , fmap (("Iops",) . toJSON . fmap Integer') _eC2LaunchTemplateEbsIops
+    [ fmap (("DeleteOnTermination",) . toJSON) _eC2LaunchTemplateEbsDeleteOnTermination
+    , fmap (("Encrypted",) . toJSON) _eC2LaunchTemplateEbsEncrypted
+    , fmap (("Iops",) . toJSON) _eC2LaunchTemplateEbsIops
     , fmap (("KmsKeyId",) . toJSON) _eC2LaunchTemplateEbsKmsKeyId
     , fmap (("SnapshotId",) . toJSON) _eC2LaunchTemplateEbsSnapshotId
-    , fmap (("VolumeSize",) . toJSON . fmap Integer') _eC2LaunchTemplateEbsVolumeSize
+    , fmap (("VolumeSize",) . toJSON) _eC2LaunchTemplateEbsVolumeSize
     , fmap (("VolumeType",) . toJSON) _eC2LaunchTemplateEbsVolumeType
     ]
 

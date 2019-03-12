@@ -36,7 +36,7 @@ instance ToResourceProperties AppStreamStack where
         hashMapFromList $ catMaybes
         [ fmap (("ApplicationSettings",) . toJSON) _appStreamStackApplicationSettings
         , fmap (("AttributesToDelete",) . toJSON) _appStreamStackAttributesToDelete
-        , fmap (("DeleteStorageConnectors",) . toJSON . fmap Bool') _appStreamStackDeleteStorageConnectors
+        , fmap (("DeleteStorageConnectors",) . toJSON) _appStreamStackDeleteStorageConnectors
         , fmap (("Description",) . toJSON) _appStreamStackDescription
         , fmap (("DisplayName",) . toJSON) _appStreamStackDisplayName
         , fmap (("FeedbackURL",) . toJSON) _appStreamStackFeedbackURL

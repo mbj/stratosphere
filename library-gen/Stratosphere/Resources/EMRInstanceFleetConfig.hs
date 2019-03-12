@@ -35,8 +35,8 @@ instance ToResourceProperties EMRInstanceFleetConfig where
         , fmap (("InstanceTypeConfigs",) . toJSON) _eMRInstanceFleetConfigInstanceTypeConfigs
         , fmap (("LaunchSpecifications",) . toJSON) _eMRInstanceFleetConfigLaunchSpecifications
         , fmap (("Name",) . toJSON) _eMRInstanceFleetConfigName
-        , fmap (("TargetOnDemandCapacity",) . toJSON . fmap Integer') _eMRInstanceFleetConfigTargetOnDemandCapacity
-        , fmap (("TargetSpotCapacity",) . toJSON . fmap Integer') _eMRInstanceFleetConfigTargetSpotCapacity
+        , fmap (("TargetOnDemandCapacity",) . toJSON) _eMRInstanceFleetConfigTargetOnDemandCapacity
+        , fmap (("TargetSpotCapacity",) . toJSON) _eMRInstanceFleetConfigTargetSpotCapacity
         ]
     }
 

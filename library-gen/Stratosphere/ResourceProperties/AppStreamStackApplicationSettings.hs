@@ -22,7 +22,7 @@ instance ToJSON AppStreamStackApplicationSettings where
   toJSON AppStreamStackApplicationSettings{..} =
     object $
     catMaybes
-    [ (Just . ("Enabled",) . toJSON . fmap Bool') _appStreamStackApplicationSettingsEnabled
+    [ (Just . ("Enabled",) . toJSON) _appStreamStackApplicationSettingsEnabled
     , fmap (("SettingsGroup",) . toJSON) _appStreamStackApplicationSettingsSettingsGroup
     ]
 

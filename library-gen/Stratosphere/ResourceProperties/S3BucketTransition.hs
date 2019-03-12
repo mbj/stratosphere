@@ -25,7 +25,7 @@ instance ToJSON S3BucketTransition where
     catMaybes
     [ (Just . ("StorageClass",) . toJSON) _s3BucketTransitionStorageClass
     , fmap (("TransitionDate",) . toJSON) _s3BucketTransitionTransitionDate
-    , fmap (("TransitionInDays",) . toJSON . fmap Integer') _s3BucketTransitionTransitionInDays
+    , fmap (("TransitionInDays",) . toJSON) _s3BucketTransitionTransitionInDays
     ]
 
 -- | Constructor for 'S3BucketTransition' containing required fields as

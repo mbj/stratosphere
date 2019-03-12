@@ -29,7 +29,7 @@ instance ToResourceProperties GuardDutyMember where
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
         [ (Just . ("DetectorId",) . toJSON) _guardDutyMemberDetectorId
-        , fmap (("DisableEmailNotification",) . toJSON . fmap Bool') _guardDutyMemberDisableEmailNotification
+        , fmap (("DisableEmailNotification",) . toJSON) _guardDutyMemberDisableEmailNotification
         , (Just . ("Email",) . toJSON) _guardDutyMemberEmail
         , (Just . ("MemberId",) . toJSON) _guardDutyMemberMemberId
         , fmap (("Message",) . toJSON) _guardDutyMemberMessage

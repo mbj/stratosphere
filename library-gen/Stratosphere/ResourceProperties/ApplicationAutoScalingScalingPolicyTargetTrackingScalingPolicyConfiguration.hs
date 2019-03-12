@@ -31,11 +31,11 @@ instance ToJSON ApplicationAutoScalingScalingPolicyTargetTrackingScalingPolicyCo
     object $
     catMaybes
     [ fmap (("CustomizedMetricSpecification",) . toJSON) _applicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecification
-    , fmap (("DisableScaleIn",) . toJSON . fmap Bool') _applicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfigurationDisableScaleIn
+    , fmap (("DisableScaleIn",) . toJSON) _applicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfigurationDisableScaleIn
     , fmap (("PredefinedMetricSpecification",) . toJSON) _applicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification
-    , fmap (("ScaleInCooldown",) . toJSON . fmap Integer') _applicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfigurationScaleInCooldown
-    , fmap (("ScaleOutCooldown",) . toJSON . fmap Integer') _applicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfigurationScaleOutCooldown
-    , (Just . ("TargetValue",) . toJSON . fmap Double') _applicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfigurationTargetValue
+    , fmap (("ScaleInCooldown",) . toJSON) _applicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfigurationScaleInCooldown
+    , fmap (("ScaleOutCooldown",) . toJSON) _applicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfigurationScaleOutCooldown
+    , (Just . ("TargetValue",) . toJSON) _applicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfigurationTargetValue
     ]
 
 -- | Constructor for

@@ -25,7 +25,7 @@ instance ToJSON ECSTaskDefinitionTmpfs where
     catMaybes
     [ fmap (("ContainerPath",) . toJSON) _eCSTaskDefinitionTmpfsContainerPath
     , fmap (("MountOptions",) . toJSON) _eCSTaskDefinitionTmpfsMountOptions
-    , fmap (("Size",) . toJSON . fmap Integer') _eCSTaskDefinitionTmpfsSize
+    , fmap (("Size",) . toJSON) _eCSTaskDefinitionTmpfsSize
     ]
 
 -- | Constructor for 'ECSTaskDefinitionTmpfs' containing required fields as

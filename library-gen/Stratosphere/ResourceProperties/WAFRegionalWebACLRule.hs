@@ -24,7 +24,7 @@ instance ToJSON WAFRegionalWebACLRule where
     object $
     catMaybes
     [ (Just . ("Action",) . toJSON) _wAFRegionalWebACLRuleAction
-    , (Just . ("Priority",) . toJSON . fmap Integer') _wAFRegionalWebACLRulePriority
+    , (Just . ("Priority",) . toJSON) _wAFRegionalWebACLRulePriority
     , (Just . ("RuleId",) . toJSON) _wAFRegionalWebACLRuleRuleId
     ]
 

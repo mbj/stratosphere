@@ -24,8 +24,8 @@ instance ToJSON KinesisFirehoseDeliveryStreamElasticsearchBufferingHints where
   toJSON KinesisFirehoseDeliveryStreamElasticsearchBufferingHints{..} =
     object $
     catMaybes
-    [ (Just . ("IntervalInSeconds",) . toJSON . fmap Integer') _kinesisFirehoseDeliveryStreamElasticsearchBufferingHintsIntervalInSeconds
-    , (Just . ("SizeInMBs",) . toJSON . fmap Integer') _kinesisFirehoseDeliveryStreamElasticsearchBufferingHintsSizeInMBs
+    [ (Just . ("IntervalInSeconds",) . toJSON) _kinesisFirehoseDeliveryStreamElasticsearchBufferingHintsIntervalInSeconds
+    , (Just . ("SizeInMBs",) . toJSON) _kinesisFirehoseDeliveryStreamElasticsearchBufferingHintsSizeInMBs
     ]
 
 -- | Constructor for

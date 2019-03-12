@@ -26,12 +26,12 @@ instance ToJSON OpsWorksLayerAutoScalingThresholds where
   toJSON OpsWorksLayerAutoScalingThresholds{..} =
     object $
     catMaybes
-    [ fmap (("CpuThreshold",) . toJSON . fmap Double') _opsWorksLayerAutoScalingThresholdsCpuThreshold
-    , fmap (("IgnoreMetricsTime",) . toJSON . fmap Integer') _opsWorksLayerAutoScalingThresholdsIgnoreMetricsTime
-    , fmap (("InstanceCount",) . toJSON . fmap Integer') _opsWorksLayerAutoScalingThresholdsInstanceCount
-    , fmap (("LoadThreshold",) . toJSON . fmap Double') _opsWorksLayerAutoScalingThresholdsLoadThreshold
-    , fmap (("MemoryThreshold",) . toJSON . fmap Double') _opsWorksLayerAutoScalingThresholdsMemoryThreshold
-    , fmap (("ThresholdsWaitTime",) . toJSON . fmap Integer') _opsWorksLayerAutoScalingThresholdsThresholdsWaitTime
+    [ fmap (("CpuThreshold",) . toJSON) _opsWorksLayerAutoScalingThresholdsCpuThreshold
+    , fmap (("IgnoreMetricsTime",) . toJSON) _opsWorksLayerAutoScalingThresholdsIgnoreMetricsTime
+    , fmap (("InstanceCount",) . toJSON) _opsWorksLayerAutoScalingThresholdsInstanceCount
+    , fmap (("LoadThreshold",) . toJSON) _opsWorksLayerAutoScalingThresholdsLoadThreshold
+    , fmap (("MemoryThreshold",) . toJSON) _opsWorksLayerAutoScalingThresholdsMemoryThreshold
+    , fmap (("ThresholdsWaitTime",) . toJSON) _opsWorksLayerAutoScalingThresholdsThresholdsWaitTime
     ]
 
 -- | Constructor for 'OpsWorksLayerAutoScalingThresholds' containing required

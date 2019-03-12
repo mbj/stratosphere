@@ -23,7 +23,7 @@ instance ToJSON EMRClusterEbsBlockDeviceConfig where
     object $
     catMaybes
     [ (Just . ("VolumeSpecification",) . toJSON) _eMRClusterEbsBlockDeviceConfigVolumeSpecification
-    , fmap (("VolumesPerInstance",) . toJSON . fmap Integer') _eMRClusterEbsBlockDeviceConfigVolumesPerInstance
+    , fmap (("VolumesPerInstance",) . toJSON) _eMRClusterEbsBlockDeviceConfigVolumesPerInstance
     ]
 
 -- | Constructor for 'EMRClusterEbsBlockDeviceConfig' containing required

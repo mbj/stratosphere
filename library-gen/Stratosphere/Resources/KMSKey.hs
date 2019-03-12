@@ -30,11 +30,11 @@ instance ToResourceProperties KMSKey where
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
         [ fmap (("Description",) . toJSON) _kMSKeyDescription
-        , fmap (("EnableKeyRotation",) . toJSON . fmap Bool') _kMSKeyEnableKeyRotation
-        , fmap (("Enabled",) . toJSON . fmap Bool') _kMSKeyEnabled
+        , fmap (("EnableKeyRotation",) . toJSON) _kMSKeyEnableKeyRotation
+        , fmap (("Enabled",) . toJSON) _kMSKeyEnabled
         , (Just . ("KeyPolicy",) . toJSON) _kMSKeyKeyPolicy
         , fmap (("KeyUsage",) . toJSON) _kMSKeyKeyUsage
-        , fmap (("PendingWindowInDays",) . toJSON . fmap Integer') _kMSKeyPendingWindowInDays
+        , fmap (("PendingWindowInDays",) . toJSON) _kMSKeyPendingWindowInDays
         , fmap (("Tags",) . toJSON) _kMSKeyTags
         ]
     }

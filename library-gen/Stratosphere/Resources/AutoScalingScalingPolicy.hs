@@ -36,11 +36,11 @@ instance ToResourceProperties AutoScalingScalingPolicy where
         [ fmap (("AdjustmentType",) . toJSON) _autoScalingScalingPolicyAdjustmentType
         , (Just . ("AutoScalingGroupName",) . toJSON) _autoScalingScalingPolicyAutoScalingGroupName
         , fmap (("Cooldown",) . toJSON) _autoScalingScalingPolicyCooldown
-        , fmap (("EstimatedInstanceWarmup",) . toJSON . fmap Integer') _autoScalingScalingPolicyEstimatedInstanceWarmup
+        , fmap (("EstimatedInstanceWarmup",) . toJSON) _autoScalingScalingPolicyEstimatedInstanceWarmup
         , fmap (("MetricAggregationType",) . toJSON) _autoScalingScalingPolicyMetricAggregationType
-        , fmap (("MinAdjustmentMagnitude",) . toJSON . fmap Integer') _autoScalingScalingPolicyMinAdjustmentMagnitude
+        , fmap (("MinAdjustmentMagnitude",) . toJSON) _autoScalingScalingPolicyMinAdjustmentMagnitude
         , fmap (("PolicyType",) . toJSON) _autoScalingScalingPolicyPolicyType
-        , fmap (("ScalingAdjustment",) . toJSON . fmap Integer') _autoScalingScalingPolicyScalingAdjustment
+        , fmap (("ScalingAdjustment",) . toJSON) _autoScalingScalingPolicyScalingAdjustment
         , fmap (("StepAdjustments",) . toJSON) _autoScalingScalingPolicyStepAdjustments
         , fmap (("TargetTrackingConfiguration",) . toJSON) _autoScalingScalingPolicyTargetTrackingConfiguration
         ]

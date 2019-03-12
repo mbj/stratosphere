@@ -24,7 +24,7 @@ instance ToJSON AmazonMQBrokerUser where
   toJSON AmazonMQBrokerUser{..} =
     object $
     catMaybes
-    [ fmap (("ConsoleAccess",) . toJSON . fmap Bool') _amazonMQBrokerUserConsoleAccess
+    [ fmap (("ConsoleAccess",) . toJSON) _amazonMQBrokerUserConsoleAccess
     , fmap (("Groups",) . toJSON) _amazonMQBrokerUserGroups
     , (Just . ("Password",) . toJSON) _amazonMQBrokerUserPassword
     , (Just . ("Username",) . toJSON) _amazonMQBrokerUserUsername

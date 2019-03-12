@@ -35,7 +35,7 @@ instance ToJSON KinesisFirehoseDeliveryStreamSplunkDestinationConfiguration wher
     object $
     catMaybes
     [ fmap (("CloudWatchLoggingOptions",) . toJSON) _kinesisFirehoseDeliveryStreamSplunkDestinationConfigurationCloudWatchLoggingOptions
-    , fmap (("HECAcknowledgmentTimeoutInSeconds",) . toJSON . fmap Integer') _kinesisFirehoseDeliveryStreamSplunkDestinationConfigurationHECAcknowledgmentTimeoutInSeconds
+    , fmap (("HECAcknowledgmentTimeoutInSeconds",) . toJSON) _kinesisFirehoseDeliveryStreamSplunkDestinationConfigurationHECAcknowledgmentTimeoutInSeconds
     , (Just . ("HECEndpoint",) . toJSON) _kinesisFirehoseDeliveryStreamSplunkDestinationConfigurationHECEndpoint
     , (Just . ("HECEndpointType",) . toJSON) _kinesisFirehoseDeliveryStreamSplunkDestinationConfigurationHECEndpointType
     , (Just . ("HECToken",) . toJSON) _kinesisFirehoseDeliveryStreamSplunkDestinationConfigurationHECToken

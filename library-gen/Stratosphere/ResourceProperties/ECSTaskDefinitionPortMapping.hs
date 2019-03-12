@@ -23,8 +23,8 @@ instance ToJSON ECSTaskDefinitionPortMapping where
   toJSON ECSTaskDefinitionPortMapping{..} =
     object $
     catMaybes
-    [ fmap (("ContainerPort",) . toJSON . fmap Integer') _eCSTaskDefinitionPortMappingContainerPort
-    , fmap (("HostPort",) . toJSON . fmap Integer') _eCSTaskDefinitionPortMappingHostPort
+    [ fmap (("ContainerPort",) . toJSON) _eCSTaskDefinitionPortMappingContainerPort
+    , fmap (("HostPort",) . toJSON) _eCSTaskDefinitionPortMappingHostPort
     , fmap (("Protocol",) . toJSON) _eCSTaskDefinitionPortMappingProtocol
     ]
 

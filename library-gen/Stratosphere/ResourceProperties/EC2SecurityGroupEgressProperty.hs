@@ -33,9 +33,9 @@ instance ToJSON EC2SecurityGroupEgressProperty where
     , fmap (("Description",) . toJSON) _eC2SecurityGroupEgressPropertyDescription
     , fmap (("DestinationPrefixListId",) . toJSON) _eC2SecurityGroupEgressPropertyDestinationPrefixListId
     , fmap (("DestinationSecurityGroupId",) . toJSON) _eC2SecurityGroupEgressPropertyDestinationSecurityGroupId
-    , fmap (("FromPort",) . toJSON . fmap Integer') _eC2SecurityGroupEgressPropertyFromPort
+    , fmap (("FromPort",) . toJSON) _eC2SecurityGroupEgressPropertyFromPort
     , (Just . ("IpProtocol",) . toJSON) _eC2SecurityGroupEgressPropertyIpProtocol
-    , fmap (("ToPort",) . toJSON . fmap Integer') _eC2SecurityGroupEgressPropertyToPort
+    , fmap (("ToPort",) . toJSON) _eC2SecurityGroupEgressPropertyToPort
     ]
 
 -- | Constructor for 'EC2SecurityGroupEgressProperty' containing required

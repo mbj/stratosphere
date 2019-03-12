@@ -34,7 +34,7 @@ instance ToJSON EMRClusterInstanceGroupConfig where
     , fmap (("BidPrice",) . toJSON) _eMRClusterInstanceGroupConfigBidPrice
     , fmap (("Configurations",) . toJSON) _eMRClusterInstanceGroupConfigConfigurations
     , fmap (("EbsConfiguration",) . toJSON) _eMRClusterInstanceGroupConfigEbsConfiguration
-    , (Just . ("InstanceCount",) . toJSON . fmap Integer') _eMRClusterInstanceGroupConfigInstanceCount
+    , (Just . ("InstanceCount",) . toJSON) _eMRClusterInstanceGroupConfigInstanceCount
     , (Just . ("InstanceType",) . toJSON) _eMRClusterInstanceGroupConfigInstanceType
     , fmap (("Market",) . toJSON) _eMRClusterInstanceGroupConfigMarket
     , fmap (("Name",) . toJSON) _eMRClusterInstanceGroupConfigName

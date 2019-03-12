@@ -28,8 +28,8 @@ instance ToResourceProperties EC2VPC where
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
         [ (Just . ("CidrBlock",) . toJSON) _eC2VPCCidrBlock
-        , fmap (("EnableDnsHostnames",) . toJSON . fmap Bool') _eC2VPCEnableDnsHostnames
-        , fmap (("EnableDnsSupport",) . toJSON . fmap Bool') _eC2VPCEnableDnsSupport
+        , fmap (("EnableDnsHostnames",) . toJSON) _eC2VPCEnableDnsHostnames
+        , fmap (("EnableDnsSupport",) . toJSON) _eC2VPCEnableDnsSupport
         , fmap (("InstanceTenancy",) . toJSON) _eC2VPCInstanceTenancy
         , fmap (("Tags",) . toJSON) _eC2VPCTags
         ]

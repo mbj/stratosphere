@@ -26,12 +26,12 @@ instance ToJSON AutoScalingRollingUpdatePolicy where
   toJSON AutoScalingRollingUpdatePolicy{..} =
     object $
     catMaybes
-    [ fmap (("MaxBatchSize",) . toJSON . fmap Integer') _autoScalingRollingUpdatePolicyMaxBatchSize
-    , fmap (("MinInstancesInService",) . toJSON . fmap Integer') _autoScalingRollingUpdatePolicyMinInstancesInService
-    , fmap (("MinSuccessfulInstancesPercent",) . toJSON . fmap Integer') _autoScalingRollingUpdatePolicyMinSuccessfulInstancesPercent
+    [ fmap (("MaxBatchSize",) . toJSON) _autoScalingRollingUpdatePolicyMaxBatchSize
+    , fmap (("MinInstancesInService",) . toJSON) _autoScalingRollingUpdatePolicyMinInstancesInService
+    , fmap (("MinSuccessfulInstancesPercent",) . toJSON) _autoScalingRollingUpdatePolicyMinSuccessfulInstancesPercent
     , fmap (("PauseTime",) . toJSON) _autoScalingRollingUpdatePolicyPauseTime
     , fmap (("SuspendProcesses",) . toJSON) _autoScalingRollingUpdatePolicySuspendProcesses
-    , fmap (("WaitOnResourceSignals",) . toJSON . fmap Bool') _autoScalingRollingUpdatePolicyWaitOnResourceSignals
+    , fmap (("WaitOnResourceSignals",) . toJSON) _autoScalingRollingUpdatePolicyWaitOnResourceSignals
     ]
 
 -- | Constructor for 'AutoScalingRollingUpdatePolicy' containing required fields as

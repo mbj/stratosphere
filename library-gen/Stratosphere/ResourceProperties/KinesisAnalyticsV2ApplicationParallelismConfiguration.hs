@@ -26,10 +26,10 @@ instance ToJSON KinesisAnalyticsV2ApplicationParallelismConfiguration where
   toJSON KinesisAnalyticsV2ApplicationParallelismConfiguration{..} =
     object $
     catMaybes
-    [ fmap (("AutoScalingEnabled",) . toJSON . fmap Bool') _kinesisAnalyticsV2ApplicationParallelismConfigurationAutoScalingEnabled
+    [ fmap (("AutoScalingEnabled",) . toJSON) _kinesisAnalyticsV2ApplicationParallelismConfigurationAutoScalingEnabled
     , (Just . ("ConfigurationType",) . toJSON) _kinesisAnalyticsV2ApplicationParallelismConfigurationConfigurationType
-    , fmap (("Parallelism",) . toJSON . fmap Integer') _kinesisAnalyticsV2ApplicationParallelismConfigurationParallelism
-    , fmap (("ParallelismPerKPU",) . toJSON . fmap Integer') _kinesisAnalyticsV2ApplicationParallelismConfigurationParallelismPerKPU
+    , fmap (("Parallelism",) . toJSON) _kinesisAnalyticsV2ApplicationParallelismConfigurationParallelism
+    , fmap (("ParallelismPerKPU",) . toJSON) _kinesisAnalyticsV2ApplicationParallelismConfigurationParallelismPerKPU
     ]
 
 -- | Constructor for 'KinesisAnalyticsV2ApplicationParallelismConfiguration'

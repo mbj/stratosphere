@@ -26,10 +26,10 @@ instance ToJSON KinesisAnalyticsV2ApplicationCheckpointConfiguration where
   toJSON KinesisAnalyticsV2ApplicationCheckpointConfiguration{..} =
     object $
     catMaybes
-    [ fmap (("CheckpointInterval",) . toJSON . fmap Integer') _kinesisAnalyticsV2ApplicationCheckpointConfigurationCheckpointInterval
-    , fmap (("CheckpointingEnabled",) . toJSON . fmap Bool') _kinesisAnalyticsV2ApplicationCheckpointConfigurationCheckpointingEnabled
+    [ fmap (("CheckpointInterval",) . toJSON) _kinesisAnalyticsV2ApplicationCheckpointConfigurationCheckpointInterval
+    , fmap (("CheckpointingEnabled",) . toJSON) _kinesisAnalyticsV2ApplicationCheckpointConfigurationCheckpointingEnabled
     , (Just . ("ConfigurationType",) . toJSON) _kinesisAnalyticsV2ApplicationCheckpointConfigurationConfigurationType
-    , fmap (("MinPauseBetweenCheckpoints",) . toJSON . fmap Integer') _kinesisAnalyticsV2ApplicationCheckpointConfigurationMinPauseBetweenCheckpoints
+    , fmap (("MinPauseBetweenCheckpoints",) . toJSON) _kinesisAnalyticsV2ApplicationCheckpointConfigurationMinPauseBetweenCheckpoints
     ]
 
 -- | Constructor for 'KinesisAnalyticsV2ApplicationCheckpointConfiguration'

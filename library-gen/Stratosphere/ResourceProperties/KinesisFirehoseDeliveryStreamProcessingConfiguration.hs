@@ -24,7 +24,7 @@ instance ToJSON KinesisFirehoseDeliveryStreamProcessingConfiguration where
   toJSON KinesisFirehoseDeliveryStreamProcessingConfiguration{..} =
     object $
     catMaybes
-    [ fmap (("Enabled",) . toJSON . fmap Bool') _kinesisFirehoseDeliveryStreamProcessingConfigurationEnabled
+    [ fmap (("Enabled",) . toJSON) _kinesisFirehoseDeliveryStreamProcessingConfigurationEnabled
     , fmap (("Processors",) . toJSON) _kinesisFirehoseDeliveryStreamProcessingConfigurationProcessors
     ]
 

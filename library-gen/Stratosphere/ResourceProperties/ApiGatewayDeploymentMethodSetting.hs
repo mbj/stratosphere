@@ -30,16 +30,16 @@ instance ToJSON ApiGatewayDeploymentMethodSetting where
   toJSON ApiGatewayDeploymentMethodSetting{..} =
     object $
     catMaybes
-    [ fmap (("CacheDataEncrypted",) . toJSON . fmap Bool') _apiGatewayDeploymentMethodSettingCacheDataEncrypted
-    , fmap (("CacheTtlInSeconds",) . toJSON . fmap Integer') _apiGatewayDeploymentMethodSettingCacheTtlInSeconds
-    , fmap (("CachingEnabled",) . toJSON . fmap Bool') _apiGatewayDeploymentMethodSettingCachingEnabled
-    , fmap (("DataTraceEnabled",) . toJSON . fmap Bool') _apiGatewayDeploymentMethodSettingDataTraceEnabled
+    [ fmap (("CacheDataEncrypted",) . toJSON) _apiGatewayDeploymentMethodSettingCacheDataEncrypted
+    , fmap (("CacheTtlInSeconds",) . toJSON) _apiGatewayDeploymentMethodSettingCacheTtlInSeconds
+    , fmap (("CachingEnabled",) . toJSON) _apiGatewayDeploymentMethodSettingCachingEnabled
+    , fmap (("DataTraceEnabled",) . toJSON) _apiGatewayDeploymentMethodSettingDataTraceEnabled
     , fmap (("HttpMethod",) . toJSON) _apiGatewayDeploymentMethodSettingHttpMethod
     , fmap (("LoggingLevel",) . toJSON) _apiGatewayDeploymentMethodSettingLoggingLevel
-    , fmap (("MetricsEnabled",) . toJSON . fmap Bool') _apiGatewayDeploymentMethodSettingMetricsEnabled
+    , fmap (("MetricsEnabled",) . toJSON) _apiGatewayDeploymentMethodSettingMetricsEnabled
     , fmap (("ResourcePath",) . toJSON) _apiGatewayDeploymentMethodSettingResourcePath
-    , fmap (("ThrottlingBurstLimit",) . toJSON . fmap Integer') _apiGatewayDeploymentMethodSettingThrottlingBurstLimit
-    , fmap (("ThrottlingRateLimit",) . toJSON . fmap Double') _apiGatewayDeploymentMethodSettingThrottlingRateLimit
+    , fmap (("ThrottlingBurstLimit",) . toJSON) _apiGatewayDeploymentMethodSettingThrottlingBurstLimit
+    , fmap (("ThrottlingRateLimit",) . toJSON) _apiGatewayDeploymentMethodSettingThrottlingRateLimit
     ]
 
 -- | Constructor for 'ApiGatewayDeploymentMethodSetting' containing required

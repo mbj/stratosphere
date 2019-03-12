@@ -24,8 +24,8 @@ instance ToJSON EMRInstanceGroupConfigVolumeSpecification where
   toJSON EMRInstanceGroupConfigVolumeSpecification{..} =
     object $
     catMaybes
-    [ fmap (("Iops",) . toJSON . fmap Integer') _eMRInstanceGroupConfigVolumeSpecificationIops
-    , (Just . ("SizeInGB",) . toJSON . fmap Integer') _eMRInstanceGroupConfigVolumeSpecificationSizeInGB
+    [ fmap (("Iops",) . toJSON) _eMRInstanceGroupConfigVolumeSpecificationIops
+    , (Just . ("SizeInGB",) . toJSON) _eMRInstanceGroupConfigVolumeSpecificationSizeInGB
     , (Just . ("VolumeType",) . toJSON) _eMRInstanceGroupConfigVolumeSpecificationVolumeType
     ]
 

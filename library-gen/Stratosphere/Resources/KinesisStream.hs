@@ -29,8 +29,8 @@ instance ToResourceProperties KinesisStream where
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
         [ fmap (("Name",) . toJSON) _kinesisStreamName
-        , fmap (("RetentionPeriodHours",) . toJSON . fmap Integer') _kinesisStreamRetentionPeriodHours
-        , (Just . ("ShardCount",) . toJSON . fmap Integer') _kinesisStreamShardCount
+        , fmap (("RetentionPeriodHours",) . toJSON) _kinesisStreamRetentionPeriodHours
+        , (Just . ("ShardCount",) . toJSON) _kinesisStreamShardCount
         , fmap (("StreamEncryption",) . toJSON) _kinesisStreamStreamEncryption
         , fmap (("Tags",) . toJSON) _kinesisStreamTags
         ]

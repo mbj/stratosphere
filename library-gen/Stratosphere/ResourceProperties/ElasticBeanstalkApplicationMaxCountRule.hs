@@ -24,9 +24,9 @@ instance ToJSON ElasticBeanstalkApplicationMaxCountRule where
   toJSON ElasticBeanstalkApplicationMaxCountRule{..} =
     object $
     catMaybes
-    [ fmap (("DeleteSourceFromS3",) . toJSON . fmap Bool') _elasticBeanstalkApplicationMaxCountRuleDeleteSourceFromS3
-    , fmap (("Enabled",) . toJSON . fmap Bool') _elasticBeanstalkApplicationMaxCountRuleEnabled
-    , fmap (("MaxCount",) . toJSON . fmap Integer') _elasticBeanstalkApplicationMaxCountRuleMaxCount
+    [ fmap (("DeleteSourceFromS3",) . toJSON) _elasticBeanstalkApplicationMaxCountRuleDeleteSourceFromS3
+    , fmap (("Enabled",) . toJSON) _elasticBeanstalkApplicationMaxCountRuleEnabled
+    , fmap (("MaxCount",) . toJSON) _elasticBeanstalkApplicationMaxCountRuleMaxCount
     ]
 
 -- | Constructor for 'ElasticBeanstalkApplicationMaxCountRule' containing

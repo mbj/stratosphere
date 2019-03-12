@@ -10,9 +10,6 @@ module Stratosphere.Values
   ( Val (..)
   , sub
   , ValList (..)
-  , Integer' (..)
-  , Bool' (..)
-  , Double' (..)
   , ToRef (..)
   ) where
 
@@ -62,13 +59,13 @@ instance (ToJSON a) => ToJSON (Val a) where
   toJSON (Literal v) = toJSON v
   toJSON (Ref r) = refToJSON r
   toJSON (If i x y) = mkFunc "Fn::If" [toJSON i, toJSON x, toJSON y]
-  toJSON (And x y) = mkFunc "Fn::And" [toJSON (Bool' <$> x), toJSON (Bool' <$> y)]
+  toJSON (And x y) = mkFunc "Fn::And" [toJSON x, toJSON y]
   toJSON (Equals x y) = mkFunc "Fn::Equals" [toJSON x, toJSON y]
-  toJSON (Or x y) = mkFunc "Fn::Or" [toJSON (Bool' <$> x), toJSON (Bool' <$> y)]
+  toJSON (Or x y) = mkFunc "Fn::Or" [toJSON x, toJSON y]
   toJSON (GetAtt x y) = mkFunc "Fn::GetAtt" [toJSON x, toJSON y]
   toJSON (Base64 v) = object [("Fn::Base64", toJSON v)]
   toJSON (Join d vs) = mkFunc "Fn::Join" [toJSON d, toJSON vs]
-  toJSON (Select i vs) = mkFunc "Fn::Select" [toJSON (Integer' i), toJSON vs]
+  toJSON (Select i vs) = mkFunc "Fn::Select" [toJSON i, toJSON vs]
   toJSON (FindInMap mapName topKey secondKey) =
     object [("Fn::FindInMap", toJSON [toJSON mapName, toJSON topKey, toJSON secondKey])]
   toJSON (ImportValue t) = importValueToJSON t
@@ -121,30 +118,6 @@ instance (ToJSON a) => ToJSON (ValList a) where
   toJSON (Split d s) = mkFunc "Fn::Split" [toJSON d, toJSON s]
   toJSON (GetAZs r) = object [("Fn::GetAZs", toJSON r)]
 
--- | We need to wrap integers so we can override the Aeson type-classes. This
--- is necessary because CloudFront made the silly decision to represent numbers
--- as JSON strings.
-newtype Integer' = Integer' { unInteger' :: Integer }
-  deriving (Show, Eq, Num)
-
-instance ToJSON Integer' where
-  toJSON (Integer' i) = toJSON $ show i
-
--- | We need to wrap Bools for the same reason we need to wrap Ints.
-newtype Bool' = Bool' { unBool' :: Bool }
-  deriving (Show, Bounded, Enum, Eq, Ord)
-
-instance ToJSON Bool' where
-  toJSON (Bool' True) = "true"
-  toJSON (Bool' False) = "false"
-
 -- | Class used to create a 'Ref' from another type.
 class ToRef a b where
   toRef :: a -> Val b
-
--- | We need to wrap Doubles for the same reason we need to wrap Ints.
-newtype Double' = Double' { unDouble' :: Double }
-  deriving (Show, Eq, Num)
-
-instance ToJSON Double' where
-  toJSON (Double' i) = toJSON $ show i

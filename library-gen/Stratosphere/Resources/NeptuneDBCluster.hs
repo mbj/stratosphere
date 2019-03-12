@@ -37,17 +37,17 @@ instance ToResourceProperties NeptuneDBCluster where
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
         [ fmap (("AvailabilityZones",) . toJSON) _neptuneDBClusterAvailabilityZones
-        , fmap (("BackupRetentionPeriod",) . toJSON . fmap Integer') _neptuneDBClusterBackupRetentionPeriod
+        , fmap (("BackupRetentionPeriod",) . toJSON) _neptuneDBClusterBackupRetentionPeriod
         , fmap (("DBClusterIdentifier",) . toJSON) _neptuneDBClusterDBClusterIdentifier
         , fmap (("DBClusterParameterGroupName",) . toJSON) _neptuneDBClusterDBClusterParameterGroupName
         , fmap (("DBSubnetGroupName",) . toJSON) _neptuneDBClusterDBSubnetGroupName
-        , fmap (("IamAuthEnabled",) . toJSON . fmap Bool') _neptuneDBClusterIamAuthEnabled
+        , fmap (("IamAuthEnabled",) . toJSON) _neptuneDBClusterIamAuthEnabled
         , fmap (("KmsKeyId",) . toJSON) _neptuneDBClusterKmsKeyId
-        , fmap (("Port",) . toJSON . fmap Integer') _neptuneDBClusterPort
+        , fmap (("Port",) . toJSON) _neptuneDBClusterPort
         , fmap (("PreferredBackupWindow",) . toJSON) _neptuneDBClusterPreferredBackupWindow
         , fmap (("PreferredMaintenanceWindow",) . toJSON) _neptuneDBClusterPreferredMaintenanceWindow
         , fmap (("SnapshotIdentifier",) . toJSON) _neptuneDBClusterSnapshotIdentifier
-        , fmap (("StorageEncrypted",) . toJSON . fmap Bool') _neptuneDBClusterStorageEncrypted
+        , fmap (("StorageEncrypted",) . toJSON) _neptuneDBClusterStorageEncrypted
         , fmap (("Tags",) . toJSON) _neptuneDBClusterTags
         , fmap (("VpcSecurityGroupIds",) . toJSON) _neptuneDBClusterVpcSecurityGroupIds
         ]

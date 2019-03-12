@@ -35,12 +35,12 @@ instance ToResourceProperties GameLiftFleet where
         hashMapFromList $ catMaybes
         [ (Just . ("BuildId",) . toJSON) _gameLiftFleetBuildId
         , fmap (("Description",) . toJSON) _gameLiftFleetDescription
-        , (Just . ("DesiredEC2Instances",) . toJSON . fmap Integer') _gameLiftFleetDesiredEC2Instances
+        , (Just . ("DesiredEC2Instances",) . toJSON) _gameLiftFleetDesiredEC2Instances
         , fmap (("EC2InboundPermissions",) . toJSON) _gameLiftFleetEC2InboundPermissions
         , (Just . ("EC2InstanceType",) . toJSON) _gameLiftFleetEC2InstanceType
         , fmap (("LogPaths",) . toJSON) _gameLiftFleetLogPaths
-        , fmap (("MaxSize",) . toJSON . fmap Integer') _gameLiftFleetMaxSize
-        , fmap (("MinSize",) . toJSON . fmap Integer') _gameLiftFleetMinSize
+        , fmap (("MaxSize",) . toJSON) _gameLiftFleetMaxSize
+        , fmap (("MinSize",) . toJSON) _gameLiftFleetMinSize
         , (Just . ("Name",) . toJSON) _gameLiftFleetName
         , fmap (("ServerLaunchParameters",) . toJSON) _gameLiftFleetServerLaunchParameters
         , (Just . ("ServerLaunchPath",) . toJSON) _gameLiftFleetServerLaunchPath

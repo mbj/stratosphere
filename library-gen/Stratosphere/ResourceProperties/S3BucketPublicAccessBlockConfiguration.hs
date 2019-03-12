@@ -25,10 +25,10 @@ instance ToJSON S3BucketPublicAccessBlockConfiguration where
   toJSON S3BucketPublicAccessBlockConfiguration{..} =
     object $
     catMaybes
-    [ fmap (("BlockPublicAcls",) . toJSON . fmap Bool') _s3BucketPublicAccessBlockConfigurationBlockPublicAcls
-    , fmap (("BlockPublicPolicy",) . toJSON . fmap Bool') _s3BucketPublicAccessBlockConfigurationBlockPublicPolicy
-    , fmap (("IgnorePublicAcls",) . toJSON . fmap Bool') _s3BucketPublicAccessBlockConfigurationIgnorePublicAcls
-    , fmap (("RestrictPublicBuckets",) . toJSON . fmap Bool') _s3BucketPublicAccessBlockConfigurationRestrictPublicBuckets
+    [ fmap (("BlockPublicAcls",) . toJSON) _s3BucketPublicAccessBlockConfigurationBlockPublicAcls
+    , fmap (("BlockPublicPolicy",) . toJSON) _s3BucketPublicAccessBlockConfigurationBlockPublicPolicy
+    , fmap (("IgnorePublicAcls",) . toJSON) _s3BucketPublicAccessBlockConfigurationIgnorePublicAcls
+    , fmap (("RestrictPublicBuckets",) . toJSON) _s3BucketPublicAccessBlockConfigurationRestrictPublicBuckets
     ]
 
 -- | Constructor for 'S3BucketPublicAccessBlockConfiguration' containing

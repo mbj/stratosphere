@@ -27,10 +27,10 @@ instance ToJSON WorkSpacesWorkspaceWorkspaceProperties where
     object $
     catMaybes
     [ fmap (("ComputeTypeName",) . toJSON) _workSpacesWorkspaceWorkspacePropertiesComputeTypeName
-    , fmap (("RootVolumeSizeGib",) . toJSON . fmap Integer') _workSpacesWorkspaceWorkspacePropertiesRootVolumeSizeGib
+    , fmap (("RootVolumeSizeGib",) . toJSON) _workSpacesWorkspaceWorkspacePropertiesRootVolumeSizeGib
     , fmap (("RunningMode",) . toJSON) _workSpacesWorkspaceWorkspacePropertiesRunningMode
-    , fmap (("RunningModeAutoStopTimeoutInMinutes",) . toJSON . fmap Integer') _workSpacesWorkspaceWorkspacePropertiesRunningModeAutoStopTimeoutInMinutes
-    , fmap (("UserVolumeSizeGib",) . toJSON . fmap Integer') _workSpacesWorkspaceWorkspacePropertiesUserVolumeSizeGib
+    , fmap (("RunningModeAutoStopTimeoutInMinutes",) . toJSON) _workSpacesWorkspaceWorkspacePropertiesRunningModeAutoStopTimeoutInMinutes
+    , fmap (("UserVolumeSizeGib",) . toJSON) _workSpacesWorkspaceWorkspacePropertiesUserVolumeSizeGib
     ]
 
 -- | Constructor for 'WorkSpacesWorkspaceWorkspaceProperties' containing

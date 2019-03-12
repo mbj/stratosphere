@@ -23,7 +23,7 @@ instance ToJSON AmazonMQBrokerConfigurationId where
     object $
     catMaybes
     [ (Just . ("Id",) . toJSON) _amazonMQBrokerConfigurationIdId
-    , (Just . ("Revision",) . toJSON . fmap Integer') _amazonMQBrokerConfigurationIdRevision
+    , (Just . ("Revision",) . toJSON) _amazonMQBrokerConfigurationIdRevision
     ]
 
 -- | Constructor for 'AmazonMQBrokerConfigurationId' containing required

@@ -25,7 +25,7 @@ instance ToResourceProperties CloudFormationWaitCondition where
     { resourcePropertiesType = "AWS::CloudFormation::WaitCondition"
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
-        [ fmap (("Count",) . toJSON . fmap Integer') _cloudFormationWaitConditionCount
+        [ fmap (("Count",) . toJSON) _cloudFormationWaitConditionCount
         , fmap (("Handle",) . toJSON) _cloudFormationWaitConditionHandle
         , fmap (("Timeout",) . toJSON) _cloudFormationWaitConditionTimeout
         ]

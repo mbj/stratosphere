@@ -26,7 +26,7 @@ instance ToResourceProperties EC2NetworkInterfaceAttachment where
     { resourcePropertiesType = "AWS::EC2::NetworkInterfaceAttachment"
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
-        [ fmap (("DeleteOnTermination",) . toJSON . fmap Bool') _eC2NetworkInterfaceAttachmentDeleteOnTermination
+        [ fmap (("DeleteOnTermination",) . toJSON) _eC2NetworkInterfaceAttachmentDeleteOnTermination
         , (Just . ("DeviceIndex",) . toJSON) _eC2NetworkInterfaceAttachmentDeviceIndex
         , (Just . ("InstanceId",) . toJSON) _eC2NetworkInterfaceAttachmentInstanceId
         , (Just . ("NetworkInterfaceId",) . toJSON) _eC2NetworkInterfaceAttachmentNetworkInterfaceId

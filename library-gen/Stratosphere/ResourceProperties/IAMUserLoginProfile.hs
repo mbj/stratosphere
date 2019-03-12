@@ -23,7 +23,7 @@ instance ToJSON IAMUserLoginProfile where
     object $
     catMaybes
     [ (Just . ("Password",) . toJSON) _iAMUserLoginProfilePassword
-    , fmap (("PasswordResetRequired",) . toJSON . fmap Bool') _iAMUserLoginProfilePasswordResetRequired
+    , fmap (("PasswordResetRequired",) . toJSON) _iAMUserLoginProfilePasswordResetRequired
     ]
 
 -- | Constructor for 'IAMUserLoginProfile' containing required fields as

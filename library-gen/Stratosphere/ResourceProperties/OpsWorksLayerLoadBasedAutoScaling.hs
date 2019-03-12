@@ -24,7 +24,7 @@ instance ToJSON OpsWorksLayerLoadBasedAutoScaling where
     object $
     catMaybes
     [ fmap (("DownScaling",) . toJSON) _opsWorksLayerLoadBasedAutoScalingDownScaling
-    , fmap (("Enable",) . toJSON . fmap Bool') _opsWorksLayerLoadBasedAutoScalingEnable
+    , fmap (("Enable",) . toJSON) _opsWorksLayerLoadBasedAutoScalingEnable
     , fmap (("UpScaling",) . toJSON) _opsWorksLayerLoadBasedAutoScalingUpScaling
     ]
 

@@ -25,7 +25,7 @@ instance ToJSON AppSyncDataSourceDynamoDBConfig where
     catMaybes
     [ (Just . ("AwsRegion",) . toJSON) _appSyncDataSourceDynamoDBConfigAwsRegion
     , (Just . ("TableName",) . toJSON) _appSyncDataSourceDynamoDBConfigTableName
-    , fmap (("UseCallerCredentials",) . toJSON . fmap Bool') _appSyncDataSourceDynamoDBConfigUseCallerCredentials
+    , fmap (("UseCallerCredentials",) . toJSON) _appSyncDataSourceDynamoDBConfigUseCallerCredentials
     ]
 
 -- | Constructor for 'AppSyncDataSourceDynamoDBConfig' containing required

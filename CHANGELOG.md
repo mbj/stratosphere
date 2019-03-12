@@ -1,7 +1,10 @@
 # Change Log
 
-## 0.33.1
+## 0.34.0
 
+* Don't encode `Bool`, `Int`, and `Double` values as strings in JSON. See:
+  - https://github.com/frontrowed/stratosphere/pull/123 and
+  - https://github.com/frontrowed/stratosphere/issues/86
 * Use `-O0` when compiling `stratosphere`
 
 ## 0.33.0

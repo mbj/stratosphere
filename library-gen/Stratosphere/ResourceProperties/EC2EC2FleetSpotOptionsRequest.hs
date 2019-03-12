@@ -25,7 +25,7 @@ instance ToJSON EC2EC2FleetSpotOptionsRequest where
     catMaybes
     [ fmap (("AllocationStrategy",) . toJSON) _eC2EC2FleetSpotOptionsRequestAllocationStrategy
     , fmap (("InstanceInterruptionBehavior",) . toJSON) _eC2EC2FleetSpotOptionsRequestInstanceInterruptionBehavior
-    , fmap (("InstancePoolsToUseCount",) . toJSON . fmap Integer') _eC2EC2FleetSpotOptionsRequestInstancePoolsToUseCount
+    , fmap (("InstancePoolsToUseCount",) . toJSON) _eC2EC2FleetSpotOptionsRequestInstancePoolsToUseCount
     ]
 
 -- | Constructor for 'EC2EC2FleetSpotOptionsRequest' containing required

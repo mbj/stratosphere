@@ -32,7 +32,7 @@ instance ToResourceProperties AutoScalingLifecycleHook where
         hashMapFromList $ catMaybes
         [ (Just . ("AutoScalingGroupName",) . toJSON) _autoScalingLifecycleHookAutoScalingGroupName
         , fmap (("DefaultResult",) . toJSON) _autoScalingLifecycleHookDefaultResult
-        , fmap (("HeartbeatTimeout",) . toJSON . fmap Integer') _autoScalingLifecycleHookHeartbeatTimeout
+        , fmap (("HeartbeatTimeout",) . toJSON) _autoScalingLifecycleHookHeartbeatTimeout
         , fmap (("LifecycleHookName",) . toJSON) _autoScalingLifecycleHookLifecycleHookName
         , (Just . ("LifecycleTransition",) . toJSON) _autoScalingLifecycleHookLifecycleTransition
         , fmap (("NotificationMetadata",) . toJSON) _autoScalingLifecycleHookNotificationMetadata

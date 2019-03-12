@@ -33,17 +33,17 @@ instance ToJSON EC2LaunchTemplateNetworkInterface where
   toJSON EC2LaunchTemplateNetworkInterface{..} =
     object $
     catMaybes
-    [ fmap (("AssociatePublicIpAddress",) . toJSON . fmap Bool') _eC2LaunchTemplateNetworkInterfaceAssociatePublicIpAddress
-    , fmap (("DeleteOnTermination",) . toJSON . fmap Bool') _eC2LaunchTemplateNetworkInterfaceDeleteOnTermination
+    [ fmap (("AssociatePublicIpAddress",) . toJSON) _eC2LaunchTemplateNetworkInterfaceAssociatePublicIpAddress
+    , fmap (("DeleteOnTermination",) . toJSON) _eC2LaunchTemplateNetworkInterfaceDeleteOnTermination
     , fmap (("Description",) . toJSON) _eC2LaunchTemplateNetworkInterfaceDescription
-    , fmap (("DeviceIndex",) . toJSON . fmap Integer') _eC2LaunchTemplateNetworkInterfaceDeviceIndex
+    , fmap (("DeviceIndex",) . toJSON) _eC2LaunchTemplateNetworkInterfaceDeviceIndex
     , fmap (("Groups",) . toJSON) _eC2LaunchTemplateNetworkInterfaceGroups
-    , fmap (("Ipv6AddressCount",) . toJSON . fmap Integer') _eC2LaunchTemplateNetworkInterfaceIpv6AddressCount
+    , fmap (("Ipv6AddressCount",) . toJSON) _eC2LaunchTemplateNetworkInterfaceIpv6AddressCount
     , fmap (("Ipv6Addresses",) . toJSON) _eC2LaunchTemplateNetworkInterfaceIpv6Addresses
     , fmap (("NetworkInterfaceId",) . toJSON) _eC2LaunchTemplateNetworkInterfaceNetworkInterfaceId
     , fmap (("PrivateIpAddress",) . toJSON) _eC2LaunchTemplateNetworkInterfacePrivateIpAddress
     , fmap (("PrivateIpAddresses",) . toJSON) _eC2LaunchTemplateNetworkInterfacePrivateIpAddresses
-    , fmap (("SecondaryPrivateIpAddressCount",) . toJSON . fmap Integer') _eC2LaunchTemplateNetworkInterfaceSecondaryPrivateIpAddressCount
+    , fmap (("SecondaryPrivateIpAddressCount",) . toJSON) _eC2LaunchTemplateNetworkInterfaceSecondaryPrivateIpAddressCount
     , fmap (("SubnetId",) . toJSON) _eC2LaunchTemplateNetworkInterfaceSubnetId
     ]
 

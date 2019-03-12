@@ -21,7 +21,7 @@ instance ToJSON ResourceSignal where
   toJSON ResourceSignal{..} =
     object $
     catMaybes
-    [ fmap (("Count",) . toJSON . fmap Integer') _resourceSignalCount
+    [ fmap (("Count",) . toJSON) _resourceSignalCount
     , fmap (("Timeout",) . toJSON) _resourceSignalTimeout
     ]
 

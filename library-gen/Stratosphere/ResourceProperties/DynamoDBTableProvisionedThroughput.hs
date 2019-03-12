@@ -22,8 +22,8 @@ instance ToJSON DynamoDBTableProvisionedThroughput where
   toJSON DynamoDBTableProvisionedThroughput{..} =
     object $
     catMaybes
-    [ (Just . ("ReadCapacityUnits",) . toJSON . fmap Integer') _dynamoDBTableProvisionedThroughputReadCapacityUnits
-    , (Just . ("WriteCapacityUnits",) . toJSON . fmap Integer') _dynamoDBTableProvisionedThroughputWriteCapacityUnits
+    [ (Just . ("ReadCapacityUnits",) . toJSON) _dynamoDBTableProvisionedThroughputReadCapacityUnits
+    , (Just . ("WriteCapacityUnits",) . toJSON) _dynamoDBTableProvisionedThroughputWriteCapacityUnits
     ]
 
 -- | Constructor for 'DynamoDBTableProvisionedThroughput' containing required

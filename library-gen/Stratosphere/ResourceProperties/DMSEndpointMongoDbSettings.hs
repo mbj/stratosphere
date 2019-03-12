@@ -39,7 +39,7 @@ instance ToJSON DMSEndpointMongoDbSettings where
     , fmap (("ExtractDocId",) . toJSON) _dMSEndpointMongoDbSettingsExtractDocId
     , fmap (("NestingLevel",) . toJSON) _dMSEndpointMongoDbSettingsNestingLevel
     , fmap (("Password",) . toJSON) _dMSEndpointMongoDbSettingsPassword
-    , fmap (("Port",) . toJSON . fmap Integer') _dMSEndpointMongoDbSettingsPort
+    , fmap (("Port",) . toJSON) _dMSEndpointMongoDbSettingsPort
     , fmap (("ServerName",) . toJSON) _dMSEndpointMongoDbSettingsServerName
     , fmap (("Username",) . toJSON) _dMSEndpointMongoDbSettingsUsername
     ]

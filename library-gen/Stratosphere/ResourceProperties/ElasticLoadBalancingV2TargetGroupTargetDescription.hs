@@ -27,7 +27,7 @@ instance ToJSON ElasticLoadBalancingV2TargetGroupTargetDescription where
     catMaybes
     [ fmap (("AvailabilityZone",) . toJSON) _elasticLoadBalancingV2TargetGroupTargetDescriptionAvailabilityZone
     , (Just . ("Id",) . toJSON) _elasticLoadBalancingV2TargetGroupTargetDescriptionId
-    , fmap (("Port",) . toJSON . fmap Integer') _elasticLoadBalancingV2TargetGroupTargetDescriptionPort
+    , fmap (("Port",) . toJSON) _elasticLoadBalancingV2TargetGroupTargetDescriptionPort
     ]
 
 -- | Constructor for 'ElasticLoadBalancingV2TargetGroupTargetDescription'

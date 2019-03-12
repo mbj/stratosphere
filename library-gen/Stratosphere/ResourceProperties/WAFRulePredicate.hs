@@ -24,7 +24,7 @@ instance ToJSON WAFRulePredicate where
     object $
     catMaybes
     [ (Just . ("DataId",) . toJSON) _wAFRulePredicateDataId
-    , (Just . ("Negated",) . toJSON . fmap Bool') _wAFRulePredicateNegated
+    , (Just . ("Negated",) . toJSON) _wAFRulePredicateNegated
     , (Just . ("Type",) . toJSON) _wAFRulePredicateType
     ]
 

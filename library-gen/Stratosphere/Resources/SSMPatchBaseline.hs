@@ -39,7 +39,7 @@ instance ToResourceProperties SSMPatchBaseline where
         [ fmap (("ApprovalRules",) . toJSON) _sSMPatchBaselineApprovalRules
         , fmap (("ApprovedPatches",) . toJSON) _sSMPatchBaselineApprovedPatches
         , fmap (("ApprovedPatchesComplianceLevel",) . toJSON) _sSMPatchBaselineApprovedPatchesComplianceLevel
-        , fmap (("ApprovedPatchesEnableNonSecurity",) . toJSON . fmap Bool') _sSMPatchBaselineApprovedPatchesEnableNonSecurity
+        , fmap (("ApprovedPatchesEnableNonSecurity",) . toJSON) _sSMPatchBaselineApprovedPatchesEnableNonSecurity
         , fmap (("Description",) . toJSON) _sSMPatchBaselineDescription
         , fmap (("GlobalFilters",) . toJSON) _sSMPatchBaselineGlobalFilters
         , (Just . ("Name",) . toJSON) _sSMPatchBaselineName

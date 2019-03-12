@@ -21,7 +21,7 @@ instance ToJSON DAXClusterSSESpecification where
   toJSON DAXClusterSSESpecification{..} =
     object $
     catMaybes
-    [ fmap (("SSEEnabled",) . toJSON . fmap Bool') _dAXClusterSSESpecificationSSEEnabled
+    [ fmap (("SSEEnabled",) . toJSON) _dAXClusterSSESpecificationSSEEnabled
     ]
 
 -- | Constructor for 'DAXClusterSSESpecification' containing required fields

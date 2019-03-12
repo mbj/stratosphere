@@ -22,7 +22,7 @@ instance ToJSON S3BucketAbortIncompleteMultipartUpload where
   toJSON S3BucketAbortIncompleteMultipartUpload{..} =
     object $
     catMaybes
-    [ (Just . ("DaysAfterInitiation",) . toJSON . fmap Integer') _s3BucketAbortIncompleteMultipartUploadDaysAfterInitiation
+    [ (Just . ("DaysAfterInitiation",) . toJSON) _s3BucketAbortIncompleteMultipartUploadDaysAfterInitiation
     ]
 
 -- | Constructor for 'S3BucketAbortIncompleteMultipartUpload' containing

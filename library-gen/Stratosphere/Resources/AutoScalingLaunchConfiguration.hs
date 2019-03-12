@@ -40,15 +40,15 @@ instance ToResourceProperties AutoScalingLaunchConfiguration where
     { resourcePropertiesType = "AWS::AutoScaling::LaunchConfiguration"
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
-        [ fmap (("AssociatePublicIpAddress",) . toJSON . fmap Bool') _autoScalingLaunchConfigurationAssociatePublicIpAddress
+        [ fmap (("AssociatePublicIpAddress",) . toJSON) _autoScalingLaunchConfigurationAssociatePublicIpAddress
         , fmap (("BlockDeviceMappings",) . toJSON) _autoScalingLaunchConfigurationBlockDeviceMappings
         , fmap (("ClassicLinkVPCId",) . toJSON) _autoScalingLaunchConfigurationClassicLinkVPCId
         , fmap (("ClassicLinkVPCSecurityGroups",) . toJSON) _autoScalingLaunchConfigurationClassicLinkVPCSecurityGroups
-        , fmap (("EbsOptimized",) . toJSON . fmap Bool') _autoScalingLaunchConfigurationEbsOptimized
+        , fmap (("EbsOptimized",) . toJSON) _autoScalingLaunchConfigurationEbsOptimized
         , fmap (("IamInstanceProfile",) . toJSON) _autoScalingLaunchConfigurationIamInstanceProfile
         , (Just . ("ImageId",) . toJSON) _autoScalingLaunchConfigurationImageId
         , fmap (("InstanceId",) . toJSON) _autoScalingLaunchConfigurationInstanceId
-        , fmap (("InstanceMonitoring",) . toJSON . fmap Bool') _autoScalingLaunchConfigurationInstanceMonitoring
+        , fmap (("InstanceMonitoring",) . toJSON) _autoScalingLaunchConfigurationInstanceMonitoring
         , (Just . ("InstanceType",) . toJSON) _autoScalingLaunchConfigurationInstanceType
         , fmap (("KernelId",) . toJSON) _autoScalingLaunchConfigurationKernelId
         , fmap (("KeyName",) . toJSON) _autoScalingLaunchConfigurationKeyName

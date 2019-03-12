@@ -27,7 +27,7 @@ instance ToJSON IoTAnalyticsDatasetVariable where
     object $
     catMaybes
     [ fmap (("DatasetContentVersionValue",) . toJSON) _ioTAnalyticsDatasetVariableDatasetContentVersionValue
-    , fmap (("DoubleValue",) . toJSON . fmap Double') _ioTAnalyticsDatasetVariableDoubleValue
+    , fmap (("DoubleValue",) . toJSON) _ioTAnalyticsDatasetVariableDoubleValue
     , fmap (("OutputFileUriValue",) . toJSON) _ioTAnalyticsDatasetVariableOutputFileUriValue
     , fmap (("StringValue",) . toJSON) _ioTAnalyticsDatasetVariableStringValue
     , (Just . ("VariableName",) . toJSON) _ioTAnalyticsDatasetVariableVariableName

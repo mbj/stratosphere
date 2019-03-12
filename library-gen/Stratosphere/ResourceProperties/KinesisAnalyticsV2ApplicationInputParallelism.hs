@@ -23,7 +23,7 @@ instance ToJSON KinesisAnalyticsV2ApplicationInputParallelism where
   toJSON KinesisAnalyticsV2ApplicationInputParallelism{..} =
     object $
     catMaybes
-    [ fmap (("Count",) . toJSON . fmap Integer') _kinesisAnalyticsV2ApplicationInputParallelismCount
+    [ fmap (("Count",) . toJSON) _kinesisAnalyticsV2ApplicationInputParallelismCount
     ]
 
 -- | Constructor for 'KinesisAnalyticsV2ApplicationInputParallelism'

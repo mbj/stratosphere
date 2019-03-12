@@ -23,8 +23,8 @@ instance ToJSON ApiGatewayUsagePlanQuotaSettings where
   toJSON ApiGatewayUsagePlanQuotaSettings{..} =
     object $
     catMaybes
-    [ fmap (("Limit",) . toJSON . fmap Integer') _apiGatewayUsagePlanQuotaSettingsLimit
-    , fmap (("Offset",) . toJSON . fmap Integer') _apiGatewayUsagePlanQuotaSettingsOffset
+    [ fmap (("Limit",) . toJSON) _apiGatewayUsagePlanQuotaSettingsLimit
+    , fmap (("Offset",) . toJSON) _apiGatewayUsagePlanQuotaSettingsOffset
     , fmap (("Period",) . toJSON) _apiGatewayUsagePlanQuotaSettingsPeriod
     ]
 

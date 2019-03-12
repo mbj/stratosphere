@@ -23,9 +23,9 @@ instance ToJSON ECSTaskDefinitionUlimit where
   toJSON ECSTaskDefinitionUlimit{..} =
     object $
     catMaybes
-    [ (Just . ("HardLimit",) . toJSON . fmap Integer') _eCSTaskDefinitionUlimitHardLimit
+    [ (Just . ("HardLimit",) . toJSON) _eCSTaskDefinitionUlimitHardLimit
     , (Just . ("Name",) . toJSON) _eCSTaskDefinitionUlimitName
-    , (Just . ("SoftLimit",) . toJSON . fmap Integer') _eCSTaskDefinitionUlimitSoftLimit
+    , (Just . ("SoftLimit",) . toJSON) _eCSTaskDefinitionUlimitSoftLimit
     ]
 
 -- | Constructor for 'ECSTaskDefinitionUlimit' containing required fields as

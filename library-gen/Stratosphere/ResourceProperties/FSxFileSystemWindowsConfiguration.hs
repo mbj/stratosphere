@@ -27,10 +27,10 @@ instance ToJSON FSxFileSystemWindowsConfiguration where
     object $
     catMaybes
     [ fmap (("ActiveDirectoryId",) . toJSON) _fSxFileSystemWindowsConfigurationActiveDirectoryId
-    , fmap (("AutomaticBackupRetentionDays",) . toJSON . fmap Integer') _fSxFileSystemWindowsConfigurationAutomaticBackupRetentionDays
-    , fmap (("CopyTagsToBackups",) . toJSON . fmap Bool') _fSxFileSystemWindowsConfigurationCopyTagsToBackups
+    , fmap (("AutomaticBackupRetentionDays",) . toJSON) _fSxFileSystemWindowsConfigurationAutomaticBackupRetentionDays
+    , fmap (("CopyTagsToBackups",) . toJSON) _fSxFileSystemWindowsConfigurationCopyTagsToBackups
     , fmap (("DailyAutomaticBackupStartTime",) . toJSON) _fSxFileSystemWindowsConfigurationDailyAutomaticBackupStartTime
-    , fmap (("ThroughputCapacity",) . toJSON . fmap Integer') _fSxFileSystemWindowsConfigurationThroughputCapacity
+    , fmap (("ThroughputCapacity",) . toJSON) _fSxFileSystemWindowsConfigurationThroughputCapacity
     , fmap (("WeeklyMaintenanceStartTime",) . toJSON) _fSxFileSystemWindowsConfigurationWeeklyMaintenanceStartTime
     ]
 

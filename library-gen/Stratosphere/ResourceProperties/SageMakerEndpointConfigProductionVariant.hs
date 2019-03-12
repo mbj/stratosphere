@@ -28,8 +28,8 @@ instance ToJSON SageMakerEndpointConfigProductionVariant where
     object $
     catMaybes
     [ fmap (("AcceleratorType",) . toJSON) _sageMakerEndpointConfigProductionVariantAcceleratorType
-    , (Just . ("InitialInstanceCount",) . toJSON . fmap Integer') _sageMakerEndpointConfigProductionVariantInitialInstanceCount
-    , (Just . ("InitialVariantWeight",) . toJSON . fmap Double') _sageMakerEndpointConfigProductionVariantInitialVariantWeight
+    , (Just . ("InitialInstanceCount",) . toJSON) _sageMakerEndpointConfigProductionVariantInitialInstanceCount
+    , (Just . ("InitialVariantWeight",) . toJSON) _sageMakerEndpointConfigProductionVariantInitialVariantWeight
     , (Just . ("InstanceType",) . toJSON) _sageMakerEndpointConfigProductionVariantInstanceType
     , (Just . ("ModelName",) . toJSON) _sageMakerEndpointConfigProductionVariantModelName
     , (Just . ("VariantName",) . toJSON) _sageMakerEndpointConfigProductionVariantVariantName

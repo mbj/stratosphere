@@ -25,7 +25,7 @@ instance ToJSON IoTTopicRuleSqsAction where
     catMaybes
     [ (Just . ("QueueUrl",) . toJSON) _ioTTopicRuleSqsActionQueueUrl
     , (Just . ("RoleArn",) . toJSON) _ioTTopicRuleSqsActionRoleArn
-    , fmap (("UseBase64",) . toJSON . fmap Bool') _ioTTopicRuleSqsActionUseBase64
+    , fmap (("UseBase64",) . toJSON) _ioTTopicRuleSqsActionUseBase64
     ]
 
 -- | Constructor for 'IoTTopicRuleSqsAction' containing required fields as

@@ -37,7 +37,7 @@ instance ToResourceProperties AppStreamImageBuilder where
         , fmap (("Description",) . toJSON) _appStreamImageBuilderDescription
         , fmap (("DisplayName",) . toJSON) _appStreamImageBuilderDisplayName
         , fmap (("DomainJoinInfo",) . toJSON) _appStreamImageBuilderDomainJoinInfo
-        , fmap (("EnableDefaultInternetAccess",) . toJSON . fmap Bool') _appStreamImageBuilderEnableDefaultInternetAccess
+        , fmap (("EnableDefaultInternetAccess",) . toJSON) _appStreamImageBuilderEnableDefaultInternetAccess
         , fmap (("ImageArn",) . toJSON) _appStreamImageBuilderImageArn
         , fmap (("ImageName",) . toJSON) _appStreamImageBuilderImageName
         , (Just . ("InstanceType",) . toJSON) _appStreamImageBuilderInstanceType

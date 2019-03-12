@@ -50,10 +50,10 @@ instance ToResourceProperties OpsWorksInstance where
         , fmap (("AutoScalingType",) . toJSON) _opsWorksInstanceAutoScalingType
         , fmap (("AvailabilityZone",) . toJSON) _opsWorksInstanceAvailabilityZone
         , fmap (("BlockDeviceMappings",) . toJSON) _opsWorksInstanceBlockDeviceMappings
-        , fmap (("EbsOptimized",) . toJSON . fmap Bool') _opsWorksInstanceEbsOptimized
+        , fmap (("EbsOptimized",) . toJSON) _opsWorksInstanceEbsOptimized
         , fmap (("ElasticIps",) . toJSON) _opsWorksInstanceElasticIps
         , fmap (("Hostname",) . toJSON) _opsWorksInstanceHostname
-        , fmap (("InstallUpdatesOnBoot",) . toJSON . fmap Bool') _opsWorksInstanceInstallUpdatesOnBoot
+        , fmap (("InstallUpdatesOnBoot",) . toJSON) _opsWorksInstanceInstallUpdatesOnBoot
         , (Just . ("InstanceType",) . toJSON) _opsWorksInstanceInstanceType
         , (Just . ("LayerIds",) . toJSON) _opsWorksInstanceLayerIds
         , fmap (("Os",) . toJSON) _opsWorksInstanceOs

@@ -29,7 +29,7 @@ instance ToResourceProperties DMSEventSubscription where
     { resourcePropertiesType = "AWS::DMS::EventSubscription"
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
-        [ fmap (("Enabled",) . toJSON . fmap Bool') _dMSEventSubscriptionEnabled
+        [ fmap (("Enabled",) . toJSON) _dMSEventSubscriptionEnabled
         , fmap (("EventCategories",) . toJSON) _dMSEventSubscriptionEventCategories
         , (Just . ("SnsTopicArn",) . toJSON) _dMSEventSubscriptionSnsTopicArn
         , fmap (("SourceIds",) . toJSON) _dMSEventSubscriptionSourceIds

@@ -40,7 +40,7 @@ instance ToResourceProperties AmazonMQBroker where
     { resourcePropertiesType = "AWS::AmazonMQ::Broker"
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
-        [ (Just . ("AutoMinorVersionUpgrade",) . toJSON . fmap Bool') _amazonMQBrokerAutoMinorVersionUpgrade
+        [ (Just . ("AutoMinorVersionUpgrade",) . toJSON) _amazonMQBrokerAutoMinorVersionUpgrade
         , (Just . ("BrokerName",) . toJSON) _amazonMQBrokerBrokerName
         , fmap (("Configuration",) . toJSON) _amazonMQBrokerConfiguration
         , (Just . ("DeploymentMode",) . toJSON) _amazonMQBrokerDeploymentMode
@@ -49,7 +49,7 @@ instance ToResourceProperties AmazonMQBroker where
         , (Just . ("HostInstanceType",) . toJSON) _amazonMQBrokerHostInstanceType
         , fmap (("Logs",) . toJSON) _amazonMQBrokerLogs
         , fmap (("MaintenanceWindowStartTime",) . toJSON) _amazonMQBrokerMaintenanceWindowStartTime
-        , (Just . ("PubliclyAccessible",) . toJSON . fmap Bool') _amazonMQBrokerPubliclyAccessible
+        , (Just . ("PubliclyAccessible",) . toJSON) _amazonMQBrokerPubliclyAccessible
         , fmap (("SecurityGroups",) . toJSON) _amazonMQBrokerSecurityGroups
         , fmap (("SubnetIds",) . toJSON) _amazonMQBrokerSubnetIds
         , fmap (("Tags",) . toJSON) _amazonMQBrokerTags

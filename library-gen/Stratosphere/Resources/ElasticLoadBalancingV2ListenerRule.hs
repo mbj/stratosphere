@@ -30,7 +30,7 @@ instance ToResourceProperties ElasticLoadBalancingV2ListenerRule where
         [ (Just . ("Actions",) . toJSON) _elasticLoadBalancingV2ListenerRuleActions
         , (Just . ("Conditions",) . toJSON) _elasticLoadBalancingV2ListenerRuleConditions
         , (Just . ("ListenerArn",) . toJSON) _elasticLoadBalancingV2ListenerRuleListenerArn
-        , (Just . ("Priority",) . toJSON . fmap Integer') _elasticLoadBalancingV2ListenerRulePriority
+        , (Just . ("Priority",) . toJSON) _elasticLoadBalancingV2ListenerRulePriority
         ]
     }
 

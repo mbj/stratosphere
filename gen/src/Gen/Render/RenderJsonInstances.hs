@@ -57,19 +57,5 @@ renderToJSONFields spaces Module{..} =
     leader = "\n" <> T.pack (replicate spaces ' ') <> ", "
     renderField Property{..} =
       if propertyRequired
-      then [st|(Just . ("#{propertyName}",) . toJSON#{toJSONWrapper propertySpecType}) #{moduleFieldPrefix}#{propertyName}|]
-      else [st|fmap (("#{propertyName}",) . toJSON#{toJSONWrapper propertySpecType}) #{moduleFieldPrefix}#{propertyName}|]
-
-toJSONWrapper :: SpecType -> Text
-toJSONWrapper (AtomicType type') = maybe "" (" . fmap " <>) (atomicType' type')
--- AFAIK we never have a list of numbers or bools, so I don't think this case
--- occurs. Grep for "fmap (fmap" to check.
-toJSONWrapper (ListType type') = maybe "" (\t -> ". fmap (fmap " <> t <> ")") (atomicType' type')
-toJSONWrapper (MapType _) = ""
-
--- | Get the newtype version of the AtomicType, if applicable.
-atomicType' :: AtomicType -> Maybe Text
-atomicType' IntegerPrimitive = Just "Integer'"
-atomicType' DoublePrimitive = Just "Double'"
-atomicType' BoolPrimitive = Just "Bool'"
-atomicType' _ = Nothing
+      then [st|(Just . ("#{propertyName}",) . toJSON) #{moduleFieldPrefix}#{propertyName}|]
+      else [st|fmap (("#{propertyName}",) . toJSON) #{moduleFieldPrefix}#{propertyName}|]

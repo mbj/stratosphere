@@ -47,7 +47,7 @@ instance ToResourceProperties ApiGatewayV2Integration where
         , fmap (("RequestParameters",) . toJSON) _apiGatewayV2IntegrationRequestParameters
         , fmap (("RequestTemplates",) . toJSON) _apiGatewayV2IntegrationRequestTemplates
         , fmap (("TemplateSelectionExpression",) . toJSON) _apiGatewayV2IntegrationTemplateSelectionExpression
-        , fmap (("TimeoutInMillis",) . toJSON . fmap Integer') _apiGatewayV2IntegrationTimeoutInMillis
+        , fmap (("TimeoutInMillis",) . toJSON) _apiGatewayV2IntegrationTimeoutInMillis
         ]
     }
 

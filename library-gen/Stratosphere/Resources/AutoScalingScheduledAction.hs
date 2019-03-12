@@ -30,10 +30,10 @@ instance ToResourceProperties AutoScalingScheduledAction where
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
         [ (Just . ("AutoScalingGroupName",) . toJSON) _autoScalingScheduledActionAutoScalingGroupName
-        , fmap (("DesiredCapacity",) . toJSON . fmap Integer') _autoScalingScheduledActionDesiredCapacity
+        , fmap (("DesiredCapacity",) . toJSON) _autoScalingScheduledActionDesiredCapacity
         , fmap (("EndTime",) . toJSON) _autoScalingScheduledActionEndTime
-        , fmap (("MaxSize",) . toJSON . fmap Integer') _autoScalingScheduledActionMaxSize
-        , fmap (("MinSize",) . toJSON . fmap Integer') _autoScalingScheduledActionMinSize
+        , fmap (("MaxSize",) . toJSON) _autoScalingScheduledActionMaxSize
+        , fmap (("MinSize",) . toJSON) _autoScalingScheduledActionMinSize
         , fmap (("Recurrence",) . toJSON) _autoScalingScheduledActionRecurrence
         , fmap (("StartTime",) . toJSON) _autoScalingScheduledActionStartTime
         ]

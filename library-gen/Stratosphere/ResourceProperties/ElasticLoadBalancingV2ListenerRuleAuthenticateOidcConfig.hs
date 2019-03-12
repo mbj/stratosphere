@@ -41,7 +41,7 @@ instance ToJSON ElasticLoadBalancingV2ListenerRuleAuthenticateOidcConfig where
     , fmap (("OnUnauthenticatedRequest",) . toJSON) _elasticLoadBalancingV2ListenerRuleAuthenticateOidcConfigOnUnauthenticatedRequest
     , fmap (("Scope",) . toJSON) _elasticLoadBalancingV2ListenerRuleAuthenticateOidcConfigScope
     , fmap (("SessionCookieName",) . toJSON) _elasticLoadBalancingV2ListenerRuleAuthenticateOidcConfigSessionCookieName
-    , fmap (("SessionTimeout",) . toJSON . fmap Integer') _elasticLoadBalancingV2ListenerRuleAuthenticateOidcConfigSessionTimeout
+    , fmap (("SessionTimeout",) . toJSON) _elasticLoadBalancingV2ListenerRuleAuthenticateOidcConfigSessionTimeout
     , (Just . ("TokenEndpoint",) . toJSON) _elasticLoadBalancingV2ListenerRuleAuthenticateOidcConfigTokenEndpoint
     , (Just . ("UserInfoEndpoint",) . toJSON) _elasticLoadBalancingV2ListenerRuleAuthenticateOidcConfigUserInfoEndpoint
     ]

@@ -27,9 +27,9 @@ instance ToJSON EC2EC2FleetTargetCapacitySpecificationRequest where
     object $
     catMaybes
     [ fmap (("DefaultTargetCapacityType",) . toJSON) _eC2EC2FleetTargetCapacitySpecificationRequestDefaultTargetCapacityType
-    , fmap (("OnDemandTargetCapacity",) . toJSON . fmap Integer') _eC2EC2FleetTargetCapacitySpecificationRequestOnDemandTargetCapacity
-    , fmap (("SpotTargetCapacity",) . toJSON . fmap Integer') _eC2EC2FleetTargetCapacitySpecificationRequestSpotTargetCapacity
-    , (Just . ("TotalTargetCapacity",) . toJSON . fmap Integer') _eC2EC2FleetTargetCapacitySpecificationRequestTotalTargetCapacity
+    , fmap (("OnDemandTargetCapacity",) . toJSON) _eC2EC2FleetTargetCapacitySpecificationRequestOnDemandTargetCapacity
+    , fmap (("SpotTargetCapacity",) . toJSON) _eC2EC2FleetTargetCapacitySpecificationRequestSpotTargetCapacity
+    , (Just . ("TotalTargetCapacity",) . toJSON) _eC2EC2FleetTargetCapacitySpecificationRequestTotalTargetCapacity
     ]
 
 -- | Constructor for 'EC2EC2FleetTargetCapacitySpecificationRequest'

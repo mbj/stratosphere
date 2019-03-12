@@ -34,7 +34,7 @@ instance ToJSON ElasticLoadBalancingV2ListenerRuleAction where
     [ fmap (("AuthenticateCognitoConfig",) . toJSON) _elasticLoadBalancingV2ListenerRuleActionAuthenticateCognitoConfig
     , fmap (("AuthenticateOidcConfig",) . toJSON) _elasticLoadBalancingV2ListenerRuleActionAuthenticateOidcConfig
     , fmap (("FixedResponseConfig",) . toJSON) _elasticLoadBalancingV2ListenerRuleActionFixedResponseConfig
-    , fmap (("Order",) . toJSON . fmap Integer') _elasticLoadBalancingV2ListenerRuleActionOrder
+    , fmap (("Order",) . toJSON) _elasticLoadBalancingV2ListenerRuleActionOrder
     , fmap (("RedirectConfig",) . toJSON) _elasticLoadBalancingV2ListenerRuleActionRedirectConfig
     , fmap (("TargetGroupArn",) . toJSON) _elasticLoadBalancingV2ListenerRuleActionTargetGroupArn
     , (Just . ("Type",) . toJSON) _elasticLoadBalancingV2ListenerRuleActionType

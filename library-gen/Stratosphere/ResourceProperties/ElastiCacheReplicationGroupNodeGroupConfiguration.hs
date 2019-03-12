@@ -30,7 +30,7 @@ instance ToJSON ElastiCacheReplicationGroupNodeGroupConfiguration where
     [ fmap (("NodeGroupId",) . toJSON) _elastiCacheReplicationGroupNodeGroupConfigurationNodeGroupId
     , fmap (("PrimaryAvailabilityZone",) . toJSON) _elastiCacheReplicationGroupNodeGroupConfigurationPrimaryAvailabilityZone
     , fmap (("ReplicaAvailabilityZones",) . toJSON) _elastiCacheReplicationGroupNodeGroupConfigurationReplicaAvailabilityZones
-    , fmap (("ReplicaCount",) . toJSON . fmap Integer') _elastiCacheReplicationGroupNodeGroupConfigurationReplicaCount
+    , fmap (("ReplicaCount",) . toJSON) _elastiCacheReplicationGroupNodeGroupConfigurationReplicaCount
     , fmap (("Slots",) . toJSON) _elastiCacheReplicationGroupNodeGroupConfigurationSlots
     ]
 

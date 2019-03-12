@@ -34,7 +34,7 @@ instance ToJSON CodeBuildProjectEnvironment where
     , fmap (("EnvironmentVariables",) . toJSON) _codeBuildProjectEnvironmentEnvironmentVariables
     , (Just . ("Image",) . toJSON) _codeBuildProjectEnvironmentImage
     , fmap (("ImagePullCredentialsType",) . toJSON) _codeBuildProjectEnvironmentImagePullCredentialsType
-    , fmap (("PrivilegedMode",) . toJSON . fmap Bool') _codeBuildProjectEnvironmentPrivilegedMode
+    , fmap (("PrivilegedMode",) . toJSON) _codeBuildProjectEnvironmentPrivilegedMode
     , fmap (("RegistryCredential",) . toJSON) _codeBuildProjectEnvironmentRegistryCredential
     , (Just . ("Type",) . toJSON) _codeBuildProjectEnvironmentType
     ]

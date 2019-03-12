@@ -23,7 +23,7 @@ instance ToJSON ServiceDiscoveryServiceHealthCheckCustomConfig where
   toJSON ServiceDiscoveryServiceHealthCheckCustomConfig{..} =
     object $
     catMaybes
-    [ fmap (("FailureThreshold",) . toJSON . fmap Double') _serviceDiscoveryServiceHealthCheckCustomConfigFailureThreshold
+    [ fmap (("FailureThreshold",) . toJSON) _serviceDiscoveryServiceHealthCheckCustomConfigFailureThreshold
     ]
 
 -- | Constructor for 'ServiceDiscoveryServiceHealthCheckCustomConfig'

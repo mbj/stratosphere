@@ -27,7 +27,7 @@ instance ToJSON DLMLifecyclePolicySchedule where
   toJSON DLMLifecyclePolicySchedule{..} =
     object $
     catMaybes
-    [ fmap (("CopyTags",) . toJSON . fmap Bool') _dLMLifecyclePolicyScheduleCopyTags
+    [ fmap (("CopyTags",) . toJSON) _dLMLifecyclePolicyScheduleCopyTags
     , fmap (("CreateRule",) . toJSON) _dLMLifecyclePolicyScheduleCreateRule
     , fmap (("Name",) . toJSON) _dLMLifecyclePolicyScheduleName
     , fmap (("RetainRule",) . toJSON) _dLMLifecyclePolicyScheduleRetainRule

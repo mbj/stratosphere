@@ -27,7 +27,7 @@ instance ToResourceProperties AppStreamStackUserAssociation where
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
         [ (Just . ("AuthenticationType",) . toJSON) _appStreamStackUserAssociationAuthenticationType
-        , fmap (("SendEmailNotification",) . toJSON . fmap Bool') _appStreamStackUserAssociationSendEmailNotification
+        , fmap (("SendEmailNotification",) . toJSON) _appStreamStackUserAssociationSendEmailNotification
         , (Just . ("StackName",) . toJSON) _appStreamStackUserAssociationStackName
         , (Just . ("UserName",) . toJSON) _appStreamStackUserAssociationUserName
         ]

@@ -23,8 +23,8 @@ instance ToJSON EMRInstanceGroupConfigScalingConstraints where
   toJSON EMRInstanceGroupConfigScalingConstraints{..} =
     object $
     catMaybes
-    [ (Just . ("MaxCapacity",) . toJSON . fmap Integer') _eMRInstanceGroupConfigScalingConstraintsMaxCapacity
-    , (Just . ("MinCapacity",) . toJSON . fmap Integer') _eMRInstanceGroupConfigScalingConstraintsMinCapacity
+    [ (Just . ("MaxCapacity",) . toJSON) _eMRInstanceGroupConfigScalingConstraintsMaxCapacity
+    , (Just . ("MinCapacity",) . toJSON) _eMRInstanceGroupConfigScalingConstraintsMinCapacity
     ]
 
 -- | Constructor for 'EMRInstanceGroupConfigScalingConstraints' containing

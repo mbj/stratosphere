@@ -23,9 +23,9 @@ instance ToJSON CognitoUserPoolAdminCreateUserConfig where
   toJSON CognitoUserPoolAdminCreateUserConfig{..} =
     object $
     catMaybes
-    [ fmap (("AllowAdminCreateUserOnly",) . toJSON . fmap Bool') _cognitoUserPoolAdminCreateUserConfigAllowAdminCreateUserOnly
+    [ fmap (("AllowAdminCreateUserOnly",) . toJSON) _cognitoUserPoolAdminCreateUserConfigAllowAdminCreateUserOnly
     , fmap (("InviteMessageTemplate",) . toJSON) _cognitoUserPoolAdminCreateUserConfigInviteMessageTemplate
-    , fmap (("UnusedAccountValidityDays",) . toJSON . fmap Double') _cognitoUserPoolAdminCreateUserConfigUnusedAccountValidityDays
+    , fmap (("UnusedAccountValidityDays",) . toJSON) _cognitoUserPoolAdminCreateUserConfigUnusedAccountValidityDays
     ]
 
 -- | Constructor for 'CognitoUserPoolAdminCreateUserConfig' containing

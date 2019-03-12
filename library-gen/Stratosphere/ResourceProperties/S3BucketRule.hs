@@ -37,9 +37,9 @@ instance ToJSON S3BucketRule where
     catMaybes
     [ fmap (("AbortIncompleteMultipartUpload",) . toJSON) _s3BucketRuleAbortIncompleteMultipartUpload
     , fmap (("ExpirationDate",) . toJSON) _s3BucketRuleExpirationDate
-    , fmap (("ExpirationInDays",) . toJSON . fmap Integer') _s3BucketRuleExpirationInDays
+    , fmap (("ExpirationInDays",) . toJSON) _s3BucketRuleExpirationInDays
     , fmap (("Id",) . toJSON) _s3BucketRuleId
-    , fmap (("NoncurrentVersionExpirationInDays",) . toJSON . fmap Integer') _s3BucketRuleNoncurrentVersionExpirationInDays
+    , fmap (("NoncurrentVersionExpirationInDays",) . toJSON) _s3BucketRuleNoncurrentVersionExpirationInDays
     , fmap (("NoncurrentVersionTransition",) . toJSON) _s3BucketRuleNoncurrentVersionTransition
     , fmap (("NoncurrentVersionTransitions",) . toJSON) _s3BucketRuleNoncurrentVersionTransitions
     , fmap (("Prefix",) . toJSON) _s3BucketRulePrefix

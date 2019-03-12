@@ -22,8 +22,8 @@ instance ToJSON ApiGatewayUsagePlanThrottleSettings where
   toJSON ApiGatewayUsagePlanThrottleSettings{..} =
     object $
     catMaybes
-    [ fmap (("BurstLimit",) . toJSON . fmap Integer') _apiGatewayUsagePlanThrottleSettingsBurstLimit
-    , fmap (("RateLimit",) . toJSON . fmap Double') _apiGatewayUsagePlanThrottleSettingsRateLimit
+    [ fmap (("BurstLimit",) . toJSON) _apiGatewayUsagePlanThrottleSettingsBurstLimit
+    , fmap (("RateLimit",) . toJSON) _apiGatewayUsagePlanThrottleSettingsRateLimit
     ]
 
 -- | Constructor for 'ApiGatewayUsagePlanThrottleSettings' containing required

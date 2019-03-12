@@ -30,11 +30,11 @@ instance ToJSON CodePipelineCustomActionTypeConfigurationProperties where
     object $
     catMaybes
     [ fmap (("Description",) . toJSON) _codePipelineCustomActionTypeConfigurationPropertiesDescription
-    , (Just . ("Key",) . toJSON . fmap Bool') _codePipelineCustomActionTypeConfigurationPropertiesKey
+    , (Just . ("Key",) . toJSON) _codePipelineCustomActionTypeConfigurationPropertiesKey
     , (Just . ("Name",) . toJSON) _codePipelineCustomActionTypeConfigurationPropertiesName
-    , fmap (("Queryable",) . toJSON . fmap Bool') _codePipelineCustomActionTypeConfigurationPropertiesQueryable
-    , (Just . ("Required",) . toJSON . fmap Bool') _codePipelineCustomActionTypeConfigurationPropertiesRequired
-    , (Just . ("Secret",) . toJSON . fmap Bool') _codePipelineCustomActionTypeConfigurationPropertiesSecret
+    , fmap (("Queryable",) . toJSON) _codePipelineCustomActionTypeConfigurationPropertiesQueryable
+    , (Just . ("Required",) . toJSON) _codePipelineCustomActionTypeConfigurationPropertiesRequired
+    , (Just . ("Secret",) . toJSON) _codePipelineCustomActionTypeConfigurationPropertiesSecret
     , fmap (("Type",) . toJSON) _codePipelineCustomActionTypeConfigurationPropertiesType
     ]
 

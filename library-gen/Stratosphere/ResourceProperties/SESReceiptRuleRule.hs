@@ -27,10 +27,10 @@ instance ToJSON SESReceiptRuleRule where
     object $
     catMaybes
     [ fmap (("Actions",) . toJSON) _sESReceiptRuleRuleActions
-    , fmap (("Enabled",) . toJSON . fmap Bool') _sESReceiptRuleRuleEnabled
+    , fmap (("Enabled",) . toJSON) _sESReceiptRuleRuleEnabled
     , fmap (("Name",) . toJSON) _sESReceiptRuleRuleName
     , fmap (("Recipients",) . toJSON) _sESReceiptRuleRuleRecipients
-    , fmap (("ScanEnabled",) . toJSON . fmap Bool') _sESReceiptRuleRuleScanEnabled
+    , fmap (("ScanEnabled",) . toJSON) _sESReceiptRuleRuleScanEnabled
     , fmap (("TlsPolicy",) . toJSON) _sESReceiptRuleRuleTlsPolicy
     ]
 

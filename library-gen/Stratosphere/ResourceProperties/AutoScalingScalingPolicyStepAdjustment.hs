@@ -24,9 +24,9 @@ instance ToJSON AutoScalingScalingPolicyStepAdjustment where
   toJSON AutoScalingScalingPolicyStepAdjustment{..} =
     object $
     catMaybes
-    [ fmap (("MetricIntervalLowerBound",) . toJSON . fmap Double') _autoScalingScalingPolicyStepAdjustmentMetricIntervalLowerBound
-    , fmap (("MetricIntervalUpperBound",) . toJSON . fmap Double') _autoScalingScalingPolicyStepAdjustmentMetricIntervalUpperBound
-    , (Just . ("ScalingAdjustment",) . toJSON . fmap Integer') _autoScalingScalingPolicyStepAdjustmentScalingAdjustment
+    [ fmap (("MetricIntervalLowerBound",) . toJSON) _autoScalingScalingPolicyStepAdjustmentMetricIntervalLowerBound
+    , fmap (("MetricIntervalUpperBound",) . toJSON) _autoScalingScalingPolicyStepAdjustmentMetricIntervalUpperBound
+    , (Just . ("ScalingAdjustment",) . toJSON) _autoScalingScalingPolicyStepAdjustmentScalingAdjustment
     ]
 
 -- | Constructor for 'AutoScalingScalingPolicyStepAdjustment' containing

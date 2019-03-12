@@ -21,7 +21,7 @@ instance ToJSON AutoScalingReplacingUpdatePolicy where
   toJSON AutoScalingReplacingUpdatePolicy{..} =
     object $
     catMaybes
-    [ fmap (("WillReplace",) . toJSON . fmap Bool') _autoScalingReplacingUpdatePolicyWillReplace
+    [ fmap (("WillReplace",) . toJSON) _autoScalingReplacingUpdatePolicyWillReplace
     ]
 
 -- | Constructor for 'AutoScalingReplacingUpdatePolicy' containing required fields
