@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.33.1
+
+* Use `-O0` when compiling `stratosphere`
+
 ## 0.33.0
 
 * **BREAKING CHANGE**: We nuked the huge `ResourceProperties` sum type, which

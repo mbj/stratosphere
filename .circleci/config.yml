@@ -34,7 +34,7 @@ references:
       - run:
           name: Build
           command: |
-            stack build stratosphere --no-terminal --pedantic --test --fast \
+            stack build stratosphere --no-terminal --pedantic --test \
               --no-run-tests --jobs=1 --flag stratosphere:-library-only
 
       - save_cache:
@@ -46,7 +46,7 @@ references:
       - run:
           name: Test
           command: |
-            stack build stratosphere --no-terminal --pedantic --test --fast \
+            stack build stratosphere --no-terminal --pedantic --test \
               --jobs=1 --flag stratosphere:-library-only
 
   # N.B. Doc generation rebuilds everything from the ground up, so there's
@@ -73,12 +73,11 @@ references:
             - 1-{{ checksum "rdigest" }}-{{ .Branch }}-{{ checksum "sdigest" }}
             - 1-{{ checksum "rdigest" }}-{{ .Branch }}
 
-      # We can safely use --fast since it's just for doc generation.
       - run:
           name: Docs
           command: |
             stack haddock stratosphere --no-terminal --no-haddock-deps \
-              --fast --jobs=1 --flag stratosphere:-library-only
+              --jobs=1 --flag stratosphere:-library-only
           no_output_timeout: 30m
 
       - save_cache:
