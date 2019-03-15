@@ -10,6 +10,7 @@ module Stratosphere.Resources.AppStreamStack where
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.AppStreamStackApplicationSettings
 import Stratosphere.ResourceProperties.AppStreamStackStorageConnector
+import Stratosphere.ResourceProperties.Tag
 import Stratosphere.ResourceProperties.AppStreamStackUserSetting
 
 -- | Full data type definition for AppStreamStack. See 'appStreamStack' for a
@@ -25,6 +26,7 @@ data AppStreamStack =
   , _appStreamStackName :: Maybe (Val Text)
   , _appStreamStackRedirectURL :: Maybe (Val Text)
   , _appStreamStackStorageConnectors :: Maybe [AppStreamStackStorageConnector]
+  , _appStreamStackTags :: Maybe [Tag]
   , _appStreamStackUserSettings :: Maybe [AppStreamStackUserSetting]
   } deriving (Show, Eq)
 
@@ -43,6 +45,7 @@ instance ToResourceProperties AppStreamStack where
         , fmap (("Name",) . toJSON) _appStreamStackName
         , fmap (("RedirectURL",) . toJSON) _appStreamStackRedirectURL
         , fmap (("StorageConnectors",) . toJSON) _appStreamStackStorageConnectors
+        , fmap (("Tags",) . toJSON) _appStreamStackTags
         , fmap (("UserSettings",) . toJSON) _appStreamStackUserSettings
         ]
     }
@@ -61,6 +64,7 @@ appStreamStack  =
   , _appStreamStackName = Nothing
   , _appStreamStackRedirectURL = Nothing
   , _appStreamStackStorageConnectors = Nothing
+  , _appStreamStackTags = Nothing
   , _appStreamStackUserSettings = Nothing
   }
 
@@ -99,6 +103,10 @@ assRedirectURL = lens _appStreamStackRedirectURL (\s a -> s { _appStreamStackRed
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html#cfn-appstream-stack-storageconnectors
 assStorageConnectors :: Lens' AppStreamStack (Maybe [AppStreamStackStorageConnector])
 assStorageConnectors = lens _appStreamStackStorageConnectors (\s a -> s { _appStreamStackStorageConnectors = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html#cfn-appstream-stack-tags
+assTags :: Lens' AppStreamStack (Maybe [Tag])
+assTags = lens _appStreamStackTags (\s a -> s { _appStreamStackTags = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html#cfn-appstream-stack-usersettings
 assUserSettings :: Lens' AppStreamStack (Maybe [AppStreamStackUserSetting])

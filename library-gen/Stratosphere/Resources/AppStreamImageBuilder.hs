@@ -9,6 +9,7 @@ module Stratosphere.Resources.AppStreamImageBuilder where
 
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.AppStreamImageBuilderDomainJoinInfo
+import Stratosphere.ResourceProperties.Tag
 import Stratosphere.ResourceProperties.AppStreamImageBuilderVpcConfig
 
 -- | Full data type definition for AppStreamImageBuilder. See
@@ -24,6 +25,7 @@ data AppStreamImageBuilder =
   , _appStreamImageBuilderImageName :: Maybe (Val Text)
   , _appStreamImageBuilderInstanceType :: Val Text
   , _appStreamImageBuilderName :: Maybe (Val Text)
+  , _appStreamImageBuilderTags :: Maybe [Tag]
   , _appStreamImageBuilderVpcConfig :: Maybe AppStreamImageBuilderVpcConfig
   } deriving (Show, Eq)
 
@@ -42,6 +44,7 @@ instance ToResourceProperties AppStreamImageBuilder where
         , fmap (("ImageName",) . toJSON) _appStreamImageBuilderImageName
         , (Just . ("InstanceType",) . toJSON) _appStreamImageBuilderInstanceType
         , fmap (("Name",) . toJSON) _appStreamImageBuilderName
+        , fmap (("Tags",) . toJSON) _appStreamImageBuilderTags
         , fmap (("VpcConfig",) . toJSON) _appStreamImageBuilderVpcConfig
         ]
     }
@@ -62,6 +65,7 @@ appStreamImageBuilder instanceTypearg =
   , _appStreamImageBuilderImageName = Nothing
   , _appStreamImageBuilderInstanceType = instanceTypearg
   , _appStreamImageBuilderName = Nothing
+  , _appStreamImageBuilderTags = Nothing
   , _appStreamImageBuilderVpcConfig = Nothing
   }
 
@@ -100,6 +104,10 @@ asibInstanceType = lens _appStreamImageBuilderInstanceType (\s a -> s { _appStre
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-name
 asibName :: Lens' AppStreamImageBuilder (Maybe (Val Text))
 asibName = lens _appStreamImageBuilderName (\s a -> s { _appStreamImageBuilderName = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-tags
+asibTags :: Lens' AppStreamImageBuilder (Maybe [Tag])
+asibTags = lens _appStreamImageBuilderTags (\s a -> s { _appStreamImageBuilderTags = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-vpcconfig
 asibVpcConfig :: Lens' AppStreamImageBuilder (Maybe AppStreamImageBuilderVpcConfig)

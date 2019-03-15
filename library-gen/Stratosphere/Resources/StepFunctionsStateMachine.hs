@@ -8,7 +8,7 @@
 module Stratosphere.Resources.StepFunctionsStateMachine where
 
 import Stratosphere.ResourceImports
-
+import Stratosphere.ResourceProperties.StepFunctionsStateMachineTagsEntry
 
 -- | Full data type definition for StepFunctionsStateMachine. See
 -- 'stepFunctionsStateMachine' for a more convenient constructor.
@@ -17,6 +17,7 @@ data StepFunctionsStateMachine =
   { _stepFunctionsStateMachineDefinitionString :: Val Text
   , _stepFunctionsStateMachineRoleArn :: Val Text
   , _stepFunctionsStateMachineStateMachineName :: Maybe (Val Text)
+  , _stepFunctionsStateMachineTags :: Maybe [StepFunctionsStateMachineTagsEntry]
   } deriving (Show, Eq)
 
 instance ToResourceProperties StepFunctionsStateMachine where
@@ -28,6 +29,7 @@ instance ToResourceProperties StepFunctionsStateMachine where
         [ (Just . ("DefinitionString",) . toJSON) _stepFunctionsStateMachineDefinitionString
         , (Just . ("RoleArn",) . toJSON) _stepFunctionsStateMachineRoleArn
         , fmap (("StateMachineName",) . toJSON) _stepFunctionsStateMachineStateMachineName
+        , fmap (("Tags",) . toJSON) _stepFunctionsStateMachineTags
         ]
     }
 
@@ -42,6 +44,7 @@ stepFunctionsStateMachine definitionStringarg roleArnarg =
   { _stepFunctionsStateMachineDefinitionString = definitionStringarg
   , _stepFunctionsStateMachineRoleArn = roleArnarg
   , _stepFunctionsStateMachineStateMachineName = Nothing
+  , _stepFunctionsStateMachineTags = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitionstring
@@ -55,3 +58,7 @@ sfsmRoleArn = lens _stepFunctionsStateMachineRoleArn (\s a -> s { _stepFunctions
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-statemachinename
 sfsmStateMachineName :: Lens' StepFunctionsStateMachine (Maybe (Val Text))
 sfsmStateMachineName = lens _stepFunctionsStateMachineStateMachineName (\s a -> s { _stepFunctionsStateMachineStateMachineName = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-tags
+sfsmTags :: Lens' StepFunctionsStateMachine (Maybe [StepFunctionsStateMachineTagsEntry])
+sfsmTags = lens _stepFunctionsStateMachineTags (\s a -> s { _stepFunctionsStateMachineTags = a })
