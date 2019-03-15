@@ -21,7 +21,7 @@ instance ToJSON EC2SpotFleetSpotFleetMonitoring where
   toJSON EC2SpotFleetSpotFleetMonitoring{..} =
     object $
     catMaybes
-    [ fmap (("Enabled",) . toJSON . fmap Bool') _eC2SpotFleetSpotFleetMonitoringEnabled
+    [ fmap (("Enabled",) . toJSON) _eC2SpotFleetSpotFleetMonitoringEnabled
     ]
 
 -- | Constructor for 'EC2SpotFleetSpotFleetMonitoring' containing required

@@ -28,12 +28,12 @@ instance ToJSON ElasticsearchDomainElasticsearchClusterConfig where
   toJSON ElasticsearchDomainElasticsearchClusterConfig{..} =
     object $
     catMaybes
-    [ fmap (("DedicatedMasterCount",) . toJSON . fmap Integer') _elasticsearchDomainElasticsearchClusterConfigDedicatedMasterCount
-    , fmap (("DedicatedMasterEnabled",) . toJSON . fmap Bool') _elasticsearchDomainElasticsearchClusterConfigDedicatedMasterEnabled
+    [ fmap (("DedicatedMasterCount",) . toJSON) _elasticsearchDomainElasticsearchClusterConfigDedicatedMasterCount
+    , fmap (("DedicatedMasterEnabled",) . toJSON) _elasticsearchDomainElasticsearchClusterConfigDedicatedMasterEnabled
     , fmap (("DedicatedMasterType",) . toJSON) _elasticsearchDomainElasticsearchClusterConfigDedicatedMasterType
-    , fmap (("InstanceCount",) . toJSON . fmap Integer') _elasticsearchDomainElasticsearchClusterConfigInstanceCount
+    , fmap (("InstanceCount",) . toJSON) _elasticsearchDomainElasticsearchClusterConfigInstanceCount
     , fmap (("InstanceType",) . toJSON) _elasticsearchDomainElasticsearchClusterConfigInstanceType
-    , fmap (("ZoneAwarenessEnabled",) . toJSON . fmap Bool') _elasticsearchDomainElasticsearchClusterConfigZoneAwarenessEnabled
+    , fmap (("ZoneAwarenessEnabled",) . toJSON) _elasticsearchDomainElasticsearchClusterConfigZoneAwarenessEnabled
     ]
 
 -- | Constructor for 'ElasticsearchDomainElasticsearchClusterConfig'

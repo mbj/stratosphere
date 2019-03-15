@@ -22,8 +22,8 @@ instance ToJSON AmazonMQBrokerLogList where
   toJSON AmazonMQBrokerLogList{..} =
     object $
     catMaybes
-    [ fmap (("Audit",) . toJSON . fmap Bool') _amazonMQBrokerLogListAudit
-    , fmap (("General",) . toJSON . fmap Bool') _amazonMQBrokerLogListGeneral
+    [ fmap (("Audit",) . toJSON) _amazonMQBrokerLogListAudit
+    , fmap (("General",) . toJSON) _amazonMQBrokerLogListGeneral
     ]
 
 -- | Constructor for 'AmazonMQBrokerLogList' containing required fields as

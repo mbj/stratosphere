@@ -27,7 +27,7 @@ instance ToResourceProperties RAMResourceShare where
     { resourcePropertiesType = "AWS::RAM::ResourceShare"
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
-        [ fmap (("AllowExternalPrincipals",) . toJSON . fmap Bool') _rAMResourceShareAllowExternalPrincipals
+        [ fmap (("AllowExternalPrincipals",) . toJSON) _rAMResourceShareAllowExternalPrincipals
         , (Just . ("Name",) . toJSON) _rAMResourceShareName
         , fmap (("Principals",) . toJSON) _rAMResourceSharePrincipals
         , fmap (("ResourceArns",) . toJSON) _rAMResourceShareResourceArns

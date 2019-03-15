@@ -29,7 +29,7 @@ instance ToJSON CloudWatchAlarmMetricDataQuery where
     , (Just . ("Id",) . toJSON) _cloudWatchAlarmMetricDataQueryId
     , fmap (("Label",) . toJSON) _cloudWatchAlarmMetricDataQueryLabel
     , fmap (("MetricStat",) . toJSON) _cloudWatchAlarmMetricDataQueryMetricStat
-    , fmap (("ReturnData",) . toJSON . fmap Bool') _cloudWatchAlarmMetricDataQueryReturnData
+    , fmap (("ReturnData",) . toJSON) _cloudWatchAlarmMetricDataQueryReturnData
     ]
 
 -- | Constructor for 'CloudWatchAlarmMetricDataQuery' containing required

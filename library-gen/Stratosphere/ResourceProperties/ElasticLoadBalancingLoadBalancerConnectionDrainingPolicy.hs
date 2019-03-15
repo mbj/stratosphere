@@ -24,8 +24,8 @@ instance ToJSON ElasticLoadBalancingLoadBalancerConnectionDrainingPolicy where
   toJSON ElasticLoadBalancingLoadBalancerConnectionDrainingPolicy{..} =
     object $
     catMaybes
-    [ (Just . ("Enabled",) . toJSON . fmap Bool') _elasticLoadBalancingLoadBalancerConnectionDrainingPolicyEnabled
-    , fmap (("Timeout",) . toJSON . fmap Integer') _elasticLoadBalancingLoadBalancerConnectionDrainingPolicyTimeout
+    [ (Just . ("Enabled",) . toJSON) _elasticLoadBalancingLoadBalancerConnectionDrainingPolicyEnabled
+    , fmap (("Timeout",) . toJSON) _elasticLoadBalancingLoadBalancerConnectionDrainingPolicyTimeout
     ]
 
 -- | Constructor for

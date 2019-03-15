@@ -36,7 +36,7 @@ instance ToJSON GlueTableTableInput where
     , fmap (("Owner",) . toJSON) _glueTableTableInputOwner
     , fmap (("Parameters",) . toJSON) _glueTableTableInputParameters
     , fmap (("PartitionKeys",) . toJSON) _glueTableTableInputPartitionKeys
-    , fmap (("Retention",) . toJSON . fmap Integer') _glueTableTableInputRetention
+    , fmap (("Retention",) . toJSON) _glueTableTableInputRetention
     , fmap (("StorageDescriptor",) . toJSON) _glueTableTableInputStorageDescriptor
     , fmap (("TableType",) . toJSON) _glueTableTableInputTableType
     , fmap (("ViewExpandedText",) . toJSON) _glueTableTableInputViewExpandedText

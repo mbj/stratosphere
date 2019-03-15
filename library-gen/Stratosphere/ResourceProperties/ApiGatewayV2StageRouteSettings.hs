@@ -25,11 +25,11 @@ instance ToJSON ApiGatewayV2StageRouteSettings where
   toJSON ApiGatewayV2StageRouteSettings{..} =
     object $
     catMaybes
-    [ fmap (("DataTraceEnabled",) . toJSON . fmap Bool') _apiGatewayV2StageRouteSettingsDataTraceEnabled
-    , fmap (("DetailedMetricsEnabled",) . toJSON . fmap Bool') _apiGatewayV2StageRouteSettingsDetailedMetricsEnabled
+    [ fmap (("DataTraceEnabled",) . toJSON) _apiGatewayV2StageRouteSettingsDataTraceEnabled
+    , fmap (("DetailedMetricsEnabled",) . toJSON) _apiGatewayV2StageRouteSettingsDetailedMetricsEnabled
     , fmap (("LoggingLevel",) . toJSON) _apiGatewayV2StageRouteSettingsLoggingLevel
-    , fmap (("ThrottlingBurstLimit",) . toJSON . fmap Integer') _apiGatewayV2StageRouteSettingsThrottlingBurstLimit
-    , fmap (("ThrottlingRateLimit",) . toJSON . fmap Double') _apiGatewayV2StageRouteSettingsThrottlingRateLimit
+    , fmap (("ThrottlingBurstLimit",) . toJSON) _apiGatewayV2StageRouteSettingsThrottlingBurstLimit
+    , fmap (("ThrottlingRateLimit",) . toJSON) _apiGatewayV2StageRouteSettingsThrottlingRateLimit
     ]
 
 -- | Constructor for 'ApiGatewayV2StageRouteSettings' containing required

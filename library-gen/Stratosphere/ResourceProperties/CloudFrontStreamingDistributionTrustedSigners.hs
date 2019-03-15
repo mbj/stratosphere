@@ -25,7 +25,7 @@ instance ToJSON CloudFrontStreamingDistributionTrustedSigners where
     object $
     catMaybes
     [ fmap (("AwsAccountNumbers",) . toJSON) _cloudFrontStreamingDistributionTrustedSignersAwsAccountNumbers
-    , (Just . ("Enabled",) . toJSON . fmap Bool') _cloudFrontStreamingDistributionTrustedSignersEnabled
+    , (Just . ("Enabled",) . toJSON) _cloudFrontStreamingDistributionTrustedSignersEnabled
     ]
 
 -- | Constructor for 'CloudFrontStreamingDistributionTrustedSigners'

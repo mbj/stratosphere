@@ -27,7 +27,7 @@ instance ToJSON CloudFrontDistributionViewerCertificate where
     object $
     catMaybes
     [ fmap (("AcmCertificateArn",) . toJSON) _cloudFrontDistributionViewerCertificateAcmCertificateArn
-    , fmap (("CloudFrontDefaultCertificate",) . toJSON . fmap Bool') _cloudFrontDistributionViewerCertificateCloudFrontDefaultCertificate
+    , fmap (("CloudFrontDefaultCertificate",) . toJSON) _cloudFrontDistributionViewerCertificateCloudFrontDefaultCertificate
     , fmap (("IamCertificateId",) . toJSON) _cloudFrontDistributionViewerCertificateIamCertificateId
     , fmap (("MinimumProtocolVersion",) . toJSON) _cloudFrontDistributionViewerCertificateMinimumProtocolVersion
     , fmap (("SslSupportMethod",) . toJSON) _cloudFrontDistributionViewerCertificateSslSupportMethod

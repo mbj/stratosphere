@@ -38,11 +38,11 @@ instance ToResourceProperties CloudTrailTrail where
         hashMapFromList $ catMaybes
         [ fmap (("CloudWatchLogsLogGroupArn",) . toJSON) _cloudTrailTrailCloudWatchLogsLogGroupArn
         , fmap (("CloudWatchLogsRoleArn",) . toJSON) _cloudTrailTrailCloudWatchLogsRoleArn
-        , fmap (("EnableLogFileValidation",) . toJSON . fmap Bool') _cloudTrailTrailEnableLogFileValidation
+        , fmap (("EnableLogFileValidation",) . toJSON) _cloudTrailTrailEnableLogFileValidation
         , fmap (("EventSelectors",) . toJSON) _cloudTrailTrailEventSelectors
-        , fmap (("IncludeGlobalServiceEvents",) . toJSON . fmap Bool') _cloudTrailTrailIncludeGlobalServiceEvents
-        , (Just . ("IsLogging",) . toJSON . fmap Bool') _cloudTrailTrailIsLogging
-        , fmap (("IsMultiRegionTrail",) . toJSON . fmap Bool') _cloudTrailTrailIsMultiRegionTrail
+        , fmap (("IncludeGlobalServiceEvents",) . toJSON) _cloudTrailTrailIncludeGlobalServiceEvents
+        , (Just . ("IsLogging",) . toJSON) _cloudTrailTrailIsLogging
+        , fmap (("IsMultiRegionTrail",) . toJSON) _cloudTrailTrailIsMultiRegionTrail
         , fmap (("KMSKeyId",) . toJSON) _cloudTrailTrailKMSKeyId
         , (Just . ("S3BucketName",) . toJSON) _cloudTrailTrailS3BucketName
         , fmap (("S3KeyPrefix",) . toJSON) _cloudTrailTrailS3KeyPrefix

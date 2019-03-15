@@ -53,7 +53,7 @@ instance ToResourceProperties EMRCluster where
         , fmap (("BootstrapActions",) . toJSON) _eMRClusterBootstrapActions
         , fmap (("Configurations",) . toJSON) _eMRClusterConfigurations
         , fmap (("CustomAmiId",) . toJSON) _eMRClusterCustomAmiId
-        , fmap (("EbsRootVolumeSize",) . toJSON . fmap Integer') _eMRClusterEbsRootVolumeSize
+        , fmap (("EbsRootVolumeSize",) . toJSON) _eMRClusterEbsRootVolumeSize
         , (Just . ("Instances",) . toJSON) _eMRClusterInstances
         , (Just . ("JobFlowRole",) . toJSON) _eMRClusterJobFlowRole
         , fmap (("KerberosAttributes",) . toJSON) _eMRClusterKerberosAttributes
@@ -65,7 +65,7 @@ instance ToResourceProperties EMRCluster where
         , (Just . ("ServiceRole",) . toJSON) _eMRClusterServiceRole
         , fmap (("Steps",) . toJSON) _eMRClusterSteps
         , fmap (("Tags",) . toJSON) _eMRClusterTags
-        , fmap (("VisibleToAllUsers",) . toJSON . fmap Bool') _eMRClusterVisibleToAllUsers
+        , fmap (("VisibleToAllUsers",) . toJSON) _eMRClusterVisibleToAllUsers
         ]
     }
 

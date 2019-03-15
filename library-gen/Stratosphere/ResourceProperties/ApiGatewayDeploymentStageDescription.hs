@@ -44,23 +44,23 @@ instance ToJSON ApiGatewayDeploymentStageDescription where
     object $
     catMaybes
     [ fmap (("AccessLogSetting",) . toJSON) _apiGatewayDeploymentStageDescriptionAccessLogSetting
-    , fmap (("CacheClusterEnabled",) . toJSON . fmap Bool') _apiGatewayDeploymentStageDescriptionCacheClusterEnabled
+    , fmap (("CacheClusterEnabled",) . toJSON) _apiGatewayDeploymentStageDescriptionCacheClusterEnabled
     , fmap (("CacheClusterSize",) . toJSON) _apiGatewayDeploymentStageDescriptionCacheClusterSize
-    , fmap (("CacheDataEncrypted",) . toJSON . fmap Bool') _apiGatewayDeploymentStageDescriptionCacheDataEncrypted
-    , fmap (("CacheTtlInSeconds",) . toJSON . fmap Integer') _apiGatewayDeploymentStageDescriptionCacheTtlInSeconds
-    , fmap (("CachingEnabled",) . toJSON . fmap Bool') _apiGatewayDeploymentStageDescriptionCachingEnabled
+    , fmap (("CacheDataEncrypted",) . toJSON) _apiGatewayDeploymentStageDescriptionCacheDataEncrypted
+    , fmap (("CacheTtlInSeconds",) . toJSON) _apiGatewayDeploymentStageDescriptionCacheTtlInSeconds
+    , fmap (("CachingEnabled",) . toJSON) _apiGatewayDeploymentStageDescriptionCachingEnabled
     , fmap (("CanarySetting",) . toJSON) _apiGatewayDeploymentStageDescriptionCanarySetting
     , fmap (("ClientCertificateId",) . toJSON) _apiGatewayDeploymentStageDescriptionClientCertificateId
-    , fmap (("DataTraceEnabled",) . toJSON . fmap Bool') _apiGatewayDeploymentStageDescriptionDataTraceEnabled
+    , fmap (("DataTraceEnabled",) . toJSON) _apiGatewayDeploymentStageDescriptionDataTraceEnabled
     , fmap (("Description",) . toJSON) _apiGatewayDeploymentStageDescriptionDescription
     , fmap (("DocumentationVersion",) . toJSON) _apiGatewayDeploymentStageDescriptionDocumentationVersion
     , fmap (("LoggingLevel",) . toJSON) _apiGatewayDeploymentStageDescriptionLoggingLevel
     , fmap (("MethodSettings",) . toJSON) _apiGatewayDeploymentStageDescriptionMethodSettings
-    , fmap (("MetricsEnabled",) . toJSON . fmap Bool') _apiGatewayDeploymentStageDescriptionMetricsEnabled
+    , fmap (("MetricsEnabled",) . toJSON) _apiGatewayDeploymentStageDescriptionMetricsEnabled
     , fmap (("Tags",) . toJSON) _apiGatewayDeploymentStageDescriptionTags
-    , fmap (("ThrottlingBurstLimit",) . toJSON . fmap Integer') _apiGatewayDeploymentStageDescriptionThrottlingBurstLimit
-    , fmap (("ThrottlingRateLimit",) . toJSON . fmap Double') _apiGatewayDeploymentStageDescriptionThrottlingRateLimit
-    , fmap (("TracingEnabled",) . toJSON . fmap Bool') _apiGatewayDeploymentStageDescriptionTracingEnabled
+    , fmap (("ThrottlingBurstLimit",) . toJSON) _apiGatewayDeploymentStageDescriptionThrottlingBurstLimit
+    , fmap (("ThrottlingRateLimit",) . toJSON) _apiGatewayDeploymentStageDescriptionThrottlingRateLimit
+    , fmap (("TracingEnabled",) . toJSON) _apiGatewayDeploymentStageDescriptionTracingEnabled
     , fmap (("Variables",) . toJSON) _apiGatewayDeploymentStageDescriptionVariables
     ]
 

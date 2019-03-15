@@ -28,9 +28,9 @@ instance ToJSON AutoScalingScalingPolicyTargetTrackingConfiguration where
     object $
     catMaybes
     [ fmap (("CustomizedMetricSpecification",) . toJSON) _autoScalingScalingPolicyTargetTrackingConfigurationCustomizedMetricSpecification
-    , fmap (("DisableScaleIn",) . toJSON . fmap Bool') _autoScalingScalingPolicyTargetTrackingConfigurationDisableScaleIn
+    , fmap (("DisableScaleIn",) . toJSON) _autoScalingScalingPolicyTargetTrackingConfigurationDisableScaleIn
     , fmap (("PredefinedMetricSpecification",) . toJSON) _autoScalingScalingPolicyTargetTrackingConfigurationPredefinedMetricSpecification
-    , (Just . ("TargetValue",) . toJSON . fmap Double') _autoScalingScalingPolicyTargetTrackingConfigurationTargetValue
+    , (Just . ("TargetValue",) . toJSON) _autoScalingScalingPolicyTargetTrackingConfigurationTargetValue
     ]
 
 -- | Constructor for 'AutoScalingScalingPolicyTargetTrackingConfiguration'

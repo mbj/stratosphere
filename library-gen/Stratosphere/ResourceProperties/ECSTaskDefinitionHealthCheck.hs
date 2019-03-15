@@ -26,10 +26,10 @@ instance ToJSON ECSTaskDefinitionHealthCheck where
     object $
     catMaybes
     [ (Just . ("Command",) . toJSON) _eCSTaskDefinitionHealthCheckCommand
-    , fmap (("Interval",) . toJSON . fmap Integer') _eCSTaskDefinitionHealthCheckInterval
-    , fmap (("Retries",) . toJSON . fmap Integer') _eCSTaskDefinitionHealthCheckRetries
-    , fmap (("StartPeriod",) . toJSON . fmap Integer') _eCSTaskDefinitionHealthCheckStartPeriod
-    , fmap (("Timeout",) . toJSON . fmap Integer') _eCSTaskDefinitionHealthCheckTimeout
+    , fmap (("Interval",) . toJSON) _eCSTaskDefinitionHealthCheckInterval
+    , fmap (("Retries",) . toJSON) _eCSTaskDefinitionHealthCheckRetries
+    , fmap (("StartPeriod",) . toJSON) _eCSTaskDefinitionHealthCheckStartPeriod
+    , fmap (("Timeout",) . toJSON) _eCSTaskDefinitionHealthCheckTimeout
     ]
 
 -- | Constructor for 'ECSTaskDefinitionHealthCheck' containing required fields

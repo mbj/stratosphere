@@ -62,8 +62,8 @@ instance ToJSON EC2LaunchTemplateLaunchTemplateData where
     , fmap (("CapacityReservationSpecification",) . toJSON) _eC2LaunchTemplateLaunchTemplateDataCapacityReservationSpecification
     , fmap (("CpuOptions",) . toJSON) _eC2LaunchTemplateLaunchTemplateDataCpuOptions
     , fmap (("CreditSpecification",) . toJSON) _eC2LaunchTemplateLaunchTemplateDataCreditSpecification
-    , fmap (("DisableApiTermination",) . toJSON . fmap Bool') _eC2LaunchTemplateLaunchTemplateDataDisableApiTermination
-    , fmap (("EbsOptimized",) . toJSON . fmap Bool') _eC2LaunchTemplateLaunchTemplateDataEbsOptimized
+    , fmap (("DisableApiTermination",) . toJSON) _eC2LaunchTemplateLaunchTemplateDataDisableApiTermination
+    , fmap (("EbsOptimized",) . toJSON) _eC2LaunchTemplateLaunchTemplateDataEbsOptimized
     , fmap (("ElasticGpuSpecifications",) . toJSON) _eC2LaunchTemplateLaunchTemplateDataElasticGpuSpecifications
     , fmap (("ElasticInferenceAccelerators",) . toJSON) _eC2LaunchTemplateLaunchTemplateDataElasticInferenceAccelerators
     , fmap (("HibernationOptions",) . toJSON) _eC2LaunchTemplateLaunchTemplateDataHibernationOptions

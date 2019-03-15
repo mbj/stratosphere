@@ -52,12 +52,12 @@ instance ToResourceProperties LambdaFunction where
         , (Just . ("Handler",) . toJSON) _lambdaFunctionHandler
         , fmap (("KmsKeyArn",) . toJSON) _lambdaFunctionKmsKeyArn
         , fmap (("Layers",) . toJSON) _lambdaFunctionLayers
-        , fmap (("MemorySize",) . toJSON . fmap Integer') _lambdaFunctionMemorySize
-        , fmap (("ReservedConcurrentExecutions",) . toJSON . fmap Integer') _lambdaFunctionReservedConcurrentExecutions
+        , fmap (("MemorySize",) . toJSON) _lambdaFunctionMemorySize
+        , fmap (("ReservedConcurrentExecutions",) . toJSON) _lambdaFunctionReservedConcurrentExecutions
         , (Just . ("Role",) . toJSON) _lambdaFunctionRole
         , (Just . ("Runtime",) . toJSON) _lambdaFunctionRuntime
         , fmap (("Tags",) . toJSON) _lambdaFunctionTags
-        , fmap (("Timeout",) . toJSON . fmap Integer') _lambdaFunctionTimeout
+        , fmap (("Timeout",) . toJSON) _lambdaFunctionTimeout
         , fmap (("TracingConfig",) . toJSON) _lambdaFunctionTracingConfig
         , fmap (("VpcConfig",) . toJSON) _lambdaFunctionVpcConfig
         ]

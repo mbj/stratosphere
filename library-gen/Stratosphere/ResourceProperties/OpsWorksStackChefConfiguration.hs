@@ -23,7 +23,7 @@ instance ToJSON OpsWorksStackChefConfiguration where
     object $
     catMaybes
     [ fmap (("BerkshelfVersion",) . toJSON) _opsWorksStackChefConfigurationBerkshelfVersion
-    , fmap (("ManageBerkshelf",) . toJSON . fmap Bool') _opsWorksStackChefConfigurationManageBerkshelf
+    , fmap (("ManageBerkshelf",) . toJSON) _opsWorksStackChefConfigurationManageBerkshelf
     ]
 
 -- | Constructor for 'OpsWorksStackChefConfiguration' containing required

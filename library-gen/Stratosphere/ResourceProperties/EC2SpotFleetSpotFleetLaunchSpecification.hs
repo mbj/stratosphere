@@ -45,7 +45,7 @@ instance ToJSON EC2SpotFleetSpotFleetLaunchSpecification where
     object $
     catMaybes
     [ fmap (("BlockDeviceMappings",) . toJSON) _eC2SpotFleetSpotFleetLaunchSpecificationBlockDeviceMappings
-    , fmap (("EbsOptimized",) . toJSON . fmap Bool') _eC2SpotFleetSpotFleetLaunchSpecificationEbsOptimized
+    , fmap (("EbsOptimized",) . toJSON) _eC2SpotFleetSpotFleetLaunchSpecificationEbsOptimized
     , fmap (("IamInstanceProfile",) . toJSON) _eC2SpotFleetSpotFleetLaunchSpecificationIamInstanceProfile
     , (Just . ("ImageId",) . toJSON) _eC2SpotFleetSpotFleetLaunchSpecificationImageId
     , (Just . ("InstanceType",) . toJSON) _eC2SpotFleetSpotFleetLaunchSpecificationInstanceType
@@ -60,7 +60,7 @@ instance ToJSON EC2SpotFleetSpotFleetLaunchSpecification where
     , fmap (("SubnetId",) . toJSON) _eC2SpotFleetSpotFleetLaunchSpecificationSubnetId
     , fmap (("TagSpecifications",) . toJSON) _eC2SpotFleetSpotFleetLaunchSpecificationTagSpecifications
     , fmap (("UserData",) . toJSON) _eC2SpotFleetSpotFleetLaunchSpecificationUserData
-    , fmap (("WeightedCapacity",) . toJSON . fmap Double') _eC2SpotFleetSpotFleetLaunchSpecificationWeightedCapacity
+    , fmap (("WeightedCapacity",) . toJSON) _eC2SpotFleetSpotFleetLaunchSpecificationWeightedCapacity
     ]
 
 -- | Constructor for 'EC2SpotFleetSpotFleetLaunchSpecification' containing

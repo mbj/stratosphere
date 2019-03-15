@@ -26,9 +26,9 @@ instance ToJSON GuardDutyFilterCondition where
     object $
     catMaybes
     [ fmap (("Eq",) . toJSON) _guardDutyFilterConditionEq
-    , fmap (("Gte",) . toJSON . fmap Integer') _guardDutyFilterConditionGte
-    , fmap (("Lt",) . toJSON . fmap Integer') _guardDutyFilterConditionLt
-    , fmap (("Lte",) . toJSON . fmap Integer') _guardDutyFilterConditionLte
+    , fmap (("Gte",) . toJSON) _guardDutyFilterConditionGte
+    , fmap (("Lt",) . toJSON) _guardDutyFilterConditionLt
+    , fmap (("Lte",) . toJSON) _guardDutyFilterConditionLte
     , fmap (("Neq",) . toJSON) _guardDutyFilterConditionNeq
     ]
 

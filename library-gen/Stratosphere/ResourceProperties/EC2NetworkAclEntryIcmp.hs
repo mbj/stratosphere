@@ -22,8 +22,8 @@ instance ToJSON EC2NetworkAclEntryIcmp where
   toJSON EC2NetworkAclEntryIcmp{..} =
     object $
     catMaybes
-    [ fmap (("Code",) . toJSON . fmap Integer') _eC2NetworkAclEntryIcmpCode
-    , fmap (("Type",) . toJSON . fmap Integer') _eC2NetworkAclEntryIcmpType
+    [ fmap (("Code",) . toJSON) _eC2NetworkAclEntryIcmpCode
+    , fmap (("Type",) . toJSON) _eC2NetworkAclEntryIcmpType
     ]
 
 -- | Constructor for 'EC2NetworkAclEntryIcmp' containing required fields as

@@ -30,7 +30,7 @@ instance ToJSON RDSOptionGroupOptionConfiguration where
     , (Just . ("OptionName",) . toJSON) _rDSOptionGroupOptionConfigurationOptionName
     , fmap (("OptionSettings",) . toJSON) _rDSOptionGroupOptionConfigurationOptionSettings
     , fmap (("OptionVersion",) . toJSON) _rDSOptionGroupOptionConfigurationOptionVersion
-    , fmap (("Port",) . toJSON . fmap Integer') _rDSOptionGroupOptionConfigurationPort
+    , fmap (("Port",) . toJSON) _rDSOptionGroupOptionConfigurationPort
     , fmap (("VpcSecurityGroupMemberships",) . toJSON) _rDSOptionGroupOptionConfigurationVpcSecurityGroupMemberships
     ]
 

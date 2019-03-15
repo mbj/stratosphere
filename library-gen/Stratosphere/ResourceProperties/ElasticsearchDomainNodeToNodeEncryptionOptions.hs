@@ -23,7 +23,7 @@ instance ToJSON ElasticsearchDomainNodeToNodeEncryptionOptions where
   toJSON ElasticsearchDomainNodeToNodeEncryptionOptions{..} =
     object $
     catMaybes
-    [ fmap (("Enabled",) . toJSON . fmap Bool') _elasticsearchDomainNodeToNodeEncryptionOptionsEnabled
+    [ fmap (("Enabled",) . toJSON) _elasticsearchDomainNodeToNodeEncryptionOptionsEnabled
     ]
 
 -- | Constructor for 'ElasticsearchDomainNodeToNodeEncryptionOptions'

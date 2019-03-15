@@ -38,7 +38,7 @@ instance ToResourceProperties FSxFileSystem where
         , fmap (("KmsKeyId",) . toJSON) _fSxFileSystemKmsKeyId
         , fmap (("LustreConfiguration",) . toJSON) _fSxFileSystemLustreConfiguration
         , fmap (("SecurityGroupIds",) . toJSON) _fSxFileSystemSecurityGroupIds
-        , fmap (("StorageCapacity",) . toJSON . fmap Integer') _fSxFileSystemStorageCapacity
+        , fmap (("StorageCapacity",) . toJSON) _fSxFileSystemStorageCapacity
         , fmap (("SubnetIds",) . toJSON) _fSxFileSystemSubnetIds
         , fmap (("Tags",) . toJSON) _fSxFileSystemTags
         , fmap (("WindowsConfiguration",) . toJSON) _fSxFileSystemWindowsConfiguration

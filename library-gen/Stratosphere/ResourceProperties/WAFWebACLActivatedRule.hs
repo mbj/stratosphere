@@ -24,7 +24,7 @@ instance ToJSON WAFWebACLActivatedRule where
     object $
     catMaybes
     [ fmap (("Action",) . toJSON) _wAFWebACLActivatedRuleAction
-    , (Just . ("Priority",) . toJSON . fmap Integer') _wAFWebACLActivatedRulePriority
+    , (Just . ("Priority",) . toJSON) _wAFWebACLActivatedRulePriority
     , (Just . ("RuleId",) . toJSON) _wAFWebACLActivatedRuleRuleId
     ]
 

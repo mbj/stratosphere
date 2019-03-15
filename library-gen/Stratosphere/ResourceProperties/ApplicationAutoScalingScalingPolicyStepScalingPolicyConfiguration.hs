@@ -28,9 +28,9 @@ instance ToJSON ApplicationAutoScalingScalingPolicyStepScalingPolicyConfiguratio
     object $
     catMaybes
     [ fmap (("AdjustmentType",) . toJSON) _applicationAutoScalingScalingPolicyStepScalingPolicyConfigurationAdjustmentType
-    , fmap (("Cooldown",) . toJSON . fmap Integer') _applicationAutoScalingScalingPolicyStepScalingPolicyConfigurationCooldown
+    , fmap (("Cooldown",) . toJSON) _applicationAutoScalingScalingPolicyStepScalingPolicyConfigurationCooldown
     , fmap (("MetricAggregationType",) . toJSON) _applicationAutoScalingScalingPolicyStepScalingPolicyConfigurationMetricAggregationType
-    , fmap (("MinAdjustmentMagnitude",) . toJSON . fmap Integer') _applicationAutoScalingScalingPolicyStepScalingPolicyConfigurationMinAdjustmentMagnitude
+    , fmap (("MinAdjustmentMagnitude",) . toJSON) _applicationAutoScalingScalingPolicyStepScalingPolicyConfigurationMinAdjustmentMagnitude
     , fmap (("StepAdjustments",) . toJSON) _applicationAutoScalingScalingPolicyStepScalingPolicyConfigurationStepAdjustments
     ]
 

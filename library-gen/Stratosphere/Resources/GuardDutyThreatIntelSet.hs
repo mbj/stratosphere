@@ -27,7 +27,7 @@ instance ToResourceProperties GuardDutyThreatIntelSet where
     { resourcePropertiesType = "AWS::GuardDuty::ThreatIntelSet"
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
-        [ (Just . ("Activate",) . toJSON . fmap Bool') _guardDutyThreatIntelSetActivate
+        [ (Just . ("Activate",) . toJSON) _guardDutyThreatIntelSetActivate
         , (Just . ("DetectorId",) . toJSON) _guardDutyThreatIntelSetDetectorId
         , (Just . ("Format",) . toJSON) _guardDutyThreatIntelSetFormat
         , (Just . ("Location",) . toJSON) _guardDutyThreatIntelSetLocation

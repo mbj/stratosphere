@@ -25,7 +25,7 @@ instance ToJSON CloudFrontStreamingDistributionLogging where
     object $
     catMaybes
     [ (Just . ("Bucket",) . toJSON) _cloudFrontStreamingDistributionLoggingBucket
-    , (Just . ("Enabled",) . toJSON . fmap Bool') _cloudFrontStreamingDistributionLoggingEnabled
+    , (Just . ("Enabled",) . toJSON) _cloudFrontStreamingDistributionLoggingEnabled
     , (Just . ("Prefix",) . toJSON) _cloudFrontStreamingDistributionLoggingPrefix
     ]
 

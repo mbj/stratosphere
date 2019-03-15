@@ -25,7 +25,7 @@ instance ToJSON ECSServiceLoadBalancer where
     object $
     catMaybes
     [ fmap (("ContainerName",) . toJSON) _eCSServiceLoadBalancerContainerName
-    , (Just . ("ContainerPort",) . toJSON . fmap Integer') _eCSServiceLoadBalancerContainerPort
+    , (Just . ("ContainerPort",) . toJSON) _eCSServiceLoadBalancerContainerPort
     , fmap (("LoadBalancerName",) . toJSON) _eCSServiceLoadBalancerLoadBalancerName
     , fmap (("TargetGroupArn",) . toJSON) _eCSServiceLoadBalancerTargetGroupArn
     ]

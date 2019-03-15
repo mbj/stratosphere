@@ -24,8 +24,8 @@ instance ToJSON ConfigConfigurationRecorderRecordingGroup where
   toJSON ConfigConfigurationRecorderRecordingGroup{..} =
     object $
     catMaybes
-    [ fmap (("AllSupported",) . toJSON . fmap Bool') _configConfigurationRecorderRecordingGroupAllSupported
-    , fmap (("IncludeGlobalResourceTypes",) . toJSON . fmap Bool') _configConfigurationRecorderRecordingGroupIncludeGlobalResourceTypes
+    [ fmap (("AllSupported",) . toJSON) _configConfigurationRecorderRecordingGroupAllSupported
+    , fmap (("IncludeGlobalResourceTypes",) . toJSON) _configConfigurationRecorderRecordingGroupIncludeGlobalResourceTypes
     , fmap (("ResourceTypes",) . toJSON) _configConfigurationRecorderRecordingGroupResourceTypes
     ]
 

@@ -24,7 +24,7 @@ instance ToJSON CloudFrontDistributionLogging where
     object $
     catMaybes
     [ (Just . ("Bucket",) . toJSON) _cloudFrontDistributionLoggingBucket
-    , fmap (("IncludeCookies",) . toJSON . fmap Bool') _cloudFrontDistributionLoggingIncludeCookies
+    , fmap (("IncludeCookies",) . toJSON) _cloudFrontDistributionLoggingIncludeCookies
     , fmap (("Prefix",) . toJSON) _cloudFrontDistributionLoggingPrefix
     ]
 

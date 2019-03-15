@@ -33,7 +33,7 @@ instance ToResourceProperties GlueDevEndpoint where
         [ fmap (("EndpointName",) . toJSON) _glueDevEndpointEndpointName
         , fmap (("ExtraJarsS3Path",) . toJSON) _glueDevEndpointExtraJarsS3Path
         , fmap (("ExtraPythonLibsS3Path",) . toJSON) _glueDevEndpointExtraPythonLibsS3Path
-        , fmap (("NumberOfNodes",) . toJSON . fmap Integer') _glueDevEndpointNumberOfNodes
+        , fmap (("NumberOfNodes",) . toJSON) _glueDevEndpointNumberOfNodes
         , (Just . ("PublicKey",) . toJSON) _glueDevEndpointPublicKey
         , (Just . ("RoleArn",) . toJSON) _glueDevEndpointRoleArn
         , fmap (("SecurityGroupIds",) . toJSON) _glueDevEndpointSecurityGroupIds

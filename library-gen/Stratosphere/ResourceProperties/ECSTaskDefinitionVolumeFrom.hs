@@ -22,7 +22,7 @@ instance ToJSON ECSTaskDefinitionVolumeFrom where
   toJSON ECSTaskDefinitionVolumeFrom{..} =
     object $
     catMaybes
-    [ fmap (("ReadOnly",) . toJSON . fmap Bool') _eCSTaskDefinitionVolumeFromReadOnly
+    [ fmap (("ReadOnly",) . toJSON) _eCSTaskDefinitionVolumeFromReadOnly
     , fmap (("SourceContainer",) . toJSON) _eCSTaskDefinitionVolumeFromSourceContainer
     ]
 

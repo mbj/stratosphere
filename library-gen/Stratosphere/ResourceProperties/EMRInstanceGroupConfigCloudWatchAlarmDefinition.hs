@@ -33,12 +33,12 @@ instance ToJSON EMRInstanceGroupConfigCloudWatchAlarmDefinition where
     catMaybes
     [ (Just . ("ComparisonOperator",) . toJSON) _eMRInstanceGroupConfigCloudWatchAlarmDefinitionComparisonOperator
     , fmap (("Dimensions",) . toJSON) _eMRInstanceGroupConfigCloudWatchAlarmDefinitionDimensions
-    , fmap (("EvaluationPeriods",) . toJSON . fmap Integer') _eMRInstanceGroupConfigCloudWatchAlarmDefinitionEvaluationPeriods
+    , fmap (("EvaluationPeriods",) . toJSON) _eMRInstanceGroupConfigCloudWatchAlarmDefinitionEvaluationPeriods
     , (Just . ("MetricName",) . toJSON) _eMRInstanceGroupConfigCloudWatchAlarmDefinitionMetricName
     , fmap (("Namespace",) . toJSON) _eMRInstanceGroupConfigCloudWatchAlarmDefinitionNamespace
-    , (Just . ("Period",) . toJSON . fmap Integer') _eMRInstanceGroupConfigCloudWatchAlarmDefinitionPeriod
+    , (Just . ("Period",) . toJSON) _eMRInstanceGroupConfigCloudWatchAlarmDefinitionPeriod
     , fmap (("Statistic",) . toJSON) _eMRInstanceGroupConfigCloudWatchAlarmDefinitionStatistic
-    , (Just . ("Threshold",) . toJSON . fmap Double') _eMRInstanceGroupConfigCloudWatchAlarmDefinitionThreshold
+    , (Just . ("Threshold",) . toJSON) _eMRInstanceGroupConfigCloudWatchAlarmDefinitionThreshold
     , fmap (("Unit",) . toJSON) _eMRInstanceGroupConfigCloudWatchAlarmDefinitionUnit
     ]
 

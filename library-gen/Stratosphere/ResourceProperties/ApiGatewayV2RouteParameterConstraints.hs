@@ -22,7 +22,7 @@ instance ToJSON ApiGatewayV2RouteParameterConstraints where
   toJSON ApiGatewayV2RouteParameterConstraints{..} =
     object $
     catMaybes
-    [ (Just . ("Required",) . toJSON . fmap Bool') _apiGatewayV2RouteParameterConstraintsRequired
+    [ (Just . ("Required",) . toJSON) _apiGatewayV2RouteParameterConstraintsRequired
     ]
 
 -- | Constructor for 'ApiGatewayV2RouteParameterConstraints' containing

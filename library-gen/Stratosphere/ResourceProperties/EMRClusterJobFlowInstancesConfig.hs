@@ -46,12 +46,12 @@ instance ToJSON EMRClusterJobFlowInstancesConfig where
     , fmap (("EmrManagedMasterSecurityGroup",) . toJSON) _eMRClusterJobFlowInstancesConfigEmrManagedMasterSecurityGroup
     , fmap (("EmrManagedSlaveSecurityGroup",) . toJSON) _eMRClusterJobFlowInstancesConfigEmrManagedSlaveSecurityGroup
     , fmap (("HadoopVersion",) . toJSON) _eMRClusterJobFlowInstancesConfigHadoopVersion
-    , fmap (("KeepJobFlowAliveWhenNoSteps",) . toJSON . fmap Bool') _eMRClusterJobFlowInstancesConfigKeepJobFlowAliveWhenNoSteps
+    , fmap (("KeepJobFlowAliveWhenNoSteps",) . toJSON) _eMRClusterJobFlowInstancesConfigKeepJobFlowAliveWhenNoSteps
     , fmap (("MasterInstanceFleet",) . toJSON) _eMRClusterJobFlowInstancesConfigMasterInstanceFleet
     , fmap (("MasterInstanceGroup",) . toJSON) _eMRClusterJobFlowInstancesConfigMasterInstanceGroup
     , fmap (("Placement",) . toJSON) _eMRClusterJobFlowInstancesConfigPlacement
     , fmap (("ServiceAccessSecurityGroup",) . toJSON) _eMRClusterJobFlowInstancesConfigServiceAccessSecurityGroup
-    , fmap (("TerminationProtected",) . toJSON . fmap Bool') _eMRClusterJobFlowInstancesConfigTerminationProtected
+    , fmap (("TerminationProtected",) . toJSON) _eMRClusterJobFlowInstancesConfigTerminationProtected
     ]
 
 -- | Constructor for 'EMRClusterJobFlowInstancesConfig' containing required

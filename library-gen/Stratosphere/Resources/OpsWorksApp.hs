@@ -42,7 +42,7 @@ instance ToResourceProperties OpsWorksApp where
         , fmap (("DataSources",) . toJSON) _opsWorksAppDataSources
         , fmap (("Description",) . toJSON) _opsWorksAppDescription
         , fmap (("Domains",) . toJSON) _opsWorksAppDomains
-        , fmap (("EnableSsl",) . toJSON . fmap Bool') _opsWorksAppEnableSsl
+        , fmap (("EnableSsl",) . toJSON) _opsWorksAppEnableSsl
         , fmap (("Environment",) . toJSON) _opsWorksAppEnvironment
         , (Just . ("Name",) . toJSON) _opsWorksAppName
         , fmap (("Shortname",) . toJSON) _opsWorksAppShortname

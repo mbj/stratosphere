@@ -24,9 +24,9 @@ instance ToJSON SSMPatchBaselineRule where
   toJSON SSMPatchBaselineRule{..} =
     object $
     catMaybes
-    [ fmap (("ApproveAfterDays",) . toJSON . fmap Integer') _sSMPatchBaselineRuleApproveAfterDays
+    [ fmap (("ApproveAfterDays",) . toJSON) _sSMPatchBaselineRuleApproveAfterDays
     , fmap (("ComplianceLevel",) . toJSON) _sSMPatchBaselineRuleComplianceLevel
-    , fmap (("EnableNonSecurity",) . toJSON . fmap Bool') _sSMPatchBaselineRuleEnableNonSecurity
+    , fmap (("EnableNonSecurity",) . toJSON) _sSMPatchBaselineRuleEnableNonSecurity
     , fmap (("PatchFilterGroup",) . toJSON) _sSMPatchBaselineRulePatchFilterGroup
     ]
 

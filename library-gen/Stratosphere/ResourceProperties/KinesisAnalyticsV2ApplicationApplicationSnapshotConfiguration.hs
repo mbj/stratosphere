@@ -23,7 +23,7 @@ instance ToJSON KinesisAnalyticsV2ApplicationApplicationSnapshotConfiguration wh
   toJSON KinesisAnalyticsV2ApplicationApplicationSnapshotConfiguration{..} =
     object $
     catMaybes
-    [ (Just . ("SnapshotsEnabled",) . toJSON . fmap Bool') _kinesisAnalyticsV2ApplicationApplicationSnapshotConfigurationSnapshotsEnabled
+    [ (Just . ("SnapshotsEnabled",) . toJSON) _kinesisAnalyticsV2ApplicationApplicationSnapshotConfigurationSnapshotsEnabled
     ]
 
 -- | Constructor for

@@ -21,7 +21,7 @@ instance ToJSON EC2LaunchTemplateHibernationOptions where
   toJSON EC2LaunchTemplateHibernationOptions{..} =
     object $
     catMaybes
-    [ fmap (("Configured",) . toJSON . fmap Bool') _eC2LaunchTemplateHibernationOptionsConfigured
+    [ fmap (("Configured",) . toJSON) _eC2LaunchTemplateHibernationOptionsConfigured
     ]
 
 -- | Constructor for 'EC2LaunchTemplateHibernationOptions' containing required

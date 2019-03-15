@@ -27,12 +27,12 @@ instance ToJSON OpsWorksLayerVolumeConfiguration where
   toJSON OpsWorksLayerVolumeConfiguration{..} =
     object $
     catMaybes
-    [ fmap (("Encrypted",) . toJSON . fmap Bool') _opsWorksLayerVolumeConfigurationEncrypted
-    , fmap (("Iops",) . toJSON . fmap Integer') _opsWorksLayerVolumeConfigurationIops
+    [ fmap (("Encrypted",) . toJSON) _opsWorksLayerVolumeConfigurationEncrypted
+    , fmap (("Iops",) . toJSON) _opsWorksLayerVolumeConfigurationIops
     , fmap (("MountPoint",) . toJSON) _opsWorksLayerVolumeConfigurationMountPoint
-    , fmap (("NumberOfDisks",) . toJSON . fmap Integer') _opsWorksLayerVolumeConfigurationNumberOfDisks
-    , fmap (("RaidLevel",) . toJSON . fmap Integer') _opsWorksLayerVolumeConfigurationRaidLevel
-    , fmap (("Size",) . toJSON . fmap Integer') _opsWorksLayerVolumeConfigurationSize
+    , fmap (("NumberOfDisks",) . toJSON) _opsWorksLayerVolumeConfigurationNumberOfDisks
+    , fmap (("RaidLevel",) . toJSON) _opsWorksLayerVolumeConfigurationRaidLevel
+    , fmap (("Size",) . toJSON) _opsWorksLayerVolumeConfigurationSize
     , fmap (("VolumeType",) . toJSON) _opsWorksLayerVolumeConfigurationVolumeType
     ]
 

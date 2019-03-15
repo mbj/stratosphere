@@ -24,8 +24,8 @@ instance ToJSON ApplicationAutoScalingScalableTargetScalableTargetAction where
   toJSON ApplicationAutoScalingScalableTargetScalableTargetAction{..} =
     object $
     catMaybes
-    [ fmap (("MaxCapacity",) . toJSON . fmap Integer') _applicationAutoScalingScalableTargetScalableTargetActionMaxCapacity
-    , fmap (("MinCapacity",) . toJSON . fmap Integer') _applicationAutoScalingScalableTargetScalableTargetActionMinCapacity
+    [ fmap (("MaxCapacity",) . toJSON) _applicationAutoScalingScalableTargetScalableTargetActionMaxCapacity
+    , fmap (("MinCapacity",) . toJSON) _applicationAutoScalingScalableTargetScalableTargetActionMinCapacity
     ]
 
 -- | Constructor for

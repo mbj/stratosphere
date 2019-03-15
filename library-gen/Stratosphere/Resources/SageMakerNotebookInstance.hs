@@ -41,7 +41,7 @@ instance ToResourceProperties SageMakerNotebookInstance where
         , fmap (("SecurityGroupIds",) . toJSON) _sageMakerNotebookInstanceSecurityGroupIds
         , fmap (("SubnetId",) . toJSON) _sageMakerNotebookInstanceSubnetId
         , fmap (("Tags",) . toJSON) _sageMakerNotebookInstanceTags
-        , fmap (("VolumeSizeInGB",) . toJSON . fmap Integer') _sageMakerNotebookInstanceVolumeSizeInGB
+        , fmap (("VolumeSizeInGB",) . toJSON) _sageMakerNotebookInstanceVolumeSizeInGB
         ]
     }
 

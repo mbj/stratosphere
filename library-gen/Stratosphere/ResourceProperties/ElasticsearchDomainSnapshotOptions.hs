@@ -21,7 +21,7 @@ instance ToJSON ElasticsearchDomainSnapshotOptions where
   toJSON ElasticsearchDomainSnapshotOptions{..} =
     object $
     catMaybes
-    [ fmap (("AutomatedSnapshotStartHour",) . toJSON . fmap Integer') _elasticsearchDomainSnapshotOptionsAutomatedSnapshotStartHour
+    [ fmap (("AutomatedSnapshotStartHour",) . toJSON) _elasticsearchDomainSnapshotOptionsAutomatedSnapshotStartHour
     ]
 
 -- | Constructor for 'ElasticsearchDomainSnapshotOptions' containing required

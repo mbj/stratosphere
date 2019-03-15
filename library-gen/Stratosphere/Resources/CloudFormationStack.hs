@@ -31,7 +31,7 @@ instance ToResourceProperties CloudFormationStack where
         , fmap (("Parameters",) . toJSON) _cloudFormationStackParameters
         , fmap (("Tags",) . toJSON) _cloudFormationStackTags
         , (Just . ("TemplateURL",) . toJSON) _cloudFormationStackTemplateURL
-        , fmap (("TimeoutInMinutes",) . toJSON . fmap Integer') _cloudFormationStackTimeoutInMinutes
+        , fmap (("TimeoutInMinutes",) . toJSON) _cloudFormationStackTimeoutInMinutes
         ]
     }
 

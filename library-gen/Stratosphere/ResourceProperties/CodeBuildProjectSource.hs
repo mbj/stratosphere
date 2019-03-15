@@ -30,10 +30,10 @@ instance ToJSON CodeBuildProjectSource where
     catMaybes
     [ fmap (("Auth",) . toJSON) _codeBuildProjectSourceAuth
     , fmap (("BuildSpec",) . toJSON) _codeBuildProjectSourceBuildSpec
-    , fmap (("GitCloneDepth",) . toJSON . fmap Integer') _codeBuildProjectSourceGitCloneDepth
-    , fmap (("InsecureSsl",) . toJSON . fmap Bool') _codeBuildProjectSourceInsecureSsl
+    , fmap (("GitCloneDepth",) . toJSON) _codeBuildProjectSourceGitCloneDepth
+    , fmap (("InsecureSsl",) . toJSON) _codeBuildProjectSourceInsecureSsl
     , fmap (("Location",) . toJSON) _codeBuildProjectSourceLocation
-    , fmap (("ReportBuildStatus",) . toJSON . fmap Bool') _codeBuildProjectSourceReportBuildStatus
+    , fmap (("ReportBuildStatus",) . toJSON) _codeBuildProjectSourceReportBuildStatus
     , fmap (("SourceIdentifier",) . toJSON) _codeBuildProjectSourceSourceIdentifier
     , (Just . ("Type",) . toJSON) _codeBuildProjectSourceType
     ]

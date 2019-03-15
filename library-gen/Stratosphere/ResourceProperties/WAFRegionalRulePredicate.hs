@@ -24,7 +24,7 @@ instance ToJSON WAFRegionalRulePredicate where
     object $
     catMaybes
     [ (Just . ("DataId",) . toJSON) _wAFRegionalRulePredicateDataId
-    , (Just . ("Negated",) . toJSON . fmap Bool') _wAFRegionalRulePredicateNegated
+    , (Just . ("Negated",) . toJSON) _wAFRegionalRulePredicateNegated
     , (Just . ("Type",) . toJSON) _wAFRegionalRulePredicateType
     ]
 

@@ -26,11 +26,11 @@ instance ToJSON EC2InstanceEbs where
   toJSON EC2InstanceEbs{..} =
     object $
     catMaybes
-    [ fmap (("DeleteOnTermination",) . toJSON . fmap Bool') _eC2InstanceEbsDeleteOnTermination
-    , fmap (("Encrypted",) . toJSON . fmap Bool') _eC2InstanceEbsEncrypted
-    , fmap (("Iops",) . toJSON . fmap Integer') _eC2InstanceEbsIops
+    [ fmap (("DeleteOnTermination",) . toJSON) _eC2InstanceEbsDeleteOnTermination
+    , fmap (("Encrypted",) . toJSON) _eC2InstanceEbsEncrypted
+    , fmap (("Iops",) . toJSON) _eC2InstanceEbsIops
     , fmap (("SnapshotId",) . toJSON) _eC2InstanceEbsSnapshotId
-    , fmap (("VolumeSize",) . toJSON . fmap Integer') _eC2InstanceEbsVolumeSize
+    , fmap (("VolumeSize",) . toJSON) _eC2InstanceEbsVolumeSize
     , fmap (("VolumeType",) . toJSON) _eC2InstanceEbsVolumeType
     ]
 

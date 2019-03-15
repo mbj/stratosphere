@@ -56,7 +56,7 @@ instance ToResourceProperties OpsWorksStack where
         , fmap (("Attributes",) . toJSON) _opsWorksStackAttributes
         , fmap (("ChefConfiguration",) . toJSON) _opsWorksStackChefConfiguration
         , fmap (("CloneAppIds",) . toJSON) _opsWorksStackCloneAppIds
-        , fmap (("ClonePermissions",) . toJSON . fmap Bool') _opsWorksStackClonePermissions
+        , fmap (("ClonePermissions",) . toJSON) _opsWorksStackClonePermissions
         , fmap (("ConfigurationManager",) . toJSON) _opsWorksStackConfigurationManager
         , fmap (("CustomCookbooksSource",) . toJSON) _opsWorksStackCustomCookbooksSource
         , fmap (("CustomJson",) . toJSON) _opsWorksStackCustomJson
@@ -74,8 +74,8 @@ instance ToResourceProperties OpsWorksStack where
         , (Just . ("ServiceRoleArn",) . toJSON) _opsWorksStackServiceRoleArn
         , fmap (("SourceStackId",) . toJSON) _opsWorksStackSourceStackId
         , fmap (("Tags",) . toJSON) _opsWorksStackTags
-        , fmap (("UseCustomCookbooks",) . toJSON . fmap Bool') _opsWorksStackUseCustomCookbooks
-        , fmap (("UseOpsworksSecurityGroups",) . toJSON . fmap Bool') _opsWorksStackUseOpsworksSecurityGroups
+        , fmap (("UseCustomCookbooks",) . toJSON) _opsWorksStackUseCustomCookbooks
+        , fmap (("UseOpsworksSecurityGroups",) . toJSON) _opsWorksStackUseOpsworksSecurityGroups
         , fmap (("VpcId",) . toJSON) _opsWorksStackVpcId
         ]
     }

@@ -43,24 +43,24 @@ instance ToResourceProperties CloudWatchAlarm where
     { resourcePropertiesType = "AWS::CloudWatch::Alarm"
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
-        [ fmap (("ActionsEnabled",) . toJSON . fmap Bool') _cloudWatchAlarmActionsEnabled
+        [ fmap (("ActionsEnabled",) . toJSON) _cloudWatchAlarmActionsEnabled
         , fmap (("AlarmActions",) . toJSON) _cloudWatchAlarmAlarmActions
         , fmap (("AlarmDescription",) . toJSON) _cloudWatchAlarmAlarmDescription
         , fmap (("AlarmName",) . toJSON) _cloudWatchAlarmAlarmName
         , (Just . ("ComparisonOperator",) . toJSON) _cloudWatchAlarmComparisonOperator
-        , fmap (("DatapointsToAlarm",) . toJSON . fmap Integer') _cloudWatchAlarmDatapointsToAlarm
+        , fmap (("DatapointsToAlarm",) . toJSON) _cloudWatchAlarmDatapointsToAlarm
         , fmap (("Dimensions",) . toJSON) _cloudWatchAlarmDimensions
         , fmap (("EvaluateLowSampleCountPercentile",) . toJSON) _cloudWatchAlarmEvaluateLowSampleCountPercentile
-        , (Just . ("EvaluationPeriods",) . toJSON . fmap Integer') _cloudWatchAlarmEvaluationPeriods
+        , (Just . ("EvaluationPeriods",) . toJSON) _cloudWatchAlarmEvaluationPeriods
         , fmap (("ExtendedStatistic",) . toJSON) _cloudWatchAlarmExtendedStatistic
         , fmap (("InsufficientDataActions",) . toJSON) _cloudWatchAlarmInsufficientDataActions
         , fmap (("MetricName",) . toJSON) _cloudWatchAlarmMetricName
         , fmap (("Metrics",) . toJSON) _cloudWatchAlarmMetrics
         , fmap (("Namespace",) . toJSON) _cloudWatchAlarmNamespace
         , fmap (("OKActions",) . toJSON) _cloudWatchAlarmOKActions
-        , fmap (("Period",) . toJSON . fmap Integer') _cloudWatchAlarmPeriod
+        , fmap (("Period",) . toJSON) _cloudWatchAlarmPeriod
         , fmap (("Statistic",) . toJSON) _cloudWatchAlarmStatistic
-        , (Just . ("Threshold",) . toJSON . fmap Double') _cloudWatchAlarmThreshold
+        , (Just . ("Threshold",) . toJSON) _cloudWatchAlarmThreshold
         , fmap (("TreatMissingData",) . toJSON) _cloudWatchAlarmTreatMissingData
         , fmap (("Unit",) . toJSON) _cloudWatchAlarmUnit
         ]

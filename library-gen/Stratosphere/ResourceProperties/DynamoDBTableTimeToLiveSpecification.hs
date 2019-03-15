@@ -23,7 +23,7 @@ instance ToJSON DynamoDBTableTimeToLiveSpecification where
     object $
     catMaybes
     [ (Just . ("AttributeName",) . toJSON) _dynamoDBTableTimeToLiveSpecificationAttributeName
-    , (Just . ("Enabled",) . toJSON . fmap Bool') _dynamoDBTableTimeToLiveSpecificationEnabled
+    , (Just . ("Enabled",) . toJSON) _dynamoDBTableTimeToLiveSpecificationEnabled
     ]
 
 -- | Constructor for 'DynamoDBTableTimeToLiveSpecification' containing

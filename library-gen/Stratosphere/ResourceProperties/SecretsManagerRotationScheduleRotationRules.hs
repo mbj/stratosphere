@@ -23,7 +23,7 @@ instance ToJSON SecretsManagerRotationScheduleRotationRules where
   toJSON SecretsManagerRotationScheduleRotationRules{..} =
     object $
     catMaybes
-    [ fmap (("AutomaticallyAfterDays",) . toJSON . fmap Integer') _secretsManagerRotationScheduleRotationRulesAutomaticallyAfterDays
+    [ fmap (("AutomaticallyAfterDays",) . toJSON) _secretsManagerRotationScheduleRotationRulesAutomaticallyAfterDays
     ]
 
 -- | Constructor for 'SecretsManagerRotationScheduleRotationRules' containing

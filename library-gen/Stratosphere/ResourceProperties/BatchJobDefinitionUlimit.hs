@@ -23,9 +23,9 @@ instance ToJSON BatchJobDefinitionUlimit where
   toJSON BatchJobDefinitionUlimit{..} =
     object $
     catMaybes
-    [ (Just . ("HardLimit",) . toJSON . fmap Integer') _batchJobDefinitionUlimitHardLimit
+    [ (Just . ("HardLimit",) . toJSON) _batchJobDefinitionUlimitHardLimit
     , (Just . ("Name",) . toJSON) _batchJobDefinitionUlimitName
-    , (Just . ("SoftLimit",) . toJSON . fmap Integer') _batchJobDefinitionUlimitSoftLimit
+    , (Just . ("SoftLimit",) . toJSON) _batchJobDefinitionUlimitSoftLimit
     ]
 
 -- | Constructor for 'BatchJobDefinitionUlimit' containing required fields as

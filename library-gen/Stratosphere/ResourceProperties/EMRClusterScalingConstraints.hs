@@ -22,8 +22,8 @@ instance ToJSON EMRClusterScalingConstraints where
   toJSON EMRClusterScalingConstraints{..} =
     object $
     catMaybes
-    [ (Just . ("MaxCapacity",) . toJSON . fmap Integer') _eMRClusterScalingConstraintsMaxCapacity
-    , (Just . ("MinCapacity",) . toJSON . fmap Integer') _eMRClusterScalingConstraintsMinCapacity
+    [ (Just . ("MaxCapacity",) . toJSON) _eMRClusterScalingConstraintsMaxCapacity
+    , (Just . ("MinCapacity",) . toJSON) _eMRClusterScalingConstraintsMinCapacity
     ]
 
 -- | Constructor for 'EMRClusterScalingConstraints' containing required fields

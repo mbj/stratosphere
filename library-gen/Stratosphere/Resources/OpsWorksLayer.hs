@@ -46,14 +46,14 @@ instance ToResourceProperties OpsWorksLayer where
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
         [ fmap (("Attributes",) . toJSON) _opsWorksLayerAttributes
-        , (Just . ("AutoAssignElasticIps",) . toJSON . fmap Bool') _opsWorksLayerAutoAssignElasticIps
-        , (Just . ("AutoAssignPublicIps",) . toJSON . fmap Bool') _opsWorksLayerAutoAssignPublicIps
+        , (Just . ("AutoAssignElasticIps",) . toJSON) _opsWorksLayerAutoAssignElasticIps
+        , (Just . ("AutoAssignPublicIps",) . toJSON) _opsWorksLayerAutoAssignPublicIps
         , fmap (("CustomInstanceProfileArn",) . toJSON) _opsWorksLayerCustomInstanceProfileArn
         , fmap (("CustomJson",) . toJSON) _opsWorksLayerCustomJson
         , fmap (("CustomRecipes",) . toJSON) _opsWorksLayerCustomRecipes
         , fmap (("CustomSecurityGroupIds",) . toJSON) _opsWorksLayerCustomSecurityGroupIds
-        , (Just . ("EnableAutoHealing",) . toJSON . fmap Bool') _opsWorksLayerEnableAutoHealing
-        , fmap (("InstallUpdatesOnBoot",) . toJSON . fmap Bool') _opsWorksLayerInstallUpdatesOnBoot
+        , (Just . ("EnableAutoHealing",) . toJSON) _opsWorksLayerEnableAutoHealing
+        , fmap (("InstallUpdatesOnBoot",) . toJSON) _opsWorksLayerInstallUpdatesOnBoot
         , fmap (("LifecycleEventConfiguration",) . toJSON) _opsWorksLayerLifecycleEventConfiguration
         , fmap (("LoadBasedAutoScaling",) . toJSON) _opsWorksLayerLoadBasedAutoScaling
         , (Just . ("Name",) . toJSON) _opsWorksLayerName
@@ -62,7 +62,7 @@ instance ToResourceProperties OpsWorksLayer where
         , (Just . ("StackId",) . toJSON) _opsWorksLayerStackId
         , fmap (("Tags",) . toJSON) _opsWorksLayerTags
         , (Just . ("Type",) . toJSON) _opsWorksLayerType
-        , fmap (("UseEbsOptimizedInstances",) . toJSON . fmap Bool') _opsWorksLayerUseEbsOptimizedInstances
+        , fmap (("UseEbsOptimizedInstances",) . toJSON) _opsWorksLayerUseEbsOptimizedInstances
         , fmap (("VolumeConfigurations",) . toJSON) _opsWorksLayerVolumeConfigurations
         ]
     }

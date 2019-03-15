@@ -31,12 +31,12 @@ instance ToResourceProperties EC2Volume where
     { resourcePropertiesType = "AWS::EC2::Volume"
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
-        [ fmap (("AutoEnableIO",) . toJSON . fmap Bool') _eC2VolumeAutoEnableIO
+        [ fmap (("AutoEnableIO",) . toJSON) _eC2VolumeAutoEnableIO
         , (Just . ("AvailabilityZone",) . toJSON) _eC2VolumeAvailabilityZone
-        , fmap (("Encrypted",) . toJSON . fmap Bool') _eC2VolumeEncrypted
-        , fmap (("Iops",) . toJSON . fmap Integer') _eC2VolumeIops
+        , fmap (("Encrypted",) . toJSON) _eC2VolumeEncrypted
+        , fmap (("Iops",) . toJSON) _eC2VolumeIops
         , fmap (("KmsKeyId",) . toJSON) _eC2VolumeKmsKeyId
-        , fmap (("Size",) . toJSON . fmap Integer') _eC2VolumeSize
+        , fmap (("Size",) . toJSON) _eC2VolumeSize
         , fmap (("SnapshotId",) . toJSON) _eC2VolumeSnapshotId
         , fmap (("Tags",) . toJSON) _eC2VolumeTags
         , fmap (("VolumeType",) . toJSON) _eC2VolumeVolumeType

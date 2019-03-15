@@ -29,8 +29,8 @@ instance ToResourceProperties ApplicationAutoScalingScalableTarget where
     { resourcePropertiesType = "AWS::ApplicationAutoScaling::ScalableTarget"
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
-        [ (Just . ("MaxCapacity",) . toJSON . fmap Integer') _applicationAutoScalingScalableTargetMaxCapacity
-        , (Just . ("MinCapacity",) . toJSON . fmap Integer') _applicationAutoScalingScalableTargetMinCapacity
+        [ (Just . ("MaxCapacity",) . toJSON) _applicationAutoScalingScalableTargetMaxCapacity
+        , (Just . ("MinCapacity",) . toJSON) _applicationAutoScalingScalableTargetMinCapacity
         , (Just . ("ResourceId",) . toJSON) _applicationAutoScalingScalableTargetResourceId
         , (Just . ("RoleARN",) . toJSON) _applicationAutoScalingScalableTargetRoleARN
         , (Just . ("ScalableDimension",) . toJSON) _applicationAutoScalingScalableTargetScalableDimension

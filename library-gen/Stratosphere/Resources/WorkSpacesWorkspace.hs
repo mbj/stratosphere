@@ -33,10 +33,10 @@ instance ToResourceProperties WorkSpacesWorkspace where
         hashMapFromList $ catMaybes
         [ (Just . ("BundleId",) . toJSON) _workSpacesWorkspaceBundleId
         , (Just . ("DirectoryId",) . toJSON) _workSpacesWorkspaceDirectoryId
-        , fmap (("RootVolumeEncryptionEnabled",) . toJSON . fmap Bool') _workSpacesWorkspaceRootVolumeEncryptionEnabled
+        , fmap (("RootVolumeEncryptionEnabled",) . toJSON) _workSpacesWorkspaceRootVolumeEncryptionEnabled
         , fmap (("Tags",) . toJSON) _workSpacesWorkspaceTags
         , (Just . ("UserName",) . toJSON) _workSpacesWorkspaceUserName
-        , fmap (("UserVolumeEncryptionEnabled",) . toJSON . fmap Bool') _workSpacesWorkspaceUserVolumeEncryptionEnabled
+        , fmap (("UserVolumeEncryptionEnabled",) . toJSON) _workSpacesWorkspaceUserVolumeEncryptionEnabled
         , fmap (("VolumeEncryptionKey",) . toJSON) _workSpacesWorkspaceVolumeEncryptionKey
         , fmap (("WorkspaceProperties",) . toJSON) _workSpacesWorkspaceWorkspaceProperties
         ]

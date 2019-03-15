@@ -31,9 +31,9 @@ instance ToResourceProperties CognitoUserPoolClient where
         hashMapFromList $ catMaybes
         [ fmap (("ClientName",) . toJSON) _cognitoUserPoolClientClientName
         , fmap (("ExplicitAuthFlows",) . toJSON) _cognitoUserPoolClientExplicitAuthFlows
-        , fmap (("GenerateSecret",) . toJSON . fmap Bool') _cognitoUserPoolClientGenerateSecret
+        , fmap (("GenerateSecret",) . toJSON) _cognitoUserPoolClientGenerateSecret
         , fmap (("ReadAttributes",) . toJSON) _cognitoUserPoolClientReadAttributes
-        , fmap (("RefreshTokenValidity",) . toJSON . fmap Double') _cognitoUserPoolClientRefreshTokenValidity
+        , fmap (("RefreshTokenValidity",) . toJSON) _cognitoUserPoolClientRefreshTokenValidity
         , (Just . ("UserPoolId",) . toJSON) _cognitoUserPoolClientUserPoolId
         , fmap (("WriteAttributes",) . toJSON) _cognitoUserPoolClientWriteAttributes
         ]

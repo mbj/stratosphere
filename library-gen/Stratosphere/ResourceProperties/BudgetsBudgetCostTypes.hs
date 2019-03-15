@@ -31,17 +31,17 @@ instance ToJSON BudgetsBudgetCostTypes where
   toJSON BudgetsBudgetCostTypes{..} =
     object $
     catMaybes
-    [ fmap (("IncludeCredit",) . toJSON . fmap Bool') _budgetsBudgetCostTypesIncludeCredit
-    , fmap (("IncludeDiscount",) . toJSON . fmap Bool') _budgetsBudgetCostTypesIncludeDiscount
-    , fmap (("IncludeOtherSubscription",) . toJSON . fmap Bool') _budgetsBudgetCostTypesIncludeOtherSubscription
-    , fmap (("IncludeRecurring",) . toJSON . fmap Bool') _budgetsBudgetCostTypesIncludeRecurring
-    , fmap (("IncludeRefund",) . toJSON . fmap Bool') _budgetsBudgetCostTypesIncludeRefund
-    , fmap (("IncludeSubscription",) . toJSON . fmap Bool') _budgetsBudgetCostTypesIncludeSubscription
-    , fmap (("IncludeSupport",) . toJSON . fmap Bool') _budgetsBudgetCostTypesIncludeSupport
-    , fmap (("IncludeTax",) . toJSON . fmap Bool') _budgetsBudgetCostTypesIncludeTax
-    , fmap (("IncludeUpfront",) . toJSON . fmap Bool') _budgetsBudgetCostTypesIncludeUpfront
-    , fmap (("UseAmortized",) . toJSON . fmap Bool') _budgetsBudgetCostTypesUseAmortized
-    , fmap (("UseBlended",) . toJSON . fmap Bool') _budgetsBudgetCostTypesUseBlended
+    [ fmap (("IncludeCredit",) . toJSON) _budgetsBudgetCostTypesIncludeCredit
+    , fmap (("IncludeDiscount",) . toJSON) _budgetsBudgetCostTypesIncludeDiscount
+    , fmap (("IncludeOtherSubscription",) . toJSON) _budgetsBudgetCostTypesIncludeOtherSubscription
+    , fmap (("IncludeRecurring",) . toJSON) _budgetsBudgetCostTypesIncludeRecurring
+    , fmap (("IncludeRefund",) . toJSON) _budgetsBudgetCostTypesIncludeRefund
+    , fmap (("IncludeSubscription",) . toJSON) _budgetsBudgetCostTypesIncludeSubscription
+    , fmap (("IncludeSupport",) . toJSON) _budgetsBudgetCostTypesIncludeSupport
+    , fmap (("IncludeTax",) . toJSON) _budgetsBudgetCostTypesIncludeTax
+    , fmap (("IncludeUpfront",) . toJSON) _budgetsBudgetCostTypesIncludeUpfront
+    , fmap (("UseAmortized",) . toJSON) _budgetsBudgetCostTypesUseAmortized
+    , fmap (("UseBlended",) . toJSON) _budgetsBudgetCostTypesUseBlended
     ]
 
 -- | Constructor for 'BudgetsBudgetCostTypes' containing required fields as

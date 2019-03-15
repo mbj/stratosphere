@@ -25,8 +25,8 @@ instance ToJSON DMSEndpointElasticsearchSettings where
     object $
     catMaybes
     [ fmap (("EndpointUri",) . toJSON) _dMSEndpointElasticsearchSettingsEndpointUri
-    , fmap (("ErrorRetryDuration",) . toJSON . fmap Integer') _dMSEndpointElasticsearchSettingsErrorRetryDuration
-    , fmap (("FullLoadErrorPercentage",) . toJSON . fmap Integer') _dMSEndpointElasticsearchSettingsFullLoadErrorPercentage
+    , fmap (("ErrorRetryDuration",) . toJSON) _dMSEndpointElasticsearchSettingsErrorRetryDuration
+    , fmap (("FullLoadErrorPercentage",) . toJSON) _dMSEndpointElasticsearchSettingsFullLoadErrorPercentage
     , fmap (("ServiceAccessRoleArn",) . toJSON) _dMSEndpointElasticsearchSettingsServiceAccessRoleArn
     ]
 

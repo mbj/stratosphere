@@ -25,8 +25,8 @@ instance ToJSON ECSServiceServiceRegistry where
     object $
     catMaybes
     [ fmap (("ContainerName",) . toJSON) _eCSServiceServiceRegistryContainerName
-    , fmap (("ContainerPort",) . toJSON . fmap Integer') _eCSServiceServiceRegistryContainerPort
-    , fmap (("Port",) . toJSON . fmap Integer') _eCSServiceServiceRegistryPort
+    , fmap (("ContainerPort",) . toJSON) _eCSServiceServiceRegistryContainerPort
+    , fmap (("Port",) . toJSON) _eCSServiceServiceRegistryPort
     , fmap (("RegistryArn",) . toJSON) _eCSServiceServiceRegistryRegistryArn
     ]
 

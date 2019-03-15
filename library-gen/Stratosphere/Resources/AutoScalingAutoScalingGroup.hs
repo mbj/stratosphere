@@ -53,7 +53,7 @@ instance ToResourceProperties AutoScalingAutoScalingGroup where
         , fmap (("AvailabilityZones",) . toJSON) _autoScalingAutoScalingGroupAvailabilityZones
         , fmap (("Cooldown",) . toJSON) _autoScalingAutoScalingGroupCooldown
         , fmap (("DesiredCapacity",) . toJSON) _autoScalingAutoScalingGroupDesiredCapacity
-        , fmap (("HealthCheckGracePeriod",) . toJSON . fmap Integer') _autoScalingAutoScalingGroupHealthCheckGracePeriod
+        , fmap (("HealthCheckGracePeriod",) . toJSON) _autoScalingAutoScalingGroupHealthCheckGracePeriod
         , fmap (("HealthCheckType",) . toJSON) _autoScalingAutoScalingGroupHealthCheckType
         , fmap (("InstanceId",) . toJSON) _autoScalingAutoScalingGroupInstanceId
         , fmap (("LaunchConfigurationName",) . toJSON) _autoScalingAutoScalingGroupLaunchConfigurationName

@@ -25,10 +25,10 @@ instance ToJSON OpsWorksInstanceEbsBlockDevice where
   toJSON OpsWorksInstanceEbsBlockDevice{..} =
     object $
     catMaybes
-    [ fmap (("DeleteOnTermination",) . toJSON . fmap Bool') _opsWorksInstanceEbsBlockDeviceDeleteOnTermination
-    , fmap (("Iops",) . toJSON . fmap Integer') _opsWorksInstanceEbsBlockDeviceIops
+    [ fmap (("DeleteOnTermination",) . toJSON) _opsWorksInstanceEbsBlockDeviceDeleteOnTermination
+    , fmap (("Iops",) . toJSON) _opsWorksInstanceEbsBlockDeviceIops
     , fmap (("SnapshotId",) . toJSON) _opsWorksInstanceEbsBlockDeviceSnapshotId
-    , fmap (("VolumeSize",) . toJSON . fmap Integer') _opsWorksInstanceEbsBlockDeviceVolumeSize
+    , fmap (("VolumeSize",) . toJSON) _opsWorksInstanceEbsBlockDeviceVolumeSize
     , fmap (("VolumeType",) . toJSON) _opsWorksInstanceEbsBlockDeviceVolumeType
     ]
 

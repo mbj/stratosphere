@@ -32,7 +32,7 @@ instance ToResourceProperties ElasticLoadBalancingV2Listener where
         [ fmap (("Certificates",) . toJSON) _elasticLoadBalancingV2ListenerCertificates
         , (Just . ("DefaultActions",) . toJSON) _elasticLoadBalancingV2ListenerDefaultActions
         , (Just . ("LoadBalancerArn",) . toJSON) _elasticLoadBalancingV2ListenerLoadBalancerArn
-        , (Just . ("Port",) . toJSON . fmap Integer') _elasticLoadBalancingV2ListenerPort
+        , (Just . ("Port",) . toJSON) _elasticLoadBalancingV2ListenerPort
         , (Just . ("Protocol",) . toJSON) _elasticLoadBalancingV2ListenerProtocol
         , fmap (("SslPolicy",) . toJSON) _elasticLoadBalancingV2ListenerSslPolicy
         ]

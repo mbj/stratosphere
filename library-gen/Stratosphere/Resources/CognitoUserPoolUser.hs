@@ -30,7 +30,7 @@ instance ToResourceProperties CognitoUserPoolUser where
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
         [ fmap (("DesiredDeliveryMediums",) . toJSON) _cognitoUserPoolUserDesiredDeliveryMediums
-        , fmap (("ForceAliasCreation",) . toJSON . fmap Bool') _cognitoUserPoolUserForceAliasCreation
+        , fmap (("ForceAliasCreation",) . toJSON) _cognitoUserPoolUserForceAliasCreation
         , fmap (("MessageAction",) . toJSON) _cognitoUserPoolUserMessageAction
         , fmap (("UserAttributes",) . toJSON) _cognitoUserPoolUserUserAttributes
         , (Just . ("UserPoolId",) . toJSON) _cognitoUserPoolUserUserPoolId

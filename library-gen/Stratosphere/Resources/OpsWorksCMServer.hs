@@ -39,10 +39,10 @@ instance ToResourceProperties OpsWorksCMServer where
     { resourcePropertiesType = "AWS::OpsWorksCM::Server"
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
-        [ fmap (("AssociatePublicIpAddress",) . toJSON . fmap Bool') _opsWorksCMServerAssociatePublicIpAddress
+        [ fmap (("AssociatePublicIpAddress",) . toJSON) _opsWorksCMServerAssociatePublicIpAddress
         , fmap (("BackupId",) . toJSON) _opsWorksCMServerBackupId
-        , fmap (("BackupRetentionCount",) . toJSON . fmap Integer') _opsWorksCMServerBackupRetentionCount
-        , fmap (("DisableAutomatedBackup",) . toJSON . fmap Bool') _opsWorksCMServerDisableAutomatedBackup
+        , fmap (("BackupRetentionCount",) . toJSON) _opsWorksCMServerBackupRetentionCount
+        , fmap (("DisableAutomatedBackup",) . toJSON) _opsWorksCMServerDisableAutomatedBackup
         , fmap (("Engine",) . toJSON) _opsWorksCMServerEngine
         , fmap (("EngineAttributes",) . toJSON) _opsWorksCMServerEngineAttributes
         , fmap (("EngineModel",) . toJSON) _opsWorksCMServerEngineModel

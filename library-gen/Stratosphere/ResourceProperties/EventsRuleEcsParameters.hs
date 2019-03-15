@@ -22,7 +22,7 @@ instance ToJSON EventsRuleEcsParameters where
   toJSON EventsRuleEcsParameters{..} =
     object $
     catMaybes
-    [ fmap (("TaskCount",) . toJSON . fmap Integer') _eventsRuleEcsParametersTaskCount
+    [ fmap (("TaskCount",) . toJSON) _eventsRuleEcsParametersTaskCount
     , (Just . ("TaskDefinitionArn",) . toJSON) _eventsRuleEcsParametersTaskDefinitionArn
     ]
 

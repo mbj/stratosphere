@@ -21,7 +21,7 @@ instance ToJSON BatchJobDefinitionRetryStrategy where
   toJSON BatchJobDefinitionRetryStrategy{..} =
     object $
     catMaybes
-    [ fmap (("Attempts",) . toJSON . fmap Integer') _batchJobDefinitionRetryStrategyAttempts
+    [ fmap (("Attempts",) . toJSON) _batchJobDefinitionRetryStrategyAttempts
     ]
 
 -- | Constructor for 'BatchJobDefinitionRetryStrategy' containing required

@@ -31,7 +31,7 @@ instance ToJSON S3BucketCorsRule where
     , (Just . ("AllowedOrigins",) . toJSON) _s3BucketCorsRuleAllowedOrigins
     , fmap (("ExposedHeaders",) . toJSON) _s3BucketCorsRuleExposedHeaders
     , fmap (("Id",) . toJSON) _s3BucketCorsRuleId
-    , fmap (("MaxAge",) . toJSON . fmap Integer') _s3BucketCorsRuleMaxAge
+    , fmap (("MaxAge",) . toJSON) _s3BucketCorsRuleMaxAge
     ]
 
 -- | Constructor for 'S3BucketCorsRule' containing required fields as

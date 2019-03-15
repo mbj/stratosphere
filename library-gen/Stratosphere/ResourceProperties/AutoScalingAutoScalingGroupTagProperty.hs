@@ -25,7 +25,7 @@ instance ToJSON AutoScalingAutoScalingGroupTagProperty where
     object $
     catMaybes
     [ (Just . ("Key",) . toJSON) _autoScalingAutoScalingGroupTagPropertyKey
-    , (Just . ("PropagateAtLaunch",) . toJSON . fmap Bool') _autoScalingAutoScalingGroupTagPropertyPropagateAtLaunch
+    , (Just . ("PropagateAtLaunch",) . toJSON) _autoScalingAutoScalingGroupTagPropertyPropagateAtLaunch
     , (Just . ("Value",) . toJSON) _autoScalingAutoScalingGroupTagPropertyValue
     ]
 

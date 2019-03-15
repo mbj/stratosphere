@@ -23,7 +23,7 @@ instance ToJSON LambdaAliasVersionWeight where
     object $
     catMaybes
     [ (Just . ("FunctionVersion",) . toJSON) _lambdaAliasVersionWeightFunctionVersion
-    , (Just . ("FunctionWeight",) . toJSON . fmap Double') _lambdaAliasVersionWeightFunctionWeight
+    , (Just . ("FunctionWeight",) . toJSON) _lambdaAliasVersionWeightFunctionWeight
     ]
 
 -- | Constructor for 'LambdaAliasVersionWeight' containing required fields as

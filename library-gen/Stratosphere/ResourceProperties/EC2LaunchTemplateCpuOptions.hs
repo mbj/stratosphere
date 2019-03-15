@@ -22,8 +22,8 @@ instance ToJSON EC2LaunchTemplateCpuOptions where
   toJSON EC2LaunchTemplateCpuOptions{..} =
     object $
     catMaybes
-    [ fmap (("CoreCount",) . toJSON . fmap Integer') _eC2LaunchTemplateCpuOptionsCoreCount
-    , fmap (("ThreadsPerCore",) . toJSON . fmap Integer') _eC2LaunchTemplateCpuOptionsThreadsPerCore
+    [ fmap (("CoreCount",) . toJSON) _eC2LaunchTemplateCpuOptionsCoreCount
+    , fmap (("ThreadsPerCore",) . toJSON) _eC2LaunchTemplateCpuOptionsThreadsPerCore
     ]
 
 -- | Constructor for 'EC2LaunchTemplateCpuOptions' containing required fields

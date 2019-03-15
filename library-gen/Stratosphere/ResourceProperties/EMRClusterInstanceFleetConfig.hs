@@ -29,8 +29,8 @@ instance ToJSON EMRClusterInstanceFleetConfig where
     [ fmap (("InstanceTypeConfigs",) . toJSON) _eMRClusterInstanceFleetConfigInstanceTypeConfigs
     , fmap (("LaunchSpecifications",) . toJSON) _eMRClusterInstanceFleetConfigLaunchSpecifications
     , fmap (("Name",) . toJSON) _eMRClusterInstanceFleetConfigName
-    , fmap (("TargetOnDemandCapacity",) . toJSON . fmap Integer') _eMRClusterInstanceFleetConfigTargetOnDemandCapacity
-    , fmap (("TargetSpotCapacity",) . toJSON . fmap Integer') _eMRClusterInstanceFleetConfigTargetSpotCapacity
+    , fmap (("TargetOnDemandCapacity",) . toJSON) _eMRClusterInstanceFleetConfigTargetOnDemandCapacity
+    , fmap (("TargetSpotCapacity",) . toJSON) _eMRClusterInstanceFleetConfigTargetSpotCapacity
     ]
 
 -- | Constructor for 'EMRClusterInstanceFleetConfig' containing required

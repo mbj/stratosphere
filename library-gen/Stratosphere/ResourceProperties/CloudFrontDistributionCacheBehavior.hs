@@ -37,15 +37,15 @@ instance ToJSON CloudFrontDistributionCacheBehavior where
     catMaybes
     [ fmap (("AllowedMethods",) . toJSON) _cloudFrontDistributionCacheBehaviorAllowedMethods
     , fmap (("CachedMethods",) . toJSON) _cloudFrontDistributionCacheBehaviorCachedMethods
-    , fmap (("Compress",) . toJSON . fmap Bool') _cloudFrontDistributionCacheBehaviorCompress
-    , fmap (("DefaultTTL",) . toJSON . fmap Double') _cloudFrontDistributionCacheBehaviorDefaultTTL
+    , fmap (("Compress",) . toJSON) _cloudFrontDistributionCacheBehaviorCompress
+    , fmap (("DefaultTTL",) . toJSON) _cloudFrontDistributionCacheBehaviorDefaultTTL
     , fmap (("FieldLevelEncryptionId",) . toJSON) _cloudFrontDistributionCacheBehaviorFieldLevelEncryptionId
     , (Just . ("ForwardedValues",) . toJSON) _cloudFrontDistributionCacheBehaviorForwardedValues
     , fmap (("LambdaFunctionAssociations",) . toJSON) _cloudFrontDistributionCacheBehaviorLambdaFunctionAssociations
-    , fmap (("MaxTTL",) . toJSON . fmap Double') _cloudFrontDistributionCacheBehaviorMaxTTL
-    , fmap (("MinTTL",) . toJSON . fmap Double') _cloudFrontDistributionCacheBehaviorMinTTL
+    , fmap (("MaxTTL",) . toJSON) _cloudFrontDistributionCacheBehaviorMaxTTL
+    , fmap (("MinTTL",) . toJSON) _cloudFrontDistributionCacheBehaviorMinTTL
     , (Just . ("PathPattern",) . toJSON) _cloudFrontDistributionCacheBehaviorPathPattern
-    , fmap (("SmoothStreaming",) . toJSON . fmap Bool') _cloudFrontDistributionCacheBehaviorSmoothStreaming
+    , fmap (("SmoothStreaming",) . toJSON) _cloudFrontDistributionCacheBehaviorSmoothStreaming
     , (Just . ("TargetOriginId",) . toJSON) _cloudFrontDistributionCacheBehaviorTargetOriginId
     , fmap (("TrustedSigners",) . toJSON) _cloudFrontDistributionCacheBehaviorTrustedSigners
     , (Just . ("ViewerProtocolPolicy",) . toJSON) _cloudFrontDistributionCacheBehaviorViewerProtocolPolicy

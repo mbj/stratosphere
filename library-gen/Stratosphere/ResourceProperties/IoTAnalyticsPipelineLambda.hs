@@ -24,7 +24,7 @@ instance ToJSON IoTAnalyticsPipelineLambda where
   toJSON IoTAnalyticsPipelineLambda{..} =
     object $
     catMaybes
-    [ fmap (("BatchSize",) . toJSON . fmap Integer') _ioTAnalyticsPipelineLambdaBatchSize
+    [ fmap (("BatchSize",) . toJSON) _ioTAnalyticsPipelineLambdaBatchSize
     , fmap (("LambdaName",) . toJSON) _ioTAnalyticsPipelineLambdaLambdaName
     , fmap (("Name",) . toJSON) _ioTAnalyticsPipelineLambdaName
     , fmap (("Next",) . toJSON) _ioTAnalyticsPipelineLambdaNext

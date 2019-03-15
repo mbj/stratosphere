@@ -26,8 +26,8 @@ instance ToJSON EMRInstanceGroupConfigSimpleScalingPolicyConfiguration where
     object $
     catMaybes
     [ fmap (("AdjustmentType",) . toJSON) _eMRInstanceGroupConfigSimpleScalingPolicyConfigurationAdjustmentType
-    , fmap (("CoolDown",) . toJSON . fmap Integer') _eMRInstanceGroupConfigSimpleScalingPolicyConfigurationCoolDown
-    , (Just . ("ScalingAdjustment",) . toJSON . fmap Integer') _eMRInstanceGroupConfigSimpleScalingPolicyConfigurationScalingAdjustment
+    , fmap (("CoolDown",) . toJSON) _eMRInstanceGroupConfigSimpleScalingPolicyConfigurationCoolDown
+    , (Just . ("ScalingAdjustment",) . toJSON) _eMRInstanceGroupConfigSimpleScalingPolicyConfigurationScalingAdjustment
     ]
 
 -- | Constructor for 'EMRInstanceGroupConfigSimpleScalingPolicyConfiguration'

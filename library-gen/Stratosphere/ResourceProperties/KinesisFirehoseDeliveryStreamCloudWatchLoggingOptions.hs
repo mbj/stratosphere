@@ -25,7 +25,7 @@ instance ToJSON KinesisFirehoseDeliveryStreamCloudWatchLoggingOptions where
   toJSON KinesisFirehoseDeliveryStreamCloudWatchLoggingOptions{..} =
     object $
     catMaybes
-    [ fmap (("Enabled",) . toJSON . fmap Bool') _kinesisFirehoseDeliveryStreamCloudWatchLoggingOptionsEnabled
+    [ fmap (("Enabled",) . toJSON) _kinesisFirehoseDeliveryStreamCloudWatchLoggingOptionsEnabled
     , fmap (("LogGroupName",) . toJSON) _kinesisFirehoseDeliveryStreamCloudWatchLoggingOptionsLogGroupName
     , fmap (("LogStreamName",) . toJSON) _kinesisFirehoseDeliveryStreamCloudWatchLoggingOptionsLogStreamName
     ]

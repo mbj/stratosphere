@@ -34,18 +34,18 @@ instance ToResourceProperties SQSQueue where
     { resourcePropertiesType = "AWS::SQS::Queue"
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
-        [ fmap (("ContentBasedDeduplication",) . toJSON . fmap Bool') _sQSQueueContentBasedDeduplication
-        , fmap (("DelaySeconds",) . toJSON . fmap Integer') _sQSQueueDelaySeconds
-        , fmap (("FifoQueue",) . toJSON . fmap Bool') _sQSQueueFifoQueue
-        , fmap (("KmsDataKeyReusePeriodSeconds",) . toJSON . fmap Integer') _sQSQueueKmsDataKeyReusePeriodSeconds
+        [ fmap (("ContentBasedDeduplication",) . toJSON) _sQSQueueContentBasedDeduplication
+        , fmap (("DelaySeconds",) . toJSON) _sQSQueueDelaySeconds
+        , fmap (("FifoQueue",) . toJSON) _sQSQueueFifoQueue
+        , fmap (("KmsDataKeyReusePeriodSeconds",) . toJSON) _sQSQueueKmsDataKeyReusePeriodSeconds
         , fmap (("KmsMasterKeyId",) . toJSON) _sQSQueueKmsMasterKeyId
-        , fmap (("MaximumMessageSize",) . toJSON . fmap Integer') _sQSQueueMaximumMessageSize
-        , fmap (("MessageRetentionPeriod",) . toJSON . fmap Integer') _sQSQueueMessageRetentionPeriod
+        , fmap (("MaximumMessageSize",) . toJSON) _sQSQueueMaximumMessageSize
+        , fmap (("MessageRetentionPeriod",) . toJSON) _sQSQueueMessageRetentionPeriod
         , fmap (("QueueName",) . toJSON) _sQSQueueQueueName
-        , fmap (("ReceiveMessageWaitTimeSeconds",) . toJSON . fmap Integer') _sQSQueueReceiveMessageWaitTimeSeconds
+        , fmap (("ReceiveMessageWaitTimeSeconds",) . toJSON) _sQSQueueReceiveMessageWaitTimeSeconds
         , fmap (("RedrivePolicy",) . toJSON) _sQSQueueRedrivePolicy
         , fmap (("Tags",) . toJSON) _sQSQueueTags
-        , fmap (("VisibilityTimeout",) . toJSON . fmap Integer') _sQSQueueVisibilityTimeout
+        , fmap (("VisibilityTimeout",) . toJSON) _sQSQueueVisibilityTimeout
         ]
     }
 

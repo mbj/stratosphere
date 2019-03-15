@@ -25,7 +25,7 @@ instance ToResourceProperties LogsLogGroup where
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
         [ fmap (("LogGroupName",) . toJSON) _logsLogGroupLogGroupName
-        , fmap (("RetentionInDays",) . toJSON . fmap Integer') _logsLogGroupRetentionInDays
+        , fmap (("RetentionInDays",) . toJSON) _logsLogGroupRetentionInDays
         ]
     }
 

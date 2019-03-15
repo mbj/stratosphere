@@ -34,7 +34,7 @@ instance ToJSON ElasticLoadBalancingV2ListenerRuleAuthenticateCognitoConfig wher
     , fmap (("OnUnauthenticatedRequest",) . toJSON) _elasticLoadBalancingV2ListenerRuleAuthenticateCognitoConfigOnUnauthenticatedRequest
     , fmap (("Scope",) . toJSON) _elasticLoadBalancingV2ListenerRuleAuthenticateCognitoConfigScope
     , fmap (("SessionCookieName",) . toJSON) _elasticLoadBalancingV2ListenerRuleAuthenticateCognitoConfigSessionCookieName
-    , fmap (("SessionTimeout",) . toJSON . fmap Integer') _elasticLoadBalancingV2ListenerRuleAuthenticateCognitoConfigSessionTimeout
+    , fmap (("SessionTimeout",) . toJSON) _elasticLoadBalancingV2ListenerRuleAuthenticateCognitoConfigSessionTimeout
     , (Just . ("UserPoolArn",) . toJSON) _elasticLoadBalancingV2ListenerRuleAuthenticateCognitoConfigUserPoolArn
     , (Just . ("UserPoolClientId",) . toJSON) _elasticLoadBalancingV2ListenerRuleAuthenticateCognitoConfigUserPoolClientId
     , (Just . ("UserPoolDomain",) . toJSON) _elasticLoadBalancingV2ListenerRuleAuthenticateCognitoConfigUserPoolDomain

@@ -28,11 +28,11 @@ instance ToResourceProperties EFSFileSystem where
     { resourcePropertiesType = "AWS::EFS::FileSystem"
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
-        [ fmap (("Encrypted",) . toJSON . fmap Bool') _eFSFileSystemEncrypted
+        [ fmap (("Encrypted",) . toJSON) _eFSFileSystemEncrypted
         , fmap (("FileSystemTags",) . toJSON) _eFSFileSystemFileSystemTags
         , fmap (("KmsKeyId",) . toJSON) _eFSFileSystemKmsKeyId
         , fmap (("PerformanceMode",) . toJSON) _eFSFileSystemPerformanceMode
-        , fmap (("ProvisionedThroughputInMibps",) . toJSON . fmap Double') _eFSFileSystemProvisionedThroughputInMibps
+        , fmap (("ProvisionedThroughputInMibps",) . toJSON) _eFSFileSystemProvisionedThroughputInMibps
         , fmap (("ThroughputMode",) . toJSON) _eFSFileSystemThroughputMode
         ]
     }

@@ -50,29 +50,29 @@ instance ToResourceProperties RDSDBCluster where
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
         [ fmap (("AvailabilityZones",) . toJSON) _rDSDBClusterAvailabilityZones
-        , fmap (("BacktrackWindow",) . toJSON . fmap Integer') _rDSDBClusterBacktrackWindow
-        , fmap (("BackupRetentionPeriod",) . toJSON . fmap Integer') _rDSDBClusterBackupRetentionPeriod
+        , fmap (("BacktrackWindow",) . toJSON) _rDSDBClusterBacktrackWindow
+        , fmap (("BackupRetentionPeriod",) . toJSON) _rDSDBClusterBackupRetentionPeriod
         , fmap (("DBClusterIdentifier",) . toJSON) _rDSDBClusterDBClusterIdentifier
         , fmap (("DBClusterParameterGroupName",) . toJSON) _rDSDBClusterDBClusterParameterGroupName
         , fmap (("DBSubnetGroupName",) . toJSON) _rDSDBClusterDBSubnetGroupName
         , fmap (("DatabaseName",) . toJSON) _rDSDBClusterDatabaseName
-        , fmap (("DeletionProtection",) . toJSON . fmap Bool') _rDSDBClusterDeletionProtection
+        , fmap (("DeletionProtection",) . toJSON) _rDSDBClusterDeletionProtection
         , fmap (("EnableCloudwatchLogsExports",) . toJSON) _rDSDBClusterEnableCloudwatchLogsExports
-        , fmap (("EnableIAMDatabaseAuthentication",) . toJSON . fmap Bool') _rDSDBClusterEnableIAMDatabaseAuthentication
+        , fmap (("EnableIAMDatabaseAuthentication",) . toJSON) _rDSDBClusterEnableIAMDatabaseAuthentication
         , (Just . ("Engine",) . toJSON) _rDSDBClusterEngine
         , fmap (("EngineMode",) . toJSON) _rDSDBClusterEngineMode
         , fmap (("EngineVersion",) . toJSON) _rDSDBClusterEngineVersion
         , fmap (("KmsKeyId",) . toJSON) _rDSDBClusterKmsKeyId
         , fmap (("MasterUserPassword",) . toJSON) _rDSDBClusterMasterUserPassword
         , fmap (("MasterUsername",) . toJSON) _rDSDBClusterMasterUsername
-        , fmap (("Port",) . toJSON . fmap Integer') _rDSDBClusterPort
+        , fmap (("Port",) . toJSON) _rDSDBClusterPort
         , fmap (("PreferredBackupWindow",) . toJSON) _rDSDBClusterPreferredBackupWindow
         , fmap (("PreferredMaintenanceWindow",) . toJSON) _rDSDBClusterPreferredMaintenanceWindow
         , fmap (("ReplicationSourceIdentifier",) . toJSON) _rDSDBClusterReplicationSourceIdentifier
         , fmap (("ScalingConfiguration",) . toJSON) _rDSDBClusterScalingConfiguration
         , fmap (("SnapshotIdentifier",) . toJSON) _rDSDBClusterSnapshotIdentifier
         , fmap (("SourceRegion",) . toJSON) _rDSDBClusterSourceRegion
-        , fmap (("StorageEncrypted",) . toJSON . fmap Bool') _rDSDBClusterStorageEncrypted
+        , fmap (("StorageEncrypted",) . toJSON) _rDSDBClusterStorageEncrypted
         , fmap (("Tags",) . toJSON) _rDSDBClusterTags
         , fmap (("VpcSecurityGroupIds",) . toJSON) _rDSDBClusterVpcSecurityGroupIds
         ]

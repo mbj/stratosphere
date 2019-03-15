@@ -21,7 +21,7 @@ instance ToJSON EC2LaunchTemplateMonitoring where
   toJSON EC2LaunchTemplateMonitoring{..} =
     object $
     catMaybes
-    [ fmap (("Enabled",) . toJSON . fmap Bool') _eC2LaunchTemplateMonitoringEnabled
+    [ fmap (("Enabled",) . toJSON) _eC2LaunchTemplateMonitoringEnabled
     ]
 
 -- | Constructor for 'EC2LaunchTemplateMonitoring' containing required fields

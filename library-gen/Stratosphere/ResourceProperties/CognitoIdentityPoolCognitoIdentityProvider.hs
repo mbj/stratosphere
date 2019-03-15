@@ -26,7 +26,7 @@ instance ToJSON CognitoIdentityPoolCognitoIdentityProvider where
     catMaybes
     [ fmap (("ClientId",) . toJSON) _cognitoIdentityPoolCognitoIdentityProviderClientId
     , fmap (("ProviderName",) . toJSON) _cognitoIdentityPoolCognitoIdentityProviderProviderName
-    , fmap (("ServerSideTokenCheck",) . toJSON . fmap Bool') _cognitoIdentityPoolCognitoIdentityProviderServerSideTokenCheck
+    , fmap (("ServerSideTokenCheck",) . toJSON) _cognitoIdentityPoolCognitoIdentityProviderServerSideTokenCheck
     ]
 
 -- | Constructor for 'CognitoIdentityPoolCognitoIdentityProvider' containing

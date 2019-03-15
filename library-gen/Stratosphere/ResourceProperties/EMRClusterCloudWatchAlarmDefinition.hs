@@ -31,12 +31,12 @@ instance ToJSON EMRClusterCloudWatchAlarmDefinition where
     catMaybes
     [ (Just . ("ComparisonOperator",) . toJSON) _eMRClusterCloudWatchAlarmDefinitionComparisonOperator
     , fmap (("Dimensions",) . toJSON) _eMRClusterCloudWatchAlarmDefinitionDimensions
-    , fmap (("EvaluationPeriods",) . toJSON . fmap Integer') _eMRClusterCloudWatchAlarmDefinitionEvaluationPeriods
+    , fmap (("EvaluationPeriods",) . toJSON) _eMRClusterCloudWatchAlarmDefinitionEvaluationPeriods
     , (Just . ("MetricName",) . toJSON) _eMRClusterCloudWatchAlarmDefinitionMetricName
     , fmap (("Namespace",) . toJSON) _eMRClusterCloudWatchAlarmDefinitionNamespace
-    , (Just . ("Period",) . toJSON . fmap Integer') _eMRClusterCloudWatchAlarmDefinitionPeriod
+    , (Just . ("Period",) . toJSON) _eMRClusterCloudWatchAlarmDefinitionPeriod
     , fmap (("Statistic",) . toJSON) _eMRClusterCloudWatchAlarmDefinitionStatistic
-    , (Just . ("Threshold",) . toJSON . fmap Double') _eMRClusterCloudWatchAlarmDefinitionThreshold
+    , (Just . ("Threshold",) . toJSON) _eMRClusterCloudWatchAlarmDefinitionThreshold
     , fmap (("Unit",) . toJSON) _eMRClusterCloudWatchAlarmDefinitionUnit
     ]
 

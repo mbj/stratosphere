@@ -24,9 +24,9 @@ instance ToJSON AppSyncGraphQLApiOpenIDConnectConfig where
   toJSON AppSyncGraphQLApiOpenIDConnectConfig{..} =
     object $
     catMaybes
-    [ fmap (("AuthTTL",) . toJSON . fmap Double') _appSyncGraphQLApiOpenIDConnectConfigAuthTTL
+    [ fmap (("AuthTTL",) . toJSON) _appSyncGraphQLApiOpenIDConnectConfigAuthTTL
     , fmap (("ClientId",) . toJSON) _appSyncGraphQLApiOpenIDConnectConfigClientId
-    , fmap (("IatTTL",) . toJSON . fmap Double') _appSyncGraphQLApiOpenIDConnectConfigIatTTL
+    , fmap (("IatTTL",) . toJSON) _appSyncGraphQLApiOpenIDConnectConfigIatTTL
     , fmap (("Issuer",) . toJSON) _appSyncGraphQLApiOpenIDConnectConfigIssuer
     ]
 

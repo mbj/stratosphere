@@ -31,7 +31,7 @@ instance ToResourceProperties IAMRole where
         hashMapFromList $ catMaybes
         [ (Just . ("AssumeRolePolicyDocument",) . toJSON) _iAMRoleAssumeRolePolicyDocument
         , fmap (("ManagedPolicyArns",) . toJSON) _iAMRoleManagedPolicyArns
-        , fmap (("MaxSessionDuration",) . toJSON . fmap Integer') _iAMRoleMaxSessionDuration
+        , fmap (("MaxSessionDuration",) . toJSON) _iAMRoleMaxSessionDuration
         , fmap (("Path",) . toJSON) _iAMRolePath
         , fmap (("PermissionsBoundary",) . toJSON) _iAMRolePermissionsBoundary
         , fmap (("Policies",) . toJSON) _iAMRolePolicies

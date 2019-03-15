@@ -30,16 +30,16 @@ instance ToJSON ApiGatewayStageMethodSetting where
   toJSON ApiGatewayStageMethodSetting{..} =
     object $
     catMaybes
-    [ fmap (("CacheDataEncrypted",) . toJSON . fmap Bool') _apiGatewayStageMethodSettingCacheDataEncrypted
-    , fmap (("CacheTtlInSeconds",) . toJSON . fmap Integer') _apiGatewayStageMethodSettingCacheTtlInSeconds
-    , fmap (("CachingEnabled",) . toJSON . fmap Bool') _apiGatewayStageMethodSettingCachingEnabled
-    , fmap (("DataTraceEnabled",) . toJSON . fmap Bool') _apiGatewayStageMethodSettingDataTraceEnabled
+    [ fmap (("CacheDataEncrypted",) . toJSON) _apiGatewayStageMethodSettingCacheDataEncrypted
+    , fmap (("CacheTtlInSeconds",) . toJSON) _apiGatewayStageMethodSettingCacheTtlInSeconds
+    , fmap (("CachingEnabled",) . toJSON) _apiGatewayStageMethodSettingCachingEnabled
+    , fmap (("DataTraceEnabled",) . toJSON) _apiGatewayStageMethodSettingDataTraceEnabled
     , fmap (("HttpMethod",) . toJSON) _apiGatewayStageMethodSettingHttpMethod
     , fmap (("LoggingLevel",) . toJSON) _apiGatewayStageMethodSettingLoggingLevel
-    , fmap (("MetricsEnabled",) . toJSON . fmap Bool') _apiGatewayStageMethodSettingMetricsEnabled
+    , fmap (("MetricsEnabled",) . toJSON) _apiGatewayStageMethodSettingMetricsEnabled
     , fmap (("ResourcePath",) . toJSON) _apiGatewayStageMethodSettingResourcePath
-    , fmap (("ThrottlingBurstLimit",) . toJSON . fmap Integer') _apiGatewayStageMethodSettingThrottlingBurstLimit
-    , fmap (("ThrottlingRateLimit",) . toJSON . fmap Double') _apiGatewayStageMethodSettingThrottlingRateLimit
+    , fmap (("ThrottlingBurstLimit",) . toJSON) _apiGatewayStageMethodSettingThrottlingBurstLimit
+    , fmap (("ThrottlingRateLimit",) . toJSON) _apiGatewayStageMethodSettingThrottlingRateLimit
     ]
 
 -- | Constructor for 'ApiGatewayStageMethodSetting' containing required fields

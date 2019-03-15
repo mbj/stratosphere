@@ -21,7 +21,7 @@ instance ToJSON AppStreamFleetComputeCapacity where
   toJSON AppStreamFleetComputeCapacity{..} =
     object $
     catMaybes
-    [ (Just . ("DesiredInstances",) . toJSON . fmap Integer') _appStreamFleetComputeCapacityDesiredInstances
+    [ (Just . ("DesiredInstances",) . toJSON) _appStreamFleetComputeCapacityDesiredInstances
     ]
 
 -- | Constructor for 'AppStreamFleetComputeCapacity' containing required

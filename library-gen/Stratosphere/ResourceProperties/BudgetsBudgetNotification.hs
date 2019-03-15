@@ -26,7 +26,7 @@ instance ToJSON BudgetsBudgetNotification where
     catMaybes
     [ (Just . ("ComparisonOperator",) . toJSON) _budgetsBudgetNotificationComparisonOperator
     , (Just . ("NotificationType",) . toJSON) _budgetsBudgetNotificationNotificationType
-    , (Just . ("Threshold",) . toJSON . fmap Double') _budgetsBudgetNotificationThreshold
+    , (Just . ("Threshold",) . toJSON) _budgetsBudgetNotificationThreshold
     , fmap (("ThresholdType",) . toJSON) _budgetsBudgetNotificationThresholdType
     ]
 

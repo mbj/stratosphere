@@ -26,8 +26,8 @@ instance ToJSON CodeDeployDeploymentGroupAlarmConfiguration where
     object $
     catMaybes
     [ fmap (("Alarms",) . toJSON) _codeDeployDeploymentGroupAlarmConfigurationAlarms
-    , fmap (("Enabled",) . toJSON . fmap Bool') _codeDeployDeploymentGroupAlarmConfigurationEnabled
-    , fmap (("IgnorePollAlarmFailure",) . toJSON . fmap Bool') _codeDeployDeploymentGroupAlarmConfigurationIgnorePollAlarmFailure
+    , fmap (("Enabled",) . toJSON) _codeDeployDeploymentGroupAlarmConfigurationEnabled
+    , fmap (("IgnorePollAlarmFailure",) . toJSON) _codeDeployDeploymentGroupAlarmConfigurationIgnorePollAlarmFailure
     ]
 
 -- | Constructor for 'CodeDeployDeploymentGroupAlarmConfiguration' containing

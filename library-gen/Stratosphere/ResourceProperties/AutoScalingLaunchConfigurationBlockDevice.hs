@@ -27,11 +27,11 @@ instance ToJSON AutoScalingLaunchConfigurationBlockDevice where
   toJSON AutoScalingLaunchConfigurationBlockDevice{..} =
     object $
     catMaybes
-    [ fmap (("DeleteOnTermination",) . toJSON . fmap Bool') _autoScalingLaunchConfigurationBlockDeviceDeleteOnTermination
-    , fmap (("Encrypted",) . toJSON . fmap Bool') _autoScalingLaunchConfigurationBlockDeviceEncrypted
-    , fmap (("Iops",) . toJSON . fmap Integer') _autoScalingLaunchConfigurationBlockDeviceIops
+    [ fmap (("DeleteOnTermination",) . toJSON) _autoScalingLaunchConfigurationBlockDeviceDeleteOnTermination
+    , fmap (("Encrypted",) . toJSON) _autoScalingLaunchConfigurationBlockDeviceEncrypted
+    , fmap (("Iops",) . toJSON) _autoScalingLaunchConfigurationBlockDeviceIops
     , fmap (("SnapshotId",) . toJSON) _autoScalingLaunchConfigurationBlockDeviceSnapshotId
-    , fmap (("VolumeSize",) . toJSON . fmap Integer') _autoScalingLaunchConfigurationBlockDeviceVolumeSize
+    , fmap (("VolumeSize",) . toJSON) _autoScalingLaunchConfigurationBlockDeviceVolumeSize
     , fmap (("VolumeType",) . toJSON) _autoScalingLaunchConfigurationBlockDeviceVolumeType
     ]
 

@@ -52,8 +52,8 @@ instance ToResourceProperties RedshiftCluster where
     { resourcePropertiesType = "AWS::Redshift::Cluster"
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
-        [ fmap (("AllowVersionUpgrade",) . toJSON . fmap Bool') _redshiftClusterAllowVersionUpgrade
-        , fmap (("AutomatedSnapshotRetentionPeriod",) . toJSON . fmap Integer') _redshiftClusterAutomatedSnapshotRetentionPeriod
+        [ fmap (("AllowVersionUpgrade",) . toJSON) _redshiftClusterAllowVersionUpgrade
+        , fmap (("AutomatedSnapshotRetentionPeriod",) . toJSON) _redshiftClusterAutomatedSnapshotRetentionPeriod
         , fmap (("AvailabilityZone",) . toJSON) _redshiftClusterAvailabilityZone
         , fmap (("ClusterIdentifier",) . toJSON) _redshiftClusterClusterIdentifier
         , fmap (("ClusterParameterGroupName",) . toJSON) _redshiftClusterClusterParameterGroupName
@@ -63,7 +63,7 @@ instance ToResourceProperties RedshiftCluster where
         , fmap (("ClusterVersion",) . toJSON) _redshiftClusterClusterVersion
         , (Just . ("DBName",) . toJSON) _redshiftClusterDBName
         , fmap (("ElasticIp",) . toJSON) _redshiftClusterElasticIp
-        , fmap (("Encrypted",) . toJSON . fmap Bool') _redshiftClusterEncrypted
+        , fmap (("Encrypted",) . toJSON) _redshiftClusterEncrypted
         , fmap (("HsmClientCertificateIdentifier",) . toJSON) _redshiftClusterHsmClientCertificateIdentifier
         , fmap (("HsmConfigurationIdentifier",) . toJSON) _redshiftClusterHsmConfigurationIdentifier
         , fmap (("IamRoles",) . toJSON) _redshiftClusterIamRoles
@@ -72,11 +72,11 @@ instance ToResourceProperties RedshiftCluster where
         , (Just . ("MasterUserPassword",) . toJSON) _redshiftClusterMasterUserPassword
         , (Just . ("MasterUsername",) . toJSON) _redshiftClusterMasterUsername
         , (Just . ("NodeType",) . toJSON) _redshiftClusterNodeType
-        , fmap (("NumberOfNodes",) . toJSON . fmap Integer') _redshiftClusterNumberOfNodes
+        , fmap (("NumberOfNodes",) . toJSON) _redshiftClusterNumberOfNodes
         , fmap (("OwnerAccount",) . toJSON) _redshiftClusterOwnerAccount
-        , fmap (("Port",) . toJSON . fmap Integer') _redshiftClusterPort
+        , fmap (("Port",) . toJSON) _redshiftClusterPort
         , fmap (("PreferredMaintenanceWindow",) . toJSON) _redshiftClusterPreferredMaintenanceWindow
-        , fmap (("PubliclyAccessible",) . toJSON . fmap Bool') _redshiftClusterPubliclyAccessible
+        , fmap (("PubliclyAccessible",) . toJSON) _redshiftClusterPubliclyAccessible
         , fmap (("SnapshotClusterIdentifier",) . toJSON) _redshiftClusterSnapshotClusterIdentifier
         , fmap (("SnapshotIdentifier",) . toJSON) _redshiftClusterSnapshotIdentifier
         , fmap (("Tags",) . toJSON) _redshiftClusterTags

@@ -23,7 +23,7 @@ instance ToJSON EC2SpotFleetPrivateIpAddressSpecification where
   toJSON EC2SpotFleetPrivateIpAddressSpecification{..} =
     object $
     catMaybes
-    [ fmap (("Primary",) . toJSON . fmap Bool') _eC2SpotFleetPrivateIpAddressSpecificationPrimary
+    [ fmap (("Primary",) . toJSON) _eC2SpotFleetPrivateIpAddressSpecificationPrimary
     , (Just . ("PrivateIpAddress",) . toJSON) _eC2SpotFleetPrivateIpAddressSpecificationPrivateIpAddress
     ]
 

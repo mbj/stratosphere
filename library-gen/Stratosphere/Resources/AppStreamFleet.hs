@@ -39,15 +39,15 @@ instance ToResourceProperties AppStreamFleet where
         hashMapFromList $ catMaybes
         [ (Just . ("ComputeCapacity",) . toJSON) _appStreamFleetComputeCapacity
         , fmap (("Description",) . toJSON) _appStreamFleetDescription
-        , fmap (("DisconnectTimeoutInSeconds",) . toJSON . fmap Integer') _appStreamFleetDisconnectTimeoutInSeconds
+        , fmap (("DisconnectTimeoutInSeconds",) . toJSON) _appStreamFleetDisconnectTimeoutInSeconds
         , fmap (("DisplayName",) . toJSON) _appStreamFleetDisplayName
         , fmap (("DomainJoinInfo",) . toJSON) _appStreamFleetDomainJoinInfo
-        , fmap (("EnableDefaultInternetAccess",) . toJSON . fmap Bool') _appStreamFleetEnableDefaultInternetAccess
+        , fmap (("EnableDefaultInternetAccess",) . toJSON) _appStreamFleetEnableDefaultInternetAccess
         , fmap (("FleetType",) . toJSON) _appStreamFleetFleetType
         , fmap (("ImageArn",) . toJSON) _appStreamFleetImageArn
         , fmap (("ImageName",) . toJSON) _appStreamFleetImageName
         , (Just . ("InstanceType",) . toJSON) _appStreamFleetInstanceType
-        , fmap (("MaxUserDurationInSeconds",) . toJSON . fmap Integer') _appStreamFleetMaxUserDurationInSeconds
+        , fmap (("MaxUserDurationInSeconds",) . toJSON) _appStreamFleetMaxUserDurationInSeconds
         , fmap (("Name",) . toJSON) _appStreamFleetName
         , fmap (("VpcConfig",) . toJSON) _appStreamFleetVpcConfig
         ]

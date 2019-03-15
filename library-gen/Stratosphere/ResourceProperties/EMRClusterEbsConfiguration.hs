@@ -23,7 +23,7 @@ instance ToJSON EMRClusterEbsConfiguration where
     object $
     catMaybes
     [ fmap (("EbsBlockDeviceConfigs",) . toJSON) _eMRClusterEbsConfigurationEbsBlockDeviceConfigs
-    , fmap (("EbsOptimized",) . toJSON . fmap Bool') _eMRClusterEbsConfigurationEbsOptimized
+    , fmap (("EbsOptimized",) . toJSON) _eMRClusterEbsConfigurationEbsOptimized
     ]
 
 -- | Constructor for 'EMRClusterEbsConfiguration' containing required fields

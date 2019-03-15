@@ -26,7 +26,7 @@ instance ToResourceProperties EC2TransitGatewayRoute where
     { resourcePropertiesType = "AWS::EC2::TransitGatewayRoute"
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
-        [ fmap (("Blackhole",) . toJSON . fmap Bool') _eC2TransitGatewayRouteBlackhole
+        [ fmap (("Blackhole",) . toJSON) _eC2TransitGatewayRouteBlackhole
         , fmap (("DestinationCidrBlock",) . toJSON) _eC2TransitGatewayRouteDestinationCidrBlock
         , fmap (("TransitGatewayAttachmentId",) . toJSON) _eC2TransitGatewayRouteTransitGatewayAttachmentId
         , (Just . ("TransitGatewayRouteTableId",) . toJSON) _eC2TransitGatewayRouteTransitGatewayRouteTableId

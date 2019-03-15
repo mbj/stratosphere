@@ -24,7 +24,7 @@ instance ToJSON EC2NetworkInterfacePrivateIpAddressSpecification where
   toJSON EC2NetworkInterfacePrivateIpAddressSpecification{..} =
     object $
     catMaybes
-    [ (Just . ("Primary",) . toJSON . fmap Bool') _eC2NetworkInterfacePrivateIpAddressSpecificationPrimary
+    [ (Just . ("Primary",) . toJSON) _eC2NetworkInterfacePrivateIpAddressSpecificationPrimary
     , (Just . ("PrivateIpAddress",) . toJSON) _eC2NetworkInterfacePrivateIpAddressSpecificationPrivateIpAddress
     ]
 

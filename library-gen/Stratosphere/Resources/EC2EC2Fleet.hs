@@ -40,11 +40,11 @@ instance ToResourceProperties EC2EC2Fleet where
         [ fmap (("ExcessCapacityTerminationPolicy",) . toJSON) _eC2EC2FleetExcessCapacityTerminationPolicy
         , (Just . ("LaunchTemplateConfigs",) . toJSON) _eC2EC2FleetLaunchTemplateConfigs
         , fmap (("OnDemandOptions",) . toJSON) _eC2EC2FleetOnDemandOptions
-        , fmap (("ReplaceUnhealthyInstances",) . toJSON . fmap Bool') _eC2EC2FleetReplaceUnhealthyInstances
+        , fmap (("ReplaceUnhealthyInstances",) . toJSON) _eC2EC2FleetReplaceUnhealthyInstances
         , fmap (("SpotOptions",) . toJSON) _eC2EC2FleetSpotOptions
         , fmap (("TagSpecifications",) . toJSON) _eC2EC2FleetTagSpecifications
         , (Just . ("TargetCapacitySpecification",) . toJSON) _eC2EC2FleetTargetCapacitySpecification
-        , fmap (("TerminateInstancesWithExpiration",) . toJSON . fmap Bool') _eC2EC2FleetTerminateInstancesWithExpiration
+        , fmap (("TerminateInstancesWithExpiration",) . toJSON) _eC2EC2FleetTerminateInstancesWithExpiration
         , fmap (("Type",) . toJSON) _eC2EC2FleetType
         , fmap (("ValidFrom",) . toJSON) _eC2EC2FleetValidFrom
         , fmap (("ValidUntil",) . toJSON) _eC2EC2FleetValidUntil

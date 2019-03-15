@@ -24,7 +24,7 @@ instance ToJSON IoTAnalyticsDatasetResourceConfiguration where
     object $
     catMaybes
     [ (Just . ("ComputeType",) . toJSON) _ioTAnalyticsDatasetResourceConfigurationComputeType
-    , (Just . ("VolumeSizeInGB",) . toJSON . fmap Integer') _ioTAnalyticsDatasetResourceConfigurationVolumeSizeInGB
+    , (Just . ("VolumeSizeInGB",) . toJSON) _ioTAnalyticsDatasetResourceConfigurationVolumeSizeInGB
     ]
 
 -- | Constructor for 'IoTAnalyticsDatasetResourceConfiguration' containing

@@ -30,9 +30,9 @@ instance ToResourceProperties DirectoryServiceSimpleAD where
     { resourcePropertiesType = "AWS::DirectoryService::SimpleAD"
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
-        [ fmap (("CreateAlias",) . toJSON . fmap Bool') _directoryServiceSimpleADCreateAlias
+        [ fmap (("CreateAlias",) . toJSON) _directoryServiceSimpleADCreateAlias
         , fmap (("Description",) . toJSON) _directoryServiceSimpleADDescription
-        , fmap (("EnableSso",) . toJSON . fmap Bool') _directoryServiceSimpleADEnableSso
+        , fmap (("EnableSso",) . toJSON) _directoryServiceSimpleADEnableSso
         , (Just . ("Name",) . toJSON) _directoryServiceSimpleADName
         , (Just . ("Password",) . toJSON) _directoryServiceSimpleADPassword
         , fmap (("ShortName",) . toJSON) _directoryServiceSimpleADShortName

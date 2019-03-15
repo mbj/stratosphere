@@ -27,8 +27,8 @@ instance ToResourceProperties LambdaEventSourceMapping where
     { resourcePropertiesType = "AWS::Lambda::EventSourceMapping"
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
-        [ fmap (("BatchSize",) . toJSON . fmap Integer') _lambdaEventSourceMappingBatchSize
-        , fmap (("Enabled",) . toJSON . fmap Bool') _lambdaEventSourceMappingEnabled
+        [ fmap (("BatchSize",) . toJSON) _lambdaEventSourceMappingBatchSize
+        , fmap (("Enabled",) . toJSON) _lambdaEventSourceMappingEnabled
         , (Just . ("EventSourceArn",) . toJSON) _lambdaEventSourceMappingEventSourceArn
         , (Just . ("FunctionName",) . toJSON) _lambdaEventSourceMappingFunctionName
         , fmap (("StartingPosition",) . toJSON) _lambdaEventSourceMappingStartingPosition

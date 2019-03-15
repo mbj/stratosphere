@@ -31,9 +31,9 @@ instance ToJSON EC2EC2FleetFleetLaunchTemplateOverridesRequest where
     [ fmap (("AvailabilityZone",) . toJSON) _eC2EC2FleetFleetLaunchTemplateOverridesRequestAvailabilityZone
     , fmap (("InstanceType",) . toJSON) _eC2EC2FleetFleetLaunchTemplateOverridesRequestInstanceType
     , fmap (("MaxPrice",) . toJSON) _eC2EC2FleetFleetLaunchTemplateOverridesRequestMaxPrice
-    , fmap (("Priority",) . toJSON . fmap Double') _eC2EC2FleetFleetLaunchTemplateOverridesRequestPriority
+    , fmap (("Priority",) . toJSON) _eC2EC2FleetFleetLaunchTemplateOverridesRequestPriority
     , fmap (("SubnetId",) . toJSON) _eC2EC2FleetFleetLaunchTemplateOverridesRequestSubnetId
-    , fmap (("WeightedCapacity",) . toJSON . fmap Double') _eC2EC2FleetFleetLaunchTemplateOverridesRequestWeightedCapacity
+    , fmap (("WeightedCapacity",) . toJSON) _eC2EC2FleetFleetLaunchTemplateOverridesRequestWeightedCapacity
     ]
 
 -- | Constructor for 'EC2EC2FleetFleetLaunchTemplateOverridesRequest'

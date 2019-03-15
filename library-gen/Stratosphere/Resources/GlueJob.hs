@@ -34,14 +34,14 @@ instance ToResourceProperties GlueJob where
     { resourcePropertiesType = "AWS::Glue::Job"
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
-        [ fmap (("AllocatedCapacity",) . toJSON . fmap Double') _glueJobAllocatedCapacity
+        [ fmap (("AllocatedCapacity",) . toJSON) _glueJobAllocatedCapacity
         , (Just . ("Command",) . toJSON) _glueJobCommand
         , fmap (("Connections",) . toJSON) _glueJobConnections
         , fmap (("DefaultArguments",) . toJSON) _glueJobDefaultArguments
         , fmap (("Description",) . toJSON) _glueJobDescription
         , fmap (("ExecutionProperty",) . toJSON) _glueJobExecutionProperty
         , fmap (("LogUri",) . toJSON) _glueJobLogUri
-        , fmap (("MaxRetries",) . toJSON . fmap Double') _glueJobMaxRetries
+        , fmap (("MaxRetries",) . toJSON) _glueJobMaxRetries
         , fmap (("Name",) . toJSON) _glueJobName
         , (Just . ("Role",) . toJSON) _glueJobRole
         ]

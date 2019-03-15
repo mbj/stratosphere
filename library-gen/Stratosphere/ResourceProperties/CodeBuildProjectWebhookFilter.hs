@@ -23,7 +23,7 @@ instance ToJSON CodeBuildProjectWebhookFilter where
   toJSON CodeBuildProjectWebhookFilter{..} =
     object $
     catMaybes
-    [ fmap (("ExcludeMatchedPattern",) . toJSON . fmap Bool') _codeBuildProjectWebhookFilterExcludeMatchedPattern
+    [ fmap (("ExcludeMatchedPattern",) . toJSON) _codeBuildProjectWebhookFilterExcludeMatchedPattern
     , (Just . ("Pattern",) . toJSON) _codeBuildProjectWebhookFilterPattern
     , (Just . ("Type",) . toJSON) _codeBuildProjectWebhookFilterType
     ]

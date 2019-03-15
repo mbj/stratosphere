@@ -25,7 +25,7 @@ instance ToResourceProperties IoT1ClickDevice where
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
         [ (Just . ("DeviceId",) . toJSON) _ioT1ClickDeviceDeviceId
-        , (Just . ("Enabled",) . toJSON . fmap Bool') _ioT1ClickDeviceEnabled
+        , (Just . ("Enabled",) . toJSON) _ioT1ClickDeviceEnabled
         ]
     }
 

@@ -47,20 +47,20 @@ instance ToResourceProperties CodeBuildProject where
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
         [ (Just . ("Artifacts",) . toJSON) _codeBuildProjectArtifacts
-        , fmap (("BadgeEnabled",) . toJSON . fmap Bool') _codeBuildProjectBadgeEnabled
+        , fmap (("BadgeEnabled",) . toJSON) _codeBuildProjectBadgeEnabled
         , fmap (("Cache",) . toJSON) _codeBuildProjectCache
         , fmap (("Description",) . toJSON) _codeBuildProjectDescription
         , fmap (("EncryptionKey",) . toJSON) _codeBuildProjectEncryptionKey
         , (Just . ("Environment",) . toJSON) _codeBuildProjectEnvironment
         , fmap (("LogsConfig",) . toJSON) _codeBuildProjectLogsConfig
         , fmap (("Name",) . toJSON) _codeBuildProjectName
-        , fmap (("QueuedTimeoutInMinutes",) . toJSON . fmap Integer') _codeBuildProjectQueuedTimeoutInMinutes
+        , fmap (("QueuedTimeoutInMinutes",) . toJSON) _codeBuildProjectQueuedTimeoutInMinutes
         , fmap (("SecondaryArtifacts",) . toJSON) _codeBuildProjectSecondaryArtifacts
         , fmap (("SecondarySources",) . toJSON) _codeBuildProjectSecondarySources
         , (Just . ("ServiceRole",) . toJSON) _codeBuildProjectServiceRole
         , (Just . ("Source",) . toJSON) _codeBuildProjectSource
         , fmap (("Tags",) . toJSON) _codeBuildProjectTags
-        , fmap (("TimeoutInMinutes",) . toJSON . fmap Integer') _codeBuildProjectTimeoutInMinutes
+        , fmap (("TimeoutInMinutes",) . toJSON) _codeBuildProjectTimeoutInMinutes
         , fmap (("Triggers",) . toJSON) _codeBuildProjectTriggers
         , fmap (("VpcConfig",) . toJSON) _codeBuildProjectVpcConfig
         ]

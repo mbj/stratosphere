@@ -24,7 +24,7 @@ instance ToJSON OpsWorksAppEnvironmentVariable where
     object $
     catMaybes
     [ (Just . ("Key",) . toJSON) _opsWorksAppEnvironmentVariableKey
-    , fmap (("Secure",) . toJSON . fmap Bool') _opsWorksAppEnvironmentVariableSecure
+    , fmap (("Secure",) . toJSON) _opsWorksAppEnvironmentVariableSecure
     , (Just . ("Value",) . toJSON) _opsWorksAppEnvironmentVariableValue
     ]
 

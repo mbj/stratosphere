@@ -30,7 +30,7 @@ instance ToJSON IoTTopicRuleTopicRulePayload where
     , fmap (("AwsIotSqlVersion",) . toJSON) _ioTTopicRuleTopicRulePayloadAwsIotSqlVersion
     , fmap (("Description",) . toJSON) _ioTTopicRuleTopicRulePayloadDescription
     , fmap (("ErrorAction",) . toJSON) _ioTTopicRuleTopicRulePayloadErrorAction
-    , (Just . ("RuleDisabled",) . toJSON . fmap Bool') _ioTTopicRuleTopicRulePayloadRuleDisabled
+    , (Just . ("RuleDisabled",) . toJSON) _ioTTopicRuleTopicRulePayloadRuleDisabled
     , (Just . ("Sql",) . toJSON) _ioTTopicRuleTopicRulePayloadSql
     ]
 

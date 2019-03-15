@@ -28,11 +28,11 @@ instance ToJSON EMRClusterInstanceTypeConfig where
     object $
     catMaybes
     [ fmap (("BidPrice",) . toJSON) _eMRClusterInstanceTypeConfigBidPrice
-    , fmap (("BidPriceAsPercentageOfOnDemandPrice",) . toJSON . fmap Double') _eMRClusterInstanceTypeConfigBidPriceAsPercentageOfOnDemandPrice
+    , fmap (("BidPriceAsPercentageOfOnDemandPrice",) . toJSON) _eMRClusterInstanceTypeConfigBidPriceAsPercentageOfOnDemandPrice
     , fmap (("Configurations",) . toJSON) _eMRClusterInstanceTypeConfigConfigurations
     , fmap (("EbsConfiguration",) . toJSON) _eMRClusterInstanceTypeConfigEbsConfiguration
     , (Just . ("InstanceType",) . toJSON) _eMRClusterInstanceTypeConfigInstanceType
-    , fmap (("WeightedCapacity",) . toJSON . fmap Integer') _eMRClusterInstanceTypeConfigWeightedCapacity
+    , fmap (("WeightedCapacity",) . toJSON) _eMRClusterInstanceTypeConfigWeightedCapacity
     ]
 
 -- | Constructor for 'EMRClusterInstanceTypeConfig' containing required fields

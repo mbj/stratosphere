@@ -33,7 +33,7 @@ instance ToJSON CloudFrontStreamingDistributionStreamingDistributionConfig where
     catMaybes
     [ fmap (("Aliases",) . toJSON) _cloudFrontStreamingDistributionStreamingDistributionConfigAliases
     , (Just . ("Comment",) . toJSON) _cloudFrontStreamingDistributionStreamingDistributionConfigComment
-    , (Just . ("Enabled",) . toJSON . fmap Bool') _cloudFrontStreamingDistributionStreamingDistributionConfigEnabled
+    , (Just . ("Enabled",) . toJSON) _cloudFrontStreamingDistributionStreamingDistributionConfigEnabled
     , fmap (("Logging",) . toJSON) _cloudFrontStreamingDistributionStreamingDistributionConfigLogging
     , fmap (("PriceClass",) . toJSON) _cloudFrontStreamingDistributionStreamingDistributionConfigPriceClass
     , (Just . ("S3Origin",) . toJSON) _cloudFrontStreamingDistributionStreamingDistributionConfigS3Origin

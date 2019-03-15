@@ -27,7 +27,7 @@ instance ToResourceProperties AppSyncApiKey where
         hashMapFromList $ catMaybes
         [ (Just . ("ApiId",) . toJSON) _appSyncApiKeyApiId
         , fmap (("Description",) . toJSON) _appSyncApiKeyDescription
-        , fmap (("Expires",) . toJSON . fmap Double') _appSyncApiKeyExpires
+        , fmap (("Expires",) . toJSON) _appSyncApiKeyExpires
         ]
     }
 

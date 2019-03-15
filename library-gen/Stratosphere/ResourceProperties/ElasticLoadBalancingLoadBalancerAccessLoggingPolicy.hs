@@ -26,8 +26,8 @@ instance ToJSON ElasticLoadBalancingLoadBalancerAccessLoggingPolicy where
   toJSON ElasticLoadBalancingLoadBalancerAccessLoggingPolicy{..} =
     object $
     catMaybes
-    [ fmap (("EmitInterval",) . toJSON . fmap Integer') _elasticLoadBalancingLoadBalancerAccessLoggingPolicyEmitInterval
-    , (Just . ("Enabled",) . toJSON . fmap Bool') _elasticLoadBalancingLoadBalancerAccessLoggingPolicyEnabled
+    [ fmap (("EmitInterval",) . toJSON) _elasticLoadBalancingLoadBalancerAccessLoggingPolicyEmitInterval
+    , (Just . ("Enabled",) . toJSON) _elasticLoadBalancingLoadBalancerAccessLoggingPolicyEnabled
     , (Just . ("S3BucketName",) . toJSON) _elasticLoadBalancingLoadBalancerAccessLoggingPolicyS3BucketName
     , fmap (("S3BucketPrefix",) . toJSON) _elasticLoadBalancingLoadBalancerAccessLoggingPolicyS3BucketPrefix
     ]

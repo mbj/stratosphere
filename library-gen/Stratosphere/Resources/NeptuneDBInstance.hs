@@ -33,8 +33,8 @@ instance ToResourceProperties NeptuneDBInstance where
     { resourcePropertiesType = "AWS::Neptune::DBInstance"
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
-        [ fmap (("AllowMajorVersionUpgrade",) . toJSON . fmap Bool') _neptuneDBInstanceAllowMajorVersionUpgrade
-        , fmap (("AutoMinorVersionUpgrade",) . toJSON . fmap Bool') _neptuneDBInstanceAutoMinorVersionUpgrade
+        [ fmap (("AllowMajorVersionUpgrade",) . toJSON) _neptuneDBInstanceAllowMajorVersionUpgrade
+        , fmap (("AutoMinorVersionUpgrade",) . toJSON) _neptuneDBInstanceAutoMinorVersionUpgrade
         , fmap (("AvailabilityZone",) . toJSON) _neptuneDBInstanceAvailabilityZone
         , fmap (("DBClusterIdentifier",) . toJSON) _neptuneDBInstanceDBClusterIdentifier
         , (Just . ("DBInstanceClass",) . toJSON) _neptuneDBInstanceDBInstanceClass

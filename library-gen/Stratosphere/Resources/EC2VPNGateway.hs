@@ -25,7 +25,7 @@ instance ToResourceProperties EC2VPNGateway where
     { resourcePropertiesType = "AWS::EC2::VPNGateway"
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
-        [ fmap (("AmazonSideAsn",) . toJSON . fmap Integer') _eC2VPNGatewayAmazonSideAsn
+        [ fmap (("AmazonSideAsn",) . toJSON) _eC2VPNGatewayAmazonSideAsn
         , fmap (("Tags",) . toJSON) _eC2VPNGatewayTags
         , (Just . ("Type",) . toJSON) _eC2VPNGatewayType
         ]

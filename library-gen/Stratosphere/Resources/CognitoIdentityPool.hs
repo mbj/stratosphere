@@ -34,7 +34,7 @@ instance ToResourceProperties CognitoIdentityPool where
     { resourcePropertiesType = "AWS::Cognito::IdentityPool"
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
-        [ (Just . ("AllowUnauthenticatedIdentities",) . toJSON . fmap Bool') _cognitoIdentityPoolAllowUnauthenticatedIdentities
+        [ (Just . ("AllowUnauthenticatedIdentities",) . toJSON) _cognitoIdentityPoolAllowUnauthenticatedIdentities
         , fmap (("CognitoEvents",) . toJSON) _cognitoIdentityPoolCognitoEvents
         , fmap (("CognitoIdentityProviders",) . toJSON) _cognitoIdentityPoolCognitoIdentityProviders
         , fmap (("CognitoStreams",) . toJSON) _cognitoIdentityPoolCognitoStreams

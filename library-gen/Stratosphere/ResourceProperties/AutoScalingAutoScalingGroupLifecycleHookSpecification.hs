@@ -30,7 +30,7 @@ instance ToJSON AutoScalingAutoScalingGroupLifecycleHookSpecification where
     object $
     catMaybes
     [ fmap (("DefaultResult",) . toJSON) _autoScalingAutoScalingGroupLifecycleHookSpecificationDefaultResult
-    , fmap (("HeartbeatTimeout",) . toJSON . fmap Integer') _autoScalingAutoScalingGroupLifecycleHookSpecificationHeartbeatTimeout
+    , fmap (("HeartbeatTimeout",) . toJSON) _autoScalingAutoScalingGroupLifecycleHookSpecificationHeartbeatTimeout
     , (Just . ("LifecycleHookName",) . toJSON) _autoScalingAutoScalingGroupLifecycleHookSpecificationLifecycleHookName
     , (Just . ("LifecycleTransition",) . toJSON) _autoScalingAutoScalingGroupLifecycleHookSpecificationLifecycleTransition
     , fmap (("NotificationMetadata",) . toJSON) _autoScalingAutoScalingGroupLifecycleHookSpecificationNotificationMetadata

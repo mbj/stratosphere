@@ -25,9 +25,9 @@ instance ToJSON ApiGatewayStageCanarySetting where
     object $
     catMaybes
     [ fmap (("DeploymentId",) . toJSON) _apiGatewayStageCanarySettingDeploymentId
-    , fmap (("PercentTraffic",) . toJSON . fmap Double') _apiGatewayStageCanarySettingPercentTraffic
+    , fmap (("PercentTraffic",) . toJSON) _apiGatewayStageCanarySettingPercentTraffic
     , fmap (("StageVariableOverrides",) . toJSON) _apiGatewayStageCanarySettingStageVariableOverrides
-    , fmap (("UseStageCache",) . toJSON . fmap Bool') _apiGatewayStageCanarySettingUseStageCache
+    , fmap (("UseStageCache",) . toJSON) _apiGatewayStageCanarySettingUseStageCache
     ]
 
 -- | Constructor for 'ApiGatewayStageCanarySetting' containing required fields

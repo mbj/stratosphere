@@ -24,10 +24,10 @@ instance ToJSON GameLiftFleetIpPermission where
   toJSON GameLiftFleetIpPermission{..} =
     object $
     catMaybes
-    [ (Just . ("FromPort",) . toJSON . fmap Integer') _gameLiftFleetIpPermissionFromPort
+    [ (Just . ("FromPort",) . toJSON) _gameLiftFleetIpPermissionFromPort
     , (Just . ("IpRange",) . toJSON) _gameLiftFleetIpPermissionIpRange
     , (Just . ("Protocol",) . toJSON) _gameLiftFleetIpPermissionProtocol
-    , (Just . ("ToPort",) . toJSON . fmap Integer') _gameLiftFleetIpPermissionToPort
+    , (Just . ("ToPort",) . toJSON) _gameLiftFleetIpPermissionToPort
     ]
 
 -- | Constructor for 'GameLiftFleetIpPermission' containing required fields as

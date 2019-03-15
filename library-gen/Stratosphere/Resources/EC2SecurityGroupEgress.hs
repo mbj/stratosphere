@@ -36,10 +36,10 @@ instance ToResourceProperties EC2SecurityGroupEgress where
         , fmap (("Description",) . toJSON) _eC2SecurityGroupEgressDescription
         , fmap (("DestinationPrefixListId",) . toJSON) _eC2SecurityGroupEgressDestinationPrefixListId
         , fmap (("DestinationSecurityGroupId",) . toJSON) _eC2SecurityGroupEgressDestinationSecurityGroupId
-        , fmap (("FromPort",) . toJSON . fmap Integer') _eC2SecurityGroupEgressFromPort
+        , fmap (("FromPort",) . toJSON) _eC2SecurityGroupEgressFromPort
         , (Just . ("GroupId",) . toJSON) _eC2SecurityGroupEgressGroupId
         , (Just . ("IpProtocol",) . toJSON) _eC2SecurityGroupEgressIpProtocol
-        , fmap (("ToPort",) . toJSON . fmap Integer') _eC2SecurityGroupEgressToPort
+        , fmap (("ToPort",) . toJSON) _eC2SecurityGroupEgressToPort
         ]
     }
 

@@ -29,11 +29,11 @@ instance ToJSON EMRInstanceFleetConfigInstanceTypeConfig where
     object $
     catMaybes
     [ fmap (("BidPrice",) . toJSON) _eMRInstanceFleetConfigInstanceTypeConfigBidPrice
-    , fmap (("BidPriceAsPercentageOfOnDemandPrice",) . toJSON . fmap Double') _eMRInstanceFleetConfigInstanceTypeConfigBidPriceAsPercentageOfOnDemandPrice
+    , fmap (("BidPriceAsPercentageOfOnDemandPrice",) . toJSON) _eMRInstanceFleetConfigInstanceTypeConfigBidPriceAsPercentageOfOnDemandPrice
     , fmap (("Configurations",) . toJSON) _eMRInstanceFleetConfigInstanceTypeConfigConfigurations
     , fmap (("EbsConfiguration",) . toJSON) _eMRInstanceFleetConfigInstanceTypeConfigEbsConfiguration
     , (Just . ("InstanceType",) . toJSON) _eMRInstanceFleetConfigInstanceTypeConfigInstanceType
-    , fmap (("WeightedCapacity",) . toJSON . fmap Integer') _eMRInstanceFleetConfigInstanceTypeConfigWeightedCapacity
+    , fmap (("WeightedCapacity",) . toJSON) _eMRInstanceFleetConfigInstanceTypeConfigWeightedCapacity
     ]
 
 -- | Constructor for 'EMRInstanceFleetConfigInstanceTypeConfig' containing

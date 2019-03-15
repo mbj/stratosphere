@@ -26,7 +26,7 @@ instance ToJSON ConfigConfigurationAggregatorAccountAggregationSource where
     object $
     catMaybes
     [ (Just . ("AccountIds",) . toJSON) _configConfigurationAggregatorAccountAggregationSourceAccountIds
-    , fmap (("AllAwsRegions",) . toJSON . fmap Bool') _configConfigurationAggregatorAccountAggregationSourceAllAwsRegions
+    , fmap (("AllAwsRegions",) . toJSON) _configConfigurationAggregatorAccountAggregationSourceAllAwsRegions
     , fmap (("AwsRegions",) . toJSON) _configConfigurationAggregatorAccountAggregationSourceAwsRegions
     ]
 

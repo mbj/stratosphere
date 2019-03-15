@@ -25,11 +25,11 @@ instance ToJSON CognitoUserPoolPasswordPolicy where
   toJSON CognitoUserPoolPasswordPolicy{..} =
     object $
     catMaybes
-    [ fmap (("MinimumLength",) . toJSON . fmap Integer') _cognitoUserPoolPasswordPolicyMinimumLength
-    , fmap (("RequireLowercase",) . toJSON . fmap Bool') _cognitoUserPoolPasswordPolicyRequireLowercase
-    , fmap (("RequireNumbers",) . toJSON . fmap Bool') _cognitoUserPoolPasswordPolicyRequireNumbers
-    , fmap (("RequireSymbols",) . toJSON . fmap Bool') _cognitoUserPoolPasswordPolicyRequireSymbols
-    , fmap (("RequireUppercase",) . toJSON . fmap Bool') _cognitoUserPoolPasswordPolicyRequireUppercase
+    [ fmap (("MinimumLength",) . toJSON) _cognitoUserPoolPasswordPolicyMinimumLength
+    , fmap (("RequireLowercase",) . toJSON) _cognitoUserPoolPasswordPolicyRequireLowercase
+    , fmap (("RequireNumbers",) . toJSON) _cognitoUserPoolPasswordPolicyRequireNumbers
+    , fmap (("RequireSymbols",) . toJSON) _cognitoUserPoolPasswordPolicyRequireSymbols
+    , fmap (("RequireUppercase",) . toJSON) _cognitoUserPoolPasswordPolicyRequireUppercase
     ]
 
 -- | Constructor for 'CognitoUserPoolPasswordPolicy' containing required

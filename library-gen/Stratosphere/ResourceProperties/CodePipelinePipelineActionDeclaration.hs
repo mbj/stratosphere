@@ -38,7 +38,7 @@ instance ToJSON CodePipelinePipelineActionDeclaration where
     , fmap (("OutputArtifacts",) . toJSON) _codePipelinePipelineActionDeclarationOutputArtifacts
     , fmap (("Region",) . toJSON) _codePipelinePipelineActionDeclarationRegion
     , fmap (("RoleArn",) . toJSON) _codePipelinePipelineActionDeclarationRoleArn
-    , fmap (("RunOrder",) . toJSON . fmap Integer') _codePipelinePipelineActionDeclarationRunOrder
+    , fmap (("RunOrder",) . toJSON) _codePipelinePipelineActionDeclarationRunOrder
     ]
 
 -- | Constructor for 'CodePipelinePipelineActionDeclaration' containing

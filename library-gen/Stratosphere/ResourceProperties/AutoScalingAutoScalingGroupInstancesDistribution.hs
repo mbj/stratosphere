@@ -29,10 +29,10 @@ instance ToJSON AutoScalingAutoScalingGroupInstancesDistribution where
     object $
     catMaybes
     [ fmap (("OnDemandAllocationStrategy",) . toJSON) _autoScalingAutoScalingGroupInstancesDistributionOnDemandAllocationStrategy
-    , fmap (("OnDemandBaseCapacity",) . toJSON . fmap Integer') _autoScalingAutoScalingGroupInstancesDistributionOnDemandBaseCapacity
-    , fmap (("OnDemandPercentageAboveBaseCapacity",) . toJSON . fmap Integer') _autoScalingAutoScalingGroupInstancesDistributionOnDemandPercentageAboveBaseCapacity
+    , fmap (("OnDemandBaseCapacity",) . toJSON) _autoScalingAutoScalingGroupInstancesDistributionOnDemandBaseCapacity
+    , fmap (("OnDemandPercentageAboveBaseCapacity",) . toJSON) _autoScalingAutoScalingGroupInstancesDistributionOnDemandPercentageAboveBaseCapacity
     , fmap (("SpotAllocationStrategy",) . toJSON) _autoScalingAutoScalingGroupInstancesDistributionSpotAllocationStrategy
-    , fmap (("SpotInstancePools",) . toJSON . fmap Integer') _autoScalingAutoScalingGroupInstancesDistributionSpotInstancePools
+    , fmap (("SpotInstancePools",) . toJSON) _autoScalingAutoScalingGroupInstancesDistributionSpotInstancePools
     , fmap (("SpotMaxPrice",) . toJSON) _autoScalingAutoScalingGroupInstancesDistributionSpotMaxPrice
     ]
 

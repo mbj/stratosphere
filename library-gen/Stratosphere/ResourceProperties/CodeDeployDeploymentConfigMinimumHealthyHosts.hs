@@ -25,7 +25,7 @@ instance ToJSON CodeDeployDeploymentConfigMinimumHealthyHosts where
     object $
     catMaybes
     [ (Just . ("Type",) . toJSON) _codeDeployDeploymentConfigMinimumHealthyHostsType
-    , (Just . ("Value",) . toJSON . fmap Integer') _codeDeployDeploymentConfigMinimumHealthyHostsValue
+    , (Just . ("Value",) . toJSON) _codeDeployDeploymentConfigMinimumHealthyHostsValue
     ]
 
 -- | Constructor for 'CodeDeployDeploymentConfigMinimumHealthyHosts'

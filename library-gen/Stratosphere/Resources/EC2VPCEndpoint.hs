@@ -31,7 +31,7 @@ instance ToResourceProperties EC2VPCEndpoint where
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
         [ fmap (("PolicyDocument",) . toJSON) _eC2VPCEndpointPolicyDocument
-        , fmap (("PrivateDnsEnabled",) . toJSON . fmap Bool') _eC2VPCEndpointPrivateDnsEnabled
+        , fmap (("PrivateDnsEnabled",) . toJSON) _eC2VPCEndpointPrivateDnsEnabled
         , fmap (("RouteTableIds",) . toJSON) _eC2VPCEndpointRouteTableIds
         , fmap (("SecurityGroupIds",) . toJSON) _eC2VPCEndpointSecurityGroupIds
         , (Just . ("ServiceName",) . toJSON) _eC2VPCEndpointServiceName

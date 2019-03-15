@@ -33,13 +33,13 @@ instance ToJSON EC2SecurityGroupIngressProperty where
     [ fmap (("CidrIp",) . toJSON) _eC2SecurityGroupIngressPropertyCidrIp
     , fmap (("CidrIpv6",) . toJSON) _eC2SecurityGroupIngressPropertyCidrIpv6
     , fmap (("Description",) . toJSON) _eC2SecurityGroupIngressPropertyDescription
-    , fmap (("FromPort",) . toJSON . fmap Integer') _eC2SecurityGroupIngressPropertyFromPort
+    , fmap (("FromPort",) . toJSON) _eC2SecurityGroupIngressPropertyFromPort
     , (Just . ("IpProtocol",) . toJSON) _eC2SecurityGroupIngressPropertyIpProtocol
     , fmap (("SourcePrefixListId",) . toJSON) _eC2SecurityGroupIngressPropertySourcePrefixListId
     , fmap (("SourceSecurityGroupId",) . toJSON) _eC2SecurityGroupIngressPropertySourceSecurityGroupId
     , fmap (("SourceSecurityGroupName",) . toJSON) _eC2SecurityGroupIngressPropertySourceSecurityGroupName
     , fmap (("SourceSecurityGroupOwnerId",) . toJSON) _eC2SecurityGroupIngressPropertySourceSecurityGroupOwnerId
-    , fmap (("ToPort",) . toJSON . fmap Integer') _eC2SecurityGroupIngressPropertyToPort
+    , fmap (("ToPort",) . toJSON) _eC2SecurityGroupIngressPropertyToPort
     ]
 
 -- | Constructor for 'EC2SecurityGroupIngressProperty' containing required

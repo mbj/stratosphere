@@ -29,7 +29,7 @@ instance ToJSON EC2SpotFleetLaunchTemplateOverrides where
     , fmap (("InstanceType",) . toJSON) _eC2SpotFleetLaunchTemplateOverridesInstanceType
     , fmap (("SpotPrice",) . toJSON) _eC2SpotFleetLaunchTemplateOverridesSpotPrice
     , fmap (("SubnetId",) . toJSON) _eC2SpotFleetLaunchTemplateOverridesSubnetId
-    , fmap (("WeightedCapacity",) . toJSON . fmap Double') _eC2SpotFleetLaunchTemplateOverridesWeightedCapacity
+    , fmap (("WeightedCapacity",) . toJSON) _eC2SpotFleetLaunchTemplateOverridesWeightedCapacity
     ]
 
 -- | Constructor for 'EC2SpotFleetLaunchTemplateOverrides' containing required

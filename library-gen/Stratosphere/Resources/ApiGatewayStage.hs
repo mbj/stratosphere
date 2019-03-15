@@ -40,7 +40,7 @@ instance ToResourceProperties ApiGatewayStage where
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
         [ fmap (("AccessLogSetting",) . toJSON) _apiGatewayStageAccessLogSetting
-        , fmap (("CacheClusterEnabled",) . toJSON . fmap Bool') _apiGatewayStageCacheClusterEnabled
+        , fmap (("CacheClusterEnabled",) . toJSON) _apiGatewayStageCacheClusterEnabled
         , fmap (("CacheClusterSize",) . toJSON) _apiGatewayStageCacheClusterSize
         , fmap (("CanarySetting",) . toJSON) _apiGatewayStageCanarySetting
         , fmap (("ClientCertificateId",) . toJSON) _apiGatewayStageClientCertificateId
@@ -51,7 +51,7 @@ instance ToResourceProperties ApiGatewayStage where
         , (Just . ("RestApiId",) . toJSON) _apiGatewayStageRestApiId
         , fmap (("StageName",) . toJSON) _apiGatewayStageStageName
         , fmap (("Tags",) . toJSON) _apiGatewayStageTags
-        , fmap (("TracingEnabled",) . toJSON . fmap Bool') _apiGatewayStageTracingEnabled
+        , fmap (("TracingEnabled",) . toJSON) _apiGatewayStageTracingEnabled
         , fmap (("Variables",) . toJSON) _apiGatewayStageVariables
         ]
     }

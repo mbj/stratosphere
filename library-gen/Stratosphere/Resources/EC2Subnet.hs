@@ -29,11 +29,11 @@ instance ToResourceProperties EC2Subnet where
     { resourcePropertiesType = "AWS::EC2::Subnet"
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
-        [ fmap (("AssignIpv6AddressOnCreation",) . toJSON . fmap Bool') _eC2SubnetAssignIpv6AddressOnCreation
+        [ fmap (("AssignIpv6AddressOnCreation",) . toJSON) _eC2SubnetAssignIpv6AddressOnCreation
         , fmap (("AvailabilityZone",) . toJSON) _eC2SubnetAvailabilityZone
         , (Just . ("CidrBlock",) . toJSON) _eC2SubnetCidrBlock
         , fmap (("Ipv6CidrBlock",) . toJSON) _eC2SubnetIpv6CidrBlock
-        , fmap (("MapPublicIpOnLaunch",) . toJSON . fmap Bool') _eC2SubnetMapPublicIpOnLaunch
+        , fmap (("MapPublicIpOnLaunch",) . toJSON) _eC2SubnetMapPublicIpOnLaunch
         , fmap (("Tags",) . toJSON) _eC2SubnetTags
         , (Just . ("VpcId",) . toJSON) _eC2SubnetVpcId
         ]

@@ -26,7 +26,7 @@ instance ToJSON ECSTaskDefinitionDockerVolumeConfiguration where
   toJSON ECSTaskDefinitionDockerVolumeConfiguration{..} =
     object $
     catMaybes
-    [ fmap (("Autoprovision",) . toJSON . fmap Bool') _eCSTaskDefinitionDockerVolumeConfigurationAutoprovision
+    [ fmap (("Autoprovision",) . toJSON) _eCSTaskDefinitionDockerVolumeConfigurationAutoprovision
     , fmap (("Driver",) . toJSON) _eCSTaskDefinitionDockerVolumeConfigurationDriver
     , fmap (("DriverOpts",) . toJSON) _eCSTaskDefinitionDockerVolumeConfigurationDriverOpts
     , fmap (("Labels",) . toJSON) _eCSTaskDefinitionDockerVolumeConfigurationLabels

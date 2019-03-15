@@ -22,7 +22,7 @@ instance ToJSON IoTAnalyticsDatasetDeltaTime where
   toJSON IoTAnalyticsDatasetDeltaTime{..} =
     object $
     catMaybes
-    [ (Just . ("OffsetSeconds",) . toJSON . fmap Integer') _ioTAnalyticsDatasetDeltaTimeOffsetSeconds
+    [ (Just . ("OffsetSeconds",) . toJSON) _ioTAnalyticsDatasetDeltaTimeOffsetSeconds
     , (Just . ("TimeExpression",) . toJSON) _ioTAnalyticsDatasetDeltaTimeTimeExpression
     ]
 

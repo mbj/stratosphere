@@ -24,7 +24,7 @@ instance ToJSON LogsMetricFilterMetricTransformation where
   toJSON LogsMetricFilterMetricTransformation{..} =
     object $
     catMaybes
-    [ fmap (("DefaultValue",) . toJSON . fmap Double') _logsMetricFilterMetricTransformationDefaultValue
+    [ fmap (("DefaultValue",) . toJSON) _logsMetricFilterMetricTransformationDefaultValue
     , (Just . ("MetricName",) . toJSON) _logsMetricFilterMetricTransformationMetricName
     , (Just . ("MetricNamespace",) . toJSON) _logsMetricFilterMetricTransformationMetricNamespace
     , (Just . ("MetricValue",) . toJSON) _logsMetricFilterMetricTransformationMetricValue

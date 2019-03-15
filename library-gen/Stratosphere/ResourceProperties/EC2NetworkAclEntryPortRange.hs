@@ -22,8 +22,8 @@ instance ToJSON EC2NetworkAclEntryPortRange where
   toJSON EC2NetworkAclEntryPortRange{..} =
     object $
     catMaybes
-    [ fmap (("From",) . toJSON . fmap Integer') _eC2NetworkAclEntryPortRangeFrom
-    , fmap (("To",) . toJSON . fmap Integer') _eC2NetworkAclEntryPortRangeTo
+    [ fmap (("From",) . toJSON) _eC2NetworkAclEntryPortRangeFrom
+    , fmap (("To",) . toJSON) _eC2NetworkAclEntryPortRangeTo
     ]
 
 -- | Constructor for 'EC2NetworkAclEntryPortRange' containing required fields

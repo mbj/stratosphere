@@ -29,7 +29,7 @@ instance ToResourceProperties CognitoUserPoolGroup where
         hashMapFromList $ catMaybes
         [ fmap (("Description",) . toJSON) _cognitoUserPoolGroupDescription
         , fmap (("GroupName",) . toJSON) _cognitoUserPoolGroupGroupName
-        , fmap (("Precedence",) . toJSON . fmap Double') _cognitoUserPoolGroupPrecedence
+        , fmap (("Precedence",) . toJSON) _cognitoUserPoolGroupPrecedence
         , fmap (("RoleArn",) . toJSON) _cognitoUserPoolGroupRoleArn
         , (Just . ("UserPoolId",) . toJSON) _cognitoUserPoolGroupUserPoolId
         ]

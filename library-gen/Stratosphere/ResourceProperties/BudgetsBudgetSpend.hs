@@ -22,7 +22,7 @@ instance ToJSON BudgetsBudgetSpend where
   toJSON BudgetsBudgetSpend{..} =
     object $
     catMaybes
-    [ (Just . ("Amount",) . toJSON . fmap Double') _budgetsBudgetSpendAmount
+    [ (Just . ("Amount",) . toJSON) _budgetsBudgetSpendAmount
     , (Just . ("Unit",) . toJSON) _budgetsBudgetSpendUnit
     ]
 

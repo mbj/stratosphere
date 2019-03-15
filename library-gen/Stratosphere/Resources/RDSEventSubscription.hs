@@ -27,7 +27,7 @@ instance ToResourceProperties RDSEventSubscription where
     { resourcePropertiesType = "AWS::RDS::EventSubscription"
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
-        [ fmap (("Enabled",) . toJSON . fmap Bool') _rDSEventSubscriptionEnabled
+        [ fmap (("Enabled",) . toJSON) _rDSEventSubscriptionEnabled
         , fmap (("EventCategories",) . toJSON) _rDSEventSubscriptionEventCategories
         , (Just . ("SnsTopicArn",) . toJSON) _rDSEventSubscriptionSnsTopicArn
         , fmap (("SourceIds",) . toJSON) _rDSEventSubscriptionSourceIds

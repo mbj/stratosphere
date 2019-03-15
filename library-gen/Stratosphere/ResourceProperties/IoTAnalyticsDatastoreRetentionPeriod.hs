@@ -22,8 +22,8 @@ instance ToJSON IoTAnalyticsDatastoreRetentionPeriod where
   toJSON IoTAnalyticsDatastoreRetentionPeriod{..} =
     object $
     catMaybes
-    [ fmap (("NumberOfDays",) . toJSON . fmap Integer') _ioTAnalyticsDatastoreRetentionPeriodNumberOfDays
-    , fmap (("Unlimited",) . toJSON . fmap Bool') _ioTAnalyticsDatastoreRetentionPeriodUnlimited
+    [ fmap (("NumberOfDays",) . toJSON) _ioTAnalyticsDatastoreRetentionPeriodNumberOfDays
+    , fmap (("Unlimited",) . toJSON) _ioTAnalyticsDatastoreRetentionPeriodUnlimited
     ]
 
 -- | Constructor for 'IoTAnalyticsDatastoreRetentionPeriod' containing

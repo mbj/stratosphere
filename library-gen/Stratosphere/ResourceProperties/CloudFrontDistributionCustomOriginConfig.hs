@@ -27,11 +27,11 @@ instance ToJSON CloudFrontDistributionCustomOriginConfig where
   toJSON CloudFrontDistributionCustomOriginConfig{..} =
     object $
     catMaybes
-    [ fmap (("HTTPPort",) . toJSON . fmap Integer') _cloudFrontDistributionCustomOriginConfigHTTPPort
-    , fmap (("HTTPSPort",) . toJSON . fmap Integer') _cloudFrontDistributionCustomOriginConfigHTTPSPort
-    , fmap (("OriginKeepaliveTimeout",) . toJSON . fmap Integer') _cloudFrontDistributionCustomOriginConfigOriginKeepaliveTimeout
+    [ fmap (("HTTPPort",) . toJSON) _cloudFrontDistributionCustomOriginConfigHTTPPort
+    , fmap (("HTTPSPort",) . toJSON) _cloudFrontDistributionCustomOriginConfigHTTPSPort
+    , fmap (("OriginKeepaliveTimeout",) . toJSON) _cloudFrontDistributionCustomOriginConfigOriginKeepaliveTimeout
     , (Just . ("OriginProtocolPolicy",) . toJSON) _cloudFrontDistributionCustomOriginConfigOriginProtocolPolicy
-    , fmap (("OriginReadTimeout",) . toJSON . fmap Integer') _cloudFrontDistributionCustomOriginConfigOriginReadTimeout
+    , fmap (("OriginReadTimeout",) . toJSON) _cloudFrontDistributionCustomOriginConfigOriginReadTimeout
     , fmap (("OriginSSLProtocols",) . toJSON) _cloudFrontDistributionCustomOriginConfigOriginSSLProtocols
     ]
 

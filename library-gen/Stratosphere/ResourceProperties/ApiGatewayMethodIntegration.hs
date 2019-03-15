@@ -46,7 +46,7 @@ instance ToJSON ApiGatewayMethodIntegration where
     , fmap (("PassthroughBehavior",) . toJSON) _apiGatewayMethodIntegrationPassthroughBehavior
     , fmap (("RequestParameters",) . toJSON) _apiGatewayMethodIntegrationRequestParameters
     , fmap (("RequestTemplates",) . toJSON) _apiGatewayMethodIntegrationRequestTemplates
-    , fmap (("TimeoutInMillis",) . toJSON . fmap Integer') _apiGatewayMethodIntegrationTimeoutInMillis
+    , fmap (("TimeoutInMillis",) . toJSON) _apiGatewayMethodIntegrationTimeoutInMillis
     , fmap (("Type",) . toJSON) _apiGatewayMethodIntegrationType
     , fmap (("Uri",) . toJSON) _apiGatewayMethodIntegrationUri
     ]

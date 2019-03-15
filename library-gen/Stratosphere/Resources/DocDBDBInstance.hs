@@ -29,7 +29,7 @@ instance ToResourceProperties DocDBDBInstance where
     { resourcePropertiesType = "AWS::DocDB::DBInstance"
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
-        [ fmap (("AutoMinorVersionUpgrade",) . toJSON . fmap Bool') _docDBDBInstanceAutoMinorVersionUpgrade
+        [ fmap (("AutoMinorVersionUpgrade",) . toJSON) _docDBDBInstanceAutoMinorVersionUpgrade
         , fmap (("AvailabilityZone",) . toJSON) _docDBDBInstanceAvailabilityZone
         , (Just . ("DBClusterIdentifier",) . toJSON) _docDBDBInstanceDBClusterIdentifier
         , (Just . ("DBInstanceClass",) . toJSON) _docDBDBInstanceDBInstanceClass

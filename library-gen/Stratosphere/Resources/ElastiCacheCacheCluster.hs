@@ -44,7 +44,7 @@ instance ToResourceProperties ElastiCacheCacheCluster where
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
         [ fmap (("AZMode",) . toJSON) _elastiCacheCacheClusterAZMode
-        , fmap (("AutoMinorVersionUpgrade",) . toJSON . fmap Bool') _elastiCacheCacheClusterAutoMinorVersionUpgrade
+        , fmap (("AutoMinorVersionUpgrade",) . toJSON) _elastiCacheCacheClusterAutoMinorVersionUpgrade
         , (Just . ("CacheNodeType",) . toJSON) _elastiCacheCacheClusterCacheNodeType
         , fmap (("CacheParameterGroupName",) . toJSON) _elastiCacheCacheClusterCacheParameterGroupName
         , fmap (("CacheSecurityGroupNames",) . toJSON) _elastiCacheCacheClusterCacheSecurityGroupNames
@@ -53,14 +53,14 @@ instance ToResourceProperties ElastiCacheCacheCluster where
         , (Just . ("Engine",) . toJSON) _elastiCacheCacheClusterEngine
         , fmap (("EngineVersion",) . toJSON) _elastiCacheCacheClusterEngineVersion
         , fmap (("NotificationTopicArn",) . toJSON) _elastiCacheCacheClusterNotificationTopicArn
-        , (Just . ("NumCacheNodes",) . toJSON . fmap Integer') _elastiCacheCacheClusterNumCacheNodes
-        , fmap (("Port",) . toJSON . fmap Integer') _elastiCacheCacheClusterPort
+        , (Just . ("NumCacheNodes",) . toJSON) _elastiCacheCacheClusterNumCacheNodes
+        , fmap (("Port",) . toJSON) _elastiCacheCacheClusterPort
         , fmap (("PreferredAvailabilityZone",) . toJSON) _elastiCacheCacheClusterPreferredAvailabilityZone
         , fmap (("PreferredAvailabilityZones",) . toJSON) _elastiCacheCacheClusterPreferredAvailabilityZones
         , fmap (("PreferredMaintenanceWindow",) . toJSON) _elastiCacheCacheClusterPreferredMaintenanceWindow
         , fmap (("SnapshotArns",) . toJSON) _elastiCacheCacheClusterSnapshotArns
         , fmap (("SnapshotName",) . toJSON) _elastiCacheCacheClusterSnapshotName
-        , fmap (("SnapshotRetentionLimit",) . toJSON . fmap Integer') _elastiCacheCacheClusterSnapshotRetentionLimit
+        , fmap (("SnapshotRetentionLimit",) . toJSON) _elastiCacheCacheClusterSnapshotRetentionLimit
         , fmap (("SnapshotWindow",) . toJSON) _elastiCacheCacheClusterSnapshotWindow
         , fmap (("Tags",) . toJSON) _elastiCacheCacheClusterTags
         , fmap (("VpcSecurityGroupIds",) . toJSON) _elastiCacheCacheClusterVpcSecurityGroupIds

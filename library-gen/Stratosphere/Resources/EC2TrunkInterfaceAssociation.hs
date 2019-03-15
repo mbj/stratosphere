@@ -27,9 +27,9 @@ instance ToResourceProperties EC2TrunkInterfaceAssociation where
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
         [ (Just . ("BranchInterfaceId",) . toJSON) _eC2TrunkInterfaceAssociationBranchInterfaceId
-        , fmap (("GREKey",) . toJSON . fmap Integer') _eC2TrunkInterfaceAssociationGREKey
+        , fmap (("GREKey",) . toJSON) _eC2TrunkInterfaceAssociationGREKey
         , (Just . ("TrunkInterfaceId",) . toJSON) _eC2TrunkInterfaceAssociationTrunkInterfaceId
-        , fmap (("VLANId",) . toJSON . fmap Integer') _eC2TrunkInterfaceAssociationVLANId
+        , fmap (("VLANId",) . toJSON) _eC2TrunkInterfaceAssociationVLANId
         ]
     }
 

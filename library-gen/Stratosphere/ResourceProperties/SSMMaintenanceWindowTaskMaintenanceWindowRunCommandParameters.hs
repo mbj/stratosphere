@@ -39,7 +39,7 @@ instance ToJSON SSMMaintenanceWindowTaskMaintenanceWindowRunCommandParameters wh
     , fmap (("OutputS3KeyPrefix",) . toJSON) _sSMMaintenanceWindowTaskMaintenanceWindowRunCommandParametersOutputS3KeyPrefix
     , fmap (("Parameters",) . toJSON) _sSMMaintenanceWindowTaskMaintenanceWindowRunCommandParametersParameters
     , fmap (("ServiceRoleArn",) . toJSON) _sSMMaintenanceWindowTaskMaintenanceWindowRunCommandParametersServiceRoleArn
-    , fmap (("TimeoutSeconds",) . toJSON . fmap Integer') _sSMMaintenanceWindowTaskMaintenanceWindowRunCommandParametersTimeoutSeconds
+    , fmap (("TimeoutSeconds",) . toJSON) _sSMMaintenanceWindowTaskMaintenanceWindowRunCommandParametersTimeoutSeconds
     ]
 
 -- | Constructor for

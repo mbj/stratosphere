@@ -40,7 +40,7 @@ data Parameter =
     -- ^ A value of the appropriate type for the template to use if no value is
     -- specified when a stack is created. If you define constraints for the
     -- parameter, you must specify a value that adheres to those constraints.
-  , _parameterNoEcho :: Maybe Bool'
+  , _parameterNoEcho :: Maybe Bool
     -- ^ Whether to mask the parameter value whenever anyone makes a call that
     -- describes the stack. If you set the value to true, the parameter value
     -- is masked with asterisks (*****).
@@ -80,10 +80,10 @@ parameterToJSON Parameter {..} =
   , maybeField "NoEcho" _parameterNoEcho
   , maybeField "AllowedValues" _parameterAllowedValues
   , maybeField "AllowedPattern" _parameterAllowedPattern
-  , maybeField "MaxLength" (Integer' <$> _parameterMaxLength)
-  , maybeField "MinLength" (Integer' <$> _parameterMinLength)
-  , maybeField "MaxValue" (Integer' <$> _parameterMaxValue)
-  , maybeField "MinValue" (Integer' <$> _parameterMinValue)
+  , maybeField "MaxLength" _parameterMaxLength
+  , maybeField "MinLength" _parameterMinLength
+  , maybeField "MaxValue" _parameterMaxValue
+  , maybeField "MinValue" _parameterMinValue
   , maybeField "Description" _parameterDescription
   , maybeField "ConstraintDescription" _parameterConstraintDescription
   ]

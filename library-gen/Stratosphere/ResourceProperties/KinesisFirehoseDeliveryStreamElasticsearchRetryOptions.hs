@@ -23,7 +23,7 @@ instance ToJSON KinesisFirehoseDeliveryStreamElasticsearchRetryOptions where
   toJSON KinesisFirehoseDeliveryStreamElasticsearchRetryOptions{..} =
     object $
     catMaybes
-    [ (Just . ("DurationInSeconds",) . toJSON . fmap Integer') _kinesisFirehoseDeliveryStreamElasticsearchRetryOptionsDurationInSeconds
+    [ (Just . ("DurationInSeconds",) . toJSON) _kinesisFirehoseDeliveryStreamElasticsearchRetryOptionsDurationInSeconds
     ]
 
 -- | Constructor for 'KinesisFirehoseDeliveryStreamElasticsearchRetryOptions'

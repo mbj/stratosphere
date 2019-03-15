@@ -27,7 +27,7 @@ instance ToJSON WAFRegionalSizeConstraintSetSizeConstraint where
     catMaybes
     [ (Just . ("ComparisonOperator",) . toJSON) _wAFRegionalSizeConstraintSetSizeConstraintComparisonOperator
     , (Just . ("FieldToMatch",) . toJSON) _wAFRegionalSizeConstraintSetSizeConstraintFieldToMatch
-    , (Just . ("Size",) . toJSON . fmap Integer') _wAFRegionalSizeConstraintSetSizeConstraintSize
+    , (Just . ("Size",) . toJSON) _wAFRegionalSizeConstraintSetSizeConstraintSize
     , (Just . ("TextTransformation",) . toJSON) _wAFRegionalSizeConstraintSetSizeConstraintTextTransformation
     ]
 

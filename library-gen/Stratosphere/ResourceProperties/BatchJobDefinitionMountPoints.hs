@@ -24,7 +24,7 @@ instance ToJSON BatchJobDefinitionMountPoints where
     object $
     catMaybes
     [ fmap (("ContainerPath",) . toJSON) _batchJobDefinitionMountPointsContainerPath
-    , fmap (("ReadOnly",) . toJSON . fmap Bool') _batchJobDefinitionMountPointsReadOnly
+    , fmap (("ReadOnly",) . toJSON) _batchJobDefinitionMountPointsReadOnly
     , fmap (("SourceVolume",) . toJSON) _batchJobDefinitionMountPointsSourceVolume
     ]
 

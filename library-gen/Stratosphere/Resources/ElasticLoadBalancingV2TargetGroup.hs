@@ -42,22 +42,22 @@ instance ToResourceProperties ElasticLoadBalancingV2TargetGroup where
     { resourcePropertiesType = "AWS::ElasticLoadBalancingV2::TargetGroup"
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
-        [ fmap (("HealthCheckEnabled",) . toJSON . fmap Bool') _elasticLoadBalancingV2TargetGroupHealthCheckEnabled
-        , fmap (("HealthCheckIntervalSeconds",) . toJSON . fmap Integer') _elasticLoadBalancingV2TargetGroupHealthCheckIntervalSeconds
+        [ fmap (("HealthCheckEnabled",) . toJSON) _elasticLoadBalancingV2TargetGroupHealthCheckEnabled
+        , fmap (("HealthCheckIntervalSeconds",) . toJSON) _elasticLoadBalancingV2TargetGroupHealthCheckIntervalSeconds
         , fmap (("HealthCheckPath",) . toJSON) _elasticLoadBalancingV2TargetGroupHealthCheckPath
         , fmap (("HealthCheckPort",) . toJSON) _elasticLoadBalancingV2TargetGroupHealthCheckPort
         , fmap (("HealthCheckProtocol",) . toJSON) _elasticLoadBalancingV2TargetGroupHealthCheckProtocol
-        , fmap (("HealthCheckTimeoutSeconds",) . toJSON . fmap Integer') _elasticLoadBalancingV2TargetGroupHealthCheckTimeoutSeconds
-        , fmap (("HealthyThresholdCount",) . toJSON . fmap Integer') _elasticLoadBalancingV2TargetGroupHealthyThresholdCount
+        , fmap (("HealthCheckTimeoutSeconds",) . toJSON) _elasticLoadBalancingV2TargetGroupHealthCheckTimeoutSeconds
+        , fmap (("HealthyThresholdCount",) . toJSON) _elasticLoadBalancingV2TargetGroupHealthyThresholdCount
         , fmap (("Matcher",) . toJSON) _elasticLoadBalancingV2TargetGroupMatcher
         , fmap (("Name",) . toJSON) _elasticLoadBalancingV2TargetGroupName
-        , fmap (("Port",) . toJSON . fmap Integer') _elasticLoadBalancingV2TargetGroupPort
+        , fmap (("Port",) . toJSON) _elasticLoadBalancingV2TargetGroupPort
         , fmap (("Protocol",) . toJSON) _elasticLoadBalancingV2TargetGroupProtocol
         , fmap (("Tags",) . toJSON) _elasticLoadBalancingV2TargetGroupTags
         , fmap (("TargetGroupAttributes",) . toJSON) _elasticLoadBalancingV2TargetGroupTargetGroupAttributes
         , fmap (("TargetType",) . toJSON) _elasticLoadBalancingV2TargetGroupTargetType
         , fmap (("Targets",) . toJSON) _elasticLoadBalancingV2TargetGroupTargets
-        , fmap (("UnhealthyThresholdCount",) . toJSON . fmap Integer') _elasticLoadBalancingV2TargetGroupUnhealthyThresholdCount
+        , fmap (("UnhealthyThresholdCount",) . toJSON) _elasticLoadBalancingV2TargetGroupUnhealthyThresholdCount
         , fmap (("VpcId",) . toJSON) _elasticLoadBalancingV2TargetGroupVpcId
         ]
     }

@@ -26,11 +26,11 @@ instance ToJSON EC2SpotFleetEbsBlockDevice where
   toJSON EC2SpotFleetEbsBlockDevice{..} =
     object $
     catMaybes
-    [ fmap (("DeleteOnTermination",) . toJSON . fmap Bool') _eC2SpotFleetEbsBlockDeviceDeleteOnTermination
-    , fmap (("Encrypted",) . toJSON . fmap Bool') _eC2SpotFleetEbsBlockDeviceEncrypted
-    , fmap (("Iops",) . toJSON . fmap Integer') _eC2SpotFleetEbsBlockDeviceIops
+    [ fmap (("DeleteOnTermination",) . toJSON) _eC2SpotFleetEbsBlockDeviceDeleteOnTermination
+    , fmap (("Encrypted",) . toJSON) _eC2SpotFleetEbsBlockDeviceEncrypted
+    , fmap (("Iops",) . toJSON) _eC2SpotFleetEbsBlockDeviceIops
     , fmap (("SnapshotId",) . toJSON) _eC2SpotFleetEbsBlockDeviceSnapshotId
-    , fmap (("VolumeSize",) . toJSON . fmap Integer') _eC2SpotFleetEbsBlockDeviceVolumeSize
+    , fmap (("VolumeSize",) . toJSON) _eC2SpotFleetEbsBlockDeviceVolumeSize
     , fmap (("VolumeType",) . toJSON) _eC2SpotFleetEbsBlockDeviceVolumeType
     ]
 

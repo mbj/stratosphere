@@ -28,8 +28,8 @@ instance ToResourceProperties ApiGatewayRequestValidator where
         hashMapFromList $ catMaybes
         [ fmap (("Name",) . toJSON) _apiGatewayRequestValidatorName
         , (Just . ("RestApiId",) . toJSON) _apiGatewayRequestValidatorRestApiId
-        , fmap (("ValidateRequestBody",) . toJSON . fmap Bool') _apiGatewayRequestValidatorValidateRequestBody
-        , fmap (("ValidateRequestParameters",) . toJSON . fmap Bool') _apiGatewayRequestValidatorValidateRequestParameters
+        , fmap (("ValidateRequestBody",) . toJSON) _apiGatewayRequestValidatorValidateRequestBody
+        , fmap (("ValidateRequestParameters",) . toJSON) _apiGatewayRequestValidatorValidateRequestParameters
         ]
     }
 

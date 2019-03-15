@@ -21,7 +21,7 @@ instance ToJSON CodeBuildProjectProjectTriggers where
   toJSON CodeBuildProjectProjectTriggers{..} =
     object $
     catMaybes
-    [ fmap (("Webhook",) . toJSON . fmap Bool') _codeBuildProjectProjectTriggersWebhook
+    [ fmap (("Webhook",) . toJSON) _codeBuildProjectProjectTriggersWebhook
     ]
 
 -- | Constructor for 'CodeBuildProjectProjectTriggers' containing required

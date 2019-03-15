@@ -21,7 +21,7 @@ instance ToJSON BatchJobDefinitionTimeout where
   toJSON BatchJobDefinitionTimeout{..} =
     object $
     catMaybes
-    [ fmap (("AttemptDurationSeconds",) . toJSON . fmap Integer') _batchJobDefinitionTimeoutAttemptDurationSeconds
+    [ fmap (("AttemptDurationSeconds",) . toJSON) _batchJobDefinitionTimeoutAttemptDurationSeconds
     ]
 
 -- | Constructor for 'BatchJobDefinitionTimeout' containing required fields as

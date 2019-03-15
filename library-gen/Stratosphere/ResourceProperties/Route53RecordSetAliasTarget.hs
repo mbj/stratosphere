@@ -24,7 +24,7 @@ instance ToJSON Route53RecordSetAliasTarget where
     object $
     catMaybes
     [ (Just . ("DNSName",) . toJSON) _route53RecordSetAliasTargetDNSName
-    , fmap (("EvaluateTargetHealth",) . toJSON . fmap Bool') _route53RecordSetAliasTargetEvaluateTargetHealth
+    , fmap (("EvaluateTargetHealth",) . toJSON) _route53RecordSetAliasTargetEvaluateTargetHealth
     , (Just . ("HostedZoneId",) . toJSON) _route53RecordSetAliasTargetHostedZoneId
     ]
 
