@@ -10,6 +10,7 @@ module Stratosphere.Resources.AppStreamFleet where
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.AppStreamFleetComputeCapacity
 import Stratosphere.ResourceProperties.AppStreamFleetDomainJoinInfo
+import Stratosphere.ResourceProperties.Tag
 import Stratosphere.ResourceProperties.AppStreamFleetVpcConfig
 
 -- | Full data type definition for AppStreamFleet. See 'appStreamFleet' for a
@@ -28,6 +29,7 @@ data AppStreamFleet =
   , _appStreamFleetInstanceType :: Val Text
   , _appStreamFleetMaxUserDurationInSeconds :: Maybe (Val Integer)
   , _appStreamFleetName :: Maybe (Val Text)
+  , _appStreamFleetTags :: Maybe [Tag]
   , _appStreamFleetVpcConfig :: Maybe AppStreamFleetVpcConfig
   } deriving (Show, Eq)
 
@@ -49,6 +51,7 @@ instance ToResourceProperties AppStreamFleet where
         , (Just . ("InstanceType",) . toJSON) _appStreamFleetInstanceType
         , fmap (("MaxUserDurationInSeconds",) . toJSON) _appStreamFleetMaxUserDurationInSeconds
         , fmap (("Name",) . toJSON) _appStreamFleetName
+        , fmap (("Tags",) . toJSON) _appStreamFleetTags
         , fmap (("VpcConfig",) . toJSON) _appStreamFleetVpcConfig
         ]
     }
@@ -72,6 +75,7 @@ appStreamFleet computeCapacityarg instanceTypearg =
   , _appStreamFleetInstanceType = instanceTypearg
   , _appStreamFleetMaxUserDurationInSeconds = Nothing
   , _appStreamFleetName = Nothing
+  , _appStreamFleetTags = Nothing
   , _appStreamFleetVpcConfig = Nothing
   }
 
@@ -122,6 +126,10 @@ asfMaxUserDurationInSeconds = lens _appStreamFleetMaxUserDurationInSeconds (\s a
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-name
 asfName :: Lens' AppStreamFleet (Maybe (Val Text))
 asfName = lens _appStreamFleetName (\s a -> s { _appStreamFleetName = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-tags
+asfTags :: Lens' AppStreamFleet (Maybe [Tag])
+asfTags = lens _appStreamFleetTags (\s a -> s { _appStreamFleetTags = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-vpcconfig
 asfVpcConfig :: Lens' AppStreamFleet (Maybe AppStreamFleetVpcConfig)

@@ -6,6 +6,7 @@
   - https://github.com/frontrowed/stratosphere/pull/123 and
   - https://github.com/frontrowed/stratosphere/issues/86
 * Use `-O0` when compiling `stratosphere`
+* Update resource specification document to version 2.28.0
 
 ## 0.33.0
 

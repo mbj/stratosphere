@@ -20,6 +20,7 @@ data SageMakerNotebookInstance =
   , _sageMakerNotebookInstanceLifecycleConfigName :: Maybe (Val Text)
   , _sageMakerNotebookInstanceNotebookInstanceName :: Maybe (Val Text)
   , _sageMakerNotebookInstanceRoleArn :: Val Text
+  , _sageMakerNotebookInstanceRootAccess :: Maybe (Val Text)
   , _sageMakerNotebookInstanceSecurityGroupIds :: Maybe (ValList Text)
   , _sageMakerNotebookInstanceSubnetId :: Maybe (Val Text)
   , _sageMakerNotebookInstanceTags :: Maybe [Tag]
@@ -38,6 +39,7 @@ instance ToResourceProperties SageMakerNotebookInstance where
         , fmap (("LifecycleConfigName",) . toJSON) _sageMakerNotebookInstanceLifecycleConfigName
         , fmap (("NotebookInstanceName",) . toJSON) _sageMakerNotebookInstanceNotebookInstanceName
         , (Just . ("RoleArn",) . toJSON) _sageMakerNotebookInstanceRoleArn
+        , fmap (("RootAccess",) . toJSON) _sageMakerNotebookInstanceRootAccess
         , fmap (("SecurityGroupIds",) . toJSON) _sageMakerNotebookInstanceSecurityGroupIds
         , fmap (("SubnetId",) . toJSON) _sageMakerNotebookInstanceSubnetId
         , fmap (("Tags",) . toJSON) _sageMakerNotebookInstanceTags
@@ -59,6 +61,7 @@ sageMakerNotebookInstance instanceTypearg roleArnarg =
   , _sageMakerNotebookInstanceLifecycleConfigName = Nothing
   , _sageMakerNotebookInstanceNotebookInstanceName = Nothing
   , _sageMakerNotebookInstanceRoleArn = roleArnarg
+  , _sageMakerNotebookInstanceRootAccess = Nothing
   , _sageMakerNotebookInstanceSecurityGroupIds = Nothing
   , _sageMakerNotebookInstanceSubnetId = Nothing
   , _sageMakerNotebookInstanceTags = Nothing
@@ -88,6 +91,10 @@ smniNotebookInstanceName = lens _sageMakerNotebookInstanceNotebookInstanceName (
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstance.html#cfn-sagemaker-notebookinstance-rolearn
 smniRoleArn :: Lens' SageMakerNotebookInstance (Val Text)
 smniRoleArn = lens _sageMakerNotebookInstanceRoleArn (\s a -> s { _sageMakerNotebookInstanceRoleArn = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstance.html#cfn-sagemaker-notebookinstance-rootaccess
+smniRootAccess :: Lens' SageMakerNotebookInstance (Maybe (Val Text))
+smniRootAccess = lens _sageMakerNotebookInstanceRootAccess (\s a -> s { _sageMakerNotebookInstanceRootAccess = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstance.html#cfn-sagemaker-notebookinstance-securitygroupids
 smniSecurityGroupIds :: Lens' SageMakerNotebookInstance (Maybe (ValList Text))

@@ -183,6 +183,12 @@ computeLensPrefix "AWS::IoTAnalytics::Dataset.RetentionPeriod" = "itadsrp"
 computeLensPrefix "AWS::IoTAnalytics::Datastore.RetentionPeriod" = "itadstrp"
 computeLensPrefix "AWS::ApiGatewayV2::Api" = "agvap"
 computeLensPrefix "AWS::ApiGatewayV2::Authorizer" = "agvau"
+computeLensPrefix "AWS::Greengrass::ConnectorDefinition.Connector" = "gcdcn"
+computeLensPrefix "AWS::Greengrass::CoreDefinition.Core" = "gcdcr"
+computeLensPrefix "AWS::Greengrass::ConnectorDefinitionVersion.Connector" = "gcdvcn"
+computeLensPrefix "AWS::Greengrass::CoreDefinitionVersion.Core" = "gcdvcr"
+computeLensPrefix "AWS::Greengrass::ConnectorDefinition" = "gcdn"
+computeLensPrefix "AWS::Greengrass::CoreDefinition" = "gcdr"
 -- Everything else
 computeLensPrefix rawName = toLower $ fromMaybe rawName $ toAcronym $ computeModuleName rawName
 

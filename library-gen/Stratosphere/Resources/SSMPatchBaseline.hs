@@ -11,6 +11,7 @@ import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.SSMPatchBaselineRuleGroup
 import Stratosphere.ResourceProperties.SSMPatchBaselinePatchFilterGroup
 import Stratosphere.ResourceProperties.SSMPatchBaselinePatchSource
+import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for SSMPatchBaseline. See 'ssmPatchBaseline'
 -- for a more convenient constructor.
@@ -28,6 +29,7 @@ data SSMPatchBaseline =
   , _sSMPatchBaselineRejectedPatches :: Maybe (ValList Text)
   , _sSMPatchBaselineRejectedPatchesAction :: Maybe (Val Text)
   , _sSMPatchBaselineSources :: Maybe [SSMPatchBaselinePatchSource]
+  , _sSMPatchBaselineTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
 instance ToResourceProperties SSMPatchBaseline where
@@ -48,6 +50,7 @@ instance ToResourceProperties SSMPatchBaseline where
         , fmap (("RejectedPatches",) . toJSON) _sSMPatchBaselineRejectedPatches
         , fmap (("RejectedPatchesAction",) . toJSON) _sSMPatchBaselineRejectedPatchesAction
         , fmap (("Sources",) . toJSON) _sSMPatchBaselineSources
+        , fmap (("Tags",) . toJSON) _sSMPatchBaselineTags
         ]
     }
 
@@ -70,6 +73,7 @@ ssmPatchBaseline namearg =
   , _sSMPatchBaselineRejectedPatches = Nothing
   , _sSMPatchBaselineRejectedPatchesAction = Nothing
   , _sSMPatchBaselineSources = Nothing
+  , _sSMPatchBaselineTags = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html#cfn-ssm-patchbaseline-approvalrules
@@ -119,3 +123,7 @@ ssmpbRejectedPatchesAction = lens _sSMPatchBaselineRejectedPatchesAction (\s a -
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html#cfn-ssm-patchbaseline-sources
 ssmpbSources :: Lens' SSMPatchBaseline (Maybe [SSMPatchBaselinePatchSource])
 ssmpbSources = lens _sSMPatchBaselineSources (\s a -> s { _sSMPatchBaselineSources = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-patchbaseline.html#cfn-ssm-patchbaseline-tags
+ssmpbTags :: Lens' SSMPatchBaseline (Maybe [Tag])
+ssmpbTags = lens _sSMPatchBaselineTags (\s a -> s { _sSMPatchBaselineTags = a })
