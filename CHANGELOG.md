@@ -4,9 +4,10 @@
 
 * Use a GADT for `Val a` so it is properly types. This shouldn't break any
   programs that produced valid CloudFormation templates. This also allows us to
-  properly implement some more intrinsic functions, like `Not`. See:
-  - https://github.com/freckle/stratosphere/pull/120
-  - https://github.com/freckle/stratosphere/issues/80
+  properly implement some more intrinsic functions, like `Not`. See
+  https://github.com/freckle/stratosphere/pull/120
+* Added the `Fn::Not` intrinsic function. Fixes
+  https://github.com/freckle/stratosphere/issues/80
 
 ## 0.34.0
 

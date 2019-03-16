@@ -29,6 +29,7 @@ data Val a where
   And :: Val Bool -> Val Bool -> Val Bool
   Equals :: (Show a, ToJSON a, Eq a, Typeable a) => Val a -> Val a -> Val Bool
   Or :: Val Bool -> Val Bool -> Val Bool
+  Not :: Val Bool -> Val Bool
   GetAtt :: Text -> Text -> Val a
   Base64 :: Val Text -> Val Text
   Join :: Text -> ValList Text -> Val Text
@@ -46,6 +47,7 @@ instance Eq a => Eq (Val a) where
   And a b == And a' b' = a == a' && b == b'
   Equals a b == Equals a' b' = eqEquals a b a' b'
   Or a b == Or a' b' = a == a' && b == b'
+  Not a == Not a' = a == a'
   GetAtt a b == GetAtt a' b' = a == a' && b == b'
   Base64 a == Base64 a' = a == a'
   FindInMap a b c == FindInMap a' b' c' = a == a' && b == b' && c == c'
@@ -69,6 +71,7 @@ instance (ToJSON a) => ToJSON (Val a) where
   toJSON (And x y) = mkFunc "Fn::And" [toJSON x, toJSON y]
   toJSON (Equals x y) = mkFunc "Fn::Equals" [toJSON x, toJSON y]
   toJSON (Or x y) = mkFunc "Fn::Or" [toJSON x, toJSON y]
+  toJSON (Not x) = mkFunc "Fn::Not" [toJSON x]
   toJSON (GetAtt x y) = mkFunc "Fn::GetAtt" [toJSON x, toJSON y]
   toJSON (Base64 v) = object [("Fn::Base64", toJSON v)]
   toJSON (Join d vs) = mkFunc "Fn::Join" [toJSON d, toJSON vs]
