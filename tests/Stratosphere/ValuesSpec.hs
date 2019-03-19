@@ -20,22 +20,3 @@ spec = do
 
     it "ImportValue and ImportValueList produce the same JSON" $ do
       toJSON (ImportValue "MyVal" :: Val Text) `shouldBe` toJSON (ImportValueList "MyVal" :: ValList Text)
-
-    it "Functor conversions in nested Vals work" $ do
-      let
-        input :: Val Integer
-        input =
-          Select 1 $
-            ValList
-            [ Literal 1
-            , Ref "Hello"
-            , Literal 2
-            ]
-        expected =
-          Select 1 $
-            ValList
-            [ Literal 2
-            , Ref "Hello"
-            , Literal 3
-            ]
-      fmap (+1) input `shouldBe` expected
