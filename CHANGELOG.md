@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.36.0
+
+* Update resource specification document to version 2.29.0
+
 ## 0.35.0
 
 * Use a GADT for `Val a` so it is properly typed. This shouldn't break any
