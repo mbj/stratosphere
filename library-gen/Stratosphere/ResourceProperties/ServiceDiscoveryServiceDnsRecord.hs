@@ -14,7 +14,7 @@ import Stratosphere.ResourceImports
 -- 'serviceDiscoveryServiceDnsRecord' for a more convenient constructor.
 data ServiceDiscoveryServiceDnsRecord =
   ServiceDiscoveryServiceDnsRecord
-  { _serviceDiscoveryServiceDnsRecordTTL :: Val Text
+  { _serviceDiscoveryServiceDnsRecordTTL :: Val Double
   , _serviceDiscoveryServiceDnsRecordType :: Val Text
   } deriving (Show, Eq)
 
@@ -29,7 +29,7 @@ instance ToJSON ServiceDiscoveryServiceDnsRecord where
 -- | Constructor for 'ServiceDiscoveryServiceDnsRecord' containing required
 -- fields as arguments.
 serviceDiscoveryServiceDnsRecord
-  :: Val Text -- ^ 'sdsdrTTL'
+  :: Val Double -- ^ 'sdsdrTTL'
   -> Val Text -- ^ 'sdsdrType'
   -> ServiceDiscoveryServiceDnsRecord
 serviceDiscoveryServiceDnsRecord tTLarg typearg =
@@ -39,7 +39,7 @@ serviceDiscoveryServiceDnsRecord tTLarg typearg =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-dnsrecord.html#cfn-servicediscovery-service-dnsrecord-ttl
-sdsdrTTL :: Lens' ServiceDiscoveryServiceDnsRecord (Val Text)
+sdsdrTTL :: Lens' ServiceDiscoveryServiceDnsRecord (Val Double)
 sdsdrTTL = lens _serviceDiscoveryServiceDnsRecordTTL (\s a -> s { _serviceDiscoveryServiceDnsRecordTTL = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-service-dnsrecord.html#cfn-servicediscovery-service-dnsrecord-type
