@@ -59,6 +59,7 @@ data HttpMethod
   | HEAD
   | DELETE
   | OPTIONS
+  | ANY
   deriving (Show, Read, Eq, Generic, ToJSON)
 
 data LoggingLevel
