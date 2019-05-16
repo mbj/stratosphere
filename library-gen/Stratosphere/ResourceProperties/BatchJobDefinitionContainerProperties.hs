@@ -10,6 +10,7 @@ module Stratosphere.ResourceProperties.BatchJobDefinitionContainerProperties whe
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.BatchJobDefinitionEnvironment
 import Stratosphere.ResourceProperties.BatchJobDefinitionMountPoints
+import Stratosphere.ResourceProperties.BatchJobDefinitionResourceRequirement
 import Stratosphere.ResourceProperties.BatchJobDefinitionUlimit
 import Stratosphere.ResourceProperties.BatchJobDefinitionVolumes
 
@@ -27,6 +28,7 @@ data BatchJobDefinitionContainerProperties =
   , _batchJobDefinitionContainerPropertiesMountPoints :: Maybe [BatchJobDefinitionMountPoints]
   , _batchJobDefinitionContainerPropertiesPrivileged :: Maybe (Val Bool)
   , _batchJobDefinitionContainerPropertiesReadonlyRootFilesystem :: Maybe (Val Bool)
+  , _batchJobDefinitionContainerPropertiesResourceRequirements :: Maybe [BatchJobDefinitionResourceRequirement]
   , _batchJobDefinitionContainerPropertiesUlimits :: Maybe [BatchJobDefinitionUlimit]
   , _batchJobDefinitionContainerPropertiesUser :: Maybe (Val Text)
   , _batchJobDefinitionContainerPropertiesVcpus :: Val Integer
@@ -46,6 +48,7 @@ instance ToJSON BatchJobDefinitionContainerProperties where
     , fmap (("MountPoints",) . toJSON) _batchJobDefinitionContainerPropertiesMountPoints
     , fmap (("Privileged",) . toJSON) _batchJobDefinitionContainerPropertiesPrivileged
     , fmap (("ReadonlyRootFilesystem",) . toJSON) _batchJobDefinitionContainerPropertiesReadonlyRootFilesystem
+    , fmap (("ResourceRequirements",) . toJSON) _batchJobDefinitionContainerPropertiesResourceRequirements
     , fmap (("Ulimits",) . toJSON) _batchJobDefinitionContainerPropertiesUlimits
     , fmap (("User",) . toJSON) _batchJobDefinitionContainerPropertiesUser
     , (Just . ("Vcpus",) . toJSON) _batchJobDefinitionContainerPropertiesVcpus
@@ -70,6 +73,7 @@ batchJobDefinitionContainerProperties imagearg memoryarg vcpusarg =
   , _batchJobDefinitionContainerPropertiesMountPoints = Nothing
   , _batchJobDefinitionContainerPropertiesPrivileged = Nothing
   , _batchJobDefinitionContainerPropertiesReadonlyRootFilesystem = Nothing
+  , _batchJobDefinitionContainerPropertiesResourceRequirements = Nothing
   , _batchJobDefinitionContainerPropertiesUlimits = Nothing
   , _batchJobDefinitionContainerPropertiesUser = Nothing
   , _batchJobDefinitionContainerPropertiesVcpus = vcpusarg
@@ -111,6 +115,10 @@ bjdcpPrivileged = lens _batchJobDefinitionContainerPropertiesPrivileged (\s a ->
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-readonlyrootfilesystem
 bjdcpReadonlyRootFilesystem :: Lens' BatchJobDefinitionContainerProperties (Maybe (Val Bool))
 bjdcpReadonlyRootFilesystem = lens _batchJobDefinitionContainerPropertiesReadonlyRootFilesystem (\s a -> s { _batchJobDefinitionContainerPropertiesReadonlyRootFilesystem = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-resourcerequirements
+bjdcpResourceRequirements :: Lens' BatchJobDefinitionContainerProperties (Maybe [BatchJobDefinitionResourceRequirement])
+bjdcpResourceRequirements = lens _batchJobDefinitionContainerPropertiesResourceRequirements (\s a -> s { _batchJobDefinitionContainerPropertiesResourceRequirements = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-ulimits
 bjdcpUlimits :: Lens' BatchJobDefinitionContainerProperties (Maybe [BatchJobDefinitionUlimit])

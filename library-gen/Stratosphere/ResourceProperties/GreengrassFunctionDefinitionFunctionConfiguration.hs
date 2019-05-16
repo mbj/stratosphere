@@ -20,9 +20,9 @@ data GreengrassFunctionDefinitionFunctionConfiguration =
   , _greengrassFunctionDefinitionFunctionConfigurationEnvironment :: Maybe GreengrassFunctionDefinitionEnvironment
   , _greengrassFunctionDefinitionFunctionConfigurationExecArgs :: Maybe (Val Text)
   , _greengrassFunctionDefinitionFunctionConfigurationExecutable :: Maybe (Val Text)
-  , _greengrassFunctionDefinitionFunctionConfigurationMemorySize :: Val Integer
+  , _greengrassFunctionDefinitionFunctionConfigurationMemorySize :: Maybe (Val Integer)
   , _greengrassFunctionDefinitionFunctionConfigurationPinned :: Maybe (Val Bool)
-  , _greengrassFunctionDefinitionFunctionConfigurationTimeout :: Val Integer
+  , _greengrassFunctionDefinitionFunctionConfigurationTimeout :: Maybe (Val Integer)
   } deriving (Show, Eq)
 
 instance ToJSON GreengrassFunctionDefinitionFunctionConfiguration where
@@ -33,26 +33,24 @@ instance ToJSON GreengrassFunctionDefinitionFunctionConfiguration where
     , fmap (("Environment",) . toJSON) _greengrassFunctionDefinitionFunctionConfigurationEnvironment
     , fmap (("ExecArgs",) . toJSON) _greengrassFunctionDefinitionFunctionConfigurationExecArgs
     , fmap (("Executable",) . toJSON) _greengrassFunctionDefinitionFunctionConfigurationExecutable
-    , (Just . ("MemorySize",) . toJSON) _greengrassFunctionDefinitionFunctionConfigurationMemorySize
+    , fmap (("MemorySize",) . toJSON) _greengrassFunctionDefinitionFunctionConfigurationMemorySize
     , fmap (("Pinned",) . toJSON) _greengrassFunctionDefinitionFunctionConfigurationPinned
-    , (Just . ("Timeout",) . toJSON) _greengrassFunctionDefinitionFunctionConfigurationTimeout
+    , fmap (("Timeout",) . toJSON) _greengrassFunctionDefinitionFunctionConfigurationTimeout
     ]
 
 -- | Constructor for 'GreengrassFunctionDefinitionFunctionConfiguration'
 -- containing required fields as arguments.
 greengrassFunctionDefinitionFunctionConfiguration
-  :: Val Integer -- ^ 'gfdfcMemorySize'
-  -> Val Integer -- ^ 'gfdfcTimeout'
-  -> GreengrassFunctionDefinitionFunctionConfiguration
-greengrassFunctionDefinitionFunctionConfiguration memorySizearg timeoutarg =
+  :: GreengrassFunctionDefinitionFunctionConfiguration
+greengrassFunctionDefinitionFunctionConfiguration  =
   GreengrassFunctionDefinitionFunctionConfiguration
   { _greengrassFunctionDefinitionFunctionConfigurationEncodingType = Nothing
   , _greengrassFunctionDefinitionFunctionConfigurationEnvironment = Nothing
   , _greengrassFunctionDefinitionFunctionConfigurationExecArgs = Nothing
   , _greengrassFunctionDefinitionFunctionConfigurationExecutable = Nothing
-  , _greengrassFunctionDefinitionFunctionConfigurationMemorySize = memorySizearg
+  , _greengrassFunctionDefinitionFunctionConfigurationMemorySize = Nothing
   , _greengrassFunctionDefinitionFunctionConfigurationPinned = Nothing
-  , _greengrassFunctionDefinitionFunctionConfigurationTimeout = timeoutarg
+  , _greengrassFunctionDefinitionFunctionConfigurationTimeout = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-functionconfiguration.html#cfn-greengrass-functiondefinition-functionconfiguration-encodingtype
@@ -72,7 +70,7 @@ gfdfcExecutable :: Lens' GreengrassFunctionDefinitionFunctionConfiguration (Mayb
 gfdfcExecutable = lens _greengrassFunctionDefinitionFunctionConfigurationExecutable (\s a -> s { _greengrassFunctionDefinitionFunctionConfigurationExecutable = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-functionconfiguration.html#cfn-greengrass-functiondefinition-functionconfiguration-memorysize
-gfdfcMemorySize :: Lens' GreengrassFunctionDefinitionFunctionConfiguration (Val Integer)
+gfdfcMemorySize :: Lens' GreengrassFunctionDefinitionFunctionConfiguration (Maybe (Val Integer))
 gfdfcMemorySize = lens _greengrassFunctionDefinitionFunctionConfigurationMemorySize (\s a -> s { _greengrassFunctionDefinitionFunctionConfigurationMemorySize = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-functionconfiguration.html#cfn-greengrass-functiondefinition-functionconfiguration-pinned
@@ -80,5 +78,5 @@ gfdfcPinned :: Lens' GreengrassFunctionDefinitionFunctionConfiguration (Maybe (V
 gfdfcPinned = lens _greengrassFunctionDefinitionFunctionConfigurationPinned (\s a -> s { _greengrassFunctionDefinitionFunctionConfigurationPinned = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-functionconfiguration.html#cfn-greengrass-functiondefinition-functionconfiguration-timeout
-gfdfcTimeout :: Lens' GreengrassFunctionDefinitionFunctionConfiguration (Val Integer)
+gfdfcTimeout :: Lens' GreengrassFunctionDefinitionFunctionConfiguration (Maybe (Val Integer))
 gfdfcTimeout = lens _greengrassFunctionDefinitionFunctionConfigurationTimeout (\s a -> s { _greengrassFunctionDefinitionFunctionConfigurationTimeout = a })
