@@ -9,7 +9,7 @@ module Stratosphere.Resources.FSxFileSystem where
 
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.FSxFileSystemLustreConfiguration
-import Stratosphere.ResourceProperties.FSxFileSystemTagEntry
+import Stratosphere.ResourceProperties.Tag
 import Stratosphere.ResourceProperties.FSxFileSystemWindowsConfiguration
 
 -- | Full data type definition for FSxFileSystem. See 'fSxFileSystem' for a
@@ -23,7 +23,7 @@ data FSxFileSystem =
   , _fSxFileSystemSecurityGroupIds :: Maybe (ValList Text)
   , _fSxFileSystemStorageCapacity :: Maybe (Val Integer)
   , _fSxFileSystemSubnetIds :: Maybe (ValList Text)
-  , _fSxFileSystemTags :: Maybe [FSxFileSystemTagEntry]
+  , _fSxFileSystemTags :: Maybe [Tag]
   , _fSxFileSystemWindowsConfiguration :: Maybe FSxFileSystemWindowsConfiguration
   } deriving (Show, Eq)
 
@@ -90,7 +90,7 @@ fsfsSubnetIds :: Lens' FSxFileSystem (Maybe (ValList Text))
 fsfsSubnetIds = lens _fSxFileSystemSubnetIds (\s a -> s { _fSxFileSystemSubnetIds = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-tags
-fsfsTags :: Lens' FSxFileSystem (Maybe [FSxFileSystemTagEntry])
+fsfsTags :: Lens' FSxFileSystem (Maybe [Tag])
 fsfsTags = lens _fSxFileSystemTags (\s a -> s { _fSxFileSystemTags = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-windowsconfiguration

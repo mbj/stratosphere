@@ -14,7 +14,8 @@ import Stratosphere.ResourceImports
 -- 'cognitoUserPoolEmailConfiguration' for a more convenient constructor.
 data CognitoUserPoolEmailConfiguration =
   CognitoUserPoolEmailConfiguration
-  { _cognitoUserPoolEmailConfigurationReplyToEmailAddress :: Maybe (Val Text)
+  { _cognitoUserPoolEmailConfigurationEmailSendingAccount :: Maybe (Val Text)
+  , _cognitoUserPoolEmailConfigurationReplyToEmailAddress :: Maybe (Val Text)
   , _cognitoUserPoolEmailConfigurationSourceArn :: Maybe (Val Text)
   } deriving (Show, Eq)
 
@@ -22,7 +23,8 @@ instance ToJSON CognitoUserPoolEmailConfiguration where
   toJSON CognitoUserPoolEmailConfiguration{..} =
     object $
     catMaybes
-    [ fmap (("ReplyToEmailAddress",) . toJSON) _cognitoUserPoolEmailConfigurationReplyToEmailAddress
+    [ fmap (("EmailSendingAccount",) . toJSON) _cognitoUserPoolEmailConfigurationEmailSendingAccount
+    , fmap (("ReplyToEmailAddress",) . toJSON) _cognitoUserPoolEmailConfigurationReplyToEmailAddress
     , fmap (("SourceArn",) . toJSON) _cognitoUserPoolEmailConfigurationSourceArn
     ]
 
@@ -32,9 +34,14 @@ cognitoUserPoolEmailConfiguration
   :: CognitoUserPoolEmailConfiguration
 cognitoUserPoolEmailConfiguration  =
   CognitoUserPoolEmailConfiguration
-  { _cognitoUserPoolEmailConfigurationReplyToEmailAddress = Nothing
+  { _cognitoUserPoolEmailConfigurationEmailSendingAccount = Nothing
+  , _cognitoUserPoolEmailConfigurationReplyToEmailAddress = Nothing
   , _cognitoUserPoolEmailConfigurationSourceArn = Nothing
   }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-emailconfiguration.html#cfn-cognito-userpool-emailconfiguration-emailsendingaccount
+cupecEmailSendingAccount :: Lens' CognitoUserPoolEmailConfiguration (Maybe (Val Text))
+cupecEmailSendingAccount = lens _cognitoUserPoolEmailConfigurationEmailSendingAccount (\s a -> s { _cognitoUserPoolEmailConfigurationEmailSendingAccount = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-emailconfiguration.html#cfn-cognito-userpool-emailconfiguration-replytoemailaddress
 cupecReplyToEmailAddress :: Lens' CognitoUserPoolEmailConfiguration (Maybe (Val Text))

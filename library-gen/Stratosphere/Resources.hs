@@ -67,8 +67,10 @@ import Stratosphere.Resources.ApiGatewayUsagePlan as X
 import Stratosphere.Resources.ApiGatewayUsagePlanKey as X
 import Stratosphere.Resources.ApiGatewayVpcLink as X
 import Stratosphere.Resources.ApiGatewayV2Api as X
+import Stratosphere.Resources.ApiGatewayV2ApiMapping as X
 import Stratosphere.Resources.ApiGatewayV2Authorizer as X
 import Stratosphere.Resources.ApiGatewayV2Deployment as X
+import Stratosphere.Resources.ApiGatewayV2DomainName as X
 import Stratosphere.Resources.ApiGatewayV2Integration as X
 import Stratosphere.Resources.ApiGatewayV2IntegrationResponse as X
 import Stratosphere.Resources.ApiGatewayV2Model as X
@@ -191,7 +193,6 @@ import Stratosphere.Resources.EC2TransitGatewayRoute as X
 import Stratosphere.Resources.EC2TransitGatewayRouteTable as X
 import Stratosphere.Resources.EC2TransitGatewayRouteTableAssociation as X
 import Stratosphere.Resources.EC2TransitGatewayRouteTablePropagation as X
-import Stratosphere.Resources.EC2TrunkInterfaceAssociation as X
 import Stratosphere.Resources.EC2VPC as X
 import Stratosphere.Resources.EC2VPCCidrBlock as X
 import Stratosphere.Resources.EC2VPCDHCPOptionsAssociation as X
@@ -262,6 +263,7 @@ import Stratosphere.Resources.GreengrassGroup as X
 import Stratosphere.Resources.GreengrassGroupVersion as X
 import Stratosphere.Resources.GreengrassLoggerDefinition as X
 import Stratosphere.Resources.GreengrassLoggerDefinitionVersion as X
+import Stratosphere.Resources.GreengrassResourceDefinition as X
 import Stratosphere.Resources.GreengrassResourceDefinitionVersion as X
 import Stratosphere.Resources.GreengrassSubscriptionDefinition as X
 import Stratosphere.Resources.GreengrassSubscriptionDefinitionVersion as X
@@ -453,6 +455,7 @@ import Stratosphere.ResourceProperties.ApiGatewayStageMethodSetting as X
 import Stratosphere.ResourceProperties.ApiGatewayUsagePlanApiStage as X
 import Stratosphere.ResourceProperties.ApiGatewayUsagePlanQuotaSettings as X
 import Stratosphere.ResourceProperties.ApiGatewayUsagePlanThrottleSettings as X
+import Stratosphere.ResourceProperties.ApiGatewayV2DomainNameDomainNameConfiguration as X
 import Stratosphere.ResourceProperties.ApiGatewayV2RouteParameterConstraints as X
 import Stratosphere.ResourceProperties.ApiGatewayV2RouteResponseParameterConstraints as X
 import Stratosphere.ResourceProperties.ApiGatewayV2StageAccessLogSettings as X
@@ -550,6 +553,7 @@ import Stratosphere.ResourceProperties.BatchJobDefinitionEnvironment as X
 import Stratosphere.ResourceProperties.BatchJobDefinitionMountPoints as X
 import Stratosphere.ResourceProperties.BatchJobDefinitionNodeProperties as X
 import Stratosphere.ResourceProperties.BatchJobDefinitionNodeRangeProperty as X
+import Stratosphere.ResourceProperties.BatchJobDefinitionResourceRequirement as X
 import Stratosphere.ResourceProperties.BatchJobDefinitionRetryStrategy as X
 import Stratosphere.ResourceProperties.BatchJobDefinitionTimeout as X
 import Stratosphere.ResourceProperties.BatchJobDefinitionUlimit as X
@@ -888,7 +892,6 @@ import Stratosphere.ResourceProperties.EventsRuleRunCommandTarget as X
 import Stratosphere.ResourceProperties.EventsRuleSqsParameters as X
 import Stratosphere.ResourceProperties.EventsRuleTarget as X
 import Stratosphere.ResourceProperties.FSxFileSystemLustreConfiguration as X
-import Stratosphere.ResourceProperties.FSxFileSystemTagEntry as X
 import Stratosphere.ResourceProperties.FSxFileSystemWindowsConfiguration as X
 import Stratosphere.ResourceProperties.GameLiftAliasRoutingStrategy as X
 import Stratosphere.ResourceProperties.GameLiftBuildS3Location as X
@@ -950,6 +953,15 @@ import Stratosphere.ResourceProperties.GreengrassGroupGroupVersion as X
 import Stratosphere.ResourceProperties.GreengrassLoggerDefinitionLogger as X
 import Stratosphere.ResourceProperties.GreengrassLoggerDefinitionLoggerDefinitionVersion as X
 import Stratosphere.ResourceProperties.GreengrassLoggerDefinitionVersionLogger as X
+import Stratosphere.ResourceProperties.GreengrassResourceDefinitionGroupOwnerSetting as X
+import Stratosphere.ResourceProperties.GreengrassResourceDefinitionLocalDeviceResourceData as X
+import Stratosphere.ResourceProperties.GreengrassResourceDefinitionLocalVolumeResourceData as X
+import Stratosphere.ResourceProperties.GreengrassResourceDefinitionResourceDataContainer as X
+import Stratosphere.ResourceProperties.GreengrassResourceDefinitionResourceDefinitionVersion as X
+import Stratosphere.ResourceProperties.GreengrassResourceDefinitionResourceInstance as X
+import Stratosphere.ResourceProperties.GreengrassResourceDefinitionS3MachineLearningModelResourceData as X
+import Stratosphere.ResourceProperties.GreengrassResourceDefinitionSageMakerMachineLearningModelResourceData as X
+import Stratosphere.ResourceProperties.GreengrassResourceDefinitionSecretsManagerSecretResourceData as X
 import Stratosphere.ResourceProperties.GreengrassResourceDefinitionVersionGroupOwnerSetting as X
 import Stratosphere.ResourceProperties.GreengrassResourceDefinitionVersionLocalDeviceResourceData as X
 import Stratosphere.ResourceProperties.GreengrassResourceDefinitionVersionLocalVolumeResourceData as X

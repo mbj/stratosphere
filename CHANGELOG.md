@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.37.0
+
+* Update resource specification document to version 3.0.0
+
 ## 0.36.0
 
 * Update resource specification document to version 2.29.0
