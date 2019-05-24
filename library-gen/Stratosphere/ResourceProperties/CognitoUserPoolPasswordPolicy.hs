@@ -19,6 +19,7 @@ data CognitoUserPoolPasswordPolicy =
   , _cognitoUserPoolPasswordPolicyRequireNumbers :: Maybe (Val Bool)
   , _cognitoUserPoolPasswordPolicyRequireSymbols :: Maybe (Val Bool)
   , _cognitoUserPoolPasswordPolicyRequireUppercase :: Maybe (Val Bool)
+  , _cognitoUserPoolPasswordPolicyTemporaryPasswordValidityDays :: Maybe (Val Double)
   } deriving (Show, Eq)
 
 instance ToJSON CognitoUserPoolPasswordPolicy where
@@ -30,6 +31,7 @@ instance ToJSON CognitoUserPoolPasswordPolicy where
     , fmap (("RequireNumbers",) . toJSON) _cognitoUserPoolPasswordPolicyRequireNumbers
     , fmap (("RequireSymbols",) . toJSON) _cognitoUserPoolPasswordPolicyRequireSymbols
     , fmap (("RequireUppercase",) . toJSON) _cognitoUserPoolPasswordPolicyRequireUppercase
+    , fmap (("TemporaryPasswordValidityDays",) . toJSON) _cognitoUserPoolPasswordPolicyTemporaryPasswordValidityDays
     ]
 
 -- | Constructor for 'CognitoUserPoolPasswordPolicy' containing required
@@ -43,6 +45,7 @@ cognitoUserPoolPasswordPolicy  =
   , _cognitoUserPoolPasswordPolicyRequireNumbers = Nothing
   , _cognitoUserPoolPasswordPolicyRequireSymbols = Nothing
   , _cognitoUserPoolPasswordPolicyRequireUppercase = Nothing
+  , _cognitoUserPoolPasswordPolicyTemporaryPasswordValidityDays = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-passwordpolicy.html#cfn-cognito-userpool-passwordpolicy-minimumlength
@@ -64,3 +67,7 @@ cupppRequireSymbols = lens _cognitoUserPoolPasswordPolicyRequireSymbols (\s a ->
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-passwordpolicy.html#cfn-cognito-userpool-passwordpolicy-requireuppercase
 cupppRequireUppercase :: Lens' CognitoUserPoolPasswordPolicy (Maybe (Val Bool))
 cupppRequireUppercase = lens _cognitoUserPoolPasswordPolicyRequireUppercase (\s a -> s { _cognitoUserPoolPasswordPolicyRequireUppercase = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-passwordpolicy.html#cfn-cognito-userpool-passwordpolicy-temporarypasswordvaliditydays
+cupppTemporaryPasswordValidityDays :: Lens' CognitoUserPoolPasswordPolicy (Maybe (Val Double))
+cupppTemporaryPasswordValidityDays = lens _cognitoUserPoolPasswordPolicyTemporaryPasswordValidityDays (\s a -> s { _cognitoUserPoolPasswordPolicyTemporaryPasswordValidityDays = a })

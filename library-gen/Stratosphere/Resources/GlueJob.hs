@@ -26,6 +26,8 @@ data GlueJob =
   , _glueJobMaxRetries :: Maybe (Val Double)
   , _glueJobName :: Maybe (Val Text)
   , _glueJobRole :: Val Text
+  , _glueJobSecurityConfiguration :: Maybe (Val Text)
+  , _glueJobTags :: Maybe Object
   } deriving (Show, Eq)
 
 instance ToResourceProperties GlueJob where
@@ -44,6 +46,8 @@ instance ToResourceProperties GlueJob where
         , fmap (("MaxRetries",) . toJSON) _glueJobMaxRetries
         , fmap (("Name",) . toJSON) _glueJobName
         , (Just . ("Role",) . toJSON) _glueJobRole
+        , fmap (("SecurityConfiguration",) . toJSON) _glueJobSecurityConfiguration
+        , fmap (("Tags",) . toJSON) _glueJobTags
         ]
     }
 
@@ -64,6 +68,8 @@ glueJob commandarg rolearg =
   , _glueJobMaxRetries = Nothing
   , _glueJobName = Nothing
   , _glueJobRole = rolearg
+  , _glueJobSecurityConfiguration = Nothing
+  , _glueJobTags = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-allocatedcapacity
@@ -105,3 +111,11 @@ gjName = lens _glueJobName (\s a -> s { _glueJobName = a })
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-role
 gjRole :: Lens' GlueJob (Val Text)
 gjRole = lens _glueJobRole (\s a -> s { _glueJobRole = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-securityconfiguration
+gjSecurityConfiguration :: Lens' GlueJob (Maybe (Val Text))
+gjSecurityConfiguration = lens _glueJobSecurityConfiguration (\s a -> s { _glueJobSecurityConfiguration = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-tags
+gjTags :: Lens' GlueJob (Maybe Object)
+gjTags = lens _glueJobTags (\s a -> s { _glueJobTags = a })

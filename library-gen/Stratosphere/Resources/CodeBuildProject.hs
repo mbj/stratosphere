@@ -12,6 +12,7 @@ import Stratosphere.ResourceProperties.CodeBuildProjectArtifacts
 import Stratosphere.ResourceProperties.CodeBuildProjectProjectCache
 import Stratosphere.ResourceProperties.CodeBuildProjectEnvironment
 import Stratosphere.ResourceProperties.CodeBuildProjectLogsConfig
+import Stratosphere.ResourceProperties.CodeBuildProjectProjectSourceVersion
 import Stratosphere.ResourceProperties.CodeBuildProjectSource
 import Stratosphere.ResourceProperties.Tag
 import Stratosphere.ResourceProperties.CodeBuildProjectProjectTriggers
@@ -31,9 +32,11 @@ data CodeBuildProject =
   , _codeBuildProjectName :: Maybe (Val Text)
   , _codeBuildProjectQueuedTimeoutInMinutes :: Maybe (Val Integer)
   , _codeBuildProjectSecondaryArtifacts :: Maybe [CodeBuildProjectArtifacts]
+  , _codeBuildProjectSecondarySourceVersions :: Maybe [CodeBuildProjectProjectSourceVersion]
   , _codeBuildProjectSecondarySources :: Maybe [CodeBuildProjectSource]
   , _codeBuildProjectServiceRole :: Val Text
   , _codeBuildProjectSource :: CodeBuildProjectSource
+  , _codeBuildProjectSourceVersion :: Maybe (Val Text)
   , _codeBuildProjectTags :: Maybe [Tag]
   , _codeBuildProjectTimeoutInMinutes :: Maybe (Val Integer)
   , _codeBuildProjectTriggers :: Maybe CodeBuildProjectProjectTriggers
@@ -56,9 +59,11 @@ instance ToResourceProperties CodeBuildProject where
         , fmap (("Name",) . toJSON) _codeBuildProjectName
         , fmap (("QueuedTimeoutInMinutes",) . toJSON) _codeBuildProjectQueuedTimeoutInMinutes
         , fmap (("SecondaryArtifacts",) . toJSON) _codeBuildProjectSecondaryArtifacts
+        , fmap (("SecondarySourceVersions",) . toJSON) _codeBuildProjectSecondarySourceVersions
         , fmap (("SecondarySources",) . toJSON) _codeBuildProjectSecondarySources
         , (Just . ("ServiceRole",) . toJSON) _codeBuildProjectServiceRole
         , (Just . ("Source",) . toJSON) _codeBuildProjectSource
+        , fmap (("SourceVersion",) . toJSON) _codeBuildProjectSourceVersion
         , fmap (("Tags",) . toJSON) _codeBuildProjectTags
         , fmap (("TimeoutInMinutes",) . toJSON) _codeBuildProjectTimeoutInMinutes
         , fmap (("Triggers",) . toJSON) _codeBuildProjectTriggers
@@ -86,9 +91,11 @@ codeBuildProject artifactsarg environmentarg serviceRolearg sourcearg =
   , _codeBuildProjectName = Nothing
   , _codeBuildProjectQueuedTimeoutInMinutes = Nothing
   , _codeBuildProjectSecondaryArtifacts = Nothing
+  , _codeBuildProjectSecondarySourceVersions = Nothing
   , _codeBuildProjectSecondarySources = Nothing
   , _codeBuildProjectServiceRole = serviceRolearg
   , _codeBuildProjectSource = sourcearg
+  , _codeBuildProjectSourceVersion = Nothing
   , _codeBuildProjectTags = Nothing
   , _codeBuildProjectTimeoutInMinutes = Nothing
   , _codeBuildProjectTriggers = Nothing
@@ -135,6 +142,10 @@ cbpQueuedTimeoutInMinutes = lens _codeBuildProjectQueuedTimeoutInMinutes (\s a -
 cbpSecondaryArtifacts :: Lens' CodeBuildProject (Maybe [CodeBuildProjectArtifacts])
 cbpSecondaryArtifacts = lens _codeBuildProjectSecondaryArtifacts (\s a -> s { _codeBuildProjectSecondaryArtifacts = a })
 
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-secondarysourceversions
+cbpSecondarySourceVersions :: Lens' CodeBuildProject (Maybe [CodeBuildProjectProjectSourceVersion])
+cbpSecondarySourceVersions = lens _codeBuildProjectSecondarySourceVersions (\s a -> s { _codeBuildProjectSecondarySourceVersions = a })
+
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-secondarysources
 cbpSecondarySources :: Lens' CodeBuildProject (Maybe [CodeBuildProjectSource])
 cbpSecondarySources = lens _codeBuildProjectSecondarySources (\s a -> s { _codeBuildProjectSecondarySources = a })
@@ -146,6 +157,10 @@ cbpServiceRole = lens _codeBuildProjectServiceRole (\s a -> s { _codeBuildProjec
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-source
 cbpSource :: Lens' CodeBuildProject CodeBuildProjectSource
 cbpSource = lens _codeBuildProjectSource (\s a -> s { _codeBuildProjectSource = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-sourceversion
+cbpSourceVersion :: Lens' CodeBuildProject (Maybe (Val Text))
+cbpSourceVersion = lens _codeBuildProjectSourceVersion (\s a -> s { _codeBuildProjectSourceVersion = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-tags
 cbpTags :: Lens' CodeBuildProject (Maybe [Tag])

@@ -20,6 +20,7 @@ data EC2LaunchTemplateNetworkInterface =
   , _eC2LaunchTemplateNetworkInterfaceDescription :: Maybe (Val Text)
   , _eC2LaunchTemplateNetworkInterfaceDeviceIndex :: Maybe (Val Integer)
   , _eC2LaunchTemplateNetworkInterfaceGroups :: Maybe (ValList Text)
+  , _eC2LaunchTemplateNetworkInterfaceInterfaceType :: Maybe (Val Text)
   , _eC2LaunchTemplateNetworkInterfaceIpv6AddressCount :: Maybe (Val Integer)
   , _eC2LaunchTemplateNetworkInterfaceIpv6Addresses :: Maybe [EC2LaunchTemplateIpv6Add]
   , _eC2LaunchTemplateNetworkInterfaceNetworkInterfaceId :: Maybe (Val Text)
@@ -38,6 +39,7 @@ instance ToJSON EC2LaunchTemplateNetworkInterface where
     , fmap (("Description",) . toJSON) _eC2LaunchTemplateNetworkInterfaceDescription
     , fmap (("DeviceIndex",) . toJSON) _eC2LaunchTemplateNetworkInterfaceDeviceIndex
     , fmap (("Groups",) . toJSON) _eC2LaunchTemplateNetworkInterfaceGroups
+    , fmap (("InterfaceType",) . toJSON) _eC2LaunchTemplateNetworkInterfaceInterfaceType
     , fmap (("Ipv6AddressCount",) . toJSON) _eC2LaunchTemplateNetworkInterfaceIpv6AddressCount
     , fmap (("Ipv6Addresses",) . toJSON) _eC2LaunchTemplateNetworkInterfaceIpv6Addresses
     , fmap (("NetworkInterfaceId",) . toJSON) _eC2LaunchTemplateNetworkInterfaceNetworkInterfaceId
@@ -58,6 +60,7 @@ ec2LaunchTemplateNetworkInterface  =
   , _eC2LaunchTemplateNetworkInterfaceDescription = Nothing
   , _eC2LaunchTemplateNetworkInterfaceDeviceIndex = Nothing
   , _eC2LaunchTemplateNetworkInterfaceGroups = Nothing
+  , _eC2LaunchTemplateNetworkInterfaceInterfaceType = Nothing
   , _eC2LaunchTemplateNetworkInterfaceIpv6AddressCount = Nothing
   , _eC2LaunchTemplateNetworkInterfaceIpv6Addresses = Nothing
   , _eC2LaunchTemplateNetworkInterfaceNetworkInterfaceId = Nothing
@@ -86,6 +89,10 @@ ecltniDeviceIndex = lens _eC2LaunchTemplateNetworkInterfaceDeviceIndex (\s a -> 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-groups
 ecltniGroups :: Lens' EC2LaunchTemplateNetworkInterface (Maybe (ValList Text))
 ecltniGroups = lens _eC2LaunchTemplateNetworkInterfaceGroups (\s a -> s { _eC2LaunchTemplateNetworkInterfaceGroups = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-interfacetype
+ecltniInterfaceType :: Lens' EC2LaunchTemplateNetworkInterface (Maybe (Val Text))
+ecltniInterfaceType = lens _eC2LaunchTemplateNetworkInterfaceInterfaceType (\s a -> s { _eC2LaunchTemplateNetworkInterfaceInterfaceType = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterface.html#cfn-ec2-launchtemplate-networkinterface-ipv6addresscount
 ecltniIpv6AddressCount :: Lens' EC2LaunchTemplateNetworkInterface (Maybe (Val Integer))

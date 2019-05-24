@@ -8,6 +8,7 @@
 module Stratosphere.ResourceProperties.ECSTaskDefinitionContainerDefinition where
 
 import Stratosphere.ResourceImports
+import Stratosphere.ResourceProperties.ECSTaskDefinitionContainerDependency
 import Stratosphere.ResourceProperties.ECSTaskDefinitionKeyValuePair
 import Stratosphere.ResourceProperties.ECSTaskDefinitionHostEntry
 import Stratosphere.ResourceProperties.ECSTaskDefinitionHealthCheck
@@ -25,6 +26,7 @@ data ECSTaskDefinitionContainerDefinition =
   ECSTaskDefinitionContainerDefinition
   { _eCSTaskDefinitionContainerDefinitionCommand :: Maybe (ValList Text)
   , _eCSTaskDefinitionContainerDefinitionCpu :: Maybe (Val Integer)
+  , _eCSTaskDefinitionContainerDefinitionDependsOn :: Maybe [ECSTaskDefinitionContainerDependency]
   , _eCSTaskDefinitionContainerDefinitionDisableNetworking :: Maybe (Val Bool)
   , _eCSTaskDefinitionContainerDefinitionDnsSearchDomains :: Maybe (ValList Text)
   , _eCSTaskDefinitionContainerDefinitionDnsServers :: Maybe (ValList Text)
@@ -48,6 +50,8 @@ data ECSTaskDefinitionContainerDefinition =
   , _eCSTaskDefinitionContainerDefinitionPrivileged :: Maybe (Val Bool)
   , _eCSTaskDefinitionContainerDefinitionReadonlyRootFilesystem :: Maybe (Val Bool)
   , _eCSTaskDefinitionContainerDefinitionRepositoryCredentials :: Maybe ECSTaskDefinitionRepositoryCredentials
+  , _eCSTaskDefinitionContainerDefinitionStartTimeout :: Maybe (Val Integer)
+  , _eCSTaskDefinitionContainerDefinitionStopTimeout :: Maybe (Val Integer)
   , _eCSTaskDefinitionContainerDefinitionUlimits :: Maybe [ECSTaskDefinitionUlimit]
   , _eCSTaskDefinitionContainerDefinitionUser :: Maybe (Val Text)
   , _eCSTaskDefinitionContainerDefinitionVolumesFrom :: Maybe [ECSTaskDefinitionVolumeFrom]
@@ -60,6 +64,7 @@ instance ToJSON ECSTaskDefinitionContainerDefinition where
     catMaybes
     [ fmap (("Command",) . toJSON) _eCSTaskDefinitionContainerDefinitionCommand
     , fmap (("Cpu",) . toJSON) _eCSTaskDefinitionContainerDefinitionCpu
+    , fmap (("DependsOn",) . toJSON) _eCSTaskDefinitionContainerDefinitionDependsOn
     , fmap (("DisableNetworking",) . toJSON) _eCSTaskDefinitionContainerDefinitionDisableNetworking
     , fmap (("DnsSearchDomains",) . toJSON) _eCSTaskDefinitionContainerDefinitionDnsSearchDomains
     , fmap (("DnsServers",) . toJSON) _eCSTaskDefinitionContainerDefinitionDnsServers
@@ -83,6 +88,8 @@ instance ToJSON ECSTaskDefinitionContainerDefinition where
     , fmap (("Privileged",) . toJSON) _eCSTaskDefinitionContainerDefinitionPrivileged
     , fmap (("ReadonlyRootFilesystem",) . toJSON) _eCSTaskDefinitionContainerDefinitionReadonlyRootFilesystem
     , fmap (("RepositoryCredentials",) . toJSON) _eCSTaskDefinitionContainerDefinitionRepositoryCredentials
+    , fmap (("StartTimeout",) . toJSON) _eCSTaskDefinitionContainerDefinitionStartTimeout
+    , fmap (("StopTimeout",) . toJSON) _eCSTaskDefinitionContainerDefinitionStopTimeout
     , fmap (("Ulimits",) . toJSON) _eCSTaskDefinitionContainerDefinitionUlimits
     , fmap (("User",) . toJSON) _eCSTaskDefinitionContainerDefinitionUser
     , fmap (("VolumesFrom",) . toJSON) _eCSTaskDefinitionContainerDefinitionVolumesFrom
@@ -99,6 +106,7 @@ ecsTaskDefinitionContainerDefinition imagearg namearg =
   ECSTaskDefinitionContainerDefinition
   { _eCSTaskDefinitionContainerDefinitionCommand = Nothing
   , _eCSTaskDefinitionContainerDefinitionCpu = Nothing
+  , _eCSTaskDefinitionContainerDefinitionDependsOn = Nothing
   , _eCSTaskDefinitionContainerDefinitionDisableNetworking = Nothing
   , _eCSTaskDefinitionContainerDefinitionDnsSearchDomains = Nothing
   , _eCSTaskDefinitionContainerDefinitionDnsServers = Nothing
@@ -122,6 +130,8 @@ ecsTaskDefinitionContainerDefinition imagearg namearg =
   , _eCSTaskDefinitionContainerDefinitionPrivileged = Nothing
   , _eCSTaskDefinitionContainerDefinitionReadonlyRootFilesystem = Nothing
   , _eCSTaskDefinitionContainerDefinitionRepositoryCredentials = Nothing
+  , _eCSTaskDefinitionContainerDefinitionStartTimeout = Nothing
+  , _eCSTaskDefinitionContainerDefinitionStopTimeout = Nothing
   , _eCSTaskDefinitionContainerDefinitionUlimits = Nothing
   , _eCSTaskDefinitionContainerDefinitionUser = Nothing
   , _eCSTaskDefinitionContainerDefinitionVolumesFrom = Nothing
@@ -135,6 +145,10 @@ ecstdcdCommand = lens _eCSTaskDefinitionContainerDefinitionCommand (\s a -> s { 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-cpu
 ecstdcdCpu :: Lens' ECSTaskDefinitionContainerDefinition (Maybe (Val Integer))
 ecstdcdCpu = lens _eCSTaskDefinitionContainerDefinitionCpu (\s a -> s { _eCSTaskDefinitionContainerDefinitionCpu = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-dependson
+ecstdcdDependsOn :: Lens' ECSTaskDefinitionContainerDefinition (Maybe [ECSTaskDefinitionContainerDependency])
+ecstdcdDependsOn = lens _eCSTaskDefinitionContainerDefinitionDependsOn (\s a -> s { _eCSTaskDefinitionContainerDefinitionDependsOn = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-disablenetworking
 ecstdcdDisableNetworking :: Lens' ECSTaskDefinitionContainerDefinition (Maybe (Val Bool))
@@ -227,6 +241,14 @@ ecstdcdReadonlyRootFilesystem = lens _eCSTaskDefinitionContainerDefinitionReadon
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-repositorycredentials
 ecstdcdRepositoryCredentials :: Lens' ECSTaskDefinitionContainerDefinition (Maybe ECSTaskDefinitionRepositoryCredentials)
 ecstdcdRepositoryCredentials = lens _eCSTaskDefinitionContainerDefinitionRepositoryCredentials (\s a -> s { _eCSTaskDefinitionContainerDefinitionRepositoryCredentials = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-starttimeout
+ecstdcdStartTimeout :: Lens' ECSTaskDefinitionContainerDefinition (Maybe (Val Integer))
+ecstdcdStartTimeout = lens _eCSTaskDefinitionContainerDefinitionStartTimeout (\s a -> s { _eCSTaskDefinitionContainerDefinitionStartTimeout = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-stoptimeout
+ecstdcdStopTimeout :: Lens' ECSTaskDefinitionContainerDefinition (Maybe (Val Integer))
+ecstdcdStopTimeout = lens _eCSTaskDefinitionContainerDefinitionStopTimeout (\s a -> s { _eCSTaskDefinitionContainerDefinitionStopTimeout = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-ulimits
 ecstdcdUlimits :: Lens' ECSTaskDefinitionContainerDefinition (Maybe [ECSTaskDefinitionUlimit])

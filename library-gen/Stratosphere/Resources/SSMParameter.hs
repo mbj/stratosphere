@@ -17,7 +17,9 @@ data SSMParameter =
   { _sSMParameterAllowedPattern :: Maybe (Val Text)
   , _sSMParameterDescription :: Maybe (Val Text)
   , _sSMParameterName :: Maybe (Val Text)
+  , _sSMParameterPolicies :: Maybe (Val Text)
   , _sSMParameterTags :: Maybe Object
+  , _sSMParameterTier :: Maybe (Val Text)
   , _sSMParameterType :: Val Text
   , _sSMParameterValue :: Val Text
   } deriving (Show, Eq)
@@ -31,7 +33,9 @@ instance ToResourceProperties SSMParameter where
         [ fmap (("AllowedPattern",) . toJSON) _sSMParameterAllowedPattern
         , fmap (("Description",) . toJSON) _sSMParameterDescription
         , fmap (("Name",) . toJSON) _sSMParameterName
+        , fmap (("Policies",) . toJSON) _sSMParameterPolicies
         , fmap (("Tags",) . toJSON) _sSMParameterTags
+        , fmap (("Tier",) . toJSON) _sSMParameterTier
         , (Just . ("Type",) . toJSON) _sSMParameterType
         , (Just . ("Value",) . toJSON) _sSMParameterValue
         ]
@@ -47,7 +51,9 @@ ssmParameter typearg valuearg =
   { _sSMParameterAllowedPattern = Nothing
   , _sSMParameterDescription = Nothing
   , _sSMParameterName = Nothing
+  , _sSMParameterPolicies = Nothing
   , _sSMParameterTags = Nothing
+  , _sSMParameterTier = Nothing
   , _sSMParameterType = typearg
   , _sSMParameterValue = valuearg
   }
@@ -64,9 +70,17 @@ ssmpDescription = lens _sSMParameterDescription (\s a -> s { _sSMParameterDescri
 ssmpName :: Lens' SSMParameter (Maybe (Val Text))
 ssmpName = lens _sSMParameterName (\s a -> s { _sSMParameterName = a })
 
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-parameter.html#cfn-ssm-parameter-policies
+ssmpPolicies :: Lens' SSMParameter (Maybe (Val Text))
+ssmpPolicies = lens _sSMParameterPolicies (\s a -> s { _sSMParameterPolicies = a })
+
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-parameter.html#cfn-ssm-parameter-tags
 ssmpTags :: Lens' SSMParameter (Maybe Object)
 ssmpTags = lens _sSMParameterTags (\s a -> s { _sSMParameterTags = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-parameter.html#cfn-ssm-parameter-tier
+ssmpTier :: Lens' SSMParameter (Maybe (Val Text))
+ssmpTier = lens _sSMParameterTier (\s a -> s { _sSMParameterTier = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-parameter.html#cfn-ssm-parameter-type
 ssmpType :: Lens' SSMParameter (Val Text)

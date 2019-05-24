@@ -20,6 +20,7 @@ data GlueTrigger =
   , _glueTriggerName :: Maybe (Val Text)
   , _glueTriggerPredicate :: Maybe GlueTriggerPredicate
   , _glueTriggerSchedule :: Maybe (Val Text)
+  , _glueTriggerTags :: Maybe Object
   , _glueTriggerType :: Val Text
   } deriving (Show, Eq)
 
@@ -34,6 +35,7 @@ instance ToResourceProperties GlueTrigger where
         , fmap (("Name",) . toJSON) _glueTriggerName
         , fmap (("Predicate",) . toJSON) _glueTriggerPredicate
         , fmap (("Schedule",) . toJSON) _glueTriggerSchedule
+        , fmap (("Tags",) . toJSON) _glueTriggerTags
         , (Just . ("Type",) . toJSON) _glueTriggerType
         ]
     }
@@ -50,6 +52,7 @@ glueTrigger actionsarg typearg =
   , _glueTriggerName = Nothing
   , _glueTriggerPredicate = Nothing
   , _glueTriggerSchedule = Nothing
+  , _glueTriggerTags = Nothing
   , _glueTriggerType = typearg
   }
 
@@ -72,6 +75,10 @@ gtPredicate = lens _glueTriggerPredicate (\s a -> s { _glueTriggerPredicate = a 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-schedule
 gtSchedule :: Lens' GlueTrigger (Maybe (Val Text))
 gtSchedule = lens _glueTriggerSchedule (\s a -> s { _glueTriggerSchedule = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-tags
+gtTags :: Lens' GlueTrigger (Maybe Object)
+gtTags = lens _glueTriggerTags (\s a -> s { _glueTriggerTags = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-trigger.html#cfn-glue-trigger-type
 gtType :: Lens' GlueTrigger (Val Text)
