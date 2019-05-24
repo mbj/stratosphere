@@ -10,6 +10,7 @@ module Stratosphere.Resources.ECSTaskDefinition where
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.ECSTaskDefinitionContainerDefinition
 import Stratosphere.ResourceProperties.ECSTaskDefinitionTaskDefinitionPlacementConstraint
+import Stratosphere.ResourceProperties.ECSTaskDefinitionProxyConfiguration
 import Stratosphere.ResourceProperties.ECSTaskDefinitionVolume
 
 -- | Full data type definition for ECSTaskDefinition. See 'ecsTaskDefinition'
@@ -23,6 +24,7 @@ data ECSTaskDefinition =
   , _eCSTaskDefinitionMemory :: Maybe (Val Text)
   , _eCSTaskDefinitionNetworkMode :: Maybe (Val Text)
   , _eCSTaskDefinitionPlacementConstraints :: Maybe [ECSTaskDefinitionTaskDefinitionPlacementConstraint]
+  , _eCSTaskDefinitionProxyConfiguration :: Maybe ECSTaskDefinitionProxyConfiguration
   , _eCSTaskDefinitionRequiresCompatibilities :: Maybe (ValList Text)
   , _eCSTaskDefinitionTaskRoleArn :: Maybe (Val Text)
   , _eCSTaskDefinitionVolumes :: Maybe [ECSTaskDefinitionVolume]
@@ -41,6 +43,7 @@ instance ToResourceProperties ECSTaskDefinition where
         , fmap (("Memory",) . toJSON) _eCSTaskDefinitionMemory
         , fmap (("NetworkMode",) . toJSON) _eCSTaskDefinitionNetworkMode
         , fmap (("PlacementConstraints",) . toJSON) _eCSTaskDefinitionPlacementConstraints
+        , fmap (("ProxyConfiguration",) . toJSON) _eCSTaskDefinitionProxyConfiguration
         , fmap (("RequiresCompatibilities",) . toJSON) _eCSTaskDefinitionRequiresCompatibilities
         , fmap (("TaskRoleArn",) . toJSON) _eCSTaskDefinitionTaskRoleArn
         , fmap (("Volumes",) . toJSON) _eCSTaskDefinitionVolumes
@@ -60,6 +63,7 @@ ecsTaskDefinition  =
   , _eCSTaskDefinitionMemory = Nothing
   , _eCSTaskDefinitionNetworkMode = Nothing
   , _eCSTaskDefinitionPlacementConstraints = Nothing
+  , _eCSTaskDefinitionProxyConfiguration = Nothing
   , _eCSTaskDefinitionRequiresCompatibilities = Nothing
   , _eCSTaskDefinitionTaskRoleArn = Nothing
   , _eCSTaskDefinitionVolumes = Nothing
@@ -92,6 +96,10 @@ ecstdNetworkMode = lens _eCSTaskDefinitionNetworkMode (\s a -> s { _eCSTaskDefin
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-placementconstraints
 ecstdPlacementConstraints :: Lens' ECSTaskDefinition (Maybe [ECSTaskDefinitionTaskDefinitionPlacementConstraint])
 ecstdPlacementConstraints = lens _eCSTaskDefinitionPlacementConstraints (\s a -> s { _eCSTaskDefinitionPlacementConstraints = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-proxyconfiguration
+ecstdProxyConfiguration :: Lens' ECSTaskDefinition (Maybe ECSTaskDefinitionProxyConfiguration)
+ecstdProxyConfiguration = lens _eCSTaskDefinitionProxyConfiguration (\s a -> s { _eCSTaskDefinitionProxyConfiguration = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-requirescompatibilities
 ecstdRequiresCompatibilities :: Lens' ECSTaskDefinition (Maybe (ValList Text))

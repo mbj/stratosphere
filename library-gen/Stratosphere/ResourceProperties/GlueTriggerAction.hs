@@ -16,6 +16,7 @@ data GlueTriggerAction =
   GlueTriggerAction
   { _glueTriggerActionArguments :: Maybe Object
   , _glueTriggerActionJobName :: Maybe (Val Text)
+  , _glueTriggerActionSecurityConfiguration :: Maybe (Val Text)
   } deriving (Show, Eq)
 
 instance ToJSON GlueTriggerAction where
@@ -24,6 +25,7 @@ instance ToJSON GlueTriggerAction where
     catMaybes
     [ fmap (("Arguments",) . toJSON) _glueTriggerActionArguments
     , fmap (("JobName",) . toJSON) _glueTriggerActionJobName
+    , fmap (("SecurityConfiguration",) . toJSON) _glueTriggerActionSecurityConfiguration
     ]
 
 -- | Constructor for 'GlueTriggerAction' containing required fields as
@@ -34,6 +36,7 @@ glueTriggerAction  =
   GlueTriggerAction
   { _glueTriggerActionArguments = Nothing
   , _glueTriggerActionJobName = Nothing
+  , _glueTriggerActionSecurityConfiguration = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-arguments
@@ -43,3 +46,7 @@ gtaArguments = lens _glueTriggerActionArguments (\s a -> s { _glueTriggerActionA
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-jobname
 gtaJobName :: Lens' GlueTriggerAction (Maybe (Val Text))
 gtaJobName = lens _glueTriggerActionJobName (\s a -> s { _glueTriggerActionJobName = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html#cfn-glue-trigger-action-securityconfiguration
+gtaSecurityConfiguration :: Lens' GlueTriggerAction (Maybe (Val Text))
+gtaSecurityConfiguration = lens _glueTriggerActionSecurityConfiguration (\s a -> s { _glueTriggerActionSecurityConfiguration = a })

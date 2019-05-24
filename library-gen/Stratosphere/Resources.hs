@@ -159,6 +159,7 @@ import Stratosphere.Resources.DocDBDBClusterParameterGroup as X
 import Stratosphere.Resources.DocDBDBInstance as X
 import Stratosphere.Resources.DocDBDBSubnetGroup as X
 import Stratosphere.Resources.DynamoDBTable as X
+import Stratosphere.Resources.EC2CapacityReservation as X
 import Stratosphere.Resources.EC2CustomerGateway as X
 import Stratosphere.Resources.EC2DHCPOptions as X
 import Stratosphere.Resources.EC2EC2Fleet as X
@@ -245,10 +246,12 @@ import Stratosphere.Resources.GameLiftFleet as X
 import Stratosphere.Resources.GlueClassifier as X
 import Stratosphere.Resources.GlueConnection as X
 import Stratosphere.Resources.GlueCrawler as X
+import Stratosphere.Resources.GlueDataCatalogEncryptionSettings as X
 import Stratosphere.Resources.GlueDatabase as X
 import Stratosphere.Resources.GlueDevEndpoint as X
 import Stratosphere.Resources.GlueJob as X
 import Stratosphere.Resources.GluePartition as X
+import Stratosphere.Resources.GlueSecurityConfiguration as X
 import Stratosphere.Resources.GlueTable as X
 import Stratosphere.Resources.GlueTrigger as X
 import Stratosphere.Resources.GreengrassConnectorDefinition as X
@@ -322,6 +325,7 @@ import Stratosphere.Resources.LogsLogGroup as X
 import Stratosphere.Resources.LogsLogStream as X
 import Stratosphere.Resources.LogsMetricFilter as X
 import Stratosphere.Resources.LogsSubscriptionFilter as X
+import Stratosphere.Resources.MediaStoreContainer as X
 import Stratosphere.Resources.NeptuneDBCluster as X
 import Stratosphere.Resources.NeptuneDBClusterParameterGroup as X
 import Stratosphere.Resources.NeptuneDBInstance as X
@@ -335,6 +339,10 @@ import Stratosphere.Resources.OpsWorksStack as X
 import Stratosphere.Resources.OpsWorksUserProfile as X
 import Stratosphere.Resources.OpsWorksVolume as X
 import Stratosphere.Resources.OpsWorksCMServer as X
+import Stratosphere.Resources.PinpointEmailConfigurationSet as X
+import Stratosphere.Resources.PinpointEmailConfigurationSetEventDestination as X
+import Stratosphere.Resources.PinpointEmailDedicatedIpPool as X
+import Stratosphere.Resources.PinpointEmailIdentity as X
 import Stratosphere.Resources.RAMResourceShare as X
 import Stratosphere.Resources.RDSDBCluster as X
 import Stratosphere.Resources.RDSDBClusterParameterGroup as X
@@ -403,6 +411,7 @@ import Stratosphere.Resources.ServiceCatalogPortfolio as X
 import Stratosphere.Resources.ServiceCatalogPortfolioPrincipalAssociation as X
 import Stratosphere.Resources.ServiceCatalogPortfolioProductAssociation as X
 import Stratosphere.Resources.ServiceCatalogPortfolioShare as X
+import Stratosphere.Resources.ServiceCatalogResourceUpdateConstraint as X
 import Stratosphere.Resources.ServiceCatalogTagOption as X
 import Stratosphere.Resources.ServiceCatalogTagOptionAssociation as X
 import Stratosphere.Resources.ServiceDiscoveryHttpNamespace as X
@@ -412,6 +421,8 @@ import Stratosphere.Resources.ServiceDiscoveryPublicDnsNamespace as X
 import Stratosphere.Resources.ServiceDiscoveryService as X
 import Stratosphere.Resources.StepFunctionsActivity as X
 import Stratosphere.Resources.StepFunctionsStateMachine as X
+import Stratosphere.Resources.TransferServer as X
+import Stratosphere.Resources.TransferUser as X
 import Stratosphere.Resources.WAFByteMatchSet as X
 import Stratosphere.Resources.WAFIPSet as X
 import Stratosphere.Resources.WAFRule as X
@@ -420,7 +431,10 @@ import Stratosphere.Resources.WAFSqlInjectionMatchSet as X
 import Stratosphere.Resources.WAFWebACL as X
 import Stratosphere.Resources.WAFXssMatchSet as X
 import Stratosphere.Resources.WAFRegionalByteMatchSet as X
+import Stratosphere.Resources.WAFRegionalGeoMatchSet as X
 import Stratosphere.Resources.WAFRegionalIPSet as X
+import Stratosphere.Resources.WAFRegionalRateBasedRule as X
+import Stratosphere.Resources.WAFRegionalRegexPatternSet as X
 import Stratosphere.Resources.WAFRegionalRule as X
 import Stratosphere.Resources.WAFRegionalSizeConstraintSet as X
 import Stratosphere.Resources.WAFRegionalSqlInjectionMatchSet as X
@@ -509,6 +523,8 @@ import Stratosphere.ResourceProperties.AppSyncDataSourceHttpConfig as X
 import Stratosphere.ResourceProperties.AppSyncDataSourceLambdaConfig as X
 import Stratosphere.ResourceProperties.AppSyncDataSourceRdsHttpEndpointConfig as X
 import Stratosphere.ResourceProperties.AppSyncDataSourceRelationalDatabaseConfig as X
+import Stratosphere.ResourceProperties.AppSyncGraphQLApiAdditionalAuthenticationProvider as X
+import Stratosphere.ResourceProperties.AppSyncGraphQLApiCognitoUserPoolConfig as X
 import Stratosphere.ResourceProperties.AppSyncGraphQLApiLogConfig as X
 import Stratosphere.ResourceProperties.AppSyncGraphQLApiOpenIDConnectConfig as X
 import Stratosphere.ResourceProperties.AppSyncGraphQLApiUserPoolConfig as X
@@ -602,6 +618,7 @@ import Stratosphere.ResourceProperties.CodeBuildProjectEnvironmentVariable as X
 import Stratosphere.ResourceProperties.CodeBuildProjectGitSubmodulesConfig as X
 import Stratosphere.ResourceProperties.CodeBuildProjectLogsConfig as X
 import Stratosphere.ResourceProperties.CodeBuildProjectProjectCache as X
+import Stratosphere.ResourceProperties.CodeBuildProjectProjectSourceVersion as X
 import Stratosphere.ResourceProperties.CodeBuildProjectProjectTriggers as X
 import Stratosphere.ResourceProperties.CodeBuildProjectRegistryCredential as X
 import Stratosphere.ResourceProperties.CodeBuildProjectS3LogsConfig as X
@@ -609,7 +626,9 @@ import Stratosphere.ResourceProperties.CodeBuildProjectSource as X
 import Stratosphere.ResourceProperties.CodeBuildProjectSourceAuth as X
 import Stratosphere.ResourceProperties.CodeBuildProjectVpcConfig as X
 import Stratosphere.ResourceProperties.CodeBuildProjectWebhookFilter as X
+import Stratosphere.ResourceProperties.CodeCommitRepositoryCode as X
 import Stratosphere.ResourceProperties.CodeCommitRepositoryRepositoryTrigger as X
+import Stratosphere.ResourceProperties.CodeCommitRepositoryS3 as X
 import Stratosphere.ResourceProperties.CodeDeployDeploymentConfigMinimumHealthyHosts as X
 import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupAlarm as X
 import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupAlarmConfiguration as X
@@ -697,6 +716,7 @@ import Stratosphere.ResourceProperties.DynamoDBTableProvisionedThroughput as X
 import Stratosphere.ResourceProperties.DynamoDBTableSSESpecification as X
 import Stratosphere.ResourceProperties.DynamoDBTableStreamSpecification as X
 import Stratosphere.ResourceProperties.DynamoDBTableTimeToLiveSpecification as X
+import Stratosphere.ResourceProperties.EC2CapacityReservationTagSpecification as X
 import Stratosphere.ResourceProperties.EC2EC2FleetFleetLaunchTemplateConfigRequest as X
 import Stratosphere.ResourceProperties.EC2EC2FleetFleetLaunchTemplateOverridesRequest as X
 import Stratosphere.ResourceProperties.EC2EC2FleetFleetLaunchTemplateSpecificationRequest as X
@@ -775,6 +795,7 @@ import Stratosphere.ResourceProperties.ECSServicePlacementConstraint as X
 import Stratosphere.ResourceProperties.ECSServicePlacementStrategy as X
 import Stratosphere.ResourceProperties.ECSServiceServiceRegistry as X
 import Stratosphere.ResourceProperties.ECSTaskDefinitionContainerDefinition as X
+import Stratosphere.ResourceProperties.ECSTaskDefinitionContainerDependency as X
 import Stratosphere.ResourceProperties.ECSTaskDefinitionDevice as X
 import Stratosphere.ResourceProperties.ECSTaskDefinitionDockerVolumeConfiguration as X
 import Stratosphere.ResourceProperties.ECSTaskDefinitionHealthCheck as X
@@ -786,6 +807,7 @@ import Stratosphere.ResourceProperties.ECSTaskDefinitionLinuxParameters as X
 import Stratosphere.ResourceProperties.ECSTaskDefinitionLogConfiguration as X
 import Stratosphere.ResourceProperties.ECSTaskDefinitionMountPoint as X
 import Stratosphere.ResourceProperties.ECSTaskDefinitionPortMapping as X
+import Stratosphere.ResourceProperties.ECSTaskDefinitionProxyConfiguration as X
 import Stratosphere.ResourceProperties.ECSTaskDefinitionRepositoryCredentials as X
 import Stratosphere.ResourceProperties.ECSTaskDefinitionTaskDefinitionPlacementConstraint as X
 import Stratosphere.ResourceProperties.ECSTaskDefinitionTmpfs as X
@@ -896,6 +918,7 @@ import Stratosphere.ResourceProperties.FSxFileSystemWindowsConfiguration as X
 import Stratosphere.ResourceProperties.GameLiftAliasRoutingStrategy as X
 import Stratosphere.ResourceProperties.GameLiftBuildS3Location as X
 import Stratosphere.ResourceProperties.GameLiftFleetIpPermission as X
+import Stratosphere.ResourceProperties.GlueClassifierCsvClassifier as X
 import Stratosphere.ResourceProperties.GlueClassifierGrokClassifier as X
 import Stratosphere.ResourceProperties.GlueClassifierJsonClassifier as X
 import Stratosphere.ResourceProperties.GlueClassifierXMLClassifier as X
@@ -906,6 +929,9 @@ import Stratosphere.ResourceProperties.GlueCrawlerS3Target as X
 import Stratosphere.ResourceProperties.GlueCrawlerSchedule as X
 import Stratosphere.ResourceProperties.GlueCrawlerSchemaChangePolicy as X
 import Stratosphere.ResourceProperties.GlueCrawlerTargets as X
+import Stratosphere.ResourceProperties.GlueDataCatalogEncryptionSettingsConnectionPasswordEncryption as X
+import Stratosphere.ResourceProperties.GlueDataCatalogEncryptionSettingsDataCatalogEncryptionSettings as X
+import Stratosphere.ResourceProperties.GlueDataCatalogEncryptionSettingsEncryptionAtRest as X
 import Stratosphere.ResourceProperties.GlueDatabaseDatabaseInput as X
 import Stratosphere.ResourceProperties.GlueJobConnectionsList as X
 import Stratosphere.ResourceProperties.GlueJobExecutionProperty as X
@@ -916,6 +942,10 @@ import Stratosphere.ResourceProperties.GluePartitionPartitionInput as X
 import Stratosphere.ResourceProperties.GluePartitionSerdeInfo as X
 import Stratosphere.ResourceProperties.GluePartitionSkewedInfo as X
 import Stratosphere.ResourceProperties.GluePartitionStorageDescriptor as X
+import Stratosphere.ResourceProperties.GlueSecurityConfigurationCloudWatchEncryption as X
+import Stratosphere.ResourceProperties.GlueSecurityConfigurationEncryptionConfiguration as X
+import Stratosphere.ResourceProperties.GlueSecurityConfigurationJobBookmarksEncryption as X
+import Stratosphere.ResourceProperties.GlueSecurityConfigurationS3Encryption as X
 import Stratosphere.ResourceProperties.GlueTableColumn as X
 import Stratosphere.ResourceProperties.GlueTableOrder as X
 import Stratosphere.ResourceProperties.GlueTableSerdeInfo as X
@@ -1115,6 +1145,7 @@ import Stratosphere.ResourceProperties.LambdaFunctionTracingConfig as X
 import Stratosphere.ResourceProperties.LambdaFunctionVpcConfig as X
 import Stratosphere.ResourceProperties.LambdaLayerVersionContent as X
 import Stratosphere.ResourceProperties.LogsMetricFilterMetricTransformation as X
+import Stratosphere.ResourceProperties.MediaStoreContainerCorsRule as X
 import Stratosphere.ResourceProperties.OpsWorksAppDataSource as X
 import Stratosphere.ResourceProperties.OpsWorksAppEnvironmentVariable as X
 import Stratosphere.ResourceProperties.OpsWorksAppSource as X
@@ -1134,6 +1165,20 @@ import Stratosphere.ResourceProperties.OpsWorksStackRdsDbInstance as X
 import Stratosphere.ResourceProperties.OpsWorksStackSource as X
 import Stratosphere.ResourceProperties.OpsWorksStackStackConfigurationManager as X
 import Stratosphere.ResourceProperties.OpsWorksCMServerEngineAttribute as X
+import Stratosphere.ResourceProperties.PinpointEmailConfigurationSetDeliveryOptions as X
+import Stratosphere.ResourceProperties.PinpointEmailConfigurationSetReputationOptions as X
+import Stratosphere.ResourceProperties.PinpointEmailConfigurationSetSendingOptions as X
+import Stratosphere.ResourceProperties.PinpointEmailConfigurationSetTags as X
+import Stratosphere.ResourceProperties.PinpointEmailConfigurationSetTrackingOptions as X
+import Stratosphere.ResourceProperties.PinpointEmailConfigurationSetEventDestinationCloudWatchDestination as X
+import Stratosphere.ResourceProperties.PinpointEmailConfigurationSetEventDestinationDimensionConfiguration as X
+import Stratosphere.ResourceProperties.PinpointEmailConfigurationSetEventDestinationEventDestination as X
+import Stratosphere.ResourceProperties.PinpointEmailConfigurationSetEventDestinationKinesisFirehoseDestination as X
+import Stratosphere.ResourceProperties.PinpointEmailConfigurationSetEventDestinationPinpointDestination as X
+import Stratosphere.ResourceProperties.PinpointEmailConfigurationSetEventDestinationSnsDestination as X
+import Stratosphere.ResourceProperties.PinpointEmailDedicatedIpPoolTags as X
+import Stratosphere.ResourceProperties.PinpointEmailIdentityMailFromAttributes as X
+import Stratosphere.ResourceProperties.PinpointEmailIdentityTags as X
 import Stratosphere.ResourceProperties.RDSDBClusterScalingConfiguration as X
 import Stratosphere.ResourceProperties.RDSDBInstanceProcessorFeature as X
 import Stratosphere.ResourceProperties.RDSDBSecurityGroupIngressProperty as X
@@ -1249,6 +1294,8 @@ import Stratosphere.ResourceProperties.ServiceDiscoveryServiceHealthCheckConfig 
 import Stratosphere.ResourceProperties.ServiceDiscoveryServiceHealthCheckCustomConfig as X
 import Stratosphere.ResourceProperties.StepFunctionsActivityTagsEntry as X
 import Stratosphere.ResourceProperties.StepFunctionsStateMachineTagsEntry as X
+import Stratosphere.ResourceProperties.TransferServerEndpointDetails as X
+import Stratosphere.ResourceProperties.TransferServerIdentityProviderDetails as X
 import Stratosphere.ResourceProperties.WAFByteMatchSetByteMatchTuple as X
 import Stratosphere.ResourceProperties.WAFByteMatchSetFieldToMatch as X
 import Stratosphere.ResourceProperties.WAFIPSetIPSetDescriptor as X
@@ -1263,7 +1310,9 @@ import Stratosphere.ResourceProperties.WAFXssMatchSetFieldToMatch as X
 import Stratosphere.ResourceProperties.WAFXssMatchSetXssMatchTuple as X
 import Stratosphere.ResourceProperties.WAFRegionalByteMatchSetByteMatchTuple as X
 import Stratosphere.ResourceProperties.WAFRegionalByteMatchSetFieldToMatch as X
+import Stratosphere.ResourceProperties.WAFRegionalGeoMatchSetGeoMatchConstraint as X
 import Stratosphere.ResourceProperties.WAFRegionalIPSetIPSetDescriptor as X
+import Stratosphere.ResourceProperties.WAFRegionalRateBasedRulePredicate as X
 import Stratosphere.ResourceProperties.WAFRegionalRulePredicate as X
 import Stratosphere.ResourceProperties.WAFRegionalSizeConstraintSetFieldToMatch as X
 import Stratosphere.ResourceProperties.WAFRegionalSizeConstraintSetSizeConstraint as X

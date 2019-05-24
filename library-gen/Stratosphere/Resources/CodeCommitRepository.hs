@@ -8,13 +8,15 @@
 module Stratosphere.Resources.CodeCommitRepository where
 
 import Stratosphere.ResourceImports
+import Stratosphere.ResourceProperties.CodeCommitRepositoryCode
 import Stratosphere.ResourceProperties.CodeCommitRepositoryRepositoryTrigger
 
 -- | Full data type definition for CodeCommitRepository. See
 -- 'codeCommitRepository' for a more convenient constructor.
 data CodeCommitRepository =
   CodeCommitRepository
-  { _codeCommitRepositoryRepositoryDescription :: Maybe (Val Text)
+  { _codeCommitRepositoryCode :: Maybe CodeCommitRepositoryCode
+  , _codeCommitRepositoryRepositoryDescription :: Maybe (Val Text)
   , _codeCommitRepositoryRepositoryName :: Val Text
   , _codeCommitRepositoryTriggers :: Maybe [CodeCommitRepositoryRepositoryTrigger]
   } deriving (Show, Eq)
@@ -25,7 +27,8 @@ instance ToResourceProperties CodeCommitRepository where
     { resourcePropertiesType = "AWS::CodeCommit::Repository"
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
-        [ fmap (("RepositoryDescription",) . toJSON) _codeCommitRepositoryRepositoryDescription
+        [ fmap (("Code",) . toJSON) _codeCommitRepositoryCode
+        , fmap (("RepositoryDescription",) . toJSON) _codeCommitRepositoryRepositoryDescription
         , (Just . ("RepositoryName",) . toJSON) _codeCommitRepositoryRepositoryName
         , fmap (("Triggers",) . toJSON) _codeCommitRepositoryTriggers
         ]
@@ -38,10 +41,15 @@ codeCommitRepository
   -> CodeCommitRepository
 codeCommitRepository repositoryNamearg =
   CodeCommitRepository
-  { _codeCommitRepositoryRepositoryDescription = Nothing
+  { _codeCommitRepositoryCode = Nothing
+  , _codeCommitRepositoryRepositoryDescription = Nothing
   , _codeCommitRepositoryRepositoryName = repositoryNamearg
   , _codeCommitRepositoryTriggers = Nothing
   }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codecommit-repository.html#cfn-codecommit-repository-code
+ccrCode :: Lens' CodeCommitRepository (Maybe CodeCommitRepositoryCode)
+ccrCode = lens _codeCommitRepositoryCode (\s a -> s { _codeCommitRepositoryCode = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codecommit-repository.html#cfn-codecommit-repository-repositorydescription
 ccrRepositoryDescription :: Lens' CodeCommitRepository (Maybe (Val Text))

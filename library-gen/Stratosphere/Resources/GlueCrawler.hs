@@ -18,6 +18,7 @@ data GlueCrawler =
   GlueCrawler
   { _glueCrawlerClassifiers :: Maybe (ValList Text)
   , _glueCrawlerConfiguration :: Maybe (Val Text)
+  , _glueCrawlerCrawlerSecurityConfiguration :: Maybe (Val Text)
   , _glueCrawlerDatabaseName :: Val Text
   , _glueCrawlerDescription :: Maybe (Val Text)
   , _glueCrawlerName :: Maybe (Val Text)
@@ -25,6 +26,7 @@ data GlueCrawler =
   , _glueCrawlerSchedule :: Maybe GlueCrawlerSchedule
   , _glueCrawlerSchemaChangePolicy :: Maybe GlueCrawlerSchemaChangePolicy
   , _glueCrawlerTablePrefix :: Maybe (Val Text)
+  , _glueCrawlerTags :: Maybe Object
   , _glueCrawlerTargets :: GlueCrawlerTargets
   } deriving (Show, Eq)
 
@@ -36,6 +38,7 @@ instance ToResourceProperties GlueCrawler where
         hashMapFromList $ catMaybes
         [ fmap (("Classifiers",) . toJSON) _glueCrawlerClassifiers
         , fmap (("Configuration",) . toJSON) _glueCrawlerConfiguration
+        , fmap (("CrawlerSecurityConfiguration",) . toJSON) _glueCrawlerCrawlerSecurityConfiguration
         , (Just . ("DatabaseName",) . toJSON) _glueCrawlerDatabaseName
         , fmap (("Description",) . toJSON) _glueCrawlerDescription
         , fmap (("Name",) . toJSON) _glueCrawlerName
@@ -43,6 +46,7 @@ instance ToResourceProperties GlueCrawler where
         , fmap (("Schedule",) . toJSON) _glueCrawlerSchedule
         , fmap (("SchemaChangePolicy",) . toJSON) _glueCrawlerSchemaChangePolicy
         , fmap (("TablePrefix",) . toJSON) _glueCrawlerTablePrefix
+        , fmap (("Tags",) . toJSON) _glueCrawlerTags
         , (Just . ("Targets",) . toJSON) _glueCrawlerTargets
         ]
     }
@@ -57,6 +61,7 @@ glueCrawler databaseNamearg rolearg targetsarg =
   GlueCrawler
   { _glueCrawlerClassifiers = Nothing
   , _glueCrawlerConfiguration = Nothing
+  , _glueCrawlerCrawlerSecurityConfiguration = Nothing
   , _glueCrawlerDatabaseName = databaseNamearg
   , _glueCrawlerDescription = Nothing
   , _glueCrawlerName = Nothing
@@ -64,6 +69,7 @@ glueCrawler databaseNamearg rolearg targetsarg =
   , _glueCrawlerSchedule = Nothing
   , _glueCrawlerSchemaChangePolicy = Nothing
   , _glueCrawlerTablePrefix = Nothing
+  , _glueCrawlerTags = Nothing
   , _glueCrawlerTargets = targetsarg
   }
 
@@ -74,6 +80,10 @@ gcClassifiers = lens _glueCrawlerClassifiers (\s a -> s { _glueCrawlerClassifier
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-configuration
 gcConfiguration :: Lens' GlueCrawler (Maybe (Val Text))
 gcConfiguration = lens _glueCrawlerConfiguration (\s a -> s { _glueCrawlerConfiguration = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-crawlersecurityconfiguration
+gcCrawlerSecurityConfiguration :: Lens' GlueCrawler (Maybe (Val Text))
+gcCrawlerSecurityConfiguration = lens _glueCrawlerCrawlerSecurityConfiguration (\s a -> s { _glueCrawlerCrawlerSecurityConfiguration = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-databasename
 gcDatabaseName :: Lens' GlueCrawler (Val Text)
@@ -102,6 +112,10 @@ gcSchemaChangePolicy = lens _glueCrawlerSchemaChangePolicy (\s a -> s { _glueCra
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-tableprefix
 gcTablePrefix :: Lens' GlueCrawler (Maybe (Val Text))
 gcTablePrefix = lens _glueCrawlerTablePrefix (\s a -> s { _glueCrawlerTablePrefix = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-tags
+gcTags :: Lens' GlueCrawler (Maybe Object)
+gcTags = lens _glueCrawlerTags (\s a -> s { _glueCrawlerTags = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-targets
 gcTargets :: Lens' GlueCrawler GlueCrawlerTargets

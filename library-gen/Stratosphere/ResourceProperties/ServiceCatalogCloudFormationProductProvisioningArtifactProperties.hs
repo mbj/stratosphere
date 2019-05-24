@@ -17,6 +17,7 @@ import Stratosphere.ResourceImports
 data ServiceCatalogCloudFormationProductProvisioningArtifactProperties =
   ServiceCatalogCloudFormationProductProvisioningArtifactProperties
   { _serviceCatalogCloudFormationProductProvisioningArtifactPropertiesDescription :: Maybe (Val Text)
+  , _serviceCatalogCloudFormationProductProvisioningArtifactPropertiesDisableTemplateValidation :: Maybe (Val Bool)
   , _serviceCatalogCloudFormationProductProvisioningArtifactPropertiesInfo :: Object
   , _serviceCatalogCloudFormationProductProvisioningArtifactPropertiesName :: Maybe (Val Text)
   } deriving (Show, Eq)
@@ -26,6 +27,7 @@ instance ToJSON ServiceCatalogCloudFormationProductProvisioningArtifactPropertie
     object $
     catMaybes
     [ fmap (("Description",) . toJSON) _serviceCatalogCloudFormationProductProvisioningArtifactPropertiesDescription
+    , fmap (("DisableTemplateValidation",) . toJSON) _serviceCatalogCloudFormationProductProvisioningArtifactPropertiesDisableTemplateValidation
     , (Just . ("Info",) . toJSON) _serviceCatalogCloudFormationProductProvisioningArtifactPropertiesInfo
     , fmap (("Name",) . toJSON) _serviceCatalogCloudFormationProductProvisioningArtifactPropertiesName
     ]
@@ -39,6 +41,7 @@ serviceCatalogCloudFormationProductProvisioningArtifactProperties
 serviceCatalogCloudFormationProductProvisioningArtifactProperties infoarg =
   ServiceCatalogCloudFormationProductProvisioningArtifactProperties
   { _serviceCatalogCloudFormationProductProvisioningArtifactPropertiesDescription = Nothing
+  , _serviceCatalogCloudFormationProductProvisioningArtifactPropertiesDisableTemplateValidation = Nothing
   , _serviceCatalogCloudFormationProductProvisioningArtifactPropertiesInfo = infoarg
   , _serviceCatalogCloudFormationProductProvisioningArtifactPropertiesName = Nothing
   }
@@ -46,6 +49,10 @@ serviceCatalogCloudFormationProductProvisioningArtifactProperties infoarg =
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationproduct-provisioningartifactproperties.html#cfn-servicecatalog-cloudformationproduct-provisioningartifactproperties-description
 sccfppapDescription :: Lens' ServiceCatalogCloudFormationProductProvisioningArtifactProperties (Maybe (Val Text))
 sccfppapDescription = lens _serviceCatalogCloudFormationProductProvisioningArtifactPropertiesDescription (\s a -> s { _serviceCatalogCloudFormationProductProvisioningArtifactPropertiesDescription = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationproduct-provisioningartifactproperties.html#cfn-servicecatalog-cloudformationproduct-provisioningartifactproperties-disabletemplatevalidation
+sccfppapDisableTemplateValidation :: Lens' ServiceCatalogCloudFormationProductProvisioningArtifactProperties (Maybe (Val Bool))
+sccfppapDisableTemplateValidation = lens _serviceCatalogCloudFormationProductProvisioningArtifactPropertiesDisableTemplateValidation (\s a -> s { _serviceCatalogCloudFormationProductProvisioningArtifactPropertiesDisableTemplateValidation = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationproduct-provisioningartifactproperties.html#cfn-servicecatalog-cloudformationproduct-provisioningartifactproperties-info
 sccfppapInfo :: Lens' ServiceCatalogCloudFormationProductProvisioningArtifactProperties Object
