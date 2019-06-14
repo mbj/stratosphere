@@ -14,7 +14,10 @@ import Stratosphere.ResourceProperties.Tag
 -- 'sageMakerNotebookInstance' for a more convenient constructor.
 data SageMakerNotebookInstance =
   SageMakerNotebookInstance
-  { _sageMakerNotebookInstanceDirectInternetAccess :: Maybe (Val Text)
+  { _sageMakerNotebookInstanceAcceleratorTypes :: Maybe (ValList Text)
+  , _sageMakerNotebookInstanceAdditionalCodeRepositories :: Maybe (ValList Text)
+  , _sageMakerNotebookInstanceDefaultCodeRepository :: Maybe (Val Text)
+  , _sageMakerNotebookInstanceDirectInternetAccess :: Maybe (Val Text)
   , _sageMakerNotebookInstanceInstanceType :: Val Text
   , _sageMakerNotebookInstanceKmsKeyId :: Maybe (Val Text)
   , _sageMakerNotebookInstanceLifecycleConfigName :: Maybe (Val Text)
@@ -33,7 +36,10 @@ instance ToResourceProperties SageMakerNotebookInstance where
     { resourcePropertiesType = "AWS::SageMaker::NotebookInstance"
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
-        [ fmap (("DirectInternetAccess",) . toJSON) _sageMakerNotebookInstanceDirectInternetAccess
+        [ fmap (("AcceleratorTypes",) . toJSON) _sageMakerNotebookInstanceAcceleratorTypes
+        , fmap (("AdditionalCodeRepositories",) . toJSON) _sageMakerNotebookInstanceAdditionalCodeRepositories
+        , fmap (("DefaultCodeRepository",) . toJSON) _sageMakerNotebookInstanceDefaultCodeRepository
+        , fmap (("DirectInternetAccess",) . toJSON) _sageMakerNotebookInstanceDirectInternetAccess
         , (Just . ("InstanceType",) . toJSON) _sageMakerNotebookInstanceInstanceType
         , fmap (("KmsKeyId",) . toJSON) _sageMakerNotebookInstanceKmsKeyId
         , fmap (("LifecycleConfigName",) . toJSON) _sageMakerNotebookInstanceLifecycleConfigName
@@ -55,7 +61,10 @@ sageMakerNotebookInstance
   -> SageMakerNotebookInstance
 sageMakerNotebookInstance instanceTypearg roleArnarg =
   SageMakerNotebookInstance
-  { _sageMakerNotebookInstanceDirectInternetAccess = Nothing
+  { _sageMakerNotebookInstanceAcceleratorTypes = Nothing
+  , _sageMakerNotebookInstanceAdditionalCodeRepositories = Nothing
+  , _sageMakerNotebookInstanceDefaultCodeRepository = Nothing
+  , _sageMakerNotebookInstanceDirectInternetAccess = Nothing
   , _sageMakerNotebookInstanceInstanceType = instanceTypearg
   , _sageMakerNotebookInstanceKmsKeyId = Nothing
   , _sageMakerNotebookInstanceLifecycleConfigName = Nothing
@@ -67,6 +76,18 @@ sageMakerNotebookInstance instanceTypearg roleArnarg =
   , _sageMakerNotebookInstanceTags = Nothing
   , _sageMakerNotebookInstanceVolumeSizeInGB = Nothing
   }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstance.html#cfn-sagemaker-notebookinstance-acceleratortypes
+smniAcceleratorTypes :: Lens' SageMakerNotebookInstance (Maybe (ValList Text))
+smniAcceleratorTypes = lens _sageMakerNotebookInstanceAcceleratorTypes (\s a -> s { _sageMakerNotebookInstanceAcceleratorTypes = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstance.html#cfn-sagemaker-notebookinstance-additionalcoderepositories
+smniAdditionalCodeRepositories :: Lens' SageMakerNotebookInstance (Maybe (ValList Text))
+smniAdditionalCodeRepositories = lens _sageMakerNotebookInstanceAdditionalCodeRepositories (\s a -> s { _sageMakerNotebookInstanceAdditionalCodeRepositories = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstance.html#cfn-sagemaker-notebookinstance-defaultcoderepository
+smniDefaultCodeRepository :: Lens' SageMakerNotebookInstance (Maybe (Val Text))
+smniDefaultCodeRepository = lens _sageMakerNotebookInstanceDefaultCodeRepository (\s a -> s { _sageMakerNotebookInstanceDefaultCodeRepository = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstance.html#cfn-sagemaker-notebookinstance-directinternetaccess
 smniDirectInternetAccess :: Lens' SageMakerNotebookInstance (Maybe (Val Text))

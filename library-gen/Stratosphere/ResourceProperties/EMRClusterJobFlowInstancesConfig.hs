@@ -22,6 +22,7 @@ data EMRClusterJobFlowInstancesConfig =
   , _eMRClusterJobFlowInstancesConfigCoreInstanceGroup :: Maybe EMRClusterInstanceGroupConfig
   , _eMRClusterJobFlowInstancesConfigEc2KeyName :: Maybe (Val Text)
   , _eMRClusterJobFlowInstancesConfigEc2SubnetId :: Maybe (Val Text)
+  , _eMRClusterJobFlowInstancesConfigEc2SubnetIds :: Maybe (ValList Text)
   , _eMRClusterJobFlowInstancesConfigEmrManagedMasterSecurityGroup :: Maybe (Val Text)
   , _eMRClusterJobFlowInstancesConfigEmrManagedSlaveSecurityGroup :: Maybe (Val Text)
   , _eMRClusterJobFlowInstancesConfigHadoopVersion :: Maybe (Val Text)
@@ -43,6 +44,7 @@ instance ToJSON EMRClusterJobFlowInstancesConfig where
     , fmap (("CoreInstanceGroup",) . toJSON) _eMRClusterJobFlowInstancesConfigCoreInstanceGroup
     , fmap (("Ec2KeyName",) . toJSON) _eMRClusterJobFlowInstancesConfigEc2KeyName
     , fmap (("Ec2SubnetId",) . toJSON) _eMRClusterJobFlowInstancesConfigEc2SubnetId
+    , fmap (("Ec2SubnetIds",) . toJSON) _eMRClusterJobFlowInstancesConfigEc2SubnetIds
     , fmap (("EmrManagedMasterSecurityGroup",) . toJSON) _eMRClusterJobFlowInstancesConfigEmrManagedMasterSecurityGroup
     , fmap (("EmrManagedSlaveSecurityGroup",) . toJSON) _eMRClusterJobFlowInstancesConfigEmrManagedSlaveSecurityGroup
     , fmap (("HadoopVersion",) . toJSON) _eMRClusterJobFlowInstancesConfigHadoopVersion
@@ -66,6 +68,7 @@ emrClusterJobFlowInstancesConfig  =
   , _eMRClusterJobFlowInstancesConfigCoreInstanceGroup = Nothing
   , _eMRClusterJobFlowInstancesConfigEc2KeyName = Nothing
   , _eMRClusterJobFlowInstancesConfigEc2SubnetId = Nothing
+  , _eMRClusterJobFlowInstancesConfigEc2SubnetIds = Nothing
   , _eMRClusterJobFlowInstancesConfigEmrManagedMasterSecurityGroup = Nothing
   , _eMRClusterJobFlowInstancesConfigEmrManagedSlaveSecurityGroup = Nothing
   , _eMRClusterJobFlowInstancesConfigHadoopVersion = Nothing
@@ -100,6 +103,10 @@ emrcjficEc2KeyName = lens _eMRClusterJobFlowInstancesConfigEc2KeyName (\s a -> s
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-jobflowinstancesconfig.html#cfn-elasticmapreduce-cluster-jobflowinstancesconfig-ec2subnetid
 emrcjficEc2SubnetId :: Lens' EMRClusterJobFlowInstancesConfig (Maybe (Val Text))
 emrcjficEc2SubnetId = lens _eMRClusterJobFlowInstancesConfigEc2SubnetId (\s a -> s { _eMRClusterJobFlowInstancesConfigEc2SubnetId = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-jobflowinstancesconfig.html#cfn-elasticmapreduce-cluster-jobflowinstancesconfig-ec2subnetids
+emrcjficEc2SubnetIds :: Lens' EMRClusterJobFlowInstancesConfig (Maybe (ValList Text))
+emrcjficEc2SubnetIds = lens _eMRClusterJobFlowInstancesConfigEc2SubnetIds (\s a -> s { _eMRClusterJobFlowInstancesConfigEc2SubnetIds = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-jobflowinstancesconfig.html#cfn-elasticmapreduce-cluster-jobflowinstancesconfig-emrmanagedmastersecuritygroup
 emrcjficEmrManagedMasterSecurityGroup :: Lens' EMRClusterJobFlowInstancesConfig (Maybe (Val Text))

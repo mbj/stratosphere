@@ -22,6 +22,7 @@ data EC2Route =
   , _eC2RouteNatGatewayId :: Maybe (Val Text)
   , _eC2RouteNetworkInterfaceId :: Maybe (Val Text)
   , _eC2RouteRouteTableId :: Val Text
+  , _eC2RouteTransitGatewayId :: Maybe (Val Text)
   , _eC2RouteVpcPeeringConnectionId :: Maybe (Val Text)
   } deriving (Show, Eq)
 
@@ -39,6 +40,7 @@ instance ToResourceProperties EC2Route where
         , fmap (("NatGatewayId",) . toJSON) _eC2RouteNatGatewayId
         , fmap (("NetworkInterfaceId",) . toJSON) _eC2RouteNetworkInterfaceId
         , (Just . ("RouteTableId",) . toJSON) _eC2RouteRouteTableId
+        , fmap (("TransitGatewayId",) . toJSON) _eC2RouteTransitGatewayId
         , fmap (("VpcPeeringConnectionId",) . toJSON) _eC2RouteVpcPeeringConnectionId
         ]
     }
@@ -57,6 +59,7 @@ ec2Route routeTableIdarg =
   , _eC2RouteNatGatewayId = Nothing
   , _eC2RouteNetworkInterfaceId = Nothing
   , _eC2RouteRouteTableId = routeTableIdarg
+  , _eC2RouteTransitGatewayId = Nothing
   , _eC2RouteVpcPeeringConnectionId = Nothing
   }
 
@@ -91,6 +94,10 @@ ecrNetworkInterfaceId = lens _eC2RouteNetworkInterfaceId (\s a -> s { _eC2RouteN
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-routetableid
 ecrRouteTableId :: Lens' EC2Route (Val Text)
 ecrRouteTableId = lens _eC2RouteRouteTableId (\s a -> s { _eC2RouteRouteTableId = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-transitgatewayid
+ecrTransitGatewayId :: Lens' EC2Route (Maybe (Val Text))
+ecrTransitGatewayId = lens _eC2RouteTransitGatewayId (\s a -> s { _eC2RouteTransitGatewayId = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-route.html#cfn-ec2-route-vpcpeeringconnectionid
 ecrVpcPeeringConnectionId :: Lens' EC2Route (Maybe (Val Text))

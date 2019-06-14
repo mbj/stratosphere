@@ -45,10 +45,9 @@ rdsMaster =
   & rdsdbiMasterUserPassword ?~ Ref "RdsMasterPassword"
   & rdsdbiDBName ?~ "the_database"
   & rdsdbiPreferredMaintenanceWindow ?~ "Sun:01:00-Sun:02:00"
-  & rdsdbiBackupRetentionPeriod ?~ "30"
+  & rdsdbiBackupRetentionPeriod ?~ Literal 30
   & rdsdbiPreferredBackupWindow ?~ "08:00-09:00"
   & rdsdbiPort ?~ "5432"
-  & rdsdbiBackupRetentionPeriod ?~ "2"
   & rdsdbiTags ?~
   [ tag "Role" "rds-master"
   ]

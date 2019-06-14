@@ -8,6 +8,7 @@
 module Stratosphere.ResourceProperties.DLMLifecyclePolicyPolicyDetails where
 
 import Stratosphere.ResourceImports
+import Stratosphere.ResourceProperties.DLMLifecyclePolicyParameters
 import Stratosphere.ResourceProperties.DLMLifecyclePolicySchedule
 import Stratosphere.ResourceProperties.Tag
 
@@ -15,7 +16,9 @@ import Stratosphere.ResourceProperties.Tag
 -- 'dlmLifecyclePolicyPolicyDetails' for a more convenient constructor.
 data DLMLifecyclePolicyPolicyDetails =
   DLMLifecyclePolicyPolicyDetails
-  { _dLMLifecyclePolicyPolicyDetailsResourceTypes :: Maybe (ValList Text)
+  { _dLMLifecyclePolicyPolicyDetailsParameters :: Maybe DLMLifecyclePolicyParameters
+  , _dLMLifecyclePolicyPolicyDetailsPolicyType :: Maybe (Val Text)
+  , _dLMLifecyclePolicyPolicyDetailsResourceTypes :: Maybe (ValList Text)
   , _dLMLifecyclePolicyPolicyDetailsSchedules :: Maybe [DLMLifecyclePolicySchedule]
   , _dLMLifecyclePolicyPolicyDetailsTargetTags :: Maybe [Tag]
   } deriving (Show, Eq)
@@ -24,7 +27,9 @@ instance ToJSON DLMLifecyclePolicyPolicyDetails where
   toJSON DLMLifecyclePolicyPolicyDetails{..} =
     object $
     catMaybes
-    [ fmap (("ResourceTypes",) . toJSON) _dLMLifecyclePolicyPolicyDetailsResourceTypes
+    [ fmap (("Parameters",) . toJSON) _dLMLifecyclePolicyPolicyDetailsParameters
+    , fmap (("PolicyType",) . toJSON) _dLMLifecyclePolicyPolicyDetailsPolicyType
+    , fmap (("ResourceTypes",) . toJSON) _dLMLifecyclePolicyPolicyDetailsResourceTypes
     , fmap (("Schedules",) . toJSON) _dLMLifecyclePolicyPolicyDetailsSchedules
     , fmap (("TargetTags",) . toJSON) _dLMLifecyclePolicyPolicyDetailsTargetTags
     ]
@@ -35,10 +40,20 @@ dlmLifecyclePolicyPolicyDetails
   :: DLMLifecyclePolicyPolicyDetails
 dlmLifecyclePolicyPolicyDetails  =
   DLMLifecyclePolicyPolicyDetails
-  { _dLMLifecyclePolicyPolicyDetailsResourceTypes = Nothing
+  { _dLMLifecyclePolicyPolicyDetailsParameters = Nothing
+  , _dLMLifecyclePolicyPolicyDetailsPolicyType = Nothing
+  , _dLMLifecyclePolicyPolicyDetailsResourceTypes = Nothing
   , _dLMLifecyclePolicyPolicyDetailsSchedules = Nothing
   , _dLMLifecyclePolicyPolicyDetailsTargetTags = Nothing
   }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-parameters
+dlmlppdParameters :: Lens' DLMLifecyclePolicyPolicyDetails (Maybe DLMLifecyclePolicyParameters)
+dlmlppdParameters = lens _dLMLifecyclePolicyPolicyDetailsParameters (\s a -> s { _dLMLifecyclePolicyPolicyDetailsParameters = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-policytype
+dlmlppdPolicyType :: Lens' DLMLifecyclePolicyPolicyDetails (Maybe (Val Text))
+dlmlppdPolicyType = lens _dLMLifecyclePolicyPolicyDetailsPolicyType (\s a -> s { _dLMLifecyclePolicyPolicyDetailsPolicyType = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-policydetails.html#cfn-dlm-lifecyclepolicy-policydetails-resourcetypes
 dlmlppdResourceTypes :: Lens' DLMLifecyclePolicyPolicyDetails (Maybe (ValList Text))

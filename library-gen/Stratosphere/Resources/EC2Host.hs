@@ -16,6 +16,7 @@ data EC2Host =
   EC2Host
   { _eC2HostAutoPlacement :: Maybe (Val Text)
   , _eC2HostAvailabilityZone :: Val Text
+  , _eC2HostHostRecovery :: Maybe (Val Text)
   , _eC2HostInstanceType :: Val Text
   } deriving (Show, Eq)
 
@@ -27,6 +28,7 @@ instance ToResourceProperties EC2Host where
         hashMapFromList $ catMaybes
         [ fmap (("AutoPlacement",) . toJSON) _eC2HostAutoPlacement
         , (Just . ("AvailabilityZone",) . toJSON) _eC2HostAvailabilityZone
+        , fmap (("HostRecovery",) . toJSON) _eC2HostHostRecovery
         , (Just . ("InstanceType",) . toJSON) _eC2HostInstanceType
         ]
     }
@@ -40,6 +42,7 @@ ec2Host availabilityZonearg instanceTypearg =
   EC2Host
   { _eC2HostAutoPlacement = Nothing
   , _eC2HostAvailabilityZone = availabilityZonearg
+  , _eC2HostHostRecovery = Nothing
   , _eC2HostInstanceType = instanceTypearg
   }
 
@@ -50,6 +53,10 @@ echAutoPlacement = lens _eC2HostAutoPlacement (\s a -> s { _eC2HostAutoPlacement
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-host.html#cfn-ec2-host-availabilityzone
 echAvailabilityZone :: Lens' EC2Host (Val Text)
 echAvailabilityZone = lens _eC2HostAvailabilityZone (\s a -> s { _eC2HostAvailabilityZone = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-host.html#cfn-ec2-host-hostrecovery
+echHostRecovery :: Lens' EC2Host (Maybe (Val Text))
+echHostRecovery = lens _eC2HostHostRecovery (\s a -> s { _eC2HostHostRecovery = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-host.html#cfn-ec2-host-instancetype
 echInstanceType :: Lens' EC2Host (Val Text)
