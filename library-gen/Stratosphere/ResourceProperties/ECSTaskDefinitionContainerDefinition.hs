@@ -17,6 +17,8 @@ import Stratosphere.ResourceProperties.ECSTaskDefinitionLogConfiguration
 import Stratosphere.ResourceProperties.ECSTaskDefinitionMountPoint
 import Stratosphere.ResourceProperties.ECSTaskDefinitionPortMapping
 import Stratosphere.ResourceProperties.ECSTaskDefinitionRepositoryCredentials
+import Stratosphere.ResourceProperties.ECSTaskDefinitionResourceRequirement
+import Stratosphere.ResourceProperties.ECSTaskDefinitionSecret
 import Stratosphere.ResourceProperties.ECSTaskDefinitionUlimit
 import Stratosphere.ResourceProperties.ECSTaskDefinitionVolumeFrom
 
@@ -50,6 +52,8 @@ data ECSTaskDefinitionContainerDefinition =
   , _eCSTaskDefinitionContainerDefinitionPrivileged :: Maybe (Val Bool)
   , _eCSTaskDefinitionContainerDefinitionReadonlyRootFilesystem :: Maybe (Val Bool)
   , _eCSTaskDefinitionContainerDefinitionRepositoryCredentials :: Maybe ECSTaskDefinitionRepositoryCredentials
+  , _eCSTaskDefinitionContainerDefinitionResourceRequirements :: Maybe [ECSTaskDefinitionResourceRequirement]
+  , _eCSTaskDefinitionContainerDefinitionSecrets :: Maybe [ECSTaskDefinitionSecret]
   , _eCSTaskDefinitionContainerDefinitionStartTimeout :: Maybe (Val Integer)
   , _eCSTaskDefinitionContainerDefinitionStopTimeout :: Maybe (Val Integer)
   , _eCSTaskDefinitionContainerDefinitionUlimits :: Maybe [ECSTaskDefinitionUlimit]
@@ -88,6 +92,8 @@ instance ToJSON ECSTaskDefinitionContainerDefinition where
     , fmap (("Privileged",) . toJSON) _eCSTaskDefinitionContainerDefinitionPrivileged
     , fmap (("ReadonlyRootFilesystem",) . toJSON) _eCSTaskDefinitionContainerDefinitionReadonlyRootFilesystem
     , fmap (("RepositoryCredentials",) . toJSON) _eCSTaskDefinitionContainerDefinitionRepositoryCredentials
+    , fmap (("ResourceRequirements",) . toJSON) _eCSTaskDefinitionContainerDefinitionResourceRequirements
+    , fmap (("Secrets",) . toJSON) _eCSTaskDefinitionContainerDefinitionSecrets
     , fmap (("StartTimeout",) . toJSON) _eCSTaskDefinitionContainerDefinitionStartTimeout
     , fmap (("StopTimeout",) . toJSON) _eCSTaskDefinitionContainerDefinitionStopTimeout
     , fmap (("Ulimits",) . toJSON) _eCSTaskDefinitionContainerDefinitionUlimits
@@ -130,6 +136,8 @@ ecsTaskDefinitionContainerDefinition imagearg namearg =
   , _eCSTaskDefinitionContainerDefinitionPrivileged = Nothing
   , _eCSTaskDefinitionContainerDefinitionReadonlyRootFilesystem = Nothing
   , _eCSTaskDefinitionContainerDefinitionRepositoryCredentials = Nothing
+  , _eCSTaskDefinitionContainerDefinitionResourceRequirements = Nothing
+  , _eCSTaskDefinitionContainerDefinitionSecrets = Nothing
   , _eCSTaskDefinitionContainerDefinitionStartTimeout = Nothing
   , _eCSTaskDefinitionContainerDefinitionStopTimeout = Nothing
   , _eCSTaskDefinitionContainerDefinitionUlimits = Nothing
@@ -241,6 +249,14 @@ ecstdcdReadonlyRootFilesystem = lens _eCSTaskDefinitionContainerDefinitionReadon
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-repositorycredentials
 ecstdcdRepositoryCredentials :: Lens' ECSTaskDefinitionContainerDefinition (Maybe ECSTaskDefinitionRepositoryCredentials)
 ecstdcdRepositoryCredentials = lens _eCSTaskDefinitionContainerDefinitionRepositoryCredentials (\s a -> s { _eCSTaskDefinitionContainerDefinitionRepositoryCredentials = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-resourcerequirements
+ecstdcdResourceRequirements :: Lens' ECSTaskDefinitionContainerDefinition (Maybe [ECSTaskDefinitionResourceRequirement])
+ecstdcdResourceRequirements = lens _eCSTaskDefinitionContainerDefinitionResourceRequirements (\s a -> s { _eCSTaskDefinitionContainerDefinitionResourceRequirements = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-secrets
+ecstdcdSecrets :: Lens' ECSTaskDefinitionContainerDefinition (Maybe [ECSTaskDefinitionSecret])
+ecstdcdSecrets = lens _eCSTaskDefinitionContainerDefinitionSecrets (\s a -> s { _eCSTaskDefinitionContainerDefinitionSecrets = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-starttimeout
 ecstdcdStartTimeout :: Lens' ECSTaskDefinitionContainerDefinition (Maybe (Val Integer))

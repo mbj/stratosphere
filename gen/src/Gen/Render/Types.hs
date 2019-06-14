@@ -189,6 +189,8 @@ computeLensPrefix "AWS::Greengrass::ConnectorDefinitionVersion.Connector" = "gcd
 computeLensPrefix "AWS::Greengrass::CoreDefinitionVersion.Core" = "gcdvcr"
 computeLensPrefix "AWS::Greengrass::ConnectorDefinition" = "gcdn"
 computeLensPrefix "AWS::Greengrass::CoreDefinition" = "gcdr"
+computeLensPrefix "AWS::ElasticLoadBalancingV2::ListenerRule.HostHeaderConfig" = "elbvlrhohc"
+computeLensPrefix "AWS::ElasticLoadBalancingV2::ListenerRule.HttpHeaderConfig" = "elbvlrhthc"
 -- Everything else
 computeLensPrefix rawName = toLower $ fromMaybe rawName $ toAcronym $ computeModuleName rawName
 

@@ -10,6 +10,7 @@ module Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamExtendedS3De
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamBufferingHints
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamCloudWatchLoggingOptions
+import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamDataFormatConversionConfiguration
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamEncryptionConfiguration
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamProcessingConfiguration
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamS3DestinationConfiguration
@@ -24,8 +25,10 @@ data KinesisFirehoseDeliveryStreamExtendedS3DestinationConfiguration =
   , _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfigurationBufferingHints :: KinesisFirehoseDeliveryStreamBufferingHints
   , _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfigurationCloudWatchLoggingOptions :: Maybe KinesisFirehoseDeliveryStreamCloudWatchLoggingOptions
   , _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfigurationCompressionFormat :: Val Text
+  , _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfigurationDataFormatConversionConfiguration :: Maybe KinesisFirehoseDeliveryStreamDataFormatConversionConfiguration
   , _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfigurationEncryptionConfiguration :: Maybe KinesisFirehoseDeliveryStreamEncryptionConfiguration
-  , _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfigurationPrefix :: Val Text
+  , _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfigurationErrorOutputPrefix :: Maybe (Val Text)
+  , _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfigurationPrefix :: Maybe (Val Text)
   , _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfigurationProcessingConfiguration :: Maybe KinesisFirehoseDeliveryStreamProcessingConfiguration
   , _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfigurationRoleARN :: Val Text
   , _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfigurationS3BackupConfiguration :: Maybe KinesisFirehoseDeliveryStreamS3DestinationConfiguration
@@ -40,8 +43,10 @@ instance ToJSON KinesisFirehoseDeliveryStreamExtendedS3DestinationConfiguration 
     , (Just . ("BufferingHints",) . toJSON) _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfigurationBufferingHints
     , fmap (("CloudWatchLoggingOptions",) . toJSON) _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfigurationCloudWatchLoggingOptions
     , (Just . ("CompressionFormat",) . toJSON) _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfigurationCompressionFormat
+    , fmap (("DataFormatConversionConfiguration",) . toJSON) _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfigurationDataFormatConversionConfiguration
     , fmap (("EncryptionConfiguration",) . toJSON) _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfigurationEncryptionConfiguration
-    , (Just . ("Prefix",) . toJSON) _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfigurationPrefix
+    , fmap (("ErrorOutputPrefix",) . toJSON) _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfigurationErrorOutputPrefix
+    , fmap (("Prefix",) . toJSON) _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfigurationPrefix
     , fmap (("ProcessingConfiguration",) . toJSON) _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfigurationProcessingConfiguration
     , (Just . ("RoleARN",) . toJSON) _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfigurationRoleARN
     , fmap (("S3BackupConfiguration",) . toJSON) _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfigurationS3BackupConfiguration
@@ -55,17 +60,18 @@ kinesisFirehoseDeliveryStreamExtendedS3DestinationConfiguration
   :: Val Text -- ^ 'kfdsesdcBucketARN'
   -> KinesisFirehoseDeliveryStreamBufferingHints -- ^ 'kfdsesdcBufferingHints'
   -> Val Text -- ^ 'kfdsesdcCompressionFormat'
-  -> Val Text -- ^ 'kfdsesdcPrefix'
   -> Val Text -- ^ 'kfdsesdcRoleARN'
   -> KinesisFirehoseDeliveryStreamExtendedS3DestinationConfiguration
-kinesisFirehoseDeliveryStreamExtendedS3DestinationConfiguration bucketARNarg bufferingHintsarg compressionFormatarg prefixarg roleARNarg =
+kinesisFirehoseDeliveryStreamExtendedS3DestinationConfiguration bucketARNarg bufferingHintsarg compressionFormatarg roleARNarg =
   KinesisFirehoseDeliveryStreamExtendedS3DestinationConfiguration
   { _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfigurationBucketARN = bucketARNarg
   , _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfigurationBufferingHints = bufferingHintsarg
   , _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfigurationCloudWatchLoggingOptions = Nothing
   , _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfigurationCompressionFormat = compressionFormatarg
+  , _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfigurationDataFormatConversionConfiguration = Nothing
   , _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfigurationEncryptionConfiguration = Nothing
-  , _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfigurationPrefix = prefixarg
+  , _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfigurationErrorOutputPrefix = Nothing
+  , _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfigurationPrefix = Nothing
   , _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfigurationProcessingConfiguration = Nothing
   , _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfigurationRoleARN = roleARNarg
   , _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfigurationS3BackupConfiguration = Nothing
@@ -88,12 +94,20 @@ kfdsesdcCloudWatchLoggingOptions = lens _kinesisFirehoseDeliveryStreamExtendedS3
 kfdsesdcCompressionFormat :: Lens' KinesisFirehoseDeliveryStreamExtendedS3DestinationConfiguration (Val Text)
 kfdsesdcCompressionFormat = lens _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfigurationCompressionFormat (\s a -> s { _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfigurationCompressionFormat = a })
 
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-dataformatconversionconfiguration
+kfdsesdcDataFormatConversionConfiguration :: Lens' KinesisFirehoseDeliveryStreamExtendedS3DestinationConfiguration (Maybe KinesisFirehoseDeliveryStreamDataFormatConversionConfiguration)
+kfdsesdcDataFormatConversionConfiguration = lens _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfigurationDataFormatConversionConfiguration (\s a -> s { _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfigurationDataFormatConversionConfiguration = a })
+
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-encryptionconfiguration
 kfdsesdcEncryptionConfiguration :: Lens' KinesisFirehoseDeliveryStreamExtendedS3DestinationConfiguration (Maybe KinesisFirehoseDeliveryStreamEncryptionConfiguration)
 kfdsesdcEncryptionConfiguration = lens _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfigurationEncryptionConfiguration (\s a -> s { _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfigurationEncryptionConfiguration = a })
 
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-erroroutputprefix
+kfdsesdcErrorOutputPrefix :: Lens' KinesisFirehoseDeliveryStreamExtendedS3DestinationConfiguration (Maybe (Val Text))
+kfdsesdcErrorOutputPrefix = lens _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfigurationErrorOutputPrefix (\s a -> s { _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfigurationErrorOutputPrefix = a })
+
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-prefix
-kfdsesdcPrefix :: Lens' KinesisFirehoseDeliveryStreamExtendedS3DestinationConfiguration (Val Text)
+kfdsesdcPrefix :: Lens' KinesisFirehoseDeliveryStreamExtendedS3DestinationConfiguration (Maybe (Val Text))
 kfdsesdcPrefix = lens _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfigurationPrefix (\s a -> s { _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfigurationPrefix = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-extendeds3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration-processingconfiguration

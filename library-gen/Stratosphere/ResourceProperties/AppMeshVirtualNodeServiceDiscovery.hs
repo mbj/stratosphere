@@ -14,26 +14,25 @@ import Stratosphere.ResourceProperties.AppMeshVirtualNodeDnsServiceDiscovery
 -- 'appMeshVirtualNodeServiceDiscovery' for a more convenient constructor.
 data AppMeshVirtualNodeServiceDiscovery =
   AppMeshVirtualNodeServiceDiscovery
-  { _appMeshVirtualNodeServiceDiscoveryDNS :: AppMeshVirtualNodeDnsServiceDiscovery
+  { _appMeshVirtualNodeServiceDiscoveryDNS :: Maybe AppMeshVirtualNodeDnsServiceDiscovery
   } deriving (Show, Eq)
 
 instance ToJSON AppMeshVirtualNodeServiceDiscovery where
   toJSON AppMeshVirtualNodeServiceDiscovery{..} =
     object $
     catMaybes
-    [ (Just . ("DNS",) . toJSON) _appMeshVirtualNodeServiceDiscoveryDNS
+    [ fmap (("DNS",) . toJSON) _appMeshVirtualNodeServiceDiscoveryDNS
     ]
 
 -- | Constructor for 'AppMeshVirtualNodeServiceDiscovery' containing required
 -- fields as arguments.
 appMeshVirtualNodeServiceDiscovery
-  :: AppMeshVirtualNodeDnsServiceDiscovery -- ^ 'amvnsdDNS'
-  -> AppMeshVirtualNodeServiceDiscovery
-appMeshVirtualNodeServiceDiscovery dNSarg =
+  :: AppMeshVirtualNodeServiceDiscovery
+appMeshVirtualNodeServiceDiscovery  =
   AppMeshVirtualNodeServiceDiscovery
-  { _appMeshVirtualNodeServiceDiscoveryDNS = dNSarg
+  { _appMeshVirtualNodeServiceDiscoveryDNS = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-servicediscovery.html#cfn-appmesh-virtualnode-servicediscovery-dns
-amvnsdDNS :: Lens' AppMeshVirtualNodeServiceDiscovery AppMeshVirtualNodeDnsServiceDiscovery
+amvnsdDNS :: Lens' AppMeshVirtualNodeServiceDiscovery (Maybe AppMeshVirtualNodeDnsServiceDiscovery)
 amvnsdDNS = lens _appMeshVirtualNodeServiceDiscoveryDNS (\s a -> s { _appMeshVirtualNodeServiceDiscoveryDNS = a })

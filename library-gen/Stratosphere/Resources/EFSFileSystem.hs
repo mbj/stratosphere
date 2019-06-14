@@ -9,6 +9,7 @@ module Stratosphere.Resources.EFSFileSystem where
 
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.EFSFileSystemElasticFileSystemTag
+import Stratosphere.ResourceProperties.EFSFileSystemLifecyclePolicy
 
 -- | Full data type definition for EFSFileSystem. See 'efsFileSystem' for a
 -- more convenient constructor.
@@ -17,6 +18,7 @@ data EFSFileSystem =
   { _eFSFileSystemEncrypted :: Maybe (Val Bool)
   , _eFSFileSystemFileSystemTags :: Maybe [EFSFileSystemElasticFileSystemTag]
   , _eFSFileSystemKmsKeyId :: Maybe (Val Text)
+  , _eFSFileSystemLifecyclePolicies :: Maybe [EFSFileSystemLifecyclePolicy]
   , _eFSFileSystemPerformanceMode :: Maybe (Val Text)
   , _eFSFileSystemProvisionedThroughputInMibps :: Maybe (Val Double)
   , _eFSFileSystemThroughputMode :: Maybe (Val Text)
@@ -31,6 +33,7 @@ instance ToResourceProperties EFSFileSystem where
         [ fmap (("Encrypted",) . toJSON) _eFSFileSystemEncrypted
         , fmap (("FileSystemTags",) . toJSON) _eFSFileSystemFileSystemTags
         , fmap (("KmsKeyId",) . toJSON) _eFSFileSystemKmsKeyId
+        , fmap (("LifecyclePolicies",) . toJSON) _eFSFileSystemLifecyclePolicies
         , fmap (("PerformanceMode",) . toJSON) _eFSFileSystemPerformanceMode
         , fmap (("ProvisionedThroughputInMibps",) . toJSON) _eFSFileSystemProvisionedThroughputInMibps
         , fmap (("ThroughputMode",) . toJSON) _eFSFileSystemThroughputMode
@@ -45,6 +48,7 @@ efsFileSystem  =
   { _eFSFileSystemEncrypted = Nothing
   , _eFSFileSystemFileSystemTags = Nothing
   , _eFSFileSystemKmsKeyId = Nothing
+  , _eFSFileSystemLifecyclePolicies = Nothing
   , _eFSFileSystemPerformanceMode = Nothing
   , _eFSFileSystemProvisionedThroughputInMibps = Nothing
   , _eFSFileSystemThroughputMode = Nothing
@@ -61,6 +65,10 @@ efsfsFileSystemTags = lens _eFSFileSystemFileSystemTags (\s a -> s { _eFSFileSys
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-kmskeyid
 efsfsKmsKeyId :: Lens' EFSFileSystem (Maybe (Val Text))
 efsfsKmsKeyId = lens _eFSFileSystemKmsKeyId (\s a -> s { _eFSFileSystemKmsKeyId = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-elasticfilesystem-filesystem-lifecyclepolicies
+efsfsLifecyclePolicies :: Lens' EFSFileSystem (Maybe [EFSFileSystemLifecyclePolicy])
+efsfsLifecyclePolicies = lens _eFSFileSystemLifecyclePolicies (\s a -> s { _eFSFileSystemLifecyclePolicies = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-performancemode
 efsfsPerformanceMode :: Lens' EFSFileSystem (Maybe (Val Text))

@@ -22,7 +22,7 @@ data CodePipelineCustomActionType =
   , _codePipelineCustomActionTypeOutputArtifactDetails :: CodePipelineCustomActionTypeArtifactDetails
   , _codePipelineCustomActionTypeProvider :: Val Text
   , _codePipelineCustomActionTypeSettings :: Maybe CodePipelineCustomActionTypeSettings
-  , _codePipelineCustomActionTypeVersion :: Maybe (Val Text)
+  , _codePipelineCustomActionTypeVersion :: Val Text
   } deriving (Show, Eq)
 
 instance ToResourceProperties CodePipelineCustomActionType where
@@ -37,7 +37,7 @@ instance ToResourceProperties CodePipelineCustomActionType where
         , (Just . ("OutputArtifactDetails",) . toJSON) _codePipelineCustomActionTypeOutputArtifactDetails
         , (Just . ("Provider",) . toJSON) _codePipelineCustomActionTypeProvider
         , fmap (("Settings",) . toJSON) _codePipelineCustomActionTypeSettings
-        , fmap (("Version",) . toJSON) _codePipelineCustomActionTypeVersion
+        , (Just . ("Version",) . toJSON) _codePipelineCustomActionTypeVersion
         ]
     }
 
@@ -48,8 +48,9 @@ codePipelineCustomActionType
   -> CodePipelineCustomActionTypeArtifactDetails -- ^ 'cpcatInputArtifactDetails'
   -> CodePipelineCustomActionTypeArtifactDetails -- ^ 'cpcatOutputArtifactDetails'
   -> Val Text -- ^ 'cpcatProvider'
+  -> Val Text -- ^ 'cpcatVersion'
   -> CodePipelineCustomActionType
-codePipelineCustomActionType categoryarg inputArtifactDetailsarg outputArtifactDetailsarg providerarg =
+codePipelineCustomActionType categoryarg inputArtifactDetailsarg outputArtifactDetailsarg providerarg versionarg =
   CodePipelineCustomActionType
   { _codePipelineCustomActionTypeCategory = categoryarg
   , _codePipelineCustomActionTypeConfigurationProperties = Nothing
@@ -57,7 +58,7 @@ codePipelineCustomActionType categoryarg inputArtifactDetailsarg outputArtifactD
   , _codePipelineCustomActionTypeOutputArtifactDetails = outputArtifactDetailsarg
   , _codePipelineCustomActionTypeProvider = providerarg
   , _codePipelineCustomActionTypeSettings = Nothing
-  , _codePipelineCustomActionTypeVersion = Nothing
+  , _codePipelineCustomActionTypeVersion = versionarg
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-customactiontype.html#cfn-codepipeline-customactiontype-category
@@ -85,5 +86,5 @@ cpcatSettings :: Lens' CodePipelineCustomActionType (Maybe CodePipelineCustomAct
 cpcatSettings = lens _codePipelineCustomActionTypeSettings (\s a -> s { _codePipelineCustomActionTypeSettings = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-customactiontype.html#cfn-codepipeline-customactiontype-version
-cpcatVersion :: Lens' CodePipelineCustomActionType (Maybe (Val Text))
+cpcatVersion :: Lens' CodePipelineCustomActionType (Val Text)
 cpcatVersion = lens _codePipelineCustomActionTypeVersion (\s a -> s { _codePipelineCustomActionTypeVersion = a })

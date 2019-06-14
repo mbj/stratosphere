@@ -21,6 +21,7 @@ data DLMLifecyclePolicySchedule =
   , _dLMLifecyclePolicyScheduleName :: Maybe (Val Text)
   , _dLMLifecyclePolicyScheduleRetainRule :: Maybe DLMLifecyclePolicyRetainRule
   , _dLMLifecyclePolicyScheduleTagsToAdd :: Maybe [Tag]
+  , _dLMLifecyclePolicyScheduleVariableTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
 instance ToJSON DLMLifecyclePolicySchedule where
@@ -32,6 +33,7 @@ instance ToJSON DLMLifecyclePolicySchedule where
     , fmap (("Name",) . toJSON) _dLMLifecyclePolicyScheduleName
     , fmap (("RetainRule",) . toJSON) _dLMLifecyclePolicyScheduleRetainRule
     , fmap (("TagsToAdd",) . toJSON) _dLMLifecyclePolicyScheduleTagsToAdd
+    , fmap (("VariableTags",) . toJSON) _dLMLifecyclePolicyScheduleVariableTags
     ]
 
 -- | Constructor for 'DLMLifecyclePolicySchedule' containing required fields
@@ -45,6 +47,7 @@ dlmLifecyclePolicySchedule  =
   , _dLMLifecyclePolicyScheduleName = Nothing
   , _dLMLifecyclePolicyScheduleRetainRule = Nothing
   , _dLMLifecyclePolicyScheduleTagsToAdd = Nothing
+  , _dLMLifecyclePolicyScheduleVariableTags = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html#cfn-dlm-lifecyclepolicy-schedule-copytags
@@ -66,3 +69,7 @@ dlmlpsRetainRule = lens _dLMLifecyclePolicyScheduleRetainRule (\s a -> s { _dLML
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html#cfn-dlm-lifecyclepolicy-schedule-tagstoadd
 dlmlpsTagsToAdd :: Lens' DLMLifecyclePolicySchedule (Maybe [Tag])
 dlmlpsTagsToAdd = lens _dLMLifecyclePolicyScheduleTagsToAdd (\s a -> s { _dLMLifecyclePolicyScheduleTagsToAdd = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html#cfn-dlm-lifecyclepolicy-schedule-variabletags
+dlmlpsVariableTags :: Lens' DLMLifecyclePolicySchedule (Maybe [Tag])
+dlmlpsVariableTags = lens _dLMLifecyclePolicyScheduleVariableTags (\s a -> s { _dLMLifecyclePolicyScheduleVariableTags = a })

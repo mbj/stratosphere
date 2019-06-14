@@ -18,6 +18,7 @@ import Stratosphere.ResourceProperties.S3BucketLifecycleConfiguration
 import Stratosphere.ResourceProperties.S3BucketLoggingConfiguration
 import Stratosphere.ResourceProperties.S3BucketMetricsConfiguration
 import Stratosphere.ResourceProperties.S3BucketNotificationConfiguration
+import Stratosphere.ResourceProperties.S3BucketObjectLockConfiguration
 import Stratosphere.ResourceProperties.S3BucketPublicAccessBlockConfiguration
 import Stratosphere.ResourceProperties.S3BucketReplicationConfiguration
 import Stratosphere.ResourceProperties.Tag
@@ -39,6 +40,8 @@ data S3Bucket =
   , _s3BucketLoggingConfiguration :: Maybe S3BucketLoggingConfiguration
   , _s3BucketMetricsConfigurations :: Maybe [S3BucketMetricsConfiguration]
   , _s3BucketNotificationConfiguration :: Maybe S3BucketNotificationConfiguration
+  , _s3BucketObjectLockConfiguration :: Maybe S3BucketObjectLockConfiguration
+  , _s3BucketObjectLockEnabled :: Maybe (Val Bool)
   , _s3BucketPublicAccessBlockConfiguration :: Maybe S3BucketPublicAccessBlockConfiguration
   , _s3BucketReplicationConfiguration :: Maybe S3BucketReplicationConfiguration
   , _s3BucketTags :: Maybe [Tag]
@@ -63,6 +66,8 @@ instance ToResourceProperties S3Bucket where
         , fmap (("LoggingConfiguration",) . toJSON) _s3BucketLoggingConfiguration
         , fmap (("MetricsConfigurations",) . toJSON) _s3BucketMetricsConfigurations
         , fmap (("NotificationConfiguration",) . toJSON) _s3BucketNotificationConfiguration
+        , fmap (("ObjectLockConfiguration",) . toJSON) _s3BucketObjectLockConfiguration
+        , fmap (("ObjectLockEnabled",) . toJSON) _s3BucketObjectLockEnabled
         , fmap (("PublicAccessBlockConfiguration",) . toJSON) _s3BucketPublicAccessBlockConfiguration
         , fmap (("ReplicationConfiguration",) . toJSON) _s3BucketReplicationConfiguration
         , fmap (("Tags",) . toJSON) _s3BucketTags
@@ -87,6 +92,8 @@ s3Bucket  =
   , _s3BucketLoggingConfiguration = Nothing
   , _s3BucketMetricsConfigurations = Nothing
   , _s3BucketNotificationConfiguration = Nothing
+  , _s3BucketObjectLockConfiguration = Nothing
+  , _s3BucketObjectLockEnabled = Nothing
   , _s3BucketPublicAccessBlockConfiguration = Nothing
   , _s3BucketReplicationConfiguration = Nothing
   , _s3BucketTags = Nothing
@@ -137,6 +144,14 @@ sbMetricsConfigurations = lens _s3BucketMetricsConfigurations (\s a -> s { _s3Bu
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-notification
 sbNotificationConfiguration :: Lens' S3Bucket (Maybe S3BucketNotificationConfiguration)
 sbNotificationConfiguration = lens _s3BucketNotificationConfiguration (\s a -> s { _s3BucketNotificationConfiguration = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-objectlockconfiguration
+sbObjectLockConfiguration :: Lens' S3Bucket (Maybe S3BucketObjectLockConfiguration)
+sbObjectLockConfiguration = lens _s3BucketObjectLockConfiguration (\s a -> s { _s3BucketObjectLockConfiguration = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-objectlockenabled
+sbObjectLockEnabled :: Lens' S3Bucket (Maybe (Val Bool))
+sbObjectLockEnabled = lens _s3BucketObjectLockEnabled (\s a -> s { _s3BucketObjectLockEnabled = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-publicaccessblockconfiguration
 sbPublicAccessBlockConfiguration :: Lens' S3Bucket (Maybe S3BucketPublicAccessBlockConfiguration)

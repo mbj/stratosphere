@@ -19,7 +19,7 @@ data RDSDBInstance =
   , _rDSDBInstanceAllowMajorVersionUpgrade :: Maybe (Val Bool)
   , _rDSDBInstanceAutoMinorVersionUpgrade :: Maybe (Val Bool)
   , _rDSDBInstanceAvailabilityZone :: Maybe (Val Text)
-  , _rDSDBInstanceBackupRetentionPeriod :: Maybe (Val Text)
+  , _rDSDBInstanceBackupRetentionPeriod :: Maybe (Val Integer)
   , _rDSDBInstanceCharacterSetName :: Maybe (Val Text)
   , _rDSDBInstanceCopyTagsToSnapshot :: Maybe (Val Bool)
   , _rDSDBInstanceDBClusterIdentifier :: Maybe (Val Text)
@@ -198,7 +198,7 @@ rdsdbiAvailabilityZone :: Lens' RDSDBInstance (Maybe (Val Text))
 rdsdbiAvailabilityZone = lens _rDSDBInstanceAvailabilityZone (\s a -> s { _rDSDBInstanceAvailabilityZone = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-backupretentionperiod
-rdsdbiBackupRetentionPeriod :: Lens' RDSDBInstance (Maybe (Val Text))
+rdsdbiBackupRetentionPeriod :: Lens' RDSDBInstance (Maybe (Val Integer))
 rdsdbiBackupRetentionPeriod = lens _rDSDBInstanceBackupRetentionPeriod (\s a -> s { _rDSDBInstanceBackupRetentionPeriod = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-charactersetname
