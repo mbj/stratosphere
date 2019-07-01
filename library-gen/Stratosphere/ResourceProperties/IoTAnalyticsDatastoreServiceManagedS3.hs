@@ -15,7 +15,7 @@ import Stratosphere.ResourceImports
 -- constructor.
 data IoTAnalyticsDatastoreServiceManagedS3 =
   IoTAnalyticsDatastoreServiceManagedS3
-  { 
+  {
   } deriving (Show, Eq)
 
 instance ToJSON IoTAnalyticsDatastoreServiceManagedS3 where
@@ -27,7 +27,7 @@ ioTAnalyticsDatastoreServiceManagedS3
   :: IoTAnalyticsDatastoreServiceManagedS3
 ioTAnalyticsDatastoreServiceManagedS3  =
   IoTAnalyticsDatastoreServiceManagedS3
-  { 
+  {
   }
 
 

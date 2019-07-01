@@ -18,8 +18,8 @@ import Stratosphere.ResourceProperties.EC2InstanceLaunchTemplateSpecification
 import Stratosphere.ResourceProperties.EC2InstanceLicenseSpecification
 import Stratosphere.ResourceProperties.EC2InstanceNetworkInterface
 import Stratosphere.ResourceProperties.EC2InstanceSsmAssociation
-import Stratosphere.ResourceProperties.Tag
 import Stratosphere.ResourceProperties.EC2InstanceVolume
+import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for EC2Instance. See 'ec2Instance' for a more
 -- convenient constructor.

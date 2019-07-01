@@ -14,7 +14,7 @@ import Stratosphere.ResourceImports
 -- 'mediaLiveChannelAribSourceSettings' for a more convenient constructor.
 data MediaLiveChannelAribSourceSettings =
   MediaLiveChannelAribSourceSettings
-  { 
+  {
   } deriving (Show, Eq)
 
 instance ToJSON MediaLiveChannelAribSourceSettings where
@@ -26,7 +26,7 @@ mediaLiveChannelAribSourceSettings
   :: MediaLiveChannelAribSourceSettings
 mediaLiveChannelAribSourceSettings  =
   MediaLiveChannelAribSourceSettings
-  { 
+  {
   }
 
 

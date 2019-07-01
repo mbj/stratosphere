@@ -8,9 +8,9 @@
 module Stratosphere.Resources.MediaLiveChannel where
 
 import Stratosphere.ResourceImports
-import Stratosphere.ResourceProperties.MediaLiveChannelOutputDestination
 import Stratosphere.ResourceProperties.MediaLiveChannelInputAttachment
 import Stratosphere.ResourceProperties.MediaLiveChannelInputSpecification
+import Stratosphere.ResourceProperties.MediaLiveChannelOutputDestination
 
 -- | Full data type definition for MediaLiveChannel. See 'mediaLiveChannel'
 -- for a more convenient constructor.
