@@ -1,5 +1,5 @@
 ---
-resolver: nightly-2018-08-06
+resolver: lts-12.26
 packages:
   - '.'
   - 'gen'
