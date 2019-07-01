@@ -9,7 +9,7 @@ module Stratosphere.Resources.AppMeshMesh where
 
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.AppMeshMeshMeshSpec
-import Stratosphere.ResourceProperties.AppMeshMeshTagRef
+import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for AppMeshMesh. See 'appMeshMesh' for a more
 -- convenient constructor.
@@ -17,7 +17,7 @@ data AppMeshMesh =
   AppMeshMesh
   { _appMeshMeshMeshName :: Val Text
   , _appMeshMeshSpec :: Maybe AppMeshMeshMeshSpec
-  , _appMeshMeshTags :: Maybe [AppMeshMeshTagRef]
+  , _appMeshMeshTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
 instance ToResourceProperties AppMeshMesh where
@@ -52,5 +52,5 @@ ammSpec :: Lens' AppMeshMesh (Maybe AppMeshMeshMeshSpec)
 ammSpec = lens _appMeshMeshSpec (\s a -> s { _appMeshMeshSpec = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-mesh.html#cfn-appmesh-mesh-tags
-ammTags :: Lens' AppMeshMesh (Maybe [AppMeshMeshTagRef])
+ammTags :: Lens' AppMeshMesh (Maybe [Tag])
 ammTags = lens _appMeshMeshTags (\s a -> s { _appMeshMeshTags = a })

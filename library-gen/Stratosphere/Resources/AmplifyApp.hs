@@ -26,7 +26,7 @@ data AmplifyApp =
   , _amplifyAppIAMServiceRole :: Maybe (Val Text)
   , _amplifyAppName :: Val Text
   , _amplifyAppOauthToken :: Maybe (Val Text)
-  , _amplifyAppRepository :: Val Text
+  , _amplifyAppRepository :: Maybe (Val Text)
   , _amplifyAppTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
@@ -45,7 +45,7 @@ instance ToResourceProperties AmplifyApp where
         , fmap (("IAMServiceRole",) . toJSON) _amplifyAppIAMServiceRole
         , (Just . ("Name",) . toJSON) _amplifyAppName
         , fmap (("OauthToken",) . toJSON) _amplifyAppOauthToken
-        , (Just . ("Repository",) . toJSON) _amplifyAppRepository
+        , fmap (("Repository",) . toJSON) _amplifyAppRepository
         , fmap (("Tags",) . toJSON) _amplifyAppTags
         ]
     }
@@ -53,9 +53,8 @@ instance ToResourceProperties AmplifyApp where
 -- | Constructor for 'AmplifyApp' containing required fields as arguments.
 amplifyApp
   :: Val Text -- ^ 'aaName'
-  -> Val Text -- ^ 'aaRepository'
   -> AmplifyApp
-amplifyApp namearg repositoryarg =
+amplifyApp namearg =
   AmplifyApp
   { _amplifyAppAccessToken = Nothing
   , _amplifyAppBasicAuthConfig = Nothing
@@ -66,7 +65,7 @@ amplifyApp namearg repositoryarg =
   , _amplifyAppIAMServiceRole = Nothing
   , _amplifyAppName = namearg
   , _amplifyAppOauthToken = Nothing
-  , _amplifyAppRepository = repositoryarg
+  , _amplifyAppRepository = Nothing
   , _amplifyAppTags = Nothing
   }
 
@@ -107,7 +106,7 @@ aaOauthToken :: Lens' AmplifyApp (Maybe (Val Text))
 aaOauthToken = lens _amplifyAppOauthToken (\s a -> s { _amplifyAppOauthToken = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-repository
-aaRepository :: Lens' AmplifyApp (Val Text)
+aaRepository :: Lens' AmplifyApp (Maybe (Val Text))
 aaRepository = lens _amplifyAppRepository (\s a -> s { _amplifyAppRepository = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-tags

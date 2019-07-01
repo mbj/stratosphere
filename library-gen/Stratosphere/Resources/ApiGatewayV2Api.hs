@@ -20,6 +20,7 @@ data ApiGatewayV2Api =
   , _apiGatewayV2ApiName :: Val Text
   , _apiGatewayV2ApiProtocolType :: Val Text
   , _apiGatewayV2ApiRouteSelectionExpression :: Val Text
+  , _apiGatewayV2ApiTags :: Maybe Object
   , _apiGatewayV2ApiVersion :: Maybe (Val Text)
   } deriving (Show, Eq)
 
@@ -35,6 +36,7 @@ instance ToResourceProperties ApiGatewayV2Api where
         , (Just . ("Name",) . toJSON) _apiGatewayV2ApiName
         , (Just . ("ProtocolType",) . toJSON) _apiGatewayV2ApiProtocolType
         , (Just . ("RouteSelectionExpression",) . toJSON) _apiGatewayV2ApiRouteSelectionExpression
+        , fmap (("Tags",) . toJSON) _apiGatewayV2ApiTags
         , fmap (("Version",) . toJSON) _apiGatewayV2ApiVersion
         ]
     }
@@ -54,6 +56,7 @@ apiGatewayV2Api namearg protocolTypearg routeSelectionExpressionarg =
   , _apiGatewayV2ApiName = namearg
   , _apiGatewayV2ApiProtocolType = protocolTypearg
   , _apiGatewayV2ApiRouteSelectionExpression = routeSelectionExpressionarg
+  , _apiGatewayV2ApiTags = Nothing
   , _apiGatewayV2ApiVersion = Nothing
   }
 
@@ -80,6 +83,10 @@ agvapProtocolType = lens _apiGatewayV2ApiProtocolType (\s a -> s { _apiGatewayV2
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html#cfn-apigatewayv2-api-routeselectionexpression
 agvapRouteSelectionExpression :: Lens' ApiGatewayV2Api (Val Text)
 agvapRouteSelectionExpression = lens _apiGatewayV2ApiRouteSelectionExpression (\s a -> s { _apiGatewayV2ApiRouteSelectionExpression = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html#cfn-apigatewayv2-api-tags
+agvapTags :: Lens' ApiGatewayV2Api (Maybe Object)
+agvapTags = lens _apiGatewayV2ApiTags (\s a -> s { _apiGatewayV2ApiTags = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html#cfn-apigatewayv2-api-version
 agvapVersion :: Lens' ApiGatewayV2Api (Maybe (Val Text))

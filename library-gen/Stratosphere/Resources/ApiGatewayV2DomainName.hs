@@ -16,6 +16,7 @@ data ApiGatewayV2DomainName =
   ApiGatewayV2DomainName
   { _apiGatewayV2DomainNameDomainName :: Val Text
   , _apiGatewayV2DomainNameDomainNameConfigurations :: Maybe [ApiGatewayV2DomainNameDomainNameConfiguration]
+  , _apiGatewayV2DomainNameTags :: Maybe Object
   } deriving (Show, Eq)
 
 instance ToResourceProperties ApiGatewayV2DomainName where
@@ -26,6 +27,7 @@ instance ToResourceProperties ApiGatewayV2DomainName where
         hashMapFromList $ catMaybes
         [ (Just . ("DomainName",) . toJSON) _apiGatewayV2DomainNameDomainName
         , fmap (("DomainNameConfigurations",) . toJSON) _apiGatewayV2DomainNameDomainNameConfigurations
+        , fmap (("Tags",) . toJSON) _apiGatewayV2DomainNameTags
         ]
     }
 
@@ -38,6 +40,7 @@ apiGatewayV2DomainName domainNamearg =
   ApiGatewayV2DomainName
   { _apiGatewayV2DomainNameDomainName = domainNamearg
   , _apiGatewayV2DomainNameDomainNameConfigurations = Nothing
+  , _apiGatewayV2DomainNameTags = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html#cfn-apigatewayv2-domainname-domainname
@@ -47,3 +50,7 @@ agvdnDomainName = lens _apiGatewayV2DomainNameDomainName (\s a -> s { _apiGatewa
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html#cfn-apigatewayv2-domainname-domainnameconfigurations
 agvdnDomainNameConfigurations :: Lens' ApiGatewayV2DomainName (Maybe [ApiGatewayV2DomainNameDomainNameConfiguration])
 agvdnDomainNameConfigurations = lens _apiGatewayV2DomainNameDomainNameConfigurations (\s a -> s { _apiGatewayV2DomainNameDomainNameConfigurations = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-domainname.html#cfn-apigatewayv2-domainname-tags
+agvdnTags :: Lens' ApiGatewayV2DomainName (Maybe Object)
+agvdnTags = lens _apiGatewayV2DomainNameTags (\s a -> s { _apiGatewayV2DomainNameTags = a })

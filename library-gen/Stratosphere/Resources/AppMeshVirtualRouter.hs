@@ -9,7 +9,7 @@ module Stratosphere.Resources.AppMeshVirtualRouter where
 
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.AppMeshVirtualRouterVirtualRouterSpec
-import Stratosphere.ResourceProperties.AppMeshVirtualRouterTagRef
+import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for AppMeshVirtualRouter. See
 -- 'appMeshVirtualRouter' for a more convenient constructor.
@@ -17,7 +17,7 @@ data AppMeshVirtualRouter =
   AppMeshVirtualRouter
   { _appMeshVirtualRouterMeshName :: Val Text
   , _appMeshVirtualRouterSpec :: AppMeshVirtualRouterVirtualRouterSpec
-  , _appMeshVirtualRouterTags :: Maybe [AppMeshVirtualRouterTagRef]
+  , _appMeshVirtualRouterTags :: Maybe [Tag]
   , _appMeshVirtualRouterVirtualRouterName :: Val Text
   } deriving (Show, Eq)
 
@@ -58,7 +58,7 @@ amvrSpec :: Lens' AppMeshVirtualRouter AppMeshVirtualRouterVirtualRouterSpec
 amvrSpec = lens _appMeshVirtualRouterSpec (\s a -> s { _appMeshVirtualRouterSpec = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualrouter.html#cfn-appmesh-virtualrouter-tags
-amvrTags :: Lens' AppMeshVirtualRouter (Maybe [AppMeshVirtualRouterTagRef])
+amvrTags :: Lens' AppMeshVirtualRouter (Maybe [Tag])
 amvrTags = lens _appMeshVirtualRouterTags (\s a -> s { _appMeshVirtualRouterTags = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualrouter.html#cfn-appmesh-virtualrouter-virtualroutername

@@ -9,7 +9,7 @@ module Stratosphere.Resources.AppMeshRoute where
 
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.AppMeshRouteRouteSpec
-import Stratosphere.ResourceProperties.AppMeshRouteTagRef
+import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for AppMeshRoute. See 'appMeshRoute' for a more
 -- convenient constructor.
@@ -18,7 +18,7 @@ data AppMeshRoute =
   { _appMeshRouteMeshName :: Val Text
   , _appMeshRouteRouteName :: Val Text
   , _appMeshRouteSpec :: AppMeshRouteRouteSpec
-  , _appMeshRouteTags :: Maybe [AppMeshRouteTagRef]
+  , _appMeshRouteTags :: Maybe [Tag]
   , _appMeshRouteVirtualRouterName :: Val Text
   } deriving (Show, Eq)
 
@@ -65,7 +65,7 @@ amrSpec :: Lens' AppMeshRoute AppMeshRouteRouteSpec
 amrSpec = lens _appMeshRouteSpec (\s a -> s { _appMeshRouteSpec = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-route.html#cfn-appmesh-route-tags
-amrTags :: Lens' AppMeshRoute (Maybe [AppMeshRouteTagRef])
+amrTags :: Lens' AppMeshRoute (Maybe [Tag])
 amrTags = lens _appMeshRouteTags (\s a -> s { _appMeshRouteTags = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-route.html#cfn-appmesh-route-virtualroutername

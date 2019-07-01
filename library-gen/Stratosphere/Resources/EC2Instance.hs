@@ -9,6 +9,7 @@ module Stratosphere.Resources.EC2Instance where
 
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.EC2InstanceBlockDeviceMapping
+import Stratosphere.ResourceProperties.EC2InstanceCpuOptions
 import Stratosphere.ResourceProperties.EC2InstanceCreditSpecification
 import Stratosphere.ResourceProperties.EC2InstanceElasticGpuSpecification
 import Stratosphere.ResourceProperties.EC2InstanceElasticInferenceAccelerator
@@ -28,6 +29,7 @@ data EC2Instance =
   , _eC2InstanceAffinity :: Maybe (Val Text)
   , _eC2InstanceAvailabilityZone :: Maybe (Val Text)
   , _eC2InstanceBlockDeviceMappings :: Maybe [EC2InstanceBlockDeviceMapping]
+  , _eC2InstanceCpuOptions :: Maybe EC2InstanceCpuOptions
   , _eC2InstanceCreditSpecification :: Maybe EC2InstanceCreditSpecification
   , _eC2InstanceDisableApiTermination :: Maybe (Val Bool)
   , _eC2InstanceEbsOptimized :: Maybe (Val Bool)
@@ -70,6 +72,7 @@ instance ToResourceProperties EC2Instance where
         , fmap (("Affinity",) . toJSON) _eC2InstanceAffinity
         , fmap (("AvailabilityZone",) . toJSON) _eC2InstanceAvailabilityZone
         , fmap (("BlockDeviceMappings",) . toJSON) _eC2InstanceBlockDeviceMappings
+        , fmap (("CpuOptions",) . toJSON) _eC2InstanceCpuOptions
         , fmap (("CreditSpecification",) . toJSON) _eC2InstanceCreditSpecification
         , fmap (("DisableApiTermination",) . toJSON) _eC2InstanceDisableApiTermination
         , fmap (("EbsOptimized",) . toJSON) _eC2InstanceEbsOptimized
@@ -112,6 +115,7 @@ ec2Instance  =
   , _eC2InstanceAffinity = Nothing
   , _eC2InstanceAvailabilityZone = Nothing
   , _eC2InstanceBlockDeviceMappings = Nothing
+  , _eC2InstanceCpuOptions = Nothing
   , _eC2InstanceCreditSpecification = Nothing
   , _eC2InstanceDisableApiTermination = Nothing
   , _eC2InstanceEbsOptimized = Nothing
@@ -159,6 +163,10 @@ eciAvailabilityZone = lens _eC2InstanceAvailabilityZone (\s a -> s { _eC2Instanc
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-blockdevicemappings
 eciBlockDeviceMappings :: Lens' EC2Instance (Maybe [EC2InstanceBlockDeviceMapping])
 eciBlockDeviceMappings = lens _eC2InstanceBlockDeviceMappings (\s a -> s { _eC2InstanceBlockDeviceMappings = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-cpuoptions
+eciCpuOptions :: Lens' EC2Instance (Maybe EC2InstanceCpuOptions)
+eciCpuOptions = lens _eC2InstanceCpuOptions (\s a -> s { _eC2InstanceCpuOptions = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-creditspecification
 eciCreditSpecification :: Lens' EC2Instance (Maybe EC2InstanceCreditSpecification)

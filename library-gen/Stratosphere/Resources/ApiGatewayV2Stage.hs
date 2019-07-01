@@ -24,6 +24,7 @@ data ApiGatewayV2Stage =
   , _apiGatewayV2StageRouteSettings :: Maybe Object
   , _apiGatewayV2StageStageName :: Val Text
   , _apiGatewayV2StageStageVariables :: Maybe Object
+  , _apiGatewayV2StageTags :: Maybe Object
   } deriving (Show, Eq)
 
 instance ToResourceProperties ApiGatewayV2Stage where
@@ -41,6 +42,7 @@ instance ToResourceProperties ApiGatewayV2Stage where
         , fmap (("RouteSettings",) . toJSON) _apiGatewayV2StageRouteSettings
         , (Just . ("StageName",) . toJSON) _apiGatewayV2StageStageName
         , fmap (("StageVariables",) . toJSON) _apiGatewayV2StageStageVariables
+        , fmap (("Tags",) . toJSON) _apiGatewayV2StageTags
         ]
     }
 
@@ -62,6 +64,7 @@ apiGatewayV2Stage apiIdarg deploymentIdarg stageNamearg =
   , _apiGatewayV2StageRouteSettings = Nothing
   , _apiGatewayV2StageStageName = stageNamearg
   , _apiGatewayV2StageStageVariables = Nothing
+  , _apiGatewayV2StageTags = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-stage.html#cfn-apigatewayv2-stage-accesslogsettings
@@ -99,3 +102,7 @@ agvsStageName = lens _apiGatewayV2StageStageName (\s a -> s { _apiGatewayV2Stage
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-stage.html#cfn-apigatewayv2-stage-stagevariables
 agvsStageVariables :: Lens' ApiGatewayV2Stage (Maybe Object)
 agvsStageVariables = lens _apiGatewayV2StageStageVariables (\s a -> s { _apiGatewayV2StageStageVariables = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-stage.html#cfn-apigatewayv2-stage-tags
+agvsTags :: Lens' ApiGatewayV2Stage (Maybe Object)
+agvsTags = lens _apiGatewayV2StageTags (\s a -> s { _apiGatewayV2StageTags = a })

@@ -9,7 +9,7 @@ module Stratosphere.Resources.AppMeshVirtualService where
 
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.AppMeshVirtualServiceVirtualServiceSpec
-import Stratosphere.ResourceProperties.AppMeshVirtualServiceTagRef
+import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for AppMeshVirtualService. See
 -- 'appMeshVirtualService' for a more convenient constructor.
@@ -17,7 +17,7 @@ data AppMeshVirtualService =
   AppMeshVirtualService
   { _appMeshVirtualServiceMeshName :: Val Text
   , _appMeshVirtualServiceSpec :: AppMeshVirtualServiceVirtualServiceSpec
-  , _appMeshVirtualServiceTags :: Maybe [AppMeshVirtualServiceTagRef]
+  , _appMeshVirtualServiceTags :: Maybe [Tag]
   , _appMeshVirtualServiceVirtualServiceName :: Val Text
   } deriving (Show, Eq)
 
@@ -58,7 +58,7 @@ amvsSpec :: Lens' AppMeshVirtualService AppMeshVirtualServiceVirtualServiceSpec
 amvsSpec = lens _appMeshVirtualServiceSpec (\s a -> s { _appMeshVirtualServiceSpec = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualservice.html#cfn-appmesh-virtualservice-tags
-amvsTags :: Lens' AppMeshVirtualService (Maybe [AppMeshVirtualServiceTagRef])
+amvsTags :: Lens' AppMeshVirtualService (Maybe [Tag])
 amvsTags = lens _appMeshVirtualServiceTags (\s a -> s { _appMeshVirtualServiceTags = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualservice.html#cfn-appmesh-virtualservice-virtualservicename
