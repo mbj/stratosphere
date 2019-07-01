@@ -9,6 +9,7 @@ module Stratosphere.Resources.ServiceCatalogCloudFormationProvisionedProduct whe
 
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.ServiceCatalogCloudFormationProvisionedProductProvisioningParameter
+import Stratosphere.ResourceProperties.ServiceCatalogCloudFormationProvisionedProductProvisioningPreferences
 import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for
@@ -26,6 +27,7 @@ data ServiceCatalogCloudFormationProvisionedProduct =
   , _serviceCatalogCloudFormationProvisionedProductProvisioningArtifactId :: Maybe (Val Text)
   , _serviceCatalogCloudFormationProvisionedProductProvisioningArtifactName :: Maybe (Val Text)
   , _serviceCatalogCloudFormationProvisionedProductProvisioningParameters :: Maybe [ServiceCatalogCloudFormationProvisionedProductProvisioningParameter]
+  , _serviceCatalogCloudFormationProvisionedProductProvisioningPreferences :: Maybe ServiceCatalogCloudFormationProvisionedProductProvisioningPreferences
   , _serviceCatalogCloudFormationProvisionedProductTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
@@ -44,6 +46,7 @@ instance ToResourceProperties ServiceCatalogCloudFormationProvisionedProduct whe
         , fmap (("ProvisioningArtifactId",) . toJSON) _serviceCatalogCloudFormationProvisionedProductProvisioningArtifactId
         , fmap (("ProvisioningArtifactName",) . toJSON) _serviceCatalogCloudFormationProvisionedProductProvisioningArtifactName
         , fmap (("ProvisioningParameters",) . toJSON) _serviceCatalogCloudFormationProvisionedProductProvisioningParameters
+        , fmap (("ProvisioningPreferences",) . toJSON) _serviceCatalogCloudFormationProvisionedProductProvisioningPreferences
         , fmap (("Tags",) . toJSON) _serviceCatalogCloudFormationProvisionedProductTags
         ]
     }
@@ -63,6 +66,7 @@ serviceCatalogCloudFormationProvisionedProduct  =
   , _serviceCatalogCloudFormationProvisionedProductProvisioningArtifactId = Nothing
   , _serviceCatalogCloudFormationProvisionedProductProvisioningArtifactName = Nothing
   , _serviceCatalogCloudFormationProvisionedProductProvisioningParameters = Nothing
+  , _serviceCatalogCloudFormationProvisionedProductProvisioningPreferences = Nothing
   , _serviceCatalogCloudFormationProvisionedProductTags = Nothing
   }
 
@@ -101,6 +105,10 @@ sccfppProvisioningArtifactName = lens _serviceCatalogCloudFormationProvisionedPr
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningparameters
 sccfppProvisioningParameters :: Lens' ServiceCatalogCloudFormationProvisionedProduct (Maybe [ServiceCatalogCloudFormationProvisionedProductProvisioningParameter])
 sccfppProvisioningParameters = lens _serviceCatalogCloudFormationProvisionedProductProvisioningParameters (\s a -> s { _serviceCatalogCloudFormationProvisionedProductProvisioningParameters = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-provisioningpreferences
+sccfppProvisioningPreferences :: Lens' ServiceCatalogCloudFormationProvisionedProduct (Maybe ServiceCatalogCloudFormationProvisionedProductProvisioningPreferences)
+sccfppProvisioningPreferences = lens _serviceCatalogCloudFormationProvisionedProductProvisioningPreferences (\s a -> s { _serviceCatalogCloudFormationProvisionedProductProvisioningPreferences = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-tags
 sccfppTags :: Lens' ServiceCatalogCloudFormationProvisionedProduct (Maybe [Tag])

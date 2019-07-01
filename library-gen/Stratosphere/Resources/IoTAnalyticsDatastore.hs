@@ -8,6 +8,7 @@
 module Stratosphere.Resources.IoTAnalyticsDatastore where
 
 import Stratosphere.ResourceImports
+import Stratosphere.ResourceProperties.IoTAnalyticsDatastoreDatastoreStorage
 import Stratosphere.ResourceProperties.IoTAnalyticsDatastoreRetentionPeriod
 import Stratosphere.ResourceProperties.Tag
 
@@ -16,6 +17,7 @@ import Stratosphere.ResourceProperties.Tag
 data IoTAnalyticsDatastore =
   IoTAnalyticsDatastore
   { _ioTAnalyticsDatastoreDatastoreName :: Maybe (Val Text)
+  , _ioTAnalyticsDatastoreDatastoreStorage :: Maybe IoTAnalyticsDatastoreDatastoreStorage
   , _ioTAnalyticsDatastoreRetentionPeriod :: Maybe IoTAnalyticsDatastoreRetentionPeriod
   , _ioTAnalyticsDatastoreTags :: Maybe [Tag]
   } deriving (Show, Eq)
@@ -27,6 +29,7 @@ instance ToResourceProperties IoTAnalyticsDatastore where
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
         [ fmap (("DatastoreName",) . toJSON) _ioTAnalyticsDatastoreDatastoreName
+        , fmap (("DatastoreStorage",) . toJSON) _ioTAnalyticsDatastoreDatastoreStorage
         , fmap (("RetentionPeriod",) . toJSON) _ioTAnalyticsDatastoreRetentionPeriod
         , fmap (("Tags",) . toJSON) _ioTAnalyticsDatastoreTags
         ]
@@ -39,6 +42,7 @@ ioTAnalyticsDatastore
 ioTAnalyticsDatastore  =
   IoTAnalyticsDatastore
   { _ioTAnalyticsDatastoreDatastoreName = Nothing
+  , _ioTAnalyticsDatastoreDatastoreStorage = Nothing
   , _ioTAnalyticsDatastoreRetentionPeriod = Nothing
   , _ioTAnalyticsDatastoreTags = Nothing
   }
@@ -46,6 +50,10 @@ ioTAnalyticsDatastore  =
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-datastore.html#cfn-iotanalytics-datastore-datastorename
 itadstDatastoreName :: Lens' IoTAnalyticsDatastore (Maybe (Val Text))
 itadstDatastoreName = lens _ioTAnalyticsDatastoreDatastoreName (\s a -> s { _ioTAnalyticsDatastoreDatastoreName = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-datastore.html#cfn-iotanalytics-datastore-datastorestorage
+itadstDatastoreStorage :: Lens' IoTAnalyticsDatastore (Maybe IoTAnalyticsDatastoreDatastoreStorage)
+itadstDatastoreStorage = lens _ioTAnalyticsDatastoreDatastoreStorage (\s a -> s { _ioTAnalyticsDatastoreDatastoreStorage = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotanalytics-datastore.html#cfn-iotanalytics-datastore-retentionperiod
 itadstRetentionPeriod :: Lens' IoTAnalyticsDatastore (Maybe IoTAnalyticsDatastoreRetentionPeriod)

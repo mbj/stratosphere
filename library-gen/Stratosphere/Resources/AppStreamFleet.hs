@@ -24,6 +24,7 @@ data AppStreamFleet =
   , _appStreamFleetDomainJoinInfo :: Maybe AppStreamFleetDomainJoinInfo
   , _appStreamFleetEnableDefaultInternetAccess :: Maybe (Val Bool)
   , _appStreamFleetFleetType :: Maybe (Val Text)
+  , _appStreamFleetIdleDisconnectTimeoutInSeconds :: Maybe (Val Integer)
   , _appStreamFleetImageArn :: Maybe (Val Text)
   , _appStreamFleetImageName :: Maybe (Val Text)
   , _appStreamFleetInstanceType :: Val Text
@@ -46,6 +47,7 @@ instance ToResourceProperties AppStreamFleet where
         , fmap (("DomainJoinInfo",) . toJSON) _appStreamFleetDomainJoinInfo
         , fmap (("EnableDefaultInternetAccess",) . toJSON) _appStreamFleetEnableDefaultInternetAccess
         , fmap (("FleetType",) . toJSON) _appStreamFleetFleetType
+        , fmap (("IdleDisconnectTimeoutInSeconds",) . toJSON) _appStreamFleetIdleDisconnectTimeoutInSeconds
         , fmap (("ImageArn",) . toJSON) _appStreamFleetImageArn
         , fmap (("ImageName",) . toJSON) _appStreamFleetImageName
         , (Just . ("InstanceType",) . toJSON) _appStreamFleetInstanceType
@@ -70,6 +72,7 @@ appStreamFleet computeCapacityarg instanceTypearg =
   , _appStreamFleetDomainJoinInfo = Nothing
   , _appStreamFleetEnableDefaultInternetAccess = Nothing
   , _appStreamFleetFleetType = Nothing
+  , _appStreamFleetIdleDisconnectTimeoutInSeconds = Nothing
   , _appStreamFleetImageArn = Nothing
   , _appStreamFleetImageName = Nothing
   , _appStreamFleetInstanceType = instanceTypearg
@@ -106,6 +109,10 @@ asfEnableDefaultInternetAccess = lens _appStreamFleetEnableDefaultInternetAccess
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-fleettype
 asfFleetType :: Lens' AppStreamFleet (Maybe (Val Text))
 asfFleetType = lens _appStreamFleetFleetType (\s a -> s { _appStreamFleetFleetType = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-idledisconnecttimeoutinseconds
+asfIdleDisconnectTimeoutInSeconds :: Lens' AppStreamFleet (Maybe (Val Integer))
+asfIdleDisconnectTimeoutInSeconds = lens _appStreamFleetIdleDisconnectTimeoutInSeconds (\s a -> s { _appStreamFleetIdleDisconnectTimeoutInSeconds = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-imagearn
 asfImageArn :: Lens' AppStreamFleet (Maybe (Val Text))

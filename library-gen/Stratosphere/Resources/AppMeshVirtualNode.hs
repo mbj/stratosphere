@@ -9,7 +9,7 @@ module Stratosphere.Resources.AppMeshVirtualNode where
 
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.AppMeshVirtualNodeVirtualNodeSpec
-import Stratosphere.ResourceProperties.AppMeshVirtualNodeTagRef
+import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for AppMeshVirtualNode. See
 -- 'appMeshVirtualNode' for a more convenient constructor.
@@ -17,7 +17,7 @@ data AppMeshVirtualNode =
   AppMeshVirtualNode
   { _appMeshVirtualNodeMeshName :: Val Text
   , _appMeshVirtualNodeSpec :: AppMeshVirtualNodeVirtualNodeSpec
-  , _appMeshVirtualNodeTags :: Maybe [AppMeshVirtualNodeTagRef]
+  , _appMeshVirtualNodeTags :: Maybe [Tag]
   , _appMeshVirtualNodeVirtualNodeName :: Val Text
   } deriving (Show, Eq)
 
@@ -58,7 +58,7 @@ amvnSpec :: Lens' AppMeshVirtualNode AppMeshVirtualNodeVirtualNodeSpec
 amvnSpec = lens _appMeshVirtualNodeSpec (\s a -> s { _appMeshVirtualNodeSpec = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualnode.html#cfn-appmesh-virtualnode-tags
-amvnTags :: Lens' AppMeshVirtualNode (Maybe [AppMeshVirtualNodeTagRef])
+amvnTags :: Lens' AppMeshVirtualNode (Maybe [Tag])
 amvnTags = lens _appMeshVirtualNodeTags (\s a -> s { _appMeshVirtualNodeTags = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualnode.html#cfn-appmesh-virtualnode-virtualnodename
