@@ -53,16 +53,16 @@ import Stratosphere.Check
 --   [ resource "EC2Instance" (
 --     EC2InstanceProperties $
 --     ec2Instance
---     "ami-22111148"
+--     & eciImageId ?~ "ami-22111148"
 --     & eciKeyName ?~ (Ref "KeyName")
 --     )
---     & deletionPolicy ?~ Retain
+--     & resourceDeletionPolicy ?~ Retain
 --   ]
---   & description ?~ "Sample template"
---   & parameters ?~
---   [ parameter \"KeyName\" \"AWS::EC2::KeyPair::KeyName\"
---     & description ?~ "Name of an existing EC2 KeyPair to enable SSH access to the instance"
---     & constraintDescription ?~ "Must be the name of an existing EC2 KeyPair."
+--   & templateDescription ?~ "Sample template"
+--   & templateParameters ?~
+--   [ parameter "KeyName" "AWS::EC2::KeyPair::KeyName"
+--     & parameterDescription ?~ "Name of an existing EC2 KeyPair to enable SSH access to the instance"
+--     & parameterConstraintDescription ?~ "Must be the name of an existing EC2 KeyPair."
 --   ]
 -- @
 
