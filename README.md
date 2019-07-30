@@ -42,16 +42,16 @@ instanceTemplate =
   [ resource "EC2Instance" (
     EC2InstanceProperties $
     ec2Instance
-    "ami-22111148"
+    & eciImageId ?~ "ami-22111148"
     & eciKeyName ?~ (Ref "KeyName")
     )
-    & deletionPolicy ?~ Retain
+    & resourceDeletionPolicy ?~ Retain
   ]
-  & description ?~ "Sample template"
-  & parameters ?~
+  & templateDescription ?~ "Sample template"
+  & templateParameters ?~
   [ parameter "KeyName" "AWS::EC2::KeyPair::KeyName"
-    & description ?~ "Name of an existing EC2 KeyPair to enable SSH access to the instance"
-    & constraintDescription ?~ "Must be the name of an existing EC2 KeyPair."
+    & parameterDescription ?~ "Name of an existing EC2 KeyPair to enable SSH access to the instance"
+    & parameterConstraintDescription ?~ "Must be the name of an existing EC2 KeyPair."
   ]
 ```
 
@@ -101,9 +101,8 @@ the user to succinctly specify the resource parameters they actually use
 without adding too much noise to their code.
 
 To specify optional arguments, we recommend using the lens operators `&` and
-`?~`. In the example above, the `ec2Instance` function takes the AMI as an
-argument, since it is required by the `EC2Instance` resource type. Then, the
-optional EC2 key name is specified using the `&` and `?~` lens operators.
+`?~`. In the example above, the optional EC2 key name is specified using the 
+`&` and `?~` lens operators.
 
 This approach is very similar to the approach taken by the `amazonka` library.
 See this
