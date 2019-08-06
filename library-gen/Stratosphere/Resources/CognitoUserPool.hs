@@ -15,6 +15,8 @@ import Stratosphere.ResourceProperties.CognitoUserPoolLambdaConfig
 import Stratosphere.ResourceProperties.CognitoUserPoolPolicies
 import Stratosphere.ResourceProperties.CognitoUserPoolSchemaAttribute
 import Stratosphere.ResourceProperties.CognitoUserPoolSmsConfiguration
+import Stratosphere.ResourceProperties.CognitoUserPoolUserPoolAddOns
+import Stratosphere.ResourceProperties.CognitoUserPoolVerificationMessageTemplate
 
 -- | Full data type definition for CognitoUserPool. See 'cognitoUserPool' for
 -- a more convenient constructor.
@@ -34,9 +36,11 @@ data CognitoUserPool =
   , _cognitoUserPoolSmsAuthenticationMessage :: Maybe (Val Text)
   , _cognitoUserPoolSmsConfiguration :: Maybe CognitoUserPoolSmsConfiguration
   , _cognitoUserPoolSmsVerificationMessage :: Maybe (Val Text)
+  , _cognitoUserPoolUserPoolAddOns :: Maybe CognitoUserPoolUserPoolAddOns
   , _cognitoUserPoolUserPoolName :: Maybe (Val Text)
   , _cognitoUserPoolUserPoolTags :: Maybe Object
   , _cognitoUserPoolUsernameAttributes :: Maybe (ValList Text)
+  , _cognitoUserPoolVerificationMessageTemplate :: Maybe CognitoUserPoolVerificationMessageTemplate
   } deriving (Show, Eq)
 
 instance ToResourceProperties CognitoUserPool where
@@ -59,9 +63,11 @@ instance ToResourceProperties CognitoUserPool where
         , fmap (("SmsAuthenticationMessage",) . toJSON) _cognitoUserPoolSmsAuthenticationMessage
         , fmap (("SmsConfiguration",) . toJSON) _cognitoUserPoolSmsConfiguration
         , fmap (("SmsVerificationMessage",) . toJSON) _cognitoUserPoolSmsVerificationMessage
+        , fmap (("UserPoolAddOns",) . toJSON) _cognitoUserPoolUserPoolAddOns
         , fmap (("UserPoolName",) . toJSON) _cognitoUserPoolUserPoolName
         , fmap (("UserPoolTags",) . toJSON) _cognitoUserPoolUserPoolTags
         , fmap (("UsernameAttributes",) . toJSON) _cognitoUserPoolUsernameAttributes
+        , fmap (("VerificationMessageTemplate",) . toJSON) _cognitoUserPoolVerificationMessageTemplate
         ]
     }
 
@@ -85,9 +91,11 @@ cognitoUserPool  =
   , _cognitoUserPoolSmsAuthenticationMessage = Nothing
   , _cognitoUserPoolSmsConfiguration = Nothing
   , _cognitoUserPoolSmsVerificationMessage = Nothing
+  , _cognitoUserPoolUserPoolAddOns = Nothing
   , _cognitoUserPoolUserPoolName = Nothing
   , _cognitoUserPoolUserPoolTags = Nothing
   , _cognitoUserPoolUsernameAttributes = Nothing
+  , _cognitoUserPoolVerificationMessageTemplate = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-admincreateuserconfig
@@ -146,6 +154,10 @@ cupSmsConfiguration = lens _cognitoUserPoolSmsConfiguration (\s a -> s { _cognit
 cupSmsVerificationMessage :: Lens' CognitoUserPool (Maybe (Val Text))
 cupSmsVerificationMessage = lens _cognitoUserPoolSmsVerificationMessage (\s a -> s { _cognitoUserPoolSmsVerificationMessage = a })
 
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-userpooladdons
+cupUserPoolAddOns :: Lens' CognitoUserPool (Maybe CognitoUserPoolUserPoolAddOns)
+cupUserPoolAddOns = lens _cognitoUserPoolUserPoolAddOns (\s a -> s { _cognitoUserPoolUserPoolAddOns = a })
+
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-userpoolname
 cupUserPoolName :: Lens' CognitoUserPool (Maybe (Val Text))
 cupUserPoolName = lens _cognitoUserPoolUserPoolName (\s a -> s { _cognitoUserPoolUserPoolName = a })
@@ -157,3 +169,7 @@ cupUserPoolTags = lens _cognitoUserPoolUserPoolTags (\s a -> s { _cognitoUserPoo
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-usernameattributes
 cupUsernameAttributes :: Lens' CognitoUserPool (Maybe (ValList Text))
 cupUsernameAttributes = lens _cognitoUserPoolUsernameAttributes (\s a -> s { _cognitoUserPoolUsernameAttributes = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-verificationmessagetemplate
+cupVerificationMessageTemplate :: Lens' CognitoUserPool (Maybe CognitoUserPoolVerificationMessageTemplate)
+cupVerificationMessageTemplate = lens _cognitoUserPoolVerificationMessageTemplate (\s a -> s { _cognitoUserPoolVerificationMessageTemplate = a })

@@ -9,6 +9,7 @@ module Stratosphere.Resources.CodeCommitRepository where
 
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.CodeCommitRepositoryCode
+import Stratosphere.ResourceProperties.Tag
 import Stratosphere.ResourceProperties.CodeCommitRepositoryRepositoryTrigger
 
 -- | Full data type definition for CodeCommitRepository. See
@@ -18,6 +19,7 @@ data CodeCommitRepository =
   { _codeCommitRepositoryCode :: Maybe CodeCommitRepositoryCode
   , _codeCommitRepositoryRepositoryDescription :: Maybe (Val Text)
   , _codeCommitRepositoryRepositoryName :: Val Text
+  , _codeCommitRepositoryTags :: Maybe [Tag]
   , _codeCommitRepositoryTriggers :: Maybe [CodeCommitRepositoryRepositoryTrigger]
   } deriving (Show, Eq)
 
@@ -30,6 +32,7 @@ instance ToResourceProperties CodeCommitRepository where
         [ fmap (("Code",) . toJSON) _codeCommitRepositoryCode
         , fmap (("RepositoryDescription",) . toJSON) _codeCommitRepositoryRepositoryDescription
         , (Just . ("RepositoryName",) . toJSON) _codeCommitRepositoryRepositoryName
+        , fmap (("Tags",) . toJSON) _codeCommitRepositoryTags
         , fmap (("Triggers",) . toJSON) _codeCommitRepositoryTriggers
         ]
     }
@@ -44,6 +47,7 @@ codeCommitRepository repositoryNamearg =
   { _codeCommitRepositoryCode = Nothing
   , _codeCommitRepositoryRepositoryDescription = Nothing
   , _codeCommitRepositoryRepositoryName = repositoryNamearg
+  , _codeCommitRepositoryTags = Nothing
   , _codeCommitRepositoryTriggers = Nothing
   }
 
@@ -58,6 +62,10 @@ ccrRepositoryDescription = lens _codeCommitRepositoryRepositoryDescription (\s a
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codecommit-repository.html#cfn-codecommit-repository-repositoryname
 ccrRepositoryName :: Lens' CodeCommitRepository (Val Text)
 ccrRepositoryName = lens _codeCommitRepositoryRepositoryName (\s a -> s { _codeCommitRepositoryRepositoryName = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codecommit-repository.html#cfn-codecommit-repository-tags
+ccrTags :: Lens' CodeCommitRepository (Maybe [Tag])
+ccrTags = lens _codeCommitRepositoryTags (\s a -> s { _codeCommitRepositoryTags = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codecommit-repository.html#cfn-codecommit-repository-triggers
 ccrTriggers :: Lens' CodeCommitRepository (Maybe [CodeCommitRepositoryRepositoryTrigger])

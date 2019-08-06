@@ -21,6 +21,8 @@ data CognitoUserPoolLambdaConfig =
   , _cognitoUserPoolLambdaConfigPostConfirmation :: Maybe (Val Text)
   , _cognitoUserPoolLambdaConfigPreAuthentication :: Maybe (Val Text)
   , _cognitoUserPoolLambdaConfigPreSignUp :: Maybe (Val Text)
+  , _cognitoUserPoolLambdaConfigPreTokenGeneration :: Maybe (Val Text)
+  , _cognitoUserPoolLambdaConfigUserMigration :: Maybe (Val Text)
   , _cognitoUserPoolLambdaConfigVerifyAuthChallengeResponse :: Maybe (Val Text)
   } deriving (Show, Eq)
 
@@ -35,6 +37,8 @@ instance ToJSON CognitoUserPoolLambdaConfig where
     , fmap (("PostConfirmation",) . toJSON) _cognitoUserPoolLambdaConfigPostConfirmation
     , fmap (("PreAuthentication",) . toJSON) _cognitoUserPoolLambdaConfigPreAuthentication
     , fmap (("PreSignUp",) . toJSON) _cognitoUserPoolLambdaConfigPreSignUp
+    , fmap (("PreTokenGeneration",) . toJSON) _cognitoUserPoolLambdaConfigPreTokenGeneration
+    , fmap (("UserMigration",) . toJSON) _cognitoUserPoolLambdaConfigUserMigration
     , fmap (("VerifyAuthChallengeResponse",) . toJSON) _cognitoUserPoolLambdaConfigVerifyAuthChallengeResponse
     ]
 
@@ -51,6 +55,8 @@ cognitoUserPoolLambdaConfig  =
   , _cognitoUserPoolLambdaConfigPostConfirmation = Nothing
   , _cognitoUserPoolLambdaConfigPreAuthentication = Nothing
   , _cognitoUserPoolLambdaConfigPreSignUp = Nothing
+  , _cognitoUserPoolLambdaConfigPreTokenGeneration = Nothing
+  , _cognitoUserPoolLambdaConfigUserMigration = Nothing
   , _cognitoUserPoolLambdaConfigVerifyAuthChallengeResponse = Nothing
   }
 
@@ -81,6 +87,14 @@ cuplcPreAuthentication = lens _cognitoUserPoolLambdaConfigPreAuthentication (\s 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-presignup
 cuplcPreSignUp :: Lens' CognitoUserPoolLambdaConfig (Maybe (Val Text))
 cuplcPreSignUp = lens _cognitoUserPoolLambdaConfigPreSignUp (\s a -> s { _cognitoUserPoolLambdaConfigPreSignUp = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-pretokengeneration
+cuplcPreTokenGeneration :: Lens' CognitoUserPoolLambdaConfig (Maybe (Val Text))
+cuplcPreTokenGeneration = lens _cognitoUserPoolLambdaConfigPreTokenGeneration (\s a -> s { _cognitoUserPoolLambdaConfigPreTokenGeneration = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-usermigration
+cuplcUserMigration :: Lens' CognitoUserPoolLambdaConfig (Maybe (Val Text))
+cuplcUserMigration = lens _cognitoUserPoolLambdaConfigUserMigration (\s a -> s { _cognitoUserPoolLambdaConfigUserMigration = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html#cfn-cognito-userpool-lambdaconfig-verifyauthchallengeresponse
 cuplcVerifyAuthChallengeResponse :: Lens' CognitoUserPoolLambdaConfig (Maybe (Val Text))
