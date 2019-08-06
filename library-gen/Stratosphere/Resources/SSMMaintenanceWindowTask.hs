@@ -22,13 +22,13 @@ data SSMMaintenanceWindowTask =
   , _sSMMaintenanceWindowTaskMaxErrors :: Val Text
   , _sSMMaintenanceWindowTaskName :: Maybe (Val Text)
   , _sSMMaintenanceWindowTaskPriority :: Val Integer
-  , _sSMMaintenanceWindowTaskServiceRoleArn :: Val Text
+  , _sSMMaintenanceWindowTaskServiceRoleArn :: Maybe (Val Text)
   , _sSMMaintenanceWindowTaskTargets :: [SSMMaintenanceWindowTaskTarget]
   , _sSMMaintenanceWindowTaskTaskArn :: Val Text
   , _sSMMaintenanceWindowTaskTaskInvocationParameters :: Maybe SSMMaintenanceWindowTaskTaskInvocationParameters
   , _sSMMaintenanceWindowTaskTaskParameters :: Maybe Object
   , _sSMMaintenanceWindowTaskTaskType :: Val Text
-  , _sSMMaintenanceWindowTaskWindowId :: Maybe (Val Text)
+  , _sSMMaintenanceWindowTaskWindowId :: Val Text
   } deriving (Show, Eq)
 
 instance ToResourceProperties SSMMaintenanceWindowTask where
@@ -43,13 +43,13 @@ instance ToResourceProperties SSMMaintenanceWindowTask where
         , (Just . ("MaxErrors",) . toJSON) _sSMMaintenanceWindowTaskMaxErrors
         , fmap (("Name",) . toJSON) _sSMMaintenanceWindowTaskName
         , (Just . ("Priority",) . toJSON) _sSMMaintenanceWindowTaskPriority
-        , (Just . ("ServiceRoleArn",) . toJSON) _sSMMaintenanceWindowTaskServiceRoleArn
+        , fmap (("ServiceRoleArn",) . toJSON) _sSMMaintenanceWindowTaskServiceRoleArn
         , (Just . ("Targets",) . toJSON) _sSMMaintenanceWindowTaskTargets
         , (Just . ("TaskArn",) . toJSON) _sSMMaintenanceWindowTaskTaskArn
         , fmap (("TaskInvocationParameters",) . toJSON) _sSMMaintenanceWindowTaskTaskInvocationParameters
         , fmap (("TaskParameters",) . toJSON) _sSMMaintenanceWindowTaskTaskParameters
         , (Just . ("TaskType",) . toJSON) _sSMMaintenanceWindowTaskTaskType
-        , fmap (("WindowId",) . toJSON) _sSMMaintenanceWindowTaskWindowId
+        , (Just . ("WindowId",) . toJSON) _sSMMaintenanceWindowTaskWindowId
         ]
     }
 
@@ -59,12 +59,12 @@ ssmMaintenanceWindowTask
   :: Val Text -- ^ 'ssmmwtMaxConcurrency'
   -> Val Text -- ^ 'ssmmwtMaxErrors'
   -> Val Integer -- ^ 'ssmmwtPriority'
-  -> Val Text -- ^ 'ssmmwtServiceRoleArn'
   -> [SSMMaintenanceWindowTaskTarget] -- ^ 'ssmmwtTargets'
   -> Val Text -- ^ 'ssmmwtTaskArn'
   -> Val Text -- ^ 'ssmmwtTaskType'
+  -> Val Text -- ^ 'ssmmwtWindowId'
   -> SSMMaintenanceWindowTask
-ssmMaintenanceWindowTask maxConcurrencyarg maxErrorsarg priorityarg serviceRoleArnarg targetsarg taskArnarg taskTypearg =
+ssmMaintenanceWindowTask maxConcurrencyarg maxErrorsarg priorityarg targetsarg taskArnarg taskTypearg windowIdarg =
   SSMMaintenanceWindowTask
   { _sSMMaintenanceWindowTaskDescription = Nothing
   , _sSMMaintenanceWindowTaskLoggingInfo = Nothing
@@ -72,13 +72,13 @@ ssmMaintenanceWindowTask maxConcurrencyarg maxErrorsarg priorityarg serviceRoleA
   , _sSMMaintenanceWindowTaskMaxErrors = maxErrorsarg
   , _sSMMaintenanceWindowTaskName = Nothing
   , _sSMMaintenanceWindowTaskPriority = priorityarg
-  , _sSMMaintenanceWindowTaskServiceRoleArn = serviceRoleArnarg
+  , _sSMMaintenanceWindowTaskServiceRoleArn = Nothing
   , _sSMMaintenanceWindowTaskTargets = targetsarg
   , _sSMMaintenanceWindowTaskTaskArn = taskArnarg
   , _sSMMaintenanceWindowTaskTaskInvocationParameters = Nothing
   , _sSMMaintenanceWindowTaskTaskParameters = Nothing
   , _sSMMaintenanceWindowTaskTaskType = taskTypearg
-  , _sSMMaintenanceWindowTaskWindowId = Nothing
+  , _sSMMaintenanceWindowTaskWindowId = windowIdarg
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtask.html#cfn-ssm-maintenancewindowtask-description
@@ -106,7 +106,7 @@ ssmmwtPriority :: Lens' SSMMaintenanceWindowTask (Val Integer)
 ssmmwtPriority = lens _sSMMaintenanceWindowTaskPriority (\s a -> s { _sSMMaintenanceWindowTaskPriority = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtask.html#cfn-ssm-maintenancewindowtask-servicerolearn
-ssmmwtServiceRoleArn :: Lens' SSMMaintenanceWindowTask (Val Text)
+ssmmwtServiceRoleArn :: Lens' SSMMaintenanceWindowTask (Maybe (Val Text))
 ssmmwtServiceRoleArn = lens _sSMMaintenanceWindowTaskServiceRoleArn (\s a -> s { _sSMMaintenanceWindowTaskServiceRoleArn = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtask.html#cfn-ssm-maintenancewindowtask-targets
@@ -130,5 +130,5 @@ ssmmwtTaskType :: Lens' SSMMaintenanceWindowTask (Val Text)
 ssmmwtTaskType = lens _sSMMaintenanceWindowTaskTaskType (\s a -> s { _sSMMaintenanceWindowTaskTaskType = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtask.html#cfn-ssm-maintenancewindowtask-windowid
-ssmmwtWindowId :: Lens' SSMMaintenanceWindowTask (Maybe (Val Text))
+ssmmwtWindowId :: Lens' SSMMaintenanceWindowTask (Val Text)
 ssmmwtWindowId = lens _sSMMaintenanceWindowTaskWindowId (\s a -> s { _sSMMaintenanceWindowTaskWindowId = a })

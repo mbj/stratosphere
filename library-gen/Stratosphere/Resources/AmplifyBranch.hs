@@ -21,6 +21,7 @@ data AmplifyBranch =
   , _amplifyBranchBranchName :: Val Text
   , _amplifyBranchBuildSpec :: Maybe (Val Text)
   , _amplifyBranchDescription :: Maybe (Val Text)
+  , _amplifyBranchEnableAutoBuild :: Maybe (Val Bool)
   , _amplifyBranchEnvironmentVariables :: Maybe [AmplifyBranchEnvironmentVariable]
   , _amplifyBranchStage :: Maybe (Val Text)
   , _amplifyBranchTags :: Maybe [Tag]
@@ -37,6 +38,7 @@ instance ToResourceProperties AmplifyBranch where
         , (Just . ("BranchName",) . toJSON) _amplifyBranchBranchName
         , fmap (("BuildSpec",) . toJSON) _amplifyBranchBuildSpec
         , fmap (("Description",) . toJSON) _amplifyBranchDescription
+        , fmap (("EnableAutoBuild",) . toJSON) _amplifyBranchEnableAutoBuild
         , fmap (("EnvironmentVariables",) . toJSON) _amplifyBranchEnvironmentVariables
         , fmap (("Stage",) . toJSON) _amplifyBranchStage
         , fmap (("Tags",) . toJSON) _amplifyBranchTags
@@ -55,6 +57,7 @@ amplifyBranch appIdarg branchNamearg =
   , _amplifyBranchBranchName = branchNamearg
   , _amplifyBranchBuildSpec = Nothing
   , _amplifyBranchDescription = Nothing
+  , _amplifyBranchEnableAutoBuild = Nothing
   , _amplifyBranchEnvironmentVariables = Nothing
   , _amplifyBranchStage = Nothing
   , _amplifyBranchTags = Nothing
@@ -79,6 +82,10 @@ abBuildSpec = lens _amplifyBranchBuildSpec (\s a -> s { _amplifyBranchBuildSpec 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-description
 abDescription :: Lens' AmplifyBranch (Maybe (Val Text))
 abDescription = lens _amplifyBranchDescription (\s a -> s { _amplifyBranchDescription = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-enableautobuild
+abEnableAutoBuild :: Lens' AmplifyBranch (Maybe (Val Bool))
+abEnableAutoBuild = lens _amplifyBranchEnableAutoBuild (\s a -> s { _amplifyBranchEnableAutoBuild = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-environmentvariables
 abEnvironmentVariables :: Lens' AmplifyBranch (Maybe [AmplifyBranchEnvironmentVariable])

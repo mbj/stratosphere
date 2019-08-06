@@ -8,7 +8,6 @@
 module Stratosphere.Resources.RDSDBInstance where
 
 import Stratosphere.ResourceImports
-import Stratosphere.ResourceProperties.RDSDBInstanceDBInstanceRole
 import Stratosphere.ResourceProperties.RDSDBInstanceProcessorFeature
 import Stratosphere.ResourceProperties.Tag
 
@@ -18,7 +17,6 @@ data RDSDBInstance =
   RDSDBInstance
   { _rDSDBInstanceAllocatedStorage :: Maybe (Val Text)
   , _rDSDBInstanceAllowMajorVersionUpgrade :: Maybe (Val Bool)
-  , _rDSDBInstanceAssociatedRoles :: Maybe [RDSDBInstanceDBInstanceRole]
   , _rDSDBInstanceAutoMinorVersionUpgrade :: Maybe (Val Bool)
   , _rDSDBInstanceAvailabilityZone :: Maybe (Val Text)
   , _rDSDBInstanceBackupRetentionPeriod :: Maybe (Val Integer)
@@ -76,7 +74,6 @@ instance ToResourceProperties RDSDBInstance where
         hashMapFromList $ catMaybes
         [ fmap (("AllocatedStorage",) . toJSON) _rDSDBInstanceAllocatedStorage
         , fmap (("AllowMajorVersionUpgrade",) . toJSON) _rDSDBInstanceAllowMajorVersionUpgrade
-        , fmap (("AssociatedRoles",) . toJSON) _rDSDBInstanceAssociatedRoles
         , fmap (("AutoMinorVersionUpgrade",) . toJSON) _rDSDBInstanceAutoMinorVersionUpgrade
         , fmap (("AvailabilityZone",) . toJSON) _rDSDBInstanceAvailabilityZone
         , fmap (("BackupRetentionPeriod",) . toJSON) _rDSDBInstanceBackupRetentionPeriod
@@ -135,7 +132,6 @@ rdsdbInstance dBInstanceClassarg =
   RDSDBInstance
   { _rDSDBInstanceAllocatedStorage = Nothing
   , _rDSDBInstanceAllowMajorVersionUpgrade = Nothing
-  , _rDSDBInstanceAssociatedRoles = Nothing
   , _rDSDBInstanceAutoMinorVersionUpgrade = Nothing
   , _rDSDBInstanceAvailabilityZone = Nothing
   , _rDSDBInstanceBackupRetentionPeriod = Nothing
@@ -192,10 +188,6 @@ rdsdbiAllocatedStorage = lens _rDSDBInstanceAllocatedStorage (\s a -> s { _rDSDB
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-allowmajorversionupgrade
 rdsdbiAllowMajorVersionUpgrade :: Lens' RDSDBInstance (Maybe (Val Bool))
 rdsdbiAllowMajorVersionUpgrade = lens _rDSDBInstanceAllowMajorVersionUpgrade (\s a -> s { _rDSDBInstanceAllowMajorVersionUpgrade = a })
-
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-associatedroles
-rdsdbiAssociatedRoles :: Lens' RDSDBInstance (Maybe [RDSDBInstanceDBInstanceRole])
-rdsdbiAssociatedRoles = lens _rDSDBInstanceAssociatedRoles (\s a -> s { _rDSDBInstanceAssociatedRoles = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-autominorversionupgrade
 rdsdbiAutoMinorVersionUpgrade :: Lens' RDSDBInstance (Maybe (Val Bool))

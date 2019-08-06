@@ -19,7 +19,6 @@ import Stratosphere.ResourceProperties.ECSTaskDefinitionPortMapping
 import Stratosphere.ResourceProperties.ECSTaskDefinitionRepositoryCredentials
 import Stratosphere.ResourceProperties.ECSTaskDefinitionResourceRequirement
 import Stratosphere.ResourceProperties.ECSTaskDefinitionSecret
-import Stratosphere.ResourceProperties.ECSTaskDefinitionSystemControl
 import Stratosphere.ResourceProperties.ECSTaskDefinitionUlimit
 import Stratosphere.ResourceProperties.ECSTaskDefinitionVolumeFrom
 
@@ -42,7 +41,6 @@ data ECSTaskDefinitionContainerDefinition =
   , _eCSTaskDefinitionContainerDefinitionHealthCheck :: Maybe ECSTaskDefinitionHealthCheck
   , _eCSTaskDefinitionContainerDefinitionHostname :: Maybe (Val Text)
   , _eCSTaskDefinitionContainerDefinitionImage :: Val Text
-  , _eCSTaskDefinitionContainerDefinitionInteractive :: Maybe (Val Bool)
   , _eCSTaskDefinitionContainerDefinitionLinks :: Maybe (ValList Text)
   , _eCSTaskDefinitionContainerDefinitionLinuxParameters :: Maybe ECSTaskDefinitionLinuxParameters
   , _eCSTaskDefinitionContainerDefinitionLogConfiguration :: Maybe ECSTaskDefinitionLogConfiguration
@@ -52,14 +50,12 @@ data ECSTaskDefinitionContainerDefinition =
   , _eCSTaskDefinitionContainerDefinitionName :: Val Text
   , _eCSTaskDefinitionContainerDefinitionPortMappings :: Maybe [ECSTaskDefinitionPortMapping]
   , _eCSTaskDefinitionContainerDefinitionPrivileged :: Maybe (Val Bool)
-  , _eCSTaskDefinitionContainerDefinitionPseudoTerminal :: Maybe (Val Bool)
   , _eCSTaskDefinitionContainerDefinitionReadonlyRootFilesystem :: Maybe (Val Bool)
   , _eCSTaskDefinitionContainerDefinitionRepositoryCredentials :: Maybe ECSTaskDefinitionRepositoryCredentials
   , _eCSTaskDefinitionContainerDefinitionResourceRequirements :: Maybe [ECSTaskDefinitionResourceRequirement]
   , _eCSTaskDefinitionContainerDefinitionSecrets :: Maybe [ECSTaskDefinitionSecret]
   , _eCSTaskDefinitionContainerDefinitionStartTimeout :: Maybe (Val Integer)
   , _eCSTaskDefinitionContainerDefinitionStopTimeout :: Maybe (Val Integer)
-  , _eCSTaskDefinitionContainerDefinitionSystemControls :: Maybe [ECSTaskDefinitionSystemControl]
   , _eCSTaskDefinitionContainerDefinitionUlimits :: Maybe [ECSTaskDefinitionUlimit]
   , _eCSTaskDefinitionContainerDefinitionUser :: Maybe (Val Text)
   , _eCSTaskDefinitionContainerDefinitionVolumesFrom :: Maybe [ECSTaskDefinitionVolumeFrom]
@@ -85,7 +81,6 @@ instance ToJSON ECSTaskDefinitionContainerDefinition where
     , fmap (("HealthCheck",) . toJSON) _eCSTaskDefinitionContainerDefinitionHealthCheck
     , fmap (("Hostname",) . toJSON) _eCSTaskDefinitionContainerDefinitionHostname
     , (Just . ("Image",) . toJSON) _eCSTaskDefinitionContainerDefinitionImage
-    , fmap (("Interactive",) . toJSON) _eCSTaskDefinitionContainerDefinitionInteractive
     , fmap (("Links",) . toJSON) _eCSTaskDefinitionContainerDefinitionLinks
     , fmap (("LinuxParameters",) . toJSON) _eCSTaskDefinitionContainerDefinitionLinuxParameters
     , fmap (("LogConfiguration",) . toJSON) _eCSTaskDefinitionContainerDefinitionLogConfiguration
@@ -95,14 +90,12 @@ instance ToJSON ECSTaskDefinitionContainerDefinition where
     , (Just . ("Name",) . toJSON) _eCSTaskDefinitionContainerDefinitionName
     , fmap (("PortMappings",) . toJSON) _eCSTaskDefinitionContainerDefinitionPortMappings
     , fmap (("Privileged",) . toJSON) _eCSTaskDefinitionContainerDefinitionPrivileged
-    , fmap (("PseudoTerminal",) . toJSON) _eCSTaskDefinitionContainerDefinitionPseudoTerminal
     , fmap (("ReadonlyRootFilesystem",) . toJSON) _eCSTaskDefinitionContainerDefinitionReadonlyRootFilesystem
     , fmap (("RepositoryCredentials",) . toJSON) _eCSTaskDefinitionContainerDefinitionRepositoryCredentials
     , fmap (("ResourceRequirements",) . toJSON) _eCSTaskDefinitionContainerDefinitionResourceRequirements
     , fmap (("Secrets",) . toJSON) _eCSTaskDefinitionContainerDefinitionSecrets
     , fmap (("StartTimeout",) . toJSON) _eCSTaskDefinitionContainerDefinitionStartTimeout
     , fmap (("StopTimeout",) . toJSON) _eCSTaskDefinitionContainerDefinitionStopTimeout
-    , fmap (("SystemControls",) . toJSON) _eCSTaskDefinitionContainerDefinitionSystemControls
     , fmap (("Ulimits",) . toJSON) _eCSTaskDefinitionContainerDefinitionUlimits
     , fmap (("User",) . toJSON) _eCSTaskDefinitionContainerDefinitionUser
     , fmap (("VolumesFrom",) . toJSON) _eCSTaskDefinitionContainerDefinitionVolumesFrom
@@ -132,7 +125,6 @@ ecsTaskDefinitionContainerDefinition imagearg namearg =
   , _eCSTaskDefinitionContainerDefinitionHealthCheck = Nothing
   , _eCSTaskDefinitionContainerDefinitionHostname = Nothing
   , _eCSTaskDefinitionContainerDefinitionImage = imagearg
-  , _eCSTaskDefinitionContainerDefinitionInteractive = Nothing
   , _eCSTaskDefinitionContainerDefinitionLinks = Nothing
   , _eCSTaskDefinitionContainerDefinitionLinuxParameters = Nothing
   , _eCSTaskDefinitionContainerDefinitionLogConfiguration = Nothing
@@ -142,14 +134,12 @@ ecsTaskDefinitionContainerDefinition imagearg namearg =
   , _eCSTaskDefinitionContainerDefinitionName = namearg
   , _eCSTaskDefinitionContainerDefinitionPortMappings = Nothing
   , _eCSTaskDefinitionContainerDefinitionPrivileged = Nothing
-  , _eCSTaskDefinitionContainerDefinitionPseudoTerminal = Nothing
   , _eCSTaskDefinitionContainerDefinitionReadonlyRootFilesystem = Nothing
   , _eCSTaskDefinitionContainerDefinitionRepositoryCredentials = Nothing
   , _eCSTaskDefinitionContainerDefinitionResourceRequirements = Nothing
   , _eCSTaskDefinitionContainerDefinitionSecrets = Nothing
   , _eCSTaskDefinitionContainerDefinitionStartTimeout = Nothing
   , _eCSTaskDefinitionContainerDefinitionStopTimeout = Nothing
-  , _eCSTaskDefinitionContainerDefinitionSystemControls = Nothing
   , _eCSTaskDefinitionContainerDefinitionUlimits = Nothing
   , _eCSTaskDefinitionContainerDefinitionUser = Nothing
   , _eCSTaskDefinitionContainerDefinitionVolumesFrom = Nothing
@@ -216,10 +206,6 @@ ecstdcdHostname = lens _eCSTaskDefinitionContainerDefinitionHostname (\s a -> s 
 ecstdcdImage :: Lens' ECSTaskDefinitionContainerDefinition (Val Text)
 ecstdcdImage = lens _eCSTaskDefinitionContainerDefinitionImage (\s a -> s { _eCSTaskDefinitionContainerDefinitionImage = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-interactive
-ecstdcdInteractive :: Lens' ECSTaskDefinitionContainerDefinition (Maybe (Val Bool))
-ecstdcdInteractive = lens _eCSTaskDefinitionContainerDefinitionInteractive (\s a -> s { _eCSTaskDefinitionContainerDefinitionInteractive = a })
-
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-links
 ecstdcdLinks :: Lens' ECSTaskDefinitionContainerDefinition (Maybe (ValList Text))
 ecstdcdLinks = lens _eCSTaskDefinitionContainerDefinitionLinks (\s a -> s { _eCSTaskDefinitionContainerDefinitionLinks = a })
@@ -256,10 +242,6 @@ ecstdcdPortMappings = lens _eCSTaskDefinitionContainerDefinitionPortMappings (\s
 ecstdcdPrivileged :: Lens' ECSTaskDefinitionContainerDefinition (Maybe (Val Bool))
 ecstdcdPrivileged = lens _eCSTaskDefinitionContainerDefinitionPrivileged (\s a -> s { _eCSTaskDefinitionContainerDefinitionPrivileged = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-pseudoterminal
-ecstdcdPseudoTerminal :: Lens' ECSTaskDefinitionContainerDefinition (Maybe (Val Bool))
-ecstdcdPseudoTerminal = lens _eCSTaskDefinitionContainerDefinitionPseudoTerminal (\s a -> s { _eCSTaskDefinitionContainerDefinitionPseudoTerminal = a })
-
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-readonlyrootfilesystem
 ecstdcdReadonlyRootFilesystem :: Lens' ECSTaskDefinitionContainerDefinition (Maybe (Val Bool))
 ecstdcdReadonlyRootFilesystem = lens _eCSTaskDefinitionContainerDefinitionReadonlyRootFilesystem (\s a -> s { _eCSTaskDefinitionContainerDefinitionReadonlyRootFilesystem = a })
@@ -283,10 +265,6 @@ ecstdcdStartTimeout = lens _eCSTaskDefinitionContainerDefinitionStartTimeout (\s
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-stoptimeout
 ecstdcdStopTimeout :: Lens' ECSTaskDefinitionContainerDefinition (Maybe (Val Integer))
 ecstdcdStopTimeout = lens _eCSTaskDefinitionContainerDefinitionStopTimeout (\s a -> s { _eCSTaskDefinitionContainerDefinitionStopTimeout = a })
-
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-systemcontrols
-ecstdcdSystemControls :: Lens' ECSTaskDefinitionContainerDefinition (Maybe [ECSTaskDefinitionSystemControl])
-ecstdcdSystemControls = lens _eCSTaskDefinitionContainerDefinitionSystemControls (\s a -> s { _eCSTaskDefinitionContainerDefinitionSystemControls = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-ulimits
 ecstdcdUlimits :: Lens' ECSTaskDefinitionContainerDefinition (Maybe [ECSTaskDefinitionUlimit])

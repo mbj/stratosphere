@@ -9,6 +9,7 @@ module Stratosphere.ResourceProperties.BatchJobDefinitionContainerProperties whe
 
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.BatchJobDefinitionEnvironment
+import Stratosphere.ResourceProperties.BatchJobDefinitionLinuxParameters
 import Stratosphere.ResourceProperties.BatchJobDefinitionMountPoints
 import Stratosphere.ResourceProperties.BatchJobDefinitionResourceRequirement
 import Stratosphere.ResourceProperties.BatchJobDefinitionUlimit
@@ -24,6 +25,7 @@ data BatchJobDefinitionContainerProperties =
   , _batchJobDefinitionContainerPropertiesImage :: Val Text
   , _batchJobDefinitionContainerPropertiesInstanceType :: Maybe (Val Text)
   , _batchJobDefinitionContainerPropertiesJobRoleArn :: Maybe (Val Text)
+  , _batchJobDefinitionContainerPropertiesLinuxParameters :: Maybe BatchJobDefinitionLinuxParameters
   , _batchJobDefinitionContainerPropertiesMemory :: Val Integer
   , _batchJobDefinitionContainerPropertiesMountPoints :: Maybe [BatchJobDefinitionMountPoints]
   , _batchJobDefinitionContainerPropertiesPrivileged :: Maybe (Val Bool)
@@ -44,6 +46,7 @@ instance ToJSON BatchJobDefinitionContainerProperties where
     , (Just . ("Image",) . toJSON) _batchJobDefinitionContainerPropertiesImage
     , fmap (("InstanceType",) . toJSON) _batchJobDefinitionContainerPropertiesInstanceType
     , fmap (("JobRoleArn",) . toJSON) _batchJobDefinitionContainerPropertiesJobRoleArn
+    , fmap (("LinuxParameters",) . toJSON) _batchJobDefinitionContainerPropertiesLinuxParameters
     , (Just . ("Memory",) . toJSON) _batchJobDefinitionContainerPropertiesMemory
     , fmap (("MountPoints",) . toJSON) _batchJobDefinitionContainerPropertiesMountPoints
     , fmap (("Privileged",) . toJSON) _batchJobDefinitionContainerPropertiesPrivileged
@@ -69,6 +72,7 @@ batchJobDefinitionContainerProperties imagearg memoryarg vcpusarg =
   , _batchJobDefinitionContainerPropertiesImage = imagearg
   , _batchJobDefinitionContainerPropertiesInstanceType = Nothing
   , _batchJobDefinitionContainerPropertiesJobRoleArn = Nothing
+  , _batchJobDefinitionContainerPropertiesLinuxParameters = Nothing
   , _batchJobDefinitionContainerPropertiesMemory = memoryarg
   , _batchJobDefinitionContainerPropertiesMountPoints = Nothing
   , _batchJobDefinitionContainerPropertiesPrivileged = Nothing
@@ -99,6 +103,10 @@ bjdcpInstanceType = lens _batchJobDefinitionContainerPropertiesInstanceType (\s 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-jobrolearn
 bjdcpJobRoleArn :: Lens' BatchJobDefinitionContainerProperties (Maybe (Val Text))
 bjdcpJobRoleArn = lens _batchJobDefinitionContainerPropertiesJobRoleArn (\s a -> s { _batchJobDefinitionContainerPropertiesJobRoleArn = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-linuxparameters
+bjdcpLinuxParameters :: Lens' BatchJobDefinitionContainerProperties (Maybe BatchJobDefinitionLinuxParameters)
+bjdcpLinuxParameters = lens _batchJobDefinitionContainerPropertiesLinuxParameters (\s a -> s { _batchJobDefinitionContainerPropertiesLinuxParameters = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-memory
 bjdcpMemory :: Lens' BatchJobDefinitionContainerProperties (Val Integer)
