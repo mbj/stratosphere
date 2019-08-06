@@ -11,8 +11,8 @@ import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.AppSyncGraphQLApiAdditionalAuthenticationProvider
 import Stratosphere.ResourceProperties.AppSyncGraphQLApiLogConfig
 import Stratosphere.ResourceProperties.AppSyncGraphQLApiOpenIDConnectConfig
-import Stratosphere.ResourceProperties.Tag
 import Stratosphere.ResourceProperties.AppSyncGraphQLApiUserPoolConfig
+import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for AppSyncGraphQLApi. See 'appSyncGraphQLApi'
 -- for a more convenient constructor.

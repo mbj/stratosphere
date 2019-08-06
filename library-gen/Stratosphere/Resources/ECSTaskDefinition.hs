@@ -9,10 +9,10 @@ module Stratosphere.Resources.ECSTaskDefinition where
 
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.ECSTaskDefinitionContainerDefinition
-import Stratosphere.ResourceProperties.ECSTaskDefinitionTaskDefinitionPlacementConstraint
 import Stratosphere.ResourceProperties.ECSTaskDefinitionProxyConfiguration
-import Stratosphere.ResourceProperties.Tag
+import Stratosphere.ResourceProperties.ECSTaskDefinitionTaskDefinitionPlacementConstraint
 import Stratosphere.ResourceProperties.ECSTaskDefinitionVolume
+import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for ECSTaskDefinition. See 'ecsTaskDefinition'
 -- for a more convenient constructor.

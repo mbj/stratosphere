@@ -9,8 +9,8 @@ module Stratosphere.Resources.CodeCommitRepository where
 
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.CodeCommitRepositoryCode
-import Stratosphere.ResourceProperties.Tag
 import Stratosphere.ResourceProperties.CodeCommitRepositoryRepositoryTrigger
+import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for CodeCommitRepository. See
 -- 'codeCommitRepository' for a more convenient constructor.
