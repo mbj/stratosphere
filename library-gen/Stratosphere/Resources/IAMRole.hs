@@ -9,21 +9,18 @@ module Stratosphere.Resources.IAMRole where
 
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.IAMRolePolicy
-import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for IAMRole. See 'iamRole' for a more
 -- convenient constructor.
 data IAMRole =
   IAMRole
   { _iAMRoleAssumeRolePolicyDocument :: Object
-  , _iAMRoleDescription :: Maybe (Val Text)
   , _iAMRoleManagedPolicyArns :: Maybe (ValList Text)
   , _iAMRoleMaxSessionDuration :: Maybe (Val Integer)
   , _iAMRolePath :: Maybe (Val Text)
   , _iAMRolePermissionsBoundary :: Maybe (Val Text)
   , _iAMRolePolicies :: Maybe [IAMRolePolicy]
   , _iAMRoleRoleName :: Maybe (Val Text)
-  , _iAMRoleTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
 instance ToResourceProperties IAMRole where
@@ -33,14 +30,12 @@ instance ToResourceProperties IAMRole where
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
         [ (Just . ("AssumeRolePolicyDocument",) . toJSON) _iAMRoleAssumeRolePolicyDocument
-        , fmap (("Description",) . toJSON) _iAMRoleDescription
         , fmap (("ManagedPolicyArns",) . toJSON) _iAMRoleManagedPolicyArns
         , fmap (("MaxSessionDuration",) . toJSON) _iAMRoleMaxSessionDuration
         , fmap (("Path",) . toJSON) _iAMRolePath
         , fmap (("PermissionsBoundary",) . toJSON) _iAMRolePermissionsBoundary
         , fmap (("Policies",) . toJSON) _iAMRolePolicies
         , fmap (("RoleName",) . toJSON) _iAMRoleRoleName
-        , fmap (("Tags",) . toJSON) _iAMRoleTags
         ]
     }
 
@@ -51,23 +46,17 @@ iamRole
 iamRole assumeRolePolicyDocumentarg =
   IAMRole
   { _iAMRoleAssumeRolePolicyDocument = assumeRolePolicyDocumentarg
-  , _iAMRoleDescription = Nothing
   , _iAMRoleManagedPolicyArns = Nothing
   , _iAMRoleMaxSessionDuration = Nothing
   , _iAMRolePath = Nothing
   , _iAMRolePermissionsBoundary = Nothing
   , _iAMRolePolicies = Nothing
   , _iAMRoleRoleName = Nothing
-  , _iAMRoleTags = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html#cfn-iam-role-assumerolepolicydocument
 iamrAssumeRolePolicyDocument :: Lens' IAMRole Object
 iamrAssumeRolePolicyDocument = lens _iAMRoleAssumeRolePolicyDocument (\s a -> s { _iAMRoleAssumeRolePolicyDocument = a })
-
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html#cfn-iam-role-description
-iamrDescription :: Lens' IAMRole (Maybe (Val Text))
-iamrDescription = lens _iAMRoleDescription (\s a -> s { _iAMRoleDescription = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html#cfn-iam-role-managepolicyarns
 iamrManagedPolicyArns :: Lens' IAMRole (Maybe (ValList Text))
@@ -92,7 +81,3 @@ iamrPolicies = lens _iAMRolePolicies (\s a -> s { _iAMRolePolicies = a })
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html#cfn-iam-role-rolename
 iamrRoleName :: Lens' IAMRole (Maybe (Val Text))
 iamrRoleName = lens _iAMRoleRoleName (\s a -> s { _iAMRoleRoleName = a })
-
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-role.html#cfn-iam-role-tags
-iamrTags :: Lens' IAMRole (Maybe [Tag])
-iamrTags = lens _iAMRoleTags (\s a -> s { _iAMRoleTags = a })

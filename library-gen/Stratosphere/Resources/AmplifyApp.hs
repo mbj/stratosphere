@@ -8,6 +8,7 @@
 module Stratosphere.Resources.AmplifyApp where
 
 import Stratosphere.ResourceImports
+import Stratosphere.ResourceProperties.AmplifyAppAutoBranchCreationConfig
 import Stratosphere.ResourceProperties.AmplifyAppBasicAuthConfig
 import Stratosphere.ResourceProperties.AmplifyAppCustomRule
 import Stratosphere.ResourceProperties.AmplifyAppEnvironmentVariable
@@ -18,6 +19,7 @@ import Stratosphere.ResourceProperties.Tag
 data AmplifyApp =
   AmplifyApp
   { _amplifyAppAccessToken :: Maybe (Val Text)
+  , _amplifyAppAutoBranchCreationConfig :: Maybe AmplifyAppAutoBranchCreationConfig
   , _amplifyAppBasicAuthConfig :: Maybe AmplifyAppBasicAuthConfig
   , _amplifyAppBuildSpec :: Maybe (Val Text)
   , _amplifyAppCustomRules :: Maybe [AmplifyAppCustomRule]
@@ -37,6 +39,7 @@ instance ToResourceProperties AmplifyApp where
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
         [ fmap (("AccessToken",) . toJSON) _amplifyAppAccessToken
+        , fmap (("AutoBranchCreationConfig",) . toJSON) _amplifyAppAutoBranchCreationConfig
         , fmap (("BasicAuthConfig",) . toJSON) _amplifyAppBasicAuthConfig
         , fmap (("BuildSpec",) . toJSON) _amplifyAppBuildSpec
         , fmap (("CustomRules",) . toJSON) _amplifyAppCustomRules
@@ -57,6 +60,7 @@ amplifyApp
 amplifyApp namearg =
   AmplifyApp
   { _amplifyAppAccessToken = Nothing
+  , _amplifyAppAutoBranchCreationConfig = Nothing
   , _amplifyAppBasicAuthConfig = Nothing
   , _amplifyAppBuildSpec = Nothing
   , _amplifyAppCustomRules = Nothing
@@ -72,6 +76,10 @@ amplifyApp namearg =
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-accesstoken
 aaAccessToken :: Lens' AmplifyApp (Maybe (Val Text))
 aaAccessToken = lens _amplifyAppAccessToken (\s a -> s { _amplifyAppAccessToken = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-autobranchcreationconfig
+aaAutoBranchCreationConfig :: Lens' AmplifyApp (Maybe AmplifyAppAutoBranchCreationConfig)
+aaAutoBranchCreationConfig = lens _amplifyAppAutoBranchCreationConfig (\s a -> s { _amplifyAppAutoBranchCreationConfig = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-basicauthconfig
 aaBasicAuthConfig :: Lens' AmplifyApp (Maybe AmplifyAppBasicAuthConfig)

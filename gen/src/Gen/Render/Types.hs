@@ -191,6 +191,8 @@ computeLensPrefix "AWS::Greengrass::ConnectorDefinition" = "gcdn"
 computeLensPrefix "AWS::Greengrass::CoreDefinition" = "gcdr"
 computeLensPrefix "AWS::ElasticLoadBalancingV2::ListenerRule.HostHeaderConfig" = "elbvlrhohc"
 computeLensPrefix "AWS::ElasticLoadBalancingV2::ListenerRule.HttpHeaderConfig" = "elbvlrhthc"
+computeLensPrefix "AWS::IoTEvents::DetectorModel.OnEnter" = "itedmoen"
+computeLensPrefix "AWS::IoTEvents::DetectorModel.OnExit" = "itedmoex"
 -- Everything else
 computeLensPrefix rawName = toLower $ fromMaybe rawName $ toAcronym $ computeModuleName rawName
 

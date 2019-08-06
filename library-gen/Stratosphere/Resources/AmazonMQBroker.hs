@@ -9,6 +9,7 @@ module Stratosphere.Resources.AmazonMQBroker where
 
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.AmazonMQBrokerConfigurationId
+import Stratosphere.ResourceProperties.AmazonMQBrokerEncryptionOptions
 import Stratosphere.ResourceProperties.AmazonMQBrokerLogList
 import Stratosphere.ResourceProperties.AmazonMQBrokerMaintenanceWindow
 import Stratosphere.ResourceProperties.AmazonMQBrokerTagsEntry
@@ -22,6 +23,7 @@ data AmazonMQBroker =
   , _amazonMQBrokerBrokerName :: Val Text
   , _amazonMQBrokerConfiguration :: Maybe AmazonMQBrokerConfigurationId
   , _amazonMQBrokerDeploymentMode :: Val Text
+  , _amazonMQBrokerEncryptionOptions :: Maybe AmazonMQBrokerEncryptionOptions
   , _amazonMQBrokerEngineType :: Val Text
   , _amazonMQBrokerEngineVersion :: Val Text
   , _amazonMQBrokerHostInstanceType :: Val Text
@@ -44,6 +46,7 @@ instance ToResourceProperties AmazonMQBroker where
         , (Just . ("BrokerName",) . toJSON) _amazonMQBrokerBrokerName
         , fmap (("Configuration",) . toJSON) _amazonMQBrokerConfiguration
         , (Just . ("DeploymentMode",) . toJSON) _amazonMQBrokerDeploymentMode
+        , fmap (("EncryptionOptions",) . toJSON) _amazonMQBrokerEncryptionOptions
         , (Just . ("EngineType",) . toJSON) _amazonMQBrokerEngineType
         , (Just . ("EngineVersion",) . toJSON) _amazonMQBrokerEngineVersion
         , (Just . ("HostInstanceType",) . toJSON) _amazonMQBrokerHostInstanceType
@@ -74,6 +77,7 @@ amazonMQBroker autoMinorVersionUpgradearg brokerNamearg deploymentModearg engine
   , _amazonMQBrokerBrokerName = brokerNamearg
   , _amazonMQBrokerConfiguration = Nothing
   , _amazonMQBrokerDeploymentMode = deploymentModearg
+  , _amazonMQBrokerEncryptionOptions = Nothing
   , _amazonMQBrokerEngineType = engineTypearg
   , _amazonMQBrokerEngineVersion = engineVersionarg
   , _amazonMQBrokerHostInstanceType = hostInstanceTypearg
@@ -101,6 +105,10 @@ amqbConfiguration = lens _amazonMQBrokerConfiguration (\s a -> s { _amazonMQBrok
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-deploymentmode
 amqbDeploymentMode :: Lens' AmazonMQBroker (Val Text)
 amqbDeploymentMode = lens _amazonMQBrokerDeploymentMode (\s a -> s { _amazonMQBrokerDeploymentMode = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-encryptionoptions
+amqbEncryptionOptions :: Lens' AmazonMQBroker (Maybe AmazonMQBrokerEncryptionOptions)
+amqbEncryptionOptions = lens _amazonMQBrokerEncryptionOptions (\s a -> s { _amazonMQBrokerEncryptionOptions = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-enginetype
 amqbEngineType :: Lens' AmazonMQBroker (Val Text)

@@ -25,7 +25,7 @@ data BatchComputeEnvironmentComputeResources =
   , _batchComputeEnvironmentComputeResourcesMaxvCpus :: Val Integer
   , _batchComputeEnvironmentComputeResourcesMinvCpus :: Val Integer
   , _batchComputeEnvironmentComputeResourcesPlacementGroup :: Maybe (Val Text)
-  , _batchComputeEnvironmentComputeResourcesSecurityGroupIds :: ValList Text
+  , _batchComputeEnvironmentComputeResourcesSecurityGroupIds :: Maybe (ValList Text)
   , _batchComputeEnvironmentComputeResourcesSpotIamFleetRole :: Maybe (Val Text)
   , _batchComputeEnvironmentComputeResourcesSubnets :: ValList Text
   , _batchComputeEnvironmentComputeResourcesTags :: Maybe Object
@@ -46,7 +46,7 @@ instance ToJSON BatchComputeEnvironmentComputeResources where
     , (Just . ("MaxvCpus",) . toJSON) _batchComputeEnvironmentComputeResourcesMaxvCpus
     , (Just . ("MinvCpus",) . toJSON) _batchComputeEnvironmentComputeResourcesMinvCpus
     , fmap (("PlacementGroup",) . toJSON) _batchComputeEnvironmentComputeResourcesPlacementGroup
-    , (Just . ("SecurityGroupIds",) . toJSON) _batchComputeEnvironmentComputeResourcesSecurityGroupIds
+    , fmap (("SecurityGroupIds",) . toJSON) _batchComputeEnvironmentComputeResourcesSecurityGroupIds
     , fmap (("SpotIamFleetRole",) . toJSON) _batchComputeEnvironmentComputeResourcesSpotIamFleetRole
     , (Just . ("Subnets",) . toJSON) _batchComputeEnvironmentComputeResourcesSubnets
     , fmap (("Tags",) . toJSON) _batchComputeEnvironmentComputeResourcesTags
@@ -60,11 +60,10 @@ batchComputeEnvironmentComputeResources
   -> ValList Text -- ^ 'bcecrInstanceTypes'
   -> Val Integer -- ^ 'bcecrMaxvCpus'
   -> Val Integer -- ^ 'bcecrMinvCpus'
-  -> ValList Text -- ^ 'bcecrSecurityGroupIds'
   -> ValList Text -- ^ 'bcecrSubnets'
   -> Val Text -- ^ 'bcecrType'
   -> BatchComputeEnvironmentComputeResources
-batchComputeEnvironmentComputeResources instanceRolearg instanceTypesarg maxvCpusarg minvCpusarg securityGroupIdsarg subnetsarg typearg =
+batchComputeEnvironmentComputeResources instanceRolearg instanceTypesarg maxvCpusarg minvCpusarg subnetsarg typearg =
   BatchComputeEnvironmentComputeResources
   { _batchComputeEnvironmentComputeResourcesBidPercentage = Nothing
   , _batchComputeEnvironmentComputeResourcesDesiredvCpus = Nothing
@@ -76,7 +75,7 @@ batchComputeEnvironmentComputeResources instanceRolearg instanceTypesarg maxvCpu
   , _batchComputeEnvironmentComputeResourcesMaxvCpus = maxvCpusarg
   , _batchComputeEnvironmentComputeResourcesMinvCpus = minvCpusarg
   , _batchComputeEnvironmentComputeResourcesPlacementGroup = Nothing
-  , _batchComputeEnvironmentComputeResourcesSecurityGroupIds = securityGroupIdsarg
+  , _batchComputeEnvironmentComputeResourcesSecurityGroupIds = Nothing
   , _batchComputeEnvironmentComputeResourcesSpotIamFleetRole = Nothing
   , _batchComputeEnvironmentComputeResourcesSubnets = subnetsarg
   , _batchComputeEnvironmentComputeResourcesTags = Nothing
@@ -124,7 +123,7 @@ bcecrPlacementGroup :: Lens' BatchComputeEnvironmentComputeResources (Maybe (Val
 bcecrPlacementGroup = lens _batchComputeEnvironmentComputeResourcesPlacementGroup (\s a -> s { _batchComputeEnvironmentComputeResourcesPlacementGroup = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-securitygroupids
-bcecrSecurityGroupIds :: Lens' BatchComputeEnvironmentComputeResources (ValList Text)
+bcecrSecurityGroupIds :: Lens' BatchComputeEnvironmentComputeResources (Maybe (ValList Text))
 bcecrSecurityGroupIds = lens _batchComputeEnvironmentComputeResourcesSecurityGroupIds (\s a -> s { _batchComputeEnvironmentComputeResourcesSecurityGroupIds = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-spotiamfleetrole
