@@ -14,7 +14,9 @@ import Stratosphere.ResourceProperties.Tag
 -- 'dmsReplicationTask' for a more convenient constructor.
 data DMSReplicationTask =
   DMSReplicationTask
-  { _dMSReplicationTaskCdcStartTime :: Maybe (Val Double)
+  { _dMSReplicationTaskCdcStartPosition :: Maybe (Val Text)
+  , _dMSReplicationTaskCdcStartTime :: Maybe (Val Double)
+  , _dMSReplicationTaskCdcStopPosition :: Maybe (Val Text)
   , _dMSReplicationTaskMigrationType :: Val Text
   , _dMSReplicationTaskReplicationInstanceArn :: Val Text
   , _dMSReplicationTaskReplicationTaskIdentifier :: Maybe (Val Text)
@@ -31,7 +33,9 @@ instance ToResourceProperties DMSReplicationTask where
     { resourcePropertiesType = "AWS::DMS::ReplicationTask"
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
-        [ fmap (("CdcStartTime",) . toJSON) _dMSReplicationTaskCdcStartTime
+        [ fmap (("CdcStartPosition",) . toJSON) _dMSReplicationTaskCdcStartPosition
+        , fmap (("CdcStartTime",) . toJSON) _dMSReplicationTaskCdcStartTime
+        , fmap (("CdcStopPosition",) . toJSON) _dMSReplicationTaskCdcStopPosition
         , (Just . ("MigrationType",) . toJSON) _dMSReplicationTaskMigrationType
         , (Just . ("ReplicationInstanceArn",) . toJSON) _dMSReplicationTaskReplicationInstanceArn
         , fmap (("ReplicationTaskIdentifier",) . toJSON) _dMSReplicationTaskReplicationTaskIdentifier
@@ -54,7 +58,9 @@ dmsReplicationTask
   -> DMSReplicationTask
 dmsReplicationTask migrationTypearg replicationInstanceArnarg sourceEndpointArnarg tableMappingsarg targetEndpointArnarg =
   DMSReplicationTask
-  { _dMSReplicationTaskCdcStartTime = Nothing
+  { _dMSReplicationTaskCdcStartPosition = Nothing
+  , _dMSReplicationTaskCdcStartTime = Nothing
+  , _dMSReplicationTaskCdcStopPosition = Nothing
   , _dMSReplicationTaskMigrationType = migrationTypearg
   , _dMSReplicationTaskReplicationInstanceArn = replicationInstanceArnarg
   , _dMSReplicationTaskReplicationTaskIdentifier = Nothing
@@ -65,9 +71,17 @@ dmsReplicationTask migrationTypearg replicationInstanceArnarg sourceEndpointArna
   , _dMSReplicationTaskTargetEndpointArn = targetEndpointArnarg
   }
 
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html#cfn-dms-replicationtask-cdcstartposition
+dmsrtCdcStartPosition :: Lens' DMSReplicationTask (Maybe (Val Text))
+dmsrtCdcStartPosition = lens _dMSReplicationTaskCdcStartPosition (\s a -> s { _dMSReplicationTaskCdcStartPosition = a })
+
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html#cfn-dms-replicationtask-cdcstarttime
 dmsrtCdcStartTime :: Lens' DMSReplicationTask (Maybe (Val Double))
 dmsrtCdcStartTime = lens _dMSReplicationTaskCdcStartTime (\s a -> s { _dMSReplicationTaskCdcStartTime = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html#cfn-dms-replicationtask-cdcstopposition
+dmsrtCdcStopPosition :: Lens' DMSReplicationTask (Maybe (Val Text))
+dmsrtCdcStopPosition = lens _dMSReplicationTaskCdcStopPosition (\s a -> s { _dMSReplicationTaskCdcStopPosition = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html#cfn-dms-replicationtask-migrationtype
 dmsrtMigrationType :: Lens' DMSReplicationTask (Val Text)

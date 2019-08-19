@@ -16,6 +16,7 @@ data GreengrassLoggerDefinition =
   GreengrassLoggerDefinition
   { _greengrassLoggerDefinitionInitialVersion :: Maybe GreengrassLoggerDefinitionLoggerDefinitionVersion
   , _greengrassLoggerDefinitionName :: Val Text
+  , _greengrassLoggerDefinitionTags :: Maybe Object
   } deriving (Show, Eq)
 
 instance ToResourceProperties GreengrassLoggerDefinition where
@@ -26,6 +27,7 @@ instance ToResourceProperties GreengrassLoggerDefinition where
         hashMapFromList $ catMaybes
         [ fmap (("InitialVersion",) . toJSON) _greengrassLoggerDefinitionInitialVersion
         , (Just . ("Name",) . toJSON) _greengrassLoggerDefinitionName
+        , fmap (("Tags",) . toJSON) _greengrassLoggerDefinitionTags
         ]
     }
 
@@ -38,6 +40,7 @@ greengrassLoggerDefinition namearg =
   GreengrassLoggerDefinition
   { _greengrassLoggerDefinitionInitialVersion = Nothing
   , _greengrassLoggerDefinitionName = namearg
+  , _greengrassLoggerDefinitionTags = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-loggerdefinition.html#cfn-greengrass-loggerdefinition-initialversion
@@ -47,3 +50,7 @@ gldInitialVersion = lens _greengrassLoggerDefinitionInitialVersion (\s a -> s { 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-loggerdefinition.html#cfn-greengrass-loggerdefinition-name
 gldName :: Lens' GreengrassLoggerDefinition (Val Text)
 gldName = lens _greengrassLoggerDefinitionName (\s a -> s { _greengrassLoggerDefinitionName = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-loggerdefinition.html#cfn-greengrass-loggerdefinition-tags
+gldTags :: Lens' GreengrassLoggerDefinition (Maybe Object)
+gldTags = lens _greengrassLoggerDefinitionTags (\s a -> s { _greengrassLoggerDefinitionTags = a })

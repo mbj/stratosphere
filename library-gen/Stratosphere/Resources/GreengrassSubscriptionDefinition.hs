@@ -16,6 +16,7 @@ data GreengrassSubscriptionDefinition =
   GreengrassSubscriptionDefinition
   { _greengrassSubscriptionDefinitionInitialVersion :: Maybe GreengrassSubscriptionDefinitionSubscriptionDefinitionVersion
   , _greengrassSubscriptionDefinitionName :: Val Text
+  , _greengrassSubscriptionDefinitionTags :: Maybe Object
   } deriving (Show, Eq)
 
 instance ToResourceProperties GreengrassSubscriptionDefinition where
@@ -26,6 +27,7 @@ instance ToResourceProperties GreengrassSubscriptionDefinition where
         hashMapFromList $ catMaybes
         [ fmap (("InitialVersion",) . toJSON) _greengrassSubscriptionDefinitionInitialVersion
         , (Just . ("Name",) . toJSON) _greengrassSubscriptionDefinitionName
+        , fmap (("Tags",) . toJSON) _greengrassSubscriptionDefinitionTags
         ]
     }
 
@@ -38,6 +40,7 @@ greengrassSubscriptionDefinition namearg =
   GreengrassSubscriptionDefinition
   { _greengrassSubscriptionDefinitionInitialVersion = Nothing
   , _greengrassSubscriptionDefinitionName = namearg
+  , _greengrassSubscriptionDefinitionTags = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-subscriptiondefinition.html#cfn-greengrass-subscriptiondefinition-initialversion
@@ -47,3 +50,7 @@ gsdInitialVersion = lens _greengrassSubscriptionDefinitionInitialVersion (\s a -
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-subscriptiondefinition.html#cfn-greengrass-subscriptiondefinition-name
 gsdName :: Lens' GreengrassSubscriptionDefinition (Val Text)
 gsdName = lens _greengrassSubscriptionDefinitionName (\s a -> s { _greengrassSubscriptionDefinitionName = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-subscriptiondefinition.html#cfn-greengrass-subscriptiondefinition-tags
+gsdTags :: Lens' GreengrassSubscriptionDefinition (Maybe Object)
+gsdTags = lens _greengrassSubscriptionDefinitionTags (\s a -> s { _greengrassSubscriptionDefinitionTags = a })

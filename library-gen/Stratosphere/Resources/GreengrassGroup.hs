@@ -17,6 +17,7 @@ data GreengrassGroup =
   { _greengrassGroupInitialVersion :: Maybe GreengrassGroupGroupVersion
   , _greengrassGroupName :: Val Text
   , _greengrassGroupRoleArn :: Maybe (Val Text)
+  , _greengrassGroupTags :: Maybe Object
   } deriving (Show, Eq)
 
 instance ToResourceProperties GreengrassGroup where
@@ -28,6 +29,7 @@ instance ToResourceProperties GreengrassGroup where
         [ fmap (("InitialVersion",) . toJSON) _greengrassGroupInitialVersion
         , (Just . ("Name",) . toJSON) _greengrassGroupName
         , fmap (("RoleArn",) . toJSON) _greengrassGroupRoleArn
+        , fmap (("Tags",) . toJSON) _greengrassGroupTags
         ]
     }
 
@@ -41,6 +43,7 @@ greengrassGroup namearg =
   { _greengrassGroupInitialVersion = Nothing
   , _greengrassGroupName = namearg
   , _greengrassGroupRoleArn = Nothing
+  , _greengrassGroupTags = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-group.html#cfn-greengrass-group-initialversion
@@ -54,3 +57,7 @@ ggName = lens _greengrassGroupName (\s a -> s { _greengrassGroupName = a })
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-group.html#cfn-greengrass-group-rolearn
 ggRoleArn :: Lens' GreengrassGroup (Maybe (Val Text))
 ggRoleArn = lens _greengrassGroupRoleArn (\s a -> s { _greengrassGroupRoleArn = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-group.html#cfn-greengrass-group-tags
+ggTags :: Lens' GreengrassGroup (Maybe Object)
+ggTags = lens _greengrassGroupTags (\s a -> s { _greengrassGroupTags = a })

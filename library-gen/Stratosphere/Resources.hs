@@ -129,6 +129,7 @@ import Stratosphere.Resources.CloudWatchAlarm as X
 import Stratosphere.Resources.CloudWatchAnomalyDetector as X
 import Stratosphere.Resources.CloudWatchDashboard as X
 import Stratosphere.Resources.CodeBuildProject as X
+import Stratosphere.Resources.CodeBuildSourceCredential as X
 import Stratosphere.Resources.CodeCommitRepository as X
 import Stratosphere.Resources.CodeDeployApplication as X
 import Stratosphere.Resources.CodeDeployDeploymentConfig as X
@@ -263,6 +264,7 @@ import Stratosphere.Resources.GlueDataCatalogEncryptionSettings as X
 import Stratosphere.Resources.GlueDatabase as X
 import Stratosphere.Resources.GlueDevEndpoint as X
 import Stratosphere.Resources.GlueJob as X
+import Stratosphere.Resources.GlueMLTransform as X
 import Stratosphere.Resources.GluePartition as X
 import Stratosphere.Resources.GlueSecurityConfiguration as X
 import Stratosphere.Resources.GlueTable as X
@@ -329,6 +331,9 @@ import Stratosphere.Resources.KinesisAnalyticsV2ApplicationCloudWatchLoggingOpti
 import Stratosphere.Resources.KinesisAnalyticsV2ApplicationOutput as X
 import Stratosphere.Resources.KinesisAnalyticsV2ApplicationReferenceDataSource as X
 import Stratosphere.Resources.KinesisFirehoseDeliveryStream as X
+import Stratosphere.Resources.LakeFormationDataLakeSettings as X
+import Stratosphere.Resources.LakeFormationPermissions as X
+import Stratosphere.Resources.LakeFormationResource as X
 import Stratosphere.Resources.LambdaAlias as X
 import Stratosphere.Resources.LambdaEventSourceMapping as X
 import Stratosphere.Resources.LambdaFunction as X
@@ -342,6 +347,8 @@ import Stratosphere.Resources.LogsLogStream as X
 import Stratosphere.Resources.LogsMetricFilter as X
 import Stratosphere.Resources.LogsSubscriptionFilter as X
 import Stratosphere.Resources.MSKCluster as X
+import Stratosphere.Resources.ManagedBlockchainMember as X
+import Stratosphere.Resources.ManagedBlockchainNode as X
 import Stratosphere.Resources.MediaLiveChannel as X
 import Stratosphere.Resources.MediaLiveInput as X
 import Stratosphere.Resources.MediaLiveInputSecurityGroup as X
@@ -423,6 +430,7 @@ import Stratosphere.Resources.SQSQueuePolicy as X
 import Stratosphere.Resources.SSMAssociation as X
 import Stratosphere.Resources.SSMDocument as X
 import Stratosphere.Resources.SSMMaintenanceWindow as X
+import Stratosphere.Resources.SSMMaintenanceWindowTarget as X
 import Stratosphere.Resources.SSMMaintenanceWindowTask as X
 import Stratosphere.Resources.SSMParameter as X
 import Stratosphere.Resources.SSMPatchBaseline as X
@@ -432,6 +440,7 @@ import Stratosphere.Resources.SageMakerEndpointConfig as X
 import Stratosphere.Resources.SageMakerModel as X
 import Stratosphere.Resources.SageMakerNotebookInstance as X
 import Stratosphere.Resources.SageMakerNotebookInstanceLifecycleConfig as X
+import Stratosphere.Resources.SageMakerWorkteam as X
 import Stratosphere.Resources.SecretsManagerResourcePolicy as X
 import Stratosphere.Resources.SecretsManagerRotationSchedule as X
 import Stratosphere.Resources.SecretsManagerSecret as X
@@ -1013,6 +1022,10 @@ import Stratosphere.ResourceProperties.GlueDatabaseDatabaseInput as X
 import Stratosphere.ResourceProperties.GlueJobConnectionsList as X
 import Stratosphere.ResourceProperties.GlueJobExecutionProperty as X
 import Stratosphere.ResourceProperties.GlueJobJobCommand as X
+import Stratosphere.ResourceProperties.GlueMLTransformFindMatchesParameters as X
+import Stratosphere.ResourceProperties.GlueMLTransformGlueTables as X
+import Stratosphere.ResourceProperties.GlueMLTransformInputRecordTables as X
+import Stratosphere.ResourceProperties.GlueMLTransformTransformParameters as X
 import Stratosphere.ResourceProperties.GluePartitionColumn as X
 import Stratosphere.ResourceProperties.GluePartitionOrder as X
 import Stratosphere.ResourceProperties.GluePartitionPartitionInput as X
@@ -1256,6 +1269,11 @@ import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamSchemaConfig
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamSerializer as X
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamSplunkDestinationConfiguration as X
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamSplunkRetryOptions as X
+import Stratosphere.ResourceProperties.LakeFormationDataLakeSettingsDataLakePrincipal as X
+import Stratosphere.ResourceProperties.LakeFormationPermissionsDataLakePrincipal as X
+import Stratosphere.ResourceProperties.LakeFormationPermissionsDatabaseResource as X
+import Stratosphere.ResourceProperties.LakeFormationPermissionsResource as X
+import Stratosphere.ResourceProperties.LakeFormationPermissionsTableResource as X
 import Stratosphere.ResourceProperties.LambdaAliasAliasRoutingConfiguration as X
 import Stratosphere.ResourceProperties.LambdaAliasVersionWeight as X
 import Stratosphere.ResourceProperties.LambdaFunctionCode as X
@@ -1274,6 +1292,15 @@ import Stratosphere.ResourceProperties.MSKClusterEncryptionInTransit as X
 import Stratosphere.ResourceProperties.MSKClusterEncryptionInfo as X
 import Stratosphere.ResourceProperties.MSKClusterStorageInfo as X
 import Stratosphere.ResourceProperties.MSKClusterTls as X
+import Stratosphere.ResourceProperties.ManagedBlockchainMemberApprovalThresholdPolicy as X
+import Stratosphere.ResourceProperties.ManagedBlockchainMemberMemberConfiguration as X
+import Stratosphere.ResourceProperties.ManagedBlockchainMemberMemberFabricConfiguration as X
+import Stratosphere.ResourceProperties.ManagedBlockchainMemberMemberFrameworkConfiguration as X
+import Stratosphere.ResourceProperties.ManagedBlockchainMemberNetworkConfiguration as X
+import Stratosphere.ResourceProperties.ManagedBlockchainMemberNetworkFabricConfiguration as X
+import Stratosphere.ResourceProperties.ManagedBlockchainMemberNetworkFrameworkConfiguration as X
+import Stratosphere.ResourceProperties.ManagedBlockchainMemberVotingPolicy as X
+import Stratosphere.ResourceProperties.ManagedBlockchainNodeNodeConfiguration as X
 import Stratosphere.ResourceProperties.MediaLiveChannelAribSourceSettings as X
 import Stratosphere.ResourceProperties.MediaLiveChannelAudioLanguageSelection as X
 import Stratosphere.ResourceProperties.MediaLiveChannelAudioPidSelection as X
@@ -1457,6 +1484,7 @@ import Stratosphere.ResourceProperties.SSMAssociationInstanceAssociationOutputLo
 import Stratosphere.ResourceProperties.SSMAssociationParameterValues as X
 import Stratosphere.ResourceProperties.SSMAssociationS3OutputLocation as X
 import Stratosphere.ResourceProperties.SSMAssociationTarget as X
+import Stratosphere.ResourceProperties.SSMMaintenanceWindowTargetTargets as X
 import Stratosphere.ResourceProperties.SSMMaintenanceWindowTaskLoggingInfo as X
 import Stratosphere.ResourceProperties.SSMMaintenanceWindowTaskMaintenanceWindowAutomationParameters as X
 import Stratosphere.ResourceProperties.SSMMaintenanceWindowTaskMaintenanceWindowLambdaParameters as X
@@ -1474,6 +1502,9 @@ import Stratosphere.ResourceProperties.SageMakerEndpointConfigProductionVariant 
 import Stratosphere.ResourceProperties.SageMakerModelContainerDefinition as X
 import Stratosphere.ResourceProperties.SageMakerModelVpcConfig as X
 import Stratosphere.ResourceProperties.SageMakerNotebookInstanceLifecycleConfigNotebookInstanceLifecycleHook as X
+import Stratosphere.ResourceProperties.SageMakerWorkteamCognitoMemberDefinition as X
+import Stratosphere.ResourceProperties.SageMakerWorkteamMemberDefinition as X
+import Stratosphere.ResourceProperties.SageMakerWorkteamNotificationConfiguration as X
 import Stratosphere.ResourceProperties.SecretsManagerRotationScheduleRotationRules as X
 import Stratosphere.ResourceProperties.SecretsManagerSecretGenerateSecretString as X
 import Stratosphere.ResourceProperties.ServiceCatalogCloudFormationProductProvisioningArtifactProperties as X

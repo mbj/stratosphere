@@ -16,6 +16,7 @@ data GreengrassFunctionDefinition =
   GreengrassFunctionDefinition
   { _greengrassFunctionDefinitionInitialVersion :: Maybe GreengrassFunctionDefinitionFunctionDefinitionVersion
   , _greengrassFunctionDefinitionName :: Val Text
+  , _greengrassFunctionDefinitionTags :: Maybe Object
   } deriving (Show, Eq)
 
 instance ToResourceProperties GreengrassFunctionDefinition where
@@ -26,6 +27,7 @@ instance ToResourceProperties GreengrassFunctionDefinition where
         hashMapFromList $ catMaybes
         [ fmap (("InitialVersion",) . toJSON) _greengrassFunctionDefinitionInitialVersion
         , (Just . ("Name",) . toJSON) _greengrassFunctionDefinitionName
+        , fmap (("Tags",) . toJSON) _greengrassFunctionDefinitionTags
         ]
     }
 
@@ -38,6 +40,7 @@ greengrassFunctionDefinition namearg =
   GreengrassFunctionDefinition
   { _greengrassFunctionDefinitionInitialVersion = Nothing
   , _greengrassFunctionDefinitionName = namearg
+  , _greengrassFunctionDefinitionTags = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-functiondefinition.html#cfn-greengrass-functiondefinition-initialversion
@@ -47,3 +50,7 @@ gfdInitialVersion = lens _greengrassFunctionDefinitionInitialVersion (\s a -> s 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-functiondefinition.html#cfn-greengrass-functiondefinition-name
 gfdName :: Lens' GreengrassFunctionDefinition (Val Text)
 gfdName = lens _greengrassFunctionDefinitionName (\s a -> s { _greengrassFunctionDefinitionName = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-functiondefinition.html#cfn-greengrass-functiondefinition-tags
+gfdTags :: Lens' GreengrassFunctionDefinition (Maybe Object)
+gfdTags = lens _greengrassFunctionDefinitionTags (\s a -> s { _greengrassFunctionDefinitionTags = a })
