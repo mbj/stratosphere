@@ -19,6 +19,7 @@ data NeptuneDBCluster =
   , _neptuneDBClusterDBClusterIdentifier :: Maybe (Val Text)
   , _neptuneDBClusterDBClusterParameterGroupName :: Maybe (Val Text)
   , _neptuneDBClusterDBSubnetGroupName :: Maybe (Val Text)
+  , _neptuneDBClusterEnableCloudwatchLogsExports :: Maybe (ValList Text)
   , _neptuneDBClusterIamAuthEnabled :: Maybe (Val Bool)
   , _neptuneDBClusterKmsKeyId :: Maybe (Val Text)
   , _neptuneDBClusterPort :: Maybe (Val Integer)
@@ -41,6 +42,7 @@ instance ToResourceProperties NeptuneDBCluster where
         , fmap (("DBClusterIdentifier",) . toJSON) _neptuneDBClusterDBClusterIdentifier
         , fmap (("DBClusterParameterGroupName",) . toJSON) _neptuneDBClusterDBClusterParameterGroupName
         , fmap (("DBSubnetGroupName",) . toJSON) _neptuneDBClusterDBSubnetGroupName
+        , fmap (("EnableCloudwatchLogsExports",) . toJSON) _neptuneDBClusterEnableCloudwatchLogsExports
         , fmap (("IamAuthEnabled",) . toJSON) _neptuneDBClusterIamAuthEnabled
         , fmap (("KmsKeyId",) . toJSON) _neptuneDBClusterKmsKeyId
         , fmap (("Port",) . toJSON) _neptuneDBClusterPort
@@ -64,6 +66,7 @@ neptuneDBCluster  =
   , _neptuneDBClusterDBClusterIdentifier = Nothing
   , _neptuneDBClusterDBClusterParameterGroupName = Nothing
   , _neptuneDBClusterDBSubnetGroupName = Nothing
+  , _neptuneDBClusterEnableCloudwatchLogsExports = Nothing
   , _neptuneDBClusterIamAuthEnabled = Nothing
   , _neptuneDBClusterKmsKeyId = Nothing
   , _neptuneDBClusterPort = Nothing
@@ -94,6 +97,10 @@ ndbcDBClusterParameterGroupName = lens _neptuneDBClusterDBClusterParameterGroupN
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-dbsubnetgroupname
 ndbcDBSubnetGroupName :: Lens' NeptuneDBCluster (Maybe (Val Text))
 ndbcDBSubnetGroupName = lens _neptuneDBClusterDBSubnetGroupName (\s a -> s { _neptuneDBClusterDBSubnetGroupName = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-enablecloudwatchlogsexports
+ndbcEnableCloudwatchLogsExports :: Lens' NeptuneDBCluster (Maybe (ValList Text))
+ndbcEnableCloudwatchLogsExports = lens _neptuneDBClusterEnableCloudwatchLogsExports (\s a -> s { _neptuneDBClusterEnableCloudwatchLogsExports = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-iamauthenabled
 ndbcIamAuthEnabled :: Lens' NeptuneDBCluster (Maybe (Val Bool))

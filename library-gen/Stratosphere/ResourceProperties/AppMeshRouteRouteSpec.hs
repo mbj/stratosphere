@@ -16,6 +16,7 @@ import Stratosphere.ResourceProperties.AppMeshRouteTcpRoute
 data AppMeshRouteRouteSpec =
   AppMeshRouteRouteSpec
   { _appMeshRouteRouteSpecHttpRoute :: Maybe AppMeshRouteHttpRoute
+  , _appMeshRouteRouteSpecPriority :: Maybe (Val Integer)
   , _appMeshRouteRouteSpecTcpRoute :: Maybe AppMeshRouteTcpRoute
   } deriving (Show, Eq)
 
@@ -24,6 +25,7 @@ instance ToJSON AppMeshRouteRouteSpec where
     object $
     catMaybes
     [ fmap (("HttpRoute",) . toJSON) _appMeshRouteRouteSpecHttpRoute
+    , fmap (("Priority",) . toJSON) _appMeshRouteRouteSpecPriority
     , fmap (("TcpRoute",) . toJSON) _appMeshRouteRouteSpecTcpRoute
     ]
 
@@ -34,12 +36,17 @@ appMeshRouteRouteSpec
 appMeshRouteRouteSpec  =
   AppMeshRouteRouteSpec
   { _appMeshRouteRouteSpecHttpRoute = Nothing
+  , _appMeshRouteRouteSpecPriority = Nothing
   , _appMeshRouteRouteSpecTcpRoute = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-routespec.html#cfn-appmesh-route-routespec-httproute
 amrrsHttpRoute :: Lens' AppMeshRouteRouteSpec (Maybe AppMeshRouteHttpRoute)
 amrrsHttpRoute = lens _appMeshRouteRouteSpecHttpRoute (\s a -> s { _appMeshRouteRouteSpecHttpRoute = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-routespec.html#cfn-appmesh-route-routespec-priority
+amrrsPriority :: Lens' AppMeshRouteRouteSpec (Maybe (Val Integer))
+amrrsPriority = lens _appMeshRouteRouteSpecPriority (\s a -> s { _appMeshRouteRouteSpecPriority = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-routespec.html#cfn-appmesh-route-routespec-tcproute
 amrrsTcpRoute :: Lens' AppMeshRouteRouteSpec (Maybe AppMeshRouteTcpRoute)

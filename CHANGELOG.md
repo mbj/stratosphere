@@ -2,7 +2,7 @@
 
 ## 0.42.0
 
-* Update resource specification document to version 5.2.0
+* Update resource specification document to version 5.3.0
 
 ## 0.41.0
 

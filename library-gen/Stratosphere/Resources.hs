@@ -530,9 +530,12 @@ import Stratosphere.ResourceProperties.ApiGatewayV2StageAccessLogSettings as X
 import Stratosphere.ResourceProperties.ApiGatewayV2StageRouteSettings as X
 import Stratosphere.ResourceProperties.AppMeshMeshEgressFilter as X
 import Stratosphere.ResourceProperties.AppMeshMeshMeshSpec as X
+import Stratosphere.ResourceProperties.AppMeshRouteHeaderMatchMethod as X
 import Stratosphere.ResourceProperties.AppMeshRouteHttpRoute as X
 import Stratosphere.ResourceProperties.AppMeshRouteHttpRouteAction as X
+import Stratosphere.ResourceProperties.AppMeshRouteHttpRouteHeader as X
 import Stratosphere.ResourceProperties.AppMeshRouteHttpRouteMatch as X
+import Stratosphere.ResourceProperties.AppMeshRouteMatchRange as X
 import Stratosphere.ResourceProperties.AppMeshRouteRouteSpec as X
 import Stratosphere.ResourceProperties.AppMeshRouteTcpRoute as X
 import Stratosphere.ResourceProperties.AppMeshRouteTcpRouteAction as X
