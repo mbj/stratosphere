@@ -32,7 +32,8 @@ data CloudWatchAlarm =
   , _cloudWatchAlarmOKActions :: Maybe (ValList Text)
   , _cloudWatchAlarmPeriod :: Maybe (Val Integer)
   , _cloudWatchAlarmStatistic :: Maybe (Val Text)
-  , _cloudWatchAlarmThreshold :: Val Double
+  , _cloudWatchAlarmThreshold :: Maybe (Val Double)
+  , _cloudWatchAlarmThresholdMetricId :: Maybe (Val Text)
   , _cloudWatchAlarmTreatMissingData :: Maybe (Val Text)
   , _cloudWatchAlarmUnit :: Maybe (Val Text)
   } deriving (Show, Eq)
@@ -60,7 +61,8 @@ instance ToResourceProperties CloudWatchAlarm where
         , fmap (("OKActions",) . toJSON) _cloudWatchAlarmOKActions
         , fmap (("Period",) . toJSON) _cloudWatchAlarmPeriod
         , fmap (("Statistic",) . toJSON) _cloudWatchAlarmStatistic
-        , (Just . ("Threshold",) . toJSON) _cloudWatchAlarmThreshold
+        , fmap (("Threshold",) . toJSON) _cloudWatchAlarmThreshold
+        , fmap (("ThresholdMetricId",) . toJSON) _cloudWatchAlarmThresholdMetricId
         , fmap (("TreatMissingData",) . toJSON) _cloudWatchAlarmTreatMissingData
         , fmap (("Unit",) . toJSON) _cloudWatchAlarmUnit
         ]
@@ -71,9 +73,8 @@ instance ToResourceProperties CloudWatchAlarm where
 cloudWatchAlarm
   :: Val Text -- ^ 'cwaComparisonOperator'
   -> Val Integer -- ^ 'cwaEvaluationPeriods'
-  -> Val Double -- ^ 'cwaThreshold'
   -> CloudWatchAlarm
-cloudWatchAlarm comparisonOperatorarg evaluationPeriodsarg thresholdarg =
+cloudWatchAlarm comparisonOperatorarg evaluationPeriodsarg =
   CloudWatchAlarm
   { _cloudWatchAlarmActionsEnabled = Nothing
   , _cloudWatchAlarmAlarmActions = Nothing
@@ -92,7 +93,8 @@ cloudWatchAlarm comparisonOperatorarg evaluationPeriodsarg thresholdarg =
   , _cloudWatchAlarmOKActions = Nothing
   , _cloudWatchAlarmPeriod = Nothing
   , _cloudWatchAlarmStatistic = Nothing
-  , _cloudWatchAlarmThreshold = thresholdarg
+  , _cloudWatchAlarmThreshold = Nothing
+  , _cloudWatchAlarmThresholdMetricId = Nothing
   , _cloudWatchAlarmTreatMissingData = Nothing
   , _cloudWatchAlarmUnit = Nothing
   }
@@ -166,8 +168,12 @@ cwaStatistic :: Lens' CloudWatchAlarm (Maybe (Val Text))
 cwaStatistic = lens _cloudWatchAlarmStatistic (\s a -> s { _cloudWatchAlarmStatistic = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html#cfn-cloudwatch-alarms-threshold
-cwaThreshold :: Lens' CloudWatchAlarm (Val Double)
+cwaThreshold :: Lens' CloudWatchAlarm (Maybe (Val Double))
 cwaThreshold = lens _cloudWatchAlarmThreshold (\s a -> s { _cloudWatchAlarmThreshold = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html#cfn-cloudwatch-alarms-dynamic-threshold
+cwaThresholdMetricId :: Lens' CloudWatchAlarm (Maybe (Val Text))
+cwaThresholdMetricId = lens _cloudWatchAlarmThresholdMetricId (\s a -> s { _cloudWatchAlarmThresholdMetricId = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html#cfn-cloudwatch-alarms-treatmissingdata
 cwaTreatMissingData :: Lens' CloudWatchAlarm (Maybe (Val Text))

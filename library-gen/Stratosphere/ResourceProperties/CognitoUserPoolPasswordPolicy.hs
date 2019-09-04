@@ -19,7 +19,7 @@ data CognitoUserPoolPasswordPolicy =
   , _cognitoUserPoolPasswordPolicyRequireNumbers :: Maybe (Val Bool)
   , _cognitoUserPoolPasswordPolicyRequireSymbols :: Maybe (Val Bool)
   , _cognitoUserPoolPasswordPolicyRequireUppercase :: Maybe (Val Bool)
-  , _cognitoUserPoolPasswordPolicyTemporaryPasswordValidityDays :: Maybe (Val Double)
+  , _cognitoUserPoolPasswordPolicyTemporaryPasswordValidityDays :: Maybe (Val Integer)
   } deriving (Show, Eq)
 
 instance ToJSON CognitoUserPoolPasswordPolicy where
@@ -69,5 +69,5 @@ cupppRequireUppercase :: Lens' CognitoUserPoolPasswordPolicy (Maybe (Val Bool))
 cupppRequireUppercase = lens _cognitoUserPoolPasswordPolicyRequireUppercase (\s a -> s { _cognitoUserPoolPasswordPolicyRequireUppercase = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-passwordpolicy.html#cfn-cognito-userpool-passwordpolicy-temporarypasswordvaliditydays
-cupppTemporaryPasswordValidityDays :: Lens' CognitoUserPoolPasswordPolicy (Maybe (Val Double))
+cupppTemporaryPasswordValidityDays :: Lens' CognitoUserPoolPasswordPolicy (Maybe (Val Integer))
 cupppTemporaryPasswordValidityDays = lens _cognitoUserPoolPasswordPolicyTemporaryPasswordValidityDays (\s a -> s { _cognitoUserPoolPasswordPolicyTemporaryPasswordValidityDays = a })

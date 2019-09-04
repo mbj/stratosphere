@@ -22,6 +22,7 @@ data EC2ClientVpnEndpoint =
   , _eC2ClientVpnEndpointDescription :: Maybe (Val Text)
   , _eC2ClientVpnEndpointDnsServers :: Maybe (ValList Text)
   , _eC2ClientVpnEndpointServerCertificateArn :: Val Text
+  , _eC2ClientVpnEndpointSplitTunnel :: Maybe (Val Bool)
   , _eC2ClientVpnEndpointTagSpecifications :: Maybe [EC2ClientVpnEndpointTagSpecification]
   , _eC2ClientVpnEndpointTransportProtocol :: Maybe (Val Text)
   } deriving (Show, Eq)
@@ -38,6 +39,7 @@ instance ToResourceProperties EC2ClientVpnEndpoint where
         , fmap (("Description",) . toJSON) _eC2ClientVpnEndpointDescription
         , fmap (("DnsServers",) . toJSON) _eC2ClientVpnEndpointDnsServers
         , (Just . ("ServerCertificateArn",) . toJSON) _eC2ClientVpnEndpointServerCertificateArn
+        , fmap (("SplitTunnel",) . toJSON) _eC2ClientVpnEndpointSplitTunnel
         , fmap (("TagSpecifications",) . toJSON) _eC2ClientVpnEndpointTagSpecifications
         , fmap (("TransportProtocol",) . toJSON) _eC2ClientVpnEndpointTransportProtocol
         ]
@@ -59,6 +61,7 @@ ec2ClientVpnEndpoint authenticationOptionsarg clientCidrBlockarg connectionLogOp
   , _eC2ClientVpnEndpointDescription = Nothing
   , _eC2ClientVpnEndpointDnsServers = Nothing
   , _eC2ClientVpnEndpointServerCertificateArn = serverCertificateArnarg
+  , _eC2ClientVpnEndpointSplitTunnel = Nothing
   , _eC2ClientVpnEndpointTagSpecifications = Nothing
   , _eC2ClientVpnEndpointTransportProtocol = Nothing
   }
@@ -86,6 +89,10 @@ eccveDnsServers = lens _eC2ClientVpnEndpointDnsServers (\s a -> s { _eC2ClientVp
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-servercertificatearn
 eccveServerCertificateArn :: Lens' EC2ClientVpnEndpoint (Val Text)
 eccveServerCertificateArn = lens _eC2ClientVpnEndpointServerCertificateArn (\s a -> s { _eC2ClientVpnEndpointServerCertificateArn = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-splittunnel
+eccveSplitTunnel :: Lens' EC2ClientVpnEndpoint (Maybe (Val Bool))
+eccveSplitTunnel = lens _eC2ClientVpnEndpointSplitTunnel (\s a -> s { _eC2ClientVpnEndpointSplitTunnel = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-tagspecifications
 eccveTagSpecifications :: Lens' EC2ClientVpnEndpoint (Maybe [EC2ClientVpnEndpointTagSpecification])

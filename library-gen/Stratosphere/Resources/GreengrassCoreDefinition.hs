@@ -16,6 +16,7 @@ data GreengrassCoreDefinition =
   GreengrassCoreDefinition
   { _greengrassCoreDefinitionInitialVersion :: Maybe GreengrassCoreDefinitionCoreDefinitionVersion
   , _greengrassCoreDefinitionName :: Val Text
+  , _greengrassCoreDefinitionTags :: Maybe Object
   } deriving (Show, Eq)
 
 instance ToResourceProperties GreengrassCoreDefinition where
@@ -26,6 +27,7 @@ instance ToResourceProperties GreengrassCoreDefinition where
         hashMapFromList $ catMaybes
         [ fmap (("InitialVersion",) . toJSON) _greengrassCoreDefinitionInitialVersion
         , (Just . ("Name",) . toJSON) _greengrassCoreDefinitionName
+        , fmap (("Tags",) . toJSON) _greengrassCoreDefinitionTags
         ]
     }
 
@@ -38,6 +40,7 @@ greengrassCoreDefinition namearg =
   GreengrassCoreDefinition
   { _greengrassCoreDefinitionInitialVersion = Nothing
   , _greengrassCoreDefinitionName = namearg
+  , _greengrassCoreDefinitionTags = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-coredefinition.html#cfn-greengrass-coredefinition-initialversion
@@ -47,3 +50,7 @@ gcdrInitialVersion = lens _greengrassCoreDefinitionInitialVersion (\s a -> s { _
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-coredefinition.html#cfn-greengrass-coredefinition-name
 gcdrName :: Lens' GreengrassCoreDefinition (Val Text)
 gcdrName = lens _greengrassCoreDefinitionName (\s a -> s { _greengrassCoreDefinitionName = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-coredefinition.html#cfn-greengrass-coredefinition-tags
+gcdrTags :: Lens' GreengrassCoreDefinition (Maybe Object)
+gcdrTags = lens _greengrassCoreDefinitionTags (\s a -> s { _greengrassCoreDefinitionTags = a })

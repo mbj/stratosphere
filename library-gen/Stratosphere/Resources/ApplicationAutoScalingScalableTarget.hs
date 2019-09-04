@@ -9,6 +9,7 @@ module Stratosphere.Resources.ApplicationAutoScalingScalableTarget where
 
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.ApplicationAutoScalingScalableTargetScheduledAction
+import Stratosphere.ResourceProperties.ApplicationAutoScalingScalableTargetSuspendedState
 
 -- | Full data type definition for ApplicationAutoScalingScalableTarget. See
 -- 'applicationAutoScalingScalableTarget' for a more convenient constructor.
@@ -21,6 +22,7 @@ data ApplicationAutoScalingScalableTarget =
   , _applicationAutoScalingScalableTargetScalableDimension :: Val Text
   , _applicationAutoScalingScalableTargetScheduledActions :: Maybe [ApplicationAutoScalingScalableTargetScheduledAction]
   , _applicationAutoScalingScalableTargetServiceNamespace :: Val Text
+  , _applicationAutoScalingScalableTargetSuspendedState :: Maybe ApplicationAutoScalingScalableTargetSuspendedState
   } deriving (Show, Eq)
 
 instance ToResourceProperties ApplicationAutoScalingScalableTarget where
@@ -36,6 +38,7 @@ instance ToResourceProperties ApplicationAutoScalingScalableTarget where
         , (Just . ("ScalableDimension",) . toJSON) _applicationAutoScalingScalableTargetScalableDimension
         , fmap (("ScheduledActions",) . toJSON) _applicationAutoScalingScalableTargetScheduledActions
         , (Just . ("ServiceNamespace",) . toJSON) _applicationAutoScalingScalableTargetServiceNamespace
+        , fmap (("SuspendedState",) . toJSON) _applicationAutoScalingScalableTargetSuspendedState
         ]
     }
 
@@ -58,6 +61,7 @@ applicationAutoScalingScalableTarget maxCapacityarg minCapacityarg resourceIdarg
   , _applicationAutoScalingScalableTargetScalableDimension = scalableDimensionarg
   , _applicationAutoScalingScalableTargetScheduledActions = Nothing
   , _applicationAutoScalingScalableTargetServiceNamespace = serviceNamespacearg
+  , _applicationAutoScalingScalableTargetSuspendedState = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html#cfn-applicationautoscaling-scalabletarget-maxcapacity
@@ -87,3 +91,7 @@ aasstScheduledActions = lens _applicationAutoScalingScalableTargetScheduledActio
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html#cfn-applicationautoscaling-scalabletarget-servicenamespace
 aasstServiceNamespace :: Lens' ApplicationAutoScalingScalableTarget (Val Text)
 aasstServiceNamespace = lens _applicationAutoScalingScalableTargetServiceNamespace (\s a -> s { _applicationAutoScalingScalableTargetServiceNamespace = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationautoscaling-scalabletarget.html#cfn-applicationautoscaling-scalabletarget-suspendedstate
+aasstSuspendedState :: Lens' ApplicationAutoScalingScalableTarget (Maybe ApplicationAutoScalingScalableTargetSuspendedState)
+aasstSuspendedState = lens _applicationAutoScalingScalableTargetSuspendedState (\s a -> s { _applicationAutoScalingScalableTargetSuspendedState = a })

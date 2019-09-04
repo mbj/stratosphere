@@ -25,7 +25,7 @@ data CognitoUserPoolClient =
   , _cognitoUserPoolClientGenerateSecret :: Maybe (Val Bool)
   , _cognitoUserPoolClientLogoutURLs :: Maybe (ValList Text)
   , _cognitoUserPoolClientReadAttributes :: Maybe (ValList Text)
-  , _cognitoUserPoolClientRefreshTokenValidity :: Maybe (Val Double)
+  , _cognitoUserPoolClientRefreshTokenValidity :: Maybe (Val Integer)
   , _cognitoUserPoolClientSupportedIdentityProviders :: Maybe (ValList Text)
   , _cognitoUserPoolClientUserPoolId :: Val Text
   , _cognitoUserPoolClientWriteAttributes :: Maybe (ValList Text)
@@ -124,7 +124,7 @@ cupcReadAttributes :: Lens' CognitoUserPoolClient (Maybe (ValList Text))
 cupcReadAttributes = lens _cognitoUserPoolClientReadAttributes (\s a -> s { _cognitoUserPoolClientReadAttributes = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-refreshtokenvalidity
-cupcRefreshTokenValidity :: Lens' CognitoUserPoolClient (Maybe (Val Double))
+cupcRefreshTokenValidity :: Lens' CognitoUserPoolClient (Maybe (Val Integer))
 cupcRefreshTokenValidity = lens _cognitoUserPoolClientRefreshTokenValidity (\s a -> s { _cognitoUserPoolClientRefreshTokenValidity = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-supportedidentityproviders

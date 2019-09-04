@@ -17,6 +17,7 @@ data EC2InstanceEbs =
   { _eC2InstanceEbsDeleteOnTermination :: Maybe (Val Bool)
   , _eC2InstanceEbsEncrypted :: Maybe (Val Bool)
   , _eC2InstanceEbsIops :: Maybe (Val Integer)
+  , _eC2InstanceEbsKmsKeyId :: Maybe (Val Text)
   , _eC2InstanceEbsSnapshotId :: Maybe (Val Text)
   , _eC2InstanceEbsVolumeSize :: Maybe (Val Integer)
   , _eC2InstanceEbsVolumeType :: Maybe (Val Text)
@@ -29,6 +30,7 @@ instance ToJSON EC2InstanceEbs where
     [ fmap (("DeleteOnTermination",) . toJSON) _eC2InstanceEbsDeleteOnTermination
     , fmap (("Encrypted",) . toJSON) _eC2InstanceEbsEncrypted
     , fmap (("Iops",) . toJSON) _eC2InstanceEbsIops
+    , fmap (("KmsKeyId",) . toJSON) _eC2InstanceEbsKmsKeyId
     , fmap (("SnapshotId",) . toJSON) _eC2InstanceEbsSnapshotId
     , fmap (("VolumeSize",) . toJSON) _eC2InstanceEbsVolumeSize
     , fmap (("VolumeType",) . toJSON) _eC2InstanceEbsVolumeType
@@ -42,6 +44,7 @@ ec2InstanceEbs  =
   { _eC2InstanceEbsDeleteOnTermination = Nothing
   , _eC2InstanceEbsEncrypted = Nothing
   , _eC2InstanceEbsIops = Nothing
+  , _eC2InstanceEbsKmsKeyId = Nothing
   , _eC2InstanceEbsSnapshotId = Nothing
   , _eC2InstanceEbsVolumeSize = Nothing
   , _eC2InstanceEbsVolumeType = Nothing
@@ -58,6 +61,10 @@ ecieEncrypted = lens _eC2InstanceEbsEncrypted (\s a -> s { _eC2InstanceEbsEncryp
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-blockdev-template.html#cfn-ec2-blockdev-template-iops
 ecieIops :: Lens' EC2InstanceEbs (Maybe (Val Integer))
 ecieIops = lens _eC2InstanceEbsIops (\s a -> s { _eC2InstanceEbsIops = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-blockdev-template.html#cfn-ec2-instance-ebs-kmskeyid
+ecieKmsKeyId :: Lens' EC2InstanceEbs (Maybe (Val Text))
+ecieKmsKeyId = lens _eC2InstanceEbsKmsKeyId (\s a -> s { _eC2InstanceEbsKmsKeyId = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-blockdev-template.html#cfn-ec2-blockdev-template-snapshotid
 ecieSnapshotId :: Lens' EC2InstanceEbs (Maybe (Val Text))

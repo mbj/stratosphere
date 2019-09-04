@@ -16,6 +16,7 @@ data GreengrassDeviceDefinition =
   GreengrassDeviceDefinition
   { _greengrassDeviceDefinitionInitialVersion :: Maybe GreengrassDeviceDefinitionDeviceDefinitionVersion
   , _greengrassDeviceDefinitionName :: Val Text
+  , _greengrassDeviceDefinitionTags :: Maybe Object
   } deriving (Show, Eq)
 
 instance ToResourceProperties GreengrassDeviceDefinition where
@@ -26,6 +27,7 @@ instance ToResourceProperties GreengrassDeviceDefinition where
         hashMapFromList $ catMaybes
         [ fmap (("InitialVersion",) . toJSON) _greengrassDeviceDefinitionInitialVersion
         , (Just . ("Name",) . toJSON) _greengrassDeviceDefinitionName
+        , fmap (("Tags",) . toJSON) _greengrassDeviceDefinitionTags
         ]
     }
 
@@ -38,6 +40,7 @@ greengrassDeviceDefinition namearg =
   GreengrassDeviceDefinition
   { _greengrassDeviceDefinitionInitialVersion = Nothing
   , _greengrassDeviceDefinitionName = namearg
+  , _greengrassDeviceDefinitionTags = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-devicedefinition.html#cfn-greengrass-devicedefinition-initialversion
@@ -47,3 +50,7 @@ gddInitialVersion = lens _greengrassDeviceDefinitionInitialVersion (\s a -> s { 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-devicedefinition.html#cfn-greengrass-devicedefinition-name
 gddName :: Lens' GreengrassDeviceDefinition (Val Text)
 gddName = lens _greengrassDeviceDefinitionName (\s a -> s { _greengrassDeviceDefinitionName = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrass-devicedefinition.html#cfn-greengrass-devicedefinition-tags
+gddTags :: Lens' GreengrassDeviceDefinition (Maybe Object)
+gddTags = lens _greengrassDeviceDefinitionTags (\s a -> s { _greengrassDeviceDefinitionTags = a })

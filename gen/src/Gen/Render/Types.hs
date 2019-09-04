@@ -193,6 +193,10 @@ computeLensPrefix "AWS::ElasticLoadBalancingV2::ListenerRule.HostHeaderConfig" =
 computeLensPrefix "AWS::ElasticLoadBalancingV2::ListenerRule.HttpHeaderConfig" = "elbvlrhthc"
 computeLensPrefix "AWS::IoTEvents::DetectorModel.OnEnter" = "itedmoen"
 computeLensPrefix "AWS::IoTEvents::DetectorModel.OnExit" = "itedmoex"
+computeLensPrefix "AWS::SSM::MaintenanceWindowTask" = "ssmmwtas"
+computeLensPrefix "AWS::SSM::MaintenanceWindowTarget" = "ssmmwtar"
+computeLensPrefix "AWS::SSM::MaintenanceWindowTask.Target" = "ssmmwtast"
+computeLensPrefix "AWS::SSM::MaintenanceWindowTarget.Targets" = "ssmmwtart"
 -- Everything else
 computeLensPrefix rawName = toLower $ fromMaybe rawName $ toAcronym $ computeModuleName rawName
 
