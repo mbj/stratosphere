@@ -22,8 +22,10 @@ data ECSTaskDefinition =
   , _eCSTaskDefinitionCpu :: Maybe (Val Text)
   , _eCSTaskDefinitionExecutionRoleArn :: Maybe (Val Text)
   , _eCSTaskDefinitionFamily :: Maybe (Val Text)
+  , _eCSTaskDefinitionIpcMode :: Maybe (Val Text)
   , _eCSTaskDefinitionMemory :: Maybe (Val Text)
   , _eCSTaskDefinitionNetworkMode :: Maybe (Val Text)
+  , _eCSTaskDefinitionPidMode :: Maybe (Val Text)
   , _eCSTaskDefinitionPlacementConstraints :: Maybe [ECSTaskDefinitionTaskDefinitionPlacementConstraint]
   , _eCSTaskDefinitionProxyConfiguration :: Maybe ECSTaskDefinitionProxyConfiguration
   , _eCSTaskDefinitionRequiresCompatibilities :: Maybe (ValList Text)
@@ -42,8 +44,10 @@ instance ToResourceProperties ECSTaskDefinition where
         , fmap (("Cpu",) . toJSON) _eCSTaskDefinitionCpu
         , fmap (("ExecutionRoleArn",) . toJSON) _eCSTaskDefinitionExecutionRoleArn
         , fmap (("Family",) . toJSON) _eCSTaskDefinitionFamily
+        , fmap (("IpcMode",) . toJSON) _eCSTaskDefinitionIpcMode
         , fmap (("Memory",) . toJSON) _eCSTaskDefinitionMemory
         , fmap (("NetworkMode",) . toJSON) _eCSTaskDefinitionNetworkMode
+        , fmap (("PidMode",) . toJSON) _eCSTaskDefinitionPidMode
         , fmap (("PlacementConstraints",) . toJSON) _eCSTaskDefinitionPlacementConstraints
         , fmap (("ProxyConfiguration",) . toJSON) _eCSTaskDefinitionProxyConfiguration
         , fmap (("RequiresCompatibilities",) . toJSON) _eCSTaskDefinitionRequiresCompatibilities
@@ -63,8 +67,10 @@ ecsTaskDefinition  =
   , _eCSTaskDefinitionCpu = Nothing
   , _eCSTaskDefinitionExecutionRoleArn = Nothing
   , _eCSTaskDefinitionFamily = Nothing
+  , _eCSTaskDefinitionIpcMode = Nothing
   , _eCSTaskDefinitionMemory = Nothing
   , _eCSTaskDefinitionNetworkMode = Nothing
+  , _eCSTaskDefinitionPidMode = Nothing
   , _eCSTaskDefinitionPlacementConstraints = Nothing
   , _eCSTaskDefinitionProxyConfiguration = Nothing
   , _eCSTaskDefinitionRequiresCompatibilities = Nothing
@@ -89,6 +95,10 @@ ecstdExecutionRoleArn = lens _eCSTaskDefinitionExecutionRoleArn (\s a -> s { _eC
 ecstdFamily :: Lens' ECSTaskDefinition (Maybe (Val Text))
 ecstdFamily = lens _eCSTaskDefinitionFamily (\s a -> s { _eCSTaskDefinitionFamily = a })
 
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-ipcmode
+ecstdIpcMode :: Lens' ECSTaskDefinition (Maybe (Val Text))
+ecstdIpcMode = lens _eCSTaskDefinitionIpcMode (\s a -> s { _eCSTaskDefinitionIpcMode = a })
+
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-memory
 ecstdMemory :: Lens' ECSTaskDefinition (Maybe (Val Text))
 ecstdMemory = lens _eCSTaskDefinitionMemory (\s a -> s { _eCSTaskDefinitionMemory = a })
@@ -96,6 +106,10 @@ ecstdMemory = lens _eCSTaskDefinitionMemory (\s a -> s { _eCSTaskDefinitionMemor
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-networkmode
 ecstdNetworkMode :: Lens' ECSTaskDefinition (Maybe (Val Text))
 ecstdNetworkMode = lens _eCSTaskDefinitionNetworkMode (\s a -> s { _eCSTaskDefinitionNetworkMode = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-pidmode
+ecstdPidMode :: Lens' ECSTaskDefinition (Maybe (Val Text))
+ecstdPidMode = lens _eCSTaskDefinitionPidMode (\s a -> s { _eCSTaskDefinitionPidMode = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-placementconstraints
 ecstdPlacementConstraints :: Lens' ECSTaskDefinition (Maybe [ECSTaskDefinitionTaskDefinitionPlacementConstraint])

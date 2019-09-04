@@ -8,6 +8,7 @@
 module Stratosphere.Resources.RDSDBCluster where
 
 import Stratosphere.ResourceImports
+import Stratosphere.ResourceProperties.RDSDBClusterDBClusterRole
 import Stratosphere.ResourceProperties.RDSDBClusterScalingConfiguration
 import Stratosphere.ResourceProperties.Tag
 
@@ -15,7 +16,8 @@ import Stratosphere.ResourceProperties.Tag
 -- convenient constructor.
 data RDSDBCluster =
   RDSDBCluster
-  { _rDSDBClusterAvailabilityZones :: Maybe (ValList Text)
+  { _rDSDBClusterAssociatedRoles :: Maybe [RDSDBClusterDBClusterRole]
+  , _rDSDBClusterAvailabilityZones :: Maybe (ValList Text)
   , _rDSDBClusterBacktrackWindow :: Maybe (Val Integer)
   , _rDSDBClusterBackupRetentionPeriod :: Maybe (Val Integer)
   , _rDSDBClusterDBClusterIdentifier :: Maybe (Val Text)
@@ -35,11 +37,14 @@ data RDSDBCluster =
   , _rDSDBClusterPreferredBackupWindow :: Maybe (Val Text)
   , _rDSDBClusterPreferredMaintenanceWindow :: Maybe (Val Text)
   , _rDSDBClusterReplicationSourceIdentifier :: Maybe (Val Text)
+  , _rDSDBClusterRestoreType :: Maybe (Val Text)
   , _rDSDBClusterScalingConfiguration :: Maybe RDSDBClusterScalingConfiguration
   , _rDSDBClusterSnapshotIdentifier :: Maybe (Val Text)
+  , _rDSDBClusterSourceDBClusterIdentifier :: Maybe (Val Text)
   , _rDSDBClusterSourceRegion :: Maybe (Val Text)
   , _rDSDBClusterStorageEncrypted :: Maybe (Val Bool)
   , _rDSDBClusterTags :: Maybe [Tag]
+  , _rDSDBClusterUseLatestRestorableTime :: Maybe (Val Bool)
   , _rDSDBClusterVpcSecurityGroupIds :: Maybe (ValList Text)
   } deriving (Show, Eq)
 
@@ -49,7 +54,8 @@ instance ToResourceProperties RDSDBCluster where
     { resourcePropertiesType = "AWS::RDS::DBCluster"
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
-        [ fmap (("AvailabilityZones",) . toJSON) _rDSDBClusterAvailabilityZones
+        [ fmap (("AssociatedRoles",) . toJSON) _rDSDBClusterAssociatedRoles
+        , fmap (("AvailabilityZones",) . toJSON) _rDSDBClusterAvailabilityZones
         , fmap (("BacktrackWindow",) . toJSON) _rDSDBClusterBacktrackWindow
         , fmap (("BackupRetentionPeriod",) . toJSON) _rDSDBClusterBackupRetentionPeriod
         , fmap (("DBClusterIdentifier",) . toJSON) _rDSDBClusterDBClusterIdentifier
@@ -69,11 +75,14 @@ instance ToResourceProperties RDSDBCluster where
         , fmap (("PreferredBackupWindow",) . toJSON) _rDSDBClusterPreferredBackupWindow
         , fmap (("PreferredMaintenanceWindow",) . toJSON) _rDSDBClusterPreferredMaintenanceWindow
         , fmap (("ReplicationSourceIdentifier",) . toJSON) _rDSDBClusterReplicationSourceIdentifier
+        , fmap (("RestoreType",) . toJSON) _rDSDBClusterRestoreType
         , fmap (("ScalingConfiguration",) . toJSON) _rDSDBClusterScalingConfiguration
         , fmap (("SnapshotIdentifier",) . toJSON) _rDSDBClusterSnapshotIdentifier
+        , fmap (("SourceDBClusterIdentifier",) . toJSON) _rDSDBClusterSourceDBClusterIdentifier
         , fmap (("SourceRegion",) . toJSON) _rDSDBClusterSourceRegion
         , fmap (("StorageEncrypted",) . toJSON) _rDSDBClusterStorageEncrypted
         , fmap (("Tags",) . toJSON) _rDSDBClusterTags
+        , fmap (("UseLatestRestorableTime",) . toJSON) _rDSDBClusterUseLatestRestorableTime
         , fmap (("VpcSecurityGroupIds",) . toJSON) _rDSDBClusterVpcSecurityGroupIds
         ]
     }
@@ -84,7 +93,8 @@ rdsdbCluster
   -> RDSDBCluster
 rdsdbCluster enginearg =
   RDSDBCluster
-  { _rDSDBClusterAvailabilityZones = Nothing
+  { _rDSDBClusterAssociatedRoles = Nothing
+  , _rDSDBClusterAvailabilityZones = Nothing
   , _rDSDBClusterBacktrackWindow = Nothing
   , _rDSDBClusterBackupRetentionPeriod = Nothing
   , _rDSDBClusterDBClusterIdentifier = Nothing
@@ -104,13 +114,20 @@ rdsdbCluster enginearg =
   , _rDSDBClusterPreferredBackupWindow = Nothing
   , _rDSDBClusterPreferredMaintenanceWindow = Nothing
   , _rDSDBClusterReplicationSourceIdentifier = Nothing
+  , _rDSDBClusterRestoreType = Nothing
   , _rDSDBClusterScalingConfiguration = Nothing
   , _rDSDBClusterSnapshotIdentifier = Nothing
+  , _rDSDBClusterSourceDBClusterIdentifier = Nothing
   , _rDSDBClusterSourceRegion = Nothing
   , _rDSDBClusterStorageEncrypted = Nothing
   , _rDSDBClusterTags = Nothing
+  , _rDSDBClusterUseLatestRestorableTime = Nothing
   , _rDSDBClusterVpcSecurityGroupIds = Nothing
   }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-associatedroles
+rdsdbcAssociatedRoles :: Lens' RDSDBCluster (Maybe [RDSDBClusterDBClusterRole])
+rdsdbcAssociatedRoles = lens _rDSDBClusterAssociatedRoles (\s a -> s { _rDSDBClusterAssociatedRoles = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-availabilityzones
 rdsdbcAvailabilityZones :: Lens' RDSDBCluster (Maybe (ValList Text))
@@ -192,6 +209,10 @@ rdsdbcPreferredMaintenanceWindow = lens _rDSDBClusterPreferredMaintenanceWindow 
 rdsdbcReplicationSourceIdentifier :: Lens' RDSDBCluster (Maybe (Val Text))
 rdsdbcReplicationSourceIdentifier = lens _rDSDBClusterReplicationSourceIdentifier (\s a -> s { _rDSDBClusterReplicationSourceIdentifier = a })
 
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-restoretype
+rdsdbcRestoreType :: Lens' RDSDBCluster (Maybe (Val Text))
+rdsdbcRestoreType = lens _rDSDBClusterRestoreType (\s a -> s { _rDSDBClusterRestoreType = a })
+
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-scalingconfiguration
 rdsdbcScalingConfiguration :: Lens' RDSDBCluster (Maybe RDSDBClusterScalingConfiguration)
 rdsdbcScalingConfiguration = lens _rDSDBClusterScalingConfiguration (\s a -> s { _rDSDBClusterScalingConfiguration = a })
@@ -199,6 +220,10 @@ rdsdbcScalingConfiguration = lens _rDSDBClusterScalingConfiguration (\s a -> s {
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-snapshotidentifier
 rdsdbcSnapshotIdentifier :: Lens' RDSDBCluster (Maybe (Val Text))
 rdsdbcSnapshotIdentifier = lens _rDSDBClusterSnapshotIdentifier (\s a -> s { _rDSDBClusterSnapshotIdentifier = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-sourcedbclusteridentifier
+rdsdbcSourceDBClusterIdentifier :: Lens' RDSDBCluster (Maybe (Val Text))
+rdsdbcSourceDBClusterIdentifier = lens _rDSDBClusterSourceDBClusterIdentifier (\s a -> s { _rDSDBClusterSourceDBClusterIdentifier = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-sourceregion
 rdsdbcSourceRegion :: Lens' RDSDBCluster (Maybe (Val Text))
@@ -211,6 +236,10 @@ rdsdbcStorageEncrypted = lens _rDSDBClusterStorageEncrypted (\s a -> s { _rDSDBC
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-tags
 rdsdbcTags :: Lens' RDSDBCluster (Maybe [Tag])
 rdsdbcTags = lens _rDSDBClusterTags (\s a -> s { _rDSDBClusterTags = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-uselatestrestorabletime
+rdsdbcUseLatestRestorableTime :: Lens' RDSDBCluster (Maybe (Val Bool))
+rdsdbcUseLatestRestorableTime = lens _rDSDBClusterUseLatestRestorableTime (\s a -> s { _rDSDBClusterUseLatestRestorableTime = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-vpcsecuritygroupids
 rdsdbcVpcSecurityGroupIds :: Lens' RDSDBCluster (Maybe (ValList Text))

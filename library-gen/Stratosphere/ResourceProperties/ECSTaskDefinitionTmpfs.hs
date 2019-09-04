@@ -16,7 +16,7 @@ data ECSTaskDefinitionTmpfs =
   ECSTaskDefinitionTmpfs
   { _eCSTaskDefinitionTmpfsContainerPath :: Maybe (Val Text)
   , _eCSTaskDefinitionTmpfsMountOptions :: Maybe (ValList Text)
-  , _eCSTaskDefinitionTmpfsSize :: Maybe (Val Integer)
+  , _eCSTaskDefinitionTmpfsSize :: Val Integer
   } deriving (Show, Eq)
 
 instance ToJSON ECSTaskDefinitionTmpfs where
@@ -25,18 +25,19 @@ instance ToJSON ECSTaskDefinitionTmpfs where
     catMaybes
     [ fmap (("ContainerPath",) . toJSON) _eCSTaskDefinitionTmpfsContainerPath
     , fmap (("MountOptions",) . toJSON) _eCSTaskDefinitionTmpfsMountOptions
-    , fmap (("Size",) . toJSON) _eCSTaskDefinitionTmpfsSize
+    , (Just . ("Size",) . toJSON) _eCSTaskDefinitionTmpfsSize
     ]
 
 -- | Constructor for 'ECSTaskDefinitionTmpfs' containing required fields as
 -- arguments.
 ecsTaskDefinitionTmpfs
-  :: ECSTaskDefinitionTmpfs
-ecsTaskDefinitionTmpfs  =
+  :: Val Integer -- ^ 'ecstdtSize'
+  -> ECSTaskDefinitionTmpfs
+ecsTaskDefinitionTmpfs sizearg =
   ECSTaskDefinitionTmpfs
   { _eCSTaskDefinitionTmpfsContainerPath = Nothing
   , _eCSTaskDefinitionTmpfsMountOptions = Nothing
-  , _eCSTaskDefinitionTmpfsSize = Nothing
+  , _eCSTaskDefinitionTmpfsSize = sizearg
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-tmpfs.html#cfn-ecs-taskdefinition-tmpfs-containerpath
@@ -48,5 +49,5 @@ ecstdtMountOptions :: Lens' ECSTaskDefinitionTmpfs (Maybe (ValList Text))
 ecstdtMountOptions = lens _eCSTaskDefinitionTmpfsMountOptions (\s a -> s { _eCSTaskDefinitionTmpfsMountOptions = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-tmpfs.html#cfn-ecs-taskdefinition-tmpfs-size
-ecstdtSize :: Lens' ECSTaskDefinitionTmpfs (Maybe (Val Integer))
+ecstdtSize :: Lens' ECSTaskDefinitionTmpfs (Val Integer)
 ecstdtSize = lens _eCSTaskDefinitionTmpfsSize (\s a -> s { _eCSTaskDefinitionTmpfsSize = a })

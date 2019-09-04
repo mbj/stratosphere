@@ -8,7 +8,7 @@
 module Stratosphere.ResourceProperties.ElasticsearchDomainElasticsearchClusterConfig where
 
 import Stratosphere.ResourceImports
-
+import Stratosphere.ResourceProperties.ElasticsearchDomainZoneAwarenessConfig
 
 -- | Full data type definition for
 -- ElasticsearchDomainElasticsearchClusterConfig. See
@@ -21,6 +21,7 @@ data ElasticsearchDomainElasticsearchClusterConfig =
   , _elasticsearchDomainElasticsearchClusterConfigDedicatedMasterType :: Maybe (Val Text)
   , _elasticsearchDomainElasticsearchClusterConfigInstanceCount :: Maybe (Val Integer)
   , _elasticsearchDomainElasticsearchClusterConfigInstanceType :: Maybe (Val Text)
+  , _elasticsearchDomainElasticsearchClusterConfigZoneAwarenessConfig :: Maybe ElasticsearchDomainZoneAwarenessConfig
   , _elasticsearchDomainElasticsearchClusterConfigZoneAwarenessEnabled :: Maybe (Val Bool)
   } deriving (Show, Eq)
 
@@ -33,6 +34,7 @@ instance ToJSON ElasticsearchDomainElasticsearchClusterConfig where
     , fmap (("DedicatedMasterType",) . toJSON) _elasticsearchDomainElasticsearchClusterConfigDedicatedMasterType
     , fmap (("InstanceCount",) . toJSON) _elasticsearchDomainElasticsearchClusterConfigInstanceCount
     , fmap (("InstanceType",) . toJSON) _elasticsearchDomainElasticsearchClusterConfigInstanceType
+    , fmap (("ZoneAwarenessConfig",) . toJSON) _elasticsearchDomainElasticsearchClusterConfigZoneAwarenessConfig
     , fmap (("ZoneAwarenessEnabled",) . toJSON) _elasticsearchDomainElasticsearchClusterConfigZoneAwarenessEnabled
     ]
 
@@ -47,6 +49,7 @@ elasticsearchDomainElasticsearchClusterConfig  =
   , _elasticsearchDomainElasticsearchClusterConfigDedicatedMasterType = Nothing
   , _elasticsearchDomainElasticsearchClusterConfigInstanceCount = Nothing
   , _elasticsearchDomainElasticsearchClusterConfigInstanceType = Nothing
+  , _elasticsearchDomainElasticsearchClusterConfigZoneAwarenessConfig = Nothing
   , _elasticsearchDomainElasticsearchClusterConfigZoneAwarenessEnabled = Nothing
   }
 
@@ -69,6 +72,10 @@ edeccInstanceCount = lens _elasticsearchDomainElasticsearchClusterConfigInstance
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-elasticsearchclusterconfig.html#cfn-elasticsearch-domain-elasticseachclusterconfig-instnacetype
 edeccInstanceType :: Lens' ElasticsearchDomainElasticsearchClusterConfig (Maybe (Val Text))
 edeccInstanceType = lens _elasticsearchDomainElasticsearchClusterConfigInstanceType (\s a -> s { _elasticsearchDomainElasticsearchClusterConfigInstanceType = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-elasticsearchclusterconfig.html#cfn-elasticsearch-domain-elasticsearchclusterconfig-zoneawarenessconfig
+edeccZoneAwarenessConfig :: Lens' ElasticsearchDomainElasticsearchClusterConfig (Maybe ElasticsearchDomainZoneAwarenessConfig)
+edeccZoneAwarenessConfig = lens _elasticsearchDomainElasticsearchClusterConfigZoneAwarenessConfig (\s a -> s { _elasticsearchDomainElasticsearchClusterConfigZoneAwarenessConfig = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-elasticsearchclusterconfig.html#cfn-elasticsearch-domain-elasticseachclusterconfig-zoneawarenessenabled
 edeccZoneAwarenessEnabled :: Lens' ElasticsearchDomainElasticsearchClusterConfig (Maybe (Val Bool))

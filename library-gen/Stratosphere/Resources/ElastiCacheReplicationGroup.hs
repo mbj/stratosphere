@@ -25,6 +25,7 @@ data ElastiCacheReplicationGroup =
   , _elastiCacheReplicationGroupCacheSubnetGroupName :: Maybe (Val Text)
   , _elastiCacheReplicationGroupEngine :: Maybe (Val Text)
   , _elastiCacheReplicationGroupEngineVersion :: Maybe (Val Text)
+  , _elastiCacheReplicationGroupKmsKeyId :: Maybe (Val Text)
   , _elastiCacheReplicationGroupNodeGroupConfiguration :: Maybe [ElastiCacheReplicationGroupNodeGroupConfiguration]
   , _elastiCacheReplicationGroupNotificationTopicArn :: Maybe (Val Text)
   , _elastiCacheReplicationGroupNumCacheClusters :: Maybe (Val Integer)
@@ -62,6 +63,7 @@ instance ToResourceProperties ElastiCacheReplicationGroup where
         , fmap (("CacheSubnetGroupName",) . toJSON) _elastiCacheReplicationGroupCacheSubnetGroupName
         , fmap (("Engine",) . toJSON) _elastiCacheReplicationGroupEngine
         , fmap (("EngineVersion",) . toJSON) _elastiCacheReplicationGroupEngineVersion
+        , fmap (("KmsKeyId",) . toJSON) _elastiCacheReplicationGroupKmsKeyId
         , fmap (("NodeGroupConfiguration",) . toJSON) _elastiCacheReplicationGroupNodeGroupConfiguration
         , fmap (("NotificationTopicArn",) . toJSON) _elastiCacheReplicationGroupNotificationTopicArn
         , fmap (("NumCacheClusters",) . toJSON) _elastiCacheReplicationGroupNumCacheClusters
@@ -101,6 +103,7 @@ elastiCacheReplicationGroup replicationGroupDescriptionarg =
   , _elastiCacheReplicationGroupCacheSubnetGroupName = Nothing
   , _elastiCacheReplicationGroupEngine = Nothing
   , _elastiCacheReplicationGroupEngineVersion = Nothing
+  , _elastiCacheReplicationGroupKmsKeyId = Nothing
   , _elastiCacheReplicationGroupNodeGroupConfiguration = Nothing
   , _elastiCacheReplicationGroupNotificationTopicArn = Nothing
   , _elastiCacheReplicationGroupNumCacheClusters = Nothing
@@ -161,6 +164,10 @@ ecrgEngine = lens _elastiCacheReplicationGroupEngine (\s a -> s { _elastiCacheRe
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-engineversion
 ecrgEngineVersion :: Lens' ElastiCacheReplicationGroup (Maybe (Val Text))
 ecrgEngineVersion = lens _elastiCacheReplicationGroupEngineVersion (\s a -> s { _elastiCacheReplicationGroupEngineVersion = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-kmskeyid
+ecrgKmsKeyId :: Lens' ElastiCacheReplicationGroup (Maybe (Val Text))
+ecrgKmsKeyId = lens _elastiCacheReplicationGroupKmsKeyId (\s a -> s { _elastiCacheReplicationGroupKmsKeyId = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-nodegroupconfiguration
 ecrgNodeGroupConfiguration :: Lens' ElastiCacheReplicationGroup (Maybe [ElastiCacheReplicationGroupNodeGroupConfiguration])

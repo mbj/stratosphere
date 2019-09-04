@@ -18,6 +18,7 @@ data LambdaEventSourceMapping =
   , _lambdaEventSourceMappingEnabled :: Maybe (Val Bool)
   , _lambdaEventSourceMappingEventSourceArn :: Val Text
   , _lambdaEventSourceMappingFunctionName :: Val Text
+  , _lambdaEventSourceMappingMaximumBatchingWindowInSeconds :: Maybe (Val Integer)
   , _lambdaEventSourceMappingStartingPosition :: Maybe (Val Text)
   } deriving (Show, Eq)
 
@@ -31,6 +32,7 @@ instance ToResourceProperties LambdaEventSourceMapping where
         , fmap (("Enabled",) . toJSON) _lambdaEventSourceMappingEnabled
         , (Just . ("EventSourceArn",) . toJSON) _lambdaEventSourceMappingEventSourceArn
         , (Just . ("FunctionName",) . toJSON) _lambdaEventSourceMappingFunctionName
+        , fmap (("MaximumBatchingWindowInSeconds",) . toJSON) _lambdaEventSourceMappingMaximumBatchingWindowInSeconds
         , fmap (("StartingPosition",) . toJSON) _lambdaEventSourceMappingStartingPosition
         ]
     }
@@ -47,6 +49,7 @@ lambdaEventSourceMapping eventSourceArnarg functionNamearg =
   , _lambdaEventSourceMappingEnabled = Nothing
   , _lambdaEventSourceMappingEventSourceArn = eventSourceArnarg
   , _lambdaEventSourceMappingFunctionName = functionNamearg
+  , _lambdaEventSourceMappingMaximumBatchingWindowInSeconds = Nothing
   , _lambdaEventSourceMappingStartingPosition = Nothing
   }
 
@@ -65,6 +68,10 @@ lesmEventSourceArn = lens _lambdaEventSourceMappingEventSourceArn (\s a -> s { _
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-functionname
 lesmFunctionName :: Lens' LambdaEventSourceMapping (Val Text)
 lesmFunctionName = lens _lambdaEventSourceMappingFunctionName (\s a -> s { _lambdaEventSourceMappingFunctionName = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-maximumbatchingwindowinseconds
+lesmMaximumBatchingWindowInSeconds :: Lens' LambdaEventSourceMapping (Maybe (Val Integer))
+lesmMaximumBatchingWindowInSeconds = lens _lambdaEventSourceMappingMaximumBatchingWindowInSeconds (\s a -> s { _lambdaEventSourceMappingMaximumBatchingWindowInSeconds = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-startingposition
 lesmStartingPosition :: Lens' LambdaEventSourceMapping (Maybe (Val Text))

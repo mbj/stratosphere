@@ -16,7 +16,7 @@ data CognitoUserPoolAdminCreateUserConfig =
   CognitoUserPoolAdminCreateUserConfig
   { _cognitoUserPoolAdminCreateUserConfigAllowAdminCreateUserOnly :: Maybe (Val Bool)
   , _cognitoUserPoolAdminCreateUserConfigInviteMessageTemplate :: Maybe CognitoUserPoolInviteMessageTemplate
-  , _cognitoUserPoolAdminCreateUserConfigUnusedAccountValidityDays :: Maybe (Val Double)
+  , _cognitoUserPoolAdminCreateUserConfigUnusedAccountValidityDays :: Maybe (Val Integer)
   } deriving (Show, Eq)
 
 instance ToJSON CognitoUserPoolAdminCreateUserConfig where
@@ -48,5 +48,5 @@ cupacucInviteMessageTemplate :: Lens' CognitoUserPoolAdminCreateUserConfig (Mayb
 cupacucInviteMessageTemplate = lens _cognitoUserPoolAdminCreateUserConfigInviteMessageTemplate (\s a -> s { _cognitoUserPoolAdminCreateUserConfigInviteMessageTemplate = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-admincreateuserconfig.html#cfn-cognito-userpool-admincreateuserconfig-unusedaccountvaliditydays
-cupacucUnusedAccountValidityDays :: Lens' CognitoUserPoolAdminCreateUserConfig (Maybe (Val Double))
+cupacucUnusedAccountValidityDays :: Lens' CognitoUserPoolAdminCreateUserConfig (Maybe (Val Integer))
 cupacucUnusedAccountValidityDays = lens _cognitoUserPoolAdminCreateUserConfigUnusedAccountValidityDays (\s a -> s { _cognitoUserPoolAdminCreateUserConfigUnusedAccountValidityDays = a })
