@@ -29,7 +29,7 @@ instance ToJSON SSMMaintenanceWindowTargetTargets where
 -- | Constructor for 'SSMMaintenanceWindowTargetTargets' containing required
 -- fields as arguments.
 ssmMaintenanceWindowTargetTargets
-  :: Val Text -- ^ 'ssmmwttKey'
+  :: Val Text -- ^ 'ssmmwtartKey'
   -> SSMMaintenanceWindowTargetTargets
 ssmMaintenanceWindowTargetTargets keyarg =
   SSMMaintenanceWindowTargetTargets
@@ -38,9 +38,9 @@ ssmMaintenanceWindowTargetTargets keyarg =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtarget-targets.html#cfn-ssm-maintenancewindowtarget-targets-key
-ssmmwttKey :: Lens' SSMMaintenanceWindowTargetTargets (Val Text)
-ssmmwttKey = lens _sSMMaintenanceWindowTargetTargetsKey (\s a -> s { _sSMMaintenanceWindowTargetTargetsKey = a })
+ssmmwtartKey :: Lens' SSMMaintenanceWindowTargetTargets (Val Text)
+ssmmwtartKey = lens _sSMMaintenanceWindowTargetTargetsKey (\s a -> s { _sSMMaintenanceWindowTargetTargetsKey = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtarget-targets.html#cfn-ssm-maintenancewindowtarget-targets-values
-ssmmwttValues :: Lens' SSMMaintenanceWindowTargetTargets (Maybe (ValList Text))
-ssmmwttValues = lens _sSMMaintenanceWindowTargetTargetsValues (\s a -> s { _sSMMaintenanceWindowTargetTargetsValues = a })
+ssmmwtartValues :: Lens' SSMMaintenanceWindowTargetTargets (Maybe (ValList Text))
+ssmmwtartValues = lens _sSMMaintenanceWindowTargetTargetsValues (\s a -> s { _sSMMaintenanceWindowTargetTargetsValues = a })

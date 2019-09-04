@@ -40,9 +40,9 @@ instance ToResourceProperties SSMMaintenanceWindowTarget where
 -- | Constructor for 'SSMMaintenanceWindowTarget' containing required fields
 -- as arguments.
 ssmMaintenanceWindowTarget
-  :: Val Text -- ^ 'ssmmwtResourceType'
-  -> [SSMMaintenanceWindowTargetTargets] -- ^ 'ssmmwtTargets'
-  -> Val Text -- ^ 'ssmmwtWindowId'
+  :: Val Text -- ^ 'ssmmwtarResourceType'
+  -> [SSMMaintenanceWindowTargetTargets] -- ^ 'ssmmwtarTargets'
+  -> Val Text -- ^ 'ssmmwtarWindowId'
   -> SSMMaintenanceWindowTarget
 ssmMaintenanceWindowTarget resourceTypearg targetsarg windowIdarg =
   SSMMaintenanceWindowTarget
@@ -55,25 +55,25 @@ ssmMaintenanceWindowTarget resourceTypearg targetsarg windowIdarg =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtarget.html#cfn-ssm-maintenancewindowtarget-description
-ssmmwtDescription :: Lens' SSMMaintenanceWindowTarget (Maybe (Val Text))
-ssmmwtDescription = lens _sSMMaintenanceWindowTargetDescription (\s a -> s { _sSMMaintenanceWindowTargetDescription = a })
+ssmmwtarDescription :: Lens' SSMMaintenanceWindowTarget (Maybe (Val Text))
+ssmmwtarDescription = lens _sSMMaintenanceWindowTargetDescription (\s a -> s { _sSMMaintenanceWindowTargetDescription = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtarget.html#cfn-ssm-maintenancewindowtarget-name
-ssmmwtName :: Lens' SSMMaintenanceWindowTarget (Maybe (Val Text))
-ssmmwtName = lens _sSMMaintenanceWindowTargetName (\s a -> s { _sSMMaintenanceWindowTargetName = a })
+ssmmwtarName :: Lens' SSMMaintenanceWindowTarget (Maybe (Val Text))
+ssmmwtarName = lens _sSMMaintenanceWindowTargetName (\s a -> s { _sSMMaintenanceWindowTargetName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtarget.html#cfn-ssm-maintenancewindowtarget-ownerinformation
-ssmmwtOwnerInformation :: Lens' SSMMaintenanceWindowTarget (Maybe (Val Text))
-ssmmwtOwnerInformation = lens _sSMMaintenanceWindowTargetOwnerInformation (\s a -> s { _sSMMaintenanceWindowTargetOwnerInformation = a })
+ssmmwtarOwnerInformation :: Lens' SSMMaintenanceWindowTarget (Maybe (Val Text))
+ssmmwtarOwnerInformation = lens _sSMMaintenanceWindowTargetOwnerInformation (\s a -> s { _sSMMaintenanceWindowTargetOwnerInformation = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtarget.html#cfn-ssm-maintenancewindowtarget-resourcetype
-ssmmwtResourceType :: Lens' SSMMaintenanceWindowTarget (Val Text)
-ssmmwtResourceType = lens _sSMMaintenanceWindowTargetResourceType (\s a -> s { _sSMMaintenanceWindowTargetResourceType = a })
+ssmmwtarResourceType :: Lens' SSMMaintenanceWindowTarget (Val Text)
+ssmmwtarResourceType = lens _sSMMaintenanceWindowTargetResourceType (\s a -> s { _sSMMaintenanceWindowTargetResourceType = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtarget.html#cfn-ssm-maintenancewindowtarget-targets
-ssmmwtTargets :: Lens' SSMMaintenanceWindowTarget [SSMMaintenanceWindowTargetTargets]
-ssmmwtTargets = lens _sSMMaintenanceWindowTargetTargets (\s a -> s { _sSMMaintenanceWindowTargetTargets = a })
+ssmmwtarTargets :: Lens' SSMMaintenanceWindowTarget [SSMMaintenanceWindowTargetTargets]
+ssmmwtarTargets = lens _sSMMaintenanceWindowTargetTargets (\s a -> s { _sSMMaintenanceWindowTargetTargets = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindowtarget.html#cfn-ssm-maintenancewindowtarget-windowid
-ssmmwtWindowId :: Lens' SSMMaintenanceWindowTarget (Val Text)
-ssmmwtWindowId = lens _sSMMaintenanceWindowTargetWindowId (\s a -> s { _sSMMaintenanceWindowTargetWindowId = a })
+ssmmwtarWindowId :: Lens' SSMMaintenanceWindowTarget (Val Text)
+ssmmwtarWindowId = lens _sSMMaintenanceWindowTargetWindowId (\s a -> s { _sSMMaintenanceWindowTargetWindowId = a })
