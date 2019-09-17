@@ -1,2 +1,4 @@
+CloudFormationResourceSpecification.json
+stack.yaml.lock
 *.stack-work/
 *.cabal

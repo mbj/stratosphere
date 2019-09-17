@@ -8,13 +8,13 @@
 module Stratosphere.ResourceProperties.CodeBuildProjectProjectTriggers where
 
 import Stratosphere.ResourceImports
-import Stratosphere.ResourceProperties.CodeBuildProjectWebhookFilter
+import Stratosphere.ResourceProperties.CodeBuildProjectFilterGroup
 
 -- | Full data type definition for CodeBuildProjectProjectTriggers. See
 -- 'codeBuildProjectProjectTriggers' for a more convenient constructor.
 data CodeBuildProjectProjectTriggers =
   CodeBuildProjectProjectTriggers
-  { _codeBuildProjectProjectTriggersFilterGroups :: Maybe [CodeBuildProjectWebhookFilter]
+  { _codeBuildProjectProjectTriggersFilterGroups :: Maybe [CodeBuildProjectFilterGroup]
   , _codeBuildProjectProjectTriggersWebhook :: Maybe (Val Bool)
   } deriving (Show, Eq)
 
@@ -37,7 +37,7 @@ codeBuildProjectProjectTriggers  =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projecttriggers.html#cfn-codebuild-project-projecttriggers-filtergroups
-cbpptFilterGroups :: Lens' CodeBuildProjectProjectTriggers (Maybe [CodeBuildProjectWebhookFilter])
+cbpptFilterGroups :: Lens' CodeBuildProjectProjectTriggers (Maybe [CodeBuildProjectFilterGroup])
 cbpptFilterGroups = lens _codeBuildProjectProjectTriggersFilterGroups (\s a -> s { _codeBuildProjectProjectTriggersFilterGroups = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projecttriggers.html#cfn-codebuild-project-projecttriggers-webhook

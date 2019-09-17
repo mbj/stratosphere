@@ -682,6 +682,7 @@ import Stratosphere.ResourceProperties.CodeBuildProjectArtifacts as X
 import Stratosphere.ResourceProperties.CodeBuildProjectCloudWatchLogsConfig as X
 import Stratosphere.ResourceProperties.CodeBuildProjectEnvironment as X
 import Stratosphere.ResourceProperties.CodeBuildProjectEnvironmentVariable as X
+import Stratosphere.ResourceProperties.CodeBuildProjectFilterGroup as X
 import Stratosphere.ResourceProperties.CodeBuildProjectGitSubmodulesConfig as X
 import Stratosphere.ResourceProperties.CodeBuildProjectLogsConfig as X
 import Stratosphere.ResourceProperties.CodeBuildProjectProjectCache as X
