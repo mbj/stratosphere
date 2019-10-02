@@ -3,7 +3,7 @@
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-input-tag.html
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html
 
 module Stratosphere.ResourceProperties.Tag where
 
@@ -37,10 +37,10 @@ tag keyarg valuearg =
   , _tagValue = valuearg
   }
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-input-tag.html#cfn-iotevents-input-tag-key
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html#cfn-resource-tags-key
 tagKey :: Lens' Tag (Val Text)
 tagKey = lens _tagKey (\s a -> s { _tagKey = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-input-tag.html#cfn-iotevents-input-tag-value
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html#cfn-resource-tags-value
 tagValue :: Lens' Tag (Val Text)
 tagValue = lens _tagValue (\s a -> s { _tagValue = a })

@@ -14,7 +14,9 @@ import Stratosphere.ResourceImports
 -- 'glueTriggerCondition' for a more convenient constructor.
 data GlueTriggerCondition =
   GlueTriggerCondition
-  { _glueTriggerConditionJobName :: Maybe (Val Text)
+  { _glueTriggerConditionCrawlState :: Maybe (Val Text)
+  , _glueTriggerConditionCrawlerName :: Maybe (Val Text)
+  , _glueTriggerConditionJobName :: Maybe (Val Text)
   , _glueTriggerConditionLogicalOperator :: Maybe (Val Text)
   , _glueTriggerConditionState :: Maybe (Val Text)
   } deriving (Show, Eq)
@@ -23,7 +25,9 @@ instance ToJSON GlueTriggerCondition where
   toJSON GlueTriggerCondition{..} =
     object $
     catMaybes
-    [ fmap (("JobName",) . toJSON) _glueTriggerConditionJobName
+    [ fmap (("CrawlState",) . toJSON) _glueTriggerConditionCrawlState
+    , fmap (("CrawlerName",) . toJSON) _glueTriggerConditionCrawlerName
+    , fmap (("JobName",) . toJSON) _glueTriggerConditionJobName
     , fmap (("LogicalOperator",) . toJSON) _glueTriggerConditionLogicalOperator
     , fmap (("State",) . toJSON) _glueTriggerConditionState
     ]
@@ -34,10 +38,20 @@ glueTriggerCondition
   :: GlueTriggerCondition
 glueTriggerCondition  =
   GlueTriggerCondition
-  { _glueTriggerConditionJobName = Nothing
+  { _glueTriggerConditionCrawlState = Nothing
+  , _glueTriggerConditionCrawlerName = Nothing
+  , _glueTriggerConditionJobName = Nothing
   , _glueTriggerConditionLogicalOperator = Nothing
   , _glueTriggerConditionState = Nothing
   }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html#cfn-glue-trigger-condition-crawlstate
+gtcCrawlState :: Lens' GlueTriggerCondition (Maybe (Val Text))
+gtcCrawlState = lens _glueTriggerConditionCrawlState (\s a -> s { _glueTriggerConditionCrawlState = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html#cfn-glue-trigger-condition-crawlername
+gtcCrawlerName :: Lens' GlueTriggerCondition (Maybe (Val Text))
+gtcCrawlerName = lens _glueTriggerConditionCrawlerName (\s a -> s { _glueTriggerConditionCrawlerName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html#cfn-glue-trigger-condition-jobname
 gtcJobName :: Lens' GlueTriggerCondition (Maybe (Val Text))

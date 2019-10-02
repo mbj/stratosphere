@@ -14,16 +14,20 @@ import Stratosphere.ResourceImports
 -- a more convenient constructor.
 data GlueDevEndpoint =
   GlueDevEndpoint
-  { _glueDevEndpointEndpointName :: Maybe (Val Text)
+  { _glueDevEndpointArguments :: Maybe Object
+  , _glueDevEndpointEndpointName :: Maybe (Val Text)
   , _glueDevEndpointExtraJarsS3Path :: Maybe (Val Text)
   , _glueDevEndpointExtraPythonLibsS3Path :: Maybe (Val Text)
+  , _glueDevEndpointGlueVersion :: Maybe (Val Text)
   , _glueDevEndpointNumberOfNodes :: Maybe (Val Integer)
+  , _glueDevEndpointNumberOfWorkers :: Maybe (Val Integer)
   , _glueDevEndpointPublicKey :: Maybe (Val Text)
   , _glueDevEndpointRoleArn :: Val Text
   , _glueDevEndpointSecurityConfiguration :: Maybe (Val Text)
   , _glueDevEndpointSecurityGroupIds :: Maybe (ValList Text)
   , _glueDevEndpointSubnetId :: Maybe (Val Text)
   , _glueDevEndpointTags :: Maybe Object
+  , _glueDevEndpointWorkerType :: Maybe (Val Text)
   } deriving (Show, Eq)
 
 instance ToResourceProperties GlueDevEndpoint where
@@ -32,16 +36,20 @@ instance ToResourceProperties GlueDevEndpoint where
     { resourcePropertiesType = "AWS::Glue::DevEndpoint"
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
-        [ fmap (("EndpointName",) . toJSON) _glueDevEndpointEndpointName
+        [ fmap (("Arguments",) . toJSON) _glueDevEndpointArguments
+        , fmap (("EndpointName",) . toJSON) _glueDevEndpointEndpointName
         , fmap (("ExtraJarsS3Path",) . toJSON) _glueDevEndpointExtraJarsS3Path
         , fmap (("ExtraPythonLibsS3Path",) . toJSON) _glueDevEndpointExtraPythonLibsS3Path
+        , fmap (("GlueVersion",) . toJSON) _glueDevEndpointGlueVersion
         , fmap (("NumberOfNodes",) . toJSON) _glueDevEndpointNumberOfNodes
+        , fmap (("NumberOfWorkers",) . toJSON) _glueDevEndpointNumberOfWorkers
         , fmap (("PublicKey",) . toJSON) _glueDevEndpointPublicKey
         , (Just . ("RoleArn",) . toJSON) _glueDevEndpointRoleArn
         , fmap (("SecurityConfiguration",) . toJSON) _glueDevEndpointSecurityConfiguration
         , fmap (("SecurityGroupIds",) . toJSON) _glueDevEndpointSecurityGroupIds
         , fmap (("SubnetId",) . toJSON) _glueDevEndpointSubnetId
         , fmap (("Tags",) . toJSON) _glueDevEndpointTags
+        , fmap (("WorkerType",) . toJSON) _glueDevEndpointWorkerType
         ]
     }
 
@@ -52,17 +60,25 @@ glueDevEndpoint
   -> GlueDevEndpoint
 glueDevEndpoint roleArnarg =
   GlueDevEndpoint
-  { _glueDevEndpointEndpointName = Nothing
+  { _glueDevEndpointArguments = Nothing
+  , _glueDevEndpointEndpointName = Nothing
   , _glueDevEndpointExtraJarsS3Path = Nothing
   , _glueDevEndpointExtraPythonLibsS3Path = Nothing
+  , _glueDevEndpointGlueVersion = Nothing
   , _glueDevEndpointNumberOfNodes = Nothing
+  , _glueDevEndpointNumberOfWorkers = Nothing
   , _glueDevEndpointPublicKey = Nothing
   , _glueDevEndpointRoleArn = roleArnarg
   , _glueDevEndpointSecurityConfiguration = Nothing
   , _glueDevEndpointSecurityGroupIds = Nothing
   , _glueDevEndpointSubnetId = Nothing
   , _glueDevEndpointTags = Nothing
+  , _glueDevEndpointWorkerType = Nothing
   }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-devendpoint.html#cfn-glue-devendpoint-arguments
+gdeArguments :: Lens' GlueDevEndpoint (Maybe Object)
+gdeArguments = lens _glueDevEndpointArguments (\s a -> s { _glueDevEndpointArguments = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-devendpoint.html#cfn-glue-devendpoint-endpointname
 gdeEndpointName :: Lens' GlueDevEndpoint (Maybe (Val Text))
@@ -76,9 +92,17 @@ gdeExtraJarsS3Path = lens _glueDevEndpointExtraJarsS3Path (\s a -> s { _glueDevE
 gdeExtraPythonLibsS3Path :: Lens' GlueDevEndpoint (Maybe (Val Text))
 gdeExtraPythonLibsS3Path = lens _glueDevEndpointExtraPythonLibsS3Path (\s a -> s { _glueDevEndpointExtraPythonLibsS3Path = a })
 
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-devendpoint.html#cfn-glue-devendpoint-glueversion
+gdeGlueVersion :: Lens' GlueDevEndpoint (Maybe (Val Text))
+gdeGlueVersion = lens _glueDevEndpointGlueVersion (\s a -> s { _glueDevEndpointGlueVersion = a })
+
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-devendpoint.html#cfn-glue-devendpoint-numberofnodes
 gdeNumberOfNodes :: Lens' GlueDevEndpoint (Maybe (Val Integer))
 gdeNumberOfNodes = lens _glueDevEndpointNumberOfNodes (\s a -> s { _glueDevEndpointNumberOfNodes = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-devendpoint.html#cfn-glue-devendpoint-numberofworkers
+gdeNumberOfWorkers :: Lens' GlueDevEndpoint (Maybe (Val Integer))
+gdeNumberOfWorkers = lens _glueDevEndpointNumberOfWorkers (\s a -> s { _glueDevEndpointNumberOfWorkers = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-devendpoint.html#cfn-glue-devendpoint-publickey
 gdePublicKey :: Lens' GlueDevEndpoint (Maybe (Val Text))
@@ -103,3 +127,7 @@ gdeSubnetId = lens _glueDevEndpointSubnetId (\s a -> s { _glueDevEndpointSubnetI
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-devendpoint.html#cfn-glue-devendpoint-tags
 gdeTags :: Lens' GlueDevEndpoint (Maybe Object)
 gdeTags = lens _glueDevEndpointTags (\s a -> s { _glueDevEndpointTags = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-devendpoint.html#cfn-glue-devendpoint-workertype
+gdeWorkerType :: Lens' GlueDevEndpoint (Maybe (Val Text))
+gdeWorkerType = lens _glueDevEndpointWorkerType (\s a -> s { _glueDevEndpointWorkerType = a })

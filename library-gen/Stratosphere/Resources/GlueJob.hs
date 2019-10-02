@@ -11,6 +11,7 @@ import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.GlueJobJobCommand
 import Stratosphere.ResourceProperties.GlueJobConnectionsList
 import Stratosphere.ResourceProperties.GlueJobExecutionProperty
+import Stratosphere.ResourceProperties.GlueJobNotificationProperty
 
 -- | Full data type definition for GlueJob. See 'glueJob' for a more
 -- convenient constructor.
@@ -27,10 +28,12 @@ data GlueJob =
   , _glueJobMaxCapacity :: Maybe (Val Double)
   , _glueJobMaxRetries :: Maybe (Val Double)
   , _glueJobName :: Maybe (Val Text)
+  , _glueJobNotificationProperty :: Maybe GlueJobNotificationProperty
   , _glueJobNumberOfWorkers :: Maybe (Val Integer)
   , _glueJobRole :: Val Text
   , _glueJobSecurityConfiguration :: Maybe (Val Text)
   , _glueJobTags :: Maybe Object
+  , _glueJobTimeout :: Maybe (Val Integer)
   , _glueJobWorkerType :: Maybe (Val Text)
   } deriving (Show, Eq)
 
@@ -51,10 +54,12 @@ instance ToResourceProperties GlueJob where
         , fmap (("MaxCapacity",) . toJSON) _glueJobMaxCapacity
         , fmap (("MaxRetries",) . toJSON) _glueJobMaxRetries
         , fmap (("Name",) . toJSON) _glueJobName
+        , fmap (("NotificationProperty",) . toJSON) _glueJobNotificationProperty
         , fmap (("NumberOfWorkers",) . toJSON) _glueJobNumberOfWorkers
         , (Just . ("Role",) . toJSON) _glueJobRole
         , fmap (("SecurityConfiguration",) . toJSON) _glueJobSecurityConfiguration
         , fmap (("Tags",) . toJSON) _glueJobTags
+        , fmap (("Timeout",) . toJSON) _glueJobTimeout
         , fmap (("WorkerType",) . toJSON) _glueJobWorkerType
         ]
     }
@@ -77,10 +82,12 @@ glueJob commandarg rolearg =
   , _glueJobMaxCapacity = Nothing
   , _glueJobMaxRetries = Nothing
   , _glueJobName = Nothing
+  , _glueJobNotificationProperty = Nothing
   , _glueJobNumberOfWorkers = Nothing
   , _glueJobRole = rolearg
   , _glueJobSecurityConfiguration = Nothing
   , _glueJobTags = Nothing
+  , _glueJobTimeout = Nothing
   , _glueJobWorkerType = Nothing
   }
 
@@ -128,6 +135,10 @@ gjMaxRetries = lens _glueJobMaxRetries (\s a -> s { _glueJobMaxRetries = a })
 gjName :: Lens' GlueJob (Maybe (Val Text))
 gjName = lens _glueJobName (\s a -> s { _glueJobName = a })
 
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-notificationproperty
+gjNotificationProperty :: Lens' GlueJob (Maybe GlueJobNotificationProperty)
+gjNotificationProperty = lens _glueJobNotificationProperty (\s a -> s { _glueJobNotificationProperty = a })
+
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-numberofworkers
 gjNumberOfWorkers :: Lens' GlueJob (Maybe (Val Integer))
 gjNumberOfWorkers = lens _glueJobNumberOfWorkers (\s a -> s { _glueJobNumberOfWorkers = a })
@@ -143,6 +154,10 @@ gjSecurityConfiguration = lens _glueJobSecurityConfiguration (\s a -> s { _glueJ
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-tags
 gjTags :: Lens' GlueJob (Maybe Object)
 gjTags = lens _glueJobTags (\s a -> s { _glueJobTags = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-timeout
+gjTimeout :: Lens' GlueJob (Maybe (Val Integer))
+gjTimeout = lens _glueJobTimeout (\s a -> s { _glueJobTimeout = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-job.html#cfn-glue-job-workertype
 gjWorkerType :: Lens' GlueJob (Maybe (Val Text))

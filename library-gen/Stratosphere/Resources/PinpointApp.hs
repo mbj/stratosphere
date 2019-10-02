@@ -15,6 +15,7 @@ import Stratosphere.ResourceImports
 data PinpointApp =
   PinpointApp
   { _pinpointAppName :: Val Text
+  , _pinpointAppTags :: Maybe Object
   } deriving (Show, Eq)
 
 instance ToResourceProperties PinpointApp where
@@ -24,6 +25,7 @@ instance ToResourceProperties PinpointApp where
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
         [ (Just . ("Name",) . toJSON) _pinpointAppName
+        , fmap (("Tags",) . toJSON) _pinpointAppTags
         ]
     }
 
@@ -34,8 +36,13 @@ pinpointApp
 pinpointApp namearg =
   PinpointApp
   { _pinpointAppName = namearg
+  , _pinpointAppTags = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-app.html#cfn-pinpoint-app-name
 paName :: Lens' PinpointApp (Val Text)
 paName = lens _pinpointAppName (\s a -> s { _pinpointAppName = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-app.html#cfn-pinpoint-app-tags
+paTags :: Lens' PinpointApp (Maybe Object)
+paTags = lens _pinpointAppTags (\s a -> s { _pinpointAppTags = a })

@@ -30,6 +30,7 @@ data PinpointCampaign =
   , _pinpointCampaignSchedule :: PinpointCampaignSchedule
   , _pinpointCampaignSegmentId :: Val Text
   , _pinpointCampaignSegmentVersion :: Maybe (Val Integer)
+  , _pinpointCampaignTags :: Maybe Object
   , _pinpointCampaignTreatmentDescription :: Maybe (Val Text)
   , _pinpointCampaignTreatmentName :: Maybe (Val Text)
   } deriving (Show, Eq)
@@ -52,6 +53,7 @@ instance ToResourceProperties PinpointCampaign where
         , (Just . ("Schedule",) . toJSON) _pinpointCampaignSchedule
         , (Just . ("SegmentId",) . toJSON) _pinpointCampaignSegmentId
         , fmap (("SegmentVersion",) . toJSON) _pinpointCampaignSegmentVersion
+        , fmap (("Tags",) . toJSON) _pinpointCampaignTags
         , fmap (("TreatmentDescription",) . toJSON) _pinpointCampaignTreatmentDescription
         , fmap (("TreatmentName",) . toJSON) _pinpointCampaignTreatmentName
         ]
@@ -80,6 +82,7 @@ pinpointCampaign applicationIdarg messageConfigurationarg namearg schedulearg se
   , _pinpointCampaignSchedule = schedulearg
   , _pinpointCampaignSegmentId = segmentIdarg
   , _pinpointCampaignSegmentVersion = Nothing
+  , _pinpointCampaignTags = Nothing
   , _pinpointCampaignTreatmentDescription = Nothing
   , _pinpointCampaignTreatmentName = Nothing
   }
@@ -131,6 +134,10 @@ pcSegmentId = lens _pinpointCampaignSegmentId (\s a -> s { _pinpointCampaignSegm
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-campaign.html#cfn-pinpoint-campaign-segmentversion
 pcSegmentVersion :: Lens' PinpointCampaign (Maybe (Val Integer))
 pcSegmentVersion = lens _pinpointCampaignSegmentVersion (\s a -> s { _pinpointCampaignSegmentVersion = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-campaign.html#cfn-pinpoint-campaign-tags
+pcTags :: Lens' PinpointCampaign (Maybe Object)
+pcTags = lens _pinpointCampaignTags (\s a -> s { _pinpointCampaignTags = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-campaign.html#cfn-pinpoint-campaign-treatmentdescription
 pcTreatmentDescription :: Lens' PinpointCampaign (Maybe (Val Text))
