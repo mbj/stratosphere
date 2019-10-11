@@ -8,11 +8,11 @@
 module Stratosphere.Resources.PinpointCampaign where
 
 import Stratosphere.ResourceImports
-import Stratosphere.ResourceProperties.PinpointCampaignWriteTreatmentResource
 import Stratosphere.ResourceProperties.PinpointCampaignCampaignHook
 import Stratosphere.ResourceProperties.PinpointCampaignLimits
 import Stratosphere.ResourceProperties.PinpointCampaignMessageConfiguration
 import Stratosphere.ResourceProperties.PinpointCampaignSchedule
+import Stratosphere.ResourceProperties.PinpointCampaignWriteTreatmentResource
 
 -- | Full data type definition for PinpointCampaign. See 'pinpointCampaign'
 -- for a more convenient constructor.

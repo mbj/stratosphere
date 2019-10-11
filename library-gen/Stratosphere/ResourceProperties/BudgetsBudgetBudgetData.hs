@@ -8,8 +8,8 @@
 module Stratosphere.ResourceProperties.BudgetsBudgetBudgetData where
 
 import Stratosphere.ResourceImports
-import Stratosphere.ResourceProperties.BudgetsBudgetSpend
 import Stratosphere.ResourceProperties.BudgetsBudgetCostTypes
+import Stratosphere.ResourceProperties.BudgetsBudgetSpend
 import Stratosphere.ResourceProperties.BudgetsBudgetTimePeriod
 
 -- | Full data type definition for BudgetsBudgetBudgetData. See

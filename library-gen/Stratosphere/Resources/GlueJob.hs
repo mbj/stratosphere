@@ -8,9 +8,9 @@
 module Stratosphere.Resources.GlueJob where
 
 import Stratosphere.ResourceImports
-import Stratosphere.ResourceProperties.GlueJobJobCommand
 import Stratosphere.ResourceProperties.GlueJobConnectionsList
 import Stratosphere.ResourceProperties.GlueJobExecutionProperty
+import Stratosphere.ResourceProperties.GlueJobJobCommand
 import Stratosphere.ResourceProperties.GlueJobNotificationProperty
 
 -- | Full data type definition for GlueJob. See 'glueJob' for a more

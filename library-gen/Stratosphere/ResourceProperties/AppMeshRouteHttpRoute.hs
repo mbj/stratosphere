@@ -8,9 +8,9 @@
 module Stratosphere.ResourceProperties.AppMeshRouteHttpRoute where
 
 import Stratosphere.ResourceImports
+import Stratosphere.ResourceProperties.AppMeshRouteHttpRetryPolicy
 import Stratosphere.ResourceProperties.AppMeshRouteHttpRouteAction
 import Stratosphere.ResourceProperties.AppMeshRouteHttpRouteMatch
-import Stratosphere.ResourceProperties.AppMeshRouteHttpRetryPolicy
 
 -- | Full data type definition for AppMeshRouteHttpRoute. See
 -- 'appMeshRouteHttpRoute' for a more convenient constructor.
