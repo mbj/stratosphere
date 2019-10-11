@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.43.0
+
+* Update resource specification document to version 6.3.0
+
 ## 0.42.0
 
 * Update resource specification document to version 6.0.0

@@ -19,6 +19,7 @@ data DocDBDBCluster =
   , _docDBDBClusterDBClusterIdentifier :: Maybe (Val Text)
   , _docDBDBClusterDBClusterParameterGroupName :: Maybe (Val Text)
   , _docDBDBClusterDBSubnetGroupName :: Maybe (Val Text)
+  , _docDBDBClusterEnableCloudwatchLogsExports :: Maybe (ValList Text)
   , _docDBDBClusterEngineVersion :: Maybe (Val Text)
   , _docDBDBClusterKmsKeyId :: Maybe (Val Text)
   , _docDBDBClusterMasterUserPassword :: Maybe (Val Text)
@@ -43,6 +44,7 @@ instance ToResourceProperties DocDBDBCluster where
         , fmap (("DBClusterIdentifier",) . toJSON) _docDBDBClusterDBClusterIdentifier
         , fmap (("DBClusterParameterGroupName",) . toJSON) _docDBDBClusterDBClusterParameterGroupName
         , fmap (("DBSubnetGroupName",) . toJSON) _docDBDBClusterDBSubnetGroupName
+        , fmap (("EnableCloudwatchLogsExports",) . toJSON) _docDBDBClusterEnableCloudwatchLogsExports
         , fmap (("EngineVersion",) . toJSON) _docDBDBClusterEngineVersion
         , fmap (("KmsKeyId",) . toJSON) _docDBDBClusterKmsKeyId
         , fmap (("MasterUserPassword",) . toJSON) _docDBDBClusterMasterUserPassword
@@ -67,6 +69,7 @@ docDBDBCluster  =
   , _docDBDBClusterDBClusterIdentifier = Nothing
   , _docDBDBClusterDBClusterParameterGroupName = Nothing
   , _docDBDBClusterDBSubnetGroupName = Nothing
+  , _docDBDBClusterEnableCloudwatchLogsExports = Nothing
   , _docDBDBClusterEngineVersion = Nothing
   , _docDBDBClusterKmsKeyId = Nothing
   , _docDBDBClusterMasterUserPassword = Nothing
@@ -99,6 +102,10 @@ ddbdbcDBClusterParameterGroupName = lens _docDBDBClusterDBClusterParameterGroupN
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-dbsubnetgroupname
 ddbdbcDBSubnetGroupName :: Lens' DocDBDBCluster (Maybe (Val Text))
 ddbdbcDBSubnetGroupName = lens _docDBDBClusterDBSubnetGroupName (\s a -> s { _docDBDBClusterDBSubnetGroupName = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-enablecloudwatchlogsexports
+ddbdbcEnableCloudwatchLogsExports :: Lens' DocDBDBCluster (Maybe (ValList Text))
+ddbdbcEnableCloudwatchLogsExports = lens _docDBDBClusterEnableCloudwatchLogsExports (\s a -> s { _docDBDBClusterEnableCloudwatchLogsExports = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-engineversion
 ddbdbcEngineVersion :: Lens' DocDBDBCluster (Maybe (Val Text))

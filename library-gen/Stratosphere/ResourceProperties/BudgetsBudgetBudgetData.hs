@@ -21,6 +21,7 @@ data BudgetsBudgetBudgetData =
   , _budgetsBudgetBudgetDataBudgetType :: Val Text
   , _budgetsBudgetBudgetDataCostFilters :: Maybe Object
   , _budgetsBudgetBudgetDataCostTypes :: Maybe BudgetsBudgetCostTypes
+  , _budgetsBudgetBudgetDataPlannedBudgetLimits :: Maybe Object
   , _budgetsBudgetBudgetDataTimePeriod :: Maybe BudgetsBudgetTimePeriod
   , _budgetsBudgetBudgetDataTimeUnit :: Val Text
   } deriving (Show, Eq)
@@ -34,6 +35,7 @@ instance ToJSON BudgetsBudgetBudgetData where
     , (Just . ("BudgetType",) . toJSON) _budgetsBudgetBudgetDataBudgetType
     , fmap (("CostFilters",) . toJSON) _budgetsBudgetBudgetDataCostFilters
     , fmap (("CostTypes",) . toJSON) _budgetsBudgetBudgetDataCostTypes
+    , fmap (("PlannedBudgetLimits",) . toJSON) _budgetsBudgetBudgetDataPlannedBudgetLimits
     , fmap (("TimePeriod",) . toJSON) _budgetsBudgetBudgetDataTimePeriod
     , (Just . ("TimeUnit",) . toJSON) _budgetsBudgetBudgetDataTimeUnit
     ]
@@ -51,6 +53,7 @@ budgetsBudgetBudgetData budgetTypearg timeUnitarg =
   , _budgetsBudgetBudgetDataBudgetType = budgetTypearg
   , _budgetsBudgetBudgetDataCostFilters = Nothing
   , _budgetsBudgetBudgetDataCostTypes = Nothing
+  , _budgetsBudgetBudgetDataPlannedBudgetLimits = Nothing
   , _budgetsBudgetBudgetDataTimePeriod = Nothing
   , _budgetsBudgetBudgetDataTimeUnit = timeUnitarg
   }
@@ -74,6 +77,10 @@ bbbdCostFilters = lens _budgetsBudgetBudgetDataCostFilters (\s a -> s { _budgets
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-costtypes
 bbbdCostTypes :: Lens' BudgetsBudgetBudgetData (Maybe BudgetsBudgetCostTypes)
 bbbdCostTypes = lens _budgetsBudgetBudgetDataCostTypes (\s a -> s { _budgetsBudgetBudgetDataCostTypes = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-plannedbudgetlimits
+bbbdPlannedBudgetLimits :: Lens' BudgetsBudgetBudgetData (Maybe Object)
+bbbdPlannedBudgetLimits = lens _budgetsBudgetBudgetDataPlannedBudgetLimits (\s a -> s { _budgetsBudgetBudgetDataPlannedBudgetLimits = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-budgetdata.html#cfn-budgets-budget-budgetdata-timeperiod
 bbbdTimePeriod :: Lens' BudgetsBudgetBudgetData (Maybe BudgetsBudgetTimePeriod)

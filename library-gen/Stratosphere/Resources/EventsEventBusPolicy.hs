@@ -16,6 +16,7 @@ data EventsEventBusPolicy =
   EventsEventBusPolicy
   { _eventsEventBusPolicyAction :: Val Text
   , _eventsEventBusPolicyCondition :: Maybe EventsEventBusPolicyCondition
+  , _eventsEventBusPolicyEventBusName :: Maybe (Val Text)
   , _eventsEventBusPolicyPrincipal :: Val Text
   , _eventsEventBusPolicyStatementId :: Val Text
   } deriving (Show, Eq)
@@ -28,6 +29,7 @@ instance ToResourceProperties EventsEventBusPolicy where
         hashMapFromList $ catMaybes
         [ (Just . ("Action",) . toJSON) _eventsEventBusPolicyAction
         , fmap (("Condition",) . toJSON) _eventsEventBusPolicyCondition
+        , fmap (("EventBusName",) . toJSON) _eventsEventBusPolicyEventBusName
         , (Just . ("Principal",) . toJSON) _eventsEventBusPolicyPrincipal
         , (Just . ("StatementId",) . toJSON) _eventsEventBusPolicyStatementId
         ]
@@ -44,6 +46,7 @@ eventsEventBusPolicy actionarg principalarg statementIdarg =
   EventsEventBusPolicy
   { _eventsEventBusPolicyAction = actionarg
   , _eventsEventBusPolicyCondition = Nothing
+  , _eventsEventBusPolicyEventBusName = Nothing
   , _eventsEventBusPolicyPrincipal = principalarg
   , _eventsEventBusPolicyStatementId = statementIdarg
   }
@@ -55,6 +58,10 @@ eebpAction = lens _eventsEventBusPolicyAction (\s a -> s { _eventsEventBusPolicy
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html#cfn-events-eventbuspolicy-condition
 eebpCondition :: Lens' EventsEventBusPolicy (Maybe EventsEventBusPolicyCondition)
 eebpCondition = lens _eventsEventBusPolicyCondition (\s a -> s { _eventsEventBusPolicyCondition = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html#cfn-events-eventbuspolicy-eventbusname
+eebpEventBusName :: Lens' EventsEventBusPolicy (Maybe (Val Text))
+eebpEventBusName = lens _eventsEventBusPolicyEventBusName (\s a -> s { _eventsEventBusPolicyEventBusName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbuspolicy.html#cfn-events-eventbuspolicy-principal
 eebpPrincipal :: Lens' EventsEventBusPolicy (Val Text)

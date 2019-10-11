@@ -19,6 +19,7 @@ data PinpointSegment =
   , _pinpointSegmentDimensions :: Maybe PinpointSegmentSegmentDimensions
   , _pinpointSegmentName :: Val Text
   , _pinpointSegmentSegmentGroups :: Maybe PinpointSegmentSegmentGroups
+  , _pinpointSegmentTags :: Maybe Object
   } deriving (Show, Eq)
 
 instance ToResourceProperties PinpointSegment where
@@ -31,6 +32,7 @@ instance ToResourceProperties PinpointSegment where
         , fmap (("Dimensions",) . toJSON) _pinpointSegmentDimensions
         , (Just . ("Name",) . toJSON) _pinpointSegmentName
         , fmap (("SegmentGroups",) . toJSON) _pinpointSegmentSegmentGroups
+        , fmap (("Tags",) . toJSON) _pinpointSegmentTags
         ]
     }
 
@@ -46,6 +48,7 @@ pinpointSegment applicationIdarg namearg =
   , _pinpointSegmentDimensions = Nothing
   , _pinpointSegmentName = namearg
   , _pinpointSegmentSegmentGroups = Nothing
+  , _pinpointSegmentTags = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-segment.html#cfn-pinpoint-segment-applicationid
@@ -63,3 +66,7 @@ psName = lens _pinpointSegmentName (\s a -> s { _pinpointSegmentName = a })
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-segment.html#cfn-pinpoint-segment-segmentgroups
 psSegmentGroups :: Lens' PinpointSegment (Maybe PinpointSegmentSegmentGroups)
 psSegmentGroups = lens _pinpointSegmentSegmentGroups (\s a -> s { _pinpointSegmentSegmentGroups = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-segment.html#cfn-pinpoint-segment-tags
+psTags :: Lens' PinpointSegment (Maybe Object)
+psTags = lens _pinpointSegmentTags (\s a -> s { _pinpointSegmentTags = a })

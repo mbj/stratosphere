@@ -29,6 +29,7 @@ data CognitoUserPool =
   , _cognitoUserPoolEmailConfiguration :: Maybe CognitoUserPoolEmailConfiguration
   , _cognitoUserPoolEmailVerificationMessage :: Maybe (Val Text)
   , _cognitoUserPoolEmailVerificationSubject :: Maybe (Val Text)
+  , _cognitoUserPoolEnabledMfas :: Maybe (ValList Text)
   , _cognitoUserPoolLambdaConfig :: Maybe CognitoUserPoolLambdaConfig
   , _cognitoUserPoolMfaConfiguration :: Maybe (Val Text)
   , _cognitoUserPoolPolicies :: Maybe CognitoUserPoolPolicies
@@ -56,6 +57,7 @@ instance ToResourceProperties CognitoUserPool where
         , fmap (("EmailConfiguration",) . toJSON) _cognitoUserPoolEmailConfiguration
         , fmap (("EmailVerificationMessage",) . toJSON) _cognitoUserPoolEmailVerificationMessage
         , fmap (("EmailVerificationSubject",) . toJSON) _cognitoUserPoolEmailVerificationSubject
+        , fmap (("EnabledMfas",) . toJSON) _cognitoUserPoolEnabledMfas
         , fmap (("LambdaConfig",) . toJSON) _cognitoUserPoolLambdaConfig
         , fmap (("MfaConfiguration",) . toJSON) _cognitoUserPoolMfaConfiguration
         , fmap (("Policies",) . toJSON) _cognitoUserPoolPolicies
@@ -84,6 +86,7 @@ cognitoUserPool  =
   , _cognitoUserPoolEmailConfiguration = Nothing
   , _cognitoUserPoolEmailVerificationMessage = Nothing
   , _cognitoUserPoolEmailVerificationSubject = Nothing
+  , _cognitoUserPoolEnabledMfas = Nothing
   , _cognitoUserPoolLambdaConfig = Nothing
   , _cognitoUserPoolMfaConfiguration = Nothing
   , _cognitoUserPoolPolicies = Nothing
@@ -125,6 +128,10 @@ cupEmailVerificationMessage = lens _cognitoUserPoolEmailVerificationMessage (\s 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-emailverificationsubject
 cupEmailVerificationSubject :: Lens' CognitoUserPool (Maybe (Val Text))
 cupEmailVerificationSubject = lens _cognitoUserPoolEmailVerificationSubject (\s a -> s { _cognitoUserPoolEmailVerificationSubject = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-enabledmfas
+cupEnabledMfas :: Lens' CognitoUserPool (Maybe (ValList Text))
+cupEnabledMfas = lens _cognitoUserPoolEnabledMfas (\s a -> s { _cognitoUserPoolEnabledMfas = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-lambdaconfig
 cupLambdaConfig :: Lens' CognitoUserPool (Maybe CognitoUserPoolLambdaConfig)

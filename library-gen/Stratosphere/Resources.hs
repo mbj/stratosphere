@@ -142,7 +142,12 @@ import Stratosphere.Resources.CognitoIdentityPool as X
 import Stratosphere.Resources.CognitoIdentityPoolRoleAttachment as X
 import Stratosphere.Resources.CognitoUserPool as X
 import Stratosphere.Resources.CognitoUserPoolClient as X
+import Stratosphere.Resources.CognitoUserPoolDomain as X
 import Stratosphere.Resources.CognitoUserPoolGroup as X
+import Stratosphere.Resources.CognitoUserPoolIdentityProvider as X
+import Stratosphere.Resources.CognitoUserPoolResourceServer as X
+import Stratosphere.Resources.CognitoUserPoolRiskConfigurationAttachment as X
+import Stratosphere.Resources.CognitoUserPoolUICustomizationAttachment as X
 import Stratosphere.Resources.CognitoUserPoolUser as X
 import Stratosphere.Resources.CognitoUserPoolUserToGroupAttachment as X
 import Stratosphere.Resources.ConfigAggregationAuthorization as X
@@ -203,6 +208,10 @@ import Stratosphere.Resources.EC2Subnet as X
 import Stratosphere.Resources.EC2SubnetCidrBlock as X
 import Stratosphere.Resources.EC2SubnetNetworkAclAssociation as X
 import Stratosphere.Resources.EC2SubnetRouteTableAssociation as X
+import Stratosphere.Resources.EC2TrafficMirrorFilter as X
+import Stratosphere.Resources.EC2TrafficMirrorFilterRule as X
+import Stratosphere.Resources.EC2TrafficMirrorSession as X
+import Stratosphere.Resources.EC2TrafficMirrorTarget as X
 import Stratosphere.Resources.EC2TransitGateway as X
 import Stratosphere.Resources.EC2TransitGatewayAttachment as X
 import Stratosphere.Resources.EC2TransitGatewayRoute as X
@@ -214,6 +223,7 @@ import Stratosphere.Resources.EC2VPCCidrBlock as X
 import Stratosphere.Resources.EC2VPCDHCPOptionsAssociation as X
 import Stratosphere.Resources.EC2VPCEndpoint as X
 import Stratosphere.Resources.EC2VPCEndpointConnectionNotification as X
+import Stratosphere.Resources.EC2VPCEndpointService as X
 import Stratosphere.Resources.EC2VPCEndpointServicePermissions as X
 import Stratosphere.Resources.EC2VPCGatewayAttachment as X
 import Stratosphere.Resources.EC2VPCPeeringConnection as X
@@ -270,6 +280,7 @@ import Stratosphere.Resources.GluePartition as X
 import Stratosphere.Resources.GlueSecurityConfiguration as X
 import Stratosphere.Resources.GlueTable as X
 import Stratosphere.Resources.GlueTrigger as X
+import Stratosphere.Resources.GlueWorkflow as X
 import Stratosphere.Resources.GreengrassConnectorDefinition as X
 import Stratosphere.Resources.GreengrassConnectorDefinitionVersion as X
 import Stratosphere.Resources.GreengrassCoreDefinition as X
@@ -386,6 +397,7 @@ import Stratosphere.Resources.PinpointEmailConfigurationSet as X
 import Stratosphere.Resources.PinpointEmailConfigurationSetEventDestination as X
 import Stratosphere.Resources.PinpointEmailDedicatedIpPool as X
 import Stratosphere.Resources.PinpointEmailIdentity as X
+import Stratosphere.Resources.QLDBLedger as X
 import Stratosphere.Resources.RAMResourceShare as X
 import Stratosphere.Resources.RDSDBCluster as X
 import Stratosphere.Resources.RDSDBClusterParameterGroup as X
@@ -436,6 +448,7 @@ import Stratosphere.Resources.SSMMaintenanceWindowTask as X
 import Stratosphere.Resources.SSMParameter as X
 import Stratosphere.Resources.SSMPatchBaseline as X
 import Stratosphere.Resources.SSMResourceDataSync as X
+import Stratosphere.Resources.SageMakerCodeRepository as X
 import Stratosphere.Resources.SageMakerEndpoint as X
 import Stratosphere.Resources.SageMakerEndpointConfig as X
 import Stratosphere.Resources.SageMakerModel as X
@@ -531,7 +544,9 @@ import Stratosphere.ResourceProperties.ApiGatewayV2StageAccessLogSettings as X
 import Stratosphere.ResourceProperties.ApiGatewayV2StageRouteSettings as X
 import Stratosphere.ResourceProperties.AppMeshMeshEgressFilter as X
 import Stratosphere.ResourceProperties.AppMeshMeshMeshSpec as X
+import Stratosphere.ResourceProperties.AppMeshRouteDuration as X
 import Stratosphere.ResourceProperties.AppMeshRouteHeaderMatchMethod as X
+import Stratosphere.ResourceProperties.AppMeshRouteHttpRetryPolicy as X
 import Stratosphere.ResourceProperties.AppMeshRouteHttpRoute as X
 import Stratosphere.ResourceProperties.AppMeshRouteHttpRouteAction as X
 import Stratosphere.ResourceProperties.AppMeshRouteHttpRouteHeader as X
@@ -752,6 +767,16 @@ import Stratosphere.ResourceProperties.CognitoUserPoolStringAttributeConstraints
 import Stratosphere.ResourceProperties.CognitoUserPoolUserPoolAddOns as X
 import Stratosphere.ResourceProperties.CognitoUserPoolVerificationMessageTemplate as X
 import Stratosphere.ResourceProperties.CognitoUserPoolClientAnalyticsConfiguration as X
+import Stratosphere.ResourceProperties.CognitoUserPoolDomainCustomDomainConfigType as X
+import Stratosphere.ResourceProperties.CognitoUserPoolResourceServerResourceServerScopeType as X
+import Stratosphere.ResourceProperties.CognitoUserPoolRiskConfigurationAttachmentAccountTakeoverActionType as X
+import Stratosphere.ResourceProperties.CognitoUserPoolRiskConfigurationAttachmentAccountTakeoverActionsType as X
+import Stratosphere.ResourceProperties.CognitoUserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType as X
+import Stratosphere.ResourceProperties.CognitoUserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsType as X
+import Stratosphere.ResourceProperties.CognitoUserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationType as X
+import Stratosphere.ResourceProperties.CognitoUserPoolRiskConfigurationAttachmentNotifyConfigurationType as X
+import Stratosphere.ResourceProperties.CognitoUserPoolRiskConfigurationAttachmentNotifyEmailType as X
+import Stratosphere.ResourceProperties.CognitoUserPoolRiskConfigurationAttachmentRiskExceptionConfigurationType as X
 import Stratosphere.ResourceProperties.CognitoUserPoolUserAttributeType as X
 import Stratosphere.ResourceProperties.ConfigConfigRuleScope as X
 import Stratosphere.ResourceProperties.ConfigConfigRuleSource as X
@@ -762,8 +787,10 @@ import Stratosphere.ResourceProperties.ConfigConfigurationRecorderRecordingGroup
 import Stratosphere.ResourceProperties.ConfigDeliveryChannelConfigSnapshotDeliveryProperties as X
 import Stratosphere.ResourceProperties.ConfigOrganizationConfigRuleOrganizationCustomRuleMetadata as X
 import Stratosphere.ResourceProperties.ConfigOrganizationConfigRuleOrganizationManagedRuleMetadata as X
+import Stratosphere.ResourceProperties.ConfigRemediationConfigurationExecutionControls as X
 import Stratosphere.ResourceProperties.ConfigRemediationConfigurationRemediationParameterValue as X
 import Stratosphere.ResourceProperties.ConfigRemediationConfigurationResourceValue as X
+import Stratosphere.ResourceProperties.ConfigRemediationConfigurationSsmControls as X
 import Stratosphere.ResourceProperties.ConfigRemediationConfigurationStaticValue as X
 import Stratosphere.ResourceProperties.DAXClusterSSESpecification as X
 import Stratosphere.ResourceProperties.DLMLifecyclePolicyCreateRule as X
@@ -869,6 +896,7 @@ import Stratosphere.ResourceProperties.EC2SpotFleetSpotFleetTagSpecification as 
 import Stratosphere.ResourceProperties.EC2SpotFleetSpotPlacement as X
 import Stratosphere.ResourceProperties.EC2SpotFleetTargetGroup as X
 import Stratosphere.ResourceProperties.EC2SpotFleetTargetGroupsConfig as X
+import Stratosphere.ResourceProperties.EC2TrafficMirrorFilterRuleTrafficMirrorPortRangeRequest as X
 import Stratosphere.ResourceProperties.EC2VPNConnectionVpnTunnelOptionsSpecification as X
 import Stratosphere.ResourceProperties.ECRRepositoryLifecyclePolicy as X
 import Stratosphere.ResourceProperties.ECSServiceAwsVpcConfiguration as X
@@ -1034,6 +1062,7 @@ import Stratosphere.ResourceProperties.GlueDatabaseDatabaseInput as X
 import Stratosphere.ResourceProperties.GlueJobConnectionsList as X
 import Stratosphere.ResourceProperties.GlueJobExecutionProperty as X
 import Stratosphere.ResourceProperties.GlueJobJobCommand as X
+import Stratosphere.ResourceProperties.GlueJobNotificationProperty as X
 import Stratosphere.ResourceProperties.GlueMLTransformFindMatchesParameters as X
 import Stratosphere.ResourceProperties.GlueMLTransformGlueTables as X
 import Stratosphere.ResourceProperties.GlueMLTransformInputRecordTables as X
@@ -1056,6 +1085,7 @@ import Stratosphere.ResourceProperties.GlueTableStorageDescriptor as X
 import Stratosphere.ResourceProperties.GlueTableTableInput as X
 import Stratosphere.ResourceProperties.GlueTriggerAction as X
 import Stratosphere.ResourceProperties.GlueTriggerCondition as X
+import Stratosphere.ResourceProperties.GlueTriggerNotificationProperty as X
 import Stratosphere.ResourceProperties.GlueTriggerPredicate as X
 import Stratosphere.ResourceProperties.GreengrassConnectorDefinitionConnector as X
 import Stratosphere.ResourceProperties.GreengrassConnectorDefinitionConnectorDefinitionVersion as X
@@ -1512,6 +1542,7 @@ import Stratosphere.ResourceProperties.SSMPatchBaselinePatchFilterGroup as X
 import Stratosphere.ResourceProperties.SSMPatchBaselinePatchSource as X
 import Stratosphere.ResourceProperties.SSMPatchBaselineRule as X
 import Stratosphere.ResourceProperties.SSMPatchBaselineRuleGroup as X
+import Stratosphere.ResourceProperties.SageMakerCodeRepositoryGitConfig as X
 import Stratosphere.ResourceProperties.SageMakerEndpointConfigProductionVariant as X
 import Stratosphere.ResourceProperties.SageMakerModelContainerDefinition as X
 import Stratosphere.ResourceProperties.SageMakerModelVpcConfig as X
