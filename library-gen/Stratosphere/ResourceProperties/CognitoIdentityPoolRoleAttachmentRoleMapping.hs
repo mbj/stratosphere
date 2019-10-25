@@ -17,6 +17,7 @@ import Stratosphere.ResourceProperties.CognitoIdentityPoolRoleAttachmentRulesCon
 data CognitoIdentityPoolRoleAttachmentRoleMapping =
   CognitoIdentityPoolRoleAttachmentRoleMapping
   { _cognitoIdentityPoolRoleAttachmentRoleMappingAmbiguousRoleResolution :: Maybe (Val Text)
+  , _cognitoIdentityPoolRoleAttachmentRoleMappingIdentityProvider :: Maybe (Val Text)
   , _cognitoIdentityPoolRoleAttachmentRoleMappingRulesConfiguration :: Maybe CognitoIdentityPoolRoleAttachmentRulesConfigurationType
   , _cognitoIdentityPoolRoleAttachmentRoleMappingType :: Val Text
   } deriving (Show, Eq)
@@ -26,6 +27,7 @@ instance ToJSON CognitoIdentityPoolRoleAttachmentRoleMapping where
     object $
     catMaybes
     [ fmap (("AmbiguousRoleResolution",) . toJSON) _cognitoIdentityPoolRoleAttachmentRoleMappingAmbiguousRoleResolution
+    , fmap (("IdentityProvider",) . toJSON) _cognitoIdentityPoolRoleAttachmentRoleMappingIdentityProvider
     , fmap (("RulesConfiguration",) . toJSON) _cognitoIdentityPoolRoleAttachmentRoleMappingRulesConfiguration
     , (Just . ("Type",) . toJSON) _cognitoIdentityPoolRoleAttachmentRoleMappingType
     ]
@@ -38,6 +40,7 @@ cognitoIdentityPoolRoleAttachmentRoleMapping
 cognitoIdentityPoolRoleAttachmentRoleMapping typearg =
   CognitoIdentityPoolRoleAttachmentRoleMapping
   { _cognitoIdentityPoolRoleAttachmentRoleMappingAmbiguousRoleResolution = Nothing
+  , _cognitoIdentityPoolRoleAttachmentRoleMappingIdentityProvider = Nothing
   , _cognitoIdentityPoolRoleAttachmentRoleMappingRulesConfiguration = Nothing
   , _cognitoIdentityPoolRoleAttachmentRoleMappingType = typearg
   }
@@ -45,6 +48,10 @@ cognitoIdentityPoolRoleAttachmentRoleMapping typearg =
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-rolemapping.html#cfn-cognito-identitypoolroleattachment-rolemapping-ambiguousroleresolution
 ciprarmAmbiguousRoleResolution :: Lens' CognitoIdentityPoolRoleAttachmentRoleMapping (Maybe (Val Text))
 ciprarmAmbiguousRoleResolution = lens _cognitoIdentityPoolRoleAttachmentRoleMappingAmbiguousRoleResolution (\s a -> s { _cognitoIdentityPoolRoleAttachmentRoleMappingAmbiguousRoleResolution = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-rolemapping.html#cfn-cognito-identitypoolroleattachment-rolemapping-identityprovider
+ciprarmIdentityProvider :: Lens' CognitoIdentityPoolRoleAttachmentRoleMapping (Maybe (Val Text))
+ciprarmIdentityProvider = lens _cognitoIdentityPoolRoleAttachmentRoleMappingIdentityProvider (\s a -> s { _cognitoIdentityPoolRoleAttachmentRoleMappingIdentityProvider = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-rolemapping.html#cfn-cognito-identitypoolroleattachment-rolemapping-rulesconfiguration
 ciprarmRulesConfiguration :: Lens' CognitoIdentityPoolRoleAttachmentRoleMapping (Maybe CognitoIdentityPoolRoleAttachmentRulesConfigurationType)

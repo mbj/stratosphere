@@ -8,7 +8,7 @@
 module Stratosphere.ResourceProperties.FSxFileSystemWindowsConfiguration where
 
 import Stratosphere.ResourceImports
-
+import Stratosphere.ResourceProperties.FSxFileSystemSelfManagedActiveDirectoryConfiguration
 
 -- | Full data type definition for FSxFileSystemWindowsConfiguration. See
 -- 'fSxFileSystemWindowsConfiguration' for a more convenient constructor.
@@ -18,6 +18,7 @@ data FSxFileSystemWindowsConfiguration =
   , _fSxFileSystemWindowsConfigurationAutomaticBackupRetentionDays :: Maybe (Val Integer)
   , _fSxFileSystemWindowsConfigurationCopyTagsToBackups :: Maybe (Val Bool)
   , _fSxFileSystemWindowsConfigurationDailyAutomaticBackupStartTime :: Maybe (Val Text)
+  , _fSxFileSystemWindowsConfigurationSelfManagedActiveDirectoryConfiguration :: Maybe FSxFileSystemSelfManagedActiveDirectoryConfiguration
   , _fSxFileSystemWindowsConfigurationThroughputCapacity :: Maybe (Val Integer)
   , _fSxFileSystemWindowsConfigurationWeeklyMaintenanceStartTime :: Maybe (Val Text)
   } deriving (Show, Eq)
@@ -30,6 +31,7 @@ instance ToJSON FSxFileSystemWindowsConfiguration where
     , fmap (("AutomaticBackupRetentionDays",) . toJSON) _fSxFileSystemWindowsConfigurationAutomaticBackupRetentionDays
     , fmap (("CopyTagsToBackups",) . toJSON) _fSxFileSystemWindowsConfigurationCopyTagsToBackups
     , fmap (("DailyAutomaticBackupStartTime",) . toJSON) _fSxFileSystemWindowsConfigurationDailyAutomaticBackupStartTime
+    , fmap (("SelfManagedActiveDirectoryConfiguration",) . toJSON) _fSxFileSystemWindowsConfigurationSelfManagedActiveDirectoryConfiguration
     , fmap (("ThroughputCapacity",) . toJSON) _fSxFileSystemWindowsConfigurationThroughputCapacity
     , fmap (("WeeklyMaintenanceStartTime",) . toJSON) _fSxFileSystemWindowsConfigurationWeeklyMaintenanceStartTime
     ]
@@ -44,6 +46,7 @@ fSxFileSystemWindowsConfiguration  =
   , _fSxFileSystemWindowsConfigurationAutomaticBackupRetentionDays = Nothing
   , _fSxFileSystemWindowsConfigurationCopyTagsToBackups = Nothing
   , _fSxFileSystemWindowsConfigurationDailyAutomaticBackupStartTime = Nothing
+  , _fSxFileSystemWindowsConfigurationSelfManagedActiveDirectoryConfiguration = Nothing
   , _fSxFileSystemWindowsConfigurationThroughputCapacity = Nothing
   , _fSxFileSystemWindowsConfigurationWeeklyMaintenanceStartTime = Nothing
   }
@@ -63,6 +66,10 @@ fsfswcCopyTagsToBackups = lens _fSxFileSystemWindowsConfigurationCopyTagsToBacku
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-windowsconfiguration.html#cfn-fsx-filesystem-windowsconfiguration-dailyautomaticbackupstarttime
 fsfswcDailyAutomaticBackupStartTime :: Lens' FSxFileSystemWindowsConfiguration (Maybe (Val Text))
 fsfswcDailyAutomaticBackupStartTime = lens _fSxFileSystemWindowsConfigurationDailyAutomaticBackupStartTime (\s a -> s { _fSxFileSystemWindowsConfigurationDailyAutomaticBackupStartTime = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-windowsconfiguration.html#cfn-fsx-filesystem-windowsconfiguration-selfmanagedactivedirectoryconfiguration
+fsfswcSelfManagedActiveDirectoryConfiguration :: Lens' FSxFileSystemWindowsConfiguration (Maybe FSxFileSystemSelfManagedActiveDirectoryConfiguration)
+fsfswcSelfManagedActiveDirectoryConfiguration = lens _fSxFileSystemWindowsConfigurationSelfManagedActiveDirectoryConfiguration (\s a -> s { _fSxFileSystemWindowsConfigurationSelfManagedActiveDirectoryConfiguration = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-windowsconfiguration.html#cfn-fsx-filesystem-windowsconfiguration-throughputcapacity
 fsfswcThroughputCapacity :: Lens' FSxFileSystemWindowsConfiguration (Maybe (Val Integer))

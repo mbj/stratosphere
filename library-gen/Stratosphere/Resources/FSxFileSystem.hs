@@ -17,12 +17,12 @@ import Stratosphere.ResourceProperties.FSxFileSystemWindowsConfiguration
 data FSxFileSystem =
   FSxFileSystem
   { _fSxFileSystemBackupId :: Maybe (Val Text)
-  , _fSxFileSystemFileSystemType :: Maybe (Val Text)
+  , _fSxFileSystemFileSystemType :: Val Text
   , _fSxFileSystemKmsKeyId :: Maybe (Val Text)
   , _fSxFileSystemLustreConfiguration :: Maybe FSxFileSystemLustreConfiguration
   , _fSxFileSystemSecurityGroupIds :: Maybe (ValList Text)
   , _fSxFileSystemStorageCapacity :: Maybe (Val Integer)
-  , _fSxFileSystemSubnetIds :: Maybe (ValList Text)
+  , _fSxFileSystemSubnetIds :: ValList Text
   , _fSxFileSystemTags :: Maybe [Tag]
   , _fSxFileSystemWindowsConfiguration :: Maybe FSxFileSystemWindowsConfiguration
   } deriving (Show, Eq)
@@ -34,12 +34,12 @@ instance ToResourceProperties FSxFileSystem where
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
         [ fmap (("BackupId",) . toJSON) _fSxFileSystemBackupId
-        , fmap (("FileSystemType",) . toJSON) _fSxFileSystemFileSystemType
+        , (Just . ("FileSystemType",) . toJSON) _fSxFileSystemFileSystemType
         , fmap (("KmsKeyId",) . toJSON) _fSxFileSystemKmsKeyId
         , fmap (("LustreConfiguration",) . toJSON) _fSxFileSystemLustreConfiguration
         , fmap (("SecurityGroupIds",) . toJSON) _fSxFileSystemSecurityGroupIds
         , fmap (("StorageCapacity",) . toJSON) _fSxFileSystemStorageCapacity
-        , fmap (("SubnetIds",) . toJSON) _fSxFileSystemSubnetIds
+        , (Just . ("SubnetIds",) . toJSON) _fSxFileSystemSubnetIds
         , fmap (("Tags",) . toJSON) _fSxFileSystemTags
         , fmap (("WindowsConfiguration",) . toJSON) _fSxFileSystemWindowsConfiguration
         ]
@@ -47,16 +47,18 @@ instance ToResourceProperties FSxFileSystem where
 
 -- | Constructor for 'FSxFileSystem' containing required fields as arguments.
 fSxFileSystem
-  :: FSxFileSystem
-fSxFileSystem  =
+  :: Val Text -- ^ 'fsfsFileSystemType'
+  -> ValList Text -- ^ 'fsfsSubnetIds'
+  -> FSxFileSystem
+fSxFileSystem fileSystemTypearg subnetIdsarg =
   FSxFileSystem
   { _fSxFileSystemBackupId = Nothing
-  , _fSxFileSystemFileSystemType = Nothing
+  , _fSxFileSystemFileSystemType = fileSystemTypearg
   , _fSxFileSystemKmsKeyId = Nothing
   , _fSxFileSystemLustreConfiguration = Nothing
   , _fSxFileSystemSecurityGroupIds = Nothing
   , _fSxFileSystemStorageCapacity = Nothing
-  , _fSxFileSystemSubnetIds = Nothing
+  , _fSxFileSystemSubnetIds = subnetIdsarg
   , _fSxFileSystemTags = Nothing
   , _fSxFileSystemWindowsConfiguration = Nothing
   }
@@ -66,7 +68,7 @@ fsfsBackupId :: Lens' FSxFileSystem (Maybe (Val Text))
 fsfsBackupId = lens _fSxFileSystemBackupId (\s a -> s { _fSxFileSystemBackupId = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-filesystemtype
-fsfsFileSystemType :: Lens' FSxFileSystem (Maybe (Val Text))
+fsfsFileSystemType :: Lens' FSxFileSystem (Val Text)
 fsfsFileSystemType = lens _fSxFileSystemFileSystemType (\s a -> s { _fSxFileSystemFileSystemType = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-kmskeyid
@@ -86,7 +88,7 @@ fsfsStorageCapacity :: Lens' FSxFileSystem (Maybe (Val Integer))
 fsfsStorageCapacity = lens _fSxFileSystemStorageCapacity (\s a -> s { _fSxFileSystemStorageCapacity = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-subnetids
-fsfsSubnetIds :: Lens' FSxFileSystem (Maybe (ValList Text))
+fsfsSubnetIds :: Lens' FSxFileSystem (ValList Text)
 fsfsSubnetIds = lens _fSxFileSystemSubnetIds (\s a -> s { _fSxFileSystemSubnetIds = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-tags

@@ -15,7 +15,8 @@ import Stratosphere.ResourceProperties.BatchComputeEnvironmentLaunchTemplateSpec
 -- constructor.
 data BatchComputeEnvironmentComputeResources =
   BatchComputeEnvironmentComputeResources
-  { _batchComputeEnvironmentComputeResourcesBidPercentage :: Maybe (Val Integer)
+  { _batchComputeEnvironmentComputeResourcesAllocationStrategy :: Maybe (Val Text)
+  , _batchComputeEnvironmentComputeResourcesBidPercentage :: Maybe (Val Integer)
   , _batchComputeEnvironmentComputeResourcesDesiredvCpus :: Maybe (Val Integer)
   , _batchComputeEnvironmentComputeResourcesEc2KeyPair :: Maybe (Val Text)
   , _batchComputeEnvironmentComputeResourcesImageId :: Maybe (Val Text)
@@ -36,7 +37,8 @@ instance ToJSON BatchComputeEnvironmentComputeResources where
   toJSON BatchComputeEnvironmentComputeResources{..} =
     object $
     catMaybes
-    [ fmap (("BidPercentage",) . toJSON) _batchComputeEnvironmentComputeResourcesBidPercentage
+    [ fmap (("AllocationStrategy",) . toJSON) _batchComputeEnvironmentComputeResourcesAllocationStrategy
+    , fmap (("BidPercentage",) . toJSON) _batchComputeEnvironmentComputeResourcesBidPercentage
     , fmap (("DesiredvCpus",) . toJSON) _batchComputeEnvironmentComputeResourcesDesiredvCpus
     , fmap (("Ec2KeyPair",) . toJSON) _batchComputeEnvironmentComputeResourcesEc2KeyPair
     , fmap (("ImageId",) . toJSON) _batchComputeEnvironmentComputeResourcesImageId
@@ -65,7 +67,8 @@ batchComputeEnvironmentComputeResources
   -> BatchComputeEnvironmentComputeResources
 batchComputeEnvironmentComputeResources instanceRolearg instanceTypesarg maxvCpusarg minvCpusarg subnetsarg typearg =
   BatchComputeEnvironmentComputeResources
-  { _batchComputeEnvironmentComputeResourcesBidPercentage = Nothing
+  { _batchComputeEnvironmentComputeResourcesAllocationStrategy = Nothing
+  , _batchComputeEnvironmentComputeResourcesBidPercentage = Nothing
   , _batchComputeEnvironmentComputeResourcesDesiredvCpus = Nothing
   , _batchComputeEnvironmentComputeResourcesEc2KeyPair = Nothing
   , _batchComputeEnvironmentComputeResourcesImageId = Nothing
@@ -81,6 +84,10 @@ batchComputeEnvironmentComputeResources instanceRolearg instanceTypesarg maxvCpu
   , _batchComputeEnvironmentComputeResourcesTags = Nothing
   , _batchComputeEnvironmentComputeResourcesType = typearg
   }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-allocationstrategy
+bcecrAllocationStrategy :: Lens' BatchComputeEnvironmentComputeResources (Maybe (Val Text))
+bcecrAllocationStrategy = lens _batchComputeEnvironmentComputeResourcesAllocationStrategy (\s a -> s { _batchComputeEnvironmentComputeResourcesAllocationStrategy = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-computeresources.html#cfn-batch-computeenvironment-computeresources-bidpercentage
 bcecrBidPercentage :: Lens' BatchComputeEnvironmentComputeResources (Maybe (Val Integer))
