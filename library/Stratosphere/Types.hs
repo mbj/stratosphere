@@ -3,32 +3,31 @@
 {-# LANGUAGE OverloadedStrings #-}
 
 -- | Module for hand-written types that are used in generated modules.
-
 module Stratosphere.Types
-  ( EnabledState (..)
-  , AuthorizerType (..)
-  , AuthorizationType (..)
-  , HttpMethod (..)
-  , LoggingLevel (..)
-  , ApiBackendType (..)
-  , Period (..)
-  , AttributeType (..)
-  , KeyType (..)
-  , ProjectionType (..)
-  , StreamViewType (..)
-  , SNSProtocol (..)
-  , Runtime (..)
-  , PassthroughBehavior (..)
-  , CannedACL (..)
-  , KinesisFirehoseS3CompressionFormat(..)
-  , KinesisFirehoseElasticsearchS3BackupMode(..)
-  , KinesisFirehoseNoEncryptionConfig(..)
-  ) where
+  ( EnabledState (..),
+    AuthorizerType (..),
+    AuthorizationType (..),
+    HttpMethod (..),
+    LoggingLevel (..),
+    ApiBackendType (..),
+    Period (..),
+    AttributeType (..),
+    KeyType (..),
+    ProjectionType (..),
+    StreamViewType (..),
+    SNSProtocol (..),
+    Runtime (..),
+    PassthroughBehavior (..),
+    CannedACL (..),
+    KinesisFirehoseS3CompressionFormat (..),
+    KinesisFirehoseElasticsearchS3BackupMode (..),
+    KinesisFirehoseNoEncryptionConfig (..),
+  )
+where
 
 import Data.Aeson
 import Data.Text (Text)
 import GHC.Generics
-
 
 data EnabledState
   = ENABLED
@@ -42,8 +41,8 @@ data AuthorizerType
   deriving (Show, Read, Eq)
 
 instance ToJSON AuthorizerType where
-  toJSON TOKEN_AUTH               = String "TOKEN"
-  toJSON COGNITO_USER_POOLS_AUTH  = String "COGNITO_USER_POOLS"
+  toJSON TOKEN_AUTH = String "TOKEN"
+  toJSON COGNITO_USER_POOLS_AUTH = String "COGNITO_USER_POOLS"
 
 data AuthorizationType
   = NONE
@@ -102,7 +101,7 @@ data ProjectionType
 instance ToJSON ProjectionType where
   toJSON ProjectKeysOnly = String "KEYS_ONLY"
   toJSON ProjectIncluded = String "INCLUDE"
-  toJSON ProjectAll      = String "ALL"
+  toJSON ProjectAll = String "ALL"
 
 data StreamViewType
   = KEYS_ONLY
@@ -123,14 +122,14 @@ data SNSProtocol
   deriving (Show, Read, Eq, Generic)
 
 instance ToJSON SNSProtocol where
-  toJSON SnsHttp        = String "http"
-  toJSON SnsHttps       = String "https"
-  toJSON SnsEmail       = String "email"
-  toJSON SnsEmailJson   = String "email-json"
-  toJSON SnsSms         = String "sms"
-  toJSON SnsSqs         = String "sqs"
+  toJSON SnsHttp = String "http"
+  toJSON SnsHttps = String "https"
+  toJSON SnsEmail = String "email"
+  toJSON SnsEmailJson = String "email-json"
+  toJSON SnsSms = String "sms"
+  toJSON SnsSqs = String "sqs"
   toJSON SnsApplication = String "application"
-  toJSON SnsLambda      = String "lambda"
+  toJSON SnsLambda = String "lambda"
 
 -- | Possible values for AWS Lambda Runtimes. Note that if a valid runtime is
 -- missing, please open an issue on the Github repo. In the meantime, however,
@@ -202,12 +201,11 @@ data KinesisFirehoseS3CompressionFormat
   | KFS3Snappy
   deriving (Show, Read, Eq, Generic)
 
-
 instance ToJSON KinesisFirehoseS3CompressionFormat where
   toJSON KFS3Uncompressed = String "UNCOMPRESSED"
-  toJSON KFS3Gzip         = String "GZIP"
-  toJSON KFS3Zip          = String "ZIP"
-  toJSON KFS3Snappy       = String "SNAPPY"
+  toJSON KFS3Gzip = String "GZIP"
+  toJSON KFS3Zip = String "ZIP"
+  toJSON KFS3Snappy = String "SNAPPY"
 
 -- | See:
 -- http://docs.aws.amazon.com/firehose/latest/APIReference/API_ElasticsearchDestinationConfiguration.html
@@ -216,16 +214,14 @@ data KinesisFirehoseElasticsearchS3BackupMode
   | KFS3AllDocuments
   deriving (Show, Read, Eq, Generic)
 
-
 instance ToJSON KinesisFirehoseElasticsearchS3BackupMode where
   toJSON KFS3FailedDocumentsOnly = String "FailedDocumentsOnly"
-  toJSON KFS3AllDocuments        = String "AllDocuments"
+  toJSON KFS3AllDocuments = String "AllDocuments"
 
 -- | See:
 -- http://docs.aws.amazon.com/firehose/latest/APIReference/API_EncryptionConfiguration.html
 data KinesisFirehoseNoEncryptionConfig = KinesisFirehoseNoEncryptionConfig
-     deriving (Show, Read, Eq, Generic)
-
+  deriving (Show, Read, Eq, Generic)
 
 instance ToJSON KinesisFirehoseNoEncryptionConfig where
   toJSON _ = String "NoEncryption"
