@@ -1,5 +1,10 @@
 # Change Log
 
+## 0.44.0
+
+* Update resource specification document to version 7.1.0
+* Added NodeJS10x Lambda runtime (@Gosha)
+
 ## 0.43.0
 
 * Update resource specification document to version 6.3.0

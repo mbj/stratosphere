@@ -262,6 +262,7 @@ import Stratosphere.Resources.ElasticLoadBalancingV2ListenerRule as X
 import Stratosphere.Resources.ElasticLoadBalancingV2LoadBalancer as X
 import Stratosphere.Resources.ElasticLoadBalancingV2TargetGroup as X
 import Stratosphere.Resources.ElasticsearchDomain as X
+import Stratosphere.Resources.EventsEventBus as X
 import Stratosphere.Resources.EventsEventBusPolicy as X
 import Stratosphere.Resources.EventsRule as X
 import Stratosphere.Resources.FSxFileSystem as X
@@ -896,7 +897,7 @@ import Stratosphere.ResourceProperties.EC2SpotFleetSpotFleetTagSpecification as 
 import Stratosphere.ResourceProperties.EC2SpotFleetSpotPlacement as X
 import Stratosphere.ResourceProperties.EC2SpotFleetTargetGroup as X
 import Stratosphere.ResourceProperties.EC2SpotFleetTargetGroupsConfig as X
-import Stratosphere.ResourceProperties.EC2TrafficMirrorFilterRuleTrafficMirrorPortRangeRequest as X
+import Stratosphere.ResourceProperties.EC2TrafficMirrorFilterRuleTrafficMirrorPortRange as X
 import Stratosphere.ResourceProperties.EC2VPNConnectionVpnTunnelOptionsSpecification as X
 import Stratosphere.ResourceProperties.ECRRepositoryLifecyclePolicy as X
 import Stratosphere.ResourceProperties.ECSServiceAwsVpcConfiguration as X
@@ -1040,6 +1041,7 @@ import Stratosphere.ResourceProperties.EventsRuleRunCommandTarget as X
 import Stratosphere.ResourceProperties.EventsRuleSqsParameters as X
 import Stratosphere.ResourceProperties.EventsRuleTarget as X
 import Stratosphere.ResourceProperties.FSxFileSystemLustreConfiguration as X
+import Stratosphere.ResourceProperties.FSxFileSystemSelfManagedActiveDirectoryConfiguration as X
 import Stratosphere.ResourceProperties.FSxFileSystemWindowsConfiguration as X
 import Stratosphere.ResourceProperties.GameLiftAliasRoutingStrategy as X
 import Stratosphere.ResourceProperties.GameLiftBuildS3Location as X

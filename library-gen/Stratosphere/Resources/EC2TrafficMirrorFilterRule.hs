@@ -8,7 +8,7 @@
 module Stratosphere.Resources.EC2TrafficMirrorFilterRule where
 
 import Stratosphere.ResourceImports
-import Stratosphere.ResourceProperties.EC2TrafficMirrorFilterRuleTrafficMirrorPortRangeRequest
+import Stratosphere.ResourceProperties.EC2TrafficMirrorFilterRuleTrafficMirrorPortRange
 
 -- | Full data type definition for EC2TrafficMirrorFilterRule. See
 -- 'ec2TrafficMirrorFilterRule' for a more convenient constructor.
@@ -16,12 +16,12 @@ data EC2TrafficMirrorFilterRule =
   EC2TrafficMirrorFilterRule
   { _eC2TrafficMirrorFilterRuleDescription :: Maybe (Val Text)
   , _eC2TrafficMirrorFilterRuleDestinationCidrBlock :: Val Text
-  , _eC2TrafficMirrorFilterRuleDestinationPortRange :: Maybe EC2TrafficMirrorFilterRuleTrafficMirrorPortRangeRequest
+  , _eC2TrafficMirrorFilterRuleDestinationPortRange :: Maybe EC2TrafficMirrorFilterRuleTrafficMirrorPortRange
   , _eC2TrafficMirrorFilterRuleProtocol :: Maybe (Val Integer)
   , _eC2TrafficMirrorFilterRuleRuleAction :: Val Text
   , _eC2TrafficMirrorFilterRuleRuleNumber :: Val Integer
   , _eC2TrafficMirrorFilterRuleSourceCidrBlock :: Val Text
-  , _eC2TrafficMirrorFilterRuleSourcePortRange :: Maybe EC2TrafficMirrorFilterRuleTrafficMirrorPortRangeRequest
+  , _eC2TrafficMirrorFilterRuleSourcePortRange :: Maybe EC2TrafficMirrorFilterRuleTrafficMirrorPortRange
   , _eC2TrafficMirrorFilterRuleTrafficDirection :: Val Text
   , _eC2TrafficMirrorFilterRuleTrafficMirrorFilterId :: Val Text
   } deriving (Show, Eq)
@@ -78,7 +78,7 @@ ectmfrDestinationCidrBlock :: Lens' EC2TrafficMirrorFilterRule (Val Text)
 ectmfrDestinationCidrBlock = lens _eC2TrafficMirrorFilterRuleDestinationCidrBlock (\s a -> s { _eC2TrafficMirrorFilterRuleDestinationCidrBlock = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilterrule.html#cfn-ec2-trafficmirrorfilterrule-destinationportrange
-ectmfrDestinationPortRange :: Lens' EC2TrafficMirrorFilterRule (Maybe EC2TrafficMirrorFilterRuleTrafficMirrorPortRangeRequest)
+ectmfrDestinationPortRange :: Lens' EC2TrafficMirrorFilterRule (Maybe EC2TrafficMirrorFilterRuleTrafficMirrorPortRange)
 ectmfrDestinationPortRange = lens _eC2TrafficMirrorFilterRuleDestinationPortRange (\s a -> s { _eC2TrafficMirrorFilterRuleDestinationPortRange = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilterrule.html#cfn-ec2-trafficmirrorfilterrule-protocol
@@ -98,7 +98,7 @@ ectmfrSourceCidrBlock :: Lens' EC2TrafficMirrorFilterRule (Val Text)
 ectmfrSourceCidrBlock = lens _eC2TrafficMirrorFilterRuleSourceCidrBlock (\s a -> s { _eC2TrafficMirrorFilterRuleSourceCidrBlock = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilterrule.html#cfn-ec2-trafficmirrorfilterrule-sourceportrange
-ectmfrSourcePortRange :: Lens' EC2TrafficMirrorFilterRule (Maybe EC2TrafficMirrorFilterRuleTrafficMirrorPortRangeRequest)
+ectmfrSourcePortRange :: Lens' EC2TrafficMirrorFilterRule (Maybe EC2TrafficMirrorFilterRuleTrafficMirrorPortRange)
 ectmfrSourcePortRange = lens _eC2TrafficMirrorFilterRuleSourcePortRange (\s a -> s { _eC2TrafficMirrorFilterRuleSourcePortRange = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-trafficmirrorfilterrule.html#cfn-ec2-trafficmirrorfilterrule-trafficdirection
