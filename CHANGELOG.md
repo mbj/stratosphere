@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.45.0
+
+* Update lambda runtimes list
+
 ## 0.44.0
 
 * Update resource specification document to version 7.1.0

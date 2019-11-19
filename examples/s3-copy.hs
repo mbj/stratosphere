@@ -31,7 +31,7 @@ lambda = (
     lambdaCode
     "index.handler"
     (GetAtt "IAMRole" "Arn")
-    (Literal NodeJS43)
+    (Literal NodeJS12x)
     & lfFunctionName ?~ "copyS3Object"
   )
   & resourceDependsOn ?~ [ role' ^. resourceName ]

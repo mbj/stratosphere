@@ -139,34 +139,36 @@ instance ToJSON SNSProtocol where
 -- Valid values here
 -- https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime
 data Runtime
-  = NodeJS
-  | NodeJS43
-  | NodeJS43Edge
-  | NodeJS610
-  | NodeJS810
+  = NodeJS810
   | NodeJS10x
+  | NodeJS12x
   | Java8
+  | Java11
   | Python27
   | Python36
+  | Python37
+  | Python38
   | DotNetCore10
-  | DotNetCore20
+  | DotNetCore21
   | Go1X
+  | Ruby25
   | OtherRuntime Text
   deriving (Show, Read, Eq, Generic)
 
 instance ToJSON Runtime where
-  toJSON NodeJS = String "nodejs"
-  toJSON NodeJS43 = String "nodejs4.3"
-  toJSON NodeJS43Edge = String "nodejs4.3-edge"
-  toJSON NodeJS610 = String "nodejs6.10"
   toJSON NodeJS810 = String "nodejs8.10"
   toJSON NodeJS10x = String "nodejs10.x"
+  toJSON NodeJS12x = String "nodejs12.x"
   toJSON Java8 = String "java8"
+  toJSON Java11 = String "java11"
   toJSON Python27 = String "python2.7"
   toJSON Python36 = String "python3.6"
+  toJSON Python37 = String "python3.7"
+  toJSON Python38 = String "python3.8"
   toJSON DotNetCore10 = String "dotnetcore1.0"
-  toJSON DotNetCore20 = String "dotnetcore2.0"
+  toJSON DotNetCore21 = String "dotnetcore2.1"
   toJSON Go1X = String "go1.x"
+  toJSON Ruby25 = String "ruby2.5"
   toJSON (OtherRuntime other) = String other
 
 -- | See:
