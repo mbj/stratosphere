@@ -1,5 +1,5 @@
 ---
-resolver: lts-14.14
+resolver: lts-13.30
 packages:
   - '.'
   - 'gen'
