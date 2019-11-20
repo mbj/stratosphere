@@ -1,3 +1,4 @@
+{-# LANGUAGE BangPatterns #-}
 {-# LANGUAGE QuasiQuotes #-}
 
 module Main where
@@ -21,6 +22,10 @@ main = do
   let
     rawSpec = either error id specEither
     spec = specFromRaw rawSpec
+    !modules =
+      createModules
+      (cloudFormationSpecPropertyTypes spec)
+      (cloudFormationSpecResourceTypes spec)
 
   genExists <- doesDirectoryExist (".." </> "library-gen")
   when genExists $
@@ -28,11 +33,6 @@ main = do
   createDirectory (".." </> "library-gen")
   createDirectory (".." </> "library-gen" </> "Stratosphere")
 
-  let
-    modules =
-      createModules
-      (cloudFormationSpecPropertyTypes spec)
-      (cloudFormationSpecResourceTypes spec)
   mapM_ renderModule modules
   renderTopLevelModule modules
 
