@@ -9,6 +9,7 @@ module Stratosphere.Resources.ECSTaskDefinition where
 
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.ECSTaskDefinitionContainerDefinition
+import Stratosphere.ResourceProperties.ECSTaskDefinitionInferenceAccelerator
 import Stratosphere.ResourceProperties.ECSTaskDefinitionTaskDefinitionPlacementConstraint
 import Stratosphere.ResourceProperties.ECSTaskDefinitionProxyConfiguration
 import Stratosphere.ResourceProperties.Tag
@@ -22,6 +23,7 @@ data ECSTaskDefinition =
   , _eCSTaskDefinitionCpu :: Maybe (Val Text)
   , _eCSTaskDefinitionExecutionRoleArn :: Maybe (Val Text)
   , _eCSTaskDefinitionFamily :: Maybe (Val Text)
+  , _eCSTaskDefinitionInferenceAccelerators :: Maybe [ECSTaskDefinitionInferenceAccelerator]
   , _eCSTaskDefinitionIpcMode :: Maybe (Val Text)
   , _eCSTaskDefinitionMemory :: Maybe (Val Text)
   , _eCSTaskDefinitionNetworkMode :: Maybe (Val Text)
@@ -44,6 +46,7 @@ instance ToResourceProperties ECSTaskDefinition where
         , fmap (("Cpu",) . toJSON) _eCSTaskDefinitionCpu
         , fmap (("ExecutionRoleArn",) . toJSON) _eCSTaskDefinitionExecutionRoleArn
         , fmap (("Family",) . toJSON) _eCSTaskDefinitionFamily
+        , fmap (("InferenceAccelerators",) . toJSON) _eCSTaskDefinitionInferenceAccelerators
         , fmap (("IpcMode",) . toJSON) _eCSTaskDefinitionIpcMode
         , fmap (("Memory",) . toJSON) _eCSTaskDefinitionMemory
         , fmap (("NetworkMode",) . toJSON) _eCSTaskDefinitionNetworkMode
@@ -67,6 +70,7 @@ ecsTaskDefinition  =
   , _eCSTaskDefinitionCpu = Nothing
   , _eCSTaskDefinitionExecutionRoleArn = Nothing
   , _eCSTaskDefinitionFamily = Nothing
+  , _eCSTaskDefinitionInferenceAccelerators = Nothing
   , _eCSTaskDefinitionIpcMode = Nothing
   , _eCSTaskDefinitionMemory = Nothing
   , _eCSTaskDefinitionNetworkMode = Nothing
@@ -94,6 +98,10 @@ ecstdExecutionRoleArn = lens _eCSTaskDefinitionExecutionRoleArn (\s a -> s { _eC
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-family
 ecstdFamily :: Lens' ECSTaskDefinition (Maybe (Val Text))
 ecstdFamily = lens _eCSTaskDefinitionFamily (\s a -> s { _eCSTaskDefinitionFamily = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-inferenceaccelerators
+ecstdInferenceAccelerators :: Lens' ECSTaskDefinition (Maybe [ECSTaskDefinitionInferenceAccelerator])
+ecstdInferenceAccelerators = lens _eCSTaskDefinitionInferenceAccelerators (\s a -> s { _eCSTaskDefinitionInferenceAccelerators = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-ipcmode
 ecstdIpcMode :: Lens' ECSTaskDefinition (Maybe (Val Text))

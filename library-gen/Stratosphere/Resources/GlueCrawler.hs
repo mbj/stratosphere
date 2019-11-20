@@ -19,7 +19,7 @@ data GlueCrawler =
   { _glueCrawlerClassifiers :: Maybe (ValList Text)
   , _glueCrawlerConfiguration :: Maybe (Val Text)
   , _glueCrawlerCrawlerSecurityConfiguration :: Maybe (Val Text)
-  , _glueCrawlerDatabaseName :: Val Text
+  , _glueCrawlerDatabaseName :: Maybe (Val Text)
   , _glueCrawlerDescription :: Maybe (Val Text)
   , _glueCrawlerName :: Maybe (Val Text)
   , _glueCrawlerRole :: Val Text
@@ -39,7 +39,7 @@ instance ToResourceProperties GlueCrawler where
         [ fmap (("Classifiers",) . toJSON) _glueCrawlerClassifiers
         , fmap (("Configuration",) . toJSON) _glueCrawlerConfiguration
         , fmap (("CrawlerSecurityConfiguration",) . toJSON) _glueCrawlerCrawlerSecurityConfiguration
-        , (Just . ("DatabaseName",) . toJSON) _glueCrawlerDatabaseName
+        , fmap (("DatabaseName",) . toJSON) _glueCrawlerDatabaseName
         , fmap (("Description",) . toJSON) _glueCrawlerDescription
         , fmap (("Name",) . toJSON) _glueCrawlerName
         , (Just . ("Role",) . toJSON) _glueCrawlerRole
@@ -53,16 +53,15 @@ instance ToResourceProperties GlueCrawler where
 
 -- | Constructor for 'GlueCrawler' containing required fields as arguments.
 glueCrawler
-  :: Val Text -- ^ 'gcDatabaseName'
-  -> Val Text -- ^ 'gcRole'
+  :: Val Text -- ^ 'gcRole'
   -> GlueCrawlerTargets -- ^ 'gcTargets'
   -> GlueCrawler
-glueCrawler databaseNamearg rolearg targetsarg =
+glueCrawler rolearg targetsarg =
   GlueCrawler
   { _glueCrawlerClassifiers = Nothing
   , _glueCrawlerConfiguration = Nothing
   , _glueCrawlerCrawlerSecurityConfiguration = Nothing
-  , _glueCrawlerDatabaseName = databaseNamearg
+  , _glueCrawlerDatabaseName = Nothing
   , _glueCrawlerDescription = Nothing
   , _glueCrawlerName = Nothing
   , _glueCrawlerRole = rolearg
@@ -86,7 +85,7 @@ gcCrawlerSecurityConfiguration :: Lens' GlueCrawler (Maybe (Val Text))
 gcCrawlerSecurityConfiguration = lens _glueCrawlerCrawlerSecurityConfiguration (\s a -> s { _glueCrawlerCrawlerSecurityConfiguration = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-databasename
-gcDatabaseName :: Lens' GlueCrawler (Val Text)
+gcDatabaseName :: Lens' GlueCrawler (Maybe (Val Text))
 gcDatabaseName = lens _glueCrawlerDatabaseName (\s a -> s { _glueCrawlerDatabaseName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-crawler.html#cfn-glue-crawler-description

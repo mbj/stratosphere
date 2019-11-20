@@ -10,6 +10,7 @@ module Stratosphere.Resources.ApiGatewayRestApi where
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.ApiGatewayRestApiS3Location
 import Stratosphere.ResourceProperties.ApiGatewayRestApiEndpointConfiguration
+import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for ApiGatewayRestApi. See 'apiGatewayRestApi'
 -- for a more convenient constructor.
@@ -27,6 +28,7 @@ data ApiGatewayRestApi =
   , _apiGatewayRestApiName :: Maybe (Val Text)
   , _apiGatewayRestApiParameters :: Maybe Object
   , _apiGatewayRestApiPolicy :: Maybe Object
+  , _apiGatewayRestApiTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
 instance ToResourceProperties ApiGatewayRestApi where
@@ -47,6 +49,7 @@ instance ToResourceProperties ApiGatewayRestApi where
         , fmap (("Name",) . toJSON) _apiGatewayRestApiName
         , fmap (("Parameters",) . toJSON) _apiGatewayRestApiParameters
         , fmap (("Policy",) . toJSON) _apiGatewayRestApiPolicy
+        , fmap (("Tags",) . toJSON) _apiGatewayRestApiTags
         ]
     }
 
@@ -68,6 +71,7 @@ apiGatewayRestApi  =
   , _apiGatewayRestApiName = Nothing
   , _apiGatewayRestApiParameters = Nothing
   , _apiGatewayRestApiPolicy = Nothing
+  , _apiGatewayRestApiTags = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-apikeysourcetype
@@ -117,3 +121,7 @@ agraParameters = lens _apiGatewayRestApiParameters (\s a -> s { _apiGatewayRestA
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-policy
 agraPolicy :: Lens' ApiGatewayRestApi (Maybe Object)
 agraPolicy = lens _apiGatewayRestApiPolicy (\s a -> s { _apiGatewayRestApiPolicy = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-restapi.html#cfn-apigateway-restapi-tags
+agraTags :: Lens' ApiGatewayRestApi (Maybe [Tag])
+agraTags = lens _apiGatewayRestApiTags (\s a -> s { _apiGatewayRestApiTags = a })

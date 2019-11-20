@@ -12,6 +12,7 @@ import Stratosphere.ResourceProperties.CodePipelinePipelineArtifactStore
 import Stratosphere.ResourceProperties.CodePipelinePipelineArtifactStoreMap
 import Stratosphere.ResourceProperties.CodePipelinePipelineStageTransition
 import Stratosphere.ResourceProperties.CodePipelinePipelineStageDeclaration
+import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for CodePipelinePipeline. See
 -- 'codePipelinePipeline' for a more convenient constructor.
@@ -24,6 +25,7 @@ data CodePipelinePipeline =
   , _codePipelinePipelineRestartExecutionOnUpdate :: Maybe (Val Bool)
   , _codePipelinePipelineRoleArn :: Val Text
   , _codePipelinePipelineStages :: [CodePipelinePipelineStageDeclaration]
+  , _codePipelinePipelineTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
 instance ToResourceProperties CodePipelinePipeline where
@@ -39,6 +41,7 @@ instance ToResourceProperties CodePipelinePipeline where
         , fmap (("RestartExecutionOnUpdate",) . toJSON) _codePipelinePipelineRestartExecutionOnUpdate
         , (Just . ("RoleArn",) . toJSON) _codePipelinePipelineRoleArn
         , (Just . ("Stages",) . toJSON) _codePipelinePipelineStages
+        , fmap (("Tags",) . toJSON) _codePipelinePipelineTags
         ]
     }
 
@@ -57,6 +60,7 @@ codePipelinePipeline roleArnarg stagesarg =
   , _codePipelinePipelineRestartExecutionOnUpdate = Nothing
   , _codePipelinePipelineRoleArn = roleArnarg
   , _codePipelinePipelineStages = stagesarg
+  , _codePipelinePipelineTags = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-pipeline.html#cfn-codepipeline-pipeline-artifactstore
@@ -86,3 +90,7 @@ cppRoleArn = lens _codePipelinePipelineRoleArn (\s a -> s { _codePipelinePipelin
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-pipeline.html#cfn-codepipeline-pipeline-stages
 cppStages :: Lens' CodePipelinePipeline [CodePipelinePipelineStageDeclaration]
 cppStages = lens _codePipelinePipelineStages (\s a -> s { _codePipelinePipelineStages = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-pipeline.html#cfn-codepipeline-pipeline-tags
+cppTags :: Lens' CodePipelinePipeline (Maybe [Tag])
+cppTags = lens _codePipelinePipelineTags (\s a -> s { _codePipelinePipelineTags = a })

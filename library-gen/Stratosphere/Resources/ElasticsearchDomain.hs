@@ -11,6 +11,7 @@ import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.ElasticsearchDomainEBSOptions
 import Stratosphere.ResourceProperties.ElasticsearchDomainElasticsearchClusterConfig
 import Stratosphere.ResourceProperties.ElasticsearchDomainEncryptionAtRestOptions
+import Stratosphere.ResourceProperties.ElasticsearchDomainLogPublishingOption
 import Stratosphere.ResourceProperties.ElasticsearchDomainNodeToNodeEncryptionOptions
 import Stratosphere.ResourceProperties.ElasticsearchDomainSnapshotOptions
 import Stratosphere.ResourceProperties.Tag
@@ -27,6 +28,7 @@ data ElasticsearchDomain =
   , _elasticsearchDomainElasticsearchClusterConfig :: Maybe ElasticsearchDomainElasticsearchClusterConfig
   , _elasticsearchDomainElasticsearchVersion :: Maybe (Val Text)
   , _elasticsearchDomainEncryptionAtRestOptions :: Maybe ElasticsearchDomainEncryptionAtRestOptions
+  , _elasticsearchDomainLogPublishingOptions :: Maybe (Map Text ElasticsearchDomainLogPublishingOption)
   , _elasticsearchDomainNodeToNodeEncryptionOptions :: Maybe ElasticsearchDomainNodeToNodeEncryptionOptions
   , _elasticsearchDomainSnapshotOptions :: Maybe ElasticsearchDomainSnapshotOptions
   , _elasticsearchDomainTags :: Maybe [Tag]
@@ -46,6 +48,7 @@ instance ToResourceProperties ElasticsearchDomain where
         , fmap (("ElasticsearchClusterConfig",) . toJSON) _elasticsearchDomainElasticsearchClusterConfig
         , fmap (("ElasticsearchVersion",) . toJSON) _elasticsearchDomainElasticsearchVersion
         , fmap (("EncryptionAtRestOptions",) . toJSON) _elasticsearchDomainEncryptionAtRestOptions
+        , fmap (("LogPublishingOptions",) . toJSON) _elasticsearchDomainLogPublishingOptions
         , fmap (("NodeToNodeEncryptionOptions",) . toJSON) _elasticsearchDomainNodeToNodeEncryptionOptions
         , fmap (("SnapshotOptions",) . toJSON) _elasticsearchDomainSnapshotOptions
         , fmap (("Tags",) . toJSON) _elasticsearchDomainTags
@@ -66,6 +69,7 @@ elasticsearchDomain  =
   , _elasticsearchDomainElasticsearchClusterConfig = Nothing
   , _elasticsearchDomainElasticsearchVersion = Nothing
   , _elasticsearchDomainEncryptionAtRestOptions = Nothing
+  , _elasticsearchDomainLogPublishingOptions = Nothing
   , _elasticsearchDomainNodeToNodeEncryptionOptions = Nothing
   , _elasticsearchDomainSnapshotOptions = Nothing
   , _elasticsearchDomainTags = Nothing
@@ -99,6 +103,10 @@ edElasticsearchVersion = lens _elasticsearchDomainElasticsearchVersion (\s a -> 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-encryptionatrestoptions
 edEncryptionAtRestOptions :: Lens' ElasticsearchDomain (Maybe ElasticsearchDomainEncryptionAtRestOptions)
 edEncryptionAtRestOptions = lens _elasticsearchDomainEncryptionAtRestOptions (\s a -> s { _elasticsearchDomainEncryptionAtRestOptions = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-logpublishingoptions
+edLogPublishingOptions :: Lens' ElasticsearchDomain (Maybe (Map Text ElasticsearchDomainLogPublishingOption))
+edLogPublishingOptions = lens _elasticsearchDomainLogPublishingOptions (\s a -> s { _elasticsearchDomainLogPublishingOptions = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-nodetonodeencryptionoptions
 edNodeToNodeEncryptionOptions :: Lens' ElasticsearchDomain (Maybe ElasticsearchDomainNodeToNodeEncryptionOptions)

@@ -20,7 +20,9 @@ data AmplifyAppAutoBranchCreationConfig =
   , _amplifyAppAutoBranchCreationConfigBuildSpec :: Maybe (Val Text)
   , _amplifyAppAutoBranchCreationConfigEnableAutoBranchCreation :: Maybe (Val Bool)
   , _amplifyAppAutoBranchCreationConfigEnableAutoBuild :: Maybe (Val Bool)
+  , _amplifyAppAutoBranchCreationConfigEnablePullRequestPreview :: Maybe (Val Bool)
   , _amplifyAppAutoBranchCreationConfigEnvironmentVariables :: Maybe [AmplifyAppEnvironmentVariable]
+  , _amplifyAppAutoBranchCreationConfigPullRequestEnvironmentName :: Maybe (Val Text)
   , _amplifyAppAutoBranchCreationConfigStage :: Maybe (Val Text)
   } deriving (Show, Eq)
 
@@ -33,7 +35,9 @@ instance ToJSON AmplifyAppAutoBranchCreationConfig where
     , fmap (("BuildSpec",) . toJSON) _amplifyAppAutoBranchCreationConfigBuildSpec
     , fmap (("EnableAutoBranchCreation",) . toJSON) _amplifyAppAutoBranchCreationConfigEnableAutoBranchCreation
     , fmap (("EnableAutoBuild",) . toJSON) _amplifyAppAutoBranchCreationConfigEnableAutoBuild
+    , fmap (("EnablePullRequestPreview",) . toJSON) _amplifyAppAutoBranchCreationConfigEnablePullRequestPreview
     , fmap (("EnvironmentVariables",) . toJSON) _amplifyAppAutoBranchCreationConfigEnvironmentVariables
+    , fmap (("PullRequestEnvironmentName",) . toJSON) _amplifyAppAutoBranchCreationConfigPullRequestEnvironmentName
     , fmap (("Stage",) . toJSON) _amplifyAppAutoBranchCreationConfigStage
     ]
 
@@ -48,7 +52,9 @@ amplifyAppAutoBranchCreationConfig  =
   , _amplifyAppAutoBranchCreationConfigBuildSpec = Nothing
   , _amplifyAppAutoBranchCreationConfigEnableAutoBranchCreation = Nothing
   , _amplifyAppAutoBranchCreationConfigEnableAutoBuild = Nothing
+  , _amplifyAppAutoBranchCreationConfigEnablePullRequestPreview = Nothing
   , _amplifyAppAutoBranchCreationConfigEnvironmentVariables = Nothing
+  , _amplifyAppAutoBranchCreationConfigPullRequestEnvironmentName = Nothing
   , _amplifyAppAutoBranchCreationConfigStage = Nothing
   }
 
@@ -72,9 +78,17 @@ aaabccEnableAutoBranchCreation = lens _amplifyAppAutoBranchCreationConfigEnableA
 aaabccEnableAutoBuild :: Lens' AmplifyAppAutoBranchCreationConfig (Maybe (Val Bool))
 aaabccEnableAutoBuild = lens _amplifyAppAutoBranchCreationConfigEnableAutoBuild (\s a -> s { _amplifyAppAutoBranchCreationConfigEnableAutoBuild = a })
 
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-enablepullrequestpreview
+aaabccEnablePullRequestPreview :: Lens' AmplifyAppAutoBranchCreationConfig (Maybe (Val Bool))
+aaabccEnablePullRequestPreview = lens _amplifyAppAutoBranchCreationConfigEnablePullRequestPreview (\s a -> s { _amplifyAppAutoBranchCreationConfigEnablePullRequestPreview = a })
+
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-environmentvariables
 aaabccEnvironmentVariables :: Lens' AmplifyAppAutoBranchCreationConfig (Maybe [AmplifyAppEnvironmentVariable])
 aaabccEnvironmentVariables = lens _amplifyAppAutoBranchCreationConfigEnvironmentVariables (\s a -> s { _amplifyAppAutoBranchCreationConfigEnvironmentVariables = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-pullrequestenvironmentname
+aaabccPullRequestEnvironmentName :: Lens' AmplifyAppAutoBranchCreationConfig (Maybe (Val Text))
+aaabccPullRequestEnvironmentName = lens _amplifyAppAutoBranchCreationConfigPullRequestEnvironmentName (\s a -> s { _amplifyAppAutoBranchCreationConfigPullRequestEnvironmentName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-app-autobranchcreationconfig.html#cfn-amplify-app-autobranchcreationconfig-stage
 aaabccStage :: Lens' AmplifyAppAutoBranchCreationConfig (Maybe (Val Text))

@@ -22,7 +22,9 @@ data AmplifyBranch =
   , _amplifyBranchBuildSpec :: Maybe (Val Text)
   , _amplifyBranchDescription :: Maybe (Val Text)
   , _amplifyBranchEnableAutoBuild :: Maybe (Val Bool)
+  , _amplifyBranchEnablePullRequestPreview :: Maybe (Val Bool)
   , _amplifyBranchEnvironmentVariables :: Maybe [AmplifyBranchEnvironmentVariable]
+  , _amplifyBranchPullRequestEnvironmentName :: Maybe (Val Text)
   , _amplifyBranchStage :: Maybe (Val Text)
   , _amplifyBranchTags :: Maybe [Tag]
   } deriving (Show, Eq)
@@ -39,7 +41,9 @@ instance ToResourceProperties AmplifyBranch where
         , fmap (("BuildSpec",) . toJSON) _amplifyBranchBuildSpec
         , fmap (("Description",) . toJSON) _amplifyBranchDescription
         , fmap (("EnableAutoBuild",) . toJSON) _amplifyBranchEnableAutoBuild
+        , fmap (("EnablePullRequestPreview",) . toJSON) _amplifyBranchEnablePullRequestPreview
         , fmap (("EnvironmentVariables",) . toJSON) _amplifyBranchEnvironmentVariables
+        , fmap (("PullRequestEnvironmentName",) . toJSON) _amplifyBranchPullRequestEnvironmentName
         , fmap (("Stage",) . toJSON) _amplifyBranchStage
         , fmap (("Tags",) . toJSON) _amplifyBranchTags
         ]
@@ -58,7 +62,9 @@ amplifyBranch appIdarg branchNamearg =
   , _amplifyBranchBuildSpec = Nothing
   , _amplifyBranchDescription = Nothing
   , _amplifyBranchEnableAutoBuild = Nothing
+  , _amplifyBranchEnablePullRequestPreview = Nothing
   , _amplifyBranchEnvironmentVariables = Nothing
+  , _amplifyBranchPullRequestEnvironmentName = Nothing
   , _amplifyBranchStage = Nothing
   , _amplifyBranchTags = Nothing
   }
@@ -87,9 +93,17 @@ abDescription = lens _amplifyBranchDescription (\s a -> s { _amplifyBranchDescri
 abEnableAutoBuild :: Lens' AmplifyBranch (Maybe (Val Bool))
 abEnableAutoBuild = lens _amplifyBranchEnableAutoBuild (\s a -> s { _amplifyBranchEnableAutoBuild = a })
 
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-enablepullrequestpreview
+abEnablePullRequestPreview :: Lens' AmplifyBranch (Maybe (Val Bool))
+abEnablePullRequestPreview = lens _amplifyBranchEnablePullRequestPreview (\s a -> s { _amplifyBranchEnablePullRequestPreview = a })
+
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-environmentvariables
 abEnvironmentVariables :: Lens' AmplifyBranch (Maybe [AmplifyBranchEnvironmentVariable])
 abEnvironmentVariables = lens _amplifyBranchEnvironmentVariables (\s a -> s { _amplifyBranchEnvironmentVariables = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-pullrequestenvironmentname
+abPullRequestEnvironmentName :: Lens' AmplifyBranch (Maybe (Val Text))
+abPullRequestEnvironmentName = lens _amplifyBranchPullRequestEnvironmentName (\s a -> s { _amplifyBranchPullRequestEnvironmentName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html#cfn-amplify-branch-stage
 abStage :: Lens' AmplifyBranch (Maybe (Val Text))

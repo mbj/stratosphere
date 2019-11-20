@@ -11,6 +11,7 @@ import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.CodePipelineCustomActionTypeConfigurationProperties
 import Stratosphere.ResourceProperties.CodePipelineCustomActionTypeArtifactDetails
 import Stratosphere.ResourceProperties.CodePipelineCustomActionTypeSettings
+import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for CodePipelineCustomActionType. See
 -- 'codePipelineCustomActionType' for a more convenient constructor.
@@ -22,6 +23,7 @@ data CodePipelineCustomActionType =
   , _codePipelineCustomActionTypeOutputArtifactDetails :: CodePipelineCustomActionTypeArtifactDetails
   , _codePipelineCustomActionTypeProvider :: Val Text
   , _codePipelineCustomActionTypeSettings :: Maybe CodePipelineCustomActionTypeSettings
+  , _codePipelineCustomActionTypeTags :: Maybe [Tag]
   , _codePipelineCustomActionTypeVersion :: Val Text
   } deriving (Show, Eq)
 
@@ -37,6 +39,7 @@ instance ToResourceProperties CodePipelineCustomActionType where
         , (Just . ("OutputArtifactDetails",) . toJSON) _codePipelineCustomActionTypeOutputArtifactDetails
         , (Just . ("Provider",) . toJSON) _codePipelineCustomActionTypeProvider
         , fmap (("Settings",) . toJSON) _codePipelineCustomActionTypeSettings
+        , fmap (("Tags",) . toJSON) _codePipelineCustomActionTypeTags
         , (Just . ("Version",) . toJSON) _codePipelineCustomActionTypeVersion
         ]
     }
@@ -58,6 +61,7 @@ codePipelineCustomActionType categoryarg inputArtifactDetailsarg outputArtifactD
   , _codePipelineCustomActionTypeOutputArtifactDetails = outputArtifactDetailsarg
   , _codePipelineCustomActionTypeProvider = providerarg
   , _codePipelineCustomActionTypeSettings = Nothing
+  , _codePipelineCustomActionTypeTags = Nothing
   , _codePipelineCustomActionTypeVersion = versionarg
   }
 
@@ -84,6 +88,10 @@ cpcatProvider = lens _codePipelineCustomActionTypeProvider (\s a -> s { _codePip
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-customactiontype.html#cfn-codepipeline-customactiontype-settings
 cpcatSettings :: Lens' CodePipelineCustomActionType (Maybe CodePipelineCustomActionTypeSettings)
 cpcatSettings = lens _codePipelineCustomActionTypeSettings (\s a -> s { _codePipelineCustomActionTypeSettings = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-customactiontype.html#cfn-codepipeline-customactiontype-tags
+cpcatTags :: Lens' CodePipelineCustomActionType (Maybe [Tag])
+cpcatTags = lens _codePipelineCustomActionTypeTags (\s a -> s { _codePipelineCustomActionTypeTags = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-customactiontype.html#cfn-codepipeline-customactiontype-version
 cpcatVersion :: Lens' CodePipelineCustomActionType (Val Text)

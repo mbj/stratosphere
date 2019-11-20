@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.46.0
+
+* Update resource specification document to version 8.1.0
+
 ## 0.45.0
 
 * Update lambda runtimes list

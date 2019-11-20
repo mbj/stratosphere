@@ -16,6 +16,7 @@ import Stratosphere.ResourceProperties.EventsRuleTarget
 data EventsRule =
   EventsRule
   { _eventsRuleDescription :: Maybe (Val Text)
+  , _eventsRuleEventBusName :: Maybe (Val Text)
   , _eventsRuleEventPattern :: Maybe Object
   , _eventsRuleName :: Maybe (Val Text)
   , _eventsRuleRoleArn :: Maybe (Val Text)
@@ -31,6 +32,7 @@ instance ToResourceProperties EventsRule where
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
         [ fmap (("Description",) . toJSON) _eventsRuleDescription
+        , fmap (("EventBusName",) . toJSON) _eventsRuleEventBusName
         , fmap (("EventPattern",) . toJSON) _eventsRuleEventPattern
         , fmap (("Name",) . toJSON) _eventsRuleName
         , fmap (("RoleArn",) . toJSON) _eventsRuleRoleArn
@@ -46,6 +48,7 @@ eventsRule
 eventsRule  =
   EventsRule
   { _eventsRuleDescription = Nothing
+  , _eventsRuleEventBusName = Nothing
   , _eventsRuleEventPattern = Nothing
   , _eventsRuleName = Nothing
   , _eventsRuleRoleArn = Nothing
@@ -57,6 +60,10 @@ eventsRule  =
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html#cfn-events-rule-description
 erDescription :: Lens' EventsRule (Maybe (Val Text))
 erDescription = lens _eventsRuleDescription (\s a -> s { _eventsRuleDescription = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html#cfn-events-rule-eventbusname
+erEventBusName :: Lens' EventsRule (Maybe (Val Text))
+erEventBusName = lens _eventsRuleEventBusName (\s a -> s { _eventsRuleEventBusName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html#cfn-events-rule-eventpattern
 erEventPattern :: Lens' EventsRule (Maybe Object)

@@ -8,6 +8,7 @@
 module Stratosphere.Resources.AppStreamImageBuilder where
 
 import Stratosphere.ResourceImports
+import Stratosphere.ResourceProperties.AppStreamImageBuilderAccessEndpoint
 import Stratosphere.ResourceProperties.AppStreamImageBuilderDomainJoinInfo
 import Stratosphere.ResourceProperties.Tag
 import Stratosphere.ResourceProperties.AppStreamImageBuilderVpcConfig
@@ -16,7 +17,8 @@ import Stratosphere.ResourceProperties.AppStreamImageBuilderVpcConfig
 -- 'appStreamImageBuilder' for a more convenient constructor.
 data AppStreamImageBuilder =
   AppStreamImageBuilder
-  { _appStreamImageBuilderAppstreamAgentVersion :: Maybe (Val Text)
+  { _appStreamImageBuilderAccessEndpoints :: Maybe [AppStreamImageBuilderAccessEndpoint]
+  , _appStreamImageBuilderAppstreamAgentVersion :: Maybe (Val Text)
   , _appStreamImageBuilderDescription :: Maybe (Val Text)
   , _appStreamImageBuilderDisplayName :: Maybe (Val Text)
   , _appStreamImageBuilderDomainJoinInfo :: Maybe AppStreamImageBuilderDomainJoinInfo
@@ -35,7 +37,8 @@ instance ToResourceProperties AppStreamImageBuilder where
     { resourcePropertiesType = "AWS::AppStream::ImageBuilder"
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
-        [ fmap (("AppstreamAgentVersion",) . toJSON) _appStreamImageBuilderAppstreamAgentVersion
+        [ fmap (("AccessEndpoints",) . toJSON) _appStreamImageBuilderAccessEndpoints
+        , fmap (("AppstreamAgentVersion",) . toJSON) _appStreamImageBuilderAppstreamAgentVersion
         , fmap (("Description",) . toJSON) _appStreamImageBuilderDescription
         , fmap (("DisplayName",) . toJSON) _appStreamImageBuilderDisplayName
         , fmap (("DomainJoinInfo",) . toJSON) _appStreamImageBuilderDomainJoinInfo
@@ -56,7 +59,8 @@ appStreamImageBuilder
   -> AppStreamImageBuilder
 appStreamImageBuilder instanceTypearg =
   AppStreamImageBuilder
-  { _appStreamImageBuilderAppstreamAgentVersion = Nothing
+  { _appStreamImageBuilderAccessEndpoints = Nothing
+  , _appStreamImageBuilderAppstreamAgentVersion = Nothing
   , _appStreamImageBuilderDescription = Nothing
   , _appStreamImageBuilderDisplayName = Nothing
   , _appStreamImageBuilderDomainJoinInfo = Nothing
@@ -68,6 +72,10 @@ appStreamImageBuilder instanceTypearg =
   , _appStreamImageBuilderTags = Nothing
   , _appStreamImageBuilderVpcConfig = Nothing
   }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-accessendpoints
+asibAccessEndpoints :: Lens' AppStreamImageBuilder (Maybe [AppStreamImageBuilderAccessEndpoint])
+asibAccessEndpoints = lens _appStreamImageBuilderAccessEndpoints (\s a -> s { _appStreamImageBuilderAccessEndpoints = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-appstreamagentversion
 asibAppstreamAgentVersion :: Lens' AppStreamImageBuilder (Maybe (Val Text))
