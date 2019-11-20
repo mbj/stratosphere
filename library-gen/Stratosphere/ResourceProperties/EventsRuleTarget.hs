@@ -8,6 +8,7 @@
 module Stratosphere.ResourceProperties.EventsRuleTarget where
 
 import Stratosphere.ResourceImports
+import Stratosphere.ResourceProperties.EventsRuleBatchParameters
 import Stratosphere.ResourceProperties.EventsRuleEcsParameters
 import Stratosphere.ResourceProperties.EventsRuleInputTransformer
 import Stratosphere.ResourceProperties.EventsRuleKinesisParameters
@@ -19,6 +20,7 @@ import Stratosphere.ResourceProperties.EventsRuleSqsParameters
 data EventsRuleTarget =
   EventsRuleTarget
   { _eventsRuleTargetArn :: Val Text
+  , _eventsRuleTargetBatchParameters :: Maybe EventsRuleBatchParameters
   , _eventsRuleTargetEcsParameters :: Maybe EventsRuleEcsParameters
   , _eventsRuleTargetId :: Val Text
   , _eventsRuleTargetInput :: Maybe (Val Text)
@@ -35,6 +37,7 @@ instance ToJSON EventsRuleTarget where
     object $
     catMaybes
     [ (Just . ("Arn",) . toJSON) _eventsRuleTargetArn
+    , fmap (("BatchParameters",) . toJSON) _eventsRuleTargetBatchParameters
     , fmap (("EcsParameters",) . toJSON) _eventsRuleTargetEcsParameters
     , (Just . ("Id",) . toJSON) _eventsRuleTargetId
     , fmap (("Input",) . toJSON) _eventsRuleTargetInput
@@ -55,6 +58,7 @@ eventsRuleTarget
 eventsRuleTarget arnarg idarg =
   EventsRuleTarget
   { _eventsRuleTargetArn = arnarg
+  , _eventsRuleTargetBatchParameters = Nothing
   , _eventsRuleTargetEcsParameters = Nothing
   , _eventsRuleTargetId = idarg
   , _eventsRuleTargetInput = Nothing
@@ -69,6 +73,10 @@ eventsRuleTarget arnarg idarg =
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-arn
 ertArn :: Lens' EventsRuleTarget (Val Text)
 ertArn = lens _eventsRuleTargetArn (\s a -> s { _eventsRuleTargetArn = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-batchparameters
+ertBatchParameters :: Lens' EventsRuleTarget (Maybe EventsRuleBatchParameters)
+ertBatchParameters = lens _eventsRuleTargetBatchParameters (\s a -> s { _eventsRuleTargetBatchParameters = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-ecsparameters
 ertEcsParameters :: Lens' EventsRuleTarget (Maybe EventsRuleEcsParameters)

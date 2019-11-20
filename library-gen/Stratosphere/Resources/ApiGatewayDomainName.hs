@@ -9,6 +9,7 @@ module Stratosphere.Resources.ApiGatewayDomainName where
 
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.ApiGatewayDomainNameEndpointConfiguration
+import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for ApiGatewayDomainName. See
 -- 'apiGatewayDomainName' for a more convenient constructor.
@@ -18,6 +19,8 @@ data ApiGatewayDomainName =
   , _apiGatewayDomainNameDomainName :: Val Text
   , _apiGatewayDomainNameEndpointConfiguration :: Maybe ApiGatewayDomainNameEndpointConfiguration
   , _apiGatewayDomainNameRegionalCertificateArn :: Maybe (Val Text)
+  , _apiGatewayDomainNameSecurityPolicy :: Maybe (Val Text)
+  , _apiGatewayDomainNameTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
 instance ToResourceProperties ApiGatewayDomainName where
@@ -30,6 +33,8 @@ instance ToResourceProperties ApiGatewayDomainName where
         , (Just . ("DomainName",) . toJSON) _apiGatewayDomainNameDomainName
         , fmap (("EndpointConfiguration",) . toJSON) _apiGatewayDomainNameEndpointConfiguration
         , fmap (("RegionalCertificateArn",) . toJSON) _apiGatewayDomainNameRegionalCertificateArn
+        , fmap (("SecurityPolicy",) . toJSON) _apiGatewayDomainNameSecurityPolicy
+        , fmap (("Tags",) . toJSON) _apiGatewayDomainNameTags
         ]
     }
 
@@ -44,6 +49,8 @@ apiGatewayDomainName domainNamearg =
   , _apiGatewayDomainNameDomainName = domainNamearg
   , _apiGatewayDomainNameEndpointConfiguration = Nothing
   , _apiGatewayDomainNameRegionalCertificateArn = Nothing
+  , _apiGatewayDomainNameSecurityPolicy = Nothing
+  , _apiGatewayDomainNameTags = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-certificatearn
@@ -61,3 +68,11 @@ agdnEndpointConfiguration = lens _apiGatewayDomainNameEndpointConfiguration (\s 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-regionalcertificatearn
 agdnRegionalCertificateArn :: Lens' ApiGatewayDomainName (Maybe (Val Text))
 agdnRegionalCertificateArn = lens _apiGatewayDomainNameRegionalCertificateArn (\s a -> s { _apiGatewayDomainNameRegionalCertificateArn = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-securitypolicy
+agdnSecurityPolicy :: Lens' ApiGatewayDomainName (Maybe (Val Text))
+agdnSecurityPolicy = lens _apiGatewayDomainNameSecurityPolicy (\s a -> s { _apiGatewayDomainNameSecurityPolicy = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-tags
+agdnTags :: Lens' ApiGatewayDomainName (Maybe [Tag])
+agdnTags = lens _apiGatewayDomainNameTags (\s a -> s { _apiGatewayDomainNameTags = a })

@@ -16,7 +16,6 @@ data RDSDBInstanceDBInstanceRole =
   RDSDBInstanceDBInstanceRole
   { _rDSDBInstanceDBInstanceRoleFeatureName :: Val Text
   , _rDSDBInstanceDBInstanceRoleRoleArn :: Val Text
-  , _rDSDBInstanceDBInstanceRoleStatus :: Maybe (Val Text)
   } deriving (Show, Eq)
 
 instance ToJSON RDSDBInstanceDBInstanceRole where
@@ -25,7 +24,6 @@ instance ToJSON RDSDBInstanceDBInstanceRole where
     catMaybes
     [ (Just . ("FeatureName",) . toJSON) _rDSDBInstanceDBInstanceRoleFeatureName
     , (Just . ("RoleArn",) . toJSON) _rDSDBInstanceDBInstanceRoleRoleArn
-    , fmap (("Status",) . toJSON) _rDSDBInstanceDBInstanceRoleStatus
     ]
 
 -- | Constructor for 'RDSDBInstanceDBInstanceRole' containing required fields
@@ -38,7 +36,6 @@ rdsdbInstanceDBInstanceRole featureNamearg roleArnarg =
   RDSDBInstanceDBInstanceRole
   { _rDSDBInstanceDBInstanceRoleFeatureName = featureNamearg
   , _rDSDBInstanceDBInstanceRoleRoleArn = roleArnarg
-  , _rDSDBInstanceDBInstanceRoleStatus = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-dbinstancerole.html#cfn-rds-dbinstance-dbinstancerole-featurename
@@ -48,7 +45,3 @@ rdsdbidbirFeatureName = lens _rDSDBInstanceDBInstanceRoleFeatureName (\s a -> s 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-dbinstancerole.html#cfn-rds-dbinstance-dbinstancerole-rolearn
 rdsdbidbirRoleArn :: Lens' RDSDBInstanceDBInstanceRole (Val Text)
 rdsdbidbirRoleArn = lens _rDSDBInstanceDBInstanceRoleRoleArn (\s a -> s { _rDSDBInstanceDBInstanceRoleRoleArn = a })
-
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-dbinstancerole.html#cfn-rds-dbinstance-dbinstancerole-status
-rdsdbidbirStatus :: Lens' RDSDBInstanceDBInstanceRole (Maybe (Val Text))
-rdsdbidbirStatus = lens _rDSDBInstanceDBInstanceRoleStatus (\s a -> s { _rDSDBInstanceDBInstanceRoleStatus = a })

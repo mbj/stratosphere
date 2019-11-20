@@ -16,6 +16,7 @@ data GameLiftBuildS3Location =
   GameLiftBuildS3Location
   { _gameLiftBuildS3LocationBucket :: Val Text
   , _gameLiftBuildS3LocationKey :: Val Text
+  , _gameLiftBuildS3LocationObjectVersion :: Maybe (Val Text)
   , _gameLiftBuildS3LocationRoleArn :: Val Text
   } deriving (Show, Eq)
 
@@ -25,6 +26,7 @@ instance ToJSON GameLiftBuildS3Location where
     catMaybes
     [ (Just . ("Bucket",) . toJSON) _gameLiftBuildS3LocationBucket
     , (Just . ("Key",) . toJSON) _gameLiftBuildS3LocationKey
+    , fmap (("ObjectVersion",) . toJSON) _gameLiftBuildS3LocationObjectVersion
     , (Just . ("RoleArn",) . toJSON) _gameLiftBuildS3LocationRoleArn
     ]
 
@@ -39,6 +41,7 @@ gameLiftBuildS3Location bucketarg keyarg roleArnarg =
   GameLiftBuildS3Location
   { _gameLiftBuildS3LocationBucket = bucketarg
   , _gameLiftBuildS3LocationKey = keyarg
+  , _gameLiftBuildS3LocationObjectVersion = Nothing
   , _gameLiftBuildS3LocationRoleArn = roleArnarg
   }
 
@@ -49,6 +52,10 @@ glbslBucket = lens _gameLiftBuildS3LocationBucket (\s a -> s { _gameLiftBuildS3L
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-build-storagelocation.html#cfn-gamelift-build-storage-key
 glbslKey :: Lens' GameLiftBuildS3Location (Val Text)
 glbslKey = lens _gameLiftBuildS3LocationKey (\s a -> s { _gameLiftBuildS3LocationKey = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-build-storagelocation.html#cfn-gamelift-build-object-verison
+glbslObjectVersion :: Lens' GameLiftBuildS3Location (Maybe (Val Text))
+glbslObjectVersion = lens _gameLiftBuildS3LocationObjectVersion (\s a -> s { _gameLiftBuildS3LocationObjectVersion = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-build-storagelocation.html#cfn-gamelift-build-storage-rolearn
 glbslRoleArn :: Lens' GameLiftBuildS3Location (Val Text)

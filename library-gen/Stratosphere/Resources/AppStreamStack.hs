@@ -8,6 +8,7 @@
 module Stratosphere.Resources.AppStreamStack where
 
 import Stratosphere.ResourceImports
+import Stratosphere.ResourceProperties.AppStreamStackAccessEndpoint
 import Stratosphere.ResourceProperties.AppStreamStackApplicationSettings
 import Stratosphere.ResourceProperties.AppStreamStackStorageConnector
 import Stratosphere.ResourceProperties.Tag
@@ -17,11 +18,13 @@ import Stratosphere.ResourceProperties.AppStreamStackUserSetting
 -- more convenient constructor.
 data AppStreamStack =
   AppStreamStack
-  { _appStreamStackApplicationSettings :: Maybe AppStreamStackApplicationSettings
+  { _appStreamStackAccessEndpoints :: Maybe [AppStreamStackAccessEndpoint]
+  , _appStreamStackApplicationSettings :: Maybe AppStreamStackApplicationSettings
   , _appStreamStackAttributesToDelete :: Maybe (ValList Text)
   , _appStreamStackDeleteStorageConnectors :: Maybe (Val Bool)
   , _appStreamStackDescription :: Maybe (Val Text)
   , _appStreamStackDisplayName :: Maybe (Val Text)
+  , _appStreamStackEmbedHostDomains :: Maybe (ValList Text)
   , _appStreamStackFeedbackURL :: Maybe (Val Text)
   , _appStreamStackName :: Maybe (Val Text)
   , _appStreamStackRedirectURL :: Maybe (Val Text)
@@ -36,11 +39,13 @@ instance ToResourceProperties AppStreamStack where
     { resourcePropertiesType = "AWS::AppStream::Stack"
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
-        [ fmap (("ApplicationSettings",) . toJSON) _appStreamStackApplicationSettings
+        [ fmap (("AccessEndpoints",) . toJSON) _appStreamStackAccessEndpoints
+        , fmap (("ApplicationSettings",) . toJSON) _appStreamStackApplicationSettings
         , fmap (("AttributesToDelete",) . toJSON) _appStreamStackAttributesToDelete
         , fmap (("DeleteStorageConnectors",) . toJSON) _appStreamStackDeleteStorageConnectors
         , fmap (("Description",) . toJSON) _appStreamStackDescription
         , fmap (("DisplayName",) . toJSON) _appStreamStackDisplayName
+        , fmap (("EmbedHostDomains",) . toJSON) _appStreamStackEmbedHostDomains
         , fmap (("FeedbackURL",) . toJSON) _appStreamStackFeedbackURL
         , fmap (("Name",) . toJSON) _appStreamStackName
         , fmap (("RedirectURL",) . toJSON) _appStreamStackRedirectURL
@@ -55,11 +60,13 @@ appStreamStack
   :: AppStreamStack
 appStreamStack  =
   AppStreamStack
-  { _appStreamStackApplicationSettings = Nothing
+  { _appStreamStackAccessEndpoints = Nothing
+  , _appStreamStackApplicationSettings = Nothing
   , _appStreamStackAttributesToDelete = Nothing
   , _appStreamStackDeleteStorageConnectors = Nothing
   , _appStreamStackDescription = Nothing
   , _appStreamStackDisplayName = Nothing
+  , _appStreamStackEmbedHostDomains = Nothing
   , _appStreamStackFeedbackURL = Nothing
   , _appStreamStackName = Nothing
   , _appStreamStackRedirectURL = Nothing
@@ -67,6 +74,10 @@ appStreamStack  =
   , _appStreamStackTags = Nothing
   , _appStreamStackUserSettings = Nothing
   }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html#cfn-appstream-stack-accessendpoints
+assAccessEndpoints :: Lens' AppStreamStack (Maybe [AppStreamStackAccessEndpoint])
+assAccessEndpoints = lens _appStreamStackAccessEndpoints (\s a -> s { _appStreamStackAccessEndpoints = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html#cfn-appstream-stack-applicationsettings
 assApplicationSettings :: Lens' AppStreamStack (Maybe AppStreamStackApplicationSettings)
@@ -87,6 +98,10 @@ assDescription = lens _appStreamStackDescription (\s a -> s { _appStreamStackDes
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html#cfn-appstream-stack-displayname
 assDisplayName :: Lens' AppStreamStack (Maybe (Val Text))
 assDisplayName = lens _appStreamStackDisplayName (\s a -> s { _appStreamStackDisplayName = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html#cfn-appstream-stack-embedhostdomains
+assEmbedHostDomains :: Lens' AppStreamStack (Maybe (ValList Text))
+assEmbedHostDomains = lens _appStreamStackEmbedHostDomains (\s a -> s { _appStreamStackEmbedHostDomains = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stack.html#cfn-appstream-stack-feedbackurl
 assFeedbackURL :: Lens' AppStreamStack (Maybe (Val Text))

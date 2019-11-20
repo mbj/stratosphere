@@ -16,7 +16,6 @@ data RDSDBClusterDBClusterRole =
   RDSDBClusterDBClusterRole
   { _rDSDBClusterDBClusterRoleFeatureName :: Maybe (Val Text)
   , _rDSDBClusterDBClusterRoleRoleArn :: Val Text
-  , _rDSDBClusterDBClusterRoleStatus :: Maybe (Val Text)
   } deriving (Show, Eq)
 
 instance ToJSON RDSDBClusterDBClusterRole where
@@ -25,7 +24,6 @@ instance ToJSON RDSDBClusterDBClusterRole where
     catMaybes
     [ fmap (("FeatureName",) . toJSON) _rDSDBClusterDBClusterRoleFeatureName
     , (Just . ("RoleArn",) . toJSON) _rDSDBClusterDBClusterRoleRoleArn
-    , fmap (("Status",) . toJSON) _rDSDBClusterDBClusterRoleStatus
     ]
 
 -- | Constructor for 'RDSDBClusterDBClusterRole' containing required fields as
@@ -37,7 +35,6 @@ rdsdbClusterDBClusterRole roleArnarg =
   RDSDBClusterDBClusterRole
   { _rDSDBClusterDBClusterRoleFeatureName = Nothing
   , _rDSDBClusterDBClusterRoleRoleArn = roleArnarg
-  , _rDSDBClusterDBClusterRoleStatus = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-dbclusterrole.html#cfn-rds-dbcluster-dbclusterrole-featurename
@@ -47,7 +44,3 @@ rdsdbcdbcrFeatureName = lens _rDSDBClusterDBClusterRoleFeatureName (\s a -> s { 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-dbclusterrole.html#cfn-rds-dbcluster-dbclusterrole-rolearn
 rdsdbcdbcrRoleArn :: Lens' RDSDBClusterDBClusterRole (Val Text)
 rdsdbcdbcrRoleArn = lens _rDSDBClusterDBClusterRoleRoleArn (\s a -> s { _rDSDBClusterDBClusterRoleRoleArn = a })
-
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-dbclusterrole.html#cfn-rds-dbcluster-dbclusterrole-status
-rdsdbcdbcrStatus :: Lens' RDSDBClusterDBClusterRole (Maybe (Val Text))
-rdsdbcdbcrStatus = lens _rDSDBClusterDBClusterRoleStatus (\s a -> s { _rDSDBClusterDBClusterRoleStatus = a })
