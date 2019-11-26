@@ -10,8 +10,8 @@ module Stratosphere.Resources.WAFv2IPSet where
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.WAFv2IPSetIPAddresses
 import Stratosphere.ResourceProperties.WAFv2IPSetIPSet
-import Stratosphere.ResourceProperties.WAFv2IPSetIPSetSummary
 import Stratosphere.ResourceProperties.WAFv2IPSetIPSets
+import Stratosphere.ResourceProperties.WAFv2IPSetIPSetSummary
 import Stratosphere.ResourceProperties.WAFv2IPSetTagList
 
 -- | Full data type definition for WAFv2IPSet. See 'waFv2IPSet' for a more

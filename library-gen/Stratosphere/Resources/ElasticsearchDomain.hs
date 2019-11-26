@@ -15,8 +15,8 @@ import Stratosphere.ResourceProperties.ElasticsearchDomainEncryptionAtRestOption
 import Stratosphere.ResourceProperties.ElasticsearchDomainLogPublishingOption
 import Stratosphere.ResourceProperties.ElasticsearchDomainNodeToNodeEncryptionOptions
 import Stratosphere.ResourceProperties.ElasticsearchDomainSnapshotOptions
-import Stratosphere.ResourceProperties.Tag
 import Stratosphere.ResourceProperties.ElasticsearchDomainVPCOptions
+import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for ElasticsearchDomain. See
 -- 'elasticsearchDomain' for a more convenient constructor.

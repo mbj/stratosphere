@@ -9,8 +9,8 @@ module Stratosphere.Resources.WAFv2RuleGroup where
 
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.WAFv2RuleGroupRuleGroup
-import Stratosphere.ResourceProperties.WAFv2RuleGroupRuleGroupSummary
 import Stratosphere.ResourceProperties.WAFv2RuleGroupRuleGroups
+import Stratosphere.ResourceProperties.WAFv2RuleGroupRuleGroupSummary
 import Stratosphere.ResourceProperties.WAFv2RuleGroupRules
 import Stratosphere.ResourceProperties.WAFv2RuleGroupStatementOne
 import Stratosphere.ResourceProperties.WAFv2RuleGroupTagList

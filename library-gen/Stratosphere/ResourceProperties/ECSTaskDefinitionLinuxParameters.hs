@@ -8,8 +8,8 @@
 module Stratosphere.ResourceProperties.ECSTaskDefinitionLinuxParameters where
 
 import Stratosphere.ResourceImports
-import Stratosphere.ResourceProperties.ECSTaskDefinitionKernelCapabilities
 import Stratosphere.ResourceProperties.ECSTaskDefinitionDevice
+import Stratosphere.ResourceProperties.ECSTaskDefinitionKernelCapabilities
 import Stratosphere.ResourceProperties.ECSTaskDefinitionTmpfs
 
 -- | Full data type definition for ECSTaskDefinitionLinuxParameters. See

@@ -10,8 +10,8 @@ module Stratosphere.Resources.WAFv2RegexPatternSet where
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.WAFv2RegexPatternSetRegexPatternSet
 import Stratosphere.ResourceProperties.WAFv2RegexPatternSetRegexPatternSets
-import Stratosphere.ResourceProperties.WAFv2RegexPatternSetRegularExpressionList
 import Stratosphere.ResourceProperties.WAFv2RegexPatternSetRegexPatternSetSummary
+import Stratosphere.ResourceProperties.WAFv2RegexPatternSetRegularExpressionList
 import Stratosphere.ResourceProperties.WAFv2RegexPatternSetTagList
 
 -- | Full data type definition for WAFv2RegexPatternSet. See

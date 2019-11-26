@@ -8,8 +8,8 @@
 module Stratosphere.Resources.LambdaAlias where
 
 import Stratosphere.ResourceImports
-import Stratosphere.ResourceProperties.LambdaAliasProvisionedConcurrencyConfiguration
 import Stratosphere.ResourceProperties.LambdaAliasAliasRoutingConfiguration
+import Stratosphere.ResourceProperties.LambdaAliasProvisionedConcurrencyConfiguration
 
 -- | Full data type definition for LambdaAlias. See 'lambdaAlias' for a more
 -- convenient constructor.

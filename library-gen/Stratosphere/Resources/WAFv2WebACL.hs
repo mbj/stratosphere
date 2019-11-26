@@ -9,11 +9,11 @@ module Stratosphere.Resources.WAFv2WebACL where
 
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.WAFv2WebACLRules
-import Stratosphere.ResourceProperties.WAFv2WebACLWebACLSummary
 import Stratosphere.ResourceProperties.WAFv2WebACLTagList
 import Stratosphere.ResourceProperties.WAFv2WebACLVisibilityConfig
 import Stratosphere.ResourceProperties.WAFv2WebACLWebACL
 import Stratosphere.ResourceProperties.WAFv2WebACLWebACLs
+import Stratosphere.ResourceProperties.WAFv2WebACLWebACLSummary
 
 -- | Full data type definition for WAFv2WebACL. See 'waFv2WebACL' for a more
 -- convenient constructor.
