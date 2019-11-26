@@ -17,6 +17,9 @@ data OpsWorksCMServer =
   { _opsWorksCMServerAssociatePublicIpAddress :: Maybe (Val Bool)
   , _opsWorksCMServerBackupId :: Maybe (Val Text)
   , _opsWorksCMServerBackupRetentionCount :: Maybe (Val Integer)
+  , _opsWorksCMServerCustomCertificate :: Maybe (Val Text)
+  , _opsWorksCMServerCustomDomain :: Maybe (Val Text)
+  , _opsWorksCMServerCustomPrivateKey :: Maybe (Val Text)
   , _opsWorksCMServerDisableAutomatedBackup :: Maybe (Val Bool)
   , _opsWorksCMServerEngine :: Maybe (Val Text)
   , _opsWorksCMServerEngineAttributes :: Maybe [OpsWorksCMServerEngineAttribute]
@@ -42,6 +45,9 @@ instance ToResourceProperties OpsWorksCMServer where
         [ fmap (("AssociatePublicIpAddress",) . toJSON) _opsWorksCMServerAssociatePublicIpAddress
         , fmap (("BackupId",) . toJSON) _opsWorksCMServerBackupId
         , fmap (("BackupRetentionCount",) . toJSON) _opsWorksCMServerBackupRetentionCount
+        , fmap (("CustomCertificate",) . toJSON) _opsWorksCMServerCustomCertificate
+        , fmap (("CustomDomain",) . toJSON) _opsWorksCMServerCustomDomain
+        , fmap (("CustomPrivateKey",) . toJSON) _opsWorksCMServerCustomPrivateKey
         , fmap (("DisableAutomatedBackup",) . toJSON) _opsWorksCMServerDisableAutomatedBackup
         , fmap (("Engine",) . toJSON) _opsWorksCMServerEngine
         , fmap (("EngineAttributes",) . toJSON) _opsWorksCMServerEngineAttributes
@@ -71,6 +77,9 @@ opsWorksCMServer instanceProfileArnarg instanceTypearg serviceRoleArnarg =
   { _opsWorksCMServerAssociatePublicIpAddress = Nothing
   , _opsWorksCMServerBackupId = Nothing
   , _opsWorksCMServerBackupRetentionCount = Nothing
+  , _opsWorksCMServerCustomCertificate = Nothing
+  , _opsWorksCMServerCustomDomain = Nothing
+  , _opsWorksCMServerCustomPrivateKey = Nothing
   , _opsWorksCMServerDisableAutomatedBackup = Nothing
   , _opsWorksCMServerEngine = Nothing
   , _opsWorksCMServerEngineAttributes = Nothing
@@ -98,6 +107,18 @@ owcmsBackupId = lens _opsWorksCMServerBackupId (\s a -> s { _opsWorksCMServerBac
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-backupretentioncount
 owcmsBackupRetentionCount :: Lens' OpsWorksCMServer (Maybe (Val Integer))
 owcmsBackupRetentionCount = lens _opsWorksCMServerBackupRetentionCount (\s a -> s { _opsWorksCMServerBackupRetentionCount = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-customcertificate
+owcmsCustomCertificate :: Lens' OpsWorksCMServer (Maybe (Val Text))
+owcmsCustomCertificate = lens _opsWorksCMServerCustomCertificate (\s a -> s { _opsWorksCMServerCustomCertificate = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-customdomain
+owcmsCustomDomain :: Lens' OpsWorksCMServer (Maybe (Val Text))
+owcmsCustomDomain = lens _opsWorksCMServerCustomDomain (\s a -> s { _opsWorksCMServerCustomDomain = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-customprivatekey
+owcmsCustomPrivateKey :: Lens' OpsWorksCMServer (Maybe (Val Text))
+owcmsCustomPrivateKey = lens _opsWorksCMServerCustomPrivateKey (\s a -> s { _opsWorksCMServerCustomPrivateKey = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-disableautomatedbackup
 owcmsDisableAutomatedBackup :: Lens' OpsWorksCMServer (Maybe (Val Bool))

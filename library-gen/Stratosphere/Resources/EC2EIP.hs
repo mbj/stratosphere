@@ -8,7 +8,7 @@
 module Stratosphere.Resources.EC2EIP where
 
 import Stratosphere.ResourceImports
-
+import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for EC2EIP. See 'ec2EIP' for a more convenient
 -- constructor.
@@ -17,6 +17,7 @@ data EC2EIP =
   { _eC2EIPDomain :: Maybe (Val Text)
   , _eC2EIPInstanceId :: Maybe (Val Text)
   , _eC2EIPPublicIpv4Pool :: Maybe (Val Text)
+  , _eC2EIPTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
 instance ToResourceProperties EC2EIP where
@@ -28,6 +29,7 @@ instance ToResourceProperties EC2EIP where
         [ fmap (("Domain",) . toJSON) _eC2EIPDomain
         , fmap (("InstanceId",) . toJSON) _eC2EIPInstanceId
         , fmap (("PublicIpv4Pool",) . toJSON) _eC2EIPPublicIpv4Pool
+        , fmap (("Tags",) . toJSON) _eC2EIPTags
         ]
     }
 
@@ -39,6 +41,7 @@ ec2EIP  =
   { _eC2EIPDomain = Nothing
   , _eC2EIPInstanceId = Nothing
   , _eC2EIPPublicIpv4Pool = Nothing
+  , _eC2EIPTags = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-eip.html#cfn-ec2-eip-domain
@@ -52,3 +55,7 @@ eceipInstanceId = lens _eC2EIPInstanceId (\s a -> s { _eC2EIPInstanceId = a })
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-eip.html#cfn-ec2-eip-publicipv4pool
 eceipPublicIpv4Pool :: Lens' EC2EIP (Maybe (Val Text))
 eceipPublicIpv4Pool = lens _eC2EIPPublicIpv4Pool (\s a -> s { _eC2EIPPublicIpv4Pool = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-eip.html#cfn-ec2-eip-tags
+eceipTags :: Lens' EC2EIP (Maybe [Tag])
+eceipTags = lens _eC2EIPTags (\s a -> s { _eC2EIPTags = a })

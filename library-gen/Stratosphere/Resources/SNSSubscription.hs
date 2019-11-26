@@ -19,6 +19,7 @@ data SNSSubscription =
   , _sNSSubscriptionFilterPolicy :: Maybe Object
   , _sNSSubscriptionProtocol :: Val SNSProtocol
   , _sNSSubscriptionRawMessageDelivery :: Maybe (Val Bool)
+  , _sNSSubscriptionRedrivePolicy :: Maybe Object
   , _sNSSubscriptionRegion :: Maybe (Val Text)
   , _sNSSubscriptionTopicArn :: Val Text
   } deriving (Show, Eq)
@@ -34,6 +35,7 @@ instance ToResourceProperties SNSSubscription where
         , fmap (("FilterPolicy",) . toJSON) _sNSSubscriptionFilterPolicy
         , (Just . ("Protocol",) . toJSON) _sNSSubscriptionProtocol
         , fmap (("RawMessageDelivery",) . toJSON) _sNSSubscriptionRawMessageDelivery
+        , fmap (("RedrivePolicy",) . toJSON) _sNSSubscriptionRedrivePolicy
         , fmap (("Region",) . toJSON) _sNSSubscriptionRegion
         , (Just . ("TopicArn",) . toJSON) _sNSSubscriptionTopicArn
         ]
@@ -52,6 +54,7 @@ snsSubscription protocolarg topicArnarg =
   , _sNSSubscriptionFilterPolicy = Nothing
   , _sNSSubscriptionProtocol = protocolarg
   , _sNSSubscriptionRawMessageDelivery = Nothing
+  , _sNSSubscriptionRedrivePolicy = Nothing
   , _sNSSubscriptionRegion = Nothing
   , _sNSSubscriptionTopicArn = topicArnarg
   }
@@ -75,6 +78,10 @@ snssProtocol = lens _sNSSubscriptionProtocol (\s a -> s { _sNSSubscriptionProtoc
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-subscription-rawmessagedelivery
 snssRawMessageDelivery :: Lens' SNSSubscription (Maybe (Val Bool))
 snssRawMessageDelivery = lens _sNSSubscriptionRawMessageDelivery (\s a -> s { _sNSSubscriptionRawMessageDelivery = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-subscription-redrivepolicy
+snssRedrivePolicy :: Lens' SNSSubscription (Maybe Object)
+snssRedrivePolicy = lens _sNSSubscriptionRedrivePolicy (\s a -> s { _sNSSubscriptionRedrivePolicy = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-subscription-region
 snssRegion :: Lens' SNSSubscription (Maybe (Val Text))

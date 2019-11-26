@@ -9,6 +9,7 @@ module Stratosphere.Resources.ECSService where
 
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.ECSServiceDeploymentConfiguration
+import Stratosphere.ResourceProperties.ECSServiceDeploymentController
 import Stratosphere.ResourceProperties.ECSServiceLoadBalancer
 import Stratosphere.ResourceProperties.ECSServiceNetworkConfiguration
 import Stratosphere.ResourceProperties.ECSServicePlacementConstraint
@@ -22,6 +23,7 @@ data ECSService =
   ECSService
   { _eCSServiceCluster :: Maybe (Val Text)
   , _eCSServiceDeploymentConfiguration :: Maybe ECSServiceDeploymentConfiguration
+  , _eCSServiceDeploymentController :: Maybe ECSServiceDeploymentController
   , _eCSServiceDesiredCount :: Maybe (Val Integer)
   , _eCSServiceEnableECSManagedTags :: Maybe (Val Bool)
   , _eCSServiceHealthCheckGracePeriodSeconds :: Maybe (Val Integer)
@@ -37,7 +39,7 @@ data ECSService =
   , _eCSServiceServiceName :: Maybe (Val Text)
   , _eCSServiceServiceRegistries :: Maybe [ECSServiceServiceRegistry]
   , _eCSServiceTags :: Maybe [Tag]
-  , _eCSServiceTaskDefinition :: Val Text
+  , _eCSServiceTaskDefinition :: Maybe (Val Text)
   } deriving (Show, Eq)
 
 instance ToResourceProperties ECSService where
@@ -48,6 +50,7 @@ instance ToResourceProperties ECSService where
         hashMapFromList $ catMaybes
         [ fmap (("Cluster",) . toJSON) _eCSServiceCluster
         , fmap (("DeploymentConfiguration",) . toJSON) _eCSServiceDeploymentConfiguration
+        , fmap (("DeploymentController",) . toJSON) _eCSServiceDeploymentController
         , fmap (("DesiredCount",) . toJSON) _eCSServiceDesiredCount
         , fmap (("EnableECSManagedTags",) . toJSON) _eCSServiceEnableECSManagedTags
         , fmap (("HealthCheckGracePeriodSeconds",) . toJSON) _eCSServiceHealthCheckGracePeriodSeconds
@@ -63,18 +66,18 @@ instance ToResourceProperties ECSService where
         , fmap (("ServiceName",) . toJSON) _eCSServiceServiceName
         , fmap (("ServiceRegistries",) . toJSON) _eCSServiceServiceRegistries
         , fmap (("Tags",) . toJSON) _eCSServiceTags
-        , (Just . ("TaskDefinition",) . toJSON) _eCSServiceTaskDefinition
+        , fmap (("TaskDefinition",) . toJSON) _eCSServiceTaskDefinition
         ]
     }
 
 -- | Constructor for 'ECSService' containing required fields as arguments.
 ecsService
-  :: Val Text -- ^ 'ecssTaskDefinition'
-  -> ECSService
-ecsService taskDefinitionarg =
+  :: ECSService
+ecsService  =
   ECSService
   { _eCSServiceCluster = Nothing
   , _eCSServiceDeploymentConfiguration = Nothing
+  , _eCSServiceDeploymentController = Nothing
   , _eCSServiceDesiredCount = Nothing
   , _eCSServiceEnableECSManagedTags = Nothing
   , _eCSServiceHealthCheckGracePeriodSeconds = Nothing
@@ -90,7 +93,7 @@ ecsService taskDefinitionarg =
   , _eCSServiceServiceName = Nothing
   , _eCSServiceServiceRegistries = Nothing
   , _eCSServiceTags = Nothing
-  , _eCSServiceTaskDefinition = taskDefinitionarg
+  , _eCSServiceTaskDefinition = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-cluster
@@ -100,6 +103,10 @@ ecssCluster = lens _eCSServiceCluster (\s a -> s { _eCSServiceCluster = a })
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-deploymentconfiguration
 ecssDeploymentConfiguration :: Lens' ECSService (Maybe ECSServiceDeploymentConfiguration)
 ecssDeploymentConfiguration = lens _eCSServiceDeploymentConfiguration (\s a -> s { _eCSServiceDeploymentConfiguration = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-deploymentcontroller
+ecssDeploymentController :: Lens' ECSService (Maybe ECSServiceDeploymentController)
+ecssDeploymentController = lens _eCSServiceDeploymentController (\s a -> s { _eCSServiceDeploymentController = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-desiredcount
 ecssDesiredCount :: Lens' ECSService (Maybe (Val Integer))
@@ -162,5 +169,5 @@ ecssTags :: Lens' ECSService (Maybe [Tag])
 ecssTags = lens _eCSServiceTags (\s a -> s { _eCSServiceTags = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-taskdefinition
-ecssTaskDefinition :: Lens' ECSService (Val Text)
+ecssTaskDefinition :: Lens' ECSService (Maybe (Val Text))
 ecssTaskDefinition = lens _eCSServiceTaskDefinition (\s a -> s { _eCSServiceTaskDefinition = a })

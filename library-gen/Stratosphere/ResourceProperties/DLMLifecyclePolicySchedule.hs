@@ -9,6 +9,7 @@ module Stratosphere.ResourceProperties.DLMLifecyclePolicySchedule where
 
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.DLMLifecyclePolicyCreateRule
+import Stratosphere.ResourceProperties.DLMLifecyclePolicyFastRestoreRule
 import Stratosphere.ResourceProperties.DLMLifecyclePolicyRetainRule
 import Stratosphere.ResourceProperties.Tag
 
@@ -18,6 +19,7 @@ data DLMLifecyclePolicySchedule =
   DLMLifecyclePolicySchedule
   { _dLMLifecyclePolicyScheduleCopyTags :: Maybe (Val Bool)
   , _dLMLifecyclePolicyScheduleCreateRule :: Maybe DLMLifecyclePolicyCreateRule
+  , _dLMLifecyclePolicyScheduleFastRestoreRule :: Maybe DLMLifecyclePolicyFastRestoreRule
   , _dLMLifecyclePolicyScheduleName :: Maybe (Val Text)
   , _dLMLifecyclePolicyScheduleRetainRule :: Maybe DLMLifecyclePolicyRetainRule
   , _dLMLifecyclePolicyScheduleTagsToAdd :: Maybe [Tag]
@@ -30,6 +32,7 @@ instance ToJSON DLMLifecyclePolicySchedule where
     catMaybes
     [ fmap (("CopyTags",) . toJSON) _dLMLifecyclePolicyScheduleCopyTags
     , fmap (("CreateRule",) . toJSON) _dLMLifecyclePolicyScheduleCreateRule
+    , fmap (("FastRestoreRule",) . toJSON) _dLMLifecyclePolicyScheduleFastRestoreRule
     , fmap (("Name",) . toJSON) _dLMLifecyclePolicyScheduleName
     , fmap (("RetainRule",) . toJSON) _dLMLifecyclePolicyScheduleRetainRule
     , fmap (("TagsToAdd",) . toJSON) _dLMLifecyclePolicyScheduleTagsToAdd
@@ -44,6 +47,7 @@ dlmLifecyclePolicySchedule  =
   DLMLifecyclePolicySchedule
   { _dLMLifecyclePolicyScheduleCopyTags = Nothing
   , _dLMLifecyclePolicyScheduleCreateRule = Nothing
+  , _dLMLifecyclePolicyScheduleFastRestoreRule = Nothing
   , _dLMLifecyclePolicyScheduleName = Nothing
   , _dLMLifecyclePolicyScheduleRetainRule = Nothing
   , _dLMLifecyclePolicyScheduleTagsToAdd = Nothing
@@ -57,6 +61,10 @@ dlmlpsCopyTags = lens _dLMLifecyclePolicyScheduleCopyTags (\s a -> s { _dLMLifec
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html#cfn-dlm-lifecyclepolicy-schedule-createrule
 dlmlpsCreateRule :: Lens' DLMLifecyclePolicySchedule (Maybe DLMLifecyclePolicyCreateRule)
 dlmlpsCreateRule = lens _dLMLifecyclePolicyScheduleCreateRule (\s a -> s { _dLMLifecyclePolicyScheduleCreateRule = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html#cfn-dlm-lifecyclepolicy-schedule-fastrestorerule
+dlmlpsFastRestoreRule :: Lens' DLMLifecyclePolicySchedule (Maybe DLMLifecyclePolicyFastRestoreRule)
+dlmlpsFastRestoreRule = lens _dLMLifecyclePolicyScheduleFastRestoreRule (\s a -> s { _dLMLifecyclePolicyScheduleFastRestoreRule = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-schedule.html#cfn-dlm-lifecyclepolicy-schedule-name
 dlmlpsName :: Lens' DLMLifecyclePolicySchedule (Maybe (Val Text))

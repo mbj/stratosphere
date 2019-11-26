@@ -16,7 +16,8 @@ import Stratosphere.ResourceProperties.CognitoIdentityPoolPushSync
 -- 'cognitoIdentityPool' for a more convenient constructor.
 data CognitoIdentityPool =
   CognitoIdentityPool
-  { _cognitoIdentityPoolAllowUnauthenticatedIdentities :: Val Bool
+  { _cognitoIdentityPoolAllowClassicFlow :: Maybe (Val Bool)
+  , _cognitoIdentityPoolAllowUnauthenticatedIdentities :: Val Bool
   , _cognitoIdentityPoolCognitoEvents :: Maybe Object
   , _cognitoIdentityPoolCognitoIdentityProviders :: Maybe [CognitoIdentityPoolCognitoIdentityProvider]
   , _cognitoIdentityPoolCognitoStreams :: Maybe CognitoIdentityPoolCognitoStreams
@@ -34,7 +35,8 @@ instance ToResourceProperties CognitoIdentityPool where
     { resourcePropertiesType = "AWS::Cognito::IdentityPool"
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
-        [ (Just . ("AllowUnauthenticatedIdentities",) . toJSON) _cognitoIdentityPoolAllowUnauthenticatedIdentities
+        [ fmap (("AllowClassicFlow",) . toJSON) _cognitoIdentityPoolAllowClassicFlow
+        , (Just . ("AllowUnauthenticatedIdentities",) . toJSON) _cognitoIdentityPoolAllowUnauthenticatedIdentities
         , fmap (("CognitoEvents",) . toJSON) _cognitoIdentityPoolCognitoEvents
         , fmap (("CognitoIdentityProviders",) . toJSON) _cognitoIdentityPoolCognitoIdentityProviders
         , fmap (("CognitoStreams",) . toJSON) _cognitoIdentityPoolCognitoStreams
@@ -54,7 +56,8 @@ cognitoIdentityPool
   -> CognitoIdentityPool
 cognitoIdentityPool allowUnauthenticatedIdentitiesarg =
   CognitoIdentityPool
-  { _cognitoIdentityPoolAllowUnauthenticatedIdentities = allowUnauthenticatedIdentitiesarg
+  { _cognitoIdentityPoolAllowClassicFlow = Nothing
+  , _cognitoIdentityPoolAllowUnauthenticatedIdentities = allowUnauthenticatedIdentitiesarg
   , _cognitoIdentityPoolCognitoEvents = Nothing
   , _cognitoIdentityPoolCognitoIdentityProviders = Nothing
   , _cognitoIdentityPoolCognitoStreams = Nothing
@@ -65,6 +68,10 @@ cognitoIdentityPool allowUnauthenticatedIdentitiesarg =
   , _cognitoIdentityPoolSamlProviderARNs = Nothing
   , _cognitoIdentityPoolSupportedLoginProviders = Nothing
   }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html#cfn-cognito-identitypool-allowclassicflow
+cipAllowClassicFlow :: Lens' CognitoIdentityPool (Maybe (Val Bool))
+cipAllowClassicFlow = lens _cognitoIdentityPoolAllowClassicFlow (\s a -> s { _cognitoIdentityPoolAllowClassicFlow = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypool.html#cfn-cognito-identitypool-allowunauthenticatedidentities
 cipAllowUnauthenticatedIdentities :: Lens' CognitoIdentityPool (Val Bool)

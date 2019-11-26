@@ -31,6 +31,7 @@ data AmazonMQBroker =
   , _amazonMQBrokerMaintenanceWindowStartTime :: Maybe AmazonMQBrokerMaintenanceWindow
   , _amazonMQBrokerPubliclyAccessible :: Val Bool
   , _amazonMQBrokerSecurityGroups :: Maybe (ValList Text)
+  , _amazonMQBrokerStorageType :: Maybe (Val Text)
   , _amazonMQBrokerSubnetIds :: Maybe (ValList Text)
   , _amazonMQBrokerTags :: Maybe [AmazonMQBrokerTagsEntry]
   , _amazonMQBrokerUsers :: [AmazonMQBrokerUser]
@@ -54,6 +55,7 @@ instance ToResourceProperties AmazonMQBroker where
         , fmap (("MaintenanceWindowStartTime",) . toJSON) _amazonMQBrokerMaintenanceWindowStartTime
         , (Just . ("PubliclyAccessible",) . toJSON) _amazonMQBrokerPubliclyAccessible
         , fmap (("SecurityGroups",) . toJSON) _amazonMQBrokerSecurityGroups
+        , fmap (("StorageType",) . toJSON) _amazonMQBrokerStorageType
         , fmap (("SubnetIds",) . toJSON) _amazonMQBrokerSubnetIds
         , fmap (("Tags",) . toJSON) _amazonMQBrokerTags
         , (Just . ("Users",) . toJSON) _amazonMQBrokerUsers
@@ -85,6 +87,7 @@ amazonMQBroker autoMinorVersionUpgradearg brokerNamearg deploymentModearg engine
   , _amazonMQBrokerMaintenanceWindowStartTime = Nothing
   , _amazonMQBrokerPubliclyAccessible = publiclyAccessiblearg
   , _amazonMQBrokerSecurityGroups = Nothing
+  , _amazonMQBrokerStorageType = Nothing
   , _amazonMQBrokerSubnetIds = Nothing
   , _amazonMQBrokerTags = Nothing
   , _amazonMQBrokerUsers = usersarg
@@ -137,6 +140,10 @@ amqbPubliclyAccessible = lens _amazonMQBrokerPubliclyAccessible (\s a -> s { _am
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-securitygroups
 amqbSecurityGroups :: Lens' AmazonMQBroker (Maybe (ValList Text))
 amqbSecurityGroups = lens _amazonMQBrokerSecurityGroups (\s a -> s { _amazonMQBrokerSecurityGroups = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-storagetype
+amqbStorageType :: Lens' AmazonMQBroker (Maybe (Val Text))
+amqbStorageType = lens _amazonMQBrokerStorageType (\s a -> s { _amazonMQBrokerStorageType = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-subnetids
 amqbSubnetIds :: Lens' AmazonMQBroker (Maybe (ValList Text))

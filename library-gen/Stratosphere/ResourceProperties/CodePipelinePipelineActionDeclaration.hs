@@ -21,6 +21,7 @@ data CodePipelinePipelineActionDeclaration =
   , _codePipelinePipelineActionDeclarationConfiguration :: Maybe Object
   , _codePipelinePipelineActionDeclarationInputArtifacts :: Maybe [CodePipelinePipelineInputArtifact]
   , _codePipelinePipelineActionDeclarationName :: Val Text
+  , _codePipelinePipelineActionDeclarationNamespace :: Maybe (Val Text)
   , _codePipelinePipelineActionDeclarationOutputArtifacts :: Maybe [CodePipelinePipelineOutputArtifact]
   , _codePipelinePipelineActionDeclarationRegion :: Maybe (Val Text)
   , _codePipelinePipelineActionDeclarationRoleArn :: Maybe (Val Text)
@@ -35,6 +36,7 @@ instance ToJSON CodePipelinePipelineActionDeclaration where
     , fmap (("Configuration",) . toJSON) _codePipelinePipelineActionDeclarationConfiguration
     , fmap (("InputArtifacts",) . toJSON) _codePipelinePipelineActionDeclarationInputArtifacts
     , (Just . ("Name",) . toJSON) _codePipelinePipelineActionDeclarationName
+    , fmap (("Namespace",) . toJSON) _codePipelinePipelineActionDeclarationNamespace
     , fmap (("OutputArtifacts",) . toJSON) _codePipelinePipelineActionDeclarationOutputArtifacts
     , fmap (("Region",) . toJSON) _codePipelinePipelineActionDeclarationRegion
     , fmap (("RoleArn",) . toJSON) _codePipelinePipelineActionDeclarationRoleArn
@@ -53,6 +55,7 @@ codePipelinePipelineActionDeclaration actionTypeIdarg namearg =
   , _codePipelinePipelineActionDeclarationConfiguration = Nothing
   , _codePipelinePipelineActionDeclarationInputArtifacts = Nothing
   , _codePipelinePipelineActionDeclarationName = namearg
+  , _codePipelinePipelineActionDeclarationNamespace = Nothing
   , _codePipelinePipelineActionDeclarationOutputArtifacts = Nothing
   , _codePipelinePipelineActionDeclarationRegion = Nothing
   , _codePipelinePipelineActionDeclarationRoleArn = Nothing
@@ -74,6 +77,10 @@ cppadInputArtifacts = lens _codePipelinePipelineActionDeclarationInputArtifacts 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages-actions.html#cfn-codepipeline-pipeline-stages-actions-name
 cppadName :: Lens' CodePipelinePipelineActionDeclaration (Val Text)
 cppadName = lens _codePipelinePipelineActionDeclarationName (\s a -> s { _codePipelinePipelineActionDeclarationName = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages-actions.html#cfn-codepipeline-pipeline-actiondeclaration-namespace
+cppadNamespace :: Lens' CodePipelinePipelineActionDeclaration (Maybe (Val Text))
+cppadNamespace = lens _codePipelinePipelineActionDeclarationNamespace (\s a -> s { _codePipelinePipelineActionDeclarationNamespace = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages-actions.html#cfn-codepipeline-pipeline-stages-actions-outputartifacts
 cppadOutputArtifacts :: Lens' CodePipelinePipelineActionDeclaration (Maybe [CodePipelinePipelineOutputArtifact])

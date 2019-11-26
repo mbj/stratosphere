@@ -19,7 +19,9 @@ data ECSTaskDefinitionLinuxParameters =
   { _eCSTaskDefinitionLinuxParametersCapabilities :: Maybe ECSTaskDefinitionKernelCapabilities
   , _eCSTaskDefinitionLinuxParametersDevices :: Maybe [ECSTaskDefinitionDevice]
   , _eCSTaskDefinitionLinuxParametersInitProcessEnabled :: Maybe (Val Bool)
+  , _eCSTaskDefinitionLinuxParametersMaxSwap :: Maybe (Val Integer)
   , _eCSTaskDefinitionLinuxParametersSharedMemorySize :: Maybe (Val Integer)
+  , _eCSTaskDefinitionLinuxParametersSwappiness :: Maybe (Val Integer)
   , _eCSTaskDefinitionLinuxParametersTmpfs :: Maybe [ECSTaskDefinitionTmpfs]
   } deriving (Show, Eq)
 
@@ -30,7 +32,9 @@ instance ToJSON ECSTaskDefinitionLinuxParameters where
     [ fmap (("Capabilities",) . toJSON) _eCSTaskDefinitionLinuxParametersCapabilities
     , fmap (("Devices",) . toJSON) _eCSTaskDefinitionLinuxParametersDevices
     , fmap (("InitProcessEnabled",) . toJSON) _eCSTaskDefinitionLinuxParametersInitProcessEnabled
+    , fmap (("MaxSwap",) . toJSON) _eCSTaskDefinitionLinuxParametersMaxSwap
     , fmap (("SharedMemorySize",) . toJSON) _eCSTaskDefinitionLinuxParametersSharedMemorySize
+    , fmap (("Swappiness",) . toJSON) _eCSTaskDefinitionLinuxParametersSwappiness
     , fmap (("Tmpfs",) . toJSON) _eCSTaskDefinitionLinuxParametersTmpfs
     ]
 
@@ -43,7 +47,9 @@ ecsTaskDefinitionLinuxParameters  =
   { _eCSTaskDefinitionLinuxParametersCapabilities = Nothing
   , _eCSTaskDefinitionLinuxParametersDevices = Nothing
   , _eCSTaskDefinitionLinuxParametersInitProcessEnabled = Nothing
+  , _eCSTaskDefinitionLinuxParametersMaxSwap = Nothing
   , _eCSTaskDefinitionLinuxParametersSharedMemorySize = Nothing
+  , _eCSTaskDefinitionLinuxParametersSwappiness = Nothing
   , _eCSTaskDefinitionLinuxParametersTmpfs = Nothing
   }
 
@@ -59,9 +65,17 @@ ecstdlpDevices = lens _eCSTaskDefinitionLinuxParametersDevices (\s a -> s { _eCS
 ecstdlpInitProcessEnabled :: Lens' ECSTaskDefinitionLinuxParameters (Maybe (Val Bool))
 ecstdlpInitProcessEnabled = lens _eCSTaskDefinitionLinuxParametersInitProcessEnabled (\s a -> s { _eCSTaskDefinitionLinuxParametersInitProcessEnabled = a })
 
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-maxswap
+ecstdlpMaxSwap :: Lens' ECSTaskDefinitionLinuxParameters (Maybe (Val Integer))
+ecstdlpMaxSwap = lens _eCSTaskDefinitionLinuxParametersMaxSwap (\s a -> s { _eCSTaskDefinitionLinuxParametersMaxSwap = a })
+
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-sharedmemorysize
 ecstdlpSharedMemorySize :: Lens' ECSTaskDefinitionLinuxParameters (Maybe (Val Integer))
 ecstdlpSharedMemorySize = lens _eCSTaskDefinitionLinuxParametersSharedMemorySize (\s a -> s { _eCSTaskDefinitionLinuxParametersSharedMemorySize = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-swappiness
+ecstdlpSwappiness :: Lens' ECSTaskDefinitionLinuxParameters (Maybe (Val Integer))
+ecstdlpSwappiness = lens _eCSTaskDefinitionLinuxParametersSwappiness (\s a -> s { _eCSTaskDefinitionLinuxParametersSwappiness = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-linuxparameters.html#cfn-ecs-taskdefinition-linuxparameters-tmpfs
 ecstdlpTmpfs :: Lens' ECSTaskDefinitionLinuxParameters (Maybe [ECSTaskDefinitionTmpfs])
