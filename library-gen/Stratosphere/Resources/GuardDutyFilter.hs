@@ -18,7 +18,7 @@ data GuardDutyFilter =
   , _guardDutyFilterDescription :: Val Text
   , _guardDutyFilterDetectorId :: Val Text
   , _guardDutyFilterFindingCriteria :: GuardDutyFilterFindingCriteria
-  , _guardDutyFilterName :: Maybe (Val Text)
+  , _guardDutyFilterName :: Val Text
   , _guardDutyFilterRank :: Val Integer
   } deriving (Show, Eq)
 
@@ -32,7 +32,7 @@ instance ToResourceProperties GuardDutyFilter where
         , (Just . ("Description",) . toJSON) _guardDutyFilterDescription
         , (Just . ("DetectorId",) . toJSON) _guardDutyFilterDetectorId
         , (Just . ("FindingCriteria",) . toJSON) _guardDutyFilterFindingCriteria
-        , fmap (("Name",) . toJSON) _guardDutyFilterName
+        , (Just . ("Name",) . toJSON) _guardDutyFilterName
         , (Just . ("Rank",) . toJSON) _guardDutyFilterRank
         ]
     }
@@ -44,15 +44,16 @@ guardDutyFilter
   -> Val Text -- ^ 'gdfDescription'
   -> Val Text -- ^ 'gdfDetectorId'
   -> GuardDutyFilterFindingCriteria -- ^ 'gdfFindingCriteria'
+  -> Val Text -- ^ 'gdfName'
   -> Val Integer -- ^ 'gdfRank'
   -> GuardDutyFilter
-guardDutyFilter actionarg descriptionarg detectorIdarg findingCriteriaarg rankarg =
+guardDutyFilter actionarg descriptionarg detectorIdarg findingCriteriaarg namearg rankarg =
   GuardDutyFilter
   { _guardDutyFilterAction = actionarg
   , _guardDutyFilterDescription = descriptionarg
   , _guardDutyFilterDetectorId = detectorIdarg
   , _guardDutyFilterFindingCriteria = findingCriteriaarg
-  , _guardDutyFilterName = Nothing
+  , _guardDutyFilterName = namearg
   , _guardDutyFilterRank = rankarg
   }
 
@@ -73,7 +74,7 @@ gdfFindingCriteria :: Lens' GuardDutyFilter GuardDutyFilterFindingCriteria
 gdfFindingCriteria = lens _guardDutyFilterFindingCriteria (\s a -> s { _guardDutyFilterFindingCriteria = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-filter.html#cfn-guardduty-filter-name
-gdfName :: Lens' GuardDutyFilter (Maybe (Val Text))
+gdfName :: Lens' GuardDutyFilter (Val Text)
 gdfName = lens _guardDutyFilterName (\s a -> s { _guardDutyFilterName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-filter.html#cfn-guardduty-filter-rank

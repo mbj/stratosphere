@@ -9,6 +9,7 @@ module Stratosphere.Resources.Cloud9EnvironmentEC2 where
 
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.Cloud9EnvironmentEC2Repository
+import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for Cloud9EnvironmentEC2. See
 -- 'cloud9EnvironmentEC2' for a more convenient constructor.
@@ -21,6 +22,7 @@ data Cloud9EnvironmentEC2 =
   , _cloud9EnvironmentEC2OwnerArn :: Maybe (Val Text)
   , _cloud9EnvironmentEC2Repositories :: Maybe [Cloud9EnvironmentEC2Repository]
   , _cloud9EnvironmentEC2SubnetId :: Maybe (Val Text)
+  , _cloud9EnvironmentEC2Tags :: Maybe [Tag]
   } deriving (Show, Eq)
 
 instance ToResourceProperties Cloud9EnvironmentEC2 where
@@ -36,6 +38,7 @@ instance ToResourceProperties Cloud9EnvironmentEC2 where
         , fmap (("OwnerArn",) . toJSON) _cloud9EnvironmentEC2OwnerArn
         , fmap (("Repositories",) . toJSON) _cloud9EnvironmentEC2Repositories
         , fmap (("SubnetId",) . toJSON) _cloud9EnvironmentEC2SubnetId
+        , fmap (("Tags",) . toJSON) _cloud9EnvironmentEC2Tags
         ]
     }
 
@@ -53,6 +56,7 @@ cloud9EnvironmentEC2 instanceTypearg =
   , _cloud9EnvironmentEC2OwnerArn = Nothing
   , _cloud9EnvironmentEC2Repositories = Nothing
   , _cloud9EnvironmentEC2SubnetId = Nothing
+  , _cloud9EnvironmentEC2Tags = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud9-environmentec2.html#cfn-cloud9-environmentec2-automaticstoptimeminutes
@@ -82,3 +86,7 @@ ceecRepositories = lens _cloud9EnvironmentEC2Repositories (\s a -> s { _cloud9En
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud9-environmentec2.html#cfn-cloud9-environmentec2-subnetid
 ceecSubnetId :: Lens' Cloud9EnvironmentEC2 (Maybe (Val Text))
 ceecSubnetId = lens _cloud9EnvironmentEC2SubnetId (\s a -> s { _cloud9EnvironmentEC2SubnetId = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud9-environmentec2.html#cfn-cloud9-environmentec2-tags
+ceecTags :: Lens' Cloud9EnvironmentEC2 (Maybe [Tag])
+ceecTags = lens _cloud9EnvironmentEC2Tags (\s a -> s { _cloud9EnvironmentEC2Tags = a })

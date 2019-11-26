@@ -23,6 +23,7 @@ data ApiGatewayV2Integration =
   , _apiGatewayV2IntegrationIntegrationType :: Val Text
   , _apiGatewayV2IntegrationIntegrationUri :: Maybe (Val Text)
   , _apiGatewayV2IntegrationPassthroughBehavior :: Maybe (Val Text)
+  , _apiGatewayV2IntegrationPayloadFormatVersion :: Maybe (Val Text)
   , _apiGatewayV2IntegrationRequestParameters :: Maybe Object
   , _apiGatewayV2IntegrationRequestTemplates :: Maybe Object
   , _apiGatewayV2IntegrationTemplateSelectionExpression :: Maybe (Val Text)
@@ -44,6 +45,7 @@ instance ToResourceProperties ApiGatewayV2Integration where
         , (Just . ("IntegrationType",) . toJSON) _apiGatewayV2IntegrationIntegrationType
         , fmap (("IntegrationUri",) . toJSON) _apiGatewayV2IntegrationIntegrationUri
         , fmap (("PassthroughBehavior",) . toJSON) _apiGatewayV2IntegrationPassthroughBehavior
+        , fmap (("PayloadFormatVersion",) . toJSON) _apiGatewayV2IntegrationPayloadFormatVersion
         , fmap (("RequestParameters",) . toJSON) _apiGatewayV2IntegrationRequestParameters
         , fmap (("RequestTemplates",) . toJSON) _apiGatewayV2IntegrationRequestTemplates
         , fmap (("TemplateSelectionExpression",) . toJSON) _apiGatewayV2IntegrationTemplateSelectionExpression
@@ -68,6 +70,7 @@ apiGatewayV2Integration apiIdarg integrationTypearg =
   , _apiGatewayV2IntegrationIntegrationType = integrationTypearg
   , _apiGatewayV2IntegrationIntegrationUri = Nothing
   , _apiGatewayV2IntegrationPassthroughBehavior = Nothing
+  , _apiGatewayV2IntegrationPayloadFormatVersion = Nothing
   , _apiGatewayV2IntegrationRequestParameters = Nothing
   , _apiGatewayV2IntegrationRequestTemplates = Nothing
   , _apiGatewayV2IntegrationTemplateSelectionExpression = Nothing
@@ -109,6 +112,10 @@ agviIntegrationUri = lens _apiGatewayV2IntegrationIntegrationUri (\s a -> s { _a
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html#cfn-apigatewayv2-integration-passthroughbehavior
 agviPassthroughBehavior :: Lens' ApiGatewayV2Integration (Maybe (Val Text))
 agviPassthroughBehavior = lens _apiGatewayV2IntegrationPassthroughBehavior (\s a -> s { _apiGatewayV2IntegrationPassthroughBehavior = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html#cfn-apigatewayv2-integration-payloadformatversion
+agviPayloadFormatVersion :: Lens' ApiGatewayV2Integration (Maybe (Val Text))
+agviPayloadFormatVersion = lens _apiGatewayV2IntegrationPayloadFormatVersion (\s a -> s { _apiGatewayV2IntegrationPayloadFormatVersion = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html#cfn-apigatewayv2-integration-requestparameters
 agviRequestParameters :: Lens' ApiGatewayV2Integration (Maybe Object)

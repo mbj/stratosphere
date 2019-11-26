@@ -20,8 +20,10 @@ data PinpointPushTemplate =
   , _pinpointPushTemplateAPNS :: Maybe PinpointPushTemplateAPNSPushNotificationTemplate
   , _pinpointPushTemplateBaidu :: Maybe PinpointPushTemplateAndroidPushNotificationTemplate
   , _pinpointPushTemplateDefault :: Maybe PinpointPushTemplateDefaultPushNotificationTemplate
+  , _pinpointPushTemplateDefaultSubstitutions :: Maybe (Val Text)
   , _pinpointPushTemplateGCM :: Maybe PinpointPushTemplateAndroidPushNotificationTemplate
   , _pinpointPushTemplateTags :: Maybe Object
+  , _pinpointPushTemplateTemplateDescription :: Maybe (Val Text)
   , _pinpointPushTemplateTemplateName :: Val Text
   } deriving (Show, Eq)
 
@@ -35,8 +37,10 @@ instance ToResourceProperties PinpointPushTemplate where
         , fmap (("APNS",) . toJSON) _pinpointPushTemplateAPNS
         , fmap (("Baidu",) . toJSON) _pinpointPushTemplateBaidu
         , fmap (("Default",) . toJSON) _pinpointPushTemplateDefault
+        , fmap (("DefaultSubstitutions",) . toJSON) _pinpointPushTemplateDefaultSubstitutions
         , fmap (("GCM",) . toJSON) _pinpointPushTemplateGCM
         , fmap (("Tags",) . toJSON) _pinpointPushTemplateTags
+        , fmap (("TemplateDescription",) . toJSON) _pinpointPushTemplateTemplateDescription
         , (Just . ("TemplateName",) . toJSON) _pinpointPushTemplateTemplateName
         ]
     }
@@ -52,8 +56,10 @@ pinpointPushTemplate templateNamearg =
   , _pinpointPushTemplateAPNS = Nothing
   , _pinpointPushTemplateBaidu = Nothing
   , _pinpointPushTemplateDefault = Nothing
+  , _pinpointPushTemplateDefaultSubstitutions = Nothing
   , _pinpointPushTemplateGCM = Nothing
   , _pinpointPushTemplateTags = Nothing
+  , _pinpointPushTemplateTemplateDescription = Nothing
   , _pinpointPushTemplateTemplateName = templateNamearg
   }
 
@@ -73,6 +79,10 @@ pptBaidu = lens _pinpointPushTemplateBaidu (\s a -> s { _pinpointPushTemplateBai
 pptDefault :: Lens' PinpointPushTemplate (Maybe PinpointPushTemplateDefaultPushNotificationTemplate)
 pptDefault = lens _pinpointPushTemplateDefault (\s a -> s { _pinpointPushTemplateDefault = a })
 
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-pushtemplate.html#cfn-pinpoint-pushtemplate-defaultsubstitutions
+pptDefaultSubstitutions :: Lens' PinpointPushTemplate (Maybe (Val Text))
+pptDefaultSubstitutions = lens _pinpointPushTemplateDefaultSubstitutions (\s a -> s { _pinpointPushTemplateDefaultSubstitutions = a })
+
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-pushtemplate.html#cfn-pinpoint-pushtemplate-gcm
 pptGCM :: Lens' PinpointPushTemplate (Maybe PinpointPushTemplateAndroidPushNotificationTemplate)
 pptGCM = lens _pinpointPushTemplateGCM (\s a -> s { _pinpointPushTemplateGCM = a })
@@ -80,6 +90,10 @@ pptGCM = lens _pinpointPushTemplateGCM (\s a -> s { _pinpointPushTemplateGCM = a
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-pushtemplate.html#cfn-pinpoint-pushtemplate-tags
 pptTags :: Lens' PinpointPushTemplate (Maybe Object)
 pptTags = lens _pinpointPushTemplateTags (\s a -> s { _pinpointPushTemplateTags = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-pushtemplate.html#cfn-pinpoint-pushtemplate-templatedescription
+pptTemplateDescription :: Lens' PinpointPushTemplate (Maybe (Val Text))
+pptTemplateDescription = lens _pinpointPushTemplateTemplateDescription (\s a -> s { _pinpointPushTemplateTemplateDescription = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-pushtemplate.html#cfn-pinpoint-pushtemplate-templatename
 pptTemplateName :: Lens' PinpointPushTemplate (Val Text)

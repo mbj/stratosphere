@@ -14,7 +14,9 @@ import Stratosphere.ResourceImports
 -- 'cognitoUserPoolEmailConfiguration' for a more convenient constructor.
 data CognitoUserPoolEmailConfiguration =
   CognitoUserPoolEmailConfiguration
-  { _cognitoUserPoolEmailConfigurationEmailSendingAccount :: Maybe (Val Text)
+  { _cognitoUserPoolEmailConfigurationConfigurationSet :: Maybe (Val Text)
+  , _cognitoUserPoolEmailConfigurationEmailSendingAccount :: Maybe (Val Text)
+  , _cognitoUserPoolEmailConfigurationFrom :: Maybe (Val Text)
   , _cognitoUserPoolEmailConfigurationReplyToEmailAddress :: Maybe (Val Text)
   , _cognitoUserPoolEmailConfigurationSourceArn :: Maybe (Val Text)
   } deriving (Show, Eq)
@@ -23,7 +25,9 @@ instance ToJSON CognitoUserPoolEmailConfiguration where
   toJSON CognitoUserPoolEmailConfiguration{..} =
     object $
     catMaybes
-    [ fmap (("EmailSendingAccount",) . toJSON) _cognitoUserPoolEmailConfigurationEmailSendingAccount
+    [ fmap (("ConfigurationSet",) . toJSON) _cognitoUserPoolEmailConfigurationConfigurationSet
+    , fmap (("EmailSendingAccount",) . toJSON) _cognitoUserPoolEmailConfigurationEmailSendingAccount
+    , fmap (("From",) . toJSON) _cognitoUserPoolEmailConfigurationFrom
     , fmap (("ReplyToEmailAddress",) . toJSON) _cognitoUserPoolEmailConfigurationReplyToEmailAddress
     , fmap (("SourceArn",) . toJSON) _cognitoUserPoolEmailConfigurationSourceArn
     ]
@@ -34,14 +38,24 @@ cognitoUserPoolEmailConfiguration
   :: CognitoUserPoolEmailConfiguration
 cognitoUserPoolEmailConfiguration  =
   CognitoUserPoolEmailConfiguration
-  { _cognitoUserPoolEmailConfigurationEmailSendingAccount = Nothing
+  { _cognitoUserPoolEmailConfigurationConfigurationSet = Nothing
+  , _cognitoUserPoolEmailConfigurationEmailSendingAccount = Nothing
+  , _cognitoUserPoolEmailConfigurationFrom = Nothing
   , _cognitoUserPoolEmailConfigurationReplyToEmailAddress = Nothing
   , _cognitoUserPoolEmailConfigurationSourceArn = Nothing
   }
 
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-emailconfiguration.html#cfn-cognito-userpool-emailconfiguration-configurationset
+cupecConfigurationSet :: Lens' CognitoUserPoolEmailConfiguration (Maybe (Val Text))
+cupecConfigurationSet = lens _cognitoUserPoolEmailConfigurationConfigurationSet (\s a -> s { _cognitoUserPoolEmailConfigurationConfigurationSet = a })
+
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-emailconfiguration.html#cfn-cognito-userpool-emailconfiguration-emailsendingaccount
 cupecEmailSendingAccount :: Lens' CognitoUserPoolEmailConfiguration (Maybe (Val Text))
 cupecEmailSendingAccount = lens _cognitoUserPoolEmailConfigurationEmailSendingAccount (\s a -> s { _cognitoUserPoolEmailConfigurationEmailSendingAccount = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-emailconfiguration.html#cfn-cognito-userpool-emailconfiguration-from
+cupecFrom :: Lens' CognitoUserPoolEmailConfiguration (Maybe (Val Text))
+cupecFrom = lens _cognitoUserPoolEmailConfigurationFrom (\s a -> s { _cognitoUserPoolEmailConfigurationFrom = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-emailconfiguration.html#cfn-cognito-userpool-emailconfiguration-replytoemailaddress
 cupecReplyToEmailAddress :: Lens' CognitoUserPoolEmailConfiguration (Maybe (Val Text))

@@ -11,6 +11,7 @@ import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.ECSTaskDefinitionContainerDependency
 import Stratosphere.ResourceProperties.ECSTaskDefinitionKeyValuePair
 import Stratosphere.ResourceProperties.ECSTaskDefinitionHostEntry
+import Stratosphere.ResourceProperties.ECSTaskDefinitionFirelensConfiguration
 import Stratosphere.ResourceProperties.ECSTaskDefinitionHealthCheck
 import Stratosphere.ResourceProperties.ECSTaskDefinitionLinuxParameters
 import Stratosphere.ResourceProperties.ECSTaskDefinitionLogConfiguration
@@ -39,6 +40,7 @@ data ECSTaskDefinitionContainerDefinition =
   , _eCSTaskDefinitionContainerDefinitionEnvironment :: Maybe [ECSTaskDefinitionKeyValuePair]
   , _eCSTaskDefinitionContainerDefinitionEssential :: Maybe (Val Bool)
   , _eCSTaskDefinitionContainerDefinitionExtraHosts :: Maybe [ECSTaskDefinitionHostEntry]
+  , _eCSTaskDefinitionContainerDefinitionFirelensConfiguration :: Maybe ECSTaskDefinitionFirelensConfiguration
   , _eCSTaskDefinitionContainerDefinitionHealthCheck :: Maybe ECSTaskDefinitionHealthCheck
   , _eCSTaskDefinitionContainerDefinitionHostname :: Maybe (Val Text)
   , _eCSTaskDefinitionContainerDefinitionImage :: Val Text
@@ -82,6 +84,7 @@ instance ToJSON ECSTaskDefinitionContainerDefinition where
     , fmap (("Environment",) . toJSON) _eCSTaskDefinitionContainerDefinitionEnvironment
     , fmap (("Essential",) . toJSON) _eCSTaskDefinitionContainerDefinitionEssential
     , fmap (("ExtraHosts",) . toJSON) _eCSTaskDefinitionContainerDefinitionExtraHosts
+    , fmap (("FirelensConfiguration",) . toJSON) _eCSTaskDefinitionContainerDefinitionFirelensConfiguration
     , fmap (("HealthCheck",) . toJSON) _eCSTaskDefinitionContainerDefinitionHealthCheck
     , fmap (("Hostname",) . toJSON) _eCSTaskDefinitionContainerDefinitionHostname
     , (Just . ("Image",) . toJSON) _eCSTaskDefinitionContainerDefinitionImage
@@ -129,6 +132,7 @@ ecsTaskDefinitionContainerDefinition imagearg namearg =
   , _eCSTaskDefinitionContainerDefinitionEnvironment = Nothing
   , _eCSTaskDefinitionContainerDefinitionEssential = Nothing
   , _eCSTaskDefinitionContainerDefinitionExtraHosts = Nothing
+  , _eCSTaskDefinitionContainerDefinitionFirelensConfiguration = Nothing
   , _eCSTaskDefinitionContainerDefinitionHealthCheck = Nothing
   , _eCSTaskDefinitionContainerDefinitionHostname = Nothing
   , _eCSTaskDefinitionContainerDefinitionImage = imagearg
@@ -203,6 +207,10 @@ ecstdcdEssential = lens _eCSTaskDefinitionContainerDefinitionEssential (\s a -> 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-extrahosts
 ecstdcdExtraHosts :: Lens' ECSTaskDefinitionContainerDefinition (Maybe [ECSTaskDefinitionHostEntry])
 ecstdcdExtraHosts = lens _eCSTaskDefinitionContainerDefinitionExtraHosts (\s a -> s { _eCSTaskDefinitionContainerDefinitionExtraHosts = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-firelensconfiguration
+ecstdcdFirelensConfiguration :: Lens' ECSTaskDefinitionContainerDefinition (Maybe ECSTaskDefinitionFirelensConfiguration)
+ecstdcdFirelensConfiguration = lens _eCSTaskDefinitionContainerDefinitionFirelensConfiguration (\s a -> s { _eCSTaskDefinitionContainerDefinitionFirelensConfiguration = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-healthcheck
 ecstdcdHealthCheck :: Lens' ECSTaskDefinitionContainerDefinition (Maybe ECSTaskDefinitionHealthCheck)

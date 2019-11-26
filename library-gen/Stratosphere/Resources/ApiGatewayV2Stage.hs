@@ -17,9 +17,10 @@ data ApiGatewayV2Stage =
   ApiGatewayV2Stage
   { _apiGatewayV2StageAccessLogSettings :: Maybe ApiGatewayV2StageAccessLogSettings
   , _apiGatewayV2StageApiId :: Val Text
+  , _apiGatewayV2StageAutoDeploy :: Maybe (Val Bool)
   , _apiGatewayV2StageClientCertificateId :: Maybe (Val Text)
   , _apiGatewayV2StageDefaultRouteSettings :: Maybe ApiGatewayV2StageRouteSettings
-  , _apiGatewayV2StageDeploymentId :: Val Text
+  , _apiGatewayV2StageDeploymentId :: Maybe (Val Text)
   , _apiGatewayV2StageDescription :: Maybe (Val Text)
   , _apiGatewayV2StageRouteSettings :: Maybe Object
   , _apiGatewayV2StageStageName :: Val Text
@@ -35,9 +36,10 @@ instance ToResourceProperties ApiGatewayV2Stage where
         hashMapFromList $ catMaybes
         [ fmap (("AccessLogSettings",) . toJSON) _apiGatewayV2StageAccessLogSettings
         , (Just . ("ApiId",) . toJSON) _apiGatewayV2StageApiId
+        , fmap (("AutoDeploy",) . toJSON) _apiGatewayV2StageAutoDeploy
         , fmap (("ClientCertificateId",) . toJSON) _apiGatewayV2StageClientCertificateId
         , fmap (("DefaultRouteSettings",) . toJSON) _apiGatewayV2StageDefaultRouteSettings
-        , (Just . ("DeploymentId",) . toJSON) _apiGatewayV2StageDeploymentId
+        , fmap (("DeploymentId",) . toJSON) _apiGatewayV2StageDeploymentId
         , fmap (("Description",) . toJSON) _apiGatewayV2StageDescription
         , fmap (("RouteSettings",) . toJSON) _apiGatewayV2StageRouteSettings
         , (Just . ("StageName",) . toJSON) _apiGatewayV2StageStageName
@@ -50,16 +52,16 @@ instance ToResourceProperties ApiGatewayV2Stage where
 -- arguments.
 apiGatewayV2Stage
   :: Val Text -- ^ 'agvsApiId'
-  -> Val Text -- ^ 'agvsDeploymentId'
   -> Val Text -- ^ 'agvsStageName'
   -> ApiGatewayV2Stage
-apiGatewayV2Stage apiIdarg deploymentIdarg stageNamearg =
+apiGatewayV2Stage apiIdarg stageNamearg =
   ApiGatewayV2Stage
   { _apiGatewayV2StageAccessLogSettings = Nothing
   , _apiGatewayV2StageApiId = apiIdarg
+  , _apiGatewayV2StageAutoDeploy = Nothing
   , _apiGatewayV2StageClientCertificateId = Nothing
   , _apiGatewayV2StageDefaultRouteSettings = Nothing
-  , _apiGatewayV2StageDeploymentId = deploymentIdarg
+  , _apiGatewayV2StageDeploymentId = Nothing
   , _apiGatewayV2StageDescription = Nothing
   , _apiGatewayV2StageRouteSettings = Nothing
   , _apiGatewayV2StageStageName = stageNamearg
@@ -75,6 +77,10 @@ agvsAccessLogSettings = lens _apiGatewayV2StageAccessLogSettings (\s a -> s { _a
 agvsApiId :: Lens' ApiGatewayV2Stage (Val Text)
 agvsApiId = lens _apiGatewayV2StageApiId (\s a -> s { _apiGatewayV2StageApiId = a })
 
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-stage.html#cfn-apigatewayv2-stage-autodeploy
+agvsAutoDeploy :: Lens' ApiGatewayV2Stage (Maybe (Val Bool))
+agvsAutoDeploy = lens _apiGatewayV2StageAutoDeploy (\s a -> s { _apiGatewayV2StageAutoDeploy = a })
+
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-stage.html#cfn-apigatewayv2-stage-clientcertificateid
 agvsClientCertificateId :: Lens' ApiGatewayV2Stage (Maybe (Val Text))
 agvsClientCertificateId = lens _apiGatewayV2StageClientCertificateId (\s a -> s { _apiGatewayV2StageClientCertificateId = a })
@@ -84,7 +90,7 @@ agvsDefaultRouteSettings :: Lens' ApiGatewayV2Stage (Maybe ApiGatewayV2StageRout
 agvsDefaultRouteSettings = lens _apiGatewayV2StageDefaultRouteSettings (\s a -> s { _apiGatewayV2StageDefaultRouteSettings = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-stage.html#cfn-apigatewayv2-stage-deploymentid
-agvsDeploymentId :: Lens' ApiGatewayV2Stage (Val Text)
+agvsDeploymentId :: Lens' ApiGatewayV2Stage (Maybe (Val Text))
 agvsDeploymentId = lens _apiGatewayV2StageDeploymentId (\s a -> s { _apiGatewayV2StageDeploymentId = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-stage.html#cfn-apigatewayv2-stage-description

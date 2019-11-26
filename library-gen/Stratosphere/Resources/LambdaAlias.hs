@@ -8,6 +8,7 @@
 module Stratosphere.Resources.LambdaAlias where
 
 import Stratosphere.ResourceImports
+import Stratosphere.ResourceProperties.LambdaAliasProvisionedConcurrencyConfiguration
 import Stratosphere.ResourceProperties.LambdaAliasAliasRoutingConfiguration
 
 -- | Full data type definition for LambdaAlias. See 'lambdaAlias' for a more
@@ -18,6 +19,7 @@ data LambdaAlias =
   , _lambdaAliasFunctionName :: Val Text
   , _lambdaAliasFunctionVersion :: Val Text
   , _lambdaAliasName :: Val Text
+  , _lambdaAliasProvisionedConcurrencyConfig :: Maybe LambdaAliasProvisionedConcurrencyConfiguration
   , _lambdaAliasRoutingConfig :: Maybe LambdaAliasAliasRoutingConfiguration
   } deriving (Show, Eq)
 
@@ -31,6 +33,7 @@ instance ToResourceProperties LambdaAlias where
         , (Just . ("FunctionName",) . toJSON) _lambdaAliasFunctionName
         , (Just . ("FunctionVersion",) . toJSON) _lambdaAliasFunctionVersion
         , (Just . ("Name",) . toJSON) _lambdaAliasName
+        , fmap (("ProvisionedConcurrencyConfig",) . toJSON) _lambdaAliasProvisionedConcurrencyConfig
         , fmap (("RoutingConfig",) . toJSON) _lambdaAliasRoutingConfig
         ]
     }
@@ -47,6 +50,7 @@ lambdaAlias functionNamearg functionVersionarg namearg =
   , _lambdaAliasFunctionName = functionNamearg
   , _lambdaAliasFunctionVersion = functionVersionarg
   , _lambdaAliasName = namearg
+  , _lambdaAliasProvisionedConcurrencyConfig = Nothing
   , _lambdaAliasRoutingConfig = Nothing
   }
 
@@ -65,6 +69,10 @@ laFunctionVersion = lens _lambdaAliasFunctionVersion (\s a -> s { _lambdaAliasFu
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-alias.html#cfn-lambda-alias-name
 laName :: Lens' LambdaAlias (Val Text)
 laName = lens _lambdaAliasName (\s a -> s { _lambdaAliasName = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-alias.html#cfn-lambda-alias-provisionedconcurrencyconfig
+laProvisionedConcurrencyConfig :: Lens' LambdaAlias (Maybe LambdaAliasProvisionedConcurrencyConfiguration)
+laProvisionedConcurrencyConfig = lens _lambdaAliasProvisionedConcurrencyConfig (\s a -> s { _lambdaAliasProvisionedConcurrencyConfig = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-alias.html#cfn-lambda-alias-routingconfig
 laRoutingConfig :: Lens' LambdaAlias (Maybe LambdaAliasAliasRoutingConfiguration)

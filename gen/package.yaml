@@ -30,7 +30,9 @@ executables:
       - extra
       - filepath
       - lens >= 4.5
+      - lens-aeson
       - shakespeare
       - system-filepath
       - text >= 1.1
       - text-manipulate
+      - unordered-containers

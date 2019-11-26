@@ -16,6 +16,7 @@ import Stratosphere.ResourceProperties.GlueMLTransformTransformParameters
 data GlueMLTransform =
   GlueMLTransform
   { _glueMLTransformDescription :: Maybe (Val Text)
+  , _glueMLTransformGlueVersion :: Maybe (Val Text)
   , _glueMLTransformInputRecordTables :: GlueMLTransformInputRecordTables
   , _glueMLTransformMaxCapacity :: Maybe (Val Double)
   , _glueMLTransformMaxRetries :: Maybe (Val Integer)
@@ -34,6 +35,7 @@ instance ToResourceProperties GlueMLTransform where
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
         [ fmap (("Description",) . toJSON) _glueMLTransformDescription
+        , fmap (("GlueVersion",) . toJSON) _glueMLTransformGlueVersion
         , (Just . ("InputRecordTables",) . toJSON) _glueMLTransformInputRecordTables
         , fmap (("MaxCapacity",) . toJSON) _glueMLTransformMaxCapacity
         , fmap (("MaxRetries",) . toJSON) _glueMLTransformMaxRetries
@@ -56,6 +58,7 @@ glueMLTransform
 glueMLTransform inputRecordTablesarg rolearg transformParametersarg =
   GlueMLTransform
   { _glueMLTransformDescription = Nothing
+  , _glueMLTransformGlueVersion = Nothing
   , _glueMLTransformInputRecordTables = inputRecordTablesarg
   , _glueMLTransformMaxCapacity = Nothing
   , _glueMLTransformMaxRetries = Nothing
@@ -70,6 +73,10 @@ glueMLTransform inputRecordTablesarg rolearg transformParametersarg =
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-mltransform.html#cfn-glue-mltransform-description
 gmltDescription :: Lens' GlueMLTransform (Maybe (Val Text))
 gmltDescription = lens _glueMLTransformDescription (\s a -> s { _glueMLTransformDescription = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-mltransform.html#cfn-glue-mltransform-glueversion
+gmltGlueVersion :: Lens' GlueMLTransform (Maybe (Val Text))
+gmltGlueVersion = lens _glueMLTransformGlueVersion (\s a -> s { _glueMLTransformGlueVersion = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-mltransform.html#cfn-glue-mltransform-inputrecordtables
 gmltInputRecordTables :: Lens' GlueMLTransform GlueMLTransformInputRecordTables
