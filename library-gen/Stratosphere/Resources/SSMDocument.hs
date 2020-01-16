@@ -16,6 +16,7 @@ data SSMDocument =
   SSMDocument
   { _sSMDocumentContent :: Object
   , _sSMDocumentDocumentType :: Maybe (Val Text)
+  , _sSMDocumentName :: Maybe (Val Text)
   , _sSMDocumentTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
@@ -27,6 +28,7 @@ instance ToResourceProperties SSMDocument where
         hashMapFromList $ catMaybes
         [ (Just . ("Content",) . toJSON) _sSMDocumentContent
         , fmap (("DocumentType",) . toJSON) _sSMDocumentDocumentType
+        , fmap (("Name",) . toJSON) _sSMDocumentName
         , fmap (("Tags",) . toJSON) _sSMDocumentTags
         ]
     }
@@ -39,6 +41,7 @@ ssmDocument contentarg =
   SSMDocument
   { _sSMDocumentContent = contentarg
   , _sSMDocumentDocumentType = Nothing
+  , _sSMDocumentName = Nothing
   , _sSMDocumentTags = Nothing
   }
 
@@ -49,6 +52,10 @@ ssmdContent = lens _sSMDocumentContent (\s a -> s { _sSMDocumentContent = a })
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-documenttype
 ssmdDocumentType :: Lens' SSMDocument (Maybe (Val Text))
 ssmdDocumentType = lens _sSMDocumentDocumentType (\s a -> s { _sSMDocumentDocumentType = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-name
+ssmdName :: Lens' SSMDocument (Maybe (Val Text))
+ssmdName = lens _sSMDocumentName (\s a -> s { _sSMDocumentName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-document.html#cfn-ssm-document-tags
 ssmdTags :: Lens' SSMDocument (Maybe [Tag])

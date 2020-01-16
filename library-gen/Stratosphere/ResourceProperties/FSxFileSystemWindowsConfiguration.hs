@@ -18,6 +18,8 @@ data FSxFileSystemWindowsConfiguration =
   , _fSxFileSystemWindowsConfigurationAutomaticBackupRetentionDays :: Maybe (Val Integer)
   , _fSxFileSystemWindowsConfigurationCopyTagsToBackups :: Maybe (Val Bool)
   , _fSxFileSystemWindowsConfigurationDailyAutomaticBackupStartTime :: Maybe (Val Text)
+  , _fSxFileSystemWindowsConfigurationDeploymentType :: Maybe (Val Text)
+  , _fSxFileSystemWindowsConfigurationPreferredSubnetId :: Maybe (Val Text)
   , _fSxFileSystemWindowsConfigurationSelfManagedActiveDirectoryConfiguration :: Maybe FSxFileSystemSelfManagedActiveDirectoryConfiguration
   , _fSxFileSystemWindowsConfigurationThroughputCapacity :: Maybe (Val Integer)
   , _fSxFileSystemWindowsConfigurationWeeklyMaintenanceStartTime :: Maybe (Val Text)
@@ -31,6 +33,8 @@ instance ToJSON FSxFileSystemWindowsConfiguration where
     , fmap (("AutomaticBackupRetentionDays",) . toJSON) _fSxFileSystemWindowsConfigurationAutomaticBackupRetentionDays
     , fmap (("CopyTagsToBackups",) . toJSON) _fSxFileSystemWindowsConfigurationCopyTagsToBackups
     , fmap (("DailyAutomaticBackupStartTime",) . toJSON) _fSxFileSystemWindowsConfigurationDailyAutomaticBackupStartTime
+    , fmap (("DeploymentType",) . toJSON) _fSxFileSystemWindowsConfigurationDeploymentType
+    , fmap (("PreferredSubnetId",) . toJSON) _fSxFileSystemWindowsConfigurationPreferredSubnetId
     , fmap (("SelfManagedActiveDirectoryConfiguration",) . toJSON) _fSxFileSystemWindowsConfigurationSelfManagedActiveDirectoryConfiguration
     , fmap (("ThroughputCapacity",) . toJSON) _fSxFileSystemWindowsConfigurationThroughputCapacity
     , fmap (("WeeklyMaintenanceStartTime",) . toJSON) _fSxFileSystemWindowsConfigurationWeeklyMaintenanceStartTime
@@ -46,6 +50,8 @@ fSxFileSystemWindowsConfiguration  =
   , _fSxFileSystemWindowsConfigurationAutomaticBackupRetentionDays = Nothing
   , _fSxFileSystemWindowsConfigurationCopyTagsToBackups = Nothing
   , _fSxFileSystemWindowsConfigurationDailyAutomaticBackupStartTime = Nothing
+  , _fSxFileSystemWindowsConfigurationDeploymentType = Nothing
+  , _fSxFileSystemWindowsConfigurationPreferredSubnetId = Nothing
   , _fSxFileSystemWindowsConfigurationSelfManagedActiveDirectoryConfiguration = Nothing
   , _fSxFileSystemWindowsConfigurationThroughputCapacity = Nothing
   , _fSxFileSystemWindowsConfigurationWeeklyMaintenanceStartTime = Nothing
@@ -66,6 +72,14 @@ fsfswcCopyTagsToBackups = lens _fSxFileSystemWindowsConfigurationCopyTagsToBacku
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-windowsconfiguration.html#cfn-fsx-filesystem-windowsconfiguration-dailyautomaticbackupstarttime
 fsfswcDailyAutomaticBackupStartTime :: Lens' FSxFileSystemWindowsConfiguration (Maybe (Val Text))
 fsfswcDailyAutomaticBackupStartTime = lens _fSxFileSystemWindowsConfigurationDailyAutomaticBackupStartTime (\s a -> s { _fSxFileSystemWindowsConfigurationDailyAutomaticBackupStartTime = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-windowsconfiguration.html#cfn-fsx-filesystem-windowsconfiguration-deploymenttype
+fsfswcDeploymentType :: Lens' FSxFileSystemWindowsConfiguration (Maybe (Val Text))
+fsfswcDeploymentType = lens _fSxFileSystemWindowsConfigurationDeploymentType (\s a -> s { _fSxFileSystemWindowsConfigurationDeploymentType = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-windowsconfiguration.html#cfn-fsx-filesystem-windowsconfiguration-preferredsubnetid
+fsfswcPreferredSubnetId :: Lens' FSxFileSystemWindowsConfiguration (Maybe (Val Text))
+fsfswcPreferredSubnetId = lens _fSxFileSystemWindowsConfigurationPreferredSubnetId (\s a -> s { _fSxFileSystemWindowsConfigurationPreferredSubnetId = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-windowsconfiguration.html#cfn-fsx-filesystem-windowsconfiguration-selfmanagedactivedirectoryconfiguration
 fsfswcSelfManagedActiveDirectoryConfiguration :: Lens' FSxFileSystemWindowsConfiguration (Maybe FSxFileSystemSelfManagedActiveDirectoryConfiguration)

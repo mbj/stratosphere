@@ -26,6 +26,7 @@ data RDSDBCluster =
   , _rDSDBClusterDatabaseName :: Maybe (Val Text)
   , _rDSDBClusterDeletionProtection :: Maybe (Val Bool)
   , _rDSDBClusterEnableCloudwatchLogsExports :: Maybe (ValList Text)
+  , _rDSDBClusterEnableHttpEndpoint :: Maybe (Val Bool)
   , _rDSDBClusterEnableIAMDatabaseAuthentication :: Maybe (Val Bool)
   , _rDSDBClusterEngine :: Val Text
   , _rDSDBClusterEngineMode :: Maybe (Val Text)
@@ -64,6 +65,7 @@ instance ToResourceProperties RDSDBCluster where
         , fmap (("DatabaseName",) . toJSON) _rDSDBClusterDatabaseName
         , fmap (("DeletionProtection",) . toJSON) _rDSDBClusterDeletionProtection
         , fmap (("EnableCloudwatchLogsExports",) . toJSON) _rDSDBClusterEnableCloudwatchLogsExports
+        , fmap (("EnableHttpEndpoint",) . toJSON) _rDSDBClusterEnableHttpEndpoint
         , fmap (("EnableIAMDatabaseAuthentication",) . toJSON) _rDSDBClusterEnableIAMDatabaseAuthentication
         , (Just . ("Engine",) . toJSON) _rDSDBClusterEngine
         , fmap (("EngineMode",) . toJSON) _rDSDBClusterEngineMode
@@ -103,6 +105,7 @@ rdsdbCluster enginearg =
   , _rDSDBClusterDatabaseName = Nothing
   , _rDSDBClusterDeletionProtection = Nothing
   , _rDSDBClusterEnableCloudwatchLogsExports = Nothing
+  , _rDSDBClusterEnableHttpEndpoint = Nothing
   , _rDSDBClusterEnableIAMDatabaseAuthentication = Nothing
   , _rDSDBClusterEngine = enginearg
   , _rDSDBClusterEngineMode = Nothing
@@ -164,6 +167,10 @@ rdsdbcDeletionProtection = lens _rDSDBClusterDeletionProtection (\s a -> s { _rD
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-enablecloudwatchlogsexports
 rdsdbcEnableCloudwatchLogsExports :: Lens' RDSDBCluster (Maybe (ValList Text))
 rdsdbcEnableCloudwatchLogsExports = lens _rDSDBClusterEnableCloudwatchLogsExports (\s a -> s { _rDSDBClusterEnableCloudwatchLogsExports = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-enablehttpendpoint
+rdsdbcEnableHttpEndpoint :: Lens' RDSDBCluster (Maybe (Val Bool))
+rdsdbcEnableHttpEndpoint = lens _rDSDBClusterEnableHttpEndpoint (\s a -> s { _rDSDBClusterEnableHttpEndpoint = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html#cfn-rds-dbcluster-enableiamdatabaseauthentication
 rdsdbcEnableIAMDatabaseAuthentication :: Lens' RDSDBCluster (Maybe (Val Bool))

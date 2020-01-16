@@ -8,6 +8,7 @@
 module Stratosphere.Resources.ElasticsearchDomain where
 
 import Stratosphere.ResourceImports
+import Stratosphere.ResourceProperties.ElasticsearchDomainCognitoOptions
 import Stratosphere.ResourceProperties.ElasticsearchDomainEBSOptions
 import Stratosphere.ResourceProperties.ElasticsearchDomainElasticsearchClusterConfig
 import Stratosphere.ResourceProperties.ElasticsearchDomainEncryptionAtRestOptions
@@ -23,6 +24,7 @@ data ElasticsearchDomain =
   ElasticsearchDomain
   { _elasticsearchDomainAccessPolicies :: Maybe Object
   , _elasticsearchDomainAdvancedOptions :: Maybe Object
+  , _elasticsearchDomainCognitoOptions :: Maybe ElasticsearchDomainCognitoOptions
   , _elasticsearchDomainDomainName :: Maybe (Val Text)
   , _elasticsearchDomainEBSOptions :: Maybe ElasticsearchDomainEBSOptions
   , _elasticsearchDomainElasticsearchClusterConfig :: Maybe ElasticsearchDomainElasticsearchClusterConfig
@@ -43,6 +45,7 @@ instance ToResourceProperties ElasticsearchDomain where
         hashMapFromList $ catMaybes
         [ fmap (("AccessPolicies",) . toJSON) _elasticsearchDomainAccessPolicies
         , fmap (("AdvancedOptions",) . toJSON) _elasticsearchDomainAdvancedOptions
+        , fmap (("CognitoOptions",) . toJSON) _elasticsearchDomainCognitoOptions
         , fmap (("DomainName",) . toJSON) _elasticsearchDomainDomainName
         , fmap (("EBSOptions",) . toJSON) _elasticsearchDomainEBSOptions
         , fmap (("ElasticsearchClusterConfig",) . toJSON) _elasticsearchDomainElasticsearchClusterConfig
@@ -64,6 +67,7 @@ elasticsearchDomain  =
   ElasticsearchDomain
   { _elasticsearchDomainAccessPolicies = Nothing
   , _elasticsearchDomainAdvancedOptions = Nothing
+  , _elasticsearchDomainCognitoOptions = Nothing
   , _elasticsearchDomainDomainName = Nothing
   , _elasticsearchDomainEBSOptions = Nothing
   , _elasticsearchDomainElasticsearchClusterConfig = Nothing
@@ -83,6 +87,10 @@ edAccessPolicies = lens _elasticsearchDomainAccessPolicies (\s a -> s { _elastic
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-advancedoptions
 edAdvancedOptions :: Lens' ElasticsearchDomain (Maybe Object)
 edAdvancedOptions = lens _elasticsearchDomainAdvancedOptions (\s a -> s { _elasticsearchDomainAdvancedOptions = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-cognitooptions
+edCognitoOptions :: Lens' ElasticsearchDomain (Maybe ElasticsearchDomainCognitoOptions)
+edCognitoOptions = lens _elasticsearchDomainCognitoOptions (\s a -> s { _elasticsearchDomainCognitoOptions = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-domainname
 edDomainName :: Lens' ElasticsearchDomain (Maybe (Val Text))

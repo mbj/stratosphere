@@ -44,6 +44,7 @@ import qualified Data.Text as T
 import GHC.Exts (IsList(..))
 import GHC.Generics (Generic)
 
+import Stratosphere.Resources.AccessAnalyzerAnalyzer as X
 import Stratosphere.Resources.AmazonMQBroker as X
 import Stratosphere.Resources.AmazonMQConfiguration as X
 import Stratosphere.Resources.AmazonMQConfigurationAssociation as X
@@ -92,6 +93,7 @@ import Stratosphere.Resources.AppStreamStack as X
 import Stratosphere.Resources.AppStreamStackFleetAssociation as X
 import Stratosphere.Resources.AppStreamStackUserAssociation as X
 import Stratosphere.Resources.AppStreamUser as X
+import Stratosphere.Resources.AppSyncApiCache as X
 import Stratosphere.Resources.AppSyncApiKey as X
 import Stratosphere.Resources.AppSyncDataSource as X
 import Stratosphere.Resources.AppSyncFunctionConfiguration as X
@@ -128,7 +130,9 @@ import Stratosphere.Resources.CloudTrailTrail as X
 import Stratosphere.Resources.CloudWatchAlarm as X
 import Stratosphere.Resources.CloudWatchAnomalyDetector as X
 import Stratosphere.Resources.CloudWatchDashboard as X
+import Stratosphere.Resources.CloudWatchInsightRule as X
 import Stratosphere.Resources.CodeBuildProject as X
+import Stratosphere.Resources.CodeBuildReportGroup as X
 import Stratosphere.Resources.CodeBuildSourceCredential as X
 import Stratosphere.Resources.CodeCommitRepository as X
 import Stratosphere.Resources.CodeDeployApplication as X
@@ -188,6 +192,7 @@ import Stratosphere.Resources.EC2EIP as X
 import Stratosphere.Resources.EC2EIPAssociation as X
 import Stratosphere.Resources.EC2EgressOnlyInternetGateway as X
 import Stratosphere.Resources.EC2FlowLog as X
+import Stratosphere.Resources.EC2GatewayRouteTableAssociation as X
 import Stratosphere.Resources.EC2Host as X
 import Stratosphere.Resources.EC2Instance as X
 import Stratosphere.Resources.EC2InternetGateway as X
@@ -236,11 +241,14 @@ import Stratosphere.Resources.EC2Volume as X
 import Stratosphere.Resources.EC2VolumeAttachment as X
 import Stratosphere.Resources.ECRRepository as X
 import Stratosphere.Resources.ECSCluster as X
+import Stratosphere.Resources.ECSPrimaryTaskSet as X
 import Stratosphere.Resources.ECSService as X
 import Stratosphere.Resources.ECSTaskDefinition as X
+import Stratosphere.Resources.ECSTaskSet as X
 import Stratosphere.Resources.EFSFileSystem as X
 import Stratosphere.Resources.EFSMountTarget as X
 import Stratosphere.Resources.EKSCluster as X
+import Stratosphere.Resources.EKSNodegroup as X
 import Stratosphere.Resources.EMRCluster as X
 import Stratosphere.Resources.EMRInstanceFleetConfig as X
 import Stratosphere.Resources.EMRInstanceGroupConfig as X
@@ -263,6 +271,9 @@ import Stratosphere.Resources.ElasticLoadBalancingV2ListenerRule as X
 import Stratosphere.Resources.ElasticLoadBalancingV2LoadBalancer as X
 import Stratosphere.Resources.ElasticLoadBalancingV2TargetGroup as X
 import Stratosphere.Resources.ElasticsearchDomain as X
+import Stratosphere.Resources.EventSchemasDiscoverer as X
+import Stratosphere.Resources.EventSchemasRegistry as X
+import Stratosphere.Resources.EventSchemasSchema as X
 import Stratosphere.Resources.EventsEventBus as X
 import Stratosphere.Resources.EventsEventBusPolicy as X
 import Stratosphere.Resources.EventsRule as X
@@ -270,6 +281,10 @@ import Stratosphere.Resources.FSxFileSystem as X
 import Stratosphere.Resources.GameLiftAlias as X
 import Stratosphere.Resources.GameLiftBuild as X
 import Stratosphere.Resources.GameLiftFleet as X
+import Stratosphere.Resources.GameLiftGameSessionQueue as X
+import Stratosphere.Resources.GameLiftMatchmakingConfiguration as X
+import Stratosphere.Resources.GameLiftMatchmakingRuleSet as X
+import Stratosphere.Resources.GameLiftScript as X
 import Stratosphere.Resources.GlueClassifier as X
 import Stratosphere.Resources.GlueConnection as X
 import Stratosphere.Resources.GlueCrawler as X
@@ -349,6 +364,7 @@ import Stratosphere.Resources.LakeFormationDataLakeSettings as X
 import Stratosphere.Resources.LakeFormationPermissions as X
 import Stratosphere.Resources.LakeFormationResource as X
 import Stratosphere.Resources.LambdaAlias as X
+import Stratosphere.Resources.LambdaEventInvokeConfig as X
 import Stratosphere.Resources.LambdaEventSourceMapping as X
 import Stratosphere.Resources.LambdaFunction as X
 import Stratosphere.Resources.LambdaLayerVersion as X
@@ -434,6 +450,7 @@ import Stratosphere.Resources.Route53RecordSetGroup as X
 import Stratosphere.Resources.Route53ResolverResolverEndpoint as X
 import Stratosphere.Resources.Route53ResolverResolverRule as X
 import Stratosphere.Resources.Route53ResolverResolverRuleAssociation as X
+import Stratosphere.Resources.S3AccessPoint as X
 import Stratosphere.Resources.S3Bucket as X
 import Stratosphere.Resources.S3BucketPolicy as X
 import Stratosphere.Resources.SDBDomain as X
@@ -511,6 +528,8 @@ import Stratosphere.Resources.WAFRegionalWebACLAssociation as X
 import Stratosphere.Resources.WAFRegionalXssMatchSet as X
 import Stratosphere.Resources.WorkSpacesWorkspace as X
 import Stratosphere.Resources.ASKSkill as X
+import Stratosphere.ResourceProperties.AccessAnalyzerAnalyzerArchiveRule as X
+import Stratosphere.ResourceProperties.AccessAnalyzerAnalyzerFilter as X
 import Stratosphere.ResourceProperties.AmazonMQBrokerConfigurationId as X
 import Stratosphere.ResourceProperties.AmazonMQBrokerEncryptionOptions as X
 import Stratosphere.ResourceProperties.AmazonMQBrokerLogList as X
@@ -545,6 +564,9 @@ import Stratosphere.ResourceProperties.ApiGatewayStageMethodSetting as X
 import Stratosphere.ResourceProperties.ApiGatewayUsagePlanApiStage as X
 import Stratosphere.ResourceProperties.ApiGatewayUsagePlanQuotaSettings as X
 import Stratosphere.ResourceProperties.ApiGatewayUsagePlanThrottleSettings as X
+import Stratosphere.ResourceProperties.ApiGatewayV2ApiBodyS3Location as X
+import Stratosphere.ResourceProperties.ApiGatewayV2ApiCors as X
+import Stratosphere.ResourceProperties.ApiGatewayV2AuthorizerJWTConfiguration as X
 import Stratosphere.ResourceProperties.ApiGatewayV2DomainNameDomainNameConfiguration as X
 import Stratosphere.ResourceProperties.ApiGatewayV2RouteParameterConstraints as X
 import Stratosphere.ResourceProperties.ApiGatewayV2RouteResponseParameterConstraints as X
@@ -603,6 +625,7 @@ import Stratosphere.ResourceProperties.AppStreamStackStorageConnector as X
 import Stratosphere.ResourceProperties.AppStreamStackUserSetting as X
 import Stratosphere.ResourceProperties.AppSyncDataSourceAuthorizationConfig as X
 import Stratosphere.ResourceProperties.AppSyncDataSourceAwsIamConfig as X
+import Stratosphere.ResourceProperties.AppSyncDataSourceDeltaSyncConfig as X
 import Stratosphere.ResourceProperties.AppSyncDataSourceDynamoDBConfig as X
 import Stratosphere.ResourceProperties.AppSyncDataSourceElasticsearchConfig as X
 import Stratosphere.ResourceProperties.AppSyncDataSourceHttpConfig as X
@@ -614,7 +637,10 @@ import Stratosphere.ResourceProperties.AppSyncGraphQLApiCognitoUserPoolConfig as
 import Stratosphere.ResourceProperties.AppSyncGraphQLApiLogConfig as X
 import Stratosphere.ResourceProperties.AppSyncGraphQLApiOpenIDConnectConfig as X
 import Stratosphere.ResourceProperties.AppSyncGraphQLApiUserPoolConfig as X
+import Stratosphere.ResourceProperties.AppSyncResolverCachingConfig as X
+import Stratosphere.ResourceProperties.AppSyncResolverLambdaConflictHandlerConfig as X
 import Stratosphere.ResourceProperties.AppSyncResolverPipelineConfig as X
+import Stratosphere.ResourceProperties.AppSyncResolverSyncConfig as X
 import Stratosphere.ResourceProperties.ApplicationAutoScalingScalableTargetScalableTargetAction as X
 import Stratosphere.ResourceProperties.ApplicationAutoScalingScalableTargetScheduledAction as X
 import Stratosphere.ResourceProperties.ApplicationAutoScalingScalableTargetSuspendedState as X
@@ -724,6 +750,8 @@ import Stratosphere.ResourceProperties.CodeBuildProjectSource as X
 import Stratosphere.ResourceProperties.CodeBuildProjectSourceAuth as X
 import Stratosphere.ResourceProperties.CodeBuildProjectVpcConfig as X
 import Stratosphere.ResourceProperties.CodeBuildProjectWebhookFilter as X
+import Stratosphere.ResourceProperties.CodeBuildReportGroupReportExportConfig as X
+import Stratosphere.ResourceProperties.CodeBuildReportGroupS3ReportExportConfig as X
 import Stratosphere.ResourceProperties.CodeCommitRepositoryCode as X
 import Stratosphere.ResourceProperties.CodeCommitRepositoryRepositoryTrigger as X
 import Stratosphere.ResourceProperties.CodeCommitRepositoryS3 as X
@@ -811,6 +839,9 @@ import Stratosphere.ResourceProperties.ConfigRemediationConfigurationSsmControls
 import Stratosphere.ResourceProperties.ConfigRemediationConfigurationStaticValue as X
 import Stratosphere.ResourceProperties.DAXClusterSSESpecification as X
 import Stratosphere.ResourceProperties.DLMLifecyclePolicyCreateRule as X
+import Stratosphere.ResourceProperties.DLMLifecyclePolicyCrossRegionCopyRetainRule as X
+import Stratosphere.ResourceProperties.DLMLifecyclePolicyCrossRegionCopyRule as X
+import Stratosphere.ResourceProperties.DLMLifecyclePolicyFastRestoreRule as X
 import Stratosphere.ResourceProperties.DLMLifecyclePolicyParameters as X
 import Stratosphere.ResourceProperties.DLMLifecyclePolicyPolicyDetails as X
 import Stratosphere.ResourceProperties.DLMLifecyclePolicyRetainRule as X
@@ -916,8 +947,10 @@ import Stratosphere.ResourceProperties.EC2SpotFleetTargetGroupsConfig as X
 import Stratosphere.ResourceProperties.EC2TrafficMirrorFilterRuleTrafficMirrorPortRange as X
 import Stratosphere.ResourceProperties.EC2VPNConnectionVpnTunnelOptionsSpecification as X
 import Stratosphere.ResourceProperties.ECRRepositoryLifecyclePolicy as X
+import Stratosphere.ResourceProperties.ECSClusterClusterSetting as X
 import Stratosphere.ResourceProperties.ECSServiceAwsVpcConfiguration as X
 import Stratosphere.ResourceProperties.ECSServiceDeploymentConfiguration as X
+import Stratosphere.ResourceProperties.ECSServiceDeploymentController as X
 import Stratosphere.ResourceProperties.ECSServiceLoadBalancer as X
 import Stratosphere.ResourceProperties.ECSServiceNetworkConfiguration as X
 import Stratosphere.ResourceProperties.ECSServicePlacementConstraint as X
@@ -927,6 +960,7 @@ import Stratosphere.ResourceProperties.ECSTaskDefinitionContainerDefinition as X
 import Stratosphere.ResourceProperties.ECSTaskDefinitionContainerDependency as X
 import Stratosphere.ResourceProperties.ECSTaskDefinitionDevice as X
 import Stratosphere.ResourceProperties.ECSTaskDefinitionDockerVolumeConfiguration as X
+import Stratosphere.ResourceProperties.ECSTaskDefinitionFirelensConfiguration as X
 import Stratosphere.ResourceProperties.ECSTaskDefinitionHealthCheck as X
 import Stratosphere.ResourceProperties.ECSTaskDefinitionHostEntry as X
 import Stratosphere.ResourceProperties.ECSTaskDefinitionHostVolumeProperties as X
@@ -947,9 +981,16 @@ import Stratosphere.ResourceProperties.ECSTaskDefinitionTmpfs as X
 import Stratosphere.ResourceProperties.ECSTaskDefinitionUlimit as X
 import Stratosphere.ResourceProperties.ECSTaskDefinitionVolume as X
 import Stratosphere.ResourceProperties.ECSTaskDefinitionVolumeFrom as X
+import Stratosphere.ResourceProperties.ECSTaskSetAwsVpcConfiguration as X
+import Stratosphere.ResourceProperties.ECSTaskSetLoadBalancer as X
+import Stratosphere.ResourceProperties.ECSTaskSetNetworkConfiguration as X
+import Stratosphere.ResourceProperties.ECSTaskSetScale as X
+import Stratosphere.ResourceProperties.ECSTaskSetServiceRegistry as X
 import Stratosphere.ResourceProperties.EFSFileSystemElasticFileSystemTag as X
 import Stratosphere.ResourceProperties.EFSFileSystemLifecyclePolicy as X
 import Stratosphere.ResourceProperties.EKSClusterResourcesVpcConfig as X
+import Stratosphere.ResourceProperties.EKSNodegroupRemoteAccess as X
+import Stratosphere.ResourceProperties.EKSNodegroupScalingConfig as X
 import Stratosphere.ResourceProperties.EMRClusterApplication as X
 import Stratosphere.ResourceProperties.EMRClusterAutoScalingPolicy as X
 import Stratosphere.ResourceProperties.EMRClusterBootstrapActionConfig as X
@@ -1040,6 +1081,7 @@ import Stratosphere.ResourceProperties.ElasticLoadBalancingV2LoadBalancerSubnetM
 import Stratosphere.ResourceProperties.ElasticLoadBalancingV2TargetGroupMatcher as X
 import Stratosphere.ResourceProperties.ElasticLoadBalancingV2TargetGroupTargetDescription as X
 import Stratosphere.ResourceProperties.ElasticLoadBalancingV2TargetGroupTargetGroupAttribute as X
+import Stratosphere.ResourceProperties.ElasticsearchDomainCognitoOptions as X
 import Stratosphere.ResourceProperties.ElasticsearchDomainEBSOptions as X
 import Stratosphere.ResourceProperties.ElasticsearchDomainElasticsearchClusterConfig as X
 import Stratosphere.ResourceProperties.ElasticsearchDomainEncryptionAtRestOptions as X
@@ -1048,6 +1090,9 @@ import Stratosphere.ResourceProperties.ElasticsearchDomainNodeToNodeEncryptionOp
 import Stratosphere.ResourceProperties.ElasticsearchDomainSnapshotOptions as X
 import Stratosphere.ResourceProperties.ElasticsearchDomainVPCOptions as X
 import Stratosphere.ResourceProperties.ElasticsearchDomainZoneAwarenessConfig as X
+import Stratosphere.ResourceProperties.EventSchemasDiscovererTagsEntry as X
+import Stratosphere.ResourceProperties.EventSchemasRegistryTagsEntry as X
+import Stratosphere.ResourceProperties.EventSchemasSchemaTagsEntry as X
 import Stratosphere.ResourceProperties.EventsEventBusPolicyCondition as X
 import Stratosphere.ResourceProperties.EventsRuleAwsVpcConfiguration as X
 import Stratosphere.ResourceProperties.EventsRuleBatchArrayProperties as X
@@ -1071,6 +1116,10 @@ import Stratosphere.ResourceProperties.GameLiftFleetIpPermission as X
 import Stratosphere.ResourceProperties.GameLiftFleetResourceCreationLimitPolicy as X
 import Stratosphere.ResourceProperties.GameLiftFleetRuntimeConfiguration as X
 import Stratosphere.ResourceProperties.GameLiftFleetServerProcess as X
+import Stratosphere.ResourceProperties.GameLiftGameSessionQueueDestination as X
+import Stratosphere.ResourceProperties.GameLiftGameSessionQueuePlayerLatencyPolicy as X
+import Stratosphere.ResourceProperties.GameLiftMatchmakingConfigurationGameProperty as X
+import Stratosphere.ResourceProperties.GameLiftScriptS3Location as X
 import Stratosphere.ResourceProperties.GlueClassifierCsvClassifier as X
 import Stratosphere.ResourceProperties.GlueClassifierGrokClassifier as X
 import Stratosphere.ResourceProperties.GlueClassifierJsonClassifier as X
@@ -1346,13 +1395,20 @@ import Stratosphere.ResourceProperties.LakeFormationPermissionsDatabaseResource 
 import Stratosphere.ResourceProperties.LakeFormationPermissionsResource as X
 import Stratosphere.ResourceProperties.LakeFormationPermissionsTableResource as X
 import Stratosphere.ResourceProperties.LambdaAliasAliasRoutingConfiguration as X
+import Stratosphere.ResourceProperties.LambdaAliasProvisionedConcurrencyConfiguration as X
 import Stratosphere.ResourceProperties.LambdaAliasVersionWeight as X
+import Stratosphere.ResourceProperties.LambdaEventInvokeConfigDestinationConfig as X
+import Stratosphere.ResourceProperties.LambdaEventInvokeConfigOnFailure as X
+import Stratosphere.ResourceProperties.LambdaEventInvokeConfigOnSuccess as X
+import Stratosphere.ResourceProperties.LambdaEventSourceMappingDestinationConfig as X
+import Stratosphere.ResourceProperties.LambdaEventSourceMappingOnFailure as X
 import Stratosphere.ResourceProperties.LambdaFunctionCode as X
 import Stratosphere.ResourceProperties.LambdaFunctionDeadLetterConfig as X
 import Stratosphere.ResourceProperties.LambdaFunctionEnvironment as X
 import Stratosphere.ResourceProperties.LambdaFunctionTracingConfig as X
 import Stratosphere.ResourceProperties.LambdaFunctionVpcConfig as X
 import Stratosphere.ResourceProperties.LambdaLayerVersionContent as X
+import Stratosphere.ResourceProperties.LambdaVersionProvisionedConcurrencyConfiguration as X
 import Stratosphere.ResourceProperties.LogsMetricFilterMetricTransformation as X
 import Stratosphere.ResourceProperties.MSKClusterBrokerNodeGroupInfo as X
 import Stratosphere.ResourceProperties.MSKClusterClientAuthentication as X
@@ -1361,6 +1417,10 @@ import Stratosphere.ResourceProperties.MSKClusterEBSStorageInfo as X
 import Stratosphere.ResourceProperties.MSKClusterEncryptionAtRest as X
 import Stratosphere.ResourceProperties.MSKClusterEncryptionInTransit as X
 import Stratosphere.ResourceProperties.MSKClusterEncryptionInfo as X
+import Stratosphere.ResourceProperties.MSKClusterJmxExporter as X
+import Stratosphere.ResourceProperties.MSKClusterNodeExporter as X
+import Stratosphere.ResourceProperties.MSKClusterOpenMonitoring as X
+import Stratosphere.ResourceProperties.MSKClusterPrometheus as X
 import Stratosphere.ResourceProperties.MSKClusterStorageInfo as X
 import Stratosphere.ResourceProperties.MSKClusterTls as X
 import Stratosphere.ResourceProperties.ManagedBlockchainMemberApprovalThresholdPolicy as X
@@ -1497,6 +1557,8 @@ import Stratosphere.ResourceProperties.Route53RecordSetGroupGeoLocation as X
 import Stratosphere.ResourceProperties.Route53RecordSetGroupRecordSet as X
 import Stratosphere.ResourceProperties.Route53ResolverResolverEndpointIpAddressRequest as X
 import Stratosphere.ResourceProperties.Route53ResolverResolverRuleTargetAddress as X
+import Stratosphere.ResourceProperties.S3AccessPointPublicAccessBlockConfiguration as X
+import Stratosphere.ResourceProperties.S3AccessPointVpcConfiguration as X
 import Stratosphere.ResourceProperties.S3BucketAbortIncompleteMultipartUpload as X
 import Stratosphere.ResourceProperties.S3BucketAccelerateConfiguration as X
 import Stratosphere.ResourceProperties.S3BucketAccessControlTranslation as X
@@ -1576,6 +1638,7 @@ import Stratosphere.ResourceProperties.SSMPatchBaselinePatchSource as X
 import Stratosphere.ResourceProperties.SSMPatchBaselineRule as X
 import Stratosphere.ResourceProperties.SSMPatchBaselineRuleGroup as X
 import Stratosphere.ResourceProperties.SageMakerCodeRepositoryGitConfig as X
+import Stratosphere.ResourceProperties.SageMakerEndpointVariantProperty as X
 import Stratosphere.ResourceProperties.SageMakerEndpointConfigProductionVariant as X
 import Stratosphere.ResourceProperties.SageMakerModelContainerDefinition as X
 import Stratosphere.ResourceProperties.SageMakerModelVpcConfig as X
@@ -1593,6 +1656,9 @@ import Stratosphere.ResourceProperties.ServiceDiscoveryServiceDnsRecord as X
 import Stratosphere.ResourceProperties.ServiceDiscoveryServiceHealthCheckConfig as X
 import Stratosphere.ResourceProperties.ServiceDiscoveryServiceHealthCheckCustomConfig as X
 import Stratosphere.ResourceProperties.StepFunctionsActivityTagsEntry as X
+import Stratosphere.ResourceProperties.StepFunctionsStateMachineCloudWatchLogsLogGroup as X
+import Stratosphere.ResourceProperties.StepFunctionsStateMachineLogDestination as X
+import Stratosphere.ResourceProperties.StepFunctionsStateMachineLoggingConfiguration as X
 import Stratosphere.ResourceProperties.StepFunctionsStateMachineTagsEntry as X
 import Stratosphere.ResourceProperties.TransferServerEndpointDetails as X
 import Stratosphere.ResourceProperties.TransferServerIdentityProviderDetails as X

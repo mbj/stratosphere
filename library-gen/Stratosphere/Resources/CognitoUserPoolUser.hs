@@ -14,7 +14,8 @@ import Stratosphere.ResourceProperties.CognitoUserPoolUserAttributeType
 -- 'cognitoUserPoolUser' for a more convenient constructor.
 data CognitoUserPoolUser =
   CognitoUserPoolUser
-  { _cognitoUserPoolUserDesiredDeliveryMediums :: Maybe (ValList Text)
+  { _cognitoUserPoolUserClientMetadata :: Maybe Object
+  , _cognitoUserPoolUserDesiredDeliveryMediums :: Maybe (ValList Text)
   , _cognitoUserPoolUserForceAliasCreation :: Maybe (Val Bool)
   , _cognitoUserPoolUserMessageAction :: Maybe (Val Text)
   , _cognitoUserPoolUserUserAttributes :: Maybe [CognitoUserPoolUserAttributeType]
@@ -29,7 +30,8 @@ instance ToResourceProperties CognitoUserPoolUser where
     { resourcePropertiesType = "AWS::Cognito::UserPoolUser"
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
-        [ fmap (("DesiredDeliveryMediums",) . toJSON) _cognitoUserPoolUserDesiredDeliveryMediums
+        [ fmap (("ClientMetadata",) . toJSON) _cognitoUserPoolUserClientMetadata
+        , fmap (("DesiredDeliveryMediums",) . toJSON) _cognitoUserPoolUserDesiredDeliveryMediums
         , fmap (("ForceAliasCreation",) . toJSON) _cognitoUserPoolUserForceAliasCreation
         , fmap (("MessageAction",) . toJSON) _cognitoUserPoolUserMessageAction
         , fmap (("UserAttributes",) . toJSON) _cognitoUserPoolUserUserAttributes
@@ -46,7 +48,8 @@ cognitoUserPoolUser
   -> CognitoUserPoolUser
 cognitoUserPoolUser userPoolIdarg =
   CognitoUserPoolUser
-  { _cognitoUserPoolUserDesiredDeliveryMediums = Nothing
+  { _cognitoUserPoolUserClientMetadata = Nothing
+  , _cognitoUserPoolUserDesiredDeliveryMediums = Nothing
   , _cognitoUserPoolUserForceAliasCreation = Nothing
   , _cognitoUserPoolUserMessageAction = Nothing
   , _cognitoUserPoolUserUserAttributes = Nothing
@@ -54,6 +57,10 @@ cognitoUserPoolUser userPoolIdarg =
   , _cognitoUserPoolUserUsername = Nothing
   , _cognitoUserPoolUserValidationData = Nothing
   }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooluser.html#cfn-cognito-userpooluser-clientmetadata
+cupuClientMetadata :: Lens' CognitoUserPoolUser (Maybe Object)
+cupuClientMetadata = lens _cognitoUserPoolUserClientMetadata (\s a -> s { _cognitoUserPoolUserClientMetadata = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpooluser.html#cfn-cognito-userpooluser-desireddeliverymediums
 cupuDesiredDeliveryMediums :: Lens' CognitoUserPoolUser (Maybe (ValList Text))

@@ -3,7 +3,11 @@
 
 module Main where
 
+import Control.Lens hiding ((<.>))
 import Control.Monad (when)
+import Data.Aeson
+import Data.Aeson.Lens
+import qualified Data.HashMap.Lazy as HM
 import Data.List (nub)
 import Data.Text (Text)
 import qualified Data.Text as T
@@ -18,9 +22,24 @@ import Gen.Specifications
 
 main :: IO ()
 main = do
-  specEither :: Either String RawCloudFormationSpec <- decodeFile $ "model" </> "CloudFormationResourceSpecification.json"
+  rawSpecValue :: Value <- either error id <$> decodeFile ("model" </> "CloudFormationResourceSpecification.json")
   let
-    rawSpec = either error id specEither
+    -- Remove WAFv2 resources because they are totally malformed. Ridiculous...
+    rawSpecValueFiltered =
+      rawSpecValue
+      & key "PropertyTypes"
+        . _Object
+        %~ HM.filterWithKey (\k _ -> not $ "AWS::WAFv2::" `T.isPrefixOf` k)
+      & key "ResourceTypes"
+        . _Object
+        %~ HM.filterWithKey (\k _ -> not $ "AWS::WAFv2::" `T.isPrefixOf` k)
+
+    filteredFile = "model" </> "CloudFormationResourceSpecification-filtered.json"
+  -- Encode to a file and then decode again so we get better error messages
+  encodeFile filteredFile rawSpecValueFiltered
+  rawSpec <- either error id <$> decodeFile filteredFile
+
+  let
     spec = specFromRaw rawSpec
     !modules =
       createModules

@@ -24,6 +24,7 @@ data CognitoUserPoolClient =
   , _cognitoUserPoolClientExplicitAuthFlows :: Maybe (ValList Text)
   , _cognitoUserPoolClientGenerateSecret :: Maybe (Val Bool)
   , _cognitoUserPoolClientLogoutURLs :: Maybe (ValList Text)
+  , _cognitoUserPoolClientPreventUserExistenceErrors :: Maybe (Val Text)
   , _cognitoUserPoolClientReadAttributes :: Maybe (ValList Text)
   , _cognitoUserPoolClientRefreshTokenValidity :: Maybe (Val Integer)
   , _cognitoUserPoolClientSupportedIdentityProviders :: Maybe (ValList Text)
@@ -47,6 +48,7 @@ instance ToResourceProperties CognitoUserPoolClient where
         , fmap (("ExplicitAuthFlows",) . toJSON) _cognitoUserPoolClientExplicitAuthFlows
         , fmap (("GenerateSecret",) . toJSON) _cognitoUserPoolClientGenerateSecret
         , fmap (("LogoutURLs",) . toJSON) _cognitoUserPoolClientLogoutURLs
+        , fmap (("PreventUserExistenceErrors",) . toJSON) _cognitoUserPoolClientPreventUserExistenceErrors
         , fmap (("ReadAttributes",) . toJSON) _cognitoUserPoolClientReadAttributes
         , fmap (("RefreshTokenValidity",) . toJSON) _cognitoUserPoolClientRefreshTokenValidity
         , fmap (("SupportedIdentityProviders",) . toJSON) _cognitoUserPoolClientSupportedIdentityProviders
@@ -72,6 +74,7 @@ cognitoUserPoolClient userPoolIdarg =
   , _cognitoUserPoolClientExplicitAuthFlows = Nothing
   , _cognitoUserPoolClientGenerateSecret = Nothing
   , _cognitoUserPoolClientLogoutURLs = Nothing
+  , _cognitoUserPoolClientPreventUserExistenceErrors = Nothing
   , _cognitoUserPoolClientReadAttributes = Nothing
   , _cognitoUserPoolClientRefreshTokenValidity = Nothing
   , _cognitoUserPoolClientSupportedIdentityProviders = Nothing
@@ -118,6 +121,10 @@ cupcGenerateSecret = lens _cognitoUserPoolClientGenerateSecret (\s a -> s { _cog
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-logouturls
 cupcLogoutURLs :: Lens' CognitoUserPoolClient (Maybe (ValList Text))
 cupcLogoutURLs = lens _cognitoUserPoolClientLogoutURLs (\s a -> s { _cognitoUserPoolClientLogoutURLs = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-preventuserexistenceerrors
+cupcPreventUserExistenceErrors :: Lens' CognitoUserPoolClient (Maybe (Val Text))
+cupcPreventUserExistenceErrors = lens _cognitoUserPoolClientPreventUserExistenceErrors (\s a -> s { _cognitoUserPoolClientPreventUserExistenceErrors = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-readattributes
 cupcReadAttributes :: Lens' CognitoUserPoolClient (Maybe (ValList Text))

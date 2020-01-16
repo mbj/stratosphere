@@ -8,6 +8,7 @@
 module Stratosphere.Resources.ECSCluster where
 
 import Stratosphere.ResourceImports
+import Stratosphere.ResourceProperties.ECSClusterClusterSetting
 import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for ECSCluster. See 'ecsCluster' for a more
@@ -15,6 +16,7 @@ import Stratosphere.ResourceProperties.Tag
 data ECSCluster =
   ECSCluster
   { _eCSClusterClusterName :: Maybe (Val Text)
+  , _eCSClusterClusterSettings :: Maybe [ECSClusterClusterSetting]
   , _eCSClusterTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
@@ -25,6 +27,7 @@ instance ToResourceProperties ECSCluster where
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
         [ fmap (("ClusterName",) . toJSON) _eCSClusterClusterName
+        , fmap (("ClusterSettings",) . toJSON) _eCSClusterClusterSettings
         , fmap (("Tags",) . toJSON) _eCSClusterTags
         ]
     }
@@ -35,12 +38,17 @@ ecsCluster
 ecsCluster  =
   ECSCluster
   { _eCSClusterClusterName = Nothing
+  , _eCSClusterClusterSettings = Nothing
   , _eCSClusterTags = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-clustername
 ecscClusterName :: Lens' ECSCluster (Maybe (Val Text))
 ecscClusterName = lens _eCSClusterClusterName (\s a -> s { _eCSClusterClusterName = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-clustersettings
+ecscClusterSettings :: Lens' ECSCluster (Maybe [ECSClusterClusterSetting])
+ecscClusterSettings = lens _eCSClusterClusterSettings (\s a -> s { _eCSClusterClusterSettings = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-tags
 ecscTags :: Lens' ECSCluster (Maybe [Tag])

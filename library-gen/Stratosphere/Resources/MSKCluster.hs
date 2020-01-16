@@ -12,6 +12,7 @@ import Stratosphere.ResourceProperties.MSKClusterBrokerNodeGroupInfo
 import Stratosphere.ResourceProperties.MSKClusterClientAuthentication
 import Stratosphere.ResourceProperties.MSKClusterConfigurationInfo
 import Stratosphere.ResourceProperties.MSKClusterEncryptionInfo
+import Stratosphere.ResourceProperties.MSKClusterOpenMonitoring
 
 -- | Full data type definition for MSKCluster. See 'mskCluster' for a more
 -- convenient constructor.
@@ -25,6 +26,7 @@ data MSKCluster =
   , _mSKClusterEnhancedMonitoring :: Maybe (Val Text)
   , _mSKClusterKafkaVersion :: Val Text
   , _mSKClusterNumberOfBrokerNodes :: Val Integer
+  , _mSKClusterOpenMonitoring :: Maybe MSKClusterOpenMonitoring
   , _mSKClusterTags :: Maybe Object
   } deriving (Show, Eq)
 
@@ -42,6 +44,7 @@ instance ToResourceProperties MSKCluster where
         , fmap (("EnhancedMonitoring",) . toJSON) _mSKClusterEnhancedMonitoring
         , (Just . ("KafkaVersion",) . toJSON) _mSKClusterKafkaVersion
         , (Just . ("NumberOfBrokerNodes",) . toJSON) _mSKClusterNumberOfBrokerNodes
+        , fmap (("OpenMonitoring",) . toJSON) _mSKClusterOpenMonitoring
         , fmap (("Tags",) . toJSON) _mSKClusterTags
         ]
     }
@@ -63,6 +66,7 @@ mskCluster brokerNodeGroupInfoarg clusterNamearg kafkaVersionarg numberOfBrokerN
   , _mSKClusterEnhancedMonitoring = Nothing
   , _mSKClusterKafkaVersion = kafkaVersionarg
   , _mSKClusterNumberOfBrokerNodes = numberOfBrokerNodesarg
+  , _mSKClusterOpenMonitoring = Nothing
   , _mSKClusterTags = Nothing
   }
 
@@ -97,6 +101,10 @@ mskcKafkaVersion = lens _mSKClusterKafkaVersion (\s a -> s { _mSKClusterKafkaVer
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-cluster.html#cfn-msk-cluster-numberofbrokernodes
 mskcNumberOfBrokerNodes :: Lens' MSKCluster (Val Integer)
 mskcNumberOfBrokerNodes = lens _mSKClusterNumberOfBrokerNodes (\s a -> s { _mSKClusterNumberOfBrokerNodes = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-cluster.html#cfn-msk-cluster-openmonitoring
+mskcOpenMonitoring :: Lens' MSKCluster (Maybe MSKClusterOpenMonitoring)
+mskcOpenMonitoring = lens _mSKClusterOpenMonitoring (\s a -> s { _mSKClusterOpenMonitoring = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-cluster.html#cfn-msk-cluster-tags
 mskcTags :: Lens' MSKCluster (Maybe Object)

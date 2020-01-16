@@ -14,9 +14,11 @@ import Stratosphere.ResourceImports
 -- 'pinpointEmailTemplate' for a more convenient constructor.
 data PinpointEmailTemplate =
   PinpointEmailTemplate
-  { _pinpointEmailTemplateHtmlPart :: Maybe (Val Text)
+  { _pinpointEmailTemplateDefaultSubstitutions :: Maybe (Val Text)
+  , _pinpointEmailTemplateHtmlPart :: Maybe (Val Text)
   , _pinpointEmailTemplateSubject :: Val Text
   , _pinpointEmailTemplateTags :: Maybe Object
+  , _pinpointEmailTemplateTemplateDescription :: Maybe (Val Text)
   , _pinpointEmailTemplateTemplateName :: Val Text
   , _pinpointEmailTemplateTextPart :: Maybe (Val Text)
   } deriving (Show, Eq)
@@ -27,9 +29,11 @@ instance ToResourceProperties PinpointEmailTemplate where
     { resourcePropertiesType = "AWS::Pinpoint::EmailTemplate"
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
-        [ fmap (("HtmlPart",) . toJSON) _pinpointEmailTemplateHtmlPart
+        [ fmap (("DefaultSubstitutions",) . toJSON) _pinpointEmailTemplateDefaultSubstitutions
+        , fmap (("HtmlPart",) . toJSON) _pinpointEmailTemplateHtmlPart
         , (Just . ("Subject",) . toJSON) _pinpointEmailTemplateSubject
         , fmap (("Tags",) . toJSON) _pinpointEmailTemplateTags
+        , fmap (("TemplateDescription",) . toJSON) _pinpointEmailTemplateTemplateDescription
         , (Just . ("TemplateName",) . toJSON) _pinpointEmailTemplateTemplateName
         , fmap (("TextPart",) . toJSON) _pinpointEmailTemplateTextPart
         ]
@@ -43,12 +47,18 @@ pinpointEmailTemplate
   -> PinpointEmailTemplate
 pinpointEmailTemplate subjectarg templateNamearg =
   PinpointEmailTemplate
-  { _pinpointEmailTemplateHtmlPart = Nothing
+  { _pinpointEmailTemplateDefaultSubstitutions = Nothing
+  , _pinpointEmailTemplateHtmlPart = Nothing
   , _pinpointEmailTemplateSubject = subjectarg
   , _pinpointEmailTemplateTags = Nothing
+  , _pinpointEmailTemplateTemplateDescription = Nothing
   , _pinpointEmailTemplateTemplateName = templateNamearg
   , _pinpointEmailTemplateTextPart = Nothing
   }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-emailtemplate.html#cfn-pinpoint-emailtemplate-defaultsubstitutions
+petDefaultSubstitutions :: Lens' PinpointEmailTemplate (Maybe (Val Text))
+petDefaultSubstitutions = lens _pinpointEmailTemplateDefaultSubstitutions (\s a -> s { _pinpointEmailTemplateDefaultSubstitutions = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-emailtemplate.html#cfn-pinpoint-emailtemplate-htmlpart
 petHtmlPart :: Lens' PinpointEmailTemplate (Maybe (Val Text))
@@ -61,6 +71,10 @@ petSubject = lens _pinpointEmailTemplateSubject (\s a -> s { _pinpointEmailTempl
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-emailtemplate.html#cfn-pinpoint-emailtemplate-tags
 petTags :: Lens' PinpointEmailTemplate (Maybe Object)
 petTags = lens _pinpointEmailTemplateTags (\s a -> s { _pinpointEmailTemplateTags = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-emailtemplate.html#cfn-pinpoint-emailtemplate-templatedescription
+petTemplateDescription :: Lens' PinpointEmailTemplate (Maybe (Val Text))
+petTemplateDescription = lens _pinpointEmailTemplateTemplateDescription (\s a -> s { _pinpointEmailTemplateTemplateDescription = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-pinpoint-emailtemplate.html#cfn-pinpoint-emailtemplate-templatename
 petTemplateName :: Lens' PinpointEmailTemplate (Val Text)

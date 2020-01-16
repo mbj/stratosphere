@@ -22,8 +22,8 @@ data DocDBDBCluster =
   , _docDBDBClusterEnableCloudwatchLogsExports :: Maybe (ValList Text)
   , _docDBDBClusterEngineVersion :: Maybe (Val Text)
   , _docDBDBClusterKmsKeyId :: Maybe (Val Text)
-  , _docDBDBClusterMasterUserPassword :: Maybe (Val Text)
-  , _docDBDBClusterMasterUsername :: Maybe (Val Text)
+  , _docDBDBClusterMasterUserPassword :: Val Text
+  , _docDBDBClusterMasterUsername :: Val Text
   , _docDBDBClusterPort :: Maybe (Val Integer)
   , _docDBDBClusterPreferredBackupWindow :: Maybe (Val Text)
   , _docDBDBClusterPreferredMaintenanceWindow :: Maybe (Val Text)
@@ -47,8 +47,8 @@ instance ToResourceProperties DocDBDBCluster where
         , fmap (("EnableCloudwatchLogsExports",) . toJSON) _docDBDBClusterEnableCloudwatchLogsExports
         , fmap (("EngineVersion",) . toJSON) _docDBDBClusterEngineVersion
         , fmap (("KmsKeyId",) . toJSON) _docDBDBClusterKmsKeyId
-        , fmap (("MasterUserPassword",) . toJSON) _docDBDBClusterMasterUserPassword
-        , fmap (("MasterUsername",) . toJSON) _docDBDBClusterMasterUsername
+        , (Just . ("MasterUserPassword",) . toJSON) _docDBDBClusterMasterUserPassword
+        , (Just . ("MasterUsername",) . toJSON) _docDBDBClusterMasterUsername
         , fmap (("Port",) . toJSON) _docDBDBClusterPort
         , fmap (("PreferredBackupWindow",) . toJSON) _docDBDBClusterPreferredBackupWindow
         , fmap (("PreferredMaintenanceWindow",) . toJSON) _docDBDBClusterPreferredMaintenanceWindow
@@ -61,8 +61,10 @@ instance ToResourceProperties DocDBDBCluster where
 
 -- | Constructor for 'DocDBDBCluster' containing required fields as arguments.
 docDBDBCluster
-  :: DocDBDBCluster
-docDBDBCluster  =
+  :: Val Text -- ^ 'ddbdbcMasterUserPassword'
+  -> Val Text -- ^ 'ddbdbcMasterUsername'
+  -> DocDBDBCluster
+docDBDBCluster masterUserPasswordarg masterUsernamearg =
   DocDBDBCluster
   { _docDBDBClusterAvailabilityZones = Nothing
   , _docDBDBClusterBackupRetentionPeriod = Nothing
@@ -72,8 +74,8 @@ docDBDBCluster  =
   , _docDBDBClusterEnableCloudwatchLogsExports = Nothing
   , _docDBDBClusterEngineVersion = Nothing
   , _docDBDBClusterKmsKeyId = Nothing
-  , _docDBDBClusterMasterUserPassword = Nothing
-  , _docDBDBClusterMasterUsername = Nothing
+  , _docDBDBClusterMasterUserPassword = masterUserPasswordarg
+  , _docDBDBClusterMasterUsername = masterUsernamearg
   , _docDBDBClusterPort = Nothing
   , _docDBDBClusterPreferredBackupWindow = Nothing
   , _docDBDBClusterPreferredMaintenanceWindow = Nothing
@@ -116,11 +118,11 @@ ddbdbcKmsKeyId :: Lens' DocDBDBCluster (Maybe (Val Text))
 ddbdbcKmsKeyId = lens _docDBDBClusterKmsKeyId (\s a -> s { _docDBDBClusterKmsKeyId = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-masteruserpassword
-ddbdbcMasterUserPassword :: Lens' DocDBDBCluster (Maybe (Val Text))
+ddbdbcMasterUserPassword :: Lens' DocDBDBCluster (Val Text)
 ddbdbcMasterUserPassword = lens _docDBDBClusterMasterUserPassword (\s a -> s { _docDBDBClusterMasterUserPassword = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-masterusername
-ddbdbcMasterUsername :: Lens' DocDBDBCluster (Maybe (Val Text))
+ddbdbcMasterUsername :: Lens' DocDBDBCluster (Val Text)
 ddbdbcMasterUsername = lens _docDBDBClusterMasterUsername (\s a -> s { _docDBDBClusterMasterUsername = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-dbcluster.html#cfn-docdb-dbcluster-port

@@ -46,6 +46,7 @@ data RDSDBInstance =
   , _rDSDBInstanceLicenseModel :: Maybe (Val Text)
   , _rDSDBInstanceMasterUserPassword :: Maybe (Val Text)
   , _rDSDBInstanceMasterUsername :: Maybe (Val Text)
+  , _rDSDBInstanceMaxAllocatedStorage :: Maybe (Val Integer)
   , _rDSDBInstanceMonitoringInterval :: Maybe (Val Integer)
   , _rDSDBInstanceMonitoringRoleArn :: Maybe (Val Text)
   , _rDSDBInstanceMultiAZ :: Maybe (Val Bool)
@@ -104,6 +105,7 @@ instance ToResourceProperties RDSDBInstance where
         , fmap (("LicenseModel",) . toJSON) _rDSDBInstanceLicenseModel
         , fmap (("MasterUserPassword",) . toJSON) _rDSDBInstanceMasterUserPassword
         , fmap (("MasterUsername",) . toJSON) _rDSDBInstanceMasterUsername
+        , fmap (("MaxAllocatedStorage",) . toJSON) _rDSDBInstanceMaxAllocatedStorage
         , fmap (("MonitoringInterval",) . toJSON) _rDSDBInstanceMonitoringInterval
         , fmap (("MonitoringRoleArn",) . toJSON) _rDSDBInstanceMonitoringRoleArn
         , fmap (("MultiAZ",) . toJSON) _rDSDBInstanceMultiAZ
@@ -163,6 +165,7 @@ rdsdbInstance dBInstanceClassarg =
   , _rDSDBInstanceLicenseModel = Nothing
   , _rDSDBInstanceMasterUserPassword = Nothing
   , _rDSDBInstanceMasterUsername = Nothing
+  , _rDSDBInstanceMaxAllocatedStorage = Nothing
   , _rDSDBInstanceMonitoringInterval = Nothing
   , _rDSDBInstanceMonitoringRoleArn = Nothing
   , _rDSDBInstanceMultiAZ = Nothing
@@ -304,6 +307,10 @@ rdsdbiMasterUserPassword = lens _rDSDBInstanceMasterUserPassword (\s a -> s { _r
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-masterusername
 rdsdbiMasterUsername :: Lens' RDSDBInstance (Maybe (Val Text))
 rdsdbiMasterUsername = lens _rDSDBInstanceMasterUsername (\s a -> s { _rDSDBInstanceMasterUsername = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-maxallocatedstorage
+rdsdbiMaxAllocatedStorage :: Lens' RDSDBInstance (Maybe (Val Integer))
+rdsdbiMaxAllocatedStorage = lens _rDSDBInstanceMaxAllocatedStorage (\s a -> s { _rDSDBInstanceMaxAllocatedStorage = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-monitoringinterval
 rdsdbiMonitoringInterval :: Lens' RDSDBInstance (Maybe (Val Integer))

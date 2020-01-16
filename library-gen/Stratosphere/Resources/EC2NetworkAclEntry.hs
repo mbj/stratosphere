@@ -15,7 +15,7 @@ import Stratosphere.ResourceProperties.EC2NetworkAclEntryPortRange
 -- 'ec2NetworkAclEntry' for a more convenient constructor.
 data EC2NetworkAclEntry =
   EC2NetworkAclEntry
-  { _eC2NetworkAclEntryCidrBlock :: Val Text
+  { _eC2NetworkAclEntryCidrBlock :: Maybe (Val Text)
   , _eC2NetworkAclEntryEgress :: Maybe (Val Bool)
   , _eC2NetworkAclEntryIcmp :: Maybe EC2NetworkAclEntryIcmp
   , _eC2NetworkAclEntryIpv6CidrBlock :: Maybe (Val Text)
@@ -32,7 +32,7 @@ instance ToResourceProperties EC2NetworkAclEntry where
     { resourcePropertiesType = "AWS::EC2::NetworkAclEntry"
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
-        [ (Just . ("CidrBlock",) . toJSON) _eC2NetworkAclEntryCidrBlock
+        [ fmap (("CidrBlock",) . toJSON) _eC2NetworkAclEntryCidrBlock
         , fmap (("Egress",) . toJSON) _eC2NetworkAclEntryEgress
         , fmap (("Icmp",) . toJSON) _eC2NetworkAclEntryIcmp
         , fmap (("Ipv6CidrBlock",) . toJSON) _eC2NetworkAclEntryIpv6CidrBlock
@@ -47,15 +47,14 @@ instance ToResourceProperties EC2NetworkAclEntry where
 -- | Constructor for 'EC2NetworkAclEntry' containing required fields as
 -- arguments.
 ec2NetworkAclEntry
-  :: Val Text -- ^ 'ecnaeCidrBlock'
-  -> Val Text -- ^ 'ecnaeNetworkAclId'
+  :: Val Text -- ^ 'ecnaeNetworkAclId'
   -> Val Integer -- ^ 'ecnaeProtocol'
   -> Val Text -- ^ 'ecnaeRuleAction'
   -> Val Integer -- ^ 'ecnaeRuleNumber'
   -> EC2NetworkAclEntry
-ec2NetworkAclEntry cidrBlockarg networkAclIdarg protocolarg ruleActionarg ruleNumberarg =
+ec2NetworkAclEntry networkAclIdarg protocolarg ruleActionarg ruleNumberarg =
   EC2NetworkAclEntry
-  { _eC2NetworkAclEntryCidrBlock = cidrBlockarg
+  { _eC2NetworkAclEntryCidrBlock = Nothing
   , _eC2NetworkAclEntryEgress = Nothing
   , _eC2NetworkAclEntryIcmp = Nothing
   , _eC2NetworkAclEntryIpv6CidrBlock = Nothing
@@ -67,7 +66,7 @@ ec2NetworkAclEntry cidrBlockarg networkAclIdarg protocolarg ruleActionarg ruleNu
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-acl-entry.html#cfn-ec2-networkaclentry-cidrblock
-ecnaeCidrBlock :: Lens' EC2NetworkAclEntry (Val Text)
+ecnaeCidrBlock :: Lens' EC2NetworkAclEntry (Maybe (Val Text))
 ecnaeCidrBlock = lens _eC2NetworkAclEntryCidrBlock (\s a -> s { _eC2NetworkAclEntryCidrBlock = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-acl-entry.html#cfn-ec2-networkaclentry-egress
