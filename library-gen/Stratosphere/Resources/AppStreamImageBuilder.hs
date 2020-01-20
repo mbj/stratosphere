@@ -10,8 +10,8 @@ module Stratosphere.Resources.AppStreamImageBuilder where
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.AppStreamImageBuilderAccessEndpoint
 import Stratosphere.ResourceProperties.AppStreamImageBuilderDomainJoinInfo
-import Stratosphere.ResourceProperties.Tag
 import Stratosphere.ResourceProperties.AppStreamImageBuilderVpcConfig
+import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for AppStreamImageBuilder. See
 -- 'appStreamImageBuilder' for a more convenient constructor.

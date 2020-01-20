@@ -10,8 +10,8 @@ module Stratosphere.Resources.AppStreamFleet where
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.AppStreamFleetComputeCapacity
 import Stratosphere.ResourceProperties.AppStreamFleetDomainJoinInfo
-import Stratosphere.ResourceProperties.Tag
 import Stratosphere.ResourceProperties.AppStreamFleetVpcConfig
+import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for AppStreamFleet. See 'appStreamFleet' for a
 -- more convenient constructor.

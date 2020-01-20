@@ -8,8 +8,8 @@
 module Stratosphere.Resources.TransferUser where
 
 import Stratosphere.ResourceImports
-import Stratosphere.ResourceProperties.TransferUserHomeDirectoryMapEntry
 import Stratosphere.ResourceProperties.Tag
+import Stratosphere.ResourceProperties.TransferUserHomeDirectoryMapEntry
 
 -- | Full data type definition for TransferUser. See 'transferUser' for a more
 -- convenient constructor.
