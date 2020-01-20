@@ -22,7 +22,7 @@ import Gen.Specifications
 
 main :: IO ()
 main = do
-  rawSpecValue :: Value <- either error id <$> decodeFile ("model" </> "CloudFormationResourceSpecification.json")
+  rawSpecValue :: Value <- either error id <$> decodeFile ("model" </> "sorted-spec.json")
   let
     -- Remove WAFv2 resources because they are totally malformed. Ridiculous...
     rawSpecValueFiltered =
@@ -34,7 +34,7 @@ main = do
         . _Object
         %~ HM.filterWithKey (\k _ -> not $ "AWS::WAFv2::" `T.isPrefixOf` k)
 
-    filteredFile = "model" </> "CloudFormationResourceSpecification-filtered.json"
+    filteredFile = "model" </> "filtered-spec.json"
   -- Encode to a file and then decode again so we get better error messages
   encodeFile filteredFile rawSpecValueFiltered
   rawSpec <- either error id <$> decodeFile filteredFile
