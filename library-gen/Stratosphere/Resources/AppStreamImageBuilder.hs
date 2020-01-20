@@ -26,7 +26,7 @@ data AppStreamImageBuilder =
   , _appStreamImageBuilderImageArn :: Maybe (Val Text)
   , _appStreamImageBuilderImageName :: Maybe (Val Text)
   , _appStreamImageBuilderInstanceType :: Val Text
-  , _appStreamImageBuilderName :: Maybe (Val Text)
+  , _appStreamImageBuilderName :: Val Text
   , _appStreamImageBuilderTags :: Maybe [Tag]
   , _appStreamImageBuilderVpcConfig :: Maybe AppStreamImageBuilderVpcConfig
   } deriving (Show, Eq)
@@ -46,7 +46,7 @@ instance ToResourceProperties AppStreamImageBuilder where
         , fmap (("ImageArn",) . toJSON) _appStreamImageBuilderImageArn
         , fmap (("ImageName",) . toJSON) _appStreamImageBuilderImageName
         , (Just . ("InstanceType",) . toJSON) _appStreamImageBuilderInstanceType
-        , fmap (("Name",) . toJSON) _appStreamImageBuilderName
+        , (Just . ("Name",) . toJSON) _appStreamImageBuilderName
         , fmap (("Tags",) . toJSON) _appStreamImageBuilderTags
         , fmap (("VpcConfig",) . toJSON) _appStreamImageBuilderVpcConfig
         ]
@@ -56,8 +56,9 @@ instance ToResourceProperties AppStreamImageBuilder where
 -- arguments.
 appStreamImageBuilder
   :: Val Text -- ^ 'asibInstanceType'
+  -> Val Text -- ^ 'asibName'
   -> AppStreamImageBuilder
-appStreamImageBuilder instanceTypearg =
+appStreamImageBuilder instanceTypearg namearg =
   AppStreamImageBuilder
   { _appStreamImageBuilderAccessEndpoints = Nothing
   , _appStreamImageBuilderAppstreamAgentVersion = Nothing
@@ -68,7 +69,7 @@ appStreamImageBuilder instanceTypearg =
   , _appStreamImageBuilderImageArn = Nothing
   , _appStreamImageBuilderImageName = Nothing
   , _appStreamImageBuilderInstanceType = instanceTypearg
-  , _appStreamImageBuilderName = Nothing
+  , _appStreamImageBuilderName = namearg
   , _appStreamImageBuilderTags = Nothing
   , _appStreamImageBuilderVpcConfig = Nothing
   }
@@ -110,7 +111,7 @@ asibInstanceType :: Lens' AppStreamImageBuilder (Val Text)
 asibInstanceType = lens _appStreamImageBuilderInstanceType (\s a -> s { _appStreamImageBuilderInstanceType = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-name
-asibName :: Lens' AppStreamImageBuilder (Maybe (Val Text))
+asibName :: Lens' AppStreamImageBuilder (Val Text)
 asibName = lens _appStreamImageBuilderName (\s a -> s { _appStreamImageBuilderName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-imagebuilder.html#cfn-appstream-imagebuilder-tags

@@ -18,6 +18,7 @@ data IoTEventsDetectorModel =
   { _ioTEventsDetectorModelDetectorModelDefinition :: Maybe IoTEventsDetectorModelDetectorModelDefinition
   , _ioTEventsDetectorModelDetectorModelDescription :: Maybe (Val Text)
   , _ioTEventsDetectorModelDetectorModelName :: Maybe (Val Text)
+  , _ioTEventsDetectorModelEvaluationMethod :: Maybe (Val Text)
   , _ioTEventsDetectorModelKey :: Maybe (Val Text)
   , _ioTEventsDetectorModelRoleArn :: Maybe (Val Text)
   , _ioTEventsDetectorModelTags :: Maybe [Tag]
@@ -32,6 +33,7 @@ instance ToResourceProperties IoTEventsDetectorModel where
         [ fmap (("DetectorModelDefinition",) . toJSON) _ioTEventsDetectorModelDetectorModelDefinition
         , fmap (("DetectorModelDescription",) . toJSON) _ioTEventsDetectorModelDetectorModelDescription
         , fmap (("DetectorModelName",) . toJSON) _ioTEventsDetectorModelDetectorModelName
+        , fmap (("EvaluationMethod",) . toJSON) _ioTEventsDetectorModelEvaluationMethod
         , fmap (("Key",) . toJSON) _ioTEventsDetectorModelKey
         , fmap (("RoleArn",) . toJSON) _ioTEventsDetectorModelRoleArn
         , fmap (("Tags",) . toJSON) _ioTEventsDetectorModelTags
@@ -47,6 +49,7 @@ ioTEventsDetectorModel  =
   { _ioTEventsDetectorModelDetectorModelDefinition = Nothing
   , _ioTEventsDetectorModelDetectorModelDescription = Nothing
   , _ioTEventsDetectorModelDetectorModelName = Nothing
+  , _ioTEventsDetectorModelEvaluationMethod = Nothing
   , _ioTEventsDetectorModelKey = Nothing
   , _ioTEventsDetectorModelRoleArn = Nothing
   , _ioTEventsDetectorModelTags = Nothing
@@ -63,6 +66,10 @@ itedmDetectorModelDescription = lens _ioTEventsDetectorModelDetectorModelDescrip
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-detectormodelname
 itedmDetectorModelName :: Lens' IoTEventsDetectorModel (Maybe (Val Text))
 itedmDetectorModelName = lens _ioTEventsDetectorModelDetectorModelName (\s a -> s { _ioTEventsDetectorModelDetectorModelName = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-evaluationmethod
+itedmEvaluationMethod :: Lens' IoTEventsDetectorModel (Maybe (Val Text))
+itedmEvaluationMethod = lens _ioTEventsDetectorModelEvaluationMethod (\s a -> s { _ioTEventsDetectorModelEvaluationMethod = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotevents-detectormodel.html#cfn-iotevents-detectormodel-key
 itedmKey :: Lens' IoTEventsDetectorModel (Maybe (Val Text))

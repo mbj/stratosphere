@@ -29,7 +29,7 @@ data AppStreamFleet =
   , _appStreamFleetImageName :: Maybe (Val Text)
   , _appStreamFleetInstanceType :: Val Text
   , _appStreamFleetMaxUserDurationInSeconds :: Maybe (Val Integer)
-  , _appStreamFleetName :: Maybe (Val Text)
+  , _appStreamFleetName :: Val Text
   , _appStreamFleetTags :: Maybe [Tag]
   , _appStreamFleetVpcConfig :: Maybe AppStreamFleetVpcConfig
   } deriving (Show, Eq)
@@ -52,7 +52,7 @@ instance ToResourceProperties AppStreamFleet where
         , fmap (("ImageName",) . toJSON) _appStreamFleetImageName
         , (Just . ("InstanceType",) . toJSON) _appStreamFleetInstanceType
         , fmap (("MaxUserDurationInSeconds",) . toJSON) _appStreamFleetMaxUserDurationInSeconds
-        , fmap (("Name",) . toJSON) _appStreamFleetName
+        , (Just . ("Name",) . toJSON) _appStreamFleetName
         , fmap (("Tags",) . toJSON) _appStreamFleetTags
         , fmap (("VpcConfig",) . toJSON) _appStreamFleetVpcConfig
         ]
@@ -62,8 +62,9 @@ instance ToResourceProperties AppStreamFleet where
 appStreamFleet
   :: AppStreamFleetComputeCapacity -- ^ 'asfComputeCapacity'
   -> Val Text -- ^ 'asfInstanceType'
+  -> Val Text -- ^ 'asfName'
   -> AppStreamFleet
-appStreamFleet computeCapacityarg instanceTypearg =
+appStreamFleet computeCapacityarg instanceTypearg namearg =
   AppStreamFleet
   { _appStreamFleetComputeCapacity = computeCapacityarg
   , _appStreamFleetDescription = Nothing
@@ -77,7 +78,7 @@ appStreamFleet computeCapacityarg instanceTypearg =
   , _appStreamFleetImageName = Nothing
   , _appStreamFleetInstanceType = instanceTypearg
   , _appStreamFleetMaxUserDurationInSeconds = Nothing
-  , _appStreamFleetName = Nothing
+  , _appStreamFleetName = namearg
   , _appStreamFleetTags = Nothing
   , _appStreamFleetVpcConfig = Nothing
   }
@@ -131,7 +132,7 @@ asfMaxUserDurationInSeconds :: Lens' AppStreamFleet (Maybe (Val Integer))
 asfMaxUserDurationInSeconds = lens _appStreamFleetMaxUserDurationInSeconds (\s a -> s { _appStreamFleetMaxUserDurationInSeconds = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-name
-asfName :: Lens' AppStreamFleet (Maybe (Val Text))
+asfName :: Lens' AppStreamFleet (Val Text)
 asfName = lens _appStreamFleetName (\s a -> s { _appStreamFleetName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appstream-fleet.html#cfn-appstream-fleet-tags

@@ -890,6 +890,7 @@ import Stratosphere.ResourceProperties.EC2InstanceCreditSpecification as X
 import Stratosphere.ResourceProperties.EC2InstanceEbs as X
 import Stratosphere.ResourceProperties.EC2InstanceElasticGpuSpecification as X
 import Stratosphere.ResourceProperties.EC2InstanceElasticInferenceAccelerator as X
+import Stratosphere.ResourceProperties.EC2InstanceHibernationOptions as X
 import Stratosphere.ResourceProperties.EC2InstanceInstanceIpv6Address as X
 import Stratosphere.ResourceProperties.EC2InstanceLaunchTemplateSpecification as X
 import Stratosphere.ResourceProperties.EC2InstanceLicenseSpecification as X
@@ -1637,6 +1638,9 @@ import Stratosphere.ResourceProperties.SSMPatchBaselinePatchFilterGroup as X
 import Stratosphere.ResourceProperties.SSMPatchBaselinePatchSource as X
 import Stratosphere.ResourceProperties.SSMPatchBaselineRule as X
 import Stratosphere.ResourceProperties.SSMPatchBaselineRuleGroup as X
+import Stratosphere.ResourceProperties.SSMResourceDataSyncAwsOrganizationsSource as X
+import Stratosphere.ResourceProperties.SSMResourceDataSyncS3Destination as X
+import Stratosphere.ResourceProperties.SSMResourceDataSyncSyncSource as X
 import Stratosphere.ResourceProperties.SageMakerCodeRepositoryGitConfig as X
 import Stratosphere.ResourceProperties.SageMakerEndpointVariantProperty as X
 import Stratosphere.ResourceProperties.SageMakerEndpointConfigProductionVariant as X
@@ -1662,6 +1666,7 @@ import Stratosphere.ResourceProperties.StepFunctionsStateMachineLoggingConfigura
 import Stratosphere.ResourceProperties.StepFunctionsStateMachineTagsEntry as X
 import Stratosphere.ResourceProperties.TransferServerEndpointDetails as X
 import Stratosphere.ResourceProperties.TransferServerIdentityProviderDetails as X
+import Stratosphere.ResourceProperties.TransferUserHomeDirectoryMapEntry as X
 import Stratosphere.ResourceProperties.WAFByteMatchSetByteMatchTuple as X
 import Stratosphere.ResourceProperties.WAFByteMatchSetFieldToMatch as X
 import Stratosphere.ResourceProperties.WAFIPSetIPSetDescriptor as X
