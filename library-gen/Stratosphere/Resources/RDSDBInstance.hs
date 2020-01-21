@@ -22,6 +22,7 @@ data RDSDBInstance =
   , _rDSDBInstanceAutoMinorVersionUpgrade :: Maybe (Val Bool)
   , _rDSDBInstanceAvailabilityZone :: Maybe (Val Text)
   , _rDSDBInstanceBackupRetentionPeriod :: Maybe (Val Integer)
+  , _rDSDBInstanceCACertificateIdentifier :: Maybe (Val Text)
   , _rDSDBInstanceCharacterSetName :: Maybe (Val Text)
   , _rDSDBInstanceCopyTagsToSnapshot :: Maybe (Val Bool)
   , _rDSDBInstanceDBClusterIdentifier :: Maybe (Val Text)
@@ -81,6 +82,7 @@ instance ToResourceProperties RDSDBInstance where
         , fmap (("AutoMinorVersionUpgrade",) . toJSON) _rDSDBInstanceAutoMinorVersionUpgrade
         , fmap (("AvailabilityZone",) . toJSON) _rDSDBInstanceAvailabilityZone
         , fmap (("BackupRetentionPeriod",) . toJSON) _rDSDBInstanceBackupRetentionPeriod
+        , fmap (("CACertificateIdentifier",) . toJSON) _rDSDBInstanceCACertificateIdentifier
         , fmap (("CharacterSetName",) . toJSON) _rDSDBInstanceCharacterSetName
         , fmap (("CopyTagsToSnapshot",) . toJSON) _rDSDBInstanceCopyTagsToSnapshot
         , fmap (("DBClusterIdentifier",) . toJSON) _rDSDBInstanceDBClusterIdentifier
@@ -141,6 +143,7 @@ rdsdbInstance dBInstanceClassarg =
   , _rDSDBInstanceAutoMinorVersionUpgrade = Nothing
   , _rDSDBInstanceAvailabilityZone = Nothing
   , _rDSDBInstanceBackupRetentionPeriod = Nothing
+  , _rDSDBInstanceCACertificateIdentifier = Nothing
   , _rDSDBInstanceCharacterSetName = Nothing
   , _rDSDBInstanceCopyTagsToSnapshot = Nothing
   , _rDSDBInstanceDBClusterIdentifier = Nothing
@@ -211,6 +214,10 @@ rdsdbiAvailabilityZone = lens _rDSDBInstanceAvailabilityZone (\s a -> s { _rDSDB
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-backupretentionperiod
 rdsdbiBackupRetentionPeriod :: Lens' RDSDBInstance (Maybe (Val Integer))
 rdsdbiBackupRetentionPeriod = lens _rDSDBInstanceBackupRetentionPeriod (\s a -> s { _rDSDBInstanceBackupRetentionPeriod = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-cacertificateidentifier
+rdsdbiCACertificateIdentifier :: Lens' RDSDBInstance (Maybe (Val Text))
+rdsdbiCACertificateIdentifier = lens _rDSDBInstanceCACertificateIdentifier (\s a -> s { _rDSDBInstanceCACertificateIdentifier = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html#cfn-rds-dbinstance-charactersetname
 rdsdbiCharacterSetName :: Lens' RDSDBInstance (Maybe (Val Text))

@@ -13,6 +13,7 @@ import Stratosphere.ResourceProperties.EC2InstanceCpuOptions
 import Stratosphere.ResourceProperties.EC2InstanceCreditSpecification
 import Stratosphere.ResourceProperties.EC2InstanceElasticGpuSpecification
 import Stratosphere.ResourceProperties.EC2InstanceElasticInferenceAccelerator
+import Stratosphere.ResourceProperties.EC2InstanceHibernationOptions
 import Stratosphere.ResourceProperties.EC2InstanceInstanceIpv6Address
 import Stratosphere.ResourceProperties.EC2InstanceLaunchTemplateSpecification
 import Stratosphere.ResourceProperties.EC2InstanceLicenseSpecification
@@ -35,7 +36,9 @@ data EC2Instance =
   , _eC2InstanceEbsOptimized :: Maybe (Val Bool)
   , _eC2InstanceElasticGpuSpecifications :: Maybe [EC2InstanceElasticGpuSpecification]
   , _eC2InstanceElasticInferenceAccelerators :: Maybe [EC2InstanceElasticInferenceAccelerator]
+  , _eC2InstanceHibernationOptions :: Maybe EC2InstanceHibernationOptions
   , _eC2InstanceHostId :: Maybe (Val Text)
+  , _eC2InstanceHostResourceGroupArn :: Maybe (Val Text)
   , _eC2InstanceIamInstanceProfile :: Maybe (Val Text)
   , _eC2InstanceImageId :: Maybe (Val Text)
   , _eC2InstanceInstanceInitiatedShutdownBehavior :: Maybe (Val Text)
@@ -78,7 +81,9 @@ instance ToResourceProperties EC2Instance where
         , fmap (("EbsOptimized",) . toJSON) _eC2InstanceEbsOptimized
         , fmap (("ElasticGpuSpecifications",) . toJSON) _eC2InstanceElasticGpuSpecifications
         , fmap (("ElasticInferenceAccelerators",) . toJSON) _eC2InstanceElasticInferenceAccelerators
+        , fmap (("HibernationOptions",) . toJSON) _eC2InstanceHibernationOptions
         , fmap (("HostId",) . toJSON) _eC2InstanceHostId
+        , fmap (("HostResourceGroupArn",) . toJSON) _eC2InstanceHostResourceGroupArn
         , fmap (("IamInstanceProfile",) . toJSON) _eC2InstanceIamInstanceProfile
         , fmap (("ImageId",) . toJSON) _eC2InstanceImageId
         , fmap (("InstanceInitiatedShutdownBehavior",) . toJSON) _eC2InstanceInstanceInitiatedShutdownBehavior
@@ -121,7 +126,9 @@ ec2Instance  =
   , _eC2InstanceEbsOptimized = Nothing
   , _eC2InstanceElasticGpuSpecifications = Nothing
   , _eC2InstanceElasticInferenceAccelerators = Nothing
+  , _eC2InstanceHibernationOptions = Nothing
   , _eC2InstanceHostId = Nothing
+  , _eC2InstanceHostResourceGroupArn = Nothing
   , _eC2InstanceIamInstanceProfile = Nothing
   , _eC2InstanceImageId = Nothing
   , _eC2InstanceInstanceInitiatedShutdownBehavior = Nothing
@@ -188,9 +195,17 @@ eciElasticGpuSpecifications = lens _eC2InstanceElasticGpuSpecifications (\s a ->
 eciElasticInferenceAccelerators :: Lens' EC2Instance (Maybe [EC2InstanceElasticInferenceAccelerator])
 eciElasticInferenceAccelerators = lens _eC2InstanceElasticInferenceAccelerators (\s a -> s { _eC2InstanceElasticInferenceAccelerators = a })
 
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-hibernationoptions
+eciHibernationOptions :: Lens' EC2Instance (Maybe EC2InstanceHibernationOptions)
+eciHibernationOptions = lens _eC2InstanceHibernationOptions (\s a -> s { _eC2InstanceHibernationOptions = a })
+
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-hostid
 eciHostId :: Lens' EC2Instance (Maybe (Val Text))
 eciHostId = lens _eC2InstanceHostId (\s a -> s { _eC2InstanceHostId = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-hostresourcegrouparn
+eciHostResourceGroupArn :: Lens' EC2Instance (Maybe (Val Text))
+eciHostResourceGroupArn = lens _eC2InstanceHostResourceGroupArn (\s a -> s { _eC2InstanceHostResourceGroupArn = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html#cfn-ec2-instance-iaminstanceprofile
 eciIamInstanceProfile :: Lens' EC2Instance (Maybe (Val Text))
