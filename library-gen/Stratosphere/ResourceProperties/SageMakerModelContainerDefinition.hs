@@ -17,6 +17,7 @@ data SageMakerModelContainerDefinition =
   { _sageMakerModelContainerDefinitionContainerHostname :: Maybe (Val Text)
   , _sageMakerModelContainerDefinitionEnvironment :: Maybe Object
   , _sageMakerModelContainerDefinitionImage :: Val Text
+  , _sageMakerModelContainerDefinitionMode :: Maybe (Val Text)
   , _sageMakerModelContainerDefinitionModelDataUrl :: Maybe (Val Text)
   } deriving (Show, Eq)
 
@@ -27,6 +28,7 @@ instance ToJSON SageMakerModelContainerDefinition where
     [ fmap (("ContainerHostname",) . toJSON) _sageMakerModelContainerDefinitionContainerHostname
     , fmap (("Environment",) . toJSON) _sageMakerModelContainerDefinitionEnvironment
     , (Just . ("Image",) . toJSON) _sageMakerModelContainerDefinitionImage
+    , fmap (("Mode",) . toJSON) _sageMakerModelContainerDefinitionMode
     , fmap (("ModelDataUrl",) . toJSON) _sageMakerModelContainerDefinitionModelDataUrl
     ]
 
@@ -40,6 +42,7 @@ sageMakerModelContainerDefinition imagearg =
   { _sageMakerModelContainerDefinitionContainerHostname = Nothing
   , _sageMakerModelContainerDefinitionEnvironment = Nothing
   , _sageMakerModelContainerDefinitionImage = imagearg
+  , _sageMakerModelContainerDefinitionMode = Nothing
   , _sageMakerModelContainerDefinitionModelDataUrl = Nothing
   }
 
@@ -54,6 +57,10 @@ smmcdEnvironment = lens _sageMakerModelContainerDefinitionEnvironment (\s a -> s
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition.html#cfn-sagemaker-model-containerdefinition-image
 smmcdImage :: Lens' SageMakerModelContainerDefinition (Val Text)
 smmcdImage = lens _sageMakerModelContainerDefinitionImage (\s a -> s { _sageMakerModelContainerDefinitionImage = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition.html#cfn-sagemaker-model-containerdefinition-mode
+smmcdMode :: Lens' SageMakerModelContainerDefinition (Maybe (Val Text))
+smmcdMode = lens _sageMakerModelContainerDefinitionMode (\s a -> s { _sageMakerModelContainerDefinitionMode = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition.html#cfn-sagemaker-model-containerdefinition-modeldataurl
 smmcdModelDataUrl :: Lens' SageMakerModelContainerDefinition (Maybe (Val Text))

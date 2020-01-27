@@ -8,6 +8,7 @@
 module Stratosphere.Resources.CognitoUserPool where
 
 import Stratosphere.ResourceImports
+import Stratosphere.ResourceProperties.CognitoUserPoolAccountRecoverySetting
 import Stratosphere.ResourceProperties.CognitoUserPoolAdminCreateUserConfig
 import Stratosphere.ResourceProperties.CognitoUserPoolDeviceConfiguration
 import Stratosphere.ResourceProperties.CognitoUserPoolEmailConfiguration
@@ -22,7 +23,8 @@ import Stratosphere.ResourceProperties.CognitoUserPoolVerificationMessageTemplat
 -- a more convenient constructor.
 data CognitoUserPool =
   CognitoUserPool
-  { _cognitoUserPoolAdminCreateUserConfig :: Maybe CognitoUserPoolAdminCreateUserConfig
+  { _cognitoUserPoolAccountRecoverySetting :: Maybe CognitoUserPoolAccountRecoverySetting
+  , _cognitoUserPoolAdminCreateUserConfig :: Maybe CognitoUserPoolAdminCreateUserConfig
   , _cognitoUserPoolAliasAttributes :: Maybe (ValList Text)
   , _cognitoUserPoolAutoVerifiedAttributes :: Maybe (ValList Text)
   , _cognitoUserPoolDeviceConfiguration :: Maybe CognitoUserPoolDeviceConfiguration
@@ -50,7 +52,8 @@ instance ToResourceProperties CognitoUserPool where
     { resourcePropertiesType = "AWS::Cognito::UserPool"
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
-        [ fmap (("AdminCreateUserConfig",) . toJSON) _cognitoUserPoolAdminCreateUserConfig
+        [ fmap (("AccountRecoverySetting",) . toJSON) _cognitoUserPoolAccountRecoverySetting
+        , fmap (("AdminCreateUserConfig",) . toJSON) _cognitoUserPoolAdminCreateUserConfig
         , fmap (("AliasAttributes",) . toJSON) _cognitoUserPoolAliasAttributes
         , fmap (("AutoVerifiedAttributes",) . toJSON) _cognitoUserPoolAutoVerifiedAttributes
         , fmap (("DeviceConfiguration",) . toJSON) _cognitoUserPoolDeviceConfiguration
@@ -79,7 +82,8 @@ cognitoUserPool
   :: CognitoUserPool
 cognitoUserPool  =
   CognitoUserPool
-  { _cognitoUserPoolAdminCreateUserConfig = Nothing
+  { _cognitoUserPoolAccountRecoverySetting = Nothing
+  , _cognitoUserPoolAdminCreateUserConfig = Nothing
   , _cognitoUserPoolAliasAttributes = Nothing
   , _cognitoUserPoolAutoVerifiedAttributes = Nothing
   , _cognitoUserPoolDeviceConfiguration = Nothing
@@ -100,6 +104,10 @@ cognitoUserPool  =
   , _cognitoUserPoolUsernameAttributes = Nothing
   , _cognitoUserPoolVerificationMessageTemplate = Nothing
   }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-accountrecoverysetting
+cupAccountRecoverySetting :: Lens' CognitoUserPool (Maybe CognitoUserPoolAccountRecoverySetting)
+cupAccountRecoverySetting = lens _cognitoUserPoolAccountRecoverySetting (\s a -> s { _cognitoUserPoolAccountRecoverySetting = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-admincreateuserconfig
 cupAdminCreateUserConfig :: Lens' CognitoUserPool (Maybe CognitoUserPoolAdminCreateUserConfig)

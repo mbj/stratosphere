@@ -44,6 +44,9 @@ import qualified Data.Text as T
 import GHC.Exts (IsList(..))
 import GHC.Generics (Generic)
 
+import Stratosphere.Resources.ACMPCACertificate as X
+import Stratosphere.Resources.ACMPCACertificateAuthority as X
+import Stratosphere.Resources.ACMPCACertificateAuthorityActivation as X
 import Stratosphere.Resources.AccessAnalyzerAnalyzer as X
 import Stratosphere.Resources.AmazonMQBroker as X
 import Stratosphere.Resources.AmazonMQConfiguration as X
@@ -798,6 +801,7 @@ import Stratosphere.ResourceProperties.CognitoIdentityPoolPushSync as X
 import Stratosphere.ResourceProperties.CognitoIdentityPoolRoleAttachmentMappingRule as X
 import Stratosphere.ResourceProperties.CognitoIdentityPoolRoleAttachmentRoleMapping as X
 import Stratosphere.ResourceProperties.CognitoIdentityPoolRoleAttachmentRulesConfigurationType as X
+import Stratosphere.ResourceProperties.CognitoUserPoolAccountRecoverySetting as X
 import Stratosphere.ResourceProperties.CognitoUserPoolAdminCreateUserConfig as X
 import Stratosphere.ResourceProperties.CognitoUserPoolDeviceConfiguration as X
 import Stratosphere.ResourceProperties.CognitoUserPoolEmailConfiguration as X
@@ -806,6 +810,7 @@ import Stratosphere.ResourceProperties.CognitoUserPoolLambdaConfig as X
 import Stratosphere.ResourceProperties.CognitoUserPoolNumberAttributeConstraints as X
 import Stratosphere.ResourceProperties.CognitoUserPoolPasswordPolicy as X
 import Stratosphere.ResourceProperties.CognitoUserPoolPolicies as X
+import Stratosphere.ResourceProperties.CognitoUserPoolRecoveryOption as X
 import Stratosphere.ResourceProperties.CognitoUserPoolSchemaAttribute as X
 import Stratosphere.ResourceProperties.CognitoUserPoolSmsConfiguration as X
 import Stratosphere.ResourceProperties.CognitoUserPoolStringAttributeConstraints as X
