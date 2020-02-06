@@ -14,7 +14,7 @@ module Stratosphere.Values
 import Data.Aeson
 import Data.HashMap.Strict (HashMap)
 import Data.Maybe (fromMaybe)
-import Data.String (IsString (..))
+import Data.String (IsString(..))
 import Data.Text (Text)
 import Data.Typeable
 import GHC.Exts (IsList(..))
@@ -35,7 +35,7 @@ data Val a where
   Join :: Text -> ValList Text -> Val Text
   Select :: Integer -> ValList a -> Val a
   FindInMap :: Val Text -> Val Text -> Val Text -> Val a -- ^ Map name, top level key, and second level key
-  ImportValue :: Text -> Val a -- ^ The account-and-region-unique exported name of the value to import
+  ImportValue :: Val Text -> Val a -- ^ The account-and-region-unique exported name of the value to import
   Sub :: Text -> Maybe (HashMap Text (Val Text)) -> Val Text -- ^ Substitution string and optional map of values
 
 deriving instance (Show a) => Show (Val a)
@@ -89,7 +89,7 @@ sub s = Sub s Nothing
 refToJSON :: Text -> Value
 refToJSON ref = object [("Ref", toJSON ref)]
 
-importValueToJSON :: Text -> Value
+importValueToJSON :: Val Text -> Value
 importValueToJSON ref = object [("Fn::ImportValue", toJSON ref)]
 
 mkFunc :: Text -> [Value] -> Value
@@ -102,7 +102,7 @@ mkFunc name args = object [(name, Array $ fromList args)]
 data ValList a
   = ValList [Val a]
   | RefList Text
-  | ImportValueList Text
+  | ImportValueList (Val Text)
   | Split Text (Val a)
   | GetAZs (Val Text)
   deriving (Show, Eq)
