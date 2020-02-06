@@ -2,6 +2,7 @@
 
 ## 0.49.0
 
+* Fixed `ImportValue` not allowing `Val` as argument (thanks @mbj!)
 * Update resource specification document to version 10.4.0
 
 ## 0.48.0
