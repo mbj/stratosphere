@@ -14,7 +14,7 @@ module Stratosphere.Values
 import Data.Aeson
 import Data.HashMap.Strict (HashMap)
 import Data.Maybe (fromMaybe)
-import Data.String (IsString (..))
+import Data.String (IsString(..))
 import Data.Text (Text)
 import Data.Typeable
 import GHC.Exts (IsList(..))
