@@ -84,6 +84,11 @@ import Stratosphere.Resources.ApiGatewayV2Model as X
 import Stratosphere.Resources.ApiGatewayV2Route as X
 import Stratosphere.Resources.ApiGatewayV2RouteResponse as X
 import Stratosphere.Resources.ApiGatewayV2Stage as X
+import Stratosphere.Resources.AppConfigApplication as X
+import Stratosphere.Resources.AppConfigConfigurationProfile as X
+import Stratosphere.Resources.AppConfigDeployment as X
+import Stratosphere.Resources.AppConfigDeploymentStrategy as X
+import Stratosphere.Resources.AppConfigEnvironment as X
 import Stratosphere.Resources.AppMeshMesh as X
 import Stratosphere.Resources.AppMeshRoute as X
 import Stratosphere.Resources.AppMeshVirtualNode as X
@@ -531,6 +536,10 @@ import Stratosphere.Resources.WAFRegionalWebACLAssociation as X
 import Stratosphere.Resources.WAFRegionalXssMatchSet as X
 import Stratosphere.Resources.WorkSpacesWorkspace as X
 import Stratosphere.Resources.ASKSkill as X
+import Stratosphere.ResourceProperties.ACMPCACertificateValidity as X
+import Stratosphere.ResourceProperties.ACMPCACertificateAuthorityCrlConfiguration as X
+import Stratosphere.ResourceProperties.ACMPCACertificateAuthorityRevocationConfiguration as X
+import Stratosphere.ResourceProperties.ACMPCACertificateAuthoritySubject as X
 import Stratosphere.ResourceProperties.AccessAnalyzerAnalyzerArchiveRule as X
 import Stratosphere.ResourceProperties.AccessAnalyzerAnalyzerFilter as X
 import Stratosphere.ResourceProperties.AmazonMQBrokerConfigurationId as X
@@ -575,6 +584,13 @@ import Stratosphere.ResourceProperties.ApiGatewayV2RouteParameterConstraints as 
 import Stratosphere.ResourceProperties.ApiGatewayV2RouteResponseParameterConstraints as X
 import Stratosphere.ResourceProperties.ApiGatewayV2StageAccessLogSettings as X
 import Stratosphere.ResourceProperties.ApiGatewayV2StageRouteSettings as X
+import Stratosphere.ResourceProperties.AppConfigApplicationTags as X
+import Stratosphere.ResourceProperties.AppConfigConfigurationProfileTags as X
+import Stratosphere.ResourceProperties.AppConfigConfigurationProfileValidators as X
+import Stratosphere.ResourceProperties.AppConfigDeploymentTags as X
+import Stratosphere.ResourceProperties.AppConfigDeploymentStrategyTags as X
+import Stratosphere.ResourceProperties.AppConfigEnvironmentMonitors as X
+import Stratosphere.ResourceProperties.AppConfigEnvironmentTags as X
 import Stratosphere.ResourceProperties.AppMeshMeshEgressFilter as X
 import Stratosphere.ResourceProperties.AppMeshMeshMeshSpec as X
 import Stratosphere.ResourceProperties.AppMeshRouteDuration as X
@@ -680,6 +696,7 @@ import Stratosphere.ResourceProperties.AutoScalingPlansScalingPlanTagFilter as X
 import Stratosphere.ResourceProperties.AutoScalingPlansScalingPlanTargetTrackingConfiguration as X
 import Stratosphere.ResourceProperties.BackupBackupPlanBackupPlanResourceType as X
 import Stratosphere.ResourceProperties.BackupBackupPlanBackupRuleResourceType as X
+import Stratosphere.ResourceProperties.BackupBackupPlanCopyActionResourceType as X
 import Stratosphere.ResourceProperties.BackupBackupPlanLifecycleResourceType as X
 import Stratosphere.ResourceProperties.BackupBackupSelectionBackupSelectionResourceType as X
 import Stratosphere.ResourceProperties.BackupBackupSelectionConditionResourceType as X
@@ -918,6 +935,7 @@ import Stratosphere.ResourceProperties.EC2LaunchTemplateIpv6Add as X
 import Stratosphere.ResourceProperties.EC2LaunchTemplateLaunchTemplateData as X
 import Stratosphere.ResourceProperties.EC2LaunchTemplateLaunchTemplateElasticInferenceAccelerator as X
 import Stratosphere.ResourceProperties.EC2LaunchTemplateLicenseSpecification as X
+import Stratosphere.ResourceProperties.EC2LaunchTemplateMetadataOptions as X
 import Stratosphere.ResourceProperties.EC2LaunchTemplateMonitoring as X
 import Stratosphere.ResourceProperties.EC2LaunchTemplateNetworkInterface as X
 import Stratosphere.ResourceProperties.EC2LaunchTemplatePlacement as X
@@ -1453,6 +1471,7 @@ import Stratosphere.ResourceProperties.MediaLiveChannelInputAttachment as X
 import Stratosphere.ResourceProperties.MediaLiveChannelInputSettings as X
 import Stratosphere.ResourceProperties.MediaLiveChannelInputSpecification as X
 import Stratosphere.ResourceProperties.MediaLiveChannelMediaPackageOutputDestinationSettings as X
+import Stratosphere.ResourceProperties.MediaLiveChannelMultiplexProgramChannelDestinationSettings as X
 import Stratosphere.ResourceProperties.MediaLiveChannelNetworkInputSettings as X
 import Stratosphere.ResourceProperties.MediaLiveChannelOutputDestination as X
 import Stratosphere.ResourceProperties.MediaLiveChannelOutputDestinationSettings as X

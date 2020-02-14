@@ -8,6 +8,8 @@
 module Stratosphere.Resources.ACMPCACertificateAuthority where
 
 import Stratosphere.ResourceImports
+import Stratosphere.ResourceProperties.ACMPCACertificateAuthorityRevocationConfiguration
+import Stratosphere.ResourceProperties.ACMPCACertificateAuthoritySubject
 import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for ACMPCACertificateAuthority. See
@@ -15,9 +17,9 @@ import Stratosphere.ResourceProperties.Tag
 data ACMPCACertificateAuthority =
   ACMPCACertificateAuthority
   { _aCMPCACertificateAuthorityKeyAlgorithm :: Val Text
-  , _aCMPCACertificateAuthorityRevocationConfiguration :: Maybe Object
+  , _aCMPCACertificateAuthorityRevocationConfiguration :: Maybe ACMPCACertificateAuthorityRevocationConfiguration
   , _aCMPCACertificateAuthoritySigningAlgorithm :: Val Text
-  , _aCMPCACertificateAuthoritySubject :: Object
+  , _aCMPCACertificateAuthoritySubject :: ACMPCACertificateAuthoritySubject
   , _aCMPCACertificateAuthorityTags :: Maybe [Tag]
   , _aCMPCACertificateAuthorityType :: Val Text
   } deriving (Show, Eq)
@@ -42,7 +44,7 @@ instance ToResourceProperties ACMPCACertificateAuthority where
 acmpcaCertificateAuthority
   :: Val Text -- ^ 'acmpcacaKeyAlgorithm'
   -> Val Text -- ^ 'acmpcacaSigningAlgorithm'
-  -> Object -- ^ 'acmpcacaSubject'
+  -> ACMPCACertificateAuthoritySubject -- ^ 'acmpcacaSubject'
   -> Val Text -- ^ 'acmpcacaType'
   -> ACMPCACertificateAuthority
 acmpcaCertificateAuthority keyAlgorithmarg signingAlgorithmarg subjectarg typearg =
@@ -60,7 +62,7 @@ acmpcacaKeyAlgorithm :: Lens' ACMPCACertificateAuthority (Val Text)
 acmpcacaKeyAlgorithm = lens _aCMPCACertificateAuthorityKeyAlgorithm (\s a -> s { _aCMPCACertificateAuthorityKeyAlgorithm = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-revocationconfiguration
-acmpcacaRevocationConfiguration :: Lens' ACMPCACertificateAuthority (Maybe Object)
+acmpcacaRevocationConfiguration :: Lens' ACMPCACertificateAuthority (Maybe ACMPCACertificateAuthorityRevocationConfiguration)
 acmpcacaRevocationConfiguration = lens _aCMPCACertificateAuthorityRevocationConfiguration (\s a -> s { _aCMPCACertificateAuthorityRevocationConfiguration = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-signingalgorithm
@@ -68,7 +70,7 @@ acmpcacaSigningAlgorithm :: Lens' ACMPCACertificateAuthority (Val Text)
 acmpcacaSigningAlgorithm = lens _aCMPCACertificateAuthoritySigningAlgorithm (\s a -> s { _aCMPCACertificateAuthoritySigningAlgorithm = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-subject
-acmpcacaSubject :: Lens' ACMPCACertificateAuthority Object
+acmpcacaSubject :: Lens' ACMPCACertificateAuthority ACMPCACertificateAuthoritySubject
 acmpcacaSubject = lens _aCMPCACertificateAuthoritySubject (\s a -> s { _aCMPCACertificateAuthoritySubject = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html#cfn-acmpca-certificateauthority-tags

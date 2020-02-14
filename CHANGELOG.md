@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.50.0
+
+* Update resource specification document to version 10.5.0
+
 ## 0.49.0
 
 * Fixed `ImportValue` not allowing `Val` as argument (thanks @mbj!)

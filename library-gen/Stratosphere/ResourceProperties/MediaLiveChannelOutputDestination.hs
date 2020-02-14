@@ -9,6 +9,7 @@ module Stratosphere.ResourceProperties.MediaLiveChannelOutputDestination where
 
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.MediaLiveChannelMediaPackageOutputDestinationSettings
+import Stratosphere.ResourceProperties.MediaLiveChannelMultiplexProgramChannelDestinationSettings
 import Stratosphere.ResourceProperties.MediaLiveChannelOutputDestinationSettings
 
 -- | Full data type definition for MediaLiveChannelOutputDestination. See
@@ -17,6 +18,7 @@ data MediaLiveChannelOutputDestination =
   MediaLiveChannelOutputDestination
   { _mediaLiveChannelOutputDestinationId :: Maybe (Val Text)
   , _mediaLiveChannelOutputDestinationMediaPackageSettings :: Maybe [MediaLiveChannelMediaPackageOutputDestinationSettings]
+  , _mediaLiveChannelOutputDestinationMultiplexSettings :: Maybe MediaLiveChannelMultiplexProgramChannelDestinationSettings
   , _mediaLiveChannelOutputDestinationSettings :: Maybe [MediaLiveChannelOutputDestinationSettings]
   } deriving (Show, Eq)
 
@@ -26,6 +28,7 @@ instance ToJSON MediaLiveChannelOutputDestination where
     catMaybes
     [ fmap (("Id",) . toJSON) _mediaLiveChannelOutputDestinationId
     , fmap (("MediaPackageSettings",) . toJSON) _mediaLiveChannelOutputDestinationMediaPackageSettings
+    , fmap (("MultiplexSettings",) . toJSON) _mediaLiveChannelOutputDestinationMultiplexSettings
     , fmap (("Settings",) . toJSON) _mediaLiveChannelOutputDestinationSettings
     ]
 
@@ -37,6 +40,7 @@ mediaLiveChannelOutputDestination  =
   MediaLiveChannelOutputDestination
   { _mediaLiveChannelOutputDestinationId = Nothing
   , _mediaLiveChannelOutputDestinationMediaPackageSettings = Nothing
+  , _mediaLiveChannelOutputDestinationMultiplexSettings = Nothing
   , _mediaLiveChannelOutputDestinationSettings = Nothing
   }
 
@@ -47,6 +51,10 @@ mlcodId = lens _mediaLiveChannelOutputDestinationId (\s a -> s { _mediaLiveChann
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputdestination.html#cfn-medialive-channel-outputdestination-mediapackagesettings
 mlcodMediaPackageSettings :: Lens' MediaLiveChannelOutputDestination (Maybe [MediaLiveChannelMediaPackageOutputDestinationSettings])
 mlcodMediaPackageSettings = lens _mediaLiveChannelOutputDestinationMediaPackageSettings (\s a -> s { _mediaLiveChannelOutputDestinationMediaPackageSettings = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputdestination.html#cfn-medialive-channel-outputdestination-multiplexsettings
+mlcodMultiplexSettings :: Lens' MediaLiveChannelOutputDestination (Maybe MediaLiveChannelMultiplexProgramChannelDestinationSettings)
+mlcodMultiplexSettings = lens _mediaLiveChannelOutputDestinationMultiplexSettings (\s a -> s { _mediaLiveChannelOutputDestinationMultiplexSettings = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputdestination.html#cfn-medialive-channel-outputdestination-settings
 mlcodSettings :: Lens' MediaLiveChannelOutputDestination (Maybe [MediaLiveChannelOutputDestinationSettings])

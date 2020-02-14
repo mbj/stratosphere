@@ -9,6 +9,7 @@ module Stratosphere.Resources.OpsWorksCMServer where
 
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.OpsWorksCMServerEngineAttribute
+import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for OpsWorksCMServer. See 'opsWorksCMServer'
 -- for a more convenient constructor.
@@ -34,6 +35,7 @@ data OpsWorksCMServer =
   , _opsWorksCMServerServerName :: Maybe (Val Text)
   , _opsWorksCMServerServiceRoleArn :: Val Text
   , _opsWorksCMServerSubnetIds :: Maybe (ValList Text)
+  , _opsWorksCMServerTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
 instance ToResourceProperties OpsWorksCMServer where
@@ -62,6 +64,7 @@ instance ToResourceProperties OpsWorksCMServer where
         , fmap (("ServerName",) . toJSON) _opsWorksCMServerServerName
         , (Just . ("ServiceRoleArn",) . toJSON) _opsWorksCMServerServiceRoleArn
         , fmap (("SubnetIds",) . toJSON) _opsWorksCMServerSubnetIds
+        , fmap (("Tags",) . toJSON) _opsWorksCMServerTags
         ]
     }
 
@@ -94,6 +97,7 @@ opsWorksCMServer instanceProfileArnarg instanceTypearg serviceRoleArnarg =
   , _opsWorksCMServerServerName = Nothing
   , _opsWorksCMServerServiceRoleArn = serviceRoleArnarg
   , _opsWorksCMServerSubnetIds = Nothing
+  , _opsWorksCMServerTags = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-associatepublicipaddress
@@ -175,3 +179,7 @@ owcmsServiceRoleArn = lens _opsWorksCMServerServiceRoleArn (\s a -> s { _opsWork
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-subnetids
 owcmsSubnetIds :: Lens' OpsWorksCMServer (Maybe (ValList Text))
 owcmsSubnetIds = lens _opsWorksCMServerSubnetIds (\s a -> s { _opsWorksCMServerSubnetIds = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opsworkscm-server.html#cfn-opsworkscm-server-tags
+owcmsTags :: Lens' OpsWorksCMServer (Maybe [Tag])
+owcmsTags = lens _opsWorksCMServerTags (\s a -> s { _opsWorksCMServerTags = a })
