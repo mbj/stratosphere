@@ -3,6 +3,7 @@
 ## 0.50.0
 
 * Update resource specification document to version 10.5.0
+* Update CI for GHC 8.8
 
 ## 0.49.0
 
