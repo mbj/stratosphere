@@ -8,6 +8,7 @@
 module Stratosphere.ResourceProperties.BackupBackupPlanBackupRuleResourceType where
 
 import Stratosphere.ResourceImports
+import Stratosphere.ResourceProperties.BackupBackupPlanCopyActionResourceType
 import Stratosphere.ResourceProperties.BackupBackupPlanLifecycleResourceType
 
 -- | Full data type definition for BackupBackupPlanBackupRuleResourceType. See
@@ -16,6 +17,7 @@ import Stratosphere.ResourceProperties.BackupBackupPlanLifecycleResourceType
 data BackupBackupPlanBackupRuleResourceType =
   BackupBackupPlanBackupRuleResourceType
   { _backupBackupPlanBackupRuleResourceTypeCompletionWindowMinutes :: Maybe (Val Double)
+  , _backupBackupPlanBackupRuleResourceTypeCopyActions :: Maybe [BackupBackupPlanCopyActionResourceType]
   , _backupBackupPlanBackupRuleResourceTypeLifecycle :: Maybe BackupBackupPlanLifecycleResourceType
   , _backupBackupPlanBackupRuleResourceTypeRecoveryPointTags :: Maybe Object
   , _backupBackupPlanBackupRuleResourceTypeRuleName :: Val Text
@@ -29,6 +31,7 @@ instance ToJSON BackupBackupPlanBackupRuleResourceType where
     object $
     catMaybes
     [ fmap (("CompletionWindowMinutes",) . toJSON) _backupBackupPlanBackupRuleResourceTypeCompletionWindowMinutes
+    , fmap (("CopyActions",) . toJSON) _backupBackupPlanBackupRuleResourceTypeCopyActions
     , fmap (("Lifecycle",) . toJSON) _backupBackupPlanBackupRuleResourceTypeLifecycle
     , fmap (("RecoveryPointTags",) . toJSON) _backupBackupPlanBackupRuleResourceTypeRecoveryPointTags
     , (Just . ("RuleName",) . toJSON) _backupBackupPlanBackupRuleResourceTypeRuleName
@@ -46,6 +49,7 @@ backupBackupPlanBackupRuleResourceType
 backupBackupPlanBackupRuleResourceType ruleNamearg targetBackupVaultarg =
   BackupBackupPlanBackupRuleResourceType
   { _backupBackupPlanBackupRuleResourceTypeCompletionWindowMinutes = Nothing
+  , _backupBackupPlanBackupRuleResourceTypeCopyActions = Nothing
   , _backupBackupPlanBackupRuleResourceTypeLifecycle = Nothing
   , _backupBackupPlanBackupRuleResourceTypeRecoveryPointTags = Nothing
   , _backupBackupPlanBackupRuleResourceTypeRuleName = ruleNamearg
@@ -57,6 +61,10 @@ backupBackupPlanBackupRuleResourceType ruleNamearg targetBackupVaultarg =
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-completionwindowminutes
 bbpbrrtCompletionWindowMinutes :: Lens' BackupBackupPlanBackupRuleResourceType (Maybe (Val Double))
 bbpbrrtCompletionWindowMinutes = lens _backupBackupPlanBackupRuleResourceTypeCompletionWindowMinutes (\s a -> s { _backupBackupPlanBackupRuleResourceTypeCompletionWindowMinutes = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-copyactions
+bbpbrrtCopyActions :: Lens' BackupBackupPlanBackupRuleResourceType (Maybe [BackupBackupPlanCopyActionResourceType])
+bbpbrrtCopyActions = lens _backupBackupPlanBackupRuleResourceTypeCopyActions (\s a -> s { _backupBackupPlanBackupRuleResourceTypeCopyActions = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html#cfn-backup-backupplan-backupruleresourcetype-lifecycle
 bbpbrrtLifecycle :: Lens' BackupBackupPlanBackupRuleResourceType (Maybe BackupBackupPlanLifecycleResourceType)

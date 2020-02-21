@@ -8,7 +8,7 @@
 module Stratosphere.Resources.ACMPCACertificate where
 
 import Stratosphere.ResourceImports
-
+import Stratosphere.ResourceProperties.ACMPCACertificateValidity
 
 -- | Full data type definition for ACMPCACertificate. See 'acmpcaCertificate'
 -- for a more convenient constructor.
@@ -18,7 +18,7 @@ data ACMPCACertificate =
   , _aCMPCACertificateCertificateSigningRequest :: Val Text
   , _aCMPCACertificateSigningAlgorithm :: Val Text
   , _aCMPCACertificateTemplateArn :: Maybe (Val Text)
-  , _aCMPCACertificateValidity :: Object
+  , _aCMPCACertificateValidity :: ACMPCACertificateValidity
   } deriving (Show, Eq)
 
 instance ToResourceProperties ACMPCACertificate where
@@ -41,7 +41,7 @@ acmpcaCertificate
   :: Val Text -- ^ 'acmpcacCertificateAuthorityArn'
   -> Val Text -- ^ 'acmpcacCertificateSigningRequest'
   -> Val Text -- ^ 'acmpcacSigningAlgorithm'
-  -> Object -- ^ 'acmpcacValidity'
+  -> ACMPCACertificateValidity -- ^ 'acmpcacValidity'
   -> ACMPCACertificate
 acmpcaCertificate certificateAuthorityArnarg certificateSigningRequestarg signingAlgorithmarg validityarg =
   ACMPCACertificate
@@ -69,5 +69,5 @@ acmpcacTemplateArn :: Lens' ACMPCACertificate (Maybe (Val Text))
 acmpcacTemplateArn = lens _aCMPCACertificateTemplateArn (\s a -> s { _aCMPCACertificateTemplateArn = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html#cfn-acmpca-certificate-validity
-acmpcacValidity :: Lens' ACMPCACertificate Object
+acmpcacValidity :: Lens' ACMPCACertificate ACMPCACertificateValidity
 acmpcacValidity = lens _aCMPCACertificateValidity (\s a -> s { _aCMPCACertificateValidity = a })

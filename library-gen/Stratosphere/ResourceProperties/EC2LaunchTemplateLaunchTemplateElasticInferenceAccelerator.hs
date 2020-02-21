@@ -16,14 +16,16 @@ import Stratosphere.ResourceImports
 -- convenient constructor.
 data EC2LaunchTemplateLaunchTemplateElasticInferenceAccelerator =
   EC2LaunchTemplateLaunchTemplateElasticInferenceAccelerator
-  { _eC2LaunchTemplateLaunchTemplateElasticInferenceAcceleratorType :: Maybe (Val Text)
+  { _eC2LaunchTemplateLaunchTemplateElasticInferenceAcceleratorCount :: Maybe (Val Integer)
+  , _eC2LaunchTemplateLaunchTemplateElasticInferenceAcceleratorType :: Maybe (Val Text)
   } deriving (Show, Eq)
 
 instance ToJSON EC2LaunchTemplateLaunchTemplateElasticInferenceAccelerator where
   toJSON EC2LaunchTemplateLaunchTemplateElasticInferenceAccelerator{..} =
     object $
     catMaybes
-    [ fmap (("Type",) . toJSON) _eC2LaunchTemplateLaunchTemplateElasticInferenceAcceleratorType
+    [ fmap (("Count",) . toJSON) _eC2LaunchTemplateLaunchTemplateElasticInferenceAcceleratorCount
+    , fmap (("Type",) . toJSON) _eC2LaunchTemplateLaunchTemplateElasticInferenceAcceleratorType
     ]
 
 -- | Constructor for
@@ -33,8 +35,13 @@ ec2LaunchTemplateLaunchTemplateElasticInferenceAccelerator
   :: EC2LaunchTemplateLaunchTemplateElasticInferenceAccelerator
 ec2LaunchTemplateLaunchTemplateElasticInferenceAccelerator  =
   EC2LaunchTemplateLaunchTemplateElasticInferenceAccelerator
-  { _eC2LaunchTemplateLaunchTemplateElasticInferenceAcceleratorType = Nothing
+  { _eC2LaunchTemplateLaunchTemplateElasticInferenceAcceleratorCount = Nothing
+  , _eC2LaunchTemplateLaunchTemplateElasticInferenceAcceleratorType = Nothing
   }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplateelasticinferenceaccelerator.html#cfn-ec2-launchtemplate-launchtemplateelasticinferenceaccelerator-count
+ecltlteiaCount :: Lens' EC2LaunchTemplateLaunchTemplateElasticInferenceAccelerator (Maybe (Val Integer))
+ecltlteiaCount = lens _eC2LaunchTemplateLaunchTemplateElasticInferenceAcceleratorCount (\s a -> s { _eC2LaunchTemplateLaunchTemplateElasticInferenceAcceleratorCount = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplateelasticinferenceaccelerator.html#cfn-ec2-launchtemplate-launchtemplateelasticinferenceaccelerator-type
 ecltlteiaType :: Lens' EC2LaunchTemplateLaunchTemplateElasticInferenceAccelerator (Maybe (Val Text))

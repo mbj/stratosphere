@@ -18,6 +18,7 @@ import Stratosphere.ResourceProperties.EC2LaunchTemplateHibernationOptions
 import Stratosphere.ResourceProperties.EC2LaunchTemplateIamInstanceProfile
 import Stratosphere.ResourceProperties.EC2LaunchTemplateInstanceMarketOptions
 import Stratosphere.ResourceProperties.EC2LaunchTemplateLicenseSpecification
+import Stratosphere.ResourceProperties.EC2LaunchTemplateMetadataOptions
 import Stratosphere.ResourceProperties.EC2LaunchTemplateMonitoring
 import Stratosphere.ResourceProperties.EC2LaunchTemplateNetworkInterface
 import Stratosphere.ResourceProperties.EC2LaunchTemplatePlacement
@@ -44,6 +45,7 @@ data EC2LaunchTemplateLaunchTemplateData =
   , _eC2LaunchTemplateLaunchTemplateDataKernelId :: Maybe (Val Text)
   , _eC2LaunchTemplateLaunchTemplateDataKeyName :: Maybe (Val Text)
   , _eC2LaunchTemplateLaunchTemplateDataLicenseSpecifications :: Maybe [EC2LaunchTemplateLicenseSpecification]
+  , _eC2LaunchTemplateLaunchTemplateDataMetadataOptions :: Maybe EC2LaunchTemplateMetadataOptions
   , _eC2LaunchTemplateLaunchTemplateDataMonitoring :: Maybe EC2LaunchTemplateMonitoring
   , _eC2LaunchTemplateLaunchTemplateDataNetworkInterfaces :: Maybe [EC2LaunchTemplateNetworkInterface]
   , _eC2LaunchTemplateLaunchTemplateDataPlacement :: Maybe EC2LaunchTemplatePlacement
@@ -75,6 +77,7 @@ instance ToJSON EC2LaunchTemplateLaunchTemplateData where
     , fmap (("KernelId",) . toJSON) _eC2LaunchTemplateLaunchTemplateDataKernelId
     , fmap (("KeyName",) . toJSON) _eC2LaunchTemplateLaunchTemplateDataKeyName
     , fmap (("LicenseSpecifications",) . toJSON) _eC2LaunchTemplateLaunchTemplateDataLicenseSpecifications
+    , fmap (("MetadataOptions",) . toJSON) _eC2LaunchTemplateLaunchTemplateDataMetadataOptions
     , fmap (("Monitoring",) . toJSON) _eC2LaunchTemplateLaunchTemplateDataMonitoring
     , fmap (("NetworkInterfaces",) . toJSON) _eC2LaunchTemplateLaunchTemplateDataNetworkInterfaces
     , fmap (("Placement",) . toJSON) _eC2LaunchTemplateLaunchTemplateDataPlacement
@@ -108,6 +111,7 @@ ec2LaunchTemplateLaunchTemplateData  =
   , _eC2LaunchTemplateLaunchTemplateDataKernelId = Nothing
   , _eC2LaunchTemplateLaunchTemplateDataKeyName = Nothing
   , _eC2LaunchTemplateLaunchTemplateDataLicenseSpecifications = Nothing
+  , _eC2LaunchTemplateLaunchTemplateDataMetadataOptions = Nothing
   , _eC2LaunchTemplateLaunchTemplateDataMonitoring = Nothing
   , _eC2LaunchTemplateLaunchTemplateDataNetworkInterfaces = Nothing
   , _eC2LaunchTemplateLaunchTemplateDataPlacement = Nothing
@@ -185,6 +189,10 @@ ecltltdKeyName = lens _eC2LaunchTemplateLaunchTemplateDataKeyName (\s a -> s { _
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-licensespecifications
 ecltltdLicenseSpecifications :: Lens' EC2LaunchTemplateLaunchTemplateData (Maybe [EC2LaunchTemplateLicenseSpecification])
 ecltltdLicenseSpecifications = lens _eC2LaunchTemplateLaunchTemplateDataLicenseSpecifications (\s a -> s { _eC2LaunchTemplateLaunchTemplateDataLicenseSpecifications = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-metadataoptions
+ecltltdMetadataOptions :: Lens' EC2LaunchTemplateLaunchTemplateData (Maybe EC2LaunchTemplateMetadataOptions)
+ecltltdMetadataOptions = lens _eC2LaunchTemplateLaunchTemplateDataMetadataOptions (\s a -> s { _eC2LaunchTemplateLaunchTemplateDataMetadataOptions = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-monitoring
 ecltltdMonitoring :: Lens' EC2LaunchTemplateLaunchTemplateData (Maybe EC2LaunchTemplateMonitoring)

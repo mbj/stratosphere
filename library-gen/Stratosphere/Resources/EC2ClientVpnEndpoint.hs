@@ -25,6 +25,7 @@ data EC2ClientVpnEndpoint =
   , _eC2ClientVpnEndpointSplitTunnel :: Maybe (Val Bool)
   , _eC2ClientVpnEndpointTagSpecifications :: Maybe [EC2ClientVpnEndpointTagSpecification]
   , _eC2ClientVpnEndpointTransportProtocol :: Maybe (Val Text)
+  , _eC2ClientVpnEndpointVpnPort :: Maybe (Val Integer)
   } deriving (Show, Eq)
 
 instance ToResourceProperties EC2ClientVpnEndpoint where
@@ -42,6 +43,7 @@ instance ToResourceProperties EC2ClientVpnEndpoint where
         , fmap (("SplitTunnel",) . toJSON) _eC2ClientVpnEndpointSplitTunnel
         , fmap (("TagSpecifications",) . toJSON) _eC2ClientVpnEndpointTagSpecifications
         , fmap (("TransportProtocol",) . toJSON) _eC2ClientVpnEndpointTransportProtocol
+        , fmap (("VpnPort",) . toJSON) _eC2ClientVpnEndpointVpnPort
         ]
     }
 
@@ -64,6 +66,7 @@ ec2ClientVpnEndpoint authenticationOptionsarg clientCidrBlockarg connectionLogOp
   , _eC2ClientVpnEndpointSplitTunnel = Nothing
   , _eC2ClientVpnEndpointTagSpecifications = Nothing
   , _eC2ClientVpnEndpointTransportProtocol = Nothing
+  , _eC2ClientVpnEndpointVpnPort = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-authenticationoptions
@@ -101,3 +104,7 @@ eccveTagSpecifications = lens _eC2ClientVpnEndpointTagSpecifications (\s a -> s 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-transportprotocol
 eccveTransportProtocol :: Lens' EC2ClientVpnEndpoint (Maybe (Val Text))
 eccveTransportProtocol = lens _eC2ClientVpnEndpointTransportProtocol (\s a -> s { _eC2ClientVpnEndpointTransportProtocol = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-clientvpnendpoint.html#cfn-ec2-clientvpnendpoint-vpnport
+eccveVpnPort :: Lens' EC2ClientVpnEndpoint (Maybe (Val Integer))
+eccveVpnPort = lens _eC2ClientVpnEndpointVpnPort (\s a -> s { _eC2ClientVpnEndpointVpnPort = a })

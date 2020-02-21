@@ -25,6 +25,7 @@ data AppSyncGraphQLApi =
   , _appSyncGraphQLApiOpenIDConnectConfig :: Maybe AppSyncGraphQLApiOpenIDConnectConfig
   , _appSyncGraphQLApiTags :: Maybe [Tag]
   , _appSyncGraphQLApiUserPoolConfig :: Maybe AppSyncGraphQLApiUserPoolConfig
+  , _appSyncGraphQLApiXrayEnabled :: Maybe (Val Bool)
   } deriving (Show, Eq)
 
 instance ToResourceProperties AppSyncGraphQLApi where
@@ -40,6 +41,7 @@ instance ToResourceProperties AppSyncGraphQLApi where
         , fmap (("OpenIDConnectConfig",) . toJSON) _appSyncGraphQLApiOpenIDConnectConfig
         , fmap (("Tags",) . toJSON) _appSyncGraphQLApiTags
         , fmap (("UserPoolConfig",) . toJSON) _appSyncGraphQLApiUserPoolConfig
+        , fmap (("XrayEnabled",) . toJSON) _appSyncGraphQLApiXrayEnabled
         ]
     }
 
@@ -58,6 +60,7 @@ appSyncGraphQLApi authenticationTypearg namearg =
   , _appSyncGraphQLApiOpenIDConnectConfig = Nothing
   , _appSyncGraphQLApiTags = Nothing
   , _appSyncGraphQLApiUserPoolConfig = Nothing
+  , _appSyncGraphQLApiXrayEnabled = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-additionalauthenticationproviders
@@ -87,3 +90,7 @@ asgqlaTags = lens _appSyncGraphQLApiTags (\s a -> s { _appSyncGraphQLApiTags = a
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-userpoolconfig
 asgqlaUserPoolConfig :: Lens' AppSyncGraphQLApi (Maybe AppSyncGraphQLApiUserPoolConfig)
 asgqlaUserPoolConfig = lens _appSyncGraphQLApiUserPoolConfig (\s a -> s { _appSyncGraphQLApiUserPoolConfig = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-xrayenabled
+asgqlaXrayEnabled :: Lens' AppSyncGraphQLApi (Maybe (Val Bool))
+asgqlaXrayEnabled = lens _appSyncGraphQLApiXrayEnabled (\s a -> s { _appSyncGraphQLApiXrayEnabled = a })
