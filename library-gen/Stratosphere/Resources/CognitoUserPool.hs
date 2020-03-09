@@ -17,6 +17,7 @@ import Stratosphere.ResourceProperties.CognitoUserPoolPolicies
 import Stratosphere.ResourceProperties.CognitoUserPoolSchemaAttribute
 import Stratosphere.ResourceProperties.CognitoUserPoolSmsConfiguration
 import Stratosphere.ResourceProperties.CognitoUserPoolUserPoolAddOns
+import Stratosphere.ResourceProperties.CognitoUserPoolUsernameConfiguration
 import Stratosphere.ResourceProperties.CognitoUserPoolVerificationMessageTemplate
 
 -- | Full data type definition for CognitoUserPool. See 'cognitoUserPool' for
@@ -43,6 +44,7 @@ data CognitoUserPool =
   , _cognitoUserPoolUserPoolName :: Maybe (Val Text)
   , _cognitoUserPoolUserPoolTags :: Maybe Object
   , _cognitoUserPoolUsernameAttributes :: Maybe (ValList Text)
+  , _cognitoUserPoolUsernameConfiguration :: Maybe CognitoUserPoolUsernameConfiguration
   , _cognitoUserPoolVerificationMessageTemplate :: Maybe CognitoUserPoolVerificationMessageTemplate
   } deriving (Show, Eq)
 
@@ -72,6 +74,7 @@ instance ToResourceProperties CognitoUserPool where
         , fmap (("UserPoolName",) . toJSON) _cognitoUserPoolUserPoolName
         , fmap (("UserPoolTags",) . toJSON) _cognitoUserPoolUserPoolTags
         , fmap (("UsernameAttributes",) . toJSON) _cognitoUserPoolUsernameAttributes
+        , fmap (("UsernameConfiguration",) . toJSON) _cognitoUserPoolUsernameConfiguration
         , fmap (("VerificationMessageTemplate",) . toJSON) _cognitoUserPoolVerificationMessageTemplate
         ]
     }
@@ -102,6 +105,7 @@ cognitoUserPool  =
   , _cognitoUserPoolUserPoolName = Nothing
   , _cognitoUserPoolUserPoolTags = Nothing
   , _cognitoUserPoolUsernameAttributes = Nothing
+  , _cognitoUserPoolUsernameConfiguration = Nothing
   , _cognitoUserPoolVerificationMessageTemplate = Nothing
   }
 
@@ -184,6 +188,10 @@ cupUserPoolTags = lens _cognitoUserPoolUserPoolTags (\s a -> s { _cognitoUserPoo
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-usernameattributes
 cupUsernameAttributes :: Lens' CognitoUserPool (Maybe (ValList Text))
 cupUsernameAttributes = lens _cognitoUserPoolUsernameAttributes (\s a -> s { _cognitoUserPoolUsernameAttributes = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-usernameconfiguration
+cupUsernameConfiguration :: Lens' CognitoUserPool (Maybe CognitoUserPoolUsernameConfiguration)
+cupUsernameConfiguration = lens _cognitoUserPoolUsernameConfiguration (\s a -> s { _cognitoUserPoolUsernameConfiguration = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.html#cfn-cognito-userpool-verificationmessagetemplate
 cupVerificationMessageTemplate :: Lens' CognitoUserPool (Maybe CognitoUserPoolVerificationMessageTemplate)

@@ -14,9 +14,11 @@ import Stratosphere.ResourceImports
 -- 'fSxFileSystemLustreConfiguration' for a more convenient constructor.
 data FSxFileSystemLustreConfiguration =
   FSxFileSystemLustreConfiguration
-  { _fSxFileSystemLustreConfigurationExportPath :: Maybe (Val Text)
+  { _fSxFileSystemLustreConfigurationDeploymentType :: Maybe (Val Text)
+  , _fSxFileSystemLustreConfigurationExportPath :: Maybe (Val Text)
   , _fSxFileSystemLustreConfigurationImportPath :: Maybe (Val Text)
   , _fSxFileSystemLustreConfigurationImportedFileChunkSize :: Maybe (Val Integer)
+  , _fSxFileSystemLustreConfigurationPerUnitStorageThroughput :: Maybe (Val Integer)
   , _fSxFileSystemLustreConfigurationWeeklyMaintenanceStartTime :: Maybe (Val Text)
   } deriving (Show, Eq)
 
@@ -24,9 +26,11 @@ instance ToJSON FSxFileSystemLustreConfiguration where
   toJSON FSxFileSystemLustreConfiguration{..} =
     object $
     catMaybes
-    [ fmap (("ExportPath",) . toJSON) _fSxFileSystemLustreConfigurationExportPath
+    [ fmap (("DeploymentType",) . toJSON) _fSxFileSystemLustreConfigurationDeploymentType
+    , fmap (("ExportPath",) . toJSON) _fSxFileSystemLustreConfigurationExportPath
     , fmap (("ImportPath",) . toJSON) _fSxFileSystemLustreConfigurationImportPath
     , fmap (("ImportedFileChunkSize",) . toJSON) _fSxFileSystemLustreConfigurationImportedFileChunkSize
+    , fmap (("PerUnitStorageThroughput",) . toJSON) _fSxFileSystemLustreConfigurationPerUnitStorageThroughput
     , fmap (("WeeklyMaintenanceStartTime",) . toJSON) _fSxFileSystemLustreConfigurationWeeklyMaintenanceStartTime
     ]
 
@@ -36,11 +40,17 @@ fSxFileSystemLustreConfiguration
   :: FSxFileSystemLustreConfiguration
 fSxFileSystemLustreConfiguration  =
   FSxFileSystemLustreConfiguration
-  { _fSxFileSystemLustreConfigurationExportPath = Nothing
+  { _fSxFileSystemLustreConfigurationDeploymentType = Nothing
+  , _fSxFileSystemLustreConfigurationExportPath = Nothing
   , _fSxFileSystemLustreConfigurationImportPath = Nothing
   , _fSxFileSystemLustreConfigurationImportedFileChunkSize = Nothing
+  , _fSxFileSystemLustreConfigurationPerUnitStorageThroughput = Nothing
   , _fSxFileSystemLustreConfigurationWeeklyMaintenanceStartTime = Nothing
   }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-deploymenttype
+fsfslcDeploymentType :: Lens' FSxFileSystemLustreConfiguration (Maybe (Val Text))
+fsfslcDeploymentType = lens _fSxFileSystemLustreConfigurationDeploymentType (\s a -> s { _fSxFileSystemLustreConfigurationDeploymentType = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-exportpath
 fsfslcExportPath :: Lens' FSxFileSystemLustreConfiguration (Maybe (Val Text))
@@ -53,6 +63,10 @@ fsfslcImportPath = lens _fSxFileSystemLustreConfigurationImportPath (\s a -> s {
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-importedfilechunksize
 fsfslcImportedFileChunkSize :: Lens' FSxFileSystemLustreConfiguration (Maybe (Val Integer))
 fsfslcImportedFileChunkSize = lens _fSxFileSystemLustreConfigurationImportedFileChunkSize (\s a -> s { _fSxFileSystemLustreConfigurationImportedFileChunkSize = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-perunitstoragethroughput
+fsfslcPerUnitStorageThroughput :: Lens' FSxFileSystemLustreConfiguration (Maybe (Val Integer))
+fsfslcPerUnitStorageThroughput = lens _fSxFileSystemLustreConfigurationPerUnitStorageThroughput (\s a -> s { _fSxFileSystemLustreConfigurationPerUnitStorageThroughput = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-weeklymaintenancestarttime
 fsfslcWeeklyMaintenanceStartTime :: Lens' FSxFileSystemLustreConfiguration (Maybe (Val Text))

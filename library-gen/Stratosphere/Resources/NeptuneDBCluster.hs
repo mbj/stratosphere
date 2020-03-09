@@ -19,7 +19,9 @@ data NeptuneDBCluster =
   , _neptuneDBClusterDBClusterIdentifier :: Maybe (Val Text)
   , _neptuneDBClusterDBClusterParameterGroupName :: Maybe (Val Text)
   , _neptuneDBClusterDBSubnetGroupName :: Maybe (Val Text)
+  , _neptuneDBClusterDeletionProtection :: Maybe (Val Bool)
   , _neptuneDBClusterEnableCloudwatchLogsExports :: Maybe (ValList Text)
+  , _neptuneDBClusterEngineVersion :: Maybe (Val Text)
   , _neptuneDBClusterIamAuthEnabled :: Maybe (Val Bool)
   , _neptuneDBClusterKmsKeyId :: Maybe (Val Text)
   , _neptuneDBClusterPort :: Maybe (Val Integer)
@@ -42,7 +44,9 @@ instance ToResourceProperties NeptuneDBCluster where
         , fmap (("DBClusterIdentifier",) . toJSON) _neptuneDBClusterDBClusterIdentifier
         , fmap (("DBClusterParameterGroupName",) . toJSON) _neptuneDBClusterDBClusterParameterGroupName
         , fmap (("DBSubnetGroupName",) . toJSON) _neptuneDBClusterDBSubnetGroupName
+        , fmap (("DeletionProtection",) . toJSON) _neptuneDBClusterDeletionProtection
         , fmap (("EnableCloudwatchLogsExports",) . toJSON) _neptuneDBClusterEnableCloudwatchLogsExports
+        , fmap (("EngineVersion",) . toJSON) _neptuneDBClusterEngineVersion
         , fmap (("IamAuthEnabled",) . toJSON) _neptuneDBClusterIamAuthEnabled
         , fmap (("KmsKeyId",) . toJSON) _neptuneDBClusterKmsKeyId
         , fmap (("Port",) . toJSON) _neptuneDBClusterPort
@@ -66,7 +70,9 @@ neptuneDBCluster  =
   , _neptuneDBClusterDBClusterIdentifier = Nothing
   , _neptuneDBClusterDBClusterParameterGroupName = Nothing
   , _neptuneDBClusterDBSubnetGroupName = Nothing
+  , _neptuneDBClusterDeletionProtection = Nothing
   , _neptuneDBClusterEnableCloudwatchLogsExports = Nothing
+  , _neptuneDBClusterEngineVersion = Nothing
   , _neptuneDBClusterIamAuthEnabled = Nothing
   , _neptuneDBClusterKmsKeyId = Nothing
   , _neptuneDBClusterPort = Nothing
@@ -98,9 +104,17 @@ ndbcDBClusterParameterGroupName = lens _neptuneDBClusterDBClusterParameterGroupN
 ndbcDBSubnetGroupName :: Lens' NeptuneDBCluster (Maybe (Val Text))
 ndbcDBSubnetGroupName = lens _neptuneDBClusterDBSubnetGroupName (\s a -> s { _neptuneDBClusterDBSubnetGroupName = a })
 
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-deletionprotection
+ndbcDeletionProtection :: Lens' NeptuneDBCluster (Maybe (Val Bool))
+ndbcDeletionProtection = lens _neptuneDBClusterDeletionProtection (\s a -> s { _neptuneDBClusterDeletionProtection = a })
+
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-enablecloudwatchlogsexports
 ndbcEnableCloudwatchLogsExports :: Lens' NeptuneDBCluster (Maybe (ValList Text))
 ndbcEnableCloudwatchLogsExports = lens _neptuneDBClusterEnableCloudwatchLogsExports (\s a -> s { _neptuneDBClusterEnableCloudwatchLogsExports = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-engineversion
+ndbcEngineVersion :: Lens' NeptuneDBCluster (Maybe (Val Text))
+ndbcEngineVersion = lens _neptuneDBClusterEngineVersion (\s a -> s { _neptuneDBClusterEngineVersion = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-iamauthenabled
 ndbcIamAuthEnabled :: Lens' NeptuneDBCluster (Maybe (Val Bool))

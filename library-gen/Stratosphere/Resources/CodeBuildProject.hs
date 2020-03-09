@@ -11,6 +11,7 @@ import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.CodeBuildProjectArtifacts
 import Stratosphere.ResourceProperties.CodeBuildProjectProjectCache
 import Stratosphere.ResourceProperties.CodeBuildProjectEnvironment
+import Stratosphere.ResourceProperties.CodeBuildProjectProjectFileSystemLocation
 import Stratosphere.ResourceProperties.CodeBuildProjectLogsConfig
 import Stratosphere.ResourceProperties.CodeBuildProjectProjectSourceVersion
 import Stratosphere.ResourceProperties.CodeBuildProjectSource
@@ -28,6 +29,7 @@ data CodeBuildProject =
   , _codeBuildProjectDescription :: Maybe (Val Text)
   , _codeBuildProjectEncryptionKey :: Maybe (Val Text)
   , _codeBuildProjectEnvironment :: CodeBuildProjectEnvironment
+  , _codeBuildProjectFileSystemLocations :: Maybe [CodeBuildProjectProjectFileSystemLocation]
   , _codeBuildProjectLogsConfig :: Maybe CodeBuildProjectLogsConfig
   , _codeBuildProjectName :: Maybe (Val Text)
   , _codeBuildProjectQueuedTimeoutInMinutes :: Maybe (Val Integer)
@@ -55,6 +57,7 @@ instance ToResourceProperties CodeBuildProject where
         , fmap (("Description",) . toJSON) _codeBuildProjectDescription
         , fmap (("EncryptionKey",) . toJSON) _codeBuildProjectEncryptionKey
         , (Just . ("Environment",) . toJSON) _codeBuildProjectEnvironment
+        , fmap (("FileSystemLocations",) . toJSON) _codeBuildProjectFileSystemLocations
         , fmap (("LogsConfig",) . toJSON) _codeBuildProjectLogsConfig
         , fmap (("Name",) . toJSON) _codeBuildProjectName
         , fmap (("QueuedTimeoutInMinutes",) . toJSON) _codeBuildProjectQueuedTimeoutInMinutes
@@ -87,6 +90,7 @@ codeBuildProject artifactsarg environmentarg serviceRolearg sourcearg =
   , _codeBuildProjectDescription = Nothing
   , _codeBuildProjectEncryptionKey = Nothing
   , _codeBuildProjectEnvironment = environmentarg
+  , _codeBuildProjectFileSystemLocations = Nothing
   , _codeBuildProjectLogsConfig = Nothing
   , _codeBuildProjectName = Nothing
   , _codeBuildProjectQueuedTimeoutInMinutes = Nothing
@@ -125,6 +129,10 @@ cbpEncryptionKey = lens _codeBuildProjectEncryptionKey (\s a -> s { _codeBuildPr
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-environment
 cbpEnvironment :: Lens' CodeBuildProject CodeBuildProjectEnvironment
 cbpEnvironment = lens _codeBuildProjectEnvironment (\s a -> s { _codeBuildProjectEnvironment = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-filesystemlocations
+cbpFileSystemLocations :: Lens' CodeBuildProject (Maybe [CodeBuildProjectProjectFileSystemLocation])
+cbpFileSystemLocations = lens _codeBuildProjectFileSystemLocations (\s a -> s { _codeBuildProjectFileSystemLocations = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-logsconfig
 cbpLogsConfig :: Lens' CodeBuildProject (Maybe CodeBuildProjectLogsConfig)

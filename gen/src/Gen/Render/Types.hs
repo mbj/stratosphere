@@ -197,6 +197,14 @@ computeLensPrefix "AWS::SSM::MaintenanceWindowTask" = "ssmmwtas"
 computeLensPrefix "AWS::SSM::MaintenanceWindowTarget" = "ssmmwtar"
 computeLensPrefix "AWS::SSM::MaintenanceWindowTask.Target" = "ssmmwtast"
 computeLensPrefix "AWS::SSM::MaintenanceWindowTarget.Targets" = "ssmmwtart"
+computeLensPrefix "AWS::WAFv2::RuleGroup.StatementTwo" = "wafrgstw"
+computeLensPrefix "AWS::WAFv2::RuleGroup.StatementThree" = "wafrgsth"
+computeLensPrefix "AWS::WAFv2::WebACL.StatementTwo" = "wafwaclstw"
+computeLensPrefix "AWS::WAFv2::WebACL.StatementThree" = "wafwaclsth"
+--computeLensPrefix "AWS::WAF::WebACL" = "wafwacl"
+computeLensPrefix "AWS::WAFv2::WebACL" = "wafvwacl"
+--computeLensPrefix "AWS::WAF::IPSet" = "wafips"
+computeLensPrefix "AWS::WAFv2::IPSet" = "wafvips"
 -- Everything else
 computeLensPrefix rawName = toLower $ fromMaybe rawName $ toAcronym $ computeModuleName rawName
 
