@@ -8,21 +8,23 @@
 module Stratosphere.ResourceProperties.AppMeshVirtualNodeVirtualServiceBackend where
 
 import Stratosphere.ResourceImports
-
+import Stratosphere.ResourceProperties.AppMeshVirtualNodeClientPolicy
 
 -- | Full data type definition for AppMeshVirtualNodeVirtualServiceBackend.
 -- See 'appMeshVirtualNodeVirtualServiceBackend' for a more convenient
 -- constructor.
 data AppMeshVirtualNodeVirtualServiceBackend =
   AppMeshVirtualNodeVirtualServiceBackend
-  { _appMeshVirtualNodeVirtualServiceBackendVirtualServiceName :: Val Text
+  { _appMeshVirtualNodeVirtualServiceBackendClientPolicy :: Maybe AppMeshVirtualNodeClientPolicy
+  , _appMeshVirtualNodeVirtualServiceBackendVirtualServiceName :: Val Text
   } deriving (Show, Eq)
 
 instance ToJSON AppMeshVirtualNodeVirtualServiceBackend where
   toJSON AppMeshVirtualNodeVirtualServiceBackend{..} =
     object $
     catMaybes
-    [ (Just . ("VirtualServiceName",) . toJSON) _appMeshVirtualNodeVirtualServiceBackendVirtualServiceName
+    [ fmap (("ClientPolicy",) . toJSON) _appMeshVirtualNodeVirtualServiceBackendClientPolicy
+    , (Just . ("VirtualServiceName",) . toJSON) _appMeshVirtualNodeVirtualServiceBackendVirtualServiceName
     ]
 
 -- | Constructor for 'AppMeshVirtualNodeVirtualServiceBackend' containing
@@ -32,8 +34,13 @@ appMeshVirtualNodeVirtualServiceBackend
   -> AppMeshVirtualNodeVirtualServiceBackend
 appMeshVirtualNodeVirtualServiceBackend virtualServiceNamearg =
   AppMeshVirtualNodeVirtualServiceBackend
-  { _appMeshVirtualNodeVirtualServiceBackendVirtualServiceName = virtualServiceNamearg
+  { _appMeshVirtualNodeVirtualServiceBackendClientPolicy = Nothing
+  , _appMeshVirtualNodeVirtualServiceBackendVirtualServiceName = virtualServiceNamearg
   }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualservicebackend.html#cfn-appmesh-virtualnode-virtualservicebackend-clientpolicy
+amvnvsbClientPolicy :: Lens' AppMeshVirtualNodeVirtualServiceBackend (Maybe AppMeshVirtualNodeClientPolicy)
+amvnvsbClientPolicy = lens _appMeshVirtualNodeVirtualServiceBackendClientPolicy (\s a -> s { _appMeshVirtualNodeVirtualServiceBackendClientPolicy = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualservicebackend.html#cfn-appmesh-virtualnode-virtualservicebackend-virtualservicename
 amvnvsbVirtualServiceName :: Lens' AppMeshVirtualNodeVirtualServiceBackend (Val Text)

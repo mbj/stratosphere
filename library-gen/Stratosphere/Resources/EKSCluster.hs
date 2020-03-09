@@ -8,13 +8,15 @@
 module Stratosphere.Resources.EKSCluster where
 
 import Stratosphere.ResourceImports
+import Stratosphere.ResourceProperties.EKSClusterEncryptionConfig
 import Stratosphere.ResourceProperties.EKSClusterResourcesVpcConfig
 
 -- | Full data type definition for EKSCluster. See 'eksCluster' for a more
 -- convenient constructor.
 data EKSCluster =
   EKSCluster
-  { _eKSClusterName :: Maybe (Val Text)
+  { _eKSClusterEncryptionConfig :: Maybe [EKSClusterEncryptionConfig]
+  , _eKSClusterName :: Maybe (Val Text)
   , _eKSClusterResourcesVpcConfig :: EKSClusterResourcesVpcConfig
   , _eKSClusterRoleArn :: Val Text
   , _eKSClusterVersion :: Maybe (Val Text)
@@ -26,7 +28,8 @@ instance ToResourceProperties EKSCluster where
     { resourcePropertiesType = "AWS::EKS::Cluster"
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
-        [ fmap (("Name",) . toJSON) _eKSClusterName
+        [ fmap (("EncryptionConfig",) . toJSON) _eKSClusterEncryptionConfig
+        , fmap (("Name",) . toJSON) _eKSClusterName
         , (Just . ("ResourcesVpcConfig",) . toJSON) _eKSClusterResourcesVpcConfig
         , (Just . ("RoleArn",) . toJSON) _eKSClusterRoleArn
         , fmap (("Version",) . toJSON) _eKSClusterVersion
@@ -40,11 +43,16 @@ eksCluster
   -> EKSCluster
 eksCluster resourcesVpcConfigarg roleArnarg =
   EKSCluster
-  { _eKSClusterName = Nothing
+  { _eKSClusterEncryptionConfig = Nothing
+  , _eKSClusterName = Nothing
   , _eKSClusterResourcesVpcConfig = resourcesVpcConfigarg
   , _eKSClusterRoleArn = roleArnarg
   , _eKSClusterVersion = Nothing
   }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-encryptionconfig
+ekscEncryptionConfig :: Lens' EKSCluster (Maybe [EKSClusterEncryptionConfig])
+ekscEncryptionConfig = lens _eKSClusterEncryptionConfig (\s a -> s { _eKSClusterEncryptionConfig = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html#cfn-eks-cluster-name
 ekscName :: Lens' EKSCluster (Maybe (Val Text))

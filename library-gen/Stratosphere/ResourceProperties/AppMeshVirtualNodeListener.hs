@@ -10,6 +10,7 @@ module Stratosphere.ResourceProperties.AppMeshVirtualNodeListener where
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.AppMeshVirtualNodeHealthCheck
 import Stratosphere.ResourceProperties.AppMeshVirtualNodePortMapping
+import Stratosphere.ResourceProperties.AppMeshVirtualNodeListenerTls
 
 -- | Full data type definition for AppMeshVirtualNodeListener. See
 -- 'appMeshVirtualNodeListener' for a more convenient constructor.
@@ -17,6 +18,7 @@ data AppMeshVirtualNodeListener =
   AppMeshVirtualNodeListener
   { _appMeshVirtualNodeListenerHealthCheck :: Maybe AppMeshVirtualNodeHealthCheck
   , _appMeshVirtualNodeListenerPortMapping :: AppMeshVirtualNodePortMapping
+  , _appMeshVirtualNodeListenerTLS :: Maybe AppMeshVirtualNodeListenerTls
   } deriving (Show, Eq)
 
 instance ToJSON AppMeshVirtualNodeListener where
@@ -25,6 +27,7 @@ instance ToJSON AppMeshVirtualNodeListener where
     catMaybes
     [ fmap (("HealthCheck",) . toJSON) _appMeshVirtualNodeListenerHealthCheck
     , (Just . ("PortMapping",) . toJSON) _appMeshVirtualNodeListenerPortMapping
+    , fmap (("TLS",) . toJSON) _appMeshVirtualNodeListenerTLS
     ]
 
 -- | Constructor for 'AppMeshVirtualNodeListener' containing required fields
@@ -36,6 +39,7 @@ appMeshVirtualNodeListener portMappingarg =
   AppMeshVirtualNodeListener
   { _appMeshVirtualNodeListenerHealthCheck = Nothing
   , _appMeshVirtualNodeListenerPortMapping = portMappingarg
+  , _appMeshVirtualNodeListenerTLS = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listener.html#cfn-appmesh-virtualnode-listener-healthcheck
@@ -45,3 +49,7 @@ amvnlHealthCheck = lens _appMeshVirtualNodeListenerHealthCheck (\s a -> s { _app
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listener.html#cfn-appmesh-virtualnode-listener-portmapping
 amvnlPortMapping :: Lens' AppMeshVirtualNodeListener AppMeshVirtualNodePortMapping
 amvnlPortMapping = lens _appMeshVirtualNodeListenerPortMapping (\s a -> s { _appMeshVirtualNodeListenerPortMapping = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listener.html#cfn-appmesh-virtualnode-listener-tls
+amvnlTLS :: Lens' AppMeshVirtualNodeListener (Maybe AppMeshVirtualNodeListenerTls)
+amvnlTLS = lens _appMeshVirtualNodeListenerTLS (\s a -> s { _appMeshVirtualNodeListenerTLS = a })

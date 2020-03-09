@@ -8,6 +8,7 @@
 module Stratosphere.ResourceProperties.AppMeshVirtualNodeVirtualNodeSpec where
 
 import Stratosphere.ResourceImports
+import Stratosphere.ResourceProperties.AppMeshVirtualNodeBackendDefaults
 import Stratosphere.ResourceProperties.AppMeshVirtualNodeBackend
 import Stratosphere.ResourceProperties.AppMeshVirtualNodeListener
 import Stratosphere.ResourceProperties.AppMeshVirtualNodeLogging
@@ -17,7 +18,8 @@ import Stratosphere.ResourceProperties.AppMeshVirtualNodeServiceDiscovery
 -- 'appMeshVirtualNodeVirtualNodeSpec' for a more convenient constructor.
 data AppMeshVirtualNodeVirtualNodeSpec =
   AppMeshVirtualNodeVirtualNodeSpec
-  { _appMeshVirtualNodeVirtualNodeSpecBackends :: Maybe [AppMeshVirtualNodeBackend]
+  { _appMeshVirtualNodeVirtualNodeSpecBackendDefaults :: Maybe AppMeshVirtualNodeBackendDefaults
+  , _appMeshVirtualNodeVirtualNodeSpecBackends :: Maybe [AppMeshVirtualNodeBackend]
   , _appMeshVirtualNodeVirtualNodeSpecListeners :: Maybe [AppMeshVirtualNodeListener]
   , _appMeshVirtualNodeVirtualNodeSpecLogging :: Maybe AppMeshVirtualNodeLogging
   , _appMeshVirtualNodeVirtualNodeSpecServiceDiscovery :: Maybe AppMeshVirtualNodeServiceDiscovery
@@ -27,7 +29,8 @@ instance ToJSON AppMeshVirtualNodeVirtualNodeSpec where
   toJSON AppMeshVirtualNodeVirtualNodeSpec{..} =
     object $
     catMaybes
-    [ fmap (("Backends",) . toJSON) _appMeshVirtualNodeVirtualNodeSpecBackends
+    [ fmap (("BackendDefaults",) . toJSON) _appMeshVirtualNodeVirtualNodeSpecBackendDefaults
+    , fmap (("Backends",) . toJSON) _appMeshVirtualNodeVirtualNodeSpecBackends
     , fmap (("Listeners",) . toJSON) _appMeshVirtualNodeVirtualNodeSpecListeners
     , fmap (("Logging",) . toJSON) _appMeshVirtualNodeVirtualNodeSpecLogging
     , fmap (("ServiceDiscovery",) . toJSON) _appMeshVirtualNodeVirtualNodeSpecServiceDiscovery
@@ -39,11 +42,16 @@ appMeshVirtualNodeVirtualNodeSpec
   :: AppMeshVirtualNodeVirtualNodeSpec
 appMeshVirtualNodeVirtualNodeSpec  =
   AppMeshVirtualNodeVirtualNodeSpec
-  { _appMeshVirtualNodeVirtualNodeSpecBackends = Nothing
+  { _appMeshVirtualNodeVirtualNodeSpecBackendDefaults = Nothing
+  , _appMeshVirtualNodeVirtualNodeSpecBackends = Nothing
   , _appMeshVirtualNodeVirtualNodeSpecListeners = Nothing
   , _appMeshVirtualNodeVirtualNodeSpecLogging = Nothing
   , _appMeshVirtualNodeVirtualNodeSpecServiceDiscovery = Nothing
   }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodespec.html#cfn-appmesh-virtualnode-virtualnodespec-backenddefaults
+amvnvnsBackendDefaults :: Lens' AppMeshVirtualNodeVirtualNodeSpec (Maybe AppMeshVirtualNodeBackendDefaults)
+amvnvnsBackendDefaults = lens _appMeshVirtualNodeVirtualNodeSpecBackendDefaults (\s a -> s { _appMeshVirtualNodeVirtualNodeSpecBackendDefaults = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-virtualnodespec.html#cfn-appmesh-virtualnode-virtualnodespec-backends
 amvnvnsBackends :: Lens' AppMeshVirtualNodeVirtualNodeSpec (Maybe [AppMeshVirtualNodeBackend])
