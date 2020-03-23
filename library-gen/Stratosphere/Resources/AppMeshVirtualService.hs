@@ -16,6 +16,7 @@ import Stratosphere.ResourceProperties.Tag
 data AppMeshVirtualService =
   AppMeshVirtualService
   { _appMeshVirtualServiceMeshName :: Val Text
+  , _appMeshVirtualServiceMeshOwner :: Maybe (Val Text)
   , _appMeshVirtualServiceSpec :: AppMeshVirtualServiceVirtualServiceSpec
   , _appMeshVirtualServiceTags :: Maybe [Tag]
   , _appMeshVirtualServiceVirtualServiceName :: Val Text
@@ -28,6 +29,7 @@ instance ToResourceProperties AppMeshVirtualService where
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
         [ (Just . ("MeshName",) . toJSON) _appMeshVirtualServiceMeshName
+        , fmap (("MeshOwner",) . toJSON) _appMeshVirtualServiceMeshOwner
         , (Just . ("Spec",) . toJSON) _appMeshVirtualServiceSpec
         , fmap (("Tags",) . toJSON) _appMeshVirtualServiceTags
         , (Just . ("VirtualServiceName",) . toJSON) _appMeshVirtualServiceVirtualServiceName
@@ -44,6 +46,7 @@ appMeshVirtualService
 appMeshVirtualService meshNamearg specarg virtualServiceNamearg =
   AppMeshVirtualService
   { _appMeshVirtualServiceMeshName = meshNamearg
+  , _appMeshVirtualServiceMeshOwner = Nothing
   , _appMeshVirtualServiceSpec = specarg
   , _appMeshVirtualServiceTags = Nothing
   , _appMeshVirtualServiceVirtualServiceName = virtualServiceNamearg
@@ -52,6 +55,10 @@ appMeshVirtualService meshNamearg specarg virtualServiceNamearg =
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualservice.html#cfn-appmesh-virtualservice-meshname
 amvsMeshName :: Lens' AppMeshVirtualService (Val Text)
 amvsMeshName = lens _appMeshVirtualServiceMeshName (\s a -> s { _appMeshVirtualServiceMeshName = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualservice.html#cfn-appmesh-virtualservice-meshowner
+amvsMeshOwner :: Lens' AppMeshVirtualService (Maybe (Val Text))
+amvsMeshOwner = lens _appMeshVirtualServiceMeshOwner (\s a -> s { _appMeshVirtualServiceMeshOwner = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualservice.html#cfn-appmesh-virtualservice-spec
 amvsSpec :: Lens' AppMeshVirtualService AppMeshVirtualServiceVirtualServiceSpec

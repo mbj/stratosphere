@@ -8,7 +8,7 @@
 module Stratosphere.Resources.ApiGatewayV2Integration where
 
 import Stratosphere.ResourceImports
-
+import Stratosphere.ResourceProperties.ApiGatewayV2IntegrationTlsConfig
 
 -- | Full data type definition for ApiGatewayV2Integration. See
 -- 'apiGatewayV2Integration' for a more convenient constructor.
@@ -28,6 +28,7 @@ data ApiGatewayV2Integration =
   , _apiGatewayV2IntegrationRequestTemplates :: Maybe Object
   , _apiGatewayV2IntegrationTemplateSelectionExpression :: Maybe (Val Text)
   , _apiGatewayV2IntegrationTimeoutInMillis :: Maybe (Val Integer)
+  , _apiGatewayV2IntegrationTlsConfig :: Maybe ApiGatewayV2IntegrationTlsConfig
   } deriving (Show, Eq)
 
 instance ToResourceProperties ApiGatewayV2Integration where
@@ -50,6 +51,7 @@ instance ToResourceProperties ApiGatewayV2Integration where
         , fmap (("RequestTemplates",) . toJSON) _apiGatewayV2IntegrationRequestTemplates
         , fmap (("TemplateSelectionExpression",) . toJSON) _apiGatewayV2IntegrationTemplateSelectionExpression
         , fmap (("TimeoutInMillis",) . toJSON) _apiGatewayV2IntegrationTimeoutInMillis
+        , fmap (("TlsConfig",) . toJSON) _apiGatewayV2IntegrationTlsConfig
         ]
     }
 
@@ -75,6 +77,7 @@ apiGatewayV2Integration apiIdarg integrationTypearg =
   , _apiGatewayV2IntegrationRequestTemplates = Nothing
   , _apiGatewayV2IntegrationTemplateSelectionExpression = Nothing
   , _apiGatewayV2IntegrationTimeoutInMillis = Nothing
+  , _apiGatewayV2IntegrationTlsConfig = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html#cfn-apigatewayv2-integration-apiid
@@ -132,3 +135,7 @@ agviTemplateSelectionExpression = lens _apiGatewayV2IntegrationTemplateSelection
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html#cfn-apigatewayv2-integration-timeoutinmillis
 agviTimeoutInMillis :: Lens' ApiGatewayV2Integration (Maybe (Val Integer))
 agviTimeoutInMillis = lens _apiGatewayV2IntegrationTimeoutInMillis (\s a -> s { _apiGatewayV2IntegrationTimeoutInMillis = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html#cfn-apigatewayv2-integration-tlsconfig
+agviTlsConfig :: Lens' ApiGatewayV2Integration (Maybe ApiGatewayV2IntegrationTlsConfig)
+agviTlsConfig = lens _apiGatewayV2IntegrationTlsConfig (\s a -> s { _apiGatewayV2IntegrationTlsConfig = a })
