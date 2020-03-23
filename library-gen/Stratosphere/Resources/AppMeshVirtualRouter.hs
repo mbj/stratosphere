@@ -16,6 +16,7 @@ import Stratosphere.ResourceProperties.Tag
 data AppMeshVirtualRouter =
   AppMeshVirtualRouter
   { _appMeshVirtualRouterMeshName :: Val Text
+  , _appMeshVirtualRouterMeshOwner :: Maybe (Val Text)
   , _appMeshVirtualRouterSpec :: AppMeshVirtualRouterVirtualRouterSpec
   , _appMeshVirtualRouterTags :: Maybe [Tag]
   , _appMeshVirtualRouterVirtualRouterName :: Val Text
@@ -28,6 +29,7 @@ instance ToResourceProperties AppMeshVirtualRouter where
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
         [ (Just . ("MeshName",) . toJSON) _appMeshVirtualRouterMeshName
+        , fmap (("MeshOwner",) . toJSON) _appMeshVirtualRouterMeshOwner
         , (Just . ("Spec",) . toJSON) _appMeshVirtualRouterSpec
         , fmap (("Tags",) . toJSON) _appMeshVirtualRouterTags
         , (Just . ("VirtualRouterName",) . toJSON) _appMeshVirtualRouterVirtualRouterName
@@ -44,6 +46,7 @@ appMeshVirtualRouter
 appMeshVirtualRouter meshNamearg specarg virtualRouterNamearg =
   AppMeshVirtualRouter
   { _appMeshVirtualRouterMeshName = meshNamearg
+  , _appMeshVirtualRouterMeshOwner = Nothing
   , _appMeshVirtualRouterSpec = specarg
   , _appMeshVirtualRouterTags = Nothing
   , _appMeshVirtualRouterVirtualRouterName = virtualRouterNamearg
@@ -52,6 +55,10 @@ appMeshVirtualRouter meshNamearg specarg virtualRouterNamearg =
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualrouter.html#cfn-appmesh-virtualrouter-meshname
 amvrMeshName :: Lens' AppMeshVirtualRouter (Val Text)
 amvrMeshName = lens _appMeshVirtualRouterMeshName (\s a -> s { _appMeshVirtualRouterMeshName = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualrouter.html#cfn-appmesh-virtualrouter-meshowner
+amvrMeshOwner :: Lens' AppMeshVirtualRouter (Maybe (Val Text))
+amvrMeshOwner = lens _appMeshVirtualRouterMeshOwner (\s a -> s { _appMeshVirtualRouterMeshOwner = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualrouter.html#cfn-appmesh-virtualrouter-spec
 amvrSpec :: Lens' AppMeshVirtualRouter AppMeshVirtualRouterVirtualRouterSpec

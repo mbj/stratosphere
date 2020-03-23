@@ -12,6 +12,7 @@ import Stratosphere.ResourceProperties.MSKClusterBrokerNodeGroupInfo
 import Stratosphere.ResourceProperties.MSKClusterClientAuthentication
 import Stratosphere.ResourceProperties.MSKClusterConfigurationInfo
 import Stratosphere.ResourceProperties.MSKClusterEncryptionInfo
+import Stratosphere.ResourceProperties.MSKClusterLoggingInfo
 import Stratosphere.ResourceProperties.MSKClusterOpenMonitoring
 
 -- | Full data type definition for MSKCluster. See 'mskCluster' for a more
@@ -25,6 +26,7 @@ data MSKCluster =
   , _mSKClusterEncryptionInfo :: Maybe MSKClusterEncryptionInfo
   , _mSKClusterEnhancedMonitoring :: Maybe (Val Text)
   , _mSKClusterKafkaVersion :: Val Text
+  , _mSKClusterLoggingInfo :: Maybe MSKClusterLoggingInfo
   , _mSKClusterNumberOfBrokerNodes :: Val Integer
   , _mSKClusterOpenMonitoring :: Maybe MSKClusterOpenMonitoring
   , _mSKClusterTags :: Maybe Object
@@ -43,6 +45,7 @@ instance ToResourceProperties MSKCluster where
         , fmap (("EncryptionInfo",) . toJSON) _mSKClusterEncryptionInfo
         , fmap (("EnhancedMonitoring",) . toJSON) _mSKClusterEnhancedMonitoring
         , (Just . ("KafkaVersion",) . toJSON) _mSKClusterKafkaVersion
+        , fmap (("LoggingInfo",) . toJSON) _mSKClusterLoggingInfo
         , (Just . ("NumberOfBrokerNodes",) . toJSON) _mSKClusterNumberOfBrokerNodes
         , fmap (("OpenMonitoring",) . toJSON) _mSKClusterOpenMonitoring
         , fmap (("Tags",) . toJSON) _mSKClusterTags
@@ -65,6 +68,7 @@ mskCluster brokerNodeGroupInfoarg clusterNamearg kafkaVersionarg numberOfBrokerN
   , _mSKClusterEncryptionInfo = Nothing
   , _mSKClusterEnhancedMonitoring = Nothing
   , _mSKClusterKafkaVersion = kafkaVersionarg
+  , _mSKClusterLoggingInfo = Nothing
   , _mSKClusterNumberOfBrokerNodes = numberOfBrokerNodesarg
   , _mSKClusterOpenMonitoring = Nothing
   , _mSKClusterTags = Nothing
@@ -97,6 +101,10 @@ mskcEnhancedMonitoring = lens _mSKClusterEnhancedMonitoring (\s a -> s { _mSKClu
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-cluster.html#cfn-msk-cluster-kafkaversion
 mskcKafkaVersion :: Lens' MSKCluster (Val Text)
 mskcKafkaVersion = lens _mSKClusterKafkaVersion (\s a -> s { _mSKClusterKafkaVersion = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-cluster.html#cfn-msk-cluster-logginginfo
+mskcLoggingInfo :: Lens' MSKCluster (Maybe MSKClusterLoggingInfo)
+mskcLoggingInfo = lens _mSKClusterLoggingInfo (\s a -> s { _mSKClusterLoggingInfo = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-cluster.html#cfn-msk-cluster-numberofbrokernodes
 mskcNumberOfBrokerNodes :: Lens' MSKCluster (Val Integer)

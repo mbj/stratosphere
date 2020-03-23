@@ -12,6 +12,7 @@ import Stratosphere.ResourceProperties.CloudFrontDistributionCacheBehavior
 import Stratosphere.ResourceProperties.CloudFrontDistributionCustomErrorResponse
 import Stratosphere.ResourceProperties.CloudFrontDistributionDefaultCacheBehavior
 import Stratosphere.ResourceProperties.CloudFrontDistributionLogging
+import Stratosphere.ResourceProperties.CloudFrontDistributionOriginGroups
 import Stratosphere.ResourceProperties.CloudFrontDistributionOrigin
 import Stratosphere.ResourceProperties.CloudFrontDistributionRestrictions
 import Stratosphere.ResourceProperties.CloudFrontDistributionViewerCertificate
@@ -31,6 +32,7 @@ data CloudFrontDistributionDistributionConfig =
   , _cloudFrontDistributionDistributionConfigHttpVersion :: Maybe (Val Text)
   , _cloudFrontDistributionDistributionConfigIPV6Enabled :: Maybe (Val Bool)
   , _cloudFrontDistributionDistributionConfigLogging :: Maybe CloudFrontDistributionLogging
+  , _cloudFrontDistributionDistributionConfigOriginGroups :: Maybe CloudFrontDistributionOriginGroups
   , _cloudFrontDistributionDistributionConfigOrigins :: Maybe [CloudFrontDistributionOrigin]
   , _cloudFrontDistributionDistributionConfigPriceClass :: Maybe (Val Text)
   , _cloudFrontDistributionDistributionConfigRestrictions :: Maybe CloudFrontDistributionRestrictions
@@ -52,6 +54,7 @@ instance ToJSON CloudFrontDistributionDistributionConfig where
     , fmap (("HttpVersion",) . toJSON) _cloudFrontDistributionDistributionConfigHttpVersion
     , fmap (("IPV6Enabled",) . toJSON) _cloudFrontDistributionDistributionConfigIPV6Enabled
     , fmap (("Logging",) . toJSON) _cloudFrontDistributionDistributionConfigLogging
+    , fmap (("OriginGroups",) . toJSON) _cloudFrontDistributionDistributionConfigOriginGroups
     , fmap (("Origins",) . toJSON) _cloudFrontDistributionDistributionConfigOrigins
     , fmap (("PriceClass",) . toJSON) _cloudFrontDistributionDistributionConfigPriceClass
     , fmap (("Restrictions",) . toJSON) _cloudFrontDistributionDistributionConfigRestrictions
@@ -76,6 +79,7 @@ cloudFrontDistributionDistributionConfig enabledarg =
   , _cloudFrontDistributionDistributionConfigHttpVersion = Nothing
   , _cloudFrontDistributionDistributionConfigIPV6Enabled = Nothing
   , _cloudFrontDistributionDistributionConfigLogging = Nothing
+  , _cloudFrontDistributionDistributionConfigOriginGroups = Nothing
   , _cloudFrontDistributionDistributionConfigOrigins = Nothing
   , _cloudFrontDistributionDistributionConfigPriceClass = Nothing
   , _cloudFrontDistributionDistributionConfigRestrictions = Nothing
@@ -122,6 +126,10 @@ cfddcIPV6Enabled = lens _cloudFrontDistributionDistributionConfigIPV6Enabled (\s
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-logging
 cfddcLogging :: Lens' CloudFrontDistributionDistributionConfig (Maybe CloudFrontDistributionLogging)
 cfddcLogging = lens _cloudFrontDistributionDistributionConfigLogging (\s a -> s { _cloudFrontDistributionDistributionConfigLogging = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-origingroups
+cfddcOriginGroups :: Lens' CloudFrontDistributionDistributionConfig (Maybe CloudFrontDistributionOriginGroups)
+cfddcOriginGroups = lens _cloudFrontDistributionDistributionConfigOriginGroups (\s a -> s { _cloudFrontDistributionDistributionConfigOriginGroups = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-origins
 cfddcOrigins :: Lens' CloudFrontDistributionDistributionConfig (Maybe [CloudFrontDistributionOrigin])

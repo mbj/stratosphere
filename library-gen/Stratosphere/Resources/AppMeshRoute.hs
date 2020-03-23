@@ -16,6 +16,7 @@ import Stratosphere.ResourceProperties.Tag
 data AppMeshRoute =
   AppMeshRoute
   { _appMeshRouteMeshName :: Val Text
+  , _appMeshRouteMeshOwner :: Maybe (Val Text)
   , _appMeshRouteRouteName :: Val Text
   , _appMeshRouteSpec :: AppMeshRouteRouteSpec
   , _appMeshRouteTags :: Maybe [Tag]
@@ -29,6 +30,7 @@ instance ToResourceProperties AppMeshRoute where
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
         [ (Just . ("MeshName",) . toJSON) _appMeshRouteMeshName
+        , fmap (("MeshOwner",) . toJSON) _appMeshRouteMeshOwner
         , (Just . ("RouteName",) . toJSON) _appMeshRouteRouteName
         , (Just . ("Spec",) . toJSON) _appMeshRouteSpec
         , fmap (("Tags",) . toJSON) _appMeshRouteTags
@@ -46,6 +48,7 @@ appMeshRoute
 appMeshRoute meshNamearg routeNamearg specarg virtualRouterNamearg =
   AppMeshRoute
   { _appMeshRouteMeshName = meshNamearg
+  , _appMeshRouteMeshOwner = Nothing
   , _appMeshRouteRouteName = routeNamearg
   , _appMeshRouteSpec = specarg
   , _appMeshRouteTags = Nothing
@@ -55,6 +58,10 @@ appMeshRoute meshNamearg routeNamearg specarg virtualRouterNamearg =
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-route.html#cfn-appmesh-route-meshname
 amrMeshName :: Lens' AppMeshRoute (Val Text)
 amrMeshName = lens _appMeshRouteMeshName (\s a -> s { _appMeshRouteMeshName = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-route.html#cfn-appmesh-route-meshowner
+amrMeshOwner :: Lens' AppMeshRoute (Maybe (Val Text))
+amrMeshOwner = lens _appMeshRouteMeshOwner (\s a -> s { _appMeshRouteMeshOwner = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-route.html#cfn-appmesh-route-routename
 amrRouteName :: Lens' AppMeshRoute (Val Text)

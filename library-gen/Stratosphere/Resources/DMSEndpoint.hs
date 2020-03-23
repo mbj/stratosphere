@@ -10,6 +10,7 @@ module Stratosphere.Resources.DMSEndpoint where
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.DMSEndpointDynamoDbSettings
 import Stratosphere.ResourceProperties.DMSEndpointElasticsearchSettings
+import Stratosphere.ResourceProperties.DMSEndpointKafkaSettings
 import Stratosphere.ResourceProperties.DMSEndpointKinesisSettings
 import Stratosphere.ResourceProperties.DMSEndpointMongoDbSettings
 import Stratosphere.ResourceProperties.DMSEndpointS3Settings
@@ -27,6 +28,7 @@ data DMSEndpoint =
   , _dMSEndpointEndpointType :: Val Text
   , _dMSEndpointEngineName :: Val Text
   , _dMSEndpointExtraConnectionAttributes :: Maybe (Val Text)
+  , _dMSEndpointKafkaSettings :: Maybe DMSEndpointKafkaSettings
   , _dMSEndpointKinesisSettings :: Maybe DMSEndpointKinesisSettings
   , _dMSEndpointKmsKeyId :: Maybe (Val Text)
   , _dMSEndpointMongoDbSettings :: Maybe DMSEndpointMongoDbSettings
@@ -53,6 +55,7 @@ instance ToResourceProperties DMSEndpoint where
         , (Just . ("EndpointType",) . toJSON) _dMSEndpointEndpointType
         , (Just . ("EngineName",) . toJSON) _dMSEndpointEngineName
         , fmap (("ExtraConnectionAttributes",) . toJSON) _dMSEndpointExtraConnectionAttributes
+        , fmap (("KafkaSettings",) . toJSON) _dMSEndpointKafkaSettings
         , fmap (("KinesisSettings",) . toJSON) _dMSEndpointKinesisSettings
         , fmap (("KmsKeyId",) . toJSON) _dMSEndpointKmsKeyId
         , fmap (("MongoDbSettings",) . toJSON) _dMSEndpointMongoDbSettings
@@ -81,6 +84,7 @@ dmsEndpoint endpointTypearg engineNamearg =
   , _dMSEndpointEndpointType = endpointTypearg
   , _dMSEndpointEngineName = engineNamearg
   , _dMSEndpointExtraConnectionAttributes = Nothing
+  , _dMSEndpointKafkaSettings = Nothing
   , _dMSEndpointKinesisSettings = Nothing
   , _dMSEndpointKmsKeyId = Nothing
   , _dMSEndpointMongoDbSettings = Nothing
@@ -124,6 +128,10 @@ dmseEngineName = lens _dMSEndpointEngineName (\s a -> s { _dMSEndpointEngineName
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-endpoint.html#cfn-dms-endpoint-extraconnectionattributes
 dmseExtraConnectionAttributes :: Lens' DMSEndpoint (Maybe (Val Text))
 dmseExtraConnectionAttributes = lens _dMSEndpointExtraConnectionAttributes (\s a -> s { _dMSEndpointExtraConnectionAttributes = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-endpoint.html#cfn-dms-endpoint-kafkasettings
+dmseKafkaSettings :: Lens' DMSEndpoint (Maybe DMSEndpointKafkaSettings)
+dmseKafkaSettings = lens _dMSEndpointKafkaSettings (\s a -> s { _dMSEndpointKafkaSettings = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-endpoint.html#cfn-dms-endpoint-kinesissettings
 dmseKinesisSettings :: Lens' DMSEndpoint (Maybe DMSEndpointKinesisSettings)

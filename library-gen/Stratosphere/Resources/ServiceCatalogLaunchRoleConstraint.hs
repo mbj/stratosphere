@@ -16,9 +16,10 @@ data ServiceCatalogLaunchRoleConstraint =
   ServiceCatalogLaunchRoleConstraint
   { _serviceCatalogLaunchRoleConstraintAcceptLanguage :: Maybe (Val Text)
   , _serviceCatalogLaunchRoleConstraintDescription :: Maybe (Val Text)
+  , _serviceCatalogLaunchRoleConstraintLocalRoleName :: Maybe (Val Text)
   , _serviceCatalogLaunchRoleConstraintPortfolioId :: Val Text
   , _serviceCatalogLaunchRoleConstraintProductId :: Val Text
-  , _serviceCatalogLaunchRoleConstraintRoleArn :: Val Text
+  , _serviceCatalogLaunchRoleConstraintRoleArn :: Maybe (Val Text)
   } deriving (Show, Eq)
 
 instance ToResourceProperties ServiceCatalogLaunchRoleConstraint where
@@ -29,9 +30,10 @@ instance ToResourceProperties ServiceCatalogLaunchRoleConstraint where
         hashMapFromList $ catMaybes
         [ fmap (("AcceptLanguage",) . toJSON) _serviceCatalogLaunchRoleConstraintAcceptLanguage
         , fmap (("Description",) . toJSON) _serviceCatalogLaunchRoleConstraintDescription
+        , fmap (("LocalRoleName",) . toJSON) _serviceCatalogLaunchRoleConstraintLocalRoleName
         , (Just . ("PortfolioId",) . toJSON) _serviceCatalogLaunchRoleConstraintPortfolioId
         , (Just . ("ProductId",) . toJSON) _serviceCatalogLaunchRoleConstraintProductId
-        , (Just . ("RoleArn",) . toJSON) _serviceCatalogLaunchRoleConstraintRoleArn
+        , fmap (("RoleArn",) . toJSON) _serviceCatalogLaunchRoleConstraintRoleArn
         ]
     }
 
@@ -40,15 +42,15 @@ instance ToResourceProperties ServiceCatalogLaunchRoleConstraint where
 serviceCatalogLaunchRoleConstraint
   :: Val Text -- ^ 'sclrcPortfolioId'
   -> Val Text -- ^ 'sclrcProductId'
-  -> Val Text -- ^ 'sclrcRoleArn'
   -> ServiceCatalogLaunchRoleConstraint
-serviceCatalogLaunchRoleConstraint portfolioIdarg productIdarg roleArnarg =
+serviceCatalogLaunchRoleConstraint portfolioIdarg productIdarg =
   ServiceCatalogLaunchRoleConstraint
   { _serviceCatalogLaunchRoleConstraintAcceptLanguage = Nothing
   , _serviceCatalogLaunchRoleConstraintDescription = Nothing
+  , _serviceCatalogLaunchRoleConstraintLocalRoleName = Nothing
   , _serviceCatalogLaunchRoleConstraintPortfolioId = portfolioIdarg
   , _serviceCatalogLaunchRoleConstraintProductId = productIdarg
-  , _serviceCatalogLaunchRoleConstraintRoleArn = roleArnarg
+  , _serviceCatalogLaunchRoleConstraintRoleArn = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-launchroleconstraint.html#cfn-servicecatalog-launchroleconstraint-acceptlanguage
@@ -59,6 +61,10 @@ sclrcAcceptLanguage = lens _serviceCatalogLaunchRoleConstraintAcceptLanguage (\s
 sclrcDescription :: Lens' ServiceCatalogLaunchRoleConstraint (Maybe (Val Text))
 sclrcDescription = lens _serviceCatalogLaunchRoleConstraintDescription (\s a -> s { _serviceCatalogLaunchRoleConstraintDescription = a })
 
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-launchroleconstraint.html#cfn-servicecatalog-launchroleconstraint-localrolename
+sclrcLocalRoleName :: Lens' ServiceCatalogLaunchRoleConstraint (Maybe (Val Text))
+sclrcLocalRoleName = lens _serviceCatalogLaunchRoleConstraintLocalRoleName (\s a -> s { _serviceCatalogLaunchRoleConstraintLocalRoleName = a })
+
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-launchroleconstraint.html#cfn-servicecatalog-launchroleconstraint-portfolioid
 sclrcPortfolioId :: Lens' ServiceCatalogLaunchRoleConstraint (Val Text)
 sclrcPortfolioId = lens _serviceCatalogLaunchRoleConstraintPortfolioId (\s a -> s { _serviceCatalogLaunchRoleConstraintPortfolioId = a })
@@ -68,5 +74,5 @@ sclrcProductId :: Lens' ServiceCatalogLaunchRoleConstraint (Val Text)
 sclrcProductId = lens _serviceCatalogLaunchRoleConstraintProductId (\s a -> s { _serviceCatalogLaunchRoleConstraintProductId = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-launchroleconstraint.html#cfn-servicecatalog-launchroleconstraint-rolearn
-sclrcRoleArn :: Lens' ServiceCatalogLaunchRoleConstraint (Val Text)
+sclrcRoleArn :: Lens' ServiceCatalogLaunchRoleConstraint (Maybe (Val Text))
 sclrcRoleArn = lens _serviceCatalogLaunchRoleConstraintRoleArn (\s a -> s { _serviceCatalogLaunchRoleConstraintRoleArn = a })

@@ -16,6 +16,7 @@ import Stratosphere.ResourceProperties.Tag
 data AppMeshVirtualNode =
   AppMeshVirtualNode
   { _appMeshVirtualNodeMeshName :: Val Text
+  , _appMeshVirtualNodeMeshOwner :: Maybe (Val Text)
   , _appMeshVirtualNodeSpec :: AppMeshVirtualNodeVirtualNodeSpec
   , _appMeshVirtualNodeTags :: Maybe [Tag]
   , _appMeshVirtualNodeVirtualNodeName :: Val Text
@@ -28,6 +29,7 @@ instance ToResourceProperties AppMeshVirtualNode where
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
         [ (Just . ("MeshName",) . toJSON) _appMeshVirtualNodeMeshName
+        , fmap (("MeshOwner",) . toJSON) _appMeshVirtualNodeMeshOwner
         , (Just . ("Spec",) . toJSON) _appMeshVirtualNodeSpec
         , fmap (("Tags",) . toJSON) _appMeshVirtualNodeTags
         , (Just . ("VirtualNodeName",) . toJSON) _appMeshVirtualNodeVirtualNodeName
@@ -44,6 +46,7 @@ appMeshVirtualNode
 appMeshVirtualNode meshNamearg specarg virtualNodeNamearg =
   AppMeshVirtualNode
   { _appMeshVirtualNodeMeshName = meshNamearg
+  , _appMeshVirtualNodeMeshOwner = Nothing
   , _appMeshVirtualNodeSpec = specarg
   , _appMeshVirtualNodeTags = Nothing
   , _appMeshVirtualNodeVirtualNodeName = virtualNodeNamearg
@@ -52,6 +55,10 @@ appMeshVirtualNode meshNamearg specarg virtualNodeNamearg =
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualnode.html#cfn-appmesh-virtualnode-meshname
 amvnMeshName :: Lens' AppMeshVirtualNode (Val Text)
 amvnMeshName = lens _appMeshVirtualNodeMeshName (\s a -> s { _appMeshVirtualNodeMeshName = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualnode.html#cfn-appmesh-virtualnode-meshowner
+amvnMeshOwner :: Lens' AppMeshVirtualNode (Maybe (Val Text))
+amvnMeshOwner = lens _appMeshVirtualNodeMeshOwner (\s a -> s { _appMeshVirtualNodeMeshOwner = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appmesh-virtualnode.html#cfn-appmesh-virtualnode-spec
 amvnSpec :: Lens' AppMeshVirtualNode AppMeshVirtualNodeVirtualNodeSpec
