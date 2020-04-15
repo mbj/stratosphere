@@ -14,7 +14,10 @@ import Stratosphere.ResourceProperties.IoTTopicRuleDynamoDBAction
 import Stratosphere.ResourceProperties.IoTTopicRuleDynamoDBV2Action
 import Stratosphere.ResourceProperties.IoTTopicRuleElasticsearchAction
 import Stratosphere.ResourceProperties.IoTTopicRuleFirehoseAction
+import Stratosphere.ResourceProperties.IoTTopicRuleHttpAction
 import Stratosphere.ResourceProperties.IoTTopicRuleIotAnalyticsAction
+import Stratosphere.ResourceProperties.IoTTopicRuleIotEventsAction
+import Stratosphere.ResourceProperties.IoTTopicRuleIotSiteWiseAction
 import Stratosphere.ResourceProperties.IoTTopicRuleKinesisAction
 import Stratosphere.ResourceProperties.IoTTopicRuleLambdaAction
 import Stratosphere.ResourceProperties.IoTTopicRuleRepublishAction
@@ -33,7 +36,10 @@ data IoTTopicRuleAction =
   , _ioTTopicRuleActionDynamoDBv2 :: Maybe IoTTopicRuleDynamoDBV2Action
   , _ioTTopicRuleActionElasticsearch :: Maybe IoTTopicRuleElasticsearchAction
   , _ioTTopicRuleActionFirehose :: Maybe IoTTopicRuleFirehoseAction
+  , _ioTTopicRuleActionHttp :: Maybe IoTTopicRuleHttpAction
   , _ioTTopicRuleActionIotAnalytics :: Maybe IoTTopicRuleIotAnalyticsAction
+  , _ioTTopicRuleActionIotEvents :: Maybe IoTTopicRuleIotEventsAction
+  , _ioTTopicRuleActionIotSiteWise :: Maybe IoTTopicRuleIotSiteWiseAction
   , _ioTTopicRuleActionKinesis :: Maybe IoTTopicRuleKinesisAction
   , _ioTTopicRuleActionLambda :: Maybe IoTTopicRuleLambdaAction
   , _ioTTopicRuleActionRepublish :: Maybe IoTTopicRuleRepublishAction
@@ -53,7 +59,10 @@ instance ToJSON IoTTopicRuleAction where
     , fmap (("DynamoDBv2",) . toJSON) _ioTTopicRuleActionDynamoDBv2
     , fmap (("Elasticsearch",) . toJSON) _ioTTopicRuleActionElasticsearch
     , fmap (("Firehose",) . toJSON) _ioTTopicRuleActionFirehose
+    , fmap (("Http",) . toJSON) _ioTTopicRuleActionHttp
     , fmap (("IotAnalytics",) . toJSON) _ioTTopicRuleActionIotAnalytics
+    , fmap (("IotEvents",) . toJSON) _ioTTopicRuleActionIotEvents
+    , fmap (("IotSiteWise",) . toJSON) _ioTTopicRuleActionIotSiteWise
     , fmap (("Kinesis",) . toJSON) _ioTTopicRuleActionKinesis
     , fmap (("Lambda",) . toJSON) _ioTTopicRuleActionLambda
     , fmap (("Republish",) . toJSON) _ioTTopicRuleActionRepublish
@@ -75,7 +84,10 @@ ioTTopicRuleAction  =
   , _ioTTopicRuleActionDynamoDBv2 = Nothing
   , _ioTTopicRuleActionElasticsearch = Nothing
   , _ioTTopicRuleActionFirehose = Nothing
+  , _ioTTopicRuleActionHttp = Nothing
   , _ioTTopicRuleActionIotAnalytics = Nothing
+  , _ioTTopicRuleActionIotEvents = Nothing
+  , _ioTTopicRuleActionIotSiteWise = Nothing
   , _ioTTopicRuleActionKinesis = Nothing
   , _ioTTopicRuleActionLambda = Nothing
   , _ioTTopicRuleActionRepublish = Nothing
@@ -109,9 +121,21 @@ ittraElasticsearch = lens _ioTTopicRuleActionElasticsearch (\s a -> s { _ioTTopi
 ittraFirehose :: Lens' IoTTopicRuleAction (Maybe IoTTopicRuleFirehoseAction)
 ittraFirehose = lens _ioTTopicRuleActionFirehose (\s a -> s { _ioTTopicRuleActionFirehose = a })
 
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-http
+ittraHttp :: Lens' IoTTopicRuleAction (Maybe IoTTopicRuleHttpAction)
+ittraHttp = lens _ioTTopicRuleActionHttp (\s a -> s { _ioTTopicRuleActionHttp = a })
+
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-iotanalytics
 ittraIotAnalytics :: Lens' IoTTopicRuleAction (Maybe IoTTopicRuleIotAnalyticsAction)
 ittraIotAnalytics = lens _ioTTopicRuleActionIotAnalytics (\s a -> s { _ioTTopicRuleActionIotAnalytics = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-iotevents
+ittraIotEvents :: Lens' IoTTopicRuleAction (Maybe IoTTopicRuleIotEventsAction)
+ittraIotEvents = lens _ioTTopicRuleActionIotEvents (\s a -> s { _ioTTopicRuleActionIotEvents = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-iotsitewise
+ittraIotSiteWise :: Lens' IoTTopicRuleAction (Maybe IoTTopicRuleIotSiteWiseAction)
+ittraIotSiteWise = lens _ioTTopicRuleActionIotSiteWise (\s a -> s { _ioTTopicRuleActionIotSiteWise = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-action.html#cfn-iot-topicrule-action-kinesis
 ittraKinesis :: Lens' IoTTopicRuleAction (Maybe IoTTopicRuleKinesisAction)

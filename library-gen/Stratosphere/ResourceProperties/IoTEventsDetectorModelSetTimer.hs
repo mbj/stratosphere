@@ -14,7 +14,8 @@ import Stratosphere.ResourceImports
 -- 'ioTEventsDetectorModelSetTimer' for a more convenient constructor.
 data IoTEventsDetectorModelSetTimer =
   IoTEventsDetectorModelSetTimer
-  { _ioTEventsDetectorModelSetTimerSeconds :: Maybe (Val Integer)
+  { _ioTEventsDetectorModelSetTimerDurationExpression :: Maybe (Val Text)
+  , _ioTEventsDetectorModelSetTimerSeconds :: Maybe (Val Integer)
   , _ioTEventsDetectorModelSetTimerTimerName :: Maybe (Val Text)
   } deriving (Show, Eq)
 
@@ -22,7 +23,8 @@ instance ToJSON IoTEventsDetectorModelSetTimer where
   toJSON IoTEventsDetectorModelSetTimer{..} =
     object $
     catMaybes
-    [ fmap (("Seconds",) . toJSON) _ioTEventsDetectorModelSetTimerSeconds
+    [ fmap (("DurationExpression",) . toJSON) _ioTEventsDetectorModelSetTimerDurationExpression
+    , fmap (("Seconds",) . toJSON) _ioTEventsDetectorModelSetTimerSeconds
     , fmap (("TimerName",) . toJSON) _ioTEventsDetectorModelSetTimerTimerName
     ]
 
@@ -32,9 +34,14 @@ ioTEventsDetectorModelSetTimer
   :: IoTEventsDetectorModelSetTimer
 ioTEventsDetectorModelSetTimer  =
   IoTEventsDetectorModelSetTimer
-  { _ioTEventsDetectorModelSetTimerSeconds = Nothing
+  { _ioTEventsDetectorModelSetTimerDurationExpression = Nothing
+  , _ioTEventsDetectorModelSetTimerSeconds = Nothing
   , _ioTEventsDetectorModelSetTimerTimerName = Nothing
   }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-settimer.html#cfn-iotevents-detectormodel-settimer-durationexpression
+itedmstDurationExpression :: Lens' IoTEventsDetectorModelSetTimer (Maybe (Val Text))
+itedmstDurationExpression = lens _ioTEventsDetectorModelSetTimerDurationExpression (\s a -> s { _ioTEventsDetectorModelSetTimerDurationExpression = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-settimer.html#cfn-iotevents-detectormodel-settimer-seconds
 itedmstSeconds :: Lens' IoTEventsDetectorModelSetTimer (Maybe (Val Integer))

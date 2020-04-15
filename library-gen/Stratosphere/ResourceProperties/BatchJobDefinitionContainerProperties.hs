@@ -26,14 +26,14 @@ data BatchJobDefinitionContainerProperties =
   , _batchJobDefinitionContainerPropertiesInstanceType :: Maybe (Val Text)
   , _batchJobDefinitionContainerPropertiesJobRoleArn :: Maybe (Val Text)
   , _batchJobDefinitionContainerPropertiesLinuxParameters :: Maybe BatchJobDefinitionLinuxParameters
-  , _batchJobDefinitionContainerPropertiesMemory :: Val Integer
+  , _batchJobDefinitionContainerPropertiesMemory :: Maybe (Val Integer)
   , _batchJobDefinitionContainerPropertiesMountPoints :: Maybe [BatchJobDefinitionMountPoints]
   , _batchJobDefinitionContainerPropertiesPrivileged :: Maybe (Val Bool)
   , _batchJobDefinitionContainerPropertiesReadonlyRootFilesystem :: Maybe (Val Bool)
   , _batchJobDefinitionContainerPropertiesResourceRequirements :: Maybe [BatchJobDefinitionResourceRequirement]
   , _batchJobDefinitionContainerPropertiesUlimits :: Maybe [BatchJobDefinitionUlimit]
   , _batchJobDefinitionContainerPropertiesUser :: Maybe (Val Text)
-  , _batchJobDefinitionContainerPropertiesVcpus :: Val Integer
+  , _batchJobDefinitionContainerPropertiesVcpus :: Maybe (Val Integer)
   , _batchJobDefinitionContainerPropertiesVolumes :: Maybe [BatchJobDefinitionVolumes]
   } deriving (Show, Eq)
 
@@ -47,14 +47,14 @@ instance ToJSON BatchJobDefinitionContainerProperties where
     , fmap (("InstanceType",) . toJSON) _batchJobDefinitionContainerPropertiesInstanceType
     , fmap (("JobRoleArn",) . toJSON) _batchJobDefinitionContainerPropertiesJobRoleArn
     , fmap (("LinuxParameters",) . toJSON) _batchJobDefinitionContainerPropertiesLinuxParameters
-    , (Just . ("Memory",) . toJSON) _batchJobDefinitionContainerPropertiesMemory
+    , fmap (("Memory",) . toJSON) _batchJobDefinitionContainerPropertiesMemory
     , fmap (("MountPoints",) . toJSON) _batchJobDefinitionContainerPropertiesMountPoints
     , fmap (("Privileged",) . toJSON) _batchJobDefinitionContainerPropertiesPrivileged
     , fmap (("ReadonlyRootFilesystem",) . toJSON) _batchJobDefinitionContainerPropertiesReadonlyRootFilesystem
     , fmap (("ResourceRequirements",) . toJSON) _batchJobDefinitionContainerPropertiesResourceRequirements
     , fmap (("Ulimits",) . toJSON) _batchJobDefinitionContainerPropertiesUlimits
     , fmap (("User",) . toJSON) _batchJobDefinitionContainerPropertiesUser
-    , (Just . ("Vcpus",) . toJSON) _batchJobDefinitionContainerPropertiesVcpus
+    , fmap (("Vcpus",) . toJSON) _batchJobDefinitionContainerPropertiesVcpus
     , fmap (("Volumes",) . toJSON) _batchJobDefinitionContainerPropertiesVolumes
     ]
 
@@ -62,10 +62,8 @@ instance ToJSON BatchJobDefinitionContainerProperties where
 -- required fields as arguments.
 batchJobDefinitionContainerProperties
   :: Val Text -- ^ 'bjdcpImage'
-  -> Val Integer -- ^ 'bjdcpMemory'
-  -> Val Integer -- ^ 'bjdcpVcpus'
   -> BatchJobDefinitionContainerProperties
-batchJobDefinitionContainerProperties imagearg memoryarg vcpusarg =
+batchJobDefinitionContainerProperties imagearg =
   BatchJobDefinitionContainerProperties
   { _batchJobDefinitionContainerPropertiesCommand = Nothing
   , _batchJobDefinitionContainerPropertiesEnvironment = Nothing
@@ -73,14 +71,14 @@ batchJobDefinitionContainerProperties imagearg memoryarg vcpusarg =
   , _batchJobDefinitionContainerPropertiesInstanceType = Nothing
   , _batchJobDefinitionContainerPropertiesJobRoleArn = Nothing
   , _batchJobDefinitionContainerPropertiesLinuxParameters = Nothing
-  , _batchJobDefinitionContainerPropertiesMemory = memoryarg
+  , _batchJobDefinitionContainerPropertiesMemory = Nothing
   , _batchJobDefinitionContainerPropertiesMountPoints = Nothing
   , _batchJobDefinitionContainerPropertiesPrivileged = Nothing
   , _batchJobDefinitionContainerPropertiesReadonlyRootFilesystem = Nothing
   , _batchJobDefinitionContainerPropertiesResourceRequirements = Nothing
   , _batchJobDefinitionContainerPropertiesUlimits = Nothing
   , _batchJobDefinitionContainerPropertiesUser = Nothing
-  , _batchJobDefinitionContainerPropertiesVcpus = vcpusarg
+  , _batchJobDefinitionContainerPropertiesVcpus = Nothing
   , _batchJobDefinitionContainerPropertiesVolumes = Nothing
   }
 
@@ -109,7 +107,7 @@ bjdcpLinuxParameters :: Lens' BatchJobDefinitionContainerProperties (Maybe Batch
 bjdcpLinuxParameters = lens _batchJobDefinitionContainerPropertiesLinuxParameters (\s a -> s { _batchJobDefinitionContainerPropertiesLinuxParameters = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-memory
-bjdcpMemory :: Lens' BatchJobDefinitionContainerProperties (Val Integer)
+bjdcpMemory :: Lens' BatchJobDefinitionContainerProperties (Maybe (Val Integer))
 bjdcpMemory = lens _batchJobDefinitionContainerPropertiesMemory (\s a -> s { _batchJobDefinitionContainerPropertiesMemory = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-mountpoints
@@ -137,7 +135,7 @@ bjdcpUser :: Lens' BatchJobDefinitionContainerProperties (Maybe (Val Text))
 bjdcpUser = lens _batchJobDefinitionContainerPropertiesUser (\s a -> s { _batchJobDefinitionContainerPropertiesUser = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-vcpus
-bjdcpVcpus :: Lens' BatchJobDefinitionContainerProperties (Val Integer)
+bjdcpVcpus :: Lens' BatchJobDefinitionContainerProperties (Maybe (Val Integer))
 bjdcpVcpus = lens _batchJobDefinitionContainerPropertiesVcpus (\s a -> s { _batchJobDefinitionContainerPropertiesVcpus = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties.html#cfn-batch-jobdefinition-containerproperties-volumes

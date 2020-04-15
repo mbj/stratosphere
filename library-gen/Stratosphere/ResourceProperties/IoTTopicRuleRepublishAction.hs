@@ -14,7 +14,8 @@ import Stratosphere.ResourceImports
 -- 'ioTTopicRuleRepublishAction' for a more convenient constructor.
 data IoTTopicRuleRepublishAction =
   IoTTopicRuleRepublishAction
-  { _ioTTopicRuleRepublishActionRoleArn :: Val Text
+  { _ioTTopicRuleRepublishActionQos :: Maybe (Val Integer)
+  , _ioTTopicRuleRepublishActionRoleArn :: Val Text
   , _ioTTopicRuleRepublishActionTopic :: Val Text
   } deriving (Show, Eq)
 
@@ -22,7 +23,8 @@ instance ToJSON IoTTopicRuleRepublishAction where
   toJSON IoTTopicRuleRepublishAction{..} =
     object $
     catMaybes
-    [ (Just . ("RoleArn",) . toJSON) _ioTTopicRuleRepublishActionRoleArn
+    [ fmap (("Qos",) . toJSON) _ioTTopicRuleRepublishActionQos
+    , (Just . ("RoleArn",) . toJSON) _ioTTopicRuleRepublishActionRoleArn
     , (Just . ("Topic",) . toJSON) _ioTTopicRuleRepublishActionTopic
     ]
 
@@ -34,9 +36,14 @@ ioTTopicRuleRepublishAction
   -> IoTTopicRuleRepublishAction
 ioTTopicRuleRepublishAction roleArnarg topicarg =
   IoTTopicRuleRepublishAction
-  { _ioTTopicRuleRepublishActionRoleArn = roleArnarg
+  { _ioTTopicRuleRepublishActionQos = Nothing
+  , _ioTTopicRuleRepublishActionRoleArn = roleArnarg
   , _ioTTopicRuleRepublishActionTopic = topicarg
   }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-republishaction.html#cfn-iot-topicrule-republishaction-qos
+ittrraQos :: Lens' IoTTopicRuleRepublishAction (Maybe (Val Integer))
+ittrraQos = lens _ioTTopicRuleRepublishActionQos (\s a -> s { _ioTTopicRuleRepublishActionQos = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-republishaction.html#cfn-iot-topicrule-republishaction-rolearn
 ittrraRoleArn :: Lens' IoTTopicRuleRepublishAction (Val Text)

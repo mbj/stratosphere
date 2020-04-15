@@ -15,6 +15,7 @@ import Stratosphere.ResourceProperties.ApiGatewayV2IntegrationTlsConfig
 data ApiGatewayV2Integration =
   ApiGatewayV2Integration
   { _apiGatewayV2IntegrationApiId :: Val Text
+  , _apiGatewayV2IntegrationConnectionId :: Maybe (Val Text)
   , _apiGatewayV2IntegrationConnectionType :: Maybe (Val Text)
   , _apiGatewayV2IntegrationContentHandlingStrategy :: Maybe (Val Text)
   , _apiGatewayV2IntegrationCredentialsArn :: Maybe (Val Text)
@@ -38,6 +39,7 @@ instance ToResourceProperties ApiGatewayV2Integration where
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
         [ (Just . ("ApiId",) . toJSON) _apiGatewayV2IntegrationApiId
+        , fmap (("ConnectionId",) . toJSON) _apiGatewayV2IntegrationConnectionId
         , fmap (("ConnectionType",) . toJSON) _apiGatewayV2IntegrationConnectionType
         , fmap (("ContentHandlingStrategy",) . toJSON) _apiGatewayV2IntegrationContentHandlingStrategy
         , fmap (("CredentialsArn",) . toJSON) _apiGatewayV2IntegrationCredentialsArn
@@ -64,6 +66,7 @@ apiGatewayV2Integration
 apiGatewayV2Integration apiIdarg integrationTypearg =
   ApiGatewayV2Integration
   { _apiGatewayV2IntegrationApiId = apiIdarg
+  , _apiGatewayV2IntegrationConnectionId = Nothing
   , _apiGatewayV2IntegrationConnectionType = Nothing
   , _apiGatewayV2IntegrationContentHandlingStrategy = Nothing
   , _apiGatewayV2IntegrationCredentialsArn = Nothing
@@ -83,6 +86,10 @@ apiGatewayV2Integration apiIdarg integrationTypearg =
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html#cfn-apigatewayv2-integration-apiid
 agviApiId :: Lens' ApiGatewayV2Integration (Val Text)
 agviApiId = lens _apiGatewayV2IntegrationApiId (\s a -> s { _apiGatewayV2IntegrationApiId = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html#cfn-apigatewayv2-integration-connectionid
+agviConnectionId :: Lens' ApiGatewayV2Integration (Maybe (Val Text))
+agviConnectionId = lens _apiGatewayV2IntegrationConnectionId (\s a -> s { _apiGatewayV2IntegrationConnectionId = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html#cfn-apigatewayv2-integration-connectiontype
 agviConnectionType :: Lens' ApiGatewayV2Integration (Maybe (Val Text))

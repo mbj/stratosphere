@@ -9,6 +9,7 @@ module Stratosphere.Resources.CodeBuildReportGroup where
 
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.CodeBuildReportGroupReportExportConfig
+import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for CodeBuildReportGroup. See
 -- 'codeBuildReportGroup' for a more convenient constructor.
@@ -16,6 +17,7 @@ data CodeBuildReportGroup =
   CodeBuildReportGroup
   { _codeBuildReportGroupExportConfig :: CodeBuildReportGroupReportExportConfig
   , _codeBuildReportGroupName :: Maybe (Val Text)
+  , _codeBuildReportGroupTags :: Maybe [Tag]
   , _codeBuildReportGroupType :: Val Text
   } deriving (Show, Eq)
 
@@ -27,6 +29,7 @@ instance ToResourceProperties CodeBuildReportGroup where
         hashMapFromList $ catMaybes
         [ (Just . ("ExportConfig",) . toJSON) _codeBuildReportGroupExportConfig
         , fmap (("Name",) . toJSON) _codeBuildReportGroupName
+        , fmap (("Tags",) . toJSON) _codeBuildReportGroupTags
         , (Just . ("Type",) . toJSON) _codeBuildReportGroupType
         ]
     }
@@ -41,6 +44,7 @@ codeBuildReportGroup exportConfigarg typearg =
   CodeBuildReportGroup
   { _codeBuildReportGroupExportConfig = exportConfigarg
   , _codeBuildReportGroupName = Nothing
+  , _codeBuildReportGroupTags = Nothing
   , _codeBuildReportGroupType = typearg
   }
 
@@ -51,6 +55,10 @@ cbrgExportConfig = lens _codeBuildReportGroupExportConfig (\s a -> s { _codeBuil
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-reportgroup.html#cfn-codebuild-reportgroup-name
 cbrgName :: Lens' CodeBuildReportGroup (Maybe (Val Text))
 cbrgName = lens _codeBuildReportGroupName (\s a -> s { _codeBuildReportGroupName = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-reportgroup.html#cfn-codebuild-reportgroup-tags
+cbrgTags :: Lens' CodeBuildReportGroup (Maybe [Tag])
+cbrgTags = lens _codeBuildReportGroupTags (\s a -> s { _codeBuildReportGroupTags = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-reportgroup.html#cfn-codebuild-reportgroup-type
 cbrgType :: Lens' CodeBuildReportGroup (Val Text)

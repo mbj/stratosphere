@@ -19,6 +19,7 @@ data EC2Volume =
   , _eC2VolumeEncrypted :: Maybe (Val Bool)
   , _eC2VolumeIops :: Maybe (Val Integer)
   , _eC2VolumeKmsKeyId :: Maybe (Val Text)
+  , _eC2VolumeMultiAttachEnabled :: Maybe (Val Bool)
   , _eC2VolumeSize :: Maybe (Val Integer)
   , _eC2VolumeSnapshotId :: Maybe (Val Text)
   , _eC2VolumeTags :: Maybe [Tag]
@@ -36,6 +37,7 @@ instance ToResourceProperties EC2Volume where
         , fmap (("Encrypted",) . toJSON) _eC2VolumeEncrypted
         , fmap (("Iops",) . toJSON) _eC2VolumeIops
         , fmap (("KmsKeyId",) . toJSON) _eC2VolumeKmsKeyId
+        , fmap (("MultiAttachEnabled",) . toJSON) _eC2VolumeMultiAttachEnabled
         , fmap (("Size",) . toJSON) _eC2VolumeSize
         , fmap (("SnapshotId",) . toJSON) _eC2VolumeSnapshotId
         , fmap (("Tags",) . toJSON) _eC2VolumeTags
@@ -54,6 +56,7 @@ ec2Volume availabilityZonearg =
   , _eC2VolumeEncrypted = Nothing
   , _eC2VolumeIops = Nothing
   , _eC2VolumeKmsKeyId = Nothing
+  , _eC2VolumeMultiAttachEnabled = Nothing
   , _eC2VolumeSize = Nothing
   , _eC2VolumeSnapshotId = Nothing
   , _eC2VolumeTags = Nothing
@@ -79,6 +82,10 @@ ecvIops = lens _eC2VolumeIops (\s a -> s { _eC2VolumeIops = a })
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html#cfn-ec2-ebs-volume-kmskeyid
 ecvKmsKeyId :: Lens' EC2Volume (Maybe (Val Text))
 ecvKmsKeyId = lens _eC2VolumeKmsKeyId (\s a -> s { _eC2VolumeKmsKeyId = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html#cfn-ec2-ebs-volume-multiattachenabled
+ecvMultiAttachEnabled :: Lens' EC2Volume (Maybe (Val Bool))
+ecvMultiAttachEnabled = lens _eC2VolumeMultiAttachEnabled (\s a -> s { _eC2VolumeMultiAttachEnabled = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html#cfn-ec2-ebs-volume-size
 ecvSize :: Lens' EC2Volume (Maybe (Val Integer))

@@ -8,14 +8,14 @@
 module Stratosphere.ResourceProperties.EC2EC2FleetTagSpecification where
 
 import Stratosphere.ResourceImports
-import Stratosphere.ResourceProperties.EC2EC2FleetTagRequest
+import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for EC2EC2FleetTagSpecification. See
 -- 'ec2EC2FleetTagSpecification' for a more convenient constructor.
 data EC2EC2FleetTagSpecification =
   EC2EC2FleetTagSpecification
   { _eC2EC2FleetTagSpecificationResourceType :: Maybe (Val Text)
-  , _eC2EC2FleetTagSpecificationTags :: Maybe [EC2EC2FleetTagRequest]
+  , _eC2EC2FleetTagSpecificationTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
 instance ToJSON EC2EC2FleetTagSpecification where
@@ -41,5 +41,5 @@ ececftsResourceType :: Lens' EC2EC2FleetTagSpecification (Maybe (Val Text))
 ececftsResourceType = lens _eC2EC2FleetTagSpecificationResourceType (\s a -> s { _eC2EC2FleetTagSpecificationResourceType = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-tagspecification.html#cfn-ec2-ec2fleet-tagspecification-tags
-ececftsTags :: Lens' EC2EC2FleetTagSpecification (Maybe [EC2EC2FleetTagRequest])
+ececftsTags :: Lens' EC2EC2FleetTagSpecification (Maybe [Tag])
 ececftsTags = lens _eC2EC2FleetTagSpecificationTags (\s a -> s { _eC2EC2FleetTagSpecificationTags = a })

@@ -30,6 +30,7 @@ data AutoScalingAutoScalingGroup =
   , _autoScalingAutoScalingGroupLaunchTemplate :: Maybe AutoScalingAutoScalingGroupLaunchTemplateSpecification
   , _autoScalingAutoScalingGroupLifecycleHookSpecificationList :: Maybe [AutoScalingAutoScalingGroupLifecycleHookSpecification]
   , _autoScalingAutoScalingGroupLoadBalancerNames :: Maybe (ValList Text)
+  , _autoScalingAutoScalingGroupMaxInstanceLifetime :: Maybe (Val Integer)
   , _autoScalingAutoScalingGroupMaxSize :: Val Text
   , _autoScalingAutoScalingGroupMetricsCollection :: Maybe [AutoScalingAutoScalingGroupMetricsCollection]
   , _autoScalingAutoScalingGroupMinSize :: Val Text
@@ -60,6 +61,7 @@ instance ToResourceProperties AutoScalingAutoScalingGroup where
         , fmap (("LaunchTemplate",) . toJSON) _autoScalingAutoScalingGroupLaunchTemplate
         , fmap (("LifecycleHookSpecificationList",) . toJSON) _autoScalingAutoScalingGroupLifecycleHookSpecificationList
         , fmap (("LoadBalancerNames",) . toJSON) _autoScalingAutoScalingGroupLoadBalancerNames
+        , fmap (("MaxInstanceLifetime",) . toJSON) _autoScalingAutoScalingGroupMaxInstanceLifetime
         , (Just . ("MaxSize",) . toJSON) _autoScalingAutoScalingGroupMaxSize
         , fmap (("MetricsCollection",) . toJSON) _autoScalingAutoScalingGroupMetricsCollection
         , (Just . ("MinSize",) . toJSON) _autoScalingAutoScalingGroupMinSize
@@ -93,6 +95,7 @@ autoScalingAutoScalingGroup maxSizearg minSizearg =
   , _autoScalingAutoScalingGroupLaunchTemplate = Nothing
   , _autoScalingAutoScalingGroupLifecycleHookSpecificationList = Nothing
   , _autoScalingAutoScalingGroupLoadBalancerNames = Nothing
+  , _autoScalingAutoScalingGroupMaxInstanceLifetime = Nothing
   , _autoScalingAutoScalingGroupMaxSize = maxSizearg
   , _autoScalingAutoScalingGroupMetricsCollection = Nothing
   , _autoScalingAutoScalingGroupMinSize = minSizearg
@@ -149,6 +152,10 @@ asasgLifecycleHookSpecificationList = lens _autoScalingAutoScalingGroupLifecycle
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-loadbalancernames
 asasgLoadBalancerNames :: Lens' AutoScalingAutoScalingGroup (Maybe (ValList Text))
 asasgLoadBalancerNames = lens _autoScalingAutoScalingGroupLoadBalancerNames (\s a -> s { _autoScalingAutoScalingGroupLoadBalancerNames = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-maxinstancelifetime
+asasgMaxInstanceLifetime :: Lens' AutoScalingAutoScalingGroup (Maybe (Val Integer))
+asasgMaxInstanceLifetime = lens _autoScalingAutoScalingGroupMaxInstanceLifetime (\s a -> s { _autoScalingAutoScalingGroupMaxInstanceLifetime = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-maxsize
 asasgMaxSize :: Lens' AutoScalingAutoScalingGroup (Val Text)

@@ -9,6 +9,7 @@ module Stratosphere.Resources.KinesisAnalyticsV2Application where
 
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.KinesisAnalyticsV2ApplicationApplicationConfiguration
+import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for KinesisAnalyticsV2Application. See
 -- 'kinesisAnalyticsV2Application' for a more convenient constructor.
@@ -19,6 +20,7 @@ data KinesisAnalyticsV2Application =
   , _kinesisAnalyticsV2ApplicationApplicationName :: Maybe (Val Text)
   , _kinesisAnalyticsV2ApplicationRuntimeEnvironment :: Val Text
   , _kinesisAnalyticsV2ApplicationServiceExecutionRole :: Val Text
+  , _kinesisAnalyticsV2ApplicationTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
 instance ToResourceProperties KinesisAnalyticsV2Application where
@@ -32,6 +34,7 @@ instance ToResourceProperties KinesisAnalyticsV2Application where
         , fmap (("ApplicationName",) . toJSON) _kinesisAnalyticsV2ApplicationApplicationName
         , (Just . ("RuntimeEnvironment",) . toJSON) _kinesisAnalyticsV2ApplicationRuntimeEnvironment
         , (Just . ("ServiceExecutionRole",) . toJSON) _kinesisAnalyticsV2ApplicationServiceExecutionRole
+        , fmap (("Tags",) . toJSON) _kinesisAnalyticsV2ApplicationTags
         ]
     }
 
@@ -48,6 +51,7 @@ kinesisAnalyticsV2Application runtimeEnvironmentarg serviceExecutionRolearg =
   , _kinesisAnalyticsV2ApplicationApplicationName = Nothing
   , _kinesisAnalyticsV2ApplicationRuntimeEnvironment = runtimeEnvironmentarg
   , _kinesisAnalyticsV2ApplicationServiceExecutionRole = serviceExecutionRolearg
+  , _kinesisAnalyticsV2ApplicationTags = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.html#cfn-kinesisanalyticsv2-application-applicationconfiguration
@@ -69,3 +73,7 @@ kavaRuntimeEnvironment = lens _kinesisAnalyticsV2ApplicationRuntimeEnvironment (
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.html#cfn-kinesisanalyticsv2-application-serviceexecutionrole
 kavaServiceExecutionRole :: Lens' KinesisAnalyticsV2Application (Val Text)
 kavaServiceExecutionRole = lens _kinesisAnalyticsV2ApplicationServiceExecutionRole (\s a -> s { _kinesisAnalyticsV2ApplicationServiceExecutionRole = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.html#cfn-kinesisanalyticsv2-application-tags
+kavaTags :: Lens' KinesisAnalyticsV2Application (Maybe [Tag])
+kavaTags = lens _kinesisAnalyticsV2ApplicationTags (\s a -> s { _kinesisAnalyticsV2ApplicationTags = a })
