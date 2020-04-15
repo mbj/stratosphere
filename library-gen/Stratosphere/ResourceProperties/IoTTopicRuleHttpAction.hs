@@ -8,8 +8,8 @@
 module Stratosphere.ResourceProperties.IoTTopicRuleHttpAction where
 
 import Stratosphere.ResourceImports
-import Stratosphere.ResourceProperties.IoTTopicRuleHttpAuthorization
 import Stratosphere.ResourceProperties.IoTTopicRuleHttpActionHeader
+import Stratosphere.ResourceProperties.IoTTopicRuleHttpAuthorization
 
 -- | Full data type definition for IoTTopicRuleHttpAction. See
 -- 'ioTTopicRuleHttpAction' for a more convenient constructor.

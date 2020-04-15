@@ -9,8 +9,8 @@ module Stratosphere.Resources.FSxFileSystem where
 
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.FSxFileSystemLustreConfiguration
-import Stratosphere.ResourceProperties.Tag
 import Stratosphere.ResourceProperties.FSxFileSystemWindowsConfiguration
+import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for FSxFileSystem. See 'fSxFileSystem' for a
 -- more convenient constructor.

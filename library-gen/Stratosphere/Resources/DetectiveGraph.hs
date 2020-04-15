@@ -14,7 +14,7 @@ import Stratosphere.ResourceImports
 -- more convenient constructor.
 data DetectiveGraph =
   DetectiveGraph
-  { 
+  {
   } deriving (Show, Eq)
 
 instance ToResourceProperties DetectiveGraph where
@@ -29,7 +29,7 @@ detectiveGraph
   :: DetectiveGraph
 detectiveGraph  =
   DetectiveGraph
-  { 
+  {
   }
 
 
