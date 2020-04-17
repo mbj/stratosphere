@@ -1,6 +1,6 @@
 # Change Log
 
-## 0.52.1
+## 0.52.1 (unreleased)
 
 * Update CI for GHC 8.8
 
