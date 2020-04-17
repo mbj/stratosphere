@@ -34,7 +34,7 @@ references:
       - run:
           name: Build
           command: |
-            stack build stratosphere --no-terminal --pedantic --test \
+            stack build stratosphere --no-terminal --test \
               --no-run-tests --jobs=1 --flag stratosphere:-library-only
 
       - save_cache:
@@ -46,7 +46,7 @@ references:
       - run:
           name: Test
           command: |
-            stack build stratosphere --no-terminal --pedantic --test \
+            stack build stratosphere --no-terminal --test \
               --jobs=1 --flag stratosphere:-library-only
 
   # N.B. Doc generation rebuilds everything from the ground up, so there's

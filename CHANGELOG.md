@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.52.1
+
+* Update CI for GHC 8.8
+
 ## 0.52.0
 
 * Update resource specification document to version 12.3.0
