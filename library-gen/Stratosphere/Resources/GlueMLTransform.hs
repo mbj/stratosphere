@@ -23,6 +23,7 @@ data GlueMLTransform =
   , _glueMLTransformName :: Maybe (Val Text)
   , _glueMLTransformNumberOfWorkers :: Maybe (Val Integer)
   , _glueMLTransformRole :: Val Text
+  , _glueMLTransformTags :: Maybe Object
   , _glueMLTransformTimeout :: Maybe (Val Integer)
   , _glueMLTransformTransformParameters :: GlueMLTransformTransformParameters
   , _glueMLTransformWorkerType :: Maybe (Val Text)
@@ -42,6 +43,7 @@ instance ToResourceProperties GlueMLTransform where
         , fmap (("Name",) . toJSON) _glueMLTransformName
         , fmap (("NumberOfWorkers",) . toJSON) _glueMLTransformNumberOfWorkers
         , (Just . ("Role",) . toJSON) _glueMLTransformRole
+        , fmap (("Tags",) . toJSON) _glueMLTransformTags
         , fmap (("Timeout",) . toJSON) _glueMLTransformTimeout
         , (Just . ("TransformParameters",) . toJSON) _glueMLTransformTransformParameters
         , fmap (("WorkerType",) . toJSON) _glueMLTransformWorkerType
@@ -65,6 +67,7 @@ glueMLTransform inputRecordTablesarg rolearg transformParametersarg =
   , _glueMLTransformName = Nothing
   , _glueMLTransformNumberOfWorkers = Nothing
   , _glueMLTransformRole = rolearg
+  , _glueMLTransformTags = Nothing
   , _glueMLTransformTimeout = Nothing
   , _glueMLTransformTransformParameters = transformParametersarg
   , _glueMLTransformWorkerType = Nothing
@@ -101,6 +104,10 @@ gmltNumberOfWorkers = lens _glueMLTransformNumberOfWorkers (\s a -> s { _glueMLT
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-mltransform.html#cfn-glue-mltransform-role
 gmltRole :: Lens' GlueMLTransform (Val Text)
 gmltRole = lens _glueMLTransformRole (\s a -> s { _glueMLTransformRole = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-mltransform.html#cfn-glue-mltransform-tags
+gmltTags :: Lens' GlueMLTransform (Maybe Object)
+gmltTags = lens _glueMLTransformTags (\s a -> s { _glueMLTransformTags = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-mltransform.html#cfn-glue-mltransform-timeout
 gmltTimeout :: Lens' GlueMLTransform (Maybe (Val Integer))

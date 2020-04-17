@@ -22,6 +22,7 @@ data GlueDevEndpoint =
   , _glueDevEndpointNumberOfNodes :: Maybe (Val Integer)
   , _glueDevEndpointNumberOfWorkers :: Maybe (Val Integer)
   , _glueDevEndpointPublicKey :: Maybe (Val Text)
+  , _glueDevEndpointPublicKeys :: Maybe (ValList Text)
   , _glueDevEndpointRoleArn :: Val Text
   , _glueDevEndpointSecurityConfiguration :: Maybe (Val Text)
   , _glueDevEndpointSecurityGroupIds :: Maybe (ValList Text)
@@ -44,6 +45,7 @@ instance ToResourceProperties GlueDevEndpoint where
         , fmap (("NumberOfNodes",) . toJSON) _glueDevEndpointNumberOfNodes
         , fmap (("NumberOfWorkers",) . toJSON) _glueDevEndpointNumberOfWorkers
         , fmap (("PublicKey",) . toJSON) _glueDevEndpointPublicKey
+        , fmap (("PublicKeys",) . toJSON) _glueDevEndpointPublicKeys
         , (Just . ("RoleArn",) . toJSON) _glueDevEndpointRoleArn
         , fmap (("SecurityConfiguration",) . toJSON) _glueDevEndpointSecurityConfiguration
         , fmap (("SecurityGroupIds",) . toJSON) _glueDevEndpointSecurityGroupIds
@@ -68,6 +70,7 @@ glueDevEndpoint roleArnarg =
   , _glueDevEndpointNumberOfNodes = Nothing
   , _glueDevEndpointNumberOfWorkers = Nothing
   , _glueDevEndpointPublicKey = Nothing
+  , _glueDevEndpointPublicKeys = Nothing
   , _glueDevEndpointRoleArn = roleArnarg
   , _glueDevEndpointSecurityConfiguration = Nothing
   , _glueDevEndpointSecurityGroupIds = Nothing
@@ -107,6 +110,10 @@ gdeNumberOfWorkers = lens _glueDevEndpointNumberOfWorkers (\s a -> s { _glueDevE
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-devendpoint.html#cfn-glue-devendpoint-publickey
 gdePublicKey :: Lens' GlueDevEndpoint (Maybe (Val Text))
 gdePublicKey = lens _glueDevEndpointPublicKey (\s a -> s { _glueDevEndpointPublicKey = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-devendpoint.html#cfn-glue-devendpoint-publickeys
+gdePublicKeys :: Lens' GlueDevEndpoint (Maybe (ValList Text))
+gdePublicKeys = lens _glueDevEndpointPublicKeys (\s a -> s { _glueDevEndpointPublicKeys = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-devendpoint.html#cfn-glue-devendpoint-rolearn
 gdeRoleArn :: Lens' GlueDevEndpoint (Val Text)

@@ -22,6 +22,7 @@ data FSxFileSystem =
   , _fSxFileSystemLustreConfiguration :: Maybe FSxFileSystemLustreConfiguration
   , _fSxFileSystemSecurityGroupIds :: Maybe (ValList Text)
   , _fSxFileSystemStorageCapacity :: Maybe (Val Integer)
+  , _fSxFileSystemStorageType :: Maybe (Val Text)
   , _fSxFileSystemSubnetIds :: ValList Text
   , _fSxFileSystemTags :: Maybe [Tag]
   , _fSxFileSystemWindowsConfiguration :: Maybe FSxFileSystemWindowsConfiguration
@@ -39,6 +40,7 @@ instance ToResourceProperties FSxFileSystem where
         , fmap (("LustreConfiguration",) . toJSON) _fSxFileSystemLustreConfiguration
         , fmap (("SecurityGroupIds",) . toJSON) _fSxFileSystemSecurityGroupIds
         , fmap (("StorageCapacity",) . toJSON) _fSxFileSystemStorageCapacity
+        , fmap (("StorageType",) . toJSON) _fSxFileSystemStorageType
         , (Just . ("SubnetIds",) . toJSON) _fSxFileSystemSubnetIds
         , fmap (("Tags",) . toJSON) _fSxFileSystemTags
         , fmap (("WindowsConfiguration",) . toJSON) _fSxFileSystemWindowsConfiguration
@@ -58,6 +60,7 @@ fSxFileSystem fileSystemTypearg subnetIdsarg =
   , _fSxFileSystemLustreConfiguration = Nothing
   , _fSxFileSystemSecurityGroupIds = Nothing
   , _fSxFileSystemStorageCapacity = Nothing
+  , _fSxFileSystemStorageType = Nothing
   , _fSxFileSystemSubnetIds = subnetIdsarg
   , _fSxFileSystemTags = Nothing
   , _fSxFileSystemWindowsConfiguration = Nothing
@@ -86,6 +89,10 @@ fsfsSecurityGroupIds = lens _fSxFileSystemSecurityGroupIds (\s a -> s { _fSxFile
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-storagecapacity
 fsfsStorageCapacity :: Lens' FSxFileSystem (Maybe (Val Integer))
 fsfsStorageCapacity = lens _fSxFileSystemStorageCapacity (\s a -> s { _fSxFileSystemStorageCapacity = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-storagetype
+fsfsStorageType :: Lens' FSxFileSystem (Maybe (Val Text))
+fsfsStorageType = lens _fSxFileSystemStorageType (\s a -> s { _fSxFileSystemStorageType = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html#cfn-fsx-filesystem-subnetids
 fsfsSubnetIds :: Lens' FSxFileSystem (ValList Text)
