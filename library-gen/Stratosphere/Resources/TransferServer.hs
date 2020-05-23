@@ -8,9 +8,9 @@
 module Stratosphere.Resources.TransferServer where
 
 import Stratosphere.ResourceImports
+import Stratosphere.ResourceProperties.Tag
 import Stratosphere.ResourceProperties.TransferServerEndpointDetails
 import Stratosphere.ResourceProperties.TransferServerIdentityProviderDetails
-import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for TransferServer. See 'transferServer' for a
 -- more convenient constructor.

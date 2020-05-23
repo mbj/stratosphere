@@ -11,8 +11,8 @@ import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.SyntheticsCanaryCode
 import Stratosphere.ResourceProperties.SyntheticsCanaryRunConfig
 import Stratosphere.ResourceProperties.SyntheticsCanarySchedule
-import Stratosphere.ResourceProperties.Tag
 import Stratosphere.ResourceProperties.SyntheticsCanaryVPCConfig
+import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for SyntheticsCanary. See 'syntheticsCanary'
 -- for a more convenient constructor.
