@@ -205,6 +205,10 @@ computeLensPrefix "AWS::WAFv2::WebACL.StatementThree" = "wafwaclsth"
 computeLensPrefix "AWS::WAFv2::WebACL" = "wafvwacl"
 --computeLensPrefix "AWS::WAF::IPSet" = "wafips"
 computeLensPrefix "AWS::WAFv2::IPSet" = "wafvips"
+computeLensPrefix "AWS::IoTEvents::DetectorModel.DynamoDB" = "itedmddb"
+computeLensPrefix "AWS::IoTEvents::DetectorModel.DynamoDBv2" = "itedmddbv"
+computeLensPrefix "AWS::IoTEvents::DetectorModel.Sns" = "itedmsn"
+computeLensPrefix "AWS::IoTEvents::DetectorModel.Sqs" = "itedmsq"
 -- Everything else
 computeLensPrefix rawName = toLower $ fromMaybe rawName $ toAcronym $ computeModuleName rawName
 

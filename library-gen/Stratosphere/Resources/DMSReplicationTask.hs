@@ -25,6 +25,7 @@ data DMSReplicationTask =
   , _dMSReplicationTaskTableMappings :: Val Text
   , _dMSReplicationTaskTags :: Maybe [Tag]
   , _dMSReplicationTaskTargetEndpointArn :: Val Text
+  , _dMSReplicationTaskTaskData :: Maybe (Val Text)
   } deriving (Show, Eq)
 
 instance ToResourceProperties DMSReplicationTask where
@@ -44,6 +45,7 @@ instance ToResourceProperties DMSReplicationTask where
         , (Just . ("TableMappings",) . toJSON) _dMSReplicationTaskTableMappings
         , fmap (("Tags",) . toJSON) _dMSReplicationTaskTags
         , (Just . ("TargetEndpointArn",) . toJSON) _dMSReplicationTaskTargetEndpointArn
+        , fmap (("TaskData",) . toJSON) _dMSReplicationTaskTaskData
         ]
     }
 
@@ -69,6 +71,7 @@ dmsReplicationTask migrationTypearg replicationInstanceArnarg sourceEndpointArna
   , _dMSReplicationTaskTableMappings = tableMappingsarg
   , _dMSReplicationTaskTags = Nothing
   , _dMSReplicationTaskTargetEndpointArn = targetEndpointArnarg
+  , _dMSReplicationTaskTaskData = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html#cfn-dms-replicationtask-cdcstartposition
@@ -114,3 +117,7 @@ dmsrtTags = lens _dMSReplicationTaskTags (\s a -> s { _dMSReplicationTaskTags = 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html#cfn-dms-replicationtask-targetendpointarn
 dmsrtTargetEndpointArn :: Lens' DMSReplicationTask (Val Text)
 dmsrtTargetEndpointArn = lens _dMSReplicationTaskTargetEndpointArn (\s a -> s { _dMSReplicationTaskTargetEndpointArn = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationtask.html#cfn-dms-replicationtask-taskdata
+dmsrtTaskData :: Lens' DMSReplicationTask (Maybe (Val Text))
+dmsrtTaskData = lens _dMSReplicationTaskTaskData (\s a -> s { _dMSReplicationTaskTaskData = a })

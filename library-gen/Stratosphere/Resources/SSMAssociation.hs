@@ -17,13 +17,19 @@ import Stratosphere.ResourceProperties.SSMAssociationTarget
 data SSMAssociation =
   SSMAssociation
   { _sSMAssociationAssociationName :: Maybe (Val Text)
+  , _sSMAssociationAutomationTargetParameterName :: Maybe (Val Text)
+  , _sSMAssociationComplianceSeverity :: Maybe (Val Text)
   , _sSMAssociationDocumentVersion :: Maybe (Val Text)
   , _sSMAssociationInstanceId :: Maybe (Val Text)
+  , _sSMAssociationMaxConcurrency :: Maybe (Val Text)
+  , _sSMAssociationMaxErrors :: Maybe (Val Text)
   , _sSMAssociationName :: Val Text
   , _sSMAssociationOutputLocation :: Maybe SSMAssociationInstanceAssociationOutputLocation
   , _sSMAssociationParameters :: Maybe (Map Text SSMAssociationParameterValues)
   , _sSMAssociationScheduleExpression :: Maybe (Val Text)
+  , _sSMAssociationSyncCompliance :: Maybe (Val Text)
   , _sSMAssociationTargets :: Maybe [SSMAssociationTarget]
+  , _sSMAssociationWaitForSuccessTimeoutSeconds :: Maybe (Val Integer)
   } deriving (Show, Eq)
 
 instance ToResourceProperties SSMAssociation where
@@ -33,13 +39,19 @@ instance ToResourceProperties SSMAssociation where
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
         [ fmap (("AssociationName",) . toJSON) _sSMAssociationAssociationName
+        , fmap (("AutomationTargetParameterName",) . toJSON) _sSMAssociationAutomationTargetParameterName
+        , fmap (("ComplianceSeverity",) . toJSON) _sSMAssociationComplianceSeverity
         , fmap (("DocumentVersion",) . toJSON) _sSMAssociationDocumentVersion
         , fmap (("InstanceId",) . toJSON) _sSMAssociationInstanceId
+        , fmap (("MaxConcurrency",) . toJSON) _sSMAssociationMaxConcurrency
+        , fmap (("MaxErrors",) . toJSON) _sSMAssociationMaxErrors
         , (Just . ("Name",) . toJSON) _sSMAssociationName
         , fmap (("OutputLocation",) . toJSON) _sSMAssociationOutputLocation
         , fmap (("Parameters",) . toJSON) _sSMAssociationParameters
         , fmap (("ScheduleExpression",) . toJSON) _sSMAssociationScheduleExpression
+        , fmap (("SyncCompliance",) . toJSON) _sSMAssociationSyncCompliance
         , fmap (("Targets",) . toJSON) _sSMAssociationTargets
+        , fmap (("WaitForSuccessTimeoutSeconds",) . toJSON) _sSMAssociationWaitForSuccessTimeoutSeconds
         ]
     }
 
@@ -50,18 +62,32 @@ ssmAssociation
 ssmAssociation namearg =
   SSMAssociation
   { _sSMAssociationAssociationName = Nothing
+  , _sSMAssociationAutomationTargetParameterName = Nothing
+  , _sSMAssociationComplianceSeverity = Nothing
   , _sSMAssociationDocumentVersion = Nothing
   , _sSMAssociationInstanceId = Nothing
+  , _sSMAssociationMaxConcurrency = Nothing
+  , _sSMAssociationMaxErrors = Nothing
   , _sSMAssociationName = namearg
   , _sSMAssociationOutputLocation = Nothing
   , _sSMAssociationParameters = Nothing
   , _sSMAssociationScheduleExpression = Nothing
+  , _sSMAssociationSyncCompliance = Nothing
   , _sSMAssociationTargets = Nothing
+  , _sSMAssociationWaitForSuccessTimeoutSeconds = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-associationname
 ssmaAssociationName :: Lens' SSMAssociation (Maybe (Val Text))
 ssmaAssociationName = lens _sSMAssociationAssociationName (\s a -> s { _sSMAssociationAssociationName = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-automationtargetparametername
+ssmaAutomationTargetParameterName :: Lens' SSMAssociation (Maybe (Val Text))
+ssmaAutomationTargetParameterName = lens _sSMAssociationAutomationTargetParameterName (\s a -> s { _sSMAssociationAutomationTargetParameterName = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-complianceseverity
+ssmaComplianceSeverity :: Lens' SSMAssociation (Maybe (Val Text))
+ssmaComplianceSeverity = lens _sSMAssociationComplianceSeverity (\s a -> s { _sSMAssociationComplianceSeverity = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-documentversion
 ssmaDocumentVersion :: Lens' SSMAssociation (Maybe (Val Text))
@@ -70,6 +96,14 @@ ssmaDocumentVersion = lens _sSMAssociationDocumentVersion (\s a -> s { _sSMAssoc
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-instanceid
 ssmaInstanceId :: Lens' SSMAssociation (Maybe (Val Text))
 ssmaInstanceId = lens _sSMAssociationInstanceId (\s a -> s { _sSMAssociationInstanceId = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-maxconcurrency
+ssmaMaxConcurrency :: Lens' SSMAssociation (Maybe (Val Text))
+ssmaMaxConcurrency = lens _sSMAssociationMaxConcurrency (\s a -> s { _sSMAssociationMaxConcurrency = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-maxerrors
+ssmaMaxErrors :: Lens' SSMAssociation (Maybe (Val Text))
+ssmaMaxErrors = lens _sSMAssociationMaxErrors (\s a -> s { _sSMAssociationMaxErrors = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-name
 ssmaName :: Lens' SSMAssociation (Val Text)
@@ -87,6 +121,14 @@ ssmaParameters = lens _sSMAssociationParameters (\s a -> s { _sSMAssociationPara
 ssmaScheduleExpression :: Lens' SSMAssociation (Maybe (Val Text))
 ssmaScheduleExpression = lens _sSMAssociationScheduleExpression (\s a -> s { _sSMAssociationScheduleExpression = a })
 
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-synccompliance
+ssmaSyncCompliance :: Lens' SSMAssociation (Maybe (Val Text))
+ssmaSyncCompliance = lens _sSMAssociationSyncCompliance (\s a -> s { _sSMAssociationSyncCompliance = a })
+
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-targets
 ssmaTargets :: Lens' SSMAssociation (Maybe [SSMAssociationTarget])
 ssmaTargets = lens _sSMAssociationTargets (\s a -> s { _sSMAssociationTargets = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-waitforsuccesstimeoutseconds
+ssmaWaitForSuccessTimeoutSeconds :: Lens' SSMAssociation (Maybe (Val Integer))
+ssmaWaitForSuccessTimeoutSeconds = lens _sSMAssociationWaitForSuccessTimeoutSeconds (\s a -> s { _sSMAssociationWaitForSuccessTimeoutSeconds = a })

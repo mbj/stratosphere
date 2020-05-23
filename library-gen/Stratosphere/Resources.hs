@@ -125,6 +125,7 @@ import Stratosphere.Resources.BatchComputeEnvironment as X
 import Stratosphere.Resources.BatchJobDefinition as X
 import Stratosphere.Resources.BatchJobQueue as X
 import Stratosphere.Resources.BudgetsBudget as X
+import Stratosphere.Resources.CECostCategory as X
 import Stratosphere.Resources.CassandraKeyspace as X
 import Stratosphere.Resources.CassandraTable as X
 import Stratosphere.Resources.CertificateManagerCertificate as X
@@ -294,6 +295,7 @@ import Stratosphere.Resources.ElasticLoadBalancingV2TargetGroup as X
 import Stratosphere.Resources.ElasticsearchDomain as X
 import Stratosphere.Resources.EventSchemasDiscoverer as X
 import Stratosphere.Resources.EventSchemasRegistry as X
+import Stratosphere.Resources.EventSchemasRegistryPolicy as X
 import Stratosphere.Resources.EventSchemasSchema as X
 import Stratosphere.Resources.EventsEventBus as X
 import Stratosphere.Resources.EventsEventBusPolicy as X
@@ -308,6 +310,9 @@ import Stratosphere.Resources.GameLiftGameSessionQueue as X
 import Stratosphere.Resources.GameLiftMatchmakingConfiguration as X
 import Stratosphere.Resources.GameLiftMatchmakingRuleSet as X
 import Stratosphere.Resources.GameLiftScript as X
+import Stratosphere.Resources.GlobalAcceleratorAccelerator as X
+import Stratosphere.Resources.GlobalAcceleratorEndpointGroup as X
+import Stratosphere.Resources.GlobalAcceleratorListener as X
 import Stratosphere.Resources.GlueClassifier as X
 import Stratosphere.Resources.GlueConnection as X
 import Stratosphere.Resources.GlueCrawler as X
@@ -354,6 +359,7 @@ import Stratosphere.Resources.IAMUser as X
 import Stratosphere.Resources.IAMUserToGroupAddition as X
 import Stratosphere.Resources.ImageBuilderComponent as X
 import Stratosphere.Resources.ImageBuilderDistributionConfiguration as X
+import Stratosphere.Resources.ImageBuilderImage as X
 import Stratosphere.Resources.ImageBuilderImagePipeline as X
 import Stratosphere.Resources.ImageBuilderImageRecipe as X
 import Stratosphere.Resources.ImageBuilderInfrastructureConfiguration as X
@@ -405,6 +411,9 @@ import Stratosphere.Resources.LogsLogStream as X
 import Stratosphere.Resources.LogsMetricFilter as X
 import Stratosphere.Resources.LogsSubscriptionFilter as X
 import Stratosphere.Resources.MSKCluster as X
+import Stratosphere.Resources.MacieCustomDataIdentifier as X
+import Stratosphere.Resources.MacieFindingsFilter as X
+import Stratosphere.Resources.MacieSession as X
 import Stratosphere.Resources.ManagedBlockchainMember as X
 import Stratosphere.Resources.ManagedBlockchainNode as X
 import Stratosphere.Resources.MediaConvertJobTemplate as X
@@ -542,6 +551,7 @@ import Stratosphere.Resources.ServiceDiscoveryPublicDnsNamespace as X
 import Stratosphere.Resources.ServiceDiscoveryService as X
 import Stratosphere.Resources.StepFunctionsActivity as X
 import Stratosphere.Resources.StepFunctionsStateMachine as X
+import Stratosphere.Resources.SyntheticsCanary as X
 import Stratosphere.Resources.TransferServer as X
 import Stratosphere.Resources.TransferUser as X
 import Stratosphere.Resources.WAFByteMatchSet as X
@@ -938,6 +948,7 @@ import Stratosphere.ResourceProperties.DMSEndpointElasticsearchSettings as X
 import Stratosphere.ResourceProperties.DMSEndpointKafkaSettings as X
 import Stratosphere.ResourceProperties.DMSEndpointKinesisSettings as X
 import Stratosphere.ResourceProperties.DMSEndpointMongoDbSettings as X
+import Stratosphere.ResourceProperties.DMSEndpointNeptuneSettings as X
 import Stratosphere.ResourceProperties.DMSEndpointS3Settings as X
 import Stratosphere.ResourceProperties.DataPipelinePipelineField as X
 import Stratosphere.ResourceProperties.DataPipelinePipelineParameterAttribute as X
@@ -1039,7 +1050,7 @@ import Stratosphere.ResourceProperties.EC2SpotFleetTargetGroupsConfig as X
 import Stratosphere.ResourceProperties.EC2TrafficMirrorFilterRuleTrafficMirrorPortRange as X
 import Stratosphere.ResourceProperties.EC2VPNConnectionVpnTunnelOptionsSpecification as X
 import Stratosphere.ResourceProperties.ECRRepositoryLifecyclePolicy as X
-import Stratosphere.ResourceProperties.ECSClusterClusterSetting as X
+import Stratosphere.ResourceProperties.ECSClusterClusterSettings as X
 import Stratosphere.ResourceProperties.ECSServiceAwsVpcConfiguration as X
 import Stratosphere.ResourceProperties.ECSServiceDeploymentConfiguration as X
 import Stratosphere.ResourceProperties.ECSServiceDeploymentController as X
@@ -1223,6 +1234,8 @@ import Stratosphere.ResourceProperties.GameLiftGameSessionQueueDestination as X
 import Stratosphere.ResourceProperties.GameLiftGameSessionQueuePlayerLatencyPolicy as X
 import Stratosphere.ResourceProperties.GameLiftMatchmakingConfigurationGameProperty as X
 import Stratosphere.ResourceProperties.GameLiftScriptS3Location as X
+import Stratosphere.ResourceProperties.GlobalAcceleratorEndpointGroupEndpointConfiguration as X
+import Stratosphere.ResourceProperties.GlobalAcceleratorListenerPortRange as X
 import Stratosphere.ResourceProperties.GlueClassifierCsvClassifier as X
 import Stratosphere.ResourceProperties.GlueClassifierGrokClassifier as X
 import Stratosphere.ResourceProperties.GlueClassifierJsonClassifier as X
@@ -1325,6 +1338,7 @@ import Stratosphere.ResourceProperties.IAMRolePolicy as X
 import Stratosphere.ResourceProperties.IAMUserLoginProfile as X
 import Stratosphere.ResourceProperties.IAMUserPolicy as X
 import Stratosphere.ResourceProperties.ImageBuilderDistributionConfigurationDistribution as X
+import Stratosphere.ResourceProperties.ImageBuilderImageImageTestsConfiguration as X
 import Stratosphere.ResourceProperties.ImageBuilderImagePipelineImageTestsConfiguration as X
 import Stratosphere.ResourceProperties.ImageBuilderImagePipelineSchedule as X
 import Stratosphere.ResourceProperties.ImageBuilderImageRecipeComponentConfiguration as X
@@ -1401,16 +1415,23 @@ import Stratosphere.ResourceProperties.IoTAnalyticsPipelineMath as X
 import Stratosphere.ResourceProperties.IoTAnalyticsPipelineRemoveAttributes as X
 import Stratosphere.ResourceProperties.IoTAnalyticsPipelineSelectAttributes as X
 import Stratosphere.ResourceProperties.IoTEventsDetectorModelAction as X
+import Stratosphere.ResourceProperties.IoTEventsDetectorModelAssetPropertyTimestamp as X
+import Stratosphere.ResourceProperties.IoTEventsDetectorModelAssetPropertyValue as X
+import Stratosphere.ResourceProperties.IoTEventsDetectorModelAssetPropertyVariant as X
 import Stratosphere.ResourceProperties.IoTEventsDetectorModelClearTimer as X
 import Stratosphere.ResourceProperties.IoTEventsDetectorModelDetectorModelDefinition as X
+import Stratosphere.ResourceProperties.IoTEventsDetectorModelDynamoDB as X
+import Stratosphere.ResourceProperties.IoTEventsDetectorModelDynamoDBv2 as X
 import Stratosphere.ResourceProperties.IoTEventsDetectorModelEvent as X
 import Stratosphere.ResourceProperties.IoTEventsDetectorModelFirehose as X
 import Stratosphere.ResourceProperties.IoTEventsDetectorModelIotEvents as X
+import Stratosphere.ResourceProperties.IoTEventsDetectorModelIotSiteWise as X
 import Stratosphere.ResourceProperties.IoTEventsDetectorModelIotTopicPublish as X
 import Stratosphere.ResourceProperties.IoTEventsDetectorModelLambda as X
 import Stratosphere.ResourceProperties.IoTEventsDetectorModelOnEnter as X
 import Stratosphere.ResourceProperties.IoTEventsDetectorModelOnExit as X
 import Stratosphere.ResourceProperties.IoTEventsDetectorModelOnInput as X
+import Stratosphere.ResourceProperties.IoTEventsDetectorModelPayload as X
 import Stratosphere.ResourceProperties.IoTEventsDetectorModelResetTimer as X
 import Stratosphere.ResourceProperties.IoTEventsDetectorModelSetTimer as X
 import Stratosphere.ResourceProperties.IoTEventsDetectorModelSetVariable as X
@@ -1513,10 +1534,13 @@ import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamSerializer a
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamSplunkDestinationConfiguration as X
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamSplunkRetryOptions as X
 import Stratosphere.ResourceProperties.LakeFormationDataLakeSettingsDataLakePrincipal as X
+import Stratosphere.ResourceProperties.LakeFormationPermissionsColumnWildcard as X
 import Stratosphere.ResourceProperties.LakeFormationPermissionsDataLakePrincipal as X
+import Stratosphere.ResourceProperties.LakeFormationPermissionsDataLocationResource as X
 import Stratosphere.ResourceProperties.LakeFormationPermissionsDatabaseResource as X
 import Stratosphere.ResourceProperties.LakeFormationPermissionsResource as X
 import Stratosphere.ResourceProperties.LakeFormationPermissionsTableResource as X
+import Stratosphere.ResourceProperties.LakeFormationPermissionsTableWithColumnsResource as X
 import Stratosphere.ResourceProperties.LambdaAliasAliasRoutingConfiguration as X
 import Stratosphere.ResourceProperties.LambdaAliasProvisionedConcurrencyConfiguration as X
 import Stratosphere.ResourceProperties.LambdaAliasVersionWeight as X
@@ -1561,6 +1585,7 @@ import Stratosphere.ResourceProperties.ManagedBlockchainMemberNetworkFrameworkCo
 import Stratosphere.ResourceProperties.ManagedBlockchainMemberVotingPolicy as X
 import Stratosphere.ResourceProperties.ManagedBlockchainNodeNodeConfiguration as X
 import Stratosphere.ResourceProperties.MediaConvertJobTemplateAccelerationSettings as X
+import Stratosphere.ResourceProperties.MediaConvertJobTemplateHopDestination as X
 import Stratosphere.ResourceProperties.MediaLiveChannelAribSourceSettings as X
 import Stratosphere.ResourceProperties.MediaLiveChannelAudioLanguageSelection as X
 import Stratosphere.ResourceProperties.MediaLiveChannelAudioPidSelection as X
@@ -1592,6 +1617,8 @@ import Stratosphere.ResourceProperties.MediaLiveInputInputVpcRequest as X
 import Stratosphere.ResourceProperties.MediaLiveInputMediaConnectFlowRequest as X
 import Stratosphere.ResourceProperties.MediaLiveInputSecurityGroupInputWhitelistRuleCidr as X
 import Stratosphere.ResourceProperties.MediaStoreContainerCorsRule as X
+import Stratosphere.ResourceProperties.MediaStoreContainerMetricPolicy as X
+import Stratosphere.ResourceProperties.MediaStoreContainerMetricPolicyRule as X
 import Stratosphere.ResourceProperties.NetworkManagerDeviceLocation as X
 import Stratosphere.ResourceProperties.NetworkManagerLinkBandwidth as X
 import Stratosphere.ResourceProperties.NetworkManagerSiteLocation as X
@@ -1798,7 +1825,10 @@ import Stratosphere.ResourceProperties.StepFunctionsStateMachineCloudWatchLogsLo
 import Stratosphere.ResourceProperties.StepFunctionsStateMachineLogDestination as X
 import Stratosphere.ResourceProperties.StepFunctionsStateMachineLoggingConfiguration as X
 import Stratosphere.ResourceProperties.StepFunctionsStateMachineTagsEntry as X
-import Stratosphere.ResourceProperties.StepFunctionsStateMachineTracingConfiguration as X
+import Stratosphere.ResourceProperties.SyntheticsCanaryCode as X
+import Stratosphere.ResourceProperties.SyntheticsCanaryRunConfig as X
+import Stratosphere.ResourceProperties.SyntheticsCanarySchedule as X
+import Stratosphere.ResourceProperties.SyntheticsCanaryVPCConfig as X
 import Stratosphere.ResourceProperties.TransferServerEndpointDetails as X
 import Stratosphere.ResourceProperties.TransferServerIdentityProviderDetails as X
 import Stratosphere.ResourceProperties.TransferUserHomeDirectoryMapEntry as X

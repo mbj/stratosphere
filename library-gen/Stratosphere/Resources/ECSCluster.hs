@@ -8,7 +8,7 @@
 module Stratosphere.Resources.ECSCluster where
 
 import Stratosphere.ResourceImports
-import Stratosphere.ResourceProperties.ECSClusterClusterSetting
+import Stratosphere.ResourceProperties.ECSClusterClusterSettings
 import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for ECSCluster. See 'ecsCluster' for a more
@@ -16,7 +16,7 @@ import Stratosphere.ResourceProperties.Tag
 data ECSCluster =
   ECSCluster
   { _eCSClusterClusterName :: Maybe (Val Text)
-  , _eCSClusterClusterSettings :: Maybe [ECSClusterClusterSetting]
+  , _eCSClusterClusterSettings :: Maybe [ECSClusterClusterSettings]
   , _eCSClusterTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
@@ -47,7 +47,7 @@ ecscClusterName :: Lens' ECSCluster (Maybe (Val Text))
 ecscClusterName = lens _eCSClusterClusterName (\s a -> s { _eCSClusterClusterName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-clustersettings
-ecscClusterSettings :: Lens' ECSCluster (Maybe [ECSClusterClusterSetting])
+ecscClusterSettings :: Lens' ECSCluster (Maybe [ECSClusterClusterSettings])
 ecscClusterSettings = lens _eCSClusterClusterSettings (\s a -> s { _eCSClusterClusterSettings = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html#cfn-ecs-cluster-tags

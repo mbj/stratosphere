@@ -16,6 +16,7 @@ import Stratosphere.ResourceProperties.Tag
 data Cloud9EnvironmentEC2 =
   Cloud9EnvironmentEC2
   { _cloud9EnvironmentEC2AutomaticStopTimeMinutes :: Maybe (Val Integer)
+  , _cloud9EnvironmentEC2ConnectionType :: Maybe (Val Text)
   , _cloud9EnvironmentEC2Description :: Maybe (Val Text)
   , _cloud9EnvironmentEC2InstanceType :: Val Text
   , _cloud9EnvironmentEC2Name :: Maybe (Val Text)
@@ -32,6 +33,7 @@ instance ToResourceProperties Cloud9EnvironmentEC2 where
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
         [ fmap (("AutomaticStopTimeMinutes",) . toJSON) _cloud9EnvironmentEC2AutomaticStopTimeMinutes
+        , fmap (("ConnectionType",) . toJSON) _cloud9EnvironmentEC2ConnectionType
         , fmap (("Description",) . toJSON) _cloud9EnvironmentEC2Description
         , (Just . ("InstanceType",) . toJSON) _cloud9EnvironmentEC2InstanceType
         , fmap (("Name",) . toJSON) _cloud9EnvironmentEC2Name
@@ -50,6 +52,7 @@ cloud9EnvironmentEC2
 cloud9EnvironmentEC2 instanceTypearg =
   Cloud9EnvironmentEC2
   { _cloud9EnvironmentEC2AutomaticStopTimeMinutes = Nothing
+  , _cloud9EnvironmentEC2ConnectionType = Nothing
   , _cloud9EnvironmentEC2Description = Nothing
   , _cloud9EnvironmentEC2InstanceType = instanceTypearg
   , _cloud9EnvironmentEC2Name = Nothing
@@ -62,6 +65,10 @@ cloud9EnvironmentEC2 instanceTypearg =
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud9-environmentec2.html#cfn-cloud9-environmentec2-automaticstoptimeminutes
 ceecAutomaticStopTimeMinutes :: Lens' Cloud9EnvironmentEC2 (Maybe (Val Integer))
 ceecAutomaticStopTimeMinutes = lens _cloud9EnvironmentEC2AutomaticStopTimeMinutes (\s a -> s { _cloud9EnvironmentEC2AutomaticStopTimeMinutes = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud9-environmentec2.html#cfn-cloud9-environmentec2-connectiontype
+ceecConnectionType :: Lens' Cloud9EnvironmentEC2 (Maybe (Val Text))
+ceecConnectionType = lens _cloud9EnvironmentEC2ConnectionType (\s a -> s { _cloud9EnvironmentEC2ConnectionType = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloud9-environmentec2.html#cfn-cloud9-environmentec2-description
 ceecDescription :: Lens' Cloud9EnvironmentEC2 (Maybe (Val Text))

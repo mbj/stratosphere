@@ -9,6 +9,7 @@ module Stratosphere.Resources.MediaConvertJobTemplate where
 
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.MediaConvertJobTemplateAccelerationSettings
+import Stratosphere.ResourceProperties.MediaConvertJobTemplateHopDestination
 
 -- | Full data type definition for MediaConvertJobTemplate. See
 -- 'mediaConvertJobTemplate' for a more convenient constructor.
@@ -17,6 +18,7 @@ data MediaConvertJobTemplate =
   { _mediaConvertJobTemplateAccelerationSettings :: Maybe MediaConvertJobTemplateAccelerationSettings
   , _mediaConvertJobTemplateCategory :: Maybe (Val Text)
   , _mediaConvertJobTemplateDescription :: Maybe (Val Text)
+  , _mediaConvertJobTemplateHopDestinations :: Maybe [MediaConvertJobTemplateHopDestination]
   , _mediaConvertJobTemplateName :: Maybe (Val Text)
   , _mediaConvertJobTemplatePriority :: Maybe (Val Integer)
   , _mediaConvertJobTemplateQueue :: Maybe (Val Text)
@@ -34,6 +36,7 @@ instance ToResourceProperties MediaConvertJobTemplate where
         [ fmap (("AccelerationSettings",) . toJSON) _mediaConvertJobTemplateAccelerationSettings
         , fmap (("Category",) . toJSON) _mediaConvertJobTemplateCategory
         , fmap (("Description",) . toJSON) _mediaConvertJobTemplateDescription
+        , fmap (("HopDestinations",) . toJSON) _mediaConvertJobTemplateHopDestinations
         , fmap (("Name",) . toJSON) _mediaConvertJobTemplateName
         , fmap (("Priority",) . toJSON) _mediaConvertJobTemplatePriority
         , fmap (("Queue",) . toJSON) _mediaConvertJobTemplateQueue
@@ -53,6 +56,7 @@ mediaConvertJobTemplate settingsJsonarg =
   { _mediaConvertJobTemplateAccelerationSettings = Nothing
   , _mediaConvertJobTemplateCategory = Nothing
   , _mediaConvertJobTemplateDescription = Nothing
+  , _mediaConvertJobTemplateHopDestinations = Nothing
   , _mediaConvertJobTemplateName = Nothing
   , _mediaConvertJobTemplatePriority = Nothing
   , _mediaConvertJobTemplateQueue = Nothing
@@ -72,6 +76,10 @@ mcjtCategory = lens _mediaConvertJobTemplateCategory (\s a -> s { _mediaConvertJ
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconvert-jobtemplate.html#cfn-mediaconvert-jobtemplate-description
 mcjtDescription :: Lens' MediaConvertJobTemplate (Maybe (Val Text))
 mcjtDescription = lens _mediaConvertJobTemplateDescription (\s a -> s { _mediaConvertJobTemplateDescription = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconvert-jobtemplate.html#cfn-mediaconvert-jobtemplate-hopdestinations
+mcjtHopDestinations :: Lens' MediaConvertJobTemplate (Maybe [MediaConvertJobTemplateHopDestination])
+mcjtHopDestinations = lens _mediaConvertJobTemplateHopDestinations (\s a -> s { _mediaConvertJobTemplateHopDestinations = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconvert-jobtemplate.html#cfn-mediaconvert-jobtemplate-name
 mcjtName :: Lens' MediaConvertJobTemplate (Maybe (Val Text))

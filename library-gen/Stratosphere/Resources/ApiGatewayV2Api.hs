@@ -22,6 +22,7 @@ data ApiGatewayV2Api =
   , _apiGatewayV2ApiCorsConfiguration :: Maybe ApiGatewayV2ApiCors
   , _apiGatewayV2ApiCredentialsArn :: Maybe (Val Text)
   , _apiGatewayV2ApiDescription :: Maybe (Val Text)
+  , _apiGatewayV2ApiDisableExecuteApiEndpoint :: Maybe (Val Bool)
   , _apiGatewayV2ApiDisableSchemaValidation :: Maybe (Val Bool)
   , _apiGatewayV2ApiFailOnWarnings :: Maybe (Val Bool)
   , _apiGatewayV2ApiName :: Maybe (Val Text)
@@ -46,6 +47,7 @@ instance ToResourceProperties ApiGatewayV2Api where
         , fmap (("CorsConfiguration",) . toJSON) _apiGatewayV2ApiCorsConfiguration
         , fmap (("CredentialsArn",) . toJSON) _apiGatewayV2ApiCredentialsArn
         , fmap (("Description",) . toJSON) _apiGatewayV2ApiDescription
+        , fmap (("DisableExecuteApiEndpoint",) . toJSON) _apiGatewayV2ApiDisableExecuteApiEndpoint
         , fmap (("DisableSchemaValidation",) . toJSON) _apiGatewayV2ApiDisableSchemaValidation
         , fmap (("FailOnWarnings",) . toJSON) _apiGatewayV2ApiFailOnWarnings
         , fmap (("Name",) . toJSON) _apiGatewayV2ApiName
@@ -71,6 +73,7 @@ apiGatewayV2Api  =
   , _apiGatewayV2ApiCorsConfiguration = Nothing
   , _apiGatewayV2ApiCredentialsArn = Nothing
   , _apiGatewayV2ApiDescription = Nothing
+  , _apiGatewayV2ApiDisableExecuteApiEndpoint = Nothing
   , _apiGatewayV2ApiDisableSchemaValidation = Nothing
   , _apiGatewayV2ApiFailOnWarnings = Nothing
   , _apiGatewayV2ApiName = Nothing
@@ -109,6 +112,10 @@ agvapCredentialsArn = lens _apiGatewayV2ApiCredentialsArn (\s a -> s { _apiGatew
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html#cfn-apigatewayv2-api-description
 agvapDescription :: Lens' ApiGatewayV2Api (Maybe (Val Text))
 agvapDescription = lens _apiGatewayV2ApiDescription (\s a -> s { _apiGatewayV2ApiDescription = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html#cfn-apigatewayv2-api-disableexecuteapiendpoint
+agvapDisableExecuteApiEndpoint :: Lens' ApiGatewayV2Api (Maybe (Val Bool))
+agvapDisableExecuteApiEndpoint = lens _apiGatewayV2ApiDisableExecuteApiEndpoint (\s a -> s { _apiGatewayV2ApiDisableExecuteApiEndpoint = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-api.html#cfn-apigatewayv2-api-disableschemavalidation
 agvapDisableSchemaValidation :: Lens' ApiGatewayV2Api (Maybe (Val Bool))
