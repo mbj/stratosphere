@@ -8,13 +8,14 @@
 module Stratosphere.ResourceProperties.IoTEventsDetectorModelSqs where
 
 import Stratosphere.ResourceImports
-
+import Stratosphere.ResourceProperties.IoTEventsDetectorModelPayload
 
 -- | Full data type definition for IoTEventsDetectorModelSqs. See
 -- 'ioTEventsDetectorModelSqs' for a more convenient constructor.
 data IoTEventsDetectorModelSqs =
   IoTEventsDetectorModelSqs
-  { _ioTEventsDetectorModelSqsQueueUrl :: Maybe (Val Text)
+  { _ioTEventsDetectorModelSqsPayload :: Maybe IoTEventsDetectorModelPayload
+  , _ioTEventsDetectorModelSqsQueueUrl :: Maybe (Val Text)
   , _ioTEventsDetectorModelSqsUseBase64 :: Maybe (Val Bool)
   } deriving (Show, Eq)
 
@@ -22,7 +23,8 @@ instance ToJSON IoTEventsDetectorModelSqs where
   toJSON IoTEventsDetectorModelSqs{..} =
     object $
     catMaybes
-    [ fmap (("QueueUrl",) . toJSON) _ioTEventsDetectorModelSqsQueueUrl
+    [ fmap (("Payload",) . toJSON) _ioTEventsDetectorModelSqsPayload
+    , fmap (("QueueUrl",) . toJSON) _ioTEventsDetectorModelSqsQueueUrl
     , fmap (("UseBase64",) . toJSON) _ioTEventsDetectorModelSqsUseBase64
     ]
 
@@ -32,9 +34,14 @@ ioTEventsDetectorModelSqs
   :: IoTEventsDetectorModelSqs
 ioTEventsDetectorModelSqs  =
   IoTEventsDetectorModelSqs
-  { _ioTEventsDetectorModelSqsQueueUrl = Nothing
+  { _ioTEventsDetectorModelSqsPayload = Nothing
+  , _ioTEventsDetectorModelSqsQueueUrl = Nothing
   , _ioTEventsDetectorModelSqsUseBase64 = Nothing
   }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sqs.html#cfn-iotevents-detectormodel-sqs-payload
+itedmsPayload :: Lens' IoTEventsDetectorModelSqs (Maybe IoTEventsDetectorModelPayload)
+itedmsPayload = lens _ioTEventsDetectorModelSqsPayload (\s a -> s { _ioTEventsDetectorModelSqsPayload = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-sqs.html#cfn-iotevents-detectormodel-sqs-queueurl
 itedmsQueueUrl :: Lens' IoTEventsDetectorModelSqs (Maybe (Val Text))

@@ -9,8 +9,11 @@ module Stratosphere.ResourceProperties.IoTEventsDetectorModelAction where
 
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.IoTEventsDetectorModelClearTimer
+import Stratosphere.ResourceProperties.IoTEventsDetectorModelDynamoDB
+import Stratosphere.ResourceProperties.IoTEventsDetectorModelDynamoDBv2
 import Stratosphere.ResourceProperties.IoTEventsDetectorModelFirehose
 import Stratosphere.ResourceProperties.IoTEventsDetectorModelIotEvents
+import Stratosphere.ResourceProperties.IoTEventsDetectorModelIotSiteWise
 import Stratosphere.ResourceProperties.IoTEventsDetectorModelIotTopicPublish
 import Stratosphere.ResourceProperties.IoTEventsDetectorModelLambda
 import Stratosphere.ResourceProperties.IoTEventsDetectorModelResetTimer
@@ -24,8 +27,11 @@ import Stratosphere.ResourceProperties.IoTEventsDetectorModelSqs
 data IoTEventsDetectorModelAction =
   IoTEventsDetectorModelAction
   { _ioTEventsDetectorModelActionClearTimer :: Maybe IoTEventsDetectorModelClearTimer
+  , _ioTEventsDetectorModelActionDynamoDB :: Maybe IoTEventsDetectorModelDynamoDB
+  , _ioTEventsDetectorModelActionDynamoDBv2 :: Maybe IoTEventsDetectorModelDynamoDBv2
   , _ioTEventsDetectorModelActionFirehose :: Maybe IoTEventsDetectorModelFirehose
   , _ioTEventsDetectorModelActionIotEvents :: Maybe IoTEventsDetectorModelIotEvents
+  , _ioTEventsDetectorModelActionIotSiteWise :: Maybe IoTEventsDetectorModelIotSiteWise
   , _ioTEventsDetectorModelActionIotTopicPublish :: Maybe IoTEventsDetectorModelIotTopicPublish
   , _ioTEventsDetectorModelActionLambda :: Maybe IoTEventsDetectorModelLambda
   , _ioTEventsDetectorModelActionResetTimer :: Maybe IoTEventsDetectorModelResetTimer
@@ -40,8 +46,11 @@ instance ToJSON IoTEventsDetectorModelAction where
     object $
     catMaybes
     [ fmap (("ClearTimer",) . toJSON) _ioTEventsDetectorModelActionClearTimer
+    , fmap (("DynamoDB",) . toJSON) _ioTEventsDetectorModelActionDynamoDB
+    , fmap (("DynamoDBv2",) . toJSON) _ioTEventsDetectorModelActionDynamoDBv2
     , fmap (("Firehose",) . toJSON) _ioTEventsDetectorModelActionFirehose
     , fmap (("IotEvents",) . toJSON) _ioTEventsDetectorModelActionIotEvents
+    , fmap (("IotSiteWise",) . toJSON) _ioTEventsDetectorModelActionIotSiteWise
     , fmap (("IotTopicPublish",) . toJSON) _ioTEventsDetectorModelActionIotTopicPublish
     , fmap (("Lambda",) . toJSON) _ioTEventsDetectorModelActionLambda
     , fmap (("ResetTimer",) . toJSON) _ioTEventsDetectorModelActionResetTimer
@@ -58,8 +67,11 @@ ioTEventsDetectorModelAction
 ioTEventsDetectorModelAction  =
   IoTEventsDetectorModelAction
   { _ioTEventsDetectorModelActionClearTimer = Nothing
+  , _ioTEventsDetectorModelActionDynamoDB = Nothing
+  , _ioTEventsDetectorModelActionDynamoDBv2 = Nothing
   , _ioTEventsDetectorModelActionFirehose = Nothing
   , _ioTEventsDetectorModelActionIotEvents = Nothing
+  , _ioTEventsDetectorModelActionIotSiteWise = Nothing
   , _ioTEventsDetectorModelActionIotTopicPublish = Nothing
   , _ioTEventsDetectorModelActionLambda = Nothing
   , _ioTEventsDetectorModelActionResetTimer = Nothing
@@ -73,6 +85,14 @@ ioTEventsDetectorModelAction  =
 itedmaClearTimer :: Lens' IoTEventsDetectorModelAction (Maybe IoTEventsDetectorModelClearTimer)
 itedmaClearTimer = lens _ioTEventsDetectorModelActionClearTimer (\s a -> s { _ioTEventsDetectorModelActionClearTimer = a })
 
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-dynamodb
+itedmaDynamoDB :: Lens' IoTEventsDetectorModelAction (Maybe IoTEventsDetectorModelDynamoDB)
+itedmaDynamoDB = lens _ioTEventsDetectorModelActionDynamoDB (\s a -> s { _ioTEventsDetectorModelActionDynamoDB = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-dynamodbv2
+itedmaDynamoDBv2 :: Lens' IoTEventsDetectorModelAction (Maybe IoTEventsDetectorModelDynamoDBv2)
+itedmaDynamoDBv2 = lens _ioTEventsDetectorModelActionDynamoDBv2 (\s a -> s { _ioTEventsDetectorModelActionDynamoDBv2 = a })
+
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-firehose
 itedmaFirehose :: Lens' IoTEventsDetectorModelAction (Maybe IoTEventsDetectorModelFirehose)
 itedmaFirehose = lens _ioTEventsDetectorModelActionFirehose (\s a -> s { _ioTEventsDetectorModelActionFirehose = a })
@@ -80,6 +100,10 @@ itedmaFirehose = lens _ioTEventsDetectorModelActionFirehose (\s a -> s { _ioTEve
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-iotevents
 itedmaIotEvents :: Lens' IoTEventsDetectorModelAction (Maybe IoTEventsDetectorModelIotEvents)
 itedmaIotEvents = lens _ioTEventsDetectorModelActionIotEvents (\s a -> s { _ioTEventsDetectorModelActionIotEvents = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-iotsitewise
+itedmaIotSiteWise :: Lens' IoTEventsDetectorModelAction (Maybe IoTEventsDetectorModelIotSiteWise)
+itedmaIotSiteWise = lens _ioTEventsDetectorModelActionIotSiteWise (\s a -> s { _ioTEventsDetectorModelActionIotSiteWise = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-action.html#cfn-iotevents-detectormodel-action-iottopicpublish
 itedmaIotTopicPublish :: Lens' IoTEventsDetectorModelAction (Maybe IoTEventsDetectorModelIotTopicPublish)

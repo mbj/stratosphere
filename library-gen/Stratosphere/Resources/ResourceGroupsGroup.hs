@@ -9,6 +9,7 @@ module Stratosphere.Resources.ResourceGroupsGroup where
 
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.ResourceGroupsGroupResourceQuery
+import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for ResourceGroupsGroup. See
 -- 'resourceGroupsGroup' for a more convenient constructor.
@@ -17,7 +18,7 @@ data ResourceGroupsGroup =
   { _resourceGroupsGroupDescription :: Maybe (Val Text)
   , _resourceGroupsGroupName :: Val Text
   , _resourceGroupsGroupResourceQuery :: Maybe ResourceGroupsGroupResourceQuery
-  , _resourceGroupsGroupTags :: Maybe [Object]
+  , _resourceGroupsGroupTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
 instance ToResourceProperties ResourceGroupsGroup where
@@ -59,5 +60,5 @@ rggResourceQuery :: Lens' ResourceGroupsGroup (Maybe ResourceGroupsGroupResource
 rggResourceQuery = lens _resourceGroupsGroupResourceQuery (\s a -> s { _resourceGroupsGroupResourceQuery = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-group.html#cfn-resourcegroups-group-tags
-rggTags :: Lens' ResourceGroupsGroup (Maybe [Object])
+rggTags :: Lens' ResourceGroupsGroup (Maybe [Tag])
 rggTags = lens _resourceGroupsGroupTags (\s a -> s { _resourceGroupsGroupTags = a })

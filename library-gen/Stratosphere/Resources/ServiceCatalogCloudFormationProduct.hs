@@ -21,6 +21,7 @@ data ServiceCatalogCloudFormationProduct =
   , _serviceCatalogCloudFormationProductName :: Val Text
   , _serviceCatalogCloudFormationProductOwner :: Val Text
   , _serviceCatalogCloudFormationProductProvisioningArtifactParameters :: [ServiceCatalogCloudFormationProductProvisioningArtifactProperties]
+  , _serviceCatalogCloudFormationProductReplaceProvisioningArtifacts :: Maybe (Val Bool)
   , _serviceCatalogCloudFormationProductSupportDescription :: Maybe (Val Text)
   , _serviceCatalogCloudFormationProductSupportEmail :: Maybe (Val Text)
   , _serviceCatalogCloudFormationProductSupportUrl :: Maybe (Val Text)
@@ -39,6 +40,7 @@ instance ToResourceProperties ServiceCatalogCloudFormationProduct where
         , (Just . ("Name",) . toJSON) _serviceCatalogCloudFormationProductName
         , (Just . ("Owner",) . toJSON) _serviceCatalogCloudFormationProductOwner
         , (Just . ("ProvisioningArtifactParameters",) . toJSON) _serviceCatalogCloudFormationProductProvisioningArtifactParameters
+        , fmap (("ReplaceProvisioningArtifacts",) . toJSON) _serviceCatalogCloudFormationProductReplaceProvisioningArtifacts
         , fmap (("SupportDescription",) . toJSON) _serviceCatalogCloudFormationProductSupportDescription
         , fmap (("SupportEmail",) . toJSON) _serviceCatalogCloudFormationProductSupportEmail
         , fmap (("SupportUrl",) . toJSON) _serviceCatalogCloudFormationProductSupportUrl
@@ -61,6 +63,7 @@ serviceCatalogCloudFormationProduct namearg ownerarg provisioningArtifactParamet
   , _serviceCatalogCloudFormationProductName = namearg
   , _serviceCatalogCloudFormationProductOwner = ownerarg
   , _serviceCatalogCloudFormationProductProvisioningArtifactParameters = provisioningArtifactParametersarg
+  , _serviceCatalogCloudFormationProductReplaceProvisioningArtifacts = Nothing
   , _serviceCatalogCloudFormationProductSupportDescription = Nothing
   , _serviceCatalogCloudFormationProductSupportEmail = Nothing
   , _serviceCatalogCloudFormationProductSupportUrl = Nothing
@@ -90,6 +93,10 @@ sccfpOwner = lens _serviceCatalogCloudFormationProductOwner (\s a -> s { _servic
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationproduct.html#cfn-servicecatalog-cloudformationproduct-provisioningartifactparameters
 sccfpProvisioningArtifactParameters :: Lens' ServiceCatalogCloudFormationProduct [ServiceCatalogCloudFormationProductProvisioningArtifactProperties]
 sccfpProvisioningArtifactParameters = lens _serviceCatalogCloudFormationProductProvisioningArtifactParameters (\s a -> s { _serviceCatalogCloudFormationProductProvisioningArtifactParameters = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationproduct.html#cfn-servicecatalog-cloudformationproduct-replaceprovisioningartifacts
+sccfpReplaceProvisioningArtifacts :: Lens' ServiceCatalogCloudFormationProduct (Maybe (Val Bool))
+sccfpReplaceProvisioningArtifacts = lens _serviceCatalogCloudFormationProductReplaceProvisioningArtifacts (\s a -> s { _serviceCatalogCloudFormationProductReplaceProvisioningArtifacts = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationproduct.html#cfn-servicecatalog-cloudformationproduct-supportdescription
 sccfpSupportDescription :: Lens' ServiceCatalogCloudFormationProduct (Maybe (Val Text))

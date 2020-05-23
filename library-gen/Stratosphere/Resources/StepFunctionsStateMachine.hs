@@ -10,7 +10,6 @@ module Stratosphere.Resources.StepFunctionsStateMachine where
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.StepFunctionsStateMachineLoggingConfiguration
 import Stratosphere.ResourceProperties.StepFunctionsStateMachineTagsEntry
-import Stratosphere.ResourceProperties.StepFunctionsStateMachineTracingConfiguration
 
 -- | Full data type definition for StepFunctionsStateMachine. See
 -- 'stepFunctionsStateMachine' for a more convenient constructor.
@@ -22,7 +21,6 @@ data StepFunctionsStateMachine =
   , _stepFunctionsStateMachineStateMachineName :: Maybe (Val Text)
   , _stepFunctionsStateMachineStateMachineType :: Maybe (Val Text)
   , _stepFunctionsStateMachineTags :: Maybe [StepFunctionsStateMachineTagsEntry]
-  , _stepFunctionsStateMachineTracingConfiguration :: Maybe StepFunctionsStateMachineTracingConfiguration
   } deriving (Show, Eq)
 
 instance ToResourceProperties StepFunctionsStateMachine where
@@ -37,7 +35,6 @@ instance ToResourceProperties StepFunctionsStateMachine where
         , fmap (("StateMachineName",) . toJSON) _stepFunctionsStateMachineStateMachineName
         , fmap (("StateMachineType",) . toJSON) _stepFunctionsStateMachineStateMachineType
         , fmap (("Tags",) . toJSON) _stepFunctionsStateMachineTags
-        , fmap (("TracingConfiguration",) . toJSON) _stepFunctionsStateMachineTracingConfiguration
         ]
     }
 
@@ -55,7 +52,6 @@ stepFunctionsStateMachine definitionStringarg roleArnarg =
   , _stepFunctionsStateMachineStateMachineName = Nothing
   , _stepFunctionsStateMachineStateMachineType = Nothing
   , _stepFunctionsStateMachineTags = Nothing
-  , _stepFunctionsStateMachineTracingConfiguration = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitionstring
@@ -81,7 +77,3 @@ sfsmStateMachineType = lens _stepFunctionsStateMachineStateMachineType (\s a -> 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-tags
 sfsmTags :: Lens' StepFunctionsStateMachine (Maybe [StepFunctionsStateMachineTagsEntry])
 sfsmTags = lens _stepFunctionsStateMachineTags (\s a -> s { _stepFunctionsStateMachineTags = a })
-
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-tracingconfiguration
-sfsmTracingConfiguration :: Lens' StepFunctionsStateMachine (Maybe StepFunctionsStateMachineTracingConfiguration)
-sfsmTracingConfiguration = lens _stepFunctionsStateMachineTracingConfiguration (\s a -> s { _stepFunctionsStateMachineTracingConfiguration = a })

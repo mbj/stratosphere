@@ -8,7 +8,7 @@
 module Stratosphere.Resources.CodeStarConnectionsConnection where
 
 import Stratosphere.ResourceImports
-
+import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for CodeStarConnectionsConnection. See
 -- 'codeStarConnectionsConnection' for a more convenient constructor.
@@ -16,6 +16,7 @@ data CodeStarConnectionsConnection =
   CodeStarConnectionsConnection
   { _codeStarConnectionsConnectionConnectionName :: Val Text
   , _codeStarConnectionsConnectionProviderType :: Val Text
+  , _codeStarConnectionsConnectionTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
 instance ToResourceProperties CodeStarConnectionsConnection where
@@ -26,6 +27,7 @@ instance ToResourceProperties CodeStarConnectionsConnection where
         hashMapFromList $ catMaybes
         [ (Just . ("ConnectionName",) . toJSON) _codeStarConnectionsConnectionConnectionName
         , (Just . ("ProviderType",) . toJSON) _codeStarConnectionsConnectionProviderType
+        , fmap (("Tags",) . toJSON) _codeStarConnectionsConnectionTags
         ]
     }
 
@@ -39,6 +41,7 @@ codeStarConnectionsConnection connectionNamearg providerTypearg =
   CodeStarConnectionsConnection
   { _codeStarConnectionsConnectionConnectionName = connectionNamearg
   , _codeStarConnectionsConnectionProviderType = providerTypearg
+  , _codeStarConnectionsConnectionTags = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-connectionname
@@ -48,3 +51,7 @@ csccConnectionName = lens _codeStarConnectionsConnectionConnectionName (\s a -> 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-providertype
 csccProviderType :: Lens' CodeStarConnectionsConnection (Val Text)
 csccProviderType = lens _codeStarConnectionsConnectionProviderType (\s a -> s { _codeStarConnectionsConnectionProviderType = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-connection.html#cfn-codestarconnections-connection-tags
+csccTags :: Lens' CodeStarConnectionsConnection (Maybe [Tag])
+csccTags = lens _codeStarConnectionsConnectionTags (\s a -> s { _codeStarConnectionsConnectionTags = a })

@@ -15,6 +15,7 @@ import Stratosphere.ResourceImports
 data SSMParameter =
   SSMParameter
   { _sSMParameterAllowedPattern :: Maybe (Val Text)
+  , _sSMParameterDataType :: Maybe (Val Text)
   , _sSMParameterDescription :: Maybe (Val Text)
   , _sSMParameterName :: Maybe (Val Text)
   , _sSMParameterPolicies :: Maybe (Val Text)
@@ -31,6 +32,7 @@ instance ToResourceProperties SSMParameter where
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
         [ fmap (("AllowedPattern",) . toJSON) _sSMParameterAllowedPattern
+        , fmap (("DataType",) . toJSON) _sSMParameterDataType
         , fmap (("Description",) . toJSON) _sSMParameterDescription
         , fmap (("Name",) . toJSON) _sSMParameterName
         , fmap (("Policies",) . toJSON) _sSMParameterPolicies
@@ -49,6 +51,7 @@ ssmParameter
 ssmParameter typearg valuearg =
   SSMParameter
   { _sSMParameterAllowedPattern = Nothing
+  , _sSMParameterDataType = Nothing
   , _sSMParameterDescription = Nothing
   , _sSMParameterName = Nothing
   , _sSMParameterPolicies = Nothing
@@ -61,6 +64,10 @@ ssmParameter typearg valuearg =
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-parameter.html#cfn-ssm-parameter-allowedpattern
 ssmpAllowedPattern :: Lens' SSMParameter (Maybe (Val Text))
 ssmpAllowedPattern = lens _sSMParameterAllowedPattern (\s a -> s { _sSMParameterAllowedPattern = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-parameter.html#cfn-ssm-parameter-datatype
+ssmpDataType :: Lens' SSMParameter (Maybe (Val Text))
+ssmpDataType = lens _sSMParameterDataType (\s a -> s { _sSMParameterDataType = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-parameter.html#cfn-ssm-parameter-description
 ssmpDescription :: Lens' SSMParameter (Maybe (Val Text))
