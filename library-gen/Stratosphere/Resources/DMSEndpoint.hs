@@ -13,6 +13,7 @@ import Stratosphere.ResourceProperties.DMSEndpointElasticsearchSettings
 import Stratosphere.ResourceProperties.DMSEndpointKafkaSettings
 import Stratosphere.ResourceProperties.DMSEndpointKinesisSettings
 import Stratosphere.ResourceProperties.DMSEndpointMongoDbSettings
+import Stratosphere.ResourceProperties.DMSEndpointNeptuneSettings
 import Stratosphere.ResourceProperties.DMSEndpointS3Settings
 import Stratosphere.ResourceProperties.Tag
 
@@ -32,6 +33,7 @@ data DMSEndpoint =
   , _dMSEndpointKinesisSettings :: Maybe DMSEndpointKinesisSettings
   , _dMSEndpointKmsKeyId :: Maybe (Val Text)
   , _dMSEndpointMongoDbSettings :: Maybe DMSEndpointMongoDbSettings
+  , _dMSEndpointNeptuneSettings :: Maybe DMSEndpointNeptuneSettings
   , _dMSEndpointPassword :: Maybe (Val Text)
   , _dMSEndpointPort :: Maybe (Val Integer)
   , _dMSEndpointS3Settings :: Maybe DMSEndpointS3Settings
@@ -59,6 +61,7 @@ instance ToResourceProperties DMSEndpoint where
         , fmap (("KinesisSettings",) . toJSON) _dMSEndpointKinesisSettings
         , fmap (("KmsKeyId",) . toJSON) _dMSEndpointKmsKeyId
         , fmap (("MongoDbSettings",) . toJSON) _dMSEndpointMongoDbSettings
+        , fmap (("NeptuneSettings",) . toJSON) _dMSEndpointNeptuneSettings
         , fmap (("Password",) . toJSON) _dMSEndpointPassword
         , fmap (("Port",) . toJSON) _dMSEndpointPort
         , fmap (("S3Settings",) . toJSON) _dMSEndpointS3Settings
@@ -88,6 +91,7 @@ dmsEndpoint endpointTypearg engineNamearg =
   , _dMSEndpointKinesisSettings = Nothing
   , _dMSEndpointKmsKeyId = Nothing
   , _dMSEndpointMongoDbSettings = Nothing
+  , _dMSEndpointNeptuneSettings = Nothing
   , _dMSEndpointPassword = Nothing
   , _dMSEndpointPort = Nothing
   , _dMSEndpointS3Settings = Nothing
@@ -144,6 +148,10 @@ dmseKmsKeyId = lens _dMSEndpointKmsKeyId (\s a -> s { _dMSEndpointKmsKeyId = a }
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-endpoint.html#cfn-dms-endpoint-mongodbsettings
 dmseMongoDbSettings :: Lens' DMSEndpoint (Maybe DMSEndpointMongoDbSettings)
 dmseMongoDbSettings = lens _dMSEndpointMongoDbSettings (\s a -> s { _dMSEndpointMongoDbSettings = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-endpoint.html#cfn-dms-endpoint-neptunesettings
+dmseNeptuneSettings :: Lens' DMSEndpoint (Maybe DMSEndpointNeptuneSettings)
+dmseNeptuneSettings = lens _dMSEndpointNeptuneSettings (\s a -> s { _dMSEndpointNeptuneSettings = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-endpoint.html#cfn-dms-endpoint-password
 dmsePassword :: Lens' DMSEndpoint (Maybe (Val Text))

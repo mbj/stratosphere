@@ -16,7 +16,8 @@ import Stratosphere.ResourceProperties.Tag
 -- more convenient constructor.
 data TransferServer =
   TransferServer
-  { _transferServerEndpointDetails :: Maybe TransferServerEndpointDetails
+  { _transferServerCertificate :: Maybe (Val Text)
+  , _transferServerEndpointDetails :: Maybe TransferServerEndpointDetails
   , _transferServerEndpointType :: Maybe (Val Text)
   , _transferServerIdentityProviderDetails :: Maybe TransferServerIdentityProviderDetails
   , _transferServerIdentityProviderType :: Maybe (Val Text)
@@ -30,7 +31,8 @@ instance ToResourceProperties TransferServer where
     { resourcePropertiesType = "AWS::Transfer::Server"
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
-        [ fmap (("EndpointDetails",) . toJSON) _transferServerEndpointDetails
+        [ fmap (("Certificate",) . toJSON) _transferServerCertificate
+        , fmap (("EndpointDetails",) . toJSON) _transferServerEndpointDetails
         , fmap (("EndpointType",) . toJSON) _transferServerEndpointType
         , fmap (("IdentityProviderDetails",) . toJSON) _transferServerIdentityProviderDetails
         , fmap (("IdentityProviderType",) . toJSON) _transferServerIdentityProviderType
@@ -44,13 +46,18 @@ transferServer
   :: TransferServer
 transferServer  =
   TransferServer
-  { _transferServerEndpointDetails = Nothing
+  { _transferServerCertificate = Nothing
+  , _transferServerEndpointDetails = Nothing
   , _transferServerEndpointType = Nothing
   , _transferServerIdentityProviderDetails = Nothing
   , _transferServerIdentityProviderType = Nothing
   , _transferServerLoggingRole = Nothing
   , _transferServerTags = Nothing
   }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-server.html#cfn-transfer-server-certificate
+tsCertificate :: Lens' TransferServer (Maybe (Val Text))
+tsCertificate = lens _transferServerCertificate (\s a -> s { _transferServerCertificate = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-server.html#cfn-transfer-server-endpointdetails
 tsEndpointDetails :: Lens' TransferServer (Maybe TransferServerEndpointDetails)
