@@ -16,26 +16,25 @@ import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamDeserializer
 -- convenient constructor.
 data KinesisFirehoseDeliveryStreamInputFormatConfiguration =
   KinesisFirehoseDeliveryStreamInputFormatConfiguration
-  { _kinesisFirehoseDeliveryStreamInputFormatConfigurationDeserializer :: KinesisFirehoseDeliveryStreamDeserializer
+  { _kinesisFirehoseDeliveryStreamInputFormatConfigurationDeserializer :: Maybe KinesisFirehoseDeliveryStreamDeserializer
   } deriving (Show, Eq)
 
 instance ToJSON KinesisFirehoseDeliveryStreamInputFormatConfiguration where
   toJSON KinesisFirehoseDeliveryStreamInputFormatConfiguration{..} =
     object $
     catMaybes
-    [ (Just . ("Deserializer",) . toJSON) _kinesisFirehoseDeliveryStreamInputFormatConfigurationDeserializer
+    [ fmap (("Deserializer",) . toJSON) _kinesisFirehoseDeliveryStreamInputFormatConfigurationDeserializer
     ]
 
 -- | Constructor for 'KinesisFirehoseDeliveryStreamInputFormatConfiguration'
 -- containing required fields as arguments.
 kinesisFirehoseDeliveryStreamInputFormatConfiguration
-  :: KinesisFirehoseDeliveryStreamDeserializer -- ^ 'kfdsifcDeserializer'
-  -> KinesisFirehoseDeliveryStreamInputFormatConfiguration
-kinesisFirehoseDeliveryStreamInputFormatConfiguration deserializerarg =
+  :: KinesisFirehoseDeliveryStreamInputFormatConfiguration
+kinesisFirehoseDeliveryStreamInputFormatConfiguration  =
   KinesisFirehoseDeliveryStreamInputFormatConfiguration
-  { _kinesisFirehoseDeliveryStreamInputFormatConfigurationDeserializer = deserializerarg
+  { _kinesisFirehoseDeliveryStreamInputFormatConfigurationDeserializer = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-inputformatconfiguration.html#cfn-kinesisfirehose-deliverystream-inputformatconfiguration-deserializer
-kfdsifcDeserializer :: Lens' KinesisFirehoseDeliveryStreamInputFormatConfiguration KinesisFirehoseDeliveryStreamDeserializer
+kfdsifcDeserializer :: Lens' KinesisFirehoseDeliveryStreamInputFormatConfiguration (Maybe KinesisFirehoseDeliveryStreamDeserializer)
 kfdsifcDeserializer = lens _kinesisFirehoseDeliveryStreamInputFormatConfigurationDeserializer (\s a -> s { _kinesisFirehoseDeliveryStreamInputFormatConfigurationDeserializer = a })

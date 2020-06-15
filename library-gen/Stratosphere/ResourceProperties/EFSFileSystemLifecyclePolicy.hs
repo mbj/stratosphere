@@ -3,7 +3,7 @@
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticfilesystem-filesystem-lifecyclepolicy.html
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-lifecyclepolicy.html
 
 module Stratosphere.ResourceProperties.EFSFileSystemLifecyclePolicy where
 
@@ -34,6 +34,6 @@ efsFileSystemLifecyclePolicy transitionToIAarg =
   { _eFSFileSystemLifecyclePolicyTransitionToIA = transitionToIAarg
   }
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticfilesystem-filesystem-lifecyclepolicy.html#cfn-elasticfilesystem-filesystem-lifecyclepolicy-transitiontoia
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-lifecyclepolicy.html#cfn-efs-filesystem-lifecyclepolicy-transitiontoia
 efsfslpTransitionToIA :: Lens' EFSFileSystemLifecyclePolicy (Val Text)
 efsfslpTransitionToIA = lens _eFSFileSystemLifecyclePolicyTransitionToIA (\s a -> s { _eFSFileSystemLifecyclePolicyTransitionToIA = a })

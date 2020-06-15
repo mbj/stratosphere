@@ -27,9 +27,13 @@ data NeptuneDBCluster =
   , _neptuneDBClusterPort :: Maybe (Val Integer)
   , _neptuneDBClusterPreferredBackupWindow :: Maybe (Val Text)
   , _neptuneDBClusterPreferredMaintenanceWindow :: Maybe (Val Text)
+  , _neptuneDBClusterRestoreToTime :: Maybe (Val Text)
+  , _neptuneDBClusterRestoreType :: Maybe (Val Text)
   , _neptuneDBClusterSnapshotIdentifier :: Maybe (Val Text)
+  , _neptuneDBClusterSourceDBClusterIdentifier :: Maybe (Val Text)
   , _neptuneDBClusterStorageEncrypted :: Maybe (Val Bool)
   , _neptuneDBClusterTags :: Maybe [Tag]
+  , _neptuneDBClusterUseLatestRestorableTime :: Maybe (Val Bool)
   , _neptuneDBClusterVpcSecurityGroupIds :: Maybe (ValList Text)
   } deriving (Show, Eq)
 
@@ -52,9 +56,13 @@ instance ToResourceProperties NeptuneDBCluster where
         , fmap (("Port",) . toJSON) _neptuneDBClusterPort
         , fmap (("PreferredBackupWindow",) . toJSON) _neptuneDBClusterPreferredBackupWindow
         , fmap (("PreferredMaintenanceWindow",) . toJSON) _neptuneDBClusterPreferredMaintenanceWindow
+        , fmap (("RestoreToTime",) . toJSON) _neptuneDBClusterRestoreToTime
+        , fmap (("RestoreType",) . toJSON) _neptuneDBClusterRestoreType
         , fmap (("SnapshotIdentifier",) . toJSON) _neptuneDBClusterSnapshotIdentifier
+        , fmap (("SourceDBClusterIdentifier",) . toJSON) _neptuneDBClusterSourceDBClusterIdentifier
         , fmap (("StorageEncrypted",) . toJSON) _neptuneDBClusterStorageEncrypted
         , fmap (("Tags",) . toJSON) _neptuneDBClusterTags
+        , fmap (("UseLatestRestorableTime",) . toJSON) _neptuneDBClusterUseLatestRestorableTime
         , fmap (("VpcSecurityGroupIds",) . toJSON) _neptuneDBClusterVpcSecurityGroupIds
         ]
     }
@@ -78,9 +86,13 @@ neptuneDBCluster  =
   , _neptuneDBClusterPort = Nothing
   , _neptuneDBClusterPreferredBackupWindow = Nothing
   , _neptuneDBClusterPreferredMaintenanceWindow = Nothing
+  , _neptuneDBClusterRestoreToTime = Nothing
+  , _neptuneDBClusterRestoreType = Nothing
   , _neptuneDBClusterSnapshotIdentifier = Nothing
+  , _neptuneDBClusterSourceDBClusterIdentifier = Nothing
   , _neptuneDBClusterStorageEncrypted = Nothing
   , _neptuneDBClusterTags = Nothing
+  , _neptuneDBClusterUseLatestRestorableTime = Nothing
   , _neptuneDBClusterVpcSecurityGroupIds = Nothing
   }
 
@@ -136,9 +148,21 @@ ndbcPreferredBackupWindow = lens _neptuneDBClusterPreferredBackupWindow (\s a ->
 ndbcPreferredMaintenanceWindow :: Lens' NeptuneDBCluster (Maybe (Val Text))
 ndbcPreferredMaintenanceWindow = lens _neptuneDBClusterPreferredMaintenanceWindow (\s a -> s { _neptuneDBClusterPreferredMaintenanceWindow = a })
 
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-restoretotime
+ndbcRestoreToTime :: Lens' NeptuneDBCluster (Maybe (Val Text))
+ndbcRestoreToTime = lens _neptuneDBClusterRestoreToTime (\s a -> s { _neptuneDBClusterRestoreToTime = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-restoretype
+ndbcRestoreType :: Lens' NeptuneDBCluster (Maybe (Val Text))
+ndbcRestoreType = lens _neptuneDBClusterRestoreType (\s a -> s { _neptuneDBClusterRestoreType = a })
+
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-snapshotidentifier
 ndbcSnapshotIdentifier :: Lens' NeptuneDBCluster (Maybe (Val Text))
 ndbcSnapshotIdentifier = lens _neptuneDBClusterSnapshotIdentifier (\s a -> s { _neptuneDBClusterSnapshotIdentifier = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-sourcedbclusteridentifier
+ndbcSourceDBClusterIdentifier :: Lens' NeptuneDBCluster (Maybe (Val Text))
+ndbcSourceDBClusterIdentifier = lens _neptuneDBClusterSourceDBClusterIdentifier (\s a -> s { _neptuneDBClusterSourceDBClusterIdentifier = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-storageencrypted
 ndbcStorageEncrypted :: Lens' NeptuneDBCluster (Maybe (Val Bool))
@@ -147,6 +171,10 @@ ndbcStorageEncrypted = lens _neptuneDBClusterStorageEncrypted (\s a -> s { _nept
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-tags
 ndbcTags :: Lens' NeptuneDBCluster (Maybe [Tag])
 ndbcTags = lens _neptuneDBClusterTags (\s a -> s { _neptuneDBClusterTags = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-uselatestrestorabletime
+ndbcUseLatestRestorableTime :: Lens' NeptuneDBCluster (Maybe (Val Bool))
+ndbcUseLatestRestorableTime = lens _neptuneDBClusterUseLatestRestorableTime (\s a -> s { _neptuneDBClusterUseLatestRestorableTime = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-vpcsecuritygroupids
 ndbcVpcSecurityGroupIds :: Lens' NeptuneDBCluster (Maybe (ValList Text))

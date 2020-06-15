@@ -9,7 +9,6 @@ module Stratosphere.Resources.SSMAssociation where
 
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.SSMAssociationInstanceAssociationOutputLocation
-import Stratosphere.ResourceProperties.SSMAssociationParameterValues
 import Stratosphere.ResourceProperties.SSMAssociationTarget
 
 -- | Full data type definition for SSMAssociation. See 'ssmAssociation' for a
@@ -25,7 +24,6 @@ data SSMAssociation =
   , _sSMAssociationMaxErrors :: Maybe (Val Text)
   , _sSMAssociationName :: Val Text
   , _sSMAssociationOutputLocation :: Maybe SSMAssociationInstanceAssociationOutputLocation
-  , _sSMAssociationParameters :: Maybe (Map Text SSMAssociationParameterValues)
   , _sSMAssociationScheduleExpression :: Maybe (Val Text)
   , _sSMAssociationSyncCompliance :: Maybe (Val Text)
   , _sSMAssociationTargets :: Maybe [SSMAssociationTarget]
@@ -47,7 +45,6 @@ instance ToResourceProperties SSMAssociation where
         , fmap (("MaxErrors",) . toJSON) _sSMAssociationMaxErrors
         , (Just . ("Name",) . toJSON) _sSMAssociationName
         , fmap (("OutputLocation",) . toJSON) _sSMAssociationOutputLocation
-        , fmap (("Parameters",) . toJSON) _sSMAssociationParameters
         , fmap (("ScheduleExpression",) . toJSON) _sSMAssociationScheduleExpression
         , fmap (("SyncCompliance",) . toJSON) _sSMAssociationSyncCompliance
         , fmap (("Targets",) . toJSON) _sSMAssociationTargets
@@ -70,7 +67,6 @@ ssmAssociation namearg =
   , _sSMAssociationMaxErrors = Nothing
   , _sSMAssociationName = namearg
   , _sSMAssociationOutputLocation = Nothing
-  , _sSMAssociationParameters = Nothing
   , _sSMAssociationScheduleExpression = Nothing
   , _sSMAssociationSyncCompliance = Nothing
   , _sSMAssociationTargets = Nothing
@@ -112,10 +108,6 @@ ssmaName = lens _sSMAssociationName (\s a -> s { _sSMAssociationName = a })
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-outputlocation
 ssmaOutputLocation :: Lens' SSMAssociation (Maybe SSMAssociationInstanceAssociationOutputLocation)
 ssmaOutputLocation = lens _sSMAssociationOutputLocation (\s a -> s { _sSMAssociationOutputLocation = a })
-
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-parameters
-ssmaParameters :: Lens' SSMAssociation (Maybe (Map Text SSMAssociationParameterValues))
-ssmaParameters = lens _sSMAssociationParameters (\s a -> s { _sSMAssociationParameters = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-scheduleexpression
 ssmaScheduleExpression :: Lens' SSMAssociation (Maybe (Val Text))

@@ -16,7 +16,6 @@ import Stratosphere.ResourceImports
 data ECSTaskDefinitionInferenceAccelerator =
   ECSTaskDefinitionInferenceAccelerator
   { _eCSTaskDefinitionInferenceAcceleratorDeviceName :: Maybe (Val Text)
-  , _eCSTaskDefinitionInferenceAcceleratorDevicePolicy :: Maybe (Val Text)
   , _eCSTaskDefinitionInferenceAcceleratorDeviceType :: Maybe (Val Text)
   } deriving (Show, Eq)
 
@@ -25,7 +24,6 @@ instance ToJSON ECSTaskDefinitionInferenceAccelerator where
     object $
     catMaybes
     [ fmap (("DeviceName",) . toJSON) _eCSTaskDefinitionInferenceAcceleratorDeviceName
-    , fmap (("DevicePolicy",) . toJSON) _eCSTaskDefinitionInferenceAcceleratorDevicePolicy
     , fmap (("DeviceType",) . toJSON) _eCSTaskDefinitionInferenceAcceleratorDeviceType
     ]
 
@@ -36,17 +34,12 @@ ecsTaskDefinitionInferenceAccelerator
 ecsTaskDefinitionInferenceAccelerator  =
   ECSTaskDefinitionInferenceAccelerator
   { _eCSTaskDefinitionInferenceAcceleratorDeviceName = Nothing
-  , _eCSTaskDefinitionInferenceAcceleratorDevicePolicy = Nothing
   , _eCSTaskDefinitionInferenceAcceleratorDeviceType = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-inferenceaccelerator.html#cfn-ecs-taskdefinition-inferenceaccelerator-devicename
 ecstdiaDeviceName :: Lens' ECSTaskDefinitionInferenceAccelerator (Maybe (Val Text))
 ecstdiaDeviceName = lens _eCSTaskDefinitionInferenceAcceleratorDeviceName (\s a -> s { _eCSTaskDefinitionInferenceAcceleratorDeviceName = a })
-
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-inferenceaccelerator.html#cfn-ecs-taskdefinition-inferenceaccelerator-devicepolicy
-ecstdiaDevicePolicy :: Lens' ECSTaskDefinitionInferenceAccelerator (Maybe (Val Text))
-ecstdiaDevicePolicy = lens _eCSTaskDefinitionInferenceAcceleratorDevicePolicy (\s a -> s { _eCSTaskDefinitionInferenceAcceleratorDevicePolicy = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-inferenceaccelerator.html#cfn-ecs-taskdefinition-inferenceaccelerator-devicetype
 ecstdiaDeviceType :: Lens' ECSTaskDefinitionInferenceAccelerator (Maybe (Val Text))

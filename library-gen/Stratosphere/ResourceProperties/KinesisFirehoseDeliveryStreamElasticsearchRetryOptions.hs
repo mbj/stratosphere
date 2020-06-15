@@ -16,26 +16,25 @@ import Stratosphere.ResourceImports
 -- convenient constructor.
 data KinesisFirehoseDeliveryStreamElasticsearchRetryOptions =
   KinesisFirehoseDeliveryStreamElasticsearchRetryOptions
-  { _kinesisFirehoseDeliveryStreamElasticsearchRetryOptionsDurationInSeconds :: Val Integer
+  { _kinesisFirehoseDeliveryStreamElasticsearchRetryOptionsDurationInSeconds :: Maybe (Val Integer)
   } deriving (Show, Eq)
 
 instance ToJSON KinesisFirehoseDeliveryStreamElasticsearchRetryOptions where
   toJSON KinesisFirehoseDeliveryStreamElasticsearchRetryOptions{..} =
     object $
     catMaybes
-    [ (Just . ("DurationInSeconds",) . toJSON) _kinesisFirehoseDeliveryStreamElasticsearchRetryOptionsDurationInSeconds
+    [ fmap (("DurationInSeconds",) . toJSON) _kinesisFirehoseDeliveryStreamElasticsearchRetryOptionsDurationInSeconds
     ]
 
 -- | Constructor for 'KinesisFirehoseDeliveryStreamElasticsearchRetryOptions'
 -- containing required fields as arguments.
 kinesisFirehoseDeliveryStreamElasticsearchRetryOptions
-  :: Val Integer -- ^ 'kfdseroDurationInSeconds'
-  -> KinesisFirehoseDeliveryStreamElasticsearchRetryOptions
-kinesisFirehoseDeliveryStreamElasticsearchRetryOptions durationInSecondsarg =
+  :: KinesisFirehoseDeliveryStreamElasticsearchRetryOptions
+kinesisFirehoseDeliveryStreamElasticsearchRetryOptions  =
   KinesisFirehoseDeliveryStreamElasticsearchRetryOptions
-  { _kinesisFirehoseDeliveryStreamElasticsearchRetryOptionsDurationInSeconds = durationInSecondsarg
+  { _kinesisFirehoseDeliveryStreamElasticsearchRetryOptionsDurationInSeconds = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchretryoptions.html#cfn-kinesisfirehose-deliverystream-elasticsearchretryoptions-durationinseconds
-kfdseroDurationInSeconds :: Lens' KinesisFirehoseDeliveryStreamElasticsearchRetryOptions (Val Integer)
+kfdseroDurationInSeconds :: Lens' KinesisFirehoseDeliveryStreamElasticsearchRetryOptions (Maybe (Val Integer))
 kfdseroDurationInSeconds = lens _kinesisFirehoseDeliveryStreamElasticsearchRetryOptionsDurationInSeconds (\s a -> s { _kinesisFirehoseDeliveryStreamElasticsearchRetryOptionsDurationInSeconds = a })

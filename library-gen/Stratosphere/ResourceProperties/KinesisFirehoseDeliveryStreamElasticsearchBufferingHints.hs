@@ -16,35 +16,33 @@ import Stratosphere.ResourceImports
 -- convenient constructor.
 data KinesisFirehoseDeliveryStreamElasticsearchBufferingHints =
   KinesisFirehoseDeliveryStreamElasticsearchBufferingHints
-  { _kinesisFirehoseDeliveryStreamElasticsearchBufferingHintsIntervalInSeconds :: Val Integer
-  , _kinesisFirehoseDeliveryStreamElasticsearchBufferingHintsSizeInMBs :: Val Integer
+  { _kinesisFirehoseDeliveryStreamElasticsearchBufferingHintsIntervalInSeconds :: Maybe (Val Integer)
+  , _kinesisFirehoseDeliveryStreamElasticsearchBufferingHintsSizeInMBs :: Maybe (Val Integer)
   } deriving (Show, Eq)
 
 instance ToJSON KinesisFirehoseDeliveryStreamElasticsearchBufferingHints where
   toJSON KinesisFirehoseDeliveryStreamElasticsearchBufferingHints{..} =
     object $
     catMaybes
-    [ (Just . ("IntervalInSeconds",) . toJSON) _kinesisFirehoseDeliveryStreamElasticsearchBufferingHintsIntervalInSeconds
-    , (Just . ("SizeInMBs",) . toJSON) _kinesisFirehoseDeliveryStreamElasticsearchBufferingHintsSizeInMBs
+    [ fmap (("IntervalInSeconds",) . toJSON) _kinesisFirehoseDeliveryStreamElasticsearchBufferingHintsIntervalInSeconds
+    , fmap (("SizeInMBs",) . toJSON) _kinesisFirehoseDeliveryStreamElasticsearchBufferingHintsSizeInMBs
     ]
 
 -- | Constructor for
 -- 'KinesisFirehoseDeliveryStreamElasticsearchBufferingHints' containing
 -- required fields as arguments.
 kinesisFirehoseDeliveryStreamElasticsearchBufferingHints
-  :: Val Integer -- ^ 'kfdsebhIntervalInSeconds'
-  -> Val Integer -- ^ 'kfdsebhSizeInMBs'
-  -> KinesisFirehoseDeliveryStreamElasticsearchBufferingHints
-kinesisFirehoseDeliveryStreamElasticsearchBufferingHints intervalInSecondsarg sizeInMBsarg =
+  :: KinesisFirehoseDeliveryStreamElasticsearchBufferingHints
+kinesisFirehoseDeliveryStreamElasticsearchBufferingHints  =
   KinesisFirehoseDeliveryStreamElasticsearchBufferingHints
-  { _kinesisFirehoseDeliveryStreamElasticsearchBufferingHintsIntervalInSeconds = intervalInSecondsarg
-  , _kinesisFirehoseDeliveryStreamElasticsearchBufferingHintsSizeInMBs = sizeInMBsarg
+  { _kinesisFirehoseDeliveryStreamElasticsearchBufferingHintsIntervalInSeconds = Nothing
+  , _kinesisFirehoseDeliveryStreamElasticsearchBufferingHintsSizeInMBs = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchbufferinghints.html#cfn-kinesisfirehose-deliverystream-elasticsearchbufferinghints-intervalinseconds
-kfdsebhIntervalInSeconds :: Lens' KinesisFirehoseDeliveryStreamElasticsearchBufferingHints (Val Integer)
+kfdsebhIntervalInSeconds :: Lens' KinesisFirehoseDeliveryStreamElasticsearchBufferingHints (Maybe (Val Integer))
 kfdsebhIntervalInSeconds = lens _kinesisFirehoseDeliveryStreamElasticsearchBufferingHintsIntervalInSeconds (\s a -> s { _kinesisFirehoseDeliveryStreamElasticsearchBufferingHintsIntervalInSeconds = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchbufferinghints.html#cfn-kinesisfirehose-deliverystream-elasticsearchbufferinghints-sizeinmbs
-kfdsebhSizeInMBs :: Lens' KinesisFirehoseDeliveryStreamElasticsearchBufferingHints (Val Integer)
+kfdsebhSizeInMBs :: Lens' KinesisFirehoseDeliveryStreamElasticsearchBufferingHints (Maybe (Val Integer))
 kfdsebhSizeInMBs = lens _kinesisFirehoseDeliveryStreamElasticsearchBufferingHintsSizeInMBs (\s a -> s { _kinesisFirehoseDeliveryStreamElasticsearchBufferingHintsSizeInMBs = a })

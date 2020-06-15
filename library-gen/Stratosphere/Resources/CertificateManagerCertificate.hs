@@ -15,7 +15,9 @@ import Stratosphere.ResourceProperties.Tag
 -- 'certificateManagerCertificate' for a more convenient constructor.
 data CertificateManagerCertificate =
   CertificateManagerCertificate
-  { _certificateManagerCertificateDomainName :: Val Text
+  { _certificateManagerCertificateCertificateAuthorityArn :: Maybe (Val Text)
+  , _certificateManagerCertificateCertificateTransparencyLoggingPreference :: Maybe (Val Text)
+  , _certificateManagerCertificateDomainName :: Val Text
   , _certificateManagerCertificateDomainValidationOptions :: Maybe [CertificateManagerCertificateDomainValidationOption]
   , _certificateManagerCertificateSubjectAlternativeNames :: Maybe (ValList Text)
   , _certificateManagerCertificateTags :: Maybe [Tag]
@@ -28,7 +30,9 @@ instance ToResourceProperties CertificateManagerCertificate where
     { resourcePropertiesType = "AWS::CertificateManager::Certificate"
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
-        [ (Just . ("DomainName",) . toJSON) _certificateManagerCertificateDomainName
+        [ fmap (("CertificateAuthorityArn",) . toJSON) _certificateManagerCertificateCertificateAuthorityArn
+        , fmap (("CertificateTransparencyLoggingPreference",) . toJSON) _certificateManagerCertificateCertificateTransparencyLoggingPreference
+        , (Just . ("DomainName",) . toJSON) _certificateManagerCertificateDomainName
         , fmap (("DomainValidationOptions",) . toJSON) _certificateManagerCertificateDomainValidationOptions
         , fmap (("SubjectAlternativeNames",) . toJSON) _certificateManagerCertificateSubjectAlternativeNames
         , fmap (("Tags",) . toJSON) _certificateManagerCertificateTags
@@ -43,12 +47,22 @@ certificateManagerCertificate
   -> CertificateManagerCertificate
 certificateManagerCertificate domainNamearg =
   CertificateManagerCertificate
-  { _certificateManagerCertificateDomainName = domainNamearg
+  { _certificateManagerCertificateCertificateAuthorityArn = Nothing
+  , _certificateManagerCertificateCertificateTransparencyLoggingPreference = Nothing
+  , _certificateManagerCertificateDomainName = domainNamearg
   , _certificateManagerCertificateDomainValidationOptions = Nothing
   , _certificateManagerCertificateSubjectAlternativeNames = Nothing
   , _certificateManagerCertificateTags = Nothing
   , _certificateManagerCertificateValidationMethod = Nothing
   }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-certificate.html#cfn-certificatemanager-certificate-certificateauthorityarn
+cmcCertificateAuthorityArn :: Lens' CertificateManagerCertificate (Maybe (Val Text))
+cmcCertificateAuthorityArn = lens _certificateManagerCertificateCertificateAuthorityArn (\s a -> s { _certificateManagerCertificateCertificateAuthorityArn = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-certificate.html#cfn-certificatemanager-certificate-certificatetransparencyloggingpreference
+cmcCertificateTransparencyLoggingPreference :: Lens' CertificateManagerCertificate (Maybe (Val Text))
+cmcCertificateTransparencyLoggingPreference = lens _certificateManagerCertificateCertificateTransparencyLoggingPreference (\s a -> s { _certificateManagerCertificateCertificateTransparencyLoggingPreference = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-certificatemanager-certificate.html#cfn-certificatemanager-certificate-domainname
 cmcDomainName :: Lens' CertificateManagerCertificate (Val Text)

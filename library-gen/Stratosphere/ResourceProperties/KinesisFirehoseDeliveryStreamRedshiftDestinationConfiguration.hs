@@ -11,6 +11,7 @@ import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamCloudWatchLoggingOptions
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamCopyCommand
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamProcessingConfiguration
+import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamRedshiftRetryOptions
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamS3DestinationConfiguration
 
 -- | Full data type definition for
@@ -24,7 +25,10 @@ data KinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration =
   , _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationCopyCommand :: KinesisFirehoseDeliveryStreamCopyCommand
   , _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationPassword :: Val Text
   , _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationProcessingConfiguration :: Maybe KinesisFirehoseDeliveryStreamProcessingConfiguration
+  , _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationRetryOptions :: Maybe KinesisFirehoseDeliveryStreamRedshiftRetryOptions
   , _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationRoleARN :: Val Text
+  , _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationS3BackupConfiguration :: Maybe KinesisFirehoseDeliveryStreamS3DestinationConfiguration
+  , _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationS3BackupMode :: Maybe (Val Text)
   , _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationS3Configuration :: KinesisFirehoseDeliveryStreamS3DestinationConfiguration
   , _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationUsername :: Val Text
   } deriving (Show, Eq)
@@ -38,7 +42,10 @@ instance ToJSON KinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration wh
     , (Just . ("CopyCommand",) . toJSON) _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationCopyCommand
     , (Just . ("Password",) . toJSON) _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationPassword
     , fmap (("ProcessingConfiguration",) . toJSON) _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationProcessingConfiguration
+    , fmap (("RetryOptions",) . toJSON) _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationRetryOptions
     , (Just . ("RoleARN",) . toJSON) _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationRoleARN
+    , fmap (("S3BackupConfiguration",) . toJSON) _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationS3BackupConfiguration
+    , fmap (("S3BackupMode",) . toJSON) _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationS3BackupMode
     , (Just . ("S3Configuration",) . toJSON) _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationS3Configuration
     , (Just . ("Username",) . toJSON) _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationUsername
     ]
@@ -61,7 +68,10 @@ kinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration clusterJDBCURLarg 
   , _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationCopyCommand = copyCommandarg
   , _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationPassword = passwordarg
   , _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationProcessingConfiguration = Nothing
+  , _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationRetryOptions = Nothing
   , _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationRoleARN = roleARNarg
+  , _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationS3BackupConfiguration = Nothing
+  , _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationS3BackupMode = Nothing
   , _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationS3Configuration = s3Configurationarg
   , _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationUsername = usernamearg
   }
@@ -86,9 +96,21 @@ kfdsrdcPassword = lens _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigur
 kfdsrdcProcessingConfiguration :: Lens' KinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration (Maybe KinesisFirehoseDeliveryStreamProcessingConfiguration)
 kfdsrdcProcessingConfiguration = lens _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationProcessingConfiguration (\s a -> s { _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationProcessingConfiguration = a })
 
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-retryoptions
+kfdsrdcRetryOptions :: Lens' KinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration (Maybe KinesisFirehoseDeliveryStreamRedshiftRetryOptions)
+kfdsrdcRetryOptions = lens _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationRetryOptions (\s a -> s { _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationRetryOptions = a })
+
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-rolearn
 kfdsrdcRoleARN :: Lens' KinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration (Val Text)
 kfdsrdcRoleARN = lens _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationRoleARN (\s a -> s { _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationRoleARN = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-s3backupconfiguration
+kfdsrdcS3BackupConfiguration :: Lens' KinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration (Maybe KinesisFirehoseDeliveryStreamS3DestinationConfiguration)
+kfdsrdcS3BackupConfiguration = lens _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationS3BackupConfiguration (\s a -> s { _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationS3BackupConfiguration = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-s3backupmode
+kfdsrdcS3BackupMode :: Lens' KinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration (Maybe (Val Text))
+kfdsrdcS3BackupMode = lens _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationS3BackupMode (\s a -> s { _kinesisFirehoseDeliveryStreamRedshiftDestinationConfigurationS3BackupMode = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-redshiftdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-redshiftdestinationconfiguration-s3configuration
 kfdsrdcS3Configuration :: Lens' KinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration KinesisFirehoseDeliveryStreamS3DestinationConfiguration

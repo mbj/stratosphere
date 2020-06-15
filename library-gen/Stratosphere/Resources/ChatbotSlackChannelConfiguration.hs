@@ -14,8 +14,7 @@ import Stratosphere.Types
 -- 'chatbotSlackChannelConfiguration' for a more convenient constructor.
 data ChatbotSlackChannelConfiguration =
   ChatbotSlackChannelConfiguration
-  { _chatbotSlackChannelConfigurationArn :: Maybe (Val Text)
-  , _chatbotSlackChannelConfigurationConfigurationName :: Val Text
+  { _chatbotSlackChannelConfigurationConfigurationName :: Val Text
   , _chatbotSlackChannelConfigurationIamRoleArn :: Val Text
   , _chatbotSlackChannelConfigurationLoggingLevel :: Maybe (Val LoggingLevel)
   , _chatbotSlackChannelConfigurationSlackChannelId :: Val Text
@@ -29,8 +28,7 @@ instance ToResourceProperties ChatbotSlackChannelConfiguration where
     { resourcePropertiesType = "AWS::Chatbot::SlackChannelConfiguration"
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
-        [ fmap (("Arn",) . toJSON) _chatbotSlackChannelConfigurationArn
-        , (Just . ("ConfigurationName",) . toJSON) _chatbotSlackChannelConfigurationConfigurationName
+        [ (Just . ("ConfigurationName",) . toJSON) _chatbotSlackChannelConfigurationConfigurationName
         , (Just . ("IamRoleArn",) . toJSON) _chatbotSlackChannelConfigurationIamRoleArn
         , fmap (("LoggingLevel",) . toJSON) _chatbotSlackChannelConfigurationLoggingLevel
         , (Just . ("SlackChannelId",) . toJSON) _chatbotSlackChannelConfigurationSlackChannelId
@@ -49,18 +47,13 @@ chatbotSlackChannelConfiguration
   -> ChatbotSlackChannelConfiguration
 chatbotSlackChannelConfiguration configurationNamearg iamRoleArnarg slackChannelIdarg slackWorkspaceIdarg =
   ChatbotSlackChannelConfiguration
-  { _chatbotSlackChannelConfigurationArn = Nothing
-  , _chatbotSlackChannelConfigurationConfigurationName = configurationNamearg
+  { _chatbotSlackChannelConfigurationConfigurationName = configurationNamearg
   , _chatbotSlackChannelConfigurationIamRoleArn = iamRoleArnarg
   , _chatbotSlackChannelConfigurationLoggingLevel = Nothing
   , _chatbotSlackChannelConfigurationSlackChannelId = slackChannelIdarg
   , _chatbotSlackChannelConfigurationSlackWorkspaceId = slackWorkspaceIdarg
   , _chatbotSlackChannelConfigurationSnsTopicArns = Nothing
   }
-
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-arn
-csccArn :: Lens' ChatbotSlackChannelConfiguration (Maybe (Val Text))
-csccArn = lens _chatbotSlackChannelConfigurationArn (\s a -> s { _chatbotSlackChannelConfigurationArn = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-configurationname
 csccConfigurationName :: Lens' ChatbotSlackChannelConfiguration (Val Text)

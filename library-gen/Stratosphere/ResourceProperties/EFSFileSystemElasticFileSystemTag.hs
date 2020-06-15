@@ -3,7 +3,7 @@
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-filesystemtags.html
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-elasticfilesystemtag.html
 
 module Stratosphere.ResourceProperties.EFSFileSystemElasticFileSystemTag where
 
@@ -38,10 +38,10 @@ efsFileSystemElasticFileSystemTag keyarg valuearg =
   , _eFSFileSystemElasticFileSystemTagValue = valuearg
   }
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-filesystemtags.html#cfn-efs-filesystem-filesystemtags-key
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-elasticfilesystemtag.html#cfn-efs-filesystem-elasticfilesystemtag-key
 efsfsefstKey :: Lens' EFSFileSystemElasticFileSystemTag (Val Text)
 efsfsefstKey = lens _eFSFileSystemElasticFileSystemTagKey (\s a -> s { _eFSFileSystemElasticFileSystemTagKey = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-filesystemtags.html#cfn-efs-filesystem-filesystemtags-value
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-elasticfilesystemtag.html#cfn-efs-filesystem-elasticfilesystemtag-value
 efsfsefstValue :: Lens' EFSFileSystemElasticFileSystemTag (Val Text)
 efsfsefstValue = lens _eFSFileSystemElasticFileSystemTagValue (\s a -> s { _eFSFileSystemElasticFileSystemTagValue = a })
