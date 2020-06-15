@@ -8,9 +8,9 @@
 module Stratosphere.ResourceProperties.EC2ClientVpnEndpointClientAuthenticationRequest where
 
 import Stratosphere.ResourceImports
+import Stratosphere.ResourceProperties.EC2ClientVpnEndpointCertificateAuthenticationRequest
 import Stratosphere.ResourceProperties.EC2ClientVpnEndpointDirectoryServiceAuthenticationRequest
 import Stratosphere.ResourceProperties.EC2ClientVpnEndpointFederatedAuthenticationRequest
-import Stratosphere.ResourceProperties.EC2ClientVpnEndpointCertificateAuthenticationRequest
 
 -- | Full data type definition for
 -- EC2ClientVpnEndpointClientAuthenticationRequest. See

@@ -8,10 +8,10 @@
 module Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamS3DestinationConfiguration where
 
 import Stratosphere.ResourceImports
-import Stratosphere.Types
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamBufferingHints
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamCloudWatchLoggingOptions
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamEncryptionConfiguration
+import Stratosphere.Types
 
 -- | Full data type definition for
 -- KinesisFirehoseDeliveryStreamS3DestinationConfiguration. See
