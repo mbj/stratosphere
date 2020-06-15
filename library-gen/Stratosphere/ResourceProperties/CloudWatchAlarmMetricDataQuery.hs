@@ -18,6 +18,7 @@ data CloudWatchAlarmMetricDataQuery =
   , _cloudWatchAlarmMetricDataQueryId :: Val Text
   , _cloudWatchAlarmMetricDataQueryLabel :: Maybe (Val Text)
   , _cloudWatchAlarmMetricDataQueryMetricStat :: Maybe CloudWatchAlarmMetricStat
+  , _cloudWatchAlarmMetricDataQueryPeriod :: Maybe (Val Integer)
   , _cloudWatchAlarmMetricDataQueryReturnData :: Maybe (Val Bool)
   } deriving (Show, Eq)
 
@@ -29,6 +30,7 @@ instance ToJSON CloudWatchAlarmMetricDataQuery where
     , (Just . ("Id",) . toJSON) _cloudWatchAlarmMetricDataQueryId
     , fmap (("Label",) . toJSON) _cloudWatchAlarmMetricDataQueryLabel
     , fmap (("MetricStat",) . toJSON) _cloudWatchAlarmMetricDataQueryMetricStat
+    , fmap (("Period",) . toJSON) _cloudWatchAlarmMetricDataQueryPeriod
     , fmap (("ReturnData",) . toJSON) _cloudWatchAlarmMetricDataQueryReturnData
     ]
 
@@ -43,6 +45,7 @@ cloudWatchAlarmMetricDataQuery idarg =
   , _cloudWatchAlarmMetricDataQueryId = idarg
   , _cloudWatchAlarmMetricDataQueryLabel = Nothing
   , _cloudWatchAlarmMetricDataQueryMetricStat = Nothing
+  , _cloudWatchAlarmMetricDataQueryPeriod = Nothing
   , _cloudWatchAlarmMetricDataQueryReturnData = Nothing
   }
 
@@ -61,6 +64,10 @@ cwamdqLabel = lens _cloudWatchAlarmMetricDataQueryLabel (\s a -> s { _cloudWatch
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metricdataquery.html#cfn-cloudwatch-alarm-metricdataquery-metricstat
 cwamdqMetricStat :: Lens' CloudWatchAlarmMetricDataQuery (Maybe CloudWatchAlarmMetricStat)
 cwamdqMetricStat = lens _cloudWatchAlarmMetricDataQueryMetricStat (\s a -> s { _cloudWatchAlarmMetricDataQueryMetricStat = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metricdataquery.html#cfn-cloudwatch-alarm-metricdataquery-period
+cwamdqPeriod :: Lens' CloudWatchAlarmMetricDataQuery (Maybe (Val Integer))
+cwamdqPeriod = lens _cloudWatchAlarmMetricDataQueryPeriod (\s a -> s { _cloudWatchAlarmMetricDataQueryPeriod = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-metricdataquery.html#cfn-cloudwatch-alarm-metricdataquery-returndata
 cwamdqReturnData :: Lens' CloudWatchAlarmMetricDataQuery (Maybe (Val Bool))

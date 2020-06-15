@@ -16,32 +16,34 @@ import Stratosphere.ResourceImports
 -- constructor.
 data DLMLifecyclePolicyCrossRegionCopyRetainRule =
   DLMLifecyclePolicyCrossRegionCopyRetainRule
-  { _dLMLifecyclePolicyCrossRegionCopyRetainRuleInterval :: Maybe (Val Integer)
-  , _dLMLifecyclePolicyCrossRegionCopyRetainRuleIntervalUnit :: Maybe (Val Text)
+  { _dLMLifecyclePolicyCrossRegionCopyRetainRuleInterval :: Val Integer
+  , _dLMLifecyclePolicyCrossRegionCopyRetainRuleIntervalUnit :: Val Text
   } deriving (Show, Eq)
 
 instance ToJSON DLMLifecyclePolicyCrossRegionCopyRetainRule where
   toJSON DLMLifecyclePolicyCrossRegionCopyRetainRule{..} =
     object $
     catMaybes
-    [ fmap (("Interval",) . toJSON) _dLMLifecyclePolicyCrossRegionCopyRetainRuleInterval
-    , fmap (("IntervalUnit",) . toJSON) _dLMLifecyclePolicyCrossRegionCopyRetainRuleIntervalUnit
+    [ (Just . ("Interval",) . toJSON) _dLMLifecyclePolicyCrossRegionCopyRetainRuleInterval
+    , (Just . ("IntervalUnit",) . toJSON) _dLMLifecyclePolicyCrossRegionCopyRetainRuleIntervalUnit
     ]
 
 -- | Constructor for 'DLMLifecyclePolicyCrossRegionCopyRetainRule' containing
 -- required fields as arguments.
 dlmLifecyclePolicyCrossRegionCopyRetainRule
-  :: DLMLifecyclePolicyCrossRegionCopyRetainRule
-dlmLifecyclePolicyCrossRegionCopyRetainRule  =
+  :: Val Integer -- ^ 'dlmlpcrcrrInterval'
+  -> Val Text -- ^ 'dlmlpcrcrrIntervalUnit'
+  -> DLMLifecyclePolicyCrossRegionCopyRetainRule
+dlmLifecyclePolicyCrossRegionCopyRetainRule intervalarg intervalUnitarg =
   DLMLifecyclePolicyCrossRegionCopyRetainRule
-  { _dLMLifecyclePolicyCrossRegionCopyRetainRuleInterval = Nothing
-  , _dLMLifecyclePolicyCrossRegionCopyRetainRuleIntervalUnit = Nothing
+  { _dLMLifecyclePolicyCrossRegionCopyRetainRuleInterval = intervalarg
+  , _dLMLifecyclePolicyCrossRegionCopyRetainRuleIntervalUnit = intervalUnitarg
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopyretainrule.html#cfn-dlm-lifecyclepolicy-crossregioncopyretainrule-interval
-dlmlpcrcrrInterval :: Lens' DLMLifecyclePolicyCrossRegionCopyRetainRule (Maybe (Val Integer))
+dlmlpcrcrrInterval :: Lens' DLMLifecyclePolicyCrossRegionCopyRetainRule (Val Integer)
 dlmlpcrcrrInterval = lens _dLMLifecyclePolicyCrossRegionCopyRetainRuleInterval (\s a -> s { _dLMLifecyclePolicyCrossRegionCopyRetainRuleInterval = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopyretainrule.html#cfn-dlm-lifecyclepolicy-crossregioncopyretainrule-intervalunit
-dlmlpcrcrrIntervalUnit :: Lens' DLMLifecyclePolicyCrossRegionCopyRetainRule (Maybe (Val Text))
+dlmlpcrcrrIntervalUnit :: Lens' DLMLifecyclePolicyCrossRegionCopyRetainRule (Val Text)
 dlmlpcrcrrIntervalUnit = lens _dLMLifecyclePolicyCrossRegionCopyRetainRuleIntervalUnit (\s a -> s { _dLMLifecyclePolicyCrossRegionCopyRetainRuleIntervalUnit = a })

@@ -26,6 +26,7 @@ data ElastiCacheReplicationGroup =
   , _elastiCacheReplicationGroupEngine :: Maybe (Val Text)
   , _elastiCacheReplicationGroupEngineVersion :: Maybe (Val Text)
   , _elastiCacheReplicationGroupKmsKeyId :: Maybe (Val Text)
+  , _elastiCacheReplicationGroupMultiAZEnabled :: Maybe (Val Bool)
   , _elastiCacheReplicationGroupNodeGroupConfiguration :: Maybe [ElastiCacheReplicationGroupNodeGroupConfiguration]
   , _elastiCacheReplicationGroupNotificationTopicArn :: Maybe (Val Text)
   , _elastiCacheReplicationGroupNumCacheClusters :: Maybe (Val Integer)
@@ -64,6 +65,7 @@ instance ToResourceProperties ElastiCacheReplicationGroup where
         , fmap (("Engine",) . toJSON) _elastiCacheReplicationGroupEngine
         , fmap (("EngineVersion",) . toJSON) _elastiCacheReplicationGroupEngineVersion
         , fmap (("KmsKeyId",) . toJSON) _elastiCacheReplicationGroupKmsKeyId
+        , fmap (("MultiAZEnabled",) . toJSON) _elastiCacheReplicationGroupMultiAZEnabled
         , fmap (("NodeGroupConfiguration",) . toJSON) _elastiCacheReplicationGroupNodeGroupConfiguration
         , fmap (("NotificationTopicArn",) . toJSON) _elastiCacheReplicationGroupNotificationTopicArn
         , fmap (("NumCacheClusters",) . toJSON) _elastiCacheReplicationGroupNumCacheClusters
@@ -104,6 +106,7 @@ elastiCacheReplicationGroup replicationGroupDescriptionarg =
   , _elastiCacheReplicationGroupEngine = Nothing
   , _elastiCacheReplicationGroupEngineVersion = Nothing
   , _elastiCacheReplicationGroupKmsKeyId = Nothing
+  , _elastiCacheReplicationGroupMultiAZEnabled = Nothing
   , _elastiCacheReplicationGroupNodeGroupConfiguration = Nothing
   , _elastiCacheReplicationGroupNotificationTopicArn = Nothing
   , _elastiCacheReplicationGroupNumCacheClusters = Nothing
@@ -168,6 +171,10 @@ ecrgEngineVersion = lens _elastiCacheReplicationGroupEngineVersion (\s a -> s { 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-kmskeyid
 ecrgKmsKeyId :: Lens' ElastiCacheReplicationGroup (Maybe (Val Text))
 ecrgKmsKeyId = lens _elastiCacheReplicationGroupKmsKeyId (\s a -> s { _elastiCacheReplicationGroupKmsKeyId = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-multiazenabled
+ecrgMultiAZEnabled :: Lens' ElastiCacheReplicationGroup (Maybe (Val Bool))
+ecrgMultiAZEnabled = lens _elastiCacheReplicationGroupMultiAZEnabled (\s a -> s { _elastiCacheReplicationGroupMultiAZEnabled = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-replicationgroup.html#cfn-elasticache-replicationgroup-nodegroupconfiguration
 ecrgNodeGroupConfiguration :: Lens' ElastiCacheReplicationGroup (Maybe [ElastiCacheReplicationGroupNodeGroupConfiguration])

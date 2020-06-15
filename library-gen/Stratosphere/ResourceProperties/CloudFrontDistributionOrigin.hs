@@ -16,7 +16,9 @@ import Stratosphere.ResourceProperties.CloudFrontDistributionS3OriginConfig
 -- 'cloudFrontDistributionOrigin' for a more convenient constructor.
 data CloudFrontDistributionOrigin =
   CloudFrontDistributionOrigin
-  { _cloudFrontDistributionOriginCustomOriginConfig :: Maybe CloudFrontDistributionCustomOriginConfig
+  { _cloudFrontDistributionOriginConnectionAttempts :: Maybe (Val Integer)
+  , _cloudFrontDistributionOriginConnectionTimeout :: Maybe (Val Integer)
+  , _cloudFrontDistributionOriginCustomOriginConfig :: Maybe CloudFrontDistributionCustomOriginConfig
   , _cloudFrontDistributionOriginDomainName :: Val Text
   , _cloudFrontDistributionOriginId :: Val Text
   , _cloudFrontDistributionOriginOriginCustomHeaders :: Maybe [CloudFrontDistributionOriginCustomHeader]
@@ -28,7 +30,9 @@ instance ToJSON CloudFrontDistributionOrigin where
   toJSON CloudFrontDistributionOrigin{..} =
     object $
     catMaybes
-    [ fmap (("CustomOriginConfig",) . toJSON) _cloudFrontDistributionOriginCustomOriginConfig
+    [ fmap (("ConnectionAttempts",) . toJSON) _cloudFrontDistributionOriginConnectionAttempts
+    , fmap (("ConnectionTimeout",) . toJSON) _cloudFrontDistributionOriginConnectionTimeout
+    , fmap (("CustomOriginConfig",) . toJSON) _cloudFrontDistributionOriginCustomOriginConfig
     , (Just . ("DomainName",) . toJSON) _cloudFrontDistributionOriginDomainName
     , (Just . ("Id",) . toJSON) _cloudFrontDistributionOriginId
     , fmap (("OriginCustomHeaders",) . toJSON) _cloudFrontDistributionOriginOriginCustomHeaders
@@ -44,13 +48,23 @@ cloudFrontDistributionOrigin
   -> CloudFrontDistributionOrigin
 cloudFrontDistributionOrigin domainNamearg idarg =
   CloudFrontDistributionOrigin
-  { _cloudFrontDistributionOriginCustomOriginConfig = Nothing
+  { _cloudFrontDistributionOriginConnectionAttempts = Nothing
+  , _cloudFrontDistributionOriginConnectionTimeout = Nothing
+  , _cloudFrontDistributionOriginCustomOriginConfig = Nothing
   , _cloudFrontDistributionOriginDomainName = domainNamearg
   , _cloudFrontDistributionOriginId = idarg
   , _cloudFrontDistributionOriginOriginCustomHeaders = Nothing
   , _cloudFrontDistributionOriginOriginPath = Nothing
   , _cloudFrontDistributionOriginS3OriginConfig = Nothing
   }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-connectionattempts
+cfdoConnectionAttempts :: Lens' CloudFrontDistributionOrigin (Maybe (Val Integer))
+cfdoConnectionAttempts = lens _cloudFrontDistributionOriginConnectionAttempts (\s a -> s { _cloudFrontDistributionOriginConnectionAttempts = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-connectiontimeout
+cfdoConnectionTimeout :: Lens' CloudFrontDistributionOrigin (Maybe (Val Integer))
+cfdoConnectionTimeout = lens _cloudFrontDistributionOriginConnectionTimeout (\s a -> s { _cloudFrontDistributionOriginConnectionTimeout = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html#cfn-cloudfront-distribution-origin-customoriginconfig
 cfdoCustomOriginConfig :: Lens' CloudFrontDistributionOrigin (Maybe CloudFrontDistributionCustomOriginConfig)

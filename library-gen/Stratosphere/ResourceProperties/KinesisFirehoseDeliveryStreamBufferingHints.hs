@@ -16,34 +16,32 @@ import Stratosphere.ResourceImports
 -- constructor.
 data KinesisFirehoseDeliveryStreamBufferingHints =
   KinesisFirehoseDeliveryStreamBufferingHints
-  { _kinesisFirehoseDeliveryStreamBufferingHintsIntervalInSeconds :: Val Integer
-  , _kinesisFirehoseDeliveryStreamBufferingHintsSizeInMBs :: Val Integer
+  { _kinesisFirehoseDeliveryStreamBufferingHintsIntervalInSeconds :: Maybe (Val Integer)
+  , _kinesisFirehoseDeliveryStreamBufferingHintsSizeInMBs :: Maybe (Val Integer)
   } deriving (Show, Eq)
 
 instance ToJSON KinesisFirehoseDeliveryStreamBufferingHints where
   toJSON KinesisFirehoseDeliveryStreamBufferingHints{..} =
     object $
     catMaybes
-    [ (Just . ("IntervalInSeconds",) . toJSON) _kinesisFirehoseDeliveryStreamBufferingHintsIntervalInSeconds
-    , (Just . ("SizeInMBs",) . toJSON) _kinesisFirehoseDeliveryStreamBufferingHintsSizeInMBs
+    [ fmap (("IntervalInSeconds",) . toJSON) _kinesisFirehoseDeliveryStreamBufferingHintsIntervalInSeconds
+    , fmap (("SizeInMBs",) . toJSON) _kinesisFirehoseDeliveryStreamBufferingHintsSizeInMBs
     ]
 
 -- | Constructor for 'KinesisFirehoseDeliveryStreamBufferingHints' containing
 -- required fields as arguments.
 kinesisFirehoseDeliveryStreamBufferingHints
-  :: Val Integer -- ^ 'kfdsbhIntervalInSeconds'
-  -> Val Integer -- ^ 'kfdsbhSizeInMBs'
-  -> KinesisFirehoseDeliveryStreamBufferingHints
-kinesisFirehoseDeliveryStreamBufferingHints intervalInSecondsarg sizeInMBsarg =
+  :: KinesisFirehoseDeliveryStreamBufferingHints
+kinesisFirehoseDeliveryStreamBufferingHints  =
   KinesisFirehoseDeliveryStreamBufferingHints
-  { _kinesisFirehoseDeliveryStreamBufferingHintsIntervalInSeconds = intervalInSecondsarg
-  , _kinesisFirehoseDeliveryStreamBufferingHintsSizeInMBs = sizeInMBsarg
+  { _kinesisFirehoseDeliveryStreamBufferingHintsIntervalInSeconds = Nothing
+  , _kinesisFirehoseDeliveryStreamBufferingHintsSizeInMBs = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-bufferinghints.html#cfn-kinesisfirehose-deliverystream-bufferinghints-intervalinseconds
-kfdsbhIntervalInSeconds :: Lens' KinesisFirehoseDeliveryStreamBufferingHints (Val Integer)
+kfdsbhIntervalInSeconds :: Lens' KinesisFirehoseDeliveryStreamBufferingHints (Maybe (Val Integer))
 kfdsbhIntervalInSeconds = lens _kinesisFirehoseDeliveryStreamBufferingHintsIntervalInSeconds (\s a -> s { _kinesisFirehoseDeliveryStreamBufferingHintsIntervalInSeconds = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-bufferinghints.html#cfn-kinesisfirehose-deliverystream-bufferinghints-sizeinmbs
-kfdsbhSizeInMBs :: Lens' KinesisFirehoseDeliveryStreamBufferingHints (Val Integer)
+kfdsbhSizeInMBs :: Lens' KinesisFirehoseDeliveryStreamBufferingHints (Maybe (Val Integer))
 kfdsbhSizeInMBs = lens _kinesisFirehoseDeliveryStreamBufferingHintsSizeInMBs (\s a -> s { _kinesisFirehoseDeliveryStreamBufferingHintsSizeInMBs = a })

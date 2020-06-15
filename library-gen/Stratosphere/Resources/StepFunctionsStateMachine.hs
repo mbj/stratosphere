@@ -8,6 +8,7 @@
 module Stratosphere.Resources.StepFunctionsStateMachine where
 
 import Stratosphere.ResourceImports
+import Stratosphere.ResourceProperties.StepFunctionsStateMachineS3Location
 import Stratosphere.ResourceProperties.StepFunctionsStateMachineLoggingConfiguration
 import Stratosphere.ResourceProperties.StepFunctionsStateMachineTagsEntry
 
@@ -15,7 +16,8 @@ import Stratosphere.ResourceProperties.StepFunctionsStateMachineTagsEntry
 -- 'stepFunctionsStateMachine' for a more convenient constructor.
 data StepFunctionsStateMachine =
   StepFunctionsStateMachine
-  { _stepFunctionsStateMachineDefinitionString :: Val Text
+  { _stepFunctionsStateMachineDefinitionS3Location :: Maybe StepFunctionsStateMachineS3Location
+  , _stepFunctionsStateMachineDefinitionString :: Maybe (Val Text)
   , _stepFunctionsStateMachineLoggingConfiguration :: Maybe StepFunctionsStateMachineLoggingConfiguration
   , _stepFunctionsStateMachineRoleArn :: Val Text
   , _stepFunctionsStateMachineStateMachineName :: Maybe (Val Text)
@@ -29,7 +31,8 @@ instance ToResourceProperties StepFunctionsStateMachine where
     { resourcePropertiesType = "AWS::StepFunctions::StateMachine"
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
-        [ (Just . ("DefinitionString",) . toJSON) _stepFunctionsStateMachineDefinitionString
+        [ fmap (("DefinitionS3Location",) . toJSON) _stepFunctionsStateMachineDefinitionS3Location
+        , fmap (("DefinitionString",) . toJSON) _stepFunctionsStateMachineDefinitionString
         , fmap (("LoggingConfiguration",) . toJSON) _stepFunctionsStateMachineLoggingConfiguration
         , (Just . ("RoleArn",) . toJSON) _stepFunctionsStateMachineRoleArn
         , fmap (("StateMachineName",) . toJSON) _stepFunctionsStateMachineStateMachineName
@@ -41,12 +44,12 @@ instance ToResourceProperties StepFunctionsStateMachine where
 -- | Constructor for 'StepFunctionsStateMachine' containing required fields as
 -- arguments.
 stepFunctionsStateMachine
-  :: Val Text -- ^ 'sfsmDefinitionString'
-  -> Val Text -- ^ 'sfsmRoleArn'
+  :: Val Text -- ^ 'sfsmRoleArn'
   -> StepFunctionsStateMachine
-stepFunctionsStateMachine definitionStringarg roleArnarg =
+stepFunctionsStateMachine roleArnarg =
   StepFunctionsStateMachine
-  { _stepFunctionsStateMachineDefinitionString = definitionStringarg
+  { _stepFunctionsStateMachineDefinitionS3Location = Nothing
+  , _stepFunctionsStateMachineDefinitionString = Nothing
   , _stepFunctionsStateMachineLoggingConfiguration = Nothing
   , _stepFunctionsStateMachineRoleArn = roleArnarg
   , _stepFunctionsStateMachineStateMachineName = Nothing
@@ -54,8 +57,12 @@ stepFunctionsStateMachine definitionStringarg roleArnarg =
   , _stepFunctionsStateMachineTags = Nothing
   }
 
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitions3location
+sfsmDefinitionS3Location :: Lens' StepFunctionsStateMachine (Maybe StepFunctionsStateMachineS3Location)
+sfsmDefinitionS3Location = lens _stepFunctionsStateMachineDefinitionS3Location (\s a -> s { _stepFunctionsStateMachineDefinitionS3Location = a })
+
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-definitionstring
-sfsmDefinitionString :: Lens' StepFunctionsStateMachine (Val Text)
+sfsmDefinitionString :: Lens' StepFunctionsStateMachine (Maybe (Val Text))
 sfsmDefinitionString = lens _stepFunctionsStateMachineDefinitionString (\s a -> s { _stepFunctionsStateMachineDefinitionString = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html#cfn-stepfunctions-statemachine-loggingconfiguration

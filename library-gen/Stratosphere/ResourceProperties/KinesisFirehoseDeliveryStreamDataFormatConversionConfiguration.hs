@@ -18,51 +18,47 @@ import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamSchemaConfig
 -- more convenient constructor.
 data KinesisFirehoseDeliveryStreamDataFormatConversionConfiguration =
   KinesisFirehoseDeliveryStreamDataFormatConversionConfiguration
-  { _kinesisFirehoseDeliveryStreamDataFormatConversionConfigurationEnabled :: Val Bool
-  , _kinesisFirehoseDeliveryStreamDataFormatConversionConfigurationInputFormatConfiguration :: KinesisFirehoseDeliveryStreamInputFormatConfiguration
-  , _kinesisFirehoseDeliveryStreamDataFormatConversionConfigurationOutputFormatConfiguration :: KinesisFirehoseDeliveryStreamOutputFormatConfiguration
-  , _kinesisFirehoseDeliveryStreamDataFormatConversionConfigurationSchemaConfiguration :: KinesisFirehoseDeliveryStreamSchemaConfiguration
+  { _kinesisFirehoseDeliveryStreamDataFormatConversionConfigurationEnabled :: Maybe (Val Bool)
+  , _kinesisFirehoseDeliveryStreamDataFormatConversionConfigurationInputFormatConfiguration :: Maybe KinesisFirehoseDeliveryStreamInputFormatConfiguration
+  , _kinesisFirehoseDeliveryStreamDataFormatConversionConfigurationOutputFormatConfiguration :: Maybe KinesisFirehoseDeliveryStreamOutputFormatConfiguration
+  , _kinesisFirehoseDeliveryStreamDataFormatConversionConfigurationSchemaConfiguration :: Maybe KinesisFirehoseDeliveryStreamSchemaConfiguration
   } deriving (Show, Eq)
 
 instance ToJSON KinesisFirehoseDeliveryStreamDataFormatConversionConfiguration where
   toJSON KinesisFirehoseDeliveryStreamDataFormatConversionConfiguration{..} =
     object $
     catMaybes
-    [ (Just . ("Enabled",) . toJSON) _kinesisFirehoseDeliveryStreamDataFormatConversionConfigurationEnabled
-    , (Just . ("InputFormatConfiguration",) . toJSON) _kinesisFirehoseDeliveryStreamDataFormatConversionConfigurationInputFormatConfiguration
-    , (Just . ("OutputFormatConfiguration",) . toJSON) _kinesisFirehoseDeliveryStreamDataFormatConversionConfigurationOutputFormatConfiguration
-    , (Just . ("SchemaConfiguration",) . toJSON) _kinesisFirehoseDeliveryStreamDataFormatConversionConfigurationSchemaConfiguration
+    [ fmap (("Enabled",) . toJSON) _kinesisFirehoseDeliveryStreamDataFormatConversionConfigurationEnabled
+    , fmap (("InputFormatConfiguration",) . toJSON) _kinesisFirehoseDeliveryStreamDataFormatConversionConfigurationInputFormatConfiguration
+    , fmap (("OutputFormatConfiguration",) . toJSON) _kinesisFirehoseDeliveryStreamDataFormatConversionConfigurationOutputFormatConfiguration
+    , fmap (("SchemaConfiguration",) . toJSON) _kinesisFirehoseDeliveryStreamDataFormatConversionConfigurationSchemaConfiguration
     ]
 
 -- | Constructor for
 -- 'KinesisFirehoseDeliveryStreamDataFormatConversionConfiguration'
 -- containing required fields as arguments.
 kinesisFirehoseDeliveryStreamDataFormatConversionConfiguration
-  :: Val Bool -- ^ 'kfdsdfccEnabled'
-  -> KinesisFirehoseDeliveryStreamInputFormatConfiguration -- ^ 'kfdsdfccInputFormatConfiguration'
-  -> KinesisFirehoseDeliveryStreamOutputFormatConfiguration -- ^ 'kfdsdfccOutputFormatConfiguration'
-  -> KinesisFirehoseDeliveryStreamSchemaConfiguration -- ^ 'kfdsdfccSchemaConfiguration'
-  -> KinesisFirehoseDeliveryStreamDataFormatConversionConfiguration
-kinesisFirehoseDeliveryStreamDataFormatConversionConfiguration enabledarg inputFormatConfigurationarg outputFormatConfigurationarg schemaConfigurationarg =
+  :: KinesisFirehoseDeliveryStreamDataFormatConversionConfiguration
+kinesisFirehoseDeliveryStreamDataFormatConversionConfiguration  =
   KinesisFirehoseDeliveryStreamDataFormatConversionConfiguration
-  { _kinesisFirehoseDeliveryStreamDataFormatConversionConfigurationEnabled = enabledarg
-  , _kinesisFirehoseDeliveryStreamDataFormatConversionConfigurationInputFormatConfiguration = inputFormatConfigurationarg
-  , _kinesisFirehoseDeliveryStreamDataFormatConversionConfigurationOutputFormatConfiguration = outputFormatConfigurationarg
-  , _kinesisFirehoseDeliveryStreamDataFormatConversionConfigurationSchemaConfiguration = schemaConfigurationarg
+  { _kinesisFirehoseDeliveryStreamDataFormatConversionConfigurationEnabled = Nothing
+  , _kinesisFirehoseDeliveryStreamDataFormatConversionConfigurationInputFormatConfiguration = Nothing
+  , _kinesisFirehoseDeliveryStreamDataFormatConversionConfigurationOutputFormatConfiguration = Nothing
+  , _kinesisFirehoseDeliveryStreamDataFormatConversionConfigurationSchemaConfiguration = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-dataformatconversionconfiguration.html#cfn-kinesisfirehose-deliverystream-dataformatconversionconfiguration-enabled
-kfdsdfccEnabled :: Lens' KinesisFirehoseDeliveryStreamDataFormatConversionConfiguration (Val Bool)
+kfdsdfccEnabled :: Lens' KinesisFirehoseDeliveryStreamDataFormatConversionConfiguration (Maybe (Val Bool))
 kfdsdfccEnabled = lens _kinesisFirehoseDeliveryStreamDataFormatConversionConfigurationEnabled (\s a -> s { _kinesisFirehoseDeliveryStreamDataFormatConversionConfigurationEnabled = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-dataformatconversionconfiguration.html#cfn-kinesisfirehose-deliverystream-dataformatconversionconfiguration-inputformatconfiguration
-kfdsdfccInputFormatConfiguration :: Lens' KinesisFirehoseDeliveryStreamDataFormatConversionConfiguration KinesisFirehoseDeliveryStreamInputFormatConfiguration
+kfdsdfccInputFormatConfiguration :: Lens' KinesisFirehoseDeliveryStreamDataFormatConversionConfiguration (Maybe KinesisFirehoseDeliveryStreamInputFormatConfiguration)
 kfdsdfccInputFormatConfiguration = lens _kinesisFirehoseDeliveryStreamDataFormatConversionConfigurationInputFormatConfiguration (\s a -> s { _kinesisFirehoseDeliveryStreamDataFormatConversionConfigurationInputFormatConfiguration = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-dataformatconversionconfiguration.html#cfn-kinesisfirehose-deliverystream-dataformatconversionconfiguration-outputformatconfiguration
-kfdsdfccOutputFormatConfiguration :: Lens' KinesisFirehoseDeliveryStreamDataFormatConversionConfiguration KinesisFirehoseDeliveryStreamOutputFormatConfiguration
+kfdsdfccOutputFormatConfiguration :: Lens' KinesisFirehoseDeliveryStreamDataFormatConversionConfiguration (Maybe KinesisFirehoseDeliveryStreamOutputFormatConfiguration)
 kfdsdfccOutputFormatConfiguration = lens _kinesisFirehoseDeliveryStreamDataFormatConversionConfigurationOutputFormatConfiguration (\s a -> s { _kinesisFirehoseDeliveryStreamDataFormatConversionConfigurationOutputFormatConfiguration = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-dataformatconversionconfiguration.html#cfn-kinesisfirehose-deliverystream-dataformatconversionconfiguration-schemaconfiguration
-kfdsdfccSchemaConfiguration :: Lens' KinesisFirehoseDeliveryStreamDataFormatConversionConfiguration KinesisFirehoseDeliveryStreamSchemaConfiguration
+kfdsdfccSchemaConfiguration :: Lens' KinesisFirehoseDeliveryStreamDataFormatConversionConfiguration (Maybe KinesisFirehoseDeliveryStreamSchemaConfiguration)
 kfdsdfccSchemaConfiguration = lens _kinesisFirehoseDeliveryStreamDataFormatConversionConfigurationSchemaConfiguration (\s a -> s { _kinesisFirehoseDeliveryStreamDataFormatConversionConfigurationSchemaConfiguration = a })

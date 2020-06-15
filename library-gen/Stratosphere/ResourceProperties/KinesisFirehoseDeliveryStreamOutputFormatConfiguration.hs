@@ -16,26 +16,25 @@ import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamSerializer
 -- convenient constructor.
 data KinesisFirehoseDeliveryStreamOutputFormatConfiguration =
   KinesisFirehoseDeliveryStreamOutputFormatConfiguration
-  { _kinesisFirehoseDeliveryStreamOutputFormatConfigurationSerializer :: KinesisFirehoseDeliveryStreamSerializer
+  { _kinesisFirehoseDeliveryStreamOutputFormatConfigurationSerializer :: Maybe KinesisFirehoseDeliveryStreamSerializer
   } deriving (Show, Eq)
 
 instance ToJSON KinesisFirehoseDeliveryStreamOutputFormatConfiguration where
   toJSON KinesisFirehoseDeliveryStreamOutputFormatConfiguration{..} =
     object $
     catMaybes
-    [ (Just . ("Serializer",) . toJSON) _kinesisFirehoseDeliveryStreamOutputFormatConfigurationSerializer
+    [ fmap (("Serializer",) . toJSON) _kinesisFirehoseDeliveryStreamOutputFormatConfigurationSerializer
     ]
 
 -- | Constructor for 'KinesisFirehoseDeliveryStreamOutputFormatConfiguration'
 -- containing required fields as arguments.
 kinesisFirehoseDeliveryStreamOutputFormatConfiguration
-  :: KinesisFirehoseDeliveryStreamSerializer -- ^ 'kfdsofcSerializer'
-  -> KinesisFirehoseDeliveryStreamOutputFormatConfiguration
-kinesisFirehoseDeliveryStreamOutputFormatConfiguration serializerarg =
+  :: KinesisFirehoseDeliveryStreamOutputFormatConfiguration
+kinesisFirehoseDeliveryStreamOutputFormatConfiguration  =
   KinesisFirehoseDeliveryStreamOutputFormatConfiguration
-  { _kinesisFirehoseDeliveryStreamOutputFormatConfigurationSerializer = serializerarg
+  { _kinesisFirehoseDeliveryStreamOutputFormatConfigurationSerializer = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-outputformatconfiguration.html#cfn-kinesisfirehose-deliverystream-outputformatconfiguration-serializer
-kfdsofcSerializer :: Lens' KinesisFirehoseDeliveryStreamOutputFormatConfiguration KinesisFirehoseDeliveryStreamSerializer
+kfdsofcSerializer :: Lens' KinesisFirehoseDeliveryStreamOutputFormatConfiguration (Maybe KinesisFirehoseDeliveryStreamSerializer)
 kfdsofcSerializer = lens _kinesisFirehoseDeliveryStreamOutputFormatConfigurationSerializer (\s a -> s { _kinesisFirehoseDeliveryStreamOutputFormatConfigurationSerializer = a })

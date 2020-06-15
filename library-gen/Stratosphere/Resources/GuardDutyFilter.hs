@@ -8,7 +8,7 @@
 module Stratosphere.Resources.GuardDutyFilter where
 
 import Stratosphere.ResourceImports
-import Stratosphere.ResourceProperties.GuardDutyFilterFindingCriteria
+
 
 -- | Full data type definition for GuardDutyFilter. See 'guardDutyFilter' for
 -- a more convenient constructor.
@@ -17,7 +17,6 @@ data GuardDutyFilter =
   { _guardDutyFilterAction :: Val Text
   , _guardDutyFilterDescription :: Val Text
   , _guardDutyFilterDetectorId :: Val Text
-  , _guardDutyFilterFindingCriteria :: GuardDutyFilterFindingCriteria
   , _guardDutyFilterName :: Val Text
   , _guardDutyFilterRank :: Val Integer
   } deriving (Show, Eq)
@@ -31,7 +30,6 @@ instance ToResourceProperties GuardDutyFilter where
         [ (Just . ("Action",) . toJSON) _guardDutyFilterAction
         , (Just . ("Description",) . toJSON) _guardDutyFilterDescription
         , (Just . ("DetectorId",) . toJSON) _guardDutyFilterDetectorId
-        , (Just . ("FindingCriteria",) . toJSON) _guardDutyFilterFindingCriteria
         , (Just . ("Name",) . toJSON) _guardDutyFilterName
         , (Just . ("Rank",) . toJSON) _guardDutyFilterRank
         ]
@@ -43,16 +41,14 @@ guardDutyFilter
   :: Val Text -- ^ 'gdfAction'
   -> Val Text -- ^ 'gdfDescription'
   -> Val Text -- ^ 'gdfDetectorId'
-  -> GuardDutyFilterFindingCriteria -- ^ 'gdfFindingCriteria'
   -> Val Text -- ^ 'gdfName'
   -> Val Integer -- ^ 'gdfRank'
   -> GuardDutyFilter
-guardDutyFilter actionarg descriptionarg detectorIdarg findingCriteriaarg namearg rankarg =
+guardDutyFilter actionarg descriptionarg detectorIdarg namearg rankarg =
   GuardDutyFilter
   { _guardDutyFilterAction = actionarg
   , _guardDutyFilterDescription = descriptionarg
   , _guardDutyFilterDetectorId = detectorIdarg
-  , _guardDutyFilterFindingCriteria = findingCriteriaarg
   , _guardDutyFilterName = namearg
   , _guardDutyFilterRank = rankarg
   }
@@ -68,10 +64,6 @@ gdfDescription = lens _guardDutyFilterDescription (\s a -> s { _guardDutyFilterD
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-filter.html#cfn-guardduty-filter-detectorid
 gdfDetectorId :: Lens' GuardDutyFilter (Val Text)
 gdfDetectorId = lens _guardDutyFilterDetectorId (\s a -> s { _guardDutyFilterDetectorId = a })
-
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-filter.html#cfn-guardduty-filter-findingcriteria
-gdfFindingCriteria :: Lens' GuardDutyFilter GuardDutyFilterFindingCriteria
-gdfFindingCriteria = lens _guardDutyFilterFindingCriteria (\s a -> s { _guardDutyFilterFindingCriteria = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-filter.html#cfn-guardduty-filter-name
 gdfName :: Lens' GuardDutyFilter (Val Text)

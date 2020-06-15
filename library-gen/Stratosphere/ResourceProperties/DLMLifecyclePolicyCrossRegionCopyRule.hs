@@ -17,9 +17,9 @@ data DLMLifecyclePolicyCrossRegionCopyRule =
   DLMLifecyclePolicyCrossRegionCopyRule
   { _dLMLifecyclePolicyCrossRegionCopyRuleCmkArn :: Maybe (Val Text)
   , _dLMLifecyclePolicyCrossRegionCopyRuleCopyTags :: Maybe (Val Bool)
-  , _dLMLifecyclePolicyCrossRegionCopyRuleEncrypted :: Maybe (Val Bool)
+  , _dLMLifecyclePolicyCrossRegionCopyRuleEncrypted :: Val Bool
   , _dLMLifecyclePolicyCrossRegionCopyRuleRetainRule :: Maybe DLMLifecyclePolicyCrossRegionCopyRetainRule
-  , _dLMLifecyclePolicyCrossRegionCopyRuleTargetRegion :: Maybe (Val Text)
+  , _dLMLifecyclePolicyCrossRegionCopyRuleTargetRegion :: Val Text
   } deriving (Show, Eq)
 
 instance ToJSON DLMLifecyclePolicyCrossRegionCopyRule where
@@ -28,22 +28,24 @@ instance ToJSON DLMLifecyclePolicyCrossRegionCopyRule where
     catMaybes
     [ fmap (("CmkArn",) . toJSON) _dLMLifecyclePolicyCrossRegionCopyRuleCmkArn
     , fmap (("CopyTags",) . toJSON) _dLMLifecyclePolicyCrossRegionCopyRuleCopyTags
-    , fmap (("Encrypted",) . toJSON) _dLMLifecyclePolicyCrossRegionCopyRuleEncrypted
+    , (Just . ("Encrypted",) . toJSON) _dLMLifecyclePolicyCrossRegionCopyRuleEncrypted
     , fmap (("RetainRule",) . toJSON) _dLMLifecyclePolicyCrossRegionCopyRuleRetainRule
-    , fmap (("TargetRegion",) . toJSON) _dLMLifecyclePolicyCrossRegionCopyRuleTargetRegion
+    , (Just . ("TargetRegion",) . toJSON) _dLMLifecyclePolicyCrossRegionCopyRuleTargetRegion
     ]
 
 -- | Constructor for 'DLMLifecyclePolicyCrossRegionCopyRule' containing
 -- required fields as arguments.
 dlmLifecyclePolicyCrossRegionCopyRule
-  :: DLMLifecyclePolicyCrossRegionCopyRule
-dlmLifecyclePolicyCrossRegionCopyRule  =
+  :: Val Bool -- ^ 'dlmlpcrcrEncrypted'
+  -> Val Text -- ^ 'dlmlpcrcrTargetRegion'
+  -> DLMLifecyclePolicyCrossRegionCopyRule
+dlmLifecyclePolicyCrossRegionCopyRule encryptedarg targetRegionarg =
   DLMLifecyclePolicyCrossRegionCopyRule
   { _dLMLifecyclePolicyCrossRegionCopyRuleCmkArn = Nothing
   , _dLMLifecyclePolicyCrossRegionCopyRuleCopyTags = Nothing
-  , _dLMLifecyclePolicyCrossRegionCopyRuleEncrypted = Nothing
+  , _dLMLifecyclePolicyCrossRegionCopyRuleEncrypted = encryptedarg
   , _dLMLifecyclePolicyCrossRegionCopyRuleRetainRule = Nothing
-  , _dLMLifecyclePolicyCrossRegionCopyRuleTargetRegion = Nothing
+  , _dLMLifecyclePolicyCrossRegionCopyRuleTargetRegion = targetRegionarg
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopyrule.html#cfn-dlm-lifecyclepolicy-crossregioncopyrule-cmkarn
@@ -55,7 +57,7 @@ dlmlpcrcrCopyTags :: Lens' DLMLifecyclePolicyCrossRegionCopyRule (Maybe (Val Boo
 dlmlpcrcrCopyTags = lens _dLMLifecyclePolicyCrossRegionCopyRuleCopyTags (\s a -> s { _dLMLifecyclePolicyCrossRegionCopyRuleCopyTags = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopyrule.html#cfn-dlm-lifecyclepolicy-crossregioncopyrule-encrypted
-dlmlpcrcrEncrypted :: Lens' DLMLifecyclePolicyCrossRegionCopyRule (Maybe (Val Bool))
+dlmlpcrcrEncrypted :: Lens' DLMLifecyclePolicyCrossRegionCopyRule (Val Bool)
 dlmlpcrcrEncrypted = lens _dLMLifecyclePolicyCrossRegionCopyRuleEncrypted (\s a -> s { _dLMLifecyclePolicyCrossRegionCopyRuleEncrypted = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopyrule.html#cfn-dlm-lifecyclepolicy-crossregioncopyrule-retainrule
@@ -63,5 +65,5 @@ dlmlpcrcrRetainRule :: Lens' DLMLifecyclePolicyCrossRegionCopyRule (Maybe DLMLif
 dlmlpcrcrRetainRule = lens _dLMLifecyclePolicyCrossRegionCopyRuleRetainRule (\s a -> s { _dLMLifecyclePolicyCrossRegionCopyRuleRetainRule = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopyrule.html#cfn-dlm-lifecyclepolicy-crossregioncopyrule-targetregion
-dlmlpcrcrTargetRegion :: Lens' DLMLifecyclePolicyCrossRegionCopyRule (Maybe (Val Text))
+dlmlpcrcrTargetRegion :: Lens' DLMLifecyclePolicyCrossRegionCopyRule (Val Text)
 dlmlpcrcrTargetRegion = lens _dLMLifecyclePolicyCrossRegionCopyRuleTargetRegion (\s a -> s { _dLMLifecyclePolicyCrossRegionCopyRuleTargetRegion = a })

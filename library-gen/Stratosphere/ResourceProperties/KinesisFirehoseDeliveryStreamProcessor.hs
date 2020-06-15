@@ -15,7 +15,7 @@ import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamProcessorPar
 -- constructor.
 data KinesisFirehoseDeliveryStreamProcessor =
   KinesisFirehoseDeliveryStreamProcessor
-  { _kinesisFirehoseDeliveryStreamProcessorParameters :: [KinesisFirehoseDeliveryStreamProcessorParameter]
+  { _kinesisFirehoseDeliveryStreamProcessorParameters :: Maybe [KinesisFirehoseDeliveryStreamProcessorParameter]
   , _kinesisFirehoseDeliveryStreamProcessorType :: Val Text
   } deriving (Show, Eq)
 
@@ -23,24 +23,23 @@ instance ToJSON KinesisFirehoseDeliveryStreamProcessor where
   toJSON KinesisFirehoseDeliveryStreamProcessor{..} =
     object $
     catMaybes
-    [ (Just . ("Parameters",) . toJSON) _kinesisFirehoseDeliveryStreamProcessorParameters
+    [ fmap (("Parameters",) . toJSON) _kinesisFirehoseDeliveryStreamProcessorParameters
     , (Just . ("Type",) . toJSON) _kinesisFirehoseDeliveryStreamProcessorType
     ]
 
 -- | Constructor for 'KinesisFirehoseDeliveryStreamProcessor' containing
 -- required fields as arguments.
 kinesisFirehoseDeliveryStreamProcessor
-  :: [KinesisFirehoseDeliveryStreamProcessorParameter] -- ^ 'kfdspParameters'
-  -> Val Text -- ^ 'kfdspType'
+  :: Val Text -- ^ 'kfdspType'
   -> KinesisFirehoseDeliveryStreamProcessor
-kinesisFirehoseDeliveryStreamProcessor parametersarg typearg =
+kinesisFirehoseDeliveryStreamProcessor typearg =
   KinesisFirehoseDeliveryStreamProcessor
-  { _kinesisFirehoseDeliveryStreamProcessorParameters = parametersarg
+  { _kinesisFirehoseDeliveryStreamProcessorParameters = Nothing
   , _kinesisFirehoseDeliveryStreamProcessorType = typearg
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processor.html#cfn-kinesisfirehose-deliverystream-processor-parameters
-kfdspParameters :: Lens' KinesisFirehoseDeliveryStreamProcessor [KinesisFirehoseDeliveryStreamProcessorParameter]
+kfdspParameters :: Lens' KinesisFirehoseDeliveryStreamProcessor (Maybe [KinesisFirehoseDeliveryStreamProcessorParameter])
 kfdspParameters = lens _kinesisFirehoseDeliveryStreamProcessorParameters (\s a -> s { _kinesisFirehoseDeliveryStreamProcessorParameters = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-processor.html#cfn-kinesisfirehose-deliverystream-processor-type

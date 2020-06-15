@@ -16,7 +16,7 @@ data MacieFindingsFilter =
   MacieFindingsFilter
   { _macieFindingsFilterAction :: Maybe (Val Text)
   , _macieFindingsFilterDescription :: Maybe (Val Text)
-  , _macieFindingsFilterName :: Maybe (Val Text)
+  , _macieFindingsFilterName :: Val Text
   , _macieFindingsFilterPosition :: Maybe (Val Integer)
   } deriving (Show, Eq)
 
@@ -28,7 +28,7 @@ instance ToResourceProperties MacieFindingsFilter where
         hashMapFromList $ catMaybes
         [ fmap (("Action",) . toJSON) _macieFindingsFilterAction
         , fmap (("Description",) . toJSON) _macieFindingsFilterDescription
-        , fmap (("Name",) . toJSON) _macieFindingsFilterName
+        , (Just . ("Name",) . toJSON) _macieFindingsFilterName
         , fmap (("Position",) . toJSON) _macieFindingsFilterPosition
         ]
     }
@@ -36,12 +36,13 @@ instance ToResourceProperties MacieFindingsFilter where
 -- | Constructor for 'MacieFindingsFilter' containing required fields as
 -- arguments.
 macieFindingsFilter
-  :: MacieFindingsFilter
-macieFindingsFilter  =
+  :: Val Text -- ^ 'mffName'
+  -> MacieFindingsFilter
+macieFindingsFilter namearg =
   MacieFindingsFilter
   { _macieFindingsFilterAction = Nothing
   , _macieFindingsFilterDescription = Nothing
-  , _macieFindingsFilterName = Nothing
+  , _macieFindingsFilterName = namearg
   , _macieFindingsFilterPosition = Nothing
   }
 
@@ -54,7 +55,7 @@ mffDescription :: Lens' MacieFindingsFilter (Maybe (Val Text))
 mffDescription = lens _macieFindingsFilterDescription (\s a -> s { _macieFindingsFilterDescription = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-name
-mffName :: Lens' MacieFindingsFilter (Maybe (Val Text))
+mffName :: Lens' MacieFindingsFilter (Val Text)
 mffName = lens _macieFindingsFilterName (\s a -> s { _macieFindingsFilterName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-macie-findingsfilter.html#cfn-macie-findingsfilter-position

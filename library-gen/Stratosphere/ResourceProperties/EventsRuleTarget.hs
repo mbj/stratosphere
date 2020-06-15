@@ -10,6 +10,7 @@ module Stratosphere.ResourceProperties.EventsRuleTarget where
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.EventsRuleBatchParameters
 import Stratosphere.ResourceProperties.EventsRuleEcsParameters
+import Stratosphere.ResourceProperties.EventsRuleHttpParameters
 import Stratosphere.ResourceProperties.EventsRuleInputTransformer
 import Stratosphere.ResourceProperties.EventsRuleKinesisParameters
 import Stratosphere.ResourceProperties.EventsRuleRunCommandParameters
@@ -22,6 +23,7 @@ data EventsRuleTarget =
   { _eventsRuleTargetArn :: Val Text
   , _eventsRuleTargetBatchParameters :: Maybe EventsRuleBatchParameters
   , _eventsRuleTargetEcsParameters :: Maybe EventsRuleEcsParameters
+  , _eventsRuleTargetHttpParameters :: Maybe EventsRuleHttpParameters
   , _eventsRuleTargetId :: Val Text
   , _eventsRuleTargetInput :: Maybe (Val Text)
   , _eventsRuleTargetInputPath :: Maybe (Val Text)
@@ -39,6 +41,7 @@ instance ToJSON EventsRuleTarget where
     [ (Just . ("Arn",) . toJSON) _eventsRuleTargetArn
     , fmap (("BatchParameters",) . toJSON) _eventsRuleTargetBatchParameters
     , fmap (("EcsParameters",) . toJSON) _eventsRuleTargetEcsParameters
+    , fmap (("HttpParameters",) . toJSON) _eventsRuleTargetHttpParameters
     , (Just . ("Id",) . toJSON) _eventsRuleTargetId
     , fmap (("Input",) . toJSON) _eventsRuleTargetInput
     , fmap (("InputPath",) . toJSON) _eventsRuleTargetInputPath
@@ -60,6 +63,7 @@ eventsRuleTarget arnarg idarg =
   { _eventsRuleTargetArn = arnarg
   , _eventsRuleTargetBatchParameters = Nothing
   , _eventsRuleTargetEcsParameters = Nothing
+  , _eventsRuleTargetHttpParameters = Nothing
   , _eventsRuleTargetId = idarg
   , _eventsRuleTargetInput = Nothing
   , _eventsRuleTargetInputPath = Nothing
@@ -81,6 +85,10 @@ ertBatchParameters = lens _eventsRuleTargetBatchParameters (\s a -> s { _eventsR
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-ecsparameters
 ertEcsParameters :: Lens' EventsRuleTarget (Maybe EventsRuleEcsParameters)
 ertEcsParameters = lens _eventsRuleTargetEcsParameters (\s a -> s { _eventsRuleTargetEcsParameters = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-httpparameters
+ertHttpParameters :: Lens' EventsRuleTarget (Maybe EventsRuleHttpParameters)
+ertHttpParameters = lens _eventsRuleTargetHttpParameters (\s a -> s { _eventsRuleTargetHttpParameters = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-target.html#cfn-events-rule-target-id
 ertId :: Lens' EventsRuleTarget (Val Text)

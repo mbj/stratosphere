@@ -14,7 +14,8 @@ import Stratosphere.ResourceImports
 -- 'codeGuruProfilerProfilingGroup' for a more convenient constructor.
 data CodeGuruProfilerProfilingGroup =
   CodeGuruProfilerProfilingGroup
-  { _codeGuruProfilerProfilingGroupProfilingGroupName :: Val Text
+  { _codeGuruProfilerProfilingGroupAgentPermissions :: Maybe Object
+  , _codeGuruProfilerProfilingGroupProfilingGroupName :: Val Text
   } deriving (Show, Eq)
 
 instance ToResourceProperties CodeGuruProfilerProfilingGroup where
@@ -23,7 +24,8 @@ instance ToResourceProperties CodeGuruProfilerProfilingGroup where
     { resourcePropertiesType = "AWS::CodeGuruProfiler::ProfilingGroup"
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
-        [ (Just . ("ProfilingGroupName",) . toJSON) _codeGuruProfilerProfilingGroupProfilingGroupName
+        [ fmap (("AgentPermissions",) . toJSON) _codeGuruProfilerProfilingGroupAgentPermissions
+        , (Just . ("ProfilingGroupName",) . toJSON) _codeGuruProfilerProfilingGroupProfilingGroupName
         ]
     }
 
@@ -34,8 +36,13 @@ codeGuruProfilerProfilingGroup
   -> CodeGuruProfilerProfilingGroup
 codeGuruProfilerProfilingGroup profilingGroupNamearg =
   CodeGuruProfilerProfilingGroup
-  { _codeGuruProfilerProfilingGroupProfilingGroupName = profilingGroupNamearg
+  { _codeGuruProfilerProfilingGroupAgentPermissions = Nothing
+  , _codeGuruProfilerProfilingGroupProfilingGroupName = profilingGroupNamearg
   }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-agentpermissions
+cgppgAgentPermissions :: Lens' CodeGuruProfilerProfilingGroup (Maybe Object)
+cgppgAgentPermissions = lens _codeGuruProfilerProfilingGroupAgentPermissions (\s a -> s { _codeGuruProfilerProfilingGroupAgentPermissions = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-profilinggroupname
 cgppgProfilingGroupName :: Lens' CodeGuruProfilerProfilingGroup (Val Text)

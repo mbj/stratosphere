@@ -226,6 +226,7 @@ import Stratosphere.Resources.EC2NetworkInterface as X
 import Stratosphere.Resources.EC2NetworkInterfaceAttachment as X
 import Stratosphere.Resources.EC2NetworkInterfacePermission as X
 import Stratosphere.Resources.EC2PlacementGroup as X
+import Stratosphere.Resources.EC2PrefixList as X
 import Stratosphere.Resources.EC2Route as X
 import Stratosphere.Resources.EC2RouteTable as X
 import Stratosphere.Resources.EC2SecurityGroup as X
@@ -267,6 +268,7 @@ import Stratosphere.Resources.ECSPrimaryTaskSet as X
 import Stratosphere.Resources.ECSService as X
 import Stratosphere.Resources.ECSTaskDefinition as X
 import Stratosphere.Resources.ECSTaskSet as X
+import Stratosphere.Resources.EFSAccessPoint as X
 import Stratosphere.Resources.EFSFileSystem as X
 import Stratosphere.Resources.EFSMountTarget as X
 import Stratosphere.Resources.EKSCluster as X
@@ -372,6 +374,7 @@ import Stratosphere.Resources.IoT1ClickProject as X
 import Stratosphere.Resources.IoTCertificate as X
 import Stratosphere.Resources.IoTPolicy as X
 import Stratosphere.Resources.IoTPolicyPrincipalAttachment as X
+import Stratosphere.Resources.IoTProvisioningTemplate as X
 import Stratosphere.Resources.IoTThing as X
 import Stratosphere.Resources.IoTThingPrincipalAttachment as X
 import Stratosphere.Resources.IoTTopicRule as X
@@ -471,6 +474,8 @@ import Stratosphere.Resources.RDSDBCluster as X
 import Stratosphere.Resources.RDSDBClusterParameterGroup as X
 import Stratosphere.Resources.RDSDBInstance as X
 import Stratosphere.Resources.RDSDBParameterGroup as X
+import Stratosphere.Resources.RDSDBProxy as X
+import Stratosphere.Resources.RDSDBProxyTargetGroup as X
 import Stratosphere.Resources.RDSDBSecurityGroup as X
 import Stratosphere.Resources.RDSDBSecurityGroupIngress as X
 import Stratosphere.Resources.RDSDBSubnetGroup as X
@@ -973,6 +978,7 @@ import Stratosphere.ResourceProperties.EC2ClientVpnEndpointCertificateAuthentica
 import Stratosphere.ResourceProperties.EC2ClientVpnEndpointClientAuthenticationRequest as X
 import Stratosphere.ResourceProperties.EC2ClientVpnEndpointConnectionLogOptions as X
 import Stratosphere.ResourceProperties.EC2ClientVpnEndpointDirectoryServiceAuthenticationRequest as X
+import Stratosphere.ResourceProperties.EC2ClientVpnEndpointFederatedAuthenticationRequest as X
 import Stratosphere.ResourceProperties.EC2ClientVpnEndpointTagSpecification as X
 import Stratosphere.ResourceProperties.EC2EC2FleetCapacityReservationOptionsRequest as X
 import Stratosphere.ResourceProperties.EC2EC2FleetFleetLaunchTemplateConfigRequest as X
@@ -1025,6 +1031,7 @@ import Stratosphere.ResourceProperties.EC2NetworkAclEntryIcmp as X
 import Stratosphere.ResourceProperties.EC2NetworkAclEntryPortRange as X
 import Stratosphere.ResourceProperties.EC2NetworkInterfaceInstanceIpv6Address as X
 import Stratosphere.ResourceProperties.EC2NetworkInterfacePrivateIpAddressSpecification as X
+import Stratosphere.ResourceProperties.EC2PrefixListEntry as X
 import Stratosphere.ResourceProperties.EC2SecurityGroupEgressProperty as X
 import Stratosphere.ResourceProperties.EC2SecurityGroupIngressProperty as X
 import Stratosphere.ResourceProperties.EC2SpotFleetBlockDeviceMapping as X
@@ -1089,6 +1096,10 @@ import Stratosphere.ResourceProperties.ECSTaskSetLoadBalancer as X
 import Stratosphere.ResourceProperties.ECSTaskSetNetworkConfiguration as X
 import Stratosphere.ResourceProperties.ECSTaskSetScale as X
 import Stratosphere.ResourceProperties.ECSTaskSetServiceRegistry as X
+import Stratosphere.ResourceProperties.EFSAccessPointAccessPointTag as X
+import Stratosphere.ResourceProperties.EFSAccessPointCreationInfo as X
+import Stratosphere.ResourceProperties.EFSAccessPointPosixUser as X
+import Stratosphere.ResourceProperties.EFSAccessPointRootDirectory as X
 import Stratosphere.ResourceProperties.EFSFileSystemElasticFileSystemTag as X
 import Stratosphere.ResourceProperties.EFSFileSystemLifecyclePolicy as X
 import Stratosphere.ResourceProperties.EKSClusterEncryptionConfig as X
@@ -1210,6 +1221,7 @@ import Stratosphere.ResourceProperties.EventsRuleBatchArrayProperties as X
 import Stratosphere.ResourceProperties.EventsRuleBatchParameters as X
 import Stratosphere.ResourceProperties.EventsRuleBatchRetryStrategy as X
 import Stratosphere.ResourceProperties.EventsRuleEcsParameters as X
+import Stratosphere.ResourceProperties.EventsRuleHttpParameters as X
 import Stratosphere.ResourceProperties.EventsRuleInputTransformer as X
 import Stratosphere.ResourceProperties.EventsRuleKinesisParameters as X
 import Stratosphere.ResourceProperties.EventsRuleNetworkConfiguration as X
@@ -1348,6 +1360,7 @@ import Stratosphere.ResourceProperties.ImageBuilderInfrastructureConfigurationLo
 import Stratosphere.ResourceProperties.ImageBuilderInfrastructureConfigurationS3Logs as X
 import Stratosphere.ResourceProperties.IoT1ClickProjectDeviceTemplate as X
 import Stratosphere.ResourceProperties.IoT1ClickProjectPlacementTemplate as X
+import Stratosphere.ResourceProperties.IoTProvisioningTemplateProvisioningHook as X
 import Stratosphere.ResourceProperties.IoTThingAttributePayload as X
 import Stratosphere.ResourceProperties.IoTTopicRuleAction as X
 import Stratosphere.ResourceProperties.IoTTopicRuleAssetPropertyTimestamp as X
@@ -1528,11 +1541,13 @@ import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamProcessingCo
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamProcessor as X
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamProcessorParameter as X
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration as X
+import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamRedshiftRetryOptions as X
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamS3DestinationConfiguration as X
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamSchemaConfiguration as X
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamSerializer as X
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamSplunkDestinationConfiguration as X
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamSplunkRetryOptions as X
+import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamVpcConfiguration as X
 import Stratosphere.ResourceProperties.LakeFormationDataLakeSettingsDataLakePrincipal as X
 import Stratosphere.ResourceProperties.LakeFormationPermissionsColumnWildcard as X
 import Stratosphere.ResourceProperties.LakeFormationPermissionsDataLakePrincipal as X
@@ -1691,6 +1706,9 @@ import Stratosphere.ResourceProperties.RDSDBClusterDBClusterRole as X
 import Stratosphere.ResourceProperties.RDSDBClusterScalingConfiguration as X
 import Stratosphere.ResourceProperties.RDSDBInstanceDBInstanceRole as X
 import Stratosphere.ResourceProperties.RDSDBInstanceProcessorFeature as X
+import Stratosphere.ResourceProperties.RDSDBProxyAuthFormat as X
+import Stratosphere.ResourceProperties.RDSDBProxyTagFormat as X
+import Stratosphere.ResourceProperties.RDSDBProxyTargetGroupConnectionPoolConfigurationInfoFormat as X
 import Stratosphere.ResourceProperties.RDSDBSecurityGroupIngressProperty as X
 import Stratosphere.ResourceProperties.RDSOptionGroupOptionConfiguration as X
 import Stratosphere.ResourceProperties.RDSOptionGroupOptionSetting as X
@@ -1730,6 +1748,7 @@ import Stratosphere.ResourceProperties.S3BucketCorsConfiguration as X
 import Stratosphere.ResourceProperties.S3BucketCorsRule as X
 import Stratosphere.ResourceProperties.S3BucketDataExport as X
 import Stratosphere.ResourceProperties.S3BucketDefaultRetention as X
+import Stratosphere.ResourceProperties.S3BucketDeleteMarkerReplication as X
 import Stratosphere.ResourceProperties.S3BucketDestination as X
 import Stratosphere.ResourceProperties.S3BucketEncryptionConfiguration as X
 import Stratosphere.ResourceProperties.S3BucketFilterRule as X
@@ -1737,6 +1756,7 @@ import Stratosphere.ResourceProperties.S3BucketInventoryConfiguration as X
 import Stratosphere.ResourceProperties.S3BucketLambdaConfiguration as X
 import Stratosphere.ResourceProperties.S3BucketLifecycleConfiguration as X
 import Stratosphere.ResourceProperties.S3BucketLoggingConfiguration as X
+import Stratosphere.ResourceProperties.S3BucketMetrics as X
 import Stratosphere.ResourceProperties.S3BucketMetricsConfiguration as X
 import Stratosphere.ResourceProperties.S3BucketNoncurrentVersionTransition as X
 import Stratosphere.ResourceProperties.S3BucketNotificationConfiguration as X
@@ -1750,6 +1770,10 @@ import Stratosphere.ResourceProperties.S3BucketRedirectRule as X
 import Stratosphere.ResourceProperties.S3BucketReplicationConfiguration as X
 import Stratosphere.ResourceProperties.S3BucketReplicationDestination as X
 import Stratosphere.ResourceProperties.S3BucketReplicationRule as X
+import Stratosphere.ResourceProperties.S3BucketReplicationRuleAndOperator as X
+import Stratosphere.ResourceProperties.S3BucketReplicationRuleFilter as X
+import Stratosphere.ResourceProperties.S3BucketReplicationTime as X
+import Stratosphere.ResourceProperties.S3BucketReplicationTimeValue as X
 import Stratosphere.ResourceProperties.S3BucketRoutingRule as X
 import Stratosphere.ResourceProperties.S3BucketRoutingRuleCondition as X
 import Stratosphere.ResourceProperties.S3BucketRule as X
@@ -1782,7 +1806,6 @@ import Stratosphere.ResourceProperties.SESReceiptRuleWorkmailAction as X
 import Stratosphere.ResourceProperties.SESTemplateTemplate as X
 import Stratosphere.ResourceProperties.SNSTopicSubscription as X
 import Stratosphere.ResourceProperties.SSMAssociationInstanceAssociationOutputLocation as X
-import Stratosphere.ResourceProperties.SSMAssociationParameterValues as X
 import Stratosphere.ResourceProperties.SSMAssociationS3OutputLocation as X
 import Stratosphere.ResourceProperties.SSMAssociationTarget as X
 import Stratosphere.ResourceProperties.SSMMaintenanceWindowTargetTargets as X
@@ -1824,6 +1847,7 @@ import Stratosphere.ResourceProperties.StepFunctionsActivityTagsEntry as X
 import Stratosphere.ResourceProperties.StepFunctionsStateMachineCloudWatchLogsLogGroup as X
 import Stratosphere.ResourceProperties.StepFunctionsStateMachineLogDestination as X
 import Stratosphere.ResourceProperties.StepFunctionsStateMachineLoggingConfiguration as X
+import Stratosphere.ResourceProperties.StepFunctionsStateMachineS3Location as X
 import Stratosphere.ResourceProperties.StepFunctionsStateMachineTagsEntry as X
 import Stratosphere.ResourceProperties.SyntheticsCanaryCode as X
 import Stratosphere.ResourceProperties.SyntheticsCanaryRunConfig as X
