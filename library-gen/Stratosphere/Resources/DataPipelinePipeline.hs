@@ -9,7 +9,6 @@ module Stratosphere.Resources.DataPipelinePipeline where
 
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.DataPipelinePipelineParameterObject
-import Stratosphere.ResourceProperties.DataPipelinePipelineParameterValue
 import Stratosphere.ResourceProperties.DataPipelinePipelinePipelineObject
 import Stratosphere.ResourceProperties.DataPipelinePipelinePipelineTag
 
@@ -21,7 +20,6 @@ data DataPipelinePipeline =
   , _dataPipelinePipelineDescription :: Maybe (Val Text)
   , _dataPipelinePipelineName :: Val Text
   , _dataPipelinePipelineParameterObjects :: [DataPipelinePipelineParameterObject]
-  , _dataPipelinePipelineParameterValues :: Maybe [DataPipelinePipelineParameterValue]
   , _dataPipelinePipelinePipelineObjects :: Maybe [DataPipelinePipelinePipelineObject]
   , _dataPipelinePipelinePipelineTags :: Maybe [DataPipelinePipelinePipelineTag]
   } deriving (Show, Eq)
@@ -36,7 +34,6 @@ instance ToResourceProperties DataPipelinePipeline where
         , fmap (("Description",) . toJSON) _dataPipelinePipelineDescription
         , (Just . ("Name",) . toJSON) _dataPipelinePipelineName
         , (Just . ("ParameterObjects",) . toJSON) _dataPipelinePipelineParameterObjects
-        , fmap (("ParameterValues",) . toJSON) _dataPipelinePipelineParameterValues
         , fmap (("PipelineObjects",) . toJSON) _dataPipelinePipelinePipelineObjects
         , fmap (("PipelineTags",) . toJSON) _dataPipelinePipelinePipelineTags
         ]
@@ -54,7 +51,6 @@ dataPipelinePipeline namearg parameterObjectsarg =
   , _dataPipelinePipelineDescription = Nothing
   , _dataPipelinePipelineName = namearg
   , _dataPipelinePipelineParameterObjects = parameterObjectsarg
-  , _dataPipelinePipelineParameterValues = Nothing
   , _dataPipelinePipelinePipelineObjects = Nothing
   , _dataPipelinePipelinePipelineTags = Nothing
   }
@@ -74,10 +70,6 @@ dppName = lens _dataPipelinePipelineName (\s a -> s { _dataPipelinePipelineName 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datapipeline-pipeline.html#cfn-datapipeline-pipeline-parameterobjects
 dppParameterObjects :: Lens' DataPipelinePipeline [DataPipelinePipelineParameterObject]
 dppParameterObjects = lens _dataPipelinePipelineParameterObjects (\s a -> s { _dataPipelinePipelineParameterObjects = a })
-
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datapipeline-pipeline.html#cfn-datapipeline-pipeline-parametervalues
-dppParameterValues :: Lens' DataPipelinePipeline (Maybe [DataPipelinePipelineParameterValue])
-dppParameterValues = lens _dataPipelinePipelineParameterValues (\s a -> s { _dataPipelinePipelineParameterValues = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datapipeline-pipeline.html#cfn-datapipeline-pipeline-pipelineobjects
 dppPipelineObjects :: Lens' DataPipelinePipeline (Maybe [DataPipelinePipelinePipelineObject])

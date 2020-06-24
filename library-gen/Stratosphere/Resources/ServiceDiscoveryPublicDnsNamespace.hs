@@ -8,7 +8,7 @@
 module Stratosphere.Resources.ServiceDiscoveryPublicDnsNamespace where
 
 import Stratosphere.ResourceImports
-
+import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for ServiceDiscoveryPublicDnsNamespace. See
 -- 'serviceDiscoveryPublicDnsNamespace' for a more convenient constructor.
@@ -16,6 +16,7 @@ data ServiceDiscoveryPublicDnsNamespace =
   ServiceDiscoveryPublicDnsNamespace
   { _serviceDiscoveryPublicDnsNamespaceDescription :: Maybe (Val Text)
   , _serviceDiscoveryPublicDnsNamespaceName :: Val Text
+  , _serviceDiscoveryPublicDnsNamespaceTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
 instance ToResourceProperties ServiceDiscoveryPublicDnsNamespace where
@@ -26,6 +27,7 @@ instance ToResourceProperties ServiceDiscoveryPublicDnsNamespace where
         hashMapFromList $ catMaybes
         [ fmap (("Description",) . toJSON) _serviceDiscoveryPublicDnsNamespaceDescription
         , (Just . ("Name",) . toJSON) _serviceDiscoveryPublicDnsNamespaceName
+        , fmap (("Tags",) . toJSON) _serviceDiscoveryPublicDnsNamespaceTags
         ]
     }
 
@@ -38,6 +40,7 @@ serviceDiscoveryPublicDnsNamespace namearg =
   ServiceDiscoveryPublicDnsNamespace
   { _serviceDiscoveryPublicDnsNamespaceDescription = Nothing
   , _serviceDiscoveryPublicDnsNamespaceName = namearg
+  , _serviceDiscoveryPublicDnsNamespaceTags = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-publicdnsnamespace.html#cfn-servicediscovery-publicdnsnamespace-description
@@ -47,3 +50,7 @@ sdpudnDescription = lens _serviceDiscoveryPublicDnsNamespaceDescription (\s a ->
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-publicdnsnamespace.html#cfn-servicediscovery-publicdnsnamespace-name
 sdpudnName :: Lens' ServiceDiscoveryPublicDnsNamespace (Val Text)
 sdpudnName = lens _serviceDiscoveryPublicDnsNamespaceName (\s a -> s { _serviceDiscoveryPublicDnsNamespaceName = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-publicdnsnamespace.html#cfn-servicediscovery-publicdnsnamespace-tags
+sdpudnTags :: Lens' ServiceDiscoveryPublicDnsNamespace (Maybe [Tag])
+sdpudnTags = lens _serviceDiscoveryPublicDnsNamespaceTags (\s a -> s { _serviceDiscoveryPublicDnsNamespaceTags = a })

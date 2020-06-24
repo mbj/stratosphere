@@ -11,6 +11,7 @@ import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.ServiceDiscoveryServiceDnsConfig
 import Stratosphere.ResourceProperties.ServiceDiscoveryServiceHealthCheckConfig
 import Stratosphere.ResourceProperties.ServiceDiscoveryServiceHealthCheckCustomConfig
+import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for ServiceDiscoveryService. See
 -- 'serviceDiscoveryService' for a more convenient constructor.
@@ -22,6 +23,7 @@ data ServiceDiscoveryService =
   , _serviceDiscoveryServiceHealthCheckCustomConfig :: Maybe ServiceDiscoveryServiceHealthCheckCustomConfig
   , _serviceDiscoveryServiceName :: Maybe (Val Text)
   , _serviceDiscoveryServiceNamespaceId :: Maybe (Val Text)
+  , _serviceDiscoveryServiceTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
 instance ToResourceProperties ServiceDiscoveryService where
@@ -36,6 +38,7 @@ instance ToResourceProperties ServiceDiscoveryService where
         , fmap (("HealthCheckCustomConfig",) . toJSON) _serviceDiscoveryServiceHealthCheckCustomConfig
         , fmap (("Name",) . toJSON) _serviceDiscoveryServiceName
         , fmap (("NamespaceId",) . toJSON) _serviceDiscoveryServiceNamespaceId
+        , fmap (("Tags",) . toJSON) _serviceDiscoveryServiceTags
         ]
     }
 
@@ -51,6 +54,7 @@ serviceDiscoveryService  =
   , _serviceDiscoveryServiceHealthCheckCustomConfig = Nothing
   , _serviceDiscoveryServiceName = Nothing
   , _serviceDiscoveryServiceNamespaceId = Nothing
+  , _serviceDiscoveryServiceTags = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-service.html#cfn-servicediscovery-service-description
@@ -76,3 +80,7 @@ sdsName = lens _serviceDiscoveryServiceName (\s a -> s { _serviceDiscoveryServic
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-service.html#cfn-servicediscovery-service-namespaceid
 sdsNamespaceId :: Lens' ServiceDiscoveryService (Maybe (Val Text))
 sdsNamespaceId = lens _serviceDiscoveryServiceNamespaceId (\s a -> s { _serviceDiscoveryServiceNamespaceId = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-service.html#cfn-servicediscovery-service-tags
+sdsTags :: Lens' ServiceDiscoveryService (Maybe [Tag])
+sdsTags = lens _serviceDiscoveryServiceTags (\s a -> s { _serviceDiscoveryServiceTags = a })

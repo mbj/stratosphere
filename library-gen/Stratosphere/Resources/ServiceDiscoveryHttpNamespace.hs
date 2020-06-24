@@ -8,7 +8,7 @@
 module Stratosphere.Resources.ServiceDiscoveryHttpNamespace where
 
 import Stratosphere.ResourceImports
-
+import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for ServiceDiscoveryHttpNamespace. See
 -- 'serviceDiscoveryHttpNamespace' for a more convenient constructor.
@@ -16,6 +16,7 @@ data ServiceDiscoveryHttpNamespace =
   ServiceDiscoveryHttpNamespace
   { _serviceDiscoveryHttpNamespaceDescription :: Maybe (Val Text)
   , _serviceDiscoveryHttpNamespaceName :: Val Text
+  , _serviceDiscoveryHttpNamespaceTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
 instance ToResourceProperties ServiceDiscoveryHttpNamespace where
@@ -26,6 +27,7 @@ instance ToResourceProperties ServiceDiscoveryHttpNamespace where
         hashMapFromList $ catMaybes
         [ fmap (("Description",) . toJSON) _serviceDiscoveryHttpNamespaceDescription
         , (Just . ("Name",) . toJSON) _serviceDiscoveryHttpNamespaceName
+        , fmap (("Tags",) . toJSON) _serviceDiscoveryHttpNamespaceTags
         ]
     }
 
@@ -38,6 +40,7 @@ serviceDiscoveryHttpNamespace namearg =
   ServiceDiscoveryHttpNamespace
   { _serviceDiscoveryHttpNamespaceDescription = Nothing
   , _serviceDiscoveryHttpNamespaceName = namearg
+  , _serviceDiscoveryHttpNamespaceTags = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-httpnamespace.html#cfn-servicediscovery-httpnamespace-description
@@ -47,3 +50,7 @@ sdhnDescription = lens _serviceDiscoveryHttpNamespaceDescription (\s a -> s { _s
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-httpnamespace.html#cfn-servicediscovery-httpnamespace-name
 sdhnName :: Lens' ServiceDiscoveryHttpNamespace (Val Text)
 sdhnName = lens _serviceDiscoveryHttpNamespaceName (\s a -> s { _serviceDiscoveryHttpNamespaceName = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-httpnamespace.html#cfn-servicediscovery-httpnamespace-tags
+sdhnTags :: Lens' ServiceDiscoveryHttpNamespace (Maybe [Tag])
+sdhnTags = lens _serviceDiscoveryHttpNamespaceTags (\s a -> s { _serviceDiscoveryHttpNamespaceTags = a })
