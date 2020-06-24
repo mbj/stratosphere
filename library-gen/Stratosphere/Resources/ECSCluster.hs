@@ -8,8 +8,8 @@
 module Stratosphere.Resources.ECSCluster where
 
 import Stratosphere.ResourceImports
-import Stratosphere.ResourceProperties.ECSClusterClusterSettings
 import Stratosphere.ResourceProperties.ECSClusterCapacityProviderStrategyItem
+import Stratosphere.ResourceProperties.ECSClusterClusterSettings
 import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for ECSCluster. See 'ecsCluster' for a more
