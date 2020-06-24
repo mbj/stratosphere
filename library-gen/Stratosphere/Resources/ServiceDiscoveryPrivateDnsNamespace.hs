@@ -8,7 +8,7 @@
 module Stratosphere.Resources.ServiceDiscoveryPrivateDnsNamespace where
 
 import Stratosphere.ResourceImports
-
+import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for ServiceDiscoveryPrivateDnsNamespace. See
 -- 'serviceDiscoveryPrivateDnsNamespace' for a more convenient constructor.
@@ -16,6 +16,7 @@ data ServiceDiscoveryPrivateDnsNamespace =
   ServiceDiscoveryPrivateDnsNamespace
   { _serviceDiscoveryPrivateDnsNamespaceDescription :: Maybe (Val Text)
   , _serviceDiscoveryPrivateDnsNamespaceName :: Val Text
+  , _serviceDiscoveryPrivateDnsNamespaceTags :: Maybe [Tag]
   , _serviceDiscoveryPrivateDnsNamespaceVpc :: Val Text
   } deriving (Show, Eq)
 
@@ -27,6 +28,7 @@ instance ToResourceProperties ServiceDiscoveryPrivateDnsNamespace where
         hashMapFromList $ catMaybes
         [ fmap (("Description",) . toJSON) _serviceDiscoveryPrivateDnsNamespaceDescription
         , (Just . ("Name",) . toJSON) _serviceDiscoveryPrivateDnsNamespaceName
+        , fmap (("Tags",) . toJSON) _serviceDiscoveryPrivateDnsNamespaceTags
         , (Just . ("Vpc",) . toJSON) _serviceDiscoveryPrivateDnsNamespaceVpc
         ]
     }
@@ -41,6 +43,7 @@ serviceDiscoveryPrivateDnsNamespace namearg vpcarg =
   ServiceDiscoveryPrivateDnsNamespace
   { _serviceDiscoveryPrivateDnsNamespaceDescription = Nothing
   , _serviceDiscoveryPrivateDnsNamespaceName = namearg
+  , _serviceDiscoveryPrivateDnsNamespaceTags = Nothing
   , _serviceDiscoveryPrivateDnsNamespaceVpc = vpcarg
   }
 
@@ -51,6 +54,10 @@ sdprdnDescription = lens _serviceDiscoveryPrivateDnsNamespaceDescription (\s a -
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-privatednsnamespace.html#cfn-servicediscovery-privatednsnamespace-name
 sdprdnName :: Lens' ServiceDiscoveryPrivateDnsNamespace (Val Text)
 sdprdnName = lens _serviceDiscoveryPrivateDnsNamespaceName (\s a -> s { _serviceDiscoveryPrivateDnsNamespaceName = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-privatednsnamespace.html#cfn-servicediscovery-privatednsnamespace-tags
+sdprdnTags :: Lens' ServiceDiscoveryPrivateDnsNamespace (Maybe [Tag])
+sdprdnTags = lens _serviceDiscoveryPrivateDnsNamespaceTags (\s a -> s { _serviceDiscoveryPrivateDnsNamespaceTags = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicediscovery-privatednsnamespace.html#cfn-servicediscovery-privatednsnamespace-vpc
 sdprdnVpc :: Lens' ServiceDiscoveryPrivateDnsNamespace (Val Text)

@@ -89,6 +89,7 @@ import Stratosphere.Resources.AppConfigConfigurationProfile as X
 import Stratosphere.Resources.AppConfigDeployment as X
 import Stratosphere.Resources.AppConfigDeploymentStrategy as X
 import Stratosphere.Resources.AppConfigEnvironment as X
+import Stratosphere.Resources.AppConfigHostedConfigurationVersion as X
 import Stratosphere.Resources.AppMeshMesh as X
 import Stratosphere.Resources.AppMeshRoute as X
 import Stratosphere.Resources.AppMeshVirtualNode as X
@@ -226,7 +227,6 @@ import Stratosphere.Resources.EC2NetworkInterface as X
 import Stratosphere.Resources.EC2NetworkInterfaceAttachment as X
 import Stratosphere.Resources.EC2NetworkInterfacePermission as X
 import Stratosphere.Resources.EC2PlacementGroup as X
-import Stratosphere.Resources.EC2PrefixList as X
 import Stratosphere.Resources.EC2Route as X
 import Stratosphere.Resources.EC2RouteTable as X
 import Stratosphere.Resources.EC2SecurityGroup as X
@@ -263,6 +263,7 @@ import Stratosphere.Resources.EC2VPNGatewayRoutePropagation as X
 import Stratosphere.Resources.EC2Volume as X
 import Stratosphere.Resources.EC2VolumeAttachment as X
 import Stratosphere.Resources.ECRRepository as X
+import Stratosphere.Resources.ECSCapacityProvider as X
 import Stratosphere.Resources.ECSCluster as X
 import Stratosphere.Resources.ECSPrimaryTaskSet as X
 import Stratosphere.Resources.ECSService as X
@@ -1031,7 +1032,6 @@ import Stratosphere.ResourceProperties.EC2NetworkAclEntryIcmp as X
 import Stratosphere.ResourceProperties.EC2NetworkAclEntryPortRange as X
 import Stratosphere.ResourceProperties.EC2NetworkInterfaceInstanceIpv6Address as X
 import Stratosphere.ResourceProperties.EC2NetworkInterfacePrivateIpAddressSpecification as X
-import Stratosphere.ResourceProperties.EC2PrefixListEntry as X
 import Stratosphere.ResourceProperties.EC2SecurityGroupEgressProperty as X
 import Stratosphere.ResourceProperties.EC2SecurityGroupIngressProperty as X
 import Stratosphere.ResourceProperties.EC2SpotFleetBlockDeviceMapping as X
@@ -1057,6 +1057,9 @@ import Stratosphere.ResourceProperties.EC2SpotFleetTargetGroupsConfig as X
 import Stratosphere.ResourceProperties.EC2TrafficMirrorFilterRuleTrafficMirrorPortRange as X
 import Stratosphere.ResourceProperties.EC2VPNConnectionVpnTunnelOptionsSpecification as X
 import Stratosphere.ResourceProperties.ECRRepositoryLifecyclePolicy as X
+import Stratosphere.ResourceProperties.ECSCapacityProviderAutoScalingGroupProvider as X
+import Stratosphere.ResourceProperties.ECSCapacityProviderManagedScaling as X
+import Stratosphere.ResourceProperties.ECSClusterCapacityProviderStrategyItem as X
 import Stratosphere.ResourceProperties.ECSClusterClusterSettings as X
 import Stratosphere.ResourceProperties.ECSServiceAwsVpcConfiguration as X
 import Stratosphere.ResourceProperties.ECSServiceDeploymentConfiguration as X
