@@ -8,9 +8,9 @@
 module Stratosphere.ResourceProperties.CodeBuildProjectSource where
 
 import Stratosphere.ResourceImports
-import Stratosphere.ResourceProperties.CodeBuildProjectSourceAuth
 import Stratosphere.ResourceProperties.CodeBuildProjectBuildStatusConfig
 import Stratosphere.ResourceProperties.CodeBuildProjectGitSubmodulesConfig
+import Stratosphere.ResourceProperties.CodeBuildProjectSourceAuth
 
 -- | Full data type definition for CodeBuildProjectSource. See
 -- 'codeBuildProjectSource' for a more convenient constructor.

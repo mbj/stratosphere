@@ -8,8 +8,8 @@
 module Stratosphere.Resources.ImageBuilderImageRecipe where
 
 import Stratosphere.ResourceImports
-import Stratosphere.ResourceProperties.ImageBuilderImageRecipeInstanceBlockDeviceMapping
 import Stratosphere.ResourceProperties.ImageBuilderImageRecipeComponentConfiguration
+import Stratosphere.ResourceProperties.ImageBuilderImageRecipeInstanceBlockDeviceMapping
 
 -- | Full data type definition for ImageBuilderImageRecipe. See
 -- 'imageBuilderImageRecipe' for a more convenient constructor.

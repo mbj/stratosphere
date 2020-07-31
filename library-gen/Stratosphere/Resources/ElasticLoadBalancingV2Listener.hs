@@ -8,8 +8,8 @@
 module Stratosphere.Resources.ElasticLoadBalancingV2Listener where
 
 import Stratosphere.ResourceImports
-import Stratosphere.ResourceProperties.ElasticLoadBalancingV2ListenerCertificate
 import Stratosphere.ResourceProperties.ElasticLoadBalancingV2ListenerAction
+import Stratosphere.ResourceProperties.ElasticLoadBalancingV2ListenerCertificate
 
 -- | Full data type definition for ElasticLoadBalancingV2Listener. See
 -- 'elasticLoadBalancingV2Listener' for a more convenient constructor.

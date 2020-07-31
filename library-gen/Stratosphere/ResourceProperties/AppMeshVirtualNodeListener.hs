@@ -9,9 +9,9 @@ module Stratosphere.ResourceProperties.AppMeshVirtualNodeListener where
 
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.AppMeshVirtualNodeHealthCheck
-import Stratosphere.ResourceProperties.AppMeshVirtualNodePortMapping
-import Stratosphere.ResourceProperties.AppMeshVirtualNodeListenerTls
 import Stratosphere.ResourceProperties.AppMeshVirtualNodeListenerTimeout
+import Stratosphere.ResourceProperties.AppMeshVirtualNodeListenerTls
+import Stratosphere.ResourceProperties.AppMeshVirtualNodePortMapping
 
 -- | Full data type definition for AppMeshVirtualNodeListener. See
 -- 'appMeshVirtualNodeListener' for a more convenient constructor.

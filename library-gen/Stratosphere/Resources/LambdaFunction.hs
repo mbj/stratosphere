@@ -8,14 +8,14 @@
 module Stratosphere.Resources.LambdaFunction where
 
 import Stratosphere.ResourceImports
-import Stratosphere.Types
 import Stratosphere.ResourceProperties.LambdaFunctionCode
 import Stratosphere.ResourceProperties.LambdaFunctionDeadLetterConfig
 import Stratosphere.ResourceProperties.LambdaFunctionEnvironment
 import Stratosphere.ResourceProperties.LambdaFunctionFileSystemConfig
-import Stratosphere.ResourceProperties.Tag
 import Stratosphere.ResourceProperties.LambdaFunctionTracingConfig
 import Stratosphere.ResourceProperties.LambdaFunctionVpcConfig
+import Stratosphere.ResourceProperties.Tag
+import Stratosphere.Types
 
 -- | Full data type definition for LambdaFunction. See 'lambdaFunction' for a
 -- more convenient constructor.

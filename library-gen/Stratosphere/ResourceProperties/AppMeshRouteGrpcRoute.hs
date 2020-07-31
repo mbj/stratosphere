@@ -8,9 +8,9 @@
 module Stratosphere.ResourceProperties.AppMeshRouteGrpcRoute where
 
 import Stratosphere.ResourceImports
+import Stratosphere.ResourceProperties.AppMeshRouteGrpcRetryPolicy
 import Stratosphere.ResourceProperties.AppMeshRouteGrpcRouteAction
 import Stratosphere.ResourceProperties.AppMeshRouteGrpcRouteMatch
-import Stratosphere.ResourceProperties.AppMeshRouteGrpcRetryPolicy
 import Stratosphere.ResourceProperties.AppMeshRouteGrpcTimeout
 
 -- | Full data type definition for AppMeshRouteGrpcRoute. See
