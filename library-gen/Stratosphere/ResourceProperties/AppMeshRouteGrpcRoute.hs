@@ -11,6 +11,7 @@ import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.AppMeshRouteGrpcRouteAction
 import Stratosphere.ResourceProperties.AppMeshRouteGrpcRouteMatch
 import Stratosphere.ResourceProperties.AppMeshRouteGrpcRetryPolicy
+import Stratosphere.ResourceProperties.AppMeshRouteGrpcTimeout
 
 -- | Full data type definition for AppMeshRouteGrpcRoute. See
 -- 'appMeshRouteGrpcRoute' for a more convenient constructor.
@@ -19,6 +20,7 @@ data AppMeshRouteGrpcRoute =
   { _appMeshRouteGrpcRouteAction :: AppMeshRouteGrpcRouteAction
   , _appMeshRouteGrpcRouteMatch :: AppMeshRouteGrpcRouteMatch
   , _appMeshRouteGrpcRouteRetryPolicy :: Maybe AppMeshRouteGrpcRetryPolicy
+  , _appMeshRouteGrpcRouteTimeout :: Maybe AppMeshRouteGrpcTimeout
   } deriving (Show, Eq)
 
 instance ToJSON AppMeshRouteGrpcRoute where
@@ -28,6 +30,7 @@ instance ToJSON AppMeshRouteGrpcRoute where
     [ (Just . ("Action",) . toJSON) _appMeshRouteGrpcRouteAction
     , (Just . ("Match",) . toJSON) _appMeshRouteGrpcRouteMatch
     , fmap (("RetryPolicy",) . toJSON) _appMeshRouteGrpcRouteRetryPolicy
+    , fmap (("Timeout",) . toJSON) _appMeshRouteGrpcRouteTimeout
     ]
 
 -- | Constructor for 'AppMeshRouteGrpcRoute' containing required fields as
@@ -41,6 +44,7 @@ appMeshRouteGrpcRoute actionarg matcharg =
   { _appMeshRouteGrpcRouteAction = actionarg
   , _appMeshRouteGrpcRouteMatch = matcharg
   , _appMeshRouteGrpcRouteRetryPolicy = Nothing
+  , _appMeshRouteGrpcRouteTimeout = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcroute.html#cfn-appmesh-route-grpcroute-action
@@ -54,3 +58,7 @@ amrgrMatch = lens _appMeshRouteGrpcRouteMatch (\s a -> s { _appMeshRouteGrpcRout
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcroute.html#cfn-appmesh-route-grpcroute-retrypolicy
 amrgrRetryPolicy :: Lens' AppMeshRouteGrpcRoute (Maybe AppMeshRouteGrpcRetryPolicy)
 amrgrRetryPolicy = lens _appMeshRouteGrpcRouteRetryPolicy (\s a -> s { _appMeshRouteGrpcRouteRetryPolicy = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-grpcroute.html#cfn-appmesh-route-grpcroute-timeout
+amrgrTimeout :: Lens' AppMeshRouteGrpcRoute (Maybe AppMeshRouteGrpcTimeout)
+amrgrTimeout = lens _appMeshRouteGrpcRouteTimeout (\s a -> s { _appMeshRouteGrpcRouteTimeout = a })

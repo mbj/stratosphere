@@ -22,6 +22,7 @@ data ImageBuilderImageRecipe =
   , _imageBuilderImageRecipeParentImage :: Val Text
   , _imageBuilderImageRecipeTags :: Maybe Object
   , _imageBuilderImageRecipeVersion :: Val Text
+  , _imageBuilderImageRecipeWorkingDirectory :: Maybe (Val Text)
   } deriving (Show, Eq)
 
 instance ToResourceProperties ImageBuilderImageRecipe where
@@ -37,6 +38,7 @@ instance ToResourceProperties ImageBuilderImageRecipe where
         , (Just . ("ParentImage",) . toJSON) _imageBuilderImageRecipeParentImage
         , fmap (("Tags",) . toJSON) _imageBuilderImageRecipeTags
         , (Just . ("Version",) . toJSON) _imageBuilderImageRecipeVersion
+        , fmap (("WorkingDirectory",) . toJSON) _imageBuilderImageRecipeWorkingDirectory
         ]
     }
 
@@ -57,6 +59,7 @@ imageBuilderImageRecipe componentsarg namearg parentImagearg versionarg =
   , _imageBuilderImageRecipeParentImage = parentImagearg
   , _imageBuilderImageRecipeTags = Nothing
   , _imageBuilderImageRecipeVersion = versionarg
+  , _imageBuilderImageRecipeWorkingDirectory = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-blockdevicemappings
@@ -86,3 +89,7 @@ ibirTags = lens _imageBuilderImageRecipeTags (\s a -> s { _imageBuilderImageReci
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-version
 ibirVersion :: Lens' ImageBuilderImageRecipe (Val Text)
 ibirVersion = lens _imageBuilderImageRecipeVersion (\s a -> s { _imageBuilderImageRecipeVersion = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagerecipe.html#cfn-imagebuilder-imagerecipe-workingdirectory
+ibirWorkingDirectory :: Lens' ImageBuilderImageRecipe (Maybe (Val Text))
+ibirWorkingDirectory = lens _imageBuilderImageRecipeWorkingDirectory (\s a -> s { _imageBuilderImageRecipeWorkingDirectory = a })

@@ -18,6 +18,7 @@ data RDSDBProxyTargetGroup =
   , _rDSDBProxyTargetGroupDBClusterIdentifiers :: Maybe (ValList Text)
   , _rDSDBProxyTargetGroupDBInstanceIdentifiers :: Maybe (ValList Text)
   , _rDSDBProxyTargetGroupDBProxyName :: Val Text
+  , _rDSDBProxyTargetGroupTargetGroupName :: Val Text
   } deriving (Show, Eq)
 
 instance ToResourceProperties RDSDBProxyTargetGroup where
@@ -30,6 +31,7 @@ instance ToResourceProperties RDSDBProxyTargetGroup where
         , fmap (("DBClusterIdentifiers",) . toJSON) _rDSDBProxyTargetGroupDBClusterIdentifiers
         , fmap (("DBInstanceIdentifiers",) . toJSON) _rDSDBProxyTargetGroupDBInstanceIdentifiers
         , (Just . ("DBProxyName",) . toJSON) _rDSDBProxyTargetGroupDBProxyName
+        , (Just . ("TargetGroupName",) . toJSON) _rDSDBProxyTargetGroupTargetGroupName
         ]
     }
 
@@ -37,13 +39,15 @@ instance ToResourceProperties RDSDBProxyTargetGroup where
 -- arguments.
 rdsdbProxyTargetGroup
   :: Val Text -- ^ 'rdsdbptgDBProxyName'
+  -> Val Text -- ^ 'rdsdbptgTargetGroupName'
   -> RDSDBProxyTargetGroup
-rdsdbProxyTargetGroup dBProxyNamearg =
+rdsdbProxyTargetGroup dBProxyNamearg targetGroupNamearg =
   RDSDBProxyTargetGroup
   { _rDSDBProxyTargetGroupConnectionPoolConfigurationInfo = Nothing
   , _rDSDBProxyTargetGroupDBClusterIdentifiers = Nothing
   , _rDSDBProxyTargetGroupDBInstanceIdentifiers = Nothing
   , _rDSDBProxyTargetGroupDBProxyName = dBProxyNamearg
+  , _rDSDBProxyTargetGroupTargetGroupName = targetGroupNamearg
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-connectionpoolconfigurationinfo
@@ -61,3 +65,7 @@ rdsdbptgDBInstanceIdentifiers = lens _rDSDBProxyTargetGroupDBInstanceIdentifiers
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-dbproxyname
 rdsdbptgDBProxyName :: Lens' RDSDBProxyTargetGroup (Val Text)
 rdsdbptgDBProxyName = lens _rDSDBProxyTargetGroupDBProxyName (\s a -> s { _rDSDBProxyTargetGroupDBProxyName = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbproxytargetgroup.html#cfn-rds-dbproxytargetgroup-targetgroupname
+rdsdbptgTargetGroupName :: Lens' RDSDBProxyTargetGroup (Val Text)
+rdsdbptgTargetGroupName = lens _rDSDBProxyTargetGroupTargetGroupName (\s a -> s { _rDSDBProxyTargetGroupTargetGroupName = a })

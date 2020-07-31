@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.56.0
+
+* Update resource specification document to version 16.2.0
+
 ## 0.55.0
 
 * Update resource specification document to version 15.3.0

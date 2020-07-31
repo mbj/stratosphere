@@ -35,6 +35,7 @@ data AutoScalingAutoScalingGroup =
   , _autoScalingAutoScalingGroupMetricsCollection :: Maybe [AutoScalingAutoScalingGroupMetricsCollection]
   , _autoScalingAutoScalingGroupMinSize :: Val Text
   , _autoScalingAutoScalingGroupMixedInstancesPolicy :: Maybe AutoScalingAutoScalingGroupMixedInstancesPolicy
+  , _autoScalingAutoScalingGroupNewInstancesProtectedFromScaleIn :: Maybe (Val Bool)
   , _autoScalingAutoScalingGroupNotificationConfigurations :: Maybe [AutoScalingAutoScalingGroupNotificationConfiguration]
   , _autoScalingAutoScalingGroupPlacementGroup :: Maybe (Val Text)
   , _autoScalingAutoScalingGroupServiceLinkedRoleARN :: Maybe (Val Text)
@@ -66,6 +67,7 @@ instance ToResourceProperties AutoScalingAutoScalingGroup where
         , fmap (("MetricsCollection",) . toJSON) _autoScalingAutoScalingGroupMetricsCollection
         , (Just . ("MinSize",) . toJSON) _autoScalingAutoScalingGroupMinSize
         , fmap (("MixedInstancesPolicy",) . toJSON) _autoScalingAutoScalingGroupMixedInstancesPolicy
+        , fmap (("NewInstancesProtectedFromScaleIn",) . toJSON) _autoScalingAutoScalingGroupNewInstancesProtectedFromScaleIn
         , fmap (("NotificationConfigurations",) . toJSON) _autoScalingAutoScalingGroupNotificationConfigurations
         , fmap (("PlacementGroup",) . toJSON) _autoScalingAutoScalingGroupPlacementGroup
         , fmap (("ServiceLinkedRoleARN",) . toJSON) _autoScalingAutoScalingGroupServiceLinkedRoleARN
@@ -100,6 +102,7 @@ autoScalingAutoScalingGroup maxSizearg minSizearg =
   , _autoScalingAutoScalingGroupMetricsCollection = Nothing
   , _autoScalingAutoScalingGroupMinSize = minSizearg
   , _autoScalingAutoScalingGroupMixedInstancesPolicy = Nothing
+  , _autoScalingAutoScalingGroupNewInstancesProtectedFromScaleIn = Nothing
   , _autoScalingAutoScalingGroupNotificationConfigurations = Nothing
   , _autoScalingAutoScalingGroupPlacementGroup = Nothing
   , _autoScalingAutoScalingGroupServiceLinkedRoleARN = Nothing
@@ -172,6 +175,10 @@ asasgMinSize = lens _autoScalingAutoScalingGroupMinSize (\s a -> s { _autoScalin
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-mixedinstancespolicy
 asasgMixedInstancesPolicy :: Lens' AutoScalingAutoScalingGroup (Maybe AutoScalingAutoScalingGroupMixedInstancesPolicy)
 asasgMixedInstancesPolicy = lens _autoScalingAutoScalingGroupMixedInstancesPolicy (\s a -> s { _autoScalingAutoScalingGroupMixedInstancesPolicy = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-newinstancesprotectedfromscalein
+asasgNewInstancesProtectedFromScaleIn :: Lens' AutoScalingAutoScalingGroup (Maybe (Val Bool))
+asasgNewInstancesProtectedFromScaleIn = lens _autoScalingAutoScalingGroupNewInstancesProtectedFromScaleIn (\s a -> s { _autoScalingAutoScalingGroupNewInstancesProtectedFromScaleIn = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html#cfn-as-group-notificationconfigurations
 asasgNotificationConfigurations :: Lens' AutoScalingAutoScalingGroup (Maybe [AutoScalingAutoScalingGroupNotificationConfiguration])

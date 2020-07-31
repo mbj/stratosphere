@@ -23,7 +23,7 @@ data SyntheticsCanary =
   , _syntheticsCanaryExecutionRoleArn :: Val Text
   , _syntheticsCanaryFailureRetentionPeriod :: Maybe (Val Integer)
   , _syntheticsCanaryName :: Val Text
-  , _syntheticsCanaryRunConfig :: SyntheticsCanaryRunConfig
+  , _syntheticsCanaryRunConfig :: Maybe SyntheticsCanaryRunConfig
   , _syntheticsCanaryRuntimeVersion :: Val Text
   , _syntheticsCanarySchedule :: SyntheticsCanarySchedule
   , _syntheticsCanaryStartCanaryAfterCreation :: Val Bool
@@ -43,7 +43,7 @@ instance ToResourceProperties SyntheticsCanary where
         , (Just . ("ExecutionRoleArn",) . toJSON) _syntheticsCanaryExecutionRoleArn
         , fmap (("FailureRetentionPeriod",) . toJSON) _syntheticsCanaryFailureRetentionPeriod
         , (Just . ("Name",) . toJSON) _syntheticsCanaryName
-        , (Just . ("RunConfig",) . toJSON) _syntheticsCanaryRunConfig
+        , fmap (("RunConfig",) . toJSON) _syntheticsCanaryRunConfig
         , (Just . ("RuntimeVersion",) . toJSON) _syntheticsCanaryRuntimeVersion
         , (Just . ("Schedule",) . toJSON) _syntheticsCanarySchedule
         , (Just . ("StartCanaryAfterCreation",) . toJSON) _syntheticsCanaryStartCanaryAfterCreation
@@ -60,19 +60,18 @@ syntheticsCanary
   -> SyntheticsCanaryCode -- ^ 'scCode'
   -> Val Text -- ^ 'scExecutionRoleArn'
   -> Val Text -- ^ 'scName'
-  -> SyntheticsCanaryRunConfig -- ^ 'scRunConfig'
   -> Val Text -- ^ 'scRuntimeVersion'
   -> SyntheticsCanarySchedule -- ^ 'scSchedule'
   -> Val Bool -- ^ 'scStartCanaryAfterCreation'
   -> SyntheticsCanary
-syntheticsCanary artifactS3Locationarg codearg executionRoleArnarg namearg runConfigarg runtimeVersionarg schedulearg startCanaryAfterCreationarg =
+syntheticsCanary artifactS3Locationarg codearg executionRoleArnarg namearg runtimeVersionarg schedulearg startCanaryAfterCreationarg =
   SyntheticsCanary
   { _syntheticsCanaryArtifactS3Location = artifactS3Locationarg
   , _syntheticsCanaryCode = codearg
   , _syntheticsCanaryExecutionRoleArn = executionRoleArnarg
   , _syntheticsCanaryFailureRetentionPeriod = Nothing
   , _syntheticsCanaryName = namearg
-  , _syntheticsCanaryRunConfig = runConfigarg
+  , _syntheticsCanaryRunConfig = Nothing
   , _syntheticsCanaryRuntimeVersion = runtimeVersionarg
   , _syntheticsCanarySchedule = schedulearg
   , _syntheticsCanaryStartCanaryAfterCreation = startCanaryAfterCreationarg
@@ -102,7 +101,7 @@ scName :: Lens' SyntheticsCanary (Val Text)
 scName = lens _syntheticsCanaryName (\s a -> s { _syntheticsCanaryName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-runconfig
-scRunConfig :: Lens' SyntheticsCanary SyntheticsCanaryRunConfig
+scRunConfig :: Lens' SyntheticsCanary (Maybe SyntheticsCanaryRunConfig)
 scRunConfig = lens _syntheticsCanaryRunConfig (\s a -> s { _syntheticsCanaryRunConfig = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-canary.html#cfn-synthetics-canary-runtimeversion

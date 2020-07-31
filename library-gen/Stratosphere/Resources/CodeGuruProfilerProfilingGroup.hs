@@ -15,6 +15,7 @@ import Stratosphere.ResourceImports
 data CodeGuruProfilerProfilingGroup =
   CodeGuruProfilerProfilingGroup
   { _codeGuruProfilerProfilingGroupAgentPermissions :: Maybe Object
+  , _codeGuruProfilerProfilingGroupComputePlatform :: Maybe (Val Text)
   , _codeGuruProfilerProfilingGroupProfilingGroupName :: Val Text
   } deriving (Show, Eq)
 
@@ -25,6 +26,7 @@ instance ToResourceProperties CodeGuruProfilerProfilingGroup where
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
         [ fmap (("AgentPermissions",) . toJSON) _codeGuruProfilerProfilingGroupAgentPermissions
+        , fmap (("ComputePlatform",) . toJSON) _codeGuruProfilerProfilingGroupComputePlatform
         , (Just . ("ProfilingGroupName",) . toJSON) _codeGuruProfilerProfilingGroupProfilingGroupName
         ]
     }
@@ -37,12 +39,17 @@ codeGuruProfilerProfilingGroup
 codeGuruProfilerProfilingGroup profilingGroupNamearg =
   CodeGuruProfilerProfilingGroup
   { _codeGuruProfilerProfilingGroupAgentPermissions = Nothing
+  , _codeGuruProfilerProfilingGroupComputePlatform = Nothing
   , _codeGuruProfilerProfilingGroupProfilingGroupName = profilingGroupNamearg
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-agentpermissions
 cgppgAgentPermissions :: Lens' CodeGuruProfilerProfilingGroup (Maybe Object)
 cgppgAgentPermissions = lens _codeGuruProfilerProfilingGroupAgentPermissions (\s a -> s { _codeGuruProfilerProfilingGroupAgentPermissions = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-computeplatform
+cgppgComputePlatform :: Lens' CodeGuruProfilerProfilingGroup (Maybe (Val Text))
+cgppgComputePlatform = lens _codeGuruProfilerProfilingGroupComputePlatform (\s a -> s { _codeGuruProfilerProfilingGroupComputePlatform = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codeguruprofiler-profilinggroup.html#cfn-codeguruprofiler-profilinggroup-profilinggroupname
 cgppgProfilingGroupName :: Lens' CodeGuruProfilerProfilingGroup (Val Text)

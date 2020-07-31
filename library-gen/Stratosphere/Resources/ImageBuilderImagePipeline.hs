@@ -17,6 +17,7 @@ data ImageBuilderImagePipeline =
   ImageBuilderImagePipeline
   { _imageBuilderImagePipelineDescription :: Maybe (Val Text)
   , _imageBuilderImagePipelineDistributionConfigurationArn :: Maybe (Val Text)
+  , _imageBuilderImagePipelineEnhancedImageMetadataEnabled :: Maybe (Val Bool)
   , _imageBuilderImagePipelineImageRecipeArn :: Val Text
   , _imageBuilderImagePipelineImageTestsConfiguration :: Maybe ImageBuilderImagePipelineImageTestsConfiguration
   , _imageBuilderImagePipelineInfrastructureConfigurationArn :: Val Text
@@ -34,6 +35,7 @@ instance ToResourceProperties ImageBuilderImagePipeline where
         hashMapFromList $ catMaybes
         [ fmap (("Description",) . toJSON) _imageBuilderImagePipelineDescription
         , fmap (("DistributionConfigurationArn",) . toJSON) _imageBuilderImagePipelineDistributionConfigurationArn
+        , fmap (("EnhancedImageMetadataEnabled",) . toJSON) _imageBuilderImagePipelineEnhancedImageMetadataEnabled
         , (Just . ("ImageRecipeArn",) . toJSON) _imageBuilderImagePipelineImageRecipeArn
         , fmap (("ImageTestsConfiguration",) . toJSON) _imageBuilderImagePipelineImageTestsConfiguration
         , (Just . ("InfrastructureConfigurationArn",) . toJSON) _imageBuilderImagePipelineInfrastructureConfigurationArn
@@ -55,6 +57,7 @@ imageBuilderImagePipeline imageRecipeArnarg infrastructureConfigurationArnarg na
   ImageBuilderImagePipeline
   { _imageBuilderImagePipelineDescription = Nothing
   , _imageBuilderImagePipelineDistributionConfigurationArn = Nothing
+  , _imageBuilderImagePipelineEnhancedImageMetadataEnabled = Nothing
   , _imageBuilderImagePipelineImageRecipeArn = imageRecipeArnarg
   , _imageBuilderImagePipelineImageTestsConfiguration = Nothing
   , _imageBuilderImagePipelineInfrastructureConfigurationArn = infrastructureConfigurationArnarg
@@ -71,6 +74,10 @@ ibipDescription = lens _imageBuilderImagePipelineDescription (\s a -> s { _image
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-distributionconfigurationarn
 ibipDistributionConfigurationArn :: Lens' ImageBuilderImagePipeline (Maybe (Val Text))
 ibipDistributionConfigurationArn = lens _imageBuilderImagePipelineDistributionConfigurationArn (\s a -> s { _imageBuilderImagePipelineDistributionConfigurationArn = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-enhancedimagemetadataenabled
+ibipEnhancedImageMetadataEnabled :: Lens' ImageBuilderImagePipeline (Maybe (Val Bool))
+ibipEnhancedImageMetadataEnabled = lens _imageBuilderImagePipelineEnhancedImageMetadataEnabled (\s a -> s { _imageBuilderImagePipelineEnhancedImageMetadataEnabled = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-imagepipeline.html#cfn-imagebuilder-imagepipeline-imagerecipearn
 ibipImageRecipeArn :: Lens' ImageBuilderImagePipeline (Val Text)

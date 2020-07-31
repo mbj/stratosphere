@@ -10,6 +10,8 @@ module Stratosphere.Resources.AmazonMQBroker where
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.AmazonMQBrokerConfigurationId
 import Stratosphere.ResourceProperties.AmazonMQBrokerEncryptionOptions
+import Stratosphere.ResourceProperties.AmazonMQBrokerLdapMetadata
+import Stratosphere.ResourceProperties.AmazonMQBrokerLdapServerMetadata
 import Stratosphere.ResourceProperties.AmazonMQBrokerLogList
 import Stratosphere.ResourceProperties.AmazonMQBrokerMaintenanceWindow
 import Stratosphere.ResourceProperties.AmazonMQBrokerTagsEntry
@@ -19,7 +21,8 @@ import Stratosphere.ResourceProperties.AmazonMQBrokerUser
 -- more convenient constructor.
 data AmazonMQBroker =
   AmazonMQBroker
-  { _amazonMQBrokerAutoMinorVersionUpgrade :: Val Bool
+  { _amazonMQBrokerAuthenticationStrategy :: Maybe (Val Text)
+  , _amazonMQBrokerAutoMinorVersionUpgrade :: Val Bool
   , _amazonMQBrokerBrokerName :: Val Text
   , _amazonMQBrokerConfiguration :: Maybe AmazonMQBrokerConfigurationId
   , _amazonMQBrokerDeploymentMode :: Val Text
@@ -27,6 +30,8 @@ data AmazonMQBroker =
   , _amazonMQBrokerEngineType :: Val Text
   , _amazonMQBrokerEngineVersion :: Val Text
   , _amazonMQBrokerHostInstanceType :: Val Text
+  , _amazonMQBrokerLdapMetadata :: Maybe AmazonMQBrokerLdapMetadata
+  , _amazonMQBrokerLdapServerMetadata :: Maybe AmazonMQBrokerLdapServerMetadata
   , _amazonMQBrokerLogs :: Maybe AmazonMQBrokerLogList
   , _amazonMQBrokerMaintenanceWindowStartTime :: Maybe AmazonMQBrokerMaintenanceWindow
   , _amazonMQBrokerPubliclyAccessible :: Val Bool
@@ -43,7 +48,8 @@ instance ToResourceProperties AmazonMQBroker where
     { resourcePropertiesType = "AWS::AmazonMQ::Broker"
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
-        [ (Just . ("AutoMinorVersionUpgrade",) . toJSON) _amazonMQBrokerAutoMinorVersionUpgrade
+        [ fmap (("AuthenticationStrategy",) . toJSON) _amazonMQBrokerAuthenticationStrategy
+        , (Just . ("AutoMinorVersionUpgrade",) . toJSON) _amazonMQBrokerAutoMinorVersionUpgrade
         , (Just . ("BrokerName",) . toJSON) _amazonMQBrokerBrokerName
         , fmap (("Configuration",) . toJSON) _amazonMQBrokerConfiguration
         , (Just . ("DeploymentMode",) . toJSON) _amazonMQBrokerDeploymentMode
@@ -51,6 +57,8 @@ instance ToResourceProperties AmazonMQBroker where
         , (Just . ("EngineType",) . toJSON) _amazonMQBrokerEngineType
         , (Just . ("EngineVersion",) . toJSON) _amazonMQBrokerEngineVersion
         , (Just . ("HostInstanceType",) . toJSON) _amazonMQBrokerHostInstanceType
+        , fmap (("LdapMetadata",) . toJSON) _amazonMQBrokerLdapMetadata
+        , fmap (("LdapServerMetadata",) . toJSON) _amazonMQBrokerLdapServerMetadata
         , fmap (("Logs",) . toJSON) _amazonMQBrokerLogs
         , fmap (("MaintenanceWindowStartTime",) . toJSON) _amazonMQBrokerMaintenanceWindowStartTime
         , (Just . ("PubliclyAccessible",) . toJSON) _amazonMQBrokerPubliclyAccessible
@@ -75,7 +83,8 @@ amazonMQBroker
   -> AmazonMQBroker
 amazonMQBroker autoMinorVersionUpgradearg brokerNamearg deploymentModearg engineTypearg engineVersionarg hostInstanceTypearg publiclyAccessiblearg usersarg =
   AmazonMQBroker
-  { _amazonMQBrokerAutoMinorVersionUpgrade = autoMinorVersionUpgradearg
+  { _amazonMQBrokerAuthenticationStrategy = Nothing
+  , _amazonMQBrokerAutoMinorVersionUpgrade = autoMinorVersionUpgradearg
   , _amazonMQBrokerBrokerName = brokerNamearg
   , _amazonMQBrokerConfiguration = Nothing
   , _amazonMQBrokerDeploymentMode = deploymentModearg
@@ -83,6 +92,8 @@ amazonMQBroker autoMinorVersionUpgradearg brokerNamearg deploymentModearg engine
   , _amazonMQBrokerEngineType = engineTypearg
   , _amazonMQBrokerEngineVersion = engineVersionarg
   , _amazonMQBrokerHostInstanceType = hostInstanceTypearg
+  , _amazonMQBrokerLdapMetadata = Nothing
+  , _amazonMQBrokerLdapServerMetadata = Nothing
   , _amazonMQBrokerLogs = Nothing
   , _amazonMQBrokerMaintenanceWindowStartTime = Nothing
   , _amazonMQBrokerPubliclyAccessible = publiclyAccessiblearg
@@ -92,6 +103,10 @@ amazonMQBroker autoMinorVersionUpgradearg brokerNamearg deploymentModearg engine
   , _amazonMQBrokerTags = Nothing
   , _amazonMQBrokerUsers = usersarg
   }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-authenticationstrategy
+amqbAuthenticationStrategy :: Lens' AmazonMQBroker (Maybe (Val Text))
+amqbAuthenticationStrategy = lens _amazonMQBrokerAuthenticationStrategy (\s a -> s { _amazonMQBrokerAuthenticationStrategy = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-autominorversionupgrade
 amqbAutoMinorVersionUpgrade :: Lens' AmazonMQBroker (Val Bool)
@@ -124,6 +139,14 @@ amqbEngineVersion = lens _amazonMQBrokerEngineVersion (\s a -> s { _amazonMQBrok
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-hostinstancetype
 amqbHostInstanceType :: Lens' AmazonMQBroker (Val Text)
 amqbHostInstanceType = lens _amazonMQBrokerHostInstanceType (\s a -> s { _amazonMQBrokerHostInstanceType = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-ldapmetadata
+amqbLdapMetadata :: Lens' AmazonMQBroker (Maybe AmazonMQBrokerLdapMetadata)
+amqbLdapMetadata = lens _amazonMQBrokerLdapMetadata (\s a -> s { _amazonMQBrokerLdapMetadata = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-ldapservermetadata
+amqbLdapServerMetadata :: Lens' AmazonMQBroker (Maybe AmazonMQBrokerLdapServerMetadata)
+amqbLdapServerMetadata = lens _amazonMQBrokerLdapServerMetadata (\s a -> s { _amazonMQBrokerLdapServerMetadata = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amazonmq-broker.html#cfn-amazonmq-broker-logs
 amqbLogs :: Lens' AmazonMQBroker (Maybe AmazonMQBrokerLogList)

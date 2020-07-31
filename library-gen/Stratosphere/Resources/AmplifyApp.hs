@@ -24,6 +24,7 @@ data AmplifyApp =
   , _amplifyAppBuildSpec :: Maybe (Val Text)
   , _amplifyAppCustomRules :: Maybe [AmplifyAppCustomRule]
   , _amplifyAppDescription :: Maybe (Val Text)
+  , _amplifyAppEnableBranchAutoDeletion :: Maybe (Val Bool)
   , _amplifyAppEnvironmentVariables :: Maybe [AmplifyAppEnvironmentVariable]
   , _amplifyAppIAMServiceRole :: Maybe (Val Text)
   , _amplifyAppName :: Val Text
@@ -44,6 +45,7 @@ instance ToResourceProperties AmplifyApp where
         , fmap (("BuildSpec",) . toJSON) _amplifyAppBuildSpec
         , fmap (("CustomRules",) . toJSON) _amplifyAppCustomRules
         , fmap (("Description",) . toJSON) _amplifyAppDescription
+        , fmap (("EnableBranchAutoDeletion",) . toJSON) _amplifyAppEnableBranchAutoDeletion
         , fmap (("EnvironmentVariables",) . toJSON) _amplifyAppEnvironmentVariables
         , fmap (("IAMServiceRole",) . toJSON) _amplifyAppIAMServiceRole
         , (Just . ("Name",) . toJSON) _amplifyAppName
@@ -65,6 +67,7 @@ amplifyApp namearg =
   , _amplifyAppBuildSpec = Nothing
   , _amplifyAppCustomRules = Nothing
   , _amplifyAppDescription = Nothing
+  , _amplifyAppEnableBranchAutoDeletion = Nothing
   , _amplifyAppEnvironmentVariables = Nothing
   , _amplifyAppIAMServiceRole = Nothing
   , _amplifyAppName = namearg
@@ -96,6 +99,10 @@ aaCustomRules = lens _amplifyAppCustomRules (\s a -> s { _amplifyAppCustomRules 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-description
 aaDescription :: Lens' AmplifyApp (Maybe (Val Text))
 aaDescription = lens _amplifyAppDescription (\s a -> s { _amplifyAppDescription = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-enablebranchautodeletion
+aaEnableBranchAutoDeletion :: Lens' AmplifyApp (Maybe (Val Bool))
+aaEnableBranchAutoDeletion = lens _amplifyAppEnableBranchAutoDeletion (\s a -> s { _amplifyAppEnableBranchAutoDeletion = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-app.html#cfn-amplify-app-environmentvariables
 aaEnvironmentVariables :: Lens' AmplifyApp (Maybe [AmplifyAppEnvironmentVariable])

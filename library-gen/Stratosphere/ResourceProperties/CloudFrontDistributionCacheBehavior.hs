@@ -16,14 +16,16 @@ import Stratosphere.ResourceProperties.CloudFrontDistributionLambdaFunctionAssoc
 data CloudFrontDistributionCacheBehavior =
   CloudFrontDistributionCacheBehavior
   { _cloudFrontDistributionCacheBehaviorAllowedMethods :: Maybe (ValList Text)
+  , _cloudFrontDistributionCacheBehaviorCachePolicyId :: Maybe (Val Text)
   , _cloudFrontDistributionCacheBehaviorCachedMethods :: Maybe (ValList Text)
   , _cloudFrontDistributionCacheBehaviorCompress :: Maybe (Val Bool)
   , _cloudFrontDistributionCacheBehaviorDefaultTTL :: Maybe (Val Double)
   , _cloudFrontDistributionCacheBehaviorFieldLevelEncryptionId :: Maybe (Val Text)
-  , _cloudFrontDistributionCacheBehaviorForwardedValues :: CloudFrontDistributionForwardedValues
+  , _cloudFrontDistributionCacheBehaviorForwardedValues :: Maybe CloudFrontDistributionForwardedValues
   , _cloudFrontDistributionCacheBehaviorLambdaFunctionAssociations :: Maybe [CloudFrontDistributionLambdaFunctionAssociation]
   , _cloudFrontDistributionCacheBehaviorMaxTTL :: Maybe (Val Double)
   , _cloudFrontDistributionCacheBehaviorMinTTL :: Maybe (Val Double)
+  , _cloudFrontDistributionCacheBehaviorOriginRequestPolicyId :: Maybe (Val Text)
   , _cloudFrontDistributionCacheBehaviorPathPattern :: Val Text
   , _cloudFrontDistributionCacheBehaviorSmoothStreaming :: Maybe (Val Bool)
   , _cloudFrontDistributionCacheBehaviorTargetOriginId :: Val Text
@@ -36,14 +38,16 @@ instance ToJSON CloudFrontDistributionCacheBehavior where
     object $
     catMaybes
     [ fmap (("AllowedMethods",) . toJSON) _cloudFrontDistributionCacheBehaviorAllowedMethods
+    , fmap (("CachePolicyId",) . toJSON) _cloudFrontDistributionCacheBehaviorCachePolicyId
     , fmap (("CachedMethods",) . toJSON) _cloudFrontDistributionCacheBehaviorCachedMethods
     , fmap (("Compress",) . toJSON) _cloudFrontDistributionCacheBehaviorCompress
     , fmap (("DefaultTTL",) . toJSON) _cloudFrontDistributionCacheBehaviorDefaultTTL
     , fmap (("FieldLevelEncryptionId",) . toJSON) _cloudFrontDistributionCacheBehaviorFieldLevelEncryptionId
-    , (Just . ("ForwardedValues",) . toJSON) _cloudFrontDistributionCacheBehaviorForwardedValues
+    , fmap (("ForwardedValues",) . toJSON) _cloudFrontDistributionCacheBehaviorForwardedValues
     , fmap (("LambdaFunctionAssociations",) . toJSON) _cloudFrontDistributionCacheBehaviorLambdaFunctionAssociations
     , fmap (("MaxTTL",) . toJSON) _cloudFrontDistributionCacheBehaviorMaxTTL
     , fmap (("MinTTL",) . toJSON) _cloudFrontDistributionCacheBehaviorMinTTL
+    , fmap (("OriginRequestPolicyId",) . toJSON) _cloudFrontDistributionCacheBehaviorOriginRequestPolicyId
     , (Just . ("PathPattern",) . toJSON) _cloudFrontDistributionCacheBehaviorPathPattern
     , fmap (("SmoothStreaming",) . toJSON) _cloudFrontDistributionCacheBehaviorSmoothStreaming
     , (Just . ("TargetOriginId",) . toJSON) _cloudFrontDistributionCacheBehaviorTargetOriginId
@@ -54,22 +58,23 @@ instance ToJSON CloudFrontDistributionCacheBehavior where
 -- | Constructor for 'CloudFrontDistributionCacheBehavior' containing required
 -- fields as arguments.
 cloudFrontDistributionCacheBehavior
-  :: CloudFrontDistributionForwardedValues -- ^ 'cfdcbForwardedValues'
-  -> Val Text -- ^ 'cfdcbPathPattern'
+  :: Val Text -- ^ 'cfdcbPathPattern'
   -> Val Text -- ^ 'cfdcbTargetOriginId'
   -> Val Text -- ^ 'cfdcbViewerProtocolPolicy'
   -> CloudFrontDistributionCacheBehavior
-cloudFrontDistributionCacheBehavior forwardedValuesarg pathPatternarg targetOriginIdarg viewerProtocolPolicyarg =
+cloudFrontDistributionCacheBehavior pathPatternarg targetOriginIdarg viewerProtocolPolicyarg =
   CloudFrontDistributionCacheBehavior
   { _cloudFrontDistributionCacheBehaviorAllowedMethods = Nothing
+  , _cloudFrontDistributionCacheBehaviorCachePolicyId = Nothing
   , _cloudFrontDistributionCacheBehaviorCachedMethods = Nothing
   , _cloudFrontDistributionCacheBehaviorCompress = Nothing
   , _cloudFrontDistributionCacheBehaviorDefaultTTL = Nothing
   , _cloudFrontDistributionCacheBehaviorFieldLevelEncryptionId = Nothing
-  , _cloudFrontDistributionCacheBehaviorForwardedValues = forwardedValuesarg
+  , _cloudFrontDistributionCacheBehaviorForwardedValues = Nothing
   , _cloudFrontDistributionCacheBehaviorLambdaFunctionAssociations = Nothing
   , _cloudFrontDistributionCacheBehaviorMaxTTL = Nothing
   , _cloudFrontDistributionCacheBehaviorMinTTL = Nothing
+  , _cloudFrontDistributionCacheBehaviorOriginRequestPolicyId = Nothing
   , _cloudFrontDistributionCacheBehaviorPathPattern = pathPatternarg
   , _cloudFrontDistributionCacheBehaviorSmoothStreaming = Nothing
   , _cloudFrontDistributionCacheBehaviorTargetOriginId = targetOriginIdarg
@@ -80,6 +85,10 @@ cloudFrontDistributionCacheBehavior forwardedValuesarg pathPatternarg targetOrig
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-allowedmethods
 cfdcbAllowedMethods :: Lens' CloudFrontDistributionCacheBehavior (Maybe (ValList Text))
 cfdcbAllowedMethods = lens _cloudFrontDistributionCacheBehaviorAllowedMethods (\s a -> s { _cloudFrontDistributionCacheBehaviorAllowedMethods = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-cachepolicyid
+cfdcbCachePolicyId :: Lens' CloudFrontDistributionCacheBehavior (Maybe (Val Text))
+cfdcbCachePolicyId = lens _cloudFrontDistributionCacheBehaviorCachePolicyId (\s a -> s { _cloudFrontDistributionCacheBehaviorCachePolicyId = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-cachedmethods
 cfdcbCachedMethods :: Lens' CloudFrontDistributionCacheBehavior (Maybe (ValList Text))
@@ -98,7 +107,7 @@ cfdcbFieldLevelEncryptionId :: Lens' CloudFrontDistributionCacheBehavior (Maybe 
 cfdcbFieldLevelEncryptionId = lens _cloudFrontDistributionCacheBehaviorFieldLevelEncryptionId (\s a -> s { _cloudFrontDistributionCacheBehaviorFieldLevelEncryptionId = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-forwardedvalues
-cfdcbForwardedValues :: Lens' CloudFrontDistributionCacheBehavior CloudFrontDistributionForwardedValues
+cfdcbForwardedValues :: Lens' CloudFrontDistributionCacheBehavior (Maybe CloudFrontDistributionForwardedValues)
 cfdcbForwardedValues = lens _cloudFrontDistributionCacheBehaviorForwardedValues (\s a -> s { _cloudFrontDistributionCacheBehaviorForwardedValues = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-lambdafunctionassociations
@@ -112,6 +121,10 @@ cfdcbMaxTTL = lens _cloudFrontDistributionCacheBehaviorMaxTTL (\s a -> s { _clou
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-minttl
 cfdcbMinTTL :: Lens' CloudFrontDistributionCacheBehavior (Maybe (Val Double))
 cfdcbMinTTL = lens _cloudFrontDistributionCacheBehaviorMinTTL (\s a -> s { _cloudFrontDistributionCacheBehaviorMinTTL = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-originrequestpolicyid
+cfdcbOriginRequestPolicyId :: Lens' CloudFrontDistributionCacheBehavior (Maybe (Val Text))
+cfdcbOriginRequestPolicyId = lens _cloudFrontDistributionCacheBehaviorOriginRequestPolicyId (\s a -> s { _cloudFrontDistributionCacheBehaviorOriginRequestPolicyId = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-pathpattern
 cfdcbPathPattern :: Lens' CloudFrontDistributionCacheBehavior (Val Text)

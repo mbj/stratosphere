@@ -74,6 +74,7 @@ import Stratosphere.Resources.ApiGatewayUsagePlan as X
 import Stratosphere.Resources.ApiGatewayUsagePlanKey as X
 import Stratosphere.Resources.ApiGatewayVpcLink as X
 import Stratosphere.Resources.ApiGatewayV2Api as X
+import Stratosphere.Resources.ApiGatewayV2ApiGatewayManagedOverrides as X
 import Stratosphere.Resources.ApiGatewayV2ApiMapping as X
 import Stratosphere.Resources.ApiGatewayV2Authorizer as X
 import Stratosphere.Resources.ApiGatewayV2Deployment as X
@@ -84,6 +85,7 @@ import Stratosphere.Resources.ApiGatewayV2Model as X
 import Stratosphere.Resources.ApiGatewayV2Route as X
 import Stratosphere.Resources.ApiGatewayV2RouteResponse as X
 import Stratosphere.Resources.ApiGatewayV2Stage as X
+import Stratosphere.Resources.ApiGatewayV2VpcLink as X
 import Stratosphere.Resources.AppConfigApplication as X
 import Stratosphere.Resources.AppConfigConfigurationProfile as X
 import Stratosphere.Resources.AppConfigDeployment as X
@@ -111,6 +113,7 @@ import Stratosphere.Resources.AppSyncGraphQLSchema as X
 import Stratosphere.Resources.AppSyncResolver as X
 import Stratosphere.Resources.ApplicationAutoScalingScalableTarget as X
 import Stratosphere.Resources.ApplicationAutoScalingScalingPolicy as X
+import Stratosphere.Resources.AthenaDataCatalog as X
 import Stratosphere.Resources.AthenaNamedQuery as X
 import Stratosphere.Resources.AthenaWorkGroup as X
 import Stratosphere.Resources.AutoScalingAutoScalingGroup as X
@@ -227,6 +230,7 @@ import Stratosphere.Resources.EC2NetworkInterface as X
 import Stratosphere.Resources.EC2NetworkInterfaceAttachment as X
 import Stratosphere.Resources.EC2NetworkInterfacePermission as X
 import Stratosphere.Resources.EC2PlacementGroup as X
+import Stratosphere.Resources.EC2PrefixList as X
 import Stratosphere.Resources.EC2Route as X
 import Stratosphere.Resources.EC2RouteTable as X
 import Stratosphere.Resources.EC2SecurityGroup as X
@@ -470,6 +474,7 @@ import Stratosphere.Resources.PinpointEmailConfigurationSetEventDestination as X
 import Stratosphere.Resources.PinpointEmailDedicatedIpPool as X
 import Stratosphere.Resources.PinpointEmailIdentity as X
 import Stratosphere.Resources.QLDBLedger as X
+import Stratosphere.Resources.QLDBStream as X
 import Stratosphere.Resources.RAMResourceShare as X
 import Stratosphere.Resources.RDSDBCluster as X
 import Stratosphere.Resources.RDSDBClusterParameterGroup as X
@@ -593,8 +598,12 @@ import Stratosphere.ResourceProperties.AccessAnalyzerAnalyzerArchiveRule as X
 import Stratosphere.ResourceProperties.AccessAnalyzerAnalyzerFilter as X
 import Stratosphere.ResourceProperties.AmazonMQBrokerConfigurationId as X
 import Stratosphere.ResourceProperties.AmazonMQBrokerEncryptionOptions as X
+import Stratosphere.ResourceProperties.AmazonMQBrokerInterBrokerCred as X
+import Stratosphere.ResourceProperties.AmazonMQBrokerLdapMetadata as X
+import Stratosphere.ResourceProperties.AmazonMQBrokerLdapServerMetadata as X
 import Stratosphere.ResourceProperties.AmazonMQBrokerLogList as X
 import Stratosphere.ResourceProperties.AmazonMQBrokerMaintenanceWindow as X
+import Stratosphere.ResourceProperties.AmazonMQBrokerServerMetadata as X
 import Stratosphere.ResourceProperties.AmazonMQBrokerTagsEntry as X
 import Stratosphere.ResourceProperties.AmazonMQBrokerUser as X
 import Stratosphere.ResourceProperties.AmazonMQConfigurationTagsEntry as X
@@ -627,6 +636,11 @@ import Stratosphere.ResourceProperties.ApiGatewayUsagePlanQuotaSettings as X
 import Stratosphere.ResourceProperties.ApiGatewayUsagePlanThrottleSettings as X
 import Stratosphere.ResourceProperties.ApiGatewayV2ApiBodyS3Location as X
 import Stratosphere.ResourceProperties.ApiGatewayV2ApiCors as X
+import Stratosphere.ResourceProperties.ApiGatewayV2ApiGatewayManagedOverridesAccessLogSettings as X
+import Stratosphere.ResourceProperties.ApiGatewayV2ApiGatewayManagedOverridesIntegrationOverrides as X
+import Stratosphere.ResourceProperties.ApiGatewayV2ApiGatewayManagedOverridesRouteOverrides as X
+import Stratosphere.ResourceProperties.ApiGatewayV2ApiGatewayManagedOverridesRouteSettings as X
+import Stratosphere.ResourceProperties.ApiGatewayV2ApiGatewayManagedOverridesStageOverrides as X
 import Stratosphere.ResourceProperties.ApiGatewayV2AuthorizerJWTConfiguration as X
 import Stratosphere.ResourceProperties.ApiGatewayV2DomainNameDomainNameConfiguration as X
 import Stratosphere.ResourceProperties.ApiGatewayV2IntegrationTlsConfig as X
@@ -650,16 +664,19 @@ import Stratosphere.ResourceProperties.AppMeshRouteGrpcRouteAction as X
 import Stratosphere.ResourceProperties.AppMeshRouteGrpcRouteMatch as X
 import Stratosphere.ResourceProperties.AppMeshRouteGrpcRouteMetadata as X
 import Stratosphere.ResourceProperties.AppMeshRouteGrpcRouteMetadataMatchMethod as X
+import Stratosphere.ResourceProperties.AppMeshRouteGrpcTimeout as X
 import Stratosphere.ResourceProperties.AppMeshRouteHeaderMatchMethod as X
 import Stratosphere.ResourceProperties.AppMeshRouteHttpRetryPolicy as X
 import Stratosphere.ResourceProperties.AppMeshRouteHttpRoute as X
 import Stratosphere.ResourceProperties.AppMeshRouteHttpRouteAction as X
 import Stratosphere.ResourceProperties.AppMeshRouteHttpRouteHeader as X
 import Stratosphere.ResourceProperties.AppMeshRouteHttpRouteMatch as X
+import Stratosphere.ResourceProperties.AppMeshRouteHttpTimeout as X
 import Stratosphere.ResourceProperties.AppMeshRouteMatchRange as X
 import Stratosphere.ResourceProperties.AppMeshRouteRouteSpec as X
 import Stratosphere.ResourceProperties.AppMeshRouteTcpRoute as X
 import Stratosphere.ResourceProperties.AppMeshRouteTcpRouteAction as X
+import Stratosphere.ResourceProperties.AppMeshRouteTcpTimeout as X
 import Stratosphere.ResourceProperties.AppMeshRouteWeightedTarget as X
 import Stratosphere.ResourceProperties.AppMeshVirtualNodeAccessLog as X
 import Stratosphere.ResourceProperties.AppMeshVirtualNodeAwsCloudMapInstanceAttribute as X
@@ -669,9 +686,13 @@ import Stratosphere.ResourceProperties.AppMeshVirtualNodeBackendDefaults as X
 import Stratosphere.ResourceProperties.AppMeshVirtualNodeClientPolicy as X
 import Stratosphere.ResourceProperties.AppMeshVirtualNodeClientPolicyTls as X
 import Stratosphere.ResourceProperties.AppMeshVirtualNodeDnsServiceDiscovery as X
+import Stratosphere.ResourceProperties.AppMeshVirtualNodeDuration as X
 import Stratosphere.ResourceProperties.AppMeshVirtualNodeFileAccessLog as X
+import Stratosphere.ResourceProperties.AppMeshVirtualNodeGrpcTimeout as X
 import Stratosphere.ResourceProperties.AppMeshVirtualNodeHealthCheck as X
+import Stratosphere.ResourceProperties.AppMeshVirtualNodeHttpTimeout as X
 import Stratosphere.ResourceProperties.AppMeshVirtualNodeListener as X
+import Stratosphere.ResourceProperties.AppMeshVirtualNodeListenerTimeout as X
 import Stratosphere.ResourceProperties.AppMeshVirtualNodeListenerTls as X
 import Stratosphere.ResourceProperties.AppMeshVirtualNodeListenerTlsAcmCertificate as X
 import Stratosphere.ResourceProperties.AppMeshVirtualNodeListenerTlsCertificate as X
@@ -679,6 +700,7 @@ import Stratosphere.ResourceProperties.AppMeshVirtualNodeListenerTlsFileCertific
 import Stratosphere.ResourceProperties.AppMeshVirtualNodeLogging as X
 import Stratosphere.ResourceProperties.AppMeshVirtualNodePortMapping as X
 import Stratosphere.ResourceProperties.AppMeshVirtualNodeServiceDiscovery as X
+import Stratosphere.ResourceProperties.AppMeshVirtualNodeTcpTimeout as X
 import Stratosphere.ResourceProperties.AppMeshVirtualNodeTlsValidationContext as X
 import Stratosphere.ResourceProperties.AppMeshVirtualNodeTlsValidationContextAcmTrust as X
 import Stratosphere.ResourceProperties.AppMeshVirtualNodeTlsValidationContextFileTrust as X
@@ -730,6 +752,7 @@ import Stratosphere.ResourceProperties.ApplicationAutoScalingScalingPolicyPredef
 import Stratosphere.ResourceProperties.ApplicationAutoScalingScalingPolicyStepAdjustment as X
 import Stratosphere.ResourceProperties.ApplicationAutoScalingScalingPolicyStepScalingPolicyConfiguration as X
 import Stratosphere.ResourceProperties.ApplicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfiguration as X
+import Stratosphere.ResourceProperties.AthenaDataCatalogTags as X
 import Stratosphere.ResourceProperties.AthenaWorkGroupEncryptionConfiguration as X
 import Stratosphere.ResourceProperties.AthenaWorkGroupResultConfiguration as X
 import Stratosphere.ResourceProperties.AthenaWorkGroupResultConfigurationUpdates as X
@@ -833,6 +856,7 @@ import Stratosphere.ResourceProperties.CloudWatchAnomalyDetectorConfiguration as
 import Stratosphere.ResourceProperties.CloudWatchAnomalyDetectorDimension as X
 import Stratosphere.ResourceProperties.CloudWatchAnomalyDetectorRange as X
 import Stratosphere.ResourceProperties.CodeBuildProjectArtifacts as X
+import Stratosphere.ResourceProperties.CodeBuildProjectBuildStatusConfig as X
 import Stratosphere.ResourceProperties.CodeBuildProjectCloudWatchLogsConfig as X
 import Stratosphere.ResourceProperties.CodeBuildProjectEnvironment as X
 import Stratosphere.ResourceProperties.CodeBuildProjectEnvironmentVariable as X
@@ -1032,6 +1056,7 @@ import Stratosphere.ResourceProperties.EC2NetworkAclEntryIcmp as X
 import Stratosphere.ResourceProperties.EC2NetworkAclEntryPortRange as X
 import Stratosphere.ResourceProperties.EC2NetworkInterfaceInstanceIpv6Address as X
 import Stratosphere.ResourceProperties.EC2NetworkInterfacePrivateIpAddressSpecification as X
+import Stratosphere.ResourceProperties.EC2PrefixListEntry as X
 import Stratosphere.ResourceProperties.EC2SecurityGroupEgressProperty as X
 import Stratosphere.ResourceProperties.EC2SecurityGroupIngressProperty as X
 import Stratosphere.ResourceProperties.EC2SpotFleetBlockDeviceMapping as X
@@ -1103,6 +1128,7 @@ import Stratosphere.ResourceProperties.EFSAccessPointAccessPointTag as X
 import Stratosphere.ResourceProperties.EFSAccessPointCreationInfo as X
 import Stratosphere.ResourceProperties.EFSAccessPointPosixUser as X
 import Stratosphere.ResourceProperties.EFSAccessPointRootDirectory as X
+import Stratosphere.ResourceProperties.EFSFileSystemBackupPolicy as X
 import Stratosphere.ResourceProperties.EFSFileSystemElasticFileSystemTag as X
 import Stratosphere.ResourceProperties.EFSFileSystemLifecyclePolicy as X
 import Stratosphere.ResourceProperties.EKSClusterEncryptionConfig as X
@@ -1206,11 +1232,14 @@ import Stratosphere.ResourceProperties.ElasticLoadBalancingV2LoadBalancerSubnetM
 import Stratosphere.ResourceProperties.ElasticLoadBalancingV2TargetGroupMatcher as X
 import Stratosphere.ResourceProperties.ElasticLoadBalancingV2TargetGroupTargetDescription as X
 import Stratosphere.ResourceProperties.ElasticLoadBalancingV2TargetGroupTargetGroupAttribute as X
+import Stratosphere.ResourceProperties.ElasticsearchDomainAdvancedSecurityOptionsInput as X
 import Stratosphere.ResourceProperties.ElasticsearchDomainCognitoOptions as X
+import Stratosphere.ResourceProperties.ElasticsearchDomainDomainEndpointOptions as X
 import Stratosphere.ResourceProperties.ElasticsearchDomainEBSOptions as X
 import Stratosphere.ResourceProperties.ElasticsearchDomainElasticsearchClusterConfig as X
 import Stratosphere.ResourceProperties.ElasticsearchDomainEncryptionAtRestOptions as X
 import Stratosphere.ResourceProperties.ElasticsearchDomainLogPublishingOption as X
+import Stratosphere.ResourceProperties.ElasticsearchDomainMasterUserOptions as X
 import Stratosphere.ResourceProperties.ElasticsearchDomainNodeToNodeEncryptionOptions as X
 import Stratosphere.ResourceProperties.ElasticsearchDomainSnapshotOptions as X
 import Stratosphere.ResourceProperties.ElasticsearchDomainVPCOptions as X
@@ -1570,6 +1599,7 @@ import Stratosphere.ResourceProperties.LambdaEventSourceMappingOnFailure as X
 import Stratosphere.ResourceProperties.LambdaFunctionCode as X
 import Stratosphere.ResourceProperties.LambdaFunctionDeadLetterConfig as X
 import Stratosphere.ResourceProperties.LambdaFunctionEnvironment as X
+import Stratosphere.ResourceProperties.LambdaFunctionFileSystemConfig as X
 import Stratosphere.ResourceProperties.LambdaFunctionTracingConfig as X
 import Stratosphere.ResourceProperties.LambdaFunctionVpcConfig as X
 import Stratosphere.ResourceProperties.LambdaLayerVersionContent as X
@@ -1705,6 +1735,7 @@ import Stratosphere.ResourceProperties.PinpointEmailConfigurationSetEventDestina
 import Stratosphere.ResourceProperties.PinpointEmailDedicatedIpPoolTags as X
 import Stratosphere.ResourceProperties.PinpointEmailIdentityMailFromAttributes as X
 import Stratosphere.ResourceProperties.PinpointEmailIdentityTags as X
+import Stratosphere.ResourceProperties.QLDBStreamKinesisConfiguration as X
 import Stratosphere.ResourceProperties.RDSDBClusterDBClusterRole as X
 import Stratosphere.ResourceProperties.RDSDBClusterScalingConfiguration as X
 import Stratosphere.ResourceProperties.RDSDBInstanceDBInstanceRole as X
@@ -1830,6 +1861,9 @@ import Stratosphere.ResourceProperties.SSMResourceDataSyncS3Destination as X
 import Stratosphere.ResourceProperties.SSMResourceDataSyncSyncSource as X
 import Stratosphere.ResourceProperties.SageMakerCodeRepositoryGitConfig as X
 import Stratosphere.ResourceProperties.SageMakerEndpointVariantProperty as X
+import Stratosphere.ResourceProperties.SageMakerEndpointConfigCaptureContentTypeHeader as X
+import Stratosphere.ResourceProperties.SageMakerEndpointConfigCaptureOption as X
+import Stratosphere.ResourceProperties.SageMakerEndpointConfigDataCaptureConfig as X
 import Stratosphere.ResourceProperties.SageMakerEndpointConfigProductionVariant as X
 import Stratosphere.ResourceProperties.SageMakerModelContainerDefinition as X
 import Stratosphere.ResourceProperties.SageMakerModelVpcConfig as X
@@ -1837,6 +1871,7 @@ import Stratosphere.ResourceProperties.SageMakerNotebookInstanceLifecycleConfigN
 import Stratosphere.ResourceProperties.SageMakerWorkteamCognitoMemberDefinition as X
 import Stratosphere.ResourceProperties.SageMakerWorkteamMemberDefinition as X
 import Stratosphere.ResourceProperties.SageMakerWorkteamNotificationConfiguration as X
+import Stratosphere.ResourceProperties.SecretsManagerRotationScheduleHostedRotationLambda as X
 import Stratosphere.ResourceProperties.SecretsManagerRotationScheduleRotationRules as X
 import Stratosphere.ResourceProperties.SecretsManagerSecretGenerateSecretString as X
 import Stratosphere.ResourceProperties.ServiceCatalogCloudFormationProductProvisioningArtifactProperties as X
@@ -1852,6 +1887,7 @@ import Stratosphere.ResourceProperties.StepFunctionsStateMachineLogDestination a
 import Stratosphere.ResourceProperties.StepFunctionsStateMachineLoggingConfiguration as X
 import Stratosphere.ResourceProperties.StepFunctionsStateMachineS3Location as X
 import Stratosphere.ResourceProperties.StepFunctionsStateMachineTagsEntry as X
+import Stratosphere.ResourceProperties.StepFunctionsStateMachineTracingConfiguration as X
 import Stratosphere.ResourceProperties.SyntheticsCanaryCode as X
 import Stratosphere.ResourceProperties.SyntheticsCanaryRunConfig as X
 import Stratosphere.ResourceProperties.SyntheticsCanarySchedule as X
@@ -1889,7 +1925,9 @@ import Stratosphere.ResourceProperties.WAFv2RuleGroupAndStatementOne as X
 import Stratosphere.ResourceProperties.WAFv2RuleGroupAndStatementTwo as X
 import Stratosphere.ResourceProperties.WAFv2RuleGroupByteMatchStatement as X
 import Stratosphere.ResourceProperties.WAFv2RuleGroupFieldToMatch as X
+import Stratosphere.ResourceProperties.WAFv2RuleGroupForwardedIPConfiguration as X
 import Stratosphere.ResourceProperties.WAFv2RuleGroupGeoMatchStatement as X
+import Stratosphere.ResourceProperties.WAFv2RuleGroupIPSetForwardedIPConfiguration as X
 import Stratosphere.ResourceProperties.WAFv2RuleGroupIPSetReferenceStatement as X
 import Stratosphere.ResourceProperties.WAFv2RuleGroupNotStatementOne as X
 import Stratosphere.ResourceProperties.WAFv2RuleGroupNotStatementTwo as X
@@ -1914,7 +1952,9 @@ import Stratosphere.ResourceProperties.WAFv2WebACLByteMatchStatement as X
 import Stratosphere.ResourceProperties.WAFv2WebACLDefaultAction as X
 import Stratosphere.ResourceProperties.WAFv2WebACLExcludedRule as X
 import Stratosphere.ResourceProperties.WAFv2WebACLFieldToMatch as X
+import Stratosphere.ResourceProperties.WAFv2WebACLForwardedIPConfiguration as X
 import Stratosphere.ResourceProperties.WAFv2WebACLGeoMatchStatement as X
+import Stratosphere.ResourceProperties.WAFv2WebACLIPSetForwardedIPConfiguration as X
 import Stratosphere.ResourceProperties.WAFv2WebACLIPSetReferenceStatement as X
 import Stratosphere.ResourceProperties.WAFv2WebACLManagedRuleGroupStatement as X
 import Stratosphere.ResourceProperties.WAFv2WebACLNotStatementOne as X

@@ -11,6 +11,7 @@ import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.AppMeshVirtualNodeHealthCheck
 import Stratosphere.ResourceProperties.AppMeshVirtualNodePortMapping
 import Stratosphere.ResourceProperties.AppMeshVirtualNodeListenerTls
+import Stratosphere.ResourceProperties.AppMeshVirtualNodeListenerTimeout
 
 -- | Full data type definition for AppMeshVirtualNodeListener. See
 -- 'appMeshVirtualNodeListener' for a more convenient constructor.
@@ -19,6 +20,7 @@ data AppMeshVirtualNodeListener =
   { _appMeshVirtualNodeListenerHealthCheck :: Maybe AppMeshVirtualNodeHealthCheck
   , _appMeshVirtualNodeListenerPortMapping :: AppMeshVirtualNodePortMapping
   , _appMeshVirtualNodeListenerTLS :: Maybe AppMeshVirtualNodeListenerTls
+  , _appMeshVirtualNodeListenerTimeout :: Maybe AppMeshVirtualNodeListenerTimeout
   } deriving (Show, Eq)
 
 instance ToJSON AppMeshVirtualNodeListener where
@@ -28,6 +30,7 @@ instance ToJSON AppMeshVirtualNodeListener where
     [ fmap (("HealthCheck",) . toJSON) _appMeshVirtualNodeListenerHealthCheck
     , (Just . ("PortMapping",) . toJSON) _appMeshVirtualNodeListenerPortMapping
     , fmap (("TLS",) . toJSON) _appMeshVirtualNodeListenerTLS
+    , fmap (("Timeout",) . toJSON) _appMeshVirtualNodeListenerTimeout
     ]
 
 -- | Constructor for 'AppMeshVirtualNodeListener' containing required fields
@@ -40,6 +43,7 @@ appMeshVirtualNodeListener portMappingarg =
   { _appMeshVirtualNodeListenerHealthCheck = Nothing
   , _appMeshVirtualNodeListenerPortMapping = portMappingarg
   , _appMeshVirtualNodeListenerTLS = Nothing
+  , _appMeshVirtualNodeListenerTimeout = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listener.html#cfn-appmesh-virtualnode-listener-healthcheck
@@ -53,3 +57,7 @@ amvnlPortMapping = lens _appMeshVirtualNodeListenerPortMapping (\s a -> s { _app
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listener.html#cfn-appmesh-virtualnode-listener-tls
 amvnlTLS :: Lens' AppMeshVirtualNodeListener (Maybe AppMeshVirtualNodeListenerTls)
 amvnlTLS = lens _appMeshVirtualNodeListenerTLS (\s a -> s { _appMeshVirtualNodeListenerTLS = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-listener.html#cfn-appmesh-virtualnode-listener-timeout
+amvnlTimeout :: Lens' AppMeshVirtualNodeListener (Maybe AppMeshVirtualNodeListenerTimeout)
+amvnlTimeout = lens _appMeshVirtualNodeListenerTimeout (\s a -> s { _appMeshVirtualNodeListenerTimeout = a })

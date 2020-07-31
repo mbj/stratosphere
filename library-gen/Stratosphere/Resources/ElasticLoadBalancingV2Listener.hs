@@ -15,7 +15,8 @@ import Stratosphere.ResourceProperties.ElasticLoadBalancingV2ListenerAction
 -- 'elasticLoadBalancingV2Listener' for a more convenient constructor.
 data ElasticLoadBalancingV2Listener =
   ElasticLoadBalancingV2Listener
-  { _elasticLoadBalancingV2ListenerCertificates :: Maybe [ElasticLoadBalancingV2ListenerCertificate]
+  { _elasticLoadBalancingV2ListenerAlpnPolicy :: Maybe (ValList Text)
+  , _elasticLoadBalancingV2ListenerCertificates :: Maybe [ElasticLoadBalancingV2ListenerCertificate]
   , _elasticLoadBalancingV2ListenerDefaultActions :: [ElasticLoadBalancingV2ListenerAction]
   , _elasticLoadBalancingV2ListenerLoadBalancerArn :: Val Text
   , _elasticLoadBalancingV2ListenerPort :: Val Integer
@@ -29,7 +30,8 @@ instance ToResourceProperties ElasticLoadBalancingV2Listener where
     { resourcePropertiesType = "AWS::ElasticLoadBalancingV2::Listener"
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
-        [ fmap (("Certificates",) . toJSON) _elasticLoadBalancingV2ListenerCertificates
+        [ fmap (("AlpnPolicy",) . toJSON) _elasticLoadBalancingV2ListenerAlpnPolicy
+        , fmap (("Certificates",) . toJSON) _elasticLoadBalancingV2ListenerCertificates
         , (Just . ("DefaultActions",) . toJSON) _elasticLoadBalancingV2ListenerDefaultActions
         , (Just . ("LoadBalancerArn",) . toJSON) _elasticLoadBalancingV2ListenerLoadBalancerArn
         , (Just . ("Port",) . toJSON) _elasticLoadBalancingV2ListenerPort
@@ -48,13 +50,18 @@ elasticLoadBalancingV2Listener
   -> ElasticLoadBalancingV2Listener
 elasticLoadBalancingV2Listener defaultActionsarg loadBalancerArnarg portarg protocolarg =
   ElasticLoadBalancingV2Listener
-  { _elasticLoadBalancingV2ListenerCertificates = Nothing
+  { _elasticLoadBalancingV2ListenerAlpnPolicy = Nothing
+  , _elasticLoadBalancingV2ListenerCertificates = Nothing
   , _elasticLoadBalancingV2ListenerDefaultActions = defaultActionsarg
   , _elasticLoadBalancingV2ListenerLoadBalancerArn = loadBalancerArnarg
   , _elasticLoadBalancingV2ListenerPort = portarg
   , _elasticLoadBalancingV2ListenerProtocol = protocolarg
   , _elasticLoadBalancingV2ListenerSslPolicy = Nothing
   }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-alpnpolicy
+elbvlAlpnPolicy :: Lens' ElasticLoadBalancingV2Listener (Maybe (ValList Text))
+elbvlAlpnPolicy = lens _elasticLoadBalancingV2ListenerAlpnPolicy (\s a -> s { _elasticLoadBalancingV2ListenerAlpnPolicy = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticloadbalancingv2-listener.html#cfn-elasticloadbalancingv2-listener-certificates
 elbvlCertificates :: Lens' ElasticLoadBalancingV2Listener (Maybe [ElasticLoadBalancingV2ListenerCertificate])

@@ -16,9 +16,10 @@ data SageMakerModelContainerDefinition =
   SageMakerModelContainerDefinition
   { _sageMakerModelContainerDefinitionContainerHostname :: Maybe (Val Text)
   , _sageMakerModelContainerDefinitionEnvironment :: Maybe Object
-  , _sageMakerModelContainerDefinitionImage :: Val Text
+  , _sageMakerModelContainerDefinitionImage :: Maybe (Val Text)
   , _sageMakerModelContainerDefinitionMode :: Maybe (Val Text)
   , _sageMakerModelContainerDefinitionModelDataUrl :: Maybe (Val Text)
+  , _sageMakerModelContainerDefinitionModelPackageName :: Maybe (Val Text)
   } deriving (Show, Eq)
 
 instance ToJSON SageMakerModelContainerDefinition where
@@ -27,23 +28,24 @@ instance ToJSON SageMakerModelContainerDefinition where
     catMaybes
     [ fmap (("ContainerHostname",) . toJSON) _sageMakerModelContainerDefinitionContainerHostname
     , fmap (("Environment",) . toJSON) _sageMakerModelContainerDefinitionEnvironment
-    , (Just . ("Image",) . toJSON) _sageMakerModelContainerDefinitionImage
+    , fmap (("Image",) . toJSON) _sageMakerModelContainerDefinitionImage
     , fmap (("Mode",) . toJSON) _sageMakerModelContainerDefinitionMode
     , fmap (("ModelDataUrl",) . toJSON) _sageMakerModelContainerDefinitionModelDataUrl
+    , fmap (("ModelPackageName",) . toJSON) _sageMakerModelContainerDefinitionModelPackageName
     ]
 
 -- | Constructor for 'SageMakerModelContainerDefinition' containing required
 -- fields as arguments.
 sageMakerModelContainerDefinition
-  :: Val Text -- ^ 'smmcdImage'
-  -> SageMakerModelContainerDefinition
-sageMakerModelContainerDefinition imagearg =
+  :: SageMakerModelContainerDefinition
+sageMakerModelContainerDefinition  =
   SageMakerModelContainerDefinition
   { _sageMakerModelContainerDefinitionContainerHostname = Nothing
   , _sageMakerModelContainerDefinitionEnvironment = Nothing
-  , _sageMakerModelContainerDefinitionImage = imagearg
+  , _sageMakerModelContainerDefinitionImage = Nothing
   , _sageMakerModelContainerDefinitionMode = Nothing
   , _sageMakerModelContainerDefinitionModelDataUrl = Nothing
+  , _sageMakerModelContainerDefinitionModelPackageName = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition.html#cfn-sagemaker-model-containerdefinition-containerhostname
@@ -55,7 +57,7 @@ smmcdEnvironment :: Lens' SageMakerModelContainerDefinition (Maybe Object)
 smmcdEnvironment = lens _sageMakerModelContainerDefinitionEnvironment (\s a -> s { _sageMakerModelContainerDefinitionEnvironment = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition.html#cfn-sagemaker-model-containerdefinition-image
-smmcdImage :: Lens' SageMakerModelContainerDefinition (Val Text)
+smmcdImage :: Lens' SageMakerModelContainerDefinition (Maybe (Val Text))
 smmcdImage = lens _sageMakerModelContainerDefinitionImage (\s a -> s { _sageMakerModelContainerDefinitionImage = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition.html#cfn-sagemaker-model-containerdefinition-mode
@@ -65,3 +67,7 @@ smmcdMode = lens _sageMakerModelContainerDefinitionMode (\s a -> s { _sageMakerM
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition.html#cfn-sagemaker-model-containerdefinition-modeldataurl
 smmcdModelDataUrl :: Lens' SageMakerModelContainerDefinition (Maybe (Val Text))
 smmcdModelDataUrl = lens _sageMakerModelContainerDefinitionModelDataUrl (\s a -> s { _sageMakerModelContainerDefinitionModelDataUrl = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition.html#cfn-sagemaker-model-containerdefinition-modelpackagename
+smmcdModelPackageName :: Lens' SageMakerModelContainerDefinition (Maybe (Val Text))
+smmcdModelPackageName = lens _sageMakerModelContainerDefinitionModelPackageName (\s a -> s { _sageMakerModelContainerDefinitionModelPackageName = a })

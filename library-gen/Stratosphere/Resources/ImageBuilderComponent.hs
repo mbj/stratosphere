@@ -20,6 +20,7 @@ data ImageBuilderComponent =
   , _imageBuilderComponentKmsKeyId :: Maybe (Val Text)
   , _imageBuilderComponentName :: Val Text
   , _imageBuilderComponentPlatform :: Val Text
+  , _imageBuilderComponentSupportedOsVersions :: Maybe (ValList Text)
   , _imageBuilderComponentTags :: Maybe Object
   , _imageBuilderComponentUri :: Maybe (Val Text)
   , _imageBuilderComponentVersion :: Val Text
@@ -37,6 +38,7 @@ instance ToResourceProperties ImageBuilderComponent where
         , fmap (("KmsKeyId",) . toJSON) _imageBuilderComponentKmsKeyId
         , (Just . ("Name",) . toJSON) _imageBuilderComponentName
         , (Just . ("Platform",) . toJSON) _imageBuilderComponentPlatform
+        , fmap (("SupportedOsVersions",) . toJSON) _imageBuilderComponentSupportedOsVersions
         , fmap (("Tags",) . toJSON) _imageBuilderComponentTags
         , fmap (("Uri",) . toJSON) _imageBuilderComponentUri
         , (Just . ("Version",) . toJSON) _imageBuilderComponentVersion
@@ -58,6 +60,7 @@ imageBuilderComponent namearg platformarg versionarg =
   , _imageBuilderComponentKmsKeyId = Nothing
   , _imageBuilderComponentName = namearg
   , _imageBuilderComponentPlatform = platformarg
+  , _imageBuilderComponentSupportedOsVersions = Nothing
   , _imageBuilderComponentTags = Nothing
   , _imageBuilderComponentUri = Nothing
   , _imageBuilderComponentVersion = versionarg
@@ -86,6 +89,10 @@ ibcName = lens _imageBuilderComponentName (\s a -> s { _imageBuilderComponentNam
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-platform
 ibcPlatform :: Lens' ImageBuilderComponent (Val Text)
 ibcPlatform = lens _imageBuilderComponentPlatform (\s a -> s { _imageBuilderComponentPlatform = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-supportedosversions
+ibcSupportedOsVersions :: Lens' ImageBuilderComponent (Maybe (ValList Text))
+ibcSupportedOsVersions = lens _imageBuilderComponentSupportedOsVersions (\s a -> s { _imageBuilderComponentSupportedOsVersions = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-component.html#cfn-imagebuilder-component-tags
 ibcTags :: Lens' ImageBuilderComponent (Maybe Object)

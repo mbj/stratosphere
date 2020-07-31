@@ -14,14 +14,16 @@ import Stratosphere.ResourceImports
 -- 'syntheticsCanaryRunConfig' for a more convenient constructor.
 data SyntheticsCanaryRunConfig =
   SyntheticsCanaryRunConfig
-  { _syntheticsCanaryRunConfigTimeoutInSeconds :: Val Integer
+  { _syntheticsCanaryRunConfigMemoryInMB :: Maybe (Val Integer)
+  , _syntheticsCanaryRunConfigTimeoutInSeconds :: Val Integer
   } deriving (Show, Eq)
 
 instance ToJSON SyntheticsCanaryRunConfig where
   toJSON SyntheticsCanaryRunConfig{..} =
     object $
     catMaybes
-    [ (Just . ("TimeoutInSeconds",) . toJSON) _syntheticsCanaryRunConfigTimeoutInSeconds
+    [ fmap (("MemoryInMB",) . toJSON) _syntheticsCanaryRunConfigMemoryInMB
+    , (Just . ("TimeoutInSeconds",) . toJSON) _syntheticsCanaryRunConfigTimeoutInSeconds
     ]
 
 -- | Constructor for 'SyntheticsCanaryRunConfig' containing required fields as
@@ -31,8 +33,13 @@ syntheticsCanaryRunConfig
   -> SyntheticsCanaryRunConfig
 syntheticsCanaryRunConfig timeoutInSecondsarg =
   SyntheticsCanaryRunConfig
-  { _syntheticsCanaryRunConfigTimeoutInSeconds = timeoutInSecondsarg
+  { _syntheticsCanaryRunConfigMemoryInMB = Nothing
+  , _syntheticsCanaryRunConfigTimeoutInSeconds = timeoutInSecondsarg
   }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-memoryinmb
+scrcMemoryInMB :: Lens' SyntheticsCanaryRunConfig (Maybe (Val Integer))
+scrcMemoryInMB = lens _syntheticsCanaryRunConfigMemoryInMB (\s a -> s { _syntheticsCanaryRunConfigMemoryInMB = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-runconfig.html#cfn-synthetics-canary-runconfig-timeoutinseconds
 scrcTimeoutInSeconds :: Lens' SyntheticsCanaryRunConfig (Val Integer)

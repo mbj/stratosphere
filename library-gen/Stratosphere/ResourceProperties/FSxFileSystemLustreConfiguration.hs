@@ -14,7 +14,10 @@ import Stratosphere.ResourceImports
 -- 'fSxFileSystemLustreConfiguration' for a more convenient constructor.
 data FSxFileSystemLustreConfiguration =
   FSxFileSystemLustreConfiguration
-  { _fSxFileSystemLustreConfigurationDeploymentType :: Maybe (Val Text)
+  { _fSxFileSystemLustreConfigurationAutomaticBackupRetentionDays :: Maybe (Val Integer)
+  , _fSxFileSystemLustreConfigurationCopyTagsToBackups :: Maybe (Val Bool)
+  , _fSxFileSystemLustreConfigurationDailyAutomaticBackupStartTime :: Maybe (Val Text)
+  , _fSxFileSystemLustreConfigurationDeploymentType :: Maybe (Val Text)
   , _fSxFileSystemLustreConfigurationExportPath :: Maybe (Val Text)
   , _fSxFileSystemLustreConfigurationImportPath :: Maybe (Val Text)
   , _fSxFileSystemLustreConfigurationImportedFileChunkSize :: Maybe (Val Integer)
@@ -26,7 +29,10 @@ instance ToJSON FSxFileSystemLustreConfiguration where
   toJSON FSxFileSystemLustreConfiguration{..} =
     object $
     catMaybes
-    [ fmap (("DeploymentType",) . toJSON) _fSxFileSystemLustreConfigurationDeploymentType
+    [ fmap (("AutomaticBackupRetentionDays",) . toJSON) _fSxFileSystemLustreConfigurationAutomaticBackupRetentionDays
+    , fmap (("CopyTagsToBackups",) . toJSON) _fSxFileSystemLustreConfigurationCopyTagsToBackups
+    , fmap (("DailyAutomaticBackupStartTime",) . toJSON) _fSxFileSystemLustreConfigurationDailyAutomaticBackupStartTime
+    , fmap (("DeploymentType",) . toJSON) _fSxFileSystemLustreConfigurationDeploymentType
     , fmap (("ExportPath",) . toJSON) _fSxFileSystemLustreConfigurationExportPath
     , fmap (("ImportPath",) . toJSON) _fSxFileSystemLustreConfigurationImportPath
     , fmap (("ImportedFileChunkSize",) . toJSON) _fSxFileSystemLustreConfigurationImportedFileChunkSize
@@ -40,13 +46,28 @@ fSxFileSystemLustreConfiguration
   :: FSxFileSystemLustreConfiguration
 fSxFileSystemLustreConfiguration  =
   FSxFileSystemLustreConfiguration
-  { _fSxFileSystemLustreConfigurationDeploymentType = Nothing
+  { _fSxFileSystemLustreConfigurationAutomaticBackupRetentionDays = Nothing
+  , _fSxFileSystemLustreConfigurationCopyTagsToBackups = Nothing
+  , _fSxFileSystemLustreConfigurationDailyAutomaticBackupStartTime = Nothing
+  , _fSxFileSystemLustreConfigurationDeploymentType = Nothing
   , _fSxFileSystemLustreConfigurationExportPath = Nothing
   , _fSxFileSystemLustreConfigurationImportPath = Nothing
   , _fSxFileSystemLustreConfigurationImportedFileChunkSize = Nothing
   , _fSxFileSystemLustreConfigurationPerUnitStorageThroughput = Nothing
   , _fSxFileSystemLustreConfigurationWeeklyMaintenanceStartTime = Nothing
   }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-automaticbackupretentiondays
+fsfslcAutomaticBackupRetentionDays :: Lens' FSxFileSystemLustreConfiguration (Maybe (Val Integer))
+fsfslcAutomaticBackupRetentionDays = lens _fSxFileSystemLustreConfigurationAutomaticBackupRetentionDays (\s a -> s { _fSxFileSystemLustreConfigurationAutomaticBackupRetentionDays = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-copytagstobackups
+fsfslcCopyTagsToBackups :: Lens' FSxFileSystemLustreConfiguration (Maybe (Val Bool))
+fsfslcCopyTagsToBackups = lens _fSxFileSystemLustreConfigurationCopyTagsToBackups (\s a -> s { _fSxFileSystemLustreConfigurationCopyTagsToBackups = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-dailyautomaticbackupstarttime
+fsfslcDailyAutomaticBackupStartTime :: Lens' FSxFileSystemLustreConfiguration (Maybe (Val Text))
+fsfslcDailyAutomaticBackupStartTime = lens _fSxFileSystemLustreConfigurationDailyAutomaticBackupStartTime (\s a -> s { _fSxFileSystemLustreConfigurationDailyAutomaticBackupStartTime = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-deploymenttype
 fsfslcDeploymentType :: Lens' FSxFileSystemLustreConfiguration (Maybe (Val Text))
