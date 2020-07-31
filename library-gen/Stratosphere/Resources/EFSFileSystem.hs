@@ -8,6 +8,7 @@
 module Stratosphere.Resources.EFSFileSystem where
 
 import Stratosphere.ResourceImports
+import Stratosphere.ResourceProperties.EFSFileSystemBackupPolicy
 import Stratosphere.ResourceProperties.EFSFileSystemElasticFileSystemTag
 import Stratosphere.ResourceProperties.EFSFileSystemLifecyclePolicy
 
@@ -15,7 +16,8 @@ import Stratosphere.ResourceProperties.EFSFileSystemLifecyclePolicy
 -- more convenient constructor.
 data EFSFileSystem =
   EFSFileSystem
-  { _eFSFileSystemEncrypted :: Maybe (Val Bool)
+  { _eFSFileSystemBackupPolicy :: Maybe EFSFileSystemBackupPolicy
+  , _eFSFileSystemEncrypted :: Maybe (Val Bool)
   , _eFSFileSystemFileSystemPolicy :: Maybe Object
   , _eFSFileSystemFileSystemTags :: Maybe [EFSFileSystemElasticFileSystemTag]
   , _eFSFileSystemKmsKeyId :: Maybe (Val Text)
@@ -31,7 +33,8 @@ instance ToResourceProperties EFSFileSystem where
     { resourcePropertiesType = "AWS::EFS::FileSystem"
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
-        [ fmap (("Encrypted",) . toJSON) _eFSFileSystemEncrypted
+        [ fmap (("BackupPolicy",) . toJSON) _eFSFileSystemBackupPolicy
+        , fmap (("Encrypted",) . toJSON) _eFSFileSystemEncrypted
         , fmap (("FileSystemPolicy",) . toJSON) _eFSFileSystemFileSystemPolicy
         , fmap (("FileSystemTags",) . toJSON) _eFSFileSystemFileSystemTags
         , fmap (("KmsKeyId",) . toJSON) _eFSFileSystemKmsKeyId
@@ -47,7 +50,8 @@ efsFileSystem
   :: EFSFileSystem
 efsFileSystem  =
   EFSFileSystem
-  { _eFSFileSystemEncrypted = Nothing
+  { _eFSFileSystemBackupPolicy = Nothing
+  , _eFSFileSystemEncrypted = Nothing
   , _eFSFileSystemFileSystemPolicy = Nothing
   , _eFSFileSystemFileSystemTags = Nothing
   , _eFSFileSystemKmsKeyId = Nothing
@@ -56,6 +60,10 @@ efsFileSystem  =
   , _eFSFileSystemProvisionedThroughputInMibps = Nothing
   , _eFSFileSystemThroughputMode = Nothing
   }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-backuppolicy
+efsfsBackupPolicy :: Lens' EFSFileSystem (Maybe EFSFileSystemBackupPolicy)
+efsfsBackupPolicy = lens _eFSFileSystemBackupPolicy (\s a -> s { _eFSFileSystemBackupPolicy = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html#cfn-efs-filesystem-encrypted
 efsfsEncrypted :: Lens' EFSFileSystem (Maybe (Val Bool))

@@ -9,6 +9,7 @@ module Stratosphere.ResourceProperties.CodeBuildProjectSource where
 
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.CodeBuildProjectSourceAuth
+import Stratosphere.ResourceProperties.CodeBuildProjectBuildStatusConfig
 import Stratosphere.ResourceProperties.CodeBuildProjectGitSubmodulesConfig
 
 -- | Full data type definition for CodeBuildProjectSource. See
@@ -17,6 +18,7 @@ data CodeBuildProjectSource =
   CodeBuildProjectSource
   { _codeBuildProjectSourceAuth :: Maybe CodeBuildProjectSourceAuth
   , _codeBuildProjectSourceBuildSpec :: Maybe (Val Text)
+  , _codeBuildProjectSourceBuildStatusConfig :: Maybe CodeBuildProjectBuildStatusConfig
   , _codeBuildProjectSourceGitCloneDepth :: Maybe (Val Integer)
   , _codeBuildProjectSourceGitSubmodulesConfig :: Maybe CodeBuildProjectGitSubmodulesConfig
   , _codeBuildProjectSourceInsecureSsl :: Maybe (Val Bool)
@@ -32,6 +34,7 @@ instance ToJSON CodeBuildProjectSource where
     catMaybes
     [ fmap (("Auth",) . toJSON) _codeBuildProjectSourceAuth
     , fmap (("BuildSpec",) . toJSON) _codeBuildProjectSourceBuildSpec
+    , fmap (("BuildStatusConfig",) . toJSON) _codeBuildProjectSourceBuildStatusConfig
     , fmap (("GitCloneDepth",) . toJSON) _codeBuildProjectSourceGitCloneDepth
     , fmap (("GitSubmodulesConfig",) . toJSON) _codeBuildProjectSourceGitSubmodulesConfig
     , fmap (("InsecureSsl",) . toJSON) _codeBuildProjectSourceInsecureSsl
@@ -50,6 +53,7 @@ codeBuildProjectSource typearg =
   CodeBuildProjectSource
   { _codeBuildProjectSourceAuth = Nothing
   , _codeBuildProjectSourceBuildSpec = Nothing
+  , _codeBuildProjectSourceBuildStatusConfig = Nothing
   , _codeBuildProjectSourceGitCloneDepth = Nothing
   , _codeBuildProjectSourceGitSubmodulesConfig = Nothing
   , _codeBuildProjectSourceInsecureSsl = Nothing
@@ -66,6 +70,10 @@ cbpsAuth = lens _codeBuildProjectSourceAuth (\s a -> s { _codeBuildProjectSource
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-source.html#cfn-codebuild-project-source-buildspec
 cbpsBuildSpec :: Lens' CodeBuildProjectSource (Maybe (Val Text))
 cbpsBuildSpec = lens _codeBuildProjectSourceBuildSpec (\s a -> s { _codeBuildProjectSourceBuildSpec = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-source.html#cfn-codebuild-project-source-buildstatusconfig
+cbpsBuildStatusConfig :: Lens' CodeBuildProjectSource (Maybe CodeBuildProjectBuildStatusConfig)
+cbpsBuildStatusConfig = lens _codeBuildProjectSourceBuildStatusConfig (\s a -> s { _codeBuildProjectSourceBuildStatusConfig = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-source.html#cfn-codebuild-project-source-gitclonedepth
 cbpsGitCloneDepth :: Lens' CodeBuildProjectSource (Maybe (Val Integer))

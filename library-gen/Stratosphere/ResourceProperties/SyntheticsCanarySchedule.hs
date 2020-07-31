@@ -14,7 +14,7 @@ import Stratosphere.ResourceImports
 -- 'syntheticsCanarySchedule' for a more convenient constructor.
 data SyntheticsCanarySchedule =
   SyntheticsCanarySchedule
-  { _syntheticsCanaryScheduleDurationInSeconds :: Val Text
+  { _syntheticsCanaryScheduleDurationInSeconds :: Maybe (Val Text)
   , _syntheticsCanaryScheduleExpression :: Val Text
   } deriving (Show, Eq)
 
@@ -22,24 +22,23 @@ instance ToJSON SyntheticsCanarySchedule where
   toJSON SyntheticsCanarySchedule{..} =
     object $
     catMaybes
-    [ (Just . ("DurationInSeconds",) . toJSON) _syntheticsCanaryScheduleDurationInSeconds
+    [ fmap (("DurationInSeconds",) . toJSON) _syntheticsCanaryScheduleDurationInSeconds
     , (Just . ("Expression",) . toJSON) _syntheticsCanaryScheduleExpression
     ]
 
 -- | Constructor for 'SyntheticsCanarySchedule' containing required fields as
 -- arguments.
 syntheticsCanarySchedule
-  :: Val Text -- ^ 'scsDurationInSeconds'
-  -> Val Text -- ^ 'scsExpression'
+  :: Val Text -- ^ 'scsExpression'
   -> SyntheticsCanarySchedule
-syntheticsCanarySchedule durationInSecondsarg expressionarg =
+syntheticsCanarySchedule expressionarg =
   SyntheticsCanarySchedule
-  { _syntheticsCanaryScheduleDurationInSeconds = durationInSecondsarg
+  { _syntheticsCanaryScheduleDurationInSeconds = Nothing
   , _syntheticsCanaryScheduleExpression = expressionarg
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-schedule.html#cfn-synthetics-canary-schedule-durationinseconds
-scsDurationInSeconds :: Lens' SyntheticsCanarySchedule (Val Text)
+scsDurationInSeconds :: Lens' SyntheticsCanarySchedule (Maybe (Val Text))
 scsDurationInSeconds = lens _syntheticsCanaryScheduleDurationInSeconds (\s a -> s { _syntheticsCanaryScheduleDurationInSeconds = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-synthetics-canary-schedule.html#cfn-synthetics-canary-schedule-expression

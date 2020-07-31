@@ -18,7 +18,7 @@ data ImageBuilderDistributionConfigurationDistribution =
   ImageBuilderDistributionConfigurationDistribution
   { _imageBuilderDistributionConfigurationDistributionAmiDistributionConfiguration :: Maybe Object
   , _imageBuilderDistributionConfigurationDistributionLicenseConfigurationArns :: Maybe (ValList Text)
-  , _imageBuilderDistributionConfigurationDistributionRegion :: Maybe (Val Text)
+  , _imageBuilderDistributionConfigurationDistributionRegion :: Val Text
   } deriving (Show, Eq)
 
 instance ToJSON ImageBuilderDistributionConfigurationDistribution where
@@ -27,18 +27,19 @@ instance ToJSON ImageBuilderDistributionConfigurationDistribution where
     catMaybes
     [ fmap (("AmiDistributionConfiguration",) . toJSON) _imageBuilderDistributionConfigurationDistributionAmiDistributionConfiguration
     , fmap (("LicenseConfigurationArns",) . toJSON) _imageBuilderDistributionConfigurationDistributionLicenseConfigurationArns
-    , fmap (("Region",) . toJSON) _imageBuilderDistributionConfigurationDistributionRegion
+    , (Just . ("Region",) . toJSON) _imageBuilderDistributionConfigurationDistributionRegion
     ]
 
 -- | Constructor for 'ImageBuilderDistributionConfigurationDistribution'
 -- containing required fields as arguments.
 imageBuilderDistributionConfigurationDistribution
-  :: ImageBuilderDistributionConfigurationDistribution
-imageBuilderDistributionConfigurationDistribution  =
+  :: Val Text -- ^ 'ibdcdRegion'
+  -> ImageBuilderDistributionConfigurationDistribution
+imageBuilderDistributionConfigurationDistribution regionarg =
   ImageBuilderDistributionConfigurationDistribution
   { _imageBuilderDistributionConfigurationDistributionAmiDistributionConfiguration = Nothing
   , _imageBuilderDistributionConfigurationDistributionLicenseConfigurationArns = Nothing
-  , _imageBuilderDistributionConfigurationDistributionRegion = Nothing
+  , _imageBuilderDistributionConfigurationDistributionRegion = regionarg
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-amidistributionconfiguration
@@ -50,5 +51,5 @@ ibdcdLicenseConfigurationArns :: Lens' ImageBuilderDistributionConfigurationDist
 ibdcdLicenseConfigurationArns = lens _imageBuilderDistributionConfigurationDistributionLicenseConfigurationArns (\s a -> s { _imageBuilderDistributionConfigurationDistributionLicenseConfigurationArns = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html#cfn-imagebuilder-distributionconfiguration-distribution-region
-ibdcdRegion :: Lens' ImageBuilderDistributionConfigurationDistribution (Maybe (Val Text))
+ibdcdRegion :: Lens' ImageBuilderDistributionConfigurationDistribution (Val Text)
 ibdcdRegion = lens _imageBuilderDistributionConfigurationDistributionRegion (\s a -> s { _imageBuilderDistributionConfigurationDistributionRegion = a })

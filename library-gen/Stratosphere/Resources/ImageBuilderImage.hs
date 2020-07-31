@@ -15,6 +15,7 @@ import Stratosphere.ResourceProperties.ImageBuilderImageImageTestsConfiguration
 data ImageBuilderImage =
   ImageBuilderImage
   { _imageBuilderImageDistributionConfigurationArn :: Maybe (Val Text)
+  , _imageBuilderImageEnhancedImageMetadataEnabled :: Maybe (Val Bool)
   , _imageBuilderImageImageRecipeArn :: Val Text
   , _imageBuilderImageImageTestsConfiguration :: Maybe ImageBuilderImageImageTestsConfiguration
   , _imageBuilderImageInfrastructureConfigurationArn :: Val Text
@@ -28,6 +29,7 @@ instance ToResourceProperties ImageBuilderImage where
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
         [ fmap (("DistributionConfigurationArn",) . toJSON) _imageBuilderImageDistributionConfigurationArn
+        , fmap (("EnhancedImageMetadataEnabled",) . toJSON) _imageBuilderImageEnhancedImageMetadataEnabled
         , (Just . ("ImageRecipeArn",) . toJSON) _imageBuilderImageImageRecipeArn
         , fmap (("ImageTestsConfiguration",) . toJSON) _imageBuilderImageImageTestsConfiguration
         , (Just . ("InfrastructureConfigurationArn",) . toJSON) _imageBuilderImageInfrastructureConfigurationArn
@@ -44,6 +46,7 @@ imageBuilderImage
 imageBuilderImage imageRecipeArnarg infrastructureConfigurationArnarg =
   ImageBuilderImage
   { _imageBuilderImageDistributionConfigurationArn = Nothing
+  , _imageBuilderImageEnhancedImageMetadataEnabled = Nothing
   , _imageBuilderImageImageRecipeArn = imageRecipeArnarg
   , _imageBuilderImageImageTestsConfiguration = Nothing
   , _imageBuilderImageInfrastructureConfigurationArn = infrastructureConfigurationArnarg
@@ -53,6 +56,10 @@ imageBuilderImage imageRecipeArnarg infrastructureConfigurationArnarg =
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-distributionconfigurationarn
 ibiDistributionConfigurationArn :: Lens' ImageBuilderImage (Maybe (Val Text))
 ibiDistributionConfigurationArn = lens _imageBuilderImageDistributionConfigurationArn (\s a -> s { _imageBuilderImageDistributionConfigurationArn = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-enhancedimagemetadataenabled
+ibiEnhancedImageMetadataEnabled :: Lens' ImageBuilderImage (Maybe (Val Bool))
+ibiEnhancedImageMetadataEnabled = lens _imageBuilderImageEnhancedImageMetadataEnabled (\s a -> s { _imageBuilderImageEnhancedImageMetadataEnabled = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html#cfn-imagebuilder-image-imagerecipearn
 ibiImageRecipeArn :: Lens' ImageBuilderImage (Val Text)

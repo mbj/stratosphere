@@ -12,6 +12,7 @@ import Stratosphere.Types
 import Stratosphere.ResourceProperties.LambdaFunctionCode
 import Stratosphere.ResourceProperties.LambdaFunctionDeadLetterConfig
 import Stratosphere.ResourceProperties.LambdaFunctionEnvironment
+import Stratosphere.ResourceProperties.LambdaFunctionFileSystemConfig
 import Stratosphere.ResourceProperties.Tag
 import Stratosphere.ResourceProperties.LambdaFunctionTracingConfig
 import Stratosphere.ResourceProperties.LambdaFunctionVpcConfig
@@ -24,6 +25,7 @@ data LambdaFunction =
   , _lambdaFunctionDeadLetterConfig :: Maybe LambdaFunctionDeadLetterConfig
   , _lambdaFunctionDescription :: Maybe (Val Text)
   , _lambdaFunctionEnvironment :: Maybe LambdaFunctionEnvironment
+  , _lambdaFunctionFileSystemConfigs :: Maybe [LambdaFunctionFileSystemConfig]
   , _lambdaFunctionFunctionName :: Maybe (Val Text)
   , _lambdaFunctionHandler :: Val Text
   , _lambdaFunctionKmsKeyArn :: Maybe (Val Text)
@@ -48,6 +50,7 @@ instance ToResourceProperties LambdaFunction where
         , fmap (("DeadLetterConfig",) . toJSON) _lambdaFunctionDeadLetterConfig
         , fmap (("Description",) . toJSON) _lambdaFunctionDescription
         , fmap (("Environment",) . toJSON) _lambdaFunctionEnvironment
+        , fmap (("FileSystemConfigs",) . toJSON) _lambdaFunctionFileSystemConfigs
         , fmap (("FunctionName",) . toJSON) _lambdaFunctionFunctionName
         , (Just . ("Handler",) . toJSON) _lambdaFunctionHandler
         , fmap (("KmsKeyArn",) . toJSON) _lambdaFunctionKmsKeyArn
@@ -76,6 +79,7 @@ lambdaFunction codearg handlerarg rolearg runtimearg =
   , _lambdaFunctionDeadLetterConfig = Nothing
   , _lambdaFunctionDescription = Nothing
   , _lambdaFunctionEnvironment = Nothing
+  , _lambdaFunctionFileSystemConfigs = Nothing
   , _lambdaFunctionFunctionName = Nothing
   , _lambdaFunctionHandler = handlerarg
   , _lambdaFunctionKmsKeyArn = Nothing
@@ -105,6 +109,10 @@ lfDescription = lens _lambdaFunctionDescription (\s a -> s { _lambdaFunctionDesc
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-environment
 lfEnvironment :: Lens' LambdaFunction (Maybe LambdaFunctionEnvironment)
 lfEnvironment = lens _lambdaFunctionEnvironment (\s a -> s { _lambdaFunctionEnvironment = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-filesystemconfigs
+lfFileSystemConfigs :: Lens' LambdaFunction (Maybe [LambdaFunctionFileSystemConfig])
+lfFileSystemConfigs = lens _lambdaFunctionFileSystemConfigs (\s a -> s { _lambdaFunctionFileSystemConfigs = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-functionname
 lfFunctionName :: Lens' LambdaFunction (Maybe (Val Text))

@@ -14,34 +14,32 @@ import Stratosphere.ResourceImports
 -- 'ecsTaskDefinitionContainerDependency' for a more convenient constructor.
 data ECSTaskDefinitionContainerDependency =
   ECSTaskDefinitionContainerDependency
-  { _eCSTaskDefinitionContainerDependencyCondition :: Val Text
-  , _eCSTaskDefinitionContainerDependencyContainerName :: Val Text
+  { _eCSTaskDefinitionContainerDependencyCondition :: Maybe (Val Text)
+  , _eCSTaskDefinitionContainerDependencyContainerName :: Maybe (Val Text)
   } deriving (Show, Eq)
 
 instance ToJSON ECSTaskDefinitionContainerDependency where
   toJSON ECSTaskDefinitionContainerDependency{..} =
     object $
     catMaybes
-    [ (Just . ("Condition",) . toJSON) _eCSTaskDefinitionContainerDependencyCondition
-    , (Just . ("ContainerName",) . toJSON) _eCSTaskDefinitionContainerDependencyContainerName
+    [ fmap (("Condition",) . toJSON) _eCSTaskDefinitionContainerDependencyCondition
+    , fmap (("ContainerName",) . toJSON) _eCSTaskDefinitionContainerDependencyContainerName
     ]
 
 -- | Constructor for 'ECSTaskDefinitionContainerDependency' containing
 -- required fields as arguments.
 ecsTaskDefinitionContainerDependency
-  :: Val Text -- ^ 'ecstdcdCondition'
-  -> Val Text -- ^ 'ecstdcdContainerName'
-  -> ECSTaskDefinitionContainerDependency
-ecsTaskDefinitionContainerDependency conditionarg containerNamearg =
+  :: ECSTaskDefinitionContainerDependency
+ecsTaskDefinitionContainerDependency  =
   ECSTaskDefinitionContainerDependency
-  { _eCSTaskDefinitionContainerDependencyCondition = conditionarg
-  , _eCSTaskDefinitionContainerDependencyContainerName = containerNamearg
+  { _eCSTaskDefinitionContainerDependencyCondition = Nothing
+  , _eCSTaskDefinitionContainerDependencyContainerName = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdependency.html#cfn-ecs-taskdefinition-containerdependency-condition
-ecstdcdCondition :: Lens' ECSTaskDefinitionContainerDependency (Val Text)
+ecstdcdCondition :: Lens' ECSTaskDefinitionContainerDependency (Maybe (Val Text))
 ecstdcdCondition = lens _eCSTaskDefinitionContainerDependencyCondition (\s a -> s { _eCSTaskDefinitionContainerDependencyCondition = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdependency.html#cfn-ecs-taskdefinition-containerdependency-containername
-ecstdcdContainerName :: Lens' ECSTaskDefinitionContainerDependency (Val Text)
+ecstdcdContainerName :: Lens' ECSTaskDefinitionContainerDependency (Maybe (Val Text))
 ecstdcdContainerName = lens _eCSTaskDefinitionContainerDependencyContainerName (\s a -> s { _eCSTaskDefinitionContainerDependencyContainerName = a })

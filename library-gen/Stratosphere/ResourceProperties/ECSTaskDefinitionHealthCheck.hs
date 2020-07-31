@@ -14,7 +14,7 @@ import Stratosphere.ResourceImports
 -- 'ecsTaskDefinitionHealthCheck' for a more convenient constructor.
 data ECSTaskDefinitionHealthCheck =
   ECSTaskDefinitionHealthCheck
-  { _eCSTaskDefinitionHealthCheckCommand :: ValList Text
+  { _eCSTaskDefinitionHealthCheckCommand :: Maybe (ValList Text)
   , _eCSTaskDefinitionHealthCheckInterval :: Maybe (Val Integer)
   , _eCSTaskDefinitionHealthCheckRetries :: Maybe (Val Integer)
   , _eCSTaskDefinitionHealthCheckStartPeriod :: Maybe (Val Integer)
@@ -25,7 +25,7 @@ instance ToJSON ECSTaskDefinitionHealthCheck where
   toJSON ECSTaskDefinitionHealthCheck{..} =
     object $
     catMaybes
-    [ (Just . ("Command",) . toJSON) _eCSTaskDefinitionHealthCheckCommand
+    [ fmap (("Command",) . toJSON) _eCSTaskDefinitionHealthCheckCommand
     , fmap (("Interval",) . toJSON) _eCSTaskDefinitionHealthCheckInterval
     , fmap (("Retries",) . toJSON) _eCSTaskDefinitionHealthCheckRetries
     , fmap (("StartPeriod",) . toJSON) _eCSTaskDefinitionHealthCheckStartPeriod
@@ -35,11 +35,10 @@ instance ToJSON ECSTaskDefinitionHealthCheck where
 -- | Constructor for 'ECSTaskDefinitionHealthCheck' containing required fields
 -- as arguments.
 ecsTaskDefinitionHealthCheck
-  :: ValList Text -- ^ 'ecstdhcCommand'
-  -> ECSTaskDefinitionHealthCheck
-ecsTaskDefinitionHealthCheck commandarg =
+  :: ECSTaskDefinitionHealthCheck
+ecsTaskDefinitionHealthCheck  =
   ECSTaskDefinitionHealthCheck
-  { _eCSTaskDefinitionHealthCheckCommand = commandarg
+  { _eCSTaskDefinitionHealthCheckCommand = Nothing
   , _eCSTaskDefinitionHealthCheckInterval = Nothing
   , _eCSTaskDefinitionHealthCheckRetries = Nothing
   , _eCSTaskDefinitionHealthCheckStartPeriod = Nothing
@@ -47,7 +46,7 @@ ecsTaskDefinitionHealthCheck commandarg =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-healthcheck.html#cfn-ecs-taskdefinition-healthcheck-command
-ecstdhcCommand :: Lens' ECSTaskDefinitionHealthCheck (ValList Text)
+ecstdhcCommand :: Lens' ECSTaskDefinitionHealthCheck (Maybe (ValList Text))
 ecstdhcCommand = lens _eCSTaskDefinitionHealthCheckCommand (\s a -> s { _eCSTaskDefinitionHealthCheckCommand = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-healthcheck.html#cfn-ecs-taskdefinition-healthcheck-interval

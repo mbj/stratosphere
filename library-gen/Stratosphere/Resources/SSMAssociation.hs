@@ -15,7 +15,8 @@ import Stratosphere.ResourceProperties.SSMAssociationTarget
 -- more convenient constructor.
 data SSMAssociation =
   SSMAssociation
-  { _sSMAssociationAssociationName :: Maybe (Val Text)
+  { _sSMAssociationApplyOnlyAtCronInterval :: Maybe (Val Bool)
+  , _sSMAssociationAssociationName :: Maybe (Val Text)
   , _sSMAssociationAutomationTargetParameterName :: Maybe (Val Text)
   , _sSMAssociationComplianceSeverity :: Maybe (Val Text)
   , _sSMAssociationDocumentVersion :: Maybe (Val Text)
@@ -36,7 +37,8 @@ instance ToResourceProperties SSMAssociation where
     { resourcePropertiesType = "AWS::SSM::Association"
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
-        [ fmap (("AssociationName",) . toJSON) _sSMAssociationAssociationName
+        [ fmap (("ApplyOnlyAtCronInterval",) . toJSON) _sSMAssociationApplyOnlyAtCronInterval
+        , fmap (("AssociationName",) . toJSON) _sSMAssociationAssociationName
         , fmap (("AutomationTargetParameterName",) . toJSON) _sSMAssociationAutomationTargetParameterName
         , fmap (("ComplianceSeverity",) . toJSON) _sSMAssociationComplianceSeverity
         , fmap (("DocumentVersion",) . toJSON) _sSMAssociationDocumentVersion
@@ -58,7 +60,8 @@ ssmAssociation
   -> SSMAssociation
 ssmAssociation namearg =
   SSMAssociation
-  { _sSMAssociationAssociationName = Nothing
+  { _sSMAssociationApplyOnlyAtCronInterval = Nothing
+  , _sSMAssociationAssociationName = Nothing
   , _sSMAssociationAutomationTargetParameterName = Nothing
   , _sSMAssociationComplianceSeverity = Nothing
   , _sSMAssociationDocumentVersion = Nothing
@@ -72,6 +75,10 @@ ssmAssociation namearg =
   , _sSMAssociationTargets = Nothing
   , _sSMAssociationWaitForSuccessTimeoutSeconds = Nothing
   }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-applyonlyatcroninterval
+ssmaApplyOnlyAtCronInterval :: Lens' SSMAssociation (Maybe (Val Bool))
+ssmaApplyOnlyAtCronInterval = lens _sSMAssociationApplyOnlyAtCronInterval (\s a -> s { _sSMAssociationApplyOnlyAtCronInterval = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-association.html#cfn-ssm-association-associationname
 ssmaAssociationName :: Lens' SSMAssociation (Maybe (Val Text))

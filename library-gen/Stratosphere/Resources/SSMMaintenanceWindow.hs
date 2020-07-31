@@ -21,6 +21,7 @@ data SSMMaintenanceWindow =
   , _sSMMaintenanceWindowEndDate :: Maybe (Val Text)
   , _sSMMaintenanceWindowName :: Val Text
   , _sSMMaintenanceWindowSchedule :: Val Text
+  , _sSMMaintenanceWindowScheduleOffset :: Maybe (Val Integer)
   , _sSMMaintenanceWindowScheduleTimezone :: Maybe (Val Text)
   , _sSMMaintenanceWindowStartDate :: Maybe (Val Text)
   , _sSMMaintenanceWindowTags :: Maybe [Tag]
@@ -39,6 +40,7 @@ instance ToResourceProperties SSMMaintenanceWindow where
         , fmap (("EndDate",) . toJSON) _sSMMaintenanceWindowEndDate
         , (Just . ("Name",) . toJSON) _sSMMaintenanceWindowName
         , (Just . ("Schedule",) . toJSON) _sSMMaintenanceWindowSchedule
+        , fmap (("ScheduleOffset",) . toJSON) _sSMMaintenanceWindowScheduleOffset
         , fmap (("ScheduleTimezone",) . toJSON) _sSMMaintenanceWindowScheduleTimezone
         , fmap (("StartDate",) . toJSON) _sSMMaintenanceWindowStartDate
         , fmap (("Tags",) . toJSON) _sSMMaintenanceWindowTags
@@ -63,6 +65,7 @@ ssmMaintenanceWindow allowUnassociatedTargetsarg cutoffarg durationarg namearg s
   , _sSMMaintenanceWindowEndDate = Nothing
   , _sSMMaintenanceWindowName = namearg
   , _sSMMaintenanceWindowSchedule = schedulearg
+  , _sSMMaintenanceWindowScheduleOffset = Nothing
   , _sSMMaintenanceWindowScheduleTimezone = Nothing
   , _sSMMaintenanceWindowStartDate = Nothing
   , _sSMMaintenanceWindowTags = Nothing
@@ -95,6 +98,10 @@ ssmmwName = lens _sSMMaintenanceWindowName (\s a -> s { _sSMMaintenanceWindowNam
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindow.html#cfn-ssm-maintenancewindow-schedule
 ssmmwSchedule :: Lens' SSMMaintenanceWindow (Val Text)
 ssmmwSchedule = lens _sSMMaintenanceWindowSchedule (\s a -> s { _sSMMaintenanceWindowSchedule = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindow.html#cfn-ssm-maintenancewindow-scheduleoffset
+ssmmwScheduleOffset :: Lens' SSMMaintenanceWindow (Maybe (Val Integer))
+ssmmwScheduleOffset = lens _sSMMaintenanceWindowScheduleOffset (\s a -> s { _sSMMaintenanceWindowScheduleOffset = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-maintenancewindow.html#cfn-ssm-maintenancewindow-scheduletimezone
 ssmmwScheduleTimezone :: Lens' SSMMaintenanceWindow (Maybe (Val Text))

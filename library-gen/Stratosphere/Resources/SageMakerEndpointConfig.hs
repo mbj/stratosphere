@@ -8,6 +8,7 @@
 module Stratosphere.Resources.SageMakerEndpointConfig where
 
 import Stratosphere.ResourceImports
+import Stratosphere.ResourceProperties.SageMakerEndpointConfigDataCaptureConfig
 import Stratosphere.ResourceProperties.SageMakerEndpointConfigProductionVariant
 import Stratosphere.ResourceProperties.Tag
 
@@ -15,7 +16,8 @@ import Stratosphere.ResourceProperties.Tag
 -- 'sageMakerEndpointConfig' for a more convenient constructor.
 data SageMakerEndpointConfig =
   SageMakerEndpointConfig
-  { _sageMakerEndpointConfigEndpointConfigName :: Maybe (Val Text)
+  { _sageMakerEndpointConfigDataCaptureConfig :: Maybe SageMakerEndpointConfigDataCaptureConfig
+  , _sageMakerEndpointConfigEndpointConfigName :: Maybe (Val Text)
   , _sageMakerEndpointConfigKmsKeyId :: Maybe (Val Text)
   , _sageMakerEndpointConfigProductionVariants :: [SageMakerEndpointConfigProductionVariant]
   , _sageMakerEndpointConfigTags :: Maybe [Tag]
@@ -27,7 +29,8 @@ instance ToResourceProperties SageMakerEndpointConfig where
     { resourcePropertiesType = "AWS::SageMaker::EndpointConfig"
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
-        [ fmap (("EndpointConfigName",) . toJSON) _sageMakerEndpointConfigEndpointConfigName
+        [ fmap (("DataCaptureConfig",) . toJSON) _sageMakerEndpointConfigDataCaptureConfig
+        , fmap (("EndpointConfigName",) . toJSON) _sageMakerEndpointConfigEndpointConfigName
         , fmap (("KmsKeyId",) . toJSON) _sageMakerEndpointConfigKmsKeyId
         , (Just . ("ProductionVariants",) . toJSON) _sageMakerEndpointConfigProductionVariants
         , fmap (("Tags",) . toJSON) _sageMakerEndpointConfigTags
@@ -41,11 +44,16 @@ sageMakerEndpointConfig
   -> SageMakerEndpointConfig
 sageMakerEndpointConfig productionVariantsarg =
   SageMakerEndpointConfig
-  { _sageMakerEndpointConfigEndpointConfigName = Nothing
+  { _sageMakerEndpointConfigDataCaptureConfig = Nothing
+  , _sageMakerEndpointConfigEndpointConfigName = Nothing
   , _sageMakerEndpointConfigKmsKeyId = Nothing
   , _sageMakerEndpointConfigProductionVariants = productionVariantsarg
   , _sageMakerEndpointConfigTags = Nothing
   }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpointconfig.html#cfn-sagemaker-endpointconfig-datacaptureconfig
+smecDataCaptureConfig :: Lens' SageMakerEndpointConfig (Maybe SageMakerEndpointConfigDataCaptureConfig)
+smecDataCaptureConfig = lens _sageMakerEndpointConfigDataCaptureConfig (\s a -> s { _sageMakerEndpointConfigDataCaptureConfig = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpointconfig.html#cfn-sagemaker-endpointconfig-endpointconfigname
 smecEndpointConfigName :: Lens' SageMakerEndpointConfig (Maybe (Val Text))

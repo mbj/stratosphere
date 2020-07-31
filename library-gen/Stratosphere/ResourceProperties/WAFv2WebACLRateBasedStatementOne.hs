@@ -8,6 +8,7 @@
 module Stratosphere.ResourceProperties.WAFv2WebACLRateBasedStatementOne where
 
 import Stratosphere.ResourceImports
+import Stratosphere.ResourceProperties.WAFv2WebACLForwardedIPConfiguration
 import Stratosphere.ResourceProperties.WAFv2WebACLStatementTwo
 
 -- | Full data type definition for WAFv2WebACLRateBasedStatementOne. See
@@ -15,6 +16,7 @@ import Stratosphere.ResourceProperties.WAFv2WebACLStatementTwo
 data WAFv2WebACLRateBasedStatementOne =
   WAFv2WebACLRateBasedStatementOne
   { _wAFv2WebACLRateBasedStatementOneAggregateKeyType :: Val Text
+  , _wAFv2WebACLRateBasedStatementOneForwardedIPConfig :: Maybe WAFv2WebACLForwardedIPConfiguration
   , _wAFv2WebACLRateBasedStatementOneLimit :: Val Integer
   , _wAFv2WebACLRateBasedStatementOneScopeDownStatement :: Maybe WAFv2WebACLStatementTwo
   } deriving (Show, Eq)
@@ -24,6 +26,7 @@ instance ToJSON WAFv2WebACLRateBasedStatementOne where
     object $
     catMaybes
     [ (Just . ("AggregateKeyType",) . toJSON) _wAFv2WebACLRateBasedStatementOneAggregateKeyType
+    , fmap (("ForwardedIPConfig",) . toJSON) _wAFv2WebACLRateBasedStatementOneForwardedIPConfig
     , (Just . ("Limit",) . toJSON) _wAFv2WebACLRateBasedStatementOneLimit
     , fmap (("ScopeDownStatement",) . toJSON) _wAFv2WebACLRateBasedStatementOneScopeDownStatement
     ]
@@ -37,6 +40,7 @@ waFv2WebACLRateBasedStatementOne
 waFv2WebACLRateBasedStatementOne aggregateKeyTypearg limitarg =
   WAFv2WebACLRateBasedStatementOne
   { _wAFv2WebACLRateBasedStatementOneAggregateKeyType = aggregateKeyTypearg
+  , _wAFv2WebACLRateBasedStatementOneForwardedIPConfig = Nothing
   , _wAFv2WebACLRateBasedStatementOneLimit = limitarg
   , _wAFv2WebACLRateBasedStatementOneScopeDownStatement = Nothing
   }
@@ -44,6 +48,10 @@ waFv2WebACLRateBasedStatementOne aggregateKeyTypearg limitarg =
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementone.html#cfn-wafv2-webacl-ratebasedstatementone-aggregatekeytype
 wafwaclrbsoAggregateKeyType :: Lens' WAFv2WebACLRateBasedStatementOne (Val Text)
 wafwaclrbsoAggregateKeyType = lens _wAFv2WebACLRateBasedStatementOneAggregateKeyType (\s a -> s { _wAFv2WebACLRateBasedStatementOneAggregateKeyType = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementone.html#cfn-wafv2-webacl-ratebasedstatementone-forwardedipconfig
+wafwaclrbsoForwardedIPConfig :: Lens' WAFv2WebACLRateBasedStatementOne (Maybe WAFv2WebACLForwardedIPConfiguration)
+wafwaclrbsoForwardedIPConfig = lens _wAFv2WebACLRateBasedStatementOneForwardedIPConfig (\s a -> s { _wAFv2WebACLRateBasedStatementOneForwardedIPConfig = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementone.html#cfn-wafv2-webacl-ratebasedstatementone-limit
 wafwaclrbsoLimit :: Lens' WAFv2WebACLRateBasedStatementOne (Val Integer)

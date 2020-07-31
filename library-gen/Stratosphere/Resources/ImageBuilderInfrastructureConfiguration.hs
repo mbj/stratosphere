@@ -21,6 +21,7 @@ data ImageBuilderInfrastructureConfiguration =
   , _imageBuilderInfrastructureConfigurationKeyPair :: Maybe (Val Text)
   , _imageBuilderInfrastructureConfigurationLogging :: Maybe Object
   , _imageBuilderInfrastructureConfigurationName :: Val Text
+  , _imageBuilderInfrastructureConfigurationResourceTags :: Maybe Object
   , _imageBuilderInfrastructureConfigurationSecurityGroupIds :: Maybe (ValList Text)
   , _imageBuilderInfrastructureConfigurationSnsTopicArn :: Maybe (Val Text)
   , _imageBuilderInfrastructureConfigurationSubnetId :: Maybe (Val Text)
@@ -40,6 +41,7 @@ instance ToResourceProperties ImageBuilderInfrastructureConfiguration where
         , fmap (("KeyPair",) . toJSON) _imageBuilderInfrastructureConfigurationKeyPair
         , fmap (("Logging",) . toJSON) _imageBuilderInfrastructureConfigurationLogging
         , (Just . ("Name",) . toJSON) _imageBuilderInfrastructureConfigurationName
+        , fmap (("ResourceTags",) . toJSON) _imageBuilderInfrastructureConfigurationResourceTags
         , fmap (("SecurityGroupIds",) . toJSON) _imageBuilderInfrastructureConfigurationSecurityGroupIds
         , fmap (("SnsTopicArn",) . toJSON) _imageBuilderInfrastructureConfigurationSnsTopicArn
         , fmap (("SubnetId",) . toJSON) _imageBuilderInfrastructureConfigurationSubnetId
@@ -62,6 +64,7 @@ imageBuilderInfrastructureConfiguration instanceProfileNamearg namearg =
   , _imageBuilderInfrastructureConfigurationKeyPair = Nothing
   , _imageBuilderInfrastructureConfigurationLogging = Nothing
   , _imageBuilderInfrastructureConfigurationName = namearg
+  , _imageBuilderInfrastructureConfigurationResourceTags = Nothing
   , _imageBuilderInfrastructureConfigurationSecurityGroupIds = Nothing
   , _imageBuilderInfrastructureConfigurationSnsTopicArn = Nothing
   , _imageBuilderInfrastructureConfigurationSubnetId = Nothing
@@ -92,6 +95,10 @@ ibicLogging = lens _imageBuilderInfrastructureConfigurationLogging (\s a -> s { 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-name
 ibicName :: Lens' ImageBuilderInfrastructureConfiguration (Val Text)
 ibicName = lens _imageBuilderInfrastructureConfigurationName (\s a -> s { _imageBuilderInfrastructureConfigurationName = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-resourcetags
+ibicResourceTags :: Lens' ImageBuilderInfrastructureConfiguration (Maybe Object)
+ibicResourceTags = lens _imageBuilderInfrastructureConfigurationResourceTags (\s a -> s { _imageBuilderInfrastructureConfigurationResourceTags = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-securitygroupids
 ibicSecurityGroupIds :: Lens' ImageBuilderInfrastructureConfiguration (Maybe (ValList Text))
