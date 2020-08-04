@@ -9,8 +9,8 @@ module Stratosphere.ResourceProperties.AppMeshVirtualGatewayVirtualGatewayListen
 
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.AppMeshVirtualGatewayVirtualGatewayHealthCheckPolicy
-import Stratosphere.ResourceProperties.AppMeshVirtualGatewayVirtualGatewayPortMapping
 import Stratosphere.ResourceProperties.AppMeshVirtualGatewayVirtualGatewayListenerTls
+import Stratosphere.ResourceProperties.AppMeshVirtualGatewayVirtualGatewayPortMapping
 
 -- | Full data type definition for
 -- AppMeshVirtualGatewayVirtualGatewayListener. See

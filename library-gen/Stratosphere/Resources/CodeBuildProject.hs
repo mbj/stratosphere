@@ -9,16 +9,16 @@ module Stratosphere.Resources.CodeBuildProject where
 
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.CodeBuildProjectArtifacts
+import Stratosphere.ResourceProperties.CodeBuildProjectEnvironment
+import Stratosphere.ResourceProperties.CodeBuildProjectLogsConfig
 import Stratosphere.ResourceProperties.CodeBuildProjectProjectBuildBatchConfig
 import Stratosphere.ResourceProperties.CodeBuildProjectProjectCache
-import Stratosphere.ResourceProperties.CodeBuildProjectEnvironment
 import Stratosphere.ResourceProperties.CodeBuildProjectProjectFileSystemLocation
-import Stratosphere.ResourceProperties.CodeBuildProjectLogsConfig
 import Stratosphere.ResourceProperties.CodeBuildProjectProjectSourceVersion
-import Stratosphere.ResourceProperties.CodeBuildProjectSource
-import Stratosphere.ResourceProperties.Tag
 import Stratosphere.ResourceProperties.CodeBuildProjectProjectTriggers
+import Stratosphere.ResourceProperties.CodeBuildProjectSource
 import Stratosphere.ResourceProperties.CodeBuildProjectVpcConfig
+import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for CodeBuildProject. See 'codeBuildProject'
 -- for a more convenient constructor.
