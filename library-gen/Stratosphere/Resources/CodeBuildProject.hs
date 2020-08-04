@@ -9,6 +9,7 @@ module Stratosphere.Resources.CodeBuildProject where
 
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.CodeBuildProjectArtifacts
+import Stratosphere.ResourceProperties.CodeBuildProjectProjectBuildBatchConfig
 import Stratosphere.ResourceProperties.CodeBuildProjectProjectCache
 import Stratosphere.ResourceProperties.CodeBuildProjectEnvironment
 import Stratosphere.ResourceProperties.CodeBuildProjectProjectFileSystemLocation
@@ -25,6 +26,7 @@ data CodeBuildProject =
   CodeBuildProject
   { _codeBuildProjectArtifacts :: CodeBuildProjectArtifacts
   , _codeBuildProjectBadgeEnabled :: Maybe (Val Bool)
+  , _codeBuildProjectBuildBatchConfig :: Maybe CodeBuildProjectProjectBuildBatchConfig
   , _codeBuildProjectCache :: Maybe CodeBuildProjectProjectCache
   , _codeBuildProjectDescription :: Maybe (Val Text)
   , _codeBuildProjectEncryptionKey :: Maybe (Val Text)
@@ -53,6 +55,7 @@ instance ToResourceProperties CodeBuildProject where
         hashMapFromList $ catMaybes
         [ (Just . ("Artifacts",) . toJSON) _codeBuildProjectArtifacts
         , fmap (("BadgeEnabled",) . toJSON) _codeBuildProjectBadgeEnabled
+        , fmap (("BuildBatchConfig",) . toJSON) _codeBuildProjectBuildBatchConfig
         , fmap (("Cache",) . toJSON) _codeBuildProjectCache
         , fmap (("Description",) . toJSON) _codeBuildProjectDescription
         , fmap (("EncryptionKey",) . toJSON) _codeBuildProjectEncryptionKey
@@ -86,6 +89,7 @@ codeBuildProject artifactsarg environmentarg serviceRolearg sourcearg =
   CodeBuildProject
   { _codeBuildProjectArtifacts = artifactsarg
   , _codeBuildProjectBadgeEnabled = Nothing
+  , _codeBuildProjectBuildBatchConfig = Nothing
   , _codeBuildProjectCache = Nothing
   , _codeBuildProjectDescription = Nothing
   , _codeBuildProjectEncryptionKey = Nothing
@@ -113,6 +117,10 @@ cbpArtifacts = lens _codeBuildProjectArtifacts (\s a -> s { _codeBuildProjectArt
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-badgeenabled
 cbpBadgeEnabled :: Lens' CodeBuildProject (Maybe (Val Bool))
 cbpBadgeEnabled = lens _codeBuildProjectBadgeEnabled (\s a -> s { _codeBuildProjectBadgeEnabled = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-buildbatchconfig
+cbpBuildBatchConfig :: Lens' CodeBuildProject (Maybe CodeBuildProjectProjectBuildBatchConfig)
+cbpBuildBatchConfig = lens _codeBuildProjectBuildBatchConfig (\s a -> s { _codeBuildProjectBuildBatchConfig = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-project.html#cfn-codebuild-project-cache
 cbpCache :: Lens' CodeBuildProject (Maybe CodeBuildProjectProjectCache)

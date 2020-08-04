@@ -10,6 +10,7 @@ module Stratosphere.Resources.KinesisFirehoseDeliveryStream where
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguration
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamExtendedS3DestinationConfiguration
+import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamHttpEndpointDestinationConfiguration
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamKinesisStreamSourceConfiguration
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamS3DestinationConfiguration
@@ -23,6 +24,7 @@ data KinesisFirehoseDeliveryStream =
   , _kinesisFirehoseDeliveryStreamDeliveryStreamType :: Maybe (Val Text)
   , _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguration :: Maybe KinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguration
   , _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfiguration :: Maybe KinesisFirehoseDeliveryStreamExtendedS3DestinationConfiguration
+  , _kinesisFirehoseDeliveryStreamHttpEndpointDestinationConfiguration :: Maybe KinesisFirehoseDeliveryStreamHttpEndpointDestinationConfiguration
   , _kinesisFirehoseDeliveryStreamKinesisStreamSourceConfiguration :: Maybe KinesisFirehoseDeliveryStreamKinesisStreamSourceConfiguration
   , _kinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration :: Maybe KinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration
   , _kinesisFirehoseDeliveryStreamS3DestinationConfiguration :: Maybe KinesisFirehoseDeliveryStreamS3DestinationConfiguration
@@ -39,6 +41,7 @@ instance ToResourceProperties KinesisFirehoseDeliveryStream where
         , fmap (("DeliveryStreamType",) . toJSON) _kinesisFirehoseDeliveryStreamDeliveryStreamType
         , fmap (("ElasticsearchDestinationConfiguration",) . toJSON) _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguration
         , fmap (("ExtendedS3DestinationConfiguration",) . toJSON) _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfiguration
+        , fmap (("HttpEndpointDestinationConfiguration",) . toJSON) _kinesisFirehoseDeliveryStreamHttpEndpointDestinationConfiguration
         , fmap (("KinesisStreamSourceConfiguration",) . toJSON) _kinesisFirehoseDeliveryStreamKinesisStreamSourceConfiguration
         , fmap (("RedshiftDestinationConfiguration",) . toJSON) _kinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration
         , fmap (("S3DestinationConfiguration",) . toJSON) _kinesisFirehoseDeliveryStreamS3DestinationConfiguration
@@ -56,6 +59,7 @@ kinesisFirehoseDeliveryStream  =
   , _kinesisFirehoseDeliveryStreamDeliveryStreamType = Nothing
   , _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguration = Nothing
   , _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfiguration = Nothing
+  , _kinesisFirehoseDeliveryStreamHttpEndpointDestinationConfiguration = Nothing
   , _kinesisFirehoseDeliveryStreamKinesisStreamSourceConfiguration = Nothing
   , _kinesisFirehoseDeliveryStreamRedshiftDestinationConfiguration = Nothing
   , _kinesisFirehoseDeliveryStreamS3DestinationConfiguration = Nothing
@@ -77,6 +81,10 @@ kfdsElasticsearchDestinationConfiguration = lens _kinesisFirehoseDeliveryStreamE
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-extendeds3destinationconfiguration
 kfdsExtendedS3DestinationConfiguration :: Lens' KinesisFirehoseDeliveryStream (Maybe KinesisFirehoseDeliveryStreamExtendedS3DestinationConfiguration)
 kfdsExtendedS3DestinationConfiguration = lens _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfiguration (\s a -> s { _kinesisFirehoseDeliveryStreamExtendedS3DestinationConfiguration = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration
+kfdsHttpEndpointDestinationConfiguration :: Lens' KinesisFirehoseDeliveryStream (Maybe KinesisFirehoseDeliveryStreamHttpEndpointDestinationConfiguration)
+kfdsHttpEndpointDestinationConfiguration = lens _kinesisFirehoseDeliveryStreamHttpEndpointDestinationConfiguration (\s a -> s { _kinesisFirehoseDeliveryStreamHttpEndpointDestinationConfiguration = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesisfirehose-deliverystream.html#cfn-kinesisfirehose-deliverystream-kinesisstreamsourceconfiguration
 kfdsKinesisStreamSourceConfiguration :: Lens' KinesisFirehoseDeliveryStream (Maybe KinesisFirehoseDeliveryStreamKinesisStreamSourceConfiguration)

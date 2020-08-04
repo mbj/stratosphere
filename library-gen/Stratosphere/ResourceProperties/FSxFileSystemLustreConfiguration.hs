@@ -14,7 +14,8 @@ import Stratosphere.ResourceImports
 -- 'fSxFileSystemLustreConfiguration' for a more convenient constructor.
 data FSxFileSystemLustreConfiguration =
   FSxFileSystemLustreConfiguration
-  { _fSxFileSystemLustreConfigurationAutomaticBackupRetentionDays :: Maybe (Val Integer)
+  { _fSxFileSystemLustreConfigurationAutoImportPolicy :: Maybe (Val Text)
+  , _fSxFileSystemLustreConfigurationAutomaticBackupRetentionDays :: Maybe (Val Integer)
   , _fSxFileSystemLustreConfigurationCopyTagsToBackups :: Maybe (Val Bool)
   , _fSxFileSystemLustreConfigurationDailyAutomaticBackupStartTime :: Maybe (Val Text)
   , _fSxFileSystemLustreConfigurationDeploymentType :: Maybe (Val Text)
@@ -29,7 +30,8 @@ instance ToJSON FSxFileSystemLustreConfiguration where
   toJSON FSxFileSystemLustreConfiguration{..} =
     object $
     catMaybes
-    [ fmap (("AutomaticBackupRetentionDays",) . toJSON) _fSxFileSystemLustreConfigurationAutomaticBackupRetentionDays
+    [ fmap (("AutoImportPolicy",) . toJSON) _fSxFileSystemLustreConfigurationAutoImportPolicy
+    , fmap (("AutomaticBackupRetentionDays",) . toJSON) _fSxFileSystemLustreConfigurationAutomaticBackupRetentionDays
     , fmap (("CopyTagsToBackups",) . toJSON) _fSxFileSystemLustreConfigurationCopyTagsToBackups
     , fmap (("DailyAutomaticBackupStartTime",) . toJSON) _fSxFileSystemLustreConfigurationDailyAutomaticBackupStartTime
     , fmap (("DeploymentType",) . toJSON) _fSxFileSystemLustreConfigurationDeploymentType
@@ -46,7 +48,8 @@ fSxFileSystemLustreConfiguration
   :: FSxFileSystemLustreConfiguration
 fSxFileSystemLustreConfiguration  =
   FSxFileSystemLustreConfiguration
-  { _fSxFileSystemLustreConfigurationAutomaticBackupRetentionDays = Nothing
+  { _fSxFileSystemLustreConfigurationAutoImportPolicy = Nothing
+  , _fSxFileSystemLustreConfigurationAutomaticBackupRetentionDays = Nothing
   , _fSxFileSystemLustreConfigurationCopyTagsToBackups = Nothing
   , _fSxFileSystemLustreConfigurationDailyAutomaticBackupStartTime = Nothing
   , _fSxFileSystemLustreConfigurationDeploymentType = Nothing
@@ -56,6 +59,10 @@ fSxFileSystemLustreConfiguration  =
   , _fSxFileSystemLustreConfigurationPerUnitStorageThroughput = Nothing
   , _fSxFileSystemLustreConfigurationWeeklyMaintenanceStartTime = Nothing
   }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-autoimportpolicy
+fsfslcAutoImportPolicy :: Lens' FSxFileSystemLustreConfiguration (Maybe (Val Text))
+fsfslcAutoImportPolicy = lens _fSxFileSystemLustreConfigurationAutoImportPolicy (\s a -> s { _fSxFileSystemLustreConfigurationAutoImportPolicy = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-automaticbackupretentiondays
 fsfslcAutomaticBackupRetentionDays :: Lens' FSxFileSystemLustreConfiguration (Maybe (Val Integer))

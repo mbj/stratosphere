@@ -16,7 +16,7 @@ import Stratosphere.ResourceProperties.Tag
 data ApiGatewayDomainName =
   ApiGatewayDomainName
   { _apiGatewayDomainNameCertificateArn :: Maybe (Val Text)
-  , _apiGatewayDomainNameDomainName :: Val Text
+  , _apiGatewayDomainNameDomainName :: Maybe (Val Text)
   , _apiGatewayDomainNameEndpointConfiguration :: Maybe ApiGatewayDomainNameEndpointConfiguration
   , _apiGatewayDomainNameRegionalCertificateArn :: Maybe (Val Text)
   , _apiGatewayDomainNameSecurityPolicy :: Maybe (Val Text)
@@ -30,7 +30,7 @@ instance ToResourceProperties ApiGatewayDomainName where
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
         [ fmap (("CertificateArn",) . toJSON) _apiGatewayDomainNameCertificateArn
-        , (Just . ("DomainName",) . toJSON) _apiGatewayDomainNameDomainName
+        , fmap (("DomainName",) . toJSON) _apiGatewayDomainNameDomainName
         , fmap (("EndpointConfiguration",) . toJSON) _apiGatewayDomainNameEndpointConfiguration
         , fmap (("RegionalCertificateArn",) . toJSON) _apiGatewayDomainNameRegionalCertificateArn
         , fmap (("SecurityPolicy",) . toJSON) _apiGatewayDomainNameSecurityPolicy
@@ -41,12 +41,11 @@ instance ToResourceProperties ApiGatewayDomainName where
 -- | Constructor for 'ApiGatewayDomainName' containing required fields as
 -- arguments.
 apiGatewayDomainName
-  :: Val Text -- ^ 'agdnDomainName'
-  -> ApiGatewayDomainName
-apiGatewayDomainName domainNamearg =
+  :: ApiGatewayDomainName
+apiGatewayDomainName  =
   ApiGatewayDomainName
   { _apiGatewayDomainNameCertificateArn = Nothing
-  , _apiGatewayDomainNameDomainName = domainNamearg
+  , _apiGatewayDomainNameDomainName = Nothing
   , _apiGatewayDomainNameEndpointConfiguration = Nothing
   , _apiGatewayDomainNameRegionalCertificateArn = Nothing
   , _apiGatewayDomainNameSecurityPolicy = Nothing
@@ -58,7 +57,7 @@ agdnCertificateArn :: Lens' ApiGatewayDomainName (Maybe (Val Text))
 agdnCertificateArn = lens _apiGatewayDomainNameCertificateArn (\s a -> s { _apiGatewayDomainNameCertificateArn = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-domainname
-agdnDomainName :: Lens' ApiGatewayDomainName (Val Text)
+agdnDomainName :: Lens' ApiGatewayDomainName (Maybe (Val Text))
 agdnDomainName = lens _apiGatewayDomainNameDomainName (\s a -> s { _apiGatewayDomainNameDomainName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-endpointconfiguration
