@@ -58,6 +58,7 @@ data HttpMethod
   | GET
   | HEAD
   | OPTIONS
+  | PATCH
   | POST
   | PUT
   deriving (Show, Read, Eq, Generic, ToJSON)
