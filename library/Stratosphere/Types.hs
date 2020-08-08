@@ -53,13 +53,14 @@ data AuthorizationType
   deriving (Show, Read, Eq, Generic, ToJSON)
 
 data HttpMethod
-  = GET
+  = ANY
+  | DELETE
+  | GET
+  | HEAD
+  | OPTIONS
+  | PATCH
   | POST
   | PUT
-  | HEAD
-  | DELETE
-  | OPTIONS
-  | ANY
   deriving (Show, Read, Eq, Generic, ToJSON)
 
 data LoggingLevel
