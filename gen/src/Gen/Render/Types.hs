@@ -209,6 +209,8 @@ computeLensPrefix "AWS::IoTEvents::DetectorModel.DynamoDB" = "itedmddb"
 computeLensPrefix "AWS::IoTEvents::DetectorModel.DynamoDBv2" = "itedmddbv"
 computeLensPrefix "AWS::IoTEvents::DetectorModel.Sns" = "itedmsn"
 computeLensPrefix "AWS::IoTEvents::DetectorModel.Sqs" = "itedmsq"
+computeLensPrefix "AWS::EC2::CarrierGateway" = "eccag"
+computeLensPrefix "AWS::EC2::CustomerGateway" = "eccug"
 -- Everything else
 computeLensPrefix rawName = toLower $ fromMaybe rawName $ toAcronym $ computeModuleName rawName
 

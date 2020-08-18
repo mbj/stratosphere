@@ -2,6 +2,7 @@
 
 ## 0.58.0
 
+* Update resource specification document to version 17.0.0
 * Added `.cabal` files to repo (#179)
 * Added `PATCH` constructor for `HttpMethod` (#176)
 
