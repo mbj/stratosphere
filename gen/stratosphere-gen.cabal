@@ -1,0 +1,47 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.33.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: bb6fb8474cf051521a2f8f61aebe74685a53415c5b78e2c207fda35da18124d7
+
+name:           stratosphere-gen
+version:        0.1.0
+synopsis:       stratosphere code generation
+maintainer:     David Reaver
+build-type:     Simple
+
+executable stratosphere-gen
+  main-is: Main.hs
+  other-modules:
+      Gen.ReadRawSpecFile
+      Gen.Render
+      Gen.Render.RenderConstructor
+      Gen.Render.RenderDocstring
+      Gen.Render.RenderJsonInstances
+      Gen.Render.RenderLenses
+      Gen.Render.RenderTypes
+      Gen.Render.Types
+      Gen.Specifications
+      Paths_stratosphere_gen
+  hs-source-dirs:
+      src
+  default-extensions: DeriveGeneric ExistentialQuantification FlexibleInstances FunctionalDependencies GeneralizedNewtypeDeriving MultiParamTypeClasses OverloadedStrings RecordWildCards ScopedTypeVariables StandaloneDeriving TemplateHaskell
+  ghc-options: -Wall -O0
+  build-depends:
+      aeson >=0.11
+    , base
+    , bytestring
+    , containers
+    , directory
+    , extra
+    , filepath
+    , lens >=4.5
+    , lens-aeson
+    , shakespeare
+    , system-filepath
+    , text >=1.1
+    , text-manipulate
+    , unordered-containers
+  default-language: Haskell2010
