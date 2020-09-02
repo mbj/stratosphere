@@ -1,5 +1,10 @@
 # Change Log
 
+## 0.58.0
+
+* Added `.cabal` files to repo (#179)
+* Added `PATCH` constructor for `HttpMethod` (#176)
+
 ## 0.57.0
 
 * Update resource specification document to version 16.3.0
