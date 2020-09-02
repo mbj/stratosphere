@@ -17,7 +17,6 @@ data SNSTopic =
   SNSTopic
   { _sNSTopicContentBasedDeduplication :: Maybe (Val Bool)
   , _sNSTopicDisplayName :: Maybe (Val Text)
-  , _sNSTopicFifoTopic :: Maybe (Val Bool)
   , _sNSTopicKmsMasterKeyId :: Maybe (Val Text)
   , _sNSTopicSubscription :: Maybe [SNSTopicSubscription]
   , _sNSTopicTags :: Maybe [Tag]
@@ -32,7 +31,6 @@ instance ToResourceProperties SNSTopic where
         hashMapFromList $ catMaybes
         [ fmap (("ContentBasedDeduplication",) . toJSON) _sNSTopicContentBasedDeduplication
         , fmap (("DisplayName",) . toJSON) _sNSTopicDisplayName
-        , fmap (("FifoTopic",) . toJSON) _sNSTopicFifoTopic
         , fmap (("KmsMasterKeyId",) . toJSON) _sNSTopicKmsMasterKeyId
         , fmap (("Subscription",) . toJSON) _sNSTopicSubscription
         , fmap (("Tags",) . toJSON) _sNSTopicTags
@@ -47,7 +45,6 @@ snsTopic  =
   SNSTopic
   { _sNSTopicContentBasedDeduplication = Nothing
   , _sNSTopicDisplayName = Nothing
-  , _sNSTopicFifoTopic = Nothing
   , _sNSTopicKmsMasterKeyId = Nothing
   , _sNSTopicSubscription = Nothing
   , _sNSTopicTags = Nothing
@@ -61,10 +58,6 @@ snstContentBasedDeduplication = lens _sNSTopicContentBasedDeduplication (\s a ->
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic.html#cfn-sns-topic-displayname
 snstDisplayName :: Lens' SNSTopic (Maybe (Val Text))
 snstDisplayName = lens _sNSTopicDisplayName (\s a -> s { _sNSTopicDisplayName = a })
-
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic.html#cfn-sns-topic-fifotopic
-snstFifoTopic :: Lens' SNSTopic (Maybe (Val Bool))
-snstFifoTopic = lens _sNSTopicFifoTopic (\s a -> s { _sNSTopicFifoTopic = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic.html#cfn-sns-topic-kmsmasterkeyid
 snstKmsMasterKeyId :: Lens' SNSTopic (Maybe (Val Text))

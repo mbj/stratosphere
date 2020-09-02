@@ -9,6 +9,7 @@ module Stratosphere.Resources.IoTProvisioningTemplate where
 
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.IoTProvisioningTemplateProvisioningHook
+import Stratosphere.ResourceProperties.IoTProvisioningTemplateTags
 
 -- | Full data type definition for IoTProvisioningTemplate. See
 -- 'ioTProvisioningTemplate' for a more convenient constructor.
@@ -18,7 +19,7 @@ data IoTProvisioningTemplate =
   , _ioTProvisioningTemplateEnabled :: Maybe (Val Bool)
   , _ioTProvisioningTemplatePreProvisioningHook :: Maybe IoTProvisioningTemplateProvisioningHook
   , _ioTProvisioningTemplateProvisioningRoleArn :: Val Text
-  , _ioTProvisioningTemplateTags :: Maybe [Object]
+  , _ioTProvisioningTemplateTags :: Maybe IoTProvisioningTemplateTags
   , _ioTProvisioningTemplateTemplateBody :: Val Text
   , _ioTProvisioningTemplateTemplateName :: Maybe (Val Text)
   } deriving (Show, Eq)
@@ -73,7 +74,7 @@ itptProvisioningRoleArn :: Lens' IoTProvisioningTemplate (Val Text)
 itptProvisioningRoleArn = lens _ioTProvisioningTemplateProvisioningRoleArn (\s a -> s { _ioTProvisioningTemplateProvisioningRoleArn = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-tags
-itptTags :: Lens' IoTProvisioningTemplate (Maybe [Object])
+itptTags :: Lens' IoTProvisioningTemplate (Maybe IoTProvisioningTemplateTags)
 itptTags = lens _ioTProvisioningTemplateTags (\s a -> s { _ioTProvisioningTemplateTags = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-provisioningtemplate.html#cfn-iot-provisioningtemplate-templatebody

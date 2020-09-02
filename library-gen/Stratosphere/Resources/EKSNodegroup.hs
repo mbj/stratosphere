@@ -8,6 +8,7 @@
 module Stratosphere.Resources.EKSNodegroup where
 
 import Stratosphere.ResourceImports
+import Stratosphere.ResourceProperties.EKSNodegroupLaunchTemplateSpecification
 import Stratosphere.ResourceProperties.EKSNodegroupRemoteAccess
 import Stratosphere.ResourceProperties.EKSNodegroupScalingConfig
 
@@ -21,6 +22,7 @@ data EKSNodegroup =
   , _eKSNodegroupForceUpdateEnabled :: Maybe (Val Bool)
   , _eKSNodegroupInstanceTypes :: Maybe (ValList Text)
   , _eKSNodegroupLabels :: Maybe Object
+  , _eKSNodegroupLaunchTemplate :: Maybe EKSNodegroupLaunchTemplateSpecification
   , _eKSNodegroupNodeRole :: Val Text
   , _eKSNodegroupNodegroupName :: Maybe (Val Text)
   , _eKSNodegroupReleaseVersion :: Maybe (Val Text)
@@ -43,6 +45,7 @@ instance ToResourceProperties EKSNodegroup where
         , fmap (("ForceUpdateEnabled",) . toJSON) _eKSNodegroupForceUpdateEnabled
         , fmap (("InstanceTypes",) . toJSON) _eKSNodegroupInstanceTypes
         , fmap (("Labels",) . toJSON) _eKSNodegroupLabels
+        , fmap (("LaunchTemplate",) . toJSON) _eKSNodegroupLaunchTemplate
         , (Just . ("NodeRole",) . toJSON) _eKSNodegroupNodeRole
         , fmap (("NodegroupName",) . toJSON) _eKSNodegroupNodegroupName
         , fmap (("ReleaseVersion",) . toJSON) _eKSNodegroupReleaseVersion
@@ -68,6 +71,7 @@ eksNodegroup clusterNamearg nodeRolearg subnetsarg =
   , _eKSNodegroupForceUpdateEnabled = Nothing
   , _eKSNodegroupInstanceTypes = Nothing
   , _eKSNodegroupLabels = Nothing
+  , _eKSNodegroupLaunchTemplate = Nothing
   , _eKSNodegroupNodeRole = nodeRolearg
   , _eKSNodegroupNodegroupName = Nothing
   , _eKSNodegroupReleaseVersion = Nothing
@@ -101,6 +105,10 @@ eksnInstanceTypes = lens _eKSNodegroupInstanceTypes (\s a -> s { _eKSNodegroupIn
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-labels
 eksnLabels :: Lens' EKSNodegroup (Maybe Object)
 eksnLabels = lens _eKSNodegroupLabels (\s a -> s { _eKSNodegroupLabels = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-launchtemplate
+eksnLaunchTemplate :: Lens' EKSNodegroup (Maybe EKSNodegroupLaunchTemplateSpecification)
+eksnLaunchTemplate = lens _eKSNodegroupLaunchTemplate (\s a -> s { _eKSNodegroupLaunchTemplate = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-nodegroup.html#cfn-eks-nodegroup-noderole
 eksnNodeRole :: Lens' EKSNodegroup (Val Text)

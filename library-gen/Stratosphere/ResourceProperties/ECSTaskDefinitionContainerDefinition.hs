@@ -10,6 +10,7 @@ module Stratosphere.ResourceProperties.ECSTaskDefinitionContainerDefinition wher
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.ECSTaskDefinitionContainerDependency
 import Stratosphere.ResourceProperties.ECSTaskDefinitionKeyValuePair
+import Stratosphere.ResourceProperties.ECSTaskDefinitionEnvironmentFile
 import Stratosphere.ResourceProperties.ECSTaskDefinitionHostEntry
 import Stratosphere.ResourceProperties.ECSTaskDefinitionFirelensConfiguration
 import Stratosphere.ResourceProperties.ECSTaskDefinitionHealthCheck
@@ -38,6 +39,7 @@ data ECSTaskDefinitionContainerDefinition =
   , _eCSTaskDefinitionContainerDefinitionDockerSecurityOptions :: Maybe (ValList Text)
   , _eCSTaskDefinitionContainerDefinitionEntryPoint :: Maybe (ValList Text)
   , _eCSTaskDefinitionContainerDefinitionEnvironment :: Maybe [ECSTaskDefinitionKeyValuePair]
+  , _eCSTaskDefinitionContainerDefinitionEnvironmentFiles :: Maybe [ECSTaskDefinitionEnvironmentFile]
   , _eCSTaskDefinitionContainerDefinitionEssential :: Maybe (Val Bool)
   , _eCSTaskDefinitionContainerDefinitionExtraHosts :: Maybe [ECSTaskDefinitionHostEntry]
   , _eCSTaskDefinitionContainerDefinitionFirelensConfiguration :: Maybe ECSTaskDefinitionFirelensConfiguration
@@ -82,6 +84,7 @@ instance ToJSON ECSTaskDefinitionContainerDefinition where
     , fmap (("DockerSecurityOptions",) . toJSON) _eCSTaskDefinitionContainerDefinitionDockerSecurityOptions
     , fmap (("EntryPoint",) . toJSON) _eCSTaskDefinitionContainerDefinitionEntryPoint
     , fmap (("Environment",) . toJSON) _eCSTaskDefinitionContainerDefinitionEnvironment
+    , fmap (("EnvironmentFiles",) . toJSON) _eCSTaskDefinitionContainerDefinitionEnvironmentFiles
     , fmap (("Essential",) . toJSON) _eCSTaskDefinitionContainerDefinitionEssential
     , fmap (("ExtraHosts",) . toJSON) _eCSTaskDefinitionContainerDefinitionExtraHosts
     , fmap (("FirelensConfiguration",) . toJSON) _eCSTaskDefinitionContainerDefinitionFirelensConfiguration
@@ -130,6 +133,7 @@ ecsTaskDefinitionContainerDefinition imagearg namearg =
   , _eCSTaskDefinitionContainerDefinitionDockerSecurityOptions = Nothing
   , _eCSTaskDefinitionContainerDefinitionEntryPoint = Nothing
   , _eCSTaskDefinitionContainerDefinitionEnvironment = Nothing
+  , _eCSTaskDefinitionContainerDefinitionEnvironmentFiles = Nothing
   , _eCSTaskDefinitionContainerDefinitionEssential = Nothing
   , _eCSTaskDefinitionContainerDefinitionExtraHosts = Nothing
   , _eCSTaskDefinitionContainerDefinitionFirelensConfiguration = Nothing
@@ -199,6 +203,10 @@ ecstdcdEntryPoint = lens _eCSTaskDefinitionContainerDefinitionEntryPoint (\s a -
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-environment
 ecstdcdEnvironment :: Lens' ECSTaskDefinitionContainerDefinition (Maybe [ECSTaskDefinitionKeyValuePair])
 ecstdcdEnvironment = lens _eCSTaskDefinitionContainerDefinitionEnvironment (\s a -> s { _eCSTaskDefinitionContainerDefinitionEnvironment = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-environmentfiles
+ecstdcdEnvironmentFiles :: Lens' ECSTaskDefinitionContainerDefinition (Maybe [ECSTaskDefinitionEnvironmentFile])
+ecstdcdEnvironmentFiles = lens _eCSTaskDefinitionContainerDefinitionEnvironmentFiles (\s a -> s { _eCSTaskDefinitionContainerDefinitionEnvironmentFiles = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html#cfn-ecs-taskdefinition-containerdefinition-essential
 ecstdcdEssential :: Lens' ECSTaskDefinitionContainerDefinition (Maybe (Val Bool))

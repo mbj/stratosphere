@@ -14,7 +14,10 @@ import Stratosphere.ResourceImports
 -- more convenient constructor.
 data IoTCertificate =
   IoTCertificate
-  { _ioTCertificateCertificateSigningRequest :: Val Text
+  { _ioTCertificateCACertificatePem :: Maybe (Val Text)
+  , _ioTCertificateCertificateMode :: Maybe (Val Text)
+  , _ioTCertificateCertificatePem :: Maybe (Val Text)
+  , _ioTCertificateCertificateSigningRequest :: Maybe (Val Text)
   , _ioTCertificateStatus :: Val Text
   } deriving (Show, Eq)
 
@@ -24,24 +27,41 @@ instance ToResourceProperties IoTCertificate where
     { resourcePropertiesType = "AWS::IoT::Certificate"
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
-        [ (Just . ("CertificateSigningRequest",) . toJSON) _ioTCertificateCertificateSigningRequest
+        [ fmap (("CACertificatePem",) . toJSON) _ioTCertificateCACertificatePem
+        , fmap (("CertificateMode",) . toJSON) _ioTCertificateCertificateMode
+        , fmap (("CertificatePem",) . toJSON) _ioTCertificateCertificatePem
+        , fmap (("CertificateSigningRequest",) . toJSON) _ioTCertificateCertificateSigningRequest
         , (Just . ("Status",) . toJSON) _ioTCertificateStatus
         ]
     }
 
 -- | Constructor for 'IoTCertificate' containing required fields as arguments.
 ioTCertificate
-  :: Val Text -- ^ 'itcCertificateSigningRequest'
-  -> Val Text -- ^ 'itcStatus'
+  :: Val Text -- ^ 'itcStatus'
   -> IoTCertificate
-ioTCertificate certificateSigningRequestarg statusarg =
+ioTCertificate statusarg =
   IoTCertificate
-  { _ioTCertificateCertificateSigningRequest = certificateSigningRequestarg
+  { _ioTCertificateCACertificatePem = Nothing
+  , _ioTCertificateCertificateMode = Nothing
+  , _ioTCertificateCertificatePem = Nothing
+  , _ioTCertificateCertificateSigningRequest = Nothing
   , _ioTCertificateStatus = statusarg
   }
 
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-cacertificatepem
+itcCACertificatePem :: Lens' IoTCertificate (Maybe (Val Text))
+itcCACertificatePem = lens _ioTCertificateCACertificatePem (\s a -> s { _ioTCertificateCACertificatePem = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatemode
+itcCertificateMode :: Lens' IoTCertificate (Maybe (Val Text))
+itcCertificateMode = lens _ioTCertificateCertificateMode (\s a -> s { _ioTCertificateCertificateMode = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatepem
+itcCertificatePem :: Lens' IoTCertificate (Maybe (Val Text))
+itcCertificatePem = lens _ioTCertificateCertificatePem (\s a -> s { _ioTCertificateCertificatePem = a })
+
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-certificatesigningrequest
-itcCertificateSigningRequest :: Lens' IoTCertificate (Val Text)
+itcCertificateSigningRequest :: Lens' IoTCertificate (Maybe (Val Text))
 itcCertificateSigningRequest = lens _ioTCertificateCertificateSigningRequest (\s a -> s { _ioTCertificateCertificateSigningRequest = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html#cfn-iot-certificate-status

@@ -19,6 +19,7 @@ data FSxFileSystemLustreConfiguration =
   , _fSxFileSystemLustreConfigurationCopyTagsToBackups :: Maybe (Val Bool)
   , _fSxFileSystemLustreConfigurationDailyAutomaticBackupStartTime :: Maybe (Val Text)
   , _fSxFileSystemLustreConfigurationDeploymentType :: Maybe (Val Text)
+  , _fSxFileSystemLustreConfigurationDriveCacheType :: Maybe (Val Text)
   , _fSxFileSystemLustreConfigurationExportPath :: Maybe (Val Text)
   , _fSxFileSystemLustreConfigurationImportPath :: Maybe (Val Text)
   , _fSxFileSystemLustreConfigurationImportedFileChunkSize :: Maybe (Val Integer)
@@ -35,6 +36,7 @@ instance ToJSON FSxFileSystemLustreConfiguration where
     , fmap (("CopyTagsToBackups",) . toJSON) _fSxFileSystemLustreConfigurationCopyTagsToBackups
     , fmap (("DailyAutomaticBackupStartTime",) . toJSON) _fSxFileSystemLustreConfigurationDailyAutomaticBackupStartTime
     , fmap (("DeploymentType",) . toJSON) _fSxFileSystemLustreConfigurationDeploymentType
+    , fmap (("DriveCacheType",) . toJSON) _fSxFileSystemLustreConfigurationDriveCacheType
     , fmap (("ExportPath",) . toJSON) _fSxFileSystemLustreConfigurationExportPath
     , fmap (("ImportPath",) . toJSON) _fSxFileSystemLustreConfigurationImportPath
     , fmap (("ImportedFileChunkSize",) . toJSON) _fSxFileSystemLustreConfigurationImportedFileChunkSize
@@ -53,6 +55,7 @@ fSxFileSystemLustreConfiguration  =
   , _fSxFileSystemLustreConfigurationCopyTagsToBackups = Nothing
   , _fSxFileSystemLustreConfigurationDailyAutomaticBackupStartTime = Nothing
   , _fSxFileSystemLustreConfigurationDeploymentType = Nothing
+  , _fSxFileSystemLustreConfigurationDriveCacheType = Nothing
   , _fSxFileSystemLustreConfigurationExportPath = Nothing
   , _fSxFileSystemLustreConfigurationImportPath = Nothing
   , _fSxFileSystemLustreConfigurationImportedFileChunkSize = Nothing
@@ -79,6 +82,10 @@ fsfslcDailyAutomaticBackupStartTime = lens _fSxFileSystemLustreConfigurationDail
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-deploymenttype
 fsfslcDeploymentType :: Lens' FSxFileSystemLustreConfiguration (Maybe (Val Text))
 fsfslcDeploymentType = lens _fSxFileSystemLustreConfigurationDeploymentType (\s a -> s { _fSxFileSystemLustreConfigurationDeploymentType = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-drivecachetype
+fsfslcDriveCacheType :: Lens' FSxFileSystemLustreConfiguration (Maybe (Val Text))
+fsfslcDriveCacheType = lens _fSxFileSystemLustreConfigurationDriveCacheType (\s a -> s { _fSxFileSystemLustreConfigurationDriveCacheType = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html#cfn-fsx-filesystem-lustreconfiguration-exportpath
 fsfslcExportPath :: Lens' FSxFileSystemLustreConfiguration (Maybe (Val Text))

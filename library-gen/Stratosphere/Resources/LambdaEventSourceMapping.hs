@@ -25,6 +25,7 @@ data LambdaEventSourceMapping =
   , _lambdaEventSourceMappingMaximumRetryAttempts :: Maybe (Val Integer)
   , _lambdaEventSourceMappingParallelizationFactor :: Maybe (Val Integer)
   , _lambdaEventSourceMappingStartingPosition :: Maybe (Val Text)
+  , _lambdaEventSourceMappingTopics :: Maybe (ValList Text)
   } deriving (Show, Eq)
 
 instance ToResourceProperties LambdaEventSourceMapping where
@@ -44,6 +45,7 @@ instance ToResourceProperties LambdaEventSourceMapping where
         , fmap (("MaximumRetryAttempts",) . toJSON) _lambdaEventSourceMappingMaximumRetryAttempts
         , fmap (("ParallelizationFactor",) . toJSON) _lambdaEventSourceMappingParallelizationFactor
         , fmap (("StartingPosition",) . toJSON) _lambdaEventSourceMappingStartingPosition
+        , fmap (("Topics",) . toJSON) _lambdaEventSourceMappingTopics
         ]
     }
 
@@ -66,6 +68,7 @@ lambdaEventSourceMapping eventSourceArnarg functionNamearg =
   , _lambdaEventSourceMappingMaximumRetryAttempts = Nothing
   , _lambdaEventSourceMappingParallelizationFactor = Nothing
   , _lambdaEventSourceMappingStartingPosition = Nothing
+  , _lambdaEventSourceMappingTopics = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-batchsize
@@ -111,3 +114,7 @@ lesmParallelizationFactor = lens _lambdaEventSourceMappingParallelizationFactor 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-startingposition
 lesmStartingPosition :: Lens' LambdaEventSourceMapping (Maybe (Val Text))
 lesmStartingPosition = lens _lambdaEventSourceMappingStartingPosition (\s a -> s { _lambdaEventSourceMappingStartingPosition = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-eventsourcemapping.html#cfn-lambda-eventsourcemapping-topics
+lesmTopics :: Lens' LambdaEventSourceMapping (Maybe (ValList Text))
+lesmTopics = lens _lambdaEventSourceMappingTopics (\s a -> s { _lambdaEventSourceMappingTopics = a })

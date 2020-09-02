@@ -15,26 +15,25 @@ import Stratosphere.ResourceProperties.LambdaEventSourceMappingOnFailure
 -- constructor.
 data LambdaEventSourceMappingDestinationConfig =
   LambdaEventSourceMappingDestinationConfig
-  { _lambdaEventSourceMappingDestinationConfigOnFailure :: LambdaEventSourceMappingOnFailure
+  { _lambdaEventSourceMappingDestinationConfigOnFailure :: Maybe LambdaEventSourceMappingOnFailure
   } deriving (Show, Eq)
 
 instance ToJSON LambdaEventSourceMappingDestinationConfig where
   toJSON LambdaEventSourceMappingDestinationConfig{..} =
     object $
     catMaybes
-    [ (Just . ("OnFailure",) . toJSON) _lambdaEventSourceMappingDestinationConfigOnFailure
+    [ fmap (("OnFailure",) . toJSON) _lambdaEventSourceMappingDestinationConfigOnFailure
     ]
 
 -- | Constructor for 'LambdaEventSourceMappingDestinationConfig' containing
 -- required fields as arguments.
 lambdaEventSourceMappingDestinationConfig
-  :: LambdaEventSourceMappingOnFailure -- ^ 'lesmdcOnFailure'
-  -> LambdaEventSourceMappingDestinationConfig
-lambdaEventSourceMappingDestinationConfig onFailurearg =
+  :: LambdaEventSourceMappingDestinationConfig
+lambdaEventSourceMappingDestinationConfig  =
   LambdaEventSourceMappingDestinationConfig
-  { _lambdaEventSourceMappingDestinationConfigOnFailure = onFailurearg
+  { _lambdaEventSourceMappingDestinationConfigOnFailure = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-destinationconfig.html#cfn-lambda-eventsourcemapping-destinationconfig-onfailure
-lesmdcOnFailure :: Lens' LambdaEventSourceMappingDestinationConfig LambdaEventSourceMappingOnFailure
+lesmdcOnFailure :: Lens' LambdaEventSourceMappingDestinationConfig (Maybe LambdaEventSourceMappingOnFailure)
 lesmdcOnFailure = lens _lambdaEventSourceMappingDestinationConfigOnFailure (\s a -> s { _lambdaEventSourceMappingDestinationConfigOnFailure = a })

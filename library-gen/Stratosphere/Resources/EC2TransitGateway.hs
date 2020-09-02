@@ -20,6 +20,7 @@ data EC2TransitGateway =
   , _eC2TransitGatewayDefaultRouteTablePropagation :: Maybe (Val Text)
   , _eC2TransitGatewayDescription :: Maybe (Val Text)
   , _eC2TransitGatewayDnsSupport :: Maybe (Val Text)
+  , _eC2TransitGatewayMulticastSupport :: Maybe (Val Text)
   , _eC2TransitGatewayTags :: Maybe [Tag]
   , _eC2TransitGatewayVpnEcmpSupport :: Maybe (Val Text)
   } deriving (Show, Eq)
@@ -36,6 +37,7 @@ instance ToResourceProperties EC2TransitGateway where
         , fmap (("DefaultRouteTablePropagation",) . toJSON) _eC2TransitGatewayDefaultRouteTablePropagation
         , fmap (("Description",) . toJSON) _eC2TransitGatewayDescription
         , fmap (("DnsSupport",) . toJSON) _eC2TransitGatewayDnsSupport
+        , fmap (("MulticastSupport",) . toJSON) _eC2TransitGatewayMulticastSupport
         , fmap (("Tags",) . toJSON) _eC2TransitGatewayTags
         , fmap (("VpnEcmpSupport",) . toJSON) _eC2TransitGatewayVpnEcmpSupport
         ]
@@ -53,6 +55,7 @@ ec2TransitGateway  =
   , _eC2TransitGatewayDefaultRouteTablePropagation = Nothing
   , _eC2TransitGatewayDescription = Nothing
   , _eC2TransitGatewayDnsSupport = Nothing
+  , _eC2TransitGatewayMulticastSupport = Nothing
   , _eC2TransitGatewayTags = Nothing
   , _eC2TransitGatewayVpnEcmpSupport = Nothing
   }
@@ -80,6 +83,10 @@ ectgDescription = lens _eC2TransitGatewayDescription (\s a -> s { _eC2TransitGat
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-dnssupport
 ectgDnsSupport :: Lens' EC2TransitGateway (Maybe (Val Text))
 ectgDnsSupport = lens _eC2TransitGatewayDnsSupport (\s a -> s { _eC2TransitGatewayDnsSupport = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-multicastsupport
+ectgMulticastSupport :: Lens' EC2TransitGateway (Maybe (Val Text))
+ectgMulticastSupport = lens _eC2TransitGatewayMulticastSupport (\s a -> s { _eC2TransitGatewayMulticastSupport = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgateway.html#cfn-ec2-transitgateway-tags
 ectgTags :: Lens' EC2TransitGateway (Maybe [Tag])

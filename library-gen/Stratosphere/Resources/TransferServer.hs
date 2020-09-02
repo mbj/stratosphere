@@ -22,6 +22,7 @@ data TransferServer =
   , _transferServerIdentityProviderDetails :: Maybe TransferServerIdentityProviderDetails
   , _transferServerIdentityProviderType :: Maybe (Val Text)
   , _transferServerLoggingRole :: Maybe (Val Text)
+  , _transferServerSecurityPolicyName :: Maybe (Val Text)
   , _transferServerTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
@@ -37,6 +38,7 @@ instance ToResourceProperties TransferServer where
         , fmap (("IdentityProviderDetails",) . toJSON) _transferServerIdentityProviderDetails
         , fmap (("IdentityProviderType",) . toJSON) _transferServerIdentityProviderType
         , fmap (("LoggingRole",) . toJSON) _transferServerLoggingRole
+        , fmap (("SecurityPolicyName",) . toJSON) _transferServerSecurityPolicyName
         , fmap (("Tags",) . toJSON) _transferServerTags
         ]
     }
@@ -52,6 +54,7 @@ transferServer  =
   , _transferServerIdentityProviderDetails = Nothing
   , _transferServerIdentityProviderType = Nothing
   , _transferServerLoggingRole = Nothing
+  , _transferServerSecurityPolicyName = Nothing
   , _transferServerTags = Nothing
   }
 
@@ -78,6 +81,10 @@ tsIdentityProviderType = lens _transferServerIdentityProviderType (\s a -> s { _
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-server.html#cfn-transfer-server-loggingrole
 tsLoggingRole :: Lens' TransferServer (Maybe (Val Text))
 tsLoggingRole = lens _transferServerLoggingRole (\s a -> s { _transferServerLoggingRole = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-server.html#cfn-transfer-server-securitypolicyname
+tsSecurityPolicyName :: Lens' TransferServer (Maybe (Val Text))
+tsSecurityPolicyName = lens _transferServerSecurityPolicyName (\s a -> s { _transferServerSecurityPolicyName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-server.html#cfn-transfer-server-tags
 tsTags :: Lens' TransferServer (Maybe [Tag])

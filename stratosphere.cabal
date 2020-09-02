@@ -4,10 +4,10 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: ecd31917c6c788877da2721c4104df8ed1332353827cfe1604bc815f79e42762
+-- hash: 6765ec959bba1c4110c24af5f8d27cdf62644e46306cf6d01cf0e5610210b434
 
 name:           stratosphere
-version:        0.57.0
+version:        0.58.0
 synopsis:       EDSL for AWS CloudFormation
 description:    EDSL for AWS CloudFormation
 category:       AWS, Cloud
@@ -123,6 +123,18 @@ library
       Stratosphere.ResourceProperties.ApplicationAutoScalingScalingPolicyStepAdjustment
       Stratosphere.ResourceProperties.ApplicationAutoScalingScalingPolicyStepScalingPolicyConfiguration
       Stratosphere.ResourceProperties.ApplicationAutoScalingScalingPolicyTargetTrackingScalingPolicyConfiguration
+      Stratosphere.ResourceProperties.ApplicationInsightsApplicationAlarm
+      Stratosphere.ResourceProperties.ApplicationInsightsApplicationAlarmMetric
+      Stratosphere.ResourceProperties.ApplicationInsightsApplicationComponentConfiguration
+      Stratosphere.ResourceProperties.ApplicationInsightsApplicationComponentMonitoringSetting
+      Stratosphere.ResourceProperties.ApplicationInsightsApplicationConfigurationDetails
+      Stratosphere.ResourceProperties.ApplicationInsightsApplicationCustomComponent
+      Stratosphere.ResourceProperties.ApplicationInsightsApplicationLog
+      Stratosphere.ResourceProperties.ApplicationInsightsApplicationLogPattern
+      Stratosphere.ResourceProperties.ApplicationInsightsApplicationLogPatternSet
+      Stratosphere.ResourceProperties.ApplicationInsightsApplicationSubComponentConfigurationDetails
+      Stratosphere.ResourceProperties.ApplicationInsightsApplicationSubComponentTypeConfiguration
+      Stratosphere.ResourceProperties.ApplicationInsightsApplicationWindowsEvent
       Stratosphere.ResourceProperties.AppMeshGatewayRouteGatewayRouteSpec
       Stratosphere.ResourceProperties.AppMeshGatewayRouteGatewayRouteTarget
       Stratosphere.ResourceProperties.AppMeshGatewayRouteGatewayRouteVirtualService
@@ -491,6 +503,7 @@ library
       Stratosphere.ResourceProperties.DynamoDBTableStreamSpecification
       Stratosphere.ResourceProperties.DynamoDBTableTimeToLiveSpecification
       Stratosphere.ResourceProperties.EC2CapacityReservationTagSpecification
+      Stratosphere.ResourceProperties.EC2CarrierGatewayTags
       Stratosphere.ResourceProperties.EC2ClientVpnEndpointCertificateAuthenticationRequest
       Stratosphere.ResourceProperties.EC2ClientVpnEndpointClientAuthenticationRequest
       Stratosphere.ResourceProperties.EC2ClientVpnEndpointConnectionLogOptions
@@ -573,7 +586,6 @@ library
       Stratosphere.ResourceProperties.EC2SpotFleetTargetGroupsConfig
       Stratosphere.ResourceProperties.EC2TrafficMirrorFilterRuleTrafficMirrorPortRange
       Stratosphere.ResourceProperties.EC2VPNConnectionVpnTunnelOptionsSpecification
-      Stratosphere.ResourceProperties.ECRRepositoryLifecyclePolicy
       Stratosphere.ResourceProperties.ECSCapacityProviderAutoScalingGroupProvider
       Stratosphere.ResourceProperties.ECSCapacityProviderManagedScaling
       Stratosphere.ResourceProperties.ECSClusterCapacityProviderStrategyItem
@@ -586,10 +598,13 @@ library
       Stratosphere.ResourceProperties.ECSServicePlacementConstraint
       Stratosphere.ResourceProperties.ECSServicePlacementStrategy
       Stratosphere.ResourceProperties.ECSServiceServiceRegistry
+      Stratosphere.ResourceProperties.ECSTaskDefinitionAuthorizationConfig
       Stratosphere.ResourceProperties.ECSTaskDefinitionContainerDefinition
       Stratosphere.ResourceProperties.ECSTaskDefinitionContainerDependency
       Stratosphere.ResourceProperties.ECSTaskDefinitionDevice
       Stratosphere.ResourceProperties.ECSTaskDefinitionDockerVolumeConfiguration
+      Stratosphere.ResourceProperties.ECSTaskDefinitionEFSVolumeConfiguration
+      Stratosphere.ResourceProperties.ECSTaskDefinitionEnvironmentFile
       Stratosphere.ResourceProperties.ECSTaskDefinitionFirelensConfiguration
       Stratosphere.ResourceProperties.ECSTaskDefinitionHealthCheck
       Stratosphere.ResourceProperties.ECSTaskDefinitionHostEntry
@@ -626,6 +641,7 @@ library
       Stratosphere.ResourceProperties.EKSClusterEncryptionConfig
       Stratosphere.ResourceProperties.EKSClusterProvider
       Stratosphere.ResourceProperties.EKSClusterResourcesVpcConfig
+      Stratosphere.ResourceProperties.EKSNodegroupLaunchTemplateSpecification
       Stratosphere.ResourceProperties.EKSNodegroupRemoteAccess
       Stratosphere.ResourceProperties.EKSNodegroupScalingConfig
       Stratosphere.ResourceProperties.ElastiCacheReplicationGroupNodeGroupConfiguration
@@ -950,6 +966,7 @@ library
       Stratosphere.ResourceProperties.IoTEventsInputAttribute
       Stratosphere.ResourceProperties.IoTEventsInputInputDefinition
       Stratosphere.ResourceProperties.IoTProvisioningTemplateProvisioningHook
+      Stratosphere.ResourceProperties.IoTProvisioningTemplateTags
       Stratosphere.ResourceProperties.IoTThingAttributePayload
       Stratosphere.ResourceProperties.IoTThingsGraphFlowTemplateDefinitionDocument
       Stratosphere.ResourceProperties.IoTTopicRuleAction
@@ -1327,6 +1344,25 @@ library
       Stratosphere.ResourceProperties.SageMakerEndpointVariantProperty
       Stratosphere.ResourceProperties.SageMakerModelContainerDefinition
       Stratosphere.ResourceProperties.SageMakerModelVpcConfig
+      Stratosphere.ResourceProperties.SageMakerMonitoringScheduleBaselineConfig
+      Stratosphere.ResourceProperties.SageMakerMonitoringScheduleClusterConfig
+      Stratosphere.ResourceProperties.SageMakerMonitoringScheduleConstraintsResource
+      Stratosphere.ResourceProperties.SageMakerMonitoringScheduleEndpointInput
+      Stratosphere.ResourceProperties.SageMakerMonitoringScheduleMonitoringAppSpecification
+      Stratosphere.ResourceProperties.SageMakerMonitoringScheduleMonitoringExecutionSummary
+      Stratosphere.ResourceProperties.SageMakerMonitoringScheduleMonitoringInput
+      Stratosphere.ResourceProperties.SageMakerMonitoringScheduleMonitoringInputs
+      Stratosphere.ResourceProperties.SageMakerMonitoringScheduleMonitoringJobDefinition
+      Stratosphere.ResourceProperties.SageMakerMonitoringScheduleMonitoringOutput
+      Stratosphere.ResourceProperties.SageMakerMonitoringScheduleMonitoringOutputConfig
+      Stratosphere.ResourceProperties.SageMakerMonitoringScheduleMonitoringResources
+      Stratosphere.ResourceProperties.SageMakerMonitoringScheduleMonitoringScheduleConfig
+      Stratosphere.ResourceProperties.SageMakerMonitoringScheduleNetworkConfig
+      Stratosphere.ResourceProperties.SageMakerMonitoringScheduleS3Output
+      Stratosphere.ResourceProperties.SageMakerMonitoringScheduleScheduleConfig
+      Stratosphere.ResourceProperties.SageMakerMonitoringScheduleStatisticsResource
+      Stratosphere.ResourceProperties.SageMakerMonitoringScheduleStoppingCondition
+      Stratosphere.ResourceProperties.SageMakerMonitoringScheduleVpcConfig
       Stratosphere.ResourceProperties.SageMakerNotebookInstanceLifecycleConfigNotebookInstanceLifecycleHook
       Stratosphere.ResourceProperties.SageMakerWorkteamCognitoMemberDefinition
       Stratosphere.ResourceProperties.SageMakerWorkteamMemberDefinition
@@ -1526,6 +1562,7 @@ library
       Stratosphere.Resources.AppConfigHostedConfigurationVersion
       Stratosphere.Resources.ApplicationAutoScalingScalableTarget
       Stratosphere.Resources.ApplicationAutoScalingScalingPolicy
+      Stratosphere.Resources.ApplicationInsightsApplication
       Stratosphere.Resources.AppMeshGatewayRoute
       Stratosphere.Resources.AppMeshMesh
       Stratosphere.Resources.AppMeshRoute
@@ -1640,6 +1677,7 @@ library
       Stratosphere.Resources.DocDBDBSubnetGroup
       Stratosphere.Resources.DynamoDBTable
       Stratosphere.Resources.EC2CapacityReservation
+      Stratosphere.Resources.EC2CarrierGateway
       Stratosphere.Resources.EC2ClientVpnAuthorizationRule
       Stratosphere.Resources.EC2ClientVpnEndpoint
       Stratosphere.Resources.EC2ClientVpnRoute
@@ -1948,6 +1986,7 @@ library
       Stratosphere.Resources.SageMakerEndpoint
       Stratosphere.Resources.SageMakerEndpointConfig
       Stratosphere.Resources.SageMakerModel
+      Stratosphere.Resources.SageMakerMonitoringSchedule
       Stratosphere.Resources.SageMakerNotebookInstance
       Stratosphere.Resources.SageMakerNotebookInstanceLifecycleConfig
       Stratosphere.Resources.SageMakerWorkteam
