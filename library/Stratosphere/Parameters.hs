@@ -125,3 +125,18 @@ instance NamedItem Parameter where
 
 instance ToJSON Parameters where
   toJSON = namedItemToJSON . unParameters
+
+-- See https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/pseudo-parameter-reference.html
+data PseudoParameter a
+  = AccountId
+  | NoValue
+  | NotificationARNs
+  | Partition
+  | Region
+  | StackId
+  | StackName
+  | URLSuffix
+  deriving (Eq, Show)
+
+instance ToRef (PseudoParameter a) T.Text where
+  toRef = Ref . T.pack . (<>) "AWS::" . show
