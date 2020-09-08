@@ -8,13 +8,14 @@
 module Stratosphere.Resources.GuardDutyDetector where
 
 import Stratosphere.ResourceImports
-
+import Stratosphere.ResourceProperties.GuardDutyDetectorCFNDataSourceConfigurations
 
 -- | Full data type definition for GuardDutyDetector. See 'guardDutyDetector'
 -- for a more convenient constructor.
 data GuardDutyDetector =
   GuardDutyDetector
-  { _guardDutyDetectorEnable :: Val Bool
+  { _guardDutyDetectorDataSources :: Maybe GuardDutyDetectorCFNDataSourceConfigurations
+  , _guardDutyDetectorEnable :: Val Bool
   , _guardDutyDetectorFindingPublishingFrequency :: Maybe (Val Text)
   } deriving (Show, Eq)
 
@@ -24,7 +25,8 @@ instance ToResourceProperties GuardDutyDetector where
     { resourcePropertiesType = "AWS::GuardDuty::Detector"
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
-        [ (Just . ("Enable",) . toJSON) _guardDutyDetectorEnable
+        [ fmap (("DataSources",) . toJSON) _guardDutyDetectorDataSources
+        , (Just . ("Enable",) . toJSON) _guardDutyDetectorEnable
         , fmap (("FindingPublishingFrequency",) . toJSON) _guardDutyDetectorFindingPublishingFrequency
         ]
     }
@@ -36,9 +38,14 @@ guardDutyDetector
   -> GuardDutyDetector
 guardDutyDetector enablearg =
   GuardDutyDetector
-  { _guardDutyDetectorEnable = enablearg
+  { _guardDutyDetectorDataSources = Nothing
+  , _guardDutyDetectorEnable = enablearg
   , _guardDutyDetectorFindingPublishingFrequency = Nothing
   }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-datasources
+gddDataSources :: Lens' GuardDutyDetector (Maybe GuardDutyDetectorCFNDataSourceConfigurations)
+gddDataSources = lens _guardDutyDetectorDataSources (\s a -> s { _guardDutyDetectorDataSources = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html#cfn-guardduty-detector-enable
 gddEnable :: Lens' GuardDutyDetector (Val Bool)

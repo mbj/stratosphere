@@ -21,6 +21,7 @@ data ServiceCatalogCloudFormationProvisionedProduct =
   { _serviceCatalogCloudFormationProvisionedProductAcceptLanguage :: Maybe (Val Text)
   , _serviceCatalogCloudFormationProvisionedProductNotificationArns :: Maybe (ValList Text)
   , _serviceCatalogCloudFormationProvisionedProductPathId :: Maybe (Val Text)
+  , _serviceCatalogCloudFormationProvisionedProductPathName :: Maybe (Val Text)
   , _serviceCatalogCloudFormationProvisionedProductProductId :: Maybe (Val Text)
   , _serviceCatalogCloudFormationProvisionedProductProductName :: Maybe (Val Text)
   , _serviceCatalogCloudFormationProvisionedProductProvisionedProductName :: Maybe (Val Text)
@@ -40,6 +41,7 @@ instance ToResourceProperties ServiceCatalogCloudFormationProvisionedProduct whe
         [ fmap (("AcceptLanguage",) . toJSON) _serviceCatalogCloudFormationProvisionedProductAcceptLanguage
         , fmap (("NotificationArns",) . toJSON) _serviceCatalogCloudFormationProvisionedProductNotificationArns
         , fmap (("PathId",) . toJSON) _serviceCatalogCloudFormationProvisionedProductPathId
+        , fmap (("PathName",) . toJSON) _serviceCatalogCloudFormationProvisionedProductPathName
         , fmap (("ProductId",) . toJSON) _serviceCatalogCloudFormationProvisionedProductProductId
         , fmap (("ProductName",) . toJSON) _serviceCatalogCloudFormationProvisionedProductProductName
         , fmap (("ProvisionedProductName",) . toJSON) _serviceCatalogCloudFormationProvisionedProductProvisionedProductName
@@ -60,6 +62,7 @@ serviceCatalogCloudFormationProvisionedProduct  =
   { _serviceCatalogCloudFormationProvisionedProductAcceptLanguage = Nothing
   , _serviceCatalogCloudFormationProvisionedProductNotificationArns = Nothing
   , _serviceCatalogCloudFormationProvisionedProductPathId = Nothing
+  , _serviceCatalogCloudFormationProvisionedProductPathName = Nothing
   , _serviceCatalogCloudFormationProvisionedProductProductId = Nothing
   , _serviceCatalogCloudFormationProvisionedProductProductName = Nothing
   , _serviceCatalogCloudFormationProvisionedProductProvisionedProductName = Nothing
@@ -81,6 +84,10 @@ sccfppNotificationArns = lens _serviceCatalogCloudFormationProvisionedProductNot
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-pathid
 sccfppPathId :: Lens' ServiceCatalogCloudFormationProvisionedProduct (Maybe (Val Text))
 sccfppPathId = lens _serviceCatalogCloudFormationProvisionedProductPathId (\s a -> s { _serviceCatalogCloudFormationProvisionedProductPathId = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-pathname
+sccfppPathName :: Lens' ServiceCatalogCloudFormationProvisionedProduct (Maybe (Val Text))
+sccfppPathName = lens _serviceCatalogCloudFormationProvisionedProductPathName (\s a -> s { _serviceCatalogCloudFormationProvisionedProductPathName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationprovisionedproduct.html#cfn-servicecatalog-cloudformationprovisionedproduct-productid
 sccfppProductId :: Lens' ServiceCatalogCloudFormationProvisionedProduct (Maybe (Val Text))

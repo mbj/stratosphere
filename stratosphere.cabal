@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 6765ec959bba1c4110c24af5f8d27cdf62644e46306cf6d01cf0e5610210b434
+-- hash: 417c4079ef6cfe73daa17b0527b04f7405d58c1cbaca2048b6dcd093334c6c32
 
 name:           stratosphere
 version:        0.58.0
@@ -321,6 +321,11 @@ library
       Stratosphere.ResourceProperties.CassandraTableProvisionedThroughput
       Stratosphere.ResourceProperties.CertificateManagerCertificateDomainValidationOption
       Stratosphere.ResourceProperties.Cloud9EnvironmentEC2Repository
+      Stratosphere.ResourceProperties.CloudFrontCachePolicyCachePolicyConfig
+      Stratosphere.ResourceProperties.CloudFrontCachePolicyCookiesConfig
+      Stratosphere.ResourceProperties.CloudFrontCachePolicyHeadersConfig
+      Stratosphere.ResourceProperties.CloudFrontCachePolicyParametersInCacheKeyAndForwardedToOrigin
+      Stratosphere.ResourceProperties.CloudFrontCachePolicyQueryStringsConfig
       Stratosphere.ResourceProperties.CloudFrontCloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfig
       Stratosphere.ResourceProperties.CloudFrontDistributionCacheBehavior
       Stratosphere.ResourceProperties.CloudFrontDistributionCookies
@@ -343,6 +348,12 @@ library
       Stratosphere.ResourceProperties.CloudFrontDistributionS3OriginConfig
       Stratosphere.ResourceProperties.CloudFrontDistributionStatusCodes
       Stratosphere.ResourceProperties.CloudFrontDistributionViewerCertificate
+      Stratosphere.ResourceProperties.CloudFrontOriginRequestPolicyCookiesConfig
+      Stratosphere.ResourceProperties.CloudFrontOriginRequestPolicyHeadersConfig
+      Stratosphere.ResourceProperties.CloudFrontOriginRequestPolicyOriginRequestPolicyConfig
+      Stratosphere.ResourceProperties.CloudFrontOriginRequestPolicyQueryStringsConfig
+      Stratosphere.ResourceProperties.CloudFrontRealtimeLogConfigEndPoint
+      Stratosphere.ResourceProperties.CloudFrontRealtimeLogConfigKinesisStreamConfig
       Stratosphere.ResourceProperties.CloudFrontStreamingDistributionLogging
       Stratosphere.ResourceProperties.CloudFrontStreamingDistributionS3Origin
       Stratosphere.ResourceProperties.CloudFrontStreamingDistributionStreamingDistributionConfig
@@ -427,6 +438,7 @@ library
       Stratosphere.ResourceProperties.CognitoUserPoolAccountRecoverySetting
       Stratosphere.ResourceProperties.CognitoUserPoolAdminCreateUserConfig
       Stratosphere.ResourceProperties.CognitoUserPoolClientAnalyticsConfiguration
+      Stratosphere.ResourceProperties.CognitoUserPoolClientTokenValidityUnits
       Stratosphere.ResourceProperties.CognitoUserPoolDeviceConfiguration
       Stratosphere.ResourceProperties.CognitoUserPoolDomainCustomDomainConfigType
       Stratosphere.ResourceProperties.CognitoUserPoolEmailConfiguration
@@ -586,6 +598,7 @@ library
       Stratosphere.ResourceProperties.EC2SpotFleetTargetGroupsConfig
       Stratosphere.ResourceProperties.EC2TrafficMirrorFilterRuleTrafficMirrorPortRange
       Stratosphere.ResourceProperties.EC2VPNConnectionVpnTunnelOptionsSpecification
+      Stratosphere.ResourceProperties.ECRRepositoryLifecyclePolicy
       Stratosphere.ResourceProperties.ECSCapacityProviderAutoScalingGroupProvider
       Stratosphere.ResourceProperties.ECSCapacityProviderManagedScaling
       Stratosphere.ResourceProperties.ECSClusterCapacityProviderStrategyItem
@@ -641,6 +654,8 @@ library
       Stratosphere.ResourceProperties.EKSClusterEncryptionConfig
       Stratosphere.ResourceProperties.EKSClusterProvider
       Stratosphere.ResourceProperties.EKSClusterResourcesVpcConfig
+      Stratosphere.ResourceProperties.EKSFargateProfileLabel
+      Stratosphere.ResourceProperties.EKSFargateProfileSelector
       Stratosphere.ResourceProperties.EKSNodegroupLaunchTemplateSpecification
       Stratosphere.ResourceProperties.EKSNodegroupRemoteAccess
       Stratosphere.ResourceProperties.EKSNodegroupScalingConfig
@@ -782,6 +797,13 @@ library
       Stratosphere.ResourceProperties.GameLiftFleetResourceCreationLimitPolicy
       Stratosphere.ResourceProperties.GameLiftFleetRuntimeConfiguration
       Stratosphere.ResourceProperties.GameLiftFleetServerProcess
+      Stratosphere.ResourceProperties.GameLiftGameServerGroupAutoScalingPolicy
+      Stratosphere.ResourceProperties.GameLiftGameServerGroupInstanceDefinition
+      Stratosphere.ResourceProperties.GameLiftGameServerGroupInstanceDefinitions
+      Stratosphere.ResourceProperties.GameLiftGameServerGroupLaunchTemplate
+      Stratosphere.ResourceProperties.GameLiftGameServerGroupTags
+      Stratosphere.ResourceProperties.GameLiftGameServerGroupTargetTrackingConfiguration
+      Stratosphere.ResourceProperties.GameLiftGameServerGroupVpcSubnets
       Stratosphere.ResourceProperties.GameLiftGameSessionQueueDestination
       Stratosphere.ResourceProperties.GameLiftGameSessionQueuePlayerLatencyPolicy
       Stratosphere.ResourceProperties.GameLiftMatchmakingConfigurationGameProperty
@@ -883,6 +905,8 @@ library
       Stratosphere.ResourceProperties.GreengrassSubscriptionDefinitionSubscription
       Stratosphere.ResourceProperties.GreengrassSubscriptionDefinitionSubscriptionDefinitionVersion
       Stratosphere.ResourceProperties.GreengrassSubscriptionDefinitionVersionSubscription
+      Stratosphere.ResourceProperties.GuardDutyDetectorCFNDataSourceConfigurations
+      Stratosphere.ResourceProperties.GuardDutyDetectorCFNS3LogsConfiguration
       Stratosphere.ResourceProperties.GuardDutyFilterCondition
       Stratosphere.ResourceProperties.GuardDutyFilterFindingCriteria
       Stratosphere.ResourceProperties.IAMGroupPolicy
@@ -1119,6 +1143,7 @@ library
       Stratosphere.ResourceProperties.LambdaLayerVersionContent
       Stratosphere.ResourceProperties.LambdaVersionProvisionedConcurrencyConfiguration
       Stratosphere.ResourceProperties.LogsMetricFilterMetricTransformation
+      Stratosphere.ResourceProperties.MacieFindingsFilterFindingsFilterListItem
       Stratosphere.ResourceProperties.ManagedBlockchainMemberApprovalThresholdPolicy
       Stratosphere.ResourceProperties.ManagedBlockchainMemberMemberConfiguration
       Stratosphere.ResourceProperties.ManagedBlockchainMemberMemberFabricConfiguration
@@ -1181,6 +1206,7 @@ library
       Stratosphere.ResourceProperties.MSKClusterS3
       Stratosphere.ResourceProperties.MSKClusterStorageInfo
       Stratosphere.ResourceProperties.MSKClusterTls
+      Stratosphere.ResourceProperties.NeptuneDBClusterDBClusterRole
       Stratosphere.ResourceProperties.NetworkManagerDeviceLocation
       Stratosphere.ResourceProperties.NetworkManagerLinkBandwidth
       Stratosphere.ResourceProperties.NetworkManagerSiteLocation
@@ -1395,6 +1421,7 @@ library
       Stratosphere.ResourceProperties.SESTemplateTemplate
       Stratosphere.ResourceProperties.SNSTopicSubscription
       Stratosphere.ResourceProperties.SSMAssociationInstanceAssociationOutputLocation
+      Stratosphere.ResourceProperties.SSMAssociationParameterValues
       Stratosphere.ResourceProperties.SSMAssociationS3OutputLocation
       Stratosphere.ResourceProperties.SSMAssociationTarget
       Stratosphere.ResourceProperties.SSMMaintenanceWindowTargetTargets
@@ -1612,8 +1639,11 @@ library
       Stratosphere.Resources.CloudFormationStack
       Stratosphere.Resources.CloudFormationWaitCondition
       Stratosphere.Resources.CloudFormationWaitConditionHandle
+      Stratosphere.Resources.CloudFrontCachePolicy
       Stratosphere.Resources.CloudFrontCloudFrontOriginAccessIdentity
       Stratosphere.Resources.CloudFrontDistribution
+      Stratosphere.Resources.CloudFrontOriginRequestPolicy
+      Stratosphere.Resources.CloudFrontRealtimeLogConfig
       Stratosphere.Resources.CloudFrontStreamingDistribution
       Stratosphere.Resources.CloudTrailTrail
       Stratosphere.Resources.CloudWatchAlarm
@@ -1629,6 +1659,7 @@ library
       Stratosphere.Resources.CodeDeployDeploymentConfig
       Stratosphere.Resources.CodeDeployDeploymentGroup
       Stratosphere.Resources.CodeGuruProfilerProfilingGroup
+      Stratosphere.Resources.CodeGuruReviewerRepositoryAssociation
       Stratosphere.Resources.CodePipelineCustomActionType
       Stratosphere.Resources.CodePipelinePipeline
       Stratosphere.Resources.CodePipelineWebhook
@@ -1750,6 +1781,7 @@ library
       Stratosphere.Resources.EFSFileSystem
       Stratosphere.Resources.EFSMountTarget
       Stratosphere.Resources.EKSCluster
+      Stratosphere.Resources.EKSFargateProfile
       Stratosphere.Resources.EKSNodegroup
       Stratosphere.Resources.ElastiCacheCacheCluster
       Stratosphere.Resources.ElastiCacheParameterGroup
@@ -1786,6 +1818,7 @@ library
       Stratosphere.Resources.GameLiftAlias
       Stratosphere.Resources.GameLiftBuild
       Stratosphere.Resources.GameLiftFleet
+      Stratosphere.Resources.GameLiftGameServerGroup
       Stratosphere.Resources.GameLiftGameSessionQueue
       Stratosphere.Resources.GameLiftMatchmakingConfiguration
       Stratosphere.Resources.GameLiftMatchmakingRuleSet
@@ -1977,6 +2010,8 @@ library
       Stratosphere.Resources.Route53RecordSet
       Stratosphere.Resources.Route53RecordSetGroup
       Stratosphere.Resources.Route53ResolverResolverEndpoint
+      Stratosphere.Resources.Route53ResolverResolverQueryLoggingConfig
+      Stratosphere.Resources.Route53ResolverResolverQueryLoggingConfigAssociation
       Stratosphere.Resources.Route53ResolverResolverRule
       Stratosphere.Resources.Route53ResolverResolverRuleAssociation
       Stratosphere.Resources.S3AccessPoint

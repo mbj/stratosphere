@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.59.0
+
+* Update resource specification document to version 18.2.0
+
 ## 0.58.0
 
 * Update resource specification document to version 17.0.0

@@ -27,6 +27,7 @@ data CloudFrontDistributionCacheBehavior =
   , _cloudFrontDistributionCacheBehaviorMinTTL :: Maybe (Val Double)
   , _cloudFrontDistributionCacheBehaviorOriginRequestPolicyId :: Maybe (Val Text)
   , _cloudFrontDistributionCacheBehaviorPathPattern :: Val Text
+  , _cloudFrontDistributionCacheBehaviorRealtimeLogConfigArn :: Maybe (Val Text)
   , _cloudFrontDistributionCacheBehaviorSmoothStreaming :: Maybe (Val Bool)
   , _cloudFrontDistributionCacheBehaviorTargetOriginId :: Val Text
   , _cloudFrontDistributionCacheBehaviorTrustedSigners :: Maybe (ValList Text)
@@ -49,6 +50,7 @@ instance ToJSON CloudFrontDistributionCacheBehavior where
     , fmap (("MinTTL",) . toJSON) _cloudFrontDistributionCacheBehaviorMinTTL
     , fmap (("OriginRequestPolicyId",) . toJSON) _cloudFrontDistributionCacheBehaviorOriginRequestPolicyId
     , (Just . ("PathPattern",) . toJSON) _cloudFrontDistributionCacheBehaviorPathPattern
+    , fmap (("RealtimeLogConfigArn",) . toJSON) _cloudFrontDistributionCacheBehaviorRealtimeLogConfigArn
     , fmap (("SmoothStreaming",) . toJSON) _cloudFrontDistributionCacheBehaviorSmoothStreaming
     , (Just . ("TargetOriginId",) . toJSON) _cloudFrontDistributionCacheBehaviorTargetOriginId
     , fmap (("TrustedSigners",) . toJSON) _cloudFrontDistributionCacheBehaviorTrustedSigners
@@ -76,6 +78,7 @@ cloudFrontDistributionCacheBehavior pathPatternarg targetOriginIdarg viewerProto
   , _cloudFrontDistributionCacheBehaviorMinTTL = Nothing
   , _cloudFrontDistributionCacheBehaviorOriginRequestPolicyId = Nothing
   , _cloudFrontDistributionCacheBehaviorPathPattern = pathPatternarg
+  , _cloudFrontDistributionCacheBehaviorRealtimeLogConfigArn = Nothing
   , _cloudFrontDistributionCacheBehaviorSmoothStreaming = Nothing
   , _cloudFrontDistributionCacheBehaviorTargetOriginId = targetOriginIdarg
   , _cloudFrontDistributionCacheBehaviorTrustedSigners = Nothing
@@ -129,6 +132,10 @@ cfdcbOriginRequestPolicyId = lens _cloudFrontDistributionCacheBehaviorOriginRequ
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-pathpattern
 cfdcbPathPattern :: Lens' CloudFrontDistributionCacheBehavior (Val Text)
 cfdcbPathPattern = lens _cloudFrontDistributionCacheBehaviorPathPattern (\s a -> s { _cloudFrontDistributionCacheBehaviorPathPattern = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-realtimelogconfigarn
+cfdcbRealtimeLogConfigArn :: Lens' CloudFrontDistributionCacheBehavior (Maybe (Val Text))
+cfdcbRealtimeLogConfigArn = lens _cloudFrontDistributionCacheBehaviorRealtimeLogConfigArn (\s a -> s { _cloudFrontDistributionCacheBehaviorRealtimeLogConfigArn = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cachebehavior.html#cfn-cloudfront-distribution-cachebehavior-smoothstreaming
 cfdcbSmoothStreaming :: Lens' CloudFrontDistributionCacheBehavior (Maybe (Val Bool))

@@ -14,7 +14,8 @@ import Stratosphere.ResourceProperties.CognitoUserPoolClientAnalyticsConfigurati
 -- 'cognitoUserPoolClient' for a more convenient constructor.
 data CognitoUserPoolClient =
   CognitoUserPoolClient
-  { _cognitoUserPoolClientAllowedOAuthFlows :: Maybe (ValList Text)
+  { _cognitoUserPoolClientAccessTokenValidity :: Maybe (Val Integer)
+  , _cognitoUserPoolClientAllowedOAuthFlows :: Maybe (ValList Text)
   , _cognitoUserPoolClientAllowedOAuthFlowsUserPoolClient :: Maybe (Val Bool)
   , _cognitoUserPoolClientAllowedOAuthScopes :: Maybe (ValList Text)
   , _cognitoUserPoolClientAnalyticsConfiguration :: Maybe CognitoUserPoolClientAnalyticsConfiguration
@@ -23,6 +24,7 @@ data CognitoUserPoolClient =
   , _cognitoUserPoolClientDefaultRedirectURI :: Maybe (Val Text)
   , _cognitoUserPoolClientExplicitAuthFlows :: Maybe (ValList Text)
   , _cognitoUserPoolClientGenerateSecret :: Maybe (Val Bool)
+  , _cognitoUserPoolClientIdTokenValidity :: Maybe (Val Integer)
   , _cognitoUserPoolClientLogoutURLs :: Maybe (ValList Text)
   , _cognitoUserPoolClientPreventUserExistenceErrors :: Maybe (Val Text)
   , _cognitoUserPoolClientReadAttributes :: Maybe (ValList Text)
@@ -38,7 +40,8 @@ instance ToResourceProperties CognitoUserPoolClient where
     { resourcePropertiesType = "AWS::Cognito::UserPoolClient"
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
-        [ fmap (("AllowedOAuthFlows",) . toJSON) _cognitoUserPoolClientAllowedOAuthFlows
+        [ fmap (("AccessTokenValidity",) . toJSON) _cognitoUserPoolClientAccessTokenValidity
+        , fmap (("AllowedOAuthFlows",) . toJSON) _cognitoUserPoolClientAllowedOAuthFlows
         , fmap (("AllowedOAuthFlowsUserPoolClient",) . toJSON) _cognitoUserPoolClientAllowedOAuthFlowsUserPoolClient
         , fmap (("AllowedOAuthScopes",) . toJSON) _cognitoUserPoolClientAllowedOAuthScopes
         , fmap (("AnalyticsConfiguration",) . toJSON) _cognitoUserPoolClientAnalyticsConfiguration
@@ -47,6 +50,7 @@ instance ToResourceProperties CognitoUserPoolClient where
         , fmap (("DefaultRedirectURI",) . toJSON) _cognitoUserPoolClientDefaultRedirectURI
         , fmap (("ExplicitAuthFlows",) . toJSON) _cognitoUserPoolClientExplicitAuthFlows
         , fmap (("GenerateSecret",) . toJSON) _cognitoUserPoolClientGenerateSecret
+        , fmap (("IdTokenValidity",) . toJSON) _cognitoUserPoolClientIdTokenValidity
         , fmap (("LogoutURLs",) . toJSON) _cognitoUserPoolClientLogoutURLs
         , fmap (("PreventUserExistenceErrors",) . toJSON) _cognitoUserPoolClientPreventUserExistenceErrors
         , fmap (("ReadAttributes",) . toJSON) _cognitoUserPoolClientReadAttributes
@@ -64,7 +68,8 @@ cognitoUserPoolClient
   -> CognitoUserPoolClient
 cognitoUserPoolClient userPoolIdarg =
   CognitoUserPoolClient
-  { _cognitoUserPoolClientAllowedOAuthFlows = Nothing
+  { _cognitoUserPoolClientAccessTokenValidity = Nothing
+  , _cognitoUserPoolClientAllowedOAuthFlows = Nothing
   , _cognitoUserPoolClientAllowedOAuthFlowsUserPoolClient = Nothing
   , _cognitoUserPoolClientAllowedOAuthScopes = Nothing
   , _cognitoUserPoolClientAnalyticsConfiguration = Nothing
@@ -73,6 +78,7 @@ cognitoUserPoolClient userPoolIdarg =
   , _cognitoUserPoolClientDefaultRedirectURI = Nothing
   , _cognitoUserPoolClientExplicitAuthFlows = Nothing
   , _cognitoUserPoolClientGenerateSecret = Nothing
+  , _cognitoUserPoolClientIdTokenValidity = Nothing
   , _cognitoUserPoolClientLogoutURLs = Nothing
   , _cognitoUserPoolClientPreventUserExistenceErrors = Nothing
   , _cognitoUserPoolClientReadAttributes = Nothing
@@ -81,6 +87,10 @@ cognitoUserPoolClient userPoolIdarg =
   , _cognitoUserPoolClientUserPoolId = userPoolIdarg
   , _cognitoUserPoolClientWriteAttributes = Nothing
   }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-accesstokenvalidity
+cupcAccessTokenValidity :: Lens' CognitoUserPoolClient (Maybe (Val Integer))
+cupcAccessTokenValidity = lens _cognitoUserPoolClientAccessTokenValidity (\s a -> s { _cognitoUserPoolClientAccessTokenValidity = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-allowedoauthflows
 cupcAllowedOAuthFlows :: Lens' CognitoUserPoolClient (Maybe (ValList Text))
@@ -117,6 +127,10 @@ cupcExplicitAuthFlows = lens _cognitoUserPoolClientExplicitAuthFlows (\s a -> s 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-generatesecret
 cupcGenerateSecret :: Lens' CognitoUserPoolClient (Maybe (Val Bool))
 cupcGenerateSecret = lens _cognitoUserPoolClientGenerateSecret (\s a -> s { _cognitoUserPoolClientGenerateSecret = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-idtokenvalidity
+cupcIdTokenValidity :: Lens' CognitoUserPoolClient (Maybe (Val Integer))
+cupcIdTokenValidity = lens _cognitoUserPoolClientIdTokenValidity (\s a -> s { _cognitoUserPoolClientIdTokenValidity = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-logouturls
 cupcLogoutURLs :: Lens' CognitoUserPoolClient (Maybe (ValList Text))

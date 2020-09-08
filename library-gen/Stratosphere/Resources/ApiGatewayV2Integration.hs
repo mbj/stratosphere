@@ -21,6 +21,7 @@ data ApiGatewayV2Integration =
   , _apiGatewayV2IntegrationCredentialsArn :: Maybe (Val Text)
   , _apiGatewayV2IntegrationDescription :: Maybe (Val Text)
   , _apiGatewayV2IntegrationIntegrationMethod :: Maybe (Val Text)
+  , _apiGatewayV2IntegrationIntegrationSubtype :: Maybe (Val Text)
   , _apiGatewayV2IntegrationIntegrationType :: Val Text
   , _apiGatewayV2IntegrationIntegrationUri :: Maybe (Val Text)
   , _apiGatewayV2IntegrationPassthroughBehavior :: Maybe (Val Text)
@@ -45,6 +46,7 @@ instance ToResourceProperties ApiGatewayV2Integration where
         , fmap (("CredentialsArn",) . toJSON) _apiGatewayV2IntegrationCredentialsArn
         , fmap (("Description",) . toJSON) _apiGatewayV2IntegrationDescription
         , fmap (("IntegrationMethod",) . toJSON) _apiGatewayV2IntegrationIntegrationMethod
+        , fmap (("IntegrationSubtype",) . toJSON) _apiGatewayV2IntegrationIntegrationSubtype
         , (Just . ("IntegrationType",) . toJSON) _apiGatewayV2IntegrationIntegrationType
         , fmap (("IntegrationUri",) . toJSON) _apiGatewayV2IntegrationIntegrationUri
         , fmap (("PassthroughBehavior",) . toJSON) _apiGatewayV2IntegrationPassthroughBehavior
@@ -72,6 +74,7 @@ apiGatewayV2Integration apiIdarg integrationTypearg =
   , _apiGatewayV2IntegrationCredentialsArn = Nothing
   , _apiGatewayV2IntegrationDescription = Nothing
   , _apiGatewayV2IntegrationIntegrationMethod = Nothing
+  , _apiGatewayV2IntegrationIntegrationSubtype = Nothing
   , _apiGatewayV2IntegrationIntegrationType = integrationTypearg
   , _apiGatewayV2IntegrationIntegrationUri = Nothing
   , _apiGatewayV2IntegrationPassthroughBehavior = Nothing
@@ -110,6 +113,10 @@ agviDescription = lens _apiGatewayV2IntegrationDescription (\s a -> s { _apiGate
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html#cfn-apigatewayv2-integration-integrationmethod
 agviIntegrationMethod :: Lens' ApiGatewayV2Integration (Maybe (Val Text))
 agviIntegrationMethod = lens _apiGatewayV2IntegrationIntegrationMethod (\s a -> s { _apiGatewayV2IntegrationIntegrationMethod = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html#cfn-apigatewayv2-integration-integrationsubtype
+agviIntegrationSubtype :: Lens' ApiGatewayV2Integration (Maybe (Val Text))
+agviIntegrationSubtype = lens _apiGatewayV2IntegrationIntegrationSubtype (\s a -> s { _apiGatewayV2IntegrationIntegrationSubtype = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-integration.html#cfn-apigatewayv2-integration-integrationtype
 agviIntegrationType :: Lens' ApiGatewayV2Integration (Val Text)
