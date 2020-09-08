@@ -9,8 +9,8 @@ module Stratosphere.Resources.SageMakerModel where
 
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.SageMakerModelContainerDefinition
-import Stratosphere.ResourceProperties.Tag
 import Stratosphere.ResourceProperties.SageMakerModelVpcConfig
+import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for SageMakerModel. See 'sageMakerModel' for a
 -- more convenient constructor.
