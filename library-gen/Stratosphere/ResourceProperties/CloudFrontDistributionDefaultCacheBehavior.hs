@@ -27,6 +27,7 @@ data CloudFrontDistributionDefaultCacheBehavior =
   , _cloudFrontDistributionDefaultCacheBehaviorMaxTTL :: Maybe (Val Double)
   , _cloudFrontDistributionDefaultCacheBehaviorMinTTL :: Maybe (Val Double)
   , _cloudFrontDistributionDefaultCacheBehaviorOriginRequestPolicyId :: Maybe (Val Text)
+  , _cloudFrontDistributionDefaultCacheBehaviorRealtimeLogConfigArn :: Maybe (Val Text)
   , _cloudFrontDistributionDefaultCacheBehaviorSmoothStreaming :: Maybe (Val Bool)
   , _cloudFrontDistributionDefaultCacheBehaviorTargetOriginId :: Val Text
   , _cloudFrontDistributionDefaultCacheBehaviorTrustedSigners :: Maybe (ValList Text)
@@ -48,6 +49,7 @@ instance ToJSON CloudFrontDistributionDefaultCacheBehavior where
     , fmap (("MaxTTL",) . toJSON) _cloudFrontDistributionDefaultCacheBehaviorMaxTTL
     , fmap (("MinTTL",) . toJSON) _cloudFrontDistributionDefaultCacheBehaviorMinTTL
     , fmap (("OriginRequestPolicyId",) . toJSON) _cloudFrontDistributionDefaultCacheBehaviorOriginRequestPolicyId
+    , fmap (("RealtimeLogConfigArn",) . toJSON) _cloudFrontDistributionDefaultCacheBehaviorRealtimeLogConfigArn
     , fmap (("SmoothStreaming",) . toJSON) _cloudFrontDistributionDefaultCacheBehaviorSmoothStreaming
     , (Just . ("TargetOriginId",) . toJSON) _cloudFrontDistributionDefaultCacheBehaviorTargetOriginId
     , fmap (("TrustedSigners",) . toJSON) _cloudFrontDistributionDefaultCacheBehaviorTrustedSigners
@@ -73,6 +75,7 @@ cloudFrontDistributionDefaultCacheBehavior targetOriginIdarg viewerProtocolPolic
   , _cloudFrontDistributionDefaultCacheBehaviorMaxTTL = Nothing
   , _cloudFrontDistributionDefaultCacheBehaviorMinTTL = Nothing
   , _cloudFrontDistributionDefaultCacheBehaviorOriginRequestPolicyId = Nothing
+  , _cloudFrontDistributionDefaultCacheBehaviorRealtimeLogConfigArn = Nothing
   , _cloudFrontDistributionDefaultCacheBehaviorSmoothStreaming = Nothing
   , _cloudFrontDistributionDefaultCacheBehaviorTargetOriginId = targetOriginIdarg
   , _cloudFrontDistributionDefaultCacheBehaviorTrustedSigners = Nothing
@@ -122,6 +125,10 @@ cfddcbMinTTL = lens _cloudFrontDistributionDefaultCacheBehaviorMinTTL (\s a -> s
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-originrequestpolicyid
 cfddcbOriginRequestPolicyId :: Lens' CloudFrontDistributionDefaultCacheBehavior (Maybe (Val Text))
 cfddcbOriginRequestPolicyId = lens _cloudFrontDistributionDefaultCacheBehaviorOriginRequestPolicyId (\s a -> s { _cloudFrontDistributionDefaultCacheBehaviorOriginRequestPolicyId = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-realtimelogconfigarn
+cfddcbRealtimeLogConfigArn :: Lens' CloudFrontDistributionDefaultCacheBehavior (Maybe (Val Text))
+cfddcbRealtimeLogConfigArn = lens _cloudFrontDistributionDefaultCacheBehaviorRealtimeLogConfigArn (\s a -> s { _cloudFrontDistributionDefaultCacheBehaviorRealtimeLogConfigArn = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-defaultcachebehavior.html#cfn-cloudfront-distribution-defaultcachebehavior-smoothstreaming
 cfddcbSmoothStreaming :: Lens' CloudFrontDistributionDefaultCacheBehavior (Maybe (Val Bool))

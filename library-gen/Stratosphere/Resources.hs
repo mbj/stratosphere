@@ -143,8 +143,11 @@ import Stratosphere.Resources.CloudFormationMacro as X
 import Stratosphere.Resources.CloudFormationStack as X
 import Stratosphere.Resources.CloudFormationWaitCondition as X
 import Stratosphere.Resources.CloudFormationWaitConditionHandle as X
+import Stratosphere.Resources.CloudFrontCachePolicy as X
 import Stratosphere.Resources.CloudFrontCloudFrontOriginAccessIdentity as X
 import Stratosphere.Resources.CloudFrontDistribution as X
+import Stratosphere.Resources.CloudFrontOriginRequestPolicy as X
+import Stratosphere.Resources.CloudFrontRealtimeLogConfig as X
 import Stratosphere.Resources.CloudFrontStreamingDistribution as X
 import Stratosphere.Resources.CloudTrailTrail as X
 import Stratosphere.Resources.CloudWatchAlarm as X
@@ -160,6 +163,7 @@ import Stratosphere.Resources.CodeDeployApplication as X
 import Stratosphere.Resources.CodeDeployDeploymentConfig as X
 import Stratosphere.Resources.CodeDeployDeploymentGroup as X
 import Stratosphere.Resources.CodeGuruProfilerProfilingGroup as X
+import Stratosphere.Resources.CodeGuruReviewerRepositoryAssociation as X
 import Stratosphere.Resources.CodePipelineCustomActionType as X
 import Stratosphere.Resources.CodePipelinePipeline as X
 import Stratosphere.Resources.CodePipelineWebhook as X
@@ -281,6 +285,7 @@ import Stratosphere.Resources.EFSAccessPoint as X
 import Stratosphere.Resources.EFSFileSystem as X
 import Stratosphere.Resources.EFSMountTarget as X
 import Stratosphere.Resources.EKSCluster as X
+import Stratosphere.Resources.EKSFargateProfile as X
 import Stratosphere.Resources.EKSNodegroup as X
 import Stratosphere.Resources.EMRCluster as X
 import Stratosphere.Resources.EMRInstanceFleetConfig as X
@@ -317,6 +322,7 @@ import Stratosphere.Resources.FSxFileSystem as X
 import Stratosphere.Resources.GameLiftAlias as X
 import Stratosphere.Resources.GameLiftBuild as X
 import Stratosphere.Resources.GameLiftFleet as X
+import Stratosphere.Resources.GameLiftGameServerGroup as X
 import Stratosphere.Resources.GameLiftGameSessionQueue as X
 import Stratosphere.Resources.GameLiftMatchmakingConfiguration as X
 import Stratosphere.Resources.GameLiftMatchmakingRuleSet as X
@@ -508,6 +514,8 @@ import Stratosphere.Resources.Route53HostedZone as X
 import Stratosphere.Resources.Route53RecordSet as X
 import Stratosphere.Resources.Route53RecordSetGroup as X
 import Stratosphere.Resources.Route53ResolverResolverEndpoint as X
+import Stratosphere.Resources.Route53ResolverResolverQueryLoggingConfig as X
+import Stratosphere.Resources.Route53ResolverResolverQueryLoggingConfigAssociation as X
 import Stratosphere.Resources.Route53ResolverResolverRule as X
 import Stratosphere.Resources.Route53ResolverResolverRuleAssociation as X
 import Stratosphere.Resources.S3AccessPoint as X
@@ -864,6 +872,11 @@ import Stratosphere.ResourceProperties.CassandraTableColumn as X
 import Stratosphere.ResourceProperties.CassandraTableProvisionedThroughput as X
 import Stratosphere.ResourceProperties.CertificateManagerCertificateDomainValidationOption as X
 import Stratosphere.ResourceProperties.Cloud9EnvironmentEC2Repository as X
+import Stratosphere.ResourceProperties.CloudFrontCachePolicyCachePolicyConfig as X
+import Stratosphere.ResourceProperties.CloudFrontCachePolicyCookiesConfig as X
+import Stratosphere.ResourceProperties.CloudFrontCachePolicyHeadersConfig as X
+import Stratosphere.ResourceProperties.CloudFrontCachePolicyParametersInCacheKeyAndForwardedToOrigin as X
+import Stratosphere.ResourceProperties.CloudFrontCachePolicyQueryStringsConfig as X
 import Stratosphere.ResourceProperties.CloudFrontCloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfig as X
 import Stratosphere.ResourceProperties.CloudFrontDistributionCacheBehavior as X
 import Stratosphere.ResourceProperties.CloudFrontDistributionCookies as X
@@ -886,6 +899,12 @@ import Stratosphere.ResourceProperties.CloudFrontDistributionRestrictions as X
 import Stratosphere.ResourceProperties.CloudFrontDistributionS3OriginConfig as X
 import Stratosphere.ResourceProperties.CloudFrontDistributionStatusCodes as X
 import Stratosphere.ResourceProperties.CloudFrontDistributionViewerCertificate as X
+import Stratosphere.ResourceProperties.CloudFrontOriginRequestPolicyCookiesConfig as X
+import Stratosphere.ResourceProperties.CloudFrontOriginRequestPolicyHeadersConfig as X
+import Stratosphere.ResourceProperties.CloudFrontOriginRequestPolicyOriginRequestPolicyConfig as X
+import Stratosphere.ResourceProperties.CloudFrontOriginRequestPolicyQueryStringsConfig as X
+import Stratosphere.ResourceProperties.CloudFrontRealtimeLogConfigEndPoint as X
+import Stratosphere.ResourceProperties.CloudFrontRealtimeLogConfigKinesisStreamConfig as X
 import Stratosphere.ResourceProperties.CloudFrontStreamingDistributionLogging as X
 import Stratosphere.ResourceProperties.CloudFrontStreamingDistributionS3Origin as X
 import Stratosphere.ResourceProperties.CloudFrontStreamingDistributionStreamingDistributionConfig as X
@@ -984,6 +1003,7 @@ import Stratosphere.ResourceProperties.CognitoUserPoolUserPoolAddOns as X
 import Stratosphere.ResourceProperties.CognitoUserPoolUsernameConfiguration as X
 import Stratosphere.ResourceProperties.CognitoUserPoolVerificationMessageTemplate as X
 import Stratosphere.ResourceProperties.CognitoUserPoolClientAnalyticsConfiguration as X
+import Stratosphere.ResourceProperties.CognitoUserPoolClientTokenValidityUnits as X
 import Stratosphere.ResourceProperties.CognitoUserPoolDomainCustomDomainConfigType as X
 import Stratosphere.ResourceProperties.CognitoUserPoolResourceServerResourceServerScopeType as X
 import Stratosphere.ResourceProperties.CognitoUserPoolRiskConfigurationAttachmentAccountTakeoverActionType as X
@@ -1129,6 +1149,7 @@ import Stratosphere.ResourceProperties.EC2SpotFleetTargetGroup as X
 import Stratosphere.ResourceProperties.EC2SpotFleetTargetGroupsConfig as X
 import Stratosphere.ResourceProperties.EC2TrafficMirrorFilterRuleTrafficMirrorPortRange as X
 import Stratosphere.ResourceProperties.EC2VPNConnectionVpnTunnelOptionsSpecification as X
+import Stratosphere.ResourceProperties.ECRRepositoryLifecyclePolicy as X
 import Stratosphere.ResourceProperties.ECSCapacityProviderAutoScalingGroupProvider as X
 import Stratosphere.ResourceProperties.ECSCapacityProviderManagedScaling as X
 import Stratosphere.ResourceProperties.ECSClusterCapacityProviderStrategyItem as X
@@ -1184,6 +1205,8 @@ import Stratosphere.ResourceProperties.EFSFileSystemLifecyclePolicy as X
 import Stratosphere.ResourceProperties.EKSClusterEncryptionConfig as X
 import Stratosphere.ResourceProperties.EKSClusterProvider as X
 import Stratosphere.ResourceProperties.EKSClusterResourcesVpcConfig as X
+import Stratosphere.ResourceProperties.EKSFargateProfileLabel as X
+import Stratosphere.ResourceProperties.EKSFargateProfileSelector as X
 import Stratosphere.ResourceProperties.EKSNodegroupLaunchTemplateSpecification as X
 import Stratosphere.ResourceProperties.EKSNodegroupRemoteAccess as X
 import Stratosphere.ResourceProperties.EKSNodegroupScalingConfig as X
@@ -1325,6 +1348,13 @@ import Stratosphere.ResourceProperties.GameLiftFleetIpPermission as X
 import Stratosphere.ResourceProperties.GameLiftFleetResourceCreationLimitPolicy as X
 import Stratosphere.ResourceProperties.GameLiftFleetRuntimeConfiguration as X
 import Stratosphere.ResourceProperties.GameLiftFleetServerProcess as X
+import Stratosphere.ResourceProperties.GameLiftGameServerGroupAutoScalingPolicy as X
+import Stratosphere.ResourceProperties.GameLiftGameServerGroupInstanceDefinition as X
+import Stratosphere.ResourceProperties.GameLiftGameServerGroupInstanceDefinitions as X
+import Stratosphere.ResourceProperties.GameLiftGameServerGroupLaunchTemplate as X
+import Stratosphere.ResourceProperties.GameLiftGameServerGroupTags as X
+import Stratosphere.ResourceProperties.GameLiftGameServerGroupTargetTrackingConfiguration as X
+import Stratosphere.ResourceProperties.GameLiftGameServerGroupVpcSubnets as X
 import Stratosphere.ResourceProperties.GameLiftGameSessionQueueDestination as X
 import Stratosphere.ResourceProperties.GameLiftGameSessionQueuePlayerLatencyPolicy as X
 import Stratosphere.ResourceProperties.GameLiftMatchmakingConfigurationGameProperty as X
@@ -1426,6 +1456,8 @@ import Stratosphere.ResourceProperties.GreengrassResourceDefinitionVersionSecret
 import Stratosphere.ResourceProperties.GreengrassSubscriptionDefinitionSubscription as X
 import Stratosphere.ResourceProperties.GreengrassSubscriptionDefinitionSubscriptionDefinitionVersion as X
 import Stratosphere.ResourceProperties.GreengrassSubscriptionDefinitionVersionSubscription as X
+import Stratosphere.ResourceProperties.GuardDutyDetectorCFNDataSourceConfigurations as X
+import Stratosphere.ResourceProperties.GuardDutyDetectorCFNS3LogsConfiguration as X
 import Stratosphere.ResourceProperties.GuardDutyFilterCondition as X
 import Stratosphere.ResourceProperties.GuardDutyFilterFindingCriteria as X
 import Stratosphere.ResourceProperties.IAMGroupPolicy as X
@@ -1680,6 +1712,7 @@ import Stratosphere.ResourceProperties.MSKClusterPrometheus as X
 import Stratosphere.ResourceProperties.MSKClusterS3 as X
 import Stratosphere.ResourceProperties.MSKClusterStorageInfo as X
 import Stratosphere.ResourceProperties.MSKClusterTls as X
+import Stratosphere.ResourceProperties.MacieFindingsFilterFindingsFilterListItem as X
 import Stratosphere.ResourceProperties.ManagedBlockchainMemberApprovalThresholdPolicy as X
 import Stratosphere.ResourceProperties.ManagedBlockchainMemberMemberConfiguration as X
 import Stratosphere.ResourceProperties.ManagedBlockchainMemberMemberFabricConfiguration as X
@@ -1724,6 +1757,7 @@ import Stratosphere.ResourceProperties.MediaLiveInputSecurityGroupInputWhitelist
 import Stratosphere.ResourceProperties.MediaStoreContainerCorsRule as X
 import Stratosphere.ResourceProperties.MediaStoreContainerMetricPolicy as X
 import Stratosphere.ResourceProperties.MediaStoreContainerMetricPolicyRule as X
+import Stratosphere.ResourceProperties.NeptuneDBClusterDBClusterRole as X
 import Stratosphere.ResourceProperties.NetworkManagerDeviceLocation as X
 import Stratosphere.ResourceProperties.NetworkManagerLinkBandwidth as X
 import Stratosphere.ResourceProperties.NetworkManagerSiteLocation as X
@@ -1897,6 +1931,7 @@ import Stratosphere.ResourceProperties.SESReceiptRuleWorkmailAction as X
 import Stratosphere.ResourceProperties.SESTemplateTemplate as X
 import Stratosphere.ResourceProperties.SNSTopicSubscription as X
 import Stratosphere.ResourceProperties.SSMAssociationInstanceAssociationOutputLocation as X
+import Stratosphere.ResourceProperties.SSMAssociationParameterValues as X
 import Stratosphere.ResourceProperties.SSMAssociationS3OutputLocation as X
 import Stratosphere.ResourceProperties.SSMAssociationTarget as X
 import Stratosphere.ResourceProperties.SSMMaintenanceWindowTargetTargets as X

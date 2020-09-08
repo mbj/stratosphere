@@ -3,7 +3,7 @@
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-cloudwatchlogsloggroup.html
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-logdestination-cloudwatchlogsloggroup.html
 
 module Stratosphere.ResourceProperties.StepFunctionsStateMachineCloudWatchLogsLogGroup where
 
@@ -16,25 +16,26 @@ import Stratosphere.ResourceImports
 -- constructor.
 data StepFunctionsStateMachineCloudWatchLogsLogGroup =
   StepFunctionsStateMachineCloudWatchLogsLogGroup
-  { _stepFunctionsStateMachineCloudWatchLogsLogGroupLogGroupArn :: Maybe (Val Text)
+  { _stepFunctionsStateMachineCloudWatchLogsLogGroupLogGroupArn :: Val Text
   } deriving (Show, Eq)
 
 instance ToJSON StepFunctionsStateMachineCloudWatchLogsLogGroup where
   toJSON StepFunctionsStateMachineCloudWatchLogsLogGroup{..} =
     object $
     catMaybes
-    [ fmap (("LogGroupArn",) . toJSON) _stepFunctionsStateMachineCloudWatchLogsLogGroupLogGroupArn
+    [ (Just . ("LogGroupArn",) . toJSON) _stepFunctionsStateMachineCloudWatchLogsLogGroupLogGroupArn
     ]
 
 -- | Constructor for 'StepFunctionsStateMachineCloudWatchLogsLogGroup'
 -- containing required fields as arguments.
 stepFunctionsStateMachineCloudWatchLogsLogGroup
-  :: StepFunctionsStateMachineCloudWatchLogsLogGroup
-stepFunctionsStateMachineCloudWatchLogsLogGroup  =
+  :: Val Text -- ^ 'sfsmcwllgLogGroupArn'
+  -> StepFunctionsStateMachineCloudWatchLogsLogGroup
+stepFunctionsStateMachineCloudWatchLogsLogGroup logGroupArnarg =
   StepFunctionsStateMachineCloudWatchLogsLogGroup
-  { _stepFunctionsStateMachineCloudWatchLogsLogGroupLogGroupArn = Nothing
+  { _stepFunctionsStateMachineCloudWatchLogsLogGroupLogGroupArn = logGroupArnarg
   }
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-cloudwatchlogsloggroup.html#cfn-stepfunctions-statemachine-cloudwatchlogsloggroup-loggrouparn
-sfsmcwllgLogGroupArn :: Lens' StepFunctionsStateMachineCloudWatchLogsLogGroup (Maybe (Val Text))
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-logdestination-cloudwatchlogsloggroup.html#cfn-stepfunctions-statemachine-logdestination-cloudwatchlogsloggroup-loggrouparn
+sfsmcwllgLogGroupArn :: Lens' StepFunctionsStateMachineCloudWatchLogsLogGroup (Val Text)
 sfsmcwllgLogGroupArn = lens _stepFunctionsStateMachineCloudWatchLogsLogGroupLogGroupArn (\s a -> s { _stepFunctionsStateMachineCloudWatchLogsLogGroupLogGroupArn = a })

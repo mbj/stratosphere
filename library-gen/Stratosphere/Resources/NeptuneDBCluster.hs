@@ -8,13 +8,15 @@
 module Stratosphere.Resources.NeptuneDBCluster where
 
 import Stratosphere.ResourceImports
+import Stratosphere.ResourceProperties.NeptuneDBClusterDBClusterRole
 import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for NeptuneDBCluster. See 'neptuneDBCluster'
 -- for a more convenient constructor.
 data NeptuneDBCluster =
   NeptuneDBCluster
-  { _neptuneDBClusterAvailabilityZones :: Maybe (ValList Text)
+  { _neptuneDBClusterAssociatedRoles :: Maybe [NeptuneDBClusterDBClusterRole]
+  , _neptuneDBClusterAvailabilityZones :: Maybe (ValList Text)
   , _neptuneDBClusterBackupRetentionPeriod :: Maybe (Val Integer)
   , _neptuneDBClusterDBClusterIdentifier :: Maybe (Val Text)
   , _neptuneDBClusterDBClusterParameterGroupName :: Maybe (Val Text)
@@ -43,7 +45,8 @@ instance ToResourceProperties NeptuneDBCluster where
     { resourcePropertiesType = "AWS::Neptune::DBCluster"
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
-        [ fmap (("AvailabilityZones",) . toJSON) _neptuneDBClusterAvailabilityZones
+        [ fmap (("AssociatedRoles",) . toJSON) _neptuneDBClusterAssociatedRoles
+        , fmap (("AvailabilityZones",) . toJSON) _neptuneDBClusterAvailabilityZones
         , fmap (("BackupRetentionPeriod",) . toJSON) _neptuneDBClusterBackupRetentionPeriod
         , fmap (("DBClusterIdentifier",) . toJSON) _neptuneDBClusterDBClusterIdentifier
         , fmap (("DBClusterParameterGroupName",) . toJSON) _neptuneDBClusterDBClusterParameterGroupName
@@ -73,7 +76,8 @@ neptuneDBCluster
   :: NeptuneDBCluster
 neptuneDBCluster  =
   NeptuneDBCluster
-  { _neptuneDBClusterAvailabilityZones = Nothing
+  { _neptuneDBClusterAssociatedRoles = Nothing
+  , _neptuneDBClusterAvailabilityZones = Nothing
   , _neptuneDBClusterBackupRetentionPeriod = Nothing
   , _neptuneDBClusterDBClusterIdentifier = Nothing
   , _neptuneDBClusterDBClusterParameterGroupName = Nothing
@@ -95,6 +99,10 @@ neptuneDBCluster  =
   , _neptuneDBClusterUseLatestRestorableTime = Nothing
   , _neptuneDBClusterVpcSecurityGroupIds = Nothing
   }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-associatedroles
+ndbcAssociatedRoles :: Lens' NeptuneDBCluster (Maybe [NeptuneDBClusterDBClusterRole])
+ndbcAssociatedRoles = lens _neptuneDBClusterAssociatedRoles (\s a -> s { _neptuneDBClusterAssociatedRoles = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-dbcluster.html#cfn-neptune-dbcluster-availabilityzones
 ndbcAvailabilityZones :: Lens' NeptuneDBCluster (Maybe (ValList Text))

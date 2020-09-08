@@ -16,25 +16,26 @@ import Stratosphere.ResourceImports
 -- constructor.
 data StepFunctionsStateMachineTracingConfiguration =
   StepFunctionsStateMachineTracingConfiguration
-  { _stepFunctionsStateMachineTracingConfigurationEnabled :: Maybe (Val Bool)
+  { _stepFunctionsStateMachineTracingConfigurationEnabled :: Val Bool
   } deriving (Show, Eq)
 
 instance ToJSON StepFunctionsStateMachineTracingConfiguration where
   toJSON StepFunctionsStateMachineTracingConfiguration{..} =
     object $
     catMaybes
-    [ fmap (("Enabled",) . toJSON) _stepFunctionsStateMachineTracingConfigurationEnabled
+    [ (Just . ("Enabled",) . toJSON) _stepFunctionsStateMachineTracingConfigurationEnabled
     ]
 
 -- | Constructor for 'StepFunctionsStateMachineTracingConfiguration'
 -- containing required fields as arguments.
 stepFunctionsStateMachineTracingConfiguration
-  :: StepFunctionsStateMachineTracingConfiguration
-stepFunctionsStateMachineTracingConfiguration  =
+  :: Val Bool -- ^ 'sfsmtcEnabled'
+  -> StepFunctionsStateMachineTracingConfiguration
+stepFunctionsStateMachineTracingConfiguration enabledarg =
   StepFunctionsStateMachineTracingConfiguration
-  { _stepFunctionsStateMachineTracingConfigurationEnabled = Nothing
+  { _stepFunctionsStateMachineTracingConfigurationEnabled = enabledarg
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-tracingconfiguration.html#cfn-stepfunctions-statemachine-tracingconfiguration-enabled
-sfsmtcEnabled :: Lens' StepFunctionsStateMachineTracingConfiguration (Maybe (Val Bool))
+sfsmtcEnabled :: Lens' StepFunctionsStateMachineTracingConfiguration (Val Bool)
 sfsmtcEnabled = lens _stepFunctionsStateMachineTracingConfigurationEnabled (\s a -> s { _stepFunctionsStateMachineTracingConfigurationEnabled = a })

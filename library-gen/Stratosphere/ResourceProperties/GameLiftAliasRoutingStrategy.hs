@@ -16,7 +16,7 @@ data GameLiftAliasRoutingStrategy =
   GameLiftAliasRoutingStrategy
   { _gameLiftAliasRoutingStrategyFleetId :: Maybe (Val Text)
   , _gameLiftAliasRoutingStrategyMessage :: Maybe (Val Text)
-  , _gameLiftAliasRoutingStrategyType :: Val Text
+  , _gameLiftAliasRoutingStrategyType :: Maybe (Val Text)
   } deriving (Show, Eq)
 
 instance ToJSON GameLiftAliasRoutingStrategy where
@@ -25,19 +25,18 @@ instance ToJSON GameLiftAliasRoutingStrategy where
     catMaybes
     [ fmap (("FleetId",) . toJSON) _gameLiftAliasRoutingStrategyFleetId
     , fmap (("Message",) . toJSON) _gameLiftAliasRoutingStrategyMessage
-    , (Just . ("Type",) . toJSON) _gameLiftAliasRoutingStrategyType
+    , fmap (("Type",) . toJSON) _gameLiftAliasRoutingStrategyType
     ]
 
 -- | Constructor for 'GameLiftAliasRoutingStrategy' containing required fields
 -- as arguments.
 gameLiftAliasRoutingStrategy
-  :: Val Text -- ^ 'glarsType'
-  -> GameLiftAliasRoutingStrategy
-gameLiftAliasRoutingStrategy typearg =
+  :: GameLiftAliasRoutingStrategy
+gameLiftAliasRoutingStrategy  =
   GameLiftAliasRoutingStrategy
   { _gameLiftAliasRoutingStrategyFleetId = Nothing
   , _gameLiftAliasRoutingStrategyMessage = Nothing
-  , _gameLiftAliasRoutingStrategyType = typearg
+  , _gameLiftAliasRoutingStrategyType = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-alias-routingstrategy.html#cfn-gamelift-alias-routingstrategy-fleetid
@@ -49,5 +48,5 @@ glarsMessage :: Lens' GameLiftAliasRoutingStrategy (Maybe (Val Text))
 glarsMessage = lens _gameLiftAliasRoutingStrategyMessage (\s a -> s { _gameLiftAliasRoutingStrategyMessage = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-alias-routingstrategy.html#cfn-gamelift-alias-routingstrategy-type
-glarsType :: Lens' GameLiftAliasRoutingStrategy (Val Text)
+glarsType :: Lens' GameLiftAliasRoutingStrategy (Maybe (Val Text))
 glarsType = lens _gameLiftAliasRoutingStrategyType (\s a -> s { _gameLiftAliasRoutingStrategyType = a })
