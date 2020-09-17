@@ -4,10 +4,10 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 417c4079ef6cfe73daa17b0527b04f7405d58c1cbaca2048b6dcd093334c6c32
+-- hash: 32e0669e795e3193a411bc5344dfc9fc680bfed5e77269ef76fb4d1d42c39513
 
 name:           stratosphere
-version:        0.58.0
+version:        0.59.1
 synopsis:       EDSL for AWS CloudFormation
 description:    EDSL for AWS CloudFormation
 category:       AWS, Cloud
