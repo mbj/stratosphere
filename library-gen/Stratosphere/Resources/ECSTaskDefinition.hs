@@ -32,7 +32,6 @@ data ECSTaskDefinition =
   , _eCSTaskDefinitionProxyConfiguration :: Maybe ECSTaskDefinitionProxyConfiguration
   , _eCSTaskDefinitionRequiresCompatibilities :: Maybe (ValList Text)
   , _eCSTaskDefinitionTags :: Maybe [Tag]
-  , _eCSTaskDefinitionTaskDefinitionStatus :: Maybe (Val Text)
   , _eCSTaskDefinitionTaskRoleArn :: Maybe (Val Text)
   , _eCSTaskDefinitionVolumes :: Maybe [ECSTaskDefinitionVolume]
   } deriving (Show, Eq)
@@ -56,7 +55,6 @@ instance ToResourceProperties ECSTaskDefinition where
         , fmap (("ProxyConfiguration",) . toJSON) _eCSTaskDefinitionProxyConfiguration
         , fmap (("RequiresCompatibilities",) . toJSON) _eCSTaskDefinitionRequiresCompatibilities
         , fmap (("Tags",) . toJSON) _eCSTaskDefinitionTags
-        , fmap (("TaskDefinitionStatus",) . toJSON) _eCSTaskDefinitionTaskDefinitionStatus
         , fmap (("TaskRoleArn",) . toJSON) _eCSTaskDefinitionTaskRoleArn
         , fmap (("Volumes",) . toJSON) _eCSTaskDefinitionVolumes
         ]
@@ -81,7 +79,6 @@ ecsTaskDefinition  =
   , _eCSTaskDefinitionProxyConfiguration = Nothing
   , _eCSTaskDefinitionRequiresCompatibilities = Nothing
   , _eCSTaskDefinitionTags = Nothing
-  , _eCSTaskDefinitionTaskDefinitionStatus = Nothing
   , _eCSTaskDefinitionTaskRoleArn = Nothing
   , _eCSTaskDefinitionVolumes = Nothing
   }
@@ -137,10 +134,6 @@ ecstdRequiresCompatibilities = lens _eCSTaskDefinitionRequiresCompatibilities (\
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-tags
 ecstdTags :: Lens' ECSTaskDefinition (Maybe [Tag])
 ecstdTags = lens _eCSTaskDefinitionTags (\s a -> s { _eCSTaskDefinitionTags = a })
-
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-taskdefinitionstatus
-ecstdTaskDefinitionStatus :: Lens' ECSTaskDefinition (Maybe (Val Text))
-ecstdTaskDefinitionStatus = lens _eCSTaskDefinitionTaskDefinitionStatus (\s a -> s { _eCSTaskDefinitionTaskDefinitionStatus = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-taskdefinition.html#cfn-ecs-taskdefinition-taskrolearn
 ecstdTaskRoleArn :: Lens' ECSTaskDefinition (Maybe (Val Text))

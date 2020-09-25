@@ -14,14 +14,14 @@ import Stratosphere.ResourceProperties.ECSServiceAwsVpcConfiguration
 -- 'ecsServiceNetworkConfiguration' for a more convenient constructor.
 data ECSServiceNetworkConfiguration =
   ECSServiceNetworkConfiguration
-  { _eCSServiceNetworkConfigurationAwsvpcConfiguration :: Maybe ECSServiceAwsVpcConfiguration
+  { _eCSServiceNetworkConfigurationAwsVpcConfiguration :: Maybe ECSServiceAwsVpcConfiguration
   } deriving (Show, Eq)
 
 instance ToJSON ECSServiceNetworkConfiguration where
   toJSON ECSServiceNetworkConfiguration{..} =
     object $
     catMaybes
-    [ fmap (("AwsvpcConfiguration",) . toJSON) _eCSServiceNetworkConfigurationAwsvpcConfiguration
+    [ fmap (("AwsVpcConfiguration",) . toJSON) _eCSServiceNetworkConfigurationAwsVpcConfiguration
     ]
 
 -- | Constructor for 'ECSServiceNetworkConfiguration' containing required
@@ -30,9 +30,9 @@ ecsServiceNetworkConfiguration
   :: ECSServiceNetworkConfiguration
 ecsServiceNetworkConfiguration  =
   ECSServiceNetworkConfiguration
-  { _eCSServiceNetworkConfigurationAwsvpcConfiguration = Nothing
+  { _eCSServiceNetworkConfigurationAwsVpcConfiguration = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-networkconfiguration.html#cfn-ecs-service-networkconfiguration-awsvpcconfiguration
-ecssncAwsvpcConfiguration :: Lens' ECSServiceNetworkConfiguration (Maybe ECSServiceAwsVpcConfiguration)
-ecssncAwsvpcConfiguration = lens _eCSServiceNetworkConfigurationAwsvpcConfiguration (\s a -> s { _eCSServiceNetworkConfigurationAwsvpcConfiguration = a })
+ecssncAwsVpcConfiguration :: Lens' ECSServiceNetworkConfiguration (Maybe ECSServiceAwsVpcConfiguration)
+ecssncAwsVpcConfiguration = lens _eCSServiceNetworkConfigurationAwsVpcConfiguration (\s a -> s { _eCSServiceNetworkConfigurationAwsVpcConfiguration = a })

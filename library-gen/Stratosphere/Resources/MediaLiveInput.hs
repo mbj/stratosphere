@@ -9,6 +9,7 @@ module Stratosphere.Resources.MediaLiveInput where
 
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.MediaLiveInputInputDestinationRequest
+import Stratosphere.ResourceProperties.MediaLiveInputInputDeviceSettings
 import Stratosphere.ResourceProperties.MediaLiveInputMediaConnectFlowRequest
 import Stratosphere.ResourceProperties.MediaLiveInputInputSourceRequest
 import Stratosphere.ResourceProperties.MediaLiveInputInputVpcRequest
@@ -18,6 +19,7 @@ import Stratosphere.ResourceProperties.MediaLiveInputInputVpcRequest
 data MediaLiveInput =
   MediaLiveInput
   { _mediaLiveInputDestinations :: Maybe [MediaLiveInputInputDestinationRequest]
+  , _mediaLiveInputInputDevices :: Maybe [MediaLiveInputInputDeviceSettings]
   , _mediaLiveInputInputSecurityGroups :: Maybe (ValList Text)
   , _mediaLiveInputMediaConnectFlows :: Maybe [MediaLiveInputMediaConnectFlowRequest]
   , _mediaLiveInputName :: Maybe (Val Text)
@@ -35,6 +37,7 @@ instance ToResourceProperties MediaLiveInput where
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
         [ fmap (("Destinations",) . toJSON) _mediaLiveInputDestinations
+        , fmap (("InputDevices",) . toJSON) _mediaLiveInputInputDevices
         , fmap (("InputSecurityGroups",) . toJSON) _mediaLiveInputInputSecurityGroups
         , fmap (("MediaConnectFlows",) . toJSON) _mediaLiveInputMediaConnectFlows
         , fmap (("Name",) . toJSON) _mediaLiveInputName
@@ -52,6 +55,7 @@ mediaLiveInput
 mediaLiveInput  =
   MediaLiveInput
   { _mediaLiveInputDestinations = Nothing
+  , _mediaLiveInputInputDevices = Nothing
   , _mediaLiveInputInputSecurityGroups = Nothing
   , _mediaLiveInputMediaConnectFlows = Nothing
   , _mediaLiveInputName = Nothing
@@ -65,6 +69,10 @@ mediaLiveInput  =
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-destinations
 mliDestinations :: Lens' MediaLiveInput (Maybe [MediaLiveInputInputDestinationRequest])
 mliDestinations = lens _mediaLiveInputDestinations (\s a -> s { _mediaLiveInputDestinations = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-inputdevices
+mliInputDevices :: Lens' MediaLiveInput (Maybe [MediaLiveInputInputDeviceSettings])
+mliInputDevices = lens _mediaLiveInputInputDevices (\s a -> s { _mediaLiveInputInputDevices = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html#cfn-medialive-input-inputsecuritygroups
 mliInputSecurityGroups :: Lens' MediaLiveInput (Maybe (ValList Text))

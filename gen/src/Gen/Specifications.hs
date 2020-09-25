@@ -15,7 +15,7 @@ module Gen.Specifications
 
 import Control.Lens
 import Data.List (sortOn)
-import Data.Maybe (catMaybes)
+import Data.Maybe (catMaybes, fromMaybe)
 import Data.Map (Map, toList)
 import Data.Text
 import GHC.Generics hiding (to)
@@ -153,27 +153,29 @@ rawToSpecType "AWS::SNS::Topic.Subscription" "Protocol" _ _ _ _ = AtomicType $ C
 rawToSpecType _ "HttpMethod" _ _ _ _ = AtomicType $ CustomType "HttpMethod"
 rawToSpecType _ "LoggingLevel" _ _ _ _ = AtomicType $ CustomType "LoggingLevel"
 -- Default
-rawToSpecType _ _ primType type' primItemType itemType = rawToSpecType' primType type' primItemType itemType
+rawToSpecType fullTypeName name primType type' primItemType itemType =
+  fromMaybe (error $ "Unknown raw type: " ++ show (fullTypeName, name, primType, type', primItemType, itemType))
+  $ rawToSpecType' primType type' primItemType itemType
 
 rawToSpecType'
   :: Maybe Text -- PrimitiveType
   -> Maybe Text -- Type
   -> Maybe Text -- PrimitiveItemType
   -> Maybe Text -- ItemType
-  -> SpecType
+  -> Maybe SpecType
 -- Just primitive type, nothing else
-rawToSpecType' (Just prim) Nothing Nothing Nothing = AtomicType $ textToPrimitiveType prim
+rawToSpecType' (Just prim) Nothing Nothing Nothing = Just $ AtomicType $ textToPrimitiveType prim
 -- A list of primitives
-rawToSpecType' Nothing (Just "List") (Just prim) Nothing = ListType $ textToPrimitiveType prim
+rawToSpecType' Nothing (Just "List") (Just prim) Nothing = Just $ ListType $ textToPrimitiveType prim
 -- A list of non-primitives
-rawToSpecType' Nothing (Just "List") Nothing (Just item) = ListType $ SubPropertyType item
+rawToSpecType' Nothing (Just "List") Nothing (Just item) = Just $ ListType $ SubPropertyType item
 -- A map of primitives
-rawToSpecType' Nothing (Just "Map") (Just prim) Nothing = MapType $ textToPrimitiveType prim
+rawToSpecType' Nothing (Just "Map") (Just prim) Nothing = Just $ MapType $ textToPrimitiveType prim
 -- A map of non-primitives
-rawToSpecType' Nothing (Just "Map") Nothing (Just item) = MapType $ SubPropertyType item
+rawToSpecType' Nothing (Just "Map") Nothing (Just item) = Just $ MapType $ SubPropertyType item
 -- A non-primitive type
-rawToSpecType' Nothing (Just prop) Nothing Nothing = AtomicType $ SubPropertyType prop
-rawToSpecType' prim type' primItem item = error $ "Unknown raw type: " ++ show (prim, type', primItem, item)
+rawToSpecType' Nothing (Just prop) Nothing Nothing = Just $ AtomicType $ SubPropertyType prop
+rawToSpecType' _ _ _ _ = Nothing
 
 data AtomicType
   = StringPrimitive

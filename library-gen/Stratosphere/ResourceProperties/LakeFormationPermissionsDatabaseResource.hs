@@ -15,14 +15,16 @@ import Stratosphere.ResourceImports
 -- constructor.
 data LakeFormationPermissionsDatabaseResource =
   LakeFormationPermissionsDatabaseResource
-  { _lakeFormationPermissionsDatabaseResourceName :: Maybe (Val Text)
+  { _lakeFormationPermissionsDatabaseResourceCatalogId :: Maybe (Val Text)
+  , _lakeFormationPermissionsDatabaseResourceName :: Maybe (Val Text)
   } deriving (Show, Eq)
 
 instance ToJSON LakeFormationPermissionsDatabaseResource where
   toJSON LakeFormationPermissionsDatabaseResource{..} =
     object $
     catMaybes
-    [ fmap (("Name",) . toJSON) _lakeFormationPermissionsDatabaseResourceName
+    [ fmap (("CatalogId",) . toJSON) _lakeFormationPermissionsDatabaseResourceCatalogId
+    , fmap (("Name",) . toJSON) _lakeFormationPermissionsDatabaseResourceName
     ]
 
 -- | Constructor for 'LakeFormationPermissionsDatabaseResource' containing
@@ -31,8 +33,13 @@ lakeFormationPermissionsDatabaseResource
   :: LakeFormationPermissionsDatabaseResource
 lakeFormationPermissionsDatabaseResource  =
   LakeFormationPermissionsDatabaseResource
-  { _lakeFormationPermissionsDatabaseResourceName = Nothing
+  { _lakeFormationPermissionsDatabaseResourceCatalogId = Nothing
+  , _lakeFormationPermissionsDatabaseResourceName = Nothing
   }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-databaseresource.html#cfn-lakeformation-permissions-databaseresource-catalogid
+lfpdrCatalogId :: Lens' LakeFormationPermissionsDatabaseResource (Maybe (Val Text))
+lfpdrCatalogId = lens _lakeFormationPermissionsDatabaseResourceCatalogId (\s a -> s { _lakeFormationPermissionsDatabaseResourceCatalogId = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-databaseresource.html#cfn-lakeformation-permissions-databaseresource-name
 lfpdrName :: Lens' LakeFormationPermissionsDatabaseResource (Maybe (Val Text))

@@ -16,14 +16,16 @@ import Stratosphere.ResourceImports
 -- constructor.
 data LakeFormationPermissionsDataLocationResource =
   LakeFormationPermissionsDataLocationResource
-  { _lakeFormationPermissionsDataLocationResourceS3Resource :: Maybe (Val Text)
+  { _lakeFormationPermissionsDataLocationResourceCatalogId :: Maybe (Val Text)
+  , _lakeFormationPermissionsDataLocationResourceS3Resource :: Maybe (Val Text)
   } deriving (Show, Eq)
 
 instance ToJSON LakeFormationPermissionsDataLocationResource where
   toJSON LakeFormationPermissionsDataLocationResource{..} =
     object $
     catMaybes
-    [ fmap (("S3Resource",) . toJSON) _lakeFormationPermissionsDataLocationResourceS3Resource
+    [ fmap (("CatalogId",) . toJSON) _lakeFormationPermissionsDataLocationResourceCatalogId
+    , fmap (("S3Resource",) . toJSON) _lakeFormationPermissionsDataLocationResourceS3Resource
     ]
 
 -- | Constructor for 'LakeFormationPermissionsDataLocationResource' containing
@@ -32,8 +34,13 @@ lakeFormationPermissionsDataLocationResource
   :: LakeFormationPermissionsDataLocationResource
 lakeFormationPermissionsDataLocationResource  =
   LakeFormationPermissionsDataLocationResource
-  { _lakeFormationPermissionsDataLocationResourceS3Resource = Nothing
+  { _lakeFormationPermissionsDataLocationResourceCatalogId = Nothing
+  , _lakeFormationPermissionsDataLocationResourceS3Resource = Nothing
   }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-datalocationresource.html#cfn-lakeformation-permissions-datalocationresource-catalogid
+lfpdlrCatalogId :: Lens' LakeFormationPermissionsDataLocationResource (Maybe (Val Text))
+lfpdlrCatalogId = lens _lakeFormationPermissionsDataLocationResourceCatalogId (\s a -> s { _lakeFormationPermissionsDataLocationResourceCatalogId = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-datalocationresource.html#cfn-lakeformation-permissions-datalocationresource-s3resource
 lfpdlrS3Resource :: Lens' LakeFormationPermissionsDataLocationResource (Maybe (Val Text))

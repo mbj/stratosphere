@@ -8,7 +8,7 @@
 module Stratosphere.Resources.CloudWatchInsightRule where
 
 import Stratosphere.ResourceImports
-import Stratosphere.ResourceProperties.Tag
+
 
 -- | Full data type definition for CloudWatchInsightRule. See
 -- 'cloudWatchInsightRule' for a more convenient constructor.
@@ -17,7 +17,6 @@ data CloudWatchInsightRule =
   { _cloudWatchInsightRuleRuleBody :: Val Text
   , _cloudWatchInsightRuleRuleName :: Val Text
   , _cloudWatchInsightRuleRuleState :: Val Text
-  , _cloudWatchInsightRuleTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
 instance ToResourceProperties CloudWatchInsightRule where
@@ -29,7 +28,6 @@ instance ToResourceProperties CloudWatchInsightRule where
         [ (Just . ("RuleBody",) . toJSON) _cloudWatchInsightRuleRuleBody
         , (Just . ("RuleName",) . toJSON) _cloudWatchInsightRuleRuleName
         , (Just . ("RuleState",) . toJSON) _cloudWatchInsightRuleRuleState
-        , fmap (("Tags",) . toJSON) _cloudWatchInsightRuleTags
         ]
     }
 
@@ -45,7 +43,6 @@ cloudWatchInsightRule ruleBodyarg ruleNamearg ruleStatearg =
   { _cloudWatchInsightRuleRuleBody = ruleBodyarg
   , _cloudWatchInsightRuleRuleName = ruleNamearg
   , _cloudWatchInsightRuleRuleState = ruleStatearg
-  , _cloudWatchInsightRuleTags = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-insightrule.html#cfn-cloudwatch-insightrule-rulebody
@@ -59,7 +56,3 @@ cwirRuleName = lens _cloudWatchInsightRuleRuleName (\s a -> s { _cloudWatchInsig
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-insightrule.html#cfn-cloudwatch-insightrule-rulestate
 cwirRuleState :: Lens' CloudWatchInsightRule (Val Text)
 cwirRuleState = lens _cloudWatchInsightRuleRuleState (\s a -> s { _cloudWatchInsightRuleRuleState = a })
-
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-insightrule.html#cfn-cloudwatch-insightrule-tags
-cwirTags :: Lens' CloudWatchInsightRule (Maybe [Tag])
-cwirTags = lens _cloudWatchInsightRuleTags (\s a -> s { _cloudWatchInsightRuleTags = a })

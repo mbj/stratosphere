@@ -8,22 +8,18 @@
 module Stratosphere.Resources.AppSyncGraphQLApi where
 
 import Stratosphere.ResourceImports
-import Stratosphere.ResourceProperties.AppSyncGraphQLApiAdditionalAuthenticationProvider
 import Stratosphere.ResourceProperties.AppSyncGraphQLApiLogConfig
 import Stratosphere.ResourceProperties.AppSyncGraphQLApiOpenIDConnectConfig
-import Stratosphere.ResourceProperties.Tag
 import Stratosphere.ResourceProperties.AppSyncGraphQLApiUserPoolConfig
 
 -- | Full data type definition for AppSyncGraphQLApi. See 'appSyncGraphQLApi'
 -- for a more convenient constructor.
 data AppSyncGraphQLApi =
   AppSyncGraphQLApi
-  { _appSyncGraphQLApiAdditionalAuthenticationProviders :: Maybe [AppSyncGraphQLApiAdditionalAuthenticationProvider]
-  , _appSyncGraphQLApiAuthenticationType :: Val Text
+  { _appSyncGraphQLApiAuthenticationType :: Val Text
   , _appSyncGraphQLApiLogConfig :: Maybe AppSyncGraphQLApiLogConfig
   , _appSyncGraphQLApiName :: Val Text
   , _appSyncGraphQLApiOpenIDConnectConfig :: Maybe AppSyncGraphQLApiOpenIDConnectConfig
-  , _appSyncGraphQLApiTags :: Maybe [Tag]
   , _appSyncGraphQLApiUserPoolConfig :: Maybe AppSyncGraphQLApiUserPoolConfig
   , _appSyncGraphQLApiXrayEnabled :: Maybe (Val Bool)
   } deriving (Show, Eq)
@@ -34,12 +30,10 @@ instance ToResourceProperties AppSyncGraphQLApi where
     { resourcePropertiesType = "AWS::AppSync::GraphQLApi"
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
-        [ fmap (("AdditionalAuthenticationProviders",) . toJSON) _appSyncGraphQLApiAdditionalAuthenticationProviders
-        , (Just . ("AuthenticationType",) . toJSON) _appSyncGraphQLApiAuthenticationType
+        [ (Just . ("AuthenticationType",) . toJSON) _appSyncGraphQLApiAuthenticationType
         , fmap (("LogConfig",) . toJSON) _appSyncGraphQLApiLogConfig
         , (Just . ("Name",) . toJSON) _appSyncGraphQLApiName
         , fmap (("OpenIDConnectConfig",) . toJSON) _appSyncGraphQLApiOpenIDConnectConfig
-        , fmap (("Tags",) . toJSON) _appSyncGraphQLApiTags
         , fmap (("UserPoolConfig",) . toJSON) _appSyncGraphQLApiUserPoolConfig
         , fmap (("XrayEnabled",) . toJSON) _appSyncGraphQLApiXrayEnabled
         ]
@@ -53,19 +47,13 @@ appSyncGraphQLApi
   -> AppSyncGraphQLApi
 appSyncGraphQLApi authenticationTypearg namearg =
   AppSyncGraphQLApi
-  { _appSyncGraphQLApiAdditionalAuthenticationProviders = Nothing
-  , _appSyncGraphQLApiAuthenticationType = authenticationTypearg
+  { _appSyncGraphQLApiAuthenticationType = authenticationTypearg
   , _appSyncGraphQLApiLogConfig = Nothing
   , _appSyncGraphQLApiName = namearg
   , _appSyncGraphQLApiOpenIDConnectConfig = Nothing
-  , _appSyncGraphQLApiTags = Nothing
   , _appSyncGraphQLApiUserPoolConfig = Nothing
   , _appSyncGraphQLApiXrayEnabled = Nothing
   }
-
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-additionalauthenticationproviders
-asgqlaAdditionalAuthenticationProviders :: Lens' AppSyncGraphQLApi (Maybe [AppSyncGraphQLApiAdditionalAuthenticationProvider])
-asgqlaAdditionalAuthenticationProviders = lens _appSyncGraphQLApiAdditionalAuthenticationProviders (\s a -> s { _appSyncGraphQLApiAdditionalAuthenticationProviders = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-authenticationtype
 asgqlaAuthenticationType :: Lens' AppSyncGraphQLApi (Val Text)
@@ -82,10 +70,6 @@ asgqlaName = lens _appSyncGraphQLApiName (\s a -> s { _appSyncGraphQLApiName = a
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-openidconnectconfig
 asgqlaOpenIDConnectConfig :: Lens' AppSyncGraphQLApi (Maybe AppSyncGraphQLApiOpenIDConnectConfig)
 asgqlaOpenIDConnectConfig = lens _appSyncGraphQLApiOpenIDConnectConfig (\s a -> s { _appSyncGraphQLApiOpenIDConnectConfig = a })
-
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-tags
-asgqlaTags :: Lens' AppSyncGraphQLApi (Maybe [Tag])
-asgqlaTags = lens _appSyncGraphQLApiTags (\s a -> s { _appSyncGraphQLApiTags = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-graphqlapi.html#cfn-appsync-graphqlapi-userpoolconfig
 asgqlaUserPoolConfig :: Lens' AppSyncGraphQLApi (Maybe AppSyncGraphQLApiUserPoolConfig)

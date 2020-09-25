@@ -16,7 +16,8 @@ import Stratosphere.ResourceProperties.LakeFormationPermissionsColumnWildcard
 -- constructor.
 data LakeFormationPermissionsTableWithColumnsResource =
   LakeFormationPermissionsTableWithColumnsResource
-  { _lakeFormationPermissionsTableWithColumnsResourceColumnNames :: Maybe (ValList Text)
+  { _lakeFormationPermissionsTableWithColumnsResourceCatalogId :: Maybe (Val Text)
+  , _lakeFormationPermissionsTableWithColumnsResourceColumnNames :: Maybe (ValList Text)
   , _lakeFormationPermissionsTableWithColumnsResourceColumnWildcard :: Maybe LakeFormationPermissionsColumnWildcard
   , _lakeFormationPermissionsTableWithColumnsResourceDatabaseName :: Maybe (Val Text)
   , _lakeFormationPermissionsTableWithColumnsResourceName :: Maybe (Val Text)
@@ -26,7 +27,8 @@ instance ToJSON LakeFormationPermissionsTableWithColumnsResource where
   toJSON LakeFormationPermissionsTableWithColumnsResource{..} =
     object $
     catMaybes
-    [ fmap (("ColumnNames",) . toJSON) _lakeFormationPermissionsTableWithColumnsResourceColumnNames
+    [ fmap (("CatalogId",) . toJSON) _lakeFormationPermissionsTableWithColumnsResourceCatalogId
+    , fmap (("ColumnNames",) . toJSON) _lakeFormationPermissionsTableWithColumnsResourceColumnNames
     , fmap (("ColumnWildcard",) . toJSON) _lakeFormationPermissionsTableWithColumnsResourceColumnWildcard
     , fmap (("DatabaseName",) . toJSON) _lakeFormationPermissionsTableWithColumnsResourceDatabaseName
     , fmap (("Name",) . toJSON) _lakeFormationPermissionsTableWithColumnsResourceName
@@ -38,11 +40,16 @@ lakeFormationPermissionsTableWithColumnsResource
   :: LakeFormationPermissionsTableWithColumnsResource
 lakeFormationPermissionsTableWithColumnsResource  =
   LakeFormationPermissionsTableWithColumnsResource
-  { _lakeFormationPermissionsTableWithColumnsResourceColumnNames = Nothing
+  { _lakeFormationPermissionsTableWithColumnsResourceCatalogId = Nothing
+  , _lakeFormationPermissionsTableWithColumnsResourceColumnNames = Nothing
   , _lakeFormationPermissionsTableWithColumnsResourceColumnWildcard = Nothing
   , _lakeFormationPermissionsTableWithColumnsResourceDatabaseName = Nothing
   , _lakeFormationPermissionsTableWithColumnsResourceName = Nothing
   }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tablewithcolumnsresource.html#cfn-lakeformation-permissions-tablewithcolumnsresource-catalogid
+lfptwcrCatalogId :: Lens' LakeFormationPermissionsTableWithColumnsResource (Maybe (Val Text))
+lfptwcrCatalogId = lens _lakeFormationPermissionsTableWithColumnsResourceCatalogId (\s a -> s { _lakeFormationPermissionsTableWithColumnsResourceCatalogId = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tablewithcolumnsresource.html#cfn-lakeformation-permissions-tablewithcolumnsresource-columnnames
 lfptwcrColumnNames :: Lens' LakeFormationPermissionsTableWithColumnsResource (Maybe (ValList Text))

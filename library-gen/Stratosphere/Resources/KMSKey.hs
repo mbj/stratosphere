@@ -17,7 +17,6 @@ data KMSKey =
   { _kMSKeyDescription :: Maybe (Val Text)
   , _kMSKeyEnableKeyRotation :: Maybe (Val Bool)
   , _kMSKeyEnabled :: Maybe (Val Bool)
-  , _kMSKeyKeyPolicy :: Object
   , _kMSKeyKeyUsage :: Maybe (Val Text)
   , _kMSKeyPendingWindowInDays :: Maybe (Val Integer)
   , _kMSKeyTags :: Maybe [Tag]
@@ -32,7 +31,6 @@ instance ToResourceProperties KMSKey where
         [ fmap (("Description",) . toJSON) _kMSKeyDescription
         , fmap (("EnableKeyRotation",) . toJSON) _kMSKeyEnableKeyRotation
         , fmap (("Enabled",) . toJSON) _kMSKeyEnabled
-        , (Just . ("KeyPolicy",) . toJSON) _kMSKeyKeyPolicy
         , fmap (("KeyUsage",) . toJSON) _kMSKeyKeyUsage
         , fmap (("PendingWindowInDays",) . toJSON) _kMSKeyPendingWindowInDays
         , fmap (("Tags",) . toJSON) _kMSKeyTags
@@ -41,14 +39,12 @@ instance ToResourceProperties KMSKey where
 
 -- | Constructor for 'KMSKey' containing required fields as arguments.
 kmsKey
-  :: Object -- ^ 'kmskKeyPolicy'
-  -> KMSKey
-kmsKey keyPolicyarg =
+  :: KMSKey
+kmsKey  =
   KMSKey
   { _kMSKeyDescription = Nothing
   , _kMSKeyEnableKeyRotation = Nothing
   , _kMSKeyEnabled = Nothing
-  , _kMSKeyKeyPolicy = keyPolicyarg
   , _kMSKeyKeyUsage = Nothing
   , _kMSKeyPendingWindowInDays = Nothing
   , _kMSKeyTags = Nothing
@@ -65,10 +61,6 @@ kmskEnableKeyRotation = lens _kMSKeyEnableKeyRotation (\s a -> s { _kMSKeyEnable
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-enabled
 kmskEnabled :: Lens' KMSKey (Maybe (Val Bool))
 kmskEnabled = lens _kMSKeyEnabled (\s a -> s { _kMSKeyEnabled = a })
-
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keypolicy
-kmskKeyPolicy :: Lens' KMSKey Object
-kmskKeyPolicy = lens _kMSKeyKeyPolicy (\s a -> s { _kMSKeyKeyPolicy = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kms-key.html#cfn-kms-key-keyusage
 kmskKeyUsage :: Lens' KMSKey (Maybe (Val Text))

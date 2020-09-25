@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.60.0
+
+* Update resource specification document to version 18.4.0
+
 ## 0.59.1
 
 * Fix missing `.cabal` file in distribution

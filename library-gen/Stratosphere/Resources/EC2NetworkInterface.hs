@@ -20,7 +20,7 @@ data EC2NetworkInterface =
   , _eC2NetworkInterfaceGroupSet :: Maybe (ValList Text)
   , _eC2NetworkInterfaceInterfaceType :: Maybe (Val Text)
   , _eC2NetworkInterfaceIpv6AddressCount :: Maybe (Val Integer)
-  , _eC2NetworkInterfaceIpv6Addresses :: Maybe EC2NetworkInterfaceInstanceIpv6Address
+  , _eC2NetworkInterfaceIpv6Addresses :: Maybe [EC2NetworkInterfaceInstanceIpv6Address]
   , _eC2NetworkInterfacePrivateIpAddress :: Maybe (Val Text)
   , _eC2NetworkInterfacePrivateIpAddresses :: Maybe [EC2NetworkInterfacePrivateIpAddressSpecification]
   , _eC2NetworkInterfaceSecondaryPrivateIpAddressCount :: Maybe (Val Integer)
@@ -86,7 +86,7 @@ ecniIpv6AddressCount :: Lens' EC2NetworkInterface (Maybe (Val Integer))
 ecniIpv6AddressCount = lens _eC2NetworkInterfaceIpv6AddressCount (\s a -> s { _eC2NetworkInterfaceIpv6AddressCount = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html#cfn-ec2-networkinterface-ipv6addresses
-ecniIpv6Addresses :: Lens' EC2NetworkInterface (Maybe EC2NetworkInterfaceInstanceIpv6Address)
+ecniIpv6Addresses :: Lens' EC2NetworkInterface (Maybe [EC2NetworkInterfaceInstanceIpv6Address])
 ecniIpv6Addresses = lens _eC2NetworkInterfaceIpv6Addresses (\s a -> s { _eC2NetworkInterfaceIpv6Addresses = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface.html#cfn-awsec2networkinterface-privateipaddress

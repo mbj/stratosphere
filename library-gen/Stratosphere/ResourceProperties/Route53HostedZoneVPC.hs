@@ -3,7 +3,7 @@
 {-# LANGUAGE StrictData #-}
 {-# LANGUAGE TupleSections #-}
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone-hostedzonevpcs.html
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-vpc.html
 
 module Stratosphere.ResourceProperties.Route53HostedZoneVPC where
 
@@ -38,10 +38,10 @@ route53HostedZoneVPC vPCIdarg vPCRegionarg =
   , _route53HostedZoneVPCVPCRegion = vPCRegionarg
   }
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone-hostedzonevpcs.html#cfn-route53-hostedzone-hostedzonevpcs-vpcid
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-vpc.html#cfn-route53-hostedzone-vpc-vpcid
 rhzvpcVPCId :: Lens' Route53HostedZoneVPC (Val Text)
 rhzvpcVPCId = lens _route53HostedZoneVPCVPCId (\s a -> s { _route53HostedZoneVPCVPCId = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-hostedzone-hostedzonevpcs.html#cfn-route53-hostedzone-hostedzonevpcs-vpcregion
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-hostedzone-vpc.html#cfn-route53-hostedzone-vpc-vpcregion
 rhzvpcVPCRegion :: Lens' Route53HostedZoneVPC (Val Text)
 rhzvpcVPCRegion = lens _route53HostedZoneVPCVPCRegion (\s a -> s { _route53HostedZoneVPCVPCRegion = a })

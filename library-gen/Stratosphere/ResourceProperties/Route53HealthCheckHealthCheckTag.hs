@@ -38,10 +38,10 @@ route53HealthCheckHealthCheckTag keyarg valuearg =
   , _route53HealthCheckHealthCheckTagValue = valuearg
   }
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthchecktag.html#cfn-route53-healthchecktags-key
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthchecktag.html#cfn-route53-healthcheck-healthchecktag-key
 rhchctKey :: Lens' Route53HealthCheckHealthCheckTag (Val Text)
 rhchctKey = lens _route53HealthCheckHealthCheckTagKey (\s a -> s { _route53HealthCheckHealthCheckTagKey = a })
 
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthchecktag.html#cfn-route53-healthchecktags-value
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthchecktag.html#cfn-route53-healthcheck-healthchecktag-value
 rhchctValue :: Lens' Route53HealthCheckHealthCheckTag (Val Text)
 rhchctValue = lens _route53HealthCheckHealthCheckTagValue (\s a -> s { _route53HealthCheckHealthCheckTagValue = a })

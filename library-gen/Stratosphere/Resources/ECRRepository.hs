@@ -8,6 +8,7 @@
 module Stratosphere.Resources.ECRRepository where
 
 import Stratosphere.ResourceImports
+import Stratosphere.ResourceProperties.ECRRepositoryLifecyclePolicy
 import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for ECRRepository. See 'ecrRepository' for a
@@ -16,9 +17,8 @@ data ECRRepository =
   ECRRepository
   { _eCRRepositoryImageScanningConfiguration :: Maybe Object
   , _eCRRepositoryImageTagMutability :: Maybe (Val Text)
-  , _eCRRepositoryLifecyclePolicy :: Maybe Object
+  , _eCRRepositoryLifecyclePolicy :: Maybe ECRRepositoryLifecyclePolicy
   , _eCRRepositoryRepositoryName :: Maybe (Val Text)
-  , _eCRRepositoryRepositoryPolicyText :: Maybe Object
   , _eCRRepositoryTags :: Maybe [Tag]
   } deriving (Show, Eq)
 
@@ -32,7 +32,6 @@ instance ToResourceProperties ECRRepository where
         , fmap (("ImageTagMutability",) . toJSON) _eCRRepositoryImageTagMutability
         , fmap (("LifecyclePolicy",) . toJSON) _eCRRepositoryLifecyclePolicy
         , fmap (("RepositoryName",) . toJSON) _eCRRepositoryRepositoryName
-        , fmap (("RepositoryPolicyText",) . toJSON) _eCRRepositoryRepositoryPolicyText
         , fmap (("Tags",) . toJSON) _eCRRepositoryTags
         ]
     }
@@ -46,7 +45,6 @@ ecrRepository  =
   , _eCRRepositoryImageTagMutability = Nothing
   , _eCRRepositoryLifecyclePolicy = Nothing
   , _eCRRepositoryRepositoryName = Nothing
-  , _eCRRepositoryRepositoryPolicyText = Nothing
   , _eCRRepositoryTags = Nothing
   }
 
@@ -59,16 +57,12 @@ ecrrImageTagMutability :: Lens' ECRRepository (Maybe (Val Text))
 ecrrImageTagMutability = lens _eCRRepositoryImageTagMutability (\s a -> s { _eCRRepositoryImageTagMutability = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-lifecyclepolicy
-ecrrLifecyclePolicy :: Lens' ECRRepository (Maybe Object)
+ecrrLifecyclePolicy :: Lens' ECRRepository (Maybe ECRRepositoryLifecyclePolicy)
 ecrrLifecyclePolicy = lens _eCRRepositoryLifecyclePolicy (\s a -> s { _eCRRepositoryLifecyclePolicy = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-repositoryname
 ecrrRepositoryName :: Lens' ECRRepository (Maybe (Val Text))
 ecrrRepositoryName = lens _eCRRepositoryRepositoryName (\s a -> s { _eCRRepositoryRepositoryName = a })
-
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-repositorypolicytext
-ecrrRepositoryPolicyText :: Lens' ECRRepository (Maybe Object)
-ecrrRepositoryPolicyText = lens _eCRRepositoryRepositoryPolicyText (\s a -> s { _eCRRepositoryRepositoryPolicyText = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-repository.html#cfn-ecr-repository-tags
 ecrrTags :: Lens' ECRRepository (Maybe [Tag])

@@ -9,6 +9,7 @@ module Stratosphere.Resources.CognitoUserPoolClient where
 
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.CognitoUserPoolClientAnalyticsConfiguration
+import Stratosphere.ResourceProperties.CognitoUserPoolClientTokenValidityUnits
 
 -- | Full data type definition for CognitoUserPoolClient. See
 -- 'cognitoUserPoolClient' for a more convenient constructor.
@@ -30,6 +31,7 @@ data CognitoUserPoolClient =
   , _cognitoUserPoolClientReadAttributes :: Maybe (ValList Text)
   , _cognitoUserPoolClientRefreshTokenValidity :: Maybe (Val Integer)
   , _cognitoUserPoolClientSupportedIdentityProviders :: Maybe (ValList Text)
+  , _cognitoUserPoolClientTokenValidityUnits :: Maybe CognitoUserPoolClientTokenValidityUnits
   , _cognitoUserPoolClientUserPoolId :: Val Text
   , _cognitoUserPoolClientWriteAttributes :: Maybe (ValList Text)
   } deriving (Show, Eq)
@@ -56,6 +58,7 @@ instance ToResourceProperties CognitoUserPoolClient where
         , fmap (("ReadAttributes",) . toJSON) _cognitoUserPoolClientReadAttributes
         , fmap (("RefreshTokenValidity",) . toJSON) _cognitoUserPoolClientRefreshTokenValidity
         , fmap (("SupportedIdentityProviders",) . toJSON) _cognitoUserPoolClientSupportedIdentityProviders
+        , fmap (("TokenValidityUnits",) . toJSON) _cognitoUserPoolClientTokenValidityUnits
         , (Just . ("UserPoolId",) . toJSON) _cognitoUserPoolClientUserPoolId
         , fmap (("WriteAttributes",) . toJSON) _cognitoUserPoolClientWriteAttributes
         ]
@@ -84,6 +87,7 @@ cognitoUserPoolClient userPoolIdarg =
   , _cognitoUserPoolClientReadAttributes = Nothing
   , _cognitoUserPoolClientRefreshTokenValidity = Nothing
   , _cognitoUserPoolClientSupportedIdentityProviders = Nothing
+  , _cognitoUserPoolClientTokenValidityUnits = Nothing
   , _cognitoUserPoolClientUserPoolId = userPoolIdarg
   , _cognitoUserPoolClientWriteAttributes = Nothing
   }
@@ -151,6 +155,10 @@ cupcRefreshTokenValidity = lens _cognitoUserPoolClientRefreshTokenValidity (\s a
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-supportedidentityproviders
 cupcSupportedIdentityProviders :: Lens' CognitoUserPoolClient (Maybe (ValList Text))
 cupcSupportedIdentityProviders = lens _cognitoUserPoolClientSupportedIdentityProviders (\s a -> s { _cognitoUserPoolClientSupportedIdentityProviders = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-tokenvalidityunits
+cupcTokenValidityUnits :: Lens' CognitoUserPoolClient (Maybe CognitoUserPoolClientTokenValidityUnits)
+cupcTokenValidityUnits = lens _cognitoUserPoolClientTokenValidityUnits (\s a -> s { _cognitoUserPoolClientTokenValidityUnits = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.html#cfn-cognito-userpoolclient-userpoolid
 cupcUserPoolId :: Lens' CognitoUserPoolClient (Val Text)

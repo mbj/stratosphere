@@ -9,6 +9,7 @@ module Stratosphere.Resources.MediaLiveChannel where
 
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.MediaLiveChannelOutputDestination
+import Stratosphere.ResourceProperties.MediaLiveChannelEncoderSettings
 import Stratosphere.ResourceProperties.MediaLiveChannelInputAttachment
 import Stratosphere.ResourceProperties.MediaLiveChannelInputSpecification
 
@@ -18,7 +19,7 @@ data MediaLiveChannel =
   MediaLiveChannel
   { _mediaLiveChannelChannelClass :: Maybe (Val Text)
   , _mediaLiveChannelDestinations :: Maybe [MediaLiveChannelOutputDestination]
-  , _mediaLiveChannelEncoderSettings :: Maybe Object
+  , _mediaLiveChannelEncoderSettings :: Maybe MediaLiveChannelEncoderSettings
   , _mediaLiveChannelInputAttachments :: Maybe [MediaLiveChannelInputAttachment]
   , _mediaLiveChannelInputSpecification :: Maybe MediaLiveChannelInputSpecification
   , _mediaLiveChannelLogLevel :: Maybe (Val Text)
@@ -71,7 +72,7 @@ mlcDestinations :: Lens' MediaLiveChannel (Maybe [MediaLiveChannelOutputDestinat
 mlcDestinations = lens _mediaLiveChannelDestinations (\s a -> s { _mediaLiveChannelDestinations = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channel.html#cfn-medialive-channel-encodersettings
-mlcEncoderSettings :: Lens' MediaLiveChannel (Maybe Object)
+mlcEncoderSettings :: Lens' MediaLiveChannel (Maybe MediaLiveChannelEncoderSettings)
 mlcEncoderSettings = lens _mediaLiveChannelEncoderSettings (\s a -> s { _mediaLiveChannelEncoderSettings = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channel.html#cfn-medialive-channel-inputattachments

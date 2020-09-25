@@ -16,7 +16,7 @@ data ECSServiceAwsVpcConfiguration =
   ECSServiceAwsVpcConfiguration
   { _eCSServiceAwsVpcConfigurationAssignPublicIp :: Maybe (Val Text)
   , _eCSServiceAwsVpcConfigurationSecurityGroups :: Maybe (ValList Text)
-  , _eCSServiceAwsVpcConfigurationSubnets :: ValList Text
+  , _eCSServiceAwsVpcConfigurationSubnets :: Maybe (ValList Text)
   } deriving (Show, Eq)
 
 instance ToJSON ECSServiceAwsVpcConfiguration where
@@ -25,19 +25,18 @@ instance ToJSON ECSServiceAwsVpcConfiguration where
     catMaybes
     [ fmap (("AssignPublicIp",) . toJSON) _eCSServiceAwsVpcConfigurationAssignPublicIp
     , fmap (("SecurityGroups",) . toJSON) _eCSServiceAwsVpcConfigurationSecurityGroups
-    , (Just . ("Subnets",) . toJSON) _eCSServiceAwsVpcConfigurationSubnets
+    , fmap (("Subnets",) . toJSON) _eCSServiceAwsVpcConfigurationSubnets
     ]
 
 -- | Constructor for 'ECSServiceAwsVpcConfiguration' containing required
 -- fields as arguments.
 ecsServiceAwsVpcConfiguration
-  :: ValList Text -- ^ 'ecssavcSubnets'
-  -> ECSServiceAwsVpcConfiguration
-ecsServiceAwsVpcConfiguration subnetsarg =
+  :: ECSServiceAwsVpcConfiguration
+ecsServiceAwsVpcConfiguration  =
   ECSServiceAwsVpcConfiguration
   { _eCSServiceAwsVpcConfigurationAssignPublicIp = Nothing
   , _eCSServiceAwsVpcConfigurationSecurityGroups = Nothing
-  , _eCSServiceAwsVpcConfigurationSubnets = subnetsarg
+  , _eCSServiceAwsVpcConfigurationSubnets = Nothing
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-awsvpcconfiguration.html#cfn-ecs-service-awsvpcconfiguration-assignpublicip
@@ -49,5 +48,5 @@ ecssavcSecurityGroups :: Lens' ECSServiceAwsVpcConfiguration (Maybe (ValList Tex
 ecssavcSecurityGroups = lens _eCSServiceAwsVpcConfigurationSecurityGroups (\s a -> s { _eCSServiceAwsVpcConfigurationSecurityGroups = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-awsvpcconfiguration.html#cfn-ecs-service-awsvpcconfiguration-subnets
-ecssavcSubnets :: Lens' ECSServiceAwsVpcConfiguration (ValList Text)
+ecssavcSubnets :: Lens' ECSServiceAwsVpcConfiguration (Maybe (ValList Text))
 ecssavcSubnets = lens _eCSServiceAwsVpcConfigurationSubnets (\s a -> s { _eCSServiceAwsVpcConfigurationSubnets = a })

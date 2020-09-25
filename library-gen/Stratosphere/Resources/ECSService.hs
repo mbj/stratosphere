@@ -8,6 +8,7 @@
 module Stratosphere.Resources.ECSService where
 
 import Stratosphere.ResourceImports
+import Stratosphere.ResourceProperties.ECSServiceCapacityProviderStrategyItem
 import Stratosphere.ResourceProperties.ECSServiceDeploymentConfiguration
 import Stratosphere.ResourceProperties.ECSServiceDeploymentController
 import Stratosphere.ResourceProperties.ECSServiceLoadBalancer
@@ -21,7 +22,8 @@ import Stratosphere.ResourceProperties.Tag
 -- convenient constructor.
 data ECSService =
   ECSService
-  { _eCSServiceCluster :: Maybe (Val Text)
+  { _eCSServiceCapacityProviderStrategy :: Maybe [ECSServiceCapacityProviderStrategyItem]
+  , _eCSServiceCluster :: Maybe (Val Text)
   , _eCSServiceDeploymentConfiguration :: Maybe ECSServiceDeploymentConfiguration
   , _eCSServiceDeploymentController :: Maybe ECSServiceDeploymentController
   , _eCSServiceDesiredCount :: Maybe (Val Integer)
@@ -36,6 +38,7 @@ data ECSService =
   , _eCSServicePropagateTags :: Maybe (Val Text)
   , _eCSServiceRole :: Maybe (Val Text)
   , _eCSServiceSchedulingStrategy :: Maybe (Val Text)
+  , _eCSServiceServiceArn :: Maybe (Val Text)
   , _eCSServiceServiceName :: Maybe (Val Text)
   , _eCSServiceServiceRegistries :: Maybe [ECSServiceServiceRegistry]
   , _eCSServiceTags :: Maybe [Tag]
@@ -48,7 +51,8 @@ instance ToResourceProperties ECSService where
     { resourcePropertiesType = "AWS::ECS::Service"
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
-        [ fmap (("Cluster",) . toJSON) _eCSServiceCluster
+        [ fmap (("CapacityProviderStrategy",) . toJSON) _eCSServiceCapacityProviderStrategy
+        , fmap (("Cluster",) . toJSON) _eCSServiceCluster
         , fmap (("DeploymentConfiguration",) . toJSON) _eCSServiceDeploymentConfiguration
         , fmap (("DeploymentController",) . toJSON) _eCSServiceDeploymentController
         , fmap (("DesiredCount",) . toJSON) _eCSServiceDesiredCount
@@ -63,6 +67,7 @@ instance ToResourceProperties ECSService where
         , fmap (("PropagateTags",) . toJSON) _eCSServicePropagateTags
         , fmap (("Role",) . toJSON) _eCSServiceRole
         , fmap (("SchedulingStrategy",) . toJSON) _eCSServiceSchedulingStrategy
+        , fmap (("ServiceArn",) . toJSON) _eCSServiceServiceArn
         , fmap (("ServiceName",) . toJSON) _eCSServiceServiceName
         , fmap (("ServiceRegistries",) . toJSON) _eCSServiceServiceRegistries
         , fmap (("Tags",) . toJSON) _eCSServiceTags
@@ -75,7 +80,8 @@ ecsService
   :: ECSService
 ecsService  =
   ECSService
-  { _eCSServiceCluster = Nothing
+  { _eCSServiceCapacityProviderStrategy = Nothing
+  , _eCSServiceCluster = Nothing
   , _eCSServiceDeploymentConfiguration = Nothing
   , _eCSServiceDeploymentController = Nothing
   , _eCSServiceDesiredCount = Nothing
@@ -90,11 +96,16 @@ ecsService  =
   , _eCSServicePropagateTags = Nothing
   , _eCSServiceRole = Nothing
   , _eCSServiceSchedulingStrategy = Nothing
+  , _eCSServiceServiceArn = Nothing
   , _eCSServiceServiceName = Nothing
   , _eCSServiceServiceRegistries = Nothing
   , _eCSServiceTags = Nothing
   , _eCSServiceTaskDefinition = Nothing
   }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-capacityproviderstrategy
+ecssCapacityProviderStrategy :: Lens' ECSService (Maybe [ECSServiceCapacityProviderStrategyItem])
+ecssCapacityProviderStrategy = lens _eCSServiceCapacityProviderStrategy (\s a -> s { _eCSServiceCapacityProviderStrategy = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-cluster
 ecssCluster :: Lens' ECSService (Maybe (Val Text))
@@ -155,6 +166,10 @@ ecssRole = lens _eCSServiceRole (\s a -> s { _eCSServiceRole = a })
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-schedulingstrategy
 ecssSchedulingStrategy :: Lens' ECSService (Maybe (Val Text))
 ecssSchedulingStrategy = lens _eCSServiceSchedulingStrategy (\s a -> s { _eCSServiceSchedulingStrategy = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-servicearn
+ecssServiceArn :: Lens' ECSService (Maybe (Val Text))
+ecssServiceArn = lens _eCSServiceServiceArn (\s a -> s { _eCSServiceServiceArn = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html#cfn-ecs-service-servicename
 ecssServiceName :: Lens' ECSService (Maybe (Val Text))

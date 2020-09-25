@@ -8,13 +8,15 @@
 module Stratosphere.ResourceProperties.MediaLiveChannelInputAttachment where
 
 import Stratosphere.ResourceImports
+import Stratosphere.ResourceProperties.MediaLiveChannelAutomaticInputFailoverSettings
 import Stratosphere.ResourceProperties.MediaLiveChannelInputSettings
 
 -- | Full data type definition for MediaLiveChannelInputAttachment. See
 -- 'mediaLiveChannelInputAttachment' for a more convenient constructor.
 data MediaLiveChannelInputAttachment =
   MediaLiveChannelInputAttachment
-  { _mediaLiveChannelInputAttachmentInputAttachmentName :: Maybe (Val Text)
+  { _mediaLiveChannelInputAttachmentAutomaticInputFailoverSettings :: Maybe MediaLiveChannelAutomaticInputFailoverSettings
+  , _mediaLiveChannelInputAttachmentInputAttachmentName :: Maybe (Val Text)
   , _mediaLiveChannelInputAttachmentInputId :: Maybe (Val Text)
   , _mediaLiveChannelInputAttachmentInputSettings :: Maybe MediaLiveChannelInputSettings
   } deriving (Show, Eq)
@@ -23,7 +25,8 @@ instance ToJSON MediaLiveChannelInputAttachment where
   toJSON MediaLiveChannelInputAttachment{..} =
     object $
     catMaybes
-    [ fmap (("InputAttachmentName",) . toJSON) _mediaLiveChannelInputAttachmentInputAttachmentName
+    [ fmap (("AutomaticInputFailoverSettings",) . toJSON) _mediaLiveChannelInputAttachmentAutomaticInputFailoverSettings
+    , fmap (("InputAttachmentName",) . toJSON) _mediaLiveChannelInputAttachmentInputAttachmentName
     , fmap (("InputId",) . toJSON) _mediaLiveChannelInputAttachmentInputId
     , fmap (("InputSettings",) . toJSON) _mediaLiveChannelInputAttachmentInputSettings
     ]
@@ -34,10 +37,15 @@ mediaLiveChannelInputAttachment
   :: MediaLiveChannelInputAttachment
 mediaLiveChannelInputAttachment  =
   MediaLiveChannelInputAttachment
-  { _mediaLiveChannelInputAttachmentInputAttachmentName = Nothing
+  { _mediaLiveChannelInputAttachmentAutomaticInputFailoverSettings = Nothing
+  , _mediaLiveChannelInputAttachmentInputAttachmentName = Nothing
   , _mediaLiveChannelInputAttachmentInputId = Nothing
   , _mediaLiveChannelInputAttachmentInputSettings = Nothing
   }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputattachment.html#cfn-medialive-channel-inputattachment-automaticinputfailoversettings
+mlciaAutomaticInputFailoverSettings :: Lens' MediaLiveChannelInputAttachment (Maybe MediaLiveChannelAutomaticInputFailoverSettings)
+mlciaAutomaticInputFailoverSettings = lens _mediaLiveChannelInputAttachmentAutomaticInputFailoverSettings (\s a -> s { _mediaLiveChannelInputAttachmentAutomaticInputFailoverSettings = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputattachment.html#cfn-medialive-channel-inputattachment-inputattachmentname
 mlciaInputAttachmentName :: Lens' MediaLiveChannelInputAttachment (Maybe (Val Text))

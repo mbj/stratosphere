@@ -8,7 +8,7 @@
 module Stratosphere.Resources.ImageBuilderInfrastructureConfiguration where
 
 import Stratosphere.ResourceImports
-
+import Stratosphere.ResourceProperties.ImageBuilderInfrastructureConfigurationLogging
 
 -- | Full data type definition for ImageBuilderInfrastructureConfiguration.
 -- See 'imageBuilderInfrastructureConfiguration' for a more convenient
@@ -19,7 +19,7 @@ data ImageBuilderInfrastructureConfiguration =
   , _imageBuilderInfrastructureConfigurationInstanceProfileName :: Val Text
   , _imageBuilderInfrastructureConfigurationInstanceTypes :: Maybe (ValList Text)
   , _imageBuilderInfrastructureConfigurationKeyPair :: Maybe (Val Text)
-  , _imageBuilderInfrastructureConfigurationLogging :: Maybe Object
+  , _imageBuilderInfrastructureConfigurationLogging :: Maybe ImageBuilderInfrastructureConfigurationLogging
   , _imageBuilderInfrastructureConfigurationName :: Val Text
   , _imageBuilderInfrastructureConfigurationResourceTags :: Maybe Object
   , _imageBuilderInfrastructureConfigurationSecurityGroupIds :: Maybe (ValList Text)
@@ -89,7 +89,7 @@ ibicKeyPair :: Lens' ImageBuilderInfrastructureConfiguration (Maybe (Val Text))
 ibicKeyPair = lens _imageBuilderInfrastructureConfigurationKeyPair (\s a -> s { _imageBuilderInfrastructureConfigurationKeyPair = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-logging
-ibicLogging :: Lens' ImageBuilderInfrastructureConfiguration (Maybe Object)
+ibicLogging :: Lens' ImageBuilderInfrastructureConfiguration (Maybe ImageBuilderInfrastructureConfigurationLogging)
 ibicLogging = lens _imageBuilderInfrastructureConfigurationLogging (\s a -> s { _imageBuilderInfrastructureConfigurationLogging = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html#cfn-imagebuilder-infrastructureconfiguration-name

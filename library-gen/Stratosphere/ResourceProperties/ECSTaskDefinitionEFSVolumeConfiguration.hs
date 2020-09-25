@@ -8,14 +8,14 @@
 module Stratosphere.ResourceProperties.ECSTaskDefinitionEFSVolumeConfiguration where
 
 import Stratosphere.ResourceImports
-
+import Stratosphere.ResourceProperties.ECSTaskDefinitionAuthorizationConfig
 
 -- | Full data type definition for ECSTaskDefinitionEFSVolumeConfiguration.
 -- See 'ecsTaskDefinitionEFSVolumeConfiguration' for a more convenient
 -- constructor.
 data ECSTaskDefinitionEFSVolumeConfiguration =
   ECSTaskDefinitionEFSVolumeConfiguration
-  { _eCSTaskDefinitionEFSVolumeConfigurationAuthorizationConfig :: Maybe Object
+  { _eCSTaskDefinitionEFSVolumeConfigurationAuthorizationConfig :: Maybe ECSTaskDefinitionAuthorizationConfig
   , _eCSTaskDefinitionEFSVolumeConfigurationFilesystemId :: Val Text
   , _eCSTaskDefinitionEFSVolumeConfigurationRootDirectory :: Maybe (Val Text)
   , _eCSTaskDefinitionEFSVolumeConfigurationTransitEncryption :: Maybe (Val Text)
@@ -48,7 +48,7 @@ ecsTaskDefinitionEFSVolumeConfiguration filesystemIdarg =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-efsvolumeconfiguration.html#cfn-ecs-taskdefinition-efsvolumeconfiguration-authorizationconfig
-ecstdefsvcAuthorizationConfig :: Lens' ECSTaskDefinitionEFSVolumeConfiguration (Maybe Object)
+ecstdefsvcAuthorizationConfig :: Lens' ECSTaskDefinitionEFSVolumeConfiguration (Maybe ECSTaskDefinitionAuthorizationConfig)
 ecstdefsvcAuthorizationConfig = lens _eCSTaskDefinitionEFSVolumeConfigurationAuthorizationConfig (\s a -> s { _eCSTaskDefinitionEFSVolumeConfigurationAuthorizationConfig = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-efsvolumeconfiguration.html#cfn-ecs-taskdefinition-efsvolumeconfiguration-filesystemid

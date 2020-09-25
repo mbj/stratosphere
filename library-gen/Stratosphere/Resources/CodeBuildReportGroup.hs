@@ -15,7 +15,8 @@ import Stratosphere.ResourceProperties.Tag
 -- 'codeBuildReportGroup' for a more convenient constructor.
 data CodeBuildReportGroup =
   CodeBuildReportGroup
-  { _codeBuildReportGroupExportConfig :: CodeBuildReportGroupReportExportConfig
+  { _codeBuildReportGroupDeleteReports :: Maybe (Val Bool)
+  , _codeBuildReportGroupExportConfig :: CodeBuildReportGroupReportExportConfig
   , _codeBuildReportGroupName :: Maybe (Val Text)
   , _codeBuildReportGroupTags :: Maybe [Tag]
   , _codeBuildReportGroupType :: Val Text
@@ -27,7 +28,8 @@ instance ToResourceProperties CodeBuildReportGroup where
     { resourcePropertiesType = "AWS::CodeBuild::ReportGroup"
     , resourcePropertiesProperties =
         hashMapFromList $ catMaybes
-        [ (Just . ("ExportConfig",) . toJSON) _codeBuildReportGroupExportConfig
+        [ fmap (("DeleteReports",) . toJSON) _codeBuildReportGroupDeleteReports
+        , (Just . ("ExportConfig",) . toJSON) _codeBuildReportGroupExportConfig
         , fmap (("Name",) . toJSON) _codeBuildReportGroupName
         , fmap (("Tags",) . toJSON) _codeBuildReportGroupTags
         , (Just . ("Type",) . toJSON) _codeBuildReportGroupType
@@ -42,11 +44,16 @@ codeBuildReportGroup
   -> CodeBuildReportGroup
 codeBuildReportGroup exportConfigarg typearg =
   CodeBuildReportGroup
-  { _codeBuildReportGroupExportConfig = exportConfigarg
+  { _codeBuildReportGroupDeleteReports = Nothing
+  , _codeBuildReportGroupExportConfig = exportConfigarg
   , _codeBuildReportGroupName = Nothing
   , _codeBuildReportGroupTags = Nothing
   , _codeBuildReportGroupType = typearg
   }
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-reportgroup.html#cfn-codebuild-reportgroup-deletereports
+cbrgDeleteReports :: Lens' CodeBuildReportGroup (Maybe (Val Bool))
+cbrgDeleteReports = lens _codeBuildReportGroupDeleteReports (\s a -> s { _codeBuildReportGroupDeleteReports = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codebuild-reportgroup.html#cfn-codebuild-reportgroup-exportconfig
 cbrgExportConfig :: Lens' CodeBuildReportGroup CodeBuildReportGroupReportExportConfig

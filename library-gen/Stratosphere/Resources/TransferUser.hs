@@ -21,7 +21,6 @@ data TransferUser =
   , _transferUserPolicy :: Maybe (Val Text)
   , _transferUserRole :: Val Text
   , _transferUserServerId :: Val Text
-  , _transferUserSshPublicKeys :: Maybe (ValList Text)
   , _transferUserTags :: Maybe [Tag]
   , _transferUserUserName :: Val Text
   } deriving (Show, Eq)
@@ -38,7 +37,6 @@ instance ToResourceProperties TransferUser where
         , fmap (("Policy",) . toJSON) _transferUserPolicy
         , (Just . ("Role",) . toJSON) _transferUserRole
         , (Just . ("ServerId",) . toJSON) _transferUserServerId
-        , fmap (("SshPublicKeys",) . toJSON) _transferUserSshPublicKeys
         , fmap (("Tags",) . toJSON) _transferUserTags
         , (Just . ("UserName",) . toJSON) _transferUserUserName
         ]
@@ -58,7 +56,6 @@ transferUser rolearg serverIdarg userNamearg =
   , _transferUserPolicy = Nothing
   , _transferUserRole = rolearg
   , _transferUserServerId = serverIdarg
-  , _transferUserSshPublicKeys = Nothing
   , _transferUserTags = Nothing
   , _transferUserUserName = userNamearg
   }
@@ -86,10 +83,6 @@ tuRole = lens _transferUserRole (\s a -> s { _transferUserRole = a })
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-user.html#cfn-transfer-user-serverid
 tuServerId :: Lens' TransferUser (Val Text)
 tuServerId = lens _transferUserServerId (\s a -> s { _transferUserServerId = a })
-
--- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-user.html#cfn-transfer-user-sshpublickeys
-tuSshPublicKeys :: Lens' TransferUser (Maybe (ValList Text))
-tuSshPublicKeys = lens _transferUserSshPublicKeys (\s a -> s { _transferUserSshPublicKeys = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-user.html#cfn-transfer-user-tags
 tuTags :: Lens' TransferUser (Maybe [Tag])

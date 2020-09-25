@@ -16,9 +16,11 @@ data ApiGatewayV2Authorizer =
   ApiGatewayV2Authorizer
   { _apiGatewayV2AuthorizerApiId :: Val Text
   , _apiGatewayV2AuthorizerAuthorizerCredentialsArn :: Maybe (Val Text)
+  , _apiGatewayV2AuthorizerAuthorizerPayloadFormatVersion :: Maybe (Val Text)
   , _apiGatewayV2AuthorizerAuthorizerResultTtlInSeconds :: Maybe (Val Integer)
   , _apiGatewayV2AuthorizerAuthorizerType :: Val Text
   , _apiGatewayV2AuthorizerAuthorizerUri :: Maybe (Val Text)
+  , _apiGatewayV2AuthorizerEnableSimpleResponses :: Maybe (Val Bool)
   , _apiGatewayV2AuthorizerIdentitySource :: ValList Text
   , _apiGatewayV2AuthorizerIdentityValidationExpression :: Maybe (Val Text)
   , _apiGatewayV2AuthorizerJwtConfiguration :: Maybe ApiGatewayV2AuthorizerJWTConfiguration
@@ -33,9 +35,11 @@ instance ToResourceProperties ApiGatewayV2Authorizer where
         hashMapFromList $ catMaybes
         [ (Just . ("ApiId",) . toJSON) _apiGatewayV2AuthorizerApiId
         , fmap (("AuthorizerCredentialsArn",) . toJSON) _apiGatewayV2AuthorizerAuthorizerCredentialsArn
+        , fmap (("AuthorizerPayloadFormatVersion",) . toJSON) _apiGatewayV2AuthorizerAuthorizerPayloadFormatVersion
         , fmap (("AuthorizerResultTtlInSeconds",) . toJSON) _apiGatewayV2AuthorizerAuthorizerResultTtlInSeconds
         , (Just . ("AuthorizerType",) . toJSON) _apiGatewayV2AuthorizerAuthorizerType
         , fmap (("AuthorizerUri",) . toJSON) _apiGatewayV2AuthorizerAuthorizerUri
+        , fmap (("EnableSimpleResponses",) . toJSON) _apiGatewayV2AuthorizerEnableSimpleResponses
         , (Just . ("IdentitySource",) . toJSON) _apiGatewayV2AuthorizerIdentitySource
         , fmap (("IdentityValidationExpression",) . toJSON) _apiGatewayV2AuthorizerIdentityValidationExpression
         , fmap (("JwtConfiguration",) . toJSON) _apiGatewayV2AuthorizerJwtConfiguration
@@ -55,9 +59,11 @@ apiGatewayV2Authorizer apiIdarg authorizerTypearg identitySourcearg namearg =
   ApiGatewayV2Authorizer
   { _apiGatewayV2AuthorizerApiId = apiIdarg
   , _apiGatewayV2AuthorizerAuthorizerCredentialsArn = Nothing
+  , _apiGatewayV2AuthorizerAuthorizerPayloadFormatVersion = Nothing
   , _apiGatewayV2AuthorizerAuthorizerResultTtlInSeconds = Nothing
   , _apiGatewayV2AuthorizerAuthorizerType = authorizerTypearg
   , _apiGatewayV2AuthorizerAuthorizerUri = Nothing
+  , _apiGatewayV2AuthorizerEnableSimpleResponses = Nothing
   , _apiGatewayV2AuthorizerIdentitySource = identitySourcearg
   , _apiGatewayV2AuthorizerIdentityValidationExpression = Nothing
   , _apiGatewayV2AuthorizerJwtConfiguration = Nothing
@@ -72,6 +78,10 @@ agvauApiId = lens _apiGatewayV2AuthorizerApiId (\s a -> s { _apiGatewayV2Authori
 agvauAuthorizerCredentialsArn :: Lens' ApiGatewayV2Authorizer (Maybe (Val Text))
 agvauAuthorizerCredentialsArn = lens _apiGatewayV2AuthorizerAuthorizerCredentialsArn (\s a -> s { _apiGatewayV2AuthorizerAuthorizerCredentialsArn = a })
 
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html#cfn-apigatewayv2-authorizer-authorizerpayloadformatversion
+agvauAuthorizerPayloadFormatVersion :: Lens' ApiGatewayV2Authorizer (Maybe (Val Text))
+agvauAuthorizerPayloadFormatVersion = lens _apiGatewayV2AuthorizerAuthorizerPayloadFormatVersion (\s a -> s { _apiGatewayV2AuthorizerAuthorizerPayloadFormatVersion = a })
+
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html#cfn-apigatewayv2-authorizer-authorizerresultttlinseconds
 agvauAuthorizerResultTtlInSeconds :: Lens' ApiGatewayV2Authorizer (Maybe (Val Integer))
 agvauAuthorizerResultTtlInSeconds = lens _apiGatewayV2AuthorizerAuthorizerResultTtlInSeconds (\s a -> s { _apiGatewayV2AuthorizerAuthorizerResultTtlInSeconds = a })
@@ -83,6 +93,10 @@ agvauAuthorizerType = lens _apiGatewayV2AuthorizerAuthorizerType (\s a -> s { _a
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html#cfn-apigatewayv2-authorizer-authorizeruri
 agvauAuthorizerUri :: Lens' ApiGatewayV2Authorizer (Maybe (Val Text))
 agvauAuthorizerUri = lens _apiGatewayV2AuthorizerAuthorizerUri (\s a -> s { _apiGatewayV2AuthorizerAuthorizerUri = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html#cfn-apigatewayv2-authorizer-enablesimpleresponses
+agvauEnableSimpleResponses :: Lens' ApiGatewayV2Authorizer (Maybe (Val Bool))
+agvauEnableSimpleResponses = lens _apiGatewayV2AuthorizerEnableSimpleResponses (\s a -> s { _apiGatewayV2AuthorizerEnableSimpleResponses = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-authorizer.html#cfn-apigatewayv2-authorizer-identitysource
 agvauIdentitySource :: Lens' ApiGatewayV2Authorizer (ValList Text)

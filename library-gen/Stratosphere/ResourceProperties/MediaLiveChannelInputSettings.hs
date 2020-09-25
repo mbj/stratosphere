@@ -24,6 +24,7 @@ data MediaLiveChannelInputSettings =
   , _mediaLiveChannelInputSettingsFilterStrength :: Maybe (Val Integer)
   , _mediaLiveChannelInputSettingsInputFilter :: Maybe (Val Text)
   , _mediaLiveChannelInputSettingsNetworkInputSettings :: Maybe MediaLiveChannelNetworkInputSettings
+  , _mediaLiveChannelInputSettingsSmpte2038DataPreference :: Maybe (Val Text)
   , _mediaLiveChannelInputSettingsSourceEndBehavior :: Maybe (Val Text)
   , _mediaLiveChannelInputSettingsVideoSelector :: Maybe MediaLiveChannelVideoSelector
   } deriving (Show, Eq)
@@ -39,6 +40,7 @@ instance ToJSON MediaLiveChannelInputSettings where
     , fmap (("FilterStrength",) . toJSON) _mediaLiveChannelInputSettingsFilterStrength
     , fmap (("InputFilter",) . toJSON) _mediaLiveChannelInputSettingsInputFilter
     , fmap (("NetworkInputSettings",) . toJSON) _mediaLiveChannelInputSettingsNetworkInputSettings
+    , fmap (("Smpte2038DataPreference",) . toJSON) _mediaLiveChannelInputSettingsSmpte2038DataPreference
     , fmap (("SourceEndBehavior",) . toJSON) _mediaLiveChannelInputSettingsSourceEndBehavior
     , fmap (("VideoSelector",) . toJSON) _mediaLiveChannelInputSettingsVideoSelector
     ]
@@ -56,6 +58,7 @@ mediaLiveChannelInputSettings  =
   , _mediaLiveChannelInputSettingsFilterStrength = Nothing
   , _mediaLiveChannelInputSettingsInputFilter = Nothing
   , _mediaLiveChannelInputSettingsNetworkInputSettings = Nothing
+  , _mediaLiveChannelInputSettingsSmpte2038DataPreference = Nothing
   , _mediaLiveChannelInputSettingsSourceEndBehavior = Nothing
   , _mediaLiveChannelInputSettingsVideoSelector = Nothing
   }
@@ -87,6 +90,10 @@ mlcisInputFilter = lens _mediaLiveChannelInputSettingsInputFilter (\s a -> s { _
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputsettings.html#cfn-medialive-channel-inputsettings-networkinputsettings
 mlcisNetworkInputSettings :: Lens' MediaLiveChannelInputSettings (Maybe MediaLiveChannelNetworkInputSettings)
 mlcisNetworkInputSettings = lens _mediaLiveChannelInputSettingsNetworkInputSettings (\s a -> s { _mediaLiveChannelInputSettingsNetworkInputSettings = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputsettings.html#cfn-medialive-channel-inputsettings-smpte2038datapreference
+mlcisSmpte2038DataPreference :: Lens' MediaLiveChannelInputSettings (Maybe (Val Text))
+mlcisSmpte2038DataPreference = lens _mediaLiveChannelInputSettingsSmpte2038DataPreference (\s a -> s { _mediaLiveChannelInputSettingsSmpte2038DataPreference = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-inputsettings.html#cfn-medialive-channel-inputsettings-sourceendbehavior
 mlcisSourceEndBehavior :: Lens' MediaLiveChannelInputSettings (Maybe (Val Text))

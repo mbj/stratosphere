@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 32e0669e795e3193a411bc5344dfc9fc680bfed5e77269ef76fb4d1d42c39513
+-- hash: 9179fc1c6ad04e4a242e19e2158c5ebbc7376c3dd8fe5cdbe68a22a6f43e7afd
 
 name:           stratosphere
 version:        0.59.1
@@ -82,6 +82,7 @@ library
       Stratosphere.ResourceProperties.ApiGatewayDeploymentStageDescription
       Stratosphere.ResourceProperties.ApiGatewayDocumentationPartLocation
       Stratosphere.ResourceProperties.ApiGatewayDomainNameEndpointConfiguration
+      Stratosphere.ResourceProperties.ApiGatewayDomainNameMutualTlsAuthentication
       Stratosphere.ResourceProperties.ApiGatewayMethodIntegration
       Stratosphere.ResourceProperties.ApiGatewayMethodIntegrationResponse
       Stratosphere.ResourceProperties.ApiGatewayMethodMethodResponse
@@ -102,6 +103,7 @@ library
       Stratosphere.ResourceProperties.ApiGatewayV2ApiGatewayManagedOverridesStageOverrides
       Stratosphere.ResourceProperties.ApiGatewayV2AuthorizerJWTConfiguration
       Stratosphere.ResourceProperties.ApiGatewayV2DomainNameDomainNameConfiguration
+      Stratosphere.ResourceProperties.ApiGatewayV2DomainNameMutualTlsAuthentication
       Stratosphere.ResourceProperties.ApiGatewayV2IntegrationTlsConfig
       Stratosphere.ResourceProperties.ApiGatewayV2RouteParameterConstraints
       Stratosphere.ResourceProperties.ApiGatewayV2RouteResponseParameterConstraints
@@ -114,6 +116,68 @@ library
       Stratosphere.ResourceProperties.AppConfigDeploymentTags
       Stratosphere.ResourceProperties.AppConfigEnvironmentMonitors
       Stratosphere.ResourceProperties.AppConfigEnvironmentTags
+      Stratosphere.ResourceProperties.AppFlowConnectorProfileAmplitudeConnectorProfileCredentials
+      Stratosphere.ResourceProperties.AppFlowConnectorProfileConnectorOAuthRequest
+      Stratosphere.ResourceProperties.AppFlowConnectorProfileConnectorProfileConfig
+      Stratosphere.ResourceProperties.AppFlowConnectorProfileConnectorProfileCredentials
+      Stratosphere.ResourceProperties.AppFlowConnectorProfileConnectorProfileProperties
+      Stratosphere.ResourceProperties.AppFlowConnectorProfileDatadogConnectorProfileCredentials
+      Stratosphere.ResourceProperties.AppFlowConnectorProfileDatadogConnectorProfileProperties
+      Stratosphere.ResourceProperties.AppFlowConnectorProfileDynatraceConnectorProfileCredentials
+      Stratosphere.ResourceProperties.AppFlowConnectorProfileDynatraceConnectorProfileProperties
+      Stratosphere.ResourceProperties.AppFlowConnectorProfileGoogleAnalyticsConnectorProfileCredentials
+      Stratosphere.ResourceProperties.AppFlowConnectorProfileInforNexusConnectorProfileCredentials
+      Stratosphere.ResourceProperties.AppFlowConnectorProfileInforNexusConnectorProfileProperties
+      Stratosphere.ResourceProperties.AppFlowConnectorProfileMarketoConnectorProfileCredentials
+      Stratosphere.ResourceProperties.AppFlowConnectorProfileMarketoConnectorProfileProperties
+      Stratosphere.ResourceProperties.AppFlowConnectorProfileRedshiftConnectorProfileCredentials
+      Stratosphere.ResourceProperties.AppFlowConnectorProfileRedshiftConnectorProfileProperties
+      Stratosphere.ResourceProperties.AppFlowConnectorProfileSalesforceConnectorProfileCredentials
+      Stratosphere.ResourceProperties.AppFlowConnectorProfileSalesforceConnectorProfileProperties
+      Stratosphere.ResourceProperties.AppFlowConnectorProfileServiceNowConnectorProfileCredentials
+      Stratosphere.ResourceProperties.AppFlowConnectorProfileServiceNowConnectorProfileProperties
+      Stratosphere.ResourceProperties.AppFlowConnectorProfileSingularConnectorProfileCredentials
+      Stratosphere.ResourceProperties.AppFlowConnectorProfileSlackConnectorProfileCredentials
+      Stratosphere.ResourceProperties.AppFlowConnectorProfileSlackConnectorProfileProperties
+      Stratosphere.ResourceProperties.AppFlowConnectorProfileSnowflakeConnectorProfileCredentials
+      Stratosphere.ResourceProperties.AppFlowConnectorProfileSnowflakeConnectorProfileProperties
+      Stratosphere.ResourceProperties.AppFlowConnectorProfileTrendmicroConnectorProfileCredentials
+      Stratosphere.ResourceProperties.AppFlowConnectorProfileVeevaConnectorProfileCredentials
+      Stratosphere.ResourceProperties.AppFlowConnectorProfileVeevaConnectorProfileProperties
+      Stratosphere.ResourceProperties.AppFlowConnectorProfileZendeskConnectorProfileCredentials
+      Stratosphere.ResourceProperties.AppFlowConnectorProfileZendeskConnectorProfileProperties
+      Stratosphere.ResourceProperties.AppFlowFlowAggregationConfig
+      Stratosphere.ResourceProperties.AppFlowFlowAmplitudeSourceProperties
+      Stratosphere.ResourceProperties.AppFlowFlowConnectorOperator
+      Stratosphere.ResourceProperties.AppFlowFlowDatadogSourceProperties
+      Stratosphere.ResourceProperties.AppFlowFlowDestinationConnectorProperties
+      Stratosphere.ResourceProperties.AppFlowFlowDestinationFlowConfig
+      Stratosphere.ResourceProperties.AppFlowFlowDynatraceSourceProperties
+      Stratosphere.ResourceProperties.AppFlowFlowErrorHandlingConfig
+      Stratosphere.ResourceProperties.AppFlowFlowEventBridgeDestinationProperties
+      Stratosphere.ResourceProperties.AppFlowFlowGoogleAnalyticsSourceProperties
+      Stratosphere.ResourceProperties.AppFlowFlowInforNexusSourceProperties
+      Stratosphere.ResourceProperties.AppFlowFlowMarketoSourceProperties
+      Stratosphere.ResourceProperties.AppFlowFlowPrefixConfig
+      Stratosphere.ResourceProperties.AppFlowFlowRedshiftDestinationProperties
+      Stratosphere.ResourceProperties.AppFlowFlowS3DestinationProperties
+      Stratosphere.ResourceProperties.AppFlowFlowS3OutputFormatConfig
+      Stratosphere.ResourceProperties.AppFlowFlowS3SourceProperties
+      Stratosphere.ResourceProperties.AppFlowFlowSalesforceDestinationProperties
+      Stratosphere.ResourceProperties.AppFlowFlowSalesforceSourceProperties
+      Stratosphere.ResourceProperties.AppFlowFlowScheduledTriggerProperties
+      Stratosphere.ResourceProperties.AppFlowFlowServiceNowSourceProperties
+      Stratosphere.ResourceProperties.AppFlowFlowSingularSourceProperties
+      Stratosphere.ResourceProperties.AppFlowFlowSlackSourceProperties
+      Stratosphere.ResourceProperties.AppFlowFlowSnowflakeDestinationProperties
+      Stratosphere.ResourceProperties.AppFlowFlowSourceConnectorProperties
+      Stratosphere.ResourceProperties.AppFlowFlowSourceFlowConfig
+      Stratosphere.ResourceProperties.AppFlowFlowTask
+      Stratosphere.ResourceProperties.AppFlowFlowTaskPropertiesObject
+      Stratosphere.ResourceProperties.AppFlowFlowTrendmicroSourceProperties
+      Stratosphere.ResourceProperties.AppFlowFlowTriggerConfig
+      Stratosphere.ResourceProperties.AppFlowFlowVeevaSourceProperties
+      Stratosphere.ResourceProperties.AppFlowFlowZendeskSourceProperties
       Stratosphere.ResourceProperties.ApplicationAutoScalingScalableTargetScalableTargetAction
       Stratosphere.ResourceProperties.ApplicationAutoScalingScalableTargetScheduledAction
       Stratosphere.ResourceProperties.ApplicationAutoScalingScalableTargetSuspendedState
@@ -321,6 +385,11 @@ library
       Stratosphere.ResourceProperties.CassandraTableProvisionedThroughput
       Stratosphere.ResourceProperties.CertificateManagerCertificateDomainValidationOption
       Stratosphere.ResourceProperties.Cloud9EnvironmentEC2Repository
+      Stratosphere.ResourceProperties.CloudFormationStackSetAutoDeployment
+      Stratosphere.ResourceProperties.CloudFormationStackSetDeploymentTargets
+      Stratosphere.ResourceProperties.CloudFormationStackSetOperationPreferences
+      Stratosphere.ResourceProperties.CloudFormationStackSetParameter
+      Stratosphere.ResourceProperties.CloudFormationStackSetStackInstances
       Stratosphere.ResourceProperties.CloudFrontCachePolicyCachePolicyConfig
       Stratosphere.ResourceProperties.CloudFrontCachePolicyCookiesConfig
       Stratosphere.ResourceProperties.CloudFrontCachePolicyHeadersConfig
@@ -604,6 +673,7 @@ library
       Stratosphere.ResourceProperties.ECSClusterCapacityProviderStrategyItem
       Stratosphere.ResourceProperties.ECSClusterClusterSettings
       Stratosphere.ResourceProperties.ECSServiceAwsVpcConfiguration
+      Stratosphere.ResourceProperties.ECSServiceCapacityProviderStrategyItem
       Stratosphere.ResourceProperties.ECSServiceDeploymentConfiguration
       Stratosphere.ResourceProperties.ECSServiceDeploymentController
       Stratosphere.ResourceProperties.ECSServiceLoadBalancer
@@ -962,6 +1032,7 @@ library
       Stratosphere.ResourceProperties.IoTAnalyticsPipelineMath
       Stratosphere.ResourceProperties.IoTAnalyticsPipelineRemoveAttributes
       Stratosphere.ResourceProperties.IoTAnalyticsPipelineSelectAttributes
+      Stratosphere.ResourceProperties.IoTAuthorizerTags
       Stratosphere.ResourceProperties.IoTEventsDetectorModelAction
       Stratosphere.ResourceProperties.IoTEventsDetectorModelAssetPropertyTimestamp
       Stratosphere.ResourceProperties.IoTEventsDetectorModelAssetPropertyValue
@@ -1020,6 +1091,51 @@ library
       Stratosphere.ResourceProperties.IoTTopicRuleSqsAction
       Stratosphere.ResourceProperties.IoTTopicRuleStepFunctionsAction
       Stratosphere.ResourceProperties.IoTTopicRuleTopicRulePayload
+      Stratosphere.ResourceProperties.KendraDataSourceAccessControlListConfiguration
+      Stratosphere.ResourceProperties.KendraDataSourceAclConfiguration
+      Stratosphere.ResourceProperties.KendraDataSourceChangeDetectingColumns
+      Stratosphere.ResourceProperties.KendraDataSourceColumnConfiguration
+      Stratosphere.ResourceProperties.KendraDataSourceConnectionConfiguration
+      Stratosphere.ResourceProperties.KendraDataSourceDatabaseConfiguration
+      Stratosphere.ResourceProperties.KendraDataSourceDataSourceConfiguration
+      Stratosphere.ResourceProperties.KendraDataSourceDataSourceInclusionsExclusionsStrings
+      Stratosphere.ResourceProperties.KendraDataSourceDataSourceToIndexFieldMapping
+      Stratosphere.ResourceProperties.KendraDataSourceDataSourceToIndexFieldMappingList
+      Stratosphere.ResourceProperties.KendraDataSourceDataSourceVpcConfiguration
+      Stratosphere.ResourceProperties.KendraDataSourceDocumentsMetadataConfiguration
+      Stratosphere.ResourceProperties.KendraDataSourceOneDriveConfiguration
+      Stratosphere.ResourceProperties.KendraDataSourceOneDriveUserList
+      Stratosphere.ResourceProperties.KendraDataSourceOneDriveUsers
+      Stratosphere.ResourceProperties.KendraDataSourceS3DataSourceConfiguration
+      Stratosphere.ResourceProperties.KendraDataSourceS3Path
+      Stratosphere.ResourceProperties.KendraDataSourceSalesforceChatterFeedConfiguration
+      Stratosphere.ResourceProperties.KendraDataSourceSalesforceChatterFeedIncludeFilterTypes
+      Stratosphere.ResourceProperties.KendraDataSourceSalesforceConfiguration
+      Stratosphere.ResourceProperties.KendraDataSourceSalesforceCustomKnowledgeArticleTypeConfiguration
+      Stratosphere.ResourceProperties.KendraDataSourceSalesforceCustomKnowledgeArticleTypeConfigurationList
+      Stratosphere.ResourceProperties.KendraDataSourceSalesforceKnowledgeArticleConfiguration
+      Stratosphere.ResourceProperties.KendraDataSourceSalesforceKnowledgeArticleStateList
+      Stratosphere.ResourceProperties.KendraDataSourceSalesforceStandardKnowledgeArticleTypeConfiguration
+      Stratosphere.ResourceProperties.KendraDataSourceSalesforceStandardObjectAttachmentConfiguration
+      Stratosphere.ResourceProperties.KendraDataSourceSalesforceStandardObjectConfiguration
+      Stratosphere.ResourceProperties.KendraDataSourceSalesforceStandardObjectConfigurationList
+      Stratosphere.ResourceProperties.KendraDataSourceServiceNowConfiguration
+      Stratosphere.ResourceProperties.KendraDataSourceServiceNowKnowledgeArticleConfiguration
+      Stratosphere.ResourceProperties.KendraDataSourceServiceNowServiceCatalogConfiguration
+      Stratosphere.ResourceProperties.KendraDataSourceSharePointConfiguration
+      Stratosphere.ResourceProperties.KendraDataSourceSqlConfiguration
+      Stratosphere.ResourceProperties.KendraDataSourceTagList
+      Stratosphere.ResourceProperties.KendraFaqS3Path
+      Stratosphere.ResourceProperties.KendraFaqTagList
+      Stratosphere.ResourceProperties.KendraIndexCapacityUnitsConfiguration
+      Stratosphere.ResourceProperties.KendraIndexDocumentMetadataConfiguration
+      Stratosphere.ResourceProperties.KendraIndexDocumentMetadataConfigurationList
+      Stratosphere.ResourceProperties.KendraIndexRelevance
+      Stratosphere.ResourceProperties.KendraIndexSearch
+      Stratosphere.ResourceProperties.KendraIndexServerSideEncryptionConfiguration
+      Stratosphere.ResourceProperties.KendraIndexTagList
+      Stratosphere.ResourceProperties.KendraIndexValueImportanceItem
+      Stratosphere.ResourceProperties.KendraIndexValueImportanceItems
       Stratosphere.ResourceProperties.KinesisAnalyticsApplicationCSVMappingParameters
       Stratosphere.ResourceProperties.KinesisAnalyticsApplicationInput
       Stratosphere.ResourceProperties.KinesisAnalyticsApplicationInputLambdaProcessor
@@ -1125,6 +1241,7 @@ library
       Stratosphere.ResourceProperties.LakeFormationPermissionsDataLocationResource
       Stratosphere.ResourceProperties.LakeFormationPermissionsResource
       Stratosphere.ResourceProperties.LakeFormationPermissionsTableResource
+      Stratosphere.ResourceProperties.LakeFormationPermissionsTableWildcard
       Stratosphere.ResourceProperties.LakeFormationPermissionsTableWithColumnsResource
       Stratosphere.ResourceProperties.LambdaAliasAliasRoutingConfiguration
       Stratosphere.ResourceProperties.LambdaAliasProvisionedConcurrencyConfiguration
@@ -1155,32 +1272,131 @@ library
       Stratosphere.ResourceProperties.ManagedBlockchainNodeNodeConfiguration
       Stratosphere.ResourceProperties.MediaConvertJobTemplateAccelerationSettings
       Stratosphere.ResourceProperties.MediaConvertJobTemplateHopDestination
+      Stratosphere.ResourceProperties.MediaLiveChannelAacSettings
+      Stratosphere.ResourceProperties.MediaLiveChannelAc3Settings
+      Stratosphere.ResourceProperties.MediaLiveChannelArchiveContainerSettings
+      Stratosphere.ResourceProperties.MediaLiveChannelArchiveGroupSettings
+      Stratosphere.ResourceProperties.MediaLiveChannelArchiveOutputSettings
+      Stratosphere.ResourceProperties.MediaLiveChannelAribDestinationSettings
       Stratosphere.ResourceProperties.MediaLiveChannelAribSourceSettings
+      Stratosphere.ResourceProperties.MediaLiveChannelAudioChannelMapping
+      Stratosphere.ResourceProperties.MediaLiveChannelAudioCodecSettings
+      Stratosphere.ResourceProperties.MediaLiveChannelAudioDescription
       Stratosphere.ResourceProperties.MediaLiveChannelAudioLanguageSelection
+      Stratosphere.ResourceProperties.MediaLiveChannelAudioNormalizationSettings
+      Stratosphere.ResourceProperties.MediaLiveChannelAudioOnlyHlsSettings
       Stratosphere.ResourceProperties.MediaLiveChannelAudioPidSelection
       Stratosphere.ResourceProperties.MediaLiveChannelAudioSelector
       Stratosphere.ResourceProperties.MediaLiveChannelAudioSelectorSettings
+      Stratosphere.ResourceProperties.MediaLiveChannelAudioTrack
+      Stratosphere.ResourceProperties.MediaLiveChannelAudioTrackSelection
+      Stratosphere.ResourceProperties.MediaLiveChannelAutomaticInputFailoverSettings
+      Stratosphere.ResourceProperties.MediaLiveChannelAvailBlanking
+      Stratosphere.ResourceProperties.MediaLiveChannelAvailConfiguration
+      Stratosphere.ResourceProperties.MediaLiveChannelAvailSettings
+      Stratosphere.ResourceProperties.MediaLiveChannelBlackoutSlate
+      Stratosphere.ResourceProperties.MediaLiveChannelBurnInDestinationSettings
+      Stratosphere.ResourceProperties.MediaLiveChannelCaptionDescription
+      Stratosphere.ResourceProperties.MediaLiveChannelCaptionDestinationSettings
+      Stratosphere.ResourceProperties.MediaLiveChannelCaptionLanguageMapping
       Stratosphere.ResourceProperties.MediaLiveChannelCaptionSelector
       Stratosphere.ResourceProperties.MediaLiveChannelCaptionSelectorSettings
+      Stratosphere.ResourceProperties.MediaLiveChannelColorSpacePassthroughSettings
+      Stratosphere.ResourceProperties.MediaLiveChannelDvbNitSettings
+      Stratosphere.ResourceProperties.MediaLiveChannelDvbSdtSettings
+      Stratosphere.ResourceProperties.MediaLiveChannelDvbSubDestinationSettings
       Stratosphere.ResourceProperties.MediaLiveChannelDvbSubSourceSettings
+      Stratosphere.ResourceProperties.MediaLiveChannelDvbTdtSettings
+      Stratosphere.ResourceProperties.MediaLiveChannelEac3Settings
+      Stratosphere.ResourceProperties.MediaLiveChannelEbuTtDDestinationSettings
+      Stratosphere.ResourceProperties.MediaLiveChannelEmbeddedDestinationSettings
+      Stratosphere.ResourceProperties.MediaLiveChannelEmbeddedPlusScte20DestinationSettings
       Stratosphere.ResourceProperties.MediaLiveChannelEmbeddedSourceSettings
+      Stratosphere.ResourceProperties.MediaLiveChannelEncoderSettings
+      Stratosphere.ResourceProperties.MediaLiveChannelFeatureActivations
+      Stratosphere.ResourceProperties.MediaLiveChannelFecOutputSettings
+      Stratosphere.ResourceProperties.MediaLiveChannelFmp4HlsSettings
+      Stratosphere.ResourceProperties.MediaLiveChannelFrameCaptureGroupSettings
+      Stratosphere.ResourceProperties.MediaLiveChannelFrameCaptureOutputSettings
+      Stratosphere.ResourceProperties.MediaLiveChannelFrameCaptureSettings
+      Stratosphere.ResourceProperties.MediaLiveChannelGlobalConfiguration
+      Stratosphere.ResourceProperties.MediaLiveChannelH264ColorSpaceSettings
+      Stratosphere.ResourceProperties.MediaLiveChannelH264FilterSettings
+      Stratosphere.ResourceProperties.MediaLiveChannelH264Settings
+      Stratosphere.ResourceProperties.MediaLiveChannelH265ColorSpaceSettings
+      Stratosphere.ResourceProperties.MediaLiveChannelH265FilterSettings
+      Stratosphere.ResourceProperties.MediaLiveChannelH265Settings
+      Stratosphere.ResourceProperties.MediaLiveChannelHdr10Settings
+      Stratosphere.ResourceProperties.MediaLiveChannelHlsAkamaiSettings
+      Stratosphere.ResourceProperties.MediaLiveChannelHlsBasicPutSettings
+      Stratosphere.ResourceProperties.MediaLiveChannelHlsCdnSettings
+      Stratosphere.ResourceProperties.MediaLiveChannelHlsGroupSettings
       Stratosphere.ResourceProperties.MediaLiveChannelHlsInputSettings
+      Stratosphere.ResourceProperties.MediaLiveChannelHlsMediaStoreSettings
+      Stratosphere.ResourceProperties.MediaLiveChannelHlsOutputSettings
+      Stratosphere.ResourceProperties.MediaLiveChannelHlsSettings
+      Stratosphere.ResourceProperties.MediaLiveChannelHlsWebdavSettings
       Stratosphere.ResourceProperties.MediaLiveChannelInputAttachment
+      Stratosphere.ResourceProperties.MediaLiveChannelInputChannelLevel
+      Stratosphere.ResourceProperties.MediaLiveChannelInputLocation
+      Stratosphere.ResourceProperties.MediaLiveChannelInputLossBehavior
       Stratosphere.ResourceProperties.MediaLiveChannelInputSettings
       Stratosphere.ResourceProperties.MediaLiveChannelInputSpecification
+      Stratosphere.ResourceProperties.MediaLiveChannelKeyProviderSettings
+      Stratosphere.ResourceProperties.MediaLiveChannelM2tsSettings
+      Stratosphere.ResourceProperties.MediaLiveChannelM3u8Settings
+      Stratosphere.ResourceProperties.MediaLiveChannelMediaPackageGroupSettings
       Stratosphere.ResourceProperties.MediaLiveChannelMediaPackageOutputDestinationSettings
+      Stratosphere.ResourceProperties.MediaLiveChannelMediaPackageOutputSettings
+      Stratosphere.ResourceProperties.MediaLiveChannelMp2Settings
+      Stratosphere.ResourceProperties.MediaLiveChannelMsSmoothGroupSettings
+      Stratosphere.ResourceProperties.MediaLiveChannelMsSmoothOutputSettings
+      Stratosphere.ResourceProperties.MediaLiveChannelMultiplexGroupSettings
+      Stratosphere.ResourceProperties.MediaLiveChannelMultiplexOutputSettings
       Stratosphere.ResourceProperties.MediaLiveChannelMultiplexProgramChannelDestinationSettings
       Stratosphere.ResourceProperties.MediaLiveChannelNetworkInputSettings
+      Stratosphere.ResourceProperties.MediaLiveChannelNielsenConfiguration
+      Stratosphere.ResourceProperties.MediaLiveChannelOutput
       Stratosphere.ResourceProperties.MediaLiveChannelOutputDestination
       Stratosphere.ResourceProperties.MediaLiveChannelOutputDestinationSettings
+      Stratosphere.ResourceProperties.MediaLiveChannelOutputGroup
+      Stratosphere.ResourceProperties.MediaLiveChannelOutputGroupSettings
+      Stratosphere.ResourceProperties.MediaLiveChannelOutputLocationRef
+      Stratosphere.ResourceProperties.MediaLiveChannelOutputSettings
+      Stratosphere.ResourceProperties.MediaLiveChannelPassThroughSettings
+      Stratosphere.ResourceProperties.MediaLiveChannelRec601Settings
+      Stratosphere.ResourceProperties.MediaLiveChannelRec709Settings
+      Stratosphere.ResourceProperties.MediaLiveChannelRemixSettings
+      Stratosphere.ResourceProperties.MediaLiveChannelRtmpCaptionInfoDestinationSettings
+      Stratosphere.ResourceProperties.MediaLiveChannelRtmpGroupSettings
+      Stratosphere.ResourceProperties.MediaLiveChannelRtmpOutputSettings
+      Stratosphere.ResourceProperties.MediaLiveChannelScte20PlusEmbeddedDestinationSettings
       Stratosphere.ResourceProperties.MediaLiveChannelScte20SourceSettings
+      Stratosphere.ResourceProperties.MediaLiveChannelScte27DestinationSettings
       Stratosphere.ResourceProperties.MediaLiveChannelScte27SourceSettings
+      Stratosphere.ResourceProperties.MediaLiveChannelScte35SpliceInsert
+      Stratosphere.ResourceProperties.MediaLiveChannelScte35TimeSignalApos
+      Stratosphere.ResourceProperties.MediaLiveChannelSmpteTtDestinationSettings
+      Stratosphere.ResourceProperties.MediaLiveChannelStandardHlsSettings
+      Stratosphere.ResourceProperties.MediaLiveChannelStaticKeySettings
+      Stratosphere.ResourceProperties.MediaLiveChannelTeletextDestinationSettings
       Stratosphere.ResourceProperties.MediaLiveChannelTeletextSourceSettings
+      Stratosphere.ResourceProperties.MediaLiveChannelTemporalFilterSettings
+      Stratosphere.ResourceProperties.MediaLiveChannelTimecodeConfig
+      Stratosphere.ResourceProperties.MediaLiveChannelTtmlDestinationSettings
+      Stratosphere.ResourceProperties.MediaLiveChannelUdpContainerSettings
+      Stratosphere.ResourceProperties.MediaLiveChannelUdpGroupSettings
+      Stratosphere.ResourceProperties.MediaLiveChannelUdpOutputSettings
+      Stratosphere.ResourceProperties.MediaLiveChannelVideoCodecSettings
+      Stratosphere.ResourceProperties.MediaLiveChannelVideoDescription
       Stratosphere.ResourceProperties.MediaLiveChannelVideoSelector
       Stratosphere.ResourceProperties.MediaLiveChannelVideoSelectorPid
       Stratosphere.ResourceProperties.MediaLiveChannelVideoSelectorProgramId
       Stratosphere.ResourceProperties.MediaLiveChannelVideoSelectorSettings
+      Stratosphere.ResourceProperties.MediaLiveChannelWebvttDestinationSettings
       Stratosphere.ResourceProperties.MediaLiveInputInputDestinationRequest
+      Stratosphere.ResourceProperties.MediaLiveInputInputDeviceRequest
+      Stratosphere.ResourceProperties.MediaLiveInputInputDeviceSettings
       Stratosphere.ResourceProperties.MediaLiveInputInputSourceRequest
       Stratosphere.ResourceProperties.MediaLiveInputInputVpcRequest
       Stratosphere.ResourceProperties.MediaLiveInputMediaConnectFlowRequest
@@ -1204,6 +1420,8 @@ library
       Stratosphere.ResourceProperties.MSKClusterOpenMonitoring
       Stratosphere.ResourceProperties.MSKClusterPrometheus
       Stratosphere.ResourceProperties.MSKClusterS3
+      Stratosphere.ResourceProperties.MSKClusterSasl
+      Stratosphere.ResourceProperties.MSKClusterScram
       Stratosphere.ResourceProperties.MSKClusterStorageInfo
       Stratosphere.ResourceProperties.MSKClusterTls
       Stratosphere.ResourceProperties.NeptuneDBClusterDBClusterRole
@@ -1297,8 +1515,6 @@ library
       Stratosphere.ResourceProperties.RoboMakerSimulationApplicationRobotSoftwareSuite
       Stratosphere.ResourceProperties.RoboMakerSimulationApplicationSimulationSoftwareSuite
       Stratosphere.ResourceProperties.RoboMakerSimulationApplicationSourceConfig
-      Stratosphere.ResourceProperties.Route53HealthCheckAlarmIdentifier
-      Stratosphere.ResourceProperties.Route53HealthCheckHealthCheckConfig
       Stratosphere.ResourceProperties.Route53HealthCheckHealthCheckTag
       Stratosphere.ResourceProperties.Route53HostedZoneHostedZoneConfig
       Stratosphere.ResourceProperties.Route53HostedZoneHostedZoneTag
@@ -1587,6 +1803,8 @@ library
       Stratosphere.Resources.AppConfigDeploymentStrategy
       Stratosphere.Resources.AppConfigEnvironment
       Stratosphere.Resources.AppConfigHostedConfigurationVersion
+      Stratosphere.Resources.AppFlowConnectorProfile
+      Stratosphere.Resources.AppFlowFlow
       Stratosphere.Resources.ApplicationAutoScalingScalableTarget
       Stratosphere.Resources.ApplicationAutoScalingScalingPolicy
       Stratosphere.Resources.ApplicationInsightsApplication
@@ -1637,6 +1855,7 @@ library
       Stratosphere.Resources.CloudFormationCustomResource
       Stratosphere.Resources.CloudFormationMacro
       Stratosphere.Resources.CloudFormationStack
+      Stratosphere.Resources.CloudFormationStackSet
       Stratosphere.Resources.CloudFormationWaitCondition
       Stratosphere.Resources.CloudFormationWaitConditionHandle
       Stratosphere.Resources.CloudFrontCachePolicy
@@ -1886,6 +2105,7 @@ library
       Stratosphere.Resources.IoTAnalyticsDataset
       Stratosphere.Resources.IoTAnalyticsDatastore
       Stratosphere.Resources.IoTAnalyticsPipeline
+      Stratosphere.Resources.IoTAuthorizer
       Stratosphere.Resources.IoTCertificate
       Stratosphere.Resources.IoTEventsDetectorModel
       Stratosphere.Resources.IoTEventsInput
@@ -1896,6 +2116,9 @@ library
       Stratosphere.Resources.IoTThingPrincipalAttachment
       Stratosphere.Resources.IoTThingsGraphFlowTemplate
       Stratosphere.Resources.IoTTopicRule
+      Stratosphere.Resources.KendraDataSource
+      Stratosphere.Resources.KendraFaq
+      Stratosphere.Resources.KendraIndex
       Stratosphere.Resources.KinesisAnalyticsApplication
       Stratosphere.Resources.KinesisAnalyticsApplicationOutput
       Stratosphere.Resources.KinesisAnalyticsApplicationReferenceDataSource
@@ -1908,7 +2131,6 @@ library
       Stratosphere.Resources.KinesisStreamConsumer
       Stratosphere.Resources.KMSAlias
       Stratosphere.Resources.KMSKey
-      Stratosphere.Resources.LakeFormationDataLakeSettings
       Stratosphere.Resources.LakeFormationPermissions
       Stratosphere.Resources.LakeFormationResource
       Stratosphere.Resources.LambdaAlias
@@ -2069,6 +2291,8 @@ library
       Stratosphere.Resources.SSMParameter
       Stratosphere.Resources.SSMPatchBaseline
       Stratosphere.Resources.SSMResourceDataSync
+      Stratosphere.Resources.SSOAssignment
+      Stratosphere.Resources.SSOPermissionSet
       Stratosphere.Resources.StepFunctionsActivity
       Stratosphere.Resources.StepFunctionsStateMachine
       Stratosphere.Resources.SyntheticsCanary

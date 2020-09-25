@@ -9,6 +9,7 @@ module Stratosphere.Resources.ApiGatewayDomainName where
 
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.ApiGatewayDomainNameEndpointConfiguration
+import Stratosphere.ResourceProperties.ApiGatewayDomainNameMutualTlsAuthentication
 import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for ApiGatewayDomainName. See
@@ -18,6 +19,7 @@ data ApiGatewayDomainName =
   { _apiGatewayDomainNameCertificateArn :: Maybe (Val Text)
   , _apiGatewayDomainNameDomainName :: Maybe (Val Text)
   , _apiGatewayDomainNameEndpointConfiguration :: Maybe ApiGatewayDomainNameEndpointConfiguration
+  , _apiGatewayDomainNameMutualTlsAuthentication :: Maybe ApiGatewayDomainNameMutualTlsAuthentication
   , _apiGatewayDomainNameRegionalCertificateArn :: Maybe (Val Text)
   , _apiGatewayDomainNameSecurityPolicy :: Maybe (Val Text)
   , _apiGatewayDomainNameTags :: Maybe [Tag]
@@ -32,6 +34,7 @@ instance ToResourceProperties ApiGatewayDomainName where
         [ fmap (("CertificateArn",) . toJSON) _apiGatewayDomainNameCertificateArn
         , fmap (("DomainName",) . toJSON) _apiGatewayDomainNameDomainName
         , fmap (("EndpointConfiguration",) . toJSON) _apiGatewayDomainNameEndpointConfiguration
+        , fmap (("MutualTlsAuthentication",) . toJSON) _apiGatewayDomainNameMutualTlsAuthentication
         , fmap (("RegionalCertificateArn",) . toJSON) _apiGatewayDomainNameRegionalCertificateArn
         , fmap (("SecurityPolicy",) . toJSON) _apiGatewayDomainNameSecurityPolicy
         , fmap (("Tags",) . toJSON) _apiGatewayDomainNameTags
@@ -47,6 +50,7 @@ apiGatewayDomainName  =
   { _apiGatewayDomainNameCertificateArn = Nothing
   , _apiGatewayDomainNameDomainName = Nothing
   , _apiGatewayDomainNameEndpointConfiguration = Nothing
+  , _apiGatewayDomainNameMutualTlsAuthentication = Nothing
   , _apiGatewayDomainNameRegionalCertificateArn = Nothing
   , _apiGatewayDomainNameSecurityPolicy = Nothing
   , _apiGatewayDomainNameTags = Nothing
@@ -63,6 +67,10 @@ agdnDomainName = lens _apiGatewayDomainNameDomainName (\s a -> s { _apiGatewayDo
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-endpointconfiguration
 agdnEndpointConfiguration :: Lens' ApiGatewayDomainName (Maybe ApiGatewayDomainNameEndpointConfiguration)
 agdnEndpointConfiguration = lens _apiGatewayDomainNameEndpointConfiguration (\s a -> s { _apiGatewayDomainNameEndpointConfiguration = a })
+
+-- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-mutualtlsauthentication
+agdnMutualTlsAuthentication :: Lens' ApiGatewayDomainName (Maybe ApiGatewayDomainNameMutualTlsAuthentication)
+agdnMutualTlsAuthentication = lens _apiGatewayDomainNameMutualTlsAuthentication (\s a -> s { _apiGatewayDomainNameMutualTlsAuthentication = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainname.html#cfn-apigateway-domainname-regionalcertificatearn
 agdnRegionalCertificateArn :: Lens' ApiGatewayDomainName (Maybe (Val Text))
