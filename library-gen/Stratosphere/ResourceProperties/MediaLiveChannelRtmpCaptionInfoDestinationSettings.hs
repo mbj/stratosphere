@@ -30,5 +30,3 @@ mediaLiveChannelRtmpCaptionInfoDestinationSettings  =
   MediaLiveChannelRtmpCaptionInfoDestinationSettings
   {
   }
-
-

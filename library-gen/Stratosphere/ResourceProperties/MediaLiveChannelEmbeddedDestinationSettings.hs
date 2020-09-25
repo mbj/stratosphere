@@ -30,5 +30,3 @@ mediaLiveChannelEmbeddedDestinationSettings  =
   MediaLiveChannelEmbeddedDestinationSettings
   {
   }
-
-

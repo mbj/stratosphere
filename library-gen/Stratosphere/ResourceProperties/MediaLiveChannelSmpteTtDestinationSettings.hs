@@ -29,5 +29,3 @@ mediaLiveChannelSmpteTtDestinationSettings  =
   MediaLiveChannelSmpteTtDestinationSettings
   {
   }
-
-

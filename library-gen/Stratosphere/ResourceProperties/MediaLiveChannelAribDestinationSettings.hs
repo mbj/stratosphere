@@ -29,5 +29,3 @@ mediaLiveChannelAribDestinationSettings  =
   MediaLiveChannelAribDestinationSettings
   {
   }
-
-

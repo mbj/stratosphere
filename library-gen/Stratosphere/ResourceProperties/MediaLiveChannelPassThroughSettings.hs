@@ -28,5 +28,3 @@ mediaLiveChannelPassThroughSettings  =
   MediaLiveChannelPassThroughSettings
   {
   }
-
-

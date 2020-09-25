@@ -30,5 +30,3 @@ mediaLiveChannelTeletextDestinationSettings  =
   MediaLiveChannelTeletextDestinationSettings
   {
   }
-
-

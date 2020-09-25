@@ -28,5 +28,3 @@ mediaLiveChannelRec601Settings  =
   MediaLiveChannelRec601Settings
   {
   }
-
-

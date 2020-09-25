@@ -29,5 +29,3 @@ mediaLiveChannelMediaPackageOutputSettings  =
   MediaLiveChannelMediaPackageOutputSettings
   {
   }
-
-

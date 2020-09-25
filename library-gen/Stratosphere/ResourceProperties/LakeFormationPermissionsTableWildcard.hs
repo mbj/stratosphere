@@ -29,5 +29,3 @@ lakeFormationPermissionsTableWildcard  =
   LakeFormationPermissionsTableWildcard
   {
   }
-
-

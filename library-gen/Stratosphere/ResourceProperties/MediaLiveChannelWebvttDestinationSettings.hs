@@ -29,5 +29,3 @@ mediaLiveChannelWebvttDestinationSettings  =
   MediaLiveChannelWebvttDestinationSettings
   {
   }
-
-

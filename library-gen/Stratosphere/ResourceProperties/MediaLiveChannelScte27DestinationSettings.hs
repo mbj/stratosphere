@@ -29,5 +29,3 @@ mediaLiveChannelScte27DestinationSettings  =
   MediaLiveChannelScte27DestinationSettings
   {
   }
-
-

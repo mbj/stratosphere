@@ -28,5 +28,3 @@ mediaLiveChannelRec709Settings  =
   MediaLiveChannelRec709Settings
   {
   }
-
-

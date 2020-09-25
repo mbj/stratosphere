@@ -30,5 +30,3 @@ mediaLiveChannelEmbeddedPlusScte20DestinationSettings  =
   MediaLiveChannelEmbeddedPlusScte20DestinationSettings
   {
   }
-
-
