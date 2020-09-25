@@ -10,9 +10,9 @@ module Stratosphere.Resources.MediaLiveInput where
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.MediaLiveInputInputDestinationRequest
 import Stratosphere.ResourceProperties.MediaLiveInputInputDeviceSettings
-import Stratosphere.ResourceProperties.MediaLiveInputMediaConnectFlowRequest
 import Stratosphere.ResourceProperties.MediaLiveInputInputSourceRequest
 import Stratosphere.ResourceProperties.MediaLiveInputInputVpcRequest
+import Stratosphere.ResourceProperties.MediaLiveInputMediaConnectFlowRequest
 
 -- | Full data type definition for MediaLiveInput. See 'mediaLiveInput' for a
 -- more convenient constructor.

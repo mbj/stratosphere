@@ -9,8 +9,8 @@ module Stratosphere.ResourceProperties.KendraDataSourceS3DataSourceConfiguration
 
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.KendraDataSourceAccessControlListConfiguration
-import Stratosphere.ResourceProperties.KendraDataSourceDocumentsMetadataConfiguration
 import Stratosphere.ResourceProperties.KendraDataSourceDataSourceInclusionsExclusionsStrings
+import Stratosphere.ResourceProperties.KendraDataSourceDocumentsMetadataConfiguration
 
 -- | Full data type definition for KendraDataSourceS3DataSourceConfiguration.
 -- See 'kendraDataSourceS3DataSourceConfiguration' for a more convenient

@@ -8,8 +8,8 @@
 module Stratosphere.ResourceProperties.MediaLiveChannelOutputGroup where
 
 import Stratosphere.ResourceImports
-import Stratosphere.ResourceProperties.MediaLiveChannelOutputGroupSettings
 import Stratosphere.ResourceProperties.MediaLiveChannelOutput
+import Stratosphere.ResourceProperties.MediaLiveChannelOutputGroupSettings
 
 -- | Full data type definition for MediaLiveChannelOutputGroup. See
 -- 'mediaLiveChannelOutputGroup' for a more convenient constructor.

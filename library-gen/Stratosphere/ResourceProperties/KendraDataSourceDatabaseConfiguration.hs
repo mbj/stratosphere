@@ -11,8 +11,8 @@ import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.KendraDataSourceAclConfiguration
 import Stratosphere.ResourceProperties.KendraDataSourceColumnConfiguration
 import Stratosphere.ResourceProperties.KendraDataSourceConnectionConfiguration
-import Stratosphere.ResourceProperties.KendraDataSourceSqlConfiguration
 import Stratosphere.ResourceProperties.KendraDataSourceDataSourceVpcConfiguration
+import Stratosphere.ResourceProperties.KendraDataSourceSqlConfiguration
 
 -- | Full data type definition for KendraDataSourceDatabaseConfiguration. See
 -- 'kendraDataSourceDatabaseConfiguration' for a more convenient

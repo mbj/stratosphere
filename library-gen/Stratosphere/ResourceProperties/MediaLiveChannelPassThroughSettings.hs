@@ -14,7 +14,7 @@ import Stratosphere.ResourceImports
 -- 'mediaLiveChannelPassThroughSettings' for a more convenient constructor.
 data MediaLiveChannelPassThroughSettings =
   MediaLiveChannelPassThroughSettings
-  { 
+  {
   } deriving (Show, Eq)
 
 instance ToJSON MediaLiveChannelPassThroughSettings where
@@ -26,7 +26,7 @@ mediaLiveChannelPassThroughSettings
   :: MediaLiveChannelPassThroughSettings
 mediaLiveChannelPassThroughSettings  =
   MediaLiveChannelPassThroughSettings
-  { 
+  {
   }
 
 

@@ -9,9 +9,9 @@ module Stratosphere.ResourceProperties.MediaLiveChannelHlsGroupSettings where
 
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.MediaLiveChannelCaptionLanguageMapping
-import Stratosphere.ResourceProperties.MediaLiveChannelOutputLocationRef
 import Stratosphere.ResourceProperties.MediaLiveChannelHlsCdnSettings
 import Stratosphere.ResourceProperties.MediaLiveChannelKeyProviderSettings
+import Stratosphere.ResourceProperties.MediaLiveChannelOutputLocationRef
 
 -- | Full data type definition for MediaLiveChannelHlsGroupSettings. See
 -- 'mediaLiveChannelHlsGroupSettings' for a more convenient constructor.

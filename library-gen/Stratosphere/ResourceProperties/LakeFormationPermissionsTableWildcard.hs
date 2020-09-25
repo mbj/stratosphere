@@ -15,7 +15,7 @@ import Stratosphere.ResourceImports
 -- constructor.
 data LakeFormationPermissionsTableWildcard =
   LakeFormationPermissionsTableWildcard
-  { 
+  {
   } deriving (Show, Eq)
 
 instance ToJSON LakeFormationPermissionsTableWildcard where
@@ -27,7 +27,7 @@ lakeFormationPermissionsTableWildcard
   :: LakeFormationPermissionsTableWildcard
 lakeFormationPermissionsTableWildcard  =
   LakeFormationPermissionsTableWildcard
-  { 
+  {
   }
 
 

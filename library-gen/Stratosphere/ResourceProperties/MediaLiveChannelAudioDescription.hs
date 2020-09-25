@@ -8,8 +8,8 @@
 module Stratosphere.ResourceProperties.MediaLiveChannelAudioDescription where
 
 import Stratosphere.ResourceImports
-import Stratosphere.ResourceProperties.MediaLiveChannelAudioNormalizationSettings
 import Stratosphere.ResourceProperties.MediaLiveChannelAudioCodecSettings
+import Stratosphere.ResourceProperties.MediaLiveChannelAudioNormalizationSettings
 import Stratosphere.ResourceProperties.MediaLiveChannelRemixSettings
 
 -- | Full data type definition for MediaLiveChannelAudioDescription. See

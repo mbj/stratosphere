@@ -16,7 +16,7 @@ import Stratosphere.ResourceImports
 -- constructor.
 data MediaLiveChannelColorSpacePassthroughSettings =
   MediaLiveChannelColorSpacePassthroughSettings
-  { 
+  {
   } deriving (Show, Eq)
 
 instance ToJSON MediaLiveChannelColorSpacePassthroughSettings where
@@ -28,7 +28,7 @@ mediaLiveChannelColorSpacePassthroughSettings
   :: MediaLiveChannelColorSpacePassthroughSettings
 mediaLiveChannelColorSpacePassthroughSettings  =
   MediaLiveChannelColorSpacePassthroughSettings
-  { 
+  {
   }
 
 

@@ -16,7 +16,7 @@ import Stratosphere.ResourceImports
 -- convenient constructor.
 data MediaLiveChannelScte20PlusEmbeddedDestinationSettings =
   MediaLiveChannelScte20PlusEmbeddedDestinationSettings
-  { 
+  {
   } deriving (Show, Eq)
 
 instance ToJSON MediaLiveChannelScte20PlusEmbeddedDestinationSettings where
@@ -28,7 +28,7 @@ mediaLiveChannelScte20PlusEmbeddedDestinationSettings
   :: MediaLiveChannelScte20PlusEmbeddedDestinationSettings
 mediaLiveChannelScte20PlusEmbeddedDestinationSettings  =
   MediaLiveChannelScte20PlusEmbeddedDestinationSettings
-  { 
+  {
   }
 
 

@@ -10,9 +10,9 @@ module Stratosphere.Resources.AppFlowFlow where
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.AppFlowFlowDestinationFlowConfig
 import Stratosphere.ResourceProperties.AppFlowFlowSourceFlowConfig
-import Stratosphere.ResourceProperties.Tag
 import Stratosphere.ResourceProperties.AppFlowFlowTask
 import Stratosphere.ResourceProperties.AppFlowFlowTriggerConfig
+import Stratosphere.ResourceProperties.Tag
 
 -- | Full data type definition for AppFlowFlow. See 'appFlowFlow' for a more
 -- convenient constructor.

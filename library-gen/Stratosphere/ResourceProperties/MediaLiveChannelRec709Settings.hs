@@ -14,7 +14,7 @@ import Stratosphere.ResourceImports
 -- 'mediaLiveChannelRec709Settings' for a more convenient constructor.
 data MediaLiveChannelRec709Settings =
   MediaLiveChannelRec709Settings
-  { 
+  {
   } deriving (Show, Eq)
 
 instance ToJSON MediaLiveChannelRec709Settings where
@@ -26,7 +26,7 @@ mediaLiveChannelRec709Settings
   :: MediaLiveChannelRec709Settings
 mediaLiveChannelRec709Settings  =
   MediaLiveChannelRec709Settings
-  { 
+  {
   }
 
 

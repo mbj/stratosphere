@@ -8,9 +8,9 @@
 module Stratosphere.ResourceProperties.MediaLiveChannelUdpOutputSettings where
 
 import Stratosphere.ResourceImports
-import Stratosphere.ResourceProperties.MediaLiveChannelUdpContainerSettings
-import Stratosphere.ResourceProperties.MediaLiveChannelOutputLocationRef
 import Stratosphere.ResourceProperties.MediaLiveChannelFecOutputSettings
+import Stratosphere.ResourceProperties.MediaLiveChannelOutputLocationRef
+import Stratosphere.ResourceProperties.MediaLiveChannelUdpContainerSettings
 
 -- | Full data type definition for MediaLiveChannelUdpOutputSettings. See
 -- 'mediaLiveChannelUdpOutputSettings' for a more convenient constructor.
