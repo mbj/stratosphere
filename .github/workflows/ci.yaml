@@ -29,6 +29,6 @@ jobs:
     - name: Install dependencies
       run: stack build --test --only-dependencies
     - name: Build
-      run: stack build --fast --flag stratosphere:-library-only --test --no-run-tests stratosphere
+      run: stack build --fast --test --no-run-tests stratosphere
     - name: Run tests
-      run: stack build --fast --flag stratosphere:-library-only --test stratosphere
+      run: stack build --fast --test stratosphere

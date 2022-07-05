@@ -3,8 +3,6 @@ cabal-version: 1.12
 -- This file has been generated from package.yaml by hpack version 0.34.4.
 --
 -- see: https://github.com/sol/hpack
---
--- hash: bdba7fab108a43a19fa1c1f3d3a64abac4c6c2479f4905a960a319dd8a52b25e
 
 name:           stratosphere
 version:        0.60.0

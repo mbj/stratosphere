@@ -26,6 +26,7 @@ dependencies:
   - text >= 1.1
   - unordered-containers >= 0.2
 
+
 flags:
   library-only:
     description: "Don't compile examples"
