@@ -1,0 +1,8 @@
+---
+resolver: nightly-2022-07-04
+packages:
+- '.'
+- 'gen'
+flags:
+  stratosphere:
+    library-only: false
