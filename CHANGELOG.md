@@ -5,6 +5,7 @@
 * Maintainer change to [Markus Schirp](https://github.com/mbj)
 * Drop support for pre GHC 9.0, user older releases if you are on
   these GHCs. This reduces maintainer overhead.
+* Add github actions based CI
 
 ## 0.59.1
 
