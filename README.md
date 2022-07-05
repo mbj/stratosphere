@@ -143,5 +143,5 @@ Github issue.
 ## Development Build
 
 ```
-STACK_YAML=stack-9.0.yaml stack build --test --flag stratosphere:-library-only
+STACK_YAML=stack-9.0.yaml stack build --test
 ```
