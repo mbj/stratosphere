@@ -28,7 +28,7 @@ instance ToResourceProperties GlueClassifier where
     ResourceProperties
     { resourcePropertiesType = "AWS::Glue::Classifier"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("CsvClassifier",) . toJSON) _glueClassifierCsvClassifier
         , fmap (("GrokClassifier",) . toJSON) _glueClassifierGrokClassifier
         , fmap (("JsonClassifier",) . toJSON) _glueClassifierJsonClassifier

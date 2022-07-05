@@ -24,7 +24,7 @@ instance ToResourceProperties DMSCertificate where
     ResourceProperties
     { resourcePropertiesType = "AWS::DMS::Certificate"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("CertificateIdentifier",) . toJSON) _dMSCertificateCertificateIdentifier
         , fmap (("CertificatePem",) . toJSON) _dMSCertificateCertificatePem
         , fmap (("CertificateWallet",) . toJSON) _dMSCertificateCertificateWallet

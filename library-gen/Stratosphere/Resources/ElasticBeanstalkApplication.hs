@@ -24,7 +24,7 @@ instance ToResourceProperties ElasticBeanstalkApplication where
     ResourceProperties
     { resourcePropertiesType = "AWS::ElasticBeanstalk::Application"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("ApplicationName",) . toJSON) _elasticBeanstalkApplicationApplicationName
         , fmap (("Description",) . toJSON) _elasticBeanstalkApplicationDescription
         , fmap (("ResourceLifecycleConfig",) . toJSON) _elasticBeanstalkApplicationResourceLifecycleConfig

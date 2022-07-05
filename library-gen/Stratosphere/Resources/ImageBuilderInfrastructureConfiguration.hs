@@ -34,7 +34,7 @@ instance ToResourceProperties ImageBuilderInfrastructureConfiguration where
     ResourceProperties
     { resourcePropertiesType = "AWS::ImageBuilder::InfrastructureConfiguration"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Description",) . toJSON) _imageBuilderInfrastructureConfigurationDescription
         , (Just . ("InstanceProfileName",) . toJSON) _imageBuilderInfrastructureConfigurationInstanceProfileName
         , fmap (("InstanceTypes",) . toJSON) _imageBuilderInfrastructureConfigurationInstanceTypes

@@ -22,7 +22,7 @@ instance ToResourceProperties SESReceiptFilter where
     ResourceProperties
     { resourcePropertiesType = "AWS::SES::ReceiptFilter"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("Filter",) . toJSON) _sESReceiptFilterFilter
         ]
     }

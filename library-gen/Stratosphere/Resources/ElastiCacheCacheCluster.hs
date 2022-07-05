@@ -42,7 +42,7 @@ instance ToResourceProperties ElastiCacheCacheCluster where
     ResourceProperties
     { resourcePropertiesType = "AWS::ElastiCache::CacheCluster"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("AZMode",) . toJSON) _elastiCacheCacheClusterAZMode
         , fmap (("AutoMinorVersionUpgrade",) . toJSON) _elastiCacheCacheClusterAutoMinorVersionUpgrade
         , (Just . ("CacheNodeType",) . toJSON) _elastiCacheCacheClusterCacheNodeType

@@ -32,7 +32,7 @@ instance ToResourceProperties ElasticLoadBalancingV2LoadBalancer where
     ResourceProperties
     { resourcePropertiesType = "AWS::ElasticLoadBalancingV2::LoadBalancer"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("IpAddressType",) . toJSON) _elasticLoadBalancingV2LoadBalancerIpAddressType
         , fmap (("LoadBalancerAttributes",) . toJSON) _elasticLoadBalancingV2LoadBalancerLoadBalancerAttributes
         , fmap (("Name",) . toJSON) _elasticLoadBalancingV2LoadBalancerName

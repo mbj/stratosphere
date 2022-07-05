@@ -25,7 +25,7 @@ instance ToResourceProperties GluePartition where
     ResourceProperties
     { resourcePropertiesType = "AWS::Glue::Partition"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("CatalogId",) . toJSON) _gluePartitionCatalogId
         , (Just . ("DatabaseName",) . toJSON) _gluePartitionDatabaseName
         , (Just . ("PartitionInput",) . toJSON) _gluePartitionPartitionInput

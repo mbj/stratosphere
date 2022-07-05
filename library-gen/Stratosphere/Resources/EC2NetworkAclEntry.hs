@@ -31,7 +31,7 @@ instance ToResourceProperties EC2NetworkAclEntry where
     ResourceProperties
     { resourcePropertiesType = "AWS::EC2::NetworkAclEntry"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("CidrBlock",) . toJSON) _eC2NetworkAclEntryCidrBlock
         , fmap (("Egress",) . toJSON) _eC2NetworkAclEntryEgress
         , fmap (("Icmp",) . toJSON) _eC2NetworkAclEntryIcmp

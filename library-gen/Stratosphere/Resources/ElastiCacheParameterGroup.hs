@@ -24,7 +24,7 @@ instance ToResourceProperties ElastiCacheParameterGroup where
     ResourceProperties
     { resourcePropertiesType = "AWS::ElastiCache::ParameterGroup"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("CacheParameterGroupFamily",) . toJSON) _elastiCacheParameterGroupCacheParameterGroupFamily
         , (Just . ("Description",) . toJSON) _elastiCacheParameterGroupDescription
         , fmap (("Properties",) . toJSON) _elastiCacheParameterGroupProperties

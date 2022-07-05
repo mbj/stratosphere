@@ -26,7 +26,7 @@ instance ToResourceProperties AccessAnalyzerAnalyzer where
     ResourceProperties
     { resourcePropertiesType = "AWS::AccessAnalyzer::Analyzer"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("AnalyzerName",) . toJSON) _accessAnalyzerAnalyzerAnalyzerName
         , fmap (("ArchiveRules",) . toJSON) _accessAnalyzerAnalyzerArchiveRules
         , fmap (("Tags",) . toJSON) _accessAnalyzerAnalyzerTags

@@ -23,7 +23,7 @@ instance ToResourceProperties EC2VPNGatewayRoutePropagation where
     ResourceProperties
     { resourcePropertiesType = "AWS::EC2::VPNGatewayRoutePropagation"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("RouteTableIds",) . toJSON) _eC2VPNGatewayRoutePropagationRouteTableIds
         , (Just . ("VpnGatewayId",) . toJSON) _eC2VPNGatewayRoutePropagationVpnGatewayId
         ]

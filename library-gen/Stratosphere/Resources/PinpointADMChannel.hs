@@ -25,7 +25,7 @@ instance ToResourceProperties PinpointADMChannel where
     ResourceProperties
     { resourcePropertiesType = "AWS::Pinpoint::ADMChannel"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("ApplicationId",) . toJSON) _pinpointADMChannelApplicationId
         , (Just . ("ClientId",) . toJSON) _pinpointADMChannelClientId
         , (Just . ("ClientSecret",) . toJSON) _pinpointADMChannelClientSecret

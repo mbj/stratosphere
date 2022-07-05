@@ -23,7 +23,7 @@ instance ToResourceProperties SecretsManagerResourcePolicy where
     ResourceProperties
     { resourcePropertiesType = "AWS::SecretsManager::ResourcePolicy"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("ResourcePolicy",) . toJSON) _secretsManagerResourcePolicyResourcePolicy
         , (Just . ("SecretId",) . toJSON) _secretsManagerResourcePolicySecretId
         ]

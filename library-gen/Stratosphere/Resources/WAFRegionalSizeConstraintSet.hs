@@ -23,7 +23,7 @@ instance ToResourceProperties WAFRegionalSizeConstraintSet where
     ResourceProperties
     { resourcePropertiesType = "AWS::WAFRegional::SizeConstraintSet"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("Name",) . toJSON) _wAFRegionalSizeConstraintSetName
         , fmap (("SizeConstraints",) . toJSON) _wAFRegionalSizeConstraintSetSizeConstraints
         ]

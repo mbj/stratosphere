@@ -53,7 +53,7 @@ instance ToResourceProperties ElastiCacheReplicationGroup where
     ResourceProperties
     { resourcePropertiesType = "AWS::ElastiCache::ReplicationGroup"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("AtRestEncryptionEnabled",) . toJSON) _elastiCacheReplicationGroupAtRestEncryptionEnabled
         , fmap (("AuthToken",) . toJSON) _elastiCacheReplicationGroupAuthToken
         , fmap (("AutoMinorVersionUpgrade",) . toJSON) _elastiCacheReplicationGroupAutoMinorVersionUpgrade

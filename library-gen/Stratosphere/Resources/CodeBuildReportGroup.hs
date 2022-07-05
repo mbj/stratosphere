@@ -26,7 +26,7 @@ instance ToResourceProperties CodeBuildReportGroup where
     ResourceProperties
     { resourcePropertiesType = "AWS::CodeBuild::ReportGroup"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("ExportConfig",) . toJSON) _codeBuildReportGroupExportConfig
         , fmap (("Name",) . toJSON) _codeBuildReportGroupName
         , fmap (("Tags",) . toJSON) _codeBuildReportGroupTags

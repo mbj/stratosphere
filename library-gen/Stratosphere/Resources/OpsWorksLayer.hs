@@ -44,7 +44,7 @@ instance ToResourceProperties OpsWorksLayer where
     ResourceProperties
     { resourcePropertiesType = "AWS::OpsWorks::Layer"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Attributes",) . toJSON) _opsWorksLayerAttributes
         , (Just . ("AutoAssignElasticIps",) . toJSON) _opsWorksLayerAutoAssignElasticIps
         , (Just . ("AutoAssignPublicIps",) . toJSON) _opsWorksLayerAutoAssignPublicIps

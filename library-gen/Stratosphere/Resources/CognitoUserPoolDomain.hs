@@ -24,7 +24,7 @@ instance ToResourceProperties CognitoUserPoolDomain where
     ResourceProperties
     { resourcePropertiesType = "AWS::Cognito::UserPoolDomain"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("CustomDomainConfig",) . toJSON) _cognitoUserPoolDomainCustomDomainConfig
         , (Just . ("Domain",) . toJSON) _cognitoUserPoolDomainDomain
         , (Just . ("UserPoolId",) . toJSON) _cognitoUserPoolDomainUserPoolId

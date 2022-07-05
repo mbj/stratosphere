@@ -30,7 +30,7 @@ instance ToResourceProperties EventsRule where
     ResourceProperties
     { resourcePropertiesType = "AWS::Events::Rule"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Description",) . toJSON) _eventsRuleDescription
         , fmap (("EventBusName",) . toJSON) _eventsRuleEventBusName
         , fmap (("EventPattern",) . toJSON) _eventsRuleEventPattern

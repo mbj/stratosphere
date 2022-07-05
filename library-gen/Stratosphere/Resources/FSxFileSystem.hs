@@ -33,7 +33,7 @@ instance ToResourceProperties FSxFileSystem where
     ResourceProperties
     { resourcePropertiesType = "AWS::FSx::FileSystem"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("BackupId",) . toJSON) _fSxFileSystemBackupId
         , (Just . ("FileSystemType",) . toJSON) _fSxFileSystemFileSystemType
         , fmap (("KmsKeyId",) . toJSON) _fSxFileSystemKmsKeyId

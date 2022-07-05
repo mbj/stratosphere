@@ -22,7 +22,7 @@ instance ToResourceProperties EC2SpotFleet where
     ResourceProperties
     { resourcePropertiesType = "AWS::EC2::SpotFleet"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("SpotFleetRequestConfigData",) . toJSON) _eC2SpotFleetSpotFleetRequestConfigData
         ]
     }

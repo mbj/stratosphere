@@ -25,7 +25,7 @@ instance ToResourceProperties DetectiveMemberInvitation where
     ResourceProperties
     { resourcePropertiesType = "AWS::Detective::MemberInvitation"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("GraphArn",) . toJSON) _detectiveMemberInvitationGraphArn
         , (Just . ("MemberEmailAddress",) . toJSON) _detectiveMemberInvitationMemberEmailAddress
         , (Just . ("MemberId",) . toJSON) _detectiveMemberInvitationMemberId

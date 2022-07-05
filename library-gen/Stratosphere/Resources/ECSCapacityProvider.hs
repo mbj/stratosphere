@@ -25,7 +25,7 @@ instance ToResourceProperties ECSCapacityProvider where
     ResourceProperties
     { resourcePropertiesType = "AWS::ECS::CapacityProvider"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("AutoScalingGroupProvider",) . toJSON) _eCSCapacityProviderAutoScalingGroupProvider
         , fmap (("Name",) . toJSON) _eCSCapacityProviderName
         , fmap (("Tags",) . toJSON) _eCSCapacityProviderTags

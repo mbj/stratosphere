@@ -25,7 +25,7 @@ instance ToResourceProperties CloudFrontRealtimeLogConfig where
     ResourceProperties
     { resourcePropertiesType = "AWS::CloudFront::RealtimeLogConfig"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("EndPoints",) . toJSON) _cloudFrontRealtimeLogConfigEndPoints
         , (Just . ("Fields",) . toJSON) _cloudFrontRealtimeLogConfigFields
         , (Just . ("Name",) . toJSON) _cloudFrontRealtimeLogConfigName

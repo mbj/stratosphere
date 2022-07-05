@@ -31,7 +31,7 @@ instance ToResourceProperties SSMResourceDataSync where
     ResourceProperties
     { resourcePropertiesType = "AWS::SSM::ResourceDataSync"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("BucketName",) . toJSON) _sSMResourceDataSyncBucketName
         , fmap (("BucketPrefix",) . toJSON) _sSMResourceDataSyncBucketPrefix
         , fmap (("BucketRegion",) . toJSON) _sSMResourceDataSyncBucketRegion

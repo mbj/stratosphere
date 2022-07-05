@@ -24,7 +24,7 @@ instance ToResourceProperties EC2VolumeAttachment where
     ResourceProperties
     { resourcePropertiesType = "AWS::EC2::VolumeAttachment"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("Device",) . toJSON) _eC2VolumeAttachmentDevice
         , (Just . ("InstanceId",) . toJSON) _eC2VolumeAttachmentInstanceId
         , (Just . ("VolumeId",) . toJSON) _eC2VolumeAttachmentVolumeId

@@ -23,7 +23,7 @@ instance ToResourceProperties EC2LaunchTemplate where
     ResourceProperties
     { resourcePropertiesType = "AWS::EC2::LaunchTemplate"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("LaunchTemplateData",) . toJSON) _eC2LaunchTemplateLaunchTemplateData
         , fmap (("LaunchTemplateName",) . toJSON) _eC2LaunchTemplateLaunchTemplateName
         ]

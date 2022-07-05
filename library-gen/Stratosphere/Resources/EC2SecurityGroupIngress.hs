@@ -33,7 +33,7 @@ instance ToResourceProperties EC2SecurityGroupIngress where
     ResourceProperties
     { resourcePropertiesType = "AWS::EC2::SecurityGroupIngress"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("CidrIp",) . toJSON) _eC2SecurityGroupIngressCidrIp
         , fmap (("CidrIpv6",) . toJSON) _eC2SecurityGroupIngressCidrIpv6
         , fmap (("Description",) . toJSON) _eC2SecurityGroupIngressDescription

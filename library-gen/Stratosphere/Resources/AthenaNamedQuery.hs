@@ -25,7 +25,7 @@ instance ToResourceProperties AthenaNamedQuery where
     ResourceProperties
     { resourcePropertiesType = "AWS::Athena::NamedQuery"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("Database",) . toJSON) _athenaNamedQueryDatabase
         , fmap (("Description",) . toJSON) _athenaNamedQueryDescription
         , fmap (("Name",) . toJSON) _athenaNamedQueryName

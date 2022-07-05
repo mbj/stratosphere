@@ -25,7 +25,7 @@ instance ToResourceProperties SSMDocument where
     ResourceProperties
     { resourcePropertiesType = "AWS::SSM::Document"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("Content",) . toJSON) _sSMDocumentContent
         , fmap (("DocumentType",) . toJSON) _sSMDocumentDocumentType
         , fmap (("Name",) . toJSON) _sSMDocumentName

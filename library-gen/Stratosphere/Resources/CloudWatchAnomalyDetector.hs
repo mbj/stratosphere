@@ -27,7 +27,7 @@ instance ToResourceProperties CloudWatchAnomalyDetector where
     ResourceProperties
     { resourcePropertiesType = "AWS::CloudWatch::AnomalyDetector"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Configuration",) . toJSON) _cloudWatchAnomalyDetectorConfiguration
         , fmap (("Dimensions",) . toJSON) _cloudWatchAnomalyDetectorDimensions
         , (Just . ("MetricName",) . toJSON) _cloudWatchAnomalyDetectorMetricName

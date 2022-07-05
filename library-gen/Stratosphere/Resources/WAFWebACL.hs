@@ -26,7 +26,7 @@ instance ToResourceProperties WAFWebACL where
     ResourceProperties
     { resourcePropertiesType = "AWS::WAF::WebACL"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("DefaultAction",) . toJSON) _wAFWebACLDefaultAction
         , (Just . ("MetricName",) . toJSON) _wAFWebACLMetricName
         , (Just . ("Name",) . toJSON) _wAFWebACLName

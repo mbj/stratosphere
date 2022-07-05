@@ -38,7 +38,7 @@ instance ToResourceProperties ApiGatewayV2Api where
     ResourceProperties
     { resourcePropertiesType = "AWS::ApiGatewayV2::Api"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("ApiKeySelectionExpression",) . toJSON) _apiGatewayV2ApiApiKeySelectionExpression
         , fmap (("BasePath",) . toJSON) _apiGatewayV2ApiBasePath
         , fmap (("Body",) . toJSON) _apiGatewayV2ApiBody

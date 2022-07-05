@@ -24,7 +24,7 @@ instance ToResourceProperties ApiGatewayV2DomainName where
     ResourceProperties
     { resourcePropertiesType = "AWS::ApiGatewayV2::DomainName"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("DomainName",) . toJSON) _apiGatewayV2DomainNameDomainName
         , fmap (("DomainNameConfigurations",) . toJSON) _apiGatewayV2DomainNameDomainNameConfigurations
         , fmap (("Tags",) . toJSON) _apiGatewayV2DomainNameTags

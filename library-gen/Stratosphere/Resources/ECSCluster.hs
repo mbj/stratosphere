@@ -28,7 +28,7 @@ instance ToResourceProperties ECSCluster where
     ResourceProperties
     { resourcePropertiesType = "AWS::ECS::Cluster"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("CapacityProviders",) . toJSON) _eCSClusterCapacityProviders
         , fmap (("ClusterName",) . toJSON) _eCSClusterClusterName
         , fmap (("ClusterSettings",) . toJSON) _eCSClusterClusterSettings

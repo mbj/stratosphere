@@ -24,7 +24,7 @@ instance ToResourceProperties ElastiCacheSecurityGroupIngress where
     ResourceProperties
     { resourcePropertiesType = "AWS::ElastiCache::SecurityGroupIngress"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("CacheSecurityGroupName",) . toJSON) _elastiCacheSecurityGroupIngressCacheSecurityGroupName
         , (Just . ("EC2SecurityGroupName",) . toJSON) _elastiCacheSecurityGroupIngressEC2SecurityGroupName
         , fmap (("EC2SecurityGroupOwnerId",) . toJSON) _elastiCacheSecurityGroupIngressEC2SecurityGroupOwnerId

@@ -28,7 +28,7 @@ instance ToResourceProperties SecretsManagerSecret where
     ResourceProperties
     { resourcePropertiesType = "AWS::SecretsManager::Secret"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Description",) . toJSON) _secretsManagerSecretDescription
         , fmap (("GenerateSecretString",) . toJSON) _secretsManagerSecretGenerateSecretString
         , fmap (("KmsKeyId",) . toJSON) _secretsManagerSecretKmsKeyId

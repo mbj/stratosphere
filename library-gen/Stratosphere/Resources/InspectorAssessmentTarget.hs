@@ -23,7 +23,7 @@ instance ToResourceProperties InspectorAssessmentTarget where
     ResourceProperties
     { resourcePropertiesType = "AWS::Inspector::AssessmentTarget"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("AssessmentTargetName",) . toJSON) _inspectorAssessmentTargetAssessmentTargetName
         , fmap (("ResourceGroupArn",) . toJSON) _inspectorAssessmentTargetResourceGroupArn
         ]

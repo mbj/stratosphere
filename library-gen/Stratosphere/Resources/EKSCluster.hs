@@ -27,7 +27,7 @@ instance ToResourceProperties EKSCluster where
     ResourceProperties
     { resourcePropertiesType = "AWS::EKS::Cluster"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("EncryptionConfig",) . toJSON) _eKSClusterEncryptionConfig
         , fmap (("Name",) . toJSON) _eKSClusterName
         , (Just . ("ResourcesVpcConfig",) . toJSON) _eKSClusterResourcesVpcConfig

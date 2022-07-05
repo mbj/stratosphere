@@ -29,7 +29,7 @@ instance ToResourceProperties CassandraTable where
     ResourceProperties
     { resourcePropertiesType = "AWS::Cassandra::Table"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("BillingMode",) . toJSON) _cassandraTableBillingMode
         , fmap (("ClusteringKeyColumns",) . toJSON) _cassandraTableClusteringKeyColumns
         , (Just . ("KeyspaceName",) . toJSON) _cassandraTableKeyspaceName

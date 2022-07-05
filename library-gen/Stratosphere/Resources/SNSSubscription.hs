@@ -29,7 +29,7 @@ instance ToResourceProperties SNSSubscription where
     ResourceProperties
     { resourcePropertiesType = "AWS::SNS::Subscription"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("DeliveryPolicy",) . toJSON) _sNSSubscriptionDeliveryPolicy
         , fmap (("Endpoint",) . toJSON) _sNSSubscriptionEndpoint
         , fmap (("FilterPolicy",) . toJSON) _sNSSubscriptionFilterPolicy

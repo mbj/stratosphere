@@ -27,7 +27,7 @@ instance ToResourceProperties AppMeshVirtualRouter where
     ResourceProperties
     { resourcePropertiesType = "AWS::AppMesh::VirtualRouter"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("MeshName",) . toJSON) _appMeshVirtualRouterMeshName
         , fmap (("MeshOwner",) . toJSON) _appMeshVirtualRouterMeshOwner
         , (Just . ("Spec",) . toJSON) _appMeshVirtualRouterSpec

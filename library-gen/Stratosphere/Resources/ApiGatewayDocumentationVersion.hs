@@ -24,7 +24,7 @@ instance ToResourceProperties ApiGatewayDocumentationVersion where
     ResourceProperties
     { resourcePropertiesType = "AWS::ApiGateway::DocumentationVersion"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Description",) . toJSON) _apiGatewayDocumentationVersionDescription
         , (Just . ("DocumentationVersion",) . toJSON) _apiGatewayDocumentationVersionDocumentationVersion
         , (Just . ("RestApiId",) . toJSON) _apiGatewayDocumentationVersionRestApiId

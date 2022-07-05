@@ -24,7 +24,7 @@ instance ToResourceProperties NetworkManagerTransitGatewayRegistration where
     ResourceProperties
     { resourcePropertiesType = "AWS::NetworkManager::TransitGatewayRegistration"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("GlobalNetworkId",) . toJSON) _networkManagerTransitGatewayRegistrationGlobalNetworkId
         , (Just . ("TransitGatewayArn",) . toJSON) _networkManagerTransitGatewayRegistrationTransitGatewayArn
         ]

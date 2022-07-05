@@ -25,7 +25,7 @@ instance ToResourceProperties OpsWorksUserProfile where
     ResourceProperties
     { resourcePropertiesType = "AWS::OpsWorks::UserProfile"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("AllowSelfManagement",) . toJSON) _opsWorksUserProfileAllowSelfManagement
         , (Just . ("IamUserArn",) . toJSON) _opsWorksUserProfileIamUserArn
         , fmap (("SshPublicKey",) . toJSON) _opsWorksUserProfileSshPublicKey

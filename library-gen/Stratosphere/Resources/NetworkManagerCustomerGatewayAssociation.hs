@@ -26,7 +26,7 @@ instance ToResourceProperties NetworkManagerCustomerGatewayAssociation where
     ResourceProperties
     { resourcePropertiesType = "AWS::NetworkManager::CustomerGatewayAssociation"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("CustomerGatewayArn",) . toJSON) _networkManagerCustomerGatewayAssociationCustomerGatewayArn
         , (Just . ("DeviceId",) . toJSON) _networkManagerCustomerGatewayAssociationDeviceId
         , (Just . ("GlobalNetworkId",) . toJSON) _networkManagerCustomerGatewayAssociationGlobalNetworkId

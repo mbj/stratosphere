@@ -23,7 +23,7 @@ instance ToResourceProperties IoTPolicyPrincipalAttachment where
     ResourceProperties
     { resourcePropertiesType = "AWS::IoT::PolicyPrincipalAttachment"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("PolicyName",) . toJSON) _ioTPolicyPrincipalAttachmentPolicyName
         , (Just . ("Principal",) . toJSON) _ioTPolicyPrincipalAttachmentPrincipal
         ]

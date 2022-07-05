@@ -34,7 +34,7 @@ instance ToResourceProperties GameLiftMatchmakingConfiguration where
     ResourceProperties
     { resourcePropertiesType = "AWS::GameLift::MatchmakingConfiguration"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("AcceptanceRequired",) . toJSON) _gameLiftMatchmakingConfigurationAcceptanceRequired
         , fmap (("AcceptanceTimeoutSeconds",) . toJSON) _gameLiftMatchmakingConfigurationAcceptanceTimeoutSeconds
         , fmap (("AdditionalPlayerCount",) . toJSON) _gameLiftMatchmakingConfigurationAdditionalPlayerCount

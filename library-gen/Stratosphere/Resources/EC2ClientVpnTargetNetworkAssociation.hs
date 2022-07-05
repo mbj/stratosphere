@@ -23,7 +23,7 @@ instance ToResourceProperties EC2ClientVpnTargetNetworkAssociation where
     ResourceProperties
     { resourcePropertiesType = "AWS::EC2::ClientVpnTargetNetworkAssociation"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("ClientVpnEndpointId",) . toJSON) _eC2ClientVpnTargetNetworkAssociationClientVpnEndpointId
         , (Just . ("SubnetId",) . toJSON) _eC2ClientVpnTargetNetworkAssociationSubnetId
         ]

@@ -36,7 +36,7 @@ instance ToResourceProperties OpsWorksApp where
     ResourceProperties
     { resourcePropertiesType = "AWS::OpsWorks::App"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("AppSource",) . toJSON) _opsWorksAppAppSource
         , fmap (("Attributes",) . toJSON) _opsWorksAppAttributes
         , fmap (("DataSources",) . toJSON) _opsWorksAppDataSources

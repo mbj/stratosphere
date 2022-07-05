@@ -27,7 +27,7 @@ instance ToResourceProperties AppConfigEnvironment where
     ResourceProperties
     { resourcePropertiesType = "AWS::AppConfig::Environment"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("ApplicationId",) . toJSON) _appConfigEnvironmentApplicationId
         , fmap (("Description",) . toJSON) _appConfigEnvironmentDescription
         , fmap (("Monitors",) . toJSON) _appConfigEnvironmentMonitors

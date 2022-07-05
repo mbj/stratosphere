@@ -30,7 +30,7 @@ instance ToResourceProperties PinpointAPNSSandboxChannel where
     ResourceProperties
     { resourcePropertiesType = "AWS::Pinpoint::APNSSandboxChannel"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("ApplicationId",) . toJSON) _pinpointAPNSSandboxChannelApplicationId
         , fmap (("BundleId",) . toJSON) _pinpointAPNSSandboxChannelBundleId
         , fmap (("Certificate",) . toJSON) _pinpointAPNSSandboxChannelCertificate

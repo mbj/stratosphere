@@ -45,7 +45,7 @@ instance ToResourceProperties ElasticLoadBalancingLoadBalancer where
     ResourceProperties
     { resourcePropertiesType = "AWS::ElasticLoadBalancing::LoadBalancer"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("AccessLoggingPolicy",) . toJSON) _elasticLoadBalancingLoadBalancerAccessLoggingPolicy
         , fmap (("AppCookieStickinessPolicy",) . toJSON) _elasticLoadBalancingLoadBalancerAppCookieStickinessPolicy
         , fmap (("AvailabilityZones",) . toJSON) _elasticLoadBalancingLoadBalancerAvailabilityZones

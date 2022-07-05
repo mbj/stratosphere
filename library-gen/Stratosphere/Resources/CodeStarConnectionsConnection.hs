@@ -25,7 +25,7 @@ instance ToResourceProperties CodeStarConnectionsConnection where
     ResourceProperties
     { resourcePropertiesType = "AWS::CodeStarConnections::Connection"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("ConnectionName",) . toJSON) _codeStarConnectionsConnectionConnectionName
         , fmap (("HostArn",) . toJSON) _codeStarConnectionsConnectionHostArn
         , fmap (("ProviderType",) . toJSON) _codeStarConnectionsConnectionProviderType

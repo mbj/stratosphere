@@ -29,7 +29,7 @@ instance ToResourceProperties Route53HostedZone where
     ResourceProperties
     { resourcePropertiesType = "AWS::Route53::HostedZone"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("HostedZoneConfig",) . toJSON) _route53HostedZoneHostedZoneConfig
         , fmap (("HostedZoneTags",) . toJSON) _route53HostedZoneHostedZoneTags
         , (Just . ("Name",) . toJSON) _route53HostedZoneName

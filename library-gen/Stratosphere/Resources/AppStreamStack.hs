@@ -38,7 +38,7 @@ instance ToResourceProperties AppStreamStack where
     ResourceProperties
     { resourcePropertiesType = "AWS::AppStream::Stack"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("AccessEndpoints",) . toJSON) _appStreamStackAccessEndpoints
         , fmap (("ApplicationSettings",) . toJSON) _appStreamStackApplicationSettings
         , fmap (("AttributesToDelete",) . toJSON) _appStreamStackAttributesToDelete

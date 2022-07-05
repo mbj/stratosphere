@@ -36,7 +36,7 @@ instance ToResourceProperties ApiGatewayMethod where
     ResourceProperties
     { resourcePropertiesType = "AWS::ApiGateway::Method"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("ApiKeyRequired",) . toJSON) _apiGatewayMethodApiKeyRequired
         , fmap (("AuthorizationScopes",) . toJSON) _apiGatewayMethodAuthorizationScopes
         , fmap (("AuthorizationType",) . toJSON) _apiGatewayMethodAuthorizationType

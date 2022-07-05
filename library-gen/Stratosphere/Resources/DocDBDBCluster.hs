@@ -39,7 +39,7 @@ instance ToResourceProperties DocDBDBCluster where
     ResourceProperties
     { resourcePropertiesType = "AWS::DocDB::DBCluster"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("AvailabilityZones",) . toJSON) _docDBDBClusterAvailabilityZones
         , fmap (("BackupRetentionPeriod",) . toJSON) _docDBDBClusterBackupRetentionPeriod
         , fmap (("DBClusterIdentifier",) . toJSON) _docDBDBClusterDBClusterIdentifier

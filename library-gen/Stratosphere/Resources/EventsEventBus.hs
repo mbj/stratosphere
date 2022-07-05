@@ -23,7 +23,7 @@ instance ToResourceProperties EventsEventBus where
     ResourceProperties
     { resourcePropertiesType = "AWS::Events::EventBus"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("EventSourceName",) . toJSON) _eventsEventBusEventSourceName
         , (Just . ("Name",) . toJSON) _eventsEventBusName
         ]

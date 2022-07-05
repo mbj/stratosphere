@@ -22,7 +22,7 @@ instance ToResourceProperties InspectorResourceGroup where
     ResourceProperties
     { resourcePropertiesType = "AWS::Inspector::ResourceGroup"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("ResourceGroupTags",) . toJSON) _inspectorResourceGroupResourceGroupTags
         ]
     }

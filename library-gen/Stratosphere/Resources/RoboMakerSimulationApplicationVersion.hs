@@ -24,7 +24,7 @@ instance ToResourceProperties RoboMakerSimulationApplicationVersion where
     ResourceProperties
     { resourcePropertiesType = "AWS::RoboMaker::SimulationApplicationVersion"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("Application",) . toJSON) _roboMakerSimulationApplicationVersionApplication
         , fmap (("CurrentRevisionId",) . toJSON) _roboMakerSimulationApplicationVersionCurrentRevisionId
         ]

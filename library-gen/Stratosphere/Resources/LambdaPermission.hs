@@ -27,7 +27,7 @@ instance ToResourceProperties LambdaPermission where
     ResourceProperties
     { resourcePropertiesType = "AWS::Lambda::Permission"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("Action",) . toJSON) _lambdaPermissionAction
         , fmap (("EventSourceToken",) . toJSON) _lambdaPermissionEventSourceToken
         , (Just . ("FunctionName",) . toJSON) _lambdaPermissionFunctionName

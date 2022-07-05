@@ -26,7 +26,7 @@ instance ToResourceProperties NeptuneDBParameterGroup where
     ResourceProperties
     { resourcePropertiesType = "AWS::Neptune::DBParameterGroup"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("Description",) . toJSON) _neptuneDBParameterGroupDescription
         , (Just . ("Family",) . toJSON) _neptuneDBParameterGroupFamily
         , fmap (("Name",) . toJSON) _neptuneDBParameterGroupName

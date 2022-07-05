@@ -29,7 +29,7 @@ instance ToResourceProperties GreengrassGroupVersion where
     ResourceProperties
     { resourcePropertiesType = "AWS::Greengrass::GroupVersion"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("ConnectorDefinitionVersionArn",) . toJSON) _greengrassGroupVersionConnectorDefinitionVersionArn
         , fmap (("CoreDefinitionVersionArn",) . toJSON) _greengrassGroupVersionCoreDefinitionVersionArn
         , fmap (("DeviceDefinitionVersionArn",) . toJSON) _greengrassGroupVersionDeviceDefinitionVersionArn

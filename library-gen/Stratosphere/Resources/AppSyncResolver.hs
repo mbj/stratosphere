@@ -35,7 +35,7 @@ instance ToResourceProperties AppSyncResolver where
     ResourceProperties
     { resourcePropertiesType = "AWS::AppSync::Resolver"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("ApiId",) . toJSON) _appSyncResolverApiId
         , fmap (("CachingConfig",) . toJSON) _appSyncResolverCachingConfig
         , fmap (("DataSourceName",) . toJSON) _appSyncResolverDataSourceName

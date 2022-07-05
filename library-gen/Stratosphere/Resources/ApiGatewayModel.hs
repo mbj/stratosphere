@@ -26,7 +26,7 @@ instance ToResourceProperties ApiGatewayModel where
     ResourceProperties
     { resourcePropertiesType = "AWS::ApiGateway::Model"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("ContentType",) . toJSON) _apiGatewayModelContentType
         , fmap (("Description",) . toJSON) _apiGatewayModelDescription
         , fmap (("Name",) . toJSON) _apiGatewayModelName

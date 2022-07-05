@@ -42,7 +42,7 @@ instance ToResourceProperties ECSTaskDefinition where
     ResourceProperties
     { resourcePropertiesType = "AWS::ECS::TaskDefinition"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("ContainerDefinitions",) . toJSON) _eCSTaskDefinitionContainerDefinitions
         , fmap (("Cpu",) . toJSON) _eCSTaskDefinitionCpu
         , fmap (("ExecutionRoleArn",) . toJSON) _eCSTaskDefinitionExecutionRoleArn

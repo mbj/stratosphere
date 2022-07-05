@@ -38,7 +38,7 @@ instance ToResourceProperties AmplifyApp where
     ResourceProperties
     { resourcePropertiesType = "AWS::Amplify::App"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("AccessToken",) . toJSON) _amplifyAppAccessToken
         , fmap (("AutoBranchCreationConfig",) . toJSON) _amplifyAppAutoBranchCreationConfig
         , fmap (("BasicAuthConfig",) . toJSON) _amplifyAppBasicAuthConfig

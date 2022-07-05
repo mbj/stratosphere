@@ -23,7 +23,7 @@ instance ToResourceProperties WAFRegionalXssMatchSet where
     ResourceProperties
     { resourcePropertiesType = "AWS::WAFRegional::XssMatchSet"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("Name",) . toJSON) _wAFRegionalXssMatchSetName
         , fmap (("XssMatchTuples",) . toJSON) _wAFRegionalXssMatchSetXssMatchTuples
         ]

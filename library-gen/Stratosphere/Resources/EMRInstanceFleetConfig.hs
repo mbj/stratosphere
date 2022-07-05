@@ -29,7 +29,7 @@ instance ToResourceProperties EMRInstanceFleetConfig where
     ResourceProperties
     { resourcePropertiesType = "AWS::EMR::InstanceFleetConfig"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("ClusterId",) . toJSON) _eMRInstanceFleetConfigClusterId
         , (Just . ("InstanceFleetType",) . toJSON) _eMRInstanceFleetConfigInstanceFleetType
         , fmap (("InstanceTypeConfigs",) . toJSON) _eMRInstanceFleetConfigInstanceTypeConfigs

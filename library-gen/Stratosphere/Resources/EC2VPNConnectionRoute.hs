@@ -23,7 +23,7 @@ instance ToResourceProperties EC2VPNConnectionRoute where
     ResourceProperties
     { resourcePropertiesType = "AWS::EC2::VPNConnectionRoute"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("DestinationCidrBlock",) . toJSON) _eC2VPNConnectionRouteDestinationCidrBlock
         , (Just . ("VpnConnectionId",) . toJSON) _eC2VPNConnectionRouteVpnConnectionId
         ]

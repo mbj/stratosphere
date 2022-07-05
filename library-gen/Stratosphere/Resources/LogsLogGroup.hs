@@ -23,7 +23,7 @@ instance ToResourceProperties LogsLogGroup where
     ResourceProperties
     { resourcePropertiesType = "AWS::Logs::LogGroup"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("LogGroupName",) . toJSON) _logsLogGroupLogGroupName
         , fmap (("RetentionInDays",) . toJSON) _logsLogGroupRetentionInDays
         ]

@@ -33,7 +33,7 @@ instance ToResourceProperties IoTAnalyticsDataset where
     ResourceProperties
     { resourcePropertiesType = "AWS::IoTAnalytics::Dataset"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("Actions",) . toJSON) _ioTAnalyticsDatasetActions
         , fmap (("ContentDeliveryRules",) . toJSON) _ioTAnalyticsDatasetContentDeliveryRules
         , fmap (("DatasetName",) . toJSON) _ioTAnalyticsDatasetDatasetName

@@ -26,7 +26,7 @@ instance ToResourceProperties WAFv2RegexPatternSet where
     ResourceProperties
     { resourcePropertiesType = "AWS::WAFv2::RegexPatternSet"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Description",) . toJSON) _wAFv2RegexPatternSetDescription
         , fmap (("Name",) . toJSON) _wAFv2RegexPatternSetName
         , (Just . ("RegularExpressionList",) . toJSON) _wAFv2RegexPatternSetRegularExpressionList

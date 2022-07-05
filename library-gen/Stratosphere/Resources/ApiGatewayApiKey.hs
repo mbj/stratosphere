@@ -30,7 +30,7 @@ instance ToResourceProperties ApiGatewayApiKey where
     ResourceProperties
     { resourcePropertiesType = "AWS::ApiGateway::ApiKey"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("CustomerId",) . toJSON) _apiGatewayApiKeyCustomerId
         , fmap (("Description",) . toJSON) _apiGatewayApiKeyDescription
         , fmap (("Enabled",) . toJSON) _apiGatewayApiKeyEnabled

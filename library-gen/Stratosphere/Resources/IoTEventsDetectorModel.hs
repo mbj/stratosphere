@@ -29,7 +29,7 @@ instance ToResourceProperties IoTEventsDetectorModel where
     ResourceProperties
     { resourcePropertiesType = "AWS::IoTEvents::DetectorModel"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("DetectorModelDefinition",) . toJSON) _ioTEventsDetectorModelDetectorModelDefinition
         , fmap (("DetectorModelDescription",) . toJSON) _ioTEventsDetectorModelDetectorModelDescription
         , fmap (("DetectorModelName",) . toJSON) _ioTEventsDetectorModelDetectorModelName

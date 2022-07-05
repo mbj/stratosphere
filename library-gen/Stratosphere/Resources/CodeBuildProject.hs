@@ -52,7 +52,7 @@ instance ToResourceProperties CodeBuildProject where
     ResourceProperties
     { resourcePropertiesType = "AWS::CodeBuild::Project"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("Artifacts",) . toJSON) _codeBuildProjectArtifacts
         , fmap (("BadgeEnabled",) . toJSON) _codeBuildProjectBadgeEnabled
         , fmap (("BuildBatchConfig",) . toJSON) _codeBuildProjectBuildBatchConfig

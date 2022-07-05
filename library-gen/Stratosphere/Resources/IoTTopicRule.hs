@@ -23,7 +23,7 @@ instance ToResourceProperties IoTTopicRule where
     ResourceProperties
     { resourcePropertiesType = "AWS::IoT::TopicRule"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("RuleName",) . toJSON) _ioTTopicRuleRuleName
         , (Just . ("TopicRulePayload",) . toJSON) _ioTTopicRuleTopicRulePayload
         ]

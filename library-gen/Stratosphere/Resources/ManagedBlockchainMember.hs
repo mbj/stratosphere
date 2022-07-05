@@ -26,7 +26,7 @@ instance ToResourceProperties ManagedBlockchainMember where
     ResourceProperties
     { resourcePropertiesType = "AWS::ManagedBlockchain::Member"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("InvitationId",) . toJSON) _managedBlockchainMemberInvitationId
         , (Just . ("MemberConfiguration",) . toJSON) _managedBlockchainMemberMemberConfiguration
         , fmap (("NetworkConfiguration",) . toJSON) _managedBlockchainMemberNetworkConfiguration

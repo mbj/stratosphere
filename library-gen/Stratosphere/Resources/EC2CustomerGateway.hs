@@ -25,7 +25,7 @@ instance ToResourceProperties EC2CustomerGateway where
     ResourceProperties
     { resourcePropertiesType = "AWS::EC2::CustomerGateway"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("BgpAsn",) . toJSON) _eC2CustomerGatewayBgpAsn
         , (Just . ("IpAddress",) . toJSON) _eC2CustomerGatewayIpAddress
         , fmap (("Tags",) . toJSON) _eC2CustomerGatewayTags

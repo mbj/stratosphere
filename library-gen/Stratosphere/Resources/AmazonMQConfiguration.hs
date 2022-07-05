@@ -27,7 +27,7 @@ instance ToResourceProperties AmazonMQConfiguration where
     ResourceProperties
     { resourcePropertiesType = "AWS::AmazonMQ::Configuration"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("Data",) . toJSON) _amazonMQConfigurationData
         , fmap (("Description",) . toJSON) _amazonMQConfigurationDescription
         , (Just . ("EngineType",) . toJSON) _amazonMQConfigurationEngineType

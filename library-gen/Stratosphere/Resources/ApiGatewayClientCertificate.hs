@@ -23,7 +23,7 @@ instance ToResourceProperties ApiGatewayClientCertificate where
     ResourceProperties
     { resourcePropertiesType = "AWS::ApiGateway::ClientCertificate"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Description",) . toJSON) _apiGatewayClientCertificateDescription
         , fmap (("Tags",) . toJSON) _apiGatewayClientCertificateTags
         ]

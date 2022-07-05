@@ -35,7 +35,7 @@ instance ToResourceProperties EC2ClientVpnEndpoint where
     ResourceProperties
     { resourcePropertiesType = "AWS::EC2::ClientVpnEndpoint"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("AuthenticationOptions",) . toJSON) _eC2ClientVpnEndpointAuthenticationOptions
         , (Just . ("ClientCidrBlock",) . toJSON) _eC2ClientVpnEndpointClientCidrBlock
         , (Just . ("ConnectionLogOptions",) . toJSON) _eC2ClientVpnEndpointConnectionLogOptions

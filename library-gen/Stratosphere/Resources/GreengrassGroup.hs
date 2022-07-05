@@ -25,7 +25,7 @@ instance ToResourceProperties GreengrassGroup where
     ResourceProperties
     { resourcePropertiesType = "AWS::Greengrass::Group"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("InitialVersion",) . toJSON) _greengrassGroupInitialVersion
         , (Just . ("Name",) . toJSON) _greengrassGroupName
         , fmap (("RoleArn",) . toJSON) _greengrassGroupRoleArn

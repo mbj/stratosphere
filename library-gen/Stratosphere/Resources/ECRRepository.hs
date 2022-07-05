@@ -27,7 +27,7 @@ instance ToResourceProperties ECRRepository where
     ResourceProperties
     { resourcePropertiesType = "AWS::ECR::Repository"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("ImageScanningConfiguration",) . toJSON) _eCRRepositoryImageScanningConfiguration
         , fmap (("ImageTagMutability",) . toJSON) _eCRRepositoryImageTagMutability
         , fmap (("LifecyclePolicy",) . toJSON) _eCRRepositoryLifecyclePolicy

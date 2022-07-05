@@ -26,7 +26,7 @@ instance ToResourceProperties RoboMakerRobot where
     ResourceProperties
     { resourcePropertiesType = "AWS::RoboMaker::Robot"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("Architecture",) . toJSON) _roboMakerRobotArchitecture
         , fmap (("Fleet",) . toJSON) _roboMakerRobotFleet
         , (Just . ("GreengrassGroupId",) . toJSON) _roboMakerRobotGreengrassGroupId

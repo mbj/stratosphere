@@ -37,7 +37,7 @@ instance ToResourceProperties MSKCluster where
     ResourceProperties
     { resourcePropertiesType = "AWS::MSK::Cluster"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("BrokerNodeGroupInfo",) . toJSON) _mSKClusterBrokerNodeGroupInfo
         , fmap (("ClientAuthentication",) . toJSON) _mSKClusterClientAuthentication
         , (Just . ("ClusterName",) . toJSON) _mSKClusterClusterName

@@ -26,7 +26,7 @@ instance ToResourceProperties BackupBackupVault where
     ResourceProperties
     { resourcePropertiesType = "AWS::Backup::BackupVault"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("AccessPolicy",) . toJSON) _backupBackupVaultAccessPolicy
         , (Just . ("BackupVaultName",) . toJSON) _backupBackupVaultBackupVaultName
         , fmap (("BackupVaultTags",) . toJSON) _backupBackupVaultBackupVaultTags

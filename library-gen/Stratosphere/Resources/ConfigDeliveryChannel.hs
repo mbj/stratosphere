@@ -26,7 +26,7 @@ instance ToResourceProperties ConfigDeliveryChannel where
     ResourceProperties
     { resourcePropertiesType = "AWS::Config::DeliveryChannel"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("ConfigSnapshotDeliveryProperties",) . toJSON) _configDeliveryChannelConfigSnapshotDeliveryProperties
         , fmap (("Name",) . toJSON) _configDeliveryChannelName
         , (Just . ("S3BucketName",) . toJSON) _configDeliveryChannelS3BucketName

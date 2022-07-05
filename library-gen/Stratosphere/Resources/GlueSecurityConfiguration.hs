@@ -23,7 +23,7 @@ instance ToResourceProperties GlueSecurityConfiguration where
     ResourceProperties
     { resourcePropertiesType = "AWS::Glue::SecurityConfiguration"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("EncryptionConfiguration",) . toJSON) _glueSecurityConfigurationEncryptionConfiguration
         , (Just . ("Name",) . toJSON) _glueSecurityConfigurationName
         ]

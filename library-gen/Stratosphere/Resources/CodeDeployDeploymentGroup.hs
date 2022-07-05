@@ -45,7 +45,7 @@ instance ToResourceProperties CodeDeployDeploymentGroup where
     ResourceProperties
     { resourcePropertiesType = "AWS::CodeDeploy::DeploymentGroup"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("AlarmConfiguration",) . toJSON) _codeDeployDeploymentGroupAlarmConfiguration
         , (Just . ("ApplicationName",) . toJSON) _codeDeployDeploymentGroupApplicationName
         , fmap (("AutoRollbackConfiguration",) . toJSON) _codeDeployDeploymentGroupAutoRollbackConfiguration

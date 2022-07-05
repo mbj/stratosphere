@@ -23,7 +23,7 @@ instance ToResourceProperties IoTThingsGraphFlowTemplate where
     ResourceProperties
     { resourcePropertiesType = "AWS::IoTThingsGraph::FlowTemplate"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("CompatibleNamespaceVersion",) . toJSON) _ioTThingsGraphFlowTemplateCompatibleNamespaceVersion
         , (Just . ("Definition",) . toJSON) _ioTThingsGraphFlowTemplateDefinition
         ]

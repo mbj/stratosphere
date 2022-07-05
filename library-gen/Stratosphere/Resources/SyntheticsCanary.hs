@@ -37,7 +37,7 @@ instance ToResourceProperties SyntheticsCanary where
     ResourceProperties
     { resourcePropertiesType = "AWS::Synthetics::Canary"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("ArtifactS3Location",) . toJSON) _syntheticsCanaryArtifactS3Location
         , (Just . ("Code",) . toJSON) _syntheticsCanaryCode
         , (Just . ("ExecutionRoleArn",) . toJSON) _syntheticsCanaryExecutionRoleArn

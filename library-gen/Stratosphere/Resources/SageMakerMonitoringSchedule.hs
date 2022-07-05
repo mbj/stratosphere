@@ -33,7 +33,7 @@ instance ToResourceProperties SageMakerMonitoringSchedule where
     ResourceProperties
     { resourcePropertiesType = "AWS::SageMaker::MonitoringSchedule"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("CreationTime",) . toJSON) _sageMakerMonitoringScheduleCreationTime
         , fmap (("EndpointName",) . toJSON) _sageMakerMonitoringScheduleEndpointName
         , fmap (("FailureReason",) . toJSON) _sageMakerMonitoringScheduleFailureReason

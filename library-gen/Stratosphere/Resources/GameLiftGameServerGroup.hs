@@ -37,7 +37,7 @@ instance ToResourceProperties GameLiftGameServerGroup where
     ResourceProperties
     { resourcePropertiesType = "AWS::GameLift::GameServerGroup"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("AutoScalingPolicy",) . toJSON) _gameLiftGameServerGroupAutoScalingPolicy
         , fmap (("BalancingStrategy",) . toJSON) _gameLiftGameServerGroupBalancingStrategy
         , fmap (("DeleteOption",) . toJSON) _gameLiftGameServerGroupDeleteOption

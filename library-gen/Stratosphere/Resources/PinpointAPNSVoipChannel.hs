@@ -30,7 +30,7 @@ instance ToResourceProperties PinpointAPNSVoipChannel where
     ResourceProperties
     { resourcePropertiesType = "AWS::Pinpoint::APNSVoipChannel"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("ApplicationId",) . toJSON) _pinpointAPNSVoipChannelApplicationId
         , fmap (("BundleId",) . toJSON) _pinpointAPNSVoipChannelBundleId
         , fmap (("Certificate",) . toJSON) _pinpointAPNSVoipChannelCertificate

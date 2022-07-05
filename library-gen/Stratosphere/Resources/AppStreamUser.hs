@@ -26,7 +26,7 @@ instance ToResourceProperties AppStreamUser where
     ResourceProperties
     { resourcePropertiesType = "AWS::AppStream::User"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("AuthenticationType",) . toJSON) _appStreamUserAuthenticationType
         , fmap (("FirstName",) . toJSON) _appStreamUserFirstName
         , fmap (("LastName",) . toJSON) _appStreamUserLastName

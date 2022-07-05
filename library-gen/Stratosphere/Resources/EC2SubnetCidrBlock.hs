@@ -23,7 +23,7 @@ instance ToResourceProperties EC2SubnetCidrBlock where
     ResourceProperties
     { resourcePropertiesType = "AWS::EC2::SubnetCidrBlock"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("Ipv6CidrBlock",) . toJSON) _eC2SubnetCidrBlockIpv6CidrBlock
         , (Just . ("SubnetId",) . toJSON) _eC2SubnetCidrBlockSubnetId
         ]

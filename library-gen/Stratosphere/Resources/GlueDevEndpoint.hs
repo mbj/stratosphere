@@ -36,7 +36,7 @@ instance ToResourceProperties GlueDevEndpoint where
     ResourceProperties
     { resourcePropertiesType = "AWS::Glue::DevEndpoint"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Arguments",) . toJSON) _glueDevEndpointArguments
         , fmap (("EndpointName",) . toJSON) _glueDevEndpointEndpointName
         , fmap (("ExtraJarsS3Path",) . toJSON) _glueDevEndpointExtraJarsS3Path

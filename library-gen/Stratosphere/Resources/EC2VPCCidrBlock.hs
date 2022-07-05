@@ -24,7 +24,7 @@ instance ToResourceProperties EC2VPCCidrBlock where
     ResourceProperties
     { resourcePropertiesType = "AWS::EC2::VPCCidrBlock"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("AmazonProvidedIpv6CidrBlock",) . toJSON) _eC2VPCCidrBlockAmazonProvidedIpv6CidrBlock
         , fmap (("CidrBlock",) . toJSON) _eC2VPCCidrBlockCidrBlock
         , (Just . ("VpcId",) . toJSON) _eC2VPCCidrBlockVpcId

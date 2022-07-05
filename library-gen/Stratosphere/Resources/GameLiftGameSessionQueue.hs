@@ -26,7 +26,7 @@ instance ToResourceProperties GameLiftGameSessionQueue where
     ResourceProperties
     { resourcePropertiesType = "AWS::GameLift::GameSessionQueue"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Destinations",) . toJSON) _gameLiftGameSessionQueueDestinations
         , (Just . ("Name",) . toJSON) _gameLiftGameSessionQueueName
         , fmap (("PlayerLatencyPolicies",) . toJSON) _gameLiftGameSessionQueuePlayerLatencyPolicies

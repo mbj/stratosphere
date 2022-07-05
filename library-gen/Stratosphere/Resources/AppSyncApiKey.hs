@@ -24,7 +24,7 @@ instance ToResourceProperties AppSyncApiKey where
     ResourceProperties
     { resourcePropertiesType = "AWS::AppSync::ApiKey"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("ApiId",) . toJSON) _appSyncApiKeyApiId
         , fmap (("Description",) . toJSON) _appSyncApiKeyDescription
         , fmap (("Expires",) . toJSON) _appSyncApiKeyExpires

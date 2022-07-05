@@ -26,7 +26,7 @@ instance ToResourceProperties EC2VPC where
     ResourceProperties
     { resourcePropertiesType = "AWS::EC2::VPC"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("CidrBlock",) . toJSON) _eC2VPCCidrBlock
         , fmap (("EnableDnsHostnames",) . toJSON) _eC2VPCEnableDnsHostnames
         , fmap (("EnableDnsSupport",) . toJSON) _eC2VPCEnableDnsSupport

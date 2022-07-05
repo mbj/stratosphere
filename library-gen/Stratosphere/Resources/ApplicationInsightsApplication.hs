@@ -33,7 +33,7 @@ instance ToResourceProperties ApplicationInsightsApplication where
     ResourceProperties
     { resourcePropertiesType = "AWS::ApplicationInsights::Application"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("AutoConfigurationEnabled",) . toJSON) _applicationInsightsApplicationAutoConfigurationEnabled
         , fmap (("CWEMonitorEnabled",) . toJSON) _applicationInsightsApplicationCWEMonitorEnabled
         , fmap (("ComponentMonitoringSettings",) . toJSON) _applicationInsightsApplicationComponentMonitoringSettings

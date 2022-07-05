@@ -26,7 +26,7 @@ instance ToResourceProperties LakeFormationPermissions where
     ResourceProperties
     { resourcePropertiesType = "AWS::LakeFormation::Permissions"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("DataLakePrincipal",) . toJSON) _lakeFormationPermissionsDataLakePrincipal
         , fmap (("Permissions",) . toJSON) _lakeFormationPermissionsPermissions
         , fmap (("PermissionsWithGrantOption",) . toJSON) _lakeFormationPermissionsPermissionsWithGrantOption

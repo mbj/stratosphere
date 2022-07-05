@@ -24,7 +24,7 @@ instance ToResourceProperties NetworkManagerLinkAssociation where
     ResourceProperties
     { resourcePropertiesType = "AWS::NetworkManager::LinkAssociation"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("DeviceId",) . toJSON) _networkManagerLinkAssociationDeviceId
         , (Just . ("GlobalNetworkId",) . toJSON) _networkManagerLinkAssociationGlobalNetworkId
         , (Just . ("LinkId",) . toJSON) _networkManagerLinkAssociationLinkId

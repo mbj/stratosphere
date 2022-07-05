@@ -27,7 +27,7 @@ instance ToResourceProperties ApiGatewayDeployment where
     ResourceProperties
     { resourcePropertiesType = "AWS::ApiGateway::Deployment"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("DeploymentCanarySettings",) . toJSON) _apiGatewayDeploymentDeploymentCanarySettings
         , fmap (("Description",) . toJSON) _apiGatewayDeploymentDescription
         , (Just . ("RestApiId",) . toJSON) _apiGatewayDeploymentRestApiId

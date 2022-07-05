@@ -29,7 +29,7 @@ instance ToResourceProperties EC2VPCEndpoint where
     ResourceProperties
     { resourcePropertiesType = "AWS::EC2::VPCEndpoint"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("PolicyDocument",) . toJSON) _eC2VPCEndpointPolicyDocument
         , fmap (("PrivateDnsEnabled",) . toJSON) _eC2VPCEndpointPrivateDnsEnabled
         , fmap (("RouteTableIds",) . toJSON) _eC2VPCEndpointRouteTableIds

@@ -23,7 +23,7 @@ instance ToResourceProperties GameLiftMatchmakingRuleSet where
     ResourceProperties
     { resourcePropertiesType = "AWS::GameLift::MatchmakingRuleSet"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("Name",) . toJSON) _gameLiftMatchmakingRuleSetName
         , (Just . ("RuleSetBody",) . toJSON) _gameLiftMatchmakingRuleSetRuleSetBody
         ]

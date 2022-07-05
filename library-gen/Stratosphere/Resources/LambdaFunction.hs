@@ -45,7 +45,7 @@ instance ToResourceProperties LambdaFunction where
     ResourceProperties
     { resourcePropertiesType = "AWS::Lambda::Function"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("Code",) . toJSON) _lambdaFunctionCode
         , fmap (("DeadLetterConfig",) . toJSON) _lambdaFunctionDeadLetterConfig
         , fmap (("Description",) . toJSON) _lambdaFunctionDescription

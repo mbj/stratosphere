@@ -24,7 +24,7 @@ instance ToResourceProperties AutoScalingPlansScalingPlan where
     ResourceProperties
     { resourcePropertiesType = "AWS::AutoScalingPlans::ScalingPlan"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("ApplicationSource",) . toJSON) _autoScalingPlansScalingPlanApplicationSource
         , (Just . ("ScalingInstructions",) . toJSON) _autoScalingPlansScalingPlanScalingInstructions
         ]

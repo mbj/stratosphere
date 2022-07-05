@@ -27,7 +27,7 @@ instance ToResourceProperties ApiGatewayV2RouteResponse where
     ResourceProperties
     { resourcePropertiesType = "AWS::ApiGatewayV2::RouteResponse"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("ApiId",) . toJSON) _apiGatewayV2RouteResponseApiId
         , fmap (("ModelSelectionExpression",) . toJSON) _apiGatewayV2RouteResponseModelSelectionExpression
         , fmap (("ResponseModels",) . toJSON) _apiGatewayV2RouteResponseResponseModels

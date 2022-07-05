@@ -24,7 +24,7 @@ instance ToResourceProperties AppConfigApplication where
     ResourceProperties
     { resourcePropertiesType = "AWS::AppConfig::Application"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Description",) . toJSON) _appConfigApplicationDescription
         , (Just . ("Name",) . toJSON) _appConfigApplicationName
         , fmap (("Tags",) . toJSON) _appConfigApplicationTags

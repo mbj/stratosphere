@@ -25,7 +25,7 @@ instance ToResourceProperties KinesisAnalyticsV2ApplicationCloudWatchLoggingOpti
     ResourceProperties
     { resourcePropertiesType = "AWS::KinesisAnalyticsV2::ApplicationCloudWatchLoggingOption"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("ApplicationName",) . toJSON) _kinesisAnalyticsV2ApplicationCloudWatchLoggingOptionApplicationName
         , (Just . ("CloudWatchLoggingOption",) . toJSON) _kinesisAnalyticsV2ApplicationCloudWatchLoggingOptionCloudWatchLoggingOption
         ]

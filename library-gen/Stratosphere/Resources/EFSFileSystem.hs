@@ -32,7 +32,7 @@ instance ToResourceProperties EFSFileSystem where
     ResourceProperties
     { resourcePropertiesType = "AWS::EFS::FileSystem"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("BackupPolicy",) . toJSON) _eFSFileSystemBackupPolicy
         , fmap (("Encrypted",) . toJSON) _eFSFileSystemEncrypted
         , fmap (("FileSystemPolicy",) . toJSON) _eFSFileSystemFileSystemPolicy

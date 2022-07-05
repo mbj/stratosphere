@@ -28,7 +28,7 @@ instance ToResourceProperties LambdaAlias where
     ResourceProperties
     { resourcePropertiesType = "AWS::Lambda::Alias"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Description",) . toJSON) _lambdaAliasDescription
         , (Just . ("FunctionName",) . toJSON) _lambdaAliasFunctionName
         , (Just . ("FunctionVersion",) . toJSON) _lambdaAliasFunctionVersion

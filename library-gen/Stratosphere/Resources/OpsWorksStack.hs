@@ -51,7 +51,7 @@ instance ToResourceProperties OpsWorksStack where
     ResourceProperties
     { resourcePropertiesType = "AWS::OpsWorks::Stack"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("AgentVersion",) . toJSON) _opsWorksStackAgentVersion
         , fmap (("Attributes",) . toJSON) _opsWorksStackAttributes
         , fmap (("ChefConfiguration",) . toJSON) _opsWorksStackChefConfiguration

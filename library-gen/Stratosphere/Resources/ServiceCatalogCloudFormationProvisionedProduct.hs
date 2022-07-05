@@ -37,7 +37,7 @@ instance ToResourceProperties ServiceCatalogCloudFormationProvisionedProduct whe
     ResourceProperties
     { resourcePropertiesType = "AWS::ServiceCatalog::CloudFormationProvisionedProduct"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("AcceptLanguage",) . toJSON) _serviceCatalogCloudFormationProvisionedProductAcceptLanguage
         , fmap (("NotificationArns",) . toJSON) _serviceCatalogCloudFormationProvisionedProductNotificationArns
         , fmap (("PathId",) . toJSON) _serviceCatalogCloudFormationProvisionedProductPathId

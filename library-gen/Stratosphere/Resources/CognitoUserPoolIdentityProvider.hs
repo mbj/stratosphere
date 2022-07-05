@@ -27,7 +27,7 @@ instance ToResourceProperties CognitoUserPoolIdentityProvider where
     ResourceProperties
     { resourcePropertiesType = "AWS::Cognito::UserPoolIdentityProvider"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("AttributeMapping",) . toJSON) _cognitoUserPoolIdentityProviderAttributeMapping
         , fmap (("IdpIdentifiers",) . toJSON) _cognitoUserPoolIdentityProviderIdpIdentifiers
         , fmap (("ProviderDetails",) . toJSON) _cognitoUserPoolIdentityProviderProviderDetails

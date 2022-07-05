@@ -26,7 +26,7 @@ instance ToResourceProperties GlobalAcceleratorAccelerator where
     ResourceProperties
     { resourcePropertiesType = "AWS::GlobalAccelerator::Accelerator"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Enabled",) . toJSON) _globalAcceleratorAcceleratorEnabled
         , fmap (("IpAddressType",) . toJSON) _globalAcceleratorAcceleratorIpAddressType
         , fmap (("IpAddresses",) . toJSON) _globalAcceleratorAcceleratorIpAddresses

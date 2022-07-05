@@ -25,7 +25,7 @@ instance ToResourceProperties BatchJobQueue where
     ResourceProperties
     { resourcePropertiesType = "AWS::Batch::JobQueue"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("ComputeEnvironmentOrder",) . toJSON) _batchJobQueueComputeEnvironmentOrder
         , fmap (("JobQueueName",) . toJSON) _batchJobQueueJobQueueName
         , (Just . ("Priority",) . toJSON) _batchJobQueuePriority

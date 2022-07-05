@@ -23,7 +23,7 @@ instance ToResourceProperties IoTThing where
     ResourceProperties
     { resourcePropertiesType = "AWS::IoT::Thing"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("AttributePayload",) . toJSON) _ioTThingAttributePayload
         , fmap (("ThingName",) . toJSON) _ioTThingThingName
         ]

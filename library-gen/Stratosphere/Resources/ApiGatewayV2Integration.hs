@@ -38,7 +38,7 @@ instance ToResourceProperties ApiGatewayV2Integration where
     ResourceProperties
     { resourcePropertiesType = "AWS::ApiGatewayV2::Integration"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("ApiId",) . toJSON) _apiGatewayV2IntegrationApiId
         , fmap (("ConnectionId",) . toJSON) _apiGatewayV2IntegrationConnectionId
         , fmap (("ConnectionType",) . toJSON) _apiGatewayV2IntegrationConnectionType

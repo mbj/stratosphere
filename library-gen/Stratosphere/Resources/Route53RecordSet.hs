@@ -37,7 +37,7 @@ instance ToResourceProperties Route53RecordSet where
     ResourceProperties
     { resourcePropertiesType = "AWS::Route53::RecordSet"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("AliasTarget",) . toJSON) _route53RecordSetAliasTarget
         , fmap (("Comment",) . toJSON) _route53RecordSetComment
         , fmap (("Failover",) . toJSON) _route53RecordSetFailover

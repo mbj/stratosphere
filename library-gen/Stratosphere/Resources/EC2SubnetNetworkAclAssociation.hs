@@ -23,7 +23,7 @@ instance ToResourceProperties EC2SubnetNetworkAclAssociation where
     ResourceProperties
     { resourcePropertiesType = "AWS::EC2::SubnetNetworkAclAssociation"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("NetworkAclId",) . toJSON) _eC2SubnetNetworkAclAssociationNetworkAclId
         , (Just . ("SubnetId",) . toJSON) _eC2SubnetNetworkAclAssociationSubnetId
         ]

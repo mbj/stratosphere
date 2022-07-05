@@ -27,7 +27,7 @@ instance ToResourceProperties AppMeshVirtualService where
     ResourceProperties
     { resourcePropertiesType = "AWS::AppMesh::VirtualService"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("MeshName",) . toJSON) _appMeshVirtualServiceMeshName
         , fmap (("MeshOwner",) . toJSON) _appMeshVirtualServiceMeshOwner
         , (Just . ("Spec",) . toJSON) _appMeshVirtualServiceSpec

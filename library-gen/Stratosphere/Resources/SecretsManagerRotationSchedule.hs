@@ -26,7 +26,7 @@ instance ToResourceProperties SecretsManagerRotationSchedule where
     ResourceProperties
     { resourcePropertiesType = "AWS::SecretsManager::RotationSchedule"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("HostedRotationLambda",) . toJSON) _secretsManagerRotationScheduleHostedRotationLambda
         , fmap (("RotationLambdaARN",) . toJSON) _secretsManagerRotationScheduleRotationLambdaARN
         , fmap (("RotationRules",) . toJSON) _secretsManagerRotationScheduleRotationRules

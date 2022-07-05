@@ -21,7 +21,7 @@ instance ToResourceProperties CloudFormationWaitConditionHandle where
   toResourceProperties _ =
     ResourceProperties
     { resourcePropertiesType = "AWS::CloudFormation::WaitConditionHandle"
-    , resourcePropertiesProperties = hashMapEmpty
+    , resourcePropertiesProperties = keyMapEmpty
     }
 
 -- | Constructor for 'CloudFormationWaitConditionHandle' containing required

@@ -24,7 +24,7 @@ instance ToResourceProperties ApiGatewayVpcLink where
     ResourceProperties
     { resourcePropertiesType = "AWS::ApiGateway::VpcLink"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Description",) . toJSON) _apiGatewayVpcLinkDescription
         , (Just . ("Name",) . toJSON) _apiGatewayVpcLinkName
         , (Just . ("TargetArns",) . toJSON) _apiGatewayVpcLinkTargetArns

@@ -24,7 +24,7 @@ instance ToResourceProperties PinpointGCMChannel where
     ResourceProperties
     { resourcePropertiesType = "AWS::Pinpoint::GCMChannel"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("ApiKey",) . toJSON) _pinpointGCMChannelApiKey
         , (Just . ("ApplicationId",) . toJSON) _pinpointGCMChannelApplicationId
         , fmap (("Enabled",) . toJSON) _pinpointGCMChannelEnabled

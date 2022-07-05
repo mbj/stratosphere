@@ -31,7 +31,7 @@ instance ToResourceProperties GlueTrigger where
     ResourceProperties
     { resourcePropertiesType = "AWS::Glue::Trigger"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("Actions",) . toJSON) _glueTriggerActions
         , fmap (("Description",) . toJSON) _glueTriggerDescription
         , fmap (("Name",) . toJSON) _glueTriggerName

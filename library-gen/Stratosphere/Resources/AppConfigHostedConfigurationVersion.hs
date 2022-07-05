@@ -27,7 +27,7 @@ instance ToResourceProperties AppConfigHostedConfigurationVersion where
     ResourceProperties
     { resourcePropertiesType = "AWS::AppConfig::HostedConfigurationVersion"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("ApplicationId",) . toJSON) _appConfigHostedConfigurationVersionApplicationId
         , (Just . ("ConfigurationProfileId",) . toJSON) _appConfigHostedConfigurationVersionConfigurationProfileId
         , (Just . ("Content",) . toJSON) _appConfigHostedConfigurationVersionContent

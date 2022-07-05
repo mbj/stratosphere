@@ -27,7 +27,7 @@ instance ToResourceProperties ServiceCatalogResourceUpdateConstraint where
     ResourceProperties
     { resourcePropertiesType = "AWS::ServiceCatalog::ResourceUpdateConstraint"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("AcceptLanguage",) . toJSON) _serviceCatalogResourceUpdateConstraintAcceptLanguage
         , fmap (("Description",) . toJSON) _serviceCatalogResourceUpdateConstraintDescription
         , (Just . ("PortfolioId",) . toJSON) _serviceCatalogResourceUpdateConstraintPortfolioId

@@ -25,7 +25,7 @@ instance ToResourceProperties ElasticLoadBalancingV2ListenerCertificateResource 
     ResourceProperties
     { resourcePropertiesType = "AWS::ElasticLoadBalancingV2::ListenerCertificate"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("Certificates",) . toJSON) _elasticLoadBalancingV2ListenerCertificateResourceCertificates
         , (Just . ("ListenerArn",) . toJSON) _elasticLoadBalancingV2ListenerCertificateResourceListenerArn
         ]

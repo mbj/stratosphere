@@ -10,6 +10,7 @@ module Stratosphere.Helpers
 import Control.Lens (set)
 import Control.Lens.TH
 import Data.Aeson
+import qualified Data.Aeson.Key as Key
 import Data.Char (isUpper, toLower)
 import Data.List (stripPrefix)
 import Data.Maybe (maybeToList)
@@ -17,7 +18,7 @@ import qualified Data.Text as T
 import Language.Haskell.TH
 
 -- | Might create an aeson pair from a Maybe value.
-maybeField :: ToJSON a => T.Text -> Maybe a -> Maybe (T.Text, Value)
+maybeField :: ToJSON a => Key -> Maybe a -> Maybe (Key, Value)
 maybeField field = fmap ((field .=) . toJSON)
 
 -- | Similar to `camelCaseNamer`, except we specify the prefix exactly. We use
@@ -54,4 +55,4 @@ class NamedItem a where
 
 namedItemToJSON :: (NamedItem a) => [a] -> Value
 namedItemToJSON xs =
-    object $ fmap (\x -> itemName x .= nameToJSON x) xs
+    object $ fmap (\x -> (Key.fromText (itemName x)) .= nameToJSON x) xs

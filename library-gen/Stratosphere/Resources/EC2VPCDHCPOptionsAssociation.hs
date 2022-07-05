@@ -23,7 +23,7 @@ instance ToResourceProperties EC2VPCDHCPOptionsAssociation where
     ResourceProperties
     { resourcePropertiesType = "AWS::EC2::VPCDHCPOptionsAssociation"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("DhcpOptionsId",) . toJSON) _eC2VPCDHCPOptionsAssociationDhcpOptionsId
         , (Just . ("VpcId",) . toJSON) _eC2VPCDHCPOptionsAssociationVpcId
         ]

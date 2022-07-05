@@ -50,7 +50,7 @@ instance ToResourceProperties AutoScalingAutoScalingGroup where
     ResourceProperties
     { resourcePropertiesType = "AWS::AutoScaling::AutoScalingGroup"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("AutoScalingGroupName",) . toJSON) _autoScalingAutoScalingGroupAutoScalingGroupName
         , fmap (("AvailabilityZones",) . toJSON) _autoScalingAutoScalingGroupAvailabilityZones
         , fmap (("Cooldown",) . toJSON) _autoScalingAutoScalingGroupCooldown

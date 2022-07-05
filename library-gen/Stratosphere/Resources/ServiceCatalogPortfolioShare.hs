@@ -24,7 +24,7 @@ instance ToResourceProperties ServiceCatalogPortfolioShare where
     ResourceProperties
     { resourcePropertiesType = "AWS::ServiceCatalog::PortfolioShare"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("AcceptLanguage",) . toJSON) _serviceCatalogPortfolioShareAcceptLanguage
         , (Just . ("AccountId",) . toJSON) _serviceCatalogPortfolioShareAccountId
         , (Just . ("PortfolioId",) . toJSON) _serviceCatalogPortfolioSharePortfolioId

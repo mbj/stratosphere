@@ -25,7 +25,7 @@ instance ToResourceProperties RDSDBParameterGroup where
     ResourceProperties
     { resourcePropertiesType = "AWS::RDS::DBParameterGroup"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("Description",) . toJSON) _rDSDBParameterGroupDescription
         , (Just . ("Family",) . toJSON) _rDSDBParameterGroupFamily
         , fmap (("Parameters",) . toJSON) _rDSDBParameterGroupParameters

@@ -28,7 +28,7 @@ instance ToResourceProperties PinpointApplicationSettings where
     ResourceProperties
     { resourcePropertiesType = "AWS::Pinpoint::ApplicationSettings"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("ApplicationId",) . toJSON) _pinpointApplicationSettingsApplicationId
         , fmap (("CampaignHook",) . toJSON) _pinpointApplicationSettingsCampaignHook
         , fmap (("CloudWatchMetricsEnabled",) . toJSON) _pinpointApplicationSettingsCloudWatchMetricsEnabled

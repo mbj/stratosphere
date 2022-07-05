@@ -33,7 +33,7 @@ instance ToResourceProperties ApiGatewayV2Route where
     ResourceProperties
     { resourcePropertiesType = "AWS::ApiGatewayV2::Route"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("ApiId",) . toJSON) _apiGatewayV2RouteApiId
         , fmap (("ApiKeyRequired",) . toJSON) _apiGatewayV2RouteApiKeyRequired
         , fmap (("AuthorizationScopes",) . toJSON) _apiGatewayV2RouteAuthorizationScopes

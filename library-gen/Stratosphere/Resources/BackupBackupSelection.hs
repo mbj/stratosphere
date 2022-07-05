@@ -23,7 +23,7 @@ instance ToResourceProperties BackupBackupSelection where
     ResourceProperties
     { resourcePropertiesType = "AWS::Backup::BackupSelection"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("BackupPlanId",) . toJSON) _backupBackupSelectionBackupPlanId
         , (Just . ("BackupSelection",) . toJSON) _backupBackupSelectionBackupSelection
         ]

@@ -24,7 +24,7 @@ instance ToResourceProperties RedshiftClusterSubnetGroup where
     ResourceProperties
     { resourcePropertiesType = "AWS::Redshift::ClusterSubnetGroup"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("Description",) . toJSON) _redshiftClusterSubnetGroupDescription
         , (Just . ("SubnetIds",) . toJSON) _redshiftClusterSubnetGroupSubnetIds
         , fmap (("Tags",) . toJSON) _redshiftClusterSubnetGroupTags

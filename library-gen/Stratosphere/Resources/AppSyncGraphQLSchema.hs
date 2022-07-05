@@ -24,7 +24,7 @@ instance ToResourceProperties AppSyncGraphQLSchema where
     ResourceProperties
     { resourcePropertiesType = "AWS::AppSync::GraphQLSchema"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("ApiId",) . toJSON) _appSyncGraphQLSchemaApiId
         , fmap (("Definition",) . toJSON) _appSyncGraphQLSchemaDefinition
         , fmap (("DefinitionS3Location",) . toJSON) _appSyncGraphQLSchemaDefinitionS3Location

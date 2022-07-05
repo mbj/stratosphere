@@ -31,7 +31,7 @@ instance ToResourceProperties IAMRole where
     ResourceProperties
     { resourcePropertiesType = "AWS::IAM::Role"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("AssumeRolePolicyDocument",) . toJSON) _iAMRoleAssumeRolePolicyDocument
         , fmap (("Description",) . toJSON) _iAMRoleDescription
         , fmap (("ManagedPolicyArns",) . toJSON) _iAMRoleManagedPolicyArns

@@ -34,7 +34,7 @@ instance ToResourceProperties EC2NetworkInterface where
     ResourceProperties
     { resourcePropertiesType = "AWS::EC2::NetworkInterface"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Description",) . toJSON) _eC2NetworkInterfaceDescription
         , fmap (("GroupSet",) . toJSON) _eC2NetworkInterfaceGroupSet
         , fmap (("InterfaceType",) . toJSON) _eC2NetworkInterfaceInterfaceType

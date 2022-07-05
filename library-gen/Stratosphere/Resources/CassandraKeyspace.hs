@@ -22,7 +22,7 @@ instance ToResourceProperties CassandraKeyspace where
     ResourceProperties
     { resourcePropertiesType = "AWS::Cassandra::Keyspace"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("KeyspaceName",) . toJSON) _cassandraKeyspaceKeyspaceName
         ]
     }

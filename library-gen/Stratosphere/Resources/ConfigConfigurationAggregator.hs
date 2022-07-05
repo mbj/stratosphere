@@ -27,7 +27,7 @@ instance ToResourceProperties ConfigConfigurationAggregator where
     ResourceProperties
     { resourcePropertiesType = "AWS::Config::ConfigurationAggregator"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("AccountAggregationSources",) . toJSON) _configConfigurationAggregatorAccountAggregationSources
         , (Just . ("ConfigurationAggregatorName",) . toJSON) _configConfigurationAggregatorConfigurationAggregatorName
         , fmap (("OrganizationAggregationSource",) . toJSON) _configConfigurationAggregatorOrganizationAggregationSource

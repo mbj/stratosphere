@@ -24,7 +24,7 @@ instance ToResourceProperties ConfigConfigurationRecorder where
     ResourceProperties
     { resourcePropertiesType = "AWS::Config::ConfigurationRecorder"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Name",) . toJSON) _configConfigurationRecorderName
         , fmap (("RecordingGroup",) . toJSON) _configConfigurationRecorderRecordingGroup
         , (Just . ("RoleARN",) . toJSON) _configConfigurationRecorderRoleARN

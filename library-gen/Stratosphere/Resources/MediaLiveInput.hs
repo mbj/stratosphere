@@ -33,7 +33,7 @@ instance ToResourceProperties MediaLiveInput where
     ResourceProperties
     { resourcePropertiesType = "AWS::MediaLive::Input"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Destinations",) . toJSON) _mediaLiveInputDestinations
         , fmap (("InputSecurityGroups",) . toJSON) _mediaLiveInputInputSecurityGroups
         , fmap (("MediaConnectFlows",) . toJSON) _mediaLiveInputMediaConnectFlows

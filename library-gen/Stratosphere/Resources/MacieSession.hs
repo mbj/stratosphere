@@ -23,7 +23,7 @@ instance ToResourceProperties MacieSession where
     ResourceProperties
     { resourcePropertiesType = "AWS::Macie::Session"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("FindingPublishingFrequency",) . toJSON) _macieSessionFindingPublishingFrequency
         , fmap (("Status",) . toJSON) _macieSessionStatus
         ]

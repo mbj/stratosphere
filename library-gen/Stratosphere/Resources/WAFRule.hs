@@ -24,7 +24,7 @@ instance ToResourceProperties WAFRule where
     ResourceProperties
     { resourcePropertiesType = "AWS::WAF::Rule"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("MetricName",) . toJSON) _wAFRuleMetricName
         , (Just . ("Name",) . toJSON) _wAFRuleName
         , fmap (("Predicates",) . toJSON) _wAFRulePredicates

@@ -23,7 +23,7 @@ instance ToResourceProperties IoTThingPrincipalAttachment where
     ResourceProperties
     { resourcePropertiesType = "AWS::IoT::ThingPrincipalAttachment"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("Principal",) . toJSON) _ioTThingPrincipalAttachmentPrincipal
         , (Just . ("ThingName",) . toJSON) _ioTThingPrincipalAttachmentThingName
         ]

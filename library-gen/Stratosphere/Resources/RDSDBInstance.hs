@@ -75,7 +75,7 @@ instance ToResourceProperties RDSDBInstance where
     ResourceProperties
     { resourcePropertiesType = "AWS::RDS::DBInstance"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("AllocatedStorage",) . toJSON) _rDSDBInstanceAllocatedStorage
         , fmap (("AllowMajorVersionUpgrade",) . toJSON) _rDSDBInstanceAllowMajorVersionUpgrade
         , fmap (("AssociatedRoles",) . toJSON) _rDSDBInstanceAssociatedRoles

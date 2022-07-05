@@ -24,7 +24,7 @@ instance ToResourceProperties IAMInstanceProfile where
     ResourceProperties
     { resourcePropertiesType = "AWS::IAM::InstanceProfile"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("InstanceProfileName",) . toJSON) _iAMInstanceProfileInstanceProfileName
         , fmap (("Path",) . toJSON) _iAMInstanceProfilePath
         , (Just . ("Roles",) . toJSON) _iAMInstanceProfileRoles

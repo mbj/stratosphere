@@ -28,7 +28,7 @@ instance ToResourceProperties PinpointEmailTemplate where
     ResourceProperties
     { resourcePropertiesType = "AWS::Pinpoint::EmailTemplate"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("DefaultSubstitutions",) . toJSON) _pinpointEmailTemplateDefaultSubstitutions
         , fmap (("HtmlPart",) . toJSON) _pinpointEmailTemplateHtmlPart
         , (Just . ("Subject",) . toJSON) _pinpointEmailTemplateSubject

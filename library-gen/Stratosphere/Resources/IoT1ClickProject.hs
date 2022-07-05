@@ -24,7 +24,7 @@ instance ToResourceProperties IoT1ClickProject where
     ResourceProperties
     { resourcePropertiesType = "AWS::IoT1Click::Project"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Description",) . toJSON) _ioT1ClickProjectDescription
         , (Just . ("PlacementTemplate",) . toJSON) _ioT1ClickProjectPlacementTemplate
         , fmap (("ProjectName",) . toJSON) _ioT1ClickProjectProjectName

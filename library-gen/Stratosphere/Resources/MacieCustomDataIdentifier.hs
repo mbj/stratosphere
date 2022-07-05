@@ -27,7 +27,7 @@ instance ToResourceProperties MacieCustomDataIdentifier where
     ResourceProperties
     { resourcePropertiesType = "AWS::Macie::CustomDataIdentifier"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Description",) . toJSON) _macieCustomDataIdentifierDescription
         , fmap (("IgnoreWords",) . toJSON) _macieCustomDataIdentifierIgnoreWords
         , fmap (("Keywords",) . toJSON) _macieCustomDataIdentifierKeywords

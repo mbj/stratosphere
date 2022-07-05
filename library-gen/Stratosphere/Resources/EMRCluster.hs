@@ -46,7 +46,7 @@ instance ToResourceProperties EMRCluster where
     ResourceProperties
     { resourcePropertiesType = "AWS::EMR::Cluster"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("AdditionalInfo",) . toJSON) _eMRClusterAdditionalInfo
         , fmap (("Applications",) . toJSON) _eMRClusterApplications
         , fmap (("AutoScalingRole",) . toJSON) _eMRClusterAutoScalingRole

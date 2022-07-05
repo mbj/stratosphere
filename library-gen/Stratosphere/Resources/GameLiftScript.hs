@@ -24,7 +24,7 @@ instance ToResourceProperties GameLiftScript where
     ResourceProperties
     { resourcePropertiesType = "AWS::GameLift::Script"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Name",) . toJSON) _gameLiftScriptName
         , (Just . ("StorageLocation",) . toJSON) _gameLiftScriptStorageLocation
         , fmap (("Version",) . toJSON) _gameLiftScriptVersion

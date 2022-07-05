@@ -25,7 +25,7 @@ instance ToResourceProperties EC2EIP where
     ResourceProperties
     { resourcePropertiesType = "AWS::EC2::EIP"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Domain",) . toJSON) _eC2EIPDomain
         , fmap (("InstanceId",) . toJSON) _eC2EIPInstanceId
         , fmap (("PublicIpv4Pool",) . toJSON) _eC2EIPPublicIpv4Pool

@@ -24,7 +24,7 @@ instance ToResourceProperties PinpointEventStream where
     ResourceProperties
     { resourcePropertiesType = "AWS::Pinpoint::EventStream"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("ApplicationId",) . toJSON) _pinpointEventStreamApplicationId
         , (Just . ("DestinationStreamArn",) . toJSON) _pinpointEventStreamDestinationStreamArn
         , (Just . ("RoleArn",) . toJSON) _pinpointEventStreamRoleArn

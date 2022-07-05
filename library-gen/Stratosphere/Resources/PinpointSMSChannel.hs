@@ -25,7 +25,7 @@ instance ToResourceProperties PinpointSMSChannel where
     ResourceProperties
     { resourcePropertiesType = "AWS::Pinpoint::SMSChannel"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("ApplicationId",) . toJSON) _pinpointSMSChannelApplicationId
         , fmap (("Enabled",) . toJSON) _pinpointSMSChannelEnabled
         , fmap (("SenderId",) . toJSON) _pinpointSMSChannelSenderId

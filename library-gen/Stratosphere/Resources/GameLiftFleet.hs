@@ -45,7 +45,7 @@ instance ToResourceProperties GameLiftFleet where
     ResourceProperties
     { resourcePropertiesType = "AWS::GameLift::Fleet"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("BuildId",) . toJSON) _gameLiftFleetBuildId
         , fmap (("CertificateConfiguration",) . toJSON) _gameLiftFleetCertificateConfiguration
         , fmap (("Description",) . toJSON) _gameLiftFleetDescription

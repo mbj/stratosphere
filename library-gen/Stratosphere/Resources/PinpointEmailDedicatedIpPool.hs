@@ -23,7 +23,7 @@ instance ToResourceProperties PinpointEmailDedicatedIpPool where
     ResourceProperties
     { resourcePropertiesType = "AWS::PinpointEmail::DedicatedIpPool"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("PoolName",) . toJSON) _pinpointEmailDedicatedIpPoolPoolName
         , fmap (("Tags",) . toJSON) _pinpointEmailDedicatedIpPoolTags
         ]

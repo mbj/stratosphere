@@ -30,7 +30,7 @@ instance ToResourceProperties ApiGatewayUsagePlan where
     ResourceProperties
     { resourcePropertiesType = "AWS::ApiGateway::UsagePlan"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("ApiStages",) . toJSON) _apiGatewayUsagePlanApiStages
         , fmap (("Description",) . toJSON) _apiGatewayUsagePlanDescription
         , fmap (("Quota",) . toJSON) _apiGatewayUsagePlanQuota

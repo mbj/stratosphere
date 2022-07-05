@@ -25,7 +25,7 @@ instance ToResourceProperties IoT1ClickPlacement where
     ResourceProperties
     { resourcePropertiesType = "AWS::IoT1Click::Placement"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("AssociatedDevices",) . toJSON) _ioT1ClickPlacementAssociatedDevices
         , fmap (("Attributes",) . toJSON) _ioT1ClickPlacementAttributes
         , fmap (("PlacementName",) . toJSON) _ioT1ClickPlacementPlacementName

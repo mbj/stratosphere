@@ -36,7 +36,7 @@ instance ToResourceProperties KinesisFirehoseDeliveryStream where
     ResourceProperties
     { resourcePropertiesType = "AWS::KinesisFirehose::DeliveryStream"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("DeliveryStreamName",) . toJSON) _kinesisFirehoseDeliveryStreamDeliveryStreamName
         , fmap (("DeliveryStreamType",) . toJSON) _kinesisFirehoseDeliveryStreamDeliveryStreamType
         , fmap (("ElasticsearchDestinationConfiguration",) . toJSON) _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguration

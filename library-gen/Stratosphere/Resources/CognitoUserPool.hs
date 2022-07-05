@@ -53,7 +53,7 @@ instance ToResourceProperties CognitoUserPool where
     ResourceProperties
     { resourcePropertiesType = "AWS::Cognito::UserPool"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("AccountRecoverySetting",) . toJSON) _cognitoUserPoolAccountRecoverySetting
         , fmap (("AdminCreateUserConfig",) . toJSON) _cognitoUserPoolAdminCreateUserConfig
         , fmap (("AliasAttributes",) . toJSON) _cognitoUserPoolAliasAttributes

@@ -23,7 +23,7 @@ instance ToResourceProperties GlueDataCatalogEncryptionSettings where
     ResourceProperties
     { resourcePropertiesType = "AWS::Glue::DataCatalogEncryptionSettings"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("CatalogId",) . toJSON) _glueDataCatalogEncryptionSettingsCatalogId
         , (Just . ("DataCatalogEncryptionSettings",) . toJSON) _glueDataCatalogEncryptionSettingsDataCatalogEncryptionSettings
         ]

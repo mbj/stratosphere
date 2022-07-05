@@ -22,7 +22,7 @@ instance ToResourceProperties CloudFormationCustomResource where
     ResourceProperties
     { resourcePropertiesType = "AWS::CloudFormation::CustomResource"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("ServiceToken",) . toJSON) _cloudFormationCustomResourceServiceToken
         ]
     }

@@ -28,7 +28,7 @@ instance ToResourceProperties KMSKey where
     ResourceProperties
     { resourcePropertiesType = "AWS::KMS::Key"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Description",) . toJSON) _kMSKeyDescription
         , fmap (("EnableKeyRotation",) . toJSON) _kMSKeyEnableKeyRotation
         , fmap (("Enabled",) . toJSON) _kMSKeyEnabled

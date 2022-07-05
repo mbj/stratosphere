@@ -27,7 +27,7 @@ instance ToResourceProperties EC2DHCPOptions where
     ResourceProperties
     { resourcePropertiesType = "AWS::EC2::DHCPOptions"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("DomainName",) . toJSON) _eC2DHCPOptionsDomainName
         , fmap (("DomainNameServers",) . toJSON) _eC2DHCPOptionsDomainNameServers
         , fmap (("NetbiosNameServers",) . toJSON) _eC2DHCPOptionsNetbiosNameServers

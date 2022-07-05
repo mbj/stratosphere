@@ -39,7 +39,7 @@ instance ToResourceProperties AppStreamFleet where
     ResourceProperties
     { resourcePropertiesType = "AWS::AppStream::Fleet"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("ComputeCapacity",) . toJSON) _appStreamFleetComputeCapacity
         , fmap (("Description",) . toJSON) _appStreamFleetDescription
         , fmap (("DisconnectTimeoutInSeconds",) . toJSON) _appStreamFleetDisconnectTimeoutInSeconds

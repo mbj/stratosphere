@@ -42,7 +42,7 @@ instance ToResourceProperties GlueJob where
     ResourceProperties
     { resourcePropertiesType = "AWS::Glue::Job"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("AllocatedCapacity",) . toJSON) _glueJobAllocatedCapacity
         , (Just . ("Command",) . toJSON) _glueJobCommand
         , fmap (("Connections",) . toJSON) _glueJobConnections

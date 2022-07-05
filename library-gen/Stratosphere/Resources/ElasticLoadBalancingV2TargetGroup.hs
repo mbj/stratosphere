@@ -41,7 +41,7 @@ instance ToResourceProperties ElasticLoadBalancingV2TargetGroup where
     ResourceProperties
     { resourcePropertiesType = "AWS::ElasticLoadBalancingV2::TargetGroup"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("HealthCheckEnabled",) . toJSON) _elasticLoadBalancingV2TargetGroupHealthCheckEnabled
         , fmap (("HealthCheckIntervalSeconds",) . toJSON) _elasticLoadBalancingV2TargetGroupHealthCheckIntervalSeconds
         , fmap (("HealthCheckPath",) . toJSON) _elasticLoadBalancingV2TargetGroupHealthCheckPath

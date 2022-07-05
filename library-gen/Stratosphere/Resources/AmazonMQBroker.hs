@@ -47,7 +47,7 @@ instance ToResourceProperties AmazonMQBroker where
     ResourceProperties
     { resourcePropertiesType = "AWS::AmazonMQ::Broker"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("AuthenticationStrategy",) . toJSON) _amazonMQBrokerAuthenticationStrategy
         , (Just . ("AutoMinorVersionUpgrade",) . toJSON) _amazonMQBrokerAutoMinorVersionUpgrade
         , (Just . ("BrokerName",) . toJSON) _amazonMQBrokerBrokerName

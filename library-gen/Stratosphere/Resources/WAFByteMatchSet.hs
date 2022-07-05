@@ -23,7 +23,7 @@ instance ToResourceProperties WAFByteMatchSet where
     ResourceProperties
     { resourcePropertiesType = "AWS::WAF::ByteMatchSet"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("ByteMatchTuples",) . toJSON) _wAFByteMatchSetByteMatchTuples
         , (Just . ("Name",) . toJSON) _wAFByteMatchSetName
         ]

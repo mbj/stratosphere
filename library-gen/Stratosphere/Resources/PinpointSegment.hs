@@ -27,7 +27,7 @@ instance ToResourceProperties PinpointSegment where
     ResourceProperties
     { resourcePropertiesType = "AWS::Pinpoint::Segment"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("ApplicationId",) . toJSON) _pinpointSegmentApplicationId
         , fmap (("Dimensions",) . toJSON) _pinpointSegmentDimensions
         , (Just . ("Name",) . toJSON) _pinpointSegmentName

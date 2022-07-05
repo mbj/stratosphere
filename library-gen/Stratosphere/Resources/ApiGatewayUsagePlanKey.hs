@@ -24,7 +24,7 @@ instance ToResourceProperties ApiGatewayUsagePlanKey where
     ResourceProperties
     { resourcePropertiesType = "AWS::ApiGateway::UsagePlanKey"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("KeyId",) . toJSON) _apiGatewayUsagePlanKeyKeyId
         , (Just . ("KeyType",) . toJSON) _apiGatewayUsagePlanKeyKeyType
         , (Just . ("UsagePlanId",) . toJSON) _apiGatewayUsagePlanKeyUsagePlanId

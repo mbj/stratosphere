@@ -24,7 +24,7 @@ instance ToResourceProperties OpsWorksElasticLoadBalancerAttachment where
     ResourceProperties
     { resourcePropertiesType = "AWS::OpsWorks::ElasticLoadBalancerAttachment"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("ElasticLoadBalancerName",) . toJSON) _opsWorksElasticLoadBalancerAttachmentElasticLoadBalancerName
         , (Just . ("LayerId",) . toJSON) _opsWorksElasticLoadBalancerAttachmentLayerId
         ]

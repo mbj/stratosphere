@@ -28,7 +28,7 @@ instance ToResourceProperties AutoScalingScheduledAction where
     ResourceProperties
     { resourcePropertiesType = "AWS::AutoScaling::ScheduledAction"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("AutoScalingGroupName",) . toJSON) _autoScalingScheduledActionAutoScalingGroupName
         , fmap (("DesiredCapacity",) . toJSON) _autoScalingScheduledActionDesiredCapacity
         , fmap (("EndTime",) . toJSON) _autoScalingScheduledActionEndTime

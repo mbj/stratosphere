@@ -31,7 +31,7 @@ instance ToResourceProperties TransferServer where
     ResourceProperties
     { resourcePropertiesType = "AWS::Transfer::Server"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Certificate",) . toJSON) _transferServerCertificate
         , fmap (("EndpointDetails",) . toJSON) _transferServerEndpointDetails
         , fmap (("EndpointType",) . toJSON) _transferServerEndpointType

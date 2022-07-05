@@ -39,7 +39,7 @@ instance ToResourceProperties AutoScalingLaunchConfiguration where
     ResourceProperties
     { resourcePropertiesType = "AWS::AutoScaling::LaunchConfiguration"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("AssociatePublicIpAddress",) . toJSON) _autoScalingLaunchConfigurationAssociatePublicIpAddress
         , fmap (("BlockDeviceMappings",) . toJSON) _autoScalingLaunchConfigurationBlockDeviceMappings
         , fmap (("ClassicLinkVPCId",) . toJSON) _autoScalingLaunchConfigurationClassicLinkVPCId

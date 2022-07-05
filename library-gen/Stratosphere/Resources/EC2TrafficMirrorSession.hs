@@ -29,7 +29,7 @@ instance ToResourceProperties EC2TrafficMirrorSession where
     ResourceProperties
     { resourcePropertiesType = "AWS::EC2::TrafficMirrorSession"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Description",) . toJSON) _eC2TrafficMirrorSessionDescription
         , (Just . ("NetworkInterfaceId",) . toJSON) _eC2TrafficMirrorSessionNetworkInterfaceId
         , fmap (("PacketLength",) . toJSON) _eC2TrafficMirrorSessionPacketLength

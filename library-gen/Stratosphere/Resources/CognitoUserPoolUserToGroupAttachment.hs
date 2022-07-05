@@ -24,7 +24,7 @@ instance ToResourceProperties CognitoUserPoolUserToGroupAttachment where
     ResourceProperties
     { resourcePropertiesType = "AWS::Cognito::UserPoolUserToGroupAttachment"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("GroupName",) . toJSON) _cognitoUserPoolUserToGroupAttachmentGroupName
         , (Just . ("UserPoolId",) . toJSON) _cognitoUserPoolUserToGroupAttachmentUserPoolId
         , (Just . ("Username",) . toJSON) _cognitoUserPoolUserToGroupAttachmentUsername

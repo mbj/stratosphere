@@ -29,7 +29,7 @@ instance ToResourceProperties AppConfigConfigurationProfile where
     ResourceProperties
     { resourcePropertiesType = "AWS::AppConfig::ConfigurationProfile"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("ApplicationId",) . toJSON) _appConfigConfigurationProfileApplicationId
         , fmap (("Description",) . toJSON) _appConfigConfigurationProfileDescription
         , (Just . ("LocationUri",) . toJSON) _appConfigConfigurationProfileLocationUri

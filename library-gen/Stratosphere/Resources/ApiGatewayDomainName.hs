@@ -28,7 +28,7 @@ instance ToResourceProperties ApiGatewayDomainName where
     ResourceProperties
     { resourcePropertiesType = "AWS::ApiGateway::DomainName"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("CertificateArn",) . toJSON) _apiGatewayDomainNameCertificateArn
         , fmap (("DomainName",) . toJSON) _apiGatewayDomainNameDomainName
         , fmap (("EndpointConfiguration",) . toJSON) _apiGatewayDomainNameEndpointConfiguration

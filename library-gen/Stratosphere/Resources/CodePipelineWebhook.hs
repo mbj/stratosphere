@@ -30,7 +30,7 @@ instance ToResourceProperties CodePipelineWebhook where
     ResourceProperties
     { resourcePropertiesType = "AWS::CodePipeline::Webhook"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("Authentication",) . toJSON) _codePipelineWebhookAuthentication
         , (Just . ("AuthenticationConfiguration",) . toJSON) _codePipelineWebhookAuthenticationConfiguration
         , (Just . ("Filters",) . toJSON) _codePipelineWebhookFilters

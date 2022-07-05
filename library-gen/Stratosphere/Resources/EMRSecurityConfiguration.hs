@@ -23,7 +23,7 @@ instance ToResourceProperties EMRSecurityConfiguration where
     ResourceProperties
     { resourcePropertiesType = "AWS::EMR::SecurityConfiguration"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Name",) . toJSON) _eMRSecurityConfigurationName
         , (Just . ("SecurityConfiguration",) . toJSON) _eMRSecurityConfigurationSecurityConfiguration
         ]

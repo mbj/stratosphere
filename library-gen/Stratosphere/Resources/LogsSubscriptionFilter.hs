@@ -25,7 +25,7 @@ instance ToResourceProperties LogsSubscriptionFilter where
     ResourceProperties
     { resourcePropertiesType = "AWS::Logs::SubscriptionFilter"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("DestinationArn",) . toJSON) _logsSubscriptionFilterDestinationArn
         , (Just . ("FilterPattern",) . toJSON) _logsSubscriptionFilterFilterPattern
         , (Just . ("LogGroupName",) . toJSON) _logsSubscriptionFilterLogGroupName

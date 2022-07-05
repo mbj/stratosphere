@@ -26,7 +26,7 @@ instance ToResourceProperties WAFRegionalRateBasedRule where
     ResourceProperties
     { resourcePropertiesType = "AWS::WAFRegional::RateBasedRule"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("MatchPredicates",) . toJSON) _wAFRegionalRateBasedRuleMatchPredicates
         , (Just . ("MetricName",) . toJSON) _wAFRegionalRateBasedRuleMetricName
         , (Just . ("Name",) . toJSON) _wAFRegionalRateBasedRuleName

@@ -24,7 +24,7 @@ instance ToResourceProperties ECSPrimaryTaskSet where
     ResourceProperties
     { resourcePropertiesType = "AWS::ECS::PrimaryTaskSet"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("Cluster",) . toJSON) _eCSPrimaryTaskSetCluster
         , (Just . ("Service",) . toJSON) _eCSPrimaryTaskSetService
         , (Just . ("TaskSetId",) . toJSON) _eCSPrimaryTaskSetTaskSetId

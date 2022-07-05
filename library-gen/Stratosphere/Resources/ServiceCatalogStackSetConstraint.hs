@@ -30,7 +30,7 @@ instance ToResourceProperties ServiceCatalogStackSetConstraint where
     ResourceProperties
     { resourcePropertiesType = "AWS::ServiceCatalog::StackSetConstraint"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("AcceptLanguage",) . toJSON) _serviceCatalogStackSetConstraintAcceptLanguage
         , (Just . ("AccountList",) . toJSON) _serviceCatalogStackSetConstraintAccountList
         , (Just . ("AdminRole",) . toJSON) _serviceCatalogStackSetConstraintAdminRole

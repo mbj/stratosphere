@@ -24,7 +24,7 @@ instance ToResourceProperties ServiceDiscoveryInstance where
     ResourceProperties
     { resourcePropertiesType = "AWS::ServiceDiscovery::Instance"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("InstanceAttributes",) . toJSON) _serviceDiscoveryInstanceInstanceAttributes
         , fmap (("InstanceId",) . toJSON) _serviceDiscoveryInstanceInstanceId
         , (Just . ("ServiceId",) . toJSON) _serviceDiscoveryInstanceServiceId

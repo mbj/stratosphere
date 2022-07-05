@@ -27,7 +27,7 @@ instance ToResourceProperties ConfigConformancePack where
     ResourceProperties
     { resourcePropertiesType = "AWS::Config::ConformancePack"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("ConformancePackInputParameters",) . toJSON) _configConformancePackConformancePackInputParameters
         , (Just . ("ConformancePackName",) . toJSON) _configConformancePackConformancePackName
         , (Just . ("DeliveryS3Bucket",) . toJSON) _configConformancePackDeliveryS3Bucket

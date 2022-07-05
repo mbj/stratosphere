@@ -23,7 +23,7 @@ instance ToResourceProperties PinpointApp where
     ResourceProperties
     { resourcePropertiesType = "AWS::Pinpoint::App"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("Name",) . toJSON) _pinpointAppName
         , fmap (("Tags",) . toJSON) _pinpointAppTags
         ]

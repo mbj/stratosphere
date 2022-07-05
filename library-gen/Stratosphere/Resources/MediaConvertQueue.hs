@@ -26,7 +26,7 @@ instance ToResourceProperties MediaConvertQueue where
     ResourceProperties
     { resourcePropertiesType = "AWS::MediaConvert::Queue"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Description",) . toJSON) _mediaConvertQueueDescription
         , fmap (("Name",) . toJSON) _mediaConvertQueueName
         , fmap (("PricingPlan",) . toJSON) _mediaConvertQueuePricingPlan

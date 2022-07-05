@@ -23,7 +23,7 @@ instance ToResourceProperties WAFRegionalIPSet where
     ResourceProperties
     { resourcePropertiesType = "AWS::WAFRegional::IPSet"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("IPSetDescriptors",) . toJSON) _wAFRegionalIPSetIPSetDescriptors
         , (Just . ("Name",) . toJSON) _wAFRegionalIPSetName
         ]

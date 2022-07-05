@@ -30,7 +30,7 @@ instance ToResourceProperties ApplicationAutoScalingScalingPolicy where
     ResourceProperties
     { resourcePropertiesType = "AWS::ApplicationAutoScaling::ScalingPolicy"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("PolicyName",) . toJSON) _applicationAutoScalingScalingPolicyPolicyName
         , (Just . ("PolicyType",) . toJSON) _applicationAutoScalingScalingPolicyPolicyType
         , fmap (("ResourceId",) . toJSON) _applicationAutoScalingScalingPolicyResourceId

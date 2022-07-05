@@ -34,7 +34,7 @@ instance ToResourceProperties ECSTaskSet where
     ResourceProperties
     { resourcePropertiesType = "AWS::ECS::TaskSet"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("Cluster",) . toJSON) _eCSTaskSetCluster
         , fmap (("ExternalId",) . toJSON) _eCSTaskSetExternalId
         , fmap (("LaunchType",) . toJSON) _eCSTaskSetLaunchType

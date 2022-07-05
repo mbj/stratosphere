@@ -25,7 +25,7 @@ instance ToResourceProperties Route53ResolverResolverQueryLoggingConfigAssociati
     ResourceProperties
     { resourcePropertiesType = "AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("ResolverQueryLogConfigId",) . toJSON) _route53ResolverResolverQueryLoggingConfigAssociationResolverQueryLogConfigId
         , fmap (("ResourceId",) . toJSON) _route53ResolverResolverQueryLoggingConfigAssociationResourceId
         ]

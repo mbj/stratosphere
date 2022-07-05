@@ -32,7 +32,7 @@ instance ToResourceProperties SSMMaintenanceWindow where
     ResourceProperties
     { resourcePropertiesType = "AWS::SSM::MaintenanceWindow"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("AllowUnassociatedTargets",) . toJSON) _sSMMaintenanceWindowAllowUnassociatedTargets
         , (Just . ("Cutoff",) . toJSON) _sSMMaintenanceWindowCutoff
         , fmap (("Description",) . toJSON) _sSMMaintenanceWindowDescription

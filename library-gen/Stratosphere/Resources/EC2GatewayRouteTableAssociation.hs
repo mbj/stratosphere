@@ -23,7 +23,7 @@ instance ToResourceProperties EC2GatewayRouteTableAssociation where
     ResourceProperties
     { resourcePropertiesType = "AWS::EC2::GatewayRouteTableAssociation"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("GatewayId",) . toJSON) _eC2GatewayRouteTableAssociationGatewayId
         , (Just . ("RouteTableId",) . toJSON) _eC2GatewayRouteTableAssociationRouteTableId
         ]

@@ -23,7 +23,7 @@ instance ToResourceProperties EC2NetworkAcl where
     ResourceProperties
     { resourcePropertiesType = "AWS::EC2::NetworkAcl"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Tags",) . toJSON) _eC2NetworkAclTags
         , (Just . ("VpcId",) . toJSON) _eC2NetworkAclVpcId
         ]

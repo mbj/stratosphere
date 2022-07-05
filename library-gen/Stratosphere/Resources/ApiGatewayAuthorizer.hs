@@ -31,7 +31,7 @@ instance ToResourceProperties ApiGatewayAuthorizer where
     ResourceProperties
     { resourcePropertiesType = "AWS::ApiGateway::Authorizer"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("AuthType",) . toJSON) _apiGatewayAuthorizerAuthType
         , fmap (("AuthorizerCredentials",) . toJSON) _apiGatewayAuthorizerAuthorizerCredentials
         , fmap (("AuthorizerResultTtlInSeconds",) . toJSON) _apiGatewayAuthorizerAuthorizerResultTtlInSeconds

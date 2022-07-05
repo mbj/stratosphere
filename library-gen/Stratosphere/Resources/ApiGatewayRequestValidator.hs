@@ -25,7 +25,7 @@ instance ToResourceProperties ApiGatewayRequestValidator where
     ResourceProperties
     { resourcePropertiesType = "AWS::ApiGateway::RequestValidator"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Name",) . toJSON) _apiGatewayRequestValidatorName
         , (Just . ("RestApiId",) . toJSON) _apiGatewayRequestValidatorRestApiId
         , fmap (("ValidateRequestBody",) . toJSON) _apiGatewayRequestValidatorValidateRequestBody

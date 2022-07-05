@@ -25,7 +25,7 @@ instance ToResourceProperties DocDBDBSubnetGroup where
     ResourceProperties
     { resourcePropertiesType = "AWS::DocDB::DBSubnetGroup"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("DBSubnetGroupDescription",) . toJSON) _docDBDBSubnetGroupDBSubnetGroupDescription
         , fmap (("DBSubnetGroupName",) . toJSON) _docDBDBSubnetGroupDBSubnetGroupName
         , (Just . ("SubnetIds",) . toJSON) _docDBDBSubnetGroupSubnetIds

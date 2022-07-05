@@ -34,7 +34,7 @@ instance ToResourceProperties DAXCluster where
     ResourceProperties
     { resourcePropertiesType = "AWS::DAX::Cluster"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("AvailabilityZones",) . toJSON) _dAXClusterAvailabilityZones
         , fmap (("ClusterName",) . toJSON) _dAXClusterClusterName
         , fmap (("Description",) . toJSON) _dAXClusterDescription

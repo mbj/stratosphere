@@ -25,7 +25,7 @@ instance ToResourceProperties RDSDBSubnetGroup where
     ResourceProperties
     { resourcePropertiesType = "AWS::RDS::DBSubnetGroup"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("DBSubnetGroupDescription",) . toJSON) _rDSDBSubnetGroupDBSubnetGroupDescription
         , fmap (("DBSubnetGroupName",) . toJSON) _rDSDBSubnetGroupDBSubnetGroupName
         , (Just . ("SubnetIds",) . toJSON) _rDSDBSubnetGroupSubnetIds

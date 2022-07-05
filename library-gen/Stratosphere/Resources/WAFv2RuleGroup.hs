@@ -30,7 +30,7 @@ instance ToResourceProperties WAFv2RuleGroup where
     ResourceProperties
     { resourcePropertiesType = "AWS::WAFv2::RuleGroup"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("Capacity",) . toJSON) _wAFv2RuleGroupCapacity
         , fmap (("Description",) . toJSON) _wAFv2RuleGroupDescription
         , fmap (("Name",) . toJSON) _wAFv2RuleGroupName

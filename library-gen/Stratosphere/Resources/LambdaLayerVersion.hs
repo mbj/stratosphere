@@ -26,7 +26,7 @@ instance ToResourceProperties LambdaLayerVersion where
     ResourceProperties
     { resourcePropertiesType = "AWS::Lambda::LayerVersion"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("CompatibleRuntimes",) . toJSON) _lambdaLayerVersionCompatibleRuntimes
         , (Just . ("Content",) . toJSON) _lambdaLayerVersionContent
         , fmap (("Description",) . toJSON) _lambdaLayerVersionDescription

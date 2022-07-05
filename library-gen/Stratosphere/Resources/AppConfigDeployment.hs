@@ -28,7 +28,7 @@ instance ToResourceProperties AppConfigDeployment where
     ResourceProperties
     { resourcePropertiesType = "AWS::AppConfig::Deployment"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("ApplicationId",) . toJSON) _appConfigDeploymentApplicationId
         , (Just . ("ConfigurationProfileId",) . toJSON) _appConfigDeploymentConfigurationProfileId
         , (Just . ("ConfigurationVersion",) . toJSON) _appConfigDeploymentConfigurationVersion

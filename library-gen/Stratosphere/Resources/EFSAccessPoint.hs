@@ -28,7 +28,7 @@ instance ToResourceProperties EFSAccessPoint where
     ResourceProperties
     { resourcePropertiesType = "AWS::EFS::AccessPoint"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("AccessPointTags",) . toJSON) _eFSAccessPointAccessPointTags
         , fmap (("ClientToken",) . toJSON) _eFSAccessPointClientToken
         , (Just . ("FileSystemId",) . toJSON) _eFSAccessPointFileSystemId

@@ -26,7 +26,7 @@ instance ToResourceProperties InspectorAssessmentTemplate where
     ResourceProperties
     { resourcePropertiesType = "AWS::Inspector::AssessmentTemplate"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("AssessmentTargetArn",) . toJSON) _inspectorAssessmentTemplateAssessmentTargetArn
         , fmap (("AssessmentTemplateName",) . toJSON) _inspectorAssessmentTemplateAssessmentTemplateName
         , (Just . ("DurationInSeconds",) . toJSON) _inspectorAssessmentTemplateDurationInSeconds

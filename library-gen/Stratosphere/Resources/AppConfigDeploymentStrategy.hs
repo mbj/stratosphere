@@ -29,7 +29,7 @@ instance ToResourceProperties AppConfigDeploymentStrategy where
     ResourceProperties
     { resourcePropertiesType = "AWS::AppConfig::DeploymentStrategy"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("DeploymentDurationInMinutes",) . toJSON) _appConfigDeploymentStrategyDeploymentDurationInMinutes
         , fmap (("Description",) . toJSON) _appConfigDeploymentStrategyDescription
         , fmap (("FinalBakeTimeInMinutes",) . toJSON) _appConfigDeploymentStrategyFinalBakeTimeInMinutes

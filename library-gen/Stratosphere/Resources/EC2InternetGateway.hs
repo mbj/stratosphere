@@ -22,7 +22,7 @@ instance ToResourceProperties EC2InternetGateway where
     ResourceProperties
     { resourcePropertiesType = "AWS::EC2::InternetGateway"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Tags",) . toJSON) _eC2InternetGatewayTags
         ]
     }

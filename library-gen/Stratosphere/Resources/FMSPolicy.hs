@@ -34,7 +34,7 @@ instance ToResourceProperties FMSPolicy where
     ResourceProperties
     { resourcePropertiesType = "AWS::FMS::Policy"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("DeleteAllPolicyResources",) . toJSON) _fMSPolicyDeleteAllPolicyResources
         , fmap (("ExcludeMap",) . toJSON) _fMSPolicyExcludeMap
         , (Just . ("ExcludeResourceTags",) . toJSON) _fMSPolicyExcludeResourceTags

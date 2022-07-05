@@ -26,7 +26,7 @@ instance ToResourceProperties ImageBuilderDistributionConfiguration where
     ResourceProperties
     { resourcePropertiesType = "AWS::ImageBuilder::DistributionConfiguration"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Description",) . toJSON) _imageBuilderDistributionConfigurationDescription
         , (Just . ("Distributions",) . toJSON) _imageBuilderDistributionConfigurationDistributions
         , (Just . ("Name",) . toJSON) _imageBuilderDistributionConfigurationName

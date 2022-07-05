@@ -24,7 +24,7 @@ instance ToResourceProperties GameLiftAlias where
     ResourceProperties
     { resourcePropertiesType = "AWS::GameLift::Alias"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Description",) . toJSON) _gameLiftAliasDescription
         , (Just . ("Name",) . toJSON) _gameLiftAliasName
         , (Just . ("RoutingStrategy",) . toJSON) _gameLiftAliasRoutingStrategy

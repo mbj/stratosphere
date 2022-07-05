@@ -25,7 +25,7 @@ instance ToResourceProperties EMRStep where
     ResourceProperties
     { resourcePropertiesType = "AWS::EMR::Step"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("ActionOnFailure",) . toJSON) _eMRStepActionOnFailure
         , (Just . ("HadoopJarStep",) . toJSON) _eMRStepHadoopJarStep
         , (Just . ("JobFlowId",) . toJSON) _eMRStepJobFlowId

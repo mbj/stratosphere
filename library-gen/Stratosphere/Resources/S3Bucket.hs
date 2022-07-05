@@ -54,7 +54,7 @@ instance ToResourceProperties S3Bucket where
     ResourceProperties
     { resourcePropertiesType = "AWS::S3::Bucket"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("AccelerateConfiguration",) . toJSON) _s3BucketAccelerateConfiguration
         , fmap (("AccessControl",) . toJSON) _s3BucketAccessControl
         , fmap (("AnalyticsConfigurations",) . toJSON) _s3BucketAnalyticsConfigurations

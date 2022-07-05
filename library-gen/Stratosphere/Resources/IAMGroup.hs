@@ -25,7 +25,7 @@ instance ToResourceProperties IAMGroup where
     ResourceProperties
     { resourcePropertiesType = "AWS::IAM::Group"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("GroupName",) . toJSON) _iAMGroupGroupName
         , fmap (("ManagedPolicyArns",) . toJSON) _iAMGroupManagedPolicyArns
         , fmap (("Path",) . toJSON) _iAMGroupPath

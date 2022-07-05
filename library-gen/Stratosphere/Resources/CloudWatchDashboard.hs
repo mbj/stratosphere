@@ -23,7 +23,7 @@ instance ToResourceProperties CloudWatchDashboard where
     ResourceProperties
     { resourcePropertiesType = "AWS::CloudWatch::Dashboard"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("DashboardBody",) . toJSON) _cloudWatchDashboardDashboardBody
         , fmap (("DashboardName",) . toJSON) _cloudWatchDashboardDashboardName
         ]

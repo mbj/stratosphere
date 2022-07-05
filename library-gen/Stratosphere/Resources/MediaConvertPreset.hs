@@ -26,7 +26,7 @@ instance ToResourceProperties MediaConvertPreset where
     ResourceProperties
     { resourcePropertiesType = "AWS::MediaConvert::Preset"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Category",) . toJSON) _mediaConvertPresetCategory
         , fmap (("Description",) . toJSON) _mediaConvertPresetDescription
         , fmap (("Name",) . toJSON) _mediaConvertPresetName

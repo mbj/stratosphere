@@ -24,7 +24,7 @@ instance ToResourceProperties GreengrassConnectorDefinition where
     ResourceProperties
     { resourcePropertiesType = "AWS::Greengrass::ConnectorDefinition"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("InitialVersion",) . toJSON) _greengrassConnectorDefinitionInitialVersion
         , (Just . ("Name",) . toJSON) _greengrassConnectorDefinitionName
         , fmap (("Tags",) . toJSON) _greengrassConnectorDefinitionTags

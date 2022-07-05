@@ -54,7 +54,7 @@ instance ToResourceProperties RDSDBCluster where
     ResourceProperties
     { resourcePropertiesType = "AWS::RDS::DBCluster"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("AssociatedRoles",) . toJSON) _rDSDBClusterAssociatedRoles
         , fmap (("AvailabilityZones",) . toJSON) _rDSDBClusterAvailabilityZones
         , fmap (("BacktrackWindow",) . toJSON) _rDSDBClusterBacktrackWindow

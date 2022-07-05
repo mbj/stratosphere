@@ -25,7 +25,7 @@ instance ToResourceProperties ACMPCACertificateAuthorityActivation where
     ResourceProperties
     { resourcePropertiesType = "AWS::ACMPCA::CertificateAuthorityActivation"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("Certificate",) . toJSON) _aCMPCACertificateAuthorityActivationCertificate
         , (Just . ("CertificateAuthorityArn",) . toJSON) _aCMPCACertificateAuthorityActivationCertificateAuthorityArn
         , fmap (("CertificateChain",) . toJSON) _aCMPCACertificateAuthorityActivationCertificateChain

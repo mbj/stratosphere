@@ -24,7 +24,7 @@ instance ToResourceProperties ServiceDiscoveryPublicDnsNamespace where
     ResourceProperties
     { resourcePropertiesType = "AWS::ServiceDiscovery::PublicDnsNamespace"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Description",) . toJSON) _serviceDiscoveryPublicDnsNamespaceDescription
         , (Just . ("Name",) . toJSON) _serviceDiscoveryPublicDnsNamespaceName
         , fmap (("Tags",) . toJSON) _serviceDiscoveryPublicDnsNamespaceTags

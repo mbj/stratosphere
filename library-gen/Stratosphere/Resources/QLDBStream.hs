@@ -29,7 +29,7 @@ instance ToResourceProperties QLDBStream where
     ResourceProperties
     { resourcePropertiesType = "AWS::QLDB::Stream"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("ExclusiveEndTime",) . toJSON) _qLDBStreamExclusiveEndTime
         , (Just . ("InclusiveStartTime",) . toJSON) _qLDBStreamInclusiveStartTime
         , (Just . ("KinesisConfiguration",) . toJSON) _qLDBStreamKinesisConfiguration

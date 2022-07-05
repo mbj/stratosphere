@@ -23,7 +23,7 @@ instance ToResourceProperties IoTPolicy where
     ResourceProperties
     { resourcePropertiesType = "AWS::IoT::Policy"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("PolicyDocument",) . toJSON) _ioTPolicyPolicyDocument
         , fmap (("PolicyName",) . toJSON) _ioTPolicyPolicyName
         ]

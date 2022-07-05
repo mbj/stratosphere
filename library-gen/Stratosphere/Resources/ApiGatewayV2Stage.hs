@@ -33,7 +33,7 @@ instance ToResourceProperties ApiGatewayV2Stage where
     ResourceProperties
     { resourcePropertiesType = "AWS::ApiGatewayV2::Stage"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("AccessLogSettings",) . toJSON) _apiGatewayV2StageAccessLogSettings
         , (Just . ("ApiId",) . toJSON) _apiGatewayV2StageApiId
         , fmap (("AutoDeploy",) . toJSON) _apiGatewayV2StageAutoDeploy

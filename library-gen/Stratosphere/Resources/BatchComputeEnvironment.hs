@@ -26,7 +26,7 @@ instance ToResourceProperties BatchComputeEnvironment where
     ResourceProperties
     { resourcePropertiesType = "AWS::Batch::ComputeEnvironment"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("ComputeEnvironmentName",) . toJSON) _batchComputeEnvironmentComputeEnvironmentName
         , fmap (("ComputeResources",) . toJSON) _batchComputeEnvironmentComputeResources
         , (Just . ("ServiceRole",) . toJSON) _batchComputeEnvironmentServiceRole

@@ -23,7 +23,7 @@ instance ToResourceProperties EC2VPCEndpointServicePermissions where
     ResourceProperties
     { resourcePropertiesType = "AWS::EC2::VPCEndpointServicePermissions"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("AllowedPrincipals",) . toJSON) _eC2VPCEndpointServicePermissionsAllowedPrincipals
         , (Just . ("ServiceId",) . toJSON) _eC2VPCEndpointServicePermissionsServiceId
         ]

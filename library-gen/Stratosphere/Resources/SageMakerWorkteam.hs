@@ -28,7 +28,7 @@ instance ToResourceProperties SageMakerWorkteam where
     ResourceProperties
     { resourcePropertiesType = "AWS::SageMaker::Workteam"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Description",) . toJSON) _sageMakerWorkteamDescription
         , fmap (("MemberDefinitions",) . toJSON) _sageMakerWorkteamMemberDefinitions
         , fmap (("NotificationConfiguration",) . toJSON) _sageMakerWorkteamNotificationConfiguration

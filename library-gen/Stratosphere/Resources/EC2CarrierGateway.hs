@@ -23,7 +23,7 @@ instance ToResourceProperties EC2CarrierGateway where
     ResourceProperties
     { resourcePropertiesType = "AWS::EC2::CarrierGateway"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Tags",) . toJSON) _eC2CarrierGatewayTags
         , (Just . ("VpcId",) . toJSON) _eC2CarrierGatewayVpcId
         ]

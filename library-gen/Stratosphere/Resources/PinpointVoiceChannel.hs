@@ -23,7 +23,7 @@ instance ToResourceProperties PinpointVoiceChannel where
     ResourceProperties
     { resourcePropertiesType = "AWS::Pinpoint::VoiceChannel"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("ApplicationId",) . toJSON) _pinpointVoiceChannelApplicationId
         , fmap (("Enabled",) . toJSON) _pinpointVoiceChannelEnabled
         ]

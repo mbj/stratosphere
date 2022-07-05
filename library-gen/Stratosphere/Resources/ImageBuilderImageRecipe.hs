@@ -30,7 +30,7 @@ instance ToResourceProperties ImageBuilderImageRecipe where
     ResourceProperties
     { resourcePropertiesType = "AWS::ImageBuilder::ImageRecipe"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("BlockDeviceMappings",) . toJSON) _imageBuilderImageRecipeBlockDeviceMappings
         , (Just . ("Components",) . toJSON) _imageBuilderImageRecipeComponents
         , fmap (("Description",) . toJSON) _imageBuilderImageRecipeDescription

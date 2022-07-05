@@ -29,7 +29,7 @@ instance ToResourceProperties AutoScalingLifecycleHook where
     ResourceProperties
     { resourcePropertiesType = "AWS::AutoScaling::LifecycleHook"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("AutoScalingGroupName",) . toJSON) _autoScalingLifecycleHookAutoScalingGroupName
         , fmap (("DefaultResult",) . toJSON) _autoScalingLifecycleHookDefaultResult
         , fmap (("HeartbeatTimeout",) . toJSON) _autoScalingLifecycleHookHeartbeatTimeout

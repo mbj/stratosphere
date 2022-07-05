@@ -31,7 +31,7 @@ instance ToResourceProperties ConfigRemediationConfiguration where
     ResourceProperties
     { resourcePropertiesType = "AWS::Config::RemediationConfiguration"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Automatic",) . toJSON) _configRemediationConfigurationAutomatic
         , (Just . ("ConfigRuleName",) . toJSON) _configRemediationConfigurationConfigRuleName
         , fmap (("ExecutionControls",) . toJSON) _configRemediationConfigurationExecutionControls

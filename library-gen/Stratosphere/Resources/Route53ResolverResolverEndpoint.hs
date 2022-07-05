@@ -27,7 +27,7 @@ instance ToResourceProperties Route53ResolverResolverEndpoint where
     ResourceProperties
     { resourcePropertiesType = "AWS::Route53Resolver::ResolverEndpoint"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("Direction",) . toJSON) _route53ResolverResolverEndpointDirection
         , (Just . ("IpAddresses",) . toJSON) _route53ResolverResolverEndpointIpAddresses
         , fmap (("Name",) . toJSON) _route53ResolverResolverEndpointName

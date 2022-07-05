@@ -26,7 +26,7 @@ instance ToResourceProperties NetworkManagerSite where
     ResourceProperties
     { resourcePropertiesType = "AWS::NetworkManager::Site"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Description",) . toJSON) _networkManagerSiteDescription
         , (Just . ("GlobalNetworkId",) . toJSON) _networkManagerSiteGlobalNetworkId
         , fmap (("Location",) . toJSON) _networkManagerSiteLocation

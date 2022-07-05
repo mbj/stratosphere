@@ -26,7 +26,7 @@ instance ToResourceProperties GuardDutyIPSet where
     ResourceProperties
     { resourcePropertiesType = "AWS::GuardDuty::IPSet"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("Activate",) . toJSON) _guardDutyIPSetActivate
         , (Just . ("DetectorId",) . toJSON) _guardDutyIPSetDetectorId
         , (Just . ("Format",) . toJSON) _guardDutyIPSetFormat

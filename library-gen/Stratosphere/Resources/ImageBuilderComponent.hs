@@ -31,7 +31,7 @@ instance ToResourceProperties ImageBuilderComponent where
     ResourceProperties
     { resourcePropertiesType = "AWS::ImageBuilder::Component"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("ChangeDescription",) . toJSON) _imageBuilderComponentChangeDescription
         , fmap (("Data",) . toJSON) _imageBuilderComponentData
         , fmap (("Description",) . toJSON) _imageBuilderComponentDescription

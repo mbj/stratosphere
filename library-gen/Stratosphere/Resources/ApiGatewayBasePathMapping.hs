@@ -25,7 +25,7 @@ instance ToResourceProperties ApiGatewayBasePathMapping where
     ResourceProperties
     { resourcePropertiesType = "AWS::ApiGateway::BasePathMapping"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("BasePath",) . toJSON) _apiGatewayBasePathMappingBasePath
         , (Just . ("DomainName",) . toJSON) _apiGatewayBasePathMappingDomainName
         , fmap (("RestApiId",) . toJSON) _apiGatewayBasePathMappingRestApiId

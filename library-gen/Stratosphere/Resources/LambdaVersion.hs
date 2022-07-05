@@ -25,7 +25,7 @@ instance ToResourceProperties LambdaVersion where
     ResourceProperties
     { resourcePropertiesType = "AWS::Lambda::Version"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("CodeSha256",) . toJSON) _lambdaVersionCodeSha256
         , fmap (("Description",) . toJSON) _lambdaVersionDescription
         , (Just . ("FunctionName",) . toJSON) _lambdaVersionFunctionName

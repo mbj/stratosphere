@@ -28,7 +28,7 @@ instance ToResourceProperties CodeStarGitHubRepository where
     ResourceProperties
     { resourcePropertiesType = "AWS::CodeStar::GitHubRepository"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Code",) . toJSON) _codeStarGitHubRepositoryCode
         , fmap (("EnableIssues",) . toJSON) _codeStarGitHubRepositoryEnableIssues
         , fmap (("IsPrivate",) . toJSON) _codeStarGitHubRepositoryIsPrivate

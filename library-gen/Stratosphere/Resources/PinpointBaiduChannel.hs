@@ -25,7 +25,7 @@ instance ToResourceProperties PinpointBaiduChannel where
     ResourceProperties
     { resourcePropertiesType = "AWS::Pinpoint::BaiduChannel"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("ApiKey",) . toJSON) _pinpointBaiduChannelApiKey
         , (Just . ("ApplicationId",) . toJSON) _pinpointBaiduChannelApplicationId
         , fmap (("Enabled",) . toJSON) _pinpointBaiduChannelEnabled

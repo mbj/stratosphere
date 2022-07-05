@@ -27,7 +27,7 @@ instance ToResourceProperties GuardDutyMember where
     ResourceProperties
     { resourcePropertiesType = "AWS::GuardDuty::Member"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("DetectorId",) . toJSON) _guardDutyMemberDetectorId
         , fmap (("DisableEmailNotification",) . toJSON) _guardDutyMemberDisableEmailNotification
         , (Just . ("Email",) . toJSON) _guardDutyMemberEmail

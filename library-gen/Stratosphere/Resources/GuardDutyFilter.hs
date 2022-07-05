@@ -26,7 +26,7 @@ instance ToResourceProperties GuardDutyFilter where
     ResourceProperties
     { resourcePropertiesType = "AWS::GuardDuty::Filter"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("Action",) . toJSON) _guardDutyFilterAction
         , (Just . ("Description",) . toJSON) _guardDutyFilterDescription
         , (Just . ("DetectorId",) . toJSON) _guardDutyFilterDetectorId

@@ -34,7 +34,7 @@ instance ToResourceProperties AmplifyBranch where
     ResourceProperties
     { resourcePropertiesType = "AWS::Amplify::Branch"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("AppId",) . toJSON) _amplifyBranchAppId
         , fmap (("BasicAuthConfig",) . toJSON) _amplifyBranchBasicAuthConfig
         , (Just . ("BranchName",) . toJSON) _amplifyBranchBranchName

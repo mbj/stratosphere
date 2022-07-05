@@ -29,7 +29,7 @@ instance ToResourceProperties CodeStarNotificationsNotificationRule where
     ResourceProperties
     { resourcePropertiesType = "AWS::CodeStarNotifications::NotificationRule"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("DetailType",) . toJSON) _codeStarNotificationsNotificationRuleDetailType
         , (Just . ("EventTypeIds",) . toJSON) _codeStarNotificationsNotificationRuleEventTypeIds
         , (Just . ("Name",) . toJSON) _codeStarNotificationsNotificationRuleName
