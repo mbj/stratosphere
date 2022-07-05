@@ -25,7 +25,7 @@ instance ToResourceProperties EC2VPCEndpointConnectionNotification where
     ResourceProperties
     { resourcePropertiesType = "AWS::EC2::VPCEndpointConnectionNotification"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("ConnectionEvents",) . toJSON) _eC2VPCEndpointConnectionNotificationConnectionEvents
         , (Just . ("ConnectionNotificationArn",) . toJSON) _eC2VPCEndpointConnectionNotificationConnectionNotificationArn
         , fmap (("ServiceId",) . toJSON) _eC2VPCEndpointConnectionNotificationServiceId

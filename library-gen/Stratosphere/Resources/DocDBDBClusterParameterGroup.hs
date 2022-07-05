@@ -26,7 +26,7 @@ instance ToResourceProperties DocDBDBClusterParameterGroup where
     ResourceProperties
     { resourcePropertiesType = "AWS::DocDB::DBClusterParameterGroup"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("Description",) . toJSON) _docDBDBClusterParameterGroupDescription
         , (Just . ("Family",) . toJSON) _docDBDBClusterParameterGroupFamily
         , fmap (("Name",) . toJSON) _docDBDBClusterParameterGroupName

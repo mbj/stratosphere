@@ -29,7 +29,7 @@ instance ToResourceProperties CognitoUserPoolUser where
     ResourceProperties
     { resourcePropertiesType = "AWS::Cognito::UserPoolUser"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("ClientMetadata",) . toJSON) _cognitoUserPoolUserClientMetadata
         , fmap (("DesiredDeliveryMediums",) . toJSON) _cognitoUserPoolUserDesiredDeliveryMediums
         , fmap (("ForceAliasCreation",) . toJSON) _cognitoUserPoolUserForceAliasCreation

@@ -27,7 +27,7 @@ instance ToResourceProperties KinesisStream where
     ResourceProperties
     { resourcePropertiesType = "AWS::Kinesis::Stream"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Name",) . toJSON) _kinesisStreamName
         , fmap (("RetentionPeriodHours",) . toJSON) _kinesisStreamRetentionPeriodHours
         , (Just . ("ShardCount",) . toJSON) _kinesisStreamShardCount

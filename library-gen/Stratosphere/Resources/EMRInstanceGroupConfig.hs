@@ -33,7 +33,7 @@ instance ToResourceProperties EMRInstanceGroupConfig where
     ResourceProperties
     { resourcePropertiesType = "AWS::EMR::InstanceGroupConfig"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("AutoScalingPolicy",) . toJSON) _eMRInstanceGroupConfigAutoScalingPolicy
         , fmap (("BidPrice",) . toJSON) _eMRInstanceGroupConfigBidPrice
         , fmap (("Configurations",) . toJSON) _eMRInstanceGroupConfigConfigurations

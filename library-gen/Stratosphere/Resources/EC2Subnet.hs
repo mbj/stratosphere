@@ -28,7 +28,7 @@ instance ToResourceProperties EC2Subnet where
     ResourceProperties
     { resourcePropertiesType = "AWS::EC2::Subnet"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("AssignIpv6AddressOnCreation",) . toJSON) _eC2SubnetAssignIpv6AddressOnCreation
         , fmap (("AvailabilityZone",) . toJSON) _eC2SubnetAvailabilityZone
         , (Just . ("CidrBlock",) . toJSON) _eC2SubnetCidrBlock

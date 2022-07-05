@@ -28,7 +28,7 @@ instance ToResourceProperties ApiGatewayV2ApiGatewayManagedOverrides where
     ResourceProperties
     { resourcePropertiesType = "AWS::ApiGatewayV2::ApiGatewayManagedOverrides"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("ApiId",) . toJSON) _apiGatewayV2ApiGatewayManagedOverridesApiId
         , fmap (("Integration",) . toJSON) _apiGatewayV2ApiGatewayManagedOverridesIntegration
         , fmap (("Route",) . toJSON) _apiGatewayV2ApiGatewayManagedOverridesRoute

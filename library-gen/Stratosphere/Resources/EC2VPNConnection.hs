@@ -29,7 +29,7 @@ instance ToResourceProperties EC2VPNConnection where
     ResourceProperties
     { resourcePropertiesType = "AWS::EC2::VPNConnection"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("CustomerGatewayId",) . toJSON) _eC2VPNConnectionCustomerGatewayId
         , fmap (("StaticRoutesOnly",) . toJSON) _eC2VPNConnectionStaticRoutesOnly
         , fmap (("Tags",) . toJSON) _eC2VPNConnectionTags

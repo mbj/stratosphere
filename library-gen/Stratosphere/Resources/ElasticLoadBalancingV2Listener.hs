@@ -29,7 +29,7 @@ instance ToResourceProperties ElasticLoadBalancingV2Listener where
     ResourceProperties
     { resourcePropertiesType = "AWS::ElasticLoadBalancingV2::Listener"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("AlpnPolicy",) . toJSON) _elasticLoadBalancingV2ListenerAlpnPolicy
         , fmap (("Certificates",) . toJSON) _elasticLoadBalancingV2ListenerCertificates
         , (Just . ("DefaultActions",) . toJSON) _elasticLoadBalancingV2ListenerDefaultActions

@@ -26,7 +26,7 @@ instance ToResourceProperties RDSDBSecurityGroupIngress where
     ResourceProperties
     { resourcePropertiesType = "AWS::RDS::DBSecurityGroupIngress"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("CIDRIP",) . toJSON) _rDSDBSecurityGroupIngressCIDRIP
         , (Just . ("DBSecurityGroupName",) . toJSON) _rDSDBSecurityGroupIngressDBSecurityGroupName
         , fmap (("EC2SecurityGroupId",) . toJSON) _rDSDBSecurityGroupIngressEC2SecurityGroupId

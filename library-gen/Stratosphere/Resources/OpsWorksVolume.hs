@@ -25,7 +25,7 @@ instance ToResourceProperties OpsWorksVolume where
     ResourceProperties
     { resourcePropertiesType = "AWS::OpsWorks::Volume"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("Ec2VolumeId",) . toJSON) _opsWorksVolumeEc2VolumeId
         , fmap (("MountPoint",) . toJSON) _opsWorksVolumeMountPoint
         , fmap (("Name",) . toJSON) _opsWorksVolumeName

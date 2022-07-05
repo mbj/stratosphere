@@ -26,7 +26,7 @@ instance ToResourceProperties CloudFormationMacro where
     ResourceProperties
     { resourcePropertiesType = "AWS::CloudFormation::Macro"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Description",) . toJSON) _cloudFormationMacroDescription
         , (Just . ("FunctionName",) . toJSON) _cloudFormationMacroFunctionName
         , fmap (("LogGroupName",) . toJSON) _cloudFormationMacroLogGroupName

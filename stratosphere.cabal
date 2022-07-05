@@ -2103,7 +2103,7 @@ library
       library-gen
   ghc-options: -Wall -O0
   build-depends:
-      aeson >=0.11 && <2
+      aeson >=2
     , aeson-pretty >=0.8
     , base >=4.8 && <5
     , bytestring
@@ -2123,7 +2123,7 @@ executable auto-scaling-group
       examples
   ghc-options: -Wall
   build-depends:
-      aeson >=0.11 && <2
+      aeson >=2
     , aeson-pretty >=0.8
     , base >=4.8 && <5
     , bytestring
@@ -2146,7 +2146,7 @@ executable rds-master-replica
       examples
   ghc-options: -Wall
   build-depends:
-      aeson >=0.11 && <2
+      aeson >=2
     , aeson-pretty >=0.8
     , base >=4.8 && <5
     , bytestring
@@ -2169,7 +2169,7 @@ executable s3-copy
       examples
   ghc-options: -Wall
   build-depends:
-      aeson >=0.11 && <2
+      aeson >=2
     , aeson-pretty >=0.8
     , base >=4.8 && <5
     , bytestring
@@ -2192,7 +2192,7 @@ executable simple-lambda
       examples
   ghc-options: -Wall
   build-depends:
-      aeson >=0.11 && <2
+      aeson >=2
     , aeson-pretty >=0.8
     , base >=4.8 && <5
     , bytestring
@@ -2216,7 +2216,7 @@ test-suite spec
   hs-source-dirs:
       tests
   build-depends:
-      aeson >=0.11 && <2
+      aeson >=2
     , aeson-pretty >=0.8
     , base
     , bytestring

@@ -26,7 +26,7 @@ instance ToResourceProperties ResourceGroupsGroup where
     ResourceProperties
     { resourcePropertiesType = "AWS::ResourceGroups::Group"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Description",) . toJSON) _resourceGroupsGroupDescription
         , (Just . ("Name",) . toJSON) _resourceGroupsGroupName
         , fmap (("ResourceQuery",) . toJSON) _resourceGroupsGroupResourceQuery

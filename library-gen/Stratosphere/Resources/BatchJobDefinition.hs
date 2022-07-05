@@ -31,7 +31,7 @@ instance ToResourceProperties BatchJobDefinition where
     ResourceProperties
     { resourcePropertiesType = "AWS::Batch::JobDefinition"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("ContainerProperties",) . toJSON) _batchJobDefinitionContainerProperties
         , fmap (("JobDefinitionName",) . toJSON) _batchJobDefinitionJobDefinitionName
         , fmap (("NodeProperties",) . toJSON) _batchJobDefinitionNodeProperties

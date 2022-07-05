@@ -22,7 +22,7 @@ instance ToResourceProperties SESConfigurationSet where
     ResourceProperties
     { resourcePropertiesType = "AWS::SES::ConfigurationSet"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Name",) . toJSON) _sESConfigurationSetName
         ]
     }

@@ -27,7 +27,7 @@ instance ToResourceProperties ServiceCatalogLaunchRoleConstraint where
     ResourceProperties
     { resourcePropertiesType = "AWS::ServiceCatalog::LaunchRoleConstraint"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("AcceptLanguage",) . toJSON) _serviceCatalogLaunchRoleConstraintAcceptLanguage
         , fmap (("Description",) . toJSON) _serviceCatalogLaunchRoleConstraintDescription
         , fmap (("LocalRoleName",) . toJSON) _serviceCatalogLaunchRoleConstraintLocalRoleName

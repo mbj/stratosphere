@@ -23,7 +23,7 @@ instance ToResourceProperties NetworkManagerGlobalNetwork where
     ResourceProperties
     { resourcePropertiesType = "AWS::NetworkManager::GlobalNetwork"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Description",) . toJSON) _networkManagerGlobalNetworkDescription
         , fmap (("Tags",) . toJSON) _networkManagerGlobalNetworkTags
         ]

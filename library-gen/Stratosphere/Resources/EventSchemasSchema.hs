@@ -27,7 +27,7 @@ instance ToResourceProperties EventSchemasSchema where
     ResourceProperties
     { resourcePropertiesType = "AWS::EventSchemas::Schema"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("Content",) . toJSON) _eventSchemasSchemaContent
         , fmap (("Description",) . toJSON) _eventSchemasSchemaDescription
         , (Just . ("RegistryName",) . toJSON) _eventSchemasSchemaRegistryName

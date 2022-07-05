@@ -29,7 +29,7 @@ instance ToResourceProperties IoTProvisioningTemplate where
     ResourceProperties
     { resourcePropertiesType = "AWS::IoT::ProvisioningTemplate"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Description",) . toJSON) _ioTProvisioningTemplateDescription
         , fmap (("Enabled",) . toJSON) _ioTProvisioningTemplateEnabled
         , fmap (("PreProvisioningHook",) . toJSON) _ioTProvisioningTemplatePreProvisioningHook

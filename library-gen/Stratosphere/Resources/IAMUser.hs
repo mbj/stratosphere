@@ -31,7 +31,7 @@ instance ToResourceProperties IAMUser where
     ResourceProperties
     { resourcePropertiesType = "AWS::IAM::User"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Groups",) . toJSON) _iAMUserGroups
         , fmap (("LoginProfile",) . toJSON) _iAMUserLoginProfile
         , fmap (("ManagedPolicyArns",) . toJSON) _iAMUserManagedPolicyArns

@@ -27,7 +27,7 @@ instance ToResourceProperties SageMakerEndpoint where
     ResourceProperties
     { resourcePropertiesType = "AWS::SageMaker::Endpoint"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("EndpointConfigName",) . toJSON) _sageMakerEndpointEndpointConfigName
         , fmap (("EndpointName",) . toJSON) _sageMakerEndpointEndpointName
         , fmap (("ExcludeRetainedVariantProperties",) . toJSON) _sageMakerEndpointExcludeRetainedVariantProperties

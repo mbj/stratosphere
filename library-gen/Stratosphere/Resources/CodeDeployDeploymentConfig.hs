@@ -23,7 +23,7 @@ instance ToResourceProperties CodeDeployDeploymentConfig where
     ResourceProperties
     { resourcePropertiesType = "AWS::CodeDeploy::DeploymentConfig"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("DeploymentConfigName",) . toJSON) _codeDeployDeploymentConfigDeploymentConfigName
         , fmap (("MinimumHealthyHosts",) . toJSON) _codeDeployDeploymentConfigMinimumHealthyHosts
         ]

@@ -30,7 +30,7 @@ instance ToResourceProperties SageMakerModel where
     ResourceProperties
     { resourcePropertiesType = "AWS::SageMaker::Model"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Containers",) . toJSON) _sageMakerModelContainers
         , fmap (("EnableNetworkIsolation",) . toJSON) _sageMakerModelEnableNetworkIsolation
         , (Just . ("ExecutionRoleArn",) . toJSON) _sageMakerModelExecutionRoleArn

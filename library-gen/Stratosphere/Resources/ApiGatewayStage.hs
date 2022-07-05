@@ -38,7 +38,7 @@ instance ToResourceProperties ApiGatewayStage where
     ResourceProperties
     { resourcePropertiesType = "AWS::ApiGateway::Stage"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("AccessLogSetting",) . toJSON) _apiGatewayStageAccessLogSetting
         , fmap (("CacheClusterEnabled",) . toJSON) _apiGatewayStageCacheClusterEnabled
         , fmap (("CacheClusterSize",) . toJSON) _apiGatewayStageCacheClusterSize

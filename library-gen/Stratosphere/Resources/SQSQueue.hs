@@ -33,7 +33,7 @@ instance ToResourceProperties SQSQueue where
     ResourceProperties
     { resourcePropertiesType = "AWS::SQS::Queue"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("ContentBasedDeduplication",) . toJSON) _sQSQueueContentBasedDeduplication
         , fmap (("DelaySeconds",) . toJSON) _sQSQueueDelaySeconds
         , fmap (("FifoQueue",) . toJSON) _sQSQueueFifoQueue

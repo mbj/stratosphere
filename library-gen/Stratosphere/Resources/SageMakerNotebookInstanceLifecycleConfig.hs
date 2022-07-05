@@ -25,7 +25,7 @@ instance ToResourceProperties SageMakerNotebookInstanceLifecycleConfig where
     ResourceProperties
     { resourcePropertiesType = "AWS::SageMaker::NotebookInstanceLifecycleConfig"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("NotebookInstanceLifecycleConfigName",) . toJSON) _sageMakerNotebookInstanceLifecycleConfigNotebookInstanceLifecycleConfigName
         , fmap (("OnCreate",) . toJSON) _sageMakerNotebookInstanceLifecycleConfigOnCreate
         , fmap (("OnStart",) . toJSON) _sageMakerNotebookInstanceLifecycleConfigOnStart

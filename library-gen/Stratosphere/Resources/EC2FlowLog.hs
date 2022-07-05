@@ -31,7 +31,7 @@ instance ToResourceProperties EC2FlowLog where
     ResourceProperties
     { resourcePropertiesType = "AWS::EC2::FlowLog"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("DeliverLogsPermissionArn",) . toJSON) _eC2FlowLogDeliverLogsPermissionArn
         , fmap (("LogDestination",) . toJSON) _eC2FlowLogLogDestination
         , fmap (("LogDestinationType",) . toJSON) _eC2FlowLogLogDestinationType

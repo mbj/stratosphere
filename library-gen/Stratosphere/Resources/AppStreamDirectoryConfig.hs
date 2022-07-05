@@ -24,7 +24,7 @@ instance ToResourceProperties AppStreamDirectoryConfig where
     ResourceProperties
     { resourcePropertiesType = "AWS::AppStream::DirectoryConfig"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("DirectoryName",) . toJSON) _appStreamDirectoryConfigDirectoryName
         , (Just . ("OrganizationalUnitDistinguishedNames",) . toJSON) _appStreamDirectoryConfigOrganizationalUnitDistinguishedNames
         , (Just . ("ServiceAccountCredentials",) . toJSON) _appStreamDirectoryConfigServiceAccountCredentials

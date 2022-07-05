@@ -24,7 +24,7 @@ instance ToResourceProperties DAXSubnetGroup where
     ResourceProperties
     { resourcePropertiesType = "AWS::DAX::SubnetGroup"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Description",) . toJSON) _dAXSubnetGroupDescription
         , fmap (("SubnetGroupName",) . toJSON) _dAXSubnetGroupSubnetGroupName
         , (Just . ("SubnetIds",) . toJSON) _dAXSubnetGroupSubnetIds

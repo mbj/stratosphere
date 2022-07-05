@@ -42,7 +42,7 @@ instance ToResourceProperties DynamoDBTable where
     ResourceProperties
     { resourcePropertiesType = "AWS::DynamoDB::Table"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("AttributeDefinitions",) . toJSON) _dynamoDBTableAttributeDefinitions
         , fmap (("BillingMode",) . toJSON) _dynamoDBTableBillingMode
         , fmap (("GlobalSecondaryIndexes",) . toJSON) _dynamoDBTableGlobalSecondaryIndexes

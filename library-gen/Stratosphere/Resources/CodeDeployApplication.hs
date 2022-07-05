@@ -23,7 +23,7 @@ instance ToResourceProperties CodeDeployApplication where
     ResourceProperties
     { resourcePropertiesType = "AWS::CodeDeploy::Application"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("ApplicationName",) . toJSON) _codeDeployApplicationApplicationName
         , fmap (("ComputePlatform",) . toJSON) _codeDeployApplicationComputePlatform
         ]

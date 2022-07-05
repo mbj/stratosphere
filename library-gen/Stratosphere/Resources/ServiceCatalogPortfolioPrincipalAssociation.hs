@@ -27,7 +27,7 @@ instance ToResourceProperties ServiceCatalogPortfolioPrincipalAssociation where
     ResourceProperties
     { resourcePropertiesType = "AWS::ServiceCatalog::PortfolioPrincipalAssociation"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("AcceptLanguage",) . toJSON) _serviceCatalogPortfolioPrincipalAssociationAcceptLanguage
         , (Just . ("PortfolioId",) . toJSON) _serviceCatalogPortfolioPrincipalAssociationPortfolioId
         , (Just . ("PrincipalARN",) . toJSON) _serviceCatalogPortfolioPrincipalAssociationPrincipalARN

@@ -24,7 +24,7 @@ instance ToResourceProperties CognitoIdentityPoolRoleAttachment where
     ResourceProperties
     { resourcePropertiesType = "AWS::Cognito::IdentityPoolRoleAttachment"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("IdentityPoolId",) . toJSON) _cognitoIdentityPoolRoleAttachmentIdentityPoolId
         , fmap (("RoleMappings",) . toJSON) _cognitoIdentityPoolRoleAttachmentRoleMappings
         , fmap (("Roles",) . toJSON) _cognitoIdentityPoolRoleAttachmentRoles

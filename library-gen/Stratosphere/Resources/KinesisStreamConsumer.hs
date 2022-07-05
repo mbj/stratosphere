@@ -23,7 +23,7 @@ instance ToResourceProperties KinesisStreamConsumer where
     ResourceProperties
     { resourcePropertiesType = "AWS::Kinesis::StreamConsumer"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("ConsumerName",) . toJSON) _kinesisStreamConsumerConsumerName
         , (Just . ("StreamARN",) . toJSON) _kinesisStreamConsumerStreamARN
         ]

@@ -22,7 +22,7 @@ instance ToResourceProperties SecurityHubHub where
     ResourceProperties
     { resourcePropertiesType = "AWS::SecurityHub::Hub"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Tags",) . toJSON) _securityHubHubTags
         ]
     }

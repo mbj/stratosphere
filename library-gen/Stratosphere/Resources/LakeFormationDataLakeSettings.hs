@@ -22,7 +22,7 @@ instance ToResourceProperties LakeFormationDataLakeSettings where
     ResourceProperties
     { resourcePropertiesType = "AWS::LakeFormation::DataLakeSettings"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Admins",) . toJSON) _lakeFormationDataLakeSettingsAdmins
         ]
     }

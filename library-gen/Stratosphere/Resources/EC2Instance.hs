@@ -70,7 +70,7 @@ instance ToResourceProperties EC2Instance where
     ResourceProperties
     { resourcePropertiesType = "AWS::EC2::Instance"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("AdditionalInfo",) . toJSON) _eC2InstanceAdditionalInfo
         , fmap (("Affinity",) . toJSON) _eC2InstanceAffinity
         , fmap (("AvailabilityZone",) . toJSON) _eC2InstanceAvailabilityZone

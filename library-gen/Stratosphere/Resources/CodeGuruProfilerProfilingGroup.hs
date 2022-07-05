@@ -27,7 +27,7 @@ instance ToResourceProperties CodeGuruProfilerProfilingGroup where
     ResourceProperties
     { resourcePropertiesType = "AWS::CodeGuruProfiler::ProfilingGroup"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("AgentPermissions",) . toJSON) _codeGuruProfilerProfilingGroupAgentPermissions
         , fmap (("AnomalyDetectionNotificationConfiguration",) . toJSON) _codeGuruProfilerProfilingGroupAnomalyDetectionNotificationConfiguration
         , fmap (("ComputePlatform",) . toJSON) _codeGuruProfilerProfilingGroupComputePlatform

@@ -30,7 +30,7 @@ instance ToResourceProperties SSMParameter where
     ResourceProperties
     { resourcePropertiesType = "AWS::SSM::Parameter"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("AllowedPattern",) . toJSON) _sSMParameterAllowedPattern
         , fmap (("DataType",) . toJSON) _sSMParameterDataType
         , fmap (("Description",) . toJSON) _sSMParameterDescription

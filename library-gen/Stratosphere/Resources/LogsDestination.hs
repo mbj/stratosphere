@@ -25,7 +25,7 @@ instance ToResourceProperties LogsDestination where
     ResourceProperties
     { resourcePropertiesType = "AWS::Logs::Destination"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("DestinationName",) . toJSON) _logsDestinationDestinationName
         , (Just . ("DestinationPolicy",) . toJSON) _logsDestinationDestinationPolicy
         , (Just . ("RoleArn",) . toJSON) _logsDestinationRoleArn

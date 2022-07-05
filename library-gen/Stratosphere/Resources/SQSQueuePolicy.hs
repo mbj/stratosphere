@@ -23,7 +23,7 @@ instance ToResourceProperties SQSQueuePolicy where
     ResourceProperties
     { resourcePropertiesType = "AWS::SQS::QueuePolicy"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("PolicyDocument",) . toJSON) _sQSQueuePolicyPolicyDocument
         , (Just . ("Queues",) . toJSON) _sQSQueuePolicyQueues
         ]

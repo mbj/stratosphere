@@ -25,7 +25,7 @@ instance ToResourceProperties EC2TransitGatewayAttachment where
     ResourceProperties
     { resourcePropertiesType = "AWS::EC2::TransitGatewayAttachment"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("SubnetIds",) . toJSON) _eC2TransitGatewayAttachmentSubnetIds
         , fmap (("Tags",) . toJSON) _eC2TransitGatewayAttachmentTags
         , (Just . ("TransitGatewayId",) . toJSON) _eC2TransitGatewayAttachmentTransitGatewayId

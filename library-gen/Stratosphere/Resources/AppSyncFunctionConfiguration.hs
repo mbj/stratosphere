@@ -30,7 +30,7 @@ instance ToResourceProperties AppSyncFunctionConfiguration where
     ResourceProperties
     { resourcePropertiesType = "AWS::AppSync::FunctionConfiguration"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("ApiId",) . toJSON) _appSyncFunctionConfigurationApiId
         , (Just . ("DataSourceName",) . toJSON) _appSyncFunctionConfigurationDataSourceName
         , fmap (("Description",) . toJSON) _appSyncFunctionConfigurationDescription

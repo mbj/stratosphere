@@ -34,7 +34,7 @@ instance ToResourceProperties GlueMLTransform where
     ResourceProperties
     { resourcePropertiesType = "AWS::Glue::MLTransform"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Description",) . toJSON) _glueMLTransformDescription
         , fmap (("GlueVersion",) . toJSON) _glueMLTransformGlueVersion
         , (Just . ("InputRecordTables",) . toJSON) _glueMLTransformInputRecordTables

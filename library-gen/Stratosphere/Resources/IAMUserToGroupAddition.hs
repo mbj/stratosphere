@@ -23,7 +23,7 @@ instance ToResourceProperties IAMUserToGroupAddition where
     ResourceProperties
     { resourcePropertiesType = "AWS::IAM::UserToGroupAddition"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("GroupName",) . toJSON) _iAMUserToGroupAdditionGroupName
         , (Just . ("Users",) . toJSON) _iAMUserToGroupAdditionUsers
         ]

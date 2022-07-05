@@ -26,7 +26,7 @@ instance ToResourceProperties LambdaEventInvokeConfig where
     ResourceProperties
     { resourcePropertiesType = "AWS::Lambda::EventInvokeConfig"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("DestinationConfig",) . toJSON) _lambdaEventInvokeConfigDestinationConfig
         , (Just . ("FunctionName",) . toJSON) _lambdaEventInvokeConfigFunctionName
         , fmap (("MaximumEventAgeInSeconds",) . toJSON) _lambdaEventInvokeConfigMaximumEventAgeInSeconds

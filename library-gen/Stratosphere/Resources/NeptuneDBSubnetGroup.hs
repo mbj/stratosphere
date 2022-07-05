@@ -25,7 +25,7 @@ instance ToResourceProperties NeptuneDBSubnetGroup where
     ResourceProperties
     { resourcePropertiesType = "AWS::Neptune::DBSubnetGroup"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("DBSubnetGroupDescription",) . toJSON) _neptuneDBSubnetGroupDBSubnetGroupDescription
         , fmap (("DBSubnetGroupName",) . toJSON) _neptuneDBSubnetGroupDBSubnetGroupName
         , (Just . ("SubnetIds",) . toJSON) _neptuneDBSubnetGroupSubnetIds

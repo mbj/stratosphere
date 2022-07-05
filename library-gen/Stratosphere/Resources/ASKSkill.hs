@@ -25,7 +25,7 @@ instance ToResourceProperties ASKSkill where
     ResourceProperties
     { resourcePropertiesType = "Alexa::ASK::Skill"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("AuthenticationConfiguration",) . toJSON) _aSKSkillAuthenticationConfiguration
         , (Just . ("SkillPackage",) . toJSON) _aSKSkillSkillPackage
         , (Just . ("VendorId",) . toJSON) _aSKSkillVendorId

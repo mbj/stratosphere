@@ -36,7 +36,7 @@ instance ToResourceProperties SSMMaintenanceWindowTask where
     ResourceProperties
     { resourcePropertiesType = "AWS::SSM::MaintenanceWindowTask"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Description",) . toJSON) _sSMMaintenanceWindowTaskDescription
         , fmap (("LoggingInfo",) . toJSON) _sSMMaintenanceWindowTaskLoggingInfo
         , (Just . ("MaxConcurrency",) . toJSON) _sSMMaintenanceWindowTaskMaxConcurrency

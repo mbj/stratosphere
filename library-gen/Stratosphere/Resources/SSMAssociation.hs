@@ -38,7 +38,7 @@ instance ToResourceProperties SSMAssociation where
     ResourceProperties
     { resourcePropertiesType = "AWS::SSM::Association"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("ApplyOnlyAtCronInterval",) . toJSON) _sSMAssociationApplyOnlyAtCronInterval
         , fmap (("AssociationName",) . toJSON) _sSMAssociationAssociationName
         , fmap (("AutomationTargetParameterName",) . toJSON) _sSMAssociationAutomationTargetParameterName

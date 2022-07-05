@@ -26,7 +26,7 @@ instance ToResourceProperties IoTCertificate where
     ResourceProperties
     { resourcePropertiesType = "AWS::IoT::Certificate"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("CACertificatePem",) . toJSON) _ioTCertificateCACertificatePem
         , fmap (("CertificateMode",) . toJSON) _ioTCertificateCertificateMode
         , fmap (("CertificatePem",) . toJSON) _ioTCertificateCertificatePem

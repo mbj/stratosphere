@@ -29,7 +29,7 @@ instance ToResourceProperties CognitoUserPoolRiskConfigurationAttachment where
     ResourceProperties
     { resourcePropertiesType = "AWS::Cognito::UserPoolRiskConfigurationAttachment"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("AccountTakeoverRiskConfiguration",) . toJSON) _cognitoUserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfiguration
         , (Just . ("ClientId",) . toJSON) _cognitoUserPoolRiskConfigurationAttachmentClientId
         , fmap (("CompromisedCredentialsRiskConfiguration",) . toJSON) _cognitoUserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfiguration

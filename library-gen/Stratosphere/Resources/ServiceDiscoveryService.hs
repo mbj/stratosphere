@@ -31,7 +31,7 @@ instance ToResourceProperties ServiceDiscoveryService where
     ResourceProperties
     { resourcePropertiesType = "AWS::ServiceDiscovery::Service"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Description",) . toJSON) _serviceDiscoveryServiceDescription
         , fmap (("DnsConfig",) . toJSON) _serviceDiscoveryServiceDnsConfig
         , fmap (("HealthCheckConfig",) . toJSON) _serviceDiscoveryServiceHealthCheckConfig

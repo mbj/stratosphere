@@ -26,7 +26,7 @@ instance ToResourceProperties CloudFormationStack where
     ResourceProperties
     { resourcePropertiesType = "AWS::CloudFormation::Stack"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("NotificationARNs",) . toJSON) _cloudFormationStackNotificationARNs
         , fmap (("Parameters",) . toJSON) _cloudFormationStackParameters
         , fmap (("Tags",) . toJSON) _cloudFormationStackTags

@@ -30,7 +30,7 @@ instance ToResourceProperties AthenaWorkGroup where
     ResourceProperties
     { resourcePropertiesType = "AWS::Athena::WorkGroup"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Description",) . toJSON) _athenaWorkGroupDescription
         , (Just . ("Name",) . toJSON) _athenaWorkGroupName
         , fmap (("RecursiveDeleteOption",) . toJSON) _athenaWorkGroupRecursiveDeleteOption

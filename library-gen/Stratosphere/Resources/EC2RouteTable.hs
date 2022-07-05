@@ -23,7 +23,7 @@ instance ToResourceProperties EC2RouteTable where
     ResourceProperties
     { resourcePropertiesType = "AWS::EC2::RouteTable"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Tags",) . toJSON) _eC2RouteTableTags
         , (Just . ("VpcId",) . toJSON) _eC2RouteTableVpcId
         ]

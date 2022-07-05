@@ -40,7 +40,7 @@ instance ToResourceProperties PinpointCampaign where
     ResourceProperties
     { resourcePropertiesType = "AWS::Pinpoint::Campaign"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("AdditionalTreatments",) . toJSON) _pinpointCampaignAdditionalTreatments
         , (Just . ("ApplicationId",) . toJSON) _pinpointCampaignApplicationId
         , fmap (("CampaignHook",) . toJSON) _pinpointCampaignCampaignHook

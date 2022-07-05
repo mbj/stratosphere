@@ -24,7 +24,7 @@ instance ToResourceProperties ConfigAggregationAuthorization where
     ResourceProperties
     { resourcePropertiesType = "AWS::Config::AggregationAuthorization"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("AuthorizedAccountId",) . toJSON) _configAggregationAuthorizationAuthorizedAccountId
         , (Just . ("AuthorizedAwsRegion",) . toJSON) _configAggregationAuthorizationAuthorizedAwsRegion
         , fmap (("Tags",) . toJSON) _configAggregationAuthorizationTags

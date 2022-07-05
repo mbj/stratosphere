@@ -24,7 +24,7 @@ instance ToResourceProperties IAMAccessKey where
     ResourceProperties
     { resourcePropertiesType = "AWS::IAM::AccessKey"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Serial",) . toJSON) _iAMAccessKeySerial
         , fmap (("Status",) . toJSON) _iAMAccessKeyStatus
         , (Just . ("UserName",) . toJSON) _iAMAccessKeyUserName

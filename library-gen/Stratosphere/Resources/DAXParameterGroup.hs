@@ -24,7 +24,7 @@ instance ToResourceProperties DAXParameterGroup where
     ResourceProperties
     { resourcePropertiesType = "AWS::DAX::ParameterGroup"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Description",) . toJSON) _dAXParameterGroupDescription
         , fmap (("ParameterGroupName",) . toJSON) _dAXParameterGroupParameterGroupName
         , fmap (("ParameterNameValues",) . toJSON) _dAXParameterGroupParameterNameValues

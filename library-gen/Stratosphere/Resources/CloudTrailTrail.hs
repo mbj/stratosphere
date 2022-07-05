@@ -35,7 +35,7 @@ instance ToResourceProperties CloudTrailTrail where
     ResourceProperties
     { resourcePropertiesType = "AWS::CloudTrail::Trail"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("CloudWatchLogsLogGroupArn",) . toJSON) _cloudTrailTrailCloudWatchLogsLogGroupArn
         , fmap (("CloudWatchLogsRoleArn",) . toJSON) _cloudTrailTrailCloudWatchLogsRoleArn
         , fmap (("EnableLogFileValidation",) . toJSON) _cloudTrailTrailEnableLogFileValidation

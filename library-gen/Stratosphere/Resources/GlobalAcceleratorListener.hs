@@ -25,7 +25,7 @@ instance ToResourceProperties GlobalAcceleratorListener where
     ResourceProperties
     { resourcePropertiesType = "AWS::GlobalAccelerator::Listener"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("AcceleratorArn",) . toJSON) _globalAcceleratorListenerAcceleratorArn
         , fmap (("ClientAffinity",) . toJSON) _globalAcceleratorListenerClientAffinity
         , (Just . ("PortRanges",) . toJSON) _globalAcceleratorListenerPortRanges

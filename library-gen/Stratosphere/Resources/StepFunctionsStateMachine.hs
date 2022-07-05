@@ -33,7 +33,7 @@ instance ToResourceProperties StepFunctionsStateMachine where
     ResourceProperties
     { resourcePropertiesType = "AWS::StepFunctions::StateMachine"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("DefinitionS3Location",) . toJSON) _stepFunctionsStateMachineDefinitionS3Location
         , fmap (("DefinitionString",) . toJSON) _stepFunctionsStateMachineDefinitionString
         , fmap (("DefinitionSubstitutions",) . toJSON) _stepFunctionsStateMachineDefinitionSubstitutions

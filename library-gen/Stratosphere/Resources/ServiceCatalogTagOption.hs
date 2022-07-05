@@ -24,7 +24,7 @@ instance ToResourceProperties ServiceCatalogTagOption where
     ResourceProperties
     { resourcePropertiesType = "AWS::ServiceCatalog::TagOption"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Active",) . toJSON) _serviceCatalogTagOptionActive
         , (Just . ("Key",) . toJSON) _serviceCatalogTagOptionKey
         , (Just . ("Value",) . toJSON) _serviceCatalogTagOptionValue

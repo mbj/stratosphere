@@ -23,7 +23,7 @@ instance ToResourceProperties S3BucketPolicy where
     ResourceProperties
     { resourcePropertiesType = "AWS::S3::BucketPolicy"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("Bucket",) . toJSON) _s3BucketPolicyBucket
         , (Just . ("PolicyDocument",) . toJSON) _s3BucketPolicyPolicyDocument
         ]

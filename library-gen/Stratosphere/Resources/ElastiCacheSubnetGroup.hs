@@ -24,7 +24,7 @@ instance ToResourceProperties ElastiCacheSubnetGroup where
     ResourceProperties
     { resourcePropertiesType = "AWS::ElastiCache::SubnetGroup"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("CacheSubnetGroupName",) . toJSON) _elastiCacheSubnetGroupCacheSubnetGroupName
         , (Just . ("Description",) . toJSON) _elastiCacheSubnetGroupDescription
         , (Just . ("SubnetIds",) . toJSON) _elastiCacheSubnetGroupSubnetIds

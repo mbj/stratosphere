@@ -25,7 +25,7 @@ instance ToResourceProperties KinesisAnalyticsV2ApplicationReferenceDataSource w
     ResourceProperties
     { resourcePropertiesType = "AWS::KinesisAnalyticsV2::ApplicationReferenceDataSource"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("ApplicationName",) . toJSON) _kinesisAnalyticsV2ApplicationReferenceDataSourceApplicationName
         , (Just . ("ReferenceDataSource",) . toJSON) _kinesisAnalyticsV2ApplicationReferenceDataSourceReferenceDataSource
         ]

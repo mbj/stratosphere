@@ -24,7 +24,7 @@ instance ToResourceProperties SESReceiptRule where
     ResourceProperties
     { resourcePropertiesType = "AWS::SES::ReceiptRule"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("After",) . toJSON) _sESReceiptRuleAfter
         , (Just . ("Rule",) . toJSON) _sESReceiptRuleRule
         , (Just . ("RuleSetName",) . toJSON) _sESReceiptRuleRuleSetName

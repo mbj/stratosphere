@@ -22,7 +22,7 @@ instance ToResourceProperties EC2EgressOnlyInternetGateway where
     ResourceProperties
     { resourcePropertiesType = "AWS::EC2::EgressOnlyInternetGateway"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("VpcId",) . toJSON) _eC2EgressOnlyInternetGatewayVpcId
         ]
     }

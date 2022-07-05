@@ -22,7 +22,7 @@ instance ToResourceProperties EC2PlacementGroup where
     ResourceProperties
     { resourcePropertiesType = "AWS::EC2::PlacementGroup"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Strategy",) . toJSON) _eC2PlacementGroupStrategy
         ]
     }

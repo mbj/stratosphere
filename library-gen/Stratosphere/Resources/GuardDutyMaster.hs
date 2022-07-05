@@ -24,7 +24,7 @@ instance ToResourceProperties GuardDutyMaster where
     ResourceProperties
     { resourcePropertiesType = "AWS::GuardDuty::Master"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("DetectorId",) . toJSON) _guardDutyMasterDetectorId
         , fmap (("InvitationId",) . toJSON) _guardDutyMasterInvitationId
         , (Just . ("MasterId",) . toJSON) _guardDutyMasterMasterId

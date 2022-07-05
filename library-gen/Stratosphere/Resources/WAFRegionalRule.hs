@@ -24,7 +24,7 @@ instance ToResourceProperties WAFRegionalRule where
     ResourceProperties
     { resourcePropertiesType = "AWS::WAFRegional::Rule"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("MetricName",) . toJSON) _wAFRegionalRuleMetricName
         , (Just . ("Name",) . toJSON) _wAFRegionalRuleName
         , fmap (("Predicates",) . toJSON) _wAFRegionalRulePredicates

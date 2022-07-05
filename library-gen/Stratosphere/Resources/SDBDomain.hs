@@ -22,7 +22,7 @@ instance ToResourceProperties SDBDomain where
     ResourceProperties
     { resourcePropertiesType = "AWS::SDB::Domain"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Description",) . toJSON) _sDBDomainDescription
         ]
     }

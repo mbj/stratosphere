@@ -25,7 +25,7 @@ instance ToResourceProperties CodeBuildSourceCredential where
     ResourceProperties
     { resourcePropertiesType = "AWS::CodeBuild::SourceCredential"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("AuthType",) . toJSON) _codeBuildSourceCredentialAuthType
         , (Just . ("ServerType",) . toJSON) _codeBuildSourceCredentialServerType
         , (Just . ("Token",) . toJSON) _codeBuildSourceCredentialToken

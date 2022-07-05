@@ -29,7 +29,7 @@ instance ToResourceProperties NetworkManagerLink where
     ResourceProperties
     { resourcePropertiesType = "AWS::NetworkManager::Link"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("Bandwidth",) . toJSON) _networkManagerLinkBandwidth
         , fmap (("Description",) . toJSON) _networkManagerLinkDescription
         , (Just . ("GlobalNetworkId",) . toJSON) _networkManagerLinkGlobalNetworkId

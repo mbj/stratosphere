@@ -25,7 +25,7 @@ instance ToResourceProperties LambdaLayerVersionPermission where
     ResourceProperties
     { resourcePropertiesType = "AWS::Lambda::LayerVersionPermission"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("Action",) . toJSON) _lambdaLayerVersionPermissionAction
         , (Just . ("LayerVersionArn",) . toJSON) _lambdaLayerVersionPermissionLayerVersionArn
         , fmap (("OrganizationId",) . toJSON) _lambdaLayerVersionPermissionOrganizationId

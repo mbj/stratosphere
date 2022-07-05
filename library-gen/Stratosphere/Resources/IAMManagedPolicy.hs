@@ -28,7 +28,7 @@ instance ToResourceProperties IAMManagedPolicy where
     ResourceProperties
     { resourcePropertiesType = "AWS::IAM::ManagedPolicy"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Description",) . toJSON) _iAMManagedPolicyDescription
         , fmap (("Groups",) . toJSON) _iAMManagedPolicyGroups
         , fmap (("ManagedPolicyName",) . toJSON) _iAMManagedPolicyManagedPolicyName

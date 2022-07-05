@@ -21,7 +21,7 @@ instance ToResourceProperties DetectiveGraph where
   toResourceProperties _ =
     ResourceProperties
     { resourcePropertiesType = "AWS::Detective::Graph"
-    , resourcePropertiesProperties = hashMapEmpty
+    , resourcePropertiesProperties = keyMapEmpty
     }
 
 -- | Constructor for 'DetectiveGraph' containing required fields as arguments.

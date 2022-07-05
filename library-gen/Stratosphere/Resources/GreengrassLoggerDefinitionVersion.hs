@@ -23,7 +23,7 @@ instance ToResourceProperties GreengrassLoggerDefinitionVersion where
     ResourceProperties
     { resourcePropertiesType = "AWS::Greengrass::LoggerDefinitionVersion"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("LoggerDefinitionId",) . toJSON) _greengrassLoggerDefinitionVersionLoggerDefinitionId
         , (Just . ("Loggers",) . toJSON) _greengrassLoggerDefinitionVersionLoggers
         ]

@@ -26,7 +26,7 @@ instance ToResourceProperties ApiGatewayV2Model where
     ResourceProperties
     { resourcePropertiesType = "AWS::ApiGatewayV2::Model"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("ApiId",) . toJSON) _apiGatewayV2ModelApiId
         , fmap (("ContentType",) . toJSON) _apiGatewayV2ModelContentType
         , fmap (("Description",) . toJSON) _apiGatewayV2ModelDescription

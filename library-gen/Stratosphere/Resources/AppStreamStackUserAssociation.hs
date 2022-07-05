@@ -25,7 +25,7 @@ instance ToResourceProperties AppStreamStackUserAssociation where
     ResourceProperties
     { resourcePropertiesType = "AWS::AppStream::StackUserAssociation"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("AuthenticationType",) . toJSON) _appStreamStackUserAssociationAuthenticationType
         , fmap (("SendEmailNotification",) . toJSON) _appStreamStackUserAssociationSendEmailNotification
         , (Just . ("StackName",) . toJSON) _appStreamStackUserAssociationStackName

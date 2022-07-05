@@ -24,7 +24,7 @@ instance ToResourceProperties ManagedBlockchainNode where
     ResourceProperties
     { resourcePropertiesType = "AWS::ManagedBlockchain::Node"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("MemberId",) . toJSON) _managedBlockchainNodeMemberId
         , (Just . ("NetworkId",) . toJSON) _managedBlockchainNodeNetworkId
         , (Just . ("NodeConfiguration",) . toJSON) _managedBlockchainNodeNodeConfiguration

@@ -25,7 +25,7 @@ instance ToResourceProperties Route53RecordSetGroup where
     ResourceProperties
     { resourcePropertiesType = "AWS::Route53::RecordSetGroup"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Comment",) . toJSON) _route53RecordSetGroupComment
         , fmap (("HostedZoneId",) . toJSON) _route53RecordSetGroupHostedZoneId
         , fmap (("HostedZoneName",) . toJSON) _route53RecordSetGroupHostedZoneName

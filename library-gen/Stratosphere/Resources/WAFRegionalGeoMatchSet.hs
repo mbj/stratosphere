@@ -23,7 +23,7 @@ instance ToResourceProperties WAFRegionalGeoMatchSet where
     ResourceProperties
     { resourcePropertiesType = "AWS::WAFRegional::GeoMatchSet"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("GeoMatchConstraints",) . toJSON) _wAFRegionalGeoMatchSetGeoMatchConstraints
         , (Just . ("Name",) . toJSON) _wAFRegionalGeoMatchSetName
         ]

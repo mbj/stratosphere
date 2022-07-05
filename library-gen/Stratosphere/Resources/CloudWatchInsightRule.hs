@@ -25,7 +25,7 @@ instance ToResourceProperties CloudWatchInsightRule where
     ResourceProperties
     { resourcePropertiesType = "AWS::CloudWatch::InsightRule"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("RuleBody",) . toJSON) _cloudWatchInsightRuleRuleBody
         , (Just . ("RuleName",) . toJSON) _cloudWatchInsightRuleRuleName
         , (Just . ("RuleState",) . toJSON) _cloudWatchInsightRuleRuleState

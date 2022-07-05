@@ -28,7 +28,7 @@ instance ToResourceProperties AppMeshGatewayRoute where
     ResourceProperties
     { resourcePropertiesType = "AWS::AppMesh::GatewayRoute"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("GatewayRouteName",) . toJSON) _appMeshGatewayRouteGatewayRouteName
         , (Just . ("MeshName",) . toJSON) _appMeshGatewayRouteMeshName
         , fmap (("MeshOwner",) . toJSON) _appMeshGatewayRouteMeshOwner

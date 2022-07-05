@@ -23,7 +23,7 @@ instance ToResourceProperties AmazonMQConfigurationAssociation where
     ResourceProperties
     { resourcePropertiesType = "AWS::AmazonMQ::ConfigurationAssociation"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("Broker",) . toJSON) _amazonMQConfigurationAssociationBroker
         , (Just . ("Configuration",) . toJSON) _amazonMQConfigurationAssociationConfiguration
         ]

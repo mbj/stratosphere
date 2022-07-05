@@ -26,7 +26,7 @@ instance ToResourceProperties PinpointEmailConfigurationSetEventDestination wher
     ResourceProperties
     { resourcePropertiesType = "AWS::PinpointEmail::ConfigurationSetEventDestination"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("ConfigurationSetName",) . toJSON) _pinpointEmailConfigurationSetEventDestinationConfigurationSetName
         , fmap (("EventDestination",) . toJSON) _pinpointEmailConfigurationSetEventDestinationEventDestination
         , (Just . ("EventDestinationName",) . toJSON) _pinpointEmailConfigurationSetEventDestinationEventDestinationName

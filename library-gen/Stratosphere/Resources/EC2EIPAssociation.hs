@@ -26,7 +26,7 @@ instance ToResourceProperties EC2EIPAssociation where
     ResourceProperties
     { resourcePropertiesType = "AWS::EC2::EIPAssociation"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("AllocationId",) . toJSON) _eC2EIPAssociationAllocationId
         , fmap (("EIP",) . toJSON) _eC2EIPAssociationEIP
         , fmap (("InstanceId",) . toJSON) _eC2EIPAssociationInstanceId

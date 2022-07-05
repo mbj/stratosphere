@@ -26,7 +26,7 @@ instance ToResourceProperties CodeGuruReviewerRepositoryAssociation where
     ResourceProperties
     { resourcePropertiesType = "AWS::CodeGuruReviewer::RepositoryAssociation"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("ConnectionArn",) . toJSON) _codeGuruReviewerRepositoryAssociationConnectionArn
         , (Just . ("Name",) . toJSON) _codeGuruReviewerRepositoryAssociationName
         , fmap (("Owner",) . toJSON) _codeGuruReviewerRepositoryAssociationOwner

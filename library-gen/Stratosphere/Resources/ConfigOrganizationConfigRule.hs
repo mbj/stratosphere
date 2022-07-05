@@ -26,7 +26,7 @@ instance ToResourceProperties ConfigOrganizationConfigRule where
     ResourceProperties
     { resourcePropertiesType = "AWS::Config::OrganizationConfigRule"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("ExcludedAccounts",) . toJSON) _configOrganizationConfigRuleExcludedAccounts
         , (Just . ("OrganizationConfigRuleName",) . toJSON) _configOrganizationConfigRuleOrganizationConfigRuleName
         , fmap (("OrganizationCustomRuleMetadata",) . toJSON) _configOrganizationConfigRuleOrganizationCustomRuleMetadata

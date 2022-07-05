@@ -23,7 +23,7 @@ instance ToResourceProperties LogsLogStream where
     ResourceProperties
     { resourcePropertiesType = "AWS::Logs::LogStream"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("LogGroupName",) . toJSON) _logsLogStreamLogGroupName
         , fmap (("LogStreamName",) . toJSON) _logsLogStreamLogStreamName
         ]

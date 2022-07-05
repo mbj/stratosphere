@@ -44,9 +44,9 @@ renderToResourceProperties module'@Module{..} =
     else [st|#{moduleName}{..}|]
   props =
     if null moduleProperties
-    then " hashMapEmpty"
+    then " keyMapEmpty"
     else [st|
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ #{renderToJSONFields 8 module'}
         ]|]
 

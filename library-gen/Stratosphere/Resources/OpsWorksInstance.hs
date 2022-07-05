@@ -43,7 +43,7 @@ instance ToResourceProperties OpsWorksInstance where
     ResourceProperties
     { resourcePropertiesType = "AWS::OpsWorks::Instance"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("AgentVersion",) . toJSON) _opsWorksInstanceAgentVersion
         , fmap (("AmiId",) . toJSON) _opsWorksInstanceAmiId
         , fmap (("Architecture",) . toJSON) _opsWorksInstanceArchitecture

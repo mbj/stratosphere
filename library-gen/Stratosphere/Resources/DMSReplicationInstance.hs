@@ -35,7 +35,7 @@ instance ToResourceProperties DMSReplicationInstance where
     ResourceProperties
     { resourcePropertiesType = "AWS::DMS::ReplicationInstance"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("AllocatedStorage",) . toJSON) _dMSReplicationInstanceAllocatedStorage
         , fmap (("AllowMajorVersionUpgrade",) . toJSON) _dMSReplicationInstanceAllowMajorVersionUpgrade
         , fmap (("AutoMinorVersionUpgrade",) . toJSON) _dMSReplicationInstanceAutoMinorVersionUpgrade

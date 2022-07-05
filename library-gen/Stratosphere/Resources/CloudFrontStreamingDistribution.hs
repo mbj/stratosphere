@@ -24,7 +24,7 @@ instance ToResourceProperties CloudFrontStreamingDistribution where
     ResourceProperties
     { resourcePropertiesType = "AWS::CloudFront::StreamingDistribution"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("StreamingDistributionConfig",) . toJSON) _cloudFrontStreamingDistributionStreamingDistributionConfig
         , (Just . ("Tags",) . toJSON) _cloudFrontStreamingDistributionTags
         ]

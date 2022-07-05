@@ -32,7 +32,7 @@ instance ToResourceProperties RDSDBProxy where
     ResourceProperties
     { resourcePropertiesType = "AWS::RDS::DBProxy"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("Auth",) . toJSON) _rDSDBProxyAuth
         , (Just . ("DBProxyName",) . toJSON) _rDSDBProxyDBProxyName
         , fmap (("DebugLogging",) . toJSON) _rDSDBProxyDebugLogging

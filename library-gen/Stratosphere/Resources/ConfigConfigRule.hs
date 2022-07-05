@@ -28,7 +28,7 @@ instance ToResourceProperties ConfigConfigRule where
     ResourceProperties
     { resourcePropertiesType = "AWS::Config::ConfigRule"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("ConfigRuleName",) . toJSON) _configConfigRuleConfigRuleName
         , fmap (("Description",) . toJSON) _configConfigRuleDescription
         , fmap (("InputParameters",) . toJSON) _configConfigRuleInputParameters

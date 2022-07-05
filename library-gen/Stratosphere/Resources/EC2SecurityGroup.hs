@@ -29,7 +29,7 @@ instance ToResourceProperties EC2SecurityGroup where
     ResourceProperties
     { resourcePropertiesType = "AWS::EC2::SecurityGroup"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("GroupDescription",) . toJSON) _eC2SecurityGroupGroupDescription
         , fmap (("GroupName",) . toJSON) _eC2SecurityGroupGroupName
         , fmap (("SecurityGroupEgress",) . toJSON) _eC2SecurityGroupSecurityGroupEgress

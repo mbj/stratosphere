@@ -22,7 +22,7 @@ instance ToResourceProperties SESReceiptRuleSet where
     ResourceProperties
     { resourcePropertiesType = "AWS::SES::ReceiptRuleSet"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("RuleSetName",) . toJSON) _sESReceiptRuleSetRuleSetName
         ]
     }

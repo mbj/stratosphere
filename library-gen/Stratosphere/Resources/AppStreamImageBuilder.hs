@@ -36,7 +36,7 @@ instance ToResourceProperties AppStreamImageBuilder where
     ResourceProperties
     { resourcePropertiesType = "AWS::AppStream::ImageBuilder"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("AccessEndpoints",) . toJSON) _appStreamImageBuilderAccessEndpoints
         , fmap (("AppstreamAgentVersion",) . toJSON) _appStreamImageBuilderAppstreamAgentVersion
         , fmap (("Description",) . toJSON) _appStreamImageBuilderDescription

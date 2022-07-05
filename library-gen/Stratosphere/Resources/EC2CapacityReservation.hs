@@ -32,7 +32,7 @@ instance ToResourceProperties EC2CapacityReservation where
     ResourceProperties
     { resourcePropertiesType = "AWS::EC2::CapacityReservation"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("AvailabilityZone",) . toJSON) _eC2CapacityReservationAvailabilityZone
         , fmap (("EbsOptimized",) . toJSON) _eC2CapacityReservationEbsOptimized
         , fmap (("EndDate",) . toJSON) _eC2CapacityReservationEndDate

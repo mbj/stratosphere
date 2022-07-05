@@ -30,7 +30,7 @@ instance ToResourceProperties GlobalAcceleratorEndpointGroup where
     ResourceProperties
     { resourcePropertiesType = "AWS::GlobalAccelerator::EndpointGroup"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("EndpointConfigurations",) . toJSON) _globalAcceleratorEndpointGroupEndpointConfigurations
         , (Just . ("EndpointGroupRegion",) . toJSON) _globalAcceleratorEndpointGroupEndpointGroupRegion
         , fmap (("HealthCheckIntervalSeconds",) . toJSON) _globalAcceleratorEndpointGroupHealthCheckIntervalSeconds

@@ -38,7 +38,7 @@ instance ToResourceProperties EKSNodegroup where
     ResourceProperties
     { resourcePropertiesType = "AWS::EKS::Nodegroup"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("AmiType",) . toJSON) _eKSNodegroupAmiType
         , (Just . ("ClusterName",) . toJSON) _eKSNodegroupClusterName
         , fmap (("DiskSize",) . toJSON) _eKSNodegroupDiskSize

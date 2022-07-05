@@ -30,7 +30,7 @@ instance ToResourceProperties WorkSpacesWorkspace where
     ResourceProperties
     { resourcePropertiesType = "AWS::WorkSpaces::Workspace"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("BundleId",) . toJSON) _workSpacesWorkspaceBundleId
         , (Just . ("DirectoryId",) . toJSON) _workSpacesWorkspaceDirectoryId
         , fmap (("RootVolumeEncryptionEnabled",) . toJSON) _workSpacesWorkspaceRootVolumeEncryptionEnabled

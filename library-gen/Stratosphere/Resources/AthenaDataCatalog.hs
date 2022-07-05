@@ -26,7 +26,7 @@ instance ToResourceProperties AthenaDataCatalog where
     ResourceProperties
     { resourcePropertiesType = "AWS::Athena::DataCatalog"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Description",) . toJSON) _athenaDataCatalogDescription
         , (Just . ("Name",) . toJSON) _athenaDataCatalogName
         , fmap (("Parameters",) . toJSON) _athenaDataCatalogParameters

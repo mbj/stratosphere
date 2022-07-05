@@ -26,7 +26,7 @@ instance ToResourceProperties ElasticLoadBalancingV2ListenerRule where
     ResourceProperties
     { resourcePropertiesType = "AWS::ElasticLoadBalancingV2::ListenerRule"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("Actions",) . toJSON) _elasticLoadBalancingV2ListenerRuleActions
         , (Just . ("Conditions",) . toJSON) _elasticLoadBalancingV2ListenerRuleConditions
         , (Just . ("ListenerArn",) . toJSON) _elasticLoadBalancingV2ListenerRuleListenerArn

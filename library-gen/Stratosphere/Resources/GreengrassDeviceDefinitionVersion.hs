@@ -23,7 +23,7 @@ instance ToResourceProperties GreengrassDeviceDefinitionVersion where
     ResourceProperties
     { resourcePropertiesType = "AWS::Greengrass::DeviceDefinitionVersion"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("DeviceDefinitionId",) . toJSON) _greengrassDeviceDefinitionVersionDeviceDefinitionId
         , (Just . ("Devices",) . toJSON) _greengrassDeviceDefinitionVersionDevices
         ]

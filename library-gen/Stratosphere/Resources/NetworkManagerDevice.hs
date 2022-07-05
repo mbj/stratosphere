@@ -31,7 +31,7 @@ instance ToResourceProperties NetworkManagerDevice where
     ResourceProperties
     { resourcePropertiesType = "AWS::NetworkManager::Device"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Description",) . toJSON) _networkManagerDeviceDescription
         , (Just . ("GlobalNetworkId",) . toJSON) _networkManagerDeviceGlobalNetworkId
         , fmap (("Location",) . toJSON) _networkManagerDeviceLocation

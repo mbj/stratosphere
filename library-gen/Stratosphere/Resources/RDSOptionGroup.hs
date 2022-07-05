@@ -27,7 +27,7 @@ instance ToResourceProperties RDSOptionGroup where
     ResourceProperties
     { resourcePropertiesType = "AWS::RDS::OptionGroup"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("EngineName",) . toJSON) _rDSOptionGroupEngineName
         , (Just . ("MajorEngineVersion",) . toJSON) _rDSOptionGroupMajorEngineVersion
         , (Just . ("OptionConfigurations",) . toJSON) _rDSOptionGroupOptionConfigurations

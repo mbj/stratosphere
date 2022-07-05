@@ -25,7 +25,7 @@ instance ToResourceProperties DLMLifecyclePolicy where
     ResourceProperties
     { resourcePropertiesType = "AWS::DLM::LifecyclePolicy"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Description",) . toJSON) _dLMLifecyclePolicyDescription
         , fmap (("ExecutionRoleArn",) . toJSON) _dLMLifecyclePolicyExecutionRoleArn
         , fmap (("PolicyDetails",) . toJSON) _dLMLifecyclePolicyPolicyDetails

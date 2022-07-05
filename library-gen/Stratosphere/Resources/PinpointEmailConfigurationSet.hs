@@ -31,7 +31,7 @@ instance ToResourceProperties PinpointEmailConfigurationSet where
     ResourceProperties
     { resourcePropertiesType = "AWS::PinpointEmail::ConfigurationSet"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("DeliveryOptions",) . toJSON) _pinpointEmailConfigurationSetDeliveryOptions
         , (Just . ("Name",) . toJSON) _pinpointEmailConfigurationSetName
         , fmap (("ReputationOptions",) . toJSON) _pinpointEmailConfigurationSetReputationOptions

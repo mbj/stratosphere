@@ -28,7 +28,7 @@ instance ToResourceProperties CloudWatchCompositeAlarm where
     ResourceProperties
     { resourcePropertiesType = "AWS::CloudWatch::CompositeAlarm"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("ActionsEnabled",) . toJSON) _cloudWatchCompositeAlarmActionsEnabled
         , fmap (("AlarmActions",) . toJSON) _cloudWatchCompositeAlarmAlarmActions
         , fmap (("AlarmDescription",) . toJSON) _cloudWatchCompositeAlarmAlarmDescription

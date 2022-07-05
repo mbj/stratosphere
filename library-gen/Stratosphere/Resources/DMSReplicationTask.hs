@@ -33,7 +33,7 @@ instance ToResourceProperties DMSReplicationTask where
     ResourceProperties
     { resourcePropertiesType = "AWS::DMS::ReplicationTask"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("CdcStartPosition",) . toJSON) _dMSReplicationTaskCdcStartPosition
         , fmap (("CdcStartTime",) . toJSON) _dMSReplicationTaskCdcStartTime
         , fmap (("CdcStopPosition",) . toJSON) _dMSReplicationTaskCdcStopPosition

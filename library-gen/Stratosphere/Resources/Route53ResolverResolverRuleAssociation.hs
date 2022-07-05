@@ -25,7 +25,7 @@ instance ToResourceProperties Route53ResolverResolverRuleAssociation where
     ResourceProperties
     { resourcePropertiesType = "AWS::Route53Resolver::ResolverRuleAssociation"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Name",) . toJSON) _route53ResolverResolverRuleAssociationName
         , (Just . ("ResolverRuleId",) . toJSON) _route53ResolverResolverRuleAssociationResolverRuleId
         , (Just . ("VPCId",) . toJSON) _route53ResolverResolverRuleAssociationVPCId

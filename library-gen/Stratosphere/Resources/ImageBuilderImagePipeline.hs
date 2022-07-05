@@ -32,7 +32,7 @@ instance ToResourceProperties ImageBuilderImagePipeline where
     ResourceProperties
     { resourcePropertiesType = "AWS::ImageBuilder::ImagePipeline"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Description",) . toJSON) _imageBuilderImagePipelineDescription
         , fmap (("DistributionConfigurationArn",) . toJSON) _imageBuilderImagePipelineDistributionConfigurationArn
         , fmap (("EnhancedImageMetadataEnabled",) . toJSON) _imageBuilderImagePipelineEnhancedImageMetadataEnabled

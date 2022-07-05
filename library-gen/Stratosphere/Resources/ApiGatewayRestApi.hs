@@ -36,7 +36,7 @@ instance ToResourceProperties ApiGatewayRestApi where
     ResourceProperties
     { resourcePropertiesType = "AWS::ApiGateway::RestApi"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("ApiKeySourceType",) . toJSON) _apiGatewayRestApiApiKeySourceType
         , fmap (("BinaryMediaTypes",) . toJSON) _apiGatewayRestApiBinaryMediaTypes
         , fmap (("Body",) . toJSON) _apiGatewayRestApiBody

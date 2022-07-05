@@ -27,7 +27,7 @@ instance ToResourceProperties PinpointEmailIdentity where
     ResourceProperties
     { resourcePropertiesType = "AWS::PinpointEmail::Identity"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("DkimSigningEnabled",) . toJSON) _pinpointEmailIdentityDkimSigningEnabled
         , fmap (("FeedbackForwardingEnabled",) . toJSON) _pinpointEmailIdentityFeedbackForwardingEnabled
         , fmap (("MailFromAttributes",) . toJSON) _pinpointEmailIdentityMailFromAttributes

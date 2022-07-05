@@ -24,7 +24,7 @@ instance ToResourceProperties ApiGatewayDocumentationPart where
     ResourceProperties
     { resourcePropertiesType = "AWS::ApiGateway::DocumentationPart"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("Location",) . toJSON) _apiGatewayDocumentationPartLocation
         , (Just . ("Properties",) . toJSON) _apiGatewayDocumentationPartProperties
         , (Just . ("RestApiId",) . toJSON) _apiGatewayDocumentationPartRestApiId

@@ -22,7 +22,7 @@ instance ToResourceProperties CloudFrontOriginRequestPolicy where
     ResourceProperties
     { resourcePropertiesType = "AWS::CloudFront::OriginRequestPolicy"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("OriginRequestPolicyConfig",) . toJSON) _cloudFrontOriginRequestPolicyOriginRequestPolicyConfig
         ]
     }

@@ -23,7 +23,7 @@ instance ToResourceProperties SNSTopicPolicy where
     ResourceProperties
     { resourcePropertiesType = "AWS::SNS::TopicPolicy"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("PolicyDocument",) . toJSON) _sNSTopicPolicyPolicyDocument
         , (Just . ("Topics",) . toJSON) _sNSTopicPolicyTopics
         ]

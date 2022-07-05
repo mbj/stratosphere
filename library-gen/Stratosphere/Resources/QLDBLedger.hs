@@ -25,7 +25,7 @@ instance ToResourceProperties QLDBLedger where
     ResourceProperties
     { resourcePropertiesType = "AWS::QLDB::Ledger"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("DeletionProtection",) . toJSON) _qLDBLedgerDeletionProtection
         , fmap (("Name",) . toJSON) _qLDBLedgerName
         , (Just . ("PermissionsMode",) . toJSON) _qLDBLedgerPermissionsMode

@@ -48,7 +48,7 @@ instance ToResourceProperties DMSEndpoint where
     ResourceProperties
     { resourcePropertiesType = "AWS::DMS::Endpoint"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("CertificateArn",) . toJSON) _dMSEndpointCertificateArn
         , fmap (("DatabaseName",) . toJSON) _dMSEndpointDatabaseName
         , fmap (("DynamoDbSettings",) . toJSON) _dMSEndpointDynamoDbSettings

@@ -23,7 +23,7 @@ instance ToResourceProperties StepFunctionsActivity where
     ResourceProperties
     { resourcePropertiesType = "AWS::StepFunctions::Activity"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("Name",) . toJSON) _stepFunctionsActivityName
         , fmap (("Tags",) . toJSON) _stepFunctionsActivityTags
         ]

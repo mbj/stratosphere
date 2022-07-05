@@ -32,7 +32,7 @@ instance ToResourceProperties MediaConvertJobTemplate where
     ResourceProperties
     { resourcePropertiesType = "AWS::MediaConvert::JobTemplate"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("AccelerationSettings",) . toJSON) _mediaConvertJobTemplateAccelerationSettings
         , fmap (("Category",) . toJSON) _mediaConvertJobTemplateCategory
         , fmap (("Description",) . toJSON) _mediaConvertJobTemplateDescription

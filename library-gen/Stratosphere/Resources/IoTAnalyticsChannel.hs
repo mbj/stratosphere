@@ -27,7 +27,7 @@ instance ToResourceProperties IoTAnalyticsChannel where
     ResourceProperties
     { resourcePropertiesType = "AWS::IoTAnalytics::Channel"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("ChannelName",) . toJSON) _ioTAnalyticsChannelChannelName
         , fmap (("ChannelStorage",) . toJSON) _ioTAnalyticsChannelChannelStorage
         , fmap (("RetentionPeriod",) . toJSON) _ioTAnalyticsChannelRetentionPeriod

@@ -22,7 +22,7 @@ instance ToResourceProperties ElastiCacheSecurityGroup where
     ResourceProperties
     { resourcePropertiesType = "AWS::ElastiCache::SecurityGroup"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("Description",) . toJSON) _elastiCacheSecurityGroupDescription
         ]
     }

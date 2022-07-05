@@ -23,7 +23,7 @@ instance ToResourceProperties KMSAlias where
     ResourceProperties
     { resourcePropertiesType = "AWS::KMS::Alias"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("AliasName",) . toJSON) _kMSAliasAliasName
         , (Just . ("TargetKeyId",) . toJSON) _kMSAliasTargetKeyId
         ]

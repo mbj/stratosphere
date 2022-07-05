@@ -27,7 +27,7 @@ instance ToResourceProperties AppMeshVirtualGateway where
     ResourceProperties
     { resourcePropertiesType = "AWS::AppMesh::VirtualGateway"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("MeshName",) . toJSON) _appMeshVirtualGatewayMeshName
         , fmap (("MeshOwner",) . toJSON) _appMeshVirtualGatewayMeshOwner
         , (Just . ("Spec",) . toJSON) _appMeshVirtualGatewaySpec

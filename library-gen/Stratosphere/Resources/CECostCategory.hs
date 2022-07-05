@@ -24,7 +24,7 @@ instance ToResourceProperties CECostCategory where
     ResourceProperties
     { resourcePropertiesType = "AWS::CE::CostCategory"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("Name",) . toJSON) _cECostCategoryName
         , (Just . ("RuleVersion",) . toJSON) _cECostCategoryRuleVersion
         , (Just . ("Rules",) . toJSON) _cECostCategoryRules

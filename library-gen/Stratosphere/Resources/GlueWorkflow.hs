@@ -25,7 +25,7 @@ instance ToResourceProperties GlueWorkflow where
     ResourceProperties
     { resourcePropertiesType = "AWS::Glue::Workflow"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("DefaultRunProperties",) . toJSON) _glueWorkflowDefaultRunProperties
         , fmap (("Description",) . toJSON) _glueWorkflowDescription
         , fmap (("Name",) . toJSON) _glueWorkflowName

@@ -24,7 +24,7 @@ instance ToResourceProperties SecretsManagerSecretTargetAttachment where
     ResourceProperties
     { resourcePropertiesType = "AWS::SecretsManager::SecretTargetAttachment"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("SecretId",) . toJSON) _secretsManagerSecretTargetAttachmentSecretId
         , (Just . ("TargetId",) . toJSON) _secretsManagerSecretTargetAttachmentTargetId
         , (Just . ("TargetType",) . toJSON) _secretsManagerSecretTargetAttachmentTargetType

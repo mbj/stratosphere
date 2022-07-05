@@ -23,7 +23,7 @@ instance ToResourceProperties FMSNotificationChannel where
     ResourceProperties
     { resourcePropertiesType = "AWS::FMS::NotificationChannel"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("SnsRoleName",) . toJSON) _fMSNotificationChannelSnsRoleName
         , (Just . ("SnsTopicArn",) . toJSON) _fMSNotificationChannelSnsTopicArn
         ]

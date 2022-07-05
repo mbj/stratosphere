@@ -25,7 +25,7 @@ instance ToResourceProperties EC2Host where
     ResourceProperties
     { resourcePropertiesType = "AWS::EC2::Host"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("AutoPlacement",) . toJSON) _eC2HostAutoPlacement
         , (Just . ("AvailabilityZone",) . toJSON) _eC2HostAvailabilityZone
         , fmap (("HostRecovery",) . toJSON) _eC2HostHostRecovery

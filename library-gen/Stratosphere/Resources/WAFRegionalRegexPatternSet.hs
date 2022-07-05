@@ -23,7 +23,7 @@ instance ToResourceProperties WAFRegionalRegexPatternSet where
     ResourceProperties
     { resourcePropertiesType = "AWS::WAFRegional::RegexPatternSet"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("Name",) . toJSON) _wAFRegionalRegexPatternSetName
         , (Just . ("RegexPatternStrings",) . toJSON) _wAFRegionalRegexPatternSetRegexPatternStrings
         ]

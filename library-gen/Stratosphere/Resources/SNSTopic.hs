@@ -28,7 +28,7 @@ instance ToResourceProperties SNSTopic where
     ResourceProperties
     { resourcePropertiesType = "AWS::SNS::Topic"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("ContentBasedDeduplication",) . toJSON) _sNSTopicContentBasedDeduplication
         , fmap (("DisplayName",) . toJSON) _sNSTopicDisplayName
         , fmap (("KmsMasterKeyId",) . toJSON) _sNSTopicKmsMasterKeyId

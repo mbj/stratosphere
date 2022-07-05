@@ -39,7 +39,7 @@ instance ToResourceProperties CognitoUserPoolClient where
     ResourceProperties
     { resourcePropertiesType = "AWS::Cognito::UserPoolClient"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("AccessTokenValidity",) . toJSON) _cognitoUserPoolClientAccessTokenValidity
         , fmap (("AllowedOAuthFlows",) . toJSON) _cognitoUserPoolClientAllowedOAuthFlows
         , fmap (("AllowedOAuthFlowsUserPoolClient",) . toJSON) _cognitoUserPoolClientAllowedOAuthFlowsUserPoolClient

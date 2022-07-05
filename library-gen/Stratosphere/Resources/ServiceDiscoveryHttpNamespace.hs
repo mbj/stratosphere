@@ -24,7 +24,7 @@ instance ToResourceProperties ServiceDiscoveryHttpNamespace where
     ResourceProperties
     { resourcePropertiesType = "AWS::ServiceDiscovery::HttpNamespace"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Description",) . toJSON) _serviceDiscoveryHttpNamespaceDescription
         , (Just . ("Name",) . toJSON) _serviceDiscoveryHttpNamespaceName
         , fmap (("Tags",) . toJSON) _serviceDiscoveryHttpNamespaceTags

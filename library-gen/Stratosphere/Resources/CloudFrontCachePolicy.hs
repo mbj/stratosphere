@@ -22,7 +22,7 @@ instance ToResourceProperties CloudFrontCachePolicy where
     ResourceProperties
     { resourcePropertiesType = "AWS::CloudFront::CachePolicy"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("CachePolicyConfig",) . toJSON) _cloudFrontCachePolicyCachePolicyConfig
         ]
     }

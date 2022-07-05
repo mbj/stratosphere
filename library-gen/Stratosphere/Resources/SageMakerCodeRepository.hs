@@ -23,7 +23,7 @@ instance ToResourceProperties SageMakerCodeRepository where
     ResourceProperties
     { resourcePropertiesType = "AWS::SageMaker::CodeRepository"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("CodeRepositoryName",) . toJSON) _sageMakerCodeRepositoryCodeRepositoryName
         , (Just . ("GitConfig",) . toJSON) _sageMakerCodeRepositoryGitConfig
         ]

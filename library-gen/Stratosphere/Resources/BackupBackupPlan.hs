@@ -23,7 +23,7 @@ instance ToResourceProperties BackupBackupPlan where
     ResourceProperties
     { resourcePropertiesType = "AWS::Backup::BackupPlan"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("BackupPlan",) . toJSON) _backupBackupPlanBackupPlan
         , fmap (("BackupPlanTags",) . toJSON) _backupBackupPlanBackupPlanTags
         ]

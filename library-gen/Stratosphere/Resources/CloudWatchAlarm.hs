@@ -43,7 +43,7 @@ instance ToResourceProperties CloudWatchAlarm where
     ResourceProperties
     { resourcePropertiesType = "AWS::CloudWatch::Alarm"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("ActionsEnabled",) . toJSON) _cloudWatchAlarmActionsEnabled
         , fmap (("AlarmActions",) . toJSON) _cloudWatchAlarmAlarmActions
         , fmap (("AlarmDescription",) . toJSON) _cloudWatchAlarmAlarmDescription

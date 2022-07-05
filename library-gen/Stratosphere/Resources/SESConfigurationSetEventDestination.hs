@@ -23,7 +23,7 @@ instance ToResourceProperties SESConfigurationSetEventDestination where
     ResourceProperties
     { resourcePropertiesType = "AWS::SES::ConfigurationSetEventDestination"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("ConfigurationSetName",) . toJSON) _sESConfigurationSetEventDestinationConfigurationSetName
         , (Just . ("EventDestination",) . toJSON) _sESConfigurationSetEventDestinationEventDestination
         ]

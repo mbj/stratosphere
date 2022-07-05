@@ -23,7 +23,7 @@ instance ToResourceProperties IoT1ClickDevice where
     ResourceProperties
     { resourcePropertiesType = "AWS::IoT1Click::Device"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("DeviceId",) . toJSON) _ioT1ClickDeviceDeviceId
         , (Just . ("Enabled",) . toJSON) _ioT1ClickDeviceEnabled
         ]

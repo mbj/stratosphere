@@ -37,7 +37,7 @@ instance ToResourceProperties SSMPatchBaseline where
     ResourceProperties
     { resourcePropertiesType = "AWS::SSM::PatchBaseline"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("ApprovalRules",) . toJSON) _sSMPatchBaselineApprovalRules
         , fmap (("ApprovedPatches",) . toJSON) _sSMPatchBaselineApprovedPatches
         , fmap (("ApprovedPatchesComplianceLevel",) . toJSON) _sSMPatchBaselineApprovedPatchesComplianceLevel

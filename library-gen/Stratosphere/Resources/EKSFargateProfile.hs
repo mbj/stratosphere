@@ -28,7 +28,7 @@ instance ToResourceProperties EKSFargateProfile where
     ResourceProperties
     { resourcePropertiesType = "AWS::EKS::FargateProfile"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("ClusterName",) . toJSON) _eKSFargateProfileClusterName
         , fmap (("FargateProfileName",) . toJSON) _eKSFargateProfileFargateProfileName
         , (Just . ("PodExecutionRoleArn",) . toJSON) _eKSFargateProfilePodExecutionRoleArn

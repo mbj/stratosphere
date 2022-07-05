@@ -31,7 +31,7 @@ instance ToResourceProperties EC2TrafficMirrorFilterRule where
     ResourceProperties
     { resourcePropertiesType = "AWS::EC2::TrafficMirrorFilterRule"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Description",) . toJSON) _eC2TrafficMirrorFilterRuleDescription
         , (Just . ("DestinationCidrBlock",) . toJSON) _eC2TrafficMirrorFilterRuleDestinationCidrBlock
         , fmap (("DestinationPortRange",) . toJSON) _eC2TrafficMirrorFilterRuleDestinationPortRange

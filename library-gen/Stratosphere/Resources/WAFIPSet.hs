@@ -23,7 +23,7 @@ instance ToResourceProperties WAFIPSet where
     ResourceProperties
     { resourcePropertiesType = "AWS::WAF::IPSet"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("IPSetDescriptors",) . toJSON) _wAFIPSetIPSetDescriptors
         , (Just . ("Name",) . toJSON) _wAFIPSetName
         ]

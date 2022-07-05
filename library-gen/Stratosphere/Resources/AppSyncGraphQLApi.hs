@@ -33,7 +33,7 @@ instance ToResourceProperties AppSyncGraphQLApi where
     ResourceProperties
     { resourcePropertiesType = "AWS::AppSync::GraphQLApi"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("AdditionalAuthenticationProviders",) . toJSON) _appSyncGraphQLApiAdditionalAuthenticationProviders
         , (Just . ("AuthenticationType",) . toJSON) _appSyncGraphQLApiAuthenticationType
         , fmap (("LogConfig",) . toJSON) _appSyncGraphQLApiLogConfig

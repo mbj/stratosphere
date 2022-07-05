@@ -30,7 +30,7 @@ instance ToResourceProperties S3AccessPoint where
     ResourceProperties
     { resourcePropertiesType = "AWS::S3::AccessPoint"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("Bucket",) . toJSON) _s3AccessPointBucket
         , fmap (("CreationDate",) . toJSON) _s3AccessPointCreationDate
         , fmap (("Name",) . toJSON) _s3AccessPointName

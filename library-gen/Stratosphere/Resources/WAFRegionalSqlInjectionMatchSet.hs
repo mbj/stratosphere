@@ -23,7 +23,7 @@ instance ToResourceProperties WAFRegionalSqlInjectionMatchSet where
     ResourceProperties
     { resourcePropertiesType = "AWS::WAFRegional::SqlInjectionMatchSet"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("Name",) . toJSON) _wAFRegionalSqlInjectionMatchSetName
         , fmap (("SqlInjectionMatchTuples",) . toJSON) _wAFRegionalSqlInjectionMatchSetSqlInjectionMatchTuples
         ]

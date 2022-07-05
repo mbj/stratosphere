@@ -32,7 +32,7 @@ instance ToResourceProperties EC2Volume where
     ResourceProperties
     { resourcePropertiesType = "AWS::EC2::Volume"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("AutoEnableIO",) . toJSON) _eC2VolumeAutoEnableIO
         , (Just . ("AvailabilityZone",) . toJSON) _eC2VolumeAvailabilityZone
         , fmap (("Encrypted",) . toJSON) _eC2VolumeEncrypted

@@ -27,7 +27,7 @@ instance ToResourceProperties AmplifyDomain where
     ResourceProperties
     { resourcePropertiesType = "AWS::Amplify::Domain"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("AppId",) . toJSON) _amplifyDomainAppId
         , fmap (("AutoSubDomainCreationPatterns",) . toJSON) _amplifyDomainAutoSubDomainCreationPatterns
         , fmap (("AutoSubDomainIAMRole",) . toJSON) _amplifyDomainAutoSubDomainIAMRole

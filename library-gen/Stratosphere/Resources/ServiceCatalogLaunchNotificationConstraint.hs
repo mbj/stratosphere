@@ -27,7 +27,7 @@ instance ToResourceProperties ServiceCatalogLaunchNotificationConstraint where
     ResourceProperties
     { resourcePropertiesType = "AWS::ServiceCatalog::LaunchNotificationConstraint"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("AcceptLanguage",) . toJSON) _serviceCatalogLaunchNotificationConstraintAcceptLanguage
         , fmap (("Description",) . toJSON) _serviceCatalogLaunchNotificationConstraintDescription
         , (Just . ("NotificationArns",) . toJSON) _serviceCatalogLaunchNotificationConstraintNotificationArns

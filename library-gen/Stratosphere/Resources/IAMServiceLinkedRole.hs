@@ -24,7 +24,7 @@ instance ToResourceProperties IAMServiceLinkedRole where
     ResourceProperties
     { resourcePropertiesType = "AWS::IAM::ServiceLinkedRole"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("AWSServiceName",) . toJSON) _iAMServiceLinkedRoleAWSServiceName
         , fmap (("CustomSuffix",) . toJSON) _iAMServiceLinkedRoleCustomSuffix
         , fmap (("Description",) . toJSON) _iAMServiceLinkedRoleDescription

@@ -24,7 +24,7 @@ instance ToResourceProperties LakeFormationResource where
     ResourceProperties
     { resourcePropertiesType = "AWS::LakeFormation::Resource"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("ResourceArn",) . toJSON) _lakeFormationResourceResourceArn
         , fmap (("RoleArn",) . toJSON) _lakeFormationResourceRoleArn
         , (Just . ("UseServiceLinkedRole",) . toJSON) _lakeFormationResourceUseServiceLinkedRole

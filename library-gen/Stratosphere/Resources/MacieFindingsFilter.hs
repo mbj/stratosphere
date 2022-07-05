@@ -25,7 +25,7 @@ instance ToResourceProperties MacieFindingsFilter where
     ResourceProperties
     { resourcePropertiesType = "AWS::Macie::FindingsFilter"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Action",) . toJSON) _macieFindingsFilterAction
         , fmap (("Description",) . toJSON) _macieFindingsFilterDescription
         , (Just . ("Name",) . toJSON) _macieFindingsFilterName

@@ -46,7 +46,7 @@ instance ToResourceProperties ElasticsearchDomain where
     ResourceProperties
     { resourcePropertiesType = "AWS::Elasticsearch::Domain"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("AccessPolicies",) . toJSON) _elasticsearchDomainAccessPolicies
         , fmap (("AdvancedOptions",) . toJSON) _elasticsearchDomainAdvancedOptions
         , fmap (("AdvancedSecurityOptions",) . toJSON) _elasticsearchDomainAdvancedSecurityOptions

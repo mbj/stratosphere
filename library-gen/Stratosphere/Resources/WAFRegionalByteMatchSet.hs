@@ -23,7 +23,7 @@ instance ToResourceProperties WAFRegionalByteMatchSet where
     ResourceProperties
     { resourcePropertiesType = "AWS::WAFRegional::ByteMatchSet"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("ByteMatchTuples",) . toJSON) _wAFRegionalByteMatchSetByteMatchTuples
         , (Just . ("Name",) . toJSON) _wAFRegionalByteMatchSetName
         ]

@@ -25,7 +25,7 @@ instance ToResourceProperties CognitoUserPoolResourceServer where
     ResourceProperties
     { resourcePropertiesType = "AWS::Cognito::UserPoolResourceServer"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("Identifier",) . toJSON) _cognitoUserPoolResourceServerIdentifier
         , (Just . ("Name",) . toJSON) _cognitoUserPoolResourceServerName
         , fmap (("Scopes",) . toJSON) _cognitoUserPoolResourceServerScopes

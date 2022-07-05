@@ -26,7 +26,7 @@ instance ToResourceProperties ApiGatewayGatewayResponse where
     ResourceProperties
     { resourcePropertiesType = "AWS::ApiGateway::GatewayResponse"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("ResponseParameters",) . toJSON) _apiGatewayGatewayResponseResponseParameters
         , fmap (("ResponseTemplates",) . toJSON) _apiGatewayGatewayResponseResponseTemplates
         , (Just . ("ResponseType",) . toJSON) _apiGatewayGatewayResponseResponseType

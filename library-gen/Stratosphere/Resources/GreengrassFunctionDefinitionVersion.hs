@@ -25,7 +25,7 @@ instance ToResourceProperties GreengrassFunctionDefinitionVersion where
     ResourceProperties
     { resourcePropertiesType = "AWS::Greengrass::FunctionDefinitionVersion"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("DefaultConfig",) . toJSON) _greengrassFunctionDefinitionVersionDefaultConfig
         , (Just . ("FunctionDefinitionId",) . toJSON) _greengrassFunctionDefinitionVersionFunctionDefinitionId
         , (Just . ("Functions",) . toJSON) _greengrassFunctionDefinitionVersionFunctions

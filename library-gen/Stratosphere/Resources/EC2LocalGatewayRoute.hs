@@ -24,7 +24,7 @@ instance ToResourceProperties EC2LocalGatewayRoute where
     ResourceProperties
     { resourcePropertiesType = "AWS::EC2::LocalGatewayRoute"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("DestinationCidrBlock",) . toJSON) _eC2LocalGatewayRouteDestinationCidrBlock
         , (Just . ("LocalGatewayRouteTableId",) . toJSON) _eC2LocalGatewayRouteLocalGatewayRouteTableId
         , (Just . ("LocalGatewayVirtualInterfaceGroupId",) . toJSON) _eC2LocalGatewayRouteLocalGatewayVirtualInterfaceGroupId

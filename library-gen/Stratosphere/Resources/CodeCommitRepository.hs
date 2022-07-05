@@ -28,7 +28,7 @@ instance ToResourceProperties CodeCommitRepository where
     ResourceProperties
     { resourcePropertiesType = "AWS::CodeCommit::Repository"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Code",) . toJSON) _codeCommitRepositoryCode
         , fmap (("RepositoryDescription",) . toJSON) _codeCommitRepositoryRepositoryDescription
         , (Just . ("RepositoryName",) . toJSON) _codeCommitRepositoryRepositoryName

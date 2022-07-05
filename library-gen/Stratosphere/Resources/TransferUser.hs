@@ -31,7 +31,7 @@ instance ToResourceProperties TransferUser where
     ResourceProperties
     { resourcePropertiesType = "AWS::Transfer::User"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("HomeDirectory",) . toJSON) _transferUserHomeDirectory
         , fmap (("HomeDirectoryMappings",) . toJSON) _transferUserHomeDirectoryMappings
         , fmap (("HomeDirectoryType",) . toJSON) _transferUserHomeDirectoryType

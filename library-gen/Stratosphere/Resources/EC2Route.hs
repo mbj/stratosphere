@@ -31,7 +31,7 @@ instance ToResourceProperties EC2Route where
     ResourceProperties
     { resourcePropertiesType = "AWS::EC2::Route"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("DestinationCidrBlock",) . toJSON) _eC2RouteDestinationCidrBlock
         , fmap (("DestinationIpv6CidrBlock",) . toJSON) _eC2RouteDestinationIpv6CidrBlock
         , fmap (("EgressOnlyInternetGatewayId",) . toJSON) _eC2RouteEgressOnlyInternetGatewayId

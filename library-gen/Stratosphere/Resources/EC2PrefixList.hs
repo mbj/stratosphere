@@ -27,7 +27,7 @@ instance ToResourceProperties EC2PrefixList where
     ResourceProperties
     { resourcePropertiesType = "AWS::EC2::PrefixList"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("AddressFamily",) . toJSON) _eC2PrefixListAddressFamily
         , fmap (("Entries",) . toJSON) _eC2PrefixListEntries
         , (Just . ("MaxEntries",) . toJSON) _eC2PrefixListMaxEntries

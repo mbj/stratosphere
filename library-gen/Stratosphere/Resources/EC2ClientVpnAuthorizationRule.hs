@@ -26,7 +26,7 @@ instance ToResourceProperties EC2ClientVpnAuthorizationRule where
     ResourceProperties
     { resourcePropertiesType = "AWS::EC2::ClientVpnAuthorizationRule"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("AccessGroupId",) . toJSON) _eC2ClientVpnAuthorizationRuleAccessGroupId
         , fmap (("AuthorizeAllGroups",) . toJSON) _eC2ClientVpnAuthorizationRuleAuthorizeAllGroups
         , (Just . ("ClientVpnEndpointId",) . toJSON) _eC2ClientVpnAuthorizationRuleClientVpnEndpointId

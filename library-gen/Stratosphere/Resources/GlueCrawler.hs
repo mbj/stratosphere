@@ -35,7 +35,7 @@ instance ToResourceProperties GlueCrawler where
     ResourceProperties
     { resourcePropertiesType = "AWS::Glue::Crawler"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Classifiers",) . toJSON) _glueCrawlerClassifiers
         , fmap (("Configuration",) . toJSON) _glueCrawlerConfiguration
         , fmap (("CrawlerSecurityConfiguration",) . toJSON) _glueCrawlerCrawlerSecurityConfiguration

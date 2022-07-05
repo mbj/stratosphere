@@ -33,7 +33,7 @@ instance ToResourceProperties CodePipelinePipeline where
     ResourceProperties
     { resourcePropertiesType = "AWS::CodePipeline::Pipeline"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("ArtifactStore",) . toJSON) _codePipelinePipelineArtifactStore
         , fmap (("ArtifactStores",) . toJSON) _codePipelinePipelineArtifactStores
         , fmap (("DisableInboundStageTransitions",) . toJSON) _codePipelinePipelineDisableInboundStageTransitions

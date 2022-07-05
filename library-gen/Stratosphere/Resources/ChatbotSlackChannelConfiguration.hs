@@ -27,7 +27,7 @@ instance ToResourceProperties ChatbotSlackChannelConfiguration where
     ResourceProperties
     { resourcePropertiesType = "AWS::Chatbot::SlackChannelConfiguration"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("ConfigurationName",) . toJSON) _chatbotSlackChannelConfigurationConfigurationName
         , (Just . ("IamRoleArn",) . toJSON) _chatbotSlackChannelConfigurationIamRoleArn
         , fmap (("LoggingLevel",) . toJSON) _chatbotSlackChannelConfigurationLoggingLevel

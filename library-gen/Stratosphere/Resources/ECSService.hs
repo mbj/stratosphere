@@ -47,7 +47,7 @@ instance ToResourceProperties ECSService where
     ResourceProperties
     { resourcePropertiesType = "AWS::ECS::Service"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Cluster",) . toJSON) _eCSServiceCluster
         , fmap (("DeploymentConfiguration",) . toJSON) _eCSServiceDeploymentConfiguration
         , fmap (("DeploymentController",) . toJSON) _eCSServiceDeploymentController

@@ -25,7 +25,7 @@ instance ToResourceProperties EFSMountTarget where
     ResourceProperties
     { resourcePropertiesType = "AWS::EFS::MountTarget"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("FileSystemId",) . toJSON) _eFSMountTargetFileSystemId
         , fmap (("IpAddress",) . toJSON) _eFSMountTargetIpAddress
         , (Just . ("SecurityGroups",) . toJSON) _eFSMountTargetSecurityGroups

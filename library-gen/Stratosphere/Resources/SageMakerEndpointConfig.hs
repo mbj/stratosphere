@@ -28,7 +28,7 @@ instance ToResourceProperties SageMakerEndpointConfig where
     ResourceProperties
     { resourcePropertiesType = "AWS::SageMaker::EndpointConfig"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("DataCaptureConfig",) . toJSON) _sageMakerEndpointConfigDataCaptureConfig
         , fmap (("EndpointConfigName",) . toJSON) _sageMakerEndpointConfigEndpointConfigName
         , fmap (("KmsKeyId",) . toJSON) _sageMakerEndpointConfigKmsKeyId

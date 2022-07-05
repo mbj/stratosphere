@@ -25,7 +25,7 @@ instance ToResourceProperties CognitoUserPoolUICustomizationAttachment where
     ResourceProperties
     { resourcePropertiesType = "AWS::Cognito::UserPoolUICustomizationAttachment"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("CSS",) . toJSON) _cognitoUserPoolUICustomizationAttachmentCSS
         , (Just . ("ClientId",) . toJSON) _cognitoUserPoolUICustomizationAttachmentClientId
         , (Just . ("UserPoolId",) . toJSON) _cognitoUserPoolUICustomizationAttachmentUserPoolId

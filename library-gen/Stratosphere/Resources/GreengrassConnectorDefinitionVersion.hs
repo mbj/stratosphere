@@ -23,7 +23,7 @@ instance ToResourceProperties GreengrassConnectorDefinitionVersion where
     ResourceProperties
     { resourcePropertiesType = "AWS::Greengrass::ConnectorDefinitionVersion"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("ConnectorDefinitionId",) . toJSON) _greengrassConnectorDefinitionVersionConnectorDefinitionId
         , (Just . ("Connectors",) . toJSON) _greengrassConnectorDefinitionVersionConnectors
         ]

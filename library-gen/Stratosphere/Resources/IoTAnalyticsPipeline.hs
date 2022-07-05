@@ -25,7 +25,7 @@ instance ToResourceProperties IoTAnalyticsPipeline where
     ResourceProperties
     { resourcePropertiesType = "AWS::IoTAnalytics::Pipeline"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("PipelineActivities",) . toJSON) _ioTAnalyticsPipelinePipelineActivities
         , fmap (("PipelineName",) . toJSON) _ioTAnalyticsPipelinePipelineName
         , fmap (("Tags",) . toJSON) _ioTAnalyticsPipelineTags

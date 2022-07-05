@@ -27,7 +27,7 @@ instance ToResourceProperties AppSyncApiCache where
     ResourceProperties
     { resourcePropertiesType = "AWS::AppSync::ApiCache"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("ApiCachingBehavior",) . toJSON) _appSyncApiCacheApiCachingBehavior
         , (Just . ("ApiId",) . toJSON) _appSyncApiCacheApiId
         , fmap (("AtRestEncryptionEnabled",) . toJSON) _appSyncApiCacheAtRestEncryptionEnabled

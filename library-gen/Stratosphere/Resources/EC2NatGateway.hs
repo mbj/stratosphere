@@ -24,7 +24,7 @@ instance ToResourceProperties EC2NatGateway where
     ResourceProperties
     { resourcePropertiesType = "AWS::EC2::NatGateway"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("AllocationId",) . toJSON) _eC2NatGatewayAllocationId
         , (Just . ("SubnetId",) . toJSON) _eC2NatGatewaySubnetId
         , fmap (("Tags",) . toJSON) _eC2NatGatewayTags

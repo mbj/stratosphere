@@ -23,7 +23,7 @@ instance ToResourceProperties GlueDatabase where
     ResourceProperties
     { resourcePropertiesType = "AWS::Glue::Database"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("CatalogId",) . toJSON) _glueDatabaseCatalogId
         , (Just . ("DatabaseInput",) . toJSON) _glueDatabaseDatabaseInput
         ]

@@ -25,7 +25,7 @@ instance ToResourceProperties EC2LocalGatewayRouteTableVPCAssociation where
     ResourceProperties
     { resourcePropertiesType = "AWS::EC2::LocalGatewayRouteTableVPCAssociation"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("LocalGatewayRouteTableId",) . toJSON) _eC2LocalGatewayRouteTableVPCAssociationLocalGatewayRouteTableId
         , fmap (("Tags",) . toJSON) _eC2LocalGatewayRouteTableVPCAssociationTags
         , (Just . ("VpcId",) . toJSON) _eC2LocalGatewayRouteTableVPCAssociationVpcId

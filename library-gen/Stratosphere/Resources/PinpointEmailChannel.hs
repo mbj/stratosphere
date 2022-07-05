@@ -27,7 +27,7 @@ instance ToResourceProperties PinpointEmailChannel where
     ResourceProperties
     { resourcePropertiesType = "AWS::Pinpoint::EmailChannel"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("ApplicationId",) . toJSON) _pinpointEmailChannelApplicationId
         , fmap (("ConfigurationSet",) . toJSON) _pinpointEmailChannelConfigurationSet
         , fmap (("Enabled",) . toJSON) _pinpointEmailChannelEnabled

@@ -25,7 +25,7 @@ instance ToResourceProperties AppMeshMesh where
     ResourceProperties
     { resourcePropertiesType = "AWS::AppMesh::Mesh"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("MeshName",) . toJSON) _appMeshMeshMeshName
         , fmap (("Spec",) . toJSON) _appMeshMeshSpec
         , fmap (("Tags",) . toJSON) _appMeshMeshTags

@@ -23,7 +23,7 @@ instance ToResourceProperties WAFRegionalWebACLAssociation where
     ResourceProperties
     { resourcePropertiesType = "AWS::WAFRegional::WebACLAssociation"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("ResourceArn",) . toJSON) _wAFRegionalWebACLAssociationResourceArn
         , (Just . ("WebACLId",) . toJSON) _wAFRegionalWebACLAssociationWebACLId
         ]

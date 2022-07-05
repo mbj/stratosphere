@@ -25,7 +25,7 @@ instance ToResourceProperties EC2TrafficMirrorTarget where
     ResourceProperties
     { resourcePropertiesType = "AWS::EC2::TrafficMirrorTarget"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Description",) . toJSON) _eC2TrafficMirrorTargetDescription
         , fmap (("NetworkInterfaceId",) . toJSON) _eC2TrafficMirrorTargetNetworkInterfaceId
         , fmap (("NetworkLoadBalancerArn",) . toJSON) _eC2TrafficMirrorTargetNetworkLoadBalancerArn

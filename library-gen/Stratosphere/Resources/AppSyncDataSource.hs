@@ -35,7 +35,7 @@ instance ToResourceProperties AppSyncDataSource where
     ResourceProperties
     { resourcePropertiesType = "AWS::AppSync::DataSource"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("ApiId",) . toJSON) _appSyncDataSourceApiId
         , fmap (("Description",) . toJSON) _appSyncDataSourceDescription
         , fmap (("DynamoDBConfig",) . toJSON) _appSyncDataSourceDynamoDBConfig

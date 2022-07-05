@@ -23,7 +23,7 @@ instance ToResourceProperties KinesisAnalyticsV2ApplicationOutput where
     ResourceProperties
     { resourcePropertiesType = "AWS::KinesisAnalyticsV2::ApplicationOutput"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("ApplicationName",) . toJSON) _kinesisAnalyticsV2ApplicationOutputApplicationName
         , (Just . ("Output",) . toJSON) _kinesisAnalyticsV2ApplicationOutputOutput
         ]

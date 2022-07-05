@@ -29,7 +29,7 @@ instance ToResourceProperties CertificateManagerCertificate where
     ResourceProperties
     { resourcePropertiesType = "AWS::CertificateManager::Certificate"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("CertificateAuthorityArn",) . toJSON) _certificateManagerCertificateCertificateAuthorityArn
         , fmap (("CertificateTransparencyLoggingPreference",) . toJSON) _certificateManagerCertificateCertificateTransparencyLoggingPreference
         , (Just . ("DomainName",) . toJSON) _certificateManagerCertificateDomainName

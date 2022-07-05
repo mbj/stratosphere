@@ -23,7 +23,7 @@ instance ToResourceProperties CloudFrontCloudFrontOriginAccessIdentity where
     ResourceProperties
     { resourcePropertiesType = "AWS::CloudFront::CloudFrontOriginAccessIdentity"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("CloudFrontOriginAccessIdentityConfig",) . toJSON) _cloudFrontCloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfig
         ]
     }

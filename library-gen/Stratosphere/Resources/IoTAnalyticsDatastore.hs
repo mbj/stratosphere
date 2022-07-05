@@ -27,7 +27,7 @@ instance ToResourceProperties IoTAnalyticsDatastore where
     ResourceProperties
     { resourcePropertiesType = "AWS::IoTAnalytics::Datastore"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("DatastoreName",) . toJSON) _ioTAnalyticsDatastoreDatastoreName
         , fmap (("DatastoreStorage",) . toJSON) _ioTAnalyticsDatastoreDatastoreStorage
         , fmap (("RetentionPeriod",) . toJSON) _ioTAnalyticsDatastoreRetentionPeriod

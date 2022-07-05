@@ -24,7 +24,7 @@ instance ToResourceProperties GreengrassResourceDefinition where
     ResourceProperties
     { resourcePropertiesType = "AWS::Greengrass::ResourceDefinition"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("InitialVersion",) . toJSON) _greengrassResourceDefinitionInitialVersion
         , (Just . ("Name",) . toJSON) _greengrassResourceDefinitionName
         , fmap (("Tags",) . toJSON) _greengrassResourceDefinitionTags

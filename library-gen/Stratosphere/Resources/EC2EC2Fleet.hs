@@ -36,7 +36,7 @@ instance ToResourceProperties EC2EC2Fleet where
     ResourceProperties
     { resourcePropertiesType = "AWS::EC2::EC2Fleet"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("ExcessCapacityTerminationPolicy",) . toJSON) _eC2EC2FleetExcessCapacityTerminationPolicy
         , (Just . ("LaunchTemplateConfigs",) . toJSON) _eC2EC2FleetLaunchTemplateConfigs
         , fmap (("OnDemandOptions",) . toJSON) _eC2EC2FleetOnDemandOptions

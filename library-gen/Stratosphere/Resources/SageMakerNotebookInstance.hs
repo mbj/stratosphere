@@ -35,7 +35,7 @@ instance ToResourceProperties SageMakerNotebookInstance where
     ResourceProperties
     { resourcePropertiesType = "AWS::SageMaker::NotebookInstance"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("AcceleratorTypes",) . toJSON) _sageMakerNotebookInstanceAcceleratorTypes
         , fmap (("AdditionalCodeRepositories",) . toJSON) _sageMakerNotebookInstanceAdditionalCodeRepositories
         , fmap (("DefaultCodeRepository",) . toJSON) _sageMakerNotebookInstanceDefaultCodeRepository

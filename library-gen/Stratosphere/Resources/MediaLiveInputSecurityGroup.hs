@@ -23,7 +23,7 @@ instance ToResourceProperties MediaLiveInputSecurityGroup where
     ResourceProperties
     { resourcePropertiesType = "AWS::MediaLive::InputSecurityGroup"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Tags",) . toJSON) _mediaLiveInputSecurityGroupTags
         , fmap (("WhitelistRules",) . toJSON) _mediaLiveInputSecurityGroupWhitelistRules
         ]

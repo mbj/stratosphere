@@ -27,7 +27,7 @@ instance ToResourceProperties EC2VPCPeeringConnection where
     ResourceProperties
     { resourcePropertiesType = "AWS::EC2::VPCPeeringConnection"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("PeerOwnerId",) . toJSON) _eC2VPCPeeringConnectionPeerOwnerId
         , fmap (("PeerRegion",) . toJSON) _eC2VPCPeeringConnectionPeerRegion
         , fmap (("PeerRoleArn",) . toJSON) _eC2VPCPeeringConnectionPeerRoleArn

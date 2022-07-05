@@ -32,7 +32,7 @@ instance ToResourceProperties PinpointPushTemplate where
     ResourceProperties
     { resourcePropertiesType = "AWS::Pinpoint::PushTemplate"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("ADM",) . toJSON) _pinpointPushTemplateADM
         , fmap (("APNS",) . toJSON) _pinpointPushTemplateAPNS
         , fmap (("Baidu",) . toJSON) _pinpointPushTemplateBaidu

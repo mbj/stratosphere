@@ -32,7 +32,7 @@ instance ToResourceProperties CodePipelineCustomActionType where
     ResourceProperties
     { resourcePropertiesType = "AWS::CodePipeline::CustomActionType"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("Category",) . toJSON) _codePipelineCustomActionTypeCategory
         , fmap (("ConfigurationProperties",) . toJSON) _codePipelineCustomActionTypeConfigurationProperties
         , (Just . ("InputArtifactDetails",) . toJSON) _codePipelineCustomActionTypeInputArtifactDetails

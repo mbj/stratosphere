@@ -44,7 +44,7 @@ instance ToResourceProperties NeptuneDBCluster where
     ResourceProperties
     { resourcePropertiesType = "AWS::Neptune::DBCluster"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("AssociatedRoles",) . toJSON) _neptuneDBClusterAssociatedRoles
         , fmap (("AvailabilityZones",) . toJSON) _neptuneDBClusterAvailabilityZones
         , fmap (("BackupRetentionPeriod",) . toJSON) _neptuneDBClusterBackupRetentionPeriod

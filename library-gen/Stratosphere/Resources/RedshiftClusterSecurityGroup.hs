@@ -23,7 +23,7 @@ instance ToResourceProperties RedshiftClusterSecurityGroup where
     ResourceProperties
     { resourcePropertiesType = "AWS::Redshift::ClusterSecurityGroup"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("Description",) . toJSON) _redshiftClusterSecurityGroupDescription
         , fmap (("Tags",) . toJSON) _redshiftClusterSecurityGroupTags
         ]

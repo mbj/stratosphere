@@ -24,7 +24,7 @@ instance ToResourceProperties EC2NetworkInterfacePermission where
     ResourceProperties
     { resourcePropertiesType = "AWS::EC2::NetworkInterfacePermission"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("AwsAccountId",) . toJSON) _eC2NetworkInterfacePermissionAwsAccountId
         , (Just . ("NetworkInterfaceId",) . toJSON) _eC2NetworkInterfacePermissionNetworkInterfaceId
         , (Just . ("Permission",) . toJSON) _eC2NetworkInterfacePermissionPermission

@@ -23,7 +23,7 @@ instance ToResourceProperties AppStreamStackFleetAssociation where
     ResourceProperties
     { resourcePropertiesType = "AWS::AppStream::StackFleetAssociation"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("FleetName",) . toJSON) _appStreamStackFleetAssociationFleetName
         , (Just . ("StackName",) . toJSON) _appStreamStackFleetAssociationStackName
         ]

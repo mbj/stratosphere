@@ -31,7 +31,7 @@ instance ToResourceProperties Cloud9EnvironmentEC2 where
     ResourceProperties
     { resourcePropertiesType = "AWS::Cloud9::EnvironmentEC2"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("AutomaticStopTimeMinutes",) . toJSON) _cloud9EnvironmentEC2AutomaticStopTimeMinutes
         , fmap (("ConnectionType",) . toJSON) _cloud9EnvironmentEC2ConnectionType
         , fmap (("Description",) . toJSON) _cloud9EnvironmentEC2Description

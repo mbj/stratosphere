@@ -24,7 +24,7 @@ instance ToResourceProperties BudgetsBudget where
     ResourceProperties
     { resourcePropertiesType = "AWS::Budgets::Budget"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("Budget",) . toJSON) _budgetsBudgetBudget
         , fmap (("NotificationsWithSubscribers",) . toJSON) _budgetsBudgetNotificationsWithSubscribers
         ]

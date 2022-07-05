@@ -26,7 +26,7 @@ instance ToResourceProperties RDSDBProxyTargetGroup where
     ResourceProperties
     { resourcePropertiesType = "AWS::RDS::DBProxyTargetGroup"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("ConnectionPoolConfigurationInfo",) . toJSON) _rDSDBProxyTargetGroupConnectionPoolConfigurationInfo
         , fmap (("DBClusterIdentifiers",) . toJSON) _rDSDBProxyTargetGroupDBClusterIdentifiers
         , fmap (("DBInstanceIdentifiers",) . toJSON) _rDSDBProxyTargetGroupDBInstanceIdentifiers

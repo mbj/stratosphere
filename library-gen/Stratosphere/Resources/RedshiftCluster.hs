@@ -51,7 +51,7 @@ instance ToResourceProperties RedshiftCluster where
     ResourceProperties
     { resourcePropertiesType = "AWS::Redshift::Cluster"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("AllowVersionUpgrade",) . toJSON) _redshiftClusterAllowVersionUpgrade
         , fmap (("AutomatedSnapshotRetentionPeriod",) . toJSON) _redshiftClusterAutomatedSnapshotRetentionPeriod
         , fmap (("AvailabilityZone",) . toJSON) _redshiftClusterAvailabilityZone

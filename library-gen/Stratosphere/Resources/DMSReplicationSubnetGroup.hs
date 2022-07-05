@@ -25,7 +25,7 @@ instance ToResourceProperties DMSReplicationSubnetGroup where
     ResourceProperties
     { resourcePropertiesType = "AWS::DMS::ReplicationSubnetGroup"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("ReplicationSubnetGroupDescription",) . toJSON) _dMSReplicationSubnetGroupReplicationSubnetGroupDescription
         , fmap (("ReplicationSubnetGroupIdentifier",) . toJSON) _dMSReplicationSubnetGroupReplicationSubnetGroupIdentifier
         , (Just . ("SubnetIds",) . toJSON) _dMSReplicationSubnetGroupSubnetIds

@@ -24,7 +24,7 @@ instance ToResourceProperties EC2VPCGatewayAttachment where
     ResourceProperties
     { resourcePropertiesType = "AWS::EC2::VPCGatewayAttachment"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("InternetGatewayId",) . toJSON) _eC2VPCGatewayAttachmentInternetGatewayId
         , (Just . ("VpcId",) . toJSON) _eC2VPCGatewayAttachmentVpcId
         , fmap (("VpnGatewayId",) . toJSON) _eC2VPCGatewayAttachmentVpnGatewayId

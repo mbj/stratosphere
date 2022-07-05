@@ -23,7 +23,7 @@ instance ToResourceProperties Route53HealthCheck where
     ResourceProperties
     { resourcePropertiesType = "AWS::Route53::HealthCheck"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("HealthCheckConfig",) . toJSON) _route53HealthCheckHealthCheckConfig
         , fmap (("HealthCheckTags",) . toJSON) _route53HealthCheckHealthCheckTags
         ]

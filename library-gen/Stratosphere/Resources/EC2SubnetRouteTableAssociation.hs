@@ -23,7 +23,7 @@ instance ToResourceProperties EC2SubnetRouteTableAssociation where
     ResourceProperties
     { resourcePropertiesType = "AWS::EC2::SubnetRouteTableAssociation"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("RouteTableId",) . toJSON) _eC2SubnetRouteTableAssociationRouteTableId
         , (Just . ("SubnetId",) . toJSON) _eC2SubnetRouteTableAssociationSubnetId
         ]

@@ -30,7 +30,7 @@ instance ToResourceProperties MediaStoreContainer where
     ResourceProperties
     { resourcePropertiesType = "AWS::MediaStore::Container"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("AccessLoggingEnabled",) . toJSON) _mediaStoreContainerAccessLoggingEnabled
         , (Just . ("ContainerName",) . toJSON) _mediaStoreContainerContainerName
         , fmap (("CorsPolicy",) . toJSON) _mediaStoreContainerCorsPolicy

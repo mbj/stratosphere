@@ -25,7 +25,7 @@ instance ToResourceProperties RedshiftClusterSecurityGroupIngress where
     ResourceProperties
     { resourcePropertiesType = "AWS::Redshift::ClusterSecurityGroupIngress"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("CIDRIP",) . toJSON) _redshiftClusterSecurityGroupIngressCIDRIP
         , (Just . ("ClusterSecurityGroupName",) . toJSON) _redshiftClusterSecurityGroupIngressClusterSecurityGroupName
         , fmap (("EC2SecurityGroupName",) . toJSON) _redshiftClusterSecurityGroupIngressEC2SecurityGroupName

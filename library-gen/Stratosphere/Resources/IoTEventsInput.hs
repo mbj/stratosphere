@@ -26,7 +26,7 @@ instance ToResourceProperties IoTEventsInput where
     ResourceProperties
     { resourcePropertiesType = "AWS::IoTEvents::Input"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("InputDefinition",) . toJSON) _ioTEventsInputInputDefinition
         , fmap (("InputDescription",) . toJSON) _ioTEventsInputInputDescription
         , fmap (("InputName",) . toJSON) _ioTEventsInputInputName

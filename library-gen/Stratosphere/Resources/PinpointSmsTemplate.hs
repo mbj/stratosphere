@@ -26,7 +26,7 @@ instance ToResourceProperties PinpointSmsTemplate where
     ResourceProperties
     { resourcePropertiesType = "AWS::Pinpoint::SmsTemplate"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("Body",) . toJSON) _pinpointSmsTemplateBody
         , fmap (("DefaultSubstitutions",) . toJSON) _pinpointSmsTemplateDefaultSubstitutions
         , fmap (("Tags",) . toJSON) _pinpointSmsTemplateTags

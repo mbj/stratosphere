@@ -32,7 +32,7 @@ instance ToResourceProperties MediaLiveChannel where
     ResourceProperties
     { resourcePropertiesType = "AWS::MediaLive::Channel"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("ChannelClass",) . toJSON) _mediaLiveChannelChannelClass
         , fmap (("Destinations",) . toJSON) _mediaLiveChannelDestinations
         , fmap (("EncoderSettings",) . toJSON) _mediaLiveChannelEncoderSettings

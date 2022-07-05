@@ -26,7 +26,7 @@ instance ToResourceProperties RedshiftClusterParameterGroup where
     ResourceProperties
     { resourcePropertiesType = "AWS::Redshift::ClusterParameterGroup"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("Description",) . toJSON) _redshiftClusterParameterGroupDescription
         , (Just . ("ParameterGroupFamily",) . toJSON) _redshiftClusterParameterGroupParameterGroupFamily
         , fmap (("Parameters",) . toJSON) _redshiftClusterParameterGroupParameters

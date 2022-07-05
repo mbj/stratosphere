@@ -23,7 +23,7 @@ instance ToResourceProperties EC2VPCEndpointService where
     ResourceProperties
     { resourcePropertiesType = "AWS::EC2::VPCEndpointService"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("AcceptanceRequired",) . toJSON) _eC2VPCEndpointServiceAcceptanceRequired
         , (Just . ("NetworkLoadBalancerArns",) . toJSON) _eC2VPCEndpointServiceNetworkLoadBalancerArns
         ]

@@ -22,7 +22,7 @@ instance ToResourceProperties ApiGatewayAccount where
     ResourceProperties
     { resourcePropertiesType = "AWS::ApiGateway::Account"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("CloudWatchRoleArn",) . toJSON) _apiGatewayAccountCloudWatchRoleArn
         ]
     }

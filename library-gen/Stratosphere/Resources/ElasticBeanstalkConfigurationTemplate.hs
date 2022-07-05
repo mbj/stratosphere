@@ -30,7 +30,7 @@ instance ToResourceProperties ElasticBeanstalkConfigurationTemplate where
     ResourceProperties
     { resourcePropertiesType = "AWS::ElasticBeanstalk::ConfigurationTemplate"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("ApplicationName",) . toJSON) _elasticBeanstalkConfigurationTemplateApplicationName
         , fmap (("Description",) . toJSON) _elasticBeanstalkConfigurationTemplateDescription
         , fmap (("EnvironmentId",) . toJSON) _elasticBeanstalkConfigurationTemplateEnvironmentId

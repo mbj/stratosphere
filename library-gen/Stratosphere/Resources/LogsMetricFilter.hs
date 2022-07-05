@@ -24,7 +24,7 @@ instance ToResourceProperties LogsMetricFilter where
     ResourceProperties
     { resourcePropertiesType = "AWS::Logs::MetricFilter"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ (Just . ("FilterPattern",) . toJSON) _logsMetricFilterFilterPattern
         , (Just . ("LogGroupName",) . toJSON) _logsMetricFilterLogGroupName
         , (Just . ("MetricTransformations",) . toJSON) _logsMetricFilterMetricTransformations

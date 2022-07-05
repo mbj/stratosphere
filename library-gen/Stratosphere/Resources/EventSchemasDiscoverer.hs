@@ -24,7 +24,7 @@ instance ToResourceProperties EventSchemasDiscoverer where
     ResourceProperties
     { resourcePropertiesType = "AWS::EventSchemas::Discoverer"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Description",) . toJSON) _eventSchemasDiscovererDescription
         , (Just . ("SourceArn",) . toJSON) _eventSchemasDiscovererSourceArn
         , fmap (("Tags",) . toJSON) _eventSchemasDiscovererTags

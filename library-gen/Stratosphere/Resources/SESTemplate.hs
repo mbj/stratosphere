@@ -22,7 +22,7 @@ instance ToResourceProperties SESTemplate where
     ResourceProperties
     { resourcePropertiesType = "AWS::SES::Template"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Template",) . toJSON) _sESTemplateTemplate
         ]
     }

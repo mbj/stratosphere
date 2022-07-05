@@ -27,7 +27,7 @@ instance ToResourceProperties ServiceCatalogLaunchTemplateConstraint where
     ResourceProperties
     { resourcePropertiesType = "AWS::ServiceCatalog::LaunchTemplateConstraint"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("AcceptLanguage",) . toJSON) _serviceCatalogLaunchTemplateConstraintAcceptLanguage
         , fmap (("Description",) . toJSON) _serviceCatalogLaunchTemplateConstraintDescription
         , (Just . ("PortfolioId",) . toJSON) _serviceCatalogLaunchTemplateConstraintPortfolioId

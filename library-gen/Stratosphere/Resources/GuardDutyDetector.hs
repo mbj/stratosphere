@@ -24,7 +24,7 @@ instance ToResourceProperties GuardDutyDetector where
     ResourceProperties
     { resourcePropertiesType = "AWS::GuardDuty::Detector"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("DataSources",) . toJSON) _guardDutyDetectorDataSources
         , (Just . ("Enable",) . toJSON) _guardDutyDetectorEnable
         , fmap (("FindingPublishingFrequency",) . toJSON) _guardDutyDetectorFindingPublishingFrequency

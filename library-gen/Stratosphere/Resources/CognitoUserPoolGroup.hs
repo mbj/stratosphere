@@ -26,7 +26,7 @@ instance ToResourceProperties CognitoUserPoolGroup where
     ResourceProperties
     { resourcePropertiesType = "AWS::Cognito::UserPoolGroup"
     , resourcePropertiesProperties =
-        hashMapFromList $ catMaybes
+        keyMapFromList $ catMaybes
         [ fmap (("Description",) . toJSON) _cognitoUserPoolGroupDescription
         , fmap (("GroupName",) . toJSON) _cognitoUserPoolGroupGroupName
         , fmap (("Precedence",) . toJSON) _cognitoUserPoolGroupPrecedence
