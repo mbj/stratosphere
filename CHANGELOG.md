@@ -3,6 +3,8 @@
 ## 0.60.0
 
 * Maintainer change to [Markus Schirp](https://github.com/mbj)
+* Drop support for pre GHC 9.0, user older releases if you are on
+  these GHCs. This reduces maintainer overhead.
 
 ## 0.59.1
 
