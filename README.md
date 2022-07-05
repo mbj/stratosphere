@@ -101,7 +101,7 @@ the user to succinctly specify the resource parameters they actually use
 without adding too much noise to their code.
 
 To specify optional arguments, we recommend using the lens operators `&` and
-`?~`. In the example above, the optional EC2 key name is specified using the 
+`?~`. In the example above, the optional EC2 key name is specified using the
 `&` and `?~` lens operators.
 
 This approach is very similar to the approach taken by the `amazonka` library.
@@ -139,3 +139,9 @@ Github issue.
   are limits on the size of CloudFormation templates, and we want readable
   output without hitting the limits. Also, we have some newtypes that just
   exist to override aeson instances, and we could get rid of those.
+
+## Development Build
+
+```
+STACK_YAML=stack-9.0.yaml stack build --test --flag stratosphere:-library-only
+```
