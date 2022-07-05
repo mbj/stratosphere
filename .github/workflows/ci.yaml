@@ -1,0 +1,34 @@
+name: CI
+
+on: push
+
+jobs:
+  ci:
+    runs-on: ${{ matrix.os }}
+    env:
+      STACK_YAML: ${{ github.workspace }}/stack-${{ matrix.ghc }}.yaml
+    strategy:
+      fail-fast: false
+      matrix:
+        ghc: ['9.0']
+        os:  [ubuntu-latest]
+    steps:
+    - uses: actions/checkout@v3
+    - uses: haskell/actions/setup@v2
+      with:
+        enable-stack: true
+        stack-version: 2.7.5
+    - name: Cache Dependencies
+      uses: actions/cache@v2
+      with:
+        path: ~/.stack
+        key: ${{ matrix.os }}-${{ matrix.ghc }}-${{ hashFiles(env.STACK_YAML, format('{0}.lock', env.STACK_YAML)) }}
+        restore-keys: |
+          ${{ matrix.os }}-${{ matrix.ghc }}-${{ hashFiles(env.STACK_YAML, format('{0}.lock', env.STACK_YAML)) }}
+          ${{ matrix.os }}-${{ matrix.ghc }}
+    - name: Install dependencies
+      run: stack build --test --only-dependencies
+    - name: Build
+      run: stack build --fast --flag stratosphere:-library-only --test --no-run-tests stratosphere
+    - name: Run tests
+      run: stack build --fast --flag stratosphere:-library-only --test stratosphere

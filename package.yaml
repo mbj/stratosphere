@@ -1,14 +1,14 @@
 name: stratosphere
-version: "0.59.1"
+version: "0.60.0"
 synopsis: EDSL for AWS CloudFormation
 description: EDSL for AWS CloudFormation
 category: AWS, Cloud
-maintainer: David Reaver
+maintainer: Markus Schirp
 stability: experimental
 license: MIT
 license-file: LICENSE.md
 
-github: frontrowed/stratosphere
+github: mbj/stratosphere
 
 extra-source-files:
   - CHANGELOG.md
@@ -16,7 +16,7 @@ extra-source-files:
 
 dependencies:
   - base >= 4.8 && < 5
-  - aeson >= 0.11
+  - aeson >= 0.11 && < 2
   - aeson-pretty >= 0.8
   - bytestring
   - containers

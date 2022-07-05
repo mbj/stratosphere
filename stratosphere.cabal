@@ -1,20 +1,20 @@
 cabal-version: 1.12
 
--- This file has been generated from package.yaml by hpack version 0.33.0.
+-- This file has been generated from package.yaml by hpack version 0.34.4.
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 32e0669e795e3193a411bc5344dfc9fc680bfed5e77269ef76fb4d1d42c39513
+-- hash: bdba7fab108a43a19fa1c1f3d3a64abac4c6c2479f4905a960a319dd8a52b25e
 
 name:           stratosphere
-version:        0.59.1
+version:        0.60.0
 synopsis:       EDSL for AWS CloudFormation
 description:    EDSL for AWS CloudFormation
 category:       AWS, Cloud
 stability:      experimental
-homepage:       https://github.com/frontrowed/stratosphere#readme
-bug-reports:    https://github.com/frontrowed/stratosphere/issues
-maintainer:     David Reaver
+homepage:       https://github.com/mbj/stratosphere#readme
+bug-reports:    https://github.com/mbj/stratosphere/issues
+maintainer:     Markus Schirp
 license:        MIT
 license-file:   LICENSE.md
 build-type:     Simple
@@ -24,7 +24,7 @@ extra-source-files:
 
 source-repository head
   type: git
-  location: https://github.com/frontrowed/stratosphere
+  location: https://github.com/mbj/stratosphere
 
 flag library-only
   description: Don't compile examples
@@ -2105,7 +2105,7 @@ library
       library-gen
   ghc-options: -Wall -O0
   build-depends:
-      aeson >=0.11
+      aeson >=0.11 && <2
     , aeson-pretty >=0.8
     , base >=4.8 && <5
     , bytestring
@@ -2125,7 +2125,7 @@ executable auto-scaling-group
       examples
   ghc-options: -Wall
   build-depends:
-      aeson >=0.11
+      aeson >=0.11 && <2
     , aeson-pretty >=0.8
     , base >=4.8 && <5
     , bytestring
@@ -2148,7 +2148,7 @@ executable rds-master-replica
       examples
   ghc-options: -Wall
   build-depends:
-      aeson >=0.11
+      aeson >=0.11 && <2
     , aeson-pretty >=0.8
     , base >=4.8 && <5
     , bytestring
@@ -2171,7 +2171,7 @@ executable s3-copy
       examples
   ghc-options: -Wall
   build-depends:
-      aeson >=0.11
+      aeson >=0.11 && <2
     , aeson-pretty >=0.8
     , base >=4.8 && <5
     , bytestring
@@ -2194,7 +2194,7 @@ executable simple-lambda
       examples
   ghc-options: -Wall
   build-depends:
-      aeson >=0.11
+      aeson >=0.11 && <2
     , aeson-pretty >=0.8
     , base >=4.8 && <5
     , bytestring
@@ -2218,7 +2218,7 @@ test-suite spec
   hs-source-dirs:
       tests
   build-depends:
-      aeson >=0.11
+      aeson >=0.11 && <2
     , aeson-pretty >=0.8
     , base
     , bytestring
