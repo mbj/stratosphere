@@ -1,7 +1,7 @@
 name: stratosphere-gen
 version: "0.1.0"
 synopsis: stratosphere code generation
-maintainer: David Reaver
+maintainer: Markus Schirp
 
 default-extensions:
   - DeriveGeneric

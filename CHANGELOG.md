@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.60.0
+
+* Maintainer change to [Markus Schirp](https://github.com/mbj)
+
 ## 0.59.1
 
 * Fix missing `.cabal` file in distribution
