@@ -55,6 +55,8 @@ data Output =
   { _outputName :: Text
     -- ^ An identifier for this output. The logical ID must be alphanumeric
     -- (A-Za-z0-9) and unique within the template.
+  , _outputCondition :: Maybe Text
+    -- ^ Output condition controling the output creation
   , _outputDescription :: Maybe Text
     -- ^ A String type up to 4K in length describing the output value.
   , _outputValue :: Val Text
@@ -78,6 +80,7 @@ output
 output oname oval =
   Output
   { _outputName = oname
+  , _outputCondition = Nothing
   , _outputDescription = Nothing
   , _outputValue = oval
   , _outputExport = Nothing
@@ -87,6 +90,7 @@ outputToJSON :: Output -> Value
 outputToJSON Output {..} =
   object $ catMaybes
   [ Just ("Value" .= _outputValue)
+  , maybeField "Condition" _outputCondition
   , maybeField "Description" _outputDescription
   , maybeField "Export" _outputExport
   ]
