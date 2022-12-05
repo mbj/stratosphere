@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.60.1
+
+* Add additional nodejs aws lambda environment types.
+
 ## 0.60.0
 
 * Add and require aeson-2 support

@@ -1,11 +1,11 @@
 cabal-version: 1.12
 
--- This file has been generated from package.yaml by hpack version 0.34.4.
+-- This file has been generated from package.yaml by hpack version 0.35.0.
 --
 -- see: https://github.com/sol/hpack
 
 name:           stratosphere
-version:        0.60.0
+version:        0.60.1
 synopsis:       EDSL for AWS CloudFormation
 description:    EDSL for AWS CloudFormation
 category:       AWS, Cloud
@@ -2134,9 +2134,9 @@ executable auto-scaling-group
     , template-haskell >=2.0
     , text >=1.1
     , unordered-containers >=0.2
+  default-language: Haskell2010
   if flag(library-only)
     buildable: False
-  default-language: Haskell2010
 
 executable rds-master-replica
   main-is: rds-master-replica.hs
@@ -2157,9 +2157,9 @@ executable rds-master-replica
     , template-haskell >=2.0
     , text >=1.1
     , unordered-containers >=0.2
+  default-language: Haskell2010
   if flag(library-only)
     buildable: False
-  default-language: Haskell2010
 
 executable s3-copy
   main-is: s3-copy.hs
@@ -2180,9 +2180,9 @@ executable s3-copy
     , template-haskell >=2.0
     , text >=1.1
     , unordered-containers >=0.2
+  default-language: Haskell2010
   if flag(library-only)
     buildable: False
-  default-language: Haskell2010
 
 executable simple-lambda
   main-is: simple-lambda.hs
@@ -2203,9 +2203,9 @@ executable simple-lambda
     , template-haskell >=2.0
     , text >=1.1
     , unordered-containers >=0.2
+  default-language: Haskell2010
   if flag(library-only)
     buildable: False
-  default-language: Haskell2010
 
 test-suite spec
   type: exitcode-stdio-1.0
