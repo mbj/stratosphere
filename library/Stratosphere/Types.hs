@@ -140,9 +140,14 @@ instance ToJSON SNSProtocol where
 -- Valid values here
 -- https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime
 data Runtime
-  = NodeJS810
+  = NodeJS
+  | NodeJS43Edge
+  | NodeJS810
   | NodeJS10x
   | NodeJS12x
+  | NodeJS14x
+  | NodeJS16x
+  | NodeJS18x
   | Java8
   | Java11
   | Python27
@@ -157,9 +162,14 @@ data Runtime
   deriving (Show, Read, Eq, Generic)
 
 instance ToJSON Runtime where
+  toJSON NodeJS = String "nodejs"
+  toJSON NodeJS43Edge = String "nodejs4.3-edge"
   toJSON NodeJS810 = String "nodejs8.10"
   toJSON NodeJS10x = String "nodejs10.x"
   toJSON NodeJS12x = String "nodejs12.x"
+  toJSON NodeJS14x = String "nodejs14.x"
+  toJSON NodeJS16x = String "nodejs16.x"
+  toJSON NodeJS18x = String "nodejs18.x"
   toJSON Java8 = String "java8"
   toJSON Java11 = String "java11"
   toJSON Python27 = String "python2.7"

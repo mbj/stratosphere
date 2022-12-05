@@ -26,7 +26,7 @@ lambda = (
     lambdaCode
     "index.handler"
     (GetAtt "IAMRole" "Arn")
-    (Literal NodeJS12x)
+    (Literal NodeJS14x)
   )
   & resourceDependsOn ?~ [ role' ^. resourceName ]
 
