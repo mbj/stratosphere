@@ -1,5 +1,5 @@
 ---
-resolver: lts-19.33
+resolver: nightly-2023-01-08
 packages:
 - '.'
 - 'gen'
