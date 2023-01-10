@@ -5,6 +5,7 @@
 module Gen.Render.RenderDocstring where
 
 import Data.Text (Text)
+
 import qualified Data.Text as T
 
 renderDocstring :: Text -> Text

@@ -3,22 +3,19 @@
 
 module Main where
 
---import Control.Lens hiding ((<.>))
 import Control.Monad (when)
 import Data.Aeson
---import Data.Aeson.Lens
---import qualified Data.HashMap.Lazy as HM
 import Data.List (nub)
 import Data.Text (Text)
-import qualified Data.Text as T
-import qualified Data.Text.IO as TIO
+import Gen.ReadRawSpecFile
+import Gen.Render
+import Gen.Specifications
 import System.Directory
 import System.FilePath.Posix
 import Text.Shakespeare.Text (st)
 
-import Gen.ReadRawSpecFile
-import Gen.Render
-import Gen.Specifications
+import qualified Data.Text as T
+import qualified Data.Text.IO as TIO
 
 main :: IO ()
 main = do

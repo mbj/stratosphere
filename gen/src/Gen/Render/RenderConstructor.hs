@@ -5,14 +5,14 @@
 module Gen.Render.RenderConstructor where
 
 import Data.Text (Text)
-import qualified Data.Text as T
 import Data.Text.Manipulate (lowerHead)
-import Text.Shakespeare.Text (st)
-
 import Gen.Render.RenderDocstring
 import Gen.Render.RenderTypes
 import Gen.Render.Types
 import Gen.Specifications
+import Text.Shakespeare.Text (st)
+
+import qualified Data.Text as T
 
 -- | Renders the default constructor function to Text.
 renderConstructor :: Module -> Text

@@ -1,17 +1,14 @@
-module Gen.Render.Types
-  ( Module (..)
-  , createModules
-  ) where
+module Gen.Render.Types (Module(..), createModules) where
 
 import Data.Char (isUpper, isNumber)
-import qualified Data.Char as Char
 import Data.Maybe (fromMaybe)
 import Data.Set (Set)
-import qualified Data.Set as Set
 import Data.Text
 import Data.Text.Manipulate (lowerHead, toAcronym)
-
 import Gen.Specifications
+
+import qualified Data.Set as Set
+import qualified Data.Char as Char
 
 data Module
   = Module

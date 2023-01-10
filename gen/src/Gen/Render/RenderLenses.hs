@@ -5,13 +5,13 @@
 module Gen.Render.RenderLenses where
 
 import Data.Text (Text)
-import qualified Data.Text as T
-import Text.Shakespeare.Text (st)
-
 import Gen.Render.RenderDocstring
 import Gen.Render.RenderTypes
 import Gen.Render.Types
 import Gen.Specifications
+import Text.Shakespeare.Text (st)
+
+import qualified Data.Text as T
 
 renderLenses :: Module -> Text
 renderLenses module'@Module{..} = T.intercalate "\n\n" lenses

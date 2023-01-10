@@ -5,15 +5,16 @@
 module Gen.Render.RenderTypes
   ( renderResourceTypeDecl
   , renderPropertyType
-  ) where
+  )
+where
 
 import Data.Text (Text)
-import qualified Data.Text as T
-import Text.Shakespeare.Text (st)
-
 import Gen.Render.RenderDocstring
 import Gen.Render.Types
 import Gen.Specifications
+import Text.Shakespeare.Text (st)
+
+import qualified Data.Text as T
 
 renderResourceTypeDecl :: Module -> T.Text
 renderResourceTypeDecl module'@Module {..} = --T.concat [declDocstring module', header, sigs, footer]

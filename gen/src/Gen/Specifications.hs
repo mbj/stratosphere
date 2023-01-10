@@ -2,24 +2,24 @@
 -- generator.
 
 module Gen.Specifications
-  ( CloudFormationSpec (..)
+  ( CloudFormationSpec(..)
   , specFromRaw
-  , PropertyType (..)
-  , Property (..)
-  , SpecType (..)
+  , PropertyType(..)
+  , Property(..)
+  , SpecType(..)
   , subPropertyTypeNames
   , customTypeNames
-  , AtomicType (..)
-  , ResourceType (..)
-  ) where
+  , AtomicType(..)
+  , ResourceType(..)
+  )
+where
 
 import Control.Lens
 import Data.List (sortOn)
-import Data.Maybe (catMaybes)
 import Data.Map (Map, toList)
+import Data.Maybe (catMaybes)
 import Data.Text
 import GHC.Generics hiding (to)
-
 import Gen.ReadRawSpecFile
 
 data CloudFormationSpec
