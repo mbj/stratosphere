@@ -10,6 +10,7 @@ default-extensions:
 - FunctionalDependencies
 - GeneralizedNewtypeDeriving
 - MultiParamTypeClasses
+- NoImplicitPrelude
 - OverloadedStrings
 - RecordWildCards
 - ScopedTypeVariables

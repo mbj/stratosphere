@@ -18,6 +18,7 @@ import Data.Aeson
 import Data.Map (Map)
 import Data.Text
 import GHC.Generics
+import Prelude
 
 import qualified Data.ByteString as BS
 

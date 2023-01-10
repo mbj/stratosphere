@@ -12,6 +12,7 @@ import Data.Text (Text)
 import Gen.Render.RenderDocstring
 import Gen.Render.Types
 import Gen.Specifications
+import Prelude
 import Text.Shakespeare.Text (st)
 
 import qualified Data.Text as T

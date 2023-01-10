@@ -9,6 +9,7 @@ import Data.Text (Text)
 import Gen.Render.Types
 import Gen.Specifications
 import Text.Shakespeare.Text (st)
+import Prelude
 
 import qualified Data.Text as T
 

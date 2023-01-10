@@ -5,6 +5,7 @@
 module Gen.Render.RenderDocstring where
 
 import Data.Text (Text)
+import Prelude
 
 import qualified Data.Text as T
 

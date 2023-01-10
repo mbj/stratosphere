@@ -10,6 +10,7 @@ import Data.Text (Text)
 import Gen.ReadRawSpecFile
 import Gen.Render
 import Gen.Specifications
+import Prelude
 import System.Directory
 import System.FilePath.Posix
 import Text.Shakespeare.Text (st)
