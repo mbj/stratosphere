@@ -5,7 +5,6 @@ module Gen.Render.RenderJsonInstances
   , renderToResourceProperties
   ) where
 
-import Data.Monoid ((<>))
 import Data.Text (Text)
 import qualified Data.Text as T
 import Text.Shakespeare.Text (st)

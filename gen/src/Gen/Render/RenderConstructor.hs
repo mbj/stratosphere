@@ -4,7 +4,6 @@
 
 module Gen.Render.RenderConstructor where
 
-import Data.Monoid ((<>))
 import Data.Text (Text)
 import qualified Data.Text as T
 import Data.Text.Manipulate (lowerHead)

@@ -6,7 +6,6 @@ module Gen.Render.Types
 import Data.Char (isUpper, isNumber)
 import qualified Data.Char as Char
 import Data.Maybe (fromMaybe)
-import Data.Monoid ((<>))
 import Data.Set (Set)
 import qualified Data.Set as Set
 import Data.Text
