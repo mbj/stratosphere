@@ -19,7 +19,7 @@ import qualified Data.Text.IO as TIO
 
 main :: IO ()
 main = do
-  rawSpec <- either error id <$> decodeFile ("model" </> "sorted-spec.json")
+  rawSpec <- either error id <$> decodeFile ("gen" </> "model" </> "sorted-spec.json")
 
   let
     spec = specFromRaw rawSpec
@@ -28,11 +28,11 @@ main = do
       (cloudFormationSpecPropertyTypes spec)
       (cloudFormationSpecResourceTypes spec)
 
-  genExists <- doesDirectoryExist (".." </> "library-gen")
+  genExists <- doesDirectoryExist ("library-gen")
   when genExists $
-    removeDirectoryRecursive (".." </> "library-gen")
-  createDirectory (".." </> "library-gen")
-  createDirectory (".." </> "library-gen" </> "Stratosphere")
+    removeDirectoryRecursive ("library-gen")
+  createDirectory ("library-gen")
+  createDirectory ("library-gen" </> "Stratosphere")
 
   mapM_ renderModule modules
   renderTopLevelModule modules
@@ -40,7 +40,7 @@ main = do
 renderModule :: Module -> IO ()
 renderModule module'@Module {..} = do
   let
-    moduleDir = ".." </> "library-gen" </> foldl1 (</>) (T.unpack <$> T.splitOn "." modulePath)
+    moduleDir = "library-gen" </> foldl1 (</>) (T.unpack <$> T.splitOn "." modulePath)
     fileName = T.unpack moduleName <.> "hs"
     filePath = moduleDir </> fileName
     toJsonOrProps =
@@ -88,7 +88,7 @@ renderTopLevelModule :: [Module] -> IO ()
 renderTopLevelModule modules = do
   let
     paths = fmap (\Module{..} -> modulePath <> "." <> moduleName) modules
-    modPath = ".." </> "library-gen" </> "Stratosphere" </> "Resources.hs"
+    modPath = "library-gen" </> "Stratosphere" </> "Resources.hs"
   putStrLn ("Writing: " ++ show modPath)
   TIO.writeFile modPath [st|{-# LANGUAGE CPP #-}
 {-# LANGUAGE DeriveGeneric #-}
