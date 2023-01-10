@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.MediaLiveChannelCaptionSelectorSettings where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.MediaLiveChannelAribSourceSettings
 import Stratosphere.ResourceProperties.MediaLiveChannelDvbSubSourceSettings

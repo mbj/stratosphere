@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.AccessAnalyzerAnalyzer where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.AccessAnalyzerAnalyzerArchiveRule
 import Stratosphere.ResourceProperties.Tag

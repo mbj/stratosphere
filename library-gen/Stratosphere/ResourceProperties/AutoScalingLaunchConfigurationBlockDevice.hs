@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.AutoScalingLaunchConfigurationBlockDevice where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

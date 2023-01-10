@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.GlueTriggerCondition where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

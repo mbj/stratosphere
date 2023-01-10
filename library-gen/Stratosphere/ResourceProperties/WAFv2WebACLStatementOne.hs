@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.WAFv2WebACLStatementOne where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.WAFv2WebACLAndStatementOne
 import Stratosphere.ResourceProperties.WAFv2WebACLByteMatchStatement

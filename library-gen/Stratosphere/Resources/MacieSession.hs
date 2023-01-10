@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.MacieSession where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

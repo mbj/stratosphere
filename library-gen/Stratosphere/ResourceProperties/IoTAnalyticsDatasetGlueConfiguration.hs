@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.IoTAnalyticsDatasetGlueConfiguration where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

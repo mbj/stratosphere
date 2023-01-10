@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.AutoScalingScalingPolicy where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.AutoScalingScalingPolicyStepAdjustment
 import Stratosphere.ResourceProperties.AutoScalingScalingPolicyTargetTrackingConfiguration

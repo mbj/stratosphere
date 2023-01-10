@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.PinpointCampaignQuietTime where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

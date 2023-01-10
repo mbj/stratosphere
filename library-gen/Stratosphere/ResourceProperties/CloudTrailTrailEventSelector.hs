@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.CloudTrailTrailEventSelector where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.CloudTrailTrailDataResource
 

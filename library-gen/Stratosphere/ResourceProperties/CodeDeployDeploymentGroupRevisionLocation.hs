@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.CodeDeployDeploymentGroupRevisionLocation where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupGitHubLocation
 import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupS3Location

@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.WorkSpacesWorkspaceWorkspaceProperties where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

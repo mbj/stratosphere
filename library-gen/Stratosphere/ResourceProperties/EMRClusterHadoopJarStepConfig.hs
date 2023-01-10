@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.EMRClusterHadoopJarStepConfig where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.EMRClusterKeyValue
 

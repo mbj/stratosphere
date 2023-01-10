@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.EMRInstanceFleetConfigConfiguration where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

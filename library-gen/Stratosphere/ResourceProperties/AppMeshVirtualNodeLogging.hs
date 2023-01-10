@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.AppMeshVirtualNodeLogging where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.AppMeshVirtualNodeAccessLog
 

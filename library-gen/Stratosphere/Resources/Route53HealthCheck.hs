@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.Route53HealthCheck where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.Route53HealthCheckHealthCheckTag
 

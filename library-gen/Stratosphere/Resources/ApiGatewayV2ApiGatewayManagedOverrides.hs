@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.ApiGatewayV2ApiGatewayManagedOverrides where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.ApiGatewayV2ApiGatewayManagedOverridesIntegrationOverrides
 import Stratosphere.ResourceProperties.ApiGatewayV2ApiGatewayManagedOverridesRouteOverrides

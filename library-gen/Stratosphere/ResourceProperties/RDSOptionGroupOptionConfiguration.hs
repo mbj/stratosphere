@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.RDSOptionGroupOptionConfiguration where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.RDSOptionGroupOptionSetting
 

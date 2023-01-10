@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.GlueJobExecutionProperty where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

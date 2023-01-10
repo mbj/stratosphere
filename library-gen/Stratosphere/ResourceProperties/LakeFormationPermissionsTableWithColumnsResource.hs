@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.LakeFormationPermissionsTableWithColumnsResource where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.LakeFormationPermissionsColumnWildcard
 

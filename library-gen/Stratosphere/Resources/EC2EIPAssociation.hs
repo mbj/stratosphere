@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.EC2EIPAssociation where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

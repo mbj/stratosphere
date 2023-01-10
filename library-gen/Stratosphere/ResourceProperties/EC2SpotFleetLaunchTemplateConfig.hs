@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.EC2SpotFleetLaunchTemplateConfig where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.EC2SpotFleetFleetLaunchTemplateSpecification
 import Stratosphere.ResourceProperties.EC2SpotFleetLaunchTemplateOverrides

@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.IoTProvisioningTemplateTags where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

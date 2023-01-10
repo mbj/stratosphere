@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamVpcConfiguration where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

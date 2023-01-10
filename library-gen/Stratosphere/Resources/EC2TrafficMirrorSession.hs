@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.EC2TrafficMirrorSession where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.Tag
 

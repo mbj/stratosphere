@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.ECSTaskDefinitionLogConfiguration where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.ECSTaskDefinitionSecret
 

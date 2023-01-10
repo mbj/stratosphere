@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.S3BucketReplicationConfiguration where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.S3BucketReplicationRule
 

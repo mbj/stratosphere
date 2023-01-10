@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.PinpointEmailConfigurationSetEventDestinationKinesisFirehoseDestination where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

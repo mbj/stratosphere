@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.SecretsManagerResourcePolicy where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

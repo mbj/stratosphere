@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.EC2LaunchTemplateBlockDeviceMapping where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.EC2LaunchTemplateEbs
 

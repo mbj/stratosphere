@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.CognitoUserPoolStringAttributeConstraints where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

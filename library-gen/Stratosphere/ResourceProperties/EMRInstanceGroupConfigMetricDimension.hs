@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.EMRInstanceGroupConfigMetricDimension where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

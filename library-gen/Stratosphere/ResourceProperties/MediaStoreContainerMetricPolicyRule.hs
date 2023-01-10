@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.MediaStoreContainerMetricPolicyRule where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

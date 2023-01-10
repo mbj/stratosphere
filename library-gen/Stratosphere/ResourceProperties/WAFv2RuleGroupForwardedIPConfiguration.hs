@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.WAFv2RuleGroupForwardedIPConfiguration where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

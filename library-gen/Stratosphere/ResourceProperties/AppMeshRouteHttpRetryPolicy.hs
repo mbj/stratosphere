@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.AppMeshRouteHttpRetryPolicy where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.AppMeshRouteDuration
 

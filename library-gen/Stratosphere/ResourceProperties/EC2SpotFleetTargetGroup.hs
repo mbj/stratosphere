@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.EC2SpotFleetTargetGroup where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

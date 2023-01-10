@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.IoTEventsDetectorModelAssetPropertyTimestamp where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

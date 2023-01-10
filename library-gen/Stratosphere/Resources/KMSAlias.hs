@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.KMSAlias where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.SSMPatchBaseline where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.SSMPatchBaselineRuleGroup
 import Stratosphere.ResourceProperties.SSMPatchBaselinePatchFilterGroup

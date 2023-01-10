@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.SageMakerWorkteamMemberDefinition where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.SageMakerWorkteamCognitoMemberDefinition
 

@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.EventsEventBusPolicyCondition where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

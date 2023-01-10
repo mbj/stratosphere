@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.GlueMLTransform where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.GlueMLTransformInputRecordTables
 import Stratosphere.ResourceProperties.GlueMLTransformTransformParameters

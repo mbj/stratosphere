@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.GlueSecurityConfigurationJobBookmarksEncryption where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

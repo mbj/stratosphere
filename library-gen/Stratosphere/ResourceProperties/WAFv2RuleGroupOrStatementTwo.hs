@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.WAFv2RuleGroupOrStatementTwo where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.WAFv2RuleGroupStatementThree
 

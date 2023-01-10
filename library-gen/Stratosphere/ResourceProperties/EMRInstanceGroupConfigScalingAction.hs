@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.EMRInstanceGroupConfigScalingAction where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.EMRInstanceGroupConfigSimpleScalingPolicyConfiguration
 

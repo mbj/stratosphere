@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.EKSNodegroupScalingConfig where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

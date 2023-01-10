@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.S3BucketReplicationTime where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.S3BucketReplicationTimeValue
 

@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.EC2PlacementGroup where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.GameLiftGameServerGroupVpcSubnets where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

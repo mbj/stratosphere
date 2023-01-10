@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.GameLiftGameServerGroupInstanceDefinition where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

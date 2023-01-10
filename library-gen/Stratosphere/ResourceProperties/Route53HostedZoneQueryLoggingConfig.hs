@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.Route53HostedZoneQueryLoggingConfig where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

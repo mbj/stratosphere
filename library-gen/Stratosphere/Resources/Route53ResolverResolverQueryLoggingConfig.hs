@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.Route53ResolverResolverQueryLoggingConfig where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

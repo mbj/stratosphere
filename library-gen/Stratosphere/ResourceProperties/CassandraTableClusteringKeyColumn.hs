@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.CassandraTableClusteringKeyColumn where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.CassandraTableColumn
 

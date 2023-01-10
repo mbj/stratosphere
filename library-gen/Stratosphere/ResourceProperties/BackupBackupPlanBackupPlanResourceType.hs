@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.BackupBackupPlanBackupPlanResourceType where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.BackupBackupPlanBackupRuleResourceType
 

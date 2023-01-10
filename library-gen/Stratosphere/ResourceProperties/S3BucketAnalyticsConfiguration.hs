@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.S3BucketAnalyticsConfiguration where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.S3BucketStorageClassAnalysis
 import Stratosphere.ResourceProperties.S3BucketTagFilter

@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.EC2VPCDHCPOptionsAssociation where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.GameLiftGameSessionQueuePlayerLatencyPolicy where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

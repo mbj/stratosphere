@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.PinpointPushTemplate where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.PinpointPushTemplateAndroidPushNotificationTemplate
 import Stratosphere.ResourceProperties.PinpointPushTemplateAPNSPushNotificationTemplate

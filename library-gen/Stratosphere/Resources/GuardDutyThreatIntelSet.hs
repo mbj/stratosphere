@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.GuardDutyThreatIntelSet where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

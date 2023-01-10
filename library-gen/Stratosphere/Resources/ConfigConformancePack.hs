@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.ConfigConformancePack where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.ConfigConformancePackConformancePackInputParameter
 

@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.PinpointApp where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

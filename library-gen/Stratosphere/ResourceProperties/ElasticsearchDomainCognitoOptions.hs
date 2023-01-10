@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.ElasticsearchDomainCognitoOptions where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

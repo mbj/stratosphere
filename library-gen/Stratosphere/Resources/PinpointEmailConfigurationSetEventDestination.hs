@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.PinpointEmailConfigurationSetEventDestination where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.PinpointEmailConfigurationSetEventDestinationEventDestination
 

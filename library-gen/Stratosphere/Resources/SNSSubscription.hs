@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.SNSSubscription where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.Types
 

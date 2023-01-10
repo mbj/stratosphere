@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.ServiceCatalogCloudFormationProvisionedProduct where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.ServiceCatalogCloudFormationProvisionedProductProvisioningParameter
 import Stratosphere.ResourceProperties.ServiceCatalogCloudFormationProvisionedProductProvisioningPreferences

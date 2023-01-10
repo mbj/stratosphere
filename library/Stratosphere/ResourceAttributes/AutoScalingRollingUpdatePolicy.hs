@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceAttributes.AutoScalingRollingUpdatePolicy where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 -- | Full data type definition for AutoScalingRollingUpdatePolicy. See

@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.AppSyncApiCache where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

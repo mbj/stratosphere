@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.PinpointCampaign where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.PinpointCampaignWriteTreatmentResource
 import Stratosphere.ResourceProperties.PinpointCampaignCampaignHook

@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.S3Bucket where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.Types
 import Stratosphere.ResourceProperties.S3BucketAccelerateConfiguration

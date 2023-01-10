@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.LambdaVersion where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.LambdaVersionProvisionedConcurrencyConfiguration
 

@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.GameLiftFleetServerProcess where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.GlueSecurityConfiguration where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.GlueSecurityConfigurationEncryptionConfiguration
 

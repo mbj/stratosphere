@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.PinpointCampaignWriteTreatmentResource where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.PinpointCampaignMessageConfiguration
 import Stratosphere.ResourceProperties.PinpointCampaignSchedule

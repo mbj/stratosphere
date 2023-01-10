@@ -12,6 +12,7 @@ import Data.Map                        as X (Map)
 import Data.Maybe                      as X (catMaybes)
 import Data.Monoid                     as X (mempty)
 import Data.Text                       as X (Text)
+import Prelude
 import Stratosphere.ResourceProperties as X
 import Stratosphere.Values             as X
 

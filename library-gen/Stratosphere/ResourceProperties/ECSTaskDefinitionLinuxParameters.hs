@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.ECSTaskDefinitionLinuxParameters where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.ECSTaskDefinitionKernelCapabilities
 import Stratosphere.ResourceProperties.ECSTaskDefinitionDevice

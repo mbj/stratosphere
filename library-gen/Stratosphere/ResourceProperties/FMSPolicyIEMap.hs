@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.FMSPolicyIEMap where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

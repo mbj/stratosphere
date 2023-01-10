@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.ECSServiceLoadBalancer where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

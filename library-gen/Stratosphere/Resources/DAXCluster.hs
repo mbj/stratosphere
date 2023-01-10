@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.DAXCluster where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.DAXClusterSSESpecification
 

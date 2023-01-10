@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.CloudFrontDistributionStatusCodes where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

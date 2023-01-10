@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.MacieFindingsFilter where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

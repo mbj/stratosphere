@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.GreengrassFunctionDefinitionEnvironment where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.GreengrassFunctionDefinitionExecution
 import Stratosphere.ResourceProperties.GreengrassFunctionDefinitionResourceAccessPolicy

@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.PinpointEmailConfigurationSetDeliveryOptions where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

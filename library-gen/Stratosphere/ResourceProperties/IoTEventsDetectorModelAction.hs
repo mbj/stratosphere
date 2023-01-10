@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.IoTEventsDetectorModelAction where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.IoTEventsDetectorModelClearTimer
 import Stratosphere.ResourceProperties.IoTEventsDetectorModelDynamoDB

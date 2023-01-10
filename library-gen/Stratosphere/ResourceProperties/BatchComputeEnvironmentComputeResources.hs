@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.BatchComputeEnvironmentComputeResources where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.BatchComputeEnvironmentLaunchTemplateSpecification
 

@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.EC2LaunchTemplateLaunchTemplateElasticInferenceAccelerator where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

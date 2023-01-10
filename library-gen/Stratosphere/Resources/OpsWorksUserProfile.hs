@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.OpsWorksUserProfile where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

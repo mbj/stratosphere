@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.PinpointCampaignSetDimension where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

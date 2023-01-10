@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.AppStreamStackApplicationSettings where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

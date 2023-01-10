@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.CodePipelinePipelineArtifactStoreMap where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.CodePipelinePipelineArtifactStore
 

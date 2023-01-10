@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.LambdaAlias where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.LambdaAliasProvisionedConcurrencyConfiguration
 import Stratosphere.ResourceProperties.LambdaAliasAliasRoutingConfiguration

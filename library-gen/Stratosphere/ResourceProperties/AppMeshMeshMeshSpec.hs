@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.AppMeshMeshMeshSpec where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.AppMeshMeshEgressFilter
 

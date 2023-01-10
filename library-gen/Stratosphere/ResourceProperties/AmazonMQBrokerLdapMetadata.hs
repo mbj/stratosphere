@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.AmazonMQBrokerLdapMetadata where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.AmazonMQBrokerInterBrokerCred
 import Stratosphere.ResourceProperties.AmazonMQBrokerServerMetadata

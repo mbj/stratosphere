@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.CognitoUserPoolUserToGroupAttachment where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

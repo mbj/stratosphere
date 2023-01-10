@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.AppSyncResolverPipelineConfig where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

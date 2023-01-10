@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.ServiceCatalogPortfolioProductAssociation where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.CognitoUserPoolRiskConfigurationAttachmentAccountTakeoverActionsType where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.CognitoUserPoolRiskConfigurationAttachmentAccountTakeoverActionType
 

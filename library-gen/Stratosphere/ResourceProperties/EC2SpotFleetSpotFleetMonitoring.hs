@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.EC2SpotFleetSpotFleetMonitoring where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

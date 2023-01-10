@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.CloudFrontDistributionLambdaFunctionAssociation where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

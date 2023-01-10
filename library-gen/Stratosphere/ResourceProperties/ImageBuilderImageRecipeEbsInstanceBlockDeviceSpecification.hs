@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.ImageBuilderImageRecipeEbsInstanceBlockDeviceSpecification where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

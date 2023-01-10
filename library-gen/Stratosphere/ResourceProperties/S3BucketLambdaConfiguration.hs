@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.S3BucketLambdaConfiguration where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.S3BucketNotificationFilter
 

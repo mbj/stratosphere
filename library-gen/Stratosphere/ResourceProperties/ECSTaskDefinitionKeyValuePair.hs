@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.ECSTaskDefinitionKeyValuePair where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

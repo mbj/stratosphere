@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.IoTTopicRuleHttpAction where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.IoTTopicRuleHttpAuthorization
 import Stratosphere.ResourceProperties.IoTTopicRuleHttpActionHeader

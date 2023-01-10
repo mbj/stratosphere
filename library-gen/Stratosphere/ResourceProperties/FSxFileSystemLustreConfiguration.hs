@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.FSxFileSystemLustreConfiguration where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

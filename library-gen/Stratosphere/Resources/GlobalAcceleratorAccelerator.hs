@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.GlobalAcceleratorAccelerator where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.Tag
 

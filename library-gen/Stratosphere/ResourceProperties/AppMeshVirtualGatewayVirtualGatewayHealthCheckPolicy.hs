@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.AppMeshVirtualGatewayVirtualGatewayHealthCheckPolicy where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

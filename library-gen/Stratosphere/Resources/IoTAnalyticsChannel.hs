@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.IoTAnalyticsChannel where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.IoTAnalyticsChannelChannelStorage
 import Stratosphere.ResourceProperties.IoTAnalyticsChannelRetentionPeriod

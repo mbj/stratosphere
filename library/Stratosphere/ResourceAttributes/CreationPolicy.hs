@@ -20,6 +20,7 @@
 module Stratosphere.ResourceAttributes.CreationPolicy where
 
 import GHC.Generics (Generic)
+import Prelude
 import Stratosphere.ResourceAttributes.ResourceSignal
 import Stratosphere.ResourceImports
 

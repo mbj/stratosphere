@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.EC2SubnetRouteTableAssociation where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

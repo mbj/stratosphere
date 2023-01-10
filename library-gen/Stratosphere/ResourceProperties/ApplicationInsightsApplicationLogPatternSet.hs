@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.ApplicationInsightsApplicationLogPatternSet where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.ApplicationInsightsApplicationLogPattern
 

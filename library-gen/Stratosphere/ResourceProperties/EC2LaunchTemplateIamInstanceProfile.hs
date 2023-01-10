@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.EC2LaunchTemplateIamInstanceProfile where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

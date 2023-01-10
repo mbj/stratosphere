@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.MSKClusterPrometheus where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.MSKClusterJmxExporter
 import Stratosphere.ResourceProperties.MSKClusterNodeExporter

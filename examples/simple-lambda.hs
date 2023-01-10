@@ -3,6 +3,7 @@ module Main where
 import Control.Lens
 import Data.Aeson (Value (Array), object)
 import Data.Text (Text)
+import Prelude
 import Stratosphere
 
 import qualified Data.ByteString.Lazy.Char8 as B

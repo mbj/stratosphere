@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.ImageBuilderImage where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.ImageBuilderImageImageTestsConfiguration
 

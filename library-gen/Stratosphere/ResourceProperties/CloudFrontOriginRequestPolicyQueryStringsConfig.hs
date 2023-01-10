@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.CloudFrontOriginRequestPolicyQueryStringsConfig where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

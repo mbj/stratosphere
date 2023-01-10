@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.CodePipelinePipelineStageTransition where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

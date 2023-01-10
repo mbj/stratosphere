@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.GameLiftGameServerGroupTargetTrackingConfiguration where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

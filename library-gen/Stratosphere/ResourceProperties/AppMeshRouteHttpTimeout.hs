@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.AppMeshRouteHttpTimeout where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.AppMeshRouteDuration
 

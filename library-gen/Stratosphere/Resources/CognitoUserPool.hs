@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.CognitoUserPool where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.CognitoUserPoolAccountRecoverySetting
 import Stratosphere.ResourceProperties.CognitoUserPoolAdminCreateUserConfig

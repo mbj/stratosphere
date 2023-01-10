@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.ResourceGroupsGroupResourceQuery where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.ResourceGroupsGroupQuery
 

@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.AppMeshMesh where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.AppMeshMeshMeshSpec
 import Stratosphere.ResourceProperties.Tag

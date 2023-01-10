@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.IoTTopicRuleDynamoDBV2Action where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.IoTTopicRulePutItemInput
 

@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.GlueDatabase where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.GlueDatabaseDatabaseInput
 

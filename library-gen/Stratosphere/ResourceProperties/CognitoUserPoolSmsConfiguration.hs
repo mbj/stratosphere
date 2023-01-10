@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.CognitoUserPoolSmsConfiguration where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

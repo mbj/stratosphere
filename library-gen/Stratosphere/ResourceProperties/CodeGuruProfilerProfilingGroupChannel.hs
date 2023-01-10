@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.CodeGuruProfilerProfilingGroupChannel where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

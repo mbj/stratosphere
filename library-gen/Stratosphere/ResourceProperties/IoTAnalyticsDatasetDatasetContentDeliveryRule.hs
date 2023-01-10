@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.IoTAnalyticsDatasetDatasetContentDeliveryRule where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.IoTAnalyticsDatasetDatasetContentDeliveryRuleDestination
 

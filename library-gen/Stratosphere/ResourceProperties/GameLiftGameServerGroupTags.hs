@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.GameLiftGameServerGroupTags where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.Tag
 

@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.ECSTaskDefinitionVolume where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.ECSTaskDefinitionDockerVolumeConfiguration
 import Stratosphere.ResourceProperties.ECSTaskDefinitionEFSVolumeConfiguration

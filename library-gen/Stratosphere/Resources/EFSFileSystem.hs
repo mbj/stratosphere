@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.EFSFileSystem where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.EFSFileSystemBackupPolicy
 import Stratosphere.ResourceProperties.EFSFileSystemElasticFileSystemTag

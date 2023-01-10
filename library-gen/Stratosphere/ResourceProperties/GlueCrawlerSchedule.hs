@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.GlueCrawlerSchedule where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

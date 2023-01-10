@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.CassandraKeyspace where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

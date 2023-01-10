@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.LambdaAliasProvisionedConcurrencyConfiguration where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

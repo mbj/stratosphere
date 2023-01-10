@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.ChatbotSlackChannelConfiguration where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.Types
 

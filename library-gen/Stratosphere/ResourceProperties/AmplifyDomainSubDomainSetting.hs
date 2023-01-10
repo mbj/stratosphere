@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.AmplifyDomainSubDomainSetting where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.S3BucketReplicationRuleFilter where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.S3BucketReplicationRuleAndOperator
 import Stratosphere.ResourceProperties.S3BucketTagFilter

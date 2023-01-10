@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.CloudWatchAlarmMetric where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.CloudWatchAlarmDimension
 

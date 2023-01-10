@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.ImageBuilderImageRecipe where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.ImageBuilderImageRecipeInstanceBlockDeviceMapping
 import Stratosphere.ResourceProperties.ImageBuilderImageRecipeComponentConfiguration

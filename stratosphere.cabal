@@ -2111,6 +2111,7 @@ library
       GeneralizedNewtypeDeriving
       LambdaCase
       MultiParamTypeClasses
+      NoImplicitPrelude
       OverloadedLists
       OverloadedStrings
       RecordWildCards
@@ -2148,6 +2149,7 @@ executable auto-scaling-group
       GeneralizedNewtypeDeriving
       LambdaCase
       MultiParamTypeClasses
+      NoImplicitPrelude
       OverloadedLists
       OverloadedStrings
       RecordWildCards
@@ -2188,6 +2190,7 @@ executable rds-master-replica
       GeneralizedNewtypeDeriving
       LambdaCase
       MultiParamTypeClasses
+      NoImplicitPrelude
       OverloadedLists
       OverloadedStrings
       RecordWildCards
@@ -2228,6 +2231,7 @@ executable s3-copy
       GeneralizedNewtypeDeriving
       LambdaCase
       MultiParamTypeClasses
+      NoImplicitPrelude
       OverloadedLists
       OverloadedStrings
       RecordWildCards
@@ -2268,6 +2272,7 @@ executable simple-lambda
       GeneralizedNewtypeDeriving
       LambdaCase
       MultiParamTypeClasses
+      NoImplicitPrelude
       OverloadedLists
       OverloadedStrings
       RecordWildCards
@@ -2310,6 +2315,7 @@ test-suite spec
       GeneralizedNewtypeDeriving
       LambdaCase
       MultiParamTypeClasses
+      NoImplicitPrelude
       OverloadedLists
       OverloadedStrings
       RecordWildCards

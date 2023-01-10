@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.ApiGatewayV2RouteResponseParameterConstraints where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

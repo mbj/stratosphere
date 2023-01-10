@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.LambdaEventInvokeConfigOnFailure where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

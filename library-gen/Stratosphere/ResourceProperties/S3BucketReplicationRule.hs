@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.S3BucketReplicationRule where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.S3BucketDeleteMarkerReplication
 import Stratosphere.ResourceProperties.S3BucketReplicationDestination

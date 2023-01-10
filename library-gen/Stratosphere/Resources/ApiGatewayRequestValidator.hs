@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.ApiGatewayRequestValidator where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

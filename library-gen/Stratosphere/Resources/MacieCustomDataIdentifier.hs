@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.MacieCustomDataIdentifier where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

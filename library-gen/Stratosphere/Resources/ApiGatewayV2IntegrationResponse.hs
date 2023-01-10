@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.ApiGatewayV2IntegrationResponse where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

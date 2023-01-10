@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.DMSEndpoint where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.DMSEndpointDynamoDbSettings
 import Stratosphere.ResourceProperties.DMSEndpointElasticsearchSettings

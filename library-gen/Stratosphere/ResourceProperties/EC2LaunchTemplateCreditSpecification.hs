@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.EC2LaunchTemplateCreditSpecification where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

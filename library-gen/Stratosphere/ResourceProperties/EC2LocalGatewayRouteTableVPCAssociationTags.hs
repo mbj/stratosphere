@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.EC2LocalGatewayRouteTableVPCAssociationTags where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.Tag
 

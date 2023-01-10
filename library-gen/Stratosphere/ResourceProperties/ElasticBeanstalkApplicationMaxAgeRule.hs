@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.ElasticBeanstalkApplicationMaxAgeRule where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

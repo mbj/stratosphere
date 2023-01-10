@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.EC2LaunchTemplate where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.EC2LaunchTemplateLaunchTemplateData
 

@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.ECSTaskDefinitionInferenceAccelerator where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.IoTEventsDetectorModelLambda where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.IoTEventsDetectorModelPayload
 

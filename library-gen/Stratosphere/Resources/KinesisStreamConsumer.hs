@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.KinesisStreamConsumer where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

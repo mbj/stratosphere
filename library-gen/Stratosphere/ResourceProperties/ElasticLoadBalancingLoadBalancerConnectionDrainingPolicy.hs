@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.ElasticLoadBalancingLoadBalancerConnectionDrainingPolicy where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

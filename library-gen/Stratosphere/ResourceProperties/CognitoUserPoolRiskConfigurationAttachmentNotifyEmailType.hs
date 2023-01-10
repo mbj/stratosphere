@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.CognitoUserPoolRiskConfigurationAttachmentNotifyEmailType where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

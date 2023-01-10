@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.ServiceCatalogLaunchNotificationConstraint where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

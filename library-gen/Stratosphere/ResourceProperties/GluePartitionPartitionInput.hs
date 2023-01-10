@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.GluePartitionPartitionInput where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.GluePartitionStorageDescriptor
 

@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.CognitoIdentityPoolPushSync where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

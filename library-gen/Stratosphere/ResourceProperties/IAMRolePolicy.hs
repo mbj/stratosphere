@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.IAMRolePolicy where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

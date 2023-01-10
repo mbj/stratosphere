@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.WAFRegionalWebACL where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.WAFRegionalWebACLAction
 import Stratosphere.ResourceProperties.WAFRegionalWebACLRule

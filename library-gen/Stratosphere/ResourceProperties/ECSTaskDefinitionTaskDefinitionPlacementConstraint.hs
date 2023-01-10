@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.ECSTaskDefinitionTaskDefinitionPlacementConstraint where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

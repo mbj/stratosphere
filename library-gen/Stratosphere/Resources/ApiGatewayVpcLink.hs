@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.ApiGatewayVpcLink where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

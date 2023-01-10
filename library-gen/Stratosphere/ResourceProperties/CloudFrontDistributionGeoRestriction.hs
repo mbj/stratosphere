@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.CloudFrontDistributionGeoRestriction where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

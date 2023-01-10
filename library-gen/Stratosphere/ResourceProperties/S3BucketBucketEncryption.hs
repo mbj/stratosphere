@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.S3BucketBucketEncryption where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.S3BucketServerSideEncryptionRule
 

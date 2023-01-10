@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.WAFSizeConstraintSetFieldToMatch where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

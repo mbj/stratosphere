@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.CodeCommitRepositoryRepositoryTrigger where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

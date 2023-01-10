@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.KinesisAnalyticsV2ApplicationS3ContentLocation where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

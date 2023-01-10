@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.ECSCapacityProviderManagedScaling where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

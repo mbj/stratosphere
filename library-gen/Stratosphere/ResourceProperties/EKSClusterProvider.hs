@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.EKSClusterProvider where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

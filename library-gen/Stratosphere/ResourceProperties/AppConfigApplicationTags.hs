@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.AppConfigApplicationTags where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

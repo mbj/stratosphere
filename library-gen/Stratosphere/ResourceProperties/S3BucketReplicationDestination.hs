@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.S3BucketReplicationDestination where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.S3BucketAccessControlTranslation
 import Stratosphere.ResourceProperties.S3BucketEncryptionConfiguration

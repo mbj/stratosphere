@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.ElasticLoadBalancingV2ListenerRuleAction where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.ElasticLoadBalancingV2ListenerRuleAuthenticateCognitoConfig
 import Stratosphere.ResourceProperties.ElasticLoadBalancingV2ListenerRuleAuthenticateOidcConfig

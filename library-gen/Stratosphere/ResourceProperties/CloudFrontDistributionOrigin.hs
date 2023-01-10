@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.CloudFrontDistributionOrigin where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.CloudFrontDistributionCustomOriginConfig
 import Stratosphere.ResourceProperties.CloudFrontDistributionOriginCustomHeader

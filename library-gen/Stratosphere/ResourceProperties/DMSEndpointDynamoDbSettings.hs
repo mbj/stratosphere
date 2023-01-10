@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.DMSEndpointDynamoDbSettings where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.CognitoUserPoolResourceServer where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.CognitoUserPoolResourceServerResourceServerScopeType
 

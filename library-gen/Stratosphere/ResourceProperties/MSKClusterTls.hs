@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.MSKClusterTls where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

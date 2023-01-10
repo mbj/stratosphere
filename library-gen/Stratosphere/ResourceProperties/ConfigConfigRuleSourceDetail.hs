@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.ConfigConfigRuleSourceDetail where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

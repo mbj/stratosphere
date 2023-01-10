@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.GameLiftFleetResourceCreationLimitPolicy where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

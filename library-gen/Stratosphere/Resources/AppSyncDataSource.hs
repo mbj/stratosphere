@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.AppSyncDataSource where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.AppSyncDataSourceDynamoDBConfig
 import Stratosphere.ResourceProperties.AppSyncDataSourceElasticsearchConfig

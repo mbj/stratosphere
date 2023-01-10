@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.KinesisAnalyticsV2Application where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.KinesisAnalyticsV2ApplicationApplicationConfiguration
 import Stratosphere.ResourceProperties.Tag

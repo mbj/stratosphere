@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.WAFv2RuleGroupRateBasedStatementTwo where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.WAFv2RuleGroupForwardedIPConfiguration
 import Stratosphere.ResourceProperties.WAFv2RuleGroupStatementThree

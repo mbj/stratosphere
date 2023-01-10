@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.EC2InstanceAssociationParameter where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.ElasticLoadBalancingV2ListenerCertificateResource where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.ElasticLoadBalancingV2ListenerCertificateCertificate
 

@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.AppMeshVirtualGatewayVirtualGatewayListenerTlsCertificate where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.AppMeshVirtualGatewayVirtualGatewayListenerTlsAcmCertificate
 import Stratosphere.ResourceProperties.AppMeshVirtualGatewayVirtualGatewayListenerTlsFileCertificate

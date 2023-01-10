@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.S3BucketWebsiteConfiguration where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.S3BucketRedirectAllRequestsTo
 import Stratosphere.ResourceProperties.S3BucketRoutingRule

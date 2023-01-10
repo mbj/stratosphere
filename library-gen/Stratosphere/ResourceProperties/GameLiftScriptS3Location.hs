@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.GameLiftScriptS3Location where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

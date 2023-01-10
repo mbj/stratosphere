@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.CodePipelinePipelineStageDeclaration where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.CodePipelinePipelineActionDeclaration
 import Stratosphere.ResourceProperties.CodePipelinePipelineBlockerDeclaration

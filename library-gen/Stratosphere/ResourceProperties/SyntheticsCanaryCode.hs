@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.SyntheticsCanaryCode where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

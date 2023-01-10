@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.AmplifyApp where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.AmplifyAppAutoBranchCreationConfig
 import Stratosphere.ResourceProperties.AmplifyAppBasicAuthConfig

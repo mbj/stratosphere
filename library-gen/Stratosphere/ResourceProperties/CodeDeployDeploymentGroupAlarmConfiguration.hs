@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.CodeDeployDeploymentGroupAlarmConfiguration where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupAlarm
 

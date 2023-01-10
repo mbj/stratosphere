@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.WAFIPSet where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.WAFIPSetIPSetDescriptor
 

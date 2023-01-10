@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.ApiGatewayV2IntegrationTlsConfig where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

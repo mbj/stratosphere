@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.EMRClusterVolumeSpecification where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.EventsRuleBatchParameters where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.EventsRuleBatchArrayProperties
 import Stratosphere.ResourceProperties.EventsRuleBatchRetryStrategy

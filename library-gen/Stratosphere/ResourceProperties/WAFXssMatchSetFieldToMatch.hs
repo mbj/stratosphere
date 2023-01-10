@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.WAFXssMatchSetFieldToMatch where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

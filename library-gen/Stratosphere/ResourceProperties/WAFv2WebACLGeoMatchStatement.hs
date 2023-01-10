@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.WAFv2WebACLGeoMatchStatement where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.WAFv2WebACLForwardedIPConfiguration
 

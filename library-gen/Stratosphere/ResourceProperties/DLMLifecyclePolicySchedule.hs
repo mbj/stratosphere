@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.DLMLifecyclePolicySchedule where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.DLMLifecyclePolicyCreateRule
 import Stratosphere.ResourceProperties.DLMLifecyclePolicyCrossRegionCopyRule

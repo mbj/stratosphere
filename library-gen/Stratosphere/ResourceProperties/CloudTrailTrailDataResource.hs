@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.CloudTrailTrailDataResource where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

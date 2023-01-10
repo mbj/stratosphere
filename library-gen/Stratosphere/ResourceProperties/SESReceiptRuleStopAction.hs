@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.SESReceiptRuleStopAction where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

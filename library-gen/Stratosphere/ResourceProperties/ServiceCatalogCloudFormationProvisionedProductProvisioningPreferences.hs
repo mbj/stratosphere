@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.ServiceCatalogCloudFormationProvisionedProductProvisioningPreferences where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

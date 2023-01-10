@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.CodeBuildProjectBuildStatusConfig where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

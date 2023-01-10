@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.DocDBDBInstance where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.Tag
 

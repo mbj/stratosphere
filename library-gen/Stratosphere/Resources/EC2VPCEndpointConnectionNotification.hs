@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.EC2VPCEndpointConnectionNotification where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

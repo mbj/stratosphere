@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.CloudFrontStreamingDistributionTrustedSigners where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

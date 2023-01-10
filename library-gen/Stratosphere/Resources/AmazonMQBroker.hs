@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.AmazonMQBroker where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.AmazonMQBrokerConfigurationId
 import Stratosphere.ResourceProperties.AmazonMQBrokerEncryptionOptions

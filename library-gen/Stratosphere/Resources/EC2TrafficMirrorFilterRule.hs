@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.EC2TrafficMirrorFilterRule where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.EC2TrafficMirrorFilterRuleTrafficMirrorPortRange
 

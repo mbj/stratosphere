@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.DMSEndpointNeptuneSettings where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

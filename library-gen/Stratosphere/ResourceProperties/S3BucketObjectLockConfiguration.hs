@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.S3BucketObjectLockConfiguration where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.S3BucketObjectLockRule
 

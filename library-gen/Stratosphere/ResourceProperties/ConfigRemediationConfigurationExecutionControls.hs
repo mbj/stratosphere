@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.ConfigRemediationConfigurationExecutionControls where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.ConfigRemediationConfigurationSsmControls
 

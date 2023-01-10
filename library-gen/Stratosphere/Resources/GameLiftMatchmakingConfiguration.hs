@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.GameLiftMatchmakingConfiguration where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.GameLiftMatchmakingConfigurationGameProperty
 

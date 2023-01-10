@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.CognitoIdentityPool where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.CognitoIdentityPoolCognitoIdentityProvider
 import Stratosphere.ResourceProperties.CognitoIdentityPoolCognitoStreams

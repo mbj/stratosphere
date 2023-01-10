@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.EMRClusterJobFlowInstancesConfig where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.EMRClusterInstanceFleetConfig
 import Stratosphere.ResourceProperties.EMRClusterInstanceGroupConfig

@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.ApiGatewayUsagePlanApiStage where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.ApiGatewayUsagePlanThrottleSettings
 

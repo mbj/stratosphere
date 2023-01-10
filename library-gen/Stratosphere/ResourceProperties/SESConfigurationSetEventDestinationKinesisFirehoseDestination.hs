@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.SESConfigurationSetEventDestinationKinesisFirehoseDestination where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.EventsRuleSqsParameters where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

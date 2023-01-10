@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.LambdaFunctionFileSystemConfig where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

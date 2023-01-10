@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.SageMakerMonitoringScheduleMonitoringJobDefinition where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.SageMakerMonitoringScheduleBaselineConfig
 import Stratosphere.ResourceProperties.SageMakerMonitoringScheduleMonitoringAppSpecification

@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.AppSyncGraphQLSchema where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.SSMMaintenanceWindowTaskMaintenanceWindowLambdaParameters where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

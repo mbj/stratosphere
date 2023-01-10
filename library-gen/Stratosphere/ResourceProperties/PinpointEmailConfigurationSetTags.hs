@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.PinpointEmailConfigurationSetTags where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

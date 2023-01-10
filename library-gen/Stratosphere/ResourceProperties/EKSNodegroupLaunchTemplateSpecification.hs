@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.EKSNodegroupLaunchTemplateSpecification where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

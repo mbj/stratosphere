@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.LambdaEventInvokeConfig where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.LambdaEventInvokeConfigDestinationConfig
 

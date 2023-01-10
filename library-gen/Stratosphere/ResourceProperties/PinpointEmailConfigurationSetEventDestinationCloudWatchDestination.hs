@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.PinpointEmailConfigurationSetEventDestinationCloudWatchDestination where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.PinpointEmailConfigurationSetEventDestinationDimensionConfiguration
 

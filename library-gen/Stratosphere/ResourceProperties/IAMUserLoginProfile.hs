@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.IAMUserLoginProfile where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

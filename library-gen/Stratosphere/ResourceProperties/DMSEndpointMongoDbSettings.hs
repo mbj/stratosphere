@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.DMSEndpointMongoDbSettings where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

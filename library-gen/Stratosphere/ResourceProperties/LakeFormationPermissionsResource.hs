@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.LakeFormationPermissionsResource where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.LakeFormationPermissionsDataLocationResource
 import Stratosphere.ResourceProperties.LakeFormationPermissionsDatabaseResource

@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.AppMeshRouteRouteSpec where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.AppMeshRouteGrpcRoute
 import Stratosphere.ResourceProperties.AppMeshRouteHttpRoute

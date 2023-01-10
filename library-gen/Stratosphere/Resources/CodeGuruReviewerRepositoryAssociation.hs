@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.CodeGuruReviewerRepositoryAssociation where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

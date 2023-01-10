@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.AutoScalingPlansScalingPlanApplicationSource where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.AutoScalingPlansScalingPlanTagFilter
 

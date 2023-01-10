@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.MediaLiveChannelDvbSubSourceSettings where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

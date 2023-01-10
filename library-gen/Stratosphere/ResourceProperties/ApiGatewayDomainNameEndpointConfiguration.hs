@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.ApiGatewayDomainNameEndpointConfiguration where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

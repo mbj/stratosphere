@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.CodeDeployDeploymentGroupLoadBalancerInfo where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupELBInfo
 import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupTargetGroupInfo

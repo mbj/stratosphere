@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamDataFormatConversionConfiguration where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamInputFormatConfiguration
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamOutputFormatConfiguration

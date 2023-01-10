@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.CloudWatchDashboard where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.AutoScalingPlansScalingPlan where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.AutoScalingPlansScalingPlanApplicationSource
 import Stratosphere.ResourceProperties.AutoScalingPlansScalingPlanScalingInstruction

@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.WAFv2RuleGroupStatementThree where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.WAFv2RuleGroupByteMatchStatement
 import Stratosphere.ResourceProperties.WAFv2RuleGroupGeoMatchStatement

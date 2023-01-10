@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.GameLiftFleetCertificateConfiguration where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

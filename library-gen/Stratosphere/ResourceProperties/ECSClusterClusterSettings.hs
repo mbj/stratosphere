@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.ECSClusterClusterSettings where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

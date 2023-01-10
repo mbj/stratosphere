@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.WAFv2IPSet where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.Tag
 

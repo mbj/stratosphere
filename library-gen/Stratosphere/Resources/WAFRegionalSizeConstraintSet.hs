@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.WAFRegionalSizeConstraintSet where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.WAFRegionalSizeConstraintSetSizeConstraint
 

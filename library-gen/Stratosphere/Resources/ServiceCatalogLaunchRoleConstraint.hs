@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.ServiceCatalogLaunchRoleConstraint where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

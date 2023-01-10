@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.CodeBuildProjectBatchRestrictions where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

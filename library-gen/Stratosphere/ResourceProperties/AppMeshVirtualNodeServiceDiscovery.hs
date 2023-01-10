@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.AppMeshVirtualNodeServiceDiscovery where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.AppMeshVirtualNodeAwsCloudMapServiceDiscovery
 import Stratosphere.ResourceProperties.AppMeshVirtualNodeDnsServiceDiscovery

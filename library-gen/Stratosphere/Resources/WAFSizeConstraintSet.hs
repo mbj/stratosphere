@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.WAFSizeConstraintSet where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.WAFSizeConstraintSetSizeConstraint
 

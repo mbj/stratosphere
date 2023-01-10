@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.ElasticBeanstalkApplicationMaxCountRule where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

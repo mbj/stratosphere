@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.WAFRegionalGeoMatchSetGeoMatchConstraint where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

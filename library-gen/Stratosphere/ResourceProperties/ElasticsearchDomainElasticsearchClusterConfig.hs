@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.ElasticsearchDomainElasticsearchClusterConfig where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.ElasticsearchDomainZoneAwarenessConfig
 

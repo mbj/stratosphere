@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.IAMInstanceProfile where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

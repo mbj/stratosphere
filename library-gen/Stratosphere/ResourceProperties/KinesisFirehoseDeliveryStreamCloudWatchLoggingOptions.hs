@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamCloudWatchLoggingOptions where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

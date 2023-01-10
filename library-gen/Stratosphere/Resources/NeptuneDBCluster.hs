@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.NeptuneDBCluster where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.NeptuneDBClusterDBClusterRole
 import Stratosphere.ResourceProperties.Tag

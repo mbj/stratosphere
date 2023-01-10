@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.AppSyncGraphQLApiOpenIDConnectConfig where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

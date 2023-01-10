@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.CognitoUserPoolLambdaConfig where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

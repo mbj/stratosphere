@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.ImageBuilderDistributionConfigurationDistribution where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

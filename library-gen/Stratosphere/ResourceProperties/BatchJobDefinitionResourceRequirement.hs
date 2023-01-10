@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.BatchJobDefinitionResourceRequirement where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

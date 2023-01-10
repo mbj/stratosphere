@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.ECRRepository where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.Tag
 

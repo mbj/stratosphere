@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.DetectiveGraph where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

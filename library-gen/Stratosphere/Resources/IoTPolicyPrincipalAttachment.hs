@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.IoTPolicyPrincipalAttachment where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

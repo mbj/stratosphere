@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.OpsWorksInstanceEbsBlockDevice where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

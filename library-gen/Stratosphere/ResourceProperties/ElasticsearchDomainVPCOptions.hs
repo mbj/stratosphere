@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.ElasticsearchDomainVPCOptions where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

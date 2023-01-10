@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.ElasticsearchDomainNodeToNodeEncryptionOptions where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

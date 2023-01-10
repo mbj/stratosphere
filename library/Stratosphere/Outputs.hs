@@ -24,6 +24,7 @@ import Data.Maybe (catMaybes)
 import Data.Semigroup (Semigroup)
 import Data.Text (Text)
 import GHC.Exts (IsList(..))
+import Prelude
 import Stratosphere.Helpers
 import Stratosphere.Values
 

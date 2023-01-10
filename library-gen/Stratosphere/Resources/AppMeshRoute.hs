@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.AppMeshRoute where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.AppMeshRouteRouteSpec
 import Stratosphere.ResourceProperties.Tag

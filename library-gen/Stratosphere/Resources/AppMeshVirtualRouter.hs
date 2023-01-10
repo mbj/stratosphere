@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.AppMeshVirtualRouter where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.AppMeshVirtualRouterVirtualRouterSpec
 import Stratosphere.ResourceProperties.Tag

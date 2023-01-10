@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.DLMLifecyclePolicyFastRestoreRule where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

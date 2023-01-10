@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.ServiceCatalogCloudFormationProduct where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.ServiceCatalogCloudFormationProductProvisioningArtifactProperties
 import Stratosphere.ResourceProperties.Tag

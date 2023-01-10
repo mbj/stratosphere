@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.CodePipelineWebhookWebhookFilterRule where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.IoTThingAttributePayload where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

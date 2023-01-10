@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.CodeBuildProjectEnvironment where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.CodeBuildProjectEnvironmentVariable
 import Stratosphere.ResourceProperties.CodeBuildProjectRegistryCredential

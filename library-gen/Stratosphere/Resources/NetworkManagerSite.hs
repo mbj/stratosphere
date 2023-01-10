@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.NetworkManagerSite where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.NetworkManagerSiteLocation
 import Stratosphere.ResourceProperties.Tag

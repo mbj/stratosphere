@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.EMRInstanceGroupConfigVolumeSpecification where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

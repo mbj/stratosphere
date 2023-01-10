@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.ACMPCACertificateAuthorityRevocationConfiguration where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.ACMPCACertificateAuthorityCrlConfiguration
 

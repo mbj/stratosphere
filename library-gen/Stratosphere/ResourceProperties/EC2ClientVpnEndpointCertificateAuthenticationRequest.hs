@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.EC2ClientVpnEndpointCertificateAuthenticationRequest where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

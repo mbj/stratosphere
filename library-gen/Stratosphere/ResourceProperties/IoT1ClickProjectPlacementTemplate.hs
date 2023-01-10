@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.IoT1ClickProjectPlacementTemplate where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

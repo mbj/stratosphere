@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.ElasticLoadBalancingLoadBalancerAppCookieStickinessPolicy where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

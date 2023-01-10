@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.AppSyncDataSourceElasticsearchConfig where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

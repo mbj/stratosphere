@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.NetworkManagerDevice where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.NetworkManagerDeviceLocation
 import Stratosphere.ResourceProperties.Tag

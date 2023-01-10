@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.AutoScalingPlansScalingPlanTargetTrackingConfiguration where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.AutoScalingPlansScalingPlanCustomizedScalingMetricSpecification
 import Stratosphere.ResourceProperties.AutoScalingPlansScalingPlanPredefinedScalingMetricSpecification

@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.OpsWorksStackRdsDbInstance where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.WAFv2RuleGroupVisibilityConfig where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

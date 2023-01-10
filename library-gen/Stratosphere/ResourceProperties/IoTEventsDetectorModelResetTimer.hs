@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.IoTEventsDetectorModelResetTimer where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.MSKClusterEncryptionInTransit where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

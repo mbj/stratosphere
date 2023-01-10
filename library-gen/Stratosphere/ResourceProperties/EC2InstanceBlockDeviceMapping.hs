@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.EC2InstanceBlockDeviceMapping where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.EC2InstanceEbs
 import Stratosphere.ResourceProperties.EC2InstanceNoDevice

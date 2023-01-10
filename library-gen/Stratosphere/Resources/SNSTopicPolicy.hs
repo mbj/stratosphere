@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.SNSTopicPolicy where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

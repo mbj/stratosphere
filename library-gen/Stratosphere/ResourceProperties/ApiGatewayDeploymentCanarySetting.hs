@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.ApiGatewayDeploymentCanarySetting where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

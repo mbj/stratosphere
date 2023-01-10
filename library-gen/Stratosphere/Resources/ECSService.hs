@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.ECSService where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.ECSServiceDeploymentConfiguration
 import Stratosphere.ResourceProperties.ECSServiceDeploymentController

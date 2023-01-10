@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.EFSAccessPointCreationInfo where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

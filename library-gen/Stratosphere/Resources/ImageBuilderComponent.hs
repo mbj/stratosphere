@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.ImageBuilderComponent where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

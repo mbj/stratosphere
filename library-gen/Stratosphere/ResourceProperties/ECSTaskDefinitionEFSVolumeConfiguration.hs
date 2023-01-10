@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.ECSTaskDefinitionEFSVolumeConfiguration where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

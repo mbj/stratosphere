@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.AppStreamImageBuilderDomainJoinInfo where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.ApiGatewayV2ApiGatewayManagedOverridesRouteSettings where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.Types
 

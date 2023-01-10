@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.ASKSkillSkillPackage where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.ASKSkillOverrides
 

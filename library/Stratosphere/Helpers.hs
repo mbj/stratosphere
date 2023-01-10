@@ -15,6 +15,7 @@ import Data.Char (isUpper, toLower)
 import Data.List (stripPrefix)
 import Data.Maybe (maybeToList)
 import Language.Haskell.TH
+import Prelude
 
 import qualified Data.Text as T
 import qualified Data.Aeson.Key as Key

@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.WAFv2WebACLDefaultAction where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

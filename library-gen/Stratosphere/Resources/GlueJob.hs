@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.GlueJob where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.GlueJobJobCommand
 import Stratosphere.ResourceProperties.GlueJobConnectionsList

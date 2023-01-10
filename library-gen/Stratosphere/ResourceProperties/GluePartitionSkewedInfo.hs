@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.GluePartitionSkewedInfo where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

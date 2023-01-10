@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.EMRStepKeyValue where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

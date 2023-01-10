@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.ResourceGroupsGroup where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.ResourceGroupsGroupResourceQuery
 import Stratosphere.ResourceProperties.Tag

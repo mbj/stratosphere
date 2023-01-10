@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.SQSQueuePolicy where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

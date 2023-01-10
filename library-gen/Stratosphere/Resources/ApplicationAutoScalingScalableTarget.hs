@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.ApplicationAutoScalingScalableTarget where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.ApplicationAutoScalingScalableTargetScheduledAction
 import Stratosphere.ResourceProperties.ApplicationAutoScalingScalableTargetSuspendedState

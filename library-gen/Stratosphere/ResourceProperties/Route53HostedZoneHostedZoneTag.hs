@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.Route53HostedZoneHostedZoneTag where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

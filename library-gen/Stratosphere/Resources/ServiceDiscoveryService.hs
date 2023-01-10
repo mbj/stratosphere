@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.ServiceDiscoveryService where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.ServiceDiscoveryServiceDnsConfig
 import Stratosphere.ResourceProperties.ServiceDiscoveryServiceHealthCheckConfig

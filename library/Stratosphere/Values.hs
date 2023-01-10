@@ -13,6 +13,7 @@ import Data.String (IsString(..))
 import Data.Text (Text)
 import Data.Typeable
 import GHC.Exts (IsList(..))
+import Prelude
 
 -- | This type is a wrapper around any values in a template. A value can be a
 -- 'Literal', a 'Ref', or an intrinsic function. See:

@@ -21,6 +21,7 @@ import Control.Lens
 import Data.Aeson
 import Data.Aeson.Encode.Pretty
 import Data.Aeson.TH
+import Prelude
 import Stratosphere.Helpers (modTemplateJSONField)
 import Stratosphere.Outputs
 import Stratosphere.Parameters

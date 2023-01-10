@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.MediaLiveChannelVideoSelectorPid where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

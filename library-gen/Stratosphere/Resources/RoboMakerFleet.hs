@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.RoboMakerFleet where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

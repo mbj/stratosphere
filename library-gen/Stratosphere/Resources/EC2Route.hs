@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.EC2Route where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

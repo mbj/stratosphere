@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.CloudFrontCachePolicyCachePolicyConfig where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.CloudFrontCachePolicyParametersInCacheKeyAndForwardedToOrigin
 

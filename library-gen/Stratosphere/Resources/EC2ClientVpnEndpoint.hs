@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.EC2ClientVpnEndpoint where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.EC2ClientVpnEndpointClientAuthenticationRequest
 import Stratosphere.ResourceProperties.EC2ClientVpnEndpointConnectionLogOptions

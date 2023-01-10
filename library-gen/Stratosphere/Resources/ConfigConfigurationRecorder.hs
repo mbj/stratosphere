@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.ConfigConfigurationRecorder where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.ConfigConfigurationRecorderRecordingGroup
 

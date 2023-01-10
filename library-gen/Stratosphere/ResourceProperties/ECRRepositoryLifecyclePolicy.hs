@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.ECRRepositoryLifecyclePolicy where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

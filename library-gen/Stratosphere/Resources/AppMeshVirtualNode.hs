@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.AppMeshVirtualNode where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.AppMeshVirtualNodeVirtualNodeSpec
 import Stratosphere.ResourceProperties.Tag

@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.EC2LaunchTemplateCapacityReservationTarget where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

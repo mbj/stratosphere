@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.ApiGatewayUsagePlanKey where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

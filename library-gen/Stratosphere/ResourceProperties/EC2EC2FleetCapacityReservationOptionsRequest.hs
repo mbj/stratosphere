@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.EC2EC2FleetCapacityReservationOptionsRequest where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

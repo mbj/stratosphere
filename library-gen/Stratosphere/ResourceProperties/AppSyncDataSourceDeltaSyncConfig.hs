@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.AppSyncDataSourceDeltaSyncConfig where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

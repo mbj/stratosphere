@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.NetworkManagerTransitGatewayRegistration where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

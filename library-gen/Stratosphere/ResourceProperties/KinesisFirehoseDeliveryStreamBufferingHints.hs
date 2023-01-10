@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamBufferingHints where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

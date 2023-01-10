@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.FMSNotificationChannel where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

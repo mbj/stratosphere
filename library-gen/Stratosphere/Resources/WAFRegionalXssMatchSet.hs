@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.WAFRegionalXssMatchSet where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.WAFRegionalXssMatchSetXssMatchTuple
 

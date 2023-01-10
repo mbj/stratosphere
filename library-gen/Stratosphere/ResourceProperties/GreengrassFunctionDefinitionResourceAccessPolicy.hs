@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.GreengrassFunctionDefinitionResourceAccessPolicy where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

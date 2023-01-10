@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.ECSTaskSetAwsVpcConfiguration where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

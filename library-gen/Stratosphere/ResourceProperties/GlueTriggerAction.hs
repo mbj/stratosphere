@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.GlueTriggerAction where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.GlueTriggerNotificationProperty
 

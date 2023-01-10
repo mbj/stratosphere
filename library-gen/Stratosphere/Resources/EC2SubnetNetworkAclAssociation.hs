@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.EC2SubnetNetworkAclAssociation where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

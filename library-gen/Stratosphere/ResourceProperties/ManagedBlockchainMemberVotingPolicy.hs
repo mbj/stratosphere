@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.ManagedBlockchainMemberVotingPolicy where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.ManagedBlockchainMemberApprovalThresholdPolicy
 

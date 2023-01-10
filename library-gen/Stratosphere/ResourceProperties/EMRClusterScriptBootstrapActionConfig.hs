@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.EMRClusterScriptBootstrapActionConfig where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

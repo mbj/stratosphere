@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.PinpointCampaignCampaignEmailMessage where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

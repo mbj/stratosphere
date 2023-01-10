@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.DLMLifecyclePolicyParameters where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

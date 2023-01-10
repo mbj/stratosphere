@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.CloudFrontDistributionDistributionConfig where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.CloudFrontDistributionCacheBehavior
 import Stratosphere.ResourceProperties.CloudFrontDistributionCustomErrorResponse

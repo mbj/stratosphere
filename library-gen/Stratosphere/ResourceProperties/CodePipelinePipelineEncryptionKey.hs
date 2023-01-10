@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.CodePipelinePipelineEncryptionKey where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

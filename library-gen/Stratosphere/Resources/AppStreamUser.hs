@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.AppStreamUser where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

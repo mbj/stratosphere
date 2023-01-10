@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.PinpointSegmentSetDimension where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

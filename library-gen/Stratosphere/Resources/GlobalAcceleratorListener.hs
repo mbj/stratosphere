@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.GlobalAcceleratorListener where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.GlobalAcceleratorListenerPortRange
 

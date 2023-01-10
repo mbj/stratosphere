@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.WAFv2WebACLIPSetForwardedIPConfiguration where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

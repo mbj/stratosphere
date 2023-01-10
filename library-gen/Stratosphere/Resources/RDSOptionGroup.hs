@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.RDSOptionGroup where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.RDSOptionGroupOptionConfiguration
 import Stratosphere.ResourceProperties.Tag

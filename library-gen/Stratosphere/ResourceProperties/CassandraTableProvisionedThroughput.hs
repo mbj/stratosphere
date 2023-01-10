@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.CassandraTableProvisionedThroughput where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.IoTAnalyticsDatasetTrigger where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.IoTAnalyticsDatasetSchedule
 import Stratosphere.ResourceProperties.IoTAnalyticsDatasetTriggeringDataset

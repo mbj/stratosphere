@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.BatchJobDefinitionTimeout where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

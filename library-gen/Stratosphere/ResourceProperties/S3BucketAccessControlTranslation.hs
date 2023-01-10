@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.S3BucketAccessControlTranslation where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

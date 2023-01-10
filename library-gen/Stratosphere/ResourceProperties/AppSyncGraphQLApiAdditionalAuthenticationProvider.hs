@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.AppSyncGraphQLApiAdditionalAuthenticationProvider where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.AppSyncGraphQLApiOpenIDConnectConfig
 import Stratosphere.ResourceProperties.AppSyncGraphQLApiCognitoUserPoolConfig

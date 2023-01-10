@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.Cloud9EnvironmentEC2Repository where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

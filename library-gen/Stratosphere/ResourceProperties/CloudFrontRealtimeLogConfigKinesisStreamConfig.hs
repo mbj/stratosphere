@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.CloudFrontRealtimeLogConfigKinesisStreamConfig where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

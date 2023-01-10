@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.AppSyncGraphQLApi where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.AppSyncGraphQLApiAdditionalAuthenticationProvider
 import Stratosphere.ResourceProperties.AppSyncGraphQLApiLogConfig

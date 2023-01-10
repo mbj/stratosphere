@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.CloudFormationWaitConditionHandle where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

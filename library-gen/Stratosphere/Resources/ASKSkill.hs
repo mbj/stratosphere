@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.ASKSkill where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.ASKSkillAuthenticationConfiguration
 import Stratosphere.ResourceProperties.ASKSkillSkillPackage

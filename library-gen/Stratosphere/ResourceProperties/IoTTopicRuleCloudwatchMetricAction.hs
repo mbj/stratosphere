@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.IoTTopicRuleCloudwatchMetricAction where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

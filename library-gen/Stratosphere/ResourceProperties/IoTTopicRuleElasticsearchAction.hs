@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.IoTTopicRuleElasticsearchAction where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

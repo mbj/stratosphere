@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.EKSNodegroup where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.EKSNodegroupLaunchTemplateSpecification
 import Stratosphere.ResourceProperties.EKSNodegroupRemoteAccess

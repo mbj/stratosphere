@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.PinpointEmailDedicatedIpPoolTags where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

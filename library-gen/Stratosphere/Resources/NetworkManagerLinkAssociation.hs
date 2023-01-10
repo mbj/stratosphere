@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.NetworkManagerLinkAssociation where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

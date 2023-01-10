@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.LogsMetricFilter where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.LogsMetricFilterMetricTransformation
 

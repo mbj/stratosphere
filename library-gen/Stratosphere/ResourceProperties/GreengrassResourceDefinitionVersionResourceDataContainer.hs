@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.GreengrassResourceDefinitionVersionResourceDataContainer where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.GreengrassResourceDefinitionVersionLocalDeviceResourceData
 import Stratosphere.ResourceProperties.GreengrassResourceDefinitionVersionLocalVolumeResourceData

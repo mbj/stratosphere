@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.OpsWorksElasticLoadBalancerAttachment where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

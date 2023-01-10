@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.GlueDataCatalogEncryptionSettingsDataCatalogEncryptionSettings where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.GlueDataCatalogEncryptionSettingsConnectionPasswordEncryption
 import Stratosphere.ResourceProperties.GlueDataCatalogEncryptionSettingsEncryptionAtRest

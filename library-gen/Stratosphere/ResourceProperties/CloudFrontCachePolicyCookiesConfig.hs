@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.CloudFrontCachePolicyCookiesConfig where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

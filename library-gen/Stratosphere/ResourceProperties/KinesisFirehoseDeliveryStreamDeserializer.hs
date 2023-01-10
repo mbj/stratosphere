@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamDeserializer where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamHiveJsonSerDe
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamOpenXJsonSerDe

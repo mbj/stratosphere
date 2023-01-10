@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.SESReceiptRuleAction where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.SESReceiptRuleAddHeaderAction
 import Stratosphere.ResourceProperties.SESReceiptRuleBounceAction

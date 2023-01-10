@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.CassandraTableColumn where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

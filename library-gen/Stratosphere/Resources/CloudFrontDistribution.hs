@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.CloudFrontDistribution where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.CloudFrontDistributionDistributionConfig
 import Stratosphere.ResourceProperties.Tag

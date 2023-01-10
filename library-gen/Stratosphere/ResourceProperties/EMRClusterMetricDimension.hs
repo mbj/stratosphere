@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.EMRClusterMetricDimension where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

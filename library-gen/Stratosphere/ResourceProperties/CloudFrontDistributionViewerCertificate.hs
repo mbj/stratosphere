@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.CloudFrontDistributionViewerCertificate where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.Route53HealthCheckHealthCheckConfig where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.Route53HealthCheckAlarmIdentifier
 

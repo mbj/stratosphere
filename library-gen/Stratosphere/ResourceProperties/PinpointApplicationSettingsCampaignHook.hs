@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.PinpointApplicationSettingsCampaignHook where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

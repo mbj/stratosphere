@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.IoTAnalyticsDatastoreDatastoreStorage where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.IoTAnalyticsDatastoreCustomerManagedS3
 import Stratosphere.ResourceProperties.IoTAnalyticsDatastoreServiceManagedS3

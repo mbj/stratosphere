@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.ApiGatewayDomainName where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.ApiGatewayDomainNameEndpointConfiguration
 import Stratosphere.ResourceProperties.Tag

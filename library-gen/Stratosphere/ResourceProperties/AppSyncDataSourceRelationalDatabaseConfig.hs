@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.AppSyncDataSourceRelationalDatabaseConfig where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.AppSyncDataSourceRdsHttpEndpointConfig
 

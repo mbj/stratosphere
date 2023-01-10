@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.GlueCrawlerTargets where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.GlueCrawlerCatalogTarget
 import Stratosphere.ResourceProperties.GlueCrawlerDynamoDBTarget

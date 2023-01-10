@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.S3BucketNotificationConfiguration where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.S3BucketLambdaConfiguration
 import Stratosphere.ResourceProperties.S3BucketQueueConfiguration

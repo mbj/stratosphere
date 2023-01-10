@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.PinpointEmailConfigurationSetEventDestinationDimensionConfiguration where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

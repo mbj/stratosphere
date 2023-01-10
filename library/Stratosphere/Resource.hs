@@ -21,6 +21,7 @@ import Data.Aeson
 import Data.Maybe (catMaybes)
 import GHC.Exts (IsList(..))
 import GHC.Generics (Generic)
+import Prelude
 import Stratosphere.Helpers
 import Stratosphere.ResourceAttributes.CreationPolicy as X
 import Stratosphere.ResourceAttributes.UpdatePolicy   as X

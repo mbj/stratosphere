@@ -7,6 +7,7 @@ module Stratosphere.ResourceProperties
 import Data.Aeson
 import Data.Aeson.Types (Pair)
 import Data.Text (Text)
+import Prelude
 
 data ResourceProperties
   = ResourceProperties

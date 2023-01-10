@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.ApplicationAutoScalingScalableTargetSuspendedState where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.AppConfigHostedConfigurationVersion where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

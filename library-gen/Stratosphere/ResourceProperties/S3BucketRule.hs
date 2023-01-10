@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.S3BucketRule where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.S3BucketAbortIncompleteMultipartUpload
 import Stratosphere.ResourceProperties.S3BucketNoncurrentVersionTransition

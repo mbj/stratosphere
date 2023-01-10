@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.EventsRuleTarget where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.EventsRuleBatchParameters
 import Stratosphere.ResourceProperties.EventsRuleEcsParameters

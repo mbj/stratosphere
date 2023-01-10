@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.EMRInstanceGroupConfigEbsConfiguration where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.EMRInstanceGroupConfigEbsBlockDeviceConfig
 

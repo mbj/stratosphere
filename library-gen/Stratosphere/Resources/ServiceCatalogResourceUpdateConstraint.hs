@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.ServiceCatalogResourceUpdateConstraint where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

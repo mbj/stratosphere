@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.SageMakerNotebookInstanceLifecycleConfigNotebookInstanceLifecycleHook where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

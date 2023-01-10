@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.ElasticBeanstalkApplicationVersionSourceBundle where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

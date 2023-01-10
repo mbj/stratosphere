@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.IoTCertificate where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

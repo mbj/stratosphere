@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.AppMeshVirtualServiceVirtualRouterServiceProvider where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

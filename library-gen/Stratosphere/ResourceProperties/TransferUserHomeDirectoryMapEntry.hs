@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.TransferUserHomeDirectoryMapEntry where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

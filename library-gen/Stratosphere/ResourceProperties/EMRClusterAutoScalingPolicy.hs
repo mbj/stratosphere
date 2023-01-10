@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.EMRClusterAutoScalingPolicy where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.EMRClusterScalingConstraints
 import Stratosphere.ResourceProperties.EMRClusterScalingRule

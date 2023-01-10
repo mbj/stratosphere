@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.KinesisAnalyticsApplicationReferenceDataSourceJSONMappingParameters where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

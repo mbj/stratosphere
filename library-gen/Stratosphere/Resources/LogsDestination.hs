@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.LogsDestination where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

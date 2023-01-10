@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.GluePartitionStorageDescriptor where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.GluePartitionColumn
 import Stratosphere.ResourceProperties.GluePartitionSerdeInfo

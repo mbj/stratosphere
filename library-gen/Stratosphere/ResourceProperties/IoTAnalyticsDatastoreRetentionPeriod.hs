@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.IoTAnalyticsDatastoreRetentionPeriod where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

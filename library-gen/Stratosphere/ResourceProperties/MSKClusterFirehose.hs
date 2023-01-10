@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.MSKClusterFirehose where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

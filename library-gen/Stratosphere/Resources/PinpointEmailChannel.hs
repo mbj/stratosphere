@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.PinpointEmailChannel where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

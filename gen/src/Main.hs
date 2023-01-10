@@ -55,6 +55,7 @@ renderModule module'@Module {..} = do
 
 module #{modulePath}.#{moduleName} where
 
+import Prelude
 import Stratosphere.ResourceImports
 #{renderDependencies module' moduleProperties}
 

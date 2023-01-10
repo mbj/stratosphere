@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.SSMResourceDataSyncAwsOrganizationsSource where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

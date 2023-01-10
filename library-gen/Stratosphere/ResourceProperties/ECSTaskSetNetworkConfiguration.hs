@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.ECSTaskSetNetworkConfiguration where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.ECSTaskSetAwsVpcConfiguration
 

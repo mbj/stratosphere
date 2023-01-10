@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.AppStreamStackStorageConnector where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

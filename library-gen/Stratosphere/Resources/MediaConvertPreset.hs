@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.MediaConvertPreset where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

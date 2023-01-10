@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.PinpointAPNSSandboxChannel where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.DynamoDBTableTimeToLiveSpecification where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.SSMAssociation where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.SSMAssociationInstanceAssociationOutputLocation
 import Stratosphere.ResourceProperties.SSMAssociationParameterValues

@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.StepFunctionsStateMachineTagsEntry where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

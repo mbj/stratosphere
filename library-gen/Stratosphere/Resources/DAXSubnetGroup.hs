@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.DAXSubnetGroup where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

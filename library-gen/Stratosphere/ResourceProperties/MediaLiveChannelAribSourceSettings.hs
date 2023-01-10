@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.MediaLiveChannelAribSourceSettings where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

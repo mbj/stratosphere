@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.EC2ClientVpnRoute where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

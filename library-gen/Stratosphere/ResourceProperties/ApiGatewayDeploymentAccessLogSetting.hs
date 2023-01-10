@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.ApiGatewayDeploymentAccessLogSetting where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

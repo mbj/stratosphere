@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.DirectoryServiceSimpleADVpcSettings where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

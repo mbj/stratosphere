@@ -4,9 +4,9 @@ module Stratosphere.ValuesSpec
 
 import Data.Aeson
 import Data.Text (Text)
-import Test.Hspec
-
+import Prelude
 import Stratosphere.Values
+import Test.Hspec
 
 spec :: Spec
 spec = do

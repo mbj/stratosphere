@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.CodeBuildReportGroupReportExportConfig where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.CodeBuildReportGroupS3ReportExportConfig
 

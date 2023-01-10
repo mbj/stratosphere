@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.CloudFrontDistributionLogging where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

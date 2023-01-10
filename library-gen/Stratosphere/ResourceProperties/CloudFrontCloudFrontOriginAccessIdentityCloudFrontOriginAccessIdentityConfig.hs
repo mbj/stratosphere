@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.CloudFrontCloudFrontOriginAccessIdentityCloudFrontOriginAccessIdentityConfig where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamSerializer where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamOrcSerDe
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamParquetSerDe

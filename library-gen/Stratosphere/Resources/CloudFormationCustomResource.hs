@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.CloudFormationCustomResource where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

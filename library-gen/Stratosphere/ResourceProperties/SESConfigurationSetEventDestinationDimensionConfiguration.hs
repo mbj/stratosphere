@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.SESConfigurationSetEventDestinationDimensionConfiguration where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

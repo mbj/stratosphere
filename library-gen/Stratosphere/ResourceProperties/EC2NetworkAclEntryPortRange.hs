@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.EC2NetworkAclEntryPortRange where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

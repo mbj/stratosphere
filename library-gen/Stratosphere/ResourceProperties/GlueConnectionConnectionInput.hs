@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.GlueConnectionConnectionInput where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.GlueConnectionPhysicalConnectionRequirements
 

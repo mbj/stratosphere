@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.OpsWorksLayerLoadBasedAutoScaling where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.OpsWorksLayerAutoScalingThresholds
 

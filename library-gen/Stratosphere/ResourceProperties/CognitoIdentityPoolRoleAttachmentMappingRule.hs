@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.CognitoIdentityPoolRoleAttachmentMappingRule where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

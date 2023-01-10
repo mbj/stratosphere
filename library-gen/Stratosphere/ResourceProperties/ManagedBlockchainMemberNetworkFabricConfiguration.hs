@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.ManagedBlockchainMemberNetworkFabricConfiguration where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

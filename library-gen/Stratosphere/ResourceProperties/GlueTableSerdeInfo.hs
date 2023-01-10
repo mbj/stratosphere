@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.GlueTableSerdeInfo where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

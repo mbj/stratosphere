@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.EventsEventBus where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

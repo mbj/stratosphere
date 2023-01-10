@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.PinpointSegmentGPSPoint where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.PinpointSegmentCoordinates
 

@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.AppConfigEnvironmentMonitors where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.KinesisAnalyticsV2ApplicationReferenceDataSource where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.KinesisAnalyticsV2ApplicationReferenceDataSourceReferenceDataSource
 

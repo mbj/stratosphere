@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.InspectorAssessmentTarget where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.ServiceCatalogAcceptedPortfolioShare where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.OpsWorksLayerShutdownEventConfiguration where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

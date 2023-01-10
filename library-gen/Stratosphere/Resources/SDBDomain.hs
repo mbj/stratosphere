@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.SDBDomain where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

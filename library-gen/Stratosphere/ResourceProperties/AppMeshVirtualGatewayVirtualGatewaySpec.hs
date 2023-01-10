@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.AppMeshVirtualGatewayVirtualGatewaySpec where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.AppMeshVirtualGatewayVirtualGatewayBackendDefaults
 import Stratosphere.ResourceProperties.AppMeshVirtualGatewayVirtualGatewayListener

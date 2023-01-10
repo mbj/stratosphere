@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.EC2CarrierGateway where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.EC2CarrierGatewayTags
 

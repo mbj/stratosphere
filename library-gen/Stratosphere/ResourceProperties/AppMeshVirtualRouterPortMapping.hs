@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.AppMeshVirtualRouterPortMapping where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

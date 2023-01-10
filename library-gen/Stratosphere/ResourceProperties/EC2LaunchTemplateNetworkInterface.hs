@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.EC2LaunchTemplateNetworkInterface where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.EC2LaunchTemplateIpv6Add
 import Stratosphere.ResourceProperties.EC2LaunchTemplatePrivateIpAdd

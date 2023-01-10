@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.LambdaLayerVersion where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.LambdaLayerVersionContent
 

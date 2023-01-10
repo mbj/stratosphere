@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.ECSPrimaryTaskSet where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

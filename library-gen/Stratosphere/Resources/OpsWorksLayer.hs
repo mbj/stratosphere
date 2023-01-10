@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.OpsWorksLayer where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.OpsWorksLayerRecipes
 import Stratosphere.ResourceProperties.OpsWorksLayerLifecycleEventConfiguration

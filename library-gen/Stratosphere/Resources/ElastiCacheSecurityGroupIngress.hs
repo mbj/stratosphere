@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.ElastiCacheSecurityGroupIngress where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

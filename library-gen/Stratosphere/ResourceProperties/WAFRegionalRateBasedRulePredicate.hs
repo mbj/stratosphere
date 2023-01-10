@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.WAFRegionalRateBasedRulePredicate where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.SSMMaintenanceWindowTaskNotificationConfig where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

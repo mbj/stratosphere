@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.SecretsManagerRotationScheduleRotationRules where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.ECSTaskSetScale where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

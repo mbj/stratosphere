@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.IoTAnalyticsChannelServiceManagedS3 where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

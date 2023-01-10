@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.ECSTaskDefinitionHostVolumeProperties where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

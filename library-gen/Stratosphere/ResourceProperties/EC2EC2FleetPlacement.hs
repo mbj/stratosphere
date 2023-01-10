@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.EC2EC2FleetPlacement where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

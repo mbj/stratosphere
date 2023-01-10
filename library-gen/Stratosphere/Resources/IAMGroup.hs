@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.IAMGroup where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.IAMGroupPolicy
 

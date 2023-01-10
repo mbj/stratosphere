@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.ECSTaskSet where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.ECSTaskSetLoadBalancer
 import Stratosphere.ResourceProperties.ECSTaskSetNetworkConfiguration

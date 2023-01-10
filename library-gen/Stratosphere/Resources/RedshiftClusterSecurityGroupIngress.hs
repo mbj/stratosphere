@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.RedshiftClusterSecurityGroupIngress where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.DynamoDBTablePointInTimeRecoverySpecification where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

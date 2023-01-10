@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.ServiceCatalogTagOptionAssociation where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.AppMeshVirtualNodeTlsValidationContextAcmTrust where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.EC2VPNConnection where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.Tag
 import Stratosphere.ResourceProperties.EC2VPNConnectionVpnTunnelOptionsSpecification

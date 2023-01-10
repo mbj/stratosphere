@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.CloudFrontRealtimeLogConfig where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.CloudFrontRealtimeLogConfigEndPoint
 

@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.CognitoUserPoolUICustomizationAttachment where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.IAMUser where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.IAMUserLoginProfile
 import Stratosphere.ResourceProperties.IAMUserPolicy

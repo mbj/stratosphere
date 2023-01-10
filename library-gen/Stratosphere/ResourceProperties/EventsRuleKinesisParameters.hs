@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.EventsRuleKinesisParameters where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

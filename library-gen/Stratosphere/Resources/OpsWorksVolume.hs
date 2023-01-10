@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.OpsWorksVolume where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

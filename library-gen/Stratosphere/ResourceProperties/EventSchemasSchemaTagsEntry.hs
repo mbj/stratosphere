@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.EventSchemasSchemaTagsEntry where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

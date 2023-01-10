@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.S3BucketPolicy where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

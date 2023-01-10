@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.ECSServiceServiceRegistry where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.PinpointApplicationSettings where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.PinpointApplicationSettingsCampaignHook
 import Stratosphere.ResourceProperties.PinpointApplicationSettingsLimits

@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.FSxFileSystemWindowsConfiguration where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.FSxFileSystemSelfManagedActiveDirectoryConfiguration
 

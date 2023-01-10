@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.PinpointEmailIdentityMailFromAttributes where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

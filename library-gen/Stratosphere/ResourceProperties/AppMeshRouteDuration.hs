@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.AppMeshRouteDuration where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

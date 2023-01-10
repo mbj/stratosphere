@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.GreengrassResourceDefinition where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.GreengrassResourceDefinitionResourceDefinitionVersion
 

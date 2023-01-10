@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.MSKClusterJmxExporter where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

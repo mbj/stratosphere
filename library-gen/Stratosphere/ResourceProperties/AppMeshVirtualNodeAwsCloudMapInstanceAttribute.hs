@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.AppMeshVirtualNodeAwsCloudMapInstanceAttribute where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

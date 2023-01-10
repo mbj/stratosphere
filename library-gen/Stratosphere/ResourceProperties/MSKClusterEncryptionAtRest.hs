@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.MSKClusterEncryptionAtRest where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

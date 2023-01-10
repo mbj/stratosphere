@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.GlueMLTransformFindMatchesParameters where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

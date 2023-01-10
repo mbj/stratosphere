@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.EMRClusterApplication where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.KinesisAnalyticsV2ApplicationInputLambdaProcessor where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

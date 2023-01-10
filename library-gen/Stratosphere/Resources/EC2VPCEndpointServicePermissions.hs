@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.EC2VPCEndpointServicePermissions where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

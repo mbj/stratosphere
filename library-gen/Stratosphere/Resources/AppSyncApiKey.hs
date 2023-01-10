@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.AppSyncApiKey where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

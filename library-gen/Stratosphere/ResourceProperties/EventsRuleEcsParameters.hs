@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.EventsRuleEcsParameters where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.EventsRuleNetworkConfiguration
 

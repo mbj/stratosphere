@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.ElasticLoadBalancingV2TargetGroupTargetGroupAttribute where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

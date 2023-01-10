@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.GuardDutyFilter where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

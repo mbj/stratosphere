@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.AppMeshVirtualService where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.AppMeshVirtualServiceVirtualServiceSpec
 import Stratosphere.ResourceProperties.Tag

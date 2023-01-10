@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.WAFv2WebACLRateBasedStatementTwo where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.WAFv2WebACLForwardedIPConfiguration
 import Stratosphere.ResourceProperties.WAFv2WebACLStatementThree

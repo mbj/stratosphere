@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.IAMUserToGroupAddition where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

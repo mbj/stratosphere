@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.EC2LaunchTemplateMetadataOptions where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

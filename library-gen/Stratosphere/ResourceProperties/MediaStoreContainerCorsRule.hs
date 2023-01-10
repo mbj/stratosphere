@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.MediaStoreContainerCorsRule where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

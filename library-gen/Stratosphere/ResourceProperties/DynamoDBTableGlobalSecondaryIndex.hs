@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.DynamoDBTableGlobalSecondaryIndex where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.DynamoDBTableKeySchema
 import Stratosphere.ResourceProperties.DynamoDBTableProjection

@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.CodePipelineCustomActionTypeArtifactDetails where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

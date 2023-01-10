@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.CloudFormationStack where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.Tag
 

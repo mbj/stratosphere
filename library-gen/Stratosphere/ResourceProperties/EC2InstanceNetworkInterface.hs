@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.EC2InstanceNetworkInterface where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.EC2InstanceInstanceIpv6Address
 import Stratosphere.ResourceProperties.EC2InstancePrivateIpAddressSpecification

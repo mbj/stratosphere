@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.SSMMaintenanceWindowTaskLoggingInfo where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

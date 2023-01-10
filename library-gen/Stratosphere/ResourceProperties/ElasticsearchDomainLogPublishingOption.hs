@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.ElasticsearchDomainLogPublishingOption where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

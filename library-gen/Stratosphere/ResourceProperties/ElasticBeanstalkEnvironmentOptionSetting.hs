@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.ElasticBeanstalkEnvironmentOptionSetting where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

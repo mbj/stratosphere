@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.EMRClusterCloudWatchAlarmDefinition where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.EMRClusterMetricDimension
 

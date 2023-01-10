@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamEncryptionConfiguration where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.Types
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamKMSEncryptionConfig

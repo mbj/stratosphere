@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.AppSyncDataSourceAwsIamConfig where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

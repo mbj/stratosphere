@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.CECostCategory where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

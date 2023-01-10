@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.SSMResourceDataSync where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.SSMResourceDataSyncS3Destination
 import Stratosphere.ResourceProperties.SSMResourceDataSyncSyncSource

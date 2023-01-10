@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.FSxFileSystem where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.FSxFileSystemLustreConfiguration
 import Stratosphere.ResourceProperties.Tag

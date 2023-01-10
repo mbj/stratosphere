@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.LambdaPermission where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

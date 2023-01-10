@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.CloudFrontDistributionOriginGroupMember where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

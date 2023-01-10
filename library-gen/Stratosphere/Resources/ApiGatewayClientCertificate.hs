@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.ApiGatewayClientCertificate where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.Tag
 

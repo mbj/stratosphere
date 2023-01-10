@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.MSKClusterCloudWatchLogs where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

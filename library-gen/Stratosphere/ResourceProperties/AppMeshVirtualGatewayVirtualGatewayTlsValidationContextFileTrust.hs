@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.AppMeshVirtualGatewayVirtualGatewayTlsValidationContextFileTrust where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

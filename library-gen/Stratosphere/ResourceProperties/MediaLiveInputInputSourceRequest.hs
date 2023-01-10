@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.MediaLiveInputInputSourceRequest where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

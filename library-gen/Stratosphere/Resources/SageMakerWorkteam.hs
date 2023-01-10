@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.SageMakerWorkteam where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.SageMakerWorkteamMemberDefinition
 import Stratosphere.ResourceProperties.SageMakerWorkteamNotificationConfiguration

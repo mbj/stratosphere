@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.SageMakerMonitoringScheduleStoppingCondition where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

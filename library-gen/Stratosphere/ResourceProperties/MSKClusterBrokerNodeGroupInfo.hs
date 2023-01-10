@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.MSKClusterBrokerNodeGroupInfo where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.MSKClusterStorageInfo
 

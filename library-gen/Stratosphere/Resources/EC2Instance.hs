@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.EC2Instance where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.EC2InstanceBlockDeviceMapping
 import Stratosphere.ResourceProperties.EC2InstanceCpuOptions

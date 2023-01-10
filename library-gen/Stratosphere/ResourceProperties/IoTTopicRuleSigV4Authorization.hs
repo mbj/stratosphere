@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.IoTTopicRuleSigV4Authorization where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

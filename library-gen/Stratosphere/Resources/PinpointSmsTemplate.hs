@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.PinpointSmsTemplate where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.ElasticLoadBalancingV2LoadBalancerSubnetMapping where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

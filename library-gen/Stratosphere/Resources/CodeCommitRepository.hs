@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.CodeCommitRepository where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.CodeCommitRepositoryCode
 import Stratosphere.ResourceProperties.Tag

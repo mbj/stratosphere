@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.GameLiftAliasRoutingStrategy where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

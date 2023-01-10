@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.EC2SpotFleetIamInstanceProfileSpecification where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

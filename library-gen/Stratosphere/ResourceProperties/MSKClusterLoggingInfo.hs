@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.MSKClusterLoggingInfo where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.MSKClusterBrokerLogs
 

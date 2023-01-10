@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.WAFv2WebACLRegexPatternSetReferenceStatement where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.WAFv2WebACLFieldToMatch
 import Stratosphere.ResourceProperties.WAFv2WebACLTextTransformation

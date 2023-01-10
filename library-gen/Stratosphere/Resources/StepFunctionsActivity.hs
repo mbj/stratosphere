@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.StepFunctionsActivity where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.StepFunctionsActivityTagsEntry
 

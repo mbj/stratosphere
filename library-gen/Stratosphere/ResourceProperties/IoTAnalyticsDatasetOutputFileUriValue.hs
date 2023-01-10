@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.IoTAnalyticsDatasetOutputFileUriValue where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.GreengrassConnectorDefinition where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.GreengrassConnectorDefinitionConnectorDefinitionVersion
 

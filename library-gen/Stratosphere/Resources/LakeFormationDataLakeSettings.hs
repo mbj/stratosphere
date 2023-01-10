@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.LakeFormationDataLakeSettings where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.LakeFormationDataLakeSettingsDataLakePrincipal
 

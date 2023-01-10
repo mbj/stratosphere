@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupTagProperty where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

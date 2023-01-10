@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.KinesisStream where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.KinesisStreamStreamEncryption
 import Stratosphere.ResourceProperties.Tag

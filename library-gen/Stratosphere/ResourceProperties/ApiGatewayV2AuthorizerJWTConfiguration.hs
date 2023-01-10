@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.ApiGatewayV2AuthorizerJWTConfiguration where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

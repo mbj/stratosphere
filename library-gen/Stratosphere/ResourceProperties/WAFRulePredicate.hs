@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.WAFRulePredicate where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

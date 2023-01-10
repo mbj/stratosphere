@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.CloudWatchAnomalyDetectorRange where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

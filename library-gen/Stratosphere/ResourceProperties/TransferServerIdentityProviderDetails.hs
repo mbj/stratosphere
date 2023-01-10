@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.TransferServerIdentityProviderDetails where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

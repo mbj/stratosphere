@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.RedshiftClusterParameterGroupParameter where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

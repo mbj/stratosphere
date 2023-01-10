@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.ECSTaskDefinitionFirelensConfiguration where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

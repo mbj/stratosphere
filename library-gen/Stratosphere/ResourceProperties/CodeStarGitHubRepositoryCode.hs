@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.CodeStarGitHubRepositoryCode where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.CodeStarGitHubRepositoryS3
 

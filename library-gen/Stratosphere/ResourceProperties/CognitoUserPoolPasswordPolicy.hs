@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.CognitoUserPoolPasswordPolicy where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

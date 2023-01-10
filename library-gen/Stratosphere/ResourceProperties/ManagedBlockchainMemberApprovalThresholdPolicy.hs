@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.ManagedBlockchainMemberApprovalThresholdPolicy where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

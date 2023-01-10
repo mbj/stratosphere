@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.EC2VolumeAttachment where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.EMRClusterEbsBlockDeviceConfig where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.EMRClusterVolumeSpecification
 

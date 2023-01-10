@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.ApplicationInsightsApplicationAlarm where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

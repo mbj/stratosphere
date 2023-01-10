@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.RoboMakerRobotApplication where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.RoboMakerRobotApplicationRobotSoftwareSuite
 import Stratosphere.ResourceProperties.RoboMakerRobotApplicationSourceConfig

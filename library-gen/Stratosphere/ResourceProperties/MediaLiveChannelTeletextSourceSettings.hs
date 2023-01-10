@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.MediaLiveChannelTeletextSourceSettings where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

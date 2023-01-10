@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.EC2Volume where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.Tag
 

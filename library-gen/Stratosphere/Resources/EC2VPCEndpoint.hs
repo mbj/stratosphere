@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.EC2VPCEndpoint where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.S3AccessPoint where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.S3AccessPointPublicAccessBlockConfiguration
 import Stratosphere.ResourceProperties.S3AccessPointVpcConfiguration

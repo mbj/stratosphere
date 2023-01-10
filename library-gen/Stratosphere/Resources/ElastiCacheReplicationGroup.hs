@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.ElastiCacheReplicationGroup where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.ElastiCacheReplicationGroupNodeGroupConfiguration
 import Stratosphere.ResourceProperties.Tag

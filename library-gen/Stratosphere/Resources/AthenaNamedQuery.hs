@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.AthenaNamedQuery where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

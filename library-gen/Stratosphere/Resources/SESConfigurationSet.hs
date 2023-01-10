@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.SESConfigurationSet where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

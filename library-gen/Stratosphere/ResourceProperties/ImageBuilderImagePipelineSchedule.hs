@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.ImageBuilderImagePipelineSchedule where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

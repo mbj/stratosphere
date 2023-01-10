@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.AppStreamStackFleetAssociation where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

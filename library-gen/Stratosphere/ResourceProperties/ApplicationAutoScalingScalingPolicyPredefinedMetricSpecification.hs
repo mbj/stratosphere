@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.ApplicationAutoScalingScalingPolicyPredefinedMetricSpecification where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

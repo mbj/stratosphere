@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.SESTemplate where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.SESTemplateTemplate
 

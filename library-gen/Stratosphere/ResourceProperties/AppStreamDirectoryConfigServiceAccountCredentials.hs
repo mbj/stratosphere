@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.AppStreamDirectoryConfigServiceAccountCredentials where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

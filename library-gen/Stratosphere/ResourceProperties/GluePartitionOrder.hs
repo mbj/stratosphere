@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.GluePartitionOrder where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

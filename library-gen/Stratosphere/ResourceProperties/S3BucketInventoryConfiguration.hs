@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.S3BucketInventoryConfiguration where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.S3BucketDestination
 

@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.EMRClusterKeyValue where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

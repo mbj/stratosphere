@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.ApiGatewayStageMethodSetting where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.Types
 

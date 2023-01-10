@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.AppStreamFleetVpcConfig where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

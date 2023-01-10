@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.KinesisFirehoseDeliveryStream where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguration
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamExtendedS3DestinationConfiguration

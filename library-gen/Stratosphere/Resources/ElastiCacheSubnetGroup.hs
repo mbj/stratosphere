@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.ElastiCacheSubnetGroup where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

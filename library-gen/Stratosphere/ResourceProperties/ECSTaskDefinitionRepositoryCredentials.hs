@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.ECSTaskDefinitionRepositoryCredentials where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

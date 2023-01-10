@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.CloudFrontDistributionCustomErrorResponse where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

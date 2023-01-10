@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.OpsWorksInstance where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.OpsWorksInstanceBlockDeviceMapping
 import Stratosphere.ResourceProperties.OpsWorksInstanceTimeBasedAutoScaling

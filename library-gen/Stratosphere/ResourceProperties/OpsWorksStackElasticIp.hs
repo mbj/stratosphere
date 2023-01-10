@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.OpsWorksStackElasticIp where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

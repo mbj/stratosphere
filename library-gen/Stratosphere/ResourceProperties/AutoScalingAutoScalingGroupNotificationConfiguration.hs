@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupNotificationConfiguration where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

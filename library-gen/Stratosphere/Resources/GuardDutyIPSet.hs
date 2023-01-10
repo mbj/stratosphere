@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.GuardDutyIPSet where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

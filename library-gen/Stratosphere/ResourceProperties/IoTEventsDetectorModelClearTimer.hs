@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.IoTEventsDetectorModelClearTimer where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

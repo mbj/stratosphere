@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.GlueJobConnectionsList where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.BackupBackupSelection where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.BackupBackupSelectionBackupSelectionResourceType
 

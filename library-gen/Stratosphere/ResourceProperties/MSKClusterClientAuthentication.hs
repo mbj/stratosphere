@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.MSKClusterClientAuthentication where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.MSKClusterTls
 

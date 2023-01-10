@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.GameLiftGameServerGroup where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.GameLiftGameServerGroupAutoScalingPolicy
 import Stratosphere.ResourceProperties.GameLiftGameServerGroupInstanceDefinitions

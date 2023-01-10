@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.DynamoDBTableAttributeDefinition where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.Types
 

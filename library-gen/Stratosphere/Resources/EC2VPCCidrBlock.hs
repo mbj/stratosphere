@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.EC2VPCCidrBlock where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.BackupBackupVault where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.BackupBackupVaultNotificationObjectType
 

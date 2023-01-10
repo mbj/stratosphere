@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.WAFSqlInjectionMatchSetSqlInjectionMatchTuple where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.WAFSqlInjectionMatchSetFieldToMatch
 

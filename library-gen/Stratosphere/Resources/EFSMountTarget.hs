@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.EFSMountTarget where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.GlueTrigger where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.GlueTriggerAction
 import Stratosphere.ResourceProperties.GlueTriggerPredicate

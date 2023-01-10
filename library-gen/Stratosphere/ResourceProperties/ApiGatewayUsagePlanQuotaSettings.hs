@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.ApiGatewayUsagePlanQuotaSettings where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.Types
 

@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.SageMakerModelContainerDefinition where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

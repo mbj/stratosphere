@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.OpsWorksCMServerEngineAttribute where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

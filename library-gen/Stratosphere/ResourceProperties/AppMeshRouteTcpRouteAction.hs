@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.AppMeshRouteTcpRouteAction where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.AppMeshRouteWeightedTarget
 

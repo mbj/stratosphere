@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.ACMPCACertificateAuthorityActivation where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

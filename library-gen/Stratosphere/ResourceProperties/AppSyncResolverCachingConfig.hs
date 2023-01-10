@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.AppSyncResolverCachingConfig where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

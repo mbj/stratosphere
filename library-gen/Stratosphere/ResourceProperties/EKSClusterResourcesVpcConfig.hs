@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.EKSClusterResourcesVpcConfig where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

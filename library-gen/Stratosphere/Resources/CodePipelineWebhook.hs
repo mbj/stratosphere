@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.CodePipelineWebhook where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.CodePipelineWebhookWebhookAuthConfiguration
 import Stratosphere.ResourceProperties.CodePipelineWebhookWebhookFilterRule

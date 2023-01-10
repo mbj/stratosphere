@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.ElasticLoadBalancingV2ListenerRuleTargetGroupStickinessConfig where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.AppMeshVirtualGatewayVirtualGatewayFileAccessLog where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

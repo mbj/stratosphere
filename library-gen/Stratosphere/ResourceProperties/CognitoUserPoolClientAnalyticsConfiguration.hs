@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.CognitoUserPoolClientAnalyticsConfiguration where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

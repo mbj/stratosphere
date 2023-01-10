@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.EventsRuleRunCommandTarget where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

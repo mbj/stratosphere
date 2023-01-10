@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.AppConfigConfigurationProfile where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.AppConfigConfigurationProfileTags
 import Stratosphere.ResourceProperties.AppConfigConfigurationProfileValidators

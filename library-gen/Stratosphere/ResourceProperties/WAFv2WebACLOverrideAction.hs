@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.WAFv2WebACLOverrideAction where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

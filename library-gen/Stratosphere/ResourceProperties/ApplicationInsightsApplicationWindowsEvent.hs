@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.ApplicationInsightsApplicationWindowsEvent where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

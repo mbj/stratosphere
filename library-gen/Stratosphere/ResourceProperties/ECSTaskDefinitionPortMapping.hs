@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.ECSTaskDefinitionPortMapping where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

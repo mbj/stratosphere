@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.AccessAnalyzerAnalyzerFilter where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

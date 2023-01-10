@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.AppSyncResolverSyncConfig where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.AppSyncResolverLambdaConflictHandlerConfig
 

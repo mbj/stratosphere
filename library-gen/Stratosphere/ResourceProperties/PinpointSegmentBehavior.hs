@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.PinpointSegmentBehavior where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.PinpointSegmentRecency
 

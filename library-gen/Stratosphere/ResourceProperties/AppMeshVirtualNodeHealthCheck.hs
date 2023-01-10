@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.AppMeshVirtualNodeHealthCheck where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

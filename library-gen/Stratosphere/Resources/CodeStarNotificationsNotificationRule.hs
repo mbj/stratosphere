@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.CodeStarNotificationsNotificationRule where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.CodeStarNotificationsNotificationRuleTarget
 

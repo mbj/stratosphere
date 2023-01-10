@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.RDSDBProxyTagFormat where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.QLDBStream where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.QLDBStreamKinesisConfiguration
 import Stratosphere.ResourceProperties.Tag

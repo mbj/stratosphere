@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.LambdaFunctionVpcConfig where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.GuardDutyMember where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.NetworkManagerLinkBandwidth where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

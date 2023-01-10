@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.DMSEndpointKinesisSettings where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.OpsWorksAppSslConfiguration where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

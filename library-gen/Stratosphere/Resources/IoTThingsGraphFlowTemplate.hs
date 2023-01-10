@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.IoTThingsGraphFlowTemplate where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.IoTThingsGraphFlowTemplateDefinitionDocument
 

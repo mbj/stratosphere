@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.CodeDeployDeploymentGroupTagFilter where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

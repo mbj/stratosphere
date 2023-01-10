@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.EMRClusterKerberosAttributes where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

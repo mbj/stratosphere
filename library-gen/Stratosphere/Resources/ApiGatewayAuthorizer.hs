@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.ApiGatewayAuthorizer where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.Types
 

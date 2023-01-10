@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.DAXParameterGroup where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

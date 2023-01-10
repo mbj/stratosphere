@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.StepFunctionsStateMachineLogDestination where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.StepFunctionsStateMachineCloudWatchLogsLogGroup
 

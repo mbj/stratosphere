@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.AppMeshVirtualNodeListenerTlsCertificate where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.AppMeshVirtualNodeListenerTlsAcmCertificate
 import Stratosphere.ResourceProperties.AppMeshVirtualNodeListenerTlsFileCertificate

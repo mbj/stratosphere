@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.CodeDeployDeploymentGroupELBInfo where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

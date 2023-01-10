@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.GlueTableColumn where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

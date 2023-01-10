@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.ElasticLoadBalancingV2ListenerRuleHttpHeaderConfig where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

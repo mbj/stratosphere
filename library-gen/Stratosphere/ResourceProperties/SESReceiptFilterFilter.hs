@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.SESReceiptFilterFilter where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.SESReceiptFilterIpFilter
 

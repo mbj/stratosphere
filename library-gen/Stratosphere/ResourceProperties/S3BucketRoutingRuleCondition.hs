@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.S3BucketRoutingRuleCondition where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

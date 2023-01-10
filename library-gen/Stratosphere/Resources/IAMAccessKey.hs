@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.IAMAccessKey where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

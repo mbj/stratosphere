@@ -1,5 +1,6 @@
 module Stratosphere.ResourceAttributes.ResourceSignal where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 -- | Full data type definition for ResourceSignal. See 'resourceSignal' for a

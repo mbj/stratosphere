@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.SNSTopic where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.SNSTopicSubscription
 import Stratosphere.ResourceProperties.Tag

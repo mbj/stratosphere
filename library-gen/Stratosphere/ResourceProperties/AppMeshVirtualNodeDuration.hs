@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.AppMeshVirtualNodeDuration where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

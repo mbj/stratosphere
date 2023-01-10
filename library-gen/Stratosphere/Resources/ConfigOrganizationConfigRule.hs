@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.ConfigOrganizationConfigRule where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.ConfigOrganizationConfigRuleOrganizationCustomRuleMetadata
 import Stratosphere.ResourceProperties.ConfigOrganizationConfigRuleOrganizationManagedRuleMetadata

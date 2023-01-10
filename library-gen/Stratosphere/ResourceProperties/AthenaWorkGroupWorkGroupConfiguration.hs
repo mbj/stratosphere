@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.AthenaWorkGroupWorkGroupConfiguration where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.AthenaWorkGroupResultConfiguration
 

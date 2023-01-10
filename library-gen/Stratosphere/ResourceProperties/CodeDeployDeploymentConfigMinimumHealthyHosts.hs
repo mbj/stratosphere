@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.CodeDeployDeploymentConfigMinimumHealthyHosts where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

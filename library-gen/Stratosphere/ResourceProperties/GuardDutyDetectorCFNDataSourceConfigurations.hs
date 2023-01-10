@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.GuardDutyDetectorCFNDataSourceConfigurations where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.GuardDutyDetectorCFNS3LogsConfiguration
 

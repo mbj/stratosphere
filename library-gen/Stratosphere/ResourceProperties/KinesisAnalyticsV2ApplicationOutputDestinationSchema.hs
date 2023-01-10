@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.KinesisAnalyticsV2ApplicationOutputDestinationSchema where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.ApiGatewayApiKey where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.ApiGatewayApiKeyStageKey
 import Stratosphere.ResourceProperties.Tag

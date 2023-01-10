@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.ConfigDeliveryChannelConfigSnapshotDeliveryProperties where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

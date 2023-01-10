@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.IoTAnalyticsDatasetVersioningConfiguration where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

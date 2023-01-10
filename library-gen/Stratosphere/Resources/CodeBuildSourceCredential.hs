@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.CodeBuildSourceCredential where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

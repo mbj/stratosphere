@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.GlueTableSkewedInfo where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

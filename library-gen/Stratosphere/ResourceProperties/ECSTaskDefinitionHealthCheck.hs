@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.ECSTaskDefinitionHealthCheck where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

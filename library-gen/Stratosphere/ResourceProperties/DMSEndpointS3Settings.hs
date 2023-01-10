@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.DMSEndpointS3Settings where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

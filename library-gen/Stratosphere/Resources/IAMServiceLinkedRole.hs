@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.IAMServiceLinkedRole where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

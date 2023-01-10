@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.AppSyncGraphQLApiLogConfig where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

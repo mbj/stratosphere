@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.DetectiveMemberInvitation where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

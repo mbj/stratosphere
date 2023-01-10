@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.EFSAccessPointRootDirectory where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.EFSAccessPointCreationInfo
 

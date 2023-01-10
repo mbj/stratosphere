@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.GreengrassLoggerDefinitionVersion where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.GreengrassLoggerDefinitionVersionLogger
 

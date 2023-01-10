@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.AmplifyBranchEnvironmentVariable where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

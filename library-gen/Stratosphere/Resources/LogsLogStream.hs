@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.LogsLogStream where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

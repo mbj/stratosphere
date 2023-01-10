@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.GlueDevEndpoint where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.IoTEventsInput where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.IoTEventsInputInputDefinition
 import Stratosphere.ResourceProperties.Tag

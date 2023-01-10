@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.EC2ClientVpnAuthorizationRule where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

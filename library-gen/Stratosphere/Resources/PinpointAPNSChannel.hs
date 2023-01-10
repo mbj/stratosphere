@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.PinpointAPNSChannel where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.ManagedBlockchainMemberNetworkConfiguration where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.ManagedBlockchainMemberNetworkFrameworkConfiguration
 import Stratosphere.ResourceProperties.ManagedBlockchainMemberVotingPolicy

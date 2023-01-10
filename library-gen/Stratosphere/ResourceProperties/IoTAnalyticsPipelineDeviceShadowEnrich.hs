@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.IoTAnalyticsPipelineDeviceShadowEnrich where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

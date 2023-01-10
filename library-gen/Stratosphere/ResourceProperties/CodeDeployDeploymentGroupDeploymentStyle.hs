@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.CodeDeployDeploymentGroupDeploymentStyle where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

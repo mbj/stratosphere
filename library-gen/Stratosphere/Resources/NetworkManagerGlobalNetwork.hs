@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.NetworkManagerGlobalNetwork where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.Tag
 

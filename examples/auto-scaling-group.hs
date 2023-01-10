@@ -4,6 +4,7 @@ module Main where
 -- http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-creationpolicy.html
 
 import Control.Lens
+import Prelude
 import Stratosphere
 
 import qualified Data.ByteString.Lazy.Char8 as B

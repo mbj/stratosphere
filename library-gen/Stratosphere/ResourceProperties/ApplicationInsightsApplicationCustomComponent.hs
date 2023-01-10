@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.ApplicationInsightsApplicationCustomComponent where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

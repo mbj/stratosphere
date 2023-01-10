@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.SageMakerEndpointConfigCaptureContentTypeHeader where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

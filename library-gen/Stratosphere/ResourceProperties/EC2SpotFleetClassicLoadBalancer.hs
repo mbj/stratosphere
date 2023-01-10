@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.EC2SpotFleetClassicLoadBalancer where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

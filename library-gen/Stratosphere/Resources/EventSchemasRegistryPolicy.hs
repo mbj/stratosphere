@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.EventSchemasRegistryPolicy where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

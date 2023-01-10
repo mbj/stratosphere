@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.S3BucketSourceSelectionCriteria where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.S3BucketSseKmsEncryptedObjects
 

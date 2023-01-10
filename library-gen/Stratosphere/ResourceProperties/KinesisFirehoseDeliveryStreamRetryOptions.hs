@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamRetryOptions where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.BatchJobDefinitionRetryStrategy where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

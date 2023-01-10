@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.KinesisAnalyticsV2ApplicationFlinkApplicationConfiguration where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.KinesisAnalyticsV2ApplicationCheckpointConfiguration
 import Stratosphere.ResourceProperties.KinesisAnalyticsV2ApplicationMonitoringConfiguration

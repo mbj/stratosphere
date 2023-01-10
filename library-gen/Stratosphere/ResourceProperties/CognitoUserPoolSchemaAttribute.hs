@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.CognitoUserPoolSchemaAttribute where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.CognitoUserPoolNumberAttributeConstraints
 import Stratosphere.ResourceProperties.CognitoUserPoolStringAttributeConstraints

@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.MSKClusterOpenMonitoring where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.MSKClusterPrometheus
 

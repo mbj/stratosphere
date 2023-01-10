@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.GlueSecurityConfigurationS3Encryption where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.Route53ResolverResolverRule where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.Tag
 import Stratosphere.ResourceProperties.Route53ResolverResolverRuleTargetAddress

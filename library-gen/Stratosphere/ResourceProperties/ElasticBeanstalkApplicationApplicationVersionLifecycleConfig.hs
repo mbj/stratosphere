@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.ElasticBeanstalkApplicationApplicationVersionLifecycleConfig where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.ElasticBeanstalkApplicationMaxAgeRule
 import Stratosphere.ResourceProperties.ElasticBeanstalkApplicationMaxCountRule

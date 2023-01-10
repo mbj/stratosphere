@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.TransferUser where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.TransferUserHomeDirectoryMapEntry
 import Stratosphere.ResourceProperties.Tag

@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.AutoScalingScheduledAction where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

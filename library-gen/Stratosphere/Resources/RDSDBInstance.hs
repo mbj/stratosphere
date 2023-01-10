@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.RDSDBInstance where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.RDSDBInstanceDBInstanceRole
 import Stratosphere.ResourceProperties.RDSDBInstanceProcessorFeature

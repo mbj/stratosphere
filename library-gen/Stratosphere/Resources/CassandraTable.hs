@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.CassandraTable where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.CassandraTableBillingMode
 import Stratosphere.ResourceProperties.CassandraTableClusteringKeyColumn

@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupLaunchTemplateSpecification where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

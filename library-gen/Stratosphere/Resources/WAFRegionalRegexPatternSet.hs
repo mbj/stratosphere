@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.WAFRegionalRegexPatternSet where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

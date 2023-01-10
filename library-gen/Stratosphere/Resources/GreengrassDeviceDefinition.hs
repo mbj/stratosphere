@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.GreengrassDeviceDefinition where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.GreengrassDeviceDefinitionDeviceDefinitionVersion
 

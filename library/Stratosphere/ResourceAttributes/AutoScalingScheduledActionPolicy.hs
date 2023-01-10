@@ -1,3 +1,7 @@
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards #-}
+{-# LANGUAGE TupleSections #-}
+
 -- | To specify how AWS CloudFormation handles updates for the MinSize,
 -- MaxSize, and DesiredCapacity properties when the
 -- AWS::AutoScaling::AutoScalingGroup resource has an associated scheduled
@@ -16,6 +20,7 @@
 
 module Stratosphere.ResourceAttributes.AutoScalingScheduledActionPolicy where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 -- | Full data type definition for AutoScalingScheduledActionPolicy. See

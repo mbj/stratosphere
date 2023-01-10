@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.CodeStarConnectionsConnection where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.Tag
 

@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.EFSAccessPoint where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.EFSAccessPointAccessPointTag
 import Stratosphere.ResourceProperties.EFSAccessPointPosixUser

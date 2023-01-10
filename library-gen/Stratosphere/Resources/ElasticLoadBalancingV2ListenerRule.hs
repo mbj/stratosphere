@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.ElasticLoadBalancingV2ListenerRule where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.ElasticLoadBalancingV2ListenerRuleAction
 import Stratosphere.ResourceProperties.ElasticLoadBalancingV2ListenerRuleRuleCondition

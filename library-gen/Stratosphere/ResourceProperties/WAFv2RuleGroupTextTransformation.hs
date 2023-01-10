@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.WAFv2RuleGroupTextTransformation where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

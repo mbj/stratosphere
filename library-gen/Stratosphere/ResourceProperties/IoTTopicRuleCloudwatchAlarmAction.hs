@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.IoTTopicRuleCloudwatchAlarmAction where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

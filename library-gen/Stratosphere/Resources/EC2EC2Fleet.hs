@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.EC2EC2Fleet where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.EC2EC2FleetFleetLaunchTemplateConfigRequest
 import Stratosphere.ResourceProperties.EC2EC2FleetOnDemandOptionsRequest

@@ -28,6 +28,7 @@ module Stratosphere
 where
 
 import Control.Lens
+import Prelude
 import Stratosphere.Check
 import Stratosphere.Outputs
 import Stratosphere.Parameters

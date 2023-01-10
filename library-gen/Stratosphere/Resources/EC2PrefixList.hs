@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.EC2PrefixList where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.EC2PrefixListEntry
 import Stratosphere.ResourceProperties.Tag

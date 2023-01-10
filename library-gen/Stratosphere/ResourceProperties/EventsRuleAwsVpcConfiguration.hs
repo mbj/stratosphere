@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.EventsRuleAwsVpcConfiguration where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

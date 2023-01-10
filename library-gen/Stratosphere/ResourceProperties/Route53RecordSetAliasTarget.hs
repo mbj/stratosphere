@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.Route53RecordSetAliasTarget where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

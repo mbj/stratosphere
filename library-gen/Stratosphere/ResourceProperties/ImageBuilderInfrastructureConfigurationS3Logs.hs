@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.ImageBuilderInfrastructureConfigurationS3Logs where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

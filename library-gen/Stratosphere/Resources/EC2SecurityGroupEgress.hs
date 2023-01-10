@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.EC2SecurityGroupEgress where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

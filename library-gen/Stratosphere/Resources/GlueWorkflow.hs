@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.GlueWorkflow where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.LambdaEventSourceMappingDestinationConfig where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.LambdaEventSourceMappingOnFailure
 

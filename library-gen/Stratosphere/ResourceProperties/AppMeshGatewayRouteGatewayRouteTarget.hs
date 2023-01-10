@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.AppMeshGatewayRouteGatewayRouteTarget where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.AppMeshGatewayRouteGatewayRouteVirtualService
 

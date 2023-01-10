@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.AppMeshRouteGrpcRouteMetadataMatchMethod where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.AppMeshRouteMatchRange
 

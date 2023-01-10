@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.AppMeshVirtualNodeListenerTimeout where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.AppMeshVirtualNodeGrpcTimeout
 import Stratosphere.ResourceProperties.AppMeshVirtualNodeHttpTimeout

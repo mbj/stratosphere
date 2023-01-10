@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.ApiGatewayBasePathMapping where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.CodeDeployDeploymentGroup where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupAlarmConfiguration
 import Stratosphere.ResourceProperties.CodeDeployDeploymentGroupAutoRollbackConfiguration

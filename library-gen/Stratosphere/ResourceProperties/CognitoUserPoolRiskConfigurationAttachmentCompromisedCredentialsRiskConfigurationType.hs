@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.CognitoUserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationType where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.CognitoUserPoolRiskConfigurationAttachmentCompromisedCredentialsActionsType
 

@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.LambdaAliasVersionWeight where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

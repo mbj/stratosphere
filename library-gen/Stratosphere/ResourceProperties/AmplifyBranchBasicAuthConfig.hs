@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.AmplifyBranchBasicAuthConfig where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

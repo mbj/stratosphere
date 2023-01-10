@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.AthenaDataCatalog where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.AthenaDataCatalogTags
 

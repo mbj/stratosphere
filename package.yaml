@@ -41,6 +41,7 @@ default-extensions:
 - GeneralizedNewtypeDeriving
 - LambdaCase
 - MultiParamTypeClasses
+- NoImplicitPrelude
 - OverloadedLists
 - OverloadedStrings
 - RecordWildCards

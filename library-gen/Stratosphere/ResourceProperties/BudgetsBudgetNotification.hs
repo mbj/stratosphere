@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.BudgetsBudgetNotification where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

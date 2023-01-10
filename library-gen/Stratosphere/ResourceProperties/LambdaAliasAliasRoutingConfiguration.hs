@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.LambdaAliasAliasRoutingConfiguration where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.LambdaAliasVersionWeight
 

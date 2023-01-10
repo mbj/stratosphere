@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.DMSReplicationSubnetGroup where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.Tag
 

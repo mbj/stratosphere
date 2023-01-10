@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.GlobalAcceleratorEndpointGroupEndpointConfiguration where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.CertificateManagerCertificateDomainValidationOption where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

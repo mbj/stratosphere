@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.AmazonMQConfigurationAssociation where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.AmazonMQConfigurationAssociationConfigurationId
 

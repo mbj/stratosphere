@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.RDSDBSecurityGroupIngressProperty where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

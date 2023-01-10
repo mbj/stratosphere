@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.MediaLiveChannelAudioLanguageSelection where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

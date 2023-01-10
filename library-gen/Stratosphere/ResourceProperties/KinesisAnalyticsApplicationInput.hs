@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.KinesisAnalyticsApplicationInput where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.KinesisAnalyticsApplicationInputParallelism
 import Stratosphere.ResourceProperties.KinesisAnalyticsApplicationInputProcessingConfiguration

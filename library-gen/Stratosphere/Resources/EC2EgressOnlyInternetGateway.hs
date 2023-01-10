@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.EC2EgressOnlyInternetGateway where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

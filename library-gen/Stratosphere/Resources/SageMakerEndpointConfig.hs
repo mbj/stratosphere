@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.SageMakerEndpointConfig where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.SageMakerEndpointConfigDataCaptureConfig
 import Stratosphere.ResourceProperties.SageMakerEndpointConfigProductionVariant

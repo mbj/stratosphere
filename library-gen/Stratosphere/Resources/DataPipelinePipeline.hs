@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.DataPipelinePipeline where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.DataPipelinePipelineParameterObject
 import Stratosphere.ResourceProperties.DataPipelinePipelineParameterValue

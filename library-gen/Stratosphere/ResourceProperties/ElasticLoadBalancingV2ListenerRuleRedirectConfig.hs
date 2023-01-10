@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.ElasticLoadBalancingV2ListenerRuleRedirectConfig where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

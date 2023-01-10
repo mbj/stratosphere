@@ -6,6 +6,7 @@
 module Stratosphere.Check (duplicateProperties) where
 
 import Data.Hashable (Hashable)
+import Prelude
 import Stratosphere.Resources (_resourceName, unResources)
 import Stratosphere.Template (Template, _templateResources)
 

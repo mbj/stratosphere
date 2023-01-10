@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.GlueClassifier where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.GlueClassifierCsvClassifier
 import Stratosphere.ResourceProperties.GlueClassifierGrokClassifier

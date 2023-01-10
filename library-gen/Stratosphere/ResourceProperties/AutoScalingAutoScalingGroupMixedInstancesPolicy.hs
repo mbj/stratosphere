@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupMixedInstancesPolicy where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupInstancesDistribution
 import Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupLaunchTemplate

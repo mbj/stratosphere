@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.SecurityHubHub where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

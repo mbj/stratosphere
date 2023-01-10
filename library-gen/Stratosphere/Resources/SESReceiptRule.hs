@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.SESReceiptRule where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.SESReceiptRuleRule
 

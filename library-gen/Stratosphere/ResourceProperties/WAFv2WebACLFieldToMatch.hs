@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.WAFv2WebACLFieldToMatch where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

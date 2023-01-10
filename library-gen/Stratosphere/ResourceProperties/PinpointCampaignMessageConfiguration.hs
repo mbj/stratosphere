@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.PinpointCampaignMessageConfiguration where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.PinpointCampaignMessage
 import Stratosphere.ResourceProperties.PinpointCampaignCampaignEmailMessage

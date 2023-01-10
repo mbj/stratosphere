@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.ElastiCacheParameterGroup where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

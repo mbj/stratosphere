@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.GluePartitionSerdeInfo where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

@@ -5,6 +5,7 @@
 module Main where
 
 import Control.Lens
+import Prelude
 import Stratosphere
 
 import qualified Data.ByteString.Lazy.Char8 as B

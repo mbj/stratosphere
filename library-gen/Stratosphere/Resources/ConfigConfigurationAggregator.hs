@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.ConfigConfigurationAggregator where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.ConfigConfigurationAggregatorAccountAggregationSource
 import Stratosphere.ResourceProperties.ConfigConfigurationAggregatorOrganizationAggregationSource

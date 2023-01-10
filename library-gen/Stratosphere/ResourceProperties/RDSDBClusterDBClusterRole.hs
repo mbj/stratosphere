@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.RDSDBClusterDBClusterRole where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

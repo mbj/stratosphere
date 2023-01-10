@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.PinpointVoiceChannel where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

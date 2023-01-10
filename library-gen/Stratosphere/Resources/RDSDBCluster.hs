@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.RDSDBCluster where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.RDSDBClusterDBClusterRole
 import Stratosphere.ResourceProperties.RDSDBClusterScalingConfiguration

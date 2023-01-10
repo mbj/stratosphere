@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.EC2ClientVpnEndpointTagSpecification where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.Tag
 

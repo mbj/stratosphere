@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.ECSTaskDefinitionUlimit where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

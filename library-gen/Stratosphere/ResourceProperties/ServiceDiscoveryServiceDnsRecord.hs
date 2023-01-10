@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.ServiceDiscoveryServiceDnsRecord where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

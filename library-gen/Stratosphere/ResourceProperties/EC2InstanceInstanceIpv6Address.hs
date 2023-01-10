@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.EC2InstanceInstanceIpv6Address where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

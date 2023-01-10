@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.PinpointGCMChannel where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

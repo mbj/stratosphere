@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.EC2LaunchTemplateIpv6Add where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

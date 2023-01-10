@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.IoTTopicRuleSqsAction where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

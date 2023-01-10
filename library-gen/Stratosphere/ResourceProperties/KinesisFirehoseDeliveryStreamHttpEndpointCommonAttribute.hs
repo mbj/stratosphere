@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamHttpEndpointCommonAttribute where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

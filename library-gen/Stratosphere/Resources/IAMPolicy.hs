@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.IAMPolicy where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

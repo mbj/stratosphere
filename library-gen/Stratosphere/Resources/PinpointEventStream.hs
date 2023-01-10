@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.PinpointEventStream where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

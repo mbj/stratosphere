@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.DMSCertificate where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

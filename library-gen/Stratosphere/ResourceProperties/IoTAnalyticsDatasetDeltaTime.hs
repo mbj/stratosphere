@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.IoTAnalyticsDatasetDeltaTime where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

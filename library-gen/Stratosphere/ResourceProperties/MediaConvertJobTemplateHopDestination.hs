@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.MediaConvertJobTemplateHopDestination where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

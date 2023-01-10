@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.GlueClassifierJsonClassifier where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

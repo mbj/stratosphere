@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.CloudWatchCompositeAlarm where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

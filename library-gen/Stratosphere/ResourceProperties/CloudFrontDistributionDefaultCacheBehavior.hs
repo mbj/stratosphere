@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.CloudFrontDistributionDefaultCacheBehavior where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.CloudFrontDistributionForwardedValues
 import Stratosphere.ResourceProperties.CloudFrontDistributionLambdaFunctionAssociation

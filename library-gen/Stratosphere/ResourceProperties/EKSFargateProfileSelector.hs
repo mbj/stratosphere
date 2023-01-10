@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.EKSFargateProfileSelector where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.EKSFargateProfileLabel
 

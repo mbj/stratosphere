@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.ApiGatewayV2Stage where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.ApiGatewayV2StageAccessLogSettings
 import Stratosphere.ResourceProperties.ApiGatewayV2StageRouteSettings

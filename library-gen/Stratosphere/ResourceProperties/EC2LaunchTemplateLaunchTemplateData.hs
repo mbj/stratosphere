@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.EC2LaunchTemplateLaunchTemplateData where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.EC2LaunchTemplateBlockDeviceMapping
 import Stratosphere.ResourceProperties.EC2LaunchTemplateCapacityReservationSpecification

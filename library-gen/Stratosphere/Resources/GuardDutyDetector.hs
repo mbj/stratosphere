@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.GuardDutyDetector where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.GuardDutyDetectorCFNDataSourceConfigurations
 

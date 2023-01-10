@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.CognitoUserPoolInviteMessageTemplate where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

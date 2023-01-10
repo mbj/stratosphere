@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.ECSServicePlacementStrategy where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

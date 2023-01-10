@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.AmazonMQBrokerUser where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

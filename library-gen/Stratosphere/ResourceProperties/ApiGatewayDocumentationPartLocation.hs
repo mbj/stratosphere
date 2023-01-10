@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.ApiGatewayDocumentationPartLocation where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.CloudWatchAnomalyDetector where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.CloudWatchAnomalyDetectorConfiguration
 import Stratosphere.ResourceProperties.CloudWatchAnomalyDetectorDimension

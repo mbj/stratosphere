@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.RedshiftClusterParameterGroup where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.RedshiftClusterParameterGroupParameter
 import Stratosphere.ResourceProperties.Tag

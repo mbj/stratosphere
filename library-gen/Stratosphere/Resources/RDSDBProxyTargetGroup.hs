@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.RDSDBProxyTargetGroup where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.RDSDBProxyTargetGroupConnectionPoolConfigurationInfoFormat
 

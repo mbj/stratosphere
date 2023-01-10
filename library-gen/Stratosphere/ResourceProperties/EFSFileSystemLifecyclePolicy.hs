@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.EFSFileSystemLifecyclePolicy where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.AppStreamFleet where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.AppStreamFleetComputeCapacity
 import Stratosphere.ResourceProperties.AppStreamFleetDomainJoinInfo

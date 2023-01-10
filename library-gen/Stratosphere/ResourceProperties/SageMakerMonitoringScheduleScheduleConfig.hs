@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.SageMakerMonitoringScheduleScheduleConfig where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

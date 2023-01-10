@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.WAFRegionalXssMatchSetFieldToMatch where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

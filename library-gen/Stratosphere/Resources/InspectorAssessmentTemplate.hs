@@ -3,6 +3,7 @@
 
 module Stratosphere.Resources.InspectorAssessmentTemplate where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.Tag
 

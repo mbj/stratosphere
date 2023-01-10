@@ -3,6 +3,7 @@
 
 module Stratosphere.ResourceProperties.KinesisAnalyticsApplicationKinesisFirehoseInput where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 
