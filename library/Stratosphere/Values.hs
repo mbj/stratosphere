@@ -51,7 +51,7 @@ instance Eq a => Eq (Val a) where
   Sub a b == Sub a' b' = a == a' && b == b'
   _ == _ = False
 
-eqEquals :: (Typeable a, Typeable b, Eq a, Eq b) => a -> a -> b -> b -> Bool
+eqEquals :: (Typeable a, Typeable b, Eq a) => a -> a -> b -> b -> Bool
 eqEquals a b a' b' = fromMaybe False $ do
   a'' <- cast a'
   b'' <- cast b'
