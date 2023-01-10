@@ -93,10 +93,6 @@ fixSpecBugs spec =
     propertyTypesLens = lens rawCloudFormationSpecPropertyTypes (\s a -> s { rawCloudFormationSpecPropertyTypes = a })
     propertyPropsLens :: Lens' RawPropertyType (Map Text RawProperty)
     propertyPropsLens = lens rawPropertyTypeProperties (\s a -> s { rawPropertyTypeProperties = a })
-    -- resourceTypesLens :: Lens' RawCloudFormationSpec (Map Text RawResourceType)
-    -- resourceTypesLens = lens rawCloudFormationSpecResourceTypes (\s a -> s { rawCloudFormationSpecResourceTypes = a })
-    -- resourcePropsLens :: Lens' RawResourceType (Map Text RawProperty)
-    -- resourcePropsLens = lens rawResourceTypeProperties (\s a -> s { rawResourceTypeProperties = a })
 
     setRequired rawProp = rawProp { rawPropertyRequired = True }
 

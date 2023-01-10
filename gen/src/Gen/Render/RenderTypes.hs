@@ -18,7 +18,7 @@ import Text.Shakespeare.Text (st)
 import qualified Data.Text as T
 
 renderResourceTypeDecl :: Module -> T.Text
-renderResourceTypeDecl module'@Module {..} = --T.concat [declDocstring module', header, sigs, footer]
+renderResourceTypeDecl module'@Module {..} =
   [st|#{declDocstring module'}
 data #{moduleName} =
   #{moduleName}
