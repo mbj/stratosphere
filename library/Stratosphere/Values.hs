@@ -1,9 +1,10 @@
 module Stratosphere.Values
-  ( Val (..)
+  ( Val(..)
+  , ToRef(..)
+  , ValList(..)
   , sub
-  , ValList (..)
-  , ToRef (..)
-  ) where
+  )
+where
 
 import Data.Aeson
 import Data.Aeson.KeyMap

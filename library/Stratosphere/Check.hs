@@ -3,16 +3,14 @@
 --
 -- Stability: Experimental
 
-module Stratosphere.Check
-  ( duplicateProperties
-  ) where
+module Stratosphere.Check (duplicateProperties) where
 
 import Data.Hashable (Hashable)
-import qualified Data.HashMap.Strict as HM
-import qualified Data.Text as T
-
 import Stratosphere.Resources (_resourceName, unResources)
 import Stratosphere.Template (Template, _templateResources)
+
+import qualified Data.HashMap.Strict as HM
+import qualified Data.Text as T
 
 newtype DuplicateProperty = DuplicateProperty T.Text
   deriving (Show, Eq)

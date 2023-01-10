@@ -7,15 +7,16 @@
 -- name for a stack so that you can easily find it.
 
 module Stratosphere.Outputs
-  ( Output (..)
+  ( Output(..)
   , output
-  , OutputExport (..)
-  , Outputs (..)
+  , OutputExport(..)
+  , Outputs(..)
   , outputName
   , outputDescription
   , outputValue
   , outputExport
-  ) where
+  )
+where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
@@ -23,7 +24,6 @@ import Data.Maybe (catMaybes)
 import Data.Semigroup (Semigroup)
 import Data.Text (Text)
 import GHC.Exts (IsList(..))
-
 import Stratosphere.Helpers
 import Stratosphere.Values
 

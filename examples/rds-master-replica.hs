@@ -5,9 +5,9 @@
 module Main where
 
 import Control.Lens
-import qualified Data.ByteString.Lazy.Char8 as B
-
 import Stratosphere
+
+import qualified Data.ByteString.Lazy.Char8 as B
 
 main :: IO ()
 main = B.putStrLn $ encodeTemplate dbTemplate

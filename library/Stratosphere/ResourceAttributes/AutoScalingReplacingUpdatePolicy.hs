@@ -5,7 +5,6 @@ module Stratosphere.ResourceAttributes.AutoScalingReplacingUpdatePolicy where
 
 import Stratosphere.ResourceImports
 
-
 -- | Full data type definition for AutoScalingReplacingUpdatePolicy. See
 -- 'autoScalingReplacingUpdatePolicy' for a more convenient constructor.
 data AutoScalingReplacingUpdatePolicy =

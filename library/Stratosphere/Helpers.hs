@@ -1,21 +1,23 @@
 module Stratosphere.Helpers
-       ( maybeField
-       , prefixNamer
-       , prefixFieldRules
-       , modTemplateJSONField
-       , NamedItem (..)
-       , namedItemToJSON
-       ) where
+  ( maybeField
+  , prefixNamer
+  , prefixFieldRules
+  , modTemplateJSONField
+  , NamedItem (..)
+  , namedItemToJSON
+  )
+where
 
 import Control.Lens (set)
 import Control.Lens.TH
 import Data.Aeson
-import qualified Data.Aeson.Key as Key
 import Data.Char (isUpper, toLower)
 import Data.List (stripPrefix)
 import Data.Maybe (maybeToList)
-import qualified Data.Text as T
 import Language.Haskell.TH
+
+import qualified Data.Text as T
+import qualified Data.Aeson.Key as Key
 
 -- | Might create an aeson pair from a Maybe value.
 maybeField :: ToJSON a => Key -> Maybe a -> Maybe (Key, Value)

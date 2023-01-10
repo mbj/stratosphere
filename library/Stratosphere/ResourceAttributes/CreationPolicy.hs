@@ -20,8 +20,8 @@
 module Stratosphere.ResourceAttributes.CreationPolicy where
 
 import GHC.Generics (Generic)
-import Stratosphere.ResourceImports
 import Stratosphere.ResourceAttributes.ResourceSignal
+import Stratosphere.ResourceImports
 
 -- | Full data type definition for CreationPolicy. See 'creationPolicy' for a
 -- more convenient constructor.

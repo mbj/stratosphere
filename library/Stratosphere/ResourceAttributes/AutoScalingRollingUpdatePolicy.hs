@@ -5,7 +5,6 @@ module Stratosphere.ResourceAttributes.AutoScalingRollingUpdatePolicy where
 
 import Stratosphere.ResourceImports
 
-
 -- | Full data type definition for AutoScalingRollingUpdatePolicy. See
 -- 'autoScalingRollingUpdatePolicy' for a more convenient constructor.
 data AutoScalingRollingUpdatePolicy =

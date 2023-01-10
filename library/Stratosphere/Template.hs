@@ -3,33 +3,32 @@
 
 module Stratosphere.Template
   ( Template (..)
-  , template
-  , encodeTemplate
   , Mapping
-
-    -- Template lenses
-  , templateFormatVersion
-  , templateDescription
-  , templateMetadata
-  , templateParameters
-  , templateMappings
+  , encodeTemplate
+  , template
   , templateConditions
-  , templateResources
+  , templateDescription
+  , templateFormatVersion
+  , templateMappings
+  , templateMetadata
   , templateOutputs
-  ) where
+  , templateParameters
+  , templateResources
+  )
+where
 
 import Control.Lens
 import Data.Aeson
 import Data.Aeson.Encode.Pretty
 import Data.Aeson.TH
-import qualified Data.ByteString.Lazy as BS
-import qualified Data.HashMap.Strict as HM
-import qualified Data.Text as T
-
 import Stratosphere.Helpers (modTemplateJSONField)
 import Stratosphere.Outputs
 import Stratosphere.Parameters
 import Stratosphere.Resources
+
+import qualified Data.ByteString.Lazy as BS
+import qualified Data.HashMap.Strict  as HM
+import qualified Data.Text            as T
 
 type Mapping = HM.HashMap T.Text Object
 

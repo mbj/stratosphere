@@ -18,7 +18,6 @@ module Stratosphere.ResourceAttributes.AutoScalingScheduledActionPolicy where
 
 import Stratosphere.ResourceImports
 
-
 -- | Full data type definition for AutoScalingScheduledActionPolicy. See
 -- 'autoScalingScheduledActionPolicy' for a more convenient constructor.
 data AutoScalingScheduledActionPolicy =

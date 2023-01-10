@@ -2,9 +2,10 @@ module Main where
 
 import Control.Lens
 import Data.Aeson (Value (Array), object)
-import qualified Data.ByteString.Lazy.Char8 as B
 import Data.Text (Text)
 import Stratosphere
+
+import qualified Data.ByteString.Lazy.Char8 as B
 
 main :: IO ()
 main = B.putStrLn $ encodeTemplate myTemplate

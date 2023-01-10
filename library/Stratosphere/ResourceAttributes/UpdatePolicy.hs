@@ -7,10 +7,10 @@
 module Stratosphere.ResourceAttributes.UpdatePolicy where
 
 import GHC.Generics (Generic)
-import Stratosphere.ResourceImports
 import Stratosphere.ResourceAttributes.AutoScalingReplacingUpdatePolicy
 import Stratosphere.ResourceAttributes.AutoScalingRollingUpdatePolicy
 import Stratosphere.ResourceAttributes.AutoScalingScheduledActionPolicy
+import Stratosphere.ResourceImports
 
 -- | Full data type definition for UpdatePolicy. See 'updatePolicy' for a more
 -- convenient constructor.

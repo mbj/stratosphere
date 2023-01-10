@@ -4,9 +4,9 @@ module Main where
 -- http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-creationpolicy.html
 
 import Control.Lens
-import qualified Data.ByteString.Lazy.Char8 as B
-
 import Stratosphere
+
+import qualified Data.ByteString.Lazy.Char8 as B
 
 main :: IO ()
 main = B.putStrLn $ encodeTemplate myTemplate

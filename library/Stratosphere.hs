@@ -9,31 +9,32 @@
 -- Language (EDSL) to construct templates.
 
 module Stratosphere
-       (
-         -- * Introduction
-         -- $intro
+  (
+    -- * Introduction
+    -- $intro
 
-         -- * Usage
-         -- $usage
+    -- * Usage
+    -- $usage
 
-         module Stratosphere.Outputs
-       , module Stratosphere.Parameters
-       , module Stratosphere.Resources
-       , module Stratosphere.Template
-       , module Stratosphere.Values
-       , module Stratosphere.Types
-       , module Stratosphere.Check
-       , module Control.Lens
-       ) where
+    module Stratosphere.Outputs
+  , module Stratosphere.Parameters
+  , module Stratosphere.Resources
+  , module Stratosphere.Template
+  , module Stratosphere.Values
+  , module Stratosphere.Types
+  , module Stratosphere.Check
+  , module Control.Lens
+  )
+where
 
 import Control.Lens
+import Stratosphere.Check
 import Stratosphere.Outputs
 import Stratosphere.Parameters
 import Stratosphere.Resources
 import Stratosphere.Template
-import Stratosphere.Values
 import Stratosphere.Types
-import Stratosphere.Check
+import Stratosphere.Values
 
 -- $intro
 --

@@ -3,30 +3,30 @@
 -- | Module for hand-written types that are used in generated modules.
 
 module Stratosphere.Types
-  ( EnabledState (..)
-  , AuthorizerType (..)
-  , AuthorizationType (..)
-  , HttpMethod (..)
-  , LoggingLevel (..)
-  , ApiBackendType (..)
-  , Period (..)
-  , AttributeType (..)
-  , KeyType (..)
-  , ProjectionType (..)
-  , StreamViewType (..)
-  , SNSProtocol (..)
-  , Runtime (..)
-  , PassthroughBehavior (..)
-  , CannedACL (..)
-  , KinesisFirehoseS3CompressionFormat(..)
+  ( ApiBackendType(..)
+  , AttributeType(..)
+  , AuthorizationType(..)
+  , AuthorizerType(..)
+  , CannedACL(..)
+  , EnabledState(..)
+  , HttpMethod(..)
+  , KeyType(..)
   , KinesisFirehoseElasticsearchS3BackupMode(..)
   , KinesisFirehoseNoEncryptionConfig(..)
-  ) where
+  , KinesisFirehoseS3CompressionFormat(..)
+  , LoggingLevel(..)
+  , PassthroughBehavior(..)
+  , Period(..)
+  , ProjectionType(..)
+  , Runtime(..)
+  , SNSProtocol(..)
+  , StreamViewType(..)
+  )
+where
 
 import Data.Aeson
 import Data.Text (Text)
 import GHC.Generics
-
 
 data EnabledState
   = ENABLED

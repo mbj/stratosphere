@@ -14,11 +14,11 @@ import Control.Lens hiding ((.=))
 import Data.Aeson
 import Data.Maybe (catMaybes)
 import Data.Semigroup (Semigroup)
-import qualified Data.Text as T
 import GHC.Exts (IsList(..))
-
 import Stratosphere.Helpers
 import Stratosphere.Values
+
+import qualified Data.Text as T
 
 data Parameter =
   Parameter
