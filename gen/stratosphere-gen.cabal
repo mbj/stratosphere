@@ -3,8 +3,6 @@ cabal-version: 1.12
 -- This file has been generated from package.yaml by hpack version 0.35.0.
 --
 -- see: https://github.com/sol/hpack
---
--- hash: 1232c6f92c35cfd059696129c138046da886a6944c47f300101827d1b36ad636
 
 name:           stratosphere-gen
 version:        0.1.0
@@ -41,7 +39,7 @@ executable stratosphere-gen
       ScopedTypeVariables
       StandaloneDeriving
       TemplateHaskell
-  ghc-options: -Wall -O0
+  ghc-options: -Wall -Wcompat -Werror -Widentities -Wimplicit-prelude -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-local-signatures -Wmissing-signatures -Wmonomorphism-restriction -Wredundant-constraints -fhide-source-paths -funbox-strict-fields -optP-Wno-nonportable-include-path -O0
   build-depends:
       aeson >=0.11
     , base

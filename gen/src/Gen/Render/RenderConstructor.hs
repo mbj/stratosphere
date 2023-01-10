@@ -40,7 +40,9 @@ constructorDocstring Module {..} = renderDocstring doc
 renderTypes :: Module -> Text
 renderTypes module' = T.intercalate "\n" lines'
   where
+    typePrefixes :: [Text]
     typePrefixes = "  :: " : repeat "  -> "
+
     types = constructorTypes module'
     req = requiredProperties (moduleProperties module')
     comments = fmap (\prop -> " -- ^ '" <> moduleLensPrefix module' <> propertyName prop <> "'") req

@@ -240,4 +240,6 @@ instance ToJSON Resources where
 
 renderImports :: [Text] -> Text
 renderImports paths = T.unlines $ fmap mkImport paths
-  where mkImport path = "import " <> path <> " as X"
+  where
+    mkImport :: Text -> Text
+    mkImport path = "import " <> path <> " as X"
