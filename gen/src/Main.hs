@@ -49,7 +49,7 @@ renderModule module'@Module {..} = do
       else renderToJSON module'
 
   createDirectoryIfMissing True moduleDir
-  putStrLn ("Writing: " ++ show filePath)
+  putStrLn ("Writing: " <> filePath)
   TIO.writeFile filePath [st|{-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards #-}
 {-# LANGUAGE StrictData #-}
@@ -89,7 +89,7 @@ renderTopLevelModule modules = do
   let
     paths = fmap (\Module{..} -> modulePath <> "." <> moduleName) modules
     modPath = "library-gen" </> "Stratosphere" </> "Resources.hs"
-  putStrLn ("Writing: " ++ show modPath)
+  putStrLn ("Writing: " <> modPath)
   TIO.writeFile modPath [st|{-# LANGUAGE CPP #-}
 {-# LANGUAGE DeriveGeneric #-}
 {-# LANGUAGE ExistentialQuantification #-}
