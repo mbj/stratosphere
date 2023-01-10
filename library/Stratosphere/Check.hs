@@ -1,3 +1,5 @@
+{-# OPTIONS -Wno-redundant-constraints #-}
+
 -- | `Stratosphere.Check` exports functions to catch errors
 -- that would be too expensive or unwieldy to encode in types.
 --
