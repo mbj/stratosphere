@@ -1,6 +1,3 @@
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-
 -- | You associate the CreationPolicy attribute with a resource to prevent its
 -- status from reaching create complete until AWS CloudFormation receives a
 -- specified number of success signals or the timeout period is exceeded. To

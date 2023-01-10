@@ -50,11 +50,7 @@ renderModule module'@Module {..} = do
 
   createDirectoryIfMissing True moduleDir
   putStrLn ("Writing: " <> filePath)
-  TIO.writeFile filePath [st|{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE StrictData #-}
-{-# LANGUAGE TupleSections #-}
-
+  TIO.writeFile filePath [st|
 #{renderDocstring moduleDocumentation}
 
 module #{modulePath}.#{moduleName} where
@@ -83,26 +79,13 @@ renderDependencies Module {..} props = T.intercalate "\n" deps
       (if null customDeps then [] else ["import Stratosphere.Types"]) ++
       fmap (\d -> T.concat ["import Stratosphere.ResourceProperties.", d]) nonRecursivePropertyDeps
 
-
 renderTopLevelModule :: [Module] -> IO ()
 renderTopLevelModule modules = do
   let
     paths = fmap (\Module{..} -> modulePath <> "." <> moduleName) modules
     modPath = "library-gen" </> "Stratosphere" </> "Resources.hs"
   putStrLn ("Writing: " <> modPath)
-  TIO.writeFile modPath [st|{-# LANGUAGE CPP #-}
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE ExistentialQuantification #-}
-{-# LANGUAGE FlexibleInstances #-}
-{-# LANGUAGE FunctionalDependencies #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE MultiParamTypeClasses #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE StrictData #-}
-{-# LANGUAGE TemplateHaskell #-}
-{-# LANGUAGE TypeFamilies #-}
-
--- | See:
+  TIO.writeFile modPath [st|-- | See:
 -- http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html
 --
 -- The required Resources section declare the AWS resources that you want as

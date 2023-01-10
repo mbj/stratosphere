@@ -1,6 +1,3 @@
-{-# LANGUAGE OverloadedLists #-}
-{-# LANGUAGE OverloadedStrings #-}
-
 module Main where
 
 -- | Example inspired from the CreationPolicy docs:

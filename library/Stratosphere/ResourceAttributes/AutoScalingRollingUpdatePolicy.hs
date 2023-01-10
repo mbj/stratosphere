@@ -1,7 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TupleSections #-}
-
 -- | To specify how AWS CloudFormation handles rolling updates for an Auto
 -- Scaling group, use the AutoScalingRollingUpdatePolicy policy.
 

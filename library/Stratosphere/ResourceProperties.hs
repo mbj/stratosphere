@@ -1,6 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE StrictData #-}
-
 module Stratosphere.ResourceProperties
   ( ResourceProperties(..)
   , ToResourceProperties(..)

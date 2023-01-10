@@ -32,6 +32,24 @@ flags:
     default: true
     manual: true
 
+default-extensions:
+- DeriveGeneric
+- ExistentialQuantification
+- FlexibleInstances
+- FunctionalDependencies
+- GADTs
+- GeneralizedNewtypeDeriving
+- LambdaCase
+- MultiParamTypeClasses
+- OverloadedLists
+- OverloadedStrings
+- RecordWildCards
+- ScopedTypeVariables
+- StandaloneDeriving
+- TemplateHaskell
+- TupleSections
+- TypeFamilies
+
 library:
   source-dirs:
   - library

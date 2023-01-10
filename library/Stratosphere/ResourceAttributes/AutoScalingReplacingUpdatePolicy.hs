@@ -1,7 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TupleSections #-}
-
 -- | To specify how AWS CloudFormation handles replacing updates for an Auto
 -- Scaling group, use the AutoScalingReplacingUpdate policy.
 

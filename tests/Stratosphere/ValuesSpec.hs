@@ -1,6 +1,3 @@
-{-# LANGUAGE OverloadedLists #-}
-{-# LANGUAGE OverloadedStrings #-}
-
 module Stratosphere.ValuesSpec
   ( spec
   ) where

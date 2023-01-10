@@ -1,6 +1,3 @@
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-
 -- | Use the UpdatePolicy attribute to specify how AWS CloudFormation handles
 -- updates to the AWS::AutoScaling::AutoScalingGroup resource. AWS
 -- CloudFormation invokes one of three update policies depending on the type

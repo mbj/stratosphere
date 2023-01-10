@@ -1,9 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TupleSections #-}
-
--- |
-
 module Stratosphere.ResourceAttributes.ResourceSignal where
 
 import Stratosphere.ResourceImports

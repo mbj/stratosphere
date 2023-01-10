@@ -35,9 +35,6 @@ import Stratosphere.Values
 import Stratosphere.Types
 import Stratosphere.Check
 
-{-# ANN module "HLint: ignore Use import/export shortcut" #-}
-
-
 -- $intro
 --
 -- The core datatype of stratosphere is the 'Template', which corresponds to a

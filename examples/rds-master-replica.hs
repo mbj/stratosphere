@@ -1,6 +1,3 @@
-{-# LANGUAGE OverloadedLists #-}
-{-# LANGUAGE OverloadedStrings #-}
-
 -- | This example creates a Postgres RDS master and slave with a parameter
 -- group. Also note the DeletionPolicy of Retain, which will keep the resource
 -- alive if you delete the stack.

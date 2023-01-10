@@ -1,9 +1,3 @@
-{-# LANGUAGE GADTs #-}
-{-# LANGUAGE MultiParamTypeClasses #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE StandaloneDeriving #-}
-{-# LANGUAGE TypeFamilies #-}
-
 module Stratosphere.Values
   ( Val (..)
   , sub
@@ -77,7 +71,7 @@ instance (ToJSON a) => ToJSON (Val a) where
   toJSON (Join d vs) = mkFunc "Fn::Join" [toJSON d, toJSON vs]
   toJSON (Select i vs) = mkFunc "Fn::Select" [toJSON i, toJSON vs]
   toJSON (FindInMap mapName topKey secondKey) =
-    object [("Fn::FindInMap", toJSON [toJSON mapName, toJSON topKey, toJSON secondKey])]
+    object [("Fn::FindInMap", toJSON ([toJSON mapName, toJSON topKey, toJSON secondKey] :: [Value]))]
   toJSON (ImportValue t) = importValueToJSON t
   toJSON (Sub s Nothing) = object [("Fn::Sub", toJSON s)]
   toJSON (Sub s (Just vals)) = mkFunc "Fn::Sub" [toJSON s, Object (toJSON <$> vals)]

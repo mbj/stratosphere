@@ -2102,6 +2102,23 @@ library
   hs-source-dirs:
       library
       library-gen
+  default-extensions:
+      DeriveGeneric
+      ExistentialQuantification
+      FlexibleInstances
+      FunctionalDependencies
+      GADTs
+      GeneralizedNewtypeDeriving
+      LambdaCase
+      MultiParamTypeClasses
+      OverloadedLists
+      OverloadedStrings
+      RecordWildCards
+      ScopedTypeVariables
+      StandaloneDeriving
+      TemplateHaskell
+      TupleSections
+      TypeFamilies
   ghc-options: -Wall -O0
   build-depends:
       aeson >=2
@@ -2122,6 +2139,23 @@ executable auto-scaling-group
       Paths_stratosphere
   hs-source-dirs:
       examples
+  default-extensions:
+      DeriveGeneric
+      ExistentialQuantification
+      FlexibleInstances
+      FunctionalDependencies
+      GADTs
+      GeneralizedNewtypeDeriving
+      LambdaCase
+      MultiParamTypeClasses
+      OverloadedLists
+      OverloadedStrings
+      RecordWildCards
+      ScopedTypeVariables
+      StandaloneDeriving
+      TemplateHaskell
+      TupleSections
+      TypeFamilies
   ghc-options: -Wall
   build-depends:
       aeson >=2
@@ -2145,6 +2179,23 @@ executable rds-master-replica
       Paths_stratosphere
   hs-source-dirs:
       examples
+  default-extensions:
+      DeriveGeneric
+      ExistentialQuantification
+      FlexibleInstances
+      FunctionalDependencies
+      GADTs
+      GeneralizedNewtypeDeriving
+      LambdaCase
+      MultiParamTypeClasses
+      OverloadedLists
+      OverloadedStrings
+      RecordWildCards
+      ScopedTypeVariables
+      StandaloneDeriving
+      TemplateHaskell
+      TupleSections
+      TypeFamilies
   ghc-options: -Wall
   build-depends:
       aeson >=2
@@ -2168,6 +2219,23 @@ executable s3-copy
       Paths_stratosphere
   hs-source-dirs:
       examples
+  default-extensions:
+      DeriveGeneric
+      ExistentialQuantification
+      FlexibleInstances
+      FunctionalDependencies
+      GADTs
+      GeneralizedNewtypeDeriving
+      LambdaCase
+      MultiParamTypeClasses
+      OverloadedLists
+      OverloadedStrings
+      RecordWildCards
+      ScopedTypeVariables
+      StandaloneDeriving
+      TemplateHaskell
+      TupleSections
+      TypeFamilies
   ghc-options: -Wall
   build-depends:
       aeson >=2
@@ -2191,6 +2259,23 @@ executable simple-lambda
       Paths_stratosphere
   hs-source-dirs:
       examples
+  default-extensions:
+      DeriveGeneric
+      ExistentialQuantification
+      FlexibleInstances
+      FunctionalDependencies
+      GADTs
+      GeneralizedNewtypeDeriving
+      LambdaCase
+      MultiParamTypeClasses
+      OverloadedLists
+      OverloadedStrings
+      RecordWildCards
+      ScopedTypeVariables
+      StandaloneDeriving
+      TemplateHaskell
+      TupleSections
+      TypeFamilies
   ghc-options: -Wall
   build-depends:
       aeson >=2
@@ -2216,6 +2301,23 @@ test-suite spec
       Paths_stratosphere
   hs-source-dirs:
       tests
+  default-extensions:
+      DeriveGeneric
+      ExistentialQuantification
+      FlexibleInstances
+      FunctionalDependencies
+      GADTs
+      GeneralizedNewtypeDeriving
+      LambdaCase
+      MultiParamTypeClasses
+      OverloadedLists
+      OverloadedStrings
+      RecordWildCards
+      ScopedTypeVariables
+      StandaloneDeriving
+      TemplateHaskell
+      TupleSections
+      TypeFamilies
   build-depends:
       aeson >=2
     , aeson-pretty >=0.8
