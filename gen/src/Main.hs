@@ -4,7 +4,6 @@
 module Main (main) where
 
 import Control.Monad (when)
-import Data.Aeson
 import Data.List (nub)
 import Data.Text (Text)
 import Gen.ReadRawSpecFile
@@ -20,14 +19,7 @@ import qualified Data.Text.IO as TIO
 
 main :: IO ()
 main = do
-  rawSpecValue :: Value <- either error id <$> decodeFile ("model" </> "sorted-spec.json")
-  let
-    rawSpecValueFiltered = rawSpecValue
-
-    filteredFile = "model" </> "filtered-spec.json"
-  -- Encode to a file and then decode again so we get better error messages
-  encodeFile filteredFile rawSpecValueFiltered
-  rawSpec <- either error id <$> decodeFile filteredFile
+  rawSpec <- either error id <$> decodeFile ("model" </> "sorted-spec.json")
 
   let
     spec = specFromRaw rawSpec
