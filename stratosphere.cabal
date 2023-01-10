@@ -36,6 +36,7 @@ library
       Stratosphere.Helpers
       Stratosphere.Outputs
       Stratosphere.Parameters
+      Stratosphere.Resource
       Stratosphere.ResourceAttributes.AutoScalingReplacingUpdatePolicy
       Stratosphere.ResourceAttributes.AutoScalingRollingUpdatePolicy
       Stratosphere.ResourceAttributes.AutoScalingScheduledActionPolicy
