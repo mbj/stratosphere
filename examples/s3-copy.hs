@@ -7,6 +7,7 @@ import Prelude
 import Stratosphere
 
 import qualified Data.ByteString.Lazy.Char8 as B
+import qualified Data.Aeson                 as JSON
 
 main :: IO ()
 main = B.putStrLn $ encodeTemplate myTemplate
@@ -88,6 +89,7 @@ role' =
           , "s3:GetObject"
           ]
 
+    rolePolicyDocumentObject :: JSON.Object
     rolePolicyDocumentObject =
       [ ("Version", "2012-10-17")
       , ("Statement", statement)

@@ -6,6 +6,7 @@ import Data.Text (Text)
 import Prelude
 import Stratosphere
 
+import qualified Data.Aeson                 as JSON
 import qualified Data.ByteString.Lazy.Char8 as B
 
 main :: IO ()
@@ -73,7 +74,7 @@ role' =
           , "logs:PutLogEvents"
           ]
 
-
+    rolePolicyDocumentObject :: JSON.Object
     rolePolicyDocumentObject =
       [ ("Version", "2012-10-17")
       , ("Statement", statement)
