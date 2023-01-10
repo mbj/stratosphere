@@ -1,7 +1,7 @@
 {-# LANGUAGE BangPatterns #-}
 {-# LANGUAGE QuasiQuotes #-}
 
-module Main where
+module Main (main) where
 
 import Control.Monad (when)
 import Data.Aeson

@@ -2,7 +2,7 @@
 
 -- | Renders the lens functions for resources
 
-module Gen.Render.RenderLenses where
+module Gen.Render.RenderLenses (renderLenses) where
 
 import Data.Text (Text)
 import Gen.Render.RenderDocstring

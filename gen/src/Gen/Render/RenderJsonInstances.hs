@@ -3,7 +3,8 @@
 module Gen.Render.RenderJsonInstances
   ( renderToJSON
   , renderToResourceProperties
-  ) where
+  )
+where
 
 import Data.Text (Text)
 import Gen.Render.Types

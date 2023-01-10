@@ -2,7 +2,7 @@
 
 -- | Formats docstrings
 
-module Gen.Render.RenderDocstring where
+module Gen.Render.RenderDocstring (renderDocstring) where
 
 import Data.Text (Text)
 import Prelude

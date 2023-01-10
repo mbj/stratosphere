@@ -2,7 +2,7 @@
 
 -- | Renders the constructor that includes required values.
 
-module Gen.Render.RenderConstructor where
+module Gen.Render.RenderConstructor (renderConstructor) where
 
 import Data.Text (Text)
 import Data.Text.Manipulate (lowerHead)
