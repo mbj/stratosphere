@@ -9,14 +9,6 @@
 
 module Stratosphere.Resources (module X) where
 
-import Control.Lens hiding ((.=))
-import Data.Aeson
-import Data.Maybe (catMaybes)
-import Data.Semigroup (Semigroup)
-import qualified Data.Text as T
-import GHC.Exts (IsList(..))
-import GHC.Generics (Generic)
-
 import Stratosphere.Resources.ACMPCACertificate as X
 import Stratosphere.Resources.ACMPCACertificateAuthority as X
 import Stratosphere.Resources.ACMPCACertificateAuthorityActivation as X
@@ -2072,7 +2064,4 @@ import Stratosphere.ResourceAttributes.AutoScalingScheduledActionPolicy as X
 import Stratosphere.ResourceAttributes.CreationPolicy as X
 import Stratosphere.ResourceAttributes.ResourceSignal as X
 import Stratosphere.ResourceAttributes.UpdatePolicy as X
-import Stratosphere.Helpers
 import Stratosphere.Resource as X
-import Stratosphere.ResourceProperties
-import Stratosphere.Values

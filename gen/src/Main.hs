@@ -97,14 +97,6 @@ renderTopLevelModule modules = do
 
 module Stratosphere.Resources (module X) where
 
-import Control.Lens hiding ((.=))
-import Data.Aeson
-import Data.Maybe (catMaybes)
-import Data.Semigroup (Semigroup)
-import qualified Data.Text as T
-import GHC.Exts (IsList(..))
-import GHC.Generics (Generic)
-
 #{renderImports paths}
 import Stratosphere.ResourceAttributes.AutoScalingReplacingUpdatePolicy as X
 import Stratosphere.ResourceAttributes.AutoScalingRollingUpdatePolicy as X
@@ -112,10 +104,7 @@ import Stratosphere.ResourceAttributes.AutoScalingScheduledActionPolicy as X
 import Stratosphere.ResourceAttributes.CreationPolicy as X
 import Stratosphere.ResourceAttributes.ResourceSignal as X
 import Stratosphere.ResourceAttributes.UpdatePolicy as X
-import Stratosphere.Helpers
 import Stratosphere.Resource as X
-import Stratosphere.ResourceProperties
-import Stratosphere.Values
 |]
 
 renderImports :: [Text] -> Text

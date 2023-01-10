@@ -13,7 +13,6 @@ module Stratosphere.Parameters where
 import Control.Lens hiding ((.=))
 import Data.Aeson
 import Data.Maybe (catMaybes)
-import Data.Semigroup (Semigroup)
 import GHC.Exts (IsList(..))
 import Prelude
 import Stratosphere.Helpers

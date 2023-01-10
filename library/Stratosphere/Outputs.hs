@@ -11,17 +11,17 @@ module Stratosphere.Outputs
   , output
   , OutputExport(..)
   , Outputs(..)
-  , outputName
+  , outputCondition
   , outputDescription
-  , outputValue
   , outputExport
+  , outputName
+  , outputValue
   )
 where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
 import Data.Maybe (catMaybes)
-import Data.Semigroup (Semigroup)
 import Data.Text (Text)
 import GHC.Exts (IsList(..))
 import Prelude
