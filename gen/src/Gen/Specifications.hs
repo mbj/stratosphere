@@ -82,12 +82,12 @@ fixSpecBugs spec =
   . ix "AWS::ECS::TaskDefinition.ContainerDefinition"
   . propertyPropsLens
   . at "Image"
-  %~ (\(Just rawProp) -> Just rawProp { rawPropertyRequired = True })
+  %~ fmap setRequired
   & propertyTypesLens
   . ix "AWS::ECS::TaskDefinition.ContainerDefinition"
   . propertyPropsLens
   . at "Name"
-  %~ (\(Just rawProp) -> Just rawProp { rawPropertyRequired = True })
+  %~ fmap setRequired
   where
     propertyTypesLens :: Lens' RawCloudFormationSpec (Map Text RawPropertyType)
     propertyTypesLens = lens rawCloudFormationSpecPropertyTypes (\s a -> s { rawCloudFormationSpecPropertyTypes = a })
@@ -97,6 +97,8 @@ fixSpecBugs spec =
     -- resourceTypesLens = lens rawCloudFormationSpecResourceTypes (\s a -> s { rawCloudFormationSpecResourceTypes = a })
     -- resourcePropsLens :: Lens' RawResourceType (Map Text RawProperty)
     -- resourcePropsLens = lens rawResourceTypeProperties (\s a -> s { rawResourceTypeProperties = a })
+
+    setRequired rawProp = rawProp { rawPropertyRequired = True }
 
 data PropertyType
   = PropertyType
