@@ -2,21 +2,22 @@
 
 -- | Renders the lens functions for resources
 
-module Gen.Render.RenderLenses where
+module Gen.Render.RenderLenses (renderLenses) where
 
-import Data.Monoid ((<>))
 import Data.Text (Text)
-import qualified Data.Text as T
-import Text.Shakespeare.Text (st)
-
 import Gen.Render.RenderDocstring
 import Gen.Render.RenderTypes
 import Gen.Render.Types
 import Gen.Specifications
+import Prelude
+import Text.Shakespeare.Text (st)
+
+import qualified Data.Text as T
 
 renderLenses :: Module -> Text
 renderLenses module'@Module{..} = T.intercalate "\n\n" lenses
-  where lenses = fmap (renderLens module') moduleProperties
+  where
+    lenses = fmap (renderLens module') moduleProperties
 
 renderLens :: Module -> Property -> Text
 renderLens Module{..} property@Property{..} =

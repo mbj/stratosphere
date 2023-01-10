@@ -4,20 +4,23 @@
 -- | Parse the official AWS specification file.
 
 module Gen.ReadRawSpecFile
-  ( RawCloudFormationSpec (..)
-  , RawPropertyType (..)
-  , RawProperty (..)
-  , RawResourceType (..)
-  , RawResourceAttribute (..)
+  ( RawCloudFormationSpec(..)
+  , RawPropertyType(..)
+  , RawProperty(..)
+  , RawResourceType(..)
+  , RawResourceAttribute(..)
   , decodeFile
-  ) where
+  )
+where
 
 import Control.Applicative ((<|>))
 import Data.Aeson
-import qualified Data.ByteString as BS
 import Data.Map (Map)
 import Data.Text
 import GHC.Generics
+import Prelude
+
+import qualified Data.ByteString as BS
 
 data RawCloudFormationSpec
   = RawCloudFormationSpec

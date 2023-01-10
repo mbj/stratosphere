@@ -3,15 +3,16 @@
 module Gen.Render.RenderJsonInstances
   ( renderToJSON
   , renderToResourceProperties
-  ) where
+  )
+where
 
-import Data.Monoid ((<>))
 import Data.Text (Text)
-import qualified Data.Text as T
-import Text.Shakespeare.Text (st)
-
 import Gen.Render.Types
 import Gen.Specifications
+import Text.Shakespeare.Text (st)
+import Prelude
+
+import qualified Data.Text as T
 
 -- | Renders to ToJSON instances for a resource.
 renderToJSON :: Module -> Text

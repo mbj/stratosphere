@@ -14,12 +14,10 @@ jobs:
         os:  [ubuntu-latest]
     steps:
     - uses: actions/checkout@v3
-    - uses: haskell/actions/setup@v2
-      with:
-        enable-stack: true
-        stack-version: 2.7.5
+    - name: Setup Stack
+      run: ci/setup-stack.sh
     - name: Cache Dependencies
-      uses: actions/cache@v2
+      uses: actions/cache@v3
       with:
         path: ~/.stack
         key: ${{ matrix.os }}-${{ matrix.ghc }}-${{ hashFiles(env.STACK_YAML, format('{0}.lock', env.STACK_YAML)) }}

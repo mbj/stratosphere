@@ -2,9 +2,11 @@
 
 -- | Formats docstrings
 
-module Gen.Render.RenderDocstring where
+module Gen.Render.RenderDocstring (renderDocstring) where
 
 import Data.Text (Text)
+import Prelude
+
 import qualified Data.Text as T
 
 renderDocstring :: Text -> Text
@@ -25,4 +27,5 @@ wrapLine' maxLen line = filter (not . null) $ map unwords $ gobble 0 [] $ words 
         | l >= maxLen     = reverse acc : [w] : gobble 0 [] rest
         | k + l >= maxLen = reverse acc       : gobble 0 [] ws
         | otherwise       = gobble (k + l + 1) (w : acc) rest
-        where l = length w
+      where
+        l = length w

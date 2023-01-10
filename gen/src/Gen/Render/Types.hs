@@ -1,18 +1,15 @@
-module Gen.Render.Types
-  ( Module (..)
-  , createModules
-  ) where
+module Gen.Render.Types (Module(..), createModules) where
 
 import Data.Char (isUpper, isNumber)
-import qualified Data.Char as Char
 import Data.Maybe (fromMaybe)
-import Data.Monoid ((<>))
 import Data.Set (Set)
-import qualified Data.Set as Set
 import Data.Text
 import Data.Text.Manipulate (lowerHead, toAcronym)
-
 import Gen.Specifications
+import Prelude
+
+import qualified Data.Set as Set
+import qualified Data.Char as Char
 
 data Module
   = Module
@@ -118,21 +115,18 @@ computeModuleName fullName
   -- AWS::ElasticLoadBalancingV2::Listener.Certificate
   | fullName == "AWS::ElasticLoadBalancingV2::ListenerCertificate" =
       computeModuleName "AWS::ElasticLoadBalancingV2::ListenerCertificateResource"
-  | "::" `isInfixOf` fullName =
-    let [_, parent, baseName] = splitOn "::" fullName
-    in Data.Text.filter (/= '.') (parent <> baseName)
+  | "::" `isInfixOf` fullName = fromComponents $ splitOn "::" fullName
   | otherwise = fullName
+  where
+    fromComponents = \case
+      [_, parent, baseName] -> Data.Text.filter (/= '.') (parent <> baseName)
+      _other                -> error $ "Unexpected module full name: " <> unpack fullName
 
 -- | The Resource Type is anything around the colons, but before the dot. The
 -- resource type for AWS::EC2::Instance is the same thing: AWS::EC2::Instance.
 -- The resource type for AWS::EC2::Instance.Ebs is AWS::EC2::Instance.
 computeResourceType :: Text -> Text
-computeResourceType fullName
-  | "::" `isInfixOf` fullName && "." `isInfixOf` fullName =
-    let [type', _] = splitOn "." fullName
-    in type'
-  | "::" `isInfixOf` fullName = fullName
-  | otherwise = ""
+computeResourceType fullName = fst $ breakOn "." fullName
 
 computeConstructorName :: Text -> Text
 computeConstructorName rawName = pack $ headLower $ unpack $ computeModuleName rawName
@@ -173,7 +167,6 @@ computeLensPrefix "AWS::GuardDuty::Master" = "gdma"
 computeLensPrefix "AWS::GuardDuty::Member" = "gdme"
 computeLensPrefix "AWS::ServiceCatalog::PortfolioPrincipalAssociation" = "scppria"
 computeLensPrefix "AWS::ServiceCatalog::PortfolioProductAssociation" = "scpproa"
--- computeLensPrefix "AWS::KinesisFirehose::DeliveryStream.S3DestinationConfiguration" = "kfdssdc"
 computeLensPrefix "AWS::KinesisFirehose::DeliveryStream.SplunkDestinationConfiguration" = "kfdsspdc"
 computeLensPrefix "AWS::IoT1Click::Placement" = "itcpl"
 computeLensPrefix "AWS::IoT1Click::Project" = "itcpr"
@@ -201,9 +194,7 @@ computeLensPrefix "AWS::WAFv2::RuleGroup.StatementTwo" = "wafrgstw"
 computeLensPrefix "AWS::WAFv2::RuleGroup.StatementThree" = "wafrgsth"
 computeLensPrefix "AWS::WAFv2::WebACL.StatementTwo" = "wafwaclstw"
 computeLensPrefix "AWS::WAFv2::WebACL.StatementThree" = "wafwaclsth"
---computeLensPrefix "AWS::WAF::WebACL" = "wafwacl"
 computeLensPrefix "AWS::WAFv2::WebACL" = "wafvwacl"
---computeLensPrefix "AWS::WAF::IPSet" = "wafips"
 computeLensPrefix "AWS::WAFv2::IPSet" = "wafvips"
 computeLensPrefix "AWS::IoTEvents::DetectorModel.DynamoDB" = "itedmddb"
 computeLensPrefix "AWS::IoTEvents::DetectorModel.DynamoDBv2" = "itedmddbv"
@@ -211,7 +202,6 @@ computeLensPrefix "AWS::IoTEvents::DetectorModel.Sns" = "itedmsn"
 computeLensPrefix "AWS::IoTEvents::DetectorModel.Sqs" = "itedmsq"
 computeLensPrefix "AWS::EC2::CarrierGateway" = "eccag"
 computeLensPrefix "AWS::EC2::CustomerGateway" = "eccug"
--- Everything else
 computeLensPrefix rawName = toLower $ fromMaybe rawName $ toAcronym $ computeModuleName rawName
 
 computeFieldPrefix :: Text -> Text

@@ -1,44 +1,25 @@
 {-# LANGUAGE BangPatterns #-}
 {-# LANGUAGE QuasiQuotes #-}
 
-module Main where
+module Main (main) where
 
---import Control.Lens hiding ((<.>))
 import Control.Monad (when)
-import Data.Aeson
---import Data.Aeson.Lens
---import qualified Data.HashMap.Lazy as HM
 import Data.List (nub)
 import Data.Text (Text)
-import qualified Data.Text as T
-import qualified Data.Text.IO as TIO
+import Gen.ReadRawSpecFile
+import Gen.Render
+import Gen.Specifications
+import Prelude
 import System.Directory
 import System.FilePath.Posix
 import Text.Shakespeare.Text (st)
 
-import Gen.ReadRawSpecFile
-import Gen.Render
-import Gen.Specifications
+import qualified Data.Text as T
+import qualified Data.Text.IO as TIO
 
 main :: IO ()
 main = do
-  rawSpecValue :: Value <- either error id <$> decodeFile ("model" </> "sorted-spec.json")
-  let
-    -- Remove WAFv2 resources. In the past they were totally malformed. I'm
-    -- keeping this code around in case this comes back in the future.
-    rawSpecValueFiltered =
-      rawSpecValue
-      -- & key "PropertyTypes"
-      --   . _Object
-      --   %~ HM.filterWithKey (\k _ -> not $ "AWS::WAFv2::" `T.isPrefixOf` k)
-      -- & key "ResourceTypes"
-      --   . _Object
-      --   %~ HM.filterWithKey (\k _ -> not $ "AWS::WAFv2::" `T.isPrefixOf` k)
-
-    filteredFile = "model" </> "filtered-spec.json"
-  -- Encode to a file and then decode again so we get better error messages
-  encodeFile filteredFile rawSpecValueFiltered
-  rawSpec <- either error id <$> decodeFile filteredFile
+  rawSpec <- either error id <$> decodeFile ("gen" </> "model" </> "sorted-spec.json")
 
   let
     spec = specFromRaw rawSpec
@@ -47,11 +28,11 @@ main = do
       (cloudFormationSpecPropertyTypes spec)
       (cloudFormationSpecResourceTypes spec)
 
-  genExists <- doesDirectoryExist (".." </> "library-gen")
+  genExists <- doesDirectoryExist ("library-gen")
   when genExists $
-    removeDirectoryRecursive (".." </> "library-gen")
-  createDirectory (".." </> "library-gen")
-  createDirectory (".." </> "library-gen" </> "Stratosphere")
+    removeDirectoryRecursive ("library-gen")
+  createDirectory ("library-gen")
+  createDirectory ("library-gen" </> "Stratosphere")
 
   mapM_ renderModule modules
   renderTopLevelModule modules
@@ -59,7 +40,7 @@ main = do
 renderModule :: Module -> IO ()
 renderModule module'@Module {..} = do
   let
-    moduleDir = ".." </> "library-gen" </> foldl1 (</>) (T.unpack <$> T.splitOn "." modulePath)
+    moduleDir = "library-gen" </> foldl1 (</>) (T.unpack <$> T.splitOn "." modulePath)
     fileName = T.unpack moduleName <.> "hs"
     filePath = moduleDir </> fileName
     toJsonOrProps =
@@ -107,7 +88,7 @@ renderTopLevelModule :: [Module] -> IO ()
 renderTopLevelModule modules = do
   let
     paths = fmap (\Module{..} -> modulePath <> "." <> moduleName) modules
-    modPath = ".." </> "library-gen" </> "Stratosphere" </> "Resources.hs"
+    modPath = "library-gen" </> "Stratosphere" </> "Resources.hs"
   putStrLn ("Writing: " ++ show modPath)
   TIO.writeFile modPath [st|{-# LANGUAGE CPP #-}
 {-# LANGUAGE DeriveGeneric #-}
@@ -242,4 +223,6 @@ instance ToJSON Resources where
 
 renderImports :: [Text] -> Text
 renderImports paths = T.unlines $ fmap mkImport paths
-  where mkImport path = "import " <> path <> " as X"
+  where
+    mkImport :: Text -> Text
+    mkImport path = "import " <> path <> " as X"

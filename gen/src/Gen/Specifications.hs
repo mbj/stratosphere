@@ -2,25 +2,26 @@
 -- generator.
 
 module Gen.Specifications
-  ( CloudFormationSpec (..)
+  ( CloudFormationSpec(..)
   , specFromRaw
-  , PropertyType (..)
-  , Property (..)
-  , SpecType (..)
+  , PropertyType(..)
+  , Property(..)
+  , SpecType(..)
   , subPropertyTypeNames
   , customTypeNames
-  , AtomicType (..)
-  , ResourceType (..)
-  ) where
+  , AtomicType(..)
+  , ResourceType(..)
+  )
+where
 
 import Control.Lens
 import Data.List (sortOn)
-import Data.Maybe (catMaybes)
 import Data.Map (Map, toList)
+import Data.Maybe (catMaybes)
 import Data.Text
 import GHC.Generics hiding (to)
-
 import Gen.ReadRawSpecFile
+import Prelude
 
 data CloudFormationSpec
   = CloudFormationSpec
@@ -81,21 +82,19 @@ fixSpecBugs spec =
   . ix "AWS::ECS::TaskDefinition.ContainerDefinition"
   . propertyPropsLens
   . at "Image"
-  %~ (\(Just rawProp) -> Just rawProp { rawPropertyRequired = True })
+  %~ fmap setRequired
   & propertyTypesLens
   . ix "AWS::ECS::TaskDefinition.ContainerDefinition"
   . propertyPropsLens
   . at "Name"
-  %~ (\(Just rawProp) -> Just rawProp { rawPropertyRequired = True })
+  %~ fmap setRequired
   where
     propertyTypesLens :: Lens' RawCloudFormationSpec (Map Text RawPropertyType)
     propertyTypesLens = lens rawCloudFormationSpecPropertyTypes (\s a -> s { rawCloudFormationSpecPropertyTypes = a })
     propertyPropsLens :: Lens' RawPropertyType (Map Text RawProperty)
     propertyPropsLens = lens rawPropertyTypeProperties (\s a -> s { rawPropertyTypeProperties = a })
-    -- resourceTypesLens :: Lens' RawCloudFormationSpec (Map Text RawResourceType)
-    -- resourceTypesLens = lens rawCloudFormationSpecResourceTypes (\s a -> s { rawCloudFormationSpecResourceTypes = a })
-    -- resourcePropsLens :: Lens' RawResourceType (Map Text RawProperty)
-    -- resourcePropsLens = lens rawResourceTypeProperties (\s a -> s { rawResourceTypeProperties = a })
+
+    setRequired rawProp = rawProp { rawPropertyRequired = True }
 
 data PropertyType
   = PropertyType
