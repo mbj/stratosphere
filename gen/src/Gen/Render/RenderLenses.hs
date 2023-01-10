@@ -16,7 +16,8 @@ import qualified Data.Text as T
 
 renderLenses :: Module -> Text
 renderLenses module'@Module{..} = T.intercalate "\n\n" lenses
-  where lenses = fmap (renderLens module') moduleProperties
+  where
+    lenses = fmap (renderLens module') moduleProperties
 
 renderLens :: Module -> Property -> Text
 renderLens Module{..} property@Property{..} =

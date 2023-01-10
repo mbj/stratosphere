@@ -29,8 +29,10 @@ data #{moduleName} =
 
 declDocstring :: Module -> T.Text
 declDocstring Module{..} = renderDocstring doc
-  where doc = "Full data type definition for " <> moduleName <>
-              ". See '" <> moduleConstructorName <> "' for a more convenient constructor."
+  where
+    doc
+      =  "Full data type definition for " <> moduleName
+      <> ". See '" <> moduleConstructorName <> "' for a more convenient constructor."
 
 renderField :: Module -> Property -> T.Text
 renderField Module{..} prop@Property {..} =

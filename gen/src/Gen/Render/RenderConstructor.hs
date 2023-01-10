@@ -34,26 +34,29 @@ renderConstructor module'@Module{..} =
 
 constructorDocstring :: Module -> Text
 constructorDocstring Module {..} = renderDocstring doc
-  where doc = "Constructor for '" <> moduleName <>
-              "' containing required fields as arguments."
+  where
+    doc = "Constructor for '" <> moduleName <> "' containing required fields as arguments."
 
 renderTypes :: Module -> Text
 renderTypes module' = T.intercalate "\n" lines'
-  where typePrefixes = "  :: " : repeat "  -> "
-        types = constructorTypes module'
-        req = requiredProperties (moduleProperties module')
-        comments = fmap (\prop -> " -- ^ '" <> moduleLensPrefix module' <> propertyName prop <> "'") req
-        zipped = zip3 typePrefixes types (comments ++ [""])
-        lines' = fmap (\(pre', t, c) -> T.concat [pre', t, c]) zipped
+  where
+    typePrefixes = "  :: " : repeat "  -> "
+    types = constructorTypes module'
+    req = requiredProperties (moduleProperties module')
+    comments = fmap (\prop -> " -- ^ '" <> moduleLensPrefix module' <> propertyName prop <> "'") req
+    zipped = zip3 typePrefixes types (comments ++ [""])
+    lines' = fmap (\(pre', t, c) -> T.concat [pre', t, c]) zipped
 
 constructorTypes :: Module -> [Text]
 constructorTypes module' = paramArgs ++ [moduleName module']
-  where paramArgs = map renderPropertyType (requiredProperties $ moduleProperties module')
+  where
+    paramArgs = map renderPropertyType (requiredProperties $ moduleProperties module')
 
 constructorField :: Module -> Property -> (Text, Text)
 constructorField Module {..} property = (fieldName, valName)
-  where fieldName = moduleFieldPrefix <> propertyName property
-        valName = if propertyRequired property then argName property else "Nothing"
+  where
+    fieldName = moduleFieldPrefix <> propertyName property
+    valName = if propertyRequired property then argName property else "Nothing"
 
 requiredProperties :: [Property] -> [Property]
 requiredProperties = filter propertyRequired
