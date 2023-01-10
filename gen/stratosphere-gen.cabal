@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: b8aa764d2ff39855a9c6f36b76e4c1db2437c935f20d6c14ce8807223039b2d7
+-- hash: 1232c6f92c35cfd059696129c138046da886a6944c47f300101827d1b36ad636
 
 name:           stratosphere-gen
 version:        0.1.0
@@ -33,6 +33,7 @@ executable stratosphere-gen
       FlexibleInstances
       FunctionalDependencies
       GeneralizedNewtypeDeriving
+      LambdaCase
       MultiParamTypeClasses
       NoImplicitPrelude
       OverloadedStrings

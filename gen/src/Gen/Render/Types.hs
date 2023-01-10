@@ -115,21 +115,18 @@ computeModuleName fullName
   -- AWS::ElasticLoadBalancingV2::Listener.Certificate
   | fullName == "AWS::ElasticLoadBalancingV2::ListenerCertificate" =
       computeModuleName "AWS::ElasticLoadBalancingV2::ListenerCertificateResource"
-  | "::" `isInfixOf` fullName =
-    let [_, parent, baseName] = splitOn "::" fullName
-    in Data.Text.filter (/= '.') (parent <> baseName)
+  | "::" `isInfixOf` fullName = fromComponents $ splitOn "::" fullName
   | otherwise = fullName
+  where
+    fromComponents = \case
+      [_, parent, baseName] -> Data.Text.filter (/= '.') (parent <> baseName)
+      _other                -> error $ "Unexpected module full name: " <> unpack fullName
 
 -- | The Resource Type is anything around the colons, but before the dot. The
 -- resource type for AWS::EC2::Instance is the same thing: AWS::EC2::Instance.
 -- The resource type for AWS::EC2::Instance.Ebs is AWS::EC2::Instance.
 computeResourceType :: Text -> Text
-computeResourceType fullName
-  | "::" `isInfixOf` fullName && "." `isInfixOf` fullName =
-    let [type', _] = splitOn "." fullName
-    in type'
-  | "::" `isInfixOf` fullName = fullName
-  | otherwise = ""
+computeResourceType fullName = fst $ breakOn "." fullName
 
 computeConstructorName :: Text -> Text
 computeConstructorName rawName = pack $ headLower $ unpack $ computeModuleName rawName
