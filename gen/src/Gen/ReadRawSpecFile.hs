@@ -11,12 +11,13 @@ module Gen.ReadRawSpecFile
 where
 
 import Control.Applicative ((<|>))
-import Data.Aeson
+import Data.Aeson ((.:?))
 import Data.Map (Map)
 import Data.Text
 import GHC.Generics
 import Gen.Prelude
 
+import qualified Data.Aeson      as JSON
 import qualified Data.ByteString as BS
 
 data RawCloudFormationSpec = RawCloudFormationSpec
@@ -26,8 +27,8 @@ data RawCloudFormationSpec = RawCloudFormationSpec
   }
   deriving (Show, Eq, Generic)
 
-instance FromJSON RawCloudFormationSpec where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Gen.Prelude.drop 21 }
+instance JSON.FromJSON RawCloudFormationSpec where
+  parseJSON = JSON.genericParseJSON $ parseOptions 21
 
 data RawPropertyType = RawPropertyType
   { rawPropertyTypeDocumentation :: Text
@@ -35,8 +36,8 @@ data RawPropertyType = RawPropertyType
   }
   deriving (Show, Eq, Generic)
 
-instance FromJSON RawPropertyType where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Gen.Prelude.drop 15 }
+instance JSON.FromJSON RawPropertyType where
+  parseJSON = JSON.genericParseJSON $ parseOptions 15
 
 data RawProperty = RawProperty
   { rawPropertyDocumentation     :: Text
@@ -50,8 +51,8 @@ data RawProperty = RawProperty
   }
   deriving (Show, Eq, Generic)
 
-instance FromJSON RawProperty where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Gen.Prelude.drop 11 }
+instance JSON.FromJSON RawProperty where
+  parseJSON = JSON.genericParseJSON $ parseOptions 11
 
 data RawResourceType = RawResourceType
   { rawResourceTypeAttributes    :: Maybe (Map Text RawResourceAttribute)
@@ -60,8 +61,8 @@ data RawResourceType = RawResourceType
   }
   deriving (Show, Eq, Generic)
 
-instance FromJSON RawResourceType where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Gen.Prelude.drop 15 }
+instance JSON.FromJSON RawResourceType where
+  parseJSON = JSON.genericParseJSON $ parseOptions 15
 
 data RawResourceAttribute = RawResourceAttribute
   { rawResourceAttributeItemType          :: Maybe Text
@@ -71,8 +72,8 @@ data RawResourceAttribute = RawResourceAttribute
   }
   deriving (Show, Eq, Generic)
 
-instance FromJSON RawResourceAttribute where
-  parseJSON (Object o) =
+instance JSON.FromJSON RawResourceAttribute where
+  parseJSON (JSON.Object o) =
     RawResourceAttribute <$>
       o .:? "ItemType" <*>
       o .:? "PrimitiveItemType" <*>
@@ -81,5 +82,10 @@ instance FromJSON RawResourceAttribute where
   parseJSON _ = mempty
 
 -- | Decode a JSON file into a type
-decodeFile :: (FromJSON a) => FilePath -> IO (Either String a)
-decodeFile fp = fmap eitherDecodeStrict (BS.readFile fp)
+decodeFile :: JSON.FromJSON a => FilePath -> IO (Either String a)
+decodeFile fp = fmap JSON.eitherDecodeStrict (BS.readFile fp)
+
+parseOptions :: Int -> JSON.Options
+parseOptions dropLength
+  = JSON.defaultOptions
+  { JSON.fieldLabelModifier = Gen.Prelude.drop dropLength }
