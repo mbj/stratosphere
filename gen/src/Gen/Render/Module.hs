@@ -11,23 +11,22 @@ import Prelude
 import qualified Data.Set as Set
 import qualified Data.Char as Char
 
-data Module
-  = Module
-  { moduleName :: Text
+data Module = Module
+  { moduleName            :: Text
     -- ^ Name of the type and module we'll generate
-  , moduleFullAWSName :: Text
+  , moduleFullAWSName     :: Text
     -- ^ The original name given by AWS. Same as ResourceType for resources.
-  , moduleResourceType :: Text
+  , moduleResourceType    :: Text
     -- ^ The type of resources (example: AWS::EC2::Instance)
-  , moduleIsResource :: Bool
+  , moduleIsResource      :: Bool
   , moduleConstructorName :: Text
-  , moduleLensPrefix :: Text
-  , moduleFieldPrefix :: Text
-  , modulePath :: Text
+  , moduleLensPrefix      :: Text
+  , moduleFieldPrefix     :: Text
+  , modulePath            :: Text
     -- ^ The prefix for the stratosphere sub-module
-  , moduleDocumentation :: Text
+  , moduleDocumentation   :: Text
     -- ^ The documentation link
-  , moduleProperties :: [Property]
+  , moduleProperties      :: [Property]
   }
   deriving (Show, Eq)
 

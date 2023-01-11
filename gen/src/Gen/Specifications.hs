@@ -23,11 +23,10 @@ import GHC.Generics hiding (to)
 import Gen.ReadRawSpecFile
 import Prelude
 
-data CloudFormationSpec
-  = CloudFormationSpec
-  { cloudFormationSpecPropertyTypes :: [PropertyType]
+data CloudFormationSpec = CloudFormationSpec
+  { cloudFormationSpecPropertyTypes                :: [PropertyType]
   , clousFormationSpecResourceSpecificationVersion :: Text
-  , cloudFormationSpecResourceTypes :: [ResourceType]
+  , cloudFormationSpecResourceTypes                :: [ResourceType]
   }
   deriving (Show, Eq)
 
@@ -96,11 +95,10 @@ fixSpecBugs spec =
 
     setRequired rawProp = rawProp { rawPropertyRequired = True }
 
-data PropertyType
-  = PropertyType
-  { propertyTypeName :: Text
+data PropertyType = PropertyType
+  { propertyTypeName          :: Text
   , propertyTypeDocumentation :: Text
-  , propertyTypeProperties :: [Property]
+  , propertyTypeProperties    :: [Property]
   }
   deriving (Show, Eq)
 
@@ -108,13 +106,12 @@ propertyTypeFromRaw :: Text -> RawPropertyType -> PropertyType
 propertyTypeFromRaw fullName (RawPropertyType doc props) =
   PropertyType fullName doc (uncurry (propertyFromRaw fullName) <$> sortOn fst (toList props))
 
-data Property
-  = Property
-  { propertyName :: Text
+data Property = Property
+  { propertyName          :: Text
   , propertyDocumentation :: Text
   --, propertyDuplicatesAllowed :: Maybe Bool -- Don't care about this
-  , propertySpecType :: SpecType
-  , propertyRequired :: Bool
+  , propertySpecType      :: SpecType
+  , propertyRequired      :: Bool
   --, propertyUpdateType :: Maybe Text -- Don't care about this
   }
   deriving (Show, Eq)
@@ -212,12 +209,11 @@ subPropertyTypeNames = catMaybes . fmap (subPropertyTypeName . propertySpecType)
 customTypeNames :: [Property] -> [Text]
 customTypeNames = catMaybes . fmap (customTypeName . propertySpecType)
 
-data ResourceType
-  = ResourceType
-  { resourceTypeFullName :: Text
+data ResourceType = ResourceType
+  { resourceTypeFullName      :: Text
   --, resourceTypeAttributes :: [ResourceAttribute] -- Don't care about this yet, could be useful
   , resourceTypeDocumentation :: Text
-  , resourceTypeProperties :: [Property]
+  , resourceTypeProperties    :: [Property]
   }
   deriving (Show, Eq, Generic)
 

@@ -19,60 +19,55 @@ import Prelude
 
 import qualified Data.ByteString as BS
 
-data RawCloudFormationSpec
-  = RawCloudFormationSpec
-  { rawCloudFormationSpecPropertyTypes :: Map Text RawPropertyType
+data RawCloudFormationSpec = RawCloudFormationSpec
+  { rawCloudFormationSpecPropertyTypes                :: Map Text RawPropertyType
   , rawClousFormationSpecResourceSpecificationVersion :: Text
-  , rawCloudFormationSpecResourceTypes :: Map Text RawResourceType
+  , rawCloudFormationSpecResourceTypes                :: Map Text RawResourceType
   }
   deriving (Show, Eq, Generic)
 
 instance FromJSON RawCloudFormationSpec where
   parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 21 }
 
-data RawPropertyType
-  = RawPropertyType
+data RawPropertyType = RawPropertyType
   { rawPropertyTypeDocumentation :: Text
-  , rawPropertyTypeProperties :: Map Text RawProperty
+  , rawPropertyTypeProperties    :: Map Text RawProperty
   }
   deriving (Show, Eq, Generic)
 
 instance FromJSON RawPropertyType where
   parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 15 }
 
-data RawProperty
-  = RawProperty
-  { rawPropertyDocumentation :: Text
+data RawProperty = RawProperty
+  { rawPropertyDocumentation     :: Text
   , rawPropertyDuplicatesAllowed :: Maybe Bool
-  , rawPropertyItemType :: Maybe Text
+  , rawPropertyItemType          :: Maybe Text
   , rawPropertyPrimitiveItemType :: Maybe Text
-  , rawPropertyPrimitiveType :: Maybe Text
-  , rawPropertyRequired :: Bool
-  , rawPropertyType :: Maybe Text
-  , rawPropertyUpdateType :: Maybe Text
+  , rawPropertyPrimitiveType     :: Maybe Text
+  , rawPropertyRequired          :: Bool
+  , rawPropertyType              :: Maybe Text
+  , rawPropertyUpdateType        :: Maybe Text
   }
   deriving (Show, Eq, Generic)
 
 instance FromJSON RawProperty where
   parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 11 }
 
-data RawResourceType
-  = RawResourceType
-  { rawResourceTypeAttributes :: Maybe (Map Text RawResourceAttribute)
+data RawResourceType = RawResourceType
+  { rawResourceTypeAttributes    :: Maybe (Map Text RawResourceAttribute)
   , rawResourceTypeDocumentation :: Text
-  , rawResourceTypeProperties :: Map Text RawProperty
+  , rawResourceTypeProperties    :: Map Text RawProperty
   }
   deriving (Show, Eq, Generic)
 
 instance FromJSON RawResourceType where
   parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 15 }
 
-data RawResourceAttribute
-  = RawResourceAttribute
-  { rawResourceAttributeItemType :: Maybe Text
+data RawResourceAttribute = RawResourceAttribute
+  { rawResourceAttributeItemType          :: Maybe Text
   , rawResourceAttributePrimitiveItemType :: Maybe Text
-  , rawResourceAttributePrimitiveType :: Maybe Text
-  , rawResourceAttributeType :: Maybe (Either [Text] Text)
+  , rawResourceAttributePrimitiveType     :: Maybe Text
+  , rawResourceAttributeType              :: Maybe (Either [Text] Text)
   }
   deriving (Show, Eq, Generic)
 
