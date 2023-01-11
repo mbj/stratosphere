@@ -5,7 +5,7 @@ import Data.Maybe (fromMaybe)
 import Data.Set (Set)
 import Data.Text.Manipulate (lowerHead, toAcronym)
 import Gen.Prelude
-import Gen.Specifications
+import Gen.Spec
 
 import qualified Data.Char as Char
 import qualified Data.Set  as Set

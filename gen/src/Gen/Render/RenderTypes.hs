@@ -11,7 +11,7 @@ where
 import Gen.Prelude
 import Gen.Render.Module
 import Gen.Render.RenderDocstring
-import Gen.Specifications
+import Gen.Spec
 import Text.Shakespeare.Text (st)
 
 import qualified Data.Text as Text

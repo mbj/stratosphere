@@ -22,7 +22,7 @@ executable stratosphere-gen
       Gen.Render.RenderJsonInstances
       Gen.Render.RenderLenses
       Gen.Render.RenderTypes
-      Gen.Specifications
+      Gen.Spec
       Paths_stratosphere_gen
   hs-source-dirs:
       src

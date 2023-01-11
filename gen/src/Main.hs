@@ -7,7 +7,7 @@ import Data.List (nub)
 import Gen.Prelude
 import Gen.RawSpec
 import Gen.Render
-import Gen.Specifications
+import Gen.Spec
 import System.Directory
 import System.FilePath.Posix
 import Text.Shakespeare.Text (st)
@@ -23,8 +23,8 @@ main = do
     spec = specFromRaw rawSpec
     modules =
       createModules
-      (cloudFormationSpecPropertyTypes spec)
-      (cloudFormationSpecResourceTypes spec)
+      (specPropertyTypes spec)
+      (specResourceTypes spec)
 
   genExists <- doesDirectoryExist ("library-gen")
   when genExists $

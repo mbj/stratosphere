@@ -1,8 +1,8 @@
 -- | This transforms the output from ReadRawSpecFile for consumption into the
 -- generator.
 
-module Gen.Specifications
-  ( CloudFormationSpec(..)
+module Gen.Spec
+  ( Spec(..)
   , specFromRaw
   , PropertyType(..)
   , Property(..)
@@ -24,15 +24,15 @@ import Gen.RawSpec
 
 import qualified Data.Text as Text
 
-data CloudFormationSpec = CloudFormationSpec
-  { cloudFormationSpecPropertyTypes                :: [PropertyType]
-  , clousFormationSpecResourceSpecificationVersion :: Text
-  , cloudFormationSpecResourceTypes                :: [ResourceType]
+data Spec = Spec
+  { specPropertyTypes                :: [PropertyType]
+  , specResourceSpecificationVersion :: Text
+  , specResourceTypes                :: [ResourceType]
   }
   deriving (Show, Eq)
 
-specFromRaw :: RawSpec -> CloudFormationSpec
-specFromRaw spec = CloudFormationSpec props version resources
+specFromRaw :: RawSpec -> Spec
+specFromRaw spec = Spec props version resources
   where
     (RawSpec rawProps version rawResources) = fixSpecBugs spec
     props = uncurry propertyTypeFromRaw <$> sortOn fst (toList rawProps)
