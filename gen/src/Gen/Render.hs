@@ -1,7 +1,5 @@
 module Gen.Render (module X) where
 
-import Prelude()
-
 import Gen.Render.Module              as X
 import Gen.Render.RenderConstructor   as X
 import Gen.Render.RenderDocstring     as X

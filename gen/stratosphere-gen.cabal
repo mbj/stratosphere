@@ -13,6 +13,7 @@ build-type:     Simple
 executable stratosphere-gen
   main-is: Main.hs
   other-modules:
+      Gen.Prelude
       Gen.ReadRawSpecFile
       Gen.Render
       Gen.Render.Module

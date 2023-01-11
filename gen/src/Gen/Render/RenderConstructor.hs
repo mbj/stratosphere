@@ -6,11 +6,11 @@ module Gen.Render.RenderConstructor (renderConstructor) where
 
 import Data.Text (Text)
 import Data.Text.Manipulate (lowerHead)
+import Gen.Prelude
 import Gen.Render.Module
 import Gen.Render.RenderDocstring
 import Gen.Render.RenderTypes
 import Gen.Specifications
-import Prelude
 import Text.Shakespeare.Text (st)
 
 import qualified Data.Text as T

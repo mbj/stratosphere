@@ -20,8 +20,8 @@ import Data.Map (Map, toList)
 import Data.Maybe (catMaybes)
 import Data.Text
 import GHC.Generics hiding (to)
+import Gen.Prelude
 import Gen.ReadRawSpecFile
-import Prelude
 
 data CloudFormationSpec = CloudFormationSpec
   { cloudFormationSpecPropertyTypes                :: [PropertyType]

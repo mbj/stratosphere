@@ -5,10 +5,10 @@ module Main (main) where
 import Control.Monad (when)
 import Data.List (nub)
 import Data.Text (Text)
+import Gen.Prelude
 import Gen.ReadRawSpecFile
 import Gen.Render
 import Gen.Specifications
-import Prelude
 import System.Directory
 import System.FilePath.Posix
 import Text.Shakespeare.Text (st)

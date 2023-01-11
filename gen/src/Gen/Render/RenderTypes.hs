@@ -9,10 +9,10 @@ module Gen.Render.RenderTypes
 where
 
 import Data.Text (Text)
+import Gen.Prelude
 import Gen.Render.Module
 import Gen.Render.RenderDocstring
 import Gen.Specifications
-import Prelude
 import Text.Shakespeare.Text (st)
 
 import qualified Data.Text as T

@@ -3,7 +3,7 @@
 module Gen.Render.RenderDocstring (renderDocstring) where
 
 import Data.Text (Text)
-import Prelude
+import Gen.Prelude
 
 import qualified Data.Text as T
 

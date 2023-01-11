@@ -15,7 +15,7 @@ import Data.Aeson
 import Data.Map (Map)
 import Data.Text
 import GHC.Generics
-import Prelude
+import Gen.Prelude
 
 import qualified Data.ByteString as BS
 
@@ -27,7 +27,7 @@ data RawCloudFormationSpec = RawCloudFormationSpec
   deriving (Show, Eq, Generic)
 
 instance FromJSON RawCloudFormationSpec where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 21 }
+  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Gen.Prelude.drop 21 }
 
 data RawPropertyType = RawPropertyType
   { rawPropertyTypeDocumentation :: Text
@@ -36,7 +36,7 @@ data RawPropertyType = RawPropertyType
   deriving (Show, Eq, Generic)
 
 instance FromJSON RawPropertyType where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 15 }
+  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Gen.Prelude.drop 15 }
 
 data RawProperty = RawProperty
   { rawPropertyDocumentation     :: Text
@@ -51,7 +51,7 @@ data RawProperty = RawProperty
   deriving (Show, Eq, Generic)
 
 instance FromJSON RawProperty where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 11 }
+  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Gen.Prelude.drop 11 }
 
 data RawResourceType = RawResourceType
   { rawResourceTypeAttributes    :: Maybe (Map Text RawResourceAttribute)
@@ -61,7 +61,7 @@ data RawResourceType = RawResourceType
   deriving (Show, Eq, Generic)
 
 instance FromJSON RawResourceType where
-  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Prelude.drop 15 }
+  parseJSON = genericParseJSON defaultOptions { fieldLabelModifier = Gen.Prelude.drop 15 }
 
 data RawResourceAttribute = RawResourceAttribute
   { rawResourceAttributeItemType          :: Maybe Text
