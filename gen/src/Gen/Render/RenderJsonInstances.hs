@@ -6,13 +6,12 @@ module Gen.Render.RenderJsonInstances
   )
 where
 
-import Data.Text (Text)
 import Gen.Prelude
 import Gen.Render.Module
 import Gen.Specifications
 import Text.Shakespeare.Text (st)
 
-import qualified Data.Text as T
+import qualified Data.Text as Text
 
 -- | Renders to ToJSON instances for a resource.
 renderToJSON :: Module -> Text
@@ -53,9 +52,9 @@ renderToResourceProperties module'@Module{..} =
 
 renderToJSONFields :: Int -> Module -> Text
 renderToJSONFields spaces Module{..} =
-  T.intercalate leader $ map renderField moduleProperties
+  Text.intercalate leader $ map renderField moduleProperties
   where
-    leader = "\n" <> T.pack (replicate spaces ' ') <> ", "
+    leader = "\n" <> Text.pack (replicate spaces ' ') <> ", "
     renderField Property{..} =
       if propertyRequired
       then [st|(Just . ("#{propertyName}",) . toJSON) #{moduleFieldPrefix}#{propertyName}|]

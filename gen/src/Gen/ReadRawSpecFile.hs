@@ -13,7 +13,6 @@ where
 import Control.Applicative ((<|>))
 import Data.Aeson ((.:?))
 import Data.Map (Map)
-import Data.Text
 import GHC.Generics
 import Gen.Prelude
 

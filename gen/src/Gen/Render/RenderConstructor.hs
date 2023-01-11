@@ -4,7 +4,6 @@
 
 module Gen.Render.RenderConstructor (renderConstructor) where
 
-import Data.Text (Text)
 import Data.Text.Manipulate (lowerHead)
 import Gen.Prelude
 import Gen.Render.Module
@@ -13,7 +12,7 @@ import Gen.Render.RenderTypes
 import Gen.Specifications
 import Text.Shakespeare.Text (st)
 
-import qualified Data.Text as T
+import qualified Data.Text as Text
 
 -- | Renders the default constructor function to Text.
 renderConstructor :: Module -> Text
@@ -27,10 +26,10 @@ renderConstructor module'@Module{..} =
   }|]
   where
     argNames = map argName (requiredProperties moduleProperties)
-    args = T.intercalate " " argNames
+    args = Text.intercalate " " argNames
     fields = fmap (constructorField module') moduleProperties
     fieldLines = map (\(n, v) -> [st|#{n} = #{v}|]) fields
-    fieldText = T.intercalate "\n  , " fieldLines
+    fieldText = Text.intercalate "\n  , " fieldLines
 
 constructorDocstring :: Module -> Text
 constructorDocstring Module {..} = renderDocstring doc
@@ -38,7 +37,7 @@ constructorDocstring Module {..} = renderDocstring doc
     doc = "Constructor for '" <> moduleName <> "' containing required fields as arguments."
 
 renderTypes :: Module -> Text
-renderTypes module' = T.intercalate "\n" lines'
+renderTypes module' = Text.intercalate "\n" lines'
   where
     typePrefixes :: [Text]
     typePrefixes = "  :: " : repeat "  -> "
@@ -47,7 +46,7 @@ renderTypes module' = T.intercalate "\n" lines'
     req = requiredProperties (moduleProperties module')
     comments = fmap (\prop -> " -- ^ '" <> moduleLensPrefix module' <> propertyName prop <> "'") req
     zipped = zip3 typePrefixes types (comments ++ [""])
-    lines' = fmap (\(pre', t, c) -> T.concat [pre', t, c]) zipped
+    lines' = fmap (\(pre', t, c) -> Text.concat [pre', t, c]) zipped
 
 constructorTypes :: Module -> [Text]
 constructorTypes module' = paramArgs ++ [moduleName module']
@@ -65,4 +64,4 @@ requiredProperties = filter propertyRequired
 
 -- | Name used for the parameter's argument in the constructor.
 argName :: Property -> Text
-argName property = T.concat [lowerHead $ propertyName property, "arg"]
+argName property = Text.concat [lowerHead $ propertyName property, "arg"]

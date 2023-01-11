@@ -18,10 +18,11 @@ import Control.Lens
 import Data.List (sortOn)
 import Data.Map (Map, toList)
 import Data.Maybe (catMaybes)
-import Data.Text
 import GHC.Generics hiding (to)
 import Gen.Prelude
 import Gen.ReadRawSpecFile
+
+import qualified Data.Text as Text
 
 data CloudFormationSpec = CloudFormationSpec
   { cloudFormationSpecPropertyTypes                :: [PropertyType]
@@ -189,7 +190,7 @@ textToPrimitiveType "Double" = DoublePrimitive
 textToPrimitiveType "Boolean" = BoolPrimitive
 textToPrimitiveType "Timestamp" = StringPrimitive
 textToPrimitiveType "Json" = JsonPrimitive
-textToPrimitiveType t = error $ "Unknown primitive type: " ++ unpack t
+textToPrimitiveType t = error $ "Unknown primitive type: " ++ Text.unpack t
 
 subPropertyTypeName :: SpecType -> Maybe Text
 subPropertyTypeName (AtomicType (SubPropertyType name)) = Just name

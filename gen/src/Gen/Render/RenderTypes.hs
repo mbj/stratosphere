@@ -8,35 +8,34 @@ module Gen.Render.RenderTypes
   )
 where
 
-import Data.Text (Text)
 import Gen.Prelude
 import Gen.Render.Module
 import Gen.Render.RenderDocstring
 import Gen.Specifications
 import Text.Shakespeare.Text (st)
 
-import qualified Data.Text as T
+import qualified Data.Text as Text
 
-renderResourceTypeDecl :: Module -> T.Text
+renderResourceTypeDecl :: Module -> Text
 renderResourceTypeDecl module'@Module {..} =
   [st|#{declDocstring module'}
 data #{moduleName} =
   #{moduleName}
-  { #{T.intercalate "\n  , " fields}
+  { #{Text.intercalate "\n  , " fields}
   } deriving (Show, Eq)|]
   where
     fields = fmap (renderField module') moduleProperties
 
-declDocstring :: Module -> T.Text
+declDocstring :: Module -> Text
 declDocstring Module{..} = renderDocstring doc
   where
     doc
       =  "Full data type definition for " <> moduleName
       <> ". See '" <> moduleConstructorName <> "' for a more convenient constructor."
 
-renderField :: Module -> Property -> T.Text
+renderField :: Module -> Property -> Text
 renderField Module{..} prop@Property {..} =
-  T.concat [moduleFieldPrefix, propertyName, " :: ", renderPropertyType prop]
+  Text.concat [moduleFieldPrefix, propertyName, " :: ", renderPropertyType prop]
 
 renderPropertyType :: Property -> Text
 renderPropertyType Property{..} = renderType propertySpecType propertyRequired
