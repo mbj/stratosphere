@@ -5,7 +5,7 @@ module Main (main) where
 import Control.Monad (when)
 import Data.List (nub)
 import Gen.Prelude
-import Gen.ReadRawSpecFile
+import Gen.RawSpec
 import Gen.Render
 import Gen.Specifications
 import System.Directory
@@ -17,7 +17,7 @@ import qualified Data.Text.IO as TIO
 
 main :: IO ()
 main = do
-  rawSpec <- either error id <$> decodeFile ("gen" </> "model" </> "sorted-spec.json")
+  rawSpec <- either error id <$> readRawSpec ("gen" </> "model" </> "sorted-spec.json")
 
   let
     spec = specFromRaw rawSpec

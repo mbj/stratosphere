@@ -1,12 +1,12 @@
 -- | Parse the official AWS specification file.
 
-module Gen.ReadRawSpecFile
-  ( RawCloudFormationSpec(..)
+module Gen.RawSpec
+  ( RawSpec(..)
   , RawPropertyType(..)
   , RawProperty(..)
   , RawResourceType(..)
   , RawResourceAttribute(..)
-  , decodeFile
+  , readRawSpec
   )
 where
 
@@ -21,15 +21,15 @@ import qualified Data.Aeson      as JSON
 import qualified Data.ByteString as BS
 import qualified Data.List       as List
 
-data RawCloudFormationSpec = RawCloudFormationSpec
-  { rawCloudFormationSpecPropertyTypes                :: Map Text RawPropertyType
-  , rawCloudFormationSpecResourceSpecificationVersion :: Text
-  , rawCloudFormationSpecResourceTypes                :: Map Text RawResourceType
+data RawSpec = RawSpec
+  { rawSpecPropertyTypes                :: Map Text RawPropertyType
+  , rawSpecResourceSpecificationVersion :: Text
+  , rawSpecResourceTypes                :: Map Text RawResourceType
   }
   deriving (Show, Eq, Generic)
 
-instance JSON.FromJSON RawCloudFormationSpec where
-  parseJSON = JSON.genericParseJSON $ parseOptions "rawCloudFormationSpec"
+instance JSON.FromJSON RawSpec where
+  parseJSON = JSON.genericParseJSON $ parseOptions "rawSpec"
 
 data RawPropertyType = RawPropertyType
   { rawPropertyTypeDocumentation :: Text
@@ -83,8 +83,8 @@ instance JSON.FromJSON RawResourceAttribute where
   parseJSON _ = mempty
 
 -- | Decode a JSON file into a type
-decodeFile :: JSON.FromJSON a => FilePath -> IO (Either String a)
-decodeFile fp = fmap JSON.eitherDecodeStrict (BS.readFile fp)
+readRawSpec :: FilePath -> IO (Either String RawSpec)
+readRawSpec = fmap JSON.eitherDecodeStrict . BS.readFile
 
 parseOptions :: String -> JSON.Options
 parseOptions prefix

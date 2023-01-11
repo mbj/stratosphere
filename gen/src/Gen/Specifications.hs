@@ -20,7 +20,7 @@ import Data.Map (Map, toList)
 import Data.Maybe (catMaybes)
 import GHC.Generics hiding (to)
 import Gen.Prelude
-import Gen.ReadRawSpecFile
+import Gen.RawSpec
 
 import qualified Data.Text as Text
 
@@ -31,10 +31,10 @@ data CloudFormationSpec = CloudFormationSpec
   }
   deriving (Show, Eq)
 
-specFromRaw :: RawCloudFormationSpec -> CloudFormationSpec
+specFromRaw :: RawSpec -> CloudFormationSpec
 specFromRaw spec = CloudFormationSpec props version resources
   where
-    (RawCloudFormationSpec rawProps version rawResources) = fixSpecBugs spec
+    (RawSpec rawProps version rawResources) = fixSpecBugs spec
     props = uncurry propertyTypeFromRaw <$> sortOn fst (toList rawProps)
     resources = uncurry resourceTypeFromRaw <$> sortOn fst (toList rawResources)
 
@@ -42,7 +42,7 @@ specFromRaw spec = CloudFormationSpec props version resources
 -- document, as well as inconsistent or incorrect naming. There is an open
 -- support ticket with AWS support to fix these things, but for now we are
 -- patching things up manually.
-fixSpecBugs :: RawCloudFormationSpec -> RawCloudFormationSpec
+fixSpecBugs :: RawSpec -> RawSpec
 fixSpecBugs spec =
   spec
   -- There are a few naming conflicts with security group types. For example,
@@ -89,8 +89,8 @@ fixSpecBugs spec =
   . at "Name"
   %~ fmap setRequired
   where
-    propertyTypesLens :: Lens' RawCloudFormationSpec (Map Text RawPropertyType)
-    propertyTypesLens = lens rawCloudFormationSpecPropertyTypes (\s a -> s { rawCloudFormationSpecPropertyTypes = a })
+    propertyTypesLens :: Lens' RawSpec (Map Text RawPropertyType)
+    propertyTypesLens = lens rawSpecPropertyTypes (\s a -> s { rawSpecPropertyTypes = a })
     propertyPropsLens :: Lens' RawPropertyType (Map Text RawProperty)
     propertyPropsLens = lens rawPropertyTypeProperties (\s a -> s { rawPropertyTypeProperties = a })
 
