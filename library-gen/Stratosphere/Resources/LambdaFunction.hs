@@ -5,7 +5,6 @@ module Stratosphere.Resources.LambdaFunction where
 
 import Prelude
 import Stratosphere.ResourceImports
-import Stratosphere.Types
 import Stratosphere.ResourceProperties.LambdaFunctionCode
 import Stratosphere.ResourceProperties.LambdaFunctionDeadLetterConfig
 import Stratosphere.ResourceProperties.LambdaFunctionEnvironment
@@ -30,7 +29,7 @@ data LambdaFunction =
   , _lambdaFunctionMemorySize :: Maybe (Val Integer)
   , _lambdaFunctionReservedConcurrentExecutions :: Maybe (Val Integer)
   , _lambdaFunctionRole :: Val Text
-  , _lambdaFunctionRuntime :: Val Runtime
+  , _lambdaFunctionRuntime :: Val Text
   , _lambdaFunctionTags :: Maybe [Tag]
   , _lambdaFunctionTimeout :: Maybe (Val Integer)
   , _lambdaFunctionTracingConfig :: Maybe LambdaFunctionTracingConfig
@@ -68,7 +67,7 @@ lambdaFunction
   :: LambdaFunctionCode -- ^ 'lfCode'
   -> Val Text -- ^ 'lfHandler'
   -> Val Text -- ^ 'lfRole'
-  -> Val Runtime -- ^ 'lfRuntime'
+  -> Val Text -- ^ 'lfRuntime'
   -> LambdaFunction
 lambdaFunction codearg handlerarg rolearg runtimearg =
   LambdaFunction
@@ -140,7 +139,7 @@ lfRole :: Lens' LambdaFunction (Val Text)
 lfRole = lens _lambdaFunctionRole (\s a -> s { _lambdaFunctionRole = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-runtime
-lfRuntime :: Lens' LambdaFunction (Val Runtime)
+lfRuntime :: Lens' LambdaFunction (Val Text)
 lfRuntime = lens _lambdaFunctionRuntime (\s a -> s { _lambdaFunctionRuntime = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html#cfn-lambda-function-tags

@@ -5,7 +5,7 @@ module Stratosphere.ResourceProperties.ApiGatewayStageMethodSetting where
 
 import Prelude
 import Stratosphere.ResourceImports
-import Stratosphere.Types
+
 
 -- | Full data type definition for ApiGatewayStageMethodSetting. See
 -- 'apiGatewayStageMethodSetting' for a more convenient constructor.
@@ -15,8 +15,8 @@ data ApiGatewayStageMethodSetting =
   , _apiGatewayStageMethodSettingCacheTtlInSeconds :: Maybe (Val Integer)
   , _apiGatewayStageMethodSettingCachingEnabled :: Maybe (Val Bool)
   , _apiGatewayStageMethodSettingDataTraceEnabled :: Maybe (Val Bool)
-  , _apiGatewayStageMethodSettingHttpMethod :: Maybe (Val HttpMethod)
-  , _apiGatewayStageMethodSettingLoggingLevel :: Maybe (Val LoggingLevel)
+  , _apiGatewayStageMethodSettingHttpMethod :: Maybe (Val Text)
+  , _apiGatewayStageMethodSettingLoggingLevel :: Maybe (Val Text)
   , _apiGatewayStageMethodSettingMetricsEnabled :: Maybe (Val Bool)
   , _apiGatewayStageMethodSettingResourcePath :: Maybe (Val Text)
   , _apiGatewayStageMethodSettingThrottlingBurstLimit :: Maybe (Val Integer)
@@ -74,11 +74,11 @@ agsmsDataTraceEnabled :: Lens' ApiGatewayStageMethodSetting (Maybe (Val Bool))
 agsmsDataTraceEnabled = lens _apiGatewayStageMethodSettingDataTraceEnabled (\s a -> s { _apiGatewayStageMethodSettingDataTraceEnabled = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-httpmethod
-agsmsHttpMethod :: Lens' ApiGatewayStageMethodSetting (Maybe (Val HttpMethod))
+agsmsHttpMethod :: Lens' ApiGatewayStageMethodSetting (Maybe (Val Text))
 agsmsHttpMethod = lens _apiGatewayStageMethodSettingHttpMethod (\s a -> s { _apiGatewayStageMethodSettingHttpMethod = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-logginglevel
-agsmsLoggingLevel :: Lens' ApiGatewayStageMethodSetting (Maybe (Val LoggingLevel))
+agsmsLoggingLevel :: Lens' ApiGatewayStageMethodSetting (Maybe (Val Text))
 agsmsLoggingLevel = lens _apiGatewayStageMethodSettingLoggingLevel (\s a -> s { _apiGatewayStageMethodSettingLoggingLevel = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-stage-methodsetting.html#cfn-apigateway-stage-methodsetting-metricsenabled

@@ -5,14 +5,14 @@ module Stratosphere.ResourceProperties.DynamoDBTableAttributeDefinition where
 
 import Prelude
 import Stratosphere.ResourceImports
-import Stratosphere.Types
+
 
 -- | Full data type definition for DynamoDBTableAttributeDefinition. See
 -- 'dynamoDBTableAttributeDefinition' for a more convenient constructor.
 data DynamoDBTableAttributeDefinition =
   DynamoDBTableAttributeDefinition
   { _dynamoDBTableAttributeDefinitionAttributeName :: Val Text
-  , _dynamoDBTableAttributeDefinitionAttributeType :: Val AttributeType
+  , _dynamoDBTableAttributeDefinitionAttributeType :: Val Text
   } deriving (Show, Eq)
 
 instance ToJSON DynamoDBTableAttributeDefinition where
@@ -27,7 +27,7 @@ instance ToJSON DynamoDBTableAttributeDefinition where
 -- fields as arguments.
 dynamoDBTableAttributeDefinition
   :: Val Text -- ^ 'ddbtadAttributeName'
-  -> Val AttributeType -- ^ 'ddbtadAttributeType'
+  -> Val Text -- ^ 'ddbtadAttributeType'
   -> DynamoDBTableAttributeDefinition
 dynamoDBTableAttributeDefinition attributeNamearg attributeTypearg =
   DynamoDBTableAttributeDefinition
@@ -40,5 +40,5 @@ ddbtadAttributeName :: Lens' DynamoDBTableAttributeDefinition (Val Text)
 ddbtadAttributeName = lens _dynamoDBTableAttributeDefinitionAttributeName (\s a -> s { _dynamoDBTableAttributeDefinitionAttributeName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-attributedef.html#cfn-dynamodb-attributedef-attributename-attributetype
-ddbtadAttributeType :: Lens' DynamoDBTableAttributeDefinition (Val AttributeType)
+ddbtadAttributeType :: Lens' DynamoDBTableAttributeDefinition (Val Text)
 ddbtadAttributeType = lens _dynamoDBTableAttributeDefinitionAttributeType (\s a -> s { _dynamoDBTableAttributeDefinitionAttributeType = a })

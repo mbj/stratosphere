@@ -5,7 +5,6 @@ module Stratosphere.Resources.EventsRule where
 
 import Prelude
 import Stratosphere.ResourceImports
-import Stratosphere.Types
 import Stratosphere.ResourceProperties.EventsRuleTarget
 
 -- | Full data type definition for EventsRule. See 'eventsRule' for a more
@@ -18,7 +17,7 @@ data EventsRule =
   , _eventsRuleName :: Maybe (Val Text)
   , _eventsRuleRoleArn :: Maybe (Val Text)
   , _eventsRuleScheduleExpression :: Maybe (Val Text)
-  , _eventsRuleState :: Maybe (Val EnabledState)
+  , _eventsRuleState :: Maybe (Val Text)
   , _eventsRuleTargets :: Maybe [EventsRuleTarget]
   } deriving (Show, Eq)
 
@@ -79,7 +78,7 @@ erScheduleExpression :: Lens' EventsRule (Maybe (Val Text))
 erScheduleExpression = lens _eventsRuleScheduleExpression (\s a -> s { _eventsRuleScheduleExpression = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html#cfn-events-rule-state
-erState :: Lens' EventsRule (Maybe (Val EnabledState))
+erState :: Lens' EventsRule (Maybe (Val Text))
 erState = lens _eventsRuleState (\s a -> s { _eventsRuleState = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-rule.html#cfn-events-rule-targets

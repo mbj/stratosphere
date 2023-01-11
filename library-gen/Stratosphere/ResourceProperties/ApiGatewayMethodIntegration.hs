@@ -5,7 +5,6 @@ module Stratosphere.ResourceProperties.ApiGatewayMethodIntegration where
 
 import Prelude
 import Stratosphere.ResourceImports
-import Stratosphere.Types
 import Stratosphere.ResourceProperties.ApiGatewayMethodIntegrationResponse
 
 -- | Full data type definition for ApiGatewayMethodIntegration. See
@@ -18,13 +17,13 @@ data ApiGatewayMethodIntegration =
   , _apiGatewayMethodIntegrationConnectionType :: Maybe (Val Text)
   , _apiGatewayMethodIntegrationContentHandling :: Maybe (Val Text)
   , _apiGatewayMethodIntegrationCredentials :: Maybe (Val Text)
-  , _apiGatewayMethodIntegrationIntegrationHttpMethod :: Maybe (Val HttpMethod)
+  , _apiGatewayMethodIntegrationIntegrationHttpMethod :: Maybe (Val Text)
   , _apiGatewayMethodIntegrationIntegrationResponses :: Maybe [ApiGatewayMethodIntegrationResponse]
-  , _apiGatewayMethodIntegrationPassthroughBehavior :: Maybe (Val PassthroughBehavior)
+  , _apiGatewayMethodIntegrationPassthroughBehavior :: Maybe (Val Text)
   , _apiGatewayMethodIntegrationRequestParameters :: Maybe Object
   , _apiGatewayMethodIntegrationRequestTemplates :: Maybe Object
   , _apiGatewayMethodIntegrationTimeoutInMillis :: Maybe (Val Integer)
-  , _apiGatewayMethodIntegrationType :: Maybe (Val ApiBackendType)
+  , _apiGatewayMethodIntegrationType :: Maybe (Val Text)
   , _apiGatewayMethodIntegrationUri :: Maybe (Val Text)
   } deriving (Show, Eq)
 
@@ -95,7 +94,7 @@ agmiCredentials :: Lens' ApiGatewayMethodIntegration (Maybe (Val Text))
 agmiCredentials = lens _apiGatewayMethodIntegrationCredentials (\s a -> s { _apiGatewayMethodIntegrationCredentials = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-integrationhttpmethod
-agmiIntegrationHttpMethod :: Lens' ApiGatewayMethodIntegration (Maybe (Val HttpMethod))
+agmiIntegrationHttpMethod :: Lens' ApiGatewayMethodIntegration (Maybe (Val Text))
 agmiIntegrationHttpMethod = lens _apiGatewayMethodIntegrationIntegrationHttpMethod (\s a -> s { _apiGatewayMethodIntegrationIntegrationHttpMethod = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-integrationresponses
@@ -103,7 +102,7 @@ agmiIntegrationResponses :: Lens' ApiGatewayMethodIntegration (Maybe [ApiGateway
 agmiIntegrationResponses = lens _apiGatewayMethodIntegrationIntegrationResponses (\s a -> s { _apiGatewayMethodIntegrationIntegrationResponses = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-passthroughbehavior
-agmiPassthroughBehavior :: Lens' ApiGatewayMethodIntegration (Maybe (Val PassthroughBehavior))
+agmiPassthroughBehavior :: Lens' ApiGatewayMethodIntegration (Maybe (Val Text))
 agmiPassthroughBehavior = lens _apiGatewayMethodIntegrationPassthroughBehavior (\s a -> s { _apiGatewayMethodIntegrationPassthroughBehavior = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-requestparameters
@@ -119,7 +118,7 @@ agmiTimeoutInMillis :: Lens' ApiGatewayMethodIntegration (Maybe (Val Integer))
 agmiTimeoutInMillis = lens _apiGatewayMethodIntegrationTimeoutInMillis (\s a -> s { _apiGatewayMethodIntegrationTimeoutInMillis = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-type
-agmiType :: Lens' ApiGatewayMethodIntegration (Maybe (Val ApiBackendType))
+agmiType :: Lens' ApiGatewayMethodIntegration (Maybe (Val Text))
 agmiType = lens _apiGatewayMethodIntegrationType (\s a -> s { _apiGatewayMethodIntegrationType = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html#cfn-apigateway-method-integration-uri

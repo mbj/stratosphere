@@ -5,7 +5,7 @@ module Stratosphere.ResourceProperties.ApiGatewayDeploymentMethodSetting where
 
 import Prelude
 import Stratosphere.ResourceImports
-import Stratosphere.Types
+
 
 -- | Full data type definition for ApiGatewayDeploymentMethodSetting. See
 -- 'apiGatewayDeploymentMethodSetting' for a more convenient constructor.
@@ -15,8 +15,8 @@ data ApiGatewayDeploymentMethodSetting =
   , _apiGatewayDeploymentMethodSettingCacheTtlInSeconds :: Maybe (Val Integer)
   , _apiGatewayDeploymentMethodSettingCachingEnabled :: Maybe (Val Bool)
   , _apiGatewayDeploymentMethodSettingDataTraceEnabled :: Maybe (Val Bool)
-  , _apiGatewayDeploymentMethodSettingHttpMethod :: Maybe (Val HttpMethod)
-  , _apiGatewayDeploymentMethodSettingLoggingLevel :: Maybe (Val LoggingLevel)
+  , _apiGatewayDeploymentMethodSettingHttpMethod :: Maybe (Val Text)
+  , _apiGatewayDeploymentMethodSettingLoggingLevel :: Maybe (Val Text)
   , _apiGatewayDeploymentMethodSettingMetricsEnabled :: Maybe (Val Bool)
   , _apiGatewayDeploymentMethodSettingResourcePath :: Maybe (Val Text)
   , _apiGatewayDeploymentMethodSettingThrottlingBurstLimit :: Maybe (Val Integer)
@@ -74,11 +74,11 @@ agdmsDataTraceEnabled :: Lens' ApiGatewayDeploymentMethodSetting (Maybe (Val Boo
 agdmsDataTraceEnabled = lens _apiGatewayDeploymentMethodSettingDataTraceEnabled (\s a -> s { _apiGatewayDeploymentMethodSettingDataTraceEnabled = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-httpmethod
-agdmsHttpMethod :: Lens' ApiGatewayDeploymentMethodSetting (Maybe (Val HttpMethod))
+agdmsHttpMethod :: Lens' ApiGatewayDeploymentMethodSetting (Maybe (Val Text))
 agdmsHttpMethod = lens _apiGatewayDeploymentMethodSettingHttpMethod (\s a -> s { _apiGatewayDeploymentMethodSettingHttpMethod = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-logginglevel
-agdmsLoggingLevel :: Lens' ApiGatewayDeploymentMethodSetting (Maybe (Val LoggingLevel))
+agdmsLoggingLevel :: Lens' ApiGatewayDeploymentMethodSetting (Maybe (Val Text))
 agdmsLoggingLevel = lens _apiGatewayDeploymentMethodSettingLoggingLevel (\s a -> s { _apiGatewayDeploymentMethodSettingLoggingLevel = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription-methodsetting.html#cfn-apigateway-deployment-stagedescription-methodsetting-metricsenabled

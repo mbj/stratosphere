@@ -5,7 +5,6 @@ module Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamEncryptionCo
 
 import Prelude
 import Stratosphere.ResourceImports
-import Stratosphere.Types
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamKMSEncryptionConfig
 
 -- | Full data type definition for
@@ -15,7 +14,7 @@ import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamKMSEncryptio
 data KinesisFirehoseDeliveryStreamEncryptionConfiguration =
   KinesisFirehoseDeliveryStreamEncryptionConfiguration
   { _kinesisFirehoseDeliveryStreamEncryptionConfigurationKMSEncryptionConfig :: Maybe KinesisFirehoseDeliveryStreamKMSEncryptionConfig
-  , _kinesisFirehoseDeliveryStreamEncryptionConfigurationNoEncryptionConfig :: Maybe (Val KinesisFirehoseNoEncryptionConfig)
+  , _kinesisFirehoseDeliveryStreamEncryptionConfigurationNoEncryptionConfig :: Maybe (Val Text)
   } deriving (Show, Eq)
 
 instance ToJSON KinesisFirehoseDeliveryStreamEncryptionConfiguration where
@@ -41,5 +40,5 @@ kfdsecKMSEncryptionConfig :: Lens' KinesisFirehoseDeliveryStreamEncryptionConfig
 kfdsecKMSEncryptionConfig = lens _kinesisFirehoseDeliveryStreamEncryptionConfigurationKMSEncryptionConfig (\s a -> s { _kinesisFirehoseDeliveryStreamEncryptionConfigurationKMSEncryptionConfig = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-encryptionconfiguration.html#cfn-kinesisfirehose-deliverystream-encryptionconfiguration-noencryptionconfig
-kfdsecNoEncryptionConfig :: Lens' KinesisFirehoseDeliveryStreamEncryptionConfiguration (Maybe (Val KinesisFirehoseNoEncryptionConfig))
+kfdsecNoEncryptionConfig :: Lens' KinesisFirehoseDeliveryStreamEncryptionConfiguration (Maybe (Val Text))
 kfdsecNoEncryptionConfig = lens _kinesisFirehoseDeliveryStreamEncryptionConfigurationNoEncryptionConfig (\s a -> s { _kinesisFirehoseDeliveryStreamEncryptionConfigurationNoEncryptionConfig = a })

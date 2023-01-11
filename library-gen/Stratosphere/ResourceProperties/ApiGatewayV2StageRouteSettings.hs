@@ -5,7 +5,7 @@ module Stratosphere.ResourceProperties.ApiGatewayV2StageRouteSettings where
 
 import Prelude
 import Stratosphere.ResourceImports
-import Stratosphere.Types
+
 
 -- | Full data type definition for ApiGatewayV2StageRouteSettings. See
 -- 'apiGatewayV2StageRouteSettings' for a more convenient constructor.
@@ -13,7 +13,7 @@ data ApiGatewayV2StageRouteSettings =
   ApiGatewayV2StageRouteSettings
   { _apiGatewayV2StageRouteSettingsDataTraceEnabled :: Maybe (Val Bool)
   , _apiGatewayV2StageRouteSettingsDetailedMetricsEnabled :: Maybe (Val Bool)
-  , _apiGatewayV2StageRouteSettingsLoggingLevel :: Maybe (Val LoggingLevel)
+  , _apiGatewayV2StageRouteSettingsLoggingLevel :: Maybe (Val Text)
   , _apiGatewayV2StageRouteSettingsThrottlingBurstLimit :: Maybe (Val Integer)
   , _apiGatewayV2StageRouteSettingsThrottlingRateLimit :: Maybe (Val Double)
   } deriving (Show, Eq)
@@ -51,7 +51,7 @@ agvsrsDetailedMetricsEnabled :: Lens' ApiGatewayV2StageRouteSettings (Maybe (Val
 agvsrsDetailedMetricsEnabled = lens _apiGatewayV2StageRouteSettingsDetailedMetricsEnabled (\s a -> s { _apiGatewayV2StageRouteSettingsDetailedMetricsEnabled = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-stage-routesettings.html#cfn-apigatewayv2-stage-routesettings-logginglevel
-agvsrsLoggingLevel :: Lens' ApiGatewayV2StageRouteSettings (Maybe (Val LoggingLevel))
+agvsrsLoggingLevel :: Lens' ApiGatewayV2StageRouteSettings (Maybe (Val Text))
 agvsrsLoggingLevel = lens _apiGatewayV2StageRouteSettingsLoggingLevel (\s a -> s { _apiGatewayV2StageRouteSettingsLoggingLevel = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-stage-routesettings.html#cfn-apigatewayv2-stage-routesettings-throttlingburstlimit

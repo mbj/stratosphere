@@ -21,7 +21,6 @@ module Stratosphere
   , module Stratosphere.Resources
   , module Stratosphere.Template
   , module Stratosphere.Values
-  , module Stratosphere.Types
   , module Stratosphere.Check
   , module Control.Lens
   )
@@ -33,7 +32,6 @@ import Stratosphere.Outputs
 import Stratosphere.Parameters
 import Stratosphere.Resources
 import Stratosphere.Template
-import Stratosphere.Types
 import Stratosphere.Values
 
 -- $intro

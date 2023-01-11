@@ -1,5 +1,10 @@
 # Change Log
 
+## 1.0 [unreleased]
+
+* Remove support for custom enum types stratosphere used to tag
+  on to the raw spec. See: [#202](https://github.com/mbj/stratosphere/pull/202)
+
 ## 0.60.0
 
 * Add and require aeson-2 support

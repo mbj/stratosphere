@@ -8,7 +8,6 @@ module Gen.Spec
   , Property(..)
   , SpecType(..)
   , subPropertyTypeNames
-  , customTypeNames
   , AtomicType(..)
   , ResourceType(..)
   )
@@ -85,28 +84,6 @@ data SpecType
   deriving (Show, Eq)
 
 rawToSpecType :: Text -> Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> SpecType
--- Overrides for our custom types
-rawToSpecType "AWS::ApiGateway::Authorizer" "Type" _ _ _ _ = AtomicType $ CustomType "AuthorizerType"
-rawToSpecType "AWS::ApiGateway::Method" "AuthorizationType" _ _ _ _ = AtomicType $ CustomType "AuthorizationType"
-rawToSpecType "AWS::ApiGateway::Method.Integration" "IntegrationHttpMethod" _ _ _ _ = AtomicType $ CustomType "HttpMethod"
-rawToSpecType "AWS::ApiGateway::Method.Integration" "PassthroughBehavior" _ _ _ _ = AtomicType $ CustomType "PassthroughBehavior"
-rawToSpecType "AWS::ApiGateway::Method.Integration" "Type" _ _ _ _ = AtomicType $ CustomType "ApiBackendType"
-rawToSpecType "AWS::ApiGateway::UsagePlan.QuotaSettings" "Period" _ _ _ _ = AtomicType $ CustomType "Period"
-rawToSpecType "AWS::DynamoDB::Table.AttributeDefinition" "AttributeType" _ _ _ _ = AtomicType $ CustomType "AttributeType"
-rawToSpecType "AWS::DynamoDB::Table.KeySchema" "KeyType" _ _ _ _ = AtomicType $ CustomType "KeyType"
-rawToSpecType "AWS::DynamoDB::Table.Projection" "ProjectionType" _ _ _ _ = AtomicType $ CustomType "ProjectionType"
-rawToSpecType "AWS::DynamoDB::Table.StreamSpecification" "StreamViewType" _ _ _ _ = AtomicType $ CustomType "StreamViewType"
-rawToSpecType "AWS::Events::Rule" "State" _ _ _ _ = AtomicType $ CustomType "EnabledState"
-rawToSpecType "AWS::KinesisFirehose::DeliveryStream.S3DestinationConfiguration" "CompressionFormat" _ _ _ _ = AtomicType $ CustomType "KinesisFirehoseS3CompressionFormat"
-rawToSpecType "AWS::KinesisFirehose::DeliveryStream.ElasticsearchDestinationConfiguration" "S3BackupMode" _ _ _ _ = AtomicType $ CustomType "KinesisFirehoseElasticsearchS3BackupMode"
-rawToSpecType "AWS::KinesisFirehose::DeliveryStream.EncryptionConfiguration" "NoEncryptionConfig" _ _ _ _ = AtomicType $ CustomType "KinesisFirehoseNoEncryptionConfig"
-rawToSpecType "AWS::Lambda::Function" "Runtime" _ _ _ _ = AtomicType $ CustomType "Runtime"
-rawToSpecType "AWS::S3::Bucket" "AccessControl" _ _ _ _ = AtomicType $ CustomType "CannedACL"
-rawToSpecType "AWS::SNS::Subscription" "Protocol" _ _ _ _ = AtomicType $ CustomType "SNSProtocol"
-rawToSpecType "AWS::SNS::Topic.Subscription" "Protocol" _ _ _ _ = AtomicType $ CustomType "SNSProtocol"
-rawToSpecType _ "HttpMethod" _ _ _ _ = AtomicType $ CustomType "HttpMethod"
-rawToSpecType _ "LoggingLevel" _ _ _ _ = AtomicType $ CustomType "LoggingLevel"
--- Default
 rawToSpecType _ _ primType type' primItemType itemType = rawToSpecType' primType type' primItemType itemType
 
 rawToSpecType'
@@ -136,7 +113,6 @@ data AtomicType
   | BoolPrimitive
   | JsonPrimitive
   | SubPropertyType Text
-  | CustomType Text
   deriving (Show, Eq)
 
 textToPrimitiveType :: Text -> AtomicType
@@ -155,17 +131,8 @@ subPropertyTypeName (ListType (SubPropertyType name)) = Just name
 subPropertyTypeName (MapType (SubPropertyType name)) = Just name
 subPropertyTypeName _ = Nothing
 
-customTypeName :: SpecType -> Maybe Text
-customTypeName (AtomicType (CustomType name)) = Just name
-customTypeName (ListType (CustomType name)) = Just name
-customTypeName (MapType (CustomType name)) = Just name
-customTypeName _ = Nothing
-
 subPropertyTypeNames :: [Property] -> [Text]
 subPropertyTypeNames = catMaybes . fmap (subPropertyTypeName . propertySpecType)
-
-customTypeNames :: [Property] -> [Text]
-customTypeNames = catMaybes . fmap (customTypeName . propertySpecType)
 
 data ResourceType = ResourceType
   { resourceTypeFullName      :: Text

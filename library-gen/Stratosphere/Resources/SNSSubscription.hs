@@ -5,7 +5,7 @@ module Stratosphere.Resources.SNSSubscription where
 
 import Prelude
 import Stratosphere.ResourceImports
-import Stratosphere.Types
+
 
 -- | Full data type definition for SNSSubscription. See 'snsSubscription' for
 -- a more convenient constructor.
@@ -14,7 +14,7 @@ data SNSSubscription =
   { _sNSSubscriptionDeliveryPolicy :: Maybe Object
   , _sNSSubscriptionEndpoint :: Maybe (Val Text)
   , _sNSSubscriptionFilterPolicy :: Maybe Object
-  , _sNSSubscriptionProtocol :: Val SNSProtocol
+  , _sNSSubscriptionProtocol :: Val Text
   , _sNSSubscriptionRawMessageDelivery :: Maybe (Val Bool)
   , _sNSSubscriptionRedrivePolicy :: Maybe Object
   , _sNSSubscriptionRegion :: Maybe (Val Text)
@@ -41,7 +41,7 @@ instance ToResourceProperties SNSSubscription where
 -- | Constructor for 'SNSSubscription' containing required fields as
 -- arguments.
 snsSubscription
-  :: Val SNSProtocol -- ^ 'snssProtocol'
+  :: Val Text -- ^ 'snssProtocol'
   -> Val Text -- ^ 'snssTopicArn'
   -> SNSSubscription
 snsSubscription protocolarg topicArnarg =
@@ -69,7 +69,7 @@ snssFilterPolicy :: Lens' SNSSubscription (Maybe Object)
 snssFilterPolicy = lens _sNSSubscriptionFilterPolicy (\s a -> s { _sNSSubscriptionFilterPolicy = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-protocol
-snssProtocol :: Lens' SNSSubscription (Val SNSProtocol)
+snssProtocol :: Lens' SNSSubscription (Val Text)
 snssProtocol = lens _sNSSubscriptionProtocol (\s a -> s { _sNSSubscriptionProtocol = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html#cfn-sns-subscription-rawmessagedelivery

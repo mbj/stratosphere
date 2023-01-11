@@ -5,7 +5,6 @@ module Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamElasticsearc
 
 import Prelude
 import Stratosphere.ResourceImports
-import Stratosphere.Types
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamElasticsearchBufferingHints
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamCloudWatchLoggingOptions
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamProcessingConfiguration
@@ -28,7 +27,7 @@ data KinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguration =
   , _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationProcessingConfiguration :: Maybe KinesisFirehoseDeliveryStreamProcessingConfiguration
   , _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationRetryOptions :: Maybe KinesisFirehoseDeliveryStreamElasticsearchRetryOptions
   , _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationRoleARN :: Val Text
-  , _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationS3BackupMode :: Maybe (Val KinesisFirehoseElasticsearchS3BackupMode)
+  , _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationS3BackupMode :: Maybe (Val Text)
   , _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationS3Configuration :: KinesisFirehoseDeliveryStreamS3DestinationConfiguration
   , _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationTypeName :: Maybe (Val Text)
   , _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationVpcConfiguration :: Maybe KinesisFirehoseDeliveryStreamVpcConfiguration
@@ -115,7 +114,7 @@ kfdsedcRoleARN :: Lens' KinesisFirehoseDeliveryStreamElasticsearchDestinationCon
 kfdsedcRoleARN = lens _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationRoleARN (\s a -> s { _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationRoleARN = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration-s3backupmode
-kfdsedcS3BackupMode :: Lens' KinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguration (Maybe (Val KinesisFirehoseElasticsearchS3BackupMode))
+kfdsedcS3BackupMode :: Lens' KinesisFirehoseDeliveryStreamElasticsearchDestinationConfiguration (Maybe (Val Text))
 kfdsedcS3BackupMode = lens _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationS3BackupMode (\s a -> s { _kinesisFirehoseDeliveryStreamElasticsearchDestinationConfigurationS3BackupMode = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration.html#cfn-kinesisfirehose-deliverystream-elasticsearchdestinationconfiguration-s3configuration

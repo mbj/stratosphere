@@ -5,7 +5,6 @@ module Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamS3Destinatio
 
 import Prelude
 import Stratosphere.ResourceImports
-import Stratosphere.Types
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamBufferingHints
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamCloudWatchLoggingOptions
 import Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamEncryptionConfiguration
@@ -19,7 +18,7 @@ data KinesisFirehoseDeliveryStreamS3DestinationConfiguration =
   { _kinesisFirehoseDeliveryStreamS3DestinationConfigurationBucketARN :: Val Text
   , _kinesisFirehoseDeliveryStreamS3DestinationConfigurationBufferingHints :: Maybe KinesisFirehoseDeliveryStreamBufferingHints
   , _kinesisFirehoseDeliveryStreamS3DestinationConfigurationCloudWatchLoggingOptions :: Maybe KinesisFirehoseDeliveryStreamCloudWatchLoggingOptions
-  , _kinesisFirehoseDeliveryStreamS3DestinationConfigurationCompressionFormat :: Maybe (Val KinesisFirehoseS3CompressionFormat)
+  , _kinesisFirehoseDeliveryStreamS3DestinationConfigurationCompressionFormat :: Maybe (Val Text)
   , _kinesisFirehoseDeliveryStreamS3DestinationConfigurationEncryptionConfiguration :: Maybe KinesisFirehoseDeliveryStreamEncryptionConfiguration
   , _kinesisFirehoseDeliveryStreamS3DestinationConfigurationErrorOutputPrefix :: Maybe (Val Text)
   , _kinesisFirehoseDeliveryStreamS3DestinationConfigurationPrefix :: Maybe (Val Text)
@@ -71,7 +70,7 @@ kfdssdcCloudWatchLoggingOptions :: Lens' KinesisFirehoseDeliveryStreamS3Destinat
 kfdssdcCloudWatchLoggingOptions = lens _kinesisFirehoseDeliveryStreamS3DestinationConfigurationCloudWatchLoggingOptions (\s a -> s { _kinesisFirehoseDeliveryStreamS3DestinationConfigurationCloudWatchLoggingOptions = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-s3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-s3destinationconfiguration-compressionformat
-kfdssdcCompressionFormat :: Lens' KinesisFirehoseDeliveryStreamS3DestinationConfiguration (Maybe (Val KinesisFirehoseS3CompressionFormat))
+kfdssdcCompressionFormat :: Lens' KinesisFirehoseDeliveryStreamS3DestinationConfiguration (Maybe (Val Text))
 kfdssdcCompressionFormat = lens _kinesisFirehoseDeliveryStreamS3DestinationConfigurationCompressionFormat (\s a -> s { _kinesisFirehoseDeliveryStreamS3DestinationConfigurationCompressionFormat = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-s3destinationconfiguration.html#cfn-kinesisfirehose-deliverystream-s3destinationconfiguration-encryptionconfiguration

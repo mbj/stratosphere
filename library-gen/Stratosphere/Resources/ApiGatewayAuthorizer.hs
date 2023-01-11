@@ -5,7 +5,7 @@ module Stratosphere.Resources.ApiGatewayAuthorizer where
 
 import Prelude
 import Stratosphere.ResourceImports
-import Stratosphere.Types
+
 
 -- | Full data type definition for ApiGatewayAuthorizer. See
 -- 'apiGatewayAuthorizer' for a more convenient constructor.
@@ -20,7 +20,7 @@ data ApiGatewayAuthorizer =
   , _apiGatewayAuthorizerName :: Maybe (Val Text)
   , _apiGatewayAuthorizerProviderARNs :: Maybe (ValList Text)
   , _apiGatewayAuthorizerRestApiId :: Val Text
-  , _apiGatewayAuthorizerType :: Val AuthorizerType
+  , _apiGatewayAuthorizerType :: Val Text
   } deriving (Show, Eq)
 
 instance ToResourceProperties ApiGatewayAuthorizer where
@@ -46,7 +46,7 @@ instance ToResourceProperties ApiGatewayAuthorizer where
 -- arguments.
 apiGatewayAuthorizer
   :: Val Text -- ^ 'agaRestApiId'
-  -> Val AuthorizerType -- ^ 'agaType'
+  -> Val Text -- ^ 'agaType'
   -> ApiGatewayAuthorizer
 apiGatewayAuthorizer restApiIdarg typearg =
   ApiGatewayAuthorizer
@@ -99,5 +99,5 @@ agaRestApiId :: Lens' ApiGatewayAuthorizer (Val Text)
 agaRestApiId = lens _apiGatewayAuthorizerRestApiId (\s a -> s { _apiGatewayAuthorizerRestApiId = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-authorizer.html#cfn-apigateway-authorizer-type
-agaType :: Lens' ApiGatewayAuthorizer (Val AuthorizerType)
+agaType :: Lens' ApiGatewayAuthorizer (Val Text)
 agaType = lens _apiGatewayAuthorizerType (\s a -> s { _apiGatewayAuthorizerType = a })

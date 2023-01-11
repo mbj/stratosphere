@@ -5,7 +5,6 @@ module Stratosphere.ResourceProperties.ApiGatewayDeploymentStageDescription wher
 
 import Prelude
 import Stratosphere.ResourceImports
-import Stratosphere.Types
 import Stratosphere.ResourceProperties.ApiGatewayDeploymentAccessLogSetting
 import Stratosphere.ResourceProperties.ApiGatewayDeploymentCanarySetting
 import Stratosphere.ResourceProperties.ApiGatewayDeploymentMethodSetting
@@ -26,7 +25,7 @@ data ApiGatewayDeploymentStageDescription =
   , _apiGatewayDeploymentStageDescriptionDataTraceEnabled :: Maybe (Val Bool)
   , _apiGatewayDeploymentStageDescriptionDescription :: Maybe (Val Text)
   , _apiGatewayDeploymentStageDescriptionDocumentationVersion :: Maybe (Val Text)
-  , _apiGatewayDeploymentStageDescriptionLoggingLevel :: Maybe (Val LoggingLevel)
+  , _apiGatewayDeploymentStageDescriptionLoggingLevel :: Maybe (Val Text)
   , _apiGatewayDeploymentStageDescriptionMethodSettings :: Maybe [ApiGatewayDeploymentMethodSetting]
   , _apiGatewayDeploymentStageDescriptionMetricsEnabled :: Maybe (Val Bool)
   , _apiGatewayDeploymentStageDescriptionTags :: Maybe [Tag]
@@ -133,7 +132,7 @@ agdsdDocumentationVersion :: Lens' ApiGatewayDeploymentStageDescription (Maybe (
 agdsdDocumentationVersion = lens _apiGatewayDeploymentStageDescriptionDocumentationVersion (\s a -> s { _apiGatewayDeploymentStageDescriptionDocumentationVersion = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-logginglevel
-agdsdLoggingLevel :: Lens' ApiGatewayDeploymentStageDescription (Maybe (Val LoggingLevel))
+agdsdLoggingLevel :: Lens' ApiGatewayDeploymentStageDescription (Maybe (Val Text))
 agdsdLoggingLevel = lens _apiGatewayDeploymentStageDescriptionLoggingLevel (\s a -> s { _apiGatewayDeploymentStageDescriptionLoggingLevel = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-stagedescription.html#cfn-apigateway-deployment-stagedescription-methodsettings
