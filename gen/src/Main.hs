@@ -1,4 +1,3 @@
-{-# LANGUAGE BangPatterns #-}
 {-# LANGUAGE QuasiQuotes #-}
 
 module Main (main) where
@@ -23,7 +22,7 @@ main = do
 
   let
     spec = specFromRaw rawSpec
-    !modules =
+    modules =
       createModules
       (cloudFormationSpecPropertyTypes spec)
       (cloudFormationSpecResourceTypes spec)
