@@ -24,17 +24,19 @@ import Gen.RawSpec
 import qualified Data.Text as Text
 
 data Spec = Spec
-  { specPropertyTypes                :: [PropertyType]
-  , specResourceSpecificationVersion :: Text
-  , specResourceTypes                :: [ResourceType]
+  { specPropertyTypes :: [PropertyType]
+  , specVersion       :: Text
+  , specResourceTypes :: [ResourceType]
   }
   deriving (Show, Eq)
 
 specFromRaw :: RawSpec -> Spec
-specFromRaw (RawSpec rawProps version rawResources) = Spec props version resources
-  where
-    props = uncurry propertyTypeFromRaw <$> sortOn fst (toList rawProps)
-    resources = uncurry resourceTypeFromRaw <$> sortOn fst (toList rawResources)
+specFromRaw RawSpec{..}
+  = Spec
+  { specPropertyTypes = uncurry propertyTypeFromRaw <$> sortOn fst (toList rawSpecPropertyTypes)
+  , specResourceTypes = uncurry resourceTypeFromRaw <$> sortOn fst (toList rawSpecResourceTypes)
+  , specVersion       = rawSpecResourceSpecificationVersion
+  }
 
 data PropertyType = PropertyType
   { propertyTypeName          :: Text
@@ -44,8 +46,12 @@ data PropertyType = PropertyType
   deriving (Show, Eq)
 
 propertyTypeFromRaw :: Text -> RawPropertyType -> PropertyType
-propertyTypeFromRaw fullName (RawPropertyType doc props) =
-  PropertyType fullName doc (uncurry (propertyFromRaw fullName) <$> sortOn fst (toList props))
+propertyTypeFromRaw fullName RawPropertyType{..}
+  = PropertyType
+  { propertyTypeName          = fullName
+  , propertyTypeDocumentation = rawPropertyTypeDocumentation
+  , propertyTypeProperties    = (uncurry (propertyFromRaw fullName) <$> sortOn fst (toList rawPropertyTypeProperties))
+  }
 
 data Property = Property
   { propertyName          :: Text
@@ -58,8 +64,19 @@ data Property = Property
   deriving (Show, Eq)
 
 propertyFromRaw :: Text -> Text -> RawProperty -> Property
-propertyFromRaw fullTypeName name (RawProperty doc _ itemType primItemType primType required type' _) =
-  Property name doc (rawToSpecType fullTypeName name primType type' primItemType itemType) required
+propertyFromRaw fullTypeName name RawProperty{..}
+  = Property
+  { propertyName          = name
+  , propertyDocumentation = rawPropertyDocumentation
+  , propertySpecType      = rawToSpecType
+     fullTypeName
+     name
+     rawPropertyPrimitiveType
+     rawPropertyType
+     rawPropertyPrimitiveItemType
+     rawPropertyItemType
+  , propertyRequired      = rawPropertyRequired
+  }
 
 data SpecType
   = AtomicType AtomicType
@@ -159,5 +176,9 @@ data ResourceType = ResourceType
   deriving (Show, Eq, Generic)
 
 resourceTypeFromRaw :: Text -> RawResourceType -> ResourceType
-resourceTypeFromRaw fullName (RawResourceType _ doc props) =
-  ResourceType fullName doc (uncurry (propertyFromRaw fullName) <$> sortOn fst (toList props))
+resourceTypeFromRaw fullName RawResourceType{..}
+  = ResourceType
+  { resourceTypeFullName      = fullName
+  , resourceTypeDocumentation = rawResourceTypeDocumentation
+  , resourceTypeProperties    = uncurry (propertyFromRaw fullName) <$> sortOn fst (toList rawResourceTypeProperties)
+  }
