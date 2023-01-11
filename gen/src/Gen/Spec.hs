@@ -32,9 +32,9 @@ data Spec = Spec
   deriving (Show, Eq)
 
 specFromRaw :: RawSpec -> Spec
-specFromRaw spec = Spec props version resources
+specFromRaw rawSpec = Spec props version resources
   where
-    (RawSpec rawProps version rawResources) = fixSpecBugs spec
+    (RawSpec rawProps version rawResources) = fixSpecBugs rawSpec
     props = uncurry propertyTypeFromRaw <$> sortOn fst (toList rawProps)
     resources = uncurry resourceTypeFromRaw <$> sortOn fst (toList rawResources)
 
@@ -43,8 +43,8 @@ specFromRaw spec = Spec props version resources
 -- support ticket with AWS support to fix these things, but for now we are
 -- patching things up manually.
 fixSpecBugs :: RawSpec -> RawSpec
-fixSpecBugs spec =
-  spec
+fixSpecBugs rawSpec =
+  rawSpec
   -- There are a few naming conflicts with security group types. For example,
   -- there is a resource named AWS::RDS::DBSecurityGroupIngress, and a property
   -- named AWS::RDS::DBSecurityGroup.Ingress. There is a corresponding fix in
@@ -52,19 +52,19 @@ fixSpecBugs spec =
   -- AWS::RDS::DBSecurityGroup.Ingress.
   & propertyTypesLens
   . at "AWS::RDS::DBSecurityGroup.IngressProperty"
-  .~ (spec ^. propertyTypesLens . at "AWS::RDS::DBSecurityGroup.Ingress")
+  .~ (rawSpec ^. propertyTypesLens . at "AWS::RDS::DBSecurityGroup.Ingress")
   & propertyTypesLens
   . at "AWS::RDS::DBSecurityGroup.Ingress"
   .~ Nothing
   & propertyTypesLens
   . at "AWS::EC2::SecurityGroup.IngressProperty"
-  .~ (spec ^. propertyTypesLens . at "AWS::EC2::SecurityGroup.Ingress")
+  .~ (rawSpec ^. propertyTypesLens . at "AWS::EC2::SecurityGroup.Ingress")
   & propertyTypesLens
   . at "AWS::EC2::SecurityGroup.Ingress"
   .~ Nothing
   & propertyTypesLens
   . at "AWS::EC2::SecurityGroup.EgressProperty"
-  .~ (spec ^. propertyTypesLens . at "AWS::EC2::SecurityGroup.Egress")
+  .~ (rawSpec ^. propertyTypesLens . at "AWS::EC2::SecurityGroup.Egress")
   & propertyTypesLens
   . at "AWS::EC2::SecurityGroup.Egress"
   .~ Nothing
@@ -72,7 +72,7 @@ fixSpecBugs spec =
   -- different from AWS::IoT::TopicRule.DynamoDBAction
   & propertyTypesLens
   . at "AWS::IoT::TopicRule.DynamoDBV2Action"
-  .~ (spec ^. propertyTypesLens . at "AWS::IoT::TopicRule.DynamoDBv2Action")
+  .~ (rawSpec ^. propertyTypesLens . at "AWS::IoT::TopicRule.DynamoDBv2Action")
   & propertyTypesLens
   . at "AWS::IoT::TopicRule.DynamoDBv2Action"
   .~ Nothing
