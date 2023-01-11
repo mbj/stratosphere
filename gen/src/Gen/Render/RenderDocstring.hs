@@ -2,18 +2,17 @@
 
 module Gen.Render.RenderDocstring (renderDocstring) where
 
-import Data.Text (Text)
-import Prelude
+import Gen.Prelude
 
-import qualified Data.Text as T
+import qualified Data.Text as Text
 
 renderDocstring :: Text -> Text
 renderDocstring = wrapDocstring 79
 
 wrapDocstring :: Int -> Text -> Text
-wrapDocstring width text = T.init $ T.unlines $ T.pack <$> commented
+wrapDocstring width text = Text.init $ Text.unlines $ Text.pack <$> commented
   where
-    lines' = wrapLine' (width - 5) (T.unpack text)
+    lines' = wrapLine' (width - 5) (Text.unpack text)
     commented = zipWith (++) ("-- | " : repeat "-- ") lines'
 
 wrapLine' :: Int -> String -> [String]

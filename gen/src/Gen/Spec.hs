@@ -1,8 +1,8 @@
 -- | This transforms the output from ReadRawSpecFile for consumption into the
 -- generator.
 
-module Gen.Specifications
-  ( CloudFormationSpec(..)
+module Gen.Spec
+  ( Spec(..)
   , specFromRaw
   , PropertyType(..)
   , Property(..)
@@ -14,114 +14,69 @@ module Gen.Specifications
   )
 where
 
-import Control.Lens
 import Data.List (sortOn)
-import Data.Map (Map, toList)
+import Data.Map (toList)
 import Data.Maybe (catMaybes)
-import Data.Text
 import GHC.Generics hiding (to)
-import Gen.ReadRawSpecFile
-import Prelude
+import Gen.Prelude
+import Gen.RawSpec
 
-data CloudFormationSpec
-  = CloudFormationSpec
-  { cloudFormationSpecPropertyTypes :: [PropertyType]
-  , clousFormationSpecResourceSpecificationVersion :: Text
-  , cloudFormationSpecResourceTypes :: [ResourceType]
+import qualified Data.Text as Text
+
+data Spec = Spec
+  { specPropertyTypes :: [PropertyType]
+  , specVersion       :: Text
+  , specResourceTypes :: [ResourceType]
   }
   deriving (Show, Eq)
 
-specFromRaw :: RawCloudFormationSpec -> CloudFormationSpec
-specFromRaw spec = CloudFormationSpec props version resources
-  where
-    (RawCloudFormationSpec rawProps version rawResources) = fixSpecBugs spec
-    props = uncurry propertyTypeFromRaw <$> sortOn fst (toList rawProps)
-    resources = uncurry resourceTypeFromRaw <$> sortOn fst (toList rawResources)
+specFromRaw :: RawSpec -> Spec
+specFromRaw RawSpec{..}
+  = Spec
+  { specPropertyTypes = uncurry propertyTypeFromRaw <$> sortOn fst (toList rawSpecPropertyTypes)
+  , specResourceTypes = uncurry resourceTypeFromRaw <$> sortOn fst (toList rawSpecResourceTypes)
+  , specVersion       = rawSpecResourceSpecificationVersion
+  }
 
--- | There are a few missing properties and resources in the official spec
--- document, as well as inconsistent or incorrect naming. There is an open
--- support ticket with AWS support to fix these things, but for now we are
--- patching things up manually.
-fixSpecBugs :: RawCloudFormationSpec -> RawCloudFormationSpec
-fixSpecBugs spec =
-  spec
-  -- There are a few naming conflicts with security group types. For example,
-  -- there is a resource named AWS::RDS::DBSecurityGroupIngress, and a property
-  -- named AWS::RDS::DBSecurityGroup.Ingress. There is a corresponding fix in
-  -- the function to render the full type name for
-  -- AWS::RDS::DBSecurityGroup.Ingress.
-  & propertyTypesLens
-  . at "AWS::RDS::DBSecurityGroup.IngressProperty"
-  .~ (spec ^. propertyTypesLens . at "AWS::RDS::DBSecurityGroup.Ingress")
-  & propertyTypesLens
-  . at "AWS::RDS::DBSecurityGroup.Ingress"
-  .~ Nothing
-  & propertyTypesLens
-  . at "AWS::EC2::SecurityGroup.IngressProperty"
-  .~ (spec ^. propertyTypesLens . at "AWS::EC2::SecurityGroup.Ingress")
-  & propertyTypesLens
-  . at "AWS::EC2::SecurityGroup.Ingress"
-  .~ Nothing
-  & propertyTypesLens
-  . at "AWS::EC2::SecurityGroup.EgressProperty"
-  .~ (spec ^. propertyTypesLens . at "AWS::EC2::SecurityGroup.Egress")
-  & propertyTypesLens
-  . at "AWS::EC2::SecurityGroup.Egress"
-  .~ Nothing
-  -- Rename AWS::IoT::TopicRule.DynamoDBv2Action to capitalize the "v" so it is
-  -- different from AWS::IoT::TopicRule.DynamoDBAction
-  & propertyTypesLens
-  . at "AWS::IoT::TopicRule.DynamoDBV2Action"
-  .~ (spec ^. propertyTypesLens . at "AWS::IoT::TopicRule.DynamoDBv2Action")
-  & propertyTypesLens
-  . at "AWS::IoT::TopicRule.DynamoDBv2Action"
-  .~ Nothing
-  -- AWS::ECS::TaskDefinition.ContainerDefinition has two properties that are
-  -- required, but the doc says they aren't.
-  & propertyTypesLens
-  . ix "AWS::ECS::TaskDefinition.ContainerDefinition"
-  . propertyPropsLens
-  . at "Image"
-  %~ fmap setRequired
-  & propertyTypesLens
-  . ix "AWS::ECS::TaskDefinition.ContainerDefinition"
-  . propertyPropsLens
-  . at "Name"
-  %~ fmap setRequired
-  where
-    propertyTypesLens :: Lens' RawCloudFormationSpec (Map Text RawPropertyType)
-    propertyTypesLens = lens rawCloudFormationSpecPropertyTypes (\s a -> s { rawCloudFormationSpecPropertyTypes = a })
-    propertyPropsLens :: Lens' RawPropertyType (Map Text RawProperty)
-    propertyPropsLens = lens rawPropertyTypeProperties (\s a -> s { rawPropertyTypeProperties = a })
-
-    setRequired rawProp = rawProp { rawPropertyRequired = True }
-
-data PropertyType
-  = PropertyType
-  { propertyTypeName :: Text
+data PropertyType = PropertyType
+  { propertyTypeName          :: Text
   , propertyTypeDocumentation :: Text
-  , propertyTypeProperties :: [Property]
+  , propertyTypeProperties    :: [Property]
   }
   deriving (Show, Eq)
 
 propertyTypeFromRaw :: Text -> RawPropertyType -> PropertyType
-propertyTypeFromRaw fullName (RawPropertyType doc props) =
-  PropertyType fullName doc (uncurry (propertyFromRaw fullName) <$> sortOn fst (toList props))
+propertyTypeFromRaw fullName RawPropertyType{..}
+  = PropertyType
+  { propertyTypeName          = fullName
+  , propertyTypeDocumentation = rawPropertyTypeDocumentation
+  , propertyTypeProperties    = (uncurry (propertyFromRaw fullName) <$> sortOn fst (toList rawPropertyTypeProperties))
+  }
 
-data Property
-  = Property
-  { propertyName :: Text
+data Property = Property
+  { propertyName          :: Text
   , propertyDocumentation :: Text
   --, propertyDuplicatesAllowed :: Maybe Bool -- Don't care about this
-  , propertySpecType :: SpecType
-  , propertyRequired :: Bool
+  , propertySpecType      :: SpecType
+  , propertyRequired      :: Bool
   --, propertyUpdateType :: Maybe Text -- Don't care about this
   }
   deriving (Show, Eq)
 
 propertyFromRaw :: Text -> Text -> RawProperty -> Property
-propertyFromRaw fullTypeName name (RawProperty doc _ itemType primItemType primType required type' _) =
-  Property name doc (rawToSpecType fullTypeName name primType type' primItemType itemType) required
+propertyFromRaw fullTypeName name RawProperty{..}
+  = Property
+  { propertyName          = name
+  , propertyDocumentation = rawPropertyDocumentation
+  , propertySpecType      = rawToSpecType
+     fullTypeName
+     name
+     rawPropertyPrimitiveType
+     rawPropertyType
+     rawPropertyPrimitiveItemType
+     rawPropertyItemType
+  , propertyRequired      = rawPropertyRequired
+  }
 
 data SpecType
   = AtomicType AtomicType
@@ -192,7 +147,7 @@ textToPrimitiveType "Double" = DoublePrimitive
 textToPrimitiveType "Boolean" = BoolPrimitive
 textToPrimitiveType "Timestamp" = StringPrimitive
 textToPrimitiveType "Json" = JsonPrimitive
-textToPrimitiveType t = error $ "Unknown primitive type: " ++ unpack t
+textToPrimitiveType t = error $ "Unknown primitive type: " ++ Text.unpack t
 
 subPropertyTypeName :: SpecType -> Maybe Text
 subPropertyTypeName (AtomicType (SubPropertyType name)) = Just name
@@ -212,15 +167,18 @@ subPropertyTypeNames = catMaybes . fmap (subPropertyTypeName . propertySpecType)
 customTypeNames :: [Property] -> [Text]
 customTypeNames = catMaybes . fmap (customTypeName . propertySpecType)
 
-data ResourceType
-  = ResourceType
-  { resourceTypeFullName :: Text
+data ResourceType = ResourceType
+  { resourceTypeFullName      :: Text
   --, resourceTypeAttributes :: [ResourceAttribute] -- Don't care about this yet, could be useful
   , resourceTypeDocumentation :: Text
-  , resourceTypeProperties :: [Property]
+  , resourceTypeProperties    :: [Property]
   }
   deriving (Show, Eq, Generic)
 
 resourceTypeFromRaw :: Text -> RawResourceType -> ResourceType
-resourceTypeFromRaw fullName (RawResourceType _ doc props) =
-  ResourceType fullName doc (uncurry (propertyFromRaw fullName) <$> sortOn fst (toList props))
+resourceTypeFromRaw fullName RawResourceType{..}
+  = ResourceType
+  { resourceTypeFullName      = fullName
+  , resourceTypeDocumentation = rawResourceTypeDocumentation
+  , resourceTypeProperties    = uncurry (propertyFromRaw fullName) <$> sortOn fst (toList rawResourceTypeProperties)
+  }

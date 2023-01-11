@@ -3,31 +3,30 @@ module Gen.Render.Module (Module(..), createModules) where
 import Data.Char (isUpper, isNumber)
 import Data.Maybe (fromMaybe)
 import Data.Set (Set)
-import Data.Text
 import Data.Text.Manipulate (lowerHead, toAcronym)
-import Gen.Specifications
-import Prelude
+import Gen.Prelude
+import Gen.Spec
 
-import qualified Data.Set as Set
 import qualified Data.Char as Char
+import qualified Data.Set  as Set
+import qualified Data.Text as Text
 
-data Module
-  = Module
-  { moduleName :: Text
+data Module = Module
+  { moduleName            :: Text
     -- ^ Name of the type and module we'll generate
-  , moduleFullAWSName :: Text
+  , moduleFullAWSName     :: Text
     -- ^ The original name given by AWS. Same as ResourceType for resources.
-  , moduleResourceType :: Text
+  , moduleResourceType    :: Text
     -- ^ The type of resources (example: AWS::EC2::Instance)
-  , moduleIsResource :: Bool
+  , moduleIsResource      :: Bool
   , moduleConstructorName :: Text
-  , moduleLensPrefix :: Text
-  , moduleFieldPrefix :: Text
-  , modulePath :: Text
+  , moduleLensPrefix      :: Text
+  , moduleFieldPrefix     :: Text
+  , modulePath            :: Text
     -- ^ The prefix for the stratosphere sub-module
-  , moduleDocumentation :: Text
+  , moduleDocumentation   :: Text
     -- ^ The documentation link
-  , moduleProperties :: [Property]
+  , moduleProperties      :: [Property]
   }
   deriving (Show, Eq)
 
@@ -104,7 +103,7 @@ normalizeTypeName allFullNames resourceType name
   -- "Tag".
   | Set.member name allFullNames = name
   | Set.member (resourceType <> "." <> name) allFullNames = computeModuleName $ resourceType <> "." <> name
-  | otherwise = error $ "Can't normalize property type name: " ++ show (resourceType, unpack name)
+  | otherwise = error $ "Can't normalize property type name: " ++ show (resourceType, Text.unpack name)
 
 -- | We name modules by using everything after the first "::" and removing
 -- non-chars. For example, AWS::EC2::Instance is EC2Instance, and
@@ -115,21 +114,21 @@ computeModuleName fullName
   -- AWS::ElasticLoadBalancingV2::Listener.Certificate
   | fullName == "AWS::ElasticLoadBalancingV2::ListenerCertificate" =
       computeModuleName "AWS::ElasticLoadBalancingV2::ListenerCertificateResource"
-  | "::" `isInfixOf` fullName = fromComponents $ splitOn "::" fullName
+  | "::" `Text.isInfixOf` fullName = fromComponents $ Text.splitOn "::" fullName
   | otherwise = fullName
   where
     fromComponents = \case
-      [_, parent, baseName] -> Data.Text.filter (/= '.') (parent <> baseName)
-      _other                -> error $ "Unexpected module full name: " <> unpack fullName
+      [_, parent, baseName] -> Text.filter (/= '.') (parent <> baseName)
+      _other                -> error $ "Unexpected module full name: " <> Text.unpack fullName
 
 -- | The Resource Type is anything around the colons, but before the dot. The
 -- resource type for AWS::EC2::Instance is the same thing: AWS::EC2::Instance.
 -- The resource type for AWS::EC2::Instance.Ebs is AWS::EC2::Instance.
 computeResourceType :: Text -> Text
-computeResourceType fullName = fst $ breakOn "." fullName
+computeResourceType fullName = fst $ Text.breakOn "." fullName
 
 computeConstructorName :: Text -> Text
-computeConstructorName rawName = pack $ headLower $ unpack $ computeModuleName rawName
+computeConstructorName rawName = Text.pack $ headLower $ Text.unpack $ computeModuleName rawName
 
 -- | Makes consecutive upper case characters lowercase
 headLower :: String -> String
@@ -202,7 +201,7 @@ computeLensPrefix "AWS::IoTEvents::DetectorModel.Sns" = "itedmsn"
 computeLensPrefix "AWS::IoTEvents::DetectorModel.Sqs" = "itedmsq"
 computeLensPrefix "AWS::EC2::CarrierGateway" = "eccag"
 computeLensPrefix "AWS::EC2::CustomerGateway" = "eccug"
-computeLensPrefix rawName = toLower $ fromMaybe rawName $ toAcronym $ computeModuleName rawName
+computeLensPrefix rawName = Text.toLower $ fromMaybe rawName $ toAcronym $ computeModuleName rawName
 
 computeFieldPrefix :: Text -> Text
 computeFieldPrefix rawName = "_" <> lowerHead (computeModuleName rawName)

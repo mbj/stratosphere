@@ -1,32 +1,30 @@
-{-# LANGUAGE BangPatterns #-}
 {-# LANGUAGE QuasiQuotes #-}
 
 module Main (main) where
 
 import Control.Monad (when)
 import Data.List (nub)
-import Data.Text (Text)
-import Gen.ReadRawSpecFile
+import Gen.Prelude
+import Gen.RawSpec
 import Gen.Render
-import Gen.Specifications
-import Prelude
+import Gen.Spec
 import System.Directory
 import System.FilePath.Posix
 import Text.Shakespeare.Text (st)
 
-import qualified Data.Text as T
+import qualified Data.Text    as Text
 import qualified Data.Text.IO as TIO
 
 main :: IO ()
 main = do
-  rawSpec <- either error id <$> decodeFile ("gen" </> "model" </> "sorted-spec.json")
+  rawSpec <- either error id <$> readRawSpec ("gen" </> "model" </> "sorted-spec.json")
 
   let
     spec = specFromRaw rawSpec
-    !modules =
+    modules =
       createModules
-      (cloudFormationSpecPropertyTypes spec)
-      (cloudFormationSpecResourceTypes spec)
+      (specPropertyTypes spec)
+      (specResourceTypes spec)
 
   genExists <- doesDirectoryExist ("library-gen")
   when genExists $
@@ -40,8 +38,8 @@ main = do
 renderModule :: Module -> IO ()
 renderModule module'@Module {..} = do
   let
-    moduleDir = "library-gen" </> foldl1 (</>) (T.unpack <$> T.splitOn "." modulePath)
-    fileName = T.unpack moduleName <.> "hs"
+    moduleDir = "library-gen" </> foldl1 (</>) (Text.unpack <$> Text.splitOn "." modulePath)
+    fileName = Text.unpack moduleName <.> "hs"
     filePath = moduleDir </> fileName
     toJsonOrProps =
       if moduleIsResource
@@ -68,8 +66,8 @@ import Stratosphere.ResourceImports
 #{renderLenses module'}
 |]
 
-renderDependencies :: Module -> [Property] -> T.Text
-renderDependencies Module {..} props = T.intercalate "\n" deps
+renderDependencies :: Module -> [Property] -> Text.Text
+renderDependencies Module {..} props = Text.intercalate "\n" deps
   where
     customDeps = customTypeNames props
     propertyDeps = subPropertyTypeNames props
@@ -78,7 +76,7 @@ renderDependencies Module {..} props = T.intercalate "\n" deps
     nonRecursivePropertyDeps = nub $ filter (/= moduleName) propertyDeps
     deps =
       (if null customDeps then [] else ["import Stratosphere.Types"]) ++
-      fmap (\d -> T.concat ["import Stratosphere.ResourceProperties.", d]) nonRecursivePropertyDeps
+      fmap (\d -> Text.concat ["import Stratosphere.ResourceProperties.", d]) nonRecursivePropertyDeps
 
 renderTopLevelModule :: [Module] -> IO ()
 renderTopLevelModule modules = do
@@ -108,7 +106,7 @@ import Stratosphere.Resource as X
 |]
 
 renderImports :: [Text] -> Text
-renderImports paths = T.unlines $ fmap mkImport paths
+renderImports paths = Text.unlines $ fmap mkImport paths
   where
     mkImport :: Text -> Text
     mkImport path = "import " <> path <> " as X"
