@@ -1,12 +1,9 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE StrictData #-}
-{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opsworks-layer-recipes.html
 
 module Stratosphere.ResourceProperties.OpsWorksLayerRecipes where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

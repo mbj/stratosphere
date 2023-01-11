@@ -7,7 +7,7 @@ module Gen.Render.RenderJsonInstances
 where
 
 import Data.Text (Text)
-import Gen.Render.Types
+import Gen.Render.Module
 import Gen.Specifications
 import Text.Shakespeare.Text (st)
 import Prelude

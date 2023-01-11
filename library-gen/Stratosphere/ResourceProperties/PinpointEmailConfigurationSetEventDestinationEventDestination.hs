@@ -1,12 +1,9 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE StrictData #-}
-{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpointemail-configurationseteventdestination-eventdestination.html
 
 module Stratosphere.ResourceProperties.PinpointEmailConfigurationSetEventDestinationEventDestination where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.PinpointEmailConfigurationSetEventDestinationCloudWatchDestination
 import Stratosphere.ResourceProperties.PinpointEmailConfigurationSetEventDestinationKinesisFirehoseDestination

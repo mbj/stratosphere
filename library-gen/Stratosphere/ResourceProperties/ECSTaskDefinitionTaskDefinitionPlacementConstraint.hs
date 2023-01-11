@@ -1,12 +1,9 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE StrictData #-}
-{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-taskdefinitionplacementconstraint.html
 
 module Stratosphere.ResourceProperties.ECSTaskDefinitionTaskDefinitionPlacementConstraint where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

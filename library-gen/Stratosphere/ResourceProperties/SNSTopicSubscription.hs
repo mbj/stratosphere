@@ -1,12 +1,9 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE StrictData #-}
-{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-subscription.html
 
 module Stratosphere.ResourceProperties.SNSTopicSubscription where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.Types
 

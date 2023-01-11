@@ -1,12 +1,9 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE StrictData #-}
-{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayportmapping.html
 
 module Stratosphere.ResourceProperties.AppMeshVirtualGatewayVirtualGatewayPortMapping where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

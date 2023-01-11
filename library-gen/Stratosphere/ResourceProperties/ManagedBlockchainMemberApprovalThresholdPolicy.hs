@@ -1,12 +1,9 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE StrictData #-}
-{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-member-approvalthresholdpolicy.html
 
 module Stratosphere.ResourceProperties.ManagedBlockchainMemberApprovalThresholdPolicy where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

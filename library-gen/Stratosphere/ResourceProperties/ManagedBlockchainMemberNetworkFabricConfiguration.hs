@@ -1,12 +1,9 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE StrictData #-}
-{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-managedblockchain-member-networkfabricconfiguration.html
 
 module Stratosphere.ResourceProperties.ManagedBlockchainMemberNetworkFabricConfiguration where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

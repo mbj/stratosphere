@@ -1,6 +1,3 @@
-{-# LANGUAGE OverloadedLists #-}
-{-# LANGUAGE OverloadedStrings #-}
-
 -- | This example creates a Postgres RDS master and slave with a parameter
 -- group. Also note the DeletionPolicy of Retain, which will keep the resource
 -- alive if you delete the stack.
@@ -8,9 +5,10 @@
 module Main where
 
 import Control.Lens
-import qualified Data.ByteString.Lazy.Char8 as B
-
+import Prelude
 import Stratosphere
+
+import qualified Data.ByteString.Lazy.Char8 as B
 
 main :: IO ()
 main = B.putStrLn $ encodeTemplate dbTemplate

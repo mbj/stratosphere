@@ -1,6 +1,3 @@
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-
 -- | Use the UpdatePolicy attribute to specify how AWS CloudFormation handles
 -- updates to the AWS::AutoScaling::AutoScalingGroup resource. AWS
 -- CloudFormation invokes one of three update policies depending on the type
@@ -10,10 +7,11 @@
 module Stratosphere.ResourceAttributes.UpdatePolicy where
 
 import GHC.Generics (Generic)
-import Stratosphere.ResourceImports
+import Prelude
 import Stratosphere.ResourceAttributes.AutoScalingReplacingUpdatePolicy
 import Stratosphere.ResourceAttributes.AutoScalingRollingUpdatePolicy
 import Stratosphere.ResourceAttributes.AutoScalingScheduledActionPolicy
+import Stratosphere.ResourceImports
 
 -- | Full data type definition for UpdatePolicy. See 'updatePolicy' for a more
 -- convenient constructor.

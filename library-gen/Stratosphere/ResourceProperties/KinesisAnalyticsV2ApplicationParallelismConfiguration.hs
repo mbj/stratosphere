@@ -1,12 +1,9 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE StrictData #-}
-{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-parallelismconfiguration.html
 
 module Stratosphere.ResourceProperties.KinesisAnalyticsV2ApplicationParallelismConfiguration where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

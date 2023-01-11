@@ -1,5 +1,3 @@
-{-# LANGUAGE OverloadedStrings #-}
-
 -- | Formats docstrings
 
 module Gen.Render.RenderDocstring (renderDocstring) where

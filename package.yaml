@@ -32,6 +32,41 @@ flags:
     default: true
     manual: true
 
+default-extensions:
+- DeriveGeneric
+- ExistentialQuantification
+- FlexibleInstances
+- FunctionalDependencies
+- GADTs
+- GeneralizedNewtypeDeriving
+- LambdaCase
+- MultiParamTypeClasses
+- NoImplicitPrelude
+- OverloadedLists
+- OverloadedStrings
+- RecordWildCards
+- ScopedTypeVariables
+- StandaloneDeriving
+- TemplateHaskell
+- TupleSections
+- TypeFamilies
+
+ghc-options:
+- -Wall
+- -Wcompat
+- -Werror
+- -Widentities
+- -Wimplicit-prelude
+- -Wincomplete-record-updates
+- -Wincomplete-uni-patterns
+- -Wmissing-local-signatures
+- -Wmissing-signatures
+- -Wmonomorphism-restriction
+- -Wredundant-constraints
+- -fhide-source-paths
+- -funbox-strict-fields
+- -optP-Wno-nonportable-include-path
+
 library:
   source-dirs:
   - library

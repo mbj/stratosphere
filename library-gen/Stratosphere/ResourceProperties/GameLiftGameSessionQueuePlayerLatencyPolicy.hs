@@ -1,12 +1,9 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE StrictData #-}
-{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gamesessionqueue-playerlatencypolicy.html
 
 module Stratosphere.ResourceProperties.GameLiftGameSessionQueuePlayerLatencyPolicy where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

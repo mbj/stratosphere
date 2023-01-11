@@ -1,12 +1,9 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE StrictData #-}
-{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-link.html
 
 module Stratosphere.Resources.NetworkManagerLink where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.NetworkManagerLinkBandwidth
 import Stratosphere.ResourceProperties.Tag

@@ -1,12 +1,9 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE StrictData #-}
-{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpointemail-configurationset-deliveryoptions.html
 
 module Stratosphere.ResourceProperties.PinpointEmailConfigurationSetDeliveryOptions where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

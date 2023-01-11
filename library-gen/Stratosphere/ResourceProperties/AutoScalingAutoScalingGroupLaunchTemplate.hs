@@ -1,12 +1,9 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE StrictData #-}
-{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-launchtemplate.html
 
 module Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupLaunchTemplate where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupLaunchTemplateSpecification
 import Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupLaunchTemplateOverrides

@@ -1,12 +1,9 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE StrictData #-}
-{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationoutput-lambdaoutput.html
 
 module Stratosphere.ResourceProperties.KinesisAnalyticsApplicationOutputLambdaOutput where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

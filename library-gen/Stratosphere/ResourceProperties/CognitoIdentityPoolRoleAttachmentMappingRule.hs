@@ -1,12 +1,9 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE StrictData #-}
-{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-mappingrule.html
 
 module Stratosphere.ResourceProperties.CognitoIdentityPoolRoleAttachmentMappingRule where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

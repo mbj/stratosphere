@@ -1,12 +1,9 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE StrictData #-}
-{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolriskconfigurationattachment-notifyemailtype.html
 
 module Stratosphere.ResourceProperties.CognitoUserPoolRiskConfigurationAttachmentNotifyEmailType where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

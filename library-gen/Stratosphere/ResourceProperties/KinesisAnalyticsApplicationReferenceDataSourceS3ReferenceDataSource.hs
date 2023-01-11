@@ -1,12 +1,9 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE StrictData #-}
-{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-applicationreferencedatasource-s3referencedatasource.html
 
 module Stratosphere.ResourceProperties.KinesisAnalyticsApplicationReferenceDataSourceS3ReferenceDataSource where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

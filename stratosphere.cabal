@@ -36,6 +36,7 @@ library
       Stratosphere.Helpers
       Stratosphere.Outputs
       Stratosphere.Parameters
+      Stratosphere.Resource
       Stratosphere.ResourceAttributes.AutoScalingReplacingUpdatePolicy
       Stratosphere.ResourceAttributes.AutoScalingRollingUpdatePolicy
       Stratosphere.ResourceAttributes.AutoScalingScheduledActionPolicy
@@ -2101,7 +2102,25 @@ library
   hs-source-dirs:
       library
       library-gen
-  ghc-options: -Wall -O0
+  default-extensions:
+      DeriveGeneric
+      ExistentialQuantification
+      FlexibleInstances
+      FunctionalDependencies
+      GADTs
+      GeneralizedNewtypeDeriving
+      LambdaCase
+      MultiParamTypeClasses
+      NoImplicitPrelude
+      OverloadedLists
+      OverloadedStrings
+      RecordWildCards
+      ScopedTypeVariables
+      StandaloneDeriving
+      TemplateHaskell
+      TupleSections
+      TypeFamilies
+  ghc-options: -Wall -Wcompat -Werror -Widentities -Wimplicit-prelude -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-local-signatures -Wmissing-signatures -Wmonomorphism-restriction -Wredundant-constraints -fhide-source-paths -funbox-strict-fields -optP-Wno-nonportable-include-path -Wall -O0
   build-depends:
       aeson >=2
     , aeson-pretty >=0.8
@@ -2121,7 +2140,25 @@ executable auto-scaling-group
       Paths_stratosphere
   hs-source-dirs:
       examples
-  ghc-options: -Wall
+  default-extensions:
+      DeriveGeneric
+      ExistentialQuantification
+      FlexibleInstances
+      FunctionalDependencies
+      GADTs
+      GeneralizedNewtypeDeriving
+      LambdaCase
+      MultiParamTypeClasses
+      NoImplicitPrelude
+      OverloadedLists
+      OverloadedStrings
+      RecordWildCards
+      ScopedTypeVariables
+      StandaloneDeriving
+      TemplateHaskell
+      TupleSections
+      TypeFamilies
+  ghc-options: -Wall -Wcompat -Werror -Widentities -Wimplicit-prelude -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-local-signatures -Wmissing-signatures -Wmonomorphism-restriction -Wredundant-constraints -fhide-source-paths -funbox-strict-fields -optP-Wno-nonportable-include-path -Wall
   build-depends:
       aeson >=2
     , aeson-pretty >=0.8
@@ -2144,7 +2181,25 @@ executable rds-master-replica
       Paths_stratosphere
   hs-source-dirs:
       examples
-  ghc-options: -Wall
+  default-extensions:
+      DeriveGeneric
+      ExistentialQuantification
+      FlexibleInstances
+      FunctionalDependencies
+      GADTs
+      GeneralizedNewtypeDeriving
+      LambdaCase
+      MultiParamTypeClasses
+      NoImplicitPrelude
+      OverloadedLists
+      OverloadedStrings
+      RecordWildCards
+      ScopedTypeVariables
+      StandaloneDeriving
+      TemplateHaskell
+      TupleSections
+      TypeFamilies
+  ghc-options: -Wall -Wcompat -Werror -Widentities -Wimplicit-prelude -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-local-signatures -Wmissing-signatures -Wmonomorphism-restriction -Wredundant-constraints -fhide-source-paths -funbox-strict-fields -optP-Wno-nonportable-include-path -Wall
   build-depends:
       aeson >=2
     , aeson-pretty >=0.8
@@ -2167,7 +2222,25 @@ executable s3-copy
       Paths_stratosphere
   hs-source-dirs:
       examples
-  ghc-options: -Wall
+  default-extensions:
+      DeriveGeneric
+      ExistentialQuantification
+      FlexibleInstances
+      FunctionalDependencies
+      GADTs
+      GeneralizedNewtypeDeriving
+      LambdaCase
+      MultiParamTypeClasses
+      NoImplicitPrelude
+      OverloadedLists
+      OverloadedStrings
+      RecordWildCards
+      ScopedTypeVariables
+      StandaloneDeriving
+      TemplateHaskell
+      TupleSections
+      TypeFamilies
+  ghc-options: -Wall -Wcompat -Werror -Widentities -Wimplicit-prelude -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-local-signatures -Wmissing-signatures -Wmonomorphism-restriction -Wredundant-constraints -fhide-source-paths -funbox-strict-fields -optP-Wno-nonportable-include-path -Wall
   build-depends:
       aeson >=2
     , aeson-pretty >=0.8
@@ -2190,7 +2263,25 @@ executable simple-lambda
       Paths_stratosphere
   hs-source-dirs:
       examples
-  ghc-options: -Wall
+  default-extensions:
+      DeriveGeneric
+      ExistentialQuantification
+      FlexibleInstances
+      FunctionalDependencies
+      GADTs
+      GeneralizedNewtypeDeriving
+      LambdaCase
+      MultiParamTypeClasses
+      NoImplicitPrelude
+      OverloadedLists
+      OverloadedStrings
+      RecordWildCards
+      ScopedTypeVariables
+      StandaloneDeriving
+      TemplateHaskell
+      TupleSections
+      TypeFamilies
+  ghc-options: -Wall -Wcompat -Werror -Widentities -Wimplicit-prelude -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-local-signatures -Wmissing-signatures -Wmonomorphism-restriction -Wredundant-constraints -fhide-source-paths -funbox-strict-fields -optP-Wno-nonportable-include-path -Wall
   build-depends:
       aeson >=2
     , aeson-pretty >=0.8
@@ -2215,6 +2306,25 @@ test-suite spec
       Paths_stratosphere
   hs-source-dirs:
       tests
+  default-extensions:
+      DeriveGeneric
+      ExistentialQuantification
+      FlexibleInstances
+      FunctionalDependencies
+      GADTs
+      GeneralizedNewtypeDeriving
+      LambdaCase
+      MultiParamTypeClasses
+      NoImplicitPrelude
+      OverloadedLists
+      OverloadedStrings
+      RecordWildCards
+      ScopedTypeVariables
+      StandaloneDeriving
+      TemplateHaskell
+      TupleSections
+      TypeFamilies
+  ghc-options: -Wall -Wcompat -Werror -Widentities -Wimplicit-prelude -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-local-signatures -Wmissing-signatures -Wmonomorphism-restriction -Wredundant-constraints -fhide-source-paths -funbox-strict-fields -optP-Wno-nonportable-include-path
   build-depends:
       aeson >=2
     , aeson-pretty >=0.8

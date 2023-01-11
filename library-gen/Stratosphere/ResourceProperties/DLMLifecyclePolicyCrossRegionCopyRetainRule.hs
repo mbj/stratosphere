@@ -1,12 +1,9 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE StrictData #-}
-{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopyretainrule.html
 
 module Stratosphere.ResourceProperties.DLMLifecyclePolicyCrossRegionCopyRetainRule where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

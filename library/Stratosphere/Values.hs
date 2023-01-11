@@ -1,15 +1,10 @@
-{-# LANGUAGE GADTs #-}
-{-# LANGUAGE MultiParamTypeClasses #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE StandaloneDeriving #-}
-{-# LANGUAGE TypeFamilies #-}
-
 module Stratosphere.Values
-  ( Val (..)
+  ( Val(..)
+  , ToRef(..)
+  , ValList(..)
   , sub
-  , ValList (..)
-  , ToRef (..)
-  ) where
+  )
+where
 
 import Data.Aeson
 import Data.Aeson.KeyMap
@@ -18,6 +13,7 @@ import Data.String (IsString(..))
 import Data.Text (Text)
 import Data.Typeable
 import GHC.Exts (IsList(..))
+import Prelude
 
 -- | This type is a wrapper around any values in a template. A value can be a
 -- 'Literal', a 'Ref', or an intrinsic function. See:
@@ -55,7 +51,7 @@ instance Eq a => Eq (Val a) where
   Sub a b == Sub a' b' = a == a' && b == b'
   _ == _ = False
 
-eqEquals :: (Typeable a, Typeable b, Eq a, Eq b) => a -> a -> b -> b -> Bool
+eqEquals :: (Typeable a, Typeable b, Eq a) => a -> a -> b -> b -> Bool
 eqEquals a b a' b' = fromMaybe False $ do
   a'' <- cast a'
   b'' <- cast b'
@@ -77,7 +73,7 @@ instance (ToJSON a) => ToJSON (Val a) where
   toJSON (Join d vs) = mkFunc "Fn::Join" [toJSON d, toJSON vs]
   toJSON (Select i vs) = mkFunc "Fn::Select" [toJSON i, toJSON vs]
   toJSON (FindInMap mapName topKey secondKey) =
-    object [("Fn::FindInMap", toJSON [toJSON mapName, toJSON topKey, toJSON secondKey])]
+    object [("Fn::FindInMap", toJSON ([toJSON mapName, toJSON topKey, toJSON secondKey] :: [Value]))]
   toJSON (ImportValue t) = importValueToJSON t
   toJSON (Sub s Nothing) = object [("Fn::Sub", toJSON s)]
   toJSON (Sub s (Just vals)) = mkFunc "Fn::Sub" [toJSON s, Object (toJSON <$> vals)]

@@ -1,12 +1,9 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE StrictData #-}
-{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-replicationgroup-nodegroupconfiguration.html
 
 module Stratosphere.ResourceProperties.ElastiCacheReplicationGroupNodeGroupConfiguration where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

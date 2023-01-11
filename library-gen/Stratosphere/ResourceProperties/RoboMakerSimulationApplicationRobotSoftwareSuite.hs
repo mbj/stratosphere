@@ -1,12 +1,9 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE StrictData #-}
-{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-robomaker-simulationapplication-robotsoftwaresuite.html
 
 module Stratosphere.ResourceProperties.RoboMakerSimulationApplicationRobotSoftwareSuite where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

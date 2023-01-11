@@ -1,12 +1,9 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE StrictData #-}
-{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointcommonattribute.html
 
 module Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamHttpEndpointCommonAttribute where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

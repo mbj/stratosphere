@@ -1,14 +1,3 @@
-{-# LANGUAGE ExistentialQuantification #-}
-{-# LANGUAGE FlexibleInstances #-}
-{-# LANGUAGE FunctionalDependencies #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE MultiParamTypeClasses #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE StandaloneDeriving #-}
-{-# LANGUAGE TemplateHaskell #-}
-{-# LANGUAGE TypeFamilies #-}
-
 -- | See:
 -- http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/outputs-section-structure.html
 --
@@ -18,23 +7,24 @@
 -- name for a stack so that you can easily find it.
 
 module Stratosphere.Outputs
-  ( Output (..)
+  ( Output(..)
   , output
-  , OutputExport (..)
-  , Outputs (..)
-  , outputName
+  , OutputExport(..)
+  , Outputs(..)
+  , outputCondition
   , outputDescription
-  , outputValue
   , outputExport
-  ) where
+  , outputName
+  , outputValue
+  )
+where
 
 import Control.Lens hiding ((.=))
 import Data.Aeson
 import Data.Maybe (catMaybes)
-import Data.Semigroup (Semigroup)
 import Data.Text (Text)
 import GHC.Exts (IsList(..))
-
+import Prelude
 import Stratosphere.Helpers
 import Stratosphere.Values
 

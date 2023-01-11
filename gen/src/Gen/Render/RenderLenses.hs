@@ -7,7 +7,7 @@ module Gen.Render.RenderLenses (renderLenses) where
 import Data.Text (Text)
 import Gen.Render.RenderDocstring
 import Gen.Render.RenderTypes
-import Gen.Render.Types
+import Gen.Render.Module
 import Gen.Specifications
 import Prelude
 import Text.Shakespeare.Text (st)

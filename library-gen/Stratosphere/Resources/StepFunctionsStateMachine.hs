@@ -1,12 +1,9 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE StrictData #-}
-{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.html
 
 module Stratosphere.Resources.StepFunctionsStateMachine where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.StepFunctionsStateMachineS3Location
 import Stratosphere.ResourceProperties.StepFunctionsStateMachineLoggingConfiguration

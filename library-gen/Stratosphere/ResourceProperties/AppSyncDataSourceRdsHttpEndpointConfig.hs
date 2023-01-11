@@ -1,12 +1,9 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE StrictData #-}
-{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-rdshttpendpointconfig.html
 
 module Stratosphere.ResourceProperties.AppSyncDataSourceRdsHttpEndpointConfig where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

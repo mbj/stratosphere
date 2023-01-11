@@ -1,14 +1,3 @@
-{-# LANGUAGE ExistentialQuantification #-}
-{-# LANGUAGE FlexibleInstances #-}
-{-# LANGUAGE FunctionalDependencies #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE MultiParamTypeClasses #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE StandaloneDeriving #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TemplateHaskell #-}
-{-# LANGUAGE TypeFamilies #-}
-
 -- | See:
 -- http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/parameters-section-structure.html
 --
@@ -24,12 +13,12 @@ module Stratosphere.Parameters where
 import Control.Lens hiding ((.=))
 import Data.Aeson
 import Data.Maybe (catMaybes)
-import Data.Semigroup (Semigroup)
-import qualified Data.Text as T
 import GHC.Exts (IsList(..))
-
+import Prelude
 import Stratosphere.Helpers
 import Stratosphere.Values
+
+import qualified Data.Text as T
 
 data Parameter =
   Parameter

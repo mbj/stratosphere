@@ -1,12 +1,9 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE StrictData #-}
-{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-applicationreferencedatasource-mappingparameters.html
 
 module Stratosphere.ResourceProperties.KinesisAnalyticsV2ApplicationReferenceDataSourceMappingParameters where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.KinesisAnalyticsV2ApplicationReferenceDataSourceCSVMappingParameters
 import Stratosphere.ResourceProperties.KinesisAnalyticsV2ApplicationReferenceDataSourceJSONMappingParameters

@@ -1,12 +1,9 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE StrictData #-}
-{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfns3logsconfiguration.html
 
 module Stratosphere.ResourceProperties.GuardDutyDetectorCFNS3LogsConfiguration where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

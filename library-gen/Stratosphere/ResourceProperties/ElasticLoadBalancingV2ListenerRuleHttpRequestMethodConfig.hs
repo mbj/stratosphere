@@ -1,12 +1,9 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE StrictData #-}
-{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-httprequestmethodconfig.html
 
 module Stratosphere.ResourceProperties.ElasticLoadBalancingV2ListenerRuleHttpRequestMethodConfig where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

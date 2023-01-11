@@ -1,12 +1,9 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE StrictData #-}
-{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-organizationconfigrule.html
 
 module Stratosphere.Resources.ConfigOrganizationConfigRule where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.ConfigOrganizationConfigRuleOrganizationCustomRuleMetadata
 import Stratosphere.ResourceProperties.ConfigOrganizationConfigRuleOrganizationManagedRuleMetadata

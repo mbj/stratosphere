@@ -1,4 +1,4 @@
-module Gen.Render.Types (Module(..), createModules) where
+module Gen.Render.Module (Module(..), createModules) where
 
 import Data.Char (isUpper, isNumber)
 import Data.Maybe (fromMaybe)

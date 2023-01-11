@@ -1,12 +1,9 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE StrictData #-}
-{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html
 
 module Stratosphere.ResourceProperties.ApiGatewayUsagePlanQuotaSettings where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.Types
 

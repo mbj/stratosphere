@@ -1,12 +1,9 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE StrictData #-}
-{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-elb-policy.html
 
 module Stratosphere.ResourceProperties.ElasticLoadBalancingLoadBalancerPolicies where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

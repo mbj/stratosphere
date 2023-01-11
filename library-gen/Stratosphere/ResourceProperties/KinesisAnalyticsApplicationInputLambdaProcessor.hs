@@ -1,12 +1,9 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE StrictData #-}
-{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalytics-application-inputlambdaprocessor.html
 
 module Stratosphere.ResourceProperties.KinesisAnalyticsApplicationInputLambdaProcessor where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

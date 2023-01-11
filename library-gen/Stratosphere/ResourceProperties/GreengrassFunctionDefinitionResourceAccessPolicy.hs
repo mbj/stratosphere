@@ -1,12 +1,9 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE StrictData #-}
-{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrass-functiondefinition-resourceaccesspolicy.html
 
 module Stratosphere.ResourceProperties.GreengrassFunctionDefinitionResourceAccessPolicy where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

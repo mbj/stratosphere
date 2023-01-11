@@ -1,6 +1,3 @@
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-
 -- | Parse the official AWS specification file.
 
 module Gen.ReadRawSpecFile

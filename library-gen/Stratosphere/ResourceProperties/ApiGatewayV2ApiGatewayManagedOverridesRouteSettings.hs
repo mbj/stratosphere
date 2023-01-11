@@ -1,12 +1,9 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE StrictData #-}
-{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-apigatewaymanagedoverrides-routesettings.html
 
 module Stratosphere.ResourceProperties.ApiGatewayV2ApiGatewayManagedOverridesRouteSettings where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.Types
 

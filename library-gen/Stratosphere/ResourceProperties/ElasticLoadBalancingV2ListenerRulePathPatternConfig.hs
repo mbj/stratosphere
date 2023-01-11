@@ -1,12 +1,9 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE StrictData #-}
-{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-pathpatternconfig.html
 
 module Stratosphere.ResourceProperties.ElasticLoadBalancingV2ListenerRulePathPatternConfig where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

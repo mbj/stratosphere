@@ -1,15 +1,12 @@
-{-# LANGUAGE OverloadedLists #-}
-{-# LANGUAGE OverloadedStrings #-}
-
 module Stratosphere.ValuesSpec
   ( spec
   ) where
 
 import Data.Aeson
 import Data.Text (Text)
-import Test.Hspec
-
+import Prelude
 import Stratosphere.Values
+import Test.Hspec
 
 spec :: Spec
 spec = do

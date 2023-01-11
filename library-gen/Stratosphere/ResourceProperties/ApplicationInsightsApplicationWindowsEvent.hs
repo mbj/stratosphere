@@ -1,12 +1,9 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE StrictData #-}
-{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-windowsevent.html
 
 module Stratosphere.ResourceProperties.ApplicationInsightsApplicationWindowsEvent where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

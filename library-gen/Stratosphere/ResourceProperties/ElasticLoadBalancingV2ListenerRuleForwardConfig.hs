@@ -1,12 +1,9 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE StrictData #-}
-{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-forwardconfig.html
 
 module Stratosphere.ResourceProperties.ElasticLoadBalancingV2ListenerRuleForwardConfig where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.ElasticLoadBalancingV2ListenerRuleTargetGroupStickinessConfig
 import Stratosphere.ResourceProperties.ElasticLoadBalancingV2ListenerRuleTargetGroupTuple

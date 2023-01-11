@@ -1,12 +1,9 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE StrictData #-}
-{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-channel-customermanageds3.html
 
 module Stratosphere.ResourceProperties.IoTAnalyticsChannelCustomerManagedS3 where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

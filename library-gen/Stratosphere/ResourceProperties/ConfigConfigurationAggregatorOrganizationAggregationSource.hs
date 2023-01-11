@@ -1,12 +1,9 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE StrictData #-}
-{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationaggregator-organizationaggregationsource.html
 
 module Stratosphere.ResourceProperties.ConfigConfigurationAggregatorOrganizationAggregationSource where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

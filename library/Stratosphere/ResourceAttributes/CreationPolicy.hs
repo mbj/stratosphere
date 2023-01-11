@@ -1,6 +1,3 @@
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-
 -- | You associate the CreationPolicy attribute with a resource to prevent its
 -- status from reaching create complete until AWS CloudFormation receives a
 -- specified number of success signals or the timeout period is exceeded. To
@@ -23,8 +20,9 @@
 module Stratosphere.ResourceAttributes.CreationPolicy where
 
 import GHC.Generics (Generic)
-import Stratosphere.ResourceImports
+import Prelude
 import Stratosphere.ResourceAttributes.ResourceSignal
+import Stratosphere.ResourceImports
 
 -- | Full data type definition for CreationPolicy. See 'creationPolicy' for a
 -- more convenient constructor.

@@ -1,12 +1,9 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE StrictData #-}
-{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-metricscollection.html
 
 module Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupMetricsCollection where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

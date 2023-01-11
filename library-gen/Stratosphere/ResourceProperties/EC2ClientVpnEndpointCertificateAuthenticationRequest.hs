@@ -1,12 +1,9 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE StrictData #-}
-{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-certificateauthenticationrequest.html
 
 module Stratosphere.ResourceProperties.EC2ClientVpnEndpointCertificateAuthenticationRequest where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

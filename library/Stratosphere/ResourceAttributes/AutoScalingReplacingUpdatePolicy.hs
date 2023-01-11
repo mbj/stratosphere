@@ -1,14 +1,10 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TupleSections #-}
-
 -- | To specify how AWS CloudFormation handles replacing updates for an Auto
 -- Scaling group, use the AutoScalingReplacingUpdate policy.
 
 module Stratosphere.ResourceAttributes.AutoScalingReplacingUpdatePolicy where
 
+import Prelude
 import Stratosphere.ResourceImports
-
 
 -- | Full data type definition for AutoScalingReplacingUpdatePolicy. See
 -- 'autoScalingReplacingUpdatePolicy' for a more convenient constructor.

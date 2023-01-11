@@ -1,12 +1,9 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE StrictData #-}
-{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotanalytics-dataset-ioteventsdestinationconfiguration.html
 
 module Stratosphere.ResourceProperties.IoTAnalyticsDatasetIotEventsDestinationConfiguration where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

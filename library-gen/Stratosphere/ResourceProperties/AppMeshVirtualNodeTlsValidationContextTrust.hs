@@ -1,12 +1,9 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE StrictData #-}
-{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-tlsvalidationcontexttrust.html
 
 module Stratosphere.ResourceProperties.AppMeshVirtualNodeTlsValidationContextTrust where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.AppMeshVirtualNodeTlsValidationContextAcmTrust
 import Stratosphere.ResourceProperties.AppMeshVirtualNodeTlsValidationContextFileTrust

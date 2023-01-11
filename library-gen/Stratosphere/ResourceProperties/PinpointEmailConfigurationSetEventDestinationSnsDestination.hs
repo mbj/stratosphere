@@ -1,12 +1,9 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE StrictData #-}
-{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpointemail-configurationseteventdestination-snsdestination.html
 
 module Stratosphere.ResourceProperties.PinpointEmailConfigurationSetEventDestinationSnsDestination where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

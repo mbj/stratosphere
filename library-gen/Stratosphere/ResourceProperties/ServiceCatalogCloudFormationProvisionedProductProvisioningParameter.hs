@@ -1,12 +1,9 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE StrictData #-}
-{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationprovisionedproduct-provisioningparameter.html
 
 module Stratosphere.ResourceProperties.ServiceCatalogCloudFormationProvisionedProductProvisioningParameter where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

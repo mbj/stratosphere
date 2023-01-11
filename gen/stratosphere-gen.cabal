@@ -15,12 +15,12 @@ executable stratosphere-gen
   other-modules:
       Gen.ReadRawSpecFile
       Gen.Render
+      Gen.Render.Module
       Gen.Render.RenderConstructor
       Gen.Render.RenderDocstring
       Gen.Render.RenderJsonInstances
       Gen.Render.RenderLenses
       Gen.Render.RenderTypes
-      Gen.Render.Types
       Gen.Specifications
       Paths_stratosphere_gen
   hs-source-dirs:

@@ -1,13 +1,13 @@
-{-# LANGUAGE OverloadedLists #-}
-{-# LANGUAGE OverloadedStrings #-}
-
 module Main where
 
 import Control.Lens
 import Data.Aeson (Value (Array), object)
-import qualified Data.ByteString.Lazy.Char8 as B
 import Data.Text (Text)
+import Prelude
 import Stratosphere
+
+import qualified Data.Aeson                 as JSON
+import qualified Data.ByteString.Lazy.Char8 as B
 
 main :: IO ()
 main = B.putStrLn $ encodeTemplate myTemplate
@@ -74,7 +74,7 @@ role' =
           , "logs:PutLogEvents"
           ]
 
-
+    rolePolicyDocumentObject :: JSON.Object
     rolePolicyDocumentObject =
       [ ("Version", "2012-10-17")
       , ("Statement", statement)

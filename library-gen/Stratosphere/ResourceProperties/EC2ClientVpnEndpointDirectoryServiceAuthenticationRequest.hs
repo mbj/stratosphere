@@ -1,12 +1,9 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE StrictData #-}
-{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-directoryserviceauthenticationrequest.html
 
 module Stratosphere.ResourceProperties.EC2ClientVpnEndpointDirectoryServiceAuthenticationRequest where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

@@ -1,12 +1,9 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE StrictData #-}
-{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listenerrule-hostheaderconfig.html
 
 module Stratosphere.ResourceProperties.ElasticLoadBalancingV2ListenerRuleHostHeaderConfig where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

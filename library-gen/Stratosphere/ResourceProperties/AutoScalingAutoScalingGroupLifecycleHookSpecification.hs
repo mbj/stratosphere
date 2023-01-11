@@ -1,12 +1,9 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE StrictData #-}
-{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-lifecyclehookspecification.html
 
 module Stratosphere.ResourceProperties.AutoScalingAutoScalingGroupLifecycleHookSpecification where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

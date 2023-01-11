@@ -1,12 +1,9 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE StrictData #-}
-{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ec2fleet-fleetlaunchtemplateconfigrequest.html
 
 module Stratosphere.ResourceProperties.EC2EC2FleetFleetLaunchTemplateConfigRequest where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.EC2EC2FleetFleetLaunchTemplateSpecificationRequest
 import Stratosphere.ResourceProperties.EC2EC2FleetFleetLaunchTemplateOverridesRequest

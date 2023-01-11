@@ -1,12 +1,9 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE StrictData #-}
-{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-launchtemplatespecification.html
 
 module Stratosphere.ResourceProperties.BatchComputeEnvironmentLaunchTemplateSpecification where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

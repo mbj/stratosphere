@@ -1,14 +1,10 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE TupleSections #-}
-
 -- | To specify how AWS CloudFormation handles rolling updates for an Auto
 -- Scaling group, use the AutoScalingRollingUpdatePolicy policy.
 
 module Stratosphere.ResourceAttributes.AutoScalingRollingUpdatePolicy where
 
+import Prelude
 import Stratosphere.ResourceImports
-
 
 -- | Full data type definition for AutoScalingRollingUpdatePolicy. See
 -- 'autoScalingRollingUpdatePolicy' for a more convenient constructor.

@@ -1,12 +1,9 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE StrictData #-}
-{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-schemaconfiguration.html
 
 module Stratosphere.ResourceProperties.KinesisFirehoseDeliveryStreamSchemaConfiguration where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

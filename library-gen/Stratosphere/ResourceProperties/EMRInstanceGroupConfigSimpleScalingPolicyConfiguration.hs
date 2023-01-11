@@ -1,12 +1,9 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE StrictData #-}
-{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancegroupconfig-simplescalingpolicyconfiguration.html
 
 module Stratosphere.ResourceProperties.EMRInstanceGroupConfigSimpleScalingPolicyConfiguration where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

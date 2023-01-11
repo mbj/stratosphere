@@ -1,12 +1,9 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE StrictData #-}
-{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-domainname-domainnameconfiguration.html
 
 module Stratosphere.ResourceProperties.ApiGatewayV2DomainNameDomainNameConfiguration where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

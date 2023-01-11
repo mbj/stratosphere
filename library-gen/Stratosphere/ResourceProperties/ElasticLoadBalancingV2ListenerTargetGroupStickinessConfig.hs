@@ -1,12 +1,9 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE StrictData #-}
-{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-targetgroupstickinessconfig.html
 
 module Stratosphere.ResourceProperties.ElasticLoadBalancingV2ListenerTargetGroupStickinessConfig where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

@@ -1,12 +1,9 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE StrictData #-}
-{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-ebsinstanceblockdevicespecification.html
 
 module Stratosphere.ResourceProperties.ImageBuilderImageRecipeEbsInstanceBlockDeviceSpecification where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

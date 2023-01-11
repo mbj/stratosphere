@@ -1,12 +1,9 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE StrictData #-}
-{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotevents-detectormodel-assetpropertytimestamp.html
 
 module Stratosphere.ResourceProperties.IoTEventsDetectorModelAssetPropertyTimestamp where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 

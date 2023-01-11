@@ -1,12 +1,9 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE StrictData #-}
-{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-additionalauthenticationprovider.html
 
 module Stratosphere.ResourceProperties.AppSyncGraphQLApiAdditionalAuthenticationProvider where
 
+import Prelude
 import Stratosphere.ResourceImports
 import Stratosphere.ResourceProperties.AppSyncGraphQLApiOpenIDConnectConfig
 import Stratosphere.ResourceProperties.AppSyncGraphQLApiCognitoUserPoolConfig

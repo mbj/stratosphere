@@ -1,12 +1,9 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE StrictData #-}
-{-# LANGUAGE TupleSections #-}
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-gatewayroute-httpgatewayroutematch.html
 
 module Stratosphere.ResourceProperties.AppMeshGatewayRouteHttpGatewayRouteMatch where
 
+import Prelude
 import Stratosphere.ResourceImports
 
 
