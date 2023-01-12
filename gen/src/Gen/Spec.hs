@@ -98,20 +98,22 @@ data AtomicType
   deriving (Show, Eq)
 
 textToPrimitiveType :: Text -> AtomicType
-textToPrimitiveType "String" = StringPrimitive
-textToPrimitiveType "Long" = IntegerPrimitive
-textToPrimitiveType "Integer" = IntegerPrimitive
-textToPrimitiveType "Double" = DoublePrimitive
-textToPrimitiveType "Boolean" = BoolPrimitive
-textToPrimitiveType "Timestamp" = StringPrimitive
-textToPrimitiveType "Json" = JsonPrimitive
-textToPrimitiveType t = error $ "Unknown primitive type: " ++ Text.unpack t
+textToPrimitiveType = \case
+  "String"    -> StringPrimitive
+  "Long"      -> IntegerPrimitive
+  "Integer"   -> IntegerPrimitive
+  "Double"    -> DoublePrimitive
+  "Boolean"   -> BoolPrimitive
+  "Timestamp" -> StringPrimitive
+  "Json"      -> JsonPrimitive
+  other       -> error $ "Unknown primitive type: " <> Text.unpack other
 
 subPropertyTypeName :: SpecType -> Maybe Text
-subPropertyTypeName (AtomicType (SubPropertyType name)) = Just name
-subPropertyTypeName (ListType (SubPropertyType name)) = Just name
-subPropertyTypeName (MapType (SubPropertyType name)) = Just name
-subPropertyTypeName _ = Nothing
+subPropertyTypeName = \case
+  (AtomicType (SubPropertyType name)) -> Just name
+  (ListType (SubPropertyType name))   -> Just name
+  (MapType (SubPropertyType name))    -> Just name
+  _other                              -> Nothing
 
 subPropertyTypeNames :: [Property] -> [Text]
 subPropertyTypeNames = catMaybes . fmap (subPropertyTypeName . propertySpecType)
