@@ -3,9 +3,10 @@ module Gen.Raw
   ( Spec(..)
   , PrimitiveType(..)
   , Property(..)
-  , PropertyType(..)
   , PropertySpecification(..)
+  , PropertyType(..)
   , ResourceSpecification(..)
+  , SubpropertyName(..)
   , readSpec
   )
 where
@@ -64,19 +65,23 @@ instance JSON.FromJSON PropertySpecification where
 data PropertyType
   = PropertyTypeList
   | PropertyTypeMap
-  | PropertyTypeSub Text
+  | PropertyTypeSub SubpropertyName
   deriving (Show, Eq)
 
 instance JSON.FromJSON PropertyType where
   parseJSON = JSON.withText "primitive type" $ \case
     "List" -> pure PropertyTypeList
     "Map"  -> pure PropertyTypeMap
-    other  -> pure $ PropertyTypeSub other
+    other  -> pure $ PropertyTypeSub $ SubpropertyName other
+
+newtype SubpropertyName = SubpropertyName { toText :: Text }
+  deriving stock   (Eq, Show)
+  deriving newtype (JSON.FromJSON)
 
 data Property = Property
   { propertyDocumentation     :: Text
   , propertyDuplicatesAllowed :: Maybe Bool
-  , propertyItemType          :: Maybe Text
+  , propertyItemType          :: Maybe SubpropertyName
   , propertyPrimitiveItemType :: Maybe PrimitiveType
   , propertyPrimitiveType     :: Maybe PrimitiveType
   , propertyRequired          :: Bool

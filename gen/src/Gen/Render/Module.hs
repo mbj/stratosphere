@@ -10,6 +10,7 @@ import Gen.Spec
 import qualified Data.Char as Char
 import qualified Data.Set  as Set
 import qualified Data.Text as Text
+import qualified Gen.Raw   as Raw
 
 data Module = Module
   { moduleName            :: Text
@@ -81,30 +82,30 @@ normalizeProperty allFullNames resourceType property =
 normalizeSpecType :: Set Text -> Text -> SpecType -> SpecType
 normalizeSpecType allFullNames resourceType = \case
   (AtomicType (SubPropertyType name)) ->
-    AtomicType (SubPropertyType $ normalizeTypeName allFullNames resourceType name)
+    AtomicType (SubPropertyType . Raw.SubpropertyName $ normalizeTypeName allFullNames resourceType name)
   (ListType (SubPropertyType name)) ->
-    ListType (SubPropertyType $ normalizeTypeName allFullNames resourceType name)
+    ListType (SubPropertyType . Raw.SubpropertyName $ normalizeTypeName allFullNames resourceType name)
   (MapType (SubPropertyType name)) ->
-    MapType (SubPropertyType $ normalizeTypeName allFullNames resourceType name)
+    MapType (SubPropertyType . Raw.SubpropertyName $ normalizeTypeName allFullNames resourceType name)
   other -> other
 
-normalizeTypeName :: Set Text -> Text -> Text -> Text
+normalizeTypeName :: Set Text -> Text -> Raw.SubpropertyName -> Text
 -- There are a few naming conflicts with security group types. For example,
 -- there is a resource named AWS::RDS::DBSecurityGroupIngress, and a property
 -- named AWS::RDS::DBSecurityGroup.Ingress.
-normalizeTypeName _ "AWS::RDS::DBSecurityGroup" "Ingress" = computeModuleName "AWS::RDS::DBSecurityGroup.IngressProperty"
-normalizeTypeName _ "AWS::EC2::SecurityGroup" "Ingress" = computeModuleName "AWS::EC2::SecurityGroup.IngressProperty"
-normalizeTypeName _ "AWS::EC2::SecurityGroup" "Egress" = computeModuleName "AWS::EC2::SecurityGroup.EgressProperty"
+normalizeTypeName _ "AWS::RDS::DBSecurityGroup" (Raw.toText -> "Ingress") = computeModuleName "AWS::RDS::DBSecurityGroup.IngressProperty"
+normalizeTypeName _ "AWS::EC2::SecurityGroup" (Raw.toText -> "Ingress") = computeModuleName "AWS::EC2::SecurityGroup.IngressProperty"
+normalizeTypeName _ "AWS::EC2::SecurityGroup" (Raw.toText -> "Egress") = computeModuleName "AWS::EC2::SecurityGroup.EgressProperty"
 -- Rename AWS::IoT::TopicRule.DynamoDBv2Action to capitalize the "v" so it is
 -- different from AWS::IoT::TopicRule.DynamoDBAction
-normalizeTypeName _ "AWS::IoT::TopicRule" "DynamoDBv2Action" = computeModuleName "AWS::IoT::TopicRule.DynamoDBV2Action"
+normalizeTypeName _ "AWS::IoT::TopicRule" (Raw.toText -> "DynamoDBv2Action") = computeModuleName "AWS::IoT::TopicRule.DynamoDBV2Action"
 -- Non-errors
-normalizeTypeName allFullNames resourceType name
+normalizeTypeName allFullNames resourceType (Raw.toText -> subpropertyName)
   -- As far as I know, the only property type that isn't fully qualified is
   -- "Tag".
-  | Set.member name allFullNames = name
-  | Set.member (resourceType <> "." <> name) allFullNames = computeModuleName $ resourceType <> "." <> name
-  | otherwise = error $ "Can't normalize property type name: " ++ show (resourceType, Text.unpack name)
+  | Set.member subpropertyName allFullNames = subpropertyName
+  | Set.member (resourceType <> "." <> subpropertyName) allFullNames = computeModuleName $ resourceType <> "." <> subpropertyName
+  | otherwise = error $ "Can't normalize property type name: " ++ show (resourceType, Text.unpack subpropertyName)
 
 -- | We name modules by using everything after the first "::" and removing
 -- non-chars. For example, AWS::EC2::Instance is EC2Instance, and

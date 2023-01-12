@@ -44,7 +44,7 @@ renderPropertyType Property{..} = renderType propertySpecType propertyRequired
 renderType :: SpecType -> Bool -> Text
 renderType (AtomicType type') True = renderAtomicTypeWithVal type'
 renderType (AtomicType (PrimitiveType Raw.PrimitiveTypeJSON)) False = "Maybe " <> renderRawPrimitiveType Raw.PrimitiveTypeJSON
-renderType (AtomicType (SubPropertyType text)) False = "Maybe " <> text
+renderType (AtomicType (SubPropertyType name)) False = "Maybe " <> Raw.toText name
 renderType (AtomicType type') False = "Maybe (" <> renderAtomicTypeWithVal type' <> ")"
 renderType (ListType type') True =
   if isWrappedInVal type'
@@ -75,7 +75,7 @@ renderAtomicTypeWithVal t =
 renderAtomicType :: AtomicType -> Text
 renderAtomicType = \case
   (PrimitiveType rawPrimitiveType) -> renderRawPrimitiveType rawPrimitiveType
-  (SubPropertyType text)           -> text
+  (SubPropertyType name)           -> Raw.toText name
 
 renderRawPrimitiveType :: Raw.PrimitiveType -> Text
 renderRawPrimitiveType = \case

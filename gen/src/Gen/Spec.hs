@@ -84,18 +84,18 @@ data SpecType
   | MapType AtomicType
   deriving (Show, Eq)
 
-data AtomicType = PrimitiveType Raw.PrimitiveType | SubPropertyType Text
+data AtomicType = PrimitiveType Raw.PrimitiveType | SubPropertyType Raw.SubpropertyName
   deriving (Show, Eq)
-
-subPropertyTypeName :: SpecType -> Maybe Text
-subPropertyTypeName = \case
-  (AtomicType (SubPropertyType name)) -> Just name
-  (ListType (SubPropertyType name))   -> Just name
-  (MapType (SubPropertyType name))    -> Just name
-  _other                              -> Nothing
 
 subPropertyTypeNames :: [Property] -> [Text]
 subPropertyTypeNames = catMaybes . fmap (subPropertyTypeName . propertySpecType)
+  where
+    subPropertyTypeName :: SpecType -> Maybe Text
+    subPropertyTypeName = \case
+      (AtomicType (SubPropertyType name)) -> Just $ Raw.toText name
+      (ListType (SubPropertyType name))   -> Just $ Raw.toText name
+      (MapType (SubPropertyType name))    -> Just $ Raw.toText name
+      _other                              -> Nothing
 
 data ResourceType = ResourceType
   { resourceTypeFullName      :: Text
