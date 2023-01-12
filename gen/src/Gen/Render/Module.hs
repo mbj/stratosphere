@@ -16,21 +16,21 @@ data Module = Module
   { moduleConstructorName :: Text
   , moduleDocumentation   :: Text -- ^ The documentation link
   , moduleFieldPrefix     :: Text
-  , moduleFullAWSName     :: Text -- ^ The original name given by AWS. Same as ResourceType for resources.
+  , moduleFullAWSName     :: Text -- ^ The original name given by AWS. Same as Resource for resources.
   , moduleIsResource      :: Bool
   , moduleLensPrefix      :: Text
   , moduleName            :: Text -- ^ Name of the type and module we'll generate
   , modulePath            :: Text -- ^ The prefix for the stratosphere sub-module
   , moduleProperties      :: [Property]
-  , moduleResourceType    :: Text -- ^ The type of resources (example: AWS::EC2::Instance)
+  , moduleResource        :: Text -- ^ The type of resources (example: AWS::EC2::Instance)
   }
   deriving (Show, Eq)
 
-createModules :: [PropertyType] -> [ResourceType] -> [Module]
+createModules :: [PropertyType] -> [Resource] -> [Module]
 createModules properties resources =
   let
     propertyModules = moduleFromPropertyType <$> properties
-    resourceModules = moduleFromResourceType <$> resources
+    resourceModules = moduleFromResource <$> resources
     allPropertyNames = Set.fromList $ propertyTypeName <$> properties
   in fmap (normalizePropertyNames allPropertyNames) (resourceModules ++ propertyModules)
 
@@ -46,22 +46,22 @@ moduleFromPropertyType PropertyType{..}
   , moduleName            = computeModuleName propertyTypeName
   , modulePath            = "Stratosphere.ResourceProperties"
   , moduleProperties      = propertyTypeProperties
-  , moduleResourceType    = computeResourceType propertyTypeName
+  , moduleResource        = computeResource propertyTypeName
   }
 
-moduleFromResourceType :: ResourceType -> Module
-moduleFromResourceType ResourceType{..}
+moduleFromResource :: Resource -> Module
+moduleFromResource Resource{..}
   = Module
-  { moduleConstructorName = computeConstructorName resourceTypeFullName
-  , moduleDocumentation   = resourceTypeDocumentation
-  , moduleFieldPrefix     = computeFieldPrefix resourceTypeFullName
-  , moduleFullAWSName     = resourceTypeFullName
+  { moduleConstructorName = computeConstructorName resourceFullName
+  , moduleDocumentation   = resourceDocumentation
+  , moduleFieldPrefix     = computeFieldPrefix resourceFullName
+  , moduleFullAWSName     = resourceFullName
   , moduleIsResource      = True
-  , moduleLensPrefix      = computeLensPrefix resourceTypeFullName
-  , moduleName            = computeModuleName resourceTypeFullName
+  , moduleLensPrefix      = computeLensPrefix resourceFullName
+  , moduleName            = computeModuleName resourceFullName
   , modulePath            = "Stratosphere.Resources"
-  , moduleProperties      = resourceTypeProperties
-  , moduleResourceType    = resourceTypeFullName
+  , moduleProperties      = resourceProperties
+  , moduleResource        = resourceFullName
   }
 
 -- | We give slightly different names to properties than AWS does. AWS uses a
@@ -70,20 +70,20 @@ moduleFromResourceType ResourceType{..}
 normalizePropertyNames :: Set Text -> Module -> Module
 normalizePropertyNames allFullNames module'@Module{..} = module' { moduleProperties = props }
   where
-    props = fmap (normalizeProperty allFullNames moduleResourceType) moduleProperties
+    props = fmap (normalizeProperty allFullNames moduleResource) moduleProperties
 
 normalizeProperty :: Set Text -> Text -> Property -> Property
-normalizeProperty allFullNames resourceType property =
-  property { propertySpecType = normalizeSpecType allFullNames resourceType (propertySpecType property) }
+normalizeProperty allFullNames resource property =
+  property { propertySpecType = normalizeSpecType allFullNames resource (propertySpecType property) }
 
 normalizeSpecType :: Set Text -> Text -> SpecType -> SpecType
-normalizeSpecType allFullNames resourceType = \case
+normalizeSpecType allFullNames resource = \case
   (AtomicType (SubPropertyType name)) ->
-    AtomicType (SubPropertyType . Raw.SubpropertyName $ normalizeTypeName allFullNames resourceType name)
+    AtomicType (SubPropertyType . Raw.SubpropertyName $ normalizeTypeName allFullNames resource name)
   (ListType (SubPropertyType name)) ->
-    ListType (SubPropertyType . Raw.SubpropertyName $ normalizeTypeName allFullNames resourceType name)
+    ListType (SubPropertyType . Raw.SubpropertyName $ normalizeTypeName allFullNames resource name)
   (MapType (SubPropertyType name)) ->
-    MapType (SubPropertyType . Raw.SubpropertyName $ normalizeTypeName allFullNames resourceType name)
+    MapType (SubPropertyType . Raw.SubpropertyName $ normalizeTypeName allFullNames resource name)
   other -> other
 
 normalizeTypeName :: Set Text -> Text -> Raw.SubpropertyName -> Text
@@ -97,12 +97,12 @@ normalizeTypeName _ "AWS::EC2::SecurityGroup" (Raw.toText -> "Egress") = compute
 -- different from AWS::IoT::TopicRule.DynamoDBAction
 normalizeTypeName _ "AWS::IoT::TopicRule" (Raw.toText -> "DynamoDBv2Action") = computeModuleName "AWS::IoT::TopicRule.DynamoDBV2Action"
 -- Non-errors
-normalizeTypeName allFullNames resourceType (Raw.toText -> subpropertyName)
+normalizeTypeName allFullNames resource (Raw.toText -> subpropertyName)
   -- As far as I know, the only property type that isn't fully qualified is
   -- "Tag".
   | Set.member subpropertyName allFullNames = subpropertyName
-  | Set.member (resourceType <> "." <> subpropertyName) allFullNames = computeModuleName $ resourceType <> "." <> subpropertyName
-  | otherwise = error $ "Can't normalize property type name: " ++ show (resourceType, Text.unpack subpropertyName)
+  | Set.member (resource <> "." <> subpropertyName) allFullNames = computeModuleName $ resource <> "." <> subpropertyName
+  | otherwise = error $ "Can't normalize property type name: " ++ show (resource, Text.unpack subpropertyName)
 
 -- | We name modules by using everything after the first "::" and removing
 -- non-chars. For example, AWS::EC2::Instance is EC2Instance, and
@@ -123,8 +123,8 @@ computeModuleName fullName
 -- | The Resource Type is anything around the colons, but before the dot. The
 -- resource type for AWS::EC2::Instance is the same thing: AWS::EC2::Instance.
 -- The resource type for AWS::EC2::Instance.Ebs is AWS::EC2::Instance.
-computeResourceType :: Text -> Text
-computeResourceType fullName = fst $ Text.breakOn "." fullName
+computeResource :: Text -> Text
+computeResource fullName = fst $ Text.breakOn "." fullName
 
 computeConstructorName :: Text -> Text
 computeConstructorName rawName = Text.pack $ headLower $ Text.unpack $ computeModuleName rawName

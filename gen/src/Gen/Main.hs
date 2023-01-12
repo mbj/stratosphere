@@ -29,7 +29,7 @@ main = do
     modules =
       createModules
       (specPropertyTypes spec)
-      (specResourceTypes spec)
+      (specResources spec)
 
   genExists <- doesDirectoryExist ("library-gen")
   when genExists $

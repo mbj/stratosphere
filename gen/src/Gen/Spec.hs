@@ -8,7 +8,7 @@ module Gen.Spec
   , SpecType(..)
   , subPropertyTypeNames
   , AtomicType(..)
-  , ResourceType(..)
+  , Resource(..)
   )
 where
 
@@ -22,10 +22,17 @@ import qualified Gen.Raw as Raw
 
 data Spec = Spec
   { specPropertyTypes :: [PropertyType]
+  , specResources     :: [Resource]
   , specVersion       :: Text
-  , specResourceTypes :: [ResourceType]
   }
   deriving (Show, Eq)
+
+data Resource = Resource
+  { resourceFullName      :: Text
+  , resourceDocumentation :: Text
+  , resourceProperties    :: [Property]
+  }
+  deriving (Show, Eq, Generic)
 
 data PropertyType = PropertyType
   { propertyTypeName          :: Text
@@ -53,27 +60,20 @@ data AtomicType
   | SubPropertyType Raw.SubpropertyName
   deriving (Show, Eq)
 
-data ResourceType = ResourceType
-  { resourceTypeFullName      :: Text
-  , resourceTypeDocumentation :: Text
-  , resourceTypeProperties    :: [Property]
-  }
-  deriving (Show, Eq, Generic)
-
 specFromRaw :: Raw.Spec -> Spec
 specFromRaw Raw.Spec{..}
   = Spec
   { specPropertyTypes = uncurry propertyTypeFromRaw <$> sortOn fst (toList specPropertyTypes)
-  , specResourceTypes = uncurry resourceTypeFromRaw <$> sortOn fst (toList specResourceTypes)
+  , specResources     = uncurry resourceFromRaw <$> sortOn fst (toList specResourceTypes)
   , specVersion       = specResourceSpecificationVersion
   }
 
-resourceTypeFromRaw :: Text -> Raw.ResourceSpecification -> ResourceType
-resourceTypeFromRaw fullName Raw.ResourceSpecification{..}
-  = ResourceType
-  { resourceTypeFullName      = fullName
-  , resourceTypeDocumentation = resourceTypeDocumentation
-  , resourceTypeProperties    = uncurry propertyFromRaw <$> sortOn fst (toList resourceTypeProperties)
+resourceFromRaw :: Text -> Raw.Resource -> Resource
+resourceFromRaw fullName Raw.Resource{..}
+  = Resource
+  { resourceFullName      = fullName
+  , resourceDocumentation = resourceDocumentation
+  , resourceProperties    = uncurry propertyFromRaw <$> sortOn fst (toList resourceProperties)
   }
 
 propertyTypeFromRaw :: Text -> Raw.PropertySpecification -> PropertyType

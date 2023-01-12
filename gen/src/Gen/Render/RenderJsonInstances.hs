@@ -34,7 +34,7 @@ renderToResourceProperties module'@Module{..} =
   [st|instance ToResourceProperties #{moduleName} where
   toResourceProperties #{arg} =
     ResourceProperties
-    { resourcePropertiesType = "#{moduleResourceType}"
+    { resourcePropertiesType = "#{moduleResource}"
     , resourcePropertiesProperties =#{props}
     }|]
  where

@@ -5,7 +5,7 @@ module Gen.Raw
   , Property(..)
   , PropertySpecification(..)
   , PropertyType(..)
-  , ResourceSpecification(..)
+  , Resource(..)
   , SubpropertyName(..)
   , readSpec
   )
@@ -25,7 +25,7 @@ import qualified Data.Text       as Text
 data Spec = Spec
   { specPropertyTypes                :: Map Text PropertySpecification
   , specResourceSpecificationVersion :: Text
-  , specResourceTypes                :: Map Text ResourceSpecification
+  , specResourceTypes                :: Map Text Resource
   }
   deriving (Show, Eq, Generic)
 
@@ -93,16 +93,16 @@ data Property = Property
 instance JSON.FromJSON Property where
   parseJSON = JSON.genericParseJSON $ parseOptions "property"
 
-data ResourceSpecification = ResourceSpecification
-  { resourceTypeAdditionalProperties :: Maybe Bool
-  , resourceTypeAttributes           :: Maybe JSON.Value
-  , resourceTypeDocumentation        :: Text
-  , resourceTypeProperties           :: Map Text Property
+data Resource = Resource
+  { resourceAdditionalProperties :: Maybe Bool
+  , resourceAttributes           :: Maybe JSON.Value
+  , resourceDocumentation        :: Text
+  , resourceProperties           :: Map Text Property
   }
   deriving (Show, Eq, Generic)
 
-instance JSON.FromJSON ResourceSpecification where
-  parseJSON = JSON.genericParseJSON $ parseOptions "resourceType"
+instance JSON.FromJSON Resource where
+  parseJSON = JSON.genericParseJSON $ parseOptions "resource"
 
 -- | Decode a JSON file into raw spec
 readSpec :: FilePath -> IO (Either String Spec)
