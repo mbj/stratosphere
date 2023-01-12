@@ -15,7 +15,6 @@ executable stratosphere-gen
   other-modules:
       Gen.Prelude
       Gen.RawSpec
-      Gen.Render
       Gen.Render.Module
       Gen.Render.RenderConstructor
       Gen.Render.RenderDocstring
