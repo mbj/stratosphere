@@ -54,9 +54,10 @@ instance JSON.FromJSON RawProperty where
   parseJSON = JSON.genericParseJSON $ parseOptions "rawProperty"
 
 data RawResourceType = RawResourceType
-  { rawResourceTypeAttributes    :: Maybe JSON.Value
-  , rawResourceTypeDocumentation :: Text
-  , rawResourceTypeProperties    :: Map Text RawProperty
+  { rawResourceTypeAdditionalProperties :: Maybe Bool
+  , rawResourceTypeAttributes           :: Maybe JSON.Value
+  , rawResourceTypeDocumentation        :: Text
+  , rawResourceTypeProperties           :: Map Text RawProperty
   }
   deriving (Show, Eq, Generic)
 
@@ -70,7 +71,9 @@ readRawSpec = fmap (fmap fixBugs . JSON.eitherDecodeStrict) . BS.readFile
 parseOptions :: String -> JSON.Options
 parseOptions prefix
   = JSON.defaultOptions
-  { JSON.fieldLabelModifier = fieldLabelModifier }
+  { JSON.fieldLabelModifier  = fieldLabelModifier
+  , JSON.rejectUnknownFields = True
+  }
   where
     fieldLabelModifier field
       = fromMaybe (error $ "field: " <> field <> "expected field prefix: " <> prefix)
