@@ -49,7 +49,7 @@ propertyTypeFromRaw fullName RawPropertyType{..}
   = PropertyType
   { propertyTypeName          = fullName
   , propertyTypeDocumentation = rawPropertyTypeDocumentation
-  , propertyTypeProperties    = (uncurry (propertyFromRaw fullName) <$> sortOn fst (toList rawPropertyTypeProperties))
+  , propertyTypeProperties    = (uncurry propertyFromRaw <$> sortOn fst (toList rawPropertyTypeProperties))
   }
 
 data Property = Property
@@ -62,49 +62,31 @@ data Property = Property
   }
   deriving (Show, Eq)
 
-propertyFromRaw :: Text -> Text -> RawProperty -> Property
-propertyFromRaw fullTypeName name RawProperty{..}
+propertyFromRaw :: Text -> RawProperty -> Property
+propertyFromRaw name rawProperty@RawProperty{..}
   = Property
   { propertyName          = name
   , propertyDocumentation = rawPropertyDocumentation
-  , propertySpecType      = rawToSpecType
-     fullTypeName
-     name
-     rawPropertyPrimitiveType
-     rawPropertyType
-     rawPropertyPrimitiveItemType
-     rawPropertyItemType
+  , propertySpecType      = specType
   , propertyRequired      = rawPropertyRequired
   }
+  where
+    specType = case tuple of
+      ((Just prim), Nothing,       Nothing,     Nothing)     -> AtomicType $ textToPrimitiveType prim
+      (Nothing,     (Just "List"), (Just prim), Nothing)     -> ListType $ textToPrimitiveType prim
+      (Nothing,     (Just "List"), Nothing,     (Just item)) -> ListType $ SubPropertyType item
+      (Nothing,     (Just "Map"),  (Just prim), Nothing)     -> MapType $ textToPrimitiveType prim
+      (Nothing,     (Just "Map"),  Nothing,     (Just item)) -> MapType $ SubPropertyType item
+      (Nothing,     (Just prop),   Nothing,     Nothing)     -> AtomicType $ SubPropertyType prop
+      _other                                                 -> error $ "Unknown raw type: " <> show rawProperty
+
+    tuple = (rawPropertyPrimitiveType, rawPropertyType, rawPropertyPrimitiveItemType, rawPropertyItemType)
 
 data SpecType
   = AtomicType AtomicType
   | ListType AtomicType
   | MapType AtomicType
   deriving (Show, Eq)
-
-rawToSpecType :: Text -> Text -> Maybe Text -> Maybe Text -> Maybe Text -> Maybe Text -> SpecType
-rawToSpecType _ _ primType type' primItemType itemType = rawToSpecType' primType type' primItemType itemType
-
-rawToSpecType'
-  :: Maybe Text -- PrimitiveType
-  -> Maybe Text -- Type
-  -> Maybe Text -- PrimitiveItemType
-  -> Maybe Text -- ItemType
-  -> SpecType
--- Just primitive type, nothing else
-rawToSpecType' (Just prim) Nothing Nothing Nothing = AtomicType $ textToPrimitiveType prim
--- A list of primitives
-rawToSpecType' Nothing (Just "List") (Just prim) Nothing = ListType $ textToPrimitiveType prim
--- A list of non-primitives
-rawToSpecType' Nothing (Just "List") Nothing (Just item) = ListType $ SubPropertyType item
--- A map of primitives
-rawToSpecType' Nothing (Just "Map") (Just prim) Nothing = MapType $ textToPrimitiveType prim
--- A map of non-primitives
-rawToSpecType' Nothing (Just "Map") Nothing (Just item) = MapType $ SubPropertyType item
--- A non-primitive type
-rawToSpecType' Nothing (Just prop) Nothing Nothing = AtomicType $ SubPropertyType prop
-rawToSpecType' prim type' primItem item = error $ "Unknown raw type: " ++ show (prim, type', primItem, item)
 
 data AtomicType
   = StringPrimitive
@@ -147,5 +129,5 @@ resourceTypeFromRaw fullName RawResourceType{..}
   = ResourceType
   { resourceTypeFullName      = fullName
   , resourceTypeDocumentation = rawResourceTypeDocumentation
-  , resourceTypeProperties    = uncurry (propertyFromRaw fullName) <$> sortOn fst (toList rawResourceTypeProperties)
+  , resourceTypeProperties    = uncurry propertyFromRaw <$> sortOn fst (toList rawResourceTypeProperties)
   }
