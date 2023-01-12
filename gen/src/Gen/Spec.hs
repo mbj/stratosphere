@@ -69,19 +69,17 @@ propertyFromRaw name property@Raw.Property{..}
   , propertyRequired      = propertyRequired
   }
   where
-    specType = case tuple of
-      ((Just prim), Nothing,       Nothing,     Nothing)     -> AtomicType $ toAtomicType prim
-      (Nothing,     (Just "List"), (Just prim), Nothing)     -> ListType $ toAtomicType prim
-      (Nothing,     (Just "List"), Nothing,     (Just item)) -> ListType $ SubPropertyType item
-      (Nothing,     (Just "Map"),  (Just prim), Nothing)     -> MapType $ toAtomicType prim
-      (Nothing,     (Just "Map"),  Nothing,     (Just item)) -> MapType $ SubPropertyType item
-      (Nothing,     (Just prop),   Nothing,     Nothing)     -> AtomicType $ SubPropertyType prop
-      _other                                                 -> error $ "Unknown raw type: " <> show property
+    specType = case (propertyPrimitiveType, propertyType, propertyPrimitiveItemType, propertyItemType) of
+      ( (Just prim), Nothing,                          Nothing,     Nothing)     -> AtomicType $ primitiveType prim
+      ( Nothing,     (Just Raw.PropertyTypeList),      (Just prim), Nothing)     -> ListType $ primitiveType prim
+      ( Nothing,     (Just Raw.PropertyTypeList),      Nothing,     (Just item)) -> ListType $ SubPropertyType item
+      ( Nothing,     (Just Raw.PropertyTypeMap),       (Just prim), Nothing)     -> MapType $ primitiveType prim
+      ( Nothing,     (Just Raw.PropertyTypeMap),       Nothing,     (Just item)) -> MapType $ SubPropertyType item
+      ( Nothing,     (Just (Raw.PropertyTypeSub sub)), Nothing,     Nothing)     -> AtomicType $ SubPropertyType sub
+      _other -> error $ "Unknown raw property type: " <> show property
 
-    tuple = (propertyPrimitiveType, propertyType, propertyPrimitiveItemType, propertyItemType)
-
-    toAtomicType :: Raw.PrimitiveType -> AtomicType
-    toAtomicType = \case
+    primitiveType :: Raw.PrimitiveType -> AtomicType
+    primitiveType = \case
       Raw.PrimitiveTypeString    -> StringPrimitive
       Raw.PrimitiveTypeLong      -> IntegerPrimitive
       Raw.PrimitiveTypeInteger   -> IntegerPrimitive

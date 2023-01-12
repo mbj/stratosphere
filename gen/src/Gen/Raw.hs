@@ -3,6 +3,7 @@ module Gen.Raw
   ( Spec(..)
   , PrimitiveType(..)
   , Property(..)
+  , PropertyType(..)
   , PropertySpecification(..)
   , ResourceSpecification(..)
   , readSpec
@@ -60,6 +61,18 @@ data PropertySpecification = PropertySpecification
 instance JSON.FromJSON PropertySpecification where
   parseJSON = JSON.genericParseJSON $ parseOptions "propertyType"
 
+data PropertyType
+  = PropertyTypeList
+  | PropertyTypeMap
+  | PropertyTypeSub Text
+  deriving (Show, Eq)
+
+instance JSON.FromJSON PropertyType where
+  parseJSON = JSON.withText "primitive type" $ \case
+    "List" -> pure PropertyTypeList
+    "Map"  -> pure PropertyTypeMap
+    other  -> pure $ PropertyTypeSub other
+
 data Property = Property
   { propertyDocumentation     :: Text
   , propertyDuplicatesAllowed :: Maybe Bool
@@ -67,7 +80,7 @@ data Property = Property
   , propertyPrimitiveItemType :: Maybe PrimitiveType
   , propertyPrimitiveType     :: Maybe PrimitiveType
   , propertyRequired          :: Bool
-  , propertyType              :: Maybe Text
+  , propertyType              :: Maybe PropertyType
   , propertyUpdateType        :: Maybe Text
   }
   deriving (Show, Eq, Generic)
