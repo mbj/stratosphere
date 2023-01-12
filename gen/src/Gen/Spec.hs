@@ -70,23 +70,13 @@ propertyFromRaw name property@Raw.Property{..}
   }
   where
     specType = case (propertyPrimitiveType, propertyType, propertyPrimitiveItemType, propertyItemType) of
-      ( (Just prim), Nothing,                          Nothing,     Nothing)     -> AtomicType $ primitiveType prim
-      ( Nothing,     (Just Raw.PropertyTypeList),      (Just prim), Nothing)     -> ListType $ primitiveType prim
+      ( (Just prim), Nothing,                          Nothing,     Nothing)     -> AtomicType $ PrimitiveType prim
+      ( Nothing,     (Just Raw.PropertyTypeList),      (Just prim), Nothing)     -> ListType $ PrimitiveType prim
       ( Nothing,     (Just Raw.PropertyTypeList),      Nothing,     (Just item)) -> ListType $ SubPropertyType item
-      ( Nothing,     (Just Raw.PropertyTypeMap),       (Just prim), Nothing)     -> MapType $ primitiveType prim
+      ( Nothing,     (Just Raw.PropertyTypeMap),       (Just prim), Nothing)     -> MapType $ PrimitiveType prim
       ( Nothing,     (Just Raw.PropertyTypeMap),       Nothing,     (Just item)) -> MapType $ SubPropertyType item
       ( Nothing,     (Just (Raw.PropertyTypeSub sub)), Nothing,     Nothing)     -> AtomicType $ SubPropertyType sub
       _other -> error $ "Unknown raw property type: " <> show property
-
-    primitiveType :: Raw.PrimitiveType -> AtomicType
-    primitiveType = \case
-      Raw.PrimitiveTypeString    -> StringPrimitive
-      Raw.PrimitiveTypeLong      -> IntegerPrimitive
-      Raw.PrimitiveTypeInteger   -> IntegerPrimitive
-      Raw.PrimitiveTypeDouble    -> DoublePrimitive
-      Raw.PrimitiveTypeBoolean   -> BoolPrimitive
-      Raw.PrimitiveTypeTimestamp -> StringPrimitive
-      Raw.PrimitiveTypeJSON      -> JsonPrimitive
 
 data SpecType
   = AtomicType AtomicType
@@ -94,13 +84,7 @@ data SpecType
   | MapType AtomicType
   deriving (Show, Eq)
 
-data AtomicType
-  = StringPrimitive
-  | IntegerPrimitive
-  | DoublePrimitive
-  | BoolPrimitive
-  | JsonPrimitive
-  | SubPropertyType Text
+data AtomicType = PrimitiveType Raw.PrimitiveType | SubPropertyType Text
   deriving (Show, Eq)
 
 subPropertyTypeName :: SpecType -> Maybe Text
