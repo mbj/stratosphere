@@ -5,14 +5,11 @@ module Gen.RawSpec
   , RawPropertyType(..)
   , RawProperty(..)
   , RawResourceType(..)
-  , RawResourceAttribute(..)
   , readRawSpec
   )
 where
 
-import Control.Applicative ((<|>))
 import Control.Lens
-import Data.Aeson ((.:?))
 import Data.Map (Map)
 import Data.Maybe (fromMaybe)
 import GHC.Generics
@@ -57,40 +54,26 @@ instance JSON.FromJSON RawProperty where
   parseJSON = JSON.genericParseJSON $ parseOptions "rawProperty"
 
 data RawResourceType = RawResourceType
-  { rawResourceTypeAttributes    :: Maybe (Map Text RawResourceAttribute)
-  , rawResourceTypeDocumentation :: Text
-  , rawResourceTypeProperties    :: Map Text RawProperty
+  { rawResourceTypeAdditionalProperties :: Maybe Bool
+  , rawResourceTypeAttributes           :: Maybe JSON.Value
+  , rawResourceTypeDocumentation        :: Text
+  , rawResourceTypeProperties           :: Map Text RawProperty
   }
   deriving (Show, Eq, Generic)
 
 instance JSON.FromJSON RawResourceType where
   parseJSON = JSON.genericParseJSON $ parseOptions "rawResourceType"
 
-data RawResourceAttribute = RawResourceAttribute
-  { rawResourceAttributeItemType          :: Maybe Text
-  , rawResourceAttributePrimitiveItemType :: Maybe Text
-  , rawResourceAttributePrimitiveType     :: Maybe Text
-  , rawResourceAttributeType              :: Maybe (Either [Text] Text)
-  }
-  deriving (Show, Eq, Generic)
-
-instance JSON.FromJSON RawResourceAttribute where
-  parseJSON (JSON.Object o) =
-    RawResourceAttribute <$>
-      o .:? "ItemType" <*>
-      o .:? "PrimitiveItemType" <*>
-      o .:? "PrimitiveType" <*>
-      (fmap Left <$> o .:? "Type" <|> fmap Right <$> o .:? "Type")
-  parseJSON _ = mempty
-
--- | Decode a JSON file into a type
+-- | Decode a JSON file into raw spec
 readRawSpec :: FilePath -> IO (Either String RawSpec)
 readRawSpec = fmap (fmap fixBugs . JSON.eitherDecodeStrict) . BS.readFile
 
 parseOptions :: String -> JSON.Options
 parseOptions prefix
   = JSON.defaultOptions
-  { JSON.fieldLabelModifier = fieldLabelModifier }
+  { JSON.fieldLabelModifier  = fieldLabelModifier
+  , JSON.rejectUnknownFields = True
+  }
   where
     fieldLabelModifier field
       = fromMaybe (error $ "field: " <> field <> "expected field prefix: " <> prefix)

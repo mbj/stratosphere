@@ -37,8 +37,8 @@ ghc-options:
 executables:
   stratosphere-gen:
     source-dirs: src
-    main: Main.hs
-    ghc-options: -O0
+    main: Gen/Main.hs
+    ghc-options: -O0 -main-is Gen.Main
     dependencies:
     - base
     - aeson >= 0.11
