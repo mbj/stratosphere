@@ -6,7 +6,12 @@ import Control.Monad (when)
 import Data.List (nub)
 import Gen.Prelude
 import Gen.RawSpec
-import Gen.Render
+import Gen.Render.Module
+import Gen.Render.RenderConstructor
+import Gen.Render.RenderDocstring
+import Gen.Render.RenderJsonInstances
+import Gen.Render.RenderLenses
+import Gen.Render.RenderTypes
 import Gen.Spec
 import System.Directory
 import System.FilePath.Posix
