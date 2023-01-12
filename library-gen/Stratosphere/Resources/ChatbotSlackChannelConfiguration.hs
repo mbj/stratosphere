@@ -5,7 +5,7 @@ module Stratosphere.Resources.ChatbotSlackChannelConfiguration where
 
 import Prelude
 import Stratosphere.ResourceImports
-import Stratosphere.Types
+
 
 -- | Full data type definition for ChatbotSlackChannelConfiguration. See
 -- 'chatbotSlackChannelConfiguration' for a more convenient constructor.
@@ -13,7 +13,7 @@ data ChatbotSlackChannelConfiguration =
   ChatbotSlackChannelConfiguration
   { _chatbotSlackChannelConfigurationConfigurationName :: Val Text
   , _chatbotSlackChannelConfigurationIamRoleArn :: Val Text
-  , _chatbotSlackChannelConfigurationLoggingLevel :: Maybe (Val LoggingLevel)
+  , _chatbotSlackChannelConfigurationLoggingLevel :: Maybe (Val Text)
   , _chatbotSlackChannelConfigurationSlackChannelId :: Val Text
   , _chatbotSlackChannelConfigurationSlackWorkspaceId :: Val Text
   , _chatbotSlackChannelConfigurationSnsTopicArns :: Maybe (ValList Text)
@@ -61,7 +61,7 @@ csccIamRoleArn :: Lens' ChatbotSlackChannelConfiguration (Val Text)
 csccIamRoleArn = lens _chatbotSlackChannelConfigurationIamRoleArn (\s a -> s { _chatbotSlackChannelConfigurationIamRoleArn = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-logginglevel
-csccLoggingLevel :: Lens' ChatbotSlackChannelConfiguration (Maybe (Val LoggingLevel))
+csccLoggingLevel :: Lens' ChatbotSlackChannelConfiguration (Maybe (Val Text))
 csccLoggingLevel = lens _chatbotSlackChannelConfigurationLoggingLevel (\s a -> s { _chatbotSlackChannelConfigurationLoggingLevel = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html#cfn-chatbot-slackchannelconfiguration-slackchannelid

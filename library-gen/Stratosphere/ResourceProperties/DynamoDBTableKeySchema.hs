@@ -5,14 +5,14 @@ module Stratosphere.ResourceProperties.DynamoDBTableKeySchema where
 
 import Prelude
 import Stratosphere.ResourceImports
-import Stratosphere.Types
+
 
 -- | Full data type definition for DynamoDBTableKeySchema. See
 -- 'dynamoDBTableKeySchema' for a more convenient constructor.
 data DynamoDBTableKeySchema =
   DynamoDBTableKeySchema
   { _dynamoDBTableKeySchemaAttributeName :: Val Text
-  , _dynamoDBTableKeySchemaKeyType :: Val KeyType
+  , _dynamoDBTableKeySchemaKeyType :: Val Text
   } deriving (Show, Eq)
 
 instance ToJSON DynamoDBTableKeySchema where
@@ -27,7 +27,7 @@ instance ToJSON DynamoDBTableKeySchema where
 -- arguments.
 dynamoDBTableKeySchema
   :: Val Text -- ^ 'ddbtksAttributeName'
-  -> Val KeyType -- ^ 'ddbtksKeyType'
+  -> Val Text -- ^ 'ddbtksKeyType'
   -> DynamoDBTableKeySchema
 dynamoDBTableKeySchema attributeNamearg keyTypearg =
   DynamoDBTableKeySchema
@@ -40,5 +40,5 @@ ddbtksAttributeName :: Lens' DynamoDBTableKeySchema (Val Text)
 ddbtksAttributeName = lens _dynamoDBTableKeySchemaAttributeName (\s a -> s { _dynamoDBTableKeySchemaAttributeName = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-keyschema.html#aws-properties-dynamodb-keyschema-keytype
-ddbtksKeyType :: Lens' DynamoDBTableKeySchema (Val KeyType)
+ddbtksKeyType :: Lens' DynamoDBTableKeySchema (Val Text)
 ddbtksKeyType = lens _dynamoDBTableKeySchemaKeyType (\s a -> s { _dynamoDBTableKeySchemaKeyType = a })

@@ -5,7 +5,7 @@ module Stratosphere.ResourceProperties.ApiGatewayV2ApiGatewayManagedOverridesRou
 
 import Prelude
 import Stratosphere.ResourceImports
-import Stratosphere.Types
+
 
 -- | Full data type definition for
 -- ApiGatewayV2ApiGatewayManagedOverridesRouteSettings. See
@@ -15,7 +15,7 @@ data ApiGatewayV2ApiGatewayManagedOverridesRouteSettings =
   ApiGatewayV2ApiGatewayManagedOverridesRouteSettings
   { _apiGatewayV2ApiGatewayManagedOverridesRouteSettingsDataTraceEnabled :: Maybe (Val Bool)
   , _apiGatewayV2ApiGatewayManagedOverridesRouteSettingsDetailedMetricsEnabled :: Maybe (Val Bool)
-  , _apiGatewayV2ApiGatewayManagedOverridesRouteSettingsLoggingLevel :: Maybe (Val LoggingLevel)
+  , _apiGatewayV2ApiGatewayManagedOverridesRouteSettingsLoggingLevel :: Maybe (Val Text)
   , _apiGatewayV2ApiGatewayManagedOverridesRouteSettingsThrottlingBurstLimit :: Maybe (Val Integer)
   , _apiGatewayV2ApiGatewayManagedOverridesRouteSettingsThrottlingRateLimit :: Maybe (Val Double)
   } deriving (Show, Eq)
@@ -53,7 +53,7 @@ agvagmorsDetailedMetricsEnabled :: Lens' ApiGatewayV2ApiGatewayManagedOverridesR
 agvagmorsDetailedMetricsEnabled = lens _apiGatewayV2ApiGatewayManagedOverridesRouteSettingsDetailedMetricsEnabled (\s a -> s { _apiGatewayV2ApiGatewayManagedOverridesRouteSettingsDetailedMetricsEnabled = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-apigatewaymanagedoverrides-routesettings.html#cfn-apigatewayv2-apigatewaymanagedoverrides-routesettings-logginglevel
-agvagmorsLoggingLevel :: Lens' ApiGatewayV2ApiGatewayManagedOverridesRouteSettings (Maybe (Val LoggingLevel))
+agvagmorsLoggingLevel :: Lens' ApiGatewayV2ApiGatewayManagedOverridesRouteSettings (Maybe (Val Text))
 agvagmorsLoggingLevel = lens _apiGatewayV2ApiGatewayManagedOverridesRouteSettingsLoggingLevel (\s a -> s { _apiGatewayV2ApiGatewayManagedOverridesRouteSettingsLoggingLevel = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-apigatewaymanagedoverrides-routesettings.html#cfn-apigatewayv2-apigatewaymanagedoverrides-routesettings-throttlingburstlimit

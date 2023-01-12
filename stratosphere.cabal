@@ -46,7 +46,6 @@ library
       Stratosphere.ResourceImports
       Stratosphere.ResourceProperties
       Stratosphere.Template
-      Stratosphere.Types
       Stratosphere.Values
       Stratosphere.ResourceProperties.AccessAnalyzerAnalyzerArchiveRule
       Stratosphere.ResourceProperties.AccessAnalyzerAnalyzerFilter

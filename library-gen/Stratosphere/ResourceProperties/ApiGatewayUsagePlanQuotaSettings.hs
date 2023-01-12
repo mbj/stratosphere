@@ -5,7 +5,7 @@ module Stratosphere.ResourceProperties.ApiGatewayUsagePlanQuotaSettings where
 
 import Prelude
 import Stratosphere.ResourceImports
-import Stratosphere.Types
+
 
 -- | Full data type definition for ApiGatewayUsagePlanQuotaSettings. See
 -- 'apiGatewayUsagePlanQuotaSettings' for a more convenient constructor.
@@ -13,7 +13,7 @@ data ApiGatewayUsagePlanQuotaSettings =
   ApiGatewayUsagePlanQuotaSettings
   { _apiGatewayUsagePlanQuotaSettingsLimit :: Maybe (Val Integer)
   , _apiGatewayUsagePlanQuotaSettingsOffset :: Maybe (Val Integer)
-  , _apiGatewayUsagePlanQuotaSettingsPeriod :: Maybe (Val Period)
+  , _apiGatewayUsagePlanQuotaSettingsPeriod :: Maybe (Val Text)
   } deriving (Show, Eq)
 
 instance ToJSON ApiGatewayUsagePlanQuotaSettings where
@@ -45,5 +45,5 @@ agupqsOffset :: Lens' ApiGatewayUsagePlanQuotaSettings (Maybe (Val Integer))
 agupqsOffset = lens _apiGatewayUsagePlanQuotaSettingsOffset (\s a -> s { _apiGatewayUsagePlanQuotaSettingsOffset = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-usageplan-quotasettings.html#cfn-apigateway-usageplan-quotasettings-period
-agupqsPeriod :: Lens' ApiGatewayUsagePlanQuotaSettings (Maybe (Val Period))
+agupqsPeriod :: Lens' ApiGatewayUsagePlanQuotaSettings (Maybe (Val Text))
 agupqsPeriod = lens _apiGatewayUsagePlanQuotaSettingsPeriod (\s a -> s { _apiGatewayUsagePlanQuotaSettingsPeriod = a })

@@ -69,14 +69,11 @@ import Stratosphere.ResourceImports
 renderDependencies :: Module -> [Property] -> Text.Text
 renderDependencies Module {..} props = Text.intercalate "\n" deps
   where
-    customDeps = customTypeNames props
     propertyDeps = subPropertyTypeNames props
     -- The EMR Cluster configurations references itself, so we have to filter
     -- out the case where things reference themselves.
     nonRecursivePropertyDeps = nub $ filter (/= moduleName) propertyDeps
-    deps =
-      (if null customDeps then [] else ["import Stratosphere.Types"]) ++
-      fmap (\d -> Text.concat ["import Stratosphere.ResourceProperties.", d]) nonRecursivePropertyDeps
+    deps = fmap (\d -> Text.concat ["import Stratosphere.ResourceProperties.", d]) nonRecursivePropertyDeps
 
 renderTopLevelModule :: [Module] -> IO ()
 renderTopLevelModule modules = do

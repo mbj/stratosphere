@@ -5,14 +5,14 @@ module Stratosphere.ResourceProperties.DynamoDBTableProjection where
 
 import Prelude
 import Stratosphere.ResourceImports
-import Stratosphere.Types
+
 
 -- | Full data type definition for DynamoDBTableProjection. See
 -- 'dynamoDBTableProjection' for a more convenient constructor.
 data DynamoDBTableProjection =
   DynamoDBTableProjection
   { _dynamoDBTableProjectionNonKeyAttributes :: Maybe (ValList Text)
-  , _dynamoDBTableProjectionProjectionType :: Maybe (Val ProjectionType)
+  , _dynamoDBTableProjectionProjectionType :: Maybe (Val Text)
   } deriving (Show, Eq)
 
 instance ToJSON DynamoDBTableProjection where
@@ -38,5 +38,5 @@ ddbtpNonKeyAttributes :: Lens' DynamoDBTableProjection (Maybe (ValList Text))
 ddbtpNonKeyAttributes = lens _dynamoDBTableProjectionNonKeyAttributes (\s a -> s { _dynamoDBTableProjectionNonKeyAttributes = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-projectionobject.html#cfn-dynamodb-projectionobj-projtype
-ddbtpProjectionType :: Lens' DynamoDBTableProjection (Maybe (Val ProjectionType))
+ddbtpProjectionType :: Lens' DynamoDBTableProjection (Maybe (Val Text))
 ddbtpProjectionType = lens _dynamoDBTableProjectionProjectionType (\s a -> s { _dynamoDBTableProjectionProjectionType = a })

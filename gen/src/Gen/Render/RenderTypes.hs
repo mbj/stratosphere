@@ -66,7 +66,6 @@ isWrappedInVal DoublePrimitive = True
 isWrappedInVal BoolPrimitive = True
 isWrappedInVal JsonPrimitive = False
 isWrappedInVal (SubPropertyType _) = False
-isWrappedInVal (CustomType _) = True
 
 renderAtomicTypeWithVal :: AtomicType -> Text
 renderAtomicTypeWithVal t =
@@ -81,4 +80,3 @@ renderAtomicType DoublePrimitive = "Double"
 renderAtomicType BoolPrimitive = "Bool"
 renderAtomicType JsonPrimitive = "Object"
 renderAtomicType (SubPropertyType text) = text
-renderAtomicType (CustomType text) = text

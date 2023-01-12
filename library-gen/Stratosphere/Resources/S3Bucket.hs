@@ -5,7 +5,6 @@ module Stratosphere.Resources.S3Bucket where
 
 import Prelude
 import Stratosphere.ResourceImports
-import Stratosphere.Types
 import Stratosphere.ResourceProperties.S3BucketAccelerateConfiguration
 import Stratosphere.ResourceProperties.S3BucketAnalyticsConfiguration
 import Stratosphere.ResourceProperties.S3BucketBucketEncryption
@@ -27,7 +26,7 @@ import Stratosphere.ResourceProperties.S3BucketWebsiteConfiguration
 data S3Bucket =
   S3Bucket
   { _s3BucketAccelerateConfiguration :: Maybe S3BucketAccelerateConfiguration
-  , _s3BucketAccessControl :: Maybe (Val CannedACL)
+  , _s3BucketAccessControl :: Maybe (Val Text)
   , _s3BucketAnalyticsConfigurations :: Maybe [S3BucketAnalyticsConfiguration]
   , _s3BucketBucketEncryption :: Maybe S3BucketBucketEncryption
   , _s3BucketBucketName :: Maybe (Val Text)
@@ -103,7 +102,7 @@ sbAccelerateConfiguration :: Lens' S3Bucket (Maybe S3BucketAccelerateConfigurati
 sbAccelerateConfiguration = lens _s3BucketAccelerateConfiguration (\s a -> s { _s3BucketAccelerateConfiguration = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-accesscontrol
-sbAccessControl :: Lens' S3Bucket (Maybe (Val CannedACL))
+sbAccessControl :: Lens' S3Bucket (Maybe (Val Text))
 sbAccessControl = lens _s3BucketAccessControl (\s a -> s { _s3BucketAccessControl = a })
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html#cfn-s3-bucket-analyticsconfigurations

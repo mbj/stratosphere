@@ -5,13 +5,13 @@ module Stratosphere.ResourceProperties.DynamoDBTableStreamSpecification where
 
 import Prelude
 import Stratosphere.ResourceImports
-import Stratosphere.Types
+
 
 -- | Full data type definition for DynamoDBTableStreamSpecification. See
 -- 'dynamoDBTableStreamSpecification' for a more convenient constructor.
 data DynamoDBTableStreamSpecification =
   DynamoDBTableStreamSpecification
-  { _dynamoDBTableStreamSpecificationStreamViewType :: Val StreamViewType
+  { _dynamoDBTableStreamSpecificationStreamViewType :: Val Text
   } deriving (Show, Eq)
 
 instance ToJSON DynamoDBTableStreamSpecification where
@@ -24,7 +24,7 @@ instance ToJSON DynamoDBTableStreamSpecification where
 -- | Constructor for 'DynamoDBTableStreamSpecification' containing required
 -- fields as arguments.
 dynamoDBTableStreamSpecification
-  :: Val StreamViewType -- ^ 'ddbtssStreamViewType'
+  :: Val Text -- ^ 'ddbtssStreamViewType'
   -> DynamoDBTableStreamSpecification
 dynamoDBTableStreamSpecification streamViewTypearg =
   DynamoDBTableStreamSpecification
@@ -32,5 +32,5 @@ dynamoDBTableStreamSpecification streamViewTypearg =
   }
 
 -- | http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-streamspecification.html#cfn-dynamodb-streamspecification-streamviewtype
-ddbtssStreamViewType :: Lens' DynamoDBTableStreamSpecification (Val StreamViewType)
+ddbtssStreamViewType :: Lens' DynamoDBTableStreamSpecification (Val Text)
 ddbtssStreamViewType = lens _dynamoDBTableStreamSpecificationStreamViewType (\s a -> s { _dynamoDBTableStreamSpecificationStreamViewType = a })
