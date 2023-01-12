@@ -1,6 +1,6 @@
 {-# LANGUAGE QuasiQuotes #-}
 
-module Main (main) where
+module Gen.Main (main) where
 
 import Control.Monad (when)
 import Data.List (nub)
