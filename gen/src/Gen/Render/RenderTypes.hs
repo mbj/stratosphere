@@ -60,12 +60,13 @@ renderType (MapType _) True = "Object"
 renderType (MapType _) False = "Maybe Object"
 
 isWrappedInVal :: AtomicType -> Bool
-isWrappedInVal StringPrimitive = True
-isWrappedInVal IntegerPrimitive = True
-isWrappedInVal DoublePrimitive = True
-isWrappedInVal BoolPrimitive = True
-isWrappedInVal JsonPrimitive = False
-isWrappedInVal (SubPropertyType _) = False
+isWrappedInVal = \case
+  StringPrimitive     -> True
+  IntegerPrimitive    -> True
+  DoublePrimitive     -> True
+  BoolPrimitive       -> True
+  JsonPrimitive       -> False
+  (SubPropertyType _) -> False
 
 renderAtomicTypeWithVal :: AtomicType -> Text
 renderAtomicTypeWithVal t =
@@ -74,9 +75,10 @@ renderAtomicTypeWithVal t =
   else renderAtomicType t
 
 renderAtomicType :: AtomicType -> Text
-renderAtomicType StringPrimitive = "Text"
-renderAtomicType IntegerPrimitive = "Integer"
-renderAtomicType DoublePrimitive = "Double"
-renderAtomicType BoolPrimitive = "Bool"
-renderAtomicType JsonPrimitive = "Object"
-renderAtomicType (SubPropertyType text) = text
+renderAtomicType = \case
+  StringPrimitive        -> "Text"
+  IntegerPrimitive       -> "Integer"
+  DoublePrimitive        -> "Double"
+  BoolPrimitive          -> "Bool"
+  JsonPrimitive          -> "Object"
+  (SubPropertyType text) -> text

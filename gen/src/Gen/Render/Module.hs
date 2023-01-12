@@ -79,13 +79,14 @@ normalizeProperty allFullNames resourceType property =
   property { propertySpecType = normalizeSpecType allFullNames resourceType (propertySpecType property) }
 
 normalizeSpecType :: Set Text -> Text -> SpecType -> SpecType
-normalizeSpecType allFullNames resourceType (AtomicType (SubPropertyType name)) =
-  AtomicType (SubPropertyType $ normalizeTypeName allFullNames resourceType name)
-normalizeSpecType allFullNames resourceType (ListType (SubPropertyType name)) =
-  ListType (SubPropertyType $ normalizeTypeName allFullNames resourceType name)
-normalizeSpecType allFullNames resourceType (MapType (SubPropertyType name)) =
-  MapType (SubPropertyType $ normalizeTypeName allFullNames resourceType name)
-normalizeSpecType _ _ type' = type'
+normalizeSpecType allFullNames resourceType = \case
+  (AtomicType (SubPropertyType name)) ->
+    AtomicType (SubPropertyType $ normalizeTypeName allFullNames resourceType name)
+  (ListType (SubPropertyType name)) ->
+    ListType (SubPropertyType $ normalizeTypeName allFullNames resourceType name)
+  (MapType (SubPropertyType name)) ->
+    MapType (SubPropertyType $ normalizeTypeName allFullNames resourceType name)
+  other -> other
 
 normalizeTypeName :: Set Text -> Text -> Text -> Text
 -- There are a few naming conflicts with security group types. For example,
@@ -132,76 +133,79 @@ computeConstructorName rawName = Text.pack $ headLower $ Text.unpack $ computeMo
 
 -- | Makes consecutive upper case characters lowercase
 headLower :: String -> String
-headLower [] = []
-headLower (x:xs) = Char.toLower x : consecutiveHeadLower xs
+headLower = \case
+  []     -> []
+  (x:xs) -> Char.toLower x : consecutiveHeadLower xs
 
 consecutiveHeadLower :: String -> String
-consecutiveHeadLower [] = []
-consecutiveHeadLower [x] = [Char.toLower x]
-consecutiveHeadLower (x:nx:xs) =
-  if isUpper x && (isUpper nx || isNumber nx)
-  then Char.toLower x : consecutiveHeadLower (nx:xs)
-  else x:nx:xs
+consecutiveHeadLower = \case
+  []        -> []
+  [x]       -> [Char.toLower x]
+  (x:nx:xs) ->
+    if isUpper x && (isUpper nx || isNumber nx)
+    then Char.toLower x : consecutiveHeadLower (nx:xs)
+    else x:nx:xs
 
 computeLensPrefix :: Text -> Text
--- Special cases with name collisions
-computeLensPrefix "AWS::DataPipeline::Pipeline.ParameterObject" = "dpppao"
-computeLensPrefix "AWS::DataPipeline::Pipeline.PipelineObject" = "dpppio"
-computeLensPrefix "AWS::IoT::TopicRule.S3Action" = "ittrs3a"
-computeLensPrefix "AWS::IoT::TopicRule.SqsAction" = "ittrsqa"
-computeLensPrefix "AWS::IoT::TopicRule.SnsAction" = "ittrsna"
-computeLensPrefix "AWS::ApiGateway::Method" = "agme"
-computeLensPrefix "AWS::ApiGateway::Model" = "agmo"
-computeLensPrefix "AWS::ElastiCache::SecurityGroup" = "ecseg"
-computeLensPrefix "AWS::ElastiCache::SubnetGroup" = "ecsug"
-computeLensPrefix "AWS::RDS::DBSecurityGroup" = "rdsdbseg"
-computeLensPrefix "AWS::RDS::DBSubnetGroup" = "rdsdbsug"
-computeLensPrefix "AWS::Redshift::ClusterSecurityGroup" = "rcseg"
-computeLensPrefix "AWS::Redshift::ClusterSubnetGroup" = "rcsug"
-computeLensPrefix "AWS::ServiceDiscovery::PublicDnsNamespace" = "sdpudn"
-computeLensPrefix "AWS::ServiceDiscovery::PrivateDnsNamespace" = "sdprdn"
-computeLensPrefix "AWS::SES::ReceiptRule.S3Action" = "sesrrsa"
-computeLensPrefix "AWS::SES::ReceiptRule.StopAction" = "sesrrsta"
-computeLensPrefix "AWS::GuardDuty::Master" = "gdma"
-computeLensPrefix "AWS::GuardDuty::Member" = "gdme"
-computeLensPrefix "AWS::ServiceCatalog::PortfolioPrincipalAssociation" = "scppria"
-computeLensPrefix "AWS::ServiceCatalog::PortfolioProductAssociation" = "scpproa"
-computeLensPrefix "AWS::KinesisFirehose::DeliveryStream.SplunkDestinationConfiguration" = "kfdsspdc"
-computeLensPrefix "AWS::IoT1Click::Placement" = "itcpl"
-computeLensPrefix "AWS::IoT1Click::Project" = "itcpr"
-computeLensPrefix "AWS::IoTAnalytics::Dataset" = "itads"
-computeLensPrefix "AWS::IoTAnalytics::Datastore" = "itadst"
-computeLensPrefix "AWS::IoTAnalytics::Dataset.RetentionPeriod" = "itadsrp"
-computeLensPrefix "AWS::IoTAnalytics::Datastore.RetentionPeriod" = "itadstrp"
-computeLensPrefix "AWS::ApiGatewayV2::Api" = "agvap"
-computeLensPrefix "AWS::ApiGatewayV2::Authorizer" = "agvau"
-computeLensPrefix "AWS::Greengrass::ConnectorDefinition.Connector" = "gcdcn"
-computeLensPrefix "AWS::Greengrass::CoreDefinition.Core" = "gcdcr"
-computeLensPrefix "AWS::Greengrass::ConnectorDefinitionVersion.Connector" = "gcdvcn"
-computeLensPrefix "AWS::Greengrass::CoreDefinitionVersion.Core" = "gcdvcr"
-computeLensPrefix "AWS::Greengrass::ConnectorDefinition" = "gcdn"
-computeLensPrefix "AWS::Greengrass::CoreDefinition" = "gcdr"
-computeLensPrefix "AWS::ElasticLoadBalancingV2::ListenerRule.HostHeaderConfig" = "elbvlrhohc"
-computeLensPrefix "AWS::ElasticLoadBalancingV2::ListenerRule.HttpHeaderConfig" = "elbvlrhthc"
-computeLensPrefix "AWS::IoTEvents::DetectorModel.OnEnter" = "itedmoen"
-computeLensPrefix "AWS::IoTEvents::DetectorModel.OnExit" = "itedmoex"
-computeLensPrefix "AWS::SSM::MaintenanceWindowTask" = "ssmmwtas"
-computeLensPrefix "AWS::SSM::MaintenanceWindowTarget" = "ssmmwtar"
-computeLensPrefix "AWS::SSM::MaintenanceWindowTask.Target" = "ssmmwtast"
-computeLensPrefix "AWS::SSM::MaintenanceWindowTarget.Targets" = "ssmmwtart"
-computeLensPrefix "AWS::WAFv2::RuleGroup.StatementTwo" = "wafrgstw"
-computeLensPrefix "AWS::WAFv2::RuleGroup.StatementThree" = "wafrgsth"
-computeLensPrefix "AWS::WAFv2::WebACL.StatementTwo" = "wafwaclstw"
-computeLensPrefix "AWS::WAFv2::WebACL.StatementThree" = "wafwaclsth"
-computeLensPrefix "AWS::WAFv2::WebACL" = "wafvwacl"
-computeLensPrefix "AWS::WAFv2::IPSet" = "wafvips"
-computeLensPrefix "AWS::IoTEvents::DetectorModel.DynamoDB" = "itedmddb"
-computeLensPrefix "AWS::IoTEvents::DetectorModel.DynamoDBv2" = "itedmddbv"
-computeLensPrefix "AWS::IoTEvents::DetectorModel.Sns" = "itedmsn"
-computeLensPrefix "AWS::IoTEvents::DetectorModel.Sqs" = "itedmsq"
-computeLensPrefix "AWS::EC2::CarrierGateway" = "eccag"
-computeLensPrefix "AWS::EC2::CustomerGateway" = "eccug"
-computeLensPrefix rawName = Text.toLower $ fromMaybe rawName $ toAcronym $ computeModuleName rawName
+computeLensPrefix = \case
+  -- Special cases with name collisions
+  "AWS::ApiGateway::Method"                                             -> "agme"
+  "AWS::ApiGateway::Model"                                              -> "agmo"
+  "AWS::ApiGatewayV2::Api"                                              -> "agvap"
+  "AWS::ApiGatewayV2::Authorizer"                                       -> "agvau"
+  "AWS::DataPipeline::Pipeline.ParameterObject"                         -> "dpppao"
+  "AWS::DataPipeline::Pipeline.PipelineObject"                          -> "dpppio"
+  "AWS::EC2::CarrierGateway"                                            -> "eccag"
+  "AWS::EC2::CustomerGateway"                                           -> "eccug"
+  "AWS::ElastiCache::SecurityGroup"                                     -> "ecseg"
+  "AWS::ElastiCache::SubnetGroup"                                       -> "ecsug"
+  "AWS::ElasticLoadBalancingV2::ListenerRule.HostHeaderConfig"          -> "elbvlrhohc"
+  "AWS::ElasticLoadBalancingV2::ListenerRule.HttpHeaderConfig"          -> "elbvlrhthc"
+  "AWS::Greengrass::ConnectorDefinition"                                -> "gcdn"
+  "AWS::Greengrass::ConnectorDefinition.Connector"                      -> "gcdcn"
+  "AWS::Greengrass::ConnectorDefinitionVersion.Connector"               -> "gcdvcn"
+  "AWS::Greengrass::CoreDefinition"                                     -> "gcdr"
+  "AWS::Greengrass::CoreDefinition.Core"                                -> "gcdcr"
+  "AWS::Greengrass::CoreDefinitionVersion.Core"                         -> "gcdvcr"
+  "AWS::GuardDuty::Master"                                              -> "gdma"
+  "AWS::GuardDuty::Member"                                              -> "gdme"
+  "AWS::IoT1Click::Placement"                                           -> "itcpl"
+  "AWS::IoT1Click::Project"                                             -> "itcpr"
+  "AWS::IoT::TopicRule.S3Action"                                        -> "ittrs3a"
+  "AWS::IoT::TopicRule.SnsAction"                                       -> "ittrsna"
+  "AWS::IoT::TopicRule.SqsAction"                                       -> "ittrsqa"
+  "AWS::IoTAnalytics::Dataset"                                          -> "itads"
+  "AWS::IoTAnalytics::Dataset.RetentionPeriod"                          -> "itadsrp"
+  "AWS::IoTAnalytics::Datastore"                                        -> "itadst"
+  "AWS::IoTAnalytics::Datastore.RetentionPeriod"                        -> "itadstrp"
+  "AWS::IoTEvents::DetectorModel.DynamoDB"                              -> "itedmddb"
+  "AWS::IoTEvents::DetectorModel.DynamoDBv2"                            -> "itedmddbv"
+  "AWS::IoTEvents::DetectorModel.OnEnter"                               -> "itedmoen"
+  "AWS::IoTEvents::DetectorModel.OnExit"                                -> "itedmoex"
+  "AWS::IoTEvents::DetectorModel.Sns"                                   -> "itedmsn"
+  "AWS::IoTEvents::DetectorModel.Sqs"                                   -> "itedmsq"
+  "AWS::KinesisFirehose::DeliveryStream.SplunkDestinationConfiguration" -> "kfdsspdc"
+  "AWS::RDS::DBSecurityGroup"                                           -> "rdsdbseg"
+  "AWS::RDS::DBSubnetGroup"                                             -> "rdsdbsug"
+  "AWS::Redshift::ClusterSecurityGroup"                                 -> "rcseg"
+  "AWS::Redshift::ClusterSubnetGroup"                                   -> "rcsug"
+  "AWS::SES::ReceiptRule.S3Action"                                      -> "sesrrsa"
+  "AWS::SES::ReceiptRule.StopAction"                                    -> "sesrrsta"
+  "AWS::SSM::MaintenanceWindowTarget"                                   -> "ssmmwtar"
+  "AWS::SSM::MaintenanceWindowTarget.Targets"                           -> "ssmmwtart"
+  "AWS::SSM::MaintenanceWindowTask"                                     -> "ssmmwtas"
+  "AWS::SSM::MaintenanceWindowTask.Target"                              -> "ssmmwtast"
+  "AWS::ServiceCatalog::PortfolioPrincipalAssociation"                  -> "scppria"
+  "AWS::ServiceCatalog::PortfolioProductAssociation"                    -> "scpproa"
+  "AWS::ServiceDiscovery::PrivateDnsNamespace"                          -> "sdprdn"
+  "AWS::ServiceDiscovery::PublicDnsNamespace"                           -> "sdpudn"
+  "AWS::WAFv2::IPSet"                                                   -> "wafvips"
+  "AWS::WAFv2::RuleGroup.StatementThree"                                -> "wafrgsth"
+  "AWS::WAFv2::RuleGroup.StatementTwo"                                  -> "wafrgstw"
+  "AWS::WAFv2::WebACL"                                                  -> "wafvwacl"
+  "AWS::WAFv2::WebACL.StatementThree"                                   -> "wafwaclsth"
+  "AWS::WAFv2::WebACL.StatementTwo"                                     -> "wafwaclstw"
+  rawName -> Text.toLower $ fromMaybe rawName $ toAcronym $ computeModuleName rawName
 
 computeFieldPrefix :: Text -> Text
 computeFieldPrefix rawName = "_" <> lowerHead (computeModuleName rawName)
