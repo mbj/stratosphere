@@ -27,28 +27,12 @@ data Spec = Spec
   }
   deriving (Show, Eq)
 
-specFromRaw :: Raw.Spec -> Spec
-specFromRaw Raw.Spec{..}
-  = Spec
-  { specPropertyTypes = uncurry propertyTypeFromRaw <$> sortOn fst (toList specPropertyTypes)
-  , specResourceTypes = uncurry resourceTypeFromRaw <$> sortOn fst (toList specResourceTypes)
-  , specVersion       = specResourceSpecificationVersion
-  }
-
 data PropertyType = PropertyType
   { propertyTypeName          :: Text
   , propertyTypeDocumentation :: Text
   , propertyTypeProperties    :: [Property]
   }
   deriving (Show, Eq)
-
-propertyTypeFromRaw :: Text -> Raw.PropertySpecification -> PropertyType
-propertyTypeFromRaw fullName Raw.PropertySpecification{..}
-  = PropertyType
-  { propertyTypeName          = fullName
-  , propertyTypeDocumentation = propertyTypeDocumentation
-  , propertyTypeProperties    = (uncurry propertyFromRaw <$> sortOn fst (toList propertyTypeProperties))
-  }
 
 data Property = Property
   { propertyName          :: Text
@@ -57,6 +41,48 @@ data Property = Property
   , propertyRequired      :: Bool
   }
   deriving (Show, Eq)
+
+data SpecType
+  = AtomicType AtomicType
+  | ListType AtomicType
+  | MapType AtomicType
+  deriving (Show, Eq)
+
+data AtomicType
+  = PrimitiveType Raw.PrimitiveType
+  | SubPropertyType Raw.SubpropertyName
+  deriving (Show, Eq)
+
+data ResourceType = ResourceType
+  { resourceTypeFullName      :: Text
+  , resourceTypeDocumentation :: Text
+  , resourceTypeProperties    :: [Property]
+  }
+  deriving (Show, Eq, Generic)
+
+specFromRaw :: Raw.Spec -> Spec
+specFromRaw Raw.Spec{..}
+  = Spec
+  { specPropertyTypes = uncurry propertyTypeFromRaw <$> sortOn fst (toList specPropertyTypes)
+  , specResourceTypes = uncurry resourceTypeFromRaw <$> sortOn fst (toList specResourceTypes)
+  , specVersion       = specResourceSpecificationVersion
+  }
+
+resourceTypeFromRaw :: Text -> Raw.ResourceSpecification -> ResourceType
+resourceTypeFromRaw fullName Raw.ResourceSpecification{..}
+  = ResourceType
+  { resourceTypeFullName      = fullName
+  , resourceTypeDocumentation = resourceTypeDocumentation
+  , resourceTypeProperties    = uncurry propertyFromRaw <$> sortOn fst (toList resourceTypeProperties)
+  }
+
+propertyTypeFromRaw :: Text -> Raw.PropertySpecification -> PropertyType
+propertyTypeFromRaw fullName Raw.PropertySpecification{..}
+  = PropertyType
+  { propertyTypeName          = fullName
+  , propertyTypeDocumentation = propertyTypeDocumentation
+  , propertyTypeProperties    = (uncurry propertyFromRaw <$> sortOn fst (toList propertyTypeProperties))
+  }
 
 propertyFromRaw :: Text -> Raw.Property -> Property
 propertyFromRaw name property@Raw.Property{..}
@@ -76,15 +102,6 @@ propertyFromRaw name property@Raw.Property{..}
       ( Nothing,     (Just (Raw.PropertyTypeSub sub)), Nothing,     Nothing)     -> AtomicType $ SubPropertyType sub
       _other -> error $ "Unknown raw property type: " <> show property
 
-data SpecType
-  = AtomicType AtomicType
-  | ListType AtomicType
-  | MapType AtomicType
-  deriving (Show, Eq)
-
-data AtomicType = PrimitiveType Raw.PrimitiveType | SubPropertyType Raw.SubpropertyName
-  deriving (Show, Eq)
-
 subPropertyTypeNames :: [Property] -> [Text]
 subPropertyTypeNames = catMaybes . fmap (subPropertyTypeName . propertySpecType)
   where
@@ -94,18 +111,3 @@ subPropertyTypeNames = catMaybes . fmap (subPropertyTypeName . propertySpecType)
       (ListType (SubPropertyType name))   -> Just $ Raw.toText name
       (MapType (SubPropertyType name))    -> Just $ Raw.toText name
       _other                              -> Nothing
-
-data ResourceType = ResourceType
-  { resourceTypeFullName      :: Text
-  , resourceTypeDocumentation :: Text
-  , resourceTypeProperties    :: [Property]
-  }
-  deriving (Show, Eq, Generic)
-
-resourceTypeFromRaw :: Text -> Raw.ResourceSpecification -> ResourceType
-resourceTypeFromRaw fullName Raw.ResourceSpecification{..}
-  = ResourceType
-  { resourceTypeFullName      = fullName
-  , resourceTypeDocumentation = resourceTypeDocumentation
-  , resourceTypeProperties    = uncurry propertyFromRaw <$> sortOn fst (toList resourceTypeProperties)
-  }
