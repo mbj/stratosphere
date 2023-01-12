@@ -53,10 +53,8 @@ propertyTypeFromRaw fullName Raw.PropertySpecification{..}
 data Property = Property
   { propertyName          :: Text
   , propertyDocumentation :: Text
-  --, propertyDuplicatesAllowed :: Maybe Bool -- Don't care about this
   , propertySpecType      :: SpecType
   , propertyRequired      :: Bool
-  --, propertyUpdateType :: Maybe Text -- Don't care about this
   }
   deriving (Show, Eq)
 
@@ -99,7 +97,6 @@ subPropertyTypeNames = catMaybes . fmap (subPropertyTypeName . propertySpecType)
 
 data ResourceType = ResourceType
   { resourceTypeFullName      :: Text
-  --, resourceTypeAttributes :: [ResourceAttribute] -- Don't care about this yet, could be useful
   , resourceTypeDocumentation :: Text
   , resourceTypeProperties    :: [Property]
   }
