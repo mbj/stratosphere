@@ -13,21 +13,16 @@ import qualified Data.Text as Text
 import qualified Gen.Raw   as Raw
 
 data Module = Module
-  { moduleName            :: Text
-    -- ^ Name of the type and module we'll generate
-  , moduleFullAWSName     :: Text
-    -- ^ The original name given by AWS. Same as ResourceType for resources.
-  , moduleResourceType    :: Text
-    -- ^ The type of resources (example: AWS::EC2::Instance)
-  , moduleIsResource      :: Bool
-  , moduleConstructorName :: Text
-  , moduleLensPrefix      :: Text
+  { moduleConstructorName :: Text
+  , moduleDocumentation   :: Text -- ^ The documentation link
   , moduleFieldPrefix     :: Text
-  , modulePath            :: Text
-    -- ^ The prefix for the stratosphere sub-module
-  , moduleDocumentation   :: Text
-    -- ^ The documentation link
+  , moduleFullAWSName     :: Text -- ^ The original name given by AWS. Same as ResourceType for resources.
+  , moduleIsResource      :: Bool
+  , moduleLensPrefix      :: Text
+  , moduleName            :: Text -- ^ Name of the type and module we'll generate
+  , modulePath            :: Text -- ^ The prefix for the stratosphere sub-module
   , moduleProperties      :: [Property]
+  , moduleResourceType    :: Text -- ^ The type of resources (example: AWS::EC2::Instance)
   }
   deriving (Show, Eq)
 
@@ -40,32 +35,34 @@ createModules properties resources =
   in fmap (normalizePropertyNames allPropertyNames) (resourceModules ++ propertyModules)
 
 moduleFromPropertyType :: PropertyType -> Module
-moduleFromPropertyType (PropertyType fullName doc props) =
-  Module
-  (computeModuleName fullName)
-  fullName
-  (computeResourceType fullName)
-  False
-  (computeConstructorName fullName)
-  (computeLensPrefix fullName)
-  (computeFieldPrefix fullName)
-  "Stratosphere.ResourceProperties"
-  doc
-  props
+moduleFromPropertyType PropertyType{..}
+  = Module
+  { moduleConstructorName = computeConstructorName propertyTypeName
+  , moduleDocumentation   = propertyTypeDocumentation
+  , moduleFieldPrefix     = computeFieldPrefix propertyTypeName
+  , moduleFullAWSName     = propertyTypeName
+  , moduleIsResource      = False
+  , moduleLensPrefix      = computeLensPrefix propertyTypeName
+  , moduleName            = computeModuleName propertyTypeName
+  , modulePath            = "Stratosphere.ResourceProperties"
+  , moduleProperties      = propertyTypeProperties
+  , moduleResourceType    = computeResourceType propertyTypeName
+  }
 
 moduleFromResourceType :: ResourceType -> Module
-moduleFromResourceType (ResourceType fullName doc props) =
-  Module
-  (computeModuleName fullName)
-  fullName
-  fullName
-  True
-  (computeConstructorName fullName)
-  (computeLensPrefix fullName)
-  (computeFieldPrefix fullName)
-  "Stratosphere.Resources"
-  doc
-  props
+moduleFromResourceType ResourceType{..}
+  = Module
+  { moduleConstructorName = computeConstructorName resourceTypeFullName
+  , moduleDocumentation   = resourceTypeDocumentation
+  , moduleFieldPrefix     = computeFieldPrefix resourceTypeFullName
+  , moduleFullAWSName     = resourceTypeFullName
+  , moduleIsResource      = True
+  , moduleLensPrefix      = computeLensPrefix resourceTypeFullName
+  , moduleName            = computeModuleName resourceTypeFullName
+  , modulePath            = "Stratosphere.Resources"
+  , moduleProperties      = resourceTypeProperties
+  , moduleResourceType    = resourceTypeFullName
+  }
 
 -- | We give slightly different names to properties than AWS does. AWS uses a
 -- fully qualified name for the property, including the parent resource type.
