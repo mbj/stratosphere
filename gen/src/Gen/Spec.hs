@@ -42,8 +42,8 @@ data PropertyType = PropertyType
   }
   deriving (Show, Eq)
 
-propertyTypeFromRaw :: Text -> Raw.PropertyType -> PropertyType
-propertyTypeFromRaw fullName Raw.PropertyType{..}
+propertyTypeFromRaw :: Text -> Raw.PropertySpecification -> PropertyType
+propertyTypeFromRaw fullName Raw.PropertySpecification{..}
   = PropertyType
   { propertyTypeName          = fullName
   , propertyTypeDocumentation = propertyTypeDocumentation
@@ -123,8 +123,8 @@ data ResourceType = ResourceType
   }
   deriving (Show, Eq, Generic)
 
-resourceTypeFromRaw :: Text -> Raw.ResourceType -> ResourceType
-resourceTypeFromRaw fullName Raw.ResourceType{..}
+resourceTypeFromRaw :: Text -> Raw.ResourceSpecification -> ResourceType
+resourceTypeFromRaw fullName Raw.ResourceSpecification{..}
   = ResourceType
   { resourceTypeFullName      = fullName
   , resourceTypeDocumentation = resourceTypeDocumentation

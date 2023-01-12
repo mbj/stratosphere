@@ -3,8 +3,8 @@ module Gen.Raw
   ( Spec(..)
   , PrimitiveType(..)
   , Property(..)
-  , PropertyType(..)
-  , ResourceType(..)
+  , PropertySpecification(..)
+  , ResourceSpecification(..)
   , readSpec
   )
 where
@@ -21,9 +21,9 @@ import qualified Data.List       as List
 import qualified Data.Text       as Text
 
 data Spec = Spec
-  { specPropertyTypes                :: Map Text PropertyType
+  { specPropertyTypes                :: Map Text PropertySpecification
   , specResourceSpecificationVersion :: Text
-  , specResourceTypes                :: Map Text ResourceType
+  , specResourceTypes                :: Map Text ResourceSpecification
   }
   deriving (Show, Eq, Generic)
 
@@ -51,13 +51,13 @@ instance JSON.FromJSON PrimitiveType where
     "Timestamp" -> pure PrimitiveTypeTimestamp
     other       -> fail $ "Unsupported primitive type: " <> Text.unpack other
 
-data PropertyType = PropertyType
+data PropertySpecification = PropertySpecification
   { propertyTypeDocumentation :: Text
   , propertyTypeProperties    :: Map Text Property
   }
   deriving (Show, Eq, Generic)
 
-instance JSON.FromJSON PropertyType where
+instance JSON.FromJSON PropertySpecification where
   parseJSON = JSON.genericParseJSON $ parseOptions "propertyType"
 
 data Property = Property
@@ -75,7 +75,7 @@ data Property = Property
 instance JSON.FromJSON Property where
   parseJSON = JSON.genericParseJSON $ parseOptions "property"
 
-data ResourceType = ResourceType
+data ResourceSpecification = ResourceSpecification
   { resourceTypeAdditionalProperties :: Maybe Bool
   , resourceTypeAttributes           :: Maybe JSON.Value
   , resourceTypeDocumentation        :: Text
@@ -83,7 +83,7 @@ data ResourceType = ResourceType
   }
   deriving (Show, Eq, Generic)
 
-instance JSON.FromJSON ResourceType where
+instance JSON.FromJSON ResourceSpecification where
   parseJSON = JSON.genericParseJSON $ parseOptions "resourceType"
 
 -- | Decode a JSON file into raw spec
@@ -152,9 +152,9 @@ fixBugs spec =
   . at "Name"
   %~ fmap setRequired
   where
-    propertyTypesLens :: Lens' Spec (Map Text PropertyType)
+    propertyTypesLens :: Lens' Spec (Map Text PropertySpecification)
     propertyTypesLens = lens specPropertyTypes (\s a -> s { specPropertyTypes = a })
-    propertyPropsLens :: Lens' PropertyType (Map Text Property)
+    propertyPropsLens :: Lens' PropertySpecification (Map Text Property)
     propertyPropsLens = lens propertyTypeProperties (\s a -> s { propertyTypeProperties = a })
 
     setRequired prop = prop { propertyRequired = True }
