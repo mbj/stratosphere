@@ -63,7 +63,7 @@ data RawResourceType = RawResourceType
 instance JSON.FromJSON RawResourceType where
   parseJSON = JSON.genericParseJSON $ parseOptions "rawResourceType"
 
--- | Decode a JSON file into a type
+-- | Decode a JSON file into raw spec
 readRawSpec :: FilePath -> IO (Either String RawSpec)
 readRawSpec = fmap (fmap fixBugs . JSON.eitherDecodeStrict) . BS.readFile
 
