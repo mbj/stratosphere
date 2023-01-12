@@ -1,8 +1,9 @@
 -- | Official AWS specification representation.
 module Gen.Raw
   ( Spec(..)
-  , PropertyType(..)
+  , PrimitiveType(..)
   , Property(..)
+  , PropertyType(..)
   , ResourceType(..)
   , readSpec
   )
@@ -17,6 +18,7 @@ import Gen.Prelude
 import qualified Data.Aeson      as JSON
 import qualified Data.ByteString as BS
 import qualified Data.List       as List
+import qualified Data.Text       as Text
 
 data Spec = Spec
   { specPropertyTypes                :: Map Text PropertyType
@@ -27,6 +29,27 @@ data Spec = Spec
 
 instance JSON.FromJSON Spec where
   parseJSON = JSON.genericParseJSON $ parseOptions "spec"
+
+data PrimitiveType
+  = PrimitiveTypeBoolean
+  | PrimitiveTypeDouble
+  | PrimitiveTypeInteger
+  | PrimitiveTypeJSON
+  | PrimitiveTypeLong
+  | PrimitiveTypeString
+  | PrimitiveTypeTimestamp
+  deriving (Eq, Show)
+
+instance JSON.FromJSON PrimitiveType where
+  parseJSON = JSON.withText "primitive type" $ \case
+    "Boolean"   -> pure PrimitiveTypeBoolean
+    "Double"    -> pure PrimitiveTypeDouble
+    "Integer"   -> pure PrimitiveTypeInteger
+    "Json"      -> pure PrimitiveTypeJSON
+    "Long"      -> pure PrimitiveTypeLong
+    "String"    -> pure PrimitiveTypeString
+    "Timestamp" -> pure PrimitiveTypeTimestamp
+    other       -> fail $ "Unsupported primitive type: " <> Text.unpack other
 
 data PropertyType = PropertyType
   { propertyTypeDocumentation :: Text
@@ -41,8 +64,8 @@ data Property = Property
   { propertyDocumentation     :: Text
   , propertyDuplicatesAllowed :: Maybe Bool
   , propertyItemType          :: Maybe Text
-  , propertyPrimitiveItemType :: Maybe Text
-  , propertyPrimitiveType     :: Maybe Text
+  , propertyPrimitiveItemType :: Maybe PrimitiveType
+  , propertyPrimitiveType     :: Maybe PrimitiveType
   , propertyRequired          :: Bool
   , propertyType              :: Maybe Text
   , propertyUpdateType        :: Maybe Text

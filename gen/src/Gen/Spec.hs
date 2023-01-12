@@ -18,8 +18,7 @@ import Data.Maybe (catMaybes)
 import GHC.Generics hiding (to)
 import Gen.Prelude
 
-import qualified Data.Text as Text
-import qualified Gen.Raw   as Raw
+import qualified Gen.Raw as Raw
 
 data Spec = Spec
   { specPropertyTypes :: [PropertyType]
@@ -71,15 +70,25 @@ propertyFromRaw name property@Raw.Property{..}
   }
   where
     specType = case tuple of
-      ((Just prim), Nothing,       Nothing,     Nothing)     -> AtomicType $ textToPrimitiveType prim
-      (Nothing,     (Just "List"), (Just prim), Nothing)     -> ListType $ textToPrimitiveType prim
+      ((Just prim), Nothing,       Nothing,     Nothing)     -> AtomicType $ toAtomicType prim
+      (Nothing,     (Just "List"), (Just prim), Nothing)     -> ListType $ toAtomicType prim
       (Nothing,     (Just "List"), Nothing,     (Just item)) -> ListType $ SubPropertyType item
-      (Nothing,     (Just "Map"),  (Just prim), Nothing)     -> MapType $ textToPrimitiveType prim
+      (Nothing,     (Just "Map"),  (Just prim), Nothing)     -> MapType $ toAtomicType prim
       (Nothing,     (Just "Map"),  Nothing,     (Just item)) -> MapType $ SubPropertyType item
       (Nothing,     (Just prop),   Nothing,     Nothing)     -> AtomicType $ SubPropertyType prop
       _other                                                 -> error $ "Unknown raw type: " <> show property
 
     tuple = (propertyPrimitiveType, propertyType, propertyPrimitiveItemType, propertyItemType)
+
+    toAtomicType :: Raw.PrimitiveType -> AtomicType
+    toAtomicType = \case
+      Raw.PrimitiveTypeString    -> StringPrimitive
+      Raw.PrimitiveTypeLong      -> IntegerPrimitive
+      Raw.PrimitiveTypeInteger   -> IntegerPrimitive
+      Raw.PrimitiveTypeDouble    -> DoublePrimitive
+      Raw.PrimitiveTypeBoolean   -> BoolPrimitive
+      Raw.PrimitiveTypeTimestamp -> StringPrimitive
+      Raw.PrimitiveTypeJSON      -> JsonPrimitive
 
 data SpecType
   = AtomicType AtomicType
@@ -95,17 +104,6 @@ data AtomicType
   | JsonPrimitive
   | SubPropertyType Text
   deriving (Show, Eq)
-
-textToPrimitiveType :: Text -> AtomicType
-textToPrimitiveType = \case
-  "String"    -> StringPrimitive
-  "Long"      -> IntegerPrimitive
-  "Integer"   -> IntegerPrimitive
-  "Double"    -> DoublePrimitive
-  "Boolean"   -> BoolPrimitive
-  "Timestamp" -> StringPrimitive
-  "Json"      -> JsonPrimitive
-  other       -> error $ "Unknown primitive type: " <> Text.unpack other
 
 subPropertyTypeName :: SpecType -> Maybe Text
 subPropertyTypeName = \case
