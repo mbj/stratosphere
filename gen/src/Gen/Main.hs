@@ -5,7 +5,6 @@ module Gen.Main (main) where
 import Control.Monad (when)
 import Data.List (nub)
 import Gen.Prelude
-import Gen.RawSpec
 import Gen.Render.Module
 import Gen.Render.RenderConstructor
 import Gen.Render.RenderDocstring
@@ -19,10 +18,11 @@ import Text.Shakespeare.Text (st)
 
 import qualified Data.Text    as Text
 import qualified Data.Text.IO as TIO
+import qualified Gen.Raw      as Raw
 
 main :: IO ()
 main = do
-  rawSpec <- either error id <$> readRawSpec ("gen" </> "model" </> "sorted-spec.json")
+  rawSpec <- either error id <$> Raw.readSpec ("gen" </> "model" </> "sorted-spec.json")
 
   let
     spec = specFromRaw rawSpec

@@ -1,5 +1,4 @@
--- | This transforms the output from ReadRawSpecFile for consumption into the
--- generator.
+-- | Generation of renderable spec from Gen.Raw
 
 module Gen.Spec
   ( Spec(..)
@@ -18,9 +17,9 @@ import Data.Map (toList)
 import Data.Maybe (catMaybes)
 import GHC.Generics hiding (to)
 import Gen.Prelude
-import Gen.RawSpec
 
 import qualified Data.Text as Text
+import qualified Gen.Raw   as Raw
 
 data Spec = Spec
   { specPropertyTypes :: [PropertyType]
@@ -29,12 +28,12 @@ data Spec = Spec
   }
   deriving (Show, Eq)
 
-specFromRaw :: RawSpec -> Spec
-specFromRaw RawSpec{..}
+specFromRaw :: Raw.Spec -> Spec
+specFromRaw Raw.Spec{..}
   = Spec
-  { specPropertyTypes = uncurry propertyTypeFromRaw <$> sortOn fst (toList rawSpecPropertyTypes)
-  , specResourceTypes = uncurry resourceTypeFromRaw <$> sortOn fst (toList rawSpecResourceTypes)
-  , specVersion       = rawSpecResourceSpecificationVersion
+  { specPropertyTypes = uncurry propertyTypeFromRaw <$> sortOn fst (toList specPropertyTypes)
+  , specResourceTypes = uncurry resourceTypeFromRaw <$> sortOn fst (toList specResourceTypes)
+  , specVersion       = specResourceSpecificationVersion
   }
 
 data PropertyType = PropertyType
@@ -44,12 +43,12 @@ data PropertyType = PropertyType
   }
   deriving (Show, Eq)
 
-propertyTypeFromRaw :: Text -> RawPropertyType -> PropertyType
-propertyTypeFromRaw fullName RawPropertyType{..}
+propertyTypeFromRaw :: Text -> Raw.PropertyType -> PropertyType
+propertyTypeFromRaw fullName Raw.PropertyType{..}
   = PropertyType
   { propertyTypeName          = fullName
-  , propertyTypeDocumentation = rawPropertyTypeDocumentation
-  , propertyTypeProperties    = (uncurry propertyFromRaw <$> sortOn fst (toList rawPropertyTypeProperties))
+  , propertyTypeDocumentation = propertyTypeDocumentation
+  , propertyTypeProperties    = (uncurry propertyFromRaw <$> sortOn fst (toList propertyTypeProperties))
   }
 
 data Property = Property
@@ -62,13 +61,13 @@ data Property = Property
   }
   deriving (Show, Eq)
 
-propertyFromRaw :: Text -> RawProperty -> Property
-propertyFromRaw name rawProperty@RawProperty{..}
+propertyFromRaw :: Text -> Raw.Property -> Property
+propertyFromRaw name property@Raw.Property{..}
   = Property
   { propertyName          = name
-  , propertyDocumentation = rawPropertyDocumentation
+  , propertyDocumentation = propertyDocumentation
   , propertySpecType      = specType
-  , propertyRequired      = rawPropertyRequired
+  , propertyRequired      = propertyRequired
   }
   where
     specType = case tuple of
@@ -78,9 +77,9 @@ propertyFromRaw name rawProperty@RawProperty{..}
       (Nothing,     (Just "Map"),  (Just prim), Nothing)     -> MapType $ textToPrimitiveType prim
       (Nothing,     (Just "Map"),  Nothing,     (Just item)) -> MapType $ SubPropertyType item
       (Nothing,     (Just prop),   Nothing,     Nothing)     -> AtomicType $ SubPropertyType prop
-      _other                                                 -> error $ "Unknown raw type: " <> show rawProperty
+      _other                                                 -> error $ "Unknown raw type: " <> show property
 
-    tuple = (rawPropertyPrimitiveType, rawPropertyType, rawPropertyPrimitiveItemType, rawPropertyItemType)
+    tuple = (propertyPrimitiveType, propertyType, propertyPrimitiveItemType, propertyItemType)
 
 data SpecType
   = AtomicType AtomicType
@@ -126,10 +125,10 @@ data ResourceType = ResourceType
   }
   deriving (Show, Eq, Generic)
 
-resourceTypeFromRaw :: Text -> RawResourceType -> ResourceType
-resourceTypeFromRaw fullName RawResourceType{..}
+resourceTypeFromRaw :: Text -> Raw.ResourceType -> ResourceType
+resourceTypeFromRaw fullName Raw.ResourceType{..}
   = ResourceType
   { resourceTypeFullName      = fullName
-  , resourceTypeDocumentation = rawResourceTypeDocumentation
-  , resourceTypeProperties    = uncurry propertyFromRaw <$> sortOn fst (toList rawResourceTypeProperties)
+  , resourceTypeDocumentation = resourceTypeDocumentation
+  , resourceTypeProperties    = uncurry propertyFromRaw <$> sortOn fst (toList resourceTypeProperties)
   }

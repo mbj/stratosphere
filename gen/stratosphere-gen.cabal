@@ -14,7 +14,7 @@ executable stratosphere-gen
   main-is: Gen/Main.hs
   other-modules:
       Gen.Prelude
-      Gen.RawSpec
+      Gen.Raw
       Gen.Render.Module
       Gen.Render.RenderConstructor
       Gen.Render.RenderDocstring
