@@ -1,14 +1,14 @@
 -- | Official AWS specification representation.
 module Gen.Raw
-  ( Spec(..)
-  , ComposedType(..)
+  ( ComposedType(..)
   , PrimitiveType(..)
   , Property(..)
   , PropertyName(..)
   , PropertyType(..)
   , PropertyTypeName(..)
-  , Resource(..)
-  , ResourceName(..)
+  , ResourceType(..)
+  , ResourceTypeName(..)
+  , Spec(..)
   , readSpec
   , toText
   )
@@ -29,31 +29,39 @@ import qualified Data.Text        as Text
 class ToText a where
   toText :: a -> Text
 
-data ResourceName = ResourceName
+data Service = Service
   { namespace :: Text
   , service   :: Text
+  }
+  deriving (Eq, Show, Ord)
+
+instance ToText Service where
+  toText Service{..} = namespace <> "::" <> service
+
+data ResourceTypeName = ResourceTypeName
+  { service   :: Service
   , resource  :: Text
   }
   deriving (Eq, Show, Ord)
 
-instance ToText ResourceName where
-  toText ResourceName{..} = namespace <> "::" <> service <> "::" <> resource
+instance ToText ResourceTypeName where
+  toText ResourceTypeName{..} = toText service <> "::" <> resource
 
-instance JSON.FromJSON ResourceName where
-  parseJSON = JSON.withText "resource name" parseResourceName
+instance JSON.FromJSON ResourceTypeName where
+  parseJSON = JSON.withText "resource name" parseResourceTypeName
 
-parseResourceName :: Text -> JSON.Parser ResourceName
-parseResourceName text =
-    case Text.splitOn "::" text of
-      [namespace, service, resource] -> pure ResourceName{..}
-      _other                         -> fail $ "Unsupported resource name: " <> Text.unpack text
+parseResourceTypeName :: Text -> JSON.Parser ResourceTypeName
+parseResourceTypeName text =
+  case Text.splitOn "::" text of
+    [namespace, service, resource] -> pure ResourceTypeName{service = Service{..}, ..}
+    _other                         -> fail $ "Unsupported resource name: " <> Text.unpack text
 
-instance JSON.FromJSONKey ResourceName where
-  fromJSONKey = JSON.FromJSONKeyTextParser parseResourceName
+instance JSON.FromJSONKey ResourceTypeName where
+  fromJSONKey = JSON.FromJSONKeyTextParser parseResourceTypeName
 
 data PropertyTypeName
   = Tag
-  | PropertyTypeName ResourceName PropertyName
+  | PropertyTypeName ResourceTypeName PropertyName
   deriving (Eq, Show, Ord)
 
 instance ToText PropertyTypeName where
@@ -72,7 +80,7 @@ parsePropertyTypeName text =
     _other ->
       case Text.splitOn "." text of
         [resourceNameText, propertyNameText] -> do
-          resourceName <- parseResourceName resourceNameText
+          resourceName <- parseResourceTypeName resourceNameText
           pure $ PropertyTypeName resourceName (PropertyName propertyNameText)
         _other -> failUnsupported
   where
@@ -85,7 +93,7 @@ instance JSON.FromJSONKey PropertyTypeName where
 data Spec = Spec
   { specPropertyTypes                :: Map PropertyTypeName PropertyType
   , specResourceSpecificationVersion :: Text
-  , specResourceTypes                :: Map ResourceName Resource
+  , specResourceTypes                :: Map ResourceTypeName ResourceType
   }
   deriving (Show, Eq, Generic)
 
@@ -159,16 +167,16 @@ data Property = Property
 instance JSON.FromJSON Property where
   parseJSON = JSON.genericParseJSON $ parseOptions "property"
 
-data Resource = Resource
-  { resourceAdditionalProperties :: Maybe Bool
-  , resourceAttributes           :: Maybe JSON.Value
-  , resourceDocumentation        :: Text
-  , resourceProperties           :: Map PropertyName Property
+data ResourceType = ResourceType
+  { resourceTypeAdditionalProperties :: Maybe Bool
+  , resourceTypeAttributes           :: Maybe JSON.Value
+  , resourceTypeDocumentation        :: Text
+  , resourceTypeProperties           :: Map PropertyName Property
   }
   deriving (Show, Eq, Generic)
 
-instance JSON.FromJSON Resource where
-  parseJSON = JSON.genericParseJSON $ parseOptions "resource"
+instance JSON.FromJSON ResourceType where
+  parseJSON = JSON.genericParseJSON $ parseOptions "resourceType"
 
 -- | Decode a JSON file into raw spec
 readSpec :: FilePath -> IO (Either String Spec)
@@ -198,44 +206,49 @@ fixBugs spec =
   -- the function to render the full type name for
   -- AWS::RDS::DBSecurityGroup.Ingress.
   & propertyTypesLens
-  . at (PropertyTypeName (ResourceName "AWS" "RDS" "DBSecurityGroup") (PropertyName "IngressProperty"))
-  .~ (spec ^. propertyTypesLens . at (PropertyTypeName (ResourceName "AWS" "RDS" "DBSecurityGroup") (PropertyName "Ingress")))
+  . at (PropertyTypeName (ResourceTypeName rds "DBSecurityGroup") (PropertyName "IngressProperty"))
+  .~ (spec ^. propertyTypesLens . at (PropertyTypeName (ResourceTypeName rds "DBSecurityGroup") (PropertyName "Ingress")))
   & propertyTypesLens
-  . at (PropertyTypeName (ResourceName "AWS" "RDS" "DBSecurityGroup") (PropertyName "Ingress"))
+  . at (PropertyTypeName (ResourceTypeName rds "DBSecurityGroup") (PropertyName "Ingress"))
   .~ Nothing
   & propertyTypesLens
-  . at (PropertyTypeName (ResourceName "AWS" "EC2" "SecurityGroup") (PropertyName "IngressProperty"))
-  .~ (spec ^. propertyTypesLens . at (PropertyTypeName (ResourceName "AWS" "EC2" "SecurityGroup") (PropertyName "Ingress")))
+  . at (PropertyTypeName (ResourceTypeName ec2 "SecurityGroup") (PropertyName "IngressProperty"))
+  .~ (spec ^. propertyTypesLens . at (PropertyTypeName (ResourceTypeName ec2 "SecurityGroup") (PropertyName "Ingress")))
   & propertyTypesLens
-  . at (PropertyTypeName (ResourceName "AWS" "EC2" "SecurityGroup") (PropertyName "Ingress"))
+  . at (PropertyTypeName (ResourceTypeName ec2 "SecurityGroup") (PropertyName "Ingress"))
   .~ Nothing
   & propertyTypesLens
-  . at (PropertyTypeName (ResourceName "AWS" "EC2" "SecurityGroup") (PropertyName "EgressProperty"))
-  .~ (spec ^. propertyTypesLens . at (PropertyTypeName (ResourceName "AWS" "EC2" "SecurityGroup") (PropertyName "Egress")))
+  . at (PropertyTypeName (ResourceTypeName ec2 "SecurityGroup") (PropertyName "EgressProperty"))
+  .~ (spec ^. propertyTypesLens . at (PropertyTypeName (ResourceTypeName ec2 "SecurityGroup") (PropertyName "Egress")))
   & propertyTypesLens
-  . at (PropertyTypeName (ResourceName "AWS" "EC2" "SecurityGroup") (PropertyName "Egress"))
+  . at (PropertyTypeName (ResourceTypeName ec2 "SecurityGroup") (PropertyName "Egress"))
   .~ Nothing
   -- Rename AWS::IoT::TopicRule.DynamoDBv2Action to capitalize the "v" so it is
   -- different from AWS::IoT::TopicRule.DynamoDBAction
   & propertyTypesLens
-  . at (PropertyTypeName (ResourceName "AWS" "IoT" "TopicRule") (PropertyName "DynamoDBV2Action"))
-  .~ (spec ^. propertyTypesLens . at (PropertyTypeName (ResourceName "AWS" "IoT" "TopicRule") (PropertyName "DynamoDBv2Action")))
+  . at (PropertyTypeName (ResourceTypeName iot "TopicRule") (PropertyName "DynamoDBV2Action"))
+  .~ (spec ^. propertyTypesLens . at (PropertyTypeName (ResourceTypeName iot "TopicRule") (PropertyName "DynamoDBv2Action")))
   & propertyTypesLens
-  . at (PropertyTypeName (ResourceName "AWS" "IoT" "TopicRule") (PropertyName "DynamoDBv2Action"))
+  . at (PropertyTypeName (ResourceTypeName iot "TopicRule") (PropertyName "DynamoDBv2Action"))
   .~ Nothing
   -- AWS::ECS::TaskDefinition.ContainerDefinition has two properties that are
   -- required, but the doc says they aren't.
   & propertyTypesLens
-  . ix (PropertyTypeName (ResourceName "AWS" "ECS" "TaskDefinition") (PropertyName "ContainerDefinition"))
+  . ix (PropertyTypeName (ResourceTypeName ecs "TaskDefinition") (PropertyName "ContainerDefinition"))
   . propertyPropsLens
   . at (PropertyName "Image")
   %~ fmap setRequired
   & propertyTypesLens
-  . ix (PropertyTypeName (ResourceName "AWS" "ECS" "TaskDefinition") (PropertyName "ContainerDefinition"))
+  . ix (PropertyTypeName (ResourceTypeName ecs "TaskDefinition") (PropertyName "ContainerDefinition"))
   . propertyPropsLens
   . at (PropertyName "Name")
   %~ fmap setRequired
   where
+    ec2 = Service "AWS" "EC2"
+    ecs = Service "AWS" "ECS"
+    iot = Service "AWS" "IoT"
+    rds = Service "AWS" "RDS"
+
     propertyTypesLens :: Lens' Spec (Map PropertyTypeName PropertyType)
     propertyTypesLens = lens specPropertyTypes (\s a -> s { specPropertyTypes = a })
     propertyPropsLens :: Lens' PropertyType (Map PropertyName Property)

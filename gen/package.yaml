@@ -6,6 +6,7 @@ maintainer: Markus Schirp
 default-extensions:
 - DeriveGeneric
 - DerivingStrategies
+- DuplicateRecordFields
 - ExistentialQuantification
 - FlexibleInstances
 - FunctionalDependencies
