@@ -52,16 +52,16 @@ moduleFromPropertyType PropertyType{..}
 moduleFromResource :: Resource -> Module
 moduleFromResource Resource{..}
   = Module
-  { moduleConstructorName = computeConstructorName resourceFullName
+  { moduleConstructorName = computeConstructorName $ Raw.toText resourceName
   , moduleDocumentation   = resourceDocumentation
-  , moduleFieldPrefix     = computeFieldPrefix resourceFullName
-  , moduleFullAWSName     = resourceFullName
+  , moduleFieldPrefix     = computeFieldPrefix $ Raw.toText resourceName
+  , moduleFullAWSName     = Raw.toText resourceName
   , moduleIsResource      = True
-  , moduleLensPrefix      = computeLensPrefix resourceFullName
-  , moduleName            = computeModuleName resourceFullName
+  , moduleLensPrefix      = computeLensPrefix $ Raw.toText resourceName
+  , moduleName            = computeModuleName $ Raw.toText resourceName
   , modulePath            = "Stratosphere.Resources"
   , moduleProperties      = resourceProperties
-  , moduleResource        = resourceFullName
+  , moduleResource        = Raw.toText resourceName
   }
 
 -- | We give slightly different names to properties than AWS does. AWS uses a

@@ -22,17 +22,10 @@ import qualified Gen.Raw as Raw
 
 data Spec = Spec
   { specPropertyTypes :: [PropertyType]
-  , specResources     :: [Resource]
   , specVersion       :: Text
+  , specResources     :: [Resource]
   }
   deriving (Show, Eq)
-
-data Resource = Resource
-  { resourceFullName      :: Text
-  , resourceDocumentation :: Text
-  , resourceProperties    :: [Property]
-  }
-  deriving (Show, Eq, Generic)
 
 data PropertyType = PropertyType
   { propertyTypeName          :: Text
@@ -60,6 +53,13 @@ data AtomicType
   | SubPropertyType Raw.SubpropertyName
   deriving (Show, Eq)
 
+data Resource = Resource
+  { resourceName          :: Raw.ResourceName
+  , resourceDocumentation :: Text
+  , resourceProperties    :: [Property]
+  }
+  deriving (Show, Eq, Generic)
+
 specFromRaw :: Raw.Spec -> Spec
 specFromRaw Raw.Spec{..}
   = Spec
@@ -68,10 +68,10 @@ specFromRaw Raw.Spec{..}
   , specVersion       = specResourceSpecificationVersion
   }
 
-resourceFromRaw :: Text -> Raw.Resource -> Resource
-resourceFromRaw fullName Raw.Resource{..}
+resourceFromRaw :: Raw.ResourceName -> Raw.Resource -> Resource
+resourceFromRaw resourceName Raw.Resource{..}
   = Resource
-  { resourceFullName      = fullName
+  { resourceName          = resourceName
   , resourceDocumentation = resourceDocumentation
   , resourceProperties    = uncurry propertyFromRaw <$> sortOn fst (toList resourceProperties)
   }

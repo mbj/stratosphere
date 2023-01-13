@@ -348,9 +348,6 @@ import Stratosphere.Resources.ImageBuilderInfrastructureConfiguration as X
 import Stratosphere.Resources.InspectorAssessmentTarget as X
 import Stratosphere.Resources.InspectorAssessmentTemplate as X
 import Stratosphere.Resources.InspectorResourceGroup as X
-import Stratosphere.Resources.IoT1ClickDevice as X
-import Stratosphere.Resources.IoT1ClickPlacement as X
-import Stratosphere.Resources.IoT1ClickProject as X
 import Stratosphere.Resources.IoTCertificate as X
 import Stratosphere.Resources.IoTPolicy as X
 import Stratosphere.Resources.IoTPolicyPrincipalAttachment as X
@@ -358,6 +355,9 @@ import Stratosphere.Resources.IoTProvisioningTemplate as X
 import Stratosphere.Resources.IoTThing as X
 import Stratosphere.Resources.IoTThingPrincipalAttachment as X
 import Stratosphere.Resources.IoTTopicRule as X
+import Stratosphere.Resources.IoT1ClickDevice as X
+import Stratosphere.Resources.IoT1ClickPlacement as X
+import Stratosphere.Resources.IoT1ClickProject as X
 import Stratosphere.Resources.IoTAnalyticsChannel as X
 import Stratosphere.Resources.IoTAnalyticsDataset as X
 import Stratosphere.Resources.IoTAnalyticsDatastore as X

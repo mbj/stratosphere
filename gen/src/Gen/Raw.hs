@@ -6,8 +6,10 @@ module Gen.Raw
   , PropertySpecification(..)
   , PropertyType(..)
   , Resource(..)
+  , ResourceName(..)
   , SubpropertyName(..)
   , readSpec
+  , toText
   )
 where
 
@@ -17,15 +19,41 @@ import Data.Maybe (fromMaybe)
 import GHC.Generics
 import Gen.Prelude
 
-import qualified Data.Aeson      as JSON
-import qualified Data.ByteString as BS
-import qualified Data.List       as List
-import qualified Data.Text       as Text
+import qualified Data.Aeson       as JSON
+import qualified Data.Aeson.Types as JSON
+import qualified Data.ByteString  as BS
+import qualified Data.List        as List
+import qualified Data.Text        as Text
+
+class ToText a where
+  toText :: a -> Text
+
+data ResourceName = ResourceName
+  { namespace :: Text
+  , service   :: Text
+  , resource  :: Text
+  }
+  deriving (Eq, Show, Ord)
+
+instance ToText ResourceName where
+  toText ResourceName{..} = namespace <> "::" <> service <> "::" <> resource
+
+instance JSON.FromJSON ResourceName where
+  parseJSON = JSON.withText "resource name" parseResourceName
+
+parseResourceName :: Text -> JSON.Parser ResourceName
+parseResourceName text =
+    case Text.splitOn "::" text of
+      [namespace, service, resource] -> pure ResourceName{..}
+      _other                         -> fail $ "Unsupported resource name: " <> Text.unpack text
+
+instance JSON.FromJSONKey ResourceName where
+  fromJSONKey = JSON.FromJSONKeyTextParser parseResourceName
 
 data Spec = Spec
   { specPropertyTypes                :: Map Text PropertySpecification
   , specResourceSpecificationVersion :: Text
-  , specResourceTypes                :: Map Text Resource
+  , specResourceTypes                :: Map ResourceName Resource
   }
   deriving (Show, Eq, Generic)
 
@@ -74,9 +102,12 @@ instance JSON.FromJSON PropertyType where
     "Map"  -> pure PropertyTypeMap
     other  -> pure $ PropertyTypeSub $ SubpropertyName other
 
-newtype SubpropertyName = SubpropertyName { toText :: Text }
+newtype SubpropertyName = SubpropertyName Text
   deriving stock   (Eq, Show)
   deriving newtype (JSON.FromJSON)
+
+instance ToText SubpropertyName where
+  toText (SubpropertyName name) = name
 
 data Property = Property
   { propertyDocumentation     :: Text
