@@ -54,7 +54,7 @@ data AtomicType
   deriving (Show, Eq)
 
 data Resource = Resource
-  { resourceName          :: Raw.ResourceName
+  { resourceName          :: Raw.ResourceTypeName
   , resourceDocumentation :: Text
   , resourceProperties    :: [Property]
   }
@@ -68,12 +68,12 @@ specFromRaw Raw.Spec{..}
   , specVersion       = specResourceSpecificationVersion
   }
 
-resourceFromRaw :: Raw.ResourceName -> Raw.Resource -> Resource
-resourceFromRaw resourceName Raw.Resource{..}
+resourceFromRaw :: Raw.ResourceTypeName -> Raw.ResourceType -> Resource
+resourceFromRaw resourceTypeName Raw.ResourceType{..}
   = Resource
-  { resourceName          = resourceName
-  , resourceDocumentation = resourceDocumentation
-  , resourceProperties    = uncurry propertyFromRaw <$> sortOn fst (toList resourceProperties)
+  { resourceName          = resourceTypeName
+  , resourceDocumentation = resourceTypeDocumentation
+  , resourceProperties    = uncurry propertyFromRaw <$> sortOn fst (toList resourceTypeProperties)
   }
 
 propertyTypeFromRaw :: Raw.PropertyTypeName -> Raw.PropertyType -> PropertyType
