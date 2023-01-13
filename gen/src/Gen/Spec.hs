@@ -28,7 +28,7 @@ data Spec = Spec
   deriving (Show, Eq)
 
 data PropertyType = PropertyType
-  { propertyTypeName          :: Text
+  { propertyTypeName          :: Raw.PropertyTypeName
   , propertyTypeDocumentation :: Text
   , propertyTypeProperties    :: [Property]
   }
@@ -76,7 +76,7 @@ resourceFromRaw resourceName Raw.Resource{..}
   , resourceProperties    = uncurry propertyFromRaw <$> sortOn fst (toList resourceProperties)
   }
 
-propertyTypeFromRaw :: Text -> Raw.PropertyType -> PropertyType
+propertyTypeFromRaw :: Raw.PropertyTypeName -> Raw.PropertyType -> PropertyType
 propertyTypeFromRaw fullName Raw.PropertyType{..}
   = PropertyType
   { propertyTypeName          = fullName

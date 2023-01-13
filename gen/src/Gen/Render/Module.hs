@@ -29,40 +29,44 @@ data Module = Module
 createModules :: [PropertyType] -> [Resource] -> [Module]
 createModules properties resources =
   let
-    propertyModules = moduleFromPropertyType <$> properties
-    resourceModules = moduleFromResource <$> resources
-    allPropertyNames = Set.fromList $ propertyTypeName <$> properties
+    propertyModules  = moduleFromPropertyType <$> properties
+    resourceModules  = moduleFromResource <$> resources
+    allPropertyNames = Set.fromList $ Raw.toText . propertyTypeName <$> properties
   in fmap (normalizePropertyNames allPropertyNames) (resourceModules ++ propertyModules)
 
 moduleFromPropertyType :: PropertyType -> Module
 moduleFromPropertyType PropertyType{..}
   = Module
-  { moduleConstructorName = computeConstructorName propertyTypeName
+  { moduleConstructorName = computeConstructorName propertyTypeNameText
   , moduleDocumentation   = propertyTypeDocumentation
-  , moduleFieldPrefix     = computeFieldPrefix propertyTypeName
-  , moduleFullAWSName     = propertyTypeName
+  , moduleFieldPrefix     = computeFieldPrefix propertyTypeNameText
+  , moduleFullAWSName     = Raw.toText propertyTypeName
   , moduleIsResource      = False
-  , moduleLensPrefix      = computeLensPrefix propertyTypeName
-  , moduleName            = computeModuleName propertyTypeName
+  , moduleLensPrefix      = computeLensPrefix propertyTypeNameText
+  , moduleName            = computeModuleName propertyTypeNameText
   , modulePath            = "Stratosphere.ResourceProperties"
   , moduleProperties      = propertyTypeProperties
-  , moduleResource        = computeResource propertyTypeName
+  , moduleResource        = computeResource propertyTypeNameText
   }
+  where
+    propertyTypeNameText = Raw.toText propertyTypeName
 
 moduleFromResource :: Resource -> Module
 moduleFromResource Resource{..}
   = Module
-  { moduleConstructorName = computeConstructorName $ Raw.toText resourceName
+  { moduleConstructorName = computeConstructorName resourceNameText
   , moduleDocumentation   = resourceDocumentation
-  , moduleFieldPrefix     = computeFieldPrefix $ Raw.toText resourceName
-  , moduleFullAWSName     = Raw.toText resourceName
+  , moduleFieldPrefix     = computeFieldPrefix resourceNameText
+  , moduleFullAWSName     = resourceNameText
   , moduleIsResource      = True
-  , moduleLensPrefix      = computeLensPrefix $ Raw.toText resourceName
-  , moduleName            = computeModuleName $ Raw.toText resourceName
+  , moduleLensPrefix      = computeLensPrefix resourceNameText
+  , moduleName            = computeModuleName resourceNameText
   , modulePath            = "Stratosphere.Resources"
   , moduleProperties      = resourceProperties
-  , moduleResource        = Raw.toText resourceName
+  , moduleResource        = resourceNameText
   }
+  where
+    resourceNameText = Raw.toText resourceName
 
 -- | We give slightly different names to properties than AWS does. AWS uses a
 -- fully qualified name for the property, including the parent resource type.

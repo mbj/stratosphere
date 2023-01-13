@@ -5,6 +5,7 @@ module Gen.Raw
   , Property(..)
   , ComposedType(..)
   , PropertyType(..)
+  , PropertyTypeName(..)
   , Resource(..)
   , ResourceName(..)
   , SubpropertyName(..)
@@ -50,8 +51,39 @@ parseResourceName text =
 instance JSON.FromJSONKey ResourceName where
   fromJSONKey = JSON.FromJSONKeyTextParser parseResourceName
 
+data PropertyTypeName
+  = Tag
+  | PropertyTypeName ResourceName SubpropertyName
+  deriving (Eq, Show, Ord)
+
+instance ToText PropertyTypeName where
+  toText = \case
+    Tag -> "Tag"
+    (PropertyTypeName resourceName subpropertyName) ->
+      toText resourceName <> "." <> toText subpropertyName
+
+instance JSON.FromJSON PropertyTypeName where
+  parseJSON = JSON.withText "property type name" parsePropertyTypeName
+
+parsePropertyTypeName :: Text -> JSON.Parser PropertyTypeName
+parsePropertyTypeName text =
+  case text of
+    "Tag" -> pure Tag
+    _other ->
+      case Text.splitOn "." text of
+        [resourceNameText, subpropertyNameText] -> do
+          resourceName <- parseResourceName resourceNameText
+          pure $ PropertyTypeName resourceName (SubpropertyName subpropertyNameText)
+        _other -> failUnsupported
+  where
+    failUnsupported :: JSON.Parser a
+    failUnsupported = fail $ "Unsupported property type name: " <> Text.unpack text
+
+instance JSON.FromJSONKey PropertyTypeName where
+  fromJSONKey = JSON.FromJSONKeyTextParser parsePropertyTypeName
+
 data Spec = Spec
-  { specPropertyTypes                :: Map Text PropertyType
+  { specPropertyTypes                :: Map PropertyTypeName PropertyType
   , specResourceSpecificationVersion :: Text
   , specResourceTypes                :: Map ResourceName Resource
   }
@@ -103,7 +135,7 @@ instance JSON.FromJSON ComposedType where
     other  -> pure $ ComposedTypeSub $ SubpropertyName other
 
 newtype SubpropertyName = SubpropertyName Text
-  deriving stock   (Eq, Show)
+  deriving stock   (Eq, Show, Ord)
   deriving newtype (JSON.FromJSON)
 
 instance ToText SubpropertyName where
@@ -163,45 +195,45 @@ fixBugs spec =
   -- the function to render the full type name for
   -- AWS::RDS::DBSecurityGroup.Ingress.
   & propertyTypesLens
-  . at "AWS::RDS::DBSecurityGroup.IngressProperty"
-  .~ (spec ^. propertyTypesLens . at "AWS::RDS::DBSecurityGroup.Ingress")
+  . at (PropertyTypeName (ResourceName "AWS" "RDS" "DBSecurityGroup") (SubpropertyName "IngressProperty"))
+  .~ (spec ^. propertyTypesLens . at (PropertyTypeName (ResourceName "AWS" "RDS" "DBSecurityGroup") (SubpropertyName "Ingress")))
   & propertyTypesLens
-  . at "AWS::RDS::DBSecurityGroup.Ingress"
+  . at (PropertyTypeName (ResourceName "AWS" "RDS" "DBSecurityGroup") (SubpropertyName "Ingress"))
   .~ Nothing
   & propertyTypesLens
-  . at "AWS::EC2::SecurityGroup.IngressProperty"
-  .~ (spec ^. propertyTypesLens . at "AWS::EC2::SecurityGroup.Ingress")
+  . at (PropertyTypeName (ResourceName "AWS" "EC2" "SecurityGroup") (SubpropertyName "IngressProperty"))
+  .~ (spec ^. propertyTypesLens . at (PropertyTypeName (ResourceName "AWS" "EC2" "SecurityGroup") (SubpropertyName "Ingress")))
   & propertyTypesLens
-  . at "AWS::EC2::SecurityGroup.Ingress"
+  . at (PropertyTypeName (ResourceName "AWS" "EC2" "SecurityGroup") (SubpropertyName "Ingress"))
   .~ Nothing
   & propertyTypesLens
-  . at "AWS::EC2::SecurityGroup.EgressProperty"
-  .~ (spec ^. propertyTypesLens . at "AWS::EC2::SecurityGroup.Egress")
+  . at (PropertyTypeName (ResourceName "AWS" "EC2" "SecurityGroup") (SubpropertyName "EgressProperty"))
+  .~ (spec ^. propertyTypesLens . at (PropertyTypeName (ResourceName "AWS" "EC2" "SecurityGroup") (SubpropertyName "Egress")))
   & propertyTypesLens
-  . at "AWS::EC2::SecurityGroup.Egress"
+  . at (PropertyTypeName (ResourceName "AWS" "EC2" "SecurityGroup") (SubpropertyName "Egress"))
   .~ Nothing
   -- Rename AWS::IoT::TopicRule.DynamoDBv2Action to capitalize the "v" so it is
   -- different from AWS::IoT::TopicRule.DynamoDBAction
   & propertyTypesLens
-  . at "AWS::IoT::TopicRule.DynamoDBV2Action"
-  .~ (spec ^. propertyTypesLens . at "AWS::IoT::TopicRule.DynamoDBv2Action")
+  . at (PropertyTypeName (ResourceName "AWS" "IoT" "TopicRule") (SubpropertyName "DynamoDBV2Action"))
+  .~ (spec ^. propertyTypesLens . at (PropertyTypeName (ResourceName "AWS" "IoT" "TopicRule") (SubpropertyName "DynamoDBv2Action")))
   & propertyTypesLens
-  . at "AWS::IoT::TopicRule.DynamoDBv2Action"
+  . at (PropertyTypeName (ResourceName "AWS" "IoT" "TopicRule") (SubpropertyName "DynamoDBv2Action"))
   .~ Nothing
   -- AWS::ECS::TaskDefinition.ContainerDefinition has two properties that are
   -- required, but the doc says they aren't.
   & propertyTypesLens
-  . ix "AWS::ECS::TaskDefinition.ContainerDefinition"
+  . ix (PropertyTypeName (ResourceName "AWS" "ECS" "TaskDefinition") (SubpropertyName "ContainerDefinition"))
   . propertyPropsLens
   . at "Image"
   %~ fmap setRequired
   & propertyTypesLens
-  . ix "AWS::ECS::TaskDefinition.ContainerDefinition"
+  . ix (PropertyTypeName (ResourceName "AWS" "ECS" "TaskDefinition") (SubpropertyName "ContainerDefinition"))
   . propertyPropsLens
   . at "Name"
   %~ fmap setRequired
   where
-    propertyTypesLens :: Lens' Spec (Map Text PropertyType)
+    propertyTypesLens :: Lens' Spec (Map PropertyTypeName PropertyType)
     propertyTypesLens = lens specPropertyTypes (\s a -> s { specPropertyTypes = a })
     propertyPropsLens :: Lens' PropertyType (Map Text Property)
     propertyPropsLens = lens propertyTypeProperties (\s a -> s { propertyTypeProperties = a })
