@@ -28,6 +28,7 @@ executable stratosphere-gen
   default-extensions:
       DeriveGeneric
       DerivingStrategies
+      DuplicateRecordFields
       ExistentialQuantification
       FlexibleInstances
       FunctionalDependencies

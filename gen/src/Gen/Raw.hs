@@ -29,24 +29,32 @@ import qualified Data.Text        as Text
 class ToText a where
   toText :: a -> Text
 
-data ResourceName = ResourceName
+data Service = Service
   { namespace :: Text
   , service   :: Text
+  }
+  deriving (Eq, Show, Ord)
+
+instance ToText Service where
+  toText Service{..} = namespace <> "::" <> service
+
+data ResourceName = ResourceName
+  { service   :: Service
   , resource  :: Text
   }
   deriving (Eq, Show, Ord)
 
 instance ToText ResourceName where
-  toText ResourceName{..} = namespace <> "::" <> service <> "::" <> resource
+  toText ResourceName{..} = toText service <> "::" <> resource
 
 instance JSON.FromJSON ResourceName where
   parseJSON = JSON.withText "resource name" parseResourceName
 
 parseResourceName :: Text -> JSON.Parser ResourceName
 parseResourceName text =
-    case Text.splitOn "::" text of
-      [namespace, service, resource] -> pure ResourceName{..}
-      _other                         -> fail $ "Unsupported resource name: " <> Text.unpack text
+  case Text.splitOn "::" text of
+    [namespace, service, resource] -> pure ResourceName{service = Service{..}, ..}
+    _other                         -> fail $ "Unsupported resource name: " <> Text.unpack text
 
 instance JSON.FromJSONKey ResourceName where
   fromJSONKey = JSON.FromJSONKeyTextParser parseResourceName
@@ -198,44 +206,49 @@ fixBugs spec =
   -- the function to render the full type name for
   -- AWS::RDS::DBSecurityGroup.Ingress.
   & propertyTypesLens
-  . at (PropertyTypeName (ResourceName "AWS" "RDS" "DBSecurityGroup") (PropertyName "IngressProperty"))
-  .~ (spec ^. propertyTypesLens . at (PropertyTypeName (ResourceName "AWS" "RDS" "DBSecurityGroup") (PropertyName "Ingress")))
+  . at (PropertyTypeName (ResourceName rds "DBSecurityGroup") (PropertyName "IngressProperty"))
+  .~ (spec ^. propertyTypesLens . at (PropertyTypeName (ResourceName rds "DBSecurityGroup") (PropertyName "Ingress")))
   & propertyTypesLens
-  . at (PropertyTypeName (ResourceName "AWS" "RDS" "DBSecurityGroup") (PropertyName "Ingress"))
+  . at (PropertyTypeName (ResourceName rds "DBSecurityGroup") (PropertyName "Ingress"))
   .~ Nothing
   & propertyTypesLens
-  . at (PropertyTypeName (ResourceName "AWS" "EC2" "SecurityGroup") (PropertyName "IngressProperty"))
-  .~ (spec ^. propertyTypesLens . at (PropertyTypeName (ResourceName "AWS" "EC2" "SecurityGroup") (PropertyName "Ingress")))
+  . at (PropertyTypeName (ResourceName ec2 "SecurityGroup") (PropertyName "IngressProperty"))
+  .~ (spec ^. propertyTypesLens . at (PropertyTypeName (ResourceName ec2 "SecurityGroup") (PropertyName "Ingress")))
   & propertyTypesLens
-  . at (PropertyTypeName (ResourceName "AWS" "EC2" "SecurityGroup") (PropertyName "Ingress"))
+  . at (PropertyTypeName (ResourceName ec2 "SecurityGroup") (PropertyName "Ingress"))
   .~ Nothing
   & propertyTypesLens
-  . at (PropertyTypeName (ResourceName "AWS" "EC2" "SecurityGroup") (PropertyName "EgressProperty"))
-  .~ (spec ^. propertyTypesLens . at (PropertyTypeName (ResourceName "AWS" "EC2" "SecurityGroup") (PropertyName "Egress")))
+  . at (PropertyTypeName (ResourceName ec2 "SecurityGroup") (PropertyName "EgressProperty"))
+  .~ (spec ^. propertyTypesLens . at (PropertyTypeName (ResourceName ec2 "SecurityGroup") (PropertyName "Egress")))
   & propertyTypesLens
-  . at (PropertyTypeName (ResourceName "AWS" "EC2" "SecurityGroup") (PropertyName "Egress"))
+  . at (PropertyTypeName (ResourceName ec2 "SecurityGroup") (PropertyName "Egress"))
   .~ Nothing
   -- Rename AWS::IoT::TopicRule.DynamoDBv2Action to capitalize the "v" so it is
   -- different from AWS::IoT::TopicRule.DynamoDBAction
   & propertyTypesLens
-  . at (PropertyTypeName (ResourceName "AWS" "IoT" "TopicRule") (PropertyName "DynamoDBV2Action"))
-  .~ (spec ^. propertyTypesLens . at (PropertyTypeName (ResourceName "AWS" "IoT" "TopicRule") (PropertyName "DynamoDBv2Action")))
+  . at (PropertyTypeName (ResourceName iot "TopicRule") (PropertyName "DynamoDBV2Action"))
+  .~ (spec ^. propertyTypesLens . at (PropertyTypeName (ResourceName iot "TopicRule") (PropertyName "DynamoDBv2Action")))
   & propertyTypesLens
-  . at (PropertyTypeName (ResourceName "AWS" "IoT" "TopicRule") (PropertyName "DynamoDBv2Action"))
+  . at (PropertyTypeName (ResourceName iot "TopicRule") (PropertyName "DynamoDBv2Action"))
   .~ Nothing
   -- AWS::ECS::TaskDefinition.ContainerDefinition has two properties that are
   -- required, but the doc says they aren't.
   & propertyTypesLens
-  . ix (PropertyTypeName (ResourceName "AWS" "ECS" "TaskDefinition") (PropertyName "ContainerDefinition"))
+  . ix (PropertyTypeName (ResourceName ecs "TaskDefinition") (PropertyName "ContainerDefinition"))
   . propertyPropsLens
   . at (PropertyName "Image")
   %~ fmap setRequired
   & propertyTypesLens
-  . ix (PropertyTypeName (ResourceName "AWS" "ECS" "TaskDefinition") (PropertyName "ContainerDefinition"))
+  . ix (PropertyTypeName (ResourceName ecs "TaskDefinition") (PropertyName "ContainerDefinition"))
   . propertyPropsLens
   . at (PropertyName "Name")
   %~ fmap setRequired
   where
+    ec2 = Service "AWS" "EC2"
+    ecs = Service "AWS" "ECS"
+    iot = Service "AWS" "IoT"
+    rds = Service "AWS" "RDS"
+
     propertyTypesLens :: Lens' Spec (Map PropertyTypeName PropertyType)
     propertyTypesLens = lens specPropertyTypes (\s a -> s { specPropertyTypes = a })
     propertyPropsLens :: Lens' PropertyType (Map PropertyName Property)
