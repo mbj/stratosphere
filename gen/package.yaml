@@ -5,6 +5,7 @@ maintainer: Markus Schirp
 
 default-extensions:
 - DeriveGeneric
+- DerivingStrategies
 - ExistentialQuantification
 - FlexibleInstances
 - FunctionalDependencies
@@ -17,6 +18,7 @@ default-extensions:
 - ScopedTypeVariables
 - StandaloneDeriving
 - TemplateHaskell
+- ViewPatterns
 
 ghc-options:
 - -Wall

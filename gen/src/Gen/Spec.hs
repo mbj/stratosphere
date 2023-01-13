@@ -1,5 +1,4 @@
--- | This transforms the output from ReadRawSpecFile for consumption into the
--- generator.
+-- | Generation of renderable spec from Gen.Raw
 
 module Gen.Spec
   ( Spec(..)
@@ -9,7 +8,7 @@ module Gen.Spec
   , SpecType(..)
   , subPropertyTypeNames
   , AtomicType(..)
-  , ResourceType(..)
+  , Resource(..)
   )
 where
 
@@ -18,69 +17,30 @@ import Data.Map (toList)
 import Data.Maybe (catMaybes)
 import GHC.Generics hiding (to)
 import Gen.Prelude
-import Gen.RawSpec
 
-import qualified Data.Text as Text
+import qualified Gen.Raw as Raw
 
 data Spec = Spec
   { specPropertyTypes :: [PropertyType]
   , specVersion       :: Text
-  , specResourceTypes :: [ResourceType]
+  , specResources     :: [Resource]
   }
   deriving (Show, Eq)
 
-specFromRaw :: RawSpec -> Spec
-specFromRaw RawSpec{..}
-  = Spec
-  { specPropertyTypes = uncurry propertyTypeFromRaw <$> sortOn fst (toList rawSpecPropertyTypes)
-  , specResourceTypes = uncurry resourceTypeFromRaw <$> sortOn fst (toList rawSpecResourceTypes)
-  , specVersion       = rawSpecResourceSpecificationVersion
-  }
-
 data PropertyType = PropertyType
-  { propertyTypeName          :: Text
+  { propertyTypeName          :: Raw.PropertyTypeName
   , propertyTypeDocumentation :: Text
   , propertyTypeProperties    :: [Property]
   }
   deriving (Show, Eq)
 
-propertyTypeFromRaw :: Text -> RawPropertyType -> PropertyType
-propertyTypeFromRaw fullName RawPropertyType{..}
-  = PropertyType
-  { propertyTypeName          = fullName
-  , propertyTypeDocumentation = rawPropertyTypeDocumentation
-  , propertyTypeProperties    = (uncurry propertyFromRaw <$> sortOn fst (toList rawPropertyTypeProperties))
-  }
-
 data Property = Property
-  { propertyName          :: Text
+  { propertyName          :: Raw.PropertyName
   , propertyDocumentation :: Text
-  --, propertyDuplicatesAllowed :: Maybe Bool -- Don't care about this
   , propertySpecType      :: SpecType
   , propertyRequired      :: Bool
-  --, propertyUpdateType :: Maybe Text -- Don't care about this
   }
   deriving (Show, Eq)
-
-propertyFromRaw :: Text -> RawProperty -> Property
-propertyFromRaw name rawProperty@RawProperty{..}
-  = Property
-  { propertyName          = name
-  , propertyDocumentation = rawPropertyDocumentation
-  , propertySpecType      = specType
-  , propertyRequired      = rawPropertyRequired
-  }
-  where
-    specType = case tuple of
-      ((Just prim), Nothing,       Nothing,     Nothing)     -> AtomicType $ textToPrimitiveType prim
-      (Nothing,     (Just "List"), (Just prim), Nothing)     -> ListType $ textToPrimitiveType prim
-      (Nothing,     (Just "List"), Nothing,     (Just item)) -> ListType $ SubPropertyType item
-      (Nothing,     (Just "Map"),  (Just prim), Nothing)     -> MapType $ textToPrimitiveType prim
-      (Nothing,     (Just "Map"),  Nothing,     (Just item)) -> MapType $ SubPropertyType item
-      (Nothing,     (Just prop),   Nothing,     Nothing)     -> AtomicType $ SubPropertyType prop
-      _other                                                 -> error $ "Unknown raw type: " <> show rawProperty
-
-    tuple = (rawPropertyPrimitiveType, rawPropertyType, rawPropertyPrimitiveItemType, rawPropertyItemType)
 
 data SpecType
   = AtomicType AtomicType
@@ -89,47 +49,65 @@ data SpecType
   deriving (Show, Eq)
 
 data AtomicType
-  = StringPrimitive
-  | IntegerPrimitive
-  | DoublePrimitive
-  | BoolPrimitive
-  | JsonPrimitive
-  | SubPropertyType Text
+  = PrimitiveType Raw.PrimitiveType
+  | SubPropertyType Raw.PropertyName
   deriving (Show, Eq)
 
-textToPrimitiveType :: Text -> AtomicType
-textToPrimitiveType = \case
-  "String"    -> StringPrimitive
-  "Long"      -> IntegerPrimitive
-  "Integer"   -> IntegerPrimitive
-  "Double"    -> DoublePrimitive
-  "Boolean"   -> BoolPrimitive
-  "Timestamp" -> StringPrimitive
-  "Json"      -> JsonPrimitive
-  other       -> error $ "Unknown primitive type: " <> Text.unpack other
-
-subPropertyTypeName :: SpecType -> Maybe Text
-subPropertyTypeName = \case
-  (AtomicType (SubPropertyType name)) -> Just name
-  (ListType (SubPropertyType name))   -> Just name
-  (MapType (SubPropertyType name))    -> Just name
-  _other                              -> Nothing
-
-subPropertyTypeNames :: [Property] -> [Text]
-subPropertyTypeNames = catMaybes . fmap (subPropertyTypeName . propertySpecType)
-
-data ResourceType = ResourceType
-  { resourceTypeFullName      :: Text
-  --, resourceTypeAttributes :: [ResourceAttribute] -- Don't care about this yet, could be useful
-  , resourceTypeDocumentation :: Text
-  , resourceTypeProperties    :: [Property]
+data Resource = Resource
+  { resourceName          :: Raw.ResourceName
+  , resourceDocumentation :: Text
+  , resourceProperties    :: [Property]
   }
   deriving (Show, Eq, Generic)
 
-resourceTypeFromRaw :: Text -> RawResourceType -> ResourceType
-resourceTypeFromRaw fullName RawResourceType{..}
-  = ResourceType
-  { resourceTypeFullName      = fullName
-  , resourceTypeDocumentation = rawResourceTypeDocumentation
-  , resourceTypeProperties    = uncurry propertyFromRaw <$> sortOn fst (toList rawResourceTypeProperties)
+specFromRaw :: Raw.Spec -> Spec
+specFromRaw Raw.Spec{..}
+  = Spec
+  { specPropertyTypes = uncurry propertyTypeFromRaw <$> sortOn fst (toList specPropertyTypes)
+  , specResources     = uncurry resourceFromRaw <$> sortOn fst (toList specResourceTypes)
+  , specVersion       = specResourceSpecificationVersion
   }
+
+resourceFromRaw :: Raw.ResourceName -> Raw.Resource -> Resource
+resourceFromRaw resourceName Raw.Resource{..}
+  = Resource
+  { resourceName          = resourceName
+  , resourceDocumentation = resourceDocumentation
+  , resourceProperties    = uncurry propertyFromRaw <$> sortOn fst (toList resourceProperties)
+  }
+
+propertyTypeFromRaw :: Raw.PropertyTypeName -> Raw.PropertyType -> PropertyType
+propertyTypeFromRaw fullName Raw.PropertyType{..}
+  = PropertyType
+  { propertyTypeName          = fullName
+  , propertyTypeDocumentation = propertyTypeDocumentation
+  , propertyTypeProperties    = (uncurry propertyFromRaw <$> sortOn fst (toList propertyTypeProperties))
+  }
+
+propertyFromRaw :: Raw.PropertyName -> Raw.Property -> Property
+propertyFromRaw name property@Raw.Property{..}
+  = Property
+  { propertyName          = name
+  , propertyDocumentation = propertyDocumentation
+  , propertySpecType      = specType
+  , propertyRequired      = propertyRequired
+  }
+  where
+    specType = case (propertyPrimitiveType, propertyType, propertyPrimitiveItemType, propertyItemType) of
+      ( (Just prim), Nothing,                          Nothing,     Nothing)     -> AtomicType $ PrimitiveType prim
+      ( Nothing,     (Just Raw.ComposedTypeList),      (Just prim), Nothing)     -> ListType $ PrimitiveType prim
+      ( Nothing,     (Just Raw.ComposedTypeList),      Nothing,     (Just item)) -> ListType $ SubPropertyType item
+      ( Nothing,     (Just Raw.ComposedTypeMap),       (Just prim), Nothing)     -> MapType $ PrimitiveType prim
+      ( Nothing,     (Just Raw.ComposedTypeMap),       Nothing,     (Just item)) -> MapType $ SubPropertyType item
+      ( Nothing,     (Just (Raw.ComposedTypeSub sub)), Nothing,     Nothing)     -> AtomicType $ SubPropertyType sub
+      _other -> error $ "Unknown raw property type: " <> show property
+
+subPropertyTypeNames :: [Property] -> [Text]
+subPropertyTypeNames = catMaybes . fmap (subPropertyTypeName . propertySpecType)
+  where
+    subPropertyTypeName :: SpecType -> Maybe Text
+    subPropertyTypeName = \case
+      (AtomicType (SubPropertyType name)) -> Just $ Raw.toText name
+      (ListType (SubPropertyType name))   -> Just $ Raw.toText name
+      (MapType (SubPropertyType name))    -> Just $ Raw.toText name
+      _other                              -> Nothing

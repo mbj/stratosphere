@@ -348,9 +348,6 @@ import Stratosphere.Resources.ImageBuilderInfrastructureConfiguration as X
 import Stratosphere.Resources.InspectorAssessmentTarget as X
 import Stratosphere.Resources.InspectorAssessmentTemplate as X
 import Stratosphere.Resources.InspectorResourceGroup as X
-import Stratosphere.Resources.IoT1ClickDevice as X
-import Stratosphere.Resources.IoT1ClickPlacement as X
-import Stratosphere.Resources.IoT1ClickProject as X
 import Stratosphere.Resources.IoTCertificate as X
 import Stratosphere.Resources.IoTPolicy as X
 import Stratosphere.Resources.IoTPolicyPrincipalAttachment as X
@@ -358,6 +355,9 @@ import Stratosphere.Resources.IoTProvisioningTemplate as X
 import Stratosphere.Resources.IoTThing as X
 import Stratosphere.Resources.IoTThingPrincipalAttachment as X
 import Stratosphere.Resources.IoTTopicRule as X
+import Stratosphere.Resources.IoT1ClickDevice as X
+import Stratosphere.Resources.IoT1ClickPlacement as X
+import Stratosphere.Resources.IoT1ClickProject as X
 import Stratosphere.Resources.IoTAnalyticsChannel as X
 import Stratosphere.Resources.IoTAnalyticsDataset as X
 import Stratosphere.Resources.IoTAnalyticsDatastore as X
@@ -568,6 +568,7 @@ import Stratosphere.Resources.WAFv2WebACL as X
 import Stratosphere.Resources.WAFv2WebACLAssociation as X
 import Stratosphere.Resources.WorkSpacesWorkspace as X
 import Stratosphere.Resources.ASKSkill as X
+import Stratosphere.ResourceProperties.Tag as X
 import Stratosphere.ResourceProperties.ACMPCACertificateValidity as X
 import Stratosphere.ResourceProperties.ACMPCACertificateAuthorityCrlConfiguration as X
 import Stratosphere.ResourceProperties.ACMPCACertificateAuthorityRevocationConfiguration as X
@@ -1438,8 +1439,6 @@ import Stratosphere.ResourceProperties.ImageBuilderImageRecipeEbsInstanceBlockDe
 import Stratosphere.ResourceProperties.ImageBuilderImageRecipeInstanceBlockDeviceMapping as X
 import Stratosphere.ResourceProperties.ImageBuilderInfrastructureConfigurationLogging as X
 import Stratosphere.ResourceProperties.ImageBuilderInfrastructureConfigurationS3Logs as X
-import Stratosphere.ResourceProperties.IoT1ClickProjectDeviceTemplate as X
-import Stratosphere.ResourceProperties.IoT1ClickProjectPlacementTemplate as X
 import Stratosphere.ResourceProperties.IoTProvisioningTemplateProvisioningHook as X
 import Stratosphere.ResourceProperties.IoTProvisioningTemplateTags as X
 import Stratosphere.ResourceProperties.IoTThingAttributePayload as X
@@ -1470,6 +1469,8 @@ import Stratosphere.ResourceProperties.IoTTopicRuleSnsAction as X
 import Stratosphere.ResourceProperties.IoTTopicRuleSqsAction as X
 import Stratosphere.ResourceProperties.IoTTopicRuleStepFunctionsAction as X
 import Stratosphere.ResourceProperties.IoTTopicRuleTopicRulePayload as X
+import Stratosphere.ResourceProperties.IoT1ClickProjectDeviceTemplate as X
+import Stratosphere.ResourceProperties.IoT1ClickProjectPlacementTemplate as X
 import Stratosphere.ResourceProperties.IoTAnalyticsChannelChannelStorage as X
 import Stratosphere.ResourceProperties.IoTAnalyticsChannelCustomerManagedS3 as X
 import Stratosphere.ResourceProperties.IoTAnalyticsChannelRetentionPeriod as X
@@ -2056,7 +2057,6 @@ import Stratosphere.ResourceProperties.WorkSpacesWorkspaceWorkspaceProperties as
 import Stratosphere.ResourceProperties.ASKSkillAuthenticationConfiguration as X
 import Stratosphere.ResourceProperties.ASKSkillOverrides as X
 import Stratosphere.ResourceProperties.ASKSkillSkillPackage as X
-import Stratosphere.ResourceProperties.Tag as X
 
 import Stratosphere.ResourceAttributes.AutoScalingReplacingUpdatePolicy as X
 import Stratosphere.ResourceAttributes.AutoScalingRollingUpdatePolicy as X

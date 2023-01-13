@@ -14,8 +14,7 @@ executable stratosphere-gen
   main-is: Gen/Main.hs
   other-modules:
       Gen.Prelude
-      Gen.RawSpec
-      Gen.Render
+      Gen.Raw
       Gen.Render.Module
       Gen.Render.RenderConstructor
       Gen.Render.RenderDocstring
@@ -28,6 +27,7 @@ executable stratosphere-gen
       src
   default-extensions:
       DeriveGeneric
+      DerivingStrategies
       ExistentialQuantification
       FlexibleInstances
       FunctionalDependencies
@@ -40,6 +40,7 @@ executable stratosphere-gen
       ScopedTypeVariables
       StandaloneDeriving
       TemplateHaskell
+      ViewPatterns
   ghc-options: -Wall -Wcompat -Werror -Widentities -Wimplicit-prelude -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-local-signatures -Wmissing-signatures -Wmonomorphism-restriction -Wredundant-constraints -fhide-source-paths -funbox-strict-fields -optP-Wno-nonportable-include-path -O0 -main-is Gen.Main
   build-depends:
       aeson >=0.11

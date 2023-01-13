@@ -12,6 +12,7 @@ import Gen.Spec
 import Text.Shakespeare.Text (st)
 
 import qualified Data.Text as Text
+import qualified Gen.Raw   as Raw
 
 renderLenses :: Module -> Text
 renderLenses module'@Module{..} = Text.intercalate "\n\n" lenses
@@ -24,7 +25,7 @@ renderLens Module{..} property@Property{..} =
 #{lensName} :: Lens' #{moduleName} #{wrapType}
 #{lensName} = lens #{fieldName} (\s a -> s { #{fieldName} = a })|]
   where
-    lensName = moduleLensPrefix <> propertyName
+    lensName = moduleLensPrefix <> Raw.toText propertyName
     typeText = renderPropertyType property
     wrapType = case Text.head typeText of
                  '[' -> typeText
@@ -32,4 +33,4 @@ renderLens Module{..} property@Property{..} =
                  _   -> if ' ' `elem` Text.unpack typeText
                         then Text.concat ["(", typeText, ")"]
                         else typeText
-    fieldName = moduleFieldPrefix <> propertyName
+    fieldName = moduleFieldPrefix <> Raw.toText propertyName

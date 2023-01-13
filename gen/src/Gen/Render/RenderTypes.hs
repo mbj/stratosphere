@@ -15,6 +15,7 @@ import Gen.Spec
 import Text.Shakespeare.Text (st)
 
 import qualified Data.Text as Text
+import qualified Gen.Raw   as Raw
 
 renderResourceTypeDecl :: Module -> Text
 renderResourceTypeDecl module'@Module {..} =
@@ -35,15 +36,15 @@ declDocstring Module{..} = renderDocstring doc
 
 renderField :: Module -> Property -> Text
 renderField Module{..} prop@Property {..} =
-  Text.concat [moduleFieldPrefix, propertyName, " :: ", renderPropertyType prop]
+  Text.concat [moduleFieldPrefix, Raw.toText propertyName, " :: ", renderPropertyType prop]
 
 renderPropertyType :: Property -> Text
 renderPropertyType Property{..} = renderType propertySpecType propertyRequired
 
 renderType :: SpecType -> Bool -> Text
 renderType (AtomicType type') True = renderAtomicTypeWithVal type'
-renderType (AtomicType JsonPrimitive) False = "Maybe " <> renderAtomicTypeWithVal JsonPrimitive
-renderType (AtomicType (SubPropertyType text)) False = "Maybe " <> text
+renderType (AtomicType (PrimitiveType Raw.PrimitiveTypeJSON)) False = "Maybe " <> renderRawPrimitiveType Raw.PrimitiveTypeJSON
+renderType (AtomicType (SubPropertyType name)) False = "Maybe " <> Raw.toText name
 renderType (AtomicType type') False = "Maybe (" <> renderAtomicTypeWithVal type' <> ")"
 renderType (ListType type') True =
   if isWrappedInVal type'
@@ -61,12 +62,9 @@ renderType (MapType _) False = "Maybe Object"
 
 isWrappedInVal :: AtomicType -> Bool
 isWrappedInVal = \case
-  StringPrimitive     -> True
-  IntegerPrimitive    -> True
-  DoublePrimitive     -> True
-  BoolPrimitive       -> True
-  JsonPrimitive       -> False
-  (SubPropertyType _) -> False
+  (PrimitiveType Raw.PrimitiveTypeJSON) -> False
+  (PrimitiveType _other)                -> True
+  (SubPropertyType _other)              -> False
 
 renderAtomicTypeWithVal :: AtomicType -> Text
 renderAtomicTypeWithVal t =
@@ -76,9 +74,15 @@ renderAtomicTypeWithVal t =
 
 renderAtomicType :: AtomicType -> Text
 renderAtomicType = \case
-  StringPrimitive        -> "Text"
-  IntegerPrimitive       -> "Integer"
-  DoublePrimitive        -> "Double"
-  BoolPrimitive          -> "Bool"
-  JsonPrimitive          -> "Object"
-  (SubPropertyType text) -> text
+  (PrimitiveType rawPrimitiveType) -> renderRawPrimitiveType rawPrimitiveType
+  (SubPropertyType name)           -> Raw.toText name
+
+renderRawPrimitiveType :: Raw.PrimitiveType -> Text
+renderRawPrimitiveType = \case
+  Raw.PrimitiveTypeBoolean   -> "Bool"
+  Raw.PrimitiveTypeDouble    -> "Double"
+  Raw.PrimitiveTypeInteger   -> "Integer"
+  Raw.PrimitiveTypeJSON      -> "Object"
+  Raw.PrimitiveTypeLong      -> "Integer"
+  Raw.PrimitiveTypeString    -> "Text"
+  Raw.PrimitiveTypeTimestamp -> "Text"
