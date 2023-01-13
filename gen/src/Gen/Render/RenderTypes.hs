@@ -36,7 +36,7 @@ declDocstring Module{..} = renderDocstring doc
 
 renderField :: Module -> Property -> Text
 renderField Module{..} prop@Property {..} =
-  Text.concat [moduleFieldPrefix, propertyName, " :: ", renderPropertyType prop]
+  Text.concat [moduleFieldPrefix, Raw.toText propertyName, " :: ", renderPropertyType prop]
 
 renderPropertyType :: Property -> Text
 renderPropertyType Property{..} = renderType propertySpecType propertyRequired

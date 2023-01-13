@@ -83,14 +83,14 @@ normalizeProperty allFullNames resource property =
 normalizeSpecType :: Set Text -> Text -> SpecType -> SpecType
 normalizeSpecType allFullNames resource = \case
   (AtomicType (SubPropertyType name)) ->
-    AtomicType (SubPropertyType . Raw.SubpropertyName $ normalizeTypeName allFullNames resource name)
+    AtomicType (SubPropertyType . Raw.PropertyName $ normalizeTypeName allFullNames resource name)
   (ListType (SubPropertyType name)) ->
-    ListType (SubPropertyType . Raw.SubpropertyName $ normalizeTypeName allFullNames resource name)
+    ListType (SubPropertyType . Raw.PropertyName $ normalizeTypeName allFullNames resource name)
   (MapType (SubPropertyType name)) ->
-    MapType (SubPropertyType . Raw.SubpropertyName $ normalizeTypeName allFullNames resource name)
+    MapType (SubPropertyType . Raw.PropertyName $ normalizeTypeName allFullNames resource name)
   other -> other
 
-normalizeTypeName :: Set Text -> Text -> Raw.SubpropertyName -> Text
+normalizeTypeName :: Set Text -> Text -> Raw.PropertyName -> Text
 -- There are a few naming conflicts with security group types. For example,
 -- there is a resource named AWS::RDS::DBSecurityGroupIngress, and a property
 -- named AWS::RDS::DBSecurityGroup.Ingress.

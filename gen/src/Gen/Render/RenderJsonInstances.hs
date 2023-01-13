@@ -12,6 +12,7 @@ import Gen.Spec
 import Text.Shakespeare.Text (st)
 
 import qualified Data.Text as Text
+import qualified Gen.Raw   as Raw
 
 -- | Renders to ToJSON instances for a resource.
 renderToJSON :: Module -> Text
@@ -57,5 +58,7 @@ renderToJSONFields spaces Module{..} =
     leader = "\n" <> Text.pack (replicate spaces ' ') <> ", "
     renderField Property{..} =
       if propertyRequired
-      then [st|(Just . ("#{propertyName}",) . toJSON) #{moduleFieldPrefix}#{propertyName}|]
-      else [st|fmap (("#{propertyName}",) . toJSON) #{moduleFieldPrefix}#{propertyName}|]
+      then [st|(Just . ("#{propertyNameText}",) . toJSON) #{moduleFieldPrefix}#{propertyNameText}|]
+      else [st|fmap (("#{propertyNameText}",) . toJSON) #{moduleFieldPrefix}#{propertyNameText}|]
+      where
+        propertyNameText = Raw.toText propertyName

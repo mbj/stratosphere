@@ -13,6 +13,7 @@ import Gen.Spec
 import Text.Shakespeare.Text (st)
 
 import qualified Data.Text as Text
+import qualified Gen.Raw   as Raw
 
 -- | Renders the default constructor function to Text.
 renderConstructor :: Module -> Text
@@ -44,7 +45,7 @@ renderTypes module' = Text.intercalate "\n" lines'
 
     types = constructorTypes module'
     req = requiredProperties (moduleProperties module')
-    comments = fmap (\prop -> " -- ^ '" <> moduleLensPrefix module' <> propertyName prop <> "'") req
+    comments = fmap (\prop -> " -- ^ '" <> moduleLensPrefix module' <> Raw.toText (propertyName prop) <> "'") req
     zipped = zip3 typePrefixes types (comments ++ [""])
     lines' = fmap (\(pre', t, c) -> Text.concat [pre', t, c]) zipped
 
@@ -56,7 +57,7 @@ constructorTypes module' = paramArgs ++ [moduleName module']
 constructorField :: Module -> Property -> (Text, Text)
 constructorField Module {..} property = (fieldName, valName)
   where
-    fieldName = moduleFieldPrefix <> propertyName property
+    fieldName = moduleFieldPrefix <> Raw.toText (propertyName property)
     valName = if propertyRequired property then argName property else "Nothing"
 
 requiredProperties :: [Property] -> [Property]
@@ -64,4 +65,4 @@ requiredProperties = filter propertyRequired
 
 -- | Name used for the parameter's argument in the constructor.
 argName :: Property -> Text
-argName property = Text.concat [lowerHead $ propertyName property, "arg"]
+argName property = Text.concat [lowerHead $ Raw.toText (propertyName property), "arg"]

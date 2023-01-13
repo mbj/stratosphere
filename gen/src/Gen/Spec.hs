@@ -35,7 +35,7 @@ data PropertyType = PropertyType
   deriving (Show, Eq)
 
 data Property = Property
-  { propertyName          :: Text
+  { propertyName          :: Raw.PropertyName
   , propertyDocumentation :: Text
   , propertySpecType      :: SpecType
   , propertyRequired      :: Bool
@@ -50,7 +50,7 @@ data SpecType
 
 data AtomicType
   = PrimitiveType Raw.PrimitiveType
-  | SubPropertyType Raw.SubpropertyName
+  | SubPropertyType Raw.PropertyName
   deriving (Show, Eq)
 
 data Resource = Resource
@@ -84,7 +84,7 @@ propertyTypeFromRaw fullName Raw.PropertyType{..}
   , propertyTypeProperties    = (uncurry propertyFromRaw <$> sortOn fst (toList propertyTypeProperties))
   }
 
-propertyFromRaw :: Text -> Raw.Property -> Property
+propertyFromRaw :: Raw.PropertyName -> Raw.Property -> Property
 propertyFromRaw name property@Raw.Property{..}
   = Property
   { propertyName          = name

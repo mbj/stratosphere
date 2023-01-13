@@ -1,14 +1,14 @@
 -- | Official AWS specification representation.
 module Gen.Raw
   ( Spec(..)
+  , ComposedType(..)
   , PrimitiveType(..)
   , Property(..)
-  , ComposedType(..)
+  , PropertyName(..)
   , PropertyType(..)
   , PropertyTypeName(..)
   , Resource(..)
   , ResourceName(..)
-  , SubpropertyName(..)
   , readSpec
   , toText
   )
@@ -53,14 +53,14 @@ instance JSON.FromJSONKey ResourceName where
 
 data PropertyTypeName
   = Tag
-  | PropertyTypeName ResourceName SubpropertyName
+  | PropertyTypeName ResourceName PropertyName
   deriving (Eq, Show, Ord)
 
 instance ToText PropertyTypeName where
   toText = \case
     Tag -> "Tag"
-    (PropertyTypeName resourceName subpropertyName) ->
-      toText resourceName <> "." <> toText subpropertyName
+    (PropertyTypeName resourceName propertyName) ->
+      toText resourceName <> "." <> toText propertyName
 
 instance JSON.FromJSON PropertyTypeName where
   parseJSON = JSON.withText "property type name" parsePropertyTypeName
@@ -71,9 +71,9 @@ parsePropertyTypeName text =
     "Tag" -> pure Tag
     _other ->
       case Text.splitOn "." text of
-        [resourceNameText, subpropertyNameText] -> do
+        [resourceNameText, propertyNameText] -> do
           resourceName <- parseResourceName resourceNameText
-          pure $ PropertyTypeName resourceName (SubpropertyName subpropertyNameText)
+          pure $ PropertyTypeName resourceName (PropertyName propertyNameText)
         _other -> failUnsupported
   where
     failUnsupported :: JSON.Parser a
@@ -115,7 +115,7 @@ instance JSON.FromJSON PrimitiveType where
 
 data PropertyType = PropertyType
   { propertyTypeDocumentation :: Text
-  , propertyTypeProperties    :: Map Text Property
+  , propertyTypeProperties    :: Map PropertyName Property
   }
   deriving (Show, Eq, Generic)
 
@@ -125,26 +125,29 @@ instance JSON.FromJSON PropertyType where
 data ComposedType
   = ComposedTypeList
   | ComposedTypeMap
-  | ComposedTypeSub SubpropertyName
+  | ComposedTypeSub PropertyName
   deriving (Show, Eq)
 
 instance JSON.FromJSON ComposedType where
   parseJSON = JSON.withText "property type" $ \case
     "List" -> pure ComposedTypeList
     "Map"  -> pure ComposedTypeMap
-    other  -> pure $ ComposedTypeSub $ SubpropertyName other
+    other  -> pure $ ComposedTypeSub $ PropertyName other
 
-newtype SubpropertyName = SubpropertyName Text
+newtype PropertyName = PropertyName Text
   deriving stock   (Eq, Show, Ord)
   deriving newtype (JSON.FromJSON)
 
-instance ToText SubpropertyName where
-  toText (SubpropertyName name) = name
+instance JSON.FromJSONKey PropertyName where
+  fromJSONKey = JSON.FromJSONKeyText PropertyName
+
+instance ToText PropertyName where
+  toText (PropertyName name) = name
 
 data Property = Property
   { propertyDocumentation     :: Text
   , propertyDuplicatesAllowed :: Maybe Bool
-  , propertyItemType          :: Maybe SubpropertyName
+  , propertyItemType          :: Maybe PropertyName
   , propertyPrimitiveItemType :: Maybe PrimitiveType
   , propertyPrimitiveType     :: Maybe PrimitiveType
   , propertyRequired          :: Bool
@@ -160,7 +163,7 @@ data Resource = Resource
   { resourceAdditionalProperties :: Maybe Bool
   , resourceAttributes           :: Maybe JSON.Value
   , resourceDocumentation        :: Text
-  , resourceProperties           :: Map Text Property
+  , resourceProperties           :: Map PropertyName Property
   }
   deriving (Show, Eq, Generic)
 
@@ -195,47 +198,47 @@ fixBugs spec =
   -- the function to render the full type name for
   -- AWS::RDS::DBSecurityGroup.Ingress.
   & propertyTypesLens
-  . at (PropertyTypeName (ResourceName "AWS" "RDS" "DBSecurityGroup") (SubpropertyName "IngressProperty"))
-  .~ (spec ^. propertyTypesLens . at (PropertyTypeName (ResourceName "AWS" "RDS" "DBSecurityGroup") (SubpropertyName "Ingress")))
+  . at (PropertyTypeName (ResourceName "AWS" "RDS" "DBSecurityGroup") (PropertyName "IngressProperty"))
+  .~ (spec ^. propertyTypesLens . at (PropertyTypeName (ResourceName "AWS" "RDS" "DBSecurityGroup") (PropertyName "Ingress")))
   & propertyTypesLens
-  . at (PropertyTypeName (ResourceName "AWS" "RDS" "DBSecurityGroup") (SubpropertyName "Ingress"))
+  . at (PropertyTypeName (ResourceName "AWS" "RDS" "DBSecurityGroup") (PropertyName "Ingress"))
   .~ Nothing
   & propertyTypesLens
-  . at (PropertyTypeName (ResourceName "AWS" "EC2" "SecurityGroup") (SubpropertyName "IngressProperty"))
-  .~ (spec ^. propertyTypesLens . at (PropertyTypeName (ResourceName "AWS" "EC2" "SecurityGroup") (SubpropertyName "Ingress")))
+  . at (PropertyTypeName (ResourceName "AWS" "EC2" "SecurityGroup") (PropertyName "IngressProperty"))
+  .~ (spec ^. propertyTypesLens . at (PropertyTypeName (ResourceName "AWS" "EC2" "SecurityGroup") (PropertyName "Ingress")))
   & propertyTypesLens
-  . at (PropertyTypeName (ResourceName "AWS" "EC2" "SecurityGroup") (SubpropertyName "Ingress"))
+  . at (PropertyTypeName (ResourceName "AWS" "EC2" "SecurityGroup") (PropertyName "Ingress"))
   .~ Nothing
   & propertyTypesLens
-  . at (PropertyTypeName (ResourceName "AWS" "EC2" "SecurityGroup") (SubpropertyName "EgressProperty"))
-  .~ (spec ^. propertyTypesLens . at (PropertyTypeName (ResourceName "AWS" "EC2" "SecurityGroup") (SubpropertyName "Egress")))
+  . at (PropertyTypeName (ResourceName "AWS" "EC2" "SecurityGroup") (PropertyName "EgressProperty"))
+  .~ (spec ^. propertyTypesLens . at (PropertyTypeName (ResourceName "AWS" "EC2" "SecurityGroup") (PropertyName "Egress")))
   & propertyTypesLens
-  . at (PropertyTypeName (ResourceName "AWS" "EC2" "SecurityGroup") (SubpropertyName "Egress"))
+  . at (PropertyTypeName (ResourceName "AWS" "EC2" "SecurityGroup") (PropertyName "Egress"))
   .~ Nothing
   -- Rename AWS::IoT::TopicRule.DynamoDBv2Action to capitalize the "v" so it is
   -- different from AWS::IoT::TopicRule.DynamoDBAction
   & propertyTypesLens
-  . at (PropertyTypeName (ResourceName "AWS" "IoT" "TopicRule") (SubpropertyName "DynamoDBV2Action"))
-  .~ (spec ^. propertyTypesLens . at (PropertyTypeName (ResourceName "AWS" "IoT" "TopicRule") (SubpropertyName "DynamoDBv2Action")))
+  . at (PropertyTypeName (ResourceName "AWS" "IoT" "TopicRule") (PropertyName "DynamoDBV2Action"))
+  .~ (spec ^. propertyTypesLens . at (PropertyTypeName (ResourceName "AWS" "IoT" "TopicRule") (PropertyName "DynamoDBv2Action")))
   & propertyTypesLens
-  . at (PropertyTypeName (ResourceName "AWS" "IoT" "TopicRule") (SubpropertyName "DynamoDBv2Action"))
+  . at (PropertyTypeName (ResourceName "AWS" "IoT" "TopicRule") (PropertyName "DynamoDBv2Action"))
   .~ Nothing
   -- AWS::ECS::TaskDefinition.ContainerDefinition has two properties that are
   -- required, but the doc says they aren't.
   & propertyTypesLens
-  . ix (PropertyTypeName (ResourceName "AWS" "ECS" "TaskDefinition") (SubpropertyName "ContainerDefinition"))
+  . ix (PropertyTypeName (ResourceName "AWS" "ECS" "TaskDefinition") (PropertyName "ContainerDefinition"))
   . propertyPropsLens
-  . at "Image"
+  . at (PropertyName "Image")
   %~ fmap setRequired
   & propertyTypesLens
-  . ix (PropertyTypeName (ResourceName "AWS" "ECS" "TaskDefinition") (SubpropertyName "ContainerDefinition"))
+  . ix (PropertyTypeName (ResourceName "AWS" "ECS" "TaskDefinition") (PropertyName "ContainerDefinition"))
   . propertyPropsLens
-  . at "Name"
+  . at (PropertyName "Name")
   %~ fmap setRequired
   where
     propertyTypesLens :: Lens' Spec (Map PropertyTypeName PropertyType)
     propertyTypesLens = lens specPropertyTypes (\s a -> s { specPropertyTypes = a })
-    propertyPropsLens :: Lens' PropertyType (Map Text Property)
+    propertyPropsLens :: Lens' PropertyType (Map PropertyName Property)
     propertyPropsLens = lens propertyTypeProperties (\s a -> s { propertyTypeProperties = a })
 
     setRequired prop = prop { propertyRequired = True }
