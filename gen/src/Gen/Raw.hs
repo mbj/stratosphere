@@ -3,7 +3,7 @@ module Gen.Raw
   ( Spec(..)
   , PrimitiveType(..)
   , Property(..)
-  , PropertySpecification(..)
+  , ComposedType(..)
   , PropertyType(..)
   , Resource(..)
   , ResourceName(..)
@@ -51,7 +51,7 @@ instance JSON.FromJSONKey ResourceName where
   fromJSONKey = JSON.FromJSONKeyTextParser parseResourceName
 
 data Spec = Spec
-  { specPropertyTypes                :: Map Text PropertySpecification
+  { specPropertyTypes                :: Map Text PropertyType
   , specResourceSpecificationVersion :: Text
   , specResourceTypes                :: Map ResourceName Resource
   }
@@ -81,26 +81,26 @@ instance JSON.FromJSON PrimitiveType where
     "Timestamp" -> pure PrimitiveTypeTimestamp
     other       -> fail $ "Unsupported primitive type: " <> Text.unpack other
 
-data PropertySpecification = PropertySpecification
+data PropertyType = PropertyType
   { propertyTypeDocumentation :: Text
   , propertyTypeProperties    :: Map Text Property
   }
   deriving (Show, Eq, Generic)
 
-instance JSON.FromJSON PropertySpecification where
+instance JSON.FromJSON PropertyType where
   parseJSON = JSON.genericParseJSON $ parseOptions "propertyType"
 
-data PropertyType
-  = PropertyTypeList
-  | PropertyTypeMap
-  | PropertyTypeSub SubpropertyName
+data ComposedType
+  = ComposedTypeList
+  | ComposedTypeMap
+  | ComposedTypeSub SubpropertyName
   deriving (Show, Eq)
 
-instance JSON.FromJSON PropertyType where
-  parseJSON = JSON.withText "primitive type" $ \case
-    "List" -> pure PropertyTypeList
-    "Map"  -> pure PropertyTypeMap
-    other  -> pure $ PropertyTypeSub $ SubpropertyName other
+instance JSON.FromJSON ComposedType where
+  parseJSON = JSON.withText "property type" $ \case
+    "List" -> pure ComposedTypeList
+    "Map"  -> pure ComposedTypeMap
+    other  -> pure $ ComposedTypeSub $ SubpropertyName other
 
 newtype SubpropertyName = SubpropertyName Text
   deriving stock   (Eq, Show)
@@ -116,7 +116,7 @@ data Property = Property
   , propertyPrimitiveItemType :: Maybe PrimitiveType
   , propertyPrimitiveType     :: Maybe PrimitiveType
   , propertyRequired          :: Bool
-  , propertyType              :: Maybe PropertyType
+  , propertyType              :: Maybe ComposedType
   , propertyUpdateType        :: Maybe Text
   }
   deriving (Show, Eq, Generic)
@@ -201,9 +201,9 @@ fixBugs spec =
   . at "Name"
   %~ fmap setRequired
   where
-    propertyTypesLens :: Lens' Spec (Map Text PropertySpecification)
+    propertyTypesLens :: Lens' Spec (Map Text PropertyType)
     propertyTypesLens = lens specPropertyTypes (\s a -> s { specPropertyTypes = a })
-    propertyPropsLens :: Lens' PropertySpecification (Map Text Property)
+    propertyPropsLens :: Lens' PropertyType (Map Text Property)
     propertyPropsLens = lens propertyTypeProperties (\s a -> s { propertyTypeProperties = a })
 
     setRequired prop = prop { propertyRequired = True }

@@ -76,8 +76,8 @@ resourceFromRaw resourceName Raw.Resource{..}
   , resourceProperties    = uncurry propertyFromRaw <$> sortOn fst (toList resourceProperties)
   }
 
-propertyTypeFromRaw :: Text -> Raw.PropertySpecification -> PropertyType
-propertyTypeFromRaw fullName Raw.PropertySpecification{..}
+propertyTypeFromRaw :: Text -> Raw.PropertyType -> PropertyType
+propertyTypeFromRaw fullName Raw.PropertyType{..}
   = PropertyType
   { propertyTypeName          = fullName
   , propertyTypeDocumentation = propertyTypeDocumentation
@@ -95,11 +95,11 @@ propertyFromRaw name property@Raw.Property{..}
   where
     specType = case (propertyPrimitiveType, propertyType, propertyPrimitiveItemType, propertyItemType) of
       ( (Just prim), Nothing,                          Nothing,     Nothing)     -> AtomicType $ PrimitiveType prim
-      ( Nothing,     (Just Raw.PropertyTypeList),      (Just prim), Nothing)     -> ListType $ PrimitiveType prim
-      ( Nothing,     (Just Raw.PropertyTypeList),      Nothing,     (Just item)) -> ListType $ SubPropertyType item
-      ( Nothing,     (Just Raw.PropertyTypeMap),       (Just prim), Nothing)     -> MapType $ PrimitiveType prim
-      ( Nothing,     (Just Raw.PropertyTypeMap),       Nothing,     (Just item)) -> MapType $ SubPropertyType item
-      ( Nothing,     (Just (Raw.PropertyTypeSub sub)), Nothing,     Nothing)     -> AtomicType $ SubPropertyType sub
+      ( Nothing,     (Just Raw.ComposedTypeList),      (Just prim), Nothing)     -> ListType $ PrimitiveType prim
+      ( Nothing,     (Just Raw.ComposedTypeList),      Nothing,     (Just item)) -> ListType $ SubPropertyType item
+      ( Nothing,     (Just Raw.ComposedTypeMap),       (Just prim), Nothing)     -> MapType $ PrimitiveType prim
+      ( Nothing,     (Just Raw.ComposedTypeMap),       Nothing,     (Just item)) -> MapType $ SubPropertyType item
+      ( Nothing,     (Just (Raw.ComposedTypeSub sub)), Nothing,     Nothing)     -> AtomicType $ SubPropertyType sub
       _other -> error $ "Unknown raw property type: " <> show property
 
 subPropertyTypeNames :: [Property] -> [Text]
