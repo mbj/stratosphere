@@ -1,7 +1,6 @@
 -- | Official AWS specification representation.
 module Gen.Raw
-  ( Spec(..)
-  , ComposedType(..)
+  ( ComposedType(..)
   , PrimitiveType(..)
   , Property(..)
   , PropertyName(..)
@@ -9,6 +8,7 @@ module Gen.Raw
   , PropertyTypeName(..)
   , Resource(..)
   , ResourceName(..)
+  , Spec(..)
   , readSpec
   , toText
   )

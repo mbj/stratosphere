@@ -1,14 +1,14 @@
 -- | Generation of renderable spec from Gen.Raw
 
 module Gen.Spec
-  ( Spec(..)
-  , specFromRaw
-  , PropertyType(..)
+  ( AtomicType(..)
   , Property(..)
-  , SpecType(..)
-  , subPropertyTypeNames
-  , AtomicType(..)
+  , PropertyType(..)
   , Resource(..)
+  , Spec(..)
+  , SpecType(..)
+  , specFromRaw
+  , subPropertyTypeNames
   )
 where
 
