@@ -1,0 +1,7 @@
+module Stratosphere.Greengrass.ResourceDefinitionVersion.SecretsManagerSecretResourceDataProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SecretsManagerSecretResourceDataProperty :: Prelude.Type
+instance ToResourceProperties SecretsManagerSecretResourceDataProperty
+instance JSON.ToJSON SecretsManagerSecretResourceDataProperty

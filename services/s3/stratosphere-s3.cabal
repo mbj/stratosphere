@@ -1,0 +1,154 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.35.2.
+--
+-- see: https://github.com/sol/hpack
+
+name:           stratosphere-s3
+version:        1.0.0
+category:       AWS, Cloud
+stability:      experimental
+homepage:       https://github.com/mbj/stratosphere#readme
+bug-reports:    https://github.com/mbj/stratosphere/issues
+maintainer:     Markus Schirp
+license:        MIT
+build-type:     Simple
+
+source-repository head
+  type: git
+  location: https://github.com/mbj/stratosphere
+
+flag development
+  description: Run GHC with development flags
+  manual: True
+  default: False
+
+library
+  exposed-modules:
+      Stratosphere.S3.AccessPoint
+      Stratosphere.S3.AccessPoint.PolicyStatusProperty
+      Stratosphere.S3.AccessPoint.PublicAccessBlockConfigurationProperty
+      Stratosphere.S3.AccessPoint.VpcConfigurationProperty
+      Stratosphere.S3.Bucket
+      Stratosphere.S3.Bucket.AbortIncompleteMultipartUploadProperty
+      Stratosphere.S3.Bucket.AccelerateConfigurationProperty
+      Stratosphere.S3.Bucket.AccessControlTranslationProperty
+      Stratosphere.S3.Bucket.AnalyticsConfigurationProperty
+      Stratosphere.S3.Bucket.BucketEncryptionProperty
+      Stratosphere.S3.Bucket.CorsConfigurationProperty
+      Stratosphere.S3.Bucket.CorsRuleProperty
+      Stratosphere.S3.Bucket.DataExportProperty
+      Stratosphere.S3.Bucket.DefaultRetentionProperty
+      Stratosphere.S3.Bucket.DeleteMarkerReplicationProperty
+      Stratosphere.S3.Bucket.DestinationProperty
+      Stratosphere.S3.Bucket.EncryptionConfigurationProperty
+      Stratosphere.S3.Bucket.EventBridgeConfigurationProperty
+      Stratosphere.S3.Bucket.FilterRuleProperty
+      Stratosphere.S3.Bucket.IntelligentTieringConfigurationProperty
+      Stratosphere.S3.Bucket.InventoryConfigurationProperty
+      Stratosphere.S3.Bucket.LambdaConfigurationProperty
+      Stratosphere.S3.Bucket.LifecycleConfigurationProperty
+      Stratosphere.S3.Bucket.LoggingConfigurationProperty
+      Stratosphere.S3.Bucket.MetricsConfigurationProperty
+      Stratosphere.S3.Bucket.MetricsProperty
+      Stratosphere.S3.Bucket.NoncurrentVersionExpirationProperty
+      Stratosphere.S3.Bucket.NoncurrentVersionTransitionProperty
+      Stratosphere.S3.Bucket.NotificationConfigurationProperty
+      Stratosphere.S3.Bucket.NotificationFilterProperty
+      Stratosphere.S3.Bucket.ObjectLockConfigurationProperty
+      Stratosphere.S3.Bucket.ObjectLockRuleProperty
+      Stratosphere.S3.Bucket.OwnershipControlsProperty
+      Stratosphere.S3.Bucket.OwnershipControlsRuleProperty
+      Stratosphere.S3.Bucket.PublicAccessBlockConfigurationProperty
+      Stratosphere.S3.Bucket.QueueConfigurationProperty
+      Stratosphere.S3.Bucket.RedirectAllRequestsToProperty
+      Stratosphere.S3.Bucket.RedirectRuleProperty
+      Stratosphere.S3.Bucket.ReplicaModificationsProperty
+      Stratosphere.S3.Bucket.ReplicationConfigurationProperty
+      Stratosphere.S3.Bucket.ReplicationDestinationProperty
+      Stratosphere.S3.Bucket.ReplicationRuleAndOperatorProperty
+      Stratosphere.S3.Bucket.ReplicationRuleFilterProperty
+      Stratosphere.S3.Bucket.ReplicationRuleProperty
+      Stratosphere.S3.Bucket.ReplicationTimeProperty
+      Stratosphere.S3.Bucket.ReplicationTimeValueProperty
+      Stratosphere.S3.Bucket.RoutingRuleConditionProperty
+      Stratosphere.S3.Bucket.RoutingRuleProperty
+      Stratosphere.S3.Bucket.RuleProperty
+      Stratosphere.S3.Bucket.S3KeyFilterProperty
+      Stratosphere.S3.Bucket.ServerSideEncryptionByDefaultProperty
+      Stratosphere.S3.Bucket.ServerSideEncryptionRuleProperty
+      Stratosphere.S3.Bucket.SourceSelectionCriteriaProperty
+      Stratosphere.S3.Bucket.SseKmsEncryptedObjectsProperty
+      Stratosphere.S3.Bucket.StorageClassAnalysisProperty
+      Stratosphere.S3.Bucket.TagFilterProperty
+      Stratosphere.S3.Bucket.TieringProperty
+      Stratosphere.S3.Bucket.TopicConfigurationProperty
+      Stratosphere.S3.Bucket.TransitionProperty
+      Stratosphere.S3.Bucket.VersioningConfigurationProperty
+      Stratosphere.S3.Bucket.WebsiteConfigurationProperty
+      Stratosphere.S3.BucketPolicy
+      Stratosphere.S3.MultiRegionAccessPoint
+      Stratosphere.S3.MultiRegionAccessPoint.PublicAccessBlockConfigurationProperty
+      Stratosphere.S3.MultiRegionAccessPoint.RegionProperty
+      Stratosphere.S3.MultiRegionAccessPointPolicy
+      Stratosphere.S3.MultiRegionAccessPointPolicy.PolicyStatusProperty
+      Stratosphere.S3.StorageLens
+      Stratosphere.S3.StorageLens.AccountLevelProperty
+      Stratosphere.S3.StorageLens.ActivityMetricsProperty
+      Stratosphere.S3.StorageLens.AdvancedCostOptimizationMetricsProperty
+      Stratosphere.S3.StorageLens.AdvancedDataProtectionMetricsProperty
+      Stratosphere.S3.StorageLens.AwsOrgProperty
+      Stratosphere.S3.StorageLens.BucketLevelProperty
+      Stratosphere.S3.StorageLens.BucketsAndRegionsProperty
+      Stratosphere.S3.StorageLens.CloudWatchMetricsProperty
+      Stratosphere.S3.StorageLens.DataExportProperty
+      Stratosphere.S3.StorageLens.DetailedStatusCodesMetricsProperty
+      Stratosphere.S3.StorageLens.EncryptionProperty
+      Stratosphere.S3.StorageLens.PrefixLevelProperty
+      Stratosphere.S3.StorageLens.PrefixLevelStorageMetricsProperty
+      Stratosphere.S3.StorageLens.S3BucketDestinationProperty
+      Stratosphere.S3.StorageLens.SelectionCriteriaProperty
+      Stratosphere.S3.StorageLens.SSEKMSProperty
+      Stratosphere.S3.StorageLens.StorageLensConfigurationProperty
+  other-modules:
+      Paths_stratosphere_s3
+  hs-source-dirs:
+      gen
+  default-extensions:
+      DataKinds
+      DeriveGeneric
+      DerivingStrategies
+      DerivingVia
+      DuplicateRecordFields
+      FlexibleContexts
+      FlexibleInstances
+      GADTs
+      GeneralizedNewtypeDeriving
+      InstanceSigs
+      LambdaCase
+      MultiParamTypeClasses
+      NoFieldSelectors
+      NoImplicitPrelude
+      NumericUnderscores
+      OverloadedLists
+      OverloadedRecordDot
+      OverloadedStrings
+      PolyKinds
+      RecordWildCards
+      ScopedTypeVariables
+      StandaloneDeriving
+      Strict
+      TemplateHaskell
+      TupleSections
+      TypeApplications
+      TypeFamilies
+  ghc-options: -Wall -Wcompat -Widentities -Wimplicit-prelude -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-local-signatures -Wmissing-signatures -Wmonomorphism-restriction -Wredundant-constraints -fhide-source-paths -funbox-strict-fields -optP-Wno-nonportable-include-path -Wno-unused-imports
+  build-depends:
+      aeson
+    , base
+    , stratosphere ==1.0.0
+  default-language: Haskell2010
+  if flag(development)
+    ghc-options: -Werror
+  else
+    ghc-options: -Wwarn

@@ -1,0 +1,7 @@
+module Stratosphere.Glue.MLTransform.InputRecordTablesProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data InputRecordTablesProperty :: Prelude.Type
+instance ToResourceProperties InputRecordTablesProperty
+instance JSON.ToJSON InputRecordTablesProperty

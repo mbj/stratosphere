@@ -1,0 +1,7 @@
+module Stratosphere.PinpointEmail.ConfigurationSetEventDestination.PinpointDestinationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PinpointDestinationProperty :: Prelude.Type
+instance ToResourceProperties PinpointDestinationProperty
+instance JSON.ToJSON PinpointDestinationProperty

@@ -1,0 +1,7 @@
+module Stratosphere.OpsWorks.Stack.ChefConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ChefConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ChefConfigurationProperty
+instance JSON.ToJSON ChefConfigurationProperty

@@ -1,0 +1,7 @@
+module Stratosphere.Kendra.Index.ValueImportanceItemProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ValueImportanceItemProperty :: Prelude.Type
+instance ToResourceProperties ValueImportanceItemProperty
+instance JSON.ToJSON ValueImportanceItemProperty

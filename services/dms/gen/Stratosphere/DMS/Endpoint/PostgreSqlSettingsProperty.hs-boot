@@ -1,0 +1,7 @@
+module Stratosphere.DMS.Endpoint.PostgreSqlSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PostgreSqlSettingsProperty :: Prelude.Type
+instance ToResourceProperties PostgreSqlSettingsProperty
+instance JSON.ToJSON PostgreSqlSettingsProperty

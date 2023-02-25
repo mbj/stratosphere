@@ -1,0 +1,7 @@
+module Stratosphere.KinesisAnalytics.Application.InputLambdaProcessorProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data InputLambdaProcessorProperty :: Prelude.Type
+instance ToResourceProperties InputLambdaProcessorProperty
+instance JSON.ToJSON InputLambdaProcessorProperty

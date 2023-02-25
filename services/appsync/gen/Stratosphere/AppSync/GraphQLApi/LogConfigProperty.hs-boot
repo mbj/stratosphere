@@ -1,0 +1,7 @@
+module Stratosphere.AppSync.GraphQLApi.LogConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data LogConfigProperty :: Prelude.Type
+instance ToResourceProperties LogConfigProperty
+instance JSON.ToJSON LogConfigProperty

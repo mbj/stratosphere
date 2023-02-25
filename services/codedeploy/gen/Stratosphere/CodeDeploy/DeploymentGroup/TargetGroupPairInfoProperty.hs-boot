@@ -1,0 +1,7 @@
+module Stratosphere.CodeDeploy.DeploymentGroup.TargetGroupPairInfoProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TargetGroupPairInfoProperty :: Prelude.Type
+instance ToResourceProperties TargetGroupPairInfoProperty
+instance JSON.ToJSON TargetGroupPairInfoProperty

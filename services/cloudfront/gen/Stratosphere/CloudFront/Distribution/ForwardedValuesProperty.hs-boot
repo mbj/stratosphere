@@ -1,0 +1,7 @@
+module Stratosphere.CloudFront.Distribution.ForwardedValuesProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ForwardedValuesProperty :: Prelude.Type
+instance ToResourceProperties ForwardedValuesProperty
+instance JSON.ToJSON ForwardedValuesProperty

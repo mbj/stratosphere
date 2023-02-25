@@ -1,0 +1,7 @@
+module Stratosphere.OpsWorks.Layer.LoadBasedAutoScalingProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data LoadBasedAutoScalingProperty :: Prelude.Type
+instance ToResourceProperties LoadBasedAutoScalingProperty
+instance JSON.ToJSON LoadBasedAutoScalingProperty

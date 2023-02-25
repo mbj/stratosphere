@@ -1,0 +1,7 @@
+module Stratosphere.AppMesh.VirtualNode.AwsCloudMapServiceDiscoveryProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AwsCloudMapServiceDiscoveryProperty :: Prelude.Type
+instance ToResourceProperties AwsCloudMapServiceDiscoveryProperty
+instance JSON.ToJSON AwsCloudMapServiceDiscoveryProperty

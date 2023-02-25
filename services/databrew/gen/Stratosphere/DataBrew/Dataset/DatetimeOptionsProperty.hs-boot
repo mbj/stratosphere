@@ -1,0 +1,7 @@
+module Stratosphere.DataBrew.Dataset.DatetimeOptionsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DatetimeOptionsProperty :: Prelude.Type
+instance ToResourceProperties DatetimeOptionsProperty
+instance JSON.ToJSON DatetimeOptionsProperty

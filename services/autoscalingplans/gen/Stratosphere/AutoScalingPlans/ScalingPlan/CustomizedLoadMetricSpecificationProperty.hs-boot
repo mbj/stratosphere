@@ -1,0 +1,7 @@
+module Stratosphere.AutoScalingPlans.ScalingPlan.CustomizedLoadMetricSpecificationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CustomizedLoadMetricSpecificationProperty :: Prelude.Type
+instance ToResourceProperties CustomizedLoadMetricSpecificationProperty
+instance JSON.ToJSON CustomizedLoadMetricSpecificationProperty

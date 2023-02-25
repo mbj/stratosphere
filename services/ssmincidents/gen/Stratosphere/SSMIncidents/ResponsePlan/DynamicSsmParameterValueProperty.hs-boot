@@ -1,0 +1,7 @@
+module Stratosphere.SSMIncidents.ResponsePlan.DynamicSsmParameterValueProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DynamicSsmParameterValueProperty :: Prelude.Type
+instance ToResourceProperties DynamicSsmParameterValueProperty
+instance JSON.ToJSON DynamicSsmParameterValueProperty

@@ -1,0 +1,7 @@
+module Stratosphere.Batch.JobDefinition.MountPointsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MountPointsProperty :: Prelude.Type
+instance ToResourceProperties MountPointsProperty
+instance JSON.ToJSON MountPointsProperty

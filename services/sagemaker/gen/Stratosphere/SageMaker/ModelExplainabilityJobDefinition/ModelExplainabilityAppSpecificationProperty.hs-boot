@@ -1,0 +1,7 @@
+module Stratosphere.SageMaker.ModelExplainabilityJobDefinition.ModelExplainabilityAppSpecificationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ModelExplainabilityAppSpecificationProperty :: Prelude.Type
+instance ToResourceProperties ModelExplainabilityAppSpecificationProperty
+instance JSON.ToJSON ModelExplainabilityAppSpecificationProperty

@@ -1,0 +1,7 @@
+module Stratosphere.MediaPackage.PackagingConfiguration.DashManifestProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DashManifestProperty :: Prelude.Type
+instance ToResourceProperties DashManifestProperty
+instance JSON.ToJSON DashManifestProperty

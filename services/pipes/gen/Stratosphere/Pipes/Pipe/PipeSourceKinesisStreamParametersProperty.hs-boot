@@ -1,0 +1,7 @@
+module Stratosphere.Pipes.Pipe.PipeSourceKinesisStreamParametersProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PipeSourceKinesisStreamParametersProperty :: Prelude.Type
+instance ToResourceProperties PipeSourceKinesisStreamParametersProperty
+instance JSON.ToJSON PipeSourceKinesisStreamParametersProperty

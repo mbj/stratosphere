@@ -1,0 +1,111 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.35.2.
+--
+-- see: https://github.com/sol/hpack
+
+name:           stratosphere-lambda
+version:        1.0.0
+category:       AWS, Cloud
+stability:      experimental
+homepage:       https://github.com/mbj/stratosphere#readme
+bug-reports:    https://github.com/mbj/stratosphere/issues
+maintainer:     Markus Schirp
+license:        MIT
+build-type:     Simple
+
+source-repository head
+  type: git
+  location: https://github.com/mbj/stratosphere
+
+flag development
+  description: Run GHC with development flags
+  manual: True
+  default: False
+
+library
+  exposed-modules:
+      Stratosphere.Lambda.Alias
+      Stratosphere.Lambda.Alias.AliasRoutingConfigurationProperty
+      Stratosphere.Lambda.Alias.ProvisionedConcurrencyConfigurationProperty
+      Stratosphere.Lambda.Alias.VersionWeightProperty
+      Stratosphere.Lambda.CodeSigningConfig
+      Stratosphere.Lambda.CodeSigningConfig.AllowedPublishersProperty
+      Stratosphere.Lambda.CodeSigningConfig.CodeSigningPoliciesProperty
+      Stratosphere.Lambda.EventInvokeConfig
+      Stratosphere.Lambda.EventInvokeConfig.DestinationConfigProperty
+      Stratosphere.Lambda.EventInvokeConfig.OnFailureProperty
+      Stratosphere.Lambda.EventInvokeConfig.OnSuccessProperty
+      Stratosphere.Lambda.EventSourceMapping
+      Stratosphere.Lambda.EventSourceMapping.AmazonManagedKafkaEventSourceConfigProperty
+      Stratosphere.Lambda.EventSourceMapping.DestinationConfigProperty
+      Stratosphere.Lambda.EventSourceMapping.EndpointsProperty
+      Stratosphere.Lambda.EventSourceMapping.FilterCriteriaProperty
+      Stratosphere.Lambda.EventSourceMapping.FilterProperty
+      Stratosphere.Lambda.EventSourceMapping.OnFailureProperty
+      Stratosphere.Lambda.EventSourceMapping.ScalingConfigProperty
+      Stratosphere.Lambda.EventSourceMapping.SelfManagedEventSourceProperty
+      Stratosphere.Lambda.EventSourceMapping.SelfManagedKafkaEventSourceConfigProperty
+      Stratosphere.Lambda.EventSourceMapping.SourceAccessConfigurationProperty
+      Stratosphere.Lambda.Function
+      Stratosphere.Lambda.Function.CodeProperty
+      Stratosphere.Lambda.Function.DeadLetterConfigProperty
+      Stratosphere.Lambda.Function.EnvironmentProperty
+      Stratosphere.Lambda.Function.EphemeralStorageProperty
+      Stratosphere.Lambda.Function.FileSystemConfigProperty
+      Stratosphere.Lambda.Function.ImageConfigProperty
+      Stratosphere.Lambda.Function.RuntimeManagementConfigProperty
+      Stratosphere.Lambda.Function.SnapStartProperty
+      Stratosphere.Lambda.Function.SnapStartResponseProperty
+      Stratosphere.Lambda.Function.TracingConfigProperty
+      Stratosphere.Lambda.Function.VpcConfigProperty
+      Stratosphere.Lambda.LayerVersion
+      Stratosphere.Lambda.LayerVersion.ContentProperty
+      Stratosphere.Lambda.LayerVersionPermission
+      Stratosphere.Lambda.Permission
+      Stratosphere.Lambda.Url
+      Stratosphere.Lambda.Url.CorsProperty
+      Stratosphere.Lambda.Version
+      Stratosphere.Lambda.Version.ProvisionedConcurrencyConfigurationProperty
+  other-modules:
+      Paths_stratosphere_lambda
+  hs-source-dirs:
+      gen
+  default-extensions:
+      DataKinds
+      DeriveGeneric
+      DerivingStrategies
+      DerivingVia
+      DuplicateRecordFields
+      FlexibleContexts
+      FlexibleInstances
+      GADTs
+      GeneralizedNewtypeDeriving
+      InstanceSigs
+      LambdaCase
+      MultiParamTypeClasses
+      NoFieldSelectors
+      NoImplicitPrelude
+      NumericUnderscores
+      OverloadedLists
+      OverloadedRecordDot
+      OverloadedStrings
+      PolyKinds
+      RecordWildCards
+      ScopedTypeVariables
+      StandaloneDeriving
+      Strict
+      TemplateHaskell
+      TupleSections
+      TypeApplications
+      TypeFamilies
+  ghc-options: -Wall -Wcompat -Widentities -Wimplicit-prelude -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-local-signatures -Wmissing-signatures -Wmonomorphism-restriction -Wredundant-constraints -fhide-source-paths -funbox-strict-fields -optP-Wno-nonportable-include-path -Wno-unused-imports
+  build-depends:
+      aeson
+    , base
+    , stratosphere ==1.0.0
+  default-language: Haskell2010
+  if flag(development)
+    ghc-options: -Werror
+  else
+    ghc-options: -Wwarn

@@ -1,0 +1,7 @@
+module Stratosphere.ResilienceHub.App.PhysicalResourceIdProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PhysicalResourceIdProperty :: Prelude.Type
+instance ToResourceProperties PhysicalResourceIdProperty
+instance JSON.ToJSON PhysicalResourceIdProperty

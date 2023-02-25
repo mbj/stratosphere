@@ -1,0 +1,7 @@
+module Stratosphere.IoTEvents.AlarmModel.InitializationConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data InitializationConfigurationProperty :: Prelude.Type
+instance ToResourceProperties InitializationConfigurationProperty
+instance JSON.ToJSON InitializationConfigurationProperty

@@ -1,0 +1,7 @@
+module Stratosphere.Kendra.DataSource.SalesforceChatterFeedConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SalesforceChatterFeedConfigurationProperty :: Prelude.Type
+instance ToResourceProperties SalesforceChatterFeedConfigurationProperty
+instance JSON.ToJSON SalesforceChatterFeedConfigurationProperty

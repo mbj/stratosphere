@@ -1,0 +1,7 @@
+module Stratosphere.Config.ConformancePack.TemplateSSMDocumentDetailsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TemplateSSMDocumentDetailsProperty :: Prelude.Type
+instance ToResourceProperties TemplateSSMDocumentDetailsProperty
+instance JSON.ToJSON TemplateSSMDocumentDetailsProperty

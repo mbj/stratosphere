@@ -1,0 +1,7 @@
+module Stratosphere.BillingConductor.BillingGroup.ComputationPreferenceProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ComputationPreferenceProperty :: Prelude.Type
+instance ToResourceProperties ComputationPreferenceProperty
+instance JSON.ToJSON ComputationPreferenceProperty

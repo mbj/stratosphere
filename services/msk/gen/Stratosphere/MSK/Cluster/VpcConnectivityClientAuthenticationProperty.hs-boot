@@ -1,0 +1,7 @@
+module Stratosphere.MSK.Cluster.VpcConnectivityClientAuthenticationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data VpcConnectivityClientAuthenticationProperty :: Prelude.Type
+instance ToResourceProperties VpcConnectivityClientAuthenticationProperty
+instance JSON.ToJSON VpcConnectivityClientAuthenticationProperty

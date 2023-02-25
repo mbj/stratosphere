@@ -1,0 +1,7 @@
+module Stratosphere.SageMaker.Domain.RStudioServerProDomainSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RStudioServerProDomainSettingsProperty :: Prelude.Type
+instance ToResourceProperties RStudioServerProDomainSettingsProperty
+instance JSON.ToJSON RStudioServerProDomainSettingsProperty

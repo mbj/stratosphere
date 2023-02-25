@@ -1,0 +1,107 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.35.2.
+--
+-- see: https://github.com/sol/hpack
+
+name:           stratosphere-imagebuilder
+version:        1.0.0
+category:       AWS, Cloud
+stability:      experimental
+homepage:       https://github.com/mbj/stratosphere#readme
+bug-reports:    https://github.com/mbj/stratosphere/issues
+maintainer:     Markus Schirp
+license:        MIT
+build-type:     Simple
+
+source-repository head
+  type: git
+  location: https://github.com/mbj/stratosphere
+
+flag development
+  description: Run GHC with development flags
+  manual: True
+  default: False
+
+library
+  exposed-modules:
+      Stratosphere.ImageBuilder.Component
+      Stratosphere.ImageBuilder.ContainerRecipe
+      Stratosphere.ImageBuilder.ContainerRecipe.ComponentConfigurationProperty
+      Stratosphere.ImageBuilder.ContainerRecipe.ComponentParameterProperty
+      Stratosphere.ImageBuilder.ContainerRecipe.EbsInstanceBlockDeviceSpecificationProperty
+      Stratosphere.ImageBuilder.ContainerRecipe.InstanceBlockDeviceMappingProperty
+      Stratosphere.ImageBuilder.ContainerRecipe.InstanceConfigurationProperty
+      Stratosphere.ImageBuilder.ContainerRecipe.TargetContainerRepositoryProperty
+      Stratosphere.ImageBuilder.DistributionConfiguration
+      Stratosphere.ImageBuilder.DistributionConfiguration.AmiDistributionConfigurationProperty
+      Stratosphere.ImageBuilder.DistributionConfiguration.ContainerDistributionConfigurationProperty
+      Stratosphere.ImageBuilder.DistributionConfiguration.DistributionProperty
+      Stratosphere.ImageBuilder.DistributionConfiguration.FastLaunchConfigurationProperty
+      Stratosphere.ImageBuilder.DistributionConfiguration.FastLaunchLaunchTemplateSpecificationProperty
+      Stratosphere.ImageBuilder.DistributionConfiguration.FastLaunchSnapshotConfigurationProperty
+      Stratosphere.ImageBuilder.DistributionConfiguration.LaunchPermissionConfigurationProperty
+      Stratosphere.ImageBuilder.DistributionConfiguration.LaunchTemplateConfigurationProperty
+      Stratosphere.ImageBuilder.DistributionConfiguration.TargetContainerRepositoryProperty
+      Stratosphere.ImageBuilder.Image
+      Stratosphere.ImageBuilder.Image.EcrConfigurationProperty
+      Stratosphere.ImageBuilder.Image.ImageScanningConfigurationProperty
+      Stratosphere.ImageBuilder.Image.ImageTestsConfigurationProperty
+      Stratosphere.ImageBuilder.ImagePipeline
+      Stratosphere.ImageBuilder.ImagePipeline.EcrConfigurationProperty
+      Stratosphere.ImageBuilder.ImagePipeline.ImageScanningConfigurationProperty
+      Stratosphere.ImageBuilder.ImagePipeline.ImageTestsConfigurationProperty
+      Stratosphere.ImageBuilder.ImagePipeline.ScheduleProperty
+      Stratosphere.ImageBuilder.ImageRecipe
+      Stratosphere.ImageBuilder.ImageRecipe.AdditionalInstanceConfigurationProperty
+      Stratosphere.ImageBuilder.ImageRecipe.ComponentConfigurationProperty
+      Stratosphere.ImageBuilder.ImageRecipe.ComponentParameterProperty
+      Stratosphere.ImageBuilder.ImageRecipe.EbsInstanceBlockDeviceSpecificationProperty
+      Stratosphere.ImageBuilder.ImageRecipe.InstanceBlockDeviceMappingProperty
+      Stratosphere.ImageBuilder.ImageRecipe.SystemsManagerAgentProperty
+      Stratosphere.ImageBuilder.InfrastructureConfiguration
+      Stratosphere.ImageBuilder.InfrastructureConfiguration.InstanceMetadataOptionsProperty
+      Stratosphere.ImageBuilder.InfrastructureConfiguration.LoggingProperty
+      Stratosphere.ImageBuilder.InfrastructureConfiguration.S3LogsProperty
+  other-modules:
+      Paths_stratosphere_imagebuilder
+  hs-source-dirs:
+      gen
+  default-extensions:
+      DataKinds
+      DeriveGeneric
+      DerivingStrategies
+      DerivingVia
+      DuplicateRecordFields
+      FlexibleContexts
+      FlexibleInstances
+      GADTs
+      GeneralizedNewtypeDeriving
+      InstanceSigs
+      LambdaCase
+      MultiParamTypeClasses
+      NoFieldSelectors
+      NoImplicitPrelude
+      NumericUnderscores
+      OverloadedLists
+      OverloadedRecordDot
+      OverloadedStrings
+      PolyKinds
+      RecordWildCards
+      ScopedTypeVariables
+      StandaloneDeriving
+      Strict
+      TemplateHaskell
+      TupleSections
+      TypeApplications
+      TypeFamilies
+  ghc-options: -Wall -Wcompat -Widentities -Wimplicit-prelude -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-local-signatures -Wmissing-signatures -Wmonomorphism-restriction -Wredundant-constraints -fhide-source-paths -funbox-strict-fields -optP-Wno-nonportable-include-path -Wno-unused-imports
+  build-depends:
+      aeson
+    , base
+    , stratosphere ==1.0.0
+  default-language: Haskell2010
+  if flag(development)
+    ghc-options: -Werror
+  else
+    ghc-options: -Wwarn

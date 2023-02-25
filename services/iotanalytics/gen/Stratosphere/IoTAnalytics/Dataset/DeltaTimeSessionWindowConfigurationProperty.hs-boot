@@ -1,0 +1,7 @@
+module Stratosphere.IoTAnalytics.Dataset.DeltaTimeSessionWindowConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DeltaTimeSessionWindowConfigurationProperty :: Prelude.Type
+instance ToResourceProperties DeltaTimeSessionWindowConfigurationProperty
+instance JSON.ToJSON DeltaTimeSessionWindowConfigurationProperty

@@ -1,0 +1,7 @@
+module Stratosphere.EC2.FlowLog.DestinationOptionsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DestinationOptionsProperty :: Prelude.Type
+instance ToResourceProperties DestinationOptionsProperty
+instance JSON.ToJSON DestinationOptionsProperty

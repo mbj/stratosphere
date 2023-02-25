@@ -1,0 +1,7 @@
+module Stratosphere.EMR.InstanceFleetConfig.SpotProvisioningSpecificationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SpotProvisioningSpecificationProperty :: Prelude.Type
+instance ToResourceProperties SpotProvisioningSpecificationProperty
+instance JSON.ToJSON SpotProvisioningSpecificationProperty

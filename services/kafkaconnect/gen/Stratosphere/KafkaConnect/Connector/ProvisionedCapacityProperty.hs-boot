@@ -1,0 +1,7 @@
+module Stratosphere.KafkaConnect.Connector.ProvisionedCapacityProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ProvisionedCapacityProperty :: Prelude.Type
+instance ToResourceProperties ProvisionedCapacityProperty
+instance JSON.ToJSON ProvisionedCapacityProperty

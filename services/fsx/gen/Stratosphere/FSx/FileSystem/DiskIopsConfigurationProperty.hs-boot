@@ -1,0 +1,7 @@
+module Stratosphere.FSx.FileSystem.DiskIopsConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DiskIopsConfigurationProperty :: Prelude.Type
+instance ToResourceProperties DiskIopsConfigurationProperty
+instance JSON.ToJSON DiskIopsConfigurationProperty

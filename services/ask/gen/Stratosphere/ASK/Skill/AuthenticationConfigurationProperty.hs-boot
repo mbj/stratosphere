@@ -1,0 +1,7 @@
+module Stratosphere.ASK.Skill.AuthenticationConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AuthenticationConfigurationProperty :: Prelude.Type
+instance ToResourceProperties AuthenticationConfigurationProperty
+instance JSON.ToJSON AuthenticationConfigurationProperty

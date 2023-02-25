@@ -1,0 +1,7 @@
+module Stratosphere.EC2.NetworkInsightsAnalysis.AnalysisLoadBalancerListenerProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AnalysisLoadBalancerListenerProperty :: Prelude.Type
+instance ToResourceProperties AnalysisLoadBalancerListenerProperty
+instance JSON.ToJSON AnalysisLoadBalancerListenerProperty

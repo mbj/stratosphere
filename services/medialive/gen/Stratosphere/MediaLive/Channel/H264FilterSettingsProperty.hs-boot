@@ -1,0 +1,7 @@
+module Stratosphere.MediaLive.Channel.H264FilterSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data H264FilterSettingsProperty :: Prelude.Type
+instance ToResourceProperties H264FilterSettingsProperty
+instance JSON.ToJSON H264FilterSettingsProperty

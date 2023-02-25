@@ -1,0 +1,7 @@
+module Stratosphere.DataBrew.Job.DatabaseTableOutputOptionsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DatabaseTableOutputOptionsProperty :: Prelude.Type
+instance ToResourceProperties DatabaseTableOutputOptionsProperty
+instance JSON.ToJSON DatabaseTableOutputOptionsProperty

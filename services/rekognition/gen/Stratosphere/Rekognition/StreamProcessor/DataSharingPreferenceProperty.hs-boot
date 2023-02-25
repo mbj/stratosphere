@@ -1,0 +1,7 @@
+module Stratosphere.Rekognition.StreamProcessor.DataSharingPreferenceProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DataSharingPreferenceProperty :: Prelude.Type
+instance ToResourceProperties DataSharingPreferenceProperty
+instance JSON.ToJSON DataSharingPreferenceProperty

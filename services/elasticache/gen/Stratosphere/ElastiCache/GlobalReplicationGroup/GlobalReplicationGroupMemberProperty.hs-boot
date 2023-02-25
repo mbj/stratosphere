@@ -1,0 +1,7 @@
+module Stratosphere.ElastiCache.GlobalReplicationGroup.GlobalReplicationGroupMemberProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data GlobalReplicationGroupMemberProperty :: Prelude.Type
+instance ToResourceProperties GlobalReplicationGroupMemberProperty
+instance JSON.ToJSON GlobalReplicationGroupMemberProperty

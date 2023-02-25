@@ -1,0 +1,7 @@
+module Stratosphere.ECS.TaskDefinition.ResourceRequirementProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ResourceRequirementProperty :: Prelude.Type
+instance ToResourceProperties ResourceRequirementProperty
+instance JSON.ToJSON ResourceRequirementProperty

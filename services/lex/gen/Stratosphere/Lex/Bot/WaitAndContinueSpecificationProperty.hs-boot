@@ -1,0 +1,7 @@
+module Stratosphere.Lex.Bot.WaitAndContinueSpecificationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data WaitAndContinueSpecificationProperty :: Prelude.Type
+instance ToResourceProperties WaitAndContinueSpecificationProperty
+instance JSON.ToJSON WaitAndContinueSpecificationProperty

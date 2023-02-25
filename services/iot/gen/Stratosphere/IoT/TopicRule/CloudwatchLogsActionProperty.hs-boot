@@ -1,0 +1,7 @@
+module Stratosphere.IoT.TopicRule.CloudwatchLogsActionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CloudwatchLogsActionProperty :: Prelude.Type
+instance ToResourceProperties CloudwatchLogsActionProperty
+instance JSON.ToJSON CloudwatchLogsActionProperty

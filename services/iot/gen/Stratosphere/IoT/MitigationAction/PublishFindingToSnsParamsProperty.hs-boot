@@ -1,0 +1,7 @@
+module Stratosphere.IoT.MitigationAction.PublishFindingToSnsParamsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PublishFindingToSnsParamsProperty :: Prelude.Type
+instance ToResourceProperties PublishFindingToSnsParamsProperty
+instance JSON.ToJSON PublishFindingToSnsParamsProperty

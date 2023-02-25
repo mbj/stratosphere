@@ -1,0 +1,7 @@
+module Stratosphere.IoTAnalytics.Datastore.IotSiteWiseMultiLayerStorageProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data IotSiteWiseMultiLayerStorageProperty :: Prelude.Type
+instance ToResourceProperties IotSiteWiseMultiLayerStorageProperty
+instance JSON.ToJSON IotSiteWiseMultiLayerStorageProperty

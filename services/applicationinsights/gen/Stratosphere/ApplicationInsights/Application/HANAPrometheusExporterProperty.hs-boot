@@ -1,0 +1,7 @@
+module Stratosphere.ApplicationInsights.Application.HANAPrometheusExporterProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data HANAPrometheusExporterProperty :: Prelude.Type
+instance ToResourceProperties HANAPrometheusExporterProperty
+instance JSON.ToJSON HANAPrometheusExporterProperty

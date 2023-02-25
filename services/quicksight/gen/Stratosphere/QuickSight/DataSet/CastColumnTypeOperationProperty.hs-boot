@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.DataSet.CastColumnTypeOperationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CastColumnTypeOperationProperty :: Prelude.Type
+instance ToResourceProperties CastColumnTypeOperationProperty
+instance JSON.ToJSON CastColumnTypeOperationProperty

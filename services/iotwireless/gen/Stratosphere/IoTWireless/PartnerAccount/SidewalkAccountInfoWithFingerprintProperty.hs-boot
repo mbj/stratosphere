@@ -1,0 +1,7 @@
+module Stratosphere.IoTWireless.PartnerAccount.SidewalkAccountInfoWithFingerprintProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SidewalkAccountInfoWithFingerprintProperty :: Prelude.Type
+instance ToResourceProperties SidewalkAccountInfoWithFingerprintProperty
+instance JSON.ToJSON SidewalkAccountInfoWithFingerprintProperty

@@ -1,0 +1,7 @@
+module Stratosphere.SageMaker.ModelQualityJobDefinition.ModelQualityBaselineConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ModelQualityBaselineConfigProperty :: Prelude.Type
+instance ToResourceProperties ModelQualityBaselineConfigProperty
+instance JSON.ToJSON ModelQualityBaselineConfigProperty

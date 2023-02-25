@@ -1,0 +1,7 @@
+module Stratosphere.FMS.Policy.SecurityServicePolicyDataProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SecurityServicePolicyDataProperty :: Prelude.Type
+instance ToResourceProperties SecurityServicePolicyDataProperty
+instance JSON.ToJSON SecurityServicePolicyDataProperty

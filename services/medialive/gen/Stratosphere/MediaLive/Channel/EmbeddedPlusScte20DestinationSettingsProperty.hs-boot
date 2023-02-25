@@ -1,0 +1,7 @@
+module Stratosphere.MediaLive.Channel.EmbeddedPlusScte20DestinationSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data EmbeddedPlusScte20DestinationSettingsProperty :: Prelude.Type
+instance ToResourceProperties EmbeddedPlusScte20DestinationSettingsProperty
+instance JSON.ToJSON EmbeddedPlusScte20DestinationSettingsProperty

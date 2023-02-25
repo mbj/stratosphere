@@ -1,0 +1,7 @@
+module Stratosphere.CloudFormation.StackSet.DeploymentTargetsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DeploymentTargetsProperty :: Prelude.Type
+instance ToResourceProperties DeploymentTargetsProperty
+instance JSON.ToJSON DeploymentTargetsProperty

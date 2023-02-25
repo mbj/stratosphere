@@ -1,0 +1,7 @@
+module Stratosphere.EMR.Cluster.InstanceGroupConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data InstanceGroupConfigProperty :: Prelude.Type
+instance ToResourceProperties InstanceGroupConfigProperty
+instance JSON.ToJSON InstanceGroupConfigProperty

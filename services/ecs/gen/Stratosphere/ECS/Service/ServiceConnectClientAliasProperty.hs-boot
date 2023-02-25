@@ -1,0 +1,7 @@
+module Stratosphere.ECS.Service.ServiceConnectClientAliasProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ServiceConnectClientAliasProperty :: Prelude.Type
+instance ToResourceProperties ServiceConnectClientAliasProperty
+instance JSON.ToJSON ServiceConnectClientAliasProperty

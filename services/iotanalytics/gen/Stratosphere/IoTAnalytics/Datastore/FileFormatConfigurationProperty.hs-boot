@@ -1,0 +1,7 @@
+module Stratosphere.IoTAnalytics.Datastore.FileFormatConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data FileFormatConfigurationProperty :: Prelude.Type
+instance ToResourceProperties FileFormatConfigurationProperty
+instance JSON.ToJSON FileFormatConfigurationProperty

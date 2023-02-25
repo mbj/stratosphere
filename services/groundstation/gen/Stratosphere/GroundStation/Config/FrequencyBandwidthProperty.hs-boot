@@ -1,0 +1,7 @@
+module Stratosphere.GroundStation.Config.FrequencyBandwidthProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data FrequencyBandwidthProperty :: Prelude.Type
+instance ToResourceProperties FrequencyBandwidthProperty
+instance JSON.ToJSON FrequencyBandwidthProperty

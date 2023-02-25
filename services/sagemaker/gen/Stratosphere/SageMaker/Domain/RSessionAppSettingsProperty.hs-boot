@@ -1,0 +1,7 @@
+module Stratosphere.SageMaker.Domain.RSessionAppSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RSessionAppSettingsProperty :: Prelude.Type
+instance ToResourceProperties RSessionAppSettingsProperty
+instance JSON.ToJSON RSessionAppSettingsProperty

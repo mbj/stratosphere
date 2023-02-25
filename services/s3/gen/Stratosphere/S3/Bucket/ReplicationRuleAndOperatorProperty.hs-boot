@@ -1,0 +1,7 @@
+module Stratosphere.S3.Bucket.ReplicationRuleAndOperatorProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ReplicationRuleAndOperatorProperty :: Prelude.Type
+instance ToResourceProperties ReplicationRuleAndOperatorProperty
+instance JSON.ToJSON ReplicationRuleAndOperatorProperty

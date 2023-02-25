@@ -1,0 +1,7 @@
+module Stratosphere.NetworkManager.ConnectPeer.ConnectPeerBgpConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ConnectPeerBgpConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ConnectPeerBgpConfigurationProperty
+instance JSON.ToJSON ConnectPeerBgpConfigurationProperty

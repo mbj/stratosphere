@@ -1,0 +1,7 @@
+module Stratosphere.Timestream.ScheduledQuery.MultiMeasureAttributeMappingProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MultiMeasureAttributeMappingProperty :: Prelude.Type
+instance ToResourceProperties MultiMeasureAttributeMappingProperty
+instance JSON.ToJSON MultiMeasureAttributeMappingProperty

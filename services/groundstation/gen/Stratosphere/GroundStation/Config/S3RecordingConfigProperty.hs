@@ -1,0 +1,46 @@
+module Stratosphere.GroundStation.Config.S3RecordingConfigProperty (
+        S3RecordingConfigProperty(..), mkS3RecordingConfigProperty
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import Stratosphere.ResourceProperties
+import Stratosphere.Value
+data S3RecordingConfigProperty
+  = S3RecordingConfigProperty {bucketArn :: (Prelude.Maybe (Value Prelude.Text)),
+                               prefix :: (Prelude.Maybe (Value Prelude.Text)),
+                               roleArn :: (Prelude.Maybe (Value Prelude.Text))}
+mkS3RecordingConfigProperty :: S3RecordingConfigProperty
+mkS3RecordingConfigProperty
+  = S3RecordingConfigProperty
+      {bucketArn = Prelude.Nothing, prefix = Prelude.Nothing,
+       roleArn = Prelude.Nothing}
+instance ToResourceProperties S3RecordingConfigProperty where
+  toResourceProperties S3RecordingConfigProperty {..}
+    = ResourceProperties
+        {awsType = "AWS::GroundStation::Config.S3RecordingConfig",
+         properties = Prelude.fromList
+                        (Prelude.catMaybes
+                           [(JSON..=) "BucketArn" Prelude.<$> bucketArn,
+                            (JSON..=) "Prefix" Prelude.<$> prefix,
+                            (JSON..=) "RoleArn" Prelude.<$> roleArn])}
+instance JSON.ToJSON S3RecordingConfigProperty where
+  toJSON S3RecordingConfigProperty {..}
+    = JSON.object
+        (Prelude.fromList
+           (Prelude.catMaybes
+              [(JSON..=) "BucketArn" Prelude.<$> bucketArn,
+               (JSON..=) "Prefix" Prelude.<$> prefix,
+               (JSON..=) "RoleArn" Prelude.<$> roleArn]))
+instance Property "BucketArn" S3RecordingConfigProperty where
+  type PropertyType "BucketArn" S3RecordingConfigProperty = Value Prelude.Text
+  set newValue S3RecordingConfigProperty {..}
+    = S3RecordingConfigProperty {bucketArn = Prelude.pure newValue, ..}
+instance Property "Prefix" S3RecordingConfigProperty where
+  type PropertyType "Prefix" S3RecordingConfigProperty = Value Prelude.Text
+  set newValue S3RecordingConfigProperty {..}
+    = S3RecordingConfigProperty {prefix = Prelude.pure newValue, ..}
+instance Property "RoleArn" S3RecordingConfigProperty where
+  type PropertyType "RoleArn" S3RecordingConfigProperty = Value Prelude.Text
+  set newValue S3RecordingConfigProperty {..}
+    = S3RecordingConfigProperty {roleArn = Prelude.pure newValue, ..}

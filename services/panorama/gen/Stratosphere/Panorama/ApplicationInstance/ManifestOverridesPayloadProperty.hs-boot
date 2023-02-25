@@ -1,0 +1,7 @@
+module Stratosphere.Panorama.ApplicationInstance.ManifestOverridesPayloadProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ManifestOverridesPayloadProperty :: Prelude.Type
+instance ToResourceProperties ManifestOverridesPayloadProperty
+instance JSON.ToJSON ManifestOverridesPayloadProperty

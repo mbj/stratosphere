@@ -1,0 +1,7 @@
+module Stratosphere.Lex.Bot.DialogCodeHookSettingProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DialogCodeHookSettingProperty :: Prelude.Type
+instance ToResourceProperties DialogCodeHookSettingProperty
+instance JSON.ToJSON DialogCodeHookSettingProperty

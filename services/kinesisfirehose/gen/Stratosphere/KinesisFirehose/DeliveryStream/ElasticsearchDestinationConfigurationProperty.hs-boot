@@ -1,0 +1,7 @@
+module Stratosphere.KinesisFirehose.DeliveryStream.ElasticsearchDestinationConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ElasticsearchDestinationConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ElasticsearchDestinationConfigurationProperty
+instance JSON.ToJSON ElasticsearchDestinationConfigurationProperty

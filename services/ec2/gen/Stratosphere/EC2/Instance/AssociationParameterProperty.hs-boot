@@ -1,0 +1,7 @@
+module Stratosphere.EC2.Instance.AssociationParameterProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AssociationParameterProperty :: Prelude.Type
+instance ToResourceProperties AssociationParameterProperty
+instance JSON.ToJSON AssociationParameterProperty

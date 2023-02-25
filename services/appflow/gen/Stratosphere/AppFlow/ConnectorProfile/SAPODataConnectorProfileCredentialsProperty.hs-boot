@@ -1,0 +1,7 @@
+module Stratosphere.AppFlow.ConnectorProfile.SAPODataConnectorProfileCredentialsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SAPODataConnectorProfileCredentialsProperty :: Prelude.Type
+instance ToResourceProperties SAPODataConnectorProfileCredentialsProperty
+instance JSON.ToJSON SAPODataConnectorProfileCredentialsProperty

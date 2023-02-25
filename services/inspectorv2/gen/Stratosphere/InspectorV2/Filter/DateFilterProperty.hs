@@ -1,0 +1,38 @@
+module Stratosphere.InspectorV2.Filter.DateFilterProperty (
+        DateFilterProperty(..), mkDateFilterProperty
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import Stratosphere.ResourceProperties
+import Stratosphere.Value
+data DateFilterProperty
+  = DateFilterProperty {endInclusive :: (Prelude.Maybe (Value Prelude.Integer)),
+                        startInclusive :: (Prelude.Maybe (Value Prelude.Integer))}
+mkDateFilterProperty :: DateFilterProperty
+mkDateFilterProperty
+  = DateFilterProperty
+      {endInclusive = Prelude.Nothing, startInclusive = Prelude.Nothing}
+instance ToResourceProperties DateFilterProperty where
+  toResourceProperties DateFilterProperty {..}
+    = ResourceProperties
+        {awsType = "AWS::InspectorV2::Filter.DateFilter",
+         properties = Prelude.fromList
+                        (Prelude.catMaybes
+                           [(JSON..=) "EndInclusive" Prelude.<$> endInclusive,
+                            (JSON..=) "StartInclusive" Prelude.<$> startInclusive])}
+instance JSON.ToJSON DateFilterProperty where
+  toJSON DateFilterProperty {..}
+    = JSON.object
+        (Prelude.fromList
+           (Prelude.catMaybes
+              [(JSON..=) "EndInclusive" Prelude.<$> endInclusive,
+               (JSON..=) "StartInclusive" Prelude.<$> startInclusive]))
+instance Property "EndInclusive" DateFilterProperty where
+  type PropertyType "EndInclusive" DateFilterProperty = Value Prelude.Integer
+  set newValue DateFilterProperty {..}
+    = DateFilterProperty {endInclusive = Prelude.pure newValue, ..}
+instance Property "StartInclusive" DateFilterProperty where
+  type PropertyType "StartInclusive" DateFilterProperty = Value Prelude.Integer
+  set newValue DateFilterProperty {..}
+    = DateFilterProperty {startInclusive = Prelude.pure newValue, ..}

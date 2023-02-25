@@ -1,0 +1,7 @@
+module Stratosphere.Evidently.Project.AppConfigResourceObjectProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AppConfigResourceObjectProperty :: Prelude.Type
+instance ToResourceProperties AppConfigResourceObjectProperty
+instance JSON.ToJSON AppConfigResourceObjectProperty

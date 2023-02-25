@@ -1,0 +1,7 @@
+module Stratosphere.AppMesh.VirtualGateway.VirtualGatewayHealthCheckPolicyProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data VirtualGatewayHealthCheckPolicyProperty :: Prelude.Type
+instance ToResourceProperties VirtualGatewayHealthCheckPolicyProperty
+instance JSON.ToJSON VirtualGatewayHealthCheckPolicyProperty

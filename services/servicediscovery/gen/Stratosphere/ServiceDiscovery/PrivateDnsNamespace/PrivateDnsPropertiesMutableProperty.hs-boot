@@ -1,0 +1,7 @@
+module Stratosphere.ServiceDiscovery.PrivateDnsNamespace.PrivateDnsPropertiesMutableProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PrivateDnsPropertiesMutableProperty :: Prelude.Type
+instance ToResourceProperties PrivateDnsPropertiesMutableProperty
+instance JSON.ToJSON PrivateDnsPropertiesMutableProperty

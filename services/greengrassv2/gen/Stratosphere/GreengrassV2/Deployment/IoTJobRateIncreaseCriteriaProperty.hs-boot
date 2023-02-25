@@ -1,0 +1,7 @@
+module Stratosphere.GreengrassV2.Deployment.IoTJobRateIncreaseCriteriaProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data IoTJobRateIncreaseCriteriaProperty :: Prelude.Type
+instance ToResourceProperties IoTJobRateIncreaseCriteriaProperty
+instance JSON.ToJSON IoTJobRateIncreaseCriteriaProperty

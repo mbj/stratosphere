@@ -1,0 +1,7 @@
+module Stratosphere.EC2.EC2Fleet.FleetLaunchTemplateConfigRequestProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data FleetLaunchTemplateConfigRequestProperty :: Prelude.Type
+instance ToResourceProperties FleetLaunchTemplateConfigRequestProperty
+instance JSON.ToJSON FleetLaunchTemplateConfigRequestProperty

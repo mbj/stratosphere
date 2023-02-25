@@ -1,0 +1,7 @@
+module Stratosphere.SSM.MaintenanceWindowTask.CloudWatchOutputConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CloudWatchOutputConfigProperty :: Prelude.Type
+instance ToResourceProperties CloudWatchOutputConfigProperty
+instance JSON.ToJSON CloudWatchOutputConfigProperty

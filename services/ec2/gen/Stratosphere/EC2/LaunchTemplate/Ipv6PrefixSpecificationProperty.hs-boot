@@ -1,0 +1,7 @@
+module Stratosphere.EC2.LaunchTemplate.Ipv6PrefixSpecificationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data Ipv6PrefixSpecificationProperty :: Prelude.Type
+instance ToResourceProperties Ipv6PrefixSpecificationProperty
+instance JSON.ToJSON Ipv6PrefixSpecificationProperty

@@ -1,0 +1,7 @@
+module Stratosphere.WAFv2.RuleGroup.HeaderMatchPatternProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data HeaderMatchPatternProperty :: Prelude.Type
+instance ToResourceProperties HeaderMatchPatternProperty
+instance JSON.ToJSON HeaderMatchPatternProperty

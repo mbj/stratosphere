@@ -10,7 +10,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        ghc: ['9.0', '9.2', '9.4']
+        ghc: ['9.2', '9.4']
         os:  [ubuntu-latest]
     steps:
     - uses: actions/checkout@v3
@@ -27,6 +27,6 @@ jobs:
     - name: Install dependencies
       run: stack build --test --only-dependencies
     - name: Build
-      run: stack build --fast --test --no-run-tests stratosphere
+      run: stack build --fast --test --no-run-tests
     - name: Run tests
-      run: stack build --fast --test stratosphere
+      run: stack build --fast --test

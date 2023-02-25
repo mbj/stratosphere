@@ -1,0 +1,7 @@
+module Stratosphere.Backup.BackupPlan.AdvancedBackupSettingResourceTypeProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AdvancedBackupSettingResourceTypeProperty :: Prelude.Type
+instance ToResourceProperties AdvancedBackupSettingResourceTypeProperty
+instance JSON.ToJSON AdvancedBackupSettingResourceTypeProperty

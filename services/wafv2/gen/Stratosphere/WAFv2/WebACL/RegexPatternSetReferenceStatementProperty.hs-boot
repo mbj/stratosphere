@@ -1,0 +1,7 @@
+module Stratosphere.WAFv2.WebACL.RegexPatternSetReferenceStatementProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RegexPatternSetReferenceStatementProperty :: Prelude.Type
+instance ToResourceProperties RegexPatternSetReferenceStatementProperty
+instance JSON.ToJSON RegexPatternSetReferenceStatementProperty

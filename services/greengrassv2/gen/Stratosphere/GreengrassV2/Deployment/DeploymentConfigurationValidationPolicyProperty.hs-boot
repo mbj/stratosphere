@@ -1,0 +1,7 @@
+module Stratosphere.GreengrassV2.Deployment.DeploymentConfigurationValidationPolicyProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DeploymentConfigurationValidationPolicyProperty :: Prelude.Type
+instance ToResourceProperties DeploymentConfigurationValidationPolicyProperty
+instance JSON.ToJSON DeploymentConfigurationValidationPolicyProperty

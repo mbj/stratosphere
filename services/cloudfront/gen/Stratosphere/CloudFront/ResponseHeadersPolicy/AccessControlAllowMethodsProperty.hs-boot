@@ -1,0 +1,7 @@
+module Stratosphere.CloudFront.ResponseHeadersPolicy.AccessControlAllowMethodsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AccessControlAllowMethodsProperty :: Prelude.Type
+instance ToResourceProperties AccessControlAllowMethodsProperty
+instance JSON.ToJSON AccessControlAllowMethodsProperty

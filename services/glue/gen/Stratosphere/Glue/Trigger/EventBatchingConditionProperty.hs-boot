@@ -1,0 +1,7 @@
+module Stratosphere.Glue.Trigger.EventBatchingConditionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data EventBatchingConditionProperty :: Prelude.Type
+instance ToResourceProperties EventBatchingConditionProperty
+instance JSON.ToJSON EventBatchingConditionProperty

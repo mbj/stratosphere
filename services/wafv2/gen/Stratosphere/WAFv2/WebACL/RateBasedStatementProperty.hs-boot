@@ -1,0 +1,7 @@
+module Stratosphere.WAFv2.WebACL.RateBasedStatementProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RateBasedStatementProperty :: Prelude.Type
+instance ToResourceProperties RateBasedStatementProperty
+instance JSON.ToJSON RateBasedStatementProperty

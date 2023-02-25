@@ -1,0 +1,7 @@
+module Stratosphere.EC2.LaunchTemplate.MaintenanceOptionsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MaintenanceOptionsProperty :: Prelude.Type
+instance ToResourceProperties MaintenanceOptionsProperty
+instance JSON.ToJSON MaintenanceOptionsProperty

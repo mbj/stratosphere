@@ -1,0 +1,81 @@
+module Stratosphere.SystemsManagerSAP.Application (
+        module Exports, Application(..), mkApplication
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.SystemsManagerSAP.Application.CredentialProperty as Exports
+import Stratosphere.ResourceProperties
+import Stratosphere.Tag
+import Stratosphere.Value
+data Application
+  = Application {applicationId :: (Value Prelude.Text),
+                 applicationType :: (Value Prelude.Text),
+                 credentials :: (Prelude.Maybe [CredentialProperty]),
+                 instances :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                 sapInstanceNumber :: (Prelude.Maybe (Value Prelude.Text)),
+                 sid :: (Prelude.Maybe (Value Prelude.Text)),
+                 tags :: (Prelude.Maybe [Tag])}
+mkApplication ::
+  Value Prelude.Text -> Value Prelude.Text -> Application
+mkApplication applicationId applicationType
+  = Application
+      {applicationId = applicationId, applicationType = applicationType,
+       credentials = Prelude.Nothing, instances = Prelude.Nothing,
+       sapInstanceNumber = Prelude.Nothing, sid = Prelude.Nothing,
+       tags = Prelude.Nothing}
+instance ToResourceProperties Application where
+  toResourceProperties Application {..}
+    = ResourceProperties
+        {awsType = "AWS::SystemsManagerSAP::Application",
+         properties = Prelude.fromList
+                        ((Prelude.<>)
+                           ["ApplicationId" JSON..= applicationId,
+                            "ApplicationType" JSON..= applicationType]
+                           (Prelude.catMaybes
+                              [(JSON..=) "Credentials" Prelude.<$> credentials,
+                               (JSON..=) "Instances" Prelude.<$> instances,
+                               (JSON..=) "SapInstanceNumber" Prelude.<$> sapInstanceNumber,
+                               (JSON..=) "Sid" Prelude.<$> sid,
+                               (JSON..=) "Tags" Prelude.<$> tags]))}
+instance JSON.ToJSON Application where
+  toJSON Application {..}
+    = JSON.object
+        (Prelude.fromList
+           ((Prelude.<>)
+              ["ApplicationId" JSON..= applicationId,
+               "ApplicationType" JSON..= applicationType]
+              (Prelude.catMaybes
+                 [(JSON..=) "Credentials" Prelude.<$> credentials,
+                  (JSON..=) "Instances" Prelude.<$> instances,
+                  (JSON..=) "SapInstanceNumber" Prelude.<$> sapInstanceNumber,
+                  (JSON..=) "Sid" Prelude.<$> sid,
+                  (JSON..=) "Tags" Prelude.<$> tags])))
+instance Property "ApplicationId" Application where
+  type PropertyType "ApplicationId" Application = Value Prelude.Text
+  set newValue Application {..}
+    = Application {applicationId = newValue, ..}
+instance Property "ApplicationType" Application where
+  type PropertyType "ApplicationType" Application = Value Prelude.Text
+  set newValue Application {..}
+    = Application {applicationType = newValue, ..}
+instance Property "Credentials" Application where
+  type PropertyType "Credentials" Application = [CredentialProperty]
+  set newValue Application {..}
+    = Application {credentials = Prelude.pure newValue, ..}
+instance Property "Instances" Application where
+  type PropertyType "Instances" Application = ValueList (Value Prelude.Text)
+  set newValue Application {..}
+    = Application {instances = Prelude.pure newValue, ..}
+instance Property "SapInstanceNumber" Application where
+  type PropertyType "SapInstanceNumber" Application = Value Prelude.Text
+  set newValue Application {..}
+    = Application {sapInstanceNumber = Prelude.pure newValue, ..}
+instance Property "Sid" Application where
+  type PropertyType "Sid" Application = Value Prelude.Text
+  set newValue Application {..}
+    = Application {sid = Prelude.pure newValue, ..}
+instance Property "Tags" Application where
+  type PropertyType "Tags" Application = [Tag]
+  set newValue Application {..}
+    = Application {tags = Prelude.pure newValue, ..}

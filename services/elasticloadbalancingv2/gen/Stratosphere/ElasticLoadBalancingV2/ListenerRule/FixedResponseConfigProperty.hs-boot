@@ -1,0 +1,7 @@
+module Stratosphere.ElasticLoadBalancingV2.ListenerRule.FixedResponseConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data FixedResponseConfigProperty :: Prelude.Type
+instance ToResourceProperties FixedResponseConfigProperty
+instance JSON.ToJSON FixedResponseConfigProperty

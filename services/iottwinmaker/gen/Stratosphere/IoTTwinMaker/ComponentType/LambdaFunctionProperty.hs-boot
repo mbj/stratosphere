@@ -1,0 +1,7 @@
+module Stratosphere.IoTTwinMaker.ComponentType.LambdaFunctionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data LambdaFunctionProperty :: Prelude.Type
+instance ToResourceProperties LambdaFunctionProperty
+instance JSON.ToJSON LambdaFunctionProperty

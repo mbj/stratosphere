@@ -1,0 +1,7 @@
+module Stratosphere.EMR.Step.HadoopJarStepConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data HadoopJarStepConfigProperty :: Prelude.Type
+instance ToResourceProperties HadoopJarStepConfigProperty
+instance JSON.ToJSON HadoopJarStepConfigProperty

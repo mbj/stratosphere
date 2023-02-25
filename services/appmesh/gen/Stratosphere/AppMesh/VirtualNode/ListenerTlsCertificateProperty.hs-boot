@@ -1,0 +1,7 @@
+module Stratosphere.AppMesh.VirtualNode.ListenerTlsCertificateProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ListenerTlsCertificateProperty :: Prelude.Type
+instance ToResourceProperties ListenerTlsCertificateProperty
+instance JSON.ToJSON ListenerTlsCertificateProperty

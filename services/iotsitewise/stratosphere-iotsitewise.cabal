@@ -1,0 +1,101 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.35.2.
+--
+-- see: https://github.com/sol/hpack
+
+name:           stratosphere-iotsitewise
+version:        1.0.0
+category:       AWS, Cloud
+stability:      experimental
+homepage:       https://github.com/mbj/stratosphere#readme
+bug-reports:    https://github.com/mbj/stratosphere/issues
+maintainer:     Markus Schirp
+license:        MIT
+build-type:     Simple
+
+source-repository head
+  type: git
+  location: https://github.com/mbj/stratosphere
+
+flag development
+  description: Run GHC with development flags
+  manual: True
+  default: False
+
+library
+  exposed-modules:
+      Stratosphere.IoTSiteWise.AccessPolicy
+      Stratosphere.IoTSiteWise.AccessPolicy.AccessPolicyIdentityProperty
+      Stratosphere.IoTSiteWise.AccessPolicy.AccessPolicyResourceProperty
+      Stratosphere.IoTSiteWise.AccessPolicy.IamRoleProperty
+      Stratosphere.IoTSiteWise.AccessPolicy.IamUserProperty
+      Stratosphere.IoTSiteWise.AccessPolicy.PortalProperty
+      Stratosphere.IoTSiteWise.AccessPolicy.ProjectProperty
+      Stratosphere.IoTSiteWise.AccessPolicy.UserProperty
+      Stratosphere.IoTSiteWise.Asset
+      Stratosphere.IoTSiteWise.Asset.AssetHierarchyProperty
+      Stratosphere.IoTSiteWise.Asset.AssetPropertyProperty
+      Stratosphere.IoTSiteWise.AssetModel
+      Stratosphere.IoTSiteWise.AssetModel.AssetModelCompositeModelProperty
+      Stratosphere.IoTSiteWise.AssetModel.AssetModelHierarchyProperty
+      Stratosphere.IoTSiteWise.AssetModel.AssetModelPropertyProperty
+      Stratosphere.IoTSiteWise.AssetModel.AttributeProperty
+      Stratosphere.IoTSiteWise.AssetModel.ExpressionVariableProperty
+      Stratosphere.IoTSiteWise.AssetModel.MetricProperty
+      Stratosphere.IoTSiteWise.AssetModel.MetricWindowProperty
+      Stratosphere.IoTSiteWise.AssetModel.PropertyTypeProperty
+      Stratosphere.IoTSiteWise.AssetModel.TransformProperty
+      Stratosphere.IoTSiteWise.AssetModel.TumblingWindowProperty
+      Stratosphere.IoTSiteWise.AssetModel.VariableValueProperty
+      Stratosphere.IoTSiteWise.Dashboard
+      Stratosphere.IoTSiteWise.Gateway
+      Stratosphere.IoTSiteWise.Gateway.GatewayCapabilitySummaryProperty
+      Stratosphere.IoTSiteWise.Gateway.GatewayPlatformProperty
+      Stratosphere.IoTSiteWise.Gateway.GreengrassProperty
+      Stratosphere.IoTSiteWise.Gateway.GreengrassV2Property
+      Stratosphere.IoTSiteWise.Portal
+      Stratosphere.IoTSiteWise.Portal.AlarmsProperty
+      Stratosphere.IoTSiteWise.Project
+  other-modules:
+      Paths_stratosphere_iotsitewise
+  hs-source-dirs:
+      gen
+  default-extensions:
+      DataKinds
+      DeriveGeneric
+      DerivingStrategies
+      DerivingVia
+      DuplicateRecordFields
+      FlexibleContexts
+      FlexibleInstances
+      GADTs
+      GeneralizedNewtypeDeriving
+      InstanceSigs
+      LambdaCase
+      MultiParamTypeClasses
+      NoFieldSelectors
+      NoImplicitPrelude
+      NumericUnderscores
+      OverloadedLists
+      OverloadedRecordDot
+      OverloadedStrings
+      PolyKinds
+      RecordWildCards
+      ScopedTypeVariables
+      StandaloneDeriving
+      Strict
+      TemplateHaskell
+      TupleSections
+      TypeApplications
+      TypeFamilies
+  ghc-options: -Wall -Wcompat -Widentities -Wimplicit-prelude -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-local-signatures -Wmissing-signatures -Wmonomorphism-restriction -Wredundant-constraints -fhide-source-paths -funbox-strict-fields -optP-Wno-nonportable-include-path -Wno-unused-imports
+  build-depends:
+      aeson
+    , base
+    , stratosphere ==1.0.0
+  default-language: Haskell2010
+  if flag(development)
+    ghc-options: -Werror
+  else
+    ghc-options: -Wwarn

@@ -1,0 +1,7 @@
+module Stratosphere.DMS.Endpoint.ElasticsearchSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ElasticsearchSettingsProperty :: Prelude.Type
+instance ToResourceProperties ElasticsearchSettingsProperty
+instance JSON.ToJSON ElasticsearchSettingsProperty

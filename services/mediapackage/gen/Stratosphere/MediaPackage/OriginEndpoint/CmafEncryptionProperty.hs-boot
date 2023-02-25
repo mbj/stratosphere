@@ -1,0 +1,7 @@
+module Stratosphere.MediaPackage.OriginEndpoint.CmafEncryptionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CmafEncryptionProperty :: Prelude.Type
+instance ToResourceProperties CmafEncryptionProperty
+instance JSON.ToJSON CmafEncryptionProperty

@@ -1,0 +1,7 @@
+module Stratosphere.AppMesh.GatewayRoute.HttpGatewayRoutePrefixRewriteProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data HttpGatewayRoutePrefixRewriteProperty :: Prelude.Type
+instance ToResourceProperties HttpGatewayRoutePrefixRewriteProperty
+instance JSON.ToJSON HttpGatewayRoutePrefixRewriteProperty

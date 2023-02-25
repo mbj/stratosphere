@@ -1,0 +1,7 @@
+module Stratosphere.S3.Bucket.AccelerateConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AccelerateConfigurationProperty :: Prelude.Type
+instance ToResourceProperties AccelerateConfigurationProperty
+instance JSON.ToJSON AccelerateConfigurationProperty

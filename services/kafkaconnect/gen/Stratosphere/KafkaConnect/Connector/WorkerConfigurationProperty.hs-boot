@@ -1,0 +1,7 @@
+module Stratosphere.KafkaConnect.Connector.WorkerConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data WorkerConfigurationProperty :: Prelude.Type
+instance ToResourceProperties WorkerConfigurationProperty
+instance JSON.ToJSON WorkerConfigurationProperty

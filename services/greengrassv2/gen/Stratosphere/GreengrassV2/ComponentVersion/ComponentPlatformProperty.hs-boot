@@ -1,0 +1,7 @@
+module Stratosphere.GreengrassV2.ComponentVersion.ComponentPlatformProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ComponentPlatformProperty :: Prelude.Type
+instance ToResourceProperties ComponentPlatformProperty
+instance JSON.ToJSON ComponentPlatformProperty

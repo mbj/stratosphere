@@ -1,0 +1,7 @@
+module Stratosphere.AppFlow.ConnectorProfile.BasicAuthCredentialsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data BasicAuthCredentialsProperty :: Prelude.Type
+instance ToResourceProperties BasicAuthCredentialsProperty
+instance JSON.ToJSON BasicAuthCredentialsProperty

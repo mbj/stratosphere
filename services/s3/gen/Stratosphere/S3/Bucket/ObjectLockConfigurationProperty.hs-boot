@@ -1,0 +1,7 @@
+module Stratosphere.S3.Bucket.ObjectLockConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ObjectLockConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ObjectLockConfigurationProperty
+instance JSON.ToJSON ObjectLockConfigurationProperty

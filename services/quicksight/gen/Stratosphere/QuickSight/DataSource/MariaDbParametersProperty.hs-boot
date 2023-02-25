@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.DataSource.MariaDbParametersProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MariaDbParametersProperty :: Prelude.Type
+instance ToResourceProperties MariaDbParametersProperty
+instance JSON.ToJSON MariaDbParametersProperty

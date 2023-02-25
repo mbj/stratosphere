@@ -1,0 +1,7 @@
+module Stratosphere.IoT.TopicRule.TimestreamTimestampProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TimestreamTimestampProperty :: Prelude.Type
+instance ToResourceProperties TimestreamTimestampProperty
+instance JSON.ToJSON TimestreamTimestampProperty

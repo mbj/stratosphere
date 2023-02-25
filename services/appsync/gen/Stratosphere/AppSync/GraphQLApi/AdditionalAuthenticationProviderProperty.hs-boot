@@ -1,0 +1,7 @@
+module Stratosphere.AppSync.GraphQLApi.AdditionalAuthenticationProviderProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AdditionalAuthenticationProviderProperty :: Prelude.Type
+instance ToResourceProperties AdditionalAuthenticationProviderProperty
+instance JSON.ToJSON AdditionalAuthenticationProviderProperty

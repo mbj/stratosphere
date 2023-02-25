@@ -1,0 +1,7 @@
+module Stratosphere.Pipes.Pipe.PipeTargetEventBridgeEventBusParametersProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PipeTargetEventBridgeEventBusParametersProperty :: Prelude.Type
+instance ToResourceProperties PipeTargetEventBridgeEventBusParametersProperty
+instance JSON.ToJSON PipeTargetEventBridgeEventBusParametersProperty

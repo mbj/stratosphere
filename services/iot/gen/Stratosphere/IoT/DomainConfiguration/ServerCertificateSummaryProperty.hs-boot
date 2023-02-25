@@ -1,0 +1,7 @@
+module Stratosphere.IoT.DomainConfiguration.ServerCertificateSummaryProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ServerCertificateSummaryProperty :: Prelude.Type
+instance ToResourceProperties ServerCertificateSummaryProperty
+instance JSON.ToJSON ServerCertificateSummaryProperty

@@ -1,0 +1,7 @@
+module Stratosphere.CustomerProfiles.Integration.MarketoSourcePropertiesProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MarketoSourcePropertiesProperty :: Prelude.Type
+instance ToResourceProperties MarketoSourcePropertiesProperty
+instance JSON.ToJSON MarketoSourcePropertiesProperty

@@ -1,0 +1,7 @@
+module Stratosphere.Kendra.DataSource.ConfluenceBlogConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ConfluenceBlogConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ConfluenceBlogConfigurationProperty
+instance JSON.ToJSON ConfluenceBlogConfigurationProperty

@@ -1,0 +1,7 @@
+module Stratosphere.MediaLive.Channel.Mpeg2FilterSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data Mpeg2FilterSettingsProperty :: Prelude.Type
+instance ToResourceProperties Mpeg2FilterSettingsProperty
+instance JSON.ToJSON Mpeg2FilterSettingsProperty

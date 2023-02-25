@@ -1,0 +1,7 @@
+module Stratosphere.MediaLive.Channel.DvbSubDestinationSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DvbSubDestinationSettingsProperty :: Prelude.Type
+instance ToResourceProperties DvbSubDestinationSettingsProperty
+instance JSON.ToJSON DvbSubDestinationSettingsProperty

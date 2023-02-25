@@ -1,0 +1,7 @@
+module Stratosphere.Backup.BackupVault.LockConfigurationTypeProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data LockConfigurationTypeProperty :: Prelude.Type
+instance ToResourceProperties LockConfigurationTypeProperty
+instance JSON.ToJSON LockConfigurationTypeProperty

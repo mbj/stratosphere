@@ -1,0 +1,7 @@
+module Stratosphere.IoT.AccountAuditConfiguration.AuditNotificationTargetProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AuditNotificationTargetProperty :: Prelude.Type
+instance ToResourceProperties AuditNotificationTargetProperty
+instance JSON.ToJSON AuditNotificationTargetProperty

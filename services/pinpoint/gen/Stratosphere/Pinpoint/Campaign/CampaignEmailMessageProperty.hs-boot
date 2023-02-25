@@ -1,0 +1,7 @@
+module Stratosphere.Pinpoint.Campaign.CampaignEmailMessageProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CampaignEmailMessageProperty :: Prelude.Type
+instance ToResourceProperties CampaignEmailMessageProperty
+instance JSON.ToJSON CampaignEmailMessageProperty

@@ -1,0 +1,7 @@
+module Stratosphere.MediaLive.Channel.MsSmoothOutputSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MsSmoothOutputSettingsProperty :: Prelude.Type
+instance ToResourceProperties MsSmoothOutputSettingsProperty
+instance JSON.ToJSON MsSmoothOutputSettingsProperty

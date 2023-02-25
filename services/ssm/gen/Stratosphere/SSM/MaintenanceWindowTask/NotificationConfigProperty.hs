@@ -1,0 +1,52 @@
+module Stratosphere.SSM.MaintenanceWindowTask.NotificationConfigProperty (
+        NotificationConfigProperty(..), mkNotificationConfigProperty
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import Stratosphere.ResourceProperties
+import Stratosphere.Value
+data NotificationConfigProperty
+  = NotificationConfigProperty {notificationArn :: (Value Prelude.Text),
+                                notificationEvents :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                                notificationType :: (Prelude.Maybe (Value Prelude.Text))}
+mkNotificationConfigProperty ::
+  Value Prelude.Text -> NotificationConfigProperty
+mkNotificationConfigProperty notificationArn
+  = NotificationConfigProperty
+      {notificationArn = notificationArn,
+       notificationEvents = Prelude.Nothing,
+       notificationType = Prelude.Nothing}
+instance ToResourceProperties NotificationConfigProperty where
+  toResourceProperties NotificationConfigProperty {..}
+    = ResourceProperties
+        {awsType = "AWS::SSM::MaintenanceWindowTask.NotificationConfig",
+         properties = Prelude.fromList
+                        ((Prelude.<>)
+                           ["NotificationArn" JSON..= notificationArn]
+                           (Prelude.catMaybes
+                              [(JSON..=) "NotificationEvents" Prelude.<$> notificationEvents,
+                               (JSON..=) "NotificationType" Prelude.<$> notificationType]))}
+instance JSON.ToJSON NotificationConfigProperty where
+  toJSON NotificationConfigProperty {..}
+    = JSON.object
+        (Prelude.fromList
+           ((Prelude.<>)
+              ["NotificationArn" JSON..= notificationArn]
+              (Prelude.catMaybes
+                 [(JSON..=) "NotificationEvents" Prelude.<$> notificationEvents,
+                  (JSON..=) "NotificationType" Prelude.<$> notificationType])))
+instance Property "NotificationArn" NotificationConfigProperty where
+  type PropertyType "NotificationArn" NotificationConfigProperty = Value Prelude.Text
+  set newValue NotificationConfigProperty {..}
+    = NotificationConfigProperty {notificationArn = newValue, ..}
+instance Property "NotificationEvents" NotificationConfigProperty where
+  type PropertyType "NotificationEvents" NotificationConfigProperty = ValueList (Value Prelude.Text)
+  set newValue NotificationConfigProperty {..}
+    = NotificationConfigProperty
+        {notificationEvents = Prelude.pure newValue, ..}
+instance Property "NotificationType" NotificationConfigProperty where
+  type PropertyType "NotificationType" NotificationConfigProperty = Value Prelude.Text
+  set newValue NotificationConfigProperty {..}
+    = NotificationConfigProperty
+        {notificationType = Prelude.pure newValue, ..}

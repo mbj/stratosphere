@@ -1,0 +1,7 @@
+module Stratosphere.SageMaker.ModelPackage.ModelPackageStatusItemProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ModelPackageStatusItemProperty :: Prelude.Type
+instance ToResourceProperties ModelPackageStatusItemProperty
+instance JSON.ToJSON ModelPackageStatusItemProperty

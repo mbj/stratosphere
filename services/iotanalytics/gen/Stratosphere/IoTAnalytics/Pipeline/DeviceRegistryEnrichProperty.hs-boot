@@ -1,0 +1,7 @@
+module Stratosphere.IoTAnalytics.Pipeline.DeviceRegistryEnrichProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DeviceRegistryEnrichProperty :: Prelude.Type
+instance ToResourceProperties DeviceRegistryEnrichProperty
+instance JSON.ToJSON DeviceRegistryEnrichProperty

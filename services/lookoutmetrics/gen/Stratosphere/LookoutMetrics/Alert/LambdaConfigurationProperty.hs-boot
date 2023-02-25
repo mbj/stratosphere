@@ -1,0 +1,7 @@
+module Stratosphere.LookoutMetrics.Alert.LambdaConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data LambdaConfigurationProperty :: Prelude.Type
+instance ToResourceProperties LambdaConfigurationProperty
+instance JSON.ToJSON LambdaConfigurationProperty

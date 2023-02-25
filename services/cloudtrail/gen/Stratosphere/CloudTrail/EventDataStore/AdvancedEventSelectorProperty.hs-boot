@@ -1,0 +1,7 @@
+module Stratosphere.CloudTrail.EventDataStore.AdvancedEventSelectorProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AdvancedEventSelectorProperty :: Prelude.Type
+instance ToResourceProperties AdvancedEventSelectorProperty
+instance JSON.ToJSON AdvancedEventSelectorProperty

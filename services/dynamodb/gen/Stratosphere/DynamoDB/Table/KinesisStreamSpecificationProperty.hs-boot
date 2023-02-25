@@ -1,0 +1,7 @@
+module Stratosphere.DynamoDB.Table.KinesisStreamSpecificationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data KinesisStreamSpecificationProperty :: Prelude.Type
+instance ToResourceProperties KinesisStreamSpecificationProperty
+instance JSON.ToJSON KinesisStreamSpecificationProperty

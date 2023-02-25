@@ -1,0 +1,7 @@
+module Stratosphere.AppConfig.Environment.MonitorsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MonitorsProperty :: Prelude.Type
+instance ToResourceProperties MonitorsProperty
+instance JSON.ToJSON MonitorsProperty

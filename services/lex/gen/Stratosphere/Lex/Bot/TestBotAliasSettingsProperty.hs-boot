@@ -1,0 +1,7 @@
+module Stratosphere.Lex.Bot.TestBotAliasSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TestBotAliasSettingsProperty :: Prelude.Type
+instance ToResourceProperties TestBotAliasSettingsProperty
+instance JSON.ToJSON TestBotAliasSettingsProperty

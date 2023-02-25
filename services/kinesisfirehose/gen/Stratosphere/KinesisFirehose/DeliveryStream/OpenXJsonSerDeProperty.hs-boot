@@ -1,0 +1,7 @@
+module Stratosphere.KinesisFirehose.DeliveryStream.OpenXJsonSerDeProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data OpenXJsonSerDeProperty :: Prelude.Type
+instance ToResourceProperties OpenXJsonSerDeProperty
+instance JSON.ToJSON OpenXJsonSerDeProperty

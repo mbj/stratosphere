@@ -1,0 +1,7 @@
+module Stratosphere.Pipes.Pipe.EcsContainerOverrideProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data EcsContainerOverrideProperty :: Prelude.Type
+instance ToResourceProperties EcsContainerOverrideProperty
+instance JSON.ToJSON EcsContainerOverrideProperty

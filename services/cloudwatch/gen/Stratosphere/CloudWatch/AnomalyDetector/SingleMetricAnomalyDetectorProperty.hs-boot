@@ -1,0 +1,7 @@
+module Stratosphere.CloudWatch.AnomalyDetector.SingleMetricAnomalyDetectorProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SingleMetricAnomalyDetectorProperty :: Prelude.Type
+instance ToResourceProperties SingleMetricAnomalyDetectorProperty
+instance JSON.ToJSON SingleMetricAnomalyDetectorProperty

@@ -1,0 +1,7 @@
+module Stratosphere.AutoScaling.ScalingPolicy.StepAdjustmentProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data StepAdjustmentProperty :: Prelude.Type
+instance ToResourceProperties StepAdjustmentProperty
+instance JSON.ToJSON StepAdjustmentProperty

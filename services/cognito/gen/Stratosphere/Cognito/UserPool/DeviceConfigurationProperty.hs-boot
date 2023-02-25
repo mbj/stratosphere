@@ -1,0 +1,7 @@
+module Stratosphere.Cognito.UserPool.DeviceConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DeviceConfigurationProperty :: Prelude.Type
+instance ToResourceProperties DeviceConfigurationProperty
+instance JSON.ToJSON DeviceConfigurationProperty

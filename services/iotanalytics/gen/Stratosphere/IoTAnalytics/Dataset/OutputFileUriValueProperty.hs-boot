@@ -1,0 +1,7 @@
+module Stratosphere.IoTAnalytics.Dataset.OutputFileUriValueProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data OutputFileUriValueProperty :: Prelude.Type
+instance ToResourceProperties OutputFileUriValueProperty
+instance JSON.ToJSON OutputFileUriValueProperty

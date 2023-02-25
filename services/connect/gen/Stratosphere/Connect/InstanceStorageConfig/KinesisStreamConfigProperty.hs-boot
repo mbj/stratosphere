@@ -1,0 +1,7 @@
+module Stratosphere.Connect.InstanceStorageConfig.KinesisStreamConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data KinesisStreamConfigProperty :: Prelude.Type
+instance ToResourceProperties KinesisStreamConfigProperty
+instance JSON.ToJSON KinesisStreamConfigProperty

@@ -1,0 +1,7 @@
+module Stratosphere.WAFv2.WebACL.ManagedRuleGroupConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ManagedRuleGroupConfigProperty :: Prelude.Type
+instance ToResourceProperties ManagedRuleGroupConfigProperty
+instance JSON.ToJSON ManagedRuleGroupConfigProperty

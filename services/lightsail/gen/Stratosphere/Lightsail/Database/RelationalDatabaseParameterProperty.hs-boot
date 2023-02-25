@@ -1,0 +1,7 @@
+module Stratosphere.Lightsail.Database.RelationalDatabaseParameterProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RelationalDatabaseParameterProperty :: Prelude.Type
+instance ToResourceProperties RelationalDatabaseParameterProperty
+instance JSON.ToJSON RelationalDatabaseParameterProperty

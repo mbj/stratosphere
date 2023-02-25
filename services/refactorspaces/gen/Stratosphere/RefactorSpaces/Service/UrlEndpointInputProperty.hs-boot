@@ -1,0 +1,7 @@
+module Stratosphere.RefactorSpaces.Service.UrlEndpointInputProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data UrlEndpointInputProperty :: Prelude.Type
+instance ToResourceProperties UrlEndpointInputProperty
+instance JSON.ToJSON UrlEndpointInputProperty

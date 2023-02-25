@@ -1,0 +1,7 @@
+module Stratosphere.WAFv2.RuleGroup.IPSetReferenceStatementProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data IPSetReferenceStatementProperty :: Prelude.Type
+instance ToResourceProperties IPSetReferenceStatementProperty
+instance JSON.ToJSON IPSetReferenceStatementProperty

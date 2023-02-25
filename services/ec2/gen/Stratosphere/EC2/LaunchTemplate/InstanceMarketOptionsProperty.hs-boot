@@ -1,0 +1,7 @@
+module Stratosphere.EC2.LaunchTemplate.InstanceMarketOptionsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data InstanceMarketOptionsProperty :: Prelude.Type
+instance ToResourceProperties InstanceMarketOptionsProperty
+instance JSON.ToJSON InstanceMarketOptionsProperty

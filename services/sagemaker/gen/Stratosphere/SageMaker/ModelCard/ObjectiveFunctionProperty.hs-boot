@@ -1,0 +1,7 @@
+module Stratosphere.SageMaker.ModelCard.ObjectiveFunctionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ObjectiveFunctionProperty :: Prelude.Type
+instance ToResourceProperties ObjectiveFunctionProperty
+instance JSON.ToJSON ObjectiveFunctionProperty

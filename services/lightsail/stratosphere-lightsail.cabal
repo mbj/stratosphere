@@ -1,0 +1,108 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.35.2.
+--
+-- see: https://github.com/sol/hpack
+
+name:           stratosphere-lightsail
+version:        1.0.0
+category:       AWS, Cloud
+stability:      experimental
+homepage:       https://github.com/mbj/stratosphere#readme
+bug-reports:    https://github.com/mbj/stratosphere/issues
+maintainer:     Markus Schirp
+license:        MIT
+build-type:     Simple
+
+source-repository head
+  type: git
+  location: https://github.com/mbj/stratosphere
+
+flag development
+  description: Run GHC with development flags
+  manual: True
+  default: False
+
+library
+  exposed-modules:
+      Stratosphere.Lightsail.Alarm
+      Stratosphere.Lightsail.Bucket
+      Stratosphere.Lightsail.Bucket.AccessRulesProperty
+      Stratosphere.Lightsail.Certificate
+      Stratosphere.Lightsail.Container
+      Stratosphere.Lightsail.Container.ContainerProperty
+      Stratosphere.Lightsail.Container.ContainerServiceDeploymentProperty
+      Stratosphere.Lightsail.Container.EnvironmentVariableProperty
+      Stratosphere.Lightsail.Container.HealthCheckConfigProperty
+      Stratosphere.Lightsail.Container.PortInfoProperty
+      Stratosphere.Lightsail.Container.PublicDomainNameProperty
+      Stratosphere.Lightsail.Container.PublicEndpointProperty
+      Stratosphere.Lightsail.Database
+      Stratosphere.Lightsail.Database.RelationalDatabaseParameterProperty
+      Stratosphere.Lightsail.Disk
+      Stratosphere.Lightsail.Disk.AddOnProperty
+      Stratosphere.Lightsail.Disk.AutoSnapshotAddOnProperty
+      Stratosphere.Lightsail.Disk.LocationProperty
+      Stratosphere.Lightsail.Distribution
+      Stratosphere.Lightsail.Distribution.CacheBehaviorPerPathProperty
+      Stratosphere.Lightsail.Distribution.CacheBehaviorProperty
+      Stratosphere.Lightsail.Distribution.CacheSettingsProperty
+      Stratosphere.Lightsail.Distribution.CookieObjectProperty
+      Stratosphere.Lightsail.Distribution.HeaderObjectProperty
+      Stratosphere.Lightsail.Distribution.InputOriginProperty
+      Stratosphere.Lightsail.Distribution.QueryStringObjectProperty
+      Stratosphere.Lightsail.Instance
+      Stratosphere.Lightsail.Instance.AddOnProperty
+      Stratosphere.Lightsail.Instance.AutoSnapshotAddOnProperty
+      Stratosphere.Lightsail.Instance.DiskProperty
+      Stratosphere.Lightsail.Instance.HardwareProperty
+      Stratosphere.Lightsail.Instance.LocationProperty
+      Stratosphere.Lightsail.Instance.MonthlyTransferProperty
+      Stratosphere.Lightsail.Instance.NetworkingProperty
+      Stratosphere.Lightsail.Instance.PortProperty
+      Stratosphere.Lightsail.Instance.StateProperty
+      Stratosphere.Lightsail.LoadBalancer
+      Stratosphere.Lightsail.LoadBalancerTlsCertificate
+      Stratosphere.Lightsail.StaticIp
+  other-modules:
+      Paths_stratosphere_lightsail
+  hs-source-dirs:
+      gen
+  default-extensions:
+      DataKinds
+      DeriveGeneric
+      DerivingStrategies
+      DerivingVia
+      DuplicateRecordFields
+      FlexibleContexts
+      FlexibleInstances
+      GADTs
+      GeneralizedNewtypeDeriving
+      InstanceSigs
+      LambdaCase
+      MultiParamTypeClasses
+      NoFieldSelectors
+      NoImplicitPrelude
+      NumericUnderscores
+      OverloadedLists
+      OverloadedRecordDot
+      OverloadedStrings
+      PolyKinds
+      RecordWildCards
+      ScopedTypeVariables
+      StandaloneDeriving
+      Strict
+      TemplateHaskell
+      TupleSections
+      TypeApplications
+      TypeFamilies
+  ghc-options: -Wall -Wcompat -Widentities -Wimplicit-prelude -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-local-signatures -Wmissing-signatures -Wmonomorphism-restriction -Wredundant-constraints -fhide-source-paths -funbox-strict-fields -optP-Wno-nonportable-include-path -Wno-unused-imports
+  build-depends:
+      aeson
+    , base
+    , stratosphere ==1.0.0
+  default-language: Haskell2010
+  if flag(development)
+    ghc-options: -Werror
+  else
+    ghc-options: -Wwarn

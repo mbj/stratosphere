@@ -1,0 +1,7 @@
+module Stratosphere.Redshift.EndpointAccess.VpcSecurityGroupProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data VpcSecurityGroupProperty :: Prelude.Type
+instance ToResourceProperties VpcSecurityGroupProperty
+instance JSON.ToJSON VpcSecurityGroupProperty

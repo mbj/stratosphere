@@ -1,0 +1,7 @@
+module Stratosphere.ElasticLoadBalancingV2.ListenerRule.RuleConditionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RuleConditionProperty :: Prelude.Type
+instance ToResourceProperties RuleConditionProperty
+instance JSON.ToJSON RuleConditionProperty

@@ -1,0 +1,7 @@
+module Stratosphere.Lex.Bot.FulfillmentUpdateResponseSpecificationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data FulfillmentUpdateResponseSpecificationProperty :: Prelude.Type
+instance ToResourceProperties FulfillmentUpdateResponseSpecificationProperty
+instance JSON.ToJSON FulfillmentUpdateResponseSpecificationProperty

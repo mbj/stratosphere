@@ -1,0 +1,7 @@
+module Stratosphere.Connect.Rule.SendNotificationActionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SendNotificationActionProperty :: Prelude.Type
+instance ToResourceProperties SendNotificationActionProperty
+instance JSON.ToJSON SendNotificationActionProperty

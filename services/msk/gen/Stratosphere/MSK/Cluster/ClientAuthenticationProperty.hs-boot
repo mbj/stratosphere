@@ -1,0 +1,7 @@
+module Stratosphere.MSK.Cluster.ClientAuthenticationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ClientAuthenticationProperty :: Prelude.Type
+instance ToResourceProperties ClientAuthenticationProperty
+instance JSON.ToJSON ClientAuthenticationProperty

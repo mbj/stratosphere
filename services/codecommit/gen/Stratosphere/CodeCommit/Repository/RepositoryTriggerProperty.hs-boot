@@ -1,0 +1,7 @@
+module Stratosphere.CodeCommit.Repository.RepositoryTriggerProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RepositoryTriggerProperty :: Prelude.Type
+instance ToResourceProperties RepositoryTriggerProperty
+instance JSON.ToJSON RepositoryTriggerProperty

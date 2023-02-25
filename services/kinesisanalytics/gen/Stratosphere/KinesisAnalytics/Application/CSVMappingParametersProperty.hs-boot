@@ -1,0 +1,7 @@
+module Stratosphere.KinesisAnalytics.Application.CSVMappingParametersProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CSVMappingParametersProperty :: Prelude.Type
+instance ToResourceProperties CSVMappingParametersProperty
+instance JSON.ToJSON CSVMappingParametersProperty

@@ -1,0 +1,7 @@
+module Stratosphere.AppFlow.Flow.ZendeskSourcePropertiesProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ZendeskSourcePropertiesProperty :: Prelude.Type
+instance ToResourceProperties ZendeskSourcePropertiesProperty
+instance JSON.ToJSON ZendeskSourcePropertiesProperty

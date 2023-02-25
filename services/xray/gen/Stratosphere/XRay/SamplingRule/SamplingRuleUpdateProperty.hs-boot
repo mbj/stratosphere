@@ -1,0 +1,7 @@
+module Stratosphere.XRay.SamplingRule.SamplingRuleUpdateProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SamplingRuleUpdateProperty :: Prelude.Type
+instance ToResourceProperties SamplingRuleUpdateProperty
+instance JSON.ToJSON SamplingRuleUpdateProperty

@@ -1,0 +1,7 @@
+module Stratosphere.SageMaker.MonitoringSchedule.MonitoringInputProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MonitoringInputProperty :: Prelude.Type
+instance ToResourceProperties MonitoringInputProperty
+instance JSON.ToJSON MonitoringInputProperty

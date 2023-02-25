@@ -1,0 +1,229 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.35.2.
+--
+-- see: https://github.com/sol/hpack
+
+name:           stratosphere-medialive
+version:        1.0.0
+category:       AWS, Cloud
+stability:      experimental
+homepage:       https://github.com/mbj/stratosphere#readme
+bug-reports:    https://github.com/mbj/stratosphere/issues
+maintainer:     Markus Schirp
+license:        MIT
+build-type:     Simple
+
+source-repository head
+  type: git
+  location: https://github.com/mbj/stratosphere
+
+flag development
+  description: Run GHC with development flags
+  manual: True
+  default: False
+
+library
+  exposed-modules:
+      Stratosphere.MediaLive.Channel
+      Stratosphere.MediaLive.Channel.AacSettingsProperty
+      Stratosphere.MediaLive.Channel.Ac3SettingsProperty
+      Stratosphere.MediaLive.Channel.AncillarySourceSettingsProperty
+      Stratosphere.MediaLive.Channel.ArchiveCdnSettingsProperty
+      Stratosphere.MediaLive.Channel.ArchiveContainerSettingsProperty
+      Stratosphere.MediaLive.Channel.ArchiveGroupSettingsProperty
+      Stratosphere.MediaLive.Channel.ArchiveOutputSettingsProperty
+      Stratosphere.MediaLive.Channel.ArchiveS3SettingsProperty
+      Stratosphere.MediaLive.Channel.AribDestinationSettingsProperty
+      Stratosphere.MediaLive.Channel.AribSourceSettingsProperty
+      Stratosphere.MediaLive.Channel.AudioChannelMappingProperty
+      Stratosphere.MediaLive.Channel.AudioCodecSettingsProperty
+      Stratosphere.MediaLive.Channel.AudioDescriptionProperty
+      Stratosphere.MediaLive.Channel.AudioHlsRenditionSelectionProperty
+      Stratosphere.MediaLive.Channel.AudioLanguageSelectionProperty
+      Stratosphere.MediaLive.Channel.AudioNormalizationSettingsProperty
+      Stratosphere.MediaLive.Channel.AudioOnlyHlsSettingsProperty
+      Stratosphere.MediaLive.Channel.AudioPidSelectionProperty
+      Stratosphere.MediaLive.Channel.AudioSelectorProperty
+      Stratosphere.MediaLive.Channel.AudioSelectorSettingsProperty
+      Stratosphere.MediaLive.Channel.AudioSilenceFailoverSettingsProperty
+      Stratosphere.MediaLive.Channel.AudioTrackProperty
+      Stratosphere.MediaLive.Channel.AudioTrackSelectionProperty
+      Stratosphere.MediaLive.Channel.AudioWatermarkSettingsProperty
+      Stratosphere.MediaLive.Channel.AutomaticInputFailoverSettingsProperty
+      Stratosphere.MediaLive.Channel.AvailBlankingProperty
+      Stratosphere.MediaLive.Channel.AvailConfigurationProperty
+      Stratosphere.MediaLive.Channel.AvailSettingsProperty
+      Stratosphere.MediaLive.Channel.BlackoutSlateProperty
+      Stratosphere.MediaLive.Channel.BurnInDestinationSettingsProperty
+      Stratosphere.MediaLive.Channel.CaptionDescriptionProperty
+      Stratosphere.MediaLive.Channel.CaptionDestinationSettingsProperty
+      Stratosphere.MediaLive.Channel.CaptionLanguageMappingProperty
+      Stratosphere.MediaLive.Channel.CaptionRectangleProperty
+      Stratosphere.MediaLive.Channel.CaptionSelectorProperty
+      Stratosphere.MediaLive.Channel.CaptionSelectorSettingsProperty
+      Stratosphere.MediaLive.Channel.CdiInputSpecificationProperty
+      Stratosphere.MediaLive.Channel.ColorSpacePassthroughSettingsProperty
+      Stratosphere.MediaLive.Channel.DvbNitSettingsProperty
+      Stratosphere.MediaLive.Channel.DvbSdtSettingsProperty
+      Stratosphere.MediaLive.Channel.DvbSubDestinationSettingsProperty
+      Stratosphere.MediaLive.Channel.DvbSubSourceSettingsProperty
+      Stratosphere.MediaLive.Channel.DvbTdtSettingsProperty
+      Stratosphere.MediaLive.Channel.Eac3SettingsProperty
+      Stratosphere.MediaLive.Channel.EbuTtDDestinationSettingsProperty
+      Stratosphere.MediaLive.Channel.EmbeddedDestinationSettingsProperty
+      Stratosphere.MediaLive.Channel.EmbeddedPlusScte20DestinationSettingsProperty
+      Stratosphere.MediaLive.Channel.EmbeddedSourceSettingsProperty
+      Stratosphere.MediaLive.Channel.EncoderSettingsProperty
+      Stratosphere.MediaLive.Channel.FailoverConditionProperty
+      Stratosphere.MediaLive.Channel.FailoverConditionSettingsProperty
+      Stratosphere.MediaLive.Channel.FeatureActivationsProperty
+      Stratosphere.MediaLive.Channel.FecOutputSettingsProperty
+      Stratosphere.MediaLive.Channel.Fmp4HlsSettingsProperty
+      Stratosphere.MediaLive.Channel.FrameCaptureCdnSettingsProperty
+      Stratosphere.MediaLive.Channel.FrameCaptureGroupSettingsProperty
+      Stratosphere.MediaLive.Channel.FrameCaptureHlsSettingsProperty
+      Stratosphere.MediaLive.Channel.FrameCaptureOutputSettingsProperty
+      Stratosphere.MediaLive.Channel.FrameCaptureS3SettingsProperty
+      Stratosphere.MediaLive.Channel.FrameCaptureSettingsProperty
+      Stratosphere.MediaLive.Channel.GlobalConfigurationProperty
+      Stratosphere.MediaLive.Channel.H264ColorSpaceSettingsProperty
+      Stratosphere.MediaLive.Channel.H264FilterSettingsProperty
+      Stratosphere.MediaLive.Channel.H264SettingsProperty
+      Stratosphere.MediaLive.Channel.H265ColorSpaceSettingsProperty
+      Stratosphere.MediaLive.Channel.H265FilterSettingsProperty
+      Stratosphere.MediaLive.Channel.H265SettingsProperty
+      Stratosphere.MediaLive.Channel.Hdr10SettingsProperty
+      Stratosphere.MediaLive.Channel.HlsAkamaiSettingsProperty
+      Stratosphere.MediaLive.Channel.HlsBasicPutSettingsProperty
+      Stratosphere.MediaLive.Channel.HlsCdnSettingsProperty
+      Stratosphere.MediaLive.Channel.HlsGroupSettingsProperty
+      Stratosphere.MediaLive.Channel.HlsInputSettingsProperty
+      Stratosphere.MediaLive.Channel.HlsMediaStoreSettingsProperty
+      Stratosphere.MediaLive.Channel.HlsOutputSettingsProperty
+      Stratosphere.MediaLive.Channel.HlsS3SettingsProperty
+      Stratosphere.MediaLive.Channel.HlsSettingsProperty
+      Stratosphere.MediaLive.Channel.HlsWebdavSettingsProperty
+      Stratosphere.MediaLive.Channel.HtmlMotionGraphicsSettingsProperty
+      Stratosphere.MediaLive.Channel.InputAttachmentProperty
+      Stratosphere.MediaLive.Channel.InputChannelLevelProperty
+      Stratosphere.MediaLive.Channel.InputLocationProperty
+      Stratosphere.MediaLive.Channel.InputLossBehaviorProperty
+      Stratosphere.MediaLive.Channel.InputLossFailoverSettingsProperty
+      Stratosphere.MediaLive.Channel.InputSettingsProperty
+      Stratosphere.MediaLive.Channel.InputSpecificationProperty
+      Stratosphere.MediaLive.Channel.KeyProviderSettingsProperty
+      Stratosphere.MediaLive.Channel.M2tsSettingsProperty
+      Stratosphere.MediaLive.Channel.M3u8SettingsProperty
+      Stratosphere.MediaLive.Channel.MediaPackageGroupSettingsProperty
+      Stratosphere.MediaLive.Channel.MediaPackageOutputDestinationSettingsProperty
+      Stratosphere.MediaLive.Channel.MediaPackageOutputSettingsProperty
+      Stratosphere.MediaLive.Channel.MotionGraphicsConfigurationProperty
+      Stratosphere.MediaLive.Channel.MotionGraphicsSettingsProperty
+      Stratosphere.MediaLive.Channel.Mp2SettingsProperty
+      Stratosphere.MediaLive.Channel.Mpeg2FilterSettingsProperty
+      Stratosphere.MediaLive.Channel.Mpeg2SettingsProperty
+      Stratosphere.MediaLive.Channel.MsSmoothGroupSettingsProperty
+      Stratosphere.MediaLive.Channel.MsSmoothOutputSettingsProperty
+      Stratosphere.MediaLive.Channel.MultiplexGroupSettingsProperty
+      Stratosphere.MediaLive.Channel.MultiplexOutputSettingsProperty
+      Stratosphere.MediaLive.Channel.MultiplexProgramChannelDestinationSettingsProperty
+      Stratosphere.MediaLive.Channel.NetworkInputSettingsProperty
+      Stratosphere.MediaLive.Channel.NielsenCBETProperty
+      Stratosphere.MediaLive.Channel.NielsenConfigurationProperty
+      Stratosphere.MediaLive.Channel.NielsenNaesIiNwProperty
+      Stratosphere.MediaLive.Channel.NielsenWatermarksSettingsProperty
+      Stratosphere.MediaLive.Channel.OutputDestinationProperty
+      Stratosphere.MediaLive.Channel.OutputDestinationSettingsProperty
+      Stratosphere.MediaLive.Channel.OutputGroupProperty
+      Stratosphere.MediaLive.Channel.OutputGroupSettingsProperty
+      Stratosphere.MediaLive.Channel.OutputLocationRefProperty
+      Stratosphere.MediaLive.Channel.OutputProperty
+      Stratosphere.MediaLive.Channel.OutputSettingsProperty
+      Stratosphere.MediaLive.Channel.PassThroughSettingsProperty
+      Stratosphere.MediaLive.Channel.RawSettingsProperty
+      Stratosphere.MediaLive.Channel.Rec601SettingsProperty
+      Stratosphere.MediaLive.Channel.Rec709SettingsProperty
+      Stratosphere.MediaLive.Channel.RemixSettingsProperty
+      Stratosphere.MediaLive.Channel.RtmpCaptionInfoDestinationSettingsProperty
+      Stratosphere.MediaLive.Channel.RtmpGroupSettingsProperty
+      Stratosphere.MediaLive.Channel.RtmpOutputSettingsProperty
+      Stratosphere.MediaLive.Channel.Scte20PlusEmbeddedDestinationSettingsProperty
+      Stratosphere.MediaLive.Channel.Scte20SourceSettingsProperty
+      Stratosphere.MediaLive.Channel.Scte27DestinationSettingsProperty
+      Stratosphere.MediaLive.Channel.Scte27SourceSettingsProperty
+      Stratosphere.MediaLive.Channel.Scte35SpliceInsertProperty
+      Stratosphere.MediaLive.Channel.Scte35TimeSignalAposProperty
+      Stratosphere.MediaLive.Channel.SmpteTtDestinationSettingsProperty
+      Stratosphere.MediaLive.Channel.StandardHlsSettingsProperty
+      Stratosphere.MediaLive.Channel.StaticKeySettingsProperty
+      Stratosphere.MediaLive.Channel.TeletextDestinationSettingsProperty
+      Stratosphere.MediaLive.Channel.TeletextSourceSettingsProperty
+      Stratosphere.MediaLive.Channel.TemporalFilterSettingsProperty
+      Stratosphere.MediaLive.Channel.TimecodeConfigProperty
+      Stratosphere.MediaLive.Channel.TtmlDestinationSettingsProperty
+      Stratosphere.MediaLive.Channel.UdpContainerSettingsProperty
+      Stratosphere.MediaLive.Channel.UdpGroupSettingsProperty
+      Stratosphere.MediaLive.Channel.UdpOutputSettingsProperty
+      Stratosphere.MediaLive.Channel.VideoBlackFailoverSettingsProperty
+      Stratosphere.MediaLive.Channel.VideoCodecSettingsProperty
+      Stratosphere.MediaLive.Channel.VideoDescriptionProperty
+      Stratosphere.MediaLive.Channel.VideoSelectorColorSpaceSettingsProperty
+      Stratosphere.MediaLive.Channel.VideoSelectorPidProperty
+      Stratosphere.MediaLive.Channel.VideoSelectorProgramIdProperty
+      Stratosphere.MediaLive.Channel.VideoSelectorProperty
+      Stratosphere.MediaLive.Channel.VideoSelectorSettingsProperty
+      Stratosphere.MediaLive.Channel.VpcOutputSettingsProperty
+      Stratosphere.MediaLive.Channel.WavSettingsProperty
+      Stratosphere.MediaLive.Channel.WebvttDestinationSettingsProperty
+      Stratosphere.MediaLive.Input
+      Stratosphere.MediaLive.Input.InputDestinationRequestProperty
+      Stratosphere.MediaLive.Input.InputDeviceRequestProperty
+      Stratosphere.MediaLive.Input.InputDeviceSettingsProperty
+      Stratosphere.MediaLive.Input.InputSourceRequestProperty
+      Stratosphere.MediaLive.Input.InputVpcRequestProperty
+      Stratosphere.MediaLive.Input.MediaConnectFlowRequestProperty
+      Stratosphere.MediaLive.InputSecurityGroup
+      Stratosphere.MediaLive.InputSecurityGroup.InputWhitelistRuleCidrProperty
+  other-modules:
+      Paths_stratosphere_medialive
+  hs-source-dirs:
+      gen
+  default-extensions:
+      DataKinds
+      DeriveGeneric
+      DerivingStrategies
+      DerivingVia
+      DuplicateRecordFields
+      FlexibleContexts
+      FlexibleInstances
+      GADTs
+      GeneralizedNewtypeDeriving
+      InstanceSigs
+      LambdaCase
+      MultiParamTypeClasses
+      NoFieldSelectors
+      NoImplicitPrelude
+      NumericUnderscores
+      OverloadedLists
+      OverloadedRecordDot
+      OverloadedStrings
+      PolyKinds
+      RecordWildCards
+      ScopedTypeVariables
+      StandaloneDeriving
+      Strict
+      TemplateHaskell
+      TupleSections
+      TypeApplications
+      TypeFamilies
+  ghc-options: -Wall -Wcompat -Widentities -Wimplicit-prelude -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-local-signatures -Wmissing-signatures -Wmonomorphism-restriction -Wredundant-constraints -fhide-source-paths -funbox-strict-fields -optP-Wno-nonportable-include-path -Wno-unused-imports
+  build-depends:
+      aeson
+    , base
+    , stratosphere ==1.0.0
+  default-language: Haskell2010
+  if flag(development)
+    ghc-options: -Werror
+  else
+    ghc-options: -Wwarn

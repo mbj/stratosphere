@@ -1,0 +1,7 @@
+module Stratosphere.CloudFront.Distribution.OriginGroupFailoverCriteriaProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data OriginGroupFailoverCriteriaProperty :: Prelude.Type
+instance ToResourceProperties OriginGroupFailoverCriteriaProperty
+instance JSON.ToJSON OriginGroupFailoverCriteriaProperty

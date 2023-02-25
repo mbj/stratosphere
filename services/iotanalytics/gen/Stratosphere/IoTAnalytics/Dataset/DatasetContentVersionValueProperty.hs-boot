@@ -1,0 +1,7 @@
+module Stratosphere.IoTAnalytics.Dataset.DatasetContentVersionValueProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DatasetContentVersionValueProperty :: Prelude.Type
+instance ToResourceProperties DatasetContentVersionValueProperty
+instance JSON.ToJSON DatasetContentVersionValueProperty

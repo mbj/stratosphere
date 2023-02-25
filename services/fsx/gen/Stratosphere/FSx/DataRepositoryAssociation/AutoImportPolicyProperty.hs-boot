@@ -1,0 +1,7 @@
+module Stratosphere.FSx.DataRepositoryAssociation.AutoImportPolicyProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AutoImportPolicyProperty :: Prelude.Type
+instance ToResourceProperties AutoImportPolicyProperty
+instance JSON.ToJSON AutoImportPolicyProperty

@@ -1,0 +1,7 @@
+module Stratosphere.SageMaker.ModelPackage.DriftCheckModelQualityProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DriftCheckModelQualityProperty :: Prelude.Type
+instance ToResourceProperties DriftCheckModelQualityProperty
+instance JSON.ToJSON DriftCheckModelQualityProperty

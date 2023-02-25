@@ -1,0 +1,7 @@
+module Stratosphere.Kendra.DataSource.WebCrawlerBasicAuthenticationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data WebCrawlerBasicAuthenticationProperty :: Prelude.Type
+instance ToResourceProperties WebCrawlerBasicAuthenticationProperty
+instance JSON.ToJSON WebCrawlerBasicAuthenticationProperty

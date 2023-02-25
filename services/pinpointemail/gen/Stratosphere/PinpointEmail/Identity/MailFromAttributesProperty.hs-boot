@@ -1,0 +1,7 @@
+module Stratosphere.PinpointEmail.Identity.MailFromAttributesProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MailFromAttributesProperty :: Prelude.Type
+instance ToResourceProperties MailFromAttributesProperty
+instance JSON.ToJSON MailFromAttributesProperty

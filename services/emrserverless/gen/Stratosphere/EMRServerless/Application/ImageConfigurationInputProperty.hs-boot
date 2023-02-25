@@ -1,0 +1,7 @@
+module Stratosphere.EMRServerless.Application.ImageConfigurationInputProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ImageConfigurationInputProperty :: Prelude.Type
+instance ToResourceProperties ImageConfigurationInputProperty
+instance JSON.ToJSON ImageConfigurationInputProperty

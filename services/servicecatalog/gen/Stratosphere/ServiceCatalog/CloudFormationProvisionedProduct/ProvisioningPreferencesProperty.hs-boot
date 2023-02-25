@@ -1,0 +1,7 @@
+module Stratosphere.ServiceCatalog.CloudFormationProvisionedProduct.ProvisioningPreferencesProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ProvisioningPreferencesProperty :: Prelude.Type
+instance ToResourceProperties ProvisioningPreferencesProperty
+instance JSON.ToJSON ProvisioningPreferencesProperty

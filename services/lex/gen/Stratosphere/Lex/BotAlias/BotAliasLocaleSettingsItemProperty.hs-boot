@@ -1,0 +1,7 @@
+module Stratosphere.Lex.BotAlias.BotAliasLocaleSettingsItemProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data BotAliasLocaleSettingsItemProperty :: Prelude.Type
+instance ToResourceProperties BotAliasLocaleSettingsItemProperty
+instance JSON.ToJSON BotAliasLocaleSettingsItemProperty

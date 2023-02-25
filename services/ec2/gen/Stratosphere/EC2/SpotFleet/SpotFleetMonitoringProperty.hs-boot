@@ -1,0 +1,7 @@
+module Stratosphere.EC2.SpotFleet.SpotFleetMonitoringProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SpotFleetMonitoringProperty :: Prelude.Type
+instance ToResourceProperties SpotFleetMonitoringProperty
+instance JSON.ToJSON SpotFleetMonitoringProperty

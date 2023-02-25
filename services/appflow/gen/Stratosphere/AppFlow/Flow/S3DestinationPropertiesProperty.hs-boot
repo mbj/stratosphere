@@ -1,0 +1,7 @@
+module Stratosphere.AppFlow.Flow.S3DestinationPropertiesProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data S3DestinationPropertiesProperty :: Prelude.Type
+instance ToResourceProperties S3DestinationPropertiesProperty
+instance JSON.ToJSON S3DestinationPropertiesProperty

@@ -1,0 +1,7 @@
+module Stratosphere.EC2.EC2Fleet.SpotOptionsRequestProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SpotOptionsRequestProperty :: Prelude.Type
+instance ToResourceProperties SpotOptionsRequestProperty
+instance JSON.ToJSON SpotOptionsRequestProperty

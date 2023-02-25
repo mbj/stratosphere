@@ -1,0 +1,7 @@
+module Stratosphere.MediaTailor.PlaybackConfiguration.AvailSuppressionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AvailSuppressionProperty :: Prelude.Type
+instance ToResourceProperties AvailSuppressionProperty
+instance JSON.ToJSON AvailSuppressionProperty

@@ -1,0 +1,7 @@
+module Stratosphere.AutoScaling.AutoScalingGroup.MemoryMiBRequestProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MemoryMiBRequestProperty :: Prelude.Type
+instance ToResourceProperties MemoryMiBRequestProperty
+instance JSON.ToJSON MemoryMiBRequestProperty

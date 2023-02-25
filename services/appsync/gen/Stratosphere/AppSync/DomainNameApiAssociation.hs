@@ -1,0 +1,34 @@
+module Stratosphere.AppSync.DomainNameApiAssociation (
+        DomainNameApiAssociation(..), mkDomainNameApiAssociation
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import Stratosphere.ResourceProperties
+import Stratosphere.Value
+data DomainNameApiAssociation
+  = DomainNameApiAssociation {apiId :: (Value Prelude.Text),
+                              domainName :: (Value Prelude.Text)}
+mkDomainNameApiAssociation ::
+  Value Prelude.Text
+  -> Value Prelude.Text -> DomainNameApiAssociation
+mkDomainNameApiAssociation apiId domainName
+  = DomainNameApiAssociation {apiId = apiId, domainName = domainName}
+instance ToResourceProperties DomainNameApiAssociation where
+  toResourceProperties DomainNameApiAssociation {..}
+    = ResourceProperties
+        {awsType = "AWS::AppSync::DomainNameApiAssociation",
+         properties = ["ApiId" JSON..= apiId,
+                       "DomainName" JSON..= domainName]}
+instance JSON.ToJSON DomainNameApiAssociation where
+  toJSON DomainNameApiAssociation {..}
+    = JSON.object
+        ["ApiId" JSON..= apiId, "DomainName" JSON..= domainName]
+instance Property "ApiId" DomainNameApiAssociation where
+  type PropertyType "ApiId" DomainNameApiAssociation = Value Prelude.Text
+  set newValue DomainNameApiAssociation {..}
+    = DomainNameApiAssociation {apiId = newValue, ..}
+instance Property "DomainName" DomainNameApiAssociation where
+  type PropertyType "DomainName" DomainNameApiAssociation = Value Prelude.Text
+  set newValue DomainNameApiAssociation {..}
+    = DomainNameApiAssociation {domainName = newValue, ..}

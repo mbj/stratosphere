@@ -1,119 +1,63 @@
+_common/package: !include "common/package.yaml"
+
 name:         stratosphere
-version:      0.60.0
+version:      1.0.0
 synopsis:     EDSL for AWS CloudFormation
 description:  EDSL for AWS CloudFormation
 category:     AWS, Cloud
 maintainer:   Markus Schirp
 stability:    experimental
 license:      MIT
-license-file: LICENSE.md
+github:       mbj/stratosphere
 
-github: mbj/stratosphere
+<<: *defaults
 
 extra-source-files:
 - CHANGELOG.md
+- LICENSE.md
 - README.md
 
 dependencies:
-- base >= 4.8 && < 5
-- aeson >= 2
+- base         >= 4.8
+- aeson        >= 2
 - aeson-pretty >= 0.8
 - bytestring
 - containers
-- hashable
-- lens >= 4.5
-- template-haskell >= 2.0
-- text >= 1.1
-- unordered-containers >= 0.2
-
-flags:
-  library-only:
-    description: Don't compile examples
-    default: true
-    manual: true
-
-default-extensions:
-- DeriveGeneric
-- ExistentialQuantification
-- FlexibleInstances
-- FunctionalDependencies
-- GADTs
-- GeneralizedNewtypeDeriving
-- LambdaCase
-- MultiParamTypeClasses
-- NoImplicitPrelude
-- OverloadedLists
-- OverloadedStrings
-- RecordWildCards
-- ScopedTypeVariables
-- StandaloneDeriving
-- TemplateHaskell
-- TupleSections
-- TypeFamilies
-
-ghc-options:
-- -Wall
-- -Wcompat
-- -Werror
-- -Widentities
-- -Wimplicit-prelude
-- -Wincomplete-record-updates
-- -Wincomplete-uni-patterns
-- -Wmissing-local-signatures
-- -Wmissing-signatures
-- -Wmonomorphism-restriction
-- -Wredundant-constraints
-- -fhide-source-paths
-- -funbox-strict-fields
-- -optP-Wno-nonportable-include-path
+- text         >= 1.1
 
 library:
   source-dirs:
-  - library
-  - library-gen
-  ghc-options: -Wall -O0
+  - gen
+  - src
 
-executables:
-  auto-scaling-group:
-    main: auto-scaling-group.hs
-    source-dirs: examples
-    dependencies: stratosphere
-    ghc-options: -Wall
-    when:
-    - condition: flag(library-only)
-      buildable: false
-  rds-master-replica:
-    main: rds-master-replica.hs
-    source-dirs: examples
-    dependencies: stratosphere
-    ghc-options: -Wall
-    when:
-    - condition: flag(library-only)
-      buildable: false
-  simple-lambda:
-    main: simple-lambda.hs
-    source-dirs: examples
-    dependencies: stratosphere
-    ghc-options: -Wall
-    when:
-    - condition: flag(library-only)
-      buildable: false
-  s3-copy:
-    main: s3-copy.hs
-    source-dirs: examples
-    dependencies: stratosphere
-    ghc-options: -Wall
-    when:
-    - condition: flag(library-only)
-      buildable: false
+  exposed-modules:
+  - Paths_stratosphere
+  - Stratosphere
+  - Stratosphere.Check
+  - Stratosphere.NamedItem
+  - Stratosphere.Output
+  - Stratosphere.Parameter
+  - Stratosphere.Prelude
+  - Stratosphere.Property
+  - Stratosphere.Resource
+  - Stratosphere.ResourceAttributes.AutoScalingReplacingUpdatePolicy
+  - Stratosphere.ResourceAttributes.AutoScalingRollingUpdatePolicy
+  - Stratosphere.ResourceAttributes.AutoScalingScheduledActionPolicy
+  - Stratosphere.ResourceAttributes.CreationPolicy
+  - Stratosphere.ResourceAttributes.ResourceSignal
+  - Stratosphere.ResourceAttributes.UpdatePolicy
+  - Stratosphere.ResourceProperties
+  - Stratosphere.Tag
+  - Stratosphere.Template
+  - Stratosphere.Value
 
 tests:
   spec:
     main: Spec.hs
     source-dirs:
-      - tests
+    - test
     dependencies:
-      - base
-      - stratosphere
-      - hspec
-      - hspec-discover
+    - base
+    - stratosphere
+    - hspec
+    - hspec-discover

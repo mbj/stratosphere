@@ -1,0 +1,7 @@
+module Stratosphere.KinesisFirehose.DeliveryStream.HttpEndpointDestinationConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data HttpEndpointDestinationConfigurationProperty :: Prelude.Type
+instance ToResourceProperties HttpEndpointDestinationConfigurationProperty
+instance JSON.ToJSON HttpEndpointDestinationConfigurationProperty

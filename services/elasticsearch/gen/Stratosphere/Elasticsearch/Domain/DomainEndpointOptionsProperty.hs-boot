@@ -1,0 +1,7 @@
+module Stratosphere.Elasticsearch.Domain.DomainEndpointOptionsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DomainEndpointOptionsProperty :: Prelude.Type
+instance ToResourceProperties DomainEndpointOptionsProperty
+instance JSON.ToJSON DomainEndpointOptionsProperty

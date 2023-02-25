@@ -1,0 +1,7 @@
+module Stratosphere.CodeBuild.Project.BatchRestrictionsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data BatchRestrictionsProperty :: Prelude.Type
+instance ToResourceProperties BatchRestrictionsProperty
+instance JSON.ToJSON BatchRestrictionsProperty

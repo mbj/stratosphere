@@ -1,0 +1,7 @@
+module Stratosphere.SageMaker.Endpoint.TrafficRoutingConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TrafficRoutingConfigProperty :: Prelude.Type
+instance ToResourceProperties TrafficRoutingConfigProperty
+instance JSON.ToJSON TrafficRoutingConfigProperty

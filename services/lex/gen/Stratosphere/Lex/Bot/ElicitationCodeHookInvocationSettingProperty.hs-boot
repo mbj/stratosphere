@@ -1,0 +1,7 @@
+module Stratosphere.Lex.Bot.ElicitationCodeHookInvocationSettingProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ElicitationCodeHookInvocationSettingProperty :: Prelude.Type
+instance ToResourceProperties ElicitationCodeHookInvocationSettingProperty
+instance JSON.ToJSON ElicitationCodeHookInvocationSettingProperty

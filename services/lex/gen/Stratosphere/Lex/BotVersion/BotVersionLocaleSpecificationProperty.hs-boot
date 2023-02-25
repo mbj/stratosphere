@@ -1,0 +1,7 @@
+module Stratosphere.Lex.BotVersion.BotVersionLocaleSpecificationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data BotVersionLocaleSpecificationProperty :: Prelude.Type
+instance ToResourceProperties BotVersionLocaleSpecificationProperty
+instance JSON.ToJSON BotVersionLocaleSpecificationProperty

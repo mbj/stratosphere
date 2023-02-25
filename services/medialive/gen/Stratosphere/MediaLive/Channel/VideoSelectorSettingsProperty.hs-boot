@@ -1,0 +1,7 @@
+module Stratosphere.MediaLive.Channel.VideoSelectorSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data VideoSelectorSettingsProperty :: Prelude.Type
+instance ToResourceProperties VideoSelectorSettingsProperty
+instance JSON.ToJSON VideoSelectorSettingsProperty

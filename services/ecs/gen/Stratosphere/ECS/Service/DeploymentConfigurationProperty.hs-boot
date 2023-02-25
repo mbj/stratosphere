@@ -1,0 +1,7 @@
+module Stratosphere.ECS.Service.DeploymentConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DeploymentConfigurationProperty :: Prelude.Type
+instance ToResourceProperties DeploymentConfigurationProperty
+instance JSON.ToJSON DeploymentConfigurationProperty

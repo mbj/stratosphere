@@ -1,0 +1,7 @@
+module Stratosphere.IoTWireless.PartnerAccount.SidewalkAccountInfoProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SidewalkAccountInfoProperty :: Prelude.Type
+instance ToResourceProperties SidewalkAccountInfoProperty
+instance JSON.ToJSON SidewalkAccountInfoProperty

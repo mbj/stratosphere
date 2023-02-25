@@ -1,0 +1,74 @@
+module Stratosphere.SageMaker.MonitoringSchedule.MonitoringAppSpecificationProperty (
+        MonitoringAppSpecificationProperty(..),
+        mkMonitoringAppSpecificationProperty
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import Stratosphere.ResourceProperties
+import Stratosphere.Value
+data MonitoringAppSpecificationProperty
+  = MonitoringAppSpecificationProperty {containerArguments :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                                        containerEntrypoint :: (Prelude.Maybe (ValueList (Value Prelude.Text))),
+                                        imageUri :: (Value Prelude.Text),
+                                        postAnalyticsProcessorSourceUri :: (Prelude.Maybe (Value Prelude.Text)),
+                                        recordPreprocessorSourceUri :: (Prelude.Maybe (Value Prelude.Text))}
+mkMonitoringAppSpecificationProperty ::
+  Value Prelude.Text -> MonitoringAppSpecificationProperty
+mkMonitoringAppSpecificationProperty imageUri
+  = MonitoringAppSpecificationProperty
+      {imageUri = imageUri, containerArguments = Prelude.Nothing,
+       containerEntrypoint = Prelude.Nothing,
+       postAnalyticsProcessorSourceUri = Prelude.Nothing,
+       recordPreprocessorSourceUri = Prelude.Nothing}
+instance ToResourceProperties MonitoringAppSpecificationProperty where
+  toResourceProperties MonitoringAppSpecificationProperty {..}
+    = ResourceProperties
+        {awsType = "AWS::SageMaker::MonitoringSchedule.MonitoringAppSpecification",
+         properties = Prelude.fromList
+                        ((Prelude.<>)
+                           ["ImageUri" JSON..= imageUri]
+                           (Prelude.catMaybes
+                              [(JSON..=) "ContainerArguments" Prelude.<$> containerArguments,
+                               (JSON..=) "ContainerEntrypoint" Prelude.<$> containerEntrypoint,
+                               (JSON..=) "PostAnalyticsProcessorSourceUri"
+                                 Prelude.<$> postAnalyticsProcessorSourceUri,
+                               (JSON..=) "RecordPreprocessorSourceUri"
+                                 Prelude.<$> recordPreprocessorSourceUri]))}
+instance JSON.ToJSON MonitoringAppSpecificationProperty where
+  toJSON MonitoringAppSpecificationProperty {..}
+    = JSON.object
+        (Prelude.fromList
+           ((Prelude.<>)
+              ["ImageUri" JSON..= imageUri]
+              (Prelude.catMaybes
+                 [(JSON..=) "ContainerArguments" Prelude.<$> containerArguments,
+                  (JSON..=) "ContainerEntrypoint" Prelude.<$> containerEntrypoint,
+                  (JSON..=) "PostAnalyticsProcessorSourceUri"
+                    Prelude.<$> postAnalyticsProcessorSourceUri,
+                  (JSON..=) "RecordPreprocessorSourceUri"
+                    Prelude.<$> recordPreprocessorSourceUri])))
+instance Property "ContainerArguments" MonitoringAppSpecificationProperty where
+  type PropertyType "ContainerArguments" MonitoringAppSpecificationProperty = ValueList (Value Prelude.Text)
+  set newValue MonitoringAppSpecificationProperty {..}
+    = MonitoringAppSpecificationProperty
+        {containerArguments = Prelude.pure newValue, ..}
+instance Property "ContainerEntrypoint" MonitoringAppSpecificationProperty where
+  type PropertyType "ContainerEntrypoint" MonitoringAppSpecificationProperty = ValueList (Value Prelude.Text)
+  set newValue MonitoringAppSpecificationProperty {..}
+    = MonitoringAppSpecificationProperty
+        {containerEntrypoint = Prelude.pure newValue, ..}
+instance Property "ImageUri" MonitoringAppSpecificationProperty where
+  type PropertyType "ImageUri" MonitoringAppSpecificationProperty = Value Prelude.Text
+  set newValue MonitoringAppSpecificationProperty {..}
+    = MonitoringAppSpecificationProperty {imageUri = newValue, ..}
+instance Property "PostAnalyticsProcessorSourceUri" MonitoringAppSpecificationProperty where
+  type PropertyType "PostAnalyticsProcessorSourceUri" MonitoringAppSpecificationProperty = Value Prelude.Text
+  set newValue MonitoringAppSpecificationProperty {..}
+    = MonitoringAppSpecificationProperty
+        {postAnalyticsProcessorSourceUri = Prelude.pure newValue, ..}
+instance Property "RecordPreprocessorSourceUri" MonitoringAppSpecificationProperty where
+  type PropertyType "RecordPreprocessorSourceUri" MonitoringAppSpecificationProperty = Value Prelude.Text
+  set newValue MonitoringAppSpecificationProperty {..}
+    = MonitoringAppSpecificationProperty
+        {recordPreprocessorSourceUri = Prelude.pure newValue, ..}

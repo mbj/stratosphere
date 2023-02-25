@@ -1,0 +1,7 @@
+module Stratosphere.AmplifyUIBuilder.Component.ComponentPropertyProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ComponentPropertyProperty :: Prelude.Type
+instance ToResourceProperties ComponentPropertyProperty
+instance JSON.ToJSON ComponentPropertyProperty

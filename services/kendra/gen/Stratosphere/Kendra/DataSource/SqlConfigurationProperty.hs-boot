@@ -1,0 +1,7 @@
+module Stratosphere.Kendra.DataSource.SqlConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SqlConfigurationProperty :: Prelude.Type
+instance ToResourceProperties SqlConfigurationProperty
+instance JSON.ToJSON SqlConfigurationProperty

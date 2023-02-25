@@ -1,0 +1,7 @@
+module Stratosphere.ElasticLoadBalancing.LoadBalancer.ConnectionSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ConnectionSettingsProperty :: Prelude.Type
+instance ToResourceProperties ConnectionSettingsProperty
+instance JSON.ToJSON ConnectionSettingsProperty

@@ -1,0 +1,46 @@
+module Stratosphere.DLM.LifecyclePolicy.DeprecateRuleProperty (
+        DeprecateRuleProperty(..), mkDeprecateRuleProperty
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import Stratosphere.ResourceProperties
+import Stratosphere.Value
+data DeprecateRuleProperty
+  = DeprecateRuleProperty {count :: (Prelude.Maybe (Value Prelude.Integer)),
+                           interval :: (Prelude.Maybe (Value Prelude.Integer)),
+                           intervalUnit :: (Prelude.Maybe (Value Prelude.Text))}
+mkDeprecateRuleProperty :: DeprecateRuleProperty
+mkDeprecateRuleProperty
+  = DeprecateRuleProperty
+      {count = Prelude.Nothing, interval = Prelude.Nothing,
+       intervalUnit = Prelude.Nothing}
+instance ToResourceProperties DeprecateRuleProperty where
+  toResourceProperties DeprecateRuleProperty {..}
+    = ResourceProperties
+        {awsType = "AWS::DLM::LifecyclePolicy.DeprecateRule",
+         properties = Prelude.fromList
+                        (Prelude.catMaybes
+                           [(JSON..=) "Count" Prelude.<$> count,
+                            (JSON..=) "Interval" Prelude.<$> interval,
+                            (JSON..=) "IntervalUnit" Prelude.<$> intervalUnit])}
+instance JSON.ToJSON DeprecateRuleProperty where
+  toJSON DeprecateRuleProperty {..}
+    = JSON.object
+        (Prelude.fromList
+           (Prelude.catMaybes
+              [(JSON..=) "Count" Prelude.<$> count,
+               (JSON..=) "Interval" Prelude.<$> interval,
+               (JSON..=) "IntervalUnit" Prelude.<$> intervalUnit]))
+instance Property "Count" DeprecateRuleProperty where
+  type PropertyType "Count" DeprecateRuleProperty = Value Prelude.Integer
+  set newValue DeprecateRuleProperty {..}
+    = DeprecateRuleProperty {count = Prelude.pure newValue, ..}
+instance Property "Interval" DeprecateRuleProperty where
+  type PropertyType "Interval" DeprecateRuleProperty = Value Prelude.Integer
+  set newValue DeprecateRuleProperty {..}
+    = DeprecateRuleProperty {interval = Prelude.pure newValue, ..}
+instance Property "IntervalUnit" DeprecateRuleProperty where
+  type PropertyType "IntervalUnit" DeprecateRuleProperty = Value Prelude.Text
+  set newValue DeprecateRuleProperty {..}
+    = DeprecateRuleProperty {intervalUnit = Prelude.pure newValue, ..}

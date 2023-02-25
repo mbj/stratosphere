@@ -1,0 +1,7 @@
+module Stratosphere.CloudFront.ResponseHeadersPolicy.ReferrerPolicyProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ReferrerPolicyProperty :: Prelude.Type
+instance ToResourceProperties ReferrerPolicyProperty
+instance JSON.ToJSON ReferrerPolicyProperty

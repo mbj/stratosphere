@@ -1,0 +1,7 @@
+module Stratosphere.AppFlow.Flow.VeevaSourcePropertiesProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data VeevaSourcePropertiesProperty :: Prelude.Type
+instance ToResourceProperties VeevaSourcePropertiesProperty
+instance JSON.ToJSON VeevaSourcePropertiesProperty

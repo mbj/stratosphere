@@ -1,0 +1,7 @@
+module Stratosphere.ApiGateway.Deployment.StageDescriptionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data StageDescriptionProperty :: Prelude.Type
+instance ToResourceProperties StageDescriptionProperty
+instance JSON.ToJSON StageDescriptionProperty

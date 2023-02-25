@@ -1,0 +1,7 @@
+module Stratosphere.AppRunner.VpcIngressConnection.IngressVpcConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data IngressVpcConfigurationProperty :: Prelude.Type
+instance ToResourceProperties IngressVpcConfigurationProperty
+instance JSON.ToJSON IngressVpcConfigurationProperty

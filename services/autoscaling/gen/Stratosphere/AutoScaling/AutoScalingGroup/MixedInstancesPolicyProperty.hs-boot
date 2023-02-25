@@ -1,0 +1,7 @@
+module Stratosphere.AutoScaling.AutoScalingGroup.MixedInstancesPolicyProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MixedInstancesPolicyProperty :: Prelude.Type
+instance ToResourceProperties MixedInstancesPolicyProperty
+instance JSON.ToJSON MixedInstancesPolicyProperty

@@ -1,0 +1,7 @@
+module Stratosphere.Route53.RecordSetGroup.CidrRoutingConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CidrRoutingConfigProperty :: Prelude.Type
+instance ToResourceProperties CidrRoutingConfigProperty
+instance JSON.ToJSON CidrRoutingConfigProperty

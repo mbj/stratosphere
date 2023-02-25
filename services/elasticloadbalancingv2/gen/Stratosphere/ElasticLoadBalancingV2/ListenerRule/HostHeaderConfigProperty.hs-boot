@@ -1,0 +1,7 @@
+module Stratosphere.ElasticLoadBalancingV2.ListenerRule.HostHeaderConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data HostHeaderConfigProperty :: Prelude.Type
+instance ToResourceProperties HostHeaderConfigProperty
+instance JSON.ToJSON HostHeaderConfigProperty

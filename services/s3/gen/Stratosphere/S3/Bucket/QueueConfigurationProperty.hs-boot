@@ -1,0 +1,7 @@
+module Stratosphere.S3.Bucket.QueueConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data QueueConfigurationProperty :: Prelude.Type
+instance ToResourceProperties QueueConfigurationProperty
+instance JSON.ToJSON QueueConfigurationProperty

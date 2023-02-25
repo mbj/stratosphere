@@ -1,0 +1,7 @@
+module Stratosphere.KinesisAnalyticsV2.Application.GlueDataCatalogConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data GlueDataCatalogConfigurationProperty :: Prelude.Type
+instance ToResourceProperties GlueDataCatalogConfigurationProperty
+instance JSON.ToJSON GlueDataCatalogConfigurationProperty

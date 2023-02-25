@@ -1,0 +1,7 @@
+module Stratosphere.AppStream.Stack.StreamingExperienceSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data StreamingExperienceSettingsProperty :: Prelude.Type
+instance ToResourceProperties StreamingExperienceSettingsProperty
+instance JSON.ToJSON StreamingExperienceSettingsProperty

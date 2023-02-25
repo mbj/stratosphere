@@ -1,0 +1,7 @@
+module Stratosphere.Greengrass.ResourceDefinitionVersion.S3MachineLearningModelResourceDataProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data S3MachineLearningModelResourceDataProperty :: Prelude.Type
+instance ToResourceProperties S3MachineLearningModelResourceDataProperty
+instance JSON.ToJSON S3MachineLearningModelResourceDataProperty

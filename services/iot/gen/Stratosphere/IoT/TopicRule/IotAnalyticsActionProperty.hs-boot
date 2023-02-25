@@ -1,0 +1,7 @@
+module Stratosphere.IoT.TopicRule.IotAnalyticsActionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data IotAnalyticsActionProperty :: Prelude.Type
+instance ToResourceProperties IotAnalyticsActionProperty
+instance JSON.ToJSON IotAnalyticsActionProperty

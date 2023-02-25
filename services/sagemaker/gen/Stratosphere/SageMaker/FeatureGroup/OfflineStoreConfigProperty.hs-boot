@@ -1,0 +1,7 @@
+module Stratosphere.SageMaker.FeatureGroup.OfflineStoreConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data OfflineStoreConfigProperty :: Prelude.Type
+instance ToResourceProperties OfflineStoreConfigProperty
+instance JSON.ToJSON OfflineStoreConfigProperty

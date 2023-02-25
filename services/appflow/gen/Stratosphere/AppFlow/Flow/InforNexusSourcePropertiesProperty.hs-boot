@@ -1,0 +1,7 @@
+module Stratosphere.AppFlow.Flow.InforNexusSourcePropertiesProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data InforNexusSourcePropertiesProperty :: Prelude.Type
+instance ToResourceProperties InforNexusSourcePropertiesProperty
+instance JSON.ToJSON InforNexusSourcePropertiesProperty

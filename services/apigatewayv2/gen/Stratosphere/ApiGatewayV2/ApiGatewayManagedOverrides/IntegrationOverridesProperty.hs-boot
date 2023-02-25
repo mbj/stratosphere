@@ -1,0 +1,7 @@
+module Stratosphere.ApiGatewayV2.ApiGatewayManagedOverrides.IntegrationOverridesProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data IntegrationOverridesProperty :: Prelude.Type
+instance ToResourceProperties IntegrationOverridesProperty
+instance JSON.ToJSON IntegrationOverridesProperty

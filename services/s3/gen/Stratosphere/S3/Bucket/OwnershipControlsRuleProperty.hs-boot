@@ -1,0 +1,7 @@
+module Stratosphere.S3.Bucket.OwnershipControlsRuleProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data OwnershipControlsRuleProperty :: Prelude.Type
+instance ToResourceProperties OwnershipControlsRuleProperty
+instance JSON.ToJSON OwnershipControlsRuleProperty

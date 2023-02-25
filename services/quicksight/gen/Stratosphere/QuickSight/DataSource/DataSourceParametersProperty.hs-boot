@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.DataSource.DataSourceParametersProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DataSourceParametersProperty :: Prelude.Type
+instance ToResourceProperties DataSourceParametersProperty
+instance JSON.ToJSON DataSourceParametersProperty

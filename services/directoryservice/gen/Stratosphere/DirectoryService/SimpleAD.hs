@@ -1,0 +1,83 @@
+module Stratosphere.DirectoryService.SimpleAD (
+        module Exports, SimpleAD(..), mkSimpleAD
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.DirectoryService.SimpleAD.VpcSettingsProperty as Exports
+import Stratosphere.ResourceProperties
+import Stratosphere.Value
+data SimpleAD
+  = SimpleAD {createAlias :: (Prelude.Maybe (Value Prelude.Bool)),
+              description :: (Prelude.Maybe (Value Prelude.Text)),
+              enableSso :: (Prelude.Maybe (Value Prelude.Bool)),
+              name :: (Value Prelude.Text),
+              password :: (Prelude.Maybe (Value Prelude.Text)),
+              shortName :: (Prelude.Maybe (Value Prelude.Text)),
+              size :: (Value Prelude.Text),
+              vpcSettings :: VpcSettingsProperty}
+mkSimpleAD ::
+  Value Prelude.Text
+  -> Value Prelude.Text -> VpcSettingsProperty -> SimpleAD
+mkSimpleAD name size vpcSettings
+  = SimpleAD
+      {name = name, size = size, vpcSettings = vpcSettings,
+       createAlias = Prelude.Nothing, description = Prelude.Nothing,
+       enableSso = Prelude.Nothing, password = Prelude.Nothing,
+       shortName = Prelude.Nothing}
+instance ToResourceProperties SimpleAD where
+  toResourceProperties SimpleAD {..}
+    = ResourceProperties
+        {awsType = "AWS::DirectoryService::SimpleAD",
+         properties = Prelude.fromList
+                        ((Prelude.<>)
+                           ["Name" JSON..= name, "Size" JSON..= size,
+                            "VpcSettings" JSON..= vpcSettings]
+                           (Prelude.catMaybes
+                              [(JSON..=) "CreateAlias" Prelude.<$> createAlias,
+                               (JSON..=) "Description" Prelude.<$> description,
+                               (JSON..=) "EnableSso" Prelude.<$> enableSso,
+                               (JSON..=) "Password" Prelude.<$> password,
+                               (JSON..=) "ShortName" Prelude.<$> shortName]))}
+instance JSON.ToJSON SimpleAD where
+  toJSON SimpleAD {..}
+    = JSON.object
+        (Prelude.fromList
+           ((Prelude.<>)
+              ["Name" JSON..= name, "Size" JSON..= size,
+               "VpcSettings" JSON..= vpcSettings]
+              (Prelude.catMaybes
+                 [(JSON..=) "CreateAlias" Prelude.<$> createAlias,
+                  (JSON..=) "Description" Prelude.<$> description,
+                  (JSON..=) "EnableSso" Prelude.<$> enableSso,
+                  (JSON..=) "Password" Prelude.<$> password,
+                  (JSON..=) "ShortName" Prelude.<$> shortName])))
+instance Property "CreateAlias" SimpleAD where
+  type PropertyType "CreateAlias" SimpleAD = Value Prelude.Bool
+  set newValue SimpleAD {..}
+    = SimpleAD {createAlias = Prelude.pure newValue, ..}
+instance Property "Description" SimpleAD where
+  type PropertyType "Description" SimpleAD = Value Prelude.Text
+  set newValue SimpleAD {..}
+    = SimpleAD {description = Prelude.pure newValue, ..}
+instance Property "EnableSso" SimpleAD where
+  type PropertyType "EnableSso" SimpleAD = Value Prelude.Bool
+  set newValue SimpleAD {..}
+    = SimpleAD {enableSso = Prelude.pure newValue, ..}
+instance Property "Name" SimpleAD where
+  type PropertyType "Name" SimpleAD = Value Prelude.Text
+  set newValue SimpleAD {..} = SimpleAD {name = newValue, ..}
+instance Property "Password" SimpleAD where
+  type PropertyType "Password" SimpleAD = Value Prelude.Text
+  set newValue SimpleAD {..}
+    = SimpleAD {password = Prelude.pure newValue, ..}
+instance Property "ShortName" SimpleAD where
+  type PropertyType "ShortName" SimpleAD = Value Prelude.Text
+  set newValue SimpleAD {..}
+    = SimpleAD {shortName = Prelude.pure newValue, ..}
+instance Property "Size" SimpleAD where
+  type PropertyType "Size" SimpleAD = Value Prelude.Text
+  set newValue SimpleAD {..} = SimpleAD {size = newValue, ..}
+instance Property "VpcSettings" SimpleAD where
+  type PropertyType "VpcSettings" SimpleAD = VpcSettingsProperty
+  set newValue SimpleAD {..} = SimpleAD {vpcSettings = newValue, ..}

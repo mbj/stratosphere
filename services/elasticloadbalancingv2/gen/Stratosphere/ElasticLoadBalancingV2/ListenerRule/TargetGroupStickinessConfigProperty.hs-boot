@@ -1,0 +1,7 @@
+module Stratosphere.ElasticLoadBalancingV2.ListenerRule.TargetGroupStickinessConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TargetGroupStickinessConfigProperty :: Prelude.Type
+instance ToResourceProperties TargetGroupStickinessConfigProperty
+instance JSON.ToJSON TargetGroupStickinessConfigProperty

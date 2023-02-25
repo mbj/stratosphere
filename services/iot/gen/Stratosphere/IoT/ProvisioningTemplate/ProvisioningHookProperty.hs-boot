@@ -1,0 +1,7 @@
+module Stratosphere.IoT.ProvisioningTemplate.ProvisioningHookProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ProvisioningHookProperty :: Prelude.Type
+instance ToResourceProperties ProvisioningHookProperty
+instance JSON.ToJSON ProvisioningHookProperty

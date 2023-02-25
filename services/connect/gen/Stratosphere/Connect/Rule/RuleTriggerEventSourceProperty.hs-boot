@@ -1,0 +1,7 @@
+module Stratosphere.Connect.Rule.RuleTriggerEventSourceProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RuleTriggerEventSourceProperty :: Prelude.Type
+instance ToResourceProperties RuleTriggerEventSourceProperty
+instance JSON.ToJSON RuleTriggerEventSourceProperty

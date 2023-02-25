@@ -1,0 +1,7 @@
+module Stratosphere.DynamoDB.GlobalTable.CapacityAutoScalingSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CapacityAutoScalingSettingsProperty :: Prelude.Type
+instance ToResourceProperties CapacityAutoScalingSettingsProperty
+instance JSON.ToJSON CapacityAutoScalingSettingsProperty

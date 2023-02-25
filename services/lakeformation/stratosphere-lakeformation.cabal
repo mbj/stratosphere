@@ -1,0 +1,104 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.35.2.
+--
+-- see: https://github.com/sol/hpack
+
+name:           stratosphere-lakeformation
+version:        1.0.0
+category:       AWS, Cloud
+stability:      experimental
+homepage:       https://github.com/mbj/stratosphere#readme
+bug-reports:    https://github.com/mbj/stratosphere/issues
+maintainer:     Markus Schirp
+license:        MIT
+build-type:     Simple
+
+source-repository head
+  type: git
+  location: https://github.com/mbj/stratosphere
+
+flag development
+  description: Run GHC with development flags
+  manual: True
+  default: False
+
+library
+  exposed-modules:
+      Stratosphere.LakeFormation.DataCellsFilter
+      Stratosphere.LakeFormation.DataCellsFilter.ColumnWildcardProperty
+      Stratosphere.LakeFormation.DataCellsFilter.RowFilterProperty
+      Stratosphere.LakeFormation.DataLakeSettings
+      Stratosphere.LakeFormation.DataLakeSettings.AdminsProperty
+      Stratosphere.LakeFormation.DataLakeSettings.DataLakePrincipalProperty
+      Stratosphere.LakeFormation.Permissions
+      Stratosphere.LakeFormation.Permissions.ColumnWildcardProperty
+      Stratosphere.LakeFormation.Permissions.DatabaseResourceProperty
+      Stratosphere.LakeFormation.Permissions.DataLakePrincipalProperty
+      Stratosphere.LakeFormation.Permissions.DataLocationResourceProperty
+      Stratosphere.LakeFormation.Permissions.ResourceProperty
+      Stratosphere.LakeFormation.Permissions.TableResourceProperty
+      Stratosphere.LakeFormation.Permissions.TableWildcardProperty
+      Stratosphere.LakeFormation.Permissions.TableWithColumnsResourceProperty
+      Stratosphere.LakeFormation.PrincipalPermissions
+      Stratosphere.LakeFormation.PrincipalPermissions.ColumnWildcardProperty
+      Stratosphere.LakeFormation.PrincipalPermissions.DatabaseResourceProperty
+      Stratosphere.LakeFormation.PrincipalPermissions.DataCellsFilterResourceProperty
+      Stratosphere.LakeFormation.PrincipalPermissions.DataLakePrincipalProperty
+      Stratosphere.LakeFormation.PrincipalPermissions.DataLocationResourceProperty
+      Stratosphere.LakeFormation.PrincipalPermissions.LFTagKeyResourceProperty
+      Stratosphere.LakeFormation.PrincipalPermissions.LFTagPolicyResourceProperty
+      Stratosphere.LakeFormation.PrincipalPermissions.LFTagProperty
+      Stratosphere.LakeFormation.PrincipalPermissions.ResourceProperty
+      Stratosphere.LakeFormation.PrincipalPermissions.TableResourceProperty
+      Stratosphere.LakeFormation.PrincipalPermissions.TableWithColumnsResourceProperty
+      Stratosphere.LakeFormation.Resource
+      Stratosphere.LakeFormation.Tag
+      Stratosphere.LakeFormation.TagAssociation
+      Stratosphere.LakeFormation.TagAssociation.DatabaseResourceProperty
+      Stratosphere.LakeFormation.TagAssociation.LFTagPairProperty
+      Stratosphere.LakeFormation.TagAssociation.ResourceProperty
+      Stratosphere.LakeFormation.TagAssociation.TableResourceProperty
+      Stratosphere.LakeFormation.TagAssociation.TableWithColumnsResourceProperty
+  other-modules:
+      Paths_stratosphere_lakeformation
+  hs-source-dirs:
+      gen
+  default-extensions:
+      DataKinds
+      DeriveGeneric
+      DerivingStrategies
+      DerivingVia
+      DuplicateRecordFields
+      FlexibleContexts
+      FlexibleInstances
+      GADTs
+      GeneralizedNewtypeDeriving
+      InstanceSigs
+      LambdaCase
+      MultiParamTypeClasses
+      NoFieldSelectors
+      NoImplicitPrelude
+      NumericUnderscores
+      OverloadedLists
+      OverloadedRecordDot
+      OverloadedStrings
+      PolyKinds
+      RecordWildCards
+      ScopedTypeVariables
+      StandaloneDeriving
+      Strict
+      TemplateHaskell
+      TupleSections
+      TypeApplications
+      TypeFamilies
+  ghc-options: -Wall -Wcompat -Widentities -Wimplicit-prelude -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-local-signatures -Wmissing-signatures -Wmonomorphism-restriction -Wredundant-constraints -fhide-source-paths -funbox-strict-fields -optP-Wno-nonportable-include-path -Wno-unused-imports
+  build-depends:
+      aeson
+    , base
+    , stratosphere ==1.0.0
+  default-language: Haskell2010
+  if flag(development)
+    ghc-options: -Werror
+  else
+    ghc-options: -Wwarn

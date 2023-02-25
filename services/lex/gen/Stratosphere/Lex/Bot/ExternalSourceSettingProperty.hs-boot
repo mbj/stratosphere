@@ -1,0 +1,7 @@
+module Stratosphere.Lex.Bot.ExternalSourceSettingProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ExternalSourceSettingProperty :: Prelude.Type
+instance ToResourceProperties ExternalSourceSettingProperty
+instance JSON.ToJSON ExternalSourceSettingProperty

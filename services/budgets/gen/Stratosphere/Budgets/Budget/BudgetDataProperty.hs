@@ -1,0 +1,97 @@
+module Stratosphere.Budgets.Budget.BudgetDataProperty (
+        module Exports, BudgetDataProperty(..), mkBudgetDataProperty
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.Budgets.Budget.AutoAdjustDataProperty as Exports
+import {-# SOURCE #-} Stratosphere.Budgets.Budget.CostTypesProperty as Exports
+import {-# SOURCE #-} Stratosphere.Budgets.Budget.SpendProperty as Exports
+import {-# SOURCE #-} Stratosphere.Budgets.Budget.TimePeriodProperty as Exports
+import Stratosphere.ResourceProperties
+import Stratosphere.Value
+data BudgetDataProperty
+  = BudgetDataProperty {autoAdjustData :: (Prelude.Maybe AutoAdjustDataProperty),
+                        budgetLimit :: (Prelude.Maybe SpendProperty),
+                        budgetName :: (Prelude.Maybe (Value Prelude.Text)),
+                        budgetType :: (Value Prelude.Text),
+                        costFilters :: (Prelude.Maybe JSON.Object),
+                        costTypes :: (Prelude.Maybe CostTypesProperty),
+                        plannedBudgetLimits :: (Prelude.Maybe JSON.Object),
+                        timePeriod :: (Prelude.Maybe TimePeriodProperty),
+                        timeUnit :: (Value Prelude.Text)}
+mkBudgetDataProperty ::
+  Value Prelude.Text -> Value Prelude.Text -> BudgetDataProperty
+mkBudgetDataProperty budgetType timeUnit
+  = BudgetDataProperty
+      {budgetType = budgetType, timeUnit = timeUnit,
+       autoAdjustData = Prelude.Nothing, budgetLimit = Prelude.Nothing,
+       budgetName = Prelude.Nothing, costFilters = Prelude.Nothing,
+       costTypes = Prelude.Nothing, plannedBudgetLimits = Prelude.Nothing,
+       timePeriod = Prelude.Nothing}
+instance ToResourceProperties BudgetDataProperty where
+  toResourceProperties BudgetDataProperty {..}
+    = ResourceProperties
+        {awsType = "AWS::Budgets::Budget.BudgetData",
+         properties = Prelude.fromList
+                        ((Prelude.<>)
+                           ["BudgetType" JSON..= budgetType, "TimeUnit" JSON..= timeUnit]
+                           (Prelude.catMaybes
+                              [(JSON..=) "AutoAdjustData" Prelude.<$> autoAdjustData,
+                               (JSON..=) "BudgetLimit" Prelude.<$> budgetLimit,
+                               (JSON..=) "BudgetName" Prelude.<$> budgetName,
+                               (JSON..=) "CostFilters" Prelude.<$> costFilters,
+                               (JSON..=) "CostTypes" Prelude.<$> costTypes,
+                               (JSON..=) "PlannedBudgetLimits" Prelude.<$> plannedBudgetLimits,
+                               (JSON..=) "TimePeriod" Prelude.<$> timePeriod]))}
+instance JSON.ToJSON BudgetDataProperty where
+  toJSON BudgetDataProperty {..}
+    = JSON.object
+        (Prelude.fromList
+           ((Prelude.<>)
+              ["BudgetType" JSON..= budgetType, "TimeUnit" JSON..= timeUnit]
+              (Prelude.catMaybes
+                 [(JSON..=) "AutoAdjustData" Prelude.<$> autoAdjustData,
+                  (JSON..=) "BudgetLimit" Prelude.<$> budgetLimit,
+                  (JSON..=) "BudgetName" Prelude.<$> budgetName,
+                  (JSON..=) "CostFilters" Prelude.<$> costFilters,
+                  (JSON..=) "CostTypes" Prelude.<$> costTypes,
+                  (JSON..=) "PlannedBudgetLimits" Prelude.<$> plannedBudgetLimits,
+                  (JSON..=) "TimePeriod" Prelude.<$> timePeriod])))
+instance Property "AutoAdjustData" BudgetDataProperty where
+  type PropertyType "AutoAdjustData" BudgetDataProperty = AutoAdjustDataProperty
+  set newValue BudgetDataProperty {..}
+    = BudgetDataProperty {autoAdjustData = Prelude.pure newValue, ..}
+instance Property "BudgetLimit" BudgetDataProperty where
+  type PropertyType "BudgetLimit" BudgetDataProperty = SpendProperty
+  set newValue BudgetDataProperty {..}
+    = BudgetDataProperty {budgetLimit = Prelude.pure newValue, ..}
+instance Property "BudgetName" BudgetDataProperty where
+  type PropertyType "BudgetName" BudgetDataProperty = Value Prelude.Text
+  set newValue BudgetDataProperty {..}
+    = BudgetDataProperty {budgetName = Prelude.pure newValue, ..}
+instance Property "BudgetType" BudgetDataProperty where
+  type PropertyType "BudgetType" BudgetDataProperty = Value Prelude.Text
+  set newValue BudgetDataProperty {..}
+    = BudgetDataProperty {budgetType = newValue, ..}
+instance Property "CostFilters" BudgetDataProperty where
+  type PropertyType "CostFilters" BudgetDataProperty = JSON.Object
+  set newValue BudgetDataProperty {..}
+    = BudgetDataProperty {costFilters = Prelude.pure newValue, ..}
+instance Property "CostTypes" BudgetDataProperty where
+  type PropertyType "CostTypes" BudgetDataProperty = CostTypesProperty
+  set newValue BudgetDataProperty {..}
+    = BudgetDataProperty {costTypes = Prelude.pure newValue, ..}
+instance Property "PlannedBudgetLimits" BudgetDataProperty where
+  type PropertyType "PlannedBudgetLimits" BudgetDataProperty = JSON.Object
+  set newValue BudgetDataProperty {..}
+    = BudgetDataProperty
+        {plannedBudgetLimits = Prelude.pure newValue, ..}
+instance Property "TimePeriod" BudgetDataProperty where
+  type PropertyType "TimePeriod" BudgetDataProperty = TimePeriodProperty
+  set newValue BudgetDataProperty {..}
+    = BudgetDataProperty {timePeriod = Prelude.pure newValue, ..}
+instance Property "TimeUnit" BudgetDataProperty where
+  type PropertyType "TimeUnit" BudgetDataProperty = Value Prelude.Text
+  set newValue BudgetDataProperty {..}
+    = BudgetDataProperty {timeUnit = newValue, ..}

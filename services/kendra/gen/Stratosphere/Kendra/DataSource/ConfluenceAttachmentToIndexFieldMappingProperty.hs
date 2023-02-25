@@ -1,0 +1,58 @@
+module Stratosphere.Kendra.DataSource.ConfluenceAttachmentToIndexFieldMappingProperty (
+        ConfluenceAttachmentToIndexFieldMappingProperty(..),
+        mkConfluenceAttachmentToIndexFieldMappingProperty
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import Stratosphere.ResourceProperties
+import Stratosphere.Value
+data ConfluenceAttachmentToIndexFieldMappingProperty
+  = ConfluenceAttachmentToIndexFieldMappingProperty {dataSourceFieldName :: (Value Prelude.Text),
+                                                     dateFieldFormat :: (Prelude.Maybe (Value Prelude.Text)),
+                                                     indexFieldName :: (Value Prelude.Text)}
+mkConfluenceAttachmentToIndexFieldMappingProperty ::
+  Value Prelude.Text
+  -> Value Prelude.Text
+     -> ConfluenceAttachmentToIndexFieldMappingProperty
+mkConfluenceAttachmentToIndexFieldMappingProperty
+  dataSourceFieldName
+  indexFieldName
+  = ConfluenceAttachmentToIndexFieldMappingProperty
+      {dataSourceFieldName = dataSourceFieldName,
+       indexFieldName = indexFieldName, dateFieldFormat = Prelude.Nothing}
+instance ToResourceProperties ConfluenceAttachmentToIndexFieldMappingProperty where
+  toResourceProperties
+    ConfluenceAttachmentToIndexFieldMappingProperty {..}
+    = ResourceProperties
+        {awsType = "AWS::Kendra::DataSource.ConfluenceAttachmentToIndexFieldMapping",
+         properties = Prelude.fromList
+                        ((Prelude.<>)
+                           ["DataSourceFieldName" JSON..= dataSourceFieldName,
+                            "IndexFieldName" JSON..= indexFieldName]
+                           (Prelude.catMaybes
+                              [(JSON..=) "DateFieldFormat" Prelude.<$> dateFieldFormat]))}
+instance JSON.ToJSON ConfluenceAttachmentToIndexFieldMappingProperty where
+  toJSON ConfluenceAttachmentToIndexFieldMappingProperty {..}
+    = JSON.object
+        (Prelude.fromList
+           ((Prelude.<>)
+              ["DataSourceFieldName" JSON..= dataSourceFieldName,
+               "IndexFieldName" JSON..= indexFieldName]
+              (Prelude.catMaybes
+                 [(JSON..=) "DateFieldFormat" Prelude.<$> dateFieldFormat])))
+instance Property "DataSourceFieldName" ConfluenceAttachmentToIndexFieldMappingProperty where
+  type PropertyType "DataSourceFieldName" ConfluenceAttachmentToIndexFieldMappingProperty = Value Prelude.Text
+  set newValue ConfluenceAttachmentToIndexFieldMappingProperty {..}
+    = ConfluenceAttachmentToIndexFieldMappingProperty
+        {dataSourceFieldName = newValue, ..}
+instance Property "DateFieldFormat" ConfluenceAttachmentToIndexFieldMappingProperty where
+  type PropertyType "DateFieldFormat" ConfluenceAttachmentToIndexFieldMappingProperty = Value Prelude.Text
+  set newValue ConfluenceAttachmentToIndexFieldMappingProperty {..}
+    = ConfluenceAttachmentToIndexFieldMappingProperty
+        {dateFieldFormat = Prelude.pure newValue, ..}
+instance Property "IndexFieldName" ConfluenceAttachmentToIndexFieldMappingProperty where
+  type PropertyType "IndexFieldName" ConfluenceAttachmentToIndexFieldMappingProperty = Value Prelude.Text
+  set newValue ConfluenceAttachmentToIndexFieldMappingProperty {..}
+    = ConfluenceAttachmentToIndexFieldMappingProperty
+        {indexFieldName = newValue, ..}

@@ -1,0 +1,7 @@
+module Stratosphere.SageMaker.FeatureGroup.OnlineStoreSecurityConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data OnlineStoreSecurityConfigProperty :: Prelude.Type
+instance ToResourceProperties OnlineStoreSecurityConfigProperty
+instance JSON.ToJSON OnlineStoreSecurityConfigProperty

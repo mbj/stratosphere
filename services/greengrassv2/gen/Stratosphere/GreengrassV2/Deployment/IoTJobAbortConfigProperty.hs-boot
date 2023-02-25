@@ -1,0 +1,7 @@
+module Stratosphere.GreengrassV2.Deployment.IoTJobAbortConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data IoTJobAbortConfigProperty :: Prelude.Type
+instance ToResourceProperties IoTJobAbortConfigProperty
+instance JSON.ToJSON IoTJobAbortConfigProperty

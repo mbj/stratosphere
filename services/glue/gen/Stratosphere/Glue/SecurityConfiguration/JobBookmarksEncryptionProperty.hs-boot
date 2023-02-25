@@ -1,0 +1,7 @@
+module Stratosphere.Glue.SecurityConfiguration.JobBookmarksEncryptionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data JobBookmarksEncryptionProperty :: Prelude.Type
+instance ToResourceProperties JobBookmarksEncryptionProperty
+instance JSON.ToJSON JobBookmarksEncryptionProperty

@@ -1,0 +1,7 @@
+module Stratosphere.Lex.Bot.GrammarSlotTypeSettingProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data GrammarSlotTypeSettingProperty :: Prelude.Type
+instance ToResourceProperties GrammarSlotTypeSettingProperty
+instance JSON.ToJSON GrammarSlotTypeSettingProperty

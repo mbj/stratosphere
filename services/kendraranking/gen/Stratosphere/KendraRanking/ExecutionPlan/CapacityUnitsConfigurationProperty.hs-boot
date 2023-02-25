@@ -1,0 +1,7 @@
+module Stratosphere.KendraRanking.ExecutionPlan.CapacityUnitsConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CapacityUnitsConfigurationProperty :: Prelude.Type
+instance ToResourceProperties CapacityUnitsConfigurationProperty
+instance JSON.ToJSON CapacityUnitsConfigurationProperty

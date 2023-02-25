@@ -1,0 +1,95 @@
+module Stratosphere.S3.Bucket.ReplicationDestinationProperty (
+        module Exports, ReplicationDestinationProperty(..),
+        mkReplicationDestinationProperty
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.S3.Bucket.AccessControlTranslationProperty as Exports
+import {-# SOURCE #-} Stratosphere.S3.Bucket.EncryptionConfigurationProperty as Exports
+import {-# SOURCE #-} Stratosphere.S3.Bucket.MetricsProperty as Exports
+import {-# SOURCE #-} Stratosphere.S3.Bucket.ReplicationTimeProperty as Exports
+import Stratosphere.ResourceProperties
+import Stratosphere.Value
+data ReplicationDestinationProperty
+  = ReplicationDestinationProperty {accessControlTranslation :: (Prelude.Maybe AccessControlTranslationProperty),
+                                    account :: (Prelude.Maybe (Value Prelude.Text)),
+                                    bucket :: (Value Prelude.Text),
+                                    encryptionConfiguration :: (Prelude.Maybe EncryptionConfigurationProperty),
+                                    metrics :: (Prelude.Maybe MetricsProperty),
+                                    replicationTime :: (Prelude.Maybe ReplicationTimeProperty),
+                                    storageClass :: (Prelude.Maybe (Value Prelude.Text))}
+mkReplicationDestinationProperty ::
+  Value Prelude.Text -> ReplicationDestinationProperty
+mkReplicationDestinationProperty bucket
+  = ReplicationDestinationProperty
+      {bucket = bucket, accessControlTranslation = Prelude.Nothing,
+       account = Prelude.Nothing,
+       encryptionConfiguration = Prelude.Nothing,
+       metrics = Prelude.Nothing, replicationTime = Prelude.Nothing,
+       storageClass = Prelude.Nothing}
+instance ToResourceProperties ReplicationDestinationProperty where
+  toResourceProperties ReplicationDestinationProperty {..}
+    = ResourceProperties
+        {awsType = "AWS::S3::Bucket.ReplicationDestination",
+         properties = Prelude.fromList
+                        ((Prelude.<>)
+                           ["Bucket" JSON..= bucket]
+                           (Prelude.catMaybes
+                              [(JSON..=) "AccessControlTranslation"
+                                 Prelude.<$> accessControlTranslation,
+                               (JSON..=) "Account" Prelude.<$> account,
+                               (JSON..=) "EncryptionConfiguration"
+                                 Prelude.<$> encryptionConfiguration,
+                               (JSON..=) "Metrics" Prelude.<$> metrics,
+                               (JSON..=) "ReplicationTime" Prelude.<$> replicationTime,
+                               (JSON..=) "StorageClass" Prelude.<$> storageClass]))}
+instance JSON.ToJSON ReplicationDestinationProperty where
+  toJSON ReplicationDestinationProperty {..}
+    = JSON.object
+        (Prelude.fromList
+           ((Prelude.<>)
+              ["Bucket" JSON..= bucket]
+              (Prelude.catMaybes
+                 [(JSON..=) "AccessControlTranslation"
+                    Prelude.<$> accessControlTranslation,
+                  (JSON..=) "Account" Prelude.<$> account,
+                  (JSON..=) "EncryptionConfiguration"
+                    Prelude.<$> encryptionConfiguration,
+                  (JSON..=) "Metrics" Prelude.<$> metrics,
+                  (JSON..=) "ReplicationTime" Prelude.<$> replicationTime,
+                  (JSON..=) "StorageClass" Prelude.<$> storageClass])))
+instance Property "AccessControlTranslation" ReplicationDestinationProperty where
+  type PropertyType "AccessControlTranslation" ReplicationDestinationProperty = AccessControlTranslationProperty
+  set newValue ReplicationDestinationProperty {..}
+    = ReplicationDestinationProperty
+        {accessControlTranslation = Prelude.pure newValue, ..}
+instance Property "Account" ReplicationDestinationProperty where
+  type PropertyType "Account" ReplicationDestinationProperty = Value Prelude.Text
+  set newValue ReplicationDestinationProperty {..}
+    = ReplicationDestinationProperty
+        {account = Prelude.pure newValue, ..}
+instance Property "Bucket" ReplicationDestinationProperty where
+  type PropertyType "Bucket" ReplicationDestinationProperty = Value Prelude.Text
+  set newValue ReplicationDestinationProperty {..}
+    = ReplicationDestinationProperty {bucket = newValue, ..}
+instance Property "EncryptionConfiguration" ReplicationDestinationProperty where
+  type PropertyType "EncryptionConfiguration" ReplicationDestinationProperty = EncryptionConfigurationProperty
+  set newValue ReplicationDestinationProperty {..}
+    = ReplicationDestinationProperty
+        {encryptionConfiguration = Prelude.pure newValue, ..}
+instance Property "Metrics" ReplicationDestinationProperty where
+  type PropertyType "Metrics" ReplicationDestinationProperty = MetricsProperty
+  set newValue ReplicationDestinationProperty {..}
+    = ReplicationDestinationProperty
+        {metrics = Prelude.pure newValue, ..}
+instance Property "ReplicationTime" ReplicationDestinationProperty where
+  type PropertyType "ReplicationTime" ReplicationDestinationProperty = ReplicationTimeProperty
+  set newValue ReplicationDestinationProperty {..}
+    = ReplicationDestinationProperty
+        {replicationTime = Prelude.pure newValue, ..}
+instance Property "StorageClass" ReplicationDestinationProperty where
+  type PropertyType "StorageClass" ReplicationDestinationProperty = Value Prelude.Text
+  set newValue ReplicationDestinationProperty {..}
+    = ReplicationDestinationProperty
+        {storageClass = Prelude.pure newValue, ..}

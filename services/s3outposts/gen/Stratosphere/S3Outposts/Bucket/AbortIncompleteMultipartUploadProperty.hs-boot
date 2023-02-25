@@ -1,0 +1,7 @@
+module Stratosphere.S3Outposts.Bucket.AbortIncompleteMultipartUploadProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AbortIncompleteMultipartUploadProperty :: Prelude.Type
+instance ToResourceProperties AbortIncompleteMultipartUploadProperty
+instance JSON.ToJSON AbortIncompleteMultipartUploadProperty

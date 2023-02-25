@@ -1,0 +1,7 @@
+module Stratosphere.AppFlow.Flow.SalesforceSourcePropertiesProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SalesforceSourcePropertiesProperty :: Prelude.Type
+instance ToResourceProperties SalesforceSourcePropertiesProperty
+instance JSON.ToJSON SalesforceSourcePropertiesProperty

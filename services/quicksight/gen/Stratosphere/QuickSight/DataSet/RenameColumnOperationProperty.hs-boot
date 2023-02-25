@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.DataSet.RenameColumnOperationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RenameColumnOperationProperty :: Prelude.Type
+instance ToResourceProperties RenameColumnOperationProperty
+instance JSON.ToJSON RenameColumnOperationProperty

@@ -1,0 +1,180 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.35.2.
+--
+-- see: https://github.com/sol/hpack
+
+name:           stratosphere-wafv2
+version:        1.0.0
+category:       AWS, Cloud
+stability:      experimental
+homepage:       https://github.com/mbj/stratosphere#readme
+bug-reports:    https://github.com/mbj/stratosphere/issues
+maintainer:     Markus Schirp
+license:        MIT
+build-type:     Simple
+
+source-repository head
+  type: git
+  location: https://github.com/mbj/stratosphere
+
+flag development
+  description: Run GHC with development flags
+  manual: True
+  default: False
+
+library
+  exposed-modules:
+      Stratosphere.WAFv2.IPSet
+      Stratosphere.WAFv2.LoggingConfiguration
+      Stratosphere.WAFv2.LoggingConfiguration.ActionConditionProperty
+      Stratosphere.WAFv2.LoggingConfiguration.ConditionProperty
+      Stratosphere.WAFv2.LoggingConfiguration.FieldToMatchProperty
+      Stratosphere.WAFv2.LoggingConfiguration.FilterProperty
+      Stratosphere.WAFv2.LoggingConfiguration.JsonBodyProperty
+      Stratosphere.WAFv2.LoggingConfiguration.LabelNameConditionProperty
+      Stratosphere.WAFv2.LoggingConfiguration.LoggingFilterProperty
+      Stratosphere.WAFv2.LoggingConfiguration.MatchPatternProperty
+      Stratosphere.WAFv2.LoggingConfiguration.SingleHeaderProperty
+      Stratosphere.WAFv2.RegexPatternSet
+      Stratosphere.WAFv2.RuleGroup
+      Stratosphere.WAFv2.RuleGroup.AllowActionProperty
+      Stratosphere.WAFv2.RuleGroup.AndStatementProperty
+      Stratosphere.WAFv2.RuleGroup.BlockActionProperty
+      Stratosphere.WAFv2.RuleGroup.BodyProperty
+      Stratosphere.WAFv2.RuleGroup.ByteMatchStatementProperty
+      Stratosphere.WAFv2.RuleGroup.CaptchaActionProperty
+      Stratosphere.WAFv2.RuleGroup.CaptchaConfigProperty
+      Stratosphere.WAFv2.RuleGroup.ChallengeActionProperty
+      Stratosphere.WAFv2.RuleGroup.ChallengeConfigProperty
+      Stratosphere.WAFv2.RuleGroup.CookieMatchPatternProperty
+      Stratosphere.WAFv2.RuleGroup.CookiesProperty
+      Stratosphere.WAFv2.RuleGroup.CountActionProperty
+      Stratosphere.WAFv2.RuleGroup.CustomHTTPHeaderProperty
+      Stratosphere.WAFv2.RuleGroup.CustomRequestHandlingProperty
+      Stratosphere.WAFv2.RuleGroup.CustomResponseBodyProperty
+      Stratosphere.WAFv2.RuleGroup.CustomResponseProperty
+      Stratosphere.WAFv2.RuleGroup.FieldToMatchProperty
+      Stratosphere.WAFv2.RuleGroup.ForwardedIPConfigurationProperty
+      Stratosphere.WAFv2.RuleGroup.GeoMatchStatementProperty
+      Stratosphere.WAFv2.RuleGroup.HeaderMatchPatternProperty
+      Stratosphere.WAFv2.RuleGroup.HeadersProperty
+      Stratosphere.WAFv2.RuleGroup.ImmunityTimePropertyProperty
+      Stratosphere.WAFv2.RuleGroup.IPSetForwardedIPConfigurationProperty
+      Stratosphere.WAFv2.RuleGroup.IPSetReferenceStatementProperty
+      Stratosphere.WAFv2.RuleGroup.JsonBodyProperty
+      Stratosphere.WAFv2.RuleGroup.JsonMatchPatternProperty
+      Stratosphere.WAFv2.RuleGroup.LabelMatchStatementProperty
+      Stratosphere.WAFv2.RuleGroup.LabelProperty
+      Stratosphere.WAFv2.RuleGroup.LabelSummaryProperty
+      Stratosphere.WAFv2.RuleGroup.NotStatementProperty
+      Stratosphere.WAFv2.RuleGroup.OrStatementProperty
+      Stratosphere.WAFv2.RuleGroup.RateBasedStatementProperty
+      Stratosphere.WAFv2.RuleGroup.RegexMatchStatementProperty
+      Stratosphere.WAFv2.RuleGroup.RegexPatternSetReferenceStatementProperty
+      Stratosphere.WAFv2.RuleGroup.RuleActionProperty
+      Stratosphere.WAFv2.RuleGroup.RuleProperty
+      Stratosphere.WAFv2.RuleGroup.SingleHeaderProperty
+      Stratosphere.WAFv2.RuleGroup.SingleQueryArgumentProperty
+      Stratosphere.WAFv2.RuleGroup.SizeConstraintStatementProperty
+      Stratosphere.WAFv2.RuleGroup.SqliMatchStatementProperty
+      Stratosphere.WAFv2.RuleGroup.StatementProperty
+      Stratosphere.WAFv2.RuleGroup.TextTransformationProperty
+      Stratosphere.WAFv2.RuleGroup.VisibilityConfigProperty
+      Stratosphere.WAFv2.RuleGroup.XssMatchStatementProperty
+      Stratosphere.WAFv2.WebACL
+      Stratosphere.WAFv2.WebACL.AllowActionProperty
+      Stratosphere.WAFv2.WebACL.AndStatementProperty
+      Stratosphere.WAFv2.WebACL.AWSManagedRulesBotControlRuleSetProperty
+      Stratosphere.WAFv2.WebACL.BlockActionProperty
+      Stratosphere.WAFv2.WebACL.BodyProperty
+      Stratosphere.WAFv2.WebACL.ByteMatchStatementProperty
+      Stratosphere.WAFv2.WebACL.CaptchaActionProperty
+      Stratosphere.WAFv2.WebACL.CaptchaConfigProperty
+      Stratosphere.WAFv2.WebACL.ChallengeActionProperty
+      Stratosphere.WAFv2.WebACL.ChallengeConfigProperty
+      Stratosphere.WAFv2.WebACL.CookieMatchPatternProperty
+      Stratosphere.WAFv2.WebACL.CookiesProperty
+      Stratosphere.WAFv2.WebACL.CountActionProperty
+      Stratosphere.WAFv2.WebACL.CustomHTTPHeaderProperty
+      Stratosphere.WAFv2.WebACL.CustomRequestHandlingProperty
+      Stratosphere.WAFv2.WebACL.CustomResponseBodyProperty
+      Stratosphere.WAFv2.WebACL.CustomResponseProperty
+      Stratosphere.WAFv2.WebACL.DefaultActionProperty
+      Stratosphere.WAFv2.WebACL.ExcludedRuleProperty
+      Stratosphere.WAFv2.WebACL.FieldIdentifierProperty
+      Stratosphere.WAFv2.WebACL.FieldToMatchProperty
+      Stratosphere.WAFv2.WebACL.ForwardedIPConfigurationProperty
+      Stratosphere.WAFv2.WebACL.GeoMatchStatementProperty
+      Stratosphere.WAFv2.WebACL.HeaderMatchPatternProperty
+      Stratosphere.WAFv2.WebACL.HeadersProperty
+      Stratosphere.WAFv2.WebACL.ImmunityTimePropertyProperty
+      Stratosphere.WAFv2.WebACL.IPSetForwardedIPConfigurationProperty
+      Stratosphere.WAFv2.WebACL.IPSetReferenceStatementProperty
+      Stratosphere.WAFv2.WebACL.JsonBodyProperty
+      Stratosphere.WAFv2.WebACL.JsonMatchPatternProperty
+      Stratosphere.WAFv2.WebACL.LabelMatchStatementProperty
+      Stratosphere.WAFv2.WebACL.LabelProperty
+      Stratosphere.WAFv2.WebACL.ManagedRuleGroupConfigProperty
+      Stratosphere.WAFv2.WebACL.ManagedRuleGroupStatementProperty
+      Stratosphere.WAFv2.WebACL.NotStatementProperty
+      Stratosphere.WAFv2.WebACL.OrStatementProperty
+      Stratosphere.WAFv2.WebACL.OverrideActionProperty
+      Stratosphere.WAFv2.WebACL.RateBasedStatementProperty
+      Stratosphere.WAFv2.WebACL.RegexMatchStatementProperty
+      Stratosphere.WAFv2.WebACL.RegexPatternSetReferenceStatementProperty
+      Stratosphere.WAFv2.WebACL.RuleActionOverrideProperty
+      Stratosphere.WAFv2.WebACL.RuleActionProperty
+      Stratosphere.WAFv2.WebACL.RuleGroupReferenceStatementProperty
+      Stratosphere.WAFv2.WebACL.RuleProperty
+      Stratosphere.WAFv2.WebACL.SingleHeaderProperty
+      Stratosphere.WAFv2.WebACL.SingleQueryArgumentProperty
+      Stratosphere.WAFv2.WebACL.SizeConstraintStatementProperty
+      Stratosphere.WAFv2.WebACL.SqliMatchStatementProperty
+      Stratosphere.WAFv2.WebACL.StatementProperty
+      Stratosphere.WAFv2.WebACL.TextTransformationProperty
+      Stratosphere.WAFv2.WebACL.VisibilityConfigProperty
+      Stratosphere.WAFv2.WebACL.XssMatchStatementProperty
+      Stratosphere.WAFv2.WebACLAssociation
+  other-modules:
+      Paths_stratosphere_wafv2
+  hs-source-dirs:
+      gen
+  default-extensions:
+      DataKinds
+      DeriveGeneric
+      DerivingStrategies
+      DerivingVia
+      DuplicateRecordFields
+      FlexibleContexts
+      FlexibleInstances
+      GADTs
+      GeneralizedNewtypeDeriving
+      InstanceSigs
+      LambdaCase
+      MultiParamTypeClasses
+      NoFieldSelectors
+      NoImplicitPrelude
+      NumericUnderscores
+      OverloadedLists
+      OverloadedRecordDot
+      OverloadedStrings
+      PolyKinds
+      RecordWildCards
+      ScopedTypeVariables
+      StandaloneDeriving
+      Strict
+      TemplateHaskell
+      TupleSections
+      TypeApplications
+      TypeFamilies
+  ghc-options: -Wall -Wcompat -Widentities -Wimplicit-prelude -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-local-signatures -Wmissing-signatures -Wmonomorphism-restriction -Wredundant-constraints -fhide-source-paths -funbox-strict-fields -optP-Wno-nonportable-include-path -Wno-unused-imports
+  build-depends:
+      aeson
+    , base
+    , stratosphere ==1.0.0
+  default-language: Haskell2010
+  if flag(development)
+    ghc-options: -Werror
+  else
+    ghc-options: -Wwarn

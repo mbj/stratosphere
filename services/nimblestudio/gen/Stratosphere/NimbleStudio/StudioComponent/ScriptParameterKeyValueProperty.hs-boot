@@ -1,0 +1,7 @@
+module Stratosphere.NimbleStudio.StudioComponent.ScriptParameterKeyValueProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ScriptParameterKeyValueProperty :: Prelude.Type
+instance ToResourceProperties ScriptParameterKeyValueProperty
+instance JSON.ToJSON ScriptParameterKeyValueProperty

@@ -1,0 +1,66 @@
+module Stratosphere.SageMaker.Domain.DefaultSpaceSettingsProperty (
+        module Exports, DefaultSpaceSettingsProperty(..),
+        mkDefaultSpaceSettingsProperty
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.SageMaker.Domain.JupyterServerAppSettingsProperty as Exports
+import {-# SOURCE #-} Stratosphere.SageMaker.Domain.KernelGatewayAppSettingsProperty as Exports
+import Stratosphere.ResourceProperties
+import Stratosphere.Value
+data DefaultSpaceSettingsProperty
+  = DefaultSpaceSettingsProperty {executionRole :: (Prelude.Maybe (Value Prelude.Text)),
+                                  jupyterServerAppSettings :: (Prelude.Maybe JupyterServerAppSettingsProperty),
+                                  kernelGatewayAppSettings :: (Prelude.Maybe KernelGatewayAppSettingsProperty),
+                                  securityGroups :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+mkDefaultSpaceSettingsProperty :: DefaultSpaceSettingsProperty
+mkDefaultSpaceSettingsProperty
+  = DefaultSpaceSettingsProperty
+      {executionRole = Prelude.Nothing,
+       jupyterServerAppSettings = Prelude.Nothing,
+       kernelGatewayAppSettings = Prelude.Nothing,
+       securityGroups = Prelude.Nothing}
+instance ToResourceProperties DefaultSpaceSettingsProperty where
+  toResourceProperties DefaultSpaceSettingsProperty {..}
+    = ResourceProperties
+        {awsType = "AWS::SageMaker::Domain.DefaultSpaceSettings",
+         properties = Prelude.fromList
+                        (Prelude.catMaybes
+                           [(JSON..=) "ExecutionRole" Prelude.<$> executionRole,
+                            (JSON..=) "JupyterServerAppSettings"
+                              Prelude.<$> jupyterServerAppSettings,
+                            (JSON..=) "KernelGatewayAppSettings"
+                              Prelude.<$> kernelGatewayAppSettings,
+                            (JSON..=) "SecurityGroups" Prelude.<$> securityGroups])}
+instance JSON.ToJSON DefaultSpaceSettingsProperty where
+  toJSON DefaultSpaceSettingsProperty {..}
+    = JSON.object
+        (Prelude.fromList
+           (Prelude.catMaybes
+              [(JSON..=) "ExecutionRole" Prelude.<$> executionRole,
+               (JSON..=) "JupyterServerAppSettings"
+                 Prelude.<$> jupyterServerAppSettings,
+               (JSON..=) "KernelGatewayAppSettings"
+                 Prelude.<$> kernelGatewayAppSettings,
+               (JSON..=) "SecurityGroups" Prelude.<$> securityGroups]))
+instance Property "ExecutionRole" DefaultSpaceSettingsProperty where
+  type PropertyType "ExecutionRole" DefaultSpaceSettingsProperty = Value Prelude.Text
+  set newValue DefaultSpaceSettingsProperty {..}
+    = DefaultSpaceSettingsProperty
+        {executionRole = Prelude.pure newValue, ..}
+instance Property "JupyterServerAppSettings" DefaultSpaceSettingsProperty where
+  type PropertyType "JupyterServerAppSettings" DefaultSpaceSettingsProperty = JupyterServerAppSettingsProperty
+  set newValue DefaultSpaceSettingsProperty {..}
+    = DefaultSpaceSettingsProperty
+        {jupyterServerAppSettings = Prelude.pure newValue, ..}
+instance Property "KernelGatewayAppSettings" DefaultSpaceSettingsProperty where
+  type PropertyType "KernelGatewayAppSettings" DefaultSpaceSettingsProperty = KernelGatewayAppSettingsProperty
+  set newValue DefaultSpaceSettingsProperty {..}
+    = DefaultSpaceSettingsProperty
+        {kernelGatewayAppSettings = Prelude.pure newValue, ..}
+instance Property "SecurityGroups" DefaultSpaceSettingsProperty where
+  type PropertyType "SecurityGroups" DefaultSpaceSettingsProperty = ValueList (Value Prelude.Text)
+  set newValue DefaultSpaceSettingsProperty {..}
+    = DefaultSpaceSettingsProperty
+        {securityGroups = Prelude.pure newValue, ..}

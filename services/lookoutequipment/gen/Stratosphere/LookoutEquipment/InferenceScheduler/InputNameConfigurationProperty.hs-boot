@@ -1,0 +1,7 @@
+module Stratosphere.LookoutEquipment.InferenceScheduler.InputNameConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data InputNameConfigurationProperty :: Prelude.Type
+instance ToResourceProperties InputNameConfigurationProperty
+instance JSON.ToJSON InputNameConfigurationProperty

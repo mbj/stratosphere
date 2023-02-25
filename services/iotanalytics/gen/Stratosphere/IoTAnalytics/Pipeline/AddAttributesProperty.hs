@@ -1,0 +1,45 @@
+module Stratosphere.IoTAnalytics.Pipeline.AddAttributesProperty (
+        AddAttributesProperty(..), mkAddAttributesProperty
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import Stratosphere.ResourceProperties
+import Stratosphere.Value
+data AddAttributesProperty
+  = AddAttributesProperty {attributes :: (Prelude.Map Prelude.Text (Value Prelude.Text)),
+                           name :: (Value Prelude.Text),
+                           next :: (Prelude.Maybe (Value Prelude.Text))}
+mkAddAttributesProperty ::
+  Prelude.Map Prelude.Text (Value Prelude.Text)
+  -> Value Prelude.Text -> AddAttributesProperty
+mkAddAttributesProperty attributes name
+  = AddAttributesProperty
+      {attributes = attributes, name = name, next = Prelude.Nothing}
+instance ToResourceProperties AddAttributesProperty where
+  toResourceProperties AddAttributesProperty {..}
+    = ResourceProperties
+        {awsType = "AWS::IoTAnalytics::Pipeline.AddAttributes",
+         properties = Prelude.fromList
+                        ((Prelude.<>)
+                           ["Attributes" JSON..= attributes, "Name" JSON..= name]
+                           (Prelude.catMaybes [(JSON..=) "Next" Prelude.<$> next]))}
+instance JSON.ToJSON AddAttributesProperty where
+  toJSON AddAttributesProperty {..}
+    = JSON.object
+        (Prelude.fromList
+           ((Prelude.<>)
+              ["Attributes" JSON..= attributes, "Name" JSON..= name]
+              (Prelude.catMaybes [(JSON..=) "Next" Prelude.<$> next])))
+instance Property "Attributes" AddAttributesProperty where
+  type PropertyType "Attributes" AddAttributesProperty = Prelude.Map Prelude.Text (Value Prelude.Text)
+  set newValue AddAttributesProperty {..}
+    = AddAttributesProperty {attributes = newValue, ..}
+instance Property "Name" AddAttributesProperty where
+  type PropertyType "Name" AddAttributesProperty = Value Prelude.Text
+  set newValue AddAttributesProperty {..}
+    = AddAttributesProperty {name = newValue, ..}
+instance Property "Next" AddAttributesProperty where
+  type PropertyType "Next" AddAttributesProperty = Value Prelude.Text
+  set newValue AddAttributesProperty {..}
+    = AddAttributesProperty {next = Prelude.pure newValue, ..}

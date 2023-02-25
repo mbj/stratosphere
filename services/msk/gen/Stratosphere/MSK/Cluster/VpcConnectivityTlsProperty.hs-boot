@@ -1,0 +1,7 @@
+module Stratosphere.MSK.Cluster.VpcConnectivityTlsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data VpcConnectivityTlsProperty :: Prelude.Type
+instance ToResourceProperties VpcConnectivityTlsProperty
+instance JSON.ToJSON VpcConnectivityTlsProperty

@@ -1,0 +1,7 @@
+module Stratosphere.MediaLive.Channel.MotionGraphicsSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MotionGraphicsSettingsProperty :: Prelude.Type
+instance ToResourceProperties MotionGraphicsSettingsProperty
+instance JSON.ToJSON MotionGraphicsSettingsProperty

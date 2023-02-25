@@ -1,0 +1,7 @@
+module Stratosphere.Lambda.EventSourceMapping.AmazonManagedKafkaEventSourceConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AmazonManagedKafkaEventSourceConfigProperty :: Prelude.Type
+instance ToResourceProperties AmazonManagedKafkaEventSourceConfigProperty
+instance JSON.ToJSON AmazonManagedKafkaEventSourceConfigProperty

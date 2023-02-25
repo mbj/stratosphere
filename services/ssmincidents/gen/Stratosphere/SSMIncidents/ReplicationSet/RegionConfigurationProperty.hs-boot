@@ -1,0 +1,7 @@
+module Stratosphere.SSMIncidents.ReplicationSet.RegionConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RegionConfigurationProperty :: Prelude.Type
+instance ToResourceProperties RegionConfigurationProperty
+instance JSON.ToJSON RegionConfigurationProperty

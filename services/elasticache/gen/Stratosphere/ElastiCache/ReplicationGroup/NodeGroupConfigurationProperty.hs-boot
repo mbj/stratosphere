@@ -1,0 +1,7 @@
+module Stratosphere.ElastiCache.ReplicationGroup.NodeGroupConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data NodeGroupConfigurationProperty :: Prelude.Type
+instance ToResourceProperties NodeGroupConfigurationProperty
+instance JSON.ToJSON NodeGroupConfigurationProperty

@@ -1,0 +1,7 @@
+module Stratosphere.ResourceGroups.Group.ConfigurationParameterProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ConfigurationParameterProperty :: Prelude.Type
+instance ToResourceProperties ConfigurationParameterProperty
+instance JSON.ToJSON ConfigurationParameterProperty

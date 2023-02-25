@@ -1,0 +1,7 @@
+module Stratosphere.KinesisAnalytics.Application.KinesisFirehoseInputProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data KinesisFirehoseInputProperty :: Prelude.Type
+instance ToResourceProperties KinesisFirehoseInputProperty
+instance JSON.ToJSON KinesisFirehoseInputProperty

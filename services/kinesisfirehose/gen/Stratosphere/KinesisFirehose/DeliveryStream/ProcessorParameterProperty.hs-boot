@@ -1,0 +1,7 @@
+module Stratosphere.KinesisFirehose.DeliveryStream.ProcessorParameterProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ProcessorParameterProperty :: Prelude.Type
+instance ToResourceProperties ProcessorParameterProperty
+instance JSON.ToJSON ProcessorParameterProperty

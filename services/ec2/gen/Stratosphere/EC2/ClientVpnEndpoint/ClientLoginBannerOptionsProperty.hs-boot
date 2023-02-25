@@ -1,0 +1,7 @@
+module Stratosphere.EC2.ClientVpnEndpoint.ClientLoginBannerOptionsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ClientLoginBannerOptionsProperty :: Prelude.Type
+instance ToResourceProperties ClientLoginBannerOptionsProperty
+instance JSON.ToJSON ClientLoginBannerOptionsProperty

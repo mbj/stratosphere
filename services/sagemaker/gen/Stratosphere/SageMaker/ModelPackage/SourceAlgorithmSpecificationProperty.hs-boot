@@ -1,0 +1,7 @@
+module Stratosphere.SageMaker.ModelPackage.SourceAlgorithmSpecificationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SourceAlgorithmSpecificationProperty :: Prelude.Type
+instance ToResourceProperties SourceAlgorithmSpecificationProperty
+instance JSON.ToJSON SourceAlgorithmSpecificationProperty

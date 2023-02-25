@@ -1,0 +1,26 @@
+module Stratosphere.Scheduler.Schedule.KinesisParametersProperty (
+        KinesisParametersProperty(..), mkKinesisParametersProperty
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import Stratosphere.ResourceProperties
+import Stratosphere.Value
+data KinesisParametersProperty
+  = KinesisParametersProperty {partitionKey :: (Value Prelude.Text)}
+mkKinesisParametersProperty ::
+  Value Prelude.Text -> KinesisParametersProperty
+mkKinesisParametersProperty partitionKey
+  = KinesisParametersProperty {partitionKey = partitionKey}
+instance ToResourceProperties KinesisParametersProperty where
+  toResourceProperties KinesisParametersProperty {..}
+    = ResourceProperties
+        {awsType = "AWS::Scheduler::Schedule.KinesisParameters",
+         properties = ["PartitionKey" JSON..= partitionKey]}
+instance JSON.ToJSON KinesisParametersProperty where
+  toJSON KinesisParametersProperty {..}
+    = JSON.object ["PartitionKey" JSON..= partitionKey]
+instance Property "PartitionKey" KinesisParametersProperty where
+  type PropertyType "PartitionKey" KinesisParametersProperty = Value Prelude.Text
+  set newValue KinesisParametersProperty {}
+    = KinesisParametersProperty {partitionKey = newValue, ..}

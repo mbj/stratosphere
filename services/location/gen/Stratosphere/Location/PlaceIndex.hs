@@ -1,0 +1,65 @@
+module Stratosphere.Location.PlaceIndex (
+        module Exports, PlaceIndex(..), mkPlaceIndex
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.Location.PlaceIndex.DataSourceConfigurationProperty as Exports
+import Stratosphere.ResourceProperties
+import Stratosphere.Value
+data PlaceIndex
+  = PlaceIndex {dataSource :: (Value Prelude.Text),
+                dataSourceConfiguration :: (Prelude.Maybe DataSourceConfigurationProperty),
+                description :: (Prelude.Maybe (Value Prelude.Text)),
+                indexName :: (Value Prelude.Text),
+                pricingPlan :: (Prelude.Maybe (Value Prelude.Text))}
+mkPlaceIndex ::
+  Value Prelude.Text -> Value Prelude.Text -> PlaceIndex
+mkPlaceIndex dataSource indexName
+  = PlaceIndex
+      {dataSource = dataSource, indexName = indexName,
+       dataSourceConfiguration = Prelude.Nothing,
+       description = Prelude.Nothing, pricingPlan = Prelude.Nothing}
+instance ToResourceProperties PlaceIndex where
+  toResourceProperties PlaceIndex {..}
+    = ResourceProperties
+        {awsType = "AWS::Location::PlaceIndex",
+         properties = Prelude.fromList
+                        ((Prelude.<>)
+                           ["DataSource" JSON..= dataSource, "IndexName" JSON..= indexName]
+                           (Prelude.catMaybes
+                              [(JSON..=) "DataSourceConfiguration"
+                                 Prelude.<$> dataSourceConfiguration,
+                               (JSON..=) "Description" Prelude.<$> description,
+                               (JSON..=) "PricingPlan" Prelude.<$> pricingPlan]))}
+instance JSON.ToJSON PlaceIndex where
+  toJSON PlaceIndex {..}
+    = JSON.object
+        (Prelude.fromList
+           ((Prelude.<>)
+              ["DataSource" JSON..= dataSource, "IndexName" JSON..= indexName]
+              (Prelude.catMaybes
+                 [(JSON..=) "DataSourceConfiguration"
+                    Prelude.<$> dataSourceConfiguration,
+                  (JSON..=) "Description" Prelude.<$> description,
+                  (JSON..=) "PricingPlan" Prelude.<$> pricingPlan])))
+instance Property "DataSource" PlaceIndex where
+  type PropertyType "DataSource" PlaceIndex = Value Prelude.Text
+  set newValue PlaceIndex {..}
+    = PlaceIndex {dataSource = newValue, ..}
+instance Property "DataSourceConfiguration" PlaceIndex where
+  type PropertyType "DataSourceConfiguration" PlaceIndex = DataSourceConfigurationProperty
+  set newValue PlaceIndex {..}
+    = PlaceIndex {dataSourceConfiguration = Prelude.pure newValue, ..}
+instance Property "Description" PlaceIndex where
+  type PropertyType "Description" PlaceIndex = Value Prelude.Text
+  set newValue PlaceIndex {..}
+    = PlaceIndex {description = Prelude.pure newValue, ..}
+instance Property "IndexName" PlaceIndex where
+  type PropertyType "IndexName" PlaceIndex = Value Prelude.Text
+  set newValue PlaceIndex {..}
+    = PlaceIndex {indexName = newValue, ..}
+instance Property "PricingPlan" PlaceIndex where
+  type PropertyType "PricingPlan" PlaceIndex = Value Prelude.Text
+  set newValue PlaceIndex {..}
+    = PlaceIndex {pricingPlan = Prelude.pure newValue, ..}

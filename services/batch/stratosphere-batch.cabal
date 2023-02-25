@@ -1,0 +1,112 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.35.2.
+--
+-- see: https://github.com/sol/hpack
+
+name:           stratosphere-batch
+version:        1.0.0
+category:       AWS, Cloud
+stability:      experimental
+homepage:       https://github.com/mbj/stratosphere#readme
+bug-reports:    https://github.com/mbj/stratosphere/issues
+maintainer:     Markus Schirp
+license:        MIT
+build-type:     Simple
+
+source-repository head
+  type: git
+  location: https://github.com/mbj/stratosphere
+
+flag development
+  description: Run GHC with development flags
+  manual: True
+  default: False
+
+library
+  exposed-modules:
+      Stratosphere.Batch.ComputeEnvironment
+      Stratosphere.Batch.ComputeEnvironment.ComputeResourcesProperty
+      Stratosphere.Batch.ComputeEnvironment.Ec2ConfigurationObjectProperty
+      Stratosphere.Batch.ComputeEnvironment.EksConfigurationProperty
+      Stratosphere.Batch.ComputeEnvironment.LaunchTemplateSpecificationProperty
+      Stratosphere.Batch.ComputeEnvironment.UpdatePolicyProperty
+      Stratosphere.Batch.JobDefinition
+      Stratosphere.Batch.JobDefinition.AuthorizationConfigProperty
+      Stratosphere.Batch.JobDefinition.ContainerPropertiesProperty
+      Stratosphere.Batch.JobDefinition.DeviceProperty
+      Stratosphere.Batch.JobDefinition.EfsVolumeConfigurationProperty
+      Stratosphere.Batch.JobDefinition.EksContainerEnvironmentVariableProperty
+      Stratosphere.Batch.JobDefinition.EksContainerProperty
+      Stratosphere.Batch.JobDefinition.EksContainerVolumeMountProperty
+      Stratosphere.Batch.JobDefinition.EksPropertiesProperty
+      Stratosphere.Batch.JobDefinition.EksVolumeProperty
+      Stratosphere.Batch.JobDefinition.EmptyDirProperty
+      Stratosphere.Batch.JobDefinition.EnvironmentProperty
+      Stratosphere.Batch.JobDefinition.EvaluateOnExitProperty
+      Stratosphere.Batch.JobDefinition.FargatePlatformConfigurationProperty
+      Stratosphere.Batch.JobDefinition.HostPathProperty
+      Stratosphere.Batch.JobDefinition.LinuxParametersProperty
+      Stratosphere.Batch.JobDefinition.LogConfigurationProperty
+      Stratosphere.Batch.JobDefinition.MountPointsProperty
+      Stratosphere.Batch.JobDefinition.NetworkConfigurationProperty
+      Stratosphere.Batch.JobDefinition.NodePropertiesProperty
+      Stratosphere.Batch.JobDefinition.NodeRangePropertyProperty
+      Stratosphere.Batch.JobDefinition.PodPropertiesProperty
+      Stratosphere.Batch.JobDefinition.ResourceRequirementProperty
+      Stratosphere.Batch.JobDefinition.ResourcesProperty
+      Stratosphere.Batch.JobDefinition.RetryStrategyProperty
+      Stratosphere.Batch.JobDefinition.SecretProperty
+      Stratosphere.Batch.JobDefinition.SecurityContextProperty
+      Stratosphere.Batch.JobDefinition.TimeoutProperty
+      Stratosphere.Batch.JobDefinition.TmpfsProperty
+      Stratosphere.Batch.JobDefinition.UlimitProperty
+      Stratosphere.Batch.JobDefinition.VolumesHostProperty
+      Stratosphere.Batch.JobDefinition.VolumesProperty
+      Stratosphere.Batch.JobQueue
+      Stratosphere.Batch.JobQueue.ComputeEnvironmentOrderProperty
+      Stratosphere.Batch.SchedulingPolicy
+      Stratosphere.Batch.SchedulingPolicy.FairsharePolicyProperty
+      Stratosphere.Batch.SchedulingPolicy.ShareAttributesProperty
+  other-modules:
+      Paths_stratosphere_batch
+  hs-source-dirs:
+      gen
+  default-extensions:
+      DataKinds
+      DeriveGeneric
+      DerivingStrategies
+      DerivingVia
+      DuplicateRecordFields
+      FlexibleContexts
+      FlexibleInstances
+      GADTs
+      GeneralizedNewtypeDeriving
+      InstanceSigs
+      LambdaCase
+      MultiParamTypeClasses
+      NoFieldSelectors
+      NoImplicitPrelude
+      NumericUnderscores
+      OverloadedLists
+      OverloadedRecordDot
+      OverloadedStrings
+      PolyKinds
+      RecordWildCards
+      ScopedTypeVariables
+      StandaloneDeriving
+      Strict
+      TemplateHaskell
+      TupleSections
+      TypeApplications
+      TypeFamilies
+  ghc-options: -Wall -Wcompat -Widentities -Wimplicit-prelude -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-local-signatures -Wmissing-signatures -Wmonomorphism-restriction -Wredundant-constraints -fhide-source-paths -funbox-strict-fields -optP-Wno-nonportable-include-path -Wno-unused-imports
+  build-depends:
+      aeson
+    , base
+    , stratosphere ==1.0.0
+  default-language: Haskell2010
+  if flag(development)
+    ghc-options: -Werror
+  else
+    ghc-options: -Wwarn

@@ -1,0 +1,7 @@
+module Stratosphere.ApplicationInsights.Application.JMXPrometheusExporterProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data JMXPrometheusExporterProperty :: Prelude.Type
+instance ToResourceProperties JMXPrometheusExporterProperty
+instance JSON.ToJSON JMXPrometheusExporterProperty

@@ -1,0 +1,119 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.35.2.
+--
+-- see: https://github.com/sol/hpack
+
+name:           stratosphere-iotevents
+version:        1.0.0
+category:       AWS, Cloud
+stability:      experimental
+homepage:       https://github.com/mbj/stratosphere#readme
+bug-reports:    https://github.com/mbj/stratosphere/issues
+maintainer:     Markus Schirp
+license:        MIT
+build-type:     Simple
+
+source-repository head
+  type: git
+  location: https://github.com/mbj/stratosphere
+
+flag development
+  description: Run GHC with development flags
+  manual: True
+  default: False
+
+library
+  exposed-modules:
+      Stratosphere.IoTEvents.AlarmModel
+      Stratosphere.IoTEvents.AlarmModel.AcknowledgeFlowProperty
+      Stratosphere.IoTEvents.AlarmModel.AlarmActionProperty
+      Stratosphere.IoTEvents.AlarmModel.AlarmCapabilitiesProperty
+      Stratosphere.IoTEvents.AlarmModel.AlarmEventActionsProperty
+      Stratosphere.IoTEvents.AlarmModel.AlarmRuleProperty
+      Stratosphere.IoTEvents.AlarmModel.AssetPropertyTimestampProperty
+      Stratosphere.IoTEvents.AlarmModel.AssetPropertyValueProperty
+      Stratosphere.IoTEvents.AlarmModel.AssetPropertyVariantProperty
+      Stratosphere.IoTEvents.AlarmModel.DynamoDBProperty
+      Stratosphere.IoTEvents.AlarmModel.DynamoDBv2Property
+      Stratosphere.IoTEvents.AlarmModel.FirehoseProperty
+      Stratosphere.IoTEvents.AlarmModel.InitializationConfigurationProperty
+      Stratosphere.IoTEvents.AlarmModel.IotEventsProperty
+      Stratosphere.IoTEvents.AlarmModel.IotSiteWiseProperty
+      Stratosphere.IoTEvents.AlarmModel.IotTopicPublishProperty
+      Stratosphere.IoTEvents.AlarmModel.LambdaProperty
+      Stratosphere.IoTEvents.AlarmModel.PayloadProperty
+      Stratosphere.IoTEvents.AlarmModel.SimpleRuleProperty
+      Stratosphere.IoTEvents.AlarmModel.SnsProperty
+      Stratosphere.IoTEvents.AlarmModel.SqsProperty
+      Stratosphere.IoTEvents.DetectorModel
+      Stratosphere.IoTEvents.DetectorModel.ActionProperty
+      Stratosphere.IoTEvents.DetectorModel.AssetPropertyTimestampProperty
+      Stratosphere.IoTEvents.DetectorModel.AssetPropertyValueProperty
+      Stratosphere.IoTEvents.DetectorModel.AssetPropertyVariantProperty
+      Stratosphere.IoTEvents.DetectorModel.ClearTimerProperty
+      Stratosphere.IoTEvents.DetectorModel.DetectorModelDefinitionProperty
+      Stratosphere.IoTEvents.DetectorModel.DynamoDBProperty
+      Stratosphere.IoTEvents.DetectorModel.DynamoDBv2Property
+      Stratosphere.IoTEvents.DetectorModel.EventProperty
+      Stratosphere.IoTEvents.DetectorModel.FirehoseProperty
+      Stratosphere.IoTEvents.DetectorModel.IotEventsProperty
+      Stratosphere.IoTEvents.DetectorModel.IotSiteWiseProperty
+      Stratosphere.IoTEvents.DetectorModel.IotTopicPublishProperty
+      Stratosphere.IoTEvents.DetectorModel.LambdaProperty
+      Stratosphere.IoTEvents.DetectorModel.OnEnterProperty
+      Stratosphere.IoTEvents.DetectorModel.OnExitProperty
+      Stratosphere.IoTEvents.DetectorModel.OnInputProperty
+      Stratosphere.IoTEvents.DetectorModel.PayloadProperty
+      Stratosphere.IoTEvents.DetectorModel.ResetTimerProperty
+      Stratosphere.IoTEvents.DetectorModel.SetTimerProperty
+      Stratosphere.IoTEvents.DetectorModel.SetVariableProperty
+      Stratosphere.IoTEvents.DetectorModel.SnsProperty
+      Stratosphere.IoTEvents.DetectorModel.SqsProperty
+      Stratosphere.IoTEvents.DetectorModel.StateProperty
+      Stratosphere.IoTEvents.DetectorModel.TransitionEventProperty
+      Stratosphere.IoTEvents.Input
+      Stratosphere.IoTEvents.Input.AttributeProperty
+      Stratosphere.IoTEvents.Input.InputDefinitionProperty
+  other-modules:
+      Paths_stratosphere_iotevents
+  hs-source-dirs:
+      gen
+  default-extensions:
+      DataKinds
+      DeriveGeneric
+      DerivingStrategies
+      DerivingVia
+      DuplicateRecordFields
+      FlexibleContexts
+      FlexibleInstances
+      GADTs
+      GeneralizedNewtypeDeriving
+      InstanceSigs
+      LambdaCase
+      MultiParamTypeClasses
+      NoFieldSelectors
+      NoImplicitPrelude
+      NumericUnderscores
+      OverloadedLists
+      OverloadedRecordDot
+      OverloadedStrings
+      PolyKinds
+      RecordWildCards
+      ScopedTypeVariables
+      StandaloneDeriving
+      Strict
+      TemplateHaskell
+      TupleSections
+      TypeApplications
+      TypeFamilies
+  ghc-options: -Wall -Wcompat -Widentities -Wimplicit-prelude -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-local-signatures -Wmissing-signatures -Wmonomorphism-restriction -Wredundant-constraints -fhide-source-paths -funbox-strict-fields -optP-Wno-nonportable-include-path -Wno-unused-imports
+  build-depends:
+      aeson
+    , base
+    , stratosphere ==1.0.0
+  default-language: Haskell2010
+  if flag(development)
+    ghc-options: -Werror
+  else
+    ghc-options: -Wwarn

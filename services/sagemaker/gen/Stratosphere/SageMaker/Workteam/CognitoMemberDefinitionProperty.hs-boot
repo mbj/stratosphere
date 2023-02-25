@@ -1,0 +1,7 @@
+module Stratosphere.SageMaker.Workteam.CognitoMemberDefinitionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CognitoMemberDefinitionProperty :: Prelude.Type
+instance ToResourceProperties CognitoMemberDefinitionProperty
+instance JSON.ToJSON CognitoMemberDefinitionProperty

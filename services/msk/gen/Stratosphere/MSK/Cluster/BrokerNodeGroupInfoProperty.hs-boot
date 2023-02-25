@@ -1,0 +1,7 @@
+module Stratosphere.MSK.Cluster.BrokerNodeGroupInfoProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data BrokerNodeGroupInfoProperty :: Prelude.Type
+instance ToResourceProperties BrokerNodeGroupInfoProperty
+instance JSON.ToJSON BrokerNodeGroupInfoProperty

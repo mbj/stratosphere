@@ -1,0 +1,7 @@
+module Stratosphere.Cassandra.Table.EncryptionSpecificationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data EncryptionSpecificationProperty :: Prelude.Type
+instance ToResourceProperties EncryptionSpecificationProperty
+instance JSON.ToJSON EncryptionSpecificationProperty

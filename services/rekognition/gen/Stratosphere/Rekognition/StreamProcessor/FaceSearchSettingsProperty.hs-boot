@@ -1,0 +1,7 @@
+module Stratosphere.Rekognition.StreamProcessor.FaceSearchSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data FaceSearchSettingsProperty :: Prelude.Type
+instance ToResourceProperties FaceSearchSettingsProperty
+instance JSON.ToJSON FaceSearchSettingsProperty

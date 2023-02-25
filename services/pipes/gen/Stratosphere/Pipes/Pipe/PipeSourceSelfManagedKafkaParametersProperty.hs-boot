@@ -1,0 +1,7 @@
+module Stratosphere.Pipes.Pipe.PipeSourceSelfManagedKafkaParametersProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PipeSourceSelfManagedKafkaParametersProperty :: Prelude.Type
+instance ToResourceProperties PipeSourceSelfManagedKafkaParametersProperty
+instance JSON.ToJSON PipeSourceSelfManagedKafkaParametersProperty

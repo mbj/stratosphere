@@ -1,0 +1,7 @@
+module Stratosphere.ApiGatewayV2.DomainName.MutualTlsAuthenticationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MutualTlsAuthenticationProperty :: Prelude.Type
+instance ToResourceProperties MutualTlsAuthenticationProperty
+instance JSON.ToJSON MutualTlsAuthenticationProperty

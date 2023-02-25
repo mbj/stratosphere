@@ -1,0 +1,53 @@
+module Stratosphere.Greengrass.ResourceDefinition.S3MachineLearningModelResourceDataProperty (
+        module Exports, S3MachineLearningModelResourceDataProperty(..),
+        mkS3MachineLearningModelResourceDataProperty
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.Greengrass.ResourceDefinition.ResourceDownloadOwnerSettingProperty as Exports
+import Stratosphere.ResourceProperties
+import Stratosphere.Value
+data S3MachineLearningModelResourceDataProperty
+  = S3MachineLearningModelResourceDataProperty {destinationPath :: (Value Prelude.Text),
+                                                ownerSetting :: (Prelude.Maybe ResourceDownloadOwnerSettingProperty),
+                                                s3Uri :: (Value Prelude.Text)}
+mkS3MachineLearningModelResourceDataProperty ::
+  Value Prelude.Text
+  -> Value Prelude.Text -> S3MachineLearningModelResourceDataProperty
+mkS3MachineLearningModelResourceDataProperty destinationPath s3Uri
+  = S3MachineLearningModelResourceDataProperty
+      {destinationPath = destinationPath, s3Uri = s3Uri,
+       ownerSetting = Prelude.Nothing}
+instance ToResourceProperties S3MachineLearningModelResourceDataProperty where
+  toResourceProperties
+    S3MachineLearningModelResourceDataProperty {..}
+    = ResourceProperties
+        {awsType = "AWS::Greengrass::ResourceDefinition.S3MachineLearningModelResourceData",
+         properties = Prelude.fromList
+                        ((Prelude.<>)
+                           ["DestinationPath" JSON..= destinationPath, "S3Uri" JSON..= s3Uri]
+                           (Prelude.catMaybes
+                              [(JSON..=) "OwnerSetting" Prelude.<$> ownerSetting]))}
+instance JSON.ToJSON S3MachineLearningModelResourceDataProperty where
+  toJSON S3MachineLearningModelResourceDataProperty {..}
+    = JSON.object
+        (Prelude.fromList
+           ((Prelude.<>)
+              ["DestinationPath" JSON..= destinationPath, "S3Uri" JSON..= s3Uri]
+              (Prelude.catMaybes
+                 [(JSON..=) "OwnerSetting" Prelude.<$> ownerSetting])))
+instance Property "DestinationPath" S3MachineLearningModelResourceDataProperty where
+  type PropertyType "DestinationPath" S3MachineLearningModelResourceDataProperty = Value Prelude.Text
+  set newValue S3MachineLearningModelResourceDataProperty {..}
+    = S3MachineLearningModelResourceDataProperty
+        {destinationPath = newValue, ..}
+instance Property "OwnerSetting" S3MachineLearningModelResourceDataProperty where
+  type PropertyType "OwnerSetting" S3MachineLearningModelResourceDataProperty = ResourceDownloadOwnerSettingProperty
+  set newValue S3MachineLearningModelResourceDataProperty {..}
+    = S3MachineLearningModelResourceDataProperty
+        {ownerSetting = Prelude.pure newValue, ..}
+instance Property "S3Uri" S3MachineLearningModelResourceDataProperty where
+  type PropertyType "S3Uri" S3MachineLearningModelResourceDataProperty = Value Prelude.Text
+  set newValue S3MachineLearningModelResourceDataProperty {..}
+    = S3MachineLearningModelResourceDataProperty {s3Uri = newValue, ..}

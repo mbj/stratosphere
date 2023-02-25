@@ -1,0 +1,29 @@
+module Stratosphere.S3.Bucket.AccelerateConfigurationProperty (
+        AccelerateConfigurationProperty(..),
+        mkAccelerateConfigurationProperty
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import Stratosphere.ResourceProperties
+import Stratosphere.Value
+data AccelerateConfigurationProperty
+  = AccelerateConfigurationProperty {accelerationStatus :: (Value Prelude.Text)}
+mkAccelerateConfigurationProperty ::
+  Value Prelude.Text -> AccelerateConfigurationProperty
+mkAccelerateConfigurationProperty accelerationStatus
+  = AccelerateConfigurationProperty
+      {accelerationStatus = accelerationStatus}
+instance ToResourceProperties AccelerateConfigurationProperty where
+  toResourceProperties AccelerateConfigurationProperty {..}
+    = ResourceProperties
+        {awsType = "AWS::S3::Bucket.AccelerateConfiguration",
+         properties = ["AccelerationStatus" JSON..= accelerationStatus]}
+instance JSON.ToJSON AccelerateConfigurationProperty where
+  toJSON AccelerateConfigurationProperty {..}
+    = JSON.object ["AccelerationStatus" JSON..= accelerationStatus]
+instance Property "AccelerationStatus" AccelerateConfigurationProperty where
+  type PropertyType "AccelerationStatus" AccelerateConfigurationProperty = Value Prelude.Text
+  set newValue AccelerateConfigurationProperty {}
+    = AccelerateConfigurationProperty
+        {accelerationStatus = newValue, ..}

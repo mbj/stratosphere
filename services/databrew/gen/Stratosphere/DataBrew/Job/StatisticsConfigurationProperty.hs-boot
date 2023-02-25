@@ -1,0 +1,7 @@
+module Stratosphere.DataBrew.Job.StatisticsConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data StatisticsConfigurationProperty :: Prelude.Type
+instance ToResourceProperties StatisticsConfigurationProperty
+instance JSON.ToJSON StatisticsConfigurationProperty

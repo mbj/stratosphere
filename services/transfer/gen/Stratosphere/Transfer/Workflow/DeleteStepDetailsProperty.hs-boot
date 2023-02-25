@@ -1,0 +1,7 @@
+module Stratosphere.Transfer.Workflow.DeleteStepDetailsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DeleteStepDetailsProperty :: Prelude.Type
+instance ToResourceProperties DeleteStepDetailsProperty
+instance JSON.ToJSON DeleteStepDetailsProperty

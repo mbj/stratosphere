@@ -1,0 +1,7 @@
+module Stratosphere.CodeDeploy.DeploymentConfig.TimeBasedCanaryProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TimeBasedCanaryProperty :: Prelude.Type
+instance ToResourceProperties TimeBasedCanaryProperty
+instance JSON.ToJSON TimeBasedCanaryProperty

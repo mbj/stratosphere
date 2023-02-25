@@ -1,0 +1,7 @@
+module Stratosphere.KinesisAnalyticsV2.ApplicationReferenceDataSource.S3ReferenceDataSourceProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data S3ReferenceDataSourceProperty :: Prelude.Type
+instance ToResourceProperties S3ReferenceDataSourceProperty
+instance JSON.ToJSON S3ReferenceDataSourceProperty

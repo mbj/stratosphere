@@ -1,0 +1,7 @@
+module Stratosphere.GameLift.GameSessionQueue.FilterConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data FilterConfigurationProperty :: Prelude.Type
+instance ToResourceProperties FilterConfigurationProperty
+instance JSON.ToJSON FilterConfigurationProperty

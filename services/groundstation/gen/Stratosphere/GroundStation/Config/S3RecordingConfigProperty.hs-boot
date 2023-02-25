@@ -1,0 +1,7 @@
+module Stratosphere.GroundStation.Config.S3RecordingConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data S3RecordingConfigProperty :: Prelude.Type
+instance ToResourceProperties S3RecordingConfigProperty
+instance JSON.ToJSON S3RecordingConfigProperty

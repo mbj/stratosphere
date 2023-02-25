@@ -1,0 +1,7 @@
+module Stratosphere.AppFlow.Flow.CustomConnectorSourcePropertiesProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CustomConnectorSourcePropertiesProperty :: Prelude.Type
+instance ToResourceProperties CustomConnectorSourcePropertiesProperty
+instance JSON.ToJSON CustomConnectorSourcePropertiesProperty

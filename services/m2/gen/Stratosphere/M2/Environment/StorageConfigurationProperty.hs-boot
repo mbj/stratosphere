@@ -1,0 +1,7 @@
+module Stratosphere.M2.Environment.StorageConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data StorageConfigurationProperty :: Prelude.Type
+instance ToResourceProperties StorageConfigurationProperty
+instance JSON.ToJSON StorageConfigurationProperty

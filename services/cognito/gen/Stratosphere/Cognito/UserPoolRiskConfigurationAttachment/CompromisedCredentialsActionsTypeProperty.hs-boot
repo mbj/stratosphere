@@ -1,0 +1,7 @@
+module Stratosphere.Cognito.UserPoolRiskConfigurationAttachment.CompromisedCredentialsActionsTypeProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CompromisedCredentialsActionsTypeProperty :: Prelude.Type
+instance ToResourceProperties CompromisedCredentialsActionsTypeProperty
+instance JSON.ToJSON CompromisedCredentialsActionsTypeProperty

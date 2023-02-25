@@ -1,0 +1,7 @@
+module Stratosphere.MediaTailor.PlaybackConfiguration.AdMarkerPassthroughProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AdMarkerPassthroughProperty :: Prelude.Type
+instance ToResourceProperties AdMarkerPassthroughProperty
+instance JSON.ToJSON AdMarkerPassthroughProperty

@@ -1,0 +1,7 @@
+module Stratosphere.Macie.FindingsFilter.CriterionAdditionalPropertiesProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CriterionAdditionalPropertiesProperty :: Prelude.Type
+instance ToResourceProperties CriterionAdditionalPropertiesProperty
+instance JSON.ToJSON CriterionAdditionalPropertiesProperty

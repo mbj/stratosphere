@@ -1,0 +1,7 @@
+module Stratosphere.MediaTailor.PlaybackConfiguration.ManifestProcessingRulesProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ManifestProcessingRulesProperty :: Prelude.Type
+instance ToResourceProperties ManifestProcessingRulesProperty
+instance JSON.ToJSON ManifestProcessingRulesProperty

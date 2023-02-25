@@ -1,0 +1,7 @@
+module Stratosphere.AutoScaling.AutoScalingGroup.VCpuCountRequestProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data VCpuCountRequestProperty :: Prelude.Type
+instance ToResourceProperties VCpuCountRequestProperty
+instance JSON.ToJSON VCpuCountRequestProperty

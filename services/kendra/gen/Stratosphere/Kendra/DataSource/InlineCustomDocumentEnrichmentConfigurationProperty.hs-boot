@@ -1,0 +1,7 @@
+module Stratosphere.Kendra.DataSource.InlineCustomDocumentEnrichmentConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data InlineCustomDocumentEnrichmentConfigurationProperty :: Prelude.Type
+instance ToResourceProperties InlineCustomDocumentEnrichmentConfigurationProperty
+instance JSON.ToJSON InlineCustomDocumentEnrichmentConfigurationProperty

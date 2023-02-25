@@ -1,0 +1,118 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.35.2.
+--
+-- see: https://github.com/sol/hpack
+
+name:           stratosphere-pipes
+version:        1.0.0
+category:       AWS, Cloud
+stability:      experimental
+homepage:       https://github.com/mbj/stratosphere#readme
+bug-reports:    https://github.com/mbj/stratosphere/issues
+maintainer:     Markus Schirp
+license:        MIT
+build-type:     Simple
+
+source-repository head
+  type: git
+  location: https://github.com/mbj/stratosphere
+
+flag development
+  description: Run GHC with development flags
+  manual: True
+  default: False
+
+library
+  exposed-modules:
+      Stratosphere.Pipes.Pipe
+      Stratosphere.Pipes.Pipe.AwsVpcConfigurationProperty
+      Stratosphere.Pipes.Pipe.BatchArrayPropertiesProperty
+      Stratosphere.Pipes.Pipe.BatchContainerOverridesProperty
+      Stratosphere.Pipes.Pipe.BatchEnvironmentVariableProperty
+      Stratosphere.Pipes.Pipe.BatchJobDependencyProperty
+      Stratosphere.Pipes.Pipe.BatchResourceRequirementProperty
+      Stratosphere.Pipes.Pipe.BatchRetryStrategyProperty
+      Stratosphere.Pipes.Pipe.CapacityProviderStrategyItemProperty
+      Stratosphere.Pipes.Pipe.DeadLetterConfigProperty
+      Stratosphere.Pipes.Pipe.EcsContainerOverrideProperty
+      Stratosphere.Pipes.Pipe.EcsEnvironmentFileProperty
+      Stratosphere.Pipes.Pipe.EcsEnvironmentVariableProperty
+      Stratosphere.Pipes.Pipe.EcsEphemeralStorageProperty
+      Stratosphere.Pipes.Pipe.EcsInferenceAcceleratorOverrideProperty
+      Stratosphere.Pipes.Pipe.EcsResourceRequirementProperty
+      Stratosphere.Pipes.Pipe.EcsTaskOverrideProperty
+      Stratosphere.Pipes.Pipe.FilterCriteriaProperty
+      Stratosphere.Pipes.Pipe.FilterProperty
+      Stratosphere.Pipes.Pipe.MQBrokerAccessCredentialsProperty
+      Stratosphere.Pipes.Pipe.MSKAccessCredentialsProperty
+      Stratosphere.Pipes.Pipe.NetworkConfigurationProperty
+      Stratosphere.Pipes.Pipe.PipeEnrichmentHttpParametersProperty
+      Stratosphere.Pipes.Pipe.PipeEnrichmentParametersProperty
+      Stratosphere.Pipes.Pipe.PipeSourceActiveMQBrokerParametersProperty
+      Stratosphere.Pipes.Pipe.PipeSourceDynamoDBStreamParametersProperty
+      Stratosphere.Pipes.Pipe.PipeSourceKinesisStreamParametersProperty
+      Stratosphere.Pipes.Pipe.PipeSourceManagedStreamingKafkaParametersProperty
+      Stratosphere.Pipes.Pipe.PipeSourceParametersProperty
+      Stratosphere.Pipes.Pipe.PipeSourceRabbitMQBrokerParametersProperty
+      Stratosphere.Pipes.Pipe.PipeSourceSelfManagedKafkaParametersProperty
+      Stratosphere.Pipes.Pipe.PipeSourceSqsQueueParametersProperty
+      Stratosphere.Pipes.Pipe.PipeTargetBatchJobParametersProperty
+      Stratosphere.Pipes.Pipe.PipeTargetCloudWatchLogsParametersProperty
+      Stratosphere.Pipes.Pipe.PipeTargetEcsTaskParametersProperty
+      Stratosphere.Pipes.Pipe.PipeTargetEventBridgeEventBusParametersProperty
+      Stratosphere.Pipes.Pipe.PipeTargetHttpParametersProperty
+      Stratosphere.Pipes.Pipe.PipeTargetKinesisStreamParametersProperty
+      Stratosphere.Pipes.Pipe.PipeTargetLambdaFunctionParametersProperty
+      Stratosphere.Pipes.Pipe.PipeTargetParametersProperty
+      Stratosphere.Pipes.Pipe.PipeTargetRedshiftDataParametersProperty
+      Stratosphere.Pipes.Pipe.PipeTargetSageMakerPipelineParametersProperty
+      Stratosphere.Pipes.Pipe.PipeTargetSqsQueueParametersProperty
+      Stratosphere.Pipes.Pipe.PipeTargetStateMachineParametersProperty
+      Stratosphere.Pipes.Pipe.PlacementConstraintProperty
+      Stratosphere.Pipes.Pipe.PlacementStrategyProperty
+      Stratosphere.Pipes.Pipe.SageMakerPipelineParameterProperty
+      Stratosphere.Pipes.Pipe.SelfManagedKafkaAccessConfigurationCredentialsProperty
+      Stratosphere.Pipes.Pipe.SelfManagedKafkaAccessConfigurationVpcProperty
+  other-modules:
+      Paths_stratosphere_pipes
+  hs-source-dirs:
+      gen
+  default-extensions:
+      DataKinds
+      DeriveGeneric
+      DerivingStrategies
+      DerivingVia
+      DuplicateRecordFields
+      FlexibleContexts
+      FlexibleInstances
+      GADTs
+      GeneralizedNewtypeDeriving
+      InstanceSigs
+      LambdaCase
+      MultiParamTypeClasses
+      NoFieldSelectors
+      NoImplicitPrelude
+      NumericUnderscores
+      OverloadedLists
+      OverloadedRecordDot
+      OverloadedStrings
+      PolyKinds
+      RecordWildCards
+      ScopedTypeVariables
+      StandaloneDeriving
+      Strict
+      TemplateHaskell
+      TupleSections
+      TypeApplications
+      TypeFamilies
+  ghc-options: -Wall -Wcompat -Widentities -Wimplicit-prelude -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-local-signatures -Wmissing-signatures -Wmonomorphism-restriction -Wredundant-constraints -fhide-source-paths -funbox-strict-fields -optP-Wno-nonportable-include-path -Wno-unused-imports
+  build-depends:
+      aeson
+    , base
+    , stratosphere ==1.0.0
+  default-language: Haskell2010
+  if flag(development)
+    ghc-options: -Werror
+  else
+    ghc-options: -Wwarn

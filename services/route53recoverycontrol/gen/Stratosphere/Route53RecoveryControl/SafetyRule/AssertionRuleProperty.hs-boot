@@ -1,0 +1,7 @@
+module Stratosphere.Route53RecoveryControl.SafetyRule.AssertionRuleProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AssertionRuleProperty :: Prelude.Type
+instance ToResourceProperties AssertionRuleProperty
+instance JSON.ToJSON AssertionRuleProperty

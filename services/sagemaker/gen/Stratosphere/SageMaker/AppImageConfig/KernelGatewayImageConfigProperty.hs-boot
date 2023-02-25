@@ -1,0 +1,7 @@
+module Stratosphere.SageMaker.AppImageConfig.KernelGatewayImageConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data KernelGatewayImageConfigProperty :: Prelude.Type
+instance ToResourceProperties KernelGatewayImageConfigProperty
+instance JSON.ToJSON KernelGatewayImageConfigProperty

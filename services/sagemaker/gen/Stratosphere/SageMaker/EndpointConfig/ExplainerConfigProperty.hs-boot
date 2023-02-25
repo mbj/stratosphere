@@ -1,0 +1,7 @@
+module Stratosphere.SageMaker.EndpointConfig.ExplainerConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ExplainerConfigProperty :: Prelude.Type
+instance ToResourceProperties ExplainerConfigProperty
+instance JSON.ToJSON ExplainerConfigProperty

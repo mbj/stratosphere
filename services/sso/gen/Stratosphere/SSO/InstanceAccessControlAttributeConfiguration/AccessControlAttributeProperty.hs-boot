@@ -1,0 +1,7 @@
+module Stratosphere.SSO.InstanceAccessControlAttributeConfiguration.AccessControlAttributeProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AccessControlAttributeProperty :: Prelude.Type
+instance ToResourceProperties AccessControlAttributeProperty
+instance JSON.ToJSON AccessControlAttributeProperty

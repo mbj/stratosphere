@@ -1,0 +1,7 @@
+module Stratosphere.CloudFormation.HookVersion.LoggingConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data LoggingConfigProperty :: Prelude.Type
+instance ToResourceProperties LoggingConfigProperty
+instance JSON.ToJSON LoggingConfigProperty

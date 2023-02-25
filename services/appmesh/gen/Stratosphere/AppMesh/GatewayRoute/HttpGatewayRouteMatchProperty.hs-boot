@@ -1,0 +1,7 @@
+module Stratosphere.AppMesh.GatewayRoute.HttpGatewayRouteMatchProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data HttpGatewayRouteMatchProperty :: Prelude.Type
+instance ToResourceProperties HttpGatewayRouteMatchProperty
+instance JSON.ToJSON HttpGatewayRouteMatchProperty

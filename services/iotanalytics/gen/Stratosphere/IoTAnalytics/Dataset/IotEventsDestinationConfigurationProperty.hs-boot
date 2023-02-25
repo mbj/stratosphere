@@ -1,0 +1,7 @@
+module Stratosphere.IoTAnalytics.Dataset.IotEventsDestinationConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data IotEventsDestinationConfigurationProperty :: Prelude.Type
+instance ToResourceProperties IotEventsDestinationConfigurationProperty
+instance JSON.ToJSON IotEventsDestinationConfigurationProperty

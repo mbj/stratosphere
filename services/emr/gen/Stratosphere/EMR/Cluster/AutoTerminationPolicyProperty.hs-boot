@@ -1,0 +1,7 @@
+module Stratosphere.EMR.Cluster.AutoTerminationPolicyProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AutoTerminationPolicyProperty :: Prelude.Type
+instance ToResourceProperties AutoTerminationPolicyProperty
+instance JSON.ToJSON AutoTerminationPolicyProperty

@@ -1,0 +1,7 @@
+module Stratosphere.WAFv2.WebACL.CustomRequestHandlingProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CustomRequestHandlingProperty :: Prelude.Type
+instance ToResourceProperties CustomRequestHandlingProperty
+instance JSON.ToJSON CustomRequestHandlingProperty

@@ -1,0 +1,7 @@
+module Stratosphere.Cognito.UserPool.UsernameConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data UsernameConfigurationProperty :: Prelude.Type
+instance ToResourceProperties UsernameConfigurationProperty
+instance JSON.ToJSON UsernameConfigurationProperty

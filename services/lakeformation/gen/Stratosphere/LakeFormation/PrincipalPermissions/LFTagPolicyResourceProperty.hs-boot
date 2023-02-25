@@ -1,0 +1,7 @@
+module Stratosphere.LakeFormation.PrincipalPermissions.LFTagPolicyResourceProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data LFTagPolicyResourceProperty :: Prelude.Type
+instance ToResourceProperties LFTagPolicyResourceProperty
+instance JSON.ToJSON LFTagPolicyResourceProperty

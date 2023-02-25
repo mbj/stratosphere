@@ -1,0 +1,7 @@
+module Stratosphere.CustomerProfiles.Integration.ServiceNowSourcePropertiesProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ServiceNowSourcePropertiesProperty :: Prelude.Type
+instance ToResourceProperties ServiceNowSourcePropertiesProperty
+instance JSON.ToJSON ServiceNowSourcePropertiesProperty

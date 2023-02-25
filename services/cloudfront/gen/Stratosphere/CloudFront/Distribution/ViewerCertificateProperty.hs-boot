@@ -1,0 +1,7 @@
+module Stratosphere.CloudFront.Distribution.ViewerCertificateProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ViewerCertificateProperty :: Prelude.Type
+instance ToResourceProperties ViewerCertificateProperty
+instance JSON.ToJSON ViewerCertificateProperty

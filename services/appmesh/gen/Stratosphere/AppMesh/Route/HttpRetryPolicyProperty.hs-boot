@@ -1,0 +1,7 @@
+module Stratosphere.AppMesh.Route.HttpRetryPolicyProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data HttpRetryPolicyProperty :: Prelude.Type
+instance ToResourceProperties HttpRetryPolicyProperty
+instance JSON.ToJSON HttpRetryPolicyProperty

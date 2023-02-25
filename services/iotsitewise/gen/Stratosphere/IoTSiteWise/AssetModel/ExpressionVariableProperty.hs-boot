@@ -1,0 +1,7 @@
+module Stratosphere.IoTSiteWise.AssetModel.ExpressionVariableProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ExpressionVariableProperty :: Prelude.Type
+instance ToResourceProperties ExpressionVariableProperty
+instance JSON.ToJSON ExpressionVariableProperty

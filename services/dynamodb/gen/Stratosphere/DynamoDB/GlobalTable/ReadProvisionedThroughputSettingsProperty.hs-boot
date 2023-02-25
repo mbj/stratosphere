@@ -1,0 +1,7 @@
+module Stratosphere.DynamoDB.GlobalTable.ReadProvisionedThroughputSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ReadProvisionedThroughputSettingsProperty :: Prelude.Type
+instance ToResourceProperties ReadProvisionedThroughputSettingsProperty
+instance JSON.ToJSON ReadProvisionedThroughputSettingsProperty

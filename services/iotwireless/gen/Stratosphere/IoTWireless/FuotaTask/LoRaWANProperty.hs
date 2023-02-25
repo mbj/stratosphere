@@ -1,0 +1,38 @@
+module Stratosphere.IoTWireless.FuotaTask.LoRaWANProperty (
+        LoRaWANProperty(..), mkLoRaWANProperty
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import Stratosphere.ResourceProperties
+import Stratosphere.Value
+data LoRaWANProperty
+  = LoRaWANProperty {rfRegion :: (Value Prelude.Text),
+                     startTime :: (Prelude.Maybe (Value Prelude.Text))}
+mkLoRaWANProperty :: Value Prelude.Text -> LoRaWANProperty
+mkLoRaWANProperty rfRegion
+  = LoRaWANProperty
+      {rfRegion = rfRegion, startTime = Prelude.Nothing}
+instance ToResourceProperties LoRaWANProperty where
+  toResourceProperties LoRaWANProperty {..}
+    = ResourceProperties
+        {awsType = "AWS::IoTWireless::FuotaTask.LoRaWAN",
+         properties = Prelude.fromList
+                        ((Prelude.<>)
+                           ["RfRegion" JSON..= rfRegion]
+                           (Prelude.catMaybes [(JSON..=) "StartTime" Prelude.<$> startTime]))}
+instance JSON.ToJSON LoRaWANProperty where
+  toJSON LoRaWANProperty {..}
+    = JSON.object
+        (Prelude.fromList
+           ((Prelude.<>)
+              ["RfRegion" JSON..= rfRegion]
+              (Prelude.catMaybes [(JSON..=) "StartTime" Prelude.<$> startTime])))
+instance Property "RfRegion" LoRaWANProperty where
+  type PropertyType "RfRegion" LoRaWANProperty = Value Prelude.Text
+  set newValue LoRaWANProperty {..}
+    = LoRaWANProperty {rfRegion = newValue, ..}
+instance Property "StartTime" LoRaWANProperty where
+  type PropertyType "StartTime" LoRaWANProperty = Value Prelude.Text
+  set newValue LoRaWANProperty {..}
+    = LoRaWANProperty {startTime = Prelude.pure newValue, ..}

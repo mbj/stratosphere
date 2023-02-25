@@ -1,0 +1,7 @@
+module Stratosphere.MediaConvert.JobTemplate.AccelerationSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AccelerationSettingsProperty :: Prelude.Type
+instance ToResourceProperties AccelerationSettingsProperty
+instance JSON.ToJSON AccelerationSettingsProperty

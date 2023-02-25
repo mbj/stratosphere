@@ -1,0 +1,62 @@
+module Stratosphere.MediaConvert.Preset (
+        Preset(..), mkPreset
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import Stratosphere.ResourceProperties
+import Stratosphere.Value
+data Preset
+  = Preset {category :: (Prelude.Maybe (Value Prelude.Text)),
+            description :: (Prelude.Maybe (Value Prelude.Text)),
+            name :: (Prelude.Maybe (Value Prelude.Text)),
+            settingsJson :: JSON.Object,
+            tags :: (Prelude.Maybe JSON.Object)}
+mkPreset :: JSON.Object -> Preset
+mkPreset settingsJson
+  = Preset
+      {settingsJson = settingsJson, category = Prelude.Nothing,
+       description = Prelude.Nothing, name = Prelude.Nothing,
+       tags = Prelude.Nothing}
+instance ToResourceProperties Preset where
+  toResourceProperties Preset {..}
+    = ResourceProperties
+        {awsType = "AWS::MediaConvert::Preset",
+         properties = Prelude.fromList
+                        ((Prelude.<>)
+                           ["SettingsJson" JSON..= settingsJson]
+                           (Prelude.catMaybes
+                              [(JSON..=) "Category" Prelude.<$> category,
+                               (JSON..=) "Description" Prelude.<$> description,
+                               (JSON..=) "Name" Prelude.<$> name,
+                               (JSON..=) "Tags" Prelude.<$> tags]))}
+instance JSON.ToJSON Preset where
+  toJSON Preset {..}
+    = JSON.object
+        (Prelude.fromList
+           ((Prelude.<>)
+              ["SettingsJson" JSON..= settingsJson]
+              (Prelude.catMaybes
+                 [(JSON..=) "Category" Prelude.<$> category,
+                  (JSON..=) "Description" Prelude.<$> description,
+                  (JSON..=) "Name" Prelude.<$> name,
+                  (JSON..=) "Tags" Prelude.<$> tags])))
+instance Property "Category" Preset where
+  type PropertyType "Category" Preset = Value Prelude.Text
+  set newValue Preset {..}
+    = Preset {category = Prelude.pure newValue, ..}
+instance Property "Description" Preset where
+  type PropertyType "Description" Preset = Value Prelude.Text
+  set newValue Preset {..}
+    = Preset {description = Prelude.pure newValue, ..}
+instance Property "Name" Preset where
+  type PropertyType "Name" Preset = Value Prelude.Text
+  set newValue Preset {..}
+    = Preset {name = Prelude.pure newValue, ..}
+instance Property "SettingsJson" Preset where
+  type PropertyType "SettingsJson" Preset = JSON.Object
+  set newValue Preset {..} = Preset {settingsJson = newValue, ..}
+instance Property "Tags" Preset where
+  type PropertyType "Tags" Preset = JSON.Object
+  set newValue Preset {..}
+    = Preset {tags = Prelude.pure newValue, ..}

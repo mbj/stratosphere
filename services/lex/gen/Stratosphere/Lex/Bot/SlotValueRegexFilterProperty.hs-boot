@@ -1,0 +1,7 @@
+module Stratosphere.Lex.Bot.SlotValueRegexFilterProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SlotValueRegexFilterProperty :: Prelude.Type
+instance ToResourceProperties SlotValueRegexFilterProperty
+instance JSON.ToJSON SlotValueRegexFilterProperty

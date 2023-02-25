@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.DataSource.SnowflakeParametersProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SnowflakeParametersProperty :: Prelude.Type
+instance ToResourceProperties SnowflakeParametersProperty
+instance JSON.ToJSON SnowflakeParametersProperty

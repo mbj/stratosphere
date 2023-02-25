@@ -1,0 +1,7 @@
+module Stratosphere.AppMesh.VirtualGateway.SubjectAlternativeNamesProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SubjectAlternativeNamesProperty :: Prelude.Type
+instance ToResourceProperties SubjectAlternativeNamesProperty
+instance JSON.ToJSON SubjectAlternativeNamesProperty

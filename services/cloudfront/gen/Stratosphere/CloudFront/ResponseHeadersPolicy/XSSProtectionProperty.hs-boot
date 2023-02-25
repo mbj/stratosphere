@@ -1,0 +1,7 @@
+module Stratosphere.CloudFront.ResponseHeadersPolicy.XSSProtectionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data XSSProtectionProperty :: Prelude.Type
+instance ToResourceProperties XSSProtectionProperty
+instance JSON.ToJSON XSSProtectionProperty

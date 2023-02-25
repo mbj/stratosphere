@@ -1,0 +1,7 @@
+module Stratosphere.AppFlow.ConnectorProfile.MarketoConnectorProfilePropertiesProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MarketoConnectorProfilePropertiesProperty :: Prelude.Type
+instance ToResourceProperties MarketoConnectorProfilePropertiesProperty
+instance JSON.ToJSON MarketoConnectorProfilePropertiesProperty

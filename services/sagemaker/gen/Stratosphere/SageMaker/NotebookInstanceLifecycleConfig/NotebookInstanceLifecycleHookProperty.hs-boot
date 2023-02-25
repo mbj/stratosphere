@@ -1,0 +1,7 @@
+module Stratosphere.SageMaker.NotebookInstanceLifecycleConfig.NotebookInstanceLifecycleHookProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data NotebookInstanceLifecycleHookProperty :: Prelude.Type
+instance ToResourceProperties NotebookInstanceLifecycleHookProperty
+instance JSON.ToJSON NotebookInstanceLifecycleHookProperty

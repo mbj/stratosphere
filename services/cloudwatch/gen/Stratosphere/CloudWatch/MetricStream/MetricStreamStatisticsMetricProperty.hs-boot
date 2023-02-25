@@ -1,0 +1,7 @@
+module Stratosphere.CloudWatch.MetricStream.MetricStreamStatisticsMetricProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MetricStreamStatisticsMetricProperty :: Prelude.Type
+instance ToResourceProperties MetricStreamStatisticsMetricProperty
+instance JSON.ToJSON MetricStreamStatisticsMetricProperty

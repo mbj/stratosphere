@@ -1,0 +1,7 @@
+module Stratosphere.NimbleStudio.LaunchProfile.StreamConfigurationSessionBackupProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data StreamConfigurationSessionBackupProperty :: Prelude.Type
+instance ToResourceProperties StreamConfigurationSessionBackupProperty
+instance JSON.ToJSON StreamConfigurationSessionBackupProperty

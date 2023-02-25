@@ -1,0 +1,108 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.35.2.
+--
+-- see: https://github.com/sol/hpack
+
+name:           stratosphere-apigateway
+version:        1.0.0
+category:       AWS, Cloud
+stability:      experimental
+homepage:       https://github.com/mbj/stratosphere#readme
+bug-reports:    https://github.com/mbj/stratosphere/issues
+maintainer:     Markus Schirp
+license:        MIT
+build-type:     Simple
+
+source-repository head
+  type: git
+  location: https://github.com/mbj/stratosphere
+
+flag development
+  description: Run GHC with development flags
+  manual: True
+  default: False
+
+library
+  exposed-modules:
+      Stratosphere.ApiGateway.Account
+      Stratosphere.ApiGateway.ApiKey
+      Stratosphere.ApiGateway.ApiKey.StageKeyProperty
+      Stratosphere.ApiGateway.Authorizer
+      Stratosphere.ApiGateway.BasePathMapping
+      Stratosphere.ApiGateway.ClientCertificate
+      Stratosphere.ApiGateway.Deployment
+      Stratosphere.ApiGateway.Deployment.AccessLogSettingProperty
+      Stratosphere.ApiGateway.Deployment.CanarySettingProperty
+      Stratosphere.ApiGateway.Deployment.DeploymentCanarySettingsProperty
+      Stratosphere.ApiGateway.Deployment.MethodSettingProperty
+      Stratosphere.ApiGateway.Deployment.StageDescriptionProperty
+      Stratosphere.ApiGateway.DocumentationPart
+      Stratosphere.ApiGateway.DocumentationPart.LocationProperty
+      Stratosphere.ApiGateway.DocumentationVersion
+      Stratosphere.ApiGateway.DomainName
+      Stratosphere.ApiGateway.DomainName.EndpointConfigurationProperty
+      Stratosphere.ApiGateway.DomainName.MutualTlsAuthenticationProperty
+      Stratosphere.ApiGateway.GatewayResponse
+      Stratosphere.ApiGateway.Method
+      Stratosphere.ApiGateway.Method.IntegrationProperty
+      Stratosphere.ApiGateway.Method.IntegrationResponseProperty
+      Stratosphere.ApiGateway.Method.MethodResponseProperty
+      Stratosphere.ApiGateway.Model
+      Stratosphere.ApiGateway.RequestValidator
+      Stratosphere.ApiGateway.Resource
+      Stratosphere.ApiGateway.RestApi
+      Stratosphere.ApiGateway.RestApi.EndpointConfigurationProperty
+      Stratosphere.ApiGateway.RestApi.S3LocationProperty
+      Stratosphere.ApiGateway.Stage
+      Stratosphere.ApiGateway.Stage.AccessLogSettingProperty
+      Stratosphere.ApiGateway.Stage.CanarySettingProperty
+      Stratosphere.ApiGateway.Stage.MethodSettingProperty
+      Stratosphere.ApiGateway.UsagePlan
+      Stratosphere.ApiGateway.UsagePlan.ApiStageProperty
+      Stratosphere.ApiGateway.UsagePlan.QuotaSettingsProperty
+      Stratosphere.ApiGateway.UsagePlan.ThrottleSettingsProperty
+      Stratosphere.ApiGateway.UsagePlanKey
+      Stratosphere.ApiGateway.VpcLink
+  other-modules:
+      Paths_stratosphere_apigateway
+  hs-source-dirs:
+      gen
+  default-extensions:
+      DataKinds
+      DeriveGeneric
+      DerivingStrategies
+      DerivingVia
+      DuplicateRecordFields
+      FlexibleContexts
+      FlexibleInstances
+      GADTs
+      GeneralizedNewtypeDeriving
+      InstanceSigs
+      LambdaCase
+      MultiParamTypeClasses
+      NoFieldSelectors
+      NoImplicitPrelude
+      NumericUnderscores
+      OverloadedLists
+      OverloadedRecordDot
+      OverloadedStrings
+      PolyKinds
+      RecordWildCards
+      ScopedTypeVariables
+      StandaloneDeriving
+      Strict
+      TemplateHaskell
+      TupleSections
+      TypeApplications
+      TypeFamilies
+  ghc-options: -Wall -Wcompat -Widentities -Wimplicit-prelude -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-local-signatures -Wmissing-signatures -Wmonomorphism-restriction -Wredundant-constraints -fhide-source-paths -funbox-strict-fields -optP-Wno-nonportable-include-path -Wno-unused-imports
+  build-depends:
+      aeson
+    , base
+    , stratosphere ==1.0.0
+  default-language: Haskell2010
+  if flag(development)
+    ghc-options: -Werror
+  else
+    ghc-options: -Wwarn

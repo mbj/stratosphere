@@ -1,0 +1,7 @@
+module Stratosphere.ElasticLoadBalancing.LoadBalancer.AppCookieStickinessPolicyProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AppCookieStickinessPolicyProperty :: Prelude.Type
+instance ToResourceProperties AppCookieStickinessPolicyProperty
+instance JSON.ToJSON AppCookieStickinessPolicyProperty

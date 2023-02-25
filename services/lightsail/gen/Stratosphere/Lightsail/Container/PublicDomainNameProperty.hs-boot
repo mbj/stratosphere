@@ -1,0 +1,7 @@
+module Stratosphere.Lightsail.Container.PublicDomainNameProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PublicDomainNameProperty :: Prelude.Type
+instance ToResourceProperties PublicDomainNameProperty
+instance JSON.ToJSON PublicDomainNameProperty

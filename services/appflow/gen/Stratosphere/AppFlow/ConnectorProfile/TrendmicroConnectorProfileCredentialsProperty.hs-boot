@@ -1,0 +1,7 @@
+module Stratosphere.AppFlow.ConnectorProfile.TrendmicroConnectorProfileCredentialsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TrendmicroConnectorProfileCredentialsProperty :: Prelude.Type
+instance ToResourceProperties TrendmicroConnectorProfileCredentialsProperty
+instance JSON.ToJSON TrendmicroConnectorProfileCredentialsProperty

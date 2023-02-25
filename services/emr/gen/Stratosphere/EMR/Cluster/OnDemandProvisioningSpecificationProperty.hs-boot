@@ -1,0 +1,7 @@
+module Stratosphere.EMR.Cluster.OnDemandProvisioningSpecificationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data OnDemandProvisioningSpecificationProperty :: Prelude.Type
+instance ToResourceProperties OnDemandProvisioningSpecificationProperty
+instance JSON.ToJSON OnDemandProvisioningSpecificationProperty

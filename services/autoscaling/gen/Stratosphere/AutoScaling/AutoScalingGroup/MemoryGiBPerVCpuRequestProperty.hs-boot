@@ -1,0 +1,7 @@
+module Stratosphere.AutoScaling.AutoScalingGroup.MemoryGiBPerVCpuRequestProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MemoryGiBPerVCpuRequestProperty :: Prelude.Type
+instance ToResourceProperties MemoryGiBPerVCpuRequestProperty
+instance JSON.ToJSON MemoryGiBPerVCpuRequestProperty

@@ -1,0 +1,136 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.35.2.
+--
+-- see: https://github.com/sol/hpack
+
+name:           stratosphere-ecs
+version:        1.0.0
+category:       AWS, Cloud
+stability:      experimental
+homepage:       https://github.com/mbj/stratosphere#readme
+bug-reports:    https://github.com/mbj/stratosphere/issues
+maintainer:     Markus Schirp
+license:        MIT
+build-type:     Simple
+
+source-repository head
+  type: git
+  location: https://github.com/mbj/stratosphere
+
+flag development
+  description: Run GHC with development flags
+  manual: True
+  default: False
+
+library
+  exposed-modules:
+      Stratosphere.ECS.CapacityProvider
+      Stratosphere.ECS.CapacityProvider.AutoScalingGroupProviderProperty
+      Stratosphere.ECS.CapacityProvider.ManagedScalingProperty
+      Stratosphere.ECS.Cluster
+      Stratosphere.ECS.Cluster.CapacityProviderStrategyItemProperty
+      Stratosphere.ECS.Cluster.ClusterConfigurationProperty
+      Stratosphere.ECS.Cluster.ClusterSettingsProperty
+      Stratosphere.ECS.Cluster.ExecuteCommandConfigurationProperty
+      Stratosphere.ECS.Cluster.ExecuteCommandLogConfigurationProperty
+      Stratosphere.ECS.Cluster.ServiceConnectDefaultsProperty
+      Stratosphere.ECS.ClusterCapacityProviderAssociations
+      Stratosphere.ECS.ClusterCapacityProviderAssociations.CapacityProviderStrategyProperty
+      Stratosphere.ECS.PrimaryTaskSet
+      Stratosphere.ECS.Service
+      Stratosphere.ECS.Service.AwsVpcConfigurationProperty
+      Stratosphere.ECS.Service.CapacityProviderStrategyItemProperty
+      Stratosphere.ECS.Service.DeploymentAlarmsProperty
+      Stratosphere.ECS.Service.DeploymentCircuitBreakerProperty
+      Stratosphere.ECS.Service.DeploymentConfigurationProperty
+      Stratosphere.ECS.Service.DeploymentControllerProperty
+      Stratosphere.ECS.Service.LoadBalancerProperty
+      Stratosphere.ECS.Service.LogConfigurationProperty
+      Stratosphere.ECS.Service.NetworkConfigurationProperty
+      Stratosphere.ECS.Service.PlacementConstraintProperty
+      Stratosphere.ECS.Service.PlacementStrategyProperty
+      Stratosphere.ECS.Service.SecretProperty
+      Stratosphere.ECS.Service.ServiceConnectClientAliasProperty
+      Stratosphere.ECS.Service.ServiceConnectConfigurationProperty
+      Stratosphere.ECS.Service.ServiceConnectServiceProperty
+      Stratosphere.ECS.Service.ServiceRegistryProperty
+      Stratosphere.ECS.TaskDefinition
+      Stratosphere.ECS.TaskDefinition.AuthorizationConfigProperty
+      Stratosphere.ECS.TaskDefinition.ContainerDefinitionProperty
+      Stratosphere.ECS.TaskDefinition.ContainerDependencyProperty
+      Stratosphere.ECS.TaskDefinition.DeviceProperty
+      Stratosphere.ECS.TaskDefinition.DockerVolumeConfigurationProperty
+      Stratosphere.ECS.TaskDefinition.EFSVolumeConfigurationProperty
+      Stratosphere.ECS.TaskDefinition.EnvironmentFileProperty
+      Stratosphere.ECS.TaskDefinition.EphemeralStorageProperty
+      Stratosphere.ECS.TaskDefinition.FirelensConfigurationProperty
+      Stratosphere.ECS.TaskDefinition.HealthCheckProperty
+      Stratosphere.ECS.TaskDefinition.HostEntryProperty
+      Stratosphere.ECS.TaskDefinition.HostVolumePropertiesProperty
+      Stratosphere.ECS.TaskDefinition.InferenceAcceleratorProperty
+      Stratosphere.ECS.TaskDefinition.KernelCapabilitiesProperty
+      Stratosphere.ECS.TaskDefinition.KeyValuePairProperty
+      Stratosphere.ECS.TaskDefinition.LinuxParametersProperty
+      Stratosphere.ECS.TaskDefinition.LogConfigurationProperty
+      Stratosphere.ECS.TaskDefinition.MountPointProperty
+      Stratosphere.ECS.TaskDefinition.PortMappingProperty
+      Stratosphere.ECS.TaskDefinition.ProxyConfigurationProperty
+      Stratosphere.ECS.TaskDefinition.RepositoryCredentialsProperty
+      Stratosphere.ECS.TaskDefinition.ResourceRequirementProperty
+      Stratosphere.ECS.TaskDefinition.RuntimePlatformProperty
+      Stratosphere.ECS.TaskDefinition.SecretProperty
+      Stratosphere.ECS.TaskDefinition.SystemControlProperty
+      Stratosphere.ECS.TaskDefinition.TaskDefinitionPlacementConstraintProperty
+      Stratosphere.ECS.TaskDefinition.TmpfsProperty
+      Stratosphere.ECS.TaskDefinition.UlimitProperty
+      Stratosphere.ECS.TaskDefinition.VolumeFromProperty
+      Stratosphere.ECS.TaskDefinition.VolumeProperty
+      Stratosphere.ECS.TaskSet
+      Stratosphere.ECS.TaskSet.AwsVpcConfigurationProperty
+      Stratosphere.ECS.TaskSet.LoadBalancerProperty
+      Stratosphere.ECS.TaskSet.NetworkConfigurationProperty
+      Stratosphere.ECS.TaskSet.ScaleProperty
+      Stratosphere.ECS.TaskSet.ServiceRegistryProperty
+  other-modules:
+      Paths_stratosphere_ecs
+  hs-source-dirs:
+      gen
+  default-extensions:
+      DataKinds
+      DeriveGeneric
+      DerivingStrategies
+      DerivingVia
+      DuplicateRecordFields
+      FlexibleContexts
+      FlexibleInstances
+      GADTs
+      GeneralizedNewtypeDeriving
+      InstanceSigs
+      LambdaCase
+      MultiParamTypeClasses
+      NoFieldSelectors
+      NoImplicitPrelude
+      NumericUnderscores
+      OverloadedLists
+      OverloadedRecordDot
+      OverloadedStrings
+      PolyKinds
+      RecordWildCards
+      ScopedTypeVariables
+      StandaloneDeriving
+      Strict
+      TemplateHaskell
+      TupleSections
+      TypeApplications
+      TypeFamilies
+  ghc-options: -Wall -Wcompat -Widentities -Wimplicit-prelude -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-local-signatures -Wmissing-signatures -Wmonomorphism-restriction -Wredundant-constraints -fhide-source-paths -funbox-strict-fields -optP-Wno-nonportable-include-path -Wno-unused-imports
+  build-depends:
+      aeson
+    , base
+    , stratosphere ==1.0.0
+  default-language: Haskell2010
+  if flag(development)
+    ghc-options: -Werror
+  else
+    ghc-options: -Wwarn

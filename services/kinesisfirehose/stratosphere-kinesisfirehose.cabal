@@ -1,0 +1,112 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.35.2.
+--
+-- see: https://github.com/sol/hpack
+
+name:           stratosphere-kinesisfirehose
+version:        1.0.0
+category:       AWS, Cloud
+stability:      experimental
+homepage:       https://github.com/mbj/stratosphere#readme
+bug-reports:    https://github.com/mbj/stratosphere/issues
+maintainer:     Markus Schirp
+license:        MIT
+build-type:     Simple
+
+source-repository head
+  type: git
+  location: https://github.com/mbj/stratosphere
+
+flag development
+  description: Run GHC with development flags
+  manual: True
+  default: False
+
+library
+  exposed-modules:
+      Stratosphere.KinesisFirehose.DeliveryStream
+      Stratosphere.KinesisFirehose.DeliveryStream.AmazonOpenSearchServerlessBufferingHintsProperty
+      Stratosphere.KinesisFirehose.DeliveryStream.AmazonOpenSearchServerlessDestinationConfigurationProperty
+      Stratosphere.KinesisFirehose.DeliveryStream.AmazonOpenSearchServerlessRetryOptionsProperty
+      Stratosphere.KinesisFirehose.DeliveryStream.AmazonopensearchserviceBufferingHintsProperty
+      Stratosphere.KinesisFirehose.DeliveryStream.AmazonopensearchserviceDestinationConfigurationProperty
+      Stratosphere.KinesisFirehose.DeliveryStream.AmazonopensearchserviceRetryOptionsProperty
+      Stratosphere.KinesisFirehose.DeliveryStream.BufferingHintsProperty
+      Stratosphere.KinesisFirehose.DeliveryStream.CloudWatchLoggingOptionsProperty
+      Stratosphere.KinesisFirehose.DeliveryStream.CopyCommandProperty
+      Stratosphere.KinesisFirehose.DeliveryStream.DataFormatConversionConfigurationProperty
+      Stratosphere.KinesisFirehose.DeliveryStream.DeliveryStreamEncryptionConfigurationInputProperty
+      Stratosphere.KinesisFirehose.DeliveryStream.DeserializerProperty
+      Stratosphere.KinesisFirehose.DeliveryStream.DynamicPartitioningConfigurationProperty
+      Stratosphere.KinesisFirehose.DeliveryStream.ElasticsearchBufferingHintsProperty
+      Stratosphere.KinesisFirehose.DeliveryStream.ElasticsearchDestinationConfigurationProperty
+      Stratosphere.KinesisFirehose.DeliveryStream.ElasticsearchRetryOptionsProperty
+      Stratosphere.KinesisFirehose.DeliveryStream.EncryptionConfigurationProperty
+      Stratosphere.KinesisFirehose.DeliveryStream.ExtendedS3DestinationConfigurationProperty
+      Stratosphere.KinesisFirehose.DeliveryStream.HiveJsonSerDeProperty
+      Stratosphere.KinesisFirehose.DeliveryStream.HttpEndpointCommonAttributeProperty
+      Stratosphere.KinesisFirehose.DeliveryStream.HttpEndpointConfigurationProperty
+      Stratosphere.KinesisFirehose.DeliveryStream.HttpEndpointDestinationConfigurationProperty
+      Stratosphere.KinesisFirehose.DeliveryStream.HttpEndpointRequestConfigurationProperty
+      Stratosphere.KinesisFirehose.DeliveryStream.InputFormatConfigurationProperty
+      Stratosphere.KinesisFirehose.DeliveryStream.KinesisStreamSourceConfigurationProperty
+      Stratosphere.KinesisFirehose.DeliveryStream.KMSEncryptionConfigProperty
+      Stratosphere.KinesisFirehose.DeliveryStream.OpenXJsonSerDeProperty
+      Stratosphere.KinesisFirehose.DeliveryStream.OrcSerDeProperty
+      Stratosphere.KinesisFirehose.DeliveryStream.OutputFormatConfigurationProperty
+      Stratosphere.KinesisFirehose.DeliveryStream.ParquetSerDeProperty
+      Stratosphere.KinesisFirehose.DeliveryStream.ProcessingConfigurationProperty
+      Stratosphere.KinesisFirehose.DeliveryStream.ProcessorParameterProperty
+      Stratosphere.KinesisFirehose.DeliveryStream.ProcessorProperty
+      Stratosphere.KinesisFirehose.DeliveryStream.RedshiftDestinationConfigurationProperty
+      Stratosphere.KinesisFirehose.DeliveryStream.RedshiftRetryOptionsProperty
+      Stratosphere.KinesisFirehose.DeliveryStream.RetryOptionsProperty
+      Stratosphere.KinesisFirehose.DeliveryStream.S3DestinationConfigurationProperty
+      Stratosphere.KinesisFirehose.DeliveryStream.SchemaConfigurationProperty
+      Stratosphere.KinesisFirehose.DeliveryStream.SerializerProperty
+      Stratosphere.KinesisFirehose.DeliveryStream.SplunkDestinationConfigurationProperty
+      Stratosphere.KinesisFirehose.DeliveryStream.SplunkRetryOptionsProperty
+      Stratosphere.KinesisFirehose.DeliveryStream.VpcConfigurationProperty
+  other-modules:
+      Paths_stratosphere_kinesisfirehose
+  hs-source-dirs:
+      gen
+  default-extensions:
+      DataKinds
+      DeriveGeneric
+      DerivingStrategies
+      DerivingVia
+      DuplicateRecordFields
+      FlexibleContexts
+      FlexibleInstances
+      GADTs
+      GeneralizedNewtypeDeriving
+      InstanceSigs
+      LambdaCase
+      MultiParamTypeClasses
+      NoFieldSelectors
+      NoImplicitPrelude
+      NumericUnderscores
+      OverloadedLists
+      OverloadedRecordDot
+      OverloadedStrings
+      PolyKinds
+      RecordWildCards
+      ScopedTypeVariables
+      StandaloneDeriving
+      Strict
+      TemplateHaskell
+      TupleSections
+      TypeApplications
+      TypeFamilies
+  ghc-options: -Wall -Wcompat -Widentities -Wimplicit-prelude -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-local-signatures -Wmissing-signatures -Wmonomorphism-restriction -Wredundant-constraints -fhide-source-paths -funbox-strict-fields -optP-Wno-nonportable-include-path -Wno-unused-imports
+  build-depends:
+      aeson
+    , base
+    , stratosphere ==1.0.0
+  default-language: Haskell2010
+  if flag(development)
+    ghc-options: -Werror
+  else
+    ghc-options: -Wwarn

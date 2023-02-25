@@ -1,0 +1,7 @@
+module Stratosphere.AppStream.Stack.ApplicationSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ApplicationSettingsProperty :: Prelude.Type
+instance ToResourceProperties ApplicationSettingsProperty
+instance JSON.ToJSON ApplicationSettingsProperty

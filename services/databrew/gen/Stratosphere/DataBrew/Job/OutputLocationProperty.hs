@@ -1,0 +1,49 @@
+module Stratosphere.DataBrew.Job.OutputLocationProperty (
+        OutputLocationProperty(..), mkOutputLocationProperty
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import Stratosphere.ResourceProperties
+import Stratosphere.Value
+data OutputLocationProperty
+  = OutputLocationProperty {bucket :: (Value Prelude.Text),
+                            bucketOwner :: (Prelude.Maybe (Value Prelude.Text)),
+                            key :: (Prelude.Maybe (Value Prelude.Text))}
+mkOutputLocationProperty ::
+  Value Prelude.Text -> OutputLocationProperty
+mkOutputLocationProperty bucket
+  = OutputLocationProperty
+      {bucket = bucket, bucketOwner = Prelude.Nothing,
+       key = Prelude.Nothing}
+instance ToResourceProperties OutputLocationProperty where
+  toResourceProperties OutputLocationProperty {..}
+    = ResourceProperties
+        {awsType = "AWS::DataBrew::Job.OutputLocation",
+         properties = Prelude.fromList
+                        ((Prelude.<>)
+                           ["Bucket" JSON..= bucket]
+                           (Prelude.catMaybes
+                              [(JSON..=) "BucketOwner" Prelude.<$> bucketOwner,
+                               (JSON..=) "Key" Prelude.<$> key]))}
+instance JSON.ToJSON OutputLocationProperty where
+  toJSON OutputLocationProperty {..}
+    = JSON.object
+        (Prelude.fromList
+           ((Prelude.<>)
+              ["Bucket" JSON..= bucket]
+              (Prelude.catMaybes
+                 [(JSON..=) "BucketOwner" Prelude.<$> bucketOwner,
+                  (JSON..=) "Key" Prelude.<$> key])))
+instance Property "Bucket" OutputLocationProperty where
+  type PropertyType "Bucket" OutputLocationProperty = Value Prelude.Text
+  set newValue OutputLocationProperty {..}
+    = OutputLocationProperty {bucket = newValue, ..}
+instance Property "BucketOwner" OutputLocationProperty where
+  type PropertyType "BucketOwner" OutputLocationProperty = Value Prelude.Text
+  set newValue OutputLocationProperty {..}
+    = OutputLocationProperty {bucketOwner = Prelude.pure newValue, ..}
+instance Property "Key" OutputLocationProperty where
+  type PropertyType "Key" OutputLocationProperty = Value Prelude.Text
+  set newValue OutputLocationProperty {..}
+    = OutputLocationProperty {key = Prelude.pure newValue, ..}

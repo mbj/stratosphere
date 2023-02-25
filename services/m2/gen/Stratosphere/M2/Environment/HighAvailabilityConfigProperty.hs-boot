@@ -1,0 +1,7 @@
+module Stratosphere.M2.Environment.HighAvailabilityConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data HighAvailabilityConfigProperty :: Prelude.Type
+instance ToResourceProperties HighAvailabilityConfigProperty
+instance JSON.ToJSON HighAvailabilityConfigProperty

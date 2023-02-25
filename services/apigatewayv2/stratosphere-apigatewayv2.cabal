@@ -1,0 +1,98 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.35.2.
+--
+-- see: https://github.com/sol/hpack
+
+name:           stratosphere-apigatewayv2
+version:        1.0.0
+category:       AWS, Cloud
+stability:      experimental
+homepage:       https://github.com/mbj/stratosphere#readme
+bug-reports:    https://github.com/mbj/stratosphere/issues
+maintainer:     Markus Schirp
+license:        MIT
+build-type:     Simple
+
+source-repository head
+  type: git
+  location: https://github.com/mbj/stratosphere
+
+flag development
+  description: Run GHC with development flags
+  manual: True
+  default: False
+
+library
+  exposed-modules:
+      Stratosphere.ApiGatewayV2.Api
+      Stratosphere.ApiGatewayV2.Api.BodyS3LocationProperty
+      Stratosphere.ApiGatewayV2.Api.CorsProperty
+      Stratosphere.ApiGatewayV2.ApiGatewayManagedOverrides
+      Stratosphere.ApiGatewayV2.ApiGatewayManagedOverrides.AccessLogSettingsProperty
+      Stratosphere.ApiGatewayV2.ApiGatewayManagedOverrides.IntegrationOverridesProperty
+      Stratosphere.ApiGatewayV2.ApiGatewayManagedOverrides.RouteOverridesProperty
+      Stratosphere.ApiGatewayV2.ApiGatewayManagedOverrides.RouteSettingsProperty
+      Stratosphere.ApiGatewayV2.ApiGatewayManagedOverrides.StageOverridesProperty
+      Stratosphere.ApiGatewayV2.ApiMapping
+      Stratosphere.ApiGatewayV2.Authorizer
+      Stratosphere.ApiGatewayV2.Authorizer.JWTConfigurationProperty
+      Stratosphere.ApiGatewayV2.Deployment
+      Stratosphere.ApiGatewayV2.DomainName
+      Stratosphere.ApiGatewayV2.DomainName.DomainNameConfigurationProperty
+      Stratosphere.ApiGatewayV2.DomainName.MutualTlsAuthenticationProperty
+      Stratosphere.ApiGatewayV2.Integration
+      Stratosphere.ApiGatewayV2.Integration.ResponseParameterListProperty
+      Stratosphere.ApiGatewayV2.Integration.ResponseParameterProperty
+      Stratosphere.ApiGatewayV2.Integration.TlsConfigProperty
+      Stratosphere.ApiGatewayV2.IntegrationResponse
+      Stratosphere.ApiGatewayV2.Model
+      Stratosphere.ApiGatewayV2.Route
+      Stratosphere.ApiGatewayV2.Route.ParameterConstraintsProperty
+      Stratosphere.ApiGatewayV2.RouteResponse
+      Stratosphere.ApiGatewayV2.Stage
+      Stratosphere.ApiGatewayV2.Stage.AccessLogSettingsProperty
+      Stratosphere.ApiGatewayV2.Stage.RouteSettingsProperty
+      Stratosphere.ApiGatewayV2.VpcLink
+  other-modules:
+      Paths_stratosphere_apigatewayv2
+  hs-source-dirs:
+      gen
+  default-extensions:
+      DataKinds
+      DeriveGeneric
+      DerivingStrategies
+      DerivingVia
+      DuplicateRecordFields
+      FlexibleContexts
+      FlexibleInstances
+      GADTs
+      GeneralizedNewtypeDeriving
+      InstanceSigs
+      LambdaCase
+      MultiParamTypeClasses
+      NoFieldSelectors
+      NoImplicitPrelude
+      NumericUnderscores
+      OverloadedLists
+      OverloadedRecordDot
+      OverloadedStrings
+      PolyKinds
+      RecordWildCards
+      ScopedTypeVariables
+      StandaloneDeriving
+      Strict
+      TemplateHaskell
+      TupleSections
+      TypeApplications
+      TypeFamilies
+  ghc-options: -Wall -Wcompat -Widentities -Wimplicit-prelude -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-local-signatures -Wmissing-signatures -Wmonomorphism-restriction -Wredundant-constraints -fhide-source-paths -funbox-strict-fields -optP-Wno-nonportable-include-path -Wno-unused-imports
+  build-depends:
+      aeson
+    , base
+    , stratosphere ==1.0.0
+  default-language: Haskell2010
+  if flag(development)
+    ghc-options: -Werror
+  else
+    ghc-options: -Wwarn

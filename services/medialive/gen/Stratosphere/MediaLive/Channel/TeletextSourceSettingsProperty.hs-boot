@@ -1,0 +1,7 @@
+module Stratosphere.MediaLive.Channel.TeletextSourceSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TeletextSourceSettingsProperty :: Prelude.Type
+instance ToResourceProperties TeletextSourceSettingsProperty
+instance JSON.ToJSON TeletextSourceSettingsProperty

@@ -1,0 +1,7 @@
+module Stratosphere.Connect.Rule.NotificationRecipientTypeProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data NotificationRecipientTypeProperty :: Prelude.Type
+instance ToResourceProperties NotificationRecipientTypeProperty
+instance JSON.ToJSON NotificationRecipientTypeProperty

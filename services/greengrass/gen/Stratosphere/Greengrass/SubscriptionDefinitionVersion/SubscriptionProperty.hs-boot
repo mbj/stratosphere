@@ -1,0 +1,7 @@
+module Stratosphere.Greengrass.SubscriptionDefinitionVersion.SubscriptionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SubscriptionProperty :: Prelude.Type
+instance ToResourceProperties SubscriptionProperty
+instance JSON.ToJSON SubscriptionProperty

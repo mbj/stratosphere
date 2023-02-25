@@ -1,0 +1,7 @@
+module Stratosphere.ImageBuilder.ImagePipeline.EcrConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data EcrConfigurationProperty :: Prelude.Type
+instance ToResourceProperties EcrConfigurationProperty
+instance JSON.ToJSON EcrConfigurationProperty

@@ -1,0 +1,7 @@
+module Stratosphere.MediaLive.Channel.AudioWatermarkSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AudioWatermarkSettingsProperty :: Prelude.Type
+instance ToResourceProperties AudioWatermarkSettingsProperty
+instance JSON.ToJSON AudioWatermarkSettingsProperty

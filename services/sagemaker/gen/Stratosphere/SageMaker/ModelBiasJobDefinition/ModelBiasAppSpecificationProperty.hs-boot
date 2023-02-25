@@ -1,0 +1,7 @@
+module Stratosphere.SageMaker.ModelBiasJobDefinition.ModelBiasAppSpecificationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ModelBiasAppSpecificationProperty :: Prelude.Type
+instance ToResourceProperties ModelBiasAppSpecificationProperty
+instance JSON.ToJSON ModelBiasAppSpecificationProperty

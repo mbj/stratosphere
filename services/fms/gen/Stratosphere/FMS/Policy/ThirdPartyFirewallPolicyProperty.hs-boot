@@ -1,0 +1,7 @@
+module Stratosphere.FMS.Policy.ThirdPartyFirewallPolicyProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ThirdPartyFirewallPolicyProperty :: Prelude.Type
+instance ToResourceProperties ThirdPartyFirewallPolicyProperty
+instance JSON.ToJSON ThirdPartyFirewallPolicyProperty

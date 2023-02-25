@@ -1,0 +1,7 @@
+module Stratosphere.ApiGatewayV2.Stage.AccessLogSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AccessLogSettingsProperty :: Prelude.Type
+instance ToResourceProperties AccessLogSettingsProperty
+instance JSON.ToJSON AccessLogSettingsProperty

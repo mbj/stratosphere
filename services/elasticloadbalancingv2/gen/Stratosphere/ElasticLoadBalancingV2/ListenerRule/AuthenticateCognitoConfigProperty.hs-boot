@@ -1,0 +1,7 @@
+module Stratosphere.ElasticLoadBalancingV2.ListenerRule.AuthenticateCognitoConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AuthenticateCognitoConfigProperty :: Prelude.Type
+instance ToResourceProperties AuthenticateCognitoConfigProperty
+instance JSON.ToJSON AuthenticateCognitoConfigProperty

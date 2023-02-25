@@ -1,0 +1,7 @@
+module Stratosphere.ACMPCA.Certificate.PolicyQualifierInfoProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PolicyQualifierInfoProperty :: Prelude.Type
+instance ToResourceProperties PolicyQualifierInfoProperty
+instance JSON.ToJSON PolicyQualifierInfoProperty

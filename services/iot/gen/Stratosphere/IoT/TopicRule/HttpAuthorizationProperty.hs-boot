@@ -1,0 +1,7 @@
+module Stratosphere.IoT.TopicRule.HttpAuthorizationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data HttpAuthorizationProperty :: Prelude.Type
+instance ToResourceProperties HttpAuthorizationProperty
+instance JSON.ToJSON HttpAuthorizationProperty

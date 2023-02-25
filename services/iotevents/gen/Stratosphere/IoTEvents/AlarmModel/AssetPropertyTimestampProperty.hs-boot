@@ -1,0 +1,7 @@
+module Stratosphere.IoTEvents.AlarmModel.AssetPropertyTimestampProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AssetPropertyTimestampProperty :: Prelude.Type
+instance ToResourceProperties AssetPropertyTimestampProperty
+instance JSON.ToJSON AssetPropertyTimestampProperty

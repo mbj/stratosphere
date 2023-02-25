@@ -1,0 +1,7 @@
+module Stratosphere.GreengrassV2.Deployment.ComponentRunWithProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ComponentRunWithProperty :: Prelude.Type
+instance ToResourceProperties ComponentRunWithProperty
+instance JSON.ToJSON ComponentRunWithProperty

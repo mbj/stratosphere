@@ -1,0 +1,7 @@
+module Stratosphere.Backup.BackupVault.NotificationObjectTypeProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data NotificationObjectTypeProperty :: Prelude.Type
+instance ToResourceProperties NotificationObjectTypeProperty
+instance JSON.ToJSON NotificationObjectTypeProperty

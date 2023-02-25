@@ -1,0 +1,7 @@
+module Stratosphere.OpsWorks.Layer.AutoScalingThresholdsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AutoScalingThresholdsProperty :: Prelude.Type
+instance ToResourceProperties AutoScalingThresholdsProperty
+instance JSON.ToJSON AutoScalingThresholdsProperty

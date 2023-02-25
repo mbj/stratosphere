@@ -1,0 +1,7 @@
+module Stratosphere.MediaLive.Channel.AudioChannelMappingProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AudioChannelMappingProperty :: Prelude.Type
+instance ToResourceProperties AudioChannelMappingProperty
+instance JSON.ToJSON AudioChannelMappingProperty

@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.DataSet.DataSetUsageConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DataSetUsageConfigurationProperty :: Prelude.Type
+instance ToResourceProperties DataSetUsageConfigurationProperty
+instance JSON.ToJSON DataSetUsageConfigurationProperty

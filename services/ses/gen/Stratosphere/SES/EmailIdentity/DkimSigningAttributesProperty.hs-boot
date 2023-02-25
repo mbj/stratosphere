@@ -1,0 +1,7 @@
+module Stratosphere.SES.EmailIdentity.DkimSigningAttributesProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DkimSigningAttributesProperty :: Prelude.Type
+instance ToResourceProperties DkimSigningAttributesProperty
+instance JSON.ToJSON DkimSigningAttributesProperty

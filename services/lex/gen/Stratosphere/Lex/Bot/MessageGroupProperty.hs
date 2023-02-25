@@ -1,0 +1,40 @@
+module Stratosphere.Lex.Bot.MessageGroupProperty (
+        module Exports, MessageGroupProperty(..), mkMessageGroupProperty
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.Lex.Bot.MessageProperty as Exports
+import Stratosphere.ResourceProperties
+data MessageGroupProperty
+  = MessageGroupProperty {message :: MessageProperty,
+                          variations :: (Prelude.Maybe [MessageProperty])}
+mkMessageGroupProperty :: MessageProperty -> MessageGroupProperty
+mkMessageGroupProperty message
+  = MessageGroupProperty
+      {message = message, variations = Prelude.Nothing}
+instance ToResourceProperties MessageGroupProperty where
+  toResourceProperties MessageGroupProperty {..}
+    = ResourceProperties
+        {awsType = "AWS::Lex::Bot.MessageGroup",
+         properties = Prelude.fromList
+                        ((Prelude.<>)
+                           ["Message" JSON..= message]
+                           (Prelude.catMaybes
+                              [(JSON..=) "Variations" Prelude.<$> variations]))}
+instance JSON.ToJSON MessageGroupProperty where
+  toJSON MessageGroupProperty {..}
+    = JSON.object
+        (Prelude.fromList
+           ((Prelude.<>)
+              ["Message" JSON..= message]
+              (Prelude.catMaybes
+                 [(JSON..=) "Variations" Prelude.<$> variations])))
+instance Property "Message" MessageGroupProperty where
+  type PropertyType "Message" MessageGroupProperty = MessageProperty
+  set newValue MessageGroupProperty {..}
+    = MessageGroupProperty {message = newValue, ..}
+instance Property "Variations" MessageGroupProperty where
+  type PropertyType "Variations" MessageGroupProperty = [MessageProperty]
+  set newValue MessageGroupProperty {..}
+    = MessageGroupProperty {variations = Prelude.pure newValue, ..}

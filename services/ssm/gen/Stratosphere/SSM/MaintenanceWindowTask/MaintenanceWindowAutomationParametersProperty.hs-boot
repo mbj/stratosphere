@@ -1,0 +1,7 @@
+module Stratosphere.SSM.MaintenanceWindowTask.MaintenanceWindowAutomationParametersProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MaintenanceWindowAutomationParametersProperty :: Prelude.Type
+instance ToResourceProperties MaintenanceWindowAutomationParametersProperty
+instance JSON.ToJSON MaintenanceWindowAutomationParametersProperty

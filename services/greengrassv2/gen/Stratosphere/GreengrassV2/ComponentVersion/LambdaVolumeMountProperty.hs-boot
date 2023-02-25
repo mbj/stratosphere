@@ -1,0 +1,7 @@
+module Stratosphere.GreengrassV2.ComponentVersion.LambdaVolumeMountProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data LambdaVolumeMountProperty :: Prelude.Type
+instance ToResourceProperties LambdaVolumeMountProperty
+instance JSON.ToJSON LambdaVolumeMountProperty

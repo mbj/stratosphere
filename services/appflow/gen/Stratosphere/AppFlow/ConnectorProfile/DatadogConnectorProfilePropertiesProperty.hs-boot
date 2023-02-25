@@ -1,0 +1,7 @@
+module Stratosphere.AppFlow.ConnectorProfile.DatadogConnectorProfilePropertiesProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DatadogConnectorProfilePropertiesProperty :: Prelude.Type
+instance ToResourceProperties DatadogConnectorProfilePropertiesProperty
+instance JSON.ToJSON DatadogConnectorProfilePropertiesProperty

@@ -1,0 +1,7 @@
+module Stratosphere.Transfer.Workflow.EfsInputFileLocationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data EfsInputFileLocationProperty :: Prelude.Type
+instance ToResourceProperties EfsInputFileLocationProperty
+instance JSON.ToJSON EfsInputFileLocationProperty

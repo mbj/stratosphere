@@ -1,0 +1,7 @@
+module Stratosphere.ConnectCampaigns.Campaign.PredictiveDialerConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PredictiveDialerConfigProperty :: Prelude.Type
+instance ToResourceProperties PredictiveDialerConfigProperty
+instance JSON.ToJSON PredictiveDialerConfigProperty

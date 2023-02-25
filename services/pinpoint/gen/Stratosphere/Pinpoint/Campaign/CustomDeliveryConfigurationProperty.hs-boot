@@ -1,0 +1,7 @@
+module Stratosphere.Pinpoint.Campaign.CustomDeliveryConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CustomDeliveryConfigurationProperty :: Prelude.Type
+instance ToResourceProperties CustomDeliveryConfigurationProperty
+instance JSON.ToJSON CustomDeliveryConfigurationProperty

@@ -1,0 +1,7 @@
+module Stratosphere.SageMaker.Workteam.NotificationConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data NotificationConfigurationProperty :: Prelude.Type
+instance ToResourceProperties NotificationConfigurationProperty
+instance JSON.ToJSON NotificationConfigurationProperty

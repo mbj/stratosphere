@@ -1,0 +1,7 @@
+module Stratosphere.Lex.Bot.PostDialogCodeHookInvocationSpecificationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PostDialogCodeHookInvocationSpecificationProperty :: Prelude.Type
+instance ToResourceProperties PostDialogCodeHookInvocationSpecificationProperty
+instance JSON.ToJSON PostDialogCodeHookInvocationSpecificationProperty

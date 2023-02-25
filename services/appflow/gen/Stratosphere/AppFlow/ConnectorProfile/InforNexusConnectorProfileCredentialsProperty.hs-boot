@@ -1,0 +1,7 @@
+module Stratosphere.AppFlow.ConnectorProfile.InforNexusConnectorProfileCredentialsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data InforNexusConnectorProfileCredentialsProperty :: Prelude.Type
+instance ToResourceProperties InforNexusConnectorProfileCredentialsProperty
+instance JSON.ToJSON InforNexusConnectorProfileCredentialsProperty

@@ -1,0 +1,39 @@
+module Stratosphere.AmplifyUIBuilder.Theme.ThemeValueProperty (
+        module Exports, ThemeValueProperty(..), mkThemeValueProperty
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.AmplifyUIBuilder.Theme.ThemeValuesProperty as Exports
+import Stratosphere.ResourceProperties
+import Stratosphere.Value
+data ThemeValueProperty
+  = ThemeValueProperty {children :: (Prelude.Maybe [ThemeValuesProperty]),
+                        value :: (Prelude.Maybe (Value Prelude.Text))}
+mkThemeValueProperty :: ThemeValueProperty
+mkThemeValueProperty
+  = ThemeValueProperty
+      {children = Prelude.Nothing, value = Prelude.Nothing}
+instance ToResourceProperties ThemeValueProperty where
+  toResourceProperties ThemeValueProperty {..}
+    = ResourceProperties
+        {awsType = "AWS::AmplifyUIBuilder::Theme.ThemeValue",
+         properties = Prelude.fromList
+                        (Prelude.catMaybes
+                           [(JSON..=) "Children" Prelude.<$> children,
+                            (JSON..=) "Value" Prelude.<$> value])}
+instance JSON.ToJSON ThemeValueProperty where
+  toJSON ThemeValueProperty {..}
+    = JSON.object
+        (Prelude.fromList
+           (Prelude.catMaybes
+              [(JSON..=) "Children" Prelude.<$> children,
+               (JSON..=) "Value" Prelude.<$> value]))
+instance Property "Children" ThemeValueProperty where
+  type PropertyType "Children" ThemeValueProperty = [ThemeValuesProperty]
+  set newValue ThemeValueProperty {..}
+    = ThemeValueProperty {children = Prelude.pure newValue, ..}
+instance Property "Value" ThemeValueProperty where
+  type PropertyType "Value" ThemeValueProperty = Value Prelude.Text
+  set newValue ThemeValueProperty {..}
+    = ThemeValueProperty {value = Prelude.pure newValue, ..}

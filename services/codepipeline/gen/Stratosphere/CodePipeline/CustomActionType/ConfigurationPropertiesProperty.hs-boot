@@ -1,0 +1,7 @@
+module Stratosphere.CodePipeline.CustomActionType.ConfigurationPropertiesProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ConfigurationPropertiesProperty :: Prelude.Type
+instance ToResourceProperties ConfigurationPropertiesProperty
+instance JSON.ToJSON ConfigurationPropertiesProperty

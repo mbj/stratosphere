@@ -1,0 +1,7 @@
+module Stratosphere.OpenSearchService.Domain.ServiceSoftwareOptionsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ServiceSoftwareOptionsProperty :: Prelude.Type
+instance ToResourceProperties ServiceSoftwareOptionsProperty
+instance JSON.ToJSON ServiceSoftwareOptionsProperty

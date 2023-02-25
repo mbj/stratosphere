@@ -1,0 +1,32 @@
+_common/package: !include "../common/package.yaml"
+
+name:       stratosphere-generator
+version:    1.0
+synopsis:   Stratosphere code generation
+
+<<: *defaults
+
+dependencies:
+- aeson
+- base
+- bytestring
+- containers
+- directory
+- extra
+- filepath
+- ghc
+- ghc-paths
+- ghc-source-gen
+- hpack
+- mtl
+- shakespeare
+- stratosphere
+- system-filepath
+- text
+- text-manipulate
+
+executables:
+  stratosphere-generator:
+    source-dirs: src
+    main: Stratosphere/Generator/Main.hs
+    ghc-options: -main-is Stratosphere.Generator.Main

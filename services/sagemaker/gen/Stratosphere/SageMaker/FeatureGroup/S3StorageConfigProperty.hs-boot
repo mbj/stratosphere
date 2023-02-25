@@ -1,0 +1,7 @@
+module Stratosphere.SageMaker.FeatureGroup.S3StorageConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data S3StorageConfigProperty :: Prelude.Type
+instance ToResourceProperties S3StorageConfigProperty
+instance JSON.ToJSON S3StorageConfigProperty

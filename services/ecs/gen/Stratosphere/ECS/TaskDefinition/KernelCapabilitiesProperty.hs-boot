@@ -1,0 +1,7 @@
+module Stratosphere.ECS.TaskDefinition.KernelCapabilitiesProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data KernelCapabilitiesProperty :: Prelude.Type
+instance ToResourceProperties KernelCapabilitiesProperty
+instance JSON.ToJSON KernelCapabilitiesProperty

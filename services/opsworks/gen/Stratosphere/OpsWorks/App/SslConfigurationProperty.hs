@@ -1,0 +1,47 @@
+module Stratosphere.OpsWorks.App.SslConfigurationProperty (
+        SslConfigurationProperty(..), mkSslConfigurationProperty
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import Stratosphere.ResourceProperties
+import Stratosphere.Value
+data SslConfigurationProperty
+  = SslConfigurationProperty {certificate :: (Prelude.Maybe (Value Prelude.Text)),
+                              chain :: (Prelude.Maybe (Value Prelude.Text)),
+                              privateKey :: (Prelude.Maybe (Value Prelude.Text))}
+mkSslConfigurationProperty :: SslConfigurationProperty
+mkSslConfigurationProperty
+  = SslConfigurationProperty
+      {certificate = Prelude.Nothing, chain = Prelude.Nothing,
+       privateKey = Prelude.Nothing}
+instance ToResourceProperties SslConfigurationProperty where
+  toResourceProperties SslConfigurationProperty {..}
+    = ResourceProperties
+        {awsType = "AWS::OpsWorks::App.SslConfiguration",
+         properties = Prelude.fromList
+                        (Prelude.catMaybes
+                           [(JSON..=) "Certificate" Prelude.<$> certificate,
+                            (JSON..=) "Chain" Prelude.<$> chain,
+                            (JSON..=) "PrivateKey" Prelude.<$> privateKey])}
+instance JSON.ToJSON SslConfigurationProperty where
+  toJSON SslConfigurationProperty {..}
+    = JSON.object
+        (Prelude.fromList
+           (Prelude.catMaybes
+              [(JSON..=) "Certificate" Prelude.<$> certificate,
+               (JSON..=) "Chain" Prelude.<$> chain,
+               (JSON..=) "PrivateKey" Prelude.<$> privateKey]))
+instance Property "Certificate" SslConfigurationProperty where
+  type PropertyType "Certificate" SslConfigurationProperty = Value Prelude.Text
+  set newValue SslConfigurationProperty {..}
+    = SslConfigurationProperty
+        {certificate = Prelude.pure newValue, ..}
+instance Property "Chain" SslConfigurationProperty where
+  type PropertyType "Chain" SslConfigurationProperty = Value Prelude.Text
+  set newValue SslConfigurationProperty {..}
+    = SslConfigurationProperty {chain = Prelude.pure newValue, ..}
+instance Property "PrivateKey" SslConfigurationProperty where
+  type PropertyType "PrivateKey" SslConfigurationProperty = Value Prelude.Text
+  set newValue SslConfigurationProperty {..}
+    = SslConfigurationProperty {privateKey = Prelude.pure newValue, ..}

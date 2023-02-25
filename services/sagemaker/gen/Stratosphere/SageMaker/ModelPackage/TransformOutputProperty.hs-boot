@@ -1,0 +1,7 @@
+module Stratosphere.SageMaker.ModelPackage.TransformOutputProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TransformOutputProperty :: Prelude.Type
+instance ToResourceProperties TransformOutputProperty
+instance JSON.ToJSON TransformOutputProperty

@@ -1,0 +1,7 @@
+module Stratosphere.Budgets.BudgetsAction.SsmActionDefinitionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SsmActionDefinitionProperty :: Prelude.Type
+instance ToResourceProperties SsmActionDefinitionProperty
+instance JSON.ToJSON SsmActionDefinitionProperty

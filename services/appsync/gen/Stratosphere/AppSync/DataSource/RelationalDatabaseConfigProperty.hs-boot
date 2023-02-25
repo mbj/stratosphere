@@ -1,0 +1,7 @@
+module Stratosphere.AppSync.DataSource.RelationalDatabaseConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RelationalDatabaseConfigProperty :: Prelude.Type
+instance ToResourceProperties RelationalDatabaseConfigProperty
+instance JSON.ToJSON RelationalDatabaseConfigProperty

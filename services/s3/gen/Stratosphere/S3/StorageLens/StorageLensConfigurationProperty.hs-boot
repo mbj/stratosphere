@@ -1,0 +1,7 @@
+module Stratosphere.S3.StorageLens.StorageLensConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data StorageLensConfigurationProperty :: Prelude.Type
+instance ToResourceProperties StorageLensConfigurationProperty
+instance JSON.ToJSON StorageLensConfigurationProperty

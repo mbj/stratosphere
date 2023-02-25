@@ -1,0 +1,7 @@
+module Stratosphere.Evidently.Experiment.OnlineAbConfigObjectProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data OnlineAbConfigObjectProperty :: Prelude.Type
+instance ToResourceProperties OnlineAbConfigObjectProperty
+instance JSON.ToJSON OnlineAbConfigObjectProperty

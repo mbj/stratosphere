@@ -1,0 +1,7 @@
+module Stratosphere.EC2.SpotFleet.LaunchTemplateConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data LaunchTemplateConfigProperty :: Prelude.Type
+instance ToResourceProperties LaunchTemplateConfigProperty
+instance JSON.ToJSON LaunchTemplateConfigProperty

@@ -1,0 +1,50 @@
+module Stratosphere.AppMesh.VirtualNode.ListenerTlsProperty (
+        module Exports, ListenerTlsProperty(..), mkListenerTlsProperty
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.AppMesh.VirtualNode.ListenerTlsCertificateProperty as Exports
+import {-# SOURCE #-} Stratosphere.AppMesh.VirtualNode.ListenerTlsValidationContextProperty as Exports
+import Stratosphere.ResourceProperties
+import Stratosphere.Value
+data ListenerTlsProperty
+  = ListenerTlsProperty {certificate :: ListenerTlsCertificateProperty,
+                         mode :: (Value Prelude.Text),
+                         validation :: (Prelude.Maybe ListenerTlsValidationContextProperty)}
+mkListenerTlsProperty ::
+  ListenerTlsCertificateProperty
+  -> Value Prelude.Text -> ListenerTlsProperty
+mkListenerTlsProperty certificate mode
+  = ListenerTlsProperty
+      {certificate = certificate, mode = mode,
+       validation = Prelude.Nothing}
+instance ToResourceProperties ListenerTlsProperty where
+  toResourceProperties ListenerTlsProperty {..}
+    = ResourceProperties
+        {awsType = "AWS::AppMesh::VirtualNode.ListenerTls",
+         properties = Prelude.fromList
+                        ((Prelude.<>)
+                           ["Certificate" JSON..= certificate, "Mode" JSON..= mode]
+                           (Prelude.catMaybes
+                              [(JSON..=) "Validation" Prelude.<$> validation]))}
+instance JSON.ToJSON ListenerTlsProperty where
+  toJSON ListenerTlsProperty {..}
+    = JSON.object
+        (Prelude.fromList
+           ((Prelude.<>)
+              ["Certificate" JSON..= certificate, "Mode" JSON..= mode]
+              (Prelude.catMaybes
+                 [(JSON..=) "Validation" Prelude.<$> validation])))
+instance Property "Certificate" ListenerTlsProperty where
+  type PropertyType "Certificate" ListenerTlsProperty = ListenerTlsCertificateProperty
+  set newValue ListenerTlsProperty {..}
+    = ListenerTlsProperty {certificate = newValue, ..}
+instance Property "Mode" ListenerTlsProperty where
+  type PropertyType "Mode" ListenerTlsProperty = Value Prelude.Text
+  set newValue ListenerTlsProperty {..}
+    = ListenerTlsProperty {mode = newValue, ..}
+instance Property "Validation" ListenerTlsProperty where
+  type PropertyType "Validation" ListenerTlsProperty = ListenerTlsValidationContextProperty
+  set newValue ListenerTlsProperty {..}
+    = ListenerTlsProperty {validation = Prelude.pure newValue, ..}

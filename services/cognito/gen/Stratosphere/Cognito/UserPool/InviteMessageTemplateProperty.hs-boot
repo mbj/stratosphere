@@ -1,0 +1,7 @@
+module Stratosphere.Cognito.UserPool.InviteMessageTemplateProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data InviteMessageTemplateProperty :: Prelude.Type
+instance ToResourceProperties InviteMessageTemplateProperty
+instance JSON.ToJSON InviteMessageTemplateProperty

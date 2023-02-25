@@ -1,0 +1,7 @@
+module Stratosphere.GreengrassV2.ComponentVersion.LambdaContainerParamsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data LambdaContainerParamsProperty :: Prelude.Type
+instance ToResourceProperties LambdaContainerParamsProperty
+instance JSON.ToJSON LambdaContainerParamsProperty

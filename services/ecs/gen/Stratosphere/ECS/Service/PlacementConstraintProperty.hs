@@ -1,0 +1,42 @@
+module Stratosphere.ECS.Service.PlacementConstraintProperty (
+        PlacementConstraintProperty(..), mkPlacementConstraintProperty
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import Stratosphere.ResourceProperties
+import Stratosphere.Value
+data PlacementConstraintProperty
+  = PlacementConstraintProperty {expression :: (Prelude.Maybe (Value Prelude.Text)),
+                                 type' :: (Value Prelude.Text)}
+mkPlacementConstraintProperty ::
+  Value Prelude.Text -> PlacementConstraintProperty
+mkPlacementConstraintProperty type'
+  = PlacementConstraintProperty
+      {type' = type', expression = Prelude.Nothing}
+instance ToResourceProperties PlacementConstraintProperty where
+  toResourceProperties PlacementConstraintProperty {..}
+    = ResourceProperties
+        {awsType = "AWS::ECS::Service.PlacementConstraint",
+         properties = Prelude.fromList
+                        ((Prelude.<>)
+                           ["Type" JSON..= type']
+                           (Prelude.catMaybes
+                              [(JSON..=) "Expression" Prelude.<$> expression]))}
+instance JSON.ToJSON PlacementConstraintProperty where
+  toJSON PlacementConstraintProperty {..}
+    = JSON.object
+        (Prelude.fromList
+           ((Prelude.<>)
+              ["Type" JSON..= type']
+              (Prelude.catMaybes
+                 [(JSON..=) "Expression" Prelude.<$> expression])))
+instance Property "Expression" PlacementConstraintProperty where
+  type PropertyType "Expression" PlacementConstraintProperty = Value Prelude.Text
+  set newValue PlacementConstraintProperty {..}
+    = PlacementConstraintProperty
+        {expression = Prelude.pure newValue, ..}
+instance Property "Type" PlacementConstraintProperty where
+  type PropertyType "Type" PlacementConstraintProperty = Value Prelude.Text
+  set newValue PlacementConstraintProperty {..}
+    = PlacementConstraintProperty {type' = newValue, ..}

@@ -1,0 +1,7 @@
+module Stratosphere.SageMaker.Domain.DefaultSpaceSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DefaultSpaceSettingsProperty :: Prelude.Type
+instance ToResourceProperties DefaultSpaceSettingsProperty
+instance JSON.ToJSON DefaultSpaceSettingsProperty

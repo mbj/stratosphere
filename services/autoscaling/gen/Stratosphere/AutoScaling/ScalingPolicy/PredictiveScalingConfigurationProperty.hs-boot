@@ -1,0 +1,7 @@
+module Stratosphere.AutoScaling.ScalingPolicy.PredictiveScalingConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PredictiveScalingConfigurationProperty :: Prelude.Type
+instance ToResourceProperties PredictiveScalingConfigurationProperty
+instance JSON.ToJSON PredictiveScalingConfigurationProperty

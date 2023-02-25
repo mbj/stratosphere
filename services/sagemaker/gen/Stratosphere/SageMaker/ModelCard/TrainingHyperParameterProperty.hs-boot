@@ -1,0 +1,7 @@
+module Stratosphere.SageMaker.ModelCard.TrainingHyperParameterProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TrainingHyperParameterProperty :: Prelude.Type
+instance ToResourceProperties TrainingHyperParameterProperty
+instance JSON.ToJSON TrainingHyperParameterProperty

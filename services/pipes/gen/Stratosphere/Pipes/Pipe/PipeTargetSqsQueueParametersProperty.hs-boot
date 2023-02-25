@@ -1,0 +1,7 @@
+module Stratosphere.Pipes.Pipe.PipeTargetSqsQueueParametersProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PipeTargetSqsQueueParametersProperty :: Prelude.Type
+instance ToResourceProperties PipeTargetSqsQueueParametersProperty
+instance JSON.ToJSON PipeTargetSqsQueueParametersProperty

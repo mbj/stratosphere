@@ -1,0 +1,7 @@
+module Stratosphere.Greengrass.ConnectorDefinition.ConnectorDefinitionVersionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ConnectorDefinitionVersionProperty :: Prelude.Type
+instance ToResourceProperties ConnectorDefinitionVersionProperty
+instance JSON.ToJSON ConnectorDefinitionVersionProperty

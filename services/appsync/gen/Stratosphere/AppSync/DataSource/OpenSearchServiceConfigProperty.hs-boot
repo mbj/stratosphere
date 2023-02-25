@@ -1,0 +1,7 @@
+module Stratosphere.AppSync.DataSource.OpenSearchServiceConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data OpenSearchServiceConfigProperty :: Prelude.Type
+instance ToResourceProperties OpenSearchServiceConfigProperty
+instance JSON.ToJSON OpenSearchServiceConfigProperty

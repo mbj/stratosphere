@@ -1,0 +1,7 @@
+module Stratosphere.Lambda.EventSourceMapping.SelfManagedEventSourceProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SelfManagedEventSourceProperty :: Prelude.Type
+instance ToResourceProperties SelfManagedEventSourceProperty
+instance JSON.ToJSON SelfManagedEventSourceProperty

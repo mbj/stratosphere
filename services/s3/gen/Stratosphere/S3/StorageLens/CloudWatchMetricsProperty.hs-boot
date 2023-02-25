@@ -1,0 +1,7 @@
+module Stratosphere.S3.StorageLens.CloudWatchMetricsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CloudWatchMetricsProperty :: Prelude.Type
+instance ToResourceProperties CloudWatchMetricsProperty
+instance JSON.ToJSON CloudWatchMetricsProperty

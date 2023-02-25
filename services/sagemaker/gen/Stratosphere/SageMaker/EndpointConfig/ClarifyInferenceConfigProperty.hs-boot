@@ -1,0 +1,7 @@
+module Stratosphere.SageMaker.EndpointConfig.ClarifyInferenceConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ClarifyInferenceConfigProperty :: Prelude.Type
+instance ToResourceProperties ClarifyInferenceConfigProperty
+instance JSON.ToJSON ClarifyInferenceConfigProperty

@@ -1,0 +1,7 @@
+module Stratosphere.ACMPCA.CertificateAuthority.OcspConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data OcspConfigurationProperty :: Prelude.Type
+instance ToResourceProperties OcspConfigurationProperty
+instance JSON.ToJSON OcspConfigurationProperty

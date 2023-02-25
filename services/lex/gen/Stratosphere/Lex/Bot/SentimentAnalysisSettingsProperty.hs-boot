@@ -1,0 +1,7 @@
+module Stratosphere.Lex.Bot.SentimentAnalysisSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SentimentAnalysisSettingsProperty :: Prelude.Type
+instance ToResourceProperties SentimentAnalysisSettingsProperty
+instance JSON.ToJSON SentimentAnalysisSettingsProperty

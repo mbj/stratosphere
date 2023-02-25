@@ -1,0 +1,7 @@
+module Stratosphere.ApiGatewayV2.ApiGatewayManagedOverrides.RouteOverridesProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RouteOverridesProperty :: Prelude.Type
+instance ToResourceProperties RouteOverridesProperty
+instance JSON.ToJSON RouteOverridesProperty

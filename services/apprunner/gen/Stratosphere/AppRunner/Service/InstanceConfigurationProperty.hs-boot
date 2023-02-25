@@ -1,0 +1,7 @@
+module Stratosphere.AppRunner.Service.InstanceConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data InstanceConfigurationProperty :: Prelude.Type
+instance ToResourceProperties InstanceConfigurationProperty
+instance JSON.ToJSON InstanceConfigurationProperty

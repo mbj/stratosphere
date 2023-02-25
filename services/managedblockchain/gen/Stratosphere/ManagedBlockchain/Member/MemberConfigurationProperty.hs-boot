@@ -1,0 +1,7 @@
+module Stratosphere.ManagedBlockchain.Member.MemberConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MemberConfigurationProperty :: Prelude.Type
+instance ToResourceProperties MemberConfigurationProperty
+instance JSON.ToJSON MemberConfigurationProperty

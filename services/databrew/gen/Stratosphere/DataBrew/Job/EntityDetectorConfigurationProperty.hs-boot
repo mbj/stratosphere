@@ -1,0 +1,7 @@
+module Stratosphere.DataBrew.Job.EntityDetectorConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data EntityDetectorConfigurationProperty :: Prelude.Type
+instance ToResourceProperties EntityDetectorConfigurationProperty
+instance JSON.ToJSON EntityDetectorConfigurationProperty

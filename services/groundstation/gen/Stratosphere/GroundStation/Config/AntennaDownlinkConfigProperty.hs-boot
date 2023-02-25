@@ -1,0 +1,7 @@
+module Stratosphere.GroundStation.Config.AntennaDownlinkConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AntennaDownlinkConfigProperty :: Prelude.Type
+instance ToResourceProperties AntennaDownlinkConfigProperty
+instance JSON.ToJSON AntennaDownlinkConfigProperty

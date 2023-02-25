@@ -1,0 +1,7 @@
+module Stratosphere.AppFlow.Flow.MetadataCatalogConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MetadataCatalogConfigProperty :: Prelude.Type
+instance ToResourceProperties MetadataCatalogConfigProperty
+instance JSON.ToJSON MetadataCatalogConfigProperty

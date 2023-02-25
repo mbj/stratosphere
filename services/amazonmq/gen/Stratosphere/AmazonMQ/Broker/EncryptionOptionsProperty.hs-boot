@@ -1,0 +1,7 @@
+module Stratosphere.AmazonMQ.Broker.EncryptionOptionsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data EncryptionOptionsProperty :: Prelude.Type
+instance ToResourceProperties EncryptionOptionsProperty
+instance JSON.ToJSON EncryptionOptionsProperty

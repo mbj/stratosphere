@@ -1,0 +1,7 @@
+module Stratosphere.QuickSight.DataSource.AmazonOpenSearchParametersProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AmazonOpenSearchParametersProperty :: Prelude.Type
+instance ToResourceProperties AmazonOpenSearchParametersProperty
+instance JSON.ToJSON AmazonOpenSearchParametersProperty

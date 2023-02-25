@@ -1,0 +1,7 @@
+module Stratosphere.ImageBuilder.DistributionConfiguration.FastLaunchConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data FastLaunchConfigurationProperty :: Prelude.Type
+instance ToResourceProperties FastLaunchConfigurationProperty
+instance JSON.ToJSON FastLaunchConfigurationProperty

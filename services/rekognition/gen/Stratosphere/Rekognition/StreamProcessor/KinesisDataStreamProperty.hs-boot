@@ -1,0 +1,7 @@
+module Stratosphere.Rekognition.StreamProcessor.KinesisDataStreamProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data KinesisDataStreamProperty :: Prelude.Type
+instance ToResourceProperties KinesisDataStreamProperty
+instance JSON.ToJSON KinesisDataStreamProperty

@@ -1,0 +1,7 @@
+module Stratosphere.Transfer.User.HomeDirectoryMapEntryProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data HomeDirectoryMapEntryProperty :: Prelude.Type
+instance ToResourceProperties HomeDirectoryMapEntryProperty
+instance JSON.ToJSON HomeDirectoryMapEntryProperty

@@ -1,0 +1,7 @@
+module Stratosphere.Wisdom.AssistantAssociation.AssociationDataProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AssociationDataProperty :: Prelude.Type
+instance ToResourceProperties AssociationDataProperty
+instance JSON.ToJSON AssociationDataProperty

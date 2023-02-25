@@ -1,0 +1,7 @@
+module Stratosphere.WAFv2.WebACL.AWSManagedRulesBotControlRuleSetProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AWSManagedRulesBotControlRuleSetProperty :: Prelude.Type
+instance ToResourceProperties AWSManagedRulesBotControlRuleSetProperty
+instance JSON.ToJSON AWSManagedRulesBotControlRuleSetProperty

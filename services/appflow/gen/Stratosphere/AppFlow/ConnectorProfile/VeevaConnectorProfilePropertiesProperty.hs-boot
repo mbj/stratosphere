@@ -1,0 +1,7 @@
+module Stratosphere.AppFlow.ConnectorProfile.VeevaConnectorProfilePropertiesProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data VeevaConnectorProfilePropertiesProperty :: Prelude.Type
+instance ToResourceProperties VeevaConnectorProfilePropertiesProperty
+instance JSON.ToJSON VeevaConnectorProfilePropertiesProperty

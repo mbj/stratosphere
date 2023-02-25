@@ -1,0 +1,7 @@
+module Stratosphere.SecretsManager.Secret.GenerateSecretStringProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data GenerateSecretStringProperty :: Prelude.Type
+instance ToResourceProperties GenerateSecretStringProperty
+instance JSON.ToJSON GenerateSecretStringProperty

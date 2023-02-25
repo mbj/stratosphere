@@ -1,0 +1,7 @@
+module Stratosphere.IoT.SecurityProfile.StatisticalThresholdProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data StatisticalThresholdProperty :: Prelude.Type
+instance ToResourceProperties StatisticalThresholdProperty
+instance JSON.ToJSON StatisticalThresholdProperty

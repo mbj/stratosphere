@@ -1,0 +1,7 @@
+module Stratosphere.LicenseManager.License.ConsumptionConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ConsumptionConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ConsumptionConfigurationProperty
+instance JSON.ToJSON ConsumptionConfigurationProperty

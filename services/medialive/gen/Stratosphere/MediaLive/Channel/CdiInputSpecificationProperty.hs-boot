@@ -1,0 +1,7 @@
+module Stratosphere.MediaLive.Channel.CdiInputSpecificationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CdiInputSpecificationProperty :: Prelude.Type
+instance ToResourceProperties CdiInputSpecificationProperty
+instance JSON.ToJSON CdiInputSpecificationProperty

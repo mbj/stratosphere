@@ -1,0 +1,7 @@
+module Stratosphere.CloudFront.Distribution.OriginGroupMemberProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data OriginGroupMemberProperty :: Prelude.Type
+instance ToResourceProperties OriginGroupMemberProperty
+instance JSON.ToJSON OriginGroupMemberProperty

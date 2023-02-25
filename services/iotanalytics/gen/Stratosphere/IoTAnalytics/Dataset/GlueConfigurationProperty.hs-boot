@@ -1,0 +1,7 @@
+module Stratosphere.IoTAnalytics.Dataset.GlueConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data GlueConfigurationProperty :: Prelude.Type
+instance ToResourceProperties GlueConfigurationProperty
+instance JSON.ToJSON GlueConfigurationProperty

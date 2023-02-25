@@ -1,0 +1,7 @@
+module Stratosphere.MediaLive.Channel.MediaPackageOutputDestinationSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MediaPackageOutputDestinationSettingsProperty :: Prelude.Type
+instance ToResourceProperties MediaPackageOutputDestinationSettingsProperty
+instance JSON.ToJSON MediaPackageOutputDestinationSettingsProperty

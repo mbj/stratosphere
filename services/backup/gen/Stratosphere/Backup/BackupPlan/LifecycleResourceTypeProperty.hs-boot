@@ -1,0 +1,7 @@
+module Stratosphere.Backup.BackupPlan.LifecycleResourceTypeProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data LifecycleResourceTypeProperty :: Prelude.Type
+instance ToResourceProperties LifecycleResourceTypeProperty
+instance JSON.ToJSON LifecycleResourceTypeProperty

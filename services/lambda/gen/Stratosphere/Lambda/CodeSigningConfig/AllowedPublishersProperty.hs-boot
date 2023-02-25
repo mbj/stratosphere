@@ -1,0 +1,7 @@
+module Stratosphere.Lambda.CodeSigningConfig.AllowedPublishersProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AllowedPublishersProperty :: Prelude.Type
+instance ToResourceProperties AllowedPublishersProperty
+instance JSON.ToJSON AllowedPublishersProperty

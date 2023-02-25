@@ -1,0 +1,7 @@
+module Stratosphere.NimbleStudio.StudioComponent.LicenseServiceConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data LicenseServiceConfigurationProperty :: Prelude.Type
+instance ToResourceProperties LicenseServiceConfigurationProperty
+instance JSON.ToJSON LicenseServiceConfigurationProperty

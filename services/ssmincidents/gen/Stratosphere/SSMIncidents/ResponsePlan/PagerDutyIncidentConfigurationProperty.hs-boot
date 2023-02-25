@@ -1,0 +1,7 @@
+module Stratosphere.SSMIncidents.ResponsePlan.PagerDutyIncidentConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PagerDutyIncidentConfigurationProperty :: Prelude.Type
+instance ToResourceProperties PagerDutyIncidentConfigurationProperty
+instance JSON.ToJSON PagerDutyIncidentConfigurationProperty

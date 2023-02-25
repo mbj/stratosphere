@@ -1,0 +1,7 @@
+module Stratosphere.EC2.NetworkInsightsAnalysis.AnalysisAclRuleProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AnalysisAclRuleProperty :: Prelude.Type
+instance ToResourceProperties AnalysisAclRuleProperty
+instance JSON.ToJSON AnalysisAclRuleProperty

@@ -1,0 +1,7 @@
+module Stratosphere.KinesisFirehose.DeliveryStream.InputFormatConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data InputFormatConfigurationProperty :: Prelude.Type
+instance ToResourceProperties InputFormatConfigurationProperty
+instance JSON.ToJSON InputFormatConfigurationProperty

@@ -1,0 +1,7 @@
+module Stratosphere.SSM.MaintenanceWindowTask.TaskInvocationParametersProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TaskInvocationParametersProperty :: Prelude.Type
+instance ToResourceProperties TaskInvocationParametersProperty
+instance JSON.ToJSON TaskInvocationParametersProperty

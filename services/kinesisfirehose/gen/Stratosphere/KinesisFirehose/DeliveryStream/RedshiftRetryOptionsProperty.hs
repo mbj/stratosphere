@@ -1,0 +1,32 @@
+module Stratosphere.KinesisFirehose.DeliveryStream.RedshiftRetryOptionsProperty (
+        RedshiftRetryOptionsProperty(..), mkRedshiftRetryOptionsProperty
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import Stratosphere.ResourceProperties
+import Stratosphere.Value
+data RedshiftRetryOptionsProperty
+  = RedshiftRetryOptionsProperty {durationInSeconds :: (Prelude.Maybe (Value Prelude.Integer))}
+mkRedshiftRetryOptionsProperty :: RedshiftRetryOptionsProperty
+mkRedshiftRetryOptionsProperty
+  = RedshiftRetryOptionsProperty
+      {durationInSeconds = Prelude.Nothing}
+instance ToResourceProperties RedshiftRetryOptionsProperty where
+  toResourceProperties RedshiftRetryOptionsProperty {..}
+    = ResourceProperties
+        {awsType = "AWS::KinesisFirehose::DeliveryStream.RedshiftRetryOptions",
+         properties = Prelude.fromList
+                        (Prelude.catMaybes
+                           [(JSON..=) "DurationInSeconds" Prelude.<$> durationInSeconds])}
+instance JSON.ToJSON RedshiftRetryOptionsProperty where
+  toJSON RedshiftRetryOptionsProperty {..}
+    = JSON.object
+        (Prelude.fromList
+           (Prelude.catMaybes
+              [(JSON..=) "DurationInSeconds" Prelude.<$> durationInSeconds]))
+instance Property "DurationInSeconds" RedshiftRetryOptionsProperty where
+  type PropertyType "DurationInSeconds" RedshiftRetryOptionsProperty = Value Prelude.Integer
+  set newValue RedshiftRetryOptionsProperty {}
+    = RedshiftRetryOptionsProperty
+        {durationInSeconds = Prelude.pure newValue, ..}

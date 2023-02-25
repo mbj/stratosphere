@@ -1,0 +1,7 @@
+module Stratosphere.EC2.NetworkInsightsAnalysis.AdditionalDetailProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AdditionalDetailProperty :: Prelude.Type
+instance ToResourceProperties AdditionalDetailProperty
+instance JSON.ToJSON AdditionalDetailProperty

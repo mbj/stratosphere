@@ -1,0 +1,7 @@
+module Stratosphere.KinesisFirehose.DeliveryStream.HttpEndpointCommonAttributeProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data HttpEndpointCommonAttributeProperty :: Prelude.Type
+instance ToResourceProperties HttpEndpointCommonAttributeProperty
+instance JSON.ToJSON HttpEndpointCommonAttributeProperty

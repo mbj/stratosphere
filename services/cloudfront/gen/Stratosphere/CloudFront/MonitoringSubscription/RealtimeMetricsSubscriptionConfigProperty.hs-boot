@@ -1,0 +1,7 @@
+module Stratosphere.CloudFront.MonitoringSubscription.RealtimeMetricsSubscriptionConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RealtimeMetricsSubscriptionConfigProperty :: Prelude.Type
+instance ToResourceProperties RealtimeMetricsSubscriptionConfigProperty
+instance JSON.ToJSON RealtimeMetricsSubscriptionConfigProperty

@@ -1,0 +1,7 @@
+module Stratosphere.Glue.Database.DatabaseIdentifierProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DatabaseIdentifierProperty :: Prelude.Type
+instance ToResourceProperties DatabaseIdentifierProperty
+instance JSON.ToJSON DatabaseIdentifierProperty

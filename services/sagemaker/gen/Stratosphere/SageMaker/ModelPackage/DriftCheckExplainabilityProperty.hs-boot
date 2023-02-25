@@ -1,0 +1,7 @@
+module Stratosphere.SageMaker.ModelPackage.DriftCheckExplainabilityProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DriftCheckExplainabilityProperty :: Prelude.Type
+instance ToResourceProperties DriftCheckExplainabilityProperty
+instance JSON.ToJSON DriftCheckExplainabilityProperty

@@ -1,0 +1,7 @@
+module Stratosphere.ImageBuilder.ImageRecipe.ComponentParameterProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ComponentParameterProperty :: Prelude.Type
+instance ToResourceProperties ComponentParameterProperty
+instance JSON.ToJSON ComponentParameterProperty

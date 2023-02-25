@@ -1,0 +1,7 @@
+module Stratosphere.S3.Bucket.AnalyticsConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AnalyticsConfigurationProperty :: Prelude.Type
+instance ToResourceProperties AnalyticsConfigurationProperty
+instance JSON.ToJSON AnalyticsConfigurationProperty

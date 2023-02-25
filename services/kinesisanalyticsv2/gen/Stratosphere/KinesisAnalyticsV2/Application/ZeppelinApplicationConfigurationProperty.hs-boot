@@ -1,0 +1,7 @@
+module Stratosphere.KinesisAnalyticsV2.Application.ZeppelinApplicationConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ZeppelinApplicationConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ZeppelinApplicationConfigurationProperty
+instance JSON.ToJSON ZeppelinApplicationConfigurationProperty

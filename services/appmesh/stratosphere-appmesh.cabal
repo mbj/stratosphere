@@ -1,0 +1,209 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.35.2.
+--
+-- see: https://github.com/sol/hpack
+
+name:           stratosphere-appmesh
+version:        1.0.0
+category:       AWS, Cloud
+stability:      experimental
+homepage:       https://github.com/mbj/stratosphere#readme
+bug-reports:    https://github.com/mbj/stratosphere/issues
+maintainer:     Markus Schirp
+license:        MIT
+build-type:     Simple
+
+source-repository head
+  type: git
+  location: https://github.com/mbj/stratosphere
+
+flag development
+  description: Run GHC with development flags
+  manual: True
+  default: False
+
+library
+  exposed-modules:
+      Stratosphere.AppMesh.GatewayRoute
+      Stratosphere.AppMesh.GatewayRoute.GatewayRouteHostnameMatchProperty
+      Stratosphere.AppMesh.GatewayRoute.GatewayRouteHostnameRewriteProperty
+      Stratosphere.AppMesh.GatewayRoute.GatewayRouteMetadataMatchProperty
+      Stratosphere.AppMesh.GatewayRoute.GatewayRouteRangeMatchProperty
+      Stratosphere.AppMesh.GatewayRoute.GatewayRouteSpecProperty
+      Stratosphere.AppMesh.GatewayRoute.GatewayRouteTargetProperty
+      Stratosphere.AppMesh.GatewayRoute.GatewayRouteVirtualServiceProperty
+      Stratosphere.AppMesh.GatewayRoute.GrpcGatewayRouteActionProperty
+      Stratosphere.AppMesh.GatewayRoute.GrpcGatewayRouteMatchProperty
+      Stratosphere.AppMesh.GatewayRoute.GrpcGatewayRouteMetadataProperty
+      Stratosphere.AppMesh.GatewayRoute.GrpcGatewayRouteProperty
+      Stratosphere.AppMesh.GatewayRoute.GrpcGatewayRouteRewriteProperty
+      Stratosphere.AppMesh.GatewayRoute.HttpGatewayRouteActionProperty
+      Stratosphere.AppMesh.GatewayRoute.HttpGatewayRouteHeaderMatchProperty
+      Stratosphere.AppMesh.GatewayRoute.HttpGatewayRouteHeaderProperty
+      Stratosphere.AppMesh.GatewayRoute.HttpGatewayRouteMatchProperty
+      Stratosphere.AppMesh.GatewayRoute.HttpGatewayRoutePathRewriteProperty
+      Stratosphere.AppMesh.GatewayRoute.HttpGatewayRoutePrefixRewriteProperty
+      Stratosphere.AppMesh.GatewayRoute.HttpGatewayRouteProperty
+      Stratosphere.AppMesh.GatewayRoute.HttpGatewayRouteRewriteProperty
+      Stratosphere.AppMesh.GatewayRoute.HttpPathMatchProperty
+      Stratosphere.AppMesh.GatewayRoute.HttpQueryParameterMatchProperty
+      Stratosphere.AppMesh.GatewayRoute.QueryParameterProperty
+      Stratosphere.AppMesh.Mesh
+      Stratosphere.AppMesh.Mesh.EgressFilterProperty
+      Stratosphere.AppMesh.Mesh.MeshServiceDiscoveryProperty
+      Stratosphere.AppMesh.Mesh.MeshSpecProperty
+      Stratosphere.AppMesh.Route
+      Stratosphere.AppMesh.Route.DurationProperty
+      Stratosphere.AppMesh.Route.GrpcRetryPolicyProperty
+      Stratosphere.AppMesh.Route.GrpcRouteActionProperty
+      Stratosphere.AppMesh.Route.GrpcRouteMatchProperty
+      Stratosphere.AppMesh.Route.GrpcRouteMetadataMatchMethodProperty
+      Stratosphere.AppMesh.Route.GrpcRouteMetadataProperty
+      Stratosphere.AppMesh.Route.GrpcRouteProperty
+      Stratosphere.AppMesh.Route.GrpcTimeoutProperty
+      Stratosphere.AppMesh.Route.HeaderMatchMethodProperty
+      Stratosphere.AppMesh.Route.HttpPathMatchProperty
+      Stratosphere.AppMesh.Route.HttpQueryParameterMatchProperty
+      Stratosphere.AppMesh.Route.HttpRetryPolicyProperty
+      Stratosphere.AppMesh.Route.HttpRouteActionProperty
+      Stratosphere.AppMesh.Route.HttpRouteHeaderProperty
+      Stratosphere.AppMesh.Route.HttpRouteMatchProperty
+      Stratosphere.AppMesh.Route.HttpRouteProperty
+      Stratosphere.AppMesh.Route.HttpTimeoutProperty
+      Stratosphere.AppMesh.Route.MatchRangeProperty
+      Stratosphere.AppMesh.Route.QueryParameterProperty
+      Stratosphere.AppMesh.Route.RouteSpecProperty
+      Stratosphere.AppMesh.Route.TcpRouteActionProperty
+      Stratosphere.AppMesh.Route.TcpRouteMatchProperty
+      Stratosphere.AppMesh.Route.TcpRouteProperty
+      Stratosphere.AppMesh.Route.TcpTimeoutProperty
+      Stratosphere.AppMesh.Route.WeightedTargetProperty
+      Stratosphere.AppMesh.VirtualGateway
+      Stratosphere.AppMesh.VirtualGateway.JsonFormatRefProperty
+      Stratosphere.AppMesh.VirtualGateway.LoggingFormatProperty
+      Stratosphere.AppMesh.VirtualGateway.SubjectAlternativeNameMatchersProperty
+      Stratosphere.AppMesh.VirtualGateway.SubjectAlternativeNamesProperty
+      Stratosphere.AppMesh.VirtualGateway.VirtualGatewayAccessLogProperty
+      Stratosphere.AppMesh.VirtualGateway.VirtualGatewayBackendDefaultsProperty
+      Stratosphere.AppMesh.VirtualGateway.VirtualGatewayClientPolicyProperty
+      Stratosphere.AppMesh.VirtualGateway.VirtualGatewayClientPolicyTlsProperty
+      Stratosphere.AppMesh.VirtualGateway.VirtualGatewayClientTlsCertificateProperty
+      Stratosphere.AppMesh.VirtualGateway.VirtualGatewayConnectionPoolProperty
+      Stratosphere.AppMesh.VirtualGateway.VirtualGatewayFileAccessLogProperty
+      Stratosphere.AppMesh.VirtualGateway.VirtualGatewayGrpcConnectionPoolProperty
+      Stratosphere.AppMesh.VirtualGateway.VirtualGatewayHealthCheckPolicyProperty
+      Stratosphere.AppMesh.VirtualGateway.VirtualGatewayHttp2ConnectionPoolProperty
+      Stratosphere.AppMesh.VirtualGateway.VirtualGatewayHttpConnectionPoolProperty
+      Stratosphere.AppMesh.VirtualGateway.VirtualGatewayListenerProperty
+      Stratosphere.AppMesh.VirtualGateway.VirtualGatewayListenerTlsAcmCertificateProperty
+      Stratosphere.AppMesh.VirtualGateway.VirtualGatewayListenerTlsCertificateProperty
+      Stratosphere.AppMesh.VirtualGateway.VirtualGatewayListenerTlsFileCertificateProperty
+      Stratosphere.AppMesh.VirtualGateway.VirtualGatewayListenerTlsProperty
+      Stratosphere.AppMesh.VirtualGateway.VirtualGatewayListenerTlsSdsCertificateProperty
+      Stratosphere.AppMesh.VirtualGateway.VirtualGatewayListenerTlsValidationContextProperty
+      Stratosphere.AppMesh.VirtualGateway.VirtualGatewayListenerTlsValidationContextTrustProperty
+      Stratosphere.AppMesh.VirtualGateway.VirtualGatewayLoggingProperty
+      Stratosphere.AppMesh.VirtualGateway.VirtualGatewayPortMappingProperty
+      Stratosphere.AppMesh.VirtualGateway.VirtualGatewaySpecProperty
+      Stratosphere.AppMesh.VirtualGateway.VirtualGatewayTlsValidationContextAcmTrustProperty
+      Stratosphere.AppMesh.VirtualGateway.VirtualGatewayTlsValidationContextFileTrustProperty
+      Stratosphere.AppMesh.VirtualGateway.VirtualGatewayTlsValidationContextProperty
+      Stratosphere.AppMesh.VirtualGateway.VirtualGatewayTlsValidationContextSdsTrustProperty
+      Stratosphere.AppMesh.VirtualGateway.VirtualGatewayTlsValidationContextTrustProperty
+      Stratosphere.AppMesh.VirtualNode
+      Stratosphere.AppMesh.VirtualNode.AccessLogProperty
+      Stratosphere.AppMesh.VirtualNode.AwsCloudMapInstanceAttributeProperty
+      Stratosphere.AppMesh.VirtualNode.AwsCloudMapServiceDiscoveryProperty
+      Stratosphere.AppMesh.VirtualNode.BackendDefaultsProperty
+      Stratosphere.AppMesh.VirtualNode.BackendProperty
+      Stratosphere.AppMesh.VirtualNode.ClientPolicyProperty
+      Stratosphere.AppMesh.VirtualNode.ClientPolicyTlsProperty
+      Stratosphere.AppMesh.VirtualNode.ClientTlsCertificateProperty
+      Stratosphere.AppMesh.VirtualNode.DnsServiceDiscoveryProperty
+      Stratosphere.AppMesh.VirtualNode.DurationProperty
+      Stratosphere.AppMesh.VirtualNode.FileAccessLogProperty
+      Stratosphere.AppMesh.VirtualNode.GrpcTimeoutProperty
+      Stratosphere.AppMesh.VirtualNode.HealthCheckProperty
+      Stratosphere.AppMesh.VirtualNode.HttpTimeoutProperty
+      Stratosphere.AppMesh.VirtualNode.JsonFormatRefProperty
+      Stratosphere.AppMesh.VirtualNode.ListenerProperty
+      Stratosphere.AppMesh.VirtualNode.ListenerTimeoutProperty
+      Stratosphere.AppMesh.VirtualNode.ListenerTlsAcmCertificateProperty
+      Stratosphere.AppMesh.VirtualNode.ListenerTlsCertificateProperty
+      Stratosphere.AppMesh.VirtualNode.ListenerTlsFileCertificateProperty
+      Stratosphere.AppMesh.VirtualNode.ListenerTlsProperty
+      Stratosphere.AppMesh.VirtualNode.ListenerTlsSdsCertificateProperty
+      Stratosphere.AppMesh.VirtualNode.ListenerTlsValidationContextProperty
+      Stratosphere.AppMesh.VirtualNode.ListenerTlsValidationContextTrustProperty
+      Stratosphere.AppMesh.VirtualNode.LoggingFormatProperty
+      Stratosphere.AppMesh.VirtualNode.LoggingProperty
+      Stratosphere.AppMesh.VirtualNode.OutlierDetectionProperty
+      Stratosphere.AppMesh.VirtualNode.PortMappingProperty
+      Stratosphere.AppMesh.VirtualNode.ServiceDiscoveryProperty
+      Stratosphere.AppMesh.VirtualNode.SubjectAlternativeNameMatchersProperty
+      Stratosphere.AppMesh.VirtualNode.SubjectAlternativeNamesProperty
+      Stratosphere.AppMesh.VirtualNode.TcpTimeoutProperty
+      Stratosphere.AppMesh.VirtualNode.TlsValidationContextAcmTrustProperty
+      Stratosphere.AppMesh.VirtualNode.TlsValidationContextFileTrustProperty
+      Stratosphere.AppMesh.VirtualNode.TlsValidationContextProperty
+      Stratosphere.AppMesh.VirtualNode.TlsValidationContextSdsTrustProperty
+      Stratosphere.AppMesh.VirtualNode.TlsValidationContextTrustProperty
+      Stratosphere.AppMesh.VirtualNode.VirtualNodeConnectionPoolProperty
+      Stratosphere.AppMesh.VirtualNode.VirtualNodeGrpcConnectionPoolProperty
+      Stratosphere.AppMesh.VirtualNode.VirtualNodeHttp2ConnectionPoolProperty
+      Stratosphere.AppMesh.VirtualNode.VirtualNodeHttpConnectionPoolProperty
+      Stratosphere.AppMesh.VirtualNode.VirtualNodeSpecProperty
+      Stratosphere.AppMesh.VirtualNode.VirtualNodeTcpConnectionPoolProperty
+      Stratosphere.AppMesh.VirtualNode.VirtualServiceBackendProperty
+      Stratosphere.AppMesh.VirtualRouter
+      Stratosphere.AppMesh.VirtualRouter.PortMappingProperty
+      Stratosphere.AppMesh.VirtualRouter.VirtualRouterListenerProperty
+      Stratosphere.AppMesh.VirtualRouter.VirtualRouterSpecProperty
+      Stratosphere.AppMesh.VirtualService
+      Stratosphere.AppMesh.VirtualService.VirtualNodeServiceProviderProperty
+      Stratosphere.AppMesh.VirtualService.VirtualRouterServiceProviderProperty
+      Stratosphere.AppMesh.VirtualService.VirtualServiceProviderProperty
+      Stratosphere.AppMesh.VirtualService.VirtualServiceSpecProperty
+  other-modules:
+      Paths_stratosphere_appmesh
+  hs-source-dirs:
+      gen
+  default-extensions:
+      DataKinds
+      DeriveGeneric
+      DerivingStrategies
+      DerivingVia
+      DuplicateRecordFields
+      FlexibleContexts
+      FlexibleInstances
+      GADTs
+      GeneralizedNewtypeDeriving
+      InstanceSigs
+      LambdaCase
+      MultiParamTypeClasses
+      NoFieldSelectors
+      NoImplicitPrelude
+      NumericUnderscores
+      OverloadedLists
+      OverloadedRecordDot
+      OverloadedStrings
+      PolyKinds
+      RecordWildCards
+      ScopedTypeVariables
+      StandaloneDeriving
+      Strict
+      TemplateHaskell
+      TupleSections
+      TypeApplications
+      TypeFamilies
+  ghc-options: -Wall -Wcompat -Widentities -Wimplicit-prelude -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-local-signatures -Wmissing-signatures -Wmonomorphism-restriction -Wredundant-constraints -fhide-source-paths -funbox-strict-fields -optP-Wno-nonportable-include-path -Wno-unused-imports
+  build-depends:
+      aeson
+    , base
+    , stratosphere ==1.0.0
+  default-language: Haskell2010
+  if flag(development)
+    ghc-options: -Werror
+  else
+    ghc-options: -Wwarn

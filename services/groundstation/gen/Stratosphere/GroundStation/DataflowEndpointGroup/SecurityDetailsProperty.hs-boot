@@ -1,0 +1,7 @@
+module Stratosphere.GroundStation.DataflowEndpointGroup.SecurityDetailsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SecurityDetailsProperty :: Prelude.Type
+instance ToResourceProperties SecurityDetailsProperty
+instance JSON.ToJSON SecurityDetailsProperty

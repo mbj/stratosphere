@@ -1,0 +1,164 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.35.2.
+--
+-- see: https://github.com/sol/hpack
+
+name:           stratosphere-appflow
+version:        1.0.0
+category:       AWS, Cloud
+stability:      experimental
+homepage:       https://github.com/mbj/stratosphere#readme
+bug-reports:    https://github.com/mbj/stratosphere/issues
+maintainer:     Markus Schirp
+license:        MIT
+build-type:     Simple
+
+source-repository head
+  type: git
+  location: https://github.com/mbj/stratosphere
+
+flag development
+  description: Run GHC with development flags
+  manual: True
+  default: False
+
+library
+  exposed-modules:
+      Stratosphere.AppFlow.Connector
+      Stratosphere.AppFlow.Connector.ConnectorProvisioningConfigProperty
+      Stratosphere.AppFlow.Connector.LambdaConnectorProvisioningConfigProperty
+      Stratosphere.AppFlow.ConnectorProfile
+      Stratosphere.AppFlow.ConnectorProfile.AmplitudeConnectorProfileCredentialsProperty
+      Stratosphere.AppFlow.ConnectorProfile.ApiKeyCredentialsProperty
+      Stratosphere.AppFlow.ConnectorProfile.BasicAuthCredentialsProperty
+      Stratosphere.AppFlow.ConnectorProfile.ConnectorOAuthRequestProperty
+      Stratosphere.AppFlow.ConnectorProfile.ConnectorProfileConfigProperty
+      Stratosphere.AppFlow.ConnectorProfile.ConnectorProfileCredentialsProperty
+      Stratosphere.AppFlow.ConnectorProfile.ConnectorProfilePropertiesProperty
+      Stratosphere.AppFlow.ConnectorProfile.CustomAuthCredentialsProperty
+      Stratosphere.AppFlow.ConnectorProfile.CustomConnectorProfileCredentialsProperty
+      Stratosphere.AppFlow.ConnectorProfile.CustomConnectorProfilePropertiesProperty
+      Stratosphere.AppFlow.ConnectorProfile.DatadogConnectorProfileCredentialsProperty
+      Stratosphere.AppFlow.ConnectorProfile.DatadogConnectorProfilePropertiesProperty
+      Stratosphere.AppFlow.ConnectorProfile.DynatraceConnectorProfileCredentialsProperty
+      Stratosphere.AppFlow.ConnectorProfile.DynatraceConnectorProfilePropertiesProperty
+      Stratosphere.AppFlow.ConnectorProfile.GoogleAnalyticsConnectorProfileCredentialsProperty
+      Stratosphere.AppFlow.ConnectorProfile.InforNexusConnectorProfileCredentialsProperty
+      Stratosphere.AppFlow.ConnectorProfile.InforNexusConnectorProfilePropertiesProperty
+      Stratosphere.AppFlow.ConnectorProfile.MarketoConnectorProfileCredentialsProperty
+      Stratosphere.AppFlow.ConnectorProfile.MarketoConnectorProfilePropertiesProperty
+      Stratosphere.AppFlow.ConnectorProfile.OAuth2CredentialsProperty
+      Stratosphere.AppFlow.ConnectorProfile.OAuth2PropertiesProperty
+      Stratosphere.AppFlow.ConnectorProfile.OAuthCredentialsProperty
+      Stratosphere.AppFlow.ConnectorProfile.OAuthPropertiesProperty
+      Stratosphere.AppFlow.ConnectorProfile.PardotConnectorProfileCredentialsProperty
+      Stratosphere.AppFlow.ConnectorProfile.PardotConnectorProfilePropertiesProperty
+      Stratosphere.AppFlow.ConnectorProfile.RedshiftConnectorProfileCredentialsProperty
+      Stratosphere.AppFlow.ConnectorProfile.RedshiftConnectorProfilePropertiesProperty
+      Stratosphere.AppFlow.ConnectorProfile.SalesforceConnectorProfileCredentialsProperty
+      Stratosphere.AppFlow.ConnectorProfile.SalesforceConnectorProfilePropertiesProperty
+      Stratosphere.AppFlow.ConnectorProfile.SAPODataConnectorProfileCredentialsProperty
+      Stratosphere.AppFlow.ConnectorProfile.SAPODataConnectorProfilePropertiesProperty
+      Stratosphere.AppFlow.ConnectorProfile.ServiceNowConnectorProfileCredentialsProperty
+      Stratosphere.AppFlow.ConnectorProfile.ServiceNowConnectorProfilePropertiesProperty
+      Stratosphere.AppFlow.ConnectorProfile.SingularConnectorProfileCredentialsProperty
+      Stratosphere.AppFlow.ConnectorProfile.SlackConnectorProfileCredentialsProperty
+      Stratosphere.AppFlow.ConnectorProfile.SlackConnectorProfilePropertiesProperty
+      Stratosphere.AppFlow.ConnectorProfile.SnowflakeConnectorProfileCredentialsProperty
+      Stratosphere.AppFlow.ConnectorProfile.SnowflakeConnectorProfilePropertiesProperty
+      Stratosphere.AppFlow.ConnectorProfile.TrendmicroConnectorProfileCredentialsProperty
+      Stratosphere.AppFlow.ConnectorProfile.VeevaConnectorProfileCredentialsProperty
+      Stratosphere.AppFlow.ConnectorProfile.VeevaConnectorProfilePropertiesProperty
+      Stratosphere.AppFlow.ConnectorProfile.ZendeskConnectorProfileCredentialsProperty
+      Stratosphere.AppFlow.ConnectorProfile.ZendeskConnectorProfilePropertiesProperty
+      Stratosphere.AppFlow.Flow
+      Stratosphere.AppFlow.Flow.AggregationConfigProperty
+      Stratosphere.AppFlow.Flow.AmplitudeSourcePropertiesProperty
+      Stratosphere.AppFlow.Flow.ConnectorOperatorProperty
+      Stratosphere.AppFlow.Flow.CustomConnectorDestinationPropertiesProperty
+      Stratosphere.AppFlow.Flow.CustomConnectorSourcePropertiesProperty
+      Stratosphere.AppFlow.Flow.DatadogSourcePropertiesProperty
+      Stratosphere.AppFlow.Flow.DestinationConnectorPropertiesProperty
+      Stratosphere.AppFlow.Flow.DestinationFlowConfigProperty
+      Stratosphere.AppFlow.Flow.DynatraceSourcePropertiesProperty
+      Stratosphere.AppFlow.Flow.ErrorHandlingConfigProperty
+      Stratosphere.AppFlow.Flow.EventBridgeDestinationPropertiesProperty
+      Stratosphere.AppFlow.Flow.GlueDataCatalogProperty
+      Stratosphere.AppFlow.Flow.GoogleAnalyticsSourcePropertiesProperty
+      Stratosphere.AppFlow.Flow.IncrementalPullConfigProperty
+      Stratosphere.AppFlow.Flow.InforNexusSourcePropertiesProperty
+      Stratosphere.AppFlow.Flow.LookoutMetricsDestinationPropertiesProperty
+      Stratosphere.AppFlow.Flow.MarketoDestinationPropertiesProperty
+      Stratosphere.AppFlow.Flow.MarketoSourcePropertiesProperty
+      Stratosphere.AppFlow.Flow.MetadataCatalogConfigProperty
+      Stratosphere.AppFlow.Flow.PardotSourcePropertiesProperty
+      Stratosphere.AppFlow.Flow.PrefixConfigProperty
+      Stratosphere.AppFlow.Flow.RedshiftDestinationPropertiesProperty
+      Stratosphere.AppFlow.Flow.S3DestinationPropertiesProperty
+      Stratosphere.AppFlow.Flow.S3InputFormatConfigProperty
+      Stratosphere.AppFlow.Flow.S3OutputFormatConfigProperty
+      Stratosphere.AppFlow.Flow.S3SourcePropertiesProperty
+      Stratosphere.AppFlow.Flow.SalesforceDestinationPropertiesProperty
+      Stratosphere.AppFlow.Flow.SalesforceSourcePropertiesProperty
+      Stratosphere.AppFlow.Flow.SAPODataDestinationPropertiesProperty
+      Stratosphere.AppFlow.Flow.SAPODataSourcePropertiesProperty
+      Stratosphere.AppFlow.Flow.ScheduledTriggerPropertiesProperty
+      Stratosphere.AppFlow.Flow.ServiceNowSourcePropertiesProperty
+      Stratosphere.AppFlow.Flow.SingularSourcePropertiesProperty
+      Stratosphere.AppFlow.Flow.SlackSourcePropertiesProperty
+      Stratosphere.AppFlow.Flow.SnowflakeDestinationPropertiesProperty
+      Stratosphere.AppFlow.Flow.SourceConnectorPropertiesProperty
+      Stratosphere.AppFlow.Flow.SourceFlowConfigProperty
+      Stratosphere.AppFlow.Flow.SuccessResponseHandlingConfigProperty
+      Stratosphere.AppFlow.Flow.TaskPropertiesObjectProperty
+      Stratosphere.AppFlow.Flow.TaskProperty
+      Stratosphere.AppFlow.Flow.TrendmicroSourcePropertiesProperty
+      Stratosphere.AppFlow.Flow.TriggerConfigProperty
+      Stratosphere.AppFlow.Flow.UpsolverDestinationPropertiesProperty
+      Stratosphere.AppFlow.Flow.UpsolverS3OutputFormatConfigProperty
+      Stratosphere.AppFlow.Flow.VeevaSourcePropertiesProperty
+      Stratosphere.AppFlow.Flow.ZendeskDestinationPropertiesProperty
+      Stratosphere.AppFlow.Flow.ZendeskSourcePropertiesProperty
+  other-modules:
+      Paths_stratosphere_appflow
+  hs-source-dirs:
+      gen
+  default-extensions:
+      DataKinds
+      DeriveGeneric
+      DerivingStrategies
+      DerivingVia
+      DuplicateRecordFields
+      FlexibleContexts
+      FlexibleInstances
+      GADTs
+      GeneralizedNewtypeDeriving
+      InstanceSigs
+      LambdaCase
+      MultiParamTypeClasses
+      NoFieldSelectors
+      NoImplicitPrelude
+      NumericUnderscores
+      OverloadedLists
+      OverloadedRecordDot
+      OverloadedStrings
+      PolyKinds
+      RecordWildCards
+      ScopedTypeVariables
+      StandaloneDeriving
+      Strict
+      TemplateHaskell
+      TupleSections
+      TypeApplications
+      TypeFamilies
+  ghc-options: -Wall -Wcompat -Widentities -Wimplicit-prelude -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-local-signatures -Wmissing-signatures -Wmonomorphism-restriction -Wredundant-constraints -fhide-source-paths -funbox-strict-fields -optP-Wno-nonportable-include-path -Wno-unused-imports
+  build-depends:
+      aeson
+    , base
+    , stratosphere ==1.0.0
+  default-language: Haskell2010
+  if flag(development)
+    ghc-options: -Werror
+  else
+    ghc-options: -Wwarn

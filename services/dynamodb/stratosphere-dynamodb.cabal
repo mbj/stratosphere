@@ -1,0 +1,105 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.35.2.
+--
+-- see: https://github.com/sol/hpack
+
+name:           stratosphere-dynamodb
+version:        1.0.0
+category:       AWS, Cloud
+stability:      experimental
+homepage:       https://github.com/mbj/stratosphere#readme
+bug-reports:    https://github.com/mbj/stratosphere/issues
+maintainer:     Markus Schirp
+license:        MIT
+build-type:     Simple
+
+source-repository head
+  type: git
+  location: https://github.com/mbj/stratosphere
+
+flag development
+  description: Run GHC with development flags
+  manual: True
+  default: False
+
+library
+  exposed-modules:
+      Stratosphere.DynamoDB.GlobalTable
+      Stratosphere.DynamoDB.GlobalTable.AttributeDefinitionProperty
+      Stratosphere.DynamoDB.GlobalTable.CapacityAutoScalingSettingsProperty
+      Stratosphere.DynamoDB.GlobalTable.ContributorInsightsSpecificationProperty
+      Stratosphere.DynamoDB.GlobalTable.GlobalSecondaryIndexProperty
+      Stratosphere.DynamoDB.GlobalTable.KeySchemaProperty
+      Stratosphere.DynamoDB.GlobalTable.KinesisStreamSpecificationProperty
+      Stratosphere.DynamoDB.GlobalTable.LocalSecondaryIndexProperty
+      Stratosphere.DynamoDB.GlobalTable.PointInTimeRecoverySpecificationProperty
+      Stratosphere.DynamoDB.GlobalTable.ProjectionProperty
+      Stratosphere.DynamoDB.GlobalTable.ReadProvisionedThroughputSettingsProperty
+      Stratosphere.DynamoDB.GlobalTable.ReplicaGlobalSecondaryIndexSpecificationProperty
+      Stratosphere.DynamoDB.GlobalTable.ReplicaSpecificationProperty
+      Stratosphere.DynamoDB.GlobalTable.ReplicaSSESpecificationProperty
+      Stratosphere.DynamoDB.GlobalTable.SSESpecificationProperty
+      Stratosphere.DynamoDB.GlobalTable.StreamSpecificationProperty
+      Stratosphere.DynamoDB.GlobalTable.TargetTrackingScalingPolicyConfigurationProperty
+      Stratosphere.DynamoDB.GlobalTable.TimeToLiveSpecificationProperty
+      Stratosphere.DynamoDB.GlobalTable.WriteProvisionedThroughputSettingsProperty
+      Stratosphere.DynamoDB.Table
+      Stratosphere.DynamoDB.Table.AttributeDefinitionProperty
+      Stratosphere.DynamoDB.Table.ContributorInsightsSpecificationProperty
+      Stratosphere.DynamoDB.Table.CsvProperty
+      Stratosphere.DynamoDB.Table.GlobalSecondaryIndexProperty
+      Stratosphere.DynamoDB.Table.ImportSourceSpecificationProperty
+      Stratosphere.DynamoDB.Table.InputFormatOptionsProperty
+      Stratosphere.DynamoDB.Table.KeySchemaProperty
+      Stratosphere.DynamoDB.Table.KinesisStreamSpecificationProperty
+      Stratosphere.DynamoDB.Table.LocalSecondaryIndexProperty
+      Stratosphere.DynamoDB.Table.PointInTimeRecoverySpecificationProperty
+      Stratosphere.DynamoDB.Table.ProjectionProperty
+      Stratosphere.DynamoDB.Table.ProvisionedThroughputProperty
+      Stratosphere.DynamoDB.Table.S3BucketSourceProperty
+      Stratosphere.DynamoDB.Table.SSESpecificationProperty
+      Stratosphere.DynamoDB.Table.StreamSpecificationProperty
+      Stratosphere.DynamoDB.Table.TimeToLiveSpecificationProperty
+  other-modules:
+      Paths_stratosphere_dynamodb
+  hs-source-dirs:
+      gen
+  default-extensions:
+      DataKinds
+      DeriveGeneric
+      DerivingStrategies
+      DerivingVia
+      DuplicateRecordFields
+      FlexibleContexts
+      FlexibleInstances
+      GADTs
+      GeneralizedNewtypeDeriving
+      InstanceSigs
+      LambdaCase
+      MultiParamTypeClasses
+      NoFieldSelectors
+      NoImplicitPrelude
+      NumericUnderscores
+      OverloadedLists
+      OverloadedRecordDot
+      OverloadedStrings
+      PolyKinds
+      RecordWildCards
+      ScopedTypeVariables
+      StandaloneDeriving
+      Strict
+      TemplateHaskell
+      TupleSections
+      TypeApplications
+      TypeFamilies
+  ghc-options: -Wall -Wcompat -Widentities -Wimplicit-prelude -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-local-signatures -Wmissing-signatures -Wmonomorphism-restriction -Wredundant-constraints -fhide-source-paths -funbox-strict-fields -optP-Wno-nonportable-include-path -Wno-unused-imports
+  build-depends:
+      aeson
+    , base
+    , stratosphere ==1.0.0
+  default-language: Haskell2010
+  if flag(development)
+    ghc-options: -Werror
+  else
+    ghc-options: -Wwarn

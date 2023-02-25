@@ -1,0 +1,7 @@
+module Stratosphere.IoT.TopicRule.StepFunctionsActionProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data StepFunctionsActionProperty :: Prelude.Type
+instance ToResourceProperties StepFunctionsActionProperty
+instance JSON.ToJSON StepFunctionsActionProperty

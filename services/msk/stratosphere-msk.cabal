@@ -1,0 +1,108 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.35.2.
+--
+-- see: https://github.com/sol/hpack
+
+name:           stratosphere-msk
+version:        1.0.0
+category:       AWS, Cloud
+stability:      experimental
+homepage:       https://github.com/mbj/stratosphere#readme
+bug-reports:    https://github.com/mbj/stratosphere/issues
+maintainer:     Markus Schirp
+license:        MIT
+build-type:     Simple
+
+source-repository head
+  type: git
+  location: https://github.com/mbj/stratosphere
+
+flag development
+  description: Run GHC with development flags
+  manual: True
+  default: False
+
+library
+  exposed-modules:
+      Stratosphere.MSK.BatchScramSecret
+      Stratosphere.MSK.Cluster
+      Stratosphere.MSK.Cluster.BrokerLogsProperty
+      Stratosphere.MSK.Cluster.BrokerNodeGroupInfoProperty
+      Stratosphere.MSK.Cluster.ClientAuthenticationProperty
+      Stratosphere.MSK.Cluster.CloudWatchLogsProperty
+      Stratosphere.MSK.Cluster.ConfigurationInfoProperty
+      Stratosphere.MSK.Cluster.ConnectivityInfoProperty
+      Stratosphere.MSK.Cluster.EBSStorageInfoProperty
+      Stratosphere.MSK.Cluster.EncryptionAtRestProperty
+      Stratosphere.MSK.Cluster.EncryptionInfoProperty
+      Stratosphere.MSK.Cluster.EncryptionInTransitProperty
+      Stratosphere.MSK.Cluster.FirehoseProperty
+      Stratosphere.MSK.Cluster.IamProperty
+      Stratosphere.MSK.Cluster.JmxExporterProperty
+      Stratosphere.MSK.Cluster.LoggingInfoProperty
+      Stratosphere.MSK.Cluster.NodeExporterProperty
+      Stratosphere.MSK.Cluster.OpenMonitoringProperty
+      Stratosphere.MSK.Cluster.PrometheusProperty
+      Stratosphere.MSK.Cluster.ProvisionedThroughputProperty
+      Stratosphere.MSK.Cluster.PublicAccessProperty
+      Stratosphere.MSK.Cluster.S3Property
+      Stratosphere.MSK.Cluster.SaslProperty
+      Stratosphere.MSK.Cluster.ScramProperty
+      Stratosphere.MSK.Cluster.StorageInfoProperty
+      Stratosphere.MSK.Cluster.TlsProperty
+      Stratosphere.MSK.Cluster.UnauthenticatedProperty
+      Stratosphere.MSK.Cluster.VpcConnectivityClientAuthenticationProperty
+      Stratosphere.MSK.Cluster.VpcConnectivityIamProperty
+      Stratosphere.MSK.Cluster.VpcConnectivityProperty
+      Stratosphere.MSK.Cluster.VpcConnectivitySaslProperty
+      Stratosphere.MSK.Cluster.VpcConnectivityScramProperty
+      Stratosphere.MSK.Cluster.VpcConnectivityTlsProperty
+      Stratosphere.MSK.Configuration
+      Stratosphere.MSK.ServerlessCluster
+      Stratosphere.MSK.ServerlessCluster.ClientAuthenticationProperty
+      Stratosphere.MSK.ServerlessCluster.IamProperty
+      Stratosphere.MSK.ServerlessCluster.SaslProperty
+      Stratosphere.MSK.ServerlessCluster.VpcConfigProperty
+  other-modules:
+      Paths_stratosphere_msk
+  hs-source-dirs:
+      gen
+  default-extensions:
+      DataKinds
+      DeriveGeneric
+      DerivingStrategies
+      DerivingVia
+      DuplicateRecordFields
+      FlexibleContexts
+      FlexibleInstances
+      GADTs
+      GeneralizedNewtypeDeriving
+      InstanceSigs
+      LambdaCase
+      MultiParamTypeClasses
+      NoFieldSelectors
+      NoImplicitPrelude
+      NumericUnderscores
+      OverloadedLists
+      OverloadedRecordDot
+      OverloadedStrings
+      PolyKinds
+      RecordWildCards
+      ScopedTypeVariables
+      StandaloneDeriving
+      Strict
+      TemplateHaskell
+      TupleSections
+      TypeApplications
+      TypeFamilies
+  ghc-options: -Wall -Wcompat -Widentities -Wimplicit-prelude -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-local-signatures -Wmissing-signatures -Wmonomorphism-restriction -Wredundant-constraints -fhide-source-paths -funbox-strict-fields -optP-Wno-nonportable-include-path -Wno-unused-imports
+  build-depends:
+      aeson
+    , base
+    , stratosphere ==1.0.0
+  default-language: Haskell2010
+  if flag(development)
+    ghc-options: -Werror
+  else
+    ghc-options: -Wwarn

@@ -1,0 +1,7 @@
+module Stratosphere.Timestream.ScheduledQuery.TargetConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TargetConfigurationProperty :: Prelude.Type
+instance ToResourceProperties TargetConfigurationProperty
+instance JSON.ToJSON TargetConfigurationProperty

@@ -1,0 +1,7 @@
+module Stratosphere.EMR.Cluster.BootstrapActionConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data BootstrapActionConfigProperty :: Prelude.Type
+instance ToResourceProperties BootstrapActionConfigProperty
+instance JSON.ToJSON BootstrapActionConfigProperty

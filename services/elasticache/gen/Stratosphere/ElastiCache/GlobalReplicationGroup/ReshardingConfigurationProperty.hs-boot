@@ -1,0 +1,7 @@
+module Stratosphere.ElastiCache.GlobalReplicationGroup.ReshardingConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ReshardingConfigurationProperty :: Prelude.Type
+instance ToResourceProperties ReshardingConfigurationProperty
+instance JSON.ToJSON ReshardingConfigurationProperty

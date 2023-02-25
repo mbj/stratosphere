@@ -1,0 +1,7 @@
+module Stratosphere.WAFv2.RuleGroup.SqliMatchStatementProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SqliMatchStatementProperty :: Prelude.Type
+instance ToResourceProperties SqliMatchStatementProperty
+instance JSON.ToJSON SqliMatchStatementProperty

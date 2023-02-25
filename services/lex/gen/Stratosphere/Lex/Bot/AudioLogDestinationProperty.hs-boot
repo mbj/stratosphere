@@ -1,0 +1,7 @@
+module Stratosphere.Lex.Bot.AudioLogDestinationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AudioLogDestinationProperty :: Prelude.Type
+instance ToResourceProperties AudioLogDestinationProperty
+instance JSON.ToJSON AudioLogDestinationProperty

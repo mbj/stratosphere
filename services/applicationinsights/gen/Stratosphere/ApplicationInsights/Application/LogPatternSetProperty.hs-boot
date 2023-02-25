@@ -1,0 +1,7 @@
+module Stratosphere.ApplicationInsights.Application.LogPatternSetProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data LogPatternSetProperty :: Prelude.Type
+instance ToResourceProperties LogPatternSetProperty
+instance JSON.ToJSON LogPatternSetProperty

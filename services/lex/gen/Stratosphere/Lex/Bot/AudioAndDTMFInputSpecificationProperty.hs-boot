@@ -1,0 +1,7 @@
+module Stratosphere.Lex.Bot.AudioAndDTMFInputSpecificationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AudioAndDTMFInputSpecificationProperty :: Prelude.Type
+instance ToResourceProperties AudioAndDTMFInputSpecificationProperty
+instance JSON.ToJSON AudioAndDTMFInputSpecificationProperty

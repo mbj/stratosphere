@@ -1,0 +1,7 @@
+module Stratosphere.SageMaker.EndpointConfig.DataCaptureConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DataCaptureConfigProperty :: Prelude.Type
+instance ToResourceProperties DataCaptureConfigProperty
+instance JSON.ToJSON DataCaptureConfigProperty

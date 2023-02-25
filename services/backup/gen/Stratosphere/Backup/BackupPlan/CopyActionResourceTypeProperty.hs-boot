@@ -1,0 +1,7 @@
+module Stratosphere.Backup.BackupPlan.CopyActionResourceTypeProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CopyActionResourceTypeProperty :: Prelude.Type
+instance ToResourceProperties CopyActionResourceTypeProperty
+instance JSON.ToJSON CopyActionResourceTypeProperty

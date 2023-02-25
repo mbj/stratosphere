@@ -1,0 +1,7 @@
+module Stratosphere.AppFlow.ConnectorProfile.ZendeskConnectorProfileCredentialsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data ZendeskConnectorProfileCredentialsProperty :: Prelude.Type
+instance ToResourceProperties ZendeskConnectorProfileCredentialsProperty
+instance JSON.ToJSON ZendeskConnectorProfileCredentialsProperty

@@ -1,0 +1,7 @@
+module Stratosphere.AppMesh.VirtualGateway.VirtualGatewayClientTlsCertificateProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data VirtualGatewayClientTlsCertificateProperty :: Prelude.Type
+instance ToResourceProperties VirtualGatewayClientTlsCertificateProperty
+instance JSON.ToJSON VirtualGatewayClientTlsCertificateProperty

@@ -1,0 +1,7 @@
+module Stratosphere.SecretsManager.RotationSchedule.RotationRulesProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RotationRulesProperty :: Prelude.Type
+instance ToResourceProperties RotationRulesProperty
+instance JSON.ToJSON RotationRulesProperty

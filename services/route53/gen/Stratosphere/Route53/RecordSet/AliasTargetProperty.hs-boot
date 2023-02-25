@@ -1,0 +1,7 @@
+module Stratosphere.Route53.RecordSet.AliasTargetProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AliasTargetProperty :: Prelude.Type
+instance ToResourceProperties AliasTargetProperty
+instance JSON.ToJSON AliasTargetProperty

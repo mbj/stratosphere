@@ -1,0 +1,7 @@
+module Stratosphere.Kendra.DataSource.SalesforceStandardObjectAttachmentConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SalesforceStandardObjectAttachmentConfigurationProperty :: Prelude.Type
+instance ToResourceProperties SalesforceStandardObjectAttachmentConfigurationProperty
+instance JSON.ToJSON SalesforceStandardObjectAttachmentConfigurationProperty

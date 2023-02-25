@@ -1,0 +1,7 @@
+module Stratosphere.KinesisAnalyticsV2.Application.FlinkApplicationConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data FlinkApplicationConfigurationProperty :: Prelude.Type
+instance ToResourceProperties FlinkApplicationConfigurationProperty
+instance JSON.ToJSON FlinkApplicationConfigurationProperty

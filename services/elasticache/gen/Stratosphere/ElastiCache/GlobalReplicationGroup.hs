@@ -1,0 +1,118 @@
+module Stratosphere.ElastiCache.GlobalReplicationGroup (
+        module Exports, GlobalReplicationGroup(..),
+        mkGlobalReplicationGroup
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.ElastiCache.GlobalReplicationGroup.GlobalReplicationGroupMemberProperty as Exports
+import {-# SOURCE #-} Stratosphere.ElastiCache.GlobalReplicationGroup.RegionalConfigurationProperty as Exports
+import Stratosphere.ResourceProperties
+import Stratosphere.Value
+data GlobalReplicationGroup
+  = GlobalReplicationGroup {automaticFailoverEnabled :: (Prelude.Maybe (Value Prelude.Bool)),
+                            cacheNodeType :: (Prelude.Maybe (Value Prelude.Text)),
+                            cacheParameterGroupName :: (Prelude.Maybe (Value Prelude.Text)),
+                            engineVersion :: (Prelude.Maybe (Value Prelude.Text)),
+                            globalNodeGroupCount :: (Prelude.Maybe (Value Prelude.Integer)),
+                            globalReplicationGroupDescription :: (Prelude.Maybe (Value Prelude.Text)),
+                            globalReplicationGroupIdSuffix :: (Prelude.Maybe (Value Prelude.Text)),
+                            members :: [GlobalReplicationGroupMemberProperty],
+                            regionalConfigurations :: (Prelude.Maybe [RegionalConfigurationProperty])}
+mkGlobalReplicationGroup ::
+  [GlobalReplicationGroupMemberProperty] -> GlobalReplicationGroup
+mkGlobalReplicationGroup members
+  = GlobalReplicationGroup
+      {members = members, automaticFailoverEnabled = Prelude.Nothing,
+       cacheNodeType = Prelude.Nothing,
+       cacheParameterGroupName = Prelude.Nothing,
+       engineVersion = Prelude.Nothing,
+       globalNodeGroupCount = Prelude.Nothing,
+       globalReplicationGroupDescription = Prelude.Nothing,
+       globalReplicationGroupIdSuffix = Prelude.Nothing,
+       regionalConfigurations = Prelude.Nothing}
+instance ToResourceProperties GlobalReplicationGroup where
+  toResourceProperties GlobalReplicationGroup {..}
+    = ResourceProperties
+        {awsType = "AWS::ElastiCache::GlobalReplicationGroup",
+         properties = Prelude.fromList
+                        ((Prelude.<>)
+                           ["Members" JSON..= members]
+                           (Prelude.catMaybes
+                              [(JSON..=) "AutomaticFailoverEnabled"
+                                 Prelude.<$> automaticFailoverEnabled,
+                               (JSON..=) "CacheNodeType" Prelude.<$> cacheNodeType,
+                               (JSON..=) "CacheParameterGroupName"
+                                 Prelude.<$> cacheParameterGroupName,
+                               (JSON..=) "EngineVersion" Prelude.<$> engineVersion,
+                               (JSON..=) "GlobalNodeGroupCount" Prelude.<$> globalNodeGroupCount,
+                               (JSON..=) "GlobalReplicationGroupDescription"
+                                 Prelude.<$> globalReplicationGroupDescription,
+                               (JSON..=) "GlobalReplicationGroupIdSuffix"
+                                 Prelude.<$> globalReplicationGroupIdSuffix,
+                               (JSON..=) "RegionalConfigurations"
+                                 Prelude.<$> regionalConfigurations]))}
+instance JSON.ToJSON GlobalReplicationGroup where
+  toJSON GlobalReplicationGroup {..}
+    = JSON.object
+        (Prelude.fromList
+           ((Prelude.<>)
+              ["Members" JSON..= members]
+              (Prelude.catMaybes
+                 [(JSON..=) "AutomaticFailoverEnabled"
+                    Prelude.<$> automaticFailoverEnabled,
+                  (JSON..=) "CacheNodeType" Prelude.<$> cacheNodeType,
+                  (JSON..=) "CacheParameterGroupName"
+                    Prelude.<$> cacheParameterGroupName,
+                  (JSON..=) "EngineVersion" Prelude.<$> engineVersion,
+                  (JSON..=) "GlobalNodeGroupCount" Prelude.<$> globalNodeGroupCount,
+                  (JSON..=) "GlobalReplicationGroupDescription"
+                    Prelude.<$> globalReplicationGroupDescription,
+                  (JSON..=) "GlobalReplicationGroupIdSuffix"
+                    Prelude.<$> globalReplicationGroupIdSuffix,
+                  (JSON..=) "RegionalConfigurations"
+                    Prelude.<$> regionalConfigurations])))
+instance Property "AutomaticFailoverEnabled" GlobalReplicationGroup where
+  type PropertyType "AutomaticFailoverEnabled" GlobalReplicationGroup = Value Prelude.Bool
+  set newValue GlobalReplicationGroup {..}
+    = GlobalReplicationGroup
+        {automaticFailoverEnabled = Prelude.pure newValue, ..}
+instance Property "CacheNodeType" GlobalReplicationGroup where
+  type PropertyType "CacheNodeType" GlobalReplicationGroup = Value Prelude.Text
+  set newValue GlobalReplicationGroup {..}
+    = GlobalReplicationGroup
+        {cacheNodeType = Prelude.pure newValue, ..}
+instance Property "CacheParameterGroupName" GlobalReplicationGroup where
+  type PropertyType "CacheParameterGroupName" GlobalReplicationGroup = Value Prelude.Text
+  set newValue GlobalReplicationGroup {..}
+    = GlobalReplicationGroup
+        {cacheParameterGroupName = Prelude.pure newValue, ..}
+instance Property "EngineVersion" GlobalReplicationGroup where
+  type PropertyType "EngineVersion" GlobalReplicationGroup = Value Prelude.Text
+  set newValue GlobalReplicationGroup {..}
+    = GlobalReplicationGroup
+        {engineVersion = Prelude.pure newValue, ..}
+instance Property "GlobalNodeGroupCount" GlobalReplicationGroup where
+  type PropertyType "GlobalNodeGroupCount" GlobalReplicationGroup = Value Prelude.Integer
+  set newValue GlobalReplicationGroup {..}
+    = GlobalReplicationGroup
+        {globalNodeGroupCount = Prelude.pure newValue, ..}
+instance Property "GlobalReplicationGroupDescription" GlobalReplicationGroup where
+  type PropertyType "GlobalReplicationGroupDescription" GlobalReplicationGroup = Value Prelude.Text
+  set newValue GlobalReplicationGroup {..}
+    = GlobalReplicationGroup
+        {globalReplicationGroupDescription = Prelude.pure newValue, ..}
+instance Property "GlobalReplicationGroupIdSuffix" GlobalReplicationGroup where
+  type PropertyType "GlobalReplicationGroupIdSuffix" GlobalReplicationGroup = Value Prelude.Text
+  set newValue GlobalReplicationGroup {..}
+    = GlobalReplicationGroup
+        {globalReplicationGroupIdSuffix = Prelude.pure newValue, ..}
+instance Property "Members" GlobalReplicationGroup where
+  type PropertyType "Members" GlobalReplicationGroup = [GlobalReplicationGroupMemberProperty]
+  set newValue GlobalReplicationGroup {..}
+    = GlobalReplicationGroup {members = newValue, ..}
+instance Property "RegionalConfigurations" GlobalReplicationGroup where
+  type PropertyType "RegionalConfigurations" GlobalReplicationGroup = [RegionalConfigurationProperty]
+  set newValue GlobalReplicationGroup {..}
+    = GlobalReplicationGroup
+        {regionalConfigurations = Prelude.pure newValue, ..}

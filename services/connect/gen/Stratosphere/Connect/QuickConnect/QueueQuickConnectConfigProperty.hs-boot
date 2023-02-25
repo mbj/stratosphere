@@ -1,0 +1,7 @@
+module Stratosphere.Connect.QuickConnect.QueueQuickConnectConfigProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data QueueQuickConnectConfigProperty :: Prelude.Type
+instance ToResourceProperties QueueQuickConnectConfigProperty
+instance JSON.ToJSON QueueQuickConnectConfigProperty

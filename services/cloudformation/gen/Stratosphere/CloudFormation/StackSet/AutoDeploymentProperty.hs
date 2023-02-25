@@ -1,0 +1,42 @@
+module Stratosphere.CloudFormation.StackSet.AutoDeploymentProperty (
+        AutoDeploymentProperty(..), mkAutoDeploymentProperty
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import Stratosphere.ResourceProperties
+import Stratosphere.Value
+data AutoDeploymentProperty
+  = AutoDeploymentProperty {enabled :: (Prelude.Maybe (Value Prelude.Bool)),
+                            retainStacksOnAccountRemoval :: (Prelude.Maybe (Value Prelude.Bool))}
+mkAutoDeploymentProperty :: AutoDeploymentProperty
+mkAutoDeploymentProperty
+  = AutoDeploymentProperty
+      {enabled = Prelude.Nothing,
+       retainStacksOnAccountRemoval = Prelude.Nothing}
+instance ToResourceProperties AutoDeploymentProperty where
+  toResourceProperties AutoDeploymentProperty {..}
+    = ResourceProperties
+        {awsType = "AWS::CloudFormation::StackSet.AutoDeployment",
+         properties = Prelude.fromList
+                        (Prelude.catMaybes
+                           [(JSON..=) "Enabled" Prelude.<$> enabled,
+                            (JSON..=) "RetainStacksOnAccountRemoval"
+                              Prelude.<$> retainStacksOnAccountRemoval])}
+instance JSON.ToJSON AutoDeploymentProperty where
+  toJSON AutoDeploymentProperty {..}
+    = JSON.object
+        (Prelude.fromList
+           (Prelude.catMaybes
+              [(JSON..=) "Enabled" Prelude.<$> enabled,
+               (JSON..=) "RetainStacksOnAccountRemoval"
+                 Prelude.<$> retainStacksOnAccountRemoval]))
+instance Property "Enabled" AutoDeploymentProperty where
+  type PropertyType "Enabled" AutoDeploymentProperty = Value Prelude.Bool
+  set newValue AutoDeploymentProperty {..}
+    = AutoDeploymentProperty {enabled = Prelude.pure newValue, ..}
+instance Property "RetainStacksOnAccountRemoval" AutoDeploymentProperty where
+  type PropertyType "RetainStacksOnAccountRemoval" AutoDeploymentProperty = Value Prelude.Bool
+  set newValue AutoDeploymentProperty {..}
+    = AutoDeploymentProperty
+        {retainStacksOnAccountRemoval = Prelude.pure newValue, ..}

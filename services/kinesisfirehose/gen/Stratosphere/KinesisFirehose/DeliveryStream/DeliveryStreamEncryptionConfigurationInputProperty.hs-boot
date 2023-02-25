@@ -1,0 +1,7 @@
+module Stratosphere.KinesisFirehose.DeliveryStream.DeliveryStreamEncryptionConfigurationInputProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data DeliveryStreamEncryptionConfigurationInputProperty :: Prelude.Type
+instance ToResourceProperties DeliveryStreamEncryptionConfigurationInputProperty
+instance JSON.ToJSON DeliveryStreamEncryptionConfigurationInputProperty

@@ -1,0 +1,7 @@
+module Stratosphere.Pipes.Pipe.PlacementConstraintProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data PlacementConstraintProperty :: Prelude.Type
+instance ToResourceProperties PlacementConstraintProperty
+instance JSON.ToJSON PlacementConstraintProperty

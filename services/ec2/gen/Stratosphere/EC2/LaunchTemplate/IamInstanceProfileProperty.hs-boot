@@ -1,0 +1,7 @@
+module Stratosphere.EC2.LaunchTemplate.IamInstanceProfileProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data IamInstanceProfileProperty :: Prelude.Type
+instance ToResourceProperties IamInstanceProfileProperty
+instance JSON.ToJSON IamInstanceProfileProperty

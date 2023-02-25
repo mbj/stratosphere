@@ -1,0 +1,75 @@
+module Stratosphere.AppMesh.VirtualNode.ListenerProperty (
+        module Exports, ListenerProperty(..), mkListenerProperty
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import {-# SOURCE #-} Stratosphere.AppMesh.VirtualNode.HealthCheckProperty as Exports
+import {-# SOURCE #-} Stratosphere.AppMesh.VirtualNode.ListenerTimeoutProperty as Exports
+import {-# SOURCE #-} Stratosphere.AppMesh.VirtualNode.ListenerTlsProperty as Exports
+import {-# SOURCE #-} Stratosphere.AppMesh.VirtualNode.OutlierDetectionProperty as Exports
+import {-# SOURCE #-} Stratosphere.AppMesh.VirtualNode.PortMappingProperty as Exports
+import {-# SOURCE #-} Stratosphere.AppMesh.VirtualNode.VirtualNodeConnectionPoolProperty as Exports
+import Stratosphere.ResourceProperties
+data ListenerProperty
+  = ListenerProperty {connectionPool :: (Prelude.Maybe VirtualNodeConnectionPoolProperty),
+                      healthCheck :: (Prelude.Maybe HealthCheckProperty),
+                      outlierDetection :: (Prelude.Maybe OutlierDetectionProperty),
+                      portMapping :: PortMappingProperty,
+                      tLS :: (Prelude.Maybe ListenerTlsProperty),
+                      timeout :: (Prelude.Maybe ListenerTimeoutProperty)}
+mkListenerProperty :: PortMappingProperty -> ListenerProperty
+mkListenerProperty portMapping
+  = ListenerProperty
+      {portMapping = portMapping, connectionPool = Prelude.Nothing,
+       healthCheck = Prelude.Nothing, outlierDetection = Prelude.Nothing,
+       tLS = Prelude.Nothing, timeout = Prelude.Nothing}
+instance ToResourceProperties ListenerProperty where
+  toResourceProperties ListenerProperty {..}
+    = ResourceProperties
+        {awsType = "AWS::AppMesh::VirtualNode.Listener",
+         properties = Prelude.fromList
+                        ((Prelude.<>)
+                           ["PortMapping" JSON..= portMapping]
+                           (Prelude.catMaybes
+                              [(JSON..=) "ConnectionPool" Prelude.<$> connectionPool,
+                               (JSON..=) "HealthCheck" Prelude.<$> healthCheck,
+                               (JSON..=) "OutlierDetection" Prelude.<$> outlierDetection,
+                               (JSON..=) "TLS" Prelude.<$> tLS,
+                               (JSON..=) "Timeout" Prelude.<$> timeout]))}
+instance JSON.ToJSON ListenerProperty where
+  toJSON ListenerProperty {..}
+    = JSON.object
+        (Prelude.fromList
+           ((Prelude.<>)
+              ["PortMapping" JSON..= portMapping]
+              (Prelude.catMaybes
+                 [(JSON..=) "ConnectionPool" Prelude.<$> connectionPool,
+                  (JSON..=) "HealthCheck" Prelude.<$> healthCheck,
+                  (JSON..=) "OutlierDetection" Prelude.<$> outlierDetection,
+                  (JSON..=) "TLS" Prelude.<$> tLS,
+                  (JSON..=) "Timeout" Prelude.<$> timeout])))
+instance Property "ConnectionPool" ListenerProperty where
+  type PropertyType "ConnectionPool" ListenerProperty = VirtualNodeConnectionPoolProperty
+  set newValue ListenerProperty {..}
+    = ListenerProperty {connectionPool = Prelude.pure newValue, ..}
+instance Property "HealthCheck" ListenerProperty where
+  type PropertyType "HealthCheck" ListenerProperty = HealthCheckProperty
+  set newValue ListenerProperty {..}
+    = ListenerProperty {healthCheck = Prelude.pure newValue, ..}
+instance Property "OutlierDetection" ListenerProperty where
+  type PropertyType "OutlierDetection" ListenerProperty = OutlierDetectionProperty
+  set newValue ListenerProperty {..}
+    = ListenerProperty {outlierDetection = Prelude.pure newValue, ..}
+instance Property "PortMapping" ListenerProperty where
+  type PropertyType "PortMapping" ListenerProperty = PortMappingProperty
+  set newValue ListenerProperty {..}
+    = ListenerProperty {portMapping = newValue, ..}
+instance Property "TLS" ListenerProperty where
+  type PropertyType "TLS" ListenerProperty = ListenerTlsProperty
+  set newValue ListenerProperty {..}
+    = ListenerProperty {tLS = Prelude.pure newValue, ..}
+instance Property "Timeout" ListenerProperty where
+  type PropertyType "Timeout" ListenerProperty = ListenerTimeoutProperty
+  set newValue ListenerProperty {..}
+    = ListenerProperty {timeout = Prelude.pure newValue, ..}

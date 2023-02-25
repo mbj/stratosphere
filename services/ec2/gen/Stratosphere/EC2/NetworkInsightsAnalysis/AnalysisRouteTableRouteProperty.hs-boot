@@ -1,0 +1,7 @@
+module Stratosphere.EC2.NetworkInsightsAnalysis.AnalysisRouteTableRouteProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AnalysisRouteTableRouteProperty :: Prelude.Type
+instance ToResourceProperties AnalysisRouteTableRouteProperty
+instance JSON.ToJSON AnalysisRouteTableRouteProperty

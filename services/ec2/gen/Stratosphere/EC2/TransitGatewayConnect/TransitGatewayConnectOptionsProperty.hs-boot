@@ -1,0 +1,7 @@
+module Stratosphere.EC2.TransitGatewayConnect.TransitGatewayConnectOptionsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TransitGatewayConnectOptionsProperty :: Prelude.Type
+instance ToResourceProperties TransitGatewayConnectOptionsProperty
+instance JSON.ToJSON TransitGatewayConnectOptionsProperty

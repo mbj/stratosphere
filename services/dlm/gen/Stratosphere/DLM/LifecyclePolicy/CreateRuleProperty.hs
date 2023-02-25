@@ -1,0 +1,61 @@
+module Stratosphere.DLM.LifecyclePolicy.CreateRuleProperty (
+        CreateRuleProperty(..), mkCreateRuleProperty
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import Stratosphere.ResourceProperties
+import Stratosphere.Value
+data CreateRuleProperty
+  = CreateRuleProperty {cronExpression :: (Prelude.Maybe (Value Prelude.Text)),
+                        interval :: (Prelude.Maybe (Value Prelude.Integer)),
+                        intervalUnit :: (Prelude.Maybe (Value Prelude.Text)),
+                        location :: (Prelude.Maybe (Value Prelude.Text)),
+                        times :: (Prelude.Maybe (ValueList (Value Prelude.Text)))}
+mkCreateRuleProperty :: CreateRuleProperty
+mkCreateRuleProperty
+  = CreateRuleProperty
+      {cronExpression = Prelude.Nothing, interval = Prelude.Nothing,
+       intervalUnit = Prelude.Nothing, location = Prelude.Nothing,
+       times = Prelude.Nothing}
+instance ToResourceProperties CreateRuleProperty where
+  toResourceProperties CreateRuleProperty {..}
+    = ResourceProperties
+        {awsType = "AWS::DLM::LifecyclePolicy.CreateRule",
+         properties = Prelude.fromList
+                        (Prelude.catMaybes
+                           [(JSON..=) "CronExpression" Prelude.<$> cronExpression,
+                            (JSON..=) "Interval" Prelude.<$> interval,
+                            (JSON..=) "IntervalUnit" Prelude.<$> intervalUnit,
+                            (JSON..=) "Location" Prelude.<$> location,
+                            (JSON..=) "Times" Prelude.<$> times])}
+instance JSON.ToJSON CreateRuleProperty where
+  toJSON CreateRuleProperty {..}
+    = JSON.object
+        (Prelude.fromList
+           (Prelude.catMaybes
+              [(JSON..=) "CronExpression" Prelude.<$> cronExpression,
+               (JSON..=) "Interval" Prelude.<$> interval,
+               (JSON..=) "IntervalUnit" Prelude.<$> intervalUnit,
+               (JSON..=) "Location" Prelude.<$> location,
+               (JSON..=) "Times" Prelude.<$> times]))
+instance Property "CronExpression" CreateRuleProperty where
+  type PropertyType "CronExpression" CreateRuleProperty = Value Prelude.Text
+  set newValue CreateRuleProperty {..}
+    = CreateRuleProperty {cronExpression = Prelude.pure newValue, ..}
+instance Property "Interval" CreateRuleProperty where
+  type PropertyType "Interval" CreateRuleProperty = Value Prelude.Integer
+  set newValue CreateRuleProperty {..}
+    = CreateRuleProperty {interval = Prelude.pure newValue, ..}
+instance Property "IntervalUnit" CreateRuleProperty where
+  type PropertyType "IntervalUnit" CreateRuleProperty = Value Prelude.Text
+  set newValue CreateRuleProperty {..}
+    = CreateRuleProperty {intervalUnit = Prelude.pure newValue, ..}
+instance Property "Location" CreateRuleProperty where
+  type PropertyType "Location" CreateRuleProperty = Value Prelude.Text
+  set newValue CreateRuleProperty {..}
+    = CreateRuleProperty {location = Prelude.pure newValue, ..}
+instance Property "Times" CreateRuleProperty where
+  type PropertyType "Times" CreateRuleProperty = ValueList (Value Prelude.Text)
+  set newValue CreateRuleProperty {..}
+    = CreateRuleProperty {times = Prelude.pure newValue, ..}

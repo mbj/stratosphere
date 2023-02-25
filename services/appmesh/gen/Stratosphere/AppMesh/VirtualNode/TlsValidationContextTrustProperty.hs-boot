@@ -1,0 +1,7 @@
+module Stratosphere.AppMesh.VirtualNode.TlsValidationContextTrustProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TlsValidationContextTrustProperty :: Prelude.Type
+instance ToResourceProperties TlsValidationContextTrustProperty
+instance JSON.ToJSON TlsValidationContextTrustProperty

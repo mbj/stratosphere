@@ -1,0 +1,7 @@
+module Stratosphere.MediaLive.Channel.HlsWebdavSettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data HlsWebdavSettingsProperty :: Prelude.Type
+instance ToResourceProperties HlsWebdavSettingsProperty
+instance JSON.ToJSON HlsWebdavSettingsProperty

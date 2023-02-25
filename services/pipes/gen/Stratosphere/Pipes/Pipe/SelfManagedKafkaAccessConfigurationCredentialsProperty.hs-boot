@@ -1,0 +1,7 @@
+module Stratosphere.Pipes.Pipe.SelfManagedKafkaAccessConfigurationCredentialsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SelfManagedKafkaAccessConfigurationCredentialsProperty :: Prelude.Type
+instance ToResourceProperties SelfManagedKafkaAccessConfigurationCredentialsProperty
+instance JSON.ToJSON SelfManagedKafkaAccessConfigurationCredentialsProperty

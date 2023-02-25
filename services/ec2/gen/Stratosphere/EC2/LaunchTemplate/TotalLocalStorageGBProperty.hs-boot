@@ -1,0 +1,7 @@
+module Stratosphere.EC2.LaunchTemplate.TotalLocalStorageGBProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TotalLocalStorageGBProperty :: Prelude.Type
+instance ToResourceProperties TotalLocalStorageGBProperty
+instance JSON.ToJSON TotalLocalStorageGBProperty

@@ -1,0 +1,7 @@
+module Stratosphere.IoT.TopicRule.AssetPropertyVariantProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AssetPropertyVariantProperty :: Prelude.Type
+instance ToResourceProperties AssetPropertyVariantProperty
+instance JSON.ToJSON AssetPropertyVariantProperty

@@ -1,0 +1,7 @@
+module Stratosphere.EC2.EC2Fleet.CapacityReservationOptionsRequestProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CapacityReservationOptionsRequestProperty :: Prelude.Type
+instance ToResourceProperties CapacityReservationOptionsRequestProperty
+instance JSON.ToJSON CapacityReservationOptionsRequestProperty

@@ -1,0 +1,7 @@
+module Stratosphere.MediaLive.Channel.StaticKeySettingsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data StaticKeySettingsProperty :: Prelude.Type
+instance ToResourceProperties StaticKeySettingsProperty
+instance JSON.ToJSON StaticKeySettingsProperty

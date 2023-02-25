@@ -1,0 +1,7 @@
+module Stratosphere.GreengrassV2.ComponentVersion.LambdaLinuxProcessParamsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data LambdaLinuxProcessParamsProperty :: Prelude.Type
+instance ToResourceProperties LambdaLinuxProcessParamsProperty
+instance JSON.ToJSON LambdaLinuxProcessParamsProperty

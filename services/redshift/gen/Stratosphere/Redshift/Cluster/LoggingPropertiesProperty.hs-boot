@@ -1,0 +1,7 @@
+module Stratosphere.Redshift.Cluster.LoggingPropertiesProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data LoggingPropertiesProperty :: Prelude.Type
+instance ToResourceProperties LoggingPropertiesProperty
+instance JSON.ToJSON LoggingPropertiesProperty

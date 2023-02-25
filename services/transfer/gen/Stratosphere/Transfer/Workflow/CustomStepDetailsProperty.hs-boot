@@ -1,0 +1,7 @@
+module Stratosphere.Transfer.Workflow.CustomStepDetailsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data CustomStepDetailsProperty :: Prelude.Type
+instance ToResourceProperties CustomStepDetailsProperty
+instance JSON.ToJSON CustomStepDetailsProperty

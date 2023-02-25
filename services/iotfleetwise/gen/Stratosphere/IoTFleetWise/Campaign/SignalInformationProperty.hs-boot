@@ -1,0 +1,7 @@
+module Stratosphere.IoTFleetWise.Campaign.SignalInformationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SignalInformationProperty :: Prelude.Type
+instance ToResourceProperties SignalInformationProperty
+instance JSON.ToJSON SignalInformationProperty

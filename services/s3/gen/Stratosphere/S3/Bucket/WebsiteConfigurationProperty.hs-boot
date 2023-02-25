@@ -1,0 +1,7 @@
+module Stratosphere.S3.Bucket.WebsiteConfigurationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data WebsiteConfigurationProperty :: Prelude.Type
+instance ToResourceProperties WebsiteConfigurationProperty
+instance JSON.ToJSON WebsiteConfigurationProperty

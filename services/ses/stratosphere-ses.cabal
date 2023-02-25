@@ -1,0 +1,112 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.35.2.
+--
+-- see: https://github.com/sol/hpack
+
+name:           stratosphere-ses
+version:        1.0.0
+category:       AWS, Cloud
+stability:      experimental
+homepage:       https://github.com/mbj/stratosphere#readme
+bug-reports:    https://github.com/mbj/stratosphere/issues
+maintainer:     Markus Schirp
+license:        MIT
+build-type:     Simple
+
+source-repository head
+  type: git
+  location: https://github.com/mbj/stratosphere
+
+flag development
+  description: Run GHC with development flags
+  manual: True
+  default: False
+
+library
+  exposed-modules:
+      Stratosphere.SES.ConfigurationSet
+      Stratosphere.SES.ConfigurationSet.DashboardOptionsProperty
+      Stratosphere.SES.ConfigurationSet.DeliveryOptionsProperty
+      Stratosphere.SES.ConfigurationSet.GuardianOptionsProperty
+      Stratosphere.SES.ConfigurationSet.ReputationOptionsProperty
+      Stratosphere.SES.ConfigurationSet.SendingOptionsProperty
+      Stratosphere.SES.ConfigurationSet.SuppressionOptionsProperty
+      Stratosphere.SES.ConfigurationSet.TrackingOptionsProperty
+      Stratosphere.SES.ConfigurationSet.VdmOptionsProperty
+      Stratosphere.SES.ConfigurationSetEventDestination
+      Stratosphere.SES.ConfigurationSetEventDestination.CloudWatchDestinationProperty
+      Stratosphere.SES.ConfigurationSetEventDestination.DimensionConfigurationProperty
+      Stratosphere.SES.ConfigurationSetEventDestination.EventDestinationProperty
+      Stratosphere.SES.ConfigurationSetEventDestination.KinesisFirehoseDestinationProperty
+      Stratosphere.SES.ConfigurationSetEventDestination.SnsDestinationProperty
+      Stratosphere.SES.ContactList
+      Stratosphere.SES.ContactList.TopicProperty
+      Stratosphere.SES.DedicatedIpPool
+      Stratosphere.SES.EmailIdentity
+      Stratosphere.SES.EmailIdentity.ConfigurationSetAttributesProperty
+      Stratosphere.SES.EmailIdentity.DkimAttributesProperty
+      Stratosphere.SES.EmailIdentity.DkimSigningAttributesProperty
+      Stratosphere.SES.EmailIdentity.FeedbackAttributesProperty
+      Stratosphere.SES.EmailIdentity.MailFromAttributesProperty
+      Stratosphere.SES.ReceiptFilter
+      Stratosphere.SES.ReceiptFilter.FilterProperty
+      Stratosphere.SES.ReceiptFilter.IpFilterProperty
+      Stratosphere.SES.ReceiptRule
+      Stratosphere.SES.ReceiptRule.ActionProperty
+      Stratosphere.SES.ReceiptRule.AddHeaderActionProperty
+      Stratosphere.SES.ReceiptRule.BounceActionProperty
+      Stratosphere.SES.ReceiptRule.LambdaActionProperty
+      Stratosphere.SES.ReceiptRule.RuleProperty
+      Stratosphere.SES.ReceiptRule.S3ActionProperty
+      Stratosphere.SES.ReceiptRule.SNSActionProperty
+      Stratosphere.SES.ReceiptRule.StopActionProperty
+      Stratosphere.SES.ReceiptRule.WorkmailActionProperty
+      Stratosphere.SES.ReceiptRuleSet
+      Stratosphere.SES.Template
+      Stratosphere.SES.Template.TemplateProperty
+      Stratosphere.SES.VdmAttributes
+      Stratosphere.SES.VdmAttributes.DashboardAttributesProperty
+      Stratosphere.SES.VdmAttributes.GuardianAttributesProperty
+  other-modules:
+      Paths_stratosphere_ses
+  hs-source-dirs:
+      gen
+  default-extensions:
+      DataKinds
+      DeriveGeneric
+      DerivingStrategies
+      DerivingVia
+      DuplicateRecordFields
+      FlexibleContexts
+      FlexibleInstances
+      GADTs
+      GeneralizedNewtypeDeriving
+      InstanceSigs
+      LambdaCase
+      MultiParamTypeClasses
+      NoFieldSelectors
+      NoImplicitPrelude
+      NumericUnderscores
+      OverloadedLists
+      OverloadedRecordDot
+      OverloadedStrings
+      PolyKinds
+      RecordWildCards
+      ScopedTypeVariables
+      StandaloneDeriving
+      Strict
+      TemplateHaskell
+      TupleSections
+      TypeApplications
+      TypeFamilies
+  ghc-options: -Wall -Wcompat -Widentities -Wimplicit-prelude -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-local-signatures -Wmissing-signatures -Wmonomorphism-restriction -Wredundant-constraints -fhide-source-paths -funbox-strict-fields -optP-Wno-nonportable-include-path -Wno-unused-imports
+  build-depends:
+      aeson
+    , base
+    , stratosphere ==1.0.0
+  default-language: Haskell2010
+  if flag(development)
+    ghc-options: -Werror
+  else
+    ghc-options: -Wwarn

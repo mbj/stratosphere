@@ -1,0 +1,7 @@
+module Stratosphere.IoT.JobTemplate.RateIncreaseCriteriaProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data RateIncreaseCriteriaProperty :: Prelude.Type
+instance ToResourceProperties RateIncreaseCriteriaProperty
+instance JSON.ToJSON RateIncreaseCriteriaProperty

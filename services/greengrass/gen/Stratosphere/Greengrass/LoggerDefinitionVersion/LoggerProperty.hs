@@ -1,0 +1,59 @@
+module Stratosphere.Greengrass.LoggerDefinitionVersion.LoggerProperty (
+        LoggerProperty(..), mkLoggerProperty
+    ) where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.Property
+import Stratosphere.ResourceProperties
+import Stratosphere.Value
+data LoggerProperty
+  = LoggerProperty {component :: (Value Prelude.Text),
+                    id :: (Value Prelude.Text),
+                    level :: (Value Prelude.Text),
+                    space :: (Prelude.Maybe (Value Prelude.Integer)),
+                    type' :: (Value Prelude.Text)}
+mkLoggerProperty ::
+  Value Prelude.Text
+  -> Value Prelude.Text
+     -> Value Prelude.Text -> Value Prelude.Text -> LoggerProperty
+mkLoggerProperty component id level type'
+  = LoggerProperty
+      {component = component, id = id, level = level, type' = type',
+       space = Prelude.Nothing}
+instance ToResourceProperties LoggerProperty where
+  toResourceProperties LoggerProperty {..}
+    = ResourceProperties
+        {awsType = "AWS::Greengrass::LoggerDefinitionVersion.Logger",
+         properties = Prelude.fromList
+                        ((Prelude.<>)
+                           ["Component" JSON..= component, "Id" JSON..= id,
+                            "Level" JSON..= level, "Type" JSON..= type']
+                           (Prelude.catMaybes [(JSON..=) "Space" Prelude.<$> space]))}
+instance JSON.ToJSON LoggerProperty where
+  toJSON LoggerProperty {..}
+    = JSON.object
+        (Prelude.fromList
+           ((Prelude.<>)
+              ["Component" JSON..= component, "Id" JSON..= id,
+               "Level" JSON..= level, "Type" JSON..= type']
+              (Prelude.catMaybes [(JSON..=) "Space" Prelude.<$> space])))
+instance Property "Component" LoggerProperty where
+  type PropertyType "Component" LoggerProperty = Value Prelude.Text
+  set newValue LoggerProperty {..}
+    = LoggerProperty {component = newValue, ..}
+instance Property "Id" LoggerProperty where
+  type PropertyType "Id" LoggerProperty = Value Prelude.Text
+  set newValue LoggerProperty {..}
+    = LoggerProperty {id = newValue, ..}
+instance Property "Level" LoggerProperty where
+  type PropertyType "Level" LoggerProperty = Value Prelude.Text
+  set newValue LoggerProperty {..}
+    = LoggerProperty {level = newValue, ..}
+instance Property "Space" LoggerProperty where
+  type PropertyType "Space" LoggerProperty = Value Prelude.Integer
+  set newValue LoggerProperty {..}
+    = LoggerProperty {space = Prelude.pure newValue, ..}
+instance Property "Type" LoggerProperty where
+  type PropertyType "Type" LoggerProperty = Value Prelude.Text
+  set newValue LoggerProperty {..}
+    = LoggerProperty {type' = newValue, ..}

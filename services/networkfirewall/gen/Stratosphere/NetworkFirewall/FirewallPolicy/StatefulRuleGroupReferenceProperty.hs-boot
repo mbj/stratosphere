@@ -1,0 +1,7 @@
+module Stratosphere.NetworkFirewall.FirewallPolicy.StatefulRuleGroupReferenceProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data StatefulRuleGroupReferenceProperty :: Prelude.Type
+instance ToResourceProperties StatefulRuleGroupReferenceProperty
+instance JSON.ToJSON StatefulRuleGroupReferenceProperty

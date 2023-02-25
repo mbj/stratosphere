@@ -1,0 +1,7 @@
+module Stratosphere.MediaStore.Container.MetricPolicyRuleProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data MetricPolicyRuleProperty :: Prelude.Type
+instance ToResourceProperties MetricPolicyRuleProperty
+instance JSON.ToJSON MetricPolicyRuleProperty

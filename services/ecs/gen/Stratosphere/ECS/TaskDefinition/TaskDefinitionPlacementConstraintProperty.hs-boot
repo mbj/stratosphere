@@ -1,0 +1,7 @@
+module Stratosphere.ECS.TaskDefinition.TaskDefinitionPlacementConstraintProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data TaskDefinitionPlacementConstraintProperty :: Prelude.Type
+instance ToResourceProperties TaskDefinitionPlacementConstraintProperty
+instance JSON.ToJSON TaskDefinitionPlacementConstraintProperty

@@ -1,0 +1,7 @@
+module Stratosphere.BillingConductor.BillingGroup.AccountGroupingProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data AccountGroupingProperty :: Prelude.Type
+instance ToResourceProperties AccountGroupingProperty
+instance JSON.ToJSON AccountGroupingProperty

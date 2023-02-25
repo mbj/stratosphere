@@ -1,0 +1,7 @@
+module Stratosphere.CodeDeploy.DeploymentGroup.GitHubLocationProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data GitHubLocationProperty :: Prelude.Type
+instance ToResourceProperties GitHubLocationProperty
+instance JSON.ToJSON GitHubLocationProperty

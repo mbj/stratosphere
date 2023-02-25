@@ -1,0 +1,7 @@
+module Stratosphere.Pinpoint.Segment.SegmentDimensionsProperty where
+import qualified Data.Aeson as JSON
+import qualified Stratosphere.Prelude as Prelude
+import Stratosphere.ResourceProperties
+data SegmentDimensionsProperty :: Prelude.Type
+instance ToResourceProperties SegmentDimensionsProperty
+instance JSON.ToJSON SegmentDimensionsProperty
